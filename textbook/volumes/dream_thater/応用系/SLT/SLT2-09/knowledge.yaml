@@ -1,0 +1,39 @@
+chapter: SLT2-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-08
+  - SLT2-07
+concepts:
+  - id: learning.slt2-fixed-tangent-flow
+    name: 固定接線模型の勾配流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定接線模型の勾配流）"]
+    requires:
+      - learning.slt2-neural-linearization
+      - learning.slt2-neural-tangent-kernel
+      - learning.slt2-kernel-flow-spectrum
+  - id: learning.slt2-fixed-tangent-spectrum
+    name: 固定接線勾配流のスペクトル解と到達点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定接線勾配流のスペクトル解と到達点）"]
+    requires:
+      - learning.slt2-fixed-tangent-flow
+      - learning.slt2-kernel-flow-spectrum
+  - id: learning.slt2-fixed-discrete-stability
+    name: 固定接線模型の離散勾配降下と安定学習率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定接線模型の離散勾配降下と安定学習率）"]
+    requires:
+      - learning.slt2-fixed-tangent-spectrum
+  - id: learning.slt2-kernel-drift-error
+    name: 時間変化する正半定値核と固定核の誤差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（時間変化する正半定値核と固定核の誤差）"]
+    requires:
+      - learning.slt2-fixed-tangent-spectrum
+      - learning.slt2-neural-kernel-drift

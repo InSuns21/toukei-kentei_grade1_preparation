@@ -28,3 +28,4 @@
 24. [SLT2-06 勾配流とearly stopping](textbook/volumes/dream_thater/応用系/SLT/SLT2-06/index.md)
 25. [SLT2-07 kernel補間と有効次元](textbook/volumes/dream_thater/応用系/SLT/SLT2-07/index.md)
 26. [SLT2-08 ニューラルネットの線形化](textbook/volumes/dream_thater/応用系/SLT/SLT2-08/index.md)
+27. [SLT2-09 固定kernelの勾配力学](textbook/volumes/dream_thater/応用系/SLT/SLT2-09/index.md)
