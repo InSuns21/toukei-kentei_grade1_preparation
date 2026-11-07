@@ -43,7 +43,7 @@
 | [K. Hori et al., *Mirror Symmetry*（Clay Mathematics Institute, 2003）](https://www.claymath.org/resource/mirror-symmetry/) | A/B模型、周期、安定写像、圏論的視点を別の道具として紹介し、物理的予想と証明済み数学を混同しない。 |
 | [C. Voisin, *Hodge Theory and Complex Algebraic Geometry I/II*（Cambridge）](https://www.cambridge.org/core/books/hodge-theory-and-complex-algebraic-geometry-ii/47F0D9D694725A426F9CAFDFA830DB11) ／ [D. Huybrechts, *Complex Geometry*（Springer）](https://link.springer.com/book/10.1007/b137952) | DEF1のKodaira–Spencer・KuranishiからGauss–Manin、MIR1の周期とHodge構造の順序。 |
 | [Tosatti / Kong, *Notes on Calabi–Yau Manifolds*](https://cims.nyu.edu/~wk805/files/CY_Manifolds_Notes.pdf) ／ [T. Collins, Complex Monge–Ampère講義](https://people.math.harvard.edu/~tcollins/Math262.html) | YAU1の体積正規化、連続性、$C^0/C^2/C^3$評価と高階正則性を分離して14章に配置。 |
-| [D. McDuff / D. Salamon, *J-holomorphic Curves and Symplectic Topology*（AMS）](https://doi.org/10.1090/ulect/006) | GW1を旧13講の目安ではなく、解析・モジュライ・量子積・VFCの境界を持つ21章とする。 |
+| [D. McDuff / D. Salamon, *J-holomorphic Curves and Symplectic Topology*（AMS）](https://doi.org/10.1090/coll/052) | GW1を旧13講の目安ではなく、解析・モジュライ・量子積・VFCの境界を持つ21章とする。 |
 | [P. Seidel, *Fukaya Categories and Picard–Lefschetz Theory*（EMS）](https://ems.press/books/zlam/2/contents) ／ [MIT OCW 18.969講義ノート](https://ocw.mit.edu/courses/18-969-topics-in-geometry-mirror-symmetry-spring-2009/pages/lecture-notes/) | HM1の$A_\infty$・Floer・Fukaya・楕円曲線のHMSを18章に、SYZ1の半平坦構成・特異ファイバーを14章に整理。 |
 | [M. Gross / B. Siebert, *From real affine geometry to complex geometry*（Annals, 2011）](https://annals.math.princeton.edu/2011/174-3/p01) | SYZ1では特異アフィン構造・インスタントン補正を滑らかな双対化と区別し、一般成立を既証明と扱わない。 |
 
