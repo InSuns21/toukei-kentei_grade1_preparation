@@ -1,0 +1,58 @@
+chapter: ITD12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD7
+  - ITD11
+  - STO7
+  - STO9
+forward_references: []
+concepts:
+  - id: information-thermodynamics.potential-ring-langevin
+    name: 周期ポテンシャル下のLangevin経路と浴熱
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（周期ポテンシャル下のLangevin経路と浴熱）]
+    requires: [information-thermodynamics.driven-ring-langevin, information-thermodynamics.langevin-heat]
+
+  - id: information-thermodynamics.diffusion-probability-current
+    name: 円周拡散の確率流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（円周拡散の確率流）]
+    requires: [information-thermodynamics.potential-ring-langevin]
+
+  - id: information-thermodynamics.current-heat-balance
+    name: 確率流の保存則と平均浴熱
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（確率流の保存則と平均浴熱）]
+    requires: [information-thermodynamics.diffusion-probability-current, stochastic.ito-process-formula]
+
+  - id: information-thermodynamics.diffusion-entropy-rate
+    name: 平均全エントロピー生成率
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平均全エントロピー生成率）]
+    requires: [information-thermodynamics.current-heat-balance]
+
+  - id: information-thermodynamics.current-dissipation-square
+    name: 確率流の平方による第二法則と仕事収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（確率流の平方による第二法則と仕事収支）]
+    requires: [information-thermodynamics.diffusion-entropy-rate, information-thermodynamics.current-heat-balance]
+
+  - id: information-thermodynamics.zero-drive-equilibrium
+    name: 零駆動の平衡密度と詳細釣合い
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（零駆動の平衡密度と詳細釣合い）]
+    requires: [information-thermodynamics.diffusion-probability-current]
+
+  - id: information-thermodynamics.periodic-steady-current
+    name: 周期ポテンシャルを流れる定常確率流
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（周期ポテンシャルを流れる定常確率流）]
+    requires: [information-thermodynamics.diffusion-probability-current, information-thermodynamics.current-dissipation-square, information-thermodynamics.zero-drive-equilibrium]

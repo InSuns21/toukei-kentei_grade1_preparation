@@ -50,3 +50,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD11
     status: completed
     title: 連続Langevin経路の時間反転：確率比・ゆらぎ関係・見えない散逸
+  - id: ITD12
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD12
+    status: completed
+    title: 位置依存ポテンシャルのLangevin拡散：確率流・定常散逸・自由エネルギー
