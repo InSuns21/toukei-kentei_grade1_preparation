@@ -8,7 +8,7 @@
 
 例えば点1と2、点2と3だけが結ばれていれば、座標 $y_1,y_2,y_3\in\mathbb R$ に対して $(y_1-y_2)^2+(y_2-y_3)^2$ を小さくしたい。しかし全部を0に置けば常に最小値0になる。そこで、座標の平均を0にし、大きさを1へ規格化する制約が要る。**どの平均と大きさを使うか**が次数正規化の要点である。
 
-入力は $n\ge2$ 個の観測点 $z_1,\ldots,z_n\in\mathbb R^D$ とする。添字集合を $V=\{1,\ldots,n\}$ と置き、[MFL7の半径・$k$ 近傍](../MFL7/index.md#def-mfl7-knn-symmetrization)を使って、非負対称重みを作る。重みには次の条件を課す。
+入力は $n\ge2$ 個の観測点 $z_1,\ldots,z_n\in\mathbb R^D$ とする。添字集合を $V=\{1,\ldots,n\}$ と置き、MFL7の[半径近傍](../MFL7/index.md#def-mfl7-radius-graph)・[$k$ 近傍の対称化](../MFL7/index.md#def-mfl7-knn-symmetrization)を使って、非負対称重みを作る。重みには次の条件を課す。
 
 $$
 w_{ij}=w_{ji}\ge0,\qquad w_{ii}=0.
@@ -16,7 +16,7 @@ $$
 
 例えば半径内の辺に重み1を置く方法、または辺のある二点に $\exp(-\|z_i-z_j\|^2/\varepsilon)$ を置く方法がある。ここで $\varepsilon>0$ は距離二乗の尺度である。近傍を対称化しない有向行列には、以下の実対称行列の議論をそのまま適用できない。
 
-[SGT1の次数・Laplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)に従い、$d_i=\sum_j w_{ij}$、$W=(w_{ij})$、$D_g=\operatorname{diag}(d_1,\ldots,d_n)$、$L=D_g-W$ と置く。ここでは周囲空間の次元 $D$ と次数行列 $D_g$ を区別する。$L$ は $n\times n$ 対称行列であり、$L\boldsymbol1=0$ である。
+[SGT1の重み付き次数](../../../計算系/SGT/SGT1/index.md#def-sgt1-degree-volume)と[組合せLaplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)に従い、$d_i=\sum_j w_{ij}$、$W=(w_{ij})$、$D_g=\operatorname{diag}(d_1,\ldots,d_n)$、$L=D_g-W$ と置く。ここでは周囲空間の次元 $D$ と次数行列 $D_g$ を区別する。$L$ は $n\times n$ 対称行列であり、$L\boldsymbol1=0$ である。
 
 ## 2. グラフの滑らかさを座標全体へ拡張する
 
@@ -160,7 +160,18 @@ U_{\cdot a}=\sum_{r=2}^N c_{ra}u_r,\qquad
 \sum_{r=2}^N c_{ra}c_{rb}=\delta_{ab}.
 $$
 
-$\alpha_r=\sum_{a=1}^m c_{ra}^2$ と置く。$U$ の列が正規直交なので、$\alpha_r$ は $u_r$ の $m$ 次元列空間への射影の長さの二乗であり $0\le\alpha_r\le1$、$\sum_{r=2}^N\alpha_r=m$ である。また
+$\alpha_r=\sum_{a=1}^m c_{ra}^2$ と置く。$U$ の列が正規直交なので $UU^{\mathsf T}$ はその列空間への直交射影であり、$\|u_r\|=1$ を用いて
+
+$$
+\begin{aligned}
+\alpha_r&=\|U^{\mathsf T}u_r\|^2
+=u_r^{\mathsf T}UU^{\mathsf T}u_r\in[0,1],\\
+\sum_{r=2}^N\alpha_r
+&=\sum_{a=1}^m\|U_{\cdot a}\|^2=m
+\end{aligned}
+$$
+
+を得る。また
 
 $$
 \mathcal E(Y)=\sum_{r=2}^N\mu_r\alpha_r.
@@ -226,7 +237,7 @@ $$
 
 ### 証明の見取り図
 
-[SGT1の核と連結成分](../../../計算系/SGT/SGT1/index.md#thm-sgt1-kernel-components)から定数ベクトルが単純な零固有ベクトルと分かる。あとは[上の固有値最小化](#thm-mfl11-spectral)の証明で $D_g=I$ と置いた直交展開を行う。
+[SGT1の核と連結成分](../../../計算系/SGT/SGT1/index.md#thm-sgt1-kernel-components)から定数ベクトルが単純な零固有ベクトルと分かる。あとは[上の固有値最小化](#thm-mfl11-spectral)と同じ直交展開を、今回は通常の内積と作用素 $L$ に適用する。ここで規格化に使う行列は $I$ だが、元のグラフの次数行列 $D_g$ 自体を $I$ と仮定するわけではない。
 
 <!-- proof-start -->
 ### 証明
@@ -312,8 +323,14 @@ $d_i=0$ の頂点では $w_{ij}=0$ が全 $j$ に対して成り立ち、元の 
 $W'=cW$、$D_g'=cD_g$、$L'=cL$ より、$Lf=\mu D_gf$ と $L'f=\mu D_g'f$ は同値で、固有値は変わらない。$Y'=c^{-1/2}Y$ に対し
 
 $$
-(Y')^{\mathsf T}D_g'Y'=Y^{\mathsf T}D_gY=I_m,
-\quad (Y')^{\mathsf T}D_g'\boldsymbol1=\sqrt c,Y^{\mathsf T}D_g\boldsymbol1=0.
+\begin{aligned}
+(Y')^{\mathsf T}D_g'Y'
+&=(c^{-1/2}Y)^{\mathsf T}(cD_g)(c^{-1/2}Y)
+=Y^{\mathsf T}D_gY=I_m,\\
+(Y')^{\mathsf T}D_g'\boldsymbol1
+&=(c^{-1/2}Y)^{\mathsf T}(cD_g)\boldsymbol1
+=\sqrt c\,Y^{\mathsf T}D_g\boldsymbol1=0.
+\end{aligned}
 $$
 
 さらに $\operatorname{tr}((Y')^{\mathsf T}L'Y')=\operatorname{tr}(Y^{\mathsf T}LY)$ となる。直交 $Q$ については $(YQ)^{\mathsf T}D_g(YQ)=Q^{\mathsf T}I_mQ=I_m$、$(YQ)^{\mathsf T}D_g\boldsymbol1=Q^{\mathsf T}0=0$、$\|y_iQ-y_jQ\|=\|y_i-y_j\|$ より目的関数も不変である。$\square$
@@ -398,7 +415,27 @@ $$
 - Level: B
 - 問題: [A01の三点道](#ex-mfl11-a01)について、$f_1=(1,1,1)^{\mathsf T}/2$、$f_2=(1,0,-1)^{\mathsf T}/\sqrt2$、$f_3=(1,-1,1)^{\mathsf T}/2$ の一般化固有値を直接調べよ。三本の次数付き直交性も確認せよ。
 
-**詳細解答**。$Lf_1=0$。$Lf_2=(1,0,-1)^{\mathsf T}/\sqrt2=D_gf_2$。$Lf_3=(1,-2,1)^{\mathsf T}=2D_gf_3$。したがって固有値は $0,1,2$。$f_1^{\mathsf T}D_gf_2=(1-1)/(2\sqrt2)=0$、$f_1^{\mathsf T}D_gf_3=(1-2+1)/4=0$、$f_2^{\mathsf T}D_gf_3=(1-1)/(2\sqrt2)=0$。各二乗ノルムは順に $(1+2+1)/4=1$、$(1+1)/2=1$、$(1+2+1)/4=1$。ゆえに三本は次数付き正規直交基底である。
+**詳細解答**。[A01の行列](#ex-mfl11-a01)を各ベクトルに掛けると
+
+$$
+\begin{aligned}
+Lf_1&=0,\\
+Lf_2&=(1,0,-1)^{\mathsf T}/\sqrt2=D_gf_2,\\
+Lf_3&=(1,-2,1)^{\mathsf T}=2D_gf_3.
+\end{aligned}
+$$
+
+したがって一般化固有値は順に $0,1,2$ である。異なる二本の次数付き内積は
+
+$$
+\begin{aligned}
+f_1^{\mathsf T}D_gf_2&=(1-1)/(2\sqrt2)=0,\\
+f_1^{\mathsf T}D_gf_3&=(1-2+1)/4=0,\\
+f_2^{\mathsf T}D_gf_3&=(1-1)/(2\sqrt2)=0.
+\end{aligned}
+$$
+
+各二乗ノルムも順に $(1+2+1)/4=1$、$(1+1)/2=1$、$(1+2+1)/4=1$。ゆえに三本は次数付き正規直交基底である。
 
 <a id="ex-mfl11-b02"></a>
 
@@ -461,7 +498,15 @@ $$
 - Level: C
 - 問題: $n$ 頂点の連結・全正次数グラフで $m=2\le n-1$ とする。$Y^{\mathsf T}D_gY=I_2$、$Y^{\mathsf T}D_g\boldsymbol1=0$ の下で最小エネルギーが $\mu_2+\mu_3$ になる理由を、固有基底展開から証明せよ。また $\mu_3=\mu_4$ の場合、二つ目の座標方向の不定性を説明せよ。
 
-**詳細解答**。$U=D_g^{1/2}Y$ とし、$\mathcal L=D_g^{-1/2}LD_g^{-1/2}$ の直交固有基底 $u_1,\ldots,u_n$ を取る。$u_1$ は $D_g^{1/2}\boldsymbol1$ と平行だから、二列 $U_{\cdot a}=\sum_{r=2}^nc_{ra}u_r$（$a=1,2$）と書ける。$U^{\mathsf T}U=I_2$ により $\alpha_r=c_{r1}^2+c_{r2}^2$ は $0\le\alpha_r\le1$、$\sum_{r=2}^n\alpha_r=2$。エネルギーは $\sum_{r=2}^n\mu_r\alpha_r$。$\mu_3$ を基準にすると
+**詳細解答**。$U=D_g^{1/2}Y$ とし、$\mathcal L=D_g^{-1/2}LD_g^{-1/2}$ の直交固有基底 $u_1,\ldots,u_n$ を取る。$u_1$ は $D_g^{1/2}\boldsymbol1$ と平行だから、二列 $U_{\cdot a}=\sum_{r=2}^nc_{ra}u_r$（$a=1,2$）と書ける。$U^{\mathsf T}U=I_2$ より $\alpha_r=c_{r1}^2+c_{r2}^2=\|U^{\mathsf T}u_r\|^2$ と置くと、列空間への直交射影の長さは元の単位ベクトルを超えないので $0\le\alpha_r\le1$ である。また各列の正規直交性から
+
+$$
+\sum_{r=2}^n\alpha_r
+=\sum_{a=1}^2\sum_{r=2}^nc_{ra}^2
+=\|U_{\cdot1}\|^2+\|U_{\cdot2}\|^2=2.
+$$
+
+エネルギーは $\sum_{r=2}^n\mu_r\alpha_r$。$\mu_3$ を基準にすると
 
 $$
 \begin{aligned}
