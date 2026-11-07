@@ -1,0 +1,46 @@
+id: "MFL9"
+title: "Isomapと測地距離"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL3
+  - MFL7
+  - MFL8
+official_scope: []
+learning_objectives:
+  - 非負の辺長を持つ連結近傍グラフの最短路距離を定義し、非連結・零長辺の扱いを説明できる
+  - 近傍グラフの最短路距離行列をClassical MDSに渡すIsomapを手計算で実行できる
+  - 有限グラフで最短路が真の測地距離を近似するための局所辺条件と経路被覆条件を区別し証明できる
+  - 等間隔円弧のchordと弧長から相対誤差の二次上界を証明できる
+  - U字型曲線のshort-cutが大域距離を破壊することを具体的数値で検算できる
+  - 4点サイクルの最短路距離行列に負固有値が現れることを示しMDSひずみと幾何距離誤差を区別できる
+  - 再現可能な数値実験で近傍半径、連結性、最短路、固有値、埋め込みを比較できる
+definitions:
+  - { id: MFL9-DEF-01, name: 辺長付きグラフの最短路距離 }
+  - { id: MFL9-DEF-02, name: Isomapの有限標本構成 }
+theorems:
+  - { id: MFL9-PROP-01, name: 局所辺条件と経路被覆による距離比較 }
+  - { id: MFL9-PROP-02, name: 等間隔円弧のグラフ距離誤差 }
+  - { id: MFL9-PROP-03, name: U字型のshortcutによる距離破壊 }
+  - { id: MFL9-PROP-04, name: 四点サイクルの最短路距離は非Euclid }
+canonical_examples:
+  - 三点道の最短路から一次元座標を復元
+  - 等間隔円弧のchord・弧長・相対誤差
+  - U字の近い遠隔枝を結ぶshortcut
+  - 四点サイクルの二重中心化Gramの負固有値
+  - Pythonによる辺・最短路・MDS・誤差の再現実験
+problem_patterns:
+  - MFL9-A01
+  - MFL9-A02
+  - MFL9-A03
+  - MFL9-A04
+  - MFL9-B01
+  - MFL9-B02
+  - MFL9-B03
+  - MFL9-B04
+  - MFL9-C01
+  - MFL9-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 1.5 }
