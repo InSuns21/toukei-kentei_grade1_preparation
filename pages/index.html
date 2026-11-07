@@ -23,6 +23,9 @@
     .formal-statement > h2, .formal-statement > h3, .formal-statement > h4, .formal-statement > h5, .formal-statement > h6 { margin: 0.1rem 0 0.55rem; font-size: 1rem; line-height: 1.55; font-weight: 700; }
     .formal-statement > :first-child, .formal-statement > blockquote > :first-child { margin-top: 0; }
     .formal-statement > :last-child, .formal-statement > blockquote > :last-child { margin-bottom: 0; }
+    /* Docsify fixes the menu toggle to the viewport bottom. Keep the scrollable
+       sidebar above that footer on both standard and DREAM THEATER routes. */
+    .sidebar { bottom: 3rem; }
     .sidebar-nav li { line-height: 1.45; }
     .sidebar-nav a.route-pending-active { color: var(--theme-color); font-weight: 600; }
     body.navigation-pending:not(.dream-theater-route) .sidebar-nav a.active:not(.route-pending-active) { color: inherit; font-weight: 400; }
