@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-07（MFL5のLocal PCA・接空間推定まで執筆）
-状態: in_progress（MFL1〜MFL5 完成、MFL6〜MFL43 は未実装）
+改訂日: 2026-11-07（MFL6の内在次元・曲率推定まで執筆）
+状態: in_progress（MFL1〜MFL6 完成、MFL7〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
