@@ -1,0 +1,52 @@
+chapter: ITD6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - ITD3
+  - ITD4
+  - ITD5
+  - INFO1
+forward_references: []
+concepts:
+  - id: information-thermodynamics.joint-cycle-device
+    name: 結合装置の操作と循環
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（結合装置の操作と循環）]
+    requires: [information-thermodynamics.physical-memory-reset, information-thermodynamics.feedback-experiment]
+
+  - id: information-thermodynamics.joint-free-energy
+    name: 結合自由エネルギーの相互情報量分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（結合自由エネルギーの相互情報量分解）]
+    requires: [information-thermodynamics.joint-cycle-device, information-thermodynamics.free-energy-kl-identity, information.mutual-information]
+
+  - id: information-thermodynamics.joint-work-entropy-balance
+    name: 結合装置の仕事とエントロピー生成の収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（結合装置の仕事とエントロピー生成の収支）]
+    requires: [information-thermodynamics.joint-free-energy, information-thermodynamics.nonequilibrium-work-bound, information-thermodynamics.path-first-law]
+
+  - id: information-thermodynamics.binary-device-cycle
+    name: 二値測定・抽出・記憶初期化の全循環下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二値測定・抽出・記憶初期化の全循環下限）]
+    requires: [information-thermodynamics.joint-work-entropy-balance, information-thermodynamics.binary-symmetric-measurement, information-thermodynamics.landauer-bound]
+
+  - id: information-thermodynamics.reversible-noisy-measurement
+    name: 二値測定の可逆極限と不可逆な雑音付加
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二値測定の可逆極限と不可逆な雑音付加）]
+    requires: [information-thermodynamics.binary-device-cycle, information-thermodynamics.quasistatic-reset]
+
+  - id: information-thermodynamics.residual-correlation-work
+    name: 残留相関を持つ非完全循環の仕事下限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（残留相関を持つ非完全循環の仕事下限）]
+    requires: [information-thermodynamics.joint-free-energy, information-thermodynamics.joint-work-entropy-balance]

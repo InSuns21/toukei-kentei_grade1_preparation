@@ -1,0 +1,45 @@
+id: "ITD6"
+title: "測定・フィードバック・消去を閉じる全装置の循環収支"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - ITD3
+  - ITD4
+  - ITD5
+  - INFO1
+official_scope: []
+learning_objectives:
+  - 系と記憶の結合分布を定義し、周辺エントロピー・相互情報量・結合自由エネルギーを行列から計算できる
+  - 相互作用のない始終状態での仕事・浴熱・全エントロピー生成を一つの符号規約で導出できる
+  - 測定・条件付き仕事抽出・resetの各段階の変化を帳簿化し、ノイズ測定の循環下限を証明できる
+  - 可逆測定と仕事ゼロの不可逆測定の違いを、明示した二状態操作とエントロピー生成から説明できる
+  - 残留相関・初期相関・非周期的な記憶・有限時間操作が循環判定をどう変えるか検算できる
+definitions:
+  - { id: ITD6-DEF-01, name: 結合装置の操作と循環 }
+theorems:
+  - { id: ITD6-PROP-01, name: 結合自由エネルギーの相互情報量分解 }
+  - { id: ITD6-THM-01, name: 結合装置の仕事とエントロピー生成の収支 }
+  - { id: ITD6-THM-02, name: 二値測定・抽出・記憶初期化の全循環下限 }
+  - { id: ITD6-PROP-02, name: 二値測定の可逆極限と不可逆な雑音付加 }
+  - { id: ITD6-PROP-03, name: 残留相関を持つ非完全循環の仕事下限 }
+canonical_examples:
+  - 二値対称センサーの結合確率表と相互情報量
+  - 測定・フィードバック・reset各段階の仕事・熱・情報収支
+  - 条件付き準位操作による可逆測定と仕事ゼロ測定の対比
+  - 周辺分布は不変でも結合相関が変わる不完全循環
+problem_patterns:
+  - ITD6-JOINT-ENTROPY
+  - ITD6-MEASUREMENT-LEDGER
+  - ITD6-FEEDBACK-DECORRELATION
+  - ITD6-RESET-HEAT
+  - ITD6-ENTROPY-PRODUCTION
+  - ITD6-JOINT-FREE-ENERGY
+  - ITD6-NOISY-MEASUREMENT
+  - ITD6-RESIDUAL-CORRELATION
+  - ITD6-ASYMMETRIC-CHANNEL
+  - ITD6-COMPLETE-CYCLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 4 }
