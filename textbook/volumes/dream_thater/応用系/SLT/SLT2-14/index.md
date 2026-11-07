@@ -83,7 +83,7 @@ $$
 
 である。$v$ は位置 $\theta$ だけでなく、その時刻の分布 $\mu$ にも依存する速度場である。
 
-有限粒子なら、[経験測度の弱形式](../SLT2-13/index.md#prop-slt2-13-weak-form)は $\int\varphi\,d\mu_m$ を微分して得られた。一般の確率測度にも同じ等式を**解の定義**として採用する。ここで $C_c^1(\Theta)$ は一階微分が連続で、ある有界な閉集合の外で零となる試験関数の集合である。
+有限粒子なら、[経験測度の弱形式](../SLT2-13/index.md#prop-slt2-13-weak-form)は $\int\varphi\,d\mu_m$ を微分して得られた。一般の確率測度にも同じ等式を**解の定義**として採用する。[コンパクト台と関数の台](../../../基礎科目/TOP/TOP5A/index.md#def-top5a-compact-support-cc)を用い、ここで $C_c^1(\Theta)$ は一階微分が連続で、ある有界な閉集合の外で零となる試験関数の集合である。
 
 <a id="def-slt2-14-weak-continuity"></a>
 
@@ -119,7 +119,7 @@ $$
 ゆえに全条件が満たされる。Dirac測度は通常の密度を持たなくても弱解になれる。
 <!-- definition-example-end -->
 
-十分に滑らかな密度 $\rho(t,\theta)$ があるときは $\mu_t(d\theta)=\rho(t,\theta)d\theta$ と書け、コンパクト台の $\varphi$ に対する部分積分で $\int\varphi\,\nabla\cdot(\rho v)=-\int\nabla\varphi\cdot\rho v$ を得る。弱形式はこの積分恒等式を密度のない場合へ拡張したものである。**境界項が消えるのは試験関数がコンパクト台だから**であり、非有界領域のすべての関数へ無断で拡張してよいわけではない。
+十分に微分可能な確率密度 $\rho(t,\theta)$ があるときは $\mu_t(d\theta)=\rho(t,\theta)d\theta$ と書け、コンパクト台の $\varphi$ に対する部分積分で $\int\varphi\,\nabla\cdot(\rho v)=-\int\nabla\varphi\cdot\rho v$ を得る。弱形式はこの積分恒等式を密度のない場合へ拡張したものである。**境界項が消えるのは試験関数がコンパクト台だから**であり、非有界領域のすべての関数へ無断で拡張してよいわけではない。
 
 ## 3. 損失を「重み変更」と「粒子移動」で微分する
 
@@ -222,7 +222,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有界特徴のmean-field方程式の大域適切設定性）**
-> $\Theta=\mathbb R^q$、訓練点 $(x_i,y_i)_{i=1}^n$ を固定する。$\psi_i\in C^2(\Theta)$ が全空間で上の $M_0,M_1,M_2<\infty$ により一様に抑えられ、$\mu_0\in\mathcal P_2(\Theta)$ とする。$v(\theta,\mu)=-n^{-1}\sum_i(\int\psi_i\,d\mu-y_i)\nabla\psi_i(\theta)$ に対して、任意の $T<\infty$ 上に、初期値 $\mu_0$ を持つ [連続性方程式の弱解](#def-slt2-14-weak-continuity) が一意に存在する。この解は特性曲線
+> $\Theta=\mathbb R^q$、訓練点 $(x_i,y_i)_{i=1}^n$ を固定する。$\psi_i\in C^2(\Theta)$ が全空間で上の $M_0,M_1,M_2<\infty$ により一様に抑えられ、$\mu_0\in\mathcal P_2(\Theta)$ とする。速度場を
+
+$$
+v(\theta,\mu)=-\frac1n\sum_i
+\left(\int\psi_i\,d\mu-y_i\right)\nabla\psi_i(\theta)
+$$
+
+> と置く。任意の $T<\infty$ 上に、初期値 $\mu_0$ を持つ [連続性方程式の弱解](#def-slt2-14-weak-continuity) が一意に存在する。この解は [特性曲線](../../../解析系/PDE/PDE1/index.md#def-pde1-characteristic)
 
 $$
 \dot X_t(\theta)=v(X_t(\theta),\mu_t),
@@ -247,7 +254,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**存在**。短い $[0,h]$ 上で、初期値を $\theta$ とする可測な軌道写像 $X_t(\theta)$ を考える。$\sup_t\int\|X_t(\theta)-\theta\|\,\mu_0(d\theta)$ が有限な、時間について $L^1(\mu_0)$ 連続の写像の空間を用いる。この空間は $C([0,h];L^1(\mu_0;\mathbb R^q))$ の閉じたアフィン部分空間として完備である。
+**存在**。短い $[0,h]$ 上で、初期値 $\theta$ の時刻 $t$ での位置を表す可測な写像 $X_t(\theta)$ を考える。$\sup_t\int\|X_t(\theta)-\theta\|\,\mu_0(d\theta)$ が有限な、時間について $L^1(\mu_0)$ 連続の写像の空間を用いる。この空間は $C([0,h];L^1(\mu_0;\mathbb R^q))$ の閉じたアフィン部分空間として完備である。
 
 候補 $X$ が作る測度を $\mu_t^X=(X_t)_\#\mu_0$ と置き、作用素を
 
@@ -407,7 +414,20 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（有限粒子のmean-field極限）**
-> [大域適切設定性定理](#thm-slt2-14-wellposed)の特徴関数の仮定を置く。初期確率測度 $\mu_0\in\mathcal P_2(\Theta)$、各 $m$ の初期経験測度 $\mu_m(0)=m^{-1}\sum_{r=1}^m\delta_{\theta_r(0)}\in\mathcal P_2(\Theta)$ を取る。有限粒子を [加速勾配流](../SLT2-13/index.md#def-slt2-13-particle-potential) $\dot\theta_r=v(\theta_r,\mu_m)$ で動かし、$\mu_m(t)$ を経験測度とする。連続体解 $\mu_t$ に対し
+> [大域適切設定性定理](#thm-slt2-14-wellposed)の特徴関数の仮定を置く。初期確率測度 $\mu_0\in\mathcal P_2(\Theta)$、各 $m$ の初期経験測度
+
+$$
+\mu_m(0)=\frac1m\sum_{r=1}^m\delta_{\theta_r(0)}
+\in\mathcal P_2(\Theta)
+$$
+
+> を取る。有限粒子を [加速勾配流](../SLT2-13/index.md#def-slt2-13-particle-potential) に従う速度
+
+$$
+\dot\theta_r=v(\theta_r,\mu_m)
+$$
+
+> で動かし、$\mu_m(t)$ を経験測度とする。連続体解 $\mu_t$ に対し
 
 $$
 \sup_{0\le t\le T}W_1(\mu_m(t),\mu_t)
@@ -442,7 +462,7 @@ $$
 この上限を $t$ について取れば結論を得る。$\square$
 <!-- proof-end -->
 
-この収束は任意の固定有限時間窓についてである。$T$ とともに指数因子が増すので、**幅極限と無限時間極限の交換**は保証されない。また $W_1$ 収束から本章の有界Lipschitz特徴の予測は収束するが、非有界特徴の予測は別途モーメント・一様可積分性の評価が必要になる。
+この収束は任意の固定有限時間窓についてである。$T$ とともに指数因子が増すので、**幅極限と無限時間極限の交換**は保証されない。また $W_1$ 収束から本章の有界Lipschitz特徴の予測は収束するが、非有界特徴の予測は別途モーメントや遠方の裾の積分を一様に制御する評価が必要になる。
 
 例として $\mu_m(0)=(1-1/m)\delta_0+(1/m)\delta_m$ は $\delta_0$ へ弱収束するが、$W_1(\mu_m(0),\delta_0)=1$ のままである。移動先までの平均距離を制御することが、弱収束だけでは足りない理由である。
 
@@ -490,7 +510,7 @@ $$
 初期粒子は有限点にあり、短時間の軌道も有界集合に留まる。そこでは $\varphi(\theta)=\theta$ と一致し、外では滑らかに零へ落とす $C_c^1$ 関数を選べる。従って弱形式で同じ初期微分が求まる。
 <!-- solution-end -->
 
-### SLT2-14-A03 第一変分の係数
+### SLT2-14-A03 混合方向の一次係数
 - Level: A
 - 目安時間: 12分
 
@@ -507,7 +527,7 @@ $$
 =\frac12-\varepsilon+\frac12\varepsilon^2.
 $$
 
-一次係数は $-1$、二次係数は $1/2$。$e(\mu)=1$、$V(\theta;\mu)=\sin\theta$ だから $\int V\,d(\nu-\mu)=0-1=-1$。第一変分が一次係数に一致し、二次項は微分の極限で消える。
+一次係数は $-1$、二次係数は $1/2$。$e(\mu)=1$、$V(\theta;\mu)=\sin\theta$ だから $\int V\,d(\nu-\mu)=0-1=-1$。混合方向の微分が一次係数に一致し、二次項は微分の極限で消える。
 <!-- solution-end -->
 
 ### SLT2-14-A04 速度の一様評価
@@ -638,7 +658,7 @@ W_1(\mu_m,\delta_0)
 =\left(1-\frac1m\right)0+\frac1m|m|=1.
 $$
 
-$\int|\theta|\,d\mu_m=1$ も零へ向かわない。従って粒子極限定理の必要な $W_1$ 初期収束を満たさず、弱収束だけから同定理を使うことはできない。
+$\int|\theta|\,d\mu_m=1$ も零へ向かわない。従って初期分布の輸送距離が零へ向かうという仮定を満たさないので、[有限粒子のmean-field極限定理](#thm-slt2-14-particle-limit)を適用できない。
 <!-- solution-end -->
 
 ### SLT2-14-C01 質量配分と輸送の異なる停留性
