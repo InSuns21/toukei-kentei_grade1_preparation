@@ -1,0 +1,84 @@
+chapter: MFL6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL5
+  - ML1-11
+
+concepts:
+  - id: manifold-learning.mass-log-slope
+    name: 二半径の小球質量傾き
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二半径の小球質量傾き）"]
+    requires: [manifold-learning.minimal-ball-mass, manifold-learning.clean-sample-model]
+
+  - id: manifold-learning.smooth-ball-mass
+    name: 滑らかな小球の質量次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな小球の質量次数）"]
+    requires: [manifold-learning.mass-log-slope, manifold-learning.local-tangent-gram]
+
+  - id: manifold-learning.empirical-log-slope
+    name: 標本対数傾き推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本対数傾き推定量）"]
+    requires: [manifold-learning.mass-log-slope, manifold-learning.clean-sample-model]
+
+  - id: manifold-learning.empirical-log-slope-bound
+    name: 二半径の有限標本対数傾き誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二半径の有限標本対数傾き誤差）"]
+    requires: [manifold-learning.empirical-log-slope, high-dimensional-probability.hoeffding-two-sided]
+
+  - id: manifold-learning.circle-mass-bias
+    name: 円周における小球傾きの曲率バイアス
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円周における小球傾きの曲率バイアス）"]
+    requires: [manifold-learning.mass-log-slope, manifold-learning.circle-distance]
+
+  - id: manifold-learning.knn-radius-dimension
+    name: 近傍半径比による次元指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（近傍半径比による次元指標）"]
+    requires: [manifold-learning.mass-log-slope, learning.knn-neighborhood]
+
+  - id: manifold-learning.menger-curvature
+    name: 三点の外接円曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三点の外接円曲率）"]
+    requires: [manifold-learning.unit-speed-curvature, manifold-learning.circle-distance]
+
+  - id: manifold-learning.menger-limit
+    name: 対称三点の外接円曲率の極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称三点の外接円曲率の極限）"]
+    requires: [manifold-learning.menger-curvature, manifold-learning.unit-speed-curvature]
+
+  - id: manifold-learning.symmetric-second-difference
+    name: 弧長対称二次差分曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弧長対称二次差分曲率）"]
+    requires: [manifold-learning.unit-speed-curvature]
+
+  - id: manifold-learning.second-difference-stability
+    name: 二次差分曲率の打切り誤差とノイズ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次差分曲率の打切り誤差とノイズ）"]
+    requires: [manifold-learning.symmetric-second-difference, manifold-learning.bounded-noise-hausdorff]
+
+  - id: manifold-learning.parabola-covariance-curvature
+    name: 対称放物線の共分散による曲率復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称放物線の共分散による曲率復元）"]
+    requires: [manifold-learning.local-pca, manifold-learning.unit-speed-curvature]
