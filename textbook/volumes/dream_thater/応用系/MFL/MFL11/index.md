@@ -8,7 +8,13 @@
 
 例えば点1と2、点2と3だけが結ばれていれば、座標 $y_1,y_2,y_3\in\mathbb R$ に対して $(y_1-y_2)^2+(y_2-y_3)^2$ を小さくしたい。しかし全部を0に置けば常に最小値0になる。そこで、座標の平均を0にし、大きさを1へ規格化する制約が要る。**どの平均と大きさを使うか**が次数正規化の要点である。
 
-入力は $n\ge2$ 個の観測点 $z_1,\ldots,z_n\in\mathbb R^D$ とする。[MFL7の半径・$k$ 近傍](../MFL7/index.md#def-mfl7-knn-symmetrization)から、添字集合 $V=\{1,\ldots,n\}$ 上の非負対称重み $w_{ij}=w_{ji}\ge0$、$w_{ii}=0$ を作る。例えば、半径内の点に一律重み1を置く方法、または辺のある二点に $\exp(-\|z_i-z_j\|^2/\varepsilon)$（$\varepsilon>0$）を置く方法がある。近傍の対称化をしないまま有向行列を用いると、以下の実対称行列の議論はそのまま使えない。
+入力は $n\ge2$ 個の観測点 $z_1,\ldots,z_n\in\mathbb R^D$ とする。添字集合を $V=\{1,\ldots,n\}$ と置き、[MFL7の半径・$k$ 近傍](../MFL7/index.md#def-mfl7-knn-symmetrization)を使って、非負対称重みを作る。重みには次の条件を課す。
+
+$$
+w_{ij}=w_{ji}\ge0,\qquad w_{ii}=0.
+$$
+
+例えば半径内の辺に重み1を置く方法、または辺のある二点に $\exp(-\|z_i-z_j\|^2/\varepsilon)$ を置く方法がある。ここで $\varepsilon>0$ は距離二乗の尺度である。近傍を対称化しない有向行列には、以下の実対称行列の議論をそのまま適用できない。
 
 [SGT1の次数・Laplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)に従い、$d_i=\sum_j w_{ij}$、$W=(w_{ij})$、$D_g=\operatorname{diag}(d_1,\ldots,d_n)$、$L=D_g-W$ と置く。ここでは周囲空間の次元 $D$ と次数行列 $D_g$ を区別する。$L$ は $n\times n$ 対称行列であり、$L\boldsymbol1=0$ である。
 
@@ -225,7 +231,22 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$v_1=\boldsymbol1/\sqrt N$ を $L$ の第一の正規化固有ベクトルとして、残りを $v_2,\ldots,v_N$ に延長する。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により可能である。中心化条件で $Y_{\cdot a}=\sum_{r=2}^Nc_{ra}v_r$、規格化条件で $\sum_{r=2}^Nc_{ra}c_{rb}=\delta_{ab}$ となる。$\alpha_r=\sum_ac_{ra}^2$ には $0\le\alpha_r\le1$、$\sum_{r=2}^N\alpha_r=m$ が成立し、エネルギーは $\sum_{r=2}^N\lambda_r\alpha_r$ である。[固有値最小化](#thm-mfl11-spectral)と同じ質量移動の不等式を $\mu$ から $\lambda$ へ置き換えると $\sum_{r=2}^{m+1}\lambda_r$ 以上となり、$Y=[v_2\ \cdots\ v_{m+1}]$ で等号になる。$\square$
+$v_1=\boldsymbol1/\sqrt N$ を $L$ の第一の正規化固有ベクトルとする。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)で、正規直交固有基底 $v_1,\ldots,v_N$ へ延長できる。
+
+中心化条件で各列の $v_1$ 成分は0になる。$Y$ の第 $a$ 列を $Y_{\cdot a}$ と書けば、規格化条件は次の係数の直交性となる。
+
+$$
+Y_{\cdot a}=\sum_{r=2}^N c_{ra}v_r,\qquad
+\sum_{r=2}^N c_{ra}c_{rb}=\delta_{ab}.
+$$
+
+$\alpha_r=\sum_{a=1}^m c_{ra}^2$ とすると、直交射影の性質より $0\le\alpha_r\le1$、$\sum_{r=2}^N\alpha_r=m$ である。エネルギーは固有ベクトルの直交性から
+
+$$
+\operatorname{tr}(Y^{\mathsf T}LY)=\sum_{r=2}^N\lambda_r\alpha_r
+$$
+
+となる。[固有値最小化](#thm-mfl11-spectral)で導いた質量移動の不等式を $\mu$ から $\lambda$ へ置き換えると、これは $\sum_{r=2}^{m+1}\lambda_r$ 以上である。$Y=[v_2\ \cdots\ v_{m+1}]$ なら等号になる。$\square$
 <!-- proof-end -->
 
 三点道では $L(1,0,-1)^{\mathsf T}=(1,0,-1)^{\mathsf T}$ なので、非正規化の一次元座標も偶然同じである。一方、次数付き規格化は $D_g$、通常の規格化は $I$ を使うので、**この例での一致を一般の一致と誤解してはいけない**。例えば重み付き三点道で左辺重み2、右辺重み1とすれば、$D_g=\operatorname{diag}(2,3,1)$ は定数倍の単位行列でなく、二つの固有問題は異なる。
@@ -254,7 +275,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$V_+$ の各成分を $C_1,\ldots,C_k$ とし、$f^{(a)}$ を $C_a$ 上1で他では0のベクトルとする。成分をまたぐ正重み辺はないから、[SGT1のエネルギー](../../../計算系/SGT/SGT1/index.md#thm-sgt1-dirichlet)より $(f^{(a)})^{\mathsf T}L_+f^{(a)}=0$。$L_+$ は正半定値なので $L_+f^{(a)}=0$ である。[核と連結成分](../../../計算系/SGT/SGT1/index.md#thm-sgt1-kernel-components)により、これら $k$ 本は核の基底をなす。$D_+$ は可逆だから $L_+f=0$ と $L_+f=0D_+f$ は同じ条件であり、重複度は $k$。定数ベクトル $\boldsymbol1=\sum_af^{(a)}$ はそのうち一本なので、残りの零モードは $k-1$ 次元ある。
+$V_+$ の各成分を $C_1,\ldots,C_k$ とし、$f^{(a)}$ を $C_a$ 上1、他で0のベクトルとする。成分をまたぐ正重み辺はないから、[SGT1のエネルギー](../../../計算系/SGT/SGT1/index.md#thm-sgt1-dirichlet)より
+
+$$
+(f^{(a)})^{\mathsf T}L_+f^{(a)}
+=\sum_{i<j}w_{ij}(f_i^{(a)}-f_j^{(a)})^2=0.
+$$
+
+$L_+$ は正半定値なので $L_+f^{(a)}=0$ である。[核と連結成分](../../../計算系/SGT/SGT1/index.md#thm-sgt1-kernel-components)により、これら $k$ 本は核の基底をなす。$D_+$ は可逆なので、一般化固有値 $\mu=0$ の条件も $L_+f=0$ と同値であり、その重複度は $k$ となる。
+
+定数ベクトルは $\boldsymbol1=\sum_af^{(a)}$ と表され、零モードのうち一本を占める。したがってそれと次数付き直交する零エネルギー方向が、なお $k-1$ 次元残る。
 
 $d_i=0$ の頂点では $w_{ij}=0$ が全 $j$ に対して成り立ち、元の $L$ の第 $i$ 行・列は零である。エネルギーはその座標に依存せず、同時に $d_i^{-1/2}$ が定義できないため、正規化変分問題はこの座標を制約しない。$\square$
 <!-- proof-end -->
