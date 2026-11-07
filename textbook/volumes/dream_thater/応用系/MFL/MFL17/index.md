@@ -350,6 +350,15 @@ $$
 剰余は $O(\delta^3)=O(\varepsilon^{3/2})$ で、$\varepsilon$ で割れば0へ向かう。端点では同じ展開の $\mu_1\to\pm2/\sqrt{\pi}$ と $\delta=\sqrt{\varepsilon}\rho(x)$ を代入する。$\square$
 <!-- proof-end -->
 
+以後、固定した内点 $x\in(0,1)$ での極限作用素を次の記号で表す。
+
+$$
+L_{\rho,p}f(x):=\rho(x)^2\left[f''(x)+2\frac{p'(x)}{p(x)}f'(x)\right].
+$$
+
+幅を一定の $\rho\equiv1$ とした場合は $L_pf:=L_{1,p}f$ と略記する。
+ここでプライムは全て区間座標 $x$ による微分であり、$\rho$ を微分しているわけではない。
+
 $\rho=p^{-\beta}$ なら内点の拡散係数は $p^{-2\beta}$ になる。**幅を密度に合わせただけでは、密度driftが自動的に消えない。** ここで使った行核は一般に $K^{\mathrm{row}}(x,y)\ne K^{\mathrm{row}}(y,x)$ なので、[MFL15の対称重みからの詳細釣合い](../MFL15/index.md#prop-mfl15-balance)もそのままは使えない。対称な $\rho(x)\rho(y)$ 型の核では $\rho(y)$ の展開を含むため別の係数が現れ、この定理で代用できない。
 
 ## 5. density shiftは作用素をどう変えるか
@@ -555,7 +564,22 @@ N=h+\delta\mu_1h'+\frac{\delta^2\mu_2}{2}h''+O(\delta^3),\quad
 D=p+\delta\mu_1p'+\frac{\delta^2\mu_2}{2}p''+O(\delta^3).
 $$
 
-$D^{-1}=p^{-1}\{1-\delta\mu_1p'/p+\delta^2[\mu_1^2(p'/p)^2-\mu_2p''/(2p)]\}+O(\delta^3)$ と二次まで展開する。$N$ との積のうち、$\delta^2f''$ は $\mu_2f''/2$。$h''=pf''+2p'f'+p''f$ の交差項から $\mu_2(p'/p)f'$、$-\delta\mu_1p'/p$ と $\delta\mu_1h'/p$ の積から $-\mu_1^2(p'/p)f'$ が出る。$f$ に比例する二次項は分母の $p''$ と $(p')^2$ の寄与によって全て相殺する。従って
+分母は $p>0$ なので、逆数を二次まで展開できる。
+
+$$
+D^{-1}=\frac1p\left\{1-\delta\mu_1\frac{p'}p
++\delta^2\left[\mu_1^2\left(\frac{p'}p\right)^2
+-\frac{\mu_2p''}{2p}\right]\right\}+O(\delta^3).
+$$
+
+$N$ との積のうち、$\delta^2f''$ は $\mu_2f''/2$。積の微分則による $h''=pf''+2p'f'+p''f$ の交差項から $\mu_2(p'/p)f'$、分母の一次項と分子の一次項の積から $-\mu_1^2(p'/p)f'$ が出る。$f$ に比例する二次項も
+
+$$
+\frac{\mu_2p''}{2p}f-\mu_1^2\left(\frac{p'}p\right)^2f
++\left[\mu_1^2\left(\frac{p'}p\right)^2-\frac{\mu_2p''}{2p}\right]f=0
+$$
+
+と分母の二次補正によって相殺する。従って
 
 $$
 P_\varepsilon^pf-f
@@ -582,7 +606,15 @@ L_{\rho,p_s}f(x)
 =\frac2{p_s(x)}+\frac{8sx}{p_s(x)^2}.
 $$
 
-左端では $f'(0)=0$ だから $\sqrt\varepsilon$ 項の係数は0である。ただし二次項は $f''(0)\rho(0)^2=2/(1-s)$ となる。行核の非対称性について $x=0,y=1$ を取ると、
+左端では $f'(0)=0$ だから $\sqrt\varepsilon$ 項の係数は0である。ただし二次項は残る。[境界層の展開](#thm-mfl17-expansion)で $\delta=\sqrt\varepsilon\rho(0)$、$\mu_2\to2$ と置き、$f'(0)=0$ により密度drift項も消すと
+
+$$
+\frac{P_{\varepsilon,\rho}^{p_s}f(0)-f(0)}{\varepsilon}
+\longrightarrow \rho(0)^2\frac{2}{2}f''(0)
+=\frac{2}{1-s}.
+$$
+
+行核の非対称性について $x=0,y=1$ を取ると、
 
 $$
 K_{\varepsilon,\rho}^{\mathrm{row}}(0,1)
@@ -620,7 +652,7 @@ $$
 ### MFL17-B04 左端Neumann条件だけでは足りない
 
 - Level: B
-- 問題: $p=1$、$f(x)=x^2$、$x_\varepsilon=a\sqrt\varepsilon$（$a>0$ 固定）について、$(P_\varepsilon f(x_\varepsilon)-f(x_\varepsilon))/\varepsilon$ の極限を切断モーメントから計算せよ。端点 $a=0$ と固定内点の値を比較し、一様収束を否定する理由を説明せよ。
+- 問題: $p=1$ の[行平均](#def-mfl17-row)を $P_\varepsilon=P_\varepsilon^p$ と略記する。$f(x)=x^2$、$x_\varepsilon=a\sqrt\varepsilon$（$a>0$ 固定）について、$(P_\varepsilon f(x_\varepsilon)-f(x_\varepsilon))/\varepsilon$ の極限を切断モーメントから計算せよ。端点 $a=0$ と固定内点の値を比較し、一様収束を否定する理由を説明せよ。
 
 **詳細解答。** $y=x+\delta u$、$\delta=\sqrt\varepsilon$ として
 
@@ -658,7 +690,7 @@ L_{\rho,p_s}f(x)=p_s(x)^{-2\beta}
 \left[2+\frac{4s(1+2x)}{p_s(x)}\right].
 $$
 
-2. 左端では $f'(0)=1$、$\rho(0)=(1-s)^{-\beta}$ だから[端点平方根の式](#prop-mfl17-endpoint)を局所幅に適用して
+2. 左端では $f'(0)=1$、$\rho(0)=(1-s)^{-\beta}$ だから[adaptive行帯域幅の端点係数](#thm-mfl17-adaptive)を適用して
 
 $$
 P_{\varepsilon,\rho}^{p_s}f(0)-f(0)
@@ -674,7 +706,7 @@ $$
 
   どちらも非零の係数を $\varepsilon$ で割るため、それぞれ正・負の向きへ絶対値が無限大に増える。密度の傾斜に由来する二次driftより境界一次項が優勢である。
 
-3. $\widetilde f'(0)=0$ なので左端の平方根項は0。$s=\beta=0$ なら $p=1,\rho=1$ で、[境界層の命題](#prop-mfl17-layer)は
+3. $\widetilde f'(0)=0$ なので左端の平方根項は0。$s=\beta=0$ なら $p=1,\rho=1$ で、ここでは $P_\varepsilon=P_\varepsilon^p$ と略す。[境界層の命題](#prop-mfl17-layer)は
 
 $$
 \frac{P_\varepsilon \widetilde f(a\sqrt\varepsilon)
