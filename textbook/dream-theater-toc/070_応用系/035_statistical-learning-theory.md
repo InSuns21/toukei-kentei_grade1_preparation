@@ -34,3 +34,4 @@
 30. [SLT2-12 幅極限と学習時間の極限](textbook/volumes/dream_thater/応用系/SLT/SLT2-12/index.md)
 31. [SLT2-13 粒子測度による二層網](textbook/volumes/dream_thater/応用系/SLT/SLT2-13/index.md)
 32. [SLT2-14 mean-field勾配流と連続性方程式](textbook/volumes/dream_thater/応用系/SLT/SLT2-14/index.md)
+33. [SLT2-15 SGDの拡散近似とその限界](textbook/volumes/dream_thater/応用系/SLT/SLT2-15/index.md)

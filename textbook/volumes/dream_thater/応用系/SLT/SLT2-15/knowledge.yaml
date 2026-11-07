@@ -1,0 +1,44 @@
+chapter: SLT2-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-14
+  - ML1-10
+  - STO9
+concepts:
+  - id: learning.slt2-gradient-noise-covariance
+    name: 条件付き勾配雑音共分散行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付き勾配雑音共分散行列）"]
+    requires: [learning.sgd-conditional-noise]
+  - id: learning.slt2-minibatch-covariance-matrix
+    name: 復元ミニバッチの条件付き共分散行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（復元ミニバッチの条件付き共分散行列）"]
+    requires: [learning.slt2-gradient-noise-covariance, learning.minibatch-variance]
+  - id: learning.slt2-gaussian-sgd-proxy
+    name: Gaussian一歩近似と拡散模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian一歩近似と拡散模型）"]
+    requires: [learning.slt2-gradient-noise-covariance, stochastic.brownian-sde]
+  - id: learning.slt2-sgd-weak-step
+    name: Gaussian一歩近似の二次モーメント一致と弱誤差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian一歩近似の二次モーメント一致と弱誤差）"]
+    requires: [learning.slt2-gaussian-sgd-proxy, learning.slt2-minibatch-covariance-matrix]
+  - id: learning.slt2-quadratic-diffusion-variance
+    name: 二標本二次模型の離散分散と拡散分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二標本二次模型の離散分散と拡散分散）"]
+    requires: [learning.slt2-sgd-weak-step, learning.sgd-exact-quadratic]
+  - id: learning.slt2-shuffle-conditional-bias
+    name: 二標本シャッフルの条件付き偏り
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二標本シャッフルの条件付き偏り）"]
+    requires: [learning.slt2-minibatch-covariance-matrix]
