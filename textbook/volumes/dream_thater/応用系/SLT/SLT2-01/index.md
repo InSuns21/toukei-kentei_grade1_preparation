@@ -209,7 +209,9 @@ $$
 Y=X\beta^\star+\varepsilon
 $$
 
-と置く。$X$ は非確率的であり、以下の期待値は雑音 $\varepsilon$ のみに関する。ここで推定量 $\widehat\beta$ は観測応答 $Y\in\mathbb R^n$ から係数 $\widehat\beta(Y)\in\mathbb R^p$ を返す規則であり、期待値を取るため $\widehat\beta(Y)$ が確率ベクトルとして扱える可測性を仮定する。補間する推定量は $X\widehat\beta(Y)=Y$ を満たす。真の信号 $X\beta^\star$ と学習後の訓練点予測の差を評価しよう。
+と置く。$X$ は非確率的であり、以下の期待値は雑音 $\varepsilon$ のみに関する。
+
+推定量 $\widehat\beta$ は観測応答 $Y\in\mathbb R^n$ から係数 $\widehat\beta(Y)\in\mathbb R^p$ を返す規則である。期待値を取るため、$\widehat\beta(Y)$ が確率ベクトルとして扱える可測性を仮定する。補間する推定量は $X\widehat\beta(Y)=Y$ を満たす。真の信号 $X\beta^\star$ と学習後の訓練点予測の差を評価しよう。
 
 <a id="prop-slt2-01-noise-interpolation"></a>
 
@@ -297,7 +299,15 @@ $X=\begin{pmatrix}1&0&1\\2&0&2\end{pmatrix}$ に対し、$y=(1,0)^{\mathsf T}$ �
 $X=\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$ とする。$v=(-1,-1,1)^{\mathsf T}$ が核に属することを各行との内積で確かめ、$\operatorname{row}(X)$ の次元と直交補空間との関係を示せ。
 
 <!-- solution-start -->
-**詳細解答**。第1行と $v$ の内積は $-1+1=0$、第2行との内積も $-1+1=0$。よって $Xv=0$。2行は独立だから行空間の次元は2。核の次元は $3-2=1$ で $v\ne0$ が生成する。行空間は $v^\perp$ に含まれる。[直交補空間の次元と分解](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-orthogonal-decomposition)を $\operatorname{span}\{v\}\subseteq\mathbb R^3$ に適用すると $\dim v^\perp=3-1=2$。行空間も2次元なので両者は等しく、$\operatorname{row}(X)=(\ker X)^\perp$ である。
+**詳細解答**。第1行と $v$ の内積は $-1+1=0$、第2行との内積も $-1+1=0$。よって $Xv=0$。2行は独立だから行空間の次元は2。核の次元は $3-2=1$ で $v\ne0$ が生成する。行空間は $v^\perp$ に含まれる。
+
+[直交補空間の次元と分解](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-orthogonal-decomposition)を $\operatorname{span}\{v\}\subseteq\mathbb R^3$ に適用すると
+
+$$
+\dim v^\perp=3-1=2=\dim\operatorname{row}(X).
+$$
+
+したがって両者は等しく、$\operatorname{row}(X)=(\ker X)^\perp$ である。
 <!-- solution-end -->
 
 **問題 SLT2-01-A04（雑音の訓練信号誤差）**
@@ -386,7 +396,19 @@ $$
 =\frac1n\cdot n\cdot4=4.
 $$
 
-Gaussian分布の各成分は平均0・分散4であり、[雑音補間命題](#prop-slt2-01-noise-interpolation)の条件を満たす。ただし係数誤差については $p$ と $n$ を分ける。$p>n$ なら $\ker X$ に非零方向があるため、補間解へ任意の核成分を加えても信号への訓練誤差は変わらず、係数誤差や行空間外の予測は変わり得る。一方、$p=n$ なら行フルランクの $X$ は可逆で、唯一の補間解は $\widehat\beta=X^{-1}Y$、係数誤差は $\widehat\beta-\beta^\star=X^{-1}\varepsilon$ と定まる。いずれの場合も未知入力の分布・評価損失を指定していないので、母集団での予測リスクはこの条件だけでは決まらない。
+Gaussian分布の各成分は平均0・分散4であり、[雑音補間命題](#prop-slt2-01-noise-interpolation)の条件を満たす。ただし係数誤差については $p$ と $n$ を分ける。
+
+$p>n$ なら $\ker X$ に非零方向があるため、補間解へ任意の核成分を加えても信号への訓練誤差は変わらず、係数誤差や行空間外の予測は変わり得る。
+
+一方、$p=n$ なら行フルランクの $X$ は可逆で、唯一の補間解とその係数誤差は
+
+$$
+\widehat\beta=X^{-1}Y,
+\qquad
+\widehat\beta-\beta^\star=X^{-1}\varepsilon
+$$
+
+と定まる。いずれの場合も未知入力の分布・評価損失を指定していないので、母集団での予測リスクはこの条件だけでは決まらない。
 <!-- solution-end -->
 
 **問題 SLT2-01-B04（データだけからの予測の限界）**
@@ -453,7 +475,16 @@ $$
 
 と一定である。一方 $x_b$ は核の基底 $(0,0,1,0)^{\mathsf T}$ そのものなので行空間に属さず、$x_b^{\mathsf T}\beta(s,t)=s$ は自由に変わる。
 
-**3.** $X\beta$ の第3成分は必ず第1・第2成分の和である。$y'$ では $4\ne1+2$ だから補間不能。像は平面 $z_3=z_1+z_2$、すなわち $v^{\mathsf T}z=0$（$v=(-1,-1,1)^{\mathsf T}$）であり、$v$ はその法線である。$y'$ から法線方向を引いて $\widehat y=y'-cv$ と置くと、$\widehat y$ が像に入る条件は $0=v^{\mathsf T}(y'-cv)=v^{\mathsf T}y'-c\|v\|_2^2$。$\|v\|_2^2=3$、$v^{\mathsf T}y'=-1-2+4=1$ だから $c=1/3$。残差 $cv$ は像と直交するので、[直交射影の最短距離性](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-nearest-point)によってこの $\widehat y$ が一意の最近点となり、
+**3.** $X\beta$ の第3成分は必ず第1・第2成分の和である。$y'$ では $4\ne1+2$ だから補間不能。像は平面 $z_3=z_1+z_2$、すなわち $v^{\mathsf T}z=0$（$v=(-1,-1,1)^{\mathsf T}$）であり、$v$ はその法線である。
+
+$y'$ から法線方向を引いて $\widehat y=y'-cv$ と置く。$\widehat y$ が像に入る条件は
+
+$$
+0=v^{\mathsf T}\widehat y
+=v^{\mathsf T}y'-c\|v\|_2^2.
+$$
+
+$\|v\|_2^2=3$、$v^{\mathsf T}y'=-1-2+4=1$ だから $c=1/3$。残差 $cv$ は像と直交するので、[直交射影の最短距離性](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-nearest-point)によってこの $\widehat y$ が一意の最近点となり、
 
 $$
 \widehat y=y'-\frac{v^{\mathsf T}y'}{v^{\mathsf T}v}v
