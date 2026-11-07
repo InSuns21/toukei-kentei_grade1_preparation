@@ -1,0 +1,37 @@
+id: "IG3"
+title: "Divergence と局所幾何"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG2
+  - F0-00P7A
+  - OPT1
+official_scope: []
+learning_objectives:
+  - KL divergence の定義域・非負性・零点・非対称性を有限正分布で検算できる
+  - 有限正モデルの KL の定数項・一次項・二次項を出発点から計算し Fisher 計量を得られる
+  - 連続モデルで二階微分と積分の交換に必要な追加仮定を説明できる
+  - 滑らかな局所 divergence の混合二階微分が半正定値形式になることを証明し正定値条件を区別できる
+  - パラメータ変換で誘導二次形式がテンソル変換則を満たすことを証明できる
+  - 正規化した f-divergence の二次係数 f''(1) と Fisher 計量の関係を導出できる
+  - Bernoulli・正規位置族・三値カテゴリカル族で KL の局所展開を直接計算できる
+  - 台が動くモデルや二次退化する divergence の反例で失われる仮定を特定できる
+definitions:
+  - { id: IG3-DEF-01, name: 滑らかな局所 divergence }
+  - { id: IG3-DEF-02, name: 有限正分布の f-divergence }
+theorems:
+  - { id: IG3-THM-01, name: KL divergence の二次近似と Fisher 計量 }
+  - { id: IG3-THM-02, name: divergence の混合二階微分と局所計量 }
+  - { id: IG3-THM-03, name: f-divergence の局所 Fisher 近似 }
+canonical_examples:
+  - Bernoulli 族の KL 非対称性と二次近似
+  - 滑らかな局所 divergence の正定値例と四次退化例
+  - Pearson 型 f-divergence の Bernoulli 計算
+  - 正規位置族の厳密な KL 二次式
+  - 台が動く一様分布族の片側有限・片側無限 KL
+  - 三値カテゴリカル族の二次・三次展開
+problem_patterns: [IG3-A01, IG3-A02, IG3-A03, IG3-A04, IG3-B01, IG3-B02, IG3-B03, IG3-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }

@@ -1,0 +1,39 @@
+chapter: IG3
+scope: dream-theater
+coverage: complete
+prerequisites: [IG2, F0-00P7A, OPT1]
+concepts:
+  - id: information-geometry.kl-local-fisher
+    name: KL divergence の二次近似と Fisher 計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（KL divergence の二次近似と Fisher 計量）"]
+    requires: [stat.kl-divergence, information-geometry.fisher-information, information-geometry.regular-zero-mean-score]
+
+  - id: information-geometry.smooth-divergence
+    name: 滑らかな局所 divergence
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな局所 divergence）"]
+    requires: [stat.kl-divergence]
+
+  - id: information-geometry.divergence-mixed-hessian
+    name: divergence の混合二階微分と局所計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（divergence の混合二階微分と局所計量）"]
+    requires: [information-geometry.smooth-divergence, information-geometry.kl-local-fisher]
+
+  - id: information-geometry.f-divergence
+    name: f-divergence
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限正分布の f-divergence）"]
+    requires: [stat.kl-divergence, information-geometry.positive-simplex, convex.convex-function]
+
+  - id: information-geometry.f-divergence-fisher
+    name: f-divergence の局所 Fisher 近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（f-divergence の局所 Fisher 近似）"]
+    requires: [information-geometry.f-divergence, information-geometry.fisher-information]
