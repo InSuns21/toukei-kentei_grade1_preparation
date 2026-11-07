@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-08（MFL15の密度補正・円周実験完成）
-状態: in_progress（MFL1〜MFL15 完成、MFL16〜MFL43 は未実装）
+改訂日: 2026-11-08（MFL16のDiffusion Maps・熱核距離完成）
+状態: in_progress（MFL1〜MFL16 完成、MFL17〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -330,5 +330,6 @@ MFL14では `kernel_sampling_lab.py` を正本に、既存の `python-file-lab` 
 - **MFL13 completed**：境界なしコンパクト多様体上の内在Gaussian核について、正規座標のJacobian・Gaussianモーメントから $O(\varepsilon)$ の曲率・密度biasと剰余を証明。行正規化後のdrift、円周と球面で内在距離とambient距離の差、9題の詳細解答と決定論的な円周積分実験を追加。
 - **MFL14 completed**：kernel標本平均の分散・集中と一点除外、9題の演習と円周の決定論的再現実験を実装。
 - **MFL15 completed**：alpha密度補正の極限generator・重み付き発散形・有限Markov詳細釣合い・有限bandwidth反例を証明し、9題の詳細解答と不均一円周の再現実験を実装。
-- **MFL16〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- **MFL16 completed**：可逆有限Markov作用素の重み付き固有分解、diffusion distanceと座標の等式、時間減衰・切り捨て上界、GA5熱核距離の固有関数表示、固定次元の時間倍率極限と一般スペクトル一致の停止線を証明。A4/B4/C1の詳細解答、円周・非連結・零固有値の再現実験を実装。
+- **MFL17〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
 - 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。
