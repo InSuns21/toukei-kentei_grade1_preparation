@@ -11,3 +11,4 @@
 8. [ITD8 有限時間の記憶消去：確率流・活動度・余分な散逸](textbook/volumes/dream_thater/物理系/ITD/ITD8/index.md)
 9. [ITD9 自律的な情報流：二部分系の第二法則と定常熱流](textbook/volumes/dream_thater/物理系/ITD/ITD9/index.md)
 10. [ITD10 情報リザーバー：ビット列が運ぶ自由エネルギーと相関の費用](textbook/volumes/dream_thater/物理系/ITD/ITD10/index.md)
+11. [ITD11 連続Langevin経路の時間反転：確率比・ゆらぎ関係・見えない散逸](textbook/volumes/dream_thater/物理系/ITD/ITD11/index.md)

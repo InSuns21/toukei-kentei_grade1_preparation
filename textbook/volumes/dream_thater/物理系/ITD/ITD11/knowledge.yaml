@@ -1,0 +1,50 @@
+chapter: ITD11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD2
+  - ITD7
+  - STO4
+forward_references: []
+concepts:
+  - id: information-thermodynamics.driven-ring-langevin
+    name: 一定駆動の円周Langevin経路と持ち上げ変位
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一定駆動の円周Langevin経路と持ち上げ変位）]
+    requires: [stochastic.brownian-motion, information-thermodynamics.langevin-heat]
+
+  - id: information-thermodynamics.ring-reversed-path
+    name: 円周拡散の正逆経路測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（円周拡散の正逆経路測度）]
+    requires: [information-thermodynamics.driven-ring-langevin, information-thermodynamics.reverse-experiment-ratio, stochastic.path-borel-coordinate-generation]
+
+  - id: information-thermodynamics.langevin-path-ratio
+    name: 円周Langevin経路の時間反転比
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（円周Langevin経路の時間反転比）]
+    requires: [information-thermodynamics.ring-reversed-path, stochastic.brownian-construction]
+
+  - id: information-thermodynamics.langevin-fluctuation
+    name: 連続経路の積分型ゆらぎ関係と平均第二法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（連続経路の積分型ゆらぎ関係と平均第二法則）]
+    requires: [information-thermodynamics.langevin-path-ratio, information-thermodynamics.integral-fluctuation-theorem]
+
+  - id: information-thermodynamics.langevin-displacement-symmetry
+    name: 一様定常状態の変位の詳細ゆらぎ対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一様定常状態の変位の詳細ゆらぎ対称性）]
+    requires: [information-thermodynamics.langevin-fluctuation]
+
+  - id: information-thermodynamics.sign-observation-loss
+    name: 変位の符号しか見ないと散逸を過小評価する
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（変位の符号しか見ないと散逸を過小評価する）]
+    requires: [information-thermodynamics.langevin-displacement-symmetry, information-thermodynamics.coarse-kl-chain]

@@ -46,3 +46,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD10
     status: completed
     title: 情報リザーバー：ビット列が運ぶ自由エネルギーと相関の費用
+  - id: ITD11
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD11
+    status: completed
+    title: 連続Langevin経路の時間反転：確率比・ゆらぎ関係・見えない散逸
