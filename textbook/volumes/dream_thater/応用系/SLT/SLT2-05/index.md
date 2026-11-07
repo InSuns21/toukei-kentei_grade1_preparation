@@ -552,7 +552,7 @@ $$
 
 (iii) 各 $n$ で $p_n=n$ なら[Gaussian Gram 逆跡の補題](../SLT2-04/index.md#lem-slt2-04-gram-inverse)により逆跡の期待値は $+\infty$。$\tau^2>0$ なので $L_{n,n}=+\infty$ である。これは「行列が確率1で特異」という意味ではない。逆行列は確率1で存在するが、その大きさの平均が発散する。
 
-(iv) [Gaussian Gram の二乗平均命題](#prop-slt2-05-gaussian-frobenius)から
+(iv) [Gaussian Gram行列の二乗平均誤差](#prop-slt2-05-gaussian-frobenius)から
 
 $$
 \operatorname{Var}(\operatorname{tr}G_p/p)=\frac2{np}\longrightarrow0.
