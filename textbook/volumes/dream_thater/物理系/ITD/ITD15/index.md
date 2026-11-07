@@ -227,7 +227,7 @@ $$
 $f_t=F_t-\partial_xU_t$ を代入して二式を足すと、$\partial_xU_tV_t$ が相殺され、$\Delta E=\int\partial_tU_tdt+\int F_tV_tdt-Q_{\mathrm{bath}}=W-Q_{\mathrm{bath}}$ です。最初の式を $Q_{\mathrm{bath}}$ について解けば第二式も得られます。
 <!-- proof-end -->
 
-**Itô形での直接検算**：[Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から $d(V_t^2/2)=V_tdV_t+D_vdt$ です。[Itô–Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を $V_t\circ dB_t$ に使うと、浴熱の期待値には雑音の補正が残ります。Itô積分の平均は零なので
+**Itô形での直接検算**：[Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-multidimensional-ito)から $d(V_t^2/2)=V_tdV_t+D_vdt$ です。[Itô–Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を $V_t\circ dB_t$ に使うと、浴熱の期待値には雑音の補正が残ります。Itô積分の平均は零なので
 
 $$
 \begin{aligned}
