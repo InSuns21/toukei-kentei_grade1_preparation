@@ -1,0 +1,49 @@
+id: "ITD7"
+title: "観測しない散逸はどこへ行くか：複数熱浴・粗視化・連続経路"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - ITD2
+  - ITD3
+  - ITD6
+  - INFO2
+  - STO7
+official_scope: []
+learning_objectives:
+  - 浴ラベル付きの遷移と浴熱を定義し、符号と第一法則を経路ごとに検算できる
+  - 時間一様・有限状態の複数浴ジャンプ過程で待ち時間の相殺から経路比と第二法則を導ける
+  - 二状態二浴の定常分布と浴別流束を求め、状態が定常でも散逸が正となることを示せる
+  - 有限経路の粗視化を定義し、条件付き相対エントロピーの分解と等号条件を証明できる
+  - 観測上の可逆性と完全経路の可逆性を反例で区別できる
+  - 過減衰Langevinの仕事とStratonovich熱を定義し、伊藤補正を用いて第一法則を検算できる
+definitions:
+  - { id: ITD7-DEF-01, name: 浴ラベル付きジャンプ経路と浴熱 }
+  - { id: ITD7-DEF-02, name: 粗視化された経路と隠れたエントロピー生成 }
+  - { id: ITD7-DEF-03, name: 過減衰Langevin経路の仕事と浴への熱 }
+theorems:
+  - { id: ITD7-THM-01, name: 複数熱浴の経路比と平均エントロピー生成 }
+  - { id: ITD7-PROP-01, name: 二状態・二熱浴の定常熱流と正の散逸 }
+  - { id: ITD7-THM-02, name: 有限経路の相対エントロピー分解と粗視化下限 }
+  - { id: ITD7-PROP-02, name: 連続経路の第一法則と伊藤補正 }
+canonical_examples:
+  - 二熱浴による励起と緩和の浴熱収支
+  - 定常二状態でも正となる温度差駆動の散逸
+  - 四つの経路を二組に粗視化して隠れる相対エントロピー
+  - 調和ポテンシャルのStratonovich熱と伊藤補正
+problem_patterns:
+  - ITD7-LABELED-HEAT
+  - ITD7-STATIONARY-BATH-CURRENT
+  - ITD7-BATH-ENTROPY
+  - ITD7-COARSE-DIVERGENCE
+  - ITD7-ITO-CORRECTION
+  - ITD7-PATH-RATIO
+  - ITD7-OBSERVED-REVERSIBILITY
+  - ITD7-CONDITIONAL-KL
+  - ITD7-SUPPORT-LOSS
+  - ITD7-DRIVEN-LANGEVIN
+  - ITD7-TWO-BATH-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 4 }

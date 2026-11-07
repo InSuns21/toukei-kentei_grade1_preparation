@@ -1,0 +1,61 @@
+chapter: ITD7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - ITD2
+  - ITD3
+  - ITD6
+  - INFO2
+  - STO7
+forward_references:
+  - quantum.quantum-channel
+concepts:
+  - id: information-thermodynamics.labeled-bath-path
+    name: 浴ラベル付きジャンプ経路と浴熱
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（浴ラベル付きジャンプ経路と浴熱）]
+    requires: [information-thermodynamics.local-detailed-balance, information-thermodynamics.path-work-heat]
+
+  - id: information-thermodynamics.multibath-path-entropy
+    name: 複数熱浴の経路比と平均エントロピー生成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（複数熱浴の経路比と平均エントロピー生成）]
+    requires: [information-thermodynamics.labeled-bath-path, information-thermodynamics.reverse-experiment-ratio, information-thermodynamics.integral-fluctuation-theorem]
+
+  - id: information-thermodynamics.two-bath-steady-current
+    name: 二状態・二熱浴の定常熱流と正の散逸
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二状態・二熱浴の定常熱流と正の散逸）]
+    requires: [information-thermodynamics.multibath-path-entropy]
+
+  - id: information-thermodynamics.coarse-path-observation
+    name: 粗視化された経路と隠れたエントロピー生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（粗視化された経路と隠れたエントロピー生成）]
+    requires: [information-thermodynamics.reverse-experiment-ratio, information.relative-entropy]
+
+  - id: information-thermodynamics.coarse-kl-chain
+    name: 有限経路の相対エントロピー分解と粗視化下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限経路の相対エントロピー分解と粗視化下限）]
+    requires: [information-thermodynamics.coarse-path-observation, information-thermodynamics.two-bath-steady-current]
+
+  - id: information-thermodynamics.langevin-heat
+    name: 過減衰Langevin経路の仕事と浴への熱
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（過減衰Langevin経路の仕事と浴への熱）]
+    requires: [information-thermodynamics.path-work-heat, stochastic.stratonovich-integral]
+
+  - id: information-thermodynamics.stratonovich-balance
+    name: 連続経路の第一法則と伊藤補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（連続経路の第一法則と伊藤補正）]
+    requires: [information-thermodynamics.langevin-heat, stochastic.stratonovich-chain-rule, stochastic.ito-stratonovich-basic-conversion]
