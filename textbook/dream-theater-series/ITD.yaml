@@ -34,3 +34,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD7
     status: completed
     title: 観測しない散逸はどこへ行くか：複数熱浴・粗視化・連続経路
+  - id: ITD8
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD8
+    status: completed
+    title: 有限時間の記憶消去：確率流・活動度・余分な散逸

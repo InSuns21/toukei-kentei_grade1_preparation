@@ -1,0 +1,44 @@
+id: "ITD8"
+title: "有限時間の記憶消去：確率流・活動度・余分な散逸"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - ITD3
+  - ITD5
+  - ITD7
+official_scope: []
+learning_objectives:
+  - 時間依存の有限状態Markovジャンプ過程で確率流・遷移活動度・平均ジャンプ回数を定義し、master方程式と対応付けられる
+  - 瞬間のエントロピー生成率を確率流と率比から導き、単一熱浴の仕事・非平衡自由エネルギー収支に接続できる
+  - 対数不等式とCauchy–Schwarz不等式から散逸・活動度・全変動距離の有限時間下限を全段階証明できる
+  - 二状態記憶の誤り付きresetに有限時間下限を適用し、到達可能性と零活動度の例外を区別できる
+  - 分布変化が零でも循環流の対数比が正となる例を計算し、単一熱浴・局所詳細釣合いの適用不能性を判定できる
+definitions:
+  - { id: ITD8-DEF-01, name: 確率流と遷移活動度 }
+  - { id: ITD8-DEF-02, name: 有限状態の総変動距離 }
+theorems:
+  - { id: ITD8-THM-01, name: 瞬間エントロピー生成率と仕事収支 }
+  - { id: ITD8-LEM-01, name: 対数比と確率流の不等式 }
+  - { id: ITD8-THM-02, name: 有限時間の散逸と活動度の速度限界 }
+  - { id: ITD8-COR-01, name: 誤り付き二状態resetの有限時間仕事下限 }
+canonical_examples:
+  - 二状態の向き付き確率流と活動度
+  - 定常分布と異なる初期分布からの二状態緩和
+  - 一様ビットから誤り付きresetへの全変動距離と活動度による仕事下限
+  - 分布が戻る循環流でも正となる散逸
+problem_patterns:
+  - ITD8-FLUX-ACTIVITY
+  - ITD8-LOG-INEQUALITY
+  - ITD8-TOTAL-VARIATION
+  - ITD8-RESET-BOUND
+  - ITD8-RELAXATION
+  - ITD8-WORK-IDENTITY
+  - ITD8-SPEED-LIMIT
+  - ITD8-RATE-CAP
+  - ITD8-STATIONARY-CURRENT
+  - ITD8-CYCLE-BOUND
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 4 }
