@@ -1,0 +1,40 @@
+id: "MFL18"
+title: "円周の離散→連続スペクトル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL12
+official_scope: []
+learning_objectives:
+  - 周期差分Laplacianを質量内積から再構成し、離散Fourier基底の正規直交性と完全性を証明できる
+  - 零モード、共役周波数の二重固有値、偶数格子のNyquist単独モードを区別できる
+  - 固定波数の固有値誤差をO(N^-2)の明示的上界で導き、三角補間で固有関数を比較できる
+  - 有限周波数のエネルギーと熱作用素の極限を導き、一般スペクトル収束との違いを説明できる
+  - 折り返し周波数と高周波の非一様性を反例・数値実験で確認できる
+definitions:
+  - { id: MFL18-DEF-01, name: 円周格子の正規化離散Fourier基底 }
+  - { id: MFL18-DEF-02, name: 円周格子の三角補間 }
+theorems:
+  - { id: MFL18-THM-01, name: 周期差分の完全固有分解 }
+  - { id: MFL18-THM-02, name: 固定波数の定量的スペクトル近似 }
+  - { id: MFL18-PROP-01, name: 有限帯域のエネルギーと熱作用素の近似 }
+  - { id: MFL18-PROP-02, name: 高周波の折り返しと非一様誤差 }
+canonical_examples:
+  - 四点・五点格子の離散Fourier固有ベクトルと重複度
+  - 偶数格子のNyquistモード
+  - 固定周波数の二次精度と高周波比4/pi^2
+  - サンプルで区別できない異なる連続周波数
+problem_patterns:
+  - MFL18-A01
+  - MFL18-A02
+  - MFL18-A03
+  - MFL18-A04
+  - MFL18-B01
+  - MFL18-B02
+  - MFL18-B03
+  - MFL18-B04
+  - MFL18-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
