@@ -139,7 +139,7 @@ $$
 
 ### 証明の見取り図
 
-行を $p$ 次元の独立標本とみれば [HDP7 の共分散集中](../../../解析系/HDP/HDP7/index.md#thm-hdp7-isotropic-covariance)がそのまま使える。行側の逆 Gram 行列が欲しいときは列を $n$ 次元の独立標本と見る。ただし「行が iid」だけで「列も iid」とは言えない。
+行を $p$ 次元の独立標本とみれば [HDP7 の共分散集中](../../../解析系/HDP/HDP7/index.md#thm-hdp7-isotropic-covariance)がそのまま使える。行側の逆 Gram 行列が欲しいときは列を $n$ 次元の独立標本と見る。ただし行が独立同分布（independent and identically distributed; iid）でも、列まで iid とは限らない。
 
 <!-- proof-start -->
 ### 証明
@@ -271,7 +271,25 @@ $$
 $\operatorname{tr}G_p/p=(np)^{-1}\sum_{i,j}X_{ij}^2$ は $np$ 個の独立な二乗の平均なので、期待値は1、分散は $np\cdot2/(np)^2=2/(np)$ である。$\square$
 <!-- proof-end -->
 
-実対称な $G_p$ の固有値を $\lambda_1,\ldots,\lambda_p$ とすると、直交対角化により $\|G_p-I_p\|_F^2=\sum_j(\lambda_j-1)^2$ である。例えば $p/n\to\gamma>0$ なら、$p^{-1}E\|G_p-I_p\|_F^2=(p+1)/n\to\gamma$ であり、**固有値ごとの平均二乗のずれの期待値は零にならない**。一方で全固有値の平均 $\operatorname{tr}G_p/p$ は分散 $2/(np)\to0$ なので $1$ へ確率収束する。この事実だけで作用素ノルムの確率収束を否定することはできないが、少なくとも「平均が正しいから全方向も正しい」という推論には根拠がない。この違いは過剰パラメータ領域の理解に不可欠である。
+実対称な $G_p$ の固有値を $\lambda_1,\ldots,\lambda_p$ とすると、直交対角化により
+
+$$
+\|G_p-I_p\|_F^2=\sum_{j=1}^p(\lambda_j-1)^2.
+$$
+
+例えば $p/n\to\gamma>0$ なら
+
+$$
+\frac1pE\|G_p-I_p\|_F^2=\frac{p+1}{n}\longrightarrow\gamma>0.
+$$
+
+つまり **固有値ごとの平均二乗のずれの期待値は零にならない**。一方、全固有値の平均の分散は
+
+$$
+\operatorname{Var}(\operatorname{tr}G_p/p)=\frac2{np}\longrightarrow0
+$$
+
+なので、その平均は $1$ へ確率収束する。この事実だけで作用素ノルムの確率収束を否定することはできないが、少なくとも「平均が正しいから全方向も正しい」という推論には根拠がない。この違いは過剰パラメータ領域の理解に不可欠である。
 
 ## 5. 有限標本と比例漸近を切り分ける
 
@@ -339,7 +357,16 @@ $$
 $p_n/n\to\gamma>1$ とノルムの仮定を各項へ使えば (ii) となる。$\square$
 <!-- proof-end -->
 
-例えば $\tau^2=1$、$b^2=4$ とすると、$\gamma=1/2$ の極限リスクは $1$、$\gamma=2$ では核方向の偏り $2$ と雑音分散 $1$ の合計 $3$ である。$\gamma$ が左右から $1$ に近付くと雑音項は大きくなる。ただし **$\gamma=1$ を上の定理へ代入してはいけない**。その近傍は、$p=n-1,n,n+1$ で期待値が無限大になるという[有限標本の発散条件](../SLT2-04/index.md#lem-slt2-04-gram-inverse)を個別に読む必要がある。
+例えば $\tau^2=1$、$b^2=4$ とする。$\gamma=1/2$ の極限リスクと $\gamma=2$ の極限リスクは、それぞれ
+
+$$
+\frac{1/2}{1-1/2}=1,\qquad
+\left(1-\frac12\right)4+\frac1{2-1}=2+1=3.
+$$
+
+後者は核方向の偏り $2$ と雑音分散 $1$ の和である。$\gamma$ が左右から $1$ に近付くと雑音項は大きくなる。
+
+ただし **$\gamma=1$ を上の定理へ代入してはいけない**。その近傍は、$p=n-1,n,n+1$ で期待値が無限大になるという[有限標本の発散条件](../SLT2-04/index.md#lem-slt2-04-gram-inverse)を個別に読む必要がある。
 
 $p$ を固定して $n\to\infty$ とするなら、十分大きな $n$ で $L_{n,p}=\tau^2p/(n-p-1)\to0$ である。したがって「$n$ を増やせばリスクは零になる」は、**次元を固定した場合**には正しくても、$p/n\to\gamma>0$ では一般に正しくない。
 
@@ -525,5 +552,23 @@ $$
 
 (iii) 各 $n$ で $p_n=n$ なら[Gaussian Gram 逆跡の補題](../SLT2-04/index.md#lem-slt2-04-gram-inverse)により逆跡の期待値は $+\infty$。$\tau^2>0$ なので $L_{n,n}=+\infty$ である。これは「行列が確率1で特異」という意味ではない。逆行列は確率1で存在するが、その大きさの平均が発散する。
 
-(iv) $\operatorname{Var}(\operatorname{tr}G_p/p)=2/(np)$ なので、[Chebyshev の不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)から $\operatorname{tr}G_p/p\to1$ は確率収束する。一方 $p/n\to\gamma>0$ なら $p^{-1}E\|G_p-I_p\|_F^2\to\gamma$ である。さらに $\gamma>1$ では $p>n$ だから **確率1で** $\|G_p-I_p\|_{\mathrm{op}}\ge1$。従って少なくとも $\gamma>1$ では作用素ノルム収束は不可能で、跡の平均だけから全方向の安定性は結論できない。$0<\gamma<1$ についても跡の平均の収束だけでは作用素ノルム収束を証明できない。
+(iv) [Gaussian Gram の二乗平均命題](#prop-slt2-05-gaussian-frobenius)から
+
+$$
+\operatorname{Var}(\operatorname{tr}G_p/p)=\frac2{np}\longrightarrow0.
+$$
+
+従って [Chebyshev の不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)から $\operatorname{tr}G_p/p\to1$ は確率収束する。一方、固有値の平均二乗偏差の期待値は
+
+$$
+\frac1pE\|G_p-I_p\|_F^2=\frac{p+1}{n}\longrightarrow\gamma>0.
+$$
+
+さらに $\gamma>1$ では十分大きな $n$ で $p>n$ なので、階数から **確率1で**
+
+$$
+\|G_p-I_p\|_{\mathrm{op}}\ge1.
+$$
+
+従って少なくとも $\gamma>1$ では作用素ノルム収束は不可能で、跡の平均だけから全方向の安定性は結論できない。$0<\gamma<1$ についても跡の平均の収束だけでは作用素ノルム収束を証明できない。
 <!-- solution-end -->
