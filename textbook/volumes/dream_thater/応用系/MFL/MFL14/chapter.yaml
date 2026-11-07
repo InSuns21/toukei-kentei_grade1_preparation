@@ -1,0 +1,43 @@
+id: "MFL14"
+title: "Kernel標本平均のvariance・集中"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL13
+  - F0-00P2A
+official_scope: []
+learning_objectives:
+  - 独立したtest点でのkernel標本平均と母平均を区別し期待値を求められる
+  - Gaussian核の二乗積分からvarianceのnとεの尺度を導ける
+  - 有界変数のBernstein型集中界の証明とkernelへの代入を再現できる
+  - 分母の確率的下界を確認して行正規化した推定量の誤差を評価できる
+  - 標本点上ではleave-one-outで条件付き独立性を回復し対角項を比較できる
+  - nとεの同時極限の十分条件をbiasとvarianceから導き強いスペクトル結論と区別できる
+definitions:
+  - { id: MFL14-DEF-01, name: kernel標本平均と行正規化推定量 }
+  - { id: MFL14-DEF-02, name: 標本点でのleave-one-out核平均 }
+theorems:
+  - { id: MFL14-PROP-01, name: kernel標本平均の二次モーメントと分散 }
+  - { id: MFL14-LEM-01, name: 有界独立変数のBernstein型不等式 }
+  - { id: MFL14-THM-01, name: kernel行正規化推定量の集中 }
+  - { id: MFL14-PROP-02, name: leave-one-out集中と対角項の差 }
+  - { id: MFL14-COR-01, name: 核generatorの同時極限の十分条件 }
+canonical_examples:
+  - 一次元Gaussian核の二乗積分と有効標本数
+  - 定数関数で分子分母の確率変動が厳密に相殺する例
+  - 円周の標本点でのleave-one-outと自己重み
+  - bandwidthを速く縮めすぎたときの不安定性
+problem_patterns:
+  - MFL14-A01
+  - MFL14-A02
+  - MFL14-A03
+  - MFL14-A04
+  - MFL14-B01
+  - MFL14-B02
+  - MFL14-B03
+  - MFL14-B04
+  - MFL14-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.5, review: 2.0 }
