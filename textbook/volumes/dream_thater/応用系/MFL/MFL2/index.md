@@ -474,7 +474,11 @@ $$
 - Level: B
 - 目安時間: 25分
 
-半径 $R$ を固定し $\alpha\downarrow0$ とする。(1) 弦長を $\alpha^5$ の項まで展開せよ。(2) $\lim_{\alpha\downarrow0}(d_M-d_{\mathrm{ext}})/\alpha^3$ を求めよ。(3) $d_{\mathrm{ext}}/d_M\to1$ は全周で距離が等しいことを意味するか。
+半径 $R$ を固定し $\alpha\downarrow0$ とする。
+
+1. 弦長を $\alpha^5$ の項まで展開せよ。
+2. $\lim_{\alpha\downarrow0}(d_M-d_{\mathrm{ext}})/\alpha^3$ を求めよ。
+3. $d_{\mathrm{ext}}/d_M\to1$ は全周で距離が等しいことを意味するか。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -496,7 +500,11 @@ $$
 - Level: B
 - 目安時間: 25分
 
-$F(u,v)=(u,v,\kappa uv)$、$\kappa\ne0$ とする。(1) 原点での接平面と $G$ を求めよ。(2) 任意の $h=(h_1,h_2)$ に対して二階微分の上界 $\|D^2F[h,h]\|\le|\kappa|\|h\|^2$ を証明せよ。(3) 原点からの接平面距離の上界を示し、どの方向で等号になるか調べよ。
+$F(u,v)=(u,v,\kappa uv)$、$\kappa\ne0$ とする。
+
+1. 原点での接平面と $G$ を求めよ。
+2. 任意の $h=(h_1,h_2)$ に対して二階微分の上界 $\|D^2F[h,h]\|\le|\kappa|\|h\|^2$ を証明せよ。
+3. 原点からの接平面距離の上界を示し、どの方向で等号になるか調べよ。
 
 <!-- solution-start -->
 #### 詳細解答
