@@ -459,7 +459,7 @@ $$
 =\sqrt{1+(1+\eta)^2-2(1+\eta)\cos(G/2)}.
 $$
 
-逆向きは各 $Y_i$ の単位円までの距離が $\operatorname{dist}(Y_i,S^1)=\eta$ である。上の平方根は $G>0$ より $\eta$ 以上だから、[Hausdorff距離の二方向の定義](#def-mfl4-hausdorff)を使って
+逆向きは各 $Y_i$ の単位円までの距離が $\operatorname{dist}(Y_i,S^1)=\eta$ である。上の平方根は $G>0$ より $\eta$ 以上だから、[Hausdorff距離](#def-mfl4-hausdorff)の二方向の定義を使って
 
 $$
 d_H(S^1,T_n)=
@@ -692,7 +692,22 @@ $0<\eta<1$ とし、模型Aでは真の単位円の一様点 $X_i$ に $\xi_i=\e
 <!-- solution-start -->
 #### 詳細解答
 
-1. [半径 $R$ の円周の弧長要素](../MFL1/index.md#def-mfl1-01-clean-sample)は $R\,d\theta$、一様角度密度は $1/(2\pi)$ なので弧長密度は $1/(2\pi R)>0$。模型Aは $1/(2\pi)$、模型Bは $1/(2\pi(1+\eta))$。模型Aのノイズ長は $\|\eta X_i\|=\eta$、模型Bは0でともに上界 $\eta$ を満たす。[円周の最近点とreach](../MFL3/index.md#prop-mfl3-circle-reach)から模型Aのreachは1。
+1. [半径 $R$ の円周の弧長要素](../MFL1/index.md#def-mfl1-01-clean-sample)は $R\,d\theta$。一様角度密度 $1/(2\pi)$ を弧長測度に関する密度へ変換すると
+
+   $$
+   p_R\,R\,d\theta=\frac{1}{2\pi}\,d\theta,
+   \qquad p_R=\frac{1}{2\pi R}>0.
+   $$
+
+   模型Aでは $R=1$、模型Bでは $R=1+\eta$ なので、対応する密度はそれぞれ $1/(2\pi)$ と $1/(2\pi(1+\eta))$ である。さらにノイズ長とreachは
+
+   $$
+   \|\xi_i\|=\|\eta X_i\|=\eta,\qquad
+   \|\xi'_i\|=0,\qquad
+   \operatorname{reach}(M_A)=1.
+   $$
+
+   最後の等式は[円周の最近点とreach](../MFL3/index.md#prop-mfl3-circle-reach)による。両模型は同じノイズ上界 $\eta$ を満たす。
 
 2. 同じ独立一様角度 $\Theta_i$ で $X_i=(\cos\Theta_i,\sin\Theta_i)$、$X'_i=(1+\eta)(\cos\Theta_i,\sin\Theta_i)$ と構成すると
 
