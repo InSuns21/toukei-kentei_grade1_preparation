@@ -25,11 +25,13 @@ $$
 
 まず $x\in M$ を固定し、$X_1,\ldots,X_n$ とは別に選ぶ。$x$ 自身が確率的な test 点でも、**標本と独立**なら、$x$ を条件として固定した後に以下の計算ができる。核の値に $f(X_j)$ を掛けたものを平均し、重みだけの平均で割ると、行正規化した推定量になる。
 
+以下の $\mathbb E[\,\cdot\mid x]$ と $\operatorname{Var}(\,\cdot\mid x)$ は、評価点が $x$ と分かった条件の下で標本について取る期待値と分散を表す。$x$ が初めから固定されている場合には、通常の期待値・分散と同じである。
+
 <a id="def-mfl14-empirical"></a>
 
 <!-- formal-statement-start -->
 > **定義（kernel標本平均と行正規化推定量）**  
-> 境界なしコンパクト $d$ 次元Riemann多様体 $M$ 上で、$X_1,\ldots,X_n$ を密度 $p$ に従う独立同分布の標本、$x\in M$ を標本から独立な評価点、$\varepsilon>0$、$f:M\to\mathbb R$ を有界な可測関数とする。[内在Gaussian核](../MFL13/index.md#def-mfl13-kernel)を用い、
+> 境界なしコンパクト $d$ 次元Riemann多様体 $M$ 上で、$X_1,\ldots,X_n$ を密度 $p$ に従う独立同分布の標本、$x\in M$ を評価点、$\varepsilon>0$、$f:M\to\mathbb R$ を有界な可測関数とする。[内在Gaussian核](../MFL13/index.md#def-mfl13-kernel)を用い、
 >
 $$
 \widehat T_{n,\varepsilon}f(x)=\frac1n\sum_{j=1}^n k_\varepsilon(x,X_j)f(X_j),\qquad
@@ -45,6 +47,8 @@ $$
 >
 > と呼ぶ。Gaussian核は全点で正なので、$n\ge1$ なら分母は各標本について正である。
 <!-- formal-statement-end -->
+
+この式は任意の評価点 $x$ で定義でき、標本自身の点 $x=X_i$ にも使える。ただし**定義できることと独立標本として集中界を適用できることは別**である。第3〜5節は $x$ が固定または標本から独立な場合に限り、標本点の場合は第6節で扱う。
 
 対応する母平均は $T_\varepsilon^pf(x)=\int k_\varepsilon(x,y)f(y)p(y)\,dV_g(y)$、分母の母平均は $q_\varepsilon(x)=T_\varepsilon^p1(x)$ であり、連続の行正規化は $P_\varepsilon^pf=T_\varepsilon^pf/q_\varepsilon$ である。「標本平均の比」と「母平均の比」は別の対象だ。
 
@@ -133,7 +137,14 @@ $pf^2\in C^3(M)$ だから[内在核のbias定理](../MFL13/index.md#thm-mfl13-b
 
 **尺度を読む。** 核の高さは $\varepsilon^{-d/2}$、主な近傍の体積は $\varepsilon^{d/2}$。二乗すると高さの二乗が残るため、二次モーメントが $\varepsilon^{-d/2}$ となる。分散が小さいための基本条件は $n\varepsilon^{d/2}\to\infty$ で、$n\varepsilon^{d/2}$ を「有効標本数」の尺度と呼ぶ。ただしこれは実際にその整数個が必ず入るという意味ではない。
 
-**一次元の検算。** 平坦な直線上で密度と $f$ を局所的に一定とみなす場合、$\int_\mathbb R k_\varepsilon(x,y)^2dy=(8\pi\varepsilon)^{-1/2}$。一方 $\int k_\varepsilon dy=1$。$\varepsilon$ を4分の1にすると、二乗積分は2倍になり、同じ $n$ でも分散が大きくなる。
+**一次元の検算。** 平坦な直線上で密度と $f$ を局所的に一定とみなす場合、二乗核恒等式と[Gaussianの零次モーメント](../MFL13/index.md#lem-mfl13-moments)から
+
+$$
+\int_\mathbb R k_\varepsilon(x,y)^2\,dy=(8\pi\varepsilon)^{-1/2},
+\qquad\int_\mathbb R k_\varepsilon(x,y)\,dy=1.
+$$
+
+$\varepsilon$ を4分の1にすると、二乗積分は2倍になり、同じ $n$ でも分散が大きくなる。
 
 ## 4. 分散から「高確率で近い」へ
 
@@ -230,7 +241,7 @@ $$
 \widehat q_{n,\varepsilon}\ge q_\varepsilon-t\ge p_{\min}/4.
 $$
 
-$\mu=T_\varepsilon^pf$、$q=q_\varepsilon$ と置く。母平均の比 $\mu/q=P_\varepsilon^pf$ は正の核重みを正規化した $f$ の加重平均なので $|\mu/q|\le F$。差を**同じ分母**へ揃えると
+$\mu=T_\varepsilon^pf$、$q=q_\varepsilon$ と置く。以下の計算では $\widehat T=\widehat T_{n,\varepsilon}f(x)$、$\widehat q=\widehat q_{n,\varepsilon}(x)$ と添字・引数を省略する。母平均の比 $\mu/q=P_\varepsilon^pf$ は正の核重みを正規化した $f$ の加重平均なので $|\mu/q|\le F$。差を**同じ分母**へ揃えると
 
 $$
 \begin{aligned}
@@ -250,6 +261,8 @@ $$
 ## 6. 標本点そのものではleave-one-outを使う
 
 今度は $x=X_i$ とする。このままでは $k_\varepsilon(X_i,X_i)$ という項があり、$X_i$ を固定した条件の下で「$n$ 個すべてが独立な $p$ からの標本」とは言えない。評価する点を平均から除く **leave-one-out（一点除外）** を導入する。
+
+独立同分布性から、$X_i=x$ と条件付けても残りの点 $X_j$（$j\ne i$）の同時密度は $\prod_{j\ne i}p(y_j)$ のままである。従って、除外後の $n-1$ 項については、評価点を固定した第2〜5節の議論を適用できる。
 
 <a id="def-mfl14-loo"></a>
 
@@ -412,11 +425,11 @@ $$
 
 ### 再現実験：分散・行正規化・leave-one-out・帯域
 
-単位円周 $S^1$ に角度一様な独立標本を置き、内在距離（短い方の円弧長）から Gaussian 核を作る。関数は $f(\theta)=\cos\theta$、独立な評価点は角度 $0$ とし、$\Delta_gf(0)=-1$ が既知である。以下の実験は、標本平均・正規化比・一点除外・generator の誤差を**毎回新しい標本で再計算**する。乱数生成の開始値を固定するのは結果を再現するためで、偶然の当たり外れを消すものではない。
+単位円周 $S^1$ に角度一様な独立標本を置き、内在距離（短い方の円弧長）から Gaussian 核を作る。関数は $f(\theta)=\cos\theta$、独立な評価点は角度 $0$ とする。[円周のLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)の式に半径 $R=1$ を代入すると、角度 $\theta$ に関する二階微分 $\Delta_gf=f_{\theta\theta}=-\cos\theta$ なので $\Delta_gf(0)=-1$ である。以下の実験は、標本平均・正規化比・一点除外・generator の誤差を**毎回新しい標本で再計算**する。乱数生成の開始値を固定するのは結果を再現するためで、偶然の当たり外れを消すものではない。
 
 1. **分散**：$n$ を固定して $\varepsilon$ を変える。標本平均の実測分散を、[二次モーメントの公式](#prop-mfl14-variance)で求めた理論分散（円周上で数値積分）と比べ、$n\sqrt\varepsilon$ を掛けた尺度も確かめる。
 2. **行正規化**：$n$ を増減させ、$\widehat q$ の実測最小値と $\widehat P$ のRMSEを見る。実測の最小値は[確率的分母下界](#thm-mfl14-ratio)そのものではない。
-3. **一点除外**：同じ点群の $\widehat P f(X_i)$ と $\widehat P^{(-i)}f(X_i)$ を比較し、自己重みが占める割合と[対角項の差の恒等式](#prop-mfl14-loo)の数値残差を確認する。
+3. **一点除外**：同じ点群の $\widehat P_{n,\varepsilon}f(X_i)$ と $\widehat P_{-i,\varepsilon}f(X_i)$ を比較し、自己重みが占める割合と[対角項の差の恒等式](#prop-mfl14-loo)の数値残差を確認する。
 4. **同時極限**：$\varepsilon=n^{-a}$ で $a=0.25$ と $a=0.50$ を比較し、generator誤差と $n\varepsilon^{5/2}/\log n$ を観察する。後者が0へ向かうことは「必ず発散する」という結論ではない。
 
 ```python-file-lab
@@ -442,7 +455,14 @@ $$
 - Level: A
 - 問題: 一次元の $k_\varepsilon(x,y)=(4\pi\varepsilon)^{-1/2}e^{-(x-y)^2/(4\varepsilon)}$ について、$k_\varepsilon^2=(8\pi\varepsilon)^{-1/2}k_{\varepsilon/2}$ を代入して検算し、$\int_\mathbb R k_\varepsilon(x,y)^2dy$ を求めよ。
 
-**詳細解答**。$k_{\varepsilon/2}(x,y)=(2\pi\varepsilon)^{-1/2}e^{-(x-y)^2/(2\varepsilon)}$ である。係数の積は $(8\pi\varepsilon)^{-1/2}(2\pi\varepsilon)^{-1/2}=(4\pi\varepsilon)^{-1}$、指数は $k_\varepsilon^2$ と一致する。$s=(y-x)/\sqrt{2\varepsilon}$ と置くと $\int k_{\varepsilon/2}(x,y)dy=(2\pi)^{-1/2}\int_\mathbb R e^{-s^2/2}ds=1$。従って求める値は $(8\pi\varepsilon)^{-1/2}$。
+**詳細解答**。$k_{\varepsilon/2}(x,y)=(2\pi\varepsilon)^{-1/2}e^{-(x-y)^2/(2\varepsilon)}$ である。係数の積は $(8\pi\varepsilon)^{-1/2}(2\pi\varepsilon)^{-1/2}=(4\pi\varepsilon)^{-1}$、指数は $k_\varepsilon^2$ と一致する。$s=(y-x)/\sqrt\varepsilon$ と置けば $dy=\sqrt\varepsilon\,ds$、$(x-y)^2/(2\varepsilon)=s^2/2$ だから
+
+$$
+\int_\mathbb R k_{\varepsilon/2}(x,y)\,dy
+=\frac1{\sqrt{2\pi}}\int_\mathbb R e^{-s^2/2}\,ds=1.
+$$
+
+最後の積分は[Gaussianの零次モーメント](../MFL13/index.md#lem-mfl13-moments)を次元 $d=1$、帯域 $\varepsilon/2$ に適用したものでもある。従って求める値は $(8\pi\varepsilon)^{-1/2}$。
 
 <a id="ex-mfl14-a02"></a>
 
@@ -520,7 +540,7 @@ $$
 +\frac\mu q\frac{q-\widehat q}{\widehat q}
 $$
 
-なので、絶対値は $t/(a/2)+Ft/(a/2)=2(1+F)t/a$ 以下。$F=0$ なら $f\equiv0$ で $\mu=\widehat T=0$、実際の誤差は0である。上界 $2t/a$ は正でも矛盾しない。上界が最良であるとは主張していない。
+なので、絶対値は $t/(a/2)+Ft/(a/2)=2(1+F)t/a$ 以下。ここで問題の仮定 $|\mu/q|\le F$ **だけ**からは、$F=0$ でも $\mu=0$ と分かるにとどまり、$\widehat T=0$ は従わない。実際、$q=\widehat q=a$、$\mu=0$、$\widehat T=t$ とすれば誤差は $t/a$ で、上界 $2t/a$ と整合する。一方、追加で $F=\|f\|_\infty=0$ と仮定した場合には $f\equiv0$、$\mu=\widehat T=0$ となって誤差は厳密に0である。
 
 <a id="ex-mfl14-b04"></a>
 

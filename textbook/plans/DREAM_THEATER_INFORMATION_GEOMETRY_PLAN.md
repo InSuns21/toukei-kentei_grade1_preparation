@@ -1,6 +1,7 @@
 # DREAM THEATER 情報幾何計画
 
 作成日: 2026-10-05  
+改訂日: 2026-11-08（標準教科書・公開シラバスと照合、全14講に確定）  
 状態: planned  
 移行元: \`DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md\` 旧 U5
 
@@ -17,6 +18,8 @@
 自然勾配、変分推論、機械学習、統計物理などの応用は扱うが、章構成の主軸は Riemann 計量・affine connection・dual flatness などの数学的構造に置く。
 
 公開上は「応用系」ではなく、微分幾何と統計を接続する **幾何系の発展科目**を第一候補とする。
+
+**確定講義数は全14講（IG1--IG14）**。1講は一つの中心問いを扱う独習用の章単位であり、90分授業・15週制への機械的な対応ではない。IG1--IG10 が数学的中核、IG11--IG12 が推定・最適化への接続、IG13--IG14 が曲率・不変性の発展理論となる。
 
 ---
 
@@ -102,163 +105,145 @@ $$
 
 ---
 
-## 4. コース構成
+## 4. 確定カリキュラム（全14講）
 
-仮 ID は IG1--IG8 とする。
+標準的な情報幾何の構成を「統計モデルと計量 → divergence の局所構造 → 指数型・混合型の凸構造 → 接続と双対性 → 双対平坦性と射影 → 応用 → 曲率と特徴付け」の順に再編する。各講は独立した主要な証明責務と検算例を持つ。後半の高度な一般論を初学者へ無条件に要求しない。
 
-### IG1 statistical manifold と Fisher--Rao 計量
+### 第I部：統計モデル・計量・divergence（IG1--IG3）
 
-中心内容:
+#### IG1 統計モデルと接空間
 
-- statistical model と parameter space
-- regular model
-- tangent vector を score で表す見方
-- Fisher information matrix
-- positive definiteness / degeneracy
-- reparameterization
-- Fisher metric
-- Bernoulli family
-- categorical simplex
-- 1 次元正規分布族
-- 位置・尺度族の例
+**中心問い**：確率分布の滑らかな族を、いつ多様体として扱えるか。
 
-座標変換 $\eta=\eta(\theta)$ の Jacobian を用いて
+- 有限標本空間の正の確率単体から開始し、局所的に識別可能なパラメータ付けと接ベクトルを導入する。
+- 正則な支配測度付きモデルの仮定（共通台、微分と積分の交換、有限な score 二乗積分）を定める。モデルの単射性・浸入性と単なる座標の重複を区別する。
+- score による接ベクトル表現、$E_\theta[\partial_i\ell_\theta]=0$ を正規化条件の微分から導く。確率単体の接空間では成分和が0となる。
+- **証明・演習の核**：Bernoulli とカテゴリカル分布で接ベクトルと score を直接計算し、正則性が破れる境界・退化パラメータ例を比較する。
 
-$$
-g^{(\eta)}
-=
-J^\mathsf T g^{(\theta)}J
-$$
+#### IG2 Fisher--Rao 計量と座標不変性
 
-が現れることを追い、Fisher 情報行列が Riemann 計量として変換する理由を示す。
+**中心問い**：score の内積は、なぜ座標に依らない幾何を定めるか。
 
-### IG2 divergence の局所幾何
+- Fisher 行列の非負定値性と正定値性を区別し、score の一次独立性（$L^2$ での非退化性）を明示する。
+- パラメータ変換での score の連鎖律と $g'=J^{\mathsf T}gJ$ を導出し、可逆な Jacobian を仮定する。
+- Fisher--Rao 長さと距離、統計モデルへの制限による計量を導入する。
+- **証明・演習の核**：Bernoulli・カテゴリカル・$N(\mu,\sigma^2)$ の計量を出発点から計算する。正規分布の曲率の証明は IG13 へ送る。
 
-中心内容:
+#### IG3 Divergence と局所幾何
 
-- KL divergence
-- divergence は距離ではないこと
-- diagonal 上での 1 次微分の消失
-- 2 次微分から metric が現れること
-- KL divergence の局所 2 次近似
-- Fisher metric との一致
-- f-divergence の入口
-- data processing / monotonicity の幾何への入口
+**中心問い**：非対称な分布の隔たりから、なぜ二次形式が生じるか。
 
-「KL を Taylor 展開すると Fisher」と一行で済ませず、どの変数をどの点のまわりで展開し、正規化条件がどの項を消すかを示す。
+- KL divergence の定義域・有限性・非対称性、対角線上での非負性と0、滑らかさの必要条件を確認する。
+- $D_{\mathrm{KL}}(p_\theta\Vert p_{\theta+\delta})$ の0次・1次・2次項を正規化条件と微分積分交換から順に導き、$\frac12 g_{ij}\delta^i\delta^j+o(\|\delta\|^2)$ を得る。
+- 一般 divergence の混合二階微分が計量を与える条件を整理する。$f$-divergence の二次近似は正規化 $f(1)=f'(1)=0$ と $f''(1)>0$ を明示し、一般論の入口とする。
+- **証明・演習の核**：Bernoulli と正規位置族の KL 展開、台・境界の反例。三階微分から接続が現れる議論は IG7 で完結させる。
 
-### IG3 指数型分布族・混合族・凸ポテンシャル
+### 第II部：指数型・混合型の凸幾何（IG4--IG5）
 
-中心内容:
+#### IG4 指数型分布族と混合型分布族
 
-- exponential family
+**中心問い**：どの確率分布族に自然なアファイン座標があるか。
 
-$$
-p(x;\theta)
-=
-\exp\{
-\theta\cdot F(x)-\psi(\theta)+k(x)
-\}
-$$
+- 正則な指数型分布族の自然パラメータ、十分統計量、対数分配関数 $\psi$ の定義域と正則性を定める。
+- $\partial_i\psi=E_\theta[F_i]$ と $\partial_i\partial_j\psi=\operatorname{Cov}_\theta(F_i,F_j)=g_{ij}$ を、微分積分交換を明記して導く。
+- 有限確率単体の混合座標と混合型分布族を導入し、「混合型」と「指数型の曲がった部分族」を同一視しない。
+- **証明・演習の核**：Bernoulli、Poisson、正規分布の指数型表示と $\psi$ の微分、カテゴリカル分布の混合座標。
 
-- natural parameter
-- log-partition function
-- expectation parameter
-- $\nabla\psi(\theta)=\eta$
-- Hessian と Fisher metric
-- convexity
-- Legendre duality
-- mixture family
-- e-coordinate / m-coordinate
+#### IG5 Legendre 双対と Hessian 構造
 
-指数型分布族の統計学的性質の再証明ではなく、$\psi$ と Legendre 双対から幾何構造がどう生じるかを主役にする。
+**中心問い**：自然パラメータと期待値パラメータの二つの座標をどう結ぶか。
 
-### IG4 affine connection と双対接続
+- $\eta=\nabla\psi(\theta)$、厳密凸性・正定値 Hessian による局所可逆性、正則性条件を確認する。
+- 双対ポテンシャル $\varphi(\eta)=\theta\cdot\eta-\psi(\theta)$ と Legendre 双対、$g=\nabla^2\psi$、双対座標での逆計量を導く。
+- Hessian 計量とアファイン座標の関係を準備し、接続の存在・平坦性そのものは IG6--IG8 で示す。
+- **証明・演習の核**：Bernoulli の log-partition と負エントロピー、カテゴリカルの双対座標。非最小表示・境界で可逆性が失われる反例。
 
-中心内容:
+### 第III部：接続・双対平坦性・射影（IG6--IG10）
 
-- affine connection
-- covariant derivative の意味
-- torsion
-- metric compatibility との違い
-- dual connections
-- Amari の $\alpha$-connections
-- $\alpha=0$ と Levi-Civita connection
-- $\alpha=\pm1$ の exponential / mixture connection
-- Christoffel symbols の statistical expression
-- cubic tensor / Amari--Chentsov tensor
+#### IG6 アファイン接続と統計的測地線
 
-一般接続論は GEO の正本を参照し、本章では統計モデル上での構成と duality を扱う。
+**中心問い**：計量だけでは区別できない「まっすぐさ」をどう記述するか。
 
-### IG5 双対平坦性・測地線・Pythagorean theorem
+- GEO の共変微分・接続係数・座標変換・曲率・捩率の既習定義へ接続し、統計モデルへの制限を確認する。
+- 接続と測地線、平行移動、捩率零、Levi-Civita 接続の役割を区別する。座標係数の変換則を具体例で追う。
+- **証明・演習の核**：1次元族での接続係数と測地線の座標変換。計量の Christoffel 記号と一般接続係数の取り違えを防ぐ。
 
-中心内容:
+#### IG7 双対接続・$\alpha$-接続と三次テンソル
 
-- flat affine connection
-- dually flat manifold
-- primal / dual affine coordinates
-- convex potential
-- e-geodesic
-- m-geodesic
-- canonical divergence
-- generalized Pythagorean theorem
-- orthogonality
-- e-projection / m-projection
+**中心問い**：確率モデルに、互いに双対な二つの接続が現れる理由は何か。
 
-有限カテゴリカル分布と指数型分布族を代表例にし、抽象定義から projection theorem まで紙上で追える構成にする。
+- $Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_X^*Z)$ を出発点に dual connection を定義し、二重双対と Levi-Civita 接続との関係を示す。
+- Amari--Chentsov 三次テンソル $T_{ijk}=E[\partial_i\ell\,\partial_j\ell\,\partial_k\ell]$ と $\alpha$-connection を導入し、$\nabla^{(\alpha)}$ と $\nabla^{(-\alpha)}$ が双対であること、$\alpha=0$ が Levi-Civita、$\alpha=+1$ が e、$\alpha=-1$ が m である符号規約を固定する。
+- divergence の三階微分から接続が誘導されることを導く。一般の曲がった統計モデルでは e/m 接続が自動的に平坦とは限らない。
+- **証明・演習の核**：Bernoulli と正規位置尺度族の接続係数を計算し、双対性・符号を直接照合する。
 
-### IG6 情報射影・推定との接続
+#### IG8 双対平坦性と e/m 測地線
 
-中心内容:
+**中心問い**：なぜ指数型分布族に二種類の直線があるか。
 
-- maximum entropy
-- KL projection
-- moment constraints
-- exponential family への射影
-- MLE と information projection
-- Bregman divergence
-- iterative projection の入口
-- sufficient statistic との関係
+- 平坦かつ捩率零の接続、アファイン座標、dually flat manifold の定義と Hessian ポテンシャルによる構成を示す。
+- 正則な全指数型分布族の e-平坦性と、その双対 m-平坦性を適切な開集合・可逆座標のもとで導く。有限単体の混合測地線と指数測地線の式を比較する。
+- 埋め込まれた曲がった指数型部分モデルと、全指数型分布族・混合型部分モデルの違いを区別する。
+- **証明・演習の核**：カテゴリカル単体の $p_t=(1-t)p_0+tp_1$ と正規化された幾何補間を実際に求める。
 
-統計推定の結果を単に引用するのではなく、どの affine submanifold への射影として解釈できるかを明示する。
+#### IG9 正準 divergence と Bregman 幾何
 
-### IG7 自然勾配・最適化
+**中心問い**：双対座標とポテンシャルは、どんな隔たりを自然に定めるか。
 
-中心内容:
+- 双対平坦多様体上の canonical divergence と Bregman divergence を導き、非負性と（厳密凸性の下での）零点を証明する。
+- 向きを固定して $D_\psi(\theta:\theta')=\psi(\theta)-\psi(\theta')-\nabla\psi(\theta')\cdot(\theta-\theta')=D_{\mathrm{KL}}(p_{\theta'}\Vert p_\theta)$ を正則な指数型分布族で導く。一般多様体で canonical divergence = KL と誤認しない。
+- 双対ポテンシャルでの表現と三点恒等式を導き、IG10 の直交・射影へ接続する。
+- **証明・演習の核**：Bernoulli の KL/Bregman の向き、二次ポテンシャルの Euclid 距離。
 
-- Euclid gradient の座標依存性
-- Riemannian gradient
-- natural gradient
+#### IG10 一般化 Pythagoras と情報射影
 
-$$
-\widetilde\nabla L(\theta)
-=
-G(\theta)^{-1}\nabla L(\theta)
-$$
+**中心問い**：KL の「直角」と最短の射影は、どの仮定の下で成り立つか。
 
-- steepest descent の計量依存性
-- KL trust region からの導出
-- reparameterization invariance
-- mirror descent / Bregman geometry との接続
-- stochastic natural gradient の入口
+- 双対測地線の直交条件と Bregman 三点恒等式から一般化 Pythagorean identity を証明する。
+- e/m アファイン集合への射影の向き、存在・一意性に必要な凸性・閉性・内部性・正則性を適宜整理し、局所直交と大域最小化を混同しない。
+- forward/reverse KL、e-projection/m-projection の用語・引数順を明示し、教科書間の命名差による誤読を防ぐ。
+- **証明・演習の核**：有限カテゴリカル分布の線形制約への射影と Pythagorean identity を成分計算で検算する。
 
-機械学習応用は扱うが、natural gradient の数値テクニック集にはしない。
+### 第IV部：統計・最適化への接続（IG11--IG12）
 
-### IG8 高度な構造と特徴付け
+#### IG11 MLE・最大エントロピーと情報射影
 
-中心内容:
+**中心問い**：統計推定は何をどの集合へ射影しているか。
 
-- monotone metric の考え方
-- Markov morphism
-- Fisher metric の特徴付け
-- Čencov theorem の主張と意味
-- $\alpha$-divergence
-- curvature
-- curved exponential family
-- statistical curvature
-- semiparametric / infinite-dimensional information geometry への出口
+- 有限標本空間の経験分布と正則モデルについて、MLE を KL 最小化として厳密に導く（支持と境界・解の存在に注意）。
+- 線形モーメント制約下での相対エントロピー最小化／最大エントロピーと指数型解、Lagrange 乗数・双対性・射影の対応を証明する。
+- 十分統計量・モーメント一致・反復射影の入口を扱う。EM・IPF の一般収束証明は別テーマとし、等式だけから収束を主張しない。
+- **証明・演習の核**：カテゴリカル制約下の最大エントロピーと指数型 MLE。
 
-Čencov theorem の完全証明は必要前提が大きい。実装時に証明を閉じる範囲を監査し、完全証明を載せない場合は intentional black box として追加前提・射程を明示する。
+#### IG12 自然勾配・KL trust region・mirror descent
+
+**中心問い**：分布の幾何を尊重した最急降下はどう得られるか。
+
+- 接空間での Riemannian gradient と $\widetilde\nabla L=G^{-1}\nabla L$、変数変換不変性を導出する。退化計量の場合の適用不能性を明記する。
+- 微小 KL 制約付き一次最適化から自然勾配方向を導く。mirror descent は Bregman/prox 更新の仮定と連続時間・局所近似の対応を区別する。
+- **証明・演習の核**：Bernoulli/カテゴリカルの自然勾配、logit 変換、二次近似の有効範囲。巨大モデルの実装技法は対象外。
+
+### 第V部：曲率・特徴付け（IG13--IG14）
+
+#### IG13 曲率と曲がった統計モデル
+
+**中心問い**：双対平坦性と Riemann 曲率は両立し得るか。
+
+- Levi-Civita 曲率と $\alpha$-接続の曲率を区別し、「e/m 平坦」から Riemann 平坦を結論しない。
+- $N(\mu,\sigma^2)$ の Fisher 計量から Gaussian 曲率 $K=-1/2$（採用した計量正規化で）を計算する。
+- curved exponential family を全指数型分布族の部分モデルとして定義し、誘導計量・誘導接続と外在的な曲がりの関係を具体例から説明する。統計曲率は範囲・必要前提を明記して入口に留める。
+- **証明・演習の核**：正規位置尺度族の曲率、全族と制限部分族での接続の比較。
+
+#### IG14 情報単調性・Fisher 計量の特徴付け
+
+**中心問い**：確率的な粗視化を許すと、計量はどこまで一意に定まるか。
+
+- 有限確率単体上の Markov kernel・確率写像・情報単調性を定義し、データ処理不等式を有限和と Jensen 不等式から導く。
+- Fisher 計量の確率写像下での縮小性、Čencov の特徴付け定理の正確な射程（正の有限単体族、Markov morphism 等に関する不変性、定数倍までの一意性）を示す。一般無限次元へ無条件に拡張しない。
+- $\alpha$-divergence、$f$-divergence と不変性の関係を整理する。Čencov 定理の完全証明が所定の前提だけで閉じない場合は、証明済み有限モデルの範囲と追加前提を明示した intentional black box として扱う。
+- **証明・演習の核**：有限状態の確率写像による KL の減少、Fisher 計量の縮小、非可逆な粗視化での等号・厳密不等号の例。
+
+**この14講の外へ送る発展主題**：半パラメトリック・無限次元モデル、量子情報幾何、最適輸送、統計物理の体系、EM/IPF の一般収束理論、特異学習理論。接続のための短い outlook は IG14 または関連講の末尾に置いてよいが、本系列の完了条件に数えない。
 
 ---
 
@@ -363,27 +348,21 @@ log-partition function の Hessian が Fisher metric になることを一般に
 
 ---
 
-## 9. 実装順
+## 9. 実装順と旧8講案からの移行
 
-~~~text
-IG1 statistical manifold / Fisher metric
-  ↓
-IG2 divergence and local geometry
-  ↓
-IG3 exponential family / convex potential / Legendre duality
-  ↓
-IG4 affine connections / dual connections / alpha-connections
-  ↓
-IG5 dual flatness / geodesics / Pythagorean theorem
-  ↓
-IG6 information projection / estimation
-  ↓
-IG7 natural gradient / optimization
-  ↓
-IG8 characterizations / curvature / advanced topics
-~~~
+確定順序は次のとおり。章IDは **IG1--IG14** として予約する。IG1--IG8 の旧見出しは草案上の仮名であり、章本文・manifest・外部リンクが未作成であることを実装時に再照合する。実装着手時は新IDに対応する manifest を作成し、PLAN の進捗状態を規約どおり移す。
 
-IG1--IG5 を数学的中核とし、IG6--IG7 は応用との接続、IG8 は発展理論とする。
+| 部 | 講義 | 前から受け取る数学 | 到達点 |
+|---|---|---|---|
+| I | IG1 → IG2 → IG3 | 統計基礎、GEO の接空間・計量 | 正則モデル、Fisher 計量、KL 二次近似 |
+| II | IG4 → IG5 | IG2--IG3、凸解析 | $\psi$、$\eta$、Legendre 双対 |
+| III | IG6 → IG7 → IG8 → IG9 → IG10 | GEO の接続、IG3--IG5 | 双対接続、双対平坦性、正準 divergence、射影定理 |
+| IV | IG11 → IG12 | IG9--IG10、統計推定・最適化 | MLE/最大エントロピー、自然勾配 |
+| V | IG13 → IG14 | IG2、IG6--IG8、IG3 | 曲率と Čencov 特徴付け |
+
+旧8講案のうち、Fisher 計量（旧 IG1）は新 IG1--IG2、divergence（旧 IG2）は新 IG3・IG9・IG14、指数型族（旧 IG3）は新 IG4--IG5、接続（旧 IG4）は新 IG6--IG7、双対平坦性と Pythagoras（旧 IG5）は新 IG8--IG10、推定（旧 IG6）は新 IG11、自然勾配（旧 IG7）は新 IG12、高度な構造（旧 IG8）は新 IG13--IG14 へ分けた。これは **8講に新6講を付け足すのではなく、中心問いを再分節した全14講** である。
+
+単純に「一講90分」へ換算しない。個々の章は主要定理の証明、直接例、A4/B3/C1以上の演習と詳細解答を備えることを優先する。講義数は固定しつつ、節数・例題数・演習数は数学的責務に合わせて増減させる。
 
 ---
 
@@ -413,3 +392,30 @@ IG1--IG5 を数学的中核とし、IG6--IG7 は応用との接続、IG8 は発�
 - MLE / maximum entropy を information projection として読める。
 - natural gradient を Riemannian steepest descent と KL 制約の両面から導出できる。
 - 応用例に対して「どの情報幾何学的構造を使っているか」を数学的に説明できる。
+- 双対平坦性と Levi-Civita 曲率を区別し、正規位置尺度族の $K=-1/2$ を導出できる。
+- 有限確率単体の Markov 写像に対する情報単調性を証明し、Čencov 定理の仮定と適用限界を正確に述べられる。
+- 各講の例・証明・演習で KL の向き、正則性・可逆性・境界条件、e/m と $\alpha=\pm1$ の符号を一貫して扱う。
+
+---
+
+## 12. 教科書・公開テキストとの照合（2026-11-08）
+
+本改訂は各文献の目次・公開説明・講義計画と、公開されている範囲の数学的説明を比較して構成したものであり、有料書籍の全ページを通読したという主張ではない。講義数は各書籍の章数を写したものではなく、DREAM THEATER の「既習から証明と演習を再構成する」到達基準による独自の編集判断である。
+
+1. **Shun-ichi Amari, Hiroshi Nagaoka, _Methods of Information Geometry_**, AMS, 2000, [DOI:10.1090/mmono/191](https://doi.org/10.1090/mmono/191)。第2章「統計モデルの幾何」、第3章「双対接続」、第4章「統計推論と微分幾何」が IG1--IG11 の中核に対応。一般微分幾何は GEO 正本で補う。
+2. **Shun-ichi Amari, _Information Geometry and Its Applications_**, Springer, 2016, [DOI:10.1007/978-4-431-55978-8](https://doi.org/10.1007/978-4-431-55978-8)。Part I の divergence・指数型／混合型・不変幾何、Part II の双対接続、Part III の推論、Part IV の自然勾配という広がりを参照。特に指数型と Legendre、接続と双対平坦性、定理と応用を分割する判断の根拠。
+3. **Nihat Ay, Jürgen Jost, Hông Vân Lê, Lorenz Schwachhöfer, _Information Geometry_**, Springer, 2017, [DOI:10.1007/978-3-319-56478-4](https://doi.org/10.1007/978-3-319-56478-4)。有限情報幾何 → パラメータ付き測度モデル → 内在幾何 → 統計・応用の順を参照。IG1 の正則性と IG14 の Markov 写像の仮定を明示する根拠。
+4. **Frank Nielsen, “An Elementary Introduction to Information Geometry,” _Entropy_ 22(10), 1100 (2020)**, [DOI:10.3390/e22101100](https://doi.org/10.3390/e22101100)。Fisher 計量、divergence が誘導する双対接続、Bregman/双対平坦性、自然勾配・mirror descent・情報単調性の関連を照合。公開サーベイは説明の見取り図として使い、省略された証明を本教材で自動的に「既知」とはしない。
+5. **立教大学「情報数理 4」（2026年度シラバス）**, [講義計画](https://sy.rikkyo.ac.jp/web/preview.php?kodo_2=CA459&nendo=2026)。統計多様体・双対平坦性・Pythagoras・Fisher 計量・Čencov・推論・応用を含む14回構成を比較した。
+6. **電気通信大学（2026年度シラバス）**, [講義計画](https://kyoumu.office.uec.ac.jp/syllabus/2026/33/33_25232235.html)。多様体・接続の復習から Fisher 計量、指数型／混合型、双対平坦、射影、推定・最適化へ進む15項目の並びを比較した。
+7. **藤岡敦『入門 情報幾何―統計的モデルをひもとく微分幾何学―』**, 共立出版, 2021, [出版社公開の序文・目次](https://kyoritsu-pub.sakura.ne.jp/app/file/goods_contents/3728.pdf)。第1章の統計モデル、第2章の Fisher 計量、第3章の $\alpha$-接続、第6章の指数型／混合型分布族、第7章の双対平坦・divergence という導線を参照。「微積分・線形代数のみから始め、必要時に幾何を導入する」教育設計に対応する。
+8. **藤原彰夫『情報幾何学の基礎―情報の内的構造を捉える新たな地平―』**, 共立出版, 2021, [出版社公開の目次](https://kyoritsu-pub.sakura.ne.jp/app/file/goods_contents/3743.pdf)。第3章アファイン接続、第4章双対アファイン接続、第5章 Fisher 計量・$\alpha$-接続・Čencov 定理、第6・7章の応用を照合。IG6--IG10 の論理順と IG14 を独立講義にする判断に使う。
+9. **志磨裕彦『ヘッセ幾何学』**, 裳華房, 2001, [出版社の詳細目次](https://www.shokabo.co.jp/mybooks/ISBN978-4-7853-1529-0.htm)。Hesse 構造・その双対・divergence・曲率の位置づけを参照。一般 Hesse 幾何の全面再実装はせず、IG5・IG8・IG9・IG13 で情報幾何の具体例に即して使う。
+10. **甘利俊一『増補新版 情報幾何学の新展開』**, サイエンス社, 2025, [出版社の目次](https://saiensu.co.jp/search/?isbn=978-4-7819-1648-4&y=2025)。凸関数・Legendre・双対平坦性・射影、指数型分布族、不変性・粗視化と $f$-divergence、曲指数型分布族が独立した内容として展開されている点を照合。2025年増補の Wasserstein 幾何は本系列の別主題として扱う。
+
+### 改訂判断と再点検項目
+
+- **全14講に確定**：14回／15項目の公開シラバスと国内外の専門書は学修量・説明順の比較材料に留め、こちらでは GEO の一般微分幾何を再講義しない代わりに、KL の微分・Legendre・接続・三点恒等式・射影の各証明を別講義へ分けた。
+- **混同防止**：Fisher 行列の半正定値と正定値、指数型「全族」と曲がった部分族、e/m 平坦性と Levi-Civita 曲率、KL の引数順と射影の種類、Čencov の有限次元仮定を明示的なチェック項目とする。
+- **前提の最小化**：GEO の接空間・計量・接続、統計の正則モデル、凸解析の Legendre 双対へ、実装時に直接到達できる stable anchor と prerequisite を照合する。GEO 全系列を機械的に前提へ加えない。
+- **対象境界**：量子・無限次元・半パラメトリック・複雑な EM/IPF 収束論は独立した中心問いであり、14講へ詰め込まない。
