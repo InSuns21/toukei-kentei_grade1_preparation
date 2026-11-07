@@ -1,0 +1,51 @@
+chapter: ITD10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD3
+  - ITD5
+  - ITD6
+  - INFO2
+forward_references: []
+concepts:
+  - id: information-thermodynamics.fresh-bit-operation
+    name: 新鮮なビットとの操作
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（新鮮なビットとの操作）]
+    requires: [information-thermodynamics.joint-cycle-device, information-thermodynamics.nonequilibrium-free-energy]
+
+  - id: information-thermodynamics.one-bit-reservoir-work
+    name: 単一ビットの情報リザーバー仕事下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単一ビットの情報リザーバー仕事下限）]
+    requires: [information-thermodynamics.fresh-bit-operation, information-thermodynamics.joint-work-entropy-balance, information.mutual-information]
+
+  - id: information-thermodynamics.correlated-input-correction
+    name: 入力が相関している場合の補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（入力が相関している場合の補正）]
+    requires: [information-thermodynamics.one-bit-reservoir-work, information-thermodynamics.joint-free-energy]
+
+  - id: information-thermodynamics.tape-total-correlation
+    name: 出力ビット列の全相関
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（出力ビット列の全相関）]
+    requires: [information.mutual-as-divergence, information.shannon-entropy]
+
+  - id: information-thermodynamics.tape-work-bound
+    name: 有限ビット列の仕事収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限ビット列の仕事収支）]
+    requires: [information-thermodynamics.tape-total-correlation, information-thermodynamics.one-bit-reservoir-work, information-thermodynamics.joint-work-entropy-balance]
+
+  - id: information-thermodynamics.repeated-copy-work
+    name: 繰り返しコピーは仕事の供給源ではない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（繰り返しコピーは仕事の供給源ではない）]
+    requires: [information-thermodynamics.tape-work-bound]
