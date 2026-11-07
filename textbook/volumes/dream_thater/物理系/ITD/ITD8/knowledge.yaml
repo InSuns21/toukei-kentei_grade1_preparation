@@ -1,0 +1,51 @@
+chapter: ITD8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - ITD3
+  - ITD5
+  - ITD7
+forward_references: []
+concepts:
+  - id: information-thermodynamics.probability-flux-activity
+    name: 確率流と遷移活動度
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（確率流と遷移活動度）]
+    requires: [information-thermodynamics.local-detailed-balance, information-thermodynamics.labeled-bath-path]
+
+  - id: information-thermodynamics.total-variation-distance
+    name: 有限状態の総変動距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限状態の総変動距離）]
+    requires: [information-thermodynamics.probability-flux-activity]
+
+  - id: information-thermodynamics.instantaneous-entropy-rate
+    name: 瞬間エントロピー生成率と仕事収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（瞬間エントロピー生成率と仕事収支）]
+    requires: [information-thermodynamics.probability-flux-activity, information-thermodynamics.nonequilibrium-work-bound]
+
+  - id: information-thermodynamics.log-flux-inequality
+    name: 対数比と確率流の不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（対数比と確率流の不等式）]
+    requires: [information-thermodynamics.instantaneous-entropy-rate]
+
+  - id: information-thermodynamics.finite-time-speed-limit
+    name: 有限時間の散逸と活動度の速度限界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限時間の散逸と活動度の速度限界）]
+    requires: [information-thermodynamics.total-variation-distance, information-thermodynamics.log-flux-inequality]
+
+  - id: information-thermodynamics.finite-time-reset-work
+    name: 誤り付き二状態resetの有限時間仕事下限
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（誤り付き二状態resetの有限時間仕事下限）]
+    requires: [information-thermodynamics.finite-time-speed-limit, information-thermodynamics.reset-work-bound, information-thermodynamics.biased-error-reset]
