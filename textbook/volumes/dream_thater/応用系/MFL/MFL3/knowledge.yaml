@@ -1,0 +1,73 @@
+chapter: MFL3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL2
+  - GEO3
+  - GEO12
+  - GEO10
+  - OPT2
+
+concepts:
+  - id: manifold-learning.nearest-point-projection
+    name: 最近点集合と最近点射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最近点集合と最近点射影）", "最近点射影"]
+    requires: [geometry.embedded-submanifold, optimization.nearest-point-projection]
+
+  - id: manifold-learning.reach
+    name: reach
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（reach）"]
+    requires: [manifold-learning.nearest-point-projection]
+
+  - id: manifold-learning.circle-reach
+    name: 円周の最近点とreach
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円周の最近点とreach）"]
+    requires: [manifold-learning.reach]
+
+  - id: manifold-learning.unit-speed-curvature
+    name: 弧長パラメータ曲線の曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弧長パラメータ曲線の曲率）"]
+    requires: [geometry.arc-length-parameter, manifold-learning.local-tangent-gram]
+
+  - id: manifold-learning.double-circle-reach
+    name: 二重円のreachと曲率の分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二重円のreachと曲率の分離）"]
+    requires: [manifold-learning.circle-reach, manifold-learning.unit-speed-curvature]
+
+  - id: manifold-learning.euclidean-radius-neighborhood
+    name: Euclid半径近傍
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid半径近傍）"]
+    requires: [manifold-learning.intrinsic-extrinsic-distance]
+
+  - id: manifold-learning.shortcut-example
+    name: 二重円の成分間近傍と螺旋の近道
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二重円の成分間近傍と螺旋の近道）"]
+    requires: [manifold-learning.euclidean-radius-neighborhood, manifold-learning.helix-distance, manifold-learning.double-circle-reach]
+
+  - id: manifold-learning.circle-local-distance
+    name: 円周の短い弦と内在距離の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円周の短い弦と内在距離の比較）"]
+    requires: [manifold-learning.circle-distance, manifold-learning.chord-bounded-by-intrinsic]
+
+  - id: manifold-learning.distance-stability
+    name: 集合までの距離の安定性と射影可能範囲
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合までの距離の安定性と射影可能範囲）"]
+    requires: [manifold-learning.nearest-point-projection, manifold-learning.reach]
