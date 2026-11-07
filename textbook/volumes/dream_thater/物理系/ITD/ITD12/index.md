@@ -36,9 +36,18 @@ $$
 <!-- definition-example-start: def-itd12-potential-ring -->
 ### 直接例：山を越えた熱と一周した仕事
 
+初期位置は $Z_0$ とBrown運動 $B$ を独立に取り、次の一様密度から選びます。
+
+$$
+\rho_0(x)=\frac1L,\qquad
+\int_0^L\rho_0(x)\,dx=1.
+$$
+
+この密度は正の $C^2$ 級周期関数です。以下の $X_0=0$ は経路を説明するために選んだ標本値です。
+
 $U(x)=A\cos(2\pi x/L)$（$A>0$）なら、$U'(x)=-(2\pi A/L)\sin(2\pi x/L)$ です。$X_0=0$ から $X_t=L/2$ へ移動する持ち上げ軌道について $Y_t=L/2$ なら、仕事は $FL/2$、内部エネルギー変化は $-2A$、浴熱は $FL/2+2A$ となります。同じ場所 $X_0=X_t=0$ に一周して戻る経路では、$Y_t=L$ かつ $\Delta U=0$ なので $W_t=Q_{\mathrm{bath},t}=FL$ です。
 
-**定義の確認**： この $U$ は滑らかで周期的、$f$ は有界でLipschitz連続です。従って指定したBrown運動の下で確率微分方程式は連続な解を持ちます。Stratonovich連鎖律を $U(Z_t)$ へ適用すると $\int_0^t U'(X_s)\circ dZ_s=U(X_t)-U(X_0)$ となるので、全ての軌道で
+**定義の確認**：この $U$ は滑らかで周期的であり、$f'=-U''$ は有界なので平均値の定理から $f$ は大域Lipschitz連続です。また $0\le Z_0<L$ より $\mathbb E[Z_0^2]<\infty$ です。したがって [STO9の大域Lipschitz SDEの存在一意性定理](../../../解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness)を適用でき、連続な強解が一意に存在します。[STO7のStratonovich連鎖律](../../../解析系/STO/STO7/index.md#thm-sto7-stratonovich-composition)を、周期性により $U(X_t)=U(Z_t)$ とみなして適用すると $\int_0^t U'(X_s)\circ dZ_s=U(X_t)-U(X_0)$ となるので、全ての軌道で
 
 $$
 Q_{\mathrm{bath},t}
@@ -52,6 +61,8 @@ $$
 ## 2. 確率密度はどの方向へ流れるか
 
 単一軌道は揺らいでいても、多数の独立な試行における位置の確率密度 $\rho_t(x)$ は確定した時間発展をします。円周を通過する**確率流** $J_t(x)$ を、単位時間当たりに点 $x$ を右向きへ横切る正味確率とみなします。区間 $[a,b]$ 内の確率の増減は、左から入る流れと右から出る流れの差です。
+
+以下で $U'(x)$、$f'(x)$、$\rho_0'(x)$ のプライムは位置 $x$ についての通常の導関数です。一方、$\rho_t(x)$ の下付き $t$ は**時刻を指定する添字**であって微分ではありません。$\partial_t\rho_t(x)$ は位置 $x$ を固定した時間微分、$\partial_x\rho_t(x)$ は時刻 $t$ を固定した空間微分を表します。また $C^{1,2}$ は時間について1階、空間について2階の連続偏導関数があることを意味します。
 
 <a id="def-itd12-probability-current"></a>
 
@@ -78,7 +89,23 @@ J_0(x)=\frac{D\varepsilon k}{L}\sin(kx),
 =-\frac{D\varepsilon k^2}{L}\cos(kx).
 $$
 
-**定義の確認**： $|\varepsilon|<1$ なので密度は全点で正、正弦と余弦の一周期積分は零です。表示した $J_0$ は $J_0=\mu f\rho_0-D\rho_0'$（ここでは $f=0$）へ実際に代入して求めました。この符号は、山のある場所で密度が下がり、谷の場所で上がることを表します。流れを発生させるのは外力だけでなく、$-D\partial_x\rho$ という密度勾配でもあります。
+**定義の確認**：$|\varepsilon|<1$ なので初期密度は全点で正、余弦の一周期積分は零で規格化されます。表示した $J_0$ は $J_0=\mu f\rho_0-D\rho_0'$（ここでは $f=0$）へ実際に代入したものです。さらに時間依存の密度と流れを
+
+$$
+\rho_t(x)=\frac{1+\varepsilon e^{-Dk^2t}\cos(kx)}{L},
+\qquad
+J_t(x)=\frac{D\varepsilon k e^{-Dk^2t}}{L}\sin(kx)
+$$
+
+と置くと、$t\ge0$ で $\rho_t>0$、規格化と周期性が保たれ、$\rho$ は $C^{1,2}$ 級です。実際
+
+$$
+\partial_t\rho_t(x)
+=-\frac{D\varepsilon k^2e^{-Dk^2t}}{L}\cos(kx)
+=-\partial_xJ_t(x)
+$$
+
+なので連続の式も満たし、$t=0$ では表示した初期の値に一致します。流れを発生させるのは外力だけでなく、$-D\partial_x\rho$ という密度勾配でもあり、密度の山は低くなります。
 <!-- definition-example-end -->
 
 <a id="thm-itd12-current-and-heat"></a>
@@ -139,7 +166,7 @@ $$
 
 次に $\mathbb E[dZ_t]/dt=\mu\int f\rho_t\,dx$ であり、$\int_0^L\rho_t'\,dx=0$ なので $\int J_t\,dx=\mu\int f\rho_t\,dx$ です。従って仕事率は $F\int J_t$ です。
 
-StratonovichとItôの変換は、$d[f(X),Z]_t=2D f'(X_t)\,dt$ から
+[STO7のItô--Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を使うと、$d[f(X),Z]_t=2D f'(X_t)\,dt$ から
 
 $$
 f(X_t)\circ dZ_t=f(X_t)\,dZ_t+D f'(X_t)\,dt
@@ -285,6 +312,8 @@ $$
 
 定常状態とは $\partial_t\rho=0$ のことです。[連続の式](#def-itd12-probability-current)から $\partial_xJ=0$、すなわち $J$ が場所に依存しないことは分かります。しかし $J=0$ とは限りません。この違いを解の公式まで求めて確かめます。
 
+この連続拡散模型では、定常状態で**各位置の正味確率流が零**という条件を詳細釣合いの判定条件として使います。これは有限状態ジャンプ模型での[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)の遷移確率比を、そのまま拡散へ代入するという意味ではありません。
+
 <a id="prop-itd12-equilibrium"></a>
 
 <!-- formal-statement-start -->
@@ -313,7 +342,7 @@ $$
 \qquad \frac{\rho'}{\rho}=-\beta U'.
 $$
 
-積分して $\log\rho(x)=-\beta U(x)+C$、規格化で $C=-\log Z_U$ を得ます。この $\pi$ を元の流れへ戻すと $\pi'=-\beta U'\pi$ だから $J=-\mu U'\pi+D\beta U'\pi=0$ です。
+積分して $\log\rho(x)=-\beta U(x)+C$、規格化で $C=-\log Z_U$ を得ます。この $\pi$ を[確率流の定義](#def-itd12-probability-current)へ戻すと $\pi'=-\beta U'\pi$ だから $J=-\mu U'\pi+D\beta U'\pi=0$ です。
 
 一方、定常で $J=0$ なら一般に $\partial_x\log\rho=\beta(F-U')$ です。$0$ から $L$ まで積分すると、$\rho(L)=\rho(0)$、$U(L)=U(0)$ より左辺も $U'$ の積分も零で、$0=\beta FL$。$\beta,L>0$ より $F=0$ です。$F=0$ の定常状態では $J$ は定数であり、$J=-D e^{-\beta U}(e^{\beta U}\rho)'$ です。これを一周積分して
 
@@ -360,7 +389,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-定常状態で $J_*$ は定数です。確率流の式を $\rho'$ について解くと
+定常状態で $J_*$ は定数です。[確率流の定義](#def-itd12-probability-current)を $\rho'$ について解くと
 
 $$
 \rho_*'=\beta(F-U')\rho_*-J_*/D
@@ -383,9 +412,20 @@ $$
 
 $F\ne0$ なら両辺を整理して $\rho_*(x)=J_*R(x)/\{D(1-e^{-\beta FL})\}$ です。$\int_0^L\rho_*=1$ で規格化すると定理の二式が得られます。
 
-$F=0$ の場合に上の割り算は使えませんが、$J_*=0$ として [平衡密度](#prop-itd12-equilibrium)を直接得ます。また $R(x)=e^{-\beta U(x)}\int_x^{x+L}e^{\beta U(y)}dy$ では右側の積分が一周期で一定なので、同じ公式は $F=0$ にも連続的に延長できます。
+$F=0$ の場合に上の割り算は使えませんが、$J_*=0$ として [平衡密度](#prop-itd12-equilibrium)を直接得ます。この場合、周期性から $\int_x^{x+L}e^{\beta U(y)}\,dy=\int_0^Le^{\beta U(y)}\,dy$ なので $R(x)$ は $e^{-\beta U(x)}$ に比例します。また $F\to0$ では有限区間上で指数関数の被積分関数が連続に変化し、$\int_0^LR$ は正の極限を持ちます。したがって $J_*\to0$ となり、密度の公式も $F=0$ へ連続的に延長できます。
 
-どの $F$ でも $R(x)>0$ で、$R(x+L)=R(x)$ は $\Psi(x+L)=\Psi(x)-\beta FL$ を積分へ代入して確認できます。従って提示した $\rho_*$ は正で周期的、規格化されています。積分因子の微分を逆にたどればその流れは $J_*$ です。一階方程式は $F\ne0$ では周期条件と規格化で、$F=0$ では $J_*=0$ と規格化で解が唯一に定まります。
+どの $F$ でも $R(x)>0$ です。さらに $y=z+L$ と置換し、$\Psi(z+L)=\Psi(z)-\beta FL$ を使うと
+
+$$
+\begin{aligned}
+R(x+L)
+&=e^{-\Psi(x+L)}\int_{x+L}^{x+2L}e^{\Psi(y)}\,dy\\
+&=e^{-\Psi(x)+\beta FL}\int_x^{x+L}e^{\Psi(z)-\beta FL}\,dz
+=R(x).
+\end{aligned}
+$$
+
+従って提示した $\rho_*$ は正で周期的、規格化されています。積分因子の微分を逆にたどればその流れは $J_*$ です。一階方程式は $F\ne0$ では周期条件と規格化で、$F=0$ では $J_*=0$ と規格化で解が唯一に定まります。
 
 分母が正なので $J_*$ の符号は $1-e^{-\beta FL}$、従って $F$ と一致します。[平方による第二法則](#thm-itd12-entropy-balance)の途中式を定常密度へ適用すると
 
@@ -420,7 +460,7 @@ $$
 
 ## 6. 演習：力・流れ・散逸を別々に検算する
 
-特記しない限り $L,\mu,T>0$、$D=\mu k_{\mathrm B}T$、$\beta=(k_{\mathrm B}T)^{-1}$ で、全ての関数は $L$ 周期とします。
+特記しない限り $L,\mu,T>0$、$D=\mu k_{\mathrm B}T$、$\beta=(k_{\mathrm B}T)^{-1}$ で、全ての関数は $L$ 周期とします。この節の $\dot H$ は $dH_t/dt$、$\dot W$ と $\dot Q_{\mathrm{bath}}$ はそれぞれ $d\mathbb E[W_t]/dt$ と $d\mathbb E[Q_{\mathrm{bath},t}]/dt$ の略記です。後二者は**平均の率**であり、確率的な各軌道の時間微分ではありません。
 
 ### A1. 保存力と外力を分ける
 
@@ -449,7 +489,7 @@ $F=0$ では外から仕事が入らず、内部エネルギーが $2A$ 減る�
 <!-- solution-start -->
 **詳細解答**
 
-$\rho_0'=-\varepsilon k\sin kx/L$ で、力は零です。従って
+$\rho_0'=-\varepsilon k\sin kx/L$ で、力は零です。[確率流の定義](#def-itd12-probability-current)と連続の式から
 
 $$
 J_0=-D\rho_0'=\frac{D\varepsilon k}{L}\sin kx,
@@ -463,12 +503,12 @@ $x=0$ では $\cos0=1$ なので時間微分は負です。正規化は $\int_0^
 
 - Level: A
 - ID: ITD12-A3
-- 問題: $F=0$、$U$ は滑らかで周期的、$\pi(x)=Z_U^{-1}e^{-\beta U(x)}$ とする。$\int_0^L\pi=1$ を示し、$J[\pi]$ を直接計算せよ。
+- 問題: $F=0$、$U$ は滑らかで周期的、$\pi(x)=Z_U^{-1}e^{-\beta U(x)}$ とする。$\int_0^L\pi=1$ を示し、$J[\pi]$ を直接計算せよ。ここで $J[\pi]$ は[確率流の定義](#def-itd12-probability-current)の密度に $\pi$ を代入したものを表す。
 
 <!-- solution-start -->
 **詳細解答**
 
-$Z_U=\int_0^Le^{-\beta U(y)}dy$ は正かつ有限なので、$\pi$ は正で積分1です。微分して $\pi'=-\beta U'\pi$ を得ます。従って
+$Z_U=\int_0^Le^{-\beta U(y)}dy$ は正かつ有限なので、$\pi$ は正で積分1です。[確率流の定義](#def-itd12-probability-current)へ代入するため微分して $\pi'=-\beta U'\pi$ を得ます。従って
 
 $$
 J[\pi]=-\mu U'\pi-D\pi'
@@ -502,14 +542,21 @@ $$
 
 - Level: A
 - ID: ITD12-A5
-- 問題: $dZ=\mu f(X)dt+\sqrt{2D}dB$ で $f\in C^1$ が周期的であるとき、$f(X)\circ dZ=f(X)dZ+D f'(X)dt$ を共変分から導き、$\int fJ=\mu\int f^2\rho+D\int f'\rho$ を示せ。
+- 問題: $dZ=\mu f(X)dt+\sqrt{2D}dB$ で $f\in C^2$ が周期的であるとき、$f(X)\circ dZ=f(X)dZ+D f'(X)dt$ を共変分から導き、$\int fJ=\mu\int f^2\rho+D\int f'\rho$ を示せ。
 
 <!-- solution-start -->
 **詳細解答**
 
-[STO7の多次元Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-multidimensional-ito)から $df(X)$ のBrown運動係数は $\sqrt{2D}f'(X)$、$dZ$ の係数は $\sqrt{2D}$ です。よって $d[f(X),Z]=2Df'(X)dt$ です。Stratonovich積分はItô積分と共変分の半分の和なので $f(X)\circ dZ=f(X)dZ+Df'(X)dt$ となります。
+$f\in C^2$ なので [STO7の多次元Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-multidimensional-ito)を $f(X)$ に適用できます。$f(X)$ のBrown運動係数は $\sqrt{2D}f'(X)$、$Z$ の係数は $\sqrt{2D}$ なので、[共変分連鎖律](../../../解析系/STO/STO7/index.md#lem-sto7-covariation-composition)より
 
-$\mathbb E[f(X)dZ]/dt=\mu\int f^2\rho$ です。一方 $J=\mu f\rho-D\rho'$ に $f$ を掛けて積分すると
+$$
+d[f(X),Z]_t=f'(X_t)\,d[Z,Z]_t
+=2Df'(X_t)\,dt.
+$$
+
+[STO7のItô--Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)は共変分の半分を足すので、$f(X)\circ dZ=f(X)dZ+Df'(X)dt$ です。
+
+Itô積分項の期待値は零なので、$d\mathbb E[\int_0^t f(X_s)\,dZ_s]/dt=\mu\int_0^Lf^2\rho_t\,dx$ です。一方、[確率流の定義](#def-itd12-probability-current)の $J=\mu f\rho-D\partial_x\rho$ に $f$ を掛けて積分すると
 
 $$
 \int_0^LfJ\,dx
@@ -529,21 +576,22 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-保存則 $\rho_t=-J'$ と $\int\rho_t=0$ を代入し、周期境界で部分積分します。
+[確率流の保存則](#thm-itd12-current-and-heat)を $\partial_t\rho=-\partial_xJ$ と書き、規格化の時間微分 $\int_0^L\partial_t\rho\,dx=0$ を用います。ここで $\rho_t$ の添字は時刻で、$\partial_t\rho$ と混同しません。周期境界で部分積分すると、
 
 $$
-\dot H=-\int\rho_t\log(L\rho)
-=\int J'\log(L\rho)=-\int J\frac{\rho'}{\rho}.
+\dot H=-\int_0^L\partial_t\rho\log(L\rho)\,dx
+=\int_0^L(\partial_xJ)\log(L\rho)\,dx
+=-\int_0^LJ\frac{\partial_x\rho}{\rho}\,dx.
 $$
 
-平均浴熱率は $\int fJ$ だから、定義より
+[平均浴熱率](#thm-itd12-current-and-heat)は $\int_0^LfJ\,dx$ だから、[平均全エントロピー生成率](#def-itd12-entropy-production)より
 
 $$
 \dot\Sigma_{\mathrm{tot}}
-=\int J\left(\beta f-\frac{\rho'}{\rho}\right).
+=\int_0^LJ\left(\beta f-\frac{\partial_x\rho}{\rho}\right)\,dx.
 $$
 
-$D\beta=\mu$ より $D\rho(\beta f-\rho'/\rho)=\mu f\rho-D\rho'=J$ です。$D\rho>0$ なので $\dot\Sigma_{\mathrm{tot}}=\int J^2/(D\rho)\ge0$。連続な非負被積分関数の積分が零なのは $J$ が各点で零の場合に限ります。
+$D\beta=\mu$ より $D\rho(\beta f-\partial_x\rho/\rho)=\mu f\rho-D\partial_x\rho=J$ です。$D\rho>0$ なので $\dot\Sigma_{\mathrm{tot}}=\int_0^L J^2/(D\rho)\,dx\ge0$。連続な非負被積分関数の積分が零なのは $J$ が各点で零の場合に限ります。
 <!-- solution-end -->
 
 ### B2. 一階方程式から定常流を求める
@@ -555,7 +603,7 @@ $D\beta=\mu$ より $D\rho(\beta f-\rho'/\rho)=\mu f\rho-D\rho'=J$ です。$D\r
 <!-- solution-start -->
 **詳細解答**
 
-定常条件 $0=-J_*'$ より $J_*$ は一定です。$\Psi'=\beta(U'-F)$ なので与式へ $e^\Psi$ を掛けると $(e^\Psi\rho_*)'=-(J_*/D)e^\Psi$ です。$x$ から $x+L$ まで積分し、$\Psi(x+L)=\Psi(x)-\beta FL$ を使うと
+[連続の式](#def-itd12-probability-current)の定常条件 $0=-J_*'$ より $J_*$ は一定です。$\Psi'=\beta(U'-F)$ なので与式へ $e^\Psi$ を掛けると $(e^\Psi\rho_*)'=-(J_*/D)e^\Psi$ です。$x$ から $x+L$ まで積分し、$\Psi(x+L)=\Psi(x)-\beta FL$ を使うと
 
 $$
 (e^{-\beta FL}-1)e^{\Psi(x)}\rho_*(x)
@@ -582,7 +630,7 @@ $$
 J_0(x)=\mu f/L=\frac{\mu Ak}{L}\sin(kx).
 $$
 
-$\rho_0'=0$ だから $\dot H_0=-\int J_0(\rho_0'/\rho_0)=0$ です。平均浴熱率は
+$\rho_0'=0$ だから[エントロピー収支](#thm-itd12-entropy-balance)の導出式より $\dot H_0=-\int_0^LJ_0(\rho_0'/\rho_0)\,dx=0$ です。[平均浴熱率](#thm-itd12-current-and-heat)は
 
 $$
 \int_0^LfJ_0\,dx
@@ -628,39 +676,129 @@ $$
 
 - Level: C
 - ID: ITD12-C1
-- 問題: 固定 $U,F$ の円周Langevin拡散について、(i) 確率流と熱率、(ii) 平均エントロピー生成と自由エネルギー収支、(iii) 定常密度・定常流と $F=0$ および $U=0$ の極限を、それぞれ定義から導け。$F\ne0$ で定常でも散逸が零にならない理由を、両方の収支式で確認せよ。
+- 問題: 固定 $U,F$ の円周Langevin拡散について、次の3項目をそれぞれ定義から導け。
+
+  1. 確率流と平均浴熱率。
+  2. 平均エントロピー生成と自由エネルギー収支。
+  3. 定常密度・定常流と $F=0$ および $U=0$ の極限。
+
+  さらに $F\ne0$ で定常でも散逸が零にならない理由を、仕事・熱と自由エネルギーの両方の収支式で確認せよ。
 
 <!-- solution-start -->
 **詳細解答**
 
-**(i) 保存則と熱。** $f=F-U'$、$J=\mu f\rho-D\rho'$ です。Itô公式の期待値から $\partial_t\rho=-\partial_xJ$、Stratonovich変換と周期境界の部分積分から $\dot Q_{\mathrm{bath}}=\int fJ$ となります。外力仕事率は $\dot W=F\int J$。従って $\dot{\mathbb E U}=\dot W-\dot Q_{\mathrm{bath}}=\int U'J$ で第一法則を再現します。
-
-**(ii) 第二法則と自由エネルギー。** $H=-\int\rho\log(L\rho)$ を微分すると $\dot H=-\int J\partial_x\log\rho$。したがって
+**(i) 保存則と熱。** $f=F-U'$ と置き、滑らかな周期試験関数 $\varphi$ に[STO7のItô公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を適用します。ドリフトは $\mu f$、二次変動率は $2D$ なので、Itô積分の平均が零であることから
 
 $$
+\frac{d}{dt}\int_0^L\varphi\rho\,dx
+=\int_0^L(\mu f\varphi'+D\varphi'')\rho\,dx
+=\int_0^L\varphi'(\mu f\rho-D\partial_x\rho)\,dx.
+$$
+
+周期境界で再び部分積分すると、全ての $\varphi$ に対して上式は $-\int\varphi\,\partial_xJ$ に等しいため、
+
+$$
+J=\mu f\rho-D\partial_x\rho,\qquad
+\partial_t\rho=-\partial_xJ
+$$
+
+を得ます。次に[STO7のItô--Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を使います。二次共変分 $d[f(X),Z]_t=2Df'(X_t)\,dt$ の半分が補正となるので
+
+$$
+\begin{aligned}
+\dot Q_{\mathrm{bath}}
+&=\mu\int_0^Lf^2\rho\,dx+D\int_0^Lf'\rho\,dx\\
+&=\int_0^Lf(\mu f\rho-D\partial_x\rho)\,dx
+=\int_0^LfJ\,dx.
+\end{aligned}
+$$
+
+第二の等号は周期境界で $[f\rho]_0^L=0$ として部分積分したものです。また $\int_0^L\partial_x\rho\,dx=0$ より
+
+$$
+\dot W=F\mu\int_0^Lf\rho\,dx
+=F\int_0^LJ\,dx.
+$$
+
+内部エネルギー率は保存則から
+
+$$
+\frac{d}{dt}\mathbb E[U(X_t)]
+=\int_0^LU\partial_t\rho\,dx
+=\int_0^LU'J\,dx
+=\dot W-\dot Q_{\mathrm{bath}}.
+$$
+
+**(ii) 第二法則と自由エネルギー。** 密度の規格化から $\int_0^L\partial_t\rho\,dx=0$ なので、$\rho\log(L\rho)$ の微分で出る $+1$ の項は消えます。保存則と周期境界を使うと
+
+$$
+\dot H=-\int_0^L\partial_t\rho\log(L\rho)\,dx
+=\int_0^L(\partial_xJ)\log(L\rho)\,dx
+=-\int_0^LJ\partial_x\log\rho\,dx.
+$$
+
+浴の寄与 $\beta\dot Q_{\mathrm{bath}}$ と足し、Einstein関係 $D\beta=\mu$ を使って
+
+$$
+\begin{aligned}
 \dot\Sigma_{\mathrm{tot}}
-=\dot H+\beta\dot Q_{\mathrm{bath}}
-=\int J(\beta f-\partial_x\log\rho)
-=\int\frac{J^2}{D\rho}\ge0.
+&=\int_0^LJ(\beta f-\partial_x\log\rho)\,dx,\\
+D\rho(\beta f-\partial_x\log\rho)
+&=\mu f\rho-D\partial_x\rho=J,\\
+\dot\Sigma_{\mathrm{tot}}
+&=\int_0^L\frac{J^2}{D\rho}\,dx\ge0.
+\end{aligned}
 $$
 
-$\mathcal F=\mathbb E U-k_{\mathrm B}TH$ なので
+$D\rho>0$ の下で積分が零になるのは連続な $J$ が全点で零の場合だけです。$\mathcal F=\mathbb E U-k_{\mathrm B}TH$ を微分し、(i) の第一法則を代入すると
 
 $$
-\dot{\mathcal F}=F\int J-k_{\mathrm B}T\dot\Sigma_{\mathrm{tot}}.
+\dot{\mathcal F}
+=\dot W-\dot Q_{\mathrm{bath}}-k_{\mathrm B}T\dot H
+=F\int_0^LJ\,dx-k_{\mathrm B}T\dot\Sigma_{\mathrm{tot}}.
 $$
 
-**(iii) 定常解と二つの極限。** 定常では $J_*$ は一定。$\Psi=\beta(U-Fx)$ と置き、$(e^\Psi\rho_*)'=-(J_*/D)e^\Psi$ を一周期積分すると
+**(iii) 定常解と二つの極限。** 定常条件 $\partial_t\rho_*=0$ から $J_*$ は $x$ に依存しません。$\Psi(x)=\beta\{U(x)-Fx\}$ と置き、確率流の式を $\rho_*'$ について解いて $e^\Psi$ を掛けると
 
 $$
-R=e^{-\Psi(x)}\int_x^{x+L}e^{\Psi(y)}dy,\quad
-\rho_*={R\over\int_0^LR},\quad
-J_*={D(1-e^{-\beta FL})\over\int_0^LR}.
+\rho_*'=-\Psi'\rho_*-J_*/D,\qquad
+(e^{\Psi}\rho_*)'=-(J_*/D)e^{\Psi}.
 $$
 
-$F=0$ なら $R\propto e^{-\beta U}$、$J_*=0$。$U=0$ なら $R=(1-e^{-\beta FL})/(\beta F)$ は一定（$F=0$ では $L$）、よって $\rho_*=1/L$、$J_*=\mu F/L$ です。
+$x$ から $x+L$ へ積分し、$\rho_*(x+L)=\rho_*(x)$ と $\Psi(x+L)=\Psi(x)-\beta FL$ を使えば
 
-定常では $\dot H=\dot{\mathbb E U}=\dot{\mathcal F}=0$ なので (i) から $\dot Q_{\mathrm{bath}}=\dot W=FLJ_*$、(ii) から $k_{\mathrm B}T\dot\Sigma_*=FLJ_*$ です。また直接一周積分して $\dot\Sigma_*=\beta FLJ_*$ と分かります。$F\ne0$ なら $FJ_*>0$ なので、定常密度の不変性と正の散逸が両立します。
+$$
+(1-e^{-\beta FL})e^{\Psi(x)}\rho_*(x)
+=\frac{J_*}{D}\int_x^{x+L}e^{\Psi(y)}\,dy.
+$$
+
+$F\ne0$ の場合、右の正の積分と規格化 $\int_0^L\rho_*=1$ から
+
+$$
+R(x)=e^{-\Psi(x)}\int_x^{x+L}e^{\Psi(y)}\,dy,\qquad
+\rho_*(x)=\frac{R(x)}{\int_0^LR(z)\,dz},\qquad
+J_*=\frac{D(1-e^{-\beta FL})}{\int_0^LR(z)\,dz}.
+$$
+
+$F=0$ では $1-e^{-\beta FL}$ で割らず、積分した式から $J_*\int_x^{x+L}e^{\beta U(y)}\,dy=0$ を得ます。積分は正なので $J_*=0$、したがって $(e^{\beta U}\rho_*)'=0$ から $\rho_*=e^{-\beta U}/Z_U$ です。これは上の $R$ の公式にも一致し、$F\to0$ の極限です。
+
+$U=0,F\ne0$ なら指数を直接積分して $R(x)=(1-e^{-\beta FL})/(\beta F)$ は一定です。よって $\rho_*=1/L$、
+
+$$
+J_*=\frac{D\beta F}{L}=\frac{\mu F}{L}.
+$$
+
+$F=0$ では $R=L$ として同じ結果の極限 $J_*=0$ を得ます。
+
+定常では $\dot H=d\mathbb E[U(X_t)]/dt=\dot{\mathcal F}=0$ です。(i) の熱・仕事収支と (ii) の自由エネルギー収支はそれぞれ
+
+$$
+\dot Q_{\mathrm{bath}}=\dot W=FLJ_*,
+\qquad
+k_{\mathrm B}T\dot\Sigma_*=FLJ_*
+$$
+
+となります。別途 $\dot\Sigma_*=\int_0^LJ_*\{\beta(F-U')-\partial_x\log\rho_*\}\,dx$ を一周積分しても、$U,\rho_*$ の周期性から $\dot\Sigma_*=\beta FLJ_*$ です。定常公式の分母は正、分子 $1-e^{-\beta FL}$ は $F$ と同符号なので、$F\ne0$ では $FJ_*>0$ となり、定常と正の散逸が両立します。
 <!-- solution-end -->
 
 ## 7. 学習のまとめ
