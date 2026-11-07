@@ -308,7 +308,7 @@ $$
 実対称 $K_0$ の**行列指数** $e^{-tK_0}$ は、直交規格化固有ベクトル $u_j$ に $e^{-t\lambda_j}$ を掛ける線形写像として定まる。従って $K_0$ が正半定値で $t\ge0$ なら、各倍率が $[0,1]$ に入るので
 
 $$
-e^{-tK_0}u_j=e^{-t\lambda_j}u_j,qquad
+e^{-tK_0}u_j=e^{-t\lambda_j}u_j,\qquad
 \|e^{-tK_0}\|_{\mathrm{op}}=\max_{1\le j\le n}e^{-t\lambda_j}\le1
 $$
 
