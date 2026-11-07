@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-07（MFL4の標本被覆・観測ノイズまで執筆）
-状態: in_progress（MFL1〜MFL4 完成、MFL5〜MFL43 は未実装）
+改訂日: 2026-11-07（MFL5のLocal PCA・接空間推定まで執筆）
+状態: in_progress（MFL1〜MFL5 完成、MFL6〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -281,5 +281,6 @@ ML1-12 + ML2-15 → MFL43（対照実験）
 - **MFL2 completed**：円・螺旋の外在/内在距離、接空間と Gram 行列、直交射影、接平面の二次局所近似。主要命題5件と A4/B3/C1 の詳細解答を実装。
 - **MFL3 completed**：最近点射影とreach、円・二重円のreach、弧長曲率、螺旋のshortcut、短弦の内在距離上界、射影可能性と潜在点の非識別。主要命題5件と A4/B3/C1 の詳細解答を実装。
 - **MFL4 completed**：標本被覆半径と有限被覆数、密度・局所体積下界、円周の定量的被覆確率、Hausdorff誤差、有界・Gaussianノイズ、観測模型の非識別。主要命題6件と A4/B4/C2 の詳細解答、再現可能な円周被覆実験を実装。
-- **MFL5〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- **MFL5 completed**：局所PCAと射影距離、曲率による共分散摂動、固有値ギャップと射影誤差、標本集中・有界ノイズ・観測近傍の選択誤差。主要命題6件と A4/B4/C2 の詳細解答、放物線の再現可能なPython実験を実装。
+- **MFL6〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
 - 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。
