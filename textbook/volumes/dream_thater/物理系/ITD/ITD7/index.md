@@ -27,6 +27,8 @@ $$
 
 だけを記録すると、どの浴が熱を渡したかは失われます。
 
+[ITD1の局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)は離散的な接触確率の正逆比を浴熱に結び付ける条件でした。ここでは同じ条件を連続時間の**浴別ジャンプ率**に課します。短時間 $dt$ での正逆ジャンプ確率はそれぞれ $k^r_{xy}dt+o(dt)$、$k^r_{yx}dt+o(dt)$ なので、両率が正なら $dt\to0$ で確率の比は率の比へ収束します。浴別に条件を置くことが重要で、浴を合計した率 $k_{xy}$ に単一温度での釣合いを仮定するわけではありません。
+
 <a id="def-itd7-labeled-jump"></a>
 
 <!-- formal-statement-start -->
@@ -119,7 +121,13 @@ $$
   \prod_{j=1}^n\frac{k^{r_j}_{x_{j-1}x_j}}{k^{r_j}_{x_jx_{j-1}}}.
 $$
 
-対数を取って[局所詳細釣合い](#def-itd7-labeled-jump)を代入すると定理の第一式が得られます。全状態の $p_0$ は正で、逆向き率も正なので、逆実験の正率経路は正方向にも対応します。従って密度比を積分して
+対数を取って[局所詳細釣合い](#def-itd7-labeled-jump)を代入すると定理の第一式が得られます。まず任意の $x$ について、初期状態 $x$ からジャンプせずに時刻 $\tau$ に至る事象の確率は $p_0(x)e^{-a_x\tau}$ なので、
+
+$$
+p_\tau(x)\ge p_0(x)e^{-a_x\tau}>0.
+$$
+
+さらに各浴の正率ジャンプには同じ浴の正率逆ジャンプが存在します。正方向と逆方向の経路密度は、初期分布の正値性、終端分布の上の正値性、ジャンプ率の双方向支持により、時間反転で対応させると同じ支持を持ちます。従って密度比を積分して
 
 $$
 \begin{aligned}
@@ -185,7 +193,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-master 方程式は $\dot p_1=ap_0-bp_1$、$p_0+p_1=1$ です。定常なら $a\pi_0=b\pi_1$ を解いて提示した分布を得ます。浴別に分けて
+短時間 $dt$ の状態1への流入は $p_0(t)a\,dt+o(dt)$、状態1からの流出は $p_1(t)b\,dt+o(dt)$ です。差を $dt$ で割り $dt\to0$ とすると master 方程式 $\dot p_1=ap_0-bp_1$ を得ます。$p_0+p_1=1$ と合わせ、定常条件 $a\pi_0=b\pi_1$ を解いて提示した分布を得ます。浴別に分けて
 
 $$
 \begin{aligned}
@@ -211,7 +219,16 @@ $$
 
 ## 4. 観測を粗くすると、平均不可逆性は増えない
 
-経路を区別していたラベルや中間状態を消す操作を考えます。まず確率論として厳密に証明するため、有限集合 $\Omega$ を完全な経路記録の集合とし、正逆の経路を同じ向きへ対応させた確率分布を $P(\omega)>0$、$R(\omega)>0$ とします。[ITD2の経路エントロピー生成](../ITD2/index.md#def-itd2-reverse-ratio)の平均は相対エントロピー $D(P\|R)$ です。ここで対数の底は自然対数です。
+経路を区別していたラベルや中間状態を消す操作を考えます。まず確率論として厳密に証明するため、有限集合 $\Omega$ を完全な経路記録の集合とし、正逆の経路を同じ向きへ対応させた確率分布を $P(\omega)>0$、$R(\omega)>0$ とします。[ITD2の経路エントロピー生成](../ITD2/index.md#def-itd2-reverse-ratio)の平均は相対エントロピーです。
+
+[INFO2の相対エントロピーの定義](../../../応用系/INFO/INFO2/index.md#def-info2-relative-entropy)では底2（bit）を使いましたが、熱力学の経路比は自然対数（nat）です。本章では
+
+$$
+D(P\|R):=\sum_{\omega\in\Omega}P(\omega)\ln\frac{P(\omega)}{R(\omega)}
+=(\ln2)D_{\mathrm{INFO2}}(P\|R)
+$$
+
+と定めます。底の変換は正の定数倍なので、[INFO2のGibbs不等式](../../../応用系/INFO/INFO2/index.md#thm-info2-gibbs)の非負性と等号条件はそのまま使えます。
 
 観測者は写像 $C:\Omega\to Y$ で完全記録を短い記録 $y=C(\omega)$ に変えます。例えば $C$ は浴ラベルを忘れて、状態列だけを残します。観測の分布は $\bar P(y)=\sum_{C(\omega)=y}P(\omega)$、$\bar R(y)$ も同様です。
 
@@ -298,7 +315,11 @@ dX_t=-\mu\,\partial_xU(X_t,\lambda_t)\,dt
 +\sqrt{2D}\,dB_t
 $$
 
-でモデル化します。$\lambda_t$ は有限変動の滑らかな外部制御、$U$ は少なくとも位置に関して $C^2$、$\lambda$ に関して $C^1$ とし、解と下の積分が存在する成長条件を仮定します。連続経路はBrown運動のため通常は微分可能ではなく、単に $\partial_xU\,\dot X_t\,dt$ と書いただけでは積分の意味が一意に決まりません。
+でモデル化します。$\lambda_t$ は有限変動の $C^1$ 外部制御、$U$ は $(x,\lambda)$ の両変数に関して $C^3$ とし、解と下の積分が存在する成長条件を仮定します。これは後で引用する[STO7の連鎖律](../../../解析系/STO/STO7/index.md#thm-sto7-stratonovich-composition)と[共変分の連鎖律](../../../解析系/STO/STO7/index.md#lem-sto7-covariation-composition)を直接適用できる十分な正則性です。
+
+$\partial_xU$ は $\lambda$ を固定して位置 $x$ で微分し、$\partial_\lambda U$ は $x$ を固定して制御値 $\lambda$ で微分します。$\dot\lambda_t=d\lambda_t/dt$ は制御の時間微分であり、$X_t$ の時間微分ではありません。
+
+一方、連続経路 $X_t$ はBrown運動のため通常は微分可能ではありません。単に $\partial_xU\,\dot X_t\,dt$ と書いただけでは積分の意味が一意に決まりません。
 
 熱と仕事を**軌道のエネルギー差と整合するように**定めるには、位置の経路積分を[STO7のStratonovich積分](../../../解析系/STO/STO7/index.md#def-sto7-stratonovich-integral)（$\circ dX_t$）で扱います。
 
@@ -327,14 +348,20 @@ Q_{\mathrm{bath}}=-\int_0^\tau\kappa X_t\circ dX_t
 =-\frac\kappa2(X_\tau^2-X_0^2).
 $$
 
-**定義の確認**：$U$ は $C^2$、$\kappa>0$、外部パラメータ変更がないため $W=0$ です。系のエネルギー変化は $\Delta U=\kappa(X_\tau^2-X_0^2)/2$ ですから、定義による第一法則 $\Delta U=W-Q_{\mathrm{bath}}$ を各経路で確認できました。
+**定義の確認**：この二次ポテンシャル $U$ は $C^3$、$\kappa>0$、外部パラメータ変更がないため $W=0$ です。系のエネルギー変化は $\Delta U=\kappa(X_\tau^2-X_0^2)/2$ ですから、定義による第一法則 $\Delta U=W-Q_{\mathrm{bath}}$ を各経路で確認できました。
 <!-- definition-example-end -->
 
 <a id="prop-itd7-stratonovich-balance"></a>
 
 <!-- formal-statement-start -->
 > **命題（連続経路の第一法則と伊藤補正）**
-> [上の過減衰Langevin模型](#def-itd7-langevin-heat)について、伊藤公式およびStratonovich連鎖律を適用できる正則性を仮定する。このときほとんど確実に
+> $\mu,T>0$、$D=\mu k_{\mathrm B}T$、$\lambda\in C^1([0,\tau])$、$U\in C^3(\mathbb R^2)$ とし、次の過減衰模型の解および必要な積分が存在するとする。
+
+$$
+dX_t=-\mu\partial_xU(X_t,\lambda_t)\,dt+\sqrt{2D}\,dB_t.
+$$
+
+> [過減衰Langevin経路の仕事と浴への熱](#def-itd7-langevin-heat)を用いると、ほとんど確実に
 
 $$
 U(X_\tau,\lambda_\tau)-U(X_0,\lambda_0)=W-Q_{\mathrm{bath}}.
@@ -367,7 +394,15 @@ U(X_\tau,\lambda_\tau)-U(X_0,\lambda_0)
 \end{aligned}
 $$
 
-次に $X_t$ の拡散係数は $\sqrt{2D}$ なので二次変動は $[X]_t=2Dt$ です。[STO7の伊藤・Stratonovich変換公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を $f_t(x)=\partial_xU(x,\lambda_t)$ へ使うと
+次に $X_t$ の拡散係数は $\sqrt{2D}$ なので二次変動は $[X]_t=2Dt$ です。$\lambda_t$ は有限変動で $[\lambda,X]=0$、$U\in C^3$ ですから、[STO7の共変分の連鎖律](../../../解析系/STO/STO7/index.md#lem-sto7-covariation-composition)を $f(x,\lambda)=\partial_xU(x,\lambda)$ と $(X_t,\lambda_t)$ に適用して
+
+$$
+[\partial_xU(X,\lambda),X]_\tau
+=\int_0^\tau\partial_{xx}U(X_t,\lambda_t)\,d[X]_t
+=2D\int_0^\tau\partial_{xx}U(X_t,\lambda_t)\,dt
+$$
+
+を得ます。この共変分を[STO7の伊藤・Stratonovich変換公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)へ代入すると
 
 $$
 \begin{aligned}
@@ -527,7 +562,7 @@ $$
 
 #### B1. 二ジャンプの経路比を出発点から
 
-$0\xrightarrow{h}1\xrightarrow{c}0$ という二ジャンプ経路の経路密度を正逆で書き、$\sigma$ を求めよ。初期・終期の分布は $p_0,p_\tau$、両端状態は0とし、待機時間をそれぞれ $s_0,s_1,s_2$（和 $\tau$）とする。
+$0\xrightarrow{h}1\xrightarrow{c}0$ という二ジャンプ経路の経路密度を正逆で書き、$\sigma$ を求めよ。初期・終期の分布は $p_0,p_\tau$ で $p_0(0),p_\tau(0)>0$、両浴の対応する正逆ジャンプ率は正とする。両端状態は0とし、待機時間をそれぞれ $s_0,s_1,s_2$（和 $\tau$）とする。
 
 - Level: B
 - ID: ITD7-B1
@@ -574,7 +609,15 @@ $a=a_h+a_c$, $b=b_h+b_c$ が正の二状態Markov過程を定常分布から始�
 <!-- solution-start -->
 **詳細解答**
 
-定常条件 $\pi_0a=\pi_1b$ より、状態だけの各ジャンプ率比は $a/b=\pi_1/\pi_0$ です。状態経路の密度比で待機時間は相殺するので、$0\to1$ のたびに $a/b$、$1\to0$ のたびに $b/a$ を掛けます。遷移の全積は $\pi_{x_n}/\pi_{x_0}$ に望遠鏡和的に整理され、初期分布比 $\pi_{x_0}/\pi_{x_n}$ と相殺します。従って全状態経路で $P_F^{\mathrm{obs}}/P_R^{\mathrm{obs}}=1$、観測相対エントロピーは零です。
+[二浴定常流の命題](#prop-itd7-two-bath-current)の定常条件 $\pi_0a=\pi_1b$ より、状態だけの各ジャンプ率比は $a/b=\pi_1/\pi_0$ です。状態経路の密度比で待機時間は相殺するので、$0\to1$ のたびに $a/b$、$1\to0$ のたびに $b/a$ を掛けます。どちらの向きでも $k_{xy}/k_{yx}=\pi_y/\pi_x$ だから、遷移率比の積は
+
+$$
+\prod_{j=1}^n\frac{k_{x_{j-1}x_j}}{k_{x_jx_{j-1}}}
+=\prod_{j=1}^n\frac{\pi_{x_j}}{\pi_{x_{j-1}}}
+=\frac{\pi_{x_n}}{\pi_{x_0}}.
+$$
+
+この望遠鏡積が初期分布比 $\pi_{x_0}/\pi_{x_n}$ と相殺するため、全状態経路で $P_F^{\mathrm{obs}}/P_R^{\mathrm{obs}}=1$、観測相対エントロピーは零です。
 
 一方、完全経路はラベル付きの $k^r_{xy}$ を掛けるので率比が浴ごとに異なります。[二浴定常流](#prop-itd7-two-bath-current)では $J_h>0$、$J_c=-J_h$、温度差 $\beta_c-\beta_h>0$ なので $\dot\Sigma=(\beta_c-\beta_h)\Delta J_h>0$ です。観測の零は装置全体の可逆性を証明しません。
 <!-- solution-end -->
@@ -637,14 +680,14 @@ W=\frac12\int_0^\tau X_t^2\dot\lambda_t\,dt,
 \qquad Q_{\mathrm{bath}}=-\int_0^\tau\lambda_tX_t\circ dX_t.
 $$
 
-Stratonovich連鎖律により $d(\lambda_tX_t^2/2)=(X_t^2/2)d\lambda_t+\lambda_tX_t\circ dX_t$ です。積分すると $\Delta U=W-Q_{\mathrm{bath}}$。さらに[伊藤補正](#prop-itd7-stratonovich-balance)は $\partial_{xx}U=\lambda_t$ より
+[STO7のStratonovich連鎖律](../../../解析系/STO/STO7/index.md#thm-sto7-stratonovich-composition)により $d(\lambda_tX_t^2/2)=(X_t^2/2)d\lambda_t+\lambda_tX_t\circ dX_t$ です。積分すると $\Delta U=W-Q_{\mathrm{bath}}$。さらに[伊藤補正](#prop-itd7-stratonovich-balance)は $\partial_{xx}U=\lambda_t$ より
 
 $$
 Q_{\mathrm{bath}}=-\int_0^\tau\lambda_tX_t\,dX_t
 -D\int_0^\tau\lambda_t\,dt.
 $$
 
-伊藤公式で直接計算しても
+[STO7の時間依存伊藤公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $F(t,x)=\lambda_t x^2/2$ に適用しても
 
 $$
 \begin{aligned}
