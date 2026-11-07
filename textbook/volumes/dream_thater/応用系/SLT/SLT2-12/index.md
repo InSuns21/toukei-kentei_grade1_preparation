@@ -267,14 +267,30 @@ $$
 \le\frac{U_q}{\sqrt m}.
 $$
 
-核の各成分は $K_{m,ij}(t)=m^{-1}\sum_r h_{ij}(a_r(t),q_r(t))$ である。[初期NTKの定義](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)から、$z_i=q^{\mathsf T}\xi_i$ と書けば
+核の各成分は $K_{m,ij}(t)=m^{-1}\sum_r h_{ij}(a_r(t),q_r(t))$ である。[有限入力の無限幅NTK極限](../SLT2-10/index.md#def-slt2-10-infinite-width-ntk)の成分式から、$z_i=q^{\mathsf T}\xi_i$ と書けば
 
 $$
 h_{ij}(a,q)=\sigma(z_i)\sigma(z_j)
 +a^2\sigma'(z_i)\sigma'(z_j)\xi_i^{\mathsf T}\xi_j
 $$
 
-となる。これはJacobianの出力係数方向と重み方向の内積を足した成分表示である。各 $r$ について $z_{r,i}(t)=q_r(t)^{\mathsf T}\xi_i$ とすれば、$|z_{r,i}(t)-z_{r,i}(0)|\le R\|q_r(t)-q_r(0)\|_2$。そこで積の差を $uv-\widetilde u\widetilde v=(u-\widetilde u)v+\widetilde u(v-\widetilde v)$ と分け、$|\sigma'|\le M_1$、$|\sigma''|\le M_2$ を使って各因子へ平均値の定理を適用する。[有限時間核固定界の証明](../SLT2-10/index.md#thm-slt2-10-finite-time-drift)と同じ計算を、今得た時間非依存の $A_*,U_a,U_q$ に適用すると、任意の $i,j$ で
+となる。これはJacobianの出力係数方向と重み方向の内積を足した成分表示である。
+
+各 $r$ について $z_{r,i}(t)=q_r(t)^{\mathsf T}\xi_i$ とすると、Cauchy–Schwarzにより
+
+$$
+|z_{r,i}(t)-z_{r,i}(0)|
+\le R\|q_r(t)-q_r(0)\|_2
+$$
+
+となる。活性化の二つの積は、まず
+
+$$
+uv-\widetilde u\widetilde v
+=(u-\widetilde u)v+\widetilde u(v-\widetilde v)
+$$
+
+と分ける。各因子の差に $|\sigma'|\le M_1$、$|\sigma''|\le M_2$ と平均値の定理を適用する。[有限時間核固定界の証明](../SLT2-10/index.md#thm-slt2-10-finite-time-drift)と同じ計算を、今得た時間非依存の $A_*,U_a,U_q$ に適用すると、任意の $i,j$ で
 
 $$
 \begin{aligned}
