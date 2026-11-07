@@ -1,9 +1,9 @@
 # DREAM THEATER 統計的学習理論 I・II（SLT1・SLT2）
 
 作成日: 2026-10-11  
-改訂日: 2026-11-08（全36章の実装状態とPLAN全体の残件を再確認）
+改訂日: 2026-11-08（全36章・4比較実験・公開導線・系列最終ゲートを確認）
 
-状態: in_progress（SLT1-01〜SLT2-18の全36章はcompleted。PLAN第7節の比較実験および最終横断完了ゲートは未完了）
+状態: completed（SLT1-01〜SLT2-18の全36章がcompleted。第7節の4比較実験・検算・公開導線・系列最終ゲートを完了）
 
 ## 0. 中心問いと射程
 
@@ -187,5 +187,7 @@ SLT1の必要結果・INFO → SLT2-16〜18（汎化の限界）
 - 系列manifestの全36章（SLT1-01〜SLT1-18、SLT2-01〜SLT2-18）が連続して `completed`。各章の `index.md`、`chapter.yaml`、`knowledge.yaml` は計108ファイル存在し、章IDとprerequisite宣言が一致した。
 - 本文から主要証明ブロック156件、演習ID362件と対応する詳細解答を確認。公開目次はmanifestの36章と順序・リンクが一致し、系列本文中の相対Markdown・stable anchorリンク622箇所は実ファイルのanchorと突き合わせた。これは**構造・参照の横断確認**であり、36章すべての数学的第三者査読を実施したという意味ではない。
 - 最終章SLT2-18では主要定義1件・主要結果4件・演習10件を全文追跡監査し、重みの未観測入力での値、条件付き確率の乱数範囲、参照リンク、数式配置を局所修正した。詳細な数理証拠は対応PRの追跡監査欄を参照。
-- **未完了**：第7節の「動く比較実験」に列挙した有限クラス／VC、ridge・最小ノルムの $p/n$・雑音・スペクトル、幅・step・seed・時間によるNTK driftについて、SLT系列として動作・テスト・公開導線を確認できていない。既存の機械学習ラボを参照できる部分と未実装の実験責務を切り分け、実装または計画上の明示的な取扱いを確定する必要がある。
-- したがって36章の執筆完了とPLAN全体の完了を区別し、上記残件が閉じるまでは `textbook/plans_progress/` に維持する。`plan_done/` への移動・系列manifestの `plan` 変更は行わない。
+- **比較実験実装**：`pages/simulation/slt-comparisons.html` と `slt-comparisons-model.mjs` で、(1) 有限クラスの $n,|\mathcal H|,\delta$ と偏差保証／実測coverage、(2) VC次元・memorizing ERMの過適合、(3) ridge／最小ノルムの $p/n$・雑音・共分散スペクトル、(4) 有限幅NTKの $m$・step・seed・時刻による drift／固定核残差を独立に再計算できる。各実験はMonte Carlo区間・再現seed・train/testの定義・数値モデルの仮定を併記し、JSONに保存できる。理論的な確率保証と有限反復での測定値は分離している。
+- **数値再導出**：`node --test pages/simulation/slt-comparisons-model.test.mjs` で、PAC半径 $\sqrt{\log(2M/\delta)/(2n)}$、$D$ 点memorizing ERMの平均リスク $(1-1/D)^n$、ridgeの正規方程式と双対最小ノルム解、$\sigma^2+\sum_js_j(\widehat\beta_j-\beta_j^*)^2$ の独立Gaussianサンプルによる照合、tanh JacobianのGram核、$T=0$ driftゼロ、1段更新の非線形／固定核差のstep二次オーダーを検算した。seed変更と全入力群の効き、数値特異条件のfail-closed処理を確認。
+- **横断完了ゲート**：全36章の構造・演習・証明block・stable anchor・目次の突合せは上記に記録済み。比較実験の入口は `pages/simulation/index.html` に追加し、公開用ビルドのsimulationディレクトリへのコピー対象を確認した。SLT系列manifestは全36章completedで後続plannedがなく、PLAN参照を `textbook/plan_done/` へ更新した。直接参照のCOURSE_DEPENDENCY_MAPとML/SLT/MFL/PML route planも更新した。新規の数学章本文には変更がないため章区分Cの再査読は今回発生しない。実装コードの自己検算・別観点の再読は同一担当者が行い、第三者独立査読とは称さない。
+- 第7節の模型はそれぞれ有限具体模型であり、一般のPAC/VC命題・double descentの普遍性・NTK無限幅極限の証明を数値実験から代用してはいない。数値的に不安定な条件は `NUMERICAL_UNRESOLVED` と明示し、残件ゼロの判定を検証記録・CIに依存させる。

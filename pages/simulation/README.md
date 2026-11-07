@@ -375,6 +375,79 @@ proof or a replacement for the CELEV Python project.
 The Node integration checks initial energy and step halving; Chromium checks
 actual 3-body initialization, markers, and a live step.
 
+## SLT1/SLT2 reproducible statistical-learning comparisons (2026-11-08)
+
+Public entry: [`slt-comparisons.html`](./slt-comparisons.html), linked from the
+simulation index. Its pure calculation module is `slt-comparisons-model.mjs`;
+run `node --test pages/simulation/slt-comparisons-model.test.mjs` before changes.
+The page recalculates all four models on actual form submission and lets the
+reader export one JSON record with settings, random seeds, model assumptions,
+train/test protocol, error bars and results. No results are transmitted to a
+server. Random draws use local seeded xorshift32 and Box–Muller normals.
+
+1. **Finite PAC class:** X is uniform over {0,…,7}; clean label is
+   `1{x mod 3 == 0}`, independently flipped with probability epsilon. Class
+   H_M consists of M distinct eight-bit masks. Each of `repeats` iid training
+   samples has n draws; exact population 0–1 risk is evaluated by the eight
+   conditional probabilities (an independent *population* test, not a reused
+   training set). Display
+   `sqrt(log(2*M/delta)/(2*n))`, the finite-class Hoeffding–union bound
+   radius, *separately* from Monte Carlo coverage, mean maximum deviation,
+   ERM generalization gap and excess risk. The theorem is a probability
+   guarantee under the listed assumptions; estimated coverage is a distinct
+   random quantity with a Wilson binomial 95% interval.
+2. **VC/overfit:** The hypothesis class contains all functions from a
+   D-point uniform domain to {0,1}, so VC dimension D. True y=1. The
+   memorizing ERM tie-breaking rule labels seen points 1 and unseen points
+   0. Train error is exactly zero; exact population risk is the fraction of
+   unseen points, whose expectation is `(1-1/D)^n`. A new iid finite test of
+   `testSize` points per repeat is also measured. The constant-one ERM has
+   zero risk; this example proves a *bad ERM is possible*, not that all ERMs
+   in a rich class are bad.
+3. **Ridge/least norm:** Rows of X are iid N(0,diag(s_j)),
+   `s_j = 1/(1+decay*j/10)`, j=0,…,p-1. The first five beta* coordinates
+   equal `1/sqrt(5)`, the remainder zero. The response noise is independent
+   N(0,sigma^2). Fit the exact finite-sample objective
+   `||X beta-y||^2/n + lambda*||beta||^2` via the primal or dual Gram system
+   (Cholesky). At zero lambda the overparameterized solution is the
+   minimum-Euclidean-norm interpolator, provided the matrix is full row rank.
+   Sweep p/n over 0.5,0.75,0.9,1,1.1,1.25,1.5,2; display empirical train MSE
+   and the *conditional expected independent-test MSE*, exactly
+   `sigma^2+sum_j s_j*(beta_hat_j-beta*_j)^2`. Repeated independent Gaussian
+   training samples estimate the means. Numerically unresolved ill-conditioned
+   matrices are surfaced as `NUMERICAL_UNRESOLVED`, never silently removed.
+4. **Finite-width NTK:** For each seed initialize all a_j,w_j,b_j iid
+   N(0,1), then `f_m(x)=sum_j a_j*tanh(w_j*x+b_j)/sqrt(m)`.
+   Train on nine fixed grid points x in [-1,1], y=sin(pi*x), using
+   simultaneous full-batch gradient descent of
+   `L=sum_i(f(x_i)-y_i)^2/(2*n)` with step eta for T iterations. The Jacobian
+   of each unit is `(phi, a*(1-phi^2)*x, a*(1-phi^2))/sqrt(m)`, so the NTK
+   Gram matrix is their inner product. The frozen-kernel iterate starts
+   from *the same f_0* and updates `g_{t+1}=g_t-eta*K_0*(g_t-y)/n`, also on
+   24 fixed holdout points not in the training grid. Compare the relative
+   Frobenius drift `||K_T-K_0||_F/||K_0||_F`, the nonlinear-vs-linearized
+   train prediction RMSE, train and holdout test MSE, and frozen-kernel test
+   MSE for widths m,2m,4m. These are *finite-width, finite-time* diagnostics,
+   not an infinite-width convergence claim.
+
+For each repeated mean the displayed interval is mean ± 1.96 independent-
+replicate sample standard errors, an approximate Monte Carlo interval; it is
+not a theorem-bound and can extend below zero for a nonnegative metric. The
+simulation uses fixed seed sequences, not curated favorable outcomes. Full
+input settings, n,p,m, seeds, train/test definitions, noise, optimizer, loss
+normalization, step, stopping iterations, assumptions and interval protocol
+are included in the downloadable JSON. Four input groups—n/|H|/delta;
+D/n; p/n/sigma/decay/lambda; and width/eta/T/seed—actually alter the
+underlying calculation. Negative or out-of-range inputs and combinations
+above a conservative browser work budget are rejected without partial output.
+
+The browser page's public routing is checked with Pages validation. The
+Node test suite independently checks a hand-solvable primal/dual ridge fit,
+the Gaussian test-risk identity against fresh samples, a tanh Jacobian/NTK
+Gram identity, finite-class theory radius, VC expectation, seed
+reproducibility, T=0 NTK invariants and the small-step linearization
+residual's quadratic scaling.
+
 ## CELEV three-body periodic and choreography gallery (2026-10-15)
 
 `orbit-gallery.mjs` adds eight **computed** Newtonian models on the common

@@ -85,6 +85,10 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:simulation-phase0
 
+      - name: Validate SLT comparison models and numerical invariants
+        if: steps.scope.outputs.full == 'true'
+        run: node --test pages/simulation/slt-comparisons-model.test.mjs
+
       - name: Assemble and validate Pages site
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
