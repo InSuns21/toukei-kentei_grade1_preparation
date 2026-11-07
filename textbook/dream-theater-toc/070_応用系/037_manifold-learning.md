@@ -9,3 +9,4 @@
 6. [MFL6 内在次元・曲率の推定](textbook/volumes/dream_thater/応用系/MFL/MFL6/index.md)
 7. [MFL7 近傍グラフの構築](textbook/volumes/dream_thater/応用系/MFL/MFL7/index.md)
 8. [MFL8 Classical MDS・距離から座標を復元する](textbook/volumes/dream_thater/応用系/MFL/MFL8/index.md)
+9. [MFL9 Isomapと測地距離](textbook/volumes/dream_thater/応用系/MFL/MFL9/index.md)
