@@ -1,0 +1,43 @@
+id: "ITD10"
+title: "情報リザーバー：ビット列が運ぶ自由エネルギーと相関の費用"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD3
+  - ITD5
+  - ITD6
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 独立に供給される二値ビットと有限状態装置の操作を定義し、始終の結合分布を作れる
+  - ビットのエントロピー差と装置・ビットの相互情報量から平均仕事下限を証明できる
+  - 入力が相関している場合の補正項を導き、Landauer消去との違いを説明できる
+  - 出力ビット列の全相関を有限分布から計算し、テープ全体の仕事下限を証明できる
+  - 可逆コピーと独立なビット乱雑化を比較し、相関を無視した見かけの仕事利得を見抜ける
+definitions:
+  - { id: ITD10-DEF-01, name: 新鮮なビットとの操作 }
+  - { id: ITD10-DEF-02, name: 出力ビット列の全相関 }
+theorems:
+  - { id: ITD10-THM-01, name: 単一ビットの情報リザーバー仕事下限 }
+  - { id: ITD10-PROP-01, name: 入力が相関している場合の補正 }
+  - { id: ITD10-THM-02, name: 有限ビット列の仕事収支 }
+  - { id: ITD10-PROP-02, name: 繰り返しコピーは仕事の供給源ではない }
+canonical_examples:
+  - 確定零のビットを準静的に乱雑化して取り出す仕事
+  - 公平な二値装置からビットへの可逆コピーと終端相関
+  - 相関した二ビットと独立な二ビットの全エントロピー比較
+problem_patterns:
+  - ITD10-BIASED-BIT
+  - ITD10-COPY-CORRELATION
+  - ITD10-SYMMETRIC-THERMALIZATION
+  - ITD10-QUASISTATIC-BIT
+  - ITD10-PARTIAL-CORRELATION
+  - ITD10-CORRELATED-INPUT
+  - ITD10-TAPE-TOTAL-CORRELATION
+  - ITD10-ERASURE-ERROR
+  - ITD10-REPEATED-COPY
+  - ITD10-INTEGRATED-TAPE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 4 }
