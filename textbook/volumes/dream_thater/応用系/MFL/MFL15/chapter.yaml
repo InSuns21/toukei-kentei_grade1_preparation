@@ -1,0 +1,42 @@
+id: "MFL15"
+title: "密度補正・極限generator"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL13
+  - MFL14
+official_scope: []
+learning_objectives:
+  - 行正規化とalpha密度補正を区別し有限核の分母の正値を確認できる
+  - Gaussian核のbias展開からalpha補正の極限generatorを係数を含めて導ける
+  - alphaが0・1/2・1のときの密度driftと重み付き発散形を説明できる
+  - 円周上の非一様密度でdriftを計算し有限bandwidthではalpha=1でも密度効果が残る例を示せる
+  - 対称な補正重みから有限Markov行列と詳細釣合い・Dirichlet形式を検算できる
+  - 母積分の極限と有限標本の誤差・スペクトル収束を混同せず数値実験で比較できる
+definitions:
+  - { id: MFL15-DEF-01, name: alpha密度補正と連続Markov作用素 }
+  - { id: MFL15-DEF-02, name: alpha補正した有限Markov行列 }
+theorems:
+  - { id: MFL15-THM-01, name: alpha補正の極限generator }
+  - { id: MFL15-PROP-01, name: 重み付き発散形とエネルギー }
+  - { id: MFL15-PROP-02, name: 有限alpha補正行列の詳細釣合い }
+  - { id: MFL15-PROP-03, name: alpha=1の有限bandwidthの残差 }
+canonical_examples:
+  - 一様円周のalphaに依らない正規化
+  - 非一様円周のtheta=pi/2における密度drift
+  - 二頂点のMarkov行列と定常重み
+  - 有限bandwidthで残る密度依存
+problem_patterns:
+  - MFL15-A01
+  - MFL15-A02
+  - MFL15-A03
+  - MFL15-A04
+  - MFL15-B01
+  - MFL15-B02
+  - MFL15-B03
+  - MFL15-B04
+  - MFL15-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

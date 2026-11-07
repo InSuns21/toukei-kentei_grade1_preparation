@@ -1,0 +1,49 @@
+chapter: MFL15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL13
+  - MFL14
+
+concepts:
+  - id: manifold-learning.alpha-corrected-kernel
+    name: alpha密度補正と連続Markov作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（alpha密度補正と連続Markov作用素）"]
+    requires: [manifold-learning.intrinsic-gaussian-operator, manifold-learning.kernel-sample-average]
+
+  - id: manifold-learning.alpha-generator
+    name: alpha補正の極限generator
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（alpha補正の極限generator）"]
+    requires: [manifold-learning.alpha-corrected-kernel, manifold-learning.kernel-bias, manifold-learning.row-kernel-bias]
+
+  - id: manifold-learning.alpha-weighted-energy
+    name: 重み付き発散形とエネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重み付き発散形とエネルギー）"]
+    requires: [manifold-learning.alpha-generator]
+
+  - id: manifold-learning.discrete-alpha-markov
+    name: alpha補正した有限Markov行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（alpha補正した有限Markov行列）"]
+    requires: [manifold-learning.alpha-corrected-kernel, manifold-learning.kernel-sample-average]
+
+  - id: manifold-learning.alpha-detailed-balance
+    name: 有限alpha補正行列の詳細釣合い
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限alpha補正行列の詳細釣合い）"]
+    requires: [manifold-learning.discrete-alpha-markov]
+
+  - id: manifold-learning.alpha-finite-bandwidth
+    name: alpha=1の有限bandwidthの残差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（alpha=1の有限bandwidthの残差）"]
+    requires: [manifold-learning.alpha-corrected-kernel, manifold-learning.alpha-generator]

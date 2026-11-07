@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-08（MFL14の標本実験追加、MFL15〜MFL43の章別実験仕様を追記）
-状態: in_progress（MFL1〜MFL14 完成、MFL15〜MFL43 は未実装）
+改訂日: 2026-11-08（MFL15の密度補正・円周実験完成）
+状態: in_progress（MFL1〜MFL15 完成、MFL16〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -328,5 +328,7 @@ MFL14では `kernel_sampling_lab.py` を正本に、既存の `python-file-lab` 
 - **MFL11 completed**：グラフDirichletエネルギーの最小化、正規化一般化固有値問題、非連結・孤立点を含む失敗診断、Python実験を実装。
 - **MFL12 completed**：GA1/GA4への直接参照、半径付き円周・球面の計量・体積・作用素、Greenの境界項、周期差分の剛性/質量と次数正規化の尺度差、固定滑らかな周期関数の $O(h^2)$ 誤差、Python実験を実装。
 - **MFL13 completed**：境界なしコンパクト多様体上の内在Gaussian核について、正規座標のJacobian・Gaussianモーメントから $O(\varepsilon)$ の曲率・密度biasと剰余を証明。行正規化後のdrift、円周と球面で内在距離とambient距離の差、9題の詳細解答と決定論的な円周積分実験を追加。
-- **MFL14〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- **MFL14 completed**：kernel標本平均の分散・集中と一点除外、9題の演習と円周の決定論的再現実験を実装。
+- **MFL15 completed**：alpha密度補正の極限generator・重み付き発散形・有限Markov詳細釣合い・有限bandwidth反例を証明し、9題の詳細解答と不均一円周の再現実験を実装。
+- **MFL16〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
 - 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。
