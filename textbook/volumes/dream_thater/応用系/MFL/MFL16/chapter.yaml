@@ -1,0 +1,45 @@
+id: "MFL16"
+title: "Diffusion Mapsと熱の幾何"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL15
+  - GA5
+official_scope: []
+learning_objectives:
+  - 対称核から作った有限Markov行列の定常分布・可逆性を確認し重み付き固有基底を構成できる
+  - 有限時刻のdiffusion distanceをMarkov遷移確率と固有座標の双方から導ける
+  - diffusion timeによる距離の減衰と座標切り捨て誤差・重複固有値の不定性を説明できる
+  - 二点模型で核幅・遷移確率・固有値・diffusion distanceを直接計算できる
+  - 熱核のL2距離とLaplace–Beltrami固有関数展開の同一性を証明し円周で計算できる
+  - Markov反復の時間尺度と熱半群の一致に必要な収束仮定を区別できる
+  - generatorの点ごとの極限だけでは標本固有空間の収束を保証しない理由を述べられる
+definitions:
+  - { id: MFL16-DEF-01, name: 有限diffusion distance }
+  - { id: MFL16-DEF-02, name: Diffusion Maps座標 }
+  - { id: MFL16-DEF-03, name: 熱核diffusion distance }
+theorems:
+  - { id: MFL16-THM-01, name: 可逆Markov行列の重み付き固有分解 }
+  - { id: MFL16-THM-02, name: diffusion distanceのスペクトル表示 }
+  - { id: MFL16-PROP-01, name: 時間単調性と座標切り捨て誤差 }
+  - { id: MFL16-THM-03, name: 熱核diffusion distanceのスペクトル表示 }
+  - { id: MFL16-PROP-02, name: 有限次元generator近似からの熱時間極限 }
+  - { id: MFL16-PROP-03, name: 固定モードの時間倍率と極限 }
+canonical_examples:
+  - Gaussian核で結ばれた二点の有限Markov行列とdiffusion distance
+  - 周期円周の二波数に対する熱半群とdiffusion distance
+  - 非可逆行列や固有値の符号に関する仮定違反の例
+problem_patterns:
+  - MFL16-A01
+  - MFL16-A02
+  - MFL16-A03
+  - MFL16-A04
+  - MFL16-B01
+  - MFL16-B02
+  - MFL16-B03
+  - MFL16-B04
+  - MFL16-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.0 }
