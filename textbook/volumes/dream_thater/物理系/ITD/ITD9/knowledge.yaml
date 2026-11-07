@@ -1,0 +1,60 @@
+chapter: ITD9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - ITD4
+  - ITD6
+  - ITD7
+  - ITD8
+  - INFO2
+forward_references: []
+concepts:
+  - id: information-thermodynamics.bipartite-jump-model
+    name: 二部分系ジャンプ模型と部分確率流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二部分系ジャンプ模型と部分確率流）]
+    requires: [information-thermodynamics.probability-flux-activity, information-thermodynamics.labeled-bath-path]
+
+  - id: information-thermodynamics.partial-information-flow
+    name: 部分系の情報流
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（部分系の情報流）]
+    requires: [information-thermodynamics.bipartite-jump-model, information.mutual-information]
+
+  - id: information-thermodynamics.information-flow-decomposition
+    name: 相互情報量の時間変化の分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（相互情報量の時間変化の分解）]
+    requires: [information-thermodynamics.partial-information-flow]
+
+  - id: information-thermodynamics.partial-second-law
+    name: 情報流を含む部分系の第二法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（情報流を含む部分系の第二法則）]
+    requires: [information-thermodynamics.information-flow-decomposition, information-thermodynamics.multibath-path-entropy, information-thermodynamics.instantaneous-entropy-rate]
+
+  - id: information-thermodynamics.information-flow-bound
+    name: 有限時間と定常状態の情報流不等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（有限時間と定常状態の情報流不等式）]
+    requires: [information-thermodynamics.partial-second-law]
+
+  - id: information-thermodynamics.bipartite-steady-example
+    name: 二浴四状態の自律的情報流と熱収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二浴四状態の自律的情報流と熱収支）]
+    requires: [information-thermodynamics.partial-second-law, information-thermodynamics.information-flow-bound]
+
+  - id: information-thermodynamics.one-bath-steady-no-flow
+    name: 単一浴の定常状態では情報流が消える
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（単一浴の定常状態では情報流が消える）]
+    requires: [information-thermodynamics.partial-second-law, information-thermodynamics.bipartite-steady-example]
