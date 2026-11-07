@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 330" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">Equal Earthの赤道における面積を保つ局所伸縮</title>
+  <desc id="desc">左の正積球の赤道での微小な正方形と、右のEqual Earth投影面に移した同じ微小領域を示す。元の正方形の一辺を1とすると、赤道では東西の倍率は約0.8616、南北の倍率は約1.1607で積が1となり、長方形に形が変わっても微小面積は保存される。両図は同じ描画尺度で、有限領域を厳密に長方形へ写すとの主張ではない。</desc>
+  <defs><marker id="map" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8 Z" fill="#526171"/></marker></defs>
+  <rect x="128" y="104" width="120" height="120" fill="#e1edf3" stroke="#146787" stroke-width="3" data-series-group="local-area" data-series-label="正積球の微小正方形"/>
+  <rect x="422" y="94.36" width="103.38" height="139.28" fill="#f6e9dd" stroke="#ab6125" stroke-width="3" stroke-dasharray="10 5" data-series-group="local-area" data-series-label="Equal Earthの微小長方形"/>
+  <path d="M280 164 H386" stroke="#526171" stroke-width="2.4" marker-end="url(#map)"/>
+  <g font-family="sans-serif" font-size="19" fill="#203242">
+    <text x="133" y="86">u = Rq ℓ</text>
+    <text x="134" y="257">v = Rq β</text>
+    <text x="432" y="76">E</text>
+    <text x="536" y="240">Np</text>
+    <text x="148" y="167">1 × 1</text>
+    <text x="443" y="167">area 1</text>
+  </g>
+</svg>
