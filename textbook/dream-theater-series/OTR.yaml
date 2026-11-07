@@ -8,7 +8,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: OTR1, path: textbook/volumes/dream_thater/解析系/OTR/OTR1, status: completed, title: "写像で質量を運ぶとは何か" }
   - { id: OTR2, path: textbook/volumes/dream_thater/解析系/OTR/OTR2, status: completed, title: "分割して運べば何が解消するか" }
-  - { id: OTR3, path: textbook/volumes/dream_thater/解析系/OTR/OTR3, status: planned, title: "最適結合はいつ存在するか" }
+  - { id: OTR3, path: textbook/volumes/dream_thater/解析系/OTR/OTR3, status: completed, title: "最適結合はいつ存在するか" }
   - { id: OTR4, path: textbook/volumes/dream_thater/解析系/OTR/OTR4, status: planned, title: "離散輸送はどんな最適化問題か" }
   - { id: OTR5, path: textbook/volumes/dream_thater/解析系/OTR/OTR5, status: planned, title: "双対変数は何を保証するか" }
   - { id: OTR6, path: textbook/volumes/dream_thater/解析系/OTR/OTR6, status: planned, title: "連続空間でも双対性は成立するか" }
