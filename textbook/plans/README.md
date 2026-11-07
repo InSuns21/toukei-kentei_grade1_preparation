@@ -38,7 +38,7 @@
 | 高次元確率・集中不等式・非漸近ランダム行列評価 | `DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md`（HDP：独立科目・講数可変、SLTの数理基盤） |
 | スペクトルグラフ理論・Cheeger不等式・random walk・graph Laplacian | `DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md`（SGT：独立科目・講数可変、MFLの数理基盤） |
 | ランダム行列・Wigner半円則・Marčenko–Pastur法則 | `DREAM_THEATER_RANDOM_MATRIX_THEORY_PLAN.md`（RMT：独立科目・講数可変、発展分岐） |
-| 最適輸送・Wasserstein幾何・測度上の勾配流 | `DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md`（OTR：独立科目・講数可変、発展分岐） |
+| 最適輸送・Wasserstein幾何・測度上の勾配流 | `DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md`（OTR：独立全26講、発展分岐） |
 | SDE / Markov generator / Feynman--Kac | 完了済み Encore IV（`STO9` / `STO11`） |
 | 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
