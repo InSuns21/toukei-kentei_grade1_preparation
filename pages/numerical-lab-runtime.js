@@ -478,6 +478,98 @@
     container.appendChild(figure);
   }
 
+  // Generic scalar-series contract for reproducible experiments (e.g. MFL14).
+  // Keep numeric data in stdout JSON; this SVG is only a supplementary view.
+  function appendSeriesPlot(container, specification) {
+    if (!specification || typeof specification.title !== "string" ||
+      !Array.isArray(specification.series) || !specification.series.length ||
+      specification.series.length > 5) return;
+
+    const series = specification.series.map((entry) => ({
+      name: String(entry?.name || "系列"),
+      points: entry?.points,
+    }));
+    if (!series.every((entry) => Array.isArray(entry.points) &&
+      entry.points.length >= 2 && entry.points.length <= 500 &&
+      entry.points.every((point) => Array.isArray(point) && point.length === 2 &&
+        point.every((number) => typeof number === "number" && Number.isFinite(number))))) return;
+
+    const allPoints = series.flatMap((entry) => entry.points);
+    const xs = allPoints.map((point) => point[0]);
+    const ys = allPoints.map((point) => point[1]);
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+    const spanX = Math.max(maxX - minX, 1e-12);
+    const spanY = Math.max(maxY - minY, 1e-12);
+    const width = 520;
+    const height = 350;
+    const left = 75;
+    const top = 25;
+    const plotWidth = 425;
+    const plotHeight = 216;
+    const svgNS = "http://www.w3.org/2000/svg";
+    const make = (name, attributes = {}) => {
+      const node = document.createElementNS(svgNS, name);
+      Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, String(value)));
+      return node;
+    };
+    const xPosition = (x) => left + (x - minX) / spanX * plotWidth;
+    const yPosition = (y) => top + (maxY - y) / spanY * plotHeight;
+    const format = (value) => Number(value.toPrecision(4)).toString();
+
+    const figure = document.createElement("figure");
+    figure.className = "numerical-file-plot numerical-file-series";
+    const caption = document.createElement("figcaption");
+    caption.textContent = specification.title;
+    const svg = make("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": specification.title });
+    svg.appendChild(make("title")).textContent = specification.title;
+    svg.appendChild(make("rect", { width, height, fill: "#f8fafc" }));
+    svg.appendChild(make("rect", { x: left, y: top, width: plotWidth, height: plotHeight,
+      fill: "#ffffff", stroke: "#64748b", "stroke-width": 1 }));
+
+    for (let tick = 0; tick <= 4; tick += 1) {
+      const positionX = left + plotWidth * tick / 4;
+      const positionY = top + plotHeight * tick / 4;
+      svg.appendChild(make("line", { x1: positionX, x2: positionX, y1: top, y2: top + plotHeight,
+        stroke: "#e2e8f0" }));
+      svg.appendChild(make("line", { x1: left, x2: left + plotWidth, y1: positionY, y2: positionY,
+        stroke: "#e2e8f0" }));
+      svg.appendChild(make("text", { x: positionX, y: 260, "text-anchor": "middle", "font-size": 11,
+        fill: "#334155" })).textContent = format(minX + spanX * tick / 4);
+      svg.appendChild(make("text", { x: left - 9, y: positionY + 4, "text-anchor": "end",
+        "font-size": 11, fill: "#334155" })).textContent = format(maxY - spanY * tick / 4);
+    }
+
+    const colors = ["#1d4ed8", "#be123c", "#047857", "#7c3aed", "#a16207"];
+    const dashes = ["none", "7,4", "2,4", "9,3,2,3", "4,4"];
+    series.forEach((entry, index) => {
+      const coordinates = entry.points.map(([x, y]) => `${xPosition(x)},${yPosition(y)}`).join(" ");
+      svg.appendChild(make("polyline", { points: coordinates, fill: "none", stroke: colors[index],
+        "stroke-width": 2.3, "stroke-dasharray": dashes[index] }));
+      entry.points.forEach(([x, y]) => {
+        svg.appendChild(make("circle", { cx: xPosition(x), cy: yPosition(y), r: 3.3,
+          fill: "#ffffff", stroke: colors[index], "stroke-width": 2 }));
+      });
+      const legendX = left + (index % 3) * 145;
+      const legendY = 313 + Math.floor(index / 3) * 19;
+      svg.appendChild(make("line", { x1: legendX, x2: legendX + 16, y1: legendY - 4, y2: legendY - 4,
+        stroke: colors[index], "stroke-width": 2.3, "stroke-dasharray": dashes[index] }));
+      svg.appendChild(make("text", { x: legendX + 21, y: legendY, "font-size": 10,
+        fill: "#1e293b" })).textContent = entry.name.slice(0, 18);
+    });
+    svg.appendChild(make("text", { x: left + plotWidth / 2, y: 280,
+      "text-anchor": "middle", "font-size": 11, fill: "#334155" })).textContent =
+      String(specification.x_label || "").slice(0, 24);
+    const yLabel = make("text", { x: 17, y: top + plotHeight / 2, transform: `rotate(-90 17 ${top + plotHeight / 2})`,
+      "text-anchor": "middle", "font-size": 11, fill: "#334155" });
+    yLabel.textContent = String(specification.y_label || "").slice(0, 28);
+    svg.appendChild(yLabel);
+    figure.append(caption, svg);
+    container.appendChild(figure);
+  }
+
   function setFileVisuals(panel, outputText) {
     const container = panel.querySelector(".numerical-lab-figures");
     if (!container) return;
@@ -500,6 +592,7 @@
     if (result.coordinates) appendPointPlot(container, "復元座標", result.coordinates);
     if (result.mds?.coordinates) appendPointPlot(container, "Isomap 埋め込み", result.mds.coordinates);
     if (result.embedding_1d) appendPointPlot(container, "LLE 1次元埋め込み", result.embedding_1d);
+    if (Array.isArray(result.plots)) result.plots.slice(0, 4).forEach((entry) => appendSeriesPlot(container, entry));
   }
 
   function clearTimers(job) {
