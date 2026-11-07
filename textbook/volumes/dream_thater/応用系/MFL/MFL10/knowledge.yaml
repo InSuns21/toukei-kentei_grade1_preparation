@@ -1,0 +1,63 @@
+chapter: MFL10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL7
+  - MFL8
+
+concepts:
+  - id: manifold-learning.lle-local-affine-weights
+    name: 局所アフィン再構成重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所アフィン再構成重み）"]
+    requires: [manifold-learning.knn-graph-symmetrization]
+
+  - id: manifold-learning.lle-local-gram-solution
+    name: 局所Gram形式と正定値重みの公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所Gram形式と正定値重みの公式）"]
+    requires: [manifold-learning.lle-local-affine-weights]
+
+  - id: manifold-learning.lle-ridge-weights
+    name: ridge正則化局所重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ridge正則化局所重み）"]
+    requires: [manifold-learning.lle-local-gram-solution]
+
+  - id: manifold-learning.lle-ridge-uniqueness
+    name: ridge重みの一意性と変換則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ridge重みの一意性と変換則）"]
+    requires: [manifold-learning.lle-ridge-weights]
+
+  - id: manifold-learning.lle-embedding-variational
+    name: LLEの埋め込み変分問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（LLEの埋め込み変分問題）"]
+    requires: [manifold-learning.lle-local-affine-weights, manifold-learning.mds-euclidean-criterion]
+
+  - id: manifold-learning.lle-spectral-minimum
+    name: LLE二次形式の固有値最小化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（LLE二次形式の固有値最小化）"]
+    requires: [manifold-learning.lle-embedding-variational, linear.spectral-theorem]
+
+  - id: manifold-learning.lle-disconnected-kernel
+    name: 非連結近傍と追加零固有方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非連結近傍と追加零固有方向）"]
+    requires: [manifold-learning.lle-spectral-minimum]
+
+  - id: manifold-learning.lle-signed-kernel
+    name: 符号付き重みの連結グラフでも核が増える例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（符号付き重みの連結グラフでも核が増える例）"]
+    requires: [manifold-learning.lle-spectral-minimum]
