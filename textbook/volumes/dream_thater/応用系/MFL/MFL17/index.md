@@ -44,7 +44,7 @@ $$
 この分母は正の重みの総和なので、$P_\varepsilon^p1=1$ であり、$f\ge0$ なら $P_\varepsilon^pf\ge0$。有限の[可逆Markov行列](../MFL16/index.md#thm-mfl16-spectrum)と同じく「平均する」構造だが、これは連続積分による作用素であり、有限点群の固有対を自動的に与えるものではない。
 
 <!-- definition-example-start: def-mfl17-row -->
-**直接例（定数と左端の一次関数）。** $p(y)=1$ は正で積分1、$f=1$ では分子と分母が一致する。$x=0$、$f(y)=y$ では
+**直接例（定数と左端の一次関数）。** **定義の確認**：$p(y)=1$ は正で積分1、$f=1$ では分子と分母が一致する。$x=0$、$f(y)=y$ では
 
 $$
 P_\varepsilon^p f(0)=
@@ -77,7 +77,7 @@ $$
 計算の意味は単純だ。$\mu_1$ は近傍の平均的な**向き付き移動**、$\mu_2$ は二階微分に掛かる平均二乗移動である。$v$ は密度の傾きと関数の傾きが相互作用する係数になる。
 
 <!-- definition-example-start: def-mfl17-moments -->
-**直接例（左端での半Gaussian）。** $A=0$、$B\to\infty$ なら、[MFL13の全空間Gaussianモーメント](../MFL13/index.md#lem-mfl13-moments)の半分を使い、
+**直接例（左端での半Gaussian）。** **定義の確認**：$A=0$、$B\to\infty$ で積分区間が半直線となる極限を考える。$m_0>0$ なので $\mu_j$ が定義できる。[MFL13の全空間Gaussianモーメント](../MFL13/index.md#lem-mfl13-moments)の半分を使い、
 
 $$
 m_0(0,\infty)=\sqrt{\pi},\quad
@@ -190,7 +190,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl17-neumann -->
-**直接例（両端で微分が消える関数）。** $f(x)=x^2(1-x)^2$ は $C^1([0,1])$ で、
+**直接例（両端で微分が消える関数）。** **定義の確認**：$f(x)=x^2(1-x)^2$ は $C^1([0,1])$ で、
 
 $$
 f'(x)=2x(1-x)^2-2x^2(1-x)=2x(1-x)(1-2x).
@@ -315,7 +315,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl17-adaptive -->
-**直接例（密度に応じた幅）。** $p_s(x)=1+s(2x-1)$、$|s|<1$ は正で積分1である。$\beta\in\mathbb R$ として $\rho(x)=p_s(x)^{-\beta}$ とすると、$1-|s|\le p_s\le1+|s|$ より $\rho$ は正で上下有界。$K_{\varepsilon,\rho}^{\mathrm{row}}>0$ で分母は正、定数関数の分子と分母は一致する。$s>0,\beta>0$ なら右側ほど密度が大きく、$\rho$ は小さくなる。
+**直接例（密度に応じた幅）。** **定義の確認**：$p_s(x)=1+s(2x-1)$、$|s|<1$ は正で積分1である。$\beta\in\mathbb R$ として $\rho(x)=p_s(x)^{-\beta}$ とすると、$1-|s|\le p_s\le1+|s|$ より $\rho$ は正で上下有界。$K_{\varepsilon,\rho}^{\mathrm{row}}>0$ で分母は正、定数関数の分子と分母は一致する。$s>0,\beta>0$ なら右側ほど密度が大きく、$\rho$ は小さくなる。
 <!-- definition-example-end -->
 
 <a id="thm-mfl17-adaptive"></a>
@@ -372,7 +372,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl17-shift -->
-**直接例（傾いた二つの密度）。** $p_s(x)=1+s(2x-1)$、$q_t(x)=1+t(2x-1)$、$|s|,|t|<1$ とすれば、いずれも積分1かつ一様に正である。$w=q_t/p_s$ は連続で上下有界、$w p_s=q_t$。従って分母は正であり、重み付き行平均は直接積分の $q_t$ 行平均に一致する。
+**直接例（傾いた二つの密度）。** **定義の確認**：$p_s(x)=1+s(2x-1)$、$q_t(x)=1+t(2x-1)$、$|s|,|t|<1$ とすれば、いずれも積分1かつ一様に正である。$w=q_t/p_s$ は連続で上下有界、$w p_s=q_t$。従って分母は正であり、重み付き行平均は直接積分の $q_t$ 行平均に一致する。
 <!-- definition-example-end -->
 
 <a id="prop-mfl17-shift"></a>
