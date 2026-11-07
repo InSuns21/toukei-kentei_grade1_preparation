@@ -19,7 +19,11 @@ $$
 
 ## 2. 両端の密度を補正し、そのあと行で正規化する
 
-観測点の近傍重みの総量を調べる量は、[MFL13の核積分作用素](../MFL13/index.md#def-mfl13-kernel)による $q_\varepsilon(x)=G_\varepsilon p(x)$ である。核は非負で、各 $x$ の対角付近では正である。$p>0$ なので $q_\varepsilon(x)>0$ が従う。多様体が非連結の場合、異なる連結成分間の測地距離は無限大と約束し、核値を $0$ とするが、同じ点の近傍からの正の積分は失われない。点 $x,y$ のそれぞれの重みに $q_\varepsilon^{-\alpha}$ を掛けると、密度の高い場所から来る重みを下げられる。指数 $\alpha\in\mathbb R$ は補正の強さを決める（代表値は $0,\tfrac12,1$）。
+観測点の近傍重みの総量を調べる量は、[MFL13の核積分作用素](../MFL13/index.md#def-mfl13-kernel)による $q_\varepsilon(x)=G_\varepsilon p(x)$ である。
+
+内在Gaussian核は非負で、各点の対角付近では正である。密度も $p>0$ だから、近傍の積分から $q_\varepsilon(x)>0$ が従う。多様体が非連結なら、異なる連結成分間の測地距離を無限大、核値を $0$ と約束する。同じ点の近傍からの正の積分は失われない。
+
+点 $x,y$ のそれぞれの重みに $q_\varepsilon^{-\alpha}$ を掛けると、密度の高い場所から来る重みを下げられる。指数 $\alpha\in\mathbb R$ は補正の強さを決める（代表値は $0,\tfrac12,1$）。
 
 <a id="def-mfl15-alpha"></a>
 
@@ -182,7 +186,22 @@ $$
 
 これは[MFL13の無補正結果](../MFL13/index.md#prop-mfl13-row)と $\alpha=0$ で一致する。$\alpha=1$ に関しても**この極限で**密度driftが消えるのであって、有限核幅で $p$ に依らないという等式ではない。
 
-**円周で係数を手で見る。** 単位円周の角度 $\theta$ とし、角度だけの関数 $u(\theta)$ では $u'(\theta)=du/d\theta=\partial_\theta u$、$u''(\theta)=\partial_{\theta\theta}u=\Delta_gu$ と書く。また単位円周の計量により $\langle\nabla_gu,\nabla_gv\rangle_g=u'v'$ である（[円周でのLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)）。これらはすべて角度 $\theta$ に関する微分であり、核幅 $\varepsilon$ に関する微分ではない。以下、$|a|<1$、$p(\theta)=(1+a\cos\theta)/(2\pi)$、$f(\theta)=\cos\theta$ を取る。$p$ は正で積分1、$f$ は滑らか。この記法で $\partial_\theta\log p=-a\sin\theta/(1+a\cos\theta)$ なので
+**円周で係数を手で見る。** 単位円周の角度を $\theta$ とする。角度だけの関数 $u(\theta)$ に対し、導関数と偏微分記法の対応は
+
+$
+u'(\theta)=\frac{du}{d\theta}=\partial_\theta u,\qquad
+u''(\theta)=\partial_{\theta\theta}u=\Delta_gu.
+$
+
+さらに[円周でのLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)と同じ単位円周の計量では
+
+$
+\langle\nabla_gu,\nabla_gv\rangle_g=u'v'.
+$
+
+これらはすべて角度 $\theta$ に関する微分であり、核幅 $\varepsilon$ に関する微分ではない。
+
+以下、$|a|<1$、$p(\theta)=(1+a\cos\theta)/(2\pi)$、$f(\theta)=\cos\theta$ を取る。$p$ は正で積分1、$f$ は滑らか。この記法で $\partial_\theta\log p=-a\sin\theta/(1+a\cos\theta)$ なので
 
 $$
 L_\alpha f(\theta)=-\cos\theta+
