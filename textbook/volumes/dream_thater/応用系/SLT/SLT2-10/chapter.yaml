@@ -1,0 +1,40 @@
+id: "SLT2-10"
+title: "無限幅NTKの条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-09
+  - SLT2-08
+official_scope: []
+learning_objectives:
+  - NTKパラメータ化と有限入力・有限時間・独立初期化の仮定を区別して記述できる
+  - 二層網の初期NTKをニューロンごとの平均として表し、有限標本の集中界を証明できる
+  - 勾配流の残差減衰からニューロンごとの移動量と核変動の有限時間界を導ける
+  - 動く核の学習曲線を同じランダム初期出力を使う極限固定核曲線と比較できる
+  - 正定値性、学習時間、幅スケーリング、活性化の正則性に関する停止線を反例で説明できる
+definitions:
+  - { id: SLT2-10-DEF-01, name: 有限入力の無限幅NTK極限 }
+theorems:
+  - { id: SLT2-10-THM-01, name: 二層網の初期NTKの有限入力集中 }
+  - { id: SLT2-10-THM-02, name: 二層網の有限時間核固定界 }
+  - { id: SLT2-10-THM-03, name: 無限幅NTKと有限時間の予測近似 }
+canonical_examples:
+  - tanhと対称な出力係数・零の隠れ重みで極限Gram行列を定義から計算する
+  - 定数活性化による特異な極限Gram行列を確認する
+  - 1/mパラメータ化でパラメータ勾配に由来する核が消えることを計算する
+  - 共有初期化と幅に伴う入力点数の増加で仮定の必要性を確認する
+problem_patterns:
+  - SLT2-10-A01
+  - SLT2-10-A02
+  - SLT2-10-A03
+  - SLT2-10-A04
+  - SLT2-10-A05
+  - SLT2-10-B01
+  - SLT2-10-B02
+  - SLT2-10-B03
+  - SLT2-10-B04
+  - SLT2-10-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }

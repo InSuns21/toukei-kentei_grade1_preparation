@@ -1,0 +1,38 @@
+chapter: SLT2-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-09
+  - SLT2-08
+concepts:
+  - id: learning.slt2-infinite-width-ntk
+    name: 有限入力の無限幅NTK極限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限入力の無限幅NTK極限）"]
+    requires:
+      - learning.slt2-neural-tangent-kernel
+      - learning.slt2-neural-ntk-gram
+  - id: learning.slt2-ntk-initial-concentration
+    name: 二層網の初期NTKの有限入力集中
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二層網の初期NTKの有限入力集中）"]
+    requires:
+      - learning.slt2-infinite-width-ntk
+  - id: learning.slt2-ntk-finite-time-drift
+    name: 二層網の有限時間核固定界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二層網の有限時間核固定界）"]
+    requires:
+      - learning.slt2-ntk-initial-concentration
+      - learning.slt2-neural-kernel-drift
+  - id: learning.slt2-ntk-finite-time-flow
+    name: 無限幅NTKと有限時間の予測近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無限幅NTKと有限時間の予測近似）"]
+    requires:
+      - learning.slt2-ntk-finite-time-drift
+      - learning.slt2-kernel-drift-error
