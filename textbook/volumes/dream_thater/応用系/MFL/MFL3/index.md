@@ -33,7 +33,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl3-nearest -->
-**定義の確認**。半径 $R>0$ の円周 $S_R^1$ と $z=(R+s,0)$（$s>0$）を取る。候補 $x=(R,0)$ までの距離は $s$ である。任意の $y=(R\cos\theta,R\sin\theta)$ について
+**定義の確認**。半径 $R>0$ の円周 $S_R^1=\{x\in\mathbb R^2:\|x\|=R\}$ は $(R,0)$ を含み、連続なノルム写像による閉集合 $\{R\}$ の逆像なので、空でない閉集合である。
+
+$z=(R+s,0)$（$s>0$）を取り、候補 $x=(R,0)$ までの距離は $s$ である。円周上の任意の点は $y=(R\cos\theta,R\sin\theta)$（$\theta\in\mathbb R$）と表せるから、
 
 $$
 \|z-y\|^2=(R+s)^2+R^2-2R(R+s)\cos\theta\ge s^2,
@@ -106,7 +108,7 @@ reach の定義の不等号は厳密であるため、$r=R$ は許され、$r>R$
 
 ## 3. 曲率は局所的な曲がり、reachは大域的な接近も見る
 
-前章ではパラメータ表示の二階微分で接線からのずれを測った。しかしパラメータの進み方を変えると二階微分そのものは変化する。[GEO10の弧長パラメータ](../../../幾何系/GEO/GEO10/index.md#def-geo10-arc-length-parameter)に従い、曲線を**弧長 $s$** で表して速度のノルムを $1$ にそろえると、曲率という幾何的な量になる。ここでは同じ定義を $\mathbb R^D$ 内の $C^2$ 曲線について明記する。
+前章ではパラメータ表示の二階微分で接線からのずれを測った。しかしパラメータの進み方を変えると二階微分そのものは変化する。[GEO10の弧長パラメータ](../../../幾何系/GEO/GEO10/index.md#def-geo10-arc-length-parameter)に従い、曲線を**弧長 $s$** で表して速度のノルムを $1$ にそろえると、[同章で導入した曲率](../../../幾何系/GEO/GEO10/index.md#def-geo10-frenet)という幾何的な量になる。ここでは同じ定義を $\mathbb R^D$ 内の $C^2$ 曲線へ拡張して明記する。以下の $\gamma'(s),\gamma''(s)$ はいずれも弧長 $s$ による微分を表す。
 
 <a id="def-mfl3-curvature"></a>
 
@@ -304,7 +306,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $x\in M$ に対し $\|z-x\|\le\|z-w\|+\|w-x\|$。右辺第二項について $x$ の下限をとり、続いて左辺の下限をとると
+任意の $x\in M$ に対し、距離の定義から $\operatorname{dist}(z,M)\le\|z-x\|$ である。一方、[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を $z-w$ と $w-x$ に適用すると $\|z-x\|\le\|z-w\|+\|w-x\|$。従って
+
+$$
+\operatorname{dist}(z,M)\le\|z-x\|\le\|z-w\|+\|w-x\|
+$$
+
+が成立する。左端は $x$ に依存しないので、**右端全体**について $x\in M$ の下限を取ると
 
 $$
 \operatorname{dist}(z,M)\le\|z-w\|+\operatorname{dist}(w,M).
@@ -372,7 +380,14 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$\gamma(s)=(4\cos(s/4),4\sin(s/4))$ は $\|\gamma'(s)\|=1$ を満たし、$\gamma''(s)=-(\cos(s/4),\sin(s/4))/4$ より曲率は $1/4$。弦長は $q=2R\sin(\alpha/2)$ なので $4=8\sin(\alpha/2)$、$0\le\alpha\le\pi$ から $\alpha=\pi/3$。従って内在距離は
+半径4の円を弧長 $s$ で $\gamma(s)=(4\cos(s/4),4\sin(s/4))$ と表す。$s$ について微分すると
+
+$$
+\gamma'(s)=(-\sin(s/4),\cos(s/4)),\qquad
+\gamma''(s)=-\frac14(\cos(s/4),\sin(s/4)).
+$$
+
+従って $\|\gamma'(s)\|=1$ であり、[弧長パラメータ曲線の曲率](#def-mfl3-curvature)から $\kappa=\|\gamma''(s)\|=1/4$。次に[円周の内在距離と弦長](../MFL2/index.md#prop-mfl2-circle)より $4=2R\sin(\alpha/2)=8\sin(\alpha/2)$。短い中心角 $0\le\alpha\le\pi$ なので $\sin(\alpha/2)=1/2$ から $\alpha=\pi/3$。従って内在距離は
 
 $$
 d_M=R\alpha=\frac{4\pi}{3}\approx4.189.
@@ -447,12 +462,25 @@ $$
 - Level: B
 - 目安時間: 20分
 
-閉集合 $M$ について距離関数が1-Lipschitzであることを証明せよ。$\operatorname{reach}(M)=\tau>0$、$X\in M$、$\|\xi\|<\tau$ の下で $Y=X+\xi$ の射影は一意であるが、$X$ と必ず一致しないことを円の例で示せ。
+空でない閉集合 $M\subset\mathbb R^D$ について、任意の $z,w\in\mathbb R^D$ に対し距離関数が1-Lipschitzであることを証明せよ。$\operatorname{reach}(M)=\tau>0$、$X\in M$、$\|\xi\|<\tau$ の下で $Y=X+\xi$ の射影は一意であるが、$X$ と必ず一致しないことを円の例で示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-任意の $x\in M$ に対する $\|z-x\|\le\|z-w\|+\|w-x\|$ から $x$ の下限をとると $\operatorname{dist}(z,M)\le\|z-w\|+\operatorname{dist}(w,M)$。$z,w$ を交換して二不等式を合わせると
+任意の $x\in M$ に対し、三角不等式より
+
+$$
+\operatorname{dist}(z,M)\le\|z-x\|
+\le\|z-w\|+\|w-x\|
+$$
+
+となる。左端は $x$ に依存しないため、右端の $x\in M$ に関する下限を取れば
+
+$$
+\operatorname{dist}(z,M)\le\|z-w\|+\operatorname{dist}(w,M)
+$$
+
+となる。$z,w$ を交換して二不等式を合わせると
 
 $$
 |\operatorname{dist}(z,M)-\operatorname{dist}(w,M)|\le\|z-w\|.
@@ -476,13 +504,13 @@ $\delta>0$ とし、平面内の平行二直線 $M=(\mathbb R\times\{0\})\cup(\m
 <!-- solution-start -->
 #### 詳細解答
 
-各直線は $\gamma(s)=(s,0)$ または $\gamma(s)=(s,\delta)$ と弧長表示でき、二階微分は0なので曲率は0。$z=(u,v)$ から下側・上側の直線までの距離は $|v|$、$|v-\delta|$、それぞれの唯一の最近点候補は $(u,0)$、$(u,\delta)$ である。
+各直線は $\gamma(s)=(s,0)$ または $\gamma(s)=(s,\delta)$ と弧長表示でき、$\|\gamma'(s)\|=1$、$\gamma''(s)=0$ だから[弧長パラメータ曲線の曲率](#def-mfl3-curvature)より曲率は0。$z=(u,v)$ から下側・上側の直線までの距離は $|v|$、$|v-\delta|$、それぞれの唯一の最近点候補は $(u,0)$、$(u,\delta)$ である。
 
 $$
 v^2-(v-\delta)^2=\delta(2v-\delta)
 $$
 
-より候補が同距離になるのは $v=\delta/2$ の水平直線上だけ。このとき距離は $\delta/2$、それ以外では全体の最近点は一意。従って $\operatorname{reach}(M)=\delta/2$。曲率が全点で0であっても、異なる枝が近ければreachは任意に小さくなる。
+より候補が同距離になるのは $v=\delta/2$ の水平直線上だけ。このとき距離は $\delta/2$、それ以外では全体の最近点は一意。従って[reachの定義](#def-mfl3-reach)より $\operatorname{reach}(M)=\delta/2$。曲率が全点で0であっても、異なる枝が近ければreachは任意に小さくなる。
 <!-- solution-end -->
 
 ### MFL3-C01 螺旋の曲率と偽の近道の同時評価
@@ -492,20 +520,28 @@ $$
 $R>0,a>0$ の螺旋 $H(t)=(R\cos t,R\sin t,at)$ を考える。以下を一続きで示せ。
 
 1. 弧長パラメータを与え、その曲率が $\kappa=R/(R^2+a^2)$ であること。
-2. $H(0)$ と $H(2\pi)$ が半径 $r$ の Euclid近傍で結ばれる条件、および真の内在距離。
+2. $H(0)$ と $H(2\pi)$ が半径 $r>0$ の Euclid近傍で結ばれる条件、および真の内在距離。
 3. $R$ を固定して $a\downarrow0$ とするとき、曲率・外在距離・内在距離がどう変わるか。なぜ曲率の上界だけでは近傍グラフの偽辺を防げないか。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$H'(t)=(-R\sin t,R\cos t,a)$ だから速度の大きさは定数 $v=\sqrt{R^2+a^2}>0$。弧長 $s=vt$ として $\gamma(s)=H(s/v)$ と置けば $\gamma'(s)=H'(s/v)/v$ より $\|\gamma'\|=1$。さらに連鎖律をもう一度適用して
+$H'(t)=(-R\sin t,R\cos t,a)$ だから、速度の大きさは定数 $v=\sqrt{R^2+a^2}>0$。元の角度パラメータ $t$ と弧長を区別するため、$\ell=vt$ と置いて $\gamma(\ell)=H(\ell/v)$ とする。$H'$ は $t$ による微分、$\gamma'$ は $\ell$ による微分である。連鎖律から
 
 $$
-\gamma''(s)=\frac1{v^2}H''(s/v)
-=-\frac R{R^2+a^2}(\cos(s/v),\sin(s/v),0).
+\gamma'(\ell)=\frac1vH'(\ell/v),
+\qquad
+\|\gamma'(\ell)\|=\frac{\sqrt{R^2+a^2}}{v}=1
 $$
 
-従って[曲率の定義](#def-mfl3-curvature)から $\kappa=R/(R^2+a^2)$。次に[螺旋の距離公式](../MFL2/index.md#prop-mfl2-helix)で $t-s=2\pi$ とすれば
+となる。さらに $v$ は定数なので、もう一度 $\ell$ で微分すると
+
+$$
+\gamma''(\ell)=\frac1{v^2}H''(\ell/v)
+=-\frac R{R^2+a^2}(\cos(\ell/v),\sin(\ell/v),0).
+$$
+
+従って[曲率の定義](#def-mfl3-curvature)から $\kappa=R/(R^2+a^2)$。次に[螺旋の距離公式](../MFL2/index.md#prop-mfl2-helix)には **元のパラメータ** $t=0$ と $t=2\pi$ の差 $2\pi$ を代入する。弧長 $\ell$ を角度差として代入するわけではない。すると
 
 $$
 q=\|H(2\pi)-H(0)\|=2\pi a,\qquad
