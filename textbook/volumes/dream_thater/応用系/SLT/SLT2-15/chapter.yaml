@@ -1,0 +1,42 @@
+id: "SLT2-15"
+title: "SGDの拡散近似とその限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-14
+  - ML1-10
+  - STO9
+learning_objectives:
+  - 固定有限標本・履歴条件付きの勾配雑音共分散を行列として導出できる
+  - SGD一歩とGaussian Euler–Maruyama一歩の平均・共分散を照合し、拡散係数の歩幅依存を説明できる
+  - 三階Taylor展開から一歩の弱い比較界を導き、有限時間の法則収束との違いを説明できる
+  - 二標本二次模型の離散SGDとOrnstein–Uhlenbeck模型の平均・分散を厳密に比較できる
+  - 非Gaussian・非復元抽出・時変抽出・長時間の各失敗例で失われた仮定を特定できる
+definitions:
+  - { id: SLT2-15-DEF-01, name: 条件付き勾配雑音共分散行列 }
+  - { id: SLT2-15-DEF-02, name: Gaussian一歩近似と拡散模型 }
+theorems:
+  - { id: SLT2-15-PROP-01, name: 復元ミニバッチの条件付き共分散行列 }
+  - { id: SLT2-15-THM-01, name: Gaussian一歩近似の二次モーメント一致と弱誤差 }
+  - { id: SLT2-15-THM-02, name: 二標本二次模型の離散分散と拡散分散 }
+  - { id: SLT2-15-PROP-02, name: 二標本シャッフルの条件付き偏り }
+canonical_examples:
+  - 二標本の対称勾配で共分散とGaussian近似を直接検算する
+  - 二次SGDとOU模型の有限歩幅・定常分散を比較する
+  - 同じ二次モーメントを持つ二点分布とGaussian分布の相違を計算する
+  - シャッフル二標本で二回目の条件付き平均の破綻を示す
+problem_patterns:
+  - SLT2-15-A01
+  - SLT2-15-A02
+  - SLT2-15-A03
+  - SLT2-15-A04
+  - SLT2-15-A05
+  - SLT2-15-B01
+  - SLT2-15-B02
+  - SLT2-15-B03
+  - SLT2-15-B04
+  - SLT2-15-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }

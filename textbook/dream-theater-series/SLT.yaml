@@ -136,8 +136,8 @@ chapters:
     title: "mean-field勾配流"
   - id: SLT2-15
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-15
-    status: planned
-    title: "SGDの拡散近似"
+    status: completed
+    title: "SGDの拡散近似とその限界"
   - id: SLT2-16
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-16
     status: planned
