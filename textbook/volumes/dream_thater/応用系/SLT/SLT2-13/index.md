@@ -328,7 +328,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Dirac確率測度](#def-slt2-13-dirac-measure)の積分公式から、各時刻で
+[Dirac確率測度](#def-slt2-13-dirac-measure)を用いると、各時刻で
 
 $$
 \int_\Theta\varphi(\theta)\,\mu_m(t,d\theta)
