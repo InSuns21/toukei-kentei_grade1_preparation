@@ -1,8 +1,9 @@
 # DREAM THEATER 統計的学習理論 I・II（SLT1・SLT2）
 
 作成日: 2026-10-11  
-改訂日: 2026-11-06（SLT1-01の初回着手・公開導線と進捗manifestを追加）  
-状態: in_progress（SLT1-01を実装。SLT1-02以降と系列横断検証は未完了）
+改訂日: 2026-11-08（全36章の実装状態とPLAN全体の残件を再確認）
+
+状態: in_progress（SLT1-01〜SLT2-18の全36章はcompleted。PLAN第7節の比較実験および最終横断完了ゲートは未完了）
 
 ## 0. 中心問いと射程
 
@@ -170,7 +171,7 @@ SLT1の必要結果・INFO → SLT2-16〜18（汎化の限界）
 
 ## 8. 実装・査読・完了ゲート
 
-1. **初回着手済み**。SLT1-01の本文・chapter.yaml・knowledge.yaml、SLT系列manifest、公開目次を作成し、PLANをtextbook/plans_progress/へ移動した。SLT1-02以降はplannedとし、未実装章を公開目次へ載せない。
+1. **初回着手の履歴**。SLT1-01の本文・chapter.yaml・knowledge.yaml、SLT系列manifest、公開目次を作成し、PLANをtextbook/plans_progress/へ移動した。その後SLT1-01〜SLT2-18の全36章がcompletedになり、公開目次にも掲載された（現行進捗は系列manifestを参照）。
 2. 各章の着手時に本PLAN、直接使用するML/HDP/RKHS/OPT/INFO等のchapter.yaml/knowledge.yaml、knowledge DAG、章ID衝突・下流依存を確認する。系列manifestのplan参照と進捗を正本とする。
 3. 章進行はSLT系列manifestの先頭から連続するcompletedの次のplanned。共通routingや他系列manifestへ単一のactive workを書かない。
 4. 新規章/実質改稿はDREAM_THEATER_AUTHORING_STANDARDの区分Cで、主要定義・全主要定理と全演習詳細解答を棚卸しし、**自己再計算と別観点での全体再読**を区別して記録。局所修正B、表示のみAは同規約に従う。同一担当の再読を第三者独立査読とは呼ばない。
@@ -180,3 +181,11 @@ SLT1の必要結果・INFO → SLT2-16〜18（汎化の限界）
 8. **別の完成章の追跡監査はユーザーが章IDを指定したときだけ**行い、新章執筆に自動付帯しない。
 
 章数、定理名、形式的marker、CI greenだけを完成証拠としない。
+
+## 9. 2026-11-08 の系列実装確認と残件
+
+- 系列manifestの全36章（SLT1-01〜SLT1-18、SLT2-01〜SLT2-18）が連続して `completed`。各章の `index.md`、`chapter.yaml`、`knowledge.yaml` は計108ファイル存在し、章IDとprerequisite宣言が一致した。
+- 本文から主要証明ブロック156件、演習ID362件と対応する詳細解答を確認。公開目次はmanifestの36章と順序・リンクが一致し、系列本文中の相対Markdown・stable anchorリンク622箇所は実ファイルのanchorと突き合わせた。これは**構造・参照の横断確認**であり、36章すべての数学的第三者査読を実施したという意味ではない。
+- 最終章SLT2-18では主要定義1件・主要結果4件・演習10件を全文追跡監査し、重みの未観測入力での値、条件付き確率の乱数範囲、参照リンク、数式配置を局所修正した。詳細な数理証拠は対応PRの追跡監査欄を参照。
+- **未完了**：第7節の「動く比較実験」に列挙した有限クラス／VC、ridge・最小ノルムの $p/n$・雑音・スペクトル、幅・step・seed・時間によるNTK driftについて、SLT系列として動作・テスト・公開導線を確認できていない。既存の機械学習ラボを参照できる部分と未実装の実験責務を切り分け、実装または計画上の明示的な取扱いを確定する必要がある。
+- したがって36章の執筆完了とPLAN全体の完了を区別し、上記残件が閉じるまでは `textbook/plans_progress/` に維持する。`plan_done/` への移動・系列manifestの `plan` 変更は行わない。
