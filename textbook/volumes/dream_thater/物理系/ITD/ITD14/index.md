@@ -8,7 +8,7 @@
 
 ## 1. 拡散係数を位置依存にすると何が変わるか
 
-移動度 $\mu(x)$ は同じ力を加えたときの動きやすさ、$D(x)$ は位置 $x$ での拡散の強さです。等温浴では局所的なEinstein関係 $D(x)=\mu(x)k_{\mathrm B}T$ を課します。$D'$ は位置 $x$ に関する微分であり、時刻微分ではありません。
+移動度 $\mu(x)$ は同じ力を加えたときの動きやすさ、$D(x)$ は位置 $x$ での拡散の強さです。等温浴では局所的なEinstein関係 $D(x)=\mu(x)k_{\mathrm B}T$ を課します。$D'(x)=dD(x)/dx$ は位置 $x$ に関する微分であり、時刻微分ではありません。また $U_t(x)=U(t,x)$ と書き、$\partial_xU_t(x)$ は時刻 $t$ を固定した位置微分、$\partial_tU_t(x)$ は位置 $x$ を固定した時刻微分を意味します。$F_t=F(t)$ は時刻だけに依存する外力です。
 
 Itô積分の係数 $\sqrt{2D(X_t)}$ を位置に依存させると、Itô形とStratonovich形のドリフトが異なります。これを「雑音誘起ドリフト」と呼びます。名前だけで物理的な向きを決めず、平衡で流れが零になる条件から係数を判定しましょう。
 
@@ -31,7 +31,7 @@ dZ_t=\{\beta D(X_t)f_t(X_t)+\tfrac12D'(X_t)\}\,dt
 $$
 <!-- formal-statement-end -->
 
-**変換を確かめる**：$g(x)=\sqrt{2D(x)}$ と置くと、[ITD13のItô–Stratonovich補正](../ITD13/index.md#thm-itd13-girsanov-reversal)と同じ変換で現れる補正は
+**変換を確かめる**：[STO7のItô–Stratonovich変換公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を位置依存の雑音係数に適用します。$g(x)=\sqrt{2D(x)}$ と置くと、$d[g(X),B]_t=g'(X_t)g(X_t)\,dt$ なので、$g(X_t)\circ dB_t$ から $g(X_t)\,dB_t$ への補正は
 
 $$
 \frac12g(x)g'(x)
@@ -88,7 +88,7 @@ Itô公式を試験関数に適用すると、$D'$ が拡散項の積の微分�
 <!-- proof-start -->
 ### 証明
 
-周期的な滑らかな関数 $\varphi$ を取り、Itô公式を定義のSDEに適用します。確率積分の期待値は零なので
+周期的な滑らかな関数 $\varphi$ を取り、[STO7の時間依存Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を定義のSDEに適用します。$\varphi$ は時刻によらないので $\partial_t\varphi=0$ であり、二次変分率 $2D$ の半分が $D\varphi''$ になります。確率積分の期待値は零なので
 
 $$
 \frac{d}{dt}\int_0^L\varphi(x)\rho_t(x)\,dx
@@ -230,7 +230,14 @@ $$
 =\int_0^Lv\mathcal L_0u\,dx.
 $$
 
-従って一様測度に関する遷移核の対称性が成立し、経路を逆向きにたどっても基準過程の法則は変わりません。円周上の始点・終点だけでなく、持ち上げの全変位 $Z_\tau-Z_0$ の符号も反転させます。
+この対称な生成作用素から得られるMarkov半群も一様測度について対称です。時刻幅 $s>0$ の円周上の遷移密度を $p_s(x,y)$ とすると、$p_s(x,y)=p_s(y,x)$ が成り立ちます。例えば $0<t_1<t_2$ における三点の同時密度は
+
+$
+\frac1L p_{t_1}(x_0,x_1)p_{t_2-t_1}(x_1,x_2)
+=\frac1L p_{t_2-t_1}(x_2,x_1)p_{t_1}(x_1,x_0).
+$
+
+右辺は時刻間隔を逆順にした経路の三点密度です。任意の有限個の時刻でも同じ積の反転ができ、連続円周経路の法則はこれらの有限次元分布で定まるので、基準過程 $R$ は時間反転不変です。連続する円周経路から持ち上げの**増分**は一意に復元できるため、逆経路では各増分と全変位 $Z_\tau-Z_0$ の符号を反転させます。
 
 <a id="def-itd14-reversed-path"></a>
 
@@ -315,7 +322,7 @@ $$
 \end{aligned}
 $$
 
-二次変分 $d[Z,Z]_t=2D(X_t)dt$ とItô–Stratonovich変換から
+二次変分 $d[Z,Z]_t=2D(X_t)\,dt$ と[Itô–Stratonovich変換公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を用います。時刻による係数変化は二次共変動を生じず、$d[f_\cdot(X_\cdot),Z]_t=2D(X_t)\partial_xf_t(X_t)\,dt$ なので
 
 $$
 \int_0^\tau f_t(X_t)\,dZ_t
@@ -475,8 +482,10 @@ $$
 =\mathbb E_P[\sigma]+D(\rho_\tau\|\pi_\tau),
 $$
 
-> ここで $D(\rho\|\pi)=\int_0^L\rho\log(\rho/\pi)\,dx$ は自然対数の相対エントロピーである。
+> ここで $D(\rho\|\pi)=\int_0^L\rho\log(\rho/\pi)\,dx$ は自然対数の相対エントロピーである。これは二つの密度を引数とする量であり、位置 $x$ の関数である拡散係数 $D(x)$ とは区別する。
 <!-- formal-statement-end -->
+
+$F_t$ は正実験に加える外力、$F_{\mathrm{eq}}(t)$ は平衡自由エネルギーです。同じ文字 $F$ を使いますが別の物理量であり、後者は分配関数から定まります。
 
 ### 証明の見取り図
 
