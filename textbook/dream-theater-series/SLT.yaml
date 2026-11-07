@@ -128,7 +128,7 @@ chapters:
     title: "幅極限と時間極限"
   - id: SLT2-13
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-13
-    status: planned
+    status: completed
     title: "粒子測度による二層網"
   - id: SLT2-14
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-14
