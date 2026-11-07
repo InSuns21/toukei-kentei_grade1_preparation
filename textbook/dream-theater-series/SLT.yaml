@@ -104,7 +104,7 @@ chapters:
     title: "勾配流とearly stopping"
   - id: SLT2-07
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-07
-    status: planned
+    status: completed
     title: "kernel補間と有効次元"
   - id: SLT2-08
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-08
