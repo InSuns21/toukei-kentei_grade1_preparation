@@ -96,7 +96,7 @@ chapters:
     title: "double descentの成立条件"
   - id: SLT2-05
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-05
-    status: planned
+    status: completed
     title: "高次元ランダム行列評価"
   - id: SLT2-06
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-06

@@ -1,0 +1,70 @@
+chapter: SLT2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-04
+  - HDP7
+  - HDP8
+
+concepts:
+  - id: learning.slt2-spectral-good-event
+    name: 正規化Gram行列とスペクトル良好事象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化 Gram 行列とスペクトル良好事象）"]
+    requires:
+      - learning.design-matrix
+      - high-dimensional-probability.loewner-mgf
+
+  - id: learning.slt2-spectral-bridge
+    name: Gram誤差から特異値・逆跡への橋渡し
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Gram 誤差から特異値・逆跡への橋渡し）"]
+    requires:
+      - learning.slt2-spectral-good-event
+      - learning.slt2-svd-interpolant-formula
+
+  - id: learning.slt2-subgaussian-spectrum
+    name: sub-Gaussian設計の特異値と逆Gram跡
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（sub-Gaussian 設計の特異値と逆 Gram 跡）"]
+    requires:
+      - learning.slt2-spectral-bridge
+      - high-dimensional-probability.isotropic-sample-covariance
+
+  - id: learning.slt2-bounded-design
+    name: 有界設計の標本二次モーメント評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界設計の標本二次モーメント評価）"]
+    requires:
+      - learning.slt2-spectral-bridge
+      - high-dimensional-probability.matrix-bernstein
+
+  - id: learning.slt2-gaussian-gram-frobenius
+    name: Gaussian Gram行列の二乗平均誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian Gram 行列の二乗平均誤差）"]
+    requires:
+      - learning.slt2-spectral-good-event
+      - learning.slt2-gaussian-isotropic-test-risk
+
+  - id: learning.slt2-proportional-regime
+    name: 比例高次元漸近
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（比例高次元漸近）"]
+    requires:
+      - learning.slt2-gaussian-gram-frobenius
+
+  - id: learning.slt2-proportional-gaussian-risk
+    name: Gaussian最小ノルム推定の比例漸近期待リスク
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian 最小ノルム推定の比例漸近期待リスク）"]
+    requires:
+      - learning.slt2-proportional-regime
+      - learning.slt2-interpolation-threshold-risk
