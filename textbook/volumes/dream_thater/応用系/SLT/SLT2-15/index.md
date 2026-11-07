@@ -26,18 +26,26 @@ $$
 
 と置く。[ML1-10の分散定理](../../ML/ML1-10/index.md#thm-ml1-10-minibatch-variance)は勾配雑音の二乗ノルムの平均を求めた。だが二次元の雑音が横にだけ揺れるのか縦にも揺れるのかは、ノルムの平均だけでは分からない。そこで、列ベクトルとその転置の積から方向別の共分散行列を作る。ここで $u v^{\mathsf T}$ は $d\times d$ 行列であり、その $(r,s)$ 成分は $u_rv_s$ である。
 
+抽出直前までの履歴（現在の点 $w_k$ を含む情報）を $\mathcal H_k$ とする。各時刻で **履歴と独立な一様復元抽出** により $b\ge1$ 個の番号 $I_{k,1},\ldots,I_{k,b}$ を互いに独立に選び、ミニバッチ勾配を
+
+$$
+G_k=\frac1b\sum_{j=1}^bg_{I_{k,j}}(w_k)
+$$
+
+と書く。条件付き期待値は、この抽出直前の情報を固定して新たな番号だけを平均する操作であり、訓練集合を再生成するものではない。
+
 <a id="def-slt2-15-noise-covariance"></a>
 
 <!-- formal-statement-start -->
 > **定義（条件付き勾配雑音共分散行列）**
-> 上の有限標本勾配について、$h_i(w)=g_i(w)-g(w)$ と置く。点 $w\in\mathbb R^d$ における一標本の共分散行列を
+> $n,d\ge1$ とし、微分可能な $f_i:\mathbb R^d\to\mathbb R$ の勾配 $g_i=\nabla f_i$ と平均勾配 $g=n^{-1}\sum_i g_i$ に対し、$h_i(w)=g_i(w)-g(w)$ と置く。点 $w\in\mathbb R^d$ における一標本の共分散行列を
 
 $$
 \Gamma(w)=\frac1n\sum_{i=1}^nh_i(w)h_i(w)^{\mathsf T}
 \in\mathbb R^{d\times d}
 $$
 
-> と定める。更新時刻 $k$ の履歴を $\mathcal H_k$ とし、$w_k$ はその履歴から定まるとする。抽出後のミニバッチ勾配を $G_k$ と書くとき、$\xi_k=g(w_k)-G_k$ を勾配雑音と呼び、その条件付き共分散は $E[\xi_k\xi_k^{\mathsf T}\mid\mathcal H_k]$ である（条件付き平均が零である抽出方式を考える）。
+> と定める。履歴 $\mathcal H_k$ に基づく $w_k$ で、独立な一様復元ミニバッチ勾配 $G_k=b^{-1}\sum_{j=1}^b g_{I_{k,j}}(w_k)$ を作るとき、$\xi_k=g(w_k)-G_k$ を勾配雑音と呼ぶ。条件付き平均 $E[\xi_k\mid\mathcal H_k]=0$ なので、条件付き共分散は $E[\xi_k\xi_k^{\mathsf T}\mid\mathcal H_k]$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-15-noise-covariance -->
@@ -51,15 +59,17 @@ $$
 $$
 
 任意の $u=(u_1,u_2)^{\mathsf T}$ に対して $u^{\mathsf T}\Gamma u=u_1^2\ge0$。行列は対称・正半定値で、第二方向の雑音は零と確かめられる。二乗ノルムの平均は $\operatorname{tr}\Gamma=1$ である。
+
+さらに更新点 $w_k=w$ で $b=1$ としてこの二標本を一様復元抽出すると、$\xi_k=-h_{I_{k,1}}$ は履歴を固定しても $(1,0)^{\mathsf T}$ と $(-1,0)^{\mathsf T}$ を各確率 $1/2$ で取る。従って
+
+$$
+E[\xi_k\mid\mathcal H_k]=0,\qquad
+E[\xi_k\xi_k^{\mathsf T}\mid\mathcal H_k]
+=\frac12\sum_{i=1}^2h_ih_i^{\mathsf T}=\Gamma(w_k).
+$$
+
+これで、一標本の行列だけでなく、定義で述べた履歴条件付き共分散の意味も確認できた。
 <!-- definition-example-end -->
-
-抽出方式を明確にしよう。各時刻で **過去と独立な一様復元抽出** により $b\ge1$ 個の番号 $I_{k,1},\ldots,I_{k,b}$ を選び、
-
-$$
-G_k=\frac1b\sum_{j=1}^bg_{I_{k,j}}(w_k)
-$$
-
-とする。条件付きとは、$w_k$ を含む抽出直前の履歴を固定する意味であり、時刻をまたいで訓練集合を再生成することではない。
 
 <a id="prop-slt2-15-minibatch-covariance"></a>
 
@@ -125,7 +135,37 @@ $$
 
 定数歩幅を $\eta>0$ とし、SGD一歩を $w_{k+1}=w_k-\eta g(w_k)+\eta\xi_k$ と書く。前節から、履歴を固定した更新増分の平均は $-\eta g(w_k)$、共分散は $\eta^2\Gamma(w_k)/b$ である。
 
-これをGaussian増分で再現したい。$\Gamma(w)$ は正半定値なので、固有値分解から $\Sigma(w)\Sigma(w)^{\mathsf T}=\Gamma(w)$ となる実行列 $\Sigma(w)\in\mathbb R^{d\times d}$ を選べる。独立な標準正規列ベクトル $Z_k$ を掛ければ、その共分散は $\Gamma(w)$ となる。これは**共分散の平方根による表現**であり、元の標本勾配がGaussianであるという主張ではない。
+これをGaussian増分で再現したい。前節で示した $u^{\mathsf T}\Gamma(w)u\ge0$ と対称性から、固有値は非負であり、直交行列 $Q$ と非負固有値 $\lambda_1,\ldots,\lambda_d$ を用いて
+
+$$
+\Gamma(w)=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T},
+\qquad Q^{\mathsf T}Q=I_d
+$$
+
+と分解できる。$\operatorname{diag}$ は指定した数を対角成分に並べる行列を表す。そこで $\Sigma(w)=Q\operatorname{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_d})$ と取れば
+
+$$
+\Sigma(w)\Sigma(w)^{\mathsf T}
+=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}
+=\Gamma(w).
+$$
+
+$\Sigma$ は $d\times d$ の行列であり、標準正規列ベクトル $Z_k$ を掛けると $E[(\Sigma Z_k)(\Sigma Z_k)^{\mathsf T}]=\Sigma I_d\Sigma^{\mathsf T}=\Gamma$ となる。これは**共分散の平方根による表現**であり、元の標本勾配がGaussianであるという主張ではない。
+
+連続時間では、[多次元ブラウン運動](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)を $B_t$ と書く。[STO9のブラウンSDE](../../../解析系/STO/STO9/index.md#def-sto9-sde)に従い、ドリフト $\mu:\mathbb R^d\to\mathbb R^d$ と拡散係数 $\sigma:\mathbb R^d\to\mathbb R^{d\times d}$ に対する
+
+$$
+dW_t=\mu(W_t)\,dt+\sigma(W_t)\,dB_t
+$$
+
+は、$s$ を積分変数とする
+
+$$
+W_t=W_0+\int_0^t\mu(W_s)\,ds
++\int_0^t\sigma(W_s)\,dB_s
+$$
+
+の略記である。$dW_t$ と $dB_t$ を通常の分数のように割るわけではない。$t$ は連続時間の変数、$k$ は離散更新の番号である。以下では $\eta$ を固定した近似パラメータとして扱う。
 
 <a id="def-slt2-15-gaussian-proxy"></a>
 
@@ -149,10 +189,24 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-15-gaussian-proxy -->
-**定義の確認**。前節の $\Gamma=\operatorname{diag}(1,0)$ なら $\Sigma=\operatorname{diag}(1,0)$ と取れる。$Z=(Z_1,Z_2)^{\mathsf T}$ を標準正規とすれば $\Sigma Z=(Z_1,0)^{\mathsf T}$、平均零・共分散 $\operatorname{diag}(1,0)$ である。Gaussian一歩の平均は $w-\eta g(w)$、共分散は $\eta^2\operatorname{diag}(1,0)/b$ となる。第二方向には雑音が加わらない。
+**定義の確認**。前節の $\Gamma=\operatorname{diag}(1,0)$ なら $\Sigma=\operatorname{diag}(1,0)$ と取れる。これは $\Sigma\Sigma^{\mathsf T}=\operatorname{diag}(1,0)^2=\Gamma$ を満たす。$Z=(Z_1,Z_2)^{\mathsf T}$ を標準正規とすれば
+
+$$
+\Sigma Z=(Z_1,0)^{\mathsf T},\qquad
+E[\Sigma Z]=0,\qquad
+E[(\Sigma Z)(\Sigma Z)^{\mathsf T}]=\Gamma.
+$$
+
+したがってGaussian一歩の平均と共分散は、それぞれ
+
+$$
+w-\eta g(w),\qquad \frac{\eta^2}{b}\operatorname{diag}(1,0)
+$$
+
+となり、元の復元ミニバッチ更新の**平均・共分散**に一致する。第二方向には雑音が加わらないが、雑音の分布まで同一とは限らない。
 <!-- definition-example-end -->
 
-[STO9のブラウンSDE](../../../解析系/STO/STO9/index.md#def-sto9-sde)は積分表示を正本とする。[多次元ブラウン運動](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)の時刻幅 $\eta$ の増分 $\Delta B_k$ は平均零、共分散 $\eta I_d$ を持つ。拡散模型に刻み $\eta$ のEuler–Maruyama更新を適用して係数を左端で固定すると
+この積分表示で、ブラウン運動の時刻幅 $\eta$ の増分 $\Delta B_k=B_{(k+1)\eta}-B_{k\eta}$ は平均零、共分散 $\eta I_d$ を持つ。拡散模型に刻み $\eta$ のEuler–Maruyama更新を適用して係数を左端で固定すると
 
 $$
 W_{(k+1)\eta}^{\mathrm{EM}}
@@ -285,7 +339,7 @@ $$
 
 ### 証明の見取り図
 
-離散反復は平均零の独立雑音が加わる一次漸化式である。連続模型は指数関数を積分因子として解き、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)で分散を積分する。
+離散反復は平均零の独立雑音が加わる一次漸化式である。連続模型は指数関数を積分因子として解き、[Itô等長性の $L^2$ 拡張](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)で分散を積分する。
 
 <!-- proof-start -->
 ### 証明
@@ -305,14 +359,14 @@ $$
 
 $v_k=(\eta^2c^2/b)\sum_{j=0}^{k-1}(1-\eta)^{2j}$。等比和の分母は $1-(1-\eta)^2=\eta(2-\eta)>0$ だから離散分散の式を得る。平均も同じ漸化式から従う。
 
-連続模型について積分因子 $e^t$ を用い、[Itô積分の積の規則](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $e^t(W_t-a)$ に適用すると
+連続模型について積分因子 $e^t$ を用い、[時間依存Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $e^t(W_t-a)$ に適用すると
 
 $$
 W_t-a=e^{-t}(w_0-a)
 +\sqrt{\frac{\eta c^2}{b}}\int_0^t e^{-(t-s)}\,dB_s.
 $$
 
-確率積分の平均は零で、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)を被積分関数 $e^{-(t-s)}$ に適用すれば
+確率積分の平均は零で、[Itô等長性の $L^2$ 拡張](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)を被積分関数 $e^{-(t-s)}$ に適用すれば
 
 $$
 \begin{aligned}
@@ -439,7 +493,16 @@ $d=1$、$\Gamma(w)=9$、$\eta=1/10$、$b=3$ とする。Gaussian一歩更新の�
 <!-- solution-start -->
 #### 詳細解答
 
-$\Sigma=3$ を取れる。一歩の雑音標準偏差は $\eta\Sigma/\sqrt b=3/(10\sqrt3)=\sqrt3/10$、分散は $3/100$。SDE係数は $\sqrt{\eta/b}\Sigma=3/\sqrt{30}$。ブラウン増分の分散は $\eta=1/10$ だからEuler–Maruyama一歩の分散は
+[Gaussian一歩近似](#def-slt2-15-gaussian-proxy)で $\Sigma=3$ を取ると、雑音標準偏差と分散は
+
+$$
+\frac{\eta\Sigma}{\sqrt b}
+=\frac3{10\sqrt3}=\frac{\sqrt3}{10},
+\qquad
+\frac{\eta^2\Gamma}{b}=\frac3{100}.
+$$
+
+一方、SDEの拡散係数は $\sqrt{\eta/b}\Sigma=3/\sqrt{30}$。ブラウン増分の分散は $\eta=1/10$ だから、Euler–Maruyama一歩の雑音分散は
 
 $$
 \left(\frac3{\sqrt{30}}\right)^2\frac1{10}
@@ -458,7 +521,26 @@ $X$ は等確率で $-\eta,+\eta$、$Y\sim N(0,\eta^2)$ とする。平均・分
 <!-- solution-start -->
 #### 詳細解答
 
-$EX=0$、$EX^2=\eta^2$、$EX^4=\eta^4$。正規分布について $EY=0$、$EY^2=\eta^2$、標準正規の四次モーメント3から $EY^4=3\eta^4$。$\eta>0$ では四次モーメントが異なるため、分布は同じでない。二次モーメントの一致はGaussian性を意味しない。
+二点分布の対称性から
+
+$$
+EX=0,\qquad EX^2=\eta^2,\qquad EX^4=\eta^4.
+$$
+
+$Y=\eta Z$（$Z\sim N(0,1)$）と書く。標準正規密度 $\phi(z)$ は $\phi'(z)=-z\phi(z)$ を満たすので、部分積分と境界項 $z^3\phi(z)\to0$ より
+
+$$
+E[Z^4]=\int_{\mathbb R}z^4\phi(z)\,dz
+=3\int_{\mathbb R}z^2\phi(z)\,dz=3.
+$$
+
+したがって
+
+$$
+EY=0,\qquad EY^2=\eta^2,\qquad EY^4=3\eta^4.
+$$
+
+$\eta>0$ では四次モーメントが異なるため、分布は同じでない。二次モーメントの一致はGaussian性を意味しない。
 <!-- solution-end -->
 
 ### SLT2-15-A05 OU模型の定常分散
@@ -470,13 +552,19 @@ $dW_t=-2(W_t-a)\,dt+\sigma\,dB_t$、$W_0=a$ とする。積分因子で $W_t-a$ 
 <!-- solution-start -->
 #### 詳細解答
 
-$e^{2t}(W_t-a)$ に積の規則を適用すると $d[e^{2t}(W_t-a)]=\sigma e^{2t}dB_t$。初期値は零だから
+[時間依存Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $e^{2t}(W_t-a)$ に適用すると、$dt$ 項の $2e^{2t}(W_t-a)$ と $-2e^{2t}(W_t-a)$ が相殺され、
+
+$$
+d[e^{2t}(W_t-a)]=\sigma e^{2t}\,dB_t.
+$$
+
+初期値は零だから
 
 $$
 W_t-a=\sigma\int_0^t e^{-2(t-s)}dB_s.
 $$
 
-[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)で
+[Itô等長性の $L^2$ 拡張](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)で
 
 $$
 \operatorname{Var}(W_t)
@@ -597,7 +685,7 @@ $f_1(w)=(w-1)^2/2,f_2(w)=(w+1)^2/2$、$w_0=0$、$b=1$、$0<\eta<1$ とする。
 
 **2.** $Ew_1^4=\eta^4$、$E\widetilde w_1^4=3\eta^4$ で同一分布ではない。さらに $w_{k+1}=(1-\eta)w_k+\eta A_k$、$A_k\in\{-1,1\}$ から、$|w_0|\le1$ と $0<\eta<1$ により帰納的に全 $k$ で $|w_k|\le1$。連続模型の $t>0$ の正規分布は正の分散を持ち、$[-1,1]$ の外の確率が正である。
 
-**3.** 離散の定常分散は $\eta/(2-\eta)$、連続の定常分散は $\eta/2$。従って「離散÷連続」は
+**3.** [二次模型の比較定理](#thm-slt2-15-quadratic-diffusion)に $a=0,c=b=1$ を代入すると、離散の定常分散は $\eta/(2-\eta)$、連続の定常分散は $\eta/2$。従って「離散÷連続」は
 
 $$
 \frac{\eta/(2-\eta)}{\eta/2}=\frac2{2-\eta}>1.
