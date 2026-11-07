@@ -1,0 +1,46 @@
+id: "OTR3"
+title: "最適結合はいつ存在するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR2
+  - TOP5
+official_scope: []
+learning_objectives:
+  - Polish空間・狭義収束・緊密性・下半連続費用の意味と必要な仮定を具体例で判定できる
+  - 完備可分距離空間上のBorel確率測度がtightであることを有限被覆から証明できる
+  - 周辺分布が固定された結合族の一様緊密性と狭義極限での周辺条件保存を証明できる
+  - 非負下半連続費用の積分に関するliminf不等式を連続近似から証明できる
+  - コンパクト距離空間とPolish空間で最適結合の存在を直接法により証明できる
+  - 最小費用の有限性・最適解の存在・一意性を区別し費用が下半連続でない反例を説明できる
+definitions:
+  - { id: OTR3-DEF-01, name: Polish空間 }
+  - { id: OTR3-DEF-02, name: 確率測度の狭義収束 }
+  - { id: OTR3-DEF-03, name: 一様緊密性 }
+  - { id: OTR3-DEF-04, name: 下半連続費用 }
+theorems:
+  - { id: OTR3-LEM-01, name: Polish空間上の確率測度の緊密性 }
+  - { id: OTR3-PROP-01, name: 固定周辺分布の結合族の一様緊密性 }
+  - { id: OTR3-THM-01, name: Prokhorovのコンパクト性定理（利用形） }
+  - { id: OTR3-PROP-02, name: 結合族の狭義閉性 }
+  - { id: OTR3-LEM-02, name: 下半連続費用のliminf不等式 }
+  - { id: OTR3-THM-02, name: コンパクト空間上の最適結合の存在 }
+  - { id: OTR3-THM-03, name: Polish空間上の最適結合の存在 }
+canonical_examples:
+  - 二点空間の許容結合と最小費用の達成
+  - 幾何分布の固定周辺分布が非コンパクト空間でもtightな例
+  - 非下半連続費用で下限が達成されない円周の回転結合
+  - 下限が無限大となる場合と有限費用の存在条件
+problem_patterns:
+  - OTR3-A01
+  - OTR3-A02
+  - OTR3-A03
+  - OTR3-A04
+  - OTR3-B01
+  - OTR3-B02
+  - OTR3-B03
+  - OTR3-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 3.5, review: 1.0 }

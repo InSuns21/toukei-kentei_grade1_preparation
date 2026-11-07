@@ -1,0 +1,81 @@
+chapter: OTR3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR2
+  - TOP5
+
+concepts:
+  - id: transport.polish-space
+    name: Polish空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Polish空間）"]
+
+  - id: transport.narrow-convergence
+    name: 確率測度の狭義収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（確率測度の狭義収束）"]
+    aliases: ["狭義収束"]
+
+  - id: transport.uniform-tightness
+    name: 一様緊密性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一様緊密性）"]
+
+  - id: transport.lsc-cost
+    name: 下半連続費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（下半連続費用）"]
+
+  - id: transport.polish-measure-tightness
+    name: Polish空間上の確率測度の緊密性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Polish空間上の確率測度の緊密性）"]
+    requires: [transport.polish-space, transport.uniform-tightness]
+
+  - id: transport.fixed-marginal-tightness
+    name: 固定周辺分布の結合族の一様緊密性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定周辺分布の結合族の一様緊密性）"]
+    requires: [transport.coupling, transport.polish-measure-tightness]
+
+  - id: transport.prokhorov
+    name: Prokhorovのコンパクト性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Prokhorovのコンパクト性定理：利用形）"]
+    requires: [transport.narrow-convergence, transport.uniform-tightness]
+
+  - id: transport.coupling-narrow-closed
+    name: 結合族の狭義閉性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（結合族の狭義閉性）"]
+    requires: [transport.coupling, transport.narrow-convergence, transport.marginal-integration]
+
+  - id: transport.lsc-integral
+    name: 下半連続費用のliminf不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（下半連続費用のliminf不等式）"]
+    requires: [transport.lsc-cost, transport.narrow-convergence]
+
+  - id: transport.compact-optimal-coupling
+    name: コンパクト空間上の最適結合の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト空間上の最適結合の存在）"]
+    requires: [transport.prokhorov, transport.coupling-narrow-closed, transport.lsc-integral, transport.kantorovich-problem]
+
+  - id: transport.polish-optimal-coupling
+    name: Polish空間上の最適結合の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Polish空間上の最適結合の存在）"]
+    requires: [transport.fixed-marginal-tightness, transport.prokhorov, transport.coupling-narrow-closed, transport.lsc-integral, transport.kantorovich-problem]
