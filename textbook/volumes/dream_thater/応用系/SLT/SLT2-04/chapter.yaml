@@ -1,0 +1,42 @@
+id: "SLT2-04"
+title: "double descentの成立条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-02
+  - SLT2-03
+  - F0-00P3A
+official_scope: []
+learning_objectives:
+  - Gaussian等方設計で標本外の信号予測リスクと観測雑音込みの予測誤差を区別できる
+  - Gaussianベクトルの直交射影から逆二乗長の期待値を導き、逆Gram行列の有限性条件を証明できる
+  - 最小ノルム推定の補間前後の期待リスクを厳密に計算し、閾値付近の発散条件を説明できる
+  - 過剰パラメータ側の核方向の偏りと雑音分散を分離し、全モデルのdouble descentとは同一視しない
+  - ridge正則化による有限リスク上界と、設計・雑音・試験分布の変更時に保証が失われる理由を説明できる
+definitions:
+  - { id: SLT2-04-DEF-01, name: Gaussian等方設計と標本外予測リスク }
+theorems:
+  - { id: SLT2-04-LEM-01, name: Gaussian射影の逆二乗長 }
+  - { id: SLT2-04-LEM-02, name: Gaussian Gram逆行列の期待跡 }
+  - { id: SLT2-04-THM-01, name: 最小ノルム推定の補間前後の正確な期待リスク }
+  - { id: SLT2-04-PROP-01, name: 固定ridge正則化のリスク上界 }
+canonical_examples:
+  - 二次元標準Gaussianで標本外予測の条件付き二乗誤差を計算する
+  - n=6の純雑音モデルで補間前後の有限リスクと発散域を表にして比較する
+  - 省略された信号方向がある場合の最初の下降と補間後の下降を異なる機構として計算する
+  - 正則化と無雑音の模型で補間ピークが必然ではないことを確認する
+problem_patterns:
+  - SLT2-04-A01
+  - SLT2-04-A02
+  - SLT2-04-A03
+  - SLT2-04-A04
+  - SLT2-04-A05
+  - SLT2-04-B01
+  - SLT2-04-B02
+  - SLT2-04-B03
+  - SLT2-04-B04
+  - SLT2-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }

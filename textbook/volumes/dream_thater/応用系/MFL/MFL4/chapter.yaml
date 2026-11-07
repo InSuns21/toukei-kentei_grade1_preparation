@@ -1,0 +1,49 @@
+id: "MFL4"
+title: "密度・標本被覆・観測ノイズ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL3
+official_scope: []
+learning_objectives:
+  - 標本被覆半径と有限被覆数を定義し具体的な集合で検算できる
+  - 小球の最小確率と独立性から和事象評価による被覆確率上界を証明できる
+  - 円周の小球質量と被覆数を計算し標本数の十分条件を導出できる
+  - 密度下界と局所体積下界を区別し一般の次元依存の保証を導ける
+  - 密度が消える領域と密度が一点で零になる場合の失敗機構を区別できる
+  - 有界観測ノイズ下でHausdorff距離を評価し射影の一意性と復元を区別できる
+  - Gaussianノイズの最大偏差と有限標本被覆の確率を別々に評価できる
+  - 未知ノイズを許す二つの観測等価模型から非識別性を示せる
+definitions:
+  - { id: MFL4-DEF-01, name: 標本被覆半径と有限被覆数 }
+  - { id: MFL4-DEF-02, name: 最小小球確率 }
+  - { id: MFL4-DEF-03, name: Hausdorff距離 }
+theorems:
+  - { id: MFL4-PROP-01, name: 有限被覆による標本近接確率 }
+  - { id: MFL4-PROP-02, name: 密度下界と局所体積による被覆率 }
+  - { id: MFL4-PROP-03, name: 一様円周の被覆確率 }
+  - { id: MFL4-PROP-04, name: 有界ノイズ下のHausdorff誤差 }
+  - { id: MFL4-PROP-05, name: Gaussianノイズの最大偏差 }
+  - { id: MFL4-PROP-06, name: 半径方向ノイズの観測非識別性 }
+canonical_examples:
+  - 区間上の二つの標本点による被覆半径
+  - 円周の弦長小球の弧長と被覆数
+  - 密度2xによる端点近くの取りこぼし確率
+  - 零密度の開弧による恒久的未観測領域
+  - 半径方向への有界ノイズと同一観測分布
+  - 最大角度間隔を用いた円周被覆の数値実験
+problem_patterns:
+  - MFL4-A01
+  - MFL4-A02
+  - MFL4-A03
+  - MFL4-A04
+  - MFL4-B01
+  - MFL4-B02
+  - MFL4-B03
+  - MFL4-B04
+  - MFL4-C01
+  - MFL4-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.0 }
