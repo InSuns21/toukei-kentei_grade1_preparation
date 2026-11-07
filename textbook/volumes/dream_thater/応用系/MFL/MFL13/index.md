@@ -130,7 +130,15 @@ $$
 
 [GEO14の正規座標](../../../幾何系/GEO/GEO14/index.md#thm-geo14-normal-coordinate-properties)では基点 $x$ で計量が単位行列、一次微分が0になる。しかし周辺の体積までEuclid空間と同じではない。[GEO16のRicci曲率・スカラー曲率](../../../幾何系/GEO/GEO16/index.md#def-geo16-ricci-scalar)が、その最初のずれを表す。
 
-固定した $x$ の接空間に正規直交基底 $e_1,\ldots,e_d$ を選び、$y=\exp_x(z^i e_i)$ と書く。体積要素を $dV_g(y)=J_x(z)\,dz^1\cdots dz^d$ と表すと、$J_x$ は指数写像による体積の拡大率である。
+固定した $x$ の接空間に正規直交基底 $e_1,\ldots,e_d$ を選び、$z^i$ をその基底の成分とする。すなわち $z=\sum_{i=1}^d z^i e_i$、$y=\exp_x(z)$ である。以下、同じ上下の添字を反復するときは $i,j=1,\ldots,d$ について和を取る（例えば $z^i e_i=\sum_i z^i e_i$）。体積要素を $dV_g(y)=J_x(z)\,dz^1\cdots dz^d$ と表すと、$J_x$ は指数写像による体積の拡大率である。
+
+**座標表示から体積の判定へ。** 指数写像の微分 $d(\exp_x)_z:T_xM\to T_yM$ は接ベクトルを移す線形写像である。その基底表示を $A_x(z)$ とし、引き戻した計量の行列を $g_{ij}(z)=g_y(d\exp_x(e_i),d\exp_x(e_j))$ と書く。$T_yM$ 側に正規直交基底を選べば $(g_{ij})=A_x^{\mathsf T}A_x$ なので、
+
+$$
+J_x(z)=\sqrt{\det(g_{ij}(z))}=|\det A_x(z)|.
+$$
+
+したがってJacobi場から $d\exp_x$ の行列を求め、その行列式を展開すれば、体積密度の定義を判定できる。原点では $d(\exp_x)_0$ が恒等写像なので $J_x(0)=1$ である。
 
 <a id="lem-mfl13-volume"></a>
 
@@ -154,14 +162,33 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z=tv$、$|v|=1$ とし、$\gamma(s)=\exp_x(sv)$ を考える。$v$ に直交する基底 $e_a$（$a=2,\ldots,d$）を $\gamma$ に沿って平行移動して $E_a(s)$ と書く。測地線の初速度をわずかに変える変分の微分 $Y_a(s)$ は、[GEO16のRiemann曲率の定義](../../../幾何系/GEO/GEO16/index.md#def-geo16-curvature)で変分の二つの微分順序を交換すると
+$z=tv$、$t\ge0$、$|v|=1$ とし、$\gamma(s)=\exp_x(sv)$ を考える。
+
+この方向について正規直交基底を $e_1=v$、$e_a\perp v$（$a=2,\ldots,d$）と取り直し、$e_a$ を $\gamma$ に沿って平行移動して $E_a(s)$ と書く。体積を表す行列式もRicci曲率の跡も、この正規直交基底の取り方に依存しない。
+
+測地線の初速度をわずかに変える変分の微分 $Y_a(s)$ は、[GEO16のRiemann曲率作用素](../../../幾何系/GEO/GEO16/index.md#def-geo16-curvature)で変分の二つの微分順序を交換すると
 
 $$
 D_s^2Y_a+R(Y_a,\dot\gamma)\dot\gamma=0,\quad
 Y_a(0)=0,\quad D_sY_a(0)=e_a
 $$
 
-を満たす。具体的には二変数の測地線変分 $F(s,t)$ で $Y=\partial_tF$、$V=\partial_sF$ とすると $D_sV=0$、$D_sY=D_tV$ だから、曲率の定義により $D_s^2Y=D_sD_tV=D_tD_sV-R(Y,V)V=-R(Y,V)V$ となる。$D_s^2Y_a(0)=0$、一度微分すると $D_s^3Y_a(0)=-R(e_a,v)v$ なので、平行移動した基底で
+を満たす。ここで $D_s$ は測地線に沿う共変微分を意味する。具体的には初速度を $v+\lambda e_a$ と変える測地線変分を取る。
+
+$$
+F(s,\lambda)=\exp_x(s(v+\lambda e_a)),\qquad
+Y=\partial_\lambda F,\quad V=\partial_sF.
+$$
+
+$s$ は測地線上の位置、$\lambda$ は初速度を変える変数であり、先ほどの $t=|z|$ と区別する。$D_s=\nabla_V$、$D_\lambda=\nabla_Y$ はそれぞれ他方の変数を固定した共変微分である。
+
+測地線性から $D_sV=0$、捩率0から $D_sY=D_\lambda V$ なので、[Riemann曲率作用素の定義](../../../幾何系/GEO/GEO16/index.md#def-geo16-curvature)を使うと
+
+$$
+D_s^2Y=D_sD_\lambda V=D_\lambda D_sV+R(V,Y)V=-R(Y,V)V
+$$
+
+となる。$D_s^2Y_a(0)=0$、さらに $s$ で微分すると $D_s^3Y_a(0)=-R(e_a,v)v$ なので、平行移動した基底で
 
 $$
 Y_a(t)=tE_a(t)-\frac{t^3}{6}R(E_a(t),\dot\gamma(t))\dot\gamma(t)+O(t^4).
@@ -173,7 +200,13 @@ $$
 I-\frac{t^2}{6}\bigl(\langle R(e_a,v)v,e_b\rangle\bigr)_{a,b=2}^d+O(t^3).
 $$
 
-行列式の二次係数は対角和だから
+前述の $J_x=|\det A_x|$ を適用する。$A_x(0)=I$ で行列式は原点近くで正なので絶対値を外せる。$B_{ba}=-\langle R(e_a,v)v,e_b\rangle/6$ と置けば、行列式の多重線形性より
+
+$$
+\det(I+t^2B+O(t^3))=1+t^2\sum_{a=2}^d B_{aa}+O(t^3).
+$$
+
+したがって、[Ricci曲率の正規直交基底での定義](../../../幾何系/GEO/GEO16/index.md#def-geo16-ricci-scalar)を $e_1=v$ として使うと
 
 $$
 J_x(tv)=1-\frac{t^2}{6}
@@ -191,7 +224,9 @@ dV_g=R\sin(r/R)\,dr\,d\theta,\qquad
 dz^1dz^2=r\,dr\,d\theta.
 $$
 
-ゆえに $J_x(z)=R\sin(r/R)/r=1-r^2/(6R^2)+O(r^4)$。球面は $\operatorname{Ric}=R^{-2}g$ なので $-\operatorname{Ric}_{ij}z^iz^j/6=-r^2/(6R^2)$。抽象式の符号と係数を手で検証できる。
+ゆえに $J_x(z)=R\sin(r/R)/r=1-r^2/(6R^2)+O(r^4)$。
+
+半径 $R$ の球面は断面曲率 $1/R^2$ なので、[定断面曲率空間の Ricci 曲率とスカラー曲率](../../../幾何系/GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)（次元 $d=2$）より $\operatorname{Ric}=R^{-2}g$。したがって $-\operatorname{Ric}_{ij}z^iz^j/6=-r^2/(6R^2)$。抽象式の符号と係数を手で検証できる。
 
 ## 5. kernel積分のbiasを一つずつ集める
 
@@ -234,7 +269,18 @@ $$
 e^{-\rho^2/(4\varepsilon)}=O(e^{-\rho^2/(8\varepsilon)}).
 $$
 
-最後の上界は、$\varepsilon^{-d/2}e^{-\rho^2/(8\varepsilon)}$ が小さい $\varepsilon$ で有界なことから従う。正規座標内では[正規座標での距離公式](../../../幾何系/GEO/GEO14/index.md#cor-geo14-normal-distance)により $d_g(x,\exp_xz)=|z|$。$u_x(z)=u(\exp_xz)$ として、Taylorの定理を展開点 $0$、次数 $2$ に用いると
+最後の上界は、$\varepsilon^{-d/2}e^{-\rho^2/(8\varepsilon)}$ が小さい $\varepsilon$ で有界なことから従う。
+
+正規座標内では[正規座標での距離公式](../../../幾何系/GEO/GEO14/index.md#cor-geo14-normal-distance)により $d_g(x,\exp_xz)=|z|$。$u_x(z)=u(\exp_xz)$ と置く。
+
+基点 $x$ を固定し、正規座標 $z$ の成分について偏微分した値を
+
+$$
+u_i(x)=\frac{\partial u_x}{\partial z^i}(0),\qquad
+u_{ij}(x)=\frac{\partial^2u_x}{\partial z^i\partial z^j}(0)
+$$
+
+と定める。第4節で宣言した反復添字の和の規約を使い、Taylorの定理を展開点 $0$、次数 $2$ に用いると
 
 $$
 u_x(z)=u(x)+u_i(x)z^i+\frac12u_{ij}(x)z^iz^j+O(|z|^3).
@@ -261,7 +307,7 @@ G_\varepsilon u(x)
 \end{aligned}
 $$
 
-正規座標の原点では $g^{ij}=\delta^{ij}$、Christoffel係数が0であるから、二階偏微分の跡は $\Delta_g u$。Ricci曲率の跡はスカラー曲率の定義である。最後に $u=pf$ は $C^3$ であり、同じ計算を適用する。$\square$
+[正規座標の基点での基本性質](../../../幾何系/GEO/GEO14/index.md#thm-geo14-normal-coordinate-properties)により、原点では $g^{ij}=\delta^{ij}$、Christoffel係数が0である。[Laplace–Beltramiの座標表示](../../../幾何系/GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)から二階偏微分の跡は $\Delta_g u$、[スカラー曲率の定義](../../../幾何系/GEO/GEO16/index.md#def-geo16-ricci-scalar)からRicci成分の跡は $\operatorname{Scal}$ となる。最後に $u=pf$ は $C^3$ であり、同じ計算を適用する。$\square$
 <!-- proof-end -->
 
 三つの寄与を整理しておこう。
@@ -270,7 +316,13 @@ $$
 - 体積の曲がり：$-\varepsilon\operatorname{Scal}u/3$。
 - $u=pf$ としたときの標本密度の変化：$\Delta_g(pf)$ に含まれる。
 
-例えば半径 $R$ の球面では $\operatorname{Scal}=2/R^2$ なので $G_\varepsilon1=1-2\varepsilon/(3R^2)+O(\varepsilon^{3/2})$。$\Delta_g1=0$ でも $G_\varepsilon1$ は一般に1でない。**距離Gaussianを積分しただけでは定数を保つ作用素にならない**ことが分かる。
+例えば半径 $R$ の球面では[定断面曲率空間の Ricci 曲率とスカラー曲率](../../../幾何系/GEO/GEO16/index.md#cor-geo16-constant-curvature-contractions)から $\operatorname{Scal}=2/R^2$ なので
+
+$$
+G_\varepsilon1=1-\frac{2\varepsilon}{3R^2}+O(\varepsilon^{3/2}).
+$$
+
+$\Delta_g1=0$ でも $G_\varepsilon1$ は一般に1でない。**距離Gaussianを積分しただけでは定数を保つ作用素にならない**ことが分かる。
 
 ## 6. 正規化しても非一様密度は残る
 
@@ -280,7 +332,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（行正規化の一次bias）**  
-> 前定理の仮定に加えて $p(x)\ge p_{\min}>0$ とし、$f\in C^3(M)$ とする。十分小さい $\varepsilon>0$ に対して $T_\varepsilon^p1(x)>0$ であり、各 $x$ に一様に
+> $(M,g)$ を滑らかな境界なしコンパクト $d$ 次元Riemann多様体とし、$p\in C^3(M)$ は $\int_M p\,dV_g=1$ と $p(x)\ge p_{\min}>0$ を満たす密度、$f\in C^3(M)$ とする。[内在Gaussian核の行正規化](#def-mfl13-kernel)について、十分小さい $\varepsilon>0$ に対して $T_\varepsilon^p1(x)>0$ であり、各 $x$ に一様に
 >
 $$
 \boxed{P_\varepsilon^pf(x)
@@ -323,7 +375,7 @@ $$
 したがって $A/p-fB/p=\Delta_gf+2p^{-1}\langle\nabla_gp,\nabla_gf\rangle_g$。$p>0$ から $\nabla_g\log p=p^{-1}\nabla_gp$ であり結論を得る。$f=1$ については積分の定義から分子と分母が一致する。$\square$
 <!-- proof-end -->
 
-**円周の非一様密度。** 半径 $R>0$ の円周で $p(\theta)=(1+a\cos\theta)/(2\pi R)$、$|a|<1$、$f(\theta)=\cos\theta$ とする。$p>0$ で $\int p\,dV_g=1$。[$\Delta_g=R^{-2}\partial_{\theta\theta}$](../MFL12/index.md#prop-mfl12-circle)、$\langle\nabla u,\nabla v\rangle=R^{-2}u_\theta v_\theta$ より、$\theta=\pi/2$ では
+**円周の非一様密度。** 半径 $R>0$ の円周で $p(\theta)=(1+a\cos\theta)/(2\pi R)$、$|a|<1$、$f(\theta)=\cos\theta$ とする。$p>0$ で $\int p\,dV_g=1$。[$\Delta_g=R^{-2}\partial_{\theta\theta}$](../MFL12/index.md#prop-mfl12-circle)、$\langle\nabla u,\nabla v\rangle_g=R^{-2}u_\theta v_\theta$ を使う。ここで下添字 $\theta$ は角度 $\theta$ での微分（$u_\theta=du/d\theta$）、$\partial_{\theta\theta}$ は同じ角度に関する二階微分を意味する。したがって、$\theta=\pi/2$ では
 
 $$
 \Delta_gf=0,\quad
@@ -457,7 +509,25 @@ $$
 - Level: A
 - 問題: 半径 $R$ の円周で $p(\theta)=(1+a\cos\theta)/(2\pi R)$（$|a|<1$）、$f(\theta)=\cos\theta$ とする。$\theta=\pi/2$ における $\Delta_g f$ と $2\langle\nabla\log p,\nabla f\rangle$ を別々に計算せよ。
 
-**詳細解答**。[$\Delta_g=R^{-2}\partial_{\theta\theta}$](../MFL12/index.md#prop-mfl12-circle)より $\Delta_g f=-\cos\theta/R^2$、$\theta=\pi/2$ では0。$p_\theta=-a\sin\theta/(2\pi R)$ なので $(\log p)_\theta=-a\sin\theta/(1+a\cos\theta)$、同点で $-a$。$f_\theta=-\sin\theta=-1$、逆計量は $R^{-2}$ だから $2\langle\nabla\log p,\nabla f\rangle=2(-a)(-1)/R^2=2a/R^2$。$p>0$ は $|a|<1$ により保証される。
+**詳細解答**。[円周の計量とLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)を使い、$\theta$ で微分すると
+
+$$
+\Delta_gf=-\frac{\cos\theta}{R^2},
+\qquad
+p_\theta=-\frac{a\sin\theta}{2\pi R},
+\qquad
+(\log p)_\theta=\frac{p_\theta}{p}
+=-\frac{a\sin\theta}{1+a\cos\theta}.
+$$
+
+したがって $\theta=\pi/2$ では $\Delta_g f=0$、$(\log p)_\theta=-a$、$f_\theta=-\sin\theta=-1$。計量 $g_{\theta\theta}=R^2$ の逆成分は $g^{\theta\theta}=R^{-2}$ なので
+
+$$
+2\langle\nabla_g\log p,\nabla_gf\rangle_g
+=\frac{2}{R^2}(-a)(-1)=\frac{2a}{R^2}.
+$$
+
+$|a|<1$ より $1+a\cos\theta>0$ で、対数と除算も定義される。
 
 <a id="ex-mfl13-b01"></a>
 
@@ -475,7 +545,14 @@ $$
 - Level: B
 - 問題: $p>0$、$p,f\in C^3(M)$ とする。$G_\varepsilon(pf)/G_\varepsilon p$ の一次展開を自力で導出し、$f\equiv1$ の場合に係数が0であることを確かめよ。
 
-**詳細解答**。[kernel bias定理](#thm-mfl13-bias)を $pf$、$p$ の順に適用する。$A=\Delta(pf)-\operatorname{Scal}pf/3$、$B=\Delta p-\operatorname{Scal}p/3$ と置くと、逆数展開から
+**詳細解答**。[kernel bias定理](#thm-mfl13-bias)を $pf$、$p$ の順に適用する。基点 $x$ の値で
+
+$$
+A=\Delta_g(pf)-\frac13\operatorname{Scal}\,pf,
+\qquad B=\Delta_gp-\frac13\operatorname{Scal}\,p
+$$
+
+と置く。$p>0$ とコンパクト性により分母は十分小さい $\varepsilon$ で一様に正であり、逆数展開から
 
 $$
 \frac{pf+\varepsilon A+O(\varepsilon^{3/2})}
@@ -537,7 +614,11 @@ $$
 ### MFL13-C01 球面で内在核とambient核を比べる
 
 - Level: C
-- 問題: 半径 $R>0$ の球面 $S_R^2\subset\mathbb R^3$ の固定点 $x$ で、$k_\varepsilon$ の距離をambientの $|x-y|$ に置き換えた $\widetilde G_\varepsilon$ を考える（規格化は $(4\pi\varepsilon)^{-1}$ のまま）。（1）極角 $\varphi$ で $|x-y|^2=2R^2(1-\cos\varphi)$ を示せ。（2）$\widetilde G_\varepsilon1(x)=1-e^{-R^2/\varepsilon}$ を厳密に導け。（3）内在核の定数のbiasとの違いを説明し、どちらからも有限点群の固有値収束が直ちに従わない理由を述べよ。
+- 問題: 半径 $R>0$ の球面 $S_R^2\subset\mathbb R^3$ の固定点 $x$ で、$k_\varepsilon$ の距離をambientの $|x-y|$ に置き換えた $\widetilde G_\varepsilon$ を考える（規格化は $(4\pi\varepsilon)^{-1}$ のまま）。次を示せ。
+
+  1. 極角 $\varphi$ で $|x-y|^2=2R^2(1-\cos\varphi)$。
+  2. 厳密な積分値 $\widetilde G_\varepsilon1(x)=1-e^{-R^2/\varepsilon}$。
+  3. 内在核の定数のbiasとの違いと、いずれからも有限点群の固有値収束が直ちに従わない理由。
 
 **詳細解答**。（1）$x$ を北極 $(0,0,R)$ として、球面の点を $(R\sin\varphi\cos\theta,R\sin\varphi\sin\theta,R\cos\varphi)$ と置く。[球面の計量](../MFL12/index.md#prop-mfl12-sphere)から内積 $x\cdot y=R^2\cos\varphi$。よって $|x-y|^2=|x|^2+|y|^2-2x\cdot y=2R^2(1-\cos\varphi)$。
 

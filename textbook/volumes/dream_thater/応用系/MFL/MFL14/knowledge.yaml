@@ -1,0 +1,56 @@
+chapter: MFL14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL13
+  - F0-00P2A
+
+concepts:
+  - id: manifold-learning.kernel-sample-average
+    name: kernel標本平均と行正規化推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（kernel標本平均と行正規化推定量）"]
+    requires: [manifold-learning.intrinsic-gaussian-operator]
+
+  - id: manifold-learning.kernel-sample-variance
+    name: kernel標本平均の二次モーメントと分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（kernel標本平均の二次モーメントと分散）"]
+    requires: [manifold-learning.kernel-sample-average]
+
+  - id: manifold-learning.kernel-bernstein
+    name: 有界独立変数のBernstein型不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有界独立変数のBernstein型不等式）"]
+    requires: [manifold-learning.kernel-sample-variance]
+
+  - id: manifold-learning.kernel-row-concentration
+    name: kernel行正規化推定量の集中
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（kernel行正規化推定量の集中）"]
+    requires: [manifold-learning.kernel-bernstein, manifold-learning.row-kernel-bias]
+
+  - id: manifold-learning.leave-one-out-kernel
+    name: 標本点でのleave-one-out核平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本点でのleave-one-out核平均）"]
+    requires: [manifold-learning.kernel-sample-average]
+
+  - id: manifold-learning.loo-concentration
+    name: leave-one-out集中と対角項の差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（leave-one-out集中と対角項の差）"]
+    requires: [manifold-learning.leave-one-out-kernel, manifold-learning.kernel-row-concentration]
+
+  - id: manifold-learning.kernel-generator-limit
+    name: 核generatorの同時極限の十分条件
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（核generatorの同時極限の十分条件）"]
+    requires: [manifold-learning.loo-concentration, manifold-learning.row-kernel-bias]
