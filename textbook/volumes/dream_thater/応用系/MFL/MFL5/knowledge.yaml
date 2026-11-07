@@ -1,0 +1,64 @@
+chapter: MFL5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL4
+  - ML1-19
+  - HDP1
+
+concepts:
+  - id: manifold-learning.local-pca
+    name: 局所共分散とLocal PCA
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所共分散とLocal PCA）"]
+    requires: [learning.pca-spectral-optimization, manifold-learning.clean-sample-model]
+
+  - id: manifold-learning.projection-distance
+    name: 接空間の射影距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接空間の射影距離）"]
+    requires: [manifold-learning.local-pca, manifold-learning.tangent-orthogonal-projection]
+
+  - id: manifold-learning.curvature-covariance-error
+    name: 曲率が作る共分散ブロック誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲率が作る共分散ブロック誤差）"]
+    requires: [manifold-learning.projection-distance, manifold-learning.second-order-tangent-error]
+
+  - id: manifold-learning.eigenspace-stability
+    name: 共分散摂動からの接空間距離評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共分散摂動からの接空間距離評価）"]
+    requires: [manifold-learning.projection-distance, learning.pca-spectral-optimization]
+
+  - id: manifold-learning.noise-covariance-error
+    name: 有界ノイズによる共分散誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界ノイズによる共分散誤差）"]
+    requires: [manifold-learning.curvature-covariance-error, manifold-learning.bounded-noise-hausdorff]
+
+  - id: manifold-learning.sample-covariance-concentration
+    name: 有界な独立局所標本の共分散集中
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界な独立局所標本の共分散集中）"]
+    requires: [manifold-learning.local-pca, high-dimensional-probability.hoeffding-two-sided]
+
+  - id: manifold-learning.local-pca-error-bound
+    name: Local PCAの有限標本接空間誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Local PCAの有限標本接空間誤差）"]
+    requires: [manifold-learning.curvature-covariance-error, manifold-learning.eigenspace-stability, manifold-learning.noise-covariance-error, manifold-learning.sample-covariance-concentration]
+
+  - id: manifold-learning.observed-neighborhood-sandwich
+    name: 観測近傍と真の近傍の包含
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（観測近傍と真の近傍の包含）"]
+    requires: [manifold-learning.local-pca, manifold-learning.bounded-noise-hausdorff]

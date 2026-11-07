@@ -24,8 +24,8 @@ chapters:
     title: "密度・標本被覆・観測ノイズ"
   - id: MFL5
     path: textbook/volumes/dream_thater/応用系/MFL/MFL5
-    status: planned
-    title: "Local PCAと接空間推定"
+    status: completed
+    title: "局所主成分分析と接空間推定"
   - id: MFL6
     path: textbook/volumes/dream_thater/応用系/MFL/MFL6
     status: planned
