@@ -144,7 +144,7 @@ chapters:
     title: "flat minimaの座標依存性"
   - id: SLT2-17
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-17
-    status: planned
+    status: completed
     title: "情報量と圧縮の汎化界"
   - id: SLT2-18
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-18
