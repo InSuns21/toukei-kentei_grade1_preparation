@@ -1,0 +1,39 @@
+id: "IG2"
+title: "Fisher--Rao 計量と座標不変性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG1
+  - GEO12
+official_scope: []
+learning_objectives:
+  - 正則モデルのスコア二乗平均から Fisher 情報行列を定義し半正定値性と正定値性の条件を証明できる
+  - 有限正確率単体の Fisher--Rao 計量を構成し統計モデルへの引き戻しと浸入性を結び付けられる
+  - 正則な再パラメータ化の Jacobian から Fisher 行列のテンソル変換則を導出できる
+  - Bernoulli 族と3値カテゴリカル族の Fisher 行列を確率質量から直接計算できる
+  - 正規位置尺度族の二座標スコアと Fisher 行列を標準正規モーメントから導出できる
+  - Fisher--Rao の曲線長・距離を定義し Bernoulli 族の距離を求められる
+  - 正の有限単体の平方根埋め込みから Fisher--Rao 距離の公式を証明できる
+  - 非正則な再パラメータ化では Fisher 行列が退化し得る理由を反例で説明できる
+definitions:
+  - { id: IG2-DEF-01, name: Fisher 情報行列 }
+  - { id: IG2-DEF-02, name: 有限正確率単体の Fisher--Rao 計量 }
+  - { id: IG2-DEF-03, name: Fisher--Rao 長と距離 }
+theorems:
+  - { id: IG2-THM-01, name: Fisher 行列の半正定値性と非退化条件 }
+  - { id: IG2-THM-02, name: 単体の計量と Fisher 情報行列 }
+  - { id: IG2-THM-03, name: Fisher 行列の座標変換則 }
+  - { id: IG2-PROP-01, name: 正規位置尺度族の Fisher 計量 }
+  - { id: IG2-THM-04, name: Bernoulli 族の Fisher--Rao 距離 }
+canonical_examples:
+  - Bernoulli 族の Fisher 情報量と対数オッズへの再パラメータ化
+  - 3値確率単体の二つの接方向とカテゴリカル族の正定値行列
+  - 正規位置尺度族の Fisher 行列と対数標準偏差座標
+  - Bernoulli 族の曲線長と距離
+  - 三乗パラメータ表示における Fisher 情報量の退化
+  - 正の有限単体の平方根埋め込みと球面距離
+problem_patterns: [IG2-A01, IG2-A02, IG2-A03, IG2-A04, IG2-B01, IG2-B02, IG2-B03, IG2-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
