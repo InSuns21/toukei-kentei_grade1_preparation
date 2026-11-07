@@ -1,0 +1,63 @@
+chapter: SLT2-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-10
+  - SLT2-11
+  - SLT2-12
+concepts:
+  - id: learning.slt2-dirac-particle-measure
+    name: Dirac確率測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirac確率測度）"]
+  - id: learning.slt2-empirical-particle-measure
+    name: 経験粒子測度と二層網の積分表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（経験粒子測度と二層網の積分表示）"]
+    requires:
+      - learning.slt2-dirac-particle-measure
+      - learning.slt2-infinite-width-ntk
+  - id: learning.slt2-mean-field-initial-scaling
+    name: 二つの幅スケーリングの初期出力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二つの幅スケーリングの初期出力）"]
+    requires:
+      - learning.slt2-empirical-particle-measure
+      - learning.slt2-nngp-gaussian-limit
+  - id: learning.slt2-particle-potential-accelerated-flow
+    name: 粒子ポテンシャルと加速勾配流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粒子ポテンシャルと加速勾配流）"]
+    requires: [learning.slt2-empirical-particle-measure]
+  - id: learning.slt2-particle-risk-dissipation
+    name: 加速粒子勾配流の厳密な変分式と損失減少
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（加速粒子勾配流の厳密な変分式と損失減少）"]
+    requires: [learning.slt2-particle-potential-accelerated-flow]
+  - id: learning.slt2-particle-test-function
+    name: 有限粒子の試験関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限粒子の試験関数）"]
+    requires: [learning.slt2-empirical-particle-measure]
+  - id: learning.slt2-empirical-weak-evolution
+    name: 経験粒子測度の弱形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（経験粒子測度の弱形式）"]
+    requires:
+      - learning.slt2-particle-test-function
+      - learning.slt2-particle-risk-dissipation
+  - id: learning.slt2-moving-particle-gram
+    name: 動く粒子Gram行列の残差方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（動く粒子Gram行列の残差方程式）"]
+    requires:
+      - learning.slt2-particle-risk-dissipation
+      - learning.slt2-ntk-finite-time-flow
