@@ -34,23 +34,38 @@ $$
 > =\{\|G_p-I_p\|_{\mathrm{op}}\le\eta\}
 $$
 >
-> をスペクトル良好事象という。$p>n$ 側で行の Gram 行列を使うときは、$H_n=XX^{\mathsf T}/p$ と
+> をスペクトル良好事象という。固定行列については、このノルム不等式の成否を判定する。$p>n$ 側で行の Gram 行列を使うときは、$H_n=XX^{\mathsf T}/p$ と
 $$
 > \mathcal F_{n,p}(\eta)
 > =\{\|H_n-I_n\|_{\mathrm{op}}\le\eta\}
 $$
-> を区別する。どちらの正規化でも分母は、その Gram 行列を構成する独立ベクトルの本数である。
+> を区別する。$G_p$ の分母 $n$ は行の本数、$H_n$ の分母 $p$ は列の本数である。独立性はこの定義には不要であり、後の集中不等式を適用するときに別途仮定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-05-gram-event -->
-**定義の確認**。$n=3,p=2$、$X$ の第1行を $(\sqrt3,0)$、第2行を $(0,\sqrt{3/2})$、第3行を $(0,0)$ とすると
+**定義の確認**（列側）。$n=3,p=2$、$X$ の第1行を $(\sqrt3,0)$、第2行を $(0,\sqrt{3/2})$、第3行を $(0,0)$ とする。$G_2$ は3本の行 $x_i^{\mathsf T}$ から $3^{-1}\sum_i x_ix_i^{\mathsf T}$ として作るので、
 
 $$
 G_2=\begin{pmatrix}1&0\\0&1/2\end{pmatrix},\qquad
-\|G_2-I_2\|_{\mathrm{op}}=1/2.
+G_2-I_2=\begin{pmatrix}0&0\\0&-1/2\end{pmatrix}.
 $$
 
-従って $\eta=1/2$ では $\mathcal E_{3,2}(1/2)$ が成立する（境界の等号を含む）。$X^{\mathsf T}X$ の固有値は $3$ と $3/2$ であり、$X$ の正の特異値は $\sqrt3$ と $\sqrt{3/2}$。これは次の補題の両端を実際に確認する例である。
+単位ベクトル $u=(u_1,u_2)^{\mathsf T}$ に対して、定義のノルムは
+
+$$
+\|(G_2-I_2)u\|_2=|u_2|/2\le1/2
+$$
+
+であり、$u=(0,1)^{\mathsf T}$ で等号となる。従って $\|G_2-I_2\|_{\mathrm{op}}=1/2$、この固定行列は $\eta=1/2$ で定義の不等式を満たす（確率行列の実現値なら $\mathcal E_{3,2}(1/2)$ に入る）。$X^{\mathsf T}X$ の固有値は $3$ と $3/2$ であり、[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)によって $X$ の正の特異値は $\sqrt3$ と $\sqrt{3/2}$ になる。
+
+**定義の確認**（行側）。$n=2,p=3$ で次の行列を考える。$H_2$ は3本の列 $c_j$ の二次モーメントだから
+
+$$
+X=\sqrt3\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix},\qquad
+H_2=\frac13\sum_{j=1}^3c_jc_j^{\mathsf T}=I_2.
+$$
+
+従って $\|H_2-I_2\|_{\mathrm{op}}=0$ で行側の不等式を満たす。一方、$G_3=\operatorname{diag}(3/2,3/2,0)$ は零固有値を持ち、$\|G_3-I_3\|_{\mathrm{op}}=1$ となる。二つの Gram 行列を用いる場合の成否が異なる具体例である。
 <!-- definition-example-end -->
 
 <a id="lem-slt2-05-spectral-bridge"></a>
@@ -164,14 +179,28 @@ $\eta_p<1$ には、この定理の定数では $n$ が $K^4(p+\log(1/\delta))$ 
 
 比例 $p/n$ が固定されても、小さい定数とは限らない $\|G_p-I_p\|_{\mathrm{op}}$ を $0$ へ収束させる主張はここから出ない。まして $p/n\to1$ での最小固有値の精密分布も得ていない。一方この上界は**各有限の $n,p$ で**信頼度 $1-\delta$ を指定できる強みがある。
 
-条件付きの予測誤差にも直ちに使える。固定された $X$ が列フルランク、$Y=X\beta_\star+\varepsilon$、$E[\varepsilon\mid X]=0$、$E[\varepsilon\varepsilon^{\mathsf T}\mid X]=\tau^2I_n$ なら、[前章の条件付きリスク計算](../SLT2-04/index.md#thm-slt2-04-exact-risk)により
+条件付きの予測誤差にも直ちに使える。固定された $X$ が列フルランク、$Y=X\beta_\star+\varepsilon$、$E[\varepsilon\mid X]=0$、$E[\varepsilon\varepsilon^{\mathsf T}\mid X]=\tau^2I_n$ とする。推定量を $\widehat\beta=X^\dagger Y$ とおけば、[前章の条件付きリスク計算](../SLT2-04/index.md#thm-slt2-04-exact-risk)により
 
 $$
 E_{\varepsilon}\bigl[\|\widehat\beta-\beta_\star\|_2^2\mid X\bigr]
 =\tau^2\operatorname{tr}((X^{\mathsf T}X)^{-1}).
 $$
 
-従って $\mathcal E_{n,p}(\eta)$ 上では $\tau^2p/[n(1+\eta)]$ と $\tau^2p/[n(1-\eta)]$ の間にある。$p>n$ の行フルランク時には、核方向の偏り $\|(I-P_X)\beta_\star\|_2^2$ に加え、雑音分散の部分を $\tau^2n/[p(1\pm\eta)]$ で挟める。**良好事象上の条件付き界を、そのまま全標本についての期待リスク界へ移してはいけない。**
+従って $\mathcal E_{n,p}(\eta)$ 上では $\tau^2p/[n(1+\eta)]$ と $\tau^2p/[n(1-\eta)]$ の間にある。$p>n$ の行フルランク時には、特徴空間の行空間への直交射影を
+
+$$
+P_X=X^{\mathsf T}(XX^{\mathsf T})^{-1}X
+$$
+
+と置く。[前章のリスク分解](../SLT2-04/index.md#thm-slt2-04-exact-risk)により、核方向の偏り $\|(I_p-P_X)\beta_\star\|_2^2$ と雑音分散の項を分けられる。$\mathcal F_{n,p}(\eta)$ 上では、その雑音項を
+
+$$
+\frac{\tau^2n}{p(1+\eta)}\le
+E_\varepsilon\bigl[\|\widehat\beta-P_X\beta_\star\|_2^2\mid X\bigr]
+\le\frac{\tau^2n}{p(1-\eta)}
+$$
+
+と挟める。**良好事象上の条件付き界を、そのまま全標本についての期待リスク界へ移してはいけない。**
 
 ## 3. 有界設計に対する別の評価
 
@@ -392,7 +421,19 @@ $n=3,p=2$、$X=\begin{pmatrix}\sqrt3&0\\0&\sqrt{3/2}\\0&0\end{pmatrix}$ とす�
 <!-- solution-start -->
 #### 詳細解答
 
-$X^{\mathsf T}X=\operatorname{diag}(3,3/2)$ なので $G_p=\operatorname{diag}(1,1/2)$ である。$G_p-I_2=\operatorname{diag}(0,-1/2)$ の作用素ノルムは $1/2$ だから事象は成立する。逆行列は $\operatorname{diag}(1/3,2/3)$ であり、跡は $1$。補題の上下界は $2/[3(3/2)]=4/9\le1\le2/[3(1/2)]=4/3$ と一致する。
+$X^{\mathsf T}X=\operatorname{diag}(3,3/2)$ なので、$G_2=\operatorname{diag}(1,1/2)$、$G_2-I_2=\operatorname{diag}(0,-1/2)$ である。単位方向の最大伸長率は $1/2$ だから、定義のノルム不等式を満たす。逆行列とその跡は
+
+$$
+(X^{\mathsf T}X)^{-1}=\operatorname{diag}(1/3,2/3),\qquad
+\operatorname{tr}((X^{\mathsf T}X)^{-1})=1.
+$$
+
+[Gram の補題](#lem-slt2-05-spectral-bridge) (i) の上下界も代入して確認できる。
+
+$$
+\frac{2}{3(1+1/2)}=\frac49\le1\le\frac43
+=\frac{2}{3(1-1/2)}.
+$$
 
 <!-- solution-end -->
 
@@ -413,12 +454,32 @@ $X^{\mathsf T}X=\operatorname{diag}(3,3,0)$ より $G_p=\operatorname{diag}(3/2,
 - Level: A
 - 目安時間: 12分
 
-定理の $L_p=p\log9+\log(2/\delta)$ を使う。$0<\varepsilon<1$ のとき $n\ge256K^4L_p/\varepsilon^2$ なら、なぜ $\eta_p\le\varepsilon$ になるか示せ。
+[sub-Gaussian 設計の定理](#thm-slt2-05-subgaussian-spectrum)の $L_p=p\log9+\log(2/\delta)$ を使う。$0<\varepsilon<1$ のとき $n\ge256K^4L_p/\varepsilon^2$ なら、なぜ $\eta_p\le\varepsilon$ になるか示せ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-等方性から [HDP7 の下界](../../../解析系/HDP/HDP7/index.md#def-hdp7-isotropy)により $K>1$。標本数条件を変形すると $\sqrt{L_p/n}\le\varepsilon/(16K^2)<1$。従って $L_p/n\le\sqrt{L_p/n}$ なので、最大値は平方根側である。ゆえに $\eta_p=16K^2\sqrt{L_p/n}\le\varepsilon$。条件は単に $n$ が大きいという印象論ではなく、$p,\delta,K,\varepsilon$ を固定した有限標本の条件である。
+[HDP7 の等方性](../../../解析系/HDP/HDP7/index.md#def-hdp7-isotropy)により、単位方向 $u$ に対する $Y=u^{\mathsf T}x_i$ は $EY^2=1$ である。指数関数の接線不等式
+
+$$
+e^z\ge e^a(1+z-a)
+$$
+
+に $z=Y^2/K^2$、$a=EY^2/K^2$ を代入して期待値を取ると
+
+$$
+2\ge Ee^{Y^2/K^2}\ge e^{EY^2/K^2}=e^{1/K^2},
+\qquad K^2\ge\frac1{\log2}>1.
+$$
+
+標本数条件を変形すると
+
+$$
+\sqrt{\frac{L_p}{n}}\le\frac{\varepsilon}{16K^2}<1,
+\qquad \frac{L_p}{n}\le\sqrt{\frac{L_p}{n}}.
+$$
+
+ゆえに最大値は平方根側であり、$\eta_p=16K^2\sqrt{L_p/n}\le\varepsilon$。これは $p,\delta,K,\varepsilon$ を固定して指定した有限標本の条件である。
 
 <!-- solution-end -->
 
@@ -426,12 +487,18 @@ $X^{\mathsf T}X=\operatorname{diag}(3,3,0)$ より $G_p=\operatorname{diag}(3/2,
 - Level: A
 - 目安時間: 10分
 
-$n=4,p=2$ の Gaussian 設計で $E\|G_p-I_p\|_F^2$ と $\operatorname{Var}(\operatorname{tr}G_p/p)$ を求めよ。
+$n=4,p=2$ で、全成分が独立な標準正規分布に従う Gaussian 設計について、$E\|G_p-I_p\|_F^2$ と $\operatorname{Var}(\operatorname{tr}G_p/p)$ を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-対角二項は各々 $2/n=1/2$、非対角二項は各々 $1/n=1/4$ なので $E\|G_p-I_p\|_F^2=2(1/2)+2(1/4)=3/2$。跡の平均は $np=8$ 個の標準正規二乗の平均であり、その分散は $2/8=1/4$。
+[Gaussian Gram の命題](#prop-slt2-05-gaussian-frobenius)の成分計算を使う。対角二項の二乗誤差はそれぞれ $2/n=1/2$、非対角二項はそれぞれ $1/n=1/4$ なので
+
+$$
+E\|G_2-I_2\|_F^2=2\cdot\frac12+2\cdot\frac14=\frac32.
+$$
+
+跡を $p$ で割った量は $np=8$ 個の独立な標準正規二乗の平均であり、分散は $8\cdot2/8^2=1/4$ となる。
 
 <!-- solution-end -->
 
@@ -439,12 +506,19 @@ $n=4,p=2$ の Gaussian 設計で $E\|G_p-I_p\|_F^2$ と $\operatorname{Var}(\ope
 - Level: A
 - 目安時間: 10分
 
-$\tau^2=1$、$\|\beta_{\star,n}\|_2^2\to4$ とする。$\gamma=1/2$ と $\gamma=2$ での信号予測リスクの極限を求め、雑音と偏りを区別せよ。
+[Gaussian 比例漸近モデル](#thm-slt2-05-proportional-risk)で $\tau^2=1$、$\|\beta_{\star,n}\|_2^2\to4$ とする。$\gamma=1/2$ と $\gamma=2$ での信号予測リスクの極限を求め、雑音と偏りを区別せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\gamma=1/2<1$ では真の係数を列空間で表せるため、極限は雑音項 $\gamma/(1-\gamma)=(1/2)/(1/2)=1$ のみ。$\gamma=2>1$ では核方向の偏りは $(1-1/2)4=2$、雑音項は $1/(2-1)=1$ だから合計 $3$。
+[比例漸近定理](#thm-slt2-05-proportional-risk)より、$\gamma=1/2<1$ では列フルランクのため偏りがなく、雑音項だけが残る。$\gamma=2>1$ では核方向の偏りと雑音項をそれぞれ計算して
+
+$$
+\begin{aligned}
+\gamma=1/2 &: \quad \lim_{n\to\infty}L_{n,p_n}=\frac{1/2}{1-1/2}=1,\\
+\gamma=2 &: \quad \lim_{n\to\infty}L_{n,p_n}=\left(1-\frac12\right)4+\frac1{2-1}=2+1=3.
+\end{aligned}
+$$
 
 <!-- solution-end -->
 
@@ -473,12 +547,31 @@ $$
 - Level: B
 - 目安時間: 22分
 
-$X\in\mathbb R^{n\times p}$ を固定する。雑音の条件付き共分散が $\tau^2I_n$、$\tau^2>0$ とする。(i) $p<n$、$\mathcal E_{n,p}(\eta)$ 成立時の最小二乗係数リスク、(ii) $p>n$、$\mathcal F_{n,p}(\eta)$ 成立時の最小ノルム補間解の雑音由来の係数リスクを上下から挟め。
+$X\in\mathbb R^{n\times p}$ を固定し、固定係数 $\beta_\star\in\mathbb R^p$ と平均零の雑音 $\varepsilon$ による観測モデルを
+
+$$
+Y=X\beta_\star+\varepsilon,\qquad
+E[\varepsilon\mid X]=0,\qquad
+E[\varepsilon\varepsilon^{\mathsf T}\mid X]=\tau^2I_n\quad(\tau^2>0)
+$$
+
+とする。推定量は $\widehat\beta=X^\dagger Y$ とし、$0<\eta<1$ とする。
+
+1. $p<n$、$\|G_p-I_p\|_{\mathrm{op}}\le\eta$ のとき、係数リスクを上下から挟め。
+2. $p>n$、$\|H_n-I_n\|_{\mathrm{op}}\le\eta$ のとき、最小ノルム補間解の雑音由来の係数リスクを上下から挟め。
 
 <!-- solution-start -->
 #### 詳細解答
 
-(i) [最小二乗解の式](../SLT2-04/index.md#thm-slt2-04-exact-risk)から $\widehat\beta-\beta_\star=(X^{\mathsf T}X)^{-1}X^{\mathsf T}\varepsilon$。従って $E_\varepsilon\|\widehat\beta-\beta_\star\|_2^2=\tau^2\operatorname{tr}((X^{\mathsf T}X)^{-1})$ であり、補題 (i) より
+(i) 列フルランクの場合の[最小ノルム解の表示](../SLT2-02/index.md#thm-slt2-02-minimum-norm)に $Y=X\beta_\star+\varepsilon$ を代入すると $\widehat\beta-\beta_\star=(X^{\mathsf T}X)^{-1}X^{\mathsf T}\varepsilon$。$A=(X^{\mathsf T}X)^{-1}X^{\mathsf T}$ とおくと、$AA^{\mathsf T}=(X^{\mathsf T}X)^{-1}$ なので
+
+$$
+E_\varepsilon\|A\varepsilon\|_2^2
+=\operatorname{tr}(A E_\varepsilon[\varepsilon\varepsilon^{\mathsf T}]A^{\mathsf T})
+=\tau^2\operatorname{tr}((X^{\mathsf T}X)^{-1}).
+$$
+
+従って [Gram の補題](#lem-slt2-05-spectral-bridge) (i) より
 
 $$
 \frac{\tau^2p}{n(1+\eta)}\le
@@ -486,15 +579,15 @@ E_\varepsilon\|\widehat\beta-\beta_\star\|_2^2
 \le\frac{\tau^2p}{n(1-\eta)}.
 $$
 
-(ii) 雑音に由来する項は $X^{\mathsf T}(XX^{\mathsf T})^{-1}\varepsilon$。その条件付き二乗ノルム期待値は $\tau^2\operatorname{tr}((XX^{\mathsf T})^{-1})$ だから、補題 (ii) により
+(ii) 雑音に由来する項は $X^{\mathsf T}(XX^{\mathsf T})^{-1}\varepsilon$。$A_{\mathrm{row}}=X^{\mathsf T}(XX^{\mathsf T})^{-1}$ とすれば $A_{\mathrm{row}}^{\mathsf T}A_{\mathrm{row}}=(XX^{\mathsf T})^{-1}$ であり、(i) と同様に $E_\varepsilon\|A_{\mathrm{row}}\varepsilon\|_2^2=\tau^2\operatorname{tr}((XX^{\mathsf T})^{-1})$ となる。[Gram の補題](#lem-slt2-05-spectral-bridge) (ii) により
 
 $$
 \frac{\tau^2n}{p(1+\eta)}\le
-E_\varepsilon\|X^{\mathsf T}(XX^{\mathsf T})^{-1}\varepsilon\|_2^2
+E_\varepsilon\|A_{\mathrm{row}}\varepsilon\|_2^2
 \le\frac{\tau^2n}{p(1-\eta)}.
 $$
 
-全係数リスクにはこれに核方向の偏り $\|(I-P_X)\beta_\star\|_2^2$ を加える。良好事象の外側については、これらの式だけから平均を抑えられない。
+全係数リスクでは、$P_X=X^{\mathsf T}(XX^{\mathsf T})^{-1}X$ を行空間への直交射影とすると $\widehat\beta-\beta_\star=-(I_p-P_X)\beta_\star+A_{\mathrm{row}}\varepsilon$ である。前者は $\ker X$、後者は行空間に属して直交するため、偏り $\|(I_p-P_X)\beta_\star\|_2^2$ を上の雑音リスクに加える。良好事象の外側については、これらの式だけから平均を抑えられない。
 
 <!-- solution-end -->
 
@@ -507,7 +600,19 @@ Gaussian 設計、$\tau^2>0$ について、(i) $p=3$ を固定して $n\to\inft
 <!-- solution-start -->
 #### 詳細解答
 
-(i) 十分大きい $n$ で $n>4$ なので[有限標本公式](../SLT2-04/index.md#thm-slt2-04-exact-risk)は $L_{n,3}=3\tau^2/(n-4)$。分母が発散するため極限は0。(ii) $p_n/n\to1/3$、$p_n\to\infty$ なので[比例漸近定理](#thm-slt2-05-proportional-risk) (i) から $L_{n,p_n}\to\tau^2(1/3)/(2/3)=\tau^2/2$。次元を同時に増やすと、リスクは一般に消えない。
+(i) 十分大きい $n$ では $n>4$ となる。[SLT2-04 の期待リスク定理](../SLT2-04/index.md#thm-slt2-04-exact-risk)の補間前の式から
+
+$$
+L_{n,3}=\frac{3\tau^2}{n-4}\longrightarrow0.
+$$
+
+(ii) $p_n=\lfloor n/3\rfloor$ は十分大きな $n$ で正整数であり、$p_n/n\to1/3$、$p_n\to\infty$ を満たす。[比例漸近定理](#thm-slt2-05-proportional-risk) (i) から
+
+$$
+L_{n,p_n}\longrightarrow\tau^2\frac{1/3}{1-1/3}=\frac{\tau^2}{2}.
+$$
+
+次元を同時に増やすと、リスクは一般に消えない。
 
 <!-- solution-end -->
 
@@ -520,7 +625,13 @@ $n=p=2$ で $X$ の4成分が独立な Rademacher 変数とする。$X$ が特�
 <!-- solution-start -->
 #### 詳細解答
 
-第1行は任意の $(\pm1,\pm1)$。第2行が第1行と同じか符号反転した行であれば行は一次従属である。第2行の4通りのうち2通りが該当するから $P(\operatorname{rank}X<2)=1/2$。この事象では $XX^{\mathsf T}$ も $X^{\mathsf T}X$ も逆行列を持たない。Gaussian 設計では連続分布によってフルランクが確率1となる一方、Rademacher 行列にはその保証がない。擬似逆を定義しても、通常逆行列に対する前章の期待値公式を流用する根拠にはならない。
+第1行は任意の $(\pm1,\pm1)$。第2行が第1行と同じか符号反転した行であれば行は一次従属である。第2行の4通りのうち2通りが該当するから
+
+$$
+P(\operatorname{rank}X<2)=\frac24=\frac12.
+$$
+
+この事象では $XX^{\mathsf T}$ も $X^{\mathsf T}X$ も逆行列を持たない。Gaussian 設計では連続分布によってフルランクが確率1となる一方、Rademacher 行列にはその保証がない。擬似逆を定義しても、通常逆行列に対する[前章の期待逆跡公式](../SLT2-04/index.md#lem-slt2-04-gram-inverse)を流用する根拠にはならない。
 
 <!-- solution-end -->
 
@@ -533,7 +644,7 @@ $n=p=2$ で $X$ の4成分が独立な Rademacher 変数とする。$X$ が特�
 <!-- solution-start -->
 #### 詳細解答
 
-(i) $\gamma<1$ なら十分大きい $n$ で $n-p_n-1>0$。前章の式を $n$ で割ると
+(i) $\gamma<1$ なら十分大きい $n$ で $n-p_n-1>0$。[前章の有限標本リスク公式](../SLT2-04/index.md#thm-slt2-04-exact-risk)の分子・分母を $n$ で割ると
 
 $$
 L_{n,p_n}=\tau^2\frac{p_n/n}{1-p_n/n-1/n}
