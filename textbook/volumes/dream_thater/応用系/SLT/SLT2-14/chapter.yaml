@@ -5,6 +5,8 @@ status: supplementary
 prerequisites:
   - SLT2-13
   - ODE8
+  - PDE1
+  - TOP5A
 learning_objectives:
   - 輸送結合によるWasserstein距離と連続性方程式の弱解を定義し、Dirac分布で検算できる
   - 損失の混合方向と輸送方向の第一変分を区別して導出できる
