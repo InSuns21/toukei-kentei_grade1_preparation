@@ -410,6 +410,29 @@ $$
 
 **速すぎる帯域縮小。** 例えば $\varepsilon_n=n^{-a}$ なら $n\varepsilon_n^{d/2+2}/\log n=n^{1-a(d/2+2)}/\log n$。$0<a<2/(d+4)$ のときこの十分条件を満たすが、$a\ge2/(d+4)$ ではこの証明は成功しない。**証明が使えないことと推定量が必ず発散することは別**である。
 
+### 再現実験：分散・行正規化・leave-one-out・帯域
+
+単位円周 $S^1$ に角度一様な独立標本を置き、内在距離（短い方の円弧長）から Gaussian 核を作る。関数は $f(\theta)=\cos\theta$、独立な評価点は角度 $0$ とし、$\Delta_gf(0)=-1$ が既知である。以下の実験は、標本平均・正規化比・一点除外・generator の誤差を**毎回新しい標本で再計算**する。乱数生成の開始値を固定するのは結果を再現するためで、偶然の当たり外れを消すものではない。
+
+1. **分散**：$n$ を固定して $\varepsilon$ を変える。標本平均の実測分散を、[二次モーメントの公式](#prop-mfl14-variance)で求めた理論分散（円周上で数値積分）と比べ、$n\sqrt\varepsilon$ を掛けた尺度も確かめる。
+2. **行正規化**：$n$ を増減させ、$\widehat q$ の実測最小値と $\widehat P$ のRMSEを見る。実測の最小値は[確率的分母下界](#thm-mfl14-ratio)そのものではない。
+3. **一点除外**：同じ点群の $\widehat P f(X_i)$ と $\widehat P^{(-i)}f(X_i)$ を比較し、自己重みが占める割合と[対角項の差の恒等式](#prop-mfl14-loo)の数値残差を確認する。
+4. **同時極限**：$\varepsilon=n^{-a}$ で $a=0.25$ と $a=0.50$ を比較し、generator誤差と $n\varepsilon^{5/2}/\log n$ を観察する。後者が0へ向かうことは「必ず発散する」という結論ではない。
+
+```python-file-lab
+# lab-id: MFL14-KERNEL-SAMPLING-FILE
+# lab-title: Kernel標本平均の分散・集中・一点除外
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL14/kernel_sampling_lab.py
+# timeout-ms: 30000
+# lab-preset: 分散の理論値と実測値 | --mode variance --n 160 --epsilon 0.06 --trials 140 --seed 2026
+# lab-preset: 正規化比と分母 | --mode ratio --n 120 --epsilon 0.03 --trials 140 --seed 2026
+# lab-preset: 自己点を含む／除く | --mode loo --n 70 --epsilon 0.008 --seed 2026
+# lab-preset: 帯域縮小・a=0.25 | --mode bandwidth --n 100 --exponent 0.25 --trials 70 --seed 2026
+# lab-preset: 帯域縮小・a=0.50 | --mode bandwidth --n 100 --exponent 0.50 --trials 70 --seed 2026
+```
+
+折れ線は少数の $n,\varepsilon$ の**実測点を結んだ参考表示**であり、連続パラメータ全域の証明ではない。円周上の一様密度と特定の滑らかな $f$ では誤差の相殺が起こり得るため、実測収束が[十分条件](#cor-mfl14-generator)の必要性を意味するわけでもない。元の [Pythonファイル](kernel_sampling_lab.py) はローカルでも実行可能で、`--self-test` で二乗核の積分値・比・一点除外の数値恒等式を検算できる。
+
 ## 8. 演習：分散から標本点上の極限まで
 
 <a id="ex-mfl14-a01"></a>
