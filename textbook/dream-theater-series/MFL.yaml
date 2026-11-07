@@ -20,7 +20,7 @@ chapters:
     title: "Reach・曲率・近傍の識別可能性"
   - id: MFL4
     path: textbook/volumes/dream_thater/応用系/MFL/MFL4
-    status: planned
+    status: completed
     title: "密度・標本被覆・観測ノイズ"
   - id: MFL5
     path: textbook/volumes/dream_thater/応用系/MFL/MFL5

@@ -1,0 +1,69 @@
+chapter: MFL4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL3
+
+concepts:
+  - id: manifold-learning.sample-fill-distance
+    name: 標本被覆半径と有限被覆数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本被覆半径と有限被覆数）"]
+    requires: [manifold-learning.clean-sample-model]
+
+  - id: manifold-learning.minimal-ball-mass
+    name: 最小小球確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小小球確率）"]
+    requires: [manifold-learning.sample-fill-distance]
+
+  - id: manifold-learning.covering-probability
+    name: 有限被覆による標本近接確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限被覆による標本近接確率）"]
+    requires: [manifold-learning.minimal-ball-mass, manifold-learning.missing-region-probability]
+
+  - id: manifold-learning.density-volume-covering
+    name: 密度下界と局所体積による被覆率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（密度下界と局所体積による被覆率）"]
+    requires: [manifold-learning.covering-probability, manifold-learning.clean-sample-model]
+
+  - id: manifold-learning.uniform-circle-covering
+    name: 一様円周の被覆確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一様円周の被覆確率）"]
+    requires: [manifold-learning.covering-probability, manifold-learning.circle-distance]
+
+  - id: manifold-learning.hausdorff-distance
+    name: Hausdorff距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hausdorff距離）"]
+    requires: [manifold-learning.sample-fill-distance, manifold-learning.distance-stability]
+
+  - id: manifold-learning.bounded-noise-hausdorff
+    name: 有界ノイズ下のHausdorff誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界ノイズ下のHausdorff誤差）"]
+    requires: [manifold-learning.hausdorff-distance, manifold-learning.clean-sample-model]
+
+  - id: manifold-learning.gaussian-max-noise
+    name: Gaussianノイズの最大偏差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussianノイズの最大偏差）"]
+    requires: [manifold-learning.bounded-noise-hausdorff, manifold-learning.covering-probability]
+
+  - id: manifold-learning.radial-noise-nonidentifiability
+    name: 半径方向ノイズの観測非識別性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半径方向ノイズの観測非識別性）"]
+    requires: [manifold-learning.bounded-noise-hausdorff, manifold-learning.circle-reach]
