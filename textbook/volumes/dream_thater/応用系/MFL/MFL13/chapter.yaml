@@ -1,0 +1,45 @@
+id: "MFL13"
+title: "Kernel積分作用素のbias"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL12
+  - GEO14
+  - GEO16
+  - GA1
+official_scope: []
+learning_objectives:
+  - 連続kernel平均と有限標本平均を区別し、bandwidthの長さ尺度を説明できる
+  - Gaussianの零次・一次・二次・三次絶対モーメントを計算できる
+  - 正規座標の体積密度の二次項をRicci曲率から導ける
+  - 密度pと関数fの正則性の下で核平均のO(ε) biasとO(ε^{3/2})剰余を導出できる
+  - 行正規化で定数が保たれ、密度driftが残ることを検算できる
+  - 円周・球面の内在距離とambient距離のkernel biasを区別できる
+  - 固定点での連続作用素展開から標本分散・スペクトル収束は従わないと説明できる
+definitions:
+  - { id: MFL13-DEF-01, name: 内在Gaussian核と連続kernel平均 }
+theorems:
+  - { id: MFL13-LEM-01, name: Gaussianの偶奇モーメント }
+  - { id: MFL13-LEM-02, name: 正規座標における体積密度の二次展開 }
+  - { id: MFL13-THM-01, name: 内在kernel積分作用素のbias展開 }
+  - { id: MFL13-PROP-01, name: 行正規化の一次bias }
+  - { id: MFL13-PROP-02, name: 埋め込み円周の距離によるbiasの差 }
+canonical_examples:
+  - Euclid直線のGaussian平均での二次関数
+  - 球面の体積歪みと定数関数のbias
+  - 不均一密度の円周での正規化後のdrift
+  - 円周の弧長とchordで異なるO(ε)係数
+problem_patterns:
+  - MFL13-A01
+  - MFL13-A02
+  - MFL13-A03
+  - MFL13-A04
+  - MFL13-B01
+  - MFL13-B02
+  - MFL13-B03
+  - MFL13-B04
+  - MFL13-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 2.0 }
