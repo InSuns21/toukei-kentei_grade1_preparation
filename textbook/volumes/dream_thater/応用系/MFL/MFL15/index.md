@@ -19,7 +19,7 @@ $$
 
 ## 2. 両端の密度を補正し、そのあと行で正規化する
 
-観測点の近傍重みの総量を調べる量は、[MFL13の核積分作用素](../MFL13/index.md#def-mfl13-kernel)による $q_\varepsilon(x)=G_\varepsilon p(x)$ である。核は各点で正、確率密度は $p(x)>0$ なので $q_\varepsilon(x)>0$。点 $x,y$ のそれぞれの重みに $q_\varepsilon^{-\alpha}$ を掛けると、密度の高い場所から来る重みを下げられる。指数 $\alpha\in\mathbb R$ は補正の強さを決める（代表値は $0,\tfrac12,1$）。
+観測点の近傍重みの総量を調べる量は、[MFL13の核積分作用素](../MFL13/index.md#def-mfl13-kernel)による $q_\varepsilon(x)=G_\varepsilon p(x)$ である。核は非負で、各 $x$ の対角付近では正である。$p>0$ なので $q_\varepsilon(x)>0$ が従う。多様体が非連結の場合、異なる連結成分間の測地距離は無限大と約束し、核値を $0$ とするが、同じ点の近傍からの正の積分は失われない。点 $x,y$ のそれぞれの重みに $q_\varepsilon^{-\alpha}$ を掛けると、密度の高い場所から来る重みを下げられる。指数 $\alpha\in\mathbb R$ は補正の強さを決める（代表値は $0,\tfrac12,1$）。
 
 <a id="def-mfl15-alpha"></a>
 
@@ -182,7 +182,7 @@ $$
 
 これは[MFL13の無補正結果](../MFL13/index.md#prop-mfl13-row)と $\alpha=0$ で一致する。$\alpha=1$ に関しても**この極限で**密度driftが消えるのであって、有限核幅で $p$ に依らないという等式ではない。
 
-**円周で係数を手で見る。** 単位円周の角度 $\theta$ とし、$|a|<1$、$p(\theta)=(1+a\cos\theta)/(2\pi)$、$f(\theta)=\cos\theta$ を取る。$p$ は正で積分1、$f$ は滑らか。[$\Delta_g=\partial_{\theta\theta}$](../MFL12/index.md#prop-mfl12-circle)、$\partial_\theta\log p=-a\sin\theta/(1+a\cos\theta)$ なので
+**円周で係数を手で見る。** 単位円周の角度 $\theta$ とし、角度だけの関数 $u(\theta)$ では $u'(\theta)=du/d\theta=\partial_\theta u$、$u''(\theta)=\partial_{\theta\theta}u=\Delta_gu$ と書く。また単位円周の計量により $\langle\nabla_gu,\nabla_gv\rangle_g=u'v'$ である（[円周でのLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)）。これらはすべて角度 $\theta$ に関する微分であり、核幅 $\varepsilon$ に関する微分ではない。以下、$|a|<1$、$p(\theta)=(1+a\cos\theta)/(2\pi)$、$f(\theta)=\cos\theta$ を取る。$p$ は正で積分1、$f$ は滑らか。[$\Delta_g=\partial_{\theta\theta}$](../MFL12/index.md#prop-mfl12-circle)、$\partial_\theta\log p=-a\sin\theta/(1+a\cos\theta)$ なので
 
 $$
 L_\alpha f(\theta)=-\cos\theta+
@@ -256,7 +256,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（alpha補正した有限Markov行列）**  
-> 境界なしコンパクトRiemann多様体 $(M,g)$ の点 $x_1,\ldots,x_n$（$n\ge1$）、$\varepsilon>0$、$\alpha\in\mathbb R$ に対し、正の対称Gaussian核 $K_{ij}=k_\varepsilon(x_i,x_j)$ を用い、
+> 境界なしコンパクトRiemann多様体 $(M,g)$ の点 $x_1,\ldots,x_n$（$n\ge1$）、$\varepsilon>0$、$\alpha\in\mathbb R$ に対し、非負・対称のGaussian核 $K_{ij}=k_\varepsilon(x_i,x_j)$（特に $K_{ii}>0$）を用い、
 >
 $$
 \widehat q_i=\frac1n\sum_{\ell=1}^nK_{i\ell},\qquad
@@ -265,11 +265,11 @@ W_{ij}=\frac{K_{ij}}{\widehat q_i^\alpha\widehat q_j^\alpha},
 \widehat P_{ij}=\frac{W_{ij}}{D_i}
 $$
 >
-> と定める。全ての $\widehat q_i,D_i$ は正で、$\widehat P_{ij}\ge0$、$\sum_j\widehat P_{ij}=1$。$n$ 次元の関数ベクトル $f=(f(x_1),\ldots,f(x_n))$ に対する差分generatorを $(\widehat P-I)f/\varepsilon$ と呼ぶ。
+> と定める。対角項 $K_{ii}>0$ から全ての $\widehat q_i,D_i$ は正で、$\widehat P_{ij}\ge0$、$\sum_j\widehat P_{ij}=1$。$n$ 次元の関数ベクトル $f=(f(x_1),\ldots,f(x_n))$ に対する差分generatorを $(\widehat P-I)f/\varepsilon$ と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl15-discrete -->
-**直接例（二点の実際の核行列）。** **定義の確認**：同じ多様体上の二点 $x_1,x_2$ を選び、共通の対角核値を $c=k_\varepsilon(x_i,x_i)>0$、非対角を $cr$ とする。異なる二点の測地距離を $\delta>0$ とすれば $r=e^{-\delta^2/(4\varepsilon)}$ なので $0<r<1$ である。$\widehat q_1=\widehat q_2=c(1+r)/2>0$。従って
+**直接例（二点の実際の核行列）。** **定義の確認**：同じ連結成分上の異なる二点 $x_1,x_2$ を選び、共通の対角核値を $c=k_\varepsilon(x_i,x_i)>0$、非対角を $cr$ とする。異なる二点の測地距離を $\delta>0$ とすれば $r=e^{-\delta^2/(4\varepsilon)}$ なので $0<r<1$ である。$\widehat q_1=\widehat q_2=c(1+r)/2>0$。従って
 
 $$
 W=\frac c{\{c(1+r)/2\}^{2\alpha}}
@@ -309,7 +309,7 @@ $W$ は対称だが $\widehat P$ は行で割るため普通は対称でない�
 <!-- proof-start -->
 ### 証明
 
-$K_{ij}=K_{ji}$ と $\widehat q_i,\widehat q_j>0$ より $W_{ij}=W_{ji}>0$。そこで
+$K_{ij}=K_{ji}\ge0$ と $\widehat q_i,\widehat q_j>0$ より $W_{ij}=W_{ji}\ge0$。さらに $W_{ii}>0$ なので $D_i>0$。そこで
 
 $$
 \pi_i\widehat P_{ij}
@@ -438,7 +438,7 @@ $$
 ### MFL15-A02 補正係数の一次展開
 
 - Level: A
-- 問題: $p\ge c>0$、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$ が一様に成立するとする。固定した $\alpha$ について $q_\varepsilon^{-\alpha}$ を一次まで展開し、必要な分母下界を示せ。
+- 問題: 本章のコンパクト多様体 $M$ 上で $p\in C^3(M)$、$p\ge c>0$、$A\in C(M)$ とし、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$ が一様に成立するとする。固定した $\alpha$ について $q_\varepsilon^{-\alpha}$ を一次まで展開し、必要な分母下界を示せ。
 
 **詳細解答**。$|q_\varepsilon-p|\le C\varepsilon$ だから十分小さい $\varepsilon$ では $q_\varepsilon\ge p-C\varepsilon\ge c/2$。$t^{-\alpha}$ は $[c/2,\max p+1]$ 上で二階微分が有界なので[RA3のTaylorの定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)を展開点 $t=p(x)$、次数1、評価点 $t=q_\varepsilon(x)$ に適用する。すると $q_\varepsilon^{-\alpha}=p^{-\alpha}-\alpha p^{-\alpha-1}(q_\varepsilon-p)+O((q_\varepsilon-p)^2)$。$q_\varepsilon-p$ を代入し、$\varepsilon^2=O(\varepsilon^{3/2})$（$0<\varepsilon\le1$）を使えば $p^{-\alpha}[1-\alpha\varepsilon A/p]+O(\varepsilon^{3/2})$。
 
@@ -465,7 +465,7 @@ $$
 ### MFL15-B01 ratioで何が消えるか
 
 - Level: B
-- 問題: $G_\varepsilon u=u+\varepsilon(\Delta_gu-cu)+O(\varepsilon^{3/2})$、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$、$p>0$ とする。[補正作用素](#def-mfl15-alpha)において $r=p^{1-\alpha}$、$b=A/p$ を使い、$c$ と $b$ が消えるまでの分子・分母の一次展開を示せ。
+- 問題: 本章の境界なしコンパクト多様体 $M$ で $p,f\in C^3(M)$、$p\ge p_{\min}>0$ とする。$c=\operatorname{Scal}/3$、$A=\Delta_gp-cp$ とし、$u\in C^3(M)$ に対して $G_\varepsilon u=u+\varepsilon(\Delta_gu-cu)+O(\varepsilon^{3/2})$、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$ が一様に成り立つとする。[補正作用素](#def-mfl15-alpha)において $r=p^{1-\alpha}$、$b=A/p$ を使い、$c$ と $b$ が消えるまでの分子・分母の一次展開を示せ。
 
 **詳細解答**。[A02のTaylor展開](#ex-mfl15-a02)により $pq_\varepsilon^{-\alpha}=r-\alpha\varepsilon rb+O(\varepsilon^{3/2})$。$G_\varepsilon$ の核の総量は有界、$rb,frb$ は $C^1$ なので $G_\varepsilon(rb)=rb+O(\sqrt\varepsilon)$ とし、$N=fr+\varepsilon[\Delta_g(fr)-cfr-\alpha frb]+O(\varepsilon^{3/2})$、$D=r+\varepsilon[\Delta_gr-cr-\alpha rb]+O(\varepsilon^{3/2})$。$r>0$ の下界により $N/D=f+\varepsilon\{[\Delta_g(fr)-f\Delta_gr]/r\}+O(\varepsilon^{3/2})$。$\{-cfr-f(-cr)\}=0$ と $\{-\alpha frb-f(-\alpha rb)\}=0$ が別々に成立する。[積の公式](../MFL13/index.md#prop-mfl13-row)から括弧は $\Delta_gf+2\nabla_g\log r\cdot\nabla_gf=\Delta_gf+2(1-\alpha)\nabla_g\log p\cdot\nabla_gf$。
 
@@ -474,7 +474,7 @@ $$
 ### MFL15-B02 重み付き対称性を検証する
 
 - Level: B
-- 問題: $p>0$、$w=p^{2(1-\alpha)}$ とする。境界なしコンパクト $M$ で $\int_M uL_\alpha v\,w\,dV_g=\int_M vL_\alpha u\,w\,dV_g$ と $\int_MuL_\alpha u\,w\,dV_g\le0$ を示せ。$w$ の指数が一つ違うとどこで困るかも述べよ。
+- 問題: 境界なしコンパクトRiemann多様体 $M$ 上で $p\in C^3(M)$ は正、$u,v\in C^3(M)$ は実数値、$\alpha\in\mathbb R$ は固定とし、$w=p^{2(1-\alpha)}$ とする。$\int_M uL_\alpha v\,w\,dV_g=\int_M vL_\alpha u\,w\,dV_g$ と $\int_MuL_\alpha u\,w\,dV_g\le0$ を示せ。$w$ の指数が一つ違うとどこで困るかも述べよ。
 
 **詳細解答**。[重み付き発散形](#prop-mfl15-weighted)に $v$ を代入すると、$wL_\alpha v=\operatorname{div}(w\nabla v)$ となる。積の発散公式と[GA1のRiemann多様体の発散定理](../../../幾何系/GA/GA1/index.md#thm-ga1-divergence)を適用する。境界が空だから
 
@@ -505,7 +505,7 @@ $$
 ### MFL15-B04 有限行列のエネルギー
 
 - Level: B
-- 問題: 正の対称行列 $W=(W_{ij})$ に対し $D_i=\sum_jW_{ij}$、$S=\sum_iD_i$、$P_{ij}=W_{ij}/D_i$、$\pi_i=D_i/S$ とする。$v_i$ の差の二乗で $\sum_i\pi_i v_i(Pv-v)_i$ を表せ。
+- 問題: 成分が非負の対称行列 $W=(W_{ij})$ で $D_i=\sum_jW_{ij}>0$ とし、$S=\sum_iD_i$、$P_{ij}=W_{ij}/D_i$、$\pi_i=D_i/S$ とする。$v_i$ の差の二乗で $\sum_i\pi_i v_i(Pv-v)_i$ を表せ。
 
 **詳細解答**。代入すると $\sum_i\pi_i v_i(Pv-v)_i=S^{-1}\sum_{i,j}W_{ij}v_i(v_j-v_i)$。対称性 $W_{ij}=W_{ji}$ で同じ和を添字交換して $S^{-1}\sum_{i,j}W_{ij}v_j(v_i-v_j)$ とも書ける。二式を足して2で割ると $-(2S)^{-1}\sum_{i,j}W_{ij}(v_i-v_j)^2$。各項が非負で $S>0$ だから値は非正。generatorの式ならさらに $\varepsilon$ で割る。
 
