@@ -1,0 +1,49 @@
+chapter: SLT2-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-07
+  - ML2-14
+concepts:
+  - id: learning.slt2-neural-parameter-jacobian
+    name: 二層網のパラメータJacobian
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二層網のパラメータJacobian）"]
+    requires: [learning.backpropagation, analysis.jacobian-matrix]
+  - id: learning.slt2-neural-linearization
+    name: 初期点でのニューラルネット線形化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（初期点でのニューラルネット線形化）"]
+    requires: [learning.slt2-neural-parameter-jacobian]
+  - id: learning.slt2-neural-taylor-bound
+    name: 線形化のTaylor剰余界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形化のTaylor剰余界）"]
+    requires: [learning.slt2-neural-linearization, analysis.jacobian-matrix]
+  - id: learning.slt2-neural-tangent-kernel
+    name: ニューラル接線核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接線特徴とニューラル接線核）"]
+    requires: [learning.slt2-neural-parameter-jacobian, rkhs.gram-finite-dimensional-reduction]
+  - id: learning.slt2-neural-tangent-feature
+    name: 接線特徴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接線特徴とニューラル接線核）"]
+    requires: [learning.slt2-neural-parameter-jacobian]
+  - id: learning.slt2-neural-ntk-gram
+    name: ニューラル接線核の具体式と正半定値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ニューラル接線核の具体式と正半定値性）"]
+    requires: [learning.slt2-neural-tangent-kernel, learning.slt2-neural-tangent-feature]
+  - id: learning.slt2-neural-kernel-drift
+    name: 接線Gram行列の変動界と一回更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（接線Gram行列の変動界と一回更新）"]
+    requires: [learning.slt2-neural-ntk-gram, learning.slt2-neural-taylor-bound]
