@@ -306,7 +306,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $x\in M$ に対し、三角不等式と距離の下限の定義から
+任意の $x\in M$ に対し、距離の定義から $\operatorname{dist}(z,M)\le\|z-x\|$ である。一方、[三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-triangle-inequality)を $z-w$ と $w-x$ に適用すると $\|z-x\|\le\|z-w\|+\|w-x\|$。従って
 
 $$
 \operatorname{dist}(z,M)\le\|z-x\|\le\|z-w\|+\|w-x\|
@@ -387,7 +387,7 @@ $$
 \gamma''(s)=-\frac14(\cos(s/4),\sin(s/4)).
 $$
 
-従って $\|\gamma'(s)\|=1$ であり、[弧長曲率の定義](#def-mfl3-curvature)から $\kappa=\|\gamma''(s)\|=1/4$。次に[円周の弦長公式](../MFL2/index.md#prop-mfl2-circle)より $4=2R\sin(\alpha/2)=8\sin(\alpha/2)$。短い中心角 $0\le\alpha\le\pi$ なので $\sin(\alpha/2)=1/2$ から $\alpha=\pi/3$。従って内在距離は
+従って $\|\gamma'(s)\|=1$ であり、[弧長パラメータ曲線の曲率](#def-mfl3-curvature)から $\kappa=\|\gamma''(s)\|=1/4$。次に[円周の内在距離と弦長](../MFL2/index.md#prop-mfl2-circle)より $4=2R\sin(\alpha/2)=8\sin(\alpha/2)$。短い中心角 $0\le\alpha\le\pi$ なので $\sin(\alpha/2)=1/2$ から $\alpha=\pi/3$。従って内在距離は
 
 $$
 d_M=R\alpha=\frac{4\pi}{3}\approx4.189.
@@ -504,7 +504,7 @@ $\delta>0$ とし、平面内の平行二直線 $M=(\mathbb R\times\{0\})\cup(\m
 <!-- solution-start -->
 #### 詳細解答
 
-各直線は $\gamma(s)=(s,0)$ または $\gamma(s)=(s,\delta)$ と弧長表示でき、$\|\gamma'(s)\|=1$、$\gamma''(s)=0$ だから[曲率の定義](#def-mfl3-curvature)より曲率は0。$z=(u,v)$ から下側・上側の直線までの距離は $|v|$、$|v-\delta|$、それぞれの唯一の最近点候補は $(u,0)$、$(u,\delta)$ である。
+各直線は $\gamma(s)=(s,0)$ または $\gamma(s)=(s,\delta)$ と弧長表示でき、$\|\gamma'(s)\|=1$、$\gamma''(s)=0$ だから[弧長パラメータ曲線の曲率](#def-mfl3-curvature)より曲率は0。$z=(u,v)$ から下側・上側の直線までの距離は $|v|$、$|v-\delta|$、それぞれの唯一の最近点候補は $(u,0)$、$(u,\delta)$ である。
 
 $$
 v^2-(v-\delta)^2=\delta(2v-\delta)
