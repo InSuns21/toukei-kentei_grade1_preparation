@@ -70,3 +70,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD16
     status: completed
     title: 慣性から位置拡散へ：Smoluchowski–Kramers極限と消えない運動エネルギー
+  - id: ITD17
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD17
+    status: completed
+    title: 位置依存摩擦の小質量極限：雑音誘起ドリフトはどこから来るか

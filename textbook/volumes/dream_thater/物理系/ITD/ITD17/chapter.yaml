@@ -1,0 +1,40 @@
+id: "ITD17"
+title: "位置依存摩擦の小質量極限：雑音誘起ドリフトはどこから来るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD16
+  - MECH4
+official_scope: []
+learning_objectives:
+  - 等温・位置依存摩擦の慣性付きLangevin方程式を定式化し、摩擦と雑音の関係を確認できる
+  - 運動量のItô二乗評価から小質量での一様な二乗平均上界を導ける
+  - 摩擦座標の変換とGronwall評価によって固定時刻の位置の二乗平均極限を証明できる
+  - 逆座標のItô公式から雑音誘起ドリフトの係数と符号を導ける
+  - 慣性付きと過減衰のGibbs平衡を確率流で照合し、補正を欠いた模型の失敗を説明できる
+definitions:
+  - { id: ITD17-DEF-01, name: 等温・位置依存摩擦の慣性付き実験 }
+  - { id: ITD17-DEF-02, name: 摩擦座標と過減衰比較過程 }
+theorems:
+  - { id: ITD17-THM-01, name: 小質量の運動量二乗評価 }
+  - { id: ITD17-THM-02, name: 位置依存摩擦のSmoluchowski–Kramers極限 }
+  - { id: ITD17-THM-03, name: 慣性付き平衡と過減衰平衡の整合 }
+canonical_examples:
+  - 正の周期摩擦から摩擦座標と全域逆関数を構成する例
+  - 定数摩擦への退化と初期速度が速すぎる場合の境界層反例
+  - 非一様摩擦・周期ポテンシャルのGibbs平衡と補正ドリフトの欠落
+problem_patterns:
+  - ITD17-FRICTION-COORDINATE
+  - ITD17-MOMENTUM-OU
+  - ITD17-NOISE-DRIFT-SIGN
+  - ITD17-UNIFORM-EQUILIBRIUM
+  - ITD17-INITIAL-LAYER
+  - ITD17-NON-MAXWELL-MOMENT
+  - ITD17-CONSTANT-FRICTION-COUPLING
+  - ITD17-FREE-ENERGY-DISSIPATION
+  - ITD17-KRAMERS-CANCELLATION
+  - ITD17-PERIODIC-FRICTION-POTENTIAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 5 }
