@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">斜距離・天頂角と器械高・反射鏡高の局所鉛直断面</title>
+  <desc id="desc">地上点Aの上に器械中心I、地上点Bの上に反射鏡中心Tがある局所平行軸模型。IからTへの斜視線が斜距離s、Iの上向き鉛直から測った角が天頂角z、視線の水平投影がdである。AからIへの上向き長さがi、BからTがt、AからBの上成分がΔUであり、ΔU=i+s cos z−tと読み取る。方位角αは断面外の水平面で別に測る。</desc>
+  <defs>
+    <marker id="dim" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#475569"/>
+    </marker>
+    <marker id="up" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <g stroke="#a0a9b6" stroke-width="1.5" stroke-dasharray="5 6" fill="none">
+    <path d="M146 275 H605"/>
+    <path d="M605 154 V275"/>
+    <path d="M146 337 H704"/>
+    <path d="M605 225 H704"/>
+  </g>
+  <path d="M146 275 V78" stroke="#475569" stroke-width="2.1" stroke-dasharray="9 5" marker-end="url(#up)" fill="none"/>
+  <path d="M146 275 L605 154" stroke="#0d6c83" stroke-width="3.5" fill="none"/>
+  <path d="M146 212 A63 63 0 0 1 207 259" stroke="#aa5c11" stroke-width="2.7" fill="none"/>
+  <g fill="none" stroke="#475569" stroke-width="1.8">
+    <path d="M100 275 V337" marker-start="url(#dim)" marker-end="url(#dim)"/>
+    <path d="M646 154 V225" marker-start="url(#dim)" marker-end="url(#dim)"/>
+    <path d="M685 225 V337" marker-start="url(#dim)" marker-end="url(#dim)"/>
+  </g>
+  <g fill="#1f2937">
+    <circle cx="146" cy="337" r="5.6"/>
+    <circle cx="146" cy="275" r="5.6"/>
+    <circle cx="605" cy="225" r="5.6"/>
+    <circle cx="605" cy="154" r="5.6"/>
+  </g>
+  <g font-family="sans-serif" font-size="21" fill="#1f2937">
+    <text x="163" y="88">U+</text>
+    <text x="176" y="224">z</text>
+    <text x="356" y="188">s</text>
+    <text x="342" y="303">d</text>
+    <text x="68" y="313">i</text>
+    <text x="658" y="196">t</text>
+    <text x="696" y="283">ΔU</text>
+    <text x="130" y="364">A</text>
+    <text x="122" y="303">I</text>
+    <text x="593" y="139">T</text>
+    <text x="567" y="250">B</text>
+  </g>
+</svg>
