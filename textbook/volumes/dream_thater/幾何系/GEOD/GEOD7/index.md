@@ -92,6 +92,12 @@ $$
 
 ベクトルの長さを水平面と鉛直に分解すると、水平の長さは $s\sin z$、上向き成分は $s\cos z$ です。さらに北から測った方位 $\alpha$ によって水平成分を東へ $\sin\alpha$、北へ $\cos\alpha$ の比に分けます。この順で分解すれば、符号を暗記する必要はありません。
 
+下図は $I$ と $T$ を含む**局所鉛直断面の模式図**です。$A\to I$ に器械高 $i$ を足し、$I\to T$ の上成分 $s\cos z$ を足したあと、$B\to T$ の反射鏡高 $t$ を引けば、地上点間の上成分 $\Delta U$ になります。天頂角 $z$ は上向きを零とし、水平方位角 $\alpha$ はこの断面とは別に水平面内で北から測ります。長さや角度の図上比率は実測値を表しません。
+
+![器械中心Iから反射鏡中心Tへの斜距離s、上向きからの天頂角z、地上点AとBに対する器械高i・反射鏡高t・上成分ΔUの局所鉛直断面](assets/total-station-vertical-section.svg)
+
+[図を拡大して確認する](assets/total-station-vertical-section.svg)
+
 <a id="prop-geod7-polar-enu"></a>
 <!-- formal-statement-start -->
 > **命題（極観測から局所位置への変換）**  

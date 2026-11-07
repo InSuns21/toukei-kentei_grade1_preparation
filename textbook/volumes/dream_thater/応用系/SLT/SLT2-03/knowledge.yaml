@@ -1,0 +1,51 @@
+chapter: SLT2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-02
+  - ML1-05
+
+concepts:
+  - id: learning.slt2-ridge-spectral-filter
+    name: ridgeのスペクトルフィルタと平滑化行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ridgeのスペクトルフィルタと平滑化行列）"]
+    requires:
+      - learning.ridge-svd-shrinkage
+      - learning.slt2-svd-interpolant-formula
+
+  - id: learning.slt2-ridge-effective-dimension
+    name: ridgeの有効次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ridgeの有効次元）"]
+    requires:
+      - learning.slt2-ridge-spectral-filter
+
+  - id: learning.slt2-ridge-filter-stability
+    name: ridgeフィルタの安定性と有効次元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ridgeフィルタの安定性と有効次元）"]
+    requires:
+      - learning.slt2-ridge-spectral-filter
+      - learning.slt2-ridge-effective-dimension
+
+  - id: learning.slt2-modewise-prediction-risk
+    name: 固定設計のモード別予測リスク
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定設計のモード別予測リスク）"]
+    requires:
+      - learning.slt2-ridge-spectral-filter
+      - learning.ridge-bias-variance-risk
+
+  - id: learning.slt2-training-risk-optimism
+    name: 訓練残差と予測リスクの期待差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（訓練残差と予測リスクの期待差）"]
+    requires:
+      - learning.slt2-modewise-prediction-risk
+      - learning.slt2-ridge-effective-dimension
