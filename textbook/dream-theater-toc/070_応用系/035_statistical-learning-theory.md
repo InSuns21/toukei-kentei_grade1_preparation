@@ -35,3 +35,4 @@
 31. [SLT2-13 粒子測度による二層網](textbook/volumes/dream_thater/応用系/SLT/SLT2-13/index.md)
 32. [SLT2-14 mean-field勾配流と連続性方程式](textbook/volumes/dream_thater/応用系/SLT/SLT2-14/index.md)
 33. [SLT2-15 SGDの拡散近似とその限界](textbook/volumes/dream_thater/応用系/SLT/SLT2-15/index.md)
+34. [SLT2-16 flat minimaの座標依存性](textbook/volumes/dream_thater/応用系/SLT/SLT2-16/index.md)
