@@ -30,6 +30,15 @@ $$
 
 分母を $m-1$ にした不偏標本共分散でも、$m\ge2$ なら全固有値が同じ正数倍になるだけで固有ベクトルは変わらない。局所平均を引く理由は、[PCAの中心化の定義](../../ML/ML1-19/index.md#def-ml1-19-centered-data)と同じで、原点からの距離でなく局所変動を測るためである。
 
+実際、任意の単位方向 $w\in\mathbb R^D$ へ中心化標本を射影した値は $w^{\mathsf T}(Y_i-\bar Y_I)$ であり、その分母 $m$ の分散は
+
+$$
+\frac1m\sum_{i\in I}\bigl(w^{\mathsf T}(Y_i-\bar Y_I)\bigr)^2
+=w^{\mathsf T}\widehat C_Iw.
+$$
+
+したがって[主成分分析と共分散の固有空間](../../ML/ML1-19/index.md#thm-ml1-19-pca-spectral)をこの局所共分散へ適用すれば、大きい固有値の固有ベクトルを選ぶ理由が分かる。また $\widehat U^{\mathsf T}\widehat U=I_d$ なので、[主成分方向への直交射影](../../ML/ML1-19/index.md#def-ml1-19-pca-loading)と同じ計算により $\widehat U\widehat U^{\mathsf T}$ はその列空間への射影となる。
+
 <!-- definition-example-start: def-mfl5-local-pca -->
 **定義の確認**。$D=2,d=1$、$y_*=(0,0)$、$r=2$ とし、局所点を $(-1,0),(0,0),(1,0)$ とする。3点はすべて開球に入り、$m=3$、$\bar Y_I=(0,0)$ である。各偏差の外積を足すと
 
@@ -62,7 +71,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl5-projection-distance -->
-**定義の確認**。$D=2,d=1$ で $T=\operatorname{span}(e_1)$、$\widehat T=\operatorname{span}((\cos\theta,\sin\theta)^{\mathsf T})$ とする。$P=\operatorname{diag}(1,0)$ と置き、単位ベクトル $v$ に対して $\widehat Pv=(v\cdot u)u$、$u=(\cos\theta,\sin\theta)$ だから
+**定義の確認**。$D=2,d=1$ で $T=\operatorname{span}(e_1)$、$\widehat T=\operatorname{span}((\cos\theta,\sin\theta)^{\mathsf T})$ とする。$u=(\cos\theta,\sin\theta)^{\mathsf T}$ は単位ベクトルである。任意の $v\in\mathbb R^2$ について
+
+$$
+u^{\mathsf T}\bigl(v-(u^{\mathsf T}v)u\bigr)
+=u^{\mathsf T}v-(u^{\mathsf T}v)\|u\|^2=0.
+$$
+
+[直交射影の定義](../MFL2/index.md#def-mfl2-projection)から $\widehat Pv=(u^{\mathsf T}v)u$、つまり $\widehat P=uu^{\mathsf T}$ である。$P=\operatorname{diag}(1,0)$ だから
 
 $$
 \widehat P-P=\begin{pmatrix}-\sin^2\theta&\sin\theta\cos\theta\\
@@ -70,7 +86,7 @@ $$
 \qquad (\widehat P-P)^2=\sin^2\theta I_2.
 $$
 
-対称行列の固有値の絶対値は $|\sin\theta|$ であるから、射影距離は $|\sin\theta|$。例えば $\theta=\pi/6$ なら $1/2$ で、$u$ を $-u$ に替えても変わらない。$\theta=0$ のときだけ0である。
+対称行列の固有値の絶対値は $|\sin\theta|$ であるから、射影距離は $|\sin\theta|$。例えば $\theta=\pi/6$ なら $1/2$ で、$u$ を $-u$ に替えても変わらない。距離が0となるのは $\theta\in\pi\mathbb Z$ のとき、すなわち二つの直線が一致するときに限る。
 <!-- definition-example-end -->
 
 射影距離が1以下であることは、直交射影について $\|Pv\|^2+\|(I-P)v\|^2=\|v\|^2$ と
@@ -343,6 +359,15 @@ $\widehat C=m^{-1}\sum_iW_iW_i^{\mathsf T}-\bar W\bar W^{\mathsf T}$、$C=E[WW^{
 
 局所分布を真の点 $x$ を中心とする**固定** Euclid 球 $B_r(x)$ への条件付き分布とし、その標本が独立同分布なら、上の三命題をまとめられる。曲率命題の $\kappa,a$ もこの条件付き分布について成り立つものとする。
 
+以下の $\lambda_{\min}(A)$ は対称行列 $A$ の最小固有値を表す。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により、正規直交固有基底 $e_j$ と対応する固有値 $\lambda_j$ について $v=\sum_jc_je_j$ と展開すると
+
+$$
+v^{\mathsf T}Av=\sum_j\lambda_jc_j^2,\qquad
+\|v\|^2=\sum_jc_j^2.
+$$
+
+ゆえに $\lambda_{\min}(A)\ge ar^2$ は、すべての単位ベクトル $v$ で $v^{\mathsf T}Av\ge ar^2$ が成り立つことと同値である。
+
 <a id="prop-mfl5-local-pca-bound"></a>
 
 <!-- formal-statement-start -->
@@ -380,7 +405,7 @@ $$
 $\|Y_i-x\|\le r+\eta$ だから [標本共分散集中](#prop-mfl5-sample-covariance)を $R=r+\eta$ に適用すると、確率 $1-\delta$ 以上で $\|\widehat C-C_Y\|_{\mathrm{op}}\le s_{m,D,\delta}(r+\eta)$。三角不等式で $\|\widehat C-C_0\|_{\mathrm{op}}\le e_*$。$C_0$ の接方向固有値下界は $ar^2$ だから、[固有空間摂動評価](#prop-mfl5-eigenspace-stability)の $\alpha=ar^2$ と置けば両結論が出る。$\square$
 <!-- proof-end -->
 
-**読み方**。$r$ を小さくすると曲率項を $r^2$ で割った $O(\kappa r)$ は減る。一方、固定 $\eta>0$ の項は $O(\eta/r+\eta^2/r^2)$ と増え、標本項は有界標本のこの評価では概ね $O((1+\eta/r)^2\sqrt{\log(D/\delta)/m})$ となる。$m$ 自体も通常は $r$ を小さくすると減る。従って **$r\to0$ と $m\to\infty$ を言うだけでは成功しない**。$e_*<ar^2/2$ は推定を保証する十分条件であって必要条件ではない。
+**読み方**。$r$ を小さくすると曲率項を $r^2$ で割った $O(\kappa r)$ は減る。一方、固定 $\eta>0$ の項は $O(\eta/r+\eta^2/r^2)$ と増え、標本項は有界標本のこの評価では概ね $O(D(1+\eta/r)^2\sqrt{\log(D/\delta)/m})$ となる（$D\ge2$）。この $D$ 依存は成分ごとの和事象評価による保守的なものである。$m$ 自体も通常は $r$ を小さくすると減る。従って **$r\to0$ と $m\to\infty$ を言うだけでは成功しない**。$e_*<ar^2/2$ は推定を保証する十分条件であって必要条件ではない。
 
 ### 元の $n$ 個から選ぶときの局所点数
 
@@ -435,7 +460,7 @@ $$
 \operatorname{Cov}(Y)=\begin{pmatrix}r^2/3&0\\0&\eta^2/3\end{pmatrix}.
 $$
 
-$\eta>r$ なら母集団でさえ上位方向は法線 $e_2$ で、射影距離は1。$\eta=r$ なら固有値ギャップは0で上位方向が一意でない。これは標本数を増やすだけでは直らない。$η$ が有界でも、**相対的な大きさ** と **ノイズの方向** が肝心である。
+$\eta>r$ なら母集団でさえ上位方向は法線 $e_2$ で、射影距離は1。$\eta=r$ なら固有値ギャップは0で上位方向が一意でない。これは標本数を増やすだけでは直らない。$\eta$ が有界でも、**相対的な大きさ** と **ノイズの方向** が肝心である。
 
 ## 7. 再現実験：曲率・片側サンプリング・ノイズ
 
@@ -474,6 +499,12 @@ $$
 
 $$
 P=\begin{pmatrix}1&0\\0&0\end{pmatrix},\qquad
+\widehat P=\begin{pmatrix}3/4&\sqrt3/4\\\sqrt3/4&1/4\end{pmatrix},
+$$
+
+この二つを引くと
+
+$$
 \widehat P-P=\begin{pmatrix}-1/4&\sqrt3/4\\\sqrt3/4&1/4\end{pmatrix}.
 $$
 
@@ -555,7 +586,7 @@ $$
 ### MFL5-C01 半径とノイズの両立条件
 
 - Level: C
-- 問題: $d=1,D=2$ の固定真近傍模型で、$a>0,\kappa>0$、有界ノイズ $\eta\ge0$ を仮定し、局所標本数 $m$ の値を固定とする。本章の誤差上界を $r$ で割って、曲率・ノイズ・標本の三つの項がどのように変化するか示せ。$\eta>0$ が固定のまま $r\downarrow0$ としたとき、この上界から接線一致は言えるか。また $\eta=0$、$m\to\infty$、$r\to0$ について、上界が0に向かう十分条件を一つ示せ。
+- 問題: $d=1,D=2$ の固定真近傍模型で、$a>0,\kappa>0$、有界ノイズ $\eta\ge0$ を仮定し、局所標本数 $m$ の値を固定とする。共分散誤差上界 $e_*$ を接方向の分散下界 $ar^2$ で割って、曲率・ノイズ・標本の三つの項がどのように変化するか示せ。$\eta>0$ が固定のまま $r\downarrow0$ としたとき、この上界から接線一致は言えるか。また $\eta=0$、$m\to\infty$、$r\to0$ について、上界が0に向かう十分条件を一つ示せ。
 
 **詳細解答**。[Local PCAの有限標本命題](#prop-mfl5-local-pca-bound)で $d=1$、$R=r+\eta$ とし $L_{m,\delta}=2\sqrt{2\log(16/\delta)/m}+2\sqrt2\sqrt{2\log(8/\delta)/m}$ と置く。$D=2$ なので $s_{m,2,\delta}(R)=R^2L_{m,\delta}$ である。射影距離の（1による切り詰め前の）上界は
 
