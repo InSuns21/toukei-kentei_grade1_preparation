@@ -13,3 +13,4 @@
 10. [ITD10 情報リザーバー：ビット列が運ぶ自由エネルギーと相関の費用](textbook/volumes/dream_thater/物理系/ITD/ITD10/index.md)
 11. [ITD11 連続Langevin経路の時間反転：確率比・ゆらぎ関係・見えない散逸](textbook/volumes/dream_thater/物理系/ITD/ITD11/index.md)
 12. [ITD12 位置依存ポテンシャルのLangevin拡散：確率流・定常散逸・自由エネルギー](textbook/volumes/dream_thater/物理系/ITD/ITD12/index.md)
+13. [ITD13 時間依存Langevin拡散の経路反転：Girsanov密度・ゆらぎ関係・仕事](textbook/volumes/dream_thater/物理系/ITD/ITD13/index.md)

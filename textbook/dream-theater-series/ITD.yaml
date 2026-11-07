@@ -54,3 +54,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD12
     status: completed
     title: 位置依存ポテンシャルのLangevin拡散：確率流・定常散逸・自由エネルギー
+  - id: ITD13
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD13
+    status: completed
+    title: 時間依存Langevin拡散の経路反転：Girsanov密度・ゆらぎ関係・仕事

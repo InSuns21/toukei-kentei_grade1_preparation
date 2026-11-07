@@ -1,0 +1,45 @@
+id: "ITD13"
+title: "時間依存Langevin拡散の経路反転：Girsanov密度・ゆらぎ関係・仕事"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD2
+  - ITD11
+  - ITD12
+  - STO3A
+  - STO10
+official_scope: []
+learning_objectives:
+  - 時間依存の周期ポテンシャルと外力に対して経路の仕事・浴熱を分離し第一法則を検算できる
+  - 一様Brown基準測度へのGirsanov密度をItô積分とStratonovich積分で表示できる
+  - 時間反転した実験の作用差から境界エントロピーと浴熱を含む経路確率比を証明できる
+  - 積分型ゆらぎ関係と確率流による平均エントロピー生成を照合できる
+  - 初期平衡と逆実験の平衡初期条件をそろえJarzynski等式を導ける
+  - 一定拡散係数・正密度・有限時間の仮定が外れる場合の証明の限界を説明できる
+definitions:
+  - { id: ITD13-DEF-01, name: 時間依存の円周Langevin実験と仕事・浴熱 }
+  - { id: ITD13-DEF-02, name: 時間反転実験と経路エントロピー生成 }
+theorems:
+  - { id: ITD13-THM-01, name: Girsanov作用と時間反転の経路確率比 }
+  - { id: ITD13-THM-02, name: ゆらぎ関係と確率流の平均第二法則 }
+  - { id: ITD13-THM-03, name: 初期平衡からのJarzynski等式 }
+canonical_examples:
+  - 時間変化する周期ポテンシャルの仕事と熱
+  - 正弦ドリフトのGirsanov作用に現れる空間導関数
+  - 非一様密度で拡散する無外力系の境界エントロピー
+  - 時間依存の一様外力のGaussian検算
+problem_patterns:
+  - ITD13-TIME-PROTOCOL-FIRST-LAW
+  - ITD13-ITO-STRATONOVICH-ACTION
+  - ITD13-REVERSE-ACTION
+  - ITD13-FORCE-FREE-ENTROPY
+  - ITD13-GAUGE-POTENTIAL
+  - ITD13-STEADY-GAUSSIAN
+  - ITD13-DISSIPATION-CURRENT
+  - ITD13-EQUILIBRIUM-REVERSE
+  - ITD13-WORK-REFERENCE
+  - ITD13-TIME-DRIVE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 5 }
