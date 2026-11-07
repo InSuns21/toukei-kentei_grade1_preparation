@@ -1,0 +1,43 @@
+chapter: SLT2-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-08
+  - SLT1-01
+concepts:
+  - id: learning.slt2-hessian-sharpness
+    name: Hessianによる局所sharpnessと有限半径sharpness
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hessianによる局所sharpnessと有限半径sharpness）"]
+    requires: [learning.slt2-neural-taylor-bound]
+  - id: learning.slt2-function-equivalence
+    name: 予測関数の同値性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（予測関数の同値性）"]
+    requires: [learning.bayes-excess-risk]
+  - id: learning.slt2-hessian-coordinate-change
+    name: 停留点におけるHessianの再座標化公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（停留点におけるHessianの再座標化公式）"]
+    requires: [learning.slt2-hessian-sharpness, learning.slt2-neural-parameter-jacobian]
+  - id: learning.slt2-finite-radius-sharpness
+    name: 有限半径sharpnessの二次近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限半径sharpnessの二次近似）"]
+    requires: [learning.slt2-hessian-sharpness]
+  - id: learning.slt2-bilinear-sharpness
+    name: 双線形予測器の同値な極小点と任意に大きい曲率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（双線形予測器の同値な極小点と任意に大きい曲率）"]
+    requires: [learning.slt2-function-equivalence, learning.slt2-hessian-coordinate-change]
+  - id: learning.slt2-flat-overfit-counterexample
+    name: 訓練曲率零でもテストリスクが非零となる反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（訓練曲率零でもテストリスクが非零となる反例）"]
+    requires: [learning.slt2-hessian-sharpness, learning.bayes-excess-risk]

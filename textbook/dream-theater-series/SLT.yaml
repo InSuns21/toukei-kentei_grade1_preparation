@@ -140,7 +140,7 @@ chapters:
     title: "SGDの拡散近似とその限界"
   - id: SLT2-16
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-16
-    status: planned
+    status: completed
     title: "flat minimaの座標依存性"
   - id: SLT2-17
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-17
