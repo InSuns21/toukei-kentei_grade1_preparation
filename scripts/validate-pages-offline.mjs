@@ -218,6 +218,67 @@ assert(swConfig.networkTimeoutMs > 0, 'nominally-online requests must have a bou
 assert.equal(swConfig.publishedFilesHashManifest, './pages-manifest.json');
 assert.equal(swConfig.offlineContentCacheName, 'toukei-grade1-offline-content-v1');
 
+// A long-lived Docsify tab needs to discover a newer worker and rerender the
+// already displayed lecture after control changes; network-first alone only
+// governs subsequent fetches.
+const indexHtml = await readFile(path.join(root, 'pages', 'index.html'), 'utf8');
+const indexStartupScript = [...indexHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)]
+  .map((match) => match[1])
+  .find((script) => script.includes('OFFLINE_CACHE_STATE_KEY'));
+assert(indexStartupScript, 'index.html must include offline/cache startup code');
+
+function testIndexWorkerRefresh(initiallyControlled) {
+  const windowListeners = new Map();
+  const documentListeners = new Map();
+  const workerListeners = new Map();
+  const addListener = (map, type, callback) => map.set(type, [...(map.get(type) || []), callback]);
+  let updateChecks = 0;
+  let reloads = 0;
+  const registration = { update() { updateChecks += 1; return Promise.resolve(); } };
+  const browserNavigator = {
+    onLine: true,
+    serviceWorker: {
+      controller: initiallyControlled ? {} : null,
+      getRegistration: async () => registration,
+      register: async () => registration,
+      addEventListener(type, callback) { addListener(workerListeners, type, callback); },
+    },
+  };
+  const browserWindow = {
+    addEventListener(type, callback) { addListener(windowListeners, type, callback); },
+    location: { reload() { reloads += 1; } },
+  };
+  const browserDocument = {
+    visibilityState: 'visible',
+    addEventListener(type, callback) { addListener(documentListeners, type, callback); },
+    getElementById() { return null; },
+  };
+  vm.runInNewContext(indexStartupScript, {
+    navigator: browserNavigator,
+    window: browserWindow,
+    document: browserDocument,
+    Date,
+    console,
+    localStorage: { getItem() { return null; } },
+    fetch: async () => ({ ok: true, json: async () => ({ revision: 'latest', updatedAt: 'now' }) }),
+  }, { filename: 'pages/index.html startup script' });
+  const emit = (map, type) => (map.get(type) || []).forEach((callback) => callback());
+  emit(windowListeners, 'focus');
+  emit(windowListeners, 'focus');
+  assert.equal(updateChecks, 0, 'registration update check is asynchronous');
+  emit(windowListeners, 'online');
+  emit(workerListeners, 'controllerchange');
+  emit(workerListeners, 'controllerchange');
+  return { initiallyControlled, get reloads() { return reloads; }, get updateChecks() { return updateChecks; } };
+}
+
+const existingTab = testIndexWorkerRefresh(true);
+const firstVisit = testIndexWorkerRefresh(false);
+await new Promise((resolve) => setTimeout(resolve, 0));
+assert.equal(existingTab.reloads, 1, 'an already controlled online tab must reload exactly once after a worker update');
+assert.equal(firstVisit.reloads, 0, 'the initial Service Worker installation must not reload a new visitor');
+assert.equal(existingTab.updateChecks, 2, 'foreground and online events must check for updates, with foreground throttled');
+
 const serviceWorkerSource = await readFile(path.join(root, 'pages', 'service-worker.js'), 'utf8');
 vm.runInNewContext(serviceWorkerSource, sandbox, { filename: 'pages/service-worker.js' });
 const fetchHandler = listeners.get('fetch');
