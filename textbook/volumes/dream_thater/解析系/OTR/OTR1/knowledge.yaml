@@ -1,0 +1,49 @@
+chapter: OTR1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00P3D
+  - STO1
+
+concepts:
+  - id: transport.transport-map
+    name: 輸送写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（輸送写像）"]
+    requires: [measure.pushforward-measure, prob.probability-measure]
+
+  - id: transport.atomic-mass-balance
+    name: 有限原子測度の質量保存則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限原子測度の質量保存則）"]
+    requires: [transport.transport-map, prob.dirac-measure]
+
+  - id: transport.pushforward-composition
+    name: 押し出しの合成則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（押し出しの合成則）"]
+    requires: [measure.pushforward-measure]
+
+  - id: transport.monge-problem
+    name: Mongeの最適輸送問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Mongeの最適輸送問題）"]
+    requires: [transport.transport-map, measure.pushforward-integration-theorem]
+
+  - id: transport.translation-quadratic-optimality
+    name: 平行移動の二乗費用最適性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平行移動の二乗費用最適性）"]
+    requires: [transport.monge-problem, measure.pushforward-integration-theorem]
+
+  - id: transport.monge-nonattainment
+    name: 許容写像はあるが最小値を達成しない例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（許容写像はあるが最小値を達成しない例）"]
+    requires: [transport.monge-problem]

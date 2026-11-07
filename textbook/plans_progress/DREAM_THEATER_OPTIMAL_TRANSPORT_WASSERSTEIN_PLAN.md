@@ -2,7 +2,7 @@
 
 作成日: 2026-10-10  
 改訂日: 2026-11-08（標準教科書との照合・全26講の設計確定）  
-状態: planned（PLAN設計のみ。講義本文・系列manifest・公開導線は未実装）
+状態: in_progress（OTR1 の本文・系列manifest・公開導線に着手。OTR2–OTR26 は未実装）
 
 ## 0. 中心問い・到達点
 
@@ -102,7 +102,7 @@
 - 手計算ゲート：有限輸送のprimal/dualと相補性、$W_1$ Lipschitz双対、一次元quantile、非可換な共分散行列の Gaussian $W_2$、自由エネルギーの第一変分、JKO 一歩の Euler–Lagrange 式を、仮定と中間式付きで解き直す。
 - 数値ゲート：有限輸送行列の質量保存・dual gap、Sinkhorn の周辺残差と正則化誤差、一次元quantileと数値OTの一致、Gaussian公式との照合、保守的離散化の質量保存・非負性・自由エネルギー減少と時間刻み依存性を記録する。Pythonファイルを「別途実行」と書くだけで済ませず、利用可能な教材内実行基盤へ接続する。実行できない環境にも再現手順・期待値・許容誤差を残す。
 - 数学ゲート：各主要定理の仮定・定義域・主要補題・証明、全演習と解答を自己再計算し、別観点で本文を再読する。既習専門語は使用位置より前の導入または実在stable anchorへ接続する。
-- 実装開始時にseries manifest（予定26章）、各章の`chapter.yaml`/`knowledge.yaml`、knowledge DAG、科目別公開目次、必要な直接参照を更新する。現段階では章本文もmanifestも作らず `textbook/plans/` に置く。PR/CIと対象に応じた数学・依存・Pages検証を終えるまで `completed` にしない。
+- OTR1 着手時に series manifest（予定26章）、OTR1 の `chapter.yaml` / `knowledge.yaml`、科目別公開目次を追加した。残る OTR2–OTR26 は各章の執筆・依存関係監査・検証を経て順次実装する。章ごとに PR/CI と対象に応じた数学・依存・Pages 検証を終えるまで `completed` にしない。
 
 ## 5. 近接科目との責務分担
 

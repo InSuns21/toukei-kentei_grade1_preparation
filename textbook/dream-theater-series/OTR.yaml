@@ -1,0 +1,34 @@
+version: 1
+id: OTR
+title: 最適輸送・Wasserstein幾何
+plan: textbook/plans_progress/DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開目次には completed の章だけを登録する。
+chapters:
+  - { id: OTR1, path: textbook/volumes/dream_thater/解析系/OTR/OTR1, status: completed, title: "写像で質量を運ぶとは何か" }
+  - { id: OTR2, path: textbook/volumes/dream_thater/解析系/OTR/OTR2, status: planned, title: "分割して運べば何が解消するか" }
+  - { id: OTR3, path: textbook/volumes/dream_thater/解析系/OTR/OTR3, status: planned, title: "最適結合はいつ存在するか" }
+  - { id: OTR4, path: textbook/volumes/dream_thater/解析系/OTR/OTR4, status: planned, title: "離散輸送はどんな最適化問題か" }
+  - { id: OTR5, path: textbook/volumes/dream_thater/解析系/OTR/OTR5, status: planned, title: "双対変数は何を保証するか" }
+  - { id: OTR6, path: textbook/volumes/dream_thater/解析系/OTR/OTR6, status: planned, title: "連続空間でも双対性は成立するか" }
+  - { id: OTR7, path: textbook/volumes/dream_thater/解析系/OTR/OTR7, status: planned, title: "最適性を支持集合から判定できるか" }
+  - { id: OTR8, path: textbook/volumes/dream_thater/解析系/OTR/OTR8, status: planned, title: "輸送費用は距離になるか" }
+  - { id: OTR9, path: textbook/volumes/dream_thater/解析系/OTR/OTR9, status: planned, title: "Wasserstein収束は何を意味するか" }
+  - { id: OTR10, path: textbook/volumes/dream_thater/解析系/OTR/OTR10, status: planned, title: "W1はLipschitz関数で測れるか" }
+  - { id: OTR11, path: textbook/volumes/dream_thater/解析系/OTR/OTR11, status: planned, title: "一次元なら輸送を陽に解けるか" }
+  - { id: OTR12, path: textbook/volumes/dream_thater/解析系/OTR/OTR12, status: planned, title: "二次費用で凸解析が現れる理由は" }
+  - { id: OTR13, path: textbook/volumes/dream_thater/解析系/OTR/OTR13, status: planned, title: "いつ最適結合は凸勾配写像で表せるか" }
+  - { id: OTR14, path: textbook/volumes/dream_thater/解析系/OTR/OTR14, status: planned, title: "Gaussian分布間のW2はどう計算するか" }
+  - { id: OTR15, path: textbook/volumes/dream_thater/解析系/OTR/OTR15, status: planned, title: "測度空間の最短経路とは" }
+  - { id: OTR16, path: textbook/volumes/dream_thater/解析系/OTR/OTR16, status: planned, title: "汎関数の凸性は測地線で変わるか" }
+  - { id: OTR17, path: textbook/volumes/dream_thater/解析系/OTR/OTR17, status: planned, title: "密度を時間発展させる保存則は" }
+  - { id: OTR18, path: textbook/volumes/dream_thater/解析系/OTR/OTR18, status: planned, title: "測度曲線の速さを定義できるか" }
+  - { id: OTR19, path: textbook/volumes/dream_thater/解析系/OTR/OTR19, status: planned, title: "静的最適輸送と流体作用は等価か" }
+  - { id: OTR20, path: textbook/volumes/dream_thater/解析系/OTR/OTR20, status: planned, title: "Otto計算の接ベクトルとは" }
+  - { id: OTR21, path: textbook/volumes/dream_thater/解析系/OTR/OTR21, status: planned, title: "どのエネルギーがどのPDEを生むか" }
+  - { id: OTR22, path: textbook/volumes/dream_thater/解析系/OTR/OTR22, status: planned, title: "勾配流を変分最小化で離散化できるか" }
+  - { id: OTR23, path: textbook/volumes/dream_thater/解析系/OTR/OTR23, status: planned, title: "JKOの一歩はPDEにどう近づくか" }
+  - { id: OTR24, path: textbook/volumes/dream_thater/解析系/OTR/OTR24, status: planned, title: "時間刻みをゼロにすると何が得られるか" }
+  - { id: OTR25, path: textbook/volumes/dream_thater/解析系/OTR/OTR25, status: planned, title: "離散OTを安定して近似するには" }
+  - { id: OTR26, path: textbook/volumes/dream_thater/解析系/OTR/OTR26, status: planned, title: "理論と数値解はどこまで一致するか" }
