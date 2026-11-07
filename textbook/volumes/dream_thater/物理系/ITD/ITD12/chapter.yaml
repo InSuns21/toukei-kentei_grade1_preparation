@@ -1,0 +1,46 @@
+id: "ITD12"
+title: "位置依存ポテンシャルのLangevin拡散：確率流・定常散逸・自由エネルギー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD7
+  - ITD11
+  - STO7
+  - STO9
+official_scope: []
+learning_objectives:
+  - 周期ポテンシャルと一定外力の円周Langevin経路でStratonovich熱と第一法則を検算できる
+  - 伊藤公式から確率流・Fokker--Planck保存則・平均熱率を導ける
+  - 系と浴のエントロピー変化を合わせて確率流の平方による平均第二法則を証明できる
+  - 非平衡自由エネルギーの仕事収支と等号条件を説明できる
+  - 定常確率流を一階常微分方程式と周期境界から解き、平衡と非平衡定常を区別できる
+  - 零駆動・平坦ポテンシャルの極限と位置依存拡散への適用限界を識別できる
+definitions:
+  - { id: ITD12-DEF-01, name: 周期ポテンシャル下のLangevin経路と浴熱 }
+  - { id: ITD12-DEF-02, name: 円周拡散の確率流 }
+  - { id: ITD12-DEF-03, name: 平均全エントロピー生成率 }
+theorems:
+  - { id: ITD12-THM-01, name: 確率流の保存則と平均浴熱 }
+  - { id: ITD12-THM-02, name: 確率流の平方による第二法則と仕事収支 }
+  - { id: ITD12-PROP-01, name: 零駆動の平衡密度と詳細釣合い }
+  - { id: ITD12-THM-03, name: 周期ポテンシャルを流れる定常確率流 }
+canonical_examples:
+  - 周期的な山と外力による仕事・熱の符号
+  - 正弦的密度の拡散流と保存則
+  - 一様定常密度の正の散逸
+  - Boltzmann密度の零流と非平衡定常流の比較
+problem_patterns:
+  - ITD12-POTENTIAL-HEAT
+  - ITD12-DENSITY-CURRENT
+  - ITD12-BOLTZMANN-ZERO-CURRENT
+  - ITD12-FLAT-STEADY-DISSIPATION
+  - ITD12-STRATONOVICH-CORRECTION
+  - ITD12-ENTROPY-SQUARE
+  - ITD12-STEADY-ODE
+  - ITD12-UNIFORM-TRANSIENT
+  - ITD12-DRIVE-SIGN
+  - ITD12-INTEGRATED-BALANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 5 }
