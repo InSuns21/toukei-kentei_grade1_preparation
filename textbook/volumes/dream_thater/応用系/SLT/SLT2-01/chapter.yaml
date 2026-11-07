@@ -1,0 +1,41 @@
+id: "SLT2-01"
+title: "過剰パラメータと線形補間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ML1-04
+official_scope: []
+learning_objectives:
+  - 設計行列の行・列、階数、核の次元を区別し、pがnより大きいだけでは補間可能性を保証しないことを証明できる
+  - 任意の応答への線形補間可能性と行フルランク条件の同値性を示せる
+  - 行空間と核の直交分解を導き、補間係数の自由度と標本外予測の一意性を判定できる
+  - 階数欠損設計で補間不能な応答と最小二乗の適合値を計算できる
+  - 固定設計の加法雑音を完全補間しても真の信号を回復したとはいえないことを期待二乗誤差から説明できる
+  - 同一訓練予測と異なる標本外予測の具体例から、非識別性と汎化保証を切り分けられる
+definitions:
+  - { id: SLT2-01-DEF-01, name: 線形補間可能性 }
+  - { id: SLT2-01-DEF-02, name: 訓練上の観測同値性 }
+theorems:
+  - { id: SLT2-01-THM-01, name: 任意応答の補間と行フルランクの同値性 }
+  - { id: SLT2-01-THM-02, name: 行空間・核の直交分解と標本外予測 }
+  - { id: SLT2-01-PROP-01, name: 固定設計の雑音補間誤差 }
+canonical_examples:
+  - 2行3列の行フルランク設計で補間係数の一次元族を求める
+  - 2行3列でも行が従属すると補間できない応答を示す
+  - 行空間にある新規特徴と核成分を含む新規特徴の予測を比較する
+  - 固定設計のGaussian雑音を補間すると訓練信号誤差の期待値が雑音分散に等しいことを確かめる
+problem_patterns:
+  - SLT2-01-A01
+  - SLT2-01-A02
+  - SLT2-01-A03
+  - SLT2-01-A04
+  - SLT2-01-A05
+  - SLT2-01-B01
+  - SLT2-01-B02
+  - SLT2-01-B03
+  - SLT2-01-B04
+  - SLT2-01-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.5, review: 2.0 }

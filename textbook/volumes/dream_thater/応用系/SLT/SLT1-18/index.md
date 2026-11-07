@@ -224,7 +224,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（完全複製標本では平方根型集中が破綻する）**
-> $U\sim\operatorname{Bernoulli}(1/2)$ を一つ取り、全ての $i=1,\ldots,n$ に $Z_i=U$ とする。固定予測器 $h$ の損失を $\ell(h,z)=z$ とすると、各 $Z_i$ の周辺分布は同じで、損失は $[0,1]$ 値だが、任意の $n\ge1$ に対して
+> $U\sim\operatorname{Bernoulli}(1/2)$ を一つ取り、$P$ を $U$ の分布とする。全ての $i=1,\ldots,n$ に $Z_i=U$ とする。固定予測器 $h$ の損失を $\ell(h,z)=z$ とすると、各 $Z_i$ の周辺分布は $P$ で同じであり、損失は $[0,1]$ 値だが、任意の $n\ge1$ に対して
 
 $$
 R_P(h)=\frac12,\qquad
@@ -256,7 +256,18 @@ $$
 =\operatorname{Var}(U)=\frac14,
 $$
 
-に対し、**独立な**公平Bernoulliを $n$ 回平均するなら共分散項が消えて $1/(4n)$ となる。この違いこそ、集中を与える独立性が失われた箇所である。
+となる。独立な公平Bernoulliの平均とどこが違うか、同じ周辺分散 $1/4$ から出発して共分散まで展開する。
+
+$$
+\begin{aligned}
+\operatorname{Var}\left(\frac1n\sum_{i=1}^n Z_i\right)
+&=\frac1{n^2}\left(\sum_{i=1}^n\operatorname{Var}(Z_i)
++2\sum_{1\le i<j\le n}\operatorname{Cov}(Z_i,Z_j)\right)\\
+&=\frac1{n^2}\left(\frac n4+\frac{n(n-1)}4\right)=\frac14.
+\end{aligned}
+$$
+
+複製では $i\ne j$ に対して $\operatorname{Cov}(Z_i,Z_j)=\operatorname{Var}(U)=1/4$ である。一方、**独立な**標本ではこの共分散が0なので、第2行の括弧内は $n/4$ だけになり、分散が $1/(4n)$ に減る。この違いこそ、集中を与える独立性が失われた箇所である。
 <!-- proof-end -->
 
 複製標本に独立標本の界を代入して $n\to\infty$ とすると、右辺は0へ向かうのに真の偏差は常に $1/2$ となる。時系列やクラスタ標本には、相関の減衰やブロック間の独立性など、依存構造を定量化した仮定と別の集中評価が必要であり、形式的に $n$ を「有効標本数」に置き換えるだけでは足りない。
@@ -269,7 +280,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（損失に一様上限がなければ分布自由Hoeffding界はない）**
-> 任意の整数 $n\ge2$ について、独立同分布な非負確率変数 $Z_1,\ldots,Z_n$ を
+> 任意の整数 $n\ge2$ について、独立同分布な非負確率変数 $Z_1,\ldots,Z_n$ の共通分布を $P$ とし、その確率を
 
 $$
 \Pr\{Z_i=n\}=\frac1n,\qquad
