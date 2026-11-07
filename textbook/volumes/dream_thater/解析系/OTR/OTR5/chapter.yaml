@@ -1,0 +1,40 @@
+id: "OTR5"
+title: "双対変数は何を保証するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR4
+official_scope: []
+learning_objectives:
+  - 有限離散輸送の行・列和制約から双対ポテンシャルと双対制約を導出し、符号自由である理由を説明できる
+  - 主実行可能行列と双対実行可能ポテンシャルの差を非負項の総和として展開し、弱双対と最適性証明書を作れる
+  - 有限費用・周辺質量一致の下でOPT10の線形計画強双対を輸送問題へ適用し、双対最適値の達成を保証できる
+  - 相補性条件の必要十分性を証明し、正の輸送質量の経路で双対不等式が等号になることを判定できる
+  - 双対ポテンシャルの定数シフト・零周辺質量・負のポテンシャルの扱いを説明できる
+  - 2×2と3×3の主双対証明書を手計算し、等号経路と支持グラフから一意性と非一意性を区別できる
+definitions:
+  - { id: OTR5-DEF-01, name: 有限離散輸送の双対問題 }
+  - { id: OTR5-DEF-02, name: 双対余裕と等号経路 }
+theorems:
+  - { id: OTR5-THM-01, name: 輸送問題の弱双対性と双対ギャップ恒等式 }
+  - { id: OTR5-THM-02, name: 有限輸送の強双対性 }
+  - { id: OTR5-THM-03, name: 輸送の相補性と最適性 }
+  - { id: OTR5-PROP-01, name: 等号経路の森による最適解の一意性 }
+canonical_examples:
+  - 符号自由のポテンシャルを持つ2×2輸送の最適性証明書
+  - OTR4の3×3最適輸送行列を双対証明書で再検証し一意性を示す例
+  - すべての経路が等号となる2×2問題の非一意性
+  - 零周辺質量を持つ行と負のポテンシャルの例
+problem_patterns:
+  - OTR5-A01
+  - OTR5-A02
+  - OTR5-A03
+  - OTR5-A04
+  - OTR5-B01
+  - OTR5-B02
+  - OTR5-B03
+  - OTR5-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
