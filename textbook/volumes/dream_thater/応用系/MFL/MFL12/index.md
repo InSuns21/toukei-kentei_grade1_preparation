@@ -26,9 +26,9 @@ $$
 
 滑らかな局所座標 $(x^1,\ldots,x^d)$ で、$\partial_i=\partial/\partial x^i$（$i=1,\ldots,d$）を座標接ベクトルとする。[GEO12のRiemann計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)に従い、$g_{ij}=g(\partial_i,\partial_j)$ を並べた計量行列を $G=(g_{ij})$、その逆行列の成分を $g^{ij}$ と書く。例えば接ベクトル $u=\sum_i u^i\partial_i$ の長さの二乗は、内積の双線形性から
 
-$
+$$
 g(u,u)=\sum_{i,j=1}^d g_{ij}u^iu^j
-$
+$$
 
 となる。ゆえに $G$ は計量をこの座標基底で表したGram行列であり、正定値だから逆行列が存在し、$\rho=\sqrt{\det G}>0$ である。以下、同じ添字を上下に繰り返す式では $1$ から $d$ まで和を取る。
 
@@ -45,10 +45,10 @@ $$
 
 $R>0$ として、$F(\theta)=R(\cos\theta,\sin\theta)$、$\theta\in\mathbb R/(2\pi\mathbb Z)$ と置く。この一変数の表示で $F'=dF/d\theta$、$f_\theta=df/d\theta=\partial_\theta f$、$f_{\theta\theta}=d^2f/d\theta^2$ と書く。
 
-$
+$$
 F'(\theta)=R(-\sin\theta,\cos\theta),\qquad
 g_{\theta\theta}=\langle F'(\theta),F'(\theta)\rangle=R^2.
-$
+$$
 
 つまり誘導計量は接ベクトル $F'$ のEuclid内積を引き戻したものであり、逆行列の成分は $R^{-2}$、体積密度は $R$ である。弧長座標 $s=R\theta$ に替えると、連鎖律から $d/ds=R^{-1}d/d\theta$ となる。角度微分と弧長微分を区別する理由はこの係数にある。
 
@@ -224,28 +224,28 @@ $$
 
 この二次形式を行列で表す過程も確認する。$S:\mathbb R^N\to\mathbb R^N$ を $(Sv)_j=v_{j+1}$ とする周期シフトと定めると、$(S^{\mathsf T}v)_j=v_{j-1}$ である。周期添字をずらして和を展開すれば
 
-$
+$$
 \begin{aligned}
 \sum_j(v_{j+1}-v_j)^2
 &=\sum_j(v_{j+1}^2+v_j^2-2v_jv_{j+1})\\
 &=2\sum_jv_j^2-\sum_jv_jv_{j-1}-\sum_jv_jv_{j+1}\\
 &=v^{\mathsf T}(2I-S-S^{\mathsf T})v.
 \end{aligned}
-$
+$$
 
 したがって剛性行列 $K$ と質量行列 $M$ は
 
-$
+$$
 K=\frac1h(2I-S-S^{\mathsf T}),\qquad M=hI,
 \qquad K_h(v)=v^{\mathsf T}Kv,\quad M_h(v)=v^{\mathsf T}Mv.
-$
+$$
 
 質量内積 $\langle u,v\rangle_M=u^{\mathsf T}Mv$ で剛性を表す作用素 $A_h$ は、$\langle u,A_hv\rangle_M=u^{\mathsf T}Kv$ をすべての $u$ について満たすため $MA_h=K$ となる。よって
 
-$
+$$
 (A_hv)_j=(M^{-1}Kv)_j
 =\frac{2v_j-v_{j-1}-v_{j+1}}{h^2}.
-$
+$$
 
 これは単なる行列の割り算ではなく、どの質量内積で剛性形式を作用素にしたかを示している。
 
@@ -489,14 +489,14 @@ $$
 
 **詳細解答**。展開点は $s$、評価点は $s\pm h$、次数は3とする。Taylor公式をそれぞれに適用して
 
-$
+$$
 \begin{aligned}
 f(s+h)&=f(s)+hf'(s)+\frac{h^2}{2}f''(s)
 +\frac{h^3}{6}f'''(s)+r_+,\\
 f(s-h)&=f(s)-hf'(s)+\frac{h^2}{2}f''(s)
 -\frac{h^3}{6}f'''(s)+r_-,
 \end{aligned}
-$
+$$
 
 を得る。四階導関数が有界なので、$M_4=\|f^{(4)}\|_\infty$ と置けば $|r_\pm|\le h^4M_4/24$ である。二式を加え、奇数次の項が相殺されることを使うと
 
