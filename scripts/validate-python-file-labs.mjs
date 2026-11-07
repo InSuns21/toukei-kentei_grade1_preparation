@@ -4,7 +4,7 @@ import { readFile, realpath } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const chapterIds = ['MFL5', 'MFL7', 'MFL8', 'MFL9', 'MFL10', 'MFL11', 'MFL12', 'MFL13'];
+const chapterIds = ['MFL5', 'MFL7', 'MFL8', 'MFL9', 'MFL10', 'MFL11', 'MFL12', 'MFL13', 'MFL14'];
 const chapterBase = 'textbook/volumes/dream_thater/応用系/MFL';
 const seenIds = new Set();
 let presetsChecked = 0;
@@ -92,6 +92,15 @@ for (const chapter of chapterIds) {
     assert.ok(dependencies.some((file) => file.endsWith('/MFL8/classical_mds_lab.py')));
   }
 
+  if (chapter === 'MFL14') {
+    const selfTest = execFileSync('python3', [mainPath, '--self-test'], {
+      cwd: root, encoding: 'utf8', timeout: 30000,
+      env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
+    });
+    assert.match(selfTest, /self-test passed/);
+    assert.equal(presets.length, 5, 'MFL14: each finite-sample comparison needs a preset');
+  }
+
   for (const preset of presets) {
     assert.ok(preset.title, `${chapter}: empty preset title`);
     const args = parseArguments(preset.args);
@@ -103,6 +112,21 @@ for (const chapter of chapterIds) {
       maxBuffer: 2 * 1024 * 1024,
     });
     assert.ok(output.trim(), `${chapter}: no output for ${preset.title}`);
+    if (chapter === 'MFL14') {
+      const result = JSON.parse(output);
+      assert.ok(['variance', 'ratio', 'loo', 'bandwidth'].includes(result.mode));
+      assert.ok(Array.isArray(result.plots) && result.plots.length > 0);
+      for (const plot of result.plots) {
+        assert.ok(plot.title && plot.x_label && plot.y_label);
+        assert.ok(plot.series.every((series) => series.points.length >= 2 &&
+          series.points.every((point) => point.length === 2 && point.every(Number.isFinite))));
+      }
+      if (result.mode === 'loo') assert.ok(result.max_identity_residual < 1e-9);
+      if (result.mode === 'variance') {
+        assert.ok(result.rows.every((row) => row.variance_theoretical > 0 &&
+          row.variance_empirical > 0));
+      }
+    }
     presetsChecked += 1;
   }
 }
@@ -112,6 +136,7 @@ const worker = await readFile(path.join(root, 'pages/numerical-lab-worker.mjs'),
 assert.match(runtime, /python-file-lab/);
 assert.match(runtime, /function runFileLab/);
 assert.match(runtime, /function setFileVisuals/);
+assert.match(runtime, /function appendSeriesPlot/);
 assert.match(worker, /runpy\.run_path/);
 assert.match(worker, /FILE_LAB_ROOT/);
 
