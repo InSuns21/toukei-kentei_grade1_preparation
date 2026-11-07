@@ -484,7 +484,19 @@ $v^{\mathsf T}v=6$ なので $M$ の階数は1で、唯一の正固有値は $(9
 
 付属の [lle_lab.py](lle_lab.py) はPython標準ライブラリだけで局所Gram、ridge重み、$M$、対称Jacobi固有分解を計算する。例は直線点群、すべて一致する点、正則化なしで符号付き重みを手計算できる3点である。重みの行和、入力再構成残差、零固有値の数に加え、中心化・規格化した一次元埋め込みとその残差二乗和をJSONで出す。
 
-リポジトリのルートから実行する。
+以下で入力点群と一次元埋め込みを比較できる。重みの `--gamma` は引数欄で変更できるが、`signed` 例は正則化しない設定である。
+
+```python-file-lab
+# lab-id: MFL10-LLE-FILE
+# lab-title: LLE・再構成重みと一次元埋め込み
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL10/lle_lab.py
+# timeout-ms: 15000
+# lab-preset: 直線点群 | --case line --gamma 0.01
+# lab-preset: 一致する点群 | --case coincident
+# lab-preset: 符号付き重み | --case signed
+```
+
+ローカル環境ではリポジトリのルートから実行する。
 
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL10/lle_lab.py --case line --gamma 0.01
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL10/lle_lab.py --case coincident

@@ -286,7 +286,20 @@ $A-B=(-\delta,0)$ より $\|A-B\|=\delta<r$。ゆえに直接辺がある。$M$ 
 
 付属の [neighborhood_graph_lab.py](neighborhood_graph_lab.py) は標準 Python だけで動く。点集合、半径 $r$、$k$ を変え、半径・union kNN・mutual kNN の辺、連結成分、孤立点を実際に再計算する。結果は座標・閾値・$k$・同点規則を含む JSON であり、浮動小数点で閾値をまたぐ場合は丸めにも注意する。
 
-実行例：リポジトリのルートから Python 3 で対象ファイルを実行し、オプションに「--dataset clusters --radius 1.5 --k 1」を与える。U 字の例は「--dataset u --radius 0.3 --k 2」、内蔵の検算は「--self-test」で実行する。
+以下でプリセットを切り替えて実行すると、三種類の近傍グラフと計算結果をこのページで確認できる。引数欄も自由に変更できる。
+
+```python-file-lab
+# lab-id: MFL7-NEIGHBORHOOD-FILE
+# lab-title: 半径グラフ・union / mutual kNN
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL7/neighborhood_graph_lab.py
+# timeout-ms: 15000
+# lab-preset: 二集団・k=1 | --dataset clusters --radius 1.5 --k 1
+# lab-preset: U字・狭い半径 | --dataset u --radius 0.3 --k 2
+# lab-preset: U字・shortcut | --dataset u --radius 1.5 --k 2
+# lab-preset: 非対称な点群 | --dataset asymmetric --radius 1.5 --k 1
+```
+
+ローカル実行では、リポジトリのルートから Python 3 で対象ファイルを実行し、オプションに「--dataset clusters --radius 1.5 --k 1」を与える。U 字の例は「--dataset u --radius 0.3 --k 2」、内蔵の検算は「--self-test」で実行する。
 
 clusters は二集団で kNN の非連結を、u は近接した二つの枝の上端に Euclid shortcut が生まれることを示す。成分数が1でも幾何を正しく復元したとは判定しない。
 
