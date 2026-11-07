@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 再設計: 2026-11-07（標準教科書・総説との照合）  
-状態: in_progress（ITD1〜ITD17を実装。系列横断監査と一般連続・量子分岐の依存整理は未完了）
+状態: completed（ITD1〜ITD17実装・横断収支監査・一般連続模型と量子分岐の依存整理を2026-11-08に完了）
 
 ## 中心問い
 
@@ -211,3 +211,57 @@
 - ITD1〜ITD16の完了を確認し、ITD16で残った位置依存摩擦を、温度一定・有界で正の滑らかな摩擦・有界Lipschitz外力に限定して扱う。「慣性付き運動の小質量極限からITD14の雑音誘起ドリフトを導出できるか」を中心問いとした。
 - 運動量 $P^m=mV^m$ の一様二乗平均評価、摩擦座標 $G(x)=\int_0^x\gamma(r)dr$、同一Brown運動による比較とGronwall評価を組み合わせ、固定時刻の位置の二乗平均誤差 $O(m)$ を証明した。逆写像へのItô公式で $-\gamma'/(\beta\gamma^2)$ を導き、円周上のKramers平衡と過減衰Gibbs密度の整合を検算した。
 - 温度勾配、経路一様収束、浴熱・エントロピー生成の小質量極限、非有界係数は未解決として明示した。ITD系列横断監査と量子分岐の依存整理が残るのでPLANは plans_progress/ を維持する。
+
+
+<a id="itd-series-closeout-audit"></a>
+
+## ITD1〜ITD17 系列横断監査・依存分岐の完了記録（2026-11-08）
+
+### 対象・判定方法
+
+- 対象は `ITD1`〜`ITD17` の現行 `index.md`、各 `chapter.yaml` / `knowledge.yaml`、`textbook/dream-theater-series/ITD.yaml`、当PLAN、直接必要な TH2 / SM3 / INFO2 / STO7・STO9・STO10 / MECH4 および量子分岐の QINF5・QINF17・QINF18・QINF20 の公開 result anchor。系列の公開ルートは `textbook/dream-theater-toc/080_物理系/105_information-thermodynamics.md` に ITD1〜ITD17 が掲載されている。
+- 系列全体を横断する **系境界・熱と仕事の向き・情報の底・サイクルの始終状態・定義の適用仮定**を式単位で点検した。下記は個別章の全証明と全演習解答を再査読したという主張ではなく、系列横断の収支式・分岐条件と代表的な中間計算の再導出の記録である。
+- 各 `chapter.yaml` の直接前提からたどり、ITD1→2→3→4→5→6→7→8→9、ITD3/5/6→10、ITD2/7→11→12→13→14→15→16→17 の連続経路を確認した（ITD9はITD4/6/7/8にも依存）。ITD17は MECH4 の運動量を直接使う。後続章から過去章へ定理を逆輸入しない。
+
+### 共通契約と各群の整合
+
+| 範囲（主要 result anchor） | 横断して固定した契約と判定 |
+|---|---|
+| [ITD1 第一法則](../volumes/dream_thater/物理系/ITD/ITD1/index.md#thm-itd1-first-law)、[平均エントロピー生成](../volumes/dream_thater/物理系/ITD/ITD1/index.md#thm-itd1-mean-entropy) | 系への仕事 `W>0`、系へ入る熱 `Q>0`、浴へ放出する熱 `Q_bath=-Q`。したがって `ΔE=W+Q=W-Q_bath`。単一等温浴では `Σ=ΔH_nat+βQ_bath`（無次元、nat）。情報理論の `D_2`（bit）を用いる場合だけ `D_nat=(ln 2)D_2` を乗じる。 |
+| [ITD2 積分ゆらぎ関係](../volumes/dream_thater/物理系/ITD/ITD2/index.md#thm-itd2-ift)、[Jarzynski関係](../volumes/dream_thater/物理系/ITD/ITD2/index.md#thm-itd2-jarzynski) | `Σ=ln(P_F/P_R)` は同じ経路の順逆確率比。完全な絶対連続性のとき `⟨e^{-Σ}⟩=1`。逆方向にのみ存在する経路の絶対非可逆性があれば欠損項を保持する。Jarzynski は適切な初期平衡など追加仮定が必要。 |
+| [ITD3 非平衡自由エネルギー](../volumes/dream_thater/物理系/ITD/ITD3/index.md#prop-itd3-kl-identity)、[仕事下限](../volumes/dream_thater/物理系/ITD/ITD3/index.md#thm-itd3-work-bound) | `F(p)-F_eq=k_BT D_nat(p||p_eq)=k_BT ln 2 D_2`、`W-ΔF=k_BTΣ≥0`。初期・終状態が平衡の場合に限り `ΔF=ΔF_eq` となる。 |
+| [ITD4 情報付き第二法則](../volumes/dream_thater/物理系/ITD/ITD4/index.md#thm-itd4-feedback-work-bound)、[情報付きIFT](../volumes/dream_thater/物理系/ITD/ITD4/index.md#thm-itd4-information-ift) | 測定結果の相互情報量 `I_nat` を使い、系への仕事の下限を `⟨W⟩≥ΔF_eq-k_BT I_nat` とする。これはフィードバック対象系のみの帳簿で、測定・記憶・消去を含む全装置の総仕事下限ではない。支持集合欠損も `1-λ_abs` として別に数える。 |
+| [ITD5 消去](../volumes/dream_thater/物理系/ITD/ITD5/index.md#thm-itd5-reset-work-bound)、[Landauer限界](../volumes/dream_thater/物理系/ITD/ITD5/index.md#cor-itd5-landauer) | `W_reset≥ΔU+k_BT(H_nat(p)-H_nat(r))` は非相互作用の記憶模型と指定した端点で成立。等エネルギー・一様1 bit→確定状態なら `k_BT ln 2`。偏り・消去誤差・相関があるとこの特別値を無条件には使えない。 |
+| [ITD6 全装置自由エネルギー](../volumes/dream_thater/物理系/ITD/ITD6/index.md#prop-itd6-joint-free-energy)、[循環収支](../volumes/dream_thater/物理系/ITD/ITD6/index.md#thm-itd6-joint-balance) | `F_XM=F_X+F_M+k_BT I_nat(X;M)`（相互作用なし）。測定と消去を別費用として勘定し、最初と最後の **結合分布と記憶状態**が同じ場合にだけ `ΔF_XM=0`、`W_total=k_BTΣ_total≥0`、`Q_bath=W_total`。系だけ閉じた「悪魔」の見かけの利得を全装置の利得と取り違えない。 |
+| [ITD7 多熱浴](../volumes/dream_thater/物理系/ITD/ITD7/index.md#thm-itd7-multibath-path-ratio)、[粗視化](../volumes/dream_thater/物理系/ITD/ITD7/index.md#thm-itd7-coarse-kl-chain)、[連続熱](../volumes/dream_thater/物理系/ITD/ITD7/index.md#prop-itd7-stratonovich-balance) | `Σ=ΔH+Σ_r β_r Q_bath^r`。温度が違う浴を単一 `βQ_bath` にまとめない。粗視化の相対エントロピーは条件付き KL の非負分だけ減る。連続 SDE では熱の経路積分と Itô/Stratonovich 変換に補正がある。 |
+| [ITD8 速度限界](../volumes/dream_thater/物理系/ITD/ITD8/index.md#thm-itd8-speed-limit)、[有限時間消去](../volumes/dream_thater/物理系/ITD/ITD8/index.md#cor-itd8-finite-reset) | `Σ≥2 d_TV^2/N` の `N` は指定した活動量（jump数の積分）であり、状態差だけで非零散逸を下から抑えるものではない。有限時間消去の追加仕事項を `k_BT` 倍してエネルギー単位へ戻す。 |
+| [ITD9 部分系第二法則](../volumes/dream_thater/物理系/ITD/ITD9/index.md#thm-itd9-partial-second-law)、[情報流分解](../volumes/dream_thater/物理系/ITD/ITD9/index.md#thm-itd9-information-decomposition) | 情報流 `I_dot^X+I_dot^Y=I_dot` の向きを揃え、`σ_X=Hdot_X+β_X Qdot_bath^X-I_dot^X≥0`、`σ_Y` も同様。合計は結合系の `Hdot_XY+Σ_r β_r Qdot_bath^r` に戻る。外からの測定記録 `I(X;M)` と定常 bipartite 系の `I_dot^X` は別量。 |
+| [ITD10 情報テープ](../volumes/dream_thater/物理系/ITD/ITD10/index.md#thm-itd10-tape-work)、[相関入力](../volumes/dream_thater/物理系/ITD/ITD10/index.md#prop-itd10-correlated-input) | 入出力 bit列の結合 Shannon エントロピーと出力間相関を区別し、初期記憶・入力の相関 `I_i` があれば引く。ITD6の結合自由エネルギーの相互情報項を二重計上しない。 |
+| [ITD11 逆経路](../volumes/dream_thater/物理系/ITD/ITD11/index.md#thm-itd11-path-ratio)、[ITD12 連続散逸](../volumes/dream_thater/物理系/ITD/ITD12/index.md#thm-itd12-entropy-balance)、[ITD13 Girsanov逆過程](../volumes/dream_thater/物理系/ITD/ITD13/index.md#thm-itd13-girsanov-reversal) | ジャンプ模型から円周上の拡散へ移る際も浴熱は **浴へ出る向き**。適切な密度の下、`Σdot=∫J²/(Dρ) dx≥0`。経路測度比は初期終端密度・反転経路・絶対連続性を含めて扱い、SDEの形式だけから主張しない。 |
+| [ITD14 非一様拡散](../volumes/dream_thater/物理系/ITD/ITD14/index.md#thm-itd14-fluctuation-dissipation)、[ITD15 慣性付き反転](../volumes/dream_thater/物理系/ITD/ITD15/index.md#thm-itd15-path-ratio) | 位置依存拡散では Itô ドリフトに `D'` を残す。慣性付きでは **速度が時間反転で奇**であり、不可逆速度流から散逸 `∫J_{v,irr}²/(D_vρ)` を得る。位置のみの経路逆転を流用しない。 |
+| [ITD16 熱の境界項](../volumes/dream_thater/物理系/ITD/ITD16/index.md#thm-itd16-kinetic-boundary)、[ITD17 変摩擦小質量極限](../volumes/dream_thater/物理系/ITD/ITD17/index.md#thm-itd17-variable-friction-limit) | 等温・限定係数の下、位置の固定時刻 `L²` 収束と `D'=-γ'/(βγ²)` は示される。一方、運動エネルギー境界の揺らぎが残り、**位置の収束 ≠ 浴熱・経路エントロピー生成の収束**。一般の温度場、反射境界、非有界係数、経路一様収束へ拡張しない。 |
+
+### 出発式からの代表的な再導出
+
+1. **1 bit の全循環（ITD4〜6）**。等エネルギーの `X,M` に対し、初期 `H(X,M)=ln2`、二値測定誤り `ε` の直後は `H(X,M)=ln2+h(ε)`、理想フィードバックで独立一様へすると `H=2ln2`、消去後は `H=ln2`。各段階の最小仕事は `-k_BT h(ε)`、`-k_BT(ln2-h(ε))`、`+k_BT ln2`。和は **0**。ここで `I(X;M)=ln2-h(ε)` を測定コストと重複加算しない。有限散逸があれば `W_total>0`。根拠は [ITD6の二値循環](../volumes/dream_thater/物理系/ITD/ITD6/index.md#thm-itd6-binary-cycle)。
+2. **2浴・情報流（ITD7・9）**。熱浴へ出る向きの電流 `J_h>0`（高温浴から系へ入るので `Q_bath^h=-J_h dt`、低温浴へは `Q_bath^c=+J_h dt`）なら `Σdot=(β_c-β_h)J_h>0`。ITD9の定常4状態例では `I_dot^X=-ln3/4`、`I_dot^Y=+ln3/4`、`β_X Qdot_bath^X=-ln2/4`、`β_Y Qdot_bath^Y=+ln4/4`。ゆえに `σ_X=(-ln2+ln3)/4=ln(3/2)/4`、`σ_Y=(ln4-ln3)/4=ln(4/3)/4`、合計 `ln2/4`。情報流が打ち消し合うのを再計算した。根拠は [ITD9の4状態例](../volumes/dream_thater/物理系/ITD/ITD9/index.md#prop-itd9-four-state-steady)。
+3. **円周拡散（ITD12〜14）**。等温で `D=k_BT μ`、外力を保存力 `-U'` と一様な外部駆動 `f` に分けると、`J=μ(f-U')ρ-Dρ'`。従って `U'+k_BT ρ'/ρ=f-k_BT J/(Dρ)`。円周で `∂_tρ=-∂_xJ` を部分積分し、`𝓕=∫Uρ dx+k_BT∫ρ ln(Lρ)dx` に代入すれば、`d𝓕/dt=∫J[U'+k_BT ρ'/ρ]dx=f∫J dx-k_BT∫J²/(Dρ)dx`。これが外部仕事率から散逸を引く ITD3 と同じ符号の帳簿である。変摩擦の小質量極限では `D=1/(βγ)` なので `D'=-γ'/(βγ²)`、確率流 `J=(F/γ+D')ρ-(Dρ)'=(F/γ)ρ-Dρ'`。外力 `F=-U'` と `ρ∝e^{-βU}` なら `ρ'=-βU'ρ`、`J=0`。この照合は **係数式とその条件付き平衡**の照合であり、ITD14の全仮定をITD17へ移植するものではない。
+4. **熱の小質量極限（ITD16）**。Maxwell初期速度で自由粒子の `K_t=mV_t²/2` は定常でも、時間相関 `e^{-γt/m}` が残る。`Q_bath=K_0-K_t` の分散は `β^{-2}(1-e^{-2γt/m})\to β^{-2}`（`t>0`）。したがって `Z_t^m\to Z_t` のみから `Q_bath^m\to Q_bath` は導けない。
+
+### 一般連続模型への前提と未拡張範囲
+
+- **達成済みの入口**：有限状態の局所詳細釣合い（ITD1〜10）→円周拡散の確率流・熱（ITD7・11・12）→経路測度とGirsanov（ITD13、直接既習 [STO10](../volumes/dream_thater/解析系/STO/STO10/index.md#thm-sto10-girsanov)）→位置依存拡散（ITD14）→奇変数を含む慣性過程（ITD15）→定摩擦（ITD16）・変摩擦（ITD17）の限定的な小質量極限。この順序では「Stratonovichの熱」と「ItôのSDE表示」と「経路測度の時間反転」は同一視しない。
+- **ITD17とITD14の仮定の差**：ITD17の収束定理は実数上の有界Lipschitz外力・有界正値 `C²` 摩擦を用いる。一方 ITD14 は円周上のより滑らかな周期係数と外力の分解・時間依存等を指定して経路反転・定常散逸を論じる。両者に共通する `D'` の係数照合は可能でも、ITD14の経路測度・熱の定理をITD17の任意の `F,γ` に無条件で適用できない。ITD17本文の同一視を「式の一致」と明記する局所修正を行った。
+- **未来の別課題**：温度勾配、一般境界条件、非有界係数、高次元・多様体、非Markov浴、熱・エントロピー生成の小質量経路極限は当PLANで証明していない。これらには追加の確率解析と模型ごとの浴の定義が必要であり、既存の [幾何学的確率解析 II（未着手PLAN）](../plans/DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md) などは **候補となる数学的前提**に過ぎず、ITDの定理の自動的な延長ではない。
+
+### 量子測定・量子情報への分岐（移譲先を確定）
+
+- **古典側の出口**：ITD4の `M(y|x)` は古典的条件付き確率、`I_nat(X;Y)=\sum p_{xy}\ln[p_{xy}/(p_xp_y)]`。ITD5の消去は指定された古典的記憶の分布変化、ITD6/10の循環は古典的結合分布を対象とする。この3つを量子系へ文字どおり転写しない。
+- **量子側の入口・canonical owner**：測定を [QINF5のPOVM](../volumes/dream_thater/応用系/QINF/QINF5/index.md#def-qinf5-povm)・[instrument](../volumes/dream_thater/応用系/QINF/QINF5/index.md#def-qinf5-instrument)・[状態更新](../volumes/dream_thater/応用系/QINF/QINF5/index.md#prop-qinf5-state-update) として指定する。エントロピーは [QINF17のvon Neumannエントロピー](../volumes/dream_thater/応用系/QINF/QINF17/index.md#def-qinf17-entropy)、相互情報は [QINF18の量子相互情報](../volumes/dream_thater/応用系/QINF/QINF18/index.md#def-qinf18-mutual) を使い、量子データ処理は [QINF20](../volumes/dream_thater/応用系/QINF/QINF20/index.md#thm-qinf20-dpi) に依存する。
+- **橋の条件**：量子では系・記憶・測定装置・浴のHilbert空間、初期相関、測定後の状態・instrumentの非選択／選択分岐、全操作のエネルギー保存（あるいは明示した駆動仕事）、チャネルのCPTP性と相対エントロピーのsupport条件を別途明示する必要がある。`H_nat→S(ρ)`、`I(X;M)→I(A;M)` だけでは量子版の仕事下限・IFT・Landauer消去の証明にならない。[横断履修ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)は、ITDとQINFを **別の前提枝**として BHT / BHI 等の下流へ接続する。量子熱力学の一般定理はこの系列の completed に含めない。
+
+### 完了ゲートの確認と残余
+
+- ITD1〜ITD17 の17件は manifest 上すべて `completed`。直接前提に後続ITD章の逆参照はなく、公開目次に全章が載る。定義の主たる canonical owner を TH2（熱と仕事）、SM3（Gibbs・自由エネルギー）、INFO2（古典相対エントロピー）、STO10（Girsanov）、QINF5/17/18/20（量子分岐）として区別した。
+- 横断監査での指摘は **ITD17→ITD14の「同じ」という文言が仮定まで一致するように読める**一点。局所修正後、上記の等温流・循環・情報流の中間式を用いて波及範囲を再査読する。数学的な符号・`k_BT` 係数・bit/nat変換の横断的不整合はこの照合範囲では検出しなかった。
+- 同一担当AIが数式・内容の自己照合と、別観点での依存・記法・読者導線の再読を実施した。**第三者による独立査読は実施していない**。上記の「未来の別課題」は未完了のITD1〜ITD17作業ではなく、明示的に対象外とした一般化である。
