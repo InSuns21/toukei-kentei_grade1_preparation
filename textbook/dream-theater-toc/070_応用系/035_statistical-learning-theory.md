@@ -1,5 +1,5 @@
 <a id="dt-subject-statistical-learning-theory"></a>
-### 統計的学習理論 I
+### 統計的学習理論 I・II
 
 1. [SLT1-01 Bayes超過リスクと近似誤差](textbook/volumes/dream_thater/応用系/SLT/SLT1-01/index.md)
 2. [SLT1-02 PAC学習可能性とNo-Free-Lunch](textbook/volumes/dream_thater/応用系/SLT/SLT1-02/index.md)
@@ -19,3 +19,5 @@
 16. [SLT1-16 Le Cam・Fanoと標本複雑度下限](textbook/volumes/dream_thater/応用系/SLT/SLT1-16/index.md)
 17. [SLT1-17 有限辞書・線形予測・ridgeの汎化保証比較](textbook/volumes/dream_thater/応用系/SLT/SLT1-17/index.md)
 18. [SLT1-18 汎化保証の適用条件と破綻例](textbook/volumes/dream_thater/応用系/SLT/SLT1-18/index.md)
+
+19. [SLT2-01 過剰パラメータと線形補間](textbook/volumes/dream_thater/応用系/SLT/SLT2-01/index.md)

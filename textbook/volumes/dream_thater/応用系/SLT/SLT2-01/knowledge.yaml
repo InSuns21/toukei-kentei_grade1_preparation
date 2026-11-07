@@ -1,0 +1,41 @@
+chapter: SLT2-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ML1-04
+
+concepts:
+  - id: learning.linear-interpolation
+    name: 線形補間可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形補間可能性）"]
+    requires: [learning.design-matrix, linear.kernel-image]
+
+  - id: learning.full-row-rank-interpolation
+    name: 任意応答の補間と行フルランクの同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（任意応答の補間と行フルランクの同値性）"]
+    requires: [learning.linear-interpolation, linear.rank-nullity-theorem]
+
+  - id: learning.training-observational-equivalence
+    name: 訓練上の観測同値性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（訓練上の観測同値性）"]
+    requires: [learning.design-matrix, linear.kernel-image]
+
+  - id: learning.row-null-prediction-identifiability
+    name: 行空間・核の直交分解と標本外予測
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行空間・核の直交分解と標本外予測）"]
+    requires: [learning.training-observational-equivalence, linear.orthogonal-complement, learning.full-row-rank-interpolation]
+
+  - id: learning.fixed-design-noise-interpolation-error
+    name: 固定設計の雑音補間誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定設計の雑音補間誤差）"]
+    requires: [learning.linear-interpolation, learning.row-null-prediction-identifiability]

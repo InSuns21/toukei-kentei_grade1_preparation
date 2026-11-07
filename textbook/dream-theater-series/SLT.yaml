@@ -80,7 +80,7 @@ chapters:
     title: "汎化保証の適用条件と破綻例"
   - id: SLT2-01
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-01
-    status: planned
+    status: completed
     title: "過剰パラメータと線形補間"
   - id: SLT2-02
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-02
