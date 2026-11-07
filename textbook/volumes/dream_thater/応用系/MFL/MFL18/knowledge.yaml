@@ -1,0 +1,42 @@
+chapter: MFL18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL12
+concepts:
+  - id: manifold-learning.cycle-discrete-fourier
+    name: 円周格子の正規化離散Fourier基底
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円周格子の正規化離散Fourier基底）"]
+    requires: [manifold-learning.circle-mass-stiffness]
+  - id: manifold-learning.cycle-complete-eigensystem
+    name: 周期差分の完全固有分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期差分の完全固有分解）"]
+    requires: [manifold-learning.cycle-discrete-fourier, manifold-learning.cycle-spectrum-scaling]
+  - id: manifold-learning.cycle-trigonometric-interpolation
+    name: 円周格子の三角補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円周格子の三角補間）"]
+    requires: [manifold-learning.cycle-discrete-fourier]
+  - id: manifold-learning.cycle-fixed-frequency-limit
+    name: 固定波数の定量的スペクトル近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定波数の定量的スペクトル近似）"]
+    requires: [manifold-learning.cycle-complete-eigensystem, manifold-learning.cycle-trigonometric-interpolation, manifold-learning.circle-metric-energy-spectrum]
+  - id: manifold-learning.cycle-modal-energy-heat
+    name: 有限帯域のエネルギーと熱作用素の近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限帯域のエネルギーと熱作用素の近似）"]
+    requires: [manifold-learning.cycle-fixed-frequency-limit]
+  - id: manifold-learning.cycle-aliasing-obstruction
+    name: 高周波の折り返しと非一様誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（高周波の折り返しと非一様誤差）"]
+    requires: [manifold-learning.cycle-fixed-frequency-limit]

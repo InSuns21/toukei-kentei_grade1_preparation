@@ -76,7 +76,7 @@ chapters:
     title: "境界・adaptive近傍・density shift"
   - id: MFL18
     path: textbook/volumes/dream_thater/応用系/MFL/MFL18
-    status: planned
+    status: completed
     title: "円周の離散→連続スペクトル"
   - id: MFL19
     path: textbook/volumes/dream_thater/応用系/MFL/MFL19
