@@ -410,7 +410,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-模型Aでは $\|X_i\|=1$ なので $\|\xi_i\|=\eta<1$。[円周の最近点とreach](../MFL3/index.md#prop-mfl3-circle-reach)から $\operatorname{reach}(M_A)=1$。模型Bのノイズは0なので同じ上界を満たす。半径 $R$ の円周の弧長要素は $R\,d\theta$ で、角度密度 $1/(2\pi)$ は弧長密度 $1/(2\pi R)>0$ に対応する。従って双方とも正の一様密度である。
+模型Aでは $\|X_i\|=1$ なので $\|\xi_i\|=\eta<1$。[円周の最近点とreach](../MFL3/index.md#prop-mfl3-circle-reach)から $\operatorname{reach}(M_A)=1$。模型Bのノイズは0なので同じ上界を満たす。[円周の弧長要素](../MFL1/index.md#def-mfl1-01-clean-sample)は $R\,d\theta$ で、角度密度 $1/(2\pi)$ は弧長密度 $1/(2\pi R)>0$ に対応する。従って双方とも正の一様密度である。
 
 同じ角度列から構成すると、全ての $i$ で
 
@@ -692,7 +692,7 @@ $0<\eta<1$ とし、模型Aでは真の単位円の一様点 $X_i$ に $\xi_i=\e
 <!-- solution-start -->
 #### 詳細解答
 
-1. 半径 $R$ の円周の弧長要素は $R\,d\theta$、一様角度密度は $1/(2\pi)$ なので弧長密度は $1/(2\pi R)>0$。模型Aは $1/(2\pi)$、模型Bは $1/(2\pi(1+\eta))$。模型Aのノイズ長は $\|\eta X_i\|=\eta$、模型Bは0でともに上界 $\eta$ を満たす。[円周の最近点とreach](../MFL3/index.md#prop-mfl3-circle-reach)から模型Aのreachは1。
+1. [半径 $R$ の円周の弧長要素](../MFL1/index.md#def-mfl1-01-clean-sample)は $R\,d\theta$、一様角度密度は $1/(2\pi)$ なので弧長密度は $1/(2\pi R)>0$。模型Aは $1/(2\pi)$、模型Bは $1/(2\pi(1+\eta))$。模型Aのノイズ長は $\|\eta X_i\|=\eta$、模型Bは0でともに上界 $\eta$ を満たす。[円周の最近点とreach](../MFL3/index.md#prop-mfl3-circle-reach)から模型Aのreachは1。
 
 2. 同じ独立一様角度 $\Theta_i$ で $X_i=(\cos\Theta_i,\sin\Theta_i)$、$X'_i=(1+\eta)(\cos\Theta_i,\sin\Theta_i)$ と構成すると
 
