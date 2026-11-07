@@ -176,10 +176,17 @@ $$
 P(t)=(1-t,t)
 $$
 
-とします。$t\in(0,1)$ なら両成分は正で、和は $1$ です。各成分は $t$ の滑らかな関数なので、上の定義を満たします。ここでは $t$ は表が出る確率に当たります。
+とします。ここでは結果のラベルを $0,1$ とし、確率ベクトルの成分もこの順に並べています（一般の定義の $1,\ldots,m$ というラベルを付け替えただけです）。$t\in(0,1)$ なら両成分は正で、和は $1$ です。各成分は $t$ の滑らかな関数なので、上の定義を満たします。ここでは $t$ は表が出る確率に当たります。
 <!-- definition-example-end -->
 
-パラメータ空間のベクトル $u=(u^1,\ldots,u^d)$ は「$\theta$ を $\theta+tu$ へ動かす向き」を表します。その際の分布の速度は [滑らかな写像の微分](../../GEO/GEO2/index.md#def-geo2-differential) $dP_\theta(u)$ です。一方、以前学んだ対数確率の微分はスコアでした。多変数では各座標方向のスコアを並べます。
+以下、$\theta=(\theta^1,\ldots,\theta^d)$、$u=(u^1,\ldots,u^d)$ と書きます。$\partial_j=\partial/\partial\theta^j$ は、他のパラメータ成分を固定して $\theta^j$ だけを微分する記号です。方向 $u$ は、補助変数 $s$ で $\theta$ を $\theta+su$ へ動かす向きを表します。$s$ は各座標（Bernoulli 族の $t$ など）とは別の曲線変数です。[多変数の連鎖律](../../GEO/GEO2/index.md#thm-geo2-composition-differential)で
+
+$$
+\left.\frac{d}{ds}p_i(\theta+su)\right|_{s=0}
+=\sum_{j=1}^d u^j\frac{\partial p_i}{\partial\theta^j}(\theta)
+$$
+
+となります。この各成分をまとめた分布の速度が[滑らかな写像の微分](../../GEO/GEO2/index.md#def-geo2-differential) $dP_\theta(u)$ です。一方、以前学んだ対数確率の微分はスコアでした。多変数では各座標方向のスコアを並べます。
 
 <a id="def-ig1-directional-score"></a>
 <!-- formal-statement-start -->
@@ -200,7 +207,7 @@ S_u(i;\theta)
 =\sum_{j=1}^d u^j S_j(i;\theta)
 $$
 >
-> を座標スコアと **方向スコア**という。$\partial_j$ は $\theta^j$ に関する偏微分で、$S_u(X;\theta)$ は $X\sim P(\theta)$ に対する確率変数である。
+> を座標スコアと **方向スコア**という。$S_u(X;\theta)$ は $X\sim P(\theta)$ に対する確率変数である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig1-directional-score -->
@@ -412,7 +419,7 @@ $$
 =t(1-t).
 $$
 
-旧座標のスコアは $S_t(X)=(X-t)/[t(1-t)]$ でした。よって新座標のスコアは
+旧座標で結果 $0,1$ のスコアを一つの確率変数としてまとめると、$X=0$ と $X=1$ を代入してそれぞれ $-1/(1-t)$、$1/t$ になる $S_t(X)=(X-t)/[t(1-t)]$ です。よって新座標のスコアは
 
 $$
 S_\eta(X)
@@ -429,6 +436,14 @@ $$
 ここまでは $P$ が滑らかであることだけを仮定しました。しかし $P(\theta)$ が異なる $\theta$ で同じ分布を与えたり、ある方向で全く分布が動かなくなったりすると、パラメータの $d$ 次元をそのまま分布の次元とは呼べません。
 
 この区別には GEO3 の[はめ込み](../../GEO/GEO3/index.md#def-geo3-immersion-submersion)と[埋め込み](../../GEO/GEO3/index.md#def-geo3-embedding)を使います。有限正単体では、確率ベクトルの微分の階数を直接計算できます。
+
+なぜ行列で判定できるのでしょうか。パラメータ空間の標準基底 $e_j$（第 $j$ 成分だけが $1$）を動かすと、上の方向微分の式に $u=e_j$ を代入して
+
+$$
+dP_\theta(e_j)=(\partial_jp_1(\theta),\ldots,\partial_jp_m(\theta))
+$$
+
+を得ます。すなわち $m\times d$ 行列 $(\partial_jp_i)_{i,j}$ の第 $j$ 列は $dP_\theta(e_j)$ です。[微分の座標表示](../../GEO/GEO2/index.md#thm-geo2-differential-coordinate)と同じく、この列の一次独立性は、$dP_\theta$ が零でないパラメータ方向を零の接方向へ潰さないことと同値です。
 
 <a id="prop-ig1-immersion-criterion"></a>
 <!-- formal-statement-start -->
@@ -459,6 +474,8 @@ $$
 <!-- proof-end -->
 
 ### 単射であっても、はめ込みとは限らない
+
+以下の1変数の例では $P'(t)=dP(t)/dt=\partial_tP(t)$ と書き、パラメータ $t$ を動かした速度を表します。
 
 $\Theta=(-1,1)$、$X\in\{0,1\}$ とし、
 
@@ -688,13 +705,13 @@ $X\in\{0,1\}$ の Bernoulli モデルを $P_t(X=1)=t$、$P_t(X=0)=1-t$、$0<t<1$
 <!-- solution-start -->
 **詳細解答**
 
-1. $P(t)=(1-t,t)$ なので $\partial_tP=(-1,1)$ です。方向 $u=2$ を掛けて
+1. $P(t)=(1-t,t)$ なので、1変数の偏微分 $\partial_tP=dP/dt=(-1,1)$ です。方向 $u=2$ を掛けて
 
    $$
    v_{1/4,2}=(-2,2).
    $$
 
-   $S_u(i)=v_i/p_i$ として、$p_0=3/4$、$p_1=1/4$ を代入すると
+   [有限モデルのスコアと接速度の対応](#thm-ig1-finite-score-velocity)から $S_u(i)=v_i/p_i$ です。$p_0=3/4$、$p_1=1/4$ を代入すると
 
    $$
    S_u(0;1/4)=-\frac{2}{3/4}=-\frac83,
@@ -901,7 +918,7 @@ $0<t<1$ に対し3値確率分布 $P(t)=(t/2,t/2,1-t)$ を考える。
    =\frac12+\frac12-1=0.
    $$
 
-3. $P'(t)\ne0$ だから $dP_t$ は1次元空間から単体の接空間への単射で、はめ込みです。その像は
+3. $P'(t)\ne0$ だから[有限モデルの浸入性判定](#prop-ig1-immersion-criterion)により $dP_t$ は1次元空間から単体の接空間への単射で、はめ込みです。その像は
 
    $$
    \operatorname{im}dP_t
@@ -991,7 +1008,7 @@ $$
    =p_1p_2(1-p_1-p_2)=p_1p_2p_3>0.
    $$
 
-   $\Delta_2^\circ$ の座標 $(p_1,p_2)$ において微分は階数2です。[はめ込みの定義](../../GEO/GEO3/index.md#def-geo3-immersion-submersion)から全点ではめ込みとなります。
+   §1 で構成した $\Delta_2^\circ$ の座標 $q=(p_1,p_2)$ では、$p_3=1-p_1-p_2$ と決まります。従って $J$ はこの座標で表した写像 $(\alpha,\beta)\mapsto(p_1,p_2)$ の微分行列で、列は各パラメータ方向の接速度の最初の2成分です。上の行列式が非零なので、その2列は一次独立です。第三成分の速度は前2成分の和の負として決まり、全3成分の速度も一次独立です。よって[有限モデルの浸入性判定](#prop-ig1-immersion-criterion)（および[微分の座標表示](../../GEO/GEO2/index.md#thm-geo2-differential-coordinate)）から $P$ は全点ではめ込みとなります。
 4. 1で与えた逆写像は、全ての $p_i>0$ の上で比と対数を合成した滑らかな関数です。$P$ 自身も滑らかで、逆写像との合成はいずれも恒等写像です。したがって $P:\mathbb R^2\to\Delta_2^\circ$ は微分同相写像であり、単なる単射やはめ込みより強い結論が成り立ちます。
 <!-- solution-end -->
 
