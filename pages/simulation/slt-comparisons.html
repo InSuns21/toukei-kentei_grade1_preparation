@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SLT1・SLT2 比較実験：PAC・VC・高次元ridge・有限幅NTK</title>
+<style>
+:root{font-family:system-ui,"Noto Sans JP",sans-serif;color-scheme:light dark}
+body{max-width:1120px;margin:auto;padding:16px;line-height:1.7}
+h1{font-size:1.65rem}h2{font-size:1.27rem}h3{font-size:1.07rem}
+section{border:1px solid #8894a36b;border-radius:10px;padding:16px;margin:24px 0}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(124px,1fr));gap:10px}
+label{display:block;font-size:.94rem}
+.controls label{border:1px solid #8894a36b;border-radius:7px;padding:9px}
+input{display:block;width:100%;box-sizing:border-box;padding:7px;font-size:1rem;margin-top:5px}
+button{border:1px solid #47799d;border-radius:8px;padding:9px 16px;background:#dcedf8;color:#173c57;cursor:pointer;font-weight:600;margin:12px 10px 12px 0}
+button:focus-visible,input:focus-visible{outline:3px solid #ed912b}
+.note{background:#eaf4fc;color:#173c57;padding:10px 15px;border-radius:7px}
+.warn{background:#fff0d7;color:#6c4100;padding:10px 15px;border-radius:7px}
+.status{min-height:1.4em}.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:8px;text-align:right;border-bottom:1px solid #8894a366;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}th{background:#778ba120}
+svg{width:100%;height:auto;border:1px solid #8894a366;border-radius:8px;background:#fff}
+.legend{font-size:.91rem}.legend .sample{display:inline-block;width:24px;border-top:3px solid #245b9b;margin:0 6px 3px 16px}
+.legend .second{border-color:#b46717;border-top-style:dashed}
+.sr{position:absolute;left:-9999px}
+@media(max-width:600px){body{padding:10px}section{padding:10px}th,td{font-size:.8rem;padding:5px}}
+</style>
+</head>
+<body>
+<nav><a href="./index.html">← 実験一覧</a> ・ <a href="../index.html#/textbook/dream-theater-standard-math-core">教科書目次</a></nav>
+<h1>SLT1・SLT2：４つの再現可能な比較実験</h1>
+<p>入力を変更して再計算できます。各数値は<strong>有限の具体模型</strong>に対する実験であり、グラフが曲がったから定理が証明されるわけではありません。Monte Carlo の区間は独立反復の平均 ± 1.96 標準誤差（正規近似、厳密な有限標本信頼区間ではありません）、割合のみ Wilson 95% 区間です。<strong>理論上の確率保証と反復で測った割合は別物</strong>として表示します。</p>
+<p class="note">すべてブラウザ内で計算します。乱数は固定seedを持つ xorshift32 ＋ Box–Muller 法です。JSON保存には生成式・train/test の定義・損失・反復数・seed・仮定・区間を含みます。実行結果は外部へ送信されません。</p>
+<button id="download" type="button" disabled>実行済み４実験のJSONを保存</button>
+<p id="download-status" role="status" aria-live="polite"></p>
+
+<section aria-labelledby="finite-title">
+<h2 id="finite-title">1. 有限仮説集合：標本数・候補数・δ と一様偏差</h2>
+<p>入力は {0,…,7} 一様、真のラベルは <code>1{x mod 3=0}</code>、独立確率 ε で反転します。仮説は8ビット真理値表の先頭 M 個。0–1損失の一様Hoeffding/union bound <code>r=sqrt(log(2M/δ)/(2n))</code> と、実測した最大偏差・ERM超過リスクを比較します。母集団リスクは全8点の厳密な平均です。</p>
+<form id="finite-form" class="experiment">
+<div class="controls">
+<label>学習標本 n<input name="n" type="number" min="1" max="3000" step="1" value="32" required></label>
+<label>候補 |H| = M<input name="classSize" type="number" min="1" max="256" step="1" value="32" required></label>
+<label>δ（0 &lt; δ ≤ 1）<input name="delta" type="number" min="0.000001" max="1" step="any" value="0.05" required></label>
+<label>ラベル反転 ε<input name="noise" type="number" min="0" max="0.49" step="any" value="0.1" required></label>
+<label>独立反復<input name="repeats" type="number" min="2" max="1000" step="1" value="100" required></label>
+<label>乱数seed<input name="seed" type="number" min="0" max="4294967295" step="1" value="42" required></label>
+</div><button type="submit">有限クラスを再計算</button></form>
+<p id="finite-status" class="status" role="status" aria-live="polite"></p>
+<div id="finite-output" class="table-wrap"></div>
+<p class="warn">比較対象は「各反復の最大偏差が半径 r 以下か」です。ERMの単独リスクを理論半径と同一視しません。95%区間は<strong>シミュレーションcoverage</strong>の推定誤差です。</p>
+<p><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/SLT/SLT1-02/index">SLT1-02 本文</a>（有限クラスPAC）</p>
+</section>
+
+<section aria-labelledby="vc-title">
+<h2 id="vc-title">2. VC次元と過適合：学習誤差ゼロでも母集団誤差は残る</h2>
+<p>D 個の入力点に対し仮説はすべての2値関数（VC次元 D）。真のラベルは常に1、観測点では1、未観測点では0とする<strong>ERMの一つのタイブレーク</strong>を実装します。訓練誤差は0ですが、未観測点で誤り、期待母集団リスクは <code>(1−1/D)^n</code>。全点で1と予測する別のERMならリスク0なので「すべてのERMが失敗」とは主張しません。</p>
+<form id="vc-form" class="experiment"><div class="controls">
+<label>学習標本 n<input name="n" type="number" min="1" max="5000" step="1" value="16" required></label>
+<label>入力点数 D = VC次元<input name="domainSize" type="number" min="2" max="2000" step="1" value="32" required></label>
+<label>独立テスト点数/回<input name="testSize" type="number" min="1" max="10000" step="1" value="128" required></label>
+<label>独立反復<input name="repeats" type="number" min="2" max="1000" step="1" value="100" required></label>
+<label>乱数seed<input name="seed" type="number" min="0" max="4294967295" step="1" value="42" required></label>
+</div><button type="submit">VC模型を再計算</button></form>
+<p id="vc-status" class="status" role="status" aria-live="polite"></p>
+<div id="vc-output" class="table-wrap"></div>
+<p><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/SLT/SLT1-05/index">SLT1-05 本文</a>（VCの一様収束と反例）</p>
+</section>
+
+<section aria-labelledby="ridge-title">
+<h2 id="ridge-title">3. 高次元ridge・最小ノルム：p/n・雑音・共分散スペクトル</h2>
+<p>n行p列のGaussian設計 X、対角共分散固有値 <code>s_j=1/(1+decay·j/10)</code>（j=0,…,p−1）。真の係数の先頭5個は <code>1/√5</code>、残りは0。独立雑音標準偏差 σ の下、<code>||Xβ−y||²/n + λ||β||²</code> を解きます。λ=0 は p≤n でOLS、p&gt;n で最小ノルム補間。テストMSEは新しい独立Gaussian観測に対する<strong>条件付き期待値</strong> <code>σ² + Σ_j s_j(β̂_j−β*_j)²</code> で、有限のtest sampleによるノイズではありません。</p>
+<form id="ridge-form" class="experiment"><div class="controls">
+<label>学習標本 n<input name="n" type="number" min="12" max="70" step="1" value="30" required></label>
+<label>出力雑音 σ<input name="noise" type="number" min="0" max="3" step="any" value="0.5" required></label>
+<label>ridge λ<input name="lambda" type="number" min="0" max="5" step="any" value="0" required></label>
+<label>固有値減衰 decay<input name="spectrumDecay" type="number" min="0" max="10" step="any" value="0" required></label>
+<label>独立反復<input name="repeats" type="number" min="2" max="100" step="1" value="12" required></label>
+<label>乱数seed<input name="seed" type="number" min="0" max="4294967295" step="1" value="42" required></label>
+</div><button type="submit">p/n 掃引を再計算</button></form>
+<p id="ridge-status" class="status" role="status" aria-live="polite"></p>
+<p class="legend"><span class="sample"></span>学習MSE（実線）<span class="sample second"></span>母集団テストMSE（破線）／縦棒は平均±1.96SE</p>
+<svg id="ridge-plot" viewBox="0 0 850 350" role="img" aria-label="p/nに対する学習MSEと母集団テストMSEの比較。数値は直下の表にも記載"></svg>
+<div id="ridge-output" class="table-wrap"></div>
+<p class="warn">p≈n, λ=0 付近の爆発は模型・有限標本で起こり得ますが、どんな共分散でもdouble descentすると一般化はできません。Gram行列が数値的に不安定な反復は <code>NUMERICAL_UNRESOLVED</code> とし、黙って除外しません。</p>
+<p><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/SLT/SLT2-04/index">SLT2-04 本文</a>（ridge）・<a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/SLT/SLT2-06/index">SLT2-06 本文</a>（過剰パラメータ）</p>
+</section>
+
+<section aria-labelledby="ntk-title">
+<h2 id="ntk-title">4. 有限幅2層tanh網：初期NTKのdriftと線形化残差</h2>
+<p><code>f_m(x)=Σ_j a_j tanh(w_j x+b_j)/√m</code>、初期 a,w,b は独立標準正規。9個の固定学習入力に <code>sin(πx)</code> を回帰し、損失は <code>Σ_i(f(x_i)−y_i)²/(2n)</code>。全パラメータ同時のfull-batch GDを step η で T 回行い、初期JacobianのGram核 K₀ を固定した離散更新も<strong>同じ初期予測</strong>から比較。幅 m,2m,4m を表示します。</p>
+<form id="ntk-form" class="experiment"><div class="controls">
+<label>基本幅 m<input name="width" type="number" min="4" max="128" step="1" value="16" required></label>
+<label>学習率 step η<input name="step" type="number" min="0" max="5" step="any" value="0.1" required></label>
+<label>更新回数 T<input name="iterations" type="number" min="0" max="200" step="1" value="30" required></label>
+<label>独立反復<input name="repeats" type="number" min="2" max="20" step="1" value="5" required></label>
+<label>乱数seed<input name="seed" type="number" min="0" max="4294967295" step="1" value="42" required></label>
+</div><button type="submit">幅・NTK drift を再計算</button></form>
+<p id="ntk-status" class="status" role="status" aria-live="polite"></p>
+<p class="legend"><span class="sample"></span>相対 NTK drift（実線）<span class="sample second"></span>非線形対固定核の予測RMSE（破線）／縦棒は平均±1.96SE</p>
+<svg id="ntk-plot" viewBox="0 0 850 350" role="img" aria-label="幅に対するNTK核ドリフトと固定核線形化残差。数値は直下の表にも記載"></svg>
+<div id="ntk-output" class="table-wrap"></div>
+<p class="warn">この実験は有限幅・有限step・有限時間です。幅だけでなくstep/時間に依存し、幅が広いほどいつでも小さいという単調性は保証されません。テストは学習9点と重ならない固定24点です。<code>T=0</code> のとき両差分は0になります。</p>
+<p><a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/SLT/SLT2-10/index">SLT2-10 本文</a>（NTK模型）・<a href="../index.html#/textbook/volumes/dream_thater/%E5%BF%9C%E7%94%A8%E7%B3%BB/SLT/SLT2-11/index">SLT2-11 本文</a>（条件と限界）</p>
+</section>
+
+<p>監査・再現記録：<a href="./README.md">実験仕様</a>。対応する理論の証明・仮定は各章の本文で確認してください。これらの実験結果を無限幅極限や一般の分布に無条件で外挿しないでください。</p>
+<script type="module">
+import { finiteClassExperiment, vcOverfitExperiment, ridgeSweepExperiment, ntkSweepExperiment }
+  from './slt-comparisons-model.mjs';
+
+const $ = id => document.getElementById(id);
+const ns = 'http://www.w3.org/2000/svg';
+const computed = {};
+function formSettings(form) {
+  if (!form.reportValidity()) throw new Error('入力が許容範囲外です。');
+  return Object.fromEntries([...new FormData(form)].map(([name, value]) => [name, Number(value)]));
+}
+function number(value) { return Number.isFinite(value) ? value.toPrecision(5) : String(value); }
+function interval(summary) {
+  return summary ? `${number(summary.mean)} [${number(summary.low)}, ${number(summary.high)}]` : 'NUMERICAL_UNRESOLVED';
+}
+function table(headers, rows) {
+  const wrapper = document.createElement('table');
+  const thead = document.createElement('thead'), tr = document.createElement('tr');
+  for (const title of headers) {
+    const th = document.createElement('th'); th.scope = 'col'; th.textContent = title; tr.append(th);
+  }
+  thead.append(tr); wrapper.append(thead);
+  const tbody = document.createElement('tbody');
+  for (const data of rows) {
+    const row = document.createElement('tr');
+    for (const value of data) { const td = document.createElement('td'); td.textContent = String(value); row.append(td); }
+    tbody.append(row);
+  }
+  wrapper.append(tbody);
+  return wrapper;
+}
+function element(tag, properties, value) {
+  const node = document.createElementNS(ns, tag);
+  for (const [key, content] of Object.entries(properties)) node.setAttribute(key, String(content));
+  if (value !== undefined) node.textContent = String(value);
+  return node;
+}
+function chart(id, data, first, second) {
+  const svg = $(id); svg.replaceChildren();
+  const valid = data.filter(row => row[first] && row[second]);
+  if (!valid.length) { svg.append(element('text',{ x:28,y:45,fill:'#273744' },'No numerically resolved points')); return; }
+  const left=85,right=810,top=30,bottom=290;
+  const minimum = Math.min(...valid.map(row => row.x));
+  const maximum = Math.max(...valid.map(row => row.x));
+  const lower = Math.min(0,...valid.flatMap(row => [row[first].low,row[second].low]));
+  const upper = Math.max(0.01,...valid.flatMap(row => [row[first].high,row[second].high]));
+  const x = value => left + (value-minimum)/(maximum-minimum || 1)*(right-left);
+  const y = value => bottom-(value-lower)/(upper-lower)*(bottom-top);
+  for (let tick=0;tick<=4;tick++) {
+    const value=lower+(upper-lower)*tick/4, yy=y(value);
+    svg.append(element('line',{x1:left,x2:right,y1:yy,y2:yy,stroke:'#d9dfe7'}));
+    svg.append(element('text',{x:left-12,y:yy+4,'text-anchor':'end',fill:'#334', 'font-size':13},number(value)));
+  }
+  svg.append(element('line',{x1:left,x2:left,y1:top,y2:bottom,stroke:'#334'}));
+  svg.append(element('line',{x1:left,x2:right,y1:bottom,y2:bottom,stroke:'#334'}));
+  for (const row of data) {
+    svg.append(element('text',{x:x(row.x),y:bottom+22,'text-anchor':'middle',fill:'#334','font-size':13},number(row.x)));
+  }
+  for (const [key,color,dash] of [[first,'#245b9b',''],[second,'#b46717','7 5']]) {
+    let segment = [];
+    const addSegment = () => {
+      if (segment.length) svg.append(element('polyline',{
+        points:segment.map(row => `${x(row.x)},${y(row[key].mean)}`).join(' '),
+        fill:'none',stroke:color,'stroke-width':3,'stroke-dasharray':dash
+      }));
+      segment=[];
+    };
+    for (const row of data) {
+      if (row[key]) segment.push(row);
+      else addSegment(); // Do not interpolate through numerically unresolved cases.
+    }
+    addSegment();
+    for (const row of valid) {
+      const xx=x(row.x), summary=row[key];
+      svg.append(element('line',{x1:xx,x2:xx,y1:y(summary.low),y2:y(summary.high),stroke:color,'stroke-width':2}));
+      for (const bound of [summary.low,summary.high]) svg.append(element('line',{x1:xx-5,x2:xx+5,y1:y(bound),y2:y(bound),stroke:color,'stroke-width':2}));
+      svg.append(element('circle',{cx:xx,cy:y(summary.mean),r:5,fill:color,stroke:'#fff','stroke-width':2}));
+    }
+  }
+  svg.append(element('text',{x:(left+right)/2,y:bottom+45,'text-anchor':'middle',fill:'#334','font-size':15},id==='ridge-plot'?'p / n':'幅 m'));
+}
+function present(id, result) {
+  const target = $(`${id}-output`);
+  if (id === 'finite') {
+    const { bound, observed } = result;
+    target.replaceChildren(table(['比較量','値（反復平均と区間）'],[
+      ['理論上の一様偏差半径 r',number(bound.radius)],
+      ['理論上のcoverage下限 1−δ',number(bound.guaranteedCoverage)],
+      ['実測 P(max偏差 ≤ r) / Wilson区間',interval(observed.coverage)],
+      ['実測 max_h |Rhat−R|',interval(observed.maxDeviation)],
+      ['ERMの母集団−訓練リスク',interval(observed.ermGeneralizationGap)],
+      ['ERM超過リスク R(ERM)−min_h R(h)',interval(observed.ermExcessRisk)]
+    ]));
+  } else if (id === 'vc') {
+    target.replaceChildren(table(['比較量','値（反復平均と区間）'],[
+      ['memorizing ERM の学習0–1損失',number(result.observed.trainError)],
+      ['理論 E_S[R(h_S)] = (1−1/D)^n',number(result.theoreticalExpectedRisk)],
+      ['実測 厳密母集団リスク',interval(result.observed.populationRisk)],
+      ['実測 独立test点での0–1損失',interval(result.observed.holdoutTestError)],
+      ['全点1とする別ERMの母集団リスク',number(result.observed.alwaysOnePopulationRisk)]
+    ]));
+  } else if (id === 'ridge') {
+    const rows = result.rows;
+    target.replaceChildren(table(['p / n','p','学習MSE：mean [95%近似区間]','母集団テストMSE：mean [95%近似区間]','計算状態'],
+      rows.map(row => [number(row.ratio),row.p,interval(row.trainingMSE),interval(row.populationTestMSE),row.status])));
+    chart('ridge-plot',rows.map(row => ({...row,x:row.ratio})),'trainingMSE','populationTestMSE');
+  } else if (id === 'ntk') {
+    const rows = result.rows;
+    target.replaceChildren(table(['幅 m','NTK相対drift','予測の固定核差RMSE','学習MSE','test MSE','固定核test MSE','計算状態'],
+      rows.map(row => [row.width,interval(row.drift),interval(row.linearizationRMSE),
+        interval(row.trainMSE),interval(row.testMSE),interval(row.frozenKernelTestMSE),row.status])));
+    chart('ntk-plot',rows.map(row => ({...row,x:row.width})),'drift','linearizationRMSE');
+  }
+}
+const implementations={finite:finiteClassExperiment,vc:vcOverfitExperiment,ridge:ridgeSweepExperiment,ntk:ntkSweepExperiment};
+for (const [id,run] of Object.entries(implementations)) {
+  const form=$(`${id}-form`);
+  const execute = () => {
+    const status=$(`${id}-status`);
+    try {
+      status.textContent='計算中…';
+      const settings=formSettings(form);
+      const result=run(settings);
+      computed[id]=result;
+      present(id,result);
+      const unresolved=result.rows?.filter(row=>row.status!=='ok').length||0;
+      status.textContent=`計算完了。seed=${settings.seed}、反復=${settings.repeats}。${unresolved?`数値未解決 ${unresolved} 条件（表を確認）。`:''}`;
+      $('download').disabled=Object.keys(computed).length!==4;
+    } catch (error) {
+      delete computed[id]; $('download').disabled=true;
+      status.textContent=`入力・数値計算エラー: ${error.message}`;
+    }
+  };
+  form.addEventListener('submit',event=>{event.preventDefault();execute();});
+  form.addEventListener('input',()=>{
+    delete computed[id]; $('download').disabled=true;
+    $(`${id}-status`).textContent='入力変更あり。再計算ボタンを押してください。';
+  });
+  execute();
+}
+$('download').addEventListener('click',()=>{
+  if (Object.keys(computed).length!==4) return;
+  const payload={schema:'SLT-comparison-experiments-v1',generatedAt:new Date().toISOString(),
+    monteCarloIntervals:'mean +/-1.96*sample SE (approximate); coverage uses Wilson 95% interval',
+    experiments:computed};
+  const blob=new Blob([JSON.stringify(payload,null,2)+'\n'],{type:'application/json;charset=utf-8'});
+  const link=document.createElement('a'),url=URL.createObjectURL(blob);
+  link.href=url;link.download='slt-comparison-results.json';document.body.append(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  $('download-status').textContent='4実験の再現条件・結果をJSONで保存しました。';
+});
+</script>
+</body>
+</html>
