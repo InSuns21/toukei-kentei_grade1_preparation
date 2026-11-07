@@ -1,0 +1,44 @@
+id: "ITD14"
+title: "位置依存拡散の熱力学：雑音誘起ドリフト・経路反転・散逸"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD12
+  - ITD13
+  - STO10
+official_scope: []
+learning_objectives:
+  - 温度一定の位置依存移動度に対するItô形・Stratonovich形と雑音誘起ドリフトを変換できる
+  - 円周上の確率流と平衡密度を導出し、誤ったドリフトを採用した場合の定常分布との差を検算できる
+  - 外力と時間依存ポテンシャルの仕事・浴熱を第一法則で照合できる
+  - 可逆基準拡散のGirsanov作用を計算し、時間反転経路の密度比を導出できる
+  - 積分型ゆらぎ関係と平均エントロピー生成の確率流平方公式を証明できる
+  - 最終平衡から始める逆実験を用い、Jarzynski等式と非平衡終端の補正を説明できる
+definitions:
+  - { id: ITD14-DEF-01, name: 位置依存移動度を持つ等温円周拡散 }
+  - { id: ITD14-DEF-02, name: 位置依存拡散における仕事と浴熱 }
+  - { id: ITD14-DEF-03, name: 位置依存拡散の逆実験と全エントロピー生成 }
+theorems:
+  - { id: ITD14-THM-01, name: 確率流と平衡密度 }
+  - { id: ITD14-THM-02, name: 位置依存拡散の軌道第一法則 }
+  - { id: ITD14-THM-03, name: 可逆基準過程の作用と経路確率比 }
+  - { id: ITD14-THM-04, name: ゆらぎ関係と散逸平方公式 }
+  - { id: ITD14-THM-05, name: 平衡初期のJarzynski等式 }
+canonical_examples:
+  - 余弦状の位置依存拡散と一様平衡
+  - ドリフト補正を落とした模型の逆拡散係数型定常密度
+  - 一定外力での一周仕事と正の定常散逸
+problem_patterns:
+  - ITD14-ITO-STRATONOVICH-DRIFT
+  - ITD14-GIBBS-FLUX
+  - ITD14-FIRST-LAW
+  - ITD14-RELAXATION-ENTROPY
+  - ITD14-SPURIOUS-STATIONARY-LAW
+  - ITD14-GIRSANOV-ACTION
+  - ITD14-STEADY-CURRENT
+  - ITD14-REVERSE-ENDPOINT
+  - ITD14-PROTOCOL-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 5 }
