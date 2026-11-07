@@ -97,7 +97,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p=0$ なら $\mathbb R^0$ の点は一つだけであり、$\Delta=B=0$、$Y$ は $n\times0$ 行列だから $YY^{\mathsf T}=0$ で成立する。以下は $p\ge1$ とする。
+$p=0$ なら $\mathbb R^0$ の点は一つだけで、$Y$ は $n\times0$ 行列となる。このとき全距離が零だから
+
+$$
+\Delta=0,\qquad B=0=YY^{\mathsf T}.
+$$
+
+よって命題は成立する。以下は $p\ge1$ とする。
 
 $X$ の第 $i$ 行を $x_i^{\mathsf T}$ と置き、$K=XX^{\mathsf T}$、$s_i=\|x_i\|^2$ とする。内積展開から
 
@@ -118,7 +124,14 @@ J\boldsymbol1s^{\mathsf T}J-2JKJ)\\
 \end{aligned}
 $$
 
-$JX$ の第 $i$ 行は $x_i^{\mathsf T}-n^{-1}\sum_jx_j^{\mathsf T}$ だから確かに $Y$ である。$B=YY^{\mathsf T}$ は正半定値、$Y^{\mathsf T}\boldsymbol1=0$ から $B\boldsymbol1=0$。$u^{\mathsf T}Bu=\|Y^{\mathsf T}u\|^2$ から $\ker B=\ker Y^{\mathsf T}$、従って階数・零化次数定理より $\operatorname{rank}B=\operatorname{rank}Y$。$Y$ の列は $\boldsymbol1^\perp$ に属するので $\operatorname{rank}B\le\min\{p,n-1\}$。$\square$
+$JX$ の第 $i$ 行は $x_i^{\mathsf T}-n^{-1}\sum_jx_j^{\mathsf T}$ だから確かに $Y$ である。$B=YY^{\mathsf T}$ は正半定値、$Y^{\mathsf T}\boldsymbol1=0$ から $B\boldsymbol1=0$。任意の $u\in\mathbb R^n$ について $u^{\mathsf T}Bu=\|Y^{\mathsf T}u\|^2$ である。$Bu=0$ なら $Y^{\mathsf T}u=0$、逆に $Y^{\mathsf T}u=0$ なら $Bu=Y(Y^{\mathsf T}u)=0$ なので
+
+$$
+\ker B=\ker Y^{\mathsf T},\qquad
+\operatorname{rank}B=\operatorname{rank}Y.
+$$
+
+後者は階数・零化次数定理による。$Y$ の列は $\boldsymbol1^\perp$ に属するので $\operatorname{rank}B\le\min\{p,n-1\}$。$\square$
 <!-- proof-end -->
 
 距離が持つのは点群の相対配置の情報である。座標の各列を中心化した後の Gram 行列までは、距離から一意に得られる。
