@@ -4,7 +4,11 @@
 
 本章の問いは、**測定で得た情報はどの条件で仕事の上限を増やし、どの部分をまだ帳簿に入れていないのか**です。確率的な測定、結果別の操作、経路の逆向き実験を一つずつ作り、情報付き第二法則を有限和から導きます。ここで扱う仕事は**系への制御操作の仕事**であり、センサーや記憶の準備・消去の仕事を最初から含んだものではありません。
 
-空でない有限集合 $X$ を系の状態、$Y$ を有限集合として測定結果とします。温度 $T>0$ の単一熱浴、$k_{\mathrm B}>0$、$\beta=(k_{\mathrm B}T)^{-1}$、有限なエネルギー $E(x,\lambda)$ を用います。自然対数 $\log$ による情報量は nat、bit 単位への換算は $I_{\mathrm{nat}}=(\ln2)I_2$ です。[SM3の正準分布](../../SM/SM3/index.md#def-sm3-canonical)を $\pi_\lambda$、平衡自由エネルギーを $F_{\mathrm{eq}}(\lambda)$ と書きます。外部が系にした仕事 $W$ は正、取り出した仕事は $W_{\mathrm{ext}}=-W$ です。浴から系へ入る熱 $Q$ は正で、[ITD1の軌道第一法則](../ITD1/index.md#thm-itd1-first-law)は $\Delta E=W+Q$ です。
+空でない有限集合 $X$ を系の状態、$Y$ を有限集合として測定結果とします。温度 $T>0$ の単一熱浴、$k_{\mathrm B}>0$、$\beta=(k_{\mathrm B}T)^{-1}$、有限なエネルギー $E(x,\lambda)$ を用います。
+
+自然対数 $\log$ による情報量は nat、bit 単位への換算は $I_{\mathrm{nat}}=(\ln2)I_2$ です。[SM3の正準分布](../../SM/SM3/index.md#def-sm3-canonical)を $\pi_\lambda$、平衡自由エネルギーを $F_{\mathrm{eq}}(\lambda)$ と書きます。
+
+外部が系にした仕事 $W$ は正、取り出した仕事は $W_{\mathrm{ext}}=-W$ です。浴から系へ入る熱 $Q$ は正で、[ITD1の軌道第一法則](../ITD1/index.md#thm-itd1-first-law)は $\Delta E=W+Q$ です。
 
 ## 1. 測定結果は状態そのものではない
 
@@ -123,7 +127,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（結果依存フィードバック実験）**  
-> 空でない有限集合 $X,Y$、有限な $E(x,\lambda)$、$T>0$ を取る。最初の制御値 $\lambda_0$ で測定前の分布を $p_0$ とし、状態を変えない[測定チャネル](#def-itd4-measurement) $M$ から結果 $y$ を得る。$q(y)>0$ の結果ごとに、共通の始点 $\lambda_0$ から終点 $\lambda_f$ まで、$n\ge1$ 回のquenchと接触を選ぶ。段階 $j$ の核 $K_j^y$ は行和1、正の遷移の双方向支持、温度 $T$ における[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を満たす。軌道 $\gamma=(x_0,\ldots,x_n)$ の結合確率を
+> 空でない有限集合 $X,Y$、有限な $E(x,\lambda)$、$T>0$ を取る。
+> 最初の制御値 $\lambda_0$ で測定前の分布を $p_0$ とし、状態を変えない[測定チャネル](#def-itd4-measurement) $M$ から結果 $y$ を得る。
+>
+> $q(y)>0$ の結果ごとに、共通の始点 $\lambda_0$ から終点 $\lambda_f$ まで、$n\ge1$ 回のquenchと接触を選ぶ。
+> 段階 $j$ の核 $K_j^y$ は行和1、正の遷移の双方向支持、温度 $T$ における[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を満たす。
+> 軌道 $\gamma=(x_0,\ldots,x_n)$ の結合確率を
 
 $$
 P(\gamma,y)=p_0(x_0)M(y\mid x_0)
