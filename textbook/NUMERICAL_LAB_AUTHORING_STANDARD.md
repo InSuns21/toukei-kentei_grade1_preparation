@@ -224,3 +224,28 @@ Pages validation では少なくとも次を blocking にする。
 - theory / lab stable anchor と experiment ID が台帳と一致すること
 
 CI green だけを教育品質の十分条件にしない。レビューでは「空欄が learning objective の核心操作に置かれているか」「各局所ヒントが答えを漏らさず出題意図を示しているか」「模範解答を読めば計算を再現できるか」も確認する。
+
+---
+
+## 9. 既存 Python ファイルのブラウザ再現実験
+
+MFL5・MFL7–MFL13 のように、独立した検算済み Python スクリプトが先にある章では、`python-file-lab` を使って**元ファイルそのもの**をブラウザ内で実行する。これは上記の NUMLAB1–NUMLAB5 の穴埋め課題とは別の、完成済み実験の再現UIである。NUMLAB の `exercise` mode 必須条件を変更しない。
+
+~~~text
+```python-file-lab
+# lab-id: MFL9-ISOMAP-FILE
+# lab-title: Isomap・半径と埋め込み
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL9/isomap_lab.py
+# lab-dependency: textbook/volumes/dream_thater/応用系/MFL/MFL8/classical_mds_lab.py
+# timeout-ms: 15000
+# lab-preset: 円弧・近傍半径0.5 | --case arc --radius 0.5 --dim 2
+# lab-preset: U字・shortcut | --case u --radius 1.1 --dim 2
+```
+~~~
+
+- `lab-file` は公開する `.py` のリポジトリルート相対パス、`lab-dependency` は必要なローカル import のファイルパスで、複数行を記述できる。`../` や外部 URL は指定しない。
+- `lab-preset` は表示名と引数を `|` で区切る。読者はプリセット選択後、引数欄を自由に調整できる。shell は起動せず、引数は `sys.argv` として渡される。
+- `lab-id` はページをまたいで一意にする。`timeout-ms` は 250–60000 とし、無限ループ等は Worker を停止して回復できるようにする。
+- 本文には「何を変えると何が分かるか」を記載する。CLI の例はローカル実行用として残してよいが、読者がブラウザで結果を確認できることを先に示す。
+- 元の `.py` とテストを正本とし、Markdown へ同じ実装をコピーしない。Pages build の `validate-python-file-labs.mjs` は全プリセットを Python で実行し、ファイルの存在・依存ファイル・メタデータを確認する。
+- 出力が JSON の場合、点群・辺・復元座標等の既知フィールドは描画される。それ以外は標準出力のまま表示する。図の有無で数値的正しさを判定しない。

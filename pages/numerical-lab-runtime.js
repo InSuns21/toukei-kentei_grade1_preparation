@@ -241,6 +241,94 @@
     };
   }
 
+  function isSafePythonFile(path) {
+    return typeof path === "string" && path.startsWith("textbook/") &&
+      path.endsWith(".py") && !path.split("/").some((part) => !part || part === "." || part === "..") &&
+      !/[?#\\]/.test(path);
+  }
+
+  // A file lab refers to the *published original* .py, never a Markdown copy.
+  function parseFileLab(raw, index) {
+    const metadata = {};
+    const dependencies = [];
+    const presets = [];
+    for (const line of String(raw || "").trim().split("\n")) {
+      const match = line.trim().match(/^#\s*([a-z-]+):\s*(.*?)\s*$/);
+      if (!match) throw new Error("Python file lab contains an unsupported line: " + line);
+      const [, name, value] = match;
+      if (name === "lab-id") metadata.id = value;
+      else if (name === "lab-title") metadata.title = value;
+      else if (name === "lab-file") metadata.file = value;
+      else if (name === "lab-dependency") dependencies.push(value);
+      else if (name === "timeout-ms") metadata.timeoutMs = Number(value);
+      else if (name === "lab-preset") {
+        const separator = value.indexOf("|");
+        if (separator < 1) throw new Error("Python file lab preset needs a name and arguments");
+        presets.push({ name: value.slice(0, separator).trim(), args: value.slice(separator + 1).trim() });
+      } else throw new Error("Unknown Python file lab metadata: " + name);
+    }
+    if (!isSafePythonFile(metadata.file) || dependencies.some((file) => !isSafePythonFile(file)) ||
+      !presets.length || !metadata.id || !metadata.title ||
+      !(metadata.timeoutMs >= 250 && metadata.timeoutMs <= MAX_TIMEOUT_MS)) {
+      throw new Error("Invalid Python file lab metadata: " + (metadata.id || index));
+    }
+    return {
+      id: metadata.id,
+      title: metadata.title,
+      file: metadata.file,
+      files: [metadata.file, ...dependencies],
+      presets,
+      timeoutMs: metadata.timeoutMs,
+      mode: "file",
+      code: presets[0].args,
+      sourceHash: fnv1a(raw),
+    };
+  }
+
+  // Shell-like quoting for *arguments only*. No shell or subprocess is involved.
+  function parseArguments(source) {
+    const result = [];
+    let token = "";
+    let started = false;
+    let quote = null;
+    let escaping = false;
+    for (const char of String(source || "")) {
+      if (escaping) {
+        token += char;
+        escaping = false;
+        continue;
+      }
+      if (char === "\\" && quote !== "'") {
+        escaping = true;
+        started = true;
+      } else if (quote) {
+        if (char === quote) quote = null;
+        else token += char;
+      } else if (char === '"' || char === "'") {
+        quote = char;
+        started = true;
+      } else if (/\s/.test(char)) {
+        if (started) result.push(token);
+        token = "";
+        started = false;
+      } else {
+        token += char;
+        started = true;
+      }
+    }
+    if (quote || escaping) throw new Error("引数の引用符またはエスケープが閉じられていません。");
+    if (started) result.push(token);
+    if (result.length > 40 || result.some((arg) => arg.length > 500)) {
+      throw new Error("引数が長すぎます。");
+    }
+    return result;
+  }
+
+  function fileUrl(path) {
+    if (!isSafePythonFile(path)) throw new Error("Invalid Python file path");
+    return new URL(path, scriptBase);
+  }
+
   function storageKey(id) {
     return STORAGE_PREFIX + id;
   }
@@ -334,6 +422,84 @@
       image.loading = "lazy";
       container.appendChild(image);
     });
+  }
+
+  function appendPointPlot(container, title, source, edges = []) {
+    if (!Array.isArray(source) || source.length < 2 || source.length > 500) return;
+    const points = source.map((point) => Array.isArray(point) ? point : [point]);
+    if (!points.every((point) => point.length >= 1 && point.length <= 2 &&
+      point.every((coordinate) => typeof coordinate === "number" && Number.isFinite(coordinate)))) return;
+
+    const svgNS = "http://www.w3.org/2000/svg";
+    const make = (tag, attributes = {}) => {
+      const element = document.createElementNS(svgNS, tag);
+      Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, String(value)));
+      return element;
+    };
+    const width = 430;
+    const height = 270;
+    const xs = points.map((point) => point[0]);
+    const ys = points.map((point) => point[1] ?? 0);
+    const minX = Math.min(...xs);
+    const maxX = Math.max(...xs);
+    const minY = Math.min(...ys);
+    const maxY = Math.max(...ys);
+    const spanX = Math.max(maxX - minX, 1e-9);
+    const spanY = Math.max(maxY - minY, 1e-9);
+    const scale = Math.min(350 / spanX, 205 / spanY);
+    const cx = (minX + maxX) / 2;
+    const cy = (minY + maxY) / 2;
+    const positions = points.map((point) => [
+      width / 2 + (point[0] - cx) * scale,
+      height / 2 - ((point[1] ?? 0) - cy) * scale,
+    ]);
+
+    const figure = document.createElement("figure");
+    figure.className = "numerical-file-plot";
+    const caption = document.createElement("figcaption");
+    caption.textContent = title;
+    const svg = make("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": title });
+    svg.appendChild(make("title")).textContent = title;
+    svg.appendChild(make("rect", { x: 0, y: 0, width, height, fill: "#f8fafc" }));
+    for (const edge of edges.slice(0, 1500)) {
+      const i = Array.isArray(edge) ? edge[0] : edge?.i;
+      const j = Array.isArray(edge) ? edge[1] : edge?.j;
+      if (!Number.isInteger(i) || !Number.isInteger(j) || !positions[i - 1] || !positions[j - 1]) continue;
+      svg.appendChild(make("line", {
+        x1: positions[i - 1][0], y1: positions[i - 1][1],
+        x2: positions[j - 1][0], y2: positions[j - 1][1],
+        stroke: "#94a3b8", "stroke-width": 1.5,
+      }));
+    }
+    positions.forEach(([x, y]) => {
+      svg.appendChild(make("circle", { cx: x, cy: y, r: 4, fill: "#2563eb", stroke: "#1e3a8a", "stroke-width": 0.8 }));
+    });
+    figure.append(caption, svg);
+    container.appendChild(figure);
+  }
+
+  function setFileVisuals(panel, outputText) {
+    const container = panel.querySelector(".numerical-lab-figures");
+    if (!container) return;
+    let result;
+    try {
+      result = JSON.parse(outputText);
+    } catch (_error) {
+      return; // Plain-text numerical scripts remain useful without a forced chart.
+    }
+    if (!result || Array.isArray(result) || typeof result !== "object") return;
+    if (result.points) {
+      if (result.radius_graph?.edges) {
+        appendPointPlot(container, "半径グラフ", result.points, result.radius_graph.edges);
+        appendPointPlot(container, "union kNN", result.points, result.union_knn?.edges);
+        appendPointPlot(container, "mutual kNN", result.points, result.mutual_knn?.edges);
+      } else {
+        appendPointPlot(container, "入力点群と近傍辺", result.points, result.edges);
+      }
+    }
+    if (result.coordinates) appendPointPlot(container, "復元座標", result.coordinates);
+    if (result.mds?.coordinates) appendPointPlot(container, "Isomap 埋め込み", result.mds.coordinates);
+    if (result.embedding_1d) appendPointPlot(container, "LLE 1次元埋め込み", result.embedding_1d);
   }
 
   function clearTimers(job) {
@@ -431,28 +597,16 @@
     activateLabTab(job.panel, "result");
     setOutput(job.panel, outputParts.filter(Boolean).join("\n") || "（標準出力なし）", false);
     setFigures(job.panel, result.figures || []);
+    if (job.lab.mode === "file") setFileVisuals(job.panel, result.stdout || "");
     saveProgress(job.lab, job.code, completed);
     resetCurrentJob();
   }
 
-  function runLab(panel, lab, tests) {
+  function launchJob(panel, lab, code, tests, prepareMessage) {
     if (currentJob) {
       setStatus(panel, "別のラボを実行中です", "busy");
       return;
     }
-
-    const textarea = panel.querySelector(".numerical-lab-editor");
-    const code = textarea ? textarea.value : lab.code;
-
-    if (lab.mode === "exercise" && /___/.test(code)) {
-      saveProgress(lab, code, false);
-      setStatus(panel, "穴埋め未完了", "error");
-      setOutput(panel, "穴埋め記号 ___ が残っています。すべて埋めてから実行してください。", true);
-      setFigures(panel, []);
-      activateLabTab(panel, "result");
-      return;
-    }
-
     saveProgress(lab, code, false);
     setOutput(panel, "", false);
     setFigures(panel, []);
@@ -479,7 +633,7 @@
       ? navigator.serviceWorker.ready.catch(() => null)
       : Promise.resolve(null);
 
-    serviceWorkerReady.then(() => {
+    Promise.all([serviceWorkerReady, prepareMessage()]).then(([, extra]) => {
       if (!currentJob || currentJob.jobId !== jobId) return;
       try {
         ensureWorker().postMessage({
@@ -487,10 +641,48 @@
           jobId,
           code,
           tests,
+          ...extra,
         });
       } catch (error) {
         finishWithInfrastructureError(error && error.stack ? error.stack : String(error));
       }
+    }).catch((error) => {
+      if (currentJob && currentJob.jobId === jobId) {
+        finishWithInfrastructureError(error && error.stack ? error.stack : String(error));
+      }
+    });
+  }
+
+  function runLab(panel, lab, tests) {
+    const textarea = panel.querySelector(".numerical-lab-editor");
+    const code = textarea ? textarea.value : lab.code;
+    if (lab.mode === "exercise" && /___/.test(code)) {
+      saveProgress(lab, code, false);
+      setStatus(panel, "穴埋め未完了", "error");
+      setOutput(panel, "穴埋め記号 ___ が残っています。すべて埋めてから実行してください。", true);
+      setFigures(panel, []);
+      activateLabTab(panel, "result");
+      return;
+    }
+    launchJob(panel, lab, code, tests, () => ({}));
+  }
+
+  function runFileLab(panel, lab, argumentText) {
+    let args;
+    try {
+      args = parseArguments(argumentText);
+    } catch (error) {
+      setStatus(panel, "引数エラー", "error");
+      setOutput(panel, error.message, true);
+      return;
+    }
+    launchJob(panel, lab, argumentText, "", async () => {
+      const files = await Promise.all(lab.files.map(async (path) => {
+        const response = await fetch(fileUrl(path), { credentials: "same-origin" });
+        if (!response.ok) throw new Error(path + " を取得できません (HTTP " + response.status + ")");
+        return { path, content: await response.text() };
+      }));
+      return { mode: "file", script: lab.file, files, args };
     });
   }
 
@@ -660,16 +852,121 @@
     activateLabTab(panel, "editor");
   }
 
+  function buildFilePanel(pre, lab) {
+    const panel = document.createElement("section");
+    panel.className = "numerical-lab numerical-file-lab";
+    panel.dataset.labId = lab.id;
+
+    const header = document.createElement("div");
+    header.className = "numerical-lab-header";
+    const title = document.createElement("strong");
+    title.textContent = lab.title;
+    const status = document.createElement("span");
+    status.className = "numerical-lab-status";
+    status.textContent = "未実行";
+    header.append(title, status);
+
+    const settings = document.createElement("div");
+    settings.className = "numerical-file-settings";
+    const presetLabel = document.createElement("label");
+    presetLabel.textContent = "実験条件のプリセット";
+    const preset = document.createElement("select");
+    preset.setAttribute("aria-label", lab.title + " のプリセット");
+    lab.presets.forEach((item, index) => {
+      const option = document.createElement("option");
+      option.value = String(index);
+      option.textContent = item.name;
+      preset.appendChild(option);
+    });
+    presetLabel.appendChild(preset);
+
+    const argsLabel = document.createElement("label");
+    argsLabel.textContent = "Python の引数（変更可能）";
+    const argsInput = document.createElement("input");
+    argsInput.type = "text";
+    argsInput.className = "numerical-file-args";
+    argsInput.setAttribute("aria-label", lab.title + " のコマンドライン引数");
+    const saved = loadProgress(lab);
+    argsInput.value = saved && typeof saved.code === "string" ? saved.code : lab.code;
+    argsLabel.appendChild(argsInput);
+    settings.append(presetLabel, argsLabel);
+    preset.addEventListener("change", () => {
+      argsInput.value = lab.presets[Number(preset.value)].args;
+      setStatus(panel, "未実行", "");
+    });
+
+    const controls = document.createElement("div");
+    controls.className = "numerical-lab-controls";
+    const runButton = document.createElement("button");
+    runButton.type = "button";
+    runButton.className = "numerical-lab-run";
+    runButton.textContent = "このページで実行";
+    runButton.addEventListener("click", () => runFileLab(panel, lab, argsInput.value));
+
+    const stopButton = document.createElement("button");
+    stopButton.type = "button";
+    stopButton.className = "numerical-lab-stop";
+    stopButton.textContent = "停止";
+    stopButton.addEventListener("click", () => stopLab(panel));
+
+    const resetButton = document.createElement("button");
+    resetButton.type = "button";
+    resetButton.className = "numerical-lab-reset";
+    resetButton.textContent = "初期条件に戻す";
+    resetButton.addEventListener("click", () => {
+      if (currentJob && currentJob.panel === panel) stopLab(panel);
+      preset.value = "0";
+      argsInput.value = lab.code;
+      clearProgress(lab);
+      setStatus(panel, "未実行", "");
+      setOutput(panel, "", false);
+      setFigures(panel, []);
+    });
+
+    const sourceLink = document.createElement("a");
+    sourceLink.href = fileUrl(lab.file).href;
+    sourceLink.textContent = "Python ソースを見る";
+    sourceLink.target = "_blank";
+    sourceLink.rel = "noopener noreferrer";
+    sourceLink.className = "numerical-file-source";
+
+    const timeout = document.createElement("span");
+    timeout.className = "numerical-lab-timeout";
+    timeout.textContent = "実行上限 " + lab.timeoutMs + " ms";
+    controls.append(runButton, stopButton, resetButton, sourceLink, timeout);
+
+    const output = document.createElement("pre");
+    output.className = "numerical-lab-output";
+    output.setAttribute("aria-live", "polite");
+    output.textContent = "プリセットを選んで実行してください。Python はブラウザ内で動作します。";
+    const figures = document.createElement("div");
+    figures.className = "numerical-lab-figures";
+
+    panel.append(header, settings, controls, output, figures);
+    pre.replaceWith(panel);
+  }
+
   function mountLabs(container) {
     if (!container) return;
     const blocks = [...container.querySelectorAll("pre")];
     let labIndex = 0;
 
     for (const pre of blocks) {
-      if (!pre.isConnected || languageOfPre(pre) !== "python-lab") continue;
+      if (!pre.isConnected) continue;
+      const language = languageOfPre(pre);
+      if (language !== "python-lab" && language !== "python-file-lab") continue;
 
       const codeNode = pre.querySelector("code");
       if (!codeNode) continue;
+
+      if (language === "python-file-lab") {
+        try {
+          buildFilePanel(pre, parseFileLab(codeNode.textContent, ++labIndex));
+        } catch (error) {
+          console.error("Python file lab could not be initialized:", error);
+        }
+        continue;
+      }
 
       labIndex += 1;
       const lab = parseSource(codeNode.textContent, labIndex);

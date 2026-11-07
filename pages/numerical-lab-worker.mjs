@@ -4,6 +4,13 @@ const PYODIDE_VERSION = "314.0.7";
 const PYODIDE_BASE_URL = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/`;
 
 let pyodidePromise = null;
+const FILE_LAB_ROOT = "/home/pyodide/toukei-file-labs";
+
+function safePythonPath(path) {
+  return typeof path === "string" && path.startsWith("textbook/") &&
+    path.endsWith(".py") && !path.split("/").some((part) => !part || part === "." || part === "..") &&
+    !/[?#\\]/.test(path);
+}
 
 const PYTHON_RUNNER = String.raw`
 import base64
@@ -76,12 +83,39 @@ function post(type, payload = {}) {
 
 async function runJob(message) {
   const jobId = String(message.jobId || "");
-  const code = String(message.code || "");
+  let code = String(message.code || "");
   const tests = String(message.tests || "");
 
   post("runtime-loading", { jobId, version: PYODIDE_VERSION });
 
   const pyodide = await ensurePyodide();
+  if (message.mode === "file") {
+    const files = message.files;
+    const script = String(message.script || "");
+    const args = message.args;
+    if (!safePythonPath(script) || !Array.isArray(files) || !files.length ||
+      files.length > 16 || !files.some((file) => file.path === script) ||
+      !Array.isArray(args) || args.length > 40 ||
+      args.some((arg) => typeof arg !== "string" || arg.length > 500)) {
+      throw new Error("Invalid Python file lab configuration");
+    }
+    for (const file of files) {
+      if (!safePythonPath(file.path) || typeof file.content !== "string" ||
+        file.content.length > 400000) {
+        throw new Error("Invalid Python file lab source");
+      }
+      const destination = `${FILE_LAB_ROOT}/${file.path}`;
+      pyodide.FS.mkdirTree(destination.slice(0, destination.lastIndexOf("/")));
+      pyodide.FS.writeFile(destination, file.content);
+    }
+    const scriptPath = `${FILE_LAB_ROOT}/${script}`;
+    code = `import runpy, sys\n` +
+      `_toukei_original_argv = sys.argv[:]\n` +
+      `_toukei_original_path = sys.path[:]\n` +
+      `try:\n    sys.argv = ${JSON.stringify([scriptPath, ...args])}\n` +
+      `    runpy.run_path(${JSON.stringify(scriptPath)}, run_name="__main__")\n` +
+      `finally:\n    sys.argv = _toukei_original_argv\n    sys.path[:] = _toukei_original_path`;
+  }
   await pyodide.loadPackagesFromImports(`${code}\n${tests}`);
 
   post("run-started", { jobId, version: PYODIDE_VERSION });

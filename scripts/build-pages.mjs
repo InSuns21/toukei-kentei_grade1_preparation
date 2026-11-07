@@ -4,6 +4,7 @@ import YAML from 'yaml';
 import { readDreamTheaterContents } from './lib/dream-theater-public-catalog.mjs';
 import { replaceOutsideMarkdownMath } from './lib/replace-outside-markdown-math.mjs';
 import './validate-numerical-lab-runtime.mjs';
+import './validate-python-file-labs.mjs';
 import './validate-simulation-phase0.mjs';
 import './validate-simulation-phase1.mjs';
 

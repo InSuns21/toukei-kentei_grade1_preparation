@@ -360,7 +360,21 @@ $$
 
 付属の [isomap_lab.py](isomap_lab.py) はPython標準ライブラリだけで、半径グラフ、非負辺長の全点最短路、二重中心化、Jacobi固有値法によるClassical MDSを計算する。モデルは円弧、U字、正方形サイクル。半径 $r$、出力次元 $q$ を指定し、辺、連結成分、最短路、負固有値、埋め込み距離、真の道に沿う距離（定義されるモデル）とのずれをJSONで出力する。
 
-例としてリポジトリのルートから次を実行する。
+このページで元の点群・近傍辺と Isomap 埋め込みを比較できる。`--radius` を変え、非連結や shortcut の発生を確かめよう。内部では MFL8 の既存 Python モジュールも読み込んで実行する。
+
+```python-file-lab
+# lab-id: MFL9-ISOMAP-FILE
+# lab-title: Isomap・半径と埋め込み
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL9/isomap_lab.py
+# lab-dependency: textbook/volumes/dream_thater/応用系/MFL/MFL8/classical_mds_lab.py
+# timeout-ms: 15000
+# lab-preset: 円弧・近傍半径0.5 | --case arc --radius 0.5 --dim 2
+# lab-preset: U字・shortcut | --case u --radius 1.1 --dim 2
+# lab-preset: U字・狭い半径 | --case u --radius 0.5 --dim 2
+# lab-preset: 正方形サイクル | --case square --radius 1.1 --dim 2
+```
+
+ローカル環境では、リポジトリのルートから次を実行する。
 
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL9/isomap_lab.py --case arc --radius 0.5 --dim 2
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL9/isomap_lab.py --case u --radius 1.1 --dim 2

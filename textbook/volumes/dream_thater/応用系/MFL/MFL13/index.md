@@ -451,6 +451,20 @@ $d=1$ では内在Ricci曲率が0なのに、埋め込みの曲がりによっ�
 
 同じフォルダの [kernel_bias_lab.py](kernel_bias_lab.py) はPython標準ライブラリだけを使い、円周で内在・chord核の定数関数の平均と、非一様密度での行正規化を台形公式で計算する。
 
+次のプリセットは同じ Python コードをブラウザ内で実行する。計算点数・半径・密度振幅は引数欄で変更できる。数値積分の解像度を上げると計算時間も増える。
+
+```python-file-lab
+# lab-id: MFL13-KERNEL-BIAS-FILE
+# lab-title: Kernel bias・内在核とchord核
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL13/kernel_bias_lab.py
+# timeout-ms: 60000
+# lab-preset: 標準・16384点 | --radius 2 --points 16384 --amplitude 0.3
+# lab-preset: 軽量・4096点 | --radius 2 --points 4096 --amplitude 0.3
+# lab-preset: 密度一様・4096点 | --radius 2 --points 4096 --amplitude 0
+```
+
+ローカル実行とテストは次で確認できる。
+
 ~~~bash
 python3 textbook/volumes/dream_thater/応用系/MFL/MFL13/kernel_bias_lab.py
 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/MFL/MFL13 -p 'test_*.py'
