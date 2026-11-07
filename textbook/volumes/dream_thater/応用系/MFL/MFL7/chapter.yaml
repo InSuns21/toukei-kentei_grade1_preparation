@@ -1,0 +1,48 @@
+id: "MFL7"
+title: "近傍グラフの構築"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL4
+  - MFL6
+  - ML1-11
+  - SGT1
+official_scope: []
+learning_objectives:
+  - 半径グラフ、方向付きk近傍グラフ、unionとmutualの対称化を同点規則まで含めて構築できる
+  - unionとmutualの辺包含、次数下界と孤立点の違いを証明し反例で検証できる
+  - 距離に基づく非負対称重みを作り、SGT1のLaplacianと連結成分へ接続できる
+  - 標本被覆半径と道連結性から半径グラフの連結性を導出できる
+  - 有界観測誤差に対する辺の安定性と閾値近傍の不安定性を評価できる
+  - Euclid距離のshortcutと非連結がグラフ最短路・幾何復元へ与える問題を反例で説明できる
+  - 再現可能な計算実験で半径、k、対称化を変更し辺と連結性を確認できる
+definitions:
+  - { id: MFL7-DEF-01, name: 半径近傍グラフ }
+  - { id: MFL7-DEF-02, name: 方向付きk近傍と対称化 }
+  - { id: MFL7-DEF-03, name: 近傍グラフの重み付け }
+theorems:
+  - { id: MFL7-PROP-01, name: k近傍の対称化と次数の関係 }
+  - { id: MFL7-PROP-02, name: 標本被覆からの半径グラフ連結性 }
+  - { id: MFL7-PROP-03, name: 有界ノイズ下の半径辺の安定性 }
+  - { id: MFL7-PROP-04, name: Euclid近道による内在距離の過小評価 }
+canonical_examples:
+  - 四点の半径グラフと二つの連結成分
+  - 非対称な最近傍選択とunion/mutualの孤立点
+  - 三点道のGaussian重みと組合せLaplacian
+  - 区間の均等標本による被覆半径と連結性
+  - U字型曲線における離れた枝のEuclid shortcut
+problem_patterns:
+  - MFL7-A01
+  - MFL7-A02
+  - MFL7-A03
+  - MFL7-A04
+  - MFL7-B01
+  - MFL7-B02
+  - MFL7-B03
+  - MFL7-B04
+  - MFL7-C01
+  - MFL7-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }

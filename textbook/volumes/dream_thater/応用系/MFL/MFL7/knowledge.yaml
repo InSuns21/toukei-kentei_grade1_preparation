@@ -1,0 +1,58 @@
+chapter: MFL7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL4
+  - MFL6
+  - ML1-11
+  - SGT1
+
+concepts:
+  - id: manifold-learning.radius-neighborhood-graph
+    name: 半径近傍グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半径近傍グラフ）"]
+    requires: [spectral-graph.weighted-graph, manifold-learning.sample-fill-distance]
+
+  - id: manifold-learning.knn-graph-symmetrization
+    name: 方向付きk近傍と対称化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（方向付きk近傍と対称化）"]
+    requires: [learning.knn-neighborhood, manifold-learning.radius-neighborhood-graph]
+
+  - id: manifold-learning.knn-symmetrization-degree
+    name: k近傍の対称化と次数の関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（k近傍の対称化と次数の関係）"]
+    requires: [manifold-learning.knn-graph-symmetrization, spectral-graph.weighted-degree]
+
+  - id: manifold-learning.neighborhood-graph-weight
+    name: 近傍グラフの重み付け
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（近傍グラフの重み付け）"]
+    requires: [manifold-learning.radius-neighborhood-graph, spectral-graph.weighted-graph]
+
+  - id: manifold-learning.cover-connectivity
+    name: 標本被覆からの半径グラフ連結性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標本被覆からの半径グラフ連結性）"]
+    requires: [manifold-learning.radius-neighborhood-graph, manifold-learning.sample-fill-distance, spectral-graph.components]
+
+  - id: manifold-learning.edge-stability-noise
+    name: 有界ノイズ下の半径辺の安定性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界ノイズ下の半径辺の安定性）"]
+    requires: [manifold-learning.radius-neighborhood-graph, manifold-learning.bounded-noise-hausdorff]
+
+  - id: manifold-learning.ambient-shortcut
+    name: Euclid近道による内在距離の過小評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Euclid近道による内在距離の過小評価）"]
+    requires: [manifold-learning.radius-neighborhood-graph, manifold-learning.circle-distance]

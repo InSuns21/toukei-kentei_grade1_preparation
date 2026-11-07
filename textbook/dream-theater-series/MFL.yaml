@@ -32,7 +32,7 @@ chapters:
     title: "内在次元・曲率の推定"
   - id: MFL7
     path: textbook/volumes/dream_thater/応用系/MFL/MFL7
-    status: planned
+    status: completed
     title: "近傍グラフの構築"
   - id: MFL8
     path: textbook/volumes/dream_thater/応用系/MFL/MFL8
