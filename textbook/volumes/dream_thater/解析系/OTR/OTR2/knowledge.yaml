@@ -1,0 +1,55 @@
+chapter: OTR2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR1
+
+concepts:
+  - id: transport.coupling
+    name: 結合測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（結合測度と周辺分布）"]
+    requires: [prob.probability-measure, measure.pushforward-measure]
+
+  - id: transport.kantorovich-problem
+    name: Kantorovichの最適輸送問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kantorovichの最適輸送問題）"]
+    requires: [transport.coupling, transport.monge-problem]
+
+  - id: transport.coupling-nonempty
+    name: 結合の非空性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（結合の非空性）"]
+    requires: [transport.coupling, measure.product-measure]
+
+  - id: transport.marginal-integration
+    name: 周辺分布の積分恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周辺分布の積分恒等式）"]
+    requires: [transport.coupling, measure.pushforward-integration-theorem]
+
+  - id: transport.graph-coupling
+    name: Monge写像のグラフ結合への埋め込み
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Monge写像のグラフ結合への埋め込み）"]
+    requires: [transport.coupling, transport.transport-map, measure.pushforward-integration-theorem]
+
+  - id: transport.kantorovich-monge-comparison
+    name: Kantorovich下限とMonge下限の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kantorovich下限とMonge下限の比較）"]
+    requires: [transport.graph-coupling, transport.kantorovich-problem]
+
+  - id: transport.finite-coupling-criterion
+    name: 有限原子での写像と結合の判別
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限原子での写像と結合の判別）"]
+    requires: [transport.coupling, transport.transport-map]
