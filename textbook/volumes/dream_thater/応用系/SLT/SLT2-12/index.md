@@ -165,7 +165,7 @@ $$
 
 を全ての $a_r,q_r$ について勾配流で学習する。仮定を具体的に固定する。
 
-- $\sigma\in C^2(\mathbb R)$ で全実数上 $|\sigma|\le M_0$、$|\sigma'|\le M_1$、$|\sigma''|\le M_2$。
+- $\sigma\in C^2(\mathbb R)$ で全実数上 $|\sigma|\le M_0$、$|\sigma'|\le M_1$、$|\sigma''|\le M_2$。プライムは活性化のスカラー引数 $z=q_r^{\mathsf T}\xi(x)$ による微分であり、学習時刻 $t$ による微分ではない。
 - 初期出力係数は $|a_r(0)|\le A$。初期組 $(a_r(0),q_r(0))$ はニューロン間で独立同分布、$a_r(0)$ と $q_r(0)$ は独立、$\mathbb Ea_r(0)=0$。
 - 訓練点数・入力・教師は幅から独立。$K_\infty=\mathbb E K_m(0)$ の最小固有値は $\lambda>0$ 以上。
 
@@ -272,7 +272,7 @@ h_{ij}(a,q)=\sigma(z_i)\sigma(z_j)
 +a^2\sigma'(z_i)\sigma'(z_j)\xi_i^{\mathsf T}\xi_j
 $$
 
-となる。これはJacobianの出力係数方向と重み方向の内積を足した成分表示である。時刻 $t$ と初期時刻 $0$ で $z_i$ の差は $|z_i(t)-z_i(0)|\le R\|q_r(t)-q_r(0)\|_2$。そこで積の差を $uv-\widetilde u\widetilde v=(u-\widetilde u)v+\widetilde u(v-\widetilde v)$ と分け、$|\sigma'|\le M_1$、$|\sigma''|\le M_2$ を使って各因子へ平均値の定理を適用する。[有限時間核固定界の証明](../SLT2-10/index.md#thm-slt2-10-finite-time-drift)と同じ計算を、今得た時間非依存の $A_*,U_a,U_q$ に適用すると、任意の $i,j$ で
+となる。これはJacobianの出力係数方向と重み方向の内積を足した成分表示である。各 $r$ について $z_{r,i}(t)=q_r(t)^{\mathsf T}\xi_i$ とすれば、$|z_{r,i}(t)-z_{r,i}(0)|\le R\|q_r(t)-q_r(0)\|_2$。そこで積の差を $uv-\widetilde u\widetilde v=(u-\widetilde u)v+\widetilde u(v-\widetilde v)$ と分け、$|\sigma'|\le M_1$、$|\sigma''|\le M_2$ を使って各因子へ平均値の定理を適用する。[有限時間核固定界の証明](../SLT2-10/index.md#thm-slt2-10-finite-time-drift)と同じ計算を、今得た時間非依存の $A_*,U_a,U_q$ に適用すると、任意の $i,j$ で
 
 $$
 \begin{aligned}
