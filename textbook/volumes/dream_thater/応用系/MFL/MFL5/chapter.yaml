@@ -1,5 +1,5 @@
 id: "MFL5"
-title: "Local PCAと接空間推定"
+title: "局所主成分分析と接空間推定"
 volume: "foundations"
 status: supplementary
 prerequisites:

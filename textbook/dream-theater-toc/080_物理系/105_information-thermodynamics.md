@@ -8,3 +8,4 @@
 5. [ITD5 物理的記憶とLandauer原理：消去に必要な仕事](textbook/volumes/dream_thater/物理系/ITD/ITD5/index.md)
 6. [ITD6 測定・フィードバック・消去を閉じる全装置の循環収支](textbook/volumes/dream_thater/物理系/ITD/ITD6/index.md)
 7. [ITD7 観測しない散逸はどこへ行くか：複数熱浴・粗視化・連続経路](textbook/volumes/dream_thater/物理系/ITD/ITD7/index.md)
+8. [ITD8 有限時間の記憶消去：確率流・活動度・余分な散逸](textbook/volumes/dream_thater/物理系/ITD/ITD8/index.md)
