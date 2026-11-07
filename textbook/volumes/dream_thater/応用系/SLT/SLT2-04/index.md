@@ -96,7 +96,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Q$ を固定して[条件付き期待値](../../../解析系/F0/F0-00P3A/index.md#def-f0-00p3a-conditional-expectation)を取る。直交射影は $Q^{\mathsf T}=Q$、$Q^2=Q$ を満たすので、直交行列 $O$ を使って $Q=O^{\mathsf T}\operatorname{diag}(I_k,0)O$ と書ける。標準Gaussianの密度は $\|g\|_2$ のみに依存するため、$Og$ も $N(0,I_m)$。したがって
+$Q$ を固定して[条件付き期待値](../../../解析系/F0/F0-00P3A/index.md#def-f0-00p3a-conditional-expectation)を取る。直交射影の対称性・冪等性は
+
+$$
+Q^{\mathsf T}=Q,\qquad Q^2=Q
+$$
+
+である。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)で直交固有基底を選ぶ。各固有値 $\lambda$ は $\lambda^2=\lambda$ より0か1であり、階数が $k$ なので1の固有値はちょうど $k$ 個となる。
+
+従って直交行列 $O$ を使って
+
+$$
+Q=O^{\mathsf T}\operatorname{diag}(I_k,0)O
+$$
+
+と書ける。標準Gaussianの密度は $\|g\|_2$ のみに依存し、直交変換は長さと体積を保つため、$Og$ も $N(0,I_m)$。したがって
 
 $$
 U=g^{\mathsf T}Qg=\sum_{j=1}^kZ_j^2
@@ -174,7 +188,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-(i) の $p\le n$ を考える。$X=(c_1,\ldots,c_p)$ と列を並べ、任意の $j$ について $C_{-j}$ を第 $j$ 列を除いた行列とする。$p-1<n$ なので $C_{-j}$ はほとんど確実に列フルランクである。$P_{-j}$ をその列空間への直交射影とする。列の順序を第 $j$ 列が先頭になるよう並べ替えると、Gram行列は
+(i) の $p\le n$ を考える。$X=(c_1,\ldots,c_p)$ と列を並べ、$G=X^{\mathsf T}X$ と置く。任意の $j$ について $C_{-j}$ を第 $j$ 列を除いた行列とし、$P_{-j}$ をその列空間への直交射影とする。
+
+$p=1$ なら他の列はなく、$P_{-1}=0$ なので $(G^{-1})_{11}=1/\|c_1\|_2^2=1/\|(I_n-P_{-1})c_1\|_2^2$ が直接成り立つ。
+
+以下では $p\ge2$ とする。$p-1<n$ なので $C_{-j}$ はほとんど確実に列フルランクである。列の順序を第 $j$ 列が先頭になるよう並べ替えると、Gram行列は
 
 $$
 G=
@@ -184,7 +202,13 @@ C_{-j}^{\mathsf T}c_j&C_{-j}^{\mathsf T}C_{-j}
 \end{pmatrix}.
 $$
 
-$G(a,b)^{\mathsf T}=(1,0)^{\mathsf T}$ を解く。下段から
+ここで $P_{-j}$ の行列表現を確かめる。[列フルランク最小二乗解](../../ML/ML1-04/index.md#thm-ml1-04-full-rank-solution)により、任意の $v\in\mathbb R^n$ を列空間へ射影する係数は $(C_{-j}^{\mathsf T}C_{-j})^{-1}C_{-j}^{\mathsf T}v$ だから
+
+$$
+P_{-j}=C_{-j}(C_{-j}^{\mathsf T}C_{-j})^{-1}C_{-j}^{\mathsf T}
+$$
+
+となる。次に $G(a,b)^{\mathsf T}=(1,0)^{\mathsf T}$ を解く。ここで $a$ は実数、$b\in\mathbb R^{p-1}$、右辺の0は $p-1$ 次元の零ベクトルである。下段から
 
 $$
 b=-(C_{-j}^{\mathsf T}C_{-j})^{-1}C_{-j}^{\mathsf T}c_j\,a
@@ -201,7 +225,15 @@ $$
 \end{aligned}
 $$
 
-よって $a=(G^{-1})_{jj}=1/\| (I_n-P_{-j})c_j\|_2^2$ である（$p=1$ では $P_{-j}=0$）。列 $c_j$ は $C_{-j}$ から独立な $N(0,I_n)$ で、$I_n-P_{-j}$ は階数 $n-(p-1)=n-p+1$ の直交射影となる。[Gaussian射影の補題](#lem-slt2-04-gaussian-projection)を $k=n-p+1$ に適用すれば
+上段で他の列の係数 $b$ を消去した括弧内のスカラーを、この分割に関する **Schur補数** と呼ぶ。その値は射影残差の二乗長である。従って
+
+$$
+(G^{-1})_{jj}=a=\frac1{\|(I_n-P_{-j})c_j\|_2^2}
+$$
+
+となる。先に分けた $p=1$ の場合にも同じ式が成り立つ。
+
+列 $c_j$ は $C_{-j}$ から独立な $N(0,I_n)$ で、$I_n-P_{-j}$ は階数 $n-(p-1)=n-p+1$ の直交射影となる。[Gaussian射影の補題](#lem-slt2-04-gaussian-projection)を $k=n-p+1$ に適用すれば
 
 $$
 \mathbb E(G^{-1})_{jj}=
@@ -395,7 +427,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（固定ridge正則化のリスク上界）**
-> [Gaussian等方設計](#def-slt2-04-gaussian-risk)で $n,p\ge1$、固定 $\beta_\star\in\mathbb R^p$、$\tau^2\ge0$ とし、観測 $Y$ を見る前に $\mu>0$ を固定する。[ridge推定量](../SLT2-03/index.md#def-slt2-03-spectral-filter)
+> [Gaussian等方設計](#def-slt2-04-gaussian-risk)で $n,p\ge1$、固定 $\beta_\star\in\mathbb R^p$、$\tau^2\ge0$ とし、$X,Y$ を観測する前に決定論的な定数 $\mu>0$ を固定する。[ridge推定量](../SLT2-03/index.md#def-slt2-03-spectral-filter)
 
 $$
 \widehat\beta_\mu=(X^{\mathsf T}X+\mu I_p)^{-1}X^{\mathsf T}Y
@@ -439,7 +471,7 @@ $$
 $$
 \begin{aligned}
 \mathbb E[\|G_\mu\varepsilon\|_2^2\mid X]
-&=\tau^2\|G_\mu\|_{\mathrm F}^2
+&=\tau^2\operatorname{tr}(G_\mu G_\mu^{\mathsf T})
 =\tau^2\sum_{j=1}^{\operatorname{rank}X}
 \frac{s_j^2}{(s_j^2+\mu)^2}\\
 &\le\frac{\tau^2\operatorname{rank}X}{4\mu}
@@ -452,7 +484,7 @@ $$
 
 ただし $p,n$ を変えるときに $\mu\downarrow0$ とすれば上界は大きくなり得る。**正則化を掛けたから必ずdouble descentが消える**とは言っていない。ここで証明したのは、各 $n,p$ に対し正の $\mu$ を固定したときの期待値の有限性である。
 
-また、等方性は本質的な仮定である。一般の新規入力の共分散を $\Sigma_{\mathrm{test}}$ とすると、条件付き信号予測誤差は
+また、等方性は本質的な仮定である。訓練標本と独立な、**平均0** の新規入力 $x_{\mathrm{new}}$ の共分散を $\Sigma_{\mathrm{test}}$ とすると、条件付き信号予測誤差は
 
 $$
 \mathbb E_{x_{\mathrm{new}}}
@@ -461,7 +493,18 @@ $$
 \Sigma_{\mathrm{test}}(\widehat\beta-\beta_\star)
 $$
 
-となる。例えば係数誤差が $(1,0)^{\mathsf T}$ なら、試験共分散 $I_2$ では1、$\operatorname{diag}(9,1)$ では9である。**試験分布を替えたとき**に係数ノルムの式をそのまま使うことはできない。非等方な訓練分布での最小Euclidノルム解も、等方Gaussianの回転対称性を利用した上記定理からは一般に求まらない。
+となる。平均ベクトル $m_{\mathrm{test}}=\mathbb E[x_{\mathrm{new}}]\ne0$ の入力なら、係数誤差 $d=\widehat\beta-\beta_\star$ に対して二次モーメントと条件付き信号予測誤差は
+
+$$
+\begin{aligned}
+\mathbb E[x_{\mathrm{new}}x_{\mathrm{new}}^{\mathsf T}]
+&=\Sigma_{\mathrm{test}}+m_{\mathrm{test}}m_{\mathrm{test}}^{\mathsf T},\\
+\mathbb E[(x_{\mathrm{new}}^{\mathsf T}d)^2\mid X,Y]
+&=d^{\mathsf T}\Sigma_{\mathrm{test}}d+(m_{\mathrm{test}}^{\mathsf T}d)^2.
+\end{aligned}
+$$
+
+となり、共分散の項だけでは不足する。例えば平均0で係数誤差が $(1,0)^{\mathsf T}$ なら、試験共分散 $I_2$ では1、$\operatorname{diag}(9,1)$ では9である。**試験分布を替えたとき**に係数ノルムの式をそのまま使うことはできない。非等方な訓練分布での最小Euclidノルム解も、等方Gaussianの回転対称性を利用した上記定理からは一般に求まらない。
 
 結局、ここで証明したのは「等方Gaussian設計・独立な等分散雑音・最小ノルム解・独立な等方試験入力」という限定模型の結果である。$p/n$ が1に近い高次元極限、有限次元の期待値、典型的な一回の標本の誤差は同じ命題ではない。次章では、こうした設計行列の非漸近的・比例漸近的な評価の前提をさらに区別する。
 
