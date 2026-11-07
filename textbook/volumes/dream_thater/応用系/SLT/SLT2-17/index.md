@@ -390,7 +390,19 @@ $S=Y_1$ は公平な二値標本、$W$ も公平な二値変数で $S$ から独
 <!-- solution-start -->
 #### 詳細解答
 
-独立性より $P_{S,W}(s,w)=P_S(s)P_W(w)=1/4$、従って[定義](#def-slt2-17-information)の対数比は全て $\ln1=0$ で $I=0$。$W,Y_1$ は独立な公平ビットだから $\Pr(W\ne Y_1)=1/2$、よって $\mathbb E\widehat R_S(h_W)=1/2$。新しい独立なラベル $Y$ でも $\Pr(W\ne Y)=1/2$ なので $\mathbb ER_P(h_W)=1/2$。差は零であり、[期待汎化界](#thm-slt2-17-information-bound)の右辺 $\sqrt{0/(2n)}=0$ と一致する。
+独立性より四つのセル $(s,w)\in\{0,1\}^2$ の全てで $P_{S,W}(s,w)=P_S(s)P_W(w)=1/4$ となる。よって[情報量の定義](#def-slt2-17-information)の対数比は全て $\ln1=0$ であり、$I(S;W)=0$。
+
+$W,Y_1$ は独立な公平ビットだから、訓練損失の期待値は $\Pr(W\ne Y_1)=1/2$。母集団リスクは新しい独立な公平ラベル $Y$ で評価するので
+
+$$
+\begin{aligned}
+\mathbb E\widehat R_S(h_W)&=\Pr(W\ne Y_1)=\frac12,\\
+\mathbb E R_P(h_W)&=\Pr(W\ne Y)=\frac12,\\
+\operatorname{gen}&=\frac12-\frac12=0.
+\end{aligned}
+$$
+
+したがって[期待汎化界](#thm-slt2-17-information-bound)の右辺 $\sqrt{0/(2\cdot1)}=0$ と一致する。
 <!-- solution-end -->
 
 ### SLT2-17-A03 四語の符号長
