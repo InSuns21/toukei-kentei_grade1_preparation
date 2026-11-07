@@ -32,7 +32,7 @@ $$
 > $P_t^m=mV_t^m$ を運動量とする。異なる $m$ の実験は同じ $B$ を使って結合し、$V_0^m$ の選び方には上記の分布・独立性以外の制約を課さない。
 <!-- formal-statement-end -->
 
-初期のMaxwell速度は $m$ を小さくすると典型的大きさが $m^{-1/2}$ になります。それでも運動量 $P^m=mV^m$ は二乗平均で $\sqrt m$ 程度です。ここが速い速度を扱う鍵です。係数が局所Lipschitzで、速度のドリフトは線形以下の増大なので、この方程式は有限時間で爆発しない一意な強解を持ちます。
+初期のMaxwell速度は $m$ を小さくすると典型的大きさが $m^{-1/2}$ になります。それでも運動量 $P^m=mV^m$ は二乗平均で $\sqrt m$ 程度です。ここが速い速度を扱う鍵です。係数は局所Lipschitzで、固定した $m>0$ に対して速度のドリフトは線形成長以下です。初期速度の実現値を固定すれば[局所Lipschitz SDEの極大強解](../../../解析系/STO/STO9/index.md#thm-sto9-local-maximal-solution)と[線形成長による非爆発](../../../解析系/STO/STO9/index.md#thm-sto9-linear-growth-nonexplosion)を適用できます。初期速度はBrown運動と独立なので、その初期値を組み込んだ場合も有限時間で爆発しない一意な強解が得られます。
 
 <!-- definition-example-start: def-itd17-inertial-variable-friction -->
 **定義の確認**
@@ -166,7 +166,7 @@ $$
 \gamma_-(x-y)\le G(x)-G(y)\le\gamma_+(x-y)
 $$
 
-です。したがって $G$ は $\mathbb R$ から $\mathbb R$ への全単射で、逆関数は $|H(a)-H(b)|\le|a-b|/\gamma_-$ を満たします。$F\circ H$ と $\sqrt{2\gamma\circ H/\beta}$ は有界かつ大域的Lipschitz連続だから、$Y$ の強解も一意です。
+です。したがって $G$ は $\mathbb R$ から $\mathbb R$ への全単射で、逆関数は $|H(a)-H(b)|\le|a-b|/\gamma_-$ を満たします。$F\circ H$ と $\sqrt{2\gamma\circ H/\beta}$ は有界かつ大域的Lipschitz連続だから、[大域Lipschitz SDEの強解の存在・一意性](../../../解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness)により $Y$ の強解も一意です。
 
 <!-- definition-example-start: def-itd17-friction-coordinate -->
 **定義の確認**
@@ -206,7 +206,7 @@ $$
 
 ### 証明の見取り図
 
-摩擦座標では $dG(Z^m)=\gamma(Z^m)dZ^m$ となります。運動量の方程式を積分して代入すると、極限の $Y$ 方程式との差は運動量の端点差だけになります。その端点差は[運動量二乗評価](#thm-itd17-momentum-bound)で小さくします。確率積分の誤差は[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)で評価します。最後に[積分形Gronwall補題](../../../解析系/STO/STO9/index.md#lem-sto9-gronwall)で積分不等式を閉じ、逆関数 $H$ へ[STO7のItô公式](../../../解析系/STO/STO7/index.md#thm-sto7-multidimensional-ito)を適用すると、求める補正ドリフトが現れます。
+摩擦座標では $dG(Z^m)=\gamma(Z^m)dZ^m$ となります。運動量の方程式を積分して代入すると、極限の $Y$ 方程式との差は運動量の端点差だけになります。その端点差は[運動量二乗評価](#thm-itd17-momentum-bound)で小さくします。確率積分の誤差は[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)で評価します。最後に[積分形Gronwall補題](../../../解析系/STO/STO9/index.md#lem-sto9-gronwall)で積分不等式を閉じ、逆関数 $H$ へ[STO7のItô公式](../../../解析系/STO/STO7/index.md#thm-sto7-multidimensional-ito)を適用すると、求める補正ドリフトが現れます。
 
 <!-- proof-start -->
 ### 証明
@@ -237,7 +237,7 @@ e_t=\int_0^t\{f(Y_s^m)-f(Y_s)\}\,ds
 -(P_t^m-P_0^m).
 $$
 
-三項の和の二乗を3倍した二乗和で抑え、時間積分にはCauchy–Schwarz、確率積分には[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)を使います。$t\le\tau$ に対して
+三項の和の二乗を3倍した二乗和で抑え、時間積分にはCauchy–Schwarz、確率積分には[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)を使います。$t\le\tau$ に対して
 
 $$
 \begin{aligned}
@@ -280,7 +280,7 @@ H'(Y)f(Y)+\frac12H''(Y)s(Y)^2
 -\frac{\gamma'(x)}{\beta\gamma(x)^2}
 $$
 
-となり、雑音係数は $H'(Y)s(Y)=\sqrt{2/(\beta\gamma(x))}$ です。このSDEの係数も大域的Lipschitz連続なので強解は一意です。
+となり、雑音係数は $H'(Y)s(Y)=\sqrt{2/(\beta\gamma(x))}$ です。このSDEの係数も大域的Lipschitz連続なので、[強解の存在・一意性定理](../../../解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness)を適用できます。
 <!-- proof-end -->
 
 $\mu(x)=1/\gamma(x)$、$D(x)=1/(\beta\gamma(x))$ と置けば、得られたItôドリフトは
@@ -306,6 +306,8 @@ $$
 ## 4. なぜ平衡密度まで一致するのか
 
 小質量の極限で補正項の符号を確かめるもう一つの方法は、質量が正の段階から平衡分布を追うことです。円周の長さを $L>0$ とし、$\gamma,U$ は滑らかな $L$ 周期関数、$F=-U'$ とします。以下では座標を周期 $L$ で同一視し、確率密度の積分範囲を $[0,L)$ とします。
+
+密度 $p_t(x)$ の $\partial_t$ は位置 $x$ を固定した時間微分、$\partial_x$ は時刻 $t$ を固定した位置微分です。後の $p_t'(x)$ は $\partial_xp_t(x)$ の略記とし、$U'(x),\gamma'(x)$ はそれぞれの一変数関数の位置微分を表します。速度も持つ密度 $\rho(x,v)$ では、$\partial_x$ と $\partial_v$ は他方の変数を固定して微分します。
 
 <a id="thm-itd17-equilibrium-consistency"></a>
 
@@ -444,7 +446,7 @@ P_t^m=e^{-at}P_0^m+\sqrt{2\gamma_0/\beta}
 \int_0^te^{-a(t-s)}\,dB_s.
 $$
 
-初期値とBrown運動は独立で、両項の平均は零です。[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)より
+初期値とBrown運動は独立で、両項の平均は零です。[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)より
 
 $$
 \begin{aligned}
