@@ -169,6 +169,8 @@ $$
 
 「平衡と違う分布」が熱浴との接触でどのように変わるかを調べます。[ITD1の遷移核](../ITD1/index.md#def-itd1-controlled-model) $K(x,y)$ は、接触直前に $x$ だった系が直後に $y$ となる条件付き確率です。制御値 $\lambda$ を固定し、[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を満たすなら、[正準分布の不変性](../ITD1/index.md#prop-itd1-canonical-balance)から $\pi_\lambda K=\pi_\lambda$ が成立します。これは分布 $p$ が一回で平衡になるという意味ではありません。
 
+以下では一回の接触後の分布を $p'$ と書き、$p'=pK$ と表します。プライムは時間微分ではありません。状態 $y$ の確率は、接触前の各状態 $x$ からの寄与を足した $p'(y)=\sum_xp(x)K(x,y)$ です。
+
 <a id="thm-itd3-relaxation"></a>
 
 <!-- formal-statement-start -->
@@ -214,7 +216,7 @@ $$
 
 ### 例：同じ温度の接触だけでは仕事を取り出していない
 
-等エネルギー二状態で $\pi=(1/2,1/2)$、$p=(1,0)$、
+等エネルギー二状態で $\pi=(1/2,1/2)$、$p=(1,0)$ とします。状態を $0,1$ の順に並べ、行を接触前の状態 $x$、列を接触後の状態 $y$ とすると、条件付き確率 $K(x,y)$ は次の行列になります。
 
 $$
 K=\begin{pmatrix}3/4&1/4\\1/4&3/4\end{pmatrix}
@@ -237,7 +239,7 @@ $$
 
 固定 $\lambda$ の緩和では $W=0$ でした。制御値を動かせば、準位の変更時に仕事が発生します。[ITD1の仕事・熱](../ITD1/index.md#def-itd1-path-work-heat)を使って、操作と熱浴接触を交互に行う有限段階の過程を考えます。
 
-初期分布を $p_0$、最後の分布を $p_n$ とします。確率が0の初期状態も扱うため、**平均のエントロピー生成を経路確率の相対エントロピーとして直接評価する**ことにします。[ITD1の全エントロピー生成](../ITD1/index.md#def-itd1-reverse-entropy)を平均すると、系のエントロピー変化と、浴へ出た熱に分かれます。
+初期分布を $p_0$、最後の分布を $p_n$ とします。[ITD1の全エントロピー生成](../ITD1/index.md#def-itd1-reverse-entropy)は初期分布が全状態で正という条件の下で導入しました。ここでは確率0の初期状態も扱うため、**正確率の正方向経路で経路確率比を直接定義し、平均を評価する**ことにします。その平均は系のエントロピー変化と、浴へ出た熱に分かれます。
 
 <a id="thm-itd3-work-bound"></a>
 
@@ -263,8 +265,8 @@ $$
 
 $$
 \begin{aligned}
-\Sigma[\gamma]&=\log\frac{P_{\mathrm F}(\gamma)}{P_{\mathrm R}(\gamma^\dagger)},\\
-P_{\mathrm R}(\gamma^\dagger)&=p_n(x_n)\prod_{j=1}^nK_j(x_j,x_{j-1})
+P_{\mathrm R}(\gamma^\dagger)&=p_n(x_n)\prod_{j=1}^nK_j(x_j,x_{j-1}),\\
+\Sigma[\gamma]&=\log\frac{P_{\mathrm F}(\gamma)}{P_{\mathrm R}(\gamma^\dagger)}
 \end{aligned}
 $$
 
@@ -287,7 +289,7 @@ $$
 
 これが正なら $p_0(x_0)>0$、各正方向遷移は正です。局所詳細釣合いの双方向支持から逆遷移も正であり、正方向に到達できる終端 $x_n$ には $p_n(x_n)>0$ です。従って対応する $P_{\mathrm R}(\gamma^\dagger)>0$ で、対数比は有限です。逆実験は $p_n$ と行和1の核から作った規格化済みの経路分布です。正の初期分布を全状態に仮定しなくても、正の前向き経路が逆向きで欠けることはありません。
 
-各段階に[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を用い、熱の符号を [ITD1の経路確率比](../ITD1/index.md#thm-itd1-path-ratio)とそろえます。
+各段階に[局所詳細釣合い](../ITD1/index.md#def-itd1-local-detailed-balance)を用います。熱の符号は [ITD1の経路確率比](../ITD1/index.md#thm-itd1-path-ratio)と同じですが、ここではその定理の初期分布正値条件を使わず、上で確認した正確率の経路だけで直接導きます。
 
 $$
 \begin{aligned}
@@ -408,7 +410,16 @@ $X=\{0,1\}$、$E_0=E_1=0$ とする。$p=(1,0)$ と $p=(1/2,1/2)$ のそれぞ�
 - ID: ITD3-A1
 
 <!-- solution-start -->
-**詳細解答**　分配関数は $Z=e^0+e^0=2$、従って $F_{\mathrm{eq}}=-k_{\mathrm B}T\log2$ です。[非平衡自由エネルギー](#def-itd3-noneq-free-energy)ではどちらも $U=0$ です。$p=(1,0)$ なら $1\log1=0$、$0\log0=0$ と定めるので $S=0$、$\mathcal F=0$、$\mathcal A=0-(-k_{\mathrm B}T\log2)=k_{\mathrm B}T\log2$ です。$p=(1/2,1/2)$ なら
+**詳細解答**　まず $Z=e^0+e^0=2$ なので、平衡自由エネルギーは $F_{\mathrm{eq}}=-k_{\mathrm B}T\log2$ です。[非平衡自由エネルギー](#def-itd3-noneq-free-energy)の定義から、どちらの分布でも平均エネルギーは $U=0$ です。
+
+$p=(1,0)$ では $1\log1=0$ であり、零確率の項には $0\log0=0$ の約束を使います。従って
+
+$$
+S=0,\qquad \mathcal F=0,\qquad
+\mathcal A=\mathcal F-F_{\mathrm{eq}}=k_{\mathrm B}T\log2.
+$$
+
+他方、$p=(1/2,1/2)$ では
 
 $$
 S=-k_{\mathrm B}\left(\frac12\log\frac12+\frac12\log\frac12\right)
@@ -557,7 +568,7 @@ $$
 - ID: ITD3-B3
 
 <!-- solution-start -->
-**詳細解答**　[相対エントロピー表示](#prop-itd3-kl-identity)を各端点へ適用します。
+**詳細解答**　[相対エントロピー表示](#prop-itd3-kl-identity)を各端点へ適用します。$j=0,n$ に対して $D_j=D_{\mathrm{nat}}(p_j\Vert\pi_j)$ と置きます。
 
 $$
 \begin{aligned}
@@ -568,7 +579,9 @@ $$
 \end{aligned}
 $$
 
-ここで $D_j=D_{\mathrm{nat}}(p_j\Vert\pi_j)$ と置きました。従って $\langle W\rangle\ge\Delta F_{\mathrm{eq}}+k_{\mathrm B}T(D_n-D_0)$ です。始点だけ平衡なら $D_0=0$ なので終端の偏り $D_n$ が下限を増やし、終点だけ平衡なら $D_n=0$ なので初期の偏り $D_0$ の分だけ抽出仕事の余地が増えます。両端が平衡なら $\langle W\rangle\ge\Delta F_{\mathrm{eq}}$ となり、[ITD2の平均仕事下限](../ITD2/index.md#thm-itd2-jarzynski)と一致します。どの式も不等式であり、任意の制御で等号達成を保証しません。
+従って $\langle W\rangle\ge\Delta F_{\mathrm{eq}}+k_{\mathrm B}T(D_n-D_0)$ です。
+
+始点だけ平衡なら $D_0=0$ なので終端の偏り $D_n$ が下限を増やし、終点だけ平衡なら $D_n=0$ なので初期の偏り $D_0$ の分だけ抽出仕事の余地が増えます。両端が平衡なら $\langle W\rangle\ge\Delta F_{\mathrm{eq}}$ となり、[ITD2の平均仕事下限](../ITD2/index.md#thm-itd2-jarzynski)と一致します。どの式も不等式であり、任意の制御で等号達成を保証しません。
 <!-- solution-end -->
 
 #### B4. 非平衡初期分布でJarzynski等式を誤用しない
