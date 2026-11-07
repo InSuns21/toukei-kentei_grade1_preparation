@@ -1,7 +1,7 @@
 version: 1
 id: GEOD
 title: "測地学・数理地図投影法"
-plan: textbook/plans_progress/DREAM_THEATER_GEODESY_GAUSS_KRUGER_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_GEODESY_GAUSS_KRUGER_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: GEOD1, path: textbook/volumes/dream_thater/幾何系/GEOD/GEOD1, status: completed, title: "地球の位置を測るとは何か" }
