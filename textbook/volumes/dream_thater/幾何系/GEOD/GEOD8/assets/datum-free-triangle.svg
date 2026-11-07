@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 340" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">辺長観測だけでは三角形の位置と向きが決まらない</title>
+  <desc id="desc">左の直角二等辺三角形ABCと、同じ三角形を回転・平行移動した右のA'B'C'を別々の線種で示す。どちらもABとACの長さが同じで、BCの長さはそのルート2倍だが、絶対的な平面座標と向きは異なる。図中の距離は模式的な観測網の例である。</desc>
+  <path d="M155 252 L255 252 L155 152 Z" fill="#e6eef2" stroke="#176f8a" stroke-width="3" data-series-group="datum-triangles" data-series-label="基準配置"/>
+  <path d="M440 237 L510.711 166.289 L369.289 166.289 Z" fill="#faeee4" stroke="#9b571d" stroke-width="3" stroke-dasharray="11 5" data-series-group="datum-triangles" data-series-label="回転と並進後"/>
+  <g fill="#1f2937">
+    <circle cx="155" cy="252" r="4.5"/>
+    <circle cx="255" cy="252" r="4.5"/>
+    <circle cx="155" cy="152" r="4.5"/>
+    <circle cx="440" cy="237" r="4.5"/>
+    <circle cx="510.711" cy="166.289" r="4.5"/>
+    <circle cx="369.289" cy="166.289" r="4.5"/>
+  </g>
+  <g fill="#182532" font-family="sans-serif" font-size="19">
+    <text x="123" y="274">A</text>
+    <text x="268" y="272">B</text>
+    <text x="122" y="144">C</text>
+    <text x="441" y="269">A'</text>
+    <text x="525" y="158">B'</text>
+    <text x="332" y="158">C'</text>
+    <text x="192" y="290">d</text>
+    <text x="132" y="214">d</text>
+    <text x="224" y="182">√2 d</text>
+  </g>
+</svg>

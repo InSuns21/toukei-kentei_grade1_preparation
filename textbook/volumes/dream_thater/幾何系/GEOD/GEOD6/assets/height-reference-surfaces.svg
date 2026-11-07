@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 345" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">楕円体高・正標高・ジオイド高の局所的な高さの和</title>
+  <desc id="desc">中央の局所法線に沿って下から楕円体の足点Q0、ジオイドとの交点Qg、地上点Pがこの順に並ぶ模式図。地上点と楕円体の間をh、ジオイドから地上点をH、楕円体からジオイドをNgと区別する。三つの面は異なる曲線として描き、図中央で法線と鉛直が一致する限定模型においてのみh=H+Ngが成立する。</desc>
+  <defs>
+    <marker id="dim" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto"><path d="M0 3.5 L7 0 L7 7 Z" fill="#475569"/></marker>
+  </defs>
+  <path d="M72 74 Q340 58 614 74" fill="none" stroke="#344454" stroke-width="3.2" data-series-group="height-surfaces" data-series-label="地表"/>
+  <path d="M72 172 Q340 148 614 172" fill="none" stroke="#9a4d0c" stroke-width="3.2" stroke-dasharray="11 5" data-series-group="height-surfaces" data-series-label="ジオイド"/>
+  <path d="M72 267 Q340 247 614 267" fill="none" stroke="#0d6c83" stroke-width="3.2" stroke-dasharray="3 5" data-series-group="height-surfaces" data-series-label="楕円体"/>
+  <path d="M340 288 V38" stroke="#374151" stroke-width="1.8" stroke-dasharray="4 5"/>
+  <path d="M145 66 H550 M145 160 H550 M145 257 H550" stroke="#a3adb7" stroke-width="1.2" stroke-dasharray="3 6"/>
+  <g fill="#1f2937">
+    <circle cx="340" cy="66" r="4.7"/>
+    <circle cx="340" cy="160" r="4.7"/>
+    <circle cx="340" cy="257" r="4.7"/>
+  </g>
+  <g fill="none" stroke="#475569" stroke-width="1.7">
+    <path d="M182 66 V257" marker-start="url(#dim)" marker-end="url(#dim)"/>
+    <path d="M477 66 V160" marker-start="url(#dim)" marker-end="url(#dim)"/>
+    <path d="M477 160 V257" marker-start="url(#dim)" marker-end="url(#dim)"/>
+  </g>
+  <g font-family="sans-serif" fill="#1f2937" font-size="19">
+    <text x="108" y="130">h</text>
+    <text x="493" y="111">H</text>
+    <text x="493" y="216">N_g</text>
+    <text x="350" y="53">P</text>
+    <text x="356" y="133">Qg</text>
+    <text x="351" y="307">Q0</text>
+    <text x="73" y="52">Terrain</text>
+    <text x="73" y="216">Geoid</text>
+    <text x="73" y="316">Ellipsoid</text>
+  </g>
+</svg>

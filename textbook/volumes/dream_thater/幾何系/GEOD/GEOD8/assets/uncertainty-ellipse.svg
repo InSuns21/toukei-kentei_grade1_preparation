@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 335" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">二次元共分散の主軸と1シグマ誤差楕円</title>
+  <desc id="desc">位置推定点を中心に、東方向の標準偏差3ミリメートル、北方向の標準偏差2ミリメートルに対応する誤差楕円を描く。共分散が対角行列diag(9,4)平方ミリメートルの正規模型ではこの楕円に真値が入る確率は約39.3パーセントであり、68パーセントではない。</desc>
+  <defs><marker id="vector" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8 Z" fill="#25475c"/></marker></defs>
+  <ellipse cx="308" cy="165" rx="150" ry="100" fill="#e2edf2" fill-opacity="0.65" stroke="#215e79" stroke-width="3"/>
+  <path d="M92 165 H530 M308 300 V34" stroke="#8b98a5" stroke-width="1.4" stroke-dasharray="5 5"/>
+  <path d="M308 165 H458" stroke="#25475c" stroke-width="2.5" marker-end="url(#vector)" data-series-group="uncertainty-axes" data-series-label="東方向3mm"/>
+  <path d="M308 165 V65" stroke="#a45b19" stroke-width="2.7" stroke-dasharray="9 4" marker-end="url(#vector)" data-series-group="uncertainty-axes" data-series-label="北方向2mm"/>
+  <circle cx="308" cy="165" r="5" fill="#172b3b"/>
+  <g fill="#243543" font-size="19" font-family="sans-serif">
+    <text x="540" y="216">東 E</text>
+    <text x="319" y="40">北 N</text>
+    <text x="382" y="152">3 mm</text>
+    <text x="322" y="105">2 mm</text>
+    <text x="266" y="209">P</text>
+    <text x="208" y="323">k = 1</text>
+  </g>
+</svg>

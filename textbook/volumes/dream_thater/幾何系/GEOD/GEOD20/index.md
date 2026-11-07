@@ -224,6 +224,20 @@ $$
 です。両極以外では $\beta\mapsto\theta\mapsto N_p$ は厳密単調、各 $\beta$ 固定では $\ell\mapsto E$ が正の傾きを持つため、切れ目をまたがない開領域で投影は単射です。そこで変数変換公式を積分すれば有限領域の面積も一致します。北極・南極と切断線は面積零の境界で、面積の等式は極限へ拡張されます。
 <!-- proof-end -->
 
+![Equal Earthの赤道において、東西約0.862倍・南北約1.161倍となり面積が保存される微小正方形とその局所像](assets/equal-earth-equator-area.svg)
+
+赤道 $\beta=0$、$\theta=0$ の局所的な変換では、正積球の接平面座標 $u=R_q\ell,\ v=R_q\beta$（$\ell=\lambda-\lambda_0$）に対して
+
+$$
+\frac{\partial E}{\partial u}=\frac{2}{\sqrt3A_1}\simeq0.8616,
+\qquad
+\frac{\partial N_p}{\partial v}=\frac{\sqrt3A_1}{2}\simeq1.1607,
+\qquad
+\frac{\partial E}{\partial u}\frac{\partial N_p}{\partial v}=1.
+$$
+
+図はこの**微分による一次近似**を同一尺度で描いたもので、有限幅の緯度経度矩形が厳密に長方形へ写るとは主張しません。Equal Earthで形が変わっても面積が保存される理由は、係数の積が1になるJacobianの計算にあります。
+
 **有限帯の確認。** $-\beta_0\le\beta\le\beta_0$、$-\Delta/2\le\ell\le\Delta/2$（$0<\beta_0<\pi/2,\ 0<\Delta<2\pi$）の像では、各 $\beta$ の水平幅は $R_qc\Delta\cos\theta/D$ です。縦方向の微小幅は $R_qD\theta'\,d\beta$ なので
 
 $$
