@@ -24,12 +24,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（境界層の核平均展開）"]
     requires: [manifold-learning.truncated-gaussian-moments]
+  - id: manifold-learning.interval-neumann-boundary
+    name: 区間のNeumann境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区間のNeumann境界条件）"]
+    requires: []
   - id: manifold-learning.boundary-square-root-bias
     name: 端点の平方根偏りとNeumann条件
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（端点の平方根偏りとNeumann条件）"]
-    requires: [manifold-learning.boundary-kernel-expansion]
+    requires: [manifold-learning.boundary-kernel-expansion, manifold-learning.interval-neumann-boundary]
   - id: manifold-learning.boundary-layer-nonuniformity
     name: 左端Neumann条件と境界層の非一様性
     kind: proposition

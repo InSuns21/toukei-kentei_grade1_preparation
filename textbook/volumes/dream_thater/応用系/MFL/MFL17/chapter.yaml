@@ -17,8 +17,9 @@ learning_objectives:
 definitions:
   - { id: MFL17-DEF-01, name: 区間上の行正規化Gaussian核 }
   - { id: MFL17-DEF-02, name: 切断Gaussianモーメント }
-  - { id: MFL17-DEF-03, name: 点ごとに固定したadaptive帯域幅 }
-  - { id: MFL17-DEF-04, name: 同一支持上のdensity shift }
+  - { id: MFL17-DEF-03, name: 区間のNeumann境界条件 }
+  - { id: MFL17-DEF-04, name: 点ごとに固定したadaptive帯域幅 }
+  - { id: MFL17-DEF-05, name: 同一支持上のdensity shift }
 theorems:
   - { id: MFL17-THM-01, name: 境界層の核平均展開 }
   - { id: MFL17-PROP-01, name: 端点の平方根偏りとNeumann条件 }

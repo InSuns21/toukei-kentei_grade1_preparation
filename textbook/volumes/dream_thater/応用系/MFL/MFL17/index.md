@@ -174,6 +174,31 @@ $f'$ に掛かる項は $\mu_2(p'/p)f'-\mu_1^2(p'/p)f'$、$f''$ に掛かる項�
 
 ### 3.1 端点と内点で異なる次数
 
+区間端での「外向き法線方向」は左端で負の方向、右端で正の方向である。端点でその方向への一階微分が0という条件を考えると、区間では両端の通常の一階導関数が0という形になる。
+
+<a id="def-mfl17-neumann"></a>
+
+<!-- formal-statement-start -->
+> **定義（区間のNeumann境界条件）**
+> 閉区間 $[0,1]$ 上の実数値関数 $f\in C^1([0,1])$ が
+
+$$
+f'(0)=0,\qquad f'(1)=0
+$$
+
+> を満たすとき、$f$ は区間のNeumann境界条件を満たすという。左端では外向き法線微分が $-f'(0)$、右端では $f'(1)$ であり、両者が0であることと同値である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-mfl17-neumann -->
+**直接例（両端で微分が消える関数）。** $f(x)=x^2(1-x)^2$ は $C^1([0,1])$ で、
+
+$$
+f'(x)=2x(1-x)^2-2x^2(1-x)=2x(1-x)(1-2x).
+$$
+
+したがって $f'(0)=f'(1)=0$ が直接確認でき、両端で外向き法線微分は0である。一方 $g(x)=x$ は $g'(0)=g'(1)=1$ なのでこの条件を満たさない。
+<!-- definition-example-end -->
+
 <a id="prop-mfl17-endpoint"></a>
 
 <!-- formal-statement-start -->
@@ -210,7 +235,7 @@ $x=0$ では $A=0$、$B=1/\sqrt{\varepsilon}\to\infty$。[切断モーメント�
 固定した内点 $x$ では $A,B\to\infty$ で、$\mu_1=O(e^{-c_x/\varepsilon})$、$\mu_2=2+O(e^{-c_x/\varepsilon})$。$c_x>0$ は端点距離から取れる。[展開定理](#thm-mfl17-expansion)の剰余を $\varepsilon$ で割ると $O(\sqrt{\varepsilon})$ になり、表示の極限式が従う。$\square$
 <!-- proof-end -->
 
-ここで端点の条件 $f'(0)=f'(1)=0$ は区間の**Neumann境界条件**（外向き法線方向の導関数が0）に当たる。ただし、この必要条件を見つけただけで有限核作用素全体がNeumann熱半群へ収束すると証明したわけではない。関数空間・境界層・時間反復・スペクトルの制御は別途必要になる。
+ここで端点の必要条件は[区間のNeumann境界条件](#def-mfl17-neumann)に当たる。ただし、この必要条件を見つけただけで有限核作用素全体がNeumann熱半群へ収束すると証明したわけではない。関数空間・境界層・時間反復・スペクトルの制御は別途必要になる。
 
 **失敗例。** $p=1$、$f(x)=x$ では左端の二階微分が0でも
 
@@ -415,7 +440,7 @@ $x=1/2$ で $s=1/4$ なら極限は1、$s=-1/4$ なら $-1$ になる。これ�
 # timeout-ms: 30000
 # lab-preset: 左端・一様密度・一次関数 | --x 0 --epsilon 0.01 --slope 0 --beta 0 --function linear
 # lab-preset: 左端・幅縮小と平方根項 | --x 0 --epsilon 0.0025 --slope 0 --beta 0 --function linear
-# lab-preset: 境界層・Neumann関数 | --x 0.1 --epsilon 0.01 --slope 0 --beta 0 --function quadratic
+# lab-preset: 境界層・左端Neumann条件 | --x 0.1 --epsilon 0.01 --slope 0 --beta 0 --function quadratic
 # lab-preset: 内点・密度drift | --x 0.5 --epsilon 0.01 --slope 0.5 --beta 0 --function linear
 # lab-preset: adaptive幅・左端 | --x 0 --epsilon 0.01 --slope 0.5 --beta 0.5 --function linear
 # lab-preset: 密度反転・内点 | --x 0.5 --epsilon 0.01 --slope -0.5 --beta 0 --function linear
@@ -581,7 +606,7 @@ $$
 w(x)=\frac{1+t(2x-1)}{1+s(2x-1)}>0,\qquad wp_s=q_t.
 $$
 
-[density shift命題](#prop-mfl17-shift)で $x=1/2$ に $f'=1$、$q_t'=2t$、$p_s'=2s$、$q_t=p_s=1$ を代入すると
+[密度変化によるdriftの差](#prop-mfl17-shift)で $x=1/2$ に $f'=1$、$q_t'=2t$、$p_s'=2s$、$q_t=p_s=1$ を代入すると
 
 $$
 (L_{q_t}-L_{p_s})f(1/2)
@@ -592,7 +617,7 @@ $$
 
 <a id="ex-mfl17-b04"></a>
 
-### MFL17-B04 Neumann境界条件だけでは足りない
+### MFL17-B04 左端Neumann条件だけでは足りない
 
 - Level: B
 - 問題: $p=1$、$f(x)=x^2$、$x_\varepsilon=a\sqrt\varepsilon$（$a>0$ 固定）について、$(P_\varepsilon f(x_\varepsilon)-f(x_\varepsilon))/\varepsilon$ の極限を切断モーメントから計算せよ。端点 $a=0$ と固定内点の値を比較し、一様収束を否定する理由を説明せよ。
@@ -660,7 +685,7 @@ $$
 
   を与える。しかし固定内点でのgeneratorは $\widetilde f''=2$ であり、一様には近づかない。端点条件だけで熱半群への強い収束を宣言できない。
 
-4. $p_s$ と $q_t$ はともに正なので $w=q_t/p_s$ は定義され、$w p_s=q_t$ を使って行積分の分子と分母を同時に再重み付けできる。$\rho$ を **$p_s^{-\beta}$ に固定**して比べると、[density shift命題](#prop-mfl17-shift)から
+4. $p_s$ と $q_t$ はともに正なので $w=q_t/p_s$ は定義され、$w p_s=q_t$ を使って行積分の分子と分母を同時に再重み付けできる。$\rho$ を **$p_s^{-\beta}$ に固定**して比べると、[密度変化によるdriftの差](#prop-mfl17-shift)から
 
 $$
 (L_{\rho,q_t}-L_{\rho,p_s})f(x)
