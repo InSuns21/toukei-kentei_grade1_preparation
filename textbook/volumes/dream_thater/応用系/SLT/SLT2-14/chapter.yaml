@@ -1,0 +1,43 @@
+id: "SLT2-14"
+title: "mean-field勾配流と連続性方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-13
+  - ODE8
+  - PDE1
+  - TOP5A
+learning_objectives:
+  - 輸送結合によるWasserstein距離と連続性方程式の弱解を定義し、Dirac分布で検算できる
+  - 損失の混合方向と輸送方向の第一変分を区別して導出できる
+  - 有界C2特徴に対するmean-field方程式の存在・一意性・安定性の証明を再構成できる
+  - 動くGram行列とエネルギー散逸を測度の弱形式から導ける
+  - 有限粒子の収束の追加条件と非凸停留点による大域最適化の限界を説明できる
+definitions:
+  - { id: SLT2-14-DEF-01, name: 輸送結合とWasserstein距離 }
+  - { id: SLT2-14-DEF-02, name: 連続性方程式の確率測度弱解 }
+theorems:
+  - { id: SLT2-14-PROP-01, name: 損失の第一変分と輸送方向微分 }
+  - { id: SLT2-14-THM-01, name: 有界特徴のmean-field方程式の大域適切設定性 }
+  - { id: SLT2-14-THM-02, name: mean-field流のエネルギー散逸と動くGram行列 }
+  - { id: SLT2-14-THM-03, name: 有限粒子のmean-field極限 }
+canonical_examples:
+  - 二つの点質量と二点分布の輸送距離を結合から直接計算する
+  - 定速移動するDirac分布で連続性方程式の弱形式を確認する
+  - sin特徴の二粒子で残差速度・Gram量・散逸を二通りで検算する
+  - cos特徴の二極値原子で輸送停留性と混合変分の不一致を示す
+problem_patterns:
+  - SLT2-14-A01
+  - SLT2-14-A02
+  - SLT2-14-A03
+  - SLT2-14-A04
+  - SLT2-14-A05
+  - SLT2-14-B01
+  - SLT2-14-B02
+  - SLT2-14-B03
+  - SLT2-14-B04
+  - SLT2-14-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }
