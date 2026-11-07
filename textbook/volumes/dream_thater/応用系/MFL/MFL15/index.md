@@ -182,7 +182,7 @@ $$
 
 これは[MFL13の無補正結果](../MFL13/index.md#prop-mfl13-row)と $\alpha=0$ で一致する。$\alpha=1$ に関しても**この極限で**密度driftが消えるのであって、有限核幅で $p$ に依らないという等式ではない。
 
-**円周で係数を手で見る。** 単位円周の角度 $\theta$ とし、角度だけの関数 $u(\theta)$ では $u'(\theta)=du/d\theta=\partial_\theta u$、$u''(\theta)=\partial_{\theta\theta}u=\Delta_gu$ と書く。また単位円周の計量により $\langle\nabla_gu,\nabla_gv\rangle_g=u'v'$ である（[円周でのLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)）。これらはすべて角度 $\theta$ に関する微分であり、核幅 $\varepsilon$ に関する微分ではない。以下、$|a|<1$、$p(\theta)=(1+a\cos\theta)/(2\pi)$、$f(\theta)=\cos\theta$ を取る。$p$ は正で積分1、$f$ は滑らか。[$\Delta_g=\partial_{\theta\theta}$](../MFL12/index.md#prop-mfl12-circle)、$\partial_\theta\log p=-a\sin\theta/(1+a\cos\theta)$ なので
+**円周で係数を手で見る。** 単位円周の角度 $\theta$ とし、角度だけの関数 $u(\theta)$ では $u'(\theta)=du/d\theta=\partial_\theta u$、$u''(\theta)=\partial_{\theta\theta}u=\Delta_gu$ と書く。また単位円周の計量により $\langle\nabla_gu,\nabla_gv\rangle_g=u'v'$ である（[円周でのLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)）。これらはすべて角度 $\theta$ に関する微分であり、核幅 $\varepsilon$ に関する微分ではない。以下、$|a|<1$、$p(\theta)=(1+a\cos\theta)/(2\pi)$、$f(\theta)=\cos\theta$ を取る。$p$ は正で積分1、$f$ は滑らか。この記法で $\partial_\theta\log p=-a\sin\theta/(1+a\cos\theta)$ なので
 
 $$
 L_\alpha f(\theta)=-\cos\theta+
@@ -465,7 +465,7 @@ $$
 ### MFL15-B01 ratioで何が消えるか
 
 - Level: B
-- 問題: 本章の境界なしコンパクト多様体 $M$ で $p,f\in C^3(M)$、$p\ge p_{\min}>0$ とする。$c=\operatorname{Scal}/3$、$A=\Delta_gp-cp$ とし、$u\in C^3(M)$ に対して $G_\varepsilon u=u+\varepsilon(\Delta_gu-cu)+O(\varepsilon^{3/2})$、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$ が一様に成り立つとする。[補正作用素](#def-mfl15-alpha)において $r=p^{1-\alpha}$、$b=A/p$ を使い、$c$ と $b$ が消えるまでの分子・分母の一次展開を示せ。
+- 問題: 本章の境界なしコンパクト多様体 $M$ で $p,f\in C^3(M)$、$p\ge p_{\min}>0$ とする。$c=\operatorname{Scal}/3$、$A=\Delta_gp-cp$ とし、$u\in C^3(M)$ に対して $G_\varepsilon u=u+\varepsilon(\Delta_gu-cu)+O(\varepsilon^{3/2})$、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$ が一様に成り立つとする。[MFL13のkernel bias定理](../MFL13/index.md#thm-mfl13-bias)と[補正作用素](#def-mfl15-alpha)において $r=p^{1-\alpha}$、$b=A/p$ を使い、$c$ と $b$ が消えるまでの分子・分母の一次展開を示せ。
 
 **詳細解答**。[A02のTaylor展開](#ex-mfl15-a02)により $pq_\varepsilon^{-\alpha}=r-\alpha\varepsilon rb+O(\varepsilon^{3/2})$。$G_\varepsilon$ の核の総量は有界、$rb,frb$ は $C^1$ なので $G_\varepsilon(rb)=rb+O(\sqrt\varepsilon)$ とし、$N=fr+\varepsilon[\Delta_g(fr)-cfr-\alpha frb]+O(\varepsilon^{3/2})$、$D=r+\varepsilon[\Delta_gr-cr-\alpha rb]+O(\varepsilon^{3/2})$。$r>0$ の下界により $N/D=f+\varepsilon\{[\Delta_g(fr)-f\Delta_gr]/r\}+O(\varepsilon^{3/2})$。$\{-cfr-f(-cr)\}=0$ と $\{-\alpha frb-f(-\alpha rb)\}=0$ が別々に成立する。[積の公式](../MFL13/index.md#prop-mfl13-row)から括弧は $\Delta_gf+2\nabla_g\log r\cdot\nabla_gf=\Delta_gf+2(1-\alpha)\nabla_g\log p\cdot\nabla_gf$。
 
