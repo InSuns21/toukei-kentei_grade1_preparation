@@ -65,21 +65,34 @@ $$
 <!-- proof-start -->
 ### 証明
 
-平行移動と直交座標変換で $x=0$、$T_xM=\mathbb R^d\times\{0\}$ とする。[埋め込み多様体の局所グラフ表示](../MFL2/index.md#prop-mfl2-second-order)により、十分小さい領域で $F(u)=(u,g(u))$ と書け、$g(0)=0$、$Dg(0)=0$、$g$ は $C^2$ である。従って定数 $C$ を選べば
+平行移動と直交座標変換で $x=0$、$T_xM=\mathbb R^d\times\{0\}$ とする。[埋め込み多様体の局所グラフ表示](../MFL2/index.md#prop-mfl2-second-order)により、十分小さい領域で
 
 $$
-\|g(u)\|\le C\|u\|^2,\qquad \|Dg(u)\|\le C\|u\|.
+F(u)=(u,\varphi(u))
 $$
 
-グラフの誘導計量は $G(u)=I_d+Dg(u)^{\mathsf T}Dg(u)$ だから、体積要素の係数は $J(u)=\sqrt{\det G(u)}=1+O(\|u\|^2)$。ここでは $Dg^{\mathsf T}Dg$ の成分が $O(\|u\|^2)$ で、行列式と平方根が単位行列の近くで滑らかなことを使った。
+と書ける。ここで $u\in\mathbb R^d$ は接平面の座標、$\varphi(u)\in\mathbb R^{D-d}$ は法線方向のずれである。$\varphi(0)=0$、$D\varphi(0)=0$ で、$\varphi$ は $C^2$ だから、定数 $C$ を選べば
 
-小球へ写る底面領域を $A_r=\{u:\|u\|^2+\|g(u)\|^2<r^2\}$ とする。$\|u\|<r$ は必要であり、上の二次上界から十分小さい $r$ には、ある定数 $C_1>0$ について
+$$
+\|\varphi(u)\|\le C\|u\|^2,\qquad \|D\varphi(u)\|\le C\|u\|.
+$$
+
+接座標の標準基底 $e_i$ に対し $\partial_iF=(e_i,\partial_i\varphi)$ だから、グラフの誘導計量の成分は
+
+$$
+G_{ij}(u)=\partial_iF\cdot\partial_jF
+=\delta_{ij}+\partial_i\varphi\cdot\partial_j\varphi.
+$$
+
+すなわち $G(u)=I_d+D\varphi(u)^{\mathsf T}D\varphi(u)$ で、体積要素の係数は $J(u)=\sqrt{\det G(u)}=1+O(\|u\|^2)$ である。ここでは $D\varphi^{\mathsf T}D\varphi$ の成分が $O(\|u\|^2)$ で、行列式と平方根が単位行列の近くで滑らかなことを使った。
+
+小球へ写る底面領域を $A_r=\{u:\|u\|^2+\|\varphi(u)\|^2<r^2\}$ とする。$\|u\|<r$ は必要であり、上の二次上界から十分小さい $r$ には、ある定数 $C_1>0$ について
 
 $$
 B^{d}_{r(1-C_1r^2)}(0)\subset A_r\subset B^{d}_r(0).
 $$
 
-実際、内側の球では $\|u\|^2+\|g(u)\|^2\le \|u\|^2+C^2\|u\|^4<r^2$ を $C_1$ を大きく取ることで満たせる。したがって $\operatorname{vol}_d(A_r)=v_dr^d+O(r^{d+2})$。一方、$p$ の Lipschitz 性から $p(F(u))=p(x)+O(\|F(u)-x\|)=p(x)+O(r)$ が $A_r$ 上で一様に成立する。よって
+実際、内側の球では $\|u\|^2+\|\varphi(u)\|^2\le \|u\|^2+C^2\|u\|^4<r^2$ を $C_1$ を大きく取ることで満たせる。したがって $\operatorname{vol}_d(A_r)=v_dr^d+O(r^{d+2})$。一方、$p$ の Lipschitz 性から $p(F(u))=p(x)+O(\|F(u)-x\|)=p(x)+O(r)$ が $A_r$ 上で一様に成立する。よって
 
 $$
 \begin{aligned}
@@ -240,19 +253,19 @@ $$
 
 ## 5. 近傍半径比と局所 PCA は次元を教えるか
 
-半径を先に固定して点数を数える代わりに、[ML1-11の $k$ 近傍集合](../../ML/ML1-11/index.md#def-ml1-11-neighborhood)のように、近い順に $k$ 個選んで半径を読む方法もある。ここではまず確率質量の逆関数を使い、なぜ半径比が次元に関係するかを確かめる。
+半径を先に固定して点数を数える代わりに、[ML1-11の $k$ 近傍集合](../../ML/ML1-11/index.md#def-ml1-11-neighborhood)のように、近い順に $k$ 個選んで半径を読む方法もある。ここではまず確率質量の逆関数を使い、なぜ半径比が次元に関係するかを確かめる。逆関数を使うには、比較したい二つの確率水準が小球質量関数の値域に入っていなければならない。
 
 <a id="def-mfl6-knn-radius"></a>
 
 <!-- formal-statement-start -->
 > **定義（近傍半径比による次元指標）**
-> 固定中心 $x$ で $q_x(t)$ が対象区間上連続かつ狭義増加とし、$0<u<1/2$ に対して $q_x(\rho(u))=u$ と定義する。母集団の半径比次元指標を
+> 固定中心 $x$ で $q_x(t)$ がある正の半径区間 $I$ 上連続かつ狭義増加とする。$0<u<1/2$ を取り、$u,2u$ がともに $q_x(I)$ に含まれると仮定する。このとき一意な $\rho(u),\rho(2u)\in I$ が存在し、$q_x(\rho(v))=v$（$v=u,2u$）と定義できる。母集団の半径比次元指標を
 
 $$
 d_{\mathrm{rad}}(u)=\frac{\log2}{\log\{\rho(2u)/\rho(u)\}}
 $$
 
-> と定める（$\rho(2u)>\rho(u)>0$）。有限標本では、同順位の距離がないとき、$k$ 番目と $2k$ 番目の距離 $R_k,R_{2k}$（$2k\le n$）を $\rho(k/n),\rho(2k/n)$ の代わりにして同じ式を計算する。
+> と定める（$\rho(2u)>\rho(u)>0$）。有限標本では整数 $1\le k$、$2k\le n$ を選び、同順位の距離がなく $0<R_k<R_{2k}$ のとき、$k$ 番目と $2k$ 番目の距離 $R_k,R_{2k}$ を $\rho(k/n),\rho(2k/n)$ の代わりにして同じ式を計算する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl6-knn-radius -->
@@ -266,7 +279,15 @@ $$
 例えば母集団半径比が $\sqrt2$ なら指標は2。半径比が1に近い場合は分母の $\log$ が小さく、標本による距離の微小なずれが大きく増幅する。
 <!-- definition-example-end -->
 
-実際の $R_k$ は**ランダム**で、同じ $k$ を持つ点群の標本半径比がいつも $2^{1/d}$ とは言えない。$k$ を固定したまま $n$ だけ増やしても局所点数の揺らぎは残る。母集団のべき乗則、$k\to\infty$ と $k/n\to0$ の両立、近傍選択の偏りなどを確かめずに一致性を主張しない。
+実際の $R_k$ は**ランダム**である。開球を使う経験分布では、距離の同点がない場合でも半径ちょうど $R_k$ の点は数えない。従って
+
+$$
+\widehat q_x(R_k)=\frac{k-1}{n}
+$$
+
+であり、$R_k$ を母集団の $k/n$ 分位半径の代用とするのは近似的な約束であって厳密な逆関数の恒等式ではない。
+
+同じ $k$ を持つ点群の標本半径比がいつも $2^{1/d}$ とは言えない。$k$ を固定したまま $n$ だけ増やしても局所点数の揺らぎは残る。母集団のべき乗則、$k\to\infty$ と $k/n\to0$ の両立、近傍選択の偏りなどを確かめずに一致性を主張しない。
 
 もう一つの手掛かりは[局所 PCA の固有値](../MFL5/index.md#def-mfl5-local-pca)である。二次法線偏差が $O(r^2)$ のとき、接方向の共分散は通常 $O(r^2)$、法方向は $O(r^4)$ となる。しかし固有値の「大きさ」が $d$ を区切る閾値は、密度の非退化性とノイズの規模を必要とする。[MFL5の有限標本接空間誤差](../MFL5/index.md#prop-mfl5-local-pca-bound)も接方向分散の下界を仮定している。
 
@@ -338,16 +359,22 @@ u=hT+\tfrac12h^2A+O(h^3),\qquad
 v=-hT+\tfrac12h^2A+O(h^3).
 $$
 
-二ベクトルの外積の長さ（平行四辺形の面積）を $\|u\wedge v\|=\sqrt{\|u\|^2\|v\|^2-(u\cdot v)^2}$ と書く。双線形性で $T\wedge T=0$、$A\wedge T=-T\wedge A$ だから
+面積を求めるため、$u$ への射影を $v$ から引いた垂直成分を $w=v-(u\cdot v)u/\|u\|^2$ と置く。$u\cdot w=0$ で、底辺を $\|u\|$、高さを $\|w\|$ と取れば $2\Delta=\|u\|\|w\|$ である。$T\cdot A=0$ と上の展開から
 
 $$
-u\wedge v=h^3(T\wedge A)+O(h^4),
-\qquad
-2\Delta=\|u\wedge v\|
+\|u\|^2=h^2+O(h^4),\qquad
+u\cdot v=-h^2+O(h^4),\qquad
+\frac{u\cdot v}{\|u\|^2}=-1+O(h^2).
+$$
+
+従って $w=v+u+O(h^3)=h^2A+O(h^3)$ となり、$A=0$ の場合も含めて
+
+$$
+2\Delta=\|u\|\|w\|=(h+O(h^3))(h^2\|A\|+O(h^3))
 =h^3\|A\|+O(h^4).
 $$
 
-ここで $T\perp A$ だから $\|T\wedge A\|=\|T\|\|A\|=\|A\|$。$A=0$ でも $\|u\wedge v\|=O(h^4)$ と読める。弧長パラメータなので $\|u\|=h+O(h^2)$、$\|v\|=h+O(h^2)$、また $u-v=2hT+O(h^3)$ より $\|u-v\|=2h+O(h^3)$。従って $abc=2h^3(1+O(h))$ である。最後に
+弧長パラメータなので $\|v\|=h+O(h^3)$、また $u-v=2hT+O(h^3)$ より $\|u-v\|=2h+O(h^3)$。従って $abc=2h^3(1+O(h^2))$ である。最後に
 
 $$
 \kappa_\triangle=\frac{4\Delta}{abc}
@@ -377,11 +404,18 @@ D_h^2\gamma(0)=
 \kappa_h=\|D_h^2\gamma(0)\|
 $$
 
-> と定義する。観測点 $Y_+,Y_0,Y_-$ を使った場合の $\widehat\kappa_h$ は、同じ式の $\gamma(\pm h),\gamma(0)$ を $Y_\pm,Y_0$ に置き換えたベクトルのノルムとする。
+> と定義する。観測点 $Y_+,Y_0,Y_-$ を使う場合は、観測差分とそのノルムを
+>
+$$
+\widehat D_h^2=\frac{Y_+-2Y_0+Y_-}{h^2},\qquad
+\widehat\kappa_h=\|\widehat D_h^2\|
+$$
+>
+> と定義する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl6-second-difference -->
-**定義の確認**。$\gamma(s)=(R\cos(s/R),R\sin(s/R))$（$\|\gamma'\|=1$）の $s=0$ では
+**定義の確認**。$\gamma(s)=(R\cos(s/R),R\sin(s/R))$ は $\gamma'(s)=(-\sin(s/R),\cos(s/R))$ なので全ての $s$ で $\|\gamma'(s)\|=1$ を満たす。$s=0$ では
 
 $$
 D_h^2\gamma(0)=\left(\frac{2R(\cos(h/R)-1)}{h^2},0\right),
@@ -445,7 +479,7 @@ $$
 
 ## 8. PCA の法線固有値からも曲率は分かるか
 
-弧長三点がなくても共分散は計算できる。[MFL5の放物線模型](../MFL5/index.md#prop-mfl5-curvature-covariance)では曲率によって小さな法線分散が現れた。特定の対称分布ならその係数から曲率の絶対値を復元できるが、一般の密度では同じ公式は成立しない。
+弧長三点がなくても共分散は計算できる。[MFL5の放物線模型](../MFL5/index.md#prop-mfl5-curvature-covariance)では曲率によって小さな法線分散が現れた。放物線 $z(u)=(u,\kappa u^2/2)$ の原点では $z'(0)=(1,0)$ が接方向、$(0,1)$ が法方向である。この二方向の基底で共分散の交差成分が0と分かれば、対角成分はそれぞれの固有値になる。以下では対称な一様分布によって交差成分が消えることを確かめ、法線分散から曲率の絶対値を復元する。一般の密度では同じ公式は成立しない。
 
 <a id="prop-mfl6-parabola-pca"></a>
 
@@ -480,7 +514,16 @@ EU^2&0\\
 =\operatorname{diag}\left(\frac{r^2}3,\frac{\kappa^2r^4}{45}\right).
 $$
 
-ここから $\sqrt{5\lambda_{\mathrm n}}=|\kappa|r^2/3$、$\lambda_{\mathrm t}=r^2/3>0$ を割って復元式を得る。接方向が上位となる条件は $r^2/3>\kappa^2r^4/45$、すなわち $\kappa^2r^2<15$。[弧長曲率の定義](../MFL3/index.md#def-mfl3-curvature)へ $z(u)=(u,\kappa u^2/2)$ を適用すれば、原点では速度 $(1,0)$、加速度 $(0,\kappa)$ で、そこで速度長が1だから曲率は $|\kappa|$。$\square$
+ここから $\sqrt{5\lambda_{\mathrm n}}=|\kappa|r^2/3$、$\lambda_{\mathrm t}=r^2/3>0$ を割って復元式を得る。接方向が上位となる条件は $r^2/3>\kappa^2r^4/45$、すなわち $\kappa^2r^2<15$。
+
+[弧長曲率の定義](../MFL3/index.md#def-mfl3-curvature)と照合するため、$z(u)=(u,\kappa u^2/2)$ の速度長を計算する。
+
+$$
+\|z'(u)\|=\sqrt{1+\kappa^2u^2},\qquad
+\left.\frac{d}{du}\|z'(u)\|\right|_{u=0}=0.
+$$
+
+原点では速度 $(1,0)$、加速度 $(0,\kappa)$ だから、弧長 $s$ に取り直しても原点の二階微分は $(0,\kappa)$ であり、真の曲率は $|\kappa|$。$\square$
 <!-- proof-end -->
 
 この公式では**法線方向を識別済み**であること、パラメータ $U$ が一様かつ対称であること、観測ノイズを含まないことが重要である。$\kappa$ と $-\kappa$ は共分散の固有値から区別できず、符号を持つ曲率は得られない。密度や観測誤差が変われば $\lambda_{\mathrm n}$ も変わる。曲率の大きさと [reach](../MFL3/index.md#def-mfl3-reach) は別であり、局所の三点だけで遠くの枝の接近を検出することもできない。
