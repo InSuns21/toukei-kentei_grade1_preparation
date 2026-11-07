@@ -4,6 +4,8 @@ coverage: complete
 prerequisites:
   - SLT2-13
   - ODE8
+  - PDE1
+  - TOP5A
 concepts:
   - id: learning.slt2-wasserstein-distances
     name: 輸送結合とWasserstein距離
