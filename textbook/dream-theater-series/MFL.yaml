@@ -28,7 +28,7 @@ chapters:
     title: "局所主成分分析と接空間推定"
   - id: MFL6
     path: textbook/volumes/dream_thater/応用系/MFL/MFL6
-    status: planned
+    status: completed
     title: "内在次元・曲率の推定"
   - id: MFL7
     path: textbook/volumes/dream_thater/応用系/MFL/MFL7
