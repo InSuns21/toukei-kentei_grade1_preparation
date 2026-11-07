@@ -52,6 +52,10 @@ $$
 したがって二重中心化が内積表につながることも、この二点で直接確かめられる。
 <!-- definition-example-end -->
 
+<a id="ref-mfl8-row-mean"></a>
+
+### 行平均からの二重中心化
+
 行列の各成分も検算できる。$r_i=n^{-1}\sum_kd_{ik}^2$ を第 $i$ 行の平均、$m=n^{-2}\sum_{k,\ell}d_{k\ell}^2$ を全成分の平均とする。$J=I_n-\boldsymbol1\boldsymbol1^{\mathsf T}/n$ を両側から掛けて成分を展開すると、対称性により列 $j$ の平均も $r_j$ なので
 
 $$
@@ -63,8 +67,6 @@ $$
 $$
 
 従って次の公式を得る。
-
-<a id="ref-mfl8-row-mean"></a>
 
 $$
 B_{ij}=-\frac12(d_{ij}^2-r_i-r_j+m),\qquad
