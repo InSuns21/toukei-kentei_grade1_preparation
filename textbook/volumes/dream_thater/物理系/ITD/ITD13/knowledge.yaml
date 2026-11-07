@@ -1,0 +1,45 @@
+chapter: ITD13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD2
+  - ITD11
+  - ITD12
+  - STO3A
+  - STO10
+forward_references: []
+concepts:
+  - id: information-thermodynamics.time-dependent-ring-langevin
+    name: 時間依存の円周Langevin実験と仕事・浴熱
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（時間依存の円周Langevin実験と仕事・浴熱）]
+    requires: [information-thermodynamics.potential-ring-langevin, information-thermodynamics.langevin-heat]
+
+  - id: information-thermodynamics.time-reversed-protocol
+    name: 時間反転実験と経路エントロピー生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（時間反転実験と経路エントロピー生成）]
+    requires: [information-thermodynamics.time-dependent-ring-langevin, information-thermodynamics.ring-reversed-path, stochastic.continuous-path-space]
+
+  - id: information-thermodynamics.girsanov-path-ratio
+    name: Girsanov作用と時間反転の経路確率比
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Girsanov作用と時間反転の経路確率比）]
+    requires: [information-thermodynamics.time-reversed-protocol, stochastic.girsanov-theorem]
+
+  - id: information-thermodynamics.diffusion-path-fluctuation
+    name: ゆらぎ関係と確率流の平均第二法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ゆらぎ関係と確率流の平均第二法則）]
+    requires: [information-thermodynamics.girsanov-path-ratio, information-thermodynamics.current-dissipation-square]
+
+  - id: information-thermodynamics.diffusion-jarzynski
+    name: 初期平衡からのJarzynski等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（初期平衡からのJarzynski等式）]
+    requires: [information-thermodynamics.girsanov-path-ratio, information-thermodynamics.integral-fluctuation-theorem]
