@@ -16,3 +16,4 @@
 13. [ITD13 時間依存Langevin拡散の経路反転：Girsanov密度・ゆらぎ関係・仕事](textbook/volumes/dream_thater/物理系/ITD/ITD13/index.md)
 14. [ITD14 位置依存拡散の熱力学：雑音誘起ドリフト・経路反転・散逸](textbook/volumes/dream_thater/物理系/ITD/ITD14/index.md)
 15. [ITD15 慣性を持つLangevin系：速度反転・Kramers流・散逸](textbook/volumes/dream_thater/物理系/ITD/ITD15/index.md)
+16. [ITD16 慣性から位置拡散へ：Smoluchowski–Kramers極限と消えない運動エネルギー](textbook/volumes/dream_thater/物理系/ITD/ITD16/index.md)
