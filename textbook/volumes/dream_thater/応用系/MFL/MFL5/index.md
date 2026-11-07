@@ -466,6 +466,20 @@ $\eta>r$ なら母集団でさえ上位方向は法線 $e_2$ で、射影距離�
 
 `local_pca_lab.py` は放物線 $Z=(U,\kappa U^2/2)$ を用い、左右対称または片側の $U$ を生成する。$U$ の範囲は**パラメータの区間**であり、真の Euclid 球で選んだ点群ではないことを明示する。独立な有界な各座標ノイズを加え、局所平均・$2\times2$ 共分散・固有値ギャップ・真の $e_1$ との射影距離を、NumPyなしで毎回計算する。
 
+以下の「このページで実行」で、掲載の Python スクリプトをブラウザ内でそのまま動かせる。片側・対称のプリセットを切り替え、引数欄で標本数や曲率を変更して比べよう。
+
+```python-file-lab
+# lab-id: MFL5-LOCAL-PCA-FILE
+# lab-title: 局所PCA・曲率と観測ノイズ
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL5/local_pca_lab.py
+# timeout-ms: 15000
+# lab-preset: 片側・小さいノイズ | --n 500 --radius 0.4 --curvature 2 --side one --noise 0.02 --seed 2026
+# lab-preset: 対称・ノイズなし | --n 500 --radius 0.4 --curvature 2 --side symmetric --noise 0 --seed 2026
+# lab-preset: 片側・強いノイズ | --n 500 --radius 0.4 --curvature 2 --side one --noise 0.4 --seed 2026
+```
+
+ローカル環境から再実行したい場合は、リポジトリのルートで次を使う。
+
 ```bash
 python3 textbook/volumes/dream_thater/応用系/MFL/MFL5/local_pca_lab.py --self-test
 python3 textbook/volumes/dream_thater/応用系/MFL/MFL5/local_pca_lab.py --n 500 --radius 0.4 --curvature 2 --side one --noise 0.02 --seed 2026

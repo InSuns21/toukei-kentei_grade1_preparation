@@ -372,6 +372,20 @@ $$
 
 同じフォルダの [`laplace_beltrami_bridge_lab.py`](laplace_beltrami_bridge_lab.py) はPython標準ライブラリだけで動く決定論的な円周実験である。例えば次を実行する。
 
+このページで点数と周波数を変えて、連続固有値と離散固有値の誤差を比較できる。引数欄の `--n`、`--radius`、`--frequency` を調整してみよう。
+
+```python-file-lab
+# lab-id: MFL12-LAPLACE-BELTRAMI-FILE
+# lab-title: 円周Laplace–Beltrami・離散近似
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL12/laplace_beltrami_bridge_lab.py
+# timeout-ms: 15000
+# lab-preset: 48点・周波数3 | --n 48 --radius 2 --frequency 3
+# lab-preset: 96点・周波数3 | --n 96 --radius 2 --frequency 3
+# lab-preset: 48点・周波数5 | --n 48 --radius 2 --frequency 5
+```
+
+ローカル実行とテストには次を使う。
+
 ```bash
 python textbook/volumes/dream_thater/応用系/MFL/MFL12/laplace_beltrami_bridge_lab.py --n 48 --radius 2 --frequency 3
 python -m unittest textbook/volumes/dream_thater/応用系/MFL/MFL12/test_laplace_beltrami_bridge_lab.py

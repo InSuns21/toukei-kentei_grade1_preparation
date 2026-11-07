@@ -407,7 +407,20 @@ $$
 
 付属の [classical_mds_lab.py](classical_mds_lab.py) は標準 Python のみを用い、小規模な実対称行列のJacobi固有値法で二重中心化を数値計算する。三角形・非Euclid三点・直線標本を切り替え、埋め込み次元 $q$、零判定の許容差を変えられる。入力は各例の距離行列であり、出力 JSON には二乗距離、Gram、固有値、座標、再構成距離、Gramひずみ、元距離とのずれをすべて含める。
 
-リポジトリのルートから実行する例：
+このページで次のプリセットを実行すると、復元した座標と数値結果が表示される。`--dim` や `--tol` は引数欄で変更できる。
+
+```python-file-lab
+# lab-id: MFL8-CLASSICAL-MDS-FILE
+# lab-title: Classical MDS・固有値と復元座標
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL8/classical_mds_lab.py
+# timeout-ms: 15000
+# lab-preset: 三角形・2次元 | --case triangle --dim 2
+# lab-preset: 三角形・1次元 | --case triangle --dim 1
+# lab-preset: 非Euclid距離 | --case non_euclidean --dim 2
+# lab-preset: 直線標本 | --case line --dim 1
+```
+
+ローカル実行ではリポジトリのルートから次を使う。
 
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL8/classical_mds_lab.py --case triangle --dim 1
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL8/classical_mds_lab.py --case non_euclidean --dim 2

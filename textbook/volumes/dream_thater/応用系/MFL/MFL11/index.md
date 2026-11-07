@@ -356,6 +356,21 @@ $$
 
 [laplacian_eigenmaps_lab.py](laplacian_eigenmaps_lab.py) はPython標準ライブラリだけで $W,D_g,L,\mathcal L$ とJacobi法による対称固有分解を作り、一般化固有残差、次数付き中心化・規格化、辺エネルギーをJSONに出す。三点道、二本の非連結辺、孤立頂点、弱い橋を含む四点道を切り替え、非連結時の零固有値の重複と孤立点の除外も確認できる。
 
+このページで各グラフの数値固有値と埋め込み座標を実行・比較できる。`--bridge`、`--dim`、`--weight-scale` は引数欄から変更できる。
+
+```python-file-lab
+# lab-id: MFL11-LAPLACIAN-EIGENMAPS-FILE
+# lab-title: Laplacian Eigenmaps・固有値と座標
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL11/laplacian_eigenmaps_lab.py
+# timeout-ms: 15000
+# lab-preset: 三点道 | --case path3 --dim 1
+# lab-preset: 非連結 | --case disconnected --dim 1
+# lab-preset: 孤立点 | --case isolated --dim 1
+# lab-preset: 弱い橋 | --case weak-bridge --bridge 0.01 --dim 1
+```
+
+ローカル実行例：
+
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL11/laplacian_eigenmaps_lab.py --case path3 --dim 1
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL11/laplacian_eigenmaps_lab.py --case disconnected --dim 1
     python3 textbook/volumes/dream_thater/応用系/MFL/MFL11/laplacian_eigenmaps_lab.py --case weak-bridge --bridge 0.01 --dim 1
