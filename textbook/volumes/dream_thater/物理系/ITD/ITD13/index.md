@@ -495,7 +495,15 @@ $$
 \end{aligned}
 $$
 
-導関数項は $\int b\,dZ=\int b\circ dZ-D\int\partial_xb\,dt$ の補正です。$a=0$ なら作用は初期密度項だけに戻ります。
+導関数項は[Itô–Stratonovich変換](../ITD12/index.md#thm-itd12-current-and-heat)によるものです。積分範囲と作用対象を明記すると
+
+$$
+\int_0^\tau b_t(X_t)\,dZ_t
+=\int_0^\tau b_t(X_t)\circ dZ_t
+-D\int_0^\tau\partial_xb_t(X_t)\,dt.
+$$
+
+$a=0$ なら作用は初期密度項だけに戻ります。
 <!-- solution-end -->
 
 ### A3. Novikov条件を定量的に確かめる
