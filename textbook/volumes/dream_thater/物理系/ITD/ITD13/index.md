@@ -8,7 +8,11 @@
 
 ## 1. 時間を変える操作では何が仕事になるか
 
-長さ $L>0$ の円周を $\mathbb R/L\mathbb Z$ と書き、円周上の位置 $X_t$ と実数値の持ち上げ $Z_t$ を区別します。周期ポテンシャル $U_t(x)$ は粒子の内部エネルギーであり、外力 $F_t$ は一周するごとにも仕事をし得る非保存力です。時間依存のポテンシャルを変える操作も仕事をします。すなわち仕事には、$\partial_tU_t$ から来る**準位の変更**と、$F_t$ から来る**力による移動**の二種類があります。
+長さ $L>0$ の円周を $\mathbb R/L\mathbb Z$ と書き、円周上の位置 $X_t$ と実数値の持ち上げ $Z_t$ を区別します。周期ポテンシャル $U_t(x)$ は粒子の内部エネルギーであり、外力 $F_t$ は一周するごとにも仕事をし得る非保存力です。
+
+ここで $U_t(x)=U(t,x)$ と書きます。$\partial_tU_t(x)$ は位置 $x$ を固定した時刻微分、$\partial_xU_t(x)$ は時刻 $t$ を固定した空間微分を表します。
+
+時間依存のポテンシャルを変える操作も仕事をします。すなわち仕事には、$\partial_tU_t$ から来る**準位の変更**と、$F_t$ から来る**力による移動**の二種類があります。
 
 <a id="def-itd13-driven-protocol"></a>
 
@@ -44,7 +48,7 @@ $$
 <!-- definition-example-start: def-itd13-driven-protocol -->
 ### 直接例：坂の高さを変えながら粒子を動かす
 
-$U_t(x)=a(t)\cos(kx)$、$k=2\pi/L$、$a\in C^1[0,\tau]$、$F_t=0$ とします。$\partial_tU_t=a'(t)\cos(kx)$、$f_t(x)=ka(t)\sin(kx)$ です。任意の連続経路について
+$U_t(x)=a(t)\cos(kx)$、$k=2\pi/L$、$a\in C^1[0,\tau]$、$F_t=0$ とします。$a'(t)=da(t)/dt$ は時刻 $t$ での通常の導関数です。$\partial_tU_t=a'(t)\cos(kx)$、$f_t(x)=ka(t)\sin(kx)$ です。このSDEのほとんど全ての実現経路について
 
 $$
 W=\int_0^\tau a'(t)\cos(kX_t)\,dt,
@@ -52,7 +56,9 @@ W=\int_0^\tau a'(t)\cos(kX_t)\,dt,
 Q_{\mathrm{bath}}=\int_0^\tau ka(t)\sin(kX_t)\circ dZ_t.
 $$
 
-**定義の確認**：$a$ は有限区間上で有界、$U$ は滑らかで周期的なので $f_t$ は一様に有界かつ空間Lipschitz連続です。従ってSDEの解を構成できます。$F_t=0$ でも、坂の高さを変えれば仕事が零とは限りません。[Stratonovich連鎖律](../ITD7/index.md#prop-itd7-stratonovich-balance)で
+**定義の確認**：$a$ は有限区間上で有界、$U$ は空間的に滑らかで周期的なので $f_t$ は一様に有界かつ空間Lipschitz連続です。[大域Lipschitz SDEのPicard構成](../../../解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness)の推定は時刻に一様なLipschitz定数でも成り立つため、この時間依存SDEにも解を構成できます。
+
+$F_t=0$ でも、坂の高さを変えれば仕事が零とは限りません。[Stratonovich連鎖律](../ITD7/index.md#prop-itd7-stratonovich-balance)で
 
 $$
 dU_t(X_t)=\partial_tU_t(X_t)\,dt
@@ -66,13 +72,17 @@ $$
 
 正方向の実験を初期密度 $\rho_0$ とプロトコル $(U_t,F_t)$ で行い、その終端密度を $\rho_\tau$ とします。係数が滑らかで $D>0$ なので、時間 $t>0$ の円周密度は滑らかで正になり、始点も正です。逆実験は**時間順を逆にしたプロトコル** $U^R_s=U_{\tau-s}$、$F^R_s=F_{\tau-s}$ を、初期密度 $\rho_\tau$ から実行する別の確率実験です。このとき力そのものへ負号を付けません。反転するのは記録する**移動方向**です。
 
-円周上の[連続経路空間](../../../解析系/STO/STO3A/index.md#def-sto3a-function-space)を $\Omega=C([0,\tau],\mathbb R/L\mathbb Z)$ とし、$\Theta\omega$ を $s\mapsto\omega(\tau-s)$ と定めます。円周上の経路には周回数の情報が含まれ、$\int f_t\circ dZ_t$ は持ち上げの加法定数に依存しません。
+円周上の[連続経路空間](../../../解析系/STO/STO3A/index.md#def-sto3a-function-space)を $\Omega=C([0,\tau],\mathbb R/L\mathbb Z)$ とし、$\Theta\omega$ を $s\mapsto\omega(\tau-s)$ と定めます。
+
+経路法則 $\nu$ の押し出し $\Theta_*\nu$ は、事象 $A\subset\Omega$ に $(\Theta_*\nu)(A)=\nu(\Theta^{-1}A)$ を割り当てる測度です。
+
+円周上の経路には周回数の情報が含まれ、$\int f_t\circ dZ_t$ は持ち上げの加法定数に依存しません。
 
 <a id="def-itd13-reverse-experiment"></a>
 
 <!-- formal-statement-start -->
 > **定義（時間反転実験と経路エントロピー生成）**  
-> [時間依存実験](#def-itd13-driven-protocol)の経路法則を $P$、初期密度 $\rho_\tau$ と逆プロトコル $b^R_s=b_{\tau-s}$ の経路法則を $P_R$ とする。逆実験の経路を時間反転した法則を $Q=\Theta_*P_R$ と書く。$P,Q$ が互いに絶対連続のとき、経路ごとの無次元全エントロピー生成を
+> [時間依存実験](#def-itd13-driven-protocol)の経路法則を $P$、初期密度 $\rho_\tau$ と逆プロトコル $b^R_s=b_{\tau-s}$ の経路法則を $P_R$ とする。逆実験の経路を時間反転した法則を $Q=\Theta_*P_R$ と書く。$P,Q$ が[互いに絶対連続](../../../解析系/STO/STO10/index.md#def-sto10-equivalent-measures)のとき、経路ごとの無次元全エントロピー生成を
 
 $$
 \sigma(\omega)=\log\frac{dP}{dQ}(\omega)
@@ -97,7 +107,7 @@ $$
 \frac1L\prod_{j=1}^n p_{t_j-t_{j-1}}(x_j\mid x_{j-1})
 $$
 
-は順序を反転しても同じです。連続経路の座標生成（[STO4](../../../解析系/STO/STO4/index.md#lem-sto4-path-borel-coordinates)）により **$\Theta_*R=R$** です。
+は、$0=t_0<t_1<\cdots<t_n\le\tau$ について順序を反転しても同じです。[STO4の連続実数経路の座標生成](../../../解析系/STO/STO4/index.md#lem-sto4-path-borel-coordinates)と同様、円周値の連続経路も稠密な有理時刻での値から一意に定まり、sup距離のBorel事象はそれらの座標評価で生成されます。よって全ての有限次元分布の反転対称性から **$\Theta_*R=R$** です。
 
 力を掛けた経路の法則 $P$ をこの $R$ に対する密度として書きます。[Girsanov定理](../../../解析系/STO/STO10/index.md#thm-sto10-girsanov)の指数の二次項は、ドリフトの平方に比例する補正です。以下の $\int b_t\circ dZ_t$ は時間・空間に依存する滑らかな被積分関数のStratonovich積分です。
 
@@ -142,7 +152,7 @@ $$
 
 ### 証明の見取り図
 
-Brown基準測度は時間反転に不変です。Girsanov密度をまずItô積分で書き、$d[b(X),Z]_t=2D\,\partial_xb_t(X_t)dt$ を使ってStratonovich表示に変えます。逆側では線積分だけが符号を変え、$b'$ と $b^2$ の時間積分は消去されずに**両側に同じだけ現れ、比を取ると相殺する**、という順序を確認します。
+Brown基準測度は時間反転に不変です。Girsanov密度をまずItô積分で書き、二次共変動 $d[b_\cdot(X_\cdot),Z]_t=2D\,\partial_xb_t(X_t)\,dt$ を使ってStratonovich表示に変えます。逆側では線積分だけが符号を変え、$\partial_xb_t$ と $b_t^2$ の時間積分は消去されずに**両側に同じだけ現れ、比を取ると相殺する**、という順序を確認します。
 
 <!-- proof-start -->
 ### 証明
@@ -171,9 +181,9 @@ $$
 -D\int_0^\tau\partial_xb_t(X_t)\,dt.
 $$
 
-これを代入すると $dP/dR$ の第一式になります。$\rho_0$ は正で、指数は各連続経路で有限かつ正なので $P\sim R$ です。
+これを代入すると $dP/dR$ の第一式になります。$\rho_0$ は正で、確率積分は $R$-ほとんど確実に有限、指数密度はその上で厳密に正です。従って $P\sim R$ です。
 
-逆実験にも同じ議論を適用します。逆側でのStratonovich作用は
+逆実験にも同じ議論を適用します。逆実験の持ち上げを $Z_s^R$、円周位置を $X_s^R=Z_s^R\pmod L$ と書きます。逆側でのStratonovich作用は
 
 $$
 \begin{aligned}
@@ -193,14 +203,28 @@ $$
 
 普通の時間積分は $s=\tau-t$ と置き換わるだけで符号が変わりません。$\Theta_*R=R$ だから $Q=\Theta_*P_R$ の $R$ 密度は、逆側の密度を $\Theta$ で合成したものです。従って定理の第二式が得られます。同様に $Q\sim R$ です。
 
-最後に $\log(dP/dQ)=\log(dP/dR)-\log(dQ/dR)$ を取ると、$b'$ と $b^2$ の二項が相殺して線積分は二倍になります。$b=\mu f$、$D=\mu/\beta$ だから $b/D=\beta f$ であり、[浴熱の定義](#def-itd13-driven-protocol)と一致します。
+最後に $\log(dP/dQ)=\log(dP/dR)-\log(dQ/dR)$ を取ると、$\partial_xb_t$ と $b_t^2$ の二項が相殺して線積分は二倍になります。$b=\mu f$、$D=\mu/\beta$ だから $b/D=\beta f$ であり、[浴熱の定義](#def-itd13-driven-protocol)と一致します。
 <!-- proof-end -->
 
-**別の直接検算**：$b(x)=a\sin(kx)$ を固定すると、$b'(x)=ak\cos(kx)$ です。上の作用に現れる三項は $a\int\sin(kX)\circ dZ/(2D)$、$-ak\int\cos(kX)dt/2$、$-a^2\int\sin^2(kX)dt/(4D)$ です。時間反転で第一項だけが符号反転します。単に「Gaussianの平均を位置依存にした一歩の比」を積み上げると、後二項や測度変換の正規化を見落とす危険があるため、ここではGirsanovを使っています。
+**別の直接検算**：時刻に依存しないドリフト $b(x)=a\sin(kx)$ を固定すると、位置 $x$ について $\partial_xb(x)=ak\cos(kx)$ です。上の作用に現れる三項は
+
+$$
+\begin{aligned}
+&\frac{a}{2D}\int_0^\tau\sin(kX_t)\circ dZ_t,\\
+&-\frac{ak}{2}\int_0^\tau\cos(kX_t)\,dt,\\
+&-\frac{a^2}{4D}\int_0^\tau\sin^2(kX_t)\,dt.
+\end{aligned}
+$$
+
+時間反転で第一項だけが符号反転します。単に「Gaussianの平均を位置依存にした一歩の比」を積み上げると、後二項や測度変換の正規化を見落とす危険があるため、ここではGirsanovを使っています。
 
 ## 4. 経路のゆらぎ関係と確率流の平方は一致するか
 
-経路比が得られたので、平均の第二法則も調べましょう。単一軌道では $\sigma<0$ があり得ますが、平均では逆経路法則との相対エントロピーになり、非負です。さらに時間ごとの確率流を用いると、**どの時刻・どの位置で散逸したか**を積分として書けます。
+経路比が得られたので、平均の第二法則も調べましょう。単一軌道では $\sigma<0$ があり得ますが、平均では逆経路法則との相対エントロピーになり、非負です。
+
+経路測度の相対エントロピーは $D(P\|Q)=\int_\Omega\log(dP/dQ)\,dP$ と書き（[ITD7の有限経路での定義](../ITD7/index.md#thm-itd7-coarse-kl-chain)の連続測度版）、この括弧付きの $D(P\|Q)$ は拡散係数 $D$ と別の量です。
+
+さらに時間ごとの確率流を用いると、**どの時刻・どの位置で散逸したか**を積分として書けます。
 
 時刻 $t$ の密度 $\rho_t(x)$ と確率流 $J_t(x)$ を
 
@@ -274,7 +298,7 @@ $$
 \end{aligned}
 $$
 
-また、[ITD12の平均浴熱の導出](../ITD12/index.md#thm-itd12-current-and-heat)と同じItô–Stratonovich補正を各時刻の $f_t$ に適用します。$[f_t(X),Z]$ には空間微分だけが寄与するので
+また、時刻 $t$ までの浴熱を $Q_{\mathrm{bath},t}=\int_0^t f_s(X_s)\circ dZ_s$ と書きます。[ITD12の平均浴熱の導出](../ITD12/index.md#thm-itd12-current-and-heat)と同じItô–Stratonovich補正を各時刻の $f_t$ に適用します。$[f_t(X),Z]$ には空間微分だけが寄与するので
 
 $$
 \begin{aligned}
@@ -297,7 +321,7 @@ $$
 \end{aligned}
 $$
 
-二つの率を足し、$D=\mu/\beta$ と $J_t=\mu f_t\rho_t-D\rho_t'$ を代入すると
+二つの率を足し、$D=\mu/\beta$ と $J_t=\mu f_t\rho_t-D\partial_x\rho_t$ を代入すると
 
 $$
 \begin{aligned}
@@ -329,7 +353,7 @@ $$
 \end{aligned}
 $$
 
-$\int J_tdx=\int b_t\rho_tdx$ は周期境界で $\int\rho_t'=0$ から従い、右辺前半は[仕事の定義](#def-itd13-driven-protocol)の平均率です。$t=0$ から $\tau$ まで積分して自由エネルギー収支を得ます。
+$\int J_tdx=\int b_t\rho_tdx$ は周期境界で $\int_0^L\partial_x\rho_t\,dx=0$ から従い、右辺前半は[仕事の定義](#def-itd13-driven-protocol)の平均率です。$t=0$ から $\tau$ まで積分して自由エネルギー収支を得ます。
 <!-- proof-end -->
 
 外力がなく初期密度が一定でない場合も重要です。$U_t=F_t=0$ で $\rho_0(x)\not\equiv1/L$ なら、浴熱は全経路で零ですが、拡散により $H_\tau>H_0$ となり散逸は正です。すなわち「浴へ熱が出ていないから可逆」という判定も誤りです。密度 $1/L$ へ向かう勾配が確率流を作るからです。
@@ -346,7 +370,9 @@ $$
 F_{\mathrm{eq}}(t)=-k_{\mathrm B}T\log\mathcal Z_t
 $$
 
-とします。$\mathcal Z_t$ は基準長さ $L$ で割って無次元化した分配関数で、[非平衡自由エネルギー](#thm-itd13-fluctuation-current)の $\log(L\rho)$ と零点をそろえています。$F_t$（外力）と $F_{\mathrm{eq}}$（自由エネルギー）は別の量です。外力が非保存力でも、$U_t$ を用いるこの正準分布は数式上定義できますが、駆動中の定常状態が持つ密度とは一般に一致しません。
+とします。$\mathcal Z_t$ は基準長さ $L$ で割って無次元化した分配関数で、持ち上げ位置 $Z_t$ とは別の量です。
+
+[非平衡自由エネルギー](#thm-itd13-fluctuation-current)の $\log(L\rho)$ と零点をそろえています。$F_t$（外力）と $F_{\mathrm{eq}}$（自由エネルギー）は別の量です。外力が非保存力でも、$U_t$ を用いるこの正準分布は数式上定義できますが、駆動中の定常状態が持つ密度とは一般に一致しません。
 
 <a id="thm-itd13-jarzynski"></a>
 
@@ -370,7 +396,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U_0,U_\tau$ は連続な周期関数なので $Z_0,Z_\tau$ は有限の正数で、$\pi_0,\pi_\tau$ は厳密に正です。[経路確率比の証明](#thm-itd13-girsanov-reversal)で逆側の始点密度 $\rho_\tau$ を $\pi_\tau$ に置き換えれば、同値性は保たれ
+$U_0,U_\tau$ は連続な周期関数なので、$0<\mathcal Z_t<\infty$（$t=0,\tau$）であり、$\pi_0,\pi_\tau$ は厳密に正です。[経路確率比の証明](#thm-itd13-girsanov-reversal)で逆側の始点密度 $\rho_\tau$ を $\pi_\tau$ に置き換えれば、同値性は保たれ
 
 $$
 \log\frac{dP}{dQ_{\mathrm{eq}}}
@@ -424,7 +450,7 @@ $$
 
 - Level: A
 - ID: ITD13-A1
-- 問題: $U_t(x)=(a_0+ct)\cos(kx)$、$F_t=F_0$ とする。任意の経路の持ち上げ変位を $Y=Z_\tau-Z_0$、$C=\int_0^\tau\cos(kX_t)dt$ と書く。$W,\Delta U,Q_{\mathrm{bath}}$ を $Y,C,X_0,X_\tau$ で表し、第一法則を確かめよ。
+- 問題: $U_t(x)=(a_0+ct)\cos(kx)$、$F_t=F_0$ とする。任意の実現経路の持ち上げ変位を $Y=Z_\tau-Z_0$、$C=\int_0^\tau\cos(kX_t)dt$ と書く。$W,\Delta U,Q_{\mathrm{bath}}$ を $Y,C,X_0,X_\tau$ で表し、第一法則を確かめよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -469,7 +495,15 @@ $$
 \end{aligned}
 $$
 
-導関数項は $\int b\,dZ=\int b\circ dZ-D\int b'\,dt$ の補正です。$a=0$ なら作用は初期密度項だけに戻ります。
+導関数項は[Itô–Stratonovich変換](../ITD12/index.md#thm-itd12-current-and-heat)によるものです。積分範囲と作用対象を明記すると
+
+$$
+\int_0^\tau b_t(X_t)\,dZ_t
+=\int_0^\tau b_t(X_t)\circ dZ_t
+-D\int_0^\tau\partial_xb_t(X_t)\,dt.
+$$
+
+$a=0$ なら作用は初期密度項だけに戻ります。
 <!-- solution-end -->
 
 ### A3. Novikov条件を定量的に確かめる
@@ -507,13 +541,13 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$b=0$ で $\rho_0'=-\varepsilon k\sin(kx)/L$ です。[確率流](../ITD12/index.md#def-itd12-probability-current)から
+$b=0$ で $\partial_x\rho_0=-\varepsilon k\sin(kx)/L$ です。[確率流](../ITD12/index.md#def-itd12-probability-current)から
 
 $$
-J_0=-D\rho_0'=\frac{D\varepsilon k}{L}\sin(kx).
+J_0=-D\partial_x\rho_0=\frac{D\varepsilon k}{L}\sin(kx).
 $$
 
-[平方積分の第二法則](#thm-itd13-fluctuation-current)へ代入すると
+時刻0の平均全エントロピー生成率を $\dot\Sigma_{\mathrm{tot}}(0)=\int_0^L J_0^2/(D\rho_0)\,dx$ と記します。[平方積分の第二法則](#thm-itd13-fluctuation-current)へ代入すると
 
 $$
 \dot\Sigma_{\mathrm{tot}}(0)
@@ -555,7 +589,7 @@ $$
 
 - Level: B
 - ID: ITD13-B1
-- 問題: $b_t(x)=a(t)\sin(kx)$、$a\in C^1[0,\tau]$、$\rho_0,\rho_\tau>0$ とする。逆プロトコル $b_s^R=b_{\tau-s}$ のStratonovich作用を正方向経路で表し、$\sigma$ を求めよ。$b'$ と $b^2$ を計算から消す理由も述べよ。
+- 問題: $b_t(x)=a(t)\sin(kx)$、$a\in C^1[0,\tau]$、$\rho_0,\rho_\tau>0$ とする。逆プロトコル $b_s^R=b_{\tau-s}$ のStratonovich作用を正方向経路で表し、$\sigma$ を求めよ。$\partial_xb_t$ と $b_t^2$ を計算から消す理由も述べよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -634,7 +668,7 @@ $$
 =\int_0^\tau\int_0^L\frac{D(\partial_x\rho_t)^2}{\rho_t}\,dxdt.
 $$
 
-最後の等号は $J_t=-D\rho_t'$ を[平方公式](#thm-itd13-fluctuation-current)へ代入したものです。内部エネルギーは零、$\mathcal F_t=-k_{\mathrm B}TH_t$ なので
+最後の等号は $J_t=-D\partial_x\rho_t$ を[平方公式](#thm-itd13-fluctuation-current)へ代入したものです。内部エネルギーは零、$\mathcal F_t=-k_{\mathrm B}TH_t$ なので
 
 $$
 \mathcal F_\tau-\mathcal F_0
@@ -642,7 +676,7 @@ $$
 =-k_{\mathrm B}T\mathbb E[\sigma].
 $$
 
-非一様な滑らかな $\rho_0$ ではどこかで $\rho_0'\ne0$ となります。$J_0=-D\rho_0'$ が零でない開区間を持ち、滑らかな拡散の密度は時刻について連続なので、短い正の時間にも非零です。従って時間空間の非負積分は厳密に正です。
+非一様な滑らかな $\rho_0$ ではどこかで $\partial_x\rho_0\ne0$ となります。$J_0=-D\partial_x\rho_0$ が零でない開区間を持ち、滑らかな拡散の密度は時刻について連続なので、短い正の時間にも非零です。従って時間空間の非負積分は厳密に正です。
 <!-- solution-end -->
 
 ### B4. 二種類の逆実験と終端の相対エントロピー
