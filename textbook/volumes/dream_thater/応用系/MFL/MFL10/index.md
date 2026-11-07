@@ -104,7 +104,13 @@ s=\boldsymbol1_k^{\mathsf T}u
 =\boldsymbol1_k^{\mathsf T}C_i^{-1}\boldsymbol1_k>0.
 $$
 
-最後の不等式は、正定値対称行列の逆行列も正定値だからである。$w_*=u/s$ は制約を満たし、$C_iw_*=\boldsymbol1_k/s$。任意の別の可行重みを $w_*+h$ と書けば $\boldsymbol1_k^{\mathsf T}h=0$ であり、
+最後の不等式は次のように確かめられる。任意の非零 $x$ に対し $y=C_i^{-1}x\ne0$ とおけば、
+
+$$
+x^{\mathsf T}C_i^{-1}x=(C_iy)^{\mathsf T}y=y^{\mathsf T}C_iy>0
+$$
+
+であり、逆行列も正定値である。$w_*=u/s$ は制約を満たし、$C_iw_*=\boldsymbol1_k/s$。任意の別の可行重みを $w_*+h$ と書けば $\boldsymbol1_k^{\mathsf T}h=0$ であり、
 
 $$
 \begin{aligned}
@@ -117,7 +123,13 @@ $$
 
 これは $h\ne0$ なら正なので $w_*$ が唯一の最小点である。
 
-特異な場合も $w=w_0+Bt$（$w_0=\boldsymbol1_k/k$、$B$ の列が $\{\boldsymbol1_k^{\mathsf T}h=0\}$ の基底）とおけば、$E_i=\|Z_iw_0+Z_iBt\|^2$ は有限次元部分空間 $\operatorname{im}(Z_iB)$ への距離二乗の最小化である。部分空間上への直交射影が存在するため最小値は達成される。ただし $Z_iB$ に核があれば異なる $t$ も同じ残差を作る。$\square$
+特異な場合は $w_0=\boldsymbol1_k/k$ とし、$\boldsymbol1_k^{\mathsf T}h=0$ を満たす部分空間の基底を列に並べた $k\times(k-1)$ 行列を $H$ とする（$k=1$ なら空行列）。可行重みを $w=w_0+Ht$ と書くと、$t\in\mathbb R^{k-1}$ について
+
+$$
+E_i(w_0+Ht)=\|Z_iw_0+(Z_iH)t\|^2.
+$$
+
+これは点 $-Z_iw_0$ と有限次元部分空間 $\operatorname{im}(Z_iH)$ との距離二乗を最小化する問題である。部分空間への直交射影が存在するため最小値は達成される。ただし $Z_iH$ に核があれば、同じ残差を作る異なる $t$ が存在して一意性が失われる。$\square$
 <!-- proof-end -->
 
 **正定値は十分条件で、必要条件ではない**。中心点0、近傍 $-1,1$ の局所Gramは
@@ -164,6 +176,21 @@ $$
 導関数 $-2+10t=0$ から唯一の最小点は $t=1/5$、すなわち $w=(4/5,1/5)$。行和は1、近傍外は0、入力再構成誤差は $(6/5)^2$。正則化なしなら $w=(2,-1)$ で再構成誤差0となる。**正則化は重みの大きさを抑える代わりに局所再構成を犠牲にする**。
 <!-- definition-example-end -->
 
+ridgeの式でなぜ $C_i+\lambda_iI_k$ を使えるかも、二乗ノルムへ戻して確認できる。差行列 $Z_i$ の下に $\sqrt{\lambda_i}I_k$ を縦に並べた $(D+k)\times k$ 行列を
+
+$$
+\widetilde Z_i=\begin{pmatrix}Z_i\\\sqrt{\lambda_i}I_k\end{pmatrix}
+$$
+
+とすると、制約 $\boldsymbol1_k^{\mathsf T}w=1$ の下で
+
+$$
+\widetilde Z_i^{\mathsf T}\widetilde Z_i=C_i+\lambda_iI_k=A_i,
+\qquad E_{i,\lambda}(w)=\|\widetilde Z_iw\|^2=w^{\mathsf T}A_iw
+$$
+
+となる。つまり正則化後も[局所Gram形式と正定値重みの公式](#prop-mfl10-local-gram)を適用できる形だが、元の点群の再構成誤差 $E_i$ 自体が小さくなるとは限らない。
+
 <a id="prop-mfl10-ridge"></a>
 
 <!-- formal-statement-start -->
@@ -200,7 +227,20 @@ $$
 C_i'=(QZ_i)^{\mathsf T}(QZ_i)=Z_i^{\mathsf T}Q^{\mathsf T}QZ_i=C_i.
 $$
 
-尺度 $a$ も加えると $Z_i'=aQZ_i$、$C_i'=a^2C_i$、$\operatorname{tr}C_i'=a^2\operatorname{tr}C_i$ となる。尺度適応型では $A_i'=a^2A_i$ である。公式の分子・分母はともに $a^{-2}$ 倍になり、比は同じ。一般の可逆行列 $T$ では $C_i'=Z_i^{\mathsf T}T^{\mathsf T}TZ_i$ で、$T^{\mathsf T}T$ がスカラー倍の単位行列でない限り $C_i$ の一様な尺度倍とは限らない。$\square$
+尺度 $a$ も加えれば、
+
+$$
+Z_i'=aQZ_i,\quad C_i'=a^2C_i,\quad
+\operatorname{tr}C_i'=a^2\operatorname{tr}C_i.
+$$
+
+尺度適応型では $\lambda_i'=a^2\lambda_i$ なので $A_i'=a^2A_i$ である。重み公式の分子・分母はともに $a^{-2}$ 倍になり、比は同じ。一方、一般の可逆行列 $T$ では
+
+$$
+C_i'=Z_i^{\mathsf T}T^{\mathsf T}TZ_i
+$$
+
+となり、$T^{\mathsf T}T$ がスカラー倍の単位行列でない限り一様な尺度倍とは限らない。$\square$
 <!-- proof-end -->
 
 例えば二つの直交方向に差ベクトル $(1,0),(0,1)$ を取った中心点では、非正則化の正定値重みは $(1/2,1/2)$ である。第一座標だけを2倍に変換すれば $C=\operatorname{diag}(4,1)$ となり、公式は $(1/5,4/5)$ を与える。行和1は保たれても重みは変わる。なお正則化後は、$w_\lambda$ が元の $E_i$ の最小化解とは限らない。
@@ -254,6 +294,8 @@ $$
 
 と書く。$M$ は実対称かつ正半定値で、$W\boldsymbol1=\boldsymbol1$ から $B\boldsymbol1=0$、従って $M\boldsymbol1=0$。$W$ 自身の固有値を選ぶのではなく、**対称行列 $M$ の固有値**を選ぶことに注意する。
 
+次の $\lambda_1,\ldots,\lambda_n$ は $M$ の固有値であり、第3節の $\lambda_i$（点 $i$ のridge罰則係数）とは別の量を表す。
+
 <a id="thm-mfl10-spectral"></a>
 
 <!-- formal-statement-start -->
@@ -275,14 +317,21 @@ $$
 
 ### 証明の見取り図
 
-[MFL8の実対称固有分解](../MFL8/index.md#thm-mfl8-euclidean-criterion)と同じ正規直交基底への展開を使う。中心化により $u_1$ の係数は0になる。残りの各固有方向に配分する列の平方和は一定で、最小化では小さい固有値から $m$ 個を選ぶ。
+[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)による正規直交固有基底への展開を使う。中心化により $u_1$ の係数は0になる。残りの各固有方向に配分する列の平方和は一定で、最小化では小さい固有値から $m$ 個を選ぶ。
 
 <!-- proof-start -->
 ### 証明
 
-まず任意の $v\in\mathbb R^n$ で $v^{\mathsf T}Mv=\|Bv\|^2\ge0$ なので全固有値は非負。$B\boldsymbol1=0$ より $M\boldsymbol1=0$ だから $\lambda_1=0$、$u_1=\boldsymbol1/\sqrt n$ を選べる。実対称行列なので、これを含む正規直交固有基底が存在する。
+まず任意の $v\in\mathbb R^n$ で $v^{\mathsf T}Mv=\|Bv\|^2\ge0$ なので全固有値は非負。$B\boldsymbol1=0$ より $M\boldsymbol1=0$ だから $\lambda_1=0$、$u_1=\boldsymbol1/\sqrt n$ を選べる。[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により、これを含む正規直交固有基底が存在する。
 
-$Y$ の各列を固有ベクトルに展開し、$Y=\sqrt n\,UQ$ と書く。$U=[u_1,\ldots,u_n]$ は直交行列で、$Q\in\mathbb R^{n\times m}$ である。制約は
+$Y$ の各列を固有ベクトルに展開し、$Y=\sqrt n\,UQ$ と書く。$U=[u_1,\ldots,u_n]$ は直交行列で、$Q\in\mathbb R^{n\times m}$ である。$e_1$ を第一標準基底ベクトルとすると、$U^{\mathsf T}U=I_n$、$U^{\mathsf T}\boldsymbol1=\sqrt n\,e_1$ より
+
+$$
+Y^{\mathsf T}Y=nQ^{\mathsf T}Q,\qquad
+Y^{\mathsf T}\boldsymbol1=nQ^{\mathsf T}e_1.
+$$
+
+従って制約は
 
 $$
 Q^{\mathsf T}Q=I_m,\qquad Q_{1a}=0\quad(1\le a\le m).
@@ -296,7 +345,20 @@ $$
 p_r=\sum_{a=1}^m Q_{ra}^2.
 $$
 
-$Q$ の列は正規直交だから $\sum_{r=2}^np_r=m$。さらに $QQ^{\mathsf T}$ は直交射影なので、各 $p_r=e_r^{\mathsf T}QQ^{\mathsf T}e_r=\|Q^{\mathsf T}e_r\|^2$ は $0\le p_r\le1$。この制約の下で、もし $r<s$ なのに $p_r<1$、$p_s>0$ なら、$\delta=\min(1-p_r,p_s)$ だけ $p_s$ から $p_r$ へ移して和の値は $\delta(\lambda_r-\lambda_s)\le0$ だけ変化する。従って最小値の下界は小さい $m$ 個へ1ずつ配分した
+$Q$ の列は正規直交だから $\sum_{r=2}^np_r=m$。さらに $QQ^{\mathsf T}$ は直交射影なので、$e_r$ を第 $r$ 標準基底ベクトルとして
+
+$$
+p_r=e_r^{\mathsf T}QQ^{\mathsf T}e_r
+=\|Q^{\mathsf T}e_r\|^2,\qquad 0\le p_r\le1.
+$$
+
+この制約の下で、$r<s$ なのに $p_r<1$、$p_s>0$ なら、$\delta=\min(1-p_r,p_s)$ だけ $p_s$ から $p_r$ へ移すと目的値の変化は
+
+$$
+\delta(\lambda_r-\lambda_s)\le0
+$$
+
+である。従って最小値の下界は、小さい固有値に対応する $m$ 個へ1ずつ配分した
 
 $$
 \sum_{r=2}^n\lambda_r p_r\ge\sum_{r=2}^{m+1}\lambda_r.
@@ -315,7 +377,15 @@ M=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-固有ベクトル $u_1=(1,1,1)/\sqrt3$、$u_2=(1,0,-1)/\sqrt2$、$u_3=(1,-2,1)/\sqrt6$ へ作用させると順に固有値 $0,1,9/2$ が得られる。$m=1$ の最小座標は $Y=\sqrt3u_2$、最小値は $3\lambda_2=3$ で、定義例と一致する。平行移動や全体の符号反転は規格化後の固有方向に影響しないが、固有値が等しい方向の選択には非一意性がある。
+次の三つの正規直交ベクトルに $M$ を作用させると、固有値は順に $0,1,9/2$ となる。
+
+$$
+u_1=\frac{(1,1,1)^{\mathsf T}}{\sqrt3},\qquad
+u_2=\frac{(1,0,-1)^{\mathsf T}}{\sqrt2},\qquad
+u_3=\frac{(1,-2,1)^{\mathsf T}}{\sqrt6}.
+$$
+
+$m=1$ の最小座標は $Y=\sqrt3u_2$、最小値は $3\lambda_2=3$ で、定義例と一致する。平行移動や全体の符号反転は規格化後の固有方向に影響しないが、固有値が等しい方向の選択には非一意性がある。
 
 ## 5. 核の大きさは連結性だけでは決まらない
 
@@ -537,13 +607,17 @@ $$
 
 から $(w_2,w_3)=(2,-1)$。中点0は $(w_1,w_3)=(1/2,1/2)$、右端1は $(w_1,w_2)=(-1,2)$ である。
 
-従って [符号付き重みの連結グラフでも核が増える例](#prop-mfl10-signed)の $W$ に一致し、$\boldsymbol1,z$ は二つの独立な固定ベクトルである。一方 $I-W$ は非零な階数1行列だから、階数・退化次数の関係より
+従って [符号付き重みの連結グラフでも核が増える例](#prop-mfl10-signed)の $W$ に一致し、$\boldsymbol1,z$ は二つの独立な固定ベクトルである。同命題の計算から $I-W$ の各行は $(1,-2,1)$ の非零な倍数なので、$\ker(I-W)$ は一つの方程式で決まる。実際、$x_2=s,x_3=t$ と自由に置けば
 
 $$
-\dim\ker M=3-\operatorname{rank}(I-W)=2.
+x_1-2x_2+x_3=0
+\quad\Longleftrightarrow\quad
+x=(2s-t,s,t)^{\mathsf T}.
 $$
 
-近傍グラフは完全に連結だが、端点の**負の係数**を許したため、非負の平均作用素に対する最大値原理を適用できない。
+二つの自由変数があるので、$\ker M=\ker(I-W)$ は2次元である。
+
+近傍グラフは完全に連結だが、端点の**負の係数**を許したため、非負の平均による固定点の議論は使えない。非負で行和1の $W$ なら、$Wx=x$ の最大成分 $c$ は非負重み付き平均 $c=\sum_jw_{ij}x_j$ でもある。従って正の重みで結ばれた隣接点も同じ最大値を取る。これを連結グラフ上で伝播させれば $x$ は定数になるが、負の重みがあると「平均が最大値なら各項も最大値」という推論が破れる。
 
 ### MFL10-C01 ridgeで符号が変わる境界
 
@@ -565,7 +639,14 @@ w=\left(\frac{\lambda+2}{1+2\lambda},
 \frac{\lambda-1}{1+2\lambda}\right).
 $$
 
-確かに和は $(2\lambda+1)/(1+2\lambda)=1$。$\lambda\downarrow0$ では $(2,-1)$ となって再構成誤差0、$\lambda\to\infty$ では $(1/2,1/2)$ に近づく。第二重みが負なのは $0<\lambda<1$ のときで、$\lambda=1$ で零、$\lambda>1$ で正となる。$E_\lambda$ の再構成項と罰則項は異なり、正則化を強めるほど再構成残差は必ず小さくなるという主張はできない。
+二つの重みの和は $(2\lambda+1)/(1+2\lambda)=1$ である。さらに
+
+$$
+\lim_{\lambda\downarrow0}w=(2,-1),\qquad
+\lim_{\lambda\to\infty}w=(1/2,1/2).
+$$
+
+前者では再構成誤差0となる。第二重みが負なのは $0<\lambda<1$ のときで、$\lambda=1$ で零、$\lambda>1$ で正となる。$E_\lambda$ の再構成項と罰則項は異なり、正則化を強めるほど再構成残差は必ず小さくなるという主張はできない。
 
 ### MFL10-C02 弱い接続と小さい正固有値
 
@@ -585,7 +666,13 @@ $$
 
 **詳細解答**。$W_0,W_1$ の各行和は1、成分は非負だから、その凸結合も非負・行和1。$W_\delta$ の非零遷移は $1\leftrightarrow2$、$2\leftrightarrow3$、$3\leftrightarrow4$ を含む。特に中央の辺の重みは $\delta/2>0$ であり、任意の頂点から他へ正重みの辺を辿れる。
 
-$W_\delta v=v$ として $v$ の最大成分を $v_i=c$ とすると、$c=\sum_j w_{ij}v_j$ は $v_j\le c$ の非負重み付き平均である。和が1で等号になるには、$w_{ij}>0$ のすべての $j$ で $v_j=c$ が必要。正の辺を辿って全頂点へ伝播するので $v$ は定数。従って $\ker(I-W_\delta)=\operatorname{span}\{\boldsymbol1\}$、正固有値は $\lambda_2>0$。
+$W_\delta v=v$ とし、$v$ の最大成分を $v_i=c$ とすると、行和1と重みの非負性から
+
+$$
+c=\sum_jw_{ij}v_j\le\sum_jw_{ij}c=c.
+$$
+
+差 $\sum_jw_{ij}(c-v_j)=0$ の各項は非負なので、$w_{ij}>0$ のすべての $j$ で $v_j=c$ が必要である。正の辺を辿って全頂点へ伝播するので $v$ は定数。従って $\ker(I-W_\delta)=\operatorname{span}\{\boldsymbol1\}$、正固有値は $\lambda_2>0$。
 
 一方 $Y^{\mathsf T}\boldsymbol1=1+1-1-1=0$、$Y^{\mathsf T}Y=4$。$W_0Y=Y$ で、$W_1Y=(1,0,0,-1)^{\mathsf T}$ だから
 
