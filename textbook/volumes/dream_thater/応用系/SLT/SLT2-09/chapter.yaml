@@ -1,0 +1,40 @@
+id: "SLT2-09"
+title: "固定kernelの勾配力学"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-08
+  - SLT2-07
+official_scope: []
+learning_objectives:
+  - 初期Jacobianを固定した接線模型の損失・勾配・訓練残差の力学を導出できる
+  - 任意の初期出力と特異Gram行列で連続時間の予測とパラメータ変位を固有モードごとに解ける
+  - 零固有空間への残差、補間条件、極限の最小ノルム変位と標本外汎化の違いを説明できる
+  - 固定kernelの離散勾配降下で学習率の安定範囲と境界振動・発散を判定できる
+  - 時間変動する正半定値kernelと固定kernelの有限時間誤差を導き、適用条件を確認できる
+definitions:
+  - { id: SLT2-09-DEF-01, name: 固定接線模型の勾配流 }
+theorems:
+  - { id: SLT2-09-THM-01, name: 固定接線勾配流のスペクトル解と到達点 }
+  - { id: SLT2-09-THM-02, name: 固定接線模型の離散勾配降下と安定学習率 }
+  - { id: SLT2-09-THM-03, name: 時間変化する正半定値核と固定核の誤差 }
+canonical_examples:
+  - 重複する接線特徴と矛盾した教師で固定接線模型を直接確認する
+  - 初期出力が非零の特異Gram行列で学べない教師方向を計算する
+  - 離散学習率を変えて減衰・振動・発散を同じGram行列で比較する
+  - 時間依存の対角Gram行列で固定核近似の誤差を計算する
+problem_patterns:
+  - SLT2-09-A01
+  - SLT2-09-A02
+  - SLT2-09-A03
+  - SLT2-09-A04
+  - SLT2-09-A05
+  - SLT2-09-B01
+  - SLT2-09-B02
+  - SLT2-09-B03
+  - SLT2-09-B04
+  - SLT2-09-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }
