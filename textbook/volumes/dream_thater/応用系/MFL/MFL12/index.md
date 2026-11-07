@@ -24,9 +24,15 @@ $$
 
 ## 2. 計量から作用素と体積が同時に決まる
 
-滑らかな局所座標 $(x^1,\ldots,x^d)$ の座標接ベクトル $\partial_i$ を考える。それらの内積を並べた計量行列を $G=(g_{ij})$、その逆行列を $(g^{ij})$ とする。
+滑らかな局所座標 $(x^1,\ldots,x^d)$ で、$\partial_i=\partial/\partial x^i$（$i=1,\ldots,d$）を座標接ベクトルとする。[GEO12のRiemann計量の定義](../../../幾何系/GEO/GEO12/index.md#def-geo12-riemannian-metric)に従い、$g_{ij}=g(\partial_i,\partial_j)$ を並べた計量行列を $G=(g_{ij})$、その逆行列の成分を $g^{ij}$ と書く。例えば接ベクトル $u=\sum_i u^i\partial_i$ の長さの二乗は、内積の双線形性から
 
-正定値性より $\rho=\sqrt{\det G}>0$ である。[GEO12の勾配・発散の座標公式](../../../幾何系/GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)では、勾配の第 $i$ 成分は $g^{ij}\partial_jf$、体積密度は $\rho$。反復添字は座標次元の範囲で足す。したがって
+$
+g(u,u)=\sum_{i,j=1}^d g_{ij}u^iu^j
+$
+
+となる。ゆえに $G$ は計量をこの座標基底で表したGram行列であり、正定値だから逆行列が存在し、$\rho=\sqrt{\det G}>0$ である。以下、同じ添字を上下に繰り返す式では $1$ から $d$ まで和を取る。
+
+[GEO12の勾配・発散の座標公式](../../../幾何系/GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)では、$f$ の勾配の第 $i$ 成分は $g^{ij}\partial_jf$ である。したがって勾配の二乗は $g^{ij}(\partial_i f)(\partial_j f)$、体積密度は $\rho$ となり、
 
 $$
 dV_g=\rho\,dx^1\cdots dx^d,\qquad
@@ -37,7 +43,14 @@ $$
 
 ### 半径 $R$ の円周：角度と弧長を区別する
 
-$R>0$ として、$F(\theta)=R(\cos\theta,\sin\theta)$、$\theta\in\mathbb R/(2\pi\mathbb Z)$ と置く。$F'(\theta)=R(-\sin\theta,\cos\theta)$ なので $g_{\theta\theta}=|F'|^2=R^2$、逆行列の成分は $R^{-2}$、体積密度は $R$ である。弧長座標 $s=R\theta$ と角度座標は同じ長さの尺度を持たない。
+$R>0$ として、$F(\theta)=R(\cos\theta,\sin\theta)$、$\theta\in\mathbb R/(2\pi\mathbb Z)$ と置く。この一変数の表示で $F'=dF/d\theta$、$f_\theta=df/d\theta=\partial_\theta f$、$f_{\theta\theta}=d^2f/d\theta^2$ と書く。
+
+$
+F'(\theta)=R(-\sin\theta,\cos\theta),\qquad
+g_{\theta\theta}=\langle F'(\theta),F'(\theta)\rangle=R^2.
+$
+
+つまり誘導計量は接ベクトル $F'$ のEuclid内積を引き戻したものであり、逆行列の成分は $R^{-2}$、体積密度は $R$ である。弧長座標 $s=R\theta$ に替えると、連鎖律から $d/ds=R^{-1}d/d\theta$ となる。角度微分と弧長微分を区別する理由はこの係数にある。
 
 <a id="prop-mfl12-circle"></a>
 
@@ -83,7 +96,7 @@ F(\varphi,\theta)=R(\sin\varphi\cos\theta,
 \sin\varphi\sin\theta,\cos\varphi)
 $$
 
-と表す。接ベクトルを偏微分すると
+と表す。ここで $F_\varphi=\partial F/\partial\varphi$ は $\theta$ を固定して極角で微分し、$F_\theta=\partial F/\partial\theta$ は $\varphi$ を固定して経度で微分した接ベクトルである。高さ関数にも同じ下付き偏微分記法を使う。これらを計算すると
 
 $$
 \begin{aligned}
@@ -209,7 +222,32 @@ $$
 **定義の確認**。$N=4$、$v=(1,0,-1,0)$ なら隣接差の二乗は順に $1,1,1,1$ なので $K_h(v)=4/h$。質量は $M_h(v)=h(1+0+1+0)=2h>0$、したがって $\mathcal R_h(v)=2/h^2$。定数列では剛性は零だが質量は正であり、連続円周の定数零モードに対応する。ここで分母の $h$ を落とすと固有値の長さの次元が合わない。
 <!-- definition-example-end -->
 
-作用素としては、周期差分 $A_hv$ の第 $j$ 成分を $(2v_j-v_{j-1}-v_{j+1})/h^2$ とする。これは $K_h$ の行列 $h^{-1}(2I-S-S^{\mathsf T})$ を質量行列 $hI$ で割ったものに相当する。$S$ は一つ先の成分を選ぶ周期シフトである。
+この二次形式を行列で表す過程も確認する。$S:\mathbb R^N\to\mathbb R^N$ を $(Sv)_j=v_{j+1}$ とする周期シフトと定めると、$(S^{\mathsf T}v)_j=v_{j-1}$ である。周期添字をずらして和を展開すれば
+
+$
+\begin{aligned}
+\sum_j(v_{j+1}-v_j)^2
+&=\sum_j(v_{j+1}^2+v_j^2-2v_jv_{j+1})\\
+&=2\sum_jv_j^2-\sum_jv_jv_{j-1}-\sum_jv_jv_{j+1}\\
+&=v^{\mathsf T}(2I-S-S^{\mathsf T})v.
+\end{aligned}
+$
+
+したがって剛性行列 $K$ と質量行列 $M$ は
+
+$
+K=\frac1h(2I-S-S^{\mathsf T}),\qquad M=hI,
+\qquad K_h(v)=v^{\mathsf T}Kv,\quad M_h(v)=v^{\mathsf T}Mv.
+$
+
+質量内積 $\langle u,v\rangle_M=u^{\mathsf T}Mv$ で剛性を表す作用素 $A_h$ は、$\langle u,A_hv\rangle_M=u^{\mathsf T}Kv$ をすべての $u$ について満たすため $MA_h=K$ となる。よって
+
+$
+(A_hv)_j=(M^{-1}Kv)_j
+=\frac{2v_j-v_{j-1}-v_{j+1}}{h^2}.
+$
+
+これは単なる行列の割り算ではなく、どの質量内積で剛性形式を作用素にしたかを示している。
 
 <a id="prop-mfl12-cycle-spectrum"></a>
 
@@ -253,14 +291,14 @@ $$
 \longrightarrow\frac{k^2}{R^2}.
 $$
 
-一方、周期グラフの辺重みを $w_{j,j+1}=1/h$ と置くと、組合せLaplacianは $L_{\mathrm{graph}}=h^{-1}(2I-S-S^{\mathsf T})$、次数行列は $D_g=(2/h)I$ である。$L_{\mathrm{graph}}v=\mu D_gv$ を両辺 $h/2$ 倍すると $(I-(S+S^{\mathsf T})/2)v=\mu v$。上の加法定理から $\mu=1-\cos\alpha=2\sin^2(\alpha/2)$ を得る。さらに $A_h=(1/h)(hI)^{-1}(2I-S-S^{\mathsf T})$、すなわち $A_h=(2/h^2)D_g^{-1}L_{\mathrm{graph}}$ なので係数が一致する。$\square$
+一方、周期グラフの辺重みを $w_{j,j+1}=1/h$ と置くと、組合せLaplacianは $L_{\mathrm{graph}}=h^{-1}(2I-S-S^{\mathsf T})$、次数行列は $D_g=(2/h)I$ である。$L_{\mathrm{graph}}v=\mu D_gv$ を両辺 $h/2$ 倍すると $(I-(S+S^{\mathsf T})/2)v=\mu v$。上の加法定理から $\mu=1-\cos\alpha=2\sin^2(\alpha/2)$ を得る。先に確かめた $A_h=M^{-1}K$ と $D_g=(2/h)I$ から、$A_h=(2/h^2)D_g^{-1}L_{\mathrm{graph}}$ である。したがって $\lambda_{N,k}=(2/h^2)\mu_{N,k}$ となる。$\square$
 <!-- proof-end -->
 
 **重要な読み分け**：$\mu_{N,k}\to0$ を見て「作用素が零に収束した」と結論してはいけない。無次元の次数正規化固有値を長さの二乗 $h^2$ で再尺度化した $\lambda_{N,k}$ を、連続側の固有値と比較する。$k$ を $N$ とともに増やす高周波や、標本点・重みがランダムな場合のスペクトル全体の収束はここでは証明していない。
 
 ### 固定された滑らかな関数にも差分が一致するか
 
-固有関数以外でも確かめるため、$f\in C^4(S_R^1)$ を弧長 $s$ の周期関数として $v_j=f(jh)$ を作る。$C^4$ は四階まで連続微分できることを意味する。
+固有関数以外でも確かめるため、$f\in C^4(S_R^1)$ を弧長 $s$ の周期関数として $v_j=f(jh)$ を作る。$C^4$ は四階まで連続微分できることを意味し、以下の $f',f'',f''',f^{(4)}$ はすべて弧長 $s$ に関する微分である。先の角度微分とは $d/ds=R^{-1}d/d\theta$ により対応する。
 
 <a id="prop-mfl12-consistency"></a>
 
@@ -369,7 +407,7 @@ $$
 - Level: A
 - 問題: 半径 $R$ の円周上で、$1$、$\cos\theta$、$\sin\theta$ の $L_g$ 固有値を求め、後二者が体積平均零であることを確認せよ。
 
-**詳細解答**。$L_g=-R^{-2}\partial_{\theta\theta}$ より、定数の固有値は0、後二者の固有値は $R^{-2}$。体積要素は $R\,d\theta$ なので
+**詳細解答**。[円周の作用素公式](#prop-mfl12-circle) $L_g=-R^{-2}\partial_{\theta\theta}$ より、定数の固有値は0、後二者の固有値は $R^{-2}$。体積要素は $R\,d\theta$ なので
 
 $$
 \int_0^{2\pi}\cos\theta\,R\,d\theta=R[\sin\theta]_0^{2\pi}=0,
@@ -449,14 +487,25 @@ $$
 - Level: B
 - 問題: 弧長 $s$ の $C^4$ 周期関数 $f$ を刻み幅 $h$ で標本化する。三次Taylor展開を $s+h$ と $s-h$ で作り、周期二階差分の誤差上界 $h^2\|f^{(4)}\|_\infty/12$ を導け。
 
-**詳細解答**。展開点は $s$、評価点は $s\pm h$、次数は3とする。$f(s+h)=f(s)+hf'(s)+h^2f''(s)/2+h^3f'''(s)/6+r_+$ と $f(s-h)=f(s)-hf'(s)+h^2f''(s)/2-h^3f'''(s)/6+r_-$ を得る。四階導関数の有界性より $|r_\pm|\le h^4\|f^{(4)}\|_\infty/24$。加えて差を作ると
+**詳細解答**。展開点は $s$、評価点は $s\pm h$、次数は3とする。Taylor公式をそれぞれに適用して
+
+$
+\begin{aligned}
+f(s+h)&=f(s)+hf'(s)+\frac{h^2}{2}f''(s)
++\frac{h^3}{6}f'''(s)+r_+,\\
+f(s-h)&=f(s)-hf'(s)+\frac{h^2}{2}f''(s)
+-\frac{h^3}{6}f'''(s)+r_-,
+\end{aligned}
+$
+
+を得る。四階導関数が有界なので、$M_4=\|f^{(4)}\|_\infty$ と置けば $|r_\pm|\le h^4M_4/24$ である。二式を加え、奇数次の項が相殺されることを使うと
 
 $$
 \frac{2f(s)-f(s-h)-f(s+h)}{h^2}
 =-f''(s)-\frac{r_++r_-}{h^2}.
 $$
 
-最後の項の絶対値は $2(h^4M/24)/h^2=h^2M/12$ 以下である。周期性が端点をまたぐ展開を正当化する。
+最後の項の絶対値は $2(h^4M_4/24)/h^2=h^2M_4/12$ 以下である。周期延長が $C^4$ なので、端点をまたぐ展開でも同じ上界を使える。
 
 <a id="ex-mfl12-b04"></a>
 
@@ -465,7 +514,7 @@ $$
 - Level: B
 - 問題: 滑らかな連結コンパクト境界なし多様体 $M$ で、滑らかな実数値 $f$ が $\int f\,dV_g=0$ を満たすとする。[Greenの第一公式](../../../幾何系/GA/GA1/index.md#thm-ga1-green-first)を用いてエネルギーを表せ。さらに [Rayleigh--Ritzとmin--max原理](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)を用い、第一正固有値に関する不等式を導け。非連結なら何が壊れるか。
 
-**詳細解答**。境界がないのでGreen公式の境界積分は0となり、$\int fL_gf=\int|\nabla_gf|^2\ge0$。連結・コンパクト・境界なしで $f$ は滑らかゆえ $H^1$ に属する。零関数なら不等式は自明、非零なら平均零の制約で[GA4の第一正固有値の最小化式](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)が適用でき、
+**詳細解答**。境界がないので[Greenの第一公式](../../../幾何系/GA/GA1/index.md#thm-ga1-green-first)の境界積分は0となり、$\int fL_gf=\int|\nabla_gf|^2\ge0$。連結・コンパクト・境界なしで $f$ は滑らかゆえ $H^1$ に属する。零関数なら不等式は自明、非零なら平均零の制約で[GA4の第一正固有値の最小化式](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)が適用でき、
 
 $$
 \frac{\int|\nabla_gf|^2dV_g}{\int f^2dV_g}\ge\lambda_1
