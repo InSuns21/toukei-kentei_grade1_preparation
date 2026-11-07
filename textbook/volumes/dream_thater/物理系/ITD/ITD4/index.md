@@ -4,9 +4,11 @@
 
 本章の問いは、**測定で得た情報はどの条件で仕事の上限を増やし、どの部分をまだ帳簿に入れていないのか**です。確率的な測定、結果別の操作、経路の逆向き実験を一つずつ作り、情報付き第二法則を有限和から導きます。ここで扱う仕事は**系への制御操作の仕事**であり、センサーや記憶の準備・消去の仕事を最初から含んだものではありません。
 
-空でない有限集合 $X$ を系の状態、$Y$ を有限集合として測定結果とします。温度 $T>0$ の単一熱浴、$k_{\mathrm B}>0$、$\beta=(k_{\mathrm B}T)^{-1}$、有限なエネルギー $E(x,\lambda)$ を用います。
+空でない有限状態集合を $X$、有限な測定結果集合を $Y$ とします。情報量 $I(X;Y)$ や条件付き確率 $P(X=x\mid Y=y)$ の中では、同じ文字をそれぞれの集合に値を取る確率変数としても用います。
 
-自然対数 $\log$ による情報量は nat、bit 単位への換算は $I_{\mathrm{nat}}=(\ln2)I_2$ です。[SM3の正準分布](../../SM/SM3/index.md#def-sm3-canonical)を $\pi_\lambda$、平衡自由エネルギーを $F_{\mathrm{eq}}(\lambda)$ と書きます。
+温度 $T>0$ の単一熱浴、$k_{\mathrm B}>0$、$\beta=(k_{\mathrm B}T)^{-1}$、有限なエネルギー $E(x,\lambda)$ を用います。
+
+自然対数 $\log$ による情報量は nat、bit 単位への換算は $I_{\mathrm{nat}}=(\ln2)I_2$ です。[SM3の正準分布](../../SM/SM3/index.md#def-sm3-canonical)を $\pi_\lambda$、[SM3の平衡自由エネルギー](../../SM/SM3/index.md#def-sm3-free-energy)を $F_{\mathrm{eq}}(\lambda)$ と書きます。
 
 外部が系にした仕事 $W$ は正、取り出した仕事は $W_{\mathrm{ext}}=-W$ です。浴から系へ入る熱 $Q$ は正で、[ITD1の軌道第一法則](../ITD1/index.md#thm-itd1-first-law)は $\Delta E=W+Q$ です。
 
@@ -78,14 +80,22 @@ $$
 <!-- definition-example-start: def-itd4-information -->
 ### 例：一回の情報量は負にもなる
 
-**定義の確認**：直前の二値センサーで $(x,y)=(0,0)$ は確率 $3/8>0$、$M(0\mid0)=3/4$、$q(0)=1/2$ なので $i(0;0)=\log(3/2)$ です。読み違い $(x,y)=(0,1)$ も確率 $1/8>0$ で、$i(0;1)=\log(1/2)=-\log2$ となります。**各回の情報量は負でもよい**のに対し、平均は非負です。$M(y\mid x)=q(y)$ の無情報測定なら、正確率の全組で $i=0$ です。
+**定義の確認**：直前の二値センサーで正答 $(x,y)=(0,0)$ の結合確率は $(1/2)(3/4)=3/8>0$、読み違い $(0,1)$ の結合確率は $(1/2)(1/4)=1/8>0$ です。両結果とも $q(y)=1/2$ なので、[測定情報量の定義](#def-itd4-information)の比をそれぞれ計算すると
+
+$$
+i(0;0)=\log\frac{3/4}{1/2}=\log\frac32,
+\qquad
+i(0;1)=\log\frac{1/4}{1/2}=-\log2.
+$$
+
+**各回の情報量は負でもよい**のに対し、平均は非負です。$M(y\mid x)=q(y)$ の無情報測定なら、正確率の全組で $i=0$ です。
 <!-- definition-example-end -->
 
 <a id="prop-itd4-information-average"></a>
 
 <!-- formal-statement-start -->
 > **命題（情報量平均と条件付き相対エントロピー）**  
-> 有限集合 $X,Y$、任意の事前分布 $p_0$、[測定チャネル](#def-itd4-measurement) $M$ に対し、$q(y)>0$ の事後分布を $p_y$ とする。[軌道情報量](#def-itd4-information)の平均は
+> 有限集合 $X,Y$、任意の事前分布 $p_0$、[測定チャネル](#def-itd4-measurement) $M$ に対し、$q(y)>0$ の事後分布を $p_y$ とする。[軌道情報量](#def-itd4-information)の平均は[INFO2の相対エントロピー](../../../応用系/INFO/INFO2/index.md#def-info2-relative-entropy) $D_{\mathrm{nat}}$ により
 
 $$
 I_{\mathrm{nat}}(X;Y)
@@ -190,7 +200,7 @@ $$
 \Delta F_{\mathrm{eq}}=F_{\mathrm{eq}}(\lambda_f)-F_{\mathrm{eq}}(\lambda_0)
 $$
 
-> が成り立つ。等号には、$q(y)>0$ のすべての枝で平均エントロピー生成が0であり、かつ終端分布 $p_f^y=\pi_{\lambda_f}$ となることが必要十分である。仕事には測定器・記憶を初期化する費用を含めない。
+> が成り立つ。等号には、$q(y)>0$ のすべての枝で[ITD3の平均エントロピー生成](../ITD3/index.md#thm-itd3-work-bound)が0であり、かつ終端分布 $p_f^y=\pi_{\lambda_f}$ となることが必要十分である。仕事には測定器・記憶を初期化する費用を含めない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -238,13 +248,13 @@ $$
 \begin{aligned}
 \mathbb E[W]
 &=\sum_{y:q(y)>0}q(y)\mathbb E[W\mid y]\\
-&\ge\sum_yq(y)\Delta F_{\mathrm{eq}}
--k_{\mathrm B}T\sum_yq(y)D_{\mathrm{nat}}(p_y\Vert p_0)\\
+&\ge\sum_{y:q(y)>0}q(y)\Delta F_{\mathrm{eq}}
+-k_{\mathrm B}T\sum_{y:q(y)>0}q(y)D_{\mathrm{nat}}(p_y\Vert p_0)\\
 &=\Delta F_{\mathrm{eq}}-k_{\mathrm B}TI_{\mathrm{nat}}(X;Y).
 \end{aligned}
 $$
 
-結果 $y$ で生じる二つの非負項、すなわちITD3の散逸 $k_{\mathrm B}T\langle\Sigma_y\rangle$ と終端の超過自由エネルギー $k_{\mathrm B}TD_{\mathrm{nat}}(p_f^y\Vert\pi_{\lambda_f})$ を落としたのが最後の下限です。各 $q(y)$ は正なので、全体の等号は各枝でこの二項がともに0であることと同値です。
+ここで $\Sigma_y$ は結果 $y$ を固定した枝に[ITD3の平均エントロピー生成](../ITD3/index.md#thm-itd3-work-bound)を適用した量です。枝ごとの散逸 $k_{\mathrm B}T\langle\Sigma_y\rangle$ と終端の超過自由エネルギー $k_{\mathrm B}TD_{\mathrm{nat}}(p_f^y\Vert\pi_{\lambda_f})$ の二つの非負項を落としたのが最後の下限です。和は $q(y)>0$ の枝だけなので、全体の等号は各枝でこの二項がともに0であることと同値です。
 <!-- proof-end -->
 
 **大切な境界**：この不等式は「情報そのものが仕事に変わる」という等式ではありません。系へ作用する制御を実装できることが必要です。特に無情報測定では $I=0$ なので、同じ始終点での平均抽出仕事は非正です。測定の反作用がある、結果を後から選別した、あるいはセンサーと系が初めから相関している実験では、ここに置いた事前分布・測定チャネル・条件付き仕事の仮定を作り直します。
@@ -408,10 +418,37 @@ $$
 \end{aligned}
 $$
 
-その後、熱浴を保ちつつ準位を十分ゆっくり両方0に戻す極限では、各瞬間に平衡分布を保てます。戻す過程の可逆平均仕事は、[SM3の平衡自由エネルギー](../../SM/SM3/index.md#def-sm3-free-energy)の差です。どちらの端でも分配関数は2なので
+<a id="eq-itd4-reversible-work"></a>
+
+その後、熱浴を保ちつつ準位を十分ゆっくり両方0に戻す極限では、各瞬間に平衡分布を保てます。なぜ可逆平均仕事が自由エネルギー差になるかを確認します。操作の進行度を $s\in[0,1]$ とし、状態 $x$ の準位を
 
 $$
-W_2^{\mathrm{rev}}=F_{\mathrm{eq}}(0,0)-F_{\mathrm{eq}}(E_y)
+E_s(x)=(1-s)E_y(x),\qquad E_s'(x)=\frac{dE_s(x)}{ds}=-E_y(x)
+$$
+
+と置きます。プライムは**状態 $x$ を固定し、進行度 $s$ で微分する**記法です。$0<\varepsilon<1/2$ なので各準位は有限で、$s$ に関する微分ができます。
+
+[SM3の平衡自由エネルギー](../../SM/SM3/index.md#def-sm3-free-energy)を $F_s=-k_{\mathrm B}T\log Z_s$、$Z_s=\sum_xe^{-\beta E_s(x)}$ とすると、$\pi_s(x)=e^{-\beta E_s(x)}/Z_s$ に対し
+
+$$
+\begin{aligned}
+\frac{dZ_s}{ds}&=-\beta\sum_xe^{-\beta E_s(x)}E_s'(x),\\
+\frac{dF_s}{ds}&=-k_{\mathrm B}T\frac{1}{Z_s}\frac{dZ_s}{ds}
+=\sum_x\pi_s(x)E_s'(x).
+\end{aligned}
+$$
+
+可逆極限では各 $s$ で分布が $\pi_s$ なので、[ITD1のquench仕事](../ITD1/index.md#def-itd1-path-work-heat)を細分化した平均仕事 $\sum_x\pi_s(x)E_s'(x)\,ds$ を積分できます。可逆極限の**条件付き平均仕事**を $W_{2,y}^{\mathrm{rev}}$ と書くと
+
+$$
+W_{2,y}^{\mathrm{rev}}
+=\int_0^1\sum_x\pi_s(x)E_s'(x)\,ds=F_1-F_0.
+$$
+
+両端で分配関数は2なので
+
+$$
+W_{2,y}^{\mathrm{rev}}=F_{\mathrm{eq}}(0,0)-F_{\mathrm{eq}}(E_y)
 =-k_{\mathrm B}T\log2-(-k_{\mathrm B}T\log2)=0.
 $$
 
@@ -549,14 +586,37 @@ $$
 - ID: ITD4-A5
 
 <!-- solution-start -->
-**詳細解答**　$\varepsilon=1/2$ なら $p_y=(1/2,1/2)$ で $I=\log2-h(1/2)=0$、両準位は $E_y(x)=-k_{\mathrm B}T\log1=0$ のままです。$\varepsilon=0$ なら結果 $y$ で $p_y(y)=1$、$p_y(1-y)=0$、$I=\log2-h(0)=\log2$ です。このとき $E_y(y)=-k_{\mathrm B}T\log2$ は有限ですが、誤答側には $-k_{\mathrm B}T\log0=+\infty$ が形式上必要です。有限エネルギーの章の仮定から外れるため、$\varepsilon\downarrow0$ の極限としてのみ読む必要があります。情報量が増えても実現可能な有限操作が直ちに存在するとは限りません。
+**詳細解答**　無情報測定 $\varepsilon=1/2$ では、どの結果に対しても
+
+$$
+p_y=(1/2,1/2),\qquad I=\log2-h(1/2)=0,
+\qquad E_y(x)=-k_{\mathrm B}T\log1=0.
+$$
+
+完全測定 $\varepsilon=0$ では、結果 $y$ を得ると
+
+$$
+p_y(y)=1,\qquad p_y(1-y)=0,\qquad I=\log2-h(0)=\log2.
+$$
+
+このとき $E_y(y)=-k_{\mathrm B}T\log2$ は有限ですが、誤答側には $-k_{\mathrm B}T\log0=+\infty$ が形式上必要です。有限エネルギーの章の仮定から外れるため、$\varepsilon\downarrow0$ の極限としてのみ読む必要があります。情報量が増えても実現可能な有限操作が直ちに存在するとは限りません。
 <!-- solution-end -->
 
 ### Level B：上限と支持条件を再構成する
 
 #### B1. 相互情報量は結果のエントロピーを超えない
 
-有限集合上の事前分布 $p_0$ と測定チャネル $M(y\mid x)$ を考える。結果の確率を $q(y)=\sum_xp_0(x)M(y\mid x)$、$H_{\mathrm{nat}}(Y)=-\sum_yq(y)\log q(y)$、$H_{\mathrm{nat}}(Y\mid X)=-\sum_{x,y}p_0(x)M(y\mid x)\log M(y\mid x)$ とする。$I_{\mathrm{nat}}(X;Y)=H_{\mathrm{nat}}(Y)-H_{\mathrm{nat}}(Y\mid X)$ を定義から示し、$I\le H_{\mathrm{nat}}(Y)$ と等号条件を述べよ。零確率項は0とする。
+有限集合上の事前分布 $p_0$ と測定チャネル $M(y\mid x)$ を考える。結果の確率とエントロピーを
+
+$$
+\begin{aligned}
+q(y)&=\sum_xp_0(x)M(y\mid x),\\
+H_{\mathrm{nat}}(Y)&=-\sum_yq(y)\log q(y),\\
+H_{\mathrm{nat}}(Y\mid X)&=-\sum_{x,y}p_0(x)M(y\mid x)\log M(y\mid x)
+\end{aligned}
+$$
+
+とする。$I_{\mathrm{nat}}(X;Y)=H_{\mathrm{nat}}(Y)-H_{\mathrm{nat}}(Y\mid X)$ を定義から示し、$I\le H_{\mathrm{nat}}(Y)$ と等号条件を述べよ。零確率項は0とする。
 
 - Level: B
 - ID: ITD4-B1
@@ -606,7 +666,7 @@ $q(y)$ で平均し、[情報量平均と条件付き相対エントロピー](#
 $$
 \mathbb E[W_{\mathrm{ext}}]
 \le F_{\mathrm{eq}}(\lambda_0)
--\sum_yq(y)F_{\mathrm{eq}}(\lambda_f(y))
+-\sum_{y:q(y)>0}q(y)F_{\mathrm{eq}}(\lambda_f(y))
 +k_{\mathrm B}TI_{\mathrm{nat}}(X;Y).
 $$
 
@@ -683,7 +743,14 @@ $$
 \end{aligned}
 $$
 
-戻す段階の可逆仕事は両端の平衡自由エネルギー差です。最初も最後も $Z=2$ なので $\mathbb E[W_2\mid y]=-k_{\mathrm B}T\log2-(-k_{\mathrm B}T\log2)=0$ です。従って全仕事は $-k_{\mathrm B}TI$、抽出仕事は $+k_{\mathrm B}TI$ となり、可逆極限で上限に一致します。
+戻す段階の可逆仕事は[第5節で導いた準位復帰の計算](#eq-itd4-reversible-work)により両端の平衡自由エネルギー差です。最初も最後も $Z=2$ なので
+
+$$
+\mathbb E[W_2\mid y]
+=-k_{\mathrm B}T\log2-(-k_{\mathrm B}T\log2)=0.
+$$
+
+従って全仕事は $-k_{\mathrm B}TI$、抽出仕事は $+k_{\mathrm B}TI$ となり、可逆極限で上限に一致します。
 
 **3. 熱とエントロピー**　quenchでは状態は不変で熱の交換がないため $Q_1=0$、条件付き平均内部エネルギーは0から
 

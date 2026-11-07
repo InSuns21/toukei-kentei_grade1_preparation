@@ -1,0 +1,47 @@
+id: "ITD5"
+title: "物理的記憶とLandauer原理：消去に必要な仕事"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - ITD3
+  - ITD4
+  - SM3
+  - INFO1
+official_scope: []
+learning_objectives:
+  - 論理的なresetの確率核と物理的な準位制御・熱浴接触を分け、記憶の分布と情報エントロピーを計算できる
+  - 非平衡自由エネルギーの仕事下限からLandauerの仕事・放熱下限を前提と符号を明示して再導出できる
+  - 初期分布の偏り、消去誤り率、終端Hamiltonian変更で仕事下限を再計算できる
+  - 正の誤り率で準静的reset操作を構成し、仕事を二段に分解して零誤り極限と有限準位の達成不能性を説明できる
+  - 系と記憶の相関が残る共同操作と記憶単独のresetを区別し、フィードバック抽出と記憶初期化の収支を検算できる
+definitions:
+  - { id: ITD5-DEF-01, name: 有限状態記憶の物理的reset }
+  - { id: ITD5-DEF-02, name: 記憶の情報エントロピーと二値エントロピー }
+theorems:
+  - { id: ITD5-THM-01, name: 有限記憶resetの平均仕事下限 }
+  - { id: ITD5-COR-01, name: 等エネルギー一様ビットのLandauer下限 }
+  - { id: ITD5-PROP-01, name: 偏りと誤りを含む二状態resetの下限 }
+  - { id: ITD5-PROP-02, name: 有限誤りresetの可逆極限構成 }
+  - { id: ITD5-PROP-03, name: 終端準位を変更した二状態記憶の下限 }
+canonical_examples:
+  - 出力を固定する論理核と物理的resetの違い
+  - 一様・偏りのある記憶の無誤差および誤りつき消去
+  - 準位上昇と最終quenchによる有限誤りreset
+  - 終端準位を変えたままの仕事・放熱差
+  - 完全相関を使う可逆な共同操作
+problem_patterns:
+  - ITD5-LOGICAL-RESET
+  - ITD5-LANDAUER-HEAT
+  - ITD5-BIASED-INPUT
+  - ITD5-ERROR-TOLERANT
+  - ITD5-FINAL-ENERGY
+  - ITD5-WORK-EXTRACTION
+  - ITD5-REVERSIBLE-PROTOCOL
+  - ITD5-FULL-SUPPORT
+  - ITD5-CORRELATED-MEMORY
+  - ITD5-FEEDBACK-RESET-CYCLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }

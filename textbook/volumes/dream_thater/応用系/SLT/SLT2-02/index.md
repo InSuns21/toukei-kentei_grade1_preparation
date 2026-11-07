@@ -155,7 +155,7 @@ $$
 L(\beta)=\frac12\|X\beta-y\|_2^2
 $$
 
-と置く。この節では係数 $1/2$ を固定し、$1/(2n)$ では割らない。成分ごとに微分すると
+と置く。この節では係数 $1/2$ を固定し、$1/(2n)$ では割らない。$X,y$ と、微分対象以外の係数を固定して、$k=1,\ldots,p$ の各 $\beta_k$ について偏微分すると
 
 $$
 \frac{\partial L}{\partial\beta_k}
@@ -164,7 +164,14 @@ $$
 \nabla L(\beta)=X^{\mathsf T}(X\beta-y).
 $$
 
-勾配の反対向きへ連続的に係数を動かす微分方程式を考える。$t\ge0$ は学習時間であり、統計的な標本数ではない。
+ここで $\partial L/\partial\beta_k$ は係数 $\beta_k$ による偏微分である。一方、係数を学習時間 $t$ の関数と見たときの時間導関数は
+
+$$
+\dot\beta(t)=\frac{d\beta(t)}{dt}
+=\begin{pmatrix}\frac{d\beta_1(t)}{dt}\\\vdots\\\frac{d\beta_p(t)}{dt}\end{pmatrix}
+$$
+
+であり、偏微分とは微分する変数が異なる。$t\ge0$ は学習時間であり、統計的な標本数ではない。勾配の反対向きへ連続的に係数を動かす微分方程式を考える。
 
 <a id="def-slt2-02-gradient-flow"></a>
 
@@ -278,7 +285,38 @@ y=\frac32\begin{pmatrix}1\\1\end{pmatrix}
 -\frac12\begin{pmatrix}1\\-1\end{pmatrix}.
 $$
 
-ここで $\beta(t)=X^{\mathsf T}\alpha(t)$ と置くと、零初期値からの解は
+この例では $X$ の二行が独立なので、$XX^{\mathsf T}$ は可逆であり、$X^{\mathsf T}$ は単射である。勾配流の速度は
+
+$$
+\dot\beta(t)=X^{\mathsf T}(y-X\beta(t))
+\in\operatorname{Im}X^{\mathsf T}=\operatorname{row}(X)
+$$
+
+に属する。[行空間と核の直交性](../SLT2-01/index.md#thm-slt2-01-row-null-prediction)により、速度は核に直交する。零初期値では核成分が初めから零で、時間が経っても変化しないため、係数は常に行空間内にある。
+
+そこで $\alpha(t)\in\mathbb R^2$ を使って $\beta(t)=X^{\mathsf T}\alpha(t)$ と表す。$X$ は時刻に依存しないから、勾配流の定義に代入すると
+
+$$
+X^{\mathsf T}\dot\alpha(t)
+=\dot\beta(t)
+=X^{\mathsf T}(y-XX^{\mathsf T}\alpha(t)).
+$$
+
+$X^{\mathsf T}$ の単射性と零初期値から、補助変数は次の初期値問題を満たす。
+
+$$
+\dot\alpha(t)=y-XX^{\mathsf T}\alpha(t),
+\qquad \alpha(0)=0.
+$$
+
+$XX^{\mathsf T}$ の固有値 $\lambda>0$ の方向で、$y$ の係数を $d$、$\alpha$ の係数を $a(t)$ と書けば
+
+$$
+\dot a(t)=d-\lambda a(t),\quad a(0)=0,
+\qquad a(t)=\frac{d}{\lambda}(1-e^{-\lambda t}).
+$$
+
+この解は初期値を満たし、微分すると $\dot a(t)=de^{-\lambda t}=d-\lambda a(t)$ となる。固有値 $3,1$ と上の $y$ の分解をそれぞれ代入すると
 
 $$
 \alpha(t)=
@@ -339,7 +377,7 @@ $$
 =-P_{\ker X}X^{\mathsf T}(X\beta(t)-y)=0.
 $$
 
-よって核への射影は初期値のままである。一方、$v_j$ 成分 $b_j(t)=v_j^{\mathsf T}\beta(t)$ は
+よって核への射影は初期値のままである。一方、$c_j=u_j^{\mathsf T}y$ と置く。$v_j$ 成分 $b_j(t)=v_j^{\mathsf T}\beta(t)$ は
 
 $$
 \dot b_j=-\sigma_j^2b_j+\sigma_jc_j,
@@ -493,7 +531,7 @@ $$
 (3-s)^2+2s^2=3s^2-6s+9=3(s-1)^2+6,
 $$
 
-ゆえに最小係数は $(2,-1,1)^{\mathsf T}$。一方 $XX^{\mathsf T}=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ は行フルランクで、逆行列は $\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$。従って
+ゆえに最小係数は $(2,-1,1)^{\mathsf T}$。一方 $XX^{\mathsf T}=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ は行フルランクで、逆行列は $\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$。[最小ノルム解のSVD表示と行フルランク公式](#thm-slt2-02-minimum-norm)より
 
 $$
 (XX^{\mathsf T})^{-1}y=(2,-1)^{\mathsf T},
@@ -525,7 +563,7 @@ $$
 $X=(1\;\;1\;\;0)$、$y=(2)$、$\beta_0=(2,0,5)^{\mathsf T}$ とする。零初期値の最小ノルム補間解と、与えた初期値からの勾配流の極限を比較し、核成分を具体的に求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$XX^{\mathsf T}=(2)$ なので $\beta^\dagger=X^{\mathsf T}(1/2)(2)=(1,1,0)^{\mathsf T}$。[行空間と核の直交性](../SLT2-01/index.md#thm-slt2-01-row-null-prediction)により行方向の射影は
+**詳細解答**。$XX^{\mathsf T}=(2)$ なので [最小ノルム解のSVD表示と行フルランク公式](#thm-slt2-02-minimum-norm)から $\beta^\dagger=X^{\mathsf T}(1/2)(2)=(1,1,0)^{\mathsf T}$。[行空間と核の直交性](../SLT2-01/index.md#thm-slt2-01-row-null-prediction)により行方向の射影は
 
 $$
 P_{\operatorname{row}(X)}\beta_0
@@ -572,7 +610,7 @@ $XX^{\mathsf T}=\begin{pmatrix}2&4\\4&8\end{pmatrix}$ は行列式 $16-16=0$ で
 <!-- solution-start -->
 **詳細解答**。
 
-**1.** 二行は独立で $r=n=2$。$XX^{\mathsf T}=\begin{pmatrix}2&1\\1&2\end{pmatrix}$、逆行列は $\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$ なので
+**1.** 二行は独立で $r=n=2$。$XX^{\mathsf T}=\begin{pmatrix}2&1\\1&2\end{pmatrix}$、逆行列は $\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$ なので、[最小ノルム解のSVD表示と行フルランク公式](#thm-slt2-02-minimum-norm)を適用して
 
 $$
 \beta^\dagger=X^{\mathsf T}\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}
@@ -602,7 +640,15 @@ X\beta(t)-y
 +\frac12e^{-t}\begin{pmatrix}1\\-1\end{pmatrix}.
 $$
 
-従って第1成分は $-\frac32e^{-3t}+\frac12e^{-t}$、第2成分は $-\frac32e^{-3t}-\frac12e^{-t}$ である。$t=0$ には $(-1,-2)^{\mathsf T}=-y$、$t\to\infty$ には0へ収束する。有限の $t$ では正の指数関数が残るので完全補間ではない。
+従って第1成分は $-\frac32e^{-3t}+\frac12e^{-t}$、第2成分は $-\frac32e^{-3t}-\frac12e^{-t}$ である。$t=0$ には $(-1,-2)^{\mathsf T}=-y$、$t\to\infty$ には0へ収束する。二つの固有方向は直交しているので、残差ノルムは
+
+$$
+\|X\beta(t)-y\|_2^2
+=\frac92e^{-6t}+\frac12e^{-2t}>0
+\qquad(0\le t<\infty).
+$$
+
+したがって有限時刻では完全補間せず、無限時間の極限でのみ残差が零になる。
 
 **3.** $z=(-1,-1,1)^{\mathsf T}$ は $Xz=0$ を満たすので、核の元である。初期値を核方向へ変えると
 
