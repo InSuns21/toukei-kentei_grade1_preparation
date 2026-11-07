@@ -388,28 +388,28 @@ $K_m(t)$ と $K_\infty$ は対称正半定値であり、前者は時刻につ�
 
 $d(t)=e_m(t)-e_{\infty,m}(t)$ と置く。二つの残差方程式を引き、$e_m(0)=e_{\infty,m}(0)$ を用いると
 
-$
+$$
 \dot d(t)=-K_\infty d(t)-(K_m(t)-K_\infty)e_m(t),
 \qquad d(0)=0.
-$
+$$
 
 左から $\exp(tK_\infty)$ を掛けて積の微分則を使い、$0$ から $t$ まで積分すると
 
-$
+$$
 d(t)=-\int_0^t\exp(-(t-s)K_\infty)
 (K_m(s)-K_\infty)e_m(s)\,ds.
-$
+$$
 
 $K_\infty$ が対称正半定値なので $s\le t$ に対し $\|\exp(-(t-s)K_\infty)\|_{\mathrm{op}}\le1$。また第3節と同じ残差エネルギー評価から $\|e_m(s)\|_2\le\|e_m(0)\|_2\le B$。従って
 
-$
+$$
 \begin{aligned}
 \|e_m(t)-e_{\infty,m}(t)\|_2
 &\le\|e_m(0)\|_2\int_0^t
 \|K_m(s)-K_\infty\|_{\mathrm{op}}\,ds\\
 &\le Bt\left(\delta+C_{K,T}(B)/\sqrt m\right).
 \end{aligned}
-$
+$$
 
 二つの悪い事象の確率の和を引けば所定の事象確率を得る。最後に任意の目標誤差 $\varepsilon>0$ と失敗確率 $\eta>0$ を固定し、まず $Q/B^2<\eta/2$ となる $B$ を選ぶ。次に $BT\delta<\varepsilon/2$ となる $\delta$ を選び、最後に $m$ を十分大きくして $BT C_{K,T}(B)/\sqrt m<\varepsilon/2$ かつ $n^2H^2/(m\delta^2)<\eta/2$ とする。これで確率収束の定義を確認できる。$\square$
 <!-- proof-end -->
