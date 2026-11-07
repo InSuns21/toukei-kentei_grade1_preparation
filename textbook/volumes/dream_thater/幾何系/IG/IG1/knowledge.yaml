@@ -1,0 +1,70 @@
+chapter: IG1
+scope: dream-theater
+coverage: complete
+prerequisites: [GEO3, F0-00P7]
+forward_references:
+  - stat.kl-divergence
+
+concepts:
+  - id: information-geometry.positive-simplex
+    name: 正の有限確率単体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の有限確率単体）"]
+    requires: [prob.distribution-law]
+
+  - id: information-geometry.simplex-tangent
+    name: 正の有限確率単体の接空間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正の有限確率単体の接空間）"]
+    requires: [information-geometry.positive-simplex, geometry.tangent-space]
+
+  - id: information-geometry.finite-parametrization
+    name: 統計モデルの有限正パラメータ表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（統計モデルの有限正パラメータ表示）"]
+    requires: [stat.statistical-model, information-geometry.positive-simplex]
+
+  - id: information-geometry.directional-score
+    name: パラメータ方向の接速度・方向スコア
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（パラメータ方向の接速度・方向スコア）"]
+    requires: [information-geometry.finite-parametrization, stat.score-function, geometry.tangent-vector]
+
+  - id: information-geometry.finite-score-velocity
+    name: 有限モデルのスコアと接速度の対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限モデルのスコアと接速度の対応）"]
+    requires: [information-geometry.directional-score, information-geometry.simplex-tangent, prob.expectation]
+
+  - id: information-geometry.score-coordinate-change
+    name: スコアと接速度の座標変換則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（スコアと接速度の座標変換則）"]
+    requires: [information-geometry.finite-score-velocity, geometry.differential]
+
+  - id: information-geometry.geometric-regularity
+    name: 幾何学的正則支配モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幾何学的正則支配モデル）"]
+    requires: [stat.dominated-model, stat.regularity-conditions, stat.score-function]
+
+  - id: information-geometry.regular-zero-mean-score
+    name: 正則支配モデルのスコア平均0
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則支配モデルのスコア平均0）"]
+    requires: [information-geometry.geometric-regularity, stat.score-identity, prob.expectation]
+
+  - id: information-geometry.finite-immersion-criterion
+    name: 有限モデルの浸入性判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限モデルの浸入性判定）"]
+    requires: [information-geometry.finite-score-velocity, geometry.immersion]
