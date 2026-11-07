@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/dream_thater
 # 現時点で公開可能な完了章だけを科目別公開目次へ追加する。
 chapters:
   - { id: IG1, path: textbook/volumes/dream_thater/幾何系/IG/IG1, status: completed, title: "統計モデルと接空間" }
-  - { id: IG2, path: textbook/volumes/dream_thater/幾何系/IG/IG2, status: planned, title: "Fisher--Rao 計量と座標不変性" }
+  - { id: IG2, path: textbook/volumes/dream_thater/幾何系/IG/IG2, status: completed, title: "Fisher--Rao 計量と座標不変性" }
   - { id: IG3, path: textbook/volumes/dream_thater/幾何系/IG/IG3, status: planned, title: "Divergence と局所幾何" }
   - { id: IG4, path: textbook/volumes/dream_thater/幾何系/IG/IG4, status: planned, title: "指数型分布族と混合型分布族" }
   - { id: IG5, path: textbook/volumes/dream_thater/幾何系/IG/IG5, status: planned, title: "Legendre 双対と Hessian 構造" }

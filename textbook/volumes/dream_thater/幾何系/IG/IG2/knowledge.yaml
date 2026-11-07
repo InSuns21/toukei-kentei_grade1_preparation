@@ -1,0 +1,63 @@
+chapter: IG2
+scope: dream-theater
+coverage: complete
+prerequisites: [IG1, GEO12]
+forward_references:
+  - stat.kl-divergence
+
+concepts:
+  - id: information-geometry.fisher-information
+    name: Fisher 情報行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fisher 情報行列）"]
+    requires: [information-geometry.directional-score, information-geometry.geometric-regularity, prob.expectation]
+
+  - id: information-geometry.fisher-nondegeneracy
+    name: Fisher 行列の半正定値性と非退化条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fisher 行列の半正定値性と非退化条件）"]
+    requires: [information-geometry.fisher-information, information-geometry.finite-immersion-criterion]
+
+  - id: information-geometry.fisher-rao-metric
+    name: Fisher--Rao 計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限正確率単体の Fisher--Rao 計量）"]
+    requires: [information-geometry.positive-simplex, information-geometry.simplex-tangent, geometry.riemannian-metric]
+
+  - id: information-geometry.simplex-fisher-pullback
+    name: 単体の計量と Fisher 情報行列
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単体の計量と Fisher 情報行列）"]
+    requires: [information-geometry.fisher-rao-metric, information-geometry.fisher-information, information-geometry.finite-immersion-criterion]
+
+  - id: information-geometry.fisher-coordinate-invariance
+    name: Fisher 行列の座標変換則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fisher 行列の座標変換則）"]
+    requires: [information-geometry.fisher-information, information-geometry.score-coordinate-change]
+
+  - id: information-geometry.normal-fisher-information
+    name: 正規位置尺度族の Fisher 計量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規位置尺度族の Fisher 計量）"]
+    requires: [information-geometry.fisher-information]
+
+  - id: information-geometry.fisher-rao-distance
+    name: Fisher--Rao 長と距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fisher--Rao 長と距離）"]
+    requires: [information-geometry.fisher-rao-metric, geometry.riemannian-curve-length, geometry.riemannian-distance]
+
+  - id: information-geometry.bernoulli-fisher-distance
+    name: Bernoulli 族の Fisher--Rao 距離
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bernoulli 族の Fisher--Rao 距離）"]
+    requires: [information-geometry.fisher-rao-distance, information-geometry.fisher-coordinate-invariance]
