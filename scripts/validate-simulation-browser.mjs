@@ -397,6 +397,41 @@ try {
     note: "CPU throttling is not evidence of physical device performance",
   }));
 
+  // SLT comparisons are real browser calculations, not a static diagram.
+  const sltUrl = address.replace(/index\.html$/, "slt-comparisons.html");
+  await cdp("Page.navigate", { url: sltUrl });
+  await waitFor('["finite","vc","ridge","ntk"].every(id => document.querySelector("#" + id + "-status")?.textContent.includes("計算完了"))');
+  assert.equal(await evaluate('document.querySelector("#download").disabled'), false);
+  assert.equal(await evaluate('[...document.querySelectorAll("input")].filter(input => !input.labels?.length).length'), 0);
+  const oldRadius = await evaluate('document.querySelector("#finite-output tbody tr:first-child td:last-child").textContent');
+  await evaluate(`(() => {
+    const field=document.querySelector('#finite-form [name="n"]');
+    field.value='100'; field.dispatchEvent(new Event('input',{bubbles:true}));
+  })()`);
+  assert.equal(await evaluate('document.querySelector("#download").disabled'), true,
+    "changed inputs must invalidate exported data");
+  await evaluate('document.querySelector("#finite-form").requestSubmit()');
+  await waitFor('document.querySelector("#finite-status").textContent.includes("計算完了")');
+  const newRadius = await evaluate('document.querySelector("#finite-output tbody tr:first-child td:last-child").textContent');
+  assert.notEqual(newRadius, oldRadius, 'changing n must recalculate the PAC bound');
+  assert.equal(await evaluate('document.querySelector("#download").disabled'), false);
+  await evaluate(`(() => {
+    const field=document.querySelector('#ntk-form [name="width"]');
+    field.value='24'; field.dispatchEvent(new Event('input',{bubbles:true}));
+    document.querySelector('#ntk-form').requestSubmit();
+  })()`);
+  await waitFor('document.querySelector("#ntk-status").textContent.includes("計算完了")');
+  assert.equal(await evaluate('document.querySelector("#ntk-output tbody tr:first-child td:first-child").textContent'), '24');
+  assert.ok(await evaluate('["ridge-plot","ntk-plot"].every(id => document.querySelector("#" + id).childElementCount > 20)'),
+    'comparison SVG charts must be populated');
+  await cdp('Emulation.setDeviceMetricsOverride', {
+    width: 360, height: 760, deviceScaleFactor: 1, mobile: true,
+  });
+  assert.ok(await evaluate('document.documentElement.scrollWidth - window.innerWidth') <= 1,
+    'SLT lab must not overflow a 360px viewport');
+  await cdp('Emulation.clearDeviceMetricsOverride');
+  console.log('SLT Chromium smoke: four experiments, input invalidation, recomputation, charts and mobile layout: PASS');
+
   assert.equal(exceptions.length, 0, "Browser script exceptions: " + exceptions.join("; "));
   console.log("Simulation Chromium smoke: CELEV, parameter reset, ML seed, reload: PASS");
 } finally {
