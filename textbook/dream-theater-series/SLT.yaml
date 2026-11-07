@@ -108,7 +108,7 @@ chapters:
     title: "kernel補間と有効次元"
   - id: SLT2-08
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-08
-    status: planned
+    status: completed
     title: "ニューラルネットの線形化"
   - id: SLT2-09
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-09

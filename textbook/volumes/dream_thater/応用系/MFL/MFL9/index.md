@@ -187,11 +187,13 @@ d_M(x(t),x(u))&=\int_{\min(t,u)}^{\max(t,u)}R\,ds=R|t-u|.
 \end{aligned}
 $$
 
-第二行は、二点をつなぐ円弧区間を積分した[MFL2の内在距離](../MFL2/index.md#def-mfl2-distances)である。周囲空間の弦長は三角恒等式から
+第二行は、二点をつなぐ円弧区間を積分した[MFL2の内在距離](../MFL2/index.md#def-mfl2-distances)である。周囲空間の弦長は、座標成分の差を二乗して足すと
 
 $$
 \begin{aligned}
-\|x(t)-x(u)\|^2&=2R^2(1-\cos(t-u))\\
+\|x(t)-x(u)\|^2&=R^2\bigl[(\cos t-\cos u)^2+(\sin t-\sin u)^2\bigr]\\
+&=2R^2\bigl[1-(\cos t\cos u+\sin t\sin u)\bigr]\\
+&=2R^2(1-\cos(t-u))\\
 &=4R^2\sin^2((t-u)/2),\\
 \|x(t)-x(u)\|&=2R\sin(|t-u|/2)
 \end{aligned}

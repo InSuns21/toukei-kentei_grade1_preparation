@@ -1,0 +1,42 @@
+id: "SLT2-08"
+title: "ニューラルネットの線形化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SLT2-07
+  - ML2-14
+official_scope: []
+learning_objectives:
+  - 二層網のパラメータを固定順に並べ、出力と訓練点予測のJacobianの次元と各成分を導ける
+  - 初期値まわりの一次線形化とTaylor剰余を区別し、二階微分に基づく局所誤差界を証明できる
+  - 二層網の初期接線核と有限標本Gram行列を直接計算し、対称正半定値性と特異性を判定できる
+  - 線形化模型と元の非線形網の一回更新・接線Gram行列の変化を定量的に比較できる
+  - 活性化の非微分点、移動量、有限幅と無限時間の違いにより線形化が保証されない例を説明できる
+definitions:
+  - { id: SLT2-08-DEF-01, name: 初期点でのニューラルネット線形化 }
+  - { id: SLT2-08-DEF-02, name: 接線特徴とニューラル接線核 }
+theorems:
+  - { id: SLT2-08-THM-01, name: 二層網のパラメータJacobian }
+  - { id: SLT2-08-THM-02, name: 線形化のTaylor剰余界 }
+  - { id: SLT2-08-THM-03, name: ニューラル接線核の具体式と正半定値性 }
+  - { id: SLT2-08-THM-04, name: 接線Gram行列の変動界と一回更新 }
+canonical_examples:
+  - 幅1の線形活性化網でJacobian、接線Gram行列とその行列式を手計算する
+  - 双線形パラメータのTaylor余項と移動量の二次依存を直接検算する
+  - 同じ入力が二回現れる場合に接線Gram行列が特異になることを示す
+  - ReLU折点でパラメータ微分が存在しない具体例を示す
+problem_patterns:
+  - SLT2-08-A01
+  - SLT2-08-A02
+  - SLT2-08-A03
+  - SLT2-08-A04
+  - SLT2-08-A05
+  - SLT2-08-B01
+  - SLT2-08-B02
+  - SLT2-08-B03
+  - SLT2-08-B04
+  - SLT2-08-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }
