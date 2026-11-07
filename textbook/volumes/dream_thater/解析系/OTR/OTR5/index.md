@@ -206,22 +206,49 @@ $$
 
 ### 証明の見取り図
 
-行列を $mn$ 次元の変数ベクトルへ並べ、各行・列和に対応する係数行列 $A$ を作ります。[線形計画の強双対性](../../../応用系/OPT/OPT10/index.md#thm-opt10-strong-duality)を適用するため、主問題が実行可能で下に有界であることを確認します。行・列和の等式に一本の重複があっても、この定理は適用できます。
+行列を $mn$ 次元の変数ベクトルへ並べます。ただし [線形計画の強双対性](../../../応用系/OPT/OPT10/index.md#thm-opt10-strong-duality)は**制約行列の行フルランク**を仮定します。そこで列和条件を一本だけ削り、残りが独立であることと、削った条件が総質量の一致から復元できることを示してから適用します。最後に削った制約の双対変数を $0$ として補います。
 
 <!-- proof-start -->
 ### 証明
 
-順序 $(1,1),(1,2),\ldots,(m,n)$ で $P$ の成分を並べた $x\in\mathbb R^{mn}$ を取り、右辺 $d=(a_1,\ldots,a_m,b_1,\ldots,b_n)\in\mathbb R^{m+n}$ とします。$A\in\mathbb R^{(m+n)\times mn}$ の $(i,j)$ 列には行和第 $i$ 行と列和第 $j$ 行の位置だけ $1$ を置き、残りを $0$ とします。この $Ax=d,\ x\ge0$ は [輸送多面体の定義](../OTR4/index.md#def-otr4-transport-polytope)と同じ条件です。
-
-主問題の非空性は $p_{ij}=a_ib_j$ により、また最適値の存在・有限性は [輸送多面体の非空性とコンパクト性](../OTR4/index.md#prop-otr4-compact)により保証されます。費用が有限なため連続な線形目的関数です。従って [線形計画の強双対性](../../../応用系/OPT/OPT10/index.md#thm-opt10-strong-duality)を、$N=mn$ 変数、$M=m+n$ 等式、係数行列 $A$、右辺 $d$、費用ベクトル $(c_{ij})$ に適用できます。同定の結果、
+順序 $(1,1),(1,2),\ldots,(m,n)$ で $P$ の成分を並べた $x\in\mathbb R^{mn}$ を取ります。行和 $m$ 本と、**最後の第 $n$ 列を除く** 列和 $n-1$ 本を並べた係数行列を $A'\in\mathbb R^{(m+n-1)\times mn}$、右辺を
 
 $$
-\max\left\{d^{\mathsf T}y:A^{\mathsf T}y\le c\right\}
+d'=(a_1,\ldots,a_m,b_1,\ldots,b_{n-1})
 $$
 
-が主最適値に一致し、最大値も達成します。$y=(u_1,\ldots,u_m,v_1,\ldots,v_n)$ と分割すると、前述の列の構造から $(A^{\mathsf T}y)_{ij}=u_i+v_j$、$d^{\mathsf T}y=\sum_i a_i u_i+\sum_j b_j v_j$ です。従って一般LPの双対は [有限輸送の双対問題](#def-otr5-finite-dual)に完全に一致します。
+とします。$A'$ のセル $(i,j)$ に対応する列は、行側の第 $i$ 位置に $1$ を持ち、$j<n$ なら列側の第 $j$ 位置にも $1$ を持ち、それ以外は $0$ です。
 
-[輸送制約の階数](../OTR4/index.md#prop-otr4-rank)は $m+n-1$ ですが、一般LPの強双対定理に $A$ の行独立性は仮定されていません。従って重複等式を残しても問題はありません。$\square$
+この $A'$ の行は独立です。実際、行側の線形結合係数を $\alpha_i$、列側を $\beta_j$（$j<n$）とし、全てのセルにおける係数が $0$ だとします。$j=n$ のセルでは係数は $\alpha_i$ のみなので、全ての $\alpha_i=0$ です。次に $j<n$ のセルで係数 $\alpha_i+\beta_j=\beta_j$ も $0$ だから、全ての $\beta_j=0$ です。よって
+
+$$
+\operatorname{rank}A'=m+n-1.
+$$
+
+これは [輸送制約の階数](../OTR4/index.md#prop-otr4-rank)とも一致します。$A'x=d'$ なら行和と最初の $n-1$ 列和が成立します。残る第 $n$ 列の和は
+
+$$
+\sum_i p_{in}
+=\sum_i a_i-\sum_{j=1}^{n-1}\sum_i p_{ij}
+=1-\sum_{j=1}^{n-1}b_j=b_n
+$$
+
+です。従って $A'x=d',\ x\ge0$ の実行可能集合は [輸送多面体](../OTR4/index.md#def-otr4-transport-polytope)と完全に同じです。
+
+主問題の非空性は $p_{ij}=a_ib_j$ により、また最適値の存在・有限性は [輸送多面体の非空性とコンパクト性](../OTR4/index.md#prop-otr4-compact)により保証されます。費用は有限なので目的関数は連続な線形関数です。行フルランクも確認したので、[線形計画の強双対性](../../../応用系/OPT/OPT10/index.md#thm-opt10-strong-duality)を、$N=mn$ 変数、$M=m+n-1$ 等式、係数行列 $A'$、右辺 $d'$、費用ベクトル $(c_{ij})$ に適用できます。
+
+この定理により双対最適変数 $y'=(u_1,\ldots,u_m,v_1,\ldots,v_{n-1})$ が存在し、その制約と目的値は
+
+$$
+\begin{aligned}
+u_i+v_j&\le c_{ij}\quad(j<n),\\
+u_i&\le c_{in},\\
+(d')^{\mathsf T}y'&=\sum_i a_i u_i+\sum_{j=1}^{n-1}b_jv_j
+=\min_{P\in\mathcal T(a,b)}L_C(P)
+\end{aligned}
+$$
+
+です。ここに $v_n=0$ を補えば、全ての $u_i+v_j\le c_{ij}$ を満たす [有限輸送の双対実行可能ポテンシャル](#def-otr5-finite-dual)を得て、同じ主最適値を達成します。他方、[弱双対性](#thm-otr5-weak-duality)より、どの双対実行可能ポテンシャルの値も主最適値以下です。従って元の双対問題の最大値もこの値に一致し、最大値が実際に達成されます。$\square$
 <!-- proof-end -->
 
 ここで使ったのは **有限次元・有限費用のLP強双対** です。無限個の点を持つ連続空間の Kantorovich 双対を、この議論だけで証明したことにはなりません。その差は次の OTR6 で調べます。
