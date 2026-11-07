@@ -1,0 +1,45 @@
+id: "ITD15"
+title: "慣性を持つLangevin系：速度反転・Kramers流・散逸"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD13
+  - ITD14
+  - STO10
+official_scope: []
+learning_objectives:
+  - 位置・速度の慣性付きLangevin方程式を定式化し自由な速度の定常分散を求められる
+  - Kramers保存則と可逆・不可逆確率流を導きGibbs密度が定常であることを検証できる
+  - Stratonovich浴熱のItô補正を計算し仕事・熱・運動エネルギーの軌道第一法則を示せる
+  - 速度の奇パリティを含む逆実験とGirsanov作用から経路確率比を導出できる
+  - 積分型ゆらぎ関係と不可逆速度流の散逸平方公式を導き定常駆動で検算できる
+  - 平衡初期のJarzynski等式と終端の非平衡相対エントロピー補正を説明できる
+definitions:
+  - { id: ITD15-DEF-01, name: 等温慣性付きLangevin実験 }
+  - { id: ITD15-DEF-02, name: 仕事と浴熱 }
+  - { id: ITD15-DEF-03, name: 速度反転を伴う逆実験 }
+theorems:
+  - { id: ITD15-THM-01, name: Kramers方程式と平衡密度 }
+  - { id: ITD15-THM-02, name: 慣性付き軌道の第一法則 }
+  - { id: ITD15-THM-03, name: 慣性付き経路の確率比 }
+  - { id: ITD15-THM-04, name: 積分型ゆらぎ関係と不可逆流の平方公式 }
+  - { id: ITD15-THM-05, name: 慣性付きJarzynski等式と終端補正 }
+canonical_examples:
+  - 自由な速度のOrnstein-Uhlenbeck過程とMaxwell分布
+  - 保存力下のGibbs密度と消えない可逆位置流
+  - 一定外力下のずれたMaxwell定常密度と正の散逸
+problem_patterns:
+  - ITD15-OU-RELAXATION
+  - ITD15-PARITY-REVERSAL
+  - ITD15-GIBBS-KRAMERS
+  - ITD15-ITO-HEAT-CORRECTION
+  - ITD15-CONSTANT-DRIVE
+  - ITD15-STATIONARY-PATH-ENTROPY
+  - ITD15-REVERSIBLE-TRANSPORT
+  - ITD15-GIRSANOV-ODD-ACTION
+  - ITD15-REVERSE-ENDPOINT
+  - ITD15-CIRCULAR-PROTOCOL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 5 }
