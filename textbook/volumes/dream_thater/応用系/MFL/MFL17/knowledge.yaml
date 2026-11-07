@@ -1,0 +1,62 @@
+chapter: MFL17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL13
+  - MFL15
+  - MFL16
+concepts:
+  - id: manifold-learning.interval-row-gaussian
+    name: 区間上の行正規化Gaussian核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区間上の行正規化Gaussian核）"]
+    requires: [manifold-learning.intrinsic-gaussian-operator]
+  - id: manifold-learning.truncated-gaussian-moments
+    name: 切断Gaussianモーメント
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（切断Gaussianモーメント）"]
+    requires: [manifold-learning.interval-row-gaussian]
+  - id: manifold-learning.boundary-kernel-expansion
+    name: 境界層の核平均展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（境界層の核平均展開）"]
+    requires: [manifold-learning.truncated-gaussian-moments]
+  - id: manifold-learning.boundary-square-root-bias
+    name: 端点の平方根偏りとNeumann条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（端点の平方根偏りとNeumann条件）"]
+    requires: [manifold-learning.boundary-kernel-expansion]
+  - id: manifold-learning.boundary-layer-nonuniformity
+    name: 左端Neumann条件と境界層の非一様性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（左端Neumann条件と境界層の非一様性）"]
+    requires: [manifold-learning.boundary-square-root-bias]
+  - id: manifold-learning.adaptive-row-bandwidth
+    name: 点ごとに固定したadaptive帯域幅
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点ごとに固定したadaptive帯域幅）"]
+    requires: [manifold-learning.interval-row-gaussian]
+  - id: manifold-learning.adaptive-interior-generator
+    name: adaptive行帯域幅の内点generator
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（adaptive行帯域幅の内点generator）"]
+    requires: [manifold-learning.adaptive-row-bandwidth, manifold-learning.boundary-kernel-expansion]
+  - id: manifold-learning.same-support-density-shift
+    name: 同一支持上のdensity shift
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同一支持上のdensity shift）"]
+    requires: [manifold-learning.interval-row-gaussian]
+  - id: manifold-learning.density-shift-drift
+    name: density shiftとdriftの差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（density shiftとdriftの差）"]
+    requires: [manifold-learning.same-support-density-shift, manifold-learning.adaptive-interior-generator]

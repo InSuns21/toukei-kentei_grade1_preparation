@@ -17,3 +17,4 @@
 14. [MFL14 Kernel標本平均のvariance・集中](textbook/volumes/dream_thater/応用系/MFL/MFL14/index.md)
 15. [MFL15 密度補正・極限generator](textbook/volumes/dream_thater/応用系/MFL/MFL15/index.md)
 16. [MFL16 Diffusion Mapsと熱の幾何](textbook/volumes/dream_thater/応用系/MFL/MFL16/index.md)
+17. [MFL17 境界・adaptive近傍・density shift](textbook/volumes/dream_thater/応用系/MFL/MFL17/index.md)
