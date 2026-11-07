@@ -120,6 +120,8 @@ $$
 
 Fisher 行列は座標で表したものです。これがどんな幾何を表すかを先に有限正確率単体上で見ます。[単体の接空間の定理](../IG1/index.md#thm-ig1-simplex-tangent)によると、点 $p$ の接方向 $v$ は $\sum_xv_x=0$ を満たします。その二方向の大きさを、各確率 $p_x$ で割って重み付けします。
 
+[Riemann 計量の定義](../../GEO/GEO12/index.md#def-geo12-riemannian-metric)では、各接空間に滑らかに変化する正定値内積を入れます。また [滑らかな写像の微分](../../GEO/GEO2/index.md#def-geo2-differential) $dP_\theta$ は、パラメータ方向 $u$ を分布の接方向 $dP_\theta u$ へ移します。分布側の内積をこの二方向で評価してパラメータ側へ移す操作を**計量の引き戻し**といい、$(P^*g)_\theta(u,z)=g_{P(\theta)}(dP_\theta u,dP_\theta z)$ と書きます。
+
 <a id="def-ig2-fisher-rao-metric"></a>
 <!-- formal-statement-start -->
 > **定義（有限正確率単体の Fisher--Rao 計量）**
@@ -140,7 +142,7 @@ $$
 > である。
 <!-- formal-statement-end -->
 
-ここで「引き戻し」は、パラメータ空間の方向を $dP_\theta$ で分布の方向へ写し、その後に分布側で内積を取るという操作です。[微分の定義](../../GEO/GEO2/index.md#def-geo2-differential)に立ち返れば、行列を突然作る必要はありません。
+この定義はまず接方向同士の内積を与えます。行列表示は、パラメータの座標基底を $dP_\theta$ で写してから各組の内積を取ることで得られます。
 
 <!-- definition-example-start: def-ig2-fisher-rao-metric -->
 **定義の確認**
@@ -238,7 +240,14 @@ $$
 =\frac1{abc}>0.
 $$
 
-従って2次元の正定値対称行列です。これは「行列式が正だから内積」という飛躍ではなく、先の定理で接方向が失われないことを確認した座標表示と一致します。
+なぜこの行列で正定値性を判定できるのでしょうか。任意のパラメータ方向 $u\partial_a+v\partial_b$ の像は
+
+$$
+dP_{(a,b)}(u\partial_a+v\partial_b)
+=(u,v,-u-v)
+$$
+
+で、これが零なら $u=v=0$ です。従って $dP$ は単射であり、[引き戻しの正定値性の定理](#thm-ig2-simplex-pullback)によって $G$ は正定値です。行列式の計算もこれと整合しますが、行列式が正という条件だけを一般の行列に適用して正定値性を結論したわけではありません。
 
 ---
 
@@ -322,7 +331,15 @@ $$
 E[(X-p)^2]=p(1-p)=G_\eta.
 $$
 
-つまり $G_p$ と $G_\eta$ の数字が異なることは座標不変性への反例ではありません。微小変化も $dp=p(1-p)d\eta$ と取り替えると
+つまり $G_p$ と $G_\eta$ の数字が異なることは座標不変性への反例ではありません。ここで $dp,d\eta$ は同じ接方向に沿った座標の微分を表します。実際、任意の滑らかな曲線 $\eta(t)$ に沿って連鎖律を使うと
+
+$$
+\frac{dp}{dt}
+=\frac{dp}{d\eta}\frac{d\eta}{dt}
+=p(1-p)\frac{d\eta}{dt}
+$$
+
+となるので、$dp=p(1-p)d\eta$ はこの微分の対応を略記したものです。従って
 
 $$
 G_p(dp)^2=G_\eta(d\eta)^2
@@ -680,7 +697,17 @@ $P(a,b)=(a,b,1-a-b)$、$a>0,b>0,a+b<1$ とする。
    \qquad \det G=6\cdot8-4^2=32>0.
    $$
 
-   対称行列で左上主小行列式 $6>0$、行列式 $32>0$ なので正定値です。実際、二方向 $(1,0,-1)$ と $(0,1,-1)$ が一次独立なため、[正定値性の定理](#thm-ig2-positive-definiteness)とも一致します。
+   正定値性は任意の非零方向 $(u,v)$ の二次形式で直接確かめられます。
+
+   $$
+   \begin{aligned}
+   (u,v)G(u,v)^{\mathsf T}
+   &=6u^2+8uv+8v^2\\
+   &=6\left(u+\frac23v\right)^2+\frac{16}{3}v^2>0
+   \end{aligned}
+   $$
+
+   です。また二方向 $(1,0,-1)$ と $(0,1,-1)$ は一次独立であり、[正定値性の定理](#thm-ig2-positive-definiteness)とも一致します。行列式 $32>0$ はこの判定と整合する追加の検算です。
 <!-- solution-end -->
 
 ### IG2-A04 分散を固定した正規位置族
@@ -853,7 +880,19 @@ $m\ge2$、$p,q\in\Delta_{m-1}^{\circ}$ とする。$\Phi(p)=2(\sqrt{p_1},\ldots,
 
    両辺の平方根を同じ時刻区間で積分すれば、二つの長さは一致します。
 
-2. $u=(\sqrt{p_i})_i$、$v=(\sqrt{q_i})_i$ と置くと、$\|u\|=\|v\|=1$、内積 $c=u\cdot v=\sum_i\sqrt{p_iq_i}$ は正です。[Cauchy--Schwarz 不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により $c\le1$、等号は正の単位ベクトル $u=v$、つまり $p=q$ の場合だけです。従って $p\ne q$ なら $0<\alpha<\pi/2$ です。このとき
+2. 二つの平方根ベクトルを
+
+   $$
+   u=(\sqrt{p_i})_i,\qquad v=(\sqrt{q_i})_i
+   $$
+
+   と置きます。確率の総和が1なので $\|u\|=\|v\|=1$ であり、全成分が正なので内積
+
+   $$
+   c=u\cdot v=\sum_i\sqrt{p_iq_i}>0
+   $$
+
+   も正です。[Cauchy--Schwarz 不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により $c\le1$、等号は正の単位ベクトル $u=v$、つまり $p=q$ の場合だけです。従って $p\ne q$ なら $0<\alpha<\pi/2$ です。このとき
 
    $$
    s(t)=
@@ -862,7 +901,21 @@ $m\ge2$、$p,q\in\Delta_{m-1}^{\circ}$ とする。$\Phi(p)=2(\sqrt{p_1},\ldots,
    \qquad 0\le t\le1
    $$
 
-   と置きます。係数は非負、端点以外では正なので各成分は正です。$s(0)=u$、$s(1)=v$ です。$e=(v-\cos\alpha\,u)/\sin\alpha$ と置けば、$u\cdot e=0$、$\|e\|=1$ です。$\sin((1-t)\alpha)=\sin\alpha\cos(t\alpha)-\cos\alpha\sin(t\alpha)$ を代入すると
+   と置きます。係数は非負、端点以外では正なので各成分は正です。また $s(0)=u$、$s(1)=v$ です。ここで $\cos\alpha=c$、$\sin\alpha>0$ を使い、
+
+   $$
+   e=\frac{v-\cos\alpha\,u}{\sin\alpha}
+   $$
+
+   と置くと
+
+   $$
+   u\cdot e=\frac{c-\cos\alpha}{\sin\alpha}=0,
+   \qquad
+   \|e\|^2=\frac{1-2c^2+c^2}{1-c^2}=1.
+   $$
+
+   $\sin((1-t)\alpha)=\sin\alpha\cos(t\alpha)-\cos\alpha\sin(t\alpha)$ を代入すると
 
    $$
    s(t)=\cos(t\alpha)u+\sin(t\alpha)e.
@@ -885,7 +938,25 @@ $m\ge2$、$p,q\in\Delta_{m-1}^{\circ}$ とする。$\Phi(p)=2(\sqrt{p_1},\ldots,
    =\sqrt{1-(u\cdot z)^2}\,\|z'\|.
    $$
 
-   従って $|\beta'|\le\|z'\|$ です。$\beta=0$ となる区間・時刻では近傍の角度関数の Lipschitz 性（上の評価を端点から極限で取る）を使い、区分的に積分して
+   従って $0<\beta<\pi$ では $|\beta'|\le\|z'\|$ です。ただし始点では $\beta(0)=0$ なので、この微分式をそのまま使えません。そこで $0<\varepsilon<1$ に対して
+
+   $$
+   \beta_\varepsilon(t)
+   =\arccos\bigl((1-\varepsilon)u\cdot z(t)\bigr)
+   $$
+
+   と置きます。$c(t)=u\cdot z(t)$ とすれば、分母が零にならず、先ほどの直交性と Cauchy--Schwarz の評価により
+
+   $$
+   \begin{aligned}
+   |\beta_\varepsilon'(t)|
+   &\le\frac{(1-\varepsilon)\sqrt{1-c(t)^2}}{
+     \sqrt{1-(1-\varepsilon)^2c(t)^2}}\,\|z'(t)\|\\
+   &\le\|z'(t)\|.
+   \end{aligned}
+   $$
+
+   最後の不等式は $(1-\varepsilon)^2\le1$ から従います。区分的 $C^1$ の各区間で積分してから $\varepsilon\downarrow0$ とすると、両端の値は $\beta_\varepsilon(0)\to0$、$\beta_\varepsilon(1)\to\alpha$ なので
 
    $$
    \alpha=|\beta(1)-\beta(0)|
