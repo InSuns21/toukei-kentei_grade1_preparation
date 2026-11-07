@@ -16,7 +16,7 @@ chapters:
     title: "内在幾何と外在幾何・接空間と埋め込み"
   - id: MFL3
     path: textbook/volumes/dream_thater/応用系/MFL/MFL3
-    status: planned
+    status: completed
     title: "Reach・曲率・近傍の識別可能性"
   - id: MFL4
     path: textbook/volumes/dream_thater/応用系/MFL/MFL4
