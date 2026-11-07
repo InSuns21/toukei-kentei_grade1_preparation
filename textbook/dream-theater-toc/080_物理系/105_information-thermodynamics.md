@@ -12,3 +12,4 @@
 9. [ITD9 自律的な情報流：二部分系の第二法則と定常熱流](textbook/volumes/dream_thater/物理系/ITD/ITD9/index.md)
 10. [ITD10 情報リザーバー：ビット列が運ぶ自由エネルギーと相関の費用](textbook/volumes/dream_thater/物理系/ITD/ITD10/index.md)
 11. [ITD11 連続Langevin経路の時間反転：確率比・ゆらぎ関係・見えない散逸](textbook/volumes/dream_thater/物理系/ITD/ITD11/index.md)
+12. [ITD12 位置依存ポテンシャルのLangevin拡散：確率流・定常散逸・自由エネルギー](textbook/volumes/dream_thater/物理系/ITD/ITD12/index.md)
