@@ -38,3 +38,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD8
     status: completed
     title: 有限時間の記憶消去：確率流・活動度・余分な散逸
+  - id: ITD9
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD9
+    status: completed
+    title: 自律的な情報流：二部分系の第二法則と定常熱流
