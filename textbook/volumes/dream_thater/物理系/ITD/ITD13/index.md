@@ -44,7 +44,7 @@ $$
 <!-- definition-example-start: def-itd13-driven-protocol -->
 ### 直接例：坂の高さを変えながら粒子を動かす
 
-$U_t(x)=a(t)\cos(kx)$、$k=2\pi/L$、$a\in C^1[0,\tau]$、$F_t=0$ とします。$a'(t)=da(t)/dt$ は時刻 $t$ での通常の導関数です。$\partial_tU_t=a'(t)\cos(kx)$、$f_t(x)=ka(t)\sin(kx)$ です。任意の連続経路について
+$U_t(x)=a(t)\cos(kx)$、$k=2\pi/L$、$a\in C^1[0,\tau]$、$F_t=0$ とします。$a'(t)=da(t)/dt$ は時刻 $t$ での通常の導関数です。$\partial_tU_t=a'(t)\cos(kx)$、$f_t(x)=ka(t)\sin(kx)$ です。このSDEのほとんど全ての実現経路について
 
 $$
 W=\int_0^\tau a'(t)\cos(kX_t)\,dt,
@@ -171,7 +171,7 @@ $$
 -D\int_0^\tau\partial_xb_t(X_t)\,dt.
 $$
 
-これを代入すると $dP/dR$ の第一式になります。$\rho_0$ は正で、指数は各連続経路で有限かつ正なので $P\sim R$ です。
+これを代入すると $dP/dR$ の第一式になります。$\rho_0$ は正で、確率積分は $R$-ほとんど確実に有限、指数密度はその上で厳密に正です。従って $P\sim R$ です。
 
 逆実験にも同じ議論を適用します。逆実験の持ち上げを $Z_s^R$、円周位置を $X_s^R=Z_s^R\pmod L$ と書きます。逆側でのStratonovich作用は
 
@@ -380,7 +380,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U_0,U_\tau$ は連続な周期関数なので、$0<\mathcal Z_t<\infty$（$t=0,\tau$） であり、$\pi_0,\pi_\tau$ は厳密に正です。[経路確率比の証明](#thm-itd13-girsanov-reversal)で逆側の始点密度 $\rho_\tau$ を $\pi_\tau$ に置き換えれば、同値性は保たれ
+$U_0,U_\tau$ は連続な周期関数なので、$0<\mathcal Z_t<\infty$（$t=0,\tau$）であり、$\pi_0,\pi_\tau$ は厳密に正です。[経路確率比の証明](#thm-itd13-girsanov-reversal)で逆側の始点密度 $\rho_\tau$ を $\pi_\tau$ に置き換えれば、同値性は保たれ
 
 $$
 \log\frac{dP}{dQ_{\mathrm{eq}}}
@@ -434,7 +434,7 @@ $$
 
 - Level: A
 - ID: ITD13-A1
-- 問題: $U_t(x)=(a_0+ct)\cos(kx)$、$F_t=F_0$ とする。任意の経路の持ち上げ変位を $Y=Z_\tau-Z_0$、$C=\int_0^\tau\cos(kX_t)dt$ と書く。$W,\Delta U,Q_{\mathrm{bath}}$ を $Y,C,X_0,X_\tau$ で表し、第一法則を確かめよ。
+- 問題: $U_t(x)=(a_0+ct)\cos(kx)$、$F_t=F_0$ とする。任意の実現経路の持ち上げ変位を $Y=Z_\tau-Z_0$、$C=\int_0^\tau\cos(kX_t)dt$ と書く。$W,\Delta U,Q_{\mathrm{bath}}$ を $Y,C,X_0,X_\tau$ で表し、第一法則を確かめよ。
 
 <!-- solution-start -->
 **詳細解答**
