@@ -15,3 +15,4 @@
 12. [MFL12 Laplace–Beltramiへの橋](textbook/volumes/dream_thater/応用系/MFL/MFL12/index.md)
 13. [MFL13 Kernel積分作用素のbias](textbook/volumes/dream_thater/応用系/MFL/MFL13/index.md)
 14. [MFL14 Kernel標本平均のvariance・集中](textbook/volumes/dream_thater/応用系/MFL/MFL14/index.md)
+15. [MFL15 密度補正・極限generator](textbook/volumes/dream_thater/応用系/MFL/MFL15/index.md)

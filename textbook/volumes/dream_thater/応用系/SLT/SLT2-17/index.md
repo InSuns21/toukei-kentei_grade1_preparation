@@ -19,6 +19,8 @@
 
 そこで、標本と出力がどれだけ結び付いたかを測る。以下では計算を最後まで確かめるために、観測空間 $\mathcal Z$ と仮説集合 $\mathcal H$ を有限とする。$n\ge1$、$S=(Z_1,\ldots,Z_n)\sim P^n$、$0\le\ell(w,z)\le1$ とし、算法は条件付き確率 $Q(w\mid s)$ に従って $W\in\mathcal H$ を出す。学習算法自身の乱数もこの条件付き確率に含める。
 
+$S\sim P^n$ は、各 $Z_i$ が互いに独立で同じ分布 $P$ に従う**独立同分布（independent and identically distributed; iid）**標本という意味である。この仮定は後の集中不等式と、保存していない標本の独立性の両方に使う。
+
 母集団リスク $R_P(w)=\mathbb E_{Z\sim P}\ell(w,Z)$ と経験リスク $\widehat R_S(w)=n^{-1}\sum_i\ell(w,Z_i)$ は、[既習のリスク定義](../SLT1-03/index.md#thm-slt1-03-fixed-risk)と同じ意味で用いる。差 $R_P(W)-\widehat R_S(W)$ は標本と算法乱数で変動する確率変数である。
 
 <a id="def-slt2-17-information"></a>

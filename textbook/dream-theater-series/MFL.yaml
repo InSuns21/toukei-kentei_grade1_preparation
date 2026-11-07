@@ -64,7 +64,7 @@ chapters:
     title: "Kernel標本平均のvariance・集中"
   - id: MFL15
     path: textbook/volumes/dream_thater/応用系/MFL/MFL15
-    status: planned
+    status: completed
     title: "密度補正・極限generator"
   - id: MFL16
     path: textbook/volumes/dream_thater/応用系/MFL/MFL16
