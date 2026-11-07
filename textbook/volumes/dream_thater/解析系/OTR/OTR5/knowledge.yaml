@@ -1,0 +1,48 @@
+chapter: OTR5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR4
+
+concepts:
+  - id: transport.finite-dual
+    name: 有限離散輸送の双対問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限離散輸送の双対問題）"]
+    requires: [transport.finite-primal, optimization.linear-program-dual]
+
+  - id: transport.transport-weak-duality
+    name: 輸送問題の弱双対性と双対ギャップ恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（輸送問題の弱双対性と双対ギャップ恒等式）"]
+    requires: [transport.finite-dual, transport.finite-primal]
+
+  - id: transport.dual-slack
+    name: 双対余裕と等号経路
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対余裕と等号経路）"]
+    requires: [transport.finite-dual]
+
+  - id: transport.transport-strong-duality
+    name: 有限輸送の強双対性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限輸送の強双対性）"]
+    requires: [transport.finite-dual, transport.polytope-compactness, optimization.linear-program-strong-duality]
+
+  - id: transport.transport-complementary-slackness
+    name: 輸送の相補性と最適性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（輸送の相補性と最適性）"]
+    requires: [transport.transport-weak-duality, transport.transport-strong-duality, transport.dual-slack]
+
+  - id: transport.tight-forest-uniqueness
+    name: 等号経路の森による最適解の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等号経路の森による最適解の一意性）"]
+    requires: [transport.transport-complementary-slackness, transport.support-graph]

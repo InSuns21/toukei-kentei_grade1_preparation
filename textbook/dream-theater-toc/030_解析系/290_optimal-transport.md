@@ -5,3 +5,4 @@
 2. [OTR2 分割して運べば何が解消するか](textbook/volumes/dream_thater/解析系/OTR/OTR2/index.md)
 3. [OTR3 最適結合はいつ存在するか](textbook/volumes/dream_thater/解析系/OTR/OTR3/index.md)
 4. [OTR4 離散輸送はどんな最適化問題か](textbook/volumes/dream_thater/解析系/OTR/OTR4/index.md)
+5. [OTR5 双対変数は何を保証するか](textbook/volumes/dream_thater/解析系/OTR/OTR5/index.md)
