@@ -198,7 +198,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$P,Q=\widehat P$ はどちらも階数 $d$ の直交射影である。$A\succeq\alpha I_T$ と $0\preceq P-Q$ を仮定する必要はない。$T$ の正規直交固有基底 $v_1,\ldots,v_d$ で $C_0v_j=\lambda_jv_j$、$\lambda_j\ge\alpha$ と書けば
+$P,Q=\widehat P$ はどちらも階数 $d$ の直交射影である。$\operatorname{tr}(H)=\sum_jH_{jj}$ は行列の対角成分の総和で、正規直交基底を替えても値は変わらない。$T$ の正規直交固有基底 $v_1,\ldots,v_d$ で $C_0v_j=\lambda_jv_j$、$\lambda_j\ge\alpha$ と書けば
 
 $$
 \begin{aligned}
@@ -215,7 +215,14 @@ $$
 \|P-Q\|_F^2=\operatorname{tr}(P+Q-PQ-QP)=2d-2\operatorname{tr}(PQ).
 $$
 
-一方、[主成分分析と共分散の固有空間](../../ML/ML1-19/index.md#thm-ml1-19-pca-spectral)の定理を $\widehat C$ の上位 $d$ 次元の選択へ適用すると $\operatorname{tr}(Q\widehat C)\ge\operatorname{tr}(P\widehat C)$ である。ここで $\operatorname{tr}(H)$ は行列 $H$ の対角成分の総和である。従って
+一方、[主成分分析と共分散の固有空間](../../ML/ML1-19/index.md#thm-ml1-19-pca-spectral)の最大化計算は一般の対称行列にも成り立つ。実際、$\widehat C$ の固有値を $\mu_1\ge\cdots\ge\mu_D$、正規直交固有ベクトルを $w_j$ とすれば、任意の階数 $d$ 射影 $R$ について
+
+$$
+\operatorname{tr}(R\widehat C)=\sum_{j=1}^D\mu_j\|Rw_j\|^2,
+\qquad0\le\|Rw_j\|^2\le1,\quad\sum_j\|Rw_j\|^2=d.
+$$
+
+重みを最大の固有値から順に1ずつ割り当てると和が最大になるため、$R=Q$ で最大値を取る。特に $\operatorname{tr}(Q\widehat C)\ge\operatorname{tr}(P\widehat C)$。従って
 
 $$
 \frac\alpha2\|P-Q\|_F^2
