@@ -105,7 +105,7 @@ $$
 \end{aligned}
 $$
 
-積分核の二乗積分は有限であるため、確定核に対する確率積分の順序交換は単純関数近似とItô等長性で正当化されます。$c/(ma)=c/\gamma=\sqrt{2/(\beta\gamma)}$ より位置の表示も得られます。
+積分核の二乗積分は有限であるため、確定核に対する確率積分の順序交換は単純関数近似と[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)で正当化されます。$c/(ma)=c/\gamma=\sqrt{2/(\beta\gamma)}$ より位置の表示も得られます。
 
 初期速度の平均を $\mu_0$ とすれば、Brown運動と独立なので平均変位は $ut+(\mu_0-u)(1-e^{-at})/a$ です。両方の初期化で速度分散は $1/(\beta m)$ ですから、独立な二つのGaussian項の分散和は
 
@@ -154,7 +154,13 @@ $$
 > である。運動エネルギーを状態変数に含めないため、この比較模型では両者を等しく置く。
 <!-- formal-statement-end -->
 
-$Y_t$ の分布は、時刻 $t$ に平均 $Z_0+ut$、分散 $2t/(\beta\gamma)$ の正規分布です。ここで比較するのは、変数の数が異なる二つの模型です。熱の式を等しく置いたのは近似の**定義**であって、慣性付き模型の熱が実際にそこへ収束するという結論ではありません。
+初期位置を $Z_0=z$ に固定したときの **$Y_t$ の分布**は、$t>0$ では $B_t\sim N(0,t)$ と初期位置からの独立性により
+
+$$
+Y_t\mid Z_0=z\sim N\!\left(z+ut,\frac{2t}{\beta\gamma}\right).
+$$
+
+時刻 $0$ では $Y_0=z$ が確定します。初期位置 $Z_0$ 自体は一様な確率変数なので、$Y_t$ の無条件分布を上の正規分布と取り違えてはいけません。一方、$\overline X_t=Y_t\pmod L$ は、独立な一様初期位置を平行移動したものだから、各時刻に円周上で一様です。ここで比較するのは、変数の数が異なる二つの模型です。熱の式を等しく置いたのは近似の**定義**であって、慣性付き模型の熱が実際にそこへ収束するという結論ではありません。
 
 <!-- definition-example-start: def-itd16-overdamped -->
 **定義の確認**
@@ -191,7 +197,7 @@ Z_t-Y_t=\frac{1-e^{-at}}a(V_0-u)
 -\sqrt{\frac2{\beta\gamma}}\int_0^t e^{-a(t-s)}dB_s.
 $$
 
-$(r+s)^2\le2r^2+2s^2$ とItô等長性を使い、$0\le1-e^{-at}\le1$、$a=\gamma/m$ に注意すると
+$(r+s)^2\le2r^2+2s^2$ と[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)を使い、$0\le1-e^{-at}\le1$、$a=\gamma/m$ に注意すると
 
 $$
 \begin{aligned}
@@ -263,7 +269,18 @@ $$
 
 外力を入れる前後で $U=0$ のHamiltonianを変更しないため、平衡自由エネルギー差は零であり、これは[Jarzynski等式](../ITD15/index.md#thm-itd15-jarzynski)とも一致します。
 
-速度の明示式から $V_t$ の平均は $\mu_t=u(1-r_t)$、分散は常に $1/(\beta m)$ です。位置は円周一様なので結合密度は $\rho_t(x,v)=L^{-1}N(\mu_t,1/(\beta m))(v)$ となります。[ITD15のKramers不可逆流](../ITD15/index.md#thm-itd15-kramers-current)に $\partial_v\log\rho_t=-\beta m(v-\mu_t)$ を入れると
+速度の明示式から $V_t$ の平均は $\mu_t=u(1-r_t)$、分散は常に $1/(\beta m)$ です。$Z_t-Z_0$ と $V_t$ は初期速度 $V_0$ とBrown運動 $B$ だけで定まり、密度 $1/L$ の $X_0$ と独立です。円周上の任意の区間 $A$ と速度の事象 $C$ に対して、初期位置の密度 $1/L$ は円周上の平行移動で変わらないので
+
+$$
+\begin{aligned}
+P(X_t\in A,\ V_t\in C)
+&=E\!\left[\boldsymbol1_{\{V_t\in C\}}
+P(X_0+(Z_t-Z_0)\in A\pmod L\mid V_0,B)\right]\\
+&=\frac{|A|}{L}P(V_t\in C).
+\end{aligned}
+$$
+
+したがって $X_t$ は一様で $V_t$ と独立であり、結合密度は $\rho_t(x,v)=L^{-1}N(\mu_t,1/(\beta m))(v)$ と分解できます。[ITD15のKramers不可逆流](../ITD15/index.md#thm-itd15-kramers-current)に $\partial_v\log\rho_t=-\beta m(v-\mu_t)$ を入れると
 
 $$
 J_{v,t}^{\mathrm{irr}}
@@ -390,7 +407,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$a=\gamma/m$、$u=F/\gamma$、$c=\sqrt{2\gamma/\beta}$ とする。$d(V-u)=-a(V-u)dt+(c/m)dB$ へ積の公式を適用すると $d(e^{at}(V-u))=(c/m)e^{at}dB$ です。両辺を $[0,t]$ で積分して $e^{-at}$ を掛けると
+$a=\gamma/m$、$u=F/\gamma$、$c=\sqrt{2\gamma/\beta}$ とする。$d(V-u)=-a(V-u)dt+(c/m)dB$ です。確定的な積分因子 $e^{at}$ と $V-u$ に[Itô product rule](../../../解析系/STO/STO7/index.md#cor-sto7-product-rule)を適用すると $d(e^{at}(V-u))=(c/m)e^{at}dB$ です。両辺を $[0,t]$ で積分して $e^{-at}$ を掛けると
 
 $$
 V_t=u+(v_0-u)e^{-at}+\frac cm\int_0^t e^{-a(t-s)}dB_s.
