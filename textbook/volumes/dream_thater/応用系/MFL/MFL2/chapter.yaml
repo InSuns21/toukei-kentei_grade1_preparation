@@ -1,0 +1,46 @@
+id: "MFL2"
+title: "内在幾何と外在幾何・接空間と埋め込み"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL1
+  - GEO3
+  - GEO12
+official_scope: []
+learning_objectives:
+  - Euclid距離と誘導計量による内在距離を定義し両者の不等式を証明できる
+  - 円の弦長と短い円弧の内在距離を角度と半径から再導出できる
+  - 螺旋の埋め込み性と内在・外在距離を計算し近接点の落とし穴を説明できる
+  - 局所パラメータ表示の微分から接空間と正定値Gram行列を求められる
+  - Jacobianから接空間への直交射影行列を導出できる
+  - 二次の局所展開を微分積分から証明し接平面近似の誤差を評価できる
+  - 曲率をもつグラフ曲面の接平面・法線・離れ方を具体的に判定できる
+  - 局所的な接線近似と大域的な距離保存の違いを反例で説明できる
+definitions:
+  - { id: MFL2-DEF-01, name: 外在距離と内在距離 }
+  - { id: MFL2-DEF-02, name: 局所接空間とGram行列 }
+  - { id: MFL2-DEF-03, name: 接空間への直交射影 }
+theorems:
+  - { id: MFL2-PROP-01, name: 外在距離は内在距離以下 }
+  - { id: MFL2-PROP-02, name: 円周の内在距離と弦長 }
+  - { id: MFL2-PROP-03, name: 螺旋の内在距離と弦長 }
+  - { id: MFL2-PROP-04, name: 接空間への射影公式 }
+  - { id: MFL2-PROP-05, name: 接平面の二次局所近似 }
+canonical_examples:
+  - 円周の局所接ベクトルと内在距離・弦長
+  - 螺旋の周回によるEuclid近接と内在距離の乖離
+  - 放物面グラフのGram行列と接平面
+  - 曲率による接平面近似誤差の二次係数
+problem_patterns:
+  - MFL2-A01
+  - MFL2-A02
+  - MFL2-A03
+  - MFL2-A04
+  - MFL2-B01
+  - MFL2-B02
+  - MFL2-B03
+  - MFL2-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.0, review: 1.0 }
