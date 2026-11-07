@@ -1,0 +1,48 @@
+chapter: SLT2-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-11
+  - SLT2-10
+  - SLT2-09
+  - ODE8
+concepts:
+  - id: learning.slt2-width-time-iterated-limits
+    name: 幅・時間の反復極限と時間一様近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幅・時間の反復極限と時間一様近似）"]
+    requires: [learning.slt2-ntk-finite-time-flow]
+  - id: learning.slt2-spectral-finite-time-error
+    name: 有限時間のスペクトル付き核誤差界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限時間のスペクトル付き核誤差界）"]
+    requires:
+      - learning.slt2-width-time-iterated-limits
+      - learning.slt2-fixed-tangent-spectrum
+  - id: learning.slt2-uniform-time-ntk
+    name: 正ギャップ下の時間一様NTK近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正ギャップ下の時間一様NTK近似）"]
+    requires:
+      - learning.slt2-spectral-finite-time-error
+      - learning.slt2-ntk-finite-time-drift
+      - ode.ode8-continuation
+  - id: learning.slt2-monotone-residual-tail
+    name: 単調な残差による長時間の確率評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単調な残差による長時間の確率評価）"]
+    requires:
+      - learning.slt2-ntk-finite-time-flow
+      - learning.slt2-spectral-finite-time-error
+  - id: learning.slt2-gaussian-null-projection
+    name: 学習後Gaussian極限の零固有空間への射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（学習後Gaussian極限の零固有空間への射影）"]
+    requires:
+      - learning.slt2-trained-gaussian-limit
+      - learning.slt2-fixed-tangent-spectrum

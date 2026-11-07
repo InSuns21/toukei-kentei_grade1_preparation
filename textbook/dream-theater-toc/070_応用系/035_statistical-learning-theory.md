@@ -31,3 +31,4 @@
 27. [SLT2-09 固定kernelの勾配力学](textbook/volumes/dream_thater/応用系/SLT/SLT2-09/index.md)
 28. [SLT2-10 無限幅NTKの条件](textbook/volumes/dream_thater/応用系/SLT/SLT2-10/index.md)
 29. [SLT2-11 NNGPとNTKの違い](textbook/volumes/dream_thater/応用系/SLT/SLT2-11/index.md)
+30. [SLT2-12 幅極限と学習時間の極限](textbook/volumes/dream_thater/応用系/SLT/SLT2-12/index.md)
