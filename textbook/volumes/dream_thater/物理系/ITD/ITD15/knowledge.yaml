@@ -1,0 +1,64 @@
+chapter: ITD15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD13
+  - ITD14
+  - STO10
+forward_references: []
+concepts:
+  - id: information-thermodynamics.inertial-langevin
+    name: 等温慣性付きLangevin実験
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（等温慣性付きLangevin実験）]
+    requires: [information-thermodynamics.isothermal-variable-diffusion]
+
+  - id: information-thermodynamics.inertial-kramers-current
+    name: Kramers方程式と平衡密度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Kramers方程式と平衡密度）]
+    requires: [information-thermodynamics.inertial-langevin]
+
+  - id: information-thermodynamics.inertial-work-heat
+    name: 慣性付き系の仕事と浴熱
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（仕事と浴熱）]
+    requires: [information-thermodynamics.inertial-langevin]
+
+  - id: information-thermodynamics.inertial-first-law
+    name: 慣性付き軌道の第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（慣性付き軌道の第一法則）]
+    requires: [information-thermodynamics.inertial-work-heat]
+
+  - id: information-thermodynamics.inertial-reversed-experiment
+    name: 速度反転を伴う逆実験
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（速度反転を伴う逆実験）]
+    requires: [information-thermodynamics.inertial-langevin, information-thermodynamics.time-reversed-protocol]
+
+  - id: information-thermodynamics.inertial-path-ratio
+    name: 慣性付き経路の確率比
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（慣性付き経路の確率比）]
+    requires: [information-thermodynamics.inertial-reversed-experiment, information-thermodynamics.inertial-first-law, stochastic.girsanov-theorem]
+
+  - id: information-thermodynamics.inertial-dissipation
+    name: 積分型ゆらぎ関係と不可逆流の平方公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（積分型ゆらぎ関係と不可逆流の平方公式）]
+    requires: [information-thermodynamics.inertial-path-ratio, information-thermodynamics.inertial-kramers-current]
+
+  - id: information-thermodynamics.inertial-jarzynski
+    name: 慣性付きJarzynski等式と終端補正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（慣性付きJarzynski等式と終端補正）]
+    requires: [information-thermodynamics.inertial-path-ratio, information-thermodynamics.diffusion-jarzynski]

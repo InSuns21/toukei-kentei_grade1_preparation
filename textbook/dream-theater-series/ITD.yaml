@@ -62,3 +62,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD14
     status: completed
     title: 位置依存拡散の熱力学：雑音誘起ドリフト・経路反転・散逸
+  - id: ITD15
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD15
+    status: completed
+    title: 慣性を持つLangevin系：速度反転・Kramers流・散逸
