@@ -394,7 +394,15 @@ $a=0$ なら $h$ は定数であり、偶核と $\cos(\pi/2+t)=-\sin t$ の奇�
 
 ## 7. Python再現実験：円周で理論と有限点群を並べる
 
-[density_generator_lab.py](density_generator_lab.py) はPython標準ライブラリだけで動く。単位円周で $p_a(\theta)=(1+a\cos\theta)/(2\pi)$ に従う標本を拒否法で発生させる。連続核の $q_\varepsilon$ は前節の $C_0,C_1$ を決定論的な中点積分で求め、連続作用素は別の中点積分を使う。標本作用素は実際に $\widehat q_i$ と両端補正 $W_{ij}$ を構成する。関数は $f=\cos\theta$、評価角は $\pi/2$ なので[極限定理](#thm-mfl15-generator)の正解は $2(1-\alpha)a$ である。
+[density_generator_lab.py](density_generator_lab.py) はPython標準ライブラリだけで動く。単位円周で $p_a(\theta)=(1+a\cos\theta)/(2\pi)$ に従う標本を拒否法で発生させる。連続核の密度平均は前節の二つの係数を決定論的な中点積分で求め、連続作用素も別の中点積分で計算する。
+
+標本作用素は実際に $\widehat q_i$ と両端補正 $W_{ij}$ を構成する。関数は $f(\theta)=\cos\theta$、評価角は $\pi/2$ なので、[極限定理](#thm-mfl15-generator)の正解は
+
+$$
+L_\alpha f(\pi/2)=2(1-\alpha)a
+$$
+
+である。実験値からの差を、この値と比べる。
 
 - $\alpha$ 比較：同じ密度、同じ核幅で $0,1/2,1$ のgeneratorを並べる。
 - 幅比較：$\varepsilon$ を減らして理論極限へのbiasを調べる。点数を固定すると有限標本誤差は増えることがある。
@@ -468,7 +476,20 @@ $a=0$ なら $h$ は定数であり、偶核と $\cos(\pi/2+t)=-\sin t$ の奇�
 - Level: B
 - 問題: $p>0$、$w=p^{2(1-\alpha)}$ とする。境界なしコンパクト $M$ で $\int_M uL_\alpha v\,w\,dV_g=\int_M vL_\alpha u\,w\,dV_g$ と $\int_MuL_\alpha u\,w\,dV_g\le0$ を示せ。$w$ の指数が一つ違うとどこで困るかも述べよ。
 
-**詳細解答**。[$L_\alpha=w^{-1}\operatorname{div}(w\nabla\cdot)$](#prop-mfl15-weighted)なので積の発散公式と[GA1のRiemann多様体の発散定理](../../../幾何系/GA/GA1/index.md#thm-ga1-divergence)を使う。境界が空なので左辺は $-\int_Mw\langle\nabla u,\nabla v\rangle_gdV_g$。内積の対称性から $u,v$ を交換しても等しく、$u=v$ なら $-\int_Mw|\nabla u|^2dV_g\le0$。指数を $1-\alpha$ にすると $\nabla\log w=(1-\alpha)\nabla\log p$ となり、[極限定理](#thm-mfl15-generator)の係数 $2(1-\alpha)$ を再現できない。
+**詳細解答**。[重み付き発散形](#prop-mfl15-weighted)に $v$ を代入すると、$wL_\alpha v=\operatorname{div}(w\nabla v)$ となる。積の発散公式と[GA1のRiemann多様体の発散定理](../../../幾何系/GA/GA1/index.md#thm-ga1-divergence)を適用する。境界が空だから
+
+$$
+\int_MuL_\alpha v\,w\,dV_g
+=-\int_Mw\langle\nabla_gu,\nabla_gv\rangle_g\,dV_g.
+$$
+
+内積の対称性から $u,v$ を交換しても等しく、$u=v$ なら積分は $-\int_Mw|\nabla_gu|_g^2\,dV_g\le0$。指数を $1-\alpha$ に変えると
+
+$$
+\nabla_g\log(p^{1-\alpha})=(1-\alpha)\nabla_g\log p
+$$
+
+となり、[極限定理](#thm-mfl15-generator)の係数 $2(1-\alpha)$ を再現できない。
 
 <a id="ex-mfl15-b03"></a>
 
@@ -493,7 +514,11 @@ $a=0$ なら $h$ は定数であり、偶核と $\cos(\pi/2+t)=-\sin t$ の奇�
 ### MFL15-C01 非一様円周から有限点群まで
 
 - Level: C
-- 問題: 単位円周で $p_a=(1+a\cos\theta)/(2\pi)$（$0<a<1$）、$f=\cos\theta$ とする。(1) $\alpha=0,1/2,1$ の極限generatorを導け。(2) $\alpha=1$ でも有限 $\varepsilon$ の $\pi/2$ で一様密度と同じ値になるとは限らないことを、$q_\varepsilon$ の二つの係数 $C_0,C_1$ から証明せよ。(3) 独立標本から作る $\widehat P$ について、行和と定常分布を示し、(1)だけでは固有ベクトル収束を結論できない理由を述べよ。
+- 問題: 単位円周で $p_a=(1+a\cos\theta)/(2\pi)$（$0<a<1$）、$f(\theta)=\cos\theta$ とする。次の三つを順に証明せよ。
+
+  1. $\alpha=0,1/2,1$ の極限generatorを導け。
+  2. $\alpha=1$ でも有限 $\varepsilon$ の $\pi/2$ で一様密度と同じ値になるとは限らないことを、$q_\varepsilon$ の二つの係数から示せ。
+  3. 独立標本から作る $\widehat P$ の行和と定常分布を示し、1の結果だけでは固有ベクトル収束を結論できない理由を述べよ。
 
 **詳細解答**。(1) $f'=-\sin\theta$、$f''=-\cos\theta$、$(\log p_a)'=-a\sin\theta/(1+a\cos\theta)$ を確認する。[$L_\alpha$ の定理](#thm-mfl15-generator)へ代入して
 
