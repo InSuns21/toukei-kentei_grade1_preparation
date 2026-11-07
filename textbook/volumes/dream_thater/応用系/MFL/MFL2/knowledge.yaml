@@ -1,0 +1,64 @@
+chapter: MFL2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL1
+  - GEO3
+  - GEO12
+
+concepts:
+  - id: manifold-learning.intrinsic-extrinsic-distance
+    name: 外在距離と内在距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（外在距離と内在距離）"]
+    requires: [manifold-learning.dimension-triple, geometry.riemannian-distance]
+
+  - id: manifold-learning.chord-bounded-by-intrinsic
+    name: 外在距離は内在距離以下
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（外在距離は内在距離以下）"]
+    requires: [manifold-learning.intrinsic-extrinsic-distance]
+
+  - id: manifold-learning.circle-distance
+    name: 円周の内在距離と弦長
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円周の内在距離と弦長）"]
+    requires: [manifold-learning.chord-bounded-by-intrinsic]
+
+  - id: manifold-learning.helix-distance
+    name: 螺旋の内在距離と弦長
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（螺旋の内在距離と弦長）"]
+    requires: [manifold-learning.chord-bounded-by-intrinsic]
+
+  - id: manifold-learning.local-tangent-gram
+    name: 局所接空間とGram行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所接空間とGram行列）"]
+    requires: [geometry.embedded-submanifold]
+
+  - id: manifold-learning.tangent-orthogonal-projection
+    name: 接空間への直交射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接空間への直交射影）"]
+    requires: [manifold-learning.local-tangent-gram]
+
+  - id: manifold-learning.projection-matrix
+    name: 接空間への射影公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接空間への射影公式）"]
+    requires: [manifold-learning.tangent-orthogonal-projection]
+
+  - id: manifold-learning.second-order-tangent-error
+    name: 接平面の二次局所近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接平面の二次局所近似）"]
+    requires: [manifold-learning.local-tangent-gram]

@@ -6,175 +6,175 @@ chapter_root: textbook/volumes/dream_thater
 
 # 公開索引へは完了済みの章だけを登録する。
 chapters:
-  - id: MFL1-01
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-01
+  - id: MFL1
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL1
     status: completed
     title: "多様体仮説・観測標本の数学模型"
-  - id: MFL1-02
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-02
-    status: planned
-    title: "内在/外在幾何・接空間と埋め込み"
-  - id: MFL1-03
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-03
+  - id: MFL2
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL2
+    status: completed
+    title: "内在幾何と外在幾何・接空間と埋め込み"
+  - id: MFL3
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL3
     status: planned
     title: "Reach・曲率・近傍の識別可能性"
-  - id: MFL1-04
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-04
+  - id: MFL4
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL4
     status: planned
     title: "密度・標本被覆・観測ノイズ"
-  - id: MFL1-05
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-05
+  - id: MFL5
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL5
     status: planned
     title: "Local PCAと接空間推定"
-  - id: MFL1-06
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-06
+  - id: MFL6
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL6
     status: planned
     title: "内在次元・曲率の推定"
-  - id: MFL1-07
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-07
+  - id: MFL7
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL7
     status: planned
     title: "近傍グラフの構築"
-  - id: MFL1-08
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-08
+  - id: MFL8
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL8
     status: planned
     title: "Classical MDS・線形基準モデル"
-  - id: MFL1-09
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-09
+  - id: MFL9
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL9
     status: planned
     title: "Isomapと測地距離"
-  - id: MFL1-10
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-10
+  - id: MFL10
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL10
     status: planned
     title: "Locally Linear Embedding"
-  - id: MFL1-11
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-11
+  - id: MFL11
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL11
     status: planned
     title: "Laplacian Eigenmaps"
-  - id: MFL1-12
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-12
+  - id: MFL12
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL12
     status: planned
     title: "Laplace–Beltramiへの橋"
-  - id: MFL1-13
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-13
+  - id: MFL13
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL13
     status: planned
     title: "Kernel積分作用素のbias"
-  - id: MFL1-14
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-14
+  - id: MFL14
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL14
     status: planned
     title: "Kernel標本平均のvariance・集中"
-  - id: MFL1-15
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-15
+  - id: MFL15
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL15
     status: planned
     title: "密度補正・極限generator"
-  - id: MFL1-16
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-16
+  - id: MFL16
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL16
     status: planned
     title: "Diffusion Mapsと熱の幾何"
-  - id: MFL1-17
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-17
+  - id: MFL17
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL17
     status: planned
     title: "境界・adaptive近傍・density shift"
-  - id: MFL1-18
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-18
+  - id: MFL18
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL18
     status: planned
     title: "円周の離散→連続スペクトル"
-  - id: MFL1-19
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-19
+  - id: MFL19
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL19
     status: planned
     title: "spectral consistencyへ必要な橋"
-  - id: MFL1-20
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-20
+  - id: MFL20
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL20
     status: planned
     title: "t-SNE・UMAPと可視化の意味"
-  - id: MFL1-21
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL1-21
+  - id: MFL21
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL21
     status: planned
     title: "near-manifold・stratified data・横断実験"
-  - id: MFL2-01
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-01
+  - id: MFL22
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL22
     status: planned
     title: "幾何的帰納バイアスと不変/等変"
-  - id: MFL2-02
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-02
+  - id: MFL23
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL23
     status: planned
     title: "群作用・軌道・安定化群"
-  - id: MFL2-03
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-03
+  - id: MFL24
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL24
     status: planned
     title: "群表現・intertwiner・特徴型"
-  - id: MFL2-04
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-04
+  - id: MFL25
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL25
     status: planned
     title: "不変化・等変層の構成原理"
-  - id: MFL2-05
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-05
+  - id: MFL26
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL26
     status: planned
     title: "格子対称性と群畳み込み"
-  - id: MFL2-06
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-06
+  - id: MFL27
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL27
     status: planned
     title: "等質空間とstabilizerの核制約"
-  - id: MFL2-07
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-07
+  - id: MFL28
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL28
     status: planned
     title: "円周Fourier・SO(2)の低次表現"
-  - id: MFL2-08
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-08
+  - id: MFL29
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL29
     status: planned
     title: "集合・点群の置換対称性"
-  - id: MFL2-09
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-09
+  - id: MFL30
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL30
     status: planned
     title: "Graph message passing"
-  - id: MFL2-10
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-10
+  - id: MFL31
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL31
     status: planned
     title: "GNNの表現力・1-WL"
-  - id: MFL2-11
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-11
+  - id: MFL32
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL32
     status: planned
     title: "Graph spectral convolution"
-  - id: MFL2-12
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-12
+  - id: MFL33
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL33
     status: planned
     title: "Oversmoothing・長距離ボトルネック"
-  - id: MFL2-13
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-13
+  - id: MFL34
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL34
     status: planned
     title: "幾何的グラフと不変量"
-  - id: MFL2-14
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-14
+  - id: MFL35
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL35
     status: planned
     title: "E(n)等変GNN座標更新"
-  - id: MFL2-15
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-15
+  - id: MFL36
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL36
     status: planned
     title: "E(3) / SE(3)とchirality"
-  - id: MFL2-16
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-16
+  - id: MFL37
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL37
     status: planned
     title: "Steerableなベクトル/テンソル特徴"
-  - id: MFL2-17
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-17
+  - id: MFL38
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL38
     status: planned
     title: "多様体上のscalar fieldと作用素"
-  - id: MFL2-18
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-18
+  - id: MFL39
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL39
     status: planned
     title: "接ベクトル場とchart/frameの変更"
-  - id: MFL2-19
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-19
+  - id: MFL40
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL40
     status: planned
     title: "Gauge変換・moving frame"
-  - id: MFL2-20
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-20
+  - id: MFL41
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL41
     status: planned
     title: "Gauge-equivariant convolution"
-  - id: MFL2-21
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-21
+  - id: MFL42
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL42
     status: planned
     title: "Mesh離散化・幾何数値安定性"
-  - id: MFL2-22
-    path: textbook/volumes/dream_thater/応用系/MFL/MFL2-22
+  - id: MFL43
+    path: textbook/volumes/dream_thater/応用系/MFL/MFL43
     status: planned
     title: "分子・物理・点群の統合実験"
