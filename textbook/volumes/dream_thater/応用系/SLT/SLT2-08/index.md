@@ -21,7 +21,7 @@ f_\theta(x)=\frac1{\sqrt m}\sum_{r=1}^m a_r\sigma(z_r(x)),
 \qquad z_r(x)=w_r^{\mathsf T}x+b_r.
 $$
 
-ここで $\theta=(a_1,w_1,b_1,\ldots,a_m,w_m,b_m)$ は各ニューロンの順に並べた実数パラメータで、次元は $p=m(d+2)$。この節では $\sigma$ が少なくとも一回連続微分可能とする。出力の $1/\sqrt m$ は**この章で固定したパラメータ化の規約**である。別の幅スケーリングでは以下の係数が変わる。
+ここで $\theta=(a_1,w_1,b_1,\ldots,a_m,w_m,b_m)$ は各ニューロンの順に並べた実数パラメータで、次元は $p=m(d+2)$。この節では $\sigma$ が少なくとも一回連続微分可能とする。$\sigma'(z)$ は実数の引数 $z$ による一変数微分であり、$\partial/\partial a_r$、$\partial/\partial (w_r)_j$、$\partial/\partial b_r$ は入力 $x$ と他のパラメータを固定した偏微分を表す。出力の $1/\sqrt m$ は**この章で固定したパラメータ化の規約**である。別の幅スケーリングでは以下の係数が変わる。
 
 固定入力 $x_1,\ldots,x_n$（$n\ge1$、重複可）での予測を列ベクトル
 
@@ -98,15 +98,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（初期点でのニューラルネット線形化）**
-> 微分可能な写像 $F:\mathbb R^p\to\mathbb R^n$ と初期点 $\theta_0\in\mathbb R^p$ に対し、$J_0=DF(\theta_0)\in\mathbb R^{n\times p}$ とする。
-> 変位 $\Delta\in\mathbb R^p$ における**一次線形化予測**と**一次近似の剰余**を
+> 開集合 $U\subset\mathbb R^p$ 上の微分可能な写像 $F:U\to\mathbb R^n$、初期点 $\theta_0\in U$ と、$\theta_0+\Delta\in U$ を満たす変位 $\Delta\in\mathbb R^p$ に対し、$J_0=DF(\theta_0)\in\mathbb R^{n\times p}$ とする。
+> この変位における**一次線形化予測**と**一次近似の剰余**を
 >
 $$
 F_{\mathrm{lin}}(\Delta)=F(\theta_0)+J_0\Delta,\qquad
 \mathcal R(\Delta)=F(\theta_0+\Delta)-F_{\mathrm{lin}}(\Delta)
 $$
 >
-> と定める。各入力 $x$ における線形化も、次式で定める。
+> と定める。さらに $F(\theta)$ が固定入力上の網の予測で、実数値関数 $f_\theta(x)$ が $\theta_0$ でパラメータ微分可能なら、各入力 $x$ における線形化を次式で定める。
 >
 $$
 f_{\mathrm{lin}}(x;\Delta)=f_{\theta_0}(x)+\nabla_\theta f_{\theta_0}(x)^{\mathsf T}\Delta.
@@ -130,13 +130,13 @@ $$
 初期点 $\Delta=0$ では剰余が零で、一次の項はすべて線形模型が担う。$u,v,s$ が小さいときの誤差は二次の積であるが、大きいときには無視できない。
 <!-- definition-example-end -->
 
-滑らかな網で剰余を評価するには、各出力のパラメータ方向二階微分を調べる。行列 $H_i(\theta)=\nabla_\theta^2 f_\theta(x_i)$ の作用素ノルムを $\|H_i\|_{\mathrm{op}}$ と書く。これは単位方向 $v$ に対する $|v^{\mathsf T}H_iv|$ の最大値であり、二階微分の大きさを測る。
+滑らかな網で剰余を評価するには、各出力のパラメータ方向二階微分を調べる。[Hessian行列](../../../基礎科目/RA/RA6/index.md#def-ra6-hessian) $H_i(\theta)=\nabla_\theta^2 f_\theta(x_i)$ の作用素ノルムを $\|H_i\|_{\mathrm{op}}$ と書く。$C^2$ のもとで[混合偏微分の交換](../../../基礎科目/RA/RA6/index.md#thm-ra6-mixed-partials)により $H_i$ は対称であり、これは単位方向 $v$ に対する $|v^{\mathsf T}H_iv|$ の最大値で、二階微分の大きさを測る。
 
 <a id="thm-slt2-08-taylor"></a>
 
 <!-- formal-statement-start -->
 > **定理（線形化のTaylor剰余界）**
-> $F=(f_1,\ldots,f_n):U\to\mathbb R^n$ は開集合 $U\subset\mathbb R^p$ 上で二回連続微分可能とする。$\theta_0,\theta_0+\Delta\in U$ を結ぶ線分が $U$ に含まれ、その線分上で $\|\nabla^2f_i(\theta_0+t\Delta)\|_{\mathrm{op}}\le M_i$（$0\le t\le1$）がすべての $i$ について成立するとする。このとき
+> $F=(f_1,\ldots,f_n):U\to\mathbb R^n$ は開集合 $U\subset\mathbb R^p$ 上で二回連続微分可能とする。$\theta_0,\theta_0+\Delta\in U$ を結ぶ線分が $U$ に含まれ、その線分上で $\|\nabla^2f_i(\theta_0+t\Delta)\|_{\mathrm{op}}\le M_i$（$M_i\ge0$、$0\le t\le1$）がすべての $i$ について成立するとする。このとき
 >
 $$
 |\mathcal R_i(\Delta)|\le \frac{M_i}{2}\|\Delta\|_2^2,\qquad
@@ -162,20 +162,20 @@ g_i'(t)=\nabla f_i(\theta_0+t\Delta)^{\mathsf T}\Delta,
 g_i''(t)=\Delta^{\mathsf T}H_i(\theta_0+t\Delta)\Delta.
 $$
 
-[Taylorの定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)の積分剰余形を、この $g_i$ に展開点0、評価点1、一次までとして適用すると
+[Taylorの定理（Lagrange剰余）](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)を $g_i$ に展開点0、評価点1、次数1で適用する。$g_i$ は線分を含む開近傍で $C^2$ なので、ある $\tau_i\in(0,1)$ が存在して
 
 $$
-g_i(1)=g_i(0)+g_i'(0)+\int_0^1(1-t)g_i''(t)\,dt.
+g_i(1)=g_i(0)+g_i'(0)+\frac12g_i''(\tau_i).
 $$
 
-$g_i(0)=f_i(\theta_0)$、$g_i'(0)=(J_0\Delta)_i$ を代入して
+$g_i(0)=f_i(\theta_0)$、$g_i'(0)=(J_0\Delta)_i$ と上の二階微分式を代入すると
 
 $$
 \mathcal R_i(\Delta)
-=\int_0^1(1-t)\Delta^{\mathsf T}H_i(\theta_0+t\Delta)\Delta\,dt.
+=\frac12\Delta^{\mathsf T}H_i(\theta_0+\tau_i\Delta)\Delta.
 $$
 
-$|\Delta^{\mathsf T}H_i\Delta|\le\|H_i\|_{\mathrm{op}}\|\Delta\|_2^2\le M_i\|\Delta\|_2^2$ と $\int_0^1(1-t)\,dt=1/2$ から第一の不等式を得る。各成分を二乗して足すと
+したがって $|\Delta^{\mathsf T}H_i\Delta|\le\|H_i\|_{\mathrm{op}}\|\Delta\|_2^2\le M_i\|\Delta\|_2^2$ より第一の不等式を得る。$\Delta=0$ の場合も剰余は定義から零である。各成分を二乗して足すと
 
 $$
 \|\mathcal R\|_2^2=\sum_i|\mathcal R_i|^2
@@ -255,7 +255,15 @@ $$
 K_0=\begin{pmatrix}4&4\\4&9\end{pmatrix}.
 $$
 
-これは接線特徴の内積という定義から直接作った行列であり、単に名前をつけたのではない。$K_0$ は対称で、主座小行列式 $4>0$ と行列式 $4\cdot9-4^2=20>0$ から、この二入力では正定値と判定できる。
+これは接線特徴の内積という定義から直接作った行列であり、単に名前をつけたのではない。$K_0$ は対称で、行列式も $4\cdot9-4^2=20>0$ と計算できる。ただし正定値性を行列式の符号だけで判断してはいけない。任意の $c=(c_1,c_2)^{\mathsf T}\in\mathbb R^2$ に対して
+
+$$
+c^{\mathsf T}K_0c
+=4c_1^2+8c_1c_2+9c_2^2
+=4(c_1+c_2)^2+5c_2^2.
+$$
+
+両項が零となるのは $c_2=0$ かつ $c_1=0$ のときだけなので、$c\ne0$ では $c^{\mathsf T}K_0c>0$ である。この判定は、接線特徴の二本の行が線形独立であり、内積で作る行列の二次形式が零にならないことと対応する。
 <!-- definition-example-end -->
 
 <a id="thm-slt2-08-ntk-formula"></a>
@@ -377,7 +385,7 @@ K_1-K_0
 \end{aligned}
 $$
 
-作用素ノルムの劣乗法性と $\|E^{\mathsf T}\|_{\mathrm{op}}=\|E\|_{\mathrm{op}}$ から
+[2-作用素ノルム](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)の定義より、単位ベクトル $v$ について $\|ABv\|_2\le\|A\|_{\mathrm{op}}\|Bv\|_2\le\|A\|_{\mathrm{op}}\|B\|_{\mathrm{op}}$ なので劣乗法性が従う。また[2-作用素ノルムと最大特異値](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-operator-norm-largest-singular)から $\|E^{\mathsf T}\|_{\mathrm{op}}=\|E\|_{\mathrm{op}}$ である。これらを用いると
 
 $$
 \|K_1-K_0\|_{\mathrm{op}}
@@ -403,14 +411,20 @@ $$
 これが主張である。$\square$
 <!-- proof-end -->
 
-固定した滑らかな勾配流 $\dot\theta(t)=-J(\theta(t))^{\mathsf T}(F(\theta(t))-y)$ が存在する区間では、連鎖律から
+時刻 $t$ を変数とする滑らかな勾配流が存在する区間を考える。ここで $\dot\theta(t)=d\theta(t)/dt$ は時刻による全微分であり、$J(\theta)=D_\theta F(\theta)$ はパラメータによる微分である。勾配流の式
+
+$$
+\dot\theta(t)=-J(\theta(t))^{\mathsf T}(F(\theta(t))-y)
+$$
+
+に[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule) $dF(\theta(t))/dt=J(\theta(t))\dot\theta(t)$ を使うと
 
 $$
 \frac{d}{dt}F(\theta(t))
 =-K_{\theta(t)}(F(\theta(t))-y)
 $$
 
-という瞬間ごとの**厳密な等式**が得られる。しかし $K_{\theta(t)}$ は一般に時刻 $t$ に依存する。$K_{\theta(t)}$ を初期値 $K_0$ で置き換えて解いてよいかは、Jacobianの変動を学習区間全体で抑える別の問題である。次の[固定核の学習](../SLT2-07/index.md#thm-slt2-07-kernel-flow-spectrum)と類似した方程式が現れることと、元の網が同じ解を持つことを同一視してはいけない。
+という瞬間ごとの**厳密な等式**が得られる。しかし $K_{\theta(t)}$ は一般に時刻 $t$ に依存する。$K_{\theta(t)}$ を初期値 $K_0$ で置き換えて解いてよいかは、Jacobianの変動を学習区間全体で抑える別の問題である。前章の[固定核の学習](../SLT2-07/index.md#thm-slt2-07-kernel-flow-spectrum)と類似した方程式が現れることと、元の網が同じ解を持つことを同一視してはいけない。
 
 ## 5. 成り立たない場合を具体的に見分ける
 
@@ -558,11 +572,11 @@ F_{\mathrm{lin}}(\Delta)=\begin{pmatrix}0\\2\end{pmatrix}
 =\begin{pmatrix}2s\\2+u+2v+2s\end{pmatrix}.
 $$
 
-引き算すると $\mathcal R=(us,u(v+s))^{\mathsf T}$。$2|us|\le u^2+s^2\le\|\Delta\|_2^2$ なので $|\mathcal R_1|\le\|\Delta\|_2^2/2$。また Cauchy–Schwarz から
+引き算すると $\mathcal R=(us,u(v+s))^{\mathsf T}$。$2|us|\le u^2+s^2\le\|\Delta\|_2^2$ なので $|\mathcal R_1|\le\|\Delta\|_2^2/2$。また $(v-s)^2\ge0$ を展開すれば $(v+s)^2\le2(v^2+s^2)$ である。これと $2|u|\sqrt{v^2+s^2}\le u^2+v^2+s^2$ を組み合わせると
 
 $$
-|u(v+s)|\le |u|\sqrt2\sqrt{v^2+s^2}
-\le\frac{\sqrt2}{2}(u^2+v^2+s^2)
+|u(v+s)|\le |u|\sqrt{2(v^2+s^2)}
+\le\frac1{\sqrt2}(u^2+v^2+s^2)
 =\frac1{\sqrt2}\|\Delta\|_2^2.
 $$
 
@@ -658,7 +672,7 @@ J_0=\begin{pmatrix}0&0&2\\1&2&2\end{pmatrix},
 \quad e_0=F_0-y=\begin{pmatrix}-1\\2\end{pmatrix}.
 $$
 
-$K_0$ の第一主座小行列式は4、行列式は20で、ともに正だから正定値である。
+正定値性は、任意の $c=(c_1,c_2)^{\mathsf T}\ne0$ に対して $c^{\mathsf T}K_0c=4(c_1+c_2)^2+5c_2^2>0$ と平方完成して確認できる（第一主座小行列式は4、行列式は20）。
 
 **2.** [二乗損失の更新式](#thm-slt2-08-drift-update)の出発点から、パラメータ勾配と接線核が残差へ作用したものを別々に計算すると
 
@@ -707,5 +721,5 @@ K_1=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-$\eta=1/10$ では $K_1=\begin{pmatrix}3.28&3.16\\3.16&6.64\end{pmatrix}$ であり、$K_0$ と異なる。$K_0$ が正定値なのは**初期点の接線特徴が二入力を区別する**という性質である。非線形網の更新経路で $J$ や $K$ が一定であること、任意の時刻まで固定核の解で予測できること、標本外リスクが小さいことまでは意味しない。
+$\eta=1/10$ では $K_1=\begin{pmatrix}3.28&3.16\\3.16&6.64\end{pmatrix}$ であり、$K_0$ と異なる。$K_0$ が正定値なのは**初期点で二つの接線特徴が線形独立**という性質である。単に異なる二つの特徴であるだけでは足りない。非線形網の更新経路で $J$ や $K$ が一定であること、任意の時刻まで固定核の解で予測できること、標本外リスクが小さいことまでは意味しない。
 <!-- solution-end -->
