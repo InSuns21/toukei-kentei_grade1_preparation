@@ -349,7 +349,7 @@ $$
 
 | 既習の結果 | 数学的に保証するもの | 評価分布を変えたとき必要な確認 |
 | --- | --- | --- |
-| [有限仮説クラスの同時界](../SLT1-03/index.md#thm-slt1-03-finite-uniform) | iid・有界損失の同一 $P$ で全候補の $R_P-\widehat R_P$ を高確率制御 | $R_Q$ にはそのまま代入できず、分布関係が必要 |
+| [有限仮説クラスの同時界](../SLT1-03/index.md#thm-slt1-03-finite-uniform) | 独立同分布（independent and identically distributed; iid）・有界損失の同一 $P$ で全候補の $R_P-\widehat R_P$ を高確率制御 | $R_Q$ にはそのまま代入できず、分布関係が必要 |
 | [近似ERMの超過リスク比較](../SLT1-04/index.md#thm-slt1-04-approximate-erm-oracle) | 評価した同じリスクについて一様偏差から超過リスクを導く | $Q$ での偏差事象が別途必要。第2節の重み付き版なら可 |
 | [独立検証標本の保証](../SLT1-18/index.md#thm-slt1-18-independent-validation) | 検証標本と候補構築が独立なら、その検証分布のリスクを制御 | 検証標本が $P$ なら $Q$ の保証にはならない |
 | [相互情報量の期待汎化界](../SLT2-17/index.md#thm-slt2-17-information-bound) | 同一 $P$ の平均ギャップ $\lvert\mathbb E(R_P-\widehat R_P)\rvert$ | $Q$ との関係を別に示す。高確率保証へ読み替えない |
