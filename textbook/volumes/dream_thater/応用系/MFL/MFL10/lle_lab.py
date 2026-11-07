@@ -71,15 +71,21 @@ def lle_matrix(w: list[list[float]]) -> list[list[float]]:
     return [[sum(b[r][i] * b[r][j] for r in range(n)) for j in range(n)] for i in range(n)]
 
 
-def jacobi_eigen(matrix: list[list[float]], tol: float = 1e-12) -> list[float]:
-    """Return eigenvalues of a symmetric matrix, sorted ascending."""
+def jacobi_eigendecomposition(
+    matrix: list[list[float]], tol: float = 1e-12
+) -> list[tuple[float, list[float]]]:
+    """Return sorted (eigenvalue, normalized eigenvector) pairs."""
     n = len(matrix)
     a = [row[:] for row in matrix]
+    v = [[float(i == j) for j in range(n)] for i in range(n)]
     for _ in range(100 * n * n):
         p, q = max(((i, j) for i in range(n) for j in range(i + 1, n)),
                    key=lambda ij: abs(a[ij[0]][ij[1]]))
         if abs(a[p][q]) < tol:
-            return sorted(a[i][i] for i in range(n))
+            return sorted(
+                ((a[i][i], [v[r][i] for r in range(n)]) for i in range(n)),
+                key=lambda pair: pair[0],
+            )
         angle = 0.5 * math.atan2(2 * a[p][q], a[q][q] - a[p][p])
         c, s = math.cos(angle), math.sin(angle)
         app, aqq, apq = a[p][p], a[q][q], a[p][q]
@@ -92,7 +98,33 @@ def jacobi_eigen(matrix: list[list[float]], tol: float = 1e-12) -> list[float]:
             arp, arq = a[r][p], a[r][q]
             a[r][p] = a[p][r] = c * arp - s * arq
             a[r][q] = a[q][r] = s * arp + c * arq
+        for r in range(n):
+            vrp, vrq = v[r][p], v[r][q]
+            v[r][p], v[r][q] = c * vrp - s * vrq, s * vrp + c * vrq
     raise ArithmeticError("Jacobi iteration did not converge")
+
+
+def jacobi_eigen(matrix: list[list[float]]) -> list[float]:
+    return [value for value, _ in jacobi_eigendecomposition(matrix)]
+
+
+def first_nonconstant_embedding(
+    w: list[list[float]], spectrum: list[tuple[float, list[float]]]
+) -> tuple[list[float], float]:
+    """Choose one least-energy centered eigenvector, including extra null modes."""
+    n = len(w)
+    candidates = []
+    for value, vec in spectrum:
+        mean = sum(vec) / n
+        centered = [x - mean for x in vec]
+        length = math.sqrt(sum(x * x for x in centered))
+        if length > 1e-8:
+            candidates.append((value, [math.sqrt(n) * x / length for x in centered]))
+    if not candidates:
+        raise ArithmeticError("no nonconstant embedding direction")
+    _, y = min(candidates, key=lambda pair: pair[0])
+    energy = sum((y[i] - sum(w[i][j] * y[j] for j in range(n))) ** 2 for i in range(n))
+    return y, energy
 
 
 def report(case: str, gamma: float = 0.01) -> dict:
@@ -109,8 +141,10 @@ def report(case: str, gamma: float = 0.01) -> dict:
     else:
         raise ValueError("unknown case")
     m = lle_matrix(w)
-    eigenvalues = jacobi_eigen(m)
+    spectrum = jacobi_eigendecomposition(m)
+    eigenvalues = [value for value, _ in spectrum]
     n = len(points)
+    y, embedding_energy = first_nonconstant_embedding(w, spectrum)
     residual = [
         sum((points[i][h] - sum(w[i][j] * points[j][h] for j in range(n))) ** 2
             for h in range(len(points[0])))
@@ -126,6 +160,9 @@ def report(case: str, gamma: float = 0.01) -> dict:
         "M": m,
         "eigenvalues": eigenvalues,
         "numerical_zero_eigenvalue_count": sum(abs(value) <= 1e-8 for value in eigenvalues),
+        "embedding_1d": y,
+        "embedding_1d_energy": embedding_energy,
+        "spectral_minimum_1d": n * eigenvalues[1],
     }
 
 

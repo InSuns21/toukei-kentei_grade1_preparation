@@ -30,6 +30,9 @@ class LLELabTest(unittest.TestCase):
         result = report("signed")
         self.assertEqual(result["numerical_zero_eigenvalue_count"], 2)
         self.assertAlmostEqual(result["eigenvalues"][2], 13.5)
+        self.assertAlmostEqual(result["embedding_1d_energy"], 0)
+        self.assertAlmostEqual(sum(result["embedding_1d"]), 0)
+        self.assertAlmostEqual(sum(x * x for x in result["embedding_1d"]), 3)
         for x in result["input_reconstruction_squared_residuals"]:
             self.assertAlmostEqual(x, 0.0)
 
@@ -39,6 +42,7 @@ class LLELabTest(unittest.TestCase):
         for row in result["weights"]:
             self.assertAlmostEqual(sum(row), 1)
             self.assertEqual(sum(abs(x) > 1e-10 for x in row), 2)
+        self.assertAlmostEqual(result["embedding_1d_energy"], result["spectral_minimum_1d"])
 
     def test_three_point_path_eigenvalues(self):
         w = [[0, 1, 0], [0.5, 0, 0.5], [0, 1, 0]]
