@@ -8,7 +8,11 @@
 
 ## 1. 時間を変える操作では何が仕事になるか
 
-長さ $L>0$ の円周を $\mathbb R/L\mathbb Z$ と書き、円周上の位置 $X_t$ と実数値の持ち上げ $Z_t$ を区別します。周期ポテンシャル $U_t(x)$ は粒子の内部エネルギーであり、外力 $F_t$ は一周するごとにも仕事をし得る非保存力です。時間依存のポテンシャルを変える操作も仕事をします。ここで $U_t(x)=U(t,x)$ と書き、$\partial_tU_t(x)$ は位置 $x$ を固定した時刻微分、$\partial_xU_t(x)$ は時刻 $t$ を固定した空間微分を表します。すなわち仕事には、$\partial_tU_t$ から来る**準位の変更**と、$F_t$ から来る**力による移動**の二種類があります。
+長さ $L>0$ の円周を $\mathbb R/L\mathbb Z$ と書き、円周上の位置 $X_t$ と実数値の持ち上げ $Z_t$ を区別します。周期ポテンシャル $U_t(x)$ は粒子の内部エネルギーであり、外力 $F_t$ は一周するごとにも仕事をし得る非保存力です。
+
+ここで $U_t(x)=U(t,x)$ と書きます。$\partial_tU_t(x)$ は位置 $x$ を固定した時刻微分、$\partial_xU_t(x)$ は時刻 $t$ を固定した空間微分を表します。
+
+時間依存のポテンシャルを変える操作も仕事をします。すなわち仕事には、$\partial_tU_t$ から来る**準位の変更**と、$F_t$ から来る**力による移動**の二種類があります。
 
 <a id="def-itd13-driven-protocol"></a>
 
@@ -52,7 +56,9 @@ W=\int_0^\tau a'(t)\cos(kX_t)\,dt,
 Q_{\mathrm{bath}}=\int_0^\tau ka(t)\sin(kX_t)\circ dZ_t.
 $$
 
-**定義の確認**：$a$ は有限区間上で有界、$U$ は空間的に滑らかで周期的なので $f_t$ は一様に有界かつ空間Lipschitz連続です。[大域Lipschitz SDEのPicard構成](../../../解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness)の推定は時刻に一様なLipschitz定数でも成り立つため、この時間依存SDEにも解を構成できます。$F_t=0$ でも、坂の高さを変えれば仕事が零とは限りません。[Stratonovich連鎖律](../ITD7/index.md#prop-itd7-stratonovich-balance)で
+**定義の確認**：$a$ は有限区間上で有界、$U$ は空間的に滑らかで周期的なので $f_t$ は一様に有界かつ空間Lipschitz連続です。[大域Lipschitz SDEのPicard構成](../../../解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness)の推定は時刻に一様なLipschitz定数でも成り立つため、この時間依存SDEにも解を構成できます。
+
+$F_t=0$ でも、坂の高さを変えれば仕事が零とは限りません。[Stratonovich連鎖律](../ITD7/index.md#prop-itd7-stratonovich-balance)で
 
 $$
 dU_t(X_t)=\partial_tU_t(X_t)\,dt
@@ -66,7 +72,11 @@ $$
 
 正方向の実験を初期密度 $\rho_0$ とプロトコル $(U_t,F_t)$ で行い、その終端密度を $\rho_\tau$ とします。係数が滑らかで $D>0$ なので、時間 $t>0$ の円周密度は滑らかで正になり、始点も正です。逆実験は**時間順を逆にしたプロトコル** $U^R_s=U_{\tau-s}$、$F^R_s=F_{\tau-s}$ を、初期密度 $\rho_\tau$ から実行する別の確率実験です。このとき力そのものへ負号を付けません。反転するのは記録する**移動方向**です。
 
-円周上の[連続経路空間](../../../解析系/STO/STO3A/index.md#def-sto3a-function-space)を $\Omega=C([0,\tau],\mathbb R/L\mathbb Z)$ とし、$\Theta\omega$ を $s\mapsto\omega(\tau-s)$ と定めます。経路法則 $\nu$ の押し出し $\Theta_*\nu$ は、事象 $A\subset\Omega$ に $(\Theta_*\nu)(A)=\nu(\Theta^{-1}A)$ を割り当てる測度です。円周上の経路には周回数の情報が含まれ、$\int f_t\circ dZ_t$ は持ち上げの加法定数に依存しません。
+円周上の[連続経路空間](../../../解析系/STO/STO3A/index.md#def-sto3a-function-space)を $\Omega=C([0,\tau],\mathbb R/L\mathbb Z)$ とし、$\Theta\omega$ を $s\mapsto\omega(\tau-s)$ と定めます。
+
+経路法則 $\nu$ の押し出し $\Theta_*\nu$ は、事象 $A\subset\Omega$ に $(\Theta_*\nu)(A)=\nu(\Theta^{-1}A)$ を割り当てる測度です。
+
+円周上の経路には周回数の情報が含まれ、$\int f_t\circ dZ_t$ は持ち上げの加法定数に依存しません。
 
 <a id="def-itd13-reverse-experiment"></a>
 
@@ -210,7 +220,11 @@ $$
 
 ## 4. 経路のゆらぎ関係と確率流の平方は一致するか
 
-経路比が得られたので、平均の第二法則も調べましょう。単一軌道では $\sigma<0$ があり得ますが、平均では逆経路法則との相対エントロピーになり、非負です。経路測度の相対エントロピーは $D(P\|Q)=\int_\Omega\log(dP/dQ)\,dP$ と書き（[ITD7の有限経路での定義](../ITD7/index.md#thm-itd7-coarse-kl-chain)の連続測度版）、この括弧付きの $D(P\|Q)$ は拡散係数 $D$ と別の量です。さらに時間ごとの確率流を用いると、**どの時刻・どの位置で散逸したか**を積分として書けます。
+経路比が得られたので、平均の第二法則も調べましょう。単一軌道では $\sigma<0$ があり得ますが、平均では逆経路法則との相対エントロピーになり、非負です。
+
+経路測度の相対エントロピーは $D(P\|Q)=\int_\Omega\log(dP/dQ)\,dP$ と書き（[ITD7の有限経路での定義](../ITD7/index.md#thm-itd7-coarse-kl-chain)の連続測度版）、この括弧付きの $D(P\|Q)$ は拡散係数 $D$ と別の量です。
+
+さらに時間ごとの確率流を用いると、**どの時刻・どの位置で散逸したか**を積分として書けます。
 
 時刻 $t$ の密度 $\rho_t(x)$ と確率流 $J_t(x)$ を
 
@@ -356,7 +370,9 @@ $$
 F_{\mathrm{eq}}(t)=-k_{\mathrm B}T\log\mathcal Z_t
 $$
 
-とします。$\mathcal Z_t$ は基準長さ $L$ で割って無次元化した分配関数で、持ち上げ位置 $Z_t$ とは別の量です。[非平衡自由エネルギー](#thm-itd13-fluctuation-current)の $\log(L\rho)$ と零点をそろえています。$F_t$（外力）と $F_{\mathrm{eq}}$（自由エネルギー）は別の量です。外力が非保存力でも、$U_t$ を用いるこの正準分布は数式上定義できますが、駆動中の定常状態が持つ密度とは一般に一致しません。
+とします。$\mathcal Z_t$ は基準長さ $L$ で割って無次元化した分配関数で、持ち上げ位置 $Z_t$ とは別の量です。
+
+[非平衡自由エネルギー](#thm-itd13-fluctuation-current)の $\log(L\rho)$ と零点をそろえています。$F_t$（外力）と $F_{\mathrm{eq}}$（自由エネルギー）は別の量です。外力が非保存力でも、$U_t$ を用いるこの正準分布は数式上定義できますが、駆動中の定常状態が持つ密度とは一般に一致しません。
 
 <a id="thm-itd13-jarzynski"></a>
 
