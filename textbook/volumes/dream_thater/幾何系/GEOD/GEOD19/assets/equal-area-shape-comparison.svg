@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 325" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">同じ緯度経度帯のLambert正積円筒図法とMollweide図法での形</title>
+  <desc id="desc">半径1の正積球を同一の地図単位の縮尺で二つのパネルへ投影した図。左はLambert正積円筒の長方形の全球輪郭、右はMollweideの楕円の全球輪郭。両方で正積緯度0度から60度、中央子午線から東西60度までの同じ領域Sを陰影で示す。左のSは長方形、右のSは緯度が上がるほど狭くなる曲線側面を持つ。どちらも球面の領域面積π√3/3を保ち、長さと形は保たない。</desc>
+  <g font-family="sans-serif" fill="#1f2937" font-size="22">
+    <text x="188" y="74">Lambert</text>
+    <text x="584" y="74">Mollweide</text>
+  </g>
+  <g stroke="#5d6a79" stroke-width="2.2" fill="#f8fafc">
+    <rect x="63.5" y="137" width="333" height="106"/>
+    <ellipse cx="650" cy="190" rx="149.9" ry="75"/>
+  </g>
+  <g stroke="#9aa4b3" stroke-width="1.4" stroke-dasharray="6 5" fill="none">
+    <path d="M63.5 190 H396.5"/>
+    <path d="M500.1 190 H799.9"/>
+  </g>
+  <g fill="#b9e3dd" stroke="#0d6c83" stroke-width="2.3">
+    <rect x="174.5" y="144.1" width="111" height="45.9"/>
+    <path d="M600 190 L600.1 184.9 L600.5 179.7 L601.1 174.7 L601.9 169.6 L603 164.6 L604.3 159.7 L605.8 154.9 L607.7 150.2 L609.7 145.6 L612.1 141.2 L614.7 136.9 L617.7 132.9 H682.3 L685.3 136.9 L687.9 141.2 L690.3 145.6 L692.3 150.2 L694.2 154.9 L695.7 159.7 L697 164.6 L698.1 169.6 L698.9 174.7 L699.5 179.7 L699.9 184.9 L700 190 Z"/>
+  </g>
+  <g font-family="sans-serif" fill="#1f2937" font-size="21">
+    <text x="222" y="172">S</text>
+    <text x="646" y="168">S</text>
+  </g>
+</svg>
