@@ -1,5 +1,7 @@
 # ITD15 慣性を持つLangevin系：速度反転・Kramers流・散逸
 
+<!-- definition-example-audit: strict -->
+
 [ITD14の等温拡散](../ITD14/index.md#def-itd14-isothermal-diffusion)では位置だけを確率変数にし、仕事と浴熱を位置のStratonovich積分で測りました。しかし粒子の速さが変化する時間尺度を無視できない場合、位置 $X_t$ だけを反転しても、運動の向きが逆になりません。**速度を持つ粒子の逆再生では何を反転し、熱と散逸をどう数えるのでしょうか。**
 
 ここでは質量 $m>0$ の粒子を長さ $L>0$ の円周で動かします。速度は実数 $V_t\in\mathbb R$ で、位置の実数への持ち上げを $Z_t$、$X_t=Z_t\pmod L$ とします。熱浴の温度 $T>0$ は一定、$\beta=(k_{\mathrm B}T)^{-1}$、摩擦係数 $\gamma>0$ は一定です。仕事は外部から系へ入る向きを正、浴熱 $Q_{\mathrm{bath}}$ は系から浴へ出る向きを正にします。したがって第一法則は $\Delta E=W-Q_{\mathrm{bath}}$ です。
@@ -29,6 +31,7 @@ $$
 
 $U$ の空間微分が有界かつLipschitz連続なので、速度方程式は有限時間で一意な連続解を持ち、位置はその時間積分です。位置経路は微分可能で $dZ=Vdt$ ですが、速度経路はBrown運動を含むため通常は微分できません。これが「位置の変化 $dZ$」と「速度の確率微分 $dV$」の違いです。
 
+<!-- definition-example-start: def-itd15-inertial-langevin -->
 **直接例（力のない浴）**：$U=F=0$ の場合、速度はOrnstein–Uhlenbeck過程
 
 $$
@@ -50,7 +53,8 @@ $$
 =\frac1{\beta m}.
 $$
 
-位置を円周上の定数密度 $1/L$、速度をこの正規分布で初期化すれば、時間が進んでも同じ結合分布を保ちます。速度を無視した模型と異なり、熱浴とのやりとりには運動エネルギーが現れます。
+位置を円周上の定数密度 $1/L$、速度をこの正規分布で初期化すれば、時間が進んでも同じ結合分布を保ちます。$U=F=0$ は定義の滑らかさ・周期性の仮定を満たし、この初期密度は正で正規化され、速度の二乗モーメントも有限です。したがって運動方程式、初期密度、有限エネルギーの各条件が具体的に満たされます。速度を無視した模型と異なり、熱浴とのやりとりには運動エネルギーが現れます。
+<!-- definition-example-end -->
 
 ## 2. Kramers方程式と平衡の判定
 
@@ -148,6 +152,19 @@ $$
 > とする。$\circ dB_t$ はStratonovich積分であり、通常のItô積分とは区別する。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-itd15-work-heat -->
+**直接例（自由な粒子の熱）**：$U=F=0$ は周期性と正の温度・摩擦の条件を満たし、上の定義に代入すると $W=0$ です。この場合の速度方程式へ $V_t$ をStratonovich積の意味で掛け、$mV_t\circ dV_t=d(mV_t^2/2)$ を使うと
+
+$$
+\frac m2(V_\tau^2-V_0^2)
+=-\int_0^\tau\gamma V_t^2dt
++\sqrt{2\gamma/\beta}\int_0^\tau V_t\circ dB_t
+=-Q_{\mathrm{bath}}.
+$$
+
+定義された二つの積分を実際に比較すれば、外部仕事がないときは運動エネルギーの損失が浴熱であると確認できます。熱は経路ごとに正とは限りません。
+<!-- definition-example-end -->
+
 <a id="thm-itd15-first-law"></a>
 
 <!-- formal-statement-start -->
@@ -242,6 +259,18 @@ $$
 <!-- formal-statement-end -->
 
 逆実験の速度を $-V_\tau$ から始めるのは、実験を逆向きに見たときの境界状態を合わせるためです。逆向きの初期分布を $\rho_\tau(x,v)$ のまま置くと、境界エントロピー項に誤った速度符号が残ります。
+
+<!-- definition-example-start: def-itd15-reversed-experiment -->
+**直接例（自由な浴での逆再生）**：$U=F=0$、$r(x,v)=M(v)/L$、$M(v)=\sqrt{\beta m/(2\pi)}e^{-\beta mv^2/2}$ から出発します。$r$ は正で正規化され、速度について偶関数なので $r(x,-v)=r(x,v)$ です。自由な速度の例から終端密度も $r$ です。よって逆実験は、初期密度・摩擦・雑音係数が正実験と一致する、実在する確率実験です。
+
+さらに逆位置の持ち上げ $Z_s^\dagger=Z_{\tau-s}$ について
+
+$$
+\frac{dZ_s^\dagger}{ds}=-V_{\tau-s}=V_s^\dagger
+$$
+
+となり、反転後も定義の位置・速度関係を満たします。定義の逆初期密度と運動学的条件の両方を検査できました。
+<!-- definition-example-end -->
 
 <a id="thm-itd15-path-ratio"></a>
 
