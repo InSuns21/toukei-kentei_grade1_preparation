@@ -23,7 +23,9 @@ Tf=(f(x_1),\ldots,f(x_n))^{\mathsf T},\qquad
 K_{ij}=k(x_i,x_j)
 $$
 
-と置く。$K$ は対称正半定値であり、負の固有値は持たない。有限個の点評価は有界なので、$T:\mathcal H\to\mathbb R^n$ の随伴写像 $T^*:\mathbb R^n\to\mathcal H$ が存在する。[再生性](../../RKHS/RKHS1/index.md#def-rkhs1-reproducing-property)から、任意の $f\in\mathcal H$ と $c\in\mathbb R^n$ に対して
+と置く。$K$ は[再生核の正半定値性](../../RKHS/RKHS1/index.md#thm-rkhs1-kernel-psd)から対称正半定値であり、負の固有値は持たない。
+
+有限個の点評価は有界なので、$T:\mathcal H\to\mathbb R^n$ の随伴写像 $T^*:\mathbb R^n\to\mathcal H$ が存在する。[再生性](../../RKHS/RKHS1/index.md#def-rkhs1-reproducing-property)から、任意の $f\in\mathcal H$ と $c\in\mathbb R^n$ に対して
 
 $$
 \langle Tf,c\rangle_{\mathbb R^n}
@@ -40,7 +42,15 @@ $$
 
 これは抽象的な関数の問題を行列に移す橋である。**関数の評価ベクトル**は $Tf$、**核切片の係数**は $c$ であり、同じものではない。
 
-例えば有限入力集合上で、特徴写像を $\phi(x_1)=(2,0)$、$\phi(x_2)=(0,1)$、$\phi(x_3)=(0,0)$ とする。$k(x,z)=\phi(x)^{\mathsf T}\phi(z)$ は[特徴写像から作る正半定値核](../../RKHS/RKHS1/index.md#prop-rkhs1-feature-kernel)である。各成分の内積を取ると
+例えば有限入力集合上で、特徴写像を
+
+$$
+\phi(x_1)=(2,0),\qquad
+\phi(x_2)=(0,1),\qquad
+\phi(x_3)=(0,0)
+$$
+
+とする。$k(x,z)=\phi(x)^{\mathsf T}\phi(z)$ は[特徴写像から作る正半定値核](../../RKHS/RKHS1/index.md#prop-rkhs1-feature-kernel)である。各成分の内積を取ると
 
 $$
 K=\operatorname{diag}(4,1,0).
@@ -58,12 +68,38 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-07-kernel-interpolation -->
-**定義の確認**。上の $K=\operatorname{diag}(4,1,0)$ について $y=(8,3,0)^{\mathsf T}$ は補間可能である。実際、$c=(2,3,0)^{\mathsf T}$ を用いる関数 $f=T^*c$ は $Tf=Kc=(8,3,0)^{\mathsf T}$ を満たす。一方 $y=(8,3,5)^{\mathsf T}$ は、任意の $f$ について $(Tf)_3=0$ のため補間不能である。最小ノルム性は次の定理で確認する。
+**定義の確認**。上の $K=\operatorname{diag}(4,1,0)$ について、応答 $y=(8,3,0)^{\mathsf T}$ は補間可能である。実際、係数 $c=(2,3,0)^{\mathsf T}$ で作る関数 $f=T^*c$ は
+
+$$
+Tf=Kc=(8,3,0)^{\mathsf T}=y
+$$
+
+を満たす。一方、応答 $(8,3,5)^{\mathsf T}$ は、任意の関数の第三訓練点での値が $(Tf)_3=0$ のため補間不能である。
+
+前者の $f$ が最小ノルムであることも、定義から直接確認できる。$T\widetilde f=y$ を満たす任意の別の関数 $\widetilde f$ は $\widetilde f=f+h$、$Th=0$ と書ける。随伴の定義から
+
+$$
+\langle f,h\rangle_{\mathcal H}
+=\langle T^*c,h\rangle_{\mathcal H}
+=c^{\mathsf T}Th=0
+$$
+
+だから、
+
+$$
+\|\widetilde f\|_{\mathcal H}^2=\|f\|_{\mathcal H}^2+\|h\|_{\mathcal H}^2
+=c^{\mathsf T}Kc+\|h\|_{\mathcal H}^2
+=25+\|h\|_{\mathcal H}^2\ge25.
+$$
+
+等号は $h=0$、すなわち $\widetilde f=f$ のときだけである。補間可能性と最小ノルム性という定義の二条件をともに確認した。
 <!-- definition-example-end -->
 
 ## 2. 特異なGram行列と最小ノルム解
 
-実対称正半定値行列 $K$ は正の固有値 $\kappa_1,\ldots,\kappa_r>0$ と、それぞれに対応する直交規格化固有ベクトル $u_1,\ldots,u_r$ を持つ。ここで $r=\operatorname{rank}K$ とし、同じ固有値が複数回現れるときは**重複度だけ数える**。零固有値に対応する部分空間を $\ker K$ とする。
+実対称正半定値行列 $K$ は、正の固有値 $\kappa_1,\ldots,\kappa_r>0$ と、それぞれに対応する直交規格化固有ベクトル $u_1,\ldots,u_r$ を持つ。
+
+ここで $r=\operatorname{rank}K$ とし、同じ固有値が複数回現れるときは**重複度だけ数える**。零固有値に対応する部分空間を $\ker K$ とする。
 
 [固有値分解と擬似逆の既習公式](../SLT2-02/index.md#thm-slt2-02-minimum-norm)と同様に、$K$ の正の固有値だけを反転する行列と、像への直交射影を
 
@@ -172,7 +208,7 @@ f_\mu=T^*(K+\mu I_n)^{-1}y,\qquad
 H_\mu=K(K+\mu I_n)^{-1}.
 $$
 
-$K+\mu I_n$ は $\mu>0$ により正定値で必ず可逆である。$H_\mu$ は応答 $y$ から訓練点予測への**平滑化行列**である。
+$K+\mu I_n$ は $\mu>0$ により正定値で必ず可逆である。$H_\mu$ は応答 $y$ から訓練点予測への[平滑化行列](../../RKHS/RKHS3/index.md#def-rkhs3-smoother-matrix)である。
 
 <a id="def-slt2-07-effective-dimension"></a>
 
@@ -267,7 +303,7 @@ $$
 
 正則化係数 $\mu$ を選ぶ代わりに、関数を時間とともに少しずつ学習させる。[線形模型の勾配流](../SLT2-06/index.md#def-slt2-06-early-stopping-filter)に対応するが、ここでは未知数は係数ベクトルではなくRKHSの関数そのものである。
 
-$L(f)=\|Tf-y\|_2^2/2$ とおく。方向 $h\in\mathcal H$ に沿って $f$ を $f+\eta h$ と変えると
+$L(f)=\|Tf-y\|_2^2/2$ とおく。方向 $h\in\mathcal H$ と実数の摂動パラメータ $\eta$ を用い、$f$ を $f+\eta h$ と変えると
 
 $$
 \left.\frac{d}{d\eta}L(f+\eta h)\right|_{\eta=0}
@@ -275,7 +311,19 @@ $$
 =\langle T^*(Tf-y),h\rangle_{\mathcal H}.
 $$
 
-よってHilbert空間の勾配は $\nabla L(f)=T^*(Tf-y)$ である。ここでは $1/n$ の規格化を使わず、時間変数 $t$ は $L$ のこの定義に対応させる。
+よってHilbert空間の勾配は $\nabla L(f)=T^*(Tf-y)$ である。ここで $\eta$ は関数を変化させる方向の大きさで、$d/d\eta$ はその一変数微分である。
+
+一方、これからの $t\ge0$ は学習の時間であり、$\dot f_t=df_t/dt$ は $\mathcal H$ 値の時間微分を表す。後で用いる訓練点予測は $g_t=Tf_t$ である。
+
+[点評価の有界性](../../RKHS/RKHS1/index.md#cor-rkhs1-evaluation-bound)により、固定した有限個の入力での評価写像 $T$ はノルムに関して連続である。実数の時間増分 $\delta$（$t=0$ では右から）を用い、時間微分の定義で $T$ を極限の外へ出せば、
+
+$$
+\dot g_t=\frac{dg_t}{dt}
+=\lim_{\delta\to0}T\frac{f_{t+\delta}-f_t}{\delta}
+=T\dot f_t
+$$
+
+となる。ここでは $1/n$ の規格化を使わず、時間 $t$ は $L$ のこの定義に対応させる。
 
 <a id="def-slt2-07-kernel-flow"></a>
 
@@ -287,11 +335,24 @@ $$
 \dot f_t=-T^*(Tf_t-y),\qquad f_0=0,\quad t\ge0
 $$
 >
-> を満たす $\mathcal H$ 値の微分可能な関数族である。訓練点予測を $g_t=Tf_t\in\mathbb R^n$ と呼ぶ。$\dot f_t$ は時間 $t$ に関する関数空間での微分である。
+> を満たす $\mathcal H$ 値の微分可能な関数族である。訓練点予測を $g_t=Tf_t\in\mathbb R^n$ と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-slt2-07-kernel-flow -->
-**定義の確認**。一つの入力 $x$、$k(x,x)=1$、応答 $y=(2)$ とする。核切片 $k(x,\cdot)$ のノルムは1なので、$f_t=a(t)k(x,\cdot)$ と置けば $Tf_t=(a(t))$、$T^*(Tf_t-y)=(a(t)-2)k(x,\cdot)$。定義の常微分方程式は $\dot a=2-a$、$a(0)=0$ となる。$a(t)=2(1-e^{-t})$ は初期値と微分方程式を直接満たし、$g_t=(2(1-e^{-t}))$ となる。
+**定義の確認**。一つの入力 $x$、$k(x,x)=1$、応答 $y=(2)$ とする。核切片 $k(x,\cdot)$ のノルムは1なので、関数を $f_t=a(t)k(x,\cdot)$ と置くと、
+
+$$
+Tf_t=(a(t)),\qquad
+T^*(Tf_t-y)=(a(t)-2)k(x,\cdot)
+$$
+
+となる。ここで $\dot a=da/dt$ は係数の時間微分である。定義の方程式と初期値は
+
+$$
+\dot a=2-a,\qquad a(0)=0
+$$
+
+へ帰着する。$a(t)=2(1-e^{-t})$ は $\dot a=2e^{-t}=2-a(t)$ と初期値を直接満たし、$g_t=(2(1-e^{-t}))$ となる。
 <!-- definition-example-end -->
 
 <a id="thm-slt2-07-kernel-flow-spectrum"></a>
@@ -378,10 +439,29 @@ $$
 \frac{z}{1+z}\le1-e^{-z}\le\frac{2z}{1+z}
 $$
 
-を使えばよい。下側は $e^z\ge1+z$ の逆数から従う。上側は $0<z\le1$ なら $1-e^{-z}\le z\le2z/(1+z)$、$z\ge1$ なら $1-e^{-z}\le1\le2z/(1+z)$。これは[前章のスペクトル比較](../SLT2-06/index.md#thm-slt2-06-ridge-comparison)の $s^2$ を $\kappa$ に読み替えたものである。$\square$
+を使えばよい。下側は $e^z\ge1+z$ の逆数から従う。上側は $0<z\le1$ なら
+
+$$
+1-e^{-z}\le z\le\frac{2z}{1+z}
+$$
+
+であり、$z\ge1$ なら
+
+$$
+1-e^{-z}\le1\le\frac{2z}{1+z}
+$$
+
+である。これは[前章のスペクトル比較](../SLT2-06/index.md#thm-slt2-06-ridge-comparison)の $s^2$ を $\kappa$ に読み替えたものである。$\square$
 <!-- proof-end -->
 
-注意したいのは、$g_t$ の方程式だけを解くために任意の係数表示 $f_t=T^*c_t$ で $\dot c_t=y-Kc_t$ と選ぶと、$\ker K$ に属する $y$ の成分は $c_t$ 内で $t$ 倍に増え得る点である。**係数が発散しても関数と予測は変わらない**。定理の表示では核方向の係数を常に零としている。
+注意したいのは、関数を係数表示 $f_t=T^*c_t$ と書き、$c_0=0$、$\dot c_t=y-Kc_t$ と選んだ場合である。単位ベクトル $u\in\ker K$ に射影すると、対称性により $u^{\mathsf T}K=0$ なので
+
+$$
+\frac{d}{dt}(u^{\mathsf T}c_t)=u^{\mathsf T}y,
+\qquad u^{\mathsf T}c_t=t\,u^{\mathsf T}y.
+$$
+
+従って零固有方向の応答成分は係数内で時間に比例して増え得る。しかし[核方向の係数は関数から消える](#thm-slt2-07-minimum-norm)ため、**係数が発散しても関数と予測は変わらない**。定理の表示では核方向の係数を常に零としている。
 
 ## 5. 有効次元と偏り・分散は別の量
 
@@ -400,7 +480,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（固定設計のkernel偏り分散分解）**
-> 対称正半定値 $K\in\mathbb R^{n\times n}$ を固定し、平均 $m\in\mathbb R^n$、平均零・共分散 $\tau^2I_n$（$\tau^2\ge0$）の雑音 $\varepsilon$ に対する $Y=m+\varepsilon$ を考える。$r=\operatorname{rank}K$ として正固有値・直交規格化固有ベクトルを $(\kappa_j,u_j)$（$j=1,\ldots,r$）、$\operatorname{ran}K$ への直交射影を $P_K$、零固有空間への直交射影を $P_0=I-P_K$、信号係数を $a_j=u_j^{\mathsf T}m$ とする。応答に依存せず固定した対称平滑化行列
+> 対称正半定値 $K\in\mathbb R^{n\times n}$ を固定する。平均信号を $m\in\mathbb R^n$、雑音を $\varepsilon$ とし、$E\varepsilon=0$、$\operatorname{Cov}(\varepsilon)=\tau^2I_n$（$\tau^2\ge0$）の下で $Y=m+\varepsilon$ を考える。
+>
+> $r=\operatorname{rank}K$ として、正固有値・直交規格化固有ベクトルを $(\kappa_j,u_j)$（$j=1,\ldots,r$）とする。$\operatorname{ran}K$ への直交射影を $P_K$、零固有空間への直交射影を $P_0=I-P_K$、信号係数を $a_j=u_j^{\mathsf T}m$ とする。応答に依存せず固定した対称平滑化行列
 >
 $$
 H=\sum_{j=1}^rh_ju_ju_j^{\mathsf T},
@@ -462,7 +544,16 @@ $$
 
 雑音寄与は $v_{\mathrm{noise}}(1)=89/100$ なので、リスクは $41/25+89/100=253/100$ となる。有効次元 $13/10$ を雑音分散と取り違えると $294/100$ という誤値になる。
 
-この定理では平滑化行列を**固定**した。応答を見て $\mu(Y)$ や停止時刻 $t(Y)$ を選ぶと、$H$ が雑音に依存するため $E[u_j^{\mathsf T}\varepsilon]=0$ だけでは交差項が消えない。さらに訓練点外の入力 $x$ については核ベクトル $k_x=(k(x_1,x),\ldots,k(x_n,x))^{\mathsf T}$ による予測 $f_\mu(x)=k_x^{\mathsf T}(K+\mu I)^{-1}Y$ を使えるが、その期待誤差を保証するには入力分布、真の回帰関数、損失などの条件が必要である。
+この定理では平滑化行列を**固定**した。応答を見て $\mu(Y)$ や停止時刻 $t(Y)$ を選ぶと、$H$ が雑音に依存するため $E[u_j^{\mathsf T}\varepsilon]=0$ だけでは交差項が消えない。
+
+さらに訓練点外の入力 $x$ については、[核ベクトル](../../RKHS/RKHS3/index.md#def-rkhs3-kernel-vector)と新規点予測を
+
+$$
+k_x=(k(x_1,x),\ldots,k(x_n,x))^{\mathsf T},
+\qquad f_\mu(x)=k_x^{\mathsf T}(K+\mu I)^{-1}Y
+$$
+
+と表せる。ただし、その期待誤差を保証するには入力分布、真の回帰関数、損失などの条件が必要である。
 
 次章のニューラルネット線形化では、この $K$ が訓練中も固定とみなせる条件を改めて問う。**有限標本のkernel法が解けること**と、任意のニューラルネットが固定kernel法になることは別の主張である。
 
@@ -502,7 +593,7 @@ $K=\operatorname{diag}(2,0)$、$y=(2,3)^{\mathsf T}$ とする。補間可能か
 <!-- solution-start -->
 #### 詳細解答
 
-$\operatorname{ran}K=\{(a,0)^{\mathsf T}:a\in\mathbb R\}$ だから $y$ は像に属さず補間不可能である。擬似逆と射影は
+[Gram行列による補間判定](#thm-slt2-07-minimum-norm)を使う。$\operatorname{ran}K=\{(a,0)^{\mathsf T}:a\in\mathbb R\}$ だから $y$ は像に属さず補間不可能である。擬似逆と射影は
 
 $$
 K^\dagger=\operatorname{diag}(1/2,0),\quad
@@ -522,7 +613,7 @@ $K=\operatorname{diag}(4,1,0)$、$\mu=1$、$y=(5,2,7)^{\mathsf T}$ とする。$
 <!-- solution-start -->
 #### 詳細解答
 
-$K+\mu I=\operatorname{diag}(5,2,1)$ より $H_1=\operatorname{diag}(4/5,1/2,0)$。従って
+[kernelの有効次元](#def-slt2-07-effective-dimension)の定義を用いる。$K+\mu I=\operatorname{diag}(5,2,1)$ より $H_1=\operatorname{diag}(4/5,1/2,0)$。従って
 
 $$
 H_1y=(4,1,0)^{\mathsf T},\quad
@@ -547,7 +638,7 @@ $K=\operatorname{diag}(1,1,0)$、$y=(2,-2,3)^{\mathsf T}$ とする。零初期�
 <!-- solution-start -->
 #### 詳細解答
 
-正固有値は $1,1$ でそれぞれの通過率は $1-e^{-\log2}=1/2$。零固有値の通過率は零だから、
+[核勾配流のスペクトル解](#thm-slt2-07-kernel-flow-spectrum)を適用する。正固有値は $1,1$ だから、それぞれの通過率は $1-e^{-\log2}=1/2$。零固有値の通過率は零なので、
 
 $$
 g_{\log2}=(1,-1,0)^{\mathsf T},\quad
@@ -566,7 +657,7 @@ $K=2I_2$、$\mu=2$ とする。$H_\mu$、有効次元、雑音感度を求め、
 <!-- solution-start -->
 #### 詳細解答
 
-$K+\mu I=4I_2$ なので $H_\mu=2I_2(4I_2)^{-1}=I_2/2$。よって
+[有効次元の定義](#def-slt2-07-effective-dimension)を適用する。$K+\mu I=4I_2$ なので $H_\mu=2I_2(4I_2)^{-1}=I_2/2$。よって
 
 $$
 d_{\mathrm{eff}}=2\cdot\frac12=1,\qquad
@@ -585,7 +676,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$u=(1,1)^{\mathsf T}/\sqrt2$ に沿う固有値は2、$v=(1,-1)^{\mathsf T}/\sqrt2$ に沿う固有値は0だから
+[Gram行列による補間判定と最小ノルム解](#thm-slt2-07-minimum-norm)を用いる。$u=(1,1)^{\mathsf T}/\sqrt2$ に沿う固有値は2、$v=(1,-1)^{\mathsf T}/\sqrt2$ に沿う固有値は0だから
 
 $$
 P_K=uu^{\mathsf T}=\frac12K,\qquad
@@ -613,7 +704,7 @@ $K=\operatorname{diag}(4,4,0)$、$\mu>0$ とする。$d_{\mathrm{eff}}(\mu)$ と
 <!-- solution-start -->
 #### 詳細解答
 
-$H_\mu=\operatorname{diag}(4/(4+\mu),4/(4+\mu),0)$ なので
+[有効次元の定義](#def-slt2-07-effective-dimension)から $H_\mu=\operatorname{diag}(4/(4+\mu),4/(4+\mu),0)$ なので
 
 $$
 d_{\mathrm{eff}}(\mu)=\frac8{4+\mu},\qquad
@@ -666,7 +757,7 @@ $K=\operatorname{diag}(1,4)$ の $t=1$ では $H_t=\operatorname{diag}(1-e^{-1},
 <!-- solution-start -->
 #### 詳細解答
 
-$H_1=\operatorname{diag}(2/3,1/2,0)$ である。零固有方向の信号 $(0,0,3)^{\mathsf T}$ は学習できず偏り二乗は9。正方向の平均信号への偏りは
+[固定設計の偏り分散分解](#thm-slt2-07-fixed-risk)を適用する。$H_1=\operatorname{diag}(2/3,1/2,0)$ である。零固有方向の信号 $(0,0,3)^{\mathsf T}$ は学習できず偏り二乗は9。正方向の平均信号への偏りは
 
 $$
 (H_1-I)m=(-2/3,-1/2,-3)^{\mathsf T},
