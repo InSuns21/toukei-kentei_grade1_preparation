@@ -1,0 +1,61 @@
+chapter: MFL16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL15
+  - GA5
+concepts:
+  - id: manifold-learning.reversible-diffusion-spectrum
+    name: 可逆Markov行列の重み付き固有分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（可逆Markov行列の重み付き固有分解）"]
+    requires: [manifold-learning.alpha-detailed-balance]
+  - id: manifold-learning.finite-diffusion-distance
+    name: 有限diffusion distance
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限diffusion distance）"]
+    requires: [manifold-learning.discrete-alpha-markov]
+  - id: manifold-learning.diffusion-map-coordinates
+    name: Diffusion Maps座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Diffusion Maps座標）"]
+    requires: [manifold-learning.reversible-diffusion-spectrum, manifold-learning.finite-diffusion-distance]
+  - id: manifold-learning.diffusion-spectral-distance
+    name: diffusion distanceのスペクトル表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（diffusion distanceのスペクトル表示）"]
+    requires: [manifold-learning.diffusion-map-coordinates]
+  - id: manifold-learning.diffusion-time-truncation
+    name: 時間単調性と座標切り捨て誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間単調性と座標切り捨て誤差）"]
+    requires: [manifold-learning.diffusion-spectral-distance]
+  - id: manifold-learning.heat-diffusion-distance
+    name: 熱核diffusion distance
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（熱核diffusion distance）"]
+    requires: [geometric-analysis.manifold-heat-kernel]
+  - id: manifold-learning.heat-diffusion-spectrum
+    name: 熱核diffusion distanceのスペクトル表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（熱核diffusion distanceのスペクトル表示）"]
+    requires: [manifold-learning.heat-diffusion-distance, geometric-analysis.heat-kernel-regularity]
+  - id: manifold-learning.finite-generator-time-limit
+    name: 有限次元generator近似からの熱時間極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限次元generator近似からの熱時間極限）"]
+    requires: [manifold-learning.reversible-diffusion-spectrum, geometric-analysis.heat-semigroup]
+  - id: manifold-learning.fixed-mode-time-limit
+    name: 固定モードの時間倍率と極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定モードの時間倍率と極限）"]
+    requires: [manifold-learning.finite-generator-time-limit]

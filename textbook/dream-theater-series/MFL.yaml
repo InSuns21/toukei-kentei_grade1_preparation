@@ -68,7 +68,7 @@ chapters:
     title: "密度補正・極限generator"
   - id: MFL16
     path: textbook/volumes/dream_thater/応用系/MFL/MFL16
-    status: planned
+    status: completed
     title: "Diffusion Mapsと熱の幾何"
   - id: MFL17
     path: textbook/volumes/dream_thater/応用系/MFL/MFL17
