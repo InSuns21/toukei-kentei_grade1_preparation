@@ -341,12 +341,12 @@ $\int J_tdx=\int b_t\rho_tdx$ は周期境界で $\int\rho_t'=0$ から従い、
 各時刻の正準分布と平衡自由エネルギーを
 
 $$
-\pi_t(x)=\frac{e^{-\beta U_t(x)}}{\mathcal Z_t},\quad
-\mathcal Z_t=\int_0^Le^{-\beta U_t(x)}\,dx,\quad
+\pi_t(x)=\frac{e^{-\beta U_t(x)}}{L\mathcal Z_t},\quad
+\mathcal Z_t=\frac1L\int_0^Le^{-\beta U_t(x)}\,dx,\quad
 F_{\mathrm{eq}}(t)=-k_{\mathrm B}T\log\mathcal Z_t
 $$
 
-とします。$F_t$（外力）と $F_{\mathrm{eq}}$（自由エネルギー）は別の量です。外力が非保存力でも、$U_t$ を用いるこの正準分布は数式上定義できますが、駆動中の定常状態が持つ密度とは一般に一致しません。
+とします。$\mathcal Z_t$ は基準長さ $L$ で割って無次元化した分配関数で、[非平衡自由エネルギー](#thm-itd13-fluctuation-current)の $\log(L\rho)$ と零点をそろえています。$F_t$（外力）と $F_{\mathrm{eq}}$（自由エネルギー）は別の量です。外力が非保存力でも、$U_t$ を用いるこの正準分布は数式上定義できますが、駆動中の定常状態が持つ密度とは一般に一致しません。
 
 <a id="thm-itd13-jarzynski"></a>
 
@@ -378,7 +378,7 @@ $$
 +\beta Q_{\mathrm{bath}}.
 $$
 
-$\log\pi_t(x)=-\beta U_t(x)-\log\mathcal Z_t$ だから
+$\log\pi_t(x)=-\beta U_t(x)-\log L-\log\mathcal Z_t$ だから、始終比では $\log L$ が相殺され
 
 $$
 \begin{aligned}
@@ -708,10 +708,10 @@ Q_{\mathrm{bath}}=\mu A+\sqrt{2D}K,
 \qquad W=u(\tau)-u(0)+Q_{\mathrm{bath}}.
 $$
 
-一方 $\mathcal Z_t=\int_0^Le^{-\beta u(t)}dx=Le^{-\beta u(t)}$ だから
+一方 $\mathcal Z_t=L^{-1}\int_0^Le^{-\beta u(t)}dx=e^{-\beta u(t)}$ だから
 
 $$
-F_{\mathrm{eq}}(t)=u(t)-\beta^{-1}\log L,
+F_{\mathrm{eq}}(t)=u(t),
 \qquad \Delta F_{\mathrm{eq}}=u(\tau)-u(0).
 $$
 
