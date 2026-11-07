@@ -82,7 +82,7 @@ v^{\mathsf T}K_m(t)v
 =\|J_m(t)^{\mathsf T}v\|_2^2\ge0
 $
 
-だから $K_m(t)\succeq0$ と判定できる。[前章までの固定核スペクトル解](../SLT2-09/index.md#thm-slt2-09-continuous-spectrum)では、この行列を固有基底で対角化して減衰率を読む。$\dot e_m=de_m/dt$ は学習時刻 $t$ に関する全微分であり、$D_\theta$ はパラメータに関する微分なので区別する。全パラメータのEuclid勾配流・二乗損失 $\|F_m-y\|_2^2/2$ では、[固定核と動く核の比較式](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)の出発点として
+だから $K_m(t)\succeq0$ と判定できる。[前章までの固定核スペクトル解](../SLT2-09/index.md#thm-slt2-09-continuous-spectrum)では、この行列を固有基底で対角化して減衰率を読む。$\dot e_m=de_m/dt$ は学習時刻 $t$ に関する全微分であり、後の証明に出る $e_{\infty,m}'=de_{\infty,m}/dt$ も同じ時刻での導関数をプライムで書いただけである。一方、$D_\theta$ はパラメータに関する微分なので区別する。全パラメータのEuclid勾配流・二乗損失 $\|F_m-y\|_2^2/2$ では、[固定核と動く核の比較式](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)の出発点として
 
 $$
 \dot e_m(t)=-K_m(t)e_m(t),\qquad
@@ -346,7 +346,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（単調な残差による長時間の確率評価）**
-> 固定した $n$ と訓練入力について、各幅 $m$ の連続勾配流の残差が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとする。$\sup_m\mathbb E\|e_m(0)\|_2^2\le Q<\infty$ とし、決定論的な $K_\infty\succeq\lambda I_n$（$\lambda>0$）について、任意の固定 $t$ で
+> 固定した $n$ と訓練入力について、各幅 $m$ の連続勾配流がすべての $t\ge0$ に存在し、その残差が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとする。$\sup_m\mathbb E\|e_m(0)\|_2^2\le Q<\infty$ とし、決定論的な $K_\infty\succeq\lambda I_n$（$\lambda>0$）について、任意の固定 $t$ で
 
 $$
 \|e_m(t)-e^{-tK_\infty}e_m(0)\|_2
@@ -709,7 +709,7 @@ $$
 - Level: B
 - 目安時間: 23分
 
-固定入力の残差 $e_m(t)$ が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとし、$K_\infty\succeq2I_n$、$\sup_m\mathbb E\|e_m(0)\|^2\le Q$ とする。各固定 $t$ で $e_m(t)-e^{-tK_\infty}e_m(0)\to0$ が確率収束で成り立つ。任意の $\eta>0$ について、$\limsup_{m\to\infty}\mathbb P(\sup_{s\ge t}\|e_m(s)\|>\eta)$ の上界を求め、$t\to\infty$ の結論を導け。この議論が標本外の予測誤差へそのまま移らない理由も説明せよ。
+全 $t\ge0$ で存在する固定入力の残差 $e_m(t)$ が $\dot e_m=-K_m(t)e_m$、$K_m(t)\succeq0$ を満たすとし、$K_\infty\succeq2I_n$、$\sup_m\mathbb E\|e_m(0)\|^2\le Q$ とする。各固定 $t$ で $e_m(t)-e^{-tK_\infty}e_m(0)\to0$ が確率収束で成り立つ。任意の $\eta>0$ について、$\limsup_{m\to\infty}\mathbb P(\sup_{s\ge t}\|e_m(s)\|>\eta)$ の上界を求め、$t\to\infty$ の結論を導け。この議論が標本外の予測誤差へそのまま移らない理由も説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
