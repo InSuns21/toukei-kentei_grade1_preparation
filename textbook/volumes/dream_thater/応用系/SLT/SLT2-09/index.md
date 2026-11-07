@@ -26,6 +26,10 @@ $$
 
 ここで損失の規格化は $1/n$ を付けない $\frac12\|\cdot\|_2^2$ に固定する。$1/(2n)$ を採用した場合、以下の時間 $t$ と学習率 $\eta$ はそれぞれ $1/n$ の係数を含むように読み替える必要がある。
 
+以下の $t$ は学習時間で、$\dot v(t)=dv(t)/dt$ は**時間による全微分**を表す。一方、Jacobian $J_0$ は訓練入力を固定して**パラメータで微分**した行列である。
+
+この行列を掛けると、パラメータ空間の変位 $v\in\mathbb R^p$ が訓練点空間の出力変化 $J_0v\in\mathbb R^n$ に写る。接線Gram行列 $K_0$ は訓練点空間の残差に作用する。この二種類の微分と作用する空間を区別しておく。
+
 <a id="def-slt2-09-fixed-tangent-flow"></a>
 
 <!-- formal-statement-start -->
@@ -141,7 +145,17 @@ $$
 
 初期値が零、左辺のノルムが非負なので $z(t)=0$。存在と一意性を確認した。
 
-有限個の正固有値では $e^{-\lambda_jt}\to0$。よって $e(\infty)=P_0e_0$ と $g(\infty)=y+P_0(f_0-y)=P_+y+P_0f_0$ となる。損失は $\|e\|_2^2/2$ なので極限の式も従う。また $J_0v(t)=-P_+e_0+\sum_{j=1}^r e^{-\lambda_jt}(u_j^{\mathsf T}e_0)u_j$ により、極限では $J_0v=-P_+e_0$ を満たす。$J_0$ の像は $K_0$ の像と同じなので、これは最小二乗で到達できる残差である。
+有限個の正固有値では $e^{-\lambda_jt}\to0$。よって $e(\infty)=P_0e_0$ と $g(\infty)=y+P_0(f_0-y)=P_+y+P_0f_0$ となる。損失は $\|e\|_2^2/2$ なので極限の式も従う。また $J_0J_0^{\mathsf T}u_j=K_0u_j=\lambda_ju_j$ を変位の式へ代入すると、
+
+$$
+\begin{aligned}
+J_0v(t)
+&=-\sum_{j=1}^r(1-e^{-\lambda_jt})(u_j^{\mathsf T}e_0)u_j\\
+&=-P_+e_0+\sum_{j=1}^r e^{-\lambda_jt}(u_j^{\mathsf T}e_0)u_j.
+\end{aligned}
+$$
+
+従って極限では $J_0v=-P_+e_0$ を満たす。さらに $u^{\mathsf T}K_0u=\|J_0^{\mathsf T}u\|_2^2$ から $\ker K_0=\ker J_0^{\mathsf T}$ であり、両辺の直交補を取ると $\operatorname{im}K_0=\operatorname{im}J_0$ となる。よって $P_+e_0$ は $J_0$ の像に入り、この変位は最小二乗で到達できる残差を与える。
 
 $v(\infty)$ は式から $J_0^{\mathsf T}$ の像に入る。任意の別の解 $w$ との違い $h=w-v(\infty)$ は $J_0h=0$ だから、
 
@@ -197,7 +211,11 @@ e_k=\sum_{j=1}^n(1-\eta\lambda_j)^k a_ju_j,
 L_{\mathrm{lin}}(v_k)=\frac12\sum_{j=1}^n(1-\eta\lambda_j)^{2k}a_j^2.
 $$
 
-> $K_0\ne0$ の最大固有値を $\lambda_{\max}>0$ とする。$0<\eta<2/\lambda_{\max}$ なら任意の初期残差で $e_k\to P_0e_0$、$v_k\to v(\infty)$（連続勾配流と同じ最小ノルム変位）となる。$\eta=2/\lambda_{\max}$ では最大固有方向に非零残差があれば符号を交互に変え収束しない。$\eta>2/\lambda_{\max}$ では最大固有方向に非零残差があれば残差ノルムが発散する。$K_0=0$ のときは任意の $\eta>0$ で $v_k=0$、$e_k=e_0$ である。
+> $K_0\ne0$ の最大固有値を $\lambda_{\max}>0$ とする。$0<\eta<2/\lambda_{\max}$ なら任意の初期残差で $e_k\to P_0e_0$、$v_k\to v(\infty)$（連続勾配流と同じ最小ノルム変位）となる。
+>
+> 境界 $\eta=2/\lambda_{\max}$ では最大固有方向に非零残差があれば符号を交互に変え収束しない。$\eta>2/\lambda_{\max}$ ではその方向に非零残差があれば残差ノルムが発散する。
+>
+> $K_0=0$ のときは任意の $\eta>0$ で $v_k=0$、$e_k=e_0$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -237,7 +255,9 @@ v_k=-J_0^{\mathsf T}\sum_{\lambda_j>0}
 \frac{1-(1-\eta\lambda_j)^k}{\lambda_j}a_ju_j.
 $$
 
-安定条件の下で $k\to\infty$ とすれば[連続時間の到達点](#thm-slt2-09-continuous-spectrum)と同じ式を得る。境界 $\eta\lambda_{\max}=2$ では最大固有方向の倍率は $-1$ である。これを超えると倍率の絶対値は1より大きくなるので、その方向に $a_j\ne0$ があれば振動しながら発散する。$K_0=0$ なら $\|J_0^{\mathsf T}c\|^2=c^{\mathsf T}K_0c=0$ より $J_0=0$ なので更新は常に零となる。$\square$
+安定条件の下で $k\to\infty$ とすれば[連続時間の到達点](#thm-slt2-09-continuous-spectrum)と同じ式を得る。境界 $\eta\lambda_{\max}=2$ では最大固有方向の倍率は $-1$。これを超えると倍率の絶対値は1より大きくなるので、その方向の初期成分が非零なら振動しながら発散する。
+
+$K_0=0$ なら任意の $c\in\mathbb R^n$ に対し $\|J_0^{\mathsf T}c\|_2^2=c^{\mathsf T}K_0c=0$。従って $J_0=0$ であり、更新は常に零となる。$\square$
 <!-- proof-end -->
 
 **一歩で損失はどれだけ変わるか。** 上の式から、各固有方向の損失差は
@@ -278,6 +298,21 @@ $$
 ## 4. 核が少し動く場合の比較
 
 ここまでは $K_0$ を時間に依らず固定した。元のニューラルネットでは、[有限幅での接線Gram行列の変動](../SLT2-08/index.md#thm-slt2-08-drift-update)が示すように、$K$ はパラメータ更新に伴って動く。固定核との比較を数式にするには、何をどの区間でどれだけ抑えるかを仮定する必要がある。
+
+以下の $\|A\|_{\mathrm{op}}$ は、[2-作用素ノルムの定義](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)に従う。
+
+$$
+\|A\|_{\mathrm{op}}=\sup_{\|z\|_2=1}\|Az\|_2.
+$$
+
+実対称 $K_0$ の**行列指数** $e^{-tK_0}$ は、直交規格化固有ベクトル $u_j$ に $e^{-t\lambda_j}$ を掛ける線形写像として定まる。従って $K_0$ が正半定値で $t\ge0$ なら、各倍率が $[0,1]$ に入るので
+
+$$
+e^{-tK_0}u_j=e^{-t\lambda_j}u_j,qquad
+\|e^{-tK_0}\|_{\mathrm{op}}=\max_{1\le j\le n}e^{-t\lambda_j}\le1
+$$
+
+と判定できる。
 
 <a id="thm-slt2-09-kernel-drift-bound"></a>
 
@@ -521,7 +556,14 @@ $0\le t\le1$ で $K(t)=\operatorname{diag}(1+t,2)$、$K_0=\operatorname{diag}(1,
 <!-- solution-start -->
 #### 詳細解答
 
-第1成分は $\dot e_1=-(1+t)e_1$ だから、積分因子または $d\log e_1/dt=-(1+t)$ により $e_1(t)=e^{-t-t^2/2}$。第2成分は $\dot e_2=-2e_2$、$e_2(0)=-1$ なので $e_2(t)=-e^{-2t}$。固定核なら
+第1成分は $\dot e_1=de_1/dt=-(1+t)e_1$ だから、積分因子 $e^{t+t^2/2}$ を掛けると
+
+$$
+\frac{d}{dt}\bigl(e^{t+t^2/2}e_1(t)\bigr)
+=e^{t+t^2/2}\bigl((1+t)e_1(t)+\dot e_1(t)\bigr)=0.
+$$
+
+$e_1(0)=1$ より $e_1(t)=e^{-t-t^2/2}$。第2成分は $\dot e_2=-2e_2$、$e_2(0)=-1$ なので $e_2(t)=-e^{-2t}$。固定核なら
 
 $$
 e(t)=\begin{pmatrix}e^{-t-t^2/2}\\-e^{-2t}\end{pmatrix},\qquad
@@ -611,7 +653,14 @@ e_{\mathrm{move}}(t)=\begin{pmatrix}-2e^{-t-t^2/2}\\-4e^{-4t}\\3\end{pmatrix},\q
 e_{\mathrm{fix}}(t)=\begin{pmatrix}-2e^{-t}\\-4e^{-4t}\\3\end{pmatrix}.
 $$
 
-$\|K(s)-K_0\|_{\mathrm{op}}=s$、$\|e_0\|_2=\sqrt{4+16+9}=\sqrt{29}$。従って[核変動界](#thm-slt2-09-kernel-drift-bound)は $\|e_{\mathrm{move}}(t)-e_{\mathrm{fix}}(t)\|_2\le\sqrt{29}\,t^2/2$。実差は $2e^{-t}(1-e^{-t^2/2})\le t^2$ であり、その範囲に入る。核が時間依存する場合は第1成分の減衰積分が変わるため、初期核が等しいだけで同じ解にはならない。
+この例では $\|K(s)-K_0\|_{\mathrm{op}}=s$ で、初期残差のノルムは $\sqrt{4+16+9}=\sqrt{29}$。従って[核変動界](#thm-slt2-09-kernel-drift-bound)から
+
+$$
+\|e_{\mathrm{move}}(t)-e_{\mathrm{fix}}(t)\|_2
+\le\sqrt{29}\,t^2/2
+$$
+
+を得る。実差は $2e^{-t}(1-e^{-t^2/2})\le t^2$ であり、その範囲に入る。核が時間依存すると第1成分の減衰積分が変わるため、初期核が等しいだけで同じ解にはならない。
 <!-- solution-end -->
 
 ## 章末チェック
