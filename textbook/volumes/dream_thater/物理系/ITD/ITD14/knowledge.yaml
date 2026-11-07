@@ -1,0 +1,64 @@
+chapter: ITD14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD12
+  - ITD13
+  - STO10
+forward_references: []
+concepts:
+  - id: information-thermodynamics.isothermal-variable-diffusion
+    name: 位置依存移動度を持つ等温円周拡散
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（位置依存移動度を持つ等温円周拡散）]
+    requires: [information-thermodynamics.time-dependent-ring-langevin]
+
+  - id: information-thermodynamics.variable-diffusion-current
+    name: 確率流と平衡密度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（確率流と平衡密度）]
+    requires: [information-thermodynamics.isothermal-variable-diffusion]
+
+  - id: information-thermodynamics.variable-diffusion-heat
+    name: 位置依存拡散における仕事と浴熱
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（位置依存拡散における仕事と浴熱）]
+    requires: [information-thermodynamics.isothermal-variable-diffusion, information-thermodynamics.time-dependent-ring-langevin]
+
+  - id: information-thermodynamics.variable-diffusion-first-law
+    name: 位置依存拡散の軌道第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（位置依存拡散の軌道第一法則）]
+    requires: [information-thermodynamics.variable-diffusion-heat]
+
+  - id: information-thermodynamics.variable-diffusion-reversal
+    name: 位置依存拡散の逆実験と全エントロピー生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（位置依存拡散の逆実験と全エントロピー生成）]
+    requires: [information-thermodynamics.time-reversed-protocol, information-thermodynamics.isothermal-variable-diffusion]
+
+  - id: information-thermodynamics.variable-diffusion-path-ratio
+    name: 可逆基準過程の作用と経路確率比
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（可逆基準過程の作用と経路確率比）]
+    requires: [information-thermodynamics.variable-diffusion-reversal, stochastic.girsanov-theorem]
+
+  - id: information-thermodynamics.variable-diffusion-dissipation
+    name: ゆらぎ関係と散逸平方公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（ゆらぎ関係と散逸平方公式）]
+    requires: [information-thermodynamics.variable-diffusion-path-ratio, information-thermodynamics.variable-diffusion-current]
+
+  - id: information-thermodynamics.variable-diffusion-jarzynski
+    name: 平衡初期のJarzynski等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平衡初期のJarzynski等式）]
+    requires: [information-thermodynamics.variable-diffusion-path-ratio, information-thermodynamics.diffusion-jarzynski]
