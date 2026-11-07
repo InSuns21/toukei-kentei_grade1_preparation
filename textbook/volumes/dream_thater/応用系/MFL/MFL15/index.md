@@ -188,16 +188,16 @@ $$
 
 **円周で係数を手で見る。** 単位円周の角度を $\theta$ とする。角度だけの関数 $u(\theta)$ に対し、導関数と偏微分記法の対応は
 
-$
+$$
 u'(\theta)=\frac{du}{d\theta}=\partial_\theta u,\qquad
 u''(\theta)=\partial_{\theta\theta}u=\Delta_gu.
-$
+$$
 
 さらに[円周でのLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)と同じ単位円周の計量では
 
-$
+$$
 \langle\nabla_gu,\nabla_gv\rangle_g=u'v'.
-$
+$$
 
 これらはすべて角度 $\theta$ に関する微分であり、核幅 $\varepsilon$ に関する微分ではない。
 
