@@ -88,7 +88,7 @@ chapters:
     title: "最小ノルム補間と勾配流"
   - id: SLT2-03
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-03
-    status: planned
+    status: completed
     title: "ridgeのスペクトルとbias–variance"
   - id: SLT2-04
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-04

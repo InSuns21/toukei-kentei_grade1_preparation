@@ -22,3 +22,4 @@
 
 19. [SLT2-01 過剰パラメータと線形補間](textbook/volumes/dream_thater/応用系/SLT/SLT2-01/index.md)
 20. [SLT2-02 最小ノルム補間と勾配流](textbook/volumes/dream_thater/応用系/SLT/SLT2-02/index.md)
+21. [SLT2-03 ridgeのスペクトルと偏り・分散](textbook/volumes/dream_thater/応用系/SLT/SLT2-03/index.md)
