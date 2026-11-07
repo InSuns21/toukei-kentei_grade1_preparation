@@ -77,9 +77,11 @@ $$
 [接線Gram行列](../SLT2-08/index.md#def-slt2-08-ntk)は $K_m(t)=J_m(t)J_m(t)^{\mathsf T}$ である。$J_m(t)=D_\theta F_m(\theta(t))$ は、各訓練点の予測を全パラメータで偏微分したJacobianである。任意の $v\in\mathbb R^n$ について
 
 $$
+\begin{aligned}
 v^{\mathsf T}K_m(t)v
-=v^{\mathsf T}J_m(t)J_m(t)^{\mathsf T}v
-=\|J_m(t)^{\mathsf T}v\|_2^2\ge0
+&=v^{\mathsf T}J_m(t)J_m(t)^{\mathsf T}v\\
+&=\|J_m(t)^{\mathsf T}v\|_2^2\ge0.
+\end{aligned}
 $$
 
 だから $K_m(t)\succeq0$ と判定できる。[前章までの固定核スペクトル解](../SLT2-09/index.md#thm-slt2-09-continuous-spectrum)では、この行列を固有基底で対角化して減衰率を読む。$\dot e_m=de_m/dt$ は学習時刻 $t$ に関する全微分であり、後の証明に出る $e_{\infty,m}'=de_{\infty,m}/dt$ も同じ時刻での導関数をプライムで書いただけである。一方、$D_\theta$ はパラメータに関する微分なので区別する。全パラメータのEuclid勾配流・二乗損失 $\|F_m-y\|_2^2/2$ では、[固定核と動く核の比較式](../SLT2-10/index.md#thm-slt2-10-finite-time-flow)の出発点として
