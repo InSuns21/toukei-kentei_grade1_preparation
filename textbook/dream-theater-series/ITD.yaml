@@ -18,3 +18,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD3
     status: completed
     title: 非平衡自由エネルギー・緩和・取り出せる仕事の上限
+  - id: ITD4
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD4
+    status: completed
+    title: 測定・フィードバックと情報付き第二法則
