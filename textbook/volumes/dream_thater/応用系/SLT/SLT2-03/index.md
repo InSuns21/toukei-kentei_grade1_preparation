@@ -35,6 +35,16 @@ $$
 
 係数への写像と訓練点における予測への写像を区別したい。前者は $n$ 次元の観測を $p$ 次元の係数に、後者は同じ $n$ 次元の予測に移す。この二つの作用を、特異値ごとの重みで表す。
 
+その重みは[既習のridgeの特異値縮小公式](../../ML/ML1-05/index.md#thm-ml1-05-svd-shrink)から導ける。実際、$X^{\mathsf T}y$ は右特異ベクトルの正特異値方向だけにあり、各方向では
+
+$$
+X^{\mathsf T}y=\sum_{j=1}^r s_j(u_j^{\mathsf T}y)v_j,
+\qquad
+(X^{\mathsf T}X+\mu I_p)v_j=(s_j^2+\mu)v_j.
+$$
+
+従って逆行列を掛けた係数の第 $j$ 成分には $s_j/(s_j^2+\mu)$ が掛かる。さらに $Xv_j=s_ju_j$ なので、訓練点予測ではその係数にもう一度 $s_j$ が掛かり、重みは $s_j^2/(s_j^2+\mu)$ になる。[行空間と核の直交性](../SLT2-01/index.md#thm-slt2-01-row-null-prediction)により $X^{\mathsf T}y$ は $\ker X$ と直交するため、係数 $G_\mu y$ に核方向の成分はなく、予測 $H_\mu y$ にも核方向からの寄与はない。
+
 <a id="def-slt2-03-spectral-filter"></a>
 
 <!-- formal-statement-start -->
@@ -66,7 +76,17 @@ X=\begin{pmatrix}2&0&0\\0&1/2&0\end{pmatrix},
 \qquad \mu=\frac14.
 $$
 
-この $X$ は、第一の係数を2倍、第二の係数を $1/2$ 倍して二つの観測へ写し、第三の係数は観測に全く出さない。したがって $u_1=e_1,u_2=e_2$、$v_1=e_1,v_2=e_2$、$s_1=2,s_2=1/2$ と取れる。[ridgeの特異値縮小の定理](../../ML/ML1-05/index.md#thm-ml1-05-svd-shrink)の $n\lambda=\mu$ を使えば、
+この $X$ は、第一の係数を2倍、第二の係数を $1/2$ 倍して二つの観測へ写し、第三の係数は観測に全く出さない。$e_j^{(d)}$ を $\mathbb R^d$ の第 $j$ 標準基底ベクトルとすると、
+
+$$
+\begin{aligned}
+Xe_1^{(3)}&=2e_1^{(2)},&X^{\mathsf T}e_1^{(2)}&=2e_1^{(3)},\\
+Xe_2^{(3)}&=\tfrac12e_2^{(2)},&X^{\mathsf T}e_2^{(2)}&=\tfrac12e_2^{(3)},\\
+Xe_3^{(3)}&=0.
+\end{aligned}
+$$
+
+従って階数は2であり、$u_j=e_j^{(2)}$、$v_j=e_j^{(3)}$（$j=1,2$）、$s_1=2,s_2=1/2$ が特異値分解の関係を満たす。これを上の二つのフィルタに代入すると、
 
 $$
 \begin{aligned}
@@ -77,7 +97,14 @@ h_{1/4}(2)&=\frac4{4+1/4}=\frac{16}{17},
 \end{aligned}
 $$
 
-よって $G_{1/4}y=(16/17,1,0)^{\mathsf T}$、$H_{1/4}y=(32/17,1/2)^{\mathsf T}$。後者は $XG_{1/4}y$ とも一致する。第一モードは訓練応答の $16/17$ を保つが、弱い第二モードは半分しか保たない。第三の核方向は常に係数0である。この代入で、係数側と予測側のフィルタを混同せず定義の両方を検証できた。
+各 $v_ju_j^{\mathsf T}$ と $u_ju_j^{\mathsf T}$ を重み付きで足すと、定義にある二つの行列そのものが
+
+$$
+G_{1/4}=\begin{pmatrix}8/17&0\\0&1\\0&0\end{pmatrix},
+\qquad H_{1/4}=\begin{pmatrix}16/17&0\\0&1/2\end{pmatrix}=XG_{1/4}
+$$
+
+となる。従って $G_{1/4}y=(16/17,1,0)^{\mathsf T}$、$H_{1/4}y=(32/17,1/2)^{\mathsf T}$。後者は $XG_{1/4}y$ とも一致する。第一モードは訓練応答の $16/17$ を保つが、弱い第二モードは半分しか保たない。第三の核方向は常に係数0である。この代入で、係数側と予測側のフィルタを混同せず定義の両方を検証できた。
 <!-- definition-example-end -->
 
 ## 2. フィルタが測る有効次元と雑音増幅
@@ -109,7 +136,7 @@ $$
 階数は2でも有効次元は $49/34$（1と2の間）である。この値は観測件数でも、非零特異値の個数でもない。上の二つの通過率を足した実数だと直接確認できる。
 <!-- definition-example-end -->
 
-フィルタのもう一つの用途は、応答の変化が係数をどのくらい動かし得るかを比較することである。線形写像の作用素ノルムは、入力の単位長当たりの出力の最大長を表す。
+フィルタのもう一つの用途は、応答の変化が係数をどのくらい動かし得るかを比較することである。[線形写像の2-作用素ノルム](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-operator-norm)は、入力の単位長当たりの出力の最大長を表す。
 
 <a id="thm-slt2-03-filter-stability"></a>
 
@@ -460,7 +487,7 @@ $G_\mu$、$H_\mu$、ridge係数、訓練点の適合値を求め、$X\widehat\be
 <!-- solution-start -->
 #### 詳細解答
 
-$X^{\mathsf T}X=\operatorname{diag}(4,1/4,0)$ なので
+$X^{\mathsf T}X=\operatorname{diag}(4,1/4,0)$ なので、[ridge一意解の公式](../../ML/ML1-05/index.md#thm-ml1-05-unique)を本章の $\mu=1/4$ で使うと
 
 $$
 \begin{aligned}
@@ -624,19 +651,33 @@ $$
 H_\mu Y-m=-(I_n-H_\mu)m+H_\mu\varepsilon.
 $$
 
-交差項は平均0により消える。成分展開から $\mathbb E\|H_\mu\varepsilon\|_2^2=\operatorname{tr}(H_\mu\Omega H_\mu)$ である。よって
+交差項は平均0により消える。$H_\mu=(H_{ij})$ と成分表示し、$\mathbb E[\varepsilon_j\varepsilon_k]=\Omega_{jk}$ を使うと
+
+$$
+\begin{aligned}
+\mathbb E\|H_\mu\varepsilon\|_2^2
+&=\sum_i\sum_{j,k}H_{ij}H_{ik}\mathbb E[\varepsilon_j\varepsilon_k]\\
+&=\sum_i\sum_{j,k}H_{ij}\Omega_{jk}H_{ki}
+=\operatorname{tr}(H_\mu\Omega H_\mu),
+\end{aligned}
+$$
+
+である。二行目には $H_{ik}=H_{ki}$ という対称性を使った。よって
 
 $$
 R_X(\mu)=\frac1n\|(I_n-H_\mu)m\|_2^2
 +\frac1n\operatorname{tr}(H_\mu\Omega H_\mu).
 $$
 
-$H_\mu=\sum_{j=1}^rh_ju_ju_j^{\mathsf T}$ を代入すると、$H_\mu^2=\sum_jh_j^2u_ju_j^{\mathsf T}$ と跡の巡回性により
+$H_\mu=\sum_{j=1}^rh_ju_ju_j^{\mathsf T}$ を代入する。$u_j$ が正規直交するので、$\operatorname{tr}(u_ju_k^{\mathsf T})=u_k^{\mathsf T}u_j$ は $j=k$ のときだけ1になる。従って
 
 $$
+\begin{aligned}
 \operatorname{tr}(H_\mu\Omega H_\mu)
-=\operatorname{tr}(\Omega H_\mu^2)
-=\sum_{j=1}^rh_j^2u_j^{\mathsf T}\Omega u_j.
+&=\sum_{j,k=1}^rh_jh_k(u_j^{\mathsf T}\Omega u_k)
+\operatorname{tr}(u_ju_k^{\mathsf T})\\
+&=\sum_{j=1}^rh_j^2u_j^{\mathsf T}\Omega u_j.
+\end{aligned}
 $$
 
 従って偏りの項は従来どおりだが、分散は $\tau^2\sum_jh_j^2$ ではなく各方向の $u_j^{\mathsf T}\Omega u_j$ で重み付けされる。$\Omega=\tau^2I_n$ の場合だけ前節の公式へ戻る。
@@ -721,7 +762,7 @@ $$
 =(-1/17,0,-5)^{\mathsf T},
 $$
 
-よって偏り二乗は $1/289+25$。雑音に由来する係数分散の総和は
+よって偏り二乗は $1/289+25$。[係数の偏り・分散分解](../../ML/ML1-05/index.md#thm-ml1-05-bias-variance)を本章の $G_\mu$ で表すと、雑音に由来する係数分散の総和は
 
 $$
 \tau^2\operatorname{tr}(G_\mu G_\mu^{\mathsf T})
