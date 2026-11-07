@@ -120,7 +120,7 @@ J_v^{\mathrm{irr}}=-\frac\gamma m v\pi_U
 +\frac{\gamma}{\beta m^2}\beta mv\pi_U=0.
 $$
 
-さらに $f=-U'$、$\partial_x\pi_U=-\beta U'\pi_U$ なので、残る保存則の右辺は
+ここで $U'(x)=dU(x)/dx$ は、時刻に依存しない $U_t(x)=U(x)$ の空間微分 $\partial_xU_t(x)$ を表す一変数記法です。したがって $f=-U'$、$\partial_x\pi_U=-\beta U'\pi_U$ なので、残る保存則の右辺は
 
 $$
 -\partial_x(v\pi_U)-\partial_v\!\left(\frac{-U'}m\pi_U\right)
@@ -134,7 +134,13 @@ $$
 
 ## 3. 速度の変化が浴熱になる
 
-力が加えた仕事 $\int f_tV_tdt$ の一部は速度を変えるために蓄えられ、残りが浴へ渡ります。位置 $Z$ は有限変動なので、$U_t(X_t)$ には通常の連鎖律が使えます。一方、速度には二次変分があるため、浴とのエネルギー交換を表す積はStratonovich積分にします。
+力が加えた仕事 $\int f_tV_tdt$ の一部は速度を変えるために蓄えられ、残りが浴へ渡ります。位置 $Z$ は有限変動なので、$U_t(X_t)$ には通常の連鎖律が使えます。$\partial_tU_t(x)$ は位置 $x$ を固定した時刻の偏微分、$dU_t(X_t)/dt$ は実際の位置経路に沿った全微分です。$dX_t/dt=V_t$ を周期関数の持ち上げで解釈すると、両者の関係は
+
+$$
+\frac d{dt}U_t(X_t)=\partial_tU_t(X_t)+\partial_xU_t(X_t)V_t
+$$
+
+となります。一方、速度には二次変分があるため、浴とのエネルギー交換を表す積は[Stratonovich積分](../../../解析系/STO/STO7/index.md#def-sto7-stratonovich-integral)にします。
 
 <a id="def-itd15-work-heat"></a>
 
@@ -151,13 +157,13 @@ Q_{\mathrm{bath}}&=\int_0^\tau\gamma V_t^2dt
 \end{aligned}
 $$
 
-> とする。$\circ dB_t$ はStratonovich積分であり、通常のItô積分とは区別する。
+> とする。$\circ dB_t$ は[Stratonovich積分](../../../解析系/STO/STO7/index.md#def-sto7-stratonovich-integral)であり、通常のItô積分とは区別する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-itd15-work-heat -->
 **定義の確認**
 
-**直接例（自由な粒子の熱）**：$U=F=0$ は周期性と正の温度・摩擦の条件を満たし、上の定義に代入すると $W=0$ です。この場合の速度方程式へ $V_t$ をStratonovich積の意味で掛け、$mV_t\circ dV_t=d(mV_t^2/2)$ を使うと
+**直接例（自由な粒子の熱）**：$U=F=0$ は周期性と正の温度・摩擦の条件を満たし、上の定義に代入すると $W=0$ です。この場合の速度方程式へ $V_t$ をStratonovich積の意味で掛け、[Stratonovich連鎖律](../../../解析系/STO/STO7/index.md#thm-sto7-stratonovich-composition)を $K(v)=mv^2/2$ に適用した $mV_t\circ dV_t=dK(V_t)$ を使うと
 
 $$
 \frac m2(V_\tau^2-V_0^2)
@@ -196,7 +202,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-拡散係数が一定なので速度方程式はItô形でもStratonovich形でも同じドリフトを持ちます。それに $V_t$ をStratonovich積の意味で掛ければ
+速度の雑音係数 $\sqrt{2\gamma/\beta}/m$ は $V_t$ に依存しないので、[Itô–Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)のドリフト補正は零です。したがって速度方程式は両形式で同じドリフトを持ちます。[Stratonovich連鎖律](../../../解析系/STO/STO7/index.md#thm-sto7-stratonovich-composition)を $K(v)=mv^2/2$ に適用し、速度方程式へ $V_t$ を掛けると
 
 $$
 \frac m2d(V_t^2)=mV_t\circ dV_t
@@ -221,7 +227,7 @@ $$
 $f_t=F_t-\partial_xU_t$ を代入して二式を足すと、$\partial_xU_tV_t$ が相殺され、$\Delta E=\int\partial_tU_tdt+\int F_tV_tdt-Q_{\mathrm{bath}}=W-Q_{\mathrm{bath}}$ です。最初の式を $Q_{\mathrm{bath}}$ について解けば第二式も得られます。
 <!-- proof-end -->
 
-**Itô形での直接検算**：$d(V_t^2/2)=V_tdV_t+D_vdt$ なので、浴熱の期待値には雑音の補正が残ります。
+**Itô形での直接検算**：[Itô公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から $d(V_t^2/2)=V_tdV_t+D_vdt$ です。[Itô–Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)を $V_t\circ dB_t$ に使うと、浴熱の期待値には雑音の補正が残ります。Itô積分の平均は零なので
 
 $$
 \begin{aligned}
@@ -298,7 +304,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$M(v)=\sqrt{\beta m/(2\pi)}e^{-\beta mv^2/2}$、$r(x,v)=M(v)/L$ とします。基準実験 $R$ を、初期密度 $r$、力 $f=0$ の慣性付き過程とします。速度のOrnstein–Uhlenbeck過程はMaxwell密度で可逆であり、$dZ=Vdt$ の向きも $V\mapsto -V$ により反転されるため $\Theta_*R=R$ です。この性質は積分形 $Z_t-Z_0=\int_0^tV_sds$ と、速度の定常Gaussian過程の共分散 $\mathbb E[V_sV_t]=e^{-\gamma|t-s|/m}/(\beta m)$ からも直接確認できます。初期位置の一様性により円周上の始終位置の分布も同じです。
+Maxwell速度密度と円周一様位置密度の積を
+
+$$
+M(v)=\sqrt{\frac{\beta m}{2\pi}}e^{-\beta mv^2/2},
+\qquad r(x,v)=\frac{M(v)}L
+$$
+
+とします。基準実験 $R$ は初期密度 $r$、力 $f=0$ の慣性付き過程です。自由な速度の定常Ornstein–Uhlenbeck過程は、平均零のGaussian過程で、その共分散は
+
+$$
+\mathbb E[V_sV_t]=\frac{e^{-\gamma|t-s|/m}}{\beta m}.
+$$
+
+この共分散は時間差の絶対値だけで決まるので、速度の時間反転と符号反転 $V_s\mapsto -V_{\tau-s}$ の前後で有限次元分布が一致します。位置は $Z_t-Z_0=\int_0^tV_sds$ と速度から求められ、速度を反転すれば位置の進行方向も反転します。速度経路を固定しても初期位置が円周上で一様なので、反転後の始点 $X_\tau$ も速度経路と独立に一様となります。したがって結合経路法則は $\Theta_*R=R$ を満たします。
 
 基準過程では $m\,dV=-\gamma Vdt+\sqrt{2\gamma/\beta}\,dB$ です。ドリフト差 $f/m$ をBrown変位の係数へ直すと $h_t=f_t(X_t)\sqrt{\beta/(2\gamma)}$ となります。$f$ は有界なので $\int_0^\tau h_t^2dt$ は確定的定数で抑えられ、[Girsanov定理](../../../解析系/STO/STO10/index.md#thm-sto10-girsanov)のNovikov条件が成立します。基準法則 $R$ に対する正実験の対数密度は
 
@@ -314,7 +333,7 @@ A_f(\Gamma)
 \end{aligned}
 $$
 
-最後の行では基準過程の $\sqrt{2\gamma/\beta}\,dB=m\,dV+\gamma Vdt$ を代入しました。$X_t$ は有限変動なので $[f_t(X_t),V]_\tau=0$ です。したがって最初の $\int f\,dV$ はItô積分でもStratonovich積分でも一致し、部分積分
+最後の行では基準過程の $\sqrt{2\gamma/\beta}\,dB=m\,dV+\gamma Vdt$ を代入しました。$X_t$ は有限変動なので $[f_t(X_t),V]_\tau=0$ です。したがって[Itô–Stratonovich変換](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)により最初の $\int f\,dV$ は両形式で一致します。ここで $g_t=f_t(X_t)$ と置けば通常の連鎖律から $dg_t=\{\partial_tf_t(X_t)+\partial_xf_t(X_t)V_t\}dt$ であり、部分積分
 
 $$
 \int_0^\tau f_t(X_t)dV_t
@@ -322,7 +341,19 @@ $$
 -\int_0^\tau V_t\{\partial_tf_t(X_t)+\partial_xf_t(X_t)V_t\}dt
 $$
 
-を満たします。逆経路 $\Theta\Gamma$ と逆向きの力 $f^{\mathrm R}_s=f_{\tau-s}$ について同じ部分積分を用いると、$fV$ の両端が同じ符号となり、$V\{\partial_tf+\partial_x f\,V\}$ の積分も同じです。ゆえに
+を満たします。逆経路では $g_s^{\mathrm R}=f_s^{\mathrm R}(X_{\tau-s})=g_{\tau-s}$、$V_s^{\mathrm R}=-V_{\tau-s}$ です。$g$ は微分可能で $dg_s^{\mathrm R}/ds=-\dot g_{\tau-s}$ なので、部分積分の境界項と積分項はそれぞれ
+
+$$
+\begin{aligned}
+[g_s^{\mathrm R}V_s^{\mathrm R}]_0^\tau
+&=-g_0V_0+g_\tau V_\tau,\\
+\int_0^\tau V_s^{\mathrm R}\,dg_s^{\mathrm R}
+&=\int_0^\tau V_{\tau-s}\dot g_{\tau-s}\,ds
+=\int_0^\tau V_t\dot g_t\,dt.
+\end{aligned}
+$$
+
+したがって双方の差は零で、
 
 $$
 \int_0^\tau f^{\mathrm R}_s(X_{\tau-s})d(-V_{\tau-s})
@@ -532,7 +563,7 @@ $$
 正実験の終端密度は $\rho_\tau$ なので、期待値を取れば $D(\rho_\tau\|\pi_\tau)$ です。これで三式目を得ます。
 <!-- proof-end -->
 
-相対エントロピーと[散逸平方公式](#thm-itd15-dissipation)はいずれも非負です。したがって平均仕事は平衡自由エネルギー差を下回りません。$F\ne0$ の場合、ここでの $\pi_t$ は外力を取り除いたHamiltonianから作った**Gibbs密度**であり、外力を加えた実過程の定常分布と取り違えないでください。
+相対エントロピーと[散逸平方公式](#thm-itd15-dissipation)はいずれも非負です。したがって平均仕事は平衡自由エネルギー差を下回りません。外力 $F_t$ と自由エネルギー $F_{\mathrm{eq}}(t)$ は別の量です。$F_t\ne0$ の場合、ここでの $\pi_t$ は外力を取り除いたHamiltonianから作った**Gibbs密度**であり、外力を加えた実過程の定常分布と取り違えないでください。
 
 ## 7. 演習（全問詳細解答）
 
@@ -551,7 +582,7 @@ $$
 \mathbb E[V_t]=e^{-at}v_0.
 $$
 
-Itô等長性を適用すると
+[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)（単純被積分過程から二乗平均で拡張）を適用すると
 
 $$
 \begin{aligned}
@@ -667,11 +698,11 @@ $J_x=v\rho$ は位置に依存しないので、保存則の発散は零です�
 <!-- solution-start -->
 **詳細解答**
 
-定常なので $\rho_\tau=\rho_0=\rho_{\mathrm{st}}$ です。$u=F/\gamma$ とし、Gaussian対数比を展開すると
+定常なので $\rho_\tau=\rho_0=\rho_{\mathrm{st}}$ です。位置一様因子 $1/L$ は始終比で相殺されます。$u=F/\gamma$ とし、速度密度のGaussian対数比を展開すると
 
 $$
 \begin{aligned}
-\log\frac{\rho_{\mathrm{st}}(V_0)}{\rho_{\mathrm{st}}(V_\tau)}
+\log\frac{\rho_{\mathrm{st}}(X_0,V_0)}{\rho_{\mathrm{st}}(X_\tau,V_\tau)}
 &=\frac{\beta m}{2}\{(V_\tau-u)^2-(V_0-u)^2\}\\
 &=\beta\Delta K-\beta mu(V_\tau-V_0).
 \end{aligned}
@@ -748,7 +779,26 @@ $$
 =-\int_0^\tau f_t(X_t)V_tdt.
 $$
 
-$\int f\,dV$ は $f_t(X_t)$ が有限変動なので部分積分できます。[経路比の証明](#thm-itd15-path-ratio)の式で端点と $df_t(X_t)=(\partial_tf+\partial_xf\,V)dt$ を明示しておくと、反転後も二つの端点項、積分項とも不変です。従って作用差は二番目の項の二倍
+$\int f\,dV$ は $g_t=f_t(X_t)$ が有限変動なので部分積分できます。[経路比の証明](#thm-itd15-path-ratio)の計算をここでも出発点から確かめます。$\dot g_t=\partial_tf_t(X_t)+\partial_xf_t(X_t)V_t$ とすると、正向きでは
+
+$$
+\int_0^\tau g_t\,dV_t=g_\tau V_\tau-g_0V_0-\int_0^\tau V_t\dot g_t\,dt.
+$$
+
+逆向きで $g_s^{\mathrm R}=g_{\tau-s}$、$V_s^{\mathrm R}=-V_{\tau-s}$ なので $dg_s^{\mathrm R}=-\dot g_{\tau-s}ds$ です。端点と残りの積分を別々に代入すると
+
+$$
+\begin{aligned}
+\int_0^\tau g_s^{\mathrm R}\,dV_s^{\mathrm R}
+&=[g_s^{\mathrm R}V_s^{\mathrm R}]_0^\tau
+-\int_0^\tau V_s^{\mathrm R}\,dg_s^{\mathrm R}\\
+&=g_\tau V_\tau-g_0V_0
+-\int_0^\tau V_t\dot g_t\,dt
+=\int_0^\tau g_t\,dV_t.
+\end{aligned}
+$$
+
+従って作用差は二番目の項の二倍
 
 $$
 A_f(\Gamma)-A_{f^{\mathrm R}}(\Theta\Gamma)
@@ -788,7 +838,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\partial_xU_t=-ka(t)\sin(kx)$ なので $f_t(x)=b(t)+ka(t)\sin(kx)$ です。定義をそのまま代入して
+$\partial_xU_t=-ka(t)\sin(kx)$ なので $f_t(x)=b(t)+ka(t)\sin(kx)$ です。ここで $a'(t)=da(t)/dt$ は時刻だけの関数 $a$ の導関数で、位置を固定した偏微分は $\partial_tU_t(x)=a'(t)\cos(kx)$ です。定義をそのまま代入して
 
 $$
 \begin{aligned}
