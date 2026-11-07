@@ -1,0 +1,59 @@
+chapter: ITD5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD1
+  - ITD3
+  - ITD4
+  - SM3
+  - INFO1
+forward_references: []
+concepts:
+  - id: information-thermodynamics.physical-memory-reset
+    name: 有限状態記憶の物理的reset
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限状態記憶の物理的reset）]
+    requires: [information-thermodynamics.finite-controlled-jump-model, information-thermodynamics.local-detailed-balance]
+
+  - id: information-thermodynamics.memory-entropy
+    name: 記憶の情報エントロピーと二値エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（記憶の情報エントロピーと二値エントロピー）]
+    requires: [information.shannon-entropy, information-thermodynamics.physical-memory-reset]
+
+  - id: information-thermodynamics.reset-work-bound
+    name: 有限記憶resetの平均仕事下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（有限記憶resetの平均仕事下限）]
+    requires: [information-thermodynamics.physical-memory-reset, information-thermodynamics.memory-entropy, information-thermodynamics.nonequilibrium-work-bound]
+
+  - id: information-thermodynamics.landauer-bound
+    name: 等エネルギー一様ビットのLandauer下限
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（等エネルギー一様ビットのLandauer下限）]
+    requires: [information-thermodynamics.reset-work-bound, information-thermodynamics.path-first-law]
+
+  - id: information-thermodynamics.biased-error-reset
+    name: 偏りと誤りを含む二状態resetの下限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（偏りと誤りを含む二状態resetの下限）]
+    requires: [information-thermodynamics.reset-work-bound, information-thermodynamics.memory-entropy]
+
+  - id: information-thermodynamics.quasistatic-reset
+    name: 有限誤りresetの可逆極限構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（有限誤りresetの可逆極限構成）]
+    requires: [information-thermodynamics.biased-error-reset, statistical-mechanics.canonical-ensemble]
+
+  - id: information-thermodynamics.reset-energy-gap
+    name: 終端準位を変更した二状態記憶の下限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（終端準位を変更した二状態記憶の下限）]
+    requires: [information-thermodynamics.reset-work-bound, information-thermodynamics.path-first-law]

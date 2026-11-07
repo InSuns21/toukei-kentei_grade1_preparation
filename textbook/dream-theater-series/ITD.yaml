@@ -22,3 +22,7 @@ chapters:
     path: textbook/volumes/dream_thater/物理系/ITD/ITD4
     status: completed
     title: 測定・フィードバックと情報付き第二法則
+  - id: ITD5
+    path: textbook/volumes/dream_thater/物理系/ITD/ITD5
+    status: completed
+    title: 物理的記憶とLandauer原理：消去に必要な仕事
