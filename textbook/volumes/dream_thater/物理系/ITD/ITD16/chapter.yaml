@@ -1,0 +1,40 @@
+id: "ITD16"
+title: "慣性から位置拡散へ：Smoluchowski–Kramers極限と消えない運動エネルギー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD15
+official_scope: []
+learning_objectives:
+  - 一定力下の慣性付きLangevin方程式を積分して位置・速度の明示式を導ける
+  - 平衡初期速度での変位の平均・分散と仕事のGaussian指数平均を検算できる
+  - 同じBrown運動を用いた位置の過減衰極限を二乗平均で証明できる
+  - 等温の仕事・浴熱と運動エネルギー境界項を区別し、熱の非収束を説明できる
+  - 速度の緩和時の散逸平方積分と終端相対エントロピーの収支を検算できる
+definitions:
+  - { id: ITD16-DEF-01, name: 一定力の慣性付き実験 }
+  - { id: ITD16-DEF-02, name: 位置だけの過減衰比較実験 }
+theorems:
+  - { id: ITD16-THM-01, name: 速度・位置の積分表示と変位の分布 }
+  - { id: ITD16-THM-02, name: 位置のSmoluchowski–Kramers極限 }
+  - { id: ITD16-THM-03, name: Gaussian仕事関係と散逸の帳簿 }
+  - { id: ITD16-THM-04, name: 運動エネルギー境界項の非消失 }
+canonical_examples:
+  - 平衡Maxwell初期速度から一定外力を加えたGaussian変位
+  - 同じBrown運動で結合した位置経路の小質量極限
+  - 定常な自由粒子の熱が零平均でも零確率変数にはならない例
+problem_patterns:
+  - ITD16-OU-SOLUTION
+  - ITD16-INTEGRATED-OU
+  - ITD16-TRANSIENT-MEAN
+  - ITD16-VELOCITY-COVARIANCE
+  - ITD16-MAXWELL-KINETIC
+  - ITD16-DISPLACEMENT-VARIANCE
+  - ITD16-GAUSSIAN-WORK
+  - ITD16-HEAT-NONCONVERGENCE
+  - ITD16-ENTROPY-BUDGET
+  - ITD16-COMBINED-LIMIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 5 }

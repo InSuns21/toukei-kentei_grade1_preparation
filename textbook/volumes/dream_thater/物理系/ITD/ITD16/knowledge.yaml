@@ -1,0 +1,48 @@
+chapter: ITD16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ITD15
+forward_references: []
+concepts:
+  - id: information-thermodynamics.constant-force-inertial
+    name: 一定力の慣性付き実験
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一定力の慣性付き実験）]
+    requires: [information-thermodynamics.inertial-langevin]
+
+  - id: information-thermodynamics.integrated-ou-displacement
+    name: 速度・位置の積分表示と変位の分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（速度・位置の積分表示と変位の分布）]
+    requires: [information-thermodynamics.constant-force-inertial]
+
+  - id: information-thermodynamics.overdamped-comparison
+    name: 位置だけの過減衰比較実験
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（位置だけの過減衰比較実験）]
+    requires: [information-thermodynamics.constant-force-inertial]
+
+  - id: information-thermodynamics.smoluchowski-kramers-limit
+    name: 位置のSmoluchowski–Kramers極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（位置のSmoluchowski–Kramers極限）]
+    requires: [information-thermodynamics.overdamped-comparison, information-thermodynamics.integrated-ou-displacement]
+
+  - id: information-thermodynamics.gaussian-work-budget
+    name: Gaussian仕事関係と散逸の帳簿
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Gaussian仕事関係と散逸の帳簿）]
+    requires: [information-thermodynamics.integrated-ou-displacement, information-thermodynamics.inertial-jarzynski, information-thermodynamics.inertial-dissipation]
+
+  - id: information-thermodynamics.kinetic-boundary-nonvanishing
+    name: 運動エネルギー境界項の非消失
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（運動エネルギー境界項の非消失）]
+    requires: [information-thermodynamics.overdamped-comparison, information-thermodynamics.inertial-first-law]
