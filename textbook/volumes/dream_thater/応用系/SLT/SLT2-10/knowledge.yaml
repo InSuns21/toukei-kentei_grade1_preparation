@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - SLT2-09
   - SLT2-08
+  - ODE8
 concepts:
   - id: learning.slt2-infinite-width-ntk
     name: 有限入力の無限幅NTK極限
@@ -28,6 +29,7 @@ concepts:
     requires:
       - learning.slt2-ntk-initial-concentration
       - learning.slt2-neural-kernel-drift
+      - ode.ode8-continuation
   - id: learning.slt2-ntk-finite-time-flow
     name: 無限幅NTKと有限時間の予測近似
     kind: theorem

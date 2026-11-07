@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - SLT2-09
   - SLT2-08
+  - ODE8
 official_scope: []
 learning_objectives:
   - NTKパラメータ化と有限入力・有限時間・独立初期化の仮定を区別して記述できる
