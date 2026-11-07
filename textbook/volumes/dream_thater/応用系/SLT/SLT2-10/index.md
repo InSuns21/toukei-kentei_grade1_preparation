@@ -42,7 +42,16 @@ $$
 
 初期化は、ニューロンごとの組 $(a_r(0),q_r(0))$ が $r$ に関して独立同分布で、$a_r(0)$ は $q_r(0)$ と独立、$\mathbb E a_r(0)=0$、$|a_r(0)|\le A$（ある有限定数 $A$）とする。$q_r(0)$ の分布そのものを有界にする必要はない。期待値は**この初期化乱数**に関するもので、訓練入力と教師は固定値である。
 
-全パラメータ $\theta=((a_r,q_r))_{r=1}^m$ に対して損失 $L_m(\theta)=\|F_m(\theta)-y\|_2^2/2$ を最小化する連続時間のEuclid勾配流を使う。ここでも $1/n$ は付けない。$F_m=(f_m(x_i))_{i=1}^n$、$e_m=F_m-y$、$J_m=D_\theta F_m$ とする。ここで $D_\theta$ はパラメータに関する微分、点記法 $\dot\theta=d\theta/dt$、$\dot e_m=de_m/dt$ は学習時刻 $t$ に関する全微分を表す。一方、$\sigma'(z),\sigma''(z)$ は活性化の引数 $z$ に関する導関数である。この区別の下で、[ニューラルネットの予測方程式](../SLT2-08/index.md#thm-slt2-08-drift-update)と同じ連鎖律から
+全パラメータ $\theta=((a_r,q_r))_{r=1}^m$ を学習する。訓練点予測と残差を列ベクトルとして並べ、損失は標本数では割らずに、次のように置く。
+
+$$
+\begin{aligned}
+F_m(\theta)&=(f_m(x_i;\theta))_{i=1}^n,\qquad e_m=F_m-y,\\
+L_m(\theta)&=\frac12\|F_m(\theta)-y\|_2^2,\qquad J_m=D_\theta F_m.
+\end{aligned}
+$$
+
+$D_\theta$ はパラメータに関する微分を表す。点記法の $\dot\theta=d\theta/dt$ と $\dot e_m=de_m/dt$ は学習時刻に関する全微分であり、$\sigma'(z),\sigma''(z)$ は活性化の引数に関する導関数である。この区別の下で、連続時間のEuclid勾配流と[ニューラルネットの予測方程式](../SLT2-08/index.md#thm-slt2-08-drift-update)の連鎖律から
 
 $$
 \dot\theta=-J_m^{\mathsf T}e_m,\qquad
