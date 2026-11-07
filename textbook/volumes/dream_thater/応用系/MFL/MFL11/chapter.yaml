@@ -1,0 +1,46 @@
+id: "MFL11"
+title: "Laplacian Eigenmaps"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL7
+  - SGT1
+  - SGT2
+official_scope: []
+learning_objectives:
+  - 点群の対称非負近傍重みからDirichletエネルギーと埋め込み変分問題を構成できる
+  - 非正規化・次数正規化の制約と一般化固有値問題の対応を証明できる
+  - 固有値の重複、座標の符号と直交回転の不定性を説明できる
+  - 三点道の重み、次数、固有値、埋め込みを手計算できる
+  - 孤立点・非連結・小さい橋での退化と失敗機構を診断できる
+  - 再現可能な数値実験で行列、固有残差、制約、エネルギーを検算できる
+definitions:
+  - { id: MFL11-DEF-01, name: Laplacian Eigenmapsの変分問題 }
+  - { id: MFL11-DEF-02, name: 正次数集合上のEigenmaps }
+theorems:
+  - { id: MFL11-PROP-01, name: 埋め込みエネルギーの行列表示 }
+  - { id: MFL11-THM-01, name: Laplacian Eigenmapsの固有値最小化 }
+  - { id: MFL11-PROP-02, name: 非正規化Eigenmapsとの比較 }
+  - { id: MFL11-PROP-03, name: 非連結・孤立点の埋め込み不定性 }
+  - { id: MFL11-PROP-04, name: スケーリングと直交変換の不変性 }
+canonical_examples:
+  - 三点道の次数正規化一次元Eigenmapsと固有値
+  - 三点道の非正規化との相違
+  - 二つの連結成分の複数零モード
+  - 孤立点の次数正規化不可能性
+  - 細い橋と固有値の接近
+problem_patterns:
+  - MFL11-A01
+  - MFL11-A02
+  - MFL11-A03
+  - MFL11-A04
+  - MFL11-B01
+  - MFL11-B02
+  - MFL11-B03
+  - MFL11-B04
+  - MFL11-C01
+  - MFL11-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }

@@ -1,0 +1,57 @@
+chapter: MFL11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL7
+  - SGT1
+  - SGT2
+
+concepts:
+  - id: manifold-learning.laplacian-eigenmaps-variational
+    name: Laplacian Eigenmapsの変分問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Laplacian Eigenmapsの変分問題）"]
+    requires: [manifold-learning.knn-graph-symmetrization, spectral-graph.dirichlet-energy]
+
+  - id: manifold-learning.laplacian-eigenmaps-matrix-energy
+    name: 埋め込みエネルギーの行列表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（埋め込みエネルギーの行列表示）"]
+    requires: [manifold-learning.laplacian-eigenmaps-variational]
+
+  - id: manifold-learning.laplacian-eigenmaps-positive-degree
+    name: 正次数集合上のEigenmaps
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正次数集合上のEigenmaps）"]
+    requires: [manifold-learning.laplacian-eigenmaps-variational, spectral-graph.positive-degree-domain]
+
+  - id: manifold-learning.laplacian-eigenmaps-spectral
+    name: Laplacian Eigenmapsの固有値最小化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Laplacian Eigenmapsの固有値最小化）"]
+    requires: [manifold-learning.laplacian-eigenmaps-positive-degree, manifold-learning.laplacian-eigenmaps-matrix-energy, spectral-graph.normalized-spectrum-kernel, linear.spectral-theorem]
+
+  - id: manifold-learning.laplacian-eigenmaps-unnormalized
+    name: 非正規化Eigenmapsとの比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非正規化Eigenmapsとの比較）"]
+    requires: [manifold-learning.laplacian-eigenmaps-spectral, spectral-graph.gap-variational]
+
+  - id: manifold-learning.laplacian-eigenmaps-degenerate
+    name: 非連結・孤立点の埋め込み不定性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非連結・孤立点の埋め込み不定性）"]
+    requires: [manifold-learning.laplacian-eigenmaps-positive-degree, spectral-graph.normalized-spectrum-kernel]
+
+  - id: manifold-learning.laplacian-eigenmaps-invariance
+    name: スケーリングと直交変換の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（スケーリングと直交変換の不変性）"]
+    requires: [manifold-learning.laplacian-eigenmaps-spectral]

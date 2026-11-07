@@ -48,7 +48,7 @@ chapters:
     title: "Locally Linear Embedding"
   - id: MFL11
     path: textbook/volumes/dream_thater/応用系/MFL/MFL11
-    status: planned
+    status: completed
     title: "Laplacian Eigenmaps"
   - id: MFL12
     path: textbook/volumes/dream_thater/応用系/MFL/MFL12

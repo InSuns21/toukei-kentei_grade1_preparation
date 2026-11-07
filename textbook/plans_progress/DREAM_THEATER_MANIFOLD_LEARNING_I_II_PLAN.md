@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-08（MFL10のLocally Linear Embeddingまで執筆）
-状態: in_progress（MFL1〜MFL10 完成、MFL11〜MFL43 は未実装）
+改訂日: 2026-11-08（MFL11のLaplacian Eigenmapsまで執筆）
+状態: in_progress（MFL1〜MFL11 完成、MFL12〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -284,5 +284,7 @@ ML1-12 + ML2-15 → MFL43（対照実験）
 - **MFL5 completed**：局所PCAと射影距離、曲率による共分散摂動、固有値ギャップと射影誤差、標本集中・有界ノイズ・観測近傍の選択誤差。主要命題6件と A4/B4/C2 の詳細解答、放物線の再現可能なPython実験を実装。
 - **MFL7〜MFL8 completed**：近傍グラフ、二重中心化とClassical MDSを章別に実装。後続章との直接 prerequisite・数値実験・査読は各章の正本に従う。
 - **MFL9 completed**：非負辺長の最短路距離、有限Isomap、距離の条件付き比較、等間隔円弧の二次誤差、U字shortcut、四点サイクルの負固有値、再現可能なPython実験を実装。
-- **MFL10〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- **MFL10 completed**：局所再構成重み、ridge正則化、LLE固有値問題と退化を実装。
+- **MFL11 completed**：グラフDirichletエネルギーの最小化、正規化一般化固有値問題、非連結・孤立点を含む失敗診断、Python実験を実装。
+- **MFL12〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
 - 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。
