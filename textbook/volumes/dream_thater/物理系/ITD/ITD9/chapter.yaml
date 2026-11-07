@@ -1,0 +1,46 @@
+id: "ITD9"
+title: "自律的な情報流：二部分系の第二法則と定常熱流"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ITD1
+  - ITD4
+  - ITD6
+  - ITD7
+  - ITD8
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 二部分系の片方だけが跳ぶ有限状態Markov模型を定義し、辺ごとの流とmaster方程式を計算できる
+  - 相互情報量の時間微分をX遷移とY遷移の情報流へ分解し、符号を具体例で確認できる
+  - 部分系ごとのエントロピー生成率と情報流補正を局所詳細釣合いから証明できる
+  - 二浴四状態の定常模型で分布・流・熱・情報流・散逸を独立に検算できる
+  - 部分系の見かけの第二法則、全装置の第二法則、仕事抽出の条件を混同せず適用限界を説明できる
+definitions:
+  - { id: ITD9-DEF-01, name: 二部分系ジャンプ模型と部分確率流 }
+  - { id: ITD9-DEF-02, name: 部分系の情報流 }
+theorems:
+  - { id: ITD9-THM-01, name: 相互情報量の時間変化の分解 }
+  - { id: ITD9-THM-02, name: 情報流を含む部分系の第二法則 }
+  - { id: ITD9-COR-01, name: 有限時間と定常状態の情報流不等式 }
+  - { id: ITD9-PROP-01, name: 二浴四状態の自律的情報流と熱収支 }
+  - { id: ITD9-PROP-02, name: 単一浴の定常状態では情報流が消える }
+canonical_examples:
+  - 相関した二値変数の各遷移流と条件付き確率
+  - 二つの浴に接する四状態系の熱流・相互情報流・局所散逸
+  - 単一浴と二浴で定常相関の流れが異なる例
+problem_patterns:
+  - ITD9-JOINT-MARGINAL
+  - ITD9-BIPARTITE-FLUX
+  - ITD9-INFORMATION-FLOW
+  - ITD9-BATH-HEAT
+  - ITD9-PARTIAL-ENTROPY
+  - ITD9-ENTROPY-DECOMPOSITION
+  - ITD9-ZERO-MARGINAL-CHANGE
+  - ITD9-PRODUCT-STATE
+  - ITD9-SINGLE-BATH
+  - ITD9-GENERAL-TWO-BATH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 4 }
