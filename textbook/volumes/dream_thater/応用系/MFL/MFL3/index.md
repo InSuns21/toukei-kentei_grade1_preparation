@@ -33,7 +33,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl3-nearest -->
-**定義の確認**。半径 $R>0$ の円周 $S_R^1=\{x\in\mathbb R^2:\|x\|=R\}$ は $(R,0)$ を含み、連続なノルム写像による閉集合 $\{R\}$ の逆像なので、空でない閉集合である。$z=(R+s,0)$（$s>0$）を取り、候補 $x=(R,0)$ までの距離は $s$ である。円周上の任意の点は $y=(R\cos\theta,R\sin\theta)$（$\theta\in\mathbb R$）と表せるから、
+**定義の確認**。半径 $R>0$ の円周 $S_R^1=\{x\in\mathbb R^2:\|x\|=R\}$ は $(R,0)$ を含み、連続なノルム写像による閉集合 $\{R\}$ の逆像なので、空でない閉集合である。
+
+$z=(R+s,0)$（$s>0$）を取り、候補 $x=(R,0)$ までの距離は $s$ である。円周上の任意の点は $y=(R\cos\theta,R\sin\theta)$（$\theta\in\mathbb R$）と表せるから、
 
 $$
 \|z-y\|^2=(R+s)^2+R^2-2R(R+s)\cos\theta\ge s^2,
@@ -465,7 +467,20 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-任意の $x\in M$ に対し $\operatorname{dist}(z,M)\le\|z-x\|\le\|z-w\|+\|w-x\|$。左端を固定し、右端の $x\in M$ に関する下限を取れば $\operatorname{dist}(z,M)\le\|z-w\|+\operatorname{dist}(w,M)$。$z,w$ を交換して二不等式を合わせると
+任意の $x\in M$ に対し、三角不等式より
+
+$$
+\operatorname{dist}(z,M)\le\|z-x\|
+\le\|z-w\|+\|w-x\|
+$$
+
+となる。左端は $x$ に依存しないため、右端の $x\in M$ に関する下限を取れば
+
+$$
+\operatorname{dist}(z,M)\le\|z-w\|+\operatorname{dist}(w,M)
+$$
+
+となる。$z,w$ を交換して二不等式を合わせると
 
 $$
 |\operatorname{dist}(z,M)-\operatorname{dist}(w,M)|\le\|z-w\|.
@@ -511,7 +526,15 @@ $R>0,a>0$ の螺旋 $H(t)=(R\cos t,R\sin t,at)$ を考える。以下を一続�
 <!-- solution-start -->
 #### 詳細解答
 
-$H'(t)=(-R\sin t,R\cos t,a)$ だから速度の大きさは定数 $v=\sqrt{R^2+a^2}>0$。元の角度パラメータ $t$ と弧長を区別するため $\ell=vt$ と置き、$\gamma(\ell)=H(\ell/v)$ とする。$H'$ は $t$ による微分、$\gamma'$ は $\ell$ による微分である。連鎖律から $\gamma'(\ell)=H'(\ell/v)/v$ となり $\|\gamma'\|=1$。さらに $v$ は定数なので、もう一度 $\ell$ で微分すると
+$H'(t)=(-R\sin t,R\cos t,a)$ だから、速度の大きさは定数 $v=\sqrt{R^2+a^2}>0$。元の角度パラメータ $t$ と弧長を区別するため、$\ell=vt$ と置いて $\gamma(\ell)=H(\ell/v)$ とする。$H'$ は $t$ による微分、$\gamma'$ は $\ell$ による微分である。連鎖律から
+
+$$
+\gamma'(\ell)=\frac1vH'(\ell/v),
+\qquad
+\|\gamma'(\ell)\|=\frac{\sqrt{R^2+a^2}}{v}=1
+$$
+
+となる。さらに $v$ は定数なので、もう一度 $\ell$ で微分すると
 
 $$
 \gamma''(\ell)=\frac1{v^2}H''(\ell/v)
