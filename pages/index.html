@@ -92,6 +92,34 @@
     var currentSiteMeta = null;
 
     if ('serviceWorker' in navigator) {
+      // A Docsify tab can stay open across several Pages deployments without
+      // navigating the document. Check for a new worker when it comes back
+      // online or into the foreground, rather than leaving its Markdown stale.
+      var hadServiceWorkerController = Boolean(navigator.serviceWorker.controller);
+      var reloadingForServiceWorkerUpdate = false;
+      var lastServiceWorkerUpdateCheck = 0;
+
+      function checkForServiceWorkerUpdate(force) {
+        if (!navigator.onLine) return;
+        var now = Date.now();
+        if (!force && now - lastServiceWorkerUpdateCheck < 10 * 60 * 1000) return;
+        lastServiceWorkerUpdateCheck = now;
+        navigator.serviceWorker.getRegistration('./').then(function (registration) {
+          if (registration) return registration.update();
+        }).catch(function (error) {
+          console.warn('Service Worker update check failed:', error);
+        });
+      }
+
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        // The initial installation must not reload a first-time visitor.
+        // An existing controller being replaced means the old page may have
+        // rendered an older lecture before the new worker took control.
+        if (!hadServiceWorkerController || !navigator.onLine || reloadingForServiceWorkerUpdate) return;
+        reloadingForServiceWorkerUpdate = true;
+        window.location.reload();
+      });
+
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('./service-worker.js', {
           scope: './',
@@ -101,6 +129,15 @@
         }).catch(function (error) {
           console.warn('Service Worker registration failed:', error);
         });
+      });
+      window.addEventListener('focus', function () {
+        checkForServiceWorkerUpdate(false);
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') checkForServiceWorkerUpdate(false);
+      });
+      window.addEventListener('online', function () {
+        checkForServiceWorkerUpdate(true);
       });
     }
 
