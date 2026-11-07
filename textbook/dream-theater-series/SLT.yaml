@@ -120,7 +120,7 @@ chapters:
     title: "無限幅NTKの条件"
   - id: SLT2-11
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-11
-    status: planned
+    status: completed
     title: "NNGPとNTKの違い"
   - id: SLT2-12
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-12

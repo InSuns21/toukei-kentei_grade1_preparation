@@ -1,0 +1,60 @@
+chapter: SLT2-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SLT2-10
+  - SLT2-09
+  - ML2-12
+  - F0-00P6
+concepts:
+  - id: learning.slt2-nngp-initial-covariance
+    name: 初期NNGP共分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（初期NNGP共分散）"]
+    requires:
+      - learning.gaussian-process-prior
+      - learning.slt2-infinite-width-ntk
+  - id: learning.slt2-nngp-gaussian-limit
+    name: 初期出力の有限次元Gaussian極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（初期出力の有限次元Gaussian極限）"]
+    requires: [learning.slt2-nngp-initial-covariance]
+  - id: learning.slt2-nngp-ntk-contrast
+    name: 初期NNGPとNTKの対照
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（初期NNGPとNTKの対照）"]
+    requires:
+      - learning.slt2-nngp-initial-covariance
+      - learning.slt2-infinite-width-ntk
+  - id: learning.slt2-nngp-ntk-difference
+    name: 二層網のNNGPとNTKの差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二層網のNNGPとNTKの差）"]
+    requires: [learning.slt2-nngp-ntk-contrast]
+  - id: learning.slt2-layer-kernel-recursions
+    name: 層ごとのNNGP・NTK再帰
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（層ごとのNNGP・NTK再帰）"]
+    requires: [learning.slt2-nngp-ntk-contrast]
+  - id: learning.slt2-trained-gaussian-limit
+    name: 有限時間の学習後Gaussian極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限時間の学習後Gaussian極限）"]
+    requires:
+      - learning.slt2-nngp-gaussian-limit
+      - learning.slt2-ntk-finite-time-flow
+      - learning.slt2-fixed-tangent-spectrum
+  - id: learning.slt2-trained-cross-covariance
+    name: 訓練点と評価点での学習後共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（訓練点と評価点での学習後共分散）"]
+    requires:
+      - learning.slt2-trained-gaussian-limit
+      - learning.gp-conditioning-theorem

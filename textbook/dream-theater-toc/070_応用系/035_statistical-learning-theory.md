@@ -30,3 +30,4 @@
 26. [SLT2-08 ニューラルネットの線形化](textbook/volumes/dream_thater/応用系/SLT/SLT2-08/index.md)
 27. [SLT2-09 固定kernelの勾配力学](textbook/volumes/dream_thater/応用系/SLT/SLT2-09/index.md)
 28. [SLT2-10 無限幅NTKの条件](textbook/volumes/dream_thater/応用系/SLT/SLT2-10/index.md)
+29. [SLT2-11 NNGPとNTKの違い](textbook/volumes/dream_thater/応用系/SLT/SLT2-11/index.md)
