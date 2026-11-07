@@ -1,0 +1,64 @@
+chapter: OTR4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR3
+  - OPT10
+  - DOPT3
+
+concepts:
+  - id: transport.transportation-polytope
+    name: 輸送多面体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（輸送多面体）"]
+    requires: [transport.coupling, optimization.polytope]
+
+  - id: transport.finite-primal
+    name: 有限離散輸送の主問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限離散輸送の主問題）"]
+    requires: [transport.transportation-polytope, optimization.linear-program-standard-form]
+
+  - id: transport.polytope-compactness
+    name: 輸送多面体の非空性・コンパクト性・最適解の存在
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（輸送多面体と最小値の存在）"]
+    requires: [transport.finite-primal, transport.coupling-nonempty]
+
+  - id: transport.constraint-rank
+    name: 輸送制約の階数と次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（輸送制約の階数と次元）"]
+    requires: [transport.transportation-polytope]
+
+  - id: transport.two-by-two-parametrization
+    name: 2×2輸送の一変数表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（2×2輸送の一変数表示）"]
+    requires: [transport.finite-primal]
+
+  - id: transport.support-graph
+    name: 輸送計画の支持グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（輸送計画の支持グラフ）"]
+    requires: [transport.transportation-polytope, optimization.bipartite-graph]
+
+  - id: transport.vertex-forest-criterion
+    name: 輸送多面体の極点と閉路の不在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（極点の閉路判定）"]
+    requires: [transport.support-graph, optimization.extreme-point]
+
+  - id: transport.sparse-optimal-plan
+    name: 疎な最適輸送計画の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（疎な最適輸送計画の存在）"]
+    requires: [transport.vertex-forest-criterion, transport.polytope-compactness]
