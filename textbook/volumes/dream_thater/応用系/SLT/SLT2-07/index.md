@@ -80,15 +80,16 @@ $$
 > **定理（Gram行列による補間判定と最小ノルム解）**
 > 実数値RKHS $\mathcal H$、固定入力 $x_1,\ldots,x_n$（$n\ge1$）、評価写像 $T:\mathcal H\to\mathbb R^n$、$K=TT^*$、$y\in\mathbb R^n$ とする。$P_K$ を $\operatorname{ran}K$ への直交射影、$K^\dagger$ をMoore–Penrose擬似逆とする。
 >
-> 1. $Tf=y$ を満たす関数が存在する必要十分条件は $y\in\operatorname{ran}K$、すなわち $P_Ky=y$ である。
-> 2. 最小二乗誤差 $\|Tf-y\|_2^2$ を最小にする関数のうち、RKHSノルムが最小の一意な関数は
+> **（1）補間の判定。** $Tf=y$ を満たす関数が存在する必要十分条件は $y\in\operatorname{ran}K$、すなわち $P_Ky=y$ である。
+>
+> **（2）最小ノルム解。** 最小二乗誤差 $\|Tf-y\|_2^2$ を最小にする関数のうち、RKHSノルムが最小の一意な関数は
 >
 $$
 f^\dagger=T^*K^\dagger y
 $$
 >
 > である。$Tf^\dagger=P_Ky$ と $\|f^\dagger\|_{\mathcal H}^2=y^{\mathsf T}K^\dagger y$ を満たす。補間可能な $y$ では最小ノルム補間関数になる。
-> 3. $T^*c=T^*c'$ と $K(c-c')=0$ は同値であり、核切片の係数 $c$ は $K$ が特異なら一般に一意ではない。関数の一意性とは区別する。
+> **（3）係数の非一意性。** $T^*c=T^*c'$ と $K(c-c')=0$ は同値であり、核切片の係数 $c$ は $K$ が特異なら一般に一意ではない。関数の一意性とは区別する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
