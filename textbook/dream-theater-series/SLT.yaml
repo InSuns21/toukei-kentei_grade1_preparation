@@ -92,7 +92,7 @@ chapters:
     title: "ridgeのスペクトルとbias–variance"
   - id: SLT2-04
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-04
-    status: planned
+    status: completed
     title: "double descentの成立条件"
   - id: SLT2-05
     path: textbook/volumes/dream_thater/応用系/SLT/SLT2-05
