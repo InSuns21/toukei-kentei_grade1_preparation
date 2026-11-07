@@ -48,12 +48,17 @@ function extractLinks(markdown) {
     /(?<!\\)\$\$[\s\S]*?(?<!\\)\$\$|(?<!\\)\$(?!\$)(?:\\[^\n]|[^\\$\n])+(?<!\\)\$/g,
     segment => segment.replace(/[^\n]/g, ' '),
   );
-  return [...withoutMath.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)].map(match => match[1].trim());
+  // Images resolve relative to their Markdown page and are validated by
+  // validate-pages-images.mjs. They are not root-oriented navigation links.
+  return [...withoutMath.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)]
+    .filter(match => match.index === 0 || withoutMath[match.index - 1] !== '!')
+    .map(match => match[1].trim());
 }
 
 function testExtractLinks() {
   const source = [
     '[valid](textbook/example.md)',
+    '![local diagram](assets/diagram.svg)',
     '$\\Bigr](\\varphi_t)$',
     '$$\\left[x\\right](\\varphi_t)$$',
     '\x60[code](not-a-link.md)\x60',
@@ -186,6 +191,15 @@ const duplicateTargets = new Set();
 if (/\brelativePath\s*:\s*true\b/.test(indexHtml)) {
   errors.push(
     'pages/index.html enables Docsify relativePath: true; this duplicates sidebar paths when navigating from nested exercises.',
+  );
+}
+
+// A route is reset immediately by resetContentScrollForRoute(). Enabling the
+// Docsify reset as well causes a second, delayed jump after asynchronous math
+// rendering, potentially after the reader has already scrolled down.
+if (!/\bauto2top\s*:\s*false\b/.test(indexHtml)) {
+  errors.push(
+    'pages/index.html must disable Docsify auto2top; the navigation hook already resets scroll on route change.',
   );
 }
 
