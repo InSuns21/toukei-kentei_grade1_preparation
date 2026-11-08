@@ -1,0 +1,40 @@
+id: "OTR8"
+title: "輸送費用は距離になるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR7
+official_scope: []
+learning_objectives:
+  - 有限p次モーメントと確率測度のクラスP_p(X)を定義し、基準点の選び方に依存しないことを証明できる
+  - p-Wasserstein距離の有限性、対称性、零距離の特徴付けをモーメント条件と最適結合の存在から導ける
+  - Polish空間上の結合の貼り合わせ補題を有限Borel分割と狭義極限から証明できる
+  - Minkowski不等式と貼り合わせ補題からp-Wasserstein距離の三角不等式を証明できる
+  - 二点分布、Dirac測度、pの大小比較とp<1での三角不等式の失敗を計算できる
+definitions:
+  - { id: OTR8-DEF-01, name: 有限p次モーメントとP_p(X) }
+  - { id: OTR8-DEF-02, name: p-Wasserstein距離 }
+theorems:
+  - { id: OTR8-PROP-01, name: モーメント基準点の不変性 }
+  - { id: OTR8-LEM-01, name: 結合の貼り合わせ補題 }
+  - { id: OTR8-LEM-02, name: 積分のMinkowski不等式 }
+  - { id: OTR8-THM-01, name: p-Wasserstein距離の距離公理 }
+  - { id: OTR8-PROP-02, name: Wasserstein距離の次数比較 }
+canonical_examples:
+  - Dirac測度間の距離と二原子分布からDirac測度への距離
+  - 二点空間の結合の貼り合わせを確率表から構成する例
+  - p<1の二点空間で三角不等式が破れる反例
+  - p次モーメントを持たない重尾分布ではDirac測度までの費用が無限大になる例
+problem_patterns:
+  - OTR8-A01
+  - OTR8-A02
+  - OTR8-A03
+  - OTR8-A04
+  - OTR8-B01
+  - OTR8-B02
+  - OTR8-B03
+  - OTR8-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }
