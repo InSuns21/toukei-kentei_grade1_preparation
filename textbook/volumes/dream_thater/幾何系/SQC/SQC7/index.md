@@ -179,7 +179,9 @@ $\pi$ が代数的だと仮定する。$i\pi$ が零でない代数的複素数�
 <!-- solution-start -->
 **詳細解答**
 
-$i^2+1=0$ なので $i$ は $X^2+1\in\mathbb Q[X]$ の根で、代数的です。仮定した $\pi$ も代数的なので $\mathbb Q(i,\pi)$ は $\mathbb Q$ 上有限拡大です。その元 $i\pi$ は[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。また $i\ne0,\ \pi>0$ より $i\pi\ne0$ です。これが[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)の二つの仮定です。
+$i^2+1=0$ なので $i$ は $X^2+1\in\mathbb Q[X]$ の根で、代数的です。仮定した $\pi$ も代数的なので $\mathbb Q(i,\pi)$ は $\mathbb Q$ 上有限拡大です。
+
+この体の元 $i\pi$ は[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。また $i\ne0$ と $\pi>0$ より $i\pi\ne0$ です。これで[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)の二つの仮定を確認できました。
 <!-- solution-end -->
 
 **SQC7-A2（平方根を二乗したら）**  
@@ -212,7 +214,15 @@ $\sqrt2$ は無理数だが作図可能であることを説明し、「無理�
 <!-- solution-start -->
 **詳細解答**
 
-$\sqrt2=p/q$ と既約分数で書けるなら $p^2=2q^2$ より $p$ は偶数です。$p=2k$ とすると $q^2=2k^2$ となり $q$ も偶数で、既約性に反します。従って $\sqrt2$ は無理数です。一方、辺長 $1$ の正方形の対角線は Pythagoras の定理から $\sqrt{1^2+1^2}=\sqrt2$ であり、定規とコンパスで得られます。作図可能数に必要なのは有理性ではなく[実二次拡大列による条件](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)です。
+$\sqrt2=p/q$ と既約分数で書けるなら $p^2=2q^2$ より $p$ は偶数です。$p=2k$ とすると $q^2=2k^2$ となり $q$ も偶数で、既約性に反します。従って $\sqrt2$ は無理数です。
+
+一方、辺長 $1$ の正方形の対角線は Pythagoras の定理から
+
+$$
+\sqrt{1^2+1^2}=\sqrt2
+$$
+
+であり、定規とコンパスで得られます。作図可能性を特徴付けるのは有理性ではなく[実二次拡大列の存在](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)です。
 <!-- solution-end -->
 
 **SQC7-A5（作図できる近似）**  
@@ -236,7 +246,11 @@ $22/7$ は正の有理数なので[非負平方根の有限作図](../SQC2/index
 <!-- solution-start -->
 **詳細解答**
 
-$\alpha=0$ は $X$ の根なので代数的ですが、$e^0=1$ は $Y-1$ の根で代数的です。正しい[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)は $\alpha\ne0$ を要求します。$\alpha=i\pi$ に適用するためには、まず $\pi$ が代数的だと**仮定**し、$i$ の代数性と積の閉性から $i\pi$ の代数性を導きます。また $\pi>0$ により非零です。$e^{i\pi}=-1$ が代数的なので定理と矛盾し、仮定が偽になります。最初から $i\pi$ が代数的だと断言してはいけません。
+$\alpha=0$ は $X$ の根なので代数的ですが、$e^0=1$ は $Y-1$ の根で代数的です。正しい[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)は $\alpha\ne0$ を要求します。
+
+$\alpha=i\pi$ に適用するためには、まず $\pi$ が代数的だと**仮定**し、$i$ の代数性と積の閉性から $i\pi$ の代数性を導きます。また $\pi>0$ により指数は非零です。
+
+それにもかかわらず $e^{i\pi}=-1$ は代数的なので定理と矛盾し、背理法の仮定が偽になります。最初から $i\pi$ が代数的だと断言してはいけません。
 <!-- solution-end -->
 
 **SQC7-B2（$\sqrt\pi$ の代数性と $\pi$ の代数性）**  
@@ -247,7 +261,15 @@ $\pi$ が代数的なら $\sqrt\pi$ も代数的であり、逆も成り立つ�
 <!-- solution-start -->
 **詳細解答**
 
-まず $u=\sqrt\pi$ が代数的なら、$\mathbb Q(u)/\mathbb Q$ は有限拡大です。その元 $\pi=u^2$ は[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。逆に $\pi$ が代数的なら $\mathbb Q(\pi)/\mathbb Q$ は有限です。$u$ は $X^2-\pi\in\mathbb Q(\pi)[X]$ の根なので、$[\mathbb Q(\pi,u):\mathbb Q(\pi)]\le2$。[塔の公式](../../../代数系/FLD/FLD1/index.md#thm-fld1-tower-law)で $\mathbb Q(\pi,u)/\mathbb Q$ は有限になり、$u$ も代数的です。
+まず $u=\sqrt\pi$ が代数的なら、$\mathbb Q(u)/\mathbb Q$ は有限拡大です。その元 $\pi=u^2$ は[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。
+
+逆に $\pi$ が代数的なら $\mathbb Q(\pi)/\mathbb Q$ は有限です。$u$ は $X^2-\pi\in\mathbb Q(\pi)[X]$ の根だから
+
+$$
+[\mathbb Q(\pi,u):\mathbb Q(\pi)]\le2.
+$$
+
+[塔の公式](../../../代数系/FLD/FLD1/index.md#thm-fld1-tower-law)で $\mathbb Q(\pi,u)/\mathbb Q$ も有限となり、その元 $u$ は代数的です。
 
 しかし[実二次拡大列の必要十分条件](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)は「代数的」というだけより強く、一般の代数的数がすべて作図可能とは限りません。今回は $\pi$ が超越的なので、その必要条件の段階で否定できます。
 <!-- solution-end -->
@@ -283,7 +305,12 @@ $$
 ### Level C：全体を組み立て、逆を吟味する
 
 **SQC7-C1（古典的円積不可能性の完全な論理鎖）**  
-単位円と有限回の定規とコンパスだけを許すとする。次を順に示せ。(1) $\pi$ が代数的だと仮定すると $i\pi$ は零でない代数的数。(2) Hermite–Lindemannから矛盾が出る。(3) 等積正方形の作図を仮定すると $\pi$ が代数的となる。(4) 以上が証明する不可能性と、証明しない不可能性を区別せよ。
+単位円と有限回の定規とコンパスだけを許すとする。次を順に示せ。
+
+1. $\pi$ が代数的だと仮定すると $i\pi$ は零でない代数的数となる。
+2. Hermite–Lindemann の定理から矛盾が出る。
+3. 等積正方形の作図を仮定すると $\pi$ が代数的となる。
+4. 以上が証明する不可能性と、証明しない不可能性を区別する。
 
 - Level: C
 
