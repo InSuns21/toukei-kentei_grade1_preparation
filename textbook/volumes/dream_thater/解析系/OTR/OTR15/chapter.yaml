@@ -1,0 +1,43 @@
+id: "OTR15"
+title: "測度空間の最短経路とは"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR14
+official_scope: []
+learning_objectives:
+  - Wasserstein距離による曲線の長さと定速測地線を定義し、Dirac測度の曲線で距離と長さを直接計算できる
+  - 最適結合に沿う変位補間を押し出し測度として定義し、有限二次モーメントと周辺を検証できる
+  - 最適結合からの候補結合による上界と三角不等式の等号から、W2定速測地線定理を証明できる
+  - 最適写像が存在するときの直線補間と非退化Gaussianの平均・共分散の時間発展を計算できる
+  - 変位補間と線形混合を比較し、Dirac測度の計算と二次元の最適結合非一意例で違いを説明できる
+  - 測地線上の中間測度について貼り合わせと二乗ノルムの等号条件から直線表示を導ける
+definitions:
+  - { id: OTR15-DEF-01, name: 距離空間の曲線の長さ }
+  - { id: OTR15-DEF-02, name: 定速測地線 }
+  - { id: OTR15-DEF-03, name: 変位補間 }
+  - { id: OTR15-DEF-04, name: 確率測度の線形混合 }
+theorems:
+  - { id: OTR15-THM-01, name: 最適結合から作るW2定速測地線 }
+  - { id: OTR15-PROP-01, name: 非退化Gaussian間の変位補間 }
+  - { id: OTR15-PROP-02, name: 測地線上の中間測度の直線表示 }
+canonical_examples:
+  - Dirac測度の定速測地線と非定速パラメータ化
+  - 二原子からDirac測度への変位補間と二次モーメント
+  - 非退化一次元Gaussian間の測地線と線形混合の分散比較
+  - 四点配置での最適結合と測地線の非一意性
+problem_patterns:
+  - OTR15-A01
+  - OTR15-A02
+  - OTR15-A03
+  - OTR15-A04
+  - OTR15-A05
+  - OTR15-B01
+  - OTR15-B02
+  - OTR15-B03
+  - OTR15-B04
+  - OTR15-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
