@@ -110,10 +110,12 @@ $q\ge2$ なら $q/[2(q-1)]\le1$、$v\ge1$ なら $v^{q-1}\le v^q$ なので後�
 **直接例（平坦楕円曲線）。** $E=\mathbb C/(\mathbb Z+i\mathbb Z)$、$z=x+iy$、$\omega_0=i\,dz\wedge d\bar z=2dx\,dy$、$0<a<1$ とする。ここでは楕円曲線を $E$ と書き、上の外積形式 $T$ と区別する。$\varphi_a=a\cos(2\pi x)/\pi^2$ は周期的な滑らかな実関数である。[前章の平坦例のWirtinger微分](../YAU1-05/index.md#def-yau1-05-path)を使うと、
 
 $$
+\begin{aligned}
 \partial_z\partial_{\bar z}\varphi_a
-=\frac14(\partial_x^2+\partial_y^2)\varphi_a
-=-a\cos(2\pi x),\qquad
-\omega_{\varphi_a}=(1-a\cos2\pi x)\omega_0.
+&=\frac14(\partial_x^2+\partial_y^2)\varphi_a\\
+&=-a\cos(2\pi x),\\
+\omega_{\varphi_a}&=(1-a\cos2\pi x)\omega_0.
+\end{aligned}
 $$
 
 複素次元 $1$ では基準形式の係数を比較するだけでよく、$1-a\cos2\pi x\ge1-a>0$ が正値性を示す。$\rho=1-a\cos2\pi x$ と置くと $\omega_{\varphi_a}=\rho\omega_0$ であり、$\int_E\varphi_a\,d\mu=0$ は余弦の一周期積分から従う。したがって $m=\sup_E\varphi_a=a/\pi^2$、$v=1+(a/\pi^2)(1-\cos2\pi x)\ge1$。複素次元 $1$、$q=2$ のとき
@@ -398,7 +400,7 @@ $\beta>1$、$q_j=2\beta^j$ のとき、$\sum_{j\ge0}q_j^{-1}$ と $\sum_{j\ge0}j
 ### Level B — YAU1-07-B01：積分恒等式を一般次元で復元する
 - Level: B
 
-$(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクトKähler多様体とする。滑らかな実関数 $v\ge1$ と正の密度 $\rho$ が
+$(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクトKähler多様体とする。滑らかな実関数 $v\ge1$ と各点で正値の関数 $\rho$ が
 
 $$
 \omega_\varphi=\omega-i\partial\bar\partial v>0,\qquad
@@ -429,9 +431,11 @@ $$
 $X$ は境界がないので、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によって全微分の積分は零となる。よって
 
 $$
+\begin{aligned}
 \int_X v^{q-1}(\rho-1)\omega^n
-=-\int_X v^{q-1}i\partial\bar\partial v\wedge T
-=(q-1)\int_X v^{q-2}i\partial v\wedge\bar\partial v\wedge T.
+&=-\int_X v^{q-1}i\partial\bar\partial v\wedge T\\
+&=(q-1)\int_X v^{q-2}i\partial v\wedge\bar\partial v\wedge T.
+\end{aligned}
 $$
 
 境界があると、Stokesの境界積分を制御せずに落とせない。
