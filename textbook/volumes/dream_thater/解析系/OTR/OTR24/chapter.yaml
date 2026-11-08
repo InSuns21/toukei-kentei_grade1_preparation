@@ -1,0 +1,47 @@
+id: "OTR24"
+title: "時間刻みをゼロにすると何が得られるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR23
+official_scope: []
+learning_objectives:
+  - 二次外場付きエントロピーをGaussian相対エントロピーと二次モーメントへ分解して一様下界を証明できる
+  - 二次モーメント有界なFokker–Planck測度弱解を定義し定常Gaussianで全条件を直接検証できる
+  - JKO時間補間の一様tightnessと時間Hölder評価から有理時刻対角法で狭義収束部分列を構成できる
+  - 一歩のEuler–Lagrange式とTaylor残差を望遠和にし格子端数を含めて弱方程式へ極限移行できる
+  - Gaussianの後退作用素を定義して連鎖律とGaussian微分により後退方程式を証明できる
+  - 空間切断関数のドリフト誤差を二次モーメントで抑え測度弱解の一意性を証明できる
+  - 部分列収束と一意性からJKO反復全体の一様狭義収束を結論しGaussian・非Gaussianの例を計算できる
+definitions:
+  - { id: OTR24-DEF-01, name: 二次モーメント有界なFokker–Planck弱解 }
+  - { id: OTR24-DEF-02, name: Ornstein–Uhlenbeckの後退作用素 }
+theorems:
+  - { id: OTR24-LEM-01, name: 二次外場エネルギーの下界と一様モーメント }
+  - { id: OTR24-THM-01, name: JKO時間補間の狭義コンパクト性 }
+  - { id: OTR24-THM-02, name: JKO極限はFokker–Planck弱解 }
+  - { id: OTR24-LEM-02, name: Gaussian表示から得る後退方程式 }
+  - { id: OTR24-THM-03, name: 二次モーメント有界な弱解の一意性と表示 }
+  - { id: OTR24-COR-01, name: JKO反復全体の連続時間極限 }
+canonical_examples:
+  - 相対エントロピーによる二次外場エネルギーの下界の等号例
+  - 定常Gaussianでの測度弱解条件の直接確認
+  - 狭義収束するがW2収束しない質量逃避の反例
+  - Gaussian平均と後退方程式の連鎖律
+  - Gaussian二峰分布から一意な連続時間極限
+problem_patterns:
+  - OTR24-A01
+  - OTR24-A02
+  - OTR24-A03
+  - OTR24-A04
+  - OTR24-A05
+  - OTR24-B01
+  - OTR24-B02
+  - OTR24-B03
+  - OTR24-B04
+  - OTR24-C01
+  - OTR24-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 8.0, review: 4.0 }
