@@ -108,7 +108,7 @@ chapters:
     title: "不変化・等変層の構成原理"
   - id: MFL26
     path: textbook/volumes/dream_thater/応用系/MFL/MFL26
-    status: planned
+    status: completed
     title: "格子対称性と群畳み込み"
   - id: MFL27
     path: textbook/volumes/dream_thater/応用系/MFL/MFL27

@@ -1,0 +1,58 @@
+chapter: MFL26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL25
+  - ML2-16
+forward_references: []
+concepts:
+  - id: manifold-learning.lattice-point-group
+    name: 周期格子の四回回転・二面体作用と半直積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期格子の四回回転・二面体作用と半直積）"]
+    requires: [algebra.group-action, manifold-learning.finite-real-representation]
+  - id: manifold-learning.lattice-lift-correlation
+    name: 格子から群への持ち上げ相互相関
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子から群への持ち上げ相互相関）"]
+    requires: [manifold-learning.lattice-point-group, learning.periodic-cross-correlation]
+  - id: manifold-learning.lattice-lift-equivariance
+    name: 格子から群への持ち上げの等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.lattice-lift-correlation, manifold-learning.equivariant-map]
+  - id: manifold-learning.finite-group-correlation
+    name: 有限群上の相互相関型群畳み込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限群上の相互相関型群畳み込み）"]
+    requires: [manifold-learning.lattice-point-group, learning.periodic-cross-correlation]
+  - id: manifold-learning.group-correlation-equivariance
+    name: 左正則作用に対する群畳み込みの等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.finite-group-correlation]
+  - id: manifold-learning.lattice-point-invariant-kernel
+    name: 格子の点群不変核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子の点群不変核）"]
+    requires: [manifold-learning.lattice-point-group, learning.periodic-cross-correlation]
+  - id: manifold-learning.lattice-scalar-kernel-criterion
+    name: スカラー格子フィルタの点群等変性の必要十分条件
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.lattice-point-invariant-kernel, manifold-learning.lattice-lift-equivariance]
+  - id: manifold-learning.strided-lattice-action
+    name: 間引き格子とstride作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（間引き格子とstride作用）"]
+    requires: [learning.strided-sampling, manifold-learning.lattice-point-group]
+  - id: manifold-learning.stride-symmetry-subgroup
+    name: strideで残る格子対称性
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.strided-lattice-action, manifold-learning.lattice-lift-equivariance]

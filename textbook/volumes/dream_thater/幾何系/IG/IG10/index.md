@@ -40,13 +40,43 @@ $$
 
 Euclid の内積は二つの座標差から直ちに計算できます。しかしここでは e-直線と m-直線の座標が違います。直角を測るには、**両者の速度を同じ点 $Q$ の接空間で表す**必要があります。
 
-$Q$ から $P$ へ向かう e-線分の $\theta$ 座標は $\theta_Q+t(\theta_P-\theta_Q)$ です。一方 $Q$ から $R$ へ向かう m-線分の $\eta$ 座標は $\eta_Q+t(\eta_R-\eta_Q)$ です。後者を $\theta$ で微分すると、$\partial\eta/\partial\theta=g_Q$ なので、$Q$ での速度は $g_Q^{-1}(\eta_R-\eta_Q)$ となります。この変換は、正定値な $g_Q$ が可逆であることを使います。
+接ベクトルを $\theta$ 座標の成分列 $u,v$ で表すと、[IG8 の Hessian 計量](../IG8/index.md#thm-ig8-hessian-dual-flat)による内積は $g_Q(u,v)=u^{\mathsf T}g_Qv$ です。ここで右辺の $g_Q=\nabla^2\psi(\theta_Q)$ は行列、左辺はその行列で定まる双線形形式です。
+
+$Q$ から $P$ へ向かう e-線分の $\theta$ 座標は $\theta_e(t)=\theta_Q+t(\theta_P-\theta_Q)$ です。一方 $Q$ から $R$ へ向かう m-線分は $\eta_m(t)=\eta_Q+t(\eta_R-\eta_Q)$ です（$0\le t\le1$）。以下、座標関数 $x(t)$ の上の点 $\dot x=dx/dt$ は $t$ による通常微分を、$\partial\eta_i/\partial\theta^j$ は他の $\theta$ 成分を固定する偏微分を表します。
+
+m-線分を $\theta$ 座標で測った速度を $\dot\theta_m$ とすると、[IG5 の座標微分公式](../IG5/index.md#thm-ig5-legendre-hessian)と連鎖律から $t=0$ において
+
+$$
+\dot\eta_{m,i}(0)
+=\sum_{j=1}^d\frac{\partial\eta_i}{\partial\theta^j}(\theta_Q)
+ \dot\theta_m^j(0)
+=\sum_{j=1}^d(g_Q)_{ij}\dot\theta_m^j(0).
+$$
+
+左辺は $\eta_{R,i}-\eta_{Q,i}$ です。正定値な $g_Q$ は可逆なので、二つの測地線の $Q$ での速度は
+
+$$
+v_e=\dot\theta_e(0)=\theta_P-\theta_Q,\qquad
+v_m=\dot\theta_m(0)=g_Q^{-1}(\eta_R-\eta_Q)
+$$
+
+です。こうして初めて、異なる座標で指定した速度を同じ接空間の計量で比較できます。
 
 <a id="def-ig10-dual-orthogonality"></a>
 
 <!-- formal-statement-start -->
 > **定義（双対測地線の直交）**  
-> 上記の双対平坦構造で $P,Q,R\in U$ とし、$\eta_Q$ から $\eta_R$ への線分が $V$ に含まれるとする。$Q\to P$ の e-測地線と $Q\to R$ の m-測地線が **$Q$ で直交**するとは、それらの $Q$ での接ベクトルが Hessian 計量 $g_Q$ で直交すること、すなわち次の等式を満たすことをいう。
+> 空でない開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ が正定値 Hessian を持つとする。双対座標と計量を次のように置く。
+
+$$
+\eta=\nabla\psi(\theta),\qquad
+V=\eta(U),\qquad
+g_Q=\nabla^2\psi(\theta_Q).
+$$
+
+> 点 $P,Q,R$ の $\theta$ 座標をそれぞれ $\theta_P,\theta_Q,\theta_R\in U$ とし、$\eta_Q$ から $\eta_R$ への線分は $V$ に含まれるとする。
+>
+> [IG8 の e/m 測地線](../IG8/index.md#def-ig8-em-geodesic)として、$Q\to P$ の e-測地線と $Q\to R$ の m-測地線が **$Q$ で直交**するとは、二つの接ベクトルの Hessian 計量による内積が零となること、すなわち次の等式を満たすことをいう。
 
 $$
 g_Q\bigl(\theta_P-\theta_Q,\ g_Q^{-1}(\eta_R-\eta_Q)\bigr)
@@ -55,7 +85,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig10-dual-orthogonality -->
-**定義の確認**。$\psi(\theta)=((\theta^1)^2+2(\theta^2)^2)/2$、$U=\mathbb R^2$ とし、$Q=(0,0)$、$P=(2,0)$、$R=(0,3)$ を $\theta$ 座標で指定します。$g=\operatorname{diag}(1,2)$ は正定値で、$\eta=(\theta^1,2\theta^2)$ の全域は $V=\mathbb R^2$ です。よって二種類の線分はいずれも定義域に入り、$Q$ での e-速度は $(2,0)$、m-速度は $g^{-1}(\eta_R-\eta_Q)=\operatorname{diag}(1,1/2)(0,6)=(0,3)$ です。内積は $(2,0)\operatorname{diag}(1,2)(0,3)^\mathsf T=0$ です。直線を眺めて直角と呼ぶだけでなく、**二つの速度と計量を実際に確認**しました。
+**定義の確認**。$\psi(\theta)=((\theta^1)^2+2(\theta^2)^2)/2$、$U=\mathbb R^2$ とし、$Q=(0,0)$、$P=(2,0)$、$R=(0,3)$ を $\theta$ 座標で指定します。
+
+座標 $\theta^1,\theta^2$ で二階偏微分すると $g_{ij}=\partial_i\partial_j\psi$ の行列は $g=\operatorname{diag}(1,2)$ です。任意の非零 $u=(u_1,u_2)$ に対して $g(u,u)=u_1^2+2u_2^2>0$ なので正定値です。
+
+また $\eta=\nabla\psi=(\theta^1,2\theta^2)$ は逆写像 $\theta=(\eta_1,\eta_2/2)$ を持ち、全域は $V=\mathbb R^2$ です。
+
+よって二種類の線分はいずれも定義域に入り、$Q$ での e-速度は $(2,0)$、m-速度は $g^{-1}(\eta_R-\eta_Q)=\operatorname{diag}(1,1/2)(0,6)=(0,3)$ です。計量による内積は
+
+$$
+g_Q(v_e,v_m)
+=(2,0)\operatorname{diag}(1,2)(0,3)^{\mathsf T}=0
+$$
+
+です。直線を眺めて直角と呼ぶだけでなく、**座標表示の根拠・線分の存在・二つの速度・計量の直交**をすべて確認しました。
 <!-- definition-example-end -->
 
 ## 2. 一般化 Pythagoras：等式が成立する条件
@@ -66,7 +109,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（一般化 Pythagoras の等式）**  
-> 第0節の $U,\psi$ と点 $P,Q,R\in U$ を取る。$Q\to P$ の e-線分と $Q\to R$ の m-線分が定義され、第1節の意味で直交するとき、
+> 開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ の Hessian が正定値であるとする。$\eta=\nabla\psi$、$V=\eta(U)$、$g_Q=\nabla^2\psi(\theta_Q)$、$\mathcal D(P:Q)=D_\psi(\theta_P:\theta_Q)$ と定める。点 $P,Q,R$ の $\theta$ 座標は $\theta_P,\theta_Q,\theta_R\in U$ とする。$Q\to P$ の e-線分と $Q\to R$ の m-線分が定義され、[直交の定義](#def-ig10-dual-orthogonality)の意味で直交するとき、
 
 $$
 \mathcal D(P:R)=\mathcal D(P:Q)+\mathcal D(Q:R).
@@ -80,7 +123,7 @@ $$
 -g_Q\bigl(v_e(Q\to P),v_m(Q\to R)\bigr).
 $$
 
-> ここで $v_e=\theta_P-\theta_Q$、$v_m=g_Q^{-1}(\eta_R-\eta_Q)$ は $Q$ における $\theta$ 成分である。
+> ここで $v_e=\theta_P-\theta_Q$、$v_m=g_Q^{-1}(\eta_R-\eta_Q)$ は $Q$ における $\theta$ 成分として代数的に定める。$\eta_Q$ から $\eta_R$ への線分が $V$ に含まれない場合、$v_m$ を両端点を結ぶ大域的な m-測地線の速度と解釈してはならない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -125,15 +168,29 @@ $$
 
 ## 3. 情報射影とは、どちらの向きの最小化か
 
-射影先の集合を一つ固定しても、$\mathcal D(Q:Z)$ と $\mathcal D(Z:Q)$ は別の最適化です。**射影を結ぶ測地線の種類**を名前に用いると、m-アファイン集合への e-射影と、e-アファイン集合への m-射影が対になります。
+射影先の集合を一つ固定しても、$\mathcal D(Q:Z)$ と $\mathcal D(Z:Q)$ は別の最適化です。アファイン制約への射影が相対内点にあり、対応する測地線が定義できるとき、**射影点と元の点を結ぶ直交測地線の種類**によって、m-アファイン集合への e-射影と e-アファイン集合への m-射影を区別します。一般の凸集合へもこの名称を拡張しますが、境界では直交等式ではなく第4節の一階不等式になるので、「射影なら必ず直交」とは言えません。
 
-ここで **e-アファイン集合**とは $\theta$ 座標でアファイン部分空間と $U$ の共通部分、**m-アファイン集合**とは $\eta$ 座標でアファイン部分空間と $V$ の共通部分を指します。[IG8 のアファイン座標](../IG8/index.md#def-ig8-affine-coordinate)を集合に用いた言い方です。集合の開部分で「アファイン」の語を使うとき、全線分が含まれるとは限らないことにも注意します。
+ここで **e-アファイン集合**とは $\theta$ 座標でアファイン部分空間と $U$ の共通部分、**m-アファイン集合**とは $\eta$ 座標でアファイン部分空間と $V$ の共通部分を指します。[IG8 のアファイン座標](../IG8/index.md#def-ig8-affine-coordinate)を集合に用いた言い方です。
+
+また **$\theta$-凸**（**$\eta$-凸**）とは、二点の $\theta$ 座標（$\eta$ 座標）を結ぶ全線分がその集合内にあることをいいます。$U$ は凸なので $\theta$-線分は少なくとも座標領域内にありますが、任意の部分集合が $\theta$-凸とは限りません。$\eta$ 側では $V$ 自身も一般には非凸であり、線分が $V$ と候補集合の両方に入るかを確認します。
+
+**相対内点**とは、その集合のアファイン包に沿う方向で小さく正負両側へ動いても集合に残る点です。アファイン集合の開部分で「アファイン」と言うとき、座標領域外の線分まで含むとは限らないことにも注意します。
 
 <a id="def-ig10-information-projections"></a>
 
 <!-- formal-statement-start -->
 > **定義（e/m 情報射影）**  
-> $Z\in U$ を固定する。$\theta$-凸集合 $C_e\subset U$ に対して、$Q\in C_e$ が
+> 空でない開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ の Hessian が正定値であるとする。双対座標・ポテンシャルと divergence を
+
+$$
+\begin{aligned}
+\eta&=\nabla\psi(\theta),& V&=\eta(U),\\
+\varphi(\eta)&=\theta(\eta)\cdot\eta-\psi(\theta(\eta)),
+&\mathcal D(P:Z)&=D_\psi(\theta_P:\theta_Z)
+\end{aligned}
+$$
+
+> と置き、点 $P,Q,Z$ をそれぞれの $\theta$ 座標で $U$ の元と同一視する。$Z\in U$ を固定し、$\theta$-凸集合 $C_e\subset U$ に対して $Q\in C_e$ が
 
 $$
 Q=\operatorname*{arg\,min}_{P\in C_e}\mathcal D(P:Z)
@@ -146,7 +203,7 @@ $$
 D_\varphi(\eta_P:\eta_Z)
 $$
 
-> を満たすとき、$Q$ を $Z$ の **e-射影** と呼ぶ。いずれも最小点が存在するときだけ定義する。e/m は射影先の名前ではなく、$Z$ と $Q$ を結ぶ直交測地線の種類に対応する。
+> を満たすとき、$Q$ を $Z$ の **e-射影** と呼ぶ。いずれも最小点が存在するときだけ定義する。e/m は射影先の名前ではなく、**アファイン制約の相対内点で、対応する線分が座標領域内にある場合**に直交する測地線の種類に由来する名称である。一般の凸制約では直交を定義の条件とはしない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig10-information-projections -->
@@ -158,7 +215,13 @@ $$
 =t^2+4
 $$
 
-で、$t=0$ に唯一の最小点 $Q=(0,1)$ を持ちます。$Z-Q=(2,2)$ は直線の接ベクトル $(1,-1)$ に直交します。二次関数なので逆向きでも同じ射影になりますが、一般の KL ではこの結論を移してはいけません。
+で、$t=0$ に唯一の最小点 $Q=(0,1)$ を持ちます。$Z-Q=(2,2)$ は直線の接ベクトル $(1,-1)$ に直交します。さらに $\eta=\theta$、$\varphi(\eta)=\|\eta\|^2/2$ なので同じ直線を $C_m$ と見たときも
+
+$$
+D_\varphi((t,1-t):Z)=t^2+4
+$$
+
+となり、e-射影も $Q=(0,1)$ です。両方の定義で目的関数・許容集合・達成点を確認しました。二次関数なので逆向きでも同じ射影になりますが、一般の KL ではこの結論を移してはいけません。
 <!-- definition-example-end -->
 
 指数型分布族で [IG9 の KL 対応](../IG9/index.md#thm-ig9-exponential-kl)を使うと、命名と向きは次の通りです。
@@ -219,7 +282,7 @@ $$
 最後に $C=W\cap(q+L)$ とし、$q$ が相対内点とします。任意の $v\in L$ に対して十分小さい正負の $t$ で $q+tv\in C$ です。一階条件を $p=q+tv$ に用い、正負の $t$ で割れば $v\cdot(\nabla F(q)-\nabla F(z))=0$ です。$p-q\in L$ なので補正項は零となり、等式が成立します。
 <!-- proof-end -->
 
-**適用方向**。m-射影では $(W,F,C)=(U,\psi,C_e)$、e-射影では $(W,F,C)=(V,\varphi,C_m)$ と置きます。後者には **$V$ が凸であるか、凸な開部分領域に問題を制限できること**が必要です。単に $\eta$ が座標であるだけでは $V$ の大域凸性を結論できません。アファイン射影先では[直交条件](#def-ig10-dual-orthogonality)と[一般化 Pythagoras](#thm-ig10-pythagoras)が成立します。
+**適用方向**。m-射影では $(W,F,C)=(U,\psi,C_e)$、e-射影では $(W,F,C)=(V,\varphi,C_m)$ と置きます。後者で**この定理をそのまま使うには**、$V$ が凸であるか、$z$ と射影先を含む凸な開部分領域に問題を制限できることが必要です。これは e-射影の定義自体に追加する条件ではありません。単に $\eta$ が座標であるだけでは $V$ の大域凸性を結論できません。アファイン射影先の相対内点では一階条件が等式になります。さらに射影点から元の点への対応する双対線分が座標領域内にあれば、[直交の定義](#def-ig10-dual-orthogonality)が適用でき、[一般化 Pythagoras の等式](#thm-ig10-pythagoras)も得られます。境界を含む一般凸集合では不等式のままです。
 
 ### 解の存在と一意性は別の問題
 
@@ -229,7 +292,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（情報射影の存在と一意性の十分条件）**  
-> 第4節の $W,F,z$ と非空凸集合 $C\subset W$ を取る。次のいずれかを仮定する。
+> $W\subset\mathbb R^d$ を開凸、$F\in C^2(W)$ を正定値 Hessian を持つ関数、$z\in W$、$C\subset W$ を非空凸集合とする。次のいずれかを仮定する。
 >
 > 1. $C$ は $\mathbb R^d$ 内でコンパクトである。
 > 2. $W=\mathbb R^d$、$C$ は $\mathbb R^d$ 内で閉じた集合であり、$p\in C$、$\|p\|\to\infty$ なら $D_F(p:z)\to\infty$ となる。
@@ -261,7 +324,19 @@ $$
 
 ## 5. 正確率単体：線形制約へ e-射影する
 
-$r=(r_1,r_2,r_3)$ をすべて正で総和1の分布とします。制約 $q_1+q_2=a$（$0<a<1$）は確率を足す m-座標で線形です。正の3点分布の $\eta=(q_1,q_2)$ は [IG8 の単体モデル](../IG8/index.md#thm-ig8-simplex-geodesics)で m-アファイン座標になり、負エントロピー $H(q)=\sum_i q_i\log q_i$ は [IG9 の双対 Bregman 計算](../IG9/index.md#thm-ig9-canonical-dual)により $D_H(q:r)=D_{\mathrm{KL}}(q\Vert r)$ を与えます。
+$r=(r_1,r_2,r_3)$ をすべて正で総和1の分布とします。制約 $q_1+q_2=a$（$0<a<1$）は確率を足す m-座標で線形です。[IG8 の正確率単体の e/m 座標](../IG8/index.md#thm-ig8-simplex-geodesics)では $\eta=(q_1,q_2)$ が m-アファイン座標、$q_3=1-q_1-q_2$ は従属成分です。負エントロピー $H(q)=\sum_{i=1}^3q_i\log q_i$ をこの二つの独立座標の関数と見ると
+
+$$
+\frac{\partial H}{\partial q_i}=\log\frac{q_i}{q_3}=\theta^i
+\quad(i=1,2),\qquad
+\nabla^2_{\eta}H
+=\begin{pmatrix}
+1/q_1+1/q_3 & 1/q_3\\
+1/q_3 & 1/q_2+1/q_3
+\end{pmatrix}.
+$$
+
+任意の非零 $v=(v_1,v_2)$ に対し Hessian の二次形式は $v_1^2/q_1+v_2^2/q_2+(v_1+v_2)^2/q_3>0$ なので、これが正定値な双対ポテンシャルであることも分かります。[IG9 の正準 divergence の双対表示](../IG9/index.md#thm-ig9-canonical-dual)と[指数型族での KL 対応](../IG9/index.md#thm-ig9-exponential-kl)をこの座標系へ適用すると $D_H(q:r)=D_{\mathrm{KL}}(q\Vert r)$ です。
 
 この最小化は $q_3=1-a$ を固定し、最初の二成分の相対比を保存する操作です。
 
@@ -331,7 +406,7 @@ $$
 +\log((1-a)/r_3)(p_3-q_3^*)=0.
 $$
 
-よって Pythagoras 等式が成り立ちます。
+この相殺は $H$ を $\eta$ 座標で微分したときの一階条件 $(p-q^*)\cdot(\nabla H(q^*)-\nabla H(r))=0$ そのものでもあります。したがって[凸射影の一階条件](#thm-ig10-convex-projection)と整合し、Pythagoras 等式が成り立ちます。
 <!-- proof-end -->
 
 **数値例**。$r=(1/2,1/3,1/6)$、$a=1/2$ とすると $s=5/6$、
@@ -344,7 +419,15 @@ $$
 
 ## 6. 対数比制約では逆向き KL を最小にする
 
-一方、$q_1/q_2=c>0$ は自然座標 $\theta_i=\log(q_i/q_3)$ において $\theta_1-\theta_2=\log c$ という e-アファイン制約です。この集合への m-射影は **$D_{\mathrm{KL}}(r\Vert q)$** を最小化します。第5節と KL の向きが逆です。
+一方、$q_1/q_2=c>0$ は [IG8 の正確率単体の自然座標](../IG8/index.md#thm-ig8-simplex-geodesics) $\theta^i=\log(q_i/q_3)$（$i=1,2$）で表すと
+
+$$
+\theta^1-\theta^2
+=\log\frac{q_1}{q_3}-\log\frac{q_2}{q_3}
+=\log\frac{q_1}{q_2}=\log c
+$$
+
+となり、e-アファイン制約です。分母 $q_3$ を共通にした座標差なので、比の制約を一次式で判定できます。この集合への m-射影は **$D_{\mathrm{KL}}(r\Vert q)$** を最小化します。第5節と KL の向きが逆です。
 
 <a id="prop-ig10-categorical-m-projection"></a>
 
@@ -372,7 +455,7 @@ $q=(ct,t,1-(1+c)t)$ と置き、開区間での一変数関数を微分します
 <!-- proof-start -->
 ### 証明
 
-$0<t<1/(1+c)$ で
+$0<t<1/(1+c)$ と置くと、$ct,t,1-(1+c)t$ はすべて正です。以下のプライム $f'(t),f''(t)$ はこの $t$ に関する通常微分 $d/dt,d^2/dt^2$ を表します。
 
 $$
 f(t)=D_{\mathrm{KL}}(r\Vert(ct,t,1-(1+c)t))
@@ -426,8 +509,8 @@ $\psi(x_1,x_2)=(x_1^2+3x_2^2)/2$、$P=(3,0)$、$Q=(0,0)$、$R=(0,2)$（すべて
 $g=\operatorname{diag}(1,3)>0$、$\eta=(x_1,3x_2)$ だから $\eta_R-\eta_Q=(0,6)$ です。$v_e=P-Q=(3,0)$、$v_m=g^{-1}(0,6)=(0,2)$ となり、$g_Q(v_e,v_m)=0$ です。[Pythagoras 定理](#thm-ig10-pythagoras)の条件が揃います。ポテンシャルの明示式を Bregman divergence に代入して
 
 $$
-D(P:R)=\tfrac12(3^2+3(-2)^2)=\tfrac{21}{2},\quad
-D(P:Q)=\tfrac92,\quad D(Q:R)=6,
+\mathcal D(P:R)=\tfrac12(3^2+3(-2)^2)=\tfrac{21}{2},\quad
+\mathcal D(P:Q)=\tfrac92,\quad \mathcal D(Q:R)=6,
 $$
 
 よって $21/2=9/2+6$ です。
@@ -497,7 +580,7 @@ q^*=(\tfrac{3/4}2,\tfrac{3/4}2,\tfrac14)
 =(\tfrac38,\tfrac38,\tfrac14).
 $$
 
-全成分が正で総和は $3/8+3/8+1/4=1$、比は $q_1^*/q_2^*=1$ です。自然座標では $\theta_1-\theta_2=\log1=0$ なので e-アファイン制約です。元の $r$ は $r_1/r_2=2$ で制約に入らず、[Bregman 非負性](../IG9/index.md#thm-ig9-bregman-positive)から射影の最小値は厳密に正です。
+全成分が正で総和は $3/8+3/8+1/4=1$、比は $q_1^*/q_2^*=1$ です。自然座標では $\theta^1-\theta^2=\log1=0$ なので e-アファイン制約です。元の $r$ は $r_1/r_2=2$ で制約に入らず、[Bregman 非負性](../IG9/index.md#thm-ig9-bregman-positive)から射影の最小値は厳密に正です。
 <!-- solution-end -->
 
 ### IG10-A05 凸性がない場合の直交
@@ -627,6 +710,8 @@ $r=(1/2,1/3,1/6)$ を固定する。
 <!-- solution-start -->
 **詳細解答**
 
+以下の $q_m$ は **m-アファインな制約先 $C_m$ への e-射影**、$q_e$ は **e-アファインな制約先 $C_e$ への m-射影**を表します。添字は射影先の座標種別であり、射影を結ぶ測地線の種類とは逆です。
+
 1. $s=r_1+r_2=5/6$ なので、[m-平坦集合への e-射影定理](#thm-ig10-categorical-e-projection)を $a=1/2$ で適用すると
 
    $$
@@ -680,12 +765,12 @@ $r=(1/2,1/3,1/6)$ を固定する。
    q_1+q_2=\frac12
    $$
 
-   はこの座標で線形なので、$C_m$ は m-アファインです。一方、自然座標 $\theta_i=\log(q_i/q_3)$ では
+   はこの座標で線形なので、$C_m$ は m-アファインです。一方、自然座標 $\theta^i=\log(q_i/q_3)$（$i=1,2$）では
 
    $$
    q_1=q_2
    \quad\Longleftrightarrow\quad
-   \theta_1-\theta_2=0.
+   \theta^1-\theta^2=0.
    $$
 
    従って $C_e$ は e-アファインです。前者への射影は e-測地線、後者への射影は m-測地線で直交します。
