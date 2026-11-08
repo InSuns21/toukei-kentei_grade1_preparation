@@ -1,0 +1,36 @@
+id: "SQC7"
+title: "円積不可能性の決着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC6
+  - TRN11
+official_scope: []
+learning_objectives:
+  - Hermite–Lindemannの定理の非零代数的指数という仮定をiπに適用してπの超越性を再導出できる
+  - 作図可能数の実二次拡大列による特徴付けから作図可能なら代数的という必要条件を説明できる
+  - 円と等積の正方形の辺r√πへの帰着を用いて有限回の定規とコンパスによる円積不可能性を完全証明できる
+  - 入力の長さの正規化、任意精度の近似、無理性、超越性、作図可能性の量化範囲を区別できる
+theorems:
+  - { id: SQC7-LEM-01, name: 超越数の作図不能性 }
+  - { id: SQC7-THM-01, name: 円積不可能性 }
+  - { id: SQC7-COR-01, name: 半径によらない円積不可能性 }
+canonical_examples:
+  - e^(iπ)=-1にHermite–Lindemannを適用する背理法
+  - 半径2の円の等積正方形の辺2√πと比s/r
+  - √2の作図と√(22/7)による近似作図の対照
+problem_patterns:
+  - SQC7-HL-NONZERO-HYPOTHESIS
+  - SQC7-SQUARE-ROOT-ALGEBRAICITY
+  - SQC7-RADIUS-NORMALIZATION
+  - SQC7-IRRATIONAL-VS-TRANSCENDENTAL
+  - SQC7-ALGEBRAIC-OBSTRUCTION
+  - SQC7-APPROXIMATE-VS-EXACT
+  - SQC7-ADDITIONAL-INPUTS
+  - SQC7-LOGICAL-COUNTEREXAMPLES
+  - SQC7-FULL-CIRCLE-SQUARING
+  - SQC7-SCOPE-AND-CONVERSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.5 }
