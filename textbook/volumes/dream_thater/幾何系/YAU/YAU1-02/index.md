@@ -30,7 +30,7 @@ $$
 
 ### まず一次元で体積比を見る
 
-$T=\mathbb C/(\mathbb Z+i\mathbb Z)$ とし、$z=x+iy$ と書く。ここで $f',f''$ は実変数 $x$ に関する一階・二階導関数を表す。[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)により、滑らかな関数に対して
+$T=\mathbb C/(\mathbb Z+i\mathbb Z)$ とし、$z=x+iy$ と書く。以下、$f',f''$ や $\psi'',\varphi''$ のプライムは実変数 $x$ に関する導関数であり、複素座標での偏微分とは区別する。[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)により、滑らかな関数に対して
 
 $$
 \partial_z=\frac12(\partial_x-i\partial_y),\qquad
@@ -404,14 +404,14 @@ $$
 複素次元2の同一正則座標で、二つのKähler形式の係数行列を $G_0=\operatorname{diag}(1,2)$、$G_1=\operatorname{diag}(3,4)$ とする。その点での $\omega_1^2/\omega_0^2$ を求めよ。座標によらず定義できる理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答。** 正値行列の行列式は $\det G_0=2$、$\det G_1=12$。最高次外積は共通座標体積形式に $2!i^2\det G_a$ を掛けたものなので、
+**詳細解答。** 正値行列の行列式は $\det G_0=2$、$\det G_1=12$。最高次外積は、それぞれ $r=0,1$ について共通座標体積形式に $2!i^2\det G_r$ を掛けたものなので、
 
 $$
 \frac{\omega_1^2}{\omega_0^2}
 =\frac{\det G_1}{\det G_0}=\frac{12}{2}=6.
 $$
 
-正則座標変換で両行列式には同じ $|\det B|^2$ が掛かるから、比では消える。したがって正の大域関数の値として意味がある。
+第2節と同じく正則座標変換のJacobi行列を $J$ とすると、両行列式には同じ $|\det J|^2$ が掛かるから、比では消える。したがって正の大域関数の値として意味がある。
 <!-- solution-end -->
 
 <a id="ex-yau1-02-a02"></a>
@@ -597,7 +597,13 @@ $$
 
 従って差は $d(i\bar\partial\psi)$ で完全だから、同類である。
 
-次に $\rho(\omega_0)=0$ で、[Ricci形式の差と体積比](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)の命題より $\rho(\omega_\varepsilon)=-i\partial\bar\partial\log f$。よって $\eta=0$ に対して $u=\log f$ が $\rho(\omega_\varepsilon)+i\partial\bar\partial u=0$ を満たす。
+次に $\omega_0$ の係数行列は定数行列 $G_0=(1)$ だから、[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)で
+
+$$
+\rho(\omega_0)=-i\partial\bar\partial\log1=0.
+$$
+
+[Ricci形式の差と体積比](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)の命題より $\rho(\omega_\varepsilon)=-i\partial\bar\partial\log f$。よって $\eta=0$ に対して $u=\log f$ が $\rho(\omega_\varepsilon)+i\partial\bar\partial u=0$ を満たす。
 
 $\omega_0=2dx\wedge dy$ で基本領域の面積は2。また $\int_0^1\cos(2\pi x)dx=0$ なので
 
