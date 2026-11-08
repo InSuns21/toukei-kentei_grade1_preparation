@@ -81,7 +81,23 @@ $$
 \end{aligned}
 $$
 
-各項 $f(gx)$ の加法・実数倍を和の外へ出せるので $Q(af+bu)=aQf+bQu$（$a,b\in\mathbb R$）である。既に不変な $f$ なら各 $g$ で $f(gx)=f(x)$ だから、$|G|$ 項を平均して $Qf=f$。最初の結論から $Qf$ 自身が不変なので、同じ議論を $Qf$ に適用すると $Q(Qf)=Qf$。$\square$
+任意の関数 $f,u:X\to\mathbb R^q$ と実数 $a,b$ について、各項の加法・実数倍を有限和の外へ出すと
+
+$$
+\begin{aligned}
+(Q(af+bu))(x)
+&=\frac1{|G|}\sum_{g\in G}\{af(gx)+bu(gx)\}\\
+&=a(Qf)(x)+b(Qu)(x).
+\end{aligned}
+$$
+
+既に不変な $f$ なら各 $g$ で $f(gx)=f(x)$ だから
+
+$$
+(Qf)(x)=\frac1{|G|}\sum_{g\in G}f(x)=f(x).
+$$
+
+最初の結論から $Qf$ 自身が不変なので、同じ議論を $Qf$ に適用すると $Q(Qf)=Qf$。$\square$
 <!-- proof-end -->
 
 線形な操作を二回繰り返しても一回と同じになる性質を、この文脈では**射影性**と呼ぶ。ただし「射影」は入力 $x$ をどこかへ近づける操作ではなく、関数の空間で不変関数へ写すという意味である。適切な確率測度や内積を指定していないので、ここで直交射影だとは主張しない。
@@ -582,7 +598,17 @@ $$
 
 よって層は等変。入力の異方的な重み $(4,0)$ は平均で等方的な倍率2に変わった。
 
-**MFL25-B03 解答**。$R^{\mathsf T}R=I_2$ より $\|Rv\|^2=v^TR^TRv=v^Tv=\|v\|^2$。$R^k$ も直交だから各 $g=r^k$ で
+**MFL25-B03 解答**。$R^{\mathsf T}R=I_2$ より、任意の $v\in\mathbb R^2$ について
+
+$$
+\begin{aligned}
+\|Rv\|^2&=(Rv)^{\mathsf T}(Rv)\\
+&=v^{\mathsf T}R^{\mathsf T}Rv\\
+&=v^{\mathsf T}v=\|v\|^2.
+\end{aligned}
+$$
+
+$R^k$ も直交だから各 $g=r^k$ で
 
 $$
 \sigma(R^kv)=(1+\|R^kv\|^2)R^kv
