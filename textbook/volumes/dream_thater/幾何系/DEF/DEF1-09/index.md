@@ -536,4 +536,4 @@ $$
 \mathcal I_\Omega([\phi,\psi])=-\partial B_\Omega(\phi,\psi)
 $$
 
-となる。コンパクトKählerではさらに、[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を選び、[大域 $\partial\bar\partial$-補題](../../HOD/HOD1-08/index.md#thm-hod1-08-ddbar-lemma)を使って、$H^1(X,T_X)$ の二次障害類が零であることまで証明した。これはBogomolov–Tian–Todorovの**核心恒等式**であり、BTT非障害性の全証明はまだ先にある。次のDEF1-10では、二次を越えてすべての次数の方程式を解き、形式解と実際の解析的変形族をつなぐ。
+となる。コンパクトKählerではさらに、[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を選び、[大域∂∂̄補題](../../HOD/HOD1-08/index.md#thm-hod1-08-ddbar-lemma)を使って、$H^1(X,T_X)$ の二次障害類が零であることまで証明した。これはBogomolov–Tian–Todorovの**核心恒等式**であり、BTT非障害性の全証明はまだ先にある。次のDEF1-10では、二次を越えてすべての次数の方程式を解き、形式解と実際の解析的変形族をつなぐ。
