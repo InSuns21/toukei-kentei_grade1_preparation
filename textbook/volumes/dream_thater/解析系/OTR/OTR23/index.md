@@ -10,7 +10,14 @@
 
 密度へ直接 $\rho+\varepsilon\eta$ を足すと非負性の確認が必要になります。ここでは滑らかなベクトル場 $\xi$ に従って各点を $x+\varepsilon\xi(x)$ へ移すことにします。この操作なら押し出しによって質量は自動的に保存され、最適輸送の費用とも直接比較できます。
 
-方向 $\xi$ をコンパクト支持にするのは、無限遠での積分と可逆性の問題を切り分けるためです。$\xi\in C_c^\infty(\mathbb R^d;\mathbb R^d)$ なら導関数 $D\xi$ は有界で、$|\varepsilon|\|D\xi\|_\infty<1$ のとき $S_\varepsilon(x)=x+\varepsilon\xi(x)$ は全空間の微分同相写像になります。実際、$|S_\varepsilon(x)-S_\varepsilon(y)|\ge(1-|\varepsilon|\|D\xi\|_\infty)|x-y|$ で単射、方程式 $x=z-\varepsilon\xi(x)$ は縮小写像として任意の $z$ について唯一解を持ちます。
+方向 $\xi$ をコンパクト支持にするのは、無限遠での積分と可逆性の問題を切り分けるためです。$D\xi(x)$ は位置 $x$ での空間微分行列であり、$\|D\xi\|_\infty$ はその作用素ノルムの上限です。$\xi\in C_c^\infty(\mathbb R^d;\mathbb R^d)$ なら $D\xi$ は有界で、$|\varepsilon|\|D\xi\|_\infty<1$ のとき $S_\varepsilon(x)=x+\varepsilon\xi(x)$ は全空間の微分同相写像になります。実際、
+
+$$
+|S_\varepsilon(x)-S_\varepsilon(y)|
+\ge(1-|\varepsilon|\|D\xi\|_\infty)|x-y|
+$$
+
+で単射、方程式 $x=z-\varepsilon\xi(x)$ は縮小写像として任意の $z$ について唯一解を持ちます。微分行列 $DS_\varepsilon=I+\varepsilon D\xi$ の行列式は局所的な体積の倍率を表し、変数変換ではこの倍率で密度を割ります。
 
 <a id="def-otr23-displacement-variation"></a>
 
@@ -26,14 +33,32 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-otr23-displacement-variation -->
-**定義の確認**。$d=1$、$\rho(x)=(2\pi)^{-1/2}e^{-x^2/2}$ とし、$0\le\chi\le1$ を $[-2,2]$ に支持を持ち $[-1,1]$ で1となる滑らかな関数とします。$\xi(x)=x\chi(x)$ なら $S_\varepsilon'(x)=1+\varepsilon(\chi+x\chi')>0$ が十分小さい $|\varepsilon|$ で成り立ちます。変数変換から
+**定義の確認**。$d=1$、$\rho(x)=(2\pi)^{-1/2}e^{-x^2/2}$ とし、$0\le\chi\le1$ を $[-2,2]$ に支持を持ち $[-1,1]$ で1となる滑らかな関数とします。$\xi(x)=x\chi(x)$ と置きます。ここでプライムは位置 $x$ に関する導関数です。積の微分により
 
 $$
-\rho_\varepsilon(S_\varepsilon(x))S_\varepsilon'(x)=\rho(x),
-\qquad \int\rho_\varepsilon(z)\,dz=\int\rho(x)\,dx=1.
+S_\varepsilon'(x)=1+\varepsilon\xi'(x)
+=1+\varepsilon\bigl(\chi(x)+x\chi'(x)\bigr)>0
 $$
 
-外側 $|x|>2$ では $S_\varepsilon(x)=x$ なので、二次モーメントも有限です。密度を任意に足す変分と違い、非負性・総質量は押し出しから保証されます。
+が十分小さい $|\varepsilon|$ で成り立ち、$S_\varepsilon$ は増加する微分同相写像です。一次元のJacobianはこの $S_\varepsilon'$ です。微小区間の長さが $dz=S_\varepsilon'(x)\,dx$ 倍になるため、押し出しの密度は
+
+$$
+\rho_\varepsilon(S_\varepsilon(x))
+=\frac{\rho(x)}{S_\varepsilon'(x)}\ge0,
+\qquad
+\int\rho_\varepsilon(z)\,dz
+=\int\rho(x)\,dx=1
+$$
+
+を満たします。さらに $|S_\varepsilon(x)|\le |x|+|\varepsilon|\|\xi\|_\infty$ だから
+
+$$
+\int z^2\rho_\varepsilon(z)\,dz
+=\int|S_\varepsilon(x)|^2\rho(x)\,dx
+\le2\int x^2\rho(x)\,dx+2\varepsilon^2\|\xi\|_\infty^2<\infty.
+$$
+
+外側 $|x|>2$ では $S_\varepsilon(x)=x$ です。これで非負性・総質量・有限二次モーメントという定義の条件をそれぞれ確認できました。
 <!-- definition-example-end -->
 
 この変分で[OTR21の自由エネルギー](../OTR21/index.md#def-otr21-free-energy)がどう変わるかを計算します。拡散係数 $a>0$、$V,W\in C^2(\mathbb R^d)$、$W$ は偶関数とし、$|V(x)|+|W(x)|\le C(1+|x|^2)$、$|\nabla V(x)|+|\nabla W(x)|\le C(1+|x|)$ を仮定します。$\rho\,dx\in\mathcal P_2$、$\int\rho\log\rho$ が有限のとき
@@ -49,7 +74,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（押し出しに沿う自由エネルギーの微分）**
-> $a>0$、偶関数 $W$ と外場 $V$ が上記の $C^2$・二次成長・一次導関数成長条件を満たすとする。$\mu=\rho\,dx\in\mathcal P_2(\mathbb R^d)$ で $\int\rho\log\rho\,dx$ が有限とする。[位置の微小押し出し変分](#def-otr23-displacement-variation)について
+> $d\ge1$、$a>0$ とし、$V,W\in C^2(\mathbb R^d)$、$W(z)=W(-z)$ とする。ある $C>0$ について全ての $z\in\mathbb R^d$ で $|V(z)|+|W(z)|\le C(1+|z|^2)$、$|\nabla V(z)|+|\nabla W(z)|\le C(1+|z|)$ とする。$\mu=\rho\,dx\in\mathcal P_2(\mathbb R^d)$ で $\int\rho\log\rho\,dx$ が有限とする。任意の $\xi\in C_c^\infty(\mathbb R^d;\mathbb R^d)$ による[位置の微小押し出し変分](#def-otr23-displacement-variation)について
 
 $$
 \begin{aligned}
@@ -67,7 +92,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$J_\varepsilon(x)=\det(I+\varepsilon D\xi(x))$ とすると、十分小さい $\varepsilon$ では $J_\varepsilon>0$ です。[流れのJacobianによる密度保存](../OTR17/index.md#prop-otr17-jacobian)より $\rho_\varepsilon(S_\varepsilon(x))J_\varepsilon(x)=\rho(x)$ がほとんど至る所で成立します。従って
+$J_\varepsilon(x)=\det DS_\varepsilon(x)=\det(I+\varepsilon D\xi(x))$ と置きます。$DS_\varepsilon$ は $|\varepsilon|\|D\xi\|_\infty<1$ で可逆で、$J_0=1$ からの連続性により十分小さい $\varepsilon$ では $J_\varepsilon>0$ です。押し出しの定義と変数変換を任意の可測集合 $B$ に用いると
+
+$$
+\mu_\varepsilon(B)=\int_{S_\varepsilon^{-1}(B)}\rho(x)\,dx
+=\int_B\frac{\rho(S_\varepsilon^{-1}(z))}
+{J_\varepsilon(S_\varepsilon^{-1}(z))}\,dz.
+$$
+
+従って $\rho_\varepsilon(S_\varepsilon(x))J_\varepsilon(x)=\rho(x)$ がほとんど至る所で成立します。これは[OTR17の流れに対するJacobianの密度保存式](../OTR17/index.md#prop-otr17-jacobian)と同じ変数変換の原理ですが、ここでは時間発展の流れを仮定していません。従って
 
 $$
 \begin{aligned}
@@ -149,7 +182,7 @@ W_2^2(\mu_\varepsilon,\nu)
 \end{aligned}
 $$
 
-$\mu$ の最小性で $0\le J(\mu_\varepsilon)-J(\mu)$ となり、上の費用上界を代入すると
+[JKO目的関数](../OTR22/index.md#def-otr22-jko-step)を $J_{\tau,\nu}(\eta)=\mathcal F(\eta)+W_2^2(\eta,\nu)/(2\tau)$ と書きます。$\mu$ の最小性で $0\le J_{\tau,\nu}(\mu_\varepsilon)-J_{\tau,\nu}(\mu)$ となり、上の費用上界を代入すると
 
 $$
 0\le\mathcal F(\mu_\varepsilon)-\mathcal F(\mu)
@@ -262,7 +295,15 @@ $$
 \qquad \nu=N(m,s^2),\quad s>0
 $$
 
-を採用します。ここで $N(m,s^2)$ は平均 $m$、分散 $s^2$ のGaussian確率測度です。[OTR22の相対エントロピーの下半連続性](../OTR22/index.md#lem-otr22-relative-entropy-lsc)と二次外場による下界によりJKO最小化解は存在します。さらに、この例では最小化解がGaussianであることまで証明できます。
+を採用します。ここで $N(m,s^2)$ は平均 $m$、分散 $s^2$ のGaussian確率測度です。基準分布を $\gamma_\lambda=N(0,\lambda^{-1})$、$Z_\lambda=\sqrt{2\pi/\lambda}$ とすると、密度の対数を展開して
+
+$$
+\mathcal F(\mu)
+=D(\mu\Vert\gamma_\lambda)-\log Z_\lambda
+\ge-\log Z_\lambda
+$$
+
+となります。[相対エントロピーの非負性](../OTR21/index.md#prop-otr21-gibbs)と[狭義下半連続性](../OTR22/index.md#lem-otr22-relative-entropy-lsc)から、[OTR22のJKO存在定理](../OTR22/index.md#thm-otr22-existence)の仮定を確認できるため、一歩の最小化解が存在します。さらに、この例では最小化解がGaussianであることまで証明できます。
 
 <a id="prop-otr23-gaussian-step"></a>
 
@@ -285,7 +326,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-有限エネルギーの候補 $\mu=\rho dx$ の平均と標準偏差を $M,r>0$ とします。密度がある確率測度の分散は0にはなりません。$g_{M,r}$ を $N(M,r^2)$ の密度とすると、相対エントロピーの非負性を $D(\mu\Vert N(M,r^2))$ に適用して
+有限エネルギーの候補 $\mu=\rho dx$ の平均と標準偏差を $M,r>0$ とします。密度がある確率測度の分散は0にはなりません。$g_{M,r}$ を $N(M,r^2)$ の密度とすると、[相対エントロピーの非負性](../OTR21/index.md#prop-otr21-gibbs)を $D(\mu\Vert N(M,r^2))$ に適用して
 
 $$
 \begin{aligned}
@@ -334,7 +375,7 @@ $$
 となり、正根が表示した $r$ です。他の候補が同じ目的値を達成するなら、エントロピーの下界で等号が必要なのでその候補自身もGaussianです。よって全確率測度の中で一意です。最後の差分公式は二つの停留方程式を変形して得られます。$\square$
 <!-- proof-end -->
 
-**PDEとの比較**。この一歩では $(M-m)/\tau=-\lambda M$ と $(r-s)/\tau=1/r-\lambda r$ です。時間刻みを形式的に小さくすると、平均 $m(t)$ と標準偏差 $s(t)$ に対して
+**PDEとの比較**。この一歩では $(M-m)/\tau=-\lambda M$ と $(r-s)/\tau=1/r-\lambda r$ です。時間刻みを形式的に小さくすると、平均 $m(t)$ と標準偏差 $s(t)$ に対して次の常微分方程式が現れます。ここで $m'(t)=dm(t)/dt$、$s'(t)=ds(t)/dt$ は時刻 $t$ に関する導関数です。一方、密度のPDEで用いる $\partial_t\rho(t,x)$ は位置 $x$ を固定した時間偏微分であり、先ほどの $\partial_MG,\partial_rG$ は目的関数 $G$ の別々の最適化変数に関する偏微分です。
 
 $$
 m'(t)=-\lambda m(t),\qquad
@@ -372,7 +413,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（JKO補間の離散散逸と時間一様評価）**
-> $\mathcal F:\mathcal P_2(\mathbb R^d)\to(-\infty,+\infty]$ が $\mathcal F\ge m$ を満たし、$\mathcal F(\mu^0)<\infty$ とする。$\tau>0$、$N\in\mathbb N$ に対して $\mu^0,\ldots,\mu^N$ が各回のJKO最小化解であるとし、$T=N\tau$ とする。$E_0=\mathcal F(\mu^0)-m$、$a_k=W_2(\mu^k,\mu^{k-1})$ と置くと
+> $\mathcal F:\mathcal P_2(\mathbb R^d)\to(-\infty,+\infty]$ と $m\in\mathbb R$ があり、全ての $\eta\in\mathcal P_2(\mathbb R^d)$ で $\mathcal F(\eta)\ge m$ を満たし、$\mathcal F(\mu^0)<\infty$ とする。$\tau>0$、$N\in\mathbb N$ に対して $\mu^0,\ldots,\mu^N$ が各回のJKO最小化解であるとし、$T=N\tau$ とする。$E_0=\mathcal F(\mu^0)-m$、$a_k=W_2(\mu^k,\mu^{k-1})$ と置くと
 
 $$
 \sum_{k=1}^N\frac{a_k^2}{\tau}\le2E_0.
@@ -494,7 +535,16 @@ $$
 \int(\Delta\varphi-\lambda x\cdot\nabla\varphi)\rho(x)dx.
 $$
 
-[OTR17の弱い連続の方程式](../OTR17/index.md#def-otr17-measure-weak)と同じ試験関数による部分積分では、$\int\Delta\varphi\rho=\int\varphi\Delta\rho$、$-\int\lambda x\cdot\nabla\varphi\rho=\int\varphi\lambda\nabla\cdot(x\rho)$ です。従って $\partial_t\rho=\Delta\rho+\lambda\nabla\cdot(x\rho)$ です。外場項は**正の発散**として現れます。
+[OTR17の弱い連続の方程式](../OTR17/index.md#def-otr17-measure-weak)と同様に、空間の試験関数に対する分布微分を使います。すなわち、密度 $\rho$ の古典微分を仮定せず
+
+$$
+\langle\Delta\rho,\varphi\rangle
+=\int\rho\,\Delta\varphi\,dx,\qquad
+\langle\nabla\cdot(x\rho),\varphi\rangle
+=-\int x\rho\cdot\nabla\varphi\,dx
+$$
+
+と定義します（$\rho$ が十分滑らかなら通常の部分積分と一致します）。従って $\partial_t\rho=\Delta\rho+\lambda\nabla\cdot(x\rho)$ を**分布の意味で**得ます。外場項は正の発散として現れます。
 <!-- solution-end -->
 
 ### OTR23-A04 二次Taylor誤差の係数
@@ -503,7 +553,19 @@ $$
 $d=1$、$\varphi(x)=x^2$ とし、任意の二点 $x,y$ について $\varphi(x)-\varphi(y)$ を $\varphi'(x)(x-y)$ と残差の和へ分けよ。残差の符号と大きさを求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$x^2-y^2=2x(x-y)-(x-y)^2$ は直接展開で確認できます。一次項は $2x(x-y)$、残差は $-(x-y)^2$ です。$\varphi''=2$ なので[Taylor誤差評価](#thm-otr23-weak-step)の係数 $(1/2)\|\varphi''\|_\infty=1$ に等しく、誤差評価は鋭いものです。$\varphi=x^2$ は $C_c^\infty$ ではありませんが、この**二点間の代数恒等式**は任意の二点で成立し、有限二次モーメントの結合で積分できます。
+**詳細解答**。平方差を $x$ の周りで展開すると
+
+$$
+x^2-y^2=2x(x-y)-(x-y)^2.
+$$
+
+一次項は $2x(x-y)$、残差は $-(x-y)^2$ です。$\varphi''=2$ なので、[Taylor誤差評価](#thm-otr23-weak-step)に現れる係数は
+
+$$
+\frac12\|\varphi''\|_\infty=1
+$$
+
+であり、残差の絶対値は上界と一致します。$\varphi=x^2$ は $C_c^\infty$ ではありませんが、この**二点間の代数恒等式**は任意の二点で成立し、有限二次モーメントの結合で積分できます。
 <!-- solution-end -->
 
 ### OTR23-A05 一歩の距離の最大値
@@ -563,7 +625,20 @@ $$
 $\nu=N(m,s^2)$、$s>0$ とする。任意の密度を持つ候補 $\mu$ の平均を $M$、標準偏差を $r>0$ として、二次輸送距離とエントロピーの下界をそれぞれ導き、Gaussianで二つとも等号になることを示せ。
 
 <!-- solution-start -->
-**詳細解答**。任意の結合 $(X,Y)$ で $E[(X-Y)^2]=(M-m)^2+r^2+s^2-2E[(X-M)(Y-m)]$ です。[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から最後の共分散は $rs$ 以下なので $W_2^2(\mu,\nu)\ge(M-m)^2+(r-s)^2$ です。$\mu=N(M,r^2)$ なら $X=M+rZ$、$Y=m+sZ$ の同一標準Gaussian $Z$ による結合が単調で最適となり、輸送の下界が等号になります。
+**詳細解答**。任意の結合 $(X,Y)$ について、二乗を展開して平均と共分散に分けると
+
+$$
+E[(X-Y)^2]
+=(M-m)^2+r^2+s^2-2E[(X-M)(Y-m)].
+$$
+
+中心化した確率変数に[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すれば共分散は $rs$ 以下なので、
+
+$$
+W_2^2(\mu,\nu)\ge(M-m)^2+(r-s)^2.
+$$
+
+$\mu=N(M,r^2)$ なら、$Z\sim N(0,1)$ に対して $X=M+rZ$、$Y=m+sZ$ と取れます。両成分が $Z$ の増加関数であるため、[一次元Wasserstein距離の分位点公式](../OTR11/index.md#thm-otr11-quantile-formula)によりこの結合は最適です。その費用は上の下界に等しくなります。
 
 次に $g_{M,r}$ をそのGaussian密度として $D(\mu\Vert g_{M,r}dx)\ge0$ を展開します。$\int(x-M)^2d\mu=r^2$ より
 
@@ -637,7 +712,13 @@ $d=1$、$\lambda>0$、$\mathcal F(\mu)=\frac\lambda2\int x^2d\mu$、$\mu^0\in\ma
 <!-- solution-start -->
 **詳細解答**。$c=1+\lambda\tau$ と置きます。[OTR22の二次外場の一歩](../OTR22/index.md#prop-otr22-quadratic)から $\mu^k=(c^{-k}\operatorname{id})_\#\mu^0$ です。新しい位置 $x$ から古い位置 $y$ へ向かう最適写像は $T(x)=cx$ で、$(x-y)/\tau=-\lambda x$ です。$M_k:=\int x^2d\mu^k=c^{-2k}M$ と書きます。
 
-$\varphi(x)=x^2$ では二点恒等式 $x^2-y^2=2x(x-y)-(x-y)^2$ が成立します。最適結合で積分すると一次項は $-2\lambda\tau M_k$、残差は $-\lambda^2\tau^2M_k$ です。ゆえに
+$\varphi(x)=x^2$ はコンパクト支持ではないため、[弱いPDE一歩の定理](#thm-otr23-weak-step)をそのまま援用しません。ここでは有限二次モーメントがあるので、二点恒等式
+
+$$
+x^2-y^2=2x(x-y)-(x-y)^2
+$$
+
+を直接最適結合で積分できます。$y=(1+\lambda\tau)x$ を代入すると一次項は $2x(x-y)=-2\lambda\tau x^2$、残差は $-(x-y)^2=-\lambda^2\tau^2x^2$ です。$\mu^k$ で積分してそれぞれ $-2\lambda\tau M_k$、$-\lambda^2\tau^2M_k$ を得ます。ゆえに
 
 $$
 \frac{M_k-M_{k-1}}\tau
