@@ -32,13 +32,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-otr13-convex-gradient-map -->
-**定義の確認**。先ほどの $\varphi(x)=x^2$ について、任意の $x,z\in\mathbb R$ で
+**定義の確認**。先ほどの $\varphi(x)=x^2$ について、任意の $x,z\in\mathbb R$ と $0\le t\le1$ で
+
+$$
+(1-t)\varphi(x)+t\varphi(z)-\varphi((1-t)x+tz)
+=t(1-t)(x-z)^2\ge0
+$$
+
+です。これは凸性の定義そのものです。さらに $\varphi'(x)=2x$ であり、任意の $x,z$ について
 
 $$
 \varphi(z)-\varphi(x)-2x(z-x)=(z-x)^2\ge0
 $$
 
-なので $\varphi$ は有限値・連続・凸で、$\nabla\varphi(x)=2x$ は全点で定義されます。$T(x)=2x$ は Borel 可測で、上の累積確率の計算により $T_{\#}\mu=\nu$ です。凸性・微分可能性・可測性・押し出しという定義の各条件を直接確かめました。
+が成り立ちます。右辺 $2x$ がグラフを下から支える傾きであることは[劣勾配の定義](../../../応用系/OPT/OPT3/index.md#def-opt3-subgradient)とも一致します。$\varphi$ は全空間で有限値・連続（従って下半連続）な真凸関数で、$\nabla\varphi(x)=2x$ は全点で定義されます。$T(x)=2x$ は連続ゆえ Borel 可測で、上の累積確率の計算により $T_{\#}\mu=\nu$ です。凸性・下半連続性・微分可能性・可測性・押し出しという定義の各条件を直接確かめました。
 <!-- definition-example-end -->
 
 今の例は凸勾配写像が*あり得る*ことしか示しません。一般の最適結合がそれ以外の仕方で質量を運べないことが、Brenier 定理の内容です。
@@ -310,14 +317,39 @@ $$
 
 ### 直接例：二次元の伸長
 
-$\mu$ を $[0,1]^2$ 上の一様確率測度、$A=\operatorname{diag}(2,1)$、$\varphi(x)=\frac12x^TAx=x_1^2+x_2^2/2$ とします。$A$ は対称正定値なので $\varphi$ は凸で、$T(x)=Ax=(2x_1,x_2)$ です。$\nu=T_{\#}\mu$ は $[0,2]\times[0,1]$ 上の一様確率測度です。共役関数は
+行列表示が凸性の判定に使える理由を先に確認します。標準正規直交基底で $x=(x_1,x_2)^{\mathsf T}$ と書き、$A=(a_{ij})$ を実対称 $2\times2$ 行列とします。二次形式は $x^{\mathsf T}Ax=\sum_{i,j}a_{ij}x_ix_j$ であり、対称性 $a_{ij}=a_{ji}$ を使って各 $x_i$ で偏微分すると
 
 $$
-\varphi^*(y)=\frac12y^TA^{-1}y
+\varphi(x)=\tfrac12x^{\mathsf T}Ax,\qquad
+\frac{\partial\varphi}{\partial x_i}=\sum_j a_{ij}x_j,
+\qquad\nabla\varphi(x)=Ax.
+$$
+
+さらに $h=z-x$ とおくと
+
+$$
+\varphi(z)-\varphi(x)-\langle Ax,z-x\rangle
+=\tfrac12h^{\mathsf T}Ah.
+$$
+
+従って $h^{\mathsf T}Ah\ge0$ がすべての $h$ で成り立つ（$A$ が半正定値）なら、各点に勾配を傾きとする支持アフィン関数があり、$\varphi$ は凸です。
+
+実対称行列の固有値がすべて非負であることは、この条件を判定する方法です。直交固有基底における $h$ の座標を $w_i$、対応する固有値を $\lambda_i$ と書くと
+
+$$
+h^{\mathsf T}Ah=\sum_i\lambda_i w_i^2\ge0
+$$
+
+と展開できるからです。正定値なら $h\ne0$ で不等号が厳密になります。
+
+$\mu$ を $[0,1]^2$ 上の一様確率測度、$A=\operatorname{diag}(2,1)$、$\varphi(x)=\frac12x^{\mathsf T}Ax=x_1^2+x_2^2/2$ とします。標準基底では $h^{\mathsf T}Ah=2h_1^2+h_2^2\ge0$ なので $\varphi$ は凸で、上の偏微分により $T(x)=Ax=(2x_1,x_2)$ です。$\nu=T_{\#}\mu$ は $[0,2]\times[0,1]$ 上の一様確率測度です。共役関数は
+
+$$
+\varphi^*(y)=\frac12y^{\mathsf T}A^{-1}y
 =\frac14y_1^2+\frac12y_2^2.
 $$
 
-これは $x\mapsto x\cdot y-\frac12x^TAx$ の平方完成、または最大点 $x=A^{-1}y$ への代入で確かめられます。二つの分布の台が有界なので、命題で必要な $f,g$ は可積分です。さらに
+これは $x\mapsto x\cdot y-\frac12x^{\mathsf T}Ax$ の平方完成、または最大点 $x=A^{-1}y$ への代入で確かめられます。二つの分布の台が有界なので、命題で必要な $f,g$ は可積分です。さらに
 
 $$
 c(x,y)-f(x)-g(y)=\frac14(y_1-2x_1)^2+\frac12(y_2-x_2)^2\ge0
@@ -357,7 +389,22 @@ $\mu$ を $[0,1]$ 上の一様確率測度、$T(x)=2x$ とする。$T_{\#}\mu$�
 <!-- solution-start -->
 ### 詳細解答
 
-$0\le t\le2$ で $\mu(T^{-1}(( -\infty,t]))=\mu([0,t/2])=t/2$ ですから、$\nu=T_{\#}\mu$ は密度 $1/2$ を $[0,2]$ に持ちます。$\varphi(x)=x^2$ とすれば $\varphi''(x)=2>0$、$\varphi'(x)=2x=T(x)$ です。$\mu$ は Lebesgue 絶対連続かつ両分布は有限二次モーメントを持つので [Brenier 定理](#thm-otr13-brenier)が適用できます。直接の最適性は[双対証明書の命題](#prop-otr13-dual-certificate)でも確認できます（両台が有界で、$\varphi^*(y)=y^2/4$ は有限）。費用は
+$0\le t\le2$ で $\mu(T^{-1}(( -\infty,t]))=\mu([0,t/2])=t/2$ ですから、$\nu=T_{\#}\mu$ は密度 $1/2$ を $[0,2]$ に持ちます。$\varphi(x)=x^2$ とすれば $\varphi''(x)=2>0$、$\varphi'(x)=2x=T(x)$ です。
+
+候補 $T$ 自身の最適性は [双対証明書の命題](#prop-otr13-dual-certificate)で確かめます。平方完成により
+
+$$
+\varphi^*(y)=\sup_{x\in\mathbb R}(xy-x^2)=y^2/4
+$$
+
+で、両分布の台が有界なので $f,g$ は可積分です。さらに
+
+$$
+c(x,y)-f(x)-g(y)=x^2+\frac14y^2-xy
+=\frac14(y-2x)^2\ge0
+$$
+
+で、$y=T(x)$ で等号です。従ってこの写像が最適で、[Brenierの最適写像定理](#thm-otr13-brenier)により $\mu$-ほとんど至る所で一意です。費用は
 
 $$
 W_2^2=\int_0^1(x-2x)^2dx
@@ -374,7 +421,14 @@ $\mu$ を $[-1,1]$ 上の一様確率測度、$\varphi(x)=|x|$ とする。凸�
 <!-- solution-start -->
 ### 詳細解答
 
-$\varphi$ は凸で、$x<0$ では $\varphi'(x)=-1$、$x>0$ では $\varphi'(x)=1$ です。$x=0$ は $\mu$-零集合なので $T(0)$ を $0$ と補います。$\mu([-1,0))=\mu((0,1])=1/2$ より $\nu=(\delta_{-1}+\delta_1)/2$ です。[$\mu\ll\mathcal L^1$ の下での一意性](#thm-otr13-brenier)と[凸双対の証明書](#prop-otr13-dual-certificate)によりこの結合は最適です。後者では $\varphi^*(y)$ は $|y|\le1$ で $0$、それ以外で $+\infty$ ですが、$\nu$ の台では有限なので積分可能です。
+$\varphi$ は凸で、$x<0$ では $\varphi'(x)=-1$、$x>0$ では $\varphi'(x)=1$ です。$x=0$ は $\mu$-零集合なので $T(0)$ を $0$ と補います。$\mu([-1,0))=\mu((0,1])=1/2$ より $\nu=(\delta_{-1}+\delta_1)/2$ です。共役の定義から
+
+$$
+\varphi^*(y)=\sup_{x\in\mathbb R}\{xy-|x|\}
+=\begin{cases}0&(|y|\le1),\\+\infty&(|y|>1)\end{cases}
+$$
+
+です。実際、$|y|\le1$ なら $xy-|x|\le0$ で $x=0$ が等号、$|y|>1$ なら $x$ を $y$ と同符号で無限大へ動かせば上限は無限大です。$\mu$ と $\nu$ の台では $f,g$ が有限かつ有界なので、[凸双対の証明書](#prop-otr13-dual-certificate)が適用でき、この結合は最適です。[Brenierの最適写像定理](#thm-otr13-brenier)はその一意性を保証します。
 
 $$
 \begin{aligned}
@@ -438,7 +492,7 @@ $\mu$ を $[0,1]^2$ 上の一様確率測度、$A=\operatorname{diag}(3,2)$、$\
 <!-- solution-start -->
 ### 詳細解答
 
-$A$ の固有値は $3,2>0$ なので $\varphi(x)=3x_1^2/2+x_2^2$ は凸で、$\nabla\varphi(x)=Ax$ です。$x\cdot y-\varphi(x)$ を各座標で平方完成すると
+$A$ は標準基底で対角行列なので、任意の増分 $h$ に対して $h^{\mathsf T}Ah=3h_1^2+2h_2^2\ge0$ です。したがって第5節の二次形式の展開から $\varphi(x)=3x_1^2/2+x_2^2$ は凸で、各座標による偏微分で $\nabla\varphi(x)=Ax$ です（固有値 $3,2>0$ でも同じ判定になります）。$x\cdot y-\varphi(x)$ を各座標で平方完成すると
 
 $$
 \begin{aligned}
@@ -495,7 +549,15 @@ $\mu$ を $[-1,1]$ 上の一様確率測度、$\varphi(x)=\max\{0,x\}$ とする
 <!-- solution-start -->
 ### 詳細解答
 
-$\varphi$ は二つのアフィン関数の最大だから凸です。$x<0$ では $\varphi'=0$、$x>0$ では $\varphi'=1$ で、$x=0$ は微分不能ですが $\mu(\{0\})=0$ です。$T(0)=0$ と補って Borel 写像を得ます。従って $\nu=(\delta_0+\delta_1)/2$ です。可積分な双対証明書は $\varphi^*(y)=0$（$0\le y\le1$）、それ以外で $+\infty$ なので $\nu$ の台で有限となり、[命題](#prop-otr13-dual-certificate)により最適です。
+$\varphi$ は二つのアフィン関数の最大だから凸です。$x<0$ では $\varphi'=0$、$x>0$ では $\varphi'=1$ で、$x=0$ は微分不能ですが $\mu(\{0\})=0$ です。$T(0)=0$ と補って Borel 写像を得ます。従って $\nu=(\delta_0+\delta_1)/2$ です。
+
+共役は $\sup_x\{xy-\max(0,x)\}$ です。$x\le0$ では $xy$、$x\ge0$ では $x(y-1)$ を最大化するため、$0\le y\le1$ なら両方 $0$ 以下で $x=0$ が等号、$y<0$ または $y>1$ ならどちらかが上に非有界です。従って
+
+$$
+\varphi^*(y)=\begin{cases}0&(0\le y\le1),\\+\infty&(y<0\text{ または }y>1)\end{cases}
+$$
+
+です。$\mu,\nu$ の台で $f,g$ は有界なので [双対証明書の命題](#prop-otr13-dual-certificate)により最適です。
 
 $$
 \begin{aligned}
@@ -515,13 +577,28 @@ $U$ を $[0,1]$ 上の一様変数、$S$ を $\{-1,1\}$ 上の独立な等確率
 <!-- solution-start -->
 ### 詳細解答
 
-任意の結合では出発点は $(0,u)$、到着点は $(s,v)$（$s=\pm1$）なので
+任意の結合では出発点は $(0,u)$、到着点は $(s,v)$（$s=\pm1$）です。以下、結合の下で出発側の第二座標を $U$、到着側の第一・第二座標をそれぞれ $S,V$ と書きます。到着周辺 $\nu$ の指定から $S$ と $V$ は独立ですが、出発側の $U$ と $S$ の独立性は仮定しません。各点の二乗距離は
 
 $$
 \lVert(0,u)-(s,v)\rVert^2=s^2+(u-v)^2=1+(u-v)^2\ge1.
 $$
 
-従って最適値は $1$ 以上です。$U$ を同じまま保ち、独立な $S$ を割り振った結合は $v=u$ で費用 $1$ を達成するので $W_2^2=1$ です。最適なら $E[(U-V)^2]=0$、従って $U=V$ が確率 $1$ で必要です。到着分布では各 $v$ に対して $s=\pm1$ がそれぞれ条件付き確率 $1/2$ です。しかし Monge 写像 $T(0,u)=(s(u),v(u))$ が最適なら $v(u)=u$ で、固定した $u$ の符号は一つに定まるため、この条件付き分布を再現できません。
+従って最適値は $1$ 以上です。$U$ を同じまま保ち、独立な $S$ を割り振った結合は $v=u$ で費用 $1$ を達成するので $W_2^2=1$ です。最適なら
+
+$$
+E[(U-V)^2]=0\quad\Longrightarrow\quad U=V\ \text{確率1で}
+$$
+
+が必要です。到着分布では $S$ と $V$ が独立なので、ほとんどすべての $v$ について $P(S=1\mid V=v)=1/2$ です。
+
+しかし Monge 写像 $T(0,u)=(s(u),v(u))$ が最適なら $v(U)=U$ が確率 $1$ で、到着側の符号は $S=s(U)=s(V)$ となります。この場合には
+
+$$
+P(S=1\mid V)=\boldsymbol{1}_{\{s(V)=1\}}
+\in\{0,1\}\quad\text{ほとんど確実に}
+$$
+
+であり、独立性から必要な $1/2$ と矛盾します。ここでは符号の選び方が $u$ に依存しても、条件付き分布を二点へ分割できないことが要点です。
 
 $\varphi(x_1,x_2)=|x_1|+x_2^2/2$ は凸で、$\partial\varphi(0,u)=[-1,1]\times\{u\}$ が両方の到着先を含みます。出発測度が直線 $x_1=0$ に集中し $\mu\not\ll\mathcal L^2$ なので、角の集合を捨てられないことが失敗の機構です。
 <!-- solution-end -->
@@ -531,14 +608,28 @@ $\varphi(x_1,x_2)=|x_1|+x_2^2/2$ は凸で、$\partial\varphi(0,u)=[-1,1]\times\
 
 $\mu$ を $[0,1]^2$ 上の一様確率測度とし、$A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$、$\nu=A_{\#}\mu$ とする。以下を証明せよ。
 
-1. $\varphi(x)=x^TAx/2$ が凸で、$T(x)=Ax$ は凸勾配輸送写像である。
+1. $\varphi(x)=x^{\mathsf T}Ax/2$ が凸で、$T(x)=Ax$ は凸勾配輸送写像である。
 2. $\varphi^*$ を求め、$f(x)=\lVert x\rVert^2/2-\varphi(x)$ と $g(y)=\lVert y\rVert^2/2-\varphi^*(y)$ が最適性を証明することを示す。
 3. $\nu$ の台と密度、$W_2^2(\mu,\nu)$ を計算し、最適写像の一意性を説明する。
 
 <!-- solution-start -->
 ### 詳細解答
 
-**(1) 凸性・押し出し。** $A$ は対称で $\det(A-\lambda I)=(2-\lambda)^2-1=(\lambda-1)(\lambda-3)$ なので固有値は $1,3>0$ です。よって $h^TAh>0$（$h\ne0$）、$\varphi$ は狭義凸です。成分で $\varphi(x)=x_1^2+x_1x_2+x_2^2$ と展開すると
+**(1) 凸性・押し出し。** $A$ は対称で $\det(A-\lambda I)=(2-\lambda)^2-1=(\lambda-1)(\lambda-3)$ なので固有値は $1,3>0$ です。第5節の直交固有基底への展開により $h^{\mathsf T}Ah>0$（$h\ne0$）であり、また標準座標でも
+
+$$
+h^{\mathsf T}Ah=2h_1^2+2h_1h_2+2h_2^2
+=(h_1+h_2)^2+h_1^2+h_2^2>0\quad(h\ne0)
+$$
+
+と直接確認できます。任意の $z=x+h$ に対して
+
+$$
+\varphi(z)-\varphi(x)-\langle Ax,h\rangle
+=\tfrac12h^{\mathsf T}Ah\ge0
+$$
+
+なので $\varphi$ は狭義凸です。成分で $\varphi(x)=x_1^2+x_1x_2+x_2^2$ と展開すると
 
 $$
 \nabla\varphi(x)=(2x_1+x_2,\,x_1+2x_2)=Ax.
@@ -546,13 +637,13 @@ $$
 
 $T$ は連続で Borel 可測、$\nu$ は $T_{\#}\mu$ と定められているので、[凸勾配輸送写像の定義](#def-otr13-convex-gradient-map)の押し出し条件も満たします。
 
-**(2) 双対証明書。** $A^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$ です。$x\cdot y-\frac12x^TAx$ の $x$ に関する勾配は $y-Ax$ なので最大点は $x=A^{-1}y$、そこでの値は
+**(2) 双対証明書。** $A^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$ です。$x\cdot y-\frac12x^{\mathsf T}Ax$ の $x$ に関する勾配は $y-Ax$ なので最大点は $x=A^{-1}y$、そこでの値は
 
 $$
 \begin{aligned}
 \varphi^*(y)
-&=(A^{-1}y)^Ty-\frac12(A^{-1}y)^TA(A^{-1}y)\\
-&=\frac12y^TA^{-1}y=\frac13(y_1^2-y_1y_2+y_2^2).
+&=(A^{-1}y)^{\mathsf T}y-\frac12(A^{-1}y)^{\mathsf T}A(A^{-1}y)\\
+&=\frac12y^{\mathsf T}A^{-1}y=\frac13(y_1^2-y_1y_2+y_2^2).
 \end{aligned}
 $$
 
@@ -561,16 +652,31 @@ $$
 $$
 \begin{aligned}
 c(x,y)-f(x)-g(y)
-&=\varphi(x)+\varphi^*(y)-x^Ty\\
-&=\frac12(y-Ax)^TA^{-1}(y-Ax)\ge0.
+&=\varphi(x)+\varphi^*(y)-x^{\mathsf T}y\\
+&=\frac12(y-Ax)^{\mathsf T}A^{-1}(y-Ax)\ge0.
 \end{aligned}
 $$
 
 $A^{-1}$ も正定値で、等号は $y=Ax$ のときに限ります。$\mu$ の台とその像は有界で、$f,g$ は二次多項式なので可積分です。[可積分な双対証明書の命題](#prop-otr13-dual-certificate)を適用し、この輸送が最適と分かります。
 
-**(3) 到着分布・費用。** $A$ は可逆で、$\det A=3$ です。$[0,1]^2$ の線形像は四頂点 $(0,0),(2,1),(1,2),(3,3)$ を持つ平行四辺形 $P$ です。変数変換 $y=Ax$ における Jacobian の絶対値が $3$ なので、$\nu$ は $P$ 上の密度 $1/3$、それ以外で $0$ です。
+**(3) 到着分布・費用。** $A$ は可逆で、$\det A=2\cdot2-1\cdot1=3$ です。$[0,1]^2$ の線形像は四頂点 $(0,0),(2,1),(1,2),(3,3)$ を持つ平行四辺形 $P$ です。
 
-$x-Ax=(-x_1-x_2,-x_1-x_2)$ なので、積分中の独立な一様座標について $E[X_1^2]=E[X_2^2]=1/3$、$E[X_1X_2]=1/4$ を用いると
+変数変換 $y=T(x)=Ax$ の微分行列は
+
+$$
+DT(x)=\left(\frac{\partial T_i}{\partial x_j}\right)_{i,j}=A.
+$$
+
+これは転置を表す上付き $^{\mathsf T}$ とは別の記法です。Jacobian 行列式の絶対値が $3$ なので、体積要素は $dy=|\det A|\,dx=3\,dx$ となります。従って任意の Borel 集合 $B\subset\mathbb R^2$ について
+
+$$
+\nu(B)=\int_{[0,1]^2}\boldsymbol{1}_B(Ax)\,dx
+=\int_{B\cap P}\frac{dy}{3},
+$$
+
+すなわち $\nu$ は $P$ 上で密度 $1/3$、それ以外で $0$ です。
+
+$x-Ax=(-x_1-x_2,-x_1-x_2)$ です。$[0,1]^2$ 上の一様測度の座標変数 $X_1,X_2$ は独立であり、$\int_0^1t^2dt=1/3$ と $\int_0^1t\,dt=1/2$ から $E[X_1^2]=E[X_2^2]=1/3$、$E[X_1X_2]=(1/2)^2=1/4$ です。これらを代入すると
 
 $$
 \begin{aligned}
