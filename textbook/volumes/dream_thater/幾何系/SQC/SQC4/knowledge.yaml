@@ -1,0 +1,18 @@
+chapter: SQC4
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC3]
+forward_references: []
+
+concepts:
+  - id: geometry.cube-duplication-impossibility
+    name: 立方体倍積の作図不能性
+    kind: theorem
+    introduction: formal
+    requires: [algebra.constructible-degree-power-of-two, geometry.quadratic-tower-stepwise-construction]
+
+  - id: geometry.sixty-degree-trisection-impossibility
+    name: 60度の角の三等分不能性
+    kind: theorem
+    introduction: formal
+    requires: [algebra.constructible-degree-power-of-two, geometry.four-arithmetic-constructions, geometry.nonnegative-square-root-construction]
