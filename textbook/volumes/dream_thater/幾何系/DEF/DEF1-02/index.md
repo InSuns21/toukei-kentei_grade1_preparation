@@ -144,7 +144,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-02-beltrami-graph -->
-**定義の確認**。$X=\mathbb C$、$\phi=c\,d\bar z\otimes\partial_z$（$c\in\mathbb C$）とし、グラフの生成ベクトルを次のように置く。
+**定義の確認**。$X=\mathbb C$、$\phi=c\,d\bar z\otimes\partial_z$（$c\in\mathbb C$）とし、グラフとその共役を張る局所ベクトル場を次のように置く。
 
 $$
 D=\partial_{\bar z}+c\partial_z,\qquad
@@ -268,6 +268,8 @@ $$
 $$
 
 実Jacobianを導くには、一般の実線形写像 $w=Az+B\bar z$ を $A=a+ib$、$B=p+iq$（$a,b,p,q\in\mathbb R$）で表す。$z=x+iy$ として実部と虚部を分けると
+
+<a id="eq-def1-02-real-jacobian"></a>
 
 $$
 \begin{pmatrix}\operatorname{Re}w\\\operatorname{Im}w\end{pmatrix}
@@ -561,7 +563,7 @@ $$
 |\mu(t)|\le\frac{|t|}{2-|t|}<\frac13.
 $$
 
-よって[小さいグラフの命題](#prop-def1-02-small-graph)により直和である。$w_t=Az+B\bar z$ として $A=1+t/(2i)$、$B=-t/(2i)$ と置けば、上で導いた実Jacobianの公式から
+よって[小さいBeltrami微分の横断性](#prop-def1-02-small-graph)により直和である。$w_t=Az+B\bar z$ として $A=1+t/(2i)$、$B=-t/(2i)$ と置く。[第4節の実行列による計算](#eq-def1-02-real-jacobian)に代入すると、実Jacobianは
 
 $$
 |A|^2-|B|^2
