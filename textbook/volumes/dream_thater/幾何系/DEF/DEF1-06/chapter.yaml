@@ -1,0 +1,40 @@
+id: "DEF1-06"
+title: "Kuranishi構成I――調和ゲージと方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-05
+  - HOD1-06
+  - GA6
+learning_objectives:
+  - コンパクトHermite多様体の接束値Dolbeault Laplacianの楕円性を局所主記号から確認し、調和射影・Green作用素・Hodge分解を構成できる
+  - 連鎖ホモトピー恒等式と調和代表によるH^1(X,T_X), H^2(X,T_X)の同定を証明できる
+  - 調和ゲージと一次方向を固定してKuranishi固定点方程式を導き、形式解の存在と一意性を示せる
+  - 調和障害写像の零点と形式的Maurer–Cartan方程式の同値性をBianchi恒等式で証明できる
+  - トーラスの定数方向、零次元・高次障害、形式解と収束解の差を検算できる
+theorems:
+  - { id: DEF1-06-DEF-01, name: "接束値Dolbeault Laplacianと調和射影" }
+  - { id: DEF1-06-THM-01, name: "接束値Hodge分解とGreen作用素" }
+  - { id: DEF1-06-DEF-02, name: "調和ゲージとホモトピー作用素" }
+  - { id: DEF1-06-LEM-01, name: "Green作用素の連鎖ホモトピー恒等式" }
+  - { id: DEF1-06-THM-02, name: "Kuranishi固定点方程式と一意な形式解" }
+  - { id: DEF1-06-DEF-03, name: "形式的Kuranishi障害写像" }
+  - { id: DEF1-06-THM-03, name: "調和障害の消滅とMaurer–Cartan方程式" }
+canonical_examples:
+  - コンパクト平坦複素トーラスの定数係数接束値形式の調和性
+  - 次元一の楕円曲線で全ての調和方向の括弧が零になる例
+  - 正固有値の形式に対するホモトピー恒等式の確認
+problem_patterns:
+  - DEF1-06-LAPLACIAN-SYMBOL
+  - DEF1-06-HODGE-HARMONIC
+  - DEF1-06-HOMOTOPY
+  - DEF1-06-GAUGE
+  - DEF1-06-SECOND-COEFFICIENT
+  - DEF1-06-THIRD-COEFFICIENT
+  - DEF1-06-HARMONIC-OBSTRUCTION
+  - DEF1-06-TORUS
+  - DEF1-06-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 5 }
