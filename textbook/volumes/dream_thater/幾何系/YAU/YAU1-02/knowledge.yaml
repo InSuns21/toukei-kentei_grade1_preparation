@@ -1,0 +1,23 @@
+chapter: YAU1-02
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-01, HOD1-08, KAH1-11, KAH1-13]
+concepts:
+  - id: yau.ricci-potential-relative
+    name: 基準Kähler形式に対するRicciポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基準Kähler形式に対するRicciポテンシャル）"]
+    requires: [yau.admissible-ricci-data, hodge.pure-d-exact-ddbar]
+  - id: yau.real-ricci-potential-existence
+    name: 実Ricciポテンシャルの存在と定数差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（実Ricciポテンシャルの存在と定数差）"]
+    requires: [yau.ricci-potential-relative, hodge.pure-d-exact-ddbar]
+  - id: yau.ricci-reference-invariance
+    name: 基準Kähler形式の変更と正規化密度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（基準Kähler形式の変更と正規化密度）"]
+    requires: [yau.real-ricci-potential-existence, cyg.ricci-volume-ratio, yau.volume-normalization-consistency]
