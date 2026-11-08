@@ -1,0 +1,46 @@
+id: "OTR12"
+title: "二次費用で凸解析が現れる理由は"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR11
+  - OPT4
+  - F0-00D2C
+official_scope: []
+learning_objectives:
+  - 二次費用の巡回交換不等式を内積の巡回単調性へ変換し、二点単調性との違いを反例で示せる
+  - 凸関数の劣微分が巡回単調となることを劣勾配不等式の総和から証明できる
+  - 任意の非空巡回単調関係からRockafellar型の凸ポテンシャルを構成し、有限性と劣勾配包含を証明できる
+  - 二次輸送の双対等号をFenchel–Youngの等号条件へ翻訳し、具体的な最適性証明書を計算できる
+  - 開凸集合上の有限値凸関数がLebesgueほとんど至る所で微分可能となることを一次元の片側微分とFubiniから証明できる
+  - 劣微分が多値となる点と最適写像の一意性の関係を区別し、次講のBrenier定理に必要な仮定を説明できる
+definitions:
+  - { id: OTR12-DEF-01, name: 内積の巡回単調関係 }
+theorems:
+  - { id: OTR12-PROP-01, name: 二次費用と内積の巡回単調性の同値 }
+  - { id: OTR12-PROP-02, name: 凸劣微分の巡回単調性 }
+  - { id: OTR12-THM-01, name: Rockafellar型凸ポテンシャル構成 }
+  - { id: OTR12-PROP-03, name: 二次費用の双対等号と劣微分 }
+  - { id: OTR12-LEM-01, name: 一次元凸関数の微分不能点は可算 }
+  - { id: OTR12-THM-02, name: 有限値凸関数のほとんど至る所微分可能性 }
+canonical_examples:
+  - 対角線の輸送関係と二次関数の劣勾配
+  - 回転写像は二点単調だが三点巡回単調でない
+  - 二点関係からRockafellar型構成で折れ線凸関数を得る
+  - 絶対値の劣微分が多値であることと零測度の微分不能集合
+  - 長方形の線形伸長に対する二次輸送の双対証明書
+problem_patterns:
+  - OTR12-A01
+  - OTR12-A02
+  - OTR12-A03
+  - OTR12-A04
+  - OTR12-A05
+  - OTR12-B01
+  - OTR12-B02
+  - OTR12-B03
+  - OTR12-B04
+  - OTR12-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

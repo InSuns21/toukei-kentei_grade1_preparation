@@ -90,7 +90,7 @@ $$
 
 矢印のような出力は、入力を回転したら一緒に回転することが必要であり、単純な不変化平均では一般に消えてしまう。欲しい性質は[MFL22 の等変性](../MFL22/index.md#def-mfl22-equivariant)、すなわち $F(gx)=\rho_{\mathrm{out}}(g)F(x)$ である。
 
-各 $g$ で評価した $f(gx)$ は「変換後の出力座標」にある。平均前に $\rho_{\mathrm{out}}(g)^{-1}$ を掛け、元の出力座標へ戻す。[MFL24 の表現の逆元公式](../MFL24/index.md#def-mfl24-representation)により、この逆行列は $\rho_{\mathrm{out}}(g^{-1})$ に等しい。
+各 $g$ で評価した $f(gx)$ は「変換後の出力座標」にある。平均前に $\rho_{\mathrm{out}}(g)^{-1}$ を掛け、元の出力座標へ戻す。[前章の表現](../MFL24/index.md#def-mfl24-representation)の積の条件により、$\rho_{\mathrm{out}}(g^{-1})\rho_{\mathrm{out}}(g)=\rho_{\mathrm{out}}(e)=I_q$ だから、この逆行列は $\rho_{\mathrm{out}}(g^{-1})$ に等しい。
 
 <a id="def-mfl25-equivariant-average"></a>
 

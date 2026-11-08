@@ -1,0 +1,57 @@
+chapter: OTR12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR11
+  - OPT4
+  - F0-00D2C
+
+concepts:
+  - id: transport.inner-product-cyclic-monotonicity
+    name: 内積の巡回単調関係
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内積の巡回単調関係）"]
+    requires: [transport.c-cyclic-monotonicity, linear.inner-product]
+
+  - id: transport.quadratic-cyclic-equivalence
+    name: 二次費用と内積の巡回単調性の同値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次費用と内積の巡回単調性の同値）"]
+    requires: [transport.inner-product-cyclic-monotonicity, transport.c-cyclic-monotonicity]
+
+  - id: transport.subdifferential-cyclic
+    name: 凸劣微分の巡回単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（凸劣微分の巡回単調性）"]
+    requires: [transport.inner-product-cyclic-monotonicity, convex.subdifferential]
+
+  - id: transport.rockafellar-potential
+    name: Rockafellar型凸ポテンシャル構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Rockafellar型凸ポテンシャル構成）"]
+    requires: [transport.inner-product-cyclic-monotonicity, convex.subgradient, convex.closed-convex-function]
+
+  - id: transport.quadratic-dual-subgradient
+    name: 二次費用の双対等号と劣微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次費用の双対等号と劣微分）"]
+    requires: [transport.rockafellar-potential, convex.fenchel-young-equality, convex.fenchel-conjugate]
+
+  - id: transport.one-dimensional-convex-differentiability
+    name: 一次元凸関数の微分不能点は可算
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（一次元凸関数の微分不能点は可算）"]
+    requires: [convex.convex-function]
+
+  - id: transport.convex-almost-everywhere-differentiability
+    name: 有限値凸関数のほとんど至る所微分可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限値凸関数のほとんど至る所微分可能性）"]
+    requires: [transport.one-dimensional-convex-differentiability, convex.subdifferential, convex.directional-derivative-support, convex.finite-convex-local-lipschitz, measure.fubini-theorem]
