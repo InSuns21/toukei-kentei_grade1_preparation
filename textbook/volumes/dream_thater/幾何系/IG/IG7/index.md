@@ -422,7 +422,15 @@ $$
 =\Gamma^{(-1)}_{ij,k}.
 $$
 
-他方、第一引数を一回だけ微分した式から第二引数を二回微分すると、$\theta'$ に依存するのは $\ell_k(X;\theta')$ だけなので
+他方、第一引数を一回微分すると、密度 $p_\theta$ の微分と $\ell_\theta$ 自身の微分を分けて
+
+$$
+\partial_kD
+=E_\theta[\ell_k(X;\theta)(\ell_\theta-\ell_{\theta'})]
++E_\theta[\ell_k(X;\theta)].
+$$
+
+最後の項は [IG1 の score の平均零](../IG1/index.md#thm-ig1-regular-score-mean)で消えます。残りを第二引数で二回微分すると、$\theta'$ に依存するのは $\ell_{\theta'}$ だけなので
 
 $$
 \partial_{i'}\partial_{j'}\partial_kD
