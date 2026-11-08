@@ -141,7 +141,14 @@ $$
 \end{aligned}
 $$
 
-一方、曲線の速度は連鎖律から $\dot\theta=J\dot\xi$ です。よって二つは同じ接ベクトルを表します。有限更新については $f(\xi-\tau u_\xi)$ と $f(\xi)-\tau Ju_\xi$ が一般に一致しません。Taylor 展開では両者の差は $O(\tau^2)$ ですが、$f$ が非線形なら差が残り得ます。
+一方、曲線の速度は連鎖律から $\dot\theta=J\dot\xi$ です。よって二つは同じ接ベクトルを表します。有限更新については $f(\xi-\tau u_\xi)$ と $f(\xi)-\tau Ju_\xi$ が一般に一致しません。ここで $u_\xi$ を現在点で固定すると、$f$ が $C^1$ という本定理の仮定から言えるのは
+
+$$
+f(\xi-\tau u_\xi)=f(\xi)-\tau Ju_\xi+o(\tau)
+\qquad(\tau\downarrow0)
+$$
+
+までです。$f$ がさらに $C^2$ なら剰余を $O(\tau^2)$ と評価できます。いずれの場合も、$f$ が非線形なら有限歩幅では差が残り得ます。
 <!-- proof-end -->
 
 **logit 座標での確認**。上の Bernoulli 族で $\xi=\log(p/(1-p))$ とすると
@@ -164,7 +171,13 @@ $$
 
 Fisher 長さの単位球は分布の変化を測れますが、統計モデルでは分布間の KL divergence を直接評価することもできます。ただし KL は非対称で、二点間の**有限距離**について計量と完全には同じではありません。
 
-正則性と $C^3$ の滑らかさがあり、$\theta+v\in\Theta$ の範囲では、[KL の局所 Fisher 展開](../IG3/index.md#thm-ig3-kl-fisher-hessian)を $\theta$ を展開点として適用できます。
+基準点 $\theta$ を固定し、候補の座標 $\eta$ だけを変える関数を
+
+$$
+F_\theta(\eta):=D_{\mathrm{KL}}(p_\theta\Vert p_\eta)
+$$
+
+と置きます。正則性に加え、この関数が $\eta=\theta$ の近傍で $C^3$（連続モデルなら三階までの必要な微分・積分交換を含む）なら、$\theta+v\in\Theta$ かつ $v\to0$ の範囲で、[KL の局所 Fisher 展開](../IG3/index.md#thm-ig3-kl-fisher-hessian)の二次項に三次の剰余評価を加えられます。
 
 $$
 D_{\mathrm{KL}}(p_\theta\Vert p_{\theta+v})
@@ -189,7 +202,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig12-kl-trust-region -->
-**定義の確認**。Bernoulli 族の $p=1/2$ では $G=4$ であり、接ベクトル $v$ の二次近似 KL は $2v^2$ です。したがって trust region は $|v|\le\sqrt{\varepsilon/2}$ と具体的に判定できます。$L(p)=p$ なら $a=1$ なので、この区間での一次損失 $v$ の最小点は左端 $v=-\sqrt{\varepsilon/2}$ です。$G>0$、$\varepsilon>0$、制約の成立と最小性を直接確認しました。
+**定義の確認**。Bernoulli 族の $p=1/2$ では上で計算した Fisher 情報量は $G=4>0$ です。接ベクトル $v$ を定義の二次形式へ代入すると
+
+$$
+\frac12Gv^2=2v^2\le\varepsilon
+\quad\Longleftrightarrow\quad
+|v|\le\sqrt{\varepsilon/2}.
+$$
+
+$L(p)=p$ の微分は $a=1$ なので、一次損失はこの区間で $v$ に等しく、最小点は左端
+
+$$
+v_*=-\sqrt{\varepsilon/2}
+$$
+
+です。$G>0$、$\varepsilon>0$、制約の成立と最小性を直接確認しました。
 <!-- definition-example-end -->
 
 <a id="thm-ig12-trust-direction"></a>
@@ -320,7 +347,13 @@ $$
 同じ名前の「KL を使う更新」でも、分布のどちらを第1引数に置いたかは座標・ポテンシャルと一緒に確定させます。
 
 <!-- definition-example-start: def-ig12-mirror-descent -->
-**定義の確認**。二次ポテンシャルの例として $U=\mathbb R^2$、$C=\mathbb R^2$、$\psi(x)=\tfrac12(x_1^2+4x_2^2)$ とします。Hessian は $\operatorname{diag}(1,4)>0$ なので厳密凸性を満たし、
+**定義の確認**。二次ポテンシャルの例として $U=\mathbb R^2$、$C=\mathbb R^2$、$\psi(x)=\tfrac12(x_1^2+4x_2^2)$ とします。座標ごとの二階偏微分から $H=\nabla^2\psi=\operatorname{diag}(1,4)$ であり、任意の $w\ne0$ に対して
+
+$$
+w^{\mathsf T}Hw=w_1^2+4w_2^2>0
+$$
+
+です。これが定義で必要な Hessian の正定値性であり、開凸集合 $U$ 上の厳密凸性を保証します。さらに $\nabla\psi(x)=Hx$ を Bregman の定義へ代入すると $D_\psi(z,x)=\tfrac12(z-x)^{\mathsf T}H(z-x)$ となるので、
 
 $$
 D_\psi(z,x)=\frac12\{(z_1-x_1)^2+4(z_2-x_2)^2\}\ge0.
@@ -440,13 +473,21 @@ $$
 +D_\psi(\vartheta,\theta)\bigr\}
 $$
 
-は、最小点が内点にあるとき $\nabla\psi(\theta^+)=\nabla\psi(\theta)-\tau\nabla_\theta L(\theta)$ を満たします。ここで $\nabla\psi=\eta$ は期待値座標です。**自然母数を直接引く更新ではなく、期待値座標を引く更新**になる点に注意してください。
+は、最小点が内点にあるとき、[鏡映更新の最適性と自然勾配への局所極限](#thm-ig12-mirror-natural)から
+
+$$
+\underbrace{\nabla\psi(\theta^+)}_{\eta^+}
+=\underbrace{\nabla\psi(\theta)}_{\eta}
+-\tau\nabla_\theta L(\theta)
+$$
+
+を満たします。ここで $\eta=\nabla\psi(\theta)$ は期待値座標です。**自然母数を直接引く更新ではなく、期待値座標を引く更新**になる点に注意してください。
 
 二次ポテンシャル $\psi(x)=\tfrac12x^{\mathsf T}Hx$（$H>0$ が定数）では高次項がないため、鏡映更新は任意の歩幅で $x^+=x-\tau H^{-1}a$ と**厳密に一致**します。非二次ポテンシャルで一般に成り立つのは、上で証明した局所一致です。
 
 ## 4. 正の確率単体で自然勾配と指数重み更新を計算する
 
-$m\ge2$ 個の結果 $i=1,\ldots,m$ の確率を $p_i>0$、$\sum_i p_i=1$ とします。接ベクトル $v$ は $\sum_i v_i=0$ を満たすため、[単体の Fisher--Rao 計量](../IG2/index.md#def-ig2-fisher-rao-metric)は
+$m\ge2$ 個の結果 $i=1,\ldots,m$ の確率を $p_i>0$、$\sum_i p_i=1$ とします。[正の有限確率単体の接空間の定理](../IG1/index.md#thm-ig1-simplex-tangent)より接ベクトル $v$ は $\sum_i v_i=0$ を満たすため、[単体の Fisher--Rao 計量](../IG2/index.md#def-ig2-fisher-rao-metric)は
 
 $$
 g_p(v,w)=\sum_{i=1}^m\frac{v_iw_i}{p_i},
@@ -470,13 +511,17 @@ $$
 > $m\ge2$、$p=(p_1,\ldots,p_m)$ は $p_i>0$、$\sum_i p_i=1$ を満たす。単体の Fisher 計量を $g_p(v,w)=\sum_i v_iw_i/p_i$（接ベクトルは成分和0）とし、$c=(c_i)\in\mathbb R^m$、$L(p)=\sum_i p_ic_i$、$\bar c=\sum_i p_ic_i$ とする。このとき自然勾配の接成分は
 
 $$
-(\operatorname{grad}_g L)_i=p_i(c_i-\bar c),
-\qquad
+(\operatorname{grad}_g L)_i=p_i(c_i-\bar c)
+$$
+
+> である。さらに $p(t)$ を、正の単体における負の自然勾配流 $\dot p(t)=-\operatorname{grad}_gL(p(t))$ とすると、$\bar c(t)=\sum_i p_i(t)c_i$ として
+
+$$
 \frac{d}{dt}L(p(t))
 =-\sum_i p_i(t)(c_i-\bar c(t))^2
 $$
 
-> である。さらに負エントロピーポテンシャル $h(q)=\sum_iq_i\log q_i$ を正の確率単体上で用いた鏡映更新
+> となる。また、負エントロピーポテンシャル $h(q)=\sum_iq_i\log q_i$ を正の確率単体上で用いた鏡映更新
 
 $$
 p^+=\underset{q_i>0,\;\sum_iq_i=1}{\operatorname{argmin}}\;
@@ -493,7 +538,7 @@ p_i^+=\frac{p_i e^{-\tau c_i}}
 =-p_i(c_i-\bar c)
 $$
 
-> を満たす。微分方程式は自然勾配流 $\dot p=-\operatorname{grad}_g L$ に沿うものとする。
+> を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -872,7 +917,7 @@ $$
 
 ### IG12-B03 交差項を持つ Hessian 計量
 
-$U=\mathbb R^2$、$\psi(x)=x_1^2+x_1x_2+x_2^2$、損失 $L(x)=3x_1$、現在点 $x=(0,0)$、歩幅 $\tau=1/3$ とする。Hessian が正定値であることを示し、制約なし mirror descent の一歩と自然勾配方向を求めよ。通常の Euclid 勾配での一歩と比較せよ。
+$U=\mathbb R^2$、$\psi(x)=x_1^2+x_1x_2+x_2^2$、損失 $L(x)=3x_1$、現在点 $x=(0,0)$、歩幅 $\tau=1/3$ とする。Hessian が正定値であることを示し、制約なし mirror descent の一歩と Hessian 計量に関する Riemann 勾配方向を求めよ。通常の Euclid 勾配での一歩と比較せよ。
 
 - Level: B
 - 狙い: 非対角 Hessian の逆行列を実際に使い、局所一致が二次関数では厳密一致になることを確認する
@@ -887,13 +932,20 @@ H=\nabla^2\psi
 =\begin{pmatrix}2&1\\1&2\end{pmatrix}.
 $$
 
-主座小行列式が $2>0$、行列式が $4-1=3>0$ なので正定値です。したがって逆行列は
+任意の非零ベクトル $w=(w_1,w_2)^{\mathsf T}$ に対して
+
+$$
+w^{\mathsf T}Hw=2w_1^2+2w_1w_2+2w_2^2
+=(w_1+w_2)^2+w_1^2+w_2^2>0
+$$
+
+なので正定値です。行列式 $\det H=4-1=3$ は非零で、逆行列は
 
 $$
 H^{-1}=\frac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}.
 $$
 
-$a=\nabla L=(3,0)^{\mathsf T}$ を掛けると自然勾配は
+$a=\nabla L=(3,0)^{\mathsf T}$ を掛けると Hessian 計量に関する Riemann 勾配は
 
 $$
 H^{-1}a=\frac13(6,-3)^{\mathsf T}=(2,-1)^{\mathsf T}.
@@ -905,7 +957,7 @@ $$
 x^+=-\frac13H^{-1}a=(-2/3,1/3)^{\mathsf T}.
 $$
 
-二次ポテンシャルなので Taylor の二次以降の剰余はなく、自然勾配更新と厳密一致します。一方、Euclid 勾配更新は $x-\tau a=(-1,0)^{\mathsf T}$ です。損失の同じ微分でも、長さを測る計量の違いが更新方向の第2成分に現れています。
+二次ポテンシャルなので Taylor の二次以降の剰余はなく、負の Riemann 勾配による Euler 更新と厳密一致します。一方、Euclid 勾配更新は $x-\tau a=(-1,0)^{\mathsf T}$ です。損失の同じ微分でも、長さを測る計量の違いが更新方向の第2成分に現れています。この $H$ は統計モデルの Fisher 計量としては指定していないため、自然勾配とは呼びません。
 <!-- solution-end -->
 
 ### IG12-B04 同じ Fisher 計量、違う有限鏡映更新
