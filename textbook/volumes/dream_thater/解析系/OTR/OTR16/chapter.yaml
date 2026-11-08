@@ -1,0 +1,46 @@
+id: "OTR16"
+title: "汎関数の凸性は測地線で変わるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR15
+official_scope: []
+learning_objectives:
+  - 線形混合と変位補間を区別し、W2測地線に沿うlambda凸性の定義と補正項を直接検算できる
+  - 位置エネルギーのHessian下界からlambda変位凸性を最適結合の積分で証明できる
+  - 相互作用エネルギーの凸性と重心移動による厳密凸性の限界を計算できる
+  - 滑らかな最適写像のJacobianから中間密度の変換式を導ける
+  - 正定値行列の行列式の1/d乗の凹性を証明し、McCann条件から内部エネルギーの凸性を導ける
+  - entropyと冪型内部エネルギーの条件を計算し、一般測度への拡張に別の議論が必要と判断できる
+definitions:
+  - { id: OTR16-DEF-01, name: Wasserstein測地線に沿うlambda凸性 }
+  - { id: OTR16-DEF-02, name: 位置エネルギー }
+  - { id: OTR16-DEF-03, name: 相互作用エネルギー }
+  - { id: OTR16-DEF-04, name: 内部エネルギー }
+  - { id: OTR16-DEF-05, name: McCannの変位凸性条件 }
+theorems:
+  - { id: OTR16-THM-01, name: 位置エネルギーのlambda変位凸性 }
+  - { id: OTR16-THM-02, name: 相互作用エネルギーの変位凸性 }
+  - { id: OTR16-LEM-01, name: 正定値行列上の行列式冪の凹性 }
+  - { id: OTR16-THM-03, name: 滑らかな輸送に沿う内部エネルギーの変位凸性 }
+  - { id: OTR16-COR-01, name: 熱エントロピーと冪型内部エネルギー }
+canonical_examples:
+  - Dirac測度でのlambda補正の等号と負曲率の反例
+  - 二原子の相互作用エネルギーと重心移動の寄与
+  - 一様密度を伸ばす写像でのJacobian・entropy・冪エネルギー
+  - 冪指数が閾値を下回る場合の拡大写像反例
+problem_patterns:
+  - OTR16-A01
+  - OTR16-A02
+  - OTR16-A03
+  - OTR16-A04
+  - OTR16-A05
+  - OTR16-B01
+  - OTR16-B02
+  - OTR16-B03
+  - OTR16-B04
+  - OTR16-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }
