@@ -1,0 +1,47 @@
+id: "MFL20"
+title: "t-SNE・UMAPと可視化の意味"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL19
+  - MFL7
+  - INFO2
+official_scope: []
+learning_objectives:
+  - t-SNEの条件付き近傍確率・perplexity・対称結合確率を定義し小標本で計算できる
+  - t-SNEのStudent-t重み・KL損失・埋め込み座標の勾配を規格化から導ける
+  - UMAPの局所距離補正・方向付き近傍・fuzzy unionとBernoulli交差エントロピーを計算できる
+  - UMAPとt-SNEが異なる正規化・目的関数を採用する理由と帰結を説明できる
+  - trustworthinessとcontinuityを元空間と描画空間の順位から計算し、その評価範囲を述べられる
+  - 連結な母空間と非連結の標本近傍グラフを区別し見かけのクラスタの反例を作れる
+  - 数値ラボでハイパーパラメータと描画間隔を変えて二つの損失・順位・距離ひずみを再計算できる
+definitions:
+  - { id: MFL20-DEF-01, name: t-SNEの近傍確率とperplexity }
+  - { id: MFL20-DEF-02, name: t-SNEの対称確率とKL目的関数 }
+  - { id: MFL20-DEF-03, name: UMAPの局所fuzzy近傍グラフ }
+  - { id: MFL20-DEF-04, name: UMAPの低次元類似度とBernoulli交差エントロピー }
+  - { id: MFL20-DEF-05, name: trustworthinessとcontinuity }
+theorems:
+  - { id: MFL20-PROP-01, name: 帯域幅とperplexityの単調性 }
+  - { id: MFL20-PROP-02, name: t-SNEの座標勾配 }
+  - { id: MFL20-PROP-03, name: fuzzy unionとBernoulli目的関数の性質 }
+  - { id: MFL20-PROP-04, name: 非連結近傍グラフの描画分離 }
+canonical_examples:
+  - 三点正三角形で異なる大きさの表示が同じKL零になる例
+  - 方向付き重みのfuzzy unionと二値相対エントロピー
+  - 連結区間上の八点標本のk近傍グラフが二成分になる例
+  - k近傍のrankを一つだけ誤るtrustworthinessの計算
+problem_patterns:
+  - MFL20-A01
+  - MFL20-A02
+  - MFL20-A03
+  - MFL20-A04
+  - MFL20-B01
+  - MFL20-B02
+  - MFL20-B03
+  - MFL20-B04
+  - MFL20-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 3.0 }

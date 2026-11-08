@@ -84,7 +84,7 @@ chapters:
     title: "作用素整合性からスペクトル収束へ"
   - id: MFL20
     path: textbook/volumes/dream_thater/応用系/MFL/MFL20
-    status: planned
+    status: completed
     title: "t-SNE・UMAPと可視化の意味"
   - id: MFL21
     path: textbook/volumes/dream_thater/応用系/MFL/MFL21
