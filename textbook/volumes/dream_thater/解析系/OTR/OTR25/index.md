@@ -435,7 +435,21 @@ $n=m=2$、$\varepsilon=0.2$ の正則化解に対し、通常OTの費用から�
 $\mu^k$ を確率測度とするJKO一歩と、本章の有限結合正則化の最適化変数、係数、極限をそれぞれ書き分けよ。$\tau=\varepsilon$ と置いたら同じ算法になるか答えよ。
 
 <!-- solution-start -->
-**詳細解答**。[JKO一歩](../OTR22/index.md#def-otr22-jko-step)の変数は次時刻の測度 $\mu^{k+1}$ で、目的は $\mathcal F(\mu)+W_2^2(\mu,\mu^k)/(2\tau)$ です。$\tau$ は時間刻みで、連続時間極限は $\tau\downarrow0$ です。本章の変数は固定した二つの周辺 $a,b$ を持つ結合行列 $P$ で、目的は $\langle C,P\rangle+\varepsilon\sum P_{ij}(\log P_{ij}-1)$ です。$\varepsilon$ は行列正則化の強さで、固定した有限問題の $\varepsilon\downarrow0$ は通常の最適輸送費用へ近づく極限です。変数、拘束条件、目的関数が異なるため、数値として $\tau=\varepsilon$ にしても同じ算法にはなりません。
+**詳細解答**。[JKO一歩](../OTR22/index.md#def-otr22-jko-step)の変数は次時刻の測度 $\mu^{k+1}$ で、最小化する目的は次の量です。
+
+$$
+\mathcal F(\mu)+\frac{W_2^2(\mu,\mu^k)}{2\tau}.
+$$
+
+$\tau$ は時間刻みで、連続時間極限は $\tau\downarrow0$ です。
+
+これに対して、本章の変数は固定した二つの周辺 $a,b$ を持つ結合行列 $P$ で、目的は
+
+$$
+\langle C,P\rangle+\varepsilon\sum_{ij}P_{ij}(\log P_{ij}-1)
+$$
+
+です。$\varepsilon$ は行列正則化の強さで、固定した有限問題の $\varepsilon\downarrow0$ は通常の最適輸送費用へ近づく極限です。変数、拘束条件、目的関数が異なるため、数値として $\tau=\varepsilon$ にしても同じ算法にはなりません。
 <!-- solution-end -->
 
 ### OTR25-C01 反復の収束を積み上げる
@@ -444,7 +458,42 @@ $\mu^k$ を確率測度とするJKO一歩と、本章の有限結合正則化の
 $n,m\ge2$、$K_{ij}>0$、$a_i,b_j>0$ の下で、Sinkhorn反復が収束する証明を次の順で自力再構成せよ。(i)一般化KLの減少、(ii)残差の消滅、(iii)正の極限の存在、(iv)スケーリング形と一意性。$K$ に0がある場合にどの推論が使えなくなるかも述べよ。
 
 <!-- solution-start -->
-**詳細解答**。(i) 目標スケーリング $P^*>0$ は[正則化双対定理](#thm-otr25-duality)で $C=-\log K,\varepsilon=1$ として存在します。行射影 $Q'_{ij}=a_iQ_{ij}/r_i$ について[KLの差の式](#thm-otr25-sinkhorn-convergence)を計算すると $\mathcal D(P^*\Vert Q)-\mathcal D(P^*\Vert Q')=\mathcal D(a\Vert r)\ge0$ です。列射影も同じです。(ii) 全射影での減少量の和が初期 $\mathcal D(P^*\Vert Q^0)$ 以下なので、行・列の各KL減少は0へ向かいます。$a,b$ は正だから、KLが0へ行く各周辺の成分は所定の周辺へ近づきます。列を合わせた直後の行については、列倍率 $b_j/c_j\to1$ と直前の行和 $a_i$ より $|r_i^{\rm after}-a_i|\le a_i\max_j|b_j/c_j-1|\to0$ です。(iii) $k_-=\min K_{ij}>0$、$k_+=\max K_{ij}$ を用い、行更新の $u_i=a_i/(Kv)_i$ から $u_i/\sum_lu_l\ge a_ik_-/k_+$。列更新後は $P_{ij}=b_ju_iK_{ij}/\sum_lu_lK_{lj}\ge a_ib_j(k_-/k_+)^2>0$ です。各成分は列和により $P_{ij}\le b_j$ だから、正の極限部分列が存在します。(iv) 極限の四セル比 $P_{ij}P_{kl}/(P_{il}P_{kj})=K_{ij}K_{kl}/(K_{il}K_{kj})$ を対数にして $\log(P_{ij}/K_{ij})=\alpha_i+\beta_j$ を得ます。正の実行可能スケーリングは双対定理で一意なので、全ての部分列極限が一致し、全反復が収束します。$K_{ij}=0$ を許すと $k_->0$ の評価も対数の四セル比も使えず、可解性・支持の連結条件を別途要します。
+**詳細解答**。
+
+(i) 目標スケーリング $P^*>0$ は[正則化双対定理](#thm-otr25-duality)で $C_{ij}=-\log K_{ij}$、$\varepsilon=1$ として存在します。行射影 $Q'_{ij}=a_iQ_{ij}/r_i$ について[KLの差の式](#thm-otr25-sinkhorn-convergence)を展開すると
+
+$$
+\mathcal D(P^*\Vert Q)-\mathcal D(P^*\Vert Q')=\mathcal D(a\Vert r)\ge0.
+$$
+
+列射影も同じです。
+
+(ii) 全射影での減少量の和が初期 $\mathcal D(P^*\Vert Q^0)$ 以下なので、行・列の各KL減少は0へ向かいます。$a,b$ は正だから、KLが0へ行く各周辺の成分は所定の周辺へ近づきます。列を合わせた直後の行については、列倍率 $b_j/c_j\to1$ と直前の行和 $a_i$ より
+
+$$
+|r_i^{\rm after}-a_i|\le a_i\max_j|b_j/c_j-1|\longrightarrow0
+$$
+
+です。
+
+(iii) $k_-=\min_{ij}K_{ij}>0$、$k_+=\max_{ij}K_{ij}$ を用い、行更新の $u_i=a_i/(Kv)_i$ から次を得ます。
+
+$$
+\frac{u_i}{\sum_lu_l}\ge a_i\frac{k_-}{k_+},\qquad
+P_{ij}=b_j\frac{u_iK_{ij}}{\sum_lu_lK_{lj}}
+\ge a_ib_j\left(\frac{k_-}{k_+}\right)^2>0.
+$$
+
+各成分は列和により $P_{ij}\le b_j$ だから、正の極限部分列が存在します。
+
+(iv) 極限の四セル比は次のように保たれます。
+
+$$
+\frac{P_{ij}P_{kl}}{P_{il}P_{kj}}
+=\frac{K_{ij}K_{kl}}{K_{il}K_{kj}}.
+$$
+
+対数にして $\log(P_{ij}/K_{ij})=\alpha_i+\beta_j$ を得ます。正の実行可能スケーリングは[双対定理](#thm-otr25-duality)で一意なので、全ての部分列極限が一致し、全反復が収束します。$K_{ij}=0$ を許すと $k_->0$ の評価も対数の四セル比も使えず、可解性・支持の連結条件を別途要します。
 <!-- solution-end -->
 
 ### OTR25-C02 費用が同じとき選ばれる結合
