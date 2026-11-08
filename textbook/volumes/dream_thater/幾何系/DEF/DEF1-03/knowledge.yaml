@@ -1,0 +1,41 @@
+chapter: DEF1-03
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-02]
+concepts:
+  - id: deformation.beltrami-graded-bracket
+    name: 接束値（0,1）形式の次数1の括弧
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接束値（0,1）形式の次数1の括弧）"]
+    requires: [deformation.tangent-valued-01-form, geometry.lie-bracket]
+  - id: deformation.maurer-cartan-integrability
+    name: Maurer–Cartan方程式と可積分性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maurer–Cartan方程式と可積分性）"]
+    requires: [deformation.beltrami-graded-bracket, deformation.beltrami-graph, complex-manifolds.newlander-nirenberg]
+  - id: deformation.formal-mc-solution
+    name: 形式的Maurer–Cartan解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式的Maurer–Cartan解）"]
+    requires: [deformation.maurer-cartan-integrability]
+  - id: deformation.mc-order-equations
+    name: 形式的解の次数別方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（形式的解の次数別方程式）"]
+    requires: [deformation.formal-mc-solution, deformation.beltrami-graded-bracket]
+  - id: deformation.beltrami-gauge-equivalence
+    name: Beltrami微分のゲージ同値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Beltrami微分のゲージ同値）"]
+    requires: [deformation.beltrami-graph]
+  - id: deformation.gauge-first-variation
+    name: ゲージ変更の一次係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ゲージ変更の一次係数）"]
+    requires: [deformation.beltrami-gauge-equivalence, deformation.beltrami-linear-integrability]
