@@ -8,7 +8,9 @@
 
 例えば楕円曲線は格子 $\mathbb Z+\tau\mathbb Z$ の $\tau$ を動かすと複素構造が変わる。一方、同じ曲線の座標名を変えただけの族は変形していない。両者を判別するには、パラメータ方向を各局所座標へ持ち上げ、その持ち上げが重なりでどれだけずれるかを測ればよい。
 
-まず何を「族」と呼ぶかを定める。複素多様体 $\mathcal X,B$ と正則写像 $\pi:\mathcal X\to B$ を考える。点 $b\in B$ に対応する空間 $X_b=\pi^{-1}(b)$ を**ファイバー**という。[正則写像の座標表示](../../CM/CM1-02/index.md#def-cm1-02-holomorphic-map)と[複素接束](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)を使い、以下では $d\pi$ がどの点でも全射である（**沈め込み**）とする。さらに $\pi$ が**固有**とは、$B$ の任意のコンパクト集合 $K$ に対して $\pi^{-1}(K)$ がコンパクトであることをいう。
+まず何を「族」と呼ぶかを定める。複素多様体 $\mathcal X,B$ と正則写像 $\pi:\mathcal X\to B$ を考える。点 $b\in B$ に対応する空間 $X_b=\pi^{-1}(b)$ を**ファイバー**という。
+
+[正則写像の座標表示](../../CM/CM1-02/index.md#def-cm1-02-holomorphic-map)と[複素接束](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)を使い、以下では $d\pi$ がどの点でも全射である（**沈め込み**）とする。さらに $\pi$ が**固有**とは、任意のコンパクト集合 $K\subset B$ に対して $\pi^{-1}(K)$ がコンパクトであることをいう。
 
 <a id="def-def1-01-family"></a>
 
@@ -61,7 +63,9 @@ $b_0$ の実座標を $t^1,\ldots,t^m$ とし、$X=X_{b_0}$ と置く。沈め�
 
 $X$ はコンパクトなので、その上の全点について $H_1,\ldots,H_m$ の流れが存在する共通の小時間幅を取れる。基底で $b_0$ から $b$ へ各座標方向に順に進むよう流れを合成し、$F_b:X\to X_b$ を作る。$d\pi(H_a)=\partial_{t^a}$ だから $\pi(F_b(x))=b$ であり、$F_{b_0}$ は恒等写像である。流れを逆向きに辿れば、像の近くで滑らかな逆がある。
 
-ここで $U$ をさらに縮める。固有性より、小さい閉座標球 $\overline U$ の逆像はコンパクトである。もし $U$ をどれだけ縮めても $F_b$ の像から漏れる点 $p_b\in X_b$ があれば、$b\to b_0$ の列を選び、コンパクト性で $p_b$ の収束部分列を $X$ 内へ取れる。極限点には流れによる逆写像が定義されているので、十分近い $p_b$ も像に入り矛盾する。従って縮小後は $F_b$ がファイバー全体への微分同相となり、$b$ についても滑らかな $F$ が得られる。$\square$
+ここで $U$ をさらに縮める。固有性より、小さい閉座標球 $\overline U$ の逆像はコンパクトである。もし $U$ をどれだけ縮めても $F_b$ の像から漏れる点 $p_b\in X_b$ があれば、$b\to b_0$ の列を選び、コンパクト性で $p_b$ の収束部分列を $X$ 内へ取れる。
+
+その極限点には流れによる逆写像が定義されているので、十分近い $p_b$ も像に入り矛盾する。従って縮小後は $F_b$ がファイバー全体への微分同相となり、$b$ についても滑らかな $F$ が得られる。$\square$
 <!-- proof-end -->
 
 **固有性がないと壊れる例。** $\mathcal Y=\{(t,z)\in\mathbb C^2:tz\ne1\}$ から $t$ への射影は正則沈め込みだが固有でない。$t=0$ のファイバーは $\mathbb C$、$t\ne0$ のファイバーは $\mathbb C\setminus\{1/t\}$ で、後者には穴が一つあり基本群が異なる。近くのファイバーが微分同相であるという結論さえ成立しない。
@@ -206,7 +210,9 @@ $u_j-u_i=\kappa_{ij}$ と、その右辺が正則であることが核心であ�
 
 他の滑らかな補正 $u'_i$ が同じ差 $u'_j-u'_i=\kappa_{ij}$ を満たすなら、$v_i=u'_i-u_i$ は重なりで一致して大域的な滑らかな接ベクトル場 $v$ になる。従って $\alpha'_\xi-\alpha_\xi=\bar\partial_Tv$ である。正則持ち上げを変更した場合は[Čech類の選択独立性](#prop-def1-01-cocycle)で $\kappa'_{ij}=\kappa_{ij}+a_j-a_i$。$u'_i=u_i+a_i-\sum_j\rho_ja_j$ と選べば $\alpha'_\xi-\alpha_\xi=-\bar\partial_T(\sum_j\rho_ja_j)$ となり、やはり完全形式である。被覆を細分した後も同じ計算を適用できる。
 
-逆に $[\alpha_\xi]=0$ と仮定する。大域的な滑らかな接ベクトル場 $v$ があり、$\alpha_\xi=\bar\partial_Tv$ となる。すると $h_i=u_i-v$ は $\bar\partial_Th_i=0$ を満たすので局所正則接ベクトル場であり、$h_j-h_i=\kappa_{ij}$ である。従ってČech類も零である。一般のČech一次類について同じ分割1の構成を行えば、局所 $\bar\partial$-Poincaré補題によって閉Dolbeault形式から逆向きの局所原始関数を作れる（[局所補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)）。ゆえにこの対応は、[正則ベクトル束版Dolbeaultの定理](../../CYG/CYG1-12/index.md#thm-cyg1-12-bundle-dolbeault)の一次の場合の具体的な実現である。$\square$
+逆に $[\alpha_\xi]=0$ と仮定する。大域的な滑らかな接ベクトル場 $v$ があり、$\alpha_\xi=\bar\partial_Tv$ となる。すると $h_i=u_i-v$ は $\bar\partial_Th_i=0$ を満たすので局所正則接ベクトル場であり、$h_j-h_i=\kappa_{ij}$ である。従ってČech類も零である。
+
+一般のČech一次類について同じ分割1の構成を行えば、局所 $\bar\partial$-Poincaré補題によって閉Dolbeault形式から逆向きの局所原始関数を作れる（[局所補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)）。ゆえにこの対応は、[正則ベクトル束版Dolbeaultの定理](../../CYG/CYG1-12/index.md#thm-cyg1-12-bundle-dolbeault)の一次の場合の具体的な実現である。$\square$
 <!-- proof-end -->
 
 **滑らかな自明化での読み方。** [Ehresmann局所自明化](#thm-def1-01-ehresmann)から得る滑らかな水平持ち上げを複素化し、その $(1,0)$ 成分を $S$ とする。$d\pi$ は複素線形なので $d\pi(S)=\widetilde\xi$ となり、$S$ は上の $s_i$ と同じ方向を持ち上げる。$u_i=s_i-S$ は垂直で $u_j-u_i=\kappa_{ij}$ だから、
@@ -443,7 +449,11 @@ $D$ を $i$ の近くの $\operatorname{Im}\tau>0$ に含まれる円板とし�
 
 (2) $y=(z-\bar z)/(2i)$ なので $w=z+t(z-\bar z)/(2i)$。$\partial_z w=1+t/(2i)$、$\partial_{\bar z}w=-t/(2i)$。$\partial_{\bar z}+\mu(t)\partial_z$ が $w$ を消す条件から $\mu(t)=t/(2i+t)$、従って $\mu'(0)=1/(2i)$。一次Beltrami形式は $\alpha=(1/(2i))d\bar z\otimes\partial_z$ である。
 
-(3) 複素一次元では $(0,2)$ 形式がないため $\bar\partial_T\alpha=0$ である。$\alpha=\bar\partial_T(v\partial_z)$ なら $\partial_{\bar z}v=1/(2i)$ を満たす格子周期的な $v$ が必要である。$\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)$ を基本領域 $[0,1]^2$ で積分すると、左辺は周期境界の差の積分なので $0$、右辺は $1/(2i)$ で矛盾する。従って $[\alpha]\ne0$。滑らかな水平持ち上げ $S=\partial_t|_w+y\partial_w$ と局所正則持ち上げ $s=\partial_t|_w$ の差 $s-S=-y\partial_w$ に $\bar\partial_T$ を作用させると同じ $\alpha$ を得るので、[Čech–Dolbeault対応](#thm-def1-01-cech-dolbeault)によりこの非零類がKodaira–Spencer類である。
+(3) 複素一次元では $(0,2)$ 形式がないため $\bar\partial_T\alpha=0$ である。$\alpha=\bar\partial_T(v\partial_z)$ なら $\partial_{\bar z}v=1/(2i)$ を満たす格子周期的な $v$ が必要である。
+
+$\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)$ を基本領域 $[0,1]^2$ で積分すると、左辺は周期境界の差の積分なので $0$、右辺は $1/(2i)$ で矛盾する。従って $[\alpha]\ne0$。
+
+滑らかな水平持ち上げ $S=\partial_t|_w+y\partial_w$ と局所正則持ち上げ $s=\partial_t|_w$ の差 $s-S=-y\partial_w$ に $\bar\partial_T$ を作用させると同じ $\alpha$ を得る。このため、[Čech–Dolbeault対応](#thm-def1-01-cech-dolbeault)によりこの非零類がKodaira–Spencer類である。
 
 (4) $t=s^2$ の微分は $s=0$ で零である。[基底変更](#prop-def1-01-base-change)から、引き戻した族の $s=0$ のKodaira–Spencer類は零となる。一階が消えても二階で族が動くことはあり、元の族の非零性と矛盾しない。
 <!-- solution-end -->
