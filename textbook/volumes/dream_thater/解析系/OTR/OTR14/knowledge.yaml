@@ -1,0 +1,35 @@
+chapter: OTR14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR13
+  - LA6
+
+concepts:
+  - id: transport.gaussian-square-root-law
+    name: 多変量Gaussian分布の平方根表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多変量Gaussian分布の平方根表示）"]
+    requires: [linear.psd-square-root]
+
+  - id: transport.positive-gaussian-transport-matrix
+    name: 正定値共分散を結ぶ対称輸送行列
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正定値共分散を結ぶ対称輸送行列）"]
+    requires: [linear.psd-square-root, linear.hermitian-psd-operator]
+
+  - id: transport.gaussian-w2-spd
+    name: 非退化Gaussian分布間の最適写像とWasserstein距離
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非退化Gaussian分布間の最適写像とWasserstein距離）"]
+    requires: [transport.gaussian-square-root-law, transport.positive-gaussian-transport-matrix, transport.wasserstein-p, transport.brenier-theorem]
+
+  - id: transport.gaussian-w2-degenerate
+    name: 半正定値共分散へのGaussian距離公式の拡張
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半正定値共分散へのGaussian距離公式の拡張）"]
+    requires: [transport.gaussian-w2-spd, transport.wasserstein-metric, linear.psd-square-root, transport.brenier-theorem]
