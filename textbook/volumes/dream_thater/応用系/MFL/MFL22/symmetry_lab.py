@@ -108,7 +108,7 @@ def self_test() -> None:
     assert unit["augmented_training_max_error"] == 0.0
     outside = residual_report("rotate", "augmented", (2.0, 0.0), 0.2)
     assert math.isclose(outside["equivariance_residual"], 0.6 * math.sqrt(2), rel_tol=1e-12)
-    print(json.dumps({"self_test": "passed", "checks": 14}, ensure_ascii=False))
+    print(json.dumps({"self_test": "passed", "checks": 18}, ensure_ascii=False))
 
 
 def main() -> None:
