@@ -1,0 +1,70 @@
+chapter: OTR17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR16
+  - PDE1
+
+concepts:
+  - id: transport.continuity-flux-equation
+    name: 質量流束と連続の方程式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（質量流束と連続の方程式）"]
+    requires: [pde.pde1-partial-differential-equation]
+
+  - id: transport.local-mass-balance
+    name: 領域の質量収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（領域の質量収支）"]
+    requires: [transport.continuity-flux-equation]
+
+  - id: transport.continuity-measure-weak
+    name: 測度に対する連続の方程式の弱解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測度に対する連続の方程式の弱解）"]
+    requires: [transport.continuity-flux-equation, measure.pushforward-measure]
+
+  - id: transport.classical-weak-equivalence
+    name: 古典形と弱形式の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（古典形と弱形式の一致）"]
+    requires: [transport.continuity-measure-weak, transport.continuity-flux-equation]
+
+  - id: transport.continuity-mass-conservation
+    name: 可積分速度の下での総質量保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（可積分速度の下での総質量保存）"]
+    requires: [transport.continuity-measure-weak]
+
+  - id: transport.no-flux-weak-boundary
+    name: 有界領域のno-flux弱条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有界領域のno-flux弱条件）"]
+    requires: [transport.continuity-measure-weak, transport.local-mass-balance]
+
+  - id: transport.no-flux-classical-equivalence
+    name: 滑らかな場合のno-fluxと法線流束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな場合のno-fluxと法線流束）"]
+    requires: [transport.no-flux-weak-boundary, transport.classical-weak-equivalence]
+
+  - id: transport.flow-pushforward-continuity
+    name: 滑らかな流れの押し出しは弱解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな流れの押し出しは弱解）"]
+    requires: [transport.continuity-measure-weak, measure.pushforward-measure, pde.pde1-curve-chain-rule]
+
+  - id: transport.flow-density-jacobian
+    name: 流れのJacobianによる密度保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（流れのJacobianによる密度保存）"]
+    requires: [transport.flow-pushforward-continuity, transport.internal-energy]

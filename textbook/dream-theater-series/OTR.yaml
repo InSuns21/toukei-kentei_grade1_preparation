@@ -22,7 +22,7 @@ chapters:
   - { id: OTR14, path: textbook/volumes/dream_thater/解析系/OTR/OTR14, status: completed, title: "Gaussian分布間のW2はどう計算するか" }
   - { id: OTR15, path: textbook/volumes/dream_thater/解析系/OTR/OTR15, status: completed, title: "測度空間の最短経路とは" }
   - { id: OTR16, path: textbook/volumes/dream_thater/解析系/OTR/OTR16, status: completed, title: "汎関数の凸性は測地線で変わるか" }
-  - { id: OTR17, path: textbook/volumes/dream_thater/解析系/OTR/OTR17, status: planned, title: "密度を時間発展させる保存則は" }
+  - { id: OTR17, path: textbook/volumes/dream_thater/解析系/OTR/OTR17, status: completed, title: "密度を時間発展させる保存則は" }
   - { id: OTR18, path: textbook/volumes/dream_thater/解析系/OTR/OTR18, status: planned, title: "測度曲線の速さを定義できるか" }
   - { id: OTR19, path: textbook/volumes/dream_thater/解析系/OTR/OTR19, status: planned, title: "静的最適輸送と流体作用は等価か" }
   - { id: OTR20, path: textbook/volumes/dream_thater/解析系/OTR/OTR20, status: planned, title: "Otto計算の接ベクトルとは" }
