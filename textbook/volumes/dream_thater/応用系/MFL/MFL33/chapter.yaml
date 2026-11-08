@@ -1,0 +1,34 @@
+id: "MFL33"
+title: "Oversmoothing・長距離ボトルネック"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL32
+  - ML2-14
+official_scope: []
+learning_objectives:
+  - 連結な非負重み付き無向グラフのlazy diffusionを構成し、非負性・平均保存・固有値範囲を確認できる
+  - グラフ信号の中心化された特徴分散と頂点間差の関係を証明し、oversmoothingを定量化できる
+  - 固有分解から層数kに伴う収縮率を証明し、連結性やステップ幅を失った場合の失敗例を作れる
+  - 細い橋を持つ二つの三角形でRayleigh商と混合速度の関係を評価できる
+  - 遠距離特徴が中継点の低次元表現に押し込められるoversquashingをrank/Jacobianと有限例で説明できる
+  - oversmoothingとoversquashingの異なる指標・原因・対策の限界を有限グラフ実験で比較できる
+definitions:
+  - { id: MFL33-DEF-01, name: lazy graph diffusion }
+  - { id: MFL33-DEF-02, name: 中心化特徴のoversmoothing指標 }
+  - { id: MFL33-DEF-03, name: 中継表現のボトルネック }
+theorems:
+  - { id: MFL33-THM-01, name: lazy diffusionの確率性とスペクトル範囲 }
+  - { id: MFL33-THM-02, name: 中心化特徴のスペクトル減衰 }
+  - { id: MFL33-PROP-01, name: 二群間の細い橋と遅い混合 }
+  - { id: MFL33-PROP-02, name: 単一の中継表現によるrank制約 }
+canonical_examples:
+  - 三頂点の道の固有モード減衰と二段の確率伝播
+  - 二つの三角形を重みepsilonの橋でつないだRayleigh商と局所変化
+  - m個の入力が一つのスカラー中継へ平均化される反例
+  - 非連結グラフと過大なステップ幅による減衰定理の破綻
+problem_patterns: [MFL33-A01, MFL33-A02, MFL33-A03, MFL33-A04, MFL33-B01, MFL33-B02, MFL33-B03, MFL33-B04, MFL33-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.5, review: 2.5 }

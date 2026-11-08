@@ -1,0 +1,46 @@
+chapter: MFL33
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL32
+  - ML2-14
+forward_references: []
+concepts:
+  - id: manifold-learning.lazy-diffusion
+    name: lazy graph diffusion
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（lazy graph diffusion）"]
+    requires: [spectral-graph.combinatorial-laplacian, manifold-learning.polynomial-graph-filter]
+  - id: manifold-learning.lazy-diffusion-spectrum
+    name: lazy diffusionの確率性とスペクトル範囲
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.lazy-diffusion, spectral-graph.psd]
+  - id: manifold-learning.oversmoothing-measure
+    name: 中心化特徴のoversmoothing指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中心化特徴のoversmoothing指標）"]
+    requires: [manifold-learning.lazy-diffusion]
+  - id: manifold-learning.oversmoothing-spectral-decay
+    name: 中心化特徴のスペクトル減衰
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.oversmoothing-measure, manifold-learning.lazy-diffusion-spectrum, spectral-graph.kernel-components]
+  - id: manifold-learning.bridge-slow-mixing
+    name: 二群間の細い橋と遅い混合
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.oversmoothing-spectral-decay, spectral-graph.dirichlet-energy]
+  - id: manifold-learning.relay-bottleneck
+    name: 中継表現のボトルネック
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中継表現のボトルネック）"]
+    requires: [manifold-learning.message-passing-layer]
+  - id: manifold-learning.relay-rank-bound
+    name: 単一の中継表現によるrank制約
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.relay-bottleneck]
