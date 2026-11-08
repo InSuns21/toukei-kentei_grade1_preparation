@@ -10,3 +10,4 @@
 7. [IG7 計量に関する双対接続・α-接続と三次テンソル](textbook/volumes/dream_thater/幾何系/IG/IG7/index.md)
 8. [IG8 双対平坦性と e/m 測地線](textbook/volumes/dream_thater/幾何系/IG/IG8/index.md)
 9. [IG9 正準 divergence と Bregman 幾何](textbook/volumes/dream_thater/幾何系/IG/IG9/index.md)
+10. [IG10 一般化 Pythagoras と情報射影](textbook/volumes/dream_thater/幾何系/IG/IG10/index.md)
