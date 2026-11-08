@@ -20,7 +20,7 @@ $$
 
 ## 2. 出力を変えない関数を群平均で作る
 
-まず出力が普通の実数、または群作用を持たないベクトルの場合を考える。任意の関数 $f:X\to\mathbb R^q$ の入力を各 $g$ で動かし、その出力を平均すれば、軌道上で同じ値が得られそうである。この操作を**不変化の群平均**と呼ぶ。
+まず出力が普通の実数、または群作用を持たないベクトルの場合を考える。これは[MFL22 の不変写像](../MFL22/index.md#def-mfl22-invariant)を作る操作である。任意の関数 $f:X\to\mathbb R^q$ の入力を各 $g$ で動かし、その出力を平均すれば、軌道上で同じ値が得られそうである。この操作を**不変化の群平均**と呼ぶ。
 
 <a id="def-mfl25-invariant-average"></a>
 
@@ -90,7 +90,7 @@ $$
 
 矢印のような出力は、入力を回転したら一緒に回転することが必要であり、単純な不変化平均では一般に消えてしまう。欲しい性質は[MFL22 の等変性](../MFL22/index.md#def-mfl22-equivariant)、すなわち $F(gx)=\rho_{\mathrm{out}}(g)F(x)$ である。
 
-各 $g$ で評価した $f(gx)$ は「変換後の出力座標」にある。平均前に $\rho_{\mathrm{out}}(g)^{-1}$ を掛け、元の出力座標へ戻す。逆行列が存在するのは $\rho_{\mathrm{out}}$ が表現であるためである。
+各 $g$ で評価した $f(gx)$ は「変換後の出力座標」にある。平均前に $\rho_{\mathrm{out}}(g)^{-1}$ を掛け、元の出力座標へ戻す。[MFL24 の表現の逆元公式](../MFL24/index.md#def-mfl24-representation)により、この逆行列は $\rho_{\mathrm{out}}(g^{-1})$ に等しい。
 
 <a id="def-mfl25-equivariant-average"></a>
 
@@ -200,10 +200,10 @@ $$
 となることから直接確認できる。
 
 <!-- definition-example-start: def-mfl25-linear-average -->
-**定義の確認**（$C_2$ の符号型）。入力・出力とも $\rho(s)=D=\operatorname{diag}(1,-1)$ とし、$A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ とする。$D^{-1}=D$ なので
+**定義の確認**（$C_2$ の符号型）。入力・出力とも $\rho(s)=D=\operatorname{diag}(1,-1)$ とし、$A=\begin{pmatrix}a&\beta\\\gamma&d\end{pmatrix}$ とする。$D^{-1}=D$ なので
 
 $$
-DAD=\begin{pmatrix}a&-b\\-c&d\end{pmatrix},\qquad
+DAD=\begin{pmatrix}a&-\beta\\-\gamma&d\end{pmatrix},\qquad
 \mathcal P(A)=\frac12(A+DAD)=\begin{pmatrix}a&0\\0&d\end{pmatrix}.
 $$
 
@@ -355,7 +355,13 @@ $$
 
 **自明型**のスカラーには任意の一変数関数を使える。**符号型** $t\mapsto-t$ には奇関数（$\sigma(-t)=-\sigma(t)$）を使える。**置換型**の複数スカラーには同一の成分別関数を使える。これらは定義式を直接代入して確かめられる。
 
-平面の回転型を扱うときは、表現の各行列が**直交行列**なら、長さを用いた非線形性が使える。実数値関数 $a:[0,\infty)\to\mathbb R$ を任意に選び、$\sigma(v)=a(\|v\|^2)v$ と定める。直交性の意味は $\|\rho(g)v\|^2=\|v\|^2$ であるから
+平面の回転型を扱うときは、表現の各行列が**直交行列**なら、長さを用いた非線形性が使える。実数値関数 $a:[0,\infty)\to\mathbb R$ を任意に選び、$\sigma(v)=a(\|v\|^2)v$ と定める。[MFL22 の直交変換の長さ保存](../MFL22/index.md#prop-mfl22-orthogonal)を各 $\rho(g)$ に適用できるのは、$\rho(g)^{\mathsf T}\rho(g)=I_q$ だからである。実際、
+
+$$
+\|\rho(g)v\|^2=v^{\mathsf T}\rho(g)^{\mathsf T}\rho(g)v=\|v\|^2.
+$$
+
+したがって
 
 $$
 \begin{aligned}
@@ -379,7 +385,7 @@ $$
 
 ## 6. 不変な読み出しと、平均で保証しないもの
 
-中間層まで等変な特徴 $F(x)$ が得られたとき、最終出力を不変な量にしたければ、表現 $\rho_{\mathrm{out}}$ に対して不変な読み出し $p$（$p(\rho_{\mathrm{out}}(g)v)=p(v)$）を使えばよい。例えば直交表現では $p(v)=\|v\|^2$ が使える。
+中間層まで等変な特徴 $F(x)$ が得られたとき、最終出力を不変な量にしたければ、表現 $\rho_{\mathrm{out}}$ に対して不変な読み出し $p$（$p(\rho_{\mathrm{out}}(g)v)=p(v)$）を使えばよい。例えば直交表現では、[直交変換での長さ保存](../MFL22/index.md#prop-mfl22-orthogonal)により $p(v)=\|v\|^2$ が使える。
 
 <a id="prop-mfl25-invariant-readout"></a>
 
@@ -433,7 +439,7 @@ python textbook/volumes/dream_thater/応用系/MFL/MFL25/group_average_lab.py --
 python textbook/volumes/dream_thater/応用系/MFL/MFL25/group_average_lab.py --group C4 --output scalar --average partial
 ```
 
-最後の例では $G$ 全体でなく $\{e,r\}$ の2元で平均する。すると $g\mapsto gh$ が平均の添字集合を保たず、変換残差は一般にゼロにならない。対照実験では元関数の残差と平均後の残差を同一の入力点・群元について計算し、偶然ゼロになる個別点の値ではなく全テスト点の最大値を比較する。数値上のゼロは丸め誤差の範囲として読み、全実数入力での等変性は上の代数的証明によって保証される。
+最後の例では $C_4$ の全元でなく $\{e,r\}$ の2元で平均する。$C_2$ で `--average partial` を選んだ場合は $\{e\}$ の1元だけを使う。すると $g\mapsto gh$ が平均の添字集合を保たず、変換残差は一般にゼロにならない。対照実験では元関数の残差と平均後の残差を同一の入力点・群元について計算し、偶然ゼロになる個別点の値ではなく全テスト点の最大値を比較する。数値上のゼロは丸め誤差の範囲として読み、全実数入力での等変性は上の代数的証明によって保証される。
 
 ## 8. 演習――群平均を手で構成し、破れる条件を特定する
 
@@ -554,14 +560,21 @@ $$
 
 定数関数3を再び平均すると $Q(Qf)(j)=(3+3+3)/3=3=Qf(j)$ である。一方 $Tf(0)=(1+2)/2=3/2$、$Tf(1)=(2+6)/2=4$ なので、$Tf(r0)\ne Tf(0)$。二元集合 $\{e,r\}$ は右から $r$ を掛けると $\{r,r^2\}$ になり、元の添字集合に一致しない。
 
-**MFL25-B02 解答**。$R^2=-I_2$ と $R^{-1}=R^3$ を使い、共役の4項は順に
+**MFL25-B02 解答**。$R^2=-I_2$ と $R^{-1}=R^3$ を使う。まず $R^{-1}=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ なので、右から入力を回して左から出力を戻す行列積を実行すると
+
+$$
+AR=\begin{pmatrix}0&-4\\0&0\end{pmatrix},\qquad
+R^{-1}AR=\begin{pmatrix}0&0\\0&4\end{pmatrix}.
+$$
+
+$R^2=-I_2$ と $R^3=-R$ も使えば、共役の4項は順に
 
 $$
 \operatorname{diag}(4,0),\quad\operatorname{diag}(0,4),\quad
 \operatorname{diag}(4,0),\quad\operatorname{diag}(0,4).
 $$
 
-したがって $W=\mathcal P(A)=\operatorname{diag}(2,2)=2I_2$。$I+R^{-1}+R^{-2}+R^{-3}=0$ より $c=\mathcal B(b)=0$。全 $h=r^k$ で
+したがって $W=\mathcal P(A)=\operatorname{diag}(2,2)=2I_2$。$R^{-1}=R^3=-R$、$R^{-2}=R^2=-I_2$、$R^{-3}=R$ だから、$I_2+R^{-1}+R^{-2}+R^{-3}=I_2-R-I_2+R=0$。よって $c=\mathcal B(b)=0$。全 $h=r^k$ で
 
 $$
 L(R^kx)=2R^kx=R^k(2x)=R^kL(x).
@@ -569,7 +582,7 @@ $$
 
 よって層は等変。入力の異方的な重み $(4,0)$ は平均で等方的な倍率2に変わった。
 
-**MFL25-B03 解答**。$R^TR=I_2$ より $\|Rv\|^2=v^TR^TRv=v^Tv=\|v\|^2$。$R^k$ も直交だから各 $g=r^k$ で
+**MFL25-B03 解答**。$R^{\mathsf T}R=I_2$ より $\|Rv\|^2=v^TR^TRv=v^Tv=\|v\|^2$。$R^k$ も直交だから各 $g=r^k$ で
 
 $$
 \sigma(R^kv)=(1+\|R^kv\|^2)R^kv
@@ -605,7 +618,7 @@ $$
 
 $R^2=-I_2$ を使って $I+R+R^2+R^3=0$ なので $c=0$。$W=I_2$ は全 $R^k$ と可換で、$c$ は固定されるから $L(x)=x$ は等変である。
 
-次に $R^TR=I_2$ から $\|Rx\|^2=\|x\|^2$。長さが不変なので、活性化は
+次に $R^{\mathsf T}R=I_2$ から $\|Rx\|^2=\|x\|^2$。長さが不変なので、活性化は
 
 $$
 \sigma(Rx)=(1+\|x\|^2)Rx=R\sigma(x)
