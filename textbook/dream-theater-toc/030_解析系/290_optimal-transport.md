@@ -11,3 +11,4 @@
 8. [OTR8 輸送費用は距離になるか](textbook/volumes/dream_thater/解析系/OTR/OTR8/index.md)
 9. [OTR9 Wasserstein収束は何を意味するか](textbook/volumes/dream_thater/解析系/OTR/OTR9/index.md)
 10. [OTR10 W1はLipschitz関数で測れるか](textbook/volumes/dream_thater/解析系/OTR/OTR10/index.md)
+11. [OTR11 一次元なら輸送を陽に解けるか](textbook/volumes/dream_thater/解析系/OTR/OTR11/index.md)
