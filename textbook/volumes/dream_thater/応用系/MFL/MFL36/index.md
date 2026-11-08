@@ -1,5 +1,7 @@
 # MFL36 E(3) / SE(3)とchirality
 
+<!-- acronym-first-use-ignore: SE -->
+
 <!-- definition-example-audit: strict -->
 
 ## 1. 距離が同じでも、右手と左手は同じか
