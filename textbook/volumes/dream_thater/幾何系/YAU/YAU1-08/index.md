@@ -21,7 +21,22 @@ L_\omega f=g^{i\bar j}\partial_i\partial_{\bar j}f
 L_\varphi f=h^{i\bar j}\partial_i\partial_{\bar j}f
 $$
 
-と書く。正則座標で $G=(g_{i\bar j})$ は $\omega$ の係数、$P=(h_{i\bar j})=(g_{i\bar j}+\varphi_{i\bar j})$ は $\omega_\varphi$ の係数である。$h^{i\bar j}$ は $P$ の逆行列の成分を表す。以下の添字は $1,\ldots,n$ を走り、明示しない重複添字は和を取る。
+と書く。正則座標 $z^1,\ldots,z^n$ では、[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)に従い
+
+$$
+\partial_i=\frac{\partial}{\partial z^i},\qquad
+\partial_{\bar j}=\frac{\partial}{\partial\bar z^j},\qquad
+\varphi_{i\bar j}:=\partial_i\partial_{\bar j}\varphi
+$$
+
+とする。$\omega$ と $\omega_\varphi$ の係数行列をそれぞれ
+
+$$
+G=(g_{i\bar j}),\qquad
+P=(h_{i\bar j})=(g_{i\bar j}+\varphi_{i\bar j})
+$$
+
+と書き、$g^{i\bar j}$、$h^{i\bar j}$ はそれぞれ $G$、$P$ の逆行列の成分を表す。以下の添字は $1,\ldots,n$ を走り、明示しない重複添字は和を取る。
 
 今回求めるのは各点で成り立つ微分恒等式と下からの不等式である。コンパクト性を使った**最大値原理による大域閉包**は次章で行う。
 
@@ -29,7 +44,36 @@ $$
 
 行列式は体積の積だけを決める。たとえば正値行列 $\operatorname{diag}(M,M^{-1})$ の行列式は $1$ でも、$M\to\infty$ で計量は一様には抑えられない。そこで、$g$ に対する $h$ の各方向の伸縮を足し合わせる。
 
-$g$ は正値Hermite行列なので、$g$ に関する正規直交基底で $h$ を対角化できる。相対固有値を $\lambda_1,\ldots,\lambda_n>0$ とすると、この基底では $G=I$、$P=\operatorname{diag}(\lambda_i)$ となる。逆行列も $P^{-1}=\operatorname{diag}(\lambda_i^{-1})$ である。
+相対的な伸縮を表すのは、基準計量 $G$ で一つの添字を上げた作用素 $G^{-1}P$ である。ただし通常の基底では $G^{-1}P$ 自体がHermite行列とは限らないので、そのままunitary対角化しない。[正定値行列の平方根](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)を用いて
+
+$$
+C=G^{-1/2}PG^{-1/2},\qquad
+G^{1/2}(G^{-1}P)G^{-1/2}=C
+$$
+
+とすると、$C$ は正定値Hermite行列であり、$G^{-1}P$ と相似である。
+
+[複素正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)をHermite行列 $C$ に適用すれば、unitary行列 $U$ と正の固有値 $\lambda_i>0$ を選んで
+
+$$
+U^*CU=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)
+$$
+
+とできる。$V=G^{-1/2}U$ の列を新しい基底に取れば
+
+$$
+V^*GV=I,\qquad V^*PV=\operatorname{diag}(\lambda_i)
+$$
+
+となる。つまりこれは $g$ に関する正規直交基底であり、$h$ も対角化している。逆計量の行列はこの基底で $P^{-1}=\operatorname{diag}(\lambda_i^{-1})$ である。相似変換で跡と行列式は変わらないため、
+
+$$
+\operatorname{tr}(G^{-1}P)=\sum_i\lambda_i,\quad
+\operatorname{tr}(P^{-1}G)=\sum_i\lambda_i^{-1},\quad
+\frac{\det P}{\det G}=\prod_i\lambda_i
+$$
+
+と計算できる。これが次の三量を固有値で判定できる理由である。
 
 <a id="def-yau1-08-relative-traces"></a>
 
@@ -55,7 +99,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-yau1-08-relative-traces -->
-**定義の確認**。平坦複素二次元の標準基底で $G=I$、$P=\operatorname{diag}(2,3)$ とする。両行列はHermiteかつ正値である。相対固有値が $2,3$ と分かるのは、$G$ が単位行列で $P$ が対角であるためだ。このとき
+**定義の確認**。$\mathbb C^2$ 上の定数係数計量 $G=I$、$P=\operatorname{diag}(2,3)$ を取る。どちらもHermite対称であり、零でない $v=(v^1,v^2)$ に対して
+
+$$
+v^*Gv=|v^1|^2+|v^2|^2>0,\qquad
+v^*Pv=2|v^1|^2+3|v^2|^2>0
+$$
+
+である。係数が一定だから対応する実 $(1,1)$ 形式はともに閉じ、[Kähler閉性の局所判定](../../KAH/KAH1-02/index.md#thm-kah1-02-local-closedness)も満たす。さらに
+
+$$
+\varphi=|z^1|^2+2|z^2|^2,\qquad
+P=G+(\partial_i\partial_{\bar j}\varphi)
+$$
+
+なので、本章で扱う二つの計量の形にもなっている。相対固有値が $2,3$ と分かるのは、$G$ が単位行列で $P$ が対角であるためだ。このとき
 
 $$
 G^{-1}P=\operatorname{diag}(2,3),
@@ -176,7 +234,13 @@ $$
 
 これが**逆行列の二階微分と曲率を結ぶ橋渡し**である。逆計量の二階微分の符号を、計量の二階微分と取り違えないようにする。
 
-また $g$ と $h$ はともにKähler計量である。局所ポテンシャルで $h_{i\bar j}=\partial_i\partial_{\bar j}u$ と表せるので、滑らかさによる偏微分交換から
+また $g$ と $h$ はともにKähler計量であり、$h$ の基本形式は閉じた実 $(1,1)$ 形式である。[閉実(1,1)形式の局所ポテンシャル定理](../../KAH/KAH1-04/index.md#thm-kah1-04-local-existence)は、こうした形式が局所的に実ポテンシャルを持つことを保証する。したがって点 $p$ の近傍で滑らかな実関数 $u$ を取り、
+
+$$
+h_{i\bar j}=\partial_i\partial_{\bar j}u
+$$
+
+と表せる。ここから偏微分の交換により
 
 $$
 \partial_i\partial_{\bar i}h_{k\bar k}
@@ -581,17 +645,17 @@ $$
 一点で $P=\operatorname{diag}(\lambda_1,\lambda_2)$、$\lambda_i>0$ とする。$k=1$ のとき、$\partial_1\partial_{\bar1}\log\det P$ の式の平方和を全成分で書け。
 
 <!-- solution-start -->
-**詳細解答。** [対数行列式補題](#lem-yau1-08-logdet-second)を $n=2$、$k=1$ に使う。平方和は $i,j\in\{1,2\}$ の4項だから
+**詳細解答。** [対数行列式補題](#lem-yau1-08-logdet-second)を $n=2$、$k=1$ に使う。成分の一階・二階微分はそれぞれ $\partial_1h_{i\bar j}$、$\partial_1\partial_{\bar1}h_{i\bar j}$ と書く。平方和は $i,j\in\{1,2\}$ の4項だから
 
 $$
 \begin{aligned}
 \partial_1\partial_{\bar1}\log\det P
-&=\frac{h_{1\bar1,1\bar1}}{\lambda_1}
-+\frac{h_{2\bar2,1\bar1}}{\lambda_2}\\
-&\quad-\frac{|h_{1\bar1,1}|^2}{\lambda_1^2}
--\frac{|h_{1\bar2,1}|^2+|h_{2\bar1,1}|^2}
+&=\frac{\partial_1\partial_{\bar1}h_{1\bar1}}{\lambda_1}
++\frac{\partial_1\partial_{\bar1}h_{2\bar2}}{\lambda_2}\\
+&\quad-\frac{|\partial_1h_{1\bar1}|^2}{\lambda_1^2}
+-\frac{|\partial_1h_{1\bar2}|^2+|\partial_1h_{2\bar1}|^2}
 {\lambda_1\lambda_2}
--\frac{|h_{2\bar2,1}|^2}{\lambda_2^2}.
+-\frac{|\partial_1h_{2\bar2}|^2}{\lambda_2^2}.
 \end{aligned}
 $$
 
