@@ -6,7 +6,13 @@
 
 前章の[変形族とKodaira–Spencer写像](../DEF1-01/index.md#def-def1-01-kodaira-spencer)では、実際の正則な族から接束値Dolbeault類を得た。ところが、局所的な座標を替えると、その類の代表を表す係数も変わる。「係数の配列」ではなく**何が幾何学的な対象なのか**を確かめたい。
 
-複素多様体 $X$ の複素次元を $n$ とする。[複素接束の型分解](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)により、複素化した接束には正則方向 $T^{1,0}X$ と反正則方向 $T^{0,1}X$ がある。正則座標 $z=(z^1,\ldots,z^n)$ では、それぞれ $\partial_{z^i}$ と $\partial_{\bar z^j}$ が局所枠となる。反正則方向の余接枠は $d\bar z^j$ である。
+複素多様体 $X$ の複素次元を $n$ とする。[複素化接空間の型分解](../../CM/CM1-04/index.md#thm-cm1-04-splitting)と[型別接束の構成](../../CM/CM1-04/index.md#def-cm1-04-tangent-subbundles)により、複素化した接束には次の直和分解がある。
+
+$$
+T_{\mathbb C}X=T^{1,0}X\oplus T^{0,1}X.
+$$
+
+正則座標 $z=(z^1,\ldots,z^n)$ では、正則方向は $\partial_{z^i}$、反正則方向は $\partial_{\bar z^j}$ が局所枠となり、後者の双対余接枠は $d\bar z^j$ である。
 
 滑らかな $(0,1)$ 形式の「値」を複素接ベクトルにしたものが、今回使う接束値形式である。これは反正則接ベクトルを正則接ベクトルへ移す、複素線形な束写像としても読める。
 
@@ -102,11 +108,17 @@ $$
 $d\bar w^b\otimes\partial_{w^a}$ は各点でテンソル積の基底だから係数は一意であり、必要性を得る。逆にこの式で係数を取り替えれば展開した束写像が等しいので十分性も成り立つ。$J$ が正則かつ可逆であることは、両枠の変換に必要である。$\square$
 <!-- proof-end -->
 
-**二つの座標による実検算。** $\mathbb C$ 上で $w=2z$ とし、$\phi=c\,d\bar z\otimes\partial_z$ とする。$J=2$ より $\phi'=2c\overline{(1/2)}=c$。実際、$d\bar z=\frac12d\bar w$ と $\partial_z=2\partial_w$ が相殺する。複素数 $a\ne0$ に対する $w=az$ なら $\phi'=a c/\bar a$ となる。数値としての係数が不変とは限らず、**テンソル全体**が不変である。
+**二つの座標による実検算。** $\mathbb C$ 上で $w=2z$ とし、$\phi=c\,d\bar z\otimes\partial_z$ とする。Jacobianは $J=2$ であり、
+
+$$
+\phi'=2c\overline{(1/2)}=c.
+$$
+
+実際、$d\bar z=\frac12d\bar w$ と $\partial_z=2\partial_w$ が相殺する。複素数 $a\ne0$ に対する $w=az$ なら $\phi'=ac/\bar a$ となる。数値としての係数が不変とは限らず、**テンソル全体**が不変である。
 
 ## 3. Beltrami微分が反正則方向を傾ける
 
-もとの複素構造は、各点の $T^{0,1}X$ を指定すれば取り戻せる。そこへ $\phi(\bar v)$ を足し、反正則方向を正則方向へ少し傾ける。こうしてできるグラフが複素構造の候補になる。Lie括弧についての閉性から局所正則座標の**存在**へ進む一般的な十分性は[Newlander–Nirenberg定理](../../CM/CM1-07/index.md#thm-cm1-07-newlander-nirenberg)による。以下では局所座標を直接構成できる場合と、一次の必要条件を区別する。
+もとの複素構造は、各点の $T^{0,1}X$ を指定すれば取り戻せる。そこへ $\phi(\bar v)$ を足し、反正則方向を正則方向へ少し傾ける。こうしてできるグラフが複素構造の候補になる。ここでLie括弧について「閉じる」とは、グラフに値を取る**任意の滑らかな局所ベクトル場二つ**の括弧もグラフに入ることをいう。閉性から局所正則座標の**存在**へ進む一般的な十分性は[Newlander–Nirenberg定理](../../CM/CM1-07/index.md#thm-cm1-07-newlander-nirenberg)による。以下では局所座標を直接構成できる場合と、一次の必要条件を区別する。
 
 <a id="def-def1-02-beltrami-graph"></a>
 
@@ -132,7 +144,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-02-beltrami-graph -->
-**定義の確認**。$X=\mathbb C$、$\phi=c\,d\bar z\otimes\partial_z$（$c\in\mathbb C$）なら $T^{0,1}_\phi$ は $D=\partial_{\bar z}+c\partial_z$ の複素線形包である。実際、$\phi(a\partial_{\bar z})=ac\partial_z$ より、グラフの元は $aD$ と尽くされる。共役の分布は $\bar D=\partial_z+\bar c\partial_{\bar z}$ で、両者の係数行列の行列式は $1-|c|^2$。$|c|<1$ なら直和である。定数係数なので $[D,D]=0$ で、Lie括弧の閉性も満たす。
+**定義の確認**。$X=\mathbb C$、$\phi=c\,d\bar z\otimes\partial_z$（$c\in\mathbb C$）とし、グラフの生成ベクトルを次のように置く。
+
+$$
+D=\partial_{\bar z}+c\partial_z,\qquad
+\bar D=\partial_z+\bar c\partial_{\bar z}.
+$$
+
+実際、$\phi(a\partial_{\bar z})=ac\partial_z$ より、グラフの元は $aD$ と尽くされる。共役のグラフは $\bar D$ で張られる。元の複素化接空間の基底 $(\partial_{\bar z},\partial_z)$ に沿って、この二つの列ベクトルを並べると
+
+$$
+M=\begin{pmatrix}1&\bar c\\c&1\end{pmatrix},\qquad
+\det M=1-|c|^2.
+$$
+
+この行列が可逆であることは、二本のグラフのベクトルが一次独立で、複素二次元の接空間を直和で張ることと同値である。従って $|c|<1$ なら横断性を満たす。さらにグラフの任意の局所切断は $fD$ と書け、滑らかな複素数値関数 $f,g$ に対して
+
+$$
+[fD,gD]=(fDg-gDf)D
+$$
+
+だから括弧もグラフに入る。この例では横断性とLie括弧の閉性の両条件を確認できた。
 <!-- definition-example-end -->
 
 <a id="prop-def1-02-small-graph"></a>
@@ -172,7 +204,9 @@ $$
 =\|\phi\|^2\|\bar v\|<\|\bar v\|
 $$
 
-は $\bar v\ne0$ なら矛盾する。交わりが零である。両グラフは複素次元 $n$ で、合わせて $2n$ 次元だから直和が全接空間となる。共役で入れ替わる直和分解は実接空間上の $J^2=-\mathrm{id}$ を持つ滑らかなほとんど複素構造を定める。Lie括弧の閉性はこの次元計算からは導けない。$\square$
+は $\bar v\ne0$ なら矛盾する。交わりが零である。両グラフはそれぞれ複素次元 $n$ で、合わせて $2n$ 次元だから直和が全接空間となる。
+
+共役で入れ替わる直和分解は、実接空間上の $J^2=-\mathrm{id}$ を持つ滑らかなほとんど複素構造を定める。ただしLie括弧の閉性はこの次元計算からは導けない。$\square$
 <!-- proof-end -->
 
 **座標独立性の確認。** [座標変換命題](#prop-def1-02-coordinate-change)を使うと、$D_{\bar j}$ を $w$ 座標に直したとき
@@ -188,14 +222,16 @@ $$
 
 ## 4. 正則座標の方程式を直接解く
 
-新しい複素構造での局所正則関数 $w$ は、変形した反正則方向から微分すると零になる。これは[正則関数のCauchy–Riemann条件](../../CM/CM1-02/index.md#def-cm1-02-holomorphic-map)を新しい分布で書き直したものだ。
+新しい複素構造での局所正則関数 $w$ は、変形した反正則方向から微分すると零になる。これは[概複素構造に関する正則関数の定義](../../CM/CM1-07/index.md#def-cm1-07-j-holomorphic-functions)を新しい分布で書き直したものだ。
 
 <a id="prop-def1-02-beltrami-equation"></a>
 
 <!-- formal-statement-start -->
 > **命題（Beltrami方程式による局所正則座標の判定）**
 >
-> $X$ を複素次元 $n$ の複素多様体、$\phi\in\mathcal A^{0,1}(X,T^{1,0}X)$ とし、$T^{0,1}_\phi$ とその共役が直和であるとする。滑らかな複素値関数 $w^1,\ldots,w^n$ が局所座標を与え、新しい構造の正則座標となるための条件は、実Jacobianが可逆で、全ての $a,j$ について
+> $X$ を複素次元 $n$ の複素多様体、$\phi\in\mathcal A^{0,1}(X,T^{1,0}X)$ とし、$T^{0,1}_\phi$ とその共役が直和であるとする。
+>
+> 滑らかな複素値関数 $w^1,\ldots,w^n$ が局所座標を与え、新しい構造の正則座標となるための条件は、実Jacobianが可逆で、全ての $a,j$ について
 
 $$
 D_{\bar j}w^a
@@ -213,7 +249,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[実逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により、可逆な実Jacobianを持つ $w=(w^1,\ldots,w^n)$ は局所実微分同相となる。複素化接空間の $w$ 座標では、任意のベクトル $V$ の $\partial_{w^a}$ 成分は $V(w^a)$ である。ゆえに $D_{\bar j}w^a=0$ は全 $a$ で $D_{\bar j}$ の正則成分が零という意味になる。
+[実逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により、可逆な実Jacobianを持つ $w=(w^1,\ldots,w^n)$ は局所実微分同相となる。複素化接空間の $w$ 座標では、任意の複素接ベクトル $V$ が次のように展開される。
+
+$$
+V=\sum_a\bigl(V(w^a)\partial_{w^a}
++V(\bar w^a)\partial_{\bar w^a}\bigr).
+$$
+
+従って $D_{\bar j}w^a=0$ が全 $a$ で成立することは、$D_{\bar j}$ の正則成分が零であることと同値である。これは[適合座標の関数による判定](../../CM/CM1-07/index.md#prop-cm1-07-coordinate-criterion)を今回のグラフ枠で検算した形でもある。
 
 このとき $D_{\bar j}$ は $w$ 座標の $\partial_{\bar w^a}$ による $n$ 次元の空間に含まれる。$D_{\bar j}$ は元の $\partial_{\bar z^j}$ 成分が単位行列なので一次独立であり、包含は等号となる。逆に $w$ がその複素構造の正則座標なら $\partial_{\bar w^a}w^b=0$ なので条件を満たす。$\square$
 <!-- proof-end -->
@@ -224,18 +267,37 @@ $$
 (\partial_{\bar z}+c\partial_z)w=-c+c=0.
 $$
 
-さらに $z=x+iy$ の実線形写像 $w=z-c\bar z$ の実Jacobianは $1-|c|^2>0$ である。よって $w$ は実座標として可逆で、新しい正則座標を与える。$|c|=1$ ではJacobianが零となり、この構成では座標にならない。単に微分方程式を満たすだけでは十分でないことが分かる。
+実Jacobianを導くには、一般の実線形写像 $w=Az+B\bar z$ を $A=a+ib$、$B=p+iq$（$a,b,p,q\in\mathbb R$）で表す。$z=x+iy$ として実部と虚部を分けると
+
+$$
+\begin{pmatrix}\operatorname{Re}w\\\operatorname{Im}w\end{pmatrix}
+=J_{\mathbb R}\begin{pmatrix}x\\y\end{pmatrix},
+\qquad J_{\mathbb R}=\begin{pmatrix}a+p&q-b\\b+q&a-p\end{pmatrix},
+$$
+
+$$
+\det J_{\mathbb R}=(a+p)(a-p)-(q-b)(b+q)
+=|A|^2-|B|^2.
+$$
+
+この実 $2\times2$ 行列が可逆であることが、実座標としての条件である。今は $A=1$、$B=-c$ なので実Jacobianは $1-|c|^2>0$。よって $w$ は実座標として可逆で、新しい正則座標を与える。
+
+$|c|=1$ ではJacobianが零となり、この構成では座標にならない。単に微分方程式を満たすだけでは十分でないことが分かる。
 
 ## 5. 実際の族から係数を抽出し、一次閉条件を調べる
 
-前章の楕円曲線族を、[Kodaira–Spencer類のDolbeault表示](../DEF1-01/index.md#thm-def1-01-cech-dolbeault)と照合する。$z=x+iy$ を固定した滑らかなトーラス座標とし、変化後の正則座標を $w=z+t y$ と置いた。$y=(z-\bar z)/(2i)$ により
+前章の楕円曲線族を、[Kodaira–Spencer類のDolbeault表示](../DEF1-01/index.md#thm-def1-01-cech-dolbeault)と照合する。固定した滑らかなトーラス座標を $z=x+iy$、変化後の正則座標を $w=z+t y$ と置く。
+
+ここで $t$ は族の複素パラメータであり、$\partial_z,\partial_{\bar z}$ は **$t$ を固定して** ファイバー上の座標で偏微分する演算子である。$y=(z-\bar z)/(2i)$ により
 
 $$
 \partial_z w=1+\frac{t}{2i},\qquad
 \partial_{\bar z}w=-\frac{t}{2i}.
 $$
 
-[Beltrami方程式](#prop-def1-02-beltrami-equation)の $D_{\bar z}w=0$ を解くと
+[Beltrami方程式](#prop-def1-02-beltrami-equation)の $D_{\bar z}w=0$ を解く。$t=0$ の近くでは分母 $2i+t$ は零でなく、$\mu$ は $t$ の正則関数になる。
+
+従って $d\mu/dt$ は **$z,\bar z$ を固定した** $t$ に関する一変数複素微分を表し、
 
 $$
 \mu(t)=\frac{t}{2i+t},\qquad
@@ -243,7 +305,13 @@ $$
 \left.\frac{d\mu}{dt}\right|_0=\frac1{2i}.
 $$
 
-$t$ が十分小さければ $|\mu(t)|<1$ だから[グラフ横断性](#prop-def1-02-small-graph)が使える。ここで $t$ は**族の複素パラメータ**、$\mu(t)$ は各ファイバーの反正則方向を指定する係数である。$\mu(t)$ 自体と、一次係数 $\alpha=(1/(2i))d\bar z\otimes\partial_z$ は混同しない。
+$t$ が十分小さければ $|\mu(t)|<1$ だから[グラフ横断性](#prop-def1-02-small-graph)が使える。$\mu(t)$ は各ファイバーの反正則方向を指定する係数である。一方、一次係数は
+
+$$
+\alpha=\frac1{2i}d\bar z\otimes\partial_z
+$$
+
+という接束値形式であり、$\mu(t)$ 自体とは区別する。
 
 複素次元 $n>1$ では、任意の小さな $\phi$ が複素構造を作るわけではない。少なくとも実際の可積分な族から出る一次係数には閉条件がある。固定した中心の複素構造に沿う[接束値Dolbeault微分](../../CYG/CYG1-12/index.md#thm-cyg1-12-bundle-dolbeault)を $\bar\partial_T$ と書く。正則接枠における係数微分は
 
@@ -260,7 +328,9 @@ $$
 <!-- formal-statement-start -->
 > **命題（実際の複素構造族の一次閉条件）**
 >
-> $X$ を複素次元 $n$ の複素多様体とし、$t$ を零近傍の実または複素パラメータとする。$\phi(t)\in\mathcal A^{0,1}(X,T^{1,0}X)$ が $t$ に関して滑らかで $\phi(0)=0$、$\phi(t)=t\alpha+O(t^2)$ と展開できるとする。各 $t$ のグラフ $T^{0,1}_{\phi(t)}$ が可積分であるなら
+> $X$ を複素次元 $n$ の複素多様体とし、$t$ を零近傍の実または複素パラメータとする。$\phi(t)\in\mathcal A^{0,1}(X,T^{1,0}X)$ が $t$ に関して滑らかで $\phi(0)=0$、$\phi(t)=t\alpha+O(t^2)$ と展開できるとする。
+>
+> ここで $O(t^2)$ は、局所座標上で係数とその**空間方向の一階偏微分**が、コンパクト部分集合ごとに $O(|t|^2)$ となる意味である。各 $t$ のグラフ $T^{0,1}_{\phi(t)}$ が可積分であるなら
 
 $$
 \bar\partial_T\alpha=0.
@@ -288,7 +358,9 @@ $$
 \end{aligned}
 $$
 
-括弧には元の $\partial_{\bar z^i}$ 成分がない。一方、[グラフ表示](#def-def1-02-beltrami-graph) $u=\bar v+\phi(\bar v)$ で反正則成分が零なら $\bar v=0$、従って $u=0$ である。ゆえに可積分性（Lie括弧での閉性）から上の係数は全て零となる。$\phi^i_{\bar j}=t\alpha^i_{\bar j}+O(t^2)$ を代入すると、最後の積の項は $O(t^2)$。$t$ の一次係数を比較して
+括弧には元の反正則方向の成分がない。一方、[グラフ表示](#def-def1-02-beltrami-graph)による $u=\bar v+\phi(\bar v)$ では、反正則成分が零なら $\bar v=0$、従って $u=0$ である。ゆえに可積分性（Lie括弧での閉性）から上の係数は全て零となる。
+
+各係数に $\phi^i_{\bar j}=t\alpha^i_{\bar j}+O(t^2)$ を代入する。最後の積の項は $O(t^2)$ であり、$t$ の一次係数を比較して
 
 $$
 \partial_{\bar z^j}\alpha^i_{\bar k}
@@ -409,7 +481,7 @@ $D_{\bar z^1}=D'_{\bar w^1}$ も成り立つので、二つの枠が張るグラ
 $U\subset\mathbb C$ を開集合、$h:U\to\mathbb C$ を滑らかな関数、$t\in\mathbb R$ を小さいパラメータとする。$w_t=z+t h(z,\bar z)$ が実局所座標であるとして、$D_t=\partial_{\bar z}+\mu(t)\partial_z$ が $D_tw_t=0$ を満たす係数を求め、$t=0$ の一次係数を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $t$ を固定して微分すると
+**詳細解答。** $t$ を固定してファイバー座標 $z,\bar z$ で偏微分すると
 
 $$
 \partial_{\bar z}w_t=t\partial_{\bar z}h,\qquad
@@ -424,7 +496,14 @@ $$
 \mu(t)=-\frac{t\partial_{\bar z}h}{1+t\partial_z h}.
 $$
 
-従って $\mu(0)=0$ で、分母が1へ収束することから $\mu'(0)=-\partial_{\bar z}h$。特に $h=(z-\bar z)/(2i)$ なら $\partial_{\bar z}h=-1/(2i)$ なので、楕円曲線の例の $1/(2i)$ と符号が一致する。
+ここで $\mu'(0)$ のプライムは、**$z,\bar z$ を固定した** 実パラメータ $t$ に関する導関数 $d\mu/dt$ を表す。$h$ の偏微分は $t$ に依存しないので、商の微分から
+
+$$
+\frac{d\mu}{dt}=-\frac{\partial_{\bar z}h}{(1+t\partial_z h)^2},
+\qquad \mu'(0)=-\partial_{\bar z}h.
+$$
+
+特に $h=(z-\bar z)/(2i)$ なら $\partial_{\bar z}h=-1/(2i)$ なので、楕円曲線の例の $1/(2i)$ と符号が一致する。
 <!-- solution-end -->
 
 <a id="ex-def1-02-b03"></a>
@@ -475,7 +554,14 @@ $$
 
 $D_tw_t=0$ へ代入すると $-t/(2i)+\mu(t)(1+t/(2i))=0$、すなわち $\mu(t)=t/(2i+t)$ となる。
 
-(2) 例えば $|t|<1/2$ とすれば、[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)から $|2i+t|\ge2-|t|>3/2$ なので $|\mu(t)|\le |t|/(2-|t|)<1/3$。よって[小さいグラフの命題](#prop-def1-02-small-graph)で直和である。$w_t=Az+B\bar z$ として $A=1+t/(2i)$、$B=-t/(2i)$ と置けば、実Jacobianは
+(2) 例えば $|t|<1/2$ とする。[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)から
+
+$$
+|2i+t|\ge2-|t|>\frac32,\qquad
+|\mu(t)|\le\frac{|t|}{2-|t|}<\frac13.
+$$
+
+よって[小さいグラフの命題](#prop-def1-02-small-graph)により直和である。$w_t=Az+B\bar z$ として $A=1+t/(2i)$、$B=-t/(2i)$ と置けば、上で導いた実Jacobianの公式から
 
 $$
 |A|^2-|B|^2
