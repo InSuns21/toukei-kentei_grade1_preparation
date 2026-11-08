@@ -622,7 +622,11 @@ W_1=\tfrac34\cdot4=3,\qquad
 W_2=\left(\tfrac34\cdot16\right)^{1/2}=\sqrt{12}=2\sqrt3.
 $$
 
-$3<2\sqrt3$ なので次数比較と一致します。一般の場合、[Polish空間上の最適結合の存在](../OTR3/index.md#thm-otr3-polish)から $q$ 次費用の最適結合 $\sigma$ を取れます。$\sigma$ は確率測度です。指数を $r=q/p$、$r'=q/(q-p)$ と置くと $1/r+1/r'=1$ なので、[積分のMinkowski不等式](#lem-otr8-minkowski)の証明にある Hölder 不等式を $d^p$ と $1$ に適用できます。
+$3<2\sqrt3$ なので次数比較と一致します。
+
+一般の場合、[Polish空間上の最適結合の存在](../OTR3/index.md#thm-otr3-polish)から $q$ 次費用の最適結合 $\sigma$ を取れます。$\sigma$ は確率測度です。
+
+指数を $r=q/p$、$r'=q/(q-p)$ と置くと $1/r+1/r'=1$ です。そこで[積分のMinkowski不等式](#lem-otr8-minkowski)の証明にある Hölder 不等式を $d^p$ と $1$ に適用します。
 
 $$
 \left(\int d^p\,d\sigma\right)^{1/p}
