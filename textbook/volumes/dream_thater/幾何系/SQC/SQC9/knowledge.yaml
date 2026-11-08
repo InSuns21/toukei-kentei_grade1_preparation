@@ -1,0 +1,49 @@
+chapter: SQC9
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC8, MT0, SET1]
+forward_references: []
+
+concepts:
+  - id: geometry.translation-equidecomposition
+    name: 有限平行移動等分解
+    kind: definition
+    introduction: formal
+    requires: [geometry.polygon-scissors-congruence]
+
+  - id: geometry.translation-piecewise-bijection
+    name: 片ごとの平行移動から得られる全単射
+    kind: proposition
+    introduction: formal
+    requires: [geometry.translation-equidecomposition]
+
+  - id: geometry.measurable-translation-area
+    name: 可測な片の等分解は面積を保存する
+    kind: proposition
+    introduction: formal
+    requires: [geometry.translation-equidecomposition]
+
+  - id: geometry.upper-box-dimension
+    name: 上box次元
+    aliases: [上Minkowski次元]
+    kind: definition
+    introduction: formal
+    requires: []
+
+  - id: geometry.curve-boundary-box-dimension
+    name: 線分・円周・正方形境界の上box次元
+    kind: lemma
+    introduction: formal
+    requires: [geometry.upper-box-dimension]
+
+  - id: geometry.laczkovich-translation-theorem
+    name: Laczkovichの有限平行移動等分解定理
+    kind: theorem
+    introduction: formal
+    requires: [geometry.translation-equidecomposition, geometry.upper-box-dimension]
+
+  - id: geometry.tarski-circle-squaring
+    name: Tarskiの円積問題の肯定解
+    kind: corollary
+    introduction: formal
+    requires: [geometry.laczkovich-translation-theorem, geometry.curve-boundary-box-dimension]

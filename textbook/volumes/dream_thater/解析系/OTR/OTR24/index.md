@@ -17,7 +17,17 @@ $$
 
 それ以外では $\mathcal F(\mu)=+\infty$ とします。以下の初期値は $\mu^0\in\mathcal P_2$ かつ $\mathcal F(\mu^0)<\infty$ とし、時間刻み $\tau>0$ ごとに[OTR22のJKO反復](../OTR22/index.md#def-otr22-jko-step)で $\mu_\tau^0=\mu^0,\mu_\tau^1,\ldots$ を作ります。
 
-単に $\int\rho\log\rho$ を下から定数で抑えることは $\mathbb R^d$ ではできません。そこで密度をGaussianと比較して二次モーメントを取り出します。$D(\mu\Vert\gamma)$ は確率測度 $\gamma$ に対する相対エントロピーで、$\mu\ll\gamma$ なら $\int\log(d\mu/d\gamma)\,d\mu$、それ以外は $+\infty$ です。[相対エントロピーの非負性と下半連続性](../OTR22/index.md#lem-otr22-relative-entropy-lsc)を使います。
+単に $\int\rho\log\rho$ を下から定数で抑えることは $\mathbb R^d$ ではできません。そこで密度をGaussianと比較して二次モーメントを取り出します。
+
+確率測度 $\gamma$ に対する相対エントロピー $D(\mu\Vert\gamma)$ は、$\mu\ll\gamma$ なら
+
+$$
+D(\mu\Vert\gamma)=\int\log\left(\frac{d\mu}{d\gamma}\right)\,d\mu
+$$
+
+で、それ以外では $+\infty$ です。[相対エントロピーの非負性と下半連続性](../OTR22/index.md#lem-otr22-relative-entropy-lsc)を使います。
+
+以下、$I_d$ は $d$ 次単位行列です。共分散が $\sigma^2I_d$ のGaussianは、各座標が独立な $N(0,\sigma^2)$ です。
 
 <a id="lem-otr24-coercivity"></a>
 
@@ -57,7 +67,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\gamma_{\lambda/2}$ の密度は
+$\gamma_{\lambda/2}$ は各座標の分散が $2/\lambda$ の独立Gaussianです。各一次元密度 $\sqrt{\lambda/(4\pi)}e^{-\lambda x_i^2/4}$ の積を取り、$|x|^2=\sum_{i=1}^dx_i^2$ を使うと、その密度は
 
 $$
 g(x)=\left(\frac{\lambda}{4\pi}\right)^{d/2}
@@ -290,7 +300,14 @@ $t=0$ では左辺は0です。[コンパクト性定理](#thm-otr24-compactness
 
 ## 5. 後退する試験関数で一意性を示す
 
-弱解の等式は空間に関する試験関数を時間に依存させても使えます。実際、$s\mapsto\int f\,d\mu_s$ は $f\in C_c^\infty$ に対して絶対連続で、その導関数は $\int Lf\,d\mu_s$ です。まず $\psi(s,x)=h(s)f(x)$ に[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を使い、有限和へ広げ、空間支持が一つのコンパクト集合に収まる滑らかな $\psi$ を有限和で近似すると
+弱解の等式は空間に関する試験関数を時間に依存させても使えます。実際、$s\mapsto\int f\,d\mu_s$ は $f\in C_c^\infty$ に対して絶対連続で、その導関数は $\int Lf\,d\mu_s$ です。まず $\psi(s,x)=h(s)f(x)$ に[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を使うと、$f$ は時間に依存せず、$L$ は空間変数 $x$ にのみ作用するので
+
+$$
+\frac{d}{ds}\int h(s)f(x)\,d\mu_s(x)
+=h'(s)\int f\,d\mu_s+h(s)\int Lf\,d\mu_s
+$$
+
+がほとんど全ての $s$ で成立します。有限和へ広げ、空間支持が一つのコンパクト集合に収まる滑らかな $\psi$ を有限和で近似すると
 
 $$
 \int\psi(t,x)\,d\mu_t-\int\psi(0,x)\,d\mu^0
@@ -320,14 +337,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-otr24-ou-semigroup -->
-**定義の確認**。$f(x)=\cos(u\cdot x)$（$u\in\mathbb R^d$）とすると、Gaussianの特性関数から
+**定義の確認**。$f(x)=\cos(u\cdot x)$（$u\in\mathbb R^d$）とします。[Gaussian Fourier恒等式](../../F0/F0-00P6/index.md#lem-f0-00p6-gaussian-fourier)から得られる標準正規分布の特性関数を各独立成分へ適用すると、$\mathbb E[e^{i\sqrt{q(t)}u\cdot Z}]=e^{-q(t)|u|^2/2}$ です。その実部を取って
 
 $$
 P_tf(x)=\cos(e^{-\lambda t}u\cdot x)
 \exp\left(-\frac12q(t)|u|^2\right).
 $$
 
-$P_0f=f$、$|P_tf|\le1$ です。また $u=0$ なら $P_t1=1$ で、確率を保つ作用素であることが確認できます。この例では有界連続関数を許すため、$f$ はコンパクト支持である必要はありません。
+$P_0f=f$、$|P_tf|\le1$ です。また $u=0$ なら $P_t1=1$ です。
+
+一般の有界連続な $f$ でも、確率変数の引数は $x$ に連続に依存するので[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から $P_tf$ は連続です。期待値の定義から
+
+$$
+|P_tf|\le\|f\|_\infty,\qquad f\ge0\ \Longrightarrow\ P_tf\ge0
+$$
+
+です。これで有界連続関数を有界連続関数へ写し、定数1と非負性を保つことまで確かめられました。$f$ にコンパクト支持は不要です。
 <!-- definition-example-end -->
 
 <a id="lem-otr24-backward"></a>
@@ -357,7 +382,7 @@ $P_tf$ は「空間を $e^{-\lambda t}$ 倍に縮めてから、分散 $q(t)$ �
 <!-- proof-start -->
 ### 証明
 
-$G(q,z)=\mathbb E[f(z+\sqrt q Z)]$（$q>0$）と置きます。Gaussian密度
+$G(q,z)=\mathbb E[f(z+\sqrt q Z)]$（$q>0$）と置きます。以下、$q',b'$ はそれぞれ一変数関数 $q(t),b(t)$ の $d/dt$、$\partial_tu$ は空間点 $x$ を固定した時間偏微分、$\nabla_zG$ と $\Delta_zG$ は $q$ を固定した $z$ に関する微分です。Gaussian密度
 
 $$
 g_q(y)=(2\pi q)^{-d/2}\exp(-|y|^2/(2q))
@@ -511,10 +536,10 @@ $$
 \frac1\lambda+\left(s_0^2-\frac1\lambda\right)e^{-2\lambda t}\right).
 $$
 
-平均 $m(t)=m_0e^{-\lambda t}$、分散 $q(t)=\lambda^{-1}+(s_0^2-\lambda^{-1})e^{-2\lambda t}$ を微分すると
+平均 $m(t)=m_0e^{-\lambda t}$、分散 $v(t)=\lambda^{-1}+(s_0^2-\lambda^{-1})e^{-2\lambda t}$ と置きます。ここでは発展後の**全分散**を $v(t)$ と呼び、第5節の $q(t)$（追加するGaussian雑音の分散）と区別します。時刻 $t$ で微分すると
 
 $$
-m'=-\lambda m,\qquad q'=2-2\lambda q,
+m'=-\lambda m,\qquad v'=2-2\lambda v,
 $$
 
 となり、[OTR23のGaussian一歩の後退差分](../OTR23/index.md#prop-otr23-gaussian-step)から予想した微分方程式と一致します。$t>0$ では一般の初期測度に対してもGaussianとの畳み込みによって任意階数微分可能なLebesgue密度が生まれますが、収束の主張はあくまで狭義収束であり、近似列の $W_2$ 収束をここでは主張していません。
@@ -524,7 +549,7 @@ $$
 ### OTR24-A01 相対エントロピーで二次モーメントを取り出す
 - Level: A
 
-$d=1$、$\lambda=2$ とする。有限エントロピーの確率密度 $\rho$ に対して $\mathcal F(\rho)=\int\rho\log\rho+\int x^2\rho(x)dx$ を考える。比較密度 $g(x)=(2\pi)^{-1/2}e^{-x^2/2}$ を使い、$\mathcal F=D(\rho\,dx\Vert g\,dx)+\frac12M_2+c_2$ を導け。$c_2$ を計算し、$\mathcal F(\rho)\le K$ なら $M_2$ にどんな上界があるか示せ。
+$d=1$、$\lambda=2$ とする。$\rho\,dx\in\mathcal P_2(\mathbb R)$ で $\int\rho\log\rho\,dx$ が有限である確率密度 $\rho$ に対して $\mathcal F(\rho)=\int\rho\log\rho\,dx+\int x^2\rho(x)dx$ を考える。比較密度 $g(x)=(2\pi)^{-1/2}e^{-x^2/2}$ を使い、$\mathcal F=D(\rho\,dx\Vert g\,dx)+\frac12M_2+c_2$ を導け。$c_2$ を計算し、$\mathcal F(\rho)\le K$ なら $M_2$ にどんな上界があるか示せ。
 
 <!-- solution-start -->
 **詳細解答**。$\log g(x)=-\frac12\log(2\pi)-x^2/2$ なので
@@ -537,7 +562,7 @@ D(\rho\,dx\Vert g\,dx)
 \end{aligned}
 $$
 
-$c_2=-\frac12\log(2\pi)$ と置けば $\mathcal F=D+\frac12M_2+c_2$ です。相対エントロピーの非負性から $\frac12M_2+c_2\le\mathcal F\le K$、ゆえに $M_2\le2(K-c_2)$ となります。$K<c_2$ なら仮定を満たす密度自体が存在しません。
+$c_2=-\frac12\log(2\pi)$ と置けば $\mathcal F=D+\frac12M_2+c_2$ です。[相対エントロピーの非負性](../OTR21/index.md#prop-otr21-gibbs)から $\frac12M_2+c_2\le\mathcal F\le K$、ゆえに $M_2\le2(K-c_2)$ となります。$K<c_2$ なら仮定を満たす密度自体が存在しません。
 <!-- solution-end -->
 
 ### OTR24-A02 距離評価を試験関数の評価へ替える
@@ -584,23 +609,23 @@ $$
 ### OTR24-A04 Gaussianの分散を確かめる
 - Level: A
 
-$d=1$、$\lambda>0$、$s_0>0$ とし、$q(t)=\lambda^{-1}+(s_0^2-\lambda^{-1})e^{-2\lambda t}$ とする。$q(0)$、$q'(t)$、$t\to\infty$ の極限を計算し、全ての $t\ge0$ で $q(t)>0$ を示せ。
+$d=1$、$\lambda>0$、$s_0>0$ とし、$v(t)=\lambda^{-1}+(s_0^2-\lambda^{-1})e^{-2\lambda t}$ とする。$v(0)$、$v'(t)$、$t\to\infty$ の極限を計算し、全ての $t\ge0$ で $v(t)>0$ を示せ。
 
 <!-- solution-start -->
-**詳細解答**。代入して $q(0)=\lambda^{-1}+s_0^2-\lambda^{-1}=s_0^2$ です。微分すると
+**詳細解答**。代入して $v(0)=\lambda^{-1}+s_0^2-\lambda^{-1}=s_0^2$ です。微分すると
 
 $$
-q'(t)=-2\lambda(s_0^2-\lambda^{-1})e^{-2\lambda t}
-=2-2\lambda q(t).
+v'(t)=-2\lambda(s_0^2-\lambda^{-1})e^{-2\lambda t}
+=2-2\lambda v(t).
 $$
 
-$e^{-2\lambda t}\to0$ なので $q(t)\to\lambda^{-1}$ です。また
+$e^{-2\lambda t}\to0$ なので $v(t)\to\lambda^{-1}$ です。また
 
 $$
-q(t)=e^{-2\lambda t}s_0^2+(1-e^{-2\lambda t})\lambda^{-1}
+v(t)=e^{-2\lambda t}s_0^2+(1-e^{-2\lambda t})\lambda^{-1}
 $$
 
-は二つの正数の非負係数による和で、最初の係数は任意の有限 $t$ で正です。従って $q(t)>0$ です。
+は二つの正数の非負係数による和で、最初の係数は任意の有限 $t$ で正です。従って $v(t)>0$ です。
 <!-- solution-end -->
 
 ### OTR24-A05 狭義収束は二次輸送距離の収束ではない
@@ -708,10 +733,10 @@ $$
 ### OTR24-B04 後退試験関数の切断誤差
 - Level: B
 
-$d\ge1$、$\lambda>0$ とし、$\mu_s$ が $\sup_{0\le s\le T}M_2(\mu_s)\le M$ を満たす確率測度曲線とする。$\psi(s,x)$ は $\|\psi\|_\infty\le K_0$、$\|\nabla_x\psi\|_\infty\le K_1$、$\partial_s\psi+L\psi=0$ を満たすとする。$\chi_R(x)=\chi(x/R)$ は本文の切断関数で、$\|\nabla\chi\|_\infty\le C_1$、$\|\Delta\chi\|_\infty\le C_2$ とする。$\int_0^t\int|(\partial_s+L)(\chi_R\psi)|d\mu_sds$ の $R\to\infty$ 評価を導け。
+$d\ge1$、$\lambda>0$ とし、$\mu_s$ が $\sup_{0\le s\le T}M_2(\mu_s)\le M$ を満たす確率測度曲線とする。$\psi(s,x)$ は時間 $s$ に関して1階、空間 $x$ に関して2階の連続導関数を持ち、$\|\psi\|_\infty\le K_0$、$\|\nabla_x\psi\|_\infty\le K_1$、$\partial_s\psi+L\psi=0$ を満たすとする。$\chi_R(x)=\chi(x/R)$ は本文の切断関数で、$\|\nabla\chi\|_\infty\le C_1$、$\|\Delta\chi\|_\infty\le C_2$ とする。$\int_0^t\int|(\partial_s+L)(\chi_R\psi)|d\mu_sds$ の $R\to\infty$ 評価を導け。
 
 <!-- solution-start -->
-**詳細解答**。積の微分で
+**詳細解答**。[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を時間微分と空間微分それぞれに使うと
 
 $$
 (\partial_s+L)(\chi_R\psi)
@@ -740,10 +765,10 @@ $$
 両者を足した上界は $R\to\infty$ で0です。ドリフト係数の $|x|$ を無視して $O(R^{-1})$ と断定するのではなく、環状支持とモーメントの尾評価の両方を使います。
 <!-- solution-end -->
 
-### OTR24-C01 Gaussian二峰分布のJKO極限
+### OTR24-C01 二成分Gaussian混合のJKO極限
 - Level: C
 
-$d=1$、$\lambda=1$ とし、初期測度を $\mu^0=\frac12N(-1,1)+\frac12N(1,1)$ とする。$\mathcal F(\mu)=\int\rho\log\rho\,dx+\frac12\int x^2d\mu(x)$ のJKO反復について、本章の収束定理が適用できることを確認し、極限 $\mu_t$ を具体的に求めよ。各峰の平均・分散、全体の平均・分散、および $t\to\infty$ の狭義極限を計算せよ。
+$d=1$、$\lambda=1$ とし、初期測度を $\mu^0=\frac12N(-1,1)+\frac12N(1,1)$ とする。$\mathcal F(\mu)=\int\rho\log\rho\,dx+\frac12\int x^2d\mu(x)$ のJKO反復について、本章の収束定理が適用できることを確認し、極限 $\mu_t$ を具体的に求めよ。各成分の平均・分散、全体の平均・分散、および $t\to\infty$ の狭義極限を計算せよ。
 
 <!-- solution-start -->
 **詳細解答**。初期測度は二つのGaussian密度の混合なので、全ての点で正値を取る $C^\infty$ 級の密度 $\rho$ を持ちます。各成分の二次モーメントは分散1と平均の二乗1の和で2です。従って混合全体の二次モーメントも2です。
@@ -769,13 +794,20 @@ $$
 \boxed{\mu_t=\frac12N(-e^{-t},1)+\frac12N(e^{-t},1).}
 $$
 
-各峰の平均は $\pm e^{-t}$、分散は1です。全体の平均は0、全分散公式（成分内分散の平均と成分平均の分散の和）から全体の分散は $1+e^{-2t}$ です。$t\to\infty$ では二つの成分がともに $N(0,1)$ へ狭義収束するので $\mu_t\Rightarrow N(0,1)$ です。有限の $t$ では二峰混合が一般に単一Gaussianではないことも分かります。
+各成分の平均は $\pm e^{-t}$、分散は1です。$b=e^{-t}$ とすると、全体の平均は $\frac12(-b)+\frac12b=0$ で、二乗平均は
+
+$$
+\mathbb E[X_t^2]
+=\frac12(1+(-b)^2)+\frac12(1+b^2)=1+b^2.
+$$
+
+従って全体の分散は $1+e^{-2t}$ です。$t\to\infty$ では二つの成分がともに $N(0,1)$ へ狭義収束するので $\mu_t\Rightarrow N(0,1)$ です。有限の $t$ では二成分混合が一般に単一Gaussianではないことも分かります。「二成分」は密度の極大点が二つあるという意味ではありません。
 <!-- solution-end -->
 
 ### OTR24-C02 同じ雑音で結ぶ安定性評価
 - Level: C
 
-$d\ge1$、$\lambda>0$ とする。二つの初期測度 $\mu^0,\nu^0\in\mathcal P_2(\mathbb R^d)$ に対し、[本章の解のGaussian表示](#thm-otr24-uniqueness)で得られる曲線をそれぞれ $\mu_t,\nu_t$ とする。任意の $t\ge0$ について
+$d\ge1$、$\lambda>0$ とする。二つの初期測度 $\mu^0,\nu^0\in\mathcal P_2(\mathbb R^d)$ に対し、[本章のGaussian表示](#thm-otr24-uniqueness)から定める測度曲線をそれぞれ $\mu_t,\nu_t$ とする（初期エネルギーの有限性は仮定しない）。任意の $t\ge0$ について
 
 $$
 W_2(\mu_t,\nu_t)\le e^{-\lambda t}W_2(\mu^0,\nu^0)
@@ -816,7 +848,7 @@ W_2(\mu_t,\gamma_\lambda)
 \le e^{-\lambda t}W_2(\mu^0,\gamma_\lambda)\longrightarrow0
 $$
 
-を得ます。これは**連続時間の二つの真の解の収縮**であり、JKO近似列が固定時間に $W_2$ 収束することを本章の定理へ無断で付け加えたものではありません。
+を得ます。これは**連続時間のGaussian表示で定義した二つの曲線の収縮**であり、初期エネルギーが有限なら[連続時間極限の系](#cor-otr24-full-convergence)により実際の弱解同士の評価でもあります。JKO近似列が固定時間に $W_2$ 収束することを本章の定理へ無断で付け加えたものではありません。
 <!-- solution-end -->
 
 ## 8. この講義で確かめたこと

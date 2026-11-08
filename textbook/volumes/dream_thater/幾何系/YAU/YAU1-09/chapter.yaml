@@ -1,0 +1,43 @@
+id: "YAU1-09"
+title: "二階評価の大域閉包"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-08
+  - YAU1-07
+official_scope: []
+learning_objectives:
+  - 補助関数log S-Aφを導入する理由とLφφ=n-Tの計算を説明できる
+  - 最大点の複素Hessianの符号を用いて逆跡Tの上界を導ける
+  - 行列式上界と逆跡上界から最大点の相対跡上界を証明できる
+  - C0評価を用いて最大点の相対跡を全点へ伝播できる
+  - 相対跡上界と密度下界から計量の双側評価を導き一様楕円性を示せる
+  - 解の存在するパス時刻で定数が一様であることと高階評価に残る課題を識別できる
+  - コンパクト性、C0評価、密度下界が失われた場合の証明の停止位置を特定できる
+definitions:
+  - { id: YAU1-09-DEF-01, name: 二階評価の補助関数 }
+theorems:
+  - { id: YAU1-09-THM-01, name: 補助関数の最大点における逆跡評価 }
+  - { id: YAU1-09-LEM-01, name: 行列式・逆跡・跡からの固有値評価 }
+  - { id: YAU1-09-THM-02, name: 連続性のパス上の大域二階評価 }
+  - { id: YAU1-09-COR-01, name: 線形化作用素の一様楕円性 }
+canonical_examples:
+  - 平坦複素二次元トーラスの余弦ポテンシャルでSとTと密度を比較
+  - 相対固有値RとRの逆数で行列式のみでは足りない例
+  - 退化する正値行列で密度下界が必要である例
+problem_patterns:
+  - YAU1-09-POTENTIAL-LAPLACIAN
+  - YAU1-09-TRACE-DATA
+  - YAU1-09-MAXIMUM-CONSTANT
+  - YAU1-09-EIGENVALUE-BOUND
+  - YAU1-09-DIMENSION-ONE
+  - YAU1-09-UNIFORM-CONSTANTS
+  - YAU1-09-TORUS-EXAMPLE
+  - YAU1-09-DEGENERATE-INPUTS
+  - YAU1-09-ELLIPTICITY
+  - YAU1-09-FULL-GLOBAL-ESTIMATE
+  - YAU1-09-PATH-REGULARITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }

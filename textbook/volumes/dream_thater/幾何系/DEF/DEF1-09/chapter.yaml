@@ -1,0 +1,42 @@
+id: "DEF1-09"
+title: "Bogomolov–Tian–Todorov I――核心恒等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-03
+  - DEF1-05
+  - CYG1-12
+  - HOD1-06
+  - HOD1-08
+  - CM2-02
+learning_objectives:
+  - 正則体積形式による収縮の符号を保ち、∂閉条件を体積形式に関する発散零条件へ変換できる
+  - 二重収縮の型と対称性を確認し、Cartan恒等式からTian–Todorovの核心恒等式を導ける
+  - Kählerでの調和代表の選択と∂∂̄補題を別々の段階で適用して二次障害の消滅を証明できる
+  - 二次障害類の消滅、全高次の形式的可解性、解析的収束を混同せず判定できる
+theorems:
+  - { id: DEF1-09-DEF-01, name: "体積形式に関する発散" }
+  - { id: DEF1-09-DEF-02, name: "接束値形式の二重収縮" }
+  - { id: DEF1-09-LEM-01, name: "正則Cartan収縮恒等式" }
+  - { id: DEF1-09-THM-01, name: "Tian–Todorov核心恒等式" }
+  - { id: DEF1-09-PROP-01, name: "一次類の∂閉代表の選択" }
+  - { id: DEF1-09-THM-02, name: "二次障害類の消滅" }
+canonical_examples:
+  - 複素平面二次元で非零の括弧が二重収縮の∂として現れる計算
+  - 平坦複素トーラスの定数係数Beltrami形式
+  - ∂閉条件を落とすと同じ公式が壊れる局所反例
+problem_patterns:
+  - DEF1-09-CONTRACTION-SIGNS
+  - DEF1-09-DIVERGENCE-CHECK
+  - DEF1-09-BRACKET-LOCAL
+  - DEF1-09-CURVE-CASE
+  - DEF1-09-MISSING-HYPOTHESIS
+  - DEF1-09-CARTAN-IDENTITY
+  - DEF1-09-SYMMETRY
+  - DEF1-09-DDbar-PRIMITIVE
+  - DEF1-09-HARMONIC-REPRESENTATIVE
+  - DEF1-09-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 5 }

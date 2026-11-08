@@ -1,0 +1,42 @@
+id: "SQC9"
+title: "Tarskiの円積問題とLaczkovichの解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC8
+  - MT0
+  - SET1
+official_scope: []
+learning_objectives:
+  - 任意の集合片による有限平行移動等分解を、厳密な互いに素な分割と全単射として定義し、具体例で検証できる
+  - 分割片の可測性を仮定した面積保存と、任意集合片に同じ加法性を使えない理由を区別できる
+  - 境界の上box（上Minkowski）次元を被覆数で定義し、円周と正方形の境界が次元1であることを証明できる
+  - Laczkovichの1992年一般化定理の仮定と結論、および1990年の円積解決との関係を正確に説明できる
+  - 円盤と正方形の等面積・境界次元を計算し、一般定理から有限平行移動等分解の存在を導ける
+definitions:
+  - { id: SQC9-DEF-01, name: 有限平行移動等分解 }
+  - { id: SQC9-DEF-02, name: 上box次元 }
+theorems:
+  - { id: SQC9-PROP-01, name: 片ごとの平行移動から得られる全単射 }
+  - { id: SQC9-PROP-02, name: 可測な片の等分解は面積を保存する }
+  - { id: SQC9-LEM-01, name: 線分・円周・正方形境界の上box次元 }
+  - { id: SQC9-THM-01, name: Laczkovichの有限平行移動等分解定理（1992年） }
+  - { id: SQC9-COR-01, name: Tarskiの円積問題の肯定解 }
+canonical_examples:
+  - 半開長方形を二片の平行移動だけで組み替える厳密な分割
+  - 円周の被覆数の上下界から上box次元1を導く
+  - 半径rの閉円盤と一辺r√πの正方形への一般定理適用
+  - 円環と等積正方形への同じ一般定理の適用
+problem_patterns:
+  - SQC9-EXACT-TRANSLATION-PARTITION
+  - SQC9-PIECEWISE-BIJECTION
+  - SQC9-MEASURABLE-AREA
+  - SQC9-BOX-DIMENSION
+  - SQC9-DISK-SQUARE-ASSUMPTIONS
+  - SQC9-NONMEASURABLE-PIECES
+  - SQC9-FINITE-UNION-BOUNDARY
+  - SQC9-ANNULUS-APPLICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
