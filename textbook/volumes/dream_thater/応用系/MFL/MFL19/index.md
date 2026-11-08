@@ -18,7 +18,7 @@
 
 <!-- formal-statement-start -->
 > **定義（周期折線補間と離散二次形式）**  
-> $R>0$、$N\ge3$、$h=2\pi R/N$ とする。$v,w\in\mathbb C^N$ に対し、$s_j\le s\le s_{j+1}$ 上で $t=(s-s_j)/h$ と置き、
+> $R>0$、$L=2\pi R$、$N\ge3$、$h=L/N$、$s_j=jh$ とし、添字は $N$ 周期で読む。$v,w\in\mathbb C^N$ に対し、$s_j\le s\le s_{j+1}$ 上で $t=(s-s_j)/h$ と置き、
 
 $$
 (J_Nv)(s)=(1-t)v_j+tv_{j+1}
@@ -37,8 +37,29 @@ $$
 > とする。$m_N(v)=m_N(v,v)$、$q_N(v)=q_N(v,v)$ と略記し、$v\ne0$ の離散Rayleigh商を $\mathcal R_N(v)=q_N(v)/m_N(v)$ と呼ぶ。
 <!-- formal-statement-end -->
 
+ここでプライム $u'(s)$ は弧長変数 $s$ に関する導関数 $du/ds$ を表す。セル内の $t=(s-s_j)/h$ は補間のための無次元座標で、$dt/ds=1/h$ である。連鎖律で $s$ に関して微分すれば、各セルの内部で
+
+$$
+(J_Nv)'(s)=\frac{d}{dt}\bigl((1-t)v_j+tv_{j+1}\bigr)\frac{dt}{ds}
+=\frac{v_{j+1}-v_j}{h}
+$$
+
+となる。後のエネルギー式はこの $s$ 微分を積分するものである。
+
 <!-- definition-example-start: def-mfl19-linear-form -->
-**定義の確認**：定数列と一山の折線。$v_j=c$ なら各区間で $J_Nv=c$、差分が零なので $q_N(v)=0$、$m_N(v)=L|c|^2$。$c\ne0$ なら分母は正でRayleigh商は0となる。一方 $N=4$、$v=(1,0,0,0)$ なら、隣接差が非零なのは $(v_1-v_0)=-1$、$(v_0-v_3)=1$ の二辺だけで、$m_4(v)=h$、$q_4(v)=2/h$、$\mathcal R_4(v)=2/h^2$。折線の導関数も、その二辺でそれぞれ $-1/h$ と $1/h$、残りで0である。格子の行列式を計算せずに、**定義した剛性がどの変化を測るか**確かめられる。
+**定義の確認**：定数列と一山の折線。$v_j=c$ なら各区間で $J_Nv=c$、隣接差が零なので
+
+$$
+q_N(v)=0,\qquad m_N(v)=L|c|^2,\qquad \mathcal R_N(v)=0\quad(c\ne0).
+$$
+
+定数が非零なら質量が正なので、最後の商は確かに定義できる。一方、$N=4$、$v=(1,0,0,0)$ では隣接差が非零なのは2辺だけで、それぞれ $v_1-v_0=-1$、$v_0-v_3=1$ である。従って
+
+$$
+m_4(v)=h,\qquad q_4(v)=\frac2h,\qquad \mathcal R_4(v)=\frac2{h^2}.
+$$
+
+折線の導関数も、その二辺でそれぞれ $-1/h$ と $1/h$、残りで0である。格子の行列式を計算せずに、**定義した剛性がどの変化を測るか**確かめられる。
 <!-- definition-example-end -->
 
 ## 2. 離散の質量と連続の質量は、完全には同じでない
@@ -109,10 +130,10 @@ $m_N(v)=1$、$q_N(v)\le C$ の列では $\|J_Nv\|_2^2=1+O(h^2)$ となる。**�
 
 <!-- formal-statement-start -->
 > **定義（固定試験関数の作用素整合性）**  
-> $R>0$、$N\ge3$、$h=2\pi R/N$ とする。$B_N:\mathbb C^N\to\mathbb C^N$ を線形作用素、$L=-d^2/ds^2$ を周期円周の正のLaplacianとする。任意の**固定した**滑らかな周期関数 $f$ に対して
+> $R>0$、$N\ge3$、$h=2\pi R/N$、$s_j=jh$ とする。$S_Nf=(f(s_j))_{j=0}^{N-1}$ を標本化、$B_N:\mathbb C^N\to\mathbb C^N$ を線形作用素、$L_g=-d^2/ds^2$ を周期円周の正のLaplacianとする。ここで $L=2\pi R$ は引き続き周長を表す。任意の**固定した**滑らかな周期関数 $f$ に対して
 
 $$
-\|B_NS_Nf-S_N(Lf)\|_{m_N}\longrightarrow0,
+\|B_NS_Nf-S_N(L_gf)\|_{m_N}\longrightarrow0,
 \qquad\|v\|_{m_N}=\sqrt{m_N(v)}
 $$
 
@@ -123,10 +144,21 @@ $$
 **定義の確認**。$B_N=A_N$、$f(s)=\cos(s/R)$ とすると $S_Nf$ は[MFL18の離散固有モード](../MFL18/index.md#thm-mfl18-complete)で、
 
 $$
-A_NS_Nf-S_N(Lf)=(\lambda_{N,1}-R^{-2})S_Nf.
+A_NS_Nf-S_N(L_gf)=(\lambda_{N,1}-R^{-2})S_Nf.
 $$
 
-$\|S_Nf\|_{m_N}=\sqrt{L/2}$（$N\ge3$）なので、[固定波数の定量評価](../MFL18/index.md#thm-mfl18-low-frequency)からノルム差は $O(N^{-2})$。これで一つの固定試験関数では条件を直接確かめられた。一般の固定滑らかな $f$ についても周期Taylor展開を $s_j$ の左右へ2次まで施すと、奇数次が消え、$A_NS_Nf-S_N(Lf)=O(h^2)$ が一様に成り立つ（例えば $f\in C^4$ なら4階導関数上界で評価できる）。
+$\|S_Nf\|_{m_N}=\sqrt{L/2}$（$N\ge3$）なので、[固定波数の定量評価](../MFL18/index.md#thm-mfl18-low-frequency)からノルム差は $O(N^{-2})$。これで一つの固定試験関数では条件を直接確かめられた。一般の固定滑らかな $f$ についても周期Taylor展開を $s_j$ の左右へ4次まで施す。奇数次が打ち消し合うため
+
+$$
+f(s_j+h)+f(s_j-h)
+=2f(s_j)+h^2f''(s_j)+\frac{h^4}{12}f^{(4)}(s_j)+o(h^4),
+$$
+
+$$
+(A_NS_Nf)_j=-f''(s_j)-\frac{h^2}{12}f^{(4)}(s_j)+o(h^2)
+$$
+
+となる。固定した $f\in C^4$ なら余剰項は周期区間上一様なので、$A_NS_Nf-S_N(L_gf)=O(h^2)$ が一様に成り立ち、質量ノルムでも $O(h^2)$ となる。
 <!-- definition-example-end -->
 
 作用素整合性は**固定した** $f$ についての収束であり、$N$ とともに変わる任意の単位ベクトルに一様とは言っていない。次に必要なのは「小さなエネルギーのベクトル列が、コンパクトな連続関数列になる」という制御である。
@@ -195,7 +227,14 @@ $$
 \le\|u_N'\|_2^2=q_N(v_N).
 $$
 
-有限和で極限を取った後に $K\to\infty$ とすれば $\sum_k\omega_k^2|c_k|^2\le\liminf q_N(v_N)$。ここで[GA4の形式領域と固有関数展開](../../../幾何系/GA/GA4/index.md#lem-ga4-form-domain)を長さ $L$ の円周へ適用する。$L^2$ のFourier係数についてこの重み付き級数が有限であることは $u\in H^1_{\rm per}$ を意味し、$Q(u)=\sum_k\omega_k^2|c_k|^2$。従って主張が得られる。$\square$
+有限和で極限を取った後に $K\to\infty$ とすれば $\sum_k\omega_k^2|c_k|^2\le\liminf q_N(v_N)$。ここで[GA4の形式領域と固有関数展開](../../../幾何系/GA/GA4/index.md#lem-ga4-form-domain)を長さ $L$ の円周へ適用する。実際、$u_K=\sum_{|k|\le K}c_k\phi_k$ と置けば、$L^2$ のParseval等式と上の重み付き級数の有界性から、$K>M$ に対し
+
+$$
+\|u_K-u_M\|_{H^1}^2=\sum_{M<|k|\le K}(1+\omega_k^2)|c_k|^2\longrightarrow0
+\qquad(M,K\to\infty).
+$$
+
+$H^1_{\rm per}$ の完備性により $u_K$ はそこで収束し、[極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)を $L^2$ で用いるとその極限は $u$ である。従って $u\in H^1_{\rm per}$、$Q(u)=\sum_k\omega_k^2|c_k|^2$ となり、主張が得られる。$\square$
 <!-- proof-end -->
 
 この補題が与えるのは、**エネルギーが有界な列の強い $L^2$ コンパクト性**である。点ごとの作用素整合性だけには、この上界が含まれていない。
@@ -236,7 +275,8 @@ $P_Ng$ を各セル上で $g$ の平均値を取る階段関数とすると、�
 
 $$
 \|P_Ng-g\|_2
-\le2\eta+\|P_Ng_\eta-g_\eta\|_2\longrightarrow\le2\eta
+\le2\eta+\|P_Ng_\eta-g_\eta\|_2,
+\qquad\limsup_{N\to\infty}\|P_Ng-g\|_2\le2\eta
 $$
 
 だから $\eta\to0$ で $P_Nu'\to u'$ が $L^2$ で成立する。また $s\in I_j$ なら
@@ -252,7 +292,14 @@ $$
 
 ## 6. min–maxで固有値を両側から挟む
 
-[GA4のmin–max原理](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)は、**$k+1$ 次元の関数空間の中で最大Rayleigh商を測り、そうした空間の中で最小にする**という固有値の特徴付けである。離散側は $m_N$ が正定値、$q_N$ が非負なので同じ有限次元の原理を使える。固有値は両側とも小さい順に、重複度込みで $k=0,1,\ldots$ と番号を付ける。
+[GA4のmin–max原理](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)は、**$k+1$ 次元の関数空間の中で最大Rayleigh商を測り、そうした空間の中で最小にする**という固有値の特徴付けである。本章では複素関数を使う。正規直交固有基底で $u=\sum_i a_i\phi_i$ と展開すれば
+
+$$
+\|u\|_2^2=\sum_i|a_i|^2,\qquad
+Q(u)=\sum_i\lambda_i|a_i|^2
+$$
+
+なので、GA4と同じ次元・直交性の議論が通る。離散側も $m_N$ が正定値、$q_N$ が非負であり、[MFL18の正規直交固有基底](../MFL18/index.md#thm-mfl18-complete)で同じ形に対角化できる。固有値は両側とも小さい順に、重複度込みで $k=0,1,\ldots$ と番号を付ける。
 
 <a id="thm-mfl19-eigenvalues"></a>
 
@@ -345,7 +392,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（孤立固有値群の固有空間収束）**  
-> $R>0$ を固定し、第6節の $A_N$ と $L_g=-d^2/ds^2$ を用いる。$\lambda$ を $L_g$ の固有値とし、その重複度を $r\ge1$ とする。$\lambda=\lambda_a=\cdots=\lambda_{a+r-1}$、かつ隣接する異なる固有値とは正の間隔があるとする（$a=0$ なら左端は不要）。十分大きい $N$ における対応する $r$ 本の $m_N$-正規直交離散固有ベクトル $v_{N,a},\ldots,v_{N,a+r-1}$ の折線が張る $E_N\subset L^2$ と、連続固有空間 $E_\lambda=\ker(L_g-\lambda)$ について、
+> $R>0$ を固定し、第6節の $A_N$ と $L_g=-d^2/ds^2$ を用いる。$\lambda$ を $L_g$ の固有値とし、その重複度を $r\ge1$ とする。重複度込みの番号では $\lambda=\lambda_a=\cdots=\lambda_{a+r-1}$ であり、隣接する異なる固有値とは正の間隔があるとする（$a=0$ なら左端は不要）。
+
+> 十分大きい $N$ における対応する $r$ 本の $m_N$-正規直交離散固有ベクトルを $v_{N,a},\ldots,v_{N,a+r-1}$ とする。その折線が張る部分空間を $E_N\subset L^2$、連続固有空間を $E_\lambda=\ker(L_g-\lambda)$ と定める。このとき
 
 $$
 d_{\rm proj}(E_N,E_\lambda)\longrightarrow0.
@@ -441,7 +490,18 @@ $$
 \sum_j(-1)^jD_h^2f(s_j)=(-1-2-1)T_N=-4T_N.
 $$
 
-$f\in C^4$ なので $D_h^2f=h^2f''+O(h^4)$、同じ操作を $f''$ にもう一度用いると $T_N=O(Nh^4)=O(h^3)$ となる（$Nh=L$ は固定）。従って $|m_N(z_N,S_Nf)|=O(h^4)$ で
+$f\in C^4$ なので $D_h^2f=h^2f''+O(h^4)$ が一様に成り立つ。$T_N(g)=\sum_j(-1)^jg(s_j)$ と書けば、同じ添字替えを $f''$ にも用いて
+
+$$
+\begin{aligned}
+T_N(f)&=-\frac14T_N(D_h^2f)
+=-\frac{h^2}{4}T_N(f'')+O(Nh^4),\\
+|T_N(f'')|&=\frac14|T_N(D_h^2f'')|
+\le\frac N4\|D_h^2f''\|_\infty=O(Nh^2).
+\end{aligned}
+$$
+
+従って $T_N(f)=O(Nh^4)=O(h^3)$（$Nh=L$ は固定）であり、$|m_N(z_N,S_Nf)|=O(h^4)$ となる。よって
 
 $$
 \left\|\frac4{h^2}P_NS_Nf\right\|_{m_N}=O(h^2)\longrightarrow0.
