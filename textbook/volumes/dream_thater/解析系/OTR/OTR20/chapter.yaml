@@ -1,0 +1,50 @@
+id: "OTR20"
+title: "Otto計算の接ベクトルとは"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR19
+  - F0-02C1A
+  - GEO12
+  - AMECH3
+official_scope: []
+learning_objectives:
+  - 同じ連続の方程式を生む速度場の非一意性を回転流で直接確認できる
+  - 任意の確率測度でL2勾配の閉包を接空間とし、発散ゼロの直交補空間を特徴付けられる
+  - Hilbert直交射影が与えられた分布的接方向の一意な最小ノルム速度を与えることを証明できる
+  - AC2測度曲線の最小速度と距離微分が一致することを射影と既出定理から導ける
+  - 滑らかな密度の重み付きPoisson方程式と、一般測度での弱い射影構成の違いを説明できる
+  - 第一変分から形式的W2勾配と負の勾配流の符号・エネルギー散逸を導ける
+  - Ottoの形式的Riemann計量とP2の厳密な距離構造を混同せず、原子測度にも適用可能な主張を区別できる
+definitions:
+  - { id: OTR20-DEF-01, name: L2勾配の接空間 }
+  - { id: OTR20-DEF-02, name: 分布的接方向と不可視速度 }
+  - { id: OTR20-DEF-03, name: 質量保存制約下の第一変分 }
+  - { id: OTR20-DEF-04, name: 形式的W2勾配 }
+theorems:
+  - { id: OTR20-PROP-01, name: 接空間と不可視速度の直交分解 }
+  - { id: OTR20-THM-01, name: 接方向の最小ノルム代表 }
+  - { id: OTR20-THM-02, name: AC2曲線の正準速度と距離微分 }
+  - { id: OTR20-PROP-02, name: 滑らかな重み付きPoisson射影 }
+  - { id: OTR20-PROP-03, name: 位置エネルギーの第一変分と接勾配 }
+canonical_examples:
+  - Dirac測度ではすべての値ベクトルが接方向になる
+  - 等方Gaussianの回転場は不可視速度になる
+  - Gaussianの膨張と回転を分解して作用の差を計算する
+  - 二次位置エネルギーの下降流と散逸
+problem_patterns:
+  - OTR20-A01
+  - OTR20-A02
+  - OTR20-A03
+  - OTR20-A04
+  - OTR20-A05
+  - OTR20-B01
+  - OTR20-B02
+  - OTR20-B03
+  - OTR20-B04
+  - OTR20-C01
+  - OTR20-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 3.0 }
