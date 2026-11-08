@@ -1,0 +1,48 @@
+chapter: OTR10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR9
+
+concepts:
+  - id: transport.lipschitz-seminorm
+    name: Lipschitz半ノルムと正規化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lipschitz半ノルムと正規化）"]
+    requires: [transport.wasserstein-p]
+
+  - id: transport.lipschitz-test-bound
+    name: Lipschitz検査関数の可積分性と弱双対
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Lipschitz検査関数の可積分性と弱双対）"]
+    requires: [transport.lipschitz-seminorm, transport.coupling]
+
+  - id: transport.lipschitz-dual-discrepancy
+    name: Lipschitz積分差による双対量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lipschitz積分差による双対量）"]
+    requires: [transport.lipschitz-seminorm, transport.lipschitz-test-bound]
+
+  - id: transport.finite-kr-duality
+    name: 有限原子測度のLipschitz双対
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限原子測度のLipschitz双対）"]
+    requires: [transport.transport-strong-duality, transport.lipschitz-dual-discrepancy]
+
+  - id: transport.kr-duality
+    name: Kantorovich–Rubinstein双対定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kantorovich–Rubinstein双対定理）"]
+    requires: [transport.finite-kr-duality, transport.wasserstein-separability, transport.lipschitz-test-bound]
+
+  - id: transport.wasserstein-lipschitz-contraction
+    name: Lipschitz写像によるW1評価
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Lipschitz写像によるW1評価）"]
+    requires: [transport.kr-duality]
