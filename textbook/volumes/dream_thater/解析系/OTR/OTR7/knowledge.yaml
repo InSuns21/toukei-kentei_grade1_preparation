@@ -1,0 +1,55 @@
+chapter: OTR7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR6
+
+concepts:
+  - id: transport.c-cyclic-monotonicity
+    name: c-巡回単調集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$c$-巡回単調集合）"]
+    requires: [transport.coupling, transport.continuous-dual]
+
+  - id: transport.support-of-coupling
+    name: 結合測度の支持集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（結合測度の支持集合）"]
+    requires: [transport.coupling]
+
+  - id: transport.contact-set-cyclic
+    name: 双対等号集合の巡回単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双対等号集合の巡回単調性）"]
+    requires: [transport.dual-contact-set, transport.c-cyclic-monotonicity]
+
+  - id: transport.cyclic-potential-construction
+    name: 巡回単調集合からの連続双対ポテンシャルの構成
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（巡回単調集合からの連続双対ポテンシャルの構成）"]
+    requires: [transport.c-cyclic-monotonicity, transport.c-transform]
+
+  - id: transport.optimal-support-characterization
+    name: コンパクト連続費用に対する最適支持の特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト連続費用に対する最適支持の特徴付け）"]
+    requires: [transport.contact-set-cyclic, transport.cyclic-potential-construction, transport.support-of-coupling, transport.compact-kantorovich-duality, transport.contact-set-optimality]
+
+  - id: transport.quadratic-two-cycle
+    name: 二次費用の二点交換条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次費用の二点交換条件）"]
+    requires: [transport.c-cyclic-monotonicity]
+
+  - id: transport.one-dimensional-two-cycle
+    name: 一次元二次費用の単調性判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次元二次費用の単調性判定）"]
+    requires: [transport.quadratic-two-cycle]
