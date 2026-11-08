@@ -27,7 +27,7 @@ $$
 <!-- definition-example-start: def-otr15-metric-length -->
 **定義の確認**。$\gamma(t)=\delta_{2t}$ を $\mathcal P_2(\mathbb R)$ の曲線とします。各時刻の二次モーメントは $4t^2<\infty$ です。
 
-Dirac 測度同士の結合は唯一なので、[Wasserstein 距離](../OTR8/index.md#def-otr8-wasserstein)の定義から $W_2(\delta_{2s},\delta_{2t})=2|s-t|$ となります。従って任意の分割について
+Dirac 測度同士の結合は唯一なので、[p-Wasserstein距離](../OTR8/index.md#def-otr8-wasserstein)の定義から $W_2(\delta_{2s},\delta_{2t})=2|s-t|$ となります。従って任意の分割について
 
 $$
 \sum_i W_2(\gamma(t_{i-1}),\gamma(t_i))
