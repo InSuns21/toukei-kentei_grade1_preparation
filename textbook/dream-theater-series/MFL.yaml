@@ -104,7 +104,7 @@ chapters:
     title: "群表現・intertwiner・特徴型"
   - id: MFL25
     path: textbook/volumes/dream_thater/応用系/MFL/MFL25
-    status: planned
+    status: completed
     title: "不変化・等変層の構成原理"
   - id: MFL26
     path: textbook/volumes/dream_thater/応用系/MFL/MFL26

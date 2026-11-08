@@ -1,0 +1,39 @@
+id: "MFL25"
+title: "不変化・等変層の構成原理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL24
+  - ML2-13
+official_scope: []
+learning_objectives:
+  - 有限群の全元を平均した関数が不変になることを添字の全単射から証明できる
+  - 出力表現の逆元を用いる等変化平均を定義し等変性と冪等性を証明できる
+  - 行列とバイアスの平均から絡作用素・固定ベクトルを計算できる
+  - 等変な層の合成と中間表現に整合する活性化の十分条件を証明できる
+  - 置換型・符号型・直交回転型について活性化の成立例と反例を区別できる
+  - 等変特徴から不変な読み出しを構成し情報損失との違いを説明できる
+  - 一部の群元だけの平均と全群平均の変換残差を決定論的実験で比較できる
+definitions:
+  - { id: MFL25-DEF-01, name: 有限群による不変化平均 }
+  - { id: MFL25-DEF-02, name: 有限群の等変化平均 }
+  - { id: MFL25-DEF-03, name: 重み・バイアスの群平均 }
+  - { id: MFL25-DEF-04, name: 表現に整合する活性化関数 }
+theorems:
+  - { id: MFL25-THM-01, name: 不変化平均の不変性と射影性 }
+  - { id: MFL25-THM-02, name: 等変化平均は等変関数への射影 }
+  - { id: MFL25-THM-03, name: 群平均によるアフィン等変層の構成 }
+  - { id: MFL25-THM-04, name: 等変層の合成と活性化の十分条件 }
+  - { id: MFL25-PROP-01, name: 等変特徴から不変出力への読み出し }
+canonical_examples:
+  - C2の偶奇成分への平均と群作用の逆元の検算
+  - C2符号型の行列・固定バイアスへの射影
+  - C4の異方的行列が等方的な層へ平均される例
+  - 置換ReLUと回転・符号ReLUの成立差
+  - 直交表現に整合する長さゲートと不変読み出し
+  - C4の部分平均が不変性を失う実験
+problem_patterns: [MFL25-A01, MFL25-A02, MFL25-A03, MFL25-A04, MFL25-B01, MFL25-B02, MFL25-B03, MFL25-B04, MFL25-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

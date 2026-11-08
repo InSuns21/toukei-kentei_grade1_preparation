@@ -1,0 +1,57 @@
+chapter: MFL25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL24
+  - ML2-13
+forward_references: []
+concepts:
+  - id: manifold-learning.finite-invariant-average
+    name: 有限群による不変化平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限群による不変化平均）"]
+    requires: [manifold-learning.invariant-map, algebra.group-action]
+  - id: manifold-learning.invariant-averaging-projection
+    name: 不変化平均の不変性と射影性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.finite-invariant-average]
+  - id: manifold-learning.finite-equivariant-average
+    name: 有限群の等変化平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限群の等変化平均）"]
+    requires: [manifold-learning.finite-real-representation, manifold-learning.equivariant-map]
+  - id: manifold-learning.equivariant-averaging-projection
+    name: 等変化平均は等変関数への射影
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.finite-equivariant-average]
+  - id: manifold-learning.linear-bias-group-average
+    name: 重み・バイアスの群平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み・バイアスの群平均）"]
+    requires: [manifold-learning.finite-equivariant-average, manifold-learning.linear-intertwiner]
+  - id: manifold-learning.affine-equivariant-projection
+    name: 群平均によるアフィン等変層の構成
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.linear-bias-group-average, manifold-learning.affine-equivariance-condition]
+  - id: manifold-learning.compatible-activation
+    name: 表現に整合する活性化関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現に整合する活性化関数）"]
+    requires: [manifold-learning.finite-real-representation, learning.relu-activation]
+  - id: manifold-learning.equivariant-layer-closure
+    name: 等変層の合成と活性化の十分条件
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.compatible-activation, manifold-learning.affine-equivariant-projection, manifold-learning.equivariant-composition]
+  - id: manifold-learning.equivariant-invariant-readout
+    name: 等変特徴から不変出力への読み出し
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.equivariant-layer-closure, manifold-learning.invariant-map]
