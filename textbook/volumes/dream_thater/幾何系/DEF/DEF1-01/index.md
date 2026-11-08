@@ -34,7 +34,14 @@ $$
 
 ## 2. Ehresmann局所自明化：滑らかな形は変わらない
 
-正則沈め込みの局所座標では、$d\pi$ が複素線形な全射であるため、全空間の正則座標からファイバー方向の $n$ 成分 $z=(z^1,\ldots,z^n)$ を選び、基底の $m$ 成分 $t=(t^1,\ldots,t^m)=\pi$ と併せた写像 $(z,\pi)$ の複素Jacobi行列を可逆にできる（$n=\dim_{\mathbb C}\mathcal X-m$）。[実逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から十分小さい近傍で実 $C^1$ 級の逆が存在し、[正則写像の逆の正則性](../../CM/CM1-01/index.md#prop-cm1-01-composition)からその逆も正則になる。従って $(z,t)$ が正則座標となり、$\pi(z,t)=t$ である。つまり**局所的な積座標**とはこの射影表示であり、ファイバー全体の正則積表示までは保証しない。
+正則沈め込みの局所座標では、$d\pi$ は複素線形な全射である。全空間と基底の複素次元をそれぞれ $n+m,m$ とすると、全空間の正則座標からファイバー方向の $n$ 成分 $z=(z^1,\ldots,z^n)$ を選び、次の写像の複素Jacobi行列を可逆にできる。
+
+$$
+(z,\pi):\mathcal X\supset V\longrightarrow\mathbb C^n\times\mathbb C^m,
+\qquad p\longmapsto(z(p),\pi(p)).
+$$
+
+ここでの $V$ は着目点の座標近傍である。[実逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から十分小さい近傍で実 $C^1$ 級の逆が存在し、[正則写像の逆の正則性](../../CM/CM1-01/index.md#prop-cm1-01-composition)からその逆も正則になる。従って $t=\pi(p)$ と置けば $(z,t)$ が正則座標となり、$\pi(z,t)=t$ である。つまり**局所的な積座標**とはこの射影表示であり、ファイバー全体の正則積表示までは保証しない。
 
 これに対して、基底を少し縮めればファイバー全体を**微分可能**には同時に同一視できる。必要な区別を次に明記する。
 
@@ -449,7 +456,15 @@ $$
 
 である。従って $dg_0(\partial_s)=0$ で、[基底変更の命題](#prop-def1-01-base-change)から $\operatorname{KS}_{g^*\pi,0}(\partial_s)=\operatorname{KS}_{\pi,i}(0)=0$ となる。
 
-一方、$s\ne0$ での非零性も、中心を $\tau_0=i+s^2$ として直接確かめる。滑らかな基準座標 $z=x+\tau_0y$ を選ぶと、$y=(z-\bar z)/(\tau_0-\bar\tau_0)$、$u=\tau-\tau_0$ に対して $w=z+uy$ である。$u$ を固定して $z,\bar z$ に関する偏微分を取り、$w$ を消す $(0,1)$ 方向を解くと
+一方、$s\ne0$ での非零性も、中心を $\tau_0=i+s^2$ として直接確かめる。$\tau_0$ を固定して滑らかな基準座標 $z=x+\tau_0y$ を選ぶと、
+
+$$
+y=\frac{z-\bar z}{\tau_0-\bar\tau_0},
+\qquad u=\tau-\tau_0,
+\qquad w=z+uy
+$$
+
+である。$u$ を固定して $z,\bar z$ に関する偏微分を取り、$w$ を消す $(0,1)$ 方向を解くと
 
 $$
 \mu(u)=\frac{u}{\tau_0-\bar\tau_0+u},
