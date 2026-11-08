@@ -121,7 +121,7 @@ $$
 
 出力は群 $G$ 上の信号なので、入力と同じ群元 $h$ で動かすときは群の逆元で出力ラベルを引き戻す。入力側の $U_h$ は格子位置 $x\in L$ を動かし、出力側の $L_h$ は位置と向きを含むラベル $g\in G$ を動かす。後者を左正則作用と呼び、次で定める。
 
-<a id="def-mfl26-left-regular"></a>
+<a id="eq-mfl26-left-regular"></a>
 
 $$
 (L_hF)(g)=F(h^{-1}g),\qquad F:G\to\mathbb R.
@@ -384,7 +384,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z\in L_{N/d}$、$p\in P$ とすると、左辺は [§3の出力ラベルの引戻し式](#def-mfl26-left-regular)を用いて
+$z\in L_{N/d}$、$p\in P$ とすると、左辺は [§3の出力ラベルの引戻し式](#eq-mfl26-left-regular)を用いて
 
 $$
 \begin{aligned}
