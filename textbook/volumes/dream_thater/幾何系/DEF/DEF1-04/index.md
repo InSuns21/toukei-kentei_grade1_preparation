@@ -197,7 +197,7 @@ $$
 =\partial_{\bar z^j}v^i.
 $$
 
-ここで微分の交換は $F_t$ が $t,z$ に関して必要な $C^1$ 正則性を持つことから従う。従って $v$ は正則であり、[完全列の命題](#prop-def1-04-gauge-exact)より $v\in H^0(X,T_X)$。
+ここでは $t$ に関する微分と $z$ に関する偏微分を交換した。例えば $F_t$ が実変数 $t$ と座標の実部・虚部について $C^2$ 級ならこの交換は正当化される（一般には必要な混合偏導関数の連続性で十分である）。従って $v$ は正則であり、[完全列の命題](#prop-def1-04-gauge-exact)より $v\in H^0(X,T_X)$。
 
 逆向きは $v$ が大域正則切断だとする。点 $p$ の正則座標 $z$ で $v=\sum_i v^i(z)\partial_{z^i}$ と書き、
 
@@ -236,15 +236,19 @@ $$
 
 右辺は $w=0$ まで正則に延長するため、三つとも大域正則ベクトル場である。[射影直線の接束と正則切断](../../CM/CM2-08/index.md#thm-cm2-08-projective-tangent)から、これらは全ての大域正則ベクトル場の基底となり、$\dim_{\mathbb C}H^0(X,T_X)=3$ である。$H^0$ が大きいことだけから、$H^1$ の変形方向が多いと推測してはいけない。
 
-非コンパクトな $X=\mathbb C$ では $v=z^2\partial_z$ も正則だが、その積分曲線は初期値 $z_0$ に対して
+非コンパクトな $X=\mathbb C$ では $v=z^2\partial_z$ も正則だが、全ての実時間にわたる自己同型を生成するとは限らない。初期値 $z(0)=z_0\ne0$ を持つ積分曲線について、$z(t)\ne0$ の区間では連鎖律より
 
 $$
-\frac{dz(t)}{dt}=z(t)^2,\qquad
-\frac1{z(t)}=\frac1{z_0}-t,\qquad
-z(t)=\frac{z_0}{1-tz_0}.
+\begin{aligned}
+\frac{dz(t)}{dt}&=z(t)^2,\\
+\frac{d}{dt}\left(\frac1{z(t)}\right)
+&=-\frac{z'(t)}{z(t)^2}=-1,\\
+\frac1{z(t)}&=\frac1{z_0}-t,\qquad
+z(t)=\frac{z_0}{1-tz_0}
+\end{aligned}
 $$
 
-$z_0\ne0$ とすると $t=1/z_0$ で発散する。**無限小自己同型**と、全時間で定義された**大域的な自己同型族**は異なる。
+となる。例えば $z_0\in\mathbb R_{>0}$ を取れば、実時間 $t\uparrow1/z_0$ で $z(t)$ は発散する。一般の複素数 $z_0$ について $1/z_0$ は必ずしも実時刻ではないことに注意する。**無限小自己同型**と、全実時間で定義された**大域的な自己同型族**は異なる。
 
 ## 5. 楕円曲線で閉形式、完全形式、安定化子を区別する
 
@@ -581,13 +585,32 @@ $$
 =\operatorname{KS}_{\tau=i}(0)=0.
 $$
 
-**(2)** 一点で一次写像が零でも、近傍の他点では零とは限らない。小さい $s_0\ne0$ を固定し、$\tau_0=i+s_0^2$ とする。基準ファイバーを $z=x+\tau_0y$（$x,y$ は周期1）で表すと、$\tau=\tau_0+u$ のファイバーにおける正則座標は
+**(2)** 一点で一次写像が零でも、近傍の他点では零とは限らない。小さい $s_0\ne0$ を固定し、$\tau_0=i+s_0^2$ とする。基準ファイバーの普遍被覆を $z=x+\tau_0y$（$x,y$ は実座標で、商では各々周期1）で表すと、$\tau=\tau_0+u$ のファイバーの普遍被覆で用いる正則座標関数は
 
 $$
 w=z+uy,\qquad y=\frac{z-\bar z}{\tau_0-\bar\tau_0}.
 $$
 
-$w$ を消すBeltrami係数は、$\partial_{\bar z}w=-u/(\tau_0-\bar\tau_0)$ と $\partial_zw=1+u/(\tau_0-\bar\tau_0)$ から
+$w=x+(\tau_0+u)y$ なので、格子による遷移は
+
+$$
+w\longmapsto w+m+(\tau_0+u)n\qquad(m,n\in\mathbb Z)
+$$
+
+という正則平行移動であり、商の複素構造を与える。$w$ を正則座標とするための[Beltrami方程式](../DEF1-02/index.md#prop-def1-02-beltrami-equation)は
+
+$$
+(\partial_{\bar z}+\mu\partial_z)w=0
+$$
+
+である。ここでは $u$ を動かし $\tau_0$ を固定する。実際に微分すると
+
+$$
+\partial_{\bar z}w=-\frac{u}{\tau_0-\bar\tau_0},\qquad
+\partial_zw=1+\frac{u}{\tau_0-\bar\tau_0}
+$$
+
+だから、十分小さい $u$ では $\tau_0-\bar\tau_0+u\ne0$（$\operatorname{Im}\tau_0>0$）であり、$\mu=-\partial_{\bar z}w/\partial_zw$ より
 
 $$
 \mu(u)=\frac{u}{\tau_0-\bar\tau_0+u},\qquad
@@ -595,7 +618,25 @@ $$
 =\frac1{\tau_0-\bar\tau_0}\ne0.
 $$
 
-この定数係数の一次類は、単位基本領域での周期積分により非零である。さらに $\tau'(s_0)=2s_0\ne0$ なので、[基底変更の命題](../DEF1-01/index.md#prop-def1-01-base-change)を適用すると $s_0$ での一次類は非零となる。もし $s=0$ の近傍で族が正則に自明なら、その近傍の全ての $s_0$ でKodaira–Spencer写像が零になるはずであり、矛盾する。従って $s=0$ での零写像から局所自明性は結論できない。
+この微分が与える定数係数の一次類 $[(\tau_0-\bar\tau_0)^{-1}d\bar z\otimes\partial_z]$ が非零であることも確認する。$z=x+\tau_0y$ と $\bar z=x+\bar\tau_0y$ を解くと
+
+$$
+\partial_{\bar z}
+=\frac{\tau_0\partial_x-\partial_y}{\tau_0-\bar\tau_0}.
+$$
+
+定数 $c\ne0$ に対して $\partial_{\bar z}f=c$ を満たす格子周期関数 $f(x,y)$ が存在すると仮定する。$Q=[0,1]^2$ における周期積分から
+
+$$
+\begin{aligned}
+c&=\int_Q\partial_{\bar z}f\,dx\,dy\\
+&=\frac{1}{\tau_0-\bar\tau_0}
+\left\{\tau_0\int_0^1[f(1,y)-f(0,y)]\,dy
+-\int_0^1[f(x,1)-f(x,0)]\,dx\right\}=0,
+\end{aligned}
+$$
+
+となって矛盾する。従って $d\bar z\otimes\partial_z$ の類は非零である。さらに $\tau'(s_0)=2s_0\ne0$ なので、[基底変更の命題](../DEF1-01/index.md#prop-def1-01-base-change)を適用すると $s_0$ での一次類は非零となる。もし $s=0$ の近傍で族が正則に自明なら、その近傍の全ての $s_0$ でKodaira–Spencer写像が零になるはずであり、矛盾する。従って $s=0$ での零写像から局所自明性は結論できない。
 
 **(3)** [複素トーラスの定数係数一次変形](../../CYG/CYG1-12/index.md#prop-cyg1-12-torus-directions)から $\dim_{\mathbb C}H^1(E_i,T_{E_i})=1$。一次変形類を分類する $H^1$ は一次元であるが、今回の基底方向 $\partial_s$ の写像先はその中の零ベクトルである。標的空間の次元1と与えられた族の写像の階数0は矛盾しない。
 <!-- solution-end -->

@@ -1,0 +1,36 @@
+chapter: MFL35
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL34
+  - MFL30
+  - OPT1
+forward_references: []
+concepts:
+  - id: manifold-learning.invariant-geometric-message
+    name: 距離に基づく不変スカラーメッセージ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離に基づく不変スカラーメッセージ）"]
+    requires: [manifold-learning.relative-edge-vector, manifold-learning.message-passing-layer]
+  - id: manifold-learning.equivariant-coordinate-layer
+    name: 座標・特徴の同時更新層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（座標・特徴の同時更新層）"]
+    requires: [manifold-learning.invariant-geometric-message, manifold-learning.geometric-graph]
+  - id: manifold-learning.coordinate-layer-en-equivariance
+    name: 座標・特徴更新層のE(n)等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.equivariant-coordinate-layer, manifold-learning.geometric-transformation-law]
+  - id: manifold-learning.coordinate-layer-permutation-depth
+    name: 置換等変性と有限多層のE(n)等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.coordinate-layer-en-equivariance, manifold-learning.graph-relabeling]
+  - id: manifold-learning.coordinate-layer-centroid-hull
+    name: 対称重みの重心保存と非負重みの凸包保持
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.equivariant-coordinate-layer, convex.finite-convex-hull-representation]

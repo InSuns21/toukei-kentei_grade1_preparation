@@ -5,3 +5,4 @@
 2. [DEF1-02 Beltrami微分と接束値形式](textbook/volumes/dream_thater/幾何系/DEF/DEF1-02/index.md)
 3. [DEF1-03 Maurer–Cartan方程式](textbook/volumes/dream_thater/幾何系/DEF/DEF1-03/index.md)
 4. [DEF1-04 一次変形・同値・自己同型](textbook/volumes/dream_thater/幾何系/DEF/DEF1-04/index.md)
+5. [DEF1-05 二次以上の障害類](textbook/volumes/dream_thater/幾何系/DEF/DEF1-05/index.md)

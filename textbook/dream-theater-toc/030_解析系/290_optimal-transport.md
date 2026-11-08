@@ -22,3 +22,4 @@
 19. [OTR19 静的最適輸送と流体作用は等価か](textbook/volumes/dream_thater/解析系/OTR/OTR19/index.md)
 20. [OTR20 Otto計算の接ベクトルとは](textbook/volumes/dream_thater/解析系/OTR/OTR20/index.md)
 21. [OTR21 どのエネルギーがどのPDEを生むか](textbook/volumes/dream_thater/解析系/OTR/OTR21/index.md)
+22. [OTR22 勾配流を変分最小化で離散化できるか](textbook/volumes/dream_thater/解析系/OTR/OTR22/index.md)

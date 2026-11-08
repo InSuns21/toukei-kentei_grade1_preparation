@@ -144,8 +144,8 @@ chapters:
     title: "幾何的グラフと不変量"
   - id: MFL35
     path: textbook/volumes/dream_thater/応用系/MFL/MFL35
-    status: planned
-    title: "E(n)等変GNN座標更新"
+    status: completed
+    title: "E(n)等変GNNと座標更新"
   - id: MFL36
     path: textbook/volumes/dream_thater/応用系/MFL/MFL36
     status: planned

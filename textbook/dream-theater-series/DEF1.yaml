@@ -24,7 +24,7 @@ chapters:
     title: "一次変形・同値・自己同型"
   - id: DEF1-05
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-05
-    status: planned
+    status: completed
     title: "二次以上の障害類"
   - id: DEF1-06
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-06
