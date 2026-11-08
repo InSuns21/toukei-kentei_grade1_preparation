@@ -1,0 +1,41 @@
+id: "YAU1-04"
+title: "一意性と正規化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-03
+  - YAU1-02
+  - GA3
+  - GEO8
+official_scope: []
+learning_objectives:
+  - 二つの許容Kählerポテンシャルの間の凸な線分を用い、対数行列式の差を正の係数を持つ線形楕円型作用素へ書き直せる
+  - 正係数の複素二階作用素に対する強最大値原理を局所障壁の計算から証明し、コンパクト連結多様体上の二解が定数差であることを示せる
+  - 二解の最高次外積差の因数分解とStokesのエネルギー恒等式から、別経路で一意性と正値性の役割を検算できる
+  - 基準体積に関する平均ゼロと上限ゼロの正規化を定数加算の自由度と区別し、それぞれ一意な代表を構成できる
+  - 線形化の核が定数だけであることを示し、後続の開性証明でなぜ平均ゼロ条件が必要か説明できる
+  - 非コンパクト性・非連結性・正値性・右辺の不一致で一意性の論法がどこで使えなくなるか反例とともに説明できる
+definitions:
+  - { id: YAU1-04-DEF-01, name: 平均ゼロKählerポテンシャルの正規化 }
+theorems:
+  - { id: YAU1-04-LEM-01, name: 正係数複素二階作用素の強最大値原理 }
+  - { id: YAU1-04-THM-01, name: 複素Monge–Ampère方程式の解の定数差一意性 }
+  - { id: YAU1-04-PROP-01, name: 平均ゼロ・上限ゼロの代表と解の一意性 }
+  - { id: YAU1-04-PROP-02, name: Monge–Ampère線形化の核 }
+canonical_examples:
+  - 平坦楕円曲線の余弦ポテンシャルで平均と上限の正規化を比較する
+  - 非連結な二つの楕円曲線で成分別の定数差と平均ゼロ条件の限界を確認する
+  - 非コンパクト複素平面の実部関数で定数差一意性のコンパクト性依存を確かめる
+problem_patterns:
+  - YAU1-04-SEGMENT-LOGDET
+  - YAU1-04-STRONG-MAXIMUM-BARRIER
+  - YAU1-04-ENERGY-IDENTITY
+  - YAU1-04-MEAN-NORMALIZATION
+  - YAU1-04-SUP-NORMALIZATION
+  - YAU1-04-LINEARIZED-KERNEL
+  - YAU1-04-RICCI-TO-VOLUME
+  - YAU1-04-FAILED-HYPOTHESES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
