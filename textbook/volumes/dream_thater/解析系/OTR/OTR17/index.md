@@ -43,7 +43,31 @@ $$
 
 ## 2. 小領域の収支から境界流束を導く
 
-$\Omega\subset\mathbb R^d$ を有界な $C^1$ 境界を持つ領域、$n$ をその外向き単位法線とします。$\rho,j$ が閉領域まで $C^1$ なら、[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)によって、[VC4の局所保存則から積分保存則](../../../幾何系/VC/VC4/index.md#thm-vc4-local-to-integral)を導けました。質量の場合に変数を代入すると、$M_\Omega(t)=\int_\Omega\rho(t,x)\,dx$ に対し
+$\Omega\subset\mathbb R^d$ を有界な $C^1$ 境界を持つ領域、$n$ をその外向き単位法線とします。まず任意の次元で使う発散公式を確認します。
+
+<a id="der-otr17-divergence-d"></a>
+
+$$
+\int_\Omega\nabla\cdot F\,dx
+=\int_{\partial\Omega}F\cdot n\,dS
+\qquad(F\in C^1(\overline\Omega;\mathbb R^d)).
+$$
+
+$d=1$ は微積分の基本定理、$d=2$ は[VC4のGreenの流束形](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)、$d=3$ は[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)です。VC4の後者の定理文は3次元なので、$d>3$ では次の座標ごとの計算で拡張します。境界を局所的に $x_d=h(x')$、領域を $x_d<h(x')$ と書き、この座標近傍にコンパクト支持を持つ $F$ を考えます。$x'=(x_1,\ldots,x_{d-1})$ として、微積分の基本定理と上端の連鎖律から
+
+$$
+\begin{aligned}
+\int_\Omega\partial_{x_d}F_d\,dx
+&=\int F_d(x',h(x'))\,dx',\\
+\int_\Omega\partial_{x_i}F_i\,dx
+&=-\int F_i(x',h(x'))\,\partial_{x_i}h(x')\,dx'
+\quad(1\le i<d).
+\end{aligned}
+$$
+
+第二式では $\partial_{x_i}\int_{-\infty}^{h(x')}F_i(x',z)\,dz$ を $x'$ 全体で積分した項が、コンパクト支持により $0$ になります。一方、このグラフの外向き法線と面積要素は $n\,dS=(-\nabla h,1)\,dx'$ です。成分を足すと境界流束に一致します。$C^1$ 境界を有限個の座標近傍で覆い、内部と各近傍へ滑らかに分割して足せば一般の公式を得ます。
+
+$\rho,j$ が閉領域まで $C^1$ なら、この公式を[VC4の局所保存則から積分保存則](../../../幾何系/VC/VC4/index.md#thm-vc4-local-to-integral)と同様に適用できます。質量の場合に $M_\Omega(t)=\int_\Omega\rho(t,x)\,dx$ と置くと
 
 $$
 \frac{dM_\Omega}{dt}(t)
@@ -236,7 +260,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\chi\in C_c^1(\mathbb R^d)$ を $0\le\chi\le1$、$\chi=1$ on $B_1$、$\chi=0$ outside $B_2$、$|\nabla\chi|\le C$ を満たすように取り、$\chi_R(x)=\chi(x/R)$ とします。任意の $s\in[0,T]$ で弱形式を時刻 $[0,s]$ に制限できます。厳密には時間 cutoff で端点 $s$ を近似し、狭義連続性と $\int_0^T\int|v|\,d\mu_tdt<\infty$ による支配収束で極限を取ります。$\varphi=\chi_R$ を入れると
+$\chi\in C_c^1(\mathbb R^d)$ を $0\le\chi\le1$、$\chi=1$ on $B_1$、$\chi=0$ outside $B_2$、$|\nabla\chi|\le C$ を満たすように取り、$\chi_R(x)=\chi(x/R)$ とします。まず任意の $s\in[0,T]$ に弱式を制限できることを示します。$m_R(t)=\int\chi_R\,d\mu_t$ は狭義連続性により連続で、$q_R(t)=\int v\cdot\nabla\chi_R\,d\mu_t$ は $L^1(0,T)$ に属します。
+
+$0<s<T$ に対し、$\eta_\varepsilon\in C^1([0,T])$ を $[0,s]$ で $1$、$[s+\varepsilon,T]$ で $0$、その間で単調に減少するように取ります。$\varphi(t,x)=\eta_\varepsilon(t)\chi_R(x)$ を元の弱式へ入れると、時間端点の差は $-m_R(0)$ であり、
+
+$$
+-m_R(0)=\int_0^T\eta_\varepsilon'(t)m_R(t)\,dt
++\int_0^T\eta_\varepsilon(t)q_R(t)\,dt.
+$$
+
+$\int_s^{s+\varepsilon}\eta_\varepsilon'\,dt=-1$ と $m_R$ の連続性から第一項は $-m_R(s)$ に収束します。第二項は $q_R\in L^1$ による支配収束で $\int_0^s q_R(t)\,dt$ に収束します。$s=T$ は $\eta\equiv1$ を直接使い、$s=0$ は自明です。こうして区間 $[0,s]$ の弱式を得て、空間側の試験関数 $\chi_R$ を代入すると
 
 $$
 \int\chi_R\,d\mu_s-\int\chi_R\,d\mu_0
@@ -318,7 +351,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-積分を部分積分すると、任意の $\varphi\in C^1([0,T]\times\overline\Omega)$ について
+時間の部分積分と[第2節で導いた $d$ 次元の発散公式](#der-otr17-divergence-d)を使うと、任意の $\varphi\in C^1([0,T]\times\overline\Omega)$ について
 
 $$
 \begin{aligned}
@@ -371,12 +404,17 @@ $$
 \int f(x)\,d\mu_t(x)=\int_K f(X_t(a))\,d\mu_0(a).
 $$
 
-$t_n\to t$ のとき各 $a$ で被積分関数が収束し $|f(X_{t_n}(a))|\le\|f\|_\infty$ なので、支配収束から狭義連続です。$\varphi\in C_c^1$ に対し連鎖律から
+$t_n\to t$ のとき各 $a$ で被積分関数が収束し $|f(X_{t_n}(a))|\le\|f\|_\infty$ なので、支配収束から狭義連続です。$\varphi\in C_c^1$ に対しては、初期点 $a$ を固定して **時刻 $t$ で全微分**します。[PDE1の曲線に沿う連鎖律](../../PDE/PDE1/index.md#prop-pde1-curve-composition)は空間1次元の場合です。ここでは $X_t(a)=(X_t^1(a),\ldots,X_t^d(a))$ と各成分に拡張し、$\partial_tX_t^i(a)=v_i(t,X_t(a))$ を代入します。
 
 $$
+\begin{aligned}
 \frac d{dt}\varphi(t,X_t(a))
-=\partial_t\varphi(t,X_t(a))
+&=\partial_t\varphi(t,X_t(a))
++\sum_{i=1}^d\partial_{x_i}\varphi(t,X_t(a))
+  \frac d{dt}X_t^i(a)\\
+&=\partial_t\varphi(t,X_t(a))
 +\nabla\varphi(t,X_t(a))\cdot v(t,X_t(a)).
+\end{aligned}
 $$
 
 これを $0$ から $T$ まで積分し、$a$ について $\mu_0$ で積分します。連続な被積分関数は $[0,T]\times K$ 上で有界なので積分順序を交換できます。
@@ -384,7 +422,13 @@ $$
 時間端点の二項には[押し出し積分公式](../../F0/F0-00P3D/index.md#thm-f0-00p3d-pushforward-integration)を適用して $\mu_T,\mu_0$ に戻します。時間積分の項にも、各時刻 $t$ に同じ[押し出し積分公式](../../F0/F0-00P3D/index.md#thm-f0-00p3d-pushforward-integration)を適用して $\mu_t$ に戻します。これで弱形式そのものを得ます。$\square$
 <!-- proof-end -->
 
-密度がある場合は、さらに $X_t$ の微分行列が体積をどう拡大するかを追えます。次の命題では $X_t$ が $C^1$ 級微分同相と仮定します。正の Jacobian $J_t(a)=\det D_aX_t(a)$ に対して体積変換公式が使えます。
+密度がある場合は、さらに $X_t$ の微分行列が体積をどう拡大するかを追えます。時刻 $t$ を**固定し、初期座標 $a$ で偏微分**した行列を
+
+$$
+D_aX_t(a)=\left(\frac{\partial X_t^i(a)}{\partial a_j}\right)_{1\le i,j\le d}
+$$
+
+と書きます。これは時間微分 $\partial_tX_t(a)=v(t,X_t(a))$ とは別のものです。次の命題では $X_t$ が $C^1$ 級微分同相と仮定します。$J_t(a)=\det D_aX_t(a)>0$ は、[OTR16で説明した体積倍率と密度の関係](../OTR16/index.md#def-otr16-internal-energy)と同じく、正の体積倍率を与えます。実際、座標変換では $dy=|\det D_aX_t(a)|\,da$ であり、仮定 $J_t>0$ により絶対値を外せます。
 
 <a id="prop-otr17-jacobian"></a>
 
@@ -410,13 +454,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意のコンパクト支持連続関数 $f$ に対して押し出しから
+任意のコンパクト支持連続関数 $f$ に対して[押し出し積分公式](../../F0/F0-00P3D/index.md#thm-f0-00p3d-pushforward-integration)から
 
 $$
 \int f(y)\,d\mu_t(y)=\int f(X_t(a))\rho_0(a)\,da.
 $$
 
-$y=X_t(a)$ と変数変換すると $dy=J_t(a)da$ です。従って $\rho(t,y)=\rho_0(X_t^{-1}(y))/J_t(X_t^{-1}(y))$ が密度であり、第一式を得ます。
+$y=X_t(a)$ と変数変換すると $dy=J_t(a)\,da$ です。従って右辺は
+
+$$
+\int f(y)\,
+\frac{\rho_0(X_t^{-1}(y))}{J_t(X_t^{-1}(y))}\,dy
+$$
+
+に等しくなります。任意の $f$ に対して積分が一致するため、$\rho(t,y)=\rho_0(X_t^{-1}(y))/J_t(X_t^{-1}(y))$ が密度であり、$y=X_t(a)$ に戻せば第一式を得ます。
 
 $A_t=D_aX_t(a)$ と置きます。軌道の方程式を $a$ で微分して連鎖律を使うと
 
@@ -424,7 +475,14 @@ $$
 \partial_tA_t=D_xv(t,X_t(a))A_t.
 $$
 
-可逆行列に対する行列式の微分公式 $\frac d{dt}\det A_t=\det A_t\operatorname{tr}(A_t^{-1}\partial_tA_t)$ を適用し、
+ここで $\operatorname{tr}B=\sum_iB_{ii}$ は正方行列の対角成分の和です。可逆行列 $A_t$ に対しては
+
+$$
+\det(A_t+h\,\partial_tA_t)
+=\det A_t\det(I_d+hA_t^{-1}\partial_tA_t),
+$$
+
+また行列式の置換展開で $\det(I_d+hB)=1+h\operatorname{tr}B+O(h^2)$ です。$A_{t+h}=A_t+h\,\partial_tA_t+o(h)$ と合わせ、$h\to0$ とすれば Jacobi の微分公式 $\partial_t\det A_t=\det A_t\operatorname{tr}(A_t^{-1}\partial_tA_t)$ を得ます。これを適用すると、
 
 $$
 \begin{aligned}
@@ -435,7 +493,7 @@ $$
 \end{aligned}
 $$
 
-最後の等号は trace が相似変換で不変なことによります。$X_0(a)=a$ だから $J_0=1$ です。よって軌道上の密度は体積倍率の逆数で変わります。$\square$
+中央の等号は $\operatorname{tr}(A^{-1}BA)=\operatorname{tr}(BAA^{-1})=\operatorname{tr}B$（$\operatorname{tr}(PQ)=\operatorname{tr}(QP)$ を成分和で確認できる）によります。$X_0(a)=a$ だから $D_aX_0=I_d$、$J_0=1$ です。よって軌道上の密度は体積倍率の逆数で変わります。$\square$
 <!-- proof-end -->
 
 この公式は [OTR16の滑らかな内部エネルギーの定理](../OTR16/index.md#thm-otr16-internal)で用いた密度と Jacobian の関係を、**任意の滑らかな時間発展**へ読み替えたものです。最適輸送写像であることは、この保存則の証明には必要ありません。
@@ -614,7 +672,7 @@ $$
 を証明し、$\mu_t=\frac12(\delta_{t}+\delta_{2+t})$、$v=1$ で検算せよ。
 
 <!-- solution-start -->
-**詳細解答**。$[-R,R]$ 上で $\chi(x)=1$ となるコンパクト支持 $C^1$ 関数を取り、試験関数 $\varphi(t,x)=x\chi(x)$ とします。支持上は $\varphi=x$、$\partial_x\varphi=1$、$\partial_t\varphi=0$ です。弱式を $[0,s]$ に制限すると
+**詳細解答**。$[-R,R]$ 上で $\chi(x)=1$ となるコンパクト支持 $C^1$ 関数を取り、試験関数 $\varphi(t,x)=x\chi(x)$ とします。支持上は $\varphi=x$、$\partial_x\varphi=1$、$\partial_t\varphi=0$ です。[総質量保存の証明で示した時間cutoff](#thm-otr17-mass)と同じ操作で弱式を $[0,s]$ に制限すると
 
 $$
 \int x\,d\mu_s-\int x\,d\mu_0
