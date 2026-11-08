@@ -288,7 +288,7 @@ $$
 \end{aligned}
 $$
 
-括弧には元の $\partial_{\bar z^i}$ 成分がない。一方、グラフ内のベクトルで反正則成分が零なら、[Beltrami微分のグラフの定義](#def-def1-02-beltrami-graph)からベクトル全体が零である。従って可積分性（Lie括弧での閉性）から上の係数は全て零となる。$\phi^i_{\bar j}=t\alpha^i_{\bar j}+O(t^2)$ を代入すると、最後の積の項は $O(t^2)$。$t$ の一次係数を比較して
+括弧には元の $\partial_{\bar z^i}$ 成分がない。一方、[グラフ表示](#def-def1-02-beltrami-graph) $u=\bar v+\phi(\bar v)$ で反正則成分が零なら $\bar v=0$、従って $u=0$ である。ゆえに可積分性（Lie括弧での閉性）から上の係数は全て零となる。$\phi^i_{\bar j}=t\alpha^i_{\bar j}+O(t^2)$ を代入すると、最後の積の項は $O(t^2)$。$t$ の一次係数を比較して
 
 $$
 \partial_{\bar z^j}\alpha^i_{\bar k}
