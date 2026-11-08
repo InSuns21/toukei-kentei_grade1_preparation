@@ -493,7 +493,7 @@ $X=\mathbb C$ の円板で $\phi=c(z,\bar z)d\bar z\otimes\partial_z$ とする�
 <!-- solution-start -->
 **詳細解答。** 複素次元1には $d\bar z\wedge d\bar z$ 以外の $(0,2)$ 基底がなく、これは交代性から零である。従って微分項も括弧項も零である。
 
-一方 $|c|<1$ から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)がある。[この章の可積分性定理](#thm-def1-03-maurer-cartan)を適用して、新しい概複素構造は積分可能である。
+一方 $|c|<1$ から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)がある。[可積分性の必要十分条件](#thm-def1-03-maurer-cartan)を適用して、新しい概複素構造は積分可能である。
 
 ノルム条件を外した $c=1$ ではグラフと共役が一致するため、形式上の方程式が零でも複素構造は得られない。
 <!-- solution-end -->
@@ -511,7 +511,7 @@ $$
 \bar\partial_T\phi=0,\qquad [\phi,\phi]=0.
 $$
 
-ノルム条件から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)があり、[この章の可積分性定理](#thm-def1-03-maurer-cartan)より積分可能と結論できる。
+ノルム条件から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)があり、[可積分性の必要十分条件](#thm-def1-03-maurer-cartan)より積分可能と結論できる。
 <!-- solution-end -->
 
 <a id="ex-def1-03-b01"></a>
