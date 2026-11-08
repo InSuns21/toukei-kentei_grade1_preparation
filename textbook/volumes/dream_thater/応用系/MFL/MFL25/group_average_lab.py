@@ -70,7 +70,12 @@ def function(x: Point, group_elements: tuple[int, ...], used: tuple[int, ...],
 
 def residual(group: str, output: str, activation: str, average: str) -> dict:
     full = elements(group)
-    used = full if average == "full" else ((full[0], full[1]) if average == "partial" else ())
+    if average == "full":
+        used = full
+    elif average == "partial":
+        used = (full[0],) if group == "C2" else full[:2]
+    else:
+        used = ()
     maximum = -1.0
     witness: dict = {}
     for x in SAMPLES:
@@ -105,9 +110,12 @@ def self_test() -> None:
 
     partial = residual("C4", "scalar", "poly", "partial")
     assert partial["max_equivariance_residual"] > 0.1
+    partial_c2 = residual("C2", "scalar", "poly", "partial")
+    assert partial_c2["averaged_elements"] == [0]
+    assert partial_c2["max_equivariance_residual"] > 0.1
     naive = residual("C4", "vector", "relu", "raw")
     assert naive["max_equivariance_residual"] > 0.1
-    print(json.dumps({"self_test": "passed", "checks": checks + 2}, ensure_ascii=False))
+    print(json.dumps({"self_test": "passed", "checks": checks + 3}, ensure_ascii=False))
 
 
 def main() -> None:
