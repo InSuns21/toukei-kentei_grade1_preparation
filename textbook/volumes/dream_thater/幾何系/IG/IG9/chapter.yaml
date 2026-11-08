@@ -1,0 +1,35 @@
+id: "IG9"
+title: "正準 divergence と Bregman 幾何"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG8
+  - IG5
+  - IG3
+official_scope: []
+learning_objectives:
+  - Bregman divergence を接線と厳密凸性から定義し非負性と零点を証明できる
+  - 双対平坦な Hessian 座標で正準 divergence を作り Legendre 双対表示を導ける
+  - 正則全指数型分布族の KL divergence との一致を引数の向きに注意して証明できる
+  - Bernoulli・Poisson・有限正確率単体で KL と Bregman を計算して検算できる
+  - 三点恒等式をポテンシャルの定義から証明し双対座標の内積項を解釈できる
+  - 定義域・境界・大域座標の仮定を識別し一般の統計多様体で KL と同一視しない
+definitions:
+  - { id: IG9-DEF-01, name: Bregman divergence }
+  - { id: IG9-DEF-02, name: 双対平坦座標の正準 divergence }
+theorems:
+  - { id: IG9-THM-01, name: Bregman divergence の非負性と積分表示 }
+  - { id: IG9-THM-02, name: 正準 divergence の双対表示 }
+  - { id: IG9-THM-03, name: 全指数型分布族の正準 divergence と KL }
+  - { id: IG9-THM-04, name: Bregman 三点恒等式 }
+  - { id: IG9-PROP-01, name: 正準 divergence の局所二次項 }
+canonical_examples:
+  - 二次ポテンシャルの重み付き Euclid 距離
+  - Bernoulli の logit と KL の向き
+  - Poisson 分布の自然母数と KL
+  - 有限正確率単体の負エントロピーと三点恒等式
+problem_patterns: [IG9-A01, IG9-A02, IG9-A03, IG9-A04, IG9-A05, IG9-B01, IG9-B02, IG9-B03, IG9-B04, IG9-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }

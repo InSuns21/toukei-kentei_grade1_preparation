@@ -1,0 +1,53 @@
+chapter: IG9
+scope: dream-theater
+coverage: complete
+prerequisites: [IG8, IG5, IG3]
+concepts:
+  - id: information-geometry.bregman-divergence
+    name: Bregman divergence
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bregman divergence）"]
+    requires: [information-geometry.hessian-chart]
+
+  - id: information-geometry.bregman-nonnegative
+    name: Bregman divergence の非負性と積分表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bregman divergence の非負性と積分表示）"]
+    requires: [information-geometry.bregman-divergence]
+
+  - id: information-geometry.canonical-divergence
+    name: 双対平坦座標の正準 divergence
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対平坦座標の正準 divergence）"]
+    requires: [information-geometry.dually-flat-manifold, information-geometry.bregman-divergence]
+
+  - id: information-geometry.canonical-dual-form
+    name: 正準 divergence の双対表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正準 divergence の双対表示）"]
+    requires: [information-geometry.canonical-divergence, information-geometry.hessian-dual-flatness]
+
+  - id: information-geometry.canonical-kl-exponential
+    name: 全指数型分布族の正準 divergence と KL
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全指数型分布族の正準 divergence と KL）"]
+    requires: [information-geometry.canonical-divergence, information-geometry.exponential-dual-flatness]
+
+  - id: information-geometry.bregman-three-point
+    name: Bregman 三点恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bregman 三点恒等式）"]
+    requires: [information-geometry.bregman-divergence]
+
+  - id: information-geometry.canonical-local-quadratic
+    name: 正準 divergence の局所二次項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正準 divergence の局所二次項）"]
+    requires: [information-geometry.canonical-divergence, information-geometry.bregman-nonnegative]
