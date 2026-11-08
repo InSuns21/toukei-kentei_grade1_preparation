@@ -292,7 +292,7 @@ L G_\varepsilon(x,q)
 \Delta u_\varepsilon=V p_\varepsilon(x,q)-1\ge-1.
 $$
 
-複素一次元では $\omega_u/\omega_0=1+\Delta u/2$ なので、$\omega_{u_\varepsilon}\ge\omega_0/2>0$ である。それでも[平坦トーラスの周期化Gaussian熱核](../../GA/GA5/index.md#thm-ga5-torus-gaussian)を対角 $q=q$ で用いると、$0<s\le1$ で $p_s(q,q)\ge(4\pi s)^{-1}$ となる。従って
+複素一次元では $\omega_u/\omega_0=1+\Delta u/2$ なので、$\omega_{u_\varepsilon}\ge\omega_0/2>0$ である。それでも[平坦トーラスの周期化Gaussian熱核](../../GA/GA5/index.md#thm-ga5-torus-gaussian)を対角 $q=q$ で用いると、大きいピークを作れる。実際、$\theta=2\pi(x,y)$ と座標を拡大すると、標準 $2\pi$ 周期トーラスのLaplacian $\Delta_{\theta}$ に対し $\Delta_{\omega_0}=2\pi^2\Delta_{\theta}$ となる。時間は $\tau=2\pi^2s$、体積は $d\mu=(2\pi^2)^{-1}d\theta_1d\theta_2$ だから、熱核の密度は $p_s=2\pi^2p^{\mathrm{std}}_{\tau}$ と変換される。周期化Gaussianの原点項から $p_s(q,q)\ge2\pi^2/(4\pi\tau)=(4\pi s)^{-1}$ を得る。従って
 
 $$
 G_\varepsilon(q,q)
@@ -487,7 +487,7 @@ $$
 =\frac{1+Vp_\varepsilon}{2}\ge\frac12>0.
 $$
 
-平坦トーラスでは $\Delta_{\omega_0}=\tfrac12\Delta_{\mathbb R^2}$、$d\mu=2dxdy$ なので、周期化した熱核の原点項から $p_s(q,q)\ge(4\pi s)^{-1}$。長時間部分は $\left|\int_1^\infty(p_s(q,q)-1/V)ds\right|\le C_H/\lambda_1$。ゆえに
+平坦トーラスでは $\Delta_{\omega_0}=\tfrac12\Delta_{\mathbb R^2}$、$d\mu=2dxdy$。標準 $2\pi$ 周期の座標 $\theta=2\pi(x,y)$ に替えると $\Delta_{\omega_0}=2\pi^2\Delta_\theta$、$d\mu=(2\pi^2)^{-1}d\theta_1d\theta_2$ である。従って時間 $\tau=2\pi^2s$ における標準熱核 $p^{\mathrm{std}}_\tau$ は、$d\mu$ 用に $p_s=2\pi^2p^{\mathrm{std}}_\tau$ と変換する。[周期化Gaussian](../../GA/GA5/index.md#thm-ga5-torus-gaussian)の原点項は $p_s(q,q)\ge2\pi^2/(4\pi\tau)=(4\pi s)^{-1}$ を与える。長時間部分は $\left|\int_1^\infty(p_s(q,q)-1/V)ds\right|\le C_H/\lambda_1$。ゆえに
 
 $$
 G_\varepsilon(q,q)
