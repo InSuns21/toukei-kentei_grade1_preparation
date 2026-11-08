@@ -1,0 +1,41 @@
+id: "YAU1-01"
+title: "Calabi予想は何を固定し何を指定するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-10
+  - KAH1-13
+  - HOD1-08
+official_scope: []
+learning_objectives:
+  - コンパクト連結Kähler多様体で固定する複素構造とKähler類、指定するRicci形式、未知計量を区別できる
+  - 指定Ricci形式が滑らかな実閉(1,1)形式であることと実第一Chern類の整合条件が必要な理由を証明できる
+  - 任意のKähler類・任意の許容Ricci形式・唯一の解という量化順序と、存在証明の位置付けを説明できる
+  - 固定類の計量一意性と実ポテンシャルの定数差という二つの一意性を区別して導出できる
+  - Ricci形式指定問題を体積方程式の正規化へ接続し定数の変更に対する不変性を検算できる
+  - 類を固定しない場合、Ricci目標の整合条件を外す場合、非コンパクト化した場合の失敗機構を具体例で示せる
+definitions:
+  - { id: YAU1-01-DEF-01, name: Ricci指定問題の許容データ }
+theorems:
+  - { id: YAU1-01-PROP-01, name: Ricci目標の必要条件 }
+  - { id: YAU1-01-THM-01, name: Calabi予想の精密な量化 }
+  - { id: YAU1-01-PROP-02, name: ポテンシャルの定数差と計量の一意性 }
+  - { id: YAU1-01-PROP-03, name: 体積正規化の整合性 }
+canonical_examples:
+  - 楕円曲線の平坦Kähler形式の正の定数倍による類非固定の反例
+  - 射影直線の第一Chern類によるRicci形式零の障害
+  - 周期ポテンシャルから得る同一Kähler類の非Ricci平坦代表
+  - 非コンパクト複素直線と非連結空間での一意性条件の違い
+problem_patterns:
+  - YAU1-01-INPUT-OUTPUT
+  - YAU1-01-CHERN-OBSTRUCTION
+  - YAU1-01-CLASS-SCALING
+  - YAU1-01-POTENTIAL-GAUGE
+  - YAU1-01-QUANTIFIERS
+  - YAU1-01-VOLUME-NORMALIZATION
+  - YAU1-01-NONCOMPACT-COUNTEREXAMPLE
+  - YAU1-01-ADMISSIBLE-TARGETS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }
