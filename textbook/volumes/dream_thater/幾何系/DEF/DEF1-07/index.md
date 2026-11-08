@@ -30,12 +30,14 @@ $$
 
 [有限次元の陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を思い出そう。ただし微分損失を放置したまま、そのBanach空間版を適用することはできない。そこで[楕円型評価](../../GA/GA6/index.md#lem-ga6-elliptic)を接束値Laplacianへ適用する。[前章の主記号計算](../DEF1-06/index.md#def-def1-06-tangent-laplacian)により、正の固有空間での逆 $G_q$ は二階分の正則性を回復し、$h=d^*G_2$ は一階分を回復する。
 
+次数 $q$ は $0\le q\le n$ を動き、$q>n$ の接束値 $(0,q)$ 形式は零空間とする。$h_q$ は入力次数 $q$ を一つ下げる作用素であり、$q=0$ では使わない。この約束で複素次元1の $h_2,h_3$ も零作用素として扱える。
+
 <a id="lem-def1-07-sobolev-estimate"></a>
 
 <!-- formal-statement-start -->
 > **補題（Sobolev空間上のKuranishi双線形評価）**
 >
-> 上記のコンパクトHermite多様体 $X$ と整数 $s>n+2$ について、$G_q:H^r_q\to H^{r+2}_q$、$h_q:H^r_q\to H^{r+1}_{q-1}$ は任意の非負整数 $r$ で有界に延長される。従って次数1の接束値形式 $u,v\in H^s_1$ に対し、双線形写像
+> 上記のコンパクトHermite多様体 $X$ と整数 $s>n+2$ について、$0\le q\le n$ で $G_q:H^r_q\to H^{r+2}_q$、$1\le q\le n$ で $h_q:H^r_q\to H^{r+1}_{q-1}$ は、いずれも任意の非負整数 $r$ で有界に延長される。次数 $q>n$ では零空間上の作用素と解する。従って次数1の接束値形式 $u,v\in H^s_1$ に対し、双線形写像
 
 $$
 B(u,v)=h_2[u,v]\in H^s_1
@@ -175,8 +177,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-07-analytic-kuranishi-map -->
-**定義の確認**（平坦な二次元複素トーラス）。$X=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ 上の調和接束値 $(0,1)$ 形式は定数係数である。したがって $t(z)=\sum z_{ij}\,d\bar w^j\otimes\partial_{w^i}$ に正則方向微分はなく、括弧の各項は零となる。固定点式に $\phi=t$ を代入すると成立し、一意性からこれが解となる。定義式に入れると $\kappa(z)=0$。一方、$d\bar w^1\wedge d\bar w^2\otimes\partial_{w^1}$ は非零の調和次数2形式なので $r>0$。**値域が非零でも写像自身は恒等的に零**という条件を全部確認できた。
+**定義の確認**（平坦な二次元複素トーラス）。$X=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ に標準平坦計量を入れ、$w^1,w^2$ を被覆空間の座標とする。並進不変枠 $d\bar w^j\otimes\partial_{w^i}$（$i,j=1,2$）は大域的で、$d$ と $d^*$ の局所式に代入すると閉かつ余閉になる。[前章の平坦トーラスのFourierモード判定](../DEF1-06/index.md#ex-def1-06-b04)により、調和一次形式はこの4本の定数枠で尽くされる。
+
+パラメータの成分を $z_{ij}$ と書く（$z_{ij}$ は多様体上の座標 $w^i$ とは別である）。従って任意の調和方向は
+
+$$
+t(z)=\sum_{i,j=1}^2 z_{ij}\,d\bar w^j\otimes\partial_{w^i},
+\qquad \partial_{w^k}z_{ij}=0
+$$
+
+と表される。[括弧の座標定義](../DEF1-03/index.md#def-def1-03-bracket)の各項に現れる正則方向微分は零なので $[t,t]=0$。固定点式へ $\phi=t$ を代入すると両辺が等しく、一意性から $\phi(z)=t(z)$、ゆえに $\kappa(z)=\frac12H_2[t,t]=0$ である。
+
+一方、$\eta=d\bar w^1\wedge d\bar w^2\otimes\partial_{w^1}$ は大域的な非零形式で、定数係数のため $d\eta=d^*\eta=0$。従って $\eta$ は調和で $\mathcal H_T^2\ne0$、すなわち $r>0$ である。**値域が非零でも障害写像自身は恒等的に零**となることを、調和性・固定点・定義式から確認できた。
 <!-- definition-example-end -->
+
+有限次元の零点を集合だけで見ると、方程式の重複度が失われる。ここで原点近くの**正則関数の芽**（原点の十分小さい共通近傍で一致する関数を同一視したもの）の環を $\mathcal O_{\mathbb C^m,0}=\mathbb C\{z_1,\ldots,z_m\}$ と書く。右辺は原点近くで収束する冪級数の環である。$(\kappa_1,\ldots,\kappa_r)$ は $\sum_j f_j\kappa_j$（各 $f_j$ も正則関数の芽）全体からなるイデアルであり、商環は方程式を零とする一方で、零点集合だけからは見えない冪零元を残す。商環に零でない元 $a$ があり $a^k=0$（ある整数 $k\ge2$）となるなら**非被約**、そのような元がなければ**被約**という。この商環とその近傍の対応物で定める対象を**複素解析空間の芽**と呼ぶ。
 
 <a id="def-def1-07-kuranishi-germ"></a>
 
@@ -194,8 +209,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-07-kuranishi-germ -->
-**定義の確認**（有限次元の方程式模型）。$\kappa(z_1,z_2)=z_1z_2$ とすると、台集合は二つの座標軸の和で、原点の局所環は $\mathbb C\{z_1,z_2\}/(z_1z_2)$ となる。$\kappa(w)=w^2$ の場合は台集合が一点でも、局所環 $\mathbb C\{w\}/(w^2)$ に $w\ne0$ かつ $w^2=0$ が残る。二つとも**収束する正則式**から定義した例であり、実際の多様体の障害写像だと主張しているわけではない。
+**定義の確認**（有限次元の方程式模型）。$\kappa(z_1,z_2)=z_1z_2$ は原点で値・一次微分が零であり、零点は二つの座標軸の和である。定義の商環は $\mathbb C\{z_1,z_2\}/(z_1z_2)$ となり、二軸の交差という条件を保持する。$\kappa(w)=w^2$ も原点で値・一次微分が零で、台集合は一点である。しかし $\mathbb C\{w\}/(w^2)$ では $[w]\ne0$ かつ $[w]^2=0$（角括弧は商環の剰余類）なので、一点の台集合だけでは回復できない非被約構造が残る。いずれも**収束する正則式とその生成イデアル**から直接判定した例であり、実際の多様体の障害写像だと主張しているわけではない。
 <!-- definition-example-end -->
+
+原点での**Zariski接空間**も、集合としての零点の接線とは区別する。$K$ の局所環の極大イデアル（原点で零となる芽）を $\mathfrak m_K$、その元同士の積で生成されるイデアルを $\mathfrak m_K^2$ とすると、定義は
+
+$$
+T_0K=\operatorname{Hom}_{\mathbb C}
+(\mathfrak m_K/\mathfrak m_K^2,\mathbb C)
+$$
+
+である。原点で消える収束冪級数 $f(z)$ の一次部分は
+
+$$
+f(z)=\sum_{a=1}^m\frac{\partial f}{\partial z_a}(0)z_a+O(\|z\|^2)
+$$
+
+と書ける。従って方程式 $\kappa_j=0$ の一次部分を消すベクトル $v$ は $D\kappa_j(0)[v]=0$ を満たす。この表示では
+
+$$
+T_0K=\ker(D\kappa(0):\mathbb C^m\to\mathbb C^r).
+$$
+
+これは座標を思いつきで微分する判定ではなく、**商環の一次部分**から導いた条件である。
 
 <a id="thm-def1-07-analytic-base"></a>
 
@@ -323,27 +359,70 @@ $D=(d,d^*)$ の一階主記号は外積と内部積の組で、非零の共変�
 <!-- proof-start -->
 ### 証明
 
-局所ユニタリ枠で $D=(d,d^*)$ の主記号を $\sigma_D(\xi)u=(\xi^{0,1}\wedge u,\iota((\xi^{0,1})^\sharp)u)$ と書ける。[接束値Dolbeault Laplacianと調和射影](../DEF1-06/index.md#def-def1-06-tangent-laplacian)の直後で確認した外積・内部積の交代関係から
+局所ユニタリ枠で $D=(d,d^*)$ の主記号を、非零の**実**共変ベクトル $\xi$ に対し
+$\sigma_D(\xi)u=(\xi^{0,1}\wedge u,\iota((\xi^{0,1})^\sharp)u)$ と書く。[接束値Dolbeault Laplacianと調和射影](../DEF1-06/index.md#def-def1-06-tangent-laplacian)の外積・内部積の交代関係を使えば
 
 $$
-\|\sigma_D(\xi)u\|^2=|\xi^{0,1}|^2\|u\|^2,
+\|\sigma_D(\xi)u\|^2=|\xi^{0,1}|^2\|u\|^2.
 $$
 
-従って $D$ は一階の過剰決定楕円型作用素である。局所括弧を $\frac12[\phi,\phi]=A(\phi)\partial\phi$ とまとめる。$A$ は $\phi$ に線形に依存する滑らかな係数で、方程式は
+実 $\xi\ne0$ では $|\xi^{0,1}|>0$ なので、この記号は単射であり、$D$ は一階の過剰決定楕円型作用素である。
+
+以下は正則座標枠で括弧を展開する。$\partial_w$ を係数の正則方向微分 $\partial/\partial w^i$ の組とすると、[接束値形式の括弧の座標式](../DEF1-03/index.md#def-def1-03-bracket)から二次項は
 
 $$
-\bigl(D+(A(\phi)\partial,0)\bigr)\phi=0.
+\frac12[\phi,\phi]=A(\phi)\partial_w\phi
 $$
 
-$\|\phi\|_{C^0}$ が小さければ $A(\phi)$ の主記号のノルムは $\sigma_D$ の単射性の下界より小さく、摂動後も単射型楕円性が成り立つ。より具体的に、コンパクトな座標小球で $D$ の[楕円型評価](../../GA/GA6/index.md#lem-ga6-elliptic)の一階版
+と書ける。$A(\phi)$ は $\phi$ に線形な行列係数である。微分している変数は多様体上の $w^i$ で、変形パラメータ $z$ は固定している。方程式を
 
 $$
-\|v\|_{H^{r+1}}\le C_r(\|Dv\|_{H^r}+\|v\|_{H^r})
+D_\phi\phi=0,\qquad D_\phi=D+(A(\phi)\partial_w,0)
 $$
 
-を使用する。$r=s-1$ から始め、微分の差分商 $\delta_h\phi$ を方程式へ作用させると、最高階の項は $A(\phi)\partial(\delta_h\phi)$、残りは $(\delta_h A(\phi))\partial\phi$ と低階の枠係数の差分である。前者は小さい $\|\phi\|_{C^0}$ により左辺へ吸収できる。後者は既知の $\phi\in H^s\hookrightarrow C^1$ と積評価から $H^{s-1}$ で制御できる。$h\to0$ として $\phi\in H^{s+1}$ を得る。
+と見る。$|\sigma_D(\xi)u|\ge c|\xi||u|$ という一様下界と $|\sigma_{A(\phi)\partial_w}(\xi)u|\le C\|\phi\|_{C^0}|\xi||u|$ から、$C\|\phi\|_{C^0}<c/2$ なら $\sigma_{D_\phi}$ も単射である。この条件は本補題の十分小さい $C^1$ ノルムから従う。
 
-同じ操作を $r=s,s+1,\ldots$ と繰り返すと、各段階の既知の導関数が下位項の係数を制御し、新たな最高階の微分だけを再び小さい $A(\phi)$ で吸収できる。従って $\phi\in H^N$ がすべての整数 $N$ に対して成立し、[Sobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)により $\phi\in C^\infty$。$\square$
+正則性を上げる計算を明記する。コンパクトに含まれる座標小球 $V'\Subset V$ を取り、$\varepsilon\in\mathbb R\setminus\{0\}$ に対して $w$ の**実座標** $x^j$ に沿う差分商を
+
+$$
+\delta_{\varepsilon,j}\phi(x)
+=\frac{\phi(x+\varepsilon e_j)-\phi(x)}{\varepsilon}
+$$
+
+と定める（$e_j$ は $x^j$ 方向の単位ベクトル）。前節のホモトピー作用素 $h_q$ とは別の記号である。$H^s$ の差分商評価により、$\delta_{\varepsilon,j}\phi$ は $H^{s-1}(V')$ で一様有界である。特に $s-1>n+1$ より一次導関数まで $L^\infty$ で制御できる。
+
+方程式に差分商を適用すると、最高階の微分は $D_\phi(\delta_{\varepsilon,j}\phi)$ にまとまり、残りは
+
+$$
+\bigl(\delta_{\varepsilon,j}A(\phi)\bigr)
+  \partial_w\phi(x+\varepsilon e_j)
+$$
+
+（係数をどちらの点に取るかで同値な表示）と、滑らかな枠係数の差分である。後者には求める $s+1$ 階微分は含まれない。実際、差分商を $\partial_x^\alpha\phi$（$|\alpha|=s-1$、実座標の多重添字）へ適用した局所方程式では、Leibniz則で生じる追加項は
+
+$$
+(\partial_x^\beta A(\phi))\,
+\partial_x^{\alpha-\beta}\partial_w\phi,
+\qquad 0<\beta\le\alpha.
+$$
+
+二つの因子に現れる $\phi$ の微分階数はそれぞれ高々 $s-1$ と $s$ である。$s-1>n$ のSobolev積評価により、その積を $L^2$ で制御できる。
+
+一方、$\partial_x^\alpha\delta_{\varepsilon,j}\phi$ の一階微分は $D_\phi$ の主部に残る。局所化した一階の[楕円型評価](../../GA/GA6/index.md#lem-ga6-elliptic)を用いる。これは $D^*D=\Delta_1$ のエネルギー評価から得られる $H^1$ 評価である。
+
+$A(\phi)\partial_w$ による主部の差だけを前述の $C^0$ 小ささで左辺へ吸収する。係数の微分を含む追加項は既知の $H^s$ ノルムで制御するので、その小ささまでは仮定していない。
+
+以上から $\delta_{\varepsilon,j}\partial_x^\alpha\phi$ は $H^1(V')$ で $\varepsilon$ に一様な評価を持つ。$\varepsilon\to0$ の弱収束と差分商による弱微分の特徴付けから
+
+$$
+\phi\in H^{s+1}(V')
+$$
+
+を得る。
+
+次は $s$ を $s+1$ に置き換えて同じ積評価・交換子計算を行う。各段階で最高階の係数は同じ小さい $A(\phi)$、それ以外は一段前に得た導関数だけに依存する。
+
+有限座標被覆を通して $\phi\in H^N$ がすべての整数 $N$ に対して成立し、[Sobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)により $\phi\in C^\infty$。$\square$
 <!-- proof-end -->
 
 <a id="thm-def1-07-integrable-family"></a>
@@ -385,7 +464,15 @@ $z\in|K|$ なら $\kappa(z)=0$ であり、[収束障害の消滅とMaurer–Car
 $s>n+2$ について、$u,v\in H^s_1$ の括弧と $h_2[u,v]$ が属するSobolev空間を順に答えよ。$h_2$ の代わりに $d^*$ だけを使うと何が失敗するか。
 
 <!-- solution-start -->
-**詳細解答。** 括弧の局所式は $u\partial_zv+v\partial_zu$ 型であり、微分は $H^s$ を $H^{s-1}$ へ移す。$s-1>n$ の積評価で $[u,v]\in H^{s-1}_2$。Green作用素は $G_2:H^{s-1}_2\to H^{s+1}_2$、随伴は $d^*:H^{s+1}_2\to H^s_1$ なので $h_2[u,v]\in H^s_1$。$d^*$ だけなら $H^{s-1}\to H^{s-2}$ であり、固定点の出力が入力と同じ $H^s$ に戻らない。
+**詳細解答。** [括弧の座標定義](../DEF1-03/index.md#def-def1-03-bracket)は $u\partial_zv+v\partial_zu$ 型なので、一階微分と $s-1>n$ のSobolev積評価により
+
+$$
+H^s_1\times H^s_1\xrightarrow{[\ ,\ ]}H^{s-1}_2
+\xrightarrow{G_2}H^{s+1}_2
+\xrightarrow{d^*}H^s_1.
+$$
+
+従って $[u,v]\in H^{s-1}_2$ と $h_2[u,v]\in H^s_1$ である。$d^*$ だけなら $H^{s-1}_2\to H^{s-2}_1$ なので、固定点写像の出力が入力と同じ $H^s_1$ に戻らない。Green作用素の二階分の回復が必要である。
 <!-- solution-end -->
 
 <a id="ex-def1-07-a02"></a>
@@ -395,7 +482,22 @@ $s>n+2$ について、$u,v\in H^s_1$ の括弧と $h_2[u,v]$ が属するSobole
 $\|B(u,v)\|\le C\|u\|\|v\|$、$\|t\|=\delta$ とする。半径 $R=2\delta$ の球で $T_t(u)=t-\frac12B(u,u)$ が自己写像かつ縮小となる $\delta$ の条件を導け。
 
 <!-- solution-start -->
-**詳細解答。** $\|T_t(u)\|\le\delta+\frac C2(2\delta)^2=\delta+2C\delta^2$。$2C\delta\le1$ なら右辺は $2\delta=R$ 以下となる。差は $B(u,u)-B(v,v)=B(u-v,u)+B(v,u-v)$ なので $\|T_t(u)-T_t(v)\|\le\frac C2(\|u\|+\|v\|)\|u-v\|\le2C\delta\|u-v\|$。厳密な縮小には $2C\delta<1$ を選べばよい。
+**詳細解答。** $\|u\|\le R=2\delta$ のとき
+
+$$
+\|T_t(u)\|\le\delta+\frac C2(2\delta)^2
+=\delta+2C\delta^2\le2\delta=R
+$$
+
+とするには $2C\delta\le1$ で足りる。一方、双線形性から $B(u,u)-B(v,v)=B(u-v,u)+B(v,u-v)$ であり、$\|u\|,\|v\|\le R$ なら
+
+$$
+\|T_t(u)-T_t(v)\|
+\le\frac C2(\|u\|+\|v\|)\|u-v\|
+\le2C\delta\|u-v\|.
+$$
+
+縮小係数が厳密に1未満となる条件は $2C\delta<1$ である（$\delta=0$ の場合は原点が解）。
 <!-- solution-end -->
 
 <a id="ex-def1-07-a03"></a>
@@ -405,7 +507,27 @@ $\|B(u,v)\|\le C\|u\|\|v\|$、$\|t\|=\delta$ とする。半径 $R=2\delta$ の�
 $t=\varepsilon\alpha$、$\alpha\in\mathcal H_T^1$ とする。収束固定点解の $\varepsilon$ の一次・二次係数を求め、$\kappa(\varepsilon)$ の二次係数を書け。
 
 <!-- solution-start -->
-**詳細解答。** $\phi=\varepsilon\phi_1+\varepsilon^2\phi_2+\cdots$ を代入し、一次は $\phi_1=\alpha$。二次では $\phi_2=-\frac12h_2[\phi_1,\phi_1]=-\frac12h_2[\alpha,\alpha]$。$\kappa=\frac12H_2[\phi,\phi]$ に代入すると括弧の最低次数は2なので、$\kappa(\varepsilon)=\frac{\varepsilon^2}{2}H_2[\alpha,\alpha]+O(\varepsilon^3)$。これは[二次障害](../DEF1-05/index.md#def-def1-05-primary-obstruction)の調和代表である。
+**詳細解答。** $\phi=\varepsilon\phi_1+\varepsilon^2\phi_2+O(\varepsilon^3)$ を固定点式へ代入する。括弧は双線形だから
+
+$$
+[\phi,\phi]=\varepsilon^2[\phi_1,\phi_1]+O(\varepsilon^3).
+$$
+
+従って一次係数は $\phi_1=\alpha$、二次係数は
+
+$$
+\phi_2=-\frac12h_2[\phi_1,\phi_1]
+=-\frac12h_2[\alpha,\alpha].
+$$
+
+障害写像にも同じ級数を代入すれば
+
+$$
+\kappa(\varepsilon)
+=\frac{\varepsilon^2}{2}H_2[\alpha,\alpha]+O(\varepsilon^3).
+$$
+
+これは[二次障害](../DEF1-05/index.md#def-def1-05-primary-obstruction)の調和代表であり、二次係数の符号は固定点解で負、障害写像で正となる。
 <!-- solution-end -->
 
 <a id="ex-def1-07-a04"></a>
@@ -415,7 +537,13 @@ $t=\varepsilon\alpha$、$\alpha\in\mathcal H_T^1$ とする。収束固定点解
 $\kappa(0)=D\kappa(0)=0$ のとき、$K=\kappa^{-1}(0)$ のZariski接空間を計算せよ。また $\kappa(w)=w^2$ の模型から、接空間の次元と台集合の次元は一致するとは限らないことを示せ。
 
 <!-- solution-start -->
-**詳細解答。** 接空間は方程式の一次微分の共通核 $\ker D\kappa(0)$ なので、$D\kappa(0)=0$ により $\mathbb C^m$ 全体である。$\kappa(w)=w^2$ では微分 $2w$ は原点で零で接空間は一次元。一方、零点の台集合は $\{0\}$ の一点で次元0である。商環 $\mathbb C\{w\}/(w^2)$ の $w$ が非零冪零元として残る点が、被約な一点との違いになる。
+**詳細解答。** [商環の一次部分による判定](#thm-def1-07-analytic-base)を使うと、
+
+$$
+T_0K=\ker D\kappa(0)=\mathbb C^m
+$$
+
+である。$\kappa(w)=w^2$ の場合、$D\kappa(0)[v]=2\cdot0\cdot v=0$ なので $T_0K\simeq\mathbb C$、その次元は1。一方、零点の台集合 $\{w:w^2=0\}=\{0\}$ は次元0である。商環 $\mathbb C\{w\}/(w^2)$ で $[w]\ne0$ かつ $[w]^2=0$ となることが、被約な一点との違いを記録している。
 <!-- solution-end -->
 
 <a id="ex-def1-07-b01"></a>
@@ -425,7 +553,21 @@ $\kappa(0)=D\kappa(0)=0$ のとき、$K=\kappa^{-1}(0)$ のZariski接空間を�
 $a_1=M>0$、$a_r=\frac C2\sum_{i=1}^{r-1}a_i a_{r-i}$ で $C>0$ とする。母関数の二次方程式を立て、$a_2,a_3$ と収束半径の下界を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $A=\sum_{r\ge1}a_rw^r$ と置くと、$r\ge2$ の畳み込みは $A^2$ の係数なので $A=Mw+\frac C2A^2$。原点で $A(0)=0$ の枝を選んで $A=(1-\sqrt{1-2CMw})/C$。直接の再帰で $a_2=\frac C2M^2$、$a_3=\frac C2(a_1a_2+a_2a_1)=\frac{C^2}{2}M^3$。平方根の級数は $|2CMw|<1$ で収束するので半径は少なくとも $(2CM)^{-1}$。もう一方の二次方程式の枝は定数項 $2/C$ となり、求める形式解には対応しない。
+**詳細解答。** $A(w)=\sum_{r\ge1}a_rw^r$ と置く。積の係数を比べると $\sum_{r\ge2}(\sum_{i=1}^{r-1}a_ia_{r-i})w^r=A(w)^2$ だから
+
+$$
+A=Mw+\frac C2A^2,\qquad
+A(w)=\frac{1-\sqrt{1-2CMw}}{C}.
+$$
+
+$A(0)=0$ となる枝を選んだ。再帰式から
+
+$$
+a_2=\frac C2a_1^2=\frac C2M^2,\qquad
+a_3=\frac C2(a_1a_2+a_2a_1)=\frac{C^2}{2}M^3.
+$$
+
+平方根は $|2CMw|<1$ で収束するので半径は少なくとも $(2CM)^{-1}$。もう一方の枝は定数項 $2/C$ であり、$a_0=0$ に反する。
 <!-- solution-end -->
 
 <a id="ex-def1-07-b02"></a>
@@ -435,7 +577,14 @@ $a_1=M>0$、$a_r=\frac C2\sum_{i=1}^{r-1}a_i a_{r-i}$ で $C>0$ とする。母�
 $F=\kappa+T_\phi F$、$\|T_\phi\|\le q<1$ とする。$\kappa=0$ なら $F=0$ を示し、一般の $\kappa$ に対して $\|F\|\le(1-q)^{-1}\|\kappa\|$ を導け。小ささの条件を外すと、なぜこの推論が成立しないか。
 
 <!-- solution-start -->
-**詳細解答。** $\kappa=0$ なら $\|F\|=\|T_\phi F\|\le q\|F\|$、従って $(1-q)\|F\|\le0$。$1-q>0$ なので $F=0$。一般には $\|F\|\le\|\kappa\|+q\|F\|$ を移項し、$(1-q)\|F\|\le\|\kappa\|$ より結論を得る。$q\ge1$ では移項後の係数は正とは限らない。例えば一次元で $T=I$、$\kappa=0$ とすれば $F=TF$ は全ての $F$ を許し、零とは結論できない。
+**詳細解答。** $F=\kappa+T_\phi F$ の両辺のノルムを取り、$\|T_\phi\|\le q$ を代入する。
+
+$$
+\|F\|\le\|\kappa\|+q\|F\|,\qquad
+(1-q)\|F\|\le\|\kappa\|.
+$$
+
+$q<1$ だから $1-q>0$ で割ることができ、$\|F\|\le(1-q)^{-1}\|\kappa\|$。特に $\kappa=0$ なら $\|F\|=0$。$q\ge1$ ではこの除算で零性を導けない。例えば一次元で $T=I$、$\kappa=0$ とすれば $F=TF$ は任意の $F$ に成立し、結論は偽になる。
 <!-- solution-end -->
 
 <a id="ex-def1-07-b03"></a>
@@ -445,7 +594,16 @@ $F=\kappa+T_\phi F$、$\|T_\phi\|\le q<1$ とする。$\kappa=0$ なら $F=0$ �
 $\kappa(z)=\sum_{j=1}^r\kappa_j(z)\eta_j$、$\|T_{\phi(z)}\|<1$ とする。$F$ が正則関数イデアル $(\kappa_1,\ldots,\kappa_r)$ に属することを、Neumann級数の収束を明示して示せ。台集合だけで $F=0$ と言うのと何が異なるか。
 
 <!-- solution-start -->
-**詳細解答。** $\sum_{k\ge0}T_\phi^k$ は作用素ノルムで収束し、各項は正則写像 $\phi(z)$ と連続双線形写像から得られるので、局所的に一様な $q<1$ を選べば和も正則である。$\eta_j$ に作用させた $A_j(z)=\sum_{k\ge0}T_{\phi(z)}^k\eta_j$ は $H^{s-1}$ 値正則写像。従って $F(z)=\sum_j\kappa_j(z)A_j(z)$。商環 $\mathcal O_{\mathbb C^m,0}/(\kappa_1,\ldots,\kappa_r)$ へ写すと $F=0$ となる。台集合での点ごとの零性だけでは、例えば $w$ は $w^2=0$ の台集合上で零でも商環 $\mathbb C\{w\}/(w^2)$ の元として非零なので、非被約構造での零性を保証しない。
+**詳細解答。** $U$ を縮めて $\sup_{z\in U}\|T_{\phi(z)}\|\le q<1$ とする。Neumann級数の第 $k$ 項のノルムは $q^k$ 以下だから、$\sum_{k\ge0}T_{\phi(z)}^k$ は $z$ に一様に作用素ノルム収束する。$T_{\phi(z)}$ は $\phi(z)$ に複素線形に依存するので、各項も和も正則である。
+
+調和基底 $\eta_j$ に対して
+
+$$
+A_j(z)=\sum_{k=0}^{\infty}T_{\phi(z)}^k\eta_j,\qquad
+F(z)=\sum_{j=1}^r\kappa_j(z)A_j(z).
+$$
+
+各 $A_j$ は $H^{s-1}_2$ 値正則写像であり、各係数に $\kappa_j$ が因子として現れる。従って商環 $\mathcal O_{\mathbb C^m,0}/(\kappa_1,\ldots,\kappa_r)$ 上でも $F=0$ である。台集合での点ごとの零性だけでは不十分で、例えば $w$ は $w^2=0$ の台集合上で零でも商環 $\mathbb C\{w\}/(w^2)$ の元として非零になる。
 <!-- solution-end -->
 
 <a id="ex-def1-07-b04"></a>
