@@ -156,8 +156,8 @@ chapters:
     title: "Steerableなベクトル・テンソル特徴"
   - id: MFL38
     path: textbook/volumes/dream_thater/応用系/MFL/MFL38
-    status: planned
-    title: "多様体上のscalar fieldと作用素"
+    status: completed
+    title: "多様体上のスカラー場と座標に依存しない作用素"
   - id: MFL39
     path: textbook/volumes/dream_thater/応用系/MFL/MFL39
     status: planned

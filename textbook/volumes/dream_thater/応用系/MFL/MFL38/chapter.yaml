@@ -1,0 +1,32 @@
+id: "MFL38"
+title: "多様体上のスカラー場と座標に依存しない作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL37
+  - MFL12
+  - GA1
+official_scope: []
+learning_objectives:
+  - 曲面上のスカラー場とチャート表示の違いを説明し、二つの表示の合成則を検算できる
+  - 座標変換のJacobianから計量・逆計量・体積密度と勾配ノルムを導出できる
+  - 二次元の発散変換を導きLaplace–Beltrami作用素の座標不変性を証明できる
+  - 円柱面の非線形な二つのチャートで作用素値を計算し、素朴な偏微分との違いを示せる
+  - 数値差分誤差と離散補間誤差を理論的な座標不変性から切り分けられる
+definitions:
+  - { id: MFL38-DEF-01, name: スカラー場のチャート表示 }
+theorems:
+  - { id: MFL38-THM-01, name: 計量とスカラー勾配の座標変換則 }
+  - { id: MFL38-THM-02, name: 二次元Laplace–Beltrami作用素の座標不変性 }
+  - { id: MFL38-PROP-01, name: 円柱面の二つのチャートでの作用素計算 }
+  - { id: MFL38-PROP-02, name: 中心差分と双線形補間の誤差の分離 }
+canonical_examples:
+  - 円柱面の角度・高さ座標から非線形せん断座標への変換
+  - 同一点のスカラー値・勾配ノルム・Laplace–Beltrami作用素値の照合
+  - せん断座標で素朴な二階偏微分和が不変でない反例
+  - 中心差分の厳密な4h二乗誤差と格子補間誤差の分離
+problem_patterns: [MFL38-A01, MFL38-A02, MFL38-A03, MFL38-A04, MFL38-B01, MFL38-B02, MFL38-B03, MFL38-B04, MFL38-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.0 }
