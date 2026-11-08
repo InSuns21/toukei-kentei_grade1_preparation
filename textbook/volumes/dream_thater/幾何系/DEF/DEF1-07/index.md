@@ -24,7 +24,7 @@ $$
 \|[u,v]\|_{H^{s-1}}\le C_{\mathrm b}\|u\|_{H^s}\|v\|_{H^s}.
 $$
 
-微分損失を放置したままBanach空間の陰関数定理を使うことはできない。そこで[楕円型評価](../../GA/GA6/index.md#lem-ga6-elliptic)を接束値Laplacianへ適用する。[前章の主記号計算](../DEF1-06/index.md#def-def1-06-tangent-laplacian)により、正の固有空間での逆 $G_q$ は二階分の正則性を回復し、$h=d^*G_2$ は一階分を回復する。
+[有限次元の陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を思い出そう。ただし微分損失を放置したまま、そのBanach空間版を適用することはできない。そこで[楕円型評価](../../GA/GA6/index.md#lem-ga6-elliptic)を接束値Laplacianへ適用する。[前章の主記号計算](../DEF1-06/index.md#def-def1-06-tangent-laplacian)により、正の固有空間での逆 $G_q$ は二階分の正則性を回復し、$h=d^*G_2$ は一階分を回復する。
 
 <a id="lem-def1-07-sobolev-estimate"></a>
 
@@ -257,7 +257,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$q=\frac12[\phi,\phi]\in H^{s-1}_2$ と置く。固定点式から $d\phi=-dh_2q$、[連鎖ホモトピー恒等式](../DEF1-06/index.md#lem-def1-06-homotopy)から $q=H_2q+dh_2q+h_3dq$。よって
+$q=\frac12[\phi,\phi]\in H^{s-1}_2$ と置く。固定点式から $d\phi=-dh_2q$、[Green作用素の連鎖ホモトピー恒等式](../DEF1-06/index.md#lem-def1-06-homotopy)から $q=H_2q+dh_2q+h_3dq$。よって
 
 $$
 F=d\phi+q=H_2q+h_3dq=\kappa+h_3dq.
@@ -465,7 +465,7 @@ $\kappa(z)=\sum_{j=1}^r\kappa_j(z)\eta_j$、$\|T_{\phi(z)}\|<1$ とする。$F$ 
 
 $\kappa(z)=\frac12H_2[\phi,\phi]$ は有限次元正則写像であり、基底を選んだ成分 $\kappa_j$ により $K$ の局所環は $\mathcal O_{\mathbb C^m,0}/(\kappa_j)$。$\phi(0)=0$ だから $D\kappa(0)=0$ となり、$T_0K=\mathbb C^m\simeq H^1(X,T_X)$。
 
-$F=d\phi+\frac12[\phi,\phi]$ とすると、連鎖ホモトピー恒等式で $F=\kappa+h_3dq$、$q=\frac12[\phi,\phi]$。次数付き微分則とJacobi恒等式を用いて $dq=[F,\phi]$ なので $F=\kappa+T_\phi F$。$s>n+2$ の積評価から $\|T_\phi\|\le C'\|\phi\|_{H^s}$。原点近くを縮めてこの値を1未満にすれば $\kappa(z)=0$ から $F=0$。次に $d^*\phi=0$ と連立し、$D=(d,d^*)$ の単射楕円主記号に対する小さい一次摂動として差分商・楕円型評価を反復すると $\phi$ は滑らかになる。さらに $H^s\hookrightarrow C^0$ と $\phi(0)=0$ から $\|\phi\|_{C^0}<1$ とでき、$I-\bar\phi\phi$ が可逆なのでグラフと共役は直和。最後に[MC可積分性](../DEF1-03/index.md#thm-def1-03-maurer-cartan)と[Newlander–Nirenberg定理](../../CM/CM1-07/index.md#thm-cm1-07-newlander-nirenberg)を使い滑らかな可積分複素構造を得る。
+$F=d\phi+\frac12[\phi,\phi]$ とすると、[Green作用素の連鎖ホモトピー恒等式](../DEF1-06/index.md#lem-def1-06-homotopy)で $F=\kappa+h_3dq$、$q=\frac12[\phi,\phi]$。[接束値Dolbeault複体の括弧恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)を用いて $dq=[F,\phi]$ なので $F=\kappa+T_\phi F$。$s>n+2$ の積評価から $\|T_\phi\|\le C'\|\phi\|_{H^s}$。原点近くを縮めてこの値を1未満にすれば $\kappa(z)=0$ から $F=0$。次に $d^*\phi=0$ と連立し、$D=(d,d^*)$ の単射楕円主記号に対する小さい一次摂動として差分商・楕円型評価を反復すると $\phi$ は滑らかになる。さらに $H^s\hookrightarrow C^0$ と $\phi(0)=0$ から $\|\phi\|_{C^0}<1$ とでき、$I-\bar\phi\phi$ が可逆なのでグラフと共役は直和。最後に[MC可積分性](../DEF1-03/index.md#thm-def1-03-maurer-cartan)と[Newlander–Nirenberg定理](../../CM/CM1-07/index.md#thm-cm1-07-newlander-nirenberg)を使い滑らかな可積分複素構造を得る。
 
 ただし、この構成だけでは任意の小変形族が $K$ から引き戻せる局所完全性や、異なるパラメータの同型類の一意性は示されていない。
 <!-- solution-end -->
