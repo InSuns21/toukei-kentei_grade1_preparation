@@ -1,0 +1,43 @@
+id: "DEF1-02"
+title: "Beltrami微分と接束値形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-01
+  - CM1-02
+  - CM1-05
+  - CM2-04
+  - CYG1-12
+official_scope: []
+learning_objectives:
+  - 接束値(0,1)形式を反正則接束から正則接束への束写像として定義し、座標変換則を導ける
+  - Beltrami微分のグラフを構成し、小さいノルムから横断性を証明できる
+  - Beltrami方程式と実Jacobianを検査して、新しい局所正則座標を判定できる
+  - 楕円曲線族のBeltrami係数と一次係数を求め、Kodaira–Spencer類に接続できる
+  - Lie括弧の一次項からDolbeault閉条件を導き、一次必要条件と高次延長を区別できる
+theorems:
+  - { id: DEF1-02-DEF-01, name: "接束値(0,1)形式" }
+  - { id: DEF1-02-PROP-01, name: "接束値(0,1)形式の座標変換" }
+  - { id: DEF1-02-DEF-02, name: "Beltrami微分と変形した反正則分布" }
+  - { id: DEF1-02-PROP-02, name: "小さいBeltrami微分の横断性" }
+  - { id: DEF1-02-PROP-03, name: "Beltrami方程式による局所正則座標の判定" }
+  - { id: DEF1-02-PROP-04, name: "実際の複素構造族の一次閉条件" }
+canonical_examples:
+  - C2上の接束値形式を束写像として評価する例
+  - w=azによる係数と接枠・余接枠の相殺
+  - 定数Beltrami係数cと局所正則座標w=z-c bar(z)
+  - 楕円曲線族のmu(t)=t/(2i+t)と非零一次類
+  - bar(z1)dbar(z2)⊗∂z1の非閉性
+problem_patterns:
+  - DEF1-02-TENSOR-EVALUATION
+  - DEF1-02-COORDINATE-TRANSFORM
+  - DEF1-02-BELTRAMI-LOCAL-COORDINATE
+  - DEF1-02-DOLBEAULT-CLOSEDNESS
+  - DEF1-02-MATRIX-CHANGE
+  - DEF1-02-SMOOTH-PULLBACK
+  - DEF1-02-LIE-BRACKET-OBSTRUCTION
+  - DEF1-02-ELLIPTIC-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 4 }
