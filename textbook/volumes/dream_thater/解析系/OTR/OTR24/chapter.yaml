@@ -28,7 +28,7 @@ canonical_examples:
   - 定常Gaussianでの測度弱解条件の直接確認
   - 狭義収束するがW2収束しない質量逃避の反例
   - Gaussian平均と後退方程式の連鎖律
-  - Gaussian二峰分布から一意な連続時間極限
+  - 二成分Gaussian混合から一意な連続時間極限
 problem_patterns:
   - OTR24-A01
   - OTR24-A02
