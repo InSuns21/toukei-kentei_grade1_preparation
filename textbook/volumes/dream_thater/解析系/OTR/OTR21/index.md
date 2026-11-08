@@ -189,11 +189,20 @@ $$
 \exp\left(-\frac{(x-m)^2}{2q(t)}\right).
 $$
 
-$\partial_t\log\rho=-q'/(2q)+q'(x-m)^2/(2q^2)$、$\partial_x\log\rho=-(x-m)/q$ なので
+$q'=dq/dt=2$ とし、$\partial_t$ は位置 $x$ を固定した時間微分、$\partial_x$ は時刻 $t$ を固定した空間微分です。対数密度を各変数で微分すると
 
 $$
-\frac{\partial_t\rho}{\rho}=-\frac1q+\frac{(x-m)^2}{q^2}
-=\frac{\partial_{xx}\rho}{\rho}.
+\partial_t\log\rho=-\frac{q'}{2q}+\frac{q'(x-m)^2}{2q^2},
+\qquad \partial_x\log\rho=-\frac{x-m}{q}.
+$$
+
+$\partial_t\rho=\rho\,\partial_t\log\rho$、$\partial_x\rho=\rho\,\partial_x\log\rho$ を使い、後者をもう一度空間微分すると
+
+$$
+\frac{\partial_t\rho}{\rho}=-\frac1q+\frac{(x-m)^2}{q^2},
+\qquad
+\frac{\partial_{xx}\rho}{\rho}
+=-\frac1q+\frac{(x-m)^2}{q^2}.
 $$
 
 この族は熱方程式を満たし、分散が $2t$ だけ増えます。これはあくまで明示的な滑らか解の検算であり、任意の初期条件からの存在・一意性を示すものではありません。
@@ -219,7 +228,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-otr21-fisher -->
-**定義の確認**。$\rho$ が $d$ 次元の平均 $m$、共分散 $qI_d$ のGaussian（$q>0$）なら、$\nabla\log\rho=-(x-m)/q$ です。全質量は $1$ で、$E|X-m|^2=dq$ ですから
+**定義の確認**。$\rho$ が $d$ 次元の平均 $m$、共分散 $qI_d$ のGaussian（$q>0$、$I_d$ は $d\times d$ 単位行列）なら、$\nabla\log\rho=-(x-m)/q$ です。共分散行列の対角成分は各座標の分散なので、$1\le i\le d$ について $E(X_i-m_i)^2=q$ です。従って
+
+$$
+\int\rho(x)dx=1,\qquad
+E|X-m|^2=\sum_{i=1}^dE(X_i-m_i)^2=dq.
+$$
+
+これを定義に代入すると
 
 $$
 I(\rho)=\frac1{q^2}\int|x-m|^2\rho(x)dx
@@ -281,7 +297,20 @@ $$
 -\int_{B_R}\rho_t|\nabla U_t|^2dx.
 $$
 
-$R\to\infty$ で境界項がゼロ、右辺の二乗項は可積分です。左辺の全空間積分がエネルギーの微分に一致することも、仮定した積分交換から次のように検算できます。エントロピーは $\int(1+\log\rho)\partial_t\rho$、位置エネルギーは $\int V\partial_t\rho$、相互作用では二重積分の二つの微分項を $x,y$ の交換・偶性で一致させると $\int(W*\rho)\partial_t\rho$ です。従って合計が $\int U\partial_t\rho$ になります。純粋な熱流 $U=a(1+\log\rho)$ の場合、左辺は $a\,d\mathcal H/dt$、右辺は $-a^2I$ です。$a>0$ で割り、$d\mathcal H/dt=-aI$ となります。$\square$
+$R\to\infty$ で境界項がゼロ、右辺の二乗項は可積分です。左辺の全空間積分がエネルギーの微分に一致することも、仮定した積分交換から検算できます。エントロピーと位置エネルギーの微分はそれぞれ次の積分です。
+
+$$
+\frac d{dt}\mathcal H=\int(1+\log\rho)\partial_t\rho\,dx,
+\qquad \frac d{dt}\mathcal V=\int V\partial_t\rho\,dx.
+$$
+
+相互作用では二重積分の二つの微分項を $x,y$ の交換・偶性で一致させると
+
+$$
+\frac d{dt}\mathcal W=\int(W*\rho)\partial_t\rho\,dx.
+$$
+
+従って合計が $\int U\partial_t\rho$ になります。純粋な熱流なら $U=a(1+\log\rho)$ なので、左辺は $a\,d\mathcal H/dt$、右辺は $-a^2I$ です。$a>0$ で割り、$d\mathcal H/dt=-aI$ となります。$\square$
 <!-- proof-end -->
 
 熱流のGaussian例では $\mathcal H(\rho_t)=-\frac12\log(2\pi e q(t))$ ですから、$q'=2$ を代入して
@@ -360,7 +389,15 @@ $\log\pi=-V-\log Z$ を展開すると、自由エネルギー差が二つの確
 <!-- proof-start -->
 ### 証明
 
-$\rho>0$ の点で $\log(\rho/\pi)=\log\rho+V+\log Z$ を $\rho$ 倍して積分すると、$\rho=0$ の点は規約により寄与しないので、$\int\rho=1$ から最初の等式を得ます。$s=\rho/\pi>0$ に対する実関数 $f(s)=s\log s-s+1$ の導関数は $f'(s)=\log s$、二階導関数は $f''(s)=1/s>0$ なので、$s=1$ が唯一の最小点です。$s=0$ では連続延長で $f(0)=1$ とすれば、すべての $s\ge0$ で $f(s)\ge0$ です。よって
+$\rho>0$ の点で $\log(\rho/\pi)=\log\rho+V+\log Z$ を $\rho$ 倍して積分すると、$\rho=0$ の点は規約により寄与しないので、$\int\rho=1$ から最初の等式を得ます。
+
+非負性は $s=\rho/\pi$ と置き、実関数 $f(s)=s\log s-s+1$（$s>0$）から確かめます。導関数と二階導関数は
+
+$$
+f'(s)=\log s,\qquad f''(s)=\frac1s>0.
+$$
+
+$s=1$ が唯一の最小点で、$f(1)=0$ です。$s=0$ でも連続延長により $f(0)=1$ となるため、すべての $s\ge0$ で $f(s)\ge0$ です。よって
 
 $$
 \int\rho\log\frac\rho\pi dx
@@ -371,14 +408,30 @@ $$
 $\pi>0$ なので等号のときは $s=1$ がほとんど至る所成立します。最後に $\nabla\pi=-\pi\nabla V$ を微分し、$\Delta\pi+\nabla\cdot(\pi\nabla V)=\nabla\cdot(\nabla\pi+\pi\nabla V)=0$ です。$\square$
 <!-- proof-end -->
 
-**具体例：二次外場。** $d=1$、$V(x)=x^2/2$ なら $Z=\sqrt{2\pi}$、$\pi=N(0,1)$ の密度です。平均 $m(t)$、分散 $q(t)>0$ のGaussian密度をFokker–Planck方程式へ代入すると
+**具体例：二次外場。** $d=1$、$V(x)=x^2/2$ なら $Z=\sqrt{2\pi}$、$\pi=N(0,1)$ の密度です。ここで $N(m,q)$ は平均 $m$、**分散** $q>0$ のGaussianを表します。
+
+時刻 $t\ge0$ における平均 $m(t)$、分散 $q(t)$ を動かし、プライムは時間についての通常の導関数 $m'=dm/dt$、$q'=dq/dt$ を表すことにします。一方、密度 $\rho_t(x)$ の $\partial_t$ は位置 $x$ を固定した偏微分です。$y=x-m(t)$ とおけば $\partial_t y=-m'$ なので、連鎖律から
+
+$$
+\frac{\partial_t\rho}{\rho}
+=-\frac{q'}{2q}+\frac{ym'}q+\frac{y^2q'}{2q^2}.
+$$
+
+一方、時刻を固定した空間微分については
+
+$$
+\frac{\partial_{xx}\rho}{\rho}=-\frac1q+\frac{y^2}{q^2},
+\qquad \frac{\partial_x(x\rho)}{\rho}=1-\frac{(y+m)y}{q}.
+$$
+
+Fokker–Planck方程式の $y$ と $y^2$ の係数を照合すると
 
 $$
 m'=-m,\qquad q'=2-2q,
 \qquad m(t)=m_0e^{-t},\quad q(t)=1+(q_0-1)e^{-2t}.
 $$
 
-平均は原点へ引かれ、分散は $1$ へ向かいます。このときの自由エネルギー差は
+初期値は $m(0)=m_0\in\mathbb R$、$q(0)=q_0>0$ としました。$t\ge0$ では $q(t)=e^{-2t}q_0+(1-e^{-2t})>0$ なので計算の除算も正当です。平均は原点へ引かれ、分散は $1$ へ向かいます。このときの自由エネルギー差は
 
 $$
 \mathcal F(\rho_t)-\mathcal F(\pi)
@@ -419,7 +472,7 @@ $$
 $d=1$、滑らかな正の確率密度 $\rho$ と $\eta\in C_c^\infty(\mathbb R)$、$\int\eta dx=0$ を取る。$\mathcal H(\rho)=\int\rho\log\rho dx$ が有限とする。$\rho+\varepsilon\eta$ の非負性と質量が保たれる小さい $\varepsilon$ を説明し、第一変分を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$K=\operatorname{supp}\eta$ はコンパクトで、$c=\min_K\rho>0$、$M=\max_K|\eta|<\infty$ です。$M>0$ なら $|\varepsilon|<c/(2M)$ とすれば $K$ 上で $\rho+\varepsilon\eta\ge c/2$、$K$ の外では $\eta=0$ です。$M=0$ なら任意の $\varepsilon$ でよいです。質量は $\int(\rho+\varepsilon\eta)=1+\varepsilon\cdot0=1$ です。
+**詳細解答**。まず $\eta=0$ なら摂動はゼロで、任意の $\varepsilon$ で成立します。$\eta\ne0$ なら $K=\operatorname{supp}\eta$ は空でないコンパクト集合なので、$c=\min_K\rho>0$、$M=\max_K|\eta|>0$ です。$|\varepsilon|<c/(2M)$ とすれば $K$ 上で $\rho+\varepsilon\eta\ge c/2$、$K$ の外では $\eta=0$ です。質量は $\int(\rho+\varepsilon\eta)=1+\varepsilon\cdot0=1$ です。
 
 実関数 $h(r)=r\log r$ の微分は $h'(r)=1+\log r$ なので、変化する積分領域 $K$ の上で微分すると
 
@@ -455,7 +508,7 @@ $\mathcal F=a\mathcal H$ なので $a>0$ で割れば $d\mathcal H/dt=-aI(\rho_t
 ### OTR21-A03 二次外場の速度
 - Level: A
 
-$d=1$、$V(x)=\lambda x^2/2$（$\lambda>0$）、$\mathcal F=\mathcal V$ とする。外場だけの下降速度 $v$ と連続の方程式を書け。境界で $x\rho$ が十分減衰するとき平均 $m(t)=\int x\rho_tdx$ が満たす微分方程式を求めよ。
+$d=1$、$V(x)=\lambda x^2/2$（$\lambda>0$）、$\mathcal F=\mathcal V$ とする。外場だけの下降速度 $v$ と連続の方程式を書け。$\int|x|\rho_tdx<\infty$ で、$|x|\to\infty$ のとき $x^2\rho_t(x)\to0$ となり、微分と積分を交換できるとき、平均 $m(t)=\int x\rho_tdx$ が満たす微分方程式を求めよ。
 
 <!-- solution-start -->
 **詳細解答**。[位置エネルギーの第一変分](#prop-otr21-first-variations)は $U=V$ なので $v=-\partial_xV=-\lambda x$。従って
@@ -522,7 +575,7 @@ $$
 ### OTR21-B01 Gaussianの熱方程式と散逸
 - Level: B
 
-$q_0>0$、$m\in\mathbb R$ とし、$q(t)=q_0+2at$、$a>0$ とする。$\rho_t(x)=(2\pi q(t))^{-1/2}\exp(-(x-m)^2/(2q(t)))$ について、$\partial_t\rho=a\partial_{xx}\rho$ を検算し、$d\mathcal H/dt=-aI$ を独立に求めよ。
+$t\ge0$、$q_0>0$、$m\in\mathbb R$ とし、$q(t)=q_0+2at$、$a>0$ とする。$\rho_t(x)=(2\pi q(t))^{-1/2}\exp(-(x-m)^2/(2q(t)))$ について、$\partial_t\rho=a\partial_{xx}\rho$ を検算し、$d\mathcal H/dt=-aI$ を独立に求めよ。
 
 <!-- solution-start -->
 **詳細解答**。$q'=2a$ として時間微分を先に計算すると
@@ -555,7 +608,13 @@ $$
 $d=1$、$V(x)=x^2/2$、$\mathcal F=\mathcal H+\mathcal V$ とする。$\rho_t=N(m(t),q(t))$ の密度が $\partial_t\rho=\partial_{xx}\rho+\partial_x(x\rho)$ を満たすための $m,q$ の方程式を導け。$m_0\in\mathbb R,q_0>0$ とし、相対自由エネルギーの時間微分を散逸式と比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。$y=x-m(t)$ と置くと
+**詳細解答**。上で定めた $N(m,q)$ の密度について $y=x-m(t)$ と置きます。$\partial_t$ では $x$ を固定するので
+
+$$
+\partial_t y=-m',\qquad \partial_t(y^2)=-2ym'.
+$$
+
+$q'=dq/dt$ とともに対数密度の連鎖律を使うと
 
 $$
 \frac{\partial_t\rho}{\rho}=-\frac{q'}{2q}+\frac{ym'}q+\frac{y^2q'}{2q^2}.
@@ -568,7 +627,7 @@ $$
 \qquad\frac{m'}q=-\frac m q.
 $$
 
-ゆえに $q'=2-2q$、$m'=-m$。初期条件から $q=1+(q_0-1)e^{-2t}>0$、$m=m_0e^{-t}$ です。[Gibbs密度](#prop-otr21-gibbs)は標準Gaussianで、自由エネルギー差は $D=\frac12(m^2+q-1-\log q)$ です。その微分は
+ゆえに $q'=2-2q$、$m'=-m$。初期条件から $q=1+(q_0-1)e^{-2t}>0$、$m=m_0e^{-t}$ です。[Gibbs密度の定義](#def-otr21-gibbs-density)から平衡密度は標準Gaussianで、[Gibbs密度と相対エントロピー](#prop-otr21-gibbs)より自由エネルギー差は $D=\frac12(m^2+q-1-\log q)$ です。その微分は
 
 $$
 D'=mm'+\frac12\left(1-\frac1q\right)q'
@@ -641,7 +700,13 @@ $$
 +\partial_x\left(\{\lambda x+\kappa(x-m)\}\rho\right).
 $$
 
-$y=x-m(t)$ とし $b=\lambda+\kappa$ と置けば、括弧内は $by+\lambda m$ です。Gaussianの対数微分を計算すると
+$y=x-m(t)$ とし $b=\lambda+\kappa$ と置けば、括弧内は $by+\lambda m$ です。$\partial_t$ では $x$ を固定し、$\partial_x$ では $t$ を固定するので
+
+$$
+\partial_t y=-m',\qquad \partial_t(y^2)=-2ym',\qquad \partial_x y=1.
+$$
+
+これらをGaussianの対数密度へ適用すると
 
 $$
 \frac{\partial_t\rho}{\rho}=-\frac{q'}{2q}+\frac{ym'}q+\frac{y^2q'}{2q^2},
@@ -713,7 +778,13 @@ j(0)n(0)=\frac{\pi^2}{2}e^{-\pi^2t},
 \qquad j(1)n(1)=\frac{\pi^2}{2}e^{-\pi^2t}.
 $$
 
-どちらからも外へ流出し、$M'=-[j(1)-j(0)]=-\pi^2e^{-\pi^2t}$ と一致します。初期時刻以外は確率質量が $1$ でなく、$\mathcal P_2$ 上の確率測度曲線ではありません。[no-flux境界条件](../OTR17/index.md#def-otr17-no-flux) $j\cdot n=0$ なら積分した保存則の右辺がゼロとなり $M(t)=M(0)=1$ を保てます。内部PDEだけから確率保存を推論してはいけません。
+どちらからも外へ流出し、質量収支の式は
+
+$$
+M'(t)=-[j(1)-j(0)]=-\pi^2e^{-\pi^2t}
+$$
+
+で、直接求めた導関数と一致します。初期時刻以外は確率質量が $1$ でなく、$\mathcal P_2$ 上の確率測度曲線ではありません。[no-flux境界条件](../OTR17/index.md#def-otr17-no-flux) $j\cdot n=0$ なら、積分した保存則の右辺がゼロとなり $M(t)=M(0)=1$ を保てます。内部PDEだけから確率保存を推論してはいけません。
 <!-- solution-end -->
 
 ## 8. 今回の結論と次の問い
