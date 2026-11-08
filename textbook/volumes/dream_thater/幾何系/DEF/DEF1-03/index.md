@@ -81,7 +81,22 @@ $$
 -\partial_{\bar z^k}\phi^i_{\bar j}.
 $$
 
-次節で直接示すように、グラフのLie括弧をそのグラフに沿って $(1,0)$ 方向へ射影したテンソルは
+前章で導入した[Beltrami微分のグラフ](../DEF1-02/index.md#def-def1-02-beltrami-graph) $G_\phi:=T^{0,1}_\phi$ は、元の正則方向との間に常に次の直和をなす。
+
+$$
+T_{\mathbb C}X=T^{1,0}X\oplus G_\phi.
+$$
+
+これは $G_\phi$ とその**複素共役**の直和条件とは別である。この分解に関して $p_\phi$ を $G_\phi$ に沿う正則方向への射影とする。$G_\phi$ の局所切断 $s,u$ と滑らかな関数 $f$ に対し、Lie括弧のLeibniz則から
+
+$$
+\begin{aligned}
+p_\phi[fs,u]&=f\,p_\phi[s,u]-u(f)\,p_\phi(s)=f\,p_\phi[s,u],\\
+p_\phi[s,fu]&=f\,p_\phi[s,u]+s(f)\,p_\phi(u)=f\,p_\phi[s,u].
+\end{aligned}
+$$
+
+従って $p_\phi[s,u]$ は両入力について関数線形で、グラフを元の $T^{0,1}X$ と同一視すると接束値 $(0,2)$ テンソルになる。次節で直接示すように、$[D_{\bar j},D_{\bar k}]$ は純粋に $(1,0)$ 方向なので、この射影はその括弧を変えず、得られるテンソルは
 
 $$
 \mathcal N(\phi)=\bar\partial_T\phi+\frac12[\phi,\phi]
@@ -376,7 +391,27 @@ $$
 =\delta^i_k+t\,\partial_{z^k}v^i+O(t^2).
 $$
 
-引き戻し側の枠を $D'_{\bar j}=\partial_{\bar z^j}+\psi^k_{\bar j}\partial_{z^k}$ とする。$dF_t(D'_{\bar j})$ は移動先のグラフに入る。写像後の $(0,1)$ 成分は $\delta^k_j+O(t)$ で、移動先のグラフの正則成分は $t\alpha^i_{\bar j}+O(t^2)$ である。一方、写像後の正則成分を関数 $w^i$ への作用で計算すると
+引き戻し側の枠を $D'_{\bar j}=\partial_{\bar z^j}+\psi^k_{\bar j}\partial_{z^k}$ とする。$dF_t(D'_{\bar j})$ は移動先のグラフに入る。$\bar w^k=\overline{F_t^k(z)}$ への作用を計算すると、$\psi_t=O(t)$ なので
+
+$$
+D'_{\bar j}\bar w^k
+=\partial_{\bar z^j}\bar w^k
++\sum_\ell\psi^\ell_{\bar j}\partial_{z^\ell}\bar w^k
+=\delta^k_j+O(t).
+$$
+
+移動先のグラフは $\partial_{\bar w^k}+\phi^i_{\bar k}(t,w)\partial_{w^i}$ で張られる。従ってその正則成分は
+
+$$
+\begin{aligned}
+D'_{\bar j}w^i
+&=\sum_k(D'_{\bar j}\bar w^k)\,\phi^i_{\bar k}(t,F_t(z))\\
+&=\sum_k(\delta^k_j+O(t))(t\alpha^i_{\bar k}(z)+O(t^2))\\
+&=t\alpha^i_{\bar j}(z)+O(t^2).
+\end{aligned}
+$$
+
+ここでは $F_t(z)=z+O(t)$ と $\alpha$ の滑らかさから、$\alpha(F_t(z))=\alpha(z)+O(t)$ を使った。一方、同じ正則成分を関数 $w^i$ への作用で直接計算すると
 
 $$
 \begin{aligned}

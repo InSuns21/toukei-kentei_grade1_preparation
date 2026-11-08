@@ -140,7 +140,7 @@ chapters:
     title: "Oversmoothing・長距離ボトルネック"
   - id: MFL34
     path: textbook/volumes/dream_thater/応用系/MFL/MFL34
-    status: planned
+    status: completed
     title: "幾何的グラフと不変量"
   - id: MFL35
     path: textbook/volumes/dream_thater/応用系/MFL/MFL35
