@@ -115,7 +115,7 @@ $$
 L_\theta(\xi)=\psi(\theta)+\eta\cdot(\xi-\theta)
 $$
 
-です。その定数項 $\psi(\theta)-\theta\cdot\eta$ の符号を逆にした $\theta\cdot\eta-\psi(\theta)$ を考えます。一般に $\eta$ を固定して $\xi\cdot\eta-\psi(\xi)$ の上限を取った値を**凸共役**と呼びます。ここでは接平面に対応する候補が、なぜその最大値になるかまで確認します。
+です。その定数項 $\psi(\theta)-\theta\cdot\eta$ の符号を逆にした $\theta\cdot\eta-\psi(\theta)$ を考えます。凸解析では、$\eta$ を固定して $\xi\cdot\eta-\psi(\xi)$ の上限を取る操作を**凸共役**の構成として扱います。ここでは接平面に対応する候補が、なぜその最大値になるかまで確認します。
 
 <a id="def-ig5-legendre-dual"></a>
 
