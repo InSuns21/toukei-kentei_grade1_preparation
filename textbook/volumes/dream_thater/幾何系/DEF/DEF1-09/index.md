@@ -478,7 +478,21 @@ $\alpha=a\,d\bar z^1\otimes\partial_{z^1}+b\,d\bar z^2\otimes\partial_{z^2}$ と
 $X$ は複素次元 $n\ge2$ のコンパクトKähler多様体、$\Omega$ は非消滅正則体積形式とする。$\gamma\in\mathcal A^{n-1,2}$ が $\gamma\in\operatorname{im}\partial\cap\ker\bar\partial$ を満たし、さらに $\gamma=\mathcal I_{\Omega,2}(\tau)$、$\bar\partial_T\tau=0$ とする。$\tau=\bar\partial_T\eta$ となる $\eta$ を記号的に構成せよ。
 
 <!-- solution-start -->
-**詳細解答。** [大域 $\partial\bar\partial$-補題](../../HOD/HOD1-08/index.md#thm-hod1-08-ddbar-lemma)の仮定はコンパクトKähler性、$\partial$-完全性、$\bar\partial$-閉性で、すべて満たされている。よって $u\in\mathcal A^{n-2,1}$ を選んで $\gamma=\partial\bar\partial u$ とできる。反交換関係 $\partial\bar\partial=-\bar\partial\partial$ より $\gamma=\bar\partial(-\partial u)$。$-\partial u$ は $(n-1,1)$ 型なので[収縮の逆同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)を適用し、$\eta=\mathcal I_{\Omega,1}^{-1}(-\partial u)$ と置く。すると $\mathcal I_{\Omega,2}(\bar\partial_T\eta)=\bar\partial(-\partial u)=\gamma=\mathcal I_{\Omega,2}(\tau)$、単射性から $\tau=\bar\partial_T\eta$。$\eta$ の係数の存在を得たのであり、数値として一意だとは主張していない。
+**詳細解答。** [大域∂∂̄補題](../../HOD/HOD1-08/index.md#thm-hod1-08-ddbar-lemma)の仮定は、コンパクトKähler性と、対象形式の $\partial$-完全性・$\bar\partial$-閉性である。すべて満たされているので、$u\in\mathcal A^{n-2,1}$ を選んで
+
+$$
+\gamma=\partial\bar\partial u=-\bar\partial(\partial u)
+$$
+
+とできる。第2の等号は $\partial\bar\partial=-\bar\partial\partial$ による。$-\partial u$ は $(n-1,1)$ 型なので[収縮の逆同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)を適用し、$\eta=\mathcal I_{\Omega,1}^{-1}(-\partial u)$ と置く。すると
+
+$$
+\mathcal I_{\Omega,2}(\bar\partial_T\eta)
+=\bar\partial(-\partial u)
+=\gamma=\mathcal I_{\Omega,2}(\tau).
+$$
+
+収縮の単射性から $\tau=\bar\partial_T\eta$。ここで得たのは原始形式の**存在**であり、一意性は主張していない。
 <!-- solution-end -->
 
 #### DEF1-09-B04 調和代表が満たす二種類の閉性
@@ -488,7 +502,22 @@ $X$ は複素次元 $n\ge2$ のコンパクトKähler多様体、$\Omega$ は非
 コンパクトKähler $X$ 上で $a\in H^1(X,T_X)$ を $\Omega$ で $(n-1,1)$ 型のDolbeault類へ移し、調和代表 $h$ を選んだ。$\partial h=\bar\partial h=0$ を導き、$\phi=\mathcal I_{\Omega,1}^{-1}h$ の二種類の条件を書け。
 
 <!-- solution-start -->
-**詳細解答。** [調和代表定理](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)で $\Delta_{\bar\partial}h=0$、従ってエネルギー恒等式で $\bar\partial h=0$。[KählerのLaplacian一致](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)から $\Delta_\partial h=\Delta_{\bar\partial}h=0$ であり、再びエネルギー恒等式で $\partial h=0$。$\mathcal I$ と $\bar\partial$ の可換性から $\mathcal I_{\Omega,2}(\bar\partial_T\phi)=\bar\partial h=0$、逆同型の単射性で $\bar\partial_T\phi=0$。また $\partial\mathcal I_{\Omega,1}(\phi)=\partial h=0$。前者だけでは後者を導けず、Kähler条件の出番を区別できる。
+**詳細解答。** [Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)の定理で $\Delta_{\bar\partial}h=0$。エネルギー恒等式から $\bar\partial h=0$ となる。[KählerのLaplacian一致](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)を使うと
+
+$$
+\Delta_\partial h=\Delta_{\bar\partial}h=0,
+\qquad \partial h=0
+$$
+
+も従う。$\bar\partial$ との可換性と収縮の単射性を順に使えば
+
+$$
+\mathcal I_{\Omega,2}(\bar\partial_T\phi)
+=\bar\partial h=0
+\quad\Longrightarrow\quad\bar\partial_T\phi=0.
+$$
+
+さらに $\partial\mathcal I_{\Omega,1}(\phi)=\partial h=0$。前者だけでは後者を導けず、Kähler条件の出番はLaplacian一致の段階にある。
 <!-- solution-end -->
 
 ### Level C：一続きの障害消滅を組み立てる
@@ -507,7 +536,11 @@ $X$ を複素次元 $n\ge2$ のコンパクトKähler多様体、$K_X\simeq\math
 <!-- solution-start -->
 **詳細解答。**
 
-**(1)** $K_X$ が自明なので[非消滅正則体積形式](../../CYG/CYG1-02/index.md#prop-cyg1-02-volume-trivialization) $\Omega$ を選ぶ。[収縮によるDolbeault同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)で $a$ に対応する $H_{\bar\partial}^{n-1,1}$ の類を作り、[Kähler調和代表定理](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)で $h$ を選ぶ。$\Delta_\partial=\Delta_{\bar\partial}$ により $\partial h=\bar\partial h=0$。$\phi=\mathcal I_{\Omega,1}^{-1}(h)$ は収縮の複体同型により $\bar\partial_T\phi=0$、また $\partial\mathcal I_{\Omega,1}(\phi)=0$ を満たす。
+**(1)** $K_X$ が自明なので[非消滅正則体積形式](../../CYG/CYG1-02/index.md#prop-cyg1-02-volume-trivialization) $\Omega$ を選べる。[収縮によるDolbeault同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)で $a$ に対応する $H_{\bar\partial}^{n-1,1}$ の類を作る。
+
+[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)として $h$ を選び、[KählerのLaplacian一致](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)を適用する。すると $\Delta_\partial h=\Delta_{\bar\partial}h=0$ だから、エネルギー恒等式で $\partial h=\bar\partial h=0$。
+
+$\phi=\mathcal I_{\Omega,1}^{-1}(h)$ と置く。収縮の複体同型により $\bar\partial_T\phi=0$、また $\partial\mathcal I_{\Omega,1}(\phi)=\partial h=0$ を満たす。
 
 **(2)** $B_\Omega(\phi,\phi)$ は $(n-2,2)$ 型、括弧は接束値 $(0,2)$ 型、収縮後は $(n-1,2)$ 型である。[核心恒等式](#thm-def1-09-tian-todorov)の仮定は(1)で確保したので $\mathcal I_{\Omega,2}([\phi,\phi])=-\partial B_\Omega(\phi,\phi)$ と書け、$\partial$-完全。[接束値括弧の微分恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)と $\bar\partial_T\phi=0$ から $\bar\partial_T[\phi,\phi]=0$。収縮の可換性で $\bar\partial\mathcal I_{\Omega,2}([\phi,\phi])=0$ である。
 
