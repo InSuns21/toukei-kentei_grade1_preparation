@@ -26,9 +26,11 @@ $$
 
 ## 2. 何を「族の引き戻し」と呼ぶのか
 
-最初に比較対象を定める。複素解析空間の芽 $(S,s_0)$ には、例えば通常の小円板だけでなく、収束冪級数環 $\mathbb C\{u\}/(u^2)$ で定まる**非被約な一点**も含める。この環では $u\ne0$ だが $u^2=0$ である。台集合だけを見ると通常の一点と区別できないため、変形を比較するときは構造層を捨てない。
+最初に比較対象を定める。複素解析空間の芽 $(S,s_0)$ には、例えば通常の小円板だけでなく、収束冪級数環 $\mathbb C\{u\}/(u^2)$ で定まる**非被約な一点**も含める。この環では $u\ne0$ だが $u^2=0$ である。$\operatorname{Specan}A$ はこのように解析的局所環 $A$ から得られる解析空間の芽を表す記法とする。台集合だけを見ると通常の一点と区別できないため、変形を比較するときは構造層を捨てない。
 
 **標識**とは、中心ファイバーがどの $X$ であるかを指定する同型 $\iota:X\overset{\sim}\longrightarrow\mathcal X_{s_0}$ のことである。[固有正則沈め込みによる変形族](../DEF1-01/index.md#def-def1-01-family)は、滑らかな基底の場合のこの概念である。基底に特異点や冪零元を許す場合には、各点のファイバーが滑らかな複素多様体となる**相対的に滑らかな固有正則写像**（局所的に基底上の $n$ 個の正則座標を持つもの）を用いる。
+
+基底が非被約でも「接写像」は意味を持つ。基点 $s_0$ における局所環の最大イデアルを $\mathfrak m_S$ とすると、**Zariski接空間**は $T_{s_0}S=\operatorname{Hom}_{\mathbb C}(\mathfrak m_S/\mathfrak m_S^2,\mathbb C)$ である。基底写像 $f:S'\to S$ の接写像は、局所環準同型 $f^\sharp$ を一次商へ制限し、双対を取ったものとする。例えば双数環 $A=\mathbb C[\varepsilon]/(\varepsilon^2)$ の $\partial_\varepsilon|_0$ は、$\varepsilon$ の一次係数を取り出す**基点での接ベクトル**を表し、$A$ 上の通常の微分演算子 $\partial/\partial\varepsilon$ を意味しない。
 
 <a id="def-def1-08-marked-family"></a>
 
@@ -47,7 +49,9 @@ $$
 <!-- definition-example-start: def-def1-08-marked-family -->
 **定義の確認**（双数で一次方向を読む）。円板 $B$ の座標を $t$、基底を $A=\mathbb C[\varepsilon]/(\varepsilon^2)$ とし、環準同型 $f^\sharp:\mathbb C\{t\}\to A$ を $f^\sharp(t)=a\varepsilon$ とする。$f^\sharp(t)^2=a^2\varepsilon^2=0$ だから正則関数の冪級数は $F(t)\mapsto F(0)+aF'(0)\varepsilon$ に写る。$f$ は基点を保ち、一次速度は $a$ である。中心ファイバーは $t=\varepsilon=0$ の同じ $X$ となるので、標識も引き戻せる。
 
-局所的に元の族が $U\times B\to B$ なら、ファイバー積の座標環は $\mathcal O_U\widehat\otimes A$ となり、$A$ 上の相対座標は元の $U$ の座標のままである。これで基底変更の正則性・相対的滑らかさ・中心ファイバーという各条件を確認した。
+ここで接写像を一次商で計算すると、$df_0(\partial_\varepsilon|_0)$ が $t$ に作用する値は $\partial_\varepsilon|_0(f^\sharp(t))=a$ である。従って $df_0(\partial_\varepsilon|_0)=a\partial_t|_0$。これは導関数の分数を形式的に操作したのではなく、局所環の一次係数を比較した計算である。
+
+局所的に元の族が $U\times B\to B$ なら、ファイバー積の座標環は $\mathcal O_U\widehat\otimes A$ となり、$A$ 上の相対座標は元の $U$ の座標のままである。これで基底変更の正則性・相対的滑らかさ・中心ファイバーという条件を確認した。固有性も保たれる。実際、基底変更先のコンパクト集合 $C$ の逆像は $\pi^{-1}(f(C))\times C$ の閉部分集合であり、元の $\pi$ が固有だからコンパクトである。
 <!-- definition-example-end -->
 
 では、存在だけを要求するのか、パラメータの微分または写像自体の一意性まで要求するのか。ここで三種類の名前を固定する。
@@ -96,13 +100,29 @@ $$
 
 の交換子が、$\kappa$ のイデアルを法として零になる。従って局所的には $D_{\bar j,t}w^k=0$ を満たす $n$ 個の相対正則座標 $w^k$ を探せばよい。これらが $t=0$ で元の $z^k$ と一致し、$z$ に関するJacobianが可逆なら、新しい正則座標系が得られる。
 
+ここで $\partial_{z^i}$、$\partial_{\bar z^j}$ は**ファイバー座標**を微分し、添字 $t$ は固定している基底パラメータを表す。相対複素座標のJacobianは、成分を明示すれば
+
+$$
+J_{ki}=\frac{\partial w^k}{\partial z^i},
+\qquad J|_{t=0}=I_n
+$$
+
+となる。非被約基底でも行列式の剰余（中心ファイバーでの値）が $1$ の元は局所環で可逆である。台集合上の実座標変換についても、$w=z$ からの $C^1$ の小さい摂動なので実Jacobianが可逆である。この二つを区別して、相対正則座標への変換を確認する。
+
 **相対座標を得る解析的手順。** 座標小球を少し縮め、通常の $\bar\partial$ 方程式の局所解作用素 $Q$ を用いる。$w^k=z^k+v^k$ と置けば、未知の補正 $v^k$ は概略
 
 $$
 v^k=-Q\bigl(\phi\mathbin{\lrcorner}\partial(z^k+v^k)\bigr)
 $$
 
-という固定点方程式を満たす。局所解作用素は $\bar\partial$ で失う一階を回復し、小さい $\phi$ による積と合成は収縮になる。$\bar\partial$-ホモトピー式の余りは $[D_{\bar i,t},D_{\bar j,t}]$ に比例するため、Maurer–Cartan曲率が障害イデアルに入ると、その余りも同イデアルを法として零になる。反復は基底 $t$ に正則な係数を持ち、一様優級数で収束する。
+という固定点方程式を満たす。成分で確認すると、$D_{\bar j,t}(z^k+v^k)=0$ は
+
+$$
+\partial_{\bar z^j}v^k
+=-\phi^k_{\bar j}-\sum_i\phi^i_{\bar j}\partial_{z^i}v^k
+$$
+
+であり、右辺に局所 $\bar\partial$ 解作用素 $Q$ を適用したのが上式である。局所解作用素は $\bar\partial$ で失う一階を回復し、小さい $\phi$ による積と合成は収縮になる。$\bar\partial$-ホモトピー式の余りは $[D_{\bar i,t},D_{\bar j,t}]$ に比例するため、Maurer–Cartan曲率が障害イデアルに入ると、その余りも同イデアルを法として零になる。反復は基底 $t$ に正則な係数を持ち、一様優級数で収束する。
 
 これは相対版の[Newlander–Nirenberg定理](../../CM/CM1-07/index.md#thm-cm1-07-newlander-nirenberg)を局所の$\bar\partial$解作用素で実行する場面である。$t=0$ で $D_{\bar j,0}=\partial_{\bar z^j}$、$w^k=z^k$ だから、Jacobianは恒等行列であり、$t$ を縮小すれば可逆性が保たれる。座標の重なりでは二つの解が互いに相対正則な遷移写像で結ばれる。
 
@@ -176,7 +196,7 @@ $$
 
 **正則な基底を持つ族ではもう一段の注意が要る。** 滑らかなファイバーごとに座標変更ができるだけでは、基底変更 $f$ の**正則性**が従わない。任意の正則族は局所正則座標の遷移関数を基底の正則関数として持つ。その遷移関数へ上の正規化を施すときは、基底の係数を複素数として扱って$\bar\partial$ホモトピーを解き、すべての補正を**基底に正則な**級数として選ぶ。Artin局所環上では以下の有限次数計算になり、通常の小円板では楕円型逆の評価と優級数によって収束させる。実パラメータでの滑らかな陰関数定理だけで「正則」と言っているわけではない。
 
-具体的に、$\mathfrak m^{N+1}=0$ の局所Artin環 $A$ 上で正規化を行うと、[接束値のゲージ作用](../DEF1-03/index.md#def-def1-03-gauge)の次数 $j$ の未修正部分を $b_j$ として
+具体的に、最大イデアル $\mathfrak m\subset A$ が $\mathfrak m^{N+1}=0$ を満たす局所Artin環 $A$ 上で正規化を行うと、[接束値のゲージ作用](../DEF1-03/index.md#def-def1-03-gauge)の次数 $j$ の未修正部分を $b_j$ として
 
 $$
 d^*dv_j=d^*b_j,\qquad
@@ -283,7 +303,14 @@ $$
 
 ここで $\kappa(f)=0$ は単なる点集合上の等式ではなく、$\mathcal O_S$ における等式である。従って $\kappa$ のイデアルは $f^\sharp$ の核に入り、**環の商の普遍性**により $f$ は解析空間 $K$ を経由する。これで $f:S\to K$ を得る。相対Beltrami係数の等式と第3節の相対正則座標構成から、標識を保つ族同型 $\mathcal X\simeq f^*\mathcal X_K$ が得られ、局所完全性が示された。
 
-次に $T_0K$ を計算する。[Kuranishi障害の微分は原点で零](../DEF1-07/index.md#thm-def1-07-analytic-base)なので $T_0K\simeq\mathcal H_T^1$ である。一次の $\phi(t)$ は $t$ 自身、つまり $\phi(te_a)=te_a+O(t^2)$ である。[Kodaira–SpencerのDolbeault表示](../DEF1-01/index.md#thm-def1-01-cech-dolbeault)により
+次に $T_0K$ を計算する。[Kuranishi障害の微分は原点で零](../DEF1-07/index.md#thm-def1-07-analytic-base)なので、座標 $t_a$ の最大イデアルに関して $\kappa_a\in\mathfrak m^2$ となる。従って局所環の一次商には関係式が加わらず、
+
+$$
+\mathcal O_{K,0}=\mathbb C\{t_1,\ldots,t_m\}/(\kappa),
+\qquad T_0K\simeq\mathcal H_T^1.
+$$
+
+一次の固定点解は、$s$ を方向 $e_a$ に沿う一変数として $\phi(se_a)=se_a+O(s^2)$ である。$se_a$ は $s\ne0$ で $K$ 上にあるとは限らないが、$s^2=0$ の双数上では $\kappa(se_a)=0$ なので、**接ベクトル**を正しく表す。ここで[Kodaira–SpencerのDolbeault表示](../DEF1-01/index.md#thm-def1-01-cech-dolbeault)を使うと
 
 $$
 \operatorname{KS}_K\left(\frac{\partial}{\partial t_a}\right)
@@ -319,7 +346,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Kodaira–Spencer写像の基底変更公式](../DEF1-01/index.md#prop-def1-01-base-change)を $f:S\to K$ に適用すると、任意の $v\in T_{s_0}S$ に対し
+[Kodaira–Spencer写像の基底変更公式](../DEF1-01/index.md#prop-def1-01-base-change)を $f:S\to K$ に適用する。この既習命題は滑らかな基底で述べられていたが、局所遷移関数の連鎖律は非被約基底の一次商にも適用できる。
+
+実際、接ベクトル $v\in T_{s_0}S$ は $S$ から双数への一次写像を定める。遷移関数の基底係数を $F$ とすれば、引き戻し後の一次係数は $v(f^\sharp F)$ である。これは $df_{s_0}(v)$ が $F$ に作用する値そのものであり、Čech類の比較も同じ。従って
 
 $$
 \operatorname{KS}_{f^*\mathcal X_K}(v)
@@ -384,7 +413,20 @@ $$
 この議論では中心の標識を保つことが重要である。標識を外すと、恒等写像に近い必要のない**離散的**な正則自己同型がパラメータを同一視し得る。さらに $H^0\ne0$ でも普遍になり得ることは、次の射影直線の例で確認する。$\square$
 <!-- proof-end -->
 
-**直接例1：剛性と自己同型の共存。** $X=\mathbb P^1$ の正則接束は $\mathcal O_{\mathbb P^1}(2)$ で、$H^1(\mathbb P^1,T_X)=0$、一方 $H^0(\mathbb P^1,T_X)$ は複素次元3である。前者からKuranishi基底は一点である。任意の小変形族は局所自明であり、一点への基底写像は唯一なので、この意味で普遍である。後者は $z$、$z^2$、定数に対応する三つの局所正則ベクトル場を貼り合わせて得られ、自己同型がないことは意味しない。**非零の$H^0$は非普遍性の十分条件ではない。**
+**直接例1：剛性と自己同型の共存。** $X=\mathbb P^1$ の正則接束は $\mathcal O_{\mathbb P^1}(2)$ である。標準2座標を $z$、$w=1/z$ とすると、接ベクトルの変換は
+
+$$
+\partial_w=-z^2\partial_z.
+$$
+
+従って $z$ 座標で $1,z,z^2$ を係数とする三つの大域正則ベクトル場が得られる。また重なり $\mathbb C^*$ 上のČech 1-コサイクルをLaurent展開すると、指数 $k\ge0$ の項は $z$ 側で、$k\le2$ の項は $w$ 側の正則ベクトル場で消せる。両範囲で全整数を覆うから
+
+$$
+\dim H^0(\mathbb P^1,T_X)=3,
+\qquad H^1(\mathbb P^1,T_X)=0.
+$$
+
+後者からKuranishi基底は一点であり、[局所完全性](#thm-def1-08-semiuniversal)より任意の小変形は局所自明。一点への基底写像は唯一なので、この意味で普遍である。**非零の $H^0$ は非普遍性の十分条件ではない。**
 
 **直接例2：楕円曲線。** [楕円曲線のKodaira–Spencer計算](../DEF1-01/index.md#thm-def1-01-cech-dolbeault)で得た $\tau$ の一次方向は非零であり、局所的に一つの複素パラメータを与える。一方、楕円曲線の接束は自明で、$H^0(E,T_E)\simeq\mathbb C$ という並進の無限小自己同型を持つ。並進は複素構造の周期 $\tau$ 自体を変えないため、「自己同型があるから必ずパラメータが重複する」とは言えない。
 
@@ -418,7 +460,21 @@ $$
 円板 $B$ の座標を $t$、双数環を $A=\mathbb C[\varepsilon]/(\varepsilon^2)$ とする。$f^\sharp(t)=3\varepsilon$ のとき、$F(t)=2+t+5t^2$ の像と、引き戻した族のKodaira–Spencer方向を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $f^\sharp(t)^2=(3\varepsilon)^2=9\varepsilon^2=0$ なので $f^\sharp(F)=2+3\varepsilon+5\cdot0=2+3\varepsilon$。接写像は $\partial_\varepsilon\mapsto3\partial_t$ である。[Kodaira–Spencer写像の基底変更](../DEF1-01/index.md#prop-def1-01-base-change)より、引き戻しの一次類は $3\operatorname{KS}_B(\partial_t)$ となる。三倍はファイバーの個数ではなく基底方向の速度を表す。
+**詳細解答。** $f^\sharp(t)^2=(3\varepsilon)^2=9\varepsilon^2=0$ なので
+
+$$
+f^\sharp(F)=2+3\varepsilon+5\cdot0=2+3\varepsilon.
+$$
+
+第2節の一次商による計算から、基点での接写像は $df_0(\partial_\varepsilon|_0)=3\partial_t|_0$ である。[Kodaira–Spencer写像の基底変更](../DEF1-01/index.md#prop-def1-01-base-change)にこれを代入すると
+
+$$
+\operatorname{KS}_{f^*\mathcal X}(\partial_\varepsilon|_0)
+=\operatorname{KS}_{\mathcal X}(3\partial_t|_0)
+=3\operatorname{KS}_{\mathcal X}(\partial_t|_0).
+$$
+
+三倍はファイバーの個数ではなく基底方向の速度を表す。
 <!-- solution-end -->
 
 <a id="ex-def1-08-a02"></a>
@@ -511,10 +567,19 @@ $\varepsilon^2\ne0$ なので $a^2=0$、複素数体上では $a=0$ が必要。
 #### DEF1-08-B04 二つの基底写像と標識
 - Level: B
 
-$B=(\mathbb C,0)$ に $\mathbb C^*$ が $t\mapsto\lambda t$ で作用し、その作用がある変形族の標識を保つ族同型に持ち上がると仮定する。$f(s)=s$ と $g(s)=s+s^2$ が異なるのに引き戻し同型を与える機構を説明し、中心の標識に必要な条件を示せ。
+$B=(\mathbb C,0)$ に $\mathbb C^*$ が $t\mapsto\lambda t$ で作用し、その作用がある変形族の族同型に持ち上がると仮定する。$f(s)=s$ と $g(s)=s+s^2$ が異なるのに引き戻し同型を与える機構を説明し、中心の標識を保つための十分条件を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $\lambda(s)=1+s$ は原点近くで零にならず、$g(s)=\lambda(s)f(s)$ を満たす。族上の $\mathbb C^*$ 作用を基底の各 $s$ に $\lambda(s)$ として適用すれば、$f^*\mathcal X$ と $g^*\mathcal X$ の間の同型になる。中心の標識を保つには $\lambda(0)=1$ により中心ファイバー上の作用が恒等であることが必要であり、今回成立する。$f\ne g$ なのは $g-f=s^2\ne0$ のため。一方 $df_0=dg_0$ は双方1で、半普遍の接写像の一意性とは矛盾しない。
+**詳細解答。** 原点近くで零にならない $\lambda(s)=1+s$ を選べば
+
+$$
+g(s)=\lambda(s)f(s),\qquad
+g(s)-f(s)=s^2\ne0.
+$$
+
+族上の $\mathbb C^*$ 作用を基底の各 $s$ に $\lambda(s)$ として適用すれば、$f^*\mathcal X$ と $g^*\mathcal X$ の間の同型になる。中心の標識を保つための正確な条件は、$\lambda(0)$ が中心ファイバーに誘導する自己同型が恒等写像になることである。今回の $\lambda(0)=1$ はそれを保証する十分条件だが、作用が非忠実なら $\lambda(0)\ne1$ でも中心への作用が恒等となる場合がある。
+
+一方、$f'(0)=g'(0)=1$ だから $df_0=dg_0$ であり、半普遍の接写像の一意性とは矛盾しない。
 <!-- solution-end -->
 
 <a id="ex-def1-08-c01"></a>
@@ -539,7 +604,15 @@ $$
 
 第2段階。非被約基底では例えば $u^2=0$ のように台集合では零でも構造層では非零の元がある。$\kappa(f)=0$ が構造層で成立すると、$\kappa$ の成分が生成するイデアルは $\mathcal O_S$ へ零に写る。従って局所環の準同型は $\mathcal O_K=\mathcal O_U/(\kappa)$ を経由し、正則写像 $f:S\to K$ を与える。相対複素構造が一致するので引き戻し族も同型となる。
 
-第3段階。$D\kappa(0)=0$ より $T_0K=\mathcal H_T^1$。$D\phi(0)=\operatorname{id}$ から $\operatorname{KS}_K(e_a)=[e_a]$ であり、[調和代表同型](../DEF1-06/index.md#thm-def1-06-tangent-hodge)によりこれは同型。二つの基底変更 $f,g$ の引き戻しが標識付き同型なら、Kodaira–Spencerの自然性により $\operatorname{KS}_K\circ df_0=\operatorname{KS}_K\circ dg_0$ なので $df_0=dg_0$。
+第3段階。$D\kappa(0)=0$ より $\kappa$ の方程式は一次商に関係を課さず、$T_0K=\mathcal H_T^1$。$D\phi(0)=\operatorname{id}$ から $\operatorname{KS}_K(e_a)=[e_a]$ であり、[調和代表同型](../DEF1-06/index.md#thm-def1-06-tangent-hodge)によりこれは同型。二つの基底変更 $f,g$ の引き戻しが標識付き同型なら、[Kodaira–Spencer写像の基底変更](../DEF1-01/index.md#prop-def1-01-base-change)を一次商で適用して
+
+$$
+\operatorname{KS}_K\circ df_0
+=\operatorname{KS}_{\mathcal X}
+=\operatorname{KS}_K\circ dg_0.
+$$
+
+左から同型 $\operatorname{KS}_K^{-1}$ を合成すれば $df_0=dg_0$ である。
 
 第4段階。$H^0=0$ ならゲージ生成元の線形化 $d$ に核がなく、基底変更同士の最初に異なる高次係数は調和形式と完全形式の双方でなければならない。直交性によってその係数は零。次数帰納法をすべての冪零商へ適用し、解析的局所環の $\bigcap_j\mathfrak m^j=0$ から $f=g$ を導く。**接写像の一意性だけでは最後の結論にならず、高次のゲージ自由度も排除する必要がある。**
 <!-- solution-end -->
