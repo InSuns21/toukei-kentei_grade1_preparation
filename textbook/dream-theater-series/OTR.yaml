@@ -24,7 +24,7 @@ chapters:
   - { id: OTR16, path: textbook/volumes/dream_thater/解析系/OTR/OTR16, status: completed, title: "汎関数の凸性は測地線で変わるか" }
   - { id: OTR17, path: textbook/volumes/dream_thater/解析系/OTR/OTR17, status: completed, title: "密度を時間発展させる保存則は" }
   - { id: OTR18, path: textbook/volumes/dream_thater/解析系/OTR/OTR18, status: completed, title: "測度曲線の速さを定義できるか" }
-  - { id: OTR19, path: textbook/volumes/dream_thater/解析系/OTR/OTR19, status: planned, title: "静的最適輸送と流体作用は等価か" }
+  - { id: OTR19, path: textbook/volumes/dream_thater/解析系/OTR/OTR19, status: completed, title: "静的最適輸送と流体作用は等価か" }
   - { id: OTR20, path: textbook/volumes/dream_thater/解析系/OTR/OTR20, status: planned, title: "Otto計算の接ベクトルとは" }
   - { id: OTR21, path: textbook/volumes/dream_thater/解析系/OTR/OTR21, status: planned, title: "どのエネルギーがどのPDEを生むか" }
   - { id: OTR22, path: textbook/volumes/dream_thater/解析系/OTR/OTR22, status: planned, title: "勾配流を変分最小化で離散化できるか" }

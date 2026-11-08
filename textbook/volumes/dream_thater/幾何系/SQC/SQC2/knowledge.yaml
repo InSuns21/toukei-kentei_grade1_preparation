@@ -1,0 +1,30 @@
+chapter: SQC2
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC1, FLD5]
+forward_references: []
+
+concepts:
+  - id: geometry.intersection-quadratic-bound
+    name: 交点の高々二次性
+    kind: lemma
+    introduction: formal
+    requires: [geometry.finite-straightedge-compass-procedure, algebra.quadratic-extension-tower]
+
+  - id: geometry.directed-segment-translation
+    name: 有向線分の移動
+    kind: proposition
+    introduction: formal
+    requires: [geometry.perpendicular-parallel-construction]
+
+  - id: geometry.four-arithmetic-constructions
+    name: 四則演算の有限作図
+    kind: proposition
+    introduction: formal
+    requires: [geometry.directed-segment-translation, geometry.perpendicular-parallel-construction]
+
+  - id: geometry.nonnegative-square-root-construction
+    name: 非負数の平方根の有限作図
+    kind: proposition
+    introduction: formal
+    requires: [geometry.segment-midpoint-construction, geometry.perpendicular-parallel-construction]
