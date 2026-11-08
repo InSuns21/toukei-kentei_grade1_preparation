@@ -1,0 +1,35 @@
+chapter: MFL38
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL37
+  - MFL12
+  - GA1
+forward_references: []
+concepts:
+  - id: manifold-learning.scalar-chart-representation
+    name: スカラー場のチャート表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スカラー場のチャート表示）"]
+    requires: [geometry.riemannian-manifold]
+  - id: manifold-learning.scalar-metric-transformation
+    name: 計量とスカラー勾配の座標変換則
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.scalar-chart-representation, geometry.riemannian-metric]
+  - id: manifold-learning.scalar-laplacian-chart-invariance
+    name: 二次元Laplace–Beltrami作用素の座標不変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.scalar-metric-transformation, geometry.riemannian-divergence-laplacian-coordinate]
+  - id: manifold-learning.cylinder-scalar-laplacian
+    name: 円柱面の二つのチャートでの作用素計算
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.scalar-laplacian-chart-invariance]
+  - id: manifold-learning.scalar-interpolation-error
+    name: 中心差分と双線形補間の誤差の分離
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.cylinder-scalar-laplacian]
