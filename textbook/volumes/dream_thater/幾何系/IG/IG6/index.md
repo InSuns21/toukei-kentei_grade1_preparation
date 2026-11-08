@@ -56,7 +56,7 @@ $$
 
 と書きます。$\partial/\partial y^b=P^i_b\partial_i$ ですから、接続の Leibniz 則は、基底の変化そのものの微分を生みます。これが一般のテンソル成分変換にはない二階微分の項です。
 
-ここで、座標によらず真っすぐに進む曲線の条件を先に確定します。[GEO13 の曲線に沿う共変微分](../../GEO/GEO13/index.md#def-geo13-curve-covariant-derivative)を $D^\nabla/dt$ と書くと、[GEO14 の測地線](../../GEO/GEO14/index.md#def-geo14-geodesic)の速度平行条件は一般の接続にも意味を持ちます。曲線の局所座標を $x(t)$、その速度を $\dot\gamma=\dot x^j\partial_j$ とすれば、曲線沿いの共変微分の座標公式により
+ここで、座標によらず真っすぐに進む曲線の条件を先に確定します。[GEO13 の曲線に沿う共変微分](../../GEO/GEO13/index.md#def-geo13-curve-covariant-derivative)を $D^\nabla/dt$ と書くと、[GEO14 の測地線](../../GEO/GEO14/index.md#def-geo14-geodesic)の速度平行条件は一般の接続にも意味を持ちます。曲線の局所座標を $x(t)$、その速度を $\dot\gamma=\dot x^j\partial_j$ とすれば、[曲線に沿う共変微分の定義](../../GEO/GEO13/index.md#def-geo13-curve-covariant-derivative)の式に $V=\dot\gamma$ を代入して
 
 $$
 \frac{D^\nabla\dot\gamma}{dt}
