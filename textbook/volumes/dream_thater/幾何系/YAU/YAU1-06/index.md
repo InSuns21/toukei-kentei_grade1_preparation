@@ -103,7 +103,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-yau1-06-green-kernel -->
-**定義の確認（平坦楕円曲線の一つの固有モード）。** 上の $T$ は $V=2$、$\Delta_{\omega_0}=\tfrac12(\partial_x^2+\partial_y^2)$ である。$f(x,y)=\cos2\pi x$ は $\bar f=0$ で、$Lf=2\pi^2f$。固有関数による[GA5の熱半群](../../GA/GA5/index.md#def-ga5-heat-semigroup)から $T_sf=e^{-2\pi^2s}f$ となる。したがって
+**定義の確認**（平坦楕円曲線の一つの固有モード）。上の $T$ は $V=2$、$\Delta_{\omega_0}=\tfrac12(\partial_x^2+\partial_y^2)$ である。$f(x,y)=\cos2\pi x$ は $\bar f=0$ で、$Lf=2\pi^2f$。固有関数による[GA5の熱半群](../../GA/GA5/index.md#def-ga5-heat-semigroup)から $T_sf=e^{-2\pi^2s}f$ となる。したがって
 
 $$
 \int_TG_\varepsilon(x,y)Lf(y)\,d\mu(y)
