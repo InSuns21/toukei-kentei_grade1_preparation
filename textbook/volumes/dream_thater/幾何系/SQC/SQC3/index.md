@@ -538,7 +538,9 @@ $\gamma=\sqrt{\sqrt2}$ なので $\mathbb Q\subset\mathbb Q(\sqrt2)\subset\mathb
 
 $f$ は法 $2$ で $X^4+X+1$ となり、$\mathbb F_2$ 上で根を持ちません。唯一の既約二次式 $X^2+X+1$ での剰余も $1$ です。次数 $4$ の可約式は一次または二次因子を持つので、$\overline f$ は既約です。
 
-さらに $f$ はモニックです。[Gauss の補題（既約性の移送）](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)により、$f$ が有理係数で可約なら正次数のモニック整数係数因子を持ちます。これらの因子は法 $2$ で次数を保つため、$\overline f$ の既約性に矛盾します。従って $f$ も $\mathbb Q$ 上既約で、$\gamma$、$\alpha$ はともに次数 $4$ です。
+さらに $f$ はモニックです。[Gauss の補題（既約性の移送）](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)により、$f$ が有理係数で可約なら正次数のモニック整数係数因子を持ちます。
+
+これらの因子は法 $2$ で次数を保つため、$\overline f$ の既約性に矛盾します。従って $f$ も $\mathbb Q$ 上既約で、$\gamma$、$\alpha$ はともに次数 $4$ です。
 
 (ii) $\gamma=\sqrt{\sqrt5}$ です。$5>0$、$\sqrt5>0$ なので
 
