@@ -9,7 +9,7 @@ concepts:
     name: c-巡回単調集合
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（$c$-巡回単調集合）"]
+    introduction_aliases: ["定義（c-巡回単調集合）"]
     requires: [transport.coupling, transport.continuous-dual]
 
   - id: transport.support-of-coupling
