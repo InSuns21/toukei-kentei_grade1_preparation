@@ -1,0 +1,46 @@
+id: "MFL24"
+title: "群表現・intertwiner・特徴型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL23
+  - LA3C
+official_scope: []
+learning_objectives:
+  - 有限群の実行列表現について可逆性・単位元・積の条件を具体的に確認できる
+  - 入力型と出力型の線形等変性を絡作用素の行列方程式に言い換えて証明できる
+  - C2の符号型による線形写像の零係数制約を導出できる
+  - C4の回転型でaI+bR、D4の平面型でaIに制限されることを証明できる
+  - C4の四頂点置換表現を実直和分解し、特徴型ごとの変換を計算できる
+  - アフィン等変層のバイアス制約を導き、通常スカラーと符号付きスカラーを区別できる
+  - 具体的な入出力表現から線形等変写像の一般形を自力で求められる
+definitions:
+  - { id: MFL24-DEF-01, name: 有限群の実有限次元表現 }
+  - { id: MFL24-DEF-02, name: 表現の間の絡作用素 }
+  - { id: MFL24-DEF-03, name: 特徴型と直和表現 }
+theorems:
+  - { id: MFL24-THM-01, name: 線形等変性と交換条件の同値性 }
+  - { id: MFL24-PROP-01, name: C2の符号型による選択則 }
+  - { id: MFL24-THM-02, name: 四分の一回転と可換な実2次行列 }
+  - { id: MFL24-PROP-02, name: D4の平面ベクトル型の線形自己写像 }
+  - { id: MFL24-THM-03, name: C4の四頂点置換表現の実直和分解 }
+  - { id: MFL24-PROP-03, name: アフィン等変写像の条件 }
+canonical_examples:
+  - C2の自明型・符号型とブロック対角の線形混合
+  - C4の平面回転型の交換行列とD4の鏡映追加による制約
+  - 四頂点置換表現の1次元・1次元・2次元実直和分解
+  - 向き付き面積の鏡映符号反転と誤った特徴型の反例
+problem_patterns:
+  - MFL24-A01
+  - MFL24-A02
+  - MFL24-A03
+  - MFL24-A04
+  - MFL24-B01
+  - MFL24-B02
+  - MFL24-B03
+  - MFL24-B04
+  - MFL24-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.5, review: 2.0 }
