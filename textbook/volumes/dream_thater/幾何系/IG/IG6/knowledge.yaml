@@ -1,0 +1,67 @@
+chapter: IG6
+scope: dream-theater
+coverage: complete
+prerequisites: [IG5, GEO13, GEO14, GEO16]
+concepts:
+  - id: information-geometry.connection-choice
+    name: 統計モデル上の接続の選択
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（統計モデル上の接続の選択）"]
+    requires: [information-geometry.fisher-rao-metric, geometry.affine-connection]
+
+  - id: information-geometry.connection-geodesic
+    name: 接続依存の統計的測地線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接続依存の統計的測地線）"]
+    requires: [information-geometry.connection-choice, geometry.covariant-derivative-along-curve, geometry.geodesic]
+
+  - id: information-geometry.connection-coordinate-covariance
+    name: 接続係数の変換則と測地線方程式の不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（接続係数の変換則と測地線方程式の不変性）"]
+    requires: [information-geometry.connection-geodesic, geometry.christoffel-coefficients, geometry.connection-coordinate-formula]
+
+  - id: information-geometry.connection-local-odes
+    name: 平行移動と接続測地線の局所存在一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平行移動と接続測地線の局所存在一意性）"]
+    requires: [information-geometry.connection-geodesic, geometry.parallel-transport, geometry.geodesic-local-existence-uniqueness]
+
+  - id: information-geometry.connection-difference-torsion
+    name: 接続の差と捩率の座標表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接続の差と捩率の座標表示）"]
+    requires: [information-geometry.connection-choice, geometry.connection-difference-tensor, geometry.connection-torsion]
+
+  - id: information-geometry.bernoulli-probability-connection
+    name: Bernoulli 族の成功確率アファイン接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bernoulli 族の成功確率アファイン接続）"]
+    requires: [information-geometry.connection-choice, geometry.christoffel-coefficients]
+
+  - id: information-geometry.fisher-levi-civita-connection
+    name: Fisher--Levi-Civita 接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fisher--Levi-Civita 接続）"]
+    requires: [information-geometry.fisher-rao-metric, geometry.levi-civita-connection]
+
+  - id: information-geometry.bernoulli-two-connections
+    name: Bernoulli 族の二つの接続と測地線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Bernoulli 族の二つの接続と測地線）"]
+    requires: [information-geometry.bernoulli-probability-connection, information-geometry.fisher-levi-civita-connection, information-geometry.connection-geodesic]
+
+  - id: information-geometry.geodesic-affine-parameters
+    name: アファイン再パラメータ化と一般の時刻変更
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アファイン再パラメータ化と一般の時刻変更）"]
+    requires: [information-geometry.connection-geodesic, geometry.geodesic-affine-reparametrization]
