@@ -13,3 +13,4 @@
 10. [OTR10 W1はLipschitz関数で測れるか](textbook/volumes/dream_thater/解析系/OTR/OTR10/index.md)
 11. [OTR11 一次元なら輸送を陽に解けるか](textbook/volumes/dream_thater/解析系/OTR/OTR11/index.md)
 12. [OTR12 二次費用で凸解析が現れる理由は](textbook/volumes/dream_thater/解析系/OTR/OTR12/index.md)
+13. [OTR13 いつ最適結合は凸勾配写像で表せるか](textbook/volumes/dream_thater/解析系/OTR/OTR13/index.md)

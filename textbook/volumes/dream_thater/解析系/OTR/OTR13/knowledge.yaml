@@ -1,0 +1,42 @@
+chapter: OTR13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR12
+  - F0-00P2
+
+concepts:
+  - id: transport.convex-gradient-transport-map
+    name: 凸勾配輸送写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（凸勾配輸送写像）"]
+    requires: [transport.rockafellar-potential, transport.convex-almost-everywhere-differentiability, measure.absolute-continuity]
+
+  - id: transport.noncompact-optimal-cyclic-support
+    name: 最適結合の非コンパクト二次費用巡回単調性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（最適結合の非コンパクト二次費用巡回単調性）"]
+    requires: [transport.c-cyclic-monotonicity, transport.polish-optimal-coupling]
+
+  - id: transport.convex-gradient-measurability
+    name: 凸ポテンシャルの微分可能集合と可測勾配
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（凸ポテンシャルの微分可能集合と可測勾配）"]
+    requires: [transport.convex-almost-everywhere-differentiability, measure.absolute-continuity]
+
+  - id: transport.brenier-theorem
+    name: Brenierの最適写像定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Brenierの最適写像定理）"]
+    requires: [transport.noncompact-optimal-cyclic-support, transport.rockafellar-potential, transport.convex-gradient-measurability, transport.convex-gradient-transport-map]
+
+  - id: transport.integrable-quadratic-dual-certificate
+    name: 可積分な凸双対証明書による最適性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（可積分な凸双対証明書による最適性）"]
+    requires: [transport.quadratic-dual-subgradient, transport.brenier-theorem]
