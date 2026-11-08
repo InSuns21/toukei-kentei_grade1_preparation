@@ -283,7 +283,15 @@ $$
 
 ### 円環のような穴のある図形にも効く
 
-半径 $0<a<R$ の閉円環 $H_{a,R}=\{(x,y):a^2\le x^2+y^2\le R^2\}$ を考えます。その境界は半径 $a$ と $R$ の二つの円周の和であり、面積は $\pi(R^2-a^2)$ です。境界の被覆数は各円周の被覆数の和以下なので、[線分・円周・正方形境界の上box次元](#lem-sqc9-boundary-dimension)によって上box次元は高々 $1$、外周の射影による下界でちょうど $1$ です。従って一辺 $\sqrt{\pi(R^2-a^2)}$ の正方形とも有限平行移動等分解可能です。**穴があることは、この定理の障害になりません**。
+半径 $0<a<R$ の閉円環を考えます。
+
+$$
+H_{a,R}=\{(x,y):a^2\le x^2+y^2\le R^2\}.
+$$
+
+その境界は半径 $a$ と $R$ の二つの円周の和であり、面積は $\pi(R^2-a^2)$ です。[線分・円周・正方形境界の上box次元](#lem-sqc9-boundary-dimension)の被覆数評価を二つの円周へ使えば、境界の次元は高々 $1$、外周の射影による下界からちょうど $1$ です。
+
+したがって、面積を揃えた一辺 $\sqrt{\pi(R^2-a^2)}$ の正方形とも有限平行移動等分解可能です。**穴があることは、この定理の障害になりません**。
 
 ---
 
@@ -467,7 +475,15 @@ $$
 
 逆に外円周 $C_R\subset\partial H_{a,R}$ なので、射影から $N_\delta(\partial H_{a,R})\ge N_\delta(C_R)\ge2R/\delta$。両側が $\delta^{-1}$ の定数倍で挟まれるため、$\overline{\dim}_{\mathrm{box}}(\partial H_{a,R})=1$ です。
 
-(iii) $H_{a,R}$ は閉有界、$Q$ も閉有界なので両者はLebesgue可測です。(i) から $0<\lambda_2(H_{a,R})=\lambda_2(Q)<\infty$。(ii) と正方形の[線分・円周・正方形境界の上box次元](#lem-sqc9-boundary-dimension)から両者の境界次元は $1<2$ です。よって $d=2$, $A=H_{a,R}$, $B=Q$ と置いて[Laczkovichの有限平行移動等分解定理](#thm-sqc9-laczkovich-general)を適用すると、ある**有限な正整数** $m$、互いに素な集合 $E_1,\ldots,E_m$、およびベクトル $v_1,\ldots,v_m\in\mathbb R^2$ が存在し、
+(iii) $H_{a,R}$ と $Q$ はともに閉有界なので、Lebesgue可測です。(i) から面積は
+
+$$
+0<\lambda_2(H_{a,R})=\lambda_2(Q)<\infty
+$$
+
+です。(ii) と[線分・円周・正方形境界の上box次元](#lem-sqc9-boundary-dimension)から、両者の境界次元も $1<2$ です。
+
+そこで $d=2$ とし、$A$ に円環、$B$ に正方形を取って[Laczkovichの有限平行移動等分解定理](#thm-sqc9-laczkovich-general)を適用します。ある**有限な正整数** $m$、互いに素な集合 $E_1,\ldots,E_m$、平行移動ベクトル $v_1,\ldots,v_m\in\mathbb R^2$ が存在し、
 
 $$
 H_{a,R}=\bigsqcup_{i=1}^mE_i,
