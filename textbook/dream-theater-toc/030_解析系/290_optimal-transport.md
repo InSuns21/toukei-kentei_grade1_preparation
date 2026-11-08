@@ -15,3 +15,4 @@
 12. [OTR12 二次費用で凸解析が現れる理由は](textbook/volumes/dream_thater/解析系/OTR/OTR12/index.md)
 13. [OTR13 いつ最適結合は凸勾配写像で表せるか](textbook/volumes/dream_thater/解析系/OTR/OTR13/index.md)
 14. [OTR14 Gaussian分布間のW2はどう計算するか](textbook/volumes/dream_thater/解析系/OTR/OTR14/index.md)
+15. [OTR15 測度空間の最短経路とは](textbook/volumes/dream_thater/解析系/OTR/OTR15/index.md)

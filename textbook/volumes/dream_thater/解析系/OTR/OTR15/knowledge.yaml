@@ -1,0 +1,55 @@
+chapter: OTR15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR14
+
+concepts:
+  - id: transport.metric-curve-length
+    name: 距離空間の曲線の長さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離空間の曲線の長さ）"]
+    requires: [transport.wasserstein-metric]
+
+  - id: transport.constant-speed-geodesic
+    name: 定速測地線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定速測地線）"]
+    requires: [transport.metric-curve-length]
+
+  - id: transport.displacement-interpolation
+    name: 変位補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変位補間）"]
+    requires: [transport.wasserstein-p, transport.coupling, transport.constant-speed-geodesic]
+
+  - id: transport.linear-measure-mixture
+    name: 確率測度の線形混合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（確率測度の線形混合）"]
+    requires: [transport.finite-p-moment]
+
+  - id: transport.displacement-geodesic
+    name: 最適結合から作るW2定速測地線
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最適結合から作るW2定速測地線）"]
+    requires: [transport.displacement-interpolation, transport.wasserstein-metric, transport.metric-curve-length]
+
+  - id: transport.gaussian-displacement-geodesic
+    name: 非退化Gaussian間の変位補間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非退化Gaussian間の変位補間）"]
+    requires: [transport.gaussian-w2-spd, transport.displacement-geodesic]
+
+  - id: transport.geodesic-intermediate-rigidity
+    name: 測地線上の中間測度の直線表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（測地線上の中間測度の直線表示）"]
+    requires: [transport.gluing-lemma, transport.displacement-geodesic, transport.wasserstein-p]
