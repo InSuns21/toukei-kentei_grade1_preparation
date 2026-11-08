@@ -1,0 +1,38 @@
+id: "IG4"
+title: "指数型分布族と混合型分布族"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG3
+  - ML2-03
+  - S1-02
+official_scope: []
+learning_objectives:
+  - 固定台の正則指数型分布族の自然母数空間・対数分配関数・統計量を特定できる
+  - 対数分配関数の微分公式から score と Fisher 計量の Hessian 表示を導出できる
+  - 十分統計量による標本の因子分解と正定値性・識別可能性の関係を説明できる
+  - Bernoulli・Poisson・正規位置尺度族を自然母数で表し平均と共分散を計算できる
+  - 正の有限確率単体で混合座標と混合型分布族を定義しアファイン性を判定できる
+  - 混合型分布族・全指数型分布族・曲がった指数型部分族の違いを反例で説明できる
+  - 境界や冗長な統計量により自然座標・Fisher 行列が退化する機構を説明できる
+definitions:
+  - { id: IG4-DEF-01, name: 指数型分布族の局所自然座標 }
+  - { id: IG4-DEF-04, name: 指数表示の最小性 }
+  - { id: IG4-DEF-02, name: 正の有限単体の混合座標 }
+  - { id: IG4-DEF-03, name: 有限単体上の混合型分布族 }
+theorems:
+  - { id: IG4-THM-01, name: 指数型分布族の Fisher--Hessian 恒等式 }
+  - { id: IG4-PROP-01, name: 最小性・識別可能性と正定値 Fisher 行列 }
+  - { id: IG4-THM-02, name: 混合型分布族のアファイン線分と Fisher 計量 }
+canonical_examples:
+  - Bernoulli の logit 自然母数と対数分配関数
+  - Poisson の自然母数と無限級数による正規化
+  - 正規位置尺度族の二自然母数と共分散行列
+  - 三値カテゴリカルの混合座標と線形制約部分族
+  - 冗長な Bernoulli 統計量による Fisher 退化
+  - 自然座標で曲がる三値カテゴリカル部分族
+problem_patterns: [IG4-A01, IG4-A02, IG4-A03, IG4-A04, IG4-B01, IG4-B02, IG4-B03, IG4-B04, IG4-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 4.5, review: 1.0 }
