@@ -9,3 +9,4 @@
 6. [YAU1-06 C0評価I：平均とGreen関数](textbook/volumes/dream_thater/幾何系/YAU/YAU1-06/index.md)
 7. [YAU1-07 C0評価II：Moser反復](textbook/volumes/dream_thater/幾何系/YAU/YAU1-07/index.md)
 8. [YAU1-08 二階評価の局所計算](textbook/volumes/dream_thater/幾何系/YAU/YAU1-08/index.md)
+9. [YAU1-09 二階評価の大域閉包](textbook/volumes/dream_thater/幾何系/YAU/YAU1-09/index.md)
