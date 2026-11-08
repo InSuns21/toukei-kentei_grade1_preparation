@@ -1,0 +1,35 @@
+id: "DEF1-04"
+title: "一次変形・同値・自己同型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-03
+learning_objectives:
+  - 一次の閉条件と座標変更による完全形式を区別し、一次変形類をH^1(X,T_X)で表せる
+  - 一次ゲージ作用とその安定化子を定義し、Dolbeault複体から自然な完全列を証明できる
+  - H^0(X,T_X)を無限小正則自己同型の空間として局所座標で証明し、H^1との役割の違いを説明できる
+  - 楕円曲線で非自明な一次変形とゲージ自明な方向を積分・微分で区別できる
+  - Kodaira–Spencer類との対応、有限自己同型の作用、高次延長の未解決性を区別できる
+theorems:
+  - { id: DEF1-04-DEF-01, name: "一次ゲージ作用と無限小安定化子" }
+  - { id: DEF1-04-PROP-01, name: "一次ゲージ作用の完全列" }
+  - { id: DEF1-04-THM-01, name: "無限小正則自己同型とH^0" }
+canonical_examples:
+  - 複素平面での完全な一次形式と正則ベクトル場の安定化子
+  - 楕円曲線上の定数係数類の非自明性と周期関数からの完全形式
+  - 射影直線での三つの大域正則ベクトル場
+  - 楕円曲線の有限回転が一次類へ及ぼす符号反転
+problem_patterns:
+  - DEF1-04-EXACT-GAUGE
+  - DEF1-04-GAUGE-STABILIZER
+  - DEF1-04-CLOSED-NONCLOSED
+  - DEF1-04-TORUS-INTEGRAL
+  - DEF1-04-TORUS-EXACT-SPLIT
+  - DEF1-04-CECH-POTENTIALS
+  - DEF1-04-PROJECTIVE-AUTOMORPHISMS
+  - DEF1-04-BASE-CHANGE
+  - DEF1-04-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 8, review: 4 }
