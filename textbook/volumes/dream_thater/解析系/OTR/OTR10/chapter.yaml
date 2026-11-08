@@ -1,0 +1,43 @@
+id: "OTR10"
+title: "W1はLipschitz関数で測れるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR9
+official_scope: []
+learning_objectives:
+  - Lipschitz半ノルムと基準点正規化を定義し、P_1測度での積分可能性と定数不変性を確認できる
+  - 結合を用いて1-Lipschitz関数の積分差がW_1以下であることを証明できる
+  - 有限輸送の双対ポテンシャルを距離による包絡から1-Lipschitz関数へ変換できる
+  - 有限原子近似と積分差の安定性からPolish空間上のKantorovich–Rubinstein双対を証明できる
+  - 離散分布の最適輸送と最適Lipschitz関数を手計算し、下界と上界を一致させられる
+  - 狭義収束とW_1収束の差、bounded-Lipschitz制約の違いを反例で説明できる
+  - Lipschitz写像によるW_1の収縮評価を双対表示から導ける
+definitions:
+  - { id: OTR10-DEF-01, name: Lipschitz半ノルムと正規化 }
+  - { id: OTR10-DEF-02, name: Lipschitz積分差による双対量 }
+theorems:
+  - { id: OTR10-LEM-01, name: Lipschitz検査関数の可積分性と弱双対 }
+  - { id: OTR10-LEM-02, name: 有限原子測度のLipschitz双対 }
+  - { id: OTR10-THM-01, name: Kantorovich–Rubinstein双対定理 }
+  - { id: OTR10-COR-01, name: Lipschitz写像によるW1評価 }
+canonical_examples:
+  - 二点空間で輸送行列とLipschitz検査関数の証明書を一致させる
+  - 一点測度へのW1を距離関数で正確に検出する
+  - 狭義収束するがW1収束しない遠方への消失質量
+  - 有界な検査関数だけでは遠距離輸送を測れない例
+problem_patterns:
+  - OTR10-A01
+  - OTR10-A02
+  - OTR10-A03
+  - OTR10-A04
+  - OTR10-A05
+  - OTR10-B01
+  - OTR10-B02
+  - OTR10-B03
+  - OTR10-B04
+  - OTR10-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
