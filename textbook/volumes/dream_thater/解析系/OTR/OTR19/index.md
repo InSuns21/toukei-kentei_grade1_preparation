@@ -10,7 +10,7 @@
 
 [OTR18の運動作用](../OTR18/index.md#def-otr18-kinetic-speed)は速度場 $v$ に対して $\int|v|^2d\mu_tdt$ でした。密度 $\rho(t,x)$ があるなら質量が単位時間に運ばれる流束は $m=\rho v$ です。これを代入すると $\rho|v|^2=|m|^2/\rho$ になります。しかし $\rho=0$ の場所では、そのままでは割り算ができません。また移動Dirac測度には、そもそも Lebesgue 密度 $\rho(t,x)$ がありません。
 
-そこでまず、空間と時間を合わせた領域 $Q=(0,1)\times\mathbb R^d$ の**測度**として質量と流束を扱います。$dt\,d\mu_t(x)$ は、集合 $B\subset Q$ について $\int_0^1\mu_t(\{x:(t,x)\in B\})dt$ を与える空間時間測度です。ベクトル値測度は各成分が有限符号付き測度であるものとし、$|m|$ はその全変動測度を表します。
+そこでまず、空間と時間を合わせた領域 $Q=(0,1)\times\mathbb R^d$ の**測度**として質量と流束を扱います。$dt\,d\mu_t(x)$ は、集合 $B\subset Q$ について $\int_0^1\mu_t(\{x:(t,x)\in B\})dt$ を与える空間時間測度です。ベクトル値測度は各成分が有限符号付き測度であるものとし、$|\boldsymbol m|$ はベクトル値測度 $\boldsymbol m$ の全変動測度を表します。後に密度が存在する場合の流束密度を $m(t,x)$ と書き、測度 $\boldsymbol m$ と区別します。
 
 <a id="def-otr19-spacetime"></a>
 
@@ -228,6 +228,8 @@ $$
 
 逆向きには、[OTR3の存在定理](../OTR3/index.md#thm-otr3-polish)で得られる二次費用の最適結合 $\pi$ を用います。$\pi$ は始点 $x$ と終点 $y$ の組の確率分布で、周辺は $\mu_0,\mu_1$ です。各組を $X_t(x,y)=(1-t)x+ty$ と直線補間します。これが[OTR15の変位補間](../OTR15/index.md#def-otr15-displacement-interpolation)でした。
 
+$\partial_tX_t(x,y)=y-x$ は $x,y$ を固定して時間 $t$ で微分した粒子速度です。一方、後で用いる $v(t,z)$ は時刻と**現在位置** $z$ に対応する速度場です。複数の粒子が同じ $z$ に来る場合、二者はそのまま同じ関数にはなりません。
+
 <a id="lem-otr19-upper"></a>
 
 <!-- formal-statement-start -->
@@ -280,9 +282,35 @@ $$
 
 これが許容対の弱式です。
 
-**(3) 有限作用。** $\boldsymbol\rho$-零集合 $E\subset Q$ には $\int_0^1\int\boldsymbol1_E(t,X_t)d\pi dt=0$ なので、$\boldsymbol m(E)=0$ です。従って $\boldsymbol m\ll\boldsymbol\rho$ であり $d\boldsymbol m=v\,d\boldsymbol\rho$ と書けます。$v(t,z)$ は $X_t=z$ を満たす粒子速度 $y-x$ の条件付き平均です。
+**(3) 有限作用。** $\Theta(dt,dx,dy)=dt\,d\pi(x,y)$ とし、$F(t,x,y)=(t,X_t(x,y))$ と置きます。$F_\#\Theta=\boldsymbol\rho$ です。$\boldsymbol\rho$-零集合 $E\subset Q$ では
 
-条件付き平均の Jensen 不等式を $|\cdot|^2$ に適用すると
+$$
+|\boldsymbol m|(E)\le\int\boldsymbol1_E(F(t,x,y))|y-x|\,d\Theta=0
+$$
+
+なので $\boldsymbol m\ll\boldsymbol\rho$ です。Radon–Nikodym 密度 $v=d\boldsymbol m/d\boldsymbol\rho$ は、同じ $(t,z)=F(t,x,y)$ を持つ粒子速度 $Y=y-x$ の条件付き平均に当たります。実際、どの有界 Borel ベクトル場 $\Phi$ についても
+
+$$
+\int\Phi(F)\cdot Y\,d\Theta
+=\int_Q\Phi\cdot d\boldsymbol m
+=\int_Q\Phi\cdot v\,d\boldsymbol\rho
+$$
+
+です。この関係と二乗の非負性から、条件付き平均が二乗作用を増やさないことを直接確かめます。各粒子について
+
+$$
+2\Phi(F)\cdot Y-|\Phi(F)|^2
+=|Y|^2-|Y-\Phi(F)|^2\le|Y|^2
+$$
+
+なので、両辺を $\Theta$ で積分し、上の等式を代入します。$\Phi_R=v\boldsymbol1_{\{|v|\le R\}}$（$R>0$）を選ぶと
+
+$$
+\int_{\{|v|\le R\}}|v|^2d\boldsymbol\rho
+\le\int|Y|^2d\Theta.
+$$
+
+$R\to\infty$ の単調収束により $v\in L^2(\boldsymbol\rho)$ です。よって[有限作用と速度場の同値](#lem-otr19-velocity)を適用でき、
 
 $$
 \begin{aligned}
@@ -293,7 +321,7 @@ $$
 \end{aligned}
 $$
 
-ここで一行目は[有限作用と速度場の同値](#lem-otr19-velocity)の有限側の計算であり、二行目で右辺が有限なため $v\in L^2(\boldsymbol\rho)$ となります。$\square$
+一行目はその補題、二行目は上で示した不等式、三行目は時間区間が長さ $1$ であることによります。$\square$
 <!-- proof-end -->
 
 ## 5. 二つの定式化の一致
@@ -335,20 +363,32 @@ $$
 
 ## 6. 密度表示はいつ正当化できるか
 
-教科書でよく見る式は、質量密度を $\rho(t,x)$、流束密度を $m(t,x)$ と書いた次の形です。
+教科書でよく見る式は、質量密度を $\rho(t,x)$、流束密度を $m(t,x)$ と書いた形です。**出発測度が $\mu_0\ll\mathcal L^d$ を満たす場合**には、測度表示の最小値を密度表示に制限しても変わらず、正確には端点条件を含む次の等式になります。
 
 $$
+\begin{aligned}
 W_2(\mu_0,\mu_1)^2
-=\inf\left\{\int_0^1\int_{\mathbb R^d}
-\frac{|m(t,x)|^2}{\rho(t,x)}dxdt:
-\partial_t\rho+\nabla\cdot m=0\right\}.
+&=\inf\biggl\{\int_0^1\int_{\mathbb R^d}
+\frac{|m(t,x)|^2}{\rho(t,x)}\,dx\,dt:\\
+&\qquad(\boldsymbol\rho,\boldsymbol m)\text{ は端点 }\mu_0,\mu_1\text{ の許容対},\\
+&\qquad d\boldsymbol\rho=\rho(t,x)\,dt\,dx,\quad
+d\boldsymbol m=m(t,x)\,dt\,dx\biggr\}.
+\end{aligned}
 $$
 
-端点が密度を持つ設定では、この式の端点条件を $\rho(0,\cdot)dx=\mu_0$、$\rho(1,\cdot)dx=\mu_1$ と読み、真空は[流体作用の定義](#def-otr19-fluid-action)の規約で扱います。ただし端点が原子測度なら、端点を含めた通常の密度表示は不可能です。また、すべての中間時刻で密度があることを無条件に要求してもいけません。**定理の一般形は測度対についての最小値**であり、密度表示は条件付きの簡約です。
+ここで許容対には[弱い保存則と両端点の条件](#def-otr19-admissible)が含まれ、密度表示での保存則は分布の意味で $\partial_t\rho+\nabla\cdot m=0$ です。端点も密度を持つ場合は $\rho(0,\cdot)dx=\mu_0$、$\rho(1,\cdot)dx=\mu_1$ と読めますが、終点が原子測度の場合は $t=1$ の密度を要求せず、測度曲線の端点を $\mu_1$ として指定します。真空は[流体作用の定義](#def-otr19-fluid-action)の規約で扱います。**定理の一般形は測度対についての最小値**であり、出発測度にも密度を仮定できない場合、この密度表示の等式をそのまま主張してはいけません。
 
 例えば $\mu_0=\delta_0$、$\mu_1=\delta_1$ では最小曲線 $\mu_t=\delta_t$ は $dt\,dx$ に関して特異であり、$\rho(t,x)$ は存在しません。それでも測度形式の作用は $1$ です。
 
-一方、$\mu_0$ が Lebesgue 測度に絶対連続なら、最適な動的対は $0\le t<1$ で密度を持つように構成できます。[Brenier定理](../OTR13/index.md#thm-otr13-brenier)で最適結合は $(\mathrm{id},T)_\#\mu_0$ と書け、$T$ は凸関数の勾配です。$t<1$ に対する補間写像 $F_t(x)=(1-t)x+tT(x)$ は、勾配の単調性を使って
+実際、$\mu_0$ が Lebesgue 測度に絶対連続なら、最適な動的対は $0\le t<1$ で密度を持つように構成できます。[Brenier定理](../OTR13/index.md#thm-otr13-brenier)で最適結合は $(\mathrm{id},T)_\#\mu_0$ と書け、$T$ は凸関数の勾配です。
+
+$A$ を $T=\nabla\varphi$ が成り立つ $\mu_0$-全測度集合とします。[凸劣微分の巡回単調性](../OTR12/index.md#prop-otr12-subdifferential-cyclic)を二点 $x,y\in A$ に適用すると、次の単調性が従います。
+
+$$
+(T(x)-T(y))\cdot(x-y)\ge0.
+$$
+
+$t<1$ に対する補間写像 $F_t(x)=(1-t)x+tT(x)$ は、従って
 
 $$
 \begin{aligned}
@@ -358,7 +398,11 @@ $$
 \end{aligned}
 $$
 
-従って $|F_t(x)-F_t(y)|\ge(1-t)|x-y|$。$\mu_0$-零集合を除いた定義域上で $F_t$ は単射であり、像から元への逆写像は $1/(1-t)$-Lipschitz です。Lipschitz 写像は Lebesgue 零集合を零集合へ写すため、$\mu_t=(F_t)_\#\mu_0$ も $t<1$ で絶対連続です。こうして $dt$-ほとんどすべての時刻で $\boldsymbol\rho=\rho(t,x)dtdx$、$\boldsymbol m=m(t,x)dtdx$ と書け、$m=\rho v$ なら
+従って $|F_t(x)-F_t(y)|\ge(1-t)|x-y|$。$A$ 上で $F_t$ は単射であり、像 $F_t(A)$ から $A$ への逆写像は $L=1/(1-t)$-Lipschitz です。
+
+Lipschitz 写像が Lebesgue 零集合を零集合へ写す理由も確認します。零集合を一辺の長さ $\ell_j$ の立方体で覆い、$\sum_j\ell_j^d<\varepsilon$ とします。$L$-Lipschitz 写像による各立方体内の点の像は直径 $L\sqrt d\,\ell_j$ 以下なので、像を覆う球の体積和は $C_dL^d\varepsilon$ 以下です。$\varepsilon\downarrow0$ で像の外測度は $0$ です（定義域が立方体の一部に限られていても同じです）。
+
+従って Lebesgue 零集合 $N$ に対し $F_t^{-1}(N)\cap A$ は逆写像による $N\cap F_t(A)$ の像なので零集合です。$\mu_0\ll\mathcal L^d$ から $\mu_t(N)=\mu_0(F_t^{-1}(N))=0$ となり、$t<1$ で $\mu_t$ も絶対連続です。こうして $dt$-ほとんどすべての時刻で $d\boldsymbol\rho=\rho(t,x)dt\,dx$、$d\boldsymbol m=m(t,x)dt\,dx$ と書け、$m=\rho v$ なら
 
 $$
 \mathscr A=\int_0^1\int_{\mathbb R^d}\frac{|m|^2}{\rho}dxdt.
@@ -565,7 +609,7 @@ $$
 1-(1-2\theta)^2=4\theta(1-\theta)\ge0.
 $$
 
-$\theta=1/2$ なら平均流束は $0$ で作用も $0$ です。ただし $\mu_t=\delta_0$ に非零定数流束を与えると[前問](#def-otr19-admissible)の試験関数によって弱い保存則に反します。作用の凸性は保存則とは別の数学的性質です。
+$\theta=1/2$ なら平均流束は $0$ で作用も $0$ です。一方、$\theta\ne1/2$ では前問と同様に $\varphi(t,x)=x\chi(x)$（$\chi\in C_c^1$ は $0$ の近くで $1$）を試験すると、[許容対の弱式](#def-otr19-admissible)の左辺は $0$、右辺は $1-2\theta\ne0$ です。従って $\theta\ne1/2$ の対は許容対でなく、$\theta=1/2$ の対のみ静止した測度の許容対です。作用の凸性は保存則とは別の数学的性質です。
 <!-- solution-end -->
 
 ### OTR19-B02 Gaussianの伸縮を密度で確かめる
