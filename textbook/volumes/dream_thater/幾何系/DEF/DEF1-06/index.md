@@ -221,7 +221,7 @@ $$
 
 と置く。全次数とは、例えば $s_1^2s_2$ を次数3と数える規約である。以降の作用素は係数形式ごとに作用する。
 
-前章の[Maurer–Cartan方程式](../DEF1-03/index.md#thm-def1-03-maurer-cartan)を $d\phi+\tfrac12[\phi,\phi]=0$ と書く。調和ゲージの $d^*\phi=0$ は、[直前の縮約恒等式](#lem-def1-06-homotopy)により $h\phi=Gd^*\phi=0$ も意味する。恒等式を $\phi$ へ使えば
+前章の[Maurer–Cartan方程式](../DEF1-03/index.md#thm-def1-03-maurer-cartan)を $d\phi+\tfrac12[\phi,\phi]=0$ と書く。調和ゲージの $d^*\phi=0$ は、先ほど示した [$Gd^*=d^*G$](#lem-def1-06-homotopy) により $h\phi=Gd^*\phi=0$ も意味する。さらに同じ補題の $dh+hd=I-H$ を $\phi$ へ使えば
 
 $$
 \phi-H\phi=dh\phi+hd\phi=hd\phi
