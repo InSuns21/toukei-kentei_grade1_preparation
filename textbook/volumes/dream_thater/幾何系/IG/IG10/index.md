@@ -66,7 +66,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（双対測地線の直交）**  
-> 上記の双対平坦構造で $P,Q,R\in U$ とし、$\eta_Q$ から $\eta_R$ への線分が $V$ に含まれるとする。$Q\to P$ の e-測地線と $Q\to R$ の m-測地線が **$Q$ で直交**するとは、それらの $Q$ での接ベクトルが Hessian 計量 $g_Q$ で直交すること、すなわち次の等式を満たすことをいう。
+> 空でない開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ が正定値 Hessian を持つとする。$\eta=\nabla\psi(\theta)$、$V=\eta(U)$、$g_Q=\nabla^2\psi(\theta_Q)$ とし、点 $P,Q,R$ の $\theta$ 座標を $\theta_P,\theta_Q,\theta_R\in U$ で表す。$\eta_Q$ から $\eta_R$ への線分が $V$ に含まれるとする。[IG8 の e/m 測地線](../IG8/index.md#def-ig8-em-geodesic)として $Q\to P$ の e-測地線と $Q\to R$ の m-測地線が **$Q$ で直交**するとは、それらの $Q$ での接ベクトルが Hessian 計量 $g_Q$ で直交すること、すなわち次の等式を満たすことをいう。
 
 $$
 g_Q\bigl(\theta_P-\theta_Q,\ g_Q^{-1}(\eta_R-\eta_Q)\bigr)
@@ -93,7 +93,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（一般化 Pythagoras の等式）**  
-> 第0節の $U,\psi$ と点 $P,Q,R\in U$ を取る。$Q\to P$ の e-線分と $Q\to R$ の m-線分が定義され、第1節の意味で直交するとき、
+> 開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ の Hessian が正定値であるとする。$\eta=\nabla\psi$、$V=\eta(U)$、$g_Q=\nabla^2\psi(\theta_Q)$、$\mathcal D(P:Q)=D_\psi(\theta_P:\theta_Q)$ と定める。点 $P,Q,R$ の $\theta$ 座標は $\theta_P,\theta_Q,\theta_R\in U$ とする。$Q\to P$ の e-線分と $Q\to R$ の m-線分が定義され、[直交の定義](#def-ig10-dual-orthogonality)の意味で直交するとき、
 
 $$
 \mathcal D(P:R)=\mathcal D(P:Q)+\mathcal D(Q:R).
@@ -164,7 +164,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（e/m 情報射影）**  
-> $Z\in U$ を固定する。$\theta$-凸集合 $C_e\subset U$ に対して、$Q\in C_e$ が
+> 空でない開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ の Hessian が正定値であるとする。双対座標・ポテンシャルと divergence を
+
+$$
+\begin{aligned}
+\eta&=\nabla\psi(\theta),& V&=\eta(U),\\
+\varphi(\eta)&=\theta(\eta)\cdot\eta-\psi(\theta(\eta)),
+&\mathcal D(P:Z)&=D_\psi(\theta_P:\theta_Z)
+\end{aligned}
+$$
+
+> と置き、点 $P,Q,Z$ をそれぞれの $\theta$ 座標で $U$ の元と同一視する。$Z\in U$ を固定し、$\theta$-凸集合 $C_e\subset U$ に対して $Q\in C_e$ が
 
 $$
 Q=\operatorname*{arg\,min}_{P\in C_e}\mathcal D(P:Z)
@@ -266,7 +276,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（情報射影の存在と一意性の十分条件）**  
-> 第4節の $W,F,z$ と非空凸集合 $C\subset W$ を取る。次のいずれかを仮定する。
+> $W\subset\mathbb R^d$ を開凸、$F\in C^2(W)$ を正定値 Hessian を持つ関数、$z\in W$、$C\subset W$ を非空凸集合とする。次のいずれかを仮定する。
 >
 > 1. $C$ は $\mathbb R^d$ 内でコンパクトである。
 > 2. $W=\mathbb R^d$、$C$ は $\mathbb R^d$ 内で閉じた集合であり、$p\in C$、$\|p\|\to\infty$ なら $D_F(p:z)\to\infty$ となる。
