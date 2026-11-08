@@ -455,7 +455,20 @@ $q_j=2\beta^j$ で繰り返せば $\|v\|_{q_N}\le H\prod_{j=0}^{N-1}(2C\beta^j)^
 $t_k$ が可解で $t_k\to t_*$、$\bar\varphi_{t_k}=0$ とする。前章と本章で証明済みの一様評価を列挙し、その評価だけでは $\omega_{\varphi_{t_k}}>0$ の極限の正値性や $C^2$ コンパクト性を保証できない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** [Green核の上限・$L^1$ 評価](../YAU1-06/index.md#thm-yau1-06-upper-l1)から $0\le\sup\varphi_{t_k}\le C_0$、$\int|\varphi_{t_k}|\le2VC_0$ が同じ定数で得られる。[Moser反復による一様C0評価](#thm-yau1-07-moser)により $\inf\varphi_{t_k}\ge-M$ なので $\|\varphi_{t_k}\|_\infty\le\max\{C_0,M\}$。また[前章のLaplacian片側下界](../YAU1-06/index.md#prop-yau1-06-laplacian-lower)は $\Delta_\omega\varphi_{t_k}>-2n$。しかしこれらは $\partial\bar\partial\varphi_{t_k}$ の各固有値に一様な上界を与えない。例えば正値行列の積が固定されても一方の固有値が巨大で他方が小さくなり得る。二階評価と計量の双側評価を証明するまでは、極限の楕円性・正値性と $C^2$ 収束を導けず、閉性は未証明である。
+**詳細解答。** [Green核の上限・$L^1$ 評価](../YAU1-06/index.md#thm-yau1-06-upper-l1)、[Moser反復による一様C0評価](#thm-yau1-07-moser)、[前章のLaplacian片側下界](../YAU1-06/index.md#prop-yau1-06-laplacian-lower)を順に適用すると、同一の定数 $C_0,M$ を用いて
+
+$$
+0\le\sup_X\varphi_{t_k}\le C_0,\qquad
+\int_X|\varphi_{t_k}|d\mu\le2VC_0,
+$$
+
+$$
+\inf_X\varphi_{t_k}\ge-M,\qquad
+\|\varphi_{t_k}\|_\infty\le\max\{C_0,M\},\qquad
+\Delta_\omega\varphi_{t_k}>-2n
+$$
+
+を得る。しかし、これだけでは複素Hessianの固有値に上界がない。複素次元 $n\ge2$ では、例えば正値行列 $\operatorname{diag}(R,R^{-1},1,\ldots,1)$ は行列式 $1$ を保ちながら $R\to\infty$ で最大固有値が発散する。ポテンシャルの値を抑えるだけではその二階微分の一様制御を結論できない。次の二階評価で計量の双側評価を得てからでなければ、極限の一様楕円性と $C^2$ コンパクト性は未証明であり、閉性もまだ示せない。
 <!-- solution-end -->
 
 ## 7. 次章へ：値の制御から二階微分へ
