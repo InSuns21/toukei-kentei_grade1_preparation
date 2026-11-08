@@ -1,0 +1,62 @@
+chapter: OTR9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR8
+
+concepts:
+  - id: transport.wasserstein-convergence
+    name: Wasserstein収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Wasserstein収束）"]
+    requires: [transport.wasserstein-metric]
+
+  - id: transport.wasserstein-convergence-necessary
+    name: Wasserstein収束の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Wasserstein収束の必要条件）"]
+    requires: [transport.wasserstein-convergence, transport.wasserstein-metric]
+
+  - id: transport.narrow-near-diagonal-coupling
+    name: 狭義収束から近接結合を構成する
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（狭義収束から近接結合を構成する）"]
+    requires: [transport.coupling]
+
+  - id: transport.uniform-p-tail
+    name: 狭義収束と積分収束からの一様な尾部評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（狭義収束と積分収束からの一様な尾部評価）"]
+    requires: [prob.probability-measure]
+
+  - id: transport.wasserstein-convergence-criterion
+    name: Wasserstein収束の特徴付け
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Wasserstein収束の特徴付け）"]
+    requires: [transport.wasserstein-convergence-necessary, transport.narrow-near-diagonal-coupling, transport.uniform-p-tail]
+
+  - id: transport.countable-gluing
+    name: 可算列の結合
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（可算列の結合）"]
+    requires: [transport.gluing-lemma]
+
+  - id: transport.wasserstein-completeness
+    name: Wasserstein空間の完備性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Wasserstein空間の完備性）"]
+    requires: [transport.countable-gluing, transport.wasserstein-metric]
+
+  - id: transport.wasserstein-separability
+    name: Wasserstein空間の可分性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Wasserstein空間の可分性）"]
+    requires: [transport.wasserstein-metric]
