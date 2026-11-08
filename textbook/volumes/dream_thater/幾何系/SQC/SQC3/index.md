@@ -39,7 +39,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$[K_i:K_{i-1}]=1$ なら $K_i=K_{i-1}$ であり、主張はそのままです。次数が $2$ なら $\beta\in K_i\setminus K_{i-1}$ を取り、$K_{i-1}$ 上の[最小多項式](../../../代数系/FLD/FLD1/index.md#def-fld1-minimal-polynomial)を $X^2+bX+c$ と書きます。$\beta\in\mathbb R$ なので
+$[K_i:K_{i-1}]=1$ なら $K_i=K_{i-1}$ であり、主張はそのままです。次数が $2$ なら $\beta\in K_i\setminus K_{i-1}$ を取り、$K_{i-1}$ 上の[代数的元の最小多項式](../../../代数系/FLD/FLD1/index.md#def-fld1-minimal-polynomial)を $X^2+bX+c$ と書きます。$\beta\in\mathbb R$ なので
 
 $$
 (2\beta+b)^2=b^2-4c=:d.
@@ -224,9 +224,15 @@ $$
 
 なので、左辺の平方根は $M$ に添加済みの $\sqrt{(\tau\circ\sigma)(d_i)}$ の正負いずれかです。従って $\tau(M)\subset M$。しかも $\tau$ は有限次元 $\mathbb Q$-ベクトル空間 $M$ 上の単射なので、像の次元も $[M:\mathbb Q]$ となり、$\tau(M)=M$ です。
 
-正規性をここから確かめます。$p\in\mathbb Q[X]$ を既約多項式とし、$\beta\in M$ がその根であるとします。$p$ の任意の複素根 $\beta'$ に対し、$\beta\mapsto\beta'$ は $\mathbb Q(\beta)$ から $\mathbb C$ への埋め込みです。[有限代数拡大上への埋め込み延長](../../../代数系/FLD/FLD2/index.md#thm-fld2-finite-field-map)により $M$ 全体への埋め込み $\tau$ に延長でき、先ほどの $\tau(M)=M$ から $\beta'=\tau(\beta)\in M$ です。従って $p$ の全根が $M$ に入り、[正規拡大の定義](../../../代数系/FLD/FLD2/index.md#def-fld2-conjugate-root-closure)を満たします。
+正規性をここから確かめます。$p\in\mathbb Q[X]$ を既約多項式とし、$\beta\in M$ がその根であるとします。$p$ の任意の複素根 $\beta'$ に対し、$\beta\mapsto\beta'$ は $\mathbb Q(\beta)$ から $\mathbb C$ への埋め込みです。
 
-恒等埋め込みも $\sigma$ の一つなので $K_i\subset M$ です。よって正規閉包の最小性から $N_i\subset M$。逆に、$N_i$ は $N_{i-1}$ を含みます。各 $\sigma:K_{i-1}\hookrightarrow\mathbb C$ は[有限代数拡大上への埋め込み延長](../../../代数系/FLD/FLD2/index.md#thm-fld2-finite-field-map)によって $K_i$ へ延長でき、その像は $N_i$ に入ります。延長先で $\sqrt{d_i}$ を送った元の二乗は $\sigma(d_i)$ なので、$\sqrt{\sigma(d_i)}$ は符号を除いて $N_i$ に含まれます。従って $M\subset N_i$ です。以上の両包含から $M=N_i$ で、
+[有限代数拡大上への埋め込み延長](../../../代数系/FLD/FLD2/index.md#thm-fld2-finite-field-map)により $M$ 全体への埋め込み $\tau$ に延長できます。先ほどの $\tau(M)=M$ から $\beta'=\tau(\beta)\in M$ です。従って $p$ の全根が $M$ に入り、[正規拡大の定義](../../../代数系/FLD/FLD2/index.md#def-fld2-conjugate-root-closure)を満たします。
+
+恒等埋め込みも $\sigma$ の一つなので $K_i\subset M$ です。よって正規閉包の最小性から $N_i\subset M$ です。
+
+逆に、$N_i$ は $N_{i-1}$ を含みます。各 $\sigma:K_{i-1}\hookrightarrow\mathbb C$ は[有限代数拡大上への埋め込み延長](../../../代数系/FLD/FLD2/index.md#thm-fld2-finite-field-map)によって $K_i$ へ延長でき、その像は $N_i$ に入ります。
+
+延長先で $\sqrt{d_i}$ を送った元の二乗は $\sigma(d_i)$ なので、$\sqrt{\sigma(d_i)}$ は符号を除いて $N_i$ に含まれます。従って $M\subset N_i$ です。以上の両包含から $M=N_i$ で、
 
 $$
 [N_i:\mathbb Q]
@@ -266,7 +272,11 @@ X^2\equiv X+1,\qquad X^3\equiv1,\qquad X^4\equiv X,
 \qquad \overline f\equiv X+X+1=1.
 $$
 
-従って二次因子もありません。次数 $4$ の多項式が可約なら一次または二次因子を持つため、$\overline f$ は既約です。もし $f$ が $\mathbb Q[X]$ 上で可約なら、[Gauss の補題](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)により、モニックな $f$ は $\mathbb Z[X]$ の正次数モニック多項式 $g,h$ の積 $f=gh$ に分解できます。法 $2$ へ還元しても $g,h$ の先頭係数 $1$ は残るため、各次数は下がらず、$\overline f=\overline g\,\overline h$ が可約になります。これは上の既約性に反します。従って $f$ は $\mathbb Q$ 上でも既約で、
+従って二次因子もありません。次数 $4$ の多項式が可約なら一次または二次因子を持つため、$\overline f$ は既約です。
+
+もし $f$ が $\mathbb Q[X]$ 上で可約なら、[Gauss の補題（既約性の移送）](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)により、モニックな $f$ は $\mathbb Z[X]$ の正次数モニック多項式 $g,h$ の積 $f=gh$ に分解できます。
+
+法 $2$ へ還元しても $g,h$ の先頭係数 $1$ は残るため、各次数は下がりません。よって $\overline f=\overline g\,\overline h$ が可約となり、上の既約性に反します。従って $f$ は $\mathbb Q$ 上でも既約で、
 
 $$
 [\mathbb Q(\alpha):\mathbb Q]=4.
@@ -467,7 +477,11 @@ X^4+X+1\equiv X+X+1=1
 \pmod{X^2+X+1}.
 $$
 
-従って既約二次因子もありません。四次可約式は次数の和が $4$ の二つの正次数因子に分かれるため、一方は次数 $1$ または $2$ です。よって $\overline f$ は既約です。もし $f$ が $\mathbb Q[X]$ で可約なら、[Gauss の補題](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)により $f=gh$（$g,h\in\mathbb Z[X]$ は正次数モニック）と書けます。法 $2$ に還元してもモニック性により両因子の次数は変わらず、既約な $\overline f$ が可約になって矛盾します。よって $f$ は $\mathbb Q$ 上既約です。
+従って既約二次因子もありません。四次可約式は次数の和が $4$ の二つの正次数因子に分かれるため、一方は次数 $1$ または $2$ です。よって $\overline f$ は既約です。
+
+もし $f$ が $\mathbb Q[X]$ で可約なら、[Gauss の補題（既約性の移送）](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)により $f=gh$（$g,h\in\mathbb Z[X]$ は正次数モニック）と書けます。
+
+法 $2$ に還元してもモニック性により両因子の次数は変わりません。既約な $\overline f$ が可約になる矛盾から、$f$ は $\mathbb Q$ 上既約です。
 <!-- solution-end -->
 
 **SQC3-B3（三次補助方程式の係数）**  
@@ -478,7 +492,11 @@ $X^4-X-1$ の四根を $a,b,c,d$ とし、$u=ab+cd$、$v=ac+bd$、$w=ad+bc$ と�
 <!-- solution-start -->
 **詳細解答**
 
-$f(X)=(X-a)(X-b)(X-c)(X-d)$ を展開して係数を比較すると、四根の第 $j$ 基本対称式 $e_j$ は $e_1=e_2=0$、$e_3=1$、$e_4=-1$ です。$u+v+w$ は六つの異なる二根積の総和だから $e_2=0$。$uv+uw+vw$ の展開には、一つの根が二度現れる次数 $4$ の単項式が $12$ 個あります。$e_1e_3$ はそれら $12$ 項に $abcd$ を $4$ 個加えたものなので、$uv+uw+vw=e_1e_3-4e_4=4$ です。
+$f(X)=(X-a)(X-b)(X-c)(X-d)$ を展開して係数を比較すると、四根の第 $j$ 基本対称式 $e_j$（$j=1,2,3,4$）は $e_1=e_2=0$、$e_3=1$、$e_4=-1$ です。
+
+$u+v+w$ は六つの異なる二根積の総和だから $e_2=0$ です。
+
+$uv+uw+vw$ の展開には、一つの根が二度現れる次数 $4$ の単項式が $12$ 個あります。$e_1e_3$ はその $12$ 項に $abcd$ を $4$ 個加えたものなので、$uv+uw+vw=e_1e_3-4e_4=4$ です。
 
 $uvw$ は八項を展開すると $(abc)^2+(abd)^2+(acd)^2+(bcd)^2+e_4(a^2+b^2+c^2+d^2)$ となります。前半は $e_3^2-2e_2e_4=1$、後半は $e_4(e_1^2-2e_2)=0$。ゆえに $uvw=1$。従って求める三次式は
 
@@ -516,7 +534,11 @@ $\gamma=\sqrt{\sqrt2}$ なので $\mathbb Q\subset\mathbb Q(\sqrt2)\subset\mathb
 <!-- solution-start -->
 **詳細解答**
 
-(i) $g$ は $5$ に関する [Eisenstein の既約判定](../../../代数系/RNG/RNG4/index.md#thm-rng4-eisenstein)で既約です。$f$ は法 $2$ で $X^4+X+1$ となり、$\mathbb F_2$ 上で根を持たず、唯一の既約二次式 $X^2+X+1$ での剰余も $1$ です。次数 $4$ の可約式は一次または二次因子を持つので、$\overline f$ は既約です。さらに $f$ はモニックなので、[Gauss の補題](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)による整数係数因子への還元を仮定すると、そのモニック因子も法 $2$ で次数を保ち、$\overline f$ の既約性に矛盾します。従って $f$ も $\mathbb Q$ 上既約で、$\gamma$、$\alpha$ はともに次数 $4$ です。
+(i) $g$ は $5$ に関する [Eisenstein の既約判定](../../../代数系/RNG/RNG4/index.md#thm-rng4-eisenstein)で既約です。
+
+$f$ は法 $2$ で $X^4+X+1$ となり、$\mathbb F_2$ 上で根を持ちません。唯一の既約二次式 $X^2+X+1$ での剰余も $1$ です。次数 $4$ の可約式は一次または二次因子を持つので、$\overline f$ は既約です。
+
+さらに $f$ はモニックです。[Gauss の補題（既約性の移送）](../../../代数系/RNG/RNG4/index.md#thm-rng4-gauss-irreducibility)により、$f$ が有理係数で可約なら正次数のモニック整数係数因子を持ちます。これらの因子は法 $2$ で次数を保つため、$\overline f$ の既約性に矛盾します。従って $f$ も $\mathbb Q$ 上既約で、$\gamma$、$\alpha$ はともに次数 $4$ です。
 
 (ii) $\gamma=\sqrt{\sqrt5}$ です。$5>0$、$\sqrt5>0$ なので
 
@@ -527,7 +549,9 @@ $$
 
 という実二次拡大列が存在します。各段の元は[四則演算と平方根の作図](#prop-sqc3-tower-construction)で得られるため、$\gamma$ は作図可能です。
 
-(iii) $f$ は $[1,2]$ 上連続で $f(1)=-1<0<f(2)=13$ だから、[中間値定理](../../../基礎科目/RA/RA2/index.md#thm-ra2-ivt)により $\alpha\in(1,2)$ は存在します。$f$ の四根を $a,b,c,d$ とし、$u=ab+cd$、$v=ac+bd$、$w=ad+bc$ とします。係数比較から四根の基本対称式は $e_1=e_2=0$、$e_3=1$、$e_4=-1$ です。各積を展開すると
+(iii) $f$ は $[1,2]$ 上連続で $f(1)=-1<0<f(2)=13$ だから、[中間値定理](../../../基礎科目/RA/RA2/index.md#thm-ra2-ivt)により $\alpha\in(1,2)$ は存在します。
+
+$f$ の四根を $a,b,c,d$ とし、$u=ab+cd$、$v=ac+bd$、$w=ad+bc$ とします。係数比較から基本対称式は $e_1=e_2=0$、$e_3=1$、$e_4=-1$ です。各積を展開すると
 
 $$
 u+v+w=e_2=0,\qquad
