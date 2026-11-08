@@ -13,7 +13,14 @@
 
 ## 0. 有限モデル、零度数、KL の約束
 
-標本空間を $S=\{1,\ldots,m\}$（$m\ge2$）とし、独立同分布な観測 $X_1,\ldots,X_n$（$n\ge1$）を取ります。値 $i$ の観測回数を $N_i$ とし、$N_i\ge0$、$\sum_iN_i=n$ です。各 $N_i/n$ を並べた分布が経験分布です。モデル $\mathcal M$ は、当面 $p_i>0$ かつ $\sum_i p_i=1$ を満たす確率ベクトルの非空部分集合とします。一般の統計モデルでの正則性と score は[IG1 の正則モデル](../IG1/index.md#def-ig1-finite-parametrization)、[IG4 の指数型表示](../IG4/index.md#def-ig4-natural-chart)を参照してください。
+標本空間を $S=\{1,\ldots,m\}$（$m\ge2$）とし、独立同分布な観測 $X_1,\ldots,X_n$（$n\ge1$）を取ります。値 $i$ の観測回数を $N_i$ とします。各度数を標本数で割ると、経験分布になります。
+
+$$
+N_i\ge0,\qquad \sum_iN_i=n,\qquad
+\widehat q_i=N_i/n.
+$$
+
+モデル $\mathcal M$ は、当面すべての成分が正で総和1の確率ベクトルからなる非空集合とします。一般の統計モデルでの正則性と score は[IG1 の正則モデル](../IG1/index.md#def-ig1-finite-parametrization)、[IG4 の指数型表示](../IG4/index.md#def-ig4-natural-chart)を参照してください。
 
 分布 $q$ には $q_i=0$ を許し、$0\log 0=0$、$0\log(0/p_i)=0$（$p_i>0$）と約束します。したがって
 
@@ -36,7 +43,7 @@ L(p;x_1,\ldots,x_n)=\prod_{r=1}^n p_{x_r}
 =\prod_{i=1}^m p_i^{N_i}.
 $$
 
-> $L(p;x_1,\ldots,x_n)$ を $\mathcal M$ 上で最大にする $p$ が存在するとき、それを **最尤推定分布**（MLE）とする。最大点が存在しないときは、上限値だけがあっても MLE が存在するとは呼ばない。
+> $L(p;x_1,\ldots,x_n)$ を $\mathcal M$ 上で最大にする $p$ が存在するとき、それを **最尤推定分布** とする。この最大化を **最尤推定**（Maximum Likelihood Estimation; MLE）という。最大点が存在しないときは、上限値だけがあっても MLE が存在するとは呼ばない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig11-empirical-mle -->
@@ -341,7 +348,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t$ が凸包の内部にあることから、[有限指数型分布族のモーメント一致と内点 MLE](#thm-ig11-exponential-mle)を適用できます。よって有限で一意の $\widehat\theta$ が存在し、$E_{p^*}F=t$ です。$r_i>0$ なので $p_i^*>0$、従って $p^*\in C_t$ は正の許容分布です。[相対エントロピー最小化定理](#thm-ig11-maxent)の適用条件が揃い、$p^*$ の指数表示とモーメント一致から、その最小点は $p^*$ になります。実際、任意の $p\in C_t$ に対し
+$t$ が凸包の内部にあるので、[有限指数型分布族のモーメント一致と内点 MLE](#thm-ig11-exponential-mle)を適用できます。有限で一意の $\widehat\theta$ が存在し、$E_{p^*}F=t$ です。
+
+また、基準分布の全成分が正なので $p_i^*>0$ です。よって $p^*\in C_t$ は正の許容分布であり、[相対エントロピー最小化定理](#thm-ig11-maxent)の仮定も満たします。この分布が実際に最適であることを、任意の $p\in C_t$ に対して次の等式で確認します。
 
 $$
 D(p\Vert r)-D(p\Vert p^*)-D(p^*\Vert r)
