@@ -21,6 +21,8 @@ $$
 
 [IG6 のアファイン接続](../IG6/index.md#def-ig6-connection-choice)を局所座標 $\theta^i$ で表すと、$\nabla_{\partial_i}\partial_j=\Gamma^k_{ij}\partial_k$ です。基底 $\partial_i=\partial/\partial\theta^i$ について $[\partial_i,\partial_j]=0$ なので、上の定義を二度展開すると
 
+<a id="eq-ig13-curvature-coordinates"></a>
+
 $$
 \begin{aligned}
 R^\nabla(\partial_i,\partial_j)\partial_k
@@ -62,7 +64,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig13-connection-curvatures -->
-**定義の確認**（一次元 Bernoulli 族）。$0<p<1$ の Bernoulli 族で座標を $p$ とすると、[IG7 で求めた接続係数](../IG7/index.md#thm-ig7-alpha-duality)は e では $\Gamma^{e,p}_{pp}=(2p-1)/[p(1-p)]$、m では $\Gamma^{m,p}_{pp}=0$ です。前者は普通零ではありません。しかし一次元の接ベクトル場は $f\partial_p$ で、曲率は最初の二引数について交代的です。したがって $R^{(\alpha)}(\partial_p,\partial_p)\partial_p=0$、多重線形性により **全 $\alpha$ で曲率テンソルは零**です。接続係数が非零でも、曲率は零となり得ます。また一次元では二次元の接平面がないため、Gauss 曲率という値を割り当てません。
+**定義の確認**（一次元 Bernoulli 族）。$0<p<1$ の Bernoulli 族で座標を $p$ とすると、[IG7 で直接計算した接続係数](../IG7/index.md#def-ig7-alpha-connection)は e では $\Gamma^{e,p}_{pp}=(2p-1)/[p(1-p)]$、m では $\Gamma^{m,p}_{pp}=0$ です。前者は普通零ではありません。しかし一次元の接ベクトル場は $f\partial_p$ で、曲率は最初の二引数について交代的です。したがって $R^{(\alpha)}(\partial_p,\partial_p)\partial_p=0$、多重線形性により **全 $\alpha$ で曲率テンソルは零**です。接続係数が非零でも、曲率は零となり得ます。また一次元では二次元の接平面がないため、Gauss 曲率という値を割り当てません。
 <!-- definition-example-end -->
 
 ### 計量双対な二接続で定まる曲率は互いに独立ではない
@@ -142,7 +144,7 @@ p(x;\mu,\sigma)
 \ell=-\frac12\log(2\pi)-\log\sigma-\frac{(x-\mu)^2}{2\sigma^2}.
 $$
 
-まず計量は [IG2 の正規位置尺度計算](../IG2/index.md#def-ig2-fisher-rao-metric)と [IG7 の接続計算](../IG7/index.md#def-ig7-alpha-connection)の出発点に戻って確認します。$z=(X-\mu)/\sigma$ は標準正規で、score と必要なモーメントは
+まず計量は [IG2 の正規位置尺度計算](../IG2/index.md#prop-ig2-normal-information)と [IG7 の接続計算](../IG7/index.md#def-ig7-alpha-connection)の出発点に戻って確認します。$z=(X-\mu)/\sigma$ は標準正規で、score と必要なモーメントは
 
 $$
 \ell_\mu=\frac z\sigma,\quad
@@ -181,7 +183,7 @@ $$
 \partial_\sigma g_{\sigma\sigma}=-\frac4{\sigma^3}.
 $$
 
-Levi-Civita 係数の公式 $\Gamma^k_{ij}=\frac12g^{k\ell}(\partial_i g_{j\ell}+\partial_jg_{i\ell}-\partial_\ell g_{ij})$ に代入します。例えば
+[GEO13 の Levi-Civita 係数公式](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence) $\Gamma^k_{ij}=\frac12g^{k\ell}(\partial_i g_{j\ell}+\partial_jg_{i\ell}-\partial_\ell g_{ij})$ に代入します。例えば
 
 $$
 \Gamma^\mu_{\mu\sigma}
@@ -192,7 +194,7 @@ $$
 =\frac1{2\sigma}.
 $$
 
-残りは $\Gamma^\sigma_{\sigma\sigma}=-1/\sigma$ だけが非零で、下添字の対称性から $\Gamma^\mu_{\sigma\mu}=-1/\sigma$ です。これは [IG7 の具体計算](../IG7/index.md#thm-ig7-alpha-duality)で得た LC 列とも一致します。
+残りは $\Gamma^\sigma_{\sigma\sigma}=-1/\sigma$ だけが非零で、下添字の対称性から $\Gamma^\mu_{\sigma\mu}=-1/\sigma$ です。これは [IG7 の具体計算](../IG7/index.md#def-ig7-alpha-connection)で得た LC 列とも一致します。
 
 曲率の座標公式で $(i,j,k,\ell)=(\mu,\sigma,\sigma,\mu)$ を選ぶと、
 
@@ -235,7 +237,25 @@ $$
 +\frac12\log\left(\frac{\pi}{-\theta_2}\right).
 $$
 
-これは $\int_{\mathbb R}e^{\theta_1x+\theta_2x^2}\,dx$ の平方完成から得ます。母数領域は開凸半平面 $\theta_2<0$、Jacobian は可逆で、十分統計量 $(X,X^2)$ は正規分布のもとで非自明な一次結合が定数になることがないので Fisher 計量は正定値です。対数分配関数はこの領域で滑らかで、微分と積分の交換も正規尾部により局所的に正当化されます。したがって [IG8 の全指数型分布族の双対平坦性](../IG8/index.md#thm-ig8-exponential-dual-flat)の仮定が揃い、$R^e=R^m=0$ です。
+$\theta_2<0$ のもとで平方完成すると
+
+$$
+\theta_2x^2+\theta_1x
+=\theta_2\left(x+\frac{\theta_1}{2\theta_2}\right)^2
+-\frac{\theta_1^2}{4\theta_2},
+$$
+
+となり、Gaussian 積分から上の $\psi$ を得ます。母数領域 $\theta_2<0$ は開凸半平面であり、座標変換の Jacobian は
+
+$$
+\det\frac{\partial(\theta_1,\theta_2)}{\partial(\mu,\sigma)}
+=\det\begin{pmatrix}
+\sigma^{-2}&-2\mu\sigma^{-3}\\0&\sigma^{-3}
+\end{pmatrix}
+=\sigma^{-5}>0.
+$$
+
+したがって内部で滑らかに可逆です。十分統計量 $(X,X^2)$ の非零な一次結合 $aX+bX^2$ は全実数の台上で定数にはならないため、その分散は正です。すなわち任意の $(a,b)\ne(0,0)$ に対して Fisher 行列の二次形式は $\operatorname{Var}(aX+bX^2)>0$ となります。対数分配関数はこの領域で滑らかで、微分と積分の交換も正規尾部により局所的に正当化されます。したがって [IG8 の全指数型分布族の双対平坦性](../IG8/index.md#thm-ig8-exponential-dual-flat)の仮定が揃い、$R^e=R^m=0$ です。
 <!-- proof-end -->
 
 **同じ空間に二つの答えがあるのではありません。** どの接続を用いて問うかが違います。Levi-Civita 曲率は計量の長さ・角度に由来する量、e/m 曲率は指数・混合の「平行」の規則に由来する量です。[IG7 の平均関係](../IG7/index.md#thm-ig7-alpha-duality)は接続の係数に関する線形関係であり、曲率の式には係数の積もあるため、曲率を単純に平均できません。
@@ -293,7 +313,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig13-induced-connections -->
-**定義の確認**（放物面の接射影）。先ほどの $F$ は平坦な $\mathbb R^3$ へ入ります。$u=1,v=0$ では $F_u=(1,0,2)$、$F_v=(0,1,0)$、$F_{uu}=(0,0,2)$ です。接計量は $\operatorname{diag}(5,1)$ なので、$F_{uu}$ の接射影は内積 $\langle F_{uu},F_u\rangle=4$ を使い $(4/5)F_u$ です。射影後の係数 $\Gamma^u_{uu}=4/5$ と、法方向の残り $F_{uu}-(4/5)F_u=(-4/5,0,2/5)$ がどちらも得られます。この残りは $F_u,F_v$ に直交します。接射影と法方向の意味を直接確認できました。
+**定義の確認**（放物面の接射影）。先ほどの $F$ は平坦な $\mathbb R^3$ へ入ります。$u=1,v=0$ では $F_u=(1,0,2)$、$F_v=(0,1,0)$、$F_{uu}=(0,0,2)$ です。まず、これらは母数方向 $\partial_u,\partial_v$ を周囲へ写した接ベクトルなので、[計量の引き戻し](../IG2/index.md#def-ig2-fisher-rao-metric)から接計量の成分は $G_{ij}=\langle F_i,F_j\rangle$ であり、ここでは $G=\operatorname{diag}(5,1)$ です。
+
+接射影を $P(F_{uu})=aF_u+bF_v$ と置くと、残差が両接ベクトルと直交する条件は
+
+$$
+\begin{pmatrix}5&0\\0&1\end{pmatrix}
+\begin{pmatrix}a\\b\end{pmatrix}
+=\begin{pmatrix}\langle F_{uu},F_u\rangle\\\langle F_{uu},F_v\rangle\end{pmatrix}
+=\begin{pmatrix}4\\0\end{pmatrix}.
+$$
+
+よって $a=4/5,b=0$ であり、射影後の係数 $\Gamma^u_{uu}=4/5$ と、法方向の残り $F_{uu}-(4/5)F_u=(-4/5,0,2/5)$ が得られます。残差との内積は $\langle(-4/5,0,2/5),F_u\rangle=-4/5+4/5=0$、$F_v$ に対しても零です。接射影と法方向の意味を、定義の直交条件から直接確認できました。
 <!-- definition-example-end -->
 
 <a id="prop-ig13-induced-metric-connection"></a>
@@ -412,11 +443,11 @@ $F_{uu}=F_{vv}=(0,0,2)$、$F_{uv}=0$ です。周囲の接続係数が零であ�
 $$
 \Gamma^k_{ij}
 =G^{k\ell}\langle F_{ij},F_\ell\rangle
-=4\delta_{ij}G^{k\ell}z_\ell,\qquad
-z=(u,v).
+=4\delta_{ij}G^{k\ell}q_\ell,\qquad
+q=(q_u,q_v)^{\mathsf T}=(u,v)^{\mathsf T}.
 $$
 
-ここで行列積を実行すると
+ここで $i,j,k,\ell\in\{u,v\}$、$\delta_{ij}$ は $i=j$ のとき 1、そうでなければ 0 です。$G^{k\ell}$ は逆行列 $G^{-1}$ の成分で、$\ell$ は和を取る添字、$q_\ell$ は普通の二成分列ベクトルの成分です。行列積を実行すると
 
 $$
 \begin{pmatrix}
@@ -426,7 +457,7 @@ $$
 =\begin{pmatrix}u\\v\end{pmatrix}
 $$
 
-なので $\Gamma^k_{ij}=4\delta_{ij}z^k/W$ です。具体的には
+なので $G^{-1}q=q/W$、すなわち $G^{k\ell}q_\ell=q_k/W$ です。ここでは計量で添字を上げた $q^k$ と書き換えているのではなく、列ベクトル $G^{-1}q$ の第 $k$ 成分を計算しています。よって $\Gamma^k_{ij}=4\delta_{ij}q_k/W$ で、具体的には
 
 $$
 \Gamma^u_{uu}=\Gamma^u_{vv}=\frac{4u}{W},\qquad
@@ -472,7 +503,17 @@ $$
 \ell_\sigma=-\frac1\sigma+\frac{(x-\mu)^2}{\sigma^3}=\frac{z^2-1}{\sigma}.
 $$
 
-したがって $g_{\mu\mu}=E[z^2]/\sigma^2=1/\sigma^2$、$g_{\mu\sigma}=E[z(z^2-1)]/\sigma^2=0$、$g_{\sigma\sigma}=E[z^4-2z^2+1]/\sigma^2=(3-2+1)/\sigma^2=2/\sigma^2$。対角成分はともに正なので Fisher 計量は正定値です。
+score の積の期待値を各成分に取れば
+
+$$
+\begin{aligned}
+g_{\mu\mu}&=E[z^2]/\sigma^2=1/\sigma^2,\\
+g_{\mu\sigma}&=E[z(z^2-1)]/\sigma^2=0,\\
+g_{\sigma\sigma}&=E[z^4-2z^2+1]/\sigma^2=(3-2+1)/\sigma^2=2/\sigma^2.
+\end{aligned}
+$$
+
+交差項は奇数次モーメントの消失によります。対角成分はともに正で交差項は零なので、任意の非零方向 $(a,b)$ の二乗長 $(a^2+2b^2)/\sigma^2$ は正、すなわち Fisher 計量は正定値です。
 <!-- solution-end -->
 
 ### IG13-A02 Levi-Civita 係数の符号
@@ -509,7 +550,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[曲率の座標式](#def-ig13-connection-curvatures)へ $i=\mu,j=\sigma,k=\sigma,\ell=\mu$ を代入します。非零項は
+[曲率の座標式](#eq-ig13-curvature-coordinates)へ $i=\mu,j=\sigma,k=\sigma,\ell=\mu$ を代入します。非零項は
 
 $$
 R^\mu{}_{\sigma\mu\sigma}
@@ -536,7 +577,14 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\theta_2=-1/(2\sigma^2)$ から $\theta_2<0$、$\sigma^2=-1/(2\theta_2)$ です。$\mu=\theta_1\sigma^2=-\theta_1/(2\theta_2)$ と戻せます。よって自然母数領域は $\mathbb R\times(-\infty,0)$ という開凸集合で、変換は内部で滑らかかつ可逆です。十分統計量 $(X,X^2)$ に関する対数分配関数は $\psi=-\theta_1^2/(4\theta_2)+\frac12\log(\pi/(-\theta_2))$ で滑らかです。独立でない二つの十分統計量ですが、$aX+bX^2$ が正規分布の全実数の台上で定数になるのは $a=b=0$ の場合だけなので、その共分散行列は正定値です。したがって最小性・正則性を満たし $R^e=R^m=0$。これは $K=-1/2$ と両立します。
+$\theta_2=-1/(2\sigma^2)$ から $\theta_2<0$、$\sigma^2=-1/(2\theta_2)$ です。$\mu=\theta_1\sigma^2=-\theta_1/(2\theta_2)$ と戻せます。よって自然母数領域は $\mathbb R\times(-\infty,0)$ という開凸集合で、変換は内部で滑らかかつ可逆です。十分統計量 $(X,X^2)$ に関する対数分配関数は
+
+$$
+\psi(\theta)=-\frac{\theta_1^2}{4\theta_2}
++\frac12\log\left(\frac{\pi}{-\theta_2}\right)
+$$
+
+で滑らかです。$X$ と $X^2$ は独立ではありませんが、共分散行列の正定値性には独立性は不要です。任意の非零 $(a,b)$ について $aX+bX^2$ は全実数の台上で定数にならず、その分散が正なので、Fisher 行列は正定値です。[IG8 の双対平坦性定理](../IG8/index.md#thm-ig8-exponential-dual-flat)の最小性・正則性などの条件を満たし $R^e=R^m=0$。これは $K=-1/2$ と両立します。
 <!-- solution-end -->
 
 ### IG13-A05 曲がった正規平均モデルの計量
@@ -548,13 +596,31 @@ $\theta_2=-1/(2\sigma^2)$ から $\theta_2<0$、$\sigma^2=-1/(2\theta_2)$ です
 <!-- solution-start -->
 **詳細解答**
 
-全族の Fisher 行列は $\bar g=I_3$ です。偏微分は $F_u=(1,0,2u)$、$F_v=(0,1,2v)$ なので $G_{uu}=F_u\cdot F_u=1+4u^2$、$G_{uv}=F_u\cdot F_v=4uv$、$G_{vv}=1+4v^2$ です。行列式は
+全族の Fisher 行列は $\bar g=I_3$ です。偏微分は $F_u=(1,0,2u)$、$F_v=(0,1,2v)$ です。[誘導計量の命題](#prop-ig13-induced-metric-connection)ではこれらの接ベクトルの内積が接計量の成分ですから
+
+$$
+G=\begin{pmatrix}
+F_u\cdot F_u&F_u\cdot F_v\\F_v\cdot F_u&F_v\cdot F_v
+\end{pmatrix}
+=\begin{pmatrix}1+4u^2&4uv\\4uv&1+4v^2\end{pmatrix}.
+$$
+
+行列式は
 
 $$
 \det G=(1+4u^2)(1+4v^2)-(4uv)^2=1+4u^2+4v^2>0.
 $$
 
-さらに $G_{uu}>0$ なので、二次形式の平方完成または Sylvester 判定法で $G$ は全域正定値です。一次独立な接ベクトルを Fisher 内積で測った結果と一致します。
+さらに $G_{uu}>0$ と $\det G>0$ なので、二次形式を平方完成すれば
+
+$$
+(a,b)G(a,b)^{\mathsf T}
+=G_{uu}\left(a+\frac{G_{uv}}{G_{uu}}b\right)^2
++\frac{\det G}{G_{uu}}b^2>0
+\quad((a,b)\ne(0,0)).
+$$
+
+これは一次独立な接ベクトルを Fisher 内積で測った結果と一致します。
 <!-- solution-end -->
 
 ### IG13-B01 一様な計量スケールの曲率への影響
@@ -653,14 +719,17 @@ $t=0$ では $\eta'(0)=(1,0,0)$、$\eta''(0)=(0,0,2)$ なので二階微分は�
 1. $X\sim N(\mu,\sigma^2)$、$\mu\in\mathbb R,\sigma>0$。計量 $g_{\mu\mu}=1/\sigma^2$、$g_{\sigma\sigma}=2/\sigma^2$、$g_{\mu\sigma}=0$ を与える。
 2. $X_a\sim N(\eta_a,1)$（$a=1,2,3$、独立）の全平均族から $\eta=(u,v,u^2+v^2)$ に制限した二次元モデル。
 
-(a) 第1モデルで Levi-Civita 係数を求め、$R^\mu{}_{\sigma\mu\sigma}$ から $K$ を計算せよ。(b) 第1モデルが e/m 平坦となる根拠を自然母数領域まで明示せよ。(c) 第2モデルの誘導計量と $\Gamma^u_{vv}$ を求め、原点の $K$ を計算せよ。(d) 「全指数型分布族の e/m 平坦性」「Levi-Civita 曲率」「部分モデルへの誘導」のどの二つを混同すると誤った結論になるか説明せよ。
+1. 第1モデルで Levi-Civita 係数を求め、$R^\mu{}_{\sigma\mu\sigma}$ から $K$ を計算せよ。
+2. 第1モデルが e/m 平坦となる根拠を自然母数領域まで明示せよ。
+3. 第2モデルの誘導計量と $\Gamma^u_{vv}$ を求め、原点の $K$ を計算せよ。
+4. 「全指数型分布族の e/m 平坦性」「Levi-Civita 曲率」「部分モデルへの誘導」のどの二つを混同すると誤った結論になるか説明せよ。
 
 - Level: C
 - 狙い: 接続の選択と部分モデルの制限を同時に扱う統合検算
 <!-- solution-start -->
 **詳細解答**
 
-(a) 逆計量は $\operatorname{diag}(\sigma^2,\sigma^2/2)$。$\partial_\sigma g_{\mu\mu}=-2/\sigma^3$、$\partial_\sigma g_{\sigma\sigma}=-4/\sigma^3$ から
+**(1)** 逆計量は $\operatorname{diag}(\sigma^2,\sigma^2/2)$。$\partial_\sigma g_{\mu\mu}=-2/\sigma^3$、$\partial_\sigma g_{\sigma\sigma}=-4/\sigma^3$ から
 
 $$
 \Gamma^\mu_{\mu\sigma}=\Gamma^\mu_{\sigma\mu}=-\frac1\sigma,\quad
@@ -674,9 +743,9 @@ $$
 K=\frac{(1/\sigma^2)(-1/\sigma^2)}{(1/\sigma^2)(2/\sigma^2)}=-\frac12.
 $$
 
-(b) 自然母数 $\theta_1=\mu/\sigma^2,\theta_2=-1/(2\sigma^2)$ の領域は $\mathbb R\times(-\infty,0)$ で開凸です。逆変換は $\sigma^2=-1/(2\theta_2)$、$\mu=-\theta_1/(2\theta_2)$。固定された十分統計量 $(X,X^2)$ の全指数型表示を持ち、正則・最小で Fisher 計量は正定値です。[全指数型分布族の双対平坦性](../IG8/index.md#thm-ig8-exponential-dual-flat)から $R^e=R^m=0$。これは (a) の $R^{\mathrm{LC}}\ne0$ に反しません。
+**(2)** 自然母数 $\theta_1=\mu/\sigma^2,\theta_2=-1/(2\sigma^2)$ の領域は $\mathbb R\times(-\infty,0)$ で開凸です。逆変換は $\sigma^2=-1/(2\theta_2)$、$\mu=-\theta_1/(2\theta_2)$。固定された十分統計量 $(X,X^2)$ の全指数型表示を持ち、正則・最小で Fisher 計量は正定値です。[全指数型分布族の双対平坦性](../IG8/index.md#thm-ig8-exponential-dual-flat)から $R^e=R^m=0$。これは (1) の $R^{\mathrm{LC}}\ne0$ に反しません。
 
-(c) $F_u=(1,0,2u),F_v=(0,1,2v)$ なので
+**(3)** $F_u=(1,0,2u),F_v=(0,1,2v)$ なので
 
 $$
 G=\begin{pmatrix}1+4u^2&4uv\\4uv&1+4v^2\end{pmatrix},\qquad
@@ -692,7 +761,7 @@ $$
 
 同じ方法で $\Gamma^u_{uv}=0$、原点では他の係数も零。したがって $R^u{}_{vuv}(0)=\partial_u(4u/W)|_0=4$、$G(0)=I_2$ より $K(0)=4$ です。周囲のすべての $\alpha$ 接続は零係数である一方、この部分モデルの誘導接続は非平坦です。
 
-(d) 第1の誤りは e/m の「平坦」を LC の「平坦」と読むことです。曲率を定義する接続が異なります。第2の誤りは全族の係数零をそのまま非線形部分モデルの係数零と読むことです。接射影の式には $F_{ij}$ が残り、その一階変化が (c) の曲率を作ります。いずれも仮定・対象を取り違えた推論であり、数値 $-1/2$ と $4$ が直接の反例です。
+**(4)** 第1の誤りは e/m の「平坦」を LC の「平坦」と読むことです。曲率を定義する接続が異なります。第2の誤りは全族の係数零をそのまま非線形部分モデルの係数零と読むことです。接射影の式には $F_{ij}$ が残り、その一階変化が (3) の曲率を作ります。いずれも仮定・対象を取り違えた推論であり、数値 $-1/2$ と $4$ が直接の反例です。
 <!-- solution-end -->
 
 ## 6. 何が分かったか
