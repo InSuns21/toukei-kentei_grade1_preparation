@@ -14,18 +14,18 @@ $$
 
 正則座標 $z^j=x^j+iy^j$ で $\partial_j=\partial/\partial z^j$、$\partial_{\bar k}=\partial/\partial\bar z^k$ と書く。$j,k$ は $1,\ldots,n$ を動く添字である。
 
-$
+$$
 \omega=i\sum_{j,k=1}^n g_{j\bar k}\,dz^j\wedge d\bar z^k,
 \qquad G=(g_{j\bar k})>0
-$
+$$
 
 と書く。$\varphi_{j\bar k}=\partial_j\partial_{\bar k}\varphi$ は $\varphi$ の複素混合二階微分で、実関数の混合微分の交換と共役から $\overline{\varphi_{j\bar k}}=\varphi_{k\bar j}$ となり、$\Phi=(\varphi_{j\bar k})$ はHermite行列である。ここで $v=\sum_jv^j\partial_j$ を $(1,0)$ 接ベクトルとすると、[正の実 $(1,1)$ 形式の定義](../../KAH/KAH1-02/index.md#def-kah1-02-positive-form)と[係数行列の判定命題](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)により
 
-$
+$$
 -i\,\omega_\varphi(v,\bar v)
 =\sum_{j,k}(g_{j\bar k}+\varphi_{j\bar k})v^j\overline{v^k}>0
 \quad(v\ne0)
-$
+$$
 
 が正値性の正確な意味である。実 $(1,1)$ 形式の評価 $\omega_\varphi(v,\bar v)$ 自体は純虚数なので、不等号で比較するのは $-i$ を掛けた実数値である。以下では「$>0$」をこの正値Hermite形式という意味で用いる。
 
@@ -196,12 +196,12 @@ $$
 
 任意の $(1,0)$ 接ベクトル $v=v^1\partial_1+v^2\partial_2$ について、形式の定義に従う二次形式を平方完成すると
 
-$
+$$
 -i\,\omega_\varphi(v,\bar v)
 =\sum_{j,k}(G_\varphi)_{j\bar k}v^j\overline{v^k}
 =2\left|v^1+\frac{\bar c}{2}v^2\right|^2
 +\left(3-\frac{|c|^2}{2}\right)|v^2|^2.
-$
+$$
 
 従って $G_\varphi>0$ と $|c|^2<6$ は同値である。例えば $c=1$ なら行列式比は $5$、$\mathcal M_{\omega_0}(\varphi)=\log5$ である。ただしこの $\varphi$ は局所例であり、コンパクトなトーラス上の大域周期関数だと主張していない。
 
