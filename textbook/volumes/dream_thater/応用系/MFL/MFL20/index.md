@@ -487,5 +487,3 @@ $$
 - van der Maaten & Hinton (2008), [Visualizing Data using t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html)。対称KL、Student-t核、座標勾配の原著。
 - McInnes, Healy & Melville (2018), [UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction](https://arxiv.org/abs/1802.03426)。局所fuzzy近傍と交差エントロピーの原著。
 - MFL21では近接枝・交差する層・外れ値を同じ入力で比較し、可視化の目的と幾何推定の誤差を分けて検証する。
-
-<!-- DT-REVIEW: MFL20 substantive; four propositions and nine detailed exercise solutions recalculated; separate second-pass reader review by author; see PR for arithmetic and audit evidence. -->
