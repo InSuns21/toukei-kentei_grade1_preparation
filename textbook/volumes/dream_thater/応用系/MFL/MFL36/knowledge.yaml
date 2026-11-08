@@ -1,0 +1,45 @@
+chapter: MFL36
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL35
+forward_references: []
+concepts:
+  - id: manifold-learning.euclidean-special-euclidean-group
+    name: 三次元Euclid群と特殊Euclid群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三次元Euclid群と特殊Euclid群）"]
+    requires: [manifold-learning.geometric-graph, linear.determinant-multiplicativity]
+  - id: manifold-learning.cross-triple-transform
+    name: 内積・ベクトル積・混合積の変換則
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.euclidean-special-euclidean-group]
+  - id: manifold-learning.oriented-tetrahedron-chirality
+    name: 符号付き四面体体積とchirality
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（符号付き四面体体積とchirality）"]
+    requires: [manifold-learning.cross-triple-transform]
+  - id: manifold-learning.tetrahedron-oriented-rigidity
+    name: 非共面四点の距離と向きによる合同判定
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.oriented-tetrahedron-chirality, manifold-learning.distance-congruence]
+  - id: manifold-learning.polar-axial-pseudoscalar
+    name: 極ベクトル・軸ベクトル・擬スカラー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極ベクトル・軸ベクトル・擬スカラー）"]
+    requires: [manifold-learning.cross-triple-transform]
+  - id: manifold-learning.chirality-scalar-no-go
+    name: 距離型スカラー模型の鏡像識別不能性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.equivariant-coordinate-layer, manifold-learning.oriented-tetrahedron-chirality]
+  - id: manifold-learning.se3-cross-product-update
+    name: ベクトル積によるSE(3)等変更新と鏡映での破れ
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.polar-axial-pseudoscalar, manifold-learning.cross-triple-transform]

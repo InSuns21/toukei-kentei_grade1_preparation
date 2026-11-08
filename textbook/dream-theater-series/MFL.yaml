@@ -148,7 +148,7 @@ chapters:
     title: "E(n)等変GNNと座標更新"
   - id: MFL36
     path: textbook/volumes/dream_thater/応用系/MFL/MFL36
-    status: planned
+    status: completed
     title: "E(3) / SE(3)とchirality"
   - id: MFL37
     path: textbook/volumes/dream_thater/応用系/MFL/MFL37
