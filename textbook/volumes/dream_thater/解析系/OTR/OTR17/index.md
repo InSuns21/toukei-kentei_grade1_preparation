@@ -53,7 +53,15 @@ $$
 \qquad(F\in C^1(\overline\Omega;\mathbb R^d)).
 $$
 
-$d=1$ は微積分の基本定理、$d=2$ は[VC4のGreenの流束形](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)、$d=3$ は[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)です。VC4の後者の定理文は3次元なので、$d>3$ では次の座標ごとの計算で拡張します。境界を局所的に $x_d=h(x')$、領域を $x_d<h(x')$ と書き、このグラフ表示が成り立つ範囲にコンパクト支持を持つ $F$ を考えます。$x'=(x_1,\ldots,x_{d-1})$ として、微積分の基本定理と上端の連鎖律から
+$d=1$ は微積分の基本定理、$d=2$ は[VC4のGreenの流束形](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)です。$d=3$ は[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)で証明しました。
+
+VC4の後者の定理文は3次元なので、$d>3$ では座標ごとの計算で拡張します。境界を局所的に $x_d=h(x')$、領域側を $x_d<h(x')$ と書き、このグラフ表示が成り立つ範囲にコンパクト支持を持つ $F$ を考えます。ここで
+
+$$
+x'=(x_1,\ldots,x_{d-1}).
+$$
+
+微積分の基本定理と上端の連鎖律から
 
 $$
 \begin{aligned}
@@ -65,7 +73,15 @@ $$
 \end{aligned}
 $$
 
-第二式では $\partial_{x_i}\int_{-\infty}^{h(x')}F_i(x',z)\,dz$ を $x'$ 全体で積分した項が、コンパクト支持により $0$ になります。一方、このグラフの外向き法線と面積要素は $n\,dS=(-\nabla h,1)\,dx'$ です。成分を足すと境界流束に一致します。$C^1$ 境界を有限個のグラフ表示で覆い、内部と各近傍へ滑らかに分割して足せば一般の公式を得ます。
+第二式では $\partial_{x_i}\int_{-\infty}^{h(x')}F_i(x',z)\,dz$ を $x'$ 全体で積分した項が、コンパクト支持により $0$ になります。
+
+このグラフの外向き法線と面積要素は
+
+$$
+n\,dS=(-\nabla h,1)\,dx'
+$$
+
+です。成分を足すと境界流束に一致します。$C^1$ 境界を有限個のグラフ表示で覆い、内部と各近傍へ滑らかに分割して足せば一般の公式を得ます。
 
 $\rho,j$ が閉領域まで $C^1$ なら、この公式を[VC4の局所保存則から積分保存則](../../../幾何系/VC/VC4/index.md#thm-vc4-local-to-integral)と同様に適用できます。質量の場合に $M_\Omega(t)=\int_\Omega\rho(t,x)\,dx$ と置くと
 
@@ -406,7 +422,9 @@ $$
 \int f(x)\,d\mu_t(x)=\int_K f(X_t(a))\,d\mu_0(a).
 $$
 
-$t_n\to t$ のとき各 $a$ で被積分関数が収束し $|f(X_{t_n}(a))|\le\|f\|_\infty$ なので、支配収束から狭義連続です。$\varphi\in C_c^1$ に対しては、初期点 $a$ を固定して **時刻 $t$ で全微分**します。[PDE1の曲線に沿う連鎖律](../../PDE/PDE1/index.md#prop-pde1-curve-composition)は空間1次元の場合です。ここでは $X_t(a)=(X_t^1(a),\ldots,X_t^d(a))$ と各成分に拡張し、$\partial_tX_t^i(a)=v_i(t,X_t(a))$ を代入します。
+$t_n\to t$ のとき各 $a$ で被積分関数が収束し、$|f(X_{t_n}(a))|\le\|f\|_\infty$ です。よって支配収束から狭義連続です。
+
+$\varphi\in C_c^1$ に対しては、初期点 $a$ を固定して **時刻 $t$ で全微分**します。[PDE1の曲線に沿う連鎖律](../../PDE/PDE1/index.md#prop-pde1-curve-composition)は空間1次元の場合です。ここでは $X_t(a)=(X_t^1(a),\ldots,X_t^d(a))$ と各成分に拡張し、$\partial_tX_t^i(a)=v_i(t,X_t(a))$ を代入します。
 
 $$
 \begin{aligned}
@@ -430,7 +448,15 @@ $$
 D_aX_t(a)=\left(\frac{\partial X_t^i(a)}{\partial a_j}\right)_{1\le i,j\le d}
 $$
 
-と書きます。これは時間微分 $\partial_tX_t(a)=v(t,X_t(a))$ とは別のものです。次の命題では $X_t$ が $C^1$ 級微分同相と仮定します。$J_t(a)=\det D_aX_t(a)>0$ は、[OTR16で説明した体積倍率と密度の関係](../OTR16/index.md#def-otr16-internal-energy)と同じく、正の体積倍率を与えます。実際、多変数の変数変換では $dy=|\det D_aX_t(a)|\,da$ であり、仮定 $J_t>0$ により絶対値を外せます。
+と書きます。これは時間微分 $\partial_tX_t(a)=v(t,X_t(a))$ とは別のものです。
+
+次の命題では $X_t$ が $C^1$ 級微分同相と仮定します。[OTR16で説明した体積倍率と密度の関係](../OTR16/index.md#def-otr16-internal-energy)と同じく、Jacobian
+
+$$
+J_t(a)=\det D_aX_t(a)>0
+$$
+
+が体積倍率を与えます。多変数の変数変換では $dy=|\det D_aX_t(a)|\,da$ であり、正値性によって絶対値を外せます。
 
 <a id="prop-otr17-jacobian"></a>
 
@@ -484,7 +510,21 @@ $$
 =\det A_t\det(I_d+hA_t^{-1}\partial_tA_t),
 $$
 
-また行列式の置換展開で $\det(I_d+hB)=1+h\operatorname{tr}B+O(h^2)$ です。$A_{t+h}=A_t+h\,\partial_tA_t+o(h)$ と合わせ、$h\to0$ とすれば Jacobi の微分公式 $\partial_t\det A_t=\det A_t\operatorname{tr}(A_t^{-1}\partial_tA_t)$ を得ます。これを適用すると、
+また行列式の置換展開と $A_t$ の微分可能性から
+
+$$
+\det(I_d+hB)=1+h\operatorname{tr}B+O(h^2),
+\qquad A_{t+h}=A_t+h\,\partial_tA_t+o(h)
+$$
+
+を得ます。これらを合わせて $h\to0$ とすると、Jacobi の微分公式は
+
+$$
+\partial_t\det A_t
+=\det A_t\operatorname{tr}(A_t^{-1}\partial_tA_t)
+$$
+
+となります。これを適用すると、
 
 $$
 \begin{aligned}
@@ -495,7 +535,15 @@ $$
 \end{aligned}
 $$
 
-中央の等号は $\operatorname{tr}(A^{-1}BA)=\operatorname{tr}(BAA^{-1})=\operatorname{tr}B$（$\operatorname{tr}(PQ)=\operatorname{tr}(QP)$ を成分和で確認できる）によります。$X_0(a)=a$ だから $D_aX_0=I_d$、$J_0=1$ です。よって軌道上の密度は体積倍率の逆数で変わります。$\square$
+中央の等号は $\operatorname{tr}(PQ)=\operatorname{tr}(QP)$（行列の積の成分和）により、
+
+$$
+\operatorname{tr}(A^{-1}BA)
+=\operatorname{tr}(BAA^{-1})
+=\operatorname{tr}B
+$$
+
+となるためです。$X_0(a)=a$ だから $D_aX_0=I_d$、$J_0=1$ です。よって軌道上の密度は体積倍率の逆数で変わります。$\square$
 <!-- proof-end -->
 
 この公式は [OTR16の滑らかな内部エネルギーの定理](../OTR16/index.md#thm-otr16-internal)で用いた密度と Jacobian の関係を、**任意の滑らかな時間発展**へ読み替えたものです。最適輸送写像であることは、この保存則の証明には必要ありません。
