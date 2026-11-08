@@ -21,7 +21,7 @@ $$
 x_i\in\mathbb R^n,\qquad h_i\in\mathbb R^p
 $$
 
-と置く。近傍集合は $\mathcal N(i)=\{j:\{i,j\}\in E\}$ である。「スカラー特徴ベクトル」とは、成分を複数並べても空間の回転時にその成分を回さない特徴であり、空間座標の成分とは区別する。
+と置く。座標と特徴はいずれも列ベクトルとして扱う。近傍集合は $\mathcal N(i)=\{j:\{i,j\}\in E\}$ である。「スカラー特徴ベクトル」とは、成分を複数並べても空間の回転時にその成分を回さない特徴であり、空間座標の成分とは区別する。
 
 [MFL34の剛体運動](../MFL34/index.md#def-mfl34-geometric-graph)を本章の特徴型に拡張する。直交行列の集合を
 
@@ -83,13 +83,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl35-invariant-message -->
-**定義の確認**。$p=1$、$F(a,b,z)=z$ とし、全辺をもつ三角形 $x_1=(0,0)$、$x_2=(2,0)$、$x_3=(0,1)$ を使う。[距離特徴](../MFL34/index.md#def-mfl34-edge-feature)より
+**定義の確認**。$p=1$、全頂点で $h_i\in\mathbb R$ を任意に選び、共有関数を $F(a,b,z)=z$ とする。この関数は特徴 $a,b$ に依存せず、非負の距離二乗を実数へ写す。全辺をもつ三角形 $x_1=(0,0)$、$x_2=(2,0)$、$x_3=(0,1)$ では、[距離特徴](../MFL34/index.md#def-mfl34-edge-feature)より
 
 $$
 m_{12}=m_{21}=4,\quad m_{13}=m_{31}=1,\quad m_{23}=m_{32}=5.
 $$
 
-反射 $Q=\operatorname{diag}(-1,1)$ で $x_2^\star=(-2,0)$ にしても $m_{12}^\star=(-2)^2+0^2=4$ となる。ほかの二辺も長さ二乗が1と5のままであり、各メッセージの不変性を直接確かめられる。
+反射 $Q=\operatorname{diag}(-1,1)$ は $Q^{\mathsf T}Q=I_2$ を満たす。$x_2^\star=(-2,0)$ にしても $m_{12}^\star=(-2)^2+0^2=4$ となる。ほかの二辺も長さ二乗が1と5のままであり、同じ $F$ から作る各メッセージの不変性を直接確かめられる。
 <!-- definition-example-end -->
 
 係数を作る共有関数 $G:\mathbb R^p\to\mathbb R$、スカラー特徴の更新に使う共有関数 $H:\mathbb R^p\times\mathbb R^p\to\mathbb R^p$ を選ぶ。係数 $c_{ij}=G(m_{ij})$ は実数で、正でなくてもよい。座標の更新には原点に依存しない相対差を使う。
@@ -99,7 +99,20 @@ $$
 <!-- formal-statement-start -->
 > **定義（座標・特徴の同時更新層）**
 >
-> 上の有限グラフ、$F$、固定した共有関数 $G,H$ をとり、$c_{ij}=G(m_{ij})\in\mathbb R$ とする。一層の出力を
+> $n,p,N\ge1$、$V=\{1,\ldots,N\}$、自己ループのない無向辺集合 $E$、位置 $x_i\in\mathbb R^n$、スカラー特徴 $h_i\in\mathbb R^p$ をとる。[不変スカラーメッセージ](#def-mfl35-invariant-message)で導入した $F$ と、全辺で共有する関数
+
+$$
+G:\mathbb R^p\to\mathbb R,\qquad
+H:\mathbb R^p\times\mathbb R^p\to\mathbb R^p
+$$
+
+> を選び、各 $j\in\mathcal N(i)$ に対して
+
+$$
+m_{ij}=F(h_i,h_j,\|x_j-x_i\|^2),\qquad c_{ij}=G(m_{ij})\in\mathbb R
+$$
+
+> とする。一層の出力を
 
 $$
 \widehat x_i=x_i+\sum_{j\in\mathcal N(i)}c_{ij}(x_j-x_i),
