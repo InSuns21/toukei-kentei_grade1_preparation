@@ -1,0 +1,54 @@
+chapter: IG4
+scope: dream-theater
+coverage: complete
+prerequisites: [IG3, ML2-03, S1-02]
+concepts:
+  - id: information-geometry.exponential-natural-chart
+    name: 指数型分布族の局所自然座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（指数型分布族の局所自然座標）"]
+    requires: [learning.regular-natural-exponential-family, information-geometry.fisher-information]
+
+  - id: information-geometry.exponential-fisher-hessian
+    name: 指数型分布族の Fisher--Hessian 恒等式
+    aliases: ["Fisher--Hessian 恒等式"]
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（指数型分布族の Fisher--Hessian 恒等式）"]
+    requires: [information-geometry.exponential-natural-chart, learning.log-partition-moment-identity, information-geometry.fisher-information]
+
+  - id: information-geometry.exponential-minimality-definition
+    name: 指数表示の最小性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（指数表示の最小性）"]
+    requires: [learning.regular-natural-exponential-family]
+
+  - id: information-geometry.exponential-minimality
+    name: 最小性・識別可能性と正定値 Fisher 行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最小性・識別可能性と正定値 Fisher 行列）"]
+    requires: [information-geometry.exponential-minimality-definition, information-geometry.exponential-fisher-hessian, information-geometry.fisher-nondegeneracy]
+
+  - id: information-geometry.simplex-mixture-coordinate
+    name: 正の有限単体の混合座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の有限単体の混合座標）"]
+    requires: [information-geometry.positive-simplex, information-geometry.simplex-tangent]
+
+  - id: information-geometry.mixture-family
+    name: 有限単体上の混合型分布族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限単体上の混合型分布族）"]
+    requires: [information-geometry.simplex-mixture-coordinate]
+
+  - id: information-geometry.mixture-affine-fisher
+    name: 混合型分布族のアファイン線分と Fisher 計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（混合型分布族のアファイン線分と Fisher 計量）"]
+    requires: [information-geometry.mixture-family, information-geometry.simplex-fisher-pullback]
