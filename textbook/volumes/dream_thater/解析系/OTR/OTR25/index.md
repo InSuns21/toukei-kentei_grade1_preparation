@@ -31,7 +31,8 @@ $$
 
 最後の $-\varepsilon$ は $\sum P_{ij}=1$ のため最小化解を変えませんが、微分を $\partial [p(\log p-1)]/\partial p=\log p$ と簡単にします。最小値の数値を比較するときはこの定数も含めてください。
 
-**定義の直接例**。$a=b=(1/2,1/2)$、$C_{11}=C_{22}=0$、$C_{12}=C_{21}=1$ では
+<!-- definition-example-start: def-otr25-entropic-primal -->
+**定義の確認**：正則化目的の直接例。$a=b=(1/2,1/2)$、$C_{11}=C_{22}=0$、$C_{12}=C_{21}=1$ では
 
 $$
 P(x)=\begin{pmatrix}x&1/2-x\\1/2-x&x\end{pmatrix},\qquad 0\le x\le1/2.
@@ -52,6 +53,7 @@ x_\varepsilon=\frac{1}{2(1+e^{-1/\varepsilon})},\qquad
 $$
 
 $\varepsilon=1$ では対角が約 $0.365529$、非対角が約 $0.134471$。通常のOTなら対角に $1/2$、非対角に0を置きますが、正則化解は各セルに正の量を置きます。この違いを一般の場合にも証明します。
+<!-- definition-example-end -->
 
 ## 2. 最小解が内側にただ一つある理由
 
@@ -120,6 +122,24 @@ $$
 
 指数形は単に行列を定義した段階では $U(a,b)$ に入るとは限りません。行・列の質量が一致したとき初めて輸送結合になります。また $f_i\mapsto f_i+c$、$g_j\mapsto g_j-c$ は、総質量が両方1なので $D_\varepsilon$ と $P$ を変えません。ポテンシャルの値自体は一意ではなくても、結合が一意であることと両立します。
 
+<!-- definition-example-start: def-otr25-dual-scaling -->
+**定義の確認**：双対スケーリングの直接例。$C_{ij}=0$ で正の周辺 $a,b$ を取ります。$f_i=\varepsilon\log a_i$、$g_j=\varepsilon\log b_j$ を指数形へ代入すると
+
+$$
+u_i=a_i,\qquad v_j=b_j,\qquad K_{ij}=1,\qquad P_{ij}=a_ib_j.
+$$
+
+全セル正で、$\sum_jP_{ij}=a_i$、$\sum_iP_{ij}=b_j$ です。さらに双対値は
+
+$$
+D_\varepsilon(f,g)=\varepsilon\sum_i a_i\log a_i
++\varepsilon\sum_jb_j\log b_j-\varepsilon
+=F_\varepsilon(P).
+$$
+
+最後の等号は $\log(a_ib_j)=\log a_i+\log b_j$ と総質量1から直接計算できます。定義した指数行列が両周辺を満たし、主・双対の値が実際に一致する例です。
+<!-- definition-example-end -->
+
 <a id="thm-otr25-duality"></a>
 
 <!-- formal-statement-start -->
@@ -166,7 +186,7 @@ $$
 よって $f_i=M_{i1}$、$g_j=M_{1j}-M_{11}$ とすれば $M_{ij}=f_i+g_j$ です。$n=1$ または $m=1$ でも同じ式はそのまま成り立ちます。すなわち $P^\varepsilon_{ij}=e^{(f_i+g_j-C_{ij})/\varepsilon}$ となり、不等式が等号を取ります。従って $f,g$ は双対最適解で、強双対性も成立します。逆に等号成立する実行可能な $P$ と $f,g$ は弱双対とこの等しい最適値から共に最適です。$\square$
 <!-- proof-end -->
 
-**直接例**。$C_{ij}=0$ であれば $P_{ij}=a_ib_j$ は全セル正で両周辺が $a,b$ です。$f_i=\varepsilon\log a_i$、$g_j=\varepsilon\log b_j$ とすれば指数表示を満たすので、前定理から最適です。これは輸送費用0でも正則化が独立結合を選ぶという例です。
+輸送費用がどのセルでも0である場合でさえ、正則化が独立結合を唯一の解として選ぶことが分かりました。
 
 ## 4. 交互に周辺を合わせれば本当に収束するか
 
@@ -201,7 +221,8 @@ $$
 > と定める。この値は厳密な実数計算では $\log\sum_k e^{z_k}$ と等しい。
 <!-- formal-statement-end -->
 
-**残差の直接確認**。$K=\left(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right)$、$a=(3/4,1/4)$、$b=(1/2,1/2)$、初期 $v=(1,1)$ とします。行スケーリングは $u=(1/4,1/12)$ なので
+<!-- definition-example-start: def-otr25-residual-lse -->
+**定義の確認**：残差の直接計算。$K=\left(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right)$、$a=(3/4,1/4)$、$b=(1/2,1/2)$、初期 $v=(1,1)$ とします。行スケーリングは $u=(1/4,1/12)$ なので
 
 $$
 Q'=\begin{pmatrix}1/2&1/4\\1/12&1/6\end{pmatrix}.
@@ -214,6 +235,16 @@ Q''=\begin{pmatrix}3/7&3/10\\1/14&1/5\end{pmatrix}.
 $$
 
 列和は確かに $(1/2,1/2)$ に揃いますが、行和は $(51/70,19/70)$ となり、$R_\infty(Q'')=3/140$ です。**列が正確でも輸送多面体にはまだ入っていない**点を確認してください。
+
+log-sum-expについても正の入力 $z_1=\log2$、$z_2=\log3$ を使うと、最大値は $\log3$ なので
+
+$$
+\operatorname{LSE}(\log2,\log3)
+=\log3+\log(2/3+1)=\log5.
+$$
+
+定義式と、指数の和に対数を取った値が直接一致します。
+<!-- definition-example-end -->
 
 <a id="thm-otr25-sinkhorn-convergence"></a>
 
