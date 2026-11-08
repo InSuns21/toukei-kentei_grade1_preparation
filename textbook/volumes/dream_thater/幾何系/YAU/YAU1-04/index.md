@@ -214,7 +214,7 @@ $$
 
 特に同じ右辺に対するKähler形式 $\omega_\varphi$ は一つしかない。この定理は**存在を仮定した一意性**であり、正の解の構成は後続の連続性の方法で扱う。
 
-### もう一つの検算：エネルギー恒等式
+### もう一つの検算：Stokesによる積分の符号
 
 複素Monge–Ampèreの一意性は、[既習の同一類・同一Ricci形式の一意性証明](../../CYG/CYG1-10/index.md#prop-cyg1-10-uniqueness)と同型のStokesの計算でも確認できる。二解に対して $\omega_0=\omega_{\varphi_0}$、$\omega_1=\omega_{\varphi_1}$ と一時的に書き、$u=\varphi_1-\varphi_0$ とする。偶次数の外積は可換なので
 
