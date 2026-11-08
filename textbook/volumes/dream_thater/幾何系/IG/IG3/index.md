@@ -10,7 +10,7 @@
 
 ## 1. 分布間の隔たりには向きがある
 
-分布 $P$ を基準として $Q$ の対数確率を評価すると、[カルバック・ライブラー情報量の定義](../../../解析系/F0/F0-00P7A/index.md#def-f0-00p7a-kl)により、共通支配測度 $mu$ に関する密度 $p,q$ に対して
+分布 $P$ を基準として $Q$ の対数確率を評価すると、[カルバック・ライブラー情報量の定義](../../../解析系/F0/F0-00P7A/index.md#def-f0-00p7a-kl)により、共通支配測度 $\mu$ に関する密度 $p,q$ に対して
 
 $$
 D_{\mathrm{KL}}(P\Vert Q)
@@ -24,7 +24,9 @@ D_{\mathrm{KL}}(p\Vert q)
 =\sum_{x=1}^m p_x\log\frac{p_x}{q_x}
 $$
 
-です。この式で分母が $q_x$ なのは、**第1引数 $p$ の下で**対数比を平均するからです。一般の分布で $P\not\ll Q$ なら $D_{\mathrm{KL}}(P\Vert Q)=+\infty$ と定めます。$P\ll Q$ でも積分が発散すれば $+\infty$ とします。負の部分は $-t\log t\le 1/e$ を $t=p/q$ に適用すれば積分可能なので、$-\infty$ にはなりません。
+です。この式で分母が $q_x$ なのは、**第1引数 $p$ の下で**対数比を平均するからです。
+
+一般の分布では $p=0$ の点の被積分項を0と解釈します。$P\not\ll Q$ なら KL divergence を $+\infty$ と定め、$P\ll Q$ でも積分が発散すれば $+\infty$ とします。実際、$t=p/q$ に対して $-t\log t\le1/e$ を使えば被積分項の負の部分は積分可能なので、値が $-\infty$ になることはありません。
 
 正の有限分布について、$\log t\le t-1$ を $t=q_x/p_x$ に代入すると
 
@@ -76,6 +78,15 @@ $$
 
 を作ります。$\eta=\theta$ は最小点なので一次微分は0のはずです。実際に微分することが、二次項の係数を見つける最短の道です。
 
+ここでは $\theta$ を固定し、第2引数 $\eta=(\eta^1,\ldots,\eta^d)$ だけを動かします。$\partial_{\eta^i}$ は $\eta^i$ に関する偏微分です。[IG1 で導入した座標偏微分](../IG1/index.md#def-ig1-directional-score)で表した $\partial_i p_x(\theta)$ や $\partial_{ij}\log p_x(\theta)$ は、同じパラメータの関数を対角線で評価したものです。具体的な対応は
+
+$$
+\left.\partial_{\eta^i}\log p_x(\eta)\right|_{\eta=\theta}
+=\partial_i\log p_x(\theta)
+$$
+
+であり、左辺では $\theta$ を固定したまま微分してから対角線へ戻します。
+
 <a id="thm-ig3-kl-fisher-hessian"></a>
 <!-- formal-statement-start -->
 > **定理（KL divergence の二次近似と Fisher 計量）**  
@@ -100,7 +111,7 @@ $$
 
 $$
 \partial_{\eta^i}F_\theta(\eta)
-=-\sum_xp_x(\theta)\partial_i\ell_x(\eta).
+=-\sum_xp_x(\theta)\partial_{\eta^i}\ell_x(\eta).
 $$
 
 対角線 $\eta=\theta$ では $p_x\partial_i\ell_x=\partial_i p_x$ だから
@@ -205,7 +216,16 @@ $$
 
 ## 3. 特定の距離関数を離れ、一般の divergence を見る
 
-KL divergence に限らず、二点が一致すると0になり、離れると非負になる滑らかな関数を考えます。ここでは「距離」とは呼びません。非対称でも三角不等式がなくてもよいからです。二つの点を独立に動かすため、引数 $\theta,\eta$ の偏微分を区別します。
+KL divergence に限らず、二点が一致すると0になり、離れると非負になる滑らかな関数を考えます。ここでは「距離」とは呼びません。非対称でも三角不等式がなくてもよいからです。[IG2 で導入した二方向の内積の行列表示](../IG2/index.md#def-ig2-fisher-information)にならい、二点の関数の混合微分から双線形形式を作ります。
+
+二つの点 $\theta=(\theta^1,\ldots,\theta^d)$、$\eta=(\eta^1,\ldots,\eta^d)$ を独立に動かすため、微分を
+
+$$
+\partial_i=\frac{\partial}{\partial\theta^i},
+\qquad \partial'_j=\frac{\partial}{\partial\eta^j}
+$$
+
+と書き分けます。第1引数の微分では $\eta$ を、第2引数の微分では $\theta$ を固定します。
 
 <a id="def-ig3-smooth-divergence"></a>
 <!-- formal-statement-start -->
@@ -220,6 +240,15 @@ $$
 > と置く。正定値である場合には $D$ が **局所計量を誘導する** という。
 <!-- formal-statement-end -->
 
+この成分から方向 $u=(u^i)$、$v=(v^j)$ に対する双線形形式を作る手順は、[IG2 の Fisher 情報行列と二方向の内積](../IG2/index.md#def-ig2-fisher-information)と同じです。標準座標基底 $e_i,e_j$ の値が $g^D_{ij}$ であり、任意の方向では
+
+$$
+B^D_\theta(u,v)=\sum_{i,j=1}^d u^i g^D_{ij}(\theta)v^j,
+\qquad G^D(\theta)=(g^D_{ij}(\theta))_{i,j=1}^d
+$$
+
+となります。ここで正定値とは、全ての $u\ne0$ に対し $B^D_\theta(u,u)>0$ となることです。したがって、定義の確認では $D$ の非負性・対角線上の零・$C^2$ 性に加え、この二次形式の正定値性を調べます。
+
 なぜ「混合微分」に負号を付けるのでしょうか。単純な関数 $D(\theta,\eta)=\tfrac12(\theta-\eta)^2$ では
 
 $$
@@ -232,7 +261,15 @@ $$
 <!-- definition-example-start: def-ig3-smooth-divergence -->
 **定義の確認**
 
-$\Theta=\mathbb R$、$D(\theta,\eta)=(\theta-\eta)^2/2$ を考えます。任意の二点で非負、対角線では0、二変数の多項式なので $C^2$ です。実際に第2引数で微分すると $\partial'_\eta D=\eta-\theta$、続いて第1引数で微分すると $\partial_\theta\partial'_\eta D=-1$ です。従って誘導形式は正定値な $g^D=1$ であり、定義の全条件を満たします。
+$\Theta=\mathbb R$、$D(\theta,\eta)=(\theta-\eta)^2/2$ を考えます。任意の二点で非負、対角線では0、二変数の多項式なので $C^2$ です。一変数ずつなので $\partial'_\eta=\partial/\partial\eta$、$\partial_\theta=\partial/\partial\theta$ と書きます。第2引数で微分してから第1引数で微分すると
+
+$$
+\partial'_\eta D=\eta-\theta,
+\qquad \partial_\theta\partial'_\eta D=-1,
+\qquad g^D=1.
+$$
+
+したがって任意の非零方向 $u$ で $B^D_\theta(u,u)=u^2>0$ となり、定義の全条件を満たします。
 <!-- definition-example-end -->
 
 <a id="thm-ig3-mixed-hessian"></a>
@@ -272,7 +309,7 @@ KL の場合は[KL 二次近似の定理](#thm-ig3-kl-fisher-hessian)で求め�
 
 ### 座標を替えても同じ二次形式になる
 
-局所微分同相 $\theta=\psi(u)$ を用い、$\widetilde D(u,v)=D(\psi(u),\psi(v))$ と置きます。第1引数と第2引数は独立なので、混合微分には二階の $\psi$ に由来する余分な項が出ません。$J^i{}_a=\partial\psi^i/\partial u^a$ と書けば
+局所微分同相 $\theta=\psi(u)$ を用い、$\widetilde D(u,v)=D(\psi(u),\psi(v))$ と置きます。$u,v$ はそれぞれ旧座標の $\theta,\eta$ に対応し、混合微分の際には片方を固定します。そのため第1引数を $u^a$ で、第2引数を $v^b$ で一度ずつ微分しても、二階の $\psi$ に由来する余分な項は出ません。$J^i{}_a(u)=\partial\psi^i(u)/\partial u^a$ と書けば
 
 $$
 \begin{aligned}
@@ -283,7 +320,7 @@ $$
 \end{aligned}
 $$
 
-これは [IG2 の計量変換則](../IG2/index.md#thm-ig2-coordinate-invariance)と同じ $\widetilde G=J^{\mathsf T}GJ$ です。二点の比較という見方から始めても、局所的には座標に依存しない二次形式が得られました。
+これは [IG2 の計量変換則](../IG2/index.md#thm-ig2-coordinate-invariance)と同じ形の $\widetilde G^D=J^{\mathsf T}G^DJ$ です。ここで $G^D$ は一般の divergence から作った行列であり、KL divergence の場合に限って Fisher 行列 $G$ と一致します。二点の比較という見方から始めても、局所的には座標に依存しない二次形式が得られました。
 
 ---
 
@@ -332,7 +369,9 @@ $$
 <!-- definition-example-start: def-ig3-f-divergence -->
 **定義の確認**
 
-$f(t)=(t-1)^2/2$ は $(0,\infty)$ 上の凸関数で $f(1)=f'(1)=0$、$f''(1)=1$ です。$p=(1/2,1/2)$、$q=(1/2+h,1/2-h)$（$|h|<1/2$）なら両分布は正で和が1です。定義に代入すると
+$f(t)=(t-1)^2/2$ は $f''(t)=1>0$ なので[OPT1 の二階微分による凸性判定](../../../応用系/OPT/OPT1/index.md#thm-opt1-hessian-convexity)から $(0,\infty)$ 上で凸です。また $f(1)=f'(1)=0$、$f''(1)=1$ です。
+
+$p=(1/2,1/2)$、$q=(1/2+h,1/2-h)$（$|h|<1/2$）は、両方とも各成分が正で、和が1です。定義に代入すると
 
 $$
 \begin{aligned}
@@ -563,7 +602,7 @@ $$
 K(p,p+h)=0+0\cdot h+\frac12\frac{h^2}{p(1-p)}+o(h^2).
 $$
 
-一方 $S_p(1)=1/p$、$S_p(0)=-1/(1-p)$ の二乗平均は
+一方、[Fisher 情報行列の定義](../IG2/index.md#def-ig2-fisher-information)で使うスコアは $S_p(1)=1/p$、$S_p(0)=-1/(1-p)$ であり、その二乗平均は
 
 $$
 G(p)=p\frac1{p^2}+(1-p)\frac1{(1-p)^2}=\frac1{p(1-p)},
@@ -600,7 +639,20 @@ D(\mu,\nu)
 \end{aligned}
 $$
 
-$\partial_\nu D=(\nu-\mu)/\sigma^2$ だから $-\partial_\mu\partial_\nu D=1/\sigma^2$ です。スコアは $S_\mu=(X-\mu)/\sigma^2$ で、二乗平均は $E[(X-\mu)^2]/\sigma^4=1/\sigma^2$ です。両者は一致します。共通台 $\mathbb R$、Gaussian 型の可積分支配、有限モーメントがあるため、ここでの微分・期待値操作も許されます。
+第1引数は $\mu$、第2引数は $\nu$ なので、順に偏微分すると
+
+$$
+\partial_\nu D=\frac{\nu-\mu}{\sigma^2},
+\qquad -\partial_\mu\partial_\nu D=\frac1{\sigma^2}.
+$$
+
+一方、[Fisher 情報行列の定義](../IG2/index.md#def-ig2-fisher-information)に従うスコアは $S_\mu=(X-\mu)/\sigma^2$ です。その二乗平均は
+
+$$
+E_\mu[S_\mu^2]=\frac{E_\mu[(X-\mu)^2]}{\sigma^4}=\frac1{\sigma^2}
+$$
+
+なので一致します。共通台 $\mathbb R$、Gaussian 型の可積分支配、有限モーメントがあるため、ここでの微分・期待値操作も許されます。
 <!-- solution-end -->
 
 ### IG3-B03 $f$-divergence の局所係数
@@ -681,7 +733,21 @@ $p=(a,b,c)$、$a,b,c>0$、$a+b+c=1$ とし、$h,k$ は十分小さい実数と�
 
    $\sum_i\delta_i=0$ を使うと二次項は1と一致しますが、三次項の係数は $-1/3$ ではなく $-1/6$ です。例えば $a=b=c=1/3$、$h=k=t\ne0$ では $\sum_i\delta_i^3/p_i^2=9(t^3+t^3-8t^3)=-54t^3\ne0$ なので差が実際に現れます。
 
-3. パラメータ $(a,b)$ で $p=(a,b,1-a-b)$ なので接速度は $\partial_a p=(1,0,-1)$、$\partial_b p=(0,1,-1)$ です。[単体からの Fisher 引き戻し](../IG2/index.md#thm-ig2-simplex-pullback)を成分ごとに適用して
+3. パラメータ $(a,b)$ に対して $p=(a,b,1-a-b)$ です。パラメータの標準基底 $(1,0)$、$(0,1)$ を微分 $dp$ で写した二本の接速度は
+
+   $$
+   \partial_a p=(1,0,-1),\qquad \partial_b p=(0,1,-1)
+   $$
+
+   です。$a,b,c>0$ のため[単体からの Fisher 引き戻し](../IG2/index.md#thm-ig2-simplex-pullback)を適用できます。具体的に
+
+   $$
+   g_{aa}=\sum_i\frac{(\partial_a p_i)^2}{p_i}=\frac1a+\frac1c,
+   \quad g_{ab}=\sum_i\frac{(\partial_a p_i)(\partial_b p_i)}{p_i}=\frac1c,
+   \quad g_{bb}=\frac1b+\frac1c.
+   $$
+
+   よって、対称な二方向の内積を座標行列にまとめると
 
    $$
    G(a,b)=\begin{pmatrix}
