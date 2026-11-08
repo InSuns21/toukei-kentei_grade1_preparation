@@ -1,0 +1,37 @@
+id: "IG14"
+title: "情報単調性と Čencov の定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG2
+  - IG3
+official_scope: []
+learning_objectives:
+  - 有限正確率単体上の Markov kernel と確率写像、接ベクトルへの作用を定義し具体例で確認できる
+  - Jensen の不等式から KL divergence のデータ処理不等式を導き、等号条件を判定できる
+  - Fisher--Rao 計量の確率写像下での縮小を証明し、情報が失われる接方向を具体的に計算できる
+  - 復元可能な確率埋め込みの性質を確かめ、単調性が等長性を含意することを説明できる
+  - 有限正単体の計量族に対する Čencov の特徴付けを、対称性・有理分布の分割・連続性から証明できる
+  - 特徴付けの全状態数にわたる仮定と有限次元の射程を、固定部分モデルや無限次元へ混同せず説明できる
+  - α-divergence と f-divergence の情報単調性、Fisher 計量との二次近似、KL の引数順を確認できる
+definitions:
+  - { id: IG14-DEF-01, name: 有限状態の Markov kernel と確率写像 }
+  - { id: IG14-DEF-02, name: Riemann 計量族の情報単調性 }
+  - { id: IG14-DEF-03, name: 復元可能な確率埋め込み }
+  - { id: IG14-DEF-04, name: 有限正分布の α-divergence }
+theorems:
+  - { id: IG14-THM-01, name: 有限状態のデータ処理不等式 }
+  - { id: IG14-THM-02, name: Fisher--Rao 計量の縮小と等号条件 }
+  - { id: IG14-THM-03, name: Čencov の特徴付け：有限正単体の計量族 }
+  - { id: IG14-THM-04, name: f-divergence の情報単調性と局所 Fisher 計量 }
+canonical_examples:
+  - 3状態から2状態への合流と接ベクトルの変換
+  - 2状態を1状態へまとめると KL と Fisher 情報が厳密に減少
+  - 復元不能な写像でも尤度比が出力内で一定なら KL の等号が成立
+  - 状態分割・復元から Čencov の計量の一意性を証明
+  - α=0 の Hellinger 型 divergence が Fisher 二次項を共有
+problem_patterns: [IG14-A01, IG14-A02, IG14-A03, IG14-A04, IG14-A05, IG14-B01, IG14-B02, IG14-B03, IG14-B04, IG14-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 8.0, review: 2.0 }
