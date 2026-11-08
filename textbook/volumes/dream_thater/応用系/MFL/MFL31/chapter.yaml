@@ -1,0 +1,33 @@
+id: "MFL31"
+title: "GNNの表現力と1-WLの識別限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL30
+official_scope: []
+learning_objectives:
+  - 有限単純無向グラフ上の1-WLの同期的な色更新と色ヒストグラムによる識別を定義し、手で計算できる
+  - 同じ初期色を持つ頂点ではmessage passingの特徴が1-WLの色に従属することを全層帰納法で証明できる
+  - 六角形と非連結な三角形二つが1-WLでも通常の近傍集約型GNNでも区別できない条件を説明できる
+  - 有限サイズ・有限初期色・有限深さの範囲で、単射な多重集合符号化が1-WLの識別を実現する構成を説明できる
+  - 平均集約・弱いgraph readoutによる追加の情報損失と、構造特徴による限界の変化を反例で検証できる
+  - 1-WLの上界と任意のGNN・位置特徴・高次手法への普遍的不可能性主張を区別できる
+definitions:
+  - { id: MFL31-DEF-01, name: 1-WLの色精緻化 }
+  - { id: MFL31-DEF-02, name: 1-WLによるグラフの識別 }
+  - { id: MFL31-DEF-03, name: 1-WL型近傍集約GNN }
+theorems:
+  - { id: MFL31-THM-01, name: 近傍集約GNNの1-WL上界 }
+  - { id: MFL31-THM-02, name: 有限範囲での1-WL識別の実現 }
+  - { id: MFL31-PROP-01, name: 同一初期色の正則グラフの衝突 }
+  - { id: MFL31-PROP-02, name: 平均集約の次数情報の喪失 }
+canonical_examples:
+  - 四頂点の道と星で1-WLが次数から識別する例
+  - 六角形と三角形二個の非連結和が全反復で衝突する例
+  - 入力に局所三角形数を加えると同じ二グラフが識別される対照
+  - 有限多重集合の基数B符号とgraph-levelヒストグラムの再現
+problem_patterns: [MFL31-A01, MFL31-A02, MFL31-A03, MFL31-A04, MFL31-B01, MFL31-B02, MFL31-B03, MFL31-B04, MFL31-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.5 }
