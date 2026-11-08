@@ -1,0 +1,55 @@
+chapter: OTR23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR22
+
+concepts:
+  - id: transport.jko-displacement-variation
+    name: 位置の微小押し出し変分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位置の微小押し出し変分）"]
+    requires: [transport.jko-step, transport.flow-density-jacobian]
+
+  - id: transport.jko-pushforward-derivative
+    name: 押し出しに沿う自由エネルギーの微分
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（押し出しに沿う自由エネルギーの微分）"]
+    requires: [transport.jko-displacement-variation, transport.free-energy, transport.energy-first-variations]
+
+  - id: transport.jko-euler-lagrange
+    name: JKO一歩の弱いEuler–Lagrange条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（JKO一歩の弱いEuler–Lagrange条件）"]
+    requires: [transport.jko-pushforward-derivative, transport.jko-step]
+
+  - id: transport.jko-weak-step
+    name: JKO一歩の弱いPDEと輸送誤差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（JKO一歩の弱いPDEと輸送誤差）"]
+    requires: [transport.jko-euler-lagrange, transport.free-energy-gradient-pde]
+
+  - id: transport.jko-gaussian-step
+    name: 二次外場付きエントロピーのGaussian一歩
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次外場付きエントロピーのGaussian一歩）"]
+    requires: [transport.jko-step, transport.gibbs-relative-entropy, transport.one-dimensional-quantile-formula]
+
+  - id: transport.jko-time-interpolations
+    name: JKOの階段状補間と測地線補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（JKOの階段状補間と測地線補間）"]
+    requires: [transport.jko-step, transport.displacement-geodesic]
+
+  - id: transport.jko-interpolation-estimate
+    name: JKO補間の離散散逸と時間一様評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（JKO補間の離散散逸と時間一様評価）"]
+    requires: [transport.jko-time-interpolations, transport.jko-energy-inequality, transport.jko-weak-step]
