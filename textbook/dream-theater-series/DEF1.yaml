@@ -36,7 +36,7 @@ chapters:
     title: "Kuranishi構成II――解析的収束と有限次元基底"
   - id: DEF1-08
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-08
-    status: planned
+    status: completed
     title: "Kuranishi構成III――局所完全性と普遍性の限界"
   - id: DEF1-09
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-09

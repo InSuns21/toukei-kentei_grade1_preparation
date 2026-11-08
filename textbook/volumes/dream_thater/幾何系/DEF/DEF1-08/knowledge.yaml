@@ -1,0 +1,47 @@
+chapter: DEF1-08
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-01, DEF1-03, DEF1-04, DEF1-06, DEF1-07, CM1-07, GA6]
+concepts:
+  - id: deformation.marked-family-base-change
+    name: 標識付き変形と基底変更
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標識付き変形と基底変更）"]
+    requires: [deformation.kodaira-spencer-map]
+  - id: deformation.versal-semiuniversal-universal
+    name: 局所完全・半普遍・普遍変形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所完全・半普遍・普遍変形）"]
+    requires: [deformation.marked-family-base-change, deformation.kuranishi-tangent]
+  - id: deformation.gauge-slice-linearization
+    name: 調和ゲージの線形化と小解の正規化
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（調和ゲージの線形化と小解の正規化）"]
+    requires: [deformation.harmonic-gauge, deformation.infinitesimal-holomorphic-automorphism]
+  - id: deformation.integrable-slice-uniqueness
+    name: 正規化された可積分解の一意性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正規化された可積分解の一意性）"]
+    requires: [deformation.gauge-slice-linearization, deformation.convergent-kuranishi-fixed-point]
+  - id: deformation.kuranishi-semiuniversality
+    name: Kuranishi族の局所完全性と半普遍性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kuranishi族の局所完全性と半普遍性）"]
+    requires: [deformation.integrable-slice-uniqueness, deformation.analytic-kuranishi-base]
+  - id: deformation.base-map-tangent-uniqueness
+    name: 基底変更の接写像の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（基底変更の接写像の一意性）"]
+    requires: [deformation.kuranishi-semiuniversality, deformation.ks-base-change]
+  - id: deformation.automorphism-universality
+    name: 自己同型と普遍性の十分条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自己同型と普遍性の十分条件）"]
+    requires: [deformation.kuranishi-semiuniversality, deformation.infinitesimal-holomorphic-automorphism]
