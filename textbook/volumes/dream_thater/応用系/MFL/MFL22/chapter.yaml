@@ -1,0 +1,49 @@
+id: "MFL22"
+title: "幾何的帰納バイアスと不変・等変"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - LA1
+  - ML1-01
+official_scope: []
+learning_objectives:
+  - 有限の回転・反射・置換について入力と出力の変換を明示し、タスクの対称性を判定できる
+  - 不変写像と等変写像を可換等式から区別し、直接例で全変換を検算できる
+  - 幾何的帰納バイアスを対称性を満たす仮説クラスの制約として説明できる
+  - 合成写像の等変性と固定入力における出力制約を証明できる
+  - データ拡張した有限訓練集合での正答と大域的な等変性の違いを反例で示せる
+  - タスクに合わない不変性の強制が予測誤差の下界を生むことを計算できる
+  - 回転・鏡映・置換の変換残差を数値的に検算し、訓練誤差と分離できる
+definitions:
+  - { id: MFL22-DEF-01, name: 有限対称変換族と入出力の変換 }
+  - { id: MFL22-DEF-02, name: 不変写像 }
+  - { id: MFL22-DEF-03, name: 等変写像 }
+  - { id: MFL22-DEF-04, name: 幾何的帰納バイアス }
+  - { id: MFL22-DEF-05, name: 等変残差 }
+theorems:
+  - { id: MFL22-PROP-01, name: 等変写像の合成 }
+  - { id: MFL22-PROP-02, name: 直交変換下の長さ不変とベクトル等変 }
+  - { id: MFL22-PROP-03, name: 動かない入力での出力制約 }
+  - { id: MFL22-PROP-04, name: 生成変換による等変性の検査 }
+  - { id: MFL22-PROP-05, name: 有限データ拡張の非保証 }
+  - { id: MFL22-PROP-06, name: 誤った不変性の二点誤差下界 }
+canonical_examples:
+  - 四分の一回転と鏡映における長さ・座標の比較
+  - 二要素の順序交換に対する和と恒等写像
+  - 原点を固定する回転から得るベクトル出力制約
+  - 単位円の四点データ拡張では発見できない非等変項
+  - 符号が反転する目的変数へ不変性を強制する反例
+problem_patterns:
+  - MFL22-A01
+  - MFL22-A02
+  - MFL22-A03
+  - MFL22-A04
+  - MFL22-B01
+  - MFL22-B02
+  - MFL22-B03
+  - MFL22-B04
+  - MFL22-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 4.0, review: 2.0 }

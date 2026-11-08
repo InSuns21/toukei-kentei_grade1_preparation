@@ -1,0 +1,76 @@
+chapter: MFL22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - LA1
+  - ML1-01
+forward_references:
+  - algebra.group-action
+  - algebra.stabilizer-subgroup
+concepts:
+  - id: manifold-learning.finite-symmetry-transforms
+    name: 有限対称変換族と入出力の変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限対称変換族と入出力の変換）"]
+    requires: []
+  - id: manifold-learning.invariant-map
+    name: 不変写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不変写像）"]
+    requires: [manifold-learning.finite-symmetry-transforms]
+  - id: manifold-learning.equivariant-map
+    name: 等変写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等変写像）"]
+    requires: [manifold-learning.finite-symmetry-transforms, manifold-learning.invariant-map]
+  - id: manifold-learning.geometric-inductive-bias
+    name: 幾何的帰納バイアス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幾何的帰納バイアス）"]
+    requires: [manifold-learning.equivariant-map]
+  - id: manifold-learning.equivariant-composition
+    name: 等変写像の合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等変写像の合成）"]
+    requires: [manifold-learning.equivariant-map]
+  - id: manifold-learning.orthogonal-invariant-equivariant
+    name: 直交変換下の長さ不変とベクトル等変
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直交変換下の長さ不変とベクトル等変）"]
+    requires: [manifold-learning.invariant-map, manifold-learning.equivariant-map]
+  - id: manifold-learning.fixed-input-output-constraint
+    name: 動かない入力での出力制約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（動かない入力での出力制約）"]
+    requires: [manifold-learning.equivariant-map]
+  - id: manifold-learning.generator-equivariance-check
+    name: 生成変換による等変性の検査
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生成変換による等変性の検査）"]
+    requires: [manifold-learning.equivariant-map, manifold-learning.finite-symmetry-transforms]
+  - id: manifold-learning.equivariance-residual
+    name: 等変残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等変残差）"]
+    requires: [manifold-learning.equivariant-map]
+  - id: manifold-learning.augmentation-not-guarantee
+    name: 有限データ拡張の非保証
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限データ拡張の非保証）"]
+    requires: [manifold-learning.equivariance-residual]
+  - id: manifold-learning.wrong-invariance-risk-bound
+    name: 誤った不変性の二点誤差下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（誤った不変性の二点誤差下界）"]
+    requires: [manifold-learning.invariant-map, manifold-learning.geometric-inductive-bias]
