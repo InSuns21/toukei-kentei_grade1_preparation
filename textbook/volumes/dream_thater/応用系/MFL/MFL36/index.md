@@ -24,7 +24,15 @@ $$
 Q\in\mathbb R^{3\times3},\qquad Q^{\mathsf T}Q=I_3,\qquad t\in\mathbb R^3.
 $$
 
-[LA3Cの行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)を直交性の等式に適用すると
+標準基底を $e_1,e_2,e_3$ とすれば、$Q$ の第 $i$ 列は $Qe_i$ である。$Q^{\mathsf T}Q=I_3$ はこれらの列が正規直交基底をなす条件であり、任意の二点 $x,y$ に対して
+
+$$
+\|Qx+t-(Qy+t)\|^2=(x-y)^{\mathsf T}Q^{\mathsf T}Q(x-y)=\|x-y\|^2
+$$
+
+を意味する。したがって、この行列条件は[既習の剛体運動](../MFL34/index.md#def-mfl34-geometric-graph)が距離を保存する理由でもある。
+
+[LA3Cの行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)と[LA3Bの転置での行列式不変性](../../../基礎科目/LA/LA3B/index.md#thm-la3b-det-transpose)を直交性の等式に適用すると
 
 $$
 (\det Q)^2=\det(Q^{\mathsf T}Q)=\det I_3=1
@@ -62,7 +70,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl36-e3-se3 -->
-**定義の確認**。$R(u,v,w)=(-v,u,w)$ は $z$ 軸回りの90度回転で、
+**定義の確認**。$u,v,w$ を位置ベクトルの第1、第2、第3成分とする。$R(u,v,w)=(-v,u,w)$ は $z$ 軸回りの90度回転で、標準基底の像 $Re_1=e_2$、$Re_2=-e_1$、$Re_3=e_3$ を列に並べると
 
 $$
 R=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix},
@@ -75,7 +83,13 @@ $$
 S=\operatorname{diag}(-1,1,1),\quad S^{\mathsf T}S=I_3,\quad \det S=-1.
 $$
 
-したがって $(R,(1,2,0))\in SE(3)$ だが $(S,0)\notin SE(3)$、$(S,0)\in E(3)$ である。合成の式は $Q_2(Q_1x+t_1)+t_2$ を展開して得る。$Q_2Q_1$ は直交行列、行列式は積なので $SE(3)$ での合成も閉じる。逆元は $(Q^{\mathsf T},-Q^{\mathsf T}t)$、単位元は $(I_3,0)$ である。
+したがって $(R,(1,2,0))\in SE(3)$ だが $(S,0)\notin SE(3)$、$(S,0)\in E(3)$ である（ここで組の $0$ は零ベクトル）。合成の式は $Q_2(Q_1x+t_1)+t_2$ を展開して得る。直交行列の積は
+
+$$
+(Q_2Q_1)^{\mathsf T}(Q_2Q_1)=Q_1^{\mathsf T}(Q_2^{\mathsf T}Q_2)Q_1=I_3
+$$
+
+を満たし、行列式は積なので $SE(3)$ での合成も閉じる。逆元は $(Q^{\mathsf T},-Q^{\mathsf T}t)$ であり、合成則へ代入すると $(I_3,Q(-Q^{\mathsf T}t)+t)=(I_3,0)$。単位元は $(I_3,0)$ である。
 <!-- definition-example-end -->
 
 **同じ点の位置を変える**ことと**頂点のラベルを付け替える**ことは別である。以下の符号付き量ではどの頂点を第1、第2、第3、第4として選ぶかも意味を持つ。
@@ -88,13 +102,24 @@ $$
 u\times v=(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1).
 $$
 
-この向きの選択が重要である。ベクトル積の基本恒等式
+この向きの選択が重要である。成分表示から、例えば
+
+$$
+\begin{aligned}
+w\cdot(u\times v)
+&=w_1(u_2v_3-u_3v_2)+w_2(u_3v_1-u_1v_3)\\
+&\quad+w_3(u_1v_2-u_2v_1)\\
+&=\det[w\ u\ v]
+\end{aligned}
+$$
+
+と3列の行列式の展開が一致する。三列を巡回させる置換は2回の列交換なので符号を変えず、ベクトル積の基本恒等式
 
 $$
 w\cdot(u\times v)=\det[w\ u\ v]=\det[u\ v\ w]
 $$
 
-は、右辺の三列を順に並べた行列式を成分展開して確かめられる。三つ組の並びを一つ巡回させても行列式の符号は変わらない。
+を得る。以下では、この成分計算によってベクトル積の変換を行列式の計算へ帰着させる。
 
 <a id="thm-mfl36-dot-cross-triple"></a>
 
@@ -123,7 +148,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-内積は $(Qu)^{\mathsf T}(Qv)=u^{\mathsf T}Q^{\mathsf T}Qv=u^{\mathsf T}v$。三列をまとめれば
+内積は $(Qu)^{\mathsf T}(Qv)=u^{\mathsf T}Q^{\mathsf T}Qv=u^{\mathsf T}v$。三列をまとめ、[行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)を適用すれば
 
 $$
 [Qu\ Qv\ Qw]=Q[u\ v\ w],
@@ -167,7 +192,7 @@ $$
 a=x_1-x_0,\quad b=x_2-x_0,\quad c=x_3-x_0
 $$
 
-とする。$a,b,c$ が一次独立、すなわち $\det[a\ b\ c]\ne0$ なら四点は同じ平面上にない。体積の大きさは $|\det[a\ b\ c]|/6$ だが、向きの情報を残すため絶対値を外す。
+とする。$a,b,c$ が一次独立、すなわち[行列式による可逆性判定](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-invertible)から $\det[a\ b\ c]\ne0$ なら四点は同じ平面上にない。体積の大きさは $|\det[a\ b\ c]|/6$ だが、向きの情報を残すため絶対値を外す。
 
 <a id="def-mfl36-signed-volume"></a>
 
@@ -217,7 +242,7 @@ $$
 > **（2）** 両方の符号付き体積の符号が等しい。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 相対ベクトルを三列に並べて $A,B$ を作る。距離の二乗の差から $A^{\mathsf T}A=B^{\mathsf T}B$ を得る。非共面性より $A$ は可逆なので $Q=BA^{-1}$ を作ると直交性が出る。$Q$ の行列式の符号は $\det B/\det A$ で決まる。
+**証明の見取り図。** [MFL34の距離から内積を復元する方法](../MFL34/index.md#thm-mfl34-distance-congruence)に沿って、相対ベクトルを三列に並べて $A,B$ を作る。距離の二乗の差から $A^{\mathsf T}A=B^{\mathsf T}B$ を得る。非共面性より $A$ は可逆なので $Q=BA^{-1}$ を作ると直交性が出る。$Q$ の行列式の符号は $\det B/\det A$ で決まる。
 
 <!-- proof-start -->
 ### 証明
@@ -228,7 +253,7 @@ $$
 2a_i\cdot a_j=\|a_i\|^2+\|a_j\|^2-\|a_i-a_j\|^2
 $$
 
-に三種類の等しい距離を代入すれば $a_i\cdot a_j=b_i\cdot b_j$ となる。ゆえに $A^{\mathsf T}A=B^{\mathsf T}B$。両配置は非共面なので $\det A\ne0$ と $\det B\ne0$。$Q=BA^{-1}$ とおくと
+に三種類の等しい距離を代入すれば $a_i\cdot a_j=b_i\cdot b_j$ となる。ゆえに $A^{\mathsf T}A=B^{\mathsf T}B$。両配置は非共面なので $\det A\ne0$ と $\det B\ne0$。[LA3Cの可逆性判定](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-invertible)より $A^{-1}$ が存在する。$Q=BA^{-1}$ とおくと
 
 $$
 \begin{aligned}
@@ -244,7 +269,7 @@ $$
 Qx_i+t=Q(x_i-x_0)+y_0=Qa_i+y_0=b_i+y_0=y_i
 $$
 
-であり $i=0$ についても成り立つ。さらに
+であり $i=0$ についても成り立つ。さらに[行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)より
 
 $$
 \det Q=\frac{\det B}{\det A}
@@ -292,7 +317,21 @@ $$
 | 軸ベクトル $w$ | $w^\star=(\det Q)Qw$ | 二本の極ベクトルのベクトル積 |
 | 擬スカラー $p$ | $p^\star=(\det Q)p$ | 三本の極ベクトルの混合積 |
 
-異なる変換型を足す場合、結果は一般にどちらの型にもならない。例えば $v+(u\times w)$ を「一つの極ベクトル」と扱うと、鏡映で第2項だけ余分な負号を持ち、等変性が破れる。一方、擬スカラー $p$ と軸ベクトル $w$ の積は
+異なる変換型を足す場合、結果は一般にどちらの型にもならない。**極ベクトル** $u,v,z$ を取り、$v+(u\times z)$ を「一つの極ベクトル」と扱うと、二本の極ベクトルの積 $u\times z$ は**軸ベクトル**なので、鏡映で第2項だけ余分な負号を持つ。例えば $u=v=e_1$、$z=e_2$、$S=\operatorname{diag}(-1,1,1)$ とすると、
+
+$$
+Sv+((Su)\times(Sz))=-e_1-e_3,\qquad S(v+u\times z)=-e_1+e_3.
+$$
+
+両者は一致しない。ただし、直前に定義した軸ベクトル $w$ を第2因子にすると型が変わる。実際、極ベクトル $u$ と軸ベクトル $w$ の積は
+
+$$
+(Qu)\times((\det Q)Qw)=(\det Q)^2Q(u\times w)=Q(u\times w)
+$$
+
+となって**極ベクトル型**なので、この反例に $u\times w$ を用いることはできない。
+
+一方、擬スカラー $p$ と軸ベクトル $w$ の積は
 
 $$
 (pw)^\star=((\det Q)p)((\det Q)Qw)=Q(pw)
@@ -321,7 +360,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-初期状態を $(x^{(0)},h^{(0)})$ とし、鏡像の状態を $(Sx^{(0)}+t,h^{(0)})$ とする。帰納的にある層の入力で
+初期状態を $(x^{(0)},h^{(0)})$ とし、鏡像の状態を $(Sx^{(0)}+t,h^{(0)})$ とする。上付き $(\ell)$ は第 $\ell$ 層（$\ell=0,1,\ldots,L$）、$\star$ は鏡像を入力として同じ層を順に適用した側を示し、微分を表さない。帰納的に第 $\ell$ 層の入力で
 
 $$
 x_i^{(\ell)\star}=Sx_i^{(\ell)}+t,\qquad h_i^{(\ell)\star}=h_i^{(\ell)}
@@ -546,7 +585,7 @@ $S^{\mathsf T}S=I_3$ だから鏡像でも同じ6値である。両四点は非�
 
 ### MFL36-B01 解答
 
-$Q^{\mathsf T}Q=I_3$ より逆行列は $Q^{\mathsf T}$。任意の $a$ に対し $w=Q^{\mathsf T}a$ と選べば $a=Qw$ となる。第3節で成分展開した $w\cdot(u\times v)=\det[u\ v\ w]$ を使うと
+$Q^{\mathsf T}Q=I_3$ より逆行列は $Q^{\mathsf T}$。任意の $a$ に対し $w=Q^{\mathsf T}a$ と選べば $a=Qw$ となる。第3節で成分展開した $w\cdot(u\times v)=\det[u\ v\ w]$ と[行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)を使うと
 
 $$
 \begin{aligned}
