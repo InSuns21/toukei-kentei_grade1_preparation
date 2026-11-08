@@ -1,0 +1,46 @@
+id: "YAU1-05"
+title: "連続性の方法と開性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-04
+  - GA3
+  - FA2
+  - F0-02C3
+official_scope: []
+learning_objectives:
+  - 体積整合条件を保つ正の密度パスを構成し、開始解を明示して解集合の開閉論法の射程を区別できる
+  - 固定基準体積による平均ゼロSobolev空間と正値の開集合を定め、非線形体積密度写像の値域が固定平均ゼロ空間に入ると証明できる
+  - 体積密度写像のFréchet微分をJacobi公式から導き、対数Monge–Ampère線形化との係数関係を計算できる
+  - 変動する体積測度に対するPoisson方程式の可解条件を検算し、線形化の全射性と単射性を別々に示せる
+  - Banach空間の局所陰関数論を縮小写像で証明し、解集合の開性と局所解の微分公式を導ける
+  - 正値境界・体積不整合・非連結性でどの段階が破綻するかを具体例で説明できる
+definitions:
+  - { id: YAU1-05-DEF-01, name: 体積正規化された連続性のパスと可解集合 }
+  - { id: YAU1-05-DEF-02, name: 固定平均ゼロSobolev空間と正値開領域 }
+theorems:
+  - { id: YAU1-05-PROP-01, name: 連続性のパスの体積・正値整合性 }
+  - { id: YAU1-05-LEM-01, name: 高階Sobolev空間の積と体積密度写像の微分可能性 }
+  - { id: YAU1-05-PROP-02, name: 体積密度写像の線形化と固定平均零性 }
+  - { id: YAU1-05-THM-01, name: 変動体積を用いる線形化の同型 }
+  - { id: YAU1-05-LEM-02, name: Banach空間の局所陰関数補題 }
+  - { id: YAU1-05-THM-02, name: 連続性の方法における可解集合の開性 }
+canonical_examples:
+  - 平坦楕円曲線の余弦密度パスと全パラメータの明示解
+  - 平坦複素トーラスの定数方向と固定平均ゼロ規格化の相違
+  - 可変密度を用いた平均零条件の移し替えと不整合反例
+problem_patterns:
+  - YAU1-05-NORMALIZED-PATH
+  - YAU1-05-TORUS-EXPLICIT-SOLUTION
+  - YAU1-05-FIXED-CODOMAIN
+  - YAU1-05-DENSITY-LINEARIZATION
+  - YAU1-05-MOVING-MEASURE
+  - YAU1-05-SOBOLEV-MULTIPLICATION
+  - YAU1-05-POISSON-INVERSE
+  - YAU1-05-CONTRACTION-IFT
+  - YAU1-05-OPENNESS
+  - YAU1-05-FAILED-HYPOTHESES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 5 }

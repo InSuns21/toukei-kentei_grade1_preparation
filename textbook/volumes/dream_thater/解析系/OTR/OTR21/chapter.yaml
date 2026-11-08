@@ -1,0 +1,44 @@
+id: "OTR21"
+title: "どのエネルギーがどのPDEを生むか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR20
+official_scope: []
+learning_objectives:
+  - エントロピー・位置・偶相互作用エネルギーの質量保存第一変分を出発点から計算できる
+  - 正密度の形式的W2下降速度を連続の方程式へ代入し熱・Fokker–Planck・相互作用方程式を導ける
+  - 微分・積分交換、無限遠の減衰またはno-flux境界条件が必要な箇所を識別できる
+  - 滑らかな解の自由エネルギー散逸式を証明しFisher情報の係数と符号を検算できる
+  - Gaussian熱流とOrnstein–Uhlenbeck流でPDE・分散・散逸を独立に確認できる
+  - Gibbs定常密度と相対エントロピーの関係、および偶性を欠く相互作用の失敗を説明できる
+definitions:
+  - { id: OTR21-DEF-01, name: エントロピーを含む自由エネルギー }
+  - { id: OTR21-DEF-02, name: 密度のFisher情報 }
+  - { id: OTR21-DEF-03, name: Gibbs密度 }
+theorems:
+  - { id: OTR21-PROP-01, name: 三種のエネルギーの第一変分 }
+  - { id: OTR21-THM-01, name: 自由エネルギーの形式的Wasserstein下降方程式 }
+  - { id: OTR21-THM-02, name: 自由エネルギーの散逸等式 }
+  - { id: OTR21-PROP-02, name: Gibbs密度と相対エントロピー }
+canonical_examples:
+  - Gaussian熱核の分散増加とFisher情報
+  - 二次外場のOrnstein–Uhlenbeck流
+  - 二次偶相互作用による重心保存と分散収縮
+  - 非偶相互作用での誤った第一変分
+problem_patterns:
+  - OTR21-A01
+  - OTR21-A02
+  - OTR21-A03
+  - OTR21-A04
+  - OTR21-A05
+  - OTR21-B01
+  - OTR21-B02
+  - OTR21-B03
+  - OTR21-B04
+  - OTR21-C01
+  - OTR21-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 3.0 }
