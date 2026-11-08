@@ -245,7 +245,7 @@ $$
 -\frac{\theta_1^2}{4\theta_2},
 $$
 
-となり、Gaussian 積分から上の $\psi$ を得ます。母数領域 $\theta_2<0$ は開凸半平面であり、座標変換の Jacobian は
+となり、Gaussian 積分から上の $\psi$ を得ます。母数領域 $\theta_2<0$ は開凸半平面であり、$(\mu,\sigma)$ から自然母数 $(\theta_1,\theta_2)$ への変換の Jacobian は
 
 $$
 \det\frac{\partial(\theta_1,\theta_2)}{\partial(\mu,\sigma)}
