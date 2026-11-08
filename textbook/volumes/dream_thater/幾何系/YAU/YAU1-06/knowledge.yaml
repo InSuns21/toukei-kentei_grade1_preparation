@@ -25,7 +25,7 @@ concepts:
     name: 許容Kählerポテンシャルの上限・L1評価
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（許容Kählerポテンシャルの上限・$L^1$ 評価）"]
+    introduction_aliases: ["定理（許容Kählerポテンシャルの上限・L1評価）"]
     requires: [yau.kahler-laplacian-lower-bound, yau.green-kernel-representation, yau.mean-zero-potential-gauge]
   - id: yau.sup-gauge-l1
     name: 上限ゼロ規格化との橋渡し
