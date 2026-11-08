@@ -1,0 +1,36 @@
+id: "MFL32"
+title: "Graph spectral convolution"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL31
+  - SGT2
+official_scope: []
+learning_objectives:
+  - 対称graph Laplacianの固有分解からspectral multiplierを定義し、重複固有値の基底選択に依存しない条件を説明できる
+  - 多項式フィルタp(L)のスペクトル作用と作用素誤差上界を証明し、小グラフで行列計算と固有展開を照合できる
+  - 次数Kの多項式フィルタがK-hopを越えて入力を参照しないことを帰納法で示し、逆は成り立たないと説明できる
+  - 固定された多項式係数のグラフフィルタが頂点置換に等変であることを導ける
+  - Chebyshev漸化式を導出し、固有値上界の選び方・疎行列計算量・近似誤差を検算できる
+  - 自己ループ付き正規化一次フィルタと基底依存の固有ベクトル別パラメータ化を区別できる
+definitions:
+  - { id: MFL32-DEF-01, name: グラフスペクトル乗数 }
+  - { id: MFL32-DEF-02, name: 多項式グラフフィルタ }
+  - { id: MFL32-DEF-03, name: Chebyshevグラフフィルタ }
+theorems:
+  - { id: MFL32-THM-01, name: スペクトル乗数の基底非依存性と誤差上界 }
+  - { id: MFL32-THM-02, name: 多項式フィルタのK-hop局所性 }
+  - { id: MFL32-THM-03, name: 多項式フィルタの置換等変性 }
+  - { id: MFL32-THM-04, name: Chebyshev漸化式と疎計算 }
+  - { id: MFL32-PROP-01, name: 自己ループ付き正規化一次フィルタ }
+  - { id: MFL32-PROP-02, name: 重複固有空間内の係数不一致による基底依存 }
+canonical_examples:
+  - 三頂点の道の固有値0・1・3と一次・二次多項式フィルタ
+  - Chebyshev次数1の反復値と直接固有展開の一致
+  - 四頂点サイクルの重複固有値2で固有ベクトル別重みが基底に依存する例
+  - 自己ループを追加した二頂点グラフの一次正規化フィルタ
+problem_patterns: [MFL32-A01, MFL32-A02, MFL32-A03, MFL32-A04, MFL32-B01, MFL32-B02, MFL32-B03, MFL32-B04, MFL32-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.5 }

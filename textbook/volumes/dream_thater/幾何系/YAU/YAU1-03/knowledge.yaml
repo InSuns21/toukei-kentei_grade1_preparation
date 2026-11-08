@@ -1,0 +1,41 @@
+chapter: YAU1-03
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-02, KAH1-02, KAH1-11, KAH1-13]
+concepts:
+  - id: yau.positive-potential-domain
+    name: Kählerポテンシャルの正値領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kählerポテンシャルの正値領域）"]
+    requires: [kahler.positive-form-matrix-criterion, kahler.global-potential-class-invariance]
+  - id: yau.admissible-potential-convexity
+    name: 許容領域の凸性・開性と類の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（許容領域の凸性・開性と類の不変性）"]
+    requires: [yau.positive-potential-domain, kahler.global-potential-class-invariance]
+  - id: yau.log-monge-ampere-operator
+    name: 対数複素Monge–Ampère作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対数複素Monge–Ampère作用素）"]
+    requires: [yau.positive-potential-domain, cyg.ricci-volume-ratio]
+  - id: yau.monge-ampere-linearization
+    name: Monge–Ampère作用素の線形化と外積表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Monge–Ampère作用素の線形化と外積表示）"]
+    requires: [yau.log-monge-ampere-operator, kahler.jacobi-determinant-derivative]
+  - id: yau.monge-ampere-ellipticity-concavity
+    name: 正値領域での楕円性と凹性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正値領域での楕円性と凹性）"]
+    requires: [yau.monge-ampere-linearization, yau.admissible-potential-convexity]
+  - id: yau.monge-ampere-volume-compatibility
+    name: 体積整合条件と定数ゲージ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体積整合条件と定数ゲージ）"]
+    requires: [yau.log-monge-ampere-operator, yau.volume-normalization-consistency, geometry.general-stokes-theorem]
