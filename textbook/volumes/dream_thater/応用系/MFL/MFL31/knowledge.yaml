@@ -1,0 +1,45 @@
+chapter: MFL31
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL30
+forward_references: []
+concepts:
+  - id: manifold-learning.one-wl-refinement
+    name: 1-WLの色精緻化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1-WLの色精緻化）"]
+    requires: [manifold-learning.message-passing-layer]
+  - id: manifold-learning.one-wl-distinguishability
+    name: 1-WLによるグラフの識別
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1-WLによるグラフの識別）"]
+    requires: [manifold-learning.one-wl-refinement]
+  - id: manifold-learning.one-wl-mpnn
+    name: 1-WL型近傍集約GNN
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1-WL型近傍集約GNN）"]
+    requires: [manifold-learning.message-passing-layer, manifold-learning.one-wl-refinement]
+  - id: manifold-learning.one-wl-upper-bound
+    name: 近傍集約GNNの1-WL上界
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.one-wl-mpnn, manifold-learning.one-wl-distinguishability, manifold-learning.multilayer-message-passing-equivariance]
+  - id: manifold-learning.regular-graph-wl-collision
+    name: 同一初期色の正則グラフの衝突
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.one-wl-upper-bound]
+  - id: manifold-learning.finite-wl-realizability
+    name: 有限範囲での1-WL識別の実現
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.one-wl-refinement, manifold-learning.one-wl-mpnn]
+  - id: manifold-learning.mean-aggregation-degree-loss
+    name: 平均集約の次数情報の喪失
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.one-wl-mpnn]
