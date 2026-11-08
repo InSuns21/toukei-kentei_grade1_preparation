@@ -51,7 +51,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Monge–Ampèreエネルギー評価）**  
-> 上記のコンパクトKähler多様体で $v\ge1$ が滑らかで、$\omega-i\partial\bar\partial v>0$ と $(\omega-i\partial\bar\partial v)^n=\rho\omega^n$ を満たすとする。$\rho>0$、$\|\rho-1\|_\infty\le D<\infty$ なら、すべての実数 $q\ge2$ に対して
+> $(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体、$d\mu=\omega^n$ とする。$v\ge1$ が $X$ 上で滑らかで、$\omega-i\partial\bar\partial v>0$ と $(\omega-i\partial\bar\partial v)^n=\rho\omega^n$ を満たすとする。$\rho>0$、$\|\rho-1\|_\infty\le D<\infty$ なら、すべての実数 $q\ge2$ に対して
 
 $$
 \int_X\left|\nabla_\omega(v^{q/2})\right|^2d\mu
@@ -107,20 +107,29 @@ $$
 $q\ge2$ なら $q/[2(q-1)]\le1$、$v\ge1$ なら $v^{q-1}\le v^q$ なので後半の不等式も得る。$\square$
 <!-- proof-end -->
 
-**直接例（平坦楕円曲線）。** $T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z=2dx\,dy$、$0<a<1$ とする。$\varphi_a=a\cos(2\pi x)/\pi^2$ と置けば、$\omega_{\varphi_a}=(1-a\cos2\pi x)\omega_0$ であり $m=a/\pi^2$、$v=1+(a/\pi^2)(1-\cos2\pi x)\ge1$。複素次元 $1$、$q=2$ のとき
+**直接例（平坦楕円曲線）。** $E=\mathbb C/(\mathbb Z+i\mathbb Z)$、$z=x+iy$、$\omega_0=i\,dz\wedge d\bar z=2dx\,dy$、$0<a<1$ とする。ここでは楕円曲線を $E$ と書き、上の外積形式 $T$ と区別する。$\varphi_a=a\cos(2\pi x)/\pi^2$ は周期的な滑らかな実関数である。[前章の平坦例のWirtinger微分](../YAU1-05/index.md#def-yau1-05-path)を使うと、
+
+$$
+\partial_z\partial_{\bar z}\varphi_a
+=\frac14(\partial_x^2+\partial_y^2)\varphi_a
+=-a\cos(2\pi x),\qquad
+\omega_{\varphi_a}=(1-a\cos2\pi x)\omega_0.
+$$
+
+複素次元 $1$ では基準形式の係数を比較するだけでよく、$1-a\cos2\pi x\ge1-a>0$ が正値性を示す。$\rho=1-a\cos2\pi x$ と置くと $\omega_{\varphi_a}=\rho\omega_0$ であり、$\int_E\varphi_a\,d\mu=0$ は余弦の一周期積分から従う。したがって $m=\sup_E\varphi_a=a/\pi^2$、$v=1+(a/\pi^2)(1-\cos2\pi x)\ge1$。複素次元 $1$、$q=2$ のとき
 
 $$
 \begin{aligned}
-\int_Tv(\rho-1)d\mu
+\int_Ev(\rho-1)d\mu
 &=\int_0^1\!\int_0^1 2\left(1+\frac a{\pi^2}-\frac a{\pi^2}\cos2\pi x\right)(-a\cos2\pi x)dx\,dy
 =\frac{a^2}{\pi^2},\\
-\frac12\int_T|\nabla_{\omega_0}v|^2d\mu
+\frac12\int_E|\nabla_{\omega_0}v|^2d\mu
 &=\frac12\int_0^1\!\int_0^1\left[\frac12\left(\frac{2a}{\pi}\sin2\pi x\right)^2\right]2dx\,dy
 =\frac{a^2}{\pi^2}.
 \end{aligned}
 $$
 
-この場合 $T=\omega_0^0=1$ だからエネルギー恒等式は等号になる。**方程式から勾配を制御した**というつながりが数値でも見える。
+この場合は外積形式 $T=\omega_0^0=1$ だからエネルギー恒等式は等号になる。**方程式から勾配を制御した**というつながりが数値でも見える。
 
 ## 3. 最初の $L^2$ と次元に応じたSobolev指数
 
@@ -130,7 +139,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（反復開始のL2評価）**  
-> 第1節の $v\ge1$、$B=\int_Xv\,d\mu\le V(1+C_0)$、$D=\|e^F-1\|_\infty$ のもとで、$(X,\omega)$ のPoincaré定数 $C_P$ を選ぶと
+> $(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体とし、$d\mu=\omega^n$、$V=\int_Xd\mu$ とする。滑らかな $v\ge1$ が $\omega-i\partial\bar\partial v>0$ と $(\omega-i\partial\bar\partial v)^n=\rho\omega^n$（$\rho>0$、$\|\rho-1\|_\infty\le D$）を満たし、$B=\int_Xv\,d\mu\le V(1+C_0)$（$C_0\ge0$ は固定定数）とする。このとき、[平均零Poincaré不等式](../../GA/GA2/index.md#thm-ga2-poincare)の定数 $C_P$ を選ぶと
 
 $$
 \|v\|_{L^2(d\mu)}
@@ -169,7 +178,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Moser反復の指数列）**  
-> 上記の複素次元 $n$ に対し
+> 複素次元 $n\ge1$ に対し
 
 $$
 \beta=\begin{cases}2&(n=1),\\ n/(n-1)&(n\ge2),\end{cases}
@@ -191,7 +200,7 @@ Sobolev不等式を $v$ 自身ではなく $w=v^{q/2}$ に当てる。すると 
 
 <!-- formal-statement-start -->
 > **命題（Sobolevによる指数増幅）**  
-> 第1節の $(X,\omega)$ と $D$、[指数列の倍率](#def-yau1-07-exponents) $\beta>1$ に対し、固定定数 $C\ge1$ が存在し、すべての $q\ge2$ とすべての存在するパスの解について
+> $(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体、$d\mu=\omega^n$ とする。滑らかな実関数 $v\ge1$ と正関数 $\rho$ が $\omega-i\partial\bar\partial v>0$、$(\omega-i\partial\bar\partial v)^n=\rho\omega^n$、$\|\rho-1\|_\infty\le D$ を満たすとする。[指数列の定義](#def-yau1-07-exponents)で選ぶ $\beta>1$ に対し、$(X,\omega,D)$ のみで決まる $C\ge1$ が存在し、すべての $q\ge2$ について
 
 $$
 \|v\|_{L^{q\beta}(d\mu)}
@@ -291,7 +300,7 @@ $m=\sup\varphi\in[0,C_0]$、$\varphi=m+1-v=m+\psi$ に戻すと $-M\le\varphi\le
 
 <!-- formal-statement-start -->
 > **系（連続性のパスでの上下界）**  
-> 上の条件を満たす任意の存在する解 $\varphi_t$ に対し、正数 $C_*=\max\{C_0,M\}$ を取れば
+> $(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体、$F\in C^\infty(X,\mathbb R)$ を $\int_Xe^F\omega^n=\int_X\omega^n$ を満たす関数とする。$t\in[0,1]$ に滑らかな平均ゼロ解 $\varphi_t$ が存在し、$\omega_{\varphi_t}>0$ と $\omega_{\varphi_t}^n=(1-t+te^F)\omega^n$ を満たすとする。[前章の上限評価](../YAU1-06/index.md#thm-yau1-06-upper-l1)の定数を $C_0$、[Moser反復定理](#thm-yau1-07-moser)の定数を $M$ とし、$C_*=\max\{C_0,M\}$ を取れば
 
 $$
 -C_*\le\varphi_t(x)\le C_*
@@ -392,7 +401,7 @@ $\beta>1$、$q_j=2\beta^j$ のとき、$\sum_{j\ge0}q_j^{-1}$ と $\sum_{j\ge0}j
 $T=\sum_{k=0}^{n-1}\omega_\varphi^k\wedge\omega^{n-1-k}$、$\omega_\varphi=\omega-i\partial\bar\partial v$、$q\ge2$ とする。$\int v^{q-1}(\rho-1)\omega^n$ を、$\partial T=\bar\partial T=0$ を使って勾配形式の積分に直せ。境界なしが必要な箇所を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 因数分解で $\omega_\varphi^n-\omega^n=-i\partial\bar\partial v\wedge T$。$\partial(v^{q-1}i\bar\partial v\wedge T)=(q-1)v^{q-2}i\partial v\wedge\bar\partial v\wedge T+v^{q-1}i\partial\bar\partial v\wedge T$ である。$X$ は境界なしで $T$ は閉じているため、この全微分の積分は零。従って $-\int v^{q-1}i\partial\bar\partial v\wedge T=(q-1)\int v^{q-2}i\partial v\wedge\bar\partial v\wedge T$。境界があるとStokesの境界積分を制御せずに落とせない。
+**詳細解答。** 因数分解で $\omega_\varphi^n-\omega^n=-i\partial\bar\partial v\wedge T$。$\partial(v^{q-1}i\bar\partial v\wedge T)=(q-1)v^{q-2}i\partial v\wedge\bar\partial v\wedge T+v^{q-1}i\partial\bar\partial v\wedge T$ である。積分する形式 $v^{q-1}i\bar\partial v\wedge T$ は型 $(n-1,n)$ なので、その $\bar\partial$ は次数の理由で零となり、上の $\partial$ が外微分 $d$ と一致する。$X$ は境界なしで $T$ は閉じているため、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により、この全微分の積分は零。従って $-\int v^{q-1}i\partial\bar\partial v\wedge T=(q-1)\int v^{q-2}i\partial v\wedge\bar\partial v\wedge T$。境界があるとStokesの境界積分を制御せずに落とせない。
 <!-- solution-end -->
 
 <a id="ex-yau1-07-b02"></a>
