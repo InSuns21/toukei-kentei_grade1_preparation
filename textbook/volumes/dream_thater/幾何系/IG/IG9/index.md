@@ -6,7 +6,11 @@
 
 ここでは凸なポテンシャルのグラフと接平面の**縦の差**を測ります。この差を二点に対応させると、双対座標に自然な向きのある divergence ができ、正則な全指数型分布族では KL divergence に一致します。最後に三点の差を分解する恒等式を導きます。射影の存在・最小性・直交条件を証明するのは次の IG10 です。
 
-本講で使う設定を固定します。$U\subset\mathbb R^d$ は空でない開凸集合、$\psi\in C^4(U)$ は各点で正定値な Hessian を持つ関数です。$\theta=(\theta^1,\ldots,\theta^d)$ を $U$ の座標とし、$\eta_i=\partial_i\psi(\theta)$ と置きます。内積の点は $\theta\cdot\eta=\sum_i\theta^i\eta_i$ を表します。[IG5 の Legendre 双対](../IG5/index.md#thm-ig5-legendre-hessian)と[IG8 の Hessian 双対平坦性](../IG8/index.md#thm-ig8-hessian-dual-flat)により、$\eta$ は開集合 $V=\eta(U)$ への一対一の滑らかな座標で、双対ポテンシャル
+本講で使う設定を固定します。$U\subset\mathbb R^d$ は空でない開凸集合、$\psi\in C^4(U)$ は各点で正定値な Hessian を持つ関数です。
+
+$\theta=(\theta^1,\ldots,\theta^d)$ を $U$ の座標とし、$\eta_i=\partial_i\psi(\theta)$ と置きます。内積の点は $\theta\cdot\eta=\sum_i\theta^i\eta_i$ を表します。
+
+[IG5 の Legendre 双対](../IG5/index.md#thm-ig5-legendre-hessian)と[IG8 の Hessian 双対平坦性](../IG8/index.md#thm-ig8-hessian-dual-flat)により、$\eta$ は開集合 $V=\eta(U)$ への一対一の滑らかな座標で、双対ポテンシャル
 
 $$
 \varphi(\eta)=\theta(\eta)\cdot\eta-\psi(\theta(\eta)),
@@ -92,7 +96,14 @@ $$
 =\psi(y)+t\nabla\psi(y)\cdot(x-y).
 $$
 
-一方 $y$ での凸関数の接平面不等式から逆向きの不等号が成立します。したがって等号となりますが、$x\ne y$ の厳密凸性には矛盾します。$x=y$ では定義式から零です。
+逆向きも確かめます。凸な一変数関数 $f(t)=\psi(y+t(x-y))$ の導関数は非減少なので、$0<t<1$ に対し
+
+$$
+f(t)-f(0)=\int_0^t f'(s)\,ds\ge t f'(0)
+=t\nabla\psi(y)\cdot(x-y).
+$$
+
+従って直前の上側評価と同じ量で挟まれ、等号となります。しかし $x\ne y$ であれば厳密凸性から上側評価は真の不等号なので矛盾します。$x=y$ では定義式から零です。
 <!-- proof-end -->
 
 **失われる仮定**。$\psi(t)=t$ なら凸ですが厳密凸ではなく、どの二点でも $D_\psi=0$ です。接線とグラフが全区間で重なり、上の証明の厳密不等号が消えるためです。また $\psi(t)=t^4$ では $t=0$ で Hessian が零でも厳密凸なので、正定値 Hessian は十分条件であって必要条件ではありません。
