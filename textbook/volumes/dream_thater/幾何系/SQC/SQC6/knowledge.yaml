@@ -1,0 +1,42 @@
+chapter: SQC6
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC3]
+forward_references: []
+
+concepts:
+  - id: geometry.circle-squaring-sqrt-pi-reduction
+    name: 円積問題と√πの作図可能性
+    kind: proposition
+    introduction: formal
+    requires: [geometry.classical-three-construction-problems, algebra.constructibility-quadratic-tower]
+
+  - id: geometry.niven-auxiliary-polynomial
+    name: Niven型補助多項式
+    kind: definition
+    introduction: formal
+    requires: []
+
+  - id: geometry.niven-endpoint-derivative-integrality
+    name: 補助多項式の端点微分の整数性
+    kind: lemma
+    introduction: formal
+    requires: [geometry.niven-auxiliary-polynomial]
+
+  - id: geometry.niven-integral-integer-identity
+    name: 補助積分の整数値表示
+    kind: lemma
+    introduction: formal
+    requires: [geometry.niven-auxiliary-polynomial, geometry.niven-endpoint-derivative-integrality]
+
+  - id: geometry.niven-positive-factorial-bound
+    name: 補助積分の正値性と階乗上界
+    kind: lemma
+    introduction: formal
+    requires: [geometry.niven-auxiliary-polynomial]
+
+  - id: geometry.pi-irrationality-niven
+    name: πの無理性
+    kind: theorem
+    introduction: formal
+    requires: [geometry.niven-integral-integer-identity, geometry.niven-positive-factorial-bound]
