@@ -1,0 +1,65 @@
+chapter: OTR17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR16
+  - PDE1
+  - VC9
+
+concepts:
+  - id: transport.continuity-test-function
+    name: 連続の方程式の試験関数
+    kind: definition
+    aliases: ["試験関数"]
+    introduction: formal
+    introduction_aliases: ["定義（連続の方程式の試験関数）"]
+    requires: [vector-calculus.mass-continuity]
+
+  - id: transport.continuity-measure-weak
+    name: 測度に対する連続の方程式の弱解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測度に対する連続の方程式の弱解）"]
+    requires: [transport.continuity-test-function, vector-calculus.mass-continuity, measure.pushforward-measure]
+
+  - id: transport.classical-weak-equivalence
+    name: 古典形と弱形式の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（古典形と弱形式の一致）"]
+    requires: [transport.continuity-measure-weak, vector-calculus.mass-continuity]
+
+  - id: transport.continuity-mass-conservation
+    name: 可積分速度の下での総質量保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（可積分速度の下での総質量保存）"]
+    requires: [transport.continuity-measure-weak]
+
+  - id: transport.no-flux-weak-boundary
+    name: 有界領域の no-flux 弱条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有界領域の no-flux 弱条件）"]
+    requires: [transport.continuity-measure-weak, vector-calculus.local-conservation-law]
+
+  - id: transport.no-flux-classical-equivalence
+    name: 滑らかな場合の no-flux と法線流束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな場合の no-flux と法線流束）"]
+    requires: [transport.no-flux-weak-boundary, transport.classical-weak-equivalence]
+
+  - id: transport.flow-pushforward-continuity
+    name: 滑らかな流れの押し出しは弱解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな流れの押し出しは弱解）"]
+    requires: [transport.continuity-measure-weak, measure.pushforward-measure, pde.pde1-curve-chain-rule]
+
+  - id: transport.flow-density-jacobian
+    name: 流れのJacobianによる密度保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（流れのJacobianによる密度保存）"]
+    requires: [transport.flow-pushforward-continuity, transport.internal-energy]
