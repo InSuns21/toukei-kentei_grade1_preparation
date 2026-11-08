@@ -1,0 +1,44 @@
+id: "OTR9"
+title: "Wasserstein収束は何を意味するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR8
+official_scope: []
+learning_objectives:
+  - p-Wasserstein収束を定義し、Dirac測度と微小質量の有限原子例で直接判定できる
+  - W_p収束から狭義収束とp次モーメント収束が従うことを証明できる
+  - 狭義収束から近接結合を有限Borel分割で構成し、尾部評価と合わせてW_p収束の逆向きを証明できる
+  - Polish空間上の可算貼り合わせとL^p評価によってWasserstein空間の完備性を証明できる
+  - 可算稠密集合への有限点近似と有理重み近似によってWasserstein空間の可分性を証明できる
+  - 質量の遠方逃避とW_p対W_qの差を仮定付きの反例で説明できる
+definitions:
+  - { id: OTR9-DEF-01, name: Wasserstein収束 }
+theorems:
+  - { id: OTR9-PROP-01, name: Wasserstein収束の必要条件 }
+  - { id: OTR9-LEM-01, name: 狭義収束から近接結合を構成する }
+  - { id: OTR9-LEM-02, name: 狭義収束と積分収束からの一様な尾部評価 }
+  - { id: OTR9-THM-01, name: Wasserstein収束の特徴付け }
+  - { id: OTR9-LEM-03, name: 可算列の結合 }
+  - { id: OTR9-THM-02, name: Wasserstein空間の完備性 }
+  - { id: OTR9-THM-03, name: Wasserstein空間の可分性 }
+canonical_examples:
+  - 消失質量が遠方へ逃げると狭義収束するがW_p収束しない例
+  - 固定距離にある消失質量ではW_p収束する例
+  - W_pでは収束するがW_qでは収束しない例
+  - 二点・三点空間で同じセルの質量を優先的に結合する例
+problem_patterns:
+  - OTR9-A01
+  - OTR9-A02
+  - OTR9-A03
+  - OTR9-A04
+  - OTR9-A05
+  - OTR9-B01
+  - OTR9-B02
+  - OTR9-B03
+  - OTR9-B04
+  - OTR9-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

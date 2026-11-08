@@ -9,3 +9,4 @@
 6. [OTR6 連続空間でも双対性は成立するか](textbook/volumes/dream_thater/解析系/OTR/OTR6/index.md)
 7. [OTR7 最適性を支持集合から判定できるか](textbook/volumes/dream_thater/解析系/OTR/OTR7/index.md)
 8. [OTR8 輸送費用は距離になるか](textbook/volumes/dream_thater/解析系/OTR/OTR8/index.md)
+9. [OTR9 Wasserstein収束は何を意味するか](textbook/volumes/dream_thater/解析系/OTR/OTR9/index.md)
