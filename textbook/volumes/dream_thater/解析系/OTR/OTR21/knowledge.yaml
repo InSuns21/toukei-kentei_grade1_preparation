@@ -1,0 +1,55 @@
+chapter: OTR21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR20
+
+concepts:
+  - id: transport.free-energy
+    name: エントロピーを含む自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（エントロピーを含む自由エネルギー）"]
+    requires: [transport.internal-energy, transport.potential-energy, transport.interaction-energy]
+
+  - id: transport.energy-first-variations
+    name: 三種のエネルギーの第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三種のエネルギーの第一変分）"]
+    requires: [transport.free-energy, transport.otto-first-variation]
+
+  - id: transport.free-energy-gradient-pde
+    name: 自由エネルギーの形式的Wasserstein下降方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自由エネルギーの形式的Wasserstein下降方程式）"]
+    requires: [transport.energy-first-variations, transport.otto-formal-gradient, transport.continuity-measure-weak]
+
+  - id: transport.fisher-information
+    name: 密度のFisher情報
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（密度のFisher情報）"]
+    requires: [transport.free-energy-gradient-pde]
+
+  - id: transport.free-energy-dissipation
+    name: 自由エネルギーの散逸等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自由エネルギーの散逸等式）"]
+    requires: [transport.free-energy-gradient-pde, transport.fisher-information]
+
+  - id: transport.gibbs-density
+    name: Gibbs密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gibbs密度）"]
+    requires: [transport.free-energy]
+
+  - id: transport.gibbs-relative-entropy
+    name: Gibbs密度と相対エントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gibbs密度と相対エントロピー）"]
+    requires: [transport.gibbs-density, transport.free-energy-dissipation]

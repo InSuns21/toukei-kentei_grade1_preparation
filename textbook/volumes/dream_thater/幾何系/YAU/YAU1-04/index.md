@@ -32,7 +32,15 @@ $$
 \omega_t=\omega_{\varphi_t}=(1-t)\omega_{\varphi_0}+t\omega_{\varphi_1}
 $$
 
-と置く。各 $\omega_t$ は正値である。局所正則座標で $\omega_t=i(g_t)_{j\bar k}\,dz^j\wedge d\bar z^k$ と表し、正値Hermite行列 $G_t=((g_t)_{j\bar k})$ の逆行列成分を $g_t^{j\bar k}$ と書く。添字 $j,\bar k$ は複素方向の混合二階微分を指定するもので、$u_{j\bar k}=\partial_j\partial_{\bar k}u$ である。
+と置く。各 $\omega_t$ は正値である。局所正則座標の $(1,0)$ 接基底 $\partial/\partial z^j$ を取り、$\omega_t=i(g_t)_{j\bar k}\,dz^j\wedge d\bar z^k$ と表す。接ベクトル $v=\sum_jc^j\partial/\partial z^j$ で評価すると
+
+$$
+-i\omega_t(v,\bar v)=\sum_{j,k}(g_t)_{j\bar k}c^j\overline{c^k}>0\qquad(v\ne0).
+$$
+
+従って[正の実 $(1,1)$ 形式とHermite行列の判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)から、係数行列 $G_t=((g_t)_{j\bar k})$ は正値Hermite行列である。その逆行列成分を $g_t^{j\bar k}$ と書き、以下では跡 $\operatorname{tr}(G_t^{-1}U)$ と整合する添字規約で縮約する。
+
+$t$ は実数の補間パラメータで、以下の $d/dt$ は座標を固定した通常の一変数微分である。一方、$u_{j\bar k}=\partial_j\partial_{\bar k}u$ は $z^j,\bar z^k$ に関する混合二階偏微分を表す。
 
 [Jacobiの行列式微分公式](../../KAH/KAH1-11/index.md#lem-kah1-11-jacobi)を $G_t=G_0+tU$（$U=(u_{j\bar k})$）へ適用する。$G_t$ は $0\le t\le1$ で可逆なので
 
@@ -269,13 +277,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-yau1-04-mean-zero -->
-**定義の確認**（平坦楕円曲線）。$T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ とし、$|a|<1$ に対して
+**定義の確認**（平坦楕円曲線）。$T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$z=x+iy$、$\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ とし、$|a|<1$ に対して
 
 $$
 \varphi_a(x,y)=\frac a{\pi^2}\cos(2\pi x)
 $$
 
-を取る。周期性から $T$ 上の滑らかな実関数で、[前章の正値判定](../YAU1-03/index.md#def-yau1-03-positive-domain)より $\omega_{\varphi_a}=(1-a\cos2\pi x)\omega_0>0$。また $V_{\omega_0}=2$、$\int_0^1\cos2\pi x\,dx=0$ なので
+を取る。余弦の周期性から $T$ 上で一価な滑らかな実関数となる。ここで、[Wirtinger偏微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を実座標に戻すと $\partial_z=\tfrac12(\partial_x-i\partial_y)$、$\partial_{\bar z}=\tfrac12(\partial_x+i\partial_y)$ であり、実 $C^2$ 関数に対して混合偏微分が交換するので
+
+$$
+\partial_z\partial_{\bar z}\varphi_a
+=\frac14(\partial_x^2+\partial_y^2)\varphi_a
+=\frac14(-4a\cos2\pi x)
+=-a\cos2\pi x.
+$$
+
+したがって $i\partial\bar\partial\varphi_a=(-a\cos2\pi x)\omega_0$ である。[許容領域の定義](../YAU1-03/index.md#def-yau1-03-positive-domain)に戻り、$T$ 上の正値性を基準形式 $\omega_0>0$ の係数で判定すると
+
+$$
+\omega_{\varphi_a}=(1-a\cos2\pi x)\omega_0,
+\qquad 1-a\cos2\pi x\ge1-|a|>0.
+$$
+
+これにより滑らかさと許容正値性を確認した。また $V_{\omega_0}=2$、$\int_0^1\cos2\pi x\,dx=0$ なので
 
 $$
 \frac1{V_{\omega_0}}\int_T\varphi_a\,\omega_0
@@ -449,7 +473,7 @@ $T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z$、$|a|<1$�
 <!-- solution-start -->
 **詳細解答。** $\omega_0=2dx\wedge dy$ なので $V_{\omega_0}=2$。積分 $\int_0^1\cos2\pi x\,dx=0$ から $\int_T\varphi_a\omega_0=0$、平均ゼロ代表は $\varphi_a$ 自身である。
 
-余弦の最大値・最小値は $1,-1$ であり、$a$ の符号によらず $\sup_T\varphi_a=|a|/\pi^2$。上限ゼロ代表は $\varphi_a-|a|/\pi^2$ となる。いずれの代表でも二階微分は
+余弦の最大値・最小値は $1,-1$ であり、$a$ の符号によらず $\sup_T\varphi_a=|a|/\pi^2$。上限ゼロ代表は $\varphi_a-|a|/\pi^2$ となる。いずれの代表でも定数項の微分は消える。[Wirtinger偏微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)の $\partial_z\partial_{\bar z}=\tfrac14(\partial_x^2+\partial_y^2)$ と $\partial_x^2\varphi_a=-4a\cos2\pi x$ から、二階微分は
 
 $$
 \partial_z\partial_{\bar z}\varphi_a=-a\cos2\pi x
@@ -594,7 +618,14 @@ $$
 
 $h=\log R$ は実関数なので、計量 $\omega_0$ の実Laplacianを取ると $\Delta_{\omega_0}h=2g_0^{j\bar k}h_{j\bar k}=0$。[コンパクト連結な調和関数の定数性](../../GA/GA3/index.md#prop-ga3-harmonic-constant)から $h=c$、従って $\omega_1^n=e^c\omega_0^n$。
 
-同じKähler類の二形式では、最高次外積の差は完全形式になる。例えば[大域ポテンシャル](../../HOD/HOD1-08/index.md#cor-hod1-08-d-exact)を使い $\omega_1-\omega_0=i\partial\bar\partial v$ と書くと、外積因数分解の各項が閉じているから、その差は $d(i\bar\partial v\wedge S)$ である。[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
+同じKähler類なので $\alpha=\omega_1-\omega_0$ は実 $(1,1)$ 型で $d$ 完全である。[純型の $d$ 完全形式に関する系](../../HOD/HOD1-08/index.md#cor-hod1-08-d-exact)を適用すれば $\alpha=\partial\bar\partial f$ と書ける。$\bar\alpha=\alpha$ と $\overline{\partial\bar\partial f}=-\partial\bar\partial\bar f$ を合わせると
+
+$$
+\alpha=\frac12\partial\bar\partial(f-\bar f)
+=i\partial\bar\partial v,\qquad v:=\operatorname{Im}f\in C^\infty(X;\mathbb R).
+$$
+
+よって最高次外積の差は完全形式になる。$S=\sum_{k=0}^{n-1}\omega_1^k\wedge\omega_0^{n-1-k}$ と置くと、両形式が閉じているので $dS=0$ であり、$\omega_1^n-\omega_0^n=d(i\bar\partial v\wedge S)$ である。[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
 
 $$
 \int_X\omega_1^n=\int_X\omega_0^n=V>0
