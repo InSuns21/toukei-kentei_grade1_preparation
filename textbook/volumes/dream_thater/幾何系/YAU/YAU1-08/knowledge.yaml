@@ -1,0 +1,41 @@
+chapter: YAU1-08
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-07, KAH1-11]
+concepts:
+  - id: yau.relative-kahler-traces
+    name: Kähler計量の相対跡と逆跡
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler計量の相対跡と逆跡）"]
+    requires: [yau.positive-potential-domain, yau.log-monge-ampere-operator]
+  - id: yau.logdet-second-derivative
+    name: 対数行列式の二階微分公式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（対数行列式の二階微分公式）"]
+    requires: [yau.log-monge-ampere-operator]
+  - id: yau.relative-trace-laplacian
+    name: 相対跡の局所Laplacian恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（相対跡の局所Laplacian恒等式）"]
+    requires: [yau.relative-kahler-traces, yau.logdet-second-derivative, kahler.curvature-normal-form]
+  - id: yau.third-derivative-gradient-absorption
+    name: 三階微分の勾配吸収
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（三階微分の勾配吸収）"]
+    requires: [yau.relative-trace-laplacian, kahler.curvature-complex-symmetries]
+  - id: yau.log-trace-local-lower-bound
+    name: 対数跡の局所下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数跡の局所下界）"]
+    requires: [yau.third-derivative-gradient-absorption, yau.relative-trace-laplacian]
+  - id: yau.path-local-second-order-inequality
+    name: 連続性のパスに一様な局所不等式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（連続性のパスに一様な局所不等式）"]
+    requires: [yau.log-trace-local-lower-bound, yau.continuity-path]
