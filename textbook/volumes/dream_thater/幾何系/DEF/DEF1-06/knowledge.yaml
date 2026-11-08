@@ -1,0 +1,47 @@
+chapter: DEF1-06
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-05, HOD1-06, GA6]
+concepts:
+  - id: deformation.tangent-hodge-laplacian
+    name: 接束値Dolbeault Laplacianと調和射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接束値Dolbeault Laplacianと調和射影）"]
+    requires: [cyg.holomorphic-bundle-dolbeault, hodge.dolbeault-green]
+  - id: deformation.tangent-hodge-decomposition
+    name: 接束値Hodge分解とGreen作用素
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（接束値Hodge分解とGreen作用素）"]
+    requires: [deformation.tangent-hodge-laplacian, geometric-analysis.hodge-green]
+  - id: deformation.harmonic-gauge
+    name: 調和ゲージとホモトピー作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（調和ゲージとホモトピー作用素）"]
+    requires: [deformation.tangent-hodge-decomposition, cyg.first-order-deformation-cohomology]
+  - id: deformation.green-chain-homotopy
+    name: Green作用素の連鎖ホモトピー恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Green作用素の連鎖ホモトピー恒等式）"]
+    requires: [deformation.harmonic-gauge, deformation.tangent-hodge-decomposition]
+  - id: deformation.kuranishi-formal-fixed-point
+    name: Kuranishi固定点方程式と一意な形式解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kuranishi固定点方程式と一意な形式解）"]
+    requires: [deformation.green-chain-homotopy, deformation.mc-order-equations]
+  - id: deformation.kuranishi-formal-obstruction
+    name: 形式的Kuranishi障害写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式的Kuranishi障害写像）"]
+    requires: [deformation.kuranishi-formal-fixed-point, deformation.higher-obstruction-class]
+  - id: deformation.kuranishi-formal-equivalence
+    name: 調和障害の消滅とMaurer–Cartan方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（調和障害の消滅とMaurer–Cartan方程式）"]
+    requires: [deformation.kuranishi-formal-obstruction, deformation.obstruction-bianchi-identity]
