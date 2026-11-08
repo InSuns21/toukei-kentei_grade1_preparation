@@ -1,7 +1,7 @@
 version: 1
 id: IG
 title: "情報幾何"
-plan: textbook/plans_progress/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 現時点で公開可能な完了章だけを科目別公開目次へ追加する。
