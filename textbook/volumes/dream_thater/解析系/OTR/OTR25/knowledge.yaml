@@ -1,0 +1,55 @@
+chapter: OTR25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR24
+
+concepts:
+  - id: transport.entropic-coupling-regularization
+    name: 有限OTの結合エントロピー正則化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限OTの結合エントロピー正則化）"]
+    requires: [transport.finite-primal, transport.jko-step]
+
+  - id: transport.entropic-unique-interior
+    name: 正則化結合の存在・正値性・一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則化結合の存在・正値性・一意性）"]
+    requires: [transport.entropic-coupling-regularization, transport.transportation-polytope]
+
+  - id: transport.entropic-dual-scaling
+    name: 正則化双対とスケーリング因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則化双対とスケーリング因子）"]
+    requires: [transport.entropic-unique-interior, transport.finite-dual]
+
+  - id: transport.entropic-dual-exponential
+    name: 正則化双対と指数形の最適性条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則化双対と指数形の最適性条件）"]
+    requires: [transport.entropic-dual-scaling]
+
+  - id: transport.sinkhorn-residual-logsumexp
+    name: 周辺残差とlog-sum-exp
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周辺残差とlog-sum-exp）"]
+    requires: [transport.entropic-dual-exponential]
+
+  - id: transport.sinkhorn-convergence
+    name: Sinkhorn交互スケーリングの収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Sinkhorn交互スケーリングの収束）"]
+    requires: [transport.entropic-dual-exponential, transport.sinkhorn-residual-logsumexp]
+
+  - id: transport.entropic-zero-limit
+    name: 正則化ゼロ極限と最大エントロピー選択
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則化ゼロ極限と最大エントロピー選択）"]
+    requires: [transport.entropic-unique-interior, transport.finite-primal]
