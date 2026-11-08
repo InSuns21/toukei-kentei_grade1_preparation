@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig6-connection-choice -->
-**定義の確認**（成功確率の区間）。Bernoulli 分布 $P_p(X=1)=p$, $P_p(X=0)=1-p$ の母数領域 $M=(0,1)$ 上で、$X=f(p)\partial_p$, $Y=h(p)\partial_p$ に対し
+**定義の確認**（成功確率の区間）。Bernoulli 分布 $P_p(X=1)=p$, $P_p(X=0)=1-p$ の母数領域 $M=(0,1)$ 上で、$X=f(p)\partial_p$, $Y=h(p)\partial_p$ に対し、$h'(p)=dh/dp$ と書いて
 
 $$
 \nabla^P_XY=f(p)h'(p)\partial_p
@@ -57,6 +57,15 @@ $$
 と書きます。$\partial/\partial y^b=P^i_b\partial_i$ ですから、接続の Leibniz 則は、基底の変化そのものの微分を生みます。これが一般のテンソル成分変換にはない二階微分の項です。
 
 ここで、座標によらず真っすぐに進む曲線の条件を先に確定します。[GEO13 の曲線に沿う共変微分](../../GEO/GEO13/index.md#def-geo13-curve-covariant-derivative)を $D^\nabla/dt$ と書くと、[GEO14 の測地線](../../GEO/GEO14/index.md#def-geo14-geodesic)の速度平行条件は一般の接続にも意味を持ちます。
+
+曲線の局所座標を $x(t)$、その速度を $\dot\gamma=\dot x^j\partial_j$ とすれば、[曲線に沿う共変微分の定義](../../GEO/GEO13/index.md#def-geo13-curve-covariant-derivative)の式に $V=\dot\gamma$ を代入して
+
+$$
+\frac{D^\nabla\dot\gamma}{dt}
+=\left(\frac{d^2x^k}{dt^2}+\Gamma^k_{ij}(x(t))\frac{dx^i}{dt}\frac{dx^j}{dt}\right)\partial_k.
+$$
+
+したがって、速度の共変微分が零である条件は各基底成分が零であることと同値です。
 
 <a id="def-ig6-connection-geodesic"></a>
 
@@ -283,7 +292,7 @@ $$
 
 ## 5. Fisher 計量が選ぶ接続と Bernoulli 族
 
-ここで初めて計量を使って一つの接続を選びます。[GEO13 の計量両立性](../../GEO/GEO13/index.md#def-geo13-metric-compatibility)は $Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ)$ を要求します。平行移動中の内積が一定となるためには、この条件が必要です。これと捩率零の二条件から一意に選べるのが [Levi-Civita 接続](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)です。
+ここで初めて計量を使って一つの接続を選びます。[GEO13 の計量両立性](../../GEO/GEO13/index.md#def-geo13-metric-compatibility)は $Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ)$ を要求します。平行移動中の内積が一定となるためには、この条件が必要です。これと捩率零の二条件から一意に選べるのが [Levi-Civita 接続](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)です。その係数を計量の座標成分から求めるには、[Levi-Civita 接続の Christoffel 係数公式](../../GEO/GEO13/index.md#prop-geo13-levi-civita-christoffel)を使います。
 
 <a id="def-ig6-fisher-levi-civita"></a>
 
@@ -301,7 +310,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig6-fisher-levi-civita -->
-**定義の確認**（Bernoulli）。$g_{pp}=1/[p(1-p)]>0$、$g^{pp}=p(1-p)$ です。一次元なので捩率は零で、係数公式から
+**定義の確認**（Bernoulli）。$g_{pp}=g(\partial_p,\partial_p)=1/[p(1-p)]>0$ は座標基底での計量成分です。一次元の計量行列は $(g_{pp})$ なので、その逆行列成分は $g^{pp}=1/g_{pp}=p(1-p)$ です。一次元では捩率成分 $T^p_{pp}$ が恒等的に零となり、係数公式から
 
 $$
 \Gamma^{\mathrm{LC},p}_{pp}
@@ -309,7 +318,7 @@ $$
 =\frac{2p-1}{2p(1-p)}.
 $$
 
-計量両立性も直接確認します。$dg_{pp}/dp=(2p-1)/[p^2(1-p)^2]$ なので
+計量両立性も直接確認します。定義式に $X=Y=Z=\partial_p$ を代入すると $\partial_p g_{pp}=2\Gamma^p_{pp}g_{pp}$ です。計量両立性の左辺から右辺を引いた差は、Leibniz 則により各変数について関数倍に関して線形です。一次元では任意のベクトル場が $\partial_p$ の関数倍なので、この成分の確認で十分です。$dg_{pp}/dp=(2p-1)/[p^2(1-p)^2]$ から
 
 $$
 2\Gamma^{\mathrm{LC},p}_{pp}g_{pp}
@@ -473,7 +482,19 @@ $M=(0,1)$ 上の $\nabla^P_{f\partial_p}(h\partial_p)=fh'\partial_p$ に対し�
 <!-- solution-start -->
 **詳細解答**
 
-$h(p)=p^2$ の微分は $2p$ なので $\nabla^P_XY=p(2p)\partial_p=2p^2\partial_p$ です。また $pY=p^3\partial_p$ から $\nabla^P_X(pY)=p(3p^2)\partial_p=3p^3\partial_p$。一方、$X(p)=p$ なので
+$h(p)=p^2$ を $p$ で微分すると $h'(p)=2p$ です。したがって
+
+$$
+\nabla^P_XY=p(2p)\partial_p=2p^2\partial_p.
+$$
+
+また $pY=p^3\partial_p$ の係数を同じく $p$ で微分すると
+
+$$
+\nabla^P_X(pY)=p(3p^2)\partial_p=3p^3\partial_p.
+$$
+
+一方、$X(p)=p$ なので Leibniz 則の右辺は
 
 $$
 X(p)Y+p\nabla^P_XY
@@ -494,15 +515,34 @@ Bernoulli の $p\in(0,1)$ に $\Gamma^p_{pp}=0$ の接続を入れ、$q=p^2$ に
 <!-- solution-start -->
 **詳細解答**
 
-$p=\sqrt q$ より $dp/dq=1/(2\sqrt q)$、$d^2p/dq^2=-1/(4q^{3/2})$、$dq/dp=2p$ です。[変換則](#thm-ig6-coordinate-covariance)に元の係数零を入れると $\Gamma^q_{qq}=2\sqrt q\{-1/(4q^{3/2})\}=-1/(2q)$ となります。
+$p=\sqrt q$ より
 
-$p'=1/4$、$p''=0$ なので $q'=2pp'=p/2$、$q''=2(p')^2=1/8$ です。また $q=p^2$ より
+$$
+\frac{dp}{dq}=\frac1{2\sqrt q},\qquad
+\frac{d^2p}{dq^2}=-\frac1{4q^{3/2}},\qquad
+\frac{dq}{dp}=2p.
+$$
+
+元の係数 $\Gamma^p_{pp}=0$ を[変換則](#thm-ig6-coordinate-covariance)に入れると
+
+$$
+\Gamma^q_{qq}=2\sqrt q\left(-\frac1{4q^{3/2}}\right)=-\frac1{2q}.
+$$
+
+ここではプライムは時間 $t$ による微分で、$p'=dp/dt=\dot p$、$q'=dq/dt=\dot q$ を表します。$p'=1/4$、$p''=0$ なので、連鎖律と積の微分から
+
+$$
+q'=2pp'=\frac p2,\qquad
+q''=2(p')^2+2pp''=\frac18.
+$$
+
+また $q=p^2$ より
 
 $$
 \Gamma^q_{qq}(q')^2=-\frac1{2p^2}\left(\frac p2\right)^2=-\frac18.
 $$
 
-したがって $q''+\Gamma^q_{qq}(q')^2=1/8-1/8=0$。$p(t)\in[1/4,1/2]\subset(0,1)$ で正則な再パラメータ化も保証されています。
+したがって $q''+\Gamma^q_{qq}(q')^2=1/8-1/8=0$。$p(t)\in[1/4,1/2]\subset(0,1)$ で $dq/dp=2p>0$ なので、この区間で $p\leftrightarrow q$ は滑らかな逆写像を持ちます。
 <!-- solution-end -->
 
 ### IG6-A03 捩率と計量両立性は別物
@@ -555,7 +595,16 @@ $p=1/4$ では分子 $-1/2$、分母 $2(1/4)(3/4)=3/8$ なので $\Gamma^{\mathr
 
 ### IG6-B01 logit 座標での二つの係数
 
-Bernoulli の $p\in(0,1)$、$a=\log\{p/(1-p)\}$ とする。$p$ 座標で $\Gamma^{P,p}_{pp}=0$、$\Gamma^{\mathrm{LC},p}_{pp}=(2p-1)/[2p(1-p)]$ の二つの接続がある。(i) $dp/da$, $d^2p/da^2$ を求め、(ii) 各接続の $a$ 座標係数を計算せよ。(iii) $p(t)=p_0+vt$ が $\nabla^P$-測地線なら $a(t)$ の測地線方程式が成立することを直接示せ。
+Bernoulli の $p\in(0,1)$、$a=\log\{p/(1-p)\}$ とする。$p$ 座標で次の二つの接続がある。
+
+$$
+\Gamma^{P,p}_{pp}=0,\qquad
+\Gamma^{\mathrm{LC},p}_{pp}=\frac{2p-1}{2p(1-p)}.
+$$
+
+1. $dp/da$ と $d^2p/da^2$ を求めよ。
+2. 各接続の $a$ 座標係数を計算せよ。
+3. $p(t)=p_0+vt$ が $\nabla^P$-測地線なら、$a(t)$ の測地線方程式が成立することを直接示せ。
 
 - Level: B
 - 狙い: 接続の変換則と測地線の共変性を計算で結ぶ
@@ -575,7 +624,7 @@ $$
 \end{aligned}
 $$
 
-(iii) $a'=p'/[p(1-p)]=v/[p(1-p)]$ です。$p''=0$ と $d[1/(p(1-p))]/dp=(2p-1)/[p^2(1-p)^2]$ から
+(iii) ここからのプライムは時間 $t$ による微分を表し、$a'=da/dt$、$p'=dp/dt=v$ です。$a'=p'/[p(1-p)]$、$p''=0$ と $d[1/(p(1-p))]/dp=(2p-1)/[p^2(1-p)^2]$ から
 
 $$
 a''=\frac{(2p-1)v^2}{p^2(1-p)^2},
@@ -587,7 +636,11 @@ $$
 
 ### IG6-B02 Fisher 弧長での測地線
 
-$P_p(X=1)=p$（$p\in(0,1)$）の Fisher 計量 $g_{pp}=1/[p(1-p)]$ を考える。$p(0)=1/4$、$p(1)=3/4$ を結ぶ (i) $\nabla^P$-測地線と (ii) Levi-Civita 接続の一定速測地線を求めよ。(iii) 両者の Fisher 長さを計算し、相違点を説明せよ。
+$P_p(X=1)=p$（$p\in(0,1)$）の Fisher 計量 $g_{pp}=1/[p(1-p)]$ を考える。$p(0)=1/4$、$p(1)=3/4$ を結ぶ曲線について、次を求めよ。
+
+1. $\nabla^P$-測地線。
+2. Levi-Civita 接続の一定速測地線。
+3. 両者の Fisher 長さと、その相違点。
 
 - Level: B
 - 狙い: 1次元で曲線像・長さ・パラメータ化の違いを精密に分ける
@@ -597,13 +650,20 @@ $P_p(X=1)=p$（$p\in(0,1)$）の Fisher 計量 $g_{pp}=1/[p(1-p)]$ を考える�
 
 (i) $p''=0$ なので $p_P(t)=1/4+t/2$ です。
 
-(ii) $s=2\arcsin\sqrt p$ で $g_{ss}=1$ です。$p=1/4$ では $s_0=2\arcsin(1/2)=\pi/3$、$p=3/4$ では $s_1=2\arcsin(\sqrt3/2)=2\pi/3$ です。一定速の解は $s(t)=\pi/3+\pi t/3$ なので
+(ii) $s=2\arcsin\sqrt p$ で $g_{ss}=1$ です。端点の $s$ 座標値は
+
+$$
+s_0=2\arcsin(1/2)=\frac\pi3,\qquad
+s_1=2\arcsin(\sqrt3/2)=\frac{2\pi}3.
+$$
+
+一定速の解は $s(t)=\pi/3+\pi t/3$ なので
 
 $$
 p_{\mathrm{LC}}(t)=\sin^2\left(\frac\pi6+\frac{\pi t}{6}\right).
 $$
 
-(iii) どちらの $p(t)$ も単調増加です。[Fisher--Rao 長さ](../IG2/index.md#def-ig2-fisher-rao-distance)を変数 $p$ へ置換すると
+(iii) $p_P'(t)=1/2>0$ であり、$p_{\mathrm{LC}}'(t)=(\pi/6)\sin(\pi/3+\pi t/3)>0$（$0\le t\le1$）です。よってどちらも単調増加で、$dp=p'(t)\,dt$ という置換積分が使えます。[Fisher--Rao 長さ](../IG2/index.md#def-ig2-fisher-rao-distance)を変数 $p$ へ置換すると
 
 $$
 L=\int_0^1\frac{|p'(t)|}{\sqrt{p(t)(1-p(t))}}dt
@@ -616,7 +676,11 @@ $$
 
 ### IG6-B03 二次元では捩率を計算できる
 
-$M=\mathbb R^2$ の座標 $(x^1,x^2)$ で、標準係数零の接続 $D$ と、$\Gamma^1_{12}=1$ だけが非零である接続 $\nabla$ を考える。各係数は定数とする。(i) $A=\nabla-D$ の成分を求めよ。(ii) $\nabla$ の捩率を求めよ。(iii) $A$ が関数倍に関して双線形であることを $A(X,fY)$ で確認せよ。
+$M=\mathbb R^2$ の座標 $(x^1,x^2)$ で、標準係数零の接続 $D$ と、$\Gamma^1_{12}=1$ だけが非零である接続 $\nabla$ を考える。各係数は定数とする。
+
+1. $A=\nabla-D$ の成分を求めよ。
+2. $\nabla$ の捩率を求めよ。
+3. $A$ が関数倍に関して双線形であることを $A(X,fY)$ で確認せよ。
 
 - Level: B
 - 狙い: 接続差テンソルと反対称部分を別々に扱う
@@ -624,7 +688,7 @@ $M=\mathbb R^2$ の座標 $(x^1,x^2)$ で、標準係数零の接続 $D$ と、$
 <!-- solution-start -->
 **詳細解答**
 
-(i) $D$ の全係数は零なので $A^1_{12}=1$、残りは零です。すなわち $A(X,Y)=X^1Y^2\partial_1$ です。
+(i) $D$ の全係数は零なので、[接続の差と捩率の座標表示](#prop-ig6-difference-torsion)から $A^1_{12}=1$、残りは零です。したがって $A(X,Y)=X^1Y^2\partial_1$ です。
 
 (ii) [接続の差と捩率の座標表示](#prop-ig6-difference-torsion)から $T^1_{12}=\Gamma^1_{12}-\Gamma^1_{21}=1-0=1$、$T^1_{21}=-1$、その他は零です。よって捩率零ではありません。
 
@@ -633,7 +697,11 @@ $M=\mathbb R^2$ の座標 $(x^1,x^2)$ で、標準係数零の接続 $D$ と、$
 
 ### IG6-B04 非計量両立接続での平行移動
 
-$p(t)\in(0,1)$ を $C^1$ 曲線とする。Bernoulli 族の $\Gamma^{P,p}_{pp}=0$ の接続に沿い、初期値 $V^p(t_0)=c$ の平行場を求めよ。さらに $a=\log\{p/(1-p)\}$ の座標で表した成分 $V^a$ が、$\Gamma^{P,a}_{aa}=1-2p$ の平行方程式を満たすことを確認せよ。$c\ne0$ として Fisher 内積の長さが常に保存されるか述べよ。
+$p(t)\in(0,1)$ を $C^1$ 曲線とし、Bernoulli 族の成功確率接続 $\nabla^P$ は $\Gamma^{P,p}_{pp}=0$ とする。
+
+1. 初期値 $V^p(t_0)=c$ を持つ、曲線に沿う平行場を求めよ。
+2. logit 座標 $a=\log\{p/(1-p)\}$ で表した成分 $V^a$ が、$\Gamma^{P,a}_{aa}=1-2p$ の平行方程式を満たすことを確認せよ。
+3. $c\ne0$ として、Fisher ノルムが常に保存されるか述べよ。
 
 - Level: B
 - 狙い: 平行移動は座標不変だが計量保存とは限らない
@@ -641,7 +709,7 @@ $p(t)\in(0,1)$ を $C^1$ 曲線とする。Bernoulli 族の $\Gamma^{P,p}_{pp}=0
 <!-- solution-start -->
 **詳細解答**
 
-$p$ 座標の平行方程式は $(V^p)'=0$ ですから $V^p(t)=c$ です。ベクトル成分を $a$ 座標へ書き換えると
+$p$ 座標の平行方程式は $dV^p/dt=0$ ですから $V^p(t)=c$ です。ベクトル成分を $a$ 座標へ書き換えると
 
 $$
 V^a=\frac{da}{dp}V^p=\frac{c}{p(1-p)}.
@@ -680,20 +748,20 @@ Bernoulli 族 $P_p(X=1)=p$（$p\in(0,1)$）に $g_{pp}=1/[p(1-p)]$ を入れ、$
 <!-- solution-start -->
 **詳細解答**
 
-1. $g^{pp}=p(1-p)$、$g'_{pp}=(2p-1)/[p^2(1-p)^2]$ です。したがって
+1. 計量の $p$ 微分は $dg_{pp}/dp=(2p-1)/[p^2(1-p)^2]$、逆計量は $g^{pp}=p(1-p)$ です。したがって
 
    $$
    \Gamma^{P,p}_{pp}=0,\qquad
-   \Gamma^{\mathrm{LC},p}_{pp}=\frac12g^{pp}g'_{pp}=\frac{2p-1}{2p(1-p)}.
+   \Gamma^{\mathrm{LC},p}_{pp}=\frac12g^{pp}\frac{dg_{pp}}{dp}=\frac{2p-1}{2p(1-p)}.
    $$
 
-   $p(a)=e^a/(1+e^a)$ より $p'=p(1-p)$、$p''=p(1-p)(1-2p)$（ここだけ素数は $a$ 微分）です。[接続係数の変換則](#thm-ig6-coordinate-covariance)から
+   一方、$p(a)=e^a/(1+e^a)$ の $a$ 微分は $dp/da=p(1-p)$、$d^2p/da^2=p(1-p)(1-2p)$ です。[接続係数の変換則](#thm-ig6-coordinate-covariance)から
 
    $$
    \begin{aligned}
-   \Gamma^{P,a}_{aa}&=\frac{1}{p(1-p)}p''=1-2p,\\
+   \Gamma^{P,a}_{aa}&=\frac{1}{p(1-p)}\frac{d^2p}{da^2}=1-2p,\\
    \Gamma^{\mathrm{LC},a}_{aa}
-   &=\frac{1}{p(1-p)}\left\{(p')^2\frac{2p-1}{2p(1-p)}+p''\right\}\\
+   &=\frac{1}{p(1-p)}\left\{\left(\frac{dp}{da}\right)^2\frac{2p-1}{2p(1-p)}+\frac{d^2p}{da^2}\right\}\\
    &=\frac{2p-1}{2}+1-2p=\frac{1-2p}{2}.
    \end{aligned}
    $$
@@ -708,7 +776,7 @@ Bernoulli 族 $P_p(X=1)=p$（$p\in(0,1)$）に $g_{pp}=1/[p(1-p)]$ を入れ、$
 
    $\dot p_P=1/2$ として $\dot a_P=\dot p_P/[p_P(1-p_P)]$、$\ddot a_P=(2p_P-1)(\dot p_P)^2/[p_P^2(1-p_P)^2]$ です。一方 $\Gamma^{P,a}_{aa}(\dot a_P)^2=(1-2p_P)(\dot p_P)^2/[p_P^2(1-p_P)^2]$ で、合計0です。$a_P$ は直線ではないのに同じ $\nabla^P$ の測地線です。
 
-3. $s(p)=2\arcsin\sqrt p$ と置けば $ds/dp=1/\sqrt{p(1-p)}$ です。$s$ 座標の計量は $g_{ss}=1$、従って Levi-Civita 係数は零になります。端点は $s(0)=\pi/3$, $s(1)=2\pi/3$（ここでは $s(t)=s(p(t))$ の略記）なので $s(t)=\pi(1+t)/3$、
+3. $s(p)=2\arcsin\sqrt p$ と置けば $ds/dp=1/\sqrt{p(1-p)}$ です。$s$ 座標の計量は $g_{ss}=1$、従って Levi-Civita 係数は零になります。端点をこの座標で表すと $s(p(0))=s(1/4)=\pi/3$、$s(p(1))=s(3/4)=2\pi/3$ です。したがって時刻 $t$ における座標値は $s(p(t))=\pi(1+t)/3$、
 
    $$
    p_{\mathrm{LC}}(t)=\sin^2\left(\frac\pi6+\frac{\pi t}{6}\right).
@@ -730,7 +798,15 @@ Bernoulli 族 $P_p(X=1)=p$（$p\in(0,1)$）に $g_{pp}=1/[p(1-p)]$ を入れ、$
    =\frac{1}{4p_P(1-p_P)}
    $$
 
-   は一定ではありません。例えば $p=1/4$ で $4/3$、$p=1/2$ で $1$ です。$\nabla^P$ は計量両立でないためです。$\nabla^{\mathrm{LC}}$ とそのアファイン時刻を使えば $\|\dot\gamma\|_g^2=(ds/dt)^2=(\pi/3)^2$ が一定になります。定数速度が求める量は座標成分ではなく Fisher ノルムであることも確認できます。
+   は一定ではありません。例えば $p=1/4$ で $4/3$、$p=1/2$ で $1$ です。$\nabla^P$ は計量両立でないためです。
+
+   一方、$\nabla^{\mathrm{LC}}$ とそのアファイン時刻を使えば
+
+   $$
+   \|\dot\gamma\|_g^2=\left(\frac{ds}{dt}\right)^2=\left(\frac\pi3\right)^2
+   $$
+
+   が一定になります。定数速度が求める量は座標成分ではなく Fisher ノルムであることも確認できます。
 <!-- solution-end -->
 
 ---
