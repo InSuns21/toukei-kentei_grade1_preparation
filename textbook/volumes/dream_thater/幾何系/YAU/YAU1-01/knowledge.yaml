@@ -1,0 +1,35 @@
+chapter: YAU1-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-10, KAH1-13, HOD1-08]
+concepts:
+  - id: yau.admissible-ricci-data
+    name: Ricci指定問題の許容データ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ricci指定問題の許容データ）"]
+    requires: [kahler.kahler-class, kahler.ricci-chern-identification]
+  - id: yau.ricci-target-obstruction
+    name: 指定Ricci形式の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（指定Ricci形式の必要条件）"]
+    requires: [yau.admissible-ricci-data, kahler.ricci-chern-identification]
+  - id: yau.calabi-quantifier-structure
+    name: Calabi予想の量化の精密表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Calabi予想の精密な量化）"]
+    requires: [yau.admissible-ricci-data, cyg.yau-prescribed-ricci]
+  - id: yau.potential-gauge-uniqueness
+    name: ポテンシャルの定数差と計量の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ポテンシャルの定数差と計量の一意性）"]
+    requires: [cyg.fixed-class-ricci-uniqueness, hodge.pure-d-exact-ddbar]
+  - id: yau.volume-normalization-consistency
+    name: 体積正規化の整合性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体積正規化の整合性）"]
+    requires: [cyg.ricci-monge-ampere-reduction, yau.admissible-ricci-data]
