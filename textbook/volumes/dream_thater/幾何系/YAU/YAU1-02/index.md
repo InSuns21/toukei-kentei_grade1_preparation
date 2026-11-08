@@ -10,7 +10,15 @@ $$
 
 を満たす。しかし、未知の計量の全成分と曲率を直接求めるのは大変である。既習の[大域 $\partial\bar\partial$ 補題の帰結](../../HOD/HOD1-08/index.md#cor-hod1-08-d-exact)を使えば、同じde Rham類にある実閉 $(1,1)$ 形式の差を、**一つの実関数の二階微分**へ置き換えられる。
 
-まず基準Kähler形式 $\omega$ を $[\omega]=\alpha$ となるよう一つ固定する。$X$ は境界なし、複素次元 $n\ge1$ とし、すべての形式・関数は滑らかとする。Ricci形式の符号規約は
+まず基準Kähler形式 $\omega$ を $[\omega]=\alpha$ となるよう一つ固定する。$X$ は境界なし、複素次元 $n\ge1$ とし、すべての形式・関数は滑らかとする。
+
+正則座標 $z^1,\ldots,z^n$ の基底 $\partial/\partial z^j$ に関する $\omega$ の係数が $g_{j\bar k}$ である。[正の実 $(1,1)$ 形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)によれば、$v=\sum_jc^j\partial/\partial z^j\ne0$ に対して
+
+$$
+-i\omega(v,\bar v)=\sum_{j,k}g_{j\bar k}c^j\overline{c^k}>0
+$$
+
+だから、係数行列 $G=(g_{j\bar k})$ は正値Hermite行列になる。これは正値形式の定義を行列で判定できる理由であり、閉性 $d\omega=0$ は別のKähler条件である。Ricci形式の符号規約は
 
 $$
 \rho(\omega)=-i\partial\bar\partial\log\det(g_{j\bar k}),
@@ -18,11 +26,19 @@ $$
 \omega=i\sum_{j,k}g_{j\bar k}\,dz^j\wedge d\bar z^k
 $$
 
-である。正値Hermite行列 $G=(g_{j\bar k})$ の行列式は正で、対数が定義できる。局所表示の行列式そのものは座標に依存するが、二つの計量を比較する**行列式の比**は大域的な関数になる。
+である。正値性から $\det G>0$ で、対数が定義できる。局所表示の行列式そのものは座標に依存するが、二つの計量を比較する**行列式の比**は大域的な関数になる。
 
 ### まず一次元で体積比を見る
 
-$T=\mathbb C/(\mathbb Z+i\mathbb Z)$ とし、$z=x+iy$ と書く。$0<\varepsilon<1$ に対して
+$T=\mathbb C/(\mathbb Z+i\mathbb Z)$ とし、$z=x+iy$ と書く。以下、$f',f''$ や $\psi'',\varphi''$ のプライムは実変数 $x$ に関する導関数であり、複素座標での偏微分とは区別する。[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)により、滑らかな関数に対して
+
+$$
+\partial_z=\frac12(\partial_x-i\partial_y),\qquad
+\partial_{\bar z}=\frac12(\partial_x+i\partial_y),\qquad
+\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)
+$$
+
+が成り立つ（最後は混合偏微分の交換による）。$0<\varepsilon<1$ に対して
 
 $$
 \omega_0=i\,dz\wedge d\bar z,\qquad
@@ -30,7 +46,7 @@ $$
 f(x)=1+\varepsilon\cos(2\pi x)
 $$
 
-を取る。$f>0$ なので $\omega_\varepsilon$ は正値、周期的だから商に降り、複素次元1では3形式が零なので閉じる。よってKähler形式である。体積比は $f$ そのものであり、[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)から
+を取る。$1-\varepsilon\le f\le1+\varepsilon$ で $f>0$ だから $\omega_\varepsilon$ は正値であり、$f$ が実数値なので実 $(1,1)$ 型も保つ。周期的だから商に降り、複素次元1では3形式が零なので閉じる。よってKähler形式である。体積比は $f$ そのものであり、[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)から
 
 $$
 \rho(\omega_\varepsilon)-\rho(\omega_0)
@@ -45,18 +61,25 @@ $$
 =-\frac{\pi^2\varepsilon}{1+\varepsilon}.
 $$
 
-Ricci形式が零でないことまで直接判定できる。ここでは $\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ を用いた。
+従って $x=0$ でのRicci形式は $i\pi^2\varepsilon/(1+\varepsilon)\,dz\wedge d\bar z\ne0$ であり、符号と非零性を直接判定できる。
 
 ## 2. 行列式の比からRicci差の符号を確かめる
 
-複素次元 $n$ の正則座標で二つのKähler形式 $\omega_0,\omega_1$ の正値行列を $G_0,G_1$ とする。最高次外積の行列式表示では、共通の座標体積形式と係数 $n!$ が比で相殺される：
+複素次元 $n$ の同一正則座標で二つのKähler形式 $\omega_0,\omega_1$ の係数行列を $G_0,G_1$ とする。最高次外積を展開すると、各 $dz^j,d\bar z^k$ が一度ずつ現れる項だけが残り、置換の符号和が $\det G_a$ を作る。したがって共通の座標体積形式と係数 $n!$ が比で相殺される：
 
 $$
 R:=\frac{\omega_1^n}{\omega_0^n}
 =\frac{\det G_1}{\det G_0}>0.
 $$
 
-座標を変えれば両行列式に同じ正則Jacobi行列式の絶対値二乗が掛かるので、$R$ は大域的な滑らかな正関数である。既習の[Ricci差と体積比の命題](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)は、この比について
+座標を $z=z(w)$ へ変えるとき、可逆な複素Jacobi行列 $J=(\partial z^j/\partial w^b)_{j,b}$ により、各 $r=0,1$ について
+
+$$
+G_r^{(w)}=J^{\mathsf T}G_r^{(z)}\overline J,
+\qquad \det G_r^{(w)}=|\det J|^2\det G_r^{(z)}
+$$
+
+となる。両行列式の比 $R$ は座標に依存しない大域的な滑らかな正関数である。既習の[Ricci差と体積比の命題](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)は、この比について
 
 $$
 \boxed{\rho(\omega_1)-\rho(\omega_0)
@@ -104,7 +127,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-yau1-02-ricci-potential -->
-**定義の確認**（平坦楕円曲線）。上の $T$ と $\omega_0$ で $\eta=\rho(\omega_\varepsilon)$ を指定し、$u=-\log f$ とする。$f$ は周期的で正なので $u$ は商上の滑らかな実関数である。[Ricci形式の差と体積比](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)の命題を適用すると
+**定義の確認**（平坦楕円曲線）。上の $T$ と $\omega_0$ で $\eta=\rho(\omega_\varepsilon)$ を指定し、$u=-\log f$ とする。$\omega_0$ は正の実 $(1,1)$ 形式で、複素次元1ゆえ閉じた基準Kähler形式である。$f$ は周期的で正なので $u$ は商上の滑らかな実関数である。
+
+$\omega_\varepsilon$ も第1節でKähler条件を確認した。[Ricci形式の閉性](../../KAH/KAH1-11/index.md#thm-kah1-11-closed)から $\eta$ は滑らかな実閉 $(1,1)$ 形式である。さらに[体積比によるRicci差の公式](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)を二つの正値Kähler形式に適用すると
 
 $$
 \eta-\rho(\omega_0)
@@ -113,7 +138,7 @@ $$
 =i\partial\bar\partial u.
 $$
 
-$u$ は確かに定義式を満たす。ここで目標 $\eta$ は実 $(1,1)$ 形式で、[Ricci形式の閉性](../../KAH/KAH1-11/index.md#thm-kah1-11-closed)の定理により閉じる。さらに同類条件は両Ricci形式が同じ実第一Chern類を表すため成立する。
+$u$ は確かに定義式を満たす。さらに[Ricci–Chern同定](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)により $[\eta]=[\rho(\omega_0)]$ も成立する。$\eta$ 自体の正値性は定義に要求されない。
 <!-- definition-example-end -->
 
 ### 大域補題から「実」のポテンシャルまで
@@ -163,14 +188,21 @@ $$
 
 ここでは $v$ 自体が実であると仮定していない。**虚部を取るのは実性を確保するために必要な一段階**である。
 
-**定数差。** 二つの実ポテンシャルに対し $h:=u_1-u_2$ と置けば $i\partial\bar\partial h=0$。正則座標での係数は $\partial_j\partial_{\bar k}h=0$ だから、正値Hermite逆行列 $(g^{j\bar k})$ で縮約して
+**定数差。** 二つの実ポテンシャルに対し $h:=u_1-u_2$ と置けば $i\partial\bar\partial h=0$。ここで $\partial_j=\partial/\partial z^j$、$\partial_{\bar k}=\partial/\partial\bar z^k$ と書く。正則座標での係数は $\partial_j\partial_{\bar k}h=0$ だから、正値Hermite逆行列 $(g^{j\bar k})$ で縮約して
 
 $$
 \Delta_\omega h
 :=2\sum_{j,k}g^{j\bar k}\partial_j\partial_{\bar k}h=0.
 $$
 
-ここで $\Delta_\omega$ は実関数に作用する計量Laplacianのこの章での符号規約である。Hodge Laplacian $\Delta_d$ とは実関数上で符号が反対だから $\Delta_dh=0$ である。コンパクト境界なしの $X$ 上で[調和性のエネルギー判定](../../GA/GA6/index.md#thm-ga6-energy)を使えば
+ここで $\Delta_\omega$ は実Riemann計量の $\Delta_g=\operatorname{div}_g\nabla_g$ と同じ符号（非正）の関数Laplacianである。係数 $2$ の根拠は次の通りである。[Kähler正規座標の存在](../../KAH/KAH1-08/index.md#thm-kah1-08-normal-existence)を用いて点 $p$ で $g_{j\bar k}(p)=\delta_{jk}$ と一階微分の消失を選ぶ。そこでの実計量は $g_{\mathbb R}(p)=2\sum_j(dx_j^2+dy_j^2)$ なので、
+
+$$
+\Delta_g h(p)=\frac12\sum_j(\partial_{x_j}^2+\partial_{y_j}^2)h(p)
+=2\sum_j\partial_{z^j}\partial_{\bar z^j}h(p)
+$$
+
+となることから確認できる。$\Delta_d=dd^*+d^*d$ は[Hodge理論での記法](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)であり、[GA6での $\Delta_H$](../../GA/GA6/index.md#def-ga6-hodge-laplacian)と同じ作用素を表す。実関数では $\Delta_d=-\Delta_g$ だから $\Delta_dh=0$。複素多様体の標準の向きとコンパクト・境界なしの仮定の下で[調和性のエネルギー判定](../../GA/GA6/index.md#thm-ga6-energy)を使えば
 
 $$
 0=\langle h,\Delta_dh\rangle_{L^2}=\|dh\|_{L^2}^2.
@@ -372,14 +404,14 @@ $$
 複素次元2の同一正則座標で、二つのKähler形式の係数行列を $G_0=\operatorname{diag}(1,2)$、$G_1=\operatorname{diag}(3,4)$ とする。その点での $\omega_1^2/\omega_0^2$ を求めよ。座標によらず定義できる理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答。** 正値行列の行列式は $\det G_0=2$、$\det G_1=12$。最高次外積は共通座標体積形式に $2!i^2\det G_a$ を掛けたものなので、
+**詳細解答。** 正値行列の行列式は $\det G_0=2$、$\det G_1=12$。最高次外積は、それぞれ $r=0,1$ について共通座標体積形式に $2!i^2\det G_r$ を掛けたものなので、
 
 $$
 \frac{\omega_1^2}{\omega_0^2}
 =\frac{\det G_1}{\det G_0}=\frac{12}{2}=6.
 $$
 
-正則座標変換で両行列式には同じ $|\det B|^2$ が掛かるから、比では消える。したがって正の大域関数の値として意味がある。
+第2節と同じく正則座標変換のJacobi行列を $J$ とすると、両行列式には同じ $|\det J|^2$ が掛かるから、比では消える。したがって正の大域関数の値として意味がある。
 <!-- solution-end -->
 
 <a id="ex-yau1-02-a02"></a>
@@ -554,7 +586,7 @@ $T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z$、$z=x+iy$
 3. $\widehat\omega=\omega_0$ を得る実関数 $\varphi$ を構成し、体積方程式を検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $1-\varepsilon<f<1+\varepsilon$ なので $\omega_\varepsilon$ は正値。$f$ は周期的だから形式は $T$ に降り、複素次元1で $d\omega_\varepsilon$ は3形式ゆえ零。したがってKähler形式である。
+**詳細解答。** $1-\varepsilon\le f\le1+\varepsilon$ かつ $1-\varepsilon>0$ なので $\omega_\varepsilon$ は正値。$f$ は実数値なので実 $(1,1)$ 型であり、周期的だから形式は $T$ に降りる。複素次元1で $d\omega_\varepsilon$ は3形式ゆえ零。したがってKähler形式である。
 
 類の一致には $\psi(x)=-\varepsilon\cos(2\pi x)/\pi^2$ を取る。$\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ と $\psi''=4\varepsilon\cos(2\pi x)$ から
 
@@ -565,7 +597,13 @@ $$
 
 従って差は $d(i\bar\partial\psi)$ で完全だから、同類である。
 
-次に $\rho(\omega_0)=0$ で、[Ricci形式の差と体積比](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)の命題より $\rho(\omega_\varepsilon)=-i\partial\bar\partial\log f$。よって $\eta=0$ に対して $u=\log f$ が $\rho(\omega_\varepsilon)+i\partial\bar\partial u=0$ を満たす。
+次に $\omega_0$ の係数行列は定数行列 $G_0=(1)$ だから、[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)で
+
+$$
+\rho(\omega_0)=-i\partial\bar\partial\log1=0.
+$$
+
+[Ricci形式の差と体積比](../../CYG/CYG1-10/index.md#prop-cyg1-10-ricci-volume-ratio)の命題より $\rho(\omega_\varepsilon)=-i\partial\bar\partial\log f$。よって $\eta=0$ に対して $u=\log f$ が $\rho(\omega_\varepsilon)+i\partial\bar\partial u=0$ を満たす。
 
 $\omega_0=2dx\wedge dy$ で基本領域の面積は2。また $\int_0^1\cos(2\pi x)dx=0$ なので
 
