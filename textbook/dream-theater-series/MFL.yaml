@@ -100,7 +100,7 @@ chapters:
     title: "群作用・軌道・安定化群から対称性の情報損失を読む"
   - id: MFL24
     path: textbook/volumes/dream_thater/応用系/MFL/MFL24
-    status: planned
+    status: completed
     title: "群表現・intertwiner・特徴型"
   - id: MFL25
     path: textbook/volumes/dream_thater/応用系/MFL/MFL25

@@ -1,0 +1,56 @@
+chapter: MFL24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL23
+  - LA3C
+forward_references: []
+concepts:
+  - id: manifold-learning.finite-real-representation
+    name: 有限群の実有限次元表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限群の実有限次元表現）"]
+    requires: [algebra.group-action]
+  - id: manifold-learning.linear-intertwiner
+    name: 表現の間の絡作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表現の間の絡作用素）"]
+    requires: [manifold-learning.finite-real-representation, manifold-learning.equivariant-map]
+  - id: manifold-learning.linear-equivariance-condition
+    name: 線形等変性と交換条件の同値性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.linear-intertwiner]
+  - id: manifold-learning.feature-type-direct-sum
+    name: 特徴型と直和表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（特徴型と直和表現）"]
+    requires: [manifold-learning.finite-real-representation]
+  - id: manifold-learning.c2-sign-selection
+    name: C2の符号型による選択則
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.feature-type-direct-sum, manifold-learning.linear-equivariance-condition]
+  - id: manifold-learning.c4-rotation-commutant
+    name: 四分の一回転と可換な実2次行列
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.linear-equivariance-condition]
+  - id: manifold-learning.d4-vector-commutant
+    name: D4の平面ベクトル型の線形自己写像
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.c4-rotation-commutant]
+  - id: manifold-learning.c4-permutation-decomposition
+    name: C4の四頂点置換表現の実直和分解
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.feature-type-direct-sum]
+  - id: manifold-learning.affine-equivariance-condition
+    name: アフィン等変写像の条件
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.linear-equivariance-condition]
