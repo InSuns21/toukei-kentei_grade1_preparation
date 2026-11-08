@@ -43,7 +43,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（双対平坦統計多様体）**  
-> 正定値な Riemann 計量 $g$ を持つ滑らかな多様体 $M$ に、互いに [計量双対](../IG7/index.md#def-ig7-dual-connection)である二つの捩率零のアファイン接続 $\nabla,\nabla^*$ が与えられているとする。**両接続それぞれの曲率が零**であるとき、$(M,g,\nabla,\nabla^*)$ を **双対平坦**という。特に $M$ が正則統計多様体で、$g$ がその Fisher 計量なら **双対平坦統計多様体**という。このとき $\nabla=\nabla^e$、$\nabla^*=\nabla^m$ の場合を e/m 双対平坦と呼ぶ。
+> 正定値な Riemann 計量 $g$ を持つ滑らかな多様体 $M$ に、互いに [計量双対](../IG7/index.md#def-ig7-dual-connection)な二つのアファイン接続 $\nabla,\nabla^*$ が与えられているとする。
+>
+> **両接続が捩率零で、両者それぞれの曲率も零**であるとき、$(M,g,\nabla,\nabla^*)$ を **双対平坦**という。
+>
+> 特に $M$ が正則統計多様体で $g$ がその Fisher 計量なら **双対平坦統計多様体**と呼ぶ。その二接続が $\nabla=\nabla^e$、$\nabla^*=\nabla^m$ の場合を **e/m 双対平坦**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig8-dually-flat -->
