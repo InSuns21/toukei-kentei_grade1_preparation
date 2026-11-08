@@ -1,0 +1,53 @@
+chapter: DEF1-07
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-06, GA2, GA6, CM1-07]
+concepts:
+  - id: deformation.sobolev-kuranishi-estimate
+    name: Sobolev空間上のKuranishi双線形評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Sobolev空間上のKuranishi双線形評価）"]
+    requires: [deformation.harmonic-gauge, geometric-analysis.hodge-green]
+  - id: deformation.convergent-kuranishi-fixed-point
+    name: 収束するKuranishi固定点解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（収束するKuranishi固定点解）"]
+    requires: [deformation.sobolev-kuranishi-estimate, deformation.kuranishi-formal-fixed-point]
+  - id: deformation.analytic-kuranishi-map
+    name: 解析的Kuranishi障害写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解析的Kuranishi障害写像）"]
+    requires: [deformation.convergent-kuranishi-fixed-point, deformation.kuranishi-formal-obstruction]
+  - id: deformation.analytic-kuranishi-base
+    name: 有限次元Kuranishi解析的基底
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限次元Kuranishi解析的基底）"]
+    requires: [deformation.analytic-kuranishi-map]
+  - id: deformation.kuranishi-tangent
+    name: 有限次元解析的零点集合と接空間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限次元解析的零点集合と接空間）"]
+    requires: [deformation.analytic-kuranishi-base]
+  - id: deformation.convergent-mc-equivalence
+    name: 収束障害の消滅とMaurer–Cartan可積分性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（収束障害の消滅とMaurer–Cartan可積分性）"]
+    requires: [deformation.analytic-kuranishi-map, deformation.obstruction-bianchi-identity]
+  - id: deformation.small-mc-elliptic-regularity
+    name: 小さい可積分解の楕円型正則性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（小さい可積分解の楕円型正則性）"]
+    requires: [deformation.convergent-mc-equivalence, geometric-analysis.hodge-green]
+  - id: deformation.integrable-kuranishi-points
+    name: 障害零点上の小複素構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（障害零点上の小複素構造）"]
+    requires: [deformation.small-mc-elliptic-regularity, deformation.analytic-kuranishi-base, deformation.maurer-cartan-integrability]
