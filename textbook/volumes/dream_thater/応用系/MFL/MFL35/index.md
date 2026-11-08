@@ -15,21 +15,29 @@
 
 ## 2. 座標・特徴・番号の型
 
-$N\ge1$ 個の頂点 $V=\{1,\ldots,N\}$ と無向辺集合 $E$ を固定する。空間次元と特徴次元は $n,p\ge1$ とし、頂点 $i$ の位置と特徴を
+$N\ge1$ 個の頂点 $V=\{1,\ldots,N\}$ と無向辺集合 $E\subseteq\{\{i,j\}:i,j\in V,\ i\ne j\}$ を固定する。空間次元と特徴次元は $n,p\ge1$ とし、頂点 $i$ の位置と特徴を
 
 $$
 x_i\in\mathbb R^n,\qquad h_i\in\mathbb R^p
 $$
 
-と置く。近傍集合は $\mathcal N(i)=\{j:\{i,j\}\in E\}$ である。「スカラー特徴ベクトル」とは、成分を複数並べても空間の回転時にその成分を回さない特徴であり、空間座標の成分とは区別する。
+と置く。座標と特徴はいずれも列ベクトルとして扱う。近傍集合は $\mathcal N(i)=\{j:\{i,j\}\in E\}$ である。「スカラー特徴ベクトル」とは、成分を複数並べても空間の回転時にその成分を回さない特徴であり、空間座標の成分とは区別する。
 
-[MFL34の剛体運動](../MFL34/index.md#def-mfl34-geometric-graph) $Q\in O(n)$、$t\in\mathbb R^n$ は次のように作用する。
+[MFL34の剛体運動](../MFL34/index.md#def-mfl34-geometric-graph)を本章の特徴型に拡張する。直交行列の集合を
+
+$$
+O(n)=\{Q\in\mathbb R^{n\times n}:Q^{\mathsf T}Q=I_n\}
+$$
+
+とし、$Q\in O(n)$、$t\in\mathbb R^n$ を次のように作用させる。空間変換ではスカラー特徴の各成分を固定する。
 
 $$
 x_i^\star=Qx_i+t,\qquad h_i^\star=h_i,\qquad E^\star=E.
 $$
 
-前章は主に $n\ge2$ を扱ったが、この式は $n=1$ にも通用する。そのとき $O(1)=\{1,-1\}$ で、直線の平行移動と反転を扱う。頂点置換 $\pi$ は
+前章の[幾何的グラフの定義](../MFL34/index.md#def-mfl34-geometric-graph)と[辺の変換則](../MFL34/index.md#thm-mfl34-transform-law)は $n,N\ge2$ を仮定している。本章では $n,N\ge1$ に拡張する。
+
+$n=1$ なら $O(1)=\{1,-1\}$ で直線の平行移動と反転を扱い、$N=1$ なら辺集合は空となる。頂点置換 $\pi$ は
 
 $$
 x_i^\pi=x_{\pi^{-1}(i)},\quad h_i^\pi=h_{\pi^{-1}(i)},\quad
@@ -38,14 +46,17 @@ $$
 
 と作用する。星印は空間運動、上付き $\pi$ は番号変更を示す。
 
-[辺の変換則](../MFL34/index.md#thm-mfl34-transform-law)から
+前章の[辺の変換則](../MFL34/index.md#thm-mfl34-transform-law)と同じ計算を $n\ge1$ で直接行うと、$Q^{\mathsf T}Q=I_n$ および平行移動 $t$ の相殺から
 
 $$
-\|x_j^\star-x_i^\star\|^2=\|x_j-x_i\|^2,\qquad
-x_j^\star-x_i^\star=Q(x_j-x_i)
+\begin{aligned}
+x_j^\star-x_i^\star&=(Qx_j+t)-(Qx_i+t)=Q(x_j-x_i),\\
+\|x_j^\star-x_i^\star\|^2
+&=(x_j-x_i)^{\mathsf T}Q^{\mathsf T}Q(x_j-x_i)=\|x_j-x_i\|^2
+\end{aligned}
 $$
 
-が成り立つ。前者で係数、後者で更新方向を構成する。
+が成り立つ。$N=1$ には辺がないので辺に関する主張は空虚に成り立つ。距離二乗から係数、相対ベクトルから更新方向を構成する理由がこれで分かる。
 
 ## 3. 不変スカラーを相対ベクトルへ掛ける
 
@@ -72,13 +83,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl35-invariant-message -->
-**定義の確認**。$p=1$、$F(a,b,z)=z$ とし、全辺をもつ三角形 $x_1=(0,0)$、$x_2=(2,0)$、$x_3=(0,1)$ を使う。[距離特徴](../MFL34/index.md#def-mfl34-edge-feature)より
+**定義の確認**。$p=1$、全頂点で $h_i\in\mathbb R$ を任意に選び、共有関数を $F(a,b,z)=z$ とする。この関数は特徴 $a,b$ に依存せず、非負の距離二乗を実数へ写す。全辺をもつ三角形 $x_1=(0,0)$、$x_2=(2,0)$、$x_3=(0,1)$ では、[距離特徴](../MFL34/index.md#def-mfl34-edge-feature)より
 
 $$
 m_{12}=m_{21}=4,\quad m_{13}=m_{31}=1,\quad m_{23}=m_{32}=5.
 $$
 
-反射 $Q=\operatorname{diag}(-1,1)$ で $x_2^\star=(-2,0)$ にしても $m_{12}^\star=(-2)^2+0^2=4$ となる。ほかの二辺も長さ二乗が1と5のままであり、各メッセージの不変性を直接確かめられる。
+反射 $Q=\operatorname{diag}(-1,1)$ は $Q^{\mathsf T}Q=I_2$ を満たす。$x_2^\star=(-2,0)$ にしても $m_{12}^\star=(-2)^2+0^2=4$ となる。ほかの二辺も長さ二乗が1と5のままであり、同じ $F$ から作る各メッセージの不変性を直接確かめられる。
 <!-- definition-example-end -->
 
 係数を作る共有関数 $G:\mathbb R^p\to\mathbb R$、スカラー特徴の更新に使う共有関数 $H:\mathbb R^p\times\mathbb R^p\to\mathbb R^p$ を選ぶ。係数 $c_{ij}=G(m_{ij})$ は実数で、正でなくてもよい。座標の更新には原点に依存しない相対差を使う。
@@ -88,7 +99,20 @@ $$
 <!-- formal-statement-start -->
 > **定義（座標・特徴の同時更新層）**
 >
-> 上の有限グラフ、$F$、固定した共有関数 $G,H$ をとり、$c_{ij}=G(m_{ij})\in\mathbb R$ とする。一層の出力を
+> $n,p,N\ge1$、$V=\{1,\ldots,N\}$、自己ループのない無向辺集合 $E$、位置 $x_i\in\mathbb R^n$、スカラー特徴 $h_i\in\mathbb R^p$ をとる。[不変スカラーメッセージ](#def-mfl35-invariant-message)で導入した $F$ と、全辺で共有する関数
+
+$$
+G:\mathbb R^p\to\mathbb R,\qquad
+H:\mathbb R^p\times\mathbb R^p\to\mathbb R^p
+$$
+
+> を選び、各 $j\in\mathcal N(i)$ に対して
+
+$$
+m_{ij}=F(h_i,h_j,\|x_j-x_i\|^2),\qquad c_{ij}=G(m_{ij})\in\mathbb R
+$$
+
+> とする。一層の出力を
 
 $$
 \widehat x_i=x_i+\sum_{j\in\mathcal N(i)}c_{ij}(x_j-x_i),
@@ -314,7 +338,7 @@ $$
 
 ## 8. 有限層の決定論的ラボ
 
-付属の [equivariant_coordinate_lab.py](equivariant_coordinate_lab.py) はPython標準ライブラリだけで、点配置・辺・重み・層数・回転・平行移動・鏡映を変え、次の等変残差を計算する。
+付属の [equivariant_coordinate_lab.py](equivariant_coordinate_lab.py) はPython標準ライブラリだけで、平面座標 $n=2$ と一成分のスカラー特徴 $p=1$ を使い、点配置・辺・重み・層数・回転・平行移動・鏡映を変え、次の等変残差を計算する。
 
 $$
 \epsilon_x=\max_i\|\widehat x_i^\star-(Q\widehat x_i+t)\|_2,\qquad
@@ -504,7 +528,15 @@ $$
 
 係数が不変ではないため平行移動等変性が破れる。固定方向の例では $x_i=(0,0)$ として、更新後の回転は $Q((0,0)+(1,0))=(0,1)$、回転後の更新は $Q(0,0)+(1,0)=(1,0)$。出力の差は $(1,-1)$ で、方向ベクトルが $Q$ に追従しないため回転等変性を失った。
 
-**MFL35-B04 解答。** 距離二乗による辺判定 $d_{ij}^2\le r^2$ は[距離不変定理](../MFL34/index.md#thm-mfl34-transform-law)の下で変わらず、剛体運動前後で同じ辺が存在する。置換では元の辺 $\{i,j\}$ が新しい $\{\pi(i),\pi(j)\}$ に対応する。等号でも両側で同じ判定となる。そのため各層で[一層のE(n)等変性](#thm-mfl35-en-equivariance)と[置換等変性](#thm-mfl35-permutation-depth)の仮定が満たされ、更新後に近傍を再計算しても帰納法を継続できる。
+**MFL35-B04 解答。** 第2節で[前章の距離不変定理](../MFL34/index.md#thm-mfl34-transform-law)の計算を $n,N\ge1$ に拡張したので、任意の異なる頂点対について
+
+$$
+(d_{ij}^\star)^2=d_{ij}^2
+$$
+
+が成り立つ。したがって辺判定 $d_{ij}^2\le r^2$ は剛体運動前後で変わらず、同じ辺が存在する。置換では元の辺 $\{i,j\}$ が新しい $\{\pi(i),\pi(j)\}$ に対応する。等号でも両側で同じ判定となる。
+
+そのため各層で[一層のE(n)等変性](#thm-mfl35-en-equivariance)と[置換等変性](#thm-mfl35-permutation-depth)の仮定が満たされ、更新後に近傍を再計算しても帰納法を継続できる。
 
 対して、同じ距離の候補 $j,k$ から番号の小さい一方だけを採ると、番号を入れ替える置換で「小さい番号」の選択が変化する。すると $\mathcal N^\pi(i)=\{\pi(v):v\in\mathcal N(\pi^{-1}(i))\}$ が破れ、置換定理の和の添字変換ができない。
 
