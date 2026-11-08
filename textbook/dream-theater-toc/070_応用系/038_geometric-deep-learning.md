@@ -7,3 +7,4 @@
 4. [MFL25 不変化・等変層の構成原理](textbook/volumes/dream_thater/応用系/MFL/MFL25/index.md)
 5. [MFL26 格子対称性と群畳み込み](textbook/volumes/dream_thater/応用系/MFL/MFL26/index.md)
 6. [MFL27 等質空間と安定化群が決める核の形](textbook/volumes/dream_thater/応用系/MFL/MFL27/index.md)
+7. [MFL28 円周Fourier・SO(2)の低次表現](textbook/volumes/dream_thater/応用系/MFL/MFL28/index.md)
