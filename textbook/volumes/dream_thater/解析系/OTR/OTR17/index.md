@@ -47,6 +47,8 @@ $\Omega\subset\mathbb R^d$ を有界な $C^1$ 境界を持つ領域、$n$ をそ
 
 <a id="ref-otr17-divergence-d"></a>
 
+### $d$ 次元の発散公式を確かめる
+
 $$
 \int_\Omega\nabla\cdot F\,dx
 =\int_{\partial\Omega}F\cdot n\,dS
