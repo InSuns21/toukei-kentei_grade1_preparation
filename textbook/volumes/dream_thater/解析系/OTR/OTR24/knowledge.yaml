@@ -1,0 +1,62 @@
+chapter: OTR24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR23
+
+concepts:
+  - id: transport.jko-quadratic-coercivity
+    name: 二次外場エネルギーの下界と一様モーメント
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二次外場エネルギーの下界と一様モーメント）"]
+    requires: [transport.relative-entropy-narrow-lsc, transport.jko-energy-inequality]
+
+  - id: transport.fp-measure-weak-solution
+    name: 二次モーメント有界なFokker–Planck弱解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二次モーメント有界なFokker–Planck弱解）"]
+    requires: [transport.continuity-measure-weak, transport.free-energy-gradient-pde]
+
+  - id: transport.jko-narrow-compactness
+    name: JKO時間補間の狭義コンパクト性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（JKO時間補間の狭義コンパクト性）"]
+    requires: [transport.jko-quadratic-coercivity, transport.jko-interpolation-estimate, transport.prokhorov]
+
+  - id: transport.jko-fp-weak-limit
+    name: JKO極限はFokker–Planck弱解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（JKO極限はFokker–Planck弱解）"]
+    requires: [transport.jko-narrow-compactness, transport.jko-weak-step, transport.fp-measure-weak-solution]
+
+  - id: transport.ou-backward-operator
+    name: Ornstein–Uhlenbeckの後退作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ornstein–Uhlenbeckの後退作用素）"]
+    requires: [transport.fp-measure-weak-solution]
+
+  - id: transport.ou-backward-equation
+    name: Gaussian表示から得る後退方程式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Gaussian表示から得る後退方程式）"]
+    requires: [transport.ou-backward-operator]
+
+  - id: transport.fp-weak-uniqueness
+    name: 二次モーメント有界な弱解の一意性と表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次モーメント有界な弱解の一意性と表示）"]
+    requires: [transport.ou-backward-equation, transport.fp-measure-weak-solution]
+
+  - id: transport.jko-full-convergence
+    name: JKO反復全体の連続時間極限
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（JKO反復全体の連続時間極限）"]
+    requires: [transport.jko-fp-weak-limit, transport.fp-weak-uniqueness]
