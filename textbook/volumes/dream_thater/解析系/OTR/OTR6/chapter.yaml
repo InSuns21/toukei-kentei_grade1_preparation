@@ -1,0 +1,43 @@
+id: "OTR6"
+title: "連続空間でも双対性は成立するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR5
+  - RA5
+official_scope: []
+learning_objectives:
+  - コンパクト距離空間と連続費用の下で連続双対問題を定義し、周辺積分から弱双対とギャップ恒等式を導出できる
+  - c-変換を二方向に計算し、最大許容相手とc-共役対の性質を証明できる
+  - 一様連続性を用いて有限分割の輸送最適値と元の最適値の差を定量的に評価できる
+  - 有限LP双対から連続ポテンシャルを構成し、コンパクトKantorovich強双対と最適ポテンシャルの存在を証明できる
+  - 双対等号集合による最適性証明書を具体的な連続空間の輸送で構成し、等号集合と最適支持の関係を説明できる
+  - 非コンパクト空間では有界性・一様連続性・積分可能性に追加条件が要ることを反例とともに説明できる
+definitions:
+  - { id: OTR6-DEF-01, name: 連続Kantorovich双対問題 }
+  - { id: OTR6-DEF-02, name: c-変換とc-共役対 }
+  - { id: OTR6-DEF-03, name: 双対等号集合 }
+theorems:
+  - { id: OTR6-THM-01, name: 連続輸送の弱双対とギャップ恒等式 }
+  - { id: OTR6-PROP-01, name: c-変換による許容対の改良 }
+  - { id: OTR6-LEM-01, name: 有限分割による輸送費用の近似 }
+  - { id: OTR6-THM-02, name: コンパクト空間のKantorovich双対性と双対達成 }
+  - { id: OTR6-COR-01, name: 双対等号集合による最適性判定 }
+canonical_examples:
+  - 区間上の絶対値費用と一様分布から端点への輸送の双対証明書
+  - 二乗距離費用でのc-変換と最適ポテンシャル
+  - 同一周辺分布の異なる最適ポテンシャルと等号集合
+  - 非コンパクト空間で有界性・積分可能性を無視できない例
+problem_patterns:
+  - OTR6-A01
+  - OTR6-A02
+  - OTR6-A03
+  - OTR6-A04
+  - OTR6-B01
+  - OTR6-B02
+  - OTR6-B03
+  - OTR6-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }
