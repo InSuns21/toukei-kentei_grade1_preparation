@@ -269,7 +269,7 @@ $$
 
 $x$ と $t$ で積分し、$\int q_\varepsilon(x-y)dx=1$ を使うと作用評価を得ます。元の弱式へ試験関数の空間畳み込みを代入すると、導関数と畳み込みが交換し、$\partial_t\rho^\varepsilon+\nabla\cdot j^\varepsilon=0$ を得ます。非コンパクトな Gaussian 核への代入は空間 cutoff を掛けて行い、$\int|v|d\mu dt\le\sqrt{TE}$ を使って cutoff を除けます。
 
-最後に $X\sim\mu_t$ と独立な $Z\sim N(0,\varepsilon^2I_d)$ を組にします。ここで $I_d$ は $d$ 次単位行列なので、$Z$ の各座標の分散は $\varepsilon^2$、従って $\mathbb E|Z|^2=\sum_{j=1}^d\mathbb E Z_j^2=d\varepsilon^2$ です。すると$(X,X+Z)$ は $\mu_t$ と $\mu_t^\varepsilon$ の結合です。従って
+最後に $X\sim\mu_t$ と独立な $Z\sim N(0,\varepsilon^2I_d)$ を組にします。ここで $I_d$ は $d$ 次単位行列なので、$Z$ の各座標の分散は $\varepsilon^2$、従って $\mathbb E|Z|^2=\sum_{j=1}^d\mathbb E Z_j^2=d\varepsilon^2$ です。すると $(X,X+Z)$ は $\mu_t$ と $\mu_t^\varepsilon$ の結合です。従って
 
 $$
 W_2(\mu_t,\mu_t^\varepsilon)^2\le\mathbb E|Z|^2=d\varepsilon^2.
