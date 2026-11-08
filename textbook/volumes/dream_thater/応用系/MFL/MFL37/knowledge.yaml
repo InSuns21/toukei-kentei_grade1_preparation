@@ -1,0 +1,35 @@
+chapter: MFL37
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL36
+  - MFL24
+forward_references: []
+concepts:
+  - id: manifold-learning.so3-low-rank-feature-types
+    name: SO(3)の低階特徴型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SO(3)の低階特徴型）"]
+    requires: [manifold-learning.feature-type-direct-sum, manifold-learning.polar-axial-pseudoscalar]
+  - id: manifold-learning.so3-low-rank-representation
+    name: 低階特徴の回転表現
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.so3-low-rank-feature-types]
+  - id: manifold-learning.so3-scalar-vector-linear
+    name: スカラー・ベクトル間の線形等変層の分類
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.so3-low-rank-representation, manifold-learning.linear-equivariance-condition]
+  - id: manifold-learning.so3-typed-gate
+    name: 型を守る非線形ゲート
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（型を守る非線形ゲート）"]
+    requires: [manifold-learning.so3-low-rank-feature-types]
+  - id: manifold-learning.so3-typed-gate-equivariance
+    name: 型付きゲートのSO(3)等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.so3-typed-gate, manifold-learning.so3-low-rank-representation]
