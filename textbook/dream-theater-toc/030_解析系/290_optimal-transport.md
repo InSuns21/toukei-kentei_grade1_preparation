@@ -21,3 +21,4 @@
 18. [OTR18 測度曲線の速さを定義できるか](textbook/volumes/dream_thater/解析系/OTR/OTR18/index.md)
 19. [OTR19 静的最適輸送と流体作用は等価か](textbook/volumes/dream_thater/解析系/OTR/OTR19/index.md)
 20. [OTR20 Otto計算の接ベクトルとは](textbook/volumes/dream_thater/解析系/OTR/OTR20/index.md)
+21. [OTR21 どのエネルギーがどのPDEを生むか](textbook/volumes/dream_thater/解析系/OTR/OTR21/index.md)
