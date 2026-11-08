@@ -272,7 +272,14 @@ $$
 $T$ は [GEO13 の捩率のテンソル性](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)によりテンソルであるため、一つの座標で全成分が零なら座標に依らず捩率零です。$\square$
 <!-- proof-end -->
 
-一次元では下添字 $i,j$ がどちらも同じ値を取るため、**どの接続も捩率零**です。ただし捩率零から計量両立性は出ません。また一般接続で測る曲がりと Fisher 計量の Levi-Civita 曲率を区別する必要があります。後者の定義は[GEO16 の曲率作用素](../../GEO/GEO16/index.md#def-geo16-curvature)で学べます。
+一次元では下添字 $i,j$ がどちらも同じ値を取るため、**どの接続も捩率零**です。ただし捩率零から計量両立性は出ません。また[GEO16 の曲率作用素](../../GEO/GEO16/index.md#def-geo16-curvature)は Levi-Civita 接続について学びましたが、任意のアフィン接続 $\nabla$ に対しても同じ交換子式
+
+$$
+R^\nabla(X,Y)Z
+=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z
+$$
+
+を用いて曲率を調べられます。$R^\nabla(X,Y)=-R^\nabla(Y,X)$ なので一次元では曲率作用素も零ですが、それでも接続が Fisher 計量両立とは限りません。どの接続に基づく曲率を計算しているかを区別する必要があります。
 
 ## 5. Fisher 計量が選ぶ接続と Bernoulli 族
 
