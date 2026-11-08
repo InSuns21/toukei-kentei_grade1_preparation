@@ -1,0 +1,84 @@
+chapter: OTR18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR17
+  - RA8
+
+concepts:
+  - id: transport.ac2-curve
+    name: W2-絶対連続曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（W2-絶対連続曲線）"]
+    requires: [transport.wasserstein-metric, transport.displacement-geodesic]
+
+  - id: transport.metric-derivative
+    name: 距離微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離微分・metric derivative）"]
+    requires: [transport.ac2-curve]
+
+  - id: transport.metric-speed-minimality
+    name: AC2曲線の距離微分と最小上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（AC2曲線の距離微分と最小上界）"]
+    requires: [transport.metric-derivative, transport.wasserstein-separability]
+
+  - id: transport.kinetic-l2-speed
+    name: L2速度と運動作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（L2速度と運動作用）"]
+    requires: [transport.continuity-measure-weak, transport.ac2-curve]
+
+  - id: transport.dynamic-plan
+    name: 動的計画・軌道表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（動的計画・軌道表現）"]
+    requires: [measure.pushforward-measure, transport.kinetic-l2-speed]
+
+  - id: transport.path-action-bound
+    name: 軌道作用による距離評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（軌道作用による距離評価）"]
+    requires: [transport.dynamic-plan, transport.wasserstein-metric]
+
+  - id: transport.continuity-smoothing
+    name: 質量と流束の同時平滑化
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（質量と流束の同時平滑化）"]
+    requires: [transport.continuity-measure-weak, transport.kinetic-l2-speed]
+
+  - id: transport.superposition-principle
+    name: 有限二乗作用の重ね合わせ原理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限二乗作用の重ね合わせ原理）"]
+    requires: [transport.continuity-smoothing, transport.dynamic-plan]
+
+  - id: transport.metric-velocity-bound
+    name: 速度場による距離微分の評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（速度場による距離微分の評価）"]
+    requires: [transport.superposition-principle, transport.path-action-bound, transport.metric-speed-minimality]
+
+  - id: transport.polygonal-transport
+    name: 最適結合による折れ線近似
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（最適結合による折れ線近似）"]
+    requires: [transport.displacement-geodesic, transport.metric-speed-minimality, transport.gluing-lemma]
+
+  - id: transport.metric-minimal-velocity
+    name: AC2曲線の速度場と最小作用
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（AC2曲線の速度場と最小作用）"]
+    requires: [transport.polygonal-transport, transport.metric-velocity-bound]
