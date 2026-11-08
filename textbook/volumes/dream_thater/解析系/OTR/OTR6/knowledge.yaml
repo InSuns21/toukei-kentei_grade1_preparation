@@ -1,0 +1,63 @@
+chapter: OTR6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR5
+  - RA5
+
+concepts:
+  - id: transport.continuous-dual
+    name: 連続Kantorovich双対問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続Kantorovich双対問題）"]
+    requires: [transport.coupling, transport.finite-dual]
+
+  - id: transport.continuous-weak-duality
+    name: 連続輸送の弱双対とギャップ恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続輸送の弱双対とギャップ恒等式）"]
+    requires: [transport.continuous-dual, transport.marginal-integration]
+
+  - id: transport.c-transform
+    name: c-変換とc-共役対
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（c-変換とc-共役対）"]
+    requires: [transport.continuous-dual]
+
+  - id: transport.c-transform-improvement
+    name: c-変換による許容対の改良
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（c-変換による許容対の改良）"]
+    requires: [transport.c-transform]
+
+  - id: transport.finite-partition-approximation
+    name: 有限分割による輸送費用の近似
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限分割による輸送費用の近似）"]
+    requires: [transport.coupling, transport.finite-primal]
+
+  - id: transport.compact-kantorovich-duality
+    name: コンパクト空間のKantorovich双対性と双対達成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト空間のKantorovich双対性と双対達成）"]
+    requires: [transport.continuous-weak-duality, transport.c-transform-improvement, transport.finite-partition-approximation, transport.transport-strong-duality]
+
+  - id: transport.dual-contact-set
+    name: 双対等号集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対等号集合）"]
+    requires: [transport.continuous-dual]
+
+  - id: transport.contact-set-optimality
+    name: 双対等号集合による最適性判定
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（双対等号集合による最適性判定）"]
+    requires: [transport.continuous-weak-duality, transport.compact-kantorovich-duality, transport.dual-contact-set]
