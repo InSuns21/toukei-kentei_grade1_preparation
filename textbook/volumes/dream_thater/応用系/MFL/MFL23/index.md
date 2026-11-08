@@ -60,6 +60,8 @@ S=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\qquad
 r^k\cdot x=R^kx,\quad r^ks\cdot x=R^kSx.
 $$
 
+ここで $S$ は**第2座標**を反転する $x$ 軸に関する鏡映である。前章の[第1座標を反転する鏡映](../MFL22/index.md#def-mfl22-finite-transforms)を $S_{\mathrm{old}}=\operatorname{diag}(-1,1)$ と書けば、$S=R^2S_{\mathrm{old}}$。生成する群は同じ $D_4$ だが、この章では頂点0を通る対称軸を $x$ 軸へそろえるため、$s$ と名付ける鏡映を選び直した。
+
 $R^4=S^2=I$、$SRS=R^{-1}$ を行列積で確かめれば、この対応は $D_4$ の作用になる。特に $R^kS$ は回転に鏡映を続けた変換であり、**右側の $S$ から先に**適用する。
 
 | 点 $x$ | 軌道 $D_4x$ | 安定化群 $(D_4)_x$ | 軌道と安定化群の位数の積 |
