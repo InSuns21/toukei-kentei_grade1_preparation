@@ -1,0 +1,42 @@
+id: "OTR13"
+title: "いつ最適結合は凸勾配写像で表せるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR12
+  - F0-00P2
+official_scope: []
+learning_objectives:
+  - Lebesgue絶対連続な出発測度と二次モーメントの仮定を区別し、凸勾配輸送写像の意味を具体例で確認できる
+  - 非コンパクトEuclid空間でも最適結合の支持が二次費用で巡回単調となることを局所的な質量交換で証明できる
+  - Rockafellar型凸ポテンシャルの実効定義域と微分可能集合の例外が出発測度で零となることを証明できる
+  - Brenier定理の存在・最適結合と最適写像の一意性を、結合の平均を使う議論まで含め再現できる
+  - 凸共役による二次費用の双対証明書を線形写像の例で構成し、W2費用を計算できる
+  - 出発測度が特異な場合に結合が写像にならない反例を計算し、絶対連続性の役割を説明できる
+definitions:
+  - { id: OTR13-DEF-01, name: 凸勾配輸送写像 }
+theorems:
+  - { id: OTR13-LEM-01, name: 最適結合の非コンパクト二次費用巡回単調性 }
+  - { id: OTR13-LEM-02, name: 凸ポテンシャルの微分可能集合と可測勾配 }
+  - { id: OTR13-THM-01, name: Brenierの最適写像定理 }
+  - { id: OTR13-PROP-01, name: 可積分な凸双対証明書による最適性 }
+canonical_examples:
+  - 一様分布を二倍伸長する凸勾配写像と押し出し・費用の検算
+  - 絶対値の凸ポテンシャルが原子的な到着測度を作る例
+  - 原子的出発測度で質量を分割しなければならない反例
+  - 正定値行列による二次元線形輸送のFenchel双対証明書
+problem_patterns:
+  - OTR13-A01
+  - OTR13-A02
+  - OTR13-A03
+  - OTR13-A04
+  - OTR13-A05
+  - OTR13-B01
+  - OTR13-B02
+  - OTR13-B03
+  - OTR13-B04
+  - OTR13-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }

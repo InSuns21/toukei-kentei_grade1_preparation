@@ -18,7 +18,7 @@ chapters:
   - { id: OTR10, path: textbook/volumes/dream_thater/解析系/OTR/OTR10, status: completed, title: "W1はLipschitz関数で測れるか" }
   - { id: OTR11, path: textbook/volumes/dream_thater/解析系/OTR/OTR11, status: completed, title: "一次元なら輸送を陽に解けるか" }
   - { id: OTR12, path: textbook/volumes/dream_thater/解析系/OTR/OTR12, status: completed, title: "二次費用で凸解析が現れる理由は" }
-  - { id: OTR13, path: textbook/volumes/dream_thater/解析系/OTR/OTR13, status: planned, title: "いつ最適結合は凸勾配写像で表せるか" }
+  - { id: OTR13, path: textbook/volumes/dream_thater/解析系/OTR/OTR13, status: completed, title: "いつ最適結合は凸勾配写像で表せるか" }
   - { id: OTR14, path: textbook/volumes/dream_thater/解析系/OTR/OTR14, status: planned, title: "Gaussian分布間のW2はどう計算するか" }
   - { id: OTR15, path: textbook/volumes/dream_thater/解析系/OTR/OTR15, status: planned, title: "測度空間の最短経路とは" }
   - { id: OTR16, path: textbook/volumes/dream_thater/解析系/OTR/OTR16, status: planned, title: "汎関数の凸性は測地線で変わるか" }
