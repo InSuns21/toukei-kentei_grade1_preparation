@@ -9,3 +9,4 @@
 6. [SQC6 円の面積とπの無理性](textbook/volumes/dream_thater/幾何系/SQC/SQC6/index.md)
 7. [SQC7 円積不可能性の決着](textbook/volumes/dream_thater/幾何系/SQC/SQC7/index.md)
 8. [SQC8 多角形の等積分割](textbook/volumes/dream_thater/幾何系/SQC/SQC8/index.md)
+9. [SQC9 Tarskiの円積問題とLaczkovichの解](textbook/volumes/dream_thater/幾何系/SQC/SQC9/index.md)
