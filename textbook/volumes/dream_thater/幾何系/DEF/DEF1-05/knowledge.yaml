@@ -1,0 +1,41 @@
+chapter: DEF1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-04]
+concepts:
+  - id: deformation.dolbeault-graded-bracket-identities
+    name: 接束値Dolbeault複体の括弧恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（接束値Dolbeault複体の括弧恒等式）"]
+    requires: [deformation.beltrami-graded-bracket, cyg.holomorphic-bundle-dolbeault]
+  - id: deformation.primary-obstruction-class
+    name: 二次障害類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二次障害類）"]
+    requires: [deformation.dolbeault-graded-bracket-identities, cyg.first-order-deformation-cohomology]
+  - id: deformation.primary-obstruction-criterion
+    name: 二次延長の必要十分条件と代表独立性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次延長の必要十分条件と代表独立性）"]
+    requires: [deformation.primary-obstruction-class, deformation.mc-order-equations, deformation.gauge-first-variation]
+  - id: deformation.higher-obstruction-class
+    name: 高次障害形式と障害類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（高次障害形式と障害類）"]
+    requires: [deformation.primary-obstruction-criterion, deformation.mc-order-equations]
+  - id: deformation.obstruction-bianchi-identity
+    name: Maurer–Cartan曲率のBianchi恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Maurer–Cartan曲率のBianchi恒等式）"]
+    requires: [deformation.dolbeault-graded-bracket-identities]
+  - id: deformation.higher-obstruction-criterion
+    name: 高次障害の閉性と延長判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（高次障害の閉性と延長判定）"]
+    requires: [deformation.higher-obstruction-class, deformation.obstruction-bianchi-identity]
