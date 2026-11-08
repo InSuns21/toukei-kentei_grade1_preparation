@@ -367,7 +367,7 @@ $\beta>1$、$q_j=2\beta^j$ のとき、$\sum_{j\ge0}q_j^{-1}$ と $\sum_{j\ge0}j
 ### Level A — YAU1-07-A05：平均を戻して $L^2$ へ
 - Level: A
 
-体積 $V$ の連結コンパクト多様体で $\int v=B$、$\|\nabla v\|_2^2\le E$ が分かっているとする。[平均零Poincaré不等式](../../GA/GA2/index.md#thm-ga2-poincare)から $\|v\|_2\le C_P\sqrt E+B/\sqrt V$ を導け。
+体積 $V$ の連結コンパクト多様体で $\int v=B$、$\|\nabla v\|_2^2\le E$ が分かっているとする。[GA2の平均零での勾配評価](../../GA/GA2/index.md#thm-ga2-poincare)から $\|v\|_2\le C_P\sqrt E+B/\sqrt V$ を導け。
 
 <!-- solution-start -->
 **詳細解答。** 平均は $\bar v=B/V$ なので $\|\bar v\|_2=(B/V)\sqrt V=B/\sqrt V$。[Poincaré不等式](../../GA/GA2/index.md#thm-ga2-poincare)に $v-\bar v$ を代入すると $\|v-\bar v\|_2\le C_P\|\nabla v\|_2\le C_P\sqrt E$。$v=(v-\bar v)+\bar v$ の三角不等式で足せばよい。
@@ -436,7 +436,7 @@ $T=\sum_{k=0}^{n-1}\omega_\varphi^k\wedge\omega^{n-1-k}$、$\omega_\varphi=\omeg
 体積 $V$ の連結コンパクトKähler多様体で $\int v\le B_*$、$v\ge1$、すべての $q\ge2$ について $\|\nabla(v^{q/2})\|_2^2\le\frac{nDq^2}{2(q-1)}\int v^{q-1}$ とする。Sobolev定数 $S\ge1$、Poincaré定数 $C_P$、指数倍率 $\beta>1$ を使って、$v$ の $L^\infty$ の上界を具体的に示せ。積の対数を省略しないこと。
 
 <!-- solution-start -->
-**詳細解答。** まず $q=2$ に元のより強い[エネルギー評価](#lem-yau1-07-energy)を使うと $\|\nabla v\|_2^2\le2nD\int v\le2nDB_*$。[平均零Poincaré不等式](../../GA/GA2/index.md#thm-ga2-poincare)から $\|v\|_2\le H:=C_P\sqrt{2nDB_*}+B_*/\sqrt V$。ここで $B_*/\sqrt V$ は $\|\bar v\|_2$ の上界である。次に $w=v^{q/2}$ へ[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)を適用すると
+**詳細解答。** まず $q=2$ に元のより強い[エネルギー評価](#lem-yau1-07-energy)を使うと $\|\nabla v\|_2^2\le2nD\int v\le2nDB_*$。[GA2の平均零での勾配評価](../../GA/GA2/index.md#thm-ga2-poincare)から $\|v\|_2\le H:=C_P\sqrt{2nDB_*}+B_*/\sqrt V$。ここで $B_*/\sqrt V$ は $\|\bar v\|_2$ の上界である。次に $w=v^{q/2}$ へ[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)を適用すると
 
 $$
 \|v\|_{q\beta}^q\le S(\|\nabla w\|_2^2+\|w\|_2^2)
