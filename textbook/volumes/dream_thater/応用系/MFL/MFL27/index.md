@@ -30,7 +30,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl27-homogeneous-space -->
-**定義の確認**。$D_4=\{r^k,r^ks:0\le k<4\}$、$r^4=s^2=e$、$srs=r^{-1}$ とし、$H=\{e,s\}$ を取る。$H$ は $s^2=e$ で閉じる2元部分群である。$r^jH=\{r^j,r^js\}$（$j=0,1,2,3$）は互いに交わらず、合わせて全8元である。よって $X$ は4点。$s rH=r^{-1}sH=r^3H$ なので、鏡映は頂点番号 $j=1$ を $j=3$ へ移す。$H$ 自体は $sH=H$ として固定される。この具体例で、作用は点に対して一意であり、代表元の書き方には依存しないことを確かめられる。
+**定義の確認**。$D_4=\{r^k,r^ks:0\le k<4\}$、$r^4=s^2=e$、$srs=r^{-1}$ とし、$H=\{e,s\}$ を取る。$H$ は $s^2=e$ で閉じる2元部分群である。$r^jH=\{r^j,r^js\}$（$j=0,1,2,3$）は互いに交わらず、合わせて全8元である。よって $X$ は4点。任意の $t\in D_4,h\in H$ に対し
+
+$$
+t\cdot(r^jhH)=tr^jhH=tr^jH=t\cdot(r^jH)
+$$
+
+となるため、左作用も代表元の選択に依存しない。$s rH=r^{-1}sH=r^3H$ なので、鏡映は頂点番号 $j=1$ を $j=3$ へ移す。$H$ 自体は $sH=H$ として固定される。
 <!-- definition-example-end -->
 
 <a id="prop-mfl27-coset-orbit"></a>
@@ -132,7 +138,13 @@ $$
 \end{aligned}
 $$
 
-逆向きを示す。有限集合 $X$ の各 $y$ について一点信号 $\delta_y$ を用い、$A(x,y)=(T\delta_y)(x)$ と定める。任意の $f$ は $f=\sum_y f(y)\delta_y$ なので、線形性から $Tf(x)=\sum_y A(x,y)f(y)$。また $U_t\delta_y=\delta_{ty}$ である。等変性を点 $tx$ で評価すると
+逆向きを示す。有限集合 $X$ の各 $y$ について、一点信号 $\delta_y:X\to\mathbb R$ を「$z=y$ なら1、それ以外なら0」と定め、$A(x,y)=(T\delta_y)(x)$ と置く。各 $z\in X$ で両辺を評価すると $f=\sum_{y\in X}f(y)\delta_y$ だから、線形性から $Tf(x)=\sum_y A(x,y)f(y)$ が得られる。また
+
+$$
+(U_t\delta_y)(z)=\delta_y(t^{-1}z)=\delta_{ty}(z)
+$$
+
+である。等変性を点 $tx$ で評価すると
 
 $$
 A(tx,ty)=(T\delta_{ty})(tx)
@@ -183,7 +195,17 @@ $$
 
 ここまで各頂点の特徴はスカラーだった。では、鏡映で符号が反転する一成分特徴を出力したい場合はどうするか。[MFL24 の表現](../MFL24/index.md#def-mfl24-representation)を安定化群 $H$ に制限して考える。
 
-有限次元実ベクトル空間 $V$ と $H$ の表現 $\rho:H\to\operatorname{GL}(V)$ に対し、群元 $g$ で表した特徴 $F(g)\in V$ には、同じ点 $gH$ を $gh$ で表したときの**成分変換則**が必要となる。幾何的な点は変わらないが、点に取り付けた基準の取り方が変わるためである。これを**右共変な特徴**と呼び、$F(gh)=\rho(h)^{-1}F(g)$ と約束する。スカラーなら $\rho(h)=1$ なので普通の $G/H$ 上の関数へ戻る。
+有限次元実ベクトル空間 $V$ に対し、$\operatorname{GL}(V)$ は $V$ の可逆な線形自己写像全体を表す。$V$ の基底を固定すれば、[MFL24 の可逆行列表現](../MFL24/index.md#def-mfl24-representation)の $\operatorname{GL}_d(\mathbb R)$（$d=\dim V$）で記述できる。
+
+$H$ の表現 $\rho:H\to\operatorname{GL}(V)$ に従う特徴 $F(g)\in V$ には、同じ点 $gH$ を $gh$ で表したときの**成分変換則**が必要となる。幾何的な点は変わらないが、点に取り付けた基準の取り方が変わるためである。これを**右共変な特徴**と呼び、$F(gh)=\rho(h)^{-1}F(g)$ と約束する。
+
+スカラーなら $\rho(h)=1$ なので普通の $G/H$ 上の関数へ戻る。群元上の左作用を $(L_tF)(g):=F(t^{-1}g)$ と書くと、$F(g)=f(gH)$ の場合は
+
+$$
+(L_tF)(g)=F(t^{-1}g)=f(t^{-1}gH)=(U_tf)(gH)
+$$
+
+であり、ここでの $L_t$ は第2節のスカラー信号の $U_t$ と同じ左作用を群元で書いたものである。
 
 <a id="def-mfl27-typed-section"></a>
 
@@ -208,13 +230,22 @@ $$
 となり、同じ種類の特徴へ写る。値を $F(r^j)=F(r^js)$ と誤って固定すれば、符号型ではなくスカラー型になってしまう。
 <!-- definition-example-end -->
 
-行列値核にも入力と出力の型の違いがある。入力表現を $\rho_{\mathrm{in}}:H\to\operatorname{GL}(V_{\mathrm{in}})$、出力表現を $\rho_{\mathrm{out}}:H\to\operatorname{GL}(V_{\mathrm{out}})$ とする。同じ入力点の代表を $u$ から $uh$ に替えると、入力成分は $\rho_{\mathrm{in}}(h)^{-1}$ 倍される。そこで重みは右から $\rho_{\mathrm{in}}(h)$ を掛けて相殺しなければならない。一方、出力点の代表を $g$ から $gh$ に替えたときには、出力全体が $\rho_{\mathrm{out}}(h)^{-1}$ で変わる必要がある。
+行列値核にも入力と出力の型の違いがある。入力表現を $\rho_{\mathrm{in}}:H\to\operatorname{GL}(V_{\mathrm{in}})$、出力表現を $\rho_{\mathrm{out}}:H\to\operatorname{GL}(V_{\mathrm{out}})$ とする。$\operatorname{Hom}(V_{\mathrm{in}},V_{\mathrm{out}})$ は入力空間から出力空間への線形写像全体である。基底を固定すると、その元 $K(v)$ は $\dim V_{\mathrm{out}}$ 行、$\dim V_{\mathrm{in}}$ 列の行列になり、$K(v)F(u)$ はその行列と入力列ベクトルの積を意味する。
+
+同じ入力点の代表を $u$ から $uh$ に替えると、入力成分は $F(uh)=\rho_{\mathrm{in}}(h)^{-1}F(u)$ に変わる。したがって和の一項が変わらないためには
+
+$$
+K(g^{-1}uh)\rho_{\mathrm{in}}(h)^{-1}F(u)
+=K(g^{-1}u)F(u)
+$$
+
+を任意の入力成分について満たす必要があり、核の右側に $\rho_{\mathrm{in}}(h)$ が掛かる。一方、出力代表を $g$ から $gh$ に替えると、出力全体は $\rho_{\mathrm{out}}(h)^{-1}$ で変わらなければならず、核の左側にも制約が課される。
 
 <a id="def-mfl27-typed-kernel"></a>
 
 <!-- formal-statement-start -->
 > **定義（安定化群の両側制約を満たす行列値核）**
-> 有限群 $G$、部分群 $H\le G$、表現 $\rho_{\mathrm{in}}$ と $\rho_{\mathrm{out}}$ を上記のように取る。写像 $K:G\to\operatorname{Hom}(V_{\mathrm{in}},V_{\mathrm{out}})$ が**型整合核**であるとは、任意の $v\in G,h_1,h_2\in H$ に対して
+> 有限群 $G$、部分群 $H\le G$、有限次元実ベクトル空間 $V_{\mathrm{in}},V_{\mathrm{out}}$ と、その上の $H$ の実表現 $\rho_{\mathrm{in}}:H\to\operatorname{GL}(V_{\mathrm{in}})$、$\rho_{\mathrm{out}}:H\to\operatorname{GL}(V_{\mathrm{out}})$ を取る。写像 $K:G\to\operatorname{Hom}(V_{\mathrm{in}},V_{\mathrm{out}})$ が**型整合核**であるとは、任意の $v\in G,h_1,h_2\in H$ に対して
 
 $$
 K(h_1vh_2)
@@ -239,7 +270,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（型整合核の等質空間相互相関）**
-> 有限群 $G$、部分群 $H\le G$、実表現 $\rho_{\mathrm{in}}$ と $\rho_{\mathrm{out}}$、型整合核 $K:G\to\operatorname{Hom}(V_{\mathrm{in}},V_{\mathrm{out}})$ を取る。入力が右共変な $F:G\to V_{\mathrm{in}}$ のとき
+> 有限群 $G$、部分群 $H\le G$、有限次元実ベクトル空間 $V_{\mathrm{in}},V_{\mathrm{out}}$ と $H$ の実表現 $\rho_{\mathrm{in}}:H\to\operatorname{GL}(V_{\mathrm{in}})$、$\rho_{\mathrm{out}}:H\to\operatorname{GL}(V_{\mathrm{out}})$、それらに対する型整合核 $K:G\to\operatorname{Hom}(V_{\mathrm{in}},V_{\mathrm{out}})$ を取る。入力が $F(uh)=\rho_{\mathrm{in}}(h)^{-1}F(u)$（$u\in G,h\in H$）を満たす右共変な $F:G\to V_{\mathrm{in}}$ のとき
 
 $$
 (C_KF)(g)=\sum_{uH\in G/H}K(g^{-1}u)F(u)
@@ -288,7 +319,7 @@ $$
 \end{aligned}
 $$
 
-必要性は、入力を任意の一つの剰余類 $uH$ のみに支持させ、そこでの $F(u)\in V_{\mathrm{in}}$ を任意に選ぶことで確認する。代表を $uh$ に替えてもその項が同じなら
+必要性は、入力を任意の一つの剰余類 $uH$ のみに支持させ、そこでの $F(u)=z\in V_{\mathrm{in}}$ を任意に選ぶことで確認する。同じ剰余類の値を $F(uh)=\rho_{\mathrm{in}}(h)^{-1}z$ とすれば右共変な入力になり、ほかの剰余類では0とする。代表を $uh$ に替えてもその項が同じなら
 
 $$
 K(vh)\rho_{\mathrm{in}}(h)^{-1}z=K(v)z
