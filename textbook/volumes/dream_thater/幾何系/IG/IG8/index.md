@@ -43,7 +43,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（双対平坦統計多様体）**  
-> 正定値な Fisher 計量 $g$ を持つ滑らかな統計多様体 $M$ に、互いに [計量双対](../IG7/index.md#def-ig7-dual-connection)である二つの捩率零のアファイン接続 $\nabla,\nabla^*$ が与えられているとする。**両接続それぞれの曲率が零**であるとき、$(M,g,\nabla,\nabla^*)$ を **双対平坦**という。特に $\nabla=\nabla^e$、$\nabla^*=\nabla^m$ の場合を e/m 双対平坦と呼ぶ。
+> 正定値な Riemann 計量 $g$ を持つ滑らかな多様体 $M$ に、互いに [計量双対](../IG7/index.md#def-ig7-dual-connection)である二つの捩率零のアファイン接続 $\nabla,\nabla^*$ が与えられているとする。**両接続それぞれの曲率が零**であるとき、$(M,g,\nabla,\nabla^*)$ を **双対平坦**という。特に $M$ が正則統計多様体で、$g$ がその Fisher 計量なら **双対平坦統計多様体**という。このとき $\nabla=\nabla^e$、$\nabla^*=\nabla^m$ の場合を e/m 双対平坦と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig8-dually-flat -->
@@ -54,7 +54,7 @@ $$
 
 ## 2. Hessian からもう一方のアファイン座標を作る
 
-[IG5 の Legendre 双対](../IG5/index.md#thm-ig5-legendre-hessian)では、正定値 Hessian を持つポテンシャル $\psi$ に対して $\eta_i=\partial_i\psi$ が逆変換可能な座標になることを学びました。ここではこの座標の取り替えが、単に計量を変換するだけでなく、**計量双対な接続の係数を零にする**ことを示します。
+[IG5 の Legendre 双対](../IG5/index.md#thm-ig5-legendre-hessian)では、正定値 Hessian を持つポテンシャル $\psi$ に対して $\eta_i=\partial_i\psi$ が逆変換可能な座標になることを学びました。ここではこの座標の取り替えが、単に計量を変換するだけでなく、**計量双対な接続の係数を零にする**ことを示します。以下の $\partial_i\psi$ は $\theta^i$ での偏微分（他の $\theta$ 成分は固定）であり、接続 $\nabla$ による共変微分とは異なります。
 
 <a id="thm-ig8-hessian-dual-flat"></a>
 
@@ -84,7 +84,7 @@ $$
 
 ### 証明の見取り図
 
-$\Gamma=0$ の座標で双対性を成分に書くと、$\Gamma^*$ は $g$ の一階微分だけで定まります。$\eta=\nabla\psi$ の二階微分はちょうどこの $g$ の一階微分です。逆関数の二階微分公式に代入すると、$\eta$ 座標での $\Gamma^*$ が相殺して零になります。
+$\Gamma=0$ の座標で双対性を成分に書くと、$\Gamma^*$ は $g$ の一階微分だけで定まります。$\eta_i=\partial_i\psi$ の二階微分はちょうどこの $g$ の一階微分です。逆関数の二階微分公式に代入すると、$\eta$ 座標での $\Gamma^*$ が相殺して零になります。
 
 <!-- proof-start -->
 ### 証明
@@ -114,7 +114,7 @@ $$
 +(\partial_i g_{aj})P^i_bP^j_c.
 $$
 
-一方で [IG6 の接続係数の変換則](../IG6/index.md#thm-ig6-coordinate-covariance)において、$\eta$ 座標の $\nabla^*$ の係数は
+一方で [IG6 の接続係数の変換則](../IG6/index.md#thm-ig6-coordinate-covariance)において、座標変換の Jacobian が $\partial\eta_a/\partial\theta^k=g_{ak}$ であることを使うと、$\eta$ 座標の $\nabla^*$ の係数は
 
 $$
 \widetilde\Gamma^{*a}_{bc}
@@ -364,7 +364,7 @@ $$
 さらに $\partial_b\partial_aH=\sum_i B_{ia}B_{ib}/p_i=g_{ab}$ です。第2節の [Hessian ポテンシャルからの双対平坦性](#thm-ig8-hessian-dual-flat)に $\nabla=\nabla^m$、$\psi=H$ を適用します。[IG7 の二重双対性](../IG7/index.md#thm-ig7-dual-existence)により $\nabla^m$ の双対が $\nabla^e$ なので、e 接続も平坦で $\xi=\partial H$ がそのアファイン座標です。
 <!-- proof-end -->
 
-一方、曲がった指数型の**部分モデル**には注意が必要です。[IG4 の曲がった例](../IG4/index.md#def-ig4-natural-chart)に倣い、三値の全指数型分布族 $p_{a,b}=(e^a,e^b,1)/(1+e^a+e^b)$ を $a=s,b=s^2$ に制限します。$s=-1,1$ の分布を結ぶ全族での e 測地線は自然座標の線分で、中点は $(a,b)=(0,1)$ です。しかし部分モデルで $a=0$ なら必ず $b=0$ なので、この中点は部分モデルの外です。
+一方、曲がった指数型の**部分モデル**には注意が必要です。[IG4 の自然座標の定義](../IG4/index.md#def-ig4-natural-chart)に従い、三値の全指数型分布族 $p_{a,b}=(e^a,e^b,1)/(1+e^a+e^b)$ を $a=s,b=s^2$ に制限します。$s=-1,1$ の分布を結ぶ全族での e 測地線は自然座標の線分で、中点は $(a,b)=(0,1)$ です。しかし部分モデルで $a=0$ なら必ず $b=0$ なので、この中点は部分モデルの外です。
 
 したがって**周囲の全族での e 測地線が部分族に閉じる保証はありません**。また、部分族の接続を接空間へ射影して作るなら、その接続と周囲の接続の区別も必要です。特にこの例は一次元なので、部分族の内在曲率はどの接続でも自動的に零です。「放物線だから一次元の内在接続が曲率非零」とは言えません。周囲での線分の非閉性と内在曲率を混同しないでください。
 
@@ -476,7 +476,7 @@ $$
 $U=\{(x,y):|x|<1/4,|y|<1/4\}$ 上で $\psi(x,y)=(x^2+y^2)/2+x^2y/2$ とし、$\nabla$ の $(x,y)$ 座標係数を零とする。
 
 1. Hessian が正定値であることを示せ。
-2. 双対座標 $\eta=\nabla\psi$ を求めよ。
+2. 双対座標 $\eta_i=\partial_i\psi$ を求めよ。
 3. 原点での $\Gamma^{*x}_{xy},\Gamma^{*y}_{xx}$ を求めよ。
 4. $\eta$ 座標で原点の双対接続係数が零になる機構を確認せよ。
 
@@ -605,7 +605,7 @@ $r\ge3$ とし、正の $r$ 点分布全体を $\theta^i=\log(p_i/p_r)$（$i<r$�
 
    全 $p_i>0$ の下で零となるのは全 $v_i$ が等しいときだけですが、$v_r=0$ なので $v=0$ です。したがって正定値です。
 
-3. $g_{ij}=\partial_i\partial_j\psi$ と $\Gamma^e=0$、$\Theta=\mathbb R^{r-1}$ の凸性が揃っています。[Hessian ポテンシャルからの双対平坦性](#thm-ig8-hessian-dual-flat)に入力すると、e の計量双対は $\eta=\nabla\psi$ 座標で係数零です。[IG7 の双対性](../IG7/index.md#thm-ig7-alpha-duality)でその接続が m に一致します。前問で $\eta=(p_1,\ldots,p_{r-1})$ の逆写像も検証したため、局所だけでなく正単体全体のアファイン座標です。
+3. $g_{ij}=\partial_i\partial_j\psi$ と $\Gamma^e=0$、$\Theta=\mathbb R^{r-1}$ の凸性が揃っています。[Hessian ポテンシャルからの双対平坦性](#thm-ig8-hessian-dual-flat)に入力すると、e の計量双対は $\eta_i=\partial_i\psi$ 座標で係数零です。[IG7 の双対性](../IG7/index.md#thm-ig7-alpha-duality)でその接続が m に一致します。前問で $\eta=(p_1,\ldots,p_{r-1})$ の逆写像も検証したため、局所だけでなく正単体全体のアファイン座標です。
 
 4. m では $\eta_i(t)=(1-t)p_i^0+tp_i^1$、最後の成分も総和1から同じ一次式です。e では $\theta^i(t)=(1-t)\log(p_i^0/p_r^0)+t\log(p_i^1/p_r^1)$ なので、指数を取り、$w_i(t)=(p_i^0)^{1-t}(p_i^1)^t$ を使えば $p_i^e(t)=w_i(t)/\sum_jw_j(t)$ です。$0\le t\le1$ で $p_i^m>0,w_i>0$ であり、いずれも総和は1です。両曲線とも対応するアファイン座標で二階微分零なので、[測地線の定義](#def-ig8-em-geodesic)を満たします。
 
@@ -623,7 +623,7 @@ $r\ge3$ とし、正の $r$ 点分布全体を $\theta^i=\log(p_i/p_r)$（$i<r$�
 ## 7. 何が分かったか
 
 - **双対平坦**とは、双対な二接続が捩率零・曲率零であることです。計量双対性だけでは平坦性を保証しません。
-- 正定値 Hessian $g=\nabla^2\psi$ と一方のアファイン座標 $\theta$ があれば、$\eta=\nabla\psi$ はもう一方のアファイン座標となります。逆 Hessian と Legendre 双対がこの変換を支えます。
+- 正定値 Hessian $g=\nabla^2\psi$ と一方のアファイン座標 $\theta$ があれば、$\eta_i=\partial_i\psi$ はもう一方のアファイン座標となります。逆 Hessian と Legendre 双対がこの変換を支えます。
 - 最小・正則な**全指数型分布族**では e の接続係数が自然座標で零、m の係数が期待値座標で零です。有限正確率単体の m 測地線は算術補間、e 測地線は正規化した幾何補間です。
 - 混合型部分族は混合母数で m 平坦ですが、曲がった指数型部分族で周囲の e 線分が内部に留まるとは限りません。双対平坦性は Levi-Civita 曲率零も意味しません。
 
