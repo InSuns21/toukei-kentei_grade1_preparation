@@ -120,7 +120,7 @@ chapters:
     title: "円周Fourier・SO(2)の低次表現"
   - id: MFL29
     path: textbook/volumes/dream_thater/応用系/MFL/MFL29
-    status: planned
+    status: completed
     title: "集合・点群の置換対称性"
   - id: MFL30
     path: textbook/volumes/dream_thater/応用系/MFL/MFL30
