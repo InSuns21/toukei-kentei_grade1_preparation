@@ -12,11 +12,11 @@
 
 ## 1. どこまでが作図可能か
 
-長さを単位長に対する比で表します。すると、有理数は作図でき、[四則演算と平方根の作図](../SQC2/index.md#prop-sqc2-field-operations)を有限回だけ組み合わせた数が作図可能です。これを正確に記述したのが、[FLD5 の実二次拡大列の定理](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)です。
+長さを単位長に対する比で表します。すると、有理数は作図でき、[四則演算の作図](../SQC2/index.md#prop-sqc2-field-operations)と[非負平方根の作図](../SQC2/index.md#prop-sqc2-positive-square-root)を有限回だけ組み合わせた数が作図可能です。得られる数を特徴付けるために、各段の拡大次数が高々 $2$ である有限列を[実二次拡大列](../../../代数系/FLD/FLD5/index.md#def-fld5-quadratic-tower)と呼びます。[FLD5 の作図可能性との同値定理](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)が、その列と幾何作図を結び付けます。
 
-たとえば単位正方形の対角線は $\sqrt2$ で、$X^2-2$ の根として代数的ですが、有理数ではありません。この例は「無理数だから作図できない」という論法を反証します。
+ここでは既習の[代数的数と超越数の定義](../../../代数系/FLD/FLD1/index.md#def-fld1-algebraic-element)を使います。有理係数の零でない多項式を一つでも零にする数が代数的数であり、どの多項式も零にしない数が超越数です。以下、$X$ は多項式の不定元（根を代入する前の変数）を表します。
 
-ここでは既習の[代数的数と超越数の定義](../../../代数系/FLD/FLD1/index.md#def-fld1-algebraic-element)を使います。有理係数の零でない多項式を一つでも零にする数が代数的数であり、どの多項式も零にしない数が超越数です。作図できる実数には、実二次拡大列の中に入るという制約があります。
+たとえば単位正方形の対角線は $\sqrt2$ で、$X^2-2$ の根として代数的ですが、有理数ではありません。この例は「無理数だから作図できない」という論法を反証します。作図できる実数には、実二次拡大列の中に入るという制約があります。
 
 <a id="lem-sqc7-transcendental-obstruction"></a>
 
@@ -32,11 +32,11 @@
 <!-- proof-start -->
 ### 証明
 
-$\alpha$ を作図可能な実数とします。[実二次拡大列による特徴付け](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)を $\alpha$ に適用すると、ある有限列
+$\alpha$ を作図可能な実数とします。[実二次拡大列による特徴付け](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)を $\alpha$ に適用すると、ある非負整数 $m$ と有限列
 
 $$
 \mathbb Q=K_0\subset K_1\subset\cdots\subset K_m\subset\mathbb R,
-\qquad [K_j:K_{j-1}]\le2
+\qquad [K_j:K_{j-1}]\le2\quad(1\le j\le m)
 $$
 
 が存在し、$\alpha\in K_m$ となります。[拡大次数の塔の公式](../../../代数系/FLD/FLD1/index.md#thm-fld1-tower-law)により
@@ -62,19 +62,27 @@ $$
 
 [Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)は、**零でない代数的複素数 $\alpha$** について $e^\alpha$ が超越数になるという主張です。指数関数の入力は実数に限定されません。定理そのものの算術・積分による完全証明は TRN11 にあります。
 
-一方、[複素指数関数のEuler表示](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から
+一方、[複素指数関数のEuler表示](../../../解析系/CA/CA1/index.md#def-ca1-complex-exponential)に $z=i\pi$ を代入すると
 
 $$
 e^{i\pi}=\cos\pi+i\sin\pi=-1
 $$
 
-です。右辺 $-1$ は $Y+1=0$ の根なので代数的です。そこで仮に $\pi$ が代数的だとしたら、定理の仮定は満たされるでしょうか。
+です。右辺 $-1$ は $X+1=0$ の根なので代数的です。そこで仮に $\pi$ が代数的だとしたら、定理の仮定は満たされるでしょうか。
 
-1. $i$ は $X^2+1=0$ を満たすので代数的です。
-2. 仮定により $\pi$ も代数的です。$\mathbb Q(i,\pi)/\mathbb Q$ は有限拡大だから、[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)より、その元 $i\pi$ も代数的です。
+1. $i$ は $X^2+1=0$ を満たすので代数的であり、$[\mathbb Q(i):\mathbb Q]=2$ です。
+2. 仮定により $\pi$ も代数的です。そこで、$i$ と $\pi$ をともに含む体 $\mathbb Q(i,\pi)$ を考えます。
 3. $i\ne0$ かつ $\pi>0$ なので $i\pi\ne0$ です。
 
-従って $\alpha=i\pi$ に [Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)を適用すると、$e^{i\pi}$ は超越数でなければなりません。しかし既に $e^{i\pi}=-1$ は代数的と計算しました。矛盾です。
+2の体について、有理係数で $\pi$ を零にする多項式は $\mathbb Q(i)$ 上でも使えます。[単純代数拡大の次数公式](../../../代数系/FLD/FLD1/index.md#cor-fld1-simple-extension-degree)で最初の因子は有限であり、[塔の公式](../../../代数系/FLD/FLD1/index.md#thm-fld1-tower-law)を適用すると
+
+$$
+[\mathbb Q(i,\pi):\mathbb Q]
+=[\mathbb Q(i,\pi):\mathbb Q(i)]\,[\mathbb Q(i):\mathbb Q]
+<\infty.
+$$
+
+従って、この有限拡大の元 $i\pi$ は[有限拡大の元の代数性](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。3の非零性と合わせて、$\alpha=i\pi$ に[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)を適用すると、$e^{i\pi}$ は超越数でなければなりません。しかし既に $e^{i\pi}=-1$ は代数的と計算しました。矛盾です。
 
 こうして $\pi$ は超越数です。これは[TRN11 の「$\pi$ の超越性」](../../../代数系/TRN/TRN11/index.md#cor-trn11-pi-transcendental)の推論を、円積問題で使うために再確認したものです。独立の新定理を仮定したわけではありません。
 
@@ -179,7 +187,15 @@ $\pi$ が代数的だと仮定する。$i\pi$ が零でない代数的複素数�
 <!-- solution-start -->
 **詳細解答**
 
-$i^2+1=0$ なので $i$ は $X^2+1\in\mathbb Q[X]$ の根で、代数的です。仮定した $\pi$ も代数的なので $\mathbb Q(i,\pi)$ は $\mathbb Q$ 上有限拡大です。
+$i^2+1=0$ なので $i$ は $X^2+1\in\mathbb Q[X]$ の根で、$[\mathbb Q(i):\mathbb Q]=2$ です。
+
+仮定した $\pi$ も代数的であり、同じ有理係数多項式が $\mathbb Q(i)$ 上でも $\pi$ を零にします。[単純代数拡大の次数公式](../../../代数系/FLD/FLD1/index.md#cor-fld1-simple-extension-degree)によって $\mathbb Q(i,\pi)/\mathbb Q(i)$ は有限拡大です。さらに[塔の公式](../../../代数系/FLD/FLD1/index.md#thm-fld1-tower-law)を適用すると
+
+$$
+[\mathbb Q(i,\pi):\mathbb Q]
+=[\mathbb Q(i,\pi):\mathbb Q(i)]\cdot2
+<\infty.
+$$
 
 この体の元 $i\pi$ は[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。また $i\ne0$ と $\pi>0$ より $i\pi\ne0$ です。これで[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)の二つの仮定を確認できました。
 <!-- solution-end -->
@@ -214,7 +230,19 @@ $\sqrt2$ は無理数だが作図可能であることを説明し、「無理�
 <!-- solution-start -->
 **詳細解答**
 
-$\sqrt2=p/q$ と既約分数で書けるなら $p^2=2q^2$ より $p$ は偶数です。$p=2k$ とすると $q^2=2k^2$ となり $q$ も偶数で、既約性に反します。従って $\sqrt2$ は無理数です。
+$\sqrt2=p/q$ と既約分数で書けると仮定します。ここで $p,q$ は互いに素な正整数です。両辺を二乗して
+
+$$
+p^2=2q^2
+$$
+
+となるため $p$ は偶数です。$p=2k$（$k$ は正整数）を代入すると
+
+$$
+q^2=2k^2
+$$
+
+となり $q$ も偶数で、既約性に反します。従って $\sqrt2$ は無理数です。
 
 一方、辺長 $1$ の正方形の対角線は Pythagoras の定理から
 
@@ -233,7 +261,13 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$22/7$ は正の有理数なので[非負平方根の有限作図](../SQC2/index.md#prop-sqc2-positive-square-root)により $\sqrt{22/7}$ を作れます。正方形の面積は $(\sqrt{22/7})^2=22/7$、円の面積は $\pi$ です。[SQC6 の $\pi$ の無理性](../SQC6/index.md#thm-sqc6-pi-irrational)により $\pi\ne22/7$ なので面積は一致しません。近似可能性は厳密作図可能性を含意しません。
+$22/7$ は正の有理数なので[非負平方根の有限作図](../SQC2/index.md#prop-sqc2-positive-square-root)により $\sqrt{22/7}$ を作れます。[SQC6 の $\pi$ の無理性](../SQC6/index.md#thm-sqc6-pi-irrational)により $\pi\ne22/7$ です。正方形と円の面積はそれぞれ
+
+$$
+\left(\sqrt{22/7}\right)^2=22/7\ne\pi
+$$
+
+となるため一致しません。近似可能性は厳密作図可能性を含意しません。
 <!-- solution-end -->
 
 ### Level B：命題の向きと問題の範囲
@@ -246,7 +280,7 @@ $22/7$ は正の有理数なので[非負平方根の有限作図](../SQC2/index
 <!-- solution-start -->
 **詳細解答**
 
-$\alpha=0$ は $X$ の根なので代数的ですが、$e^0=1$ は $Y-1$ の根で代数的です。正しい[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)は $\alpha\ne0$ を要求します。
+$\alpha=0$ は $X$ の根なので代数的ですが、$e^0=1$ は $X-1$ の根で代数的です。正しい[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)は $\alpha\ne0$ を要求します。
 
 $\alpha=i\pi$ に適用するためには、まず $\pi$ が代数的だと**仮定**し、$i$ の代数性と積の閉性から $i\pi$ の代数性を導きます。また $\pi>0$ により指数は非零です。
 
@@ -261,9 +295,9 @@ $\pi$ が代数的なら $\sqrt\pi$ も代数的であり、逆も成り立つ�
 <!-- solution-start -->
 **詳細解答**
 
-まず $u=\sqrt\pi$ が代数的なら、$\mathbb Q(u)/\mathbb Q$ は有限拡大です。その元 $\pi=u^2$ は[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。
+まず $u=\sqrt\pi$ が代数的なら、[単純代数拡大の次数公式](../../../代数系/FLD/FLD1/index.md#cor-fld1-simple-extension-degree)で $\mathbb Q(u)/\mathbb Q$ は有限拡大です。その元 $\pi=u^2$ は[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から代数的です。
 
-逆に $\pi$ が代数的なら $\mathbb Q(\pi)/\mathbb Q$ は有限です。$u$ は $X^2-\pi\in\mathbb Q(\pi)[X]$ の根だから
+逆に $\pi$ が代数的なら、同じ[単純代数拡大の次数公式](../../../代数系/FLD/FLD1/index.md#cor-fld1-simple-extension-degree)で $\mathbb Q(\pi)/\mathbb Q$ は有限です。$u$ は $X^2-\pi\in\mathbb Q(\pi)[X]$ の根だから
 
 $$
 [\mathbb Q(\pi,u):\mathbb Q(\pi)]\le2.
@@ -299,7 +333,9 @@ $$
 \frac{s^2}{r^2}=\pi,\qquad \frac{s}{r}=\sqrt\pi
 $$
 
-となります。全作図を $1/r$ 倍しても、直線・円と交点の関係はそのまま保たれるため、半径 $r$ を単位 $1$ と見た有限作図へ移せます。従って等積正方形が作れたなら、単位円について $s/r$ が作図できたことになります。これは[円積不可能性](#thm-sqc7-circle-squaring-impossible)に反します。議論で重要なのは $r$ の十進表示や $\mathbb Q$ 上の代数性ではなく、**追加の独立な初期長さを与えていない**という条件です。
+となります。全作図を $1/r$ 倍しても、直線・円と交点の関係はそのまま保たれるため、半径 $r$ を単位 $1$ と見た有限作図へ移せます。これは倍率 $1/r$ を新たな作図道具として使う操作ではなく、同じ有限手順を単位を取り直して記述することです。
+
+従って等積正方形が作れたなら、単位円について $s/r$ が作図できたことになります。これは[円積不可能性](#thm-sqc7-circle-squaring-impossible)に反します。議論で重要なのは $r$ の十進表示や $\mathbb Q$ 上の代数性ではなく、**追加の独立な初期長さを与えていない**という条件です。
 <!-- solution-end -->
 
 ### Level C：全体を組み立て、逆を吟味する
@@ -317,17 +353,32 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**(1)** $i$ は $X^2+1\in\mathbb Q[X]$ の根なので代数的です。$\pi$ も代数的と仮定すると、$\mathbb Q(i,\pi)$ は有限拡大であり、[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から $i\pi$ は代数的です。$\pi>0$ かつ $i\ne0$ だから $i\pi\ne0$ です。
+**(1)** $i$ は $X^2+1\in\mathbb Q[X]$ の根なので $[\mathbb Q(i):\mathbb Q]=2$ です。
 
-**(2)** 非零代数的な指数 $\alpha=i\pi$ に[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)を適用すると $e^{i\pi}$ は超越数です。しかし[複素指数のEuler表示](../../../解析系/CA/CA1/index.md#thm-ca1-complex-exponential)から
+$\pi$ も代数的と仮定すると、$\pi$ は $\mathbb Q(i)$ 上でも代数的です。[単純代数拡大の次数公式](../../../代数系/FLD/FLD1/index.md#cor-fld1-simple-extension-degree)で $\mathbb Q(i,\pi)/\mathbb Q(i)$ は有限です。これと $[\mathbb Q(i):\mathbb Q]=2$ に[塔の公式](../../../代数系/FLD/FLD1/index.md#thm-fld1-tower-law)を適用すると
+
+$$
+[\mathbb Q(i,\pi):\mathbb Q]
+=[\mathbb Q(i,\pi):\mathbb Q(i)]\cdot 2<\infty.
+$$
+
+従って[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から $i\pi$ は代数的です。$\pi>0$ かつ $i\ne0$ だから $i\pi\ne0$ です。
+
+**(2)** 非零代数的な指数 $\alpha=i\pi$ に[Hermite–Lindemannの定理](../../../代数系/TRN/TRN11/index.md#thm-trn11-hermite-lindemann)を適用すると $e^{i\pi}$ は超越数です。しかし[複素指数のEuler表示](../../../解析系/CA/CA1/index.md#def-ca1-complex-exponential)に $z=i\pi$ を代入すると
 
 $$
 e^{i\pi}=\cos\pi+i\sin\pi=-1
 $$
 
-であり、$-1$ は $Y+1=0$ の根だから代数的です。矛盾により $\pi$ は超越数です。
+であり、$-1$ は $X+1=0$ の根だから代数的です。矛盾により $\pi$ は超越数です。
 
-**(3)** 等積正方形の辺を $s>0$ とすれば、[円積への帰着](../SQC6/index.md#prop-sqc6-squaring-reduction)により $s^2=\pi$。仮定した有限作図で $s$ が得られるので、[四則演算の有限作図](../SQC2/index.md#prop-sqc2-field-operations)で $s\cdot s=\pi$ が得られます。[作図可能数の代数性](#lem-sqc7-transcendental-obstruction)から $\pi$ は代数的となり、(2)に反します。
+**(3)** 等積正方形の辺を $s>0$ とすれば、[円積への帰着](../SQC6/index.md#prop-sqc6-squaring-reduction)により $s^2=\pi$。仮定した有限作図で辺長 $s$ が得られるので、[四則演算の有限作図](../SQC2/index.md#prop-sqc2-field-operations)を二つの入力 $s,s$ に適用して
+
+$$
+\pi=s^2=s\cdot s
+$$
+
+も作図できます。[作図可能数の代数性](#lem-sqc7-transcendental-obstruction)から $\pi$ は代数的となり、(2)に反します。
 
 **(4)** 以上は、指定の初期データと通常の有限作図による**厳密等積**を否定しました。誤差の小さい近似、追加の長さや道具を入力する別問題、無限回の極限操作の可能性を一括して否定する証明ではありません。
 <!-- solution-end -->
@@ -346,7 +397,19 @@ $$
 
 **1 は真。** [実二次拡大列の定理](../../../代数系/FLD/FLD5/index.md#thm-fld5-constructible-quadratic-tower)で作図可能数 $\alpha$ はある有限実二次拡大列の最上段に入り、[塔の公式](../../../代数系/FLD/FLD1/index.md#thm-fld1-tower-law)でその体は $\mathbb Q$ 上有限です。従って[有限拡大の元は代数的](../../../代数系/FLD/FLD1/index.md#prop-fld1-finite-extension-algebraic)から $\alpha$ は代数的です。
 
-**2 は偽。** 例えば $\alpha=\sqrt[3]2$ は $X^3-2=0$ を満たす代数的数です。この多項式は[素数2に関するEisensteinの既約判定](../../../代数系/RNG/RNG4/index.md#thm-rng4-eisenstein)により既約なので $[\mathbb Q(\alpha):\mathbb Q]=3$。作図可能なら[FLD5 の次数必要条件](../../../代数系/FLD/FLD5/index.md#cor-fld5-constructible-degree)で次数が2の冪になるはずですが、3は2の冪ではありません。
+**2 は偽。** 例えば $\alpha=\sqrt[3]2$ は次の多項式を零にする代数的数です。
+
+$$
+f(X)=X^3-2\in\mathbb Z[X].
+$$
+
+この多項式は原始多項式です。素数 $2$ は最高次係数 $1$ を割らず、他の係数 $0,0,-2$ をすべて割り、しかも $4$ は定数項 $-2$ を割りません。従って[素数2に関するEisensteinの既約判定](../../../代数系/RNG/RNG4/index.md#thm-rng4-eisenstein)の全仮定を満たし、$f$ は $\mathbb Q[X]$ で既約です。[単純代数拡大の次数公式](../../../代数系/FLD/FLD1/index.md#cor-fld1-simple-extension-degree)から
+
+$$
+[\mathbb Q(\alpha):\mathbb Q]=\deg f=3.
+$$
+
+作図可能なら[FLD5 の次数必要条件](../../../代数系/FLD/FLD5/index.md#cor-fld5-constructible-degree)で次数が $2$ の冪になるはずですが、$3$ は $2$ の冪ではありません。
 
 **3 は偽。** 半径1の円に加えて、長さ $\sqrt\pi$ の線分を初めから与えれば、その線分を辺とする正方形を有限作図でき、面積は $\pi$ です。[円積不可能性](#thm-sqc7-circle-squaring-impossible)は与えられた円と通常の初期データからの有限作図を否定するのであって、任意の特別な情報を別途与える問題を否定しません。
 <!-- solution-end -->
