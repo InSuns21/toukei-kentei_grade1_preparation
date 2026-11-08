@@ -94,7 +94,19 @@ $$
 
 **境界に逃げる反例**。Bernoulli の成功確率を $0<p<1$ に制限し、$n$ 回すべて成功なら $L(p)=p^n$ です。$p\uparrow1$ で上限1へ近づきますが、$p=1$ はモデル外なので最尤推定値は**存在しません**。経験分布 $(0,1)$ の零成分を落とすことと、境界をモデルへ追加することは別の操作です。
 
-正の全カテゴリカルモデルで経験分布に零成分がある場合も同様に、最適点は閉単体の境界にあり、正の開単体上では一般に達成されません。逆に $\widehat q$ が全成分正なら、[IG9 の Bregman 非負性](../IG9/index.md#thm-ig9-bregman-positive)から $D_{\mathrm{KL}}(\widehat q\Vert p)\ge0$ の唯一の零点 $p=\widehat q$ がモデル内にあります。
+正の全カテゴリカルモデルで経験分布に零成分がある場合も同様に、最適点は閉単体の境界にあり、正の開単体上では一般に達成されません。逆に $\widehat q$ が全成分正なら、正の単体上で $f(x)=\sum_i x_i\log x_i$ と置くと、$\nabla f(x)$ の第 $i$ 成分は $\log x_i+1$、Hessian は $\operatorname{diag}(1/x_1,\ldots,1/x_m)$ で正定値です。両分布の成分和が1なので、[IG9 の Bregman divergence の定義](../IG9/index.md#def-ig9-bregman)に従って
+
+$
+\begin{aligned}
+D_f(\widehat q:p)
+&=f(\widehat q)-f(p)-\nabla f(p)\cdot(\widehat q-p)\\
+&=\sum_i\widehat q_i\log\frac{\widehat q_i}{p_i}
+-\sum_i(\widehat q_i-p_i)
+=D_{\mathrm{KL}}(\widehat q\Vert p).
+\end{aligned}
+$
+
+従って [IG9 の Bregman 非負性と零点判定](../IG9/index.md#thm-ig9-bregman-positive)を、正の領域・厳密凸性という仮定を満たして適用でき、$D_{\mathrm{KL}}(\widehat q\Vert p)\ge0$ の唯一の零点 $p=\widehat q$ がモデル内にあります。
 
 ## 2. 指数型モデルの最尤法：モーメント一致と存在条件
 
@@ -106,14 +118,14 @@ p_\theta(i)=h_i\exp\{\theta\cdot F(i)-\psi(\theta)\},
 \psi(\theta)=\log\sum_{j=1}^m h_j e^{\theta\cdot F(j)}
 $$
 
-と置きます。有限和なので任意の $\theta$ で正規化され、微分と和の交換は無条件にできます。$\theta\cdot F=\sum_a\theta^aF_a$ です。[IG4 の Fisher--Hessian 恒等式](../IG4/index.md#thm-ig4-fisher-hessian)から
+と置きます。有限和なので任意の $\theta$ で正規化され、微分と和の交換は無条件にできます。$\theta\cdot F=\sum_a\theta^aF_a$ です。以下、$\partial_a=\partial/\partial\theta^a$、$\partial_{ab}=\partial^2/(\partial\theta^a\partial\theta^b)$ とし、他の自然母数成分を固定して微分します。[IG4 の Fisher--Hessian 恒等式](../IG4/index.md#thm-ig4-fisher-hessian)から
 
 $$
 \nabla\psi(\theta)=E_\theta F,\qquad
 \nabla^2\psi(\theta)=\operatorname{Cov}_\theta(F).
 $$
 
-観測の統計量平均 $\overline F=\sum_i\widehat q_iF(i)$ を**経験モーメント**とします。$\operatorname{conv}\{F(i)\}$ は点 $F(i)$ の凸結合全体で、その通常の $\mathbb R^d$ における内部を $\operatorname{int}$ と書きます。$F(i)$ がアファインに $\mathbb R^d$ を張るとは、$v\cdot F(i)$ がすべての $i$ で同じ値となる $v\in\mathbb R^d$ は $v=0$ だけ、という条件です。この条件で Hessian が正定値になる理由は、任意の非零 $v$ に対して $\operatorname{Var}_\theta(v\cdot F)>0$ だからです。
+観測の統計量平均 $\overline F=\sum_i\widehat q_iF(i)$ を**経験モーメント**とします。$K=\operatorname{conv}\{F(i)\}$ は点 $F(i)$ の凸結合全体です。この有限凸包は閉集合なので、通常の $\mathbb R^d$ での内部を $\operatorname{int}K$、境界を $\partial K=K\setminus\operatorname{int}K$ と書きます。$F(i)$ がアファインに $\mathbb R^d$ を張るとは、$v\cdot F(i)$ がすべての $i$ で同じ値となる $v\in\mathbb R^d$ は $v=0$ だけ、という条件です。この条件で Hessian が正定値になる理由は、任意の非零 $v$ に対して $\operatorname{Var}_\theta(v\cdot F)>0$ だからです。
 
 <a id="thm-ig11-exponential-mle"></a>
 
@@ -205,11 +217,27 @@ $$
 従ってどの有限 $\theta$ も score 方程式を満たせません。もし最大点があれば開いた定義域の内点で勾配が零になるはずなので矛盾します。
 <!-- proof-end -->
 
-**何が学べたか**。十分統計量 $\sum_rF(X_r)$ は[IG4 の因子分解](../IG4/index.md#def-ig4-natural-chart)と結び付き、有限指数型では実際に MLE が $\overline F$ のみから決まります。ただし $t$ が凸包の境界にあるとき、モーメント一致という方程式を形式的に書いても有限解は生まれません。Bernoulli の全成功例は $K=[0,1]$、$t=1$ に当たります。
+**何が学べたか**。第2節の対数尤度を積の形に戻すと
+
+$
+L(p_\theta;x_1,\ldots,x_n)
+=\left(\prod_{r=1}^n h_{x_r}\right)
+\exp\left\{\theta\cdot\sum_{r=1}^n F(x_r)-n\psi(\theta)\right\}.
+$
+
+共通の台 $S$ は $\theta$ に依存せず、前の積も $\theta$ に依存しないので、[十分性の因子分解定理](../../../../03_inference/S1_02_統計量_十分性_分解定理/index.md#thm-s1-02-01)により $\sum_rF(X_r)$ は十分統計量です。これは[IG4 の指数型表示](../IG4/index.md#def-ig4-natural-chart)とも一致します。有限指数型では、内点 MLE は実際に $\overline F$ のみから決まります。ただし $t$ が凸包の境界にあるとき、モーメント一致を形式的に書いても有限解は生まれません。Bernoulli の全成功例は $K=[0,1]$、$t=1$ に当たります。
 
 ## 3. 最大エントロピーは別の向きの射影
 
-ここからはモデルの自然母数でなく、**確率ベクトルそのもの**を動かします。基準分布 $r_i>0$、$\sum_i r_i=1$ と、各標本点の特徴量 $F(i)\in\mathbb R^d$ を固定し、$E_pF=t$ だけを知っている状況を考えます。条件に合う分布が複数あれば、その中で基準分布 $r$ からの KL が最小のものを選びます。
+ここからはモデルの自然母数でなく、**確率ベクトルそのもの**を動かします。基準分布 $r_i>0$、$\sum_i r_i=1$ と、各標本点の特徴量 $F(i)\in\mathbb R^d$ を固定し、$E_pF=t$ だけを知っている状況を考えます。$p_i\ge0$、$\sum_i p_i=1$ なら $E_pF=\sum_i p_iF(i)$ は特徴量の凸結合なので、許容分布が存在する条件は $t\in\operatorname{conv}\{F(i)\}$ です。条件に合う分布が複数あれば、その中で基準分布 $r$ からの KL が最小のものを選びます。
+
+一方、**Shannon エントロピー**は $H(p)=-\sum_i p_i\log p_i$（$0\log0=0$）です。一様基準分布 $u_i=1/m$ なら
+
+$
+D_{\mathrm{KL}}(p\Vert u)=\sum_i p_i\log p_i+\log m=\log m-H(p).
+$
+
+よって一様基準からの KL 最小化は Shannon エントロピー最大化と一致します。一般の非一様 $r$ ではこの同値は成立せず、基準分布の重みが最適化に効きます。
 
 <a id="def-ig11-moment-entropy"></a>
 
@@ -227,17 +255,18 @@ $$
 
 <!-- definition-example-start: def-ig11-moment-entropy -->
 **定義の確認**。$S=\{1,2,3\}$、$F(1)=F(2)=1,F(3)=0$、$t=1/2$ とします。このとき $C_{1/2}$ は $p_1+p_2=1/2$、$p_3=1/2$ と総和1を同時に満たす線分です。$p=(1/4,1/4,1/2)$ は全成分正で実際に属し、$p=(1/2,0,1/2)$ も属します。非空・凸・コンパクトですが、境界も含む集合です。$r=(1/2,1/3,1/6)>0$ に対してすべての許容 $p$ の KL は有限です。
+
+この集合上の最小点まで定義に従って確認します。$p=(s,1/2-s,1/2)$（$0\le s\le1/2$）と書くと、内部の目的関数 $J(s)=D(p\Vert r)$ は
+
+$
+J'(s)=\log\frac{s/r_1}{(1/2-s)/r_2},
+\qquad J''(s)=\frac1s+\frac1{1/2-s}>0.
+$
+
+従って $J'(s)=0$ は $s=(1/2)r_1/(r_1+r_2)=3/10$ であり、連続性と厳密凸性から端点を含めた唯一の最小点は $p^*=(3/10,1/5,1/2)$ です。全成分非負、総和1、$E_{p^*}F=1/2$ も確認できます。
 <!-- definition-example-end -->
 
-Shannon エントロピー $H(p)=-\sum_i p_i\log p_i$ は $0\log0=0$ で定義します。各状態に同じ確率を割り当てる $u_i=1/m$ に対して
-
-$$
-D_{\mathrm{KL}}(p\Vert u)
-=\sum_i p_i\log p_i+\log m
-=\log m-H(p).
-$$
-
-従って最大エントロピーと $D(p\Vert u)$ 最小化は同値です。一方、一般の非一様 $r$ に対する $D(p\Vert r)$ 最小化は **Shannon エントロピー最大化そのものではありません**。$r$ は最適化に効く事前の重みです。
+この例で一様基準分布に替えれば、最大 Shannon エントロピー点は対称な $(1/4,1/4,1/2)$ です。非一様な $r$ の相対エントロピー最小点とは区別します。
 
 <a id="thm-ig11-maxent"></a>
 
@@ -294,7 +323,13 @@ $$
 \qquad(v\in T).
 $$
 
-有限次元線形代数で $T$ の直交補空間はベクトル $(1,\ldots,1)$ と $(F_a(i))_i$ の張る空間です。よってある $a\in\mathbb R,\lambda\in\mathbb R^d$ が存在して
+この直交補の形も確認します。線形写像 $A:\mathbb R^m\to\mathbb R^{d+1}$ を
+
+$
+Av=\left(\sum_i v_i,\sum_i v_iF_1(i),\ldots,\sum_i v_iF_d(i)\right)
+$
+
+と置くと $T=\ker A$ であり、転置は $A^{\mathsf T}(a,\lambda)=(a+\lambda\cdot F(i))_i$ です。有限次元の $\ker A$ と行空間の直交性から $(\ker A)^\perp=\operatorname{im}A^{\mathsf T}$ なので、$T^\perp$ はベクトル $(1,\ldots,1)$ と $(F_a(i))_i$ の張る空間です。従ってある $a\in\mathbb R,\lambda\in\mathbb R^d$ が存在して
 
 $$
 \log\frac{p_i^*}{r_i}+1=a+\lambda\cdot F(i).
@@ -677,7 +712,14 @@ $$
 
 $z=2$ を代入すれば $(2+8)/(1+2+4)=10/7=t$ です。[内点 MLE 定理](#thm-ig11-exponential-mle)で自然母数が一意に存在するため、$\widehat\theta=\log2$、$p^*=(1/7,2/7,4/7)$ が一意の MLE です。$\widehat q$ の零度数は尤度の第1・3成分だけへの依存を意味しますが、モデル分布 $p^*$ は全成分正です。
 
-エントロピー最大化では $D(p\Vert r)=\log3-H(p)$ です。$E_pF=t$ の制約に正の分布 $p^*$ が存在し、[相対エントロピー最小化定理](#thm-ig11-maxent)による一意の解は指数型表示です。$p^*$ はすでに同じ基準分布とモーメントを持つので、唯一の最大エントロピー分布にもなります。これは $\widehat q$ をエントロピー最大にしたのではありません。
+エントロピー最大化では $D(p\Vert r)=\log3-H(p)$ です。$p^*$ は全成分正で $E_{p^*}F=t$ を満たすので、[共通解と双方向 Pythagoras の定理](#thm-ig11-dual-projections)の第1式をこの一様基準分布へ適用できます。任意の制約分布 $p$ について
+
+$
+\log3-H(p)
+=D(p\Vert p^*)+\log3-H(p^*).
+$
+
+従って $H(p^*)-H(p)=D(p\Vert p^*)\ge0$ であり、零点は $p=p^*$ に限ります。$p^*$ は唯一の最大エントロピー分布です。これは $\widehat q$ をエントロピー最大にしたのではありません。
 
 任意の $\theta$ について
 
