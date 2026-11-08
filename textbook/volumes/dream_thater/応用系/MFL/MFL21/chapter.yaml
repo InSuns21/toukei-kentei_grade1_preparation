@@ -1,0 +1,56 @@
+id: "MFL21"
+title: "near-manifold・stratified data・横断実験"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL20
+  - MFL5
+  - MFL9
+  - MFL11
+  - ML1-12
+  - MC2
+official_scope: []
+learning_objectives:
+  - near-manifold模型で潜在点と観測点を分離し、有界摂動とGaussian雑音の差を説明できる
+  - 層ごとの接線と交差特異点を区別して、単一接線が定義できない場所を特定できる
+  - 円・U字・交差線・近接平行枝の真の経路距離と有限参照グラフを定義できる
+  - 有界雑音の二点間距離余裕と平行二枝の安全半径を証明できる
+  - 交差線のEuclid近道と等間隔円のグラフ測地誤差を検算できる
+  - PCA射影誤差・短絡辺・到達不能点対・測地距離誤差を別々の指標で評価できる
+  - 有限正規化グラフLaplacianの零固有値重複度を証明し連続作用素との比較を混同しない
+  - seedと評価データを固定して検証選択後の独立再評価を行い、失われた仮定を報告できる
+  - 二重螺旋の弧長とSwiss rollの展開計量を検算し、外れ値の真値未定義と区別できる
+definitions:
+  - { id: MFL21-DEF-01, name: near-manifoldの有限観測模型 }
+  - { id: MFL21-DEF-02, name: 層別曲線模型と特異点 }
+  - { id: MFL21-DEF-03, name: 四模型の潜在距離 }
+  - { id: MFL21-DEF-04, name: 横断幾何診断 }
+  - { id: MFL21-DEF-05, name: 有限グラフスペクトル診断 }
+theorems:
+  - { id: MFL21-PROP-01, name: 有界雑音による辺の安定余裕 }
+  - { id: MFL21-PROP-02, name: 平行二枝の連結性と安全な半径 }
+  - { id: MFL21-PROP-03, name: 交差線の対角近道 }
+  - { id: MFL21-PROP-04, name: 等間隔円の有限グラフ測地誤差 }
+  - { id: MFL21-PROP-05, name: 正規化グラフLaplacianの零固有値 }
+canonical_examples:
+  - 円の弦と弧の距離比
+  - 交差する二層の一意でない接空間と局所PCA固有値重複
+  - 平行二枝の近傍半径と偽連結
+  - 到達不能な点対が平均測地距離誤差から除外される反例
+  - 二辺の正規化グラフスペクトルと連結成分
+  - 二重螺旋の層内速度とSwiss rollの第一基本形式
+  - 外れ値を真の測地距離・接線の平均から除外する比較
+problem_patterns:
+  - MFL21-A01
+  - MFL21-A02
+  - MFL21-A03
+  - MFL21-A04
+  - MFL21-B01
+  - MFL21-B02
+  - MFL21-B03
+  - MFL21-B04
+  - MFL21-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.5, exercises: 7.0, review: 3.0 }

@@ -1,0 +1,71 @@
+chapter: MFL21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL20
+  - MFL5
+  - MFL9
+  - MFL11
+  - ML1-12
+  - MC2
+concepts:
+  - id: manifold-learning.near-manifold-finite-model
+    name: near-manifoldの有限観測模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（near-manifoldの有限観測模型）"]
+    requires: [manifold-learning.additive-observation-noise]
+  - id: manifold-learning.stratified-curves-singularity
+    name: 層別曲線模型と特異点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（層別曲線模型と特異点）"]
+    requires: [manifold-learning.near-manifold-finite-model, manifold-learning.local-tangent-gram]
+  - id: manifold-learning.four-model-intrinsic-distance
+    name: 四模型の潜在距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（四模型の潜在距離）"]
+    requires: [manifold-learning.stratified-curves-singularity, manifold-learning.circle-distance]
+  - id: manifold-learning.bounded-noise-edge-margin
+    name: 有界雑音による辺の安定余裕
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界雑音による辺の安定余裕）"]
+    requires: [manifold-learning.near-manifold-finite-model, manifold-learning.radius-neighborhood-graph]
+  - id: manifold-learning.parallel-branch-radius
+    name: 平行二枝の連結性と安全な半径
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平行二枝の連結性と安全な半径）"]
+    requires: [manifold-learning.bounded-noise-edge-margin, manifold-learning.four-model-intrinsic-distance]
+  - id: manifold-learning.crossing-diagonal-shortcut
+    name: 交差線の対角近道
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（交差線の対角近道）"]
+    requires: [manifold-learning.four-model-intrinsic-distance]
+  - id: manifold-learning.circle-graph-distance-error
+    name: 等間隔円の有限グラフ測地誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等間隔円の有限グラフ測地誤差）"]
+    requires: [manifold-learning.four-model-intrinsic-distance, manifold-learning.radius-neighborhood-graph]
+  - id: manifold-learning.cross-method-geometry-diagnostics
+    name: 横断幾何診断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（横断幾何診断）"]
+    requires: [manifold-learning.projection-distance, manifold-learning.four-model-intrinsic-distance, manifold-learning.graph-shortest-path-distance]
+  - id: manifold-learning.finite-graph-spectrum-diagnostic
+    name: 有限グラフスペクトル診断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限グラフスペクトル診断）"]
+    requires: [manifold-learning.cross-method-geometry-diagnostics, manifold-learning.laplacian-eigenmaps-variational]
+  - id: manifold-learning.normalized-laplacian-zero-multiplicity
+    name: 正規化グラフLaplacianの零固有値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規化グラフLaplacianの零固有値）"]
+    requires: [manifold-learning.finite-graph-spectrum-diagnostic]
