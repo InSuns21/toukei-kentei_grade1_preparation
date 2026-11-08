@@ -1,0 +1,53 @@
+chapter: YAU1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-04, GA3, FA2, F0-02C3]
+concepts:
+  - id: yau.continuity-path
+    name: 体積正規化された連続性のパスと可解集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（体積正規化された連続性のパスと可解集合）"]
+    requires: [yau.monge-ampere-volume-compatibility, yau.mean-zero-potential-gauge]
+  - id: yau.path-compatibility
+    name: 連続性のパスの体積・正値整合性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連続性のパスの体積・正値整合性）"]
+    requires: [yau.continuity-path]
+  - id: yau.fixed-mean-zero-sobolev
+    name: 固定平均ゼロSobolev空間と正値開領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定平均ゼロSobolev空間と正値開領域）"]
+    requires: [yau.mean-zero-potential-gauge, geometric-analysis.manifold-sobolev]
+  - id: yau.sobolev-density-smoothness
+    name: 高階Sobolev空間の積と体積密度写像の微分可能性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（高階Sobolev空間の積と体積密度写像の微分可能性）"]
+    requires: [yau.fixed-mean-zero-sobolev, functional.frechet-derivative]
+  - id: yau.density-linearization
+    name: 体積密度写像の線形化と固定平均零性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体積密度写像の線形化と固定平均零性）"]
+    requires: [yau.sobolev-density-smoothness, yau.monge-ampere-linearization, yau.path-compatibility]
+  - id: yau.weighted-poisson-isomorphism
+    name: 変動体積を用いる線形化の同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（変動体積を用いる線形化の同型）"]
+    requires: [yau.density-linearization, geometric-analysis.poisson-existence, geometric-analysis.poisson-regularity, functional.bounded-inverse-theorem]
+  - id: yau.banach-implicit-function
+    name: Banach空間の局所陰関数補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Banach空間の局所陰関数補題）"]
+    requires: [functional.frechet-derivative, functional.bounded-inverse-theorem]
+  - id: yau.continuity-openness
+    name: 連続性の方法における可解集合の開性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続性の方法における可解集合の開性）"]
+    requires: [yau.weighted-poisson-isomorphism, yau.banach-implicit-function, yau.continuity-path]
