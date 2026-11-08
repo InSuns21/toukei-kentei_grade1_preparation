@@ -1,0 +1,53 @@
+chapter: IG5
+scope: dream-theater
+coverage: complete
+prerequisites: [IG4, OPT1]
+concepts:
+  - id: information-geometry.expectation-coordinate
+    name: 期待値母数と期待値座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（期待値母数と期待値座標）"]
+    requires: [information-geometry.exponential-natural-chart, information-geometry.exponential-fisher-hessian]
+
+  - id: information-geometry.mean-parameter-diffeomorphism
+    name: 自然座標と期待値座標の可逆対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自然座標と期待値座標の可逆対応）"]
+    requires: [information-geometry.expectation-coordinate, information-geometry.exponential-minimality]
+
+  - id: information-geometry.legendre-dual-potential
+    name: Legendre 双対ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Legendre 双対ポテンシャル）"]
+    requires: [information-geometry.mean-parameter-diffeomorphism, convex.convex-function]
+
+  - id: information-geometry.legendre-inverse-hessian
+    name: Legendre 双対と逆 Hessian
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Legendre 双対と逆 Hessian）"]
+    requires: [information-geometry.legendre-dual-potential, information-geometry.mean-parameter-diffeomorphism]
+
+  - id: information-geometry.dual-hessian-metric
+    name: 二つの座標における Fisher 計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二つの座標における Fisher 計量）"]
+    requires: [information-geometry.legendre-inverse-hessian, information-geometry.exponential-fisher-hessian, information-geometry.fisher-coordinate-invariance]
+
+  - id: information-geometry.hessian-chart
+    name: Hessian 表示とアファイン座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hessian 表示とアファイン座標）"]
+    requires: [information-geometry.dual-hessian-metric]
+
+  - id: information-geometry.hessian-affine-transformation
+    name: Hessian 表示のアファイン変換と非線形変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hessian 表示のアファイン変換と非線形変換）"]
+    requires: [information-geometry.hessian-chart, information-geometry.fisher-coordinate-invariance]

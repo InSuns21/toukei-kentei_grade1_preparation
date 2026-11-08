@@ -1,0 +1,38 @@
+id: "IG5"
+title: "Legendre 双対と Hessian 構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG4
+  - OPT1
+official_scope: []
+learning_objectives:
+  - 最小な正則指数型分布族で期待値母数を定義し自然母数との滑らかな可逆対応を導出できる
+  - Hessian の正定値性と自然母数領域の凸性から厳密凸性・大域的単射を証明できる
+  - Legendre 双対ポテンシャルの凸共役としての最大化表示と一意性を証明できる
+  - 双対ポテンシャルの勾配と Hessian が自然座標の逆 Jacobian・逆 Fisher 行列となることを導出できる
+  - 二つの座標の Fisher 計量をテンソル変換則で照合できる
+  - Bernoulli・Poisson・カテゴリカル・固定分散正規位置族で双対座標とポテンシャルを計算できる
+  - Hessian 表示のアファイン座標依存と一般非線形座標での失敗を説明できる
+  - 非最小表示による内点での退化と確率単体境界での非滑らかさを区別できる
+definitions:
+  - { id: IG5-DEF-01, name: 期待値母数と期待値座標 }
+  - { id: IG5-DEF-02, name: Legendre 双対ポテンシャル }
+  - { id: IG5-DEF-03, name: Hessian 表示とアファイン座標 }
+theorems:
+  - { id: IG5-THM-01, name: 自然座標と期待値座標の可逆対応 }
+  - { id: IG5-THM-02, name: Legendre 双対と逆 Hessian }
+  - { id: IG5-THM-03, name: 二つの座標における Fisher 計量 }
+  - { id: IG5-PROP-01, name: Hessian 表示のアファイン変換と非線形変換 }
+canonical_examples:
+  - Bernoulli の logit・成功確率と負エントロピー
+  - Poisson の対数平均と双対ポテンシャル
+  - 三値カテゴリカルの双対座標・負エントロピー・逆 Fisher 行列
+  - 固定分散正規位置族の二次ポテンシャル
+  - 非線形再座標で合成ポテンシャルの Hessian が計量と異なる例
+  - 冗長な Bernoulli 統計量と境界の異なる非可逆性
+problem_patterns: [IG5-A01, IG5-A02, IG5-A03, IG5-A04, IG5-B01, IG5-B02, IG5-B03, IG5-B04, IG5-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5.0, review: 1.5 }
