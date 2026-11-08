@@ -1,0 +1,37 @@
+id: "YAU1-02"
+title: "Ricci形式からポテンシャルへ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-01
+  - HOD1-08
+  - KAH1-11
+  - KAH1-13
+official_scope: []
+learning_objectives:
+  - 二つのKähler形式の最高次外積の比を局所行列式から導き、Ricci差公式の符号と大域性を検算できる
+  - Ricci目標と基準計量のde Rham類が一致する場合に、大域∂∂̄補題から実Ricciポテンシャルを構成できる
+  - Ricciポテンシャルの定数不定性と、コンパクト連結性を用いたその一意性を区別して証明できる
+  - 固定Kähler類の体積不変性から正規化定数を導き、許容目標と体積密度を対応させられる
+  - 基準Kähler形式を同じ類の別の代表へ変えたとき、Ricciポテンシャルと正規化済み密度がどう変わるか検算できる
+  - 楕円曲線の非定数計量で上記を手計算し、正値解の存在証明とは別であることを説明できる
+definitions:
+  - { id: YAU1-02-DEF-01, name: 基準Kähler形式に対するRicciポテンシャル }
+theorems:
+  - { id: YAU1-02-PROP-01, name: 実Ricciポテンシャルの存在と定数差 }
+  - { id: YAU1-02-PROP-02, name: 基準Kähler形式の変更と正規化密度 }
+canonical_examples:
+  - 平坦楕円曲線の周期的係数によるRicci差と実ポテンシャルの検算
+  - 定数ポテンシャルで正規化定数が相殺される例
+  - 非コンパクト複素平面の非定数多重調和関数による定数差一意性の破綻
+problem_patterns:
+  - YAU1-02-VOLUME-RATIO
+  - YAU1-02-REAL-POTENTIAL
+  - YAU1-02-GAUGE-NORMALIZATION
+  - YAU1-02-REFERENCE-CHANGE
+  - YAU1-02-TORUS-POTENTIAL
+  - YAU1-02-NONCOMPACT-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }
