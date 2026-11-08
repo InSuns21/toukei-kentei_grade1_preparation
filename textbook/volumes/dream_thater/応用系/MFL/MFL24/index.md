@@ -18,7 +18,7 @@
 
 ## 2. 群の各元を可逆行列へ対応させる
 
-$V=\mathbb R^d$ のベクトルを**特徴ベクトル**、その成分を測る基底を一度固定する。線形写像をこの基底で行列表示すると、合成は行列積になる。群の元 $g$ に行列 $\rho(g)$ を割り当て、$g$ を作用させた特徴を $\rho(g)v$ と書く。
+$V=\mathbb R^d$ のベクトルを**特徴ベクトル**、その成分を測る基底を一度固定する。線形写像をこの基底で行列表示すると、合成は行列積になる。$\operatorname{GL}_d(\mathbb R)$ は可逆な $d\times d$ 実行列全体である。群の元 $g$ に行列 $\rho(g)\in\operatorname{GL}_d(\mathbb R)$ を割り当て、$g$ を作用させた特徴を $\rho(g)v$ と書く。
 
 この割当が群の合成と整合することが必要である。これを**実行列表現**（以下、群表現）という。
 
@@ -33,7 +33,7 @@ $$
 \quad(g,h\in G)
 $$
 
-> を満たすとき、$\rho$ を $G$ の $\mathbb R^d$ 上の**表現**という。$\operatorname{GL}_d(\mathbb R)$ は可逆な $d\times d$ 実行列全体である。$\rho(g)v$ が特徴の変換規則を与える。全 $g$ で $\rho(g)=I_d$ の表現を**自明表現**という。
+> を満たすとき、$\rho$ を $G$ の $\mathbb R^d$ 上の**表現**という。$\rho(g)v$ が特徴の変換規則を与える。全 $g$ で $\rho(g)=I_d$ の表現を**自明表現**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl24-representation -->
@@ -84,7 +84,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl24-intertwiner -->
-**定義の確認**（符号を保つ例）。$C_2=\{e,s\}$、$s^2=e$ の入力・出力をともに $\mathbb R^2$ とし、$\rho(s)=\operatorname{diag}(1,-1)$ とする。$W=\operatorname{diag}(2,3)$ なら
+**定義の確認**（符号を保つ例）。$C_2=\{e,s\}$、$s^2=e$ の入力・出力をともに $\mathbb R^2$ とし、$\rho(e)=I_2$、$\rho(s)=\operatorname{diag}(1,-1)$ とする。$\rho(s)^2=I_2$ なので、積の条件と可逆性を満たす表現である。$W=\operatorname{diag}(2,3)$ なら
 
 $$
 W\rho(s)=\begin{pmatrix}2&0\\0&-3\end{pmatrix}
@@ -98,7 +98,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（線形等変性と交換条件の同値性）**
-> 有限群 $G$、実有限次元表現 $\rho_{\mathrm{in}}$、$\rho_{\mathrm{out}}$、線形写像 $F(x)=Wx$ について、次は同値である。
+> 有限群 $G$、実有限次元表現 $\rho_{\mathrm{in}}:G\to\operatorname{GL}_m(\mathbb R)$、$\rho_{\mathrm{out}}:G\to\operatorname{GL}_n(\mathbb R)$、$W\in\mathbb R^{n\times m}$、線形写像 $F:\mathbb R^m\to\mathbb R^n$、$F(x)=Wx$ について、次は同値である。
 >
 > 1. 全 $g\in G$、全 $x\in\mathbb R^m$ で $F(\rho_{\mathrm{in}}(g)x)=\rho_{\mathrm{out}}(g)F(x)$。
 > 2. 全 $g\in G$ で $W\rho_{\mathrm{in}}(g)=\rho_{\mathrm{out}}(g)W$。
@@ -130,7 +130,14 @@ W\rho_{\mathrm{in}}(rs)
 =\rho_{\mathrm{out}}(rs)W.
 $$
 
-逆元についても両側の表現行列が可逆なので同様に成立する。有限群の全元を列挙する手法と生成元で解く手法は、ここでは同じ条件を与える。
+逆元についても、生成元 $r$ に対する $W\rho_{\mathrm{in}}(r)=\rho_{\mathrm{out}}(r)W$ の左から $\rho_{\mathrm{out}}(r)^{-1}$、右から $\rho_{\mathrm{in}}(r)^{-1}$ を掛けると
+
+$$
+W\rho_{\mathrm{in}}(r)^{-1}
+=\rho_{\mathrm{out}}(r)^{-1}W
+$$
+
+となるので成立する。有限群の全元を列挙する手法と生成元で解く手法は、ここでは同じ条件を与える。
 
 ## 4. 特徴型とは何を変換規則として約束することか
 
@@ -153,7 +160,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl24-feature-type -->
-**定義の確認**。$G=C_2$ とし、$\rho_+(s)=1$、$\rho_-(s)=-1$。それぞれ $e$ で1、$s^2=e$ で $(\pm1)^2=1$ となるので表現である。直和は $e$ に $I_2$、$s$ に $\operatorname{diag}(1,-1)$ を対応させる。積の条件はブロックごとの積から成立する。入力 $(3,5)^T$ に作用すると $(3,-5)^T$ となり、変わらない第1成分と符号が変わる第2成分を区別できる。
+**定義の確認**。$G=C_2$ とし、$\rho_+(s)=1$、$\rho_-(s)=-1$、どちらも単位元 $e$ には1を対応させる。$s^2=e$ なので、それぞれ $(\pm1)^2=1$ により積の条件を満たし、逆元も存在する。
+
+直和を $D=\rho_+\oplus\rho_-$ と書くと、ブロックを並べた行列は
+
+$$
+D(e)=I_2,\qquad D(s)=\operatorname{diag}(1,-1),
+\qquad D(s)^2=I_2.
+$$
+
+これで直和自身の可逆性・単位元・積の条件も確認できた。例えば
+
+$$
+D(s)(3,5)^T=(3,-5)^T
+$$
+
+となり、変わらない第1成分と符号が変わる第2成分を区別できる。
 <!-- definition-example-end -->
 
 ### 4.1 符号型が違う成分は線形に混ぜられない
@@ -177,7 +199,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-右から対角行列を掛けると $W\rho_{\mathrm{in}}(s)$ の $(i,j)$ 成分は $w_{ij}\lambda_j$。左から掛けると $\rho_{\mathrm{out}}(s)W$ の同成分は $\mu_iw_{ij}$。従って行列が等しい条件は全 $i,j$ で $w_{ij}\lambda_j=\mu_iw_{ij}$、すなわち表示式となる。$e$ では両表現が単位行列なので追加条件はない。符号が異なる場合 $\lambda_j-\mu_i=\pm2\ne0$ だから $w_{ij}=0$ であり、逆に表示式が成り立てば全元で交換条件を満たす。
+右から対角行列を掛けると、第 $j$ 列が $\lambda_j$ 倍される。左から掛けると第 $i$ 行が $\mu_i$ 倍される。したがって各成分は
+
+$$
+\bigl(W\rho_{\mathrm{in}}(s)\bigr)_{ij}=w_{ij}\lambda_j,
+\qquad
+\bigl(\rho_{\mathrm{out}}(s)W\bigr)_{ij}=\mu_iw_{ij}.
+$$
+
+両行列が等しい条件は、すべての $i,j$ について $(\lambda_j-\mu_i)w_{ij}=0$ である。$e$ では両表現が単位行列なので追加条件はない。符号が異なれば差は $\pm2$ で非零ゆえ、該当する $w_{ij}$ は0に限られる。逆にこれらの成分条件が成り立てば全元で交換条件を満たす。
 <!-- proof-end -->
 
 **直接計算**。入力を $\rho_{\mathrm{in}}(s)=\operatorname{diag}(1,-1,-1)$、出力を $\rho_{\mathrm{out}}(s)=\operatorname{diag}(1,-1)$ とする。各成分を選択則へ代入すると
@@ -187,7 +217,14 @@ W=\begin{pmatrix}a&0&0\\0&b&c\end{pmatrix}
 \quad(a,b,c\in\mathbb R)
 $$
 
-だけが許される。実際、$W\rho_{\mathrm{in}}(s)$ と $\rho_{\mathrm{out}}(s)W$ は共に $\begin{pmatrix}a&0&0\\0&-b&-c\end{pmatrix}$。符号反転する2個の入力を混ぜることは許されるが、変換しない成分へ流し込むことは許されない。
+だけが許される。実際、左右の積は同じ行列になり、
+
+$$
+W\rho_{\mathrm{in}}(s)=\rho_{\mathrm{out}}(s)W
+=\begin{pmatrix}a&0&0\\0&-b&-c\end{pmatrix}.
+$$
+
+符号反転する2個の入力を混ぜることは許されるが、変換しない成分へ流し込むことは許されない。
 
 ## 5. $C_4$ の回転型――二成分でも任意の混合はできない
 
@@ -239,7 +276,14 @@ $$
 
 ### 5.1 鏡映を許すと、混合はさらに制限される
 
-$D_4$ の平面表現を $\rho(r)=R$、$\rho(s)=S=\operatorname{diag}(1,-1)$ とする。[MFL23 の正方形の作用](../MFL23/index.md#prop-mfl23-fibers)でも使った $SRS=R^{-1}$、$R^4=S^2=I$ が成立する。$C_4$ の回転だけで認められた $aI+bR$ が、鏡映まで認められるとは限らない。
+$D_4$ の平面表現を $\rho(r)=R$、$\rho(s)=S=\operatorname{diag}(1,-1)$ とする。$R^2=-I_2$、$S^2=I_2$ であり、直接掛けると
+
+$$
+SRS=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+=-R=R^{-1},\qquad R^4=S^2=I_2.
+$$
+
+よって前章で扱った正方形の回転・鏡映と同じ群関係を満たす。$C_4$ の回転だけで認められた $aI+bR$ が、鏡映まで認められるとは限らない。
 
 <a id="prop-mfl24-dihedral-commutant"></a>
 
@@ -271,13 +315,33 @@ $$
 $R,S$ は可逆なので $RS$ も可逆、$2bRS=0$ から $b=0$。逆に $aI_2$ は $R,S$ の両方と可換で、生成される $D_4$ の全元とも可換である。
 <!-- proof-end -->
 
-**壊れる例**。$W=R$ は90度回転には等変だが、鏡映 $S$ に対して $RS=-SR$ なので不等変。$x=(1,0)^T$ では $W(Sx)=(0,1)^T$ に対し $S(Wx)=(0,-1)^T$。失った仮定は「回転だけでなく鏡映にも等変であること」であり、証明の生成元条件 $WS=SW$ が壊れている。
+**壊れる例**。$W=R$ は90度回転には等変だが、鏡映 $S$ に対して $RS=-SR$ なので不等変である。入力 $x=(1,0)^T$ では
+
+$$
+W(Sx)=(0,1)^T,\qquad S(Wx)=(0,-1)^T.
+$$
+
+失った仮定は「回転だけでなく鏡映にも等変であること」であり、証明の生成元条件 $WS=SW$ が壊れている。
 
 ## 6. 四頂点の値を表現型ごとに分解する
 
-正方形の各頂点にスカラー値 $x=(x_0,x_1,x_2,x_3)^T\in\mathbb R^4$ を置く。回転 $r$ は頂点番号を1だけ増やすので、特徴はそれに合わせて並べ替える。標準基底 $e_j$（第 $j$ 成分のみ1）に対し $Pe_j=e_{j+1\pmod4}$ と置く。これは前章の頂点への[群作用](../MFL23/index.md#prop-mfl23-fibers)を、各頂点に付随する値の並べ替えへ移したものだ。
+正方形の各頂点にスカラー値 $x=(x_0,x_1,x_2,x_3)^T\in\mathbb R^4$ を置く。[群作用の定義](../../../代数系/GRP/GRP3/index.md#def-grp3-group-action)に従い、回転 $r$ は頂点 $j$ を $j+1\pmod4$ へ送る。各値も頂点と一緒に移すので、回転後の第 $j+1$ 成分は回転前の第 $j$ 成分になる。
 
-次の4本のベクトルを考える。
+標準基底 $e_j$（第 $j$ 成分だけ1）を使い、この4次元の置換作用を次で表す。
+
+$$
+Pe_j=e_{j+1\pmod4}\qquad(j=0,1,2,3).
+$$
+
+本節の $P$ は第3節の2次元入れ替え行列とは異なり、4次元の回転作用を表す。
+
+全頂点で一定の模様、隣接頂点で符号が反転する模様、互いに90度ずれた二つの差分模様を基底候補にする。回転によって各模様がどう動くかを調べる。
+
+<a id="thm-mfl24-c4-decomposition"></a>
+
+<!-- formal-statement-start -->
+> **定理（C4の四頂点置換表現の実直和分解）**
+> $e_0,e_1,e_2,e_3$ を $\mathbb R^4$ の標準基底とし、$P:\mathbb R^4\to\mathbb R^4$ を $Pe_j=e_{j+1\pmod4}$ で定める。次の4本のベクトルを考える。
 
 $$
 u_0=(1,1,1,1)^T,\quad
@@ -286,13 +350,7 @@ u_c=(1,0,-1,0)^T,\quad
 u_s=(0,1,0,-1)^T.
 $$
 
-$u_0$ は全頂点で一定、$u_2$ は隣接頂点で符号が反転する模様、$u_c,u_s$ は互いに90度ずれた模様を表す。回転によって各模様がどう動くかを調べる。
-
-<a id="thm-mfl24-c4-decomposition"></a>
-
-<!-- formal-statement-start -->
-> **定理（C4の四頂点置換表現の実直和分解）**
-> $P:\mathbb R^4\to\mathbb R^4$ を $Pe_j=e_{j+1\pmod4}$ とする。上記の $u_0,u_2,u_c,u_s$ は $\mathbb R^4$ の基底をなし、この順の基底では
+> これらは $\mathbb R^4$ の基底をなし、この順の基底では
 
 $$
 [P]_{(u_0,u_2,u_c,u_s)}
@@ -350,7 +408,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（アフィン等変写像の条件）**
-> 有限群 $G$ の実有限次元表現 $\rho_{\mathrm{in}}$ と $\rho_{\mathrm{out}}$ に対し、$F(x)=Wx+b$ が全 $g\in G,x\in\mathbb R^m$ で等変であるための必要十分条件は
+> 有限群 $G$ の実有限次元表現 $\rho_{\mathrm{in}}:G\to\operatorname{GL}_m(\mathbb R)$ と $\rho_{\mathrm{out}}:G\to\operatorname{GL}_n(\mathbb R)$、$W\in\mathbb R^{n\times m}$、$b\in\mathbb R^n$ に対し、$F:\mathbb R^m\to\mathbb R^n$、$F(x)=Wx+b$ が全 $g\in G,x\in\mathbb R^m$ で等変であるための必要十分条件は
 
 $$
 W\rho_{\mathrm{in}}(g)=\rho_{\mathrm{out}}(g)W,
@@ -397,7 +455,7 @@ $$
 
 なので積の条件も成立する。通常のスカラー、符号付きスカラー、平面ベクトルはいずれも表現である。
 
-符号付きスカラーの自然な例は二つのベクトルが張る**向き付き面積** $A(v,w)=v_1w_2-v_2w_1$。列を並べた行列 $[v\ w]$ の行列式なので
+符号付きスカラーの自然な例は二つのベクトルが張る**向き付き面積** $A(v,w)=v_1w_2-v_2w_1$。列を並べた行列 $[v\ w]$ の行列式である。行列積は列ごとに作用するから $Q[v\ w]=[Qv\ Qw]$ となり、[行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)をこの積へ適用して
 
 <a id="eq-mfl24-oriented-area"></a>
 
@@ -478,7 +536,20 @@ $Q=R$ なら $\det R=1$、$Q=S$ なら $\det S=-1$。つまり回転では面積
 
 ### Level A の解答
 
-**MFL24-A01 解答**。$\rho(s)^2=\operatorname{diag}(1,1)=I_2=\rho(e)$、$\rho(e)\rho(s)=\rho(s)\rho(e)=\rho(s)$。これで $C_2$ の全積を確認した。$\rho(s)^{-1}=\rho(s)$ なので可逆性も満たす。一方 $\operatorname{diag}(1,0)$ の行列式は0で逆がない上、その二乗は自身であって $I_2$ ではない。従って $s^2=e$ と矛盾する。
+**MFL24-A01 解答**。$C_2$ の生成元 $s$ と単位元 $e$ に対して
+
+$$
+\rho(s)^2=\operatorname{diag}(1,1)=I_2=\rho(e),
+\qquad \rho(e)\rho(s)=\rho(s)\rho(e)=\rho(s).
+$$
+
+これで全ての積を確認した。$\rho(s)^{-1}=\rho(s)$ なので可逆性も満たす。一方、候補 $T=\operatorname{diag}(1,0)$ は
+
+$$
+\det T=0,\qquad T^2=T\ne I_2=\rho(e)
+$$
+
+だから逆がなく、生成元の関係 $s^2=e$ にも反する。
 
 **MFL24-A02 解答**。$D=\operatorname{diag}(1,-1)$ とすると
 
