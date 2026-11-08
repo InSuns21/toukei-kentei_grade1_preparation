@@ -188,7 +188,7 @@ $$
 > を満たすなら、$J_Nv_N$ の任意の部分列から $L^2(0,L)$ に収束するさらに部分列を取り出せる。その極限 $u$ は $H^1_{\rm per}(0,L)$ に属し、収束部分列について
 
 $$
-\|J_Nv_N-u\|_2\longrightarrow0,qquad
+\|J_Nv_N-u\|_2\longrightarrow0,\qquad
 Q(u)\le\liminf_{N\to\infty}q_N(v_N)
 $$
 
