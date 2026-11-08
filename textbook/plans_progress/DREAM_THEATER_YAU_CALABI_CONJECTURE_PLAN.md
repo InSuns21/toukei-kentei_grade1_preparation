@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11
 設計改訂: 2026-11-09
-状態: planned（設計のみ、講義数は14章に確定）
+状態: in_progress（YAU1-01完了、YAU1-02〜14は未着手。講義数は14章に確定）
 
 ## 中心問い・完成地点
 
@@ -48,6 +48,8 @@
 - [T. Collins, *Geometry of the Complex Monge–Ampère Equation*（Harvard Math 262）](https://people.math.harvard.edu/~tcollins/Math262.html)：$C^2$・$C^3$、$C^0$・Moser反復を分ける教育的配列を照合する。
 - [D. Joyce, *Compact Manifolds with Special Holonomy*（Oxford）](https://academic.oup.com/book/53817)：Ricci平坦性と特殊ホロノミーへの帰結・その限界。主定理の解析的存在証明の代替にはしない。
 
-## 実装・査読の停止線
+## 実装状況と査読の停止線
 
-現在は設計のみ。着手時にYAU1のseries manifest、章別metadata、直接prerequisiteと既存の解析定理の実在するanchorを照合する。各章はA4/B3/C1**以上**と全詳細解答を備え、核心証明の中間式を省かない。新規章自身に現行規約の区分C自己再計算と別観点再読を適用する。**別の完了章の追跡監査は章IDを指定された場合のみ**。計画書の講数確定は本講座の実装開始・完成を意味しない。
+YAU1-01はCalabi予想の許容データ・正確な量化・一意性と正規化の区別を実装し、本文・metadata・公開目次を同期した。YAU1-02〜14の証明構築および系列横断監査は未完了。進捗の正本は textbook/dream-theater-series/YAU1.yaml とする。
+
+各章の着手時に章別metadata、直接prerequisiteと既存の解析定理の実在するanchorを照合する。各章はA4/B3/C1**以上**と全詳細解答を備え、核心証明の中間式を省かない。新規章自身に現行規約の区分C自己再計算と別観点再読を適用する。**別の完了章の追跡監査は章IDを指定された場合のみ**。講数確定やYAU1-01完成をもって本系列の存在証明や全体完了を宣言しない。
