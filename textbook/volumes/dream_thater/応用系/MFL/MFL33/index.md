@@ -11,7 +11,15 @@
 
 前者は**全体の特徴差の減衰**、後者は**遠方情報への感度と中継表現の容量**を調べる。原因も診断指標も同じではない。この講義では有限グラフと線形拡散、および明示的に限定した中継模型の中で証明する。任意の非線形GNNが必ず同じ収束をする、あるいはグラフの橋を一本増やせば必ず学習が改善する、とまでは主張しない。
 
-基本設定は $n\ge2$ 頂点の有限無向グラフ $G$、非負対称重み $w_{ij}=w_{ji}\ge0$、$w_{ii}=0$ である。$d_i=\sum_jw_{ij}$、$D=\operatorname{diag}(d_i)$、$L=D-W$ と置く。これは[SGT1で定義した組合せLaplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)で、辺は $w_{ij}>0$ のときに限る。$d_{\max}=\max_i d_i>0$ を仮定する。最初は連結グラフを扱い、連結性を外した反例を後で確かめる。
+基本設定は $n\ge2$ 頂点の有限無向グラフ $G$ と、非負対称重み $w_{ij}=w_{ji}\ge0$、$w_{ii}=0$ である。重み行列を $W=(w_{ij})\in\mathbb R^{n\times n}$ とし、$w_{ij}>0$ の二頂点間に辺があると考える。
+
+各頂点の次数、次数行列、[SGT1で定義した組合せLaplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)は、それぞれ
+
+$$
+d_i=\sum_jw_{ij},\qquad D=\operatorname{diag}(d_i),\qquad L=D-W
+$$
+
+である。$d_{\max}=\max_i d_i>0$ を仮定し、$\mathbf1=(1,\ldots,1)^\mathsf T\in\mathbb R^n$ を全成分が1の列ベクトルとする。最初は連結グラフを扱い、連結性を外した反例を後で確かめる。
 
 ## 2. 自分を少し残して平均する lazy diffusion
 
@@ -31,14 +39,22 @@ $$
 > と定め、$k$ 層の出力を $x^{(k)}=B_\tau^kx^{(0)}$（$k=0,1,\ldots$）とする。特徴が $q$ 成分なら $X\in\mathbb R^{n\times q}$ の各列へ同じ $B_\tau$ を掛け、$X^{(k)}=B_\tau^kX$ とする。
 <!-- formal-statement-end -->
 
+$k=0$ はまだ伝播していない初期状態であり、$B_\tau^0=I$ とする。後で固有倍率を $\mu^k$ と書く際も、$k=0$ の場合は $\mu=0$ であっても $\mu^0=1$（恒等作用）と解釈する。
+
 <!-- definition-example-start: def-mfl33-lazy-diffusion -->
-**定義の確認**：三頂点の道。辺 $1$—$2$ と $2$—$3$ の重みを1とすると $d=(1,2,1)$、$d_{\max}=2$ である。$\tau=1/4$ は許容範囲の上端で、[MFL32の三頂点行列](../MFL32/index.md#def-mfl32-polynomial-filter)から
+**定義の確認**：三頂点の道。辺 $1$—$2$ と $2$—$3$ の重みを1とすると、次数は $d=(1,2,1)$、$d_{\max}=2$ である。[組合せLaplacianの定義](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)から、対角に次数、隣接する非対角に重みの負号を置くと
+
+$$
+L=\begin{pmatrix}1&-1&0\\-1&2&-1\\0&-1&1\end{pmatrix}.
+$$
+
+$\tau=1/4=1/(2d_{\max})$ は許容範囲の上端である。[MFL32の多項式フィルタ](../MFL32/index.md#def-mfl32-polynomial-filter) $p(L)$ に $p(z)=1-z/4$ を代入したものが今回の $B_{1/4}=I-L/4$ であり、上の $L$ の各成分から
 
 $$
 B_{1/4}=\begin{pmatrix}3/4&1/4&0\\1/4&1/2&1/4\\0&1/4&3/4\end{pmatrix}.
 $$
 
-各行の和は1、各成分は非負、対角成分は $3/4,1/2,3/4$ だから確かに「自分を半分以上残す」。$x^{(0)}=e_1$ なら
+各行の和は1、各成分は非負、対角成分は $3/4,1/2,3/4$ だから確かに「自分を半分以上残す」。対称性から列和も1である。$x^{(0)}=e_1=(1,0,0)^\mathsf T$ なら
 
 $$
 x^{(1)}=(3/4,1/4,0)^\mathsf T,\qquad
@@ -94,7 +110,13 @@ $B_\tau$ が行確率行列なのは「各頂点で平均する」という意�
 
 ## 3. 何をもって「特徴が潰れた」と判定するか
 
-グラフ信号が全頂点で同じベクトルなら、頂点を区別する差はない。そこで初期特徴から全頂点の平均を引き、その残りの大きさを測る。$\mathbf1=(1,\ldots,1)^\mathsf T$ とし、$C=I-\mathbf1\mathbf1^\mathsf T/n$ と置くと、$CX$ は各行から列ごとの平均を引いた行列になる。$\|A\|_F^2=\sum_{i,a}A_{ia}^2$ はFrobeniusノルムである。
+グラフ信号が全頂点で同じベクトルなら、頂点を区別する差はない。そこで初期特徴から全頂点の平均を引き、その残りの大きさを測る。$C=I-\mathbf1\mathbf1^\mathsf T/n$ と置くと、任意の特徴行列 $X\in\mathbb R^{n\times q}$ の第 $i$ 行について
+
+$$
+(CX)_{ia}=X_{ia}-\frac1n\sum_{j=1}^nX_{ja}\qquad(a=1,\ldots,q)
+$$
+
+となり、$CX$ は各行から列ごとの平均を引いた行列になる。$\|A\|_F^2=\sum_{i,a}A_{ia}^2$ はFrobeniusノルムである。
 
 <a id="def-mfl33-oversmoothing-measure"></a>
 
@@ -128,14 +150,19 @@ $$
 全ての値が一致したわけではないが、$S_1=\sqrt7/4<1$ へ縮小した。入力が初めから定数なら $V_0=V_k=0$ であり、$0/0$ を計算せず定義の後者を使う。
 <!-- definition-example-end -->
 
-頂点間の差と $V_k$ が同じ現象を表す理由を計算する。$H_i\in\mathbb R^q$ を行 $i$、$\bar H=n^{-1}\sum_i H_i$ とすると
+頂点間の差と $V_k$ が同じ現象を表す理由を計算する。任意の行列 $H\in\mathbb R^{n\times q}$ の第 $i$ 行ベクトルを $H_i\in\mathbb R^q$、その平均を $\bar H=n^{-1}\sum_i H_i$ とすると
+
+<a id="eq-mfl33-pairwise-variation"></a>
 
 $$
 \sum_{i<j}\|H_i-H_j\|_2^2
 =\frac12\sum_{i,j}(\|H_i\|^2+\|H_j\|^2-2H_i\cdot H_j)
 =n\sum_i\|H_i\|^2-\Big\|\sum_iH_i\Big\|^2
+=n\Big(\sum_i\|H_i\|^2-n\|\bar H\|^2\Big)
 =n\sum_i\|H_i-\bar H\|_2^2=n\|CH\|_F^2.
 $$
+
+最後の等号の括弧内は、$\sum_i\|H_i-\bar H\|^2$ を展開したものである。交差項は $-2\bar H\cdot\sum_iH_i=-2n\|\bar H\|^2$、定数項は $n\|\bar H\|^2$ となる。
 
 したがって $V_k\to0$ は、有限個の頂点のすべての対について $\|X_i^{(k)}-X_j^{(k)}\|\to0$ と同値である。単に分類器の精度が悪化したことだけを oversmoothing の定義にはしていない。
 
@@ -173,7 +200,7 @@ $$
 
 直交性によって異なる $j$ の行列はFrobenius内積で直交する。実際、$j\ne\ell$ の交差項の跡は $\operatorname{tr}[(X^\mathsf Tu_j)(u_j^\mathsf Tu_\ell)(u_\ell^\mathsf TX)]=0$。各項のノルム二乗は $\|u_j\|_2^2\|u_j^\mathsf TX\|_2^2=\|u_j^\mathsf TX\|_2^2$ で、第一式を得る。
 
-前定理より $0\le1-\tau\lambda_j\le1-\tau\lambda_2<1$（$j\ge2$）。各項でこの上界を使い
+[lazy diffusionのスペクトル範囲](#thm-mfl33-lazy-spectrum)より $0\le1-\tau\lambda_j\le1-\tau\lambda_2<1$（$j\ge2$）。各項でこの上界を使い
 
 $$
 V_k^2\le(1-\tau\lambda_2)^{2k}\sum_{j=2}^n\|u_j^\mathsf TX\|_2^2
@@ -231,10 +258,16 @@ $$
 =\frac{4\varepsilon}{6}=\frac{2\varepsilon}{3}.
 $$
 
-橋の両端の次数だけが $2+\varepsilon$ なので $d_{\max}=2+\varepsilon$。前定理により $u_2$ の倍率は $1-\tau\lambda_2$、上界を代入すると主張を得る。□
+橋の両端の次数だけが $2+\varepsilon$ なので $d_{\max}=2+\varepsilon$。[lazy diffusionのスペクトル範囲](#thm-mfl33-lazy-spectrum)により $u_2$ の倍率は $1-\tau\lambda_2$、上界を代入すると主張を得る。□
 <!-- proof-end -->
 
-この命題は**減衰率の遅さの可能性**を具体的に示す。実際の初期信号 $g$ を一層動かすと、橋の両端以外の四頂点はそのままで
+この命題は**減衰率の遅さの可能性**を具体的に示す。実際の初期信号 $g$ を一層動かす。三角形内部では隣接値との差が0なので、$Lg$ の非零成分は橋の両端だけである。頂点3では $\varepsilon(g_3-g_4)=2\varepsilon$、頂点4では $\varepsilon(g_4-g_3)=-2\varepsilon$。ゆえに
+
+$$
+L_\varepsilon g=(0,0,2\varepsilon,-2\varepsilon,0,0)^\mathsf T
+$$
+
+となり、$B_\tau g=g-\tau L_\varepsilon g$ は
 
 $$
 B_\tau g=(1,1,1-2\tau\varepsilon,-1+2\tau\varepsilon,-1,-1)^\mathsf T,
@@ -271,7 +304,9 @@ $$
 **定義の確認**。$m=3$、$d=1$、$U=\mathbb R^3$、$Z(x)=(x_1+x_2+x_3)/3$、$H(z)=(z,z,z)$ とすると、出力は $F(x)=(\bar x,\bar x,\bar x)$。入力 $x=(1,-1,0)$ と $x'=(0,0,0)$ は異なるのに、どちらも $Z=0$ となり出力も一致する。$d<m$ を具体的に満たし、全情報が $Z$ を通ることを明示した例である。たまたま全入力に同じ値が与えられれば $Z$ だけで十分なので、「中継がある」だけで全課題に失敗するとは言えない。
 <!-- definition-example-end -->
 
-感度を数字で見るには、[ML2-14のJacobian](../../../応用系/ML/ML2-14/index.md#thm-ml2-14-layer-jacobian)を使う。行は出力成分、列は入力成分である。特に一つの出力 $y=Z(x)=m^{-1}\sum_ix_i$ なら
+感度を数字で見るには、RA6で定義された[Jacobian 行列](../../../基礎科目/RA/RA6/index.md#def-ra6-jacobian)を使う。これは直接の前提ML2-14の第2節でも参照している定義である。入力 $x=(x_1,\ldots,x_m)$ に対し、行は出力成分、列は入力成分である。$\partial y/\partial x_i$ は他の $x_j$（$j\ne i$）を固定して $x_i$ で微分する意味である。
+
+特に一つの出力 $y=Z(x)=m^{-1}\sum_ix_i$ なら $J_y=J_Z$ は $1\times m$ 行列で、
 
 $$
 \frac{\partial y}{\partial x_i}=\frac1m\quad(i=1,\ldots,m),\qquad
@@ -279,6 +314,8 @@ $$
 $$
 
 葉から $t$ への**距離は常に2**なのに、一つの葉が出力に与える感度は $1/m$ へ小さくなる。この縮小は局所の平均集約によるもので、グラフ全体の $B_\tau^k$ が定数信号へ収束したという計算ではない。
+
+次に、Jacobianがいくつの独立な入力方向の変化を出力へ運べるかを数える。行列の**階数（rank）**は、その列が張る空間の次元であり、[線形写像の像](../../../基礎科目/F0/F0-00F/index.md#def-f0-00f-kernel-image)を標準基底で表したものに対応する。$m\times d$ 行列の列は高々 $d$ 本だから、その階数は高々 $d$ である。
 
 <a id="prop-mfl33-relay-rank"></a>
 
@@ -299,7 +336,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[ML2-14の層のJacobian積](../../../応用系/ML/ML2-14/index.md#thm-ml2-14-layer-jacobian)へ内側 $Z:\mathbb R^m\to\mathbb R^d$ と外側 $H:\mathbb R^d\to\mathbb R^m$ を代入すると
+[ML2-14の層のJacobian積](../../../応用系/ML/ML2-14/index.md#thm-ml2-14-layer-jacobian)へ内側 $Z:U\to\mathbb R^d$ と外側 $H:\mathbb R^d\to\mathbb R^m$ を代入する。$U$ は開集合で、$Z$ は $x\in U$、$H$ は $Z(x)$ で微分可能だから、[RA6の多変数連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)の適用条件を満たし、
 
 $$
 J_F(x)=J_H(Z(x))J_Z(x),\qquad
@@ -427,19 +464,67 @@ python3 textbook/volumes/dream_thater/応用系/MFL/MFL33/oversmoothing_lab.py -
 
 ### Level A
 
-**MFL33-A01 解答。** $d=(1,2,1)$、$L=\left(\begin{smallmatrix}1&-1&0\\-1&2&-1\\0&-1&1\end{smallmatrix}\right)$ より
+**MFL33-A01 解答。** 各頂点の次数は $d=(1,2,1)$ であり、非対角の隣接成分へ $-1$ を置いた[組合せLaplacian](../../../計算系/SGT/SGT1/index.md#def-sgt1-laplacian)は
+
+$$
+L=\begin{pmatrix}1&-1&0\\-1&2&-1\\0&-1&1\end{pmatrix}.
+$$
+
+よって
 
 $$
 B_\tau=I-L/4=\begin{pmatrix}3/4&1/4&0\\1/4&1/2&1/4\\0&1/4&3/4\end{pmatrix}.
 $$
 
-第一列が $Be_1=(3/4,1/4,0)^\mathsf T$。二度目は第一成分 $9/16+1/16=10/16$、第二成分 $3/16+2/16=5/16$、第三成分 $1/16$。各行の和は $1,1,1$、対称だから各列も和1、全成分が非負である。
+第一列が $Be_1=(3/4,1/4,0)^\mathsf T$ である。二度目の各成分は
 
-**MFL33-A02 解答。** 平均は $(2+0+1)/3=1$、従って $Cx=(1,-1,0)^\mathsf T$、$V_0^2=1^2+(-1)^2+0^2=2$。三対の差の二乗は $(2-0)^2+(2-1)^2+(0-1)^2=4+1+1=6=3\cdot2$。これは本文の[頂点間差と中心化ノルムの恒等式](#def-mfl33-oversmoothing-measure)の有限検算である。
+$$
+B^2e_1=\begin{pmatrix}
+(3/4)(3/4)+(1/4)(1/4)\\
+(1/4)(3/4)+(1/2)(1/4)\\
+(1/4)(1/4)
+\end{pmatrix}
+=\begin{pmatrix}10/16\\5/16\\1/16\end{pmatrix}.
+$$
 
-**MFL33-A03 解答。** $x=(1,0,-1)^\mathsf T$ は $Lx=x$ なので $B_\tau x=(1-1/4)x=3x/4$。帰納的に $B_\tau^kx=(3/4)^kx$。$\mathbf1^\mathsf Tx=0$、よって $Cx=x$、$\|x\|_2=\sqrt{1+0+1}=\sqrt2$。$V_k=(3/4)^k\sqrt2$、$S_k=(3/4)^k$ である。
+各行の和は $1,1,1$、対称だから各列も和1、全成分が非負である。
 
-**MFL33-A04 解答。** $J_z=(1/4,1/4,1/4,1/4)$ は $1\times4$。各成分への感度 $1/4$、ノルムは $\sqrt{4(1/4)^2}=1/2$。$x=(1,-1,0,0)$ は和0で $z=0$、$x'=0$ でも $z=0$。入力の差の方向 $(1,-1,0,0)$ が中継で消えたのである。
+**MFL33-A02 解答。** 平均は $(2+0+1)/3=1$ なので、平均を各成分から引くと
+
+$$
+Cx=(1,-1,0)^\mathsf T,\qquad V_0^2=1^2+(-1)^2+0^2=2.
+$$
+
+一方、三対の差の二乗を直接足すと
+
+$$
+(2-0)^2+(2-1)^2+(0-1)^2=4+1+1=6=3V_0^2.
+$$
+
+これは本文の[頂点間差と中心化ノルムの恒等式](#eq-mfl33-pairwise-variation)の有限検算である。
+
+**MFL33-A03 解答。** $x=(1,0,-1)^\mathsf T$ に $L$ を掛けると $Lx=(1,0,-1)^\mathsf T=x$。よって固有値1のモードであり、$B_\tau=I-L/4$ から
+
+$$
+B_\tau x=(1-1/4)x=\frac34x,
+\qquad B_\tau^kx=\left(\frac34\right)^kx.
+$$
+
+また $\mathbf1^\mathsf Tx=0$ なので $Cx=x$、$\|x\|_2=\sqrt{1+0+1}=\sqrt2$。したがって
+
+$$
+V_k=\left(\frac34\right)^k\sqrt2,
+\qquad S_k=\frac{V_k}{V_0}=\left(\frac34\right)^k.
+$$
+
+**MFL33-A04 解答。** 他の入力を固定して $x_i$ で偏微分すると $\partial z/\partial x_i=1/4$ であり、RA6の[Jacobian 行列](../../../基礎科目/RA/RA6/index.md#def-ra6-jacobian)の定義より
+
+$$
+J_z=(1/4,1/4,1/4,1/4)\in\mathbb R^{1\times4},
+\qquad\|J_z\|_2=\sqrt{4(1/4)^2}=\frac12.
+$$
+
+各入力への感度は $1/4$。$x=(1,-1,0,0)$ は和0で $z=0$、$x'=0$ でも $z=0$。入力の差の方向 $(1,-1,0,0)$ が中継で消えたのである。
 
 ### Level B
 
@@ -457,7 +542,20 @@ $$
 
 非連結なので[核と成分の定理](../../../計算系/SGT/SGT1/index.md#thm-sgt1-kernel-components)で零固有値の重複度は2、$\lambda_2=0$。証明の $1-\tau\lambda_2<1$ が等号1となり、指数減衰が生じない。
 
-**MFL33-B03 解答。** 三角形内部で $g$ は定数、橋 $3$—$4$ だけ差2だから $g^\mathsf TLg=\varepsilon(1-(-1))^2=4\varepsilon$。$\|g\|_2^2=6$、$\sum_i g_i=0$。連結かつ非負重みなので[第二固有値の変分表示](../../../計算系/SGT/SGT1/index.md#prop-sgt1-gap-variational)から $0<\lambda_2\le(4\varepsilon)/6=2\varepsilon/3$。$Lg$ は頂点3に $2\varepsilon$、頂点4に $-2\varepsilon$、それ以外は0。よって
+**MFL33-B03 解答。** 三角形内部で $g$ は定数、橋 $3$—$4$ だけ差2だから、[Dirichletエネルギーの辺表示](../../../計算系/SGT/SGT1/index.md#thm-sgt1-dirichlet)より
+
+$$
+g^\mathsf TL_\varepsilon g=\varepsilon(1-(-1))^2=4\varepsilon.
+$$
+
+$\|g\|_2^2=6$、$\sum_i g_i=0$。$\varepsilon>0$ なので連結かつ非負重みであり、[第二固有値の変分表示](../../../計算系/SGT/SGT1/index.md#prop-sgt1-gap-variational)へこの $g$ を代入して
+
+$$
+0<\lambda_2\le\frac{g^\mathsf TL_\varepsilon g}{\|g\|_2^2}
+=\frac{4\varepsilon}{6}=\frac{2\varepsilon}{3}.
+$$
+
+橋の両端だけ値が変わるため、$L_\varepsilon g$ は頂点3に $2\varepsilon$、頂点4に $-2\varepsilon$、それ以外は0。$B_\tau g=g-\tau L_\varepsilon g$ から
 
 $$
 Bg=(1,1,1-2\tau\varepsilon,-1+2\tau\varepsilon,-1,-1)^\mathsf T.

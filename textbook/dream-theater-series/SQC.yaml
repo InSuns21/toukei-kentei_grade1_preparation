@@ -9,7 +9,7 @@ chapters:
   - { id: SQC1, path: textbook/volumes/dream_thater/幾何系/SQC/SQC1, status: completed, title: "定規とコンパスの有限作図と古典三大問題" }
   - { id: SQC2, path: textbook/volumes/dream_thater/幾何系/SQC/SQC2, status: completed, title: "幾何操作から四則演算・平方根へ" }
   - { id: SQC3, path: textbook/volumes/dream_thater/幾何系/SQC/SQC3, status: completed, title: "作図可能数の必要十分条件" }
-  - { id: SQC4, path: textbook/volumes/dream_thater/幾何系/SQC/SQC4, status: planned, title: "立方体倍積と角の三等分" }
+  - { id: SQC4, path: textbook/volumes/dream_thater/幾何系/SQC/SQC4, status: completed, title: "立方体倍積と角の三等分" }
   - { id: SQC5, path: textbook/volumes/dream_thater/幾何系/SQC/SQC5, status: planned, title: "正多角形とGauss–Wantzel" }
   - { id: SQC6, path: textbook/volumes/dream_thater/幾何系/SQC/SQC6, status: planned, title: "円の面積とπの無理性" }
   - { id: SQC7, path: textbook/volumes/dream_thater/幾何系/SQC/SQC7, status: planned, title: "円積不可能性の決着" }
