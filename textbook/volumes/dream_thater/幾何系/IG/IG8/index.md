@@ -195,7 +195,17 @@ $$
 =-\psi_{ij}E_\theta[\ell_k]=0.
 $$
 
-逆 Fisher 行列を掛けても $\Gamma^{e,k}_{ij}=0$ です。よって $\theta$ は e-アファイン座標です。さらに [IG4 の Fisher--Hessian 定理](../IG4/index.md#thm-ig4-fisher-hessian)で $g_{ij}=\psi_{ij}$ であり、最小性・正則性により正定値です。[Hessian ポテンシャルからの双対平坦性](#thm-ig8-hessian-dual-flat)に $U=\Theta$、$\nabla=\nabla^e$、$\psi$ を入力すると、計量双対の $\nabla^m$ は捩率零・曲率零で $\eta=\partial\psi$ をアファイン座標とします。[IG7 の e/m 双対性](../IG7/index.md#thm-ig7-alpha-duality)によって、この計量双対の相手は実際に $\nabla^m$ であり、結論が従います。
+逆 Fisher 行列を掛けても $\Gamma^{e,k}_{ij}=0$ です。よって $\theta$ は e-アファイン座標です。
+
+さらに [IG4 の Fisher--Hessian 定理](../IG4/index.md#thm-ig4-fisher-hessian)によって
+
+$$
+g_{ij}=\psi_{ij}
+$$
+
+であり、最小性・正則性により正定値です。[Hessian ポテンシャルからの双対平坦性](#thm-ig8-hessian-dual-flat)には、$U=\Theta$、$\nabla=\nabla^e$、ポテンシャル $\psi$ を代入します。すると計量双対の接続は捩率零・曲率零で、$\eta=\partial\psi$ がそのアファイン座標です。
+
+[IG7 の e/m 双対性](../IG7/index.md#thm-ig7-alpha-duality)によって、この計量双対の相手は実際に $\nabla^m$ です。従って m の平坦性と期待値座標についても結論が従います。
 <!-- proof-end -->
 
 たとえば Poisson 族では $\theta=\log\lambda\in\mathbb R$、$\psi=e^\theta$、$\eta=\lambda>0$ です。e の直線は $\log\lambda$ の直線、m の直線は $\lambda$ の直線になります。全族の内部でこの違いを、次に測地線として定式化します。
@@ -463,7 +473,12 @@ $$
 
 ### IG8-B01 非定数 Hessian 計量の双対座標
 
-$U=\{(x,y):|x|<1/4,|y|<1/4\}$ 上で $\psi(x,y)=(x^2+y^2)/2+x^2y/2$ とし、$\nabla$ の $(x,y)$ 座標係数を零とする。(1) Hessian が正定値であること、(2) 双対座標 $\eta=\nabla\psi$、(3) 原点での $\Gamma^{*x}_{xy},\Gamma^{*y}_{xx}$ を求めよ。(4) $\eta$ 座標で原点の双対接続係数が零になる機構を確認せよ。
+$U=\{(x,y):|x|<1/4,|y|<1/4\}$ 上で $\psi(x,y)=(x^2+y^2)/2+x^2y/2$ とし、$\nabla$ の $(x,y)$ 座標係数を零とする。
+
+1. Hessian が正定値であることを示せ。
+2. 双対座標 $\eta=\nabla\psi$ を求めよ。
+3. 原点での $\Gamma^{*x}_{xy},\Gamma^{*y}_{xx}$ を求めよ。
+4. $\eta$ 座標で原点の双対接続係数が零になる機構を確認せよ。
 
 - Level: B
 - 狙い: Hessian の三階微分と逆変換の二階微分を接続する
