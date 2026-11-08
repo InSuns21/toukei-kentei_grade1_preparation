@@ -94,7 +94,14 @@ $$
 
 **境界に逃げる反例**。Bernoulli の成功確率を $0<p<1$ に制限し、$n$ 回すべて成功なら $L(p)=p^n$ です。$p\uparrow1$ で上限1へ近づきますが、$p=1$ はモデル外なので最尤推定値は**存在しません**。経験分布 $(0,1)$ の零成分を落とすことと、境界をモデルへ追加することは別の操作です。
 
-正の全カテゴリカルモデルで経験分布に零成分がある場合も同様に、最適点は閉単体の境界にあり、正の開単体上では一般に達成されません。逆に $\widehat q$ が全成分正なら、正の単体上で $f(x)=\sum_i x_i\log x_i$ と置くと、$\nabla f(x)$ の第 $i$ 成分は $\log x_i+1$、Hessian は $\operatorname{diag}(1/x_1,\ldots,1/x_m)$ で正定値です。両分布の成分和が1なので、[IG9 の Bregman divergence の定義](../IG9/index.md#def-ig9-bregman)に従って
+正の全カテゴリカルモデルで経験分布に零成分がある場合も同様に、最適点は閉単体の境界にあり、正の開単体上では一般に達成されません。逆に $\widehat q$ が全成分正なら、正の単体上で $f(x)=\sum_i x_i\log x_i$ と置きます。このとき
+
+$
+\frac{\partial f}{\partial x_i}(x)=\log x_i+1,\qquad
+\nabla^2 f(x)=\operatorname{diag}(1/x_1,\ldots,1/x_m)>0
+$
+
+です。各成分が正なので Hessian は正定値です。さらに両分布の成分和は1なので、[IG9 の Bregman divergence の定義](../IG9/index.md#def-ig9-bregman)に従って
 
 $
 \begin{aligned}
@@ -118,14 +125,31 @@ p_\theta(i)=h_i\exp\{\theta\cdot F(i)-\psi(\theta)\},
 \psi(\theta)=\log\sum_{j=1}^m h_j e^{\theta\cdot F(j)}
 $$
 
-と置きます。有限和なので任意の $\theta$ で正規化され、微分と和の交換は無条件にできます。$\theta\cdot F=\sum_a\theta^aF_a$ です。以下、$\partial_a=\partial/\partial\theta^a$、$\partial_{ab}=\partial^2/(\partial\theta^a\partial\theta^b)$ とし、他の自然母数成分を固定して微分します。[IG4 の Fisher--Hessian 恒等式](../IG4/index.md#thm-ig4-fisher-hessian)から
+と置きます。有限和なので任意の自然母数 $\theta$ で正規化され、微分と和の交換ができます。ここで
+
+$
+\theta\cdot F=\sum_a\theta^aF_a,\qquad
+\partial_a=\frac{\partial}{\partial\theta^a},\quad
+\partial_{ab}=\frac{\partial^2}{\partial\theta^a\partial\theta^b}
+$
+
+とし、他の自然母数成分を固定して微分します。[IG4 の Fisher--Hessian 恒等式](../IG4/index.md#thm-ig4-fisher-hessian)から
 
 $$
 \nabla\psi(\theta)=E_\theta F,\qquad
 \nabla^2\psi(\theta)=\operatorname{Cov}_\theta(F).
 $$
 
-観測の統計量平均 $\overline F=\sum_i\widehat q_iF(i)$ を**経験モーメント**とします。$K=\operatorname{conv}\{F(i)\}$ は点 $F(i)$ の凸結合全体です。この有限凸包は閉集合なので、通常の $\mathbb R^d$ での内部を $\operatorname{int}K$、境界を $\partial K=K\setminus\operatorname{int}K$ と書きます。$F(i)$ がアファインに $\mathbb R^d$ を張るとは、$v\cdot F(i)$ がすべての $i$ で同じ値となる $v\in\mathbb R^d$ は $v=0$ だけ、という条件です。この条件で Hessian が正定値になる理由は、任意の非零 $v$ に対して $\operatorname{Var}_\theta(v\cdot F)>0$ だからです。
+観測の統計量平均を**経験モーメント**、特徴量の凸包を $K$ と呼びます。
+
+$
+\overline F=\sum_i\widehat q_iF(i),\qquad
+K=\operatorname{conv}\{F(1),\ldots,F(m)\}.
+$
+
+この有限凸包は閉集合です。通常の $\mathbb R^d$ での内部を $\operatorname{int}K$、境界を $\partial K=K\setminus\operatorname{int}K$ と書きます。
+
+$F(i)$ がアファインに $\mathbb R^d$ を張るとは、$v\cdot F(i)$ が全ての $i$ で一定となる $v$ は零ベクトルに限る、という条件です。これにより非零方向 $v$ の下で $\operatorname{Var}_\theta(v\cdot F)>0$ となり、Hessian が正定値になります。
 
 <a id="thm-ig11-exponential-mle"></a>
 
@@ -225,11 +249,27 @@ L(p_\theta;x_1,\ldots,x_n)
 \exp\left\{\theta\cdot\sum_{r=1}^n F(x_r)-n\psi(\theta)\right\}.
 $
 
-共通の台 $S$ は $\theta$ に依存せず、前の積も $\theta$ に依存しないので、[十分性の因子分解定理](../../../../03_inference/S1_02_統計量_十分性_分解定理/index.md#thm-s1-02-01)により $\sum_rF(X_r)$ は十分統計量です。これは[IG4 の指数型表示](../IG4/index.md#def-ig4-natural-chart)とも一致します。有限指数型では、内点 MLE は実際に $\overline F$ のみから決まります。ただし $t$ が凸包の境界にあるとき、モーメント一致を形式的に書いても有限解は生まれません。Bernoulli の全成功例は $K=[0,1]$、$t=1$ に当たります。
+共通の台 $S$ は自然母数 $\theta$ に依存しません。前の積は標本だけに依存し、指数因子は標本を次の統計量でのみ区別します。
+
+$
+T(X_1,\ldots,X_n)=\sum_{r=1}^n F(X_r).
+$
+
+従って、前の積を標本のみの因子、指数因子を $T$ のみに依存する因子に対応させると、[S1-02 の十分性判定](../../../../03_inference/S1_02_統計量_十分性_分解定理/index.md#thm-s1-02-01)の条件を満たします。これにより $T$ は十分統計量です。[IG4 の指数型表示](../IG4/index.md#def-ig4-natural-chart)とも整合します。
+
+有限指数型の内点 MLE は経験モーメントだけから決まります。ただし凸包の境界では、モーメント一致を形式的に書いても有限解は生まれません。Bernoulli の全成功例は $K=[0,1]$、$t=1$ に当たります。
 
 ## 3. 最大エントロピーは別の向きの射影
 
-ここからはモデルの自然母数でなく、**確率ベクトルそのもの**を動かします。基準分布 $r_i>0$、$\sum_i r_i=1$ と、各標本点の特徴量 $F(i)\in\mathbb R^d$ を固定し、$E_pF=t$ だけを知っている状況を考えます。$p_i\ge0$、$\sum_i p_i=1$ なら $E_pF=\sum_i p_iF(i)$ は特徴量の凸結合なので、許容分布が存在する条件は $t\in\operatorname{conv}\{F(i)\}$ です。条件に合う分布が複数あれば、その中で基準分布 $r$ からの KL が最小のものを選びます。
+ここからは自然母数でなく、**確率ベクトルそのもの**を動かします。基準分布 $r_i>0$（成分和1）と特徴量 $F(i)\in\mathbb R^d$ を固定し、$E_pF=t$ だけを知っている状況を考えます。
+
+確率ベクトルの条件 $p_i\ge0$、$\sum_i p_i=1$ の下では
+
+$
+E_pF=\sum_i p_iF(i)\in\operatorname{conv}\{F(i)\}
+$
+
+となります。逆に凸結合の係数を成分 $p_i$ とすれば、指定モーメントを持つ分布が作れます。従って許容分布が存在する条件は、この節の特徴量について $t\in\operatorname{conv}\{F(1),\ldots,F(m)\}$ であることです。候補が複数なら、基準分布 $r$ からの KL を最小にする分布を選びます。
 
 一方、**Shannon エントロピー**は $H(p)=-\sum_i p_i\log p_i$（$0\log0=0$）です。一様基準分布 $u_i=1/m$ なら
 
@@ -254,7 +294,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig11-moment-entropy -->
-**定義の確認**。$S=\{1,2,3\}$、$F(1)=F(2)=1,F(3)=0$、$t=1/2$ とします。このとき $C_{1/2}$ は $p_1+p_2=1/2$、$p_3=1/2$ と総和1を同時に満たす線分です。$p=(1/4,1/4,1/2)$ は全成分正で実際に属し、$p=(1/2,0,1/2)$ も属します。非空・凸・コンパクトですが、境界も含む集合です。$r=(1/2,1/3,1/6)>0$ に対してすべての許容 $p$ の KL は有限です。
+**定義の確認**。$S=\{1,2,3\}$、$F(1)=F(2)=1$、$F(3)=0$、$t=1/2$ とします。$C_{1/2}$ は次の線分です。
+
+$
+p_1+p_2=1/2,\qquad p_3=1/2,\qquad
+p_1,p_2\ge0.
+$
+
+$p=(1/4,1/4,1/2)$ は全成分正で属し、端点 $(1/2,0,1/2)$ も属します。従って集合は非空・凸・コンパクトで、境界も含みます。正の基準分布 $r=(1/2,1/3,1/6)$ に対して、全ての許容分布の KL は有限です。
 
 この集合上の最小点まで定義に従って確認します。$p=(s,1/2-s,1/2)$（$0\le s\le1/2$）と書くと、内部の目的関数 $J(s)=D(p\Vert r)$ は
 
@@ -685,7 +732,13 @@ $r=(1/2,1/3,1/6)$ から $C_1=\{p:p_1+p_2=1/2\}$、次に $C_2=\{p:p_2+p_3=2/3\}
 <!-- solution-start -->
 **詳細解答**
 
-[IG10 の群和制約射影](../IG10/index.md#thm-ig10-categorical-e-projection)で正の候補を求め、境界を含めた一意の最小性は[本章の相対エントロピー最小化定理](#thm-ig11-maxent)で確認すると、最初は $q^{(1)}=(3/10,1/5,1/2)$ です。次の制約は第1成分を $1/3$ に固定するので、第2、3成分の合計を $2/3$ にします。直前の第2、3成分和は $1/5+1/2=7/10$、相対比は $2:5$ ですから
+[IG10 の群和制約射影](../IG10/index.md#thm-ig10-categorical-e-projection)で正の候補を求めます。境界を含む一意の最小性は[本章の相対エントロピー最小化定理](#thm-ig11-maxent)で保証され、最初の結果は
+
+$
+q^{(1)}=(3/10,1/5,1/2).
+$
+
+次の制約は第1成分を $1/3$ に固定し、残りの合計を $2/3$ にします。直前の第2・3成分の和は $7/10$、比は $2:5$ ですから
 
 $$
 q^{(2)}=\left(\frac13,\frac23\frac27,\frac23\frac57\right)
