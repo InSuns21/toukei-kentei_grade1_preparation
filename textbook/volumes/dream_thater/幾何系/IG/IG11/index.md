@@ -96,14 +96,14 @@ $$
 
 正の全カテゴリカルモデルで経験分布に零成分がある場合も同様に、最適点は閉単体の境界にあり、正の開単体上では一般に達成されません。逆に $\widehat q$ が全成分正なら、正の単体上で $f(x)=\sum_i x_i\log x_i$ と置きます。このとき
 
-$
+$$
 \frac{\partial f}{\partial x_i}(x)=\log x_i+1,\qquad
 \nabla^2 f(x)=\operatorname{diag}(1/x_1,\ldots,1/x_m)>0
-$
+$$
 
 です。各成分が正なので Hessian は正定値です。さらに両分布の成分和は1なので、[IG9 の Bregman divergence の定義](../IG9/index.md#def-ig9-bregman)に従って
 
-$
+$$
 \begin{aligned}
 D_f(\widehat q:p)
 &=f(\widehat q)-f(p)-\nabla f(p)\cdot(\widehat q-p)\\
@@ -111,7 +111,7 @@ D_f(\widehat q:p)
 -\sum_i(\widehat q_i-p_i)
 =D_{\mathrm{KL}}(\widehat q\Vert p).
 \end{aligned}
-$
+$$
 
 従って [IG9 の Bregman 非負性と零点判定](../IG9/index.md#thm-ig9-bregman-positive)を、正の領域・厳密凸性という仮定を満たして適用でき、$D_{\mathrm{KL}}(\widehat q\Vert p)\ge0$ の唯一の零点 $p=\widehat q$ がモデル内にあります。
 
@@ -127,11 +127,11 @@ $$
 
 と置きます。有限和なので任意の自然母数 $\theta$ で正規化され、微分と和の交換ができます。ここで
 
-$
+$$
 \theta\cdot F=\sum_a\theta^aF_a,\qquad
 \partial_a=\frac{\partial}{\partial\theta^a},\quad
 \partial_{ab}=\frac{\partial^2}{\partial\theta^a\partial\theta^b}
-$
+$$
 
 とし、他の自然母数成分を固定して微分します。[IG4 の Fisher--Hessian 恒等式](../IG4/index.md#thm-ig4-fisher-hessian)から
 
@@ -142,10 +142,10 @@ $$
 
 観測の統計量平均を**経験モーメント**、特徴量の凸包を $K$ と呼びます。
 
-$
+$$
 \overline F=\sum_i\widehat q_iF(i),\qquad
 K=\operatorname{conv}\{F(1),\ldots,F(m)\}.
-$
+$$
 
 この有限凸包は閉集合です。通常の $\mathbb R^d$ での内部を $\operatorname{int}K$、境界を $\partial K=K\setminus\operatorname{int}K$ と書きます。
 
@@ -243,17 +243,17 @@ $$
 
 **何が学べたか**。第2節の対数尤度を積の形に戻すと
 
-$
+$$
 L(p_\theta;x_1,\ldots,x_n)
 =\left(\prod_{r=1}^n h_{x_r}\right)
 \exp\left\{\theta\cdot\sum_{r=1}^n F(x_r)-n\psi(\theta)\right\}.
-$
+$$
 
 共通の台 $S$ は自然母数 $\theta$ に依存しません。前の積は標本だけに依存し、指数因子は標本を次の統計量でのみ区別します。
 
-$
+$$
 T(X_1,\ldots,X_n)=\sum_{r=1}^n F(X_r).
-$
+$$
 
 従って、前の積を標本のみの因子、指数因子を $T$ のみに依存する因子に対応させると、[S1-02 の十分性判定](../../../../03_inference/S1_02_統計量_十分性_分解定理/index.md#thm-s1-02-01)の条件を満たします。これにより $T$ は十分統計量です。[IG4 の指数型表示](../IG4/index.md#def-ig4-natural-chart)とも整合します。
 
@@ -265,17 +265,17 @@ $
 
 確率ベクトルの条件 $p_i\ge0$、$\sum_i p_i=1$ の下では
 
-$
+$$
 E_pF=\sum_i p_iF(i)\in\operatorname{conv}\{F(i)\}
-$
+$$
 
 となります。逆に凸結合の係数を成分 $p_i$ とすれば、指定モーメントを持つ分布が作れます。従って許容分布が存在する条件は、この節の特徴量について $t\in\operatorname{conv}\{F(1),\ldots,F(m)\}$ であることです。候補が複数なら、基準分布 $r$ からの KL を最小にする分布を選びます。
 
 一方、**Shannon エントロピー**は $H(p)=-\sum_i p_i\log p_i$（$0\log0=0$）です。一様基準分布 $u_i=1/m$ なら
 
-$
+$$
 D_{\mathrm{KL}}(p\Vert u)=\sum_i p_i\log p_i+\log m=\log m-H(p).
-$
+$$
 
 よって一様基準からの KL 最小化は Shannon エントロピー最大化と一致します。一般の非一様 $r$ ではこの同値は成立せず、基準分布の重みが最適化に効きます。
 
@@ -296,19 +296,19 @@ $$
 <!-- definition-example-start: def-ig11-moment-entropy -->
 **定義の確認**。$S=\{1,2,3\}$、$F(1)=F(2)=1$、$F(3)=0$、$t=1/2$ とします。$C_{1/2}$ は次の線分です。
 
-$
+$$
 p_1+p_2=1/2,\qquad p_3=1/2,\qquad
 p_1,p_2\ge0.
-$
+$$
 
 $p=(1/4,1/4,1/2)$ は全成分正で属し、端点 $(1/2,0,1/2)$ も属します。従って集合は非空・凸・コンパクトで、境界も含みます。正の基準分布 $r=(1/2,1/3,1/6)$ に対して、全ての許容分布の KL は有限です。
 
 この集合上の最小点まで定義に従って確認します。$p=(s,1/2-s,1/2)$（$0\le s\le1/2$）と書くと、内部の目的関数 $J(s)=D(p\Vert r)$ は
 
-$
+$$
 J'(s)=\log\frac{s/r_1}{(1/2-s)/r_2},
 \qquad J''(s)=\frac1s+\frac1{1/2-s}>0.
-$
+$$
 
 従って $J'(s)=0$ は $s=(1/2)r_1/(r_1+r_2)=3/10$ であり、連続性と厳密凸性から端点を含めた唯一の最小点は $p^*=(3/10,1/5,1/2)$ です。全成分非負、総和1、$E_{p^*}F=1/2$ も確認できます。
 <!-- definition-example-end -->
@@ -372,9 +372,9 @@ $$
 
 この直交補の形も確認します。線形写像 $A:\mathbb R^m\to\mathbb R^{d+1}$ を
 
-$
+$$
 Av=\left(\sum_i v_i,\sum_i v_iF_1(i),\ldots,\sum_i v_iF_d(i)\right)
-$
+$$
 
 と置くと $T=\ker A$ であり、転置は $A^{\mathsf T}(a,\lambda)=(a+\lambda\cdot F(i))_i$ です。有限次元の $\ker A$ と行空間の直交性から $(\ker A)^\perp=\operatorname{im}A^{\mathsf T}$ なので、$T^\perp$ はベクトル $(1,\ldots,1)$ と $(F_a(i))_i$ の張る空間です。従ってある $a\in\mathbb R,\lambda\in\mathbb R^d$ が存在して
 
@@ -512,9 +512,9 @@ $$
 
 この第2射影の比も確認できます。$p_1=1/3$、$p_2=s$、$p_3=2/3-s$ と置くと、$D(p\Vert q^{(1)})$ の $s$ 微分は
 
-$
+$$
 \log\frac{s/q_2^{(1)}}{(2/3-s)/q_3^{(1)}}
-$
+$$
 
 です。零条件から $s/(2/3-s)=q_2^{(1)}/q_3^{(1)}=2/5$ が出ます。$C_1,C_2$ は境界を含みますが、各段階で基準分布が正で正の許容点もあるので、[相対エントロピー最小化定理](#thm-ig11-maxent)がそれぞれ一意の全域最小点を保証します。二回の射影後に $C_1$ の制約が壊れています。これだけで反復法の非収束が証明されたわけでもありません。収束には、集合の可行性・境界・反復順序・目的関数の変化などを別に検討する必要があります。
 
@@ -734,9 +734,9 @@ $r=(1/2,1/3,1/6)$ から $C_1=\{p:p_1+p_2=1/2\}$、次に $C_2=\{p:p_2+p_3=2/3\}
 
 [IG10 の群和制約射影](../IG10/index.md#thm-ig10-categorical-e-projection)で正の候補を求めます。境界を含む一意の最小性は[本章の相対エントロピー最小化定理](#thm-ig11-maxent)で保証され、最初の結果は
 
-$
+$$
 q^{(1)}=(3/10,1/5,1/2).
-$
+$$
 
 次の制約は第1成分を $1/3$ に固定し、残りの合計を $2/3$ にします。直前の第2・3成分の和は $7/10$、比は $2:5$ ですから
 
@@ -773,10 +773,10 @@ $z=2$ を代入すれば $(2+8)/(1+2+4)=10/7=t$ です。[内点 MLE 定理](#th
 
 エントロピー最大化では $D(p\Vert r)=\log3-H(p)$ です。$p^*$ は全成分正で $E_{p^*}F=t$ を満たすので、[共通解と双方向 Pythagoras の定理](#thm-ig11-dual-projections)の第1式をこの一様基準分布へ適用できます。任意の制約分布 $p$ について
 
-$
+$$
 \log3-H(p)
 =D(p\Vert p^*)+\log3-H(p^*).
-$
+$$
 
 従って $H(p^*)-H(p)=D(p\Vert p^*)\ge0$ であり、零点は $p=p^*$ に限ります。$p^*$ は唯一の最大エントロピー分布です。これは $\widehat q$ をエントロピー最大にしたのではありません。
 
