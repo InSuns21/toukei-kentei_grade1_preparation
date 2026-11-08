@@ -450,7 +450,9 @@ $$
 - Level: A
 - 問題: コンパクト多様体で $p$ が一定かつ $q_\varepsilon=G_\varepsilon p$ が一定であるとする。[alpha密度補正と連続Markov作用素](#def-mfl15-alpha)の定義から $P_\varepsilon^{(\alpha)}$ が $\alpha$ に依らないことを示せ。$G_\varepsilon1$ が一定という仮定が必要な理由も述べよ。
 
+<!-- solution-start -->
 **詳細解答**。$q_\varepsilon=q_0>0$ が一定なら $k_\varepsilon^{(\alpha)}=q_0^{-2\alpha}k_\varepsilon$、$d_\varepsilon^{(\alpha)}=q_0^{-2\alpha}\int k_\varepsilon p=q_0^{1-2\alpha}$ である。従って分子と分母の共通因子が相殺して $P_\varepsilon^{(\alpha)}f=G_\varepsilon(pf)/q_0$。$p$ が一定でも $G_\varepsilon1$ が位置で変わる一般の多様体では $q_\varepsilon=pG_\varepsilon1$ が一定とは限らず、同じ約分は使えない。円周では回転対称性が一定性を保証する。
+<!-- solution-end -->
 
 <a id="ex-mfl15-a02"></a>
 
@@ -459,7 +461,9 @@ $$
 - Level: A
 - 問題: 本章のコンパクト多様体 $M$ 上で $p\in C^3(M)$、$p\ge c>0$、$A\in C(M)$ とし、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$ が一様に成立するとする。固定した $\alpha$ について $q_\varepsilon^{-\alpha}$ を一次まで展開し、必要な分母下界を示せ。
 
+<!-- solution-start -->
 **詳細解答**。$|q_\varepsilon-p|\le C\varepsilon$ だから十分小さい $\varepsilon$ では $q_\varepsilon\ge p-C\varepsilon\ge c/2$。$t^{-\alpha}$ は $[c/2,\max p+1]$ 上で二階微分が有界なので[RA3のTaylorの定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)を展開点 $t=p(x)$、次数1、評価点 $t=q_\varepsilon(x)$ に適用する。すると $q_\varepsilon^{-\alpha}=p^{-\alpha}-\alpha p^{-\alpha-1}(q_\varepsilon-p)+O((q_\varepsilon-p)^2)$。$q_\varepsilon-p$ を代入し、$\varepsilon^2=O(\varepsilon^{3/2})$（$0<\varepsilon\le1$）を使えば $p^{-\alpha}[1-\alpha\varepsilon A/p]+O(\varepsilon^{3/2})$。
+<!-- solution-end -->
 
 <a id="ex-mfl15-a03"></a>
 
@@ -468,7 +472,9 @@ $$
 - Level: A
 - 問題: 単位円周で $p=(1+a\cos\theta)/(2\pi)$、$|a|<1$、$f=\cos\theta$ とする。$\theta=\pi/2$ における $L_0f,L_{1/2}f,L_1f$ を求め、$a=0$ の場合と比べよ。
 
+<!-- solution-start -->
 **詳細解答**。$f'=-\sin\theta$、$f''=-\cos\theta$、$(\log p)'=-a\sin\theta/(1+a\cos\theta)$。[$L_\alpha$ の式](#thm-mfl15-generator)へ代入すると $L_\alpha f=-\cos\theta+2(1-\alpha)a\sin^2\theta/(1+a\cos\theta)$。$\theta=\pi/2$ で $\cos\theta=0$、$\sin^2\theta=1$ だから、それぞれ $2a,a,0$。$a=0$ は全て0で、非一様密度に由来するdriftがない。
+<!-- solution-end -->
 
 <a id="ex-mfl15-a04"></a>
 
@@ -477,7 +483,9 @@ $$
 - Level: A
 - 問題: [有限補正の定義](#def-mfl15-discrete)で $K=c\begin{pmatrix}1&r\\r&1\end{pmatrix}$（$c>0,0<r<1$）を使う。任意の $\alpha$ で $\widehat P$ と $\pi$ を求めよ。
 
+<!-- solution-start -->
 **詳細解答**。各行の平均は $\widehat q_i=c(1+r)/2$ なので $W=c^{1-2\alpha}((1+r)/2)^{-2\alpha}\begin{pmatrix}1&r\\r&1\end{pmatrix}$。$D_1=D_2=c^{1-2\alpha}((1+r)/2)^{-2\alpha}(1+r)$。従って $\widehat P=(1+r)^{-1}\begin{pmatrix}1&r\\r&1\end{pmatrix}$、[$\pi_i=D_i/\sum D$](#prop-mfl15-balance)から $\pi=(1/2,1/2)$。
+<!-- solution-end -->
 
 <a id="ex-mfl15-b01"></a>
 
@@ -486,7 +494,9 @@ $$
 - Level: B
 - 問題: 本章の境界なしコンパクト多様体 $M$ で $p,f\in C^3(M)$、$p\ge p_{\min}>0$ とする。$c=\operatorname{Scal}/3$、$A=\Delta_gp-cp$ とし、$u\in C^3(M)$ に対して $G_\varepsilon u=u+\varepsilon(\Delta_gu-cu)+O(\varepsilon^{3/2})$、$q_\varepsilon=p+\varepsilon A+O(\varepsilon^{3/2})$ が一様に成り立つとする。[MFL13のkernel bias定理](../MFL13/index.md#thm-mfl13-bias)と[補正作用素](#def-mfl15-alpha)において $r=p^{1-\alpha}$、$b=A/p$ を使い、$c$ と $b$ が消えるまでの分子・分母の一次展開を示せ。
 
+<!-- solution-start -->
 **詳細解答**。[A02のTaylor展開](#ex-mfl15-a02)により $pq_\varepsilon^{-\alpha}=r-\alpha\varepsilon rb+O(\varepsilon^{3/2})$。$G_\varepsilon$ の核の総量は有界、$rb,frb$ は $C^1$ なので $G_\varepsilon(rb)=rb+O(\sqrt\varepsilon)$ とし、$N=fr+\varepsilon[\Delta_g(fr)-cfr-\alpha frb]+O(\varepsilon^{3/2})$、$D=r+\varepsilon[\Delta_gr-cr-\alpha rb]+O(\varepsilon^{3/2})$。$r>0$ の下界により $N/D=f+\varepsilon\{[\Delta_g(fr)-f\Delta_gr]/r\}+O(\varepsilon^{3/2})$。$\{-cfr-f(-cr)\}=0$ と $\{-\alpha frb-f(-\alpha rb)\}=0$ が別々に成立する。[積の公式](../MFL13/index.md#prop-mfl13-row)から括弧は $\Delta_gf+2\nabla_g\log r\cdot\nabla_gf=\Delta_gf+2(1-\alpha)\nabla_g\log p\cdot\nabla_gf$。
+<!-- solution-end -->
 
 <a id="ex-mfl15-b02"></a>
 
@@ -495,6 +505,7 @@ $$
 - Level: B
 - 問題: 境界なしコンパクトRiemann多様体 $M$ 上で $p\in C^3(M)$ は正、$u,v\in C^3(M)$ は実数値、$\alpha\in\mathbb R$ は固定とし、$w=p^{2(1-\alpha)}$ とする。$\int_M uL_\alpha v\,w\,dV_g=\int_M vL_\alpha u\,w\,dV_g$ と $\int_MuL_\alpha u\,w\,dV_g\le0$ を示せ。$w$ の指数が一つ違うとどこで困るかも述べよ。
 
+<!-- solution-start -->
 **詳細解答**。[重み付き発散形](#prop-mfl15-weighted)に $v$ を代入すると、$wL_\alpha v=\operatorname{div}(w\nabla v)$ となる。積の発散公式と[GA1のRiemann多様体の発散定理](../../../幾何系/GA/GA1/index.md#thm-ga1-divergence)を適用する。境界が空だから
 
 $$
@@ -509,6 +520,7 @@ $$
 $$
 
 となり、[極限定理](#thm-mfl15-generator)の係数 $2(1-\alpha)$ を再現できない。
+<!-- solution-end -->
 
 <a id="ex-mfl15-b03"></a>
 
@@ -517,7 +529,9 @@ $$
 - Level: B
 - 問題: 単位円周の $p_a=(1+a\cos\theta)/(2\pi)$（$0<a<1$）に対して $q_\varepsilon=(C_0+aC_1\cos\theta)/(2\pi)$、$0<C_1<C_0$ とする。$h=p_a/q_\varepsilon$ が $\cos\theta$ の増加関数であることを示し、$\alpha=1$ が有限 $\varepsilon$ で密度を完全には取り除かない理由を述べよ。
 
+<!-- solution-start -->
 **詳細解答**。$z=\cos\theta$ として $h(z)=(1+az)/(C_0+aC_1z)$。分母は $q_\varepsilon>0$ なので商の微分ができ、$h'(z)=a(C_0-C_1)/(C_0+aC_1z)^2>0$。従って $h$ は定数でなく、補正後の核平均の重み $k_\varepsilon(x,y)h(y)$ は一様密度の重みと同じでない。特に[$\pi/2$ での正の平均](#prop-mfl15-finite)は、同じ点で一様密度なら0となるので直接の反例である。
+<!-- solution-end -->
 
 <a id="ex-mfl15-b04"></a>
 
@@ -526,7 +540,9 @@ $$
 - Level: B
 - 問題: 成分が非負の対称行列 $W=(W_{ij})$ で $D_i=\sum_jW_{ij}>0$ とし、$S=\sum_iD_i$、$P_{ij}=W_{ij}/D_i$、$\pi_i=D_i/S$ とする。$v_i$ の差の二乗で $\sum_i\pi_i v_i(Pv-v)_i$ を表せ。
 
+<!-- solution-start -->
 **詳細解答**。代入すると $\sum_i\pi_i v_i(Pv-v)_i=S^{-1}\sum_{i,j}W_{ij}v_i(v_j-v_i)$。対称性 $W_{ij}=W_{ji}$ で同じ和を添字交換して $S^{-1}\sum_{i,j}W_{ij}v_j(v_i-v_j)$ とも書ける。二式を足して2で割ると $-(2S)^{-1}\sum_{i,j}W_{ij}(v_i-v_j)^2$。各項が非負で $S>0$ だから値は非正。generatorの式ならさらに $\varepsilon$ で割る。
+<!-- solution-end -->
 
 <a id="ex-mfl15-c01"></a>
 
@@ -539,6 +555,7 @@ $$
   2. $\alpha=1$ でも有限 $\varepsilon$ の $\pi/2$ で一様密度と同じ値になるとは限らないことを、$q_\varepsilon$ の二つの係数から示せ。
   3. 独立標本から作る $\widehat P$ の行和と定常分布を示し、1の結果だけでは固有ベクトル収束を結論できない理由を述べよ。
 
+<!-- solution-start -->
 **詳細解答**。(1) $f'=-\sin\theta$、$f''=-\cos\theta$、$(\log p_a)'=-a\sin\theta/(1+a\cos\theta)$ を確認する。[$L_\alpha$ の定理](#thm-mfl15-generator)へ代入して
 
 $$
@@ -549,6 +566,7 @@ $$
 従って順に係数は $2,1,0$、$\theta=\pi/2$ で値は $2a,a,0$ である。(2) $k_\varepsilon$ は円周の角度差だけで決まる偶核なので、畳み込みで定数と余弦の成分を分けると $q_\varepsilon=(C_0+aC_1\cos\theta)/(2\pi)$。$C_0-C_1=\int k_\varepsilon(0,s)(1-\cos s)\,ds>0$、また正の核の単調性から $C_1>0$。すると $h=p_a/q_\varepsilon$ の $\cos\theta$ に関する微分は $a(C_0-C_1)/(C_0+aC_1\cos\theta)^2>0$。[$\pi/2$ の対称な二点の比較](#prop-mfl15-finite)から $P_\varepsilon^{(1)}f(\pi/2)>0$、一様密度なら対称性で0。一方 $\varepsilon\downarrow0$ のgeneratorは(1)の0へ収束するので矛盾しない。
 
 (3) 任意の有限標本では $\widehat q_i>0$、$W_{ij}=W_{ji}>0$、$D_i=\sum_jW_{ij}>0$。よって $\sum_j\widehat P_{ij}=D_i/D_i=1$、[$\pi_i=D_i/\sum_\ell D_\ell$](#prop-mfl15-balance) に対して $\sum_i\pi_i\widehat P_{ij}=(\sum_iW_{ij})/\sum_\ell D_\ell=D_j/\sum_\ell D_\ell=\pi_j$。ただし(1)は固定した滑らかな関数の**母積分の一次極限**であり、ランダムな行列の固有空間を共通の関数空間に写す方法、固有値ギャップ、作用素・エネルギーの一様制御を与えない。有限標本の誤差には[MFL14の分散・集中](../MFL14/index.md#cor-mfl14-generator)のような別の証明が必要となる。
+<!-- solution-end -->
 
 ## 9. まとめ
 

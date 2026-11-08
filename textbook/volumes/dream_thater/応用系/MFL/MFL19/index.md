@@ -188,7 +188,7 @@ $$
 > を満たすなら、$J_Nv_N$ の任意の部分列から $L^2(0,L)$ に収束するさらに部分列を取り出せる。その極限 $u$ は $H^1_{\rm per}(0,L)$ に属し、収束部分列について
 
 $$
-\|J_Nv_N-u\|_2\longrightarrow0,qquad
+\|J_Nv_N-u\|_2\longrightarrow0,\qquad
 Q(u)\le\liminf_{N\to\infty}q_N(v_N)
 $$
 
@@ -541,6 +541,7 @@ $A_N$ の整合性は第3節で確認したから $B_N$ も整合的である。
 - Level: A
 - 問題: 周長 $L$、間隔 $h=L/N$（$N\ge3$）の周期格子で、$v=(v_j)$ の折線 $J_Nv$ を考える。一セルでの $\int|J_Nv|^2$ を端点 $a=v_j,b=v_{j+1}$ で表し、全セルの和から $\|J_Nv\|_2^2=m_N(v)-h^2q_N(v)/6$ を導け。
 
+<!-- solution-start -->
 **詳細解答。** $u(t)=(1-t)a+tb$、$ds=h\,dt$ として、$\int_0^1(1-t)^2dt=1/3$、$\int_0^1t^2dt=1/3$、$\int_0^1t(1-t)dt=1/6$ より
 
 $$
@@ -550,6 +551,7 @@ $$
 $$
 
 端点二乗の和を周期的に集めると $h\sum|v_j|^2$、差分の和は $(h^2/6)(h^{-1}\sum|v_{j+1}-v_j|^2)$ だから結論を得る。
+<!-- solution-end -->
 
 <a id="ex-mfl19-a02"></a>
 
@@ -558,6 +560,7 @@ $$
 - Level: A
 - 問題: 半径 $R>0$ の連続円周で、$L_g=-d^2/ds^2$ とする。$\cos(s/R)$ と $\sin(s/R)$ の固有値を求め、両者が直交することと、個々の固有ベクトルが一意でないことを説明せよ。
 
+<!-- solution-start -->
 **詳細解答。** 二階微分を直接取ると $-\frac{d^2}{ds^2}\cos(s/R)=R^{-2}\cos(s/R)$、正弦も同様である。積の積分は
 
 $$
@@ -566,6 +569,7 @@ $$
 $$
 
 両方のノルム二乗は $\pi R$ なので非零・線形独立である。$\cos((s/R)-\alpha)$ は任意の角 $\alpha$ について同じ固有値を持ち、正弦・余弦の線形結合となる。従って個々の向きではなく2次元固有空間を比較する。
+<!-- solution-end -->
 
 <a id="ex-mfl19-a03"></a>
 
@@ -574,7 +578,9 @@ $$
 - Level: A
 - 問題: $u=J_Nv$、$q_N(v)\le C$、$0\le t\le s\le L$ とする。$|u(s)-u(t)|\le\sqrt C\,|s-t|^{1/2}$ を示せ。なぜ高周波の交互符号ベクトルに一様な $C$ は存在しないか。
 
+<!-- solution-start -->
 **詳細解答。** 折線は区分的に絶対連続だから $u(s)-u(t)=\int_t^s u'(x)dx$。Cauchy–Schwarzから $|\int_t^su'|^2\le(s-t)\int_t^s|u'|^2\le(s-t)q_N(v)$。平方根を取る。交互符号の正規化ベクトル $z_N$ では各差が絶対値 $2/\sqrt L$、辺は $N$ 本なので $q_N(z_N)=N(4/L)/h=4/h^2\to\infty$。同じ $C$ を取れない。
+<!-- solution-end -->
 
 <a id="ex-mfl19-a04"></a>
 
@@ -583,7 +589,9 @@ $$
 - Level: A
 - 問題: 円周の $k=1$ に対し、連続側の固有関数 $\phi_0=L^{-1/2}$、$\phi_1=\sqrt{2/L}\cos(s/R)$ を格子へ標本化する。$N\ge3$ で2次元空間 $E_N=\operatorname{span}\{S_N\phi_0,S_N\phi_1\}$ が作れる理由と、離散min–maxが与える不等式を述べよ。
 
+<!-- solution-start -->
 **詳細解答。** $m_N(S_N\phi_0,S_N\phi_1)=(\sqrt2/N)\sum_j\cos(2\pi j/N)=0$ は有限等比級数の実部から得られる。両方の $m_N$-ノルムは1で線形独立である。[min–max上界の構成](#thm-mfl19-eigenvalues)により $\lambda_{N,1}\le\max_{0\ne v\in E_N}q_N(v)/m_N(v)$。$q_N$ は固有モードで対角なので最大値は $\lambda_{N,1}$ であり、これは候補空間の使い方の等号例になる。
+<!-- solution-end -->
 
 <a id="ex-mfl19-b01"></a>
 
@@ -592,6 +600,7 @@ $$
 - Level: B
 - 問題: $u\in H^1_{\rm per}(0,L)$ の連続代表を $s_j=jL/N$ で標本化し、折線 $J_NS_Nu$ を作る。導関数が $u'$ のセル平均であることを示し、$u'$ が連続な場合に $q_N(S_Nu)\to\int_0^L|u'|^2ds$ を証明せよ。
 
+<!-- solution-start -->
 **詳細解答。** 一セルの傾きは $(u(s_{j+1})-u(s_j))/h$。$H^1$ の絶対連続代表には微積分の基本定理を使えるため、これは $h^{-1}\int_{s_j}^{s_{j+1}}u'$ に等しい。
 
 $u'$ が連続なら一様連続性の法 $\omega_{u'}(h)\to0$ によってセル内で $|(J_NS_Nu)'-u'(s)|\le\omega_{u'}(h)$。したがって導関数の $L^2$ 誤差は $\sqrt L\,\omega_{u'}(h)$ 以下となる。[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)から
@@ -602,6 +611,7 @@ $$
 $$
 
 両辺を二乗すればエネルギー収束が得られる。一般の $H^1$ へは[回復列命題](#prop-mfl19-recovery)の $L^2$ 密度による拡張を使う。
+<!-- solution-end -->
 
 <a id="ex-mfl19-b02"></a>
 
@@ -610,6 +620,7 @@ $$
 - Level: B
 - 問題: $m_N(v_{N,i},v_{N,j})=\delta_{ij}$、$q_N(v_{N,i})\le C$（$i,j=0,1$）とし、$J_Nv_{N,i}\to u_i$ が $L^2$ で成立するとする。$\langle u_i,u_j\rangle_2=\delta_{ij}$ を厳密に導け。なぜ $q_N$ の上界がないと同じ議論が止まるか。
 
+<!-- solution-start -->
 **詳細解答。** [質量差恒等式](#lem-mfl19-mass-energy)より
 
 $$
@@ -618,6 +629,7 @@ $$
 $$
 
 差分列へのCauchy–Schwarzから $|q_N(v_{N,i},v_{N,j})|\le\sqrt{q_N(v_{N,i})q_N(v_{N,j})}\le C$。従って誤差は $Ch^2/6\to0$。強い $L^2$ 収束は内積の収束を与えるので、極限は $\delta_{ij}$。エネルギーが $h^{-2}$ 程度なら質量差が定数程度残り得るため、この推論は使えない。
+<!-- solution-end -->
 
 <a id="ex-mfl19-b03"></a>
 
@@ -626,7 +638,9 @@ $$
 - Level: B
 - 問題: $\gamma>0$、$\delta\ge0$ とし、対称行列 $H=\begin{pmatrix}0&\delta\\\delta&\gamma\end{pmatrix}$ を考える。$\delta=0$ では低い固有空間が $\operatorname{span}(e_1)$ である。$\delta>0$ で低い固有ベクトルが $e_1$ となす角 $\theta\in[0,\pi/4)$ について、$\sin^2\theta=(1-\gamma/\sqrt{\gamma^2+4\delta^2})/2$ を導け。
 
+<!-- solution-start -->
 **詳細解答。** 固有値は特性方程式 $\mu(\mu-\gamma)-\delta^2=0$ から $\mu_\pm=(\gamma\pm\sqrt{\gamma^2+4\delta^2})/2$。低い固有ベクトルは $u=(\cos\theta,-\sin\theta)$ と書け、$Hu=\mu_-u$ の第1行から $-\delta\sin\theta=\mu_-\cos\theta$。従って $\tan\theta=-\mu_-/\delta=2\delta/(\gamma+\sqrt{\gamma^2+4\delta^2})$。倍角恒等式から $\cos2\theta=\gamma/\sqrt{\gamma^2+4\delta^2}$、従って $\sin^2\theta=(1-\cos2\theta)/2$。1次元射影間の作用素ノルムは $|\sin\theta|$ であり、同じ $\delta$ でも $\gamma\downarrow0$ で大きくなる。
+<!-- solution-end -->
 
 <a id="ex-mfl19-b04"></a>
 
@@ -635,7 +649,9 @@ $$
 - Level: B
 - 問題: 偶数 $N\ge4$、$h=L/N$、$z_j=(-1)^j/\sqrt L$、$P_Nv=m_N(z,v)z$、$B_N=A_N-4P_N/h^2$ とする。$z$ と定数 $\boldsymbol1$ がともに $B_N$ の零固有ベクトルであり、その質量内積が0であることを示せ。$\|J_Nz\|_2^2$ も求めよ。
 
+<!-- solution-start -->
 **詳細解答。** 交互符号なので $z_{j\pm1}=-z_j$、従って $A_Nz=4z/h^2$。$m_N(z)=hN/L=1$ より $P_Nz=z$、ゆえに $B_Nz=0$。定数には $A_N\boldsymbol1=0$。$m_N(z,\boldsymbol1)=h\sum_j(-1)^j/\sqrt L=0$ は偶数個の符号が相殺するためで、$P_N\boldsymbol1=0$。従ってもう一つの零モードも残る。$q_N(z)=m_N(z,A_Nz)=4/h^2$ を[質量公式](#lem-mfl19-mass-energy)へ代入すれば $\|J_Nz\|_2^2=1-(h^2/6)(4/h^2)=1/3$。格子質量1と連続折線質量 $1/3$ は同じでない。
+<!-- solution-end -->
 
 <a id="ex-mfl19-c01"></a>
 
@@ -648,6 +664,7 @@ $$
   2. 固定波数1の余弦・正弦について $A_N,B_N$ が同じ値を持ち、$N\to\infty$ で連続固有値 $R^{-2}$ に近づくことを示せ。
   3. $B_N$ の低固有空間が連続円周の定数空間へ射影距離で収束しない理由を、エネルギー恒等式と折線の質量から説明せよ。
 
+<!-- solution-start -->
 **詳細解答。** [完全Fourier分解](../MFL18/index.md#thm-mfl18-complete)から $A_N$ の固有値は $4h^{-2}\sin^2(\pi k/N)$。$N\ge6$ なら $\sin^2(\pi/N)>0$、最初の三つは $0,\lambda_{N,1},\lambda_{N,1}$（$k=0,1,N-1$）。$B_N$ は $k=N/2$ の固有値 $4/h^2$ だけ0へ変更するので、最初の三つは $0,0,\lambda_{N,1}$ となる。ここで $k=0$ と $k=N/2$ は互いに直交している。
 
 波数 $k=1,N-1$ と $N/2$ は異なるFourier代表元なので $P_N\phi_{N,1}=P_N\phi_{N,N-1}=0$。従って両作用素は余弦・正弦の標本に対して同じ固有値を返す。[固定波数の評価](../MFL18/index.md#thm-mfl18-low-frequency)から
@@ -665,3 +682,4 @@ $$
 ---
 
 円周差分という完全に計算できる模型では、**回復列で上界を作る → エネルギー制御で低いモードをコンパクトにする → min–maxで下界を作る → 孤立固有値群の射影を比較する**、という連続した論証が可能だった。次に高次元のデータや異なる標本密度へ進むときは、どの段階の仮定と評価が引き続き使えるのかを個別に確かめる必要がある。
+<!-- solution-end -->
