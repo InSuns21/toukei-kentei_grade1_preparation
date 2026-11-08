@@ -1,0 +1,43 @@
+id: "YAU1-08"
+title: "二階評価の局所計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-07
+  - KAH1-11
+official_scope: []
+learning_objectives:
+  - 二つのKähler計量の相対跡・逆跡・体積比を固有値で表し、それぞれの役割を区別できる
+  - Kähler正規座標で基準計量の逆行列の二階微分を曲率へ変換し符号を検算できる
+  - 対数行列式の二階微分から三階微分の非負平方和を取り出せる
+  - Kähler閉性を使う添字交換を明示して相対跡のLaplacian恒等式を導出できる
+  - 重み付きCauchy–Schwarzで三階微分項が対数跡の勾配項を吸収することを証明できる
+  - 体積密度の下界と背景曲率の上界からパスに一様な局所微分不等式を得られる
+  - 非Kähler性・密度退化・行列式のみの制御で議論が止まる箇所を特定できる
+definitions:
+  - { id: YAU1-08-DEF-01, name: Kähler計量の相対跡と逆跡 }
+theorems:
+  - { id: YAU1-08-LEM-01, name: 対数行列式の二階微分公式 }
+  - { id: YAU1-08-THM-01, name: 相対跡の局所Laplacian恒等式 }
+  - { id: YAU1-08-LEM-02, name: 三階微分の勾配吸収 }
+  - { id: YAU1-08-PROP-01, name: 対数跡の局所下界 }
+  - { id: YAU1-08-COR-01, name: 連続性のパスに一様な局所不等式 }
+canonical_examples:
+  - 平坦楕円曲線で対数跡が密度の対数に等しい例
+  - 二次元平坦複素トーラスの分離余弦ポテンシャルで恒等式を検算
+  - 非Kähler Hermite係数で混合二階微分の交換が破れる例
+problem_patterns:
+  - YAU1-08-RELATIVE-EIGENVALUES
+  - YAU1-08-INVERSE-CURVATURE
+  - YAU1-08-LOGDET-SECOND
+  - YAU1-08-KAHLER-INTERCHANGE
+  - YAU1-08-DIMENSION-ONE
+  - YAU1-08-FLAT-TORUS
+  - YAU1-08-WEIGHTED-CAUCHY
+  - YAU1-08-UNIFORM-PATH
+  - YAU1-08-NONKAHLER-FAILURE
+  - YAU1-08-FULL-LOCAL-ESTIMATE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }
