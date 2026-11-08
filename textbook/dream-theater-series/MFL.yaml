@@ -80,8 +80,8 @@ chapters:
     title: "円周の離散→連続スペクトル"
   - id: MFL19
     path: textbook/volumes/dream_thater/応用系/MFL/MFL19
-    status: planned
-    title: "spectral consistencyへ必要な橋"
+    status: completed
+    title: "作用素整合性からスペクトル収束へ"
   - id: MFL20
     path: textbook/volumes/dream_thater/応用系/MFL/MFL20
     status: planned

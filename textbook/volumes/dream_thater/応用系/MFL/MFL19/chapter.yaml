@@ -1,0 +1,45 @@
+id: "MFL19"
+title: "作用素整合性からスペクトル収束へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL18
+  - GA4
+official_scope: []
+learning_objectives:
+  - 固定した滑らかな関数の作用素整合性と全固有空間の収束を区別し、余分な零固有値の反例を構成できる
+  - 周期折線補間の質量差とDirichletエネルギーの恒等式をセル積分から導ける
+  - 一様な質量・エネルギー上界からコンパクト性とエネルギー下半連続性を再構成できる
+  - 回復列とmin–maxの上下界によって固定番号の固有値収束を証明できる
+  - 固有ベクトルの符号・重複度を考慮し、孤立固有値群の部分空間としての収束を証明できる
+  - 数値ラボで補間、格子数、固有値間隔、スペクトル汚染の役割を識別できる
+definitions:
+  - { id: MFL19-DEF-01, name: 周期折線補間と離散二次形式 }
+  - { id: MFL19-DEF-02, name: 固定試験関数の作用素整合性 }
+  - { id: MFL19-DEF-03, name: 固有空間の射影距離 }
+theorems:
+  - { id: MFL19-LEM-01, name: 周期折線補間の厳密な質量・エネルギー恒等式 }
+  - { id: MFL19-LEM-02, name: エネルギー有界列のコンパクト性と下半連続性 }
+  - { id: MFL19-PROP-01, name: 周期H1関数の回復列 }
+  - { id: MFL19-THM-01, name: 周期一次元の固有値収束 }
+  - { id: MFL19-THM-02, name: 孤立固有値群の固有空間収束 }
+  - { id: MFL19-PROP-02, name: 点ごとの整合性からは従わないスペクトル収束 }
+canonical_examples:
+  - 定数と一次Fourierモードの折線補間の質量差
+  - 第一正固有値の二重固有空間と基底回転
+  - Nyquistモードを零にする階数一摂動によるスペクトル汚染
+  - 固有値間隔に対する二次元回転模型
+problem_patterns:
+  - MFL19-A01
+  - MFL19-A02
+  - MFL19-A03
+  - MFL19-A04
+  - MFL19-B01
+  - MFL19-B02
+  - MFL19-B03
+  - MFL19-B04
+  - MFL19-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 3.0 }
