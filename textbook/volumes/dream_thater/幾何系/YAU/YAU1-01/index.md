@@ -26,7 +26,13 @@ $$
 \rho(\widehat\omega)=-i\partial\bar\partial\log\det(\widehat g_{j\bar k})
 $$
 
-と定める。係数行列 $\widehat G=(\widehat g_{j\bar k})$ は[正値形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)により正定値Hermite行列で、$\det\widehat G>0$ だから対数は意味を持つ。添字 $j,\bar k$ はそれぞれ正則・反正則座標方向を示す。
+と定める。係数行列 $\widehat G=(\widehat g_{j\bar k})$ は、形式を正則座標の基底 $dz^j\wedge d\bar z^k$ で表したものである。$(1,0)$ 接ベクトル $v=\sum_jc^j\partial/\partial z^j$ に評価すると
+
+$$
+-i\widehat\omega(v,\bar v)=\sum_{j,k=1}^n\widehat g_{j\bar k}c^j\overline{c^k}.
+$$
+
+従って実性・正値性は[正値形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)により $\widehat G$ が正定値Hermite行列であることに対応し、$\det\widehat G>0$ だから対数は意味を持つ。添字 $j,\bar k$ はそれぞれ正則・反正則座標方向を示す。
 
 ### 許容される入力を定義する
 
@@ -60,7 +66,15 @@ $$
 \alpha=[\omega_0],\qquad\eta=0
 $$
 
-を取る。$\omega_0$ は周期的なので商へ降り、実 $(1,1)$ 型、正値、閉性をそれぞれ満たす。従って（D1）を満たす。（D2）では零形式は実・滑らか・閉で型 $(1,1)$ に属する。[平坦トーラスのRicci形式](../../CYG/CYG1-04/index.md#prop-cyg1-04-flat-holonomy)は零であり、[Ricci形式と反標準束の第一Chern形式](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)から $c_1(T)_{\mathbb R}=0$、従って（D3）も満たす。$\widehat\omega=\omega_0$ は実際の解である。
+を取る。格子移動 $z\mapsto z+m+ik$（$m,k\in\mathbb Z$）では $dz,d\bar z$ が変わらないので、$\omega_0$ は商へ降りる。上の $2\,dx\wedge dy$ は実形式で、$dz\wedge d\bar z$ だけから成るので型は $(1,1)$ である。正則座標の基底での係数行列は $(1)$ であり、零でない $v=c\,\partial/\partial z$ に対し
+
+$$
+-i\omega_0(v,\bar v)=|c|^2>0.
+$$
+
+これは[実 $(1,1)$ 形式の正値判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)を直接確かめたものである。係数一定だから $d\omega_0=0$ でもあり、実性・型・正値性・閉性が揃って $\alpha=[\omega_0]$ は（D1）を満たす。
+
+（D2）では零形式は実・滑らか・閉で型 $(1,1)$ に属する。[平坦トーラスのRicci形式](../../CYG/CYG1-04/index.md#prop-cyg1-04-flat-holonomy)は零であり、[Ricci形式と反標準束の第一Chern形式](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)から $c_1(T)_{\mathbb R}=0$、従って（D3）も満たす。$\widehat\omega=\omega_0$ は実際の解である。
 <!-- definition-example-end -->
 
 この例で目標が零なのは特別な場合であって、定義は $\eta$ の正値性も零性も要求していない。
@@ -144,7 +158,7 @@ $$
 
 これは[CYG1-10で外部入力として述べたYauの定理](../../CYG/CYG1-10/index.md#thm-cyg1-10-yau)を、今後の証明のために再掲して量化を固定したものである。**存在を本章で新たに証明したのではない。** 存在に必要な連続性の方法、$C^0$・二階・三階評価、正則性と閉性は後続の講義で構成する。一意性は[CYG1-10の積分による一意性命題](../../CYG/CYG1-10/index.md#prop-cyg1-10-uniqueness)として既に証明されている。
 
-論理式では、$\mathcal A_X$ を[許容データ](#def-yau1-01-data)の集合と書くと、
+論理式で表そう。$\mathcal A_X$ は[許容データ](#def-yau1-01-data)の集合、$\mathcal K\!F_X$ は $X$ 上の全Kähler形式の集合とする。後者はKähler**類**の集合 $\mathcal K_X$ とは異なる。また $\exists!$ は「存在し、かつ条件を満たすものが一つだけ」という意味である。この記号で
 
 $$
 \forall(\alpha,\eta)\in\mathcal A_X\quad
@@ -152,7 +166,7 @@ $$
 \quad [\widehat\omega]=\alpha\ \land\ \rho(\widehat\omega)=\eta
 $$
 
-となる。$\mathcal K\!F_X$ は $X$ 上の全Kähler形式の集合をここで表す記号であって、Kähler**類**の集合 $\mathcal K_X$ と区別する。$\exists!$ は「存在し、かつその条件を満たすものが一つだけ」という意味である。
+となる。
 
 注意したい誤読は次の三つである。
 
@@ -215,7 +229,7 @@ $$
 \end{aligned}
 $$
 
-任意の点で $\omega$ の係数行列を正規直交化する正則座標の一次変換を取り、$\partial h=\sum_jh_jdz^j$ と書く。[正値Hermite行列との対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)から
+任意の点で $\omega$ の係数行列を正規直交化する正則座標の一次変換を取り、$h_j:=\partial h/\partial z^j$ として $\partial h=\sum_jh_jdz^j$ と書く。[正値Hermite行列との対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)から
 
 $$
 i\partial h\wedge\bar\partial h\wedge\omega^{n-1}
@@ -316,7 +330,7 @@ V:=\int_X\omega^n=\int_X\omega_\varphi^n
 =e^C\int_Xe^{-u}\omega^n.
 $$
 
-$V>0$ で、$e^{-u}>0$ はコンパクトな $X$ 上で滑らかだから分母も正かつ有限である。よって $e^C=V/\int_Xe^{-u}\omega^n$。実対数を取って結論の式を得る。さらに $u'=u+a$ とすると
+$V>0$ で、$e^{-u}>0$ はコンパクトな $X$ 上で滑らかだから分母も正かつ有限である。よって $e^C=V/\int_Xe^{-u}\omega^n$。実対数を取って結論の式を得る。さらに $u'=u+a$ とする。ここでプライムは微分ではなく定数を加えて取り直した量を表し、$C'$ はその $u'$ に対応する正規化定数である。このとき
 
 $$
 \int_Xe^{-u'}\omega^n=e^{-a}\int_Xe^{-u}\omega^n,\quad
@@ -445,7 +459,7 @@ $$
 #### YAU1-01-B02 正規化はポテンシャルの選び方に依存しない
 - Level: B
 
-$X$ を境界のないコンパクト連結Kähler多様体、$\omega$ をKähler形式、$u$ を実関数とする。$u'=u+a$（$a$ は定数）としたとき、$\eta=\rho(\omega)+i\partial\bar\partial u$ と正規化済み体積密度 $e^{C-u}$ がともに不変であることを示せ。
+$X$ を境界のないコンパクト連結Kähler多様体、$\omega$ をKähler形式、$u$ を滑らかな実関数とする。$u'=u+a$（$a$ は定数、プライムは微分でなく取り直した量）としたとき、$\eta=\rho(\omega)+i\partial\bar\partial u$ と正規化済み体積密度 $e^{C-u}$ がともに不変であることを示せ。
 
 <!-- solution-start -->
 **詳細解答。** 定数の微分が零だから
@@ -454,7 +468,7 @@ $$
 i\partial\bar\partial(u+a)=i\partial\bar\partial u.
 $$
 
-次に $I=\int_Xe^{-u}\omega^n$ とおくと $I'=e^{-a}I$。従って
+次に $V=\int_X\omega^n$、$I=\int_Xe^{-u}\omega^n$ とおくと $I'=e^{-a}I$。従って
 
 $$
 C'=\log\frac{V}{I'}=\log\frac{V}{e^{-a}I}
@@ -471,7 +485,21 @@ $$
 $X=\mathbb C$ 上で $\omega_1=i\,dz\wedge d\bar z$、$\omega_2=2i\,dz\wedge d\bar z$ とする。両者が同じde Rham類と同じRicci形式を持つにもかかわらず異なることを示し、[一意性命題](#prop-yau1-01-gauge)のどの仮定が破れているか答えよ。
 
 <!-- solution-start -->
-**詳細解答。** $\mathbb C$ は可縮なので $H^2_{\mathrm{dR}}(\mathbb C;\mathbb R)=0$。従って二つの閉2形式の類はともに零で一致する。係数行列は $(1)$ と $(2)$ でいずれも定数だから、[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)より $\rho(\omega_1)=\rho(\omega_2)=0$。しかし非零2形式について $\omega_2=2\omega_1\ne\omega_1$。失われたのは**コンパクト性**であり、Stokesの積分および調和関数の大域的な定数性を使う証明機構が適用できない。
+**詳細解答。** $\mathbb C$ は可縮なので $H^2_{\mathrm{dR}}(\mathbb C;\mathbb R)=0$。従って二つの閉2形式の類はともに零で一致する。
+
+さらに[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)で $\partial_z\partial_{\bar z}|z|^2=1$ だから、同じ基準形式を用いるポテンシャル表示も
+
+$$
+\omega_2=\omega_1+i\partial\bar\partial|z|^2
+$$
+
+と得られる。係数行列は $(1)$ と $(2)$ でいずれも定数だから、[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)より
+
+$$
+\rho(\omega_1)=\rho(\omega_2)=0.
+$$
+
+しかし $\omega_2=2\omega_1\ne\omega_1$ である。従って[一意性命題](#prop-yau1-01-gauge)のポテンシャル表示と正値性が揃っても、**コンパクト性**を欠くため結論が壊れる。Stokesの積分および調和関数の大域的な定数性を使う証明機構が適用できない。
 <!-- solution-end -->
 
 <a id="ex-yau1-01-b04"></a>
@@ -508,13 +536,20 @@ $$
 3. 同じ類で異なる二つの許容目標に対して解が異なることが、Yauの一意性と両立する理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $f(x)=1+\varepsilon\cos(2\pi x)>0$ なので正値であり、実次元2の3形式は零だから $d\omega_\varepsilon=0$。実 $(1,1)$ 型・滑らかさも明らかに満たし、Kähler形式である。類の比較には周期的な実関数
+**詳細解答。** $f(x)=1+\varepsilon\cos(2\pi x)\ge1-\varepsilon>0$ と置く。係数行列は $(f(x))$ だから[正値形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)で正値である。$f$ は周期1の実滑らかな関数であるため商上で実 $(1,1)$ 形式を定め、実次元2の3形式は零だから $d\omega_\varepsilon=0$。従ってKähler形式である。類の比較には周期的な実関数
 
 $$
 \varphi(x)=-\frac{\varepsilon}{\pi^2}\cos(2\pi x)
 $$
 
-を用いる。$\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ で、$\partial_x^2\varphi=4\varepsilon\cos(2\pi x)$、$\partial_y^2\varphi=0$。従って
+を用いる。[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)に従う $\partial_z=\frac12(\partial_x-i\partial_y)$、$\partial_{\bar z}=\frac12(\partial_x+i\partial_y)$ を滑らかな関数へ順に作用させると、混合偏微分が交換できるため
+
+$$
+\partial_z\partial_{\bar z}
+=\frac14(\partial_x^2+\partial_y^2).
+$$
+
+$\partial_x^2\varphi=4\varepsilon\cos(2\pi x)$、$\partial_y^2\varphi=0$ なので
 
 $$
 i\partial\bar\partial\varphi
@@ -522,7 +557,7 @@ i\partial\bar\partial\varphi
 =\omega_\varepsilon-\omega_0.
 $$
 
-差は完全形式だから $[\omega_\varepsilon]=[\omega_0]$。[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)を次に適用して
+差は $i\partial\bar\partial\varphi=d(i\bar\partial\varphi)$ という完全形式だから $[\omega_\varepsilon]=[\omega_0]$。[Ricci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)を次に適用する。ここからの $f'(x)$、$f''(x)$ は実変数 $x$ に関する一階・二階の通常微分であり、上の $\partial_z,\partial_{\bar z}$ との対応により
 
 $$
 \eta_\varepsilon=-\frac i4(\log f)''(x)\,dz\wedge d\bar z.
@@ -536,7 +571,16 @@ $$
 =-\frac{4\pi^2\varepsilon}{1+\varepsilon}\ne0.
 $$
 
-従って $\eta_\varepsilon\ne0=\eta_0$。一方、双方は実閉 $(1,1)$ 形式であり、[Ricci–Chern同定](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)から同じ $2\pi c_1(T)_{\mathbb R}=0$ を代表する。従ってそれぞれ許容データで、$\omega_\varepsilon$ と $\omega_0$ が明示的な解である。定理は「同じ $\alpha$ と同じ $\eta$」での唯一性を保証するだけで、$\eta$ が異なる場合に同じ解であるとは述べない。
+特に $x=0$ での値は
+
+$$
+\eta_\varepsilon\big|_{x=0}
+=\frac{i\pi^2\varepsilon}{1+\varepsilon}\,dz\wedge d\bar z\ne0
+$$
+
+なので $\eta_\varepsilon\ne\eta_0=0$ である。一方、双方は実閉 $(1,1)$ 形式であり、[Ricci–Chern同定](../../KAH/KAH1-12/index.md#thm-kah1-12-ricci-chern)から同じ $2\pi c_1(T)_{\mathbb R}=0$ を代表する。従ってそれぞれ許容データで、$\omega_\varepsilon$ と $\omega_0$ が明示的な解である。
+
+定理は「同じ $\alpha$ と同じ $\eta$」での唯一性を保証するだけで、$\eta$ が異なる場合に同じ解であるとは述べない。
 <!-- solution-end -->
 
 <a id="ex-yau1-01-c02"></a>
