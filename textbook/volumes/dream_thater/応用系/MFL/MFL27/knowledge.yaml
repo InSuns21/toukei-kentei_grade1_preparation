@@ -1,0 +1,49 @@
+chapter: MFL27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL23
+  - MFL24
+  - MFL26
+forward_references:
+  - lie.homogeneous-space
+concepts:
+  - id: manifold-learning.finite-homogeneous-space
+    name: 有限等質空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限等質空間と代表元）", "有限等質空間"]
+    requires: [algebra.stabilizer-subgroup, manifold-learning.orbit-fiber-count]
+  - id: manifold-learning.coset-orbit-identification
+    name: 推移的作用と等質空間の同一視
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.finite-homogeneous-space]
+  - id: manifold-learning.double-coset-scalar-kernel
+    name: 二重剰余類とスカラー整合核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二重剰余類とスカラー整合核）"]
+    requires: [manifold-learning.finite-homogeneous-space]
+  - id: manifold-learning.homogeneous-scalar-operator
+    name: 等質空間のスカラー等変核の必要十分条件
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.double-coset-scalar-kernel, manifold-learning.group-correlation-equivariance]
+  - id: manifold-learning.typed-homogeneous-section
+    name: 安定化群表現に従う特徴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（安定化群表現に従う特徴）"]
+    requires: [manifold-learning.finite-real-representation, manifold-learning.finite-homogeneous-space]
+  - id: manifold-learning.typed-homogeneous-kernel
+    name: 安定化群の両側制約を満たす行列値核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（安定化群の両側制約を満たす行列値核）"]
+    requires: [manifold-learning.typed-homogeneous-section, manifold-learning.linear-intertwiner]
+  - id: manifold-learning.typed-homogeneous-correlation
+    name: 型整合核の等質空間相互相関
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.typed-homogeneous-kernel, manifold-learning.group-correlation-equivariance]

@@ -6,3 +6,4 @@
 3. [MFL24 群表現・intertwiner・特徴型](textbook/volumes/dream_thater/応用系/MFL/MFL24/index.md)
 4. [MFL25 不変化・等変層の構成原理](textbook/volumes/dream_thater/応用系/MFL/MFL25/index.md)
 5. [MFL26 格子対称性と群畳み込み](textbook/volumes/dream_thater/応用系/MFL/MFL26/index.md)
+6. [MFL27 等質空間と安定化群が決める核の形](textbook/volumes/dream_thater/応用系/MFL/MFL27/index.md)
