@@ -1,0 +1,13 @@
+version: 1
+id: SQC_TARSKI
+title: "Tarski円積・可測等分解"
+plan: textbook/plans_progress/DREAM_THEATER_TARSKI_EQUIDECOMPOSITION_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# SQC1〜7の古典作図PLANとは独立。SQC7/TRN11を前提にしない。
+chapters:
+  - { id: SQC8, path: textbook/volumes/dream_thater/幾何系/SQC/SQC8, status: completed, title: "多角形の等積分割" }
+  - { id: SQC9, path: textbook/volumes/dream_thater/幾何系/SQC/SQC9, status: planned, title: "Tarskiの円積問題とLaczkovichの解" }
+  - { id: SQC10, path: textbook/volumes/dream_thater/幾何系/SQC/SQC10, status: planned, title: "有限等分解を支える組合せ論" }
+  - { id: SQC11, path: textbook/volumes/dream_thater/幾何系/SQC/SQC11, status: planned, title: "可測・Borelな円積" }
+  - { id: SQC12, path: textbook/volumes/dream_thater/幾何系/SQC/SQC12, status: planned, title: "境界の小さい分割片と総合監査" }

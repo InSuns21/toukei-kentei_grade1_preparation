@@ -1,0 +1,47 @@
+id: "DEF1-08"
+title: "Kuranishi構成III――局所完全性と普遍性の限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-01
+  - DEF1-03
+  - DEF1-04
+  - DEF1-06
+  - DEF1-07
+  - CM1-07
+  - GA6
+learning_objectives:
+  - 正則変形族と解析空間の芽の引き戻しを定義し、ファイバーの列挙と族の局所完全性を区別できる
+  - 正規化ゲージの線形化でH0とH1が担う異なる役割を検算できる
+  - 任意の小さい変形をKuranishiの調和パラメータへ還元する議論と、その正則パラメータ依存に必要な入力を説明できる
+  - Kuranishi族の局所完全性・半普遍性とKodaira–Spencer接写像の一意性を証明できる
+  - 普遍性と半普遍性の違い、自己同型群の影響、非被約基底と大域モジュライの限界を例から判定できる
+theorems:
+  - { id: DEF1-08-DEF-01, name: "標識付き変形と基底変更" }
+  - { id: DEF1-08-DEF-02, name: "局所完全・半普遍・普遍変形" }
+  - { id: DEF1-08-LEM-01, name: "調和ゲージの線形化と小解の正規化" }
+  - { id: DEF1-08-LEM-02, name: "正規化された可積分解の一意性" }
+  - { id: DEF1-08-THM-01, name: "Kuranishi族の局所完全性と半普遍性" }
+  - { id: DEF1-08-PROP-01, name: "基底変更の接写像の一意性" }
+  - { id: DEF1-08-PROP-02, name: "自己同型と普遍性の十分条件" }
+canonical_examples:
+  - 双数上の基底変更とKodaira–Spencer方向の一致
+  - 楕円曲線の局所周期パラメータと並進自己同型の共存
+  - P1の剛性と非零の正則ベクトル場
+  - w二乗の非被約基底への基底変更と一次方向だけでは見えない差
+  - C*の重み付き作用で同型類の代表が一意でない模型
+problem_patterns:
+  - DEF1-08-PULLBACK-DUAL
+  - DEF1-08-GAUGE-KERNEL
+  - DEF1-08-FIXEDPOINT
+  - DEF1-08-ZERO-KS
+  - DEF1-08-ARTIN-BASE
+  - DEF1-08-VERSAL-UNIQUENESS
+  - DEF1-08-RIGID-AUTOMORPHISM
+  - DEF1-08-NONREDUCED-MAPS
+  - DEF1-08-RELATIVE-MC
+  - DEF1-08-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 6 }

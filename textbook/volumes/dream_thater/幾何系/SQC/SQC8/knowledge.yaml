@@ -1,0 +1,42 @@
+chapter: SQC8
+scope: dream-theater
+coverage: complete
+prerequisites: [SET1, MT0]
+forward_references: []
+
+concepts:
+  - id: geometry.polygon-scissors-congruence
+    name: 多角形の有限等分解
+    kind: definition
+    introduction: formal
+    requires: []
+
+  - id: geometry.scissors-area-invariance
+    name: 有限等分解は面積を保存する
+    kind: proposition
+    introduction: formal
+    requires: [geometry.polygon-scissors-congruence]
+
+  - id: geometry.scissors-congruence-transitivity
+    name: 有限等分解の推移性
+    kind: lemma
+    introduction: formal
+    requires: [geometry.polygon-scissors-congruence]
+
+  - id: geometry.triangle-rectangle-scissors
+    name: 三角形から長方形への3片分割
+    kind: lemma
+    introduction: formal
+    requires: [geometry.polygon-scissors-congruence]
+
+  - id: geometry.equal-area-rectangle-scissors
+    name: 等積長方形の有限等分解
+    kind: lemma
+    introduction: formal
+    requires: [geometry.polygon-scissors-congruence, geometry.triangle-rectangle-scissors]
+
+  - id: geometry.wallace-bolyai-gerwien
+    name: Wallace–Bolyai–Gerwienの定理
+    kind: theorem
+    introduction: formal
+    requires: [geometry.scissors-area-invariance, geometry.scissors-congruence-transitivity, geometry.triangle-rectangle-scissors, geometry.equal-area-rectangle-scissors]
