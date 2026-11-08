@@ -1,19 +1,19 @@
 chapter: DEF1-02
 scope: dream-theater
 coverage: complete
-prerequisites: [DEF1-01, CM1-02, CM1-05, CM2-04, CYG1-12]
+prerequisites: [DEF1-01, CM1-02, CM1-05, CM1-07, CM2-04, CYG1-12]
 concepts:
   - id: deformation.tangent-valued-01-form
-    name: 接束値(0,1)形式
+    name: 接束値（0,1）形式
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（接束値$(0,1)$形式）"]
+    introduction_aliases: ["定義（接束値（0,1）形式）"]
     requires: [complex-manifolds.holomorphic-tangent-section, complex-manifolds.dolbeault-complex]
   - id: deformation.beltrami-coordinate-change
-    name: 接束値(0,1)形式の座標変換
+    name: 接束値（0,1）形式の成分変換則
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（接束値$(0,1)$形式の座標変換）"]
+    introduction_aliases: ["命題（接束値（0,1）形式の成分変換則）"]
     requires: [deformation.tangent-valued-01-form, complex-manifolds.tangent-frame-change]
   - id: deformation.beltrami-graph
     name: Beltrami微分と変形した反正則分布

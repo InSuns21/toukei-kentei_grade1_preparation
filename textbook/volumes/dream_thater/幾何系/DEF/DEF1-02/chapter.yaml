@@ -6,6 +6,7 @@ prerequisites:
   - DEF1-01
   - CM1-02
   - CM1-05
+  - CM1-07
   - CM2-04
   - CYG1-12
 official_scope: []
@@ -16,8 +17,8 @@ learning_objectives:
   - 楕円曲線族のBeltrami係数と一次係数を求め、Kodaira–Spencer類に接続できる
   - Lie括弧の一次項からDolbeault閉条件を導き、一次必要条件と高次延長を区別できる
 theorems:
-  - { id: DEF1-02-DEF-01, name: "接束値(0,1)形式" }
-  - { id: DEF1-02-PROP-01, name: "接束値(0,1)形式の座標変換" }
+  - { id: DEF1-02-DEF-01, name: "接束値（0,1）形式" }
+  - { id: DEF1-02-PROP-01, name: "接束値（0,1）形式の成分変換則" }
   - { id: DEF1-02-DEF-02, name: "Beltrami微分と変形した反正則分布" }
   - { id: DEF1-02-PROP-02, name: "小さいBeltrami微分の横断性" }
   - { id: DEF1-02-PROP-03, name: "Beltrami方程式による局所正則座標の判定" }
