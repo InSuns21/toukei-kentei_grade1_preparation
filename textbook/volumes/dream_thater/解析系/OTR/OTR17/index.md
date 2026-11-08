@@ -45,7 +45,7 @@ $$
 
 $\Omega\subset\mathbb R^d$ を有界な $C^1$ 境界を持つ領域、$n$ をその外向き単位法線とします。まず任意の次元で使う発散公式を確認します。
 
-<a id="der-otr17-divergence-d"></a>
+<a id="ref-otr17-divergence-d"></a>
 
 $$
 \int_\Omega\nabla\cdot F\,dx
@@ -369,7 +369,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-時間の部分積分と[第2節で導いた $d$ 次元の発散公式](#der-otr17-divergence-d)を使うと、任意の $\varphi\in C^1([0,T]\times\overline\Omega)$ について
+時間の部分積分と[第2節の座標ごとの導出](#ref-otr17-divergence-d)を使うと、任意の $\varphi\in C^1([0,T]\times\overline\Omega)$ について
 
 $$
 \begin{aligned}
