@@ -78,15 +78,15 @@ $$
 > **命題（双対等号集合の巡回単調性）**
 > 空でないコンパクト距離空間 $X,Y$ と連続費用 $c$ を取る。$f\in C(X)$、$g\in C(Y)$ が次の双対不等式をすべての $x,y$ で満たすとする。
 
-$
+$$
 f(x)+g(y)\le c(x,y).
-$
+$$
 
 > このとき [双対等号集合](../OTR6/index.md#def-otr6-contact-set)
 
-$
+$$
 E(f,g)=\{(x,y):f(x)+g(y)=c(x,y)\}
-$
+$$
 
 > は $c$-巡回単調である。
 <!-- formal-statement-end -->
@@ -137,13 +137,13 @@ $$
 > **補題（巡回単調集合からの連続双対ポテンシャルの構成）**
 > 空でないコンパクト距離空間 $X,Y$ と連続費用 $c:X\times Y\to\mathbb R$ を取る。空でない集合 $\Gamma\subset X\times Y$ が $c$-巡回単調なら、連続関数 $f\in C(X)$ と $g\in C(Y)$ が存在し、次を満たす。
 
-$
+$$
 f(x)+g(y)\le c(x,y)\qquad ((x,y)\in X\times Y),
-$
+$$
 
-$
+$$
 f(x)+g(y)=c(x,y)\qquad ((x,y)\in\Gamma).
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -330,11 +330,17 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（一次元二次費用の単調性判定）**
-> $X,Y\subset\mathbb R$、$c(x,y)=(x-y)^2/2$ とする。集合 $\Gamma\subset X\times Y$ が $c$-巡回単調であるための必要十分条件は、任意の二点 $(x,y),(x',y')\in\Gamma$ について次が成立することである。
+> $X,Y\subset\mathbb R$ に対し、費用を次のように定める。
 
 $
-(x-x')(y-y')\ge0.
+c(x,y)=\frac12(x-y)^2.
 $
+
+> 集合 $\Gamma\subset X\times Y$ が $c$-巡回単調であるための必要十分条件は、任意の二点 $(x,y),(x',y')\in\Gamma$ について次が成立することである。
+
+$$
+(x-x')(y-y')\ge0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
