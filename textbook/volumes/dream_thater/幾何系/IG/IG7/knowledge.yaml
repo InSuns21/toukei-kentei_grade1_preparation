@@ -1,0 +1,60 @@
+chapter: IG7
+scope: dream-theater
+coverage: complete
+prerequisites: [IG6, IG3]
+concepts:
+  - id: information-geometry.dual-connection
+    name: 計量に関する双対接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計量に関する双対接続）"]
+    requires: [information-geometry.connection-choice, information-geometry.fisher-rao-metric]
+
+  - id: information-geometry.dual-connection-existence
+    name: 双対接続の存在・一意性と二重双対
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（双対接続の存在・一意性と二重双対）"]
+    requires: [information-geometry.dual-connection, geometry.levi-civita-connection]
+
+  - id: information-geometry.amari-chentsov-tensor
+    name: Amari--Chentsov 三次テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Amari--Chentsov 三次テンソル）"]
+    requires: [information-geometry.fisher-information, information-geometry.regular-zero-mean-score]
+
+  - id: information-geometry.amari-chentsov-transform
+    name: 三次テンソルの座標変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次テンソルの座標変換）"]
+    requires: [information-geometry.amari-chentsov-tensor, information-geometry.fisher-coordinate-invariance]
+
+  - id: information-geometry.alpha-connection
+    name: 統計モデルの α-接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（統計モデルの α-接続）"]
+    requires: [information-geometry.amari-chentsov-tensor, information-geometry.connection-choice]
+
+  - id: information-geometry.alpha-connection-duality
+    name: α-接続の存在・捩率零・双対性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（α-接続の存在・捩率零・双対性）"]
+    requires: [information-geometry.alpha-connection, information-geometry.dual-connection, geometry.levi-civita-connection]
+
+  - id: information-geometry.kl-induced-connections
+    name: KL から誘導する二つの接続係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（KL から誘導する二つの接続係数）"]
+    requires: [information-geometry.smooth-divergence, information-geometry.divergence-mixed-hessian]
+
+  - id: information-geometry.kl-third-duality
+    name: KL の三階微分と e/m 双対接続
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（KL の三階微分と e/m 双対接続）"]
+    requires: [information-geometry.kl-induced-connections, information-geometry.alpha-connection-duality]
