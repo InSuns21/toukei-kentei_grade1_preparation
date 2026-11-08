@@ -79,15 +79,23 @@ $X$ はコンパクトなので、その上の全点について $H_1,\ldots,H_m
 
 ## 3. 局所的な持ち上げの差からČech類を得る
 
-以下、$\pi:\mathcal X\to B$ は[正則変形族](#def-def1-01-family)、$b_0\in B$、$X=X_{b_0}$ とし、$\xi\in T_{b_0}^{1,0}B$ を基底の**一つの複素接方向**とする。ここからの $t=(t^1,\ldots,t^m)$ は**複素**基底座標である（第2節の流れで使った $t^a$ は実座標）。$\xi=\sum_a\xi^a\partial_{t^a}|_{b_0}$ と書き、基底の近傍では定数係数の正則ベクトル場 $\widetilde\xi=\sum_a\xi^a\partial_{t^a}$ に延長する。$\partial_{t^a}|_{z_i}$ はファイバー座標 $z_i$ を固定して複素パラメータ $t^a$ だけを微分する記号であり、第5節の「$t$ を固定して $\partial_z,\partial_{\bar z}$ を取る」操作とは固定変数が逆になる。
+以下、$\pi:\mathcal X\to B$ は[正則変形族](#def-def1-01-family)、$b_0\in B$、$X=X_{b_0}$ とする。基底の複素接方向 $\xi$ を一つ固定する。第2節で流れを構成したときの座標は実座標だったが、ここからの $t=(t^1,\ldots,t^m)$ は**複素**基底座標である。局所的に次のように書く。
 
-$X$ を覆う小さな開集合 $U_i$ を取り、その上方の局所的な正則積座標 $(z_i,t)$ を選ぶ。$t$ を動かし $z_i$ を固定する正則ベクトル場
+$$
+\xi=\sum_a\xi^a\partial_{t^a}|_{b_0},
+\qquad
+\widetilde\xi=\sum_a\xi^a\partial_{t^a}.
+$$
+
+右辺の $\widetilde\xi$ は、基底の近傍で係数を一定とした正則ベクトル場であり、中心点で $\xi$ に一致する。
+
+$X$ を覆う小さな開集合 $U_i$ を取り、その上方の局所的な正則積座標 $(z_i,t)$ を選ぶ。$\partial_{t^a}|_{z_i}$ は $z_i$ を固定して複素パラメータ $t^a$ だけを微分する記号である。第5節では逆に $t$ を固定して $\partial_z,\partial_{\bar z}$ を取る。この違いを踏まえて、局所正則ベクトル場を
 
 $$
 s_i=\sum_a\xi^a\left.\frac{\partial}{\partial t^a}\right|_{z_i}
-$$
+$
 
-は $d\pi(s_i)=\widetilde\xi$ を満たす。これを**局所正則持ち上げ**と呼ぶ。重なりでは $s_j-s_i$ が $d\pi$ の核に入り、ファイバー上の正則接ベクトル場になる。[正則接束](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)を $T_X$ と書く。
+と置く。これは $d\pi(s_i)=\widetilde\xi$ を満たすので、**局所正則持ち上げ**と呼ぶ。重なりでは $s_j-s_i$ が $d\pi$ の核に入り、ファイバー上の正則接ベクトル場になる。[正則接束](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)を $T_X$ と書く。
 
 [Čech複体の交代微分](../../../代数系/AG/AG3-07/index.md#def-ag3-07-cech-complex)と同じ規約で、一次コチェインの閉条件を $\kappa_{jk}-\kappa_{ik}+\kappa_{ij}=0$、零次の境界を $(\delta v)_{ij}=v_j-v_i$ とする。ここでは**複素多様体上の正則接ベクトル場の層**にこの操作を適用する。
 
