@@ -1,0 +1,53 @@
+chapter: IG10
+scope: dream-theater
+coverage: complete
+prerequisites: [IG9, IG8, IG5]
+concepts:
+  - id: information-geometry.dual-geodesic-orthogonality
+    name: 双対測地線の直交
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対測地線の直交）"]
+    requires: [information-geometry.em-geodesics, information-geometry.hessian-dual-flatness]
+
+  - id: information-geometry.generalized-pythagoras
+    name: 一般化 Pythagoras の等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一般化 Pythagoras の等式）"]
+    requires: [information-geometry.dual-geodesic-orthogonality, information-geometry.bregman-three-point]
+
+  - id: information-geometry.em-information-projection
+    name: e/m 情報射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（e/m 情報射影）"]
+    requires: [information-geometry.generalized-pythagoras, information-geometry.canonical-kl-exponential]
+
+  - id: information-geometry.bregman-projection-inequality
+    name: Bregman 凸射影の一階条件と Pythagoras 不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Bregman 凸射影の一階条件と Pythagoras 不等式）"]
+    requires: [information-geometry.bregman-three-point, information-geometry.em-information-projection]
+
+  - id: information-geometry.projection-existence
+    name: 情報射影の存在と一意性の十分条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（情報射影の存在と一意性の十分条件）"]
+    requires: [information-geometry.bregman-projection-inequality, information-geometry.bregman-nonnegative]
+
+  - id: information-geometry.categorical-e-projection
+    name: 有限カテゴリカル分布の m-平坦制約への e-射影
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限カテゴリカル分布の m-平坦制約への e-射影）"]
+    requires: [information-geometry.em-information-projection, information-geometry.projection-existence]
+
+  - id: information-geometry.categorical-m-projection
+    name: 対数比制約への m-射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数比制約への m-射影）"]
+    requires: [information-geometry.em-information-projection, information-geometry.projection-existence]

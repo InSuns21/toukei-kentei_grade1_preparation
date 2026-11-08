@@ -1,0 +1,34 @@
+id: "IG10"
+title: "一般化 Pythagoras と情報射影"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG9
+  - IG8
+  - IG5
+official_scope: []
+learning_objectives:
+  - Bregman 三点恒等式の補正項を双対測地線の接ベクトルの Fisher/Hessian 内積に翻訳できる
+  - 一般化 Pythagoras の等式と凸集合に対する不等式を区別して導出できる
+  - e/m 射影の目的関数と前向き・逆向き KL の引数順を正確に対応付けられる
+  - 凸性・正定値 Hessian・解の存在に必要な閉性や境界条件を判定できる
+  - 正確率カテゴリカル分布の線形制約・対数比制約への情報射影を計算し恒等式を成分で検算できる
+  - 局所直交条件だけでは大域最小性や射影の存在を導けないことを反例で説明できる
+definitions:
+  - { id: IG10-DEF-01, name: 双対測地線の直交 }
+  - { id: IG10-DEF-02, name: e/m 情報射影 }
+theorems:
+  - { id: IG10-THM-01, name: 一般化 Pythagoras の等式 }
+  - { id: IG10-THM-02, name: Bregman 凸射影の一階条件と Pythagoras 不等式 }
+  - { id: IG10-THM-03, name: 情報射影の存在と一意性の十分条件 }
+  - { id: IG10-THM-04, name: 有限カテゴリカル分布の m-平坦制約への e-射影 }
+  - { id: IG10-PROP-01, name: 対数比制約への m-射影 }
+canonical_examples:
+  - 二次ポテンシャルの直交・直線射影・非凸円周反例
+  - 正確率3点分布の群和制約への前向き KL 射影
+  - 正確率3点分布の対数比制約への逆向き KL 射影
+problem_patterns: [IG10-A01, IG10-A02, IG10-A03, IG10-A04, IG10-A05, IG10-B01, IG10-B02, IG10-B03, IG10-B04, IG10-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 7.0, review: 2.0 }
