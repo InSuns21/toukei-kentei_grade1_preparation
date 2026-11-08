@@ -1,0 +1,44 @@
+id: "MFL23"
+title: "群作用・軌道・安定化群から対称性の情報損失を読む"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL22
+  - GRP3
+official_scope: []
+learning_objectives:
+  - C_n と D_n の頂点作用を具体化し、単位元と合成の作用公理を検算できる
+  - 回転・鏡映を有限点と平面の点に作用させ、軌道・安定化群を全要素から求められる
+  - 有限作用の写像 G→Gx の各ファイバーが同じ大きさになることから軌道・安定化群公式を説明できる
+  - 軌道商 X/G と群の剰余類 G/G_x を区別し、商写像が失う情報を具体的に示せる
+  - 不変写像が軌道商を経由する必要十分条件を証明できる
+  - 対称性が教師値と両立しない場合の不変予測の最小二乗誤差を計算できる
+  - 安定化群の出力側固定条件から、軌道上の等変写像の存在・一意性を構成できる
+  - 有限群の全要素を列挙する決定論的実験で軌道数・安定化群・重複数を検算できる
+definitions:
+  - { id: MFL23-DEF-01, name: 軌道商と商写像 }
+theorems:
+  - { id: MFL23-PROP-01, name: 有限作用における到着点ごとの重複数 }
+  - { id: MFL23-PROP-02, name: 不変写像の軌道商を通じた分解 }
+  - { id: MFL23-PROP-03, name: 軌道内の教師値のばらつきと予測誤差 }
+  - { id: MFL23-THM-01, name: 軌道上の等変写像の構成と安定化群条件 }
+canonical_examples:
+  - C4 と D4 の正方形頂点作用・軌道と安定化群の計数
+  - D4 の原点・軸上の点・対角線上の点・一般点の軌道
+  - C4 の向かい合う頂点対への作用と非忠実性
+  - 頂点の位置情報を忘れる軌道商と教師ラベルの衝突
+  - 鏡映で固定される点における等変ベクトル出力制約
+problem_patterns:
+  - MFL23-A01
+  - MFL23-A02
+  - MFL23-A03
+  - MFL23-A04
+  - MFL23-B01
+  - MFL23-B02
+  - MFL23-B03
+  - MFL23-B04
+  - MFL23-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 5.0, review: 2.0 }

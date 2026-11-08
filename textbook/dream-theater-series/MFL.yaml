@@ -96,8 +96,8 @@ chapters:
     title: "幾何的帰納バイアスと不変/等変"
   - id: MFL23
     path: textbook/volumes/dream_thater/応用系/MFL/MFL23
-    status: planned
-    title: "群作用・軌道・安定化群"
+    status: completed
+    title: "群作用・軌道・安定化群から対称性の情報損失を読む"
   - id: MFL24
     path: textbook/volumes/dream_thater/応用系/MFL/MFL24
     status: planned
