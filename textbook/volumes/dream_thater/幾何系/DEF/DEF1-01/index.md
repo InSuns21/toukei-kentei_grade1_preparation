@@ -93,7 +93,7 @@ $X$ を覆う小さな開集合 $U_i$ を取り、その上方の局所的な正
 
 $$
 s_i=\sum_a\xi^a\left.\frac{\partial}{\partial t^a}\right|_{z_i}
-$
+$$
 
 と置く。これは $d\pi(s_i)=\widetilde\xi$ を満たすので、**局所正則持ち上げ**と呼ぶ。重なりでは $s_j-s_i$ が $d\pi$ の核に入り、ファイバー上の正則接ベクトル場になる。[正則接束](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)を $T_X$ と書く。
 
