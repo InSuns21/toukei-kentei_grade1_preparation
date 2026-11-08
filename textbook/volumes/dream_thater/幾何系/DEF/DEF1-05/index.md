@@ -329,7 +329,9 @@ $$
 =\int_X d(\eta^1\wedge\Omega)=0
 $$
 
-となる。最後の等号には境界のないコンパクト多様体上の[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使った。ここでは $\partial\eta^1\wedge\Omega$ は複素次元2で型 $(3,1)$ となり零、また $d\Omega=0$ である。しかし左辺は格子 $\Lambda$ による商を表す単位立方体 $[0,1]^4$ 上で、非零の定数倍の $dx^1\wedge dy^1\wedge dx^2\wedge dy^2$ を積分した値であり零ではない。よって $[\omega]\ne0$、したがって $H^2(X,T_X)\ne0$ である。
+となる。最後の等号には境界のないコンパクト多様体上の[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使った。ここでは $\partial\eta^1\wedge\Omega$ は型 $(3,1)$ となり、複素次元2では零である。また $d\Omega=0$ である。
+
+しかし左辺は、格子による商を表す単位立方体 $[0,1]^4$ 上での積分である。被積分形式は $dx^1\wedge dy^1\wedge dx^2\wedge dy^2$ の非零定数倍なので、積分は零ではない。よって $[\omega]\ne0$、したがって $H^2(X,T_X)\ne0$ である。
 
 一方、任意の複素数の定数 $a^i_j$ を選び
 
@@ -337,13 +339,25 @@ $$
 \alpha=\sum_{i,j=1}^2 a^i_j\,d\bar z^j\otimes\partial_{z^i}
 $$
 
-と置く。係数が定数なので $d\alpha=0$ に加え、[括弧の成分式](../DEF1-03/index.md#def-def1-03-bracket)の $\partial_{z^p}a^i_j$ も全て零であり、$[\alpha,\alpha]=0$。従って $\phi(t)=t\alpha$ は単に二次まででなく、すべての次数でMaurer–Cartan方程式を満たす。$t$ が十分小さいと[Beltramiグラフの直和条件](../DEF1-02/index.md#def-def1-02-beltrami-graph)も成り立つので、[可積分性の定理](../DEF1-03/index.md#thm-def1-03-maurer-cartan)から実際の複素構造を定める。しかもこの例では $t\alpha$ は $t$ の多項式であり収束の問題もない。
+と置く。係数が定数なので $d\alpha=0$ であり、[括弧の成分式](../DEF1-03/index.md#def-def1-03-bracket)の $\partial_{z^p}a^i_j$ も全て零である。従って $[\alpha,\alpha]=0$ となり、$\phi(t)=t\alpha$ はすべての次数でMaurer–Cartan方程式を満たす。
 
-例えば $\alpha=d\bar z^1\otimes\partial_{z^1}$ の一次類は零でない。実際、もし $\alpha=d(v^1\partial_{z^1}+v^2\partial_{z^2})$ なら $\partial_{\bar z^1}v^1=1$、$\partial_{\bar z^2}v^1=0$ だが、格子周期関数 $v^1$ の $x^1,y^1$ に関する平均を取れば、左辺の平均は零、右辺は1となり矛盾する。[トーラスの一次変形の記述](../../CYG/CYG1-12/index.md#prop-cyg1-12-torus-directions)を用いれば、任意の $H^1(X,T_X)$ の類がこのような定数係数代表を持つことも分かる。
+$t$ が十分小さいと[Beltramiグラフの直和条件](../DEF1-02/index.md#def-def1-02-beltrami-graph)も成り立つ。[可積分性の定理](../DEF1-03/index.md#thm-def1-03-maurer-cartan)から実際の複素構造が得られ、この例では $t\alpha$ は多項式なので収束の問題もない。
+
+例えば $\alpha=d\bar z^1\otimes\partial_{z^1}$ の一次類は零でない。仮に $\alpha=d(v^1\partial_{z^1}+v^2\partial_{z^2})$ なら $\partial_{\bar z^1}v^1=1$ となる。しかし格子周期関数 $v^1$ の $x^1,y^1$ に関する平均では、左辺は零、右辺は1となり矛盾する。
+
+[トーラスの一次変形の記述](../../CYG/CYG1-12/index.md#prop-cyg1-12-torus-directions)を用いれば、任意の $H^1(X,T_X)$ の類がこのような定数係数代表を持つことも分かる。
 
 **結論**：この $X$ では $H^2(X,T_X)\ne0$ なのに、すべての一次類に定数係数の延長が存在する。障害類を収める**コホモロジー群**と、実際に障害写像が非零の値を取るかは別問題である。
 
-ただし「障害は常に零」を一般の複素多様体に移してはいけない。比較用の純代数模型として、次数1の基底 $e$、次数2の基底 $f$、$d=0$、$[e,e]=2f$、その他の括弧を零とする次数付きLie代数を考える。Jacobi恒等式は $f$ との括弧が零なので成立する。この模型では一次 $\phi_1=e$ の二次障害は $[f]\ne0$、$d\phi_2=-f$ は解けない。これは**複素多様体の具体例ではなく**、障害写像が非零であり得る仕組みを切り出した模型である。
+ただし「障害は常に零」を一般の複素多様体に移してはいけない。比較用の純代数模型として、次数1の基底を $e$、次数2の基底を $f$ とする。微分を $d=0$ と置き、括弧は次の式と、それ以外は零という規則で定める。
+
+$$
+[e,e]=2f.
+$$
+
+Jacobi恒等式は $f$ との括弧がすべて零なので成立する。この模型では一次係数を $\phi_1=e$ とすると二次障害は $[f]\ne0$ であり、$d\phi_2=-f$ を解けない。
+
+これは**複素多様体の具体例ではなく**、障害写像が非零であり得る仕組みを切り出した模型である。
 
 ## 5. 何を証明し、何を次章へ残したか
 
