@@ -1,0 +1,42 @@
+id: "DEF1-07"
+title: "Kuranishi構成II――解析的収束と有限次元基底"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-06
+  - GA2
+  - GA6
+  - CM1-07
+learning_objectives:
+  - Sobolev指数と接束値括弧の微分損失・Green作用素の正則性回復を検算できる
+  - 縮小写像と複素Banach空間の陰関数定理から固定点解の収束・正則依存を証明できる
+  - 有限次元正則障害写像と非被約構造を含む解析的基底を定義し接空間を計算できる
+  - 曲率のNeumann級数によって障害零点とMaurer–Cartan方程式の同値性を示せる
+  - 楕円型正則性・グラフ直和条件から滑らかな可積分複素構造を得て局所完全性と区別できる
+theorems:
+  - { id: DEF1-07-LEM-01, name: "Sobolev空間上のKuranishi双線形評価" }
+  - { id: DEF1-07-THM-01, name: "収束するKuranishi固定点解" }
+  - { id: DEF1-07-DEF-01, name: "解析的Kuranishi障害写像" }
+  - { id: DEF1-07-DEF-02, name: "有限次元Kuranishi解析的基底" }
+  - { id: DEF1-07-THM-02, name: "有限次元解析的零点集合と接空間" }
+  - { id: DEF1-07-THM-03, name: "収束障害の消滅とMaurer–Cartan可積分性" }
+  - { id: DEF1-07-LEM-02, name: "小さい可積分解の楕円型正則性" }
+  - { id: DEF1-07-THM-04, name: "障害零点上の小複素構造" }
+canonical_examples:
+  - 二次元平坦複素トーラスで障害空間は非零でも障害写像が零となる例
+  - 正則方程式z1z2とw二乗の被約・非被約解析空間模型
+  - 固定点級数の優級数と収束半径の見積もり
+problem_patterns:
+  - DEF1-07-DERIVATIVE-LOSS
+  - DEF1-07-CONTRACTION
+  - DEF1-07-TAYLOR
+  - DEF1-07-TANGENT
+  - DEF1-07-MAJORANT
+  - DEF1-07-BIANCHI-NORM
+  - DEF1-07-NONREDUCED
+  - DEF1-07-TORUS
+  - DEF1-07-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 5 }
