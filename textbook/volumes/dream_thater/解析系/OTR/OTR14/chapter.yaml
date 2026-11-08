@@ -1,0 +1,41 @@
+id: "OTR14"
+title: "Gaussian分布間のW2はどう計算するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR13
+  - LA6
+official_scope: []
+learning_objectives:
+  - 正定値・半正定値共分散と多変量Gaussianの平方根表示を結び付け、平均と分散共分散行列を検算できる
+  - 正定値行列AとBについてMAM=Bを満たす対称正定値輸送行列を構成し、一意性を証明できる
+  - 任意の結合の二乗ノルム下界と等号条件から、Gaussian間の最適写像とW2公式を証明できる
+  - 非可換な二次元共分散行列で平方根・最適写像・W2を手計算できる
+  - 半正定値共分散への近似極限を説明し、退化により最適結合の一意性や写像の存在が失われる例を示せる
+  - 共分散下界と最適輸送の違いを説明し、Gaussian族への最適近似を計算できる
+definitions:
+  - { id: OTR14-DEF-01, name: 多変量Gaussian分布の平方根表示 }
+theorems:
+  - { id: OTR14-LEM-01, name: 正定値共分散を結ぶ対称輸送行列 }
+  - { id: OTR14-THM-01, name: 非退化Gaussian分布間の最適写像とWasserstein距離 }
+  - { id: OTR14-PROP-01, name: 半正定値共分散へのGaussian距離公式の拡張 }
+canonical_examples:
+  - 退化Gaussian分布の平方根表示と分散共分散行列の確認
+  - 非可換な正定値共分散行列の平方根と最適輸送費用の検算
+  - 直交する一次元支持上の退化Gaussianの非一意な最適結合
+  - 点質量から非退化GaussianへのMonge写像不存在
+problem_patterns:
+  - OTR14-A01
+  - OTR14-A02
+  - OTR14-A03
+  - OTR14-A04
+  - OTR14-A05
+  - OTR14-B01
+  - OTR14-B02
+  - OTR14-B03
+  - OTR14-B04
+  - OTR14-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 2.0 }
