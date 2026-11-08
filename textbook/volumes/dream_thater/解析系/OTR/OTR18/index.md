@@ -311,14 +311,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**第1段階：近似した軌道。** [平滑化補題](#lem-otr18-smoothing)で $(\mu_t^\varepsilon,b_t^\varepsilon)$ を作ります。$b^\varepsilon$ は $t$ について可測です。空間方向の局所 Lipschitz 性と時間可積分な定数も確認します。狭義連続な測度曲線はコンパクトな時間区間上で一様に緊密なので、ある $R>0$ を選べば $\mu_t(B_R)\ge1/2$ が全時刻で成立します。固定した $\varepsilon>0$ と空間球 $B_K$ について、Gaussian 核の正値性から
+**第1段階：近似した軌道。** [平滑化補題](#lem-otr18-smoothing)で $(\mu_t^\varepsilon,b_t^\varepsilon)$ を作ります。$b^\varepsilon$ は $t$ について可測です。空間方向の局所 Lipschitz 性と時間可積分な定数も確認します。
+
+狭義連続な測度曲線はコンパクトな時間区間上で一様に緊密なので、ある $R>0$ を選べば $\mu_t(B_R)\ge1/2$ が全時刻で成立します。固定した $\varepsilon>0$ と空間球 $B_K$ について、Gaussian 核の正値性から
 
 $$
 \rho_t^\varepsilon(x)\ge\frac12\min_{|z|\le K+R}q_\varepsilon(z)>0
 \qquad(x\in B_K)
 $$
 
-です。$q_\varepsilon$ とその空間導関数は有界なので、分子 $j^\varepsilon$ とその空間導関数は $C_\varepsilon\int|v_t|d\mu_t$ で抑えられます。商の微分公式に上の分母下界を入れると、$b_t^\varepsilon$ の $B_K$ 上の Lipschitz 定数も $C_{\varepsilon,K}\int|v_t|d\mu_t$ 以下です。この時間積分は Cauchy--Schwarz により $\sqrt{TE}$ 以下となります。従って局所的な Carathéodory の常微分方程式 $\dot\gamma=b_t^\varepsilon(\gamma)$ を解けます。
+です。$q_\varepsilon$ とその空間導関数は有界なので、分子 $j^\varepsilon$ とその空間導関数は $C_\varepsilon\int|v_t|d\mu_t$ で抑えられます。
+
+商の微分公式に上の分母下界を入れると、$b_t^\varepsilon$ の $B_K$ 上の Lipschitz 定数も $C_{\varepsilon,K}\int|v_t|d\mu_t$ 以下です。その時間積分は Cauchy--Schwarz により $\sqrt{TE}$ 以下となります。従って局所的な Carathéodory の常微分方程式 $\dot\gamma=b_t^\varepsilon(\gamma)$ を解けます。
 
 球 $B_R$ で軌道を停止し、滑らかな場の局所輸送方程式の一意性（流れに沿う連鎖律を逆向きの試験関数に適用する）で、退出前の軌道分布が $\mu_t^\varepsilon$ に支配されることを確かめます。初期点が $B_{R/2}$ にある軌道が $B_R$ を退出するには走行距離が $R/2$ 以上必要なので、停止までの速度積分に [Markovの不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用すると、退出確率は
 
@@ -521,7 +525,9 @@ $$
 \le\int_0^T|\mu'|(t)^2dt=:E_0.
 $$
 
-初期周辺は常に $\mu_0$、軌道エネルギーは一様に $E_0$ 以下です。[軌道表現の構成](#thm-otr18-superposition)の第2段階と同じ [Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)・[Prokhorovの定理](../OTR3/index.md#thm-otr3-prokhorov)・エネルギーの下半連続性をこの $\eta^n$ に適用すると、部分列は有限エネルギーの $\eta$ に狭義収束し、そのエネルギーは $E_0$ 以下です。[最適結合による折れ線近似の補題](#lem-otr18-polygonal)の一様な周辺収束から $(e_t)_\#\eta=\mu_t$ です。
+初期周辺は常に $\mu_0$、軌道エネルギーは一様に $E_0$ 以下です。[軌道表現の構成](#thm-otr18-superposition)の第2段階と同じ [Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)・[Prokhorovの定理](../OTR3/index.md#thm-otr3-prokhorov)・エネルギーの下半連続性をこの $\eta^n$ に適用します。
+
+その結果、有限エネルギーの $\eta$ に狭義収束する部分列が取れ、エネルギーは $E_0$ 以下です。[最適結合による折れ線近似の補題](#lem-otr18-polygonal)の一様な周辺収束から $(e_t)_\#\eta=\mu_t$ も成り立ちます。
 
 時間と位置の上にベクトル値測度 $J$ を次の作用で定めます。$\Phi$ は有界な Borel ベクトル値試験関数です。
 
@@ -536,7 +542,11 @@ $$
 \lambda(A)=\int\!\int_0^T\boldsymbol{1}_A(t,\gamma_t)\,dt\,d\eta(\gamma).
 $$
 
-したがって $\lambda(A)=0$ なら $J(A)=0$ であり、$J\ll\lambda$ です。また $|J|$ の総変動は Cauchy--Schwarz と有限軌道エネルギーから有限です。ベクトル値測度 $J$ の各成分に[符号付き測度の Radon--Nikodym 定理](../../MT/MT3/index.md#thm-mt3-rn-signed)を適用すると、$dJ=v\,d\lambda$ となる（Borel 版を取れる）場が存在します。これは、時刻・位置 $(t,x)$ が指定された下での軌道速度 $\dot\gamma_t$ の条件付き平均です。二乗ノルムの凸性（条件付き Jensen 不等式）により
+したがって $\lambda(A)=0$ なら $J(A)=0$ であり、$J\ll\lambda$ です。
+
+また $|J|$ の総変動は Cauchy--Schwarz と有限軌道エネルギーから有限です。ベクトル値測度 $J$ の各成分に[符号付き測度の Radon--Nikodym 定理](../../MT/MT3/index.md#thm-mt3-rn-signed)を適用すると、$dJ=v\,d\lambda$ となる Borel 可測な場が存在します。
+
+この $v(t,x)$ は、時刻・位置 $(t,x)$ が指定された下での軌道速度 $\dot\gamma_t$ の条件付き平均です。二乗ノルムの凸性（条件付き Jensen 不等式）により
 
 $$
 \int_0^T\int|v(t,x)|^2d\mu_t(x)dt
