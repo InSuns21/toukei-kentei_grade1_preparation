@@ -1,0 +1,76 @@
+chapter: OTR16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR15
+
+concepts:
+  - id: transport.displacement-lambda-convexity
+    name: Wasserstein測地線に沿うlambda凸性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Wasserstein測地線に沿うlambda凸性）"]
+    requires: [transport.displacement-geodesic]
+
+  - id: transport.potential-energy
+    name: 位置エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位置エネルギー）"]
+    requires: [transport.finite-p-moment]
+
+  - id: transport.potential-displacement-convexity
+    name: 位置エネルギーのlambda変位凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（位置エネルギーのlambda変位凸性）"]
+    requires: [transport.potential-energy, transport.displacement-lambda-convexity]
+
+  - id: transport.interaction-energy
+    name: 相互作用エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相互作用エネルギー）"]
+    requires: [transport.finite-p-moment]
+
+  - id: transport.interaction-displacement-convexity
+    name: 相互作用エネルギーの変位凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（相互作用エネルギーの変位凸性）"]
+    requires: [transport.interaction-energy, transport.displacement-lambda-convexity]
+
+  - id: transport.internal-energy
+    name: 内部エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内部エネルギー）"]
+    requires: [transport.finite-p-moment]
+
+  - id: transport.mccann-condition
+    name: McCannの変位凸性条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（McCannの変位凸性条件）"]
+    requires: [transport.internal-energy]
+
+  - id: transport.det-root-concavity
+    name: 正定値行列上の行列式冪の凹性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正定値行列上の行列式冪の凹性）"]
+    requires: [transport.mccann-condition]
+
+  - id: transport.internal-displacement-convexity
+    name: 滑らかな輸送に沿う内部エネルギーの変位凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな輸送に沿う内部エネルギーの変位凸性）"]
+    requires: [transport.internal-energy, transport.mccann-condition, transport.det-root-concavity, transport.displacement-geodesic]
+
+  - id: transport.entropy-power-displacement-convexity
+    name: 熱エントロピーと冪型内部エネルギー
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（熱エントロピーと冪型内部エネルギー）"]
+    requires: [transport.internal-displacement-convexity]

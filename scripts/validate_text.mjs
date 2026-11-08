@@ -21,7 +21,9 @@ for (const file of targets) {
   const control = [...source].findIndex((character) => character.charCodeAt(0) < 32 && !['\n', '\r'].includes(character));
   if (control >= 0) errors.push(`${relative(file)}: 制御文字があります`);
   for (const match of source.matchAll(/(\${1,2})([\s\S]*?)\1/g)) {
-    const bareCommand = /(?<![\\A-Za-z])(?:qquad|quad|ldots)(?![A-Za-z])|(?<!\\q)(?<!\\)(?:qquad|quad|ldots)(?=\s*[([{])/.exec(match[2]);
+    // \mathrm{quad} 等は文字列としての識別子であり、裸の TeX コマンドではない。
+    // バックスラッシュ直前だけでなく、標準的な文字指定マクロの波括弧内も除外する。
+    const bareCommand = /(?<!\\mathrm\{)(?<!\\text\{)(?<!\\operatorname\{)(?<![\\A-Za-z])(?:qquad|quad|ldots)(?![A-Za-z])|(?<!\\q)(?<!\\)(?:qquad|quad|ldots)(?=\s*[([{])/.exec(match[2]);
     if (!bareCommand) continue;
     const offset = (match.index ?? 0) + match[1].length + bareCommand.index;
     const line = source.slice(0, offset).split('\n').length;
