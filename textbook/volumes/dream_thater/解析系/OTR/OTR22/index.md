@@ -346,9 +346,17 @@ $$
 
 平方完成の二行目は $c|x-y/c|^2=c|x|^2-2x\cdot y+|y|^2/c$ と展開して確認でき、余る $|y|^2$ の係数は $(1-1/c)/(2\tau)=\lambda/(2c)$ です。
 
-$\pi_*=(S_\tau,\operatorname{id})_{\#}\nu$ で $\mu_*=(S_\tau)_{\#}\nu$ とします。$S_\tau$ は連続で、$\int|S_\tau(y)|^2d\nu(y)=M_2(\nu)/c^2<\infty$ なので、$\mu_*$ は $\mathcal P_2$ に属する許容候補です。この結合では平方項がゼロです。従って $\pi_*$ に沿う移動費用を使った目的関数の上界は下界と一致し、$\mu_*$ は最小化解です。別の最小化解があればその最適結合の平方項もゼロなので $x=S_\tau(y)$ がほとんど至る所で成立し、第一周辺は同じ $\mu_*$ です。
+$\pi_*=(S_\tau,\operatorname{id})_{\#}\nu$ で $\mu_*=(S_\tau)_{\#}\nu$ とします。$S_\tau$ は連続で、押し出しの積分公式から
 
-質量を押し出しで計算すると $\int|x|^2\,d\mu_*=M_2(\nu)/c^2$ です。また、上の等号成立から $\pi_*$ は二次費用でも最適でなければなりません（もしそれより安い結合があれば目的関数が下界未満になるため）。従って
+$$
+\int|x|^2\,d\mu_*(x)
+=\int|S_\tau(y)|^2\,d\nu(y)
+=\frac{M_2(\nu)}{c^2}<\infty.
+$$
+
+従って $\mu_*$ は $\mathcal P_2$ に属する許容候補です。この結合では平方項がゼロなので、$\pi_*$ に沿う費用を使った目的関数の上界は下界と一致し、$\mu_*$ は最小化解です。別の最小化解があればその最適結合の平方項もゼロなので、$x=S_\tau(y)$ がほとんど至る所で成立し、第一周辺は同じ $\mu_*$ です。
+
+また、上の等号成立から $\pi_*$ は二次費用でも最適でなければなりません（もしそれより安い結合があれば目的関数が下界未満になるため）。従って
 
 $$
 W_2^2(\mu_*,\nu)=\int|S_\tau(y)-y|^2\,d\nu(y)
@@ -433,7 +441,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\mu\ll\gamma$ で $h=d\mu/d\gamma$ とします。$D$ が有限の場合、$\gamma_\varphi=e^\varphi\gamma/Z_\varphi$（$Z_\varphi=\int e^\varphi d\gamma$）は確率測度です。ここで $\varphi$ は有界なので $0<Z_\varphi<\infty$ で、$\gamma_\varphi(A)=Z_\varphi^{-1}\int_A e^\varphi d\gamma$ という意味です。凸関数 $s\log s-s+1\ge0$ を $d\mu/d\gamma_\varphi$ に適用する[相対エントロピーの非負性](../OTR21/index.md#prop-otr21-gibbs)と同じ計算で
+まず $\mu\ll\gamma$ で $h=d\mu/d\gamma$ とし、$D$ が有限とします。有界な $\varphi$ に対して
+
+$$
+Z_\varphi=\int e^\varphi\,d\gamma,\qquad
+\gamma_\varphi(A)=\frac1{Z_\varphi}\int_A e^\varphi\,d\gamma
+$$
+
+と置きます。有界性と $\gamma$ の全質量が $1$ であることから $0<Z_\varphi<\infty$ であり、$\gamma_\varphi$ は確率測度です。凸関数 $s\log s-s+1\ge0$ を $d\mu/d\gamma_\varphi$ に適用する[相対エントロピーの非負性](../OTR21/index.md#prop-otr21-gibbs)と同じ計算で
 
 $$
 0\le D(\mu\Vert\gamma_\varphi)
@@ -472,7 +487,9 @@ $$
 
 もそれぞれ $\int\psi_R\,d\mu$ と $\int e^{\psi_R}d\gamma$ に近づきます。従って連続関数の上限は $\int\psi_R d\mu-\log\int e^{\psi_R}d\gamma$ 以上となり、$R\to\infty$ で $D$ に達します。
 
-次に $\mu\not\ll\gamma$ なら、$\gamma(A)=0$、$\mu(A)>0$ となるBorel集合 $A$ があります。内側正則性からコンパクト $K\subset A$ を選んで $\mu(K)=a>0$ とできます。各 $M>0$ に対して外側正則性により $\gamma(U)<e^{-2M}$ となる開集合 $U\supset K$ を取り、$K$ 上で $M$、$U$ の外で $0$、その間で $[0,M]$ の値を取る連続関数 $\varphi_M$ を作ります。すると
+次に $\mu\not\ll\gamma$ なら、$\gamma(A)=0$、$\mu(A)>0$ となるBorel集合 $A$ があります。内側正則性からコンパクト集合 $K\subset A$ を選び、$\mu(K)=a>0$ とできます。
+
+各 $M>0$ に対して外側正則性により $\gamma(U)<e^{-2M}$ となる開集合 $U\supset K$ を取ります。$K$ 上で $M$、$U$ の外で $0$、その間で $[0,M]$ の値を取る連続関数 $\varphi_M$ を作ると
 
 $$
 \int\varphi_M d\mu\ge Ma,\qquad
