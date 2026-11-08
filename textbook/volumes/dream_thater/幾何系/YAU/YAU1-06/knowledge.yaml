@@ -1,0 +1,35 @@
+chapter: YAU1-06
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-05, GA5]
+concepts:
+  - id: yau.kahler-laplacian-lower-bound
+    name: 許容ポテンシャルの一様Laplacian下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（許容ポテンシャルの一様Laplacian下界）"]
+    requires: [yau.positive-potential-domain, yau.monge-ampere-linearization]
+  - id: yau.mean-zero-green-kernel
+    name: 平均ゼロGreen核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均ゼロGreen核）"]
+    requires: [geometric-analysis.manifold-heat-kernel, geometric-analysis.heat-kernel-positivity, geometric-analysis.heat-longtime]
+  - id: yau.green-kernel-representation
+    name: Green核の構成・下界・再現公式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Green核の構成・下界・再現公式）"]
+    requires: [yau.mean-zero-green-kernel, geometric-analysis.heat-longtime, geometric-analysis.heat-semigroup-properties]
+  - id: yau.kahler-potential-upper-l1
+    name: 許容Kählerポテンシャルの上限・L1評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（許容Kählerポテンシャルの上限・$L^1$ 評価）"]
+    requires: [yau.kahler-laplacian-lower-bound, yau.green-kernel-representation, yau.mean-zero-potential-gauge]
+  - id: yau.sup-gauge-l1
+    name: 上限ゼロ規格化との橋渡し
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（上限ゼロ規格化との橋渡し）"]
+    requires: [yau.kahler-potential-upper-l1, yau.mean-zero-potential-gauge]
