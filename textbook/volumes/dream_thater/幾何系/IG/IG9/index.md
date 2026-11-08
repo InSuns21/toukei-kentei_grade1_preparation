@@ -8,7 +8,18 @@
 
 本講で使う設定を固定します。$U\subset\mathbb R^d$ は空でない開凸集合、$\psi\in C^4(U)$ は各点で正定値な Hessian を持つ関数です。
 
-$\theta=(\theta^1,\ldots,\theta^d)$ を $U$ の座標とし、$\eta_i=\partial_i\psi(\theta)$ と置きます。内積の点は $\theta\cdot\eta=\sum_i\theta^i\eta_i$ を表します。
+$\theta=(\theta^1,\ldots,\theta^d)$ を $U$ の座標とし、$\eta_i=\partial_i\psi(\theta)$ と置きます。ここで $\partial_i=\partial/\partial\theta^i$ は他の $\theta$ 成分を固定する偏微分、$\nabla_\theta\psi=(\partial_i\psi)_i$ はその成分を並べた勾配です。内積の点は $\theta\cdot\eta=\sum_i\theta^i\eta_i$ を表します。
+
+同じ $\nabla$ の字でも、$\nabla_\theta\psi$ は関数の勾配です。一方、後の $(U,g,\nabla,\nabla^*)$ に含まれる $\nabla$ は[IG8 の双対平坦構造](../IG8/index.md#thm-ig8-hessian-dual-flat)で使うアファイン接続で、接ベクトル場に作用します。
+
+また、$\theta$ 座標で計量 $g$ を表す Hessian 行列を $G=(g_{ij})$ と書きます。$\partial_i$ を座標接ベクトルとして $v=\sum_i v^i\partial_i$ と置くと、
+
+$$
+g_{ij}=\partial_i\partial_j\psi,\qquad
+g(v,v)=\sum_{i,j}g_{ij}v^iv^j=v^\mathsf TGv.
+$$
+
+従って行列 $G$ の正定値性は、元の計量の条件 $g(v,v)>0$（$v\ne0$）そのものを座標で判定しています。
 
 [IG5 の Legendre 双対](../IG5/index.md#thm-ig5-legendre-hessian)と[IG8 の Hessian 双対平坦性](../IG8/index.md#thm-ig8-hessian-dual-flat)により、$\eta$ は開集合 $V=\eta(U)$ への一対一の滑らかな座標で、双対ポテンシャル
 
@@ -87,7 +98,7 @@ $$
 \end{aligned}
 $$
 
-$C^2$ 凸関数の Hessian は半正定値なので被積分項は非負です。正定値なら $v\ne0$ に対して $f''(t)>0$ で、積分は正です。
+$C^2$ 凸関数の Hessian が半正定値であることも、この線分上で確認できます。凸性から内部の $t$ と十分小さい $h>0$ に対し $f(t+h)+f(t-h)-2f(t)\ge0$ です。これを $h^2$ で割って $h\to0$ とすれば $f''(t)=v^\mathsf T\nabla^2\psi(y+tv)v\ge0$ となり、積分の被積分項は非負です。正定値なら $v\ne0$ に対して $f''(t)>0$ で、積分は正です。
 
 一般に微分可能な厳密凸関数についても、$x\ne y$ なら接平面の等号は成立しません。実際、もし $\psi(x)=\psi(y)+\nabla\psi(y)\cdot(x-y)$ なら、凸性から任意の $0<t<1$ に対し
 
@@ -135,7 +146,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig9-canonical -->
-**定義の確認**（重み付き二次ポテンシャル）。$U=\mathbb R^2$ とし、$\psi(\theta)=((\theta^1)^2+4(\theta^2)^2)/2$ とします。$g=\operatorname{diag}(1,4)$ は正定値で、$U$ は開凸です。$\eta=(\theta^1,4\theta^2)$ は逆写像 $\theta=(\eta_1,\eta_2/4)$ を持ち、[IG8 の定理](../IG8/index.md#thm-ig8-hessian-dual-flat)の双対平坦条件が成立します。$\varphi(\eta)=(\eta_1^2+\eta_2^2/4)/2$ なので
+**定義の確認**（重み付き二次ポテンシャル）。$U=\mathbb R^2$ とし、$\psi(\theta)=((\theta^1)^2+4(\theta^2)^2)/2$ とします。$U$ は開凸です。先に述べた Hessian 表示を実際に微分すると
+
+$$
+G=(\partial_i\partial_j\psi)_{i,j=1}^2
+=\begin{pmatrix}1&0\\0&4\end{pmatrix},\qquad
+v^\mathsf TGv=(v^1)^2+4(v^2)^2>0\quad(v\ne0).
+$$
+
+従って $G$ は計量 $g$ の正定値な成分行列です。また $\eta_1=\partial_1\psi=\theta^1$、$\eta_2=\partial_2\psi=4\theta^2$ なので、$\eta$ は逆写像 $\theta=(\eta_1,\eta_2/4)$ を持ちます。これで [IG8 の Hessian 双対平坦性定理](../IG8/index.md#thm-ig8-hessian-dual-flat)の領域・滑らかさ・正定値性の仮定を確認できました。[IG5 の Legendre 双対の定義](../IG5/index.md#def-ig5-legendre-dual)へ $\theta(\eta)$ を代入すると
+
+$$
+\varphi(\eta)=\theta(\eta)\cdot\eta-\psi(\theta(\eta))
+=\frac{\eta_1^2+\eta_2^2/4}{2}.
+$$
+
+これらを正準 divergence の定義へ代入すると
 
 $$
 \begin{aligned}
@@ -628,7 +654,7 @@ $U=(0,\infty)$、$\psi(t)=t\log t$ とする。$y>0$ を固定し、十分小さ
 <!-- solution-start -->
 **詳細解答**
 
-$\psi'(t)=1+\log t$、$\psi''(t)=1/t$、$\psi'''(t)=-1/t^2$ です。$|h|<y/2$ とすれば両点が $U$ に入ります。$C^\infty$ なので Taylor 展開から
+$\psi'(t)=1+\log t$、$\psi''(t)=1/t$、$\psi'''(t)=-1/t^2$ です。$|h|<y/2$ とすれば両点が $U$ に入ります。$C^\infty$ なので、展開点 $y$、増分 $h$ での [Taylor の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)から
 
 $$
 \begin{aligned}
