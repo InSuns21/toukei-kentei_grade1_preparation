@@ -12,7 +12,7 @@ chapters:
     title: "変形族からKodaira–Spencer写像をどう作るか"
   - id: DEF1-02
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-02
-    status: planned
+    status: completed
     title: "Beltrami微分と接束値形式"
   - id: DEF1-03
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-03
