@@ -19,7 +19,15 @@ $$
 \qquad G=(g_{j\bar k})>0
 $$
 
-と書く。$\varphi_{j\bar k}=\partial_j\partial_{\bar k}\varphi$ は $\varphi$ の複素混合二階微分で、実関数の混合微分の交換と共役から $\overline{\varphi_{j\bar k}}=\varphi_{k\bar j}$ となり、$\Phi=(\varphi_{j\bar k})$ はHermite行列である。ここで $v=\sum_jv^j\partial_j$ を $(1,0)$ 接ベクトルとする。[正の実 $(1,1)$ 形式](../../KAH/KAH1-02/index.md#def-kah1-02-positive-form)の定義は、評価値に $-i$ を掛けて得る実数の正値性を要求する。その評価を、既習の[正の基本形式とHermite行列](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)を使って成分表示すると
+と書く。$\varphi_{j\bar k}=\partial_j\partial_{\bar k}\varphi$ は実関数 $\varphi$ の複素混合二階微分を表す。混合微分の交換と複素共役から
+
+$$
+\overline{\varphi_{j\bar k}}=\varphi_{k\bar j}
+$$
+
+が成り立つので、$\Phi=(\varphi_{j\bar k})$ はHermite行列である。
+
+ここで $v=\sum_jv^j\partial_j$ を $(1,0)$ 接ベクトルとする。[正の実 $(1,1)$ 形式](../../KAH/KAH1-02/index.md#def-kah1-02-positive-form)の定義は、評価値に $-i$ を掛けて得る実数の正値性を要求する。この評価を、既習の[正の基本形式とHermite行列](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)によって成分表示すると
 
 $$
 -i\,\omega_\varphi(v,\bar v)
@@ -212,7 +220,23 @@ $$
 
 方程式を解くためには、許容な $\varphi$ のまわりで小さな実関数 $\psi$ を足したとき、$\mathcal M_\omega$ がどれだけ動くかを知りたい。正値領域が開いているので、固定した $\varphi,\psi$ に対し十分小さな $|t|$ では $\varphi+t\psi$ は許容のままである。
 
-ここで $t$ は実パラメータ、$\psi_{j\bar k}=\partial_j\partial_{\bar k}\psi$ とし、$G_\varphi=(g_{j\bar k}+\varphi_{j\bar k})$ と置く。縮約に使う逆係数 $g_\varphi^{j\bar k}$ は $\sum_k g_\varphi^{j\bar k}(g_\varphi)_{\ell\bar k}=\delta^j_\ell$ で定める。添字を通常の行列の行・列へ並べると $(g_\varphi^{j\bar k})=(G_\varphi^{-1})^{\mathsf T}$ であり、$\sum_{j,k}g_\varphi^{j\bar k}\psi_{j\bar k}=\operatorname{tr}(G_\varphi^{-1}\Psi)$（$\Psi=(\psi_{j\bar k})$）となる。**複素Laplacian** はこの縮約であるが、[前章で定めた実Laplacian](../YAU1-02/index.md#prop-yau1-02-real-potential)は $\Delta_{\omega_\varphi}=2\sum g_\varphi^{j\bar k}\partial_j\partial_{\bar k}$ である。両者の係数2を混同しない。
+ここで $t$ は実パラメータ、$\psi_{j\bar k}=\partial_j\partial_{\bar k}\psi$ とする。また $G_\varphi=(g_{j\bar k}+\varphi_{j\bar k})$、$\Psi=(\psi_{j\bar k})$ と置く。
+
+縮約に使う逆係数 $g_\varphi^{j\bar k}$ は、次の添字規約で定める。
+
+$$
+\sum_k g_\varphi^{j\bar k}(g_\varphi)_{\ell\bar k}=\delta^j_\ell,
+\qquad (g_\varphi^{j\bar k})=(G_\varphi^{-1})^{\mathsf T}.
+$$
+
+後者は通常の行列の行・列へ並べた表式である。従って複素二階微分の縮約は、行列の跡に等しい。
+
+$$
+\sum_{j,k}g_\varphi^{j\bar k}\psi_{j\bar k}
+=\operatorname{tr}(G_\varphi^{-1}\Psi).
+$$
+
+**複素Laplacian** はこの縮約である。一方、[前章で定めた実Laplacian](../YAU1-02/index.md#prop-yau1-02-real-potential)は $\Delta_{\omega_\varphi}=2\sum g_\varphi^{j\bar k}\partial_j\partial_{\bar k}$ である。両者の係数2を混同しない。
 
 <a id="prop-yau1-03-linearization"></a>
 
