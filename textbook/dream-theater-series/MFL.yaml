@@ -92,7 +92,7 @@ chapters:
     title: "near-manifold・stratified data・横断実験"
   - id: MFL22
     path: textbook/volumes/dream_thater/応用系/MFL/MFL22
-    status: planned
+    status: completed
     title: "幾何的帰納バイアスと不変/等変"
   - id: MFL23
     path: textbook/volumes/dream_thater/応用系/MFL/MFL23
