@@ -289,7 +289,7 @@ $$
 \qquad(\forall\phi\in C_c^\infty(\mathbb R^d)).
 $$
 
-> もし $p=\nabla\psi$ と書け、必要な微分・部分積分が正当化されるなら、この等式は分布の意味で $-\nabla\cdot(\rho\nabla\psi)=-\nabla\cdot(\rho v)$ に等しい。$\psi$ は加法定数までしか決まらず、一般には $p$ だけが一意である。
+> もし $p=\nabla\psi$ と書け、必要な微分・部分積分が正当化されるなら、この等式は分布の意味で $-\nabla\cdot(\rho\nabla\psi)=-\nabla\cdot(\rho v)$ に等しい。$\psi$ には少なくとも加法定数の不定性があり、$\rho$ の零点や支持の非連結性によりそれ以上の不定性もあり得る。一般には $p$ の $L^2(\mu)$ 同値類だけが一意である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
