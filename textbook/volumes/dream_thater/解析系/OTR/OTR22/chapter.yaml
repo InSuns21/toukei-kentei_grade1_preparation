@@ -1,0 +1,45 @@
+id: "OTR22"
+title: "勾配流を変分最小化で離散化できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR21
+  - INFO2
+official_scope: []
+learning_objectives:
+  - JKOの一歩をエネルギーとW2二乗移動罰則から定義し時間刻み係数の意味を説明できる
+  - 狭義下半連続性と下界の仮定から二次モーメント評価・tightness・極限の存在を経て最小化解の存在を証明できる
+  - 一歩の競争相手として前状態を選び離散エネルギー不等式と総移動距離の評価を導ける
+  - 二次位置エネルギーの一歩を任意の初期確率測度について平方完成で一意に解ける
+  - Gaussian基準の相対エントロピーの下半連続性を使い外場付き自由エネルギーで一歩の存在を示せる
+  - 非一意性と下半連続性が破綻した最小値非達成の反例を説明できる
+definitions:
+  - { id: OTR22-DEF-01, name: JKOの一歩と反復 }
+theorems:
+  - { id: OTR22-LEM-01, name: 二次Wasserstein費用の狭義下半連続性 }
+  - { id: OTR22-THM-01, name: JKOの一歩の存在 }
+  - { id: OTR22-PROP-01, name: JKOの離散エネルギー不等式 }
+  - { id: OTR22-PROP-02, name: 有限時間内の移動距離の評価 }
+  - { id: OTR22-PROP-03, name: 二次位置エネルギーのJKO一歩 }
+  - { id: OTR22-LEM-02, name: 相対エントロピーの狭義下半連続性 }
+canonical_examples:
+  - 原子測度での一歩の直接最小化と時間刻み係数
+  - 任意の初期測度に対する二次外場の縮小写像
+  - Gaussian相対エントロピーの下界と狭義下半連続性
+  - quartic二重井戸による非一意性
+  - 下半連続性の欠落による最小値非達成
+problem_patterns:
+  - OTR22-A01
+  - OTR22-A02
+  - OTR22-A03
+  - OTR22-A04
+  - OTR22-A05
+  - OTR22-B01
+  - OTR22-B02
+  - OTR22-B03
+  - OTR22-B04
+  - OTR22-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 3.0 }

@@ -27,7 +27,7 @@ chapters:
   - { id: OTR19, path: textbook/volumes/dream_thater/解析系/OTR/OTR19, status: completed, title: "静的最適輸送と流体作用は等価か" }
   - { id: OTR20, path: textbook/volumes/dream_thater/解析系/OTR/OTR20, status: completed, title: "Otto計算の接ベクトルとは" }
   - { id: OTR21, path: textbook/volumes/dream_thater/解析系/OTR/OTR21, status: completed, title: "どのエネルギーがどのPDEを生むか" }
-  - { id: OTR22, path: textbook/volumes/dream_thater/解析系/OTR/OTR22, status: planned, title: "勾配流を変分最小化で離散化できるか" }
+  - { id: OTR22, path: textbook/volumes/dream_thater/解析系/OTR/OTR22, status: completed, title: "勾配流を変分最小化で離散化できるか" }
   - { id: OTR23, path: textbook/volumes/dream_thater/解析系/OTR/OTR23, status: planned, title: "JKOの一歩はPDEにどう近づくか" }
   - { id: OTR24, path: textbook/volumes/dream_thater/解析系/OTR/OTR24, status: planned, title: "時間刻みをゼロにすると何が得られるか" }
   - { id: OTR25, path: textbook/volumes/dream_thater/解析系/OTR/OTR25, status: planned, title: "離散OTを安定して近似するには" }
