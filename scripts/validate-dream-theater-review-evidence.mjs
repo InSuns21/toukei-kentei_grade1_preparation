@@ -34,12 +34,28 @@ function stableInventory(source) {
 // Intentionally conservative: a new chapter, changed formula, text, link,
 // heading, anchor, exercise ID or code cannot qualify as A automatically.
 // Collapse only Markdown quotation/list/emphasis and insignificant blank lines.
+// Solution-fold delimiters affect display but not the text or formulas.
+function balancedSolutionMarkers(source) {
+  let inside = false;
+  for (const match of source.matchAll(/^<!-- solution-(start|end) -->[ \t]*$/gm)) {
+    if (match[1] === 'start') {
+      if (inside) return false;
+      inside = true;
+    } else {
+      if (!inside) return false;
+      inside = false;
+    }
+  }
+  return !inside;
+}
+
 function presentationSignature(source) {
   let fenced = false;
   return source.replace(/\r\n/g, '\n').split('\n').map(line => {
     let s = line.replace(/^\s*(?:>\s*)+/, '').trim();
     if (/^(```|~~~)/.test(s)) { fenced = !fenced; return 'FENCE:' + s; }
     if (fenced) return 'CODE:' + line;
+    if (/^<!-- solution-(?:start|end) -->$/.test(s)) return '';
     if (/^\d+[.)]\s+/.test(s)) s = s.replace(/^\d+[.)]\s+/, 'ITEM:');
     else if (/^[-*+]\s+/.test(s)) s = s.replace(/^[-*+]\s+/, 'ITEM:');
     else if (/^\*\*[（(][A-Za-z]{0,2}\d+[）)]/.test(s))
@@ -53,6 +69,7 @@ function presentationSignature(source) {
 }
 function isVerifiedFormatOnly(before, after) {
   if (before === null || before === after) return before !== null;
+  if (!balancedSolutionMarkers(before) || !balancedSolutionMarkers(after)) return false;
   if (JSON.stringify(stableInventory(before)) !== JSON.stringify(stableInventory(after))) return false;
   return presentationSignature(before) === presentationSignature(after);
 }
@@ -114,6 +131,13 @@ function selfTest() {
   assert(!isVerifiedFormatOnly('a**b', 'ab'), 'non-Markdown exponent-like syntax must not qualify');
   assert(!isVerifiedFormatOnly('a__b', 'ab'), 'non-Markdown underscore identifiers must not qualify');
   assert(isVerifiedFormatOnly('  元の本文  \n\n定義', '元の本文\n定義'), 'spaces and blank lines should qualify');
+  const exercise = '### A1 問題\n\n**詳細解答**。計算結果';
+  const folded = exercise.replace('**詳細解答**', '<!-- solution-start -->\n**詳細解答**')
+    + '\n<!-- solution-end -->';
+  assert(isVerifiedFormatOnly(exercise, folded), 'balanced solution folding markers should qualify');
+  assert(!isVerifiedFormatOnly(exercise, folded.replace('計算結果', '別の結果')), 'text changes must still fail');
+  assert(!isVerifiedFormatOnly(exercise, folded.replace('<!-- solution-end -->', '<!-- solution-start -->')), 'unbalanced solution markers must fail');
+  assert(!isVerifiedFormatOnly(exercise, folded + '\n<!-- unrelated -->'), 'other comments are not exempt');
   const substantive = '章のすべての主要証明と演習・詳細解答を出発点から検算。代表定理では双線形性を使い、各項の係数を展開して一致を確認した。代表演習は端点を代入し、境界条件を確認した。別観点で読み直し、未解消の問題はない。';
   assert.deepEqual(checkChapter('T1', {mode:'substantive', text:substantive}), []);
   assert.deepEqual(checkChapter('T1', {mode:'local-math', text:'変更した証明を最初から検算し、その定理を使う二つの演習解答も確認した。読者向けの途中式とリンクを確認し、未解決の問題はない。'}), []);
