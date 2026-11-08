@@ -12,7 +12,7 @@ $$
 \Delta_{n-1}^{\circ}=\{p=(p_1,\ldots,p_n):p_i>0,\ \sum_{i=1}^{n}p_i=1\}
 $$
 
-と書きます。点 $p$ での接ベクトルは実数列 $u=(u_i)$ で $\sum_i u_i=0$ を満たすものです（$p+tu$ が小さな $|t|$ について正規化された確率分布となるため）。基本の [Fisher--Rao 計量](../IG2/index.md#def-ig2-fisher-rao-metric)は
+と書きます。点 $p$ での接ベクトルは [IG1 の単体接空間の定理](../IG1/index.md#thm-ig1-simplex-tangent)により、実数列 $u=(u_i)$ で $\sum_i u_i=0$ を満たすものです（$p+tu$ が小さな $|t|$ について正規化された確率分布となるため）。基本の [Fisher--Rao 計量](../IG2/index.md#def-ig2-fisher-rao-metric)は
 
 $$
 g^F_p(u,v)=\sum_{i=1}^n\frac{u_iv_i}{p_i}
@@ -51,14 +51,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig14-markov-kernel -->
-**定義の確認**。上の $K$ には非負成分しかなく、3列とも成分和が1です。$p_i>0$ なら $Kp$ の両成分も正、成分和は1です。さらに $u_1+u_2+u_3=0$ なら、$Ku=(u_1+u_2,u_3)$ の成分和も0です。したがって出力の確率単体とその接空間への写像になっています。逆に、入力が $(1,2)$ である場合を出力から区別できないため、元の分布を一意に復元できる写像ではありません。
+**定義の確認**。まず $t$ だけを動かし、$K,p,u$ を固定すると、行列積の線形性から
+
+$$
+K(p+tu)=Kp+tKu,\qquad
+\left.\frac{d}{dt}K(p+tu)\right|_{t=0}=Ku
+$$
+
+です。これは $Ku$ が出力の接ベクトルになる微分上の根拠です。
+
+上の $K$ には非負成分しかなく、3列とも成分和が1です。$p_i>0$ なら $Kp$ の両成分も正、成分和は1です。さらに $u_1+u_2+u_3=0$ なら、$Ku=(u_1+u_2,u_3)$ の成分和も0です。したがって出力の確率単体とその接空間への写像になっています。逆に、入力が $(1,2)$ である場合を出力から区別できないため、元の分布を一意に復元できる写像ではありません。
 <!-- definition-example-end -->
 
 確率行列 $K$ がある行で全成分0なら、その出力は決して観測されません。その行は取り除くことができ、以下では分母 $(Kp)_y$ が現れる場合、空の出力状態を除いて考えます。$p_i>0$ なら残ったすべての出力に $(Kp)_y>0$ が成り立ちます。
 
 ## 2. KL divergence は粗視化で増えない
 
-二つの入力分布 $p,q$ を同じ $K$ へ通すと、その区別は一般に難しくなります。対数比を入力ごとに平均する [KL divergence](../../../解析系/F0/F0-00P7A/index.md#def-f0-00p7a-kl)では、この直感が不等式になります。証明の道具は凸関数 $-\log t$ に対する Jensen の不等式です。
+二つの入力分布 $p,q$ を同じ $K$ へ通すと、その区別は一般に難しくなります。対数比を入力ごとに平均する [KL divergence](../../../解析系/F0/F0-00P7A/index.md#def-f0-00p7a-kl)では、この直感が不等式になります。証明の道具は [凸関数の定義](../../../応用系/OPT/OPT1/index.md#def-opt1-convex-function)を有限個の重みに繰り返して得る Jensen の不等式です。正の重み $w_i$ の和が1なら、凸関数 $\varphi$ について
+
+$$
+\varphi\left(\sum_iw_ix_i\right)\le\sum_iw_i\varphi(x_i)
+$$
+
+となります。ここでは $\varphi(x)=-\log x$（$x>0$）を使います。
 
 <a id="thm-ig14-data-processing"></a>
 
@@ -124,7 +139,7 @@ $$
 
 KL の二次近似は [IG3 の定理](../IG3/index.md#thm-ig3-kl-fisher-hessian)により Fisher 計量でした。したがってデータ処理不等式を小さな摂動に適用すれば計量の縮小を期待できます。ここではそれを直接証明し、等号条件も数式から読み取ります。
 
-ある $p$ において接方向 $u$ を動かすと、出力の変化は $Ku$ です。出力 $y$ に寄与する入力の相対変化 $u_i/p_i$ の重み付き平均が、出力の相対変化 $(Ku)_y/(Kp)_y$ になっています。
+ある $p$ において接方向 $u$ を動かすと、出力の変化は $Ku$ です。出力 $y$ に寄与する入力の相対変化 $u_i/p_i$ の重み付き平均が、出力の相対変化 $(Ku)_y/(Kp)_y$ になっています。[Riemann 計量の定義](../../GEO/GEO12/index.md#def-geo12-riemannian-metric)では、各点の接空間に正定値内積を与えます。ここでは状態数 $n$ ごとにその内積を $h^{(n)}_p(u,v)$ と記し、上付き $(n)$ は微分階数ではなく状態数を表します。
 
 <a id="def-ig14-information-monotonicity"></a>
 
@@ -210,7 +225,7 @@ $$
 
 ## 4. 情報単調な計量はなぜ Fisher だけか
 
-前節は「Fisher 計量は情報単調」であることを証明しました。さらに「どんな確率的粗視化でも縮む」を **すべての有限状態数にわたり、互いに整合する計量族へ要求**すると、驚くべきことに Fisher 計量の定数倍しか残りません。これが有限単体における Čencov の定理の内容です。
+前節は「Fisher 計量は情報単調」であることを証明しました。さらに「どんな確率的粗視化でも縮む」を **すべての有限状態数にわたり、互いに整合する計量族へ要求**すると、驚くべきことに Fisher 計量の定数倍しか残りません。これが有限単体における Čencov の定理の内容です。この特徴付けでは、計量の滑らかさを要求せず、各点での正定値性と分布に関する連続性だけを使います。
 
 鍵となるのは、入力状態を細かく分割するものの、分割前の状態を確実に復元できる写像です。たとえば
 
@@ -218,7 +233,7 @@ $$
 (p_1,p_2)\longmapsto(p_1/2,p_1/2,p_2)
 $$
 
-は、最初の二つを合算すれば元へ戻せます。細分化は見かけ上状態数を増やしますが、どの入力だったかについての情報は失いません。
+は、最初の二つを合算すれば元へ戻せます。細分化は見かけ上状態数を増やしますが、どの入力だったかについての情報は失いません。写像の合成を行列積で表すと、$R(Kp)=(RK)p$ です。したがって、$RK=I_n$ を確認すれば **すべての** 入力分布 $p$ と接方向 $u$ がそれぞれ $R(Kp)=p$、$R(Ku)=u$ と復元されます。$K$ が $m\times n$ なら復元側の $R$ は $n\times m$ です。
 
 <a id="def-ig14-congruent-embedding"></a>
 
@@ -372,7 +387,7 @@ $$
 D_f(p\Vert q)=\sum_iq_i f\!\left(\frac{p_i}{q_i}\right)
 $$
 
-です。$p,q$ は共に正で、$f$ は凸とします。KL は $f(t)=t\log t$ に対応します。$alpha$ によって形を変える具体例も用意します。
+です。$p,q$ は共に正で、$f$ は凸とします。KL は $f(t)=t\log t$ に対応します。$\alpha$ によって形を変える具体例も用意します。ここで $\alpha$ は divergence の種類を指定する実数の添字で、分布の成分番号 $i$ や、後で微小変位に使う実数 $t$ とは別です。
 
 <a id="def-ig14-alpha-divergence"></a>
 
@@ -462,7 +477,38 @@ f_\alpha(z)=\frac{1-z^\beta}{\beta(1-\beta)},
 \quad f_\alpha''(z)=z^{\beta-2}>0,\quad f_\alpha(1)=0.
 $$
 
-よって $D_\alpha=D_{f_\alpha}$ は情報単調、かつ $f_\alpha''(1)=1$ です。端点 $\beta\to1$ で $z^\beta=z[1+(\beta-1)\log z+o(|\beta-1|)]$、$\beta\to0$ で $z^\beta=1+\beta\log z+o(|\beta|)$ なので、線形項を除いてそれぞれ生成関数 $z\log z$、$-\log z$ に収束します。これらは $D_{\mathrm{KL}}(p\Vert q)$、$D_{\mathrm{KL}}(q\Vert p)$ を与え、ともに二階微分が1です。極限は有限個の正成分ごとに取れます。
+$z=p_i/q_i$ として $q_i z^\beta=p_i^\beta q_i^{1-\beta}$ を用いれば、
+
+$$
+\begin{aligned}
+D_{f_\alpha}(p\Vert q)
+&=\sum_iq_i\,\frac{1-(p_i/q_i)^\beta}{\beta(1-\beta)}\\
+&=\frac{1-\sum_i p_i^\beta q_i^{1-\beta}}{\beta(1-\beta)}
+=D_\alpha(p\Vert q)
+\end{aligned}
+$$
+
+です。よって $D_\alpha$ は情報単調、かつ $f_\alpha''(1)=1$ です。
+
+端点の引数順も有限和から確かめます。$\beta=1-\varepsilon$（$\varepsilon\downarrow0$）と置くと、$z^{1-\varepsilon}=z(1-\varepsilon\log z+o(\varepsilon))$ で、$\sum_iq_i z=\sum_i p_i=1$ だから
+
+$$
+\begin{aligned}
+1-\sum_iq_i z^{1-\varepsilon}
+&=\varepsilon\sum_i p_i\log\frac{p_i}{q_i}+o(\varepsilon),\\
+\beta(1-\beta)&=(1-\varepsilon)\varepsilon.
+\end{aligned}
+$$
+
+したがって $\alpha\to1$ で $D_\alpha(p\Vert q)\to D_{\mathrm{KL}}(p\Vert q)$ です。逆に $\beta=\varepsilon\downarrow0$ では $z^\varepsilon=1+\varepsilon\log z+o(\varepsilon)$ と $\sum_iq_i=1$ より
+
+$$
+\frac{1-\sum_iq_i z^\varepsilon}{\varepsilon(1-\varepsilon)}
+=-\sum_iq_i\log\frac{p_i}{q_i}+o(1)
+\longrightarrow D_{\mathrm{KL}}(q\Vert p).
+$$
+
+これは $\alpha\to-1$ に対応します。各 $p_i,q_i>0$ で状態数が有限なので、各項の展開を足して極限を取れます。端点の生成関数 $z\log z$ と $-\log z$ も、ともに二階微分が $z=1$ で1です。
 <!-- proof-end -->
 
 ここから分かるのは、「KL と α-divergence が同じ値を取る」ことではありません。**同じ局所 Fisher 計量を共有していても、離れた二分布を比較する値や非対称性は異なる**ということです。Čencov の一意性と、多様な情報単調 divergence の存在は矛盾しません。
@@ -545,7 +591,7 @@ R=\begin{pmatrix}1&1&0\\0&0&1\end{pmatrix},\qquad
 RK=\begin{pmatrix}1/3+2/3&0\\0&1\end{pmatrix}=I_2.
 $$
 
-$R$ も列和1で非負です。$Kp=(2/15,4/15,3/5)$ は正、和は $2/15+4/15+9/15=1$ です。よって [復元可能な確率埋め込み](#def-ig14-congruent-embedding)です。
+$R$ も列和1で非負です。任意の正の入力 $p=(p_1,p_2)$ に対して $Kp=(p_1/3,2p_1/3,p_2)$ の全成分は正で、和は $p_1+p_2=1$ です。指定された $p=(2/5,3/5)$ では $Kp=(2/15,4/15,3/5)$、和は $2/15+4/15+9/15=1$ となります。よって [復元可能な確率埋め込み](#def-ig14-congruent-embedding)の全称条件まで確認できました。
 <!-- solution-end -->
 
 ### IG14-A05 α-divergence の規約
@@ -567,7 +613,7 @@ $$
 D_0(p\Vert q)=4\left(1-\frac{\sqrt3}{2}\right)=4-2\sqrt3.
 $$
 
-[本講の α-divergence の定義](#def-ig14-alpha-divergence)では $D_1(p\Vert q)=D_{\mathrm{KL}}(p\Vert q)$、$D_{-1}(p\Vert q)=D_{\mathrm{KL}}(q\Vert p)$ です。$α$ の符号と KL の向きは定義で固定した通りです。
+[本講の α-divergence の定義](#def-ig14-alpha-divergence)では $D_1(p\Vert q)=D_{\mathrm{KL}}(p\Vert q)$、$D_{-1}(p\Vert q)=D_{\mathrm{KL}}(q\Vert p)$ です。$\alpha$ の符号と KL の向きは定義で固定した通りです。
 <!-- solution-end -->
 
 ### IG14-B01 非可逆な粗視化で KL が保存される条件
