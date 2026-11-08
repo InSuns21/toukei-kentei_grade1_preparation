@@ -124,7 +124,7 @@ chapters:
     title: "集合・点群の置換対称性"
   - id: MFL30
     path: textbook/volumes/dream_thater/応用系/MFL/MFL30
-    status: planned
+    status: completed
     title: "Graph message passing"
   - id: MFL31
     path: textbook/volumes/dream_thater/応用系/MFL/MFL31
