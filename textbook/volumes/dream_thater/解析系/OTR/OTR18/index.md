@@ -374,7 +374,7 @@ $$
 \int_0^{T-h}\left|\frac{\gamma_{t+h}-\gamma_t}{h}\right|^2dt\le S(\gamma).
 $$
 
-絶対連続性から $\dot\gamma_t$ はほとんど至る所で存在し、$h\downarrow0$ で差商がそれへ収束します。Fatou の不等式により $\int_0^T|\dot\gamma_t|^2dt\le S(\gamma)$ です。既に示した逆向きの評価と合わせて等号となります。従って、分割量の上限は有限なら通常の軌道エネルギーに一致し、それ以外の連続軌道では $+\infty$ です。各有限和は軌道の一様収束に関して連続ですから、その上限であるエネルギーは下半連続です。[下半連続費用のliminf不等式](../OTR3/index.md#lem-otr3-lsc-integral)を軌道空間で適用し、極限の $\eta$ も有限エネルギーを持つことが分かります。
+絶対連続性から $\dot\gamma_t$ はほとんど至る所で存在し、$h\downarrow0$ で差商がそれへ収束します。[Fatou の補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)を非負の差商二乗に適用すると $\int_0^T|\dot\gamma_t|^2dt\le S(\gamma)$ です。既に示した逆向きの評価と合わせて等号となります。従って、分割量の上限は有限なら通常の軌道エネルギーに一致し、それ以外の連続軌道では $+\infty$ です。各有限和は軌道の一様収束に関して連続ですから、その上限であるエネルギーは下半連続です。[下半連続費用のliminf不等式](../OTR3/index.md#lem-otr3-lsc-integral)を軌道空間で適用し、極限の $\eta$ も有限エネルギーを持つことが分かります。
 
 評価写像 $e_t$ は連続で、$W_2(\mu_t^\varepsilon,\mu_t)\le\sqrt d\varepsilon$ だから、任意の $t$ で $(e_t)_\#\eta=\mu_t$ です。
 
@@ -544,7 +544,7 @@ $$
 
 したがって $\lambda(A)=0$ なら $J(A)=0$ であり、$J\ll\lambda$ です。
 
-また $|J|$ の総変動は Cauchy--Schwarz と有限軌道エネルギーから有限です。ベクトル値測度 $J$ の各成分に[符号付き測度の Radon--Nikodym 定理](../../MT/MT3/index.md#thm-mt3-rn-signed)を適用すると、$dJ=v\,d\lambda$ となる Borel 可測な場が存在します。
+また $|J|$ の総変動は Cauchy--Schwarz と有限軌道エネルギーから有限です。各成分 $J_i$ の Jordan 正負部分はともに $\lambda$ に絶対連続なので、それぞれに[Radon--Nikodym 定理](../../F0/F0-00P2/index.md#thm-f0-00p2-radon-nikodym)を適用して密度の差を取ります（[符号付き測度版](../../MT/MT3/index.md#thm-mt3-rn-signed)）。これで $dJ=v\,d\lambda$ となる Borel 可測な場が存在します。
 
 この $v(t,x)$ は、時刻・位置 $(t,x)$ が指定された下での軌道速度 $\dot\gamma_t$ の条件付き平均です。二乗ノルムの凸性（条件付き Jensen 不等式）により
 
@@ -810,7 +810,11 @@ $\mu:[0,T]\to\mathcal P_2(\mathbb R^d)$ が $AC^2$ 曲線で、距離微分が $
 
 (iii) 任意の分割 $0=t_0<\cdots<t_k=T$ について $\sum_i|\gamma_{t_{i+1}}-\gamma_{t_i}|^2/(t_{i+1}-t_i)$ は一様収束に関して連続です。軌道作用 $A(\gamma)$ はこれらの分割量の上限であり下半連続です。狭義極限 $\eta$ に対し、[下半連続費用のliminf不等式](../OTR3/index.md#lem-otr3-lsc-integral)を適用して $\int A\,d\eta\le E_0$ です。さらに各時刻の周辺は[折れ線の一様収束](#lem-otr18-polygonal)により $\mu_t$ です。
 
-最後に $J$ を $\int\Phi\cdot dJ=\int\int_0^T\Phi(t,\gamma_t)\cdot\dot\gamma_tdt\,d\eta$ で定めます。$\lambda=dt\,d\mu_t$ に対して、$\lambda(A)=\int\int_0^T\boldsymbol{1}_A(t,\gamma_t)dt\,d\eta=0$ なら $J(A)=0$ なので $J\ll\lambda$ です。各成分への[Radon--Nikodym 定理](../../MT/MT3/index.md#thm-mt3-rn-signed)により $J=v\,d\lambda$ と書け、$v$ は位置・時刻に条件付けた軌道速度の平均です。Jensen により $\int|v|^2d\mu dt\le E_0$。軌道に沿う試験関数の連鎖律を $\eta$ で積分すると
+最後に $J$ を $\int\Phi\cdot dJ=\int\int_0^T\Phi(t,\gamma_t)\cdot\dot\gamma_tdt\,d\eta$ で定めます。$\lambda=dt\,d\mu_t$ に対して、$\lambda(A)=\int\int_0^T\boldsymbol{1}_A(t,\gamma_t)dt\,d\eta=0$ なら $J(A)=0$ なので $J\ll\lambda$ です。
+
+各成分の Jordan 正負部分へ[Radon--Nikodym 定理](../../F0/F0-00P2/index.md#thm-f0-00p2-radon-nikodym)を適用し（[符号付き測度版](../../MT/MT3/index.md#thm-mt3-rn-signed)）、$J=v\,d\lambda$ と書け、$v$ は位置・時刻に条件付けた軌道速度の平均です。
+
+Jensen により $\int|v|^2d\mu dt\le E_0$。軌道に沿う試験関数の連鎖律を $\eta$ で積分すると
 
 $$
 \int\varphi(T,x)d\mu_T-\int\varphi(0,x)d\mu_0
