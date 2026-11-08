@@ -37,7 +37,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig9-bregman -->
-**定義の確認（二次関数）**。$U=\mathbb R$、$\psi(t)=t^2/2$ は $\psi''=1>0$ なので凸かつ微分可能です。$y$ の接線は $t\mapsto y^2/2+y(t-y)$ ですから、
+**定義の確認**（二次関数）。$U=\mathbb R$、$\psi(t)=t^2/2$ は $\psi''=1>0$ なので凸かつ微分可能です。$y$ の接線は $t\mapsto y^2/2+y(t-y)$ ですから、
 
 $$
 D_\psi(x:y)=\frac{x^2-y^2}{2}-y(x-y)
@@ -135,7 +135,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig9-canonical -->
-**定義の確認（重み付き二次ポテンシャル）**。$U=\mathbb R^2$ とし、$\psi(\theta)=((\theta^1)^2+4(\theta^2)^2)/2$ とします。$g=\operatorname{diag}(1,4)$ は正定値で、$U$ は開凸です。$\eta=(\theta^1,4\theta^2)$ は逆写像 $\theta=(\eta_1,\eta_2/4)$ を持ち、[IG8 の定理](../IG8/index.md#thm-ig8-hessian-dual-flat)の双対平坦条件が成立します。$\varphi(\eta)=(\eta_1^2+\eta_2^2/4)/2$ なので
+**定義の確認**（重み付き二次ポテンシャル）。$U=\mathbb R^2$ とし、$\psi(\theta)=((\theta^1)^2+4(\theta^2)^2)/2$ とします。$g=\operatorname{diag}(1,4)$ は正定値で、$U$ は開凸です。$\eta=(\theta^1,4\theta^2)$ は逆写像 $\theta=(\eta_1,\eta_2/4)$ を持ち、[IG8 の定理](../IG8/index.md#thm-ig8-hessian-dual-flat)の双対平坦条件が成立します。$\varphi(\eta)=(\eta_1^2+\eta_2^2/4)/2$ なので
 
 $$
 \begin{aligned}
