@@ -1,0 +1,34 @@
+chapter: MFL23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL22
+  - GRP3
+forward_references: []
+concepts:
+  - id: manifold-learning.orbit-fiber-count
+    name: 有限作用における到着点ごとの重複数
+    kind: proposition
+    introduction: formal
+    requires: [algebra.group-action-orbit, algebra.stabilizer-subgroup, algebra.orbit-stabilizer-theorem]
+  - id: manifold-learning.orbit-quotient
+    name: 軌道商と商写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（軌道商と商写像）"]
+    requires: [algebra.group-action-orbit, algebra.orbit-partition]
+  - id: manifold-learning.invariant-quotient-factorization
+    name: 不変写像の軌道商を通じた分解
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.orbit-quotient, manifold-learning.invariant-map]
+  - id: manifold-learning.orbit-label-variance-floor
+    name: 軌道内の教師値のばらつきと予測誤差
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.invariant-quotient-factorization]
+  - id: manifold-learning.equivariant-orbit-extension
+    name: 軌道上の等変写像の構成と安定化群条件
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.equivariant-map, algebra.stabilizer-subgroup, algebra.group-action-orbit]
