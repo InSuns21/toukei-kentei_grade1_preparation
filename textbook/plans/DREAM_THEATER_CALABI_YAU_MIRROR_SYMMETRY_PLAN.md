@@ -17,13 +17,13 @@
 | CAG1：複素代数幾何 | **14** | completed（CAG.yaml） | CYG1・MIR1 |
 | CYG1：Calabi–Yau幾何 | **14** | completed（CYG1.yaml） | YAU1・DEF1・SYZ1 |
 | YAU1：Calabi予想・Yauの定理 | **14** | planned、分冊の14章を確定 | SYZ1 |
-| DEF1：複素構造の変形・モジュライ | **11** | planned、分冊の11章を確定 | MIR1 |
+| DEF1：複素構造の変形・モジュライ | **14** | in_progress、DEF1-01完成・残13章 | MIR1 |
 | GW1：擬正則曲線・Gromov–Witten | **21** | planned、分冊の独立21論証単位を章に確定 | MIR2 |
 | MIR1：周期・Picard–Fuchs | **12** | planned、分冊の12章を確定 | MIR2 |
 | MIR2：GWとミラー曲線計数 | **12** | planned、分冊の12章を確定 | HM1 |
 | HM1：ホモロジカル・ミラー | **18** | planned、分冊の18章を確定（Floer/圏論の前提整備は別） | 発展 |
 | SYZ1：特殊Lagrange・双対トーラス | **14** | planned、分冊の14章を確定 | 発展 |
-| **総計** | **221章（既完了119、計画102）** | **既完了119章／221章** | ※このルート専用の講義数。他系列の一般基礎講座は含まない |
+| **総計** | **221章（既完了120、残101）** | **既完了120章／221章** | ※このルート専用の講義数。他系列の一般基礎講座は含まない |
 
 ### 現時点の着手判定
 
@@ -59,7 +59,7 @@
 - [複素代数幾何](../plan_done/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md)
 - [Calabi–Yau幾何](../plan_done/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md)
 - [ヤウの定理](../plans_progress/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)
-- [複素変形理論](DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md)
+- [複素変形理論](../plans_progress/DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md)
 - [ミラー対称性I・II](DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md)
 - [Gromov–Witten](DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md)
 - [ホモロジカルミラー](DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md)

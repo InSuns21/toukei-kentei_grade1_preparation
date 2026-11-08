@@ -1,0 +1,64 @@
+version: 1
+id: DEF1
+title: "複素構造の変形・モジュライ"
+plan: textbook/plans_progress/DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 本文と公開索引には完成した章のみを登録する。
+chapters:
+  - id: DEF1-01
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-01
+    status: completed
+    title: "変形族からKodaira–Spencer写像をどう作るか"
+  - id: DEF1-02
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-02
+    status: planned
+    title: "Beltrami微分と接束値形式"
+  - id: DEF1-03
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-03
+    status: planned
+    title: "Maurer–Cartan方程式"
+  - id: DEF1-04
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-04
+    status: planned
+    title: "一次変形・同値・自己同型"
+  - id: DEF1-05
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-05
+    status: planned
+    title: "二次以上の障害類"
+  - id: DEF1-06
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-06
+    status: planned
+    title: "Kuranishi構成I――調和ゲージと方程式"
+  - id: DEF1-07
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-07
+    status: planned
+    title: "Kuranishi構成II――解析的収束と有限次元基底"
+  - id: DEF1-08
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-08
+    status: planned
+    title: "Kuranishi構成III――局所完全性と普遍性の限界"
+  - id: DEF1-09
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-09
+    status: planned
+    title: "Bogomolov–Tian–Todorov I――核心恒等式"
+  - id: DEF1-10
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-10
+    status: planned
+    title: "Bogomolov–Tian–Todorov II――障害消滅と収束"
+  - id: DEF1-11
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-11
+    status: planned
+    title: "Calabi–Yauの局所モジュライ"
+  - id: DEF1-12
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-12
+    status: planned
+    title: "Gauss–Manin接続の構成"
+  - id: DEF1-13
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-13
+    status: planned
+    title: "Hodge構造の変動と周期写像"
+  - id: DEF1-14
+    path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-14
+    status: planned
+    title: "quinticの101方向とミラーへの橋"
