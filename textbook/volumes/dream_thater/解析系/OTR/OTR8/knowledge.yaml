@@ -1,0 +1,55 @@
+chapter: OTR8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR7
+
+concepts:
+  - id: transport.finite-p-moment
+    name: 有限p次モーメントとP_p(X)
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限p次モーメントとP_p(X)）"]
+    requires: [prob.probability-measure]
+
+  - id: transport.moment-basepoint-invariance
+    name: モーメント基準点の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モーメント基準点の不変性）"]
+    requires: [transport.finite-p-moment]
+
+  - id: transport.wasserstein-p
+    name: p-Wasserstein距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（p-Wasserstein距離）"]
+    requires: [transport.finite-p-moment, transport.coupling]
+
+  - id: transport.gluing-lemma
+    name: 結合の貼り合わせ補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（結合の貼り合わせ補題）"]
+    requires: [transport.coupling]
+
+  - id: transport.minkowski-integral
+    name: 積分のMinkowski不等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（積分のMinkowski不等式）"]
+    requires: [prob.probability-measure]
+
+  - id: transport.wasserstein-metric
+    name: p-Wasserstein距離の距離公理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（p-Wasserstein距離の距離公理）"]
+    requires: [transport.wasserstein-p, transport.gluing-lemma, transport.minkowski-integral, transport.moment-basepoint-invariance]
+
+  - id: transport.wasserstein-order
+    name: Wasserstein距離の次数比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Wasserstein距離の次数比較）"]
+    requires: [transport.wasserstein-metric]

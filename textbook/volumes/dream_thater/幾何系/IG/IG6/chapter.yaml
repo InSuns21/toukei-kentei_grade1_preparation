@@ -1,0 +1,43 @@
+id: "IG6"
+title: "アファイン接続と統計的測地線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG5
+  - GEO13
+  - GEO14
+  - GEO16
+official_scope: []
+learning_objectives:
+  - 正則統計モデルに接続を選ぶ意味と Fisher 計量だけでは一般接続が決まらない理由を説明できる
+  - 共変微分の公理と接続係数を既習の GEO13 に接続し統計座標で具体計算できる
+  - 接続係数の非テンソル的な座標変換則を導き測地線方程式の座標不変性を証明できる
+  - 一般接続の平行移動と測地線の局所存在一意性を線形・非線形常微分方程式から説明できる
+  - 接続の差のテンソル性と捩率零の条件を座標から確認できる
+  - 一般接続の曲率と Levi-Civita 曲率が接続の選択に依存することを区別できる
+  - Fisher 計量の Levi-Civita 接続と任意に選んだ接続を区別し計量両立性を検査できる
+  - Bernoulli 族で成功確率の零係数接続と Levi-Civita 接続の係数を導き測地線を比較できる
+  - logit 等の再パラメータ化で非零係数が現れても同じ接続を表すことを検算できる
+  - 接続測地線のアファイン再パラメータ化と Fisher 長さ最小化を混同しない
+definitions:
+  - { id: IG6-DEF-01, name: 統計モデル上の接続の選択 }
+  - { id: IG6-DEF-02, name: 接続依存の統計的測地線 }
+  - { id: IG6-DEF-03, name: Bernoulli 族の成功確率アファイン接続 }
+  - { id: IG6-DEF-04, name: Fisher--Levi-Civita 接続 }
+theorems:
+  - { id: IG6-THM-01, name: 接続係数の変換則と測地線方程式の不変性 }
+  - { id: IG6-THM-02, name: 平行移動と接続測地線の局所存在一意性 }
+  - { id: IG6-PROP-01, name: 接続の差と捩率の座標表示 }
+  - { id: IG6-PROP-02, name: Bernoulli 族の二つの接続と測地線 }
+  - { id: IG6-PROP-03, name: アファイン再パラメータ化と一般の時刻変更 }
+canonical_examples:
+  - 成功確率座標で係数零の接続と二次座標での非零係数
+  - Bernoulli 族の logit 座標における接続変換
+  - Bernoulli の Fisher 計量から作る Levi-Civita 係数
+  - 成功確率の線形補間と Fisher 測地線の比較
+  - 成功確率接続に沿う平行移動と速度保存
+problem_patterns: [IG6-A01, IG6-A02, IG6-A03, IG6-A04, IG6-B01, IG6-B02, IG6-B03, IG6-B04, IG6-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5.0, review: 1.5 }

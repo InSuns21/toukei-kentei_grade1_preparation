@@ -6,3 +6,4 @@
 3. [IG3 Divergence と局所幾何](textbook/volumes/dream_thater/幾何系/IG/IG3/index.md)
 4. [IG4 指数型分布族と混合型分布族](textbook/volumes/dream_thater/幾何系/IG/IG4/index.md)
 5. [IG5 Legendre 双対と Hessian 構造](textbook/volumes/dream_thater/幾何系/IG/IG5/index.md)
+6. [IG6 アファイン接続と統計的測地線](textbook/volumes/dream_thater/幾何系/IG/IG6/index.md)
