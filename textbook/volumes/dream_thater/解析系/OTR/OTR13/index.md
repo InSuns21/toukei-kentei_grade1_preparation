@@ -274,7 +274,7 @@ Fenchel–Young の不等式で $f(x)+g(y)\le c(x,y)$ を作り、$y=T(x)$ で�
 <!-- proof-start -->
 ### 証明
 
-[Fenchel–Young の等号条件](../OTR12/index.md#prop-otr12-dual-subgradient)より、任意の $x,y$ で $\varphi(x)+\varphi^*(y)\ge\langle x,y\rangle$ です。二次費用を展開して
+[Fenchel–Young の等号条件](../../../応用系/OPT/OPT4/index.md#thm-opt4-fenchel-equality-subgradient)より、任意の $x,y$ で $\varphi(x)+\varphi^*(y)\ge\langle x,y\rangle$ です。二次費用を展開して
 
 $$
 c(x,y)-f(x)-g(y)
