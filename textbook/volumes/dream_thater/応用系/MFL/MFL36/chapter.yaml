@@ -1,0 +1,33 @@
+id: "MFL36"
+title: "E(3) / SE(3)とchirality"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL35
+official_scope: []
+learning_objectives:
+  - E(3)とSE(3)の群作用を行列式の符号と合成則から区別できる
+  - 内積・ベクトル積・混合積の直交変換則を証明し極ベクトルと軸ベクトルを判別できる
+  - 四点の符号付き体積とラベル付き鏡像対を計算しSE(3)合同性の障害を示せる
+  - 全対距離が等しい非共面四点の向き保存合同判定をGram行列から証明できる
+  - 距離のみのE(3)不変スカラー模型がchiralityを識別できない条件を説明できる
+  - SE(3)等変でE(3)非等変な更新とその変換残差を具体的に検証できる
+definitions:
+  - { id: MFL36-DEF-01, name: 三次元Euclid群と特殊Euclid群 }
+  - { id: MFL36-DEF-02, name: 符号付き四面体体積とchirality }
+  - { id: MFL36-DEF-03, name: 極ベクトル・軸ベクトル・擬スカラー }
+theorems:
+  - { id: MFL36-THM-01, name: 内積・ベクトル積・混合積の変換則 }
+  - { id: MFL36-THM-02, name: 非共面四点の距離と向きによる合同判定 }
+  - { id: MFL36-THM-03, name: 距離型スカラー模型の鏡像識別不能性 }
+  - { id: MFL36-PROP-01, name: ベクトル積によるSE(3)等変更新と鏡映での破れ }
+canonical_examples:
+  - 座標軸の四面体と鏡映したラベル付き四面体の全6距離と符号付き体積
+  - 反射で極ベクトルと軸ベクトルの変換が異なる具体例
+  - ベクトル積を座標更新に用いたSE(3)等変層と鏡映での残差
+  - ラベル交換による体積の符号反転と幾何学的鏡映の区別
+problem_patterns: [MFL36-A01, MFL36-A02, MFL36-A03, MFL36-A04, MFL36-B01, MFL36-B02, MFL36-B03, MFL36-B04, MFL36-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.0, review: 2.5 }

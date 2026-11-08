@@ -15,3 +15,4 @@
 12. [MFL33 Oversmoothing・長距離ボトルネック](textbook/volumes/dream_thater/応用系/MFL/MFL33/index.md)
 13. [MFL34 幾何的グラフと不変量](textbook/volumes/dream_thater/応用系/MFL/MFL34/index.md)
 14. [MFL35 E(n)等変GNNと座標更新](textbook/volumes/dream_thater/応用系/MFL/MFL35/index.md)
+15. [MFL36 E(3) / SE(3)とchirality](textbook/volumes/dream_thater/応用系/MFL/MFL36/index.md)
