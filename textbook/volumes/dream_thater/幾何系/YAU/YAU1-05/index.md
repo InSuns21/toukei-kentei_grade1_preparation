@@ -32,21 +32,40 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-yau1-05-path -->
-**定義の確認**（平坦楕円曲線）。$T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z$ とし、$0<|a|<1$、$e^F=1-a\cos(2\pi x)$ とする。$e^F>0$ は $|a|<1$ から従い、$\int_0^1\cos(2\pi x)\,dx=0$ により体積が一致する。このとき
+**定義の確認**（平坦楕円曲線）。$T=\mathbb C/(\mathbb Z+i\mathbb Z)$ 上で $z=x+iy$（$x,y$ はそれぞれ $1$ 周期の実座標）、$\omega_0=i\,dz\wedge d\bar z$ とし、$0<|a|<1$、$e^F=1-a\cos(2\pi x)$ とする。$e^F>0$ は $|a|<1$ から従い、$\int_0^1\cos(2\pi x)\,dx=0$ により体積が一致する。
+
+複素一次元では、$(1,1)$ 形式の同じ基底 $i\,dz\wedge d\bar z$ の係数を比較できるため、
+
+$$
+\omega_{\varphi_t}
+=i(1+\partial_z\partial_{\bar z}\varphi_t)\,dz\wedge d\bar z,
+\qquad
+\omega_{\varphi_t}=\rho_t\omega_0
+\iff 1+\partial_z\partial_{\bar z}\varphi_t=\rho_t.
+$$
+
+この係数が全点で正であることは、[正値Kählerポテンシャルの条件](../YAU1-03/index.md#def-yau1-03-positive-domain)そのものである。また、[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を $z=x+iy$ に適用すると、$\partial_z=(\partial_x-i\partial_y)/2$、$\partial_{\bar z}=(\partial_x+i\partial_y)/2$ であり、実二階混合微分の交換から $\partial_z\partial_{\bar z}=(\partial_x^2+\partial_y^2)/4$ を得る。このとき
 
 $$
 \rho_t=1-ta\cos(2\pi x),\qquad
 \varphi_t=\frac{ta}{\pi^2}\cos(2\pi x)
 $$
 
-が実際の解である。$\partial_z\partial_{\bar z}=\frac14(\partial_x^2+\partial_y^2)$ を使うと
+が実際の解である。上の微分公式から
 
 $$
 \partial_z\partial_{\bar z}\varphi_t=-ta\cos(2\pi x),\qquad
 \omega_{\varphi_t}=\rho_t\omega_0>0.
 $$
 
-$\int_T\varphi_t\omega_0=0$ も周期積分で確かめられる。こうして、滑らかさ・正値・方程式・平均ゼロというすべての条件を直接検証できた。
+さらに $\omega_0=2\,dx\wedge dy$ だから、平均は
+
+$$
+\int_T\varphi_t\omega_0
+=\frac{2ta}{\pi^2}\int_0^1\cos(2\pi x)\,dx\int_0^1dy=0.
+$$
+
+こうして、滑らかさ・正値・方程式・平均ゼロというすべての条件を直接検証できた。
 <!-- definition-example-end -->
 
 <a id="prop-yau1-05-path-compatibility"></a>
@@ -113,7 +132,13 @@ $$
 Q(\varphi):=\frac{\omega_\varphi^n}{\omega^n}
 $$
 
-を使う。これは局所正則座標で $Q(\varphi)=\det(G+(\varphi_{j\bar k}))/\det G$ という正の実関数になる。[体積差のStokes計算](../YAU1-03/index.md#prop-yau1-03-compatibility)より、どの許容 $\varphi$ でも
+を使う。局所正則座標 $z^1,\ldots,z^n$ で $\omega=i\sum g_{j\bar k}\,dz^j\wedge d\bar z^k$、$G=(g_{j\bar k})$ とし、$D^2_{\mathbb C}\varphi=(\partial_j\partial_{\bar k}\varphi)$ と置く。このとき $\omega_\varphi$ の同じ座標基底での係数行列は $G+D^2_{\mathbb C}\varphi$ である。最高次外積は行列式を係数に持つので、[既習の対数Monge–Ampère作用素の行列表示](../YAU1-03/index.md#def-yau1-03-log-ma)を指数化して
+
+$$
+Q(\varphi)=\frac{\det(G+D^2_{\mathbb C}\varphi)}{\det G}>0
+$$
+
+を得る。この比は二つの体積形式の商として定義した量であり、局所正則座標の取り方には依存しない。[体積差のStokes計算](../YAU1-03/index.md#prop-yau1-03-compatibility)より、どの許容 $\varphi$ でも
 
 $$
 \int_X Q(\varphi)\omega^n=V.
@@ -125,7 +150,16 @@ $$
 
 陰関数定理は、関数の集合にノルムを入れて完備にした **Banach空間** で適用する。有限次元の[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)と同じ発想だが、そこから無限次元版を無条件には引用できない。以下では必要な局所版を証明する。
 
-実次元を $d=2n$、整数 $s=d+1$ とする。$H^k(X;\mathbb R)$ は、有限個の滑らかな座標と分割関数で、すべての弱微分 $|\alpha|\le k$ の $L^2$ ノルムの和から定まるSobolev空間である。[GA2の多様体Sobolev空間と完備性](../../GA/GA2/index.md#thm-ga2-complete-density)の高階版であり、異なる有限座標系のノルムは同値である。$\int_Xu\omega^n$ は連続な線形汎関数だから、その核は閉じている。
+実次元を $d=2n$、整数 $s=d+1$ とする。実座標での弱微分の次数は多重指数 $\alpha$ で表し、
+
+$$
+\alpha=(\alpha_1,\ldots,\alpha_d)\in\mathbb N_0^d,
+\qquad |\alpha|=\sum_{j=1}^d\alpha_j
+$$
+
+と書く。$D^\alpha$ は各実座標についてそれぞれ $\alpha_j$ 回微分する作用素である。
+
+$H^k(X;\mathbb R)$ は、有限個の滑らかな座標と分割関数で、すべての弱微分 $|\alpha|\le k$ の $L^2$ ノルムの和から定まるSobolev空間である。[GA2の多様体Sobolev空間と完備性](../../GA/GA2/index.md#thm-ga2-complete-density)の高階版であり、異なる有限座標系のノルムは同値である。$\int_Xu\omega^n$ は連続な線形汎関数だから、その核は閉じている。
 
 <a id="def-yau1-05-fixed-spaces"></a>
 
@@ -181,7 +215,7 @@ $s>d$ と大きめに選ぶことで、積の微分に現れる二つの因子�
 <!-- proof-start -->
 ### 証明
 
-有限個の座標と分割関数により、まず有界な座標球の滑らかな関数で示せばよい。$|\alpha|\le s$ のLeibniz公式は
+有限個の座標と分割関数により、まず有界な座標球の滑らかな関数で示せばよい。$\beta\le\alpha$ は多重指数の成分ごとの不等式、$\binom{\alpha}{\beta}=\prod_j\binom{\alpha_j}{\beta_j}$ とする。$|\alpha|\le s$ のLeibniz公式は
 
 $$
 D^\alpha(fg)
@@ -200,7 +234,7 @@ $$
 
 後者は $f,g$ を交換して同じ評価を使う。有限個の微分と有限個の座標球で和を取れば主張を得る。滑らかな関数の密度から $H^s$ 全体へ拡張できる。
 
-$u\in U$ の二階微分は $H^s$ に属し、滑らかな $G$ の成分との和も $H^s$ に属する。局所的に
+$u\in U$ の複素二階微分 $D^2_{\mathbb C}u=(u_{j\bar k})$ は $H^s$ に属し、滑らかな $G$ との和 $G_u:=G+D^2_{\mathbb C}u$ の成分も $H^s$ に属する。局所的に
 
 $$
 \det(G+D^2_{\mathbb C}(u+v))
@@ -420,13 +454,33 @@ $$
 =O(|h|).
 $$
 
-$\Psi(u(t+h),t+h)-\Psi(u(t),t)=0$ をFréchet一次近似し、$h$ で割って $h\to0$ とすると
+ここで $\delta_h:=u(t+h)-u(t)$ と書けば、直前の評価は $\|\delta_h\|_E=O(|h|)$ を意味する。$\Psi$ のFréchet微分可能性により、**$u$ と $t$ を同時に動かす**一次近似は
 
 $$
-D_u\Psi(u(t),t)\,u'(t)+\partial_t\Psi(u(t),t)=0
+0=\Psi(u(t)+\delta_h,t+h)-\Psi(u(t),t)
+=D_u\Psi(u(t),t)\delta_h
++\partial_t\Psi(u(t),t)h+r_h,
 $$
 
-を得る。逆写像の連続性と $\Psi$ の $C^1$ 性から右辺の微分式も連続である。$\square$
+$$
+\|r_h\|_Y=o(\|\delta_h\|_E+|h|)=o(|h|).
+$$
+
+$D_u\Psi(u(t),t)$ は上で有界可逆と示したので、$h\ne0$ に対し
+
+$$
+\frac{\delta_h}{h}
+=-[D_u\Psi(u(t),t)]^{-1}\partial_t\Psi(u(t),t)
+-[D_u\Psi(u(t),t)]^{-1}\frac{r_h}{h}
+$$
+
+となる。最後の項は $h\to0$ で零に収束するから、差分商の極限が**実際に存在し**、
+
+$$
+u'(t)=-[D_u\Psi(u(t),t)]^{-1}\partial_t\Psi(u(t),t)
+$$
+
+を得る。逆写像の連続性と $\Psi$ の $C^1$ 性からこの導関数も連続である。$\square$
 <!-- proof-end -->
 
 ## 7. 解の存在を近くのパラメータへ運ぶ
@@ -440,6 +494,8 @@ $$
 $$
 
 とする。この段階では $H^{s+2}$ 解を対象にする。**滑らかな解の全パラメータでの存在**は、後続の正則性を伴う閉性論証と最後に接続する。ここで必要なのは、既存解の近くで方程式が解き続けられることである。
+
+局所解枝について $\dot u_t:=du_t/dt$ と書く。これは $t$ に沿って未知関数そのものを変えた全微分である。一方、$\partial_t\Phi(u,t)$ は $u$ を固定した $t$ の偏微分、$D_u\Phi(u,t)v$ は $t$ を固定して関数方向 $v$ に変えたFréchet微分であり、全微分には両方が現れる。
 
 先ほどの[線形同型定理](#thm-yau1-05-poisson-isomorphism)は滑らかな基点で証明した。$H^{s+2}$ 基点にも適用するため、次の正則性の事実を確認しておく。
 
@@ -568,7 +624,7 @@ $$
 =\partial_z\partial_{\bar z}\dot u_t=-a\cos2\pi x=e^F-1.
 $$
 
-最後の等式では複素一次元なので $Q(u_t)g_{u_t}^{z\bar z}=1$ を使った。
+最後の等式では、複素一次元で $Q(u_t)=1-ta\cos(2\pi x)$、$g_{u_t}^{z\bar z}=(1-ta\cos(2\pi x))^{-1}$ だから $Q(u_t)g_{u_t}^{z\bar z}=1$ を使った。
 <!-- solution-end -->
 
 <a id="ex-yau1-05-a03"></a>
