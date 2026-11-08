@@ -23,6 +23,8 @@ $$
 g_{ij}=E_\theta[\ell_i\ell_j].
 $$
 
+逆計量の成分を $g^{ij}$ と書きます。これは正定値な行列 $(g_{ij})$ の逆行列 $(g^{ij})=(g_{ij})^{-1}$ の成分で、$g^{ik}g_{kj}=\delta^i_j$ を満たします。
+
 KL の三階微分を使う箇所では、二つの母数に関する三階混合微分も連続で、期待値との交換ができるとします。有限正モデルと正規位置尺度族は、母数の内部でこれらの条件を満たします。
 
 ## 1. 計量の変化を二つの接続へ分配する
@@ -65,6 +67,8 @@ $$
 
 任意の $X=f\partial_p,Y=h\partial_p,Z=k\partial_p$ に拡張すると、両辺に現れる $fh'k/q$ と $fhk'/q$ は [接続の Leibniz 則](../IG6/index.md#def-ig6-connection-choice)から一致し、残る係数が上式です。よって二つは確かに双対です。後の第3節で、これらが統計的な二種類の接続に一致することを確かめます。
 <!-- definition-example-end -->
+
+[GEO13 の捩率](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)は $\operatorname{Tor}(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$ で測る接続の非対称性です。また [GEO13 の Levi-Civita 接続](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)は、捩率零かつ計量両立な接続として一意に定まります。この二条件を平均接続へ適用する際に区別します。
 
 <a id="thm-ig7-dual-existence"></a>
 
