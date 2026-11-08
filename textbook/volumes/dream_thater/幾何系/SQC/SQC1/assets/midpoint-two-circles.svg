@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 600" data-layout-lint="strict" role="img" aria-labelledby="midpoint-title midpoint-desc">
+  <title id="midpoint-title">二つの等半径の円による中点の作図</title>
+  <desc id="midpoint-desc">横にA、M、Bがこの順で並び、AとBを中心に半径ABの円を一つずつ描く。二円の交点Pが線分ABの上、Qが下にあり、PとQを結ぶ縦の直線がABを中点Mで直角に横切る。</desc>
+  <g fill="none" stroke-width="2.5">
+    <circle cx="190" cy="300" r="160" stroke="#316aa0" data-series-group="equal-radius-circles" data-series-label="Aを中心とする円"/>
+    <circle cx="350" cy="300" r="160" stroke="#ba7027" stroke-dasharray="10 6" data-series-group="equal-radius-circles" data-series-label="Bを中心とする円"/>
+    <line x1="155" y1="300" x2="385" y2="300" stroke="#222" stroke-width="3.5"/>
+    <line x1="270" y1="121" x2="270" y2="478" stroke="#444" stroke-width="2.6" stroke-dasharray="5 5"/>
+    <path d="M270 286 H284 V300" stroke="#333" stroke-width="1.8"/>
+  </g>
+  <g fill="#161616">
+    <circle cx="190" cy="300" r="4.7"/>
+    <circle cx="270" cy="300" r="4.7"/>
+    <circle cx="350" cy="300" r="4.7"/>
+    <circle cx="270" cy="161.436" r="4.7"/>
+    <circle cx="270" cy="438.564" r="4.7"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="23" font-weight="600" fill="#111">
+    <text x="145" y="285">A</text>
+    <text x="365" y="259">B</text>
+    <text x="290" y="350">M</text>
+    <text x="285" y="126">P</text>
+    <text x="285" y="505">Q</text>
+  </g>
+</svg>

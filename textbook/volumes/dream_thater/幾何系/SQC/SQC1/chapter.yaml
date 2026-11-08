@@ -1,0 +1,44 @@
+id: "SQC1"
+title: "定規とコンパスの有限作図と古典三大問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLD5
+  - RNG4
+  - RA4
+  - CA1
+official_scope: []
+learning_objectives:
+  - 定規とコンパスの許容操作を有限列として記述し、交点の存在と実際に選べる作図手順を区別できる
+  - 線分の中点、任意の点を通る垂線・平行線、与えられた辺上の正方形を作図し、各操作の正しさを検証できる
+  - 円積・立方体倍積・一般角の三等分を与えられた入力と出力条件まで厳密に記述できる
+  - 面積・体積・角度の条件を長さの方程式に直し、近似解や個別の作図例と一般的な厳密解を区別できる
+definitions:
+  - { id: SQC1-DEF-01, name: 有限作図手順 }
+  - { id: SQC1-DEF-02, name: 作図問題の厳密解 }
+  - { id: SQC1-DEF-03, name: 古典三大作図問題 }
+theorems:
+  - { id: SQC1-PROP-01, name: 線分の中点の有限作図 }
+  - { id: SQC1-PROP-02, name: 点を通る垂線と平行線の有限作図 }
+  - { id: SQC1-PROP-03, name: 与えられた辺からの正方形の有限作図 }
+canonical_examples:
+  - 2円と交点を用いる線分の二等分と座標式の照合
+  - 直線上・直線外の点からの垂線および平行線の作図
+  - 与えられた長さの正方形と面積の計算
+  - 半径1の円の円積条件と一辺の方程式
+  - 90度の三等分という可能な個別例
+problem_patterns:
+  - SQC1-MIDPOINT-CONSTRUCTION
+  - SQC1-PERPENDICULAR-CONSTRUCTION
+  - SQC1-AREA-TRANSLATION
+  - SQC1-ANGLE-TRISECTION-EXAMPLE
+  - SQC1-CUBE-DUPLICATION-TRANSLATION
+  - SQC1-PARALLEL-CORRECTNESS
+  - SQC1-EXACTNESS-VS-APPROXIMATION
+  - SQC1-CHANGED-TOOLS
+  - SQC1-SCALE-TRANSFER
+  - SQC1-INTEGRATED-THREE-PROBLEMS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.0, review: 1.0 }
