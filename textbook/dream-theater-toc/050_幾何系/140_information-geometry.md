@@ -7,3 +7,4 @@
 4. [IG4 指数型分布族と混合型分布族](textbook/volumes/dream_thater/幾何系/IG/IG4/index.md)
 5. [IG5 Legendre 双対と Hessian 構造](textbook/volumes/dream_thater/幾何系/IG/IG5/index.md)
 6. [IG6 アファイン接続と統計的測地線](textbook/volumes/dream_thater/幾何系/IG/IG6/index.md)
+7. [IG7 双対接続・α-接続と三次テンソル](textbook/volumes/dream_thater/幾何系/IG/IG7/index.md)
