@@ -1,0 +1,41 @@
+chapter: DEF1-02
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-01, CM1-02, CM1-05, CM1-07, CM2-04, CYG1-12]
+concepts:
+  - id: deformation.tangent-valued-01-form
+    name: 接束値（0,1）形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接束値（0,1）形式）"]
+    requires: [complex-manifolds.holomorphic-tangent-section, complex-manifolds.dolbeault-complex]
+  - id: deformation.beltrami-coordinate-change
+    name: 接束値（0,1）形式の成分変換則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接束値（0,1）形式の成分変換則）"]
+    requires: [deformation.tangent-valued-01-form, complex-manifolds.tangent-frame-change]
+  - id: deformation.beltrami-graph
+    name: Beltrami微分と変形した反正則分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Beltrami微分と変形した反正則分布）"]
+    requires: [deformation.tangent-valued-01-form]
+  - id: deformation.beltrami-transversality
+    name: 小さいBeltrami微分の横断性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（小さいBeltrami微分の横断性）"]
+    requires: [deformation.beltrami-graph]
+  - id: deformation.beltrami-coordinate-equation
+    name: Beltrami方程式による局所正則座標の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Beltrami方程式による局所正則座標の判定）"]
+    requires: [deformation.beltrami-graph, deformation.beltrami-transversality]
+  - id: deformation.beltrami-linear-integrability
+    name: 実際の複素構造族の一次閉条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（実際の複素構造族の一次閉条件）"]
+    requires: [deformation.beltrami-graph, complex-manifolds.dolbeault-complex]
