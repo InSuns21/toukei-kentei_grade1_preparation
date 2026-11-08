@@ -12,3 +12,4 @@
 9. [MFL30 Graph message passing](textbook/volumes/dream_thater/応用系/MFL/MFL30/index.md)
 10. [MFL31 GNNの表現力と1-WLの識別限界](textbook/volumes/dream_thater/応用系/MFL/MFL31/index.md)
 11. [MFL32 Graph spectral convolution](textbook/volumes/dream_thater/応用系/MFL/MFL32/index.md)
+12. [MFL33 Oversmoothing・長距離ボトルネック](textbook/volumes/dream_thater/応用系/MFL/MFL33/index.md)

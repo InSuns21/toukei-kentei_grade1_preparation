@@ -1,0 +1,38 @@
+id: "SQC3"
+title: "作図可能数の必要十分条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC2
+  - FLD5
+official_scope: []
+learning_objectives:
+  - 実二次拡大列への包含が作図可能性の必要十分条件であることを幾何操作と対応付けて説明できる
+  - 具体的な平方根の塔を示して作図可能性を判定し、各段の次数と非負条件を確認できる
+  - 塔の公式から作図可能数の最小多項式の次数が2の冪になることを導き、逆は成り立たないと説明できる
+  - 最小多項式の次数と分解体の次数を区別し、正規閉包を使う次数障害の仕組みを説明できる
+  - 四次多項式 x^4-x-1 の実根について、既約性と三次補助方程式から作図不能性を検証できる
+definitions: []
+theorems:
+  - { id: SQC3-PROP-01, name: 実二次拡大列の段階的な作図 }
+  - { id: SQC3-LEM-01, name: 作図可能数の分解体の次数障害 }
+  - { id: SQC3-PROP-02, name: 次数4でも作図できない実数 }
+canonical_examples:
+  - 平方根を入れ子にした実二次拡大列と各段の符号確認
+  - sqrt(2)+sqrt(3) の次数4と具体的な作図可能性
+  - x^4-2 の実根の最小多項式と分解体の次数の違い
+  - x^4-x-1 の既約性と三次補助方程式からの作図不能性
+problem_patterns:
+  - SQC3-EXHIBIT-TOWER
+  - SQC3-NESTED-RADICAL-DEGREE
+  - SQC3-CUBIC-OBSTRUCTION
+  - SQC3-QUARTIC-CONSTRUCTIBLE
+  - SQC3-QUADRATIC-STEP-PROOF
+  - SQC3-MOD-TWO-IRREDUCIBLE
+  - SQC3-RESOLVENT-VERIFY
+  - SQC3-SPLITTING-FIELD-COMPARE
+  - SQC3-INTEGRATED-DEGREE-AND-TOWER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.0 }

@@ -1,0 +1,45 @@
+id: "YAU1-03"
+title: "複素Monge–Ampère方程式の幾何"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-02
+  - KAH1-02
+  - KAH1-11
+  - KAH1-13
+official_scope: []
+learning_objectives:
+  - 実ポテンシャルの複素Hessianと正値Hermite行列の対応から許容領域を判定し、行列式の正性だけでは不十分な理由を例示できる
+  - Kählerポテンシャルの正値領域の凸性とC2開性を証明し、固定Kähler類を保存することを示せる
+  - 複素Monge–Ampère作用素を最高次外積の比と局所行列式で一致させ、座標不変性と定義域を確認できる
+  - Jacobiの公式と外積の微分から線形化を導き、前章の実Laplacian規約との係数2を検算できる
+  - 正値領域内での楕円性・凹性を主記号と二階変分で証明し、一様楕円性の範囲と境界での失敗を説明できる
+  - 体積整合条件と定数ゲージを導き、Ricciポテンシャルの正規化と解の存在が異なる主張であることを説明できる
+definitions:
+  - { id: YAU1-03-DEF-01, name: Kählerポテンシャルの正値領域 }
+  - { id: YAU1-03-DEF-02, name: 対数複素Monge–Ampère作用素 }
+theorems:
+  - { id: YAU1-03-PROP-01, name: 許容領域の凸性・開性と類の不変性 }
+  - { id: YAU1-03-PROP-02, name: Monge–Ampère作用素の線形化と外積表示 }
+  - { id: YAU1-03-PROP-03, name: 正値領域での楕円性と凹性 }
+  - { id: YAU1-03-PROP-04, name: 体積整合条件と定数ゲージ }
+canonical_examples:
+  - 平坦楕円曲線の余弦ポテンシャルの許容範囲と退化境界
+  - 複素二次元の非対角Hermite行列での正値・行列式・線形化の判定
+  - 複素三次元の正行列式だが非正値な局所形式の反例
+problem_patterns:
+  - YAU1-03-POSITIVE-DOMAIN
+  - YAU1-03-LOCAL-MATRIX-CRITERION
+  - YAU1-03-LOG-DETERMINANT
+  - YAU1-03-LAPLACIAN-FACTOR
+  - YAU1-03-GAUGE-AND-VOLUME
+  - YAU1-03-JACOBI-VARIATION
+  - YAU1-03-CONCAVITY-SECOND-VARIATION
+  - YAU1-03-SEGMENT-INTEGRAL
+  - YAU1-03-STOKES-VOLUME
+  - YAU1-03-TORUS-CHECK
+  - YAU1-03-ELLIPTICITY-FAILURE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
