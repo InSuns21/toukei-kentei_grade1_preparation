@@ -160,7 +160,7 @@ chapters:
     title: "多様体上のスカラー場と座標に依存しない作用素"
   - id: MFL39
     path: textbook/volumes/dream_thater/応用系/MFL/MFL39
-    status: planned
+    status: completed
     title: "接ベクトル場とchart/frameの変更"
   - id: MFL40
     path: textbook/volumes/dream_thater/応用系/MFL/MFL40
