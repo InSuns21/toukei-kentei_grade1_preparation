@@ -1,0 +1,41 @@
+id: "SQC2"
+title: "幾何操作から四則演算・平方根へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC1
+  - FLD5
+official_scope: []
+learning_objectives:
+  - 既知座標の実部分体を固定し、直線と円の方程式の係数がその体に属する理由を導ける
+  - 直線・円の交点計算を一次または一つの二次方程式に還元し、実交点の有無と次数高々2を場合分けして証明できる
+  - 任意の既知有向線分を別の始点へ有限作図で移し、直線上にある場合の退化も処理できる
+  - 有向線分の移動と平行線・相似を使い、正負の四則演算と非零除数の条件を具体的な有限手順として構成できる
+  - 半円と垂線から非負平方根を構成し、円の式と幾何平均の関係で正しさを証明できる
+  - 一手の高々二次性と四則演算・平方根の作図が、二次拡大列の特徴付けの異なる方向を支えることを説明できる
+definitions: []
+theorems:
+  - { id: SQC2-LEM-01, name: 交点の高々二次性 }
+  - { id: SQC2-PROP-01, name: 有向線分の移動 }
+  - { id: SQC2-PROP-02, name: 四則演算の有限作図 }
+  - { id: SQC2-PROP-03, name: 非負数の平方根の有限作図 }
+canonical_examples:
+  - 直線と円の交点における有理座標・平方根・非実交点の区別
+  - 作図の途中で中心を替えるための有向線分移動と退化例
+  - 負数を含む積と商を軸上の符号付き座標として構成
+  - 半円の高さから平方根3と入れ子の平方根を構成
+problem_patterns:
+  - SQC2-LINE-LINE-FIELD
+  - SQC2-LINE-CIRCLE-INTERSECTION-COUNT
+  - SQC2-SQUARE-ROOT-THREE
+  - SQC2-SUM-RADICAL-TWO
+  - SQC2-SIGNED-QUOTIENT
+  - SQC2-TRANSLATION-DEGENERACY
+  - SQC2-CIRCLE-CIRCLE-QUADRATIC
+  - SQC2-NESTED-RADICAL
+  - SQC2-NONNEGATIVE-RESTRICTION
+  - SQC2-FULL-CONSTRUCTION-AND-FIELD-BOUND
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.0 }
