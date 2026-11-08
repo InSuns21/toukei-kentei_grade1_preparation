@@ -1,0 +1,72 @@
+chapter: OTR20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR19
+  - F0-02C1A
+  - GEO12
+  - AMECH3
+
+concepts:
+  - id: transport.otto-tangent-space
+    name: L2勾配の接空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（L2勾配の接空間）"]
+    requires: [transport.kinetic-l2-speed, functional.orthogonal-decomposition]
+
+  - id: transport.otto-tangent-distribution
+    name: 分布的接方向と不可視速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分布的接方向と不可視速度）"]
+    requires: [transport.otto-tangent-space, transport.continuity-measure-weak]
+
+  - id: transport.otto-orthogonal-splitting
+    name: 接空間と不可視速度の直交分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接空間と不可視速度の直交分解）"]
+    requires: [transport.otto-tangent-distribution, functional.orthogonal-decomposition]
+
+  - id: transport.otto-minimal-representative
+    name: 接方向の最小ノルム代表
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（接方向の最小ノルム代表）"]
+    requires: [transport.otto-orthogonal-splitting]
+
+  - id: transport.otto-canonical-velocity
+    name: AC2曲線の正準速度と距離微分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（AC2曲線の正準速度と距離微分）"]
+    requires: [transport.otto-minimal-representative, transport.metric-minimal-velocity, transport.metric-velocity-bound]
+
+  - id: transport.otto-weighted-poisson
+    name: 滑らかな重み付きPoisson射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな重み付きPoisson射影）"]
+    requires: [transport.otto-minimal-representative]
+
+  - id: transport.otto-first-variation
+    name: 質量保存制約下の第一変分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（質量保存制約下の第一変分）"]
+    requires: [transport.otto-tangent-distribution, analytical-mechanics.first-variation]
+
+  - id: transport.otto-formal-gradient
+    name: 形式的W2勾配
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式的W2勾配）"]
+    requires: [transport.otto-first-variation, transport.otto-minimal-representative]
+
+  - id: transport.otto-potential-gradient
+    name: 位置エネルギーの第一変分と接勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（位置エネルギーの第一変分と接勾配）"]
+    requires: [transport.otto-formal-gradient, transport.continuity-measure-weak]
