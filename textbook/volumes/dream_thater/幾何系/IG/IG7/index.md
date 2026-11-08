@@ -1,4 +1,4 @@
-# IG7 双対接続・α-接続と三次テンソル
+# IG7 計量に関する双対接続・α-接続と三次テンソル
 
 <!-- definition-example-audit: strict -->
 
@@ -6,7 +6,17 @@
 
 では、どの接続を統計的に選べばよいでしょう。確率密度の対数を一回微分した score は [IG2 の Fisher 計量](../IG2/index.md#def-ig2-fisher-rao-metric)を作りました。もう一段微分し、score の三つの積まで見ると、**計量と組になって現れる二つの接続**を構成できます。本講の目標は、それらが互いに双対である理由を定義から証明し、一般の曲がった統計モデルでも成り立つ部分と、後の IG8 で初めて証明する平坦性を区別することです。
 
-全編で次を仮定します。$M$ は座標領域 $Theta\subset\mathbb R^d$ を持つ滑らかな識別可能な正則統計モデルで、確率質量関数または密度 $p(x;\theta)$ は共通の台で正、$\ell(x;\theta)=\log p(x;\theta)$ は母数について三階まで微分可能とします。必要な微分・和または積分の交換、以下に現れる期待値の有限性と滑らかさを仮定し、Fisher 行列 $g_{ij}=E_\theta[\ell_i\ell_j]$ は正定値とします。$\ell_i=\partial_i\ell$、$\ell_{ij}=\partial_i\partial_j\ell$、$\partial_i=\partial/\partial\theta^i$ と書きます。KL の三階微分を使う箇所では、二つの母数に関する三階混合微分も連続で期待値との交換ができるとします。有限正モデルと正規位置尺度族は、母数の内部でこれらの条件を満たします。
+全編で次を仮定します。$M$ は座標領域 $\Theta\subset\mathbb R^d$ を持つ滑らかな識別可能な正則統計モデルです。確率質量関数または密度 $p(x;\theta)$ は共通の台で正であり、対数密度 $\ell=\log p$ は母数について三階まで微分可能とします。
+
+必要な微分と和・積分の交換、期待値の有限性と滑らかさを仮定します。Fisher 行列は正定値とし、次の記法を用います。
+
+$$
+\ell_i=\partial_i\ell,\qquad
+\ell_{ij}=\partial_i\partial_j\ell,\qquad
+g_{ij}=E_\theta[\ell_i\ell_j].
+$$
+
+$\partial_i$ は $\theta^i$ についての偏微分です。KL の三階微分を使う箇所では、二つの母数に関する三階混合微分も連続で、期待値との交換ができるとします。有限正モデルと正規位置尺度族は、母数の内部でこれらの条件を満たします。
 
 ## 1. 計量の変化を二つの接続へ分配する
 
@@ -16,7 +26,7 @@ Fisher 内積 $g(Y,Z)$ を方向 $X$ に沿って変化させると、ベクト�
 
 <!-- formal-statement-start -->
 > **定義（計量に関する双対接続）**  
-> 非退化な Riemann 計量 $g$ とアファイン接続 $\nabla$ を持つ滑らかな多様体 $M$ に対し、アファイン接続 $\nabla^*$ が $\nabla$ の **$g$-双対接続**であるとは、すべての滑らかなベクトル場 $X,Y,Z$ について
+> 非退化な Riemann 計量 $g$ とアファイン接続 $\nabla$ を持つ滑らかな多様体 $M$ に対し、アファイン接続 $\nabla^*$ が $\nabla$ の **$g$ に関する双対**であるとは、すべての滑らかなベクトル場 $X,Y,Z$ について
 
 $$
 X\bigl(g(Y,Z)\bigr)=g(\nabla_XY,Z)+g(Y,\nabla_X^*Z)
@@ -40,7 +50,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（双対接続の存在・一意性と二重双対）**  
-> 滑らかな多様体 $M$ 上の非退化な Riemann 計量 $g$ と任意のアファイン接続 $\nabla$ に対し、$g$-双対接続 $\nabla^*$ は一意に存在し、$(\nabla^*)^*=\nabla$ となる。さらに $(\nabla+\nabla^*)/2$ は計量両立であり、**両方の接続が捩率零ならば**この平均は $g$ の Levi-Civita 接続に一致する。
+> 滑らかな多様体 $M$ 上の非退化な Riemann 計量 $g$ と任意のアファイン接続 $\nabla$ に対し、その $g$ に関する双対 $\nabla^*$ は一意に存在し、$(\nabla^*)^*=\nabla$ となる。さらに $(\nabla+\nabla^*)/2$ は計量両立であり、**両方の接続が捩率零ならば**この平均は $g$ の Levi-Civita 接続に一致する。
 <!-- formal-statement-end -->
 
 計量の非退化性が双対を一意に決めます。しかし平均が Levi-Civita になるには捩率零の条件が必要です。一般の接続について「双対なら必ず Levi-Civita を挟む」とは言えません。
@@ -89,7 +99,7 @@ $$
 
 ## 2. 三つの score を掛けるとテンソルになる
 
-[IG1 の score の平均零](../IG1/index.md#thm-ig1-regular-score-mean)を念頭に置きます。score は座標変換に対して一次式で変換するので、三つの積の期待値も三階の共変テンソルになります。これは接続同士の差を記述する量です。接続の捩率も通常 $T$ と書くことがありますが、本講では捩率を $\operatorname{Tor}$、三次テンソルを $T$ と区別します。
+[IG1 の score の平均零](../IG1/index.md#thm-ig1-regular-score-mean)を念頭に置きます。score は再パラメータ化に対して一次式で変換するので、三つの積の期待値も三階の共変テンソルになります。これは接続同士の差を記述する量です。接続の捩率も通常 $T$ と書くことがありますが、本講では捩率を $\operatorname{Tor}$、三次テンソルを $T$ と区別します。
 
 <a id="def-ig7-amari-chentsov"></a>
 
@@ -125,7 +135,7 @@ $p=1/2$ でのみ零となり、三次の非対称性は一般に消えません
 
 <!-- formal-statement-start -->
 > **命題（三次テンソルの座標変換）**  
-> 上記の正則モデルで、滑らかな可逆座標変換 $\theta=\theta(y)$ の Jacobian を $P^i_a=\partial\theta^i/\partial y^a$ とすると
+> 上記の正則モデルで、滑らかで可逆な座標の取り替え $\theta=\theta(y)$ の Jacobian を $P^i_a=\partial\theta^i/\partial y^a$ とすると
 
 $$
 T'_{abc}=P^i_aP^j_bP^k_cT_{ijk}.
@@ -155,7 +165,7 @@ $$
 
 ## 3. α-接続は三次テンソルでずれる
 
-三次テンソルだけでは測地線は決まりません。もう一つ、対数密度の二階微分 $\ell_{ij}$ と score の積を組み合わせます。二階微分だけの期待値 $E[\ell_{ij}]$ では接続係数になりませんが、第三の score を掛けると、座標変換で接続に必要な二階 Jacobian 項が現れます。
+三次テンソルだけでは測地線は決まりません。もう一つ、対数密度の二階微分 $\ell_{ij}$ と score の積を組み合わせます。二階微分だけの期待値 $E[\ell_{ij}]$ では接続係数になりませんが、第三の score を掛けると、再パラメータ化で接続に必要な二階 Jacobian 項が現れます。
 
 <a id="def-ig7-alpha-connection"></a>
 
@@ -203,7 +213,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（α-接続の存在・捩率零・双対性）**  
-> 上記の三階正則統計モデルで、定義した $\Gamma^{(\alpha)k}_{ij}$ はアファイン接続の座標変換則を満たす。すべての実数 $\alpha$ に対し $\nabla^{(\alpha)}$ は捩率零で、$\nabla^{(\alpha)}$ と $\nabla^{(-\alpha)}$ は Fisher 計量 $g$ に関して双対である。また
+> 上記の三階正則統計モデルで、定義した $\Gamma^{(\alpha)k}_{ij}$ はアファイン接続の係数の変換則を満たす。すべての実数 $\alpha$ に対し $\nabla^{(\alpha)}$ は捩率零で、$\nabla^{(\alpha)}$ と $\nabla^{(-\alpha)}$ は Fisher 計量 $g$ に関して双対である。また
 
 $$
 \nabla^{(0)}=\nabla^{\mathrm{LC}},\qquad
@@ -223,7 +233,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-座標変換 $\theta=\theta(y)$ で $P^i_a=\partial\theta^i/\partial y^a$、$Q^i_{ab}=\partial_a\partial_b\theta^i$ とすると、連鎖律から
+座標を $\theta=\theta(y)$ と取り替え、$P^i_a=\partial\theta^i/\partial y^a$、$Q^i_{ab}=\partial_a\partial_b\theta^i$ とすると、連鎖律から
 
 $$
 \ell'_a=P^i_a\ell_i,\qquad
@@ -262,7 +272,7 @@ $$
 =E[\ell_{ij}\ell_k]+E[\ell_j\ell_{ik}]+T_{ijk}.
 $$
 
-一方で二つの接続の定義から
+一方で [α-接続の定義](#def-ig7-alpha-connection)を $\alpha$ と $-\alpha$ それぞれに適用すると
 
 $$
 \begin{aligned}
@@ -273,7 +283,7 @@ $$
 \end{aligned}
 $$
 
-これが [双対接続の定義](#def-ig7-dual-connection)の座標基底での式です。一般のベクトル場へ拡張すると、両接続の Leibniz 則によるベクトル成分の微分が左辺の積の微分と一致するため、双対性が成立します。
+これが [計量に関する双対接続の定義](#def-ig7-dual-connection)の座標基底での式です。一般のベクトル場へ拡張すると、両接続の Leibniz 則によるベクトル成分の微分が左辺の積の微分と一致するため、双対性が成立します。
 
 $\alpha=0$ では自分自身が双対なので $\nabla^{(0)}g=0$、かつ捩率零です。[Levi-Civita の一意性](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)より $\nabla^{(0)}=\nabla^{\mathrm{LC}}$ です。さらに定義から
 
@@ -459,10 +469,10 @@ $$
 
 ### IG7-A01 双対式から未知の係数を求める
 
-区間 $(0,1)$ 上の計量 $g_{pp}=1/[p(1-p)]$ と接続 $\Gamma^p_{pp}=0$ を考える。双対接続の係数 $\Gamma^{*p}_{pp}$ を定義から求め、$p=1/4$ で式を検算せよ。
+区間 $(0,1)$ 上の計量 $g_{pp}=1/[p(1-p)]$ と接続 $\Gamma^p_{pp}=0$ を考える。この計量に関する双対接続の係数 $\Gamma^{*p}_{pp}$ を定義から求め、$p=1/4$ で式を検算せよ。
 
 - Level: A
-- 狙い: 双対接続の定義を成分で使う
+- 狙い: 計量に関する双対接続の定義を成分で使う
 
 <!-- solution-start -->
 **詳細解答**
@@ -506,7 +516,7 @@ Bernoulli 族の $p\in(0,1)$ に $g_{pp}=1/q$、$q=p(1-p)$、$T_{ppp}=(1-2p)/q^2
 <!-- solution-start -->
 **詳細解答**
 
-$g^{pp}=q$ なので $g^{pp}T_{ppp}=(1-2p)/q$ です。[α-接続の定理](#thm-ig7-alpha-duality)から
+$g^{pp}=q$ なので $g^{pp}T_{ppp}=(1-2p)/q$ です。[α-接続の存在・捩率零・双対性](#thm-ig7-alpha-duality)から
 
 $$
 \Gamma^{(\alpha)p}_{pp}=\frac{2p-1}{2q}-\frac\alpha2\frac{1-2p}{q}
@@ -533,7 +543,7 @@ $$
 \partial_r^2\partial_pD=\frac{1-2r}{r^2(1-r)^2}.
 $$
 
-従って答えは順に $0$ と $(2p-1)/[p^2(1-p)^2]$ です。[KL 誘導定理](#thm-ig7-kl-third-derivatives)により前者が m、後者が e の下付き係数です。
+従って答えは順に $0$ と $(2p-1)/[p^2(1-p)^2]$ です。[KL の三階微分と e/m 双対接続](#thm-ig7-kl-third-derivatives)により前者が m、後者が e の下付き係数です。
 <!-- solution-end -->
 
 ### IG7-B01 双対の平均と捩率
@@ -546,7 +556,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[双対接続の定義](#def-ig7-dual-connection)と二重双対を、$Y,Z$ の交換も含めて書くと
+[計量に関する双対接続の定義](#def-ig7-dual-connection)と二重双対を、$Y,Z$ の交換も含めて書くと
 
 $$
 \begin{aligned}
@@ -608,7 +618,7 @@ $$
 \Gamma^{\widetilde D*}_{ij,k}=\Gamma^D_{ij,k}.
 $$
 
-混合二階微分については $-\partial_i\partial_{j'}\widetilde D|=-\partial_{i'}\partial_jD|=g_{ji}=g_{ij}$ で不変です。[KL 三階微分定理](#thm-ig7-kl-third-derivatives)により、元の $m/e$ が反転によって $e/m$ に交換されます。
+混合二階微分については $-\partial_i\partial_{j'}\widetilde D|=-\partial_{i'}\partial_jD|=g_{ji}=g_{ij}$ で不変です。[KL の三階微分と e/m 双対接続](#thm-ig7-kl-third-derivatives)により、元の $m/e$ が反転によって $e/m$ に交換されます。
 <!-- solution-end -->
 
 ### IG7-B04 座標を変えても接続の差はテンソル
@@ -640,7 +650,7 @@ $$
 個々の接続係数に含まれた二階微分の項は差を取ると消えます。
 <!-- solution-end -->
 
-### IG7-C01 Bernoulli の計量・双対接続・KL を一つに結ぶ
+### IG7-C01 Bernoulli の計量・互いに双対な接続・KL を一つに結ぶ
 
 Bernoulli 族 $P_p(X=1)=p$、$P_p(X=0)=1-p$（$p\in(0,1)$）について、$q=p(1-p)$、$a=\log\{p/(1-p)\}$ と置く。$D(p,r)=p\log(p/r)+(1-p)\log\{(1-p)/(1-r)\}$ とする。
 
@@ -651,7 +661,7 @@ Bernoulli 族 $P_p(X=1)=p$、$P_p(X=0)=1-p$（$p\in(0,1)$）について、$q=p(
 5. $p=1/2$ の一点で $T=0$ であることから、e と m が $(0,1)$ 全体で同じ接続だと言えるか。理由を述べよ。
 
 - Level: C
-- 狙い: 定義・テンソル性・双対性・座標変換・KL の符号を一体として再構成する
+- 狙い: 定義・テンソル性・双対性・再パラメータ化・KL の符号を一体として再構成する
 
 <!-- solution-start -->
 **詳細解答**
@@ -680,7 +690,7 @@ Bernoulli 族 $P_p(X=1)=p$、$P_p(X=0)=1-p$（$p\in(0,1)$）について、$q=p(
 
    特殊値を入れると $\Gamma^{e,p}_{pp}=(2p-1)/q$、$\Gamma^{m,p}_{pp}=0$、$\Gamma^{\mathrm{LC},p}_{pp}=(2p-1)/(2q)$ です。$\partial_pg_{pp}=(2p-1)/q^2$ と $g_{pp}(\Gamma^{e,p}_{pp}+\Gamma^{m,p}_{pp})=(1/q)(2p-1)/q$ が等しく、[双対性の定義](#def-ig7-dual-connection)を満たします。
 
-3. $p=e^a/(1+e^a)$ から $dp/da=q$、$d^2p/da^2=q(1-2p)$ です。[IG6 の座標変換則](../IG6/index.md#thm-ig6-coordinate-covariance)を使って
+3. $p=e^a/(1+e^a)$ から $dp/da=q$、$d^2p/da^2=q(1-2p)$ です。[IG6 の接続係数の変換則](../IG6/index.md#thm-ig6-coordinate-covariance)を使って
 
    $$
    \Gamma^{(\alpha)a}_{aa}=\frac1q\{q^2\Gamma^{(\alpha)p}_{pp}+q(1-2p)\}
@@ -708,7 +718,7 @@ Bernoulli 族 $P_p(X=1)=p$、$P_p(X=0)=1-p$（$p\in(0,1)$）について、$q=p(
 
 ## 7. 何が分かったか
 
-- 双対接続は計量の変化を二つの共変微分へ分配する規則で、非退化な計量の下で一意です。二つとも捩率零なら平均は Levi-Civita 接続です。
+- 計量に関する双対接続は計量の変化を二つの共変微分へ分配する規則で、非退化な計量の下で一意です。二つとも捩率零なら平均は Levi-Civita 接続です。
 - score の三乗期待値は対称三次テンソル $T$ となり、$\alpha$-接続は $\nabla^{\mathrm{LC}}-(\alpha/2)T^\sharp$ と表せます。$\alpha=+1$ が e、$\alpha=-1$ が m で、互いに双対です。
 - 向きを固定した $D_{\mathrm{KL}}(p_\theta\Vert p_{\theta'})$ の三階微分は、第一引数を二回なら m、第二引数を二回なら e を誘導します。
 - Bernoulli と正規位置尺度族では具体的に符号と係数を計算できました。**双対性は平坦性を意味しません。** 次の IG8 で、どの統計モデルのどの座標で接続が平坦になるかを調べます。
