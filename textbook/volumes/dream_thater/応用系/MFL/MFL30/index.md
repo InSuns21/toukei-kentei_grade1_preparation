@@ -233,9 +233,11 @@ $$
 > この集約は置換等変である。さらに各頂点へ自己ループを加え、次の正規化を行った集約も置換等変である。
 
 $$
-\widehat E=E\cup\{(i,i):i\in V\},\qquad
-\widehat d_i=|\widehat N_i|\ge1,\qquad
-\widehat s_i=\frac1{\widehat d_i}\sum_{j\in\widehat N_i}g(h_j).
+\begin{aligned}
+\widehat E&=E\cup\{(i,i):i\in V\},\\
+\widehat N_i&=\{j:(j,i)\in\widehat E\},\qquad \widehat d_i=|\widehat N_i|\ge1,\\
+\widehat s_i&=\frac1{\widehat d_i}\sum_{j\in\widehat N_i}g(h_j).
+\end{aligned}
 $$
 <!-- formal-statement-end -->
 
