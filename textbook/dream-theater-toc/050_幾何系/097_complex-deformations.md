@@ -9,3 +9,4 @@
 6. [DEF1-06 Kuranishi構成I――調和ゲージと方程式](textbook/volumes/dream_thater/幾何系/DEF/DEF1-06/index.md)
 7. [DEF1-07 Kuranishi構成II――解析的収束と有限次元基底](textbook/volumes/dream_thater/幾何系/DEF/DEF1-07/index.md)
 8. [DEF1-08 Kuranishi構成III――局所完全性と普遍性の限界](textbook/volumes/dream_thater/幾何系/DEF/DEF1-08/index.md)
+9. [DEF1-09 Bogomolov–Tian–Todorov I――核心恒等式](textbook/volumes/dream_thater/幾何系/DEF/DEF1-09/index.md)

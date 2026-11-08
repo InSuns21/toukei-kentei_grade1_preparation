@@ -1,0 +1,41 @@
+chapter: DEF1-09
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-03, DEF1-05, CYG1-12, HOD1-06, HOD1-08, CM2-02]
+concepts:
+  - id: deformation.volume-divergence
+    name: 体積形式に関する発散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（体積形式に関する発散）"]
+    requires: [cyg.volume-contraction]
+  - id: deformation.double-volume-contraction
+    name: 接束値形式の二重収縮
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接束値形式の二重収縮）"]
+    requires: [cyg.volume-contraction, deformation.beltrami-graded-bracket]
+  - id: deformation.cartan-contraction-identity
+    name: 正則Cartan収縮恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正則Cartan収縮恒等式）"]
+    requires: [deformation.volume-divergence, deformation.double-volume-contraction]
+  - id: deformation.tian-todorov-identity
+    name: Tian–Todorov核心恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Tian–Todorov核心恒等式）"]
+    requires: [deformation.cartan-contraction-identity, deformation.beltrami-graded-bracket]
+  - id: deformation.partial-closed-harmonic-representative
+    name: 一次類の∂閉代表の選択
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次類の∂閉代表の選択）"]
+    requires: [cyg.contraction-dolbeault-isomorphism, hodge.kahler-hodge-decomposition]
+  - id: deformation.btt-quadratic-obstruction-vanishing
+    name: 二次障害類の消滅
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Calabi–Yauの二次障害類の消滅）"]
+    requires: [deformation.tian-todorov-identity, deformation.partial-closed-harmonic-representative, hodge.ddbar-lemma, deformation.primary-obstruction-class]
