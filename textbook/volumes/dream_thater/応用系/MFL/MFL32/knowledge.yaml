@@ -1,0 +1,57 @@
+chapter: MFL32
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL31
+  - SGT2
+forward_references:
+  - fourier.fou3-convolution
+concepts:
+  - id: manifold-learning.graph-spectral-multiplier
+    name: グラフスペクトル乗数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（グラフスペクトル乗数）"]
+    requires: [spectral-graph.combinatorial-laplacian, spectral-graph.psd]
+  - id: manifold-learning.polynomial-graph-filter
+    name: 多項式グラフフィルタ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項式グラフフィルタ）"]
+    requires: [manifold-learning.graph-spectral-multiplier]
+  - id: manifold-learning.spectral-basis-independent
+    name: スペクトル乗数の基底非依存性と誤差上界
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.graph-spectral-multiplier, spectral-graph.psd]
+  - id: manifold-learning.polynomial-hop-locality
+    name: 多項式フィルタのK-hop局所性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.polynomial-graph-filter, spectral-graph.path]
+  - id: manifold-learning.polynomial-permutation-equivariance
+    name: 多項式フィルタの置換等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.polynomial-graph-filter, manifold-learning.graph-relabeling]
+  - id: manifold-learning.chebyshev-graph-filter
+    name: Chebyshevグラフフィルタ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Chebyshevグラフフィルタ）"]
+    requires: [manifold-learning.polynomial-graph-filter]
+  - id: manifold-learning.chebyshev-recurrence
+    name: Chebyshev漸化式と疎計算
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.chebyshev-graph-filter, manifold-learning.polynomial-hop-locality]
+  - id: manifold-learning.normalized-first-order-filter
+    name: 自己ループ付き正規化一次フィルタ
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.polynomial-graph-filter, spectral-graph.normalized-laplacian]
+  - id: manifold-learning.eigenbasis-parameterization-failure
+    name: 重複固有空間内の係数不一致による基底依存
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.spectral-basis-independent]

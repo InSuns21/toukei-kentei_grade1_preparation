@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-09（MFL31の1-WL上界・有限範囲の識別実現・小グラフ実験を反映）
-状態: in_progress（MFL1〜MFL31 完成、MFL32〜MFL43 は未実装）
+改訂日: 2026-11-09（MFL32の多項式スペクトルフィルタ・Chebyshev計算・基底非依存性を反映）
+状態: in_progress（MFL1〜MFL32 完成、MFL33〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -346,5 +346,6 @@ MFL14では `kernel_sampling_lab.py` を正本に、既存の `python-file-lab` 
 - **MFL29 completed**：点列の逆置換作用、総和・平均・最大poolingの不変性、DeepSets型の共有集約層の不変性と等変性、線形等変層の対角・非対角分類、度数特徴の有限多重集合復元、集約衝突の誤差下界を証明。A4/B4/C1の詳細解答と全置換を照合する二次元点群の決定論的ラボを実装。
 - **MFL30 completed**：有向辺・辺特徴まで含む再ラベル作用、共有message/対称aggregate/update一層の等変性、多層の帰納法、graph-level不変読み出し、次数正規化・孤立頂点・局所受容範囲を証明。A4/B4/C1の詳細解答と全置換・二層の決定論的検証ラボを実装。
 - **MFL31 completed**：有限単純無向グラフの1-WL色精緻化とヒストグラム識別、共有近傍集約GNNの1-WL上界、有限サイズ・有限色・有限深さのone-hot構成、正則グラフの非同型衝突、平均集約とreadoutの追加損失を証明。A4/B4/C1の詳細解答と再ラベルを含む決定論的ラボを実装。
-- **MFL32〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- **MFL32 completed**：対称Laplacianの固有分解から定義するスペクトル乗数と基底非依存性・作用素誤差、低次数多項式のK-hop局所性・再ラベル等変性、Chebyshev漸化式・疎計算量、自己ループ付き正規化一次伝播のLaplacianの違い、重複固有値の基底依存反例を証明。A4/B4/C1の詳細解答と決定論的な有限グラフ実験を実装。
+- **MFL33〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
 - 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。
