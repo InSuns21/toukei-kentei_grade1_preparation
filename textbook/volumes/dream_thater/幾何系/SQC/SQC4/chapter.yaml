@@ -1,0 +1,34 @@
+id: "SQC4"
+title: "立方体倍積と角の三等分"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC3
+official_scope: []
+learning_objectives:
+  - 単位立方体の倍積に必要な辺の比を導き、三次既約式と作図可能次数の必要条件から不能性を証明できる
+  - 三倍角公式を t=2cos(theta) の三次式へ変換し、60度の三等分不能性を根拠付きで示せる
+  - 有理根判定と三次式の既約性、実二次拡大列の次数障害の論理のつながりを説明できる
+  - 90度や45度など三等分可能な角を実際の二等分操作で構成し、一般の角の三等分不能性と区別できる
+definitions: []
+theorems:
+  - { id: SQC4-THM-01, name: 立方体倍積の作図不能性 }
+  - { id: SQC4-THM-02, name: 60度の角の三等分不能性 }
+canonical_examples:
+  - 単位立方体の体積を2倍にする辺の長さ
+  - 2cos20度の三次多項式と有理根判定
+  - 90度と45度の有限作図による三等分
+  - 120度の三等分も不可能であること
+problem_patterns:
+  - SQC4-CUBE-VOLUME-RATIO
+  - SQC4-RATIONAL-ROOT-CUBIC
+  - SQC4-TRIPLE-ANGLE-IDENTITY
+  - SQC4-CONSTRUCTIBLE-ANGLE-EXAMPLES
+  - SQC4-VOLUME-TRIPLING
+  - SQC4-ANGLE-120-OBSTRUCTION
+  - SQC4-INITIAL-DATA-AND-NECESSITY
+  - SQC4-INTEGRATED-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
