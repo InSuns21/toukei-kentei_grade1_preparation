@@ -2,31 +2,23 @@
 
 [OTR15の変位補間](../OTR15/index.md#def-otr15-displacement-interpolation)では粒子の位置を時刻で動かし、[OTR16の内部エネルギー](../OTR16/index.md#def-otr16-internal-energy)ではその結果として変わる密度を評価しました。しかし「ある時刻の密度」と「次の時刻の密度」が、どのような**局所的な質量保存則**で結ばれているかはまだ書いていません。
 
-粒子が移動しても消えたり生まれたりしないなら、ある領域から減った質量は境界を通って出たはずです。この考えを、まず滑らかな密度と速度の式へ直し、次に密度を持たない Dirac 測度にも使える積分形へ拡張します。ここで扱うのは質量の運動学であり、速度を決める力学方程式や最適な速度の選択はまだ仮定しません。
+粒子が移動しても消えたり生まれたりしないなら、ある領域から減った質量は境界を通って出たはずです。[VC9の古典的な質量保存則](../../../幾何系/VC/VC9/index.md#prop-vc9-continuity)を出発点に、密度を持たない Dirac 測度にも使える積分形へ拡張します。ここで扱うのは質量の運動学であり、速度を決める力学方程式や最適な速度の選択はまだ仮定しません。
 
 ## 1. 質量と流束を区別する
 
-時間区間を $[0,T]$（$T>0$）、空間を $\mathbb R^d$（$d\ge1$）とします。$\rho(t,x)\ge0$ を単位体積当たりの質量、$v(t,x)\in\mathbb R^d$ を位置 $x$ での速度とします。小さい面を単位時間に通る質量は、密度だけでなく「密度×速度」に比例します。これが**流束**です。速度はベクトル、密度はスカラーなので、流束もベクトルになります。
-
-<a id="def-otr17-flux"></a>
-
-<!-- formal-statement-start -->
-> **定義（質量流束と連続の方程式）**  
-> $d\ge1$、$T>0$ とし、$\rho\in C^1([0,T]\times\mathbb R^d)$ は非負、$v\in C^1([0,T]\times\mathbb R^d;\mathbb R^d)$ とする。質量流束を $j=\rho v$、その発散を
+時間区間を $[0,T]$（$T>0$）、空間を $\mathbb R^d$（$d\ge1$）とします。$\rho(t,x)\ge0$ を単位体積当たりの質量、$v(t,x)\in\mathbb R^d$ を位置 $x$ での速度とします。小さい面を単位時間に通る質量は密度だけでなく「密度×速度」に比例します。これは[VC9で定義した質量流束](../../../幾何系/VC/VC9/index.md#def-vc9-mass-flux)です。VC9 の速度 $u$ を本章では $v$ と書き、$j=\rho v$ と置きます。$j$ の発散は空間方向の和
 
 $$
 \nabla\cdot j=\sum_{i=1}^{d}\frac{\partial j_i}{\partial x_i}
 $$
 
-> とする。局所的な質量保存を表す**連続の方程式**は
+です。質量生成がない場合の[VC9の連続の方程式](../../../幾何系/VC/VC9/index.md#prop-vc9-continuity)は
 
 $$
 \partial_t\rho+\nabla\cdot(\rho v)=0.
 $$
-<!-- formal-statement-end -->
 
-<!-- definition-example-start: def-otr17-flux -->
-**定義の確認**。一次元で一定速度 $v=c$、$\rho(t,x)=g(x-ct)$ とします。ただし $g\in C_c^1(\mathbb R)$、$g\ge0$、$\int g=1$ です。流束は $j=cg(x-ct)$ で、
+となります。ここでは $\rho,v$ が $C^1$ として、既習の古典形を直接検算します。一次元で一定速度 $v=c$、$\rho(t,x)=g(x-ct)$ とします。ただし $g\in C_c^1(\mathbb R)$、$g\ge0$、$\int g=1$ です。流束は $j=cg(x-ct)$ で、
 
 $$
 \partial_t\rho=-c g'(x-ct),\qquad
@@ -34,7 +26,6 @@ $$
 $$
 
 和は各点で $0$ です。[PDE1の定係数輸送の表示](../../PDE/PDE1/index.md#thm-pde1-constant-transport)とも一致します。ただし一般の非定数速度では $v\cdot\nabla\rho$ だけを書いては保存則になりません。
-<!-- definition-example-end -->
 
 積の微分を各成分で実行すると
 
@@ -48,30 +39,14 @@ $$
 
 ## 2. 小領域の収支から境界流束を導く
 
-$\Omega\subset\mathbb R^d$ を有界な $C^1$ 境界を持つ領域、$n$ をその外向き単位法線とします。$\rho,j$ が閉領域まで $C^1$ なら、$\rho$ の時間微分を積分の内側に移し、空間には発散定理を適用できます。
-
-<a id="prop-otr17-balance"></a>
-
-<!-- formal-statement-start -->
-> **命題（領域の質量収支）**  
-> 有界 $C^1$ 領域 $\Omega\subset\mathbb R^d$ と $\rho,j\in C^1([0,T]\times\overline\Omega)$ を取る。$\partial_t\rho+\nabla\cdot j=0$ が $[0,T]\times\Omega$ で成立するとき、$M_\Omega(t)=\int_\Omega\rho(t,x)\,dx$ は微分可能で
+$\Omega\subset\mathbb R^d$ を有界な $C^1$ 境界を持つ領域、$n$ をその外向き単位法線とします。$\rho,j$ が閉領域まで $C^1$ なら、[VC4のGauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)によって、[VC4の局所保存則から積分保存則](../../../幾何系/VC/VC4/index.md#thm-vc4-local-to-integral)を導けました。質量の場合に変数を代入すると、$M_\Omega(t)=\int_\Omega\rho(t,x)\,dx$ に対し
 
 $$
 \frac{dM_\Omega}{dt}(t)
 =-\int_{\partial\Omega}j(t,x)\cdot n(x)\,dS(x).
 $$
 
-> 特に $j\cdot n=0$ が全境界で成立すれば $M_\Omega(t)=M_\Omega(0)$ である。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-密度の時間変化を体積積分し、$\nabla\cdot j$ の体積積分を境界へ移します。符号は「外向きの流束が正なら内部の質量は減る」で検算します。
-
-<!-- proof-start -->
-### 証明
-
-正則性と領域の有界性から微分と積分を交換できるので、
+です。ここで「外向きの流束が正なら内部の質量は減る」という符号を一度計算で確かめます。$M_\Omega$ を微分し、連続の方程式と[発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を順に適用すると
 
 $$
 \begin{aligned}
@@ -82,8 +57,7 @@ M_\Omega'(t)
 \end{aligned}
 $$
 
-境界で $j\cdot n=0$ なら微分は全時刻で $0$ です。微積分の基本定理により $M_\Omega(t)-M_\Omega(0)=\int_0^tM_\Omega'(s)\,ds=0$ を得ます。$\square$
-<!-- proof-end -->
+境界で $j\cdot n=0$ なら $M_\Omega'(t)=0$ なので $M_\Omega(t)=M_\Omega(0)$ です。これを後で no-flux の弱条件として拡張します。
 
 一次元 $\Omega=(a,b)$ では外向き法線が左端 $-1$、右端 $+1$ ですから、公式は
 
@@ -97,7 +71,18 @@ $$
 
 一点に質量 $1$ が集中する [Dirac 測度](../../F0/F0-00D2/index.md#def-f0-00d2-04) $\delta_a$ は原子的対象で、Lebesgue 密度を持ちません。$\mu_t=\delta_{ct}$ は質量を失わず動きますが、$\partial_t\rho$ と書くべき関数 $\rho$ は存在しません。
 
-代わりに、時刻 $t$ の測度 $\mu_t$ を滑らかな**試験関数** $\varphi(t,x)$ に対して積分します。$C_c^1([0,T]\times\mathbb R^d)$ は、時間は両端まで一階連続微分可能、空間方向には全時刻を通じて共通のコンパクト集合の外で $0$ となる関数全体を表します。$\nabla\varphi$ は空間変数だけに関する勾配です。
+代わりに、時刻 $t$ の測度 $\mu_t$ を滑らかな関数 $\varphi(t,x)$ に対して積分します。時間と空間の微分をこの関数へ移せば、密度自体を微分せずに済みます。この観測用の関数を試験関数として先に定義します。
+
+<a id="def-otr17-test-function"></a>
+
+<!-- formal-statement-start -->
+> **定義（連続の方程式の試験関数）**  
+> $T>0$、$d\ge1$ に対し、$\varphi\in C^1([0,T]\times\mathbb R^d)$ で、あるコンパクト集合 $K\subset\mathbb R^d$ が存在して全時刻 $t\in[0,T]$ と $x\notin K$ で $\varphi(t,x)=0$ となる関数を**試験関数**とする。全体を $C_c^1([0,T]\times\mathbb R^d)$ と書く。$\nabla\varphi$ は空間変数だけの勾配であり、時間端点ではゼロを要求しない。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-otr17-test-function -->
+**定義の確認**。$d=1$ で $h(x)=(1-x^2)^2$（$|x|<1$）、$h(x)=0$（$|x|\ge1$）とし、$\varphi(t,x)=(1+t)h(x)$ とします。$h$ と $h'$ は $x=\pm1$ の両側で一致するので $\varphi\in C^1$。すべての $t$ で $[-1,1]$ の外では $0$ で、空間微分は $\partial_x\varphi=(1+t)h'(x)$、時間微分は $\partial_t\varphi=h(x)$ です。端点 $t=0,T$ でも関数は定義されています。
+<!-- definition-example-end -->
 
 **狭義連続**とは、各有界連続関数 $f(x)$ に対し $t\mapsto\int f\,d\mu_t$ が連続なことです。有限測度の曲線では、$f\equiv1$ も含むため総質量が時刻について連続です。「ほとんど至る所の時刻で密度がある」ことは仮定しません。
 
@@ -138,7 +123,7 @@ $$
 
 弱形式の各項には意味があります。左辺は時刻 $0,T$ における観測量の差、右辺の $\partial_t\varphi$ は観測関数自体の時間変化、$v\cdot\nabla\varphi$ は質量が動くことで観測値が変わる効果です。初期条件は左辺の $\mu_0$ の項で組み込まれています。
 
-## 4. 滑らかな密度では元のPDEに戻る
+## 4. $C^1$ 密度では元のPDEに戻る
 
 弱形式の符号が恣意的でないことを、微分可能な密度から直接導きます。境界項が無限遠で残らないよう、ここでは質量と流束が時間に依らない一つのコンパクト集合に支持を持つ場合を先に扱います。
 
@@ -146,7 +131,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（古典形と弱形式の一致）**  
-> $T>0$、$d\ge1$ とする。$\rho\in C^1([0,T]\times\mathbb R^d)$、$\rho\ge0$、$v\in C^1([0,T]\times\mathbb R^d;\mathbb R^d)$ とし、あるコンパクト集合 $K$ の外で $\rho(t,\cdot)=0$ が全時刻で成り立つと仮定する。$\mu_t=\rho(t,x)\,dx$、$\int_0^T\int\rho|v|\,dxdt<\infty$ とする。このとき次は同値である。
+> $T>0$、$d\ge1$ とし、非負関数 $\rho\in C^1([0,T]\times\mathbb R^d)$ を取る。
+> 速度場 $v\in C^1([0,T]\times\mathbb R^d;\mathbb R^d)$ を取る。
+> あるコンパクト集合 $K$ の外で $\rho(t,\cdot)=0$ が全時刻で成り立つとする。
+> $\mu_t=\rho(t,x)\,dx$ と置き、速度の積分可能性
+
+$$
+\int_0^T\int_{\mathbb R^d}\rho(t,x)|v(t,x)|\,dxdt<\infty
+$$
+
+> を仮定する。このとき次は同値である。
 >
 > 1. $\partial_t\rho+\nabla\cdot(\rho v)=0$ が $[0,T]\times\mathbb R^d$ の各点で成り立つ。
 > 2. $(\mu_t,v)$ が[測度弱解の定義](#def-otr17-measure-weak)を満たす。
@@ -166,7 +160,7 @@ $$
 \le\|f\|_\infty |K|\sup_{x\in K}|\rho(t_n,x)-\rho(t,x)|\to0.
 $$
 
-まず (1) を仮定します。$\varphi\in C_c^1$ について積の微分と発散の積の公式から
+まず (1) を仮定します。$\varphi\in C_c^1$ について $\partial_t(\rho\varphi)$ と各成分 $\partial_{x_i}(\rho v_i\varphi)$ を実際に展開すると
 
 $$
 \begin{aligned}
@@ -177,7 +171,7 @@ $$
 \end{aligned}
 $$
 
-$[0,T]\times\mathbb R^d$ で積分します。$\rho v\varphi$ は空間コンパクト支持なのでその発散の全空間積分は $0$。時間微分は端点の差です。従って
+$[0,T]\times\mathbb R^d$ で積分します。$\rho v\varphi$ は空間方向に一つの有限範囲の外で $0$ なので、その発散の全空間積分は $0$。時間微分は端点の差です。従って
 
 $$
 \int\rho(T,x)\varphi(T,x)\,dx-\int\rho(0,x)\varphi(0,x)\,dx
@@ -197,7 +191,7 @@ $$
 
 ## 5. 弱形式だけからも総質量は保存される
 
-試験関数 $\varphi\equiv1$ は空間コンパクト支持でないので、$\mathbb R^d$ の[測度弱解の定義](#def-otr17-measure-weak)へそのまま代入できません。しかし速度の積分可能性は、遠方の境界へ質量が一気に消えることを防ぎます。
+試験関数 $\varphi\equiv1$ は空間方向で $0$ にならないので、$\mathbb R^d$ の[測度弱解の定義](#def-otr17-measure-weak)へそのまま代入できません。しかし速度の積分可能性は、遠方の境界へ質量が一気に消えることを防ぎます。
 
 <a id="thm-otr17-mass"></a>
 
@@ -240,13 +234,21 @@ $$
 
 ## 6. 壁を通り抜けないことを弱形式で表す
 
-有界領域では全空間と違い境界から質量が出入りできます。滑らかな場合の [質量収支](#prop-otr17-balance) から、壁を通る流束の法線成分 $j\cdot n$ を $0$ と置けばよいと分かります。ただし測度が原子的な場合、境界上で $\rho v\cdot n$ という通常の関数の値は定義できません。そこで初めから**境界項なしの積分恒等式**で no-flux を定義します。
+有界領域では全空間と違い境界から質量が出入りできます。[VC4の質量収支の基になる結果](../../../幾何系/VC/VC4/index.md#thm-vc4-local-to-integral)から、滑らかな場合には壁を通る流束の法線成分 $j\cdot n$ を $0$ と置けばよいと分かります。ただし測度が原子的な場合、境界上で $\rho v\cdot n$ という通常の関数の値は定義できません。そこで初めから**境界項なしの積分恒等式**で no-flux を定義します。
 
 <a id="def-otr17-no-flux"></a>
 
 <!-- formal-statement-start -->
 > **定義（有界領域の no-flux 弱条件）**  
-> $\Omega\subset\mathbb R^d$ を有界 $C^1$ 領域、$T>0$ とする。$t\mapsto\mu_t$ は $\overline\Omega$ 上の狭義連続な有限非負測度の曲線で、$v$ は $[0,T]\times\overline\Omega$ 上のBorel速度場とし、$\int_0^T\int_{\overline\Omega}|v|\,d\mu_tdt<\infty$ を満たすとする。任意の $\varphi\in C^1([0,T]\times\overline\Omega)$ で
+> $\Omega\subset\mathbb R^d$ を有界 $C^1$ 領域、$T>0$ とする。
+> $t\mapsto\mu_t$ は $\overline\Omega$ 上の狭義連続な有限非負測度の曲線とする。
+> $v$ は $[0,T]\times\overline\Omega$ 上のBorel速度場とし、
+
+$$
+\int_0^T\int_{\overline\Omega}|v|\,d\mu_tdt<\infty
+$$
+
+> を仮定する。任意の $\varphi\in C^1([0,T]\times\overline\Omega)$ で
 
 $$
 \begin{aligned}
@@ -257,7 +259,7 @@ $$
 \end{aligned}
 $$
 
-> が成立することを**no-flux 境界条件を伴う連続の方程式の弱形式**とする。ここでは境界に支持された質量も許し、通常の法線 trace が存在するとは仮定しない。
+> が成立することを**no-flux 境界条件を伴う連続の方程式の弱形式**とする。境界上の流束が通常の関数として評価できるとは仮定しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-otr17-no-flux -->
@@ -275,7 +277,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（滑らかな場合の no-flux と法線流束）**  
-> 有界 $C^1$ 領域 $\Omega$ で $\rho,v$ が $[0,T]\times\overline\Omega$ 上 $C^1$、$\rho\ge0$、$\mu_t=\rho(t,x)\,dx$ とする。このとき [no-flux 弱条件](#def-otr17-no-flux) が成り立つことと、内部の連続の方程式および境界での $\rho v\cdot n=0$ が成り立つことは同値である。
+> $\Omega\subset\mathbb R^d$ を有界 $C^1$ 領域、$T>0$ とする。
+> $\rho,v$ は $[0,T]\times\overline\Omega$ 上 $C^1$、$\rho\ge0$ とする。
+> $\mu_t=\rho(t,x)\,dx$ と置く。このとき[no-flux 弱条件](#def-otr17-no-flux)と、
+> 内部の連続の方程式および境界上の次の条件は同値である。
+
+$$
+\rho(t,x)v(t,x)\cdot n(x)=0
+\qquad (t\in[0,T],\ x\in\partial\Omega).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -312,7 +322,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（滑らかな流れの押し出しは弱解）**  
-> $v\in C^1([0,T]\times\mathbb R^d;\mathbb R^d)$ とし、$X\in C^1([0,T]\times\mathbb R^d;\mathbb R^d)$ が $X_0(a)=a$、$\partial_tX_t(a)=v(t,X_t(a))$ を満たすとする。初期測度 $\mu_0$ はコンパクト支持の有限非負Borel測度とする。$\mu_t=(X_t)_{\#}\mu_0$ なら $(\mu_t,v)$ は[測度弱解](#def-otr17-measure-weak)である。
+> $v\in C^1([0,T]\times\mathbb R^d;\mathbb R^d)$ とする。
+> $X\in C^1([0,T]\times\mathbb R^d;\mathbb R^d)$ がすべての $a\in\mathbb R^d$ で
+
+$$
+X_0(a)=a,\qquad \partial_tX_t(a)=v(t,X_t(a))
+$$
+
+> を満たすとする。$\mu_0$ をコンパクト支持の有限非負Borel測度とし、
+> $\mu_t=(X_t)_{\#}\mu_0$ と置く。このとき $(\mu_t,v)$ は[測度弱解](#def-otr17-measure-weak)である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -338,7 +356,7 @@ $$
 +\nabla\varphi(t,X_t(a))\cdot v(t,X_t(a)).
 $$
 
-これを $0$ から $T$ まで積分し、$a$ について $\mu_0$ で積分します。連続な被積分関数は $[0,T]\times K$ 上で有界なので積分順序を交換できます。両端を押し出し公式で $\mu_T,\mu_0$ に戻し、右辺も各時刻で同じ公式により $\mu_t$ に戻すと、弱形式そのものです。$\square$
+これを $0$ から $T$ まで積分し、$a$ について $\mu_0$ で積分します。連続な被積分関数は $[0,T]\times K$ 上で有界なので積分順序を交換できます。両端を[押し出し積分公式](../../F0/F0-00P3D/index.md#thm-f0-00p3d-pushforward-integration)で $\mu_T,\mu_0$ に戻します。右辺も各時刻でこの積分公式を適用して $\mu_t$ に戻すと、弱形式そのものです。$\square$
 <!-- proof-end -->
 
 密度がある場合は、さらに $X_t$ の微分行列が体積をどう拡大するかを追えます。次の命題では $X_t$ が $C^1$ 級微分同相と仮定します。正の Jacobian $J_t(a)=\det D_aX_t(a)$ に対して体積変換公式が使えます。
@@ -399,8 +417,8 @@ $$
 
 ### 二つの例を並べて確かめる
 
-- **移動する原子**：$\mu_0=\delta_0$、$X_t(a)=a+ct$ なら $\mu_t=\delta_{ct}$。密度の公式は使えませんが [流れの弱解定理](#thm-otr17-flow) は使えます。
-- **伸びる一様分布**：$d=1$、$\mu_0=\boldsymbol1_{[0,1]}da$、$X_t(a)=(1+t)a$（$0\le t\le T$）なら $v(t,x)=x/(1+t)$、$J_t=1+t$、$\rho(t,x)=(1+t)^{-1}\boldsymbol1_{[0,1+t]}(x)$。台の端では密度が不連続なので古典形の定理は直接適用できませんが、弱解定理で正当化できます。台の内部では
+- **移動する原子**：$\mu_0=\delta_0$、$X_t(a)=a+ct$ なら $\mu_t=\delta_{ct}$。密度の公式は使えませんが[滑らかな流れの押し出しは弱解](#thm-otr17-flow)を適用できます。
+- **一様分布の拡大**：$d=1$、$\mu_0=\boldsymbol1_{[0,1]}da$、$X_t(a)=(1+t)a$（$0\le t\le T$）なら $v(t,x)=x/(1+t)$、$J_t=1+t$、$\rho(t,x)=(1+t)^{-1}\boldsymbol1_{[0,1+t]}(x)$。台の端では密度が不連続なので古典形の定理は直接適用できませんが、[滑らかな流れの押し出しは弱解](#thm-otr17-flow)で正当化できます。台の内部では
 
 $$
 \partial_t\rho=-\frac1{(1+t)^2},\qquad
@@ -547,7 +565,7 @@ $$
 ### OTR17-B02 $d$ 次元の一様な膨張
 - Level: B
 
-$d\ge1$、$\mu_0$ を $[0,1]^d$ 上の一様確率測度とし、$X_t(a)=(1+t)a$ とする。速度 $v(t,x)$、Jacobian、$\rho_t$、全質量を求め、[流れの弱解定理](#thm-otr17-flow)を使って弱式を証明せよ。台の境界での古典微分についても注意を述べよ。
+$d\ge1$、$\mu_0$ を $[0,1]^d$ 上の一様確率測度とし、$X_t(a)=(1+t)a$ とする。速度 $v(t,x)$、Jacobian、$\rho_t$、全質量を求め、[滑らかな流れの押し出しは弱解](#thm-otr17-flow)を使って弱式を証明せよ。台の境界での古典微分についても注意を述べよ。
 
 <!-- solution-start -->
 **詳細解答**。$\partial_tX_t(a)=a=X_t(a)/(1+t)$ なので $v(t,x)=x/(1+t)$。微分行列は $D_aX_t=(1+t)I_d$、従って $J_t=(1+t)^d>0$ です。[Jacobianの密度保存](#prop-otr17-jacobian)から
@@ -556,7 +574,7 @@ $$
 \rho(t,x)=(1+t)^{-d}\boldsymbol1_{[0,1+t]^d}(x).
 $$
 
-台の体積は $(1+t)^d$ なので積分は $1$。$X_t$ は $C^1$ 微分同相で初期支持はコンパクト、$v$ は $[0,T]$ と移動する支持上で有界です。[流れの弱解定理](#thm-otr17-flow)を直接適用でき、任意の試験関数で弱式が成立します。密度は移動する立方体の境界で一般に不連続なので [古典形と弱形式の一致](#thm-otr17-classical-weak)の $C^1$ 仮定は満たしません。この定理を無条件に流用しないことが要点です。
+台の体積は $(1+t)^d$ なので積分は $1$。$X_t$ は $C^1$ 微分同相で初期支持はコンパクト、$v$ は $[0,T]$ と移動する支持上で有界です。[滑らかな流れの押し出しは弱解](#thm-otr17-flow)を直接適用でき、任意の試験関数で弱式が成立します。密度は移動する立方体の境界で一般に不連続なので[古典形と弱形式の一致](#thm-otr17-classical-weak)の $C^1$ 仮定は満たしません。この定理を無条件に流用しないことが要点です。
 <!-- solution-end -->
 
 ### OTR17-B03 一次モーメントの移動速度
@@ -578,7 +596,7 @@ $$
 =\int_0^s\int v\,d\mu_tdt.
 $$
 
-例では $m(t)=\frac12(t+2+t)=1+t$、従って $m(s)-m(0)=s$。右辺は $\int_0^s(\frac12+\frac12)dt=s$ で一致します。$x$ 自体は空間コンパクト支持でないので cutoff が必要です。
+例では $m(t)=\frac12(t+2+t)=1+t$、従って $m(s)-m(0)=s$。右辺は $\int_0^s(\frac12+\frac12)dt=s$ で一致します。$x$ 自体は空間方向に有限範囲の外で消えないため cutoff が必要です。
 <!-- solution-end -->
 
 ### OTR17-B04 速度場は測度の外で決まらない
@@ -619,7 +637,7 @@ $$
 \rho(t,x)=\frac1{1+t}\boldsymbol1_{[t^2,\,1+t+t^2]}(x).
 $$
 
-区間の長さは $1+t$ なので質量は $(1+t)^{-1}(1+t)=1$。第二に $X_t$ は $C^1$ 微分同相、初期支持は $[0,1]$ でコンパクト、速度は移動する支持上で有界です。[流れの弱解定理](#thm-otr17-flow)で弱形式が成立します。台の内部では $\rho=(1+t)^{-1}$ なので
+区間の長さは $1+t$ なので質量は $(1+t)^{-1}(1+t)=1$。第二に $X_t$ は $C^1$ 微分同相、初期支持は $[0,1]$ でコンパクト、速度は移動する支持上で有界です。[滑らかな流れの押し出しは弱解](#thm-otr17-flow)で弱形式が成立します。台の内部では $\rho=(1+t)^{-1}$ なので
 
 $$
 \partial_t\rho=-\frac1{(1+t)^2},\quad

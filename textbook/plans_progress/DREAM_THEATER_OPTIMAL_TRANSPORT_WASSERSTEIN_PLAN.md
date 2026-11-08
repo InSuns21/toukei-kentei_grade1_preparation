@@ -82,7 +82,7 @@
 |---|---|---|
 | OTR1–OTR7 | MT（Borel確率測度・積分・押し出し・弱収束）、確率論、OPT（凸最適化・有限LP双対）、必要な位相 | coupling、tightnessから存在、一般費用の下半連続性、$c$-transform の使用順 |
 | OTR8–OTR16 | MT・確率論、RA/FA の収束と凸解析、LA の行列・正定値性 | gluing・モーメント条件・quantile・凸劣微分・Brenier のa.e.微分可能性 |
-| OTR17–OTR24 | PDE/GPDE の弱方程式・積分 by parts・時間発展、変分法の直接法 | 測度解・弱連続の方程式・metric derivative・速度場・JKO のコンパクト性 |
+| OTR17–OTR24 | VC9 の質量流束・連続の式、PDE/GPDE の弱方程式・積分 by parts・時間発展、変分法の直接法 | 測度解・弱連続の方程式・metric derivative・速度場・JKO のコンパクト性 |
 | OTR25–OTR26 | OPT/LA の双対と行列計算、ML2/PMLの用語は**相互参照に限る** | KL正則化と物理的自由エネルギーの別物性、log-sum-exp 安定化、残差検証 |
 
 既存の MT/OPT/FA/PDE/GPDE 等で既習とみなすのは**実在する定義・定理の適用条件が一致する場合だけ**とする。執筆開始時に `chapter.yaml`/`knowledge.yaml` と canonical stable anchor を実照合し、未導入・到達不能なら OTR に補題を置くか前提変更を明示してから章を確定する。後続の ML2/PML を OTR の証明へ逆輸入しない。
