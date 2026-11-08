@@ -12,14 +12,22 @@ $$
 
 本章ではまず正値な関数の範囲を定め、その内部で左辺を行列式として計算し、微小な関数の変更が方程式をどう変えるかを導く。後続の連続性の方法で使うのは、この**線形化が正の楕円型作用素になる**という性質である。ここでは特定の $F$ に対する一般的な解の存在・一意性までは主張しない。
 
-正則座標 $z^j=x^j+iy^j$ で
+正則座標 $z^j=x^j+iy^j$ で $\partial_j=\partial/\partial z^j$、$\partial_{\bar k}=\partial/\partial\bar z^k$ と書く。$j,k$ は $1,\ldots,n$ を動く添字である。
 
-$$
+$
 \omega=i\sum_{j,k=1}^n g_{j\bar k}\,dz^j\wedge d\bar z^k,
 \qquad G=(g_{j\bar k})>0
-$$
+$
 
-と書く。$\varphi_{j\bar k}=\partial_j\partial_{\bar k}\varphi$ は $\varphi$ の複素混合二階微分で、実関数なので行列 $\Phi=(\varphi_{j\bar k})$ はHermite行列である。[正値形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)は $G+\Phi$ のすべての固有値が正であることを要求する。以下では「$>0$」を正値Hermite形式という意味で用いる。
+と書く。$\varphi_{j\bar k}=\partial_j\partial_{\bar k}\varphi$ は $\varphi$ の複素混合二階微分で、実関数の混合微分の交換と共役から $\overline{\varphi_{j\bar k}}=\varphi_{k\bar j}$ となり、$\Phi=(\varphi_{j\bar k})$ はHermite行列である。ここで $v=\sum_jv^j\partial_j$ を $(1,0)$ 接ベクトルとすると、[正の実 $(1,1)$ 形式の定義](../../KAH/KAH1-02/index.md#def-kah1-02-positive-form)と[係数行列の判定命題](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)により
+
+$
+-i\,\omega_\varphi(v,\bar v)
+=\sum_{j,k}(g_{j\bar k}+\varphi_{j\bar k})v^j\overline{v^k}>0
+\quad(v\ne0)
+$
+
+が正値性の正確な意味である。実 $(1,1)$ 形式の評価 $\omega_\varphi(v,\bar v)$ 自体は純虚数なので、不等号で比較するのは $-i$ を掛けた実数値である。以下では「$>0$」をこの正値Hermite形式という意味で用いる。
 
 ### 最初の実験：平坦な楕円曲線
 
@@ -29,7 +37,7 @@ $$
 \varphi_a(x)=\frac{a}{\pi^2}\cos(2\pi x)
 $$
 
-は周期的な滑らかな実関数である。$\partial_z\partial_{\bar z}=(\partial_x^2+\partial_y^2)/4$ だから
+は周期的な滑らかな実関数である。[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)の $\partial_z=(\partial_x-i\partial_y)/2$、$\partial_{\bar z}=(\partial_x+i\partial_y)/2$ を合成し、混合微分を交換すると $\partial_z\partial_{\bar z}=(\partial_x^2+\partial_y^2)/4$ だから
 
 $$
 (\varphi_a)_{z\bar z}
@@ -99,20 +107,20 @@ $$
 =(1-t)\omega_{\varphi_0}+t\omega_{\varphi_1}.
 $$
 
-右辺を任意の非零複素接ベクトル $v$ で評価すると、二つの正の数を非負の重み $1-t,t$ で足した値だから正であり、凸性が従う。
+右辺を任意の非零 $(1,0)$ 接ベクトル $v$ で評価し、$-i$ を掛けると、$-i\,\omega_{\varphi_0}(v,\bar v)$ と $-i\,\omega_{\varphi_1}(v,\bar v)$ という二つの正の実数を非負の重み $1-t,t$ で足した値になる。従って凸性が従う。
 
 次に $\varphi\in\mathcal H_\omega$ を固定する。$\omega$ で測った $\omega_\varphi$ の最小固有値は $X$ 上の連続な正関数であり、コンパクト性からある $m>0$ に対して全点で $\omega_\varphi\ge m\omega$ となる。ある定数 $C>0$ を座標被覆・固定計量 $\omega$ に応じて選べば、任意の滑らかな実関数 $\psi$ で
 
 $$
-|i\partial\bar\partial\psi(v,\bar v)|
-\le C\|\psi\|_{C^2}\,\omega(v,\bar v)
+|-i\,(i\partial\bar\partial\psi)(v,\bar v)|
+\le C\|\psi\|_{C^2}[-i\,\omega(v,\bar v)]
 $$
 
-がすべての $v$ に対して成立する。これは有限個の座標近傍で二階成分を評価し、コンパクトな被覆を取ることで得られる。$C\|\psi\|_{C^2}<m$ なら
+がすべての $v$ に対して成立する。これは有限個の座標近傍で二階成分を評価し、コンパクトな被覆を取ることで得られる。$C\|\psi\|_{C^2}<m$ なら、任意の非零 $(1,0)$ 接ベクトル $v$ に対して
 
 $$
-\omega_{\varphi+\psi}(v,\bar v)
-\ge(m-C\|\psi\|_{C^2})\omega(v,\bar v)>0
+-i\,\omega_{\varphi+\psi}(v,\bar v)
+\ge(m-C\|\psi\|_{C^2})[-i\,\omega(v,\bar v)]>0
 $$
 
 であり、$C^2$ 開性が示された。
@@ -186,13 +194,14 @@ G_\varphi=
 \qquad\det G_\varphi=6-|c|^2.
 $$
 
-任意の $v=(v_1,v_2)$ に対して平方完成すると
+任意の $(1,0)$ 接ベクトル $v=v^1\partial_1+v^2\partial_2$ について、形式の定義に従う二次形式を平方完成すると
 
-$$
-v^*G_\varphi v
-=2\left|v_1+\frac c2v_2\right|^2
-+\left(3-\frac{|c|^2}{2}\right)|v_2|^2.
-$$
+$
+-i\,\omega_\varphi(v,\bar v)
+=\sum_{j,k}(G_\varphi)_{j\bar k}v^j\overline{v^k}
+=2\left|v^1+\frac{\bar c}{2}v^2\right|^2
++\left(3-\frac{|c|^2}{2}\right)|v^2|^2.
+$
 
 従って $G_\varphi>0$ と $|c|^2<6$ は同値である。例えば $c=1$ なら行列式比は $5$、$\mathcal M_{\omega_0}(\varphi)=\log5$ である。ただしこの $\varphi$ は局所例であり、コンパクトなトーラス上の大域周期関数だと主張していない。
 
@@ -200,7 +209,7 @@ $$
 
 方程式を解くためには、許容な $\varphi$ のまわりで小さな実関数 $\psi$ を足したとき、$\mathcal M_\omega$ がどれだけ動くかを知りたい。正値領域が開いているので、固定した $\varphi,\psi$ に対し十分小さな $|t|$ では $\varphi+t\psi$ は許容のままである。
 
-ここで $t$ は実パラメータ、$\psi_{j\bar k}=\partial_j\partial_{\bar k}\psi$ とし、$G_\varphi=(g_{j\bar k}+\varphi_{j\bar k})$ の逆行列を $(g_\varphi^{j\bar k})$ と書く。**複素Laplacian** は $\sum g_\varphi^{j\bar k}\psi_{j\bar k}$ であるが、前章は計量に対応する実Laplacianを $\Delta_{\omega_\varphi}=2\sum g_\varphi^{j\bar k}\partial_j\partial_{\bar k}$ と定義した。両者の係数2を混同しない。
+ここで $t$ は実パラメータ、$\psi_{j\bar k}=\partial_j\partial_{\bar k}\psi$ とし、$G_\varphi=(g_{j\bar k}+\varphi_{j\bar k})$ と置く。縮約に使う逆係数 $g_\varphi^{j\bar k}$ は $\sum_k g_\varphi^{j\bar k}(g_\varphi)_{\ell\bar k}=\delta^j_\ell$ で定める。添字を通常の行列の行・列へ並べると $(g_\varphi^{j\bar k})=(G_\varphi^{-1})^{\mathsf T}$ であり、$\sum_{j,k}g_\varphi^{j\bar k}\psi_{j\bar k}=\operatorname{tr}(G_\varphi^{-1}\Psi)$（$\Psi=(\psi_{j\bar k})$）となる。**複素Laplacian** はこの縮約であるが、[前章で定めた実Laplacian](../YAU1-02/index.md#prop-yau1-02-real-potential)は $\Delta_{\omega_\varphi}=2\sum g_\varphi^{j\bar k}\partial_j\partial_{\bar k}$ である。両者の係数2を混同しない。
 
 <a id="prop-yau1-03-linearization"></a>
 
@@ -249,7 +258,7 @@ D\mathcal M_\omega|_\varphi(\psi)
 =\sum_{j,k}g_\varphi^{j\bar k}\psi_{j\bar k}.
 $$
 
-ここで逆行列の添字は $\sum_k g_\varphi^{j\bar k}(g_\varphi)_{\ell\bar k}=\delta^j_\ell$ という規約であり、最右辺は座標によらない跡である。前章と同じ実Laplacian規約 $\Delta_{\omega_\varphi}\psi=2\sum g_\varphi^{j\bar k}\psi_{j\bar k}$ を代入すると係数 $1/2$ が得られる。
+前述の逆係数の添字規約により、最右辺は座標によらない跡である。前章と同じ実Laplacian規約 $\Delta_{\omega_\varphi}\psi=2\sum g_\varphi^{j\bar k}\psi_{j\bar k}$ を代入すると係数 $1/2$ が得られる。
 
 外積については $\omega_{\varphi+t\psi}=\omega_\varphi+t\,i\partial\bar\partial\psi$ だから、二形式は偶数次数で可換であり、積の微分は
 
@@ -394,7 +403,7 @@ $$
 $\mathcal M_\omega(\varphi)=F$ を指数化すると $\omega_\varphi^n=e^F\omega^n$ なので、代入して体積整合条件を得る。最後に $\partial\bar\partial c=0$ より $\omega_{\varphi+c}=\omega_\varphi$、従って $\mathcal M_\omega(\varphi+c)=\mathcal M_\omega(\varphi)$。線形化公式に $\psi=c$ を代入しても $L_\varphi(c)=\frac12\Delta_{\omega_\varphi}c=0$ となる。$\square$
 <!-- proof-end -->
 
-例えば $F\equiv\log2$ なら右辺の積分は $2V\ne V$ だから解はない。一方、$\varphi=0$ と $F=0$ は整合条件を満たし、実際の解を一つ与える。前章の実Ricciポテンシャル $u$ に対して $F=C-u$ と置けば、[正規化定数の導出](../YAU1-02/index.md#prop-yau1-02-real-potential)に続く積分計算によって $e^C\int_Xe^{-u}\omega^n=V$ となる。ここでも正規化と正値解の存在は別問題である。
+例えば $F\equiv\log2$ なら右辺の積分は $2V\ne V$ だから解はない。一方、$\varphi=0$ と $F=0$ は整合条件を満たし、実際の解を一つ与える。前章の実Ricciポテンシャル $u$ に対して $F=C-u$ と置けば、[既習の指定Ricci形式と体積方程式の同値性](../../CYG/CYG1-10/index.md#prop-cyg1-10-monge-ampere-reduction)の正規化計算によって $e^C\int_Xe^{-u}\omega^n=V$ となる。ここでも正規化と正値解の存在は別問題である。
 
 ## 7. 正値性を外すと何が壊れるか
 
@@ -626,12 +635,13 @@ $$
 3. 体積比が正でも許容でない具体例を挙げ、そこで証明のどの正値性の段階が失敗するかを述べよ。三問とも局所計算として扱い、コンパクト多様体上の大域解は主張しない。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_j\partial_{\bar k}\varphi_{s,c}$ を取ると $G_{\varphi_{s,c}}=\begin{pmatrix}1+s&c\\\bar c&3\end{pmatrix}$。平方完成は
+**詳細解答。** $\partial_j\partial_{\bar k}\varphi_{s,c}$ を取ると $G_{\varphi_{s,c}}=\begin{pmatrix}1+s&c\\\bar c&3\end{pmatrix}$。任意の $(1,0)$ 接ベクトル $v=v^1\partial_1+v^2\partial_2$ に対する正値性の判定式を平方完成すると
 
 $$
-v^*G_{\varphi_{s,c}}v
-=(1+s)\left|v_1+\frac c{1+s}v_2\right|^2
-+\left(3-\frac{|c|^2}{1+s}\right)|v_2|^2
+-i\,\omega_{\varphi_{s,c}}(v,\bar v)
+=\sum_{j,k}(G_{\varphi_{s,c}})_{j\bar k}v^j\overline{v^k}
+=(1+s)\left|v^1+\frac{\bar c}{1+s}v^2\right|^2
++\left(3-\frac{|c|^2}{1+s}\right)|v^2|^2
 $$
 
 であり、これは $1+s>0$ の下での式である。ゆえに正値条件は $s>-1$ かつ $D:=3(1+s)-|c|^2>0$。この範囲では
