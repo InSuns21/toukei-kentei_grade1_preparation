@@ -1,0 +1,24 @@
+chapter: SQC3
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC2, FLD5]
+forward_references: []
+
+concepts:
+  - id: geometry.quadratic-tower-stepwise-construction
+    name: 実二次拡大列の段階的な作図
+    kind: proposition
+    introduction: formal
+    requires: [algebra.constructibility-quadratic-tower, geometry.four-arithmetic-constructions, geometry.nonnegative-square-root-construction]
+
+  - id: geometry.constructible-splitting-degree-obstruction
+    name: 作図可能数の分解体の次数障害
+    kind: lemma
+    introduction: formal
+    requires: [algebra.constructibility-quadratic-tower, algebra.tower-law, algebra.quadratic-extension-tower]
+
+  - id: geometry.nonconstructible-quartic-example
+    name: 次数4でも作図できない実数
+    kind: proposition
+    introduction: formal
+    requires: [geometry.constructible-splitting-degree-obstruction, algebra.minimal-polynomial]
