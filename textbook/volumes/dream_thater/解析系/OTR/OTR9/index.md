@@ -28,6 +28,8 @@ $$
 
 **狭義収束だけでは $W_p$ 収束になりません。** 必要なのは遠方にある質量の$p$次の寄与も消えることです。この章ではその条件を定理として証明し、さらに測度の距離空間が完備・可分であることまで確認します。
 
+以下では OTR3 と同じく $\mu_n\Rightarrow\mu$ を測度の狭義収束の記号とし、$W_p(\mu_n,\mu)\to0$ とは区別します。
+
 ## 2. 距離による収束とモーメントによる検査
 
 $W_p$ が距離である以上、「$W_p$ 収束」は距離がゼロに近づくという意味です。その定義を明示してから、直接判定できる例を作ります。
@@ -204,7 +206,28 @@ $$
 \le m_{n,0}+R_n\le\mu(B_0)+R_n<\delta+R_n.
 $$
 
-$n\to\infty$ で上極限は高々 $\delta$、$\delta>0$ は任意です。ここまでの構成は $r,\delta$ に依存しますが、補題の「全 $r$ で同時に成立する一列」を得るには、$r=1/j,\delta=1/j$（$j\ge1$）に対する構成を $\gamma_n^{(j)}$ として持ち、$n$ が十分大きいほど $j=j(n)\uparrow\infty$ を遅く増やす対角選択を行います。具体的に各 $j$ で $n\ge N_j$ なら上の確率が $2/j$ 以下となる $N_j$ を選び、$N_j$ を厳密増加にして $j(n)=\max\{j:N_j\le n\}$ とすればよいのです。$r>0$ に対して $1/j(n)<r$ となるので、求める性質が従います。$\square$
+$n\to\infty$ で上極限は高々 $\delta$ であり、$\delta>0$ は任意です。ただし、ここまでの結合は $r,\delta$ に依存しています。「すべての $r$ に使える一列」を得るため、$r=\delta=1/j$（$j\ge1$）に対する結合を $\gamma_n^{(j)}$ と書きます。各 $j$ について十分大きい $N_j$ を選べば、$n\ge N_j$ で
+
+$$
+\gamma_n^{(j)}\{d(x,y)\ge1/j\}\le2/j
+$$
+
+となります。$N_1\ge1$ かつ $N_1<N_2<\cdots$ となるように取り、$n\ge N_1$ に対して
+
+$$
+j(n)=\max\{j:N_j\le n\},\qquad
+\gamma_n=\gamma_n^{(j(n))}
+$$
+
+と定めます（最初の有限個 $n<N_1$ では積結合を取ります）。すると $j(n)\to\infty$ です。固定した $r>0$ について十分大きい $n$ では $1/j(n)<r$ だから、
+
+$$
+\gamma_n\{d(x,y)\ge r\}
+\le\gamma_n\{d(x,y)\ge1/j(n)\}
+\le2/j(n)\longrightarrow0.
+$$
+
+これが求める一列です。$\square$
 <!-- proof-end -->
 
 この補題は「大きくずれる確率」を消すだけで、まだ「距離の$p$乗の平均」を消していません。遠方のごく小さい質量はその違いを作ります。
@@ -217,7 +240,7 @@ $n\to\infty$ で上極限は高々 $\delta$、$\delta>0$ は任意です。こ�
 
 <!-- formal-statement-start -->
 > **補題（狭義収束と積分収束からの一様な尾部評価）**
-> $(X,d)$ をPolish空間、$\mu_n,\mu$ をBorel確率測度、$f:X\to[0,\infty)$ を連続関数とする。$\mu_n$ が $\mu$ に狭義収束し、$\int f\,d\mu_n\to\int f\,d\mu<\infty$ なら、次が成り立つ。
+> $(X,d)$ をPolish空間、$\mu_n,\mu$ をBorel確率測度、$f:X\to[0,\infty)$ を連続関数とする。**各 $n\ge1$ で $\int f\,d\mu_n<\infty$** と仮定する。$\mu_n$ が $\mu$ に狭義収束し、$\int f\,d\mu_n\to\int f\,d\mu<\infty$ なら、次が成り立つ。
 
 $$
 \lim_{M\to\infty}\sup_{n\ge1}
@@ -232,7 +255,7 @@ $f$ は非有界かもしれませんが、$\min(f,M)$ は有界連続です。�
 <!-- proof-start -->
 ### 証明
 
-$g_M=\min(f,M)$ は有界連続なので、狭義収束から $\int g_M\,d\mu_n\to\int g_M\,d\mu$ です。仮定の全積分の収束を引くと
+$g_M=\min(f,M)$ は有界連続なので、狭義収束から $\int g_M\,d\mu_n\to\int g_M\,d\mu$ です。各 $n$ の全積分が有限であることを使い、全積分の収束を引くと
 
 $$
 \int(f-M)_+\,d\mu_n
@@ -240,7 +263,9 @@ $$
 \longrightarrow\int(f-M)_+\,d\mu.
 $$
 
-右辺は $M\uparrow\infty$ で0へ減少します（$0\le(f-M)_+\le f$ と $\int f\,d\mu<\infty$）。任意の $\varepsilon>0$ に対して、まず $M_0$ を選んで極限の積分を $\varepsilon/2$ 未満にすれば、十分大きい $n$ では $\int(f-M_0)_+\,d\mu_n<\varepsilon$ です。残る有限個の $n$ については各 $\int f\,d\mu_n$ が有限なので、$M$ をさらに増やせば超過分がそれぞれ0へ近づきます。$M\ge M_0$ で単調減少することと合わせ、
+右辺は $M\uparrow\infty$ で0へ減少します。実際、$0\le(f-M)_+\le f$ と $\int f\,d\mu<\infty$ の下で、[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を使えます。
+
+任意の $\varepsilon>0$ に対して、まず $M_0$ を選んで極限の積分を $\varepsilon/2$ 未満にすれば、十分大きい $n$ では $\int(f-M_0)_+\,d\mu_n<\varepsilon$ です。残る有限個の $n$ については各 $\int f\,d\mu_n$ が有限なので、$M$ をさらに増やせば超過分がそれぞれ0へ近づきます。$M\ge M_0$ で単調減少することと合わせ、
 
 $$
 \lim_{M\to\infty}\sup_n\int(f-M)_+\,d\mu_n=0.
@@ -255,6 +280,16 @@ $$
 
 両辺で上限を取れば結論です。$\square$
 <!-- proof-end -->
+
+各 $n$ の有限性は、尾部の上限を全 $n$ で取るために必要です。例えば $X=\mathbb R$ で
+
+$$
+f(x)=x^2,\qquad
+\mu_1=\sum_{k=1}^\infty2^{-k}\delta_{2^k},\qquad
+\mu_n=\mu=\delta_0\ (n\ge2)
+$$
+
+なら、狭義収束と全積分の極限 $0$ は成立しますが、$\int f\,d\mu_1=\sum_{k=1}^\infty2^k=\infty$ なので一様尾部評価は成立しません。
 
 ここで $f(x)=d(x,o)^p$ とすれば、ちょうど欲しかった尾部制御になります。連続性は距離の連続性から、積分の有限性は $\mathcal P_p(X)$ から得られます。
 
@@ -292,7 +327,7 @@ $$
 0\le d(x,y)^p\le c(a(x)+b(y)).
 $$
 
-[尾部補題](#lem-otr9-tail)を $f=a$ と $\mu_n$ に、さらに $f=b$ と定値列 $\mu$ に適用します。いずれも積分の尾部を一様に小さくできます。非負数 $u,v$ に対し $u+v\le2\max(u,v)$ なので
+[尾部補題](#lem-otr9-tail)を $f=a$ と $\mu_n$ に、さらに $f=b$ と定値列 $\mu$ に適用します。$\mu_n,\mu\in\mathcal P_p(X)$ なので、いずれも各項の積分は有限であり、尾部を一様に小さくできます。非負数 $u,v$ に対し $u+v\le2\max(u,v)$ なので
 
 $$
 (u+v-L)_+\le(2u-L)_++(2v-L)_+.
@@ -309,7 +344,7 @@ $$
 \end{aligned}
 $$
 
-右辺は $M\to\infty$ で $n$ に一様に0へ近づきます。さらに $t>2M$ なら $t\le2(t-M)$ なので
+実際、$a\ge0$ について $(2a-L)_+\le2a\boldsymbol{1}_{\{a>L/2\}}$ です（$b$ も同様）。従って右辺は尾部補題により $M\to\infty$ で $n$ に一様に0へ近づきます。さらに $t>2M$ なら $t\le2(t-M)$ なので
 
 $$
 \lim_{M\to\infty}\sup_n
@@ -421,7 +456,7 @@ $$
 =W_p(\mu_{n_k},\mu_{n_{k+1}})\le2^{-k}.
 $$
 
-$P$ は確率測度なので、[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を指数 $p$ と $p/(p-1)$（$p=1$ は直接積分）で適用し、$\int d(Z_k,Z_{k+1})\,dP\le2^{-k}$ を得ます。非負項の和と積分の交換により
+$P$ は確率測度なので、[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を指数 $p$ と $p/(p-1)$（$p=1$ は直接積分）で適用し、$\int d(Z_k,Z_{k+1})\,dP\le2^{-k}$ を得ます。非負部分和に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用すると
 
 $$
 \int\sum_{k=1}^\infty d(Z_k,Z_{k+1})\,dP
@@ -481,7 +516,7 @@ $$
 0\le d(x,T_m(x))^p\le d(x,z_1)^p.
 $$
 
-任意の $\mu\in\mathcal P_p(X)$ に対して右辺は可積分であり、[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から $\int d(x,T_m(x))^p\,d\mu\to0$ です。$\nu_m=(T_m)_\#\mu$ と置くと、グラフ結合 $({\rm id},T_m)_\#\mu$ により
+任意の $\mu\in\mathcal P_p(X)$ に対して右辺は可積分であり、[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から $\int d(x,T_m(x))^p\,d\mu\to0$ です。$\nu_m=(T_m)_\#\mu$ と置くと、[グラフ結合](../OTR2/index.md#prop-otr2-graph) $({\rm id},T_m)_\#\mu$ により
 
 $$
 W_p(\mu,\nu_m)^p\le\int d(x,T_m(x))^p\,d\mu\to0.
@@ -580,13 +615,22 @@ $$
 =(t_n-t)(h(0)-h(1))\to0.
 $$
 
-逆に $h(0)=1,h(1)=0$ という有界連続関数を選べば積分は $t_n$ と $t$ なので、狭義収束から $t_n\to t$ が従います。[p-Wasserstein距離](../OTR8/index.md#def-otr8-wasserstein)の定義式から、食い違う質量 $|t_n-t|$ だけを距離1運ぶのが最適で、
+逆に $h(0)=1,h(1)=0$ という有界連続関数を選べば積分は $t_n$ と $t$ なので、狭義収束から $t_n\to t$ が従います。
+
+[p-Wasserstein距離](../OTR8/index.md#def-otr8-wasserstein)の定義に従い、任意の結合の $(i,j)$ への質量を $\gamma_{ij}$ と置きます。第一・第二周辺の点0での質量はそれぞれ $t_n,t$ なので、
+
+$$
+\gamma_{01}-\gamma_{10}=t_n-t,
+\qquad \gamma_{01}+\gamma_{10}\ge|t_n-t|.
+$$
+
+逆に $\gamma_{00}=\min(t_n,t)$、$\gamma_{01}=(t_n-t)_+$、$\gamma_{10}=(t-t_n)_+$、$\gamma_{11}=\min(1-t_n,1-t)$ とすると、すべて非負で両周辺を満たし、費用が $|t_n-t|$ です。従ってこの値が最小であり、
 
 $$
 W_p(\mu_{t_n},\mu_t)^p=|t_n-t|.
 $$
 
-従って $W_p$ 収束とも同値です。有限距離空間では距離が有界であり、[収束判定定理](#thm-otr9-convergence)のモーメント条件は有界連続関数の収束に含まれます。
+$W_p$ 収束とも同値です。有限距離空間では距離が有界であり、[収束判定定理](#thm-otr9-convergence)のモーメント条件は有界連続関数の収束に含まれます。
 <!-- solution-end -->
 
 ### OTR9-A05 $W_p$ と $W_q$ は異なる
@@ -609,7 +653,7 @@ $s=p$ なら $W_p=n^{1-q/p}\to0$（$q/p>1$）、$s=q$ なら $W_q=1$ です。[�
 ### OTR9-B01 尾部を切り詰めて評価する
 - Level: B
 
-$(X,d)$ をPolish空間、$\mu_n\Rightarrow\mu$ とし、連続関数 $f:X\to[0,\infty)$ について $\int f\,d\mu_n\to\int f\,d\mu<\infty$ とする。$f_M=\min(f,M)$ を用いて $\sup_n\int(f-M)_+\,d\mu_n\to0$ を示せ。さらに $f>2M$ での評価から[尾部補題](#lem-otr9-tail)を再導出せよ。
+$(X,d)$ をPolish空間、$\mu_n\Rightarrow\mu$ とし、連続関数 $f:X\to[0,\infty)$ について **各 $n$ で $\int f\,d\mu_n<\infty$**、かつ $\int f\,d\mu_n\to\int f\,d\mu<\infty$ とする。$f_M=\min(f,M)$ を用いて $\sup_n\int(f-M)_+\,d\mu_n\to0$ を示せ。さらに $f>2M$ での評価から[尾部補題](#lem-otr9-tail)を再導出せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -620,7 +664,7 @@ $$
 \lim_n\int(f-M)_+\,d\mu_n=\int(f-M)_+\,d\mu.
 $$
 
-右辺は $M\to\infty$ で0です。$\varepsilon>0$ を固定し、右辺が $\varepsilon/2$ 未満の $M_0$ を選ぶと、ある $N$ 以降では超過分が $\varepsilon$ 未満です。$n<N$ は有限個なので、各 $\int f\,d\mu_n<\infty$ から $M$ を増やし、残りも $\varepsilon$ 未満にできます。$M$ に関する単調性から上限も0へ向かいます。
+右辺は $M\to\infty$ で0です。$0\le(f-M)_+\le f$ と[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を用います。$\varepsilon>0$ を固定し、右辺が $\varepsilon/2$ 未満の $M_0$ を選ぶと、ある $N$ 以降では超過分が $\varepsilon$ 未満です。$n<N$ は有限個なので、各 $\int f\,d\mu_n<\infty$ から $M$ を増やし、残りも $\varepsilon$ 未満にできます。$M$ に関する単調性から上限も0へ向かいます。
 
 $f>2M$ なら $f-M>f/2$ だから $f\boldsymbol{1}_{\{f>2M\}}\le2(f-M)_+$ です。積分と上限を取り、左辺も一様に0へ向かいます。
 <!-- solution-end -->
@@ -658,14 +702,14 @@ $(X,d)$ を非空のPolish空間、$p\ge1$ とする。確率空間上の $X$ �
 <!-- solution-start -->
 **詳細解答**
 
-確率測度のもとで[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)（$p=1$ は直接評価）から $\int d(Z_k,Z_{k+1})\,dP\le3^{-k}$ です。非負級数の積分は和と交換できて
+確率測度のもとで[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)（$p=1$ は直接評価）から $\int d(Z_k,Z_{k+1})\,dP\le3^{-k}$ です。非負部分和に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用すると
 
 $$
 \int\sum_{k=1}^\infty d(Z_k,Z_{k+1})\,dP
 \le\sum_{k=1}^\infty3^{-k}=\frac12<\infty.
 $$
 
-よって距離の和はほとんど確実に有限で、$Z_k$ はCauchy、$X$ の完備性から $Z_k\to Z$ です。有限和への[積分のMinkowski不等式](../OTR8/index.md#lem-otr8-minkowski)とFatouの補題で
+よって距離の和はほとんど確実に有限で、$Z_k$ はCauchy、$X$ の完備性から $Z_k\to Z$ です。有限和への[積分のMinkowski不等式](../OTR8/index.md#lem-otr8-minkowski)と[Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)で
 
 $$
 \left(\int d(Z_k,Z)^p\,dP\right)^{1/p}
@@ -710,11 +754,41 @@ $(X,d)$ を非空のPolish空間、$p\ge1$、$\mu_n,\mu\in\mathcal P_p(X)$ と�
 <!-- solution-start -->
 **詳細解答**
 
-**（1）必要性。** 最適結合 $\pi_n$ を選ぶと、$r>0$ について $\pi_n\{d\ge r\}\le W_p^p/r^p\to0$ です。$\mu$ の質量をほぼ含むコンパクト $K$ 上では有界連続関数 $h$ の連続性が近傍で一様になるので、$\int|h(x)-h(y)|\,d\pi_n\to0$ と評価でき、狭義収束を得ます。また $\delta_o$ への距離は $M_p(\cdot;o)^{1/p}$ だから、逆三角不等式でその差を $W_p(\mu_n,\mu)$ で抑えてモーメント収束を得ます。
+**（1）必要性。** 最適結合 $\pi_n$ を選ぶと、$r>0$ について $\pi_n\{d\ge r\}\le W_p(\mu_n,\mu)^p/r^p\to0$ です。$\mu(K)>1-\varepsilon$ となるコンパクト $K$ 上で、有界連続関数 $h$ の連続性は近傍まで一様になります。十分小さい $r$ を選ぶと
 
-**（2）近接結合。** $\mu(K)>1-\delta$ のコンパクト $K$ を直径 $r$ 未満で境界の $\mu$ 質量が0の有限個のBorelセル $B_1,\ldots,B_m$ で覆い、残余を $B_0$ とします。$a_{n,i}=\mu_n(B_i)\to b_i=\mu(B_i)$ は狭義収束の開閉集合評価から従います。$m_{n,i}=\min(a_{n,i},b_i)$ だけは両測度を同じセル内で積結合し、残余 $R_n=\frac12\sum_i|a_{n,i}-b_i|\to0$ を別の積結合にします。従って $\gamma_n\{d\ge r\}\le\mu(B_0)+R_n<\delta+R_n$ です。$\delta\downarrow0$ と半径を $1/j$ にする対角選択で、すべての固定 $r$ に対して確率が0へ向かう一列が取れます。
+$$
+\left|\int h\,d\mu_n-\int h\,d\mu\right|
+\le\varepsilon+2\|h\|_\infty
+\bigl(\varepsilon+\pi_n\{d\ge r\}\bigr).
+$$
 
-**（3）$p$次費用。** $f(x)=d(x,o)^p$ は非負連続です。全積分と切詰め関数の積分の両方が収束するため、$\int(f-M)_+\,d\mu_n\to\int(f-M)_+\,d\mu$。さらに有限個の初期項を処理すれば尾部は $n$ に一様に小さくなります。三角不等式で $d(x,y)^p\le2^{p-1}(f(x)+f(y))$ なので、$d^p$ の尾部も $\gamma_n$ に関して一様に小さくなります。任意の $r,L>0$ に対し
+$n\to\infty$ の後に $\varepsilon\downarrow0$ として狭義収束を得ます。また $\delta_o$ への距離は $M_p(\cdot;o)^{1/p}$ だから、[距離の逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)でその差を $W_p(\mu_n,\mu)$ で抑え、モーメント収束を得ます。
+
+**（2）近接結合。** $\mu(K)>1-\delta$ のコンパクト $K$ を、直径 $r$ 未満で境界の $\mu$ 質量が0の有限個のBorelセル $B_1,\ldots,B_m$ で覆い、残余を $B_0$ とします。境界零測度のため、狭義収束の開閉集合評価から $a_{n,i}=\mu_n(B_i)\to b_i=\mu(B_i)$ です。
+
+各セルでは共通質量 $m_{n,i}=\min(a_{n,i},b_i)$ を結びます。$a_{n,i}b_i>0$ なら制限測度の積を
+
+$$
+\gamma_{n,i}=\frac{m_{n,i}}{a_{n,i}b_i}
+(\mu_n|_{B_i}\otimes\mu|_{B_i})
+$$
+
+と正規化し、零の場合は零測度とします。第一・第二周辺はそれぞれ質量 $m_{n,i}$ を持つので、元の周辺からこれらを引いた残余 $\alpha_n,\beta_n$ の共通総質量は
+
+$$
+R_n=1-\sum_{i=0}^m m_{n,i}
+=\frac12\sum_{i=0}^m|a_{n,i}-b_i|\to0.
+$$
+
+$R_n>0$ なら $\alpha_n\otimes\beta_n/R_n$ で残余を結び、$R_n=0$ ならその項を零にします。両周辺は元の $\mu_n,\mu$ に戻ります。同じセルに入らない組の確率は高々 $\mu(B_0)+R_n<\delta+R_n$ です。$r=\delta=1/j$ でそれぞれ構成し、十分大きい添字から $j=j(n)\to\infty$ と選ぶ対角選択によって、すべての固定 $r>0$ で確率が0に近づく一列が得られます。
+
+**（3）$p$次費用。** $f(x)=d(x,o)^p$ は非負連続です。全積分と切詰め関数の積分の両方が収束するため、各 $M$ について
+
+$$
+\int(f-M)_+\,d\mu_n\longrightarrow\int(f-M)_+\,d\mu.
+$$
+
+各 $n$ の $p$ 次モーメントは有限です。従って有限個の初期項も処理すれば、$f$ の尾部は $n$ に一様に小さくなります。三角不等式で $d(x,y)^p\le2^{p-1}(f(x)+f(y))$ なので、前述の $(u+v-L)_+$ の評価を使うと $d^p$ の尾部も $\gamma_n$ に関して一様に小さくなります。任意の $r,L>0$ に対し
 
 $$
 \int d^p\,d\gamma_n\le r^p+L\gamma_n\{d>r\}
