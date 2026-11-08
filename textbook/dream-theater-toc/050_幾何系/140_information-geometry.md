@@ -14,3 +14,4 @@
 11. [IG11 最尤法・最大エントロピーと情報射影](textbook/volumes/dream_thater/幾何系/IG/IG11/index.md)
 12. [IG12 自然勾配・KL trust region・mirror descent](textbook/volumes/dream_thater/幾何系/IG/IG12/index.md)
 13. [IG13 統計多様体の曲率と曲がった指数型分布族](textbook/volumes/dream_thater/幾何系/IG/IG13/index.md)
+14. [IG14 情報単調性と Čencov の定理](textbook/volumes/dream_thater/幾何系/IG/IG14/index.md)
