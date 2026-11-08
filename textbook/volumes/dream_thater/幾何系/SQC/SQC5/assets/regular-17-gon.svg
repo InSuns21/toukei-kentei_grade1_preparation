@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 42 410 350" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">正17角形と第一頂点の座標</title>
+  <desc id="desc">原点Oを中心とする単位円に17個の頂点が等角度で並ぶ。正の横軸にあるP0から反時計回りに角度2π/17だけ回したP1の横座標はc、縦座標はs。P1から横軸に垂線が下りている。</desc>
+  <rect width="560" height="440" fill="#ffffff"/>
+  <circle cx="244" cy="217" r="150" fill="none" stroke="#b7c2ce" stroke-width="1.6"/>
+  <polygon points="394.00,217.00 383.87,162.81 354.85,115.95 310.86,82.73 257.84,67.64 202.95,72.73 153.60,97.30 116.47,138.04 96.55,189.44 96.55,244.56 116.47,295.96 153.60,336.70 202.95,361.27 257.84,366.36 310.86,351.27 354.85,318.05 383.87,271.19" fill="#e8f1fa" fill-opacity="0.45" stroke="#244e7d" stroke-width="2.1" stroke-linejoin="round"/>
+  <line x1="72" y1="217" x2="431" y2="217" stroke="#6b7280" stroke-width="1.1"/>
+  <line x1="244" y1="217" x2="383.87" y2="162.81" stroke="#a34a28" stroke-width="2.3"/>
+  <line x1="383.87" y1="162.81" x2="383.87" y2="217" stroke="#a34a28" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <path d="M 282 217 A 38 38 0 0 0 279.45 203.27" fill="none" stroke="#a34a28" stroke-width="1.7"/>
+  <circle cx="244" cy="217" r="3.6" fill="#111827"/>
+  <circle cx="394" cy="217" r="4.2" fill="#244e7d"/>
+  <circle cx="383.87" cy="162.81" r="4.6" fill="#a34a28"/>
+  <circle cx="383.87" cy="217" r="3.3" fill="#ffffff" stroke="#a34a28" stroke-width="1.5"/>
+  <g fill="#111827" font-family="Arial, sans-serif" font-size="17">
+    <text x="224" y="241">O</text>
+    <text x="408" y="247">P0</text>
+    <text x="393" y="148">P1</text>
+    <text x="318" y="241">c</text>
+    <text x="272" y="186">θ</text>
+  </g>
+</svg>
