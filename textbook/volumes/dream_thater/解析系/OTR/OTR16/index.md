@@ -342,7 +342,11 @@ DT_t(x'+s(x-x'))(x-x')\,ds\\
 \end{aligned}
 $$
 
-よって $T_t$ は単射です。$J_t=\det DT_t>0$ なので、各点で[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を微分行列 $DT_t$ に適用でき、局所的に $C^1$ の逆写像があります。単射性によりこれらの局所逆写像は像の上で一致し、$T_t$ は像の上で $C^1$ 微分同相です。最適輸送写像 $T$ のグラフ結合に[OTR15の測地線定理](../OTR15/index.md#thm-otr15-displacement-geodesic)を適用でき、$(\mu_t)$ は $W_2$ 定速測地線です。
+よって $T_t$ は単射です。また $J_t=\det DT_t>0$ なので、各点で[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)を微分行列 $DT_t$ に適用できます。これにより局所的に $C^1$ の逆写像があります。
+
+単射性によりこれらの局所逆写像は像の上で一致します。従って $T_t$ は像の上で $C^1$ 微分同相です。
+
+最適輸送写像 $T$ のグラフ結合に[OTR15の測地線定理](../OTR15/index.md#thm-otr15-displacement-geodesic)を適用すると、$(\mu_t)$ は $W_2$ 定速測地線です。
 
 任意の可測集合 $E\subset\Omega$ で、[押し出し測度の定義](../../F0/F0-00P1/index.md#def-f0-00p1-pushforward)を $T_t(E)$ に適用し、変数変換公式で積分を元の座標へ戻すと
 
