@@ -172,7 +172,7 @@ $$
 
 従って $A=1/V+C_H/\lambda_1$（必要なら大きくする）を選べる。$L^1$ 収束する列からほとんど至る所収束する部分列を選べば、極限でも $G\ge-A$ が残る。
 
-**再現公式。** $u$ は滑らかで、$Lu$ の積分は[Greenの第一公式](../../GA/GA1/index.md#thm-ga1-green-first)により零である。[GA5の熱方程式と半群](../../GA/GA5/index.md#thm-ga5-heat-solution)により $\partial_sT_su=-T_sLu$ なので、$R>\varepsilon$ について
+**再現公式。** $u$ は滑らかで、$Lu=-\operatorname{div}_\omega\nabla_\omega u$ の積分は境界なしの[GA1の積分計算](../../GA/GA1/index.md#thm-ga1-green-first)により零である。[GA5の熱方程式と半群](../../GA/GA5/index.md#thm-ga5-heat-solution)により $\partial_sT_su=-T_sLu$ なので、$R>\varepsilon$ について
 
 $$
 \int_\varepsilon^RT_sLu(x)\,ds
