@@ -1,0 +1,24 @@
+chapter: SQC7
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC6, TRN11]
+forward_references: []
+
+concepts:
+  - id: geometry.transcendental-nonconstructibility
+    name: 超越数の作図不能性
+    kind: lemma
+    introduction: formal
+    requires: [algebra.constructibility-quadratic-tower]
+
+  - id: geometry.circle-squaring-impossibility
+    name: 円積不可能性
+    kind: theorem
+    introduction: formal
+    requires: [geometry.circle-squaring-sqrt-pi-reduction, geometry.transcendental-nonconstructibility, transcendence.pi-transcendence]
+
+  - id: geometry.circle-squaring-scale-independence
+    name: 半径によらない円積不可能性
+    kind: corollary
+    introduction: formal
+    requires: [geometry.circle-squaring-impossibility, geometry.four-arithmetic-constructions]
