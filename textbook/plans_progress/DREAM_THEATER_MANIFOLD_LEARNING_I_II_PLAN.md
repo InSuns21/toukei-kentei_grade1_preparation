@@ -1,8 +1,8 @@
 # DREAM THEATER 多様体学習 I・幾何的深層学習 II（MFL1〜MFL43）
 
 分冊: 2026-10-11  
-改訂日: 2026-11-08（MFL18の円周離散→連続スペクトル完成）
-状態: in_progress（MFL1〜MFL18 完成、MFL19〜MFL43 は未実装）
+改訂日: 2026-11-08（MFL19のスペクトル収束模型完成）
+状態: in_progress（MFL1〜MFL19 完成、MFL20〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -333,5 +333,6 @@ MFL14では `kernel_sampling_lab.py` を正本に、既存の `python-file-lab` 
 - **MFL16 completed**：可逆有限Markov作用素の重み付き固有分解、diffusion distanceと座標の等式、時間減衰・切り捨て上界、GA5熱核距離の固有関数表示、固定次元の時間倍率極限と一般スペクトル一致の停止線を証明。A4/B4/C1の詳細解答、円周・非連結・零固有値の再現実験を実装。
 - **MFL17 completed**：区間端の切断Gaussian核の平方根bias、Neumann条件の必要性と境界層での非一様性、adaptive行帯域幅の内点generator、density shiftのdrift差を証明。A4/B4/C1の詳細解答と決定論的な区間積分ラボを実装。
 - **MFL18 completed**：周期差分の正規直交Fourier完全基底・実固有値重複度、固定波数の明示的 $O(N^{-2})$ 上界、三角補間・有限帯域エネルギーと熱減衰の近似、Nyquistの非一様性とaliasingを証明。A4/B4/C1の詳細解答と決定論的な円周スペクトルラボを実装。
-- **MFL19〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- **MFL19 completed**：周期折線補間の質量・剛性恒等式、H1回復列、エネルギー有界列のコンパクト性・下半連続性、min–maxによる固有値収束、弱固有方程式と孤立固有空間の射影収束を証明。高周波階数一摂動による点wise整合性の反例、A4/B4/C1の詳細解答、補間・eigengap比較の決定論的ラボを実装。
+- **MFL20〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
 - 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。

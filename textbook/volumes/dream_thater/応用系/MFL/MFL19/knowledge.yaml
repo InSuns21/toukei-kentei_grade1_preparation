@@ -1,0 +1,61 @@
+chapter: MFL19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL18
+  - GA4
+concepts:
+  - id: manifold-learning.periodic-linear-interpolation-form
+    name: 周期折線補間と離散二次形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期折線補間と離散二次形式）"]
+    requires: [manifold-learning.cycle-complete-eigensystem]
+  - id: manifold-learning.linear-interpolation-form-identity
+    name: 周期折線補間の厳密な質量・エネルギー恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（周期折線補間の厳密な質量・エネルギー恒等式）"]
+    requires: [manifold-learning.periodic-linear-interpolation-form]
+  - id: manifold-learning.fixed-test-operator-consistency
+    name: 固定試験関数の作用素整合性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定試験関数の作用素整合性）"]
+    requires: [manifold-learning.cycle-fixed-frequency-limit]
+  - id: manifold-learning.energy-compactness-liminf
+    name: エネルギー有界列のコンパクト性と下半連続性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（エネルギー有界列のコンパクト性と下半連続性）"]
+    requires: [manifold-learning.linear-interpolation-form-identity]
+  - id: manifold-learning.periodic-h1-recovery
+    name: 周期H1関数の回復列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期H1関数の回復列）"]
+    requires: [manifold-learning.linear-interpolation-form-identity]
+  - id: manifold-learning.periodic-spectral-minmax-limit
+    name: 周期一次元の固有値収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期一次元の固有値収束）"]
+    requires: [manifold-learning.energy-compactness-liminf, manifold-learning.periodic-h1-recovery]
+  - id: manifold-learning.eigenspace-projection-distance
+    name: 固有空間の射影距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固有空間の射影距離）"]
+    requires: [manifold-learning.periodic-spectral-minmax-limit]
+  - id: manifold-learning.periodic-eigenspace-limit
+    name: 孤立固有値群の固有空間収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（孤立固有値群の固有空間収束）"]
+    requires: [manifold-learning.eigenspace-projection-distance, manifold-learning.periodic-spectral-minmax-limit]
+  - id: manifold-learning.pointwise-spectral-pollution
+    name: 点ごとの整合性からは従わないスペクトル収束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（点ごとの整合性からは従わないスペクトル収束）"]
+    requires: [manifold-learning.fixed-test-operator-consistency, manifold-learning.energy-compactness-liminf]
