@@ -419,7 +419,7 @@ $$
 F(t,z)=(Rt\cos t,Rt\sin t,z).
 $$
 
-$F_t$ は $z$ を固定した偏導関数 $\partial F/\partial t$、$F_z$ は $t$ を固定した $\partial F/\partial z$ を表す。$H_b'(t)$ と違って $F$ は二変数の写像である。積の微分公式より
+$F_t$ は $z$ を固定した偏導関数 $\partial F/\partial t$、$F_z$ は $t$ を固定した $\partial F/\partial z$ を表す。$H_b'(t)$ と違って $F$ は二変数の写像である。[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)より
 
 $$
 F_t=(R(\cos t-t\sin t),R(\sin t+t\cos t),0),\qquad F_z=(0,0,1).
@@ -446,7 +446,7 @@ u(t)=\frac R2\left(t\sqrt{1+t^2}+\operatorname{arsinh}t\right),
 \qquad du=R\sqrt{1+t^2}\,dt
 $$
 
-と置く。ここで $du=u'(t)\,dt$ は全微分（他の独立変数 $z$ を固定）を表す。実際、$d(\operatorname{arsinh}t)/dt=1/\sqrt{1+t^2}$ だから、積の微分を実行すると
+と置く。ここで $du=u'(t)\,dt$ は全微分（他の独立変数 $z$ を固定）を表す。実際、$d(\operatorname{arsinh}t)/dt=1/\sqrt{1+t^2}$ だから、[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を実行すると
 
 $$
 u'(t)=\frac R2\left(\sqrt{1+t^2}+\frac{t^2}{\sqrt{1+t^2}}+\frac1{\sqrt{1+t^2}}\right)
