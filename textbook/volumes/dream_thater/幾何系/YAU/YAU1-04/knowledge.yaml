@@ -1,0 +1,35 @@
+chapter: YAU1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-03, YAU1-02, GA3, GEO8]
+concepts:
+  - id: yau.positive-complex-strong-maximum
+    name: 正係数複素二階作用素の強最大値原理
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正係数複素二階作用素の強最大値原理）"]
+    requires: [yau.monge-ampere-ellipticity-concavity]
+  - id: yau.monge-ampere-uniqueness
+    name: 複素Monge–Ampère方程式の解の定数差一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複素Monge–Ampère方程式の解の定数差一意性）"]
+    requires: [yau.positive-complex-strong-maximum, yau.monge-ampere-linearization, yau.admissible-potential-convexity]
+  - id: yau.mean-zero-potential-gauge
+    name: 平均ゼロKählerポテンシャルの正規化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均ゼロKählerポテンシャルの正規化）"]
+    requires: [yau.positive-potential-domain, yau.volume-normalization-consistency]
+  - id: yau.unique-normalized-potential
+    name: 平均ゼロ・上限ゼロの代表と解の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均ゼロ・上限ゼロの代表と解の一意性）"]
+    requires: [yau.mean-zero-potential-gauge, yau.monge-ampere-uniqueness]
+  - id: yau.monge-ampere-linearized-kernel
+    name: Monge–Ampère線形化の核
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Monge–Ampère線形化の核）"]
+    requires: [yau.monge-ampere-linearization, yau.positive-complex-strong-maximum]

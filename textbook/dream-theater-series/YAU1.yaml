@@ -9,7 +9,7 @@ chapters:
   - { id: YAU1-01, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-01, status: completed, title: "Calabi予想は何を固定し何を指定するか" }
   - { id: YAU1-02, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-02, status: completed, title: "Ricci形式からポテンシャルへ" }
   - { id: YAU1-03, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-03, status: completed, title: "複素Monge–Ampère方程式の幾何" }
-  - { id: YAU1-04, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-04, status: planned, title: "一意性と正規化" }
+  - { id: YAU1-04, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-04, status: completed, title: "一意性と正規化" }
   - { id: YAU1-05, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-05, status: planned, title: "連続性の方法と開性" }
   - { id: YAU1-06, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-06, status: planned, title: "C0評価I：平均とGreen関数" }
   - { id: YAU1-07, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-07, status: planned, title: "C0評価II：Moser反復" }
