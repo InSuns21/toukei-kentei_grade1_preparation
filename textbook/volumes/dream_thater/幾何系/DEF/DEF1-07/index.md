@@ -12,7 +12,11 @@
 
 この章では上の三点を扱う。「任意の小変形族をこの基底が捕捉する」という**局所完全性**は次章で証明する。したがって、ここで構成したパラメータを無条件に同型類の一意な座標とは呼ばない。
 
-前章と同じく、$X$ は複素次元 $n\ge1$ のコンパクト・境界なし複素多様体、$E=T_X$ は滑らかなHermite計量を持つ正則接束とする。Kähler性は仮定しない。$C^q=\mathcal A^{0,q}(X,E)$、$d=\bar\partial_E$ と書く。[接束値Hodge分解](../DEF1-06/index.md#thm-def1-06-tangent-hodge)の調和射影を $H_q$、Green作用素を $G_q$、[ホモトピー作用素](../DEF1-06/index.md#def-def1-06-harmonic-gauge)を $h_q=d^*G_q$ と書く。特に括弧 $[u,v]$ が次数2なら $h=h_2$ であり、$h:C^2\to C^1$ である。
+前章と同じく、$X$ は複素次元 $n\ge1$ のコンパクト・境界なし複素多様体とする。正則接束 $E=T_X$ には滑らかなHermite計量を入れる。Kähler性は仮定しない。
+
+接束値形式を $C^q=\mathcal A^{0,q}(X,E)$、Dolbeault微分を $d=\bar\partial_E$ と書く。[接束値Hodge分解](../DEF1-06/index.md#thm-def1-06-tangent-hodge)の調和射影を $H_q$、Green作用素を $G_q$ とする。[ホモトピー作用素](../DEF1-06/index.md#def-def1-06-harmonic-gauge)は $h_q=d^*G_q$ である。
+
+特に次数2形式へ作用するとき $h=h_2$ と略記し、$h:C^2\to C^1$ である。この次数の区別は後の曲率計算で重要になる。
 
 ## 2. 微分を一回失い、Green作用素で一回取り戻す
 
@@ -451,7 +455,17 @@ $\kappa(z)=\sum_{j=1}^r\kappa_j(z)\eta_j$、$\|T_{\phi(z)}\|<1$ とする。$F$ 
 平坦な二次元複素トーラスで、調和次数2形式が非零であること、任意の調和一次形式 $t$ に対し $\kappa(t)=0$ であることを検証せよ。基底の接空間と台集合の局所次元を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 大域定数枠により $d\bar w^1\wedge d\bar w^2\otimes\partial_{w^1}$ は非零、閉かつ余閉であるから調和で $H^2(X,T_X)\ne0$。調和一次形式の係数も定数で、[括弧の局所式](../DEF1-03/index.md#def-def1-03-bracket)の正則方向微分は全て零なので $[t,t]=0$。固定点式へ $\phi=t$ を代入すると成立し、一意性から解は $t$。よって $\kappa=\frac12H_2[t,t]=0$。一次調和空間は二つの $d\bar w^j$ と二つの $\partial_{w^i}$ の組で複素次元4。従って $K$ は原点近傍で $\mathbb C^4$ の開集合、接空間・局所次元とも4である。
+**詳細解答。** 大域定数枠により
+
+$$
+\eta=d\bar w^1\wedge d\bar w^2\otimes\partial_{w^1}
+$$
+
+は非零、閉かつ余閉である。ゆえに調和で、$H^2(X,T_X)\ne0$。
+
+調和一次形式の係数も定数である。[括弧の局所式](../DEF1-03/index.md#def-def1-03-bracket)の正則方向微分は全て零なので $[t,t]=0$。固定点式へ $\phi=t$ を代入すると成立し、一意性から解は $t$。よって $\kappa=\frac12H_2[t,t]=0$。
+
+一次調和空間は二つの $d\bar w^j$ と二つの $\partial_{w^i}$ の組で複素次元4。従って $K$ は原点近傍で $\mathbb C^4$ の開集合、接空間・局所次元とも4である。
 <!-- solution-end -->
 
 <a id="ex-def1-07-c01"></a>
@@ -461,11 +475,29 @@ $\kappa(z)=\sum_{j=1}^r\kappa_j(z)\eta_j$、$\|T_{\phi(z)}\|<1$ とする。$F$ 
 コンパクトHermite複素多様体 $X$、$s>n+2$、調和方向 $t(z)$ を仮定する。$B(u,v)=h_2[u,v]$ の評価から固定点解を構成し、$\kappa$ と $K$ を定義して $T_0K$ を求めよ。さらに $z\in|K|$ でMC方程式と滑らかな複素構造が得られることを、必要な小ささと正則性の条件を列挙して証明せよ。最後に本章から**まだ**言えないことを一つ挙げよ。
 
 <!-- solution-start -->
-**詳細解答。** 括弧の一階微分で $H^s\times H^s\to H^{s-1}$、Green作用素と $d^*$ で $h_2:H^{s-1}\to H^s$ なので $\|B(u,v)\|_{H^s}\le C\|u\|_{H^s}\|v\|_{H^s}$。$R=2\|t\|$、$2C\|t\|<1$ を選べば $T_t(u)=t-\frac12B(u,u)$ は半径 $R$ の球の縮小写像で、唯一の $\phi$ に収束する。$P(t,\phi)=\phi-t+\frac12B(\phi,\phi)$ は複素Banach空間上正則で $D_\phi P(0,0)=I$。従って $\phi(z)$ は正則で、$H_1\phi=t$、$d^*\phi=0$。
+**詳細解答。** 括弧の一階微分で $H^s\times H^s\to H^{s-1}$、Green作用素と随伴で $h_2:H^{s-1}\to H^s$。従って
+
+$$
+\|B(u,v)\|_{H^s}\le C\|u\|_{H^s}\|v\|_{H^s}.
+$$
+
+$R=2\|t\|$、$2C\|t\|<1$ を選べば、$T_t(u)=t-\frac12B(u,u)$ は半径 $R$ の球の縮小写像で、唯一の $\phi$ に収束する。
+
+$P(t,\phi)=\phi-t+\frac12B(\phi,\phi)$ は複素Banach空間上正則で $D_\phi P(0,0)=I$。反復の一様収束から $\phi(z)$ は正則で、$H_1\phi=t$、$d^*\phi=0$。
 
 $\kappa(z)=\frac12H_2[\phi,\phi]$ は有限次元正則写像であり、基底を選んだ成分 $\kappa_j$ により $K$ の局所環は $\mathcal O_{\mathbb C^m,0}/(\kappa_j)$。$\phi(0)=0$ だから $D\kappa(0)=0$ となり、$T_0K=\mathbb C^m\simeq H^1(X,T_X)$。
 
-$F=d\phi+\frac12[\phi,\phi]$ とすると、[Green作用素の連鎖ホモトピー恒等式](../DEF1-06/index.md#lem-def1-06-homotopy)で $F=\kappa+h_3dq$、$q=\frac12[\phi,\phi]$。[接束値Dolbeault複体の括弧恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)を用いて $dq=[F,\phi]$ なので $F=\kappa+T_\phi F$。$s>n+2$ の積評価から $\|T_\phi\|\le C'\|\phi\|_{H^s}$。原点近くを縮めてこの値を1未満にすれば $\kappa(z)=0$ から $F=0$。次に $d^*\phi=0$ と連立し、$D=(d,d^*)$ の単射楕円主記号に対する小さい一次摂動として差分商・楕円型評価を反復すると $\phi$ は滑らかになる。さらに $H^s\hookrightarrow C^0$ と $\phi(0)=0$ から $\|\phi\|_{C^0}<1$ とでき、$I-\bar\phi\phi$ が可逆なのでグラフと共役は直和。最後に[MC可積分性](../DEF1-03/index.md#thm-def1-03-maurer-cartan)と[Newlander–Nirenberg定理](../../CM/CM1-07/index.md#thm-cm1-07-newlander-nirenberg)を使い滑らかな可積分複素構造を得る。
+$q=\frac12[\phi,\phi]$、$F=d\phi+q$ と置く。[Green作用素の連鎖ホモトピー恒等式](../DEF1-06/index.md#lem-def1-06-homotopy)と[接束値Dolbeault複体の括弧恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)を順に使うと
+
+$$
+F=\kappa+h_3dq,\qquad dq=[F,\phi],\qquad F=\kappa+T_\phi F.
+$$
+
+$s>n+2$ の積評価から $\|T_\phi\|\le C'\|\phi\|_{H^s}$。原点近くを縮めてこの値を1未満にすれば、$\kappa(z)=0$ から $F=0$ が従う。
+
+さらにゲージ条件 $d^*\phi=0$ と連立し、$D=(d,d^*)$ の単射楕円主記号への小さい一次摂動として差分商・楕円型評価を反復すると、$\phi$ は滑らかになる。
+
+最後に $H^s\hookrightarrow C^0$ と $\phi(0)=0$ から $\|\phi\|_{C^0}<1$ とできる。このとき $I-\bar\phi\phi$ は可逆なのでグラフと共役は直和になる。[MC可積分性](../DEF1-03/index.md#thm-def1-03-maurer-cartan)と[Newlander–Nirenberg定理](../../CM/CM1-07/index.md#thm-cm1-07-newlander-nirenberg)を使えば、滑らかな可積分複素構造を得る。
 
 ただし、この構成だけでは任意の小変形族が $K$ から引き戻せる局所完全性や、異なるパラメータの同型類の一意性は示されていない。
 <!-- solution-end -->
