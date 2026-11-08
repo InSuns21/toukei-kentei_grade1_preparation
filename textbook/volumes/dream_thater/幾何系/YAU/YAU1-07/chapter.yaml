@@ -1,0 +1,43 @@
+id: "YAU1-07"
+title: "C0評価II：Moser反復"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-06
+  - GA2
+official_scope: []
+learning_objectives:
+  - 固定した右辺密度の一様上界と上限ゼロ規格化のL1入力を区別できる
+  - 複素Monge–Ampère方程式の差の因数分解と閉形式の部分積分から勾配エネルギー評価を導出できる
+  - 実次元2とそれ以上でSobolev指数を選び、Poincaré不等式で反復開始のL2ノルムを制御できる
+  - 指数列と定数積の収束を計算してパラメータに一様なL∞評価を証明できる
+  - 平均ゼロのC0評価へ戻し、密度上界・コンパクト性の仮定を落とした際の破綻箇所を説明できる
+definitions:
+  - { id: YAU1-07-DEF-01, name: Moser反復の指数列 }
+theorems:
+  - { id: YAU1-07-LEM-01, name: Monge–Ampèreエネルギー評価 }
+  - { id: YAU1-07-LEM-02, name: 反復開始のL2評価 }
+  - { id: YAU1-07-PROP-01, name: Sobolevによる指数増幅 }
+  - { id: YAU1-07-THM-01, name: Moser反復による一様C0評価 }
+  - { id: YAU1-07-COR-01, name: 連続性のパスでの上下界 }
+canonical_examples:
+  - 平坦楕円曲線の余弦密度に対するエネルギー恒等式
+  - 複素次元1のSobolev指数と幾何級数
+  - 無制限密度のGreen核集中例との比較
+problem_patterns:
+  - YAU1-07-DENSITY-BOUNDS
+  - YAU1-07-GRADIENT-FACTOR
+  - YAU1-07-SOBOLEV-EXPONENT
+  - YAU1-07-ITERATION-SUMS
+  - YAU1-07-L2-START
+  - YAU1-07-TORUS-ENERGY
+  - YAU1-07-INTEGRATION-BY-PARTS
+  - YAU1-07-UNIFORM-CONSTANTS
+  - YAU1-07-FAILED-DENSITY
+  - YAU1-07-GAUGE
+  - YAU1-07-FULL-ITERATION
+  - YAU1-07-DEGENERATE-INPUT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }

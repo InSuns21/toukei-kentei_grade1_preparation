@@ -19,7 +19,23 @@ $$
 
 ここでの実Laplacianは[GA1の符号規約](../../GA/GA1/index.md#thm-ga1-green-first)と一致する $\Delta_\omega=\operatorname{div}_\omega\nabla_\omega$（非正作用素）である。[複素Monge–Ampère作用素の線形化](../YAU1-03/index.md#prop-yau1-03-linearization)では $\Delta_\omega u=2g^{j\bar k}u_{j\bar k}$ を用いた。$L=-\Delta_\omega$ は非負作用素である。
 
-局所正則座標で $\omega=i g_{j\bar k}dz^j\wedge d\bar z^k$ と書く。正値性 $\omega_\varphi>0$ から何が従うのかを、まず行列で確認する。基準計量 $G=(g_{j\bar k})$ の単位直交基底では、$G_\varphi=(g_{j\bar k}+\varphi_{j\bar k})$ の固有値を $\lambda_1,\ldots,\lambda_n>0$ と書ける。[正の$(1,1)$形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)がこの固有値の正値性を保証する。よって
+局所正則座標で $\omega=i g_{j\bar k}dz^j\wedge d\bar z^k$ と書く。実関数 $\varphi$ の混合二階微分と、その係数行列を
+
+$$
+\varphi_{j\bar k}=\frac{\partial^2\varphi}{\partial z^j\partial\bar z^k},
+\qquad \Phi=(\varphi_{j\bar k})
+$$
+
+と置く。$\Phi$ は $i\partial\bar\partial\varphi$ の係数行列なので、$\omega_\varphi=\omega+i\partial\bar\partial\varphi$ の係数行列は $G_\varphi=G+\Phi$（$G=(g_{j\bar k})$）となる。正値性 $\omega_\varphi>0$ から何が従うのかを、この行列で確認する。
+
+[正の$(1,1)$形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)によれば、$\omega_\varphi>0$ と $v^*G_\varphi v>0$（任意の $v\ne0$）は同値である。基準計量 $G>0$ に対し $H=G^{-1/2}G_\varphi G^{-1/2}$ と置く。$w\ne0$ に対して $v=G^{-1/2}w\ne0$ とすれば
+
+$$
+w^*Hw=v^*G_\varphi v>0,
+\qquad \operatorname{tr}H=\operatorname{tr}(G^{-1}G_\varphi).
+$$
+
+ゆえに $H$ の固有値 $\lambda_1,\ldots,\lambda_n$ はすべて正である。これを使うと
 
 $$
 \operatorname{tr}_{\omega}\omega_\varphi
@@ -37,7 +53,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（許容ポテンシャルの一様Laplacian下界）**  
-> 上記の $(X,\omega)$ と任意の滑らかな実関数 $\varphi$ について、$\omega+i\partial\bar\partial\varphi>0$ なら
+> 複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体 $(X,\omega)$ と任意の滑らかな実関数 $\varphi$ について、$\omega+i\partial\bar\partial\varphi>0$ なら
 
 $$
 \Delta_\omega\varphi>-2n
@@ -53,7 +69,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の点で $G$ に関して単位直交な複素基底を選ぶと、$G^{-1/2}G_\varphi G^{-1/2}$ は正値Hermite行列である。その正の固有値の総和は $\operatorname{tr}(G^{-1}G_\varphi)>0$。一方
+任意の点で上の正値Hermite行列 $H$ を取ると、固有値の総和は $\operatorname{tr}H=\operatorname{tr}(G^{-1}G_\varphi)>0$。一方
 
 $$
 \operatorname{tr}(G^{-1}G_\varphi)
@@ -64,7 +80,7 @@ $$
 従って $\Delta_\omega\varphi>-2n$。座標選択に依存する行列表示から出発したが、最後の跡とLaplacianは不変量なので全点で同じ結論となる。$\square$
 <!-- proof-end -->
 
-**直接例。** 平坦楕円曲線 $T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z$、$\varphi_a=a\cos(2\pi x)/\pi^2$（$|a|<1$）について、[前章で計算した混合二階微分](../YAU1-05/index.md#def-yau1-05-path)は $\varphi_{z\bar z}=-a\cos(2\pi x)$。従って
+**直接例。** 平坦楕円曲線 $T=\mathbb C/(\mathbb Z+i\mathbb Z)$ で $z=x+iy$（$x,y$ は各 $1$ 周期の実座標）と書き、$\omega_0=i\,dz\wedge d\bar z$、$\varphi_a=a\cos(2\pi x)/\pi^2$（$|a|<1$）を取る。[前章で計算した混合二階微分](../YAU1-05/index.md#def-yau1-05-path)は $\varphi_{z\bar z}=-a\cos(2\pi x)$ である。従って
 
 $$
 \omega_{\varphi_a}=(1-a\cos2\pi x)\omega_0>0,
@@ -77,7 +93,7 @@ $$
 
 平均ゼロの関数 $u$ は $Lu$ から復元できるはずだ。[GA3のPoisson存在一意性](../../GA/GA3/index.md#thm-ga3-poisson-existence)がこの考えを保証する。しかし $Lu\le2n$ のように上からしか抑えていない不等式を $u$ の評価へ移すには、復元する積分核の符号を知りたい。
 
-[GA5の熱核](../../GA/GA5/index.md#def-ga5-heat-kernel)を $p_s(x,y)$ と書く。これは実Laplacian $\Delta_\omega$ に関する核で、体積 $dV_\omega=\omega^n/n!$ に対して定義されたものなので、ここでは $d\mu=n!dV_\omega$ に対する核として $p_s$ を $1/n!$ 倍して読み替える。こうすると
+[GA5の熱核](../../GA/GA5/index.md#def-ga5-heat-kernel)を $p_s(x,y)$ と書く。$s>0$ は熱方程式の時間であり、連続性の方法のパラメータ $t$ とは別の変数である。これは実Laplacian $\Delta_\omega$ に関する核で、体積 $dV_\omega=\omega^n/n!$ に対して定義されたものなので、ここでは $d\mu=n!dV_\omega$ に対する核として $p_s$ を $1/n!$ 倍して読み替える。こうすると
 
 $$
 T_s f(x)=\int_Xp_s(x,y)f(y)\,d\mu(y),\qquad
@@ -92,7 +108,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（平均ゼロGreen核）**  
-> 上記のコンパクト連結Kähler多様体の $L=-\Delta_\omega$ と、$d\mu$ に関する熱核 $p_s$ に対し、$\varepsilon>0$ で
+> 境界のないコンパクト連結Kähler多様体 $(X,\omega)$ の $L=-\Delta_\omega$ と、体積測度 $d\mu=\omega^n$ に関する熱核 $p_s$ に対し、$V=\int_Xd\mu$ とする。$\varepsilon>0$ で
 
 $$
 G_\varepsilon(x,y)=\int_\varepsilon^\infty
@@ -103,7 +119,31 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-yau1-06-green-kernel -->
-**定義の確認**（平坦楕円曲線の一つの固有モード）。上の $T$ は $V=2$、$\Delta_{\omega_0}=\tfrac12(\partial_x^2+\partial_y^2)$ である。$f(x,y)=\cos2\pi x$ は $\bar f=0$ で、$Lf=2\pi^2f$。固有関数による[GA5の熱半群](../../GA/GA5/index.md#def-ga5-heat-semigroup)から $T_sf=e^{-2\pi^2s}f$ となる。したがって
+**定義の確認**（平坦楕円曲線の一つの固有モード）。まず一般の $X$ で、[質量保存](../../GA/GA5/index.md#thm-ga5-positivity-mass)により、有限の $R>\varepsilon$ に対して
+
+$$
+\int_X\int_\varepsilon^R\left(p_s(x,y)-\frac1V\right)ds\,d\mu(y)
+=\int_\varepsilon^R(1-1)ds=0
+$$
+
+となる。[長時間の一様減衰](../../GA/GA5/index.md#thm-ga5-longtime)によって $R\to\infty$ の積分極限を取れるから、切断核 $G_\varepsilon$ も平均ゼロである。また $0<\delta<\varepsilon\le1$ で非負性 $p_s\ge0$ を使うと
+
+$$
+\|G_\delta(x,\cdot)-G_\varepsilon(x,\cdot)\|_{L^1(d\mu)}
+\le\int_\delta^\varepsilon\left(\int_Xp_s(x,y)d\mu(y)+1\right)ds
+=2(\varepsilon-\delta).
+$$
+
+長時間部分がすでに有限なので、これは定義に必要な $L^1$ 極限の存在を示す。以下の補題では一様下界と再現公式も含めて証明する。
+
+具体的に第2節の $T$ では $z=x+iy$、$\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ なので $V=2$ である。[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)の $\partial_z\partial_{\bar z}=\tfrac14(\partial_x^2+\partial_y^2)$ と係数 $g_{z\bar z}=1$ を合わせると
+
+$$
+\Delta_{\omega_0}=2g^{z\bar z}\partial_z\partial_{\bar z}
+=\tfrac12(\partial_x^2+\partial_y^2).
+$$
+
+$f(x,y)=\cos2\pi x$ は $\bar f=0$ で、$Lf=2\pi^2f$。[GA5の熱半群](../../GA/GA5/index.md#def-ga5-heat-semigroup)に固有値 $2\pi^2$ を代入すると $T_sf=e^{-2\pi^2s}f$ となる。したがって
 
 $$
 \int_TG_\varepsilon(x,y)Lf(y)\,d\mu(y)
@@ -118,7 +158,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（Green核の構成・下界・再現公式）**  
-> 上記の $X,\omega,d\mu,V$ に対し、$G(x,\cdot)$ は各 $x\in X$ で $L^1(d\mu)$ の元として存在する。$X,\omega$ だけで決まる有限定数 $A>0$ を選べて、各 $x$ についてほとんどすべての $y$ で
+> 境界のないコンパクト連結Kähler多様体 $(X,\omega)$ と、その体積測度 $d\mu=\omega^n$、$V=\int_Xd\mu$ に対し、[上で定義した切断核](#def-yau1-06-green-kernel)の $L^1(d\mu)$ 極限 $G(x,\cdot)$ は各 $x\in X$ で存在する。$X,\omega$ だけで決まる有限定数 $A>0$ を選べて、各 $x$ についてほとんどすべての $y$ で
 
 $$
 G(x,y)\ge-A,\qquad
@@ -190,7 +230,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（許容Kählerポテンシャルの上限・L1評価）**  
-> $(X,\omega)$ を本章のコンパクト連結Kähler多様体とし、$A$ を[Green核補題](#lem-yau1-06-green-properties)の定数とする。任意の滑らかな許容ポテンシャル $\varphi$ について
+> $(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体とし、$A$ を[Green核補題](#lem-yau1-06-green-properties)の定数とする。$\omega_\varphi=\omega+i\partial\bar\partial\varphi>0$ を満たす任意の滑らかな実ポテンシャル $\varphi$ について
 
 $$
 \sup_X(\varphi-\bar\varphi)\le2nAV.
@@ -247,7 +287,7 @@ $$
 
 <!-- formal-statement-start -->
 > **系（上限ゼロ規格化との橋渡し）**  
-> 上の定理の平均ゼロ許容 $\varphi$ に対し $m=\sup_X\varphi$、$\psi=\varphi-m$ と置くと
+> 上記 $(X,\omega)$ 上で $\bar\varphi=0$ かつ $\omega+i\partial\bar\partial\varphi>0$ を満たす滑らかな実関数 $\varphi$ に対し、$m=\sup_X\varphi$、$\psi=\varphi-m$ と置くと（$C_0$ は[上限定理](#thm-yau1-06-upper-l1)の定数）
 
 $$
 \sup_X\psi=0,\quad \psi\le0,\quad
@@ -294,7 +334,7 @@ $$
 
 複素一次元では $\omega_u/\omega_0=1+\Delta u/2$ なので、$\omega_{u_\varepsilon}\ge\omega_0/2>0$ である。それでも[平坦トーラスの周期化Gaussian熱核](../../GA/GA5/index.md#thm-ga5-torus-gaussian)を対角 $q=q$ で用いると、大きいピークを作れる。
 
-実際、座標を $\theta=2\pi(x,y)$ と拡大すると、標準 $2\pi$ 周期トーラスのLaplacian $\Delta_{\theta}$ に対して
+実際、座標を $\theta_1=2\pi x$、$\theta_2=2\pi y$ と拡大すると、$\partial_x=2\pi\partial_{\theta_1}$、$\partial_y=2\pi\partial_{\theta_2}$、$dx\,dy=d\theta_1d\theta_2/(2\pi)^2$ である。従って標準 $2\pi$ 周期トーラスのLaplacian $\Delta_{\theta}=\partial_{\theta_1}^2+\partial_{\theta_2}^2$ に対して
 
 $$
 \Delta_{\omega_0}=2\pi^2\Delta_\theta,\qquad
@@ -434,7 +474,7 @@ $$
 滑らかな許容 $\varphi$ の平均を $b$ とする。Green核再現公式と $\Delta\varphi>-2n$ から $\sup_X\varphi\le b+C_0$ を導き、$\int_X|\varphi-b|d\mu\le2VC_0$ も証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $w=\varphi-b$ と置けば $\bar w=0$、$\omega_w=\omega_\varphi>0$、$Lw=L\varphi<2n$。再現公式で
+**詳細解答。** $w=\varphi-b$ と置けば $\bar w=0$、$\omega_w=\omega_\varphi>0$、$Lw=L\varphi<2n$。[Green核の再現公式](#lem-yau1-06-green-properties)で
 
 $$
 w(x)=\int_X(G+A)Lw\,d\mu
@@ -487,7 +527,14 @@ $$
 平坦楕円曲線 $(T,\omega_0)$ と $q\in T$ を固定し、$G_\varepsilon$ を本章の切断Green核、$u_\varepsilon=-VG_\varepsilon(\cdot,q)$ とする。$u_\varepsilon$ の滑らかさ、平均ゼロ、$\omega_{u_\varepsilon}>0$ を証明し、[GA5の周期化Gaussian](../../GA/GA5/index.md#thm-ga5-torus-gaussian)から $u_\varepsilon(q)\to-\infty$ を示せ。これが固定右辺 $F$ の連続性のパスへの反例にならない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $\varepsilon>0$ では[熱核の滑らかさと時間減衰](../../GA/GA5/index.md#thm-ga5-kernel)により $G_\varepsilon$ は滑らかである。質量保存・対称性から $\int_TG_\varepsilon(x,q)\,d\mu(x)=0$、したがって $\bar u_\varepsilon=0$。$\partial_sp_s=\Delta_xp_s$ と長時間の一様極限を使うと
+**詳細解答。** $\varepsilon>0$ では[熱核の滑らかさと時間減衰](../../GA/GA5/index.md#thm-ga5-kernel)により $G_\varepsilon$ は滑らかである。質量保存・対称性から
+
+$$
+\int_TG_\varepsilon(x,q)\,d\mu(x)=0,
+\qquad \bar u_\varepsilon=-\frac V V\int_TG_\varepsilon(x,q)\,d\mu(x)=0.
+$$
+
+熱方程式 $\partial_sp_s=\Delta_xp_s$ と長時間の一様極限を使うと
 
 $$
 LG_\varepsilon
@@ -504,7 +551,26 @@ $$
 =\frac{1+Vp_\varepsilon}{2}\ge\frac12>0.
 $$
 
-平坦トーラスでは $\Delta_{\omega_0}=\tfrac12\Delta_{\mathbb R^2}$、$d\mu=2dxdy$。標準 $2\pi$ 周期の座標 $\theta=2\pi(x,y)$ に替えると $\Delta_{\omega_0}=2\pi^2\Delta_\theta$、$d\mu=(2\pi^2)^{-1}d\theta_1d\theta_2$ である。従って時間 $\tau=2\pi^2s$ における標準熱核 $p^{\mathrm{std}}_\tau$ は、$d\mu$ 用に $p_s=2\pi^2p^{\mathrm{std}}_\tau$ と変換する。[周期化Gaussian](../../GA/GA5/index.md#thm-ga5-torus-gaussian)の原点項は $p_s(q,q)\ge2\pi^2/(4\pi\tau)=(4\pi s)^{-1}$ を与える。長時間部分は $\left|\int_1^\infty(p_s(q,q)-1/V)ds\right|\le C_H/\lambda_1$。ゆえに
+平坦トーラスでは $\Delta_{\omega_0}=\tfrac12\Delta_{\mathbb R^2}$、$d\mu=2dxdy$。標準 $2\pi$ 周期の座標 $\theta_1=2\pi x$、$\theta_2=2\pi y$ に替えると、連鎖律とJacobianから
+
+$$
+\partial_x=2\pi\partial_{\theta_1},\quad
+\partial_y=2\pi\partial_{\theta_2},\quad
+dx\,dy=(2\pi)^{-2}d\theta_1d\theta_2,
+$$
+
+$$
+\Delta_{\omega_0}=2\pi^2\Delta_\theta,
+\qquad d\mu=(2\pi^2)^{-1}d\theta_1d\theta_2.
+$$
+
+従って標準熱核 $p^{\mathrm{std}}_\tau$ の時間を $\tau=2\pi^2s$ とし、体積密度も換算すれば
+
+$$
+p_s=2\pi^2p^{\mathrm{std}}_{2\pi^2s}.
+$$
+
+[周期化Gaussian](../../GA/GA5/index.md#thm-ga5-torus-gaussian)の原点項は $p_s(q,q)\ge2\pi^2/(4\pi\tau)=(4\pi s)^{-1}$ を与える。長時間部分は $\left|\int_1^\infty(p_s(q,q)-1/V)ds\right|\le C_H/\lambda_1$。ゆえに
 
 $$
 G_\varepsilon(q,q)

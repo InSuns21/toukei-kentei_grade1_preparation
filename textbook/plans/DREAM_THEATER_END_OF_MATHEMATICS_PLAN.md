@@ -25,9 +25,9 @@ result family は研究成果群の識別子であり、講数ではない。こ
 | 講 | 予定章ID | 中心問い・到達目標 | 前提 |
 | --- | --- | --- | --- |
 | 1 | **EOM0** | 研究数学の問題・主張・原論文・形式化・査読・出版はどう異なるか。各成果の検証台帳を作る。 | CMP、数学的証明の基礎 |
-| 2 | **EOM074A** | Kakeya 集合を tube 最大作用素へどう翻訳するか。方向分離、体積、次元・ノルム指数を検算する。 | MT8、HA11、GMT7–8 |
+| 2 | **EOM074A** | Kakeya 集合を tube 最大作用素へどう翻訳するか。方向分離、体積、次元・ノルム指数を検算する。 | MT8、HA11、GMT1–8・GMT31–36 |
 | 3 | **EOM074B** | 3次元 Kakeya 最大作用素予想の正確な評価は何か。多重尺度の核心補題を辿る。 | EOM074A |
-| 4 | **EOM074** | 4次元 Kakeya 集合の Hausdorff 次元はなぜ4か。3次元評価との含意と追加の幾何を分ける。 | EOM074B、GMT1–2 |
+| 4 | **EOM074** | 4次元 Kakeya 集合の Hausdorff 次元はなぜ4か。3次元評価との含意と追加の幾何を分ける。 | EOM074B、GMT35–36 |
 | 5 | **EOM017** | $\mu(\pi)=2$ の量化、Roth の定理の射程、Flint–Hills 級数、Lean の検証範囲を分けて読む。 | NDA5–8、NT7 |
 | 6 | **EOM004A** | $\mathrm{H10}(\mathbb Z)$ と $\mathrm{H10}(\mathbb Q)$、整数の存在的定義可能性はどう違うか。 | NT9–10、CMP4–6、EC |
 | 7 | **EOM004** | 2026年の有理数上の非決定可能性主張を読み、算術補題・楕円曲線・帰着の依存構造を検査する。 | EOM004A、EC関連章 |
@@ -47,15 +47,15 @@ GitHub の系列 manifest と直接必要な chapter.yaml の完成状態を確�
 
 | family | 現在の canonical 前提 | 判定 |
 | --- | --- | --- |
-| 074 | MT8 完成、HA1–11 完成。GMT1–8 は [幾何学的測度論 PLAN](DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md) のみで、GMT 系列 manifest は未作成 | **GMT待ち**。声明・資料調査は直ちに可。EOM074A–074の本文完成には GMT1–2・7–8 等の canonical 化が必要 |
+| 074 | MT8 完成、HA1–11 完成。GMT1–36 は [幾何学的測度論 PLAN](DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md) のみで、GMT 系列 manifest は未作成 | **GMT待ち**。声明・資料調査は直ちに可。EOM074A–074の本文完成には GMT1–8・GMT31–36 の canonical 化が必要（GMT9–30全講は一律必修ではない） |
 | 017 | NT7、NDA1–8 完成 | **着手可能** |
 | 004 | NT9–10、CMP1–8、EC1–11 完成 | **着手可能**。原論文固有の算術的橋渡しは EOM004 で精査 |
 | 376 | NS1–8A、CMP1–8、CELL1–15 完成 | **着手可能** |
 | 221 | TH1–8、SM1–8、SG1–8 完成 | **着手可能** |
 
-**結論**：5 family 全部の資料調査と全12講の設計は開始可能。うち4 family の本文執筆は前提充足。074 も GMT PLAN 自体には着手できるが、EOM074 の完成は GMT 完了後とする。「既存章がある」だけでは EOM の計画自体を実装中とは扱わない。現時点で EOM.yaml は未作成である。
+**結論**：5 family 全部の資料調査と全12講の設計は開始可能。うち4 family の本文執筆は前提充足。074 も GMT PLAN 自体には着手できるが、EOM074 の完成には GMT1–8・GMT31–36 の実装が必要であり、GMT9–30全講の完成は一律前提にしない。「既存章がある」だけでは EOM の計画自体を実装中とは扱わない。現時点で EOM.yaml は未作成である。
 
-実装推奨順は (1) EOM0 の共通検証枠、(2) EOM017・EOM004A→004・EOM376A→376・EOM221A→221、(3) GMT完成後の EOM074A→074B→074、(4) EOM6 と全体整合である。
+実装推奨順は (1) EOM0 の共通検証枠、(2) EOM017・EOM004A→004・EOM376A→376・EOM221A→221、(3) GMTの必要講義（1–8・31–36）完成後の EOM074A→074B→074、(4) EOM6 と全体整合である。
 
 **PLAN の状態遷移**：最初の EOM 固有の本文・検証・監査を実際に開始したときに本ファイルを plans_progress へ移動し、同じ作業単位で EOM.yaml の plan を更新する。今回は設計改訂だけなので plans に留める。全章・公開導線・横断検証まで完了して初めて plan_done へ移す。
 
@@ -66,7 +66,7 @@ GitHub の系列 manifest と直接必要な chapter.yaml の完成状態を確�
 - 古典的 Kakeya set conjecture、Lebesgue測度0の Besicovitch 集合、Minkowski 次元、Hausdorff 次元、最大作用素予想を分離する。
 - 3次元の原論文の主張は、適切な正規化をした半径 $\delta$ の unit-tube maximal operator の $L^3(\mathbb R^3)\to L^3(S^2)$ ノルムの $O_\varepsilon(\delta^{-\varepsilon})$ 型評価。方向測度・正規化・定数依存を原論文と照合する。
 - 4次元の原論文の主張は、各方向の単位線分を含む集合 $K\subset\mathbb R^4$ の Hausdorff 次元が4というもの。3次元最大評価からの論理的帰結と4次元固有の幾何的入力を別々に追う。
-- MT8、GMT1–2・7–8、HA11 に canonical owner を置く。tube体積・交差数・方向数・wave-packet の中間計算は再構成する。「多重尺度法で示す」の一言で重要補題を飛ばさない。
+- MT8、GMT1–8・GMT31–36、HA11 に canonical owner を置く。tube体積・交差数・方向数・wave-packet の中間計算は再構成する。「多重尺度法で示す」の一言で重要補題を飛ばさない。
 - 研究論文全体の独立完全証明を無条件の1講の達成要件とせず、未確認の補題は証明依存台帳で明記する。
 
 ### 3.2 017 $\pi$ の無理数度
