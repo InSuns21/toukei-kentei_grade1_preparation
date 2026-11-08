@@ -1,0 +1,41 @@
+chapter: DEF1-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CM1-02, CM1-03, CM1-05, CM2-03, CM2-04, AG3-07, CYG1-12]
+concepts:
+  - id: deformation.proper-holomorphic-family
+    name: コンパクト複素多様体の正則変形族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（コンパクト複素多様体の正則変形族）"]
+    requires: [complex-manifolds.manifold-holomorphic-map, complex-manifolds.holomorphic-rank]
+  - id: deformation.ehresmann-trivialization
+    name: 固有沈め込みの滑らかな局所自明化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固有沈め込みの滑らかな局所自明化）"]
+    requires: [deformation.proper-holomorphic-family, complex-manifolds.underlying-real-manifold]
+  - id: deformation.kodaira-spencer-map
+    name: Kodaira–Spencer写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kodaira–Spencer写像）"]
+    requires: [deformation.proper-holomorphic-family, algebraic-geometry.cech-cohomology, complex-manifolds.holomorphic-tangent-section]
+  - id: deformation.ks-cech-independence
+    name: Kodaira–SpencerのČech類の選択独立性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Čech類の閉性・選択独立性）"]
+    requires: [deformation.kodaira-spencer-map, algebraic-geometry.cech-complex]
+  - id: deformation.ks-cech-dolbeault
+    name: Kodaira–Spencer類のČech–Dolbeault対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kodaira–Spencer類のČech–Dolbeault対応）"]
+    requires: [deformation.ks-cech-independence, cyg.holomorphic-bundle-dolbeault, complex-manifolds.local-dbar-poincare]
+  - id: deformation.ks-base-change
+    name: Kodaira–Spencer写像の基底変更
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kodaira–Spencer写像の基底変更）"]
+    requires: [deformation.kodaira-spencer-map]
