@@ -381,12 +381,12 @@ $$
 
 ### 証明の見取り図
 
-Taylor 展開で $\psi(\theta+\delta)$ の定数・一次項を取り出すと Bregman の定義で相殺され、二次項だけが残ります。$C^3$ の仮定は三次剰余を局所的に抑えるために使います。
+[Taylor 展開](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)で $\psi(\theta+\delta)$ の定数・一次項を取り出すと Bregman の定義で相殺され、二次項だけが残ります。$C^3$ の仮定は三次剰余を局所的に抑えるために使います。
 
 <!-- proof-start -->
 ### 証明
 
-$\theta$ を含む閉球が $U$ に入るよう $\delta$ を小さく取ります。$h(t)=\psi(\theta+t\delta)$ と置き、$t=0$ で2次までの Taylor 公式を使うと
+$\theta$ を含む閉球が $U$ に入るよう $\delta$ を小さく取ります。$h(t)=\psi(\theta+t\delta)$ は線分上で $C^3$ です。[Taylor の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)の展開点を $t=0$、評価点を $t=1$、次数を2として使うと
 
 $$
 \psi(\theta+\delta)
