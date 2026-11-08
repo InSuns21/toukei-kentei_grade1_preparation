@@ -4,3 +4,4 @@
 1. [IG1 統計モデルと接空間](textbook/volumes/dream_thater/幾何系/IG/IG1/index.md)
 2. [IG2 Fisher--Rao 計量と座標不変性](textbook/volumes/dream_thater/幾何系/IG/IG2/index.md)
 3. [IG3 Divergence と局所幾何](textbook/volumes/dream_thater/幾何系/IG/IG3/index.md)
+4. [IG4 指数型分布族と混合型分布族](textbook/volumes/dream_thater/幾何系/IG/IG4/index.md)
