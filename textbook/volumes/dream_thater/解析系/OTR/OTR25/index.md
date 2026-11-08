@@ -183,7 +183,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（周辺残差とlog-sum-exp）**  
-> $n\times m$ 非負行列 $P$、確率ベクトル $a,b$ に対して、行和 $r_i(P)=\sum_jP_{ij}$、列和 $c_j(P)=\sum_iP_{ij}$ とし、周辺残差を
+> 各成分が0以上の $n\times m$ 行列 $P$、確率ベクトル $a,b$ に対して、行和 $r_i(P)=\sum_jP_{ij}$、列和 $c_j(P)=\sum_iP_{ij}$ とし、周辺残差を
 
 $$
 R_\infty(P)=\max\left\{
