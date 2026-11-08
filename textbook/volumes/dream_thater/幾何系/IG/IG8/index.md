@@ -54,7 +54,9 @@ $$
 
 ## 2. Hessian からもう一方のアファイン座標を作る
 
-[IG5 の Legendre 双対](../IG5/index.md#thm-ig5-legendre-hessian)では、正定値 Hessian を持つポテンシャル $\psi$ に対して $\eta_i=\partial_i\psi$ が逆変換可能な座標になることを学びました。ここではこの座標の取り替えが、単に計量を変換するだけでなく、**計量双対な接続の係数を零にする**ことを示します。以下の $\partial_i\psi$ は $\theta^i$ での偏微分（他の $\theta$ 成分は固定）であり、接続 $\nabla$ による共変微分とは異なります。
+[IG5 の Legendre 双対](../IG5/index.md#thm-ig5-legendre-hessian)では、正定値 Hessian を持つポテンシャル $\psi$ に対して $\eta_i=\partial_i\psi$ が逆変換可能な座標になることを学びました。ここではこの座標の取り替えが、単に計量を変換するだけでなく、**計量双対な接続の係数を零にする**ことを示します。
+
+ここで $\partial_i=\partial/\partial\theta^i$ は他の $\theta$ 成分を固定する偏微分であり、接続 $\nabla$ による共変微分とは異なります。
 
 <a id="thm-ig8-hessian-dual-flat"></a>
 
@@ -623,7 +625,7 @@ $r\ge3$ とし、正の $r$ 点分布全体を $\theta^i=\log(p_i/p_r)$（$i<r$�
 ## 7. 何が分かったか
 
 - **双対平坦**とは、双対な二接続が捩率零・曲率零であることです。計量双対性だけでは平坦性を保証しません。
-- 正定値 Hessian $g=\nabla^2\psi$ と一方のアファイン座標 $\theta$ があれば、$\eta_i=\partial_i\psi$ はもう一方のアファイン座標となります。逆 Hessian と Legendre 双対がこの変換を支えます。
+- 正定値 Hessian $g_{ij}=\partial_i\partial_j\psi$ と一方のアファイン座標 $\theta$ があれば、$\eta_i=\partial_i\psi$ はもう一方のアファイン座標となります。逆 Hessian と Legendre 双対がこの変換を支えます。
 - 最小・正則な**全指数型分布族**では e の接続係数が自然座標で零、m の係数が期待値座標で零です。有限正確率単体の m 測地線は算術補間、e 測地線は正規化した幾何補間です。
 - 混合型部分族は混合母数で m 平坦ですが、曲がった指数型部分族で周囲の e 線分が内部に留まるとは限りません。双対平坦性は Levi-Civita 曲率零も意味しません。
 
