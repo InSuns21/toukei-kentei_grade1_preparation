@@ -54,7 +54,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-06-tangent-laplacian -->
-**定義の確認**（平坦複素トーラス）。$X=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ とし、平坦計量と大域正則枠 $\partial_{z^1},\partial_{z^2}$ を使う。定数係数形式
+**定義の確認**（平坦複素トーラス）。$X=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ とし、$z^j=x_j+iy_j$ と書く。標準平坦計量 $\sum_j(dx_j^2+dy_j^2)$ と大域正則枠 $\partial_{z^1},\partial_{z^2}$ を使う。
+
+この枠では接束の計量も定数なので、$d$ と $d^*$ は各係数関数 $f$ に作用する。[平坦座標でのDolbeault随伴の計算](../../HOD/HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)を各座標・接束成分へ適用する。昇順の多重添字 $I$ に対して
+
+$$
+\begin{aligned}
+d(f\,d\bar z^I\otimes\partial_{z^a})
+ &=\sum_j(\partial_{\bar z^j}f)\,d\bar z^j\wedge d\bar z^I\otimes\partial_{z^a},\\
+d^*(f\,d\bar z^I\otimes\partial_{z^a})
+ &=-2\sum_j(\partial_{z^j}f)\,\iota_{\partial_{\bar z^j}}(d\bar z^I)\otimes\partial_{z^a}.
+\end{aligned}
+$$
+
+ここで $\partial_{z^j}f,\partial_{\bar z^j}f$ は係数関数のWirtinger微分、$\iota$ は形式基底から $d\bar z^j$ を縮約する内部積である。定数係数なら両方の微分が零になる。実際、定数係数形式
 
 $$
 \alpha=d\bar z^1\otimes\partial_{z^1},
@@ -62,10 +75,18 @@ $$
 \eta=d\bar z^1\wedge d\bar z^2\otimes\partial_{z^2}
 $$
 
-は、大域的に定義され、$d\alpha=d\eta=0$ である。平坦計量の下では $d^*$ は定数係数の正則方向微分を使うため $d^*\alpha=d^*\eta=0$ でもある。よって $\Delta_1\alpha=\Delta_2\eta=0$、$H_1\alpha=\alpha$、$H_2\eta=\eta$。一方、非零の完全形式 $dv$ は調和形式に直交し、$H_1(dv)=0$ となる。単に閉じているだけでは調和と判定しない。
+は、大域的に定義され、上の二式から $d\alpha=d\eta=d^*\alpha=d^*\eta=0$ である。定義の二条件をともに満たすので $\Delta_1\alpha=\Delta_2\eta=0$、$H_1\alpha=\alpha$、$H_2\eta=\eta$。一方、非零の完全形式 $dv$ は調和形式に直交し、$H_1(dv)=0$ となる。単に閉じているだけでは調和と判定しない。
 <!-- definition-example-end -->
 
-なぜ調和空間は有限次元なのだろうか。楕円型作用素であることが決め手となる。局所正則座標と接束の枠を一点で正規化し、非零の実共変ベクトル $\xi$ の $(0,1)$ 成分を $\xi^{0,1}$ とする。$d$ の一階主記号は（共通の $i$ を除き）$\xi^{0,1}$ との外積 $\varepsilon(\xi^{0,1})$、$d^*$ の記号はその随伴の内部積 $\iota((\xi^{0,1})^\sharp)$ となる。外積・内部積の交代関係を一つの基底単項式で確認すると
+なぜ調和空間は有限次元なのだろうか。楕円型作用素であることが決め手となる。[GA6の主記号の計算](../../GA/GA6/index.md#lem-ga6-elliptic)と同様に、局所正則座標と接束の枠を一点で正規化する。実共変ベクトル $\xi=\sum_j(a_jdx_j+b_jdy_j)$ の $(0,1)$ 成分は
+
+$$
+\xi^{0,1}=\frac12\sum_j(a_j+ib_j)d\bar z^j
+$$
+
+であり、$\xi\ne0$ なら $\xi^{0,1}\ne0$ である。主記号は微分作用素の最高階部分で、$\sharp$ は計量による共変ベクトルからベクトルへの対応を表す。
+
+$d$ の一階主記号は（共通の $i$ を除き）$\xi^{0,1}$ との外積 $\varepsilon(\xi^{0,1})$、$d^*$ の記号はその随伴の内部積 $\iota((\xi^{0,1})^\sharp)$ となる。外積・内部積の交代関係を一つの基底単項式で確認すると
 
 $$
 \varepsilon(\xi^{0,1})\iota((\xi^{0,1})^\sharp)
@@ -73,7 +94,7 @@ $$
 =|\xi^{0,1}|_g^2 I.
 $$
 
-実 $\xi\ne0$ に対して $\xi^{0,1}\ne0$ だから、$\sigma_2(\Delta_q)(\xi)=|\xi^{0,1}|_g^2I$ は正定値であり、各次数の $\Delta_q$ は楕円型である。係数の微分・接束の接続による零階・一階の項は、この最高階の判定に影響しない。
+ここで $\sigma_2$ は二階主記号を表す。実 $\xi\ne0$ に対して $\xi^{0,1}\ne0$ だから、$\sigma_2(\Delta_q)(\xi)=|\xi^{0,1}|_g^2I$ は正定値であり、各次数の $\Delta_q$ は楕円型である。係数の微分・接束の接続による零階・一階の項は、この最高階の判定に影響しない。
 
 <a id="thm-def1-06-tangent-hodge"></a>
 
@@ -303,7 +324,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-06-kuranishi-map -->
-**定義の確認**（楕円曲線）。平坦な楕円曲線 $X=\mathbb C/(\mathbb Z+i\mathbb Z)$ では
+**定義の確認**（楕円曲線）。平坦な楕円曲線 $X=\mathbb C/(\mathbb Z+i\mathbb Z)$ で $z=x+iy$ とする。接束の定数枠で、[平坦トーラスのDolbeault Laplacian固有値](../../HOD/HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)を周期1へ読み替えると、Fourierモード $f_{k,\ell}=e^{2\pi i(kx+\ell y)}$ に対し
+
+$$
+\Delta_1(f_{k,\ell}\,d\bar z\otimes\partial_z)
+=-2(\partial_z\partial_{\bar z}f_{k,\ell})\,d\bar z\otimes\partial_z
+=2\pi^2(k^2+\ell^2)f_{k,\ell}\,d\bar z\otimes\partial_z.
+$$
+
+非零周波数では固有値が正で、零周波数の定数形式だけが調和である。従って
 
 $$
 \mathcal H_T^1=\mathbb C\,d\bar z\otimes\partial_z
@@ -361,15 +390,31 @@ $$
 
 もし $F=0$ なら $H_2F=H_2d\phi+H_2q=\kappa$ であり、$H_2d\phi=0$ より $\kappa=0$。
 
-逆に $\kappa=0$ とする。$F$ は全次数2以上から始まる。仮に非零なら最小次数 $r\ge2$ の成分 $F_r$ がある。しかし $h[F,\phi]$ は、$\phi$ が次数1以上から始まるため、最小次数が少なくとも $r+1$ となる。次数 $r$ の係数比較は $F_r=0$ を与え、矛盾する。従って $F=0$。
-
-イデアル $J$ で割った環でも、同じ恒等式 $F=\kappa+h[F,\phi]$ が成立する。$\kappa=0$ のとき $F$ は任意の $N$ について次の部分加群に属する。
+逆に $\kappa=0$ とする。$F$ は全次数2以上から始まる。仮に非零なら最小次数 $r\ge2$ の成分 $F_r$ がある。一方、$\phi$ は次数1以上から始まり、$h$ は形式変数の次数を変えない。従って括弧の $r$ 次成分は零であり、固定点式の $r$ 次を比較すると
 
 $$
-(s_1,\ldots,s_m)^N(C^2\widehat\otimes R/J).
+F_r=h([F,\phi]_r)=h(0)=0
 $$
 
-形式的べき級数環の商で全ての次数が零なら元は零なので、同じ結論を得る。$\square$
+となり矛盾する。ゆえに $F=0$。
+
+イデアル $J$ で割った環でも、同じ恒等式が成立する。$\mathfrak m=(s_1,\ldots,s_m)$ と置く。
+
+$M=C^2\widehat\otimes(R/J)$ は、$C^2$ 値の形式級数を $J$ で割り、$\mathfrak m$ の次数について完備化した加群を表す。$\phi$ は一次以上から始まるので、$M$ 上の線形作用素
+
+$$
+T(U)=h[U,\phi]
+$$
+
+は $T(\mathfrak m^rM)\subset\mathfrak m^{r+1}M$ を満たす。従って $\sum_{j\ge0}T^j$ は各形式次数では有限和であり、$(I-T)\sum_{j\ge0}T^j=I$ が係数ごとに成り立つ。
+
+$F=\kappa+T(F)$ にこの形式的逆を作用させると
+
+$$
+F=\sum_{j\ge0}T^j(\kappa).
+$$
+
+よって $R/J$ 上でも $\kappa=0$ なら $F=0$ である。逆向きは先ほどと同じ $H_2F=\kappa$ による。ここで使ったのは次数ごとの有限計算だけで、解析的収束ではない。$\square$
 <!-- proof-end -->
 
 **形式的な零点集合の読み方。** $\mathcal H_T^2$ の基底を選び、$\kappa$ の成分 $\kappa_1(s),\ldots,\kappa_r(s)$ が生成するイデアルを考える。
@@ -406,7 +451,18 @@ $$
 $a\in T_x^{0,1*}X$ とし、外積作用素 $\varepsilon(a)$ と内部積作用素 $\iota(a^\sharp)$ を考える。$\varepsilon(a)\iota(a^\sharp)+\iota(a^\sharp)\varepsilon(a)=|a|^2I$ を正規直交基底で確認し、$\Delta_q$ の楕円性との関係を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $a=ce^1$ と取れるようユニタリ基底を選ぶ。基底単項式 $e^{i_1}\wedge\cdots\wedge e^{i_q}$ に $e^1$ が含まれなければ $\iota(e_1)$ が零なので第一項は零、第二項は $\iota(e_1)(e^1\wedge u)=u$ より $|c|^2u$ となる。含まれれば $\varepsilon(e^1)$ は零なので第二項は零、第一項は $e^1\wedge\iota(e_1)u=u$ より $|c|^2u$ となる。線形性で任意の $u$ に成立する。実 $\xi\ne0$ の $(0,1)$ 成分 $a=\xi^{0,1}\ne0$ にこれを使えば、$\sigma_2(\Delta_q)(\xi)=|a|^2I$ は可逆であるから楕円型となる。
+**詳細解答。** $a=0$ なら両辺は零である。$a\ne0$ なら $a=ce^1$ と取れるようユニタリ基底を選ぶ。任意の基底単項式は、$e^1$ を含むものと含まないものに分かれる。従って一般の形式を $u=e^1\wedge v+w$（$v,w$ は $e^1$ を含まない）と一意に書ける。
+
+$\iota_{e_1}(e^1\wedge v)=v$、$\iota_{e_1}w=0$ だから、$\varepsilon(a)=c\,e^1\wedge$ と $\iota(a^\sharp)=\bar c\,\iota_{e_1}$ を順に作用させると
+
+$$
+\begin{aligned}
+\varepsilon(a)\iota(a^\sharp)u&=|c|^2e^1\wedge v,\\
+\iota(a^\sharp)\varepsilon(a)u&=|c|^2w.
+\end{aligned}
+$$
+
+和は $|c|^2u=|a|^2u$ である。実共変ベクトル $\xi\ne0$ の $(0,1)$ 成分 $a=\xi^{0,1}\ne0$ に適用すると、二階主記号 $\sigma_2(\Delta_q)(\xi)=|a|^2I$ は可逆であり、楕円型となる。
 <!-- solution-end -->
 
 <a id="ex-def1-06-a02"></a>
@@ -416,7 +472,20 @@ $a\in T_x^{0,1*}X$ とし、外積作用素 $\varepsilon(a)$ と内部積作用�
 コンパクト境界なしの $X$ で、$u\in C^q$ が $\Delta_qu=0$ なら $du=d^*u=0$ を示せ。さらに調和形式が $u=dv$ と書けるなら $u=0$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 随伴の定義を二度使って $(\Delta_qu,u)=(dd^*u,u)+(d^*du,u)=\|d^*u\|^2+\|du\|^2$。左辺は零で二項は非負なので両方零となる。次に $u=dv$ なら $\|u\|^2=(u,dv)=(d^*u,v)=0$。正定値な $L^2$ 内積のノルムが零だから $u=0$。コンパクト・境界なしの仮定が部分積分を支える。
+**詳細解答。** 随伴の定義を二度使うと
+
+$$
+(\Delta_qu,u)=(dd^*u,u)+(d^*du,u)
+=\|d^*u\|^2+\|du\|^2.
+$$
+
+$\Delta_qu=0$ なら左辺は零で、右辺の二項は非負だから $du=d^*u=0$。さらに $u=dv$ の場合は
+
+$$
+\|u\|^2=(u,dv)=(d^*u,v)=0.
+$$
+
+正定値な $L^2$ 内積のノルムが零だから $u=0$。コンパクト・境界なしの仮定が部分積分を支える。
 <!-- solution-end -->
 
 <a id="ex-def1-06-a03"></a>
@@ -426,7 +495,13 @@ $a\in T_x^{0,1*}X$ とし、外積作用素 $\varepsilon(a)$ と内部積作用�
 $du=0$ のとき $u=Hu+dhu$ を証明し、さらに $u=dv$ なら $dhu=u$ となることを示せ。
 
 <!-- solution-start -->
-**詳細解答。** [連鎖ホモトピー恒等式](#lem-def1-06-homotopy)を $u$ に作用させると $u-Hu=dhu+hdu$。$du=0$ より後項が零なので $u=Hu+dhu$。$u=dv$ なら $Hu=Hdv=0$（調和形式 $w$ に対し $(dv,w)=(v,d^*w)=0$）。従って $u=dhu$。二段階を区別することで、閉形式一般に $dhu=u$ と誤って主張することを防げる。
+**詳細解答。** [連鎖ホモトピー恒等式](#lem-def1-06-homotopy)を $u$ に作用させると
+
+$$
+u-Hu=dhu+hdu.
+$$
+
+$du=0$ なら後項が零なので $u=Hu+dhu$。さらに $u=dv$ なら、任意の調和形式 $w$ に対して $(dv,w)=(v,d^*w)=0$ であるため $Hu=0$。よって $u=dhu$。閉形式一般には $Hu$ が残ることに注意する。
 <!-- solution-end -->
 
 <a id="ex-def1-06-a04"></a>
@@ -436,7 +511,15 @@ $du=0$ のとき $u=Hu+dhu$ を証明し、さらに $u=dv$ なら $dhu=u$ と�
 $t\in\mathcal H_T^1$、$v\in C^0$、$dv\ne0$ とし、$\psi=t+dv$ とする。$H_1\psi=t$ と $d^*\psi\ne0$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $H_1t=t$ であり、任意の調和 $w$ について $(dv,w)=(v,d^*w)=0$ なので $H_1dv=0$。従って $H_1\psi=t$。一方 $d^*\psi=d^*dv$。もしこれが零なら $(d^*dv,v)=\|dv\|^2=0$ となるが $dv\ne0$ と矛盾する。ゆえに $\psi$ は同じ調和パラメータを持っても調和ゲージを満たさない。
+**詳細解答。** $H_1t=t$ であり、任意の調和 $w$ について $(dv,w)=(v,d^*w)=0$ なので $H_1dv=0$。従って $H_1\psi=t$。
+
+一方 $d^*\psi=d^*dv$ が零だと仮定すると
+
+$$
+0=(d^*dv,v)=\|dv\|^2>0
+$$
+
+となり矛盾する。ゆえに $\psi$ は同じ調和パラメータを持っても調和ゲージを満たさない。
 <!-- solution-end -->
 
 <a id="ex-def1-06-b01"></a>
@@ -506,7 +589,23 @@ $F$ の次数 $r$ 以下が零だと仮定する。このとき $[F,\phi]$ の�
 平坦 $X=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ について、定数係数 $\mathcal H_T^1$ の基底を四つ挙げ、$\mathcal H_T^2$ の非零元を一つ示せ。任意の定数係数 $t\in\mathcal H_T^1$ に対し $\kappa(t)=0$ を直接確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** 接束は $\partial_{z^1},\partial_{z^2}$ で大域自明化するから、$d\bar z^j\otimes\partial_{z^i}$（$i,j=1,2$）の四つは定数係数で $d=d^*=0$ の調和形式となり、平坦トーラスのFourier零モードが調和成分を尽くすので基底となる。同じ理由で $\eta=d\bar z^1\wedge d\bar z^2\otimes\partial_{z^1}$ は非零の調和2形式である。[調和代表同型](#thm-def1-06-tangent-hodge)により $H^2(X,T_X)\ne0$。
+**詳細解答。** 接束は $\partial_{z^1},\partial_{z^2}$ で大域自明化する。従って $d\bar z^j\otimes\partial_{z^i}$（$i,j=1,2$）の四つは定数係数で $d=d^*=0$ の調和形式となる。
+
+[平坦トーラスのFourier固有値計算](../../HOD/HOD1-01/index.md#prop-hod1-01-flat-torus-adjoints)を2変数へ適用する。第2節の $d,d^*$ の局所式と外積・内部積の交代関係から、定数形式基底 $\omega$ に対して
+
+$$
+\Delta_q(f\omega)=-2\sum_{j=1}^2
+(\partial_{z^j}\partial_{\bar z^j}f)\,\omega.
+$$
+
+周波数 $k=(k_1,\ell_1,k_2,\ell_2)\in\mathbb Z^4$ の係数
+
+$$
+f_k=e^{2\pi i(k_1x_1+\ell_1y_1+k_2x_2+\ell_2y_2)},\qquad
+\Delta_q(f_k\omega)=2\pi^2|k|^2f_k\omega
+$$
+
+について、$k\ne0$ の成分は調和になれず、零モードは上の四つに尽くされるので基底となる。同じ理由で $\eta=d\bar z^1\wedge d\bar z^2\otimes\partial_{z^1}$ は非零の調和2形式である。[調和代表同型](#thm-def1-06-tangent-hodge)により $H^2(X,T_X)\ne0$。
 
 $t=\sum_{i,j} s_{ij}d\bar z^j\otimes\partial_{z^i}$ の全係数は $z$ に関して定数だから、[括弧の成分式](../DEF1-03/index.md#def-def1-03-bracket)にある $\partial_{z^p}s_{ij}$ は全て零。従って $[t,t]=0$、固定点式の一意性より $\phi=t$、ゆえに $\kappa=\tfrac12H_2[t,t]=0$。非零の行き先空間から非零の写像は結論できない。
 <!-- solution-end -->
@@ -522,7 +621,9 @@ $t=\sum_{i,j} s_{ij}d\bar z^j\otimes\partial_{z^i}$ の全係数は $z$ に関�
 3. $\kappa=0$ と $F=0$ が形式的に同値であることを証明し、これだけでは解析的な変形族の存在が従わない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** まず[Green作用素の連鎖ホモトピー](#lem-def1-06-homotopy)で $dh+hd=I-H$、$Hh=0$、$d^*h=0$ を得る。$t=\sum s_ae_a$ を一次項に固定し $\phi=\sum_{|\nu|\ge1}s^\nu\phi_\nu$ とする。各 $\nu$ の右辺の括弧は $\mu+\lambda=\nu$、$|\mu|,|\lambda|\ge1$ の係数だけを使う。したがって全次数が小さい係数から帰納的に定まり、任意の次数で有限和なので一意の形式解を得る。$H\phi=t$、$d^*\phi=0$ は $Hh=d^*h=0$ から従う。
+**詳細解答。** まず[Green作用素の連鎖ホモトピー](#lem-def1-06-homotopy)で $dh+hd=I-H$、$Hh=0$、$d^*h=0$ を得る。
+
+$t=\sum s_ae_a$ を一次項に固定し $\phi=\sum_{|\nu|\ge1}s^\nu\phi_\nu$ とする。各 $\nu$ の右辺の括弧は $\mu+\lambda=\nu$、$|\mu|,|\lambda|\ge1$ の係数だけを使う。したがって全次数が小さい係数から帰納的に定まり、任意の次数で有限和なので一意の形式解を得る。$H\phi=t$、$d^*\phi=0$ は $Hh=d^*h=0$ から従う。
 
 次に $q=\tfrac12[\phi,\phi]$ とすれば $d\phi=-dhq$、従って
 
@@ -536,5 +637,9 @@ $$
 dq=[d\phi,\phi]=[F-q,\phi]=[F,\phi]
 $$
 
-と計算できる（$[q,\phi]=0$）。よって $F=\kappa+h[F,\phi]$。$F=0$ なら $H_2F=\kappa$ だから $\kappa=0$。逆に $\kappa=0$ なら $F=h[F,\phi]$。$F$ の最小次数が $r\ge2$ なら右辺の最小次数は $r+1$ 以上なので矛盾し、$F=0$。この推論は各次数についての**形式的恒等式**であり、$\sum s^\nu\phi_\nu$ の係数ノルムを評価していない。従って収束半径が正であること、Beltramiグラフとその共役の直和性、実際の変形族の局所完全性はこの結果だけでは従わない。
+と計算できる（$[q,\phi]=0$）。よって $F=\kappa+h[F,\phi]$。
+
+$F=0$ なら $H_2F=\kappa$ だから $\kappa=0$。逆に $\kappa=0$ なら $F=h[F,\phi]$。$F$ の最小次数が $r\ge2$ なら右辺の最小次数は $r+1$ 以上なので矛盾し、$F=0$。
+
+この推論は各次数についての**形式的恒等式**であり、$\sum s^\nu\phi_\nu$ の係数ノルムを評価していない。従って収束半径が正であること、Beltramiグラフとその共役の直和性、実際の変形族の局所完全性はこの結果だけでは従わない。
 <!-- solution-end -->
