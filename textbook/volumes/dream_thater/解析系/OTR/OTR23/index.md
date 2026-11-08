@@ -625,7 +625,20 @@ $$
 $\nu=N(m,s^2)$、$s>0$ とする。任意の密度を持つ候補 $\mu$ の平均を $M$、標準偏差を $r>0$ として、二次輸送距離とエントロピーの下界をそれぞれ導き、Gaussianで二つとも等号になることを示せ。
 
 <!-- solution-start -->
-**詳細解答**。任意の結合 $(X,Y)$ で $E[(X-Y)^2]=(M-m)^2+r^2+s^2-2E[(X-M)(Y-m)]$ です。[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から最後の共分散は $rs$ 以下なので $W_2^2(\mu,\nu)\ge(M-m)^2+(r-s)^2$ です。$\mu=N(M,r^2)$ なら $X=M+rZ$、$Y=m+sZ$ の同一標準Gaussian $Z$ による結合は、両成分が同じ $Z$ の増加関数です。[一次元の分位点公式](../OTR11/index.md#thm-otr11-quantile-formula)によって最適となり、輸送の下界で等号が成立します。
+**詳細解答**。任意の結合 $(X,Y)$ について、二乗を展開して平均と共分散に分けると
+
+$$
+E[(X-Y)^2]
+=(M-m)^2+r^2+s^2-2E[(X-M)(Y-m)].
+$$
+
+中心化した確率変数に[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すれば共分散は $rs$ 以下なので、
+
+$$
+W_2^2(\mu,\nu)\ge(M-m)^2+(r-s)^2.
+$$
+
+$\mu=N(M,r^2)$ なら、$Z\sim N(0,1)$ に対して $X=M+rZ$、$Y=m+sZ$ と取れます。両成分が $Z$ の増加関数であるため、[一次元の分位点公式](../OTR11/index.md#thm-otr11-quantile-formula)によりこの結合は最適です。その費用は上の下界に等しくなります。
 
 次に $g_{M,r}$ をそのGaussian密度として $D(\mu\Vert g_{M,r}dx)\ge0$ を展開します。$\int(x-M)^2d\mu=r^2$ より
 
