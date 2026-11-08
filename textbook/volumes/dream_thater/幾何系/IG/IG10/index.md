@@ -66,7 +66,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（双対測地線の直交）**  
-> 空でない開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ が正定値 Hessian を持つとする。$\eta=\nabla\psi(\theta)$、$V=\eta(U)$、$g_Q=\nabla^2\psi(\theta_Q)$ とし、点 $P,Q,R$ の $\theta$ 座標を $\theta_P,\theta_Q,\theta_R\in U$ で表す。$\eta_Q$ から $\eta_R$ への線分が $V$ に含まれるとする。[IG8 の e/m 測地線](../IG8/index.md#def-ig8-em-geodesic)として $Q\to P$ の e-測地線と $Q\to R$ の m-測地線が **$Q$ で直交**するとは、それらの $Q$ での接ベクトルが Hessian 計量 $g_Q$ で直交すること、すなわち次の等式を満たすことをいう。
+> 空でない開凸集合 $U\subset\mathbb R^d$ 上の $\psi\in C^4(U)$ が正定値 Hessian を持つとする。双対座標と計量を次のように置く。
+
+$$
+\eta=\nabla\psi(\theta),\qquad
+V=\eta(U),\qquad
+g_Q=\nabla^2\psi(\theta_Q).
+$$
+
+> 点 $P,Q,R$ の $\theta$ 座標をそれぞれ $\theta_P,\theta_Q,\theta_R\in U$ とし、$\eta_Q$ から $\eta_R$ への線分は $V$ に含まれるとする。
+>
+> [IG8 の e/m 測地線](../IG8/index.md#def-ig8-em-geodesic)として、$Q\to P$ の e-測地線と $Q\to R$ の m-測地線が **$Q$ で直交**するとは、二つの接ベクトルの Hessian 計量による内積が零となること、すなわち次の等式を満たすことをいう。
 
 $$
 g_Q\bigl(\theta_P-\theta_Q,\ g_Q^{-1}(\eta_R-\eta_Q)\bigr)
@@ -75,7 +85,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig10-dual-orthogonality -->
-**定義の確認**。$\psi(\theta)=((\theta^1)^2+2(\theta^2)^2)/2$、$U=\mathbb R^2$ とし、$Q=(0,0)$、$P=(2,0)$、$R=(0,3)$ を $\theta$ 座標で指定します。座標 $\theta^1,\theta^2$ で二階偏微分すると $g_{ij}=\partial_i\partial_j\psi$ の行列は $g=\operatorname{diag}(1,2)$ です。任意の非零 $u=(u_1,u_2)$ に対して $g(u,u)=u_1^2+2u_2^2>0$ なので正定値です。また $\eta=\nabla\psi=(\theta^1,2\theta^2)$ は逆写像 $\theta=(\eta_1,\eta_2/2)$ を持ち、全域は $V=\mathbb R^2$ です。よって二種類の線分はいずれも定義域に入り、$Q$ での e-速度は $(2,0)$、m-速度は $g^{-1}(\eta_R-\eta_Q)=\operatorname{diag}(1,1/2)(0,6)=(0,3)$ です。計量による内積は
+**定義の確認**。$\psi(\theta)=((\theta^1)^2+2(\theta^2)^2)/2$、$U=\mathbb R^2$ とし、$Q=(0,0)$、$P=(2,0)$、$R=(0,3)$ を $\theta$ 座標で指定します。
+
+座標 $\theta^1,\theta^2$ で二階偏微分すると $g_{ij}=\partial_i\partial_j\psi$ の行列は $g=\operatorname{diag}(1,2)$ です。任意の非零 $u=(u_1,u_2)$ に対して $g(u,u)=u_1^2+2u_2^2>0$ なので正定値です。
+
+また $\eta=\nabla\psi=(\theta^1,2\theta^2)$ は逆写像 $\theta=(\eta_1,\eta_2/2)$ を持ち、全域は $V=\mathbb R^2$ です。
+
+よって二種類の線分はいずれも定義域に入り、$Q$ での e-速度は $(2,0)$、m-速度は $g^{-1}(\eta_R-\eta_Q)=\operatorname{diag}(1,1/2)(0,6)=(0,3)$ です。計量による内積は
 
 $$
 g_Q(v_e,v_m)
