@@ -1,0 +1,53 @@
+chapter: IG8
+scope: dream-theater
+coverage: complete
+prerequisites: [IG7, IG5]
+concepts:
+  - id: information-geometry.flat-affine-coordinate
+    name: アファイン座標と平坦な接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アファイン座標と平坦な接続）"]
+    requires: [information-geometry.connection-choice, information-geometry.connection-coordinate-covariance]
+
+  - id: information-geometry.dually-flat-manifold
+    name: 双対平坦統計多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対平坦統計多様体）"]
+    requires: [information-geometry.flat-affine-coordinate, information-geometry.dual-connection]
+
+  - id: information-geometry.hessian-dual-flatness
+    name: Hessian ポテンシャルからの双対平坦性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hessian ポテンシャルからの双対平坦性）"]
+    requires: [information-geometry.dually-flat-manifold, information-geometry.hessian-chart, information-geometry.dual-connection]
+
+  - id: information-geometry.exponential-dual-flatness
+    name: 全指数型分布族の双対平坦性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全指数型分布族の双対平坦性）"]
+    requires: [information-geometry.hessian-dual-flatness, information-geometry.alpha-connection, information-geometry.exponential-fisher-hessian]
+
+  - id: information-geometry.em-geodesics
+    name: e/m 測地線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（e/m 測地線）"]
+    requires: [information-geometry.dually-flat-manifold, information-geometry.connection-geodesic]
+
+  - id: information-geometry.simplex-em-geodesics
+    name: 有限正単体の e/m 測地線
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限正単体の e/m 測地線）"]
+    requires: [information-geometry.exponential-dual-flatness, information-geometry.em-geodesics, information-geometry.simplex-mixture-coordinate]
+
+  - id: information-geometry.mixture-dual-flatness
+    name: 混合型分布族の m 平坦性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（混合型分布族の m 平坦性）"]
+    requires: [information-geometry.dually-flat-manifold, information-geometry.mixture-family, information-geometry.alpha-connection]

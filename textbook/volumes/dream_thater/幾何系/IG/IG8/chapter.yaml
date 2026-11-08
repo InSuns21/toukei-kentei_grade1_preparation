@@ -1,0 +1,35 @@
+id: "IG8"
+title: "双対平坦性と e/m 測地線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG7
+  - IG5
+official_scope: []
+learning_objectives:
+  - 捩率零・曲率零のアファイン接続の局所アファイン座標と双対平坦性の定義を区別できる
+  - Hessian ポテンシャルから双対座標と双対接続の零係数を導出できる
+  - 正則で最小な全指数型分布族の e/m 平坦性を score と Fisher 計量から証明できる
+  - e と m の測地線を各アファイン座標の線分として導出し領域条件を確認できる
+  - 有限正確率単体の混合補間と正規化幾何補間を成分計算で比較できる
+  - 混合型分布族の m 平坦性と曲がった指数型部分モデルの非自動性を説明できる
+  - 双対平坦性と Levi-Civita 接続の曲率零を混同しない
+definitions:
+  - { id: IG8-DEF-01, name: アファイン座標と平坦な接続 }
+  - { id: IG8-DEF-02, name: 双対平坦統計多様体 }
+  - { id: IG8-DEF-03, name: e/m 測地線 }
+theorems:
+  - { id: IG8-THM-01, name: Hessian ポテンシャルからの双対平坦性 }
+  - { id: IG8-THM-02, name: 全指数型分布族の双対平坦性 }
+  - { id: IG8-THM-03, name: 有限正単体の e/m 測地線 }
+  - { id: IG8-PROP-01, name: 混合型分布族の m 平坦性 }
+canonical_examples:
+  - Bernoulli の logit と成功確率の二種類の測地線
+  - 三値カテゴリカルの混合中点と正規化幾何中点
+  - 有限混合型分布族の負エントロピー Hessian
+  - 曲がった指数型部分モデルの外在的な非アファイン性
+problem_patterns: [IG8-A01, IG8-A02, IG8-A03, IG8-A04, IG8-B01, IG8-B02, IG8-B03, IG8-B04, IG8-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.5 }
