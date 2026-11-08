@@ -1,0 +1,38 @@
+id: "MFL30"
+title: "Graph message passing"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL29
+  - SGT1
+  - ML2-13
+  - ML2-14
+official_scope: []
+learning_objectives:
+  - 有向辺と辺特徴を含む有限グラフの再ラベル作用を、逆置換の添字で定義・検算できる
+  - message・対称aggregate・共有updateの型と孤立頂点での定義を説明できる
+  - 辺・特徴も共変に動かしたときの一層の置換等変性を証明できる
+  - 多層の置換等変性と対称なgraph-level読み出しの不変性を帰納法で証明できる
+  - 総和・平均・自己ループ・次数正規化の差を実際の小グラフで計算できる
+  - 再ラベル忘れ・番号依存パラメータ・非対称集約の失敗機構を具体的な反例で特定できる
+  - 層数と局所到達可能性を結び付け、等変性とグラフの識別力を区別できる
+definitions:
+  - { id: MFL30-DEF-01, name: 辺付きグラフの再ラベル作用 }
+  - { id: MFL30-DEF-02, name: message passing層 }
+  - { id: MFL30-DEF-03, name: graph-level対称読み出し }
+theorems:
+  - { id: MFL30-THM-01, name: message passing一層の置換等変性 }
+  - { id: MFL30-THM-02, name: 多層の置換等変性と読み出しの不変性 }
+  - { id: MFL30-PROP-01, name: 次数正規化の置換等変性 }
+  - { id: MFL30-PROP-02, name: 層数と到達可能範囲 }
+canonical_examples:
+  - 三頂点の道における総和・平均集約と置換追従
+  - 孤立頂点と自己ループ込み正規化の差
+  - 辺を再ラベルし忘れたときの非零残差
+  - 四頂点の二層更新と全置換を照合する決定論的ラボ
+  - 同特徴の正則グラフの一例から等変性と識別力の違いを確認
+problem_patterns: [MFL30-A01, MFL30-A02, MFL30-A03, MFL30-A04, MFL30-B01, MFL30-B02, MFL30-B03, MFL30-B04, MFL30-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.5 }

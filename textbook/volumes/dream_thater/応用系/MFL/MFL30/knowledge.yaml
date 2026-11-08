@@ -1,0 +1,48 @@
+chapter: MFL30
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL29
+  - SGT1
+  - ML2-13
+  - ML2-14
+forward_references: []
+concepts:
+  - id: manifold-learning.graph-relabeling
+    name: 辺付きグラフの再ラベル作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辺付きグラフの再ラベル作用）"]
+    requires: [manifold-learning.permutation-action, spectral-graph.weighted-graph]
+  - id: manifold-learning.message-passing-layer
+    name: message passing層
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（message passing層）"]
+    requires: [manifold-learning.graph-relabeling, manifold-learning.symmetric-pooling, learning.relu-mlp]
+  - id: manifold-learning.message-passing-equivariance
+    name: message passing一層の置換等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.message-passing-layer, manifold-learning.permutation-action]
+  - id: manifold-learning.graph-invariant-readout
+    name: graph-level対称読み出し
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（graph-level対称読み出し）"]
+    requires: [manifold-learning.symmetric-pooling, manifold-learning.message-passing-layer]
+  - id: manifold-learning.multilayer-message-passing-equivariance
+    name: 多層の置換等変性と読み出しの不変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.message-passing-equivariance, manifold-learning.graph-invariant-readout]
+  - id: manifold-learning.degree-normalized-message-passing
+    name: 次数正規化の置換等変性
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.message-passing-equivariance]
+  - id: manifold-learning.message-passing-receptive-field
+    name: 層数と到達可能範囲
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.message-passing-layer]
