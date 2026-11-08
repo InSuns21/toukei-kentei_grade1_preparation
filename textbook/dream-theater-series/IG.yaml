@@ -14,7 +14,7 @@ chapters:
   - { id: IG6, path: textbook/volumes/dream_thater/幾何系/IG/IG6, status: completed, title: "アファイン接続と統計的測地線" }
   - { id: IG7, path: textbook/volumes/dream_thater/幾何系/IG/IG7, status: completed, title: "計量に関する双対接続・α-接続と三次テンソル" }
   - { id: IG8, path: textbook/volumes/dream_thater/幾何系/IG/IG8, status: completed, title: "双対平坦性と e/m 測地線" }
-  - { id: IG9, path: textbook/volumes/dream_thater/幾何系/IG/IG9, status: planned, title: "正準 divergence と Bregman 幾何" }
+  - { id: IG9, path: textbook/volumes/dream_thater/幾何系/IG/IG9, status: completed, title: "正準 divergence と Bregman 幾何" }
   - { id: IG10, path: textbook/volumes/dream_thater/幾何系/IG/IG10, status: planned, title: "一般化 Pythagoras と情報射影" }
   - { id: IG11, path: textbook/volumes/dream_thater/幾何系/IG/IG11, status: planned, title: "最尤法・最大エントロピーと情報射影" }
   - { id: IG12, path: textbook/volumes/dream_thater/幾何系/IG/IG12, status: planned, title: "自然勾配・KL trust region・mirror descent" }
