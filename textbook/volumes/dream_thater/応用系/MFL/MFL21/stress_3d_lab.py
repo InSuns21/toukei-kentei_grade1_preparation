@@ -11,8 +11,13 @@ import argparse
 import json
 import math
 import random
+import sys
 from dataclasses import dataclass
+from pathlib import Path
 
+# The browser file lab executes this via runpy.run_path; it does not guarantee
+# that the script's directory is already on sys.path.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from geometry_cross_lab import (components, make_graph,
                                 normalized_laplacian_eigenvalues, shortest_paths)
 

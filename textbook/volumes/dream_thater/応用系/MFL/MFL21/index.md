@@ -304,7 +304,9 @@ python textbook/volumes/dream_thater/応用系/MFL/MFL21/geometry_cross_lab.py -
 python textbook/volumes/dream_thater/応用系/MFL/MFL21/geometry_cross_lab.py --self-test
 ```
 
-```text
+```python-file-lab
+# lab-id: MFL21-GEOMETRY-CROSS
+# lab-title: 円・U字・交差線・近接枝
 # lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL21/geometry_cross_lab.py
 # timeout-ms: 60000
 # lab-preset: 円周の正しい辺 | --preset circle --points 24 --radius 1 --threshold 0.35 --seed 7
@@ -365,13 +367,16 @@ python textbook/volumes/dream_thater/応用系/MFL/MFL21/stress_3d_lab.py --pres
 python textbook/volumes/dream_thater/応用系/MFL/MFL21/stress_3d_lab.py --self-test
 ~~~
 
-~~~text
+```python-file-lab
+# lab-id: MFL21-GEOMETRY-3D
+# lab-title: 二重螺旋・Swiss roll・外れ値
 # lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL21/stress_3d_lab.py
+# lab-dependency: textbook/volumes/dream_thater/応用系/MFL/MFL21/geometry_cross_lab.py
 # timeout-ms: 60000
 # lab-preset: 二重螺旋の近接 | --preset double-helix --points 24 --pitch 0.2 --threshold 0.8
 # lab-preset: Swiss rollの展開距離 | --preset swiss-roll --points 32 --radius 0.2 --threshold 1.5
 # lab-preset: 外れ値と近傍混入 | --preset outliers --points 24 --gap 0.2 --threshold 0.8
-~~~
+```
 
 以下の表は変更パラメータと、起きるはずの変化を区別するための事前予想である。必ずしもすべての乱数種で単調に変わるとは言わない。
 
