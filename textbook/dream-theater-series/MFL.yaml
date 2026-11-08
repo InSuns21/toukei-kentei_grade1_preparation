@@ -132,7 +132,7 @@ chapters:
     title: "GNNの表現力と1-WLの識別限界"
   - id: MFL32
     path: textbook/volumes/dream_thater/応用系/MFL/MFL32
-    status: planned
+    status: completed
     title: "Graph spectral convolution"
   - id: MFL33
     path: textbook/volumes/dream_thater/応用系/MFL/MFL33
