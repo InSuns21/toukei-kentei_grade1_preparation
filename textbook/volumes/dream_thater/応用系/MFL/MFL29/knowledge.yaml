@@ -1,0 +1,63 @@
+chapter: MFL29
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL22
+  - MFL23
+  - MFL25
+  - ML2-13
+forward_references: []
+concepts:
+  - id: manifold-learning.permutation-action
+    name: 点列上の置換作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点列上の置換作用）"]
+    requires: [manifold-learning.equivariant-map, algebra.group-action]
+  - id: manifold-learning.permutation-composition
+    name: 置換作用の合成則
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.permutation-action]
+  - id: manifold-learning.symmetric-pooling
+    name: 対称pooling
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対称pooling）"]
+    requires: [manifold-learning.permutation-action]
+  - id: manifold-learning.pooling-invariance
+    name: 対称poolingの不変性
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.symmetric-pooling]
+  - id: manifold-learning.deepsets-construction
+    name: DeepSets型の不変写像と等変写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（DeepSets型の不変写像と等変写像）"]
+    requires: [manifold-learning.symmetric-pooling, learning.relu-mlp]
+  - id: manifold-learning.deepsets-equivariance
+    name: DeepSets型の不変性・共有集約層の等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.deepsets-construction, manifold-learning.pooling-invariance]
+  - id: manifold-learning.permutation-linear-equivariant
+    name: 線形置換等変写像の必要十分な形
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.permutation-action, manifold-learning.deepsets-equivariance]
+  - id: manifold-learning.permutation-linear-invariant
+    name: 線形な不変読み出しの形
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.permutation-linear-equivariant, manifold-learning.pooling-invariance]
+  - id: manifold-learning.finite-alphabet-histogram
+    name: 有限種類の点に対する度数特徴の完全性
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.deepsets-construction]
+  - id: manifold-learning.pooling-collision-loss
+    name: 集約の衝突と二点予測誤差の下界
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.deepsets-construction, manifold-learning.pooling-invariance]
