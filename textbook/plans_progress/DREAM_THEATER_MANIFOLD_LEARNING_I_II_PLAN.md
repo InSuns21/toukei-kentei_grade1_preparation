@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 改訂日: 2026-11-08（MFL20の可視化目的・順位評価完成）
-状態: in_progress（MFL1〜MFL20 完成、MFL21〜MFL43 は未実装）
+状態: in_progress（MFL1〜MFL21 完成、MFL22〜MFL43 は未実装）
 
 ## 0. 中心問いと具体的な講義規模
 
@@ -334,5 +334,7 @@ MFL14では `kernel_sampling_lab.py` を正本に、既存の `python-file-lab` 
 - **MFL17 completed**：区間端の切断Gaussian核の平方根bias、Neumann条件の必要性と境界層での非一様性、adaptive行帯域幅の内点generator、density shiftのdrift差を証明。A4/B4/C1の詳細解答と決定論的な区間積分ラボを実装。
 - **MFL18 completed**：周期差分の正規直交Fourier完全基底・実固有値重複度、固定波数の明示的 $O(N^{-2})$ 上界、三角補間・有限帯域エネルギーと熱減衰の近似、Nyquistの非一様性とaliasingを証明。A4/B4/C1の詳細解答と決定論的な円周スペクトルラボを実装。
 - **MFL19 completed**：周期折線補間の質量・剛性恒等式、H1回復列、エネルギー有界列のコンパクト性・下半連続性、min–maxによる固有値収束、弱固有方程式と孤立固有空間の射影収束を証明。高周波階数一摂動による点wise整合性の反例、A4/B4/C1の詳細解答、補間・eigengap比較の決定論的ラボを実装。
-- **MFL20〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
+- **MFL20 completed**：t-SNE/UMAPの異なる目的関数、近傍順位指標、偽のクラスタ分離を実装。
+- **MFL21 completed**：円・U字・交差線・近接平行枝に加え二重螺旋・Swiss roll・外れ値の潜在幾何、near-manifold摂動、層混合の接線非一意性、辺の安定余裕、短絡・連結性、有限グラフスペクトルを数式とA4/B4/C1の詳細解答、決定論的な横断ラボで検証。
+- **MFL22〜MFL43 planned**：引き続き章別の直接 prerequisite、数学的完全性、数値実験・査読を確認する。
 - 進捗の機械的正本は `textbook/dream-theater-series/MFL.yaml`。PLAN 全体の横断監査・数値ラボは未完了なので `plans_progress/` に維持する。

@@ -88,7 +88,7 @@ chapters:
     title: "t-SNE・UMAPと可視化の意味"
   - id: MFL21
     path: textbook/volumes/dream_thater/応用系/MFL/MFL21
-    status: planned
+    status: completed
     title: "near-manifold・stratified data・横断実験"
   - id: MFL22
     path: textbook/volumes/dream_thater/応用系/MFL/MFL22

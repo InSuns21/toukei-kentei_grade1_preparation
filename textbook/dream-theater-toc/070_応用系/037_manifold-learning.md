@@ -21,3 +21,4 @@
 18. [MFL18 円周の離散→連続スペクトル](textbook/volumes/dream_thater/応用系/MFL/MFL18/index.md)
 19. [MFL19 作用素整合性からスペクトル収束へ](textbook/volumes/dream_thater/応用系/MFL/MFL19/index.md)
 20. [MFL20 t-SNE・UMAPと可視化の意味](textbook/volumes/dream_thater/応用系/MFL/MFL20/index.md)
+21. [MFL21 near-manifold・stratified data・横断実験](textbook/volumes/dream_thater/応用系/MFL/MFL21/index.md)
