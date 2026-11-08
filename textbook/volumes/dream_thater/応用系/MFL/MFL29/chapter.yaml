@@ -1,0 +1,43 @@
+id: "MFL29"
+title: "集合・点群の置換対称性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL22
+  - MFL23
+  - MFL25
+  - ML2-13
+official_scope: []
+learning_objectives:
+  - 逆置換を用いた点列のS_n作用を添字から検算し、置換不変性と等変性を区別できる
+  - 総和・平均・成分別最大poolingの置換不変性を証明し、点数・重複による情報損失を説明できる
+  - DeepSets型読み出しと共有集約の点ごと層が置換不変・等変となることを証明できる
+  - 全置換と可換な線形層の対角・非対角係数を分類し、アフィン拡張まで導出できる
+  - 有限値の度数特徴が多重集合を復元することと2点の二次モーメントによる復元を示せる
+  - 集約衝突が予測値を同一に強制する理由と二点二乗誤差の下界を計算できる
+  - 有限点群の全置換残差を計算し、番号非対称層と空間回転の対称性を混同しない
+definitions:
+  - { id: MFL29-DEF-01, name: 点列上の置換作用 }
+  - { id: MFL29-DEF-02, name: 対称pooling }
+  - { id: MFL29-DEF-03, name: DeepSets型の不変写像と等変写像 }
+theorems:
+  - { id: MFL29-PROP-01, name: 置換作用の合成則 }
+  - { id: MFL29-PROP-02, name: 対称poolingの不変性 }
+  - { id: MFL29-THM-01, name: DeepSets型の不変性・共有集約層の等変性 }
+  - { id: MFL29-THM-02, name: 線形置換等変写像の必要十分な形 }
+  - { id: MFL29-PROP-03, name: 線形な不変読み出しの形 }
+  - { id: MFL29-PROP-04, name: 有限種類の点に対する度数特徴の完全性 }
+  - { id: MFL29-PROP-05, name: 集約の衝突と二点予測誤差の下界 }
+canonical_examples:
+  - 三点循環による逆置換と行特徴の追従
+  - 二成分の総和・平均・最大poolingと成分別最大の出所
+  - 二点の総和衝突を二次特徴で修復するDeepSets型の例
+  - 対角・非対角の2係数で尽くされる線形等変層
+  - 有限値集合のone-hot度数特徴による多重集合の完全識別
+  - 二点の教師値の衝突による平均二乗誤差下界
+  - 全置換残差を比較する再現可能な二次元点群ラボ
+problem_patterns: [MFL29-A01, MFL29-A02, MFL29-A03, MFL29-A04, MFL29-B01, MFL29-B02, MFL29-B03, MFL29-B04, MFL29-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.5 }
