@@ -7,3 +7,4 @@
 4. [OTR4 離散輸送はどんな最適化問題か](textbook/volumes/dream_thater/解析系/OTR/OTR4/index.md)
 5. [OTR5 双対変数は何を保証するか](textbook/volumes/dream_thater/解析系/OTR/OTR5/index.md)
 6. [OTR6 連続空間でも双対性は成立するか](textbook/volumes/dream_thater/解析系/OTR/OTR6/index.md)
+7. [OTR7 最適性を支持集合から判定できるか](textbook/volumes/dream_thater/解析系/OTR/OTR7/index.md)

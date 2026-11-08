@@ -1,0 +1,40 @@
+id: "OTR7"
+title: "最適性を支持集合から判定できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR6
+official_scope: []
+learning_objectives:
+  - c-巡回単調性を有限経路の費用の巡回不等式として定義し、任意の有限巡回と二点交換の違いを説明できる
+  - 結合の支持集合と双対等号集合を定義から確認し、最適結合の支持が巡回単調であることを証明できる
+  - 巡回単調集合の有限鎖から有界連続ポテンシャルを構成し、差分不等式と双対等号を証明できる
+  - コンパクト距離空間と連続費用の下で最適性・巡回単調な支持・双対等号集合への支持の包含が同値であることを証明できる
+  - 二次費用の二点交換条件を内積へ展開し、二次元の三点反例と一次元の並べ替えによる十分性を検証できる
+definitions:
+  - { id: OTR7-DEF-01, name: c-巡回単調集合 }
+  - { id: OTR7-DEF-02, name: 結合測度の支持集合 }
+theorems:
+  - { id: OTR7-PROP-01, name: 双対等号集合の巡回単調性 }
+  - { id: OTR7-LEM-01, name: 巡回単調集合からの連続双対ポテンシャルの構成 }
+  - { id: OTR7-THM-01, name: コンパクト連続費用に対する最適支持の特徴付け }
+  - { id: OTR7-PROP-02, name: 二次費用の二点交換条件 }
+  - { id: OTR7-PROP-03, name: 一次元二次費用の単調性判定 }
+canonical_examples:
+  - 対角線上の二次費用の巡回単調性と交換で下がる逆向き二点経路
+  - 原子結合の支持と双対等号集合の真の包含
+  - 二次元の90度回転で二点交換条件を満たすが三点巡回を破る反例
+  - 一次元の平行移動輸送に対する双対ポテンシャル証明書
+problem_patterns:
+  - OTR7-A01
+  - OTR7-A02
+  - OTR7-A03
+  - OTR7-A04
+  - OTR7-B01
+  - OTR7-B02
+  - OTR7-B03
+  - OTR7-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.5 }
