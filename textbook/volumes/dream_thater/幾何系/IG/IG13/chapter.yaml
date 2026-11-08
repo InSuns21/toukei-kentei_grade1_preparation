@@ -1,0 +1,38 @@
+id: "IG13"
+title: "統計多様体の曲率と曲がった指数型分布族"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG2
+  - IG6
+  - IG7
+  - IG8
+  - GEO16
+official_scope: []
+learning_objectives:
+  - Levi-Civita 曲率と各 α-接続で定まる曲率を同じ符号規約で区別して計算できる
+  - 双対な接続で定まる曲率テンソルの関係を導き、一方の平坦性が他方の平坦性を含意することを説明できる
+  - 正規位置尺度族の Fisher 計量から Levi-Civita 係数と Gaussian 曲率 -1/2 を導出できる
+  - 正規位置尺度族の e/m 双対平坦性と負の Riemann 曲率を矛盾なく説明できる
+  - 曲がった指数型分布族を正則な浸入部分モデルとして定義し、誘導 Fisher 計量を計算できる
+  - 周囲の平坦な指数型分布族から部分モデルに誘導する接続を求め、非零曲率を計算できる
+  - 内在曲率と外在的な曲がり、一次元の曲率の限界、統計曲率の追加仮定を区別できる
+definitions:
+  - { id: IG13-DEF-01, name: 統計モデルの α-曲率テンソル }
+  - { id: IG13-DEF-02, name: 曲がった指数型分布族 }
+  - { id: IG13-DEF-03, name: 部分モデルへの誘導接続 }
+theorems:
+  - { id: IG13-THM-01, name: 計量双対性による曲率の転置関係 }
+  - { id: IG13-THM-02, name: 正規位置尺度族の負の Fisher 曲率 }
+  - { id: IG13-PROP-01, name: 曲がった部分モデルへの計量と接続の誘導 }
+  - { id: IG13-THM-03, name: 曲がった正規平均モデルの正曲率 }
+canonical_examples:
+  - Bernoulli の一次元では接続係数が非零でも曲率は零
+  - 正規位置尺度族で e/m 平坦だが Levi-Civita 曲率は -1/2
+  - 3変量独立正規平均モデルの放物面制限で誘導曲率が正
+  - 曲線部分モデルでは外在的曲がりがあっても内在的な曲率は零
+problem_patterns: [IG13-A01, IG13-A02, IG13-A03, IG13-A04, IG13-A05, IG13-B01, IG13-B02, IG13-B03, IG13-B04, IG13-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 8.0, review: 2.0 }
