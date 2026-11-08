@@ -32,7 +32,7 @@ chapters:
     title: "Kuranishi構成I――調和ゲージと方程式"
   - id: DEF1-07
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-07
-    status: planned
+    status: completed
     title: "Kuranishi構成II――解析的収束と有限次元基底"
   - id: DEF1-08
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-08

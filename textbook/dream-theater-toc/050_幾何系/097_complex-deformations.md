@@ -7,3 +7,4 @@
 4. [DEF1-04 一次変形・同値・自己同型](textbook/volumes/dream_thater/幾何系/DEF/DEF1-04/index.md)
 5. [DEF1-05 二次以上の障害類](textbook/volumes/dream_thater/幾何系/DEF/DEF1-05/index.md)
 6. [DEF1-06 Kuranishi構成I――調和ゲージと方程式](textbook/volumes/dream_thater/幾何系/DEF/DEF1-06/index.md)
+7. [DEF1-07 Kuranishi構成II――解析的収束と有限次元基底](textbook/volumes/dream_thater/幾何系/DEF/DEF1-07/index.md)
