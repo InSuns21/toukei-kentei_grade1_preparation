@@ -1,0 +1,76 @@
+chapter: OTR19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR18
+
+concepts:
+  - id: transport.spacetime-mass-flux
+    name: 空間時間の質量・流束測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（空間時間の質量・流束測度）"]
+    requires: [transport.continuity-measure-weak, transport.kinetic-l2-speed]
+
+  - id: transport.flux-measure
+    name: 流束測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（空間時間の質量・流束測度）"]
+    requires: [transport.spacetime-mass-flux]
+
+  - id: transport.fluid-action
+    name: 真空を含む流体作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（真空を含む流体作用）"]
+    requires: [transport.spacetime-mass-flux]
+
+  - id: transport.action-velocity-equivalence
+    name: 有限作用と速度場の同値
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限作用と速度場の同値）"]
+    requires: [transport.fluid-action, transport.kinetic-l2-speed]
+
+  - id: transport.fluid-action-convexity
+    name: 流体作用の凸性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（流体作用の凸性）"]
+    requires: [transport.fluid-action]
+
+  - id: transport.dynamic-admissible-pair
+    name: 動的輸送の許容対
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（動的輸送の許容対）"]
+    requires: [transport.fluid-action, transport.continuity-measure-weak]
+
+  - id: transport.bb-lower-bound
+    name: 静的費用による動的作用の下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（静的費用による動的作用の下界）"]
+    requires: [transport.dynamic-admissible-pair, transport.metric-velocity-bound]
+
+  - id: transport.bb-upper-bound
+    name: 最適結合による動的作用の上界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（最適結合による動的作用の上界）"]
+    requires: [transport.dynamic-admissible-pair, transport.displacement-geodesic, transport.metric-minimal-velocity]
+
+  - id: transport.benamou-brenier
+    name: Benamou–Brenierの動的定式化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Benamou–Brenierの動的定式化）"]
+    requires: [transport.bb-lower-bound, transport.bb-upper-bound]
+
+  - id: transport.bb-convex-domain
+    name: 凸領域内の流体作用とW2
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（凸領域内の流体作用とW2）"]
+    requires: [transport.benamou-brenier, transport.no-flux-weak-boundary]

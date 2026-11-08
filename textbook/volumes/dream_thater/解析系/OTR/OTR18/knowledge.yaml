@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - OTR17
   - RA8
+  - MT4
 
 concepts:
   - id: transport.ac2-curve
