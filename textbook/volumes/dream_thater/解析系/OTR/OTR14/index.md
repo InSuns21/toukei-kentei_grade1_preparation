@@ -47,16 +47,22 @@ $$
 $A$ の固有値は $4,0$ なので半正定値ですが正定値ではありません。質量は直線 $x_2=-1$ 上に集中し、$\mathbb R^2$ の Lebesgue 密度を持ちません。一方、$A=\operatorname{diag}(4,9)$ なら両固有値が正で、全平面上の非退化 Gaussian 分布になります。
 <!-- definition-example-end -->
 
-Gaussian の特徴は、任意の行列 $L$ とベクトル $b$ で $Y=b+LX$ としても Gaussian であり、
+Gaussian の特徴は、線形変換をしても Gaussian であることです。ここでは本章で使う同じ次元の変換 $L\in\mathbb R^{d\times d}$、$b\in\mathbb R^d$ を取り、$Y=b+LX$ と置きます。このとき
 
 $$
 \mathbb E[Y]=b+Lm,\qquad
 \operatorname{Cov}(Y)=LAL^{\mathsf T}
 $$
 
-となることです。平均は線形性から、共分散は $Y-\mathbb E[Y]=L(X-m)$ の両側から期待値を取って得ます。分布がこの二つの量で決まることも確かめましょう。
+となります。平均は線形性から、共分散は $Y-\mathbb E[Y]=L(X-m)$ の両側から期待値を取って得ます。分布がこの二つの量で決まることも確かめましょう。
 
-別の行列 $K$ が $KK^{\mathsf T}=A$ を満たす場合を考えます。[LA6 の極分解](../../../基礎科目/LA/LA6/index.md#thm-la6-polar)を $K^{\mathsf T}$ に適用すると、ある実直交行列 $Q$ により
+別の実正方行列 $K\in\mathbb R^{d\times d}$ が $KK^{\mathsf T}=A$ を満たす場合を考えます。[LA6 の極分解](../../../基礎科目/LA/LA6/index.md#thm-la6-polar)の証明を実内積空間に適用すると、実直交行列 $Q$ が存在して
+
+$$
+K^{\mathsf T}=Q^{\mathsf T}(KK^{\mathsf T})^{1/2}=Q^{\mathsf T}A^{1/2}
+$$
+
+となります（特異な場合も直交基底を延長する）。転置すれば
 
 $$
 K=A^{1/2}Q
@@ -68,7 +74,24 @@ $$
 f_Z(z)=(2\pi)^{-d/2}e^{-\lVert z\rVert^2/2}
 $$
 
-です。直交変換 $z=Qw$ では $\lVert Qw\rVert=\lVert w\rVert$、$|\det Q|=1$ です。従って $QZ$ は $Z$ と同じ分布を持ち、$m+KZ=m+A^{1/2}QZ$ は定義した $\mathcal N_d(m,A)$ に従います。$K=LA^{1/2}$ とすれば先ほどの線形変換則も得られます。
+です。直交変換 $z=Qw$ では $\lVert Qw\rVert=\lVert w\rVert$、$|\det Q|=1$ です。従って $QZ$ は $Z$ と同じ分布を持ち、$m+KZ=m+A^{1/2}QZ$ は定義した Gaussian 分布に従います。
+
+線形像 $Y=b+LX$ には、先ほどの議論を
+
+$$
+K=LA^{1/2},\qquad H=KK^{\mathsf T}=LAL^{\mathsf T}
+$$
+
+に適用します。$KZ$ は $H^{1/2}Z$ と同じ分布を持つので、$Y\sim\mathcal N_d(b+Lm,H)$ となります。これで共分散変換則だけでなく、分布そのものの同一性も確かめられました。
+
+特に $A$ が正定値なら $A^{1/2}$ は可逆です。変数変換 $z=A^{-1/2}(x-m)$ の Jacobian の絶対値は $(\det A)^{-1/2}$ だから、上の $f_Z$ から
+
+$$
+f_X(x)=\frac{1}{(2\pi)^{d/2}\sqrt{\det A}}
+\exp\!\left(-\frac12(x-m)^{\mathsf T}A^{-1}(x-m)\right)
+$$
+
+を得ます。従って非退化 Gaussian は Lebesgue 絶対連続であり、第3・5節で [Brenier 定理](../OTR13/index.md#thm-otr13-brenier)の出発測度の仮定を満たすことも分かります。
 
 以後 $\operatorname{tr}A=\sum_i A_{ii}$ を行列の跡とし、共分散の跡が $\mathbb E\lVert X-m\rVert^2$ になることを使います。
 
@@ -217,7 +240,16 @@ $$
 \mathbb E\lVert M^{1/2}U-M^{-1/2}V\rVert^2=0.
 $$
 
-非負確率変数の期待値が $0$ なので、括弧の中はほとんど確実に $0$。$M^{1/2}$ を掛けて $V=MU$、すなわち $Y=T(X)$ がほとんど確実に従います。これで最適**結合**の一意性も示せました。最後に第2節の二次関数 $\varphi$ は、任意の $x,h$ に対して $\varphi(x+h)-\varphi(x)-\nabla\varphi(x)^{\mathsf T}h=h^{\mathsf T}Mh/2\ge0$ を満たすため凸で、$T=\nabla\varphi$ です。$\square$
+非負確率変数の期待値が $0$ なので、括弧の中はほとんど確実に $0$ です。両辺に $M^{1/2}$ を掛ければ $V=MU$、すなわち $Y=T(X)$ がほとんど確実に従います。これで最適**結合**の一意性も示せました。
+
+最後に第2節の二次関数 $\varphi$ は、任意の $x,h\in\mathbb R^d$ に対して
+
+$$
+\varphi(x+h)-\varphi(x)-\nabla\varphi(x)^{\mathsf T}h
+=\frac12h^{\mathsf T}Mh\ge0
+$$
+
+を満たすため凸で、$T=\nabla\varphi$ です。$\square$
 <!-- proof-end -->
 
 この証明では、下界の段階では二つの分布が Gaussian である必要はありません。**平均と共分散が同じ任意の分布にも下界は有効**ですが、候補の線形写像が指定された到着分布を作るとは限りません。Gaussian なら平均と共分散だけで分布が確定するため、等号を達成できるのです。
@@ -267,7 +299,14 @@ $$
 S^2=\begin{pmatrix}68&20\\20&8\end{pmatrix}=D.
 $$
 
-$S$ の主座小行列式は $8>0$、$\det S=12>0$ なので正定値です。[平方根の一意性](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)により $S=D^{1/2}$ です。従って
+$S$ の正定値性は、第1節の二次形式による定義に直接戻って確認できます。$v=(u,w)^{\mathsf T}\ne0$ なら
+
+$$
+v^{\mathsf T}Sv=8u^2+4uw+2w^2
+=8\left(u+\frac w4\right)^2+\frac32w^2>0.
+$$
+
+従って $S$ は対称正定値で、[平方根の一意性](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)により $S=D^{1/2}$ です。この平方根を挟み戻すと
 
 $$
 A^{-1/2}SA^{-1/2}
@@ -324,7 +363,7 @@ $A_\varepsilon=A+\varepsilon I$、$B_\varepsilon=B+\varepsilon I$ は正定値�
 <!-- proof-start -->
 ### 証明
 
-$\varepsilon>0$ とし、$A_\varepsilon=A+\varepsilon I_d$、$B_\varepsilon=B+\varepsilon I_d$ を定めます。正定値であることは、$v\ne0$ に対して $v^{\mathsf T}A_\varepsilon v=v^{\mathsf T}Av+\varepsilon\lVert v\rVert^2>0$ から従います。
+$\varepsilon>0$ とし、$A_\varepsilon=A+\varepsilon I_d$、$B_\varepsilon=B+\varepsilon I_d$ および $\mu_\varepsilon=\mathcal N_d(m_0,A_\varepsilon)$、$\nu_\varepsilon=\mathcal N_d(m_1,B_\varepsilon)$ を定めます。両共分散が正定値であることは、$v\ne0$ に対して $v^{\mathsf T}A_\varepsilon v=v^{\mathsf T}Av+\varepsilon\lVert v\rVert^2>0$（$B_\varepsilon$ も同様）から従います。
 
 まず $X=m_0+A^{1/2}Z$、$X_\varepsilon=m_0+A_\varepsilon^{1/2}Z$ を同一の標準 Gaussian $Z$ で作ります。$A$ の正規直交固有基底では
 
@@ -343,7 +382,15 @@ $$
 \le W_2(\mu_\varepsilon,\mu)+W_2(\nu_\varepsilon,\nu)\longrightarrow0.
 $$
 
-次に行列平方根の連続性を確認します。半正定値対称行列列 $D_n\to D$ の平方根を $R_n=D_n^{1/2}$ とします。$R_n$ は半正定値で、その作用素ノルムの二乗は $D_n$ の最大固有値に等しいので、列は有界です。
+次に行列平方根の連続性を確認します。半正定値対称行列列 $D_n\to D$ の平方根を $R_n=D_n^{1/2}$ とします。$R_n$ は実対称で $R_n^2=D_n$ なので、
+
+$$
+\sum_{i,j=1}^d (R_n)_{ij}^2
+=\operatorname{tr}(R_n^{\mathsf T}R_n)
+=\operatorname{tr}D_n.
+$$
+
+右辺は $D_n\to D$ により有界です。したがって $R_n$ の全成分は有界であり、有限次元の行列列として収束部分列を持ちます。
 
 有限次元だから任意の収束部分列の極限 $R$ は半正定値であり、積の連続性により
 
@@ -356,7 +403,14 @@ $$
 
 これを $A_\varepsilon$ と $B_\varepsilon$ の各平方根、および $A_\varepsilon^{1/2}B_\varepsilon A_\varepsilon^{1/2}$ の平方根へ順に適用します。[非退化Gaussian分布間の最適写像とWasserstein距離](#thm-otr14-gaussian-w2-spd)の右辺は元の半正定値行列に連続に近づくので、極限を取ると表示式が得られます。
 
-次に $A$ が正定値で $B$ のみ半正定値なら、$B_\varepsilon=B+\varepsilon I$ として前補題の $M_\varepsilon$ を取ります。平方根の連続性より $M_\varepsilon\to M$、$M$ は半正定値で $MAM=B$ です。$X\sim\mu$ に対し $Y=m_1+M(X-m_0)$ は Gaussian で共分散 $B$ を持つので、到着分布は $\nu$ です。また
+次に $A$ が正定値で $B$ のみ半正定値なら、$B_\varepsilon=B+\varepsilon I_d$ として[輸送行列補題](#lem-otr14-positive-transport-matrix)の $M_\varepsilon$ を取ります。平方根の連続性より $M_\varepsilon\to M$ となり、各 $M_\varepsilon$ の半正定値性と $M_\varepsilon A M_\varepsilon=B_\varepsilon$ の極限から
+
+$$
+v^{\mathsf T}Mv=\lim_{\varepsilon\downarrow0}v^{\mathsf T}M_\varepsilon v\ge0
+\quad(v\in\mathbb R^d),\qquad MAM=B
+$$
+
+が従います。つまり $M$ は対称半正定値です。$X\sim\mu$ に対し $Y=m_1+M(X-m_0)$ は Gaussian で共分散 $B$ を持つので、到着分布は $\nu$ です。また
 
 $$
 \mathbb E\lVert X-(m_1+M_\varepsilon(X-m_0))\rVert^2
@@ -448,7 +502,13 @@ MAM=\operatorname{diag}(2,1/3)\operatorname{diag}(1,9)
 \operatorname{diag}(2,1/3)=\operatorname{diag}(4,1)=B.
 $$
 
-よって $T(x_1,x_2)=(1+2x_1,\,2+x_2/3)$。平均差の二乗は $1^2+2^2=5$、標準偏差差の二乗和は $(1-2)^2+(3-1)^2=5$ です。従って
+よって最適写像は
+
+$$
+T(x_1,x_2)=(1+2x_1,\,2+x_2/3).
+$$
+
+平均差の二乗は $1^2+2^2=5$、標準偏差差の二乗和は $(1-2)^2+(3-1)^2=5$ です。従って
 
 $$
 W_2^2=5+5=10.
@@ -517,7 +577,14 @@ $\mu=\mathcal N_2(0,A)$、$\nu=\mathcal N_2(0,B)$ とし、$A=\operatorname{diag
 <!-- solution-start -->
 ### 詳細解答
 
-**(1)** $A$ は対角成分が正なので正定値です。$B$ は対称で $B_{11}=40>0$、$\det B=40\cdot45-30^2=900>0$ なので正定値です。一方
+**(1)** $A$ は正の対角成分を持つ対角行列なので正定値です。$B$ についても第1節の定義に立ち戻ると、$v=(u,w)^{\mathsf T}\ne0$ に対して
+
+$$
+v^{\mathsf T}Bv=40u^2+60uw+45w^2
+=40\left(u+\frac34w\right)^2+\frac{45}{2}w^2>0
+$$
+
+となり、対称正定値です。一方
 
 $$
 AB=\begin{pmatrix}360&270\\120&180\end{pmatrix},\quad
@@ -532,7 +599,19 @@ $$
 D=A^{1/2}BA^{1/2}=\begin{pmatrix}360&180\\180&180\end{pmatrix}.
 $$
 
-$S=\begin{pmatrix}18&6\\6&12\end{pmatrix}$ は $S_{11}=18>0$、$\det S=180>0$ で正定値です。二乗して
+候補の $S$ は次の対称行列です。
+
+$$
+S=\begin{pmatrix}18&6\\6&12\end{pmatrix}.
+$$
+
+$v=(u,w)^{\mathsf T}\ne0$ に対して
+
+$$
+v^{\mathsf T}Sv=18\left(u+\frac w3\right)^2+10w^2>0
+$$
+
+だから正定値であり、二乗すると
 
 $$
 S^2=\begin{pmatrix}18^2+6^2&18\cdot6+6\cdot12\\18\cdot6+6\cdot12&6^2+12^2\end{pmatrix}
@@ -545,7 +624,14 @@ $$
 M=A^{-1/2}SA^{-1/2}=\begin{pmatrix}2&1\\1&3\end{pmatrix}.
 $$
 
-$MA=\begin{pmatrix}18&4\\9&12\end{pmatrix}$、$MAM=\begin{pmatrix}40&30\\30&45\end{pmatrix}=B$ と検算できます。
+検算では乗算順序を保って
+
+$$
+MA=\begin{pmatrix}18&4\\9&12\end{pmatrix},\qquad
+MAM=\begin{pmatrix}40&30\\30&45\end{pmatrix}=B
+$$
+
+を得ます。
 
 **(3)** $\operatorname{tr}A=13$、$\operatorname{tr}B=85$、$\operatorname{tr}S=30$ より [Gaussian公式](#thm-otr14-gaussian-w2-spd)を適用し、
 
@@ -572,7 +658,13 @@ MAM=\operatorname{diag}(0,3)\operatorname{diag}(4,1)\operatorname{diag}(0,3)
 =\operatorname{diag}(0,9)=B.
 $$
 
-第1成分は定数 $1$ になり、第2成分は $3$ 倍して $-2$ だけ移動するので、$T(x_1,x_2)=(1,-2+3x_2)$ です。平均差の二乗は $1^2+(-2)^2=5$、標準偏差差の二乗和は $(2-0)^2+(1-3)^2=8$。[半正定値共分散へのGaussian距離公式の拡張](#prop-otr14-degenerate-gaussian)から
+第1成分は定数 $1$ になり、第2成分は $3$ 倍して $-2$ だけ移動するので、
+
+$$
+T(x_1,x_2)=(1,-2+3x_2).
+$$
+
+平均差の二乗は $1^2+(-2)^2=5$、標準偏差差の二乗和は $(2-0)^2+(1-3)^2=8$ です。[半正定値共分散へのGaussian距離公式の拡張](#prop-otr14-degenerate-gaussian)から
 
 $$
 W_2^2=5+8=13.
@@ -627,7 +719,15 @@ $0<\varepsilon\le1$ とし、$\mu_\varepsilon=\mathcal N_2(0,\operatorname{diag}
 <!-- solution-start -->
 ### 詳細解答
 
-**(1)** 正定値な対角共分散なので各方向の伸長比は $\sqrt\varepsilon$ と $1/\sqrt\varepsilon$ です。従って $M_\varepsilon=\operatorname{diag}(\sqrt\varepsilon,1/\sqrt\varepsilon)$ であり、$M_\varepsilon\operatorname{diag}(1,\varepsilon)M_\varepsilon=\operatorname{diag}(\varepsilon,1)$ と検算できます。[非退化Gaussian分布間の最適写像とWasserstein距離](#thm-otr14-gaussian-w2-spd)によって結合は一意であり、費用は
+**(1)** 正定値な対角共分散なので各方向の伸長比は $\sqrt\varepsilon$ と $1/\sqrt\varepsilon$ です。従って
+
+$$
+M_\varepsilon=\operatorname{diag}(\sqrt\varepsilon,1/\sqrt\varepsilon),\qquad
+M_\varepsilon\operatorname{diag}(1,\varepsilon)M_\varepsilon
+=\operatorname{diag}(\varepsilon,1)
+$$
+
+と検算できます。[非退化Gaussian分布間の最適写像とWasserstein距離](#thm-otr14-gaussian-w2-spd)によって結合は一意であり、費用は
 
 $$
 W_2^2=(1-\sqrt\varepsilon)^2+(\sqrt\varepsilon-1)^2
