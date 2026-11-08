@@ -1,0 +1,38 @@
+id: "IG7"
+title: "双対接続・α-接続と三次テンソル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG6
+  - IG3
+official_scope: []
+learning_objectives:
+  - 非退化 Fisher 計量の下で双対接続の存在・一意性と二重双対を証明できる
+  - 双対接続の平均が計量両立となり双方が捩率零なら Levi-Civita となることを区別できる
+  - Amari--Chentsov 三次テンソルを score の三乗期待値で定義し座標変換を証明できる
+  - α-接続の下付き係数を定義から構成しアファイン接続の変換則と捩率零を証明できる
+  - α と負の α が双対であり α=0 が Levi-Civita、α=+1 が e、α=-1 が m となる符号を導出できる
+  - KL divergence の二引数の三階混合微分から m 接続と e 接続を区別して導出できる
+  - Bernoulli 族の p 座標・logit 座標で三次テンソルと α-接続を計算できる
+  - 正規位置尺度族の Fisher 計量、三次テンソル、e/m/Levi-Civita 係数を計算できる
+  - 双対接続であることと平坦であることを混同せず曲がった部分モデルへの適用限界を説明できる
+definitions:
+  - { id: IG7-DEF-01, name: 計量に関する双対接続 }
+  - { id: IG7-DEF-02, name: Amari--Chentsov 三次テンソル }
+  - { id: IG7-DEF-03, name: 統計モデルの α-接続 }
+  - { id: IG7-DEF-04, name: KL から誘導する二つの接続係数 }
+theorems:
+  - { id: IG7-THM-01, name: 双対接続の存在・一意性と二重双対 }
+  - { id: IG7-PROP-01, name: 三次テンソルの座標変換 }
+  - { id: IG7-THM-02, name: α-接続の存在・捩率零・双対性 }
+  - { id: IG7-THM-03, name: KL の三階微分と e/m 双対接続 }
+canonical_examples:
+  - Bernoulli の三次 score と p/logit における α-接続
+  - Bernoulli KL の二種類の三階微分と引数反転
+  - 正規位置尺度族の三次テンソルおよび e/m/Levi-Civita 係数
+  - 非零捩率を持つ計量両立接続と Levi-Civita の区別
+problem_patterns: [IG7-A01, IG7-A02, IG7-A03, IG7-A04, IG7-B01, IG7-B02, IG7-B03, IG7-B04, IG7-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.5 }
