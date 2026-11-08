@@ -1,0 +1,52 @@
+chapter: MFL34
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL22
+  - MFL30
+forward_references: []
+concepts:
+  - id: manifold-learning.geometric-graph
+    name: 埋め込み付き幾何的グラフと剛体運動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（埋め込み付き幾何的グラフと剛体運動）"]
+    requires: [manifold-learning.graph-relabeling, manifold-learning.equivariant-map]
+  - id: manifold-learning.relative-edge-vector
+    name: 相対辺ベクトルと距離特徴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相対辺ベクトルと距離特徴）"]
+    requires: [manifold-learning.geometric-graph]
+  - id: manifold-learning.local-gram-feature
+    name: 局所Gram量と角度特徴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所Gram量と角度特徴）"]
+    requires: [manifold-learning.relative-edge-vector]
+  - id: manifold-learning.geometric-transformation-law
+    name: 相対辺ベクトルと距離・角度の変換則
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.local-gram-feature, manifold-learning.equivariant-map]
+  - id: manifold-learning.distance-congruence
+    name: 全対距離による有限配置の合同判定
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.relative-edge-vector]
+  - id: manifold-learning.oriented-area
+    name: 平面有向面積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面有向面積）"]
+    requires: [manifold-learning.relative-edge-vector]
+  - id: manifold-learning.oriented-area-sign
+    name: 平面有向面積と鏡映の符号
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.oriented-area]
+  - id: manifold-learning.geometric-edge-features
+    name: 局所距離特徴の剛体不変性と置換追従
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.geometric-transformation-law, manifold-learning.graph-relabeling]
