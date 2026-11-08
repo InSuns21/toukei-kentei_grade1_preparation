@@ -502,7 +502,7 @@ $$
 コンパクトKähler $X$ 上で $a\in H^1(X,T_X)$ を $\Omega$ で $(n-1,1)$ 型のDolbeault類へ移し、調和代表 $h$ を選んだ。$\partial h=\bar\partial h=0$ を導き、$\phi=\mathcal I_{\Omega,1}^{-1}h$ の二種類の条件を書け。
 
 <!-- solution-start -->
-**詳細解答。** [Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)の定理で $\Delta_{\bar\partial}h=0$。エネルギー恒等式から $\bar\partial h=0$ となる。[KählerのLaplacian一致](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)を使うと
+**詳細解答。** [Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)の定理で $\Delta_{\bar\partial}h=0$。随伴性から $0=(\Delta_{\bar\partial}h,h)=\|\bar\partial h\|^2+\|\bar\partial^*h\|^2$ なので $\bar\partial h=0$ となる。[KählerのLaplacian一致](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)を使うと
 
 $$
 \Delta_\partial h=\Delta_{\bar\partial}h=0,
@@ -538,7 +538,16 @@ $X$ を複素次元 $n\ge2$ のコンパクトKähler多様体、$K_X\simeq\math
 
 **(1)** $K_X$ が自明なので[非消滅正則体積形式](../../CYG/CYG1-02/index.md#prop-cyg1-02-volume-trivialization) $\Omega$ を選べる。[収縮によるDolbeault同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)で $a$ に対応する $H_{\bar\partial}^{n-1,1}$ の類を作る。
 
-[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)として $h$ を選び、[KählerのLaplacian一致](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)を適用する。すると $\Delta_\partial h=\Delta_{\bar\partial}h=0$ だから、エネルギー恒等式で $\partial h=\bar\partial h=0$。
+[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)として $h$ を選び、[KählerのLaplacian一致](../../HOD/HOD1-05/index.md#thm-hod1-05-laplacian-equality)を適用する。すると $\Delta_\partial h=\Delta_{\bar\partial}h=0$ であり、随伴性から
+
+$$
+\begin{aligned}
+0&=(\Delta_\partial h,h)=\|\partial h\|^2+\|\partial^*h\|^2,\\
+0&=(\Delta_{\bar\partial}h,h)=\|\bar\partial h\|^2+\|\bar\partial^*h\|^2.
+\end{aligned}
+$$
+
+従って $\partial h=\bar\partial h=0$。
 
 $\phi=\mathcal I_{\Omega,1}^{-1}(h)$ と置く。収縮の複体同型により $\bar\partial_T\phi=0$、また $\partial\mathcal I_{\Omega,1}(\phi)=\partial h=0$ を満たす。
 
