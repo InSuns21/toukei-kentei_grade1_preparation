@@ -1,0 +1,35 @@
+id: "MFL34"
+title: "幾何的グラフと不変量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL22
+  - MFL30
+official_scope: []
+learning_objectives:
+  - 頂点座標・辺・スカラー特徴を含む幾何的グラフとE(n)・頂点置換の作用を型付きで定義できる
+  - 平行移動・直交変換による辺相対ベクトル、距離二乗、内積、非退化角度の変換則を証明できる
+  - O(n)とSO(n)の差を行列式で示し、平面有向面積の反射符号を計算できる
+  - 全点間距離が一致する有限配置は平行移動と直交変換で対応することをGram行列から証明できる
+  - 距離・局所角度に基づく辺特徴と向き付き特徴の対称性を区別し、番号置換も検算できる
+  - 距離だけの特徴が鏡像を区別できない条件と、辺だけでは形状が定まらない反例を説明できる
+definitions:
+  - { id: MFL34-DEF-01, name: 埋め込み付き幾何的グラフと剛体運動 }
+  - { id: MFL34-DEF-02, name: 相対辺ベクトルと距離特徴 }
+  - { id: MFL34-DEF-03, name: 局所Gram量と角度特徴 }
+  - { id: MFL34-DEF-04, name: 平面有向面積 }
+theorems:
+  - { id: MFL34-THM-01, name: 相対辺ベクトルと距離・角度の変換則 }
+  - { id: MFL34-THM-02, name: 全対距離による有限配置の合同判定 }
+  - { id: MFL34-PROP-01, name: 平面有向面積と鏡映の符号 }
+  - { id: MFL34-PROP-02, name: 局所距離特徴の剛体不変性と置換追従 }
+canonical_examples:
+  - 三角形の剛体移動・回転・反射で辺ベクトルとGram量を直接比較
+  - 三角形の反転で距離と角度は同じだが有向面積は反転する
+  - 同じ四辺をもつ菱形が異なる対角距離をもち辺長だけでは形が定まらない
+  - 距離特徴の頂点順追従と絶対x座標特徴の平行移動失敗
+problem_patterns: [MFL34-A01, MFL34-A02, MFL34-A03, MFL34-A04, MFL34-B01, MFL34-B02, MFL34-B03, MFL34-B04, MFL34-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.5 }
