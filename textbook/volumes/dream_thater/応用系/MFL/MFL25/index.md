@@ -8,7 +8,13 @@
 
 問題は二つある。自由に選んだ関数・重みを**対称性と両立するものへ直す**にはどうするか。そして、正しい線形層の後へ非線形性を挟んでも対称性は残るのか。
 
-最初に $G$ を元の個数 $|G|\ge1$ の**有限群**とし、$G$ は集合 $X$ に左から作用するとする。すなわち $e x=x$、$(gh)x=g(hx)$ である。この群作用は[GRP3 の定義](../../../代数系/GRP/GRP3/index.md#def-grp3-group-action)と同じ約束である。後半では $X=\mathbb R^m$ とし、入力と出力の実有限次元表現を $\rho_{\mathrm{in}},\rho_{\mathrm{out}}$ と書く。表現とは[前章の定義](../MFL24/index.md#def-mfl24-representation)のとおり、群の積を行列積へ送る写像である。
+最初に有限群 $G$ と集合 $X$ への左作用を考える。単位元と積は次を満たす。これは[GRP3 の群作用](../../../代数系/GRP/GRP3/index.md#def-grp3-group-action)と同じ約束である。
+
+$$
+ex=x,\qquad (gh)x=g(hx).
+$$
+
+後半では $X=\mathbb R^m$ とし、入出力の実有限次元表現を $\rho_{\mathrm{in}},\rho_{\mathrm{out}}$ と書く。[前章の表現](../MFL24/index.md#def-mfl24-representation)は、群の積を行列積へ送る写像である。
 
 全群の元を一度ずつ走査する有限和だけを使う。平均する対象は関数値であり、**群の作用を受ける入力の向きと出力を戻す向き**を明確に区別する。
 
@@ -37,7 +43,9 @@ $$
 (Qf)(x)=\frac{(x^2+x+1)+(x^2-x+1)}2=x^2+1.
 $$
 
-実際、$(Qf)(-x)=(-x)^2+1=(Qf)(x)$ である。元の $f(1)=3$ と $f(-1)=1$ は異なるが、平均後は両方とも $2$ になる。軌道内の違いが失われる点は[MFL23 の不変写像の商への分解](../MFL23/index.md#prop-mfl23-factorization)とも一致する。
+実際、$(Qf)(-x)=(-x)^2+1=(Qf)(x)$ である。元の関数では $f(1)=3$ と $f(-1)=1$ が異なるが、平均後は両方とも $2$ になる。
+
+軌道内の違いが失われる点は[MFL23 の不変写像の商への分解](../MFL23/index.md#prop-mfl23-factorization)とも一致する。
 <!-- definition-example-end -->
 
 <a id="thm-mfl25-invariant-projection"></a>
@@ -128,7 +136,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$h\in G$、$x\in X$ を任意に固定する。$k=gh$ は $G$ の全単射による走査で、$g=kh^{-1}$、$g^{-1}=hk^{-1}$ である。[表現の積の法則](../MFL24/index.md#def-mfl24-representation)と左作用の法則をそれぞれ使うと
+$h\in G$ と $x\in X$ を任意に固定し、和の添字を $k=gh$ と置く。このとき $g=kh^{-1}$、$g^{-1}=hk^{-1}$ であり、$k$ は $G$ の全元を一度ずつ走る。
+
+[表現の積の法則](../MFL24/index.md#def-mfl24-representation)と左作用の法則をそれぞれ使うと
 
 $$
 \begin{aligned}
@@ -158,7 +168,9 @@ $$
 
 ## 4. 行列とバイアスを許される層へ射影する
 
-入力 $V_{\mathrm{in}}=\mathbb R^m$ は $\rho_{\mathrm{in}}$ によって変換され、出力 $V_{\mathrm{out}}=\mathbb R^q$ は $\rho_{\mathrm{out}}$ によって変換されるものとする。自由な $q\times m$ 行列 $A$ が絡作用素でなくても、線形関数 $f(x)=Ax$ を[等変化平均](#def-mfl25-equivariant-average)に通せば、線形性を保った等変関数が作れる。
+入力 $V_{\mathrm{in}}=\mathbb R^m$ は $\rho_{\mathrm{in}}$ によって、出力 $V_{\mathrm{out}}=\mathbb R^q$ は $\rho_{\mathrm{out}}$ によって変換されるものとする。
+
+自由な $q\times m$ 行列 $A$ が絡作用素でなくても、線形関数 $f(x)=Ax$ を[等変化平均](#def-mfl25-equivariant-average)に通せば、線形性を保った等変関数が作れる。
 
 <a id="def-mfl25-linear-average"></a>
 
@@ -195,7 +207,17 @@ DAD=\begin{pmatrix}a&-b\\-c&d\end{pmatrix},\qquad
 \mathcal P(A)=\frac12(A+DAD)=\begin{pmatrix}a&0\\0&d\end{pmatrix}.
 $$
 
-単位元と $s$ の全元で平均した。結果は $D\mathcal P(A)=\mathcal P(A)D$ を満たし、[MFL24 の符号型の選択則](../MFL24/index.md#prop-mfl24-sign-selection)どおり異なる型の混合が消える。また $b=(u,v)^T$ に対し $\mathcal B(b)=((u,v)^T+(u,-v)^T)/2=(u,0)^T$ で、$D\mathcal B(b)=\mathcal B(b)$ を直接確認できる。
+単位元と $s$ の全元で平均した。結果は $D\mathcal P(A)=\mathcal P(A)D$ を満たし、[MFL24 の符号型の選択則](../MFL24/index.md#prop-mfl24-sign-selection)どおり異なる型の混合が消える。
+
+また $b=(u,v)^T$ を群平均すると
+
+$$
+\mathcal B(b)=\frac12\left\{\begin{pmatrix}u\\v\end{pmatrix}
++\begin{pmatrix}u\\-v\end{pmatrix}\right\}
+=\begin{pmatrix}u\\0\end{pmatrix}
+$$
+
+となる。$D\mathcal B(b)=\mathcal B(b)$ も直接確認できる。
 <!-- definition-example-end -->
 
 <a id="thm-mfl25-affine-projection"></a>
@@ -235,7 +257,13 @@ W\rho_{\mathrm{in}}(h)x+c
 =\rho_{\mathrm{out}}(h)Wx+\rho_{\mathrm{out}}(h)c.
 $$
 
-まず $x=0$ とすれば $c=\rho_{\mathrm{out}}(h)c$。これを差し引いて全 $x$ で二つの行列の作用が一致するから、$W\rho_{\mathrm{in}}(h)=\rho_{\mathrm{out}}(h)W$ が従う。したがって[前章のアフィン等変条件](../MFL24/index.md#prop-mfl24-affine-equivariance)も満たす。
+まず $x=0$ とすれば $c=\rho_{\mathrm{out}}(h)c$。これを差し引くと、全 $x$ で二つの行列の作用が一致する。
+
+$$
+W\rho_{\mathrm{in}}(h)x=\rho_{\mathrm{out}}(h)Wx.
+$$
+
+任意の入力で一致する二行列は等しいから、[前章のアフィン等変条件](../MFL24/index.md#prop-mfl24-affine-equivariance)も満たす。
 
 $\mathcal P,\mathcal B$ の線形性は有限和と行列積の分配法則による。条件を既に満たす $W$ には、各 $g$ で
 
@@ -470,7 +498,11 @@ python textbook/volumes/dream_thater/応用系/MFL/MFL25/group_average_lab.py --
 ### MFL25-C01 等変層から不変予測器を設計する
 
 - Level: C
-- 問題: $C_4$ が $\mathbb R^2$ に $R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ で作用する。入力・中間特徴とも回転型とし、初期重み $A=\operatorname{diag}(2,0)$、初期バイアス $b=(1,-1)^T$ から $W=\mathcal P(A),c=\mathcal B(b)$ を構成する。続けて $\sigma(v)=(1+\|v\|^2)v$、$p(v)=\|v\|^2$ を用い、$F(x)=p(\sigma(Wx+c))$ の全入力での不変性を証明し、$x=(1,1)^T$ で値を検算せよ。最後に $\sigma$ を成分別 ReLU へ置き換えた $\widetilde F$ が不変でないことを同じ入力とその回転像で示し、どの構成条件が破れたかを述べよ。
+- 問題: $C_4$ が平面上で四分の一回転 $R$ により作用する。入力・中間特徴とも同じ回転型とし、以下を行え。
+
+  1. $R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、初期重み $A=\operatorname{diag}(2,0)$、初期バイアス $b=(1,-1)^T$ から、$W=\mathcal P(A)$ と $c=\mathcal B(b)$ を構成せよ。
+  2. $\sigma(v)=(1+\|v\|^2)v$、$p(v)=\|v\|^2$ を用い、$F(x)=p(\sigma(Wx+c))$ の全入力での不変性を証明し、$x=(1,1)^T$ で値を検算せよ。
+  3. $\sigma$ を成分別 ReLU へ置き換えた $\widetilde F$ が不変でないことを同じ入力とその回転像で示し、どの構成条件が破れたか述べよ。
 
 ## 9. 演習の詳細解答
 
@@ -573,7 +605,15 @@ $$
 
 $R^2=-I_2$ を使って $I+R+R^2+R^3=0$ なので $c=0$。$W=I_2$ は全 $R^k$ と可換で、$c$ は固定されるから $L(x)=x$ は等変である。
 
-次に $R^TR=I_2$ から $\|Rx\|^2=\|x\|^2$。したがって $\sigma(Rx)=(1+\|x\|^2)Rx=R\sigma(x)$、同じ理由で $R^k$ にも成立する。[等変層の合成と活性化の十分条件](#thm-mfl25-composition)から $\sigma\circ L$ は等変となる。$p(R^kv)=\|R^kv\|^2=\|v\|^2$ も成立する。[等変特徴から不変出力への読み出し](#prop-mfl25-invariant-readout)を適用すると $F$ は不変である。実際、任意の $x$ で
+次に $R^TR=I_2$ から $\|Rx\|^2=\|x\|^2$。長さが不変なので、活性化は
+
+$$
+\sigma(Rx)=(1+\|x\|^2)Rx=R\sigma(x)
+$$
+
+を満たし、同じ理由で $R^k$ にも成立する。[等変層の合成と活性化の十分条件](#thm-mfl25-composition)から $\sigma\circ L$ は等変となる。
+
+さらに $p(R^kv)=\|R^kv\|^2=\|v\|^2$ である。[等変特徴から不変出力への読み出し](#prop-mfl25-invariant-readout)を適用すると $F$ は不変である。実際、任意の $x$ で
 
 $$
 F(x)=\|(1+\|x\|^2)x\|^2=(1+\|x\|^2)^2\|x\|^2.
