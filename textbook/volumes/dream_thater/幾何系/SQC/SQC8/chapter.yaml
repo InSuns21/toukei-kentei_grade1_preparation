@@ -1,0 +1,40 @@
+id: "SQC8"
+title: "多角形の等積分割"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SET1
+  - MT0
+official_scope: []
+learning_objectives:
+  - 多角形片の有限等分解と剛体移動を定義し、等積との必要十分条件を区別できる
+  - 三角形を同じ底辺で高さ半分の長方形へ3片で変形する座標構成を再現できる
+  - 等積長方形の有限等分解を、幅の半減と3片の共通分割によって証明できる
+  - 有限多角形の三角形分割・面積正規化・分割の推移性からBolyai–Gerwienの定理を導ける
+  - 曲線境界を持つ円盤へ多角形の定理を直接適用できない理由を説明できる
+definitions:
+  - { id: SQC8-DEF-01, name: 多角形の有限等分解 }
+theorems:
+  - { id: SQC8-PROP-01, name: 有限等分解は面積を保存する }
+  - { id: SQC8-LEM-01, name: 有限等分解の推移性 }
+  - { id: SQC8-LEM-02, name: 三角形から長方形への3片分割 }
+  - { id: SQC8-LEM-03, name: 等積長方形の有限等分解 }
+  - { id: SQC8-THM-01, name: Wallace–Bolyai–Gerwienの定理 }
+canonical_examples:
+  - 底辺4・高さ2・頂点の射影が1の三角形を4×1長方形へ組み替える3片分割
+  - 3×2と5×6/5の等積長方形の座標分割
+  - 面積6のL字多角形と6×1長方形の共通正規形
+problem_patterns:
+  - SQC8-DEFINITION-AND-AREA
+  - SQC8-TRIANGLE-THREE-PIECES
+  - SQC8-PARALLELOGRAM-SHEAR
+  - SQC8-RECTANGLE-CROSSING-COORDINATES
+  - SQC8-RECTANGLE-HALVING
+  - SQC8-TRANSTIVITY-COMMON-REFINEMENT
+  - SQC8-POLYGON-TRIANGULATION
+  - SQC8-CIRCLE-NONAPPLICABILITY
+  - SQC8-FULL-POLYGON-DISSECTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.0, review: 1.5 }
