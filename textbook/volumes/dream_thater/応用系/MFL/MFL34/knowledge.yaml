@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - MFL22
   - MFL30
+  - LA3C
 forward_references: []
 concepts:
   - id: manifold-learning.geometric-graph
@@ -11,7 +12,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（埋め込み付き幾何的グラフと剛体運動）"]
-    requires: [manifold-learning.graph-relabeling, manifold-learning.equivariant-map]
+    requires: [manifold-learning.graph-relabeling, manifold-learning.equivariant-map, linear.determinant-multiplicativity]
   - id: manifold-learning.relative-edge-vector
     name: 相対辺ベクトルと距離特徴
     kind: definition
