@@ -2,7 +2,7 @@
 
 [OTR17の測度弱解](../OTR17/index.md#def-otr17-measure-weak)は、質量がどのように保存されるかを述べます。しかし同じ分布の時間発展を表す速度場は複数あり得ます。一方、[OTR15の定速測地線](../OTR15/index.md#def-otr15-constant-geodesic)は、分布間の距離だけで速さを測れそうです。この二つはどうつながるのでしょうか。
 
-例えば $mu_t=\delta_{t^2}$（$0\le t\le1$）なら、[Wasserstein 距離](../OTR8/index.md#def-otr8-wasserstein)は $W_2(\mu_s,\mu_t)=|t^2-s^2|$ です。粒子の速度は $2t$ であり、分布の距離から測っても同じ値になるはずです。この一致を、密度を持たない測度にも通用する形で証明します。
+例えば $\mu_t=\delta_{t^2}$（$0\le t\le1$）なら、[Wasserstein 距離](../OTR8/index.md#def-otr8-wasserstein)は $W_2(\mu_s,\mu_t)=|t^2-s^2|$ です。粒子の速度は $2t$ であり、分布の距離から測っても同じ値になるはずです。この一致を、密度を持たない測度にも通用する形で証明します。
 
 ## 1. 距離で測る曲線の速さ
 
@@ -69,7 +69,7 @@ $$
 
 ### 証明の見取り図
 
-距離そのものを微分する代わりに、稠密な参照測度 $\nu_k$ までの距離を実数値関数 $f_k(t)$ として微分します。すべての $f_k$ の微分の大きさの上限が、曲線の最小の速さになります。
+距離そのものを微分する代わりに、稠密な参照測度 $\nu_k$ までの距離を実数値関数 $f_k(t)$ として微分します。すべての $f_k$ の微分の大きさの上限が、曲線の最小の速さになります。ここで $f_k'(t)=\frac{df_k}{dt}(t)$ は実数値関数の時刻についての通常の導関数で、$|\mu'|(t)$ は測度曲線を距離から測った極限であり、記号のプライムを同一の演算とみなしているわけではありません。
 
 <!-- proof-start -->
 ### 証明
@@ -100,7 +100,7 @@ $$
 W_2(\mu_s,\mu_t)\le\int_s^t g(r)\,dr.
 $$
 
-$g\in L^2$ なので、ほとんどすべての $t$ は $g$ の Lebesgue 点です。そのような $t$ で両符号の $h$ について
+$g\in L^2(0,T)\subset L^1_{\mathrm{loc}}(0,T)$ なので、[Lebesgue 微分定理](../../MT/MT4/index.md#thm-mt4-lebesgue-differentiation-local)を時刻変数 $t$ に適用すると、ほとんどすべての $t$ は $g$ の Lebesgue 点です。そのような $t$ で両符号の $h$ について
 
 $$
 \frac{W_2(\mu_{t+h},\mu_t)}{|h|}
@@ -123,7 +123,14 @@ $k$ について上限を取ると $g(t)$ が右辺以下です。上からの�
 
 ## 2. 速度場の二乗積分は何を測るか
 
-[OTR17の測度弱形式](../OTR17/index.md#def-otr17-measure-weak)では $v(t,x)$ は時刻 $t$、位置 $x$ にある質量が持つ速度でした。確率測度 $\mu_t$ について、その速さの二乗を位置ごとに平均します。
+[OTR17の測度弱形式](../OTR17/index.md#def-otr17-measure-weak)では $v(t,x)$ は時刻 $t$、位置 $x$ にある質量が持つ速度でした。以下では $v_t(x):=v(t,x)$ と略記します。また $dt\,d\mu_t(x)$ は、時刻を Lebesgue 測度 $dt$ で積分し、各時刻の位置を $\mu_t$ で積分することを表し、任意の非負可測関数 $F$ に対して
+
+$$
+\int F(t,x)\,dt\,d\mu_t(x)
+:=\int_0^T\left(\int_{\mathbb R^d}F(t,x)\,d\mu_t(x)\right)dt
+$$
+
+と読みます。確率測度 $\mu_t$ について、速度の二乗をこの方法で位置・時間にわたって平均します。
 
 <a id="def-otr18-kinetic-speed"></a>
 
@@ -154,7 +161,7 @@ $$
 
 ## 3. 一本の軌道ではなく、軌道の集まりを考える
 
-$C([0,T];\mathbb R^d)$ は連続軌道 $\gamma:t\mapsto\gamma_t$ の空間です。各時刻に位置を取り出す写像を $e_t(\gamma)=\gamma_t$ と書きます。$\eta$ が軌道空間上の確率測度なら、$(e_t)_\#\eta$ はその時刻に見える位置分布です。軌道が絶対連続であれば、ほとんどすべての時刻で通常の速度 $\dot\gamma_t$ を持ちます。
+$C([0,T];\mathbb R^d)$ は連続軌道 $\gamma:t\mapsto\gamma_t$ の空間です。各時刻に位置を取り出す写像を $e_t(\gamma)=\gamma_t$ と書きます。$\eta$ が軌道空間上の確率測度なら、$(e_t)_\#\eta$ はその時刻に見える位置分布です。ここで軌道の絶対連続性は $\mathbb R^d$ 値関数としての通常の意味であり、測度曲線の $AC^2$ 条件とは別です。$\dot\gamma_t=d\gamma_t/dt$ は位置 $\gamma_t$ の時間 $t$ に関する通常の導関数で、絶対連続軌道ではほとんどすべての時刻に存在します。
 
 <a id="def-otr18-dynamic-plan"></a>
 
@@ -210,20 +217,20 @@ W_2(\mu_s,\mu_t)
 \end{aligned}
 $$
 
-最後は Minkowski の積分不等式です。[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から $\int_0^T h(r)^2dr$ は軌道の総エネルギーに等しく有限です。$\square$
+最後は [Minkowskiの不等式](../OTR8/index.md#lem-otr8-minkowski)を有限個の時間和に適用し、刻み幅を細かくして得られる積分版の評価です。積分するベクトル値関数 $r\mapsto\dot\gamma_r$ は $L^2(\eta)$ に属し、有限エネルギーと Cauchy--Schwarz により時間についても積分可能です。[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から $\int_0^T h(r)^2dr$ は軌道の総エネルギーに等しく有限です。$\square$
 <!-- proof-end -->
 
 ## 4. 連続の方程式から粒子の軌道を回復する
 
 弱い保存則の解が滑らかな粒子流として与えられていなくても、有限作用があれば軌道の確率的な集まりを作れます。これが有限二乗作用の軌道分解（superposition principle）の主張です。証明に必要な近似を先に示します。
 
-ここで $q_\varepsilon(x)=(2\pi\varepsilon^2)^{-d/2}\exp(-|x|^2/(2\varepsilon^2))$ は標準的な滑らかな確率密度で、$*$ は空間変数に関する畳み込みを表します。時刻は畳み込みません。
+ここで $q_\varepsilon(x)=(2\pi\varepsilon^2)^{-d/2}\exp(-|x|^2/(2\varepsilon^2))$ は標準的な滑らかな確率密度で、$*$ は空間変数に関する畳み込みを表します。時刻は畳み込みません。以下の $\partial_t$ は空間変数 $x$ を固定した時間方向の（必要に応じて弱い意味の）偏微分、$\nabla\cdot$ は空間方向の発散です。軌道に沿う全微分 $d\gamma_t/dt$ とは作用対象を区別します。
 
 <a id="lem-otr18-smoothing"></a>
 
 <!-- formal-statement-start -->
 > **補題（質量と流束の同時平滑化）**  
-> $T>0$ とし、$t\mapsto\mu_t$ は $\mathbb R^d$ 上の狭義連続な確率測度曲線、$v$ は Borel 速度場とする。[OTR17の弱い連続の方程式](../OTR17/index.md#def-otr17-measure-weak)が成り立ち、
+> $T>0$ とし、$t\mapsto\mu_t\in\mathcal P_2(\mathbb R^d)$ は狭義連続な確率測度曲線、$v$ は Borel 速度場とする。[OTR17の弱い連続の方程式](../OTR17/index.md#def-otr17-measure-weak)が成り立ち、
 
 $$
 E=\int_0^T\int|v(t,x)|^2\,d\mu_t(x)\,dt<\infty
@@ -262,7 +269,7 @@ $$
 
 $x$ と $t$ で積分し、$\int q_\varepsilon(x-y)dx=1$ を使うと作用評価を得ます。元の弱式へ試験関数の空間畳み込みを代入すると、導関数と畳み込みが交換し、$\partial_t\rho^\varepsilon+\nabla\cdot j^\varepsilon=0$ を得ます。非コンパクトな Gaussian 核への代入は空間 cutoff を掛けて行い、$\int|v|d\mu dt\le\sqrt{TE}$ を使って cutoff を除けます。
 
-最後に $X\sim\mu_t$ と独立な $Z\sim N(0,\varepsilon^2I_d)$ を組にすると、$(X,X+Z)$ は $\mu_t$ と $\mu_t^\varepsilon$ の結合です。従って
+最後に $X\sim\mu_t$ と独立な $Z\sim N(0,\varepsilon^2I_d)$ を組にします。ここで $I_d$ は $d$ 次単位行列なので、$Z$ の各座標の分散は $\varepsilon^2$、従って $\mathbb E|Z|^2=\sum_{j=1}^d\mathbb E Z_j^2=d\varepsilon^2$ です。すると$(X,X+Z)$ は $\mu_t$ と $\mu_t^\varepsilon$ の結合です。従って
 
 $$
 W_2(\mu_t,\mu_t^\varepsilon)^2\le\mathbb E|Z|^2=d\varepsilon^2.
@@ -304,7 +311,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**第1段階：近似した軌道。** [平滑化補題](#lem-otr18-smoothing)で $(\mu_t^\varepsilon,b_t^\varepsilon)$ を作ります。$b^\varepsilon$ は $x$ について局所 Lipschitz、$t$ について可測で、コンパクト集合上の局所 Lipschitz 定数は時間可積分です。したがって局所的な Carathéodory の常微分方程式 $\dot\gamma=b_t^\varepsilon(\gamma)$ を解けます。
+**第1段階：近似した軌道。** [平滑化補題](#lem-otr18-smoothing)で $(\mu_t^\varepsilon,b_t^\varepsilon)$ を作ります。$b^\varepsilon$ は $t$ について可測です。空間方向の局所 Lipschitz 性と時間可積分な定数も確認します。狭義連続な測度曲線はコンパクトな時間区間上で一様に緊密なので、ある $R>0$ を選べば $\mu_t(B_R)\ge1/2$ が全時刻で成立します。固定した $\varepsilon>0$ と空間球 $B_K$ について、Gaussian 核の正値性から
+
+$$
+\rho_t^\varepsilon(x)\ge\frac12\min_{|z|\le K+R}q_\varepsilon(z)>0
+\qquad(x\in B_K)
+$$
+
+です。$q_\varepsilon$ とその空間導関数は有界なので、分子 $j^\varepsilon$ とその空間導関数は $C_\varepsilon\int|v_t|d\mu_t$ で抑えられます。商の微分公式に上の分母下界を入れると、$b_t^\varepsilon$ の $B_K$ 上の Lipschitz 定数も $C_{\varepsilon,K}\int|v_t|d\mu_t$ 以下です。この時間積分は Cauchy--Schwarz により $\sqrt{TE}$ 以下となります。従って局所的な Carathéodory の常微分方程式 $\dot\gamma=b_t^\varepsilon(\gamma)$ を解けます。
 
 球 $B_R$ で軌道を停止し、滑らかな場の局所輸送方程式の一意性（流れに沿う連鎖律を逆向きの試験関数に適用する）で、退出前の軌道分布が $\mu_t^\varepsilon$ に支配されることを確かめます。初期点が $B_{R/2}$ にある軌道が $B_R$ を退出するには走行距離が $R/2$ 以上必要なので、停止までの速度積分に [Markovの不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用すると、退出確率は
 
@@ -331,7 +345,7 @@ $$
 \le\left(\int_s^t|\dot\gamma_r|^2dr\right)^{1/2}|t-s|^{1/2}.
 $$
 
-初期点の分布 $\mu_0^\varepsilon$ は二次モーメントが一様に有界です。従って初期点の大きさと軌道エネルギーをそれぞれ大きな値で打ち切った集合は、[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)により $C([0,T];\mathbb R^d)$ で相対コンパクトです。[Markovの不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)とエネルギー評価から $\{\eta^\varepsilon\}$ は緊密なので、部分列は狭義に $\eta$ へ収束します。
+初期点の分布 $\mu_0^\varepsilon$ は二次モーメントが一様に有界です。従って初期点の大きさと軌道エネルギーをそれぞれ大きな値で打ち切った集合は、[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)により $C([0,T];\mathbb R^d)$ で相対コンパクトです。[Markovの不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)とエネルギー評価から $\{\eta^\varepsilon\}$ は緊密です。曲線空間は一様距離で Polish です（完備性は [RA8の一様ノルム完備性](../../../基礎科目/RA/RA8/index.md#thm-ra8-ck-complete)、可分性は有理時刻・有理値の折れ線近似による）。したがって [Prokhorovのコンパクト性定理](../OTR3/index.md#thm-otr3-prokhorov)により部分列は狭義に $\eta$ へ収束します。
 
 任意の絶対連続軌道のエネルギー $A(\gamma)=\int_0^T|\dot\gamma_t|^2dt$ は、時刻分割 $0=t_0<\cdots<t_N=T$ について次の等式を満たします。
 
@@ -339,7 +353,24 @@ $$
 A(\gamma)=\sup_{\{t_i\}}\sum_{i=0}^{N-1}\frac{|\gamma_{t_{i+1}}-\gamma_{t_i}|^2}{t_{i+1}-t_i}.
 $$
 
-左辺が各和以上であることは区間ごとの Cauchy--Schwarz から従います。逆向きは、区間で平均した $\dot\gamma$ の階段関数が分割を細かくすると $\dot\gamma$ に $L^2$ で収束することから従います。エネルギーが有限でない連続軌道には右辺を $+\infty$ として定義できます。各有限和は軌道の一様収束に関して連続ですから、その上限であるエネルギーは下半連続です。[下半連続費用のliminf不等式](../OTR3/index.md#lem-otr3-lsc-integral)を軌道空間で適用し、極限の $\eta$ も有限エネルギーを持つことが分かります。
+左辺が各和以上であることは区間ごとの Cauchy--Schwarz から従います。逆向きは、区間で平均した $\dot\gamma$ の階段関数が分割を細かくすると $\dot\gamma$ に $L^2$ で収束することから従います。
+
+任意の連続軌道について右辺の上限を $S(\gamma)\in[0,\infty]$ と置きます。$S(\gamma)<\infty$ なら、交わらない有限個の区間 $[a_j,b_j]$ の全端点を含む分割を取れます。分割量は非負なので Cauchy--Schwarz により
+
+$$
+\sum_j|\gamma_{b_j}-\gamma_{a_j}|
+\le\left(\sum_j\frac{|\gamma_{b_j}-\gamma_{a_j}|^2}{b_j-a_j}\right)^{1/2}
+\left(\sum_j(b_j-a_j)\right)^{1/2}
+\le\sqrt{S(\gamma)}\left(\sum_j(b_j-a_j)\right)^{1/2}.
+$$
+
+全区間長が十分小さければ左辺も任意に小さくなるので、$\gamma$ は絶対連続です。さらに $0<h<T$ について、開始位置 $\theta\in[0,h)$ を固定し、$[\theta+kh,\theta+(k+1)h]$ を並べた分割のエネルギー和は $S(\gamma)$ 以下です。$\theta$ で積分して並べ替えると
+
+$$
+\int_0^{T-h}\left|\frac{\gamma_{t+h}-\gamma_t}{h}\right|^2dt\le S(\gamma).
+$$
+
+絶対連続性から $\dot\gamma_t$ はほとんど至る所で存在し、$h\downarrow0$ で差商がそれへ収束します。Fatou の不等式により $\int_0^T|\dot\gamma_t|^2dt\le S(\gamma)$ です。既に示した逆向きの評価と合わせて等号となります。従って、分割量の上限は有限なら通常の軌道エネルギーに一致し、それ以外の連続軌道では $+\infty$ です。各有限和は軌道の一様収束に関して連続ですから、その上限であるエネルギーは下半連続です。[下半連続費用のliminf不等式](../OTR3/index.md#lem-otr3-lsc-integral)を軌道空間で適用し、極限の $\eta$ も有限エネルギーを持つことが分かります。
 
 評価写像 $e_t$ は連続で、$W_2(\mu_t^\varepsilon,\mu_t)\le\sqrt d\varepsilon$ だから、任意の $t$ で $(e_t)_\#\eta=\mu_t$ です。
 
@@ -490,7 +521,7 @@ $$
 \le\int_0^T|\mu'|(t)^2dt=:E_0.
 $$
 
-初期周辺は常に $\mu_0$、軌道エネルギーは一様に $E_0$ 以下です。[軌道表現の構成](#thm-otr18-superposition)の第2段階と同じ [Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)・緊密性・下半連続性の議論をこの $\eta^n$ に適用すると、部分列は有限エネルギーの $\eta$ に収束し、そのエネルギーは $E_0$ 以下です。[最適結合による折れ線近似の補題](#lem-otr18-polygonal)の一様な周辺収束から $(e_t)_\#\eta=\mu_t$ です。
+初期周辺は常に $\mu_0$、軌道エネルギーは一様に $E_0$ 以下です。[軌道表現の構成](#thm-otr18-superposition)の第2段階と同じ [Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)・[Prokhorovの定理](../OTR3/index.md#thm-otr3-prokhorov)・エネルギーの下半連続性をこの $\eta^n$ に適用すると、部分列は有限エネルギーの $\eta$ に狭義収束し、そのエネルギーは $E_0$ 以下です。[最適結合による折れ線近似の補題](#lem-otr18-polygonal)の一様な周辺収束から $(e_t)_\#\eta=\mu_t$ です。
 
 時間と位置の上にベクトル値測度 $J$ を次の作用で定めます。$\Phi$ は有界な Borel ベクトル値試験関数です。
 
@@ -499,14 +530,20 @@ $$
 =\int\!\int_0^T\Phi(t,\gamma_t)\cdot\dot\gamma_t\,dt\,d\eta(\gamma).
 $$
 
-$\lambda(dt,dx)=dt\,d\mu_t(x)$ と置きます。$\lambda$-零集合の上では $\eta$ の評価分布も零なので $J\ll\lambda$ です。Radon--Nikodym の定理で $dJ=v\,d\lambda$ となる可測場が存在します。位置 $\gamma_t=x$ ごとの条件付き平均に二乗ノルムの凸性を適用すると（平均の二乗は二乗の平均以下なので）
+$\lambda(dt,dx)=dt\,d\mu_t(x)$ と置きます。この測度は軌道上の $(t,\gamma_t)$ の時間・軌道積分を位置に押し出したものです。実際、任意の Borel 集合 $A\subset[0,T]\times\mathbb R^d$ に対し
+
+$$
+\lambda(A)=\int\!\int_0^T\boldsymbol{1}_A(t,\gamma_t)\,dt\,d\eta(\gamma).
+$$
+
+したがって $\lambda(A)=0$ なら $J(A)=0$ であり、$J\ll\lambda$ です。また $|J|$ の総変動は Cauchy--Schwarz と有限軌道エネルギーから有限です。ベクトル値測度 $J$ の各成分に[符号付き測度の Radon--Nikodym 定理](../../MT/MT3/index.md#thm-mt3-rn-signed)を適用すると、$dJ=v\,d\lambda$ となる（Borel 版を取れる）場が存在します。これは、時刻・位置 $(t,x)$ が指定された下での軌道速度 $\dot\gamma_t$ の条件付き平均です。二乗ノルムの凸性（条件付き Jensen 不等式）により
 
 $$
 \int_0^T\int|v(t,x)|^2d\mu_t(x)dt
 \le\int\!\int_0^T|\dot\gamma_t|^2dt\,d\eta\le E_0.
 $$
 
-任意の[OTR17の試験関数](../OTR17/index.md#def-otr17-test-function) $\varphi$ について軌道上の連鎖律を使えば
+任意の[OTR17の試験関数](../OTR17/index.md#def-otr17-test-function) $\varphi$ について[曲線に沿う連鎖律](../../PDE/PDE1/index.md#prop-pde1-curve-composition)を使います。空間変数を軌道 $x=\gamma_t$ に置き換えてから時刻で全微分すると
 
 $$
 \varphi(T,\gamma_T)-\varphi(0,\gamma_0)
@@ -614,7 +651,7 @@ $$
 従って $|\mu'|=1$（内部の全時刻）。$t>0$ の速度場では $\|v_t\|^2=\tfrac12(-1)^2+\tfrac12(1)^2=1$。$t=0$ では原子が一致して場の値を一意に指定できませんが、単一時刻は時間積分に寄与せず、弱形式にも影響しません。
 <!-- solution-end -->
 
-### OTR18-A05 $AC^1$ と $AC^2$ の違い
+### OTR18-A05 有限長と $AC^2$ の違い
 - Level: A
 
 $t\in[0,1]$、$\mu_t=\delta_{\sqrt t}$ とする。曲線は時間に関して有限長か。$AC^2$ 曲線にはなれないことを説明せよ。
@@ -642,7 +679,7 @@ $$
 =n\sqrt{1/n}=\sqrt n\to\infty.
 $$
 
-[距離空間の[曲線の長さの定義](../OTR15/index.md#def-otr15-metric-length)](../OTR15/index.md#def-otr15-metric-length)はすべての分割についての上限なので無限大です。速度を $L^1$ で抑える絶対連続曲線なら長さは有限であるため、この曲線は $AC^2$ ではありません。
+[距離空間における曲線の長さの定義](../OTR15/index.md#def-otr15-metric-length)はすべての分割についての上限なので無限大です。速度を $L^1$ で抑える絶対連続曲線なら長さは有限であるため、この曲線は $AC^2$ ではありません。
 <!-- solution-end -->
 
 ### OTR18-B02 拡大流で二種類の速さを計算する
@@ -759,11 +796,11 @@ $\mu:[0,T]\to\mathcal P_2(\mathbb R^d)$ が $AC^2$ 曲線で、距離微分が $
 <!-- solution-start -->
 **詳細解答**。(i) 各軌道 $\gamma$ について Cauchy--Schwarz より $|\gamma_t-\gamma_s|\le\sqrt{A(\gamma)}|t-s|^{1/2}$、ただし $A(\gamma)=\int_0^T|\dot\gamma|^2$ です。$A(\gamma)\le R$ の部分では一様な $1/2$-Hölder 評価があります。
 
-(ii) $(e_0)_\#\eta^n=\mu_0$ だから $|\gamma_0|\le R$ の外の確率は $\mu_0(B_R^c)\to0$ です。一方、$\mathbb E_{\eta^n}A\le\int|\mu'|^2=:E_0$ から $\eta^n(A>R)\le E_0/R$。両制約の交わりでは $\sup_t|\gamma_t|\le R+\sqrt{RT}$ かつ (i) の評価があり、[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)により相対コンパクト。よって $\eta^n$ は tight です。
+(ii) $(e_0)_\#\eta^n=\mu_0$ だから $|\gamma_0|\le R$ の外の確率は $\mu_0(B_R^c)\to0$ です。一方、$\mathbb E_{\eta^n}A\le\int|\mu'|^2=:E_0$ から $\eta^n(A>R)\le E_0/R$。両制約の交わりでは $\sup_t|\gamma_t|\le R+\sqrt{RT}$ かつ (i) の評価があり、[Arzela-Ascoli定理](../../../基礎科目/RA/RA8/index.md#thm-ra8-arzela-ascoli)により相対コンパクト。よって $\eta^n$ は tight です。曲線空間は一様距離で Polish なので [Prokhorovの定理](../OTR3/index.md#thm-otr3-prokhorov)から狭義収束部分列を取れます。
 
 (iii) 任意の分割 $0=t_0<\cdots<t_k=T$ について $\sum_i|\gamma_{t_{i+1}}-\gamma_{t_i}|^2/(t_{i+1}-t_i)$ は一様収束に関して連続です。軌道作用 $A(\gamma)$ はこれらの分割量の上限であり下半連続です。狭義極限 $\eta$ に対し、[下半連続費用のliminf不等式](../OTR3/index.md#lem-otr3-lsc-integral)を適用して $\int A\,d\eta\le E_0$ です。さらに各時刻の周辺は[折れ線の一様収束](#lem-otr18-polygonal)により $\mu_t$ です。
 
-最後に $J$ を $\int\Phi\cdot dJ=\int\int_0^T\Phi(t,\gamma_t)\cdot\dot\gamma_tdt\,d\eta$ で定めます。$J\ll dt\,d\mu_t$ だから $J=v\,dt\,d\mu_t$ と書け、Jensen により $\int|v|^2d\mu dt\le E_0$。軌道に沿う試験関数の連鎖律を $\eta$ で積分すると
+最後に $J$ を $\int\Phi\cdot dJ=\int\int_0^T\Phi(t,\gamma_t)\cdot\dot\gamma_tdt\,d\eta$ で定めます。$\lambda=dt\,d\mu_t$ に対して、$\lambda(A)=\int\int_0^T\boldsymbol{1}_A(t,\gamma_t)dt\,d\eta=0$ なら $J(A)=0$ なので $J\ll\lambda$ です。各成分への[Radon--Nikodym 定理](../../MT/MT3/index.md#thm-mt3-rn-signed)により $J=v\,d\lambda$ と書け、$v$ は位置・時刻に条件付けた軌道速度の平均です。Jensen により $\int|v|^2d\mu dt\le E_0$。軌道に沿う試験関数の連鎖律を $\eta$ で積分すると
 
 $$
 \int\varphi(T,x)d\mu_T-\int\varphi(0,x)d\mu_0
