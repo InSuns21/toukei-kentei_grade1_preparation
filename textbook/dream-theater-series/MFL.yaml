@@ -152,8 +152,8 @@ chapters:
     title: "E(3) / SE(3)とchirality"
   - id: MFL37
     path: textbook/volumes/dream_thater/応用系/MFL/MFL37
-    status: planned
-    title: "Steerableなベクトル/テンソル特徴"
+    status: completed
+    title: "Steerableなベクトル・テンソル特徴"
   - id: MFL38
     path: textbook/volumes/dream_thater/応用系/MFL/MFL38
     status: planned

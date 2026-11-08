@@ -1,0 +1,32 @@
+id: "MFL37"
+title: "Steerableなベクトル・テンソル特徴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL36
+  - MFL24
+official_scope: []
+learning_objectives:
+  - SO(3)のスカラー・ベクトル・対称トレース零テンソルの変換則と次元を直接検証できる
+  - 低階特徴の回転表現の閉性・合成則・逆作用を証明できる
+  - スカラーとベクトルの全線形等変層のブロック構造を証明できる
+  - 不変スカラー・ベクトル作用・トレース零射影を組み合わせた型付き非線形層を構成し等変性を証明できる
+  - 成分別ReLUや異方的固定行列の回転等変性の失敗を数値反例で示せる
+  - 極ベクトルと軸ベクトルを鏡映時に区別しSO(3)とO(3)の保証を区別できる
+definitions:
+  - { id: MFL37-DEF-01, name: SO(3)の低階特徴型 }
+  - { id: MFL37-DEF-02, name: 型を守る非線形ゲート }
+theorems:
+  - { id: MFL37-THM-01, name: 低階特徴の回転表現 }
+  - { id: MFL37-THM-02, name: スカラー・ベクトル間の線形等変層の分類 }
+  - { id: MFL37-THM-03, name: 型付きゲートのSO(3)等変性 }
+canonical_examples:
+  - z軸90度回転によるスカラー・極ベクトル・二階対称トレース零テンソルの変換
+  - 二つのベクトルチャネルの線形混合と異方的な固定行列の対比
+  - ベクトルからのトレース零テンソル生成と型付きゲートの直接検証
+  - 成分別ReLUの180度回転反例と外積の鏡映時の型違い
+problem_patterns: [MFL37-A01, MFL37-A02, MFL37-A03, MFL37-A04, MFL37-B01, MFL37-B02, MFL37-B03, MFL37-B04, MFL37-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.0, review: 2.5 }

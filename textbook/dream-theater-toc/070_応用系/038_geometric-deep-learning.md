@@ -16,3 +16,4 @@
 13. [MFL34 幾何的グラフと不変量](textbook/volumes/dream_thater/応用系/MFL/MFL34/index.md)
 14. [MFL35 E(n)等変GNNと座標更新](textbook/volumes/dream_thater/応用系/MFL/MFL35/index.md)
 15. [MFL36 E(3) / SE(3)とchirality](textbook/volumes/dream_thater/応用系/MFL/MFL36/index.md)
+16. [MFL37 Steerableなベクトル・テンソル特徴](textbook/volumes/dream_thater/応用系/MFL/MFL37/index.md)
