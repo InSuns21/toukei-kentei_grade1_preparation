@@ -1,0 +1,23 @@
+chapter: DEF1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-03]
+concepts:
+  - id: deformation.infinitesimal-gauge-stabilizer
+    name: 一次ゲージ作用と無限小安定化子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次ゲージ作用と無限小安定化子）"]
+    requires: [deformation.gauge-first-variation, cyg.infinitesimal-beltrami-deformation]
+  - id: deformation.first-order-gauge-exact-sequence
+    name: 一次ゲージ作用の完全列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次ゲージ作用の完全列）"]
+    requires: [deformation.infinitesimal-gauge-stabilizer, cyg.first-order-deformation-cohomology, cyg.holomorphic-bundle-dolbeault]
+  - id: deformation.infinitesimal-holomorphic-automorphism
+    name: 無限小正則自己同型と零次コホモロジー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無限小正則自己同型と零次コホモロジー）"]
+    requires: [deformation.first-order-gauge-exact-sequence, complex-manifolds.holomorphic-tangent-section]

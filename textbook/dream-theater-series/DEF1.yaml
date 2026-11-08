@@ -20,7 +20,7 @@ chapters:
     title: "Maurer–Cartan方程式"
   - id: DEF1-04
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-04
-    status: planned
+    status: completed
     title: "一次変形・同値・自己同型"
   - id: DEF1-05
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-05
