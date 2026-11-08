@@ -45,15 +45,17 @@ $$
 
 従って Fisher 行列 $G=(g_{ij})$ の可逆性が、期待値母数を座標にできるかを判定する鍵になります。これは [IG4 の最小性命題](../IG4/index.md#prop-ig4-minimality)によって、統計量 $F$ の非冗長性と結び付きます。
 
-## 2. 厳密凸性から逆座標を作る
+## 2. 狭義凸性から逆座標を作る
 
-ここで必要な論理は二段階です。逆関数定理は各点の**近く**で逆座標を作ります。一方で、領域全体で一対一と結論するには、$\Theta$ が凸で $\psi$ の Hessian が正定値であることを使います。行列の正定値性は二次形式 $v^{\mathsf T}Gv>0$（$v\ne0$）で確かめます。
+ここで必要な論理は二段階です。逆関数定理は各点の**近く**で逆座標を作ります。一方で、領域全体で一対一と結論するには、$\Theta$ が凸で $\psi$ の Hessian が正定値であることを使います。
+
+ここでの「狭義凸」は[OPT1 の狭義凸関数の定義](../../../応用系/OPT/OPT1/index.md#def-opt1-strictly-convex)の意味です。[Hessian による凸性判定](../../../応用系/OPT/OPT1/index.md#thm-opt1-hessian-convexity)の正定値な場合を線分上で示すと、狭義凸性が得られます。行列の正定値性は二次形式 $v^{\mathsf T}Gv>0$（$v\ne0$）で確かめます。
 
 <a id="thm-ig5-mean-diffeomorphism"></a>
 
 <!-- formal-statement-start -->
 > **定理（自然座標と期待値座標の可逆対応）**
-> $\Theta\subset\mathbb R^d$ を非空の開凸集合とし、$\psi\in C^3(\Theta)$ の Hessian $G(\theta)=\nabla^2\psi(\theta)$ がすべての $\theta\in\Theta$ で正定値とする。このとき $\psi$ は厳密凸で、$\eta=\nabla\psi$ は $\Theta$ から開集合 $H=\nabla\psi(\Theta)$ への一対一の $C^2$ 級の座標対応を与え、逆写像も $C^2$ 級である。さらに
+> $\Theta\subset\mathbb R^d$ を非空の開凸集合とし、$\psi\in C^3(\Theta)$ の Hessian $G(\theta)=\nabla^2\psi(\theta)$ がすべての $\theta\in\Theta$ で正定値とする。このとき $\psi$ は狭義凸で、$\eta=\nabla\psi$ は $\Theta$ から開集合 $H=\nabla\psi(\Theta)$ への一対一の $C^2$ 級の座標対応を与え、逆写像も $C^2$ 級である。さらに
 
 $$
 \frac{\partial\eta}{\partial\theta}=G(\theta),
@@ -76,7 +78,7 @@ q'(t)=\nabla\psi(\gamma(t))\cdot v,
 \qquad q''(t)=v^{\mathsf T}G(\gamma(t))v>0.
 $$
 
-任意の異なる二点を結ぶ線分で二階微分が正だから、$\psi$ は厳密凸です。また微積分の基本定理を各成分に用いて
+任意の異なる二点を結ぶ線分で二階微分が正だから、$\psi$ は狭義凸です。また微積分の基本定理を各成分に用いて
 
 $$
 \begin{aligned}
@@ -86,7 +88,19 @@ v\cdot\{\nabla\psi(\theta)-\nabla\psi(\xi)\}
 \end{aligned}
 $$
 
-従って $\nabla\psi(\theta)=\nabla\psi(\xi)$ は不可能で、$\nabla\psi$ は単射です。さらに $\psi\in C^3$ なので $\nabla\psi$ は $C^2$ 級、Jacobian は $G$ です。正定値行列の行列式は非零ですから、各 $\theta$ で逆関数定理を適用でき、像の各点に開近傍と $C^2$ 級の局所逆写像があります。単射性によりそれらの局所逆は重なり上で一致し、像 $H$ は開集合、逆写像 $\theta:H\to\Theta$ は $C^2$ 級です。恒等式 $\eta(\theta(\eta))=\eta$ を微分すると $G(\theta(\eta))\,(\partial\theta/\partial\eta)=I_d$ なので、逆 Jacobian は $G^{-1}$ です。
+従って $\nabla\psi(\theta)=\nabla\psi(\xi)$ は不可能で、$\nabla\psi$ は単射です。
+
+さらに $\psi\in C^3$ なので $\nabla\psi$ は $C^2$ 級で、その Jacobian は $G$ です。正定値行列の行列式は非零ですから、各 $\theta$ で逆関数定理を適用でき、像の各点に開近傍と $C^2$ 級の局所逆写像があります。単射性によりそれらの局所逆は重なり上で一致します。従って像 $H$ は開集合で、逆写像 $\theta:H\to\Theta$ は $C^2$ 級です。
+
+恒等式 $\eta(\theta(\eta))=\eta$ を期待値座標 $\eta$ で微分すると、連鎖律から
+
+$$
+G(\theta(\eta))\frac{\partial\theta}{\partial\eta}=I_d,
+\qquad
+\frac{\partial\theta}{\partial\eta}=G(\theta(\eta))^{-1}
+$$
+
+を得ます。逆行列が存在するのは $G$ が正定値だからです。
 
 最小な正則指数型分布族では、[Fisher--Hessian 恒等式](../IG4/index.md#thm-ig4-fisher-hessian)が成り立ちます。さらに[最小性・識別可能性と正定値 Fisher 行列](../IG4/index.md#prop-ig4-minimality)から各点で $G>0$ です。対数分配関数は開自然母数領域内で必要な階数だけ滑らかで、領域も凸なので上の議論が適用できます。
 <!-- proof-end -->
@@ -95,7 +109,13 @@ $$
 
 ## 3. Legendre 双対ポテンシャル
 
-期待値座標 $\eta$ では自然母数を $\theta(\eta)$ として復元できるようになりました。ここで $\theta\cdot\eta-\psi(\theta)$ を考えます。$\psi$ のグラフに $\theta$ で引いた接超平面の切片に対応する量で、$\eta$ を固定した最適化からも得られます。ここではこの式がなぜ最大値になるかまで確認します。
+期待値座標 $\eta$ では自然母数を $\theta(\eta)$ として復元できるようになりました。$\eta=\nabla\psi(\theta)$ のとき、$\theta$ での接平面を表す一次式は
+
+$$
+L_\theta(\xi)=\psi(\theta)+\eta\cdot(\xi-\theta)
+$$
+
+です。その定数項 $\psi(\theta)-\theta\cdot\eta$ の符号を逆にした $\theta\cdot\eta-\psi(\theta)$ を考えます。凸解析では、$\eta$ を固定して $\xi\cdot\eta-\psi(\xi)$ の上限を取る操作を**凸共役**の構成として扱います。ここでは接平面に対応する候補が、なぜその最大値になるかまで確認します。
 
 <a id="def-ig5-legendre-dual"></a>
 
@@ -139,7 +159,7 @@ $$
 \end{gathered}
 $$
 
-> 特に $\varphi$ は $H$ の各点の近傍で厳密凸であり、$\psi(\theta)+\varphi(\eta)=\theta\cdot\eta$ は $\eta=\nabla\psi(\theta)$ のとき成立する。
+> 特に $\varphi$ は $H$ の各点の近傍で狭義凸であり、$\psi(\theta)+\varphi(\eta)=\theta\cdot\eta$ は $\eta=\nabla\psi(\theta)$ のとき成立する。
 <!-- formal-statement-end -->
 
 **証明の見取り図**：凸性から $\psi(\xi)$ は $\theta$ での接平面より上にあります。$\eta=\nabla\psi(\theta)$ を固定すると、その不等式を並べ替えたものが最大値の主張です。双対式の微分では $\partial\theta/\partial\eta$ の項が打ち消し合い、もう一度微分すると逆 Jacobian が現れます。
@@ -147,7 +167,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\eta\in H$ を固定し、$\theta=\theta(\eta)$ とします。任意の $\xi\in\Theta$ に対し $v=\xi-\theta$、$r(t)=\psi(\theta+tv)$ と置きます。凸性と線分の存在から $r'(t)$ は非減少であり、
+$\eta\in H$ を固定し、$\theta=\theta(\eta)$ とします。任意の $\xi\in\Theta$ に対し $v=\xi-\theta$、$r(t)=\psi(\theta+tv)$ と置きます。凸性により線分が $\Theta$ に含まれ、$r''(t)=v^{\mathsf T}G(\theta+tv)v\ge0$ だから $r'(t)$ は非減少であり、
 
 $$
 \psi(\xi)-\psi(\theta)
@@ -176,14 +196,22 @@ $$
 \end{aligned}
 $$
 
-さらに微分すると $\partial^2\varphi/\partial\eta_i\partial\eta_j=\partial\theta^j/\partial\eta_i$ です。[可逆対応の定理](#thm-ig5-mean-diffeomorphism)で導いた逆 Jacobian を代入すれば、対称な正定値行列 $G^{-1}$ に等しくなります。従って $\varphi$ は各点の近傍で厳密凸です。最後の双対等式は定義式を移項したものです。
+さらに微分すると $\partial^2\varphi/\partial\eta_i\partial\eta_j=\partial\theta^j/\partial\eta_i$ です。[可逆対応の定理](#thm-ig5-mean-diffeomorphism)で導いた逆 Jacobian を代入すれば、対称な正定値行列 $G^{-1}$ に等しくなります。従って $\varphi$ は各点の近傍で狭義凸です。最後の双対等式は定義式を移項したものです。
 <!-- proof-end -->
 
 ここで $\varphi$ の Hessian を $G^{-1}$ と書くのは、**$\eta$ 座標での成分**についてです。$\theta$ 座標の行列と $\eta$ 座標の行列を同じ基底のものとして足し引きすることはしません。
 
 ## 4. Fisher 計量は両座標でどう見えるか
 
-自然座標の接速度 $d\theta$ に対し、同じ分布族の変化を期待値座標で表すと $d\eta=G\,d\theta$ です。この等式は小変化を比較した Jacobian の式であり、$\eta$ の成分が $\theta$ と同じ数であるという意味ではありません。
+自然座標での微小変化を成分列 $d\theta=(d\theta^1,\ldots,d\theta^d)^{\mathsf T}$ で表し、対応する期待値座標の変化を $d\eta=(d\eta_1,\ldots,d\eta_d)^{\mathsf T}$ と書きます。ここでの $d\theta^j,d\eta_i$ は各座標成分の微分であり、時間微分ではありません。期待値写像の連鎖律から
+
+$$
+d\eta_i=\sum_j\frac{\partial\eta_i}{\partial\theta^j}\,d\theta^j
+=\sum_jg_{ij}\,d\theta^j,
+\qquad d\eta=G\,d\theta
+$$
+
+です。これは同じ分布族の小変化を二つの座標で表した Jacobian の式であり、$\eta$ の成分が $\theta$ と同じ数であるという意味ではありません。
 
 <a id="thm-ig5-dual-metric"></a>
 
@@ -256,13 +284,29 @@ $$
 \begin{pmatrix}1/p_1+1/p_3&1/p_3\\1/p_3&1/p_2+1/p_3\end{pmatrix}.
 $$
 
-一方、自然座標での Fisher 行列は $G_\theta=\left(\begin{smallmatrix}p_1(1-p_1)&-p_1p_2\\-p_1p_2&p_2(1-p_2)\end{smallmatrix}\right)$、その行列式は $p_1p_2p_3>0$ です。$2\times2$ 逆行列の公式に $1-p_1=p_2+p_3$、$1-p_2=p_1+p_3$ を代入すると上の $\nabla^2\varphi$ が得られます。
+一方、自然座標での Fisher 行列は[IG4 の Fisher--Hessian 恒等式](../IG4/index.md#thm-ig4-fisher-hessian)から $G_\theta=(\partial_{ij}\psi)$ です。$\partial_a\psi=p_1$、$\partial_b\psi=p_2$ をさらに微分すると $\partial_a p_1=p_1(1-p_1)$、$\partial_b p_1=-p_1p_2$、$\partial_b p_2=p_2(1-p_2)$ なので
+
+$$
+G_\theta=
+\begin{pmatrix}p_1(1-p_1)&-p_1p_2\\-p_1p_2&p_2(1-p_2)\end{pmatrix},
+\qquad
+\det G_\theta=p_1p_2(1-p_1-p_2)=p_1p_2p_3>0.
+$$
+
+自然座標の二つの方向 $\partial_a,\partial_b$ に対応する共分散を行列に並べたもので、期待値座標の二つの方向とは同一視しません。$2\times2$ 逆行列の公式を用いると
+
+$$
+G_\theta^{-1}=\frac1{p_1p_2p_3}
+\begin{pmatrix}p_2(1-p_2)&p_1p_2\\p_1p_2&p_1(1-p_1)\end{pmatrix}.
+$$
+
+$1-p_2=p_1+p_3$、$1-p_1=p_2+p_3$ を代入すると、対角成分は $1/p_1+1/p_3$ と $1/p_2+1/p_3$、非対角成分は $1/p_3$ となり、上の $\nabla^2\varphi$ と一致します。
 
 この例では $\varphi=\sum_{i=1}^3p_i\log p_i$ が負エントロピーであることも分かりました。有限正単体上の期待値座標は混合座標であり、計量は期待値側では逆 Hessian になります。
 
 ## 5. 「Hessian 構造」はどの座標でも成り立つか
 
-計量は座標を替えても同じ幾何を表しますが、関数の普通の二階微分は一般には計量のような変換をしません。自然座標 $\theta$ で $g_{ij}=\partial_{ij}\psi$ と書ける事実には、**その座標の特別な選び方**が含まれています。
+計量は[IG2 の座標変換則](../IG2/index.md#thm-ig2-coordinate-invariance)に従って同じ幾何を表しますが、関数の普通の二階微分は一般には計量のような変換をしません。自然座標 $\theta$ で $g_{ij}=\partial_{ij}\psi$ と書ける事実には、**その座標の特別な選び方**が含まれています。
 
 <a id="def-ig5-hessian-chart"></a>
 
@@ -291,7 +335,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Hessian 表示のアファイン変換と非線形変換）**
-> 開集合 $U\subset\mathbb R^d$ 上の $C^2$ 級ポテンシャル $\Phi$ に対し $g=\nabla_x^2\Phi$ とする。定数可逆行列 $A$ と定数ベクトル $b$ による座標変更
+> 開集合 $U\subset\mathbb R^d$ 上の $C^2$ 級ポテンシャル $\Phi$ の Hessian が各点で正定値であり、正定値対称計量 $g=\nabla_x^2\Phi$ を定めるとする。定数可逆行列 $A$ と定数ベクトル $b$ による座標変更
 
 $$
 y=Ax+b,\qquad\widetilde\Phi(y)=\Phi(A^{-1}(y-b))
@@ -467,14 +511,14 @@ Bernoulli の二重統計量 $F=(X,2X)$ による表示と、最小表示 $F=X$ 
 <!-- solution-start -->
 **詳細解答**
 
-(i) $q=P(X=1)$ とすると $G=q(1-q)\left(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\right)$ なので $G(2,-1)^{\mathsf T}=0$ です。$q\in(0,1)$ でも行列式が零で、非最小表示の下では内点で逆関数定理を適用できません。
+(i) $q=P(X=1)$ とすると $G=q(1-q)\left(\begin{smallmatrix}1&2\\2&4\end{smallmatrix}\right)$ です。$q\in(0,1)$ では $q(1-q)>0$ なので、$Gv=0$ は $v_1+2v_2=0$ と同値です。従って核全体は $\ker G=\operatorname{span}\{(2,-1)^{\mathsf T}\}$ です。行列式は零で、非最小表示の下では内点で逆関数定理を適用できません。
 
 (ii) 最小表示では $\eta=e^a/(1+e^a)\to1$、$d\eta/da=\eta(1-\eta)\to0$、$da/d\eta=1/[\eta(1-\eta)]\to+\infty$ です。しかし任意の有限 $a$ で $d\eta/da>0$ のため、内点では自然母数と期待値母数の対応は破れていません。$a=+\infty$ は $\Theta=\mathbb R$ の点ではなく、$\eta=1$ は $H=(0,1)$ の点ではありません。前者は冗長統計量による内点での非可逆性、後者は開座標領域の外での特異な極限です。
 <!-- solution-end -->
 
 ### IG5-B04 固定分散の正規位置族
 
-$s^2>0$ を固定し、$h(x)=(2\pi s^2)^{-1/2}\exp(-x^2/(2s^2))$、$F(x)=x$、自然母数 $a\in\mathbb R$ の指数型族を作る。$\psi(a)$、$\eta$、$\varphi(\eta)$、両座標の Fisher 計量を導き、これは平均 $\mu=s^2a$ の正規分布であることを確認せよ。
+$s^2>0$ を固定し、$x\in\mathbb R$ 上の Lebesgue 測度を基準測度として、$h(x)=(2\pi s^2)^{-1/2}\exp(-x^2/(2s^2))$、$F(x)=x$、自然母数 $a\in\mathbb R$ の指数型族を作る。$\psi(a)$、$\eta$、$\varphi(\eta)$、両座標の Fisher 計量を導き、これは平均 $\mu=s^2a$ の正規分布であることを確認せよ。
 
 - Level: B
 - 狙い: 平均が線形でも逆 Hessian の区別が必要な例
@@ -513,7 +557,14 @@ $S=\{1,2,3\}$、$F_1=\boldsymbol{1}_{\{X=1\}}$、$F_2=\boldsymbol{1}_{\{X=2\}}$�
    \quad \det G_\theta=p_1p_2p_3>0.
    $$
 
-   左上成分も $p_1(1-p_1)>0$ なので二次元の正定値判定から $G_\theta>0$。[可逆対応の定理](#thm-ig5-mean-diffeomorphism)も適用できます。
+   左上成分 $A=p_1(1-p_1)>0$ と行列式 $D=p_1p_2p_3>0$ から、任意の $w=(w_1,w_2)^{\mathsf T}\ne0$ について二次形式を平方完成すれば
+
+   $$
+   w^{\mathsf T}G_\theta w
+   =A\left(w_1-\frac{p_1p_2}{A}w_2\right)^2+\frac{D}{A}w_2^2>0.
+   $$
+
+   従って行列は正定値であり、[可逆対応の定理](#thm-ig5-mean-diffeomorphism)も適用できます。これは「行列式が正だから」だけでなく、元の正定値性の全非零方向を確かめる判定です。
 
 2. $\psi=\log(1/p_3)=-\log p_3$ と逆写像を使うと
 
@@ -525,7 +576,7 @@ $S=\{1,2,3\}$、$F_1=\boldsymbol{1}_{\{X=1\}}$、$F_2=\boldsymbol{1}_{\{X=2\}}$�
    \end{aligned}
    $$
 
-   ここで $\eta_1+\eta_2+p_3=1$ を用いました。任意の $(u,v)$ と最大候補 $(a,b)$ について、正定値 Hessian による厳密凸性から
+   ここで $\eta_1+\eta_2+p_3=1$ を用いました。任意の $(u,v)$ と最大候補 $(a,b)$ について、正定値 Hessian による狭義凸性から
 
    $$
    \psi(u,v)>\psi(a,b)+\nabla\psi(a,b)\cdot((u,v)-(a,b))
@@ -541,7 +592,30 @@ $S=\{1,2,3\}$、$F_1=\boldsymbol{1}_{\{X=1\}}$、$F_2=\boldsymbol{1}_{\{X=2\}}$�
    G_\theta=\begin{pmatrix}1/4&-1/6\\-1/6&2/9\end{pmatrix}.
    $$
 
-   $\det G_\theta=1/36$ なので $G_\theta^{-1}=36\left(\begin{smallmatrix}2/9&1/6\\1/6&1/4\end{smallmatrix}\right)=\left(\begin{smallmatrix}8&6\\6&9\end{smallmatrix}\right)$ と一致します。$\eta_2=1/3$ を固定して $\eta_1\to0+$ とすると $p_3\to2/3$、$\eta_1\log\eta_1\to0$ により $\varphi$ は $\frac13\log\frac13+\frac23\log\frac23$ へ収束します。一方 $\partial_{\eta_1}\varphi=\log(\eta_1/p_3)\to-\infty$、$\partial^2_{\eta_1\eta_1}\varphi=1/\eta_1+1/p_3\to+\infty$。値は連続延長できても境界で滑らかな期待値座標は得られません。
+   $\det G_\theta=1/36$ なので、逆行列を直接計算すると
+
+   $$
+   G_\theta^{-1}=36
+   \begin{pmatrix}2/9&1/6\\1/6&1/4\end{pmatrix}
+   =\begin{pmatrix}8&6\\6&9\end{pmatrix}
+   $$
+
+   となり一致します。次に $\eta_2=1/3$ を固定して $\eta_1\to0+$ とすると、$p_3=1-\eta_1-1/3\to2/3$、$\eta_1\log\eta_1\to0$ なので
+
+   $$
+   \varphi(\eta_1,1/3)\longrightarrow
+   \frac13\log\frac13+\frac23\log\frac23.
+   $$
+
+   一方、同じ極限で
+
+   $$
+   \partial_{\eta_1}\varphi=\log(\eta_1/p_3)\to-\infty,
+   \qquad
+   \partial^2_{\eta_1\eta_1}\varphi=1/\eta_1+1/p_3\to+\infty.
+   $$
+
+   値は連続延長できても、境界で滑らかな期待値座標は得られません。
 <!-- solution-end -->
 
 ---
