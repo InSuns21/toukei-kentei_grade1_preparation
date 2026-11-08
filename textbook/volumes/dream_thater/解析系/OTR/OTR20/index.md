@@ -221,7 +221,17 @@ OTR18が最小作用の場を与えます。その場を各時刻で勾配閉包
 <!-- proof-start -->
 ### 証明
 
-**第1段階：時刻ごとの射影を可測にする。** $C_c^\infty(\mathbb R^d)$ から、勾配が任意の $\mu_t$ の $L^2$ 閉包で稠密となる可算族 $(\phi_k)$ を固定できます。例えばコンパクト集合上の一階導関数までの一様近似で稠密な滑らかな関数族を取り、台を増やしていきます。$\nabla\phi_k$ を各 $L^2(\mu_t)$ で Gram–Schmidt 直交化すると、その係数は $t\mapsto\int\nabla\phi_i\cdot\nabla\phi_j\,d\mu_t$ という可測関数から四則演算と平方根で得られます。射影係数も $t\mapsto\int\nabla\phi_i\cdot v_t\,d\mu_t$ の可測性から得られます。ノルム $0$ の項を飛ばします。
+**第1段階：時刻ごとの射影を可測にする。** $C_c^\infty(\mathbb R^d)$ から、勾配が任意の $\mu_t$ の $L^2$ 閉包で稠密となる可算族 $(\phi_k)$ を固定できます。例えばコンパクト集合上の一階導関数までの一様近似で稠密な滑らかな関数族を取り、台を増やしていきます。
+
+各 $L^2(\mu_t)$ で $\nabla\phi_k$ を Gram–Schmidt 直交化します。正規直交化の係数と、速度場の有限次元射影の係数は、それぞれ次の可測な時刻関数から四則演算と平方根で得られます。
+
+$$
+t\longmapsto\int\nabla\phi_i\cdot\nabla\phi_j\,d\mu_t,
+\qquad
+t\longmapsto\int\nabla\phi_i\cdot v_t\,d\mu_t.
+$$
+
+後者の可測性には、速度場 $v$ の時空可測性と $\mu_t$ の測度曲線としての可測性を使います。ノルム $0$ の項は飛ばします。
 
 最初の $n$ 個の正規直交化された場への有限次元射影は $(t,x)$ に関して可測です。有限次元射影を $p_t^{(n)}$ と書きます。各時刻でその部分空間は増大し、勾配閉包に稠密なので $p_t^{(n)}\to P_{\mu_t}v_t$ が $L^2(\mu_t)$ で成り立ちます。$m>n$ について入れ子の直交射影の Pythagoras の等式から
 
@@ -323,7 +333,16 @@ $$
 
 接ベクトルが分かったので、「確率分布を少し動かしたときエネルギーがどう変わるか」を問えます。有限次元では関数の方向微分を内積で表すベクトルを勾配と呼びます。ここでも同様に考えますが、まず密度を持つ場合の計算から始めます。
 
-質量 $1$ で、全空間で滑らかかつ正の密度関数 $\rho$ を考えます。[AMECH3の第一変分](../../../物理系/AMECH/AMECH3/index.md#def-amech3-first-variation)では軌道を端点固定で変分しましたが、ここでは確率密度を全質量固定で変分します。$\eta\in C_c^\infty(\mathbb R^d)$ が $\int\eta dx=0$ を満たすなら、十分小さい $|\varepsilon|$ について $\rho+\varepsilon\eta$ も非負かつ質量 $1$ です。実際、$\eta\ne0$ のときコンパクト集合 $K=\operatorname{supp}\eta$ 上で $m=\min_K\rho>0$、$M=\|\eta\|_\infty>0$ と置けば、$|\varepsilon|<m/M$ に対して $K$ 上で $\rho+\varepsilon\eta\ge m-|\varepsilon|M>0$ です。$K$ の外では $\eta=0$ であり、全質量も $\int(\rho+\varepsilon\eta)dx=1$ のままです（$\eta=0$ なら任意の $\varepsilon$ で不変）。これは密度を保った微小変形です。
+質量 $1$ で、全空間で滑らかかつ正の密度関数 $\rho$ を考えます。[AMECH3の第一変分](../../../物理系/AMECH/AMECH3/index.md#def-amech3-first-variation)では軌道を端点固定で変分しましたが、ここでは確率密度を全質量固定で変分します。
+
+$\eta\in C_c^\infty(\mathbb R^d)$ が $\int\eta dx=0$ を満たすとします。$\eta\ne0$ のとき、そのコンパクトな台 $K=\operatorname{supp}\eta$ 上では、$\rho$ の連続性と正値性から $m=\min_K\rho>0$、また $M=\|\eta\|_\infty>0$ です。$|\varepsilon|<m/M$ なら
+
+$$
+\rho(x)+\varepsilon\eta(x)\ge m-|\varepsilon|M>0
+\qquad(x\in K)
+$$
+
+となります。台の外では元の $\rho>0$ のままです。加えて、質量保存条件から $\int(\rho+\varepsilon\eta)dx=1$ です。$\eta=0$ の場合も含め、十分小さい摂動は確率密度のままなので、密度を保った微小変形として使えます。
 
 <a id="def-otr20-first-variation"></a>
 
