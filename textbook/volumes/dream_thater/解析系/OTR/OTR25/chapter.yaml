@@ -1,0 +1,45 @@
+id: "OTR25"
+title: "離散OTを安定して近似するには"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR24
+official_scope: []
+learning_objectives:
+  - 有限輸送多面体上の結合エントロピー正則化を定義しJKOの自由エネルギーと区別できる
+  - 正の周辺質量と有限費用の下で正則化解の存在・厳密な正値性・一意性を証明できる
+  - Fenchel不等式から正則化双対と指数表示を導きスケーリング不定性を説明できる
+  - Sinkhornの行・列交互スケーリングの保存則と収束をKL射影で証明できる
+  - log-sum-expによるlog-domain反復と行列の周辺残差を手計算・実装で検証できる
+  - 正則化パラメータがゼロへ向かうときの費用誤差上界と最大エントロピー選択を証明できる
+  - 正則化された双対差と未実現の周辺制約誤差を混同せず停止を判断できる
+definitions:
+  - { id: OTR25-DEF-01, name: 有限OTの結合エントロピー正則化 }
+  - { id: OTR25-DEF-02, name: 正則化双対とスケーリング因子 }
+  - { id: OTR25-DEF-03, name: 周辺残差とlog-sum-exp }
+theorems:
+  - { id: OTR25-THM-01, name: 正則化結合の存在・正値性・一意性 }
+  - { id: OTR25-THM-02, name: 正則化双対と指数形の最適性条件 }
+  - { id: OTR25-THM-03, name: Sinkhorn交互スケーリングの収束 }
+  - { id: OTR25-PROP-01, name: 正則化ゼロ極限と最大エントロピー選択 }
+canonical_examples:
+  - 対称2x2輸送の閉形式正則化解と微小正則化極限
+  - 行和・列和の交互スケーリングと停止残差の手計算
+  - 極端な費用差で直接指数計算がアンダーフローする例
+  - 全費用ゼロで最大エントロピー結合が独立結合となる例
+problem_patterns:
+  - OTR25-A01
+  - OTR25-A02
+  - OTR25-A03
+  - OTR25-A04
+  - OTR25-A05
+  - OTR25-B01
+  - OTR25-B02
+  - OTR25-B03
+  - OTR25-B04
+  - OTR25-C01
+  - OTR25-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 8.0, review: 4.0 }

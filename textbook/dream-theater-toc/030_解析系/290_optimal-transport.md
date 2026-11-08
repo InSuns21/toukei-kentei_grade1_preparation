@@ -25,3 +25,4 @@
 22. [OTR22 勾配流を変分最小化で離散化できるか](textbook/volumes/dream_thater/解析系/OTR/OTR22/index.md)
 23. [OTR23 JKOの一歩はPDEにどう近づくか](textbook/volumes/dream_thater/解析系/OTR/OTR23/index.md)
 24. [OTR24 時間刻みをゼロにすると何が得られるか](textbook/volumes/dream_thater/解析系/OTR/OTR24/index.md)
+25. [OTR25 離散OTを安定して近似するには](textbook/volumes/dream_thater/解析系/OTR/OTR25/index.md)
