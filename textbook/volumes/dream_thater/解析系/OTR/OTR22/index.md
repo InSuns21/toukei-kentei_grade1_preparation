@@ -290,6 +290,14 @@ $$
 
 抽象的な存在定理は最小化解の値までは教えてくれません。しかし[位置エネルギー](../OTR16/index.md#def-otr16-potential-energy)が二次式なら、結合上で平方完成できます。$\nu$ の形はGaussianに限りません。
 
+可測写像 $S:\mathbb R^d\to\mathbb R^d$ が各出発点 $y$ を $S(y)$ へ動かすとき、既習の[押し出し測度](../../F0/F0-00P1/index.md#def-f0-00p1-pushforward)を $S_{\#}\nu$ と書きます。これは $S_{\#}\nu(A)=\nu(S^{-1}(A))$ を意味し、積分では
+
+$$
+\int f(x)\,d(S_{\#}\nu)(x)=\int f(S(y))\,d\nu(y)
+$$
+
+と表せます（$f$ は任意の有界可測関数）。後の証明で使う $(S,\operatorname{id})_{\#}\nu$ は、$y\mapsto(S(y),y)$ による押し出しです。第一周辺が $S_{\#}\nu$、第二周辺が $\nu$ となるので、これは[結合測度](../OTR2/index.md#def-otr2-coupling)です。この具体的な結合で平方項をゼロにできれば、抽象的な最小化を実現できます。
+
 <a id="prop-otr22-quadratic"></a>
 
 <!-- formal-statement-start -->
@@ -338,9 +346,17 @@ $$
 
 平方完成の二行目は $c|x-y/c|^2=c|x|^2-2x\cdot y+|y|^2/c$ と展開して確認でき、余る $|y|^2$ の係数は $(1-1/c)/(2\tau)=\lambda/(2c)$ です。
 
-$\pi_*=(S_\tau,\operatorname{id})_{\#}\nu$ で $\mu_*=S_{\tau\#}\nu$ とすれば平方項がゼロです。従って $\pi_*$ に沿う移動費用を使った目的関数の上界は下界と一致し、$\mu_*$ は最小化解です。別の最小化解があればその最適結合の平方項もゼロなので $x=S_\tau(y)$ がほとんど至る所で成立し、第一周辺は同じ $\mu_*$ です。
+$\pi_*=(S_\tau,\operatorname{id})_{\#}\nu$ で $\mu_*=(S_\tau)_{\#}\nu$ とします。$S_\tau$ は連続で、上で示した押し出し測度の積分等式に $f(x)=|x|^2$ を代入すると
 
-質量を押し出しで計算すると $\int|x|^2\,d\mu_*=M_2(\nu)/c^2$ です。また、上の等号成立から $\pi_*$ は二次費用でも最適でなければなりません（もしそれより安い結合があれば目的関数が下界未満になるため）。従って
+$$
+\int|x|^2\,d\mu_*(x)
+=\int|S_\tau(y)|^2\,d\nu(y)
+=\frac{M_2(\nu)}{c^2}<\infty.
+$$
+
+従って $\mu_*$ は $\mathcal P_2$ に属する許容候補です。この結合では平方項がゼロなので、$\pi_*$ に沿う費用を使った目的関数の上界は下界と一致し、$\mu_*$ は最小化解です。別の最小化解があればその最適結合の平方項もゼロなので、$x=S_\tau(y)$ がほとんど至る所で成立し、第一周辺は同じ $\mu_*$ です。
+
+また、上の等号成立から $\pi_*$ は二次費用でも最適でなければなりません（もしそれより安い結合があれば目的関数が下界未満になるため）。従って
 
 $$
 W_2^2(\mu_*,\nu)=\int|S_\tau(y)-y|^2\,d\nu(y)
@@ -376,14 +392,28 @@ $$
 g(x)=(2\pi)^{-1/2}e^{-x^2/2}.
 $$
 
-確率測度 $\mu$ と基準確率測度 $\gamma$ の**相対エントロピー** $D(\mu\Vert\gamma)$ を、$\mu$ が $\gamma$ に密度 $h$ を持つ場合（全てのBorel集合 $A$ に $\mu(A)=\int_Ah\,d\gamma$、この $h$ を $d\mu/d\gamma$ と書く）は $\int h\log h\,d\gamma$、そのような密度を持たない場合は $+\infty$ とする非負の量として使います。$0\log0=0$ と定めます。この定義で有限な密度について
+先に測度に関する記号を確認します。[絶対連続性](../../F0/F0-00P2/index.md#def-f0-00p2-absolute-continuity) $\mu\ll\gamma$ は、任意のBorel集合 $A$ について $\gamma(A)=0$ なら $\mu(A)=0$ となることです。両者は有限測度なので、既習の[Radon–Nikodym定理](../../F0/F0-00P2/index.md#thm-f0-00p2-radon-nikodym)から、この条件と非負密度 $h$ による表示
+
+$$
+\mu(A)=\int_A h\,d\gamma\qquad(\text{すべてのBorel集合 }A)
+$$
+
+は同値です。この $h$ は $\gamma$ についてほとんど至る所一意で、[Radon–Nikodym微分](../../F0/F0-00P2/index.md#def-f0-00p2-rn-density) $h=d\mu/d\gamma$ と書きます。
+
+確率測度 $\mu$ と基準確率測度 $\gamma$ の**相対エントロピー** $D(\mu\Vert\gamma)$ は、$\mu\ll\gamma$ なら $\int h\log h\,d\gamma$、そうでなければ $+\infty$ とする非負の量です。$0\log0=0$ と定めます。特に $\mu(dx)=\rho(x)\,dx$、$D(\mu\Vert\gamma)<\infty$、$\mu\in\mathcal P_2$ の場合、$h=\rho/g$ であり、$\rho>0$ の点では
+
+$$
+\log h(x)=\log\rho(x)+\frac{x^2}{2}+\frac12\log(2\pi).
+$$
+
+これに $\int\rho\,dx=1$ を代入すると
 
 $$
 \mathcal F(\mu):=D(\mu\Vert\gamma)-\frac12\log(2\pi)
 =\int\rho\log\rho\,dx+\frac12\int x^2\rho(x)\,dx.
 $$
 
-右辺が通常の自由エネルギーです。拡張された左辺は密度が存在しない測度でも $+\infty$ として意味を持ち、$\mathcal F\ge-\frac12\log(2\pi)$ です。残るのは狭義下半連続性です。
+右辺が通常の自由エネルギーです。拡張された左辺は密度が存在しない測度でも $+\infty$ として意味を持ち、$\mathcal F\ge-\frac12\log(2\pi)$ です。残るのは狭義下半連続性です。以下で $C_b(\mathbb R^d)$ は、$\mathbb R^d$ 上の有界連続な実数値関数全体を表します。狭義収束を調べるときの試験関数と同じクラスです。
 
 <a id="lem-otr22-relative-entropy-lsc"></a>
 
@@ -411,7 +441,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\mu\ll\gamma$ で $h=d\mu/d\gamma$ とします。$D$ が有限の場合、$\gamma_\varphi=e^\varphi\gamma/Z_\varphi$（$Z_\varphi=\int e^\varphi d\gamma$）は確率測度です。凸関数 $s\log s-s+1\ge0$ を $d\mu/d\gamma_\varphi$ に適用する[相対エントロピーの非負性](../OTR21/index.md#prop-otr21-gibbs)と同じ計算で
+まず $\mu\ll\gamma$ で $h=d\mu/d\gamma$ とし、$D$ が有限とします。有界な $\varphi$ に対して
+
+$$
+Z_\varphi=\int e^\varphi\,d\gamma,\qquad
+\gamma_\varphi(A)=\frac1{Z_\varphi}\int_A e^\varphi\,d\gamma
+$$
+
+と置きます。有界性と $\gamma$ の全質量が $1$ であることから $0<Z_\varphi<\infty$ であり、$\gamma_\varphi$ は確率測度です。凸関数 $s\log s-s+1\ge0$ を $d\mu/d\gamma_\varphi$ に適用する[相対エントロピーの非負性](../OTR21/index.md#prop-otr21-gibbs)と同じ計算で
 
 $$
 0\le D(\mu\Vert\gamma_\varphi)
@@ -450,7 +487,9 @@ $$
 
 もそれぞれ $\int\psi_R\,d\mu$ と $\int e^{\psi_R}d\gamma$ に近づきます。従って連続関数の上限は $\int\psi_R d\mu-\log\int e^{\psi_R}d\gamma$ 以上となり、$R\to\infty$ で $D$ に達します。
 
-次に $\mu\not\ll\gamma$ なら、$\gamma(A)=0$、$\mu(A)>0$ となるBorel集合 $A$ があります。内側正則性からコンパクト $K\subset A$ を選んで $\mu(K)=a>0$ とできます。各 $M>0$ に対して外側正則性により $\gamma(U)<e^{-2M}$ となる開集合 $U\supset K$ を取り、$K$ 上で $M$、$U$ の外で $0$、その間で $[0,M]$ の値を取る連続関数 $\varphi_M$ を作ります。すると
+次に $\mu\not\ll\gamma$ なら、$\gamma(A)=0$、$\mu(A)>0$ となるBorel集合 $A$ があります。内側正則性からコンパクト集合 $K\subset A$ を選び、$\mu(K)=a>0$ とできます。
+
+各 $M>0$ に対して外側正則性により $\gamma(U)<e^{-2M}$ となる開集合 $U\supset K$ を取ります。$K$ 上で $M$、$U$ の外で $0$、その間で $[0,M]$ の値を取る連続関数 $\varphi_M$ を作ると
 
 $$
 \int\varphi_M d\mu\ge Ma,\qquad
