@@ -638,7 +638,7 @@ $$
 W_2^2(\mu,\nu)\ge(M-m)^2+(r-s)^2.
 $$
 
-$\mu=N(M,r^2)$ なら、$Z\sim N(0,1)$ に対して $X=M+rZ$、$Y=m+sZ$ と取れます。両成分が $Z$ の増加関数であるため、[一次元の分位点公式](../OTR11/index.md#thm-otr11-quantile-formula)によりこの結合は最適です。その費用は上の下界に等しくなります。
+$\mu=N(M,r^2)$ なら、$Z\sim N(0,1)$ に対して $X=M+rZ$、$Y=m+sZ$ と取れます。両成分が $Z$ の増加関数であるため、[一次元Wasserstein距離の分位点公式](../OTR11/index.md#thm-otr11-quantile-formula)によりこの結合は最適です。その費用は上の下界に等しくなります。
 
 次に $g_{M,r}$ をそのGaussian密度として $D(\mu\Vert g_{M,r}dx)\ge0$ を展開します。$\int(x-M)^2d\mu=r^2$ より
 
