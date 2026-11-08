@@ -111,7 +111,7 @@ $$
 \in H_{\bar\partial}^{0,2}(X,T_X)\simeq H^2(X,T_X)
 $$
 
-> と定める。括弧の係数 $1/2$ は $\phi(t)=t\alpha+t^2\beta+\cdots$ の二次係数と整合させるものである。右辺が代表 $\alpha$ の選び方に依存しないことは次の定理で証明する。
+> と定める。右端の同型には[正則ベクトル束版Dolbeaultの定理](../../CYG/CYG1-12/index.md#thm-cyg1-12-bundle-dolbeault)を使う。括弧の係数 $1/2$ は $\phi(t)=t\alpha+t^2\beta+\cdots$ の二次係数と整合させるものである。右辺が代表 $\alpha$ の選び方に依存しないことは次の定理で証明する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-05-primary-obstruction -->
@@ -296,13 +296,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\phi_{<m}(t)=\sum_{k=1}^{m-1}t^k\phi_k$ を[Bianchi恒等式](#lem-def1-05-bianchi)の $\phi$ へ代入する。仮定により $F(\phi_{<m})$ の $t^0,\ldots,t^{m-1}$ の係数は零であり、$t^m$ の係数は $R_m$ である。従って
+まず $\phi_{<m}(t)=\sum_{k=1}^{m-1}t^k\phi_k$ を[Bianchi恒等式](#lem-def1-05-bianchi)の $\phi$ へ代入する。仮定により $F(\phi_{<m})$ の $t^0,\ldots,t^{m-1}$ の係数は零であり、$t^m$ の係数は $R_m$ である。以下の $O(t^{m+1})$ は形式級数の次数 $m+1$ 以上を表し、数値的な大きさの評価ではない。従って
 
 $$
 F(\phi_{<m})=t^mR_m+O(t^{m+1}).
 $$
 
-ここで $O(t^{m+1})$ は形式級数の次数 $m+1$ 以上を表す。$\phi_{<m}$ は $t$ の一次から始まるので、$[\phi_{<m},F(\phi_{<m})]$ は $t^{m+1}$ 以上から始まる。Bianchi恒等式の $t^m$ 係数を比較すると $dR_m=0$ を得る。
+$\phi_{<m}$ は $t$ の一次から始まるので、$[\phi_{<m},F(\phi_{<m})]$ は $t^{m+1}$ 以上から始まる。Bianchi恒等式の $t^m$ 係数を比較すると $dR_m=0$ を得る。
 
 最後に $t^m\phi_m$ を追加すると、$d\phi_m$ は次数 $m$ に寄与し、括弧 $[t^m\phi_m,t^i\phi_i]$ は $i\ge1$ ゆえ次数 $m+1$ 以上にしか寄与しない。従って次数 $m$ の方程式は正確に $d\phi_m=-R_m$ である。これは閉形式 $R_m$ の類が零であることと同値である。
 
@@ -321,17 +321,42 @@ $$
 \omega=d\bar z^1\wedge d\bar z^2\otimes\partial_{z^1}
 $$
 
-は $d\omega=0$ を満たす。もし $\omega=d\eta$ となる大域的 $\eta\in C^1$ が存在すれば、その $\partial_{z^1}$ 成分を $\eta^1$ と書き、$\Omega=dz^1\wedge dz^2$ を使って
+は $d\omega=0$ を満たす。もし $\omega=d\eta$ となる大域的 $\eta\in C^1$ が存在すれば、その $\partial_{z^1}$ 成分を $\eta^1$ と書き、$\Omega=dz^1\wedge dz^2$ を使う。
+
+ここで二つの微分を区別する。接束値形式への $d=\bar\partial_T$ と異なり、スカラー値形式の**全外微分**は $d_{\mathrm{dR}}=\partial+\bar\partial$ と書く。$d\eta$ の $\partial_{z^1}$ 成分は $\bar\partial\eta^1$ である。
+
+$\eta^1$ は $(0,1)$ 形式なので $\partial\eta^1\wedge\Omega$ は型 $(3,1)$ となり、複素次元2では零である。$d_{\mathrm{dR}}\Omega=0$ と外微分の積の規則から
+
+$$
+\begin{aligned}
+d_{\mathrm{dR}}(\eta^1\wedge\Omega)
+&=(\partial\eta^1+\bar\partial\eta^1)\wedge\Omega
+-\eta^1\wedge d_{\mathrm{dR}}\Omega\\
+&=\bar\partial\eta^1\wedge\Omega
+\end{aligned}
+$$
+
+が従う。よって
 
 $$
 \int_X d\bar z^1\wedge d\bar z^2\wedge\Omega
 =\int_X \bar\partial\eta^1\wedge\Omega
-=\int_X d(\eta^1\wedge\Omega)=0
+=\int_X d_{\mathrm{dR}}(\eta^1\wedge\Omega)=0
 $$
 
-となる。最後の等号には境界のないコンパクト多様体上の[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使った。ここでは $\partial\eta^1\wedge\Omega$ は型 $(3,1)$ となり、複素次元2では零である。また $d\Omega=0$ である。
+となる。最後の等号には境界のないコンパクト多様体上の[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使った。
 
-しかし左辺は、格子による商を表す単位立方体 $[0,1]^4$ 上での積分である。被積分形式は $dx^1\wedge dy^1\wedge dx^2\wedge dy^2$ の非零定数倍なので、積分は零ではない。よって $[\omega]\ne0$、したがって $H^2(X,T_X)\ne0$ である。
+しかし左辺は、格子による商を表す単位立方体 $[0,1]^4$ 上での積分である。$z^j=x^j+iy^j$ とおけば
+
+$$
+\begin{aligned}
+d\bar z^1\wedge d\bar z^2\wedge dz^1\wedge dz^2
+&=-(2i)^2\,dx^1\wedge dy^1\wedge dx^2\wedge dy^2\\
+&=4\,dx^1\wedge dy^1\wedge dx^2\wedge dy^2
+\end{aligned}
+$$
+
+なので積分は $4\ne0$。よって $[\omega]\ne0$、したがって $H^2(X,T_X)\ne0$ である。
 
 一方、任意の複素数の定数 $a^i_j$ を選び
 
@@ -486,14 +511,23 @@ $d[\alpha,\eta]=[d\alpha,\eta]-[\alpha,d\eta]=0$ なので差は閉形式だが�
 $X=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ とする。$\omega=d\bar z^1\wedge d\bar z^2\otimes\partial_{z^2}$ が $d$-完全でないことを、$dz^1\wedge dz^2$ との積分とStokesの定理で示せ。
 
 <!-- solution-start -->
-**詳細解答。** $d\omega=0$ は次数の理由から成立する。もし $\omega=d\eta$ なら、$\partial_{z^2}$ 成分で $d\bar z^1\wedge d\bar z^2=\bar\partial\eta^2$ となる。$\Omega=dz^1\wedge dz^2$ は閉じた大域正則 $(2,0)$ 形式であり、$\partial\eta^2\wedge\Omega=0$ は型の次数 $(3,1)$ が複素次元2を超えるためである。よって
+**詳細解答。** $d\omega=0$ は $(0,3)$ 形式が複素次元2で零となるため成立する。もし $\omega=d\eta$ なら、$\partial_{z^2}$ 成分で $d\bar z^1\wedge d\bar z^2=\bar\partial\eta^2$ となる。
+
+$\Omega=dz^1\wedge dz^2$ は閉じた大域正則 $(2,0)$ 形式である。$\partial\eta^2\wedge\Omega=0$ は型 $(3,1)$ が複素次元2を超えるためである。第4節で区別した全外微分について
+
+$$
+d_{\mathrm{dR}}(\eta^2\wedge\Omega)
+=\bar\partial\eta^2\wedge\Omega
+$$
+
+となるので、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により
 
 $$
 \int_X d\bar z^1\wedge d\bar z^2\wedge\Omega
-=\int_X d(\eta^2\wedge\Omega)=0.
+=\int_X d_{\mathrm{dR}}(\eta^2\wedge\Omega)=0.
 $$
 
-一方 $d\bar z^j\wedge dz^j=2i\,dx^j\wedge dy^j$ だから、積の順序を入れ替えて左辺は非零の定数倍の $\int_{[0,1]^4}dx^1dy^1dx^2dy^2=1$ である。矛盾より $[\omega]\ne0$。
+一方 $d\bar z^j\wedge dz^j=2i\,dx^j\wedge dy^j$ だから、積の順序を入れ替えると左辺は $-(2i)^2\int_{[0,1]^4}dx^1dy^1dx^2dy^2=4$ となる。矛盾より $[\omega]\ne0$。
 <!-- solution-end -->
 
 <a id="ex-def1-05-b04"></a>
@@ -523,10 +557,12 @@ $X=\mathbb C^2/(\mathbb Z+i\mathbb Z)^2$ とする。(1) $H^2(X,T_X)\ne0$ を証
 
 $$
 \int_Xd\bar z^1\wedge d\bar z^2\wedge dz^1\wedge dz^2
-=\int_Xd(\eta^1\wedge dz^1\wedge dz^2)=0
+=\int_Xd_{\mathrm{dR}}(\eta^1\wedge dz^1\wedge dz^2)=0
 $$
 
-を得る。$\partial\eta^1\wedge dz^1\wedge dz^2=0$ とコンパクト性によるStokesを用いた。しかし左辺は基本領域の実体積の非零定数倍なので矛盾する。従って $[\omega]\ne0$。
+を得る。ここで $d=\bar\partial_T$ は接束値形式への微分、$d_{\mathrm{dR}}=\partial+\bar\partial$ は全外微分である。$\partial\eta^1\wedge dz^1\wedge dz^2=0$ は型 $(3,1)$ が複素次元2を超えることから従う。また $d_{\mathrm{dR}}(dz^1\wedge dz^2)=0$ と[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を用いた。
+
+しかし左辺は基本領域で $-(2i)^2\int_{[0,1]^4}dx^1dy^1dx^2dy^2=4$ なので矛盾する。従って $[\omega]\ne0$。
 
 (2) $d\alpha=0$ は係数が定数だから成立する。もし $\alpha=dv$ なら $v^1$ は $\partial_{\bar z^1}v^1=2$ を満たす。$\partial_{\bar z^1}=(\partial_{x^1}+i\partial_{y^1})/2$ を基本領域で平均すると、周期関数 $v^1$ の境界値が相殺し左辺は零、右辺の平均は2となり矛盾する。ゆえに $[\alpha]\ne0$。
 
