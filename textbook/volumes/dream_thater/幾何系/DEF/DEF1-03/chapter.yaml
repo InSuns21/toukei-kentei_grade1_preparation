@@ -1,0 +1,39 @@
+id: "DEF1-03"
+title: "Maurer–Cartan方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-02
+official_scope: []
+learning_objectives:
+  - 接束値（0,1）形式の次数1の括弧を局所成分から定義し、符号と対称性を計算できる
+  - BeltramiグラフのLie括弧からMaurer–Cartan方程式を導き、Newlander–Nirenberg定理との接続を証明できる
+  - 一次閉条件と非線形二次項を区別し、一次条件を満たすが非積分可能な具体例を判定できる
+  - 形式的べき級数解の次数別方程式を導出し、収束する実際の族との違いを説明できる
+  - 滑らかな座標変更によるゲージ同値を定義し、一次係数がDolbeault完全形式だけ変わることを導ける
+theorems:
+  - { id: DEF1-03-DEF-01, name: "接束値（0,1）形式の次数1の括弧" }
+  - { id: DEF1-03-THM-01, name: "Maurer–Cartan方程式と可積分性" }
+  - { id: DEF1-03-DEF-02, name: "形式的Maurer–Cartan解" }
+  - { id: DEF1-03-PROP-01, name: "形式的解の次数別方程式" }
+  - { id: DEF1-03-DEF-03, name: "Beltrami微分のゲージ同値" }
+  - { id: DEF1-03-PROP-02, name: "ゲージ変更の一次係数" }
+canonical_examples:
+  - 複素次元1で二次項が消える例
+  - 複素次元2でDolbeault閉だが二次括弧が非零の例
+  - 非正則座標変更から出る二次補正とゲージ自明性
+  - 階乗係数の形式的解が収束半径0となる例
+problem_patterns:
+  - DEF1-03-BRACKET-SYMMETRY
+  - DEF1-03-FIRST-ORDER-CLOSEDNESS
+  - DEF1-03-DIMENSION-ONE
+  - DEF1-03-CONSTANT-COEFFICIENT
+  - DEF1-03-QUADRATIC-OBSTRUCTION
+  - DEF1-03-ORDER-RECURRENCE
+  - DEF1-03-GAUGE-TRIVIALITY
+  - DEF1-03-FORMAL-DIVERGENCE
+  - DEF1-03-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }
