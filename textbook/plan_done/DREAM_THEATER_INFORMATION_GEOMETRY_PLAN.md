@@ -1,8 +1,8 @@
 # DREAM THEATER 情報幾何計画
 
 作成日: 2026-10-05  
-改訂日: 2026-11-08（標準教科書・公開シラバスと照合、全14講に確定）  
-状態: in_progress（IG1--IG14 の各講を実装済み、系列全体の横断的な最終点検は未実施）
+改訂日: 2026-11-09（全14講の系列横断最終監査と公開・依存・参照整合を確認）
+状態: completed（IG1--IG14 の実装・公開・系列横断最終監査を完了）
 移行元: \`DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md\` 旧 U5
 
 ## 0. 目的
@@ -419,3 +419,15 @@ log-partition function の Hessian が Fisher metric になることを一般に
 - **混同防止**：Fisher 行列の半正定値と正定値、指数型「全族」と曲がった部分族、e/m 平坦性と Levi-Civita 曲率、KL の引数順と射影の種類、Čencov の有限次元仮定を明示的なチェック項目とする。
 - **前提の最小化**：GEO の接空間・計量・接続、統計の正則モデル、凸解析の Legendre 双対へ、実装時に直接到達できる stable anchor と prerequisite を照合する。GEO 全系列を機械的に前提へ加えない。
 - **対象境界**：量子・無限次元・半パラメトリック・複雑な EM/IPF 収束論は独立した中心問いであり、14講へ詰め込まない。
+
+---
+
+## 13. IG1--IG14 系列横断最終監査と完了記録（2026-11-09）
+
+- 全14章の `index.md`、`chapter.yaml`、`knowledge.yaml` と IG 系列 manifest を対照し、H1/タイトル、直接 prerequisite、全 formal statement、proof block、演習ID、詳細解答と metadata の整合を点検。**102 formal statement（定義43件を含む）、59証明ブロック、129演習（全129題に詳細解答）**を実本文から確認した。すべての章が A4/B3/C1 以上を満たす。
+- Fisher 計量と KL 二次項（IG1--IG3）、指数型分布族の Hessian・Legendre 双対（IG4--IG5）、$\alpha=+1$ の e 接続／$\alpha=-1$ の m 接続と双対平坦性（IG6--IG8）、Bregman と KL の引数順・e/m 射影（IG9--IG11）、自然勾配と局所 KL 制約（IG12）、曲率（IG13）、有限正単体における単調性・Čencov の特徴付け（IG14）の章間接続を重点検算した。代表例の中間式、定義域・仮定、反例との一致を確認し、検査範囲で新たな重大矛盾は検出しなかった。
+- 14章の安定 anchor リンクと直接参照先が存在し、章間リンク・対象章 metadata・科目別公開目次の章順が一致することを確認した。既存の `textbook/dream-theater-toc/050_幾何系/140_information-geometry.md` は14章を掲載し、追加変更を必要としない。
+- `npm run validate`、`npm run validate:pages`、`npm run validate:dream-theater-work` は成功。全系列に対する `validate:dream-theater-concepts` は IG 外の既存教材に関する strict ERROR により失敗し、**全体概念監査を green と称しない**。本PRは IG の章本文・`knowledge.yaml`・全体概念レジストリを変更しないため、この既存問題を IG 系列の完成結果へ転嫁しない。
+- この横断監査は既存章すべての主要証明・全129詳細解答を新たに一問ずつ独立再計算する追跡監査ではない。公開済み各章の章別査読を前提に、系列横断の境界条件・定義の使用順・符号・数式対応・依存・リンク・公開導線を点検した。同一作業者による検査であり、第三者独立査読は実施していない。
+
+監査の手順、代表計算、検証範囲、既存の全体監査エラーは [IG 系列横断監査記録](../audits/2026-11-09-IG-cross-course-audit.md) に残した。本計画の第11節の到達目標は、上記の横断点検と既存章の実装・公開により充足したと判定し、PLAN を `plan_done/` へ移動した。発展主題は本計画の完了を妨げず、必要時に独立PLANで扱う。

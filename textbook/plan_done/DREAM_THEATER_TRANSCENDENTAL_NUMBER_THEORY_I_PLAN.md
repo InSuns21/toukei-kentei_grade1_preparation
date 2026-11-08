@@ -241,7 +241,7 @@ $$
 3. Sever Angel Popescu, *A simple and self-contained proof for the Lindemann-Weierstrass theorem*, arXiv:2306.14352v2 (2023), §§1–3. https://arxiv.org/abs/2306.14352
 4. Michel Waldschmidt, *Introduction to Diophantine methods: irrationality and transcendence* (2007), course notes and exercises. https://webusers.imj-prg.fr/~michel.waldschmidt/coursHCMUNS2007.html
 5. *Encyclopedia of Mathematics*, “Lindemann theorem / Lindemann–Weierstrass theorem” (定理の二つの形式・歴史上の帰属の確認). https://encyclopediaofmath.org/wiki/Lindemann%E2%80%93Weierstrass_theorem
-6. 既存の[古典円積PLAN](../plans/DREAM_THEATER_CLASSICAL_CONSTRUCTIBILITY_SQUARING_PLAN.md)、[整数論横断ルート](../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md)および[完成済みNDA6](../volumes/dream_thater/代数系/NDA/NDA6/index.md)。
+6. 既存の[古典円積PLAN](../plans_progress/DREAM_THEATER_CLASSICAL_CONSTRUCTIBILITY_SQUARING_PLAN.md)、[整数論横断ルート](../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md)および[完成済みNDA6](../volumes/dream_thater/代数系/NDA/NDA6/index.md)。
 
 ## 8. 現在地
 

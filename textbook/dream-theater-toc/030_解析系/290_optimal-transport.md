@@ -17,3 +17,4 @@
 14. [OTR14 Gaussian分布間のW2はどう計算するか](textbook/volumes/dream_thater/解析系/OTR/OTR14/index.md)
 15. [OTR15 測度空間の最短経路とは](textbook/volumes/dream_thater/解析系/OTR/OTR15/index.md)
 16. [OTR16 汎関数の凸性は測地線で変わるか](textbook/volumes/dream_thater/解析系/OTR/OTR16/index.md)
+17. [OTR17 密度を時間発展させる保存則は](textbook/volumes/dream_thater/解析系/OTR/OTR17/index.md)

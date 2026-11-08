@@ -10,7 +10,7 @@
 ## 直接必要な前提・PLAN間依存
 
 - 既存SET、MTのBorel集合・Lebesgue測度。必要な組合せ論と境界次元の補題は科目内で扱う。
-- [GMT](DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md)は研究級の境界評価へ進むときの補助。[古典円積（SQC1〜7）](DREAM_THEATER_CLASSICAL_CONSTRUCTIBILITY_SQUARING_PLAN.md)は比較対象だが**直接必修ではない**。
+- [GMT](DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md)は研究級の境界評価へ進むときの補助。[古典円積（SQC1〜7）](../plans_progress/DREAM_THEATER_CLASSICAL_CONSTRUCTIBILITY_SQUARING_PLAN.md)は比較対象だが**直接必修ではない**。
 
 ## 所有範囲
 

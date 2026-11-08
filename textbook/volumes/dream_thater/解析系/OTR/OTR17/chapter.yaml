@@ -1,0 +1,49 @@
+id: "OTR17"
+title: "密度を時間発展させる保存則は"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR16
+  - PDE1
+  - VC9
+official_scope: []
+learning_objectives:
+  - VC9の質量流束と連続の方程式を再現し、VC4の発散定理から領域収支の符号と可変速度の補正を検算できる
+  - 空間方向にコンパクト支持の試験関数を定義し、時間端点を許す弱形式に適用できる
+  - 滑らかな密度の古典形と初期条件を含む試験関数弱形式の同値を証明できる
+  - 狭義連続な有限測度曲線と可積分速度場から測度弱解を定義し、移動Dirac測度で全条件を検証できる
+  - 全空間で速度の積分可能性からcutoffによる総質量保存を証明できる
+  - 有界領域でno-fluxを弱式と古典法線流束で表現し、内部PDEだけでは不十分な例を構成できる
+  - 滑らかな流れによる測度の押し出しが弱解になることとJacobianによる密度変換を証明できる
+  - 伸縮・平行移動する密度を使って弱式・速度積分・端点のW2距離を検算できる
+definitions:
+  - { id: OTR17-DEF-01, name: 連続の方程式の試験関数 }
+  - { id: OTR17-DEF-02, name: 測度に対する連続の方程式の弱解 }
+  - { id: OTR17-DEF-03, name: 有界領域の no-flux 弱条件 }
+theorems:
+  - { id: OTR17-THM-01, name: 古典形と弱形式の一致 }
+  - { id: OTR17-THM-02, name: 可積分速度の下での総質量保存 }
+  - { id: OTR17-PROP-01, name: 滑らかな場合の no-flux と法線流束 }
+  - { id: OTR17-THM-03, name: 滑らかな流れの押し出しは弱解 }
+  - { id: OTR17-PROP-02, name: 流れのJacobianによる密度保存 }
+canonical_examples:
+  - 定数速度での密度の平行移動と流束の符号
+  - 密度を持たない移動Dirac測度の試験関数検算
+  - 出入りが釣り合ってもno-fluxではない区間
+  - 円板の接線方向回転流
+  - 一様分布の膨張と伸縮平行移動のJacobian
+problem_patterns:
+  - OTR17-A01
+  - OTR17-A02
+  - OTR17-A03
+  - OTR17-A04
+  - OTR17-A05
+  - OTR17-B01
+  - OTR17-B02
+  - OTR17-B03
+  - OTR17-B04
+  - OTR17-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 2.0 }

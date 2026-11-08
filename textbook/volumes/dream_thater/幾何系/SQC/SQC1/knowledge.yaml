@@ -1,0 +1,45 @@
+chapter: SQC1
+scope: dream-theater
+coverage: complete
+prerequisites: [FLD5, RNG4, RA4, CA1]
+forward_references: []
+
+concepts:
+  - id: geometry.finite-straightedge-compass-procedure
+    name: 有限作図手順
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限作図手順）]
+    requires: [algebra.constructible-number]
+
+  - id: geometry.exact-construction-solution
+    name: 作図問題の厳密解
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（作図問題の厳密解）]
+    requires: [geometry.finite-straightedge-compass-procedure]
+
+  - id: geometry.segment-midpoint-construction
+    name: 線分の中点の有限作図
+    kind: proposition
+    introduction: formal
+    requires: [geometry.finite-straightedge-compass-procedure]
+
+  - id: geometry.perpendicular-parallel-construction
+    name: 点を通る垂線と平行線の有限作図
+    kind: proposition
+    introduction: formal
+    requires: [geometry.segment-midpoint-construction]
+
+  - id: geometry.square-on-segment-construction
+    name: 与えられた辺からの正方形の有限作図
+    kind: proposition
+    introduction: formal
+    requires: [geometry.perpendicular-parallel-construction]
+
+  - id: geometry.classical-three-construction-problems
+    name: 古典三大作図問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（古典三大作図問題）]
+    requires: [geometry.exact-construction-solution]
