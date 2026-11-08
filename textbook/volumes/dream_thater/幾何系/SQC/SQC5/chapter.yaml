@@ -1,0 +1,42 @@
+id: "SQC5"
+title: "正多角形とGauss–Wantzelの定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC3
+official_scope: []
+learning_objectives:
+  - 正n角形の有限作図を原始n乗根の実部の作図可能性へ帰着できる
+  - 円分多項式の整数係数性と既約性を証明し、円分体のGalois群と次数を求められる
+  - 可換2群の部分群列と実二次拡大列を結び付けてGauss–Wantzelの必要十分条件を証明できる
+  - Fermat素数によるnの分類を導き、7、9、15、17、20角形を判定できる
+  - 正17角形のGauss周期の積と和を検算し、平方根の列から頂点座標を再構成できる
+definitions:
+  - { id: SQC5-DEF-01, name: 1の原始n乗根 }
+  - { id: SQC5-DEF-02, name: 円分多項式 }
+  - { id: SQC5-DEF-03, name: Fermat素数 }
+theorems:
+  - { id: SQC5-PROP-01, name: 正n角形と実部の作図可能性 }
+  - { id: SQC5-THM-01, name: 円分多項式の既約性 }
+  - { id: SQC5-PROP-02, name: 円分体のGalois群 }
+  - { id: SQC5-THM-02, name: Gauss–Wantzelの定理 }
+  - { id: SQC5-PROP-03, name: 正17角形のGauss周期による作図 }
+canonical_examples:
+  - 正五角形の円分多項式と実部の二次式
+  - 正17角形の4段の平方根表示と頂点座標
+  - 正7、9、15、17、20角形の分類
+problem_patterns:
+  - SQC5-ROOT-ORDER
+  - SQC5-CYCLOTOMIC-EXAMPLES
+  - SQC5-EULER-TOTIENT
+  - SQC5-FERMAT-EXPONENT
+  - SQC5-REAL-DEGREE
+  - SQC5-CRITERION-APPLICATION
+  - SQC5-SEVENTEEN-PERIODS
+  - SQC5-ABELIAN-TWO-GROUP-TOWER
+  - SQC5-CONSTRUCTIBILITY-OBSTRUCTION
+  - SQC5-INTEGRATED-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
