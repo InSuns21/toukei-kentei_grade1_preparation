@@ -1,0 +1,38 @@
+id: "MFL26"
+title: "格子対称性と群畳み込み"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL25
+  - ML2-16
+official_scope: []
+learning_objectives:
+  - 有限周期格子上のC4・D4作用と半直積の積・逆元を添字で計算できる
+  - 向きラベルを持つlift層が回転・反射・平行移動に等変であることを証明できる
+  - 有限群上の相互相関型群畳み込みと左正則作用の交換を添字変換で示せる
+  - 向きラベルを持たない格子フィルタに必要十分な点群不変核条件を説明できる
+  - C4だけの対称性とD4の対称性を核の軌道で区別できる
+  - zero paddingとstrideが残す対称性を反例・部分群条件から判定できる
+  - 有限格子ラボで核・群・変換・境界・strideを変えて等変残差を比較できる
+definitions:
+  - { id: MFL26-DEF-01, name: 周期格子の四回回転・二面体作用と半直積 }
+  - { id: MFL26-DEF-02, name: 格子から群への持ち上げ相互相関 }
+  - { id: MFL26-DEF-03, name: 有限群上の相互相関型群畳み込み }
+  - { id: MFL26-DEF-04, name: 格子の点群不変核 }
+  - { id: MFL26-DEF-05, name: 間引き格子とstride作用 }
+theorems:
+  - { id: MFL26-THM-01, name: 格子から群への持ち上げの等変性 }
+  - { id: MFL26-THM-02, name: 左正則作用に対する群畳み込みの等変性 }
+  - { id: MFL26-THM-03, name: スカラー格子フィルタの点群等変性の必要十分条件 }
+  - { id: MFL26-PROP-01, name: strideで残る格子対称性 }
+canonical_examples:
+  - C4の右回り/左回りを取り違えない非対称二点核の応答
+  - D4に反射を加えたときの向きラベルの変換
+  - C4不変だがD4不変でない五点周期格子の核
+  - 四点周期格子のzero paddingとstride 2の破れ
+  - 全群の和から導く有限群畳み込みの添字付け替え
+problem_patterns: [MFL26-A01, MFL26-A02, MFL26-A03, MFL26-A04, MFL26-B01, MFL26-B02, MFL26-B03, MFL26-B04, MFL26-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 6.0, review: 2.5 }
