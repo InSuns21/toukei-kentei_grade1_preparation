@@ -481,6 +481,7 @@ python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/MFL/MFL1
 - Level: A
 - 問題: 一次元密度 $h_\varepsilon(s)=(4\pi\varepsilon)^{-1/2}e^{-s^2/(4\varepsilon)}$ に対し、$\int h_\varepsilon=1$、$\int s\,h_\varepsilon=0$、$\int s^2h_\varepsilon=2\varepsilon$ を示し、$u(t)=3t^2+t+1$ のGaussian平均を厳密に計算せよ。
 
+<!-- solution-start -->
 **詳細解答**。[Gaussianモーメント](#lem-mfl13-moments)の一次元の場合を再計算する。$s=2\sqrt\varepsilon\,w$ で零次は $\pi^{-1/2}\int e^{-w^2}dw=1$。一次は奇関数で0。二次は
 
 $$
@@ -490,6 +491,7 @@ $$
 $$
 
 最後の積分は $w^2e^{-w^2}=-\tfrac12 w(e^{-w^2})'$ を部分積分した。$u(x+s)=3x^2+6xs+3s^2+x+s+1$ の各項を積分し、奇数次を消すと $G_\varepsilon u(x)=3x^2+x+1+6\varepsilon$。
+<!-- solution-end -->
 
 <a id="ex-mfl13-a02"></a>
 
@@ -498,7 +500,9 @@ $$
 - Level: A
 - 問題: コンパクト境界なし多様体上で $p>0$ とし、[核の定義](#def-mfl13-kernel)により $P_\varepsilon^p1=1$ を示せ。また、密度が一様でも $G_\varepsilon1=1$ とは限らない理由を述べよ。
 
+<!-- solution-start -->
 **詳細解答**。$T_\varepsilon^p1(x)=\int k_\varepsilon(x,y)p(y)dV_g(y)>0$。$P_\varepsilon^p1=T_\varepsilon^p1/T_\varepsilon^p1=1$。一方、$G_\varepsilon1$ の積分測度は体積測度で、[内在kernel積分作用素のbias展開](#thm-mfl13-bias)より $1-\varepsilon\operatorname{Scal}(x)/3+O(\varepsilon^{3/2})$ となる。例えば半径 $R$ の球面では $\operatorname{Scal}=2/R^2>0$ なので、十分小さい $\varepsilon$ に対し1とは等しくない。
+<!-- solution-end -->
 
 <a id="ex-mfl13-a03"></a>
 
@@ -507,6 +511,7 @@ $$
 - Level: A
 - 問題: 半径 $R$ の球面の極座標で、基点からの距離 $r=R\varphi$ として $J(r)=R\sin(r/R)/r$ を計算せよ。$r=0$ の値と二次係数を求めよ。
 
+<!-- solution-start -->
 **詳細解答**。[球面の体積要素](../MFL12/index.md#prop-mfl12-sphere)で $dV_g=R^2\sin\varphi\,d\varphi d\theta=R\sin(r/R)\,dr d\theta$。接平面の極座標面積 $r\,dr d\theta$ で割ると $J(r)=R\sin(r/R)/r$。$\sin t=t-t^3/6+O(t^5)$ を $t=r/R$ に代入すれば
 
 $$
@@ -515,6 +520,7 @@ J(r)=\frac{r-r^3/(6R^2)+O(r^5/R^4)}r
 $$
 
 よって $J(0)=1$（連続延長）、二次係数は $-1/(6R^2)$ である。
+<!-- solution-end -->
 
 <a id="ex-mfl13-a04"></a>
 
@@ -523,6 +529,7 @@ $$
 - Level: A
 - 問題: 半径 $R$ の円周で $p(\theta)=(1+a\cos\theta)/(2\pi R)$（$|a|<1$）、$f(\theta)=\cos\theta$ とする。$\theta=\pi/2$ における $\Delta_g f$ と $2\langle\nabla\log p,\nabla f\rangle$ を別々に計算せよ。
 
+<!-- solution-start -->
 **詳細解答**。[円周の計量とLaplace–Beltrami作用素](../MFL12/index.md#prop-mfl12-circle)を使い、$\theta$ で微分すると
 
 $$
@@ -542,6 +549,7 @@ $$
 $$
 
 $|a|<1$ より $1+a\cos\theta>0$ で、対数と除算も定義される。
+<!-- solution-end -->
 
 <a id="ex-mfl13-b01"></a>
 
@@ -550,7 +558,9 @@ $|a|<1$ より $1+a\cos\theta>0$ で、対数と除算も定義される。
 - Level: B
 - 問題: $u\in C^3(M)$ の正規座標Taylor式 $u_x(z)=u+u_i z^i+\tfrac12u_{ij}z^iz^j+O(|z|^3)$ と $J=1-\operatorname{Ric}_{ij}z^iz^j/6+O(|z|^3)$ を掛け、Gaussian平均の $\varepsilon$ 係数を求めよ。なぜ剰余が $O(\varepsilon^{3/2})$ となるか、球外の寄与とともに述べよ。
 
+<!-- solution-start -->
 **詳細解答**。定数項 $u$、一次 $u_iz^i$、二次 $\frac12u_{ij}z^iz^j-\frac16u\operatorname{Ric}_{ij}z^iz^j$ が残り、残りは、一次と二次の積が三次以上なので $O(|z|^3)$。対称球では一次の積分が0。[モーメント補題](#lem-mfl13-moments)で $z^iz^j$ は $2\varepsilon\delta_{ij}$ を生む。したがって係数は $\sum_i u_{ii}-u\sum_i\operatorname{Ric}_{ii}/3=\Delta_gu-\operatorname{Scal}u/3$。三次絶対モーメントは $C\varepsilon^{3/2}$、固定半径 $\rho$ の外側は $O(\varepsilon^{-d/2}e^{-\rho^2/(4\varepsilon)})$ で任意のべきより小さい。これが[定理](#thm-mfl13-bias)の誤差の根拠である。
+<!-- solution-end -->
 
 <a id="ex-mfl13-b02"></a>
 
@@ -559,6 +569,7 @@ $|a|<1$ より $1+a\cos\theta>0$ で、対数と除算も定義される。
 - Level: B
 - 問題: $p>0$、$p,f\in C^3(M)$ とする。$G_\varepsilon(pf)/G_\varepsilon p$ の一次展開を自力で導出し、$f\equiv1$ の場合に係数が0であることを確かめよ。
 
+<!-- solution-start -->
 **詳細解答**。[kernel bias定理](#thm-mfl13-bias)を $pf$、$p$ の順に適用する。基点 $x$ の値で
 
 $$
@@ -575,6 +586,7 @@ $$
 $$
 
 曲率を含む二項は相殺する。[Laplace–Beltramiの座標表示](../../../幾何系/GEO/GEO12/index.md#prop-geo12-div-laplacian-coordinate)で $\Delta(pf)=p\Delta f+f\Delta p+2\langle\nabla p,\nabla f\rangle$ を確認すると、係数は $\Delta f+2\langle\nabla\log p,\nabla f\rangle$。$f=1$ なら $\Delta1=0$、$\nabla1=0$ で0、比も正確に1である。
+<!-- solution-end -->
 
 <a id="ex-mfl13-b03"></a>
 
@@ -583,6 +595,7 @@ $$
 - Level: B
 - 問題: 半径 $R$ の球面で測地距離を用い、$G_\varepsilon1(x)=\frac{1}{4\pi\varepsilon}\int_0^\pi e^{-R^2\varphi^2/(4\varepsilon)}2\pi R^2\sin\varphi\,d\varphi$ を出発点として、$1-2\varepsilon/(3R^2)+O(\varepsilon^2)$ を直接導け。
 
+<!-- solution-start -->
 **詳細解答**。$r=R\varphi$ に変換すると
 
 $$
@@ -606,6 +619,7 @@ G_\varepsilon1=1-\frac{1}{2\varepsilon}\frac{8\varepsilon^2}{6R^2}
 $$
 
 これは[体積密度の曲率補正](#lem-mfl13-volume)の直接検算である。
+<!-- solution-end -->
 
 <a id="ex-mfl13-b04"></a>
 
@@ -614,6 +628,7 @@ $$
 - Level: B
 - 問題: 半径 $R$ の円周で弧長差 $s$ に対応するchordの二乗を四次まで展開し、同じ一次元Gaussianの規格化で積分した定数関数のbiasを求めよ。内在距離との相違を説明せよ。
 
+<!-- solution-start -->
 **詳細解答**。$|x-y|=2R|\sin(s/(2R))|$ なので
 
 $$
@@ -622,6 +637,7 @@ $$
 $$
 
 指数に入れると $-s^2/(4\varepsilon)+s^4/(48R^2\varepsilon)+O(s^6/\varepsilon)$。Gaussianの $\int s^4h_\varepsilon ds=12\varepsilon^2$ は部分積分で得られる。従って増分は $(12\varepsilon^2)/(48R^2\varepsilon)=\varepsilon/(4R^2)$。残りの項は六次・八次モーメントから $O(\varepsilon^2)$、遠い弧は指数減衰する。内在弧長では切断Gaussianの尾部しか差がなく、$G_\varepsilon1=1+O(e^{-c/\varepsilon})$。正曲率の球面での内在補正と同じものと解釈してはならない。
+<!-- solution-end -->
 
 <a id="ex-mfl13-c01"></a>
 
@@ -634,6 +650,7 @@ $$
   2. 厳密な積分値 $\widetilde G_\varepsilon1(x)=1-e^{-R^2/\varepsilon}$。
   3. 内在核の定数のbiasとの違いと、いずれからも有限点群の固有値収束が直ちに従わない理由。
 
+<!-- solution-start -->
 **詳細解答**。（1）$x$ を北極 $(0,0,R)$ として、球面の点を $(R\sin\varphi\cos\theta,R\sin\varphi\sin\theta,R\cos\varphi)$ と置く。[球面の計量](../MFL12/index.md#prop-mfl12-sphere)から内積 $x\cdot y=R^2\cos\varphi$。よって $|x-y|^2=|x|^2+|y|^2-2x\cdot y=2R^2(1-\cos\varphi)$。
 
 （2）同じ[体積要素](../MFL12/index.md#prop-mfl12-sphere)で $\theta$ を積分し、$t=\cos\varphi$、$dt=-\sin\varphi\,d\varphi$ と変数変換すると
@@ -654,6 +671,7 @@ e^{-R^2(1-t)/(2\varepsilon)}\,dt\\
 $$
 
 （3）[B03](#ex-mfl13-b03)では測地距離の核が $1-2\varepsilon/(3R^2)+O(\varepsilon^2)$ だった。ambient核は一次の係数が0で、差は $2\varepsilon/(3R^2)+O(\varepsilon^2)$。同じ球面でも距離の選択でbiasが異なる。ここでは固定 $x$ における**連続積分**しか評価していない。有限標本には確率誤差、分母の非零性、$n$ と $\varepsilon$ の同時極限が必要であり、固有値・固有空間についてはさらに作用素ノルムやスペクトルの隔たり等の別の議論が必要である。
+<!-- solution-end -->
 
 ## 10. 次に確率誤差を調べる
 

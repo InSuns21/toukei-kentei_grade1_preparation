@@ -495,6 +495,7 @@ python3 textbook/volumes/dream_thater/応用系/MFL/MFL5/local_pca_lab.py --n 50
 - Level: A
 - 問題: $(-2,1),(0,1),(2,1)$ を同じ局所近傍に含めたとき、平均、分母 $m$ の共分散、上位固有空間と射影を計算せよ。真の直線を $y=1$ とする。
 
+<!-- solution-start -->
 **詳細解答**。$m=3$ で $\bar Y=(0,1)$。偏差は $(-2,0),(0,0),(2,0)$ だから
 
 $$
@@ -503,12 +504,14 @@ $$
 $$
 
 固有値は $8/3,0$、ギャップは $8/3$。上位方向は $e_1$ で $\widehat P=\operatorname{diag}(1,0)$。[接空間への射影](../MFL2/index.md#def-mfl2-projection)で求める真の直線の接方向も $e_1$ なので、[射影距離](#def-mfl5-projection-distance)は0。
+<!-- solution-end -->
 
 ### MFL5-A02 傾いた方向を射影で比較する
 
 - Level: A
 - 問題: $T=\operatorname{span}(e_1)$、$\widehat T=\operatorname{span}((\sqrt3/2,1/2))$ で、それぞれの射影行列、差の固有値、射影距離を求めよ。
 
+<!-- solution-start -->
 **詳細解答**。$u=(\sqrt3/2,1/2)^{\mathsf T}$ は $\|u\|^2=3/4+1/4=1$ なので $\widehat P=uu^{\mathsf T}$。
 
 $$
@@ -523,12 +526,14 @@ $$
 $$
 
 跡が0、行列式が $-1/16-3/16=-1/4$ なので特性方程式は $\lambda^2-1/4=0$。固有値は $\pm1/2$、従って作用素ノルムは $1/2$。$u$ を $-u$ に替えても $uu^{\mathsf T}$ は不変。
+<!-- solution-end -->
 
 ### MFL5-A03 接・法線のモーメントを分ける
 
 - Level: A
 - 問題: $U\sim\mathrm{Uniform}[-r,r]$、$Z=(U,\kappa U^2/2)$、$r>0$ とする。$EZ$、$\operatorname{Cov}(Z)$ を求め、上位固有方向が $e_1$ となる十分かつ必要な不等式（固有値が異なる場合）を求めよ。
 
+<!-- solution-start -->
 **詳細解答**。対称性より $EU=EU^3=0$、$EU^2=r^2/3$、$EU^4=r^4/5$。従って $EZ=(0,\kappa r^2/6)$。交差共分散は $(\kappa/2)(EU^3-EU\,EU^2)=0$ であり、
 
 $$
@@ -538,19 +543,23 @@ $$
 $$
 
 第1固有値が接方向に対応するには $r^2/3>\kappa^2r^4/45$、すなわち $\kappa^2r^2<15$ が必要十分。等号ではギャップ0、逆では法線が優先される。
+<!-- solution-end -->
 
 ### MFL5-A04 観測中心を使うと半径はどう変わるか
 
 - Level: A
 - 問題: すべての観測誤差のノルムが $\eta=0.1$ 以下、観測近傍半径が $r=0.5$ のとき、必ず観測近傍に入る真の距離と、観測近傍に入った点の真の距離の上界を求めよ。
 
+<!-- solution-start -->
 **詳細解答**。[近傍包含命題](#prop-mfl5-neighborhood-sandwich)で $r-2\eta=0.3$、$r+2\eta=0.7$。真の中心から距離 $<0.3$ の点は必ず選ばれ、選ばれた点は真の距離 $<0.7$ である。$0.3\le\|X_i-x\|<0.7$ の点が選ばれるかどうかはノイズの向きで変わる。$m$ と選択後の分布を真の半径0.5のものと同一視してはいけない。
+<!-- solution-end -->
 
 ### MFL5-B01 曲率バイアスの角度次数
 
 - Level: B
 - 問題: $U\sim\mathrm{Uniform}[0,r]$、$Z=(U,\kappa U^2/2)$、$\kappa>0$ とする。共分散の非対角項を積分から求め、$r\to0$ で上位固有方向の角度が $\kappa r/2+O(r^3)$ となることを示せ。
 
+<!-- solution-start -->
 **詳細解答**。$EU=r/2$、$EU^2=r^2/3$、$EU^3=r^3/4$ から
 
 $$
@@ -561,12 +570,14 @@ $$
 $$
 
 対角項は $a=r^2/12$、$c=\kappa^2r^4/45$。固有方向を $(\cos\theta,\sin\theta)$ として対角化したとき、交差成分が0になる条件は $(c-a)\sin\theta\cos\theta+b(\cos^2\theta-\sin^2\theta)=0$ である。従って $\tan2\theta=2b/(a-c)$。$2b/(a-c)=\kappa r/(1-(4/15)\kappa^2r^2)=\kappa r+O(r^3)$、$\arctan t=t+O(t^3)$ から $2\theta=\kappa r+O(r^3)$。片側標本の交差共分散が角度の一次項を生む。
+<!-- solution-end -->
 
 ### MFL5-B02 ギャップがあるかを有限標本の境界から判定する
 
 - Level: B
 - 問題: $d=1$、$\alpha=1$、$\|E\|_{\mathrm{op}}\le0.1$ とする。$C_0=\operatorname{diag}(1,0)$ からの $\widehat C=C_0+E$ について、上位固有値のギャップと $\|\widehat P-P\|_{\mathrm{op}}$ の本章の保証値を求めよ。$E$ の具体的な成分を知らずに誤差0と断定できるか。
 
+<!-- solution-start -->
 **詳細解答**。[固有空間摂動命題](#prop-mfl5-eigenspace-stability)の $e=0.1,\alpha=1$ で $e<\alpha/2$ を満たすので、ギャップは少なくとも $1-2(0.1)=0.8$。射影距離は
 
 $$
@@ -575,12 +586,14 @@ $$
 $$
 
 これは上界であって等号や0を主張しない。例えば $E=\begin{pmatrix}0&0.1\\0.1&0\end{pmatrix}$ の場合、$\widehat C$ の交差成分が非零なので $e_1$ は固有ベクトルでなく、射影距離は正になる。
+<!-- solution-end -->
 
 ### MFL5-B03 近傍点数と独立性
 
 - Level: B
 - 問題: $X_1,\ldots,X_n$ が独立で $P(\|X_i-x\|<r)=q$ とする。$K$ の期待値・分散を導き、$m_0<nq$ のとき $P(K<m_0)$ の上界を導け。同じ一つの標本を $n$ 回複製した場合、なぜ同じ証明が使えないか。
 
+<!-- solution-start -->
 **詳細解答**。$H_i=\mathbf1_{\{\|X_i-x\|<r\}}$ とすれば $K=\sum_iH_i$。$EH_i=q$、$H_i^2=H_i$ より $\operatorname{Var}(H_i)=q-q^2=q(1-q)$。独立性で共分散の交差和が消えるので $EK=nq$、$\operatorname{Var}(K)=nq(1-q)$。$K<m_0$ なら $|K-nq|>nq-m_0$ だから、[Chebyshevの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-chebyshev)で
 
 $$
@@ -589,19 +602,23 @@ P(K<m_0)\le P(|K-nq|\ge nq-m_0)
 $$
 
 全点を一つの $X_1$ の複製とすれば $K=nH_1$、$\operatorname{Var}(K)=n^2q(1-q)$ で、独立和の分散公式が壊れる。$n$ だけ大きくしても「別々の局所情報」は増えていない。
+<!-- solution-end -->
 
 ### MFL5-B04 固定法線ノイズの相転換
 
 - Level: B
 - 問題: $U\sim\mathrm{Uniform}[-r,r]$、$V\sim\mathrm{Uniform}[-\eta,\eta]$ を独立とし、$Y=(U,V)$ とする。$r>\eta$、$r=\eta$、$r<\eta$ の三場合で母集団 PCA の上位1次元部分空間と真の $e_1$ への射影距離を調べよ。
 
+<!-- solution-start -->
 **詳細解答**。$EU=EV=0$。独立性から $EUV=EU\,EV=0$。区間 $[-r,r]$ に一様な $U$ の二次モーメントは $(2r)^{-1}\int_{-r}^{r}u^2\,du=r^2/3$ で、$V$ は同じ計算で $\eta^2/3$。従って $C=\operatorname{diag}(r^2/3,\eta^2/3)$。$r>\eta$ では上位方向は $e_1$、誤差0。$r<\eta$ では上位方向は $e_2$ で、二つの射影の差は $\operatorname{diag}(1,-1)$ の符号を除く形だから誤差1。$r=\eta$ なら $C=(r^2/3)I_2$ で全方向が上位固有方向、誤差は選択により0から1まで変わる。標本数の極限でもこの母集団の区別不能性は消えない。
+<!-- solution-end -->
 
 ### MFL5-C01 半径とノイズの両立条件
 
 - Level: C
 - 問題: $d=1,D=2$ の固定真近傍模型で、$a>0,\kappa>0$、有界ノイズ $\eta\ge0$ を仮定し、局所標本数 $m$ の値を固定とする。共分散誤差上界 $e_*$ を接方向の分散下界 $ar^2$ で割って、曲率・ノイズ・標本の三つの項がどのように変化するか示せ。$\eta>0$ が固定のまま $r\downarrow0$ としたとき、この上界から接線一致は言えるか。また $\eta=0$、$m\to\infty$、$r\to0$ について、上界が0に向かう十分条件を一つ示せ。
 
+<!-- solution-start -->
 **詳細解答**。[Local PCAの有限標本命題](#prop-mfl5-local-pca-bound)で $d=1$、$R=r+\eta$ とし $L_{m,\delta}=2\sqrt{2\log(16/\delta)/m}+2\sqrt2\sqrt{2\log(8/\delta)/m}$ と置く。$D=2$ なので $s_{m,2,\delta}(R)=R^2L_{m,\delta}$ である。射影距離の（1による切り詰め前の）上界は
 
 $$
@@ -611,12 +628,14 @@ $$
 $$
 
 $\eta>0$ 固定では $\eta^2/r^2\to\infty$ となり、上界は0へ向かわない（これは真の誤差が必ず1という主張ではない）。$\eta=0$ なら右辺は $(2\sqrt2/a)(2\kappa r+\kappa^2r^2+L_{m,\delta})$。例えば $r_j=1/j$、$m_j=j^2$、$\delta=0.05$ とすれば $r_j\to0$、$L_{m_j,\delta}=O(1/j)$ となり0へ収束する。ただし各 $j$ で同じ $a>0$ の接方向分散下界を持つ真近傍分布を構成できること、$m_j$ 個の局所標本を確保することは別途必要である。
+<!-- solution-end -->
 
 ### MFL5-C02 ギャップなしでは極小摂動でも軸が飛ぶ
 
 - Level: C
 - 問題: $d=1,D=2$ とし $C_0=I_2$ を考える。$\varepsilon>0$ について $C^{(1)}=C_0+\operatorname{diag}(\varepsilon,0)$、$C^{(2)}=C_0+\operatorname{diag}(0,\varepsilon)$ とする。それぞれの $C_0$ からの作用素ノルム誤差と上位固有空間間の射影距離を求め、接空間推定にギャップ仮定が必要な理由を述べよ。
 
+<!-- solution-start -->
 **詳細解答**。両方の摂動行列は固有値 $\varepsilon,0$ を持つため $\|C^{(j)}-C_0\|_{\mathrm{op}}=\varepsilon$。ところが $C^{(1)}=\operatorname{diag}(1+\varepsilon,1)$ の上位空間は $e_1$、$C^{(2)}=\operatorname{diag}(1,1+\varepsilon)$ の上位空間は $e_2$。対応する射影 $P_1=\operatorname{diag}(1,0)$、$P_2=\operatorname{diag}(0,1)$ だから
 
 $$
@@ -624,6 +643,7 @@ $$
 $$
 
 $\varepsilon\to0$ としても二つの推定方向は直交したままである。$C_0$ の第1・第2固有値が同じため「本当の上位1方向」という対象自体が一意でなく、行列誤差だけでは選択した方向を制御できない。[固有空間摂動命題](#prop-mfl5-eigenspace-stability)は $C_0=\operatorname{diag}(A,0)$、$A\succeq\alpha I$ という**正のギャップ**を仮定するので、この例と矛盾しない。
+<!-- solution-end -->
 
 ## 8. 次章へ
 

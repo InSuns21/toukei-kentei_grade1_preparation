@@ -404,6 +404,7 @@ python -m unittest textbook/volumes/dream_thater/応用系/MFL/MFL12/test_laplac
 - Level: A
 - 問題: 半径 $R=3$ の円周の角度関数 $f(\theta)=\sin(2\theta)$ について、計量、体積要素、$L_gf$、$\int|\nabla_gf|^2dV_g$ を計算せよ。
 
+<!-- solution-start -->
 **詳細解答**。[円周の計量・エネルギー](#prop-mfl12-circle)の導出を $R=3$、$k=2$ に適用する。$F'$ の長さは3だから $g_{\theta\theta}=9$、$dV_g=3\,d\theta$。$f_{\theta\theta}=-4\sin2\theta$ より
 
 $$
@@ -415,6 +416,7 @@ $f_\theta=2\cos2\theta$、$\int_0^{2\pi}\cos^2(2\theta)\,d\theta=\pi$ なので
 $$
 \int|\nabla_gf|^2dV_g=\frac13\int_0^{2\pi}4\cos^2(2\theta)\,d\theta=\frac{4\pi}{3}.
 $$
+<!-- solution-end -->
 
 <a id="ex-mfl12-a02"></a>
 
@@ -423,6 +425,7 @@ $$
 - Level: A
 - 問題: 半径 $R=2$ の球面で $u=R\cos\varphi$ とする。$\int 1\,dV_g$ と $\int u\,dV_g$ を極角で積分せよ。極で座標が退化しても積分できる理由も述べよ。
 
+<!-- solution-start -->
 **詳細解答**。[半径付き球面の体積・高さ固有関数](#prop-mfl12-sphere)を使い、$dV_g=4\sin\varphi\,d\varphi\,d\theta$ を得る。したがって
 
 $$
@@ -438,6 +441,7 @@ $$
 $$
 
 二つの極は球面上の面積零集合で、座標積分はそれらを除いた領域で正しく計算できる。
+<!-- solution-end -->
 
 <a id="ex-mfl12-a03"></a>
 
@@ -446,6 +450,7 @@ $$
 - Level: A
 - 問題: 半径 $R$ の円周上で、$1$、$\cos\theta$、$\sin\theta$ の $L_g$ 固有値を求め、後二者が体積平均零であることを確認せよ。
 
+<!-- solution-start -->
 **詳細解答**。[半径付き円周の計量・エネルギー・スペクトル](#prop-mfl12-circle) $L_g=-R^{-2}\partial_{\theta\theta}$ より、定数の固有値は0、後二者の固有値は $R^{-2}$。体積要素は $R\,d\theta$ なので
 
 $$
@@ -457,6 +462,7 @@ $$
 $$
 
 これは[GA4の平均零Rayleigh最小化](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)と一致する。
+<!-- solution-end -->
 
 <a id="ex-mfl12-a04"></a>
 
@@ -465,6 +471,7 @@ $$
 - Level: A
 - 問題: 区間 $[0,2]$ のEuclid計量で $f(s)=s^2$ とする。$\int_0^2 f(-f'')\,ds$、$\int_0^2(f')^2ds$、境界項 $[ff']_0^2$ を別々に計算し、Green公式を検算せよ。
 
+<!-- solution-start -->
 **詳細解答**。$f'=2s$、$f''=2$ なので
 
 $$
@@ -473,6 +480,7 @@ $$
 $$
 
 端点では $f(2)f'(2)=4\cdot4=16$、$f(0)f'(0)=0$。よって $32/3-16=-16/3$。境界条件を課さなければ両エネルギーは等しくない。
+<!-- solution-end -->
 
 <a id="ex-mfl12-b01"></a>
 
@@ -481,6 +489,7 @@ $$
 - Level: B
 - 問題: 半径 $R>0$ の球面上の高さ関数 $z=R\cos\varphi$ について $\int z^2\,dV_g$ と $\int|\nabla_gz|^2\,dV_g$ を直接計算し、商が $2/R^2$ になることを確認せよ。
 
+<!-- solution-start -->
 **詳細解答**。球面の[計量・体積](#prop-mfl12-sphere)を使う。$z_\varphi=-R\sin\varphi$、$z_\theta=0$、$g^{\varphi\varphi}=R^{-2}$ なので勾配の二乗は $\sin^2\varphi$。また $t=\cos\varphi$ と置き $dt=-\sin\varphi\,d\varphi$ によって
 
 $$
@@ -495,6 +504,7 @@ $$
 $$
 
 両者の比は $(8\pi R^2/3)/(4\pi R^4/3)=2/R^2$ で、[高さ固有関数](#prop-mfl12-sphere)の固有値とも一致する。
+<!-- solution-end -->
 
 <a id="ex-mfl12-b02"></a>
 
@@ -503,6 +513,7 @@ $$
 - Level: B
 - 問題: $N=4$ の周期格子で $v=(1,0,-1,0)$ と $h=2\pi R/4$ を用いる。剛性行列 $K$、質量行列 $M$ を書き、$Kv=\lambda Mv$ と $\lambda=2/h^2$ を直接確認せよ。
 
+<!-- solution-start -->
 **詳細解答**。[質量・剛性形式](#def-mfl12-cycle-forms)の辺を $0-1-2-3-0$ と並べると
 
 $$
@@ -518,6 +529,7 @@ Kv=\frac1h(2,0,-2,0)^{\mathsf T}=\frac2h v,
 $$
 
 したがって $Kv=(2/h^2)Mv$。$v^{\mathsf T}Kv=4/h$ と $v^{\mathsf T}Mv=2h$ の商も同じである。
+<!-- solution-end -->
 
 <a id="ex-mfl12-b03"></a>
 
@@ -526,6 +538,7 @@ $$
 - Level: B
 - 問題: 弧長 $s$ の $C^4$ 周期関数 $f$ を刻み幅 $h$ で標本化する。三次Taylor展開を $s+h$ と $s-h$ で作り、周期二階差分の誤差上界 $h^2\|f^{(4)}\|_\infty/12$ を導け。
 
+<!-- solution-start -->
 **詳細解答**。展開点は $s$、評価点は $s\pm h$、次数は3とする。Taylor公式をそれぞれに適用して
 
 $$
@@ -545,6 +558,7 @@ $$
 $$
 
 最後の項の絶対値は $2(h^4M_4/24)/h^2=h^2M_4/12$ 以下である。周期延長が $C^4$ なので、端点をまたぐ展開でも同じ上界を使える。
+<!-- solution-end -->
 
 <a id="ex-mfl12-b04"></a>
 
@@ -553,6 +567,7 @@ $$
 - Level: B
 - 問題: 滑らかな連結コンパクト境界なし多様体 $M$ で、滑らかな実数値 $f$ が $\int f\,dV_g=0$ を満たすとする。[Greenの第一公式](../../../幾何系/GA/GA1/index.md#thm-ga1-green-first)を用いてエネルギーを表せ。さらに [Rayleigh--Ritzとmin--max原理](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)を用い、第一正固有値に関する不等式を導け。非連結なら何が壊れるか。
 
+<!-- solution-start -->
 **詳細解答**。境界がないので[Greenの第一公式](../../../幾何系/GA/GA1/index.md#thm-ga1-green-first)の境界積分は0となり、$\int fL_gf=\int|\nabla_gf|^2\ge0$。連結・コンパクト・境界なしで $f$ は滑らかゆえ $H^1$ に属する。零関数なら不等式は自明、非零なら平均零の制約で[GA4の第一正固有値の最小化式](../../../幾何系/GA/GA4/index.md#thm-ga4-minmax)が適用でき、
 
 $$
@@ -560,6 +575,7 @@ $$
 $$
 
 を得る。非連結で二成分が正の体積を持つとき、各成分上で異なる定数を選び全体平均を0に調整すれば、$f\not\equiv0$ でも勾配は零である。従って正の一様な下界は成り立たず、連結性を使った零固有値の単純性が破綻する。
+<!-- solution-end -->
 
 <a id="ex-mfl12-c01"></a>
 
@@ -570,6 +586,7 @@ $$
 
 点数を無限に増やしたとき、次数側の固有値が0へ、質量側の固有値が $R^{-2}$ へ近づくことが矛盾しない理由を説明せよ。また点数が有限なら、質量側の固有値は $R^{-2}$ より小さいことを示せ。
 
+<!-- solution-start -->
 **詳細解答**。各頂点の次数は $2/h$ なので $D_g=(2/h)I$。周期シフト $S$ で $L_{\mathrm{graph}}=h^{-1}(2I-S-S^{\mathsf T})$。$v_j=\cos(2\pi j/N)$ を代入し、余弦の両隣の和を展開すると
 
 $$
@@ -591,6 +608,7 @@ $$
 $$
 
 $0<\pi/N<\pi/2$ では $0<\sin x<x$ なので $\lambda<R^{-2}$。$\mu\to0$ は次数規格化の無次元固有値、$\lambda$ は質量 $h$ を使う長さの逆二乗次元の固有値であり、異なる量を比較していたことが原因である。これは規則格子の固定波数の計算であり、ランダム点群での一様なスペクトル一致を主張していない。
+<!-- solution-end -->
 
 ## 7. 次章へ
 

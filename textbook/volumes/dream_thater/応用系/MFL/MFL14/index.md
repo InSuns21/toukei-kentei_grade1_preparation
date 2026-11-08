@@ -455,6 +455,7 @@ $$
 - Level: A
 - 問題: 一次元の $k_\varepsilon(x,y)=(4\pi\varepsilon)^{-1/2}e^{-(x-y)^2/(4\varepsilon)}$ について、$k_\varepsilon^2=(8\pi\varepsilon)^{-1/2}k_{\varepsilon/2}$ を代入して検算し、$\int_\mathbb R k_\varepsilon(x,y)^2dy$ を求めよ。
 
+<!-- solution-start -->
 **詳細解答**。$k_{\varepsilon/2}(x,y)=(2\pi\varepsilon)^{-1/2}e^{-(x-y)^2/(2\varepsilon)}$ である。係数の積は $(8\pi\varepsilon)^{-1/2}(2\pi\varepsilon)^{-1/2}=(4\pi\varepsilon)^{-1}$、指数は $k_\varepsilon^2$ と一致する。$s=(y-x)/\sqrt\varepsilon$ と置けば $dy=\sqrt\varepsilon\,ds$、$(x-y)^2/(2\varepsilon)=s^2/2$ だから
 
 $$
@@ -463,6 +464,7 @@ $$
 $$
 
 最後の積分は[Gaussianの零次モーメント](../MFL13/index.md#lem-mfl13-moments)を次元 $d=1$、帯域 $\varepsilon/2$ に適用したものでもある。従って求める値は $(8\pi\varepsilon)^{-1/2}$。
+<!-- solution-end -->
 
 <a id="ex-mfl14-a02"></a>
 
@@ -471,7 +473,9 @@ $$
 - Level: A
 - 問題: 固定した $x$ について $Z_j=k_\varepsilon(x,X_j)f(X_j)$ を独立同分布とする。$\operatorname{Var}(n^{-1}\sum_jZ_j)=\operatorname{Var}(Z_1)/n$ を展開して示せ。$x=X_1$ に置き換えた場合に同じ論証を直ちに使えない理由も説明せよ。
 
+<!-- solution-start -->
 **詳細解答**。$\operatorname{Var}(\sum_jZ_j)=\sum_j\operatorname{Var}(Z_j)+2\sum_{j<k}\operatorname{Cov}(Z_j,Z_k)$ である。固定 $x$ で $X_j$ が独立なら共分散が0、各分散が同一なので $n$ 倍になり、$n^2$ で割って結論を得る。$x=X_1$ では全 $Z_j$ に共通のランダムな $X_1$ が入る。例えば $j=1$ の自己核は $k(X_1,X_1)$ であり、$X_1$ を固定した後でも $j=1$ の項だけは他項と同じ標本分布でない。独立同分布という前提を失うため、[一点除外の定義](#def-mfl14-loo)が必要になる。
+<!-- solution-end -->
 
 <a id="ex-mfl14-a03"></a>
 
@@ -480,7 +484,9 @@ $$
 - Level: A
 - 問題: $q_\varepsilon(x)\ge p_{\min}/2$、$|\widehat q-q_\varepsilon|\le p_{\min}/4$ とする。$\widehat q$ の下界を求め、比 $\widehat T/\widehat q$ が定義できる理由を説明せよ。
 
+<!-- solution-start -->
 **詳細解答**。三角不等式から $\widehat q\ge q_\varepsilon-|\widehat q-q_\varepsilon|\ge p_{\min}/2-p_{\min}/4=p_{\min}/4>0$。よって逆数は $1/\widehat q\le4/p_{\min}$ で抑えられる。Gaussian核が常に正であることは分母の非零を保証するが、比の誤差を定量的に抑えるにはこのような**一定の下界**が有用である。
+<!-- solution-end -->
 
 <a id="ex-mfl14-a04"></a>
 
@@ -489,7 +495,9 @@ $$
 - Level: A
 - 問題: $S>0$、$A\in\mathbb R$、$K>0$、$z\in\mathbb R$ に対して $(A+Kz)/(S+K)-A/S=K(z-A/S)/(S+K)$ を導け。$|z|,|A/S|\le F$ の場合の上界も示せ。
 
+<!-- solution-start -->
 **詳細解答**。通分すると $[S(A+Kz)-A(S+K)]/[S(S+K)]$ で、$SA$ が打ち消されて $K(Sz-A)/[S(S+K)]$ になる。$S$ で約分すれば求める恒等式である。分子の絶対値は $K|z-A/S|\le K(|z|+|A/S|)\le2KF$、分母は $S+K\ge S$ なので差の絶対値は $2KF/S$ 以下。
+<!-- solution-end -->
 
 <a id="ex-mfl14-b01"></a>
 
@@ -498,6 +506,7 @@ $$
 - Level: B
 - 問題: $p,f\in C^3(M)$、$x\in M$ 固定として $\mathbb E[k_\varepsilon(x,X)^2f(X)^2]$ の先頭項を求めよ。$f(x)=0$ のとき「分散は必ず $\varepsilon^{-d/2}/n$ に漸近同値」と結論できるか。
 
+<!-- solution-start -->
 **詳細解答**。[二乗核恒等式](#prop-mfl14-variance)を使い、$u=pf^2\in C^3(M)$ なので[核bias展開](../MFL13/index.md#thm-mfl13-bias)に帯域 $\varepsilon/2$ で代入する。
 
 $$
@@ -508,6 +517,7 @@ $$
 $$
 
 $f(x)=0$ なら先頭の係数は0である。分散は二次モーメントから平均の二乗を引くので、非負性は保たれるが一律に正の定数倍 $\varepsilon^{-d/2}/n$ と漸近同値とは言えない。この章の $C/(n\varepsilon^{d/2})$ は全 $x$ に使える**上界**である。
+<!-- solution-end -->
 
 <a id="ex-mfl14-b02"></a>
 
@@ -516,6 +526,7 @@ $f(x)=0$ なら先頭の係数は0である。分散は二次モーメントか�
 - Level: B
 - 問題: 独立な中心化変数 $Y_j$ が $|Y_j|\le B\varepsilon^{-d/2}$、$\mathbb EY_j^2\le V\varepsilon^{-d/2}$ を満たす（$B,V>0$ は固定）。$0<t\le1$ に対して平均の偏差確率が $2\exp(-cn\varepsilon^{d/2}t^2)$ 以下になる $c$ を一つ示せ。
 
+<!-- solution-start -->
 **詳細解答**。[Bernstein補題](#lem-mfl14-bernstein)に $b=B\varepsilon^{-d/2}$、$v=V\varepsilon^{-d/2}$ を代入すると
 
 $$
@@ -524,6 +535,7 @@ $$
 $$
 
 $t\le1$ だから $V+Bt/3\le V+B/3$。従って $c=1/[2(V+B/3)]>0$ と取ればよい。核平均のとき $B,V$ が $n,\varepsilon,x$ に依存しないことが重要である。
+<!-- solution-end -->
 
 <a id="ex-mfl14-b03"></a>
 
@@ -532,6 +544,7 @@ $t\le1$ だから $V+Bt/3\le V+B/3$。従って $c=1/[2(V+B/3)]>0$ と取れば�
 - Level: B
 - 問題: $\mu/q$ を母平均の比、$\widehat T/\widehat q$ を標本比とし、$q\ge a>0$、$|\mu/q|\le F$、$|\widehat T-\mu|\le t$、$|\widehat q-q|\le t\le a/2$ とする。比の誤差の上界を導き、$F=0$ の場合を検算せよ。
 
+<!-- solution-start -->
 **詳細解答**。まず $\widehat q\ge q-t\ge a/2$。通分して
 
 $$
@@ -541,6 +554,7 @@ $$
 $$
 
 なので、絶対値は $t/(a/2)+Ft/(a/2)=2(1+F)t/a$ 以下。ここで問題の仮定 $|\mu/q|\le F$ **だけ**からは、$F=0$ でも $\mu=0$ と分かるにとどまり、$\widehat T=0$ は従わない。実際、$q=\widehat q=a$、$\mu=0$、$\widehat T=t$ とすれば誤差は $t/a$ で、上界 $2t/a$ と整合する。一方、追加で $F=\|f\|_\infty=0$ と仮定した場合には $f\equiv0$、$\mu=\widehat T=0$ となって誤差は厳密に0である。
+<!-- solution-end -->
 
 <a id="ex-mfl14-b04"></a>
 
@@ -549,6 +563,7 @@ $$
 - Level: B
 - 問題: 各 $i$ の失敗確率が $4e^{-c(n-1)\varepsilon^{d/2}t^2}$ 以下である。$t=A\sqrt{\log n/((n-1)\varepsilon^{d/2})}$ としたとき、全点の失敗確率と $A$ の条件を求めよ。$t\le t_0$ を保証する帯域条件も示せ。
 
+<!-- solution-start -->
 **詳細解答**。$n$ 個の失敗事象の和の確率は各確率の和以下だから
 
 $$
@@ -558,6 +573,7 @@ $$
 $$
 
 $cA^2>1$ なら0へ向かう。本文では余裕を持たせ $cA^2>3$ とした。固定した $t_0>0$ に対して $t\to0$ は $\log n/[(n-1)\varepsilon^{d/2}]\to0$ から従う。これが一斉評価に必要な有効標本数の対数条件である。
+<!-- solution-end -->
 
 <a id="ex-mfl14-c01"></a>
 
@@ -570,6 +586,7 @@ $cA^2>1$ なら0へ向かう。本文では余裕を持たせ $cA^2>3$ とした
   - (3) 自己点を含めた場合の差の上界を $\varepsilon_n$ で割って評価せよ。
   - (4) $a=1/2$ は本文の条件を満たさない。それでも一般の発散を断言できない理由を述べよ。
 
+<!-- solution-start -->
 **詳細解答**。（1）$d=1$ だから[分散命題](#prop-mfl14-variance)の一般上界は $C/(n\varepsilon_n^{1/2})=Cn^{-1+a/2}$。
 
 （2）[generatorの系](#cor-mfl14-generator)が要求するのは
@@ -591,6 +608,7 @@ $$
 $a<2/5$ なら $-1+3a/2<-2/5<0$ でこの項も0になる。これは高確率の分母下界事象上の評価であり、無条件の決定論的評価ではない。
 
 （4）$a=1/2$ では $n\varepsilon_n^{5/2}/\log n=n^{-1/4}/\log n\to0$ なので、（2）の証明に必要な条件を満たさない。しかしこの章の集中界は滑らかな $f$ による相殺を活用せず、収束を保証するために導いた保守的な条件である。例えば $f\equiv1$ なら $\widehat P f=f=1$ が各標本で厳密に成り立ち、どの $a$ でもgenerator誤差は0である。従って条件の不成立からすべての関数で発散とは結論できない。
+<!-- solution-end -->
 
 ## 9. 次に密度補正を考える
 
