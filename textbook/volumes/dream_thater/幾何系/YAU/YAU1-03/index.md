@@ -23,8 +23,11 @@ $$
 
 $$
 -i\,\omega_\varphi(v,\bar v)
-=\sum_{j,k}(g_{j\bar k}+\varphi_{j\bar k})v^j\overline{v^k}>0
-\quad(v\ne0)
+=\sum_{j,k}(g_{j\bar k}+\varphi_{j\bar k})v^j\overline{v^k},
+\qquad
+\omega_\varphi>0\iff
+\sum_{j,k}(g_{j\bar k}+\varphi_{j\bar k})v^j\overline{v^k}>0
+\quad(\forall v\ne0)
 $$
 
 が正値性の正確な意味である。実 $(1,1)$ 形式の評価 $\omega_\varphi(v,\bar v)$ 自体は純虚数なので、不等号で比較するのは $-i$ を掛けた実数値である。以下では「$>0$」をこの正値Hermite形式という意味で用いる。
