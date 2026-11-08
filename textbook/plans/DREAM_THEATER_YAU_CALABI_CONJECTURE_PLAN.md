@@ -1,12 +1,12 @@
 # DREAM THEATER カラビ予想とYauの定理（YAU1）
 
 分冊: 2026-10-11
-設計改訂: 2026-11-08
+設計改訂: 2026-11-09
 状態: planned（設計のみ、講義数は14章に確定）
 
 ## 中心問い・完成地点
 
-コンパクトKähler多様体上の指定Ricci形式の問題を複素Monge–Ampère方程式へ帰着し、連続性の方法の開性・閉性を、非線形方程式固有の事前評価と正則性の道筋を含めて証明する。固定Kähler類でのRicci平坦計量の存在と一意性を得る。
+コンパクト連結Kähler多様体上の指定Ricci形式の問題（$[\rho]=2\pi c_1(X)_{\mathbb R}$）を複素Monge–Ampère方程式へ帰着し、連続性の方法の開性・閉性を、$C^0$・二階・三階事前評価と正則性の道筋を含めて証明する。固定Kähler類での解の一意性（ポテンシャルは定数差）と、$c_1(X)_{\mathbb R}=0$でのRicci平坦計量の存在・一意性を得る。
 
 ## 直接依存と責務境界
 
@@ -15,30 +15,38 @@
 - [HOD1](../plan_done/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md)：大域の$\partial\bar\partial$-補題、調和理論。
 - [GA](../plan_done/DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md)、GPDE1〜10：Sobolev、楕円型評価、最大値原理、Schauder評価などを使用箇所の既存定理と照合する。
 
-従来の「14講」は以下の**確定した設計上の14章**を指す。90分授業の上限ではない。補題の証明が既習範囲で閉じなければ、独立補講を設けるかPLANを明示改訂し、無断で未証明入力扱いにしない。
+以下の**14章を確定講数**とする。90分授業の上限ではない。補題の証明が既習範囲で閉じなければ、独立補講を設けるかPLANを明示改訂し、無断で未証明入力扱いにしない。
 
 ## 講義構成（14章）
 
-1. **YAU1-01：Calabi予想の精密な主張。** コンパクト性・Kähler類・Ricci形式のde Rham類、指定代表の整合条件と一意性の量化を確認する。
+1. **YAU1-01：Calabi予想の精密な主張。** コンパクト連結性・固定Kähler類・$[\rho]=2\pi c_1(X)_{\mathbb R}$というRicci形式の整合条件、定数差を除いた一意性の量化を確認する。
 2. **YAU1-02：Ricci形式からポテンシャルへ。** $\partial\bar\partial$-補題、$\rho(\omega')-\rho(\omega)=-i\partial\bar\partial\log(\omega'^n/\omega^n)$、体積正規化を導く。
 3. **YAU1-03：複素Monge–Ampère方程式の幾何。** $\omega_\varphi=\omega+i\partial\bar\partial\varphi>0$、$\omega_\varphi^n=e^F\omega^n$ の定義域・楕円性、線形化$\Delta_{\omega_\varphi}$と規約を検算する。
 4. **YAU1-04：一意性と正規化。** 二解の差、対数行列式の積分、最大値原理を用いて定数差だけを残す。平均ゼロ等の規約を固定する。
-5. **YAU1-05：連続性の方法と開性。** パスの構成、線形化の核、平均ゼロ関数上の逆写像定理、積分整合条件を示す。
+5. **YAU1-05：連続性の方法と開性。** 体積正規化されたパス、線形化の核（定数）、積分条件を組み込んだ関数空間と陰関数定理を明示する。変動する体積測度に対する平均ゼロの扱いを省略しない。
 6. **YAU1-06：$C^0$評価I。** 平均値の制御、Green関数・Sobolev不等式を適用する仮定、$\varphi$の正規化と下限の導出を示す。
 7. **YAU1-07：$C^0$評価II。** Moser反復の指数列・測度・定数を追い、$\|\varphi\|_{L^\infty}$ の一様有界性まで閉じる。
 8. **YAU1-08：二階評価の局所計算。** $\operatorname{tr}_{\omega}\omega_\varphi$、曲率項、$\Delta_{\omega_\varphi}\log\operatorname{tr}_{\omega}\omega_\varphi$ の主要項を導出する。
 9. **YAU1-09：二階評価の大域閉包。** 補助関数$\log\operatorname{tr}_{\omega}\omega_\varphi-A\varphi$に最大値原理を適用し、行列式と跡から計量の双側評価を得る。
-10. **YAU1-10：三階評価の核心。** Calabi型の三階量、共変微分と交換子の曲率項、局所計算から一様評価への橋を作る。Evans–Krylov法は代替証明経路として比較し、両方を暗黙に要求しない。
+10. **YAU1-10：三階評価の核心。** Calabi型の三階量、共変微分と交換子の曲率項、最大値原理での吸収を導出する。本系列は古典的$C^3$評価を主証明とし、Evans–Krylovによる$C^{2,\alpha}$評価は代替経路の比較に留める。
 11. **YAU1-11：高階評価と正則性。** 三階評価から係数のHölder制御、Schauderブートストラップを適用する条件と導出の閉包を確認する。
 12. **YAU1-12：閉性と存在。** 解列のコンパクト性、楕円性の保持、極限の方程式への代入と連続性の方法の結論を接続する。
-13. **YAU1-13：Ricci平坦Kähler計量の帰結。** $c_1(X)_{\mathbb R}=0$、$\eta=0$、固定Kähler類での一意性を示し、複素トーラス・K3・quinticへ適用する。
-14. **YAU1-14：総合証明・反例・演習。** コンパクト性、正値性、体積整合条件のどれが失われると何が壊れるかを点検し、方程式への帰着から存在まで自力再構成する。
+13. **YAU1-13：Ricci平坦Kähler計量の帰結。** $c_1(X)_{\mathbb R}=0$、指定Ricci形式$\rho=0$、固定Kähler類での一意性を示し、複素トーラス・K3・quinticへ適用する。
+14. **YAU1-14：総合証明・仮定の破綻例・演習。** コンパクト性、Kähler正値性、体積整合条件の欠落で証明のどこが停止するかを反例・失敗例で点検し、帰着から存在・一意性まで自力再構成する。
+
+## 14章に確定する根拠・証明の停止線
+
+- Calabi予想の証明は「幾何的帰着・一意性・開性」だけでは終わらず、**一様$C^0$評価、二階評価、三階評価、楕円型正則性、閉性**をすべて接続して初めて完結する。Datarの講義ノート・Collinsの大学院講義・Błockiの完全証明を照合し、核となる事前評価をYAU1-06〜11へ独立配置する。
+- **主証明は古典的な三階評価ルート**で統一する。Evans–Krylovによる$C^{2,\alpha}$評価はBłockiの別経路として比較するが、両方の証明を必修にして章数を増やさない。$C^0$評価はGreen関数等の準備とMoser反復の閉包に分け、二階評価も局所恒等式と大域最大値原理に分ける。
+- YAU1-14は形式的な復習回でなく、主定理の全証明・仮定の必要性を再構成する総合演習章とする。一般のFano Kähler–Einstein計量の存在（K-stability）、特異解、Kähler類の退化・極限は本講座の外に置く。
+- 各章は独習に必要な証明・直接例・詳細解答の単位であり、**14回×90分の授業への圧縮を約束しない**。局所解析の入力が既習GPDE/GAに見当たらなければ、その補題を本系列内で証明して閉じる。
 
 ## 文献との照合
 
-- [V. Tosatti / W. Kong, Notes on Calabi–Yau Manifolds (2024)](https://cims.nyu.edu/~wk805/files/CY_Manifolds_Notes.pdf)：定理の量化、Ricci形式と複素Monge–Ampèreへの帰着。
-- [T. Collins, Geometry of the Complex Monge–Ampère Equation（Harvard講義）](https://people.math.harvard.edu/~tcollins/Math262.html)：$C^0$、$C^2$、$C^3$評価を独立して追う順序。
-- [D. Joyce, Compact Manifolds with Special Holonomy（Oxford）](https://academic.oup.com/book/53817)：Ricci平坦性と特殊ホロノミーの帰結・その限界。
+- [V. V. Datar, *Lecture Notes on Calabi’s Conjectures and Kähler–Einstein Metrics*（IISc, 2019）](https://math.iisc.ac.in/~vvdatar/Lecture_Notes/Calabi_Yau.pdf)：命題の量化、連続性の方法と開性、二階・三階・$C^0$評価。
+- [Z. Błocki, *The Complex Monge–Ampère Equation on Compact Kähler Manifolds*（Toulouse講義）](https://www3.nd.edu/~jdiller/teaching/archive/spring11_80380/blocki2.pdf)：完全証明の区分、一意性・開性・Moser反復・二階評価・代替の$C^{2,\alpha}$経路。
+- [T. Collins, *Geometry of the Complex Monge–Ampère Equation*（Harvard Math 262）](https://people.math.harvard.edu/~tcollins/Math262.html)：$C^2$・$C^3$、$C^0$・Moser反復を分ける教育的配列を照合する。
+- [D. Joyce, *Compact Manifolds with Special Holonomy*（Oxford）](https://academic.oup.com/book/53817)：Ricci平坦性と特殊ホロノミーへの帰結・その限界。主定理の解析的存在証明の代替にはしない。
 
 ## 実装・査読の停止線
 
