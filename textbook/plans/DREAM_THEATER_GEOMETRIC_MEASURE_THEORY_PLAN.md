@@ -103,7 +103,7 @@ Hausdorff次元は集合の大きさを測る。しかし、射影したとき�
 #### GMT8 例外方向の定量評価
 
 - 例外方向集合にFrostman測度を置く二重energy法。
-- 平面の古典的Kaufman型上界の**採用する正確な指数と集合クラス**を明記して証明。
+- Borel集合$E\subset\mathbb R^2$、$0<t<\min\{\dim_HE,1\}$のとき、$\dim_H\{\theta:\dim_H\pi_\theta E<t\}\le t$という古典的Kaufman型上界を証明。
 - sharpな現代的例外方向理論は停止線外。方向の測度零と方向集合のHausdorff次元を区別する。
 
 ### 第II部：Lipschitz幾何とrectifiability（GMT9--GMT20）
