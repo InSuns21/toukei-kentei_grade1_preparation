@@ -19,7 +19,7 @@ $$
 \qquad G=(g_{j\bar k})>0
 $$
 
-と書く。$\varphi_{j\bar k}=\partial_j\partial_{\bar k}\varphi$ は $\varphi$ の複素混合二階微分で、実関数の混合微分の交換と共役から $\overline{\varphi_{j\bar k}}=\varphi_{k\bar j}$ となり、$\Phi=(\varphi_{j\bar k})$ はHermite行列である。ここで $v=\sum_jv^j\partial_j$ を $(1,0)$ 接ベクトルとすると、[正の実 $(1,1)$ 形式の定義](../../KAH/KAH1-02/index.md#def-kah1-02-positive-form)と[係数行列の判定命題](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)により
+と書く。$\varphi_{j\bar k}=\partial_j\partial_{\bar k}\varphi$ は $\varphi$ の複素混合二階微分で、実関数の混合微分の交換と共役から $\overline{\varphi_{j\bar k}}=\varphi_{k\bar j}$ となり、$\Phi=(\varphi_{j\bar k})$ はHermite行列である。ここで $v=\sum_jv^j\partial_j$ を $(1,0)$ 接ベクトルとする。[正の実 $(1,1)$ 形式](../../KAH/KAH1-02/index.md#def-kah1-02-positive-form)の定義は、評価値に $-i$ を掛けて得る実数の正値性を要求する。その評価を、既習の[正の基本形式とHermite行列](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)を使って成分表示すると
 
 $$
 -i\,\omega_\varphi(v,\bar v)
