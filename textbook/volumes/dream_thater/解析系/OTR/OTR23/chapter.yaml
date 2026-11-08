@@ -1,0 +1,46 @@
+id: "OTR23"
+title: "JKOの一歩はPDEにどう近づくか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR22
+official_scope: []
+learning_objectives:
+  - コンパクト支持の位置の押し出し変分が質量と非負性を保つことをJacobianで確認できる
+  - 熱エントロピー・外場・偶相互作用エネルギーの押し出し微分を仮定とともに再計算できる
+  - JKO最小化の競争相手と最適結合を使って弱いEuler–Lagrange条件を両側変分から導ける
+  - Taylor残差を残した一歩の弱い熱・Fokker–Planck方程式を求め符号と係数を検算できる
+  - Gaussian初期測度の二次外場付きエントロピーJKOを全候補上の下界から一意に解ける
+  - 階段状補間と測地線補間を構成し散逸から時間Hölder評価と累積弱残差O(tau)を証明できる
+  - 一歩の弱い方程式と連続時間のPDEへの収束証明を区別できる
+definitions:
+  - { id: OTR23-DEF-01, name: 位置の微小押し出し変分 }
+  - { id: OTR23-DEF-02, name: JKOの階段状補間と測地線補間 }
+theorems:
+  - { id: OTR23-LEM-01, name: 押し出しに沿う自由エネルギーの微分 }
+  - { id: OTR23-THM-01, name: JKO一歩の弱いEuler–Lagrange条件 }
+  - { id: OTR23-THM-02, name: JKO一歩の弱いPDEと輸送誤差 }
+  - { id: OTR23-PROP-01, name: 二次外場付きエントロピーのGaussian一歩 }
+  - { id: OTR23-THM-03, name: JKO補間の離散散逸と時間一様評価 }
+canonical_examples:
+  - コンパクト支持ベクトル場でのGaussianの押し出しとエントロピーの符号
+  - 新しい測度から古い測度へ向ける結合による最適性条件
+  - Gaussianの全測度上のJKO一歩と平均・分散の後退差分
+  - Dirac測度間の変位補間と階段状補間の違い
+  - 二次外場のみの反復におけるTaylor残差の厳密計算
+problem_patterns:
+  - OTR23-A01
+  - OTR23-A02
+  - OTR23-A03
+  - OTR23-A04
+  - OTR23-A05
+  - OTR23-B01
+  - OTR23-B02
+  - OTR23-B03
+  - OTR23-B04
+  - OTR23-C01
+  - OTR23-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9.0, exercises: 7.0, review: 3.0 }
