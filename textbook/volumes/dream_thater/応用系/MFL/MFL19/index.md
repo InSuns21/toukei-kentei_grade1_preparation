@@ -290,7 +290,7 @@ $$
 \longrightarrow\delta_{ij}.
 $$
 
-従って $u_0,\ldots,u_k$ は $L^2$ 正規直交であり、$F=\operatorname{span}\{u_0,\ldots,u_k\}$ は $k+1$ 次元である。$a=(a_0,\ldots,a_k)$ を固定して $w_N=\sum_ia_iv_{N,i}$ と置くと、[下半連続性](#lem-mfl19-compactness)と固有ベクトルの直交性から
+従って $u_0,\ldots,u_k$ は $L^2$ 正規直交であり、$F=\operatorname{span}\{u_0,\ldots,u_k\}$ は $k+1$ 次元である。$a=(a_0,\ldots,a_k)$ を固定して $w_N=\sum_ia_iv_{N,i}$ と置くと、[エネルギー有界列のコンパクト性と下半連続性](#lem-mfl19-compactness)と固有ベクトルの直交性から
 
 $$
 \begin{aligned}
