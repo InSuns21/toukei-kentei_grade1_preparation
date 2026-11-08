@@ -1,0 +1,54 @@
+chapter: SQC5
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC3]
+forward_references: []
+
+concepts:
+  - id: geometry.primitive-nth-root-of-unity
+    name: 1の原始n乗根
+    kind: definition
+    introduction: formal
+    requires: []
+
+  - id: geometry.cyclotomic-polynomial
+    name: 円分多項式
+    kind: definition
+    introduction: formal
+    requires: [geometry.primitive-nth-root-of-unity]
+
+  - id: geometry.regular-polygon-real-part-criterion
+    name: 正n角形と実部の作図可能性
+    kind: proposition
+    introduction: formal
+    requires: [geometry.primitive-nth-root-of-unity, algebra.constructibility-quadratic-tower]
+
+  - id: geometry.cyclotomic-irreducibility
+    name: 円分多項式の既約性
+    kind: theorem
+    introduction: formal
+    requires: [geometry.cyclotomic-polynomial, algebra.minimal-polynomial]
+
+  - id: geometry.cyclotomic-galois-group
+    name: 円分体のGalois群
+    kind: proposition
+    introduction: formal
+    requires: [geometry.cyclotomic-irreducibility]
+
+  - id: geometry.fermat-prime
+    name: Fermat素数
+    kind: definition
+    introduction: formal
+    requires: []
+
+  - id: geometry.gauss-wantzel-criterion
+    name: Gauss–Wantzelの定理
+    kind: theorem
+    introduction: formal
+    requires: [geometry.regular-polygon-real-part-criterion, geometry.cyclotomic-galois-group, geometry.fermat-prime, algebra.constructibility-quadratic-tower]
+
+  - id: geometry.seventeen-gon-gaussian-period-construction
+    name: 正17角形のGauss周期による作図
+    kind: proposition
+    introduction: formal
+    requires: [geometry.gauss-wantzel-criterion, geometry.cyclotomic-irreducibility]

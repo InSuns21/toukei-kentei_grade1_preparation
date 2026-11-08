@@ -1,0 +1,56 @@
+chapter: OTR22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR21
+  - INFO2
+
+concepts:
+  - id: transport.jko-step
+    name: JKOの一歩と反復
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（JKOの一歩と反復）"]
+    requires: [transport.wasserstein-p, transport.free-energy]
+
+  - id: transport.w2-narrow-lsc
+    name: 二次Wasserstein費用の狭義下半連続性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二次Wasserstein費用の狭義下半連続性）"]
+    requires: [transport.wasserstein-p, transport.prokhorov, transport.lsc-integral]
+
+  - id: transport.jko-existence
+    name: JKOの一歩の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（JKOの一歩の存在）"]
+    requires: [transport.jko-step, transport.w2-narrow-lsc, transport.prokhorov]
+
+  - id: transport.jko-energy-inequality
+    name: JKOの離散エネルギー不等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（JKOの離散エネルギー不等式）"]
+    requires: [transport.jko-step, transport.wasserstein-metric]
+
+  - id: transport.jko-distance-bound
+    name: 有限時間内の移動距離の評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限時間内の移動距離の評価）"]
+    requires: [transport.jko-energy-inequality, transport.wasserstein-metric]
+
+  - id: transport.jko-quadratic-potential
+    name: 二次位置エネルギーのJKO一歩
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次位置エネルギーのJKO一歩）"]
+    requires: [transport.jko-step, transport.potential-energy]
+
+  - id: transport.relative-entropy-narrow-lsc
+    name: 相対エントロピーの狭義下半連続性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（相対エントロピーの狭義下半連続性）"]
+    requires: [transport.gibbs-relative-entropy, transport.narrow-convergence]

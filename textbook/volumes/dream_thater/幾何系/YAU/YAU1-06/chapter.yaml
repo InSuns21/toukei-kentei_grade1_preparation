@@ -1,0 +1,40 @@
+id: "YAU1-06"
+title: "C0評価I：平均とGreen関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-05
+  - GA5
+official_scope: []
+learning_objectives:
+  - Kähler計量の正値性から固定基準Laplacianの一様下界を跡の計算で導き、符号規約を確認できる
+  - GA5の熱核の正値性・質量保存・長時間減衰から平均ゼロGreen核を構成し、その下界と再現公式を証明できる
+  - Green核を定数シフトして積分し、平均ゼロの許容ポテンシャルの上限を一様評価できる
+  - 正負部分と上限ゼロ規格化を使ってL1評価を導出し、Moser反復へ必要な入力を整理できる
+  - 正値性だけでは下限評価が出ないことを平坦トーラスの熱核から作る具体例で説明できる
+definitions:
+  - { id: YAU1-06-DEF-01, name: 平均ゼロGreen核 }
+theorems:
+  - { id: YAU1-06-PROP-01, name: 許容ポテンシャルの一様Laplacian下界 }
+  - { id: YAU1-06-LEM-01, name: Green核の構成・下界・再現公式 }
+  - { id: YAU1-06-THM-01, name: 許容Kählerポテンシャルの上限・L1評価 }
+  - { id: YAU1-06-COR-01, name: 上限ゼロ規格化との橋渡し }
+canonical_examples:
+  - 平坦楕円曲線の余弦ポテンシャルとLaplacianの符号
+  - 熱核からのGreen核の正規化と固有モード再現
+  - 平坦トーラスの熱核集中による正値性とC0下限の非同値性
+problem_patterns:
+  - YAU1-06-LAPLACIAN-TRACE
+  - YAU1-06-MEAN-POSITIVE-NEGATIVE
+  - YAU1-06-GREEN-SHIFT
+  - YAU1-06-TORUS-HEAT-MODE
+  - YAU1-06-SUP-GAUGE
+  - YAU1-06-GREEN-L1-LIMIT
+  - YAU1-06-NONZERO-MEAN
+  - YAU1-06-PARAMETER-UNIFORM
+  - YAU1-06-DISCONNECTED-OBSTRUCTION
+  - YAU1-06-NEGATIVE-WELL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }

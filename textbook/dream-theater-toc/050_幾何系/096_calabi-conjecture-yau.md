@@ -6,3 +6,4 @@
 3. [YAU1-03 複素Monge–Ampère方程式の幾何](textbook/volumes/dream_thater/幾何系/YAU/YAU1-03/index.md)
 4. [YAU1-04 一意性と正規化](textbook/volumes/dream_thater/幾何系/YAU/YAU1-04/index.md)
 5. [YAU1-05 連続性の方法と開性](textbook/volumes/dream_thater/幾何系/YAU/YAU1-05/index.md)
+6. [YAU1-06 C0評価I：平均とGreen関数](textbook/volumes/dream_thater/幾何系/YAU/YAU1-06/index.md)
