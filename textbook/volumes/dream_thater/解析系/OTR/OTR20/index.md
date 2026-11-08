@@ -315,7 +315,7 @@ $$
 
 接ベクトルが分かったので、「確率分布を少し動かしたときエネルギーがどう変わるか」を問えます。有限次元では関数の方向微分を内積で表すベクトルを勾配と呼びます。ここでも同様に考えますが、まず密度を持つ場合の計算から始めます。
 
-質量 $1$ で、全空間で滑らかかつ正の密度関数 $\rho$ を考えます。[AMECH3の第一変分](../../../物理系/AMECH/AMECH3/index.md#def-amech3-first-variation)では軌道を端点固定で変分しましたが、ここでは確率密度を全質量固定で変分します。$\eta\in C_c^\infty(\mathbb R^d)$ が $\int\eta dx=0$ を満たすなら、十分小さい $|\varepsilon|$ について $\rho+\varepsilon\eta$ も非負かつ質量 $1$ です。これは密度を保った微小変形です。
+質量 $1$ で、全空間で滑らかかつ正の密度関数 $\rho$ を考えます。[AMECH3の第一変分](../../../物理系/AMECH/AMECH3/index.md#def-amech3-first-variation)では軌道を端点固定で変分しましたが、ここでは確率密度を全質量固定で変分します。$\eta\in C_c^\infty(\mathbb R^d)$ が $\int\eta dx=0$ を満たすなら、十分小さい $|\varepsilon|$ について $\rho+\varepsilon\eta$ も非負かつ質量 $1$ です。実際、$\eta\ne0$ のときコンパクト集合 $K=\operatorname{supp}\eta$ 上で $m=\min_K\rho>0$、$M=\|\eta\|_\infty>0$ と置けば、$|\varepsilon|<m/M$ に対して $K$ 上で $\rho+\varepsilon\eta\ge m-|\varepsilon|M>0$ です。$K$ の外では $\eta=0$ であり、全質量も $\int(\rho+\varepsilon\eta)dx=1$ のままです（$\eta=0$ なら任意の $\varepsilon$ で不変）。これは密度を保った微小変形です。
 
 <a id="def-otr20-first-variation"></a>
 
@@ -341,6 +341,8 @@ $$
 
 微分係数は $\int V\eta$ で、$U_\rho=V$ が第一変分です。$V+c$ を使っても $\int c\eta dx=c\int\eta dx=0$ なので同じ値になります。
 <!-- definition-example-end -->
+
+ここで $\varepsilon$ は密度を仮に変形するパラメータ、次の $t$ は実際の時間です。$\delta\mathcal F/\delta\rho$ は密度に関する変分を表す記号であり、$\partial_t\rho_t$ は時刻 $t$ に関する偏微分、$\nabla U_\rho$ は位置 $x$ に関する勾配です。これらは微分する変数が異なります。
 
 次に $\rho_t$ が滑らかな正密度で、$\partial_t\rho+\nabla\cdot(\rho v)=0$ を満たすとします。$U_\rho$ の選択について必要な可積分性、時間微分と積分の交換、空間の部分積分、境界項の消失が成立すれば
 
@@ -750,7 +752,7 @@ $$
 =-\|v_t\|_{\mu_t}^2.
 $$
 
-ここでは $\nabla(|x|^2/2)=x$ が $W_2$ 接勾配で、選んだ速度はその負です。$\mu_0=\delta_a$ なら $M_2=|a|^2$、$\mu_t=\delta_{e^{-t}a}$、$W_2(\delta_{e^{-s}a},\delta_{e^{-t}a})=|e^{-s}-e^{-t}|\,|a|$ です。密度は存在しませんが、押し出しと速度・エネルギーの計算はそのまま正当です。
+ここでは $\nabla(|x|^2/2)=x$ が形式的な下降方向の候補で、選んだ速度はその負です。本問で厳密に確認したのは、この押し出し曲線上での連続の方程式、距離微分、散逸等式です。特に原子測度を含む任意の $\mu_0$ でエネルギーの全方向微分や滑らかな $W_2$-Riemann構造が存在すると主張してはいません。$\mu_0=\delta_a$ なら $M_2=|a|^2$、$\mu_t=\delta_{e^{-t}a}$、$W_2(\delta_{e^{-s}a},\delta_{e^{-t}a})=|e^{-s}-e^{-t}|\,|a|$ です。密度は存在しませんが、押し出しと速度・エネルギーの計算はそのまま正当です。
 <!-- solution-end -->
 
 ## 9. 今回の結論と次の問い
