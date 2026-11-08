@@ -1,0 +1,53 @@
+chapter: IG13
+scope: dream-theater
+coverage: complete
+prerequisites: [IG2, IG6, IG7, IG8, GEO16]
+concepts:
+  - id: information-geometry.connection-curvatures
+    name: 統計モデルの α-曲率テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（統計モデルの α-曲率テンソル）"]
+    requires: [information-geometry.alpha-connection, geometry.riemann-curvature-operator]
+
+  - id: information-geometry.dual-curvature-adjoint
+    name: 計量双対性による曲率の転置関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（計量双対性による曲率の転置関係）"]
+    requires: [information-geometry.connection-curvatures, information-geometry.dual-connection]
+
+  - id: information-geometry.normal-negative-curvature
+    name: 正規位置尺度族の負の Fisher 曲率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正規位置尺度族の負の Fisher 曲率）"]
+    requires: [information-geometry.connection-curvatures, information-geometry.exponential-dual-flatness, geometry.sectional-curvature]
+
+  - id: information-geometry.curved-exponential-family
+    name: 曲がった指数型分布族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（曲がった指数型分布族）"]
+    requires: [information-geometry.exponential-dual-flatness, information-geometry.fisher-rao-metric]
+
+  - id: information-geometry.induced-statistical-connections
+    name: 部分モデルへの誘導接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分モデルへの誘導接続）"]
+    requires: [information-geometry.curved-exponential-family, information-geometry.dual-connection]
+
+  - id: information-geometry.submodel-metric-connection-pullback
+    name: 曲がった部分モデルへの計量と接続の誘導
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲がった部分モデルへの計量と接続の誘導）"]
+    requires: [information-geometry.induced-statistical-connections, information-geometry.fisher-coordinate-invariance]
+
+  - id: information-geometry.paraboloid-positive-curvature
+    name: 曲がった正規平均モデルの正曲率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（曲がった正規平均モデルの正曲率）"]
+    requires: [information-geometry.submodel-metric-connection-pullback, information-geometry.connection-curvatures]
