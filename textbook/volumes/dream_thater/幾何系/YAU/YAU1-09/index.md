@@ -548,7 +548,7 @@ $$
 #### YAU1-09-C01 大域二階評価を白紙から閉じる
 - Level: C
 
-境界のないコンパクト連結Kähler多様体 $(X,\omega)$（複素次元 $n\ge1$）上の滑らかな許容ポテンシャル $\varphi$ が $\omega_\varphi^n=\rho\omega^n$ を満たし、$m\le\rho\le M$、$\|\varphi\|_\infty\le C_0$、$L_\varphi\log S\ge-BT-C_1$（$B,C_1\ge0$）を仮定する。$S=\operatorname{tr}_\omega\omega_\varphi$、$T=\operatorname{tr}_{\omega_\varphi}\omega$ である。補助関数の極大点で $L_\varphi Q_A\le0$ とするところから双側計量評価まで、係数 $A$、最大点の $D$、全点の $K$、$c,C$ を明示して証明せよ。
+境界のないコンパクト連結Kähler多様体 $(X,\omega)$（複素次元 $n\ge1$）上の滑らかな許容ポテンシャル $\varphi$ が $\omega_\varphi^n=\rho\omega^n$ を満たし、$m\le\rho\le M$、$\|\varphi\|_\infty\le C_0$、$L_\varphi\log S\ge-BT-C_1$（$B,C_1\ge0$）を仮定する。$S=\operatorname{tr}_\omega\omega_\varphi$、$T=\operatorname{tr}_{\omega_\varphi}\omega$ であり、$A>0$ に対して $Q_A=\log S-A\varphi$ と置く。$Q_A$ の極大点で $L_\varphi Q_A\le0$ とするところから双側計量評価まで、係数 $A$、最大点の $D$、全点の $K$、$c,C$ を明示して証明せよ。
 
 <!-- solution-start -->
 **詳細解答。** $A=B+1$ とし、[補助関数](#def-yau1-09-auxiliary) $Q_A=\log S-A\varphi$ を作る。許容性から $S>0$、コンパクト性から最大点 $p$ がある。$L_\varphi\varphi=n-T$ は $h^{i\bar j}(h_{i\bar j}-g_{i\bar j})$ の縮約で従う。したがって
