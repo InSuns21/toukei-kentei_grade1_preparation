@@ -346,7 +346,7 @@ $$
 
 単射性によりこれらの局所逆写像は像の上で一致します。従って $T_t$ は像の上で $C^1$ 微分同相です。
 
-最適輸送写像 $T$ のグラフ結合に[OTR15の測地線定理](../OTR15/index.md#thm-otr15-displacement-geodesic)を適用すると、$(\mu_t)$ は $W_2$ 定速測地線です。
+最適輸送写像 $T$ のグラフ結合に[最適結合から作るW2定速測地線](../OTR15/index.md#thm-otr15-displacement-geodesic)を適用すると、$(\mu_t)$ は $W_2$ 定速測地線です。
 
 任意の可測集合 $E\subset\Omega$ で、[押し出し測度の定義](../../F0/F0-00P1/index.md#def-f0-00p1-pushforward)を $T_t(E)$ に適用し、変数変換公式で積分を元の座標へ戻すと
 
