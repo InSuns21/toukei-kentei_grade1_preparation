@@ -1,0 +1,58 @@
+chapter: MFL28
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL18
+  - MFL24
+  - MFL27
+  - ML2-16
+concepts:
+  - id: manifold-learning.so2-frequency-representation
+    name: SO(2)の周波数型実表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SO(2)と周波数型の実表現）"]
+    requires: [manifold-learning.finite-real-representation]
+  - id: manifold-learning.so2-integer-weight
+    name: 周波数型の群準同型と整数条件
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.so2-frequency-representation]
+  - id: manifold-learning.circle-real-fourier-moment
+    name: 円周の実Fourier特徴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円周の実Fourier特徴）"]
+    requires: [manifold-learning.cycle-discrete-fourier, manifold-learning.so2-frequency-representation]
+  - id: manifold-learning.circle-fourier-equivariance
+    name: Fourier特徴の回転等変性と有限再構成
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.circle-real-fourier-moment]
+  - id: manifold-learning.circle-steerable-kernel
+    name: 円周のsteerable核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円周のsteerable核）"]
+    requires: [manifold-learning.so2-frequency-representation, manifold-learning.linear-intertwiner]
+  - id: manifold-learning.circle-steerable-kernel-classification
+    name: 円周steerable核の分類と等変な積分層
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.circle-steerable-kernel, manifold-learning.circle-fourier-equivariance]
+  - id: manifold-learning.circle-correlation
+    name: 円周相互相関
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円周相互相関）"]
+    requires: [manifold-learning.group-correlation-equivariance, manifold-learning.circle-real-fourier-moment]
+  - id: manifold-learning.circle-correlation-frequency-filter
+    name: 円周相互相関の等変性と周波数作用
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.circle-correlation, manifold-learning.circle-fourier-equivariance]
+  - id: manifold-learning.planar-so2-kernel
+    name: 平面の周波数型核と原点の条件
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.circle-steerable-kernel-classification]
