@@ -1,0 +1,41 @@
+chapter: MFL39
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL38
+  - GEO2
+  - GEO13
+forward_references: []
+concepts:
+  - id: manifold-learning.tangent-field-local-components
+    name: 接ベクトル場の局所成分表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接ベクトル場の局所成分表示）"]
+    requires: [geometry.coordinate-tangent-basis, geometry.smooth-vector-field]
+  - id: manifold-learning.tangent-field-chart-change
+    name: チャート変更での接ベクトル成分と計量ノルム
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.tangent-field-local-components, manifold-learning.scalar-metric-transformation]
+  - id: manifold-learning.local-orthonormal-frame
+    name: 局所正規直交フレーム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所正規直交フレーム）"]
+    requires: [geometry.riemannian-metric, manifold-learning.tangent-field-local-components]
+  - id: manifold-learning.orthonormal-frame-change
+    name: 正規直交フレーム変更則
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.local-orthonormal-frame]
+  - id: manifold-learning.sphere-tangent-frame
+    name: 球面の座標・正規直交フレーム
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.local-orthonormal-frame]
+  - id: manifold-learning.sphere-latitude-connection
+    name: 球面緯線の接続項と平行成分
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.sphere-tangent-frame, geometry.covariant-derivative-along-curve]
