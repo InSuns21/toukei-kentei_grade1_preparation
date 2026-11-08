@@ -1,0 +1,62 @@
+chapter: MFL20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL19
+  - MFL7
+  - INFO2
+concepts:
+  - id: manifold-learning.tsne-conditional-perplexity
+    name: t-SNEの近傍確率とperplexity
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（t-SNEの近傍確率とperplexity）"]
+    requires: [manifold-learning.knn-graph-symmetrization, information.shannon-entropy]
+  - id: manifold-learning.perplexity-bandwidth
+    name: 帯域幅とperplexityの単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（帯域幅とperplexityの単調性）"]
+    requires: [manifold-learning.tsne-conditional-perplexity]
+  - id: manifold-learning.tsne-joint-kl
+    name: t-SNEの対称確率とKL目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（t-SNEの対称確率とKL目的関数）"]
+    requires: [manifold-learning.tsne-conditional-perplexity, information.relative-entropy]
+  - id: manifold-learning.tsne-gradient
+    name: t-SNEの座標勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（t-SNEの座標勾配）"]
+    requires: [manifold-learning.tsne-joint-kl]
+  - id: manifold-learning.umap-fuzzy-neighborhood
+    name: UMAPの局所fuzzy近傍グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（UMAPの局所fuzzy近傍グラフ）"]
+    requires: [manifold-learning.knn-graph-symmetrization]
+  - id: manifold-learning.umap-bernoulli-cross-entropy
+    name: UMAPの低次元類似度とBernoulli交差エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（UMAPの低次元類似度とBernoulli交差エントロピー）"]
+    requires: [manifold-learning.umap-fuzzy-neighborhood, information.relative-entropy]
+  - id: manifold-learning.fuzzy-union-bernoulli-loss
+    name: fuzzy unionとBernoulli目的関数の性質
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（fuzzy unionとBernoulli目的関数の性質）"]
+    requires: [manifold-learning.umap-bernoulli-cross-entropy]
+  - id: manifold-learning.trustworthiness-continuity
+    name: trustworthinessとcontinuity
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（trustworthinessとcontinuity）"]
+    requires: [manifold-learning.knn-graph-symmetrization]
+  - id: manifold-learning.disconnected-neighborhood-separation
+    name: 非連結近傍グラフの描画分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非連結近傍グラフの描画分離）"]
+    requires: [manifold-learning.umap-bernoulli-cross-entropy, manifold-learning.trustworthiness-continuity]
