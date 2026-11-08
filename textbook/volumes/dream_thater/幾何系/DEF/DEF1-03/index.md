@@ -176,7 +176,7 @@ $$
 
 式の左辺を $\mathcal N(\phi)$ と書くことがある。これは新しい複素構造を構成する際の「積分可能性のずれ」である。小ささ・直和性だけから $\mathcal N(\phi)=0$ は出てこない。
 
-**複素次元1の確認。** $n=1$ なら $\mathcal A^{0,2}=0$ であり、微分項と括弧項はどちらも零になる。直和性を満たす滑らかな $\phi$ はこの定理により積分可能である。これは[次元1の可積分性](../../CM/CM1-07/index.md#cor-cm1-07-dimension-one)と整合する。
+**複素次元1の確認。** $n=1$ なら $\mathcal A^{0,2}=0$ であり、微分項と括弧項はどちらも零になる。直和性を満たす滑らかな $\phi$ はこの定理により積分可能である。これは[次元1の可積分性](../../CM/CM1-07/index.md#cor-cm1-07-complex-dimension-one)と整合する。
 
 ただし $|\phi|=1$ のように直和性を失う場合に定理を適用してはいけない。
 
@@ -493,7 +493,7 @@ $X=\mathbb C$ の円板で $\phi=c(z,\bar z)d\bar z\otimes\partial_z$ とする�
 <!-- solution-start -->
 **詳細解答。** 複素次元1には $d\bar z\wedge d\bar z$ 以外の $(0,2)$ 基底がなく、これは交代性から零である。従って微分項も括弧項も零である。
 
-一方 $|c|<1$ から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)がある。[Maurer–Cartan定理](#thm-def1-03-maurer-cartan)を適用して、新しい概複素構造は積分可能である。
+一方 $|c|<1$ から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)がある。[この章の可積分性定理](#thm-def1-03-maurer-cartan)を適用して、新しい概複素構造は積分可能である。
 
 ノルム条件を外した $c=1$ ではグラフと共役が一致するため、形式上の方程式が零でも複素構造は得られない。
 <!-- solution-end -->
@@ -511,7 +511,7 @@ $$
 \bar\partial_T\phi=0,\qquad [\phi,\phi]=0.
 $$
 
-ノルム条件から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)があり、[Maurer–Cartan定理](#thm-def1-03-maurer-cartan)より積分可能と結論できる。
+ノルム条件から[グラフの直和性](../DEF1-02/index.md#prop-def1-02-small-graph)があり、[この章の可積分性定理](#thm-def1-03-maurer-cartan)より積分可能と結論できる。
 <!-- solution-end -->
 
 <a id="ex-def1-03-b01"></a>
