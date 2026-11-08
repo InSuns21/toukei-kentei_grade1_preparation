@@ -138,7 +138,7 @@ $$
 Q(\varphi)=\frac{\det(G+D^2_{\mathbb C}\varphi)}{\det G}>0
 $$
 
-を得る。この比は座標変換で分子・分母が同じ因子を受けるため不変である。[体積差のStokes計算](../YAU1-03/index.md#prop-yau1-03-compatibility)より、どの許容 $\varphi$ でも
+を得る。この比は二つの体積形式の商として定義した量であり、局所正則座標の取り方には依存しない。[体積差のStokes計算](../YAU1-03/index.md#prop-yau1-03-compatibility)より、どの許容 $\varphi$ でも
 
 $$
 \int_X Q(\varphi)\omega^n=V.
@@ -150,7 +150,16 @@ $$
 
 陰関数定理は、関数の集合にノルムを入れて完備にした **Banach空間** で適用する。有限次元の[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)と同じ発想だが、そこから無限次元版を無条件には引用できない。以下では必要な局所版を証明する。
 
-実次元を $d=2n$、整数 $s=d+1$ とする。$H^k(X;\mathbb R)$ は、有限個の滑らかな座標と分割関数で、すべての弱微分 $|\alpha|\le k$ の $L^2$ ノルムの和から定まるSobolev空間である。ここで $\alpha=(\alpha_1,\ldots,\alpha_d)\in\mathbb N_0^d$ は多重指数、$|\alpha|=\sum_j\alpha_j$、$D^\alpha$ はその次数の実座標微分を表す。[GA2の多様体Sobolev空間と完備性](../../GA/GA2/index.md#thm-ga2-complete-density)の高階版であり、異なる有限座標系のノルムは同値である。$\int_Xu\omega^n$ は連続な線形汎関数だから、その核は閉じている。
+実次元を $d=2n$、整数 $s=d+1$ とする。実座標での弱微分の次数は多重指数 $\alpha$ で表し、
+
+$$
+\alpha=(\alpha_1,\ldots,\alpha_d)\in\mathbb N_0^d,
+\qquad |\alpha|=\sum_{j=1}^d\alpha_j
+$$
+
+と書く。$D^\alpha$ は各実座標についてそれぞれ $\alpha_j$ 回微分する作用素である。
+
+$H^k(X;\mathbb R)$ は、有限個の滑らかな座標と分割関数で、すべての弱微分 $|\alpha|\le k$ の $L^2$ ノルムの和から定まるSobolev空間である。[GA2の多様体Sobolev空間と完備性](../../GA/GA2/index.md#thm-ga2-complete-density)の高階版であり、異なる有限座標系のノルムは同値である。$\int_Xu\omega^n$ は連続な線形汎関数だから、その核は閉じている。
 
 <a id="def-yau1-05-fixed-spaces"></a>
 
