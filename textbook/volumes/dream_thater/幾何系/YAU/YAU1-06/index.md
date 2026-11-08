@@ -75,7 +75,7 @@ $$
 
 ## 3. 熱核から平均ゼロGreen核を作る
 
-平均ゼロの関数 $u$ は $Lu$ から復元できるはずだ。[GA3のPoisson存在一意性](../../GA/GA3/index.md#thm-ga3-poisson-existence)がこの考えを保証する。しかし $Lu\le2n$ のように**上からしか抑えていない不等式**を $u$ の評価へ移すには、復元する積分核の符号を知りたい。
+平均ゼロの関数 $u$ は $Lu$ から復元できるはずだ。[GA3のPoisson存在一意性](../../GA/GA3/index.md#thm-ga3-poisson-existence)がこの考えを保証する。しかし $Lu\le2n$ のように上からしか抑えていない不等式を $u$ の評価へ移すには、復元する積分核の符号を知りたい。
 
 [GA5の熱核](../../GA/GA5/index.md#def-ga5-heat-kernel)を $p_s(x,y)$ と書く。これは実Laplacian $\Delta_\omega$ に関する核で、体積 $dV_\omega=\omega^n/n!$ に対して定義されたものなので、ここでは $d\mu=n!dV_\omega$ に対する核として $p_s$ を $1/n!$ 倍して読み替える。こうすると
 
@@ -292,7 +292,24 @@ L G_\varepsilon(x,q)
 \Delta u_\varepsilon=V p_\varepsilon(x,q)-1\ge-1.
 $$
 
-複素一次元では $\omega_u/\omega_0=1+\Delta u/2$ なので、$\omega_{u_\varepsilon}\ge\omega_0/2>0$ である。それでも[平坦トーラスの周期化Gaussian熱核](../../GA/GA5/index.md#thm-ga5-torus-gaussian)を対角 $q=q$ で用いると、大きいピークを作れる。実際、$\theta=2\pi(x,y)$ と座標を拡大すると、標準 $2\pi$ 周期トーラスのLaplacian $\Delta_{\theta}$ に対し $\Delta_{\omega_0}=2\pi^2\Delta_{\theta}$ となる。時間は $\tau=2\pi^2s$、体積は $d\mu=(2\pi^2)^{-1}d\theta_1d\theta_2$ だから、熱核の密度は $p_s=2\pi^2p^{\mathrm{std}}_{\tau}$ と変換される。周期化Gaussianの原点項から $p_s(q,q)\ge2\pi^2/(4\pi\tau)=(4\pi s)^{-1}$ を得る。従って
+複素一次元では $\omega_u/\omega_0=1+\Delta u/2$ なので、$\omega_{u_\varepsilon}\ge\omega_0/2>0$ である。それでも[平坦トーラスの周期化Gaussian熱核](../../GA/GA5/index.md#thm-ga5-torus-gaussian)を対角 $q=q$ で用いると、大きいピークを作れる。
+
+実際、座標を $\theta=2\pi(x,y)$ と拡大すると、標準 $2\pi$ 周期トーラスのLaplacian $\Delta_{\theta}$ に対して
+
+$$
+\Delta_{\omega_0}=2\pi^2\Delta_\theta,\qquad
+\tau=2\pi^2s,\qquad
+d\mu=\frac{d\theta_1d\theta_2}{2\pi^2}
+$$
+
+となる。時間 $\tau$ の標準熱核を $p^{\mathrm{std}}_\tau$ と書けば、密度の体積変換から $p_s=2\pi^2p^{\mathrm{std}}_\tau$ である。周期化Gaussianの原点項は
+
+$$
+p_s(q,q)\ge\frac{2\pi^2}{4\pi\tau}
+=\frac1{4\pi s}
+$$
+
+を与える。従って
 
 $$
 G_\varepsilon(q,q)
