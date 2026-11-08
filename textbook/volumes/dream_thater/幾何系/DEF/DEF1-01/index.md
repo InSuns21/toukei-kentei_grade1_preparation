@@ -34,7 +34,14 @@ $$
 
 ## 2. Ehresmann局所自明化：滑らかな形は変わらない
 
-正則沈め込みの局所座標では、正則な陰関数定理によって $\pi$ は基底座標への射影になる。ここでの**局所的な積座標**は $\mathcal X$ の各点の近くで得られるもので、ファイバー全体の正則積表示を保証しない。
+正則沈め込みの局所座標では、$d\pi$ は複素線形な全射である。全空間と基底の複素次元をそれぞれ $n+m,m$ とすると、全空間の正則座標からファイバー方向の $n$ 成分 $z=(z^1,\ldots,z^n)$ を選び、次の写像の複素Jacobi行列を可逆にできる。
+
+$$
+(z,\pi):\mathcal X\supset V\longrightarrow\mathbb C^n\times\mathbb C^m,
+\qquad p\longmapsto(z(p),\pi(p)).
+$$
+
+ここでの $V$ は着目点の座標近傍である。[実逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から十分小さい近傍で実 $C^1$ 級の逆が存在し、[正則写像の逆の正則性](../../CM/CM1-01/index.md#prop-cm1-01-composition)からその逆も正則になる。従って $t=\pi(p)$ と置けば $(z,t)$ が正則座標となり、$\pi(z,t)=t$ である。つまり**局所的な積座標**とはこの射影表示であり、ファイバー全体の正則積表示までは保証しない。
 
 これに対して、基底を少し縮めればファイバー全体を**微分可能**には同時に同一視できる。必要な区別を次に明記する。
 
@@ -72,15 +79,23 @@ $X$ はコンパクトなので、その上の全点について $H_1,\ldots,H_m
 
 ## 3. 局所的な持ち上げの差からČech類を得る
 
-以下、$\pi:\mathcal X\to B$ は[正則変形族](#def-def1-01-family)、$b_0\in B$、$X=X_{b_0}$ とし、$\xi\in T_{b_0}^{1,0}B$ を基底の**一つの複素接方向**とする。局所座標 $t=(t^1,\ldots,t^m)$ で $\xi=\sum_a\xi^a\partial_{t^a}|_{b_0}$ と書き、基底の近傍では定数係数の正則ベクトル場 $\widetilde\xi=\sum_a\xi^a\partial_{t^a}$ に延長する。
+以下、$\pi:\mathcal X\to B$ は[正則変形族](#def-def1-01-family)、$b_0\in B$、$X=X_{b_0}$ とする。基底の複素接方向 $\xi$ を一つ固定する。第2節で流れを構成したときの座標は実座標だったが、ここからの $t=(t^1,\ldots,t^m)$ は**複素**基底座標である。局所的に次のように書く。
 
-$X$ を覆う小さな開集合 $U_i$ を取り、その上方の局所的な正則積座標 $(z_i,t)$ を選ぶ。$t$ を動かし $z_i$ を固定する正則ベクトル場
+$$
+\xi=\sum_a\xi^a\partial_{t^a}|_{b_0},
+\qquad
+\widetilde\xi=\sum_a\xi^a\partial_{t^a}.
+$$
+
+右辺の $\widetilde\xi$ は、基底の近傍で係数を一定とした正則ベクトル場であり、中心点で $\xi$ に一致する。
+
+$X$ を覆う小さな開集合 $U_i$ を取り、その上方の局所的な正則積座標 $(z_i,t)$ を選ぶ。$\partial_{t^a}|_{z_i}$ は $z_i$ を固定して複素パラメータ $t^a$ だけを微分する記号である。第5節では逆に $t$ を固定して $\partial_z,\partial_{\bar z}$ を取る。この違いを踏まえて、局所正則ベクトル場を
 
 $$
 s_i=\sum_a\xi^a\left.\frac{\partial}{\partial t^a}\right|_{z_i}
 $$
 
-は $d\pi(s_i)=\widetilde\xi$ を満たす。これを**局所正則持ち上げ**と呼ぶ。重なりでは $s_j-s_i$ が $d\pi$ の核に入り、ファイバー上の正則接ベクトル場になる。[正則接束](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)を $T_X$ と書く。
+と置く。これは $d\pi(s_i)=\widetilde\xi$ を満たすので、**局所正則持ち上げ**と呼ぶ。重なりでは $s_j-s_i$ が $d\pi$ の核に入り、ファイバー上の正則接ベクトル場になる。[正則接束](../../CM/CM1-05/index.md#def-cm1-05-holomorphic-tangent-section)を $T_X$ と書く。
 
 [Čech複体の交代微分](../../../代数系/AG/AG3-07/index.md#def-ag3-07-cech-complex)と同じ規約で、一次コチェインの閉条件を $\kappa_{jk}-\kappa_{ik}+\kappa_{ij}=0$、零次の境界を $(\delta v)_{ij}=v_j-v_i$ とする。ここでは**複素多様体上の正則接ベクトル場の層**にこの操作を適用する。
 
@@ -309,7 +324,20 @@ d_c\bigl(f_{ji}(z_i,g(c))\bigr)_{c_0}(\eta)
 =d_t f_{ji}(z_i,b_0)\bigl(dg_{c_0}(\eta)\bigr).
 $$
 
-第3節の $\kappa_{ij}=-d_t f_{ji}\,\partial_{z_j}$ にこの等式を代入すると、引き戻し族のČechコサイクルが元の族の $dg(\eta)$ に対応するものと一致する。Čech類を取れば結論を得る。$\square$
+この式を接ベクトル場へ変換する際の添字を明示する。ファイバーの複素次元を $n$、基底の複素次元を $m$ とし、$z_j^\nu=f_{ji}^\nu(z_i,t)$、$\eta=\sum_r\eta^r\partial_{c^r}$ と書く。$z_i$ を固定して微分すると
+
+$$
+\begin{aligned}
+\kappa'_{ij}(\eta)
+&=-\sum_{\nu=1}^n\left(\sum_{a=1}^m
+\frac{\partial f_{ji}^\nu}{\partial t^a}(z_i,b_0)
+\sum_r\frac{\partial g^a}{\partial c^r}(c_0)\eta^r\right)
+\partial_{z_j^\nu}\\
+&=\kappa_{ij}\bigl(dg_{c_0}(\eta)\bigr).
+\end{aligned}
+$$
+
+最初の負号は第3節で定めた $s_j-s_i$ の順序から来る。各成分の複素連鎖律を適用したのであり、$c$ を微分するとき $z_i$ は固定している。したがって二つのČechコサイクルが一致し、類を取れば結論を得る。$\square$
 <!-- proof-end -->
 
 例えば第5節の楕円曲線族を $\tau=i+s^2$ で引き戻す。$s=0$ では $d\tau/ds=0$ なので、引き戻した族のKodaira–Spencer写像は零である。しかし $s\ne0$ では $\tau$ が動く。**写像が零であることは、その一点での一次変化が零という意味であり、族全体が自明であることの証明ではない。**
@@ -428,9 +456,32 @@ $\kappa_{ij}$ は正則なので $\bar\partial_T(u_j-u_i)=\bar\partial_T\kappa_{
 楕円曲線の族 $E_\tau$ を $\tau=i+s^2$ で引き戻す。$s=0$ でのKodaira–Spencer類を求め、$s$ が非零のときに同じ計算から何が言えるか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 基底写像 $g(s)=i+s^2$ の微分は $dg_0(\partial_s)=2s\partial_\tau|_{s=0}=0$ である。[基底変更の命題](#prop-def1-01-base-change)により $\operatorname{KS}_{g^*\pi,0}(\partial_s)=\operatorname{KS}_{\pi,i}(0)=0$。
+**詳細解答。** 基底写像 $g(s)=i+s^2$ の微分は、各 $s$ で
 
-一方 $s\ne0$ では $dg_s(\partial_s)=2s\partial_\tau\ne0$ である。第5節の局所計算を $\tau$ の近傍で行えば、楕円曲線の一次類は $\tau$ 方向に非零だから、引き戻しの一次類も $s\ne0$ では非零となる。$s=0$ の写像が零なのは一階微分が消えたためであり、全パラメータで自明という主張にはならない。
+$$
+dg_s(\partial_s)=2s\,\partial_\tau|_{\tau=i+s^2}
+$$
+
+である。従って $dg_0(\partial_s)=0$ で、[基底変更の命題](#prop-def1-01-base-change)から $\operatorname{KS}_{g^*\pi,0}(\partial_s)=\operatorname{KS}_{\pi,i}(0)=0$ となる。
+
+一方、$s\ne0$ での非零性も、中心を $\tau_0=i+s^2$ として直接確かめる。$\tau_0$ を固定して滑らかな基準座標 $z=x+\tau_0y$ を選ぶと、
+
+$$
+y=\frac{z-\bar z}{\tau_0-\bar\tau_0},
+\qquad u=\tau-\tau_0,
+\qquad w=z+uy
+$$
+
+である。$u$ を固定して $z,\bar z$ に関する偏微分を取り、$w$ を消す $(0,1)$ 方向を解くと
+
+$$
+\mu(u)=\frac{u}{\tau_0-\bar\tau_0+u},
+\qquad
+\left.\frac{d\mu}{du}\right|_{u=0}
+=\frac{1}{\tau_0-\bar\tau_0}\ne0.
+$$
+
+この定数係数形式は、第5節と同じ周期積分により $\bar\partial_T$-完全ではない。よって $\operatorname{KS}_{\pi,\tau_0}(\partial_\tau)\ne0$ であり、$2s\ne0$ と基底変更公式から引き戻しの一次類も非零である。$s=0$ で零なのは一階微分が消えたためであり、全パラメータで自明という主張にはならない。
 <!-- solution-end -->
 
 <a id="ex-def1-01-c01"></a>
