@@ -1,0 +1,48 @@
+id: "OTR19"
+title: "静的最適輸送と流体作用は等価か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR18
+official_scope: []
+learning_objectives:
+  - 空間時間の質量測度と流束測度から密度がなくても運動作用を定義し、真空部分の拡張値規約を確認できる
+  - 流束の二乗を密度で割る作用が有限なら速度場が存在することと、局所的な凸性を証明できる
+  - 端点固定の連続の方程式に対しsuperpositionによる下界を証明できる
+  - 最適結合の線形補間と速度場の構成によって作用の上界を証明できる
+  - Benamou–Brenier公式の最小値の達成と時間再パラメータ化の損失を説明できる
+  - 密度表示の妥当な範囲と原子的測度での限界を区別できる
+  - 凸領域のno-flux条件を検証し、非凸領域では直線補間の議論が破綻することを示せる
+definitions:
+  - { id: OTR19-DEF-01, name: 空間時間の質量・流束測度 }
+  - { id: OTR19-DEF-02, name: 真空を含む流体作用 }
+  - { id: OTR19-DEF-03, name: 動的輸送の許容対 }
+theorems:
+  - { id: OTR19-LEM-01, name: 有限作用と速度場の同値 }
+  - { id: OTR19-PROP-01, name: 流体作用の凸性 }
+  - { id: OTR19-LEM-02, name: 静的費用による動的作用の下界 }
+  - { id: OTR19-LEM-03, name: 最適結合による動的作用の上界 }
+  - { id: OTR19-THM-01, name: Benamou–Brenierの動的定式化 }
+  - { id: OTR19-PROP-02, name: 凸領域内の流体作用とW2 }
+canonical_examples:
+  - 移動Dirac測度の特異な流束と有限作用
+  - 一様密度の平行移動と真空部分の流束
+  - 二原子の合流と最適補間
+  - 時間再パラメータ化で余分な作用が生じる例
+  - 非凸領域でEuclid最短直線が領域から出る反例
+problem_patterns:
+  - OTR19-A01
+  - OTR19-A02
+  - OTR19-A03
+  - OTR19-A04
+  - OTR19-A05
+  - OTR19-B01
+  - OTR19-B02
+  - OTR19-B03
+  - OTR19-B04
+  - OTR19-C01
+  - OTR19-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 3.0 }
