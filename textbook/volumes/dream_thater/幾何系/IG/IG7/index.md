@@ -256,7 +256,7 @@ $$
 \left(P^i_aP^j_b\Gamma^{(\alpha)k}_{ij}+Q^k_{ab}\right).
 $$
 
-これは [IG6 の接続係数の変換則](../IG6/index.md#thm-ig6-coordinate-covariance)そのものです。また $\ell_{ij}=\ell_{ji}$ と三次積の対称性から $\Gamma^{(\alpha)k}_{ij}=\Gamma^{(\alpha)k}_{ji}$ で、[捩率の座標表示](../IG6/index.md#prop-ig6-difference-torsion)により捩率零です。
+これは [IG6 の接続係数の変換則](../IG6/index.md#thm-ig6-coordinate-covariance)そのものです。また $\ell_{ij}=\ell_{ji}$ と三次積の対称性から $\Gamma^{(\alpha)k}_{ij}=\Gamma^{(\alpha)k}_{ji}$ で、[GEO13 の捩率のテンソル性と座標表示](../../GEO/GEO13/index.md#prop-geo13-torsion-tensor)により捩率零です。
 
 次に、期待値の微分公式
 
