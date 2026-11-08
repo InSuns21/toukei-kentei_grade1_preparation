@@ -1,0 +1,47 @@
+chapter: IG11
+scope: dream-theater
+coverage: complete
+prerequisites: [IG10, IG9, IG4, IG5]
+concepts:
+  - id: information-geometry.empirical-mle
+    name: 経験分布と有限モデルの最尤推定
+    aliases: ["最尤推定分布"]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（経験分布と有限モデルの最尤推定）"]
+    requires: [information-geometry.positive-simplex]
+
+  - id: information-geometry.mle-kl-equivalence
+    name: 最尤推定と KL 最小化の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最尤推定と KL 最小化の同値）"]
+    requires: [information-geometry.empirical-mle, information-geometry.em-information-projection]
+
+  - id: information-geometry.finite-exponential-mle
+    name: 有限指数型分布族のモーメント一致と内点 MLE
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限指数型分布族のモーメント一致と内点 MLE）"]
+    requires: [information-geometry.mle-kl-equivalence, information-geometry.exponential-fisher-hessian]
+
+  - id: information-geometry.moment-relative-entropy
+    name: モーメント制約と相対エントロピー最小化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モーメント制約と相対エントロピー最小化）"]
+    requires: [information-geometry.em-information-projection]
+
+  - id: information-geometry.maxent-exponential
+    name: 線形制約下の相対エントロピー最小化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形制約下の相対エントロピー最小化）"]
+    requires: [information-geometry.moment-relative-entropy, information-geometry.bregman-projection-inequality]
+
+  - id: information-geometry.mle-maxent-duality
+    name: MLE と最大エントロピーの共通解と双方向 Pythagoras
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（MLE と最大エントロピーの共通解と双方向 Pythagoras）"]
+    requires: [information-geometry.finite-exponential-mle, information-geometry.maxent-exponential, information-geometry.generalized-pythagoras]

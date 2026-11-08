@@ -1,0 +1,35 @@
+id: "IG11"
+title: "最尤法・最大エントロピーと情報射影"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG10
+  - IG9
+  - IG4
+  - IG5
+official_scope: []
+learning_objectives:
+  - 有限標本空間で経験分布の零成分を扱い、最尤推定を逆向き KL 最小化と同値にできる
+  - 全指数型分布族の score 方程式からモーメント一致を導き、内点解の存在・一意性を凸包の内部条件で判定できる
+  - 線形モーメント制約下の相対エントロピー最小化の存在・一意性と指数型表示を証明できる
+  - 一様基準分布での最大 Shannon エントロピーと相対エントロピー最小化を区別して結び付けられる
+  - MLE の m-射影と最大エントロピーの e-射影の目的関数・制約集合・KL の向きを判別できる
+  - 同じ基準分布と内部モーメントの下で二つの射影が一致することを Pythagoras 等式まで含めて検証できる
+  - 境界での非存在・有限乗数の破綻と、反復射影だけでは収束を保証できない理由を説明できる
+definitions:
+  - { id: IG11-DEF-01, name: 経験分布と有限モデルの最尤推定 }
+  - { id: IG11-DEF-02, name: モーメント制約と相対エントロピー最小化 }
+theorems:
+  - { id: IG11-THM-01, name: 最尤推定と KL 最小化の同値 }
+  - { id: IG11-THM-02, name: 有限指数型分布族のモーメント一致と内点 MLE }
+  - { id: IG11-THM-03, name: 線形制約下の相対エントロピー最小化 }
+  - { id: IG11-THM-04, name: MLE と最大エントロピーの共通解と双方向 Pythagoras }
+canonical_examples:
+  - Bernoulli の全成功標本で有限 MLE が存在しない例
+  - 3点カテゴリカルの群和モーメントを用いた MLE と相対エントロピー射影
+  - 二つの線形制約への有限回の交互射影が両制約を満たさない例
+problem_patterns: [IG11-A01, IG11-A02, IG11-A03, IG11-A04, IG11-A05, IG11-B01, IG11-B02, IG11-B03, IG11-B04, IG11-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 7.0, review: 2.0 }
