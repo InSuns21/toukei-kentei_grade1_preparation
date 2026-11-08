@@ -12,13 +12,15 @@
 
 ## 2. 回転で値の型が変わる――SO(2)の実表現
 
-平面の長さと向きを保つ原点中心の回転全体を $SO(2)$ と書く。角度を2πの整数倍だけ変えた操作は同一なので、群の元は角度の同値類 $[\alpha]\in\mathbb R/(2\pi\mathbb Z)$ である。行列を
+平面の長さと向きを保つ原点中心の回転全体を $SO(2)$ と書く。角度を2πの整数倍だけ変えた操作は同一なので、群の元は角度の同値類 $[\alpha]\in\mathbb R/(2\pi\mathbb Z)$ である。角度の同値類全体は、円周 $S^1=\mathbb R/(2\pi\mathbb Z)$ とも書く。
+
+回転を表す行列を
 
 $$
 R(\beta)=\begin{pmatrix}\cos\beta&-\sin\beta\\\sin\beta&\cos\beta\end{pmatrix}
 $$
 
-と置くと、加法公式から $R(\beta)R(\gamma)=R(\beta+\gamma)$ である。整数 $m\ge1$ ごとに、角度 $\alpha$ を $m\alpha$ だけ回す二成分の特徴を考える。$m$ を**周波数**または**回転の重み**という。$m=0$ は回しても値の変わらない実数の特徴とする。
+と置くと、加法公式から $R(\beta)R(\gamma)=R(\beta+\gamma)$、また $R(\beta)^{-1}=R(-\beta)$ である。[MFL24 の実行列表現](../MFL24/index.md#def-mfl24-representation)と同様、回転の合成に対応する可逆行列を特徴に作用させる。整数 $m\ge1$ ごとに、角度 $\alpha$ を $m\alpha$ だけ回す二成分の特徴を考える。$m$ を**周波数**または**回転の重み**という。$m=0$ は回しても値の変わらない実数の特徴とする。
 
 <a id="def-mfl28-so2-types"></a>
 
@@ -84,7 +86,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl28-fourier-moments -->
-**定義の確認**。$f(\theta)=1+2\cos\theta-3\sin\theta+4\cos2\theta$ とする。異なる正の整数 $j,k$ には
+**定義の確認**。$f(\theta)=1+2\cos\theta-3\sin\theta+4\cos2\theta$ とする。正の整数 $j,k$ に対し、$\boldsymbol{1}_{j=k}$ は $j=k$ なら1、それ以外なら0とする。積和公式を使うと
 
 $$
 \frac1\pi\int_0^{2\pi}\cos(j\theta)\cos(k\theta)\,d\theta=\boldsymbol{1}_{j=k},\quad
@@ -151,7 +153,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl28-steerable-kernel -->
-**定義の確認**。$m=2$、$v=(1,0)^\mathsf T$ として $k(\theta)=R(2\theta)v=(\cos2\theta,\sin2\theta)^\mathsf T$ を取る。$k(0)=(1,0)^\mathsf T$、$k(\pi/4)=(0,1)^\mathsf T$、$k(\pi/2)=(-1,0)^\mathsf T$。$k(\theta+\alpha)=R(2\alpha)R(2\theta)v$ なので任意の角度で定義の等式が成立する。逆に $k(\theta)=(\cos\theta,\sin\theta)^\mathsf T$ は $\alpha=\pi/2$ で $k(\pi/2)=(0,1)^\mathsf T\ne R(\pi)k(0)$ となり、周波数2型の核ではない。
+**定義の確認**。$m=2$、$v=(1,0)^\mathsf T$ として $k(\theta)=R(2\theta)v=(\cos2\theta,\sin2\theta)^\mathsf T$ を取る。これは連続で、$k(\theta+2\pi)=k(\theta)$ より $S^1$ 上で一価に定まる。$k(0)=(1,0)^\mathsf T$、$k(\pi/4)=(0,1)^\mathsf T$、$k(\pi/2)=(-1,0)^\mathsf T$。[回転行列の合成則](#prop-mfl28-representation)により $k(\theta+\alpha)=R(2\alpha)R(2\theta)v$ なので任意の角度で定義の等式が成立する。逆に $k(\theta)=(\cos\theta,\sin\theta)^\mathsf T$ は $\alpha=\pi/2$ で $k(\pi/2)=(0,1)^\mathsf T\ne R(\pi)k(0)$ となり、周波数2型の核ではない。
 <!-- definition-example-end -->
 
 <a id="thm-mfl28-kernel-classification"></a>
@@ -201,17 +203,34 @@ T_kf=\frac12\begin{pmatrix}a&-b\\b&a\end{pmatrix}
 \begin{pmatrix}c\\d\end{pmatrix}.
 $$
 
-積分の係数が $1/(2\pi)$、Fourier特徴の係数が $1/\pi$ なので $1/2$ が現れる。これは円周の周波数 $m$ 成分以外を見ない線形層である。例えば $m=1$、$v=(2,-1)^\mathsf T$、$f=2\cos\theta+3\sin\theta$ なら $T_kf=(7/2,2)^\mathsf T$。出力を単純な「二つのスカラー」とみなして成分ごとに任意の非線形関数を掛けても、一般には回転等変性は保たれない。例えば $v=(1,0)^\mathsf T$ の各成分を $\max(0,x)$ へ送ると、180度回転した $(-1,0)^\mathsf T$ は $(0,0)^\mathsf T$ になるが、元の出力に $R(\pi)$ を掛けると $(-1,0)^\mathsf T$ になる。
+積分の係数が $1/(2\pi)$、[実Fourier特徴](#def-mfl28-fourier-moments)の係数が $1/\pi$ なので $1/2$ が現れる。これは円周の周波数 $m$ 成分以外を見ない線形層である。例えば $m=1$、$v=(2,-1)^\mathsf T$、$f=2\cos\theta+3\sin\theta$ なら $T_kf=(7/2,2)^\mathsf T$。
 
-## 5. 円周上の相互相関と周波数フィルタ
+出力を単純な「二つのスカラー」とみなして成分ごとに任意の非線形関数を掛けても、一般には回転等変性は保たれない。実際、$m=1$、$v=(1,0)^\mathsf T$、$f(\theta)=2\cos\theta$ とすれば、上の行列式から $T_kf=(1,0)^\mathsf T$ となる。
 
-出力が全角度 $\theta$ にある場合は、入力と出力の差角 $\delta$ だけを見る**相互相関型**の層が自然である。積分は正規化測度 $d\delta/(2\pi)$ を使う。これにより離散の [周期相互相関](../../ML/ML2-16/index.md#def-ml2-16-periodic-correlation)の総和と形がそろう。
+成分ごとの非線形写像を $\sigma(x_1,x_2)=(\max(0,x_1),\max(0,x_2))$ と置く。[核の等変性](#thm-mfl28-kernel-classification)より、入力を180度回したときの出力は
+
+$$
+T_k(U_\pi f)=R(\pi)T_kf=(-1,0)^\mathsf T
+$$
+
+となる。そこで非線形写像を前後に作用させる順番を比較すると
+
+$$
+\sigma(T_k(U_\pi f))=(0,0)^\mathsf T,
+\qquad R(\pi)\sigma(T_kf)=(-1,0)^\mathsf T.
+$$
+
+左右が異なり、成分ごとの $\sigma$ は周波数1型の回転と交換しない。
+
+## 5. 円周上の畳み込みと周波数フィルタ
+
+出力が全角度 $\theta$ にある場合は、入力と出力の差角 $\delta$ だけを見る**畳み込み型**の層が自然である。積分は正規化測度 $d\delta/(2\pi)$ を使う。[ML2-16 の周期相互相関](../../ML/ML2-16/index.md#def-ml2-16-periodic-correlation)は入力の位置を $i+r$ に動かす規約だが、以下では $\theta-\delta$ に動かす。両者は核を反転すれば対応し、符号を無言で同一視しない。
 
 <a id="def-mfl28-circle-correlation"></a>
 
 <!-- formal-statement-start -->
-> **定義（円周相互相関）**
-> 連続2π周期実関数 $\kappa,f$ に対し、円周相互相関 $C_\kappa f$ を
+> **定義（円周畳み込み）**
+> 連続2π周期実関数 $\kappa,f$ に対し、円周畳み込み $C_\kappa f$ を
 
 $$
 (C_\kappa f)(\theta)=\frac1{2\pi}\int_0^{2\pi}\kappa(\delta)f(\theta-\delta)\,d\delta
@@ -224,10 +243,18 @@ $$
 **定義の確認**。$\kappa(\delta)=2\cos2\delta$、$f(\theta)=3+\cos\theta-2\sin2\theta$ とする。$\sin2(\theta-\delta)=\sin2\theta\cos2\delta-\cos2\theta\sin2\delta$ を積分へ代入すると、$\cos2\delta$ と直交する定数・一次周波数・$\sin2\delta$ の項は消え、$\frac1{2\pi}\int 2\cos^22\delta\,d\delta=1$ より $C_\kappa f=-2\sin2\theta$。2次周波数だけが残った。
 <!-- definition-example-end -->
 
+積分変数を $r=-\delta$ と置き、周期性で区間を戻すと
+
+$$
+(C_\kappa f)(\theta)=\frac1{2\pi}\int_0^{2\pi}\kappa(-r)f(\theta+r)\,dr.
+$$
+
+したがって離散の相互相関と同じ「入力位置に足す」表示では、核を $\kappa(-r)$ に反転させる。後の周波数行列の $s_m$ の符号も、元の $\theta-\delta$ 規約に従う。
+
 <a id="thm-mfl28-correlation-modes"></a>
 
 <!-- formal-statement-start -->
-> **定理（円周相互相関の等変性と周波数作用）**
+> **定理（円周畳み込みの等変性と周波数作用）**
 > 連続2π周期実関数 $\kappa,f$ と任意の角度 $\alpha$ に対して $C_\kappa U_\alpha=U_\alpha C_\kappa$ が成り立つ。$f$ が有限三角多項式なら、$m\ge1$ 次のFourier特徴に対する作用は
 
 $$
@@ -382,7 +409,7 @@ python textbook/volumes/dream_thater/応用系/MFL/MFL28/so2_fourier_lab.py --mo
 ### MFL28-B04 奇数核も回転等変である
 
 - Level: B
-- 問題: $\kappa(\delta)=1+2\cos\delta+2\sin2\delta$、$f(\theta)=1+2\cos\theta+3\sin\theta+4\cos2\theta+5\sin2\theta$ とする。$C_\kappa f$ を求めよ。$\sin2\delta$ は偶関数でないのに回転等変性が保たれる理由を、[円周相互相関の定理](#thm-mfl28-correlation-modes)の仮定と計算から説明せよ。
+- 問題: $\kappa(\delta)=1+2\cos\delta+2\sin2\delta$、$f(\theta)=1+2\cos\theta+3\sin\theta+4\cos2\theta+5\sin2\theta$ とする。$C_\kappa f$ を求めよ。$\sin2\delta$ は偶関数でないのに回転等変性が保たれる理由を、[円周畳み込みの定理](#thm-mfl28-correlation-modes)の仮定と計算から説明せよ。
 
 <a id="ex-mfl28-c01"></a>
 

@@ -41,13 +41,13 @@ concepts:
     introduction: formal
     requires: [manifold-learning.circle-steerable-kernel, manifold-learning.circle-fourier-equivariance]
   - id: manifold-learning.circle-correlation
-    name: 円周相互相関
+    name: 円周畳み込み
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（円周相互相関）"]
+    introduction_aliases: ["定義（円周畳み込み）"]
     requires: [manifold-learning.group-correlation-equivariance, manifold-learning.circle-real-fourier-moment]
   - id: manifold-learning.circle-correlation-frequency-filter
-    name: 円周相互相関の等変性と周波数作用
+    name: 円周畳み込みの等変性と周波数作用
     kind: theorem
     introduction: formal
     requires: [manifold-learning.circle-correlation, manifold-learning.circle-fourier-equivariance]
