@@ -1,0 +1,60 @@
+chapter: IG14
+scope: dream-theater
+coverage: complete
+prerequisites: [IG2, IG3]
+concepts:
+  - id: information-geometry.finite-markov-kernel
+    name: 有限状態の Markov kernel と確率写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の Markov kernel と確率写像）"]
+    requires: [information-geometry.positive-simplex, information-geometry.simplex-tangent]
+
+  - id: information-geometry.kl-data-processing
+    name: 有限状態のデータ処理不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限状態のデータ処理不等式）"]
+    requires: [information-geometry.finite-markov-kernel, stat.kl-divergence, convex.convex-function]
+
+  - id: information-geometry.metric-information-monotonicity
+    name: Riemann 計量族の情報単調性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 計量族の情報単調性）"]
+    requires: [information-geometry.finite-markov-kernel, information-geometry.fisher-rao-metric]
+
+  - id: information-geometry.fisher-markov-contraction
+    name: Fisher--Rao 計量の縮小と等号条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fisher--Rao 計量の縮小と等号条件）"]
+    requires: [information-geometry.metric-information-monotonicity, information-geometry.fisher-rao-metric]
+
+  - id: information-geometry.congruent-markov-embedding
+    name: 復元可能な確率埋め込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（復元可能な確率埋め込み）"]
+    requires: [information-geometry.finite-markov-kernel]
+
+  - id: information-geometry.cencov-finite-characterization
+    name: Čencov の特徴付け：有限正単体の計量族
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Čencov の特徴付け：有限正単体の計量族）"]
+    requires: [information-geometry.metric-information-monotonicity, information-geometry.congruent-markov-embedding, information-geometry.fisher-markov-contraction]
+
+  - id: information-geometry.alpha-divergence
+    name: 有限正分布の α-divergence
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限正分布の α-divergence）"]
+    requires: [information-geometry.f-divergence]
+
+  - id: information-geometry.f-divergence-processing
+    name: f-divergence の情報単調性と局所 Fisher 計量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（f-divergence の情報単調性と局所 Fisher 計量）"]
+    requires: [information-geometry.alpha-divergence, information-geometry.f-divergence-fisher, information-geometry.finite-markov-kernel]

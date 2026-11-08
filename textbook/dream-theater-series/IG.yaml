@@ -19,4 +19,4 @@ chapters:
   - { id: IG11, path: textbook/volumes/dream_thater/幾何系/IG/IG11, status: completed, title: "最尤法・最大エントロピーと情報射影" }
   - { id: IG12, path: textbook/volumes/dream_thater/幾何系/IG/IG12, status: completed, title: "自然勾配・KL trust region・mirror descent" }
   - { id: IG13, path: textbook/volumes/dream_thater/幾何系/IG/IG13, status: completed, title: "統計多様体の曲率と曲がった指数型分布族" }
-  - { id: IG14, path: textbook/volumes/dream_thater/幾何系/IG/IG14, status: planned, title: "情報単調性と Čencov の定理" }
+  - { id: IG14, path: textbook/volumes/dream_thater/幾何系/IG/IG14, status: completed, title: "情報単調性と Čencov の定理" }

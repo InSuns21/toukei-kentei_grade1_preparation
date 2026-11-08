@@ -2,7 +2,7 @@
 
 作成日: 2026-10-05  
 改訂日: 2026-11-08（標準教科書・公開シラバスと照合、全14講に確定）  
-状態: in_progress（IG1--IG13 完了、IG14 未着手）
+状態: in_progress（IG1--IG14 の各講を実装済み、系列全体の横断的な最終点検は未実施）
 移行元: \`DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md\` 旧 U5
 
 ## 0. 目的
