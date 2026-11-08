@@ -1,0 +1,39 @@
+id: "SQC6"
+title: "円の面積とπの無理性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC3
+official_scope: []
+learning_objectives:
+  - 内接・外接正多角形の面積から円の面積公式を導き、円積問題を正の長さ√πの作図可能性へ帰着できる
+  - Niven型補助多項式の端点微分が整数になる理由を係数展開と対称性から証明できる
+  - 補助多項式の偶数階導関数の交代和で積分を端点値へ変換し、正値性と階乗上界を独立に検証できる
+  - πの無理性を背理法で完全証明し、無理性と作図不能性の論理的な違いを説明できる
+definitions:
+  - { id: SQC6-DEF-01, name: Niven型補助多項式 }
+theorems:
+  - { id: SQC6-PROP-01, name: 円積問題と√πの作図可能性 }
+  - { id: SQC6-LEM-01, name: 補助多項式の端点微分の整数性 }
+  - { id: SQC6-LEM-02, name: 補助積分の整数値表示 }
+  - { id: SQC6-LEM-03, name: 補助積分の正値性と階乗上界 }
+  - { id: SQC6-THM-01, name: πの無理性 }
+canonical_examples:
+  - 内接・外接正四角形の面積による円の面積の挟み撃ち
+  - n=1およびn=2のNiven型補助多項式と端点微分の計算
+  - √2の実二次拡大列による作図可能性とπの無理性の対比
+problem_patterns:
+  - SQC6-POLYGON-AREA-SQUEEZE
+  - SQC6-SQUARE-SIDE-REDUCTION
+  - SQC6-AUXILIARY-EXPANSION
+  - SQC6-EVEN-DERIVATIVE-CANCELLATION
+  - SQC6-IRRATIONAL-CONSTRUCTIBLE
+  - SQC6-ENDPOINT-REFLECTION
+  - SQC6-FACTORIAL-BOUND
+  - SQC6-INTEGRAL-IDENTITY
+  - SQC6-LOGICAL-OBSTRUCTION
+  - SQC6-INTEGRATED-NIVEN-PROOF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.0, review: 1.0 }
