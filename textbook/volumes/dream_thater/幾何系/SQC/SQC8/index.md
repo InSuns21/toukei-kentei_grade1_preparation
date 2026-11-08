@@ -30,7 +30,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sqc8-scissors-congruence -->
-**定義の確認**　最初の $2\times2$ 正方形を
+**定義の確認**　座標表示 $[a,b]\times[c,d]$ は、$a\le x\le b$ かつ $c\le y\le d$ を満たす点 $(x,y)$ 全体、すなわち軸に平行な閉長方形を表します。この表示で最初の $2\times2$ 正方形を
 
 $$
 P_1=[0,1]\times[0,2],\qquad
@@ -269,7 +269,7 @@ $$
 =\frac{\delta}{l_1}\le1
 $$
 
-なので $\varepsilon\le h_2$ でもあります。したがって $U$ は第2長方形の上辺上、$V$ は第1長方形の右辺上にあり、両長方形の共通部分で次の同じ五角形（端点で退化すれば四角形）を取れます。
+なので $\varepsilon\le h_2$ でもあります。したがって $U$ は第2長方形の上辺上、$V$ は第1長方形の右辺上にあり、両長方形の共通部分で次の同じ五角形（端点で退化すれば四角形）を取れます。ここで $\operatorname{polygon}(Z_1,\ldots,Z_k)$ は指定順に頂点 $Z_1,\ldots,Z_k$ を線分で結んで囲む閉多角形領域を表します。
 
 $$
 C=\operatorname{polygon}\bigl((0,0),(l_1,0),V,U,(0,h_2)\bigr).
