@@ -8,7 +8,14 @@
 
 全編で次を仮定します。$M$ は座標領域 $\Theta\subset\mathbb R^d$ を持つ滑らかな識別可能な正則統計モデルです。確率質量関数または密度 $p(x;\theta)$ は共通の台で正であり、対数密度 $\ell=\log p$ は母数について三階まで微分可能とします。
 
-必要な微分と和・積分の交換、期待値の有限性と滑らかさを仮定します。Fisher 行列は正定値とし、次の記法を用います。
+必要な微分と和・積分の交換、期待値の有限性と滑らかさを仮定します。Fisher 行列は正定値とします。座標基底と添字の範囲を
+
+$$
+\partial_i=\frac{\partial}{\partial\theta^i},
+\qquad i,j,k,\ell\in\{1,\ldots,d\}
+$$
+
+と定めます。[IG6 の接続係数](../IG6/index.md#def-ig6-connection-choice)と同じく、上下に一度ずつ現れる添字については和を取ります。以下の偏微分では、標本値 $x$ を固定して母数 $\theta$ を動かします。
 
 $$
 \ell_i=\partial_i\ell,\qquad
@@ -16,7 +23,7 @@ $$
 g_{ij}=E_\theta[\ell_i\ell_j].
 $$
 
-$\partial_i$ は $\theta^i$ についての偏微分です。KL の三階微分を使う箇所では、二つの母数に関する三階混合微分も連続で、期待値との交換ができるとします。有限正モデルと正規位置尺度族は、母数の内部でこれらの条件を満たします。
+KL の三階微分を使う箇所では、二つの母数に関する三階混合微分も連続で、期待値との交換ができるとします。有限正モデルと正規位置尺度族は、母数の内部でこれらの条件を満たします。
 
 ## 1. 計量の変化を二つの接続へ分配する
 
@@ -36,7 +43,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig7-dual-connection -->
-**定義の確認**（Bernoulli の二つの規則）。$M=(0,1)$、$g_{pp}=1/q$、$q=p(1-p)$ とします。$p$ 座標で二つの接続 $A,B$ の係数を $\Gamma^{A,p}_{pp}=0$、$\Gamma^{B,p}_{pp}=(2p-1)/q$ と置くと、$X=\partial_p$、$Y=Z=\partial_p$ について
+**定義の確認**（Bernoulli の二つの規則）。$M=(0,1)$、$q=p(1-p)>0$ とします。[IG2 の Bernoulli 計量](../IG2/index.md#def-ig2-fisher-information)を $p$ 座標で表すと
+
+$$
+g_{pp}=g(\partial_p,\partial_p)=\frac1q
+$$
+
+です。この座標で二つの接続 $A,B$ を $\nabla^A_{\partial_p}\partial_p=\Gamma^{A,p}_{pp}\partial_p$、$\nabla^B_{\partial_p}\partial_p=\Gamma^{B,p}_{pp}\partial_p$ により表し、それぞれの係数を
+
+$$
+\Gamma^{A,p}_{pp}=0,\qquad
+\Gamma^{B,p}_{pp}=\frac{2p-1}{q}
+$$
+
+と置きます。この一つの座標基底に定義式を適用することは、内積 $g_{pp}$ の微分を二つの係数に分けることです。$X=Y=Z=\partial_p$ について
 
 $$
 \partial_p g_{pp}=\frac{2p-1}{q^2}
@@ -68,7 +88,13 @@ $$
 L_{X,Z}(Y)=X(g(Y,Z))-g(\nabla_XY,Z)
 $$
 
-を作ります。$\nabla_X(fY)=X(f)Y+f\nabla_XY$ を代入すると $X(f)g(Y,Z)$ が差で消え、$L_{X,Z}(fY)=fL_{X,Z}(Y)$ です。したがって各点で $Y$ に線形な共変ベクトルが得られます。$g$ の非退化性により、$g(Y,W)=L_{X,Z}(Y)$ を満たすベクトル $W$ がただ一つ存在し、これを $\nabla_X^*Z$ とします。
+を作ります。$\nabla_X(fY)=X(f)Y+f\nabla_XY$ を代入すると $X(f)g(Y,Z)$ が差で消え、$L_{X,Z}(fY)=fL_{X,Z}(Y)$ です。したがって各点で $Y$ に線形な共変ベクトルが得られます。$g$ の非退化性により、$g(Y,W)=L_{X,Z}(Y)$ を満たすベクトル $W$ がただ一つ存在し、これを $\nabla_X^*Z$ とします。実際、局所座標で $W=W^b\partial_b$ と置けば
+
+$$
+W^b=g^{ba}\{X(g(\partial_a,Z))-g(\nabla_X\partial_a,Z)\}
+$$
+
+です。逆行列の各成分 $g^{ba}$ と括弧内の関数は滑らかなので、点ごとに復元した $W$ は滑らかなベクトル場です。
 
 実数線形性と $\nabla_{fX}^*Z=f\nabla_X^*Z$ は構成式から従います。また
 
@@ -99,7 +125,7 @@ $$
 
 ## 2. 三つの score を掛けるとテンソルになる
 
-[IG1 の score の平均零](../IG1/index.md#thm-ig1-regular-score-mean)を念頭に置きます。score は再パラメータ化に対して一次式で変換するので、三つの積の期待値も三階の共変テンソルになります。これは接続同士の差を記述する量です。接続の捩率も通常 $T$ と書くことがありますが、本講では捩率を $\operatorname{Tor}$、三次テンソルを $T$ と区別します。
+[IG1 の score の平均零](../IG1/index.md#thm-ig1-regular-score-mean)を念頭に置きます。ここから確率モデルを論じる際の $X$ は観測を表す確率変数であり、第1節のベクトル場 $X$ とは異なります。score は再パラメータ化に対して一次式で変換するので、三つの積の期待値も三階の共変テンソルになります。これは接続同士の差を記述する量です。接続の捩率も通常 $T$ と書くことがありますが、本講では捩率を $\operatorname{Tor}$、三次テンソルを $T$ と区別します。
 
 <a id="def-ig7-amari-chentsov"></a>
 
@@ -128,7 +154,7 @@ T_{ppp}=p\frac1{p^3}+(1-p)\left(-\frac1{(1-p)^3}\right)
 =\frac{1-2p}{p^2(1-p)^2}=\frac{1-2p}{q^2}.
 $$
 
-$p=1/2$ でのみ零となり、三次の非対称性は一般に消えません。座標 $a=\log\{p/(1-p)\}$ では $dp/da=q$ なので $T_{aaa}=q^3T_{ppp}=q(1-2p)$ です。三次テンソルの変換則もこの数値で直接確かめられます。
+$p=1/2$ でのみ零となり、三次の非対称性は一般に消えません。座標 $a=\log\{p/(1-p)\}$ では $dp/da=q$ です。連鎖律で $\ell_a=(dp/da)\ell_p=q\ell_p$ としたうえで、定義の三乗期待値を取り直すと $T_{aaa}=E[\ell_a^3]=q^3T_{ppp}=q(1-2p)$ です。次の命題の変換則を先取りせずに、この座標で直接確かめられました。
 <!-- definition-example-end -->
 
 <a id="prop-ig7-tensor-transformation"></a>
@@ -167,6 +193,15 @@ $$
 
 三次テンソルだけでは測地線は決まりません。もう一つ、対数密度の二階微分 $\ell_{ij}$ と score の積を組み合わせます。二階微分だけの期待値 $E[\ell_{ij}]$ では接続係数になりませんが、第三の score を掛けると、再パラメータ化で接続に必要な二階 Jacobian 項が現れます。
 
+何を計算して接続と判定するかを先に確認します。[IG6 の接続係数の定義](../IG6/index.md#def-ig6-connection-choice)では $\nabla_{\partial_i}\partial_j=\Gamma^k_{ij}\partial_k$ です。両辺と $\partial_\ell$ の内積を取れば、計量で最後の添字を下げた係数は
+
+$$
+\Gamma_{ij,\ell}:=g(\nabla_{\partial_i}\partial_j,\partial_\ell)
+=g_{k\ell}\Gamma^k_{ij}.
+$$
+
+この線形方程式を解けば $\Gamma^k_{ij}=g^{k\ell}\Gamma_{ij,\ell}$ です。ここで $g^{k\ell}$ は正定値 Fisher 行列 $(g_{ij})$ の逆行列の成分です。したがって、まず確率的な期待値から下付き係数を作り、逆計量で上付き係数へ戻せば、[IG6 の座標変換則](../IG6/index.md#thm-ig6-coordinate-covariance)に照らして接続であるか判定できます。
+
 <a id="def-ig7-alpha-connection"></a>
 
 <!-- formal-statement-start -->
@@ -180,7 +215,7 @@ $$
 \Gamma^{(\alpha)k}_{ij}=g^{k\ell}\Gamma^{(\alpha)}_{ij,\ell}
 $$
 
-> と定める。$g^{k\ell}$ は正定値な Fisher 行列の逆行列の成分である。これらを局所接続係数とするアファイン接続を $\nabla^{(\alpha)}$ と呼ぶ。符号規約は $\nabla^{(+1)}=\nabla^e$（指数接続）、$\nabla^{(-1)}=\nabla^m$（混合接続）とする。
+> と定める。逆計量 $g^{k\ell}$ による添字上げは直前に説明した通りである。これらを局所接続係数とするアファイン接続を $\nabla^{(\alpha)}$ と呼ぶ。符号規約は $\nabla^{(+1)}=\nabla^e$（指数接続）、$\nabla^{(-1)}=\nabla^m$（混合接続）とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig7-alpha-connection -->
@@ -427,6 +462,21 @@ p(x;\mu,\sigma)=\frac{1}{\sqrt{2\pi}\sigma}
 \ell=-\frac12\log(2\pi)-\log\sigma-\frac{z^2}{2}.
 $$
 
+$\partial_\mu z=-1/\sigma$、$\partial_\sigma z=-z/\sigma$ であり、$\sigma$ 微分では $z$ 自身も変化します。例えば対数密度から
+
+$$
+\ell_\sigma=-\frac1\sigma-z\left(-\frac z\sigma\right)
+=\frac{z^2-1}{\sigma}
+$$
+
+を得て、もう一度 $\sigma$ で微分すると
+
+$$
+\partial_\sigma\ell_\sigma
+=\frac{2z(-z/\sigma)}{\sigma}-\frac{z^2-1}{\sigma^2}
+=\frac{1-3z^2}{\sigma^2}.
+$$
+
 一階・二階微分を $z$ で表すと
 
 $$
@@ -567,7 +617,15 @@ $$
 
 二式を足して 2 で割れば $Xg(Y,Z)=g(D_XY,Z)+g(Y,D_XZ)$ です。捩率零が双方で成立すれば $D$ も捩率零で、[Levi-Civita の一意性](../../GEO/GEO13/index.md#thm-geo13-levi-civita-existence)により $D=\nabla^{\mathrm{LC}}$ です。
 
-反例として $\mathbb R^2$ の Euclid 計量を標準座標で固定し、定数 $c\ne0$ に対して $\nabla_{\partial_1}\partial_2=c\partial_1$、$\nabla_{\partial_1}\partial_1=-c\partial_2$、それ以外の係数を零と置きます。各方向 $i$ における係数行列 $A_i$ は $A_1=\left(\begin{smallmatrix}0&c\\-c&0\end{smallmatrix}\right)$、$A_2=0$ で反対称です。よって $\nabla g=0$ となり $\nabla^*=\nabla$ ですが、$\operatorname{Tor}(\partial_1,\partial_2)=c\partial_1\ne0$ です。従って $D=\nabla$ は Levi-Civita と違います。
+反例として $\mathbb R^2$ の Euclid 計量を標準座標で固定し、定数 $c\ne0$ に対して $\nabla_{\partial_1}\partial_2=c\partial_1$、$\nabla_{\partial_1}\partial_1=-c\partial_2$、それ以外の係数を零と置きます。各方向 $i$ における係数行列 $A_i$ は $A_1=\left(\begin{smallmatrix}0&c\\-c&0\end{smallmatrix}\right)$、$A_2=0$ で反対称です。標準計量は $g_{jk}=\delta_{jk}$ で一定なので、$\partial_i g_{jk}=0$ に対して
+
+$$
+g(\nabla_{\partial_i}\partial_j,\partial_k)
++g(\partial_j,\nabla_{\partial_i}\partial_k)
+=(A_i)_{kj}+(A_i)_{jk}=0.
+$$
+
+よって $\nabla g=0$ となり $\nabla^*=\nabla$ ですが、$\operatorname{Tor}(\partial_1,\partial_2)=c\partial_1\ne0$ です。従って $D=\nabla$ は Levi-Civita と違います。
 <!-- solution-end -->
 
 ### IG7-B02 正規分布の三次テンソルと双対性
