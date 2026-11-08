@@ -17,7 +17,7 @@ $$
 
 と書きます。$a=\log\{p/(1-p)\}$ であり、$a$ を増やすと成功が相対的に起こりやすくなります。この表示では、観測値 $x$ から作る統計量 $F(x)=x$ と係数 $a$ の積が指数に入ります。
 
-一般の測度空間 $(S,\mu)$ では、可測な $h:S\to[0,\infty)$ と、各成分が有限実数値の可測写像 $F=(F_1,\ldots,F_d):S\to\mathbb R^d$ を固定し、$\mu(\{h>0\})>0$ と仮定して
+一般の測度空間 $(S,\mu)$ では、可測な $h:S\to[0,\infty)$ と、各成分が有限実数値で可測な関数 $F=(F_1,\ldots,F_d):S\to\mathbb R^d$ を固定し、$\mu(\{h>0\})>0$ と仮定して
 
 $$
 Z(\theta)=\int_S h(x)e^{\sum_i\theta^iF_i(x)}\,d\mu(x),
@@ -687,7 +687,7 @@ $S=\{1,2,3\}$、数え上げ測度とし、$F_1(x)=\mathbf1_{\{x=1\}}$、$F_2(x)
    +\frac{d\theta^2(s)}{ds}\,\partial_2\log p_{\theta(s)}(x)
    $$
 
-   を得ます。[Fisher 行列の定義](../IG2/index.md#def-ig2-fisher-information)により、この方向スコアの二乗期待値を取ると
+   を得ます。[Fisher 情報行列](../IG2/index.md#def-ig2-fisher-information)の定義により、この方向スコアの二乗期待値を取ると
 
    $$
    g_{ss}(s)
