@@ -1,0 +1,47 @@
+id: "OTR11"
+title: "一次元なら輸送を陽に解けるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR10
+  - MC2
+official_scope: []
+learning_objectives:
+  - 分布関数の一般化逆関数を分位点として読み直し、原子のある分布でも一様変数から再現できる
+  - 分位点から単調結合を作り、周辺分布・原子質量の分割を直接検算できる
+  - 凸距離費用の交差解消を証明し、有限原子輸送の単調最適性とp>1の一意性を導ける
+  - 有限原子近似とL^p極限を使い一般の実数上のW_p分位点公式を証明できる
+  - W_1が二つの累積分布関数の差の面積と一致することを示せる
+  - 非原子的な出発分布からの単調写像を構成し、原子のある場合に結合と写像を区別できる
+  - 離散・連続分布のW_1とW_2を分位点で計算し、W_p収束とのつながりを説明できる
+definitions:
+  - { id: OTR11-DEF-01, name: 分位点関数の輸送用記法 }
+  - { id: OTR11-DEF-02, name: 分位点による単調結合 }
+theorems:
+  - { id: OTR11-LEM-01, name: 分位点と一様変数 }
+  - { id: OTR11-LEM-02, name: 凸な距離費用の交差解消 }
+  - { id: OTR11-LEM-03, name: 有限原子分布の単調結合は最適 }
+  - { id: OTR11-THM-01, name: 一次元Wasserstein距離の分位点公式 }
+  - { id: OTR11-COR-01, name: 一次元の分布関数によるW1公式 }
+  - { id: OTR11-PROP-01, name: 非原子的な出発分布からの単調最適写像 }
+  - { id: OTR11-PROP-02, name: 単調結合が写像で表せるための原子条件 }
+canonical_examples:
+  - 原子の重みを分位点区間として読み取り単調結合の周辺を確認する
+  - 原子のある出発分布で質量分割が不可避となる例
+  - 一様分布から密度2xの分布への単調写像とW1・W2積分
+  - p=1では交差結合も最適だがp>1では単調結合に限る例
+problem_patterns:
+  - OTR11-A01
+  - OTR11-A02
+  - OTR11-A03
+  - OTR11-A04
+  - OTR11-A05
+  - OTR11-B01
+  - OTR11-B02
+  - OTR11-B03
+  - OTR11-B04
+  - OTR11-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5.0, review: 2.0 }

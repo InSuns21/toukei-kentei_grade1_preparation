@@ -1,0 +1,71 @@
+chapter: OTR11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR10
+  - MC2
+
+concepts:
+  - id: transport.quantile-notation
+    name: 分位点関数の輸送用記法
+    kind: definition
+    aliases: [分位点関数]
+    introduction: formal
+    introduction_aliases: ["定義（分位点関数の輸送用記法）"]
+    requires: [numerical.cdf-generalized-inverse]
+
+  - id: transport.quantile-uniform-law
+    name: 分位点と一様変数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（分位点と一様変数）"]
+    requires: [transport.quantile-notation, numerical.inverse-transform-sampling]
+
+  - id: transport.quantile-monotone-coupling
+    name: 分位点による単調結合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分位点による単調結合）"]
+    requires: [transport.quantile-uniform-law, transport.coupling]
+
+  - id: transport.convex-uncrossing
+    name: 凸な距離費用の交差解消
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（凸な距離費用の交差解消）"]
+    requires: [transport.quantile-monotone-coupling]
+
+  - id: transport.finite-monotone-optimality
+    name: 有限原子分布の単調結合は最適
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限原子分布の単調結合は最適）"]
+    requires: [transport.convex-uncrossing, transport.polytope-compactness]
+
+  - id: transport.one-dimensional-quantile-formula
+    name: 一次元Wasserstein距離の分位点公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一次元Wasserstein距離の分位点公式）"]
+    requires: [transport.finite-monotone-optimality, transport.wasserstein-p]
+
+  - id: transport.cdf-w1-formula
+    name: 一次元の分布関数によるW1公式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（一次元の分布関数によるW1公式）"]
+    requires: [transport.one-dimensional-quantile-formula]
+
+  - id: transport.nonatomic-monotone-map
+    name: 非原子的な出発分布からの単調最適写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非原子的な出発分布からの単調最適写像）"]
+    requires: [transport.one-dimensional-quantile-formula, transport.quantile-uniform-law]
+
+  - id: transport.atomic-map-fibers
+    name: 単調結合が写像で表せるための原子条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単調結合が写像で表せるための原子条件）"]
+    requires: [transport.nonatomic-monotone-map, transport.quantile-monotone-coupling]
