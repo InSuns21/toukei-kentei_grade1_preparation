@@ -23,7 +23,7 @@ function stableInventory(source) {
   return {
     anchors: [...source.matchAll(/<a\s+id=["']([^"']+)["']/g)].map(x => x[1]),
     headings: [...source.matchAll(/^#{1,6}\s+.+$/gm)].map(x => x[0].trim()),
-    links: [...source.matchAll(/\[[^\]]+\]\([^\n)]+\)/g)].map(x => x[0]),
+    links: [...source.matchAll(/\[[^\]\n]+\]\([^\n)]+\)/g)].map(x => x[0]),
     codeBlocks: [...source.matchAll(/(```|~~~)[^\n]*\n[\s\S]*?\n\1/g)].map(x => x[0]),
     inlineCode: [...source.matchAll(/(?<!`)`[^`\n]+`(?!`)/g)].map(x => x[0]),
     mathematics: [...source.matchAll(/[$]{2}[\s\S]*?[$]{2}|[$][^$\n]+[$]/g)].map(x => x[0]),
@@ -131,6 +131,8 @@ function selfTest() {
   assert(!isVerifiedFormatOnly('a**b', 'ab'), 'non-Markdown exponent-like syntax must not qualify');
   assert(!isVerifiedFormatOnly('a__b', 'ab'), 'non-Markdown underscore identifiers must not qualify');
   assert(isVerifiedFormatOnly('  元の本文  \n\n定義', '元の本文\n定義'), 'spaces and blank lines should qualify');
+  assert.deepEqual(stableInventory('[0,1) の説明\n\n**詳細解答**。[参照](#ref)').links,
+    ['[参照](#ref)'], 'link inventory must not span paragraphs from interval brackets');
   const exercise = '### A1 問題\n\n**詳細解答**。計算結果';
   const folded = exercise.replace('**詳細解答**', '<!-- solution-start -->\n**詳細解答**')
     + '\n<!-- solution-end -->';
