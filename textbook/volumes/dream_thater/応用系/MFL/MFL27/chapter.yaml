@@ -1,0 +1,39 @@
+id: "MFL27"
+title: "等質空間と安定化群が決める核の形"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL23
+  - MFL24
+  - MFL26
+official_scope: []
+learning_objectives:
+  - 推移的有限群作用を安定化群の左剰余類G/Hと同一視し代表元の重複を説明できる
+  - 二重剰余類H\G/Hを計算しスカラー核の代表元整合性を判定できる
+  - 有限等質空間上の全スカラー線形等変層が二重剰余類上の核で特徴づけられる必要十分条件を証明できる
+  - D4の四頂点作用で自己・隣接・反対の三係数を導き非整合核の破綻を示せる
+  - 安定化群表現に従う右共変な特徴と型整合核の両側制約を計算できる
+  - 型整合核による有限相互相関が代表元に依存せず等変であることを証明できる
+  - スカラー入力から鏡映符号型への隣接差分核の選択則を導き鏡映残差を検算できる
+  - 有限D4/Hラボで核・変換・代表元を変えて整合性違反と等変性を比較できる
+definitions:
+  - { id: MFL27-DEF-01, name: 有限等質空間 }
+  - { id: MFL27-DEF-02, name: 二重剰余類とスカラー整合核 }
+  - { id: MFL27-DEF-03, name: 安定化群表現に従う特徴 }
+  - { id: MFL27-DEF-04, name: 安定化群の両側制約を満たす行列値核 }
+theorems:
+  - { id: MFL27-PROP-01, name: 推移的作用と等質空間の同一視 }
+  - { id: MFL27-THM-01, name: 等質空間のスカラー等変核の必要十分条件 }
+  - { id: MFL27-THM-02, name: 型整合核の等質空間相互相関 }
+canonical_examples:
+  - D4の頂点0のH={e,s}と4つの剰余類
+  - D4における3種類の二重剰余類と三係数の等変行列
+  - 右隣だけを読む核が出力代表元の選択で異なる値を出す反例
+  - C4/Hの二点模型と二自由度のスカラー層
+  - 反射で符号が変わる隣接差分核と固定点で消える係数
+  - 有限群全列挙による代表元差と等変残差の実験
+problem_patterns: [MFL27-A01, MFL27-A02, MFL27-A03, MFL27-A04, MFL27-B01, MFL27-B02, MFL27-B03, MFL27-B04, MFL27-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.5 }

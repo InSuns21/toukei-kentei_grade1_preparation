@@ -112,8 +112,8 @@ chapters:
     title: "格子対称性と群畳み込み"
   - id: MFL27
     path: textbook/volumes/dream_thater/応用系/MFL/MFL27
-    status: planned
-    title: "等質空間とstabilizerの核制約"
+    status: completed
+    title: "等質空間と安定化群が決める核の形"
   - id: MFL28
     path: textbook/volumes/dream_thater/応用系/MFL/MFL28
     status: planned
