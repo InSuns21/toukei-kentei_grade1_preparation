@@ -1,4 +1,4 @@
-# YAU1-06 $C^0$評価I：平均とGreen関数
+# YAU1-06 C0評価I：平均とGreen関数
 
 ## 1. 開性から閉性へ進むための最初の一歩
 
@@ -75,7 +75,7 @@ $$
 
 ## 3. 熱核から平均ゼロGreen核を作る
 
-平均ゼロの関数 $u$ は $Lu$ から復元できるはずだ。[GA3のPoisson存在一意性](../../GA/GA3/index.md#thm-ga3-poisson-existence)がこの考えを保証する。しかし $Lu\le2n$ のような**片側不等式**を $u$ の評価へ移すには、復元する積分核の符号を知りたい。
+平均ゼロの関数 $u$ は $Lu$ から復元できるはずだ。[GA3のPoisson存在一意性](../../GA/GA3/index.md#thm-ga3-poisson-existence)がこの考えを保証する。しかし $Lu\le2n$ のように**上からしか抑えていない不等式**を $u$ の評価へ移すには、復元する積分核の符号を知りたい。
 
 [GA5の熱核](../../GA/GA5/index.md#def-ga5-heat-kernel)を $p_s(x,y)$ と書く。これは実Laplacian $\Delta_\omega$ に関する核で、体積 $dV_\omega=\omega^n/n!$ に対して定義されたものなので、ここでは $d\mu=n!dV_\omega$ に対する核として $p_s$ を $1/n!$ 倍して読み替える。こうすると
 
@@ -189,7 +189,7 @@ $$
 <a id="thm-yau1-06-upper-l1"></a>
 
 <!-- formal-statement-start -->
-> **定理（許容Kählerポテンシャルの上限・$L^1$ 評価）**  
+> **定理（許容Kählerポテンシャルの上限・L1評価）**  
 > $(X,\omega)$ を本章のコンパクト連結Kähler多様体とし、$A$ を[Green核補題](#lem-yau1-06-green-properties)の定数とする。任意の滑らかな許容ポテンシャル $\varphi$ について
 
 $$
@@ -360,7 +360,7 @@ $$
 $T,\omega_0$ を第2節の平坦楕円曲線とする。$f=\cos2\pi x$ について $Lf$ と $T_sf$ を求め、$\int_0^\infty T_sLf\,ds=f$ を直接積分して確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** $\Delta_{\omega_0}=\tfrac12(\partial_x^2+\partial_y^2)$ なので $\Delta f=-2\pi^2f$、$Lf=2\pi^2f$。[熱半群の固有モード公式](../../GA/GA5/index.md#thm-ga5-semigroup)より $T_sf=e^{-2\pi^2s}f$。従って
+**詳細解答。** $\Delta_{\omega_0}=\tfrac12(\partial_x^2+\partial_y^2)$ なので $\Delta f=-2\pi^2f$、$Lf=2\pi^2f$。[GA5の熱半群の定義](../../GA/GA5/index.md#def-ga5-heat-semigroup)に固有値 $2\pi^2$ を代入すると $T_sf=e^{-2\pi^2s}f$。従って
 
 $$
 \int_0^\infty T_sLf\,ds
