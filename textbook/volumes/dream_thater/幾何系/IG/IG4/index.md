@@ -17,7 +17,7 @@ $$
 
 と書きます。$a=\log\{p/(1-p)\}$ であり、$a$ を増やすと成功が相対的に起こりやすくなります。この表示では、観測値 $x$ から作る統計量 $F(x)=x$ と係数 $a$ の積が指数に入ります。
 
-一般の測度空間 $(S,\mu)$ では、$h(x)\ge0$ と $F=(F_1,\ldots,F_d):S\to\mathbb R^d$ を固定して
+一般の測度空間 $(S,\mu)$ では、可測な $h:S\to[0,\infty)$ と、各成分が有限実数値で可測な関数 $F=(F_1,\ldots,F_d):S\to\mathbb R^d$ を固定し、$\mu(\{h>0\})>0$ と仮定して
 
 $$
 Z(\theta)=\int_S h(x)e^{\sum_i\theta^iF_i(x)}\,d\mu(x),
@@ -26,7 +26,7 @@ Z(\theta)=\int_S h(x)e^{\sum_i\theta^iF_i(x)}\,d\mu(x),
 \quad \Theta=\operatorname{int}\Omega
 $$
 
-を考えます。$\theta^i$ は指数の係数（自然母数）、$F_i$ は観測から計算する統計量、$h$ は母数に依存しない基準の重みです。$\Theta\ne\varnothing$ とし、$\psi(\theta)=\log Z(\theta)$ を対数分配関数と書けば
+を考えます。$\theta^i$ は指数の係数（自然母数）であり、上付きの $i$ は成分番号であってべき乗ではありません。$F_i$ は観測から計算する統計量、$h$ は母数に依存しない基準の重みです。$\mu(\{h>0\})>0$ なので、$Z(\theta)$ が有限なら $Z(\theta)>0$ です。$\Theta\ne\varnothing$ とし、$\psi(\theta)=\log Z(\theta)$ を対数分配関数と書けば
 
 $$
 p_\theta(x)=h(x)\exp\left\{\sum_i\theta^iF_i(x)-\psi(\theta)\right\}.
@@ -34,7 +34,7 @@ $$
 
 これは [ML2-03 の固定台の正則自然指数型分布族](../../../応用系/ML/ML2-03/index.md#def-ml2-03-regular-family)そのものです。以後は $\mu$ に関してほとんど至る所の固定された正の台 $S_h=\{h>0\}$ 上で対数を取ります。自然母数空間 $\Theta$ は開かつ凸であり、各点の近傍での指数的な積分支配によって二階まで微分積分交換が成立します。この事実は [ML2-03 の微分公式の証明](../../../応用系/ML/ML2-03/index.md#thm-ml2-03-log-partition-moments)で、有限個の近傍点における可積分指数関数を支配関数にして確かめられています。
 
-同じ母数が異なる分布を表したら、係数を座標と呼ぶのは危険です。そこで [IG1 のパラメータ表示](../IG1/index.md#def-ig1-finite-parametrization)にならい、局所識別と接方向の非退化性を確認してから自然座標として使います。
+異なる母数が同じ分布を表したら、係数を座標と呼ぶのは危険です。そこで [IG1 のパラメータ表示](../IG1/index.md#def-ig1-finite-parametrization)と[方向スコアの定義](../IG1/index.md#def-ig1-directional-score)、[IG2 の非退化条件](../IG2/index.md#thm-ig2-positive-definiteness)にならい、局所識別と接方向の非退化性を確認してから自然座標として使います。以下、$\partial_i$ は他の自然母数成分を固定して $\theta^i$ で偏微分する記号、$\partial_{ij}$ は $\theta^i,\theta^j$ に関する二階偏微分です。
 
 <a id="def-ig4-natural-chart"></a>
 
@@ -51,7 +51,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ig4-natural-chart -->
-**定義の確認**（Bernoulli）。$h(0)=h(1)=1$、$F(x)=x$、$Z(a)=1+e^a$ です。全実数 $a$ に対して正規化でき、台は $\{0,1\}$ のままです。$p_a(1)=e^a/(1+e^a)$ の導関数は $e^a/(1+e^a)^2>0$ なので $a$ から分布への写像は一対一で接方向が消えません。したがって有限な $a$ は自然座標です。後で Fisher 計量でも非退化性を直接確かめます。
+**定義の確認**（Bernoulli）。$h(0)=h(1)=1$、$F(x)=x$、$Z(a)=1+e^a$ です。全実数 $a$ に対して正規化でき、台は $\{0,1\}$ のままです。$p_a(1)=e^a/(1+e^a)$ の導関数は $e^a/(1+e^a)^2>0$ なので $a$ から分布への写像は一対一です。さらに $p=p_a(1)\in(0,1)$ と置けば $\frac{d}{da}\log p_a(1)=1-p>0$ であり、正の確率を持つ標本点 $x=1$ で方向スコアが非零です。よって $L^2(p_a)$ でも零元にはならず、定義の二条件をともに満たします。後で Fisher 計量でも非退化性を直接確かめます。
 <!-- definition-example-end -->
 
 観測が $n$ 個の独立同分布標本 $X_1,\ldots,X_n$ なら、その同時密度は
@@ -91,7 +91,7 @@ $$
 \end{aligned}
 $$
 
-二つの積分の交換・連続性は [対数分配関数の微分公式](../../../応用系/ML/ML2-03/index.md#thm-ml2-03-log-partition-moments)の仮定に対応しています。最後の式は $F_i,F_j$ の共分散です。ここに [IG2 の Fisher 情報行列](../IG2/index.md#def-ig2-fisher-information)を重ねると、計量の新しい表示を得ます。
+一階・二階の微分積分交換と導関数の連続性は [対数分配関数の微分公式](../../../応用系/ML/ML2-03/index.md#thm-ml2-03-log-partition-moments)の仮定に対応しています。最後の式は $F_i,F_j$ の共分散です。ここに [IG2 の Fisher 情報行列](../IG2/index.md#def-ig2-fisher-information)を重ねると、計量の新しい表示を得ます。
 
 <a id="thm-ig4-fisher-hessian"></a>
 
@@ -202,7 +202,7 @@ $q\in(0,1)$ でも行列式は零です。失われたのは台や積分交換�
 
 ### Bernoulli：対数オッズの座標
 
-第1節の Bernoulli で $a\in\mathbb R$ とすれば
+第1節の Bernoulli で $a\in\mathbb R$ とします。一変数のプライム記法 $\psi'(a),\psi''(a)$ はそれぞれ $d\psi/da,d^2\psi/da^2$ を意味し、多変数の $\partial_i,\partial_{ij}$ と微分する変数を揃えた書き方です。このとき
 
 $$
 \psi(a)=\log(1+e^a),\quad
@@ -228,7 +228,7 @@ Z(a)=\sum_{x=0}^\infty\frac{e^{ax}}{x!}=\exp(e^a),
 \psi(a)=e^a=\lambda.
 $$
 
-従って $p_a(x)=e^{-\lambda}\lambda^x/x!$ で正規化され、$\psi'(a)=\psi''(a)=\lambda$ より平均も分散も $\lambda$ です。自然母数での Fisher 情報量は $g_{aa}=\lambda$。$\lambda$ 座標では $da/d\lambda=1/\lambda$ だから $g_{\lambda\lambda}=1/\lambda$ です。標本点は無限個ですが、台は $\lambda>0$ の全域で同じであり、各 $a$ の近傍に有限な $Z$ があることが積分交換を支えます。
+従って $p_a(x)=e^{-\lambda}\lambda^x/x!$ で正規化され、$\psi'(a)=\psi''(a)=\lambda$ より平均も分散も $\lambda$ です。自然母数での Fisher 情報量は $g_{aa}=\lambda$。$\lambda$ 座標では $da/d\lambda=1/\lambda$ だから、[IG2 の座標変換則](../IG2/index.md#thm-ig2-coordinate-invariance)より $g_{\lambda\lambda}=(da/d\lambda)^2g_{aa}=1/\lambda$ です。標本点は無限個ですが、台は $\lambda>0$ の全域で同じであり、各 $a$ の近傍に有限な $Z$ があることが積分交換を支えます。
 
 ### 正規位置尺度族：二つの統計量
 
@@ -283,7 +283,15 @@ $$
 \det\nabla^2\psi=2\sigma^6>0.
 $$
 
-例えば共分散の非対角成分は $E[X^3]-E[X]E[X^2]$ で、$E[X^3]=\mu^3+3\mu\sigma^2$ を代入すると $2\mu\sigma^2$ になります。正定値性は $\sigma^2>0$ と上の行列式からも確認できます。この計量を $(\mu,\sigma)$ に引き戻せば、[IG2 の正規位置尺度族の計量](../IG2/index.md#prop-ig2-normal-information)と同じ量を表します。
+例えば共分散の非対角成分は $E[X^3]-E[X]E[X^2]$ で、$E[X^3]=\mu^3+3\mu\sigma^2$ を代入すると $2\mu\sigma^2$ になります。正定値性の判定には、対称二次行列 $G=\begin{pmatrix}A&C\\C&D\end{pmatrix}$（$A>0$）について
+
+$$
+v^{\mathsf T}Gv
+=A\left(v^1+\frac CA v^2\right)^2
++\frac{\det G}{A}(v^2)^2
+$$
+
+と平方完成できることを使います。いま $A=\sigma^2>0$、$\det G=2\sigma^6>0$ なので、$v\ne0$ の二次形式は正です。この計量を $(\mu,\sigma)$ に引き戻せば、[IG2 の正規位置尺度族の計量](../IG2/index.md#prop-ig2-normal-information)と同じ量を表します。
 
 ---
 
@@ -548,7 +556,13 @@ $$
 2\mu\sigma^2&2\sigma^4+4\mu^2\sigma^2\end{pmatrix}.
 $$
 
-$(\mu,\sigma^2)=(1,2)$ では $\nabla^2\psi=\begin{pmatrix}2&4\\4&16\end{pmatrix}$、左上の主小行列式は2、全行列式は $32-16=16>0$ なので正定値です。また一般に行列式は $2\sigma^6>0$ となり [Fisher--Hessian 恒等式](#thm-ig4-fisher-hessian)と一致します。
+$(\mu,\sigma^2)=(1,2)$ では $\nabla^2\psi=\begin{pmatrix}2&4\\4&16\end{pmatrix}$ です。左上の主小行列式は $2>0$、全行列式は $32-16=16>0$ であり、方向 $v=(v^1,v^2)$ に対しても
+
+$$
+v^{\mathsf T}(\nabla^2\psi)v=2(v^1+2v^2)^2+8(v^2)^2>0\qquad(v\ne0)
+$$
+
+と直接確認できます。また一般の行列式は $2\sigma^6>0$ となり、[Fisher--Hessian 恒等式](#thm-ig4-fisher-hessian)と一致します。
 <!-- solution-end -->
 
 ### IG4-B02 混合直線は自然座標でも直線か
@@ -613,7 +627,13 @@ g_{\lambda\lambda}=\frac{1/9}{1/2-\lambda/3}
 +\frac{1/9}{1/6+\lambda/3}.
 $$
 
-$\lambda=1/2$ では $p=(1/3,1/3,1/3)$ だから $g_{\lambda\lambda}=(1/9)/(1/3)+(1/9)/(1/3)=2/3$。例えば $\lambda=0$ では $g_{\lambda\lambda}=2/9+2/3=8/9$ となり値が異なります。係数 $\lambda$ から確率 $p$ への写像が一次式であることと、Fisher 計量の分母が $\lambda$ に依存することは矛盾しません。なお $0<\lambda<1$ は二分布の凸混合を表す範囲であり、正の確率を保つアファイン表示の最大開区間は $-1/2<\lambda<3/2$ です。
+$\lambda=1/2$ では $p=(1/3,1/3,1/3)$ だから $g_{\lambda\lambda}=(1/9)/(1/3)+(1/9)/(1/3)=2/3$。一方、指定領域内の $\lambda=1/4$ では $p=(5/12,1/3,1/4)$ なので
+
+$$
+g_{\lambda\lambda}=\frac4{15}+\frac49=\frac{32}{45}\ne\frac23
+$$
+
+となります。係数 $\lambda$ から確率 $p$ への写像が一次式であることと、Fisher 計量の分母が $\lambda$ に依存することは矛盾しません。なお $0<\lambda<1$ は二分布の凸混合を表す範囲であり、正の確率を保つアファイン表示の最大開区間は $-1/2<\lambda<3/2$ です。
 <!-- solution-end -->
 
 ### IG4-C01 三値の全指数型と曲がった制限
@@ -659,14 +679,30 @@ $S=\{1,2,3\}$、数え上げ測度とし、$F_1(x)=\mathbf1_{\{x=1\}}$、$F_2(x)
 
    全成分が正なので Hessian は正定値であり、$F_1,F_2$ に非自明な定数関係はありません。
 
-2. $s=0$ では $(a,b)=(0,0)$、$p=(1/3,1/3,1/3)$ で、$G_{11}(0,0)=2/9$。パラメータ写像 $\theta(s)=(s,s^2)$ の速度は $\theta'(s)=(1,2s)$ です。[Fisher 計量の座標変換則](../IG2/index.md#thm-ig2-coordinate-invariance)を一次元方向へ適用し
+2. $s=0$ では $(a,b)=(0,0)$、$p=(1/3,1/3,1/3)$ で、$G_{11}(0,0)=2/9$。パラメータ写像 $\theta(s)=(s,s^2)$ の速度は $\theta'(s)=d\theta(s)/ds=(1,2s)$ です。ここでプライムは $s$ に関する常微分です。これは二次元座標間の局所微分同相ではなく、一次元部分族への制限です。したがって座標変換定理をそのまま適用せず、対数密度の連鎖律から
+
+   $$
+   \frac{d}{ds}\log p_{\theta(s)}(x)
+   =\frac{d\theta^1(s)}{ds}\,\partial_1\log p_{\theta(s)}(x)
+   +\frac{d\theta^2(s)}{ds}\,\partial_2\log p_{\theta(s)}(x)
+   $$
+
+   を得ます。[Fisher 情報行列](../IG2/index.md#def-ig2-fisher-information)の定義により、この方向スコアの二乗期待値を取ると
+
+   $$
+   g_{ss}(s)
+   =\sum_{i,j=1}^2\frac{d\theta^i(s)}{ds}\frac{d\theta^j(s)}{ds}g_{ij}(\theta(s))
+   =\theta'(s)^{\mathsf T}G(\theta(s))\theta'(s).
+   $$
+
+   $s=0$ では
 
    $$
    g_{ss}(0)=\theta'(0)^{\mathsf T}G(0,0)\theta'(0)
    =(1,0)G(0,0)(1,0)^{\mathsf T}=\frac29.
    $$
 
-   直接にも $q_s=(e^s,e^{s^2},1)/(1+e^s+e^{s^2})$ と微分できます。$Z(0)=3$、$Z'(0)=1$ だから
+   直接にも $q_s=(e^s,e^{s^2},1)/(1+e^s+e^{s^2})$ と微分できます。分母を $\widetilde Z(s)=1+e^s+e^{s^2}$ と名付けると、$\widetilde Z(0)=3$、$\widetilde Z'(0)=1$ です。ここで $q_i'(0),\widetilde Z'(0)$ のプライムは $s$ に関する微分なので、商の微分から
 
    $$
    q_1'(0)=\frac{1\cdot3-1\cdot1}{9}=\frac29,\quad
