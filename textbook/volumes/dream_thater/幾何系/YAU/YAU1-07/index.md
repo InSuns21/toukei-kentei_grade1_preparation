@@ -398,10 +398,43 @@ $\beta>1$、$q_j=2\beta^j$ のとき、$\sum_{j\ge0}q_j^{-1}$ と $\sum_{j\ge0}j
 ### Level B — YAU1-07-B01：積分恒等式を一般次元で復元する
 - Level: B
 
-$T=\sum_{k=0}^{n-1}\omega_\varphi^k\wedge\omega^{n-1-k}$、$\omega_\varphi=\omega-i\partial\bar\partial v$、$q\ge2$ とする。$\int v^{q-1}(\rho-1)\omega^n$ を、$\partial T=\bar\partial T=0$ を使って勾配形式の積分に直せ。境界なしが必要な箇所を示せ。
+$(X,\omega)$ を複素次元 $n\ge1$ の境界のないコンパクトKähler多様体とする。滑らかな実関数 $v\ge1$ と正の密度 $\rho$ が
+
+$$
+\omega_\varphi=\omega-i\partial\bar\partial v>0,\qquad
+\omega_\varphi^n=\rho\,\omega^n
+$$
+
+を満たすとする。$T=\sum_{k=0}^{n-1}\omega_\varphi^k\wedge\omega^{n-1-k}$、$q\ge2$ とするとき、$\int_X v^{q-1}(\rho-1)\omega^n$ を、$\partial T=\bar\partial T=0$ を使って勾配形式の積分に直せ。境界なしが必要な箇所を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 因数分解で $\omega_\varphi^n-\omega^n=-i\partial\bar\partial v\wedge T$。$\partial(v^{q-1}i\bar\partial v\wedge T)=(q-1)v^{q-2}i\partial v\wedge\bar\partial v\wedge T+v^{q-1}i\partial\bar\partial v\wedge T$ である。積分する形式 $v^{q-1}i\bar\partial v\wedge T$ は型 $(n-1,n)$ なので、その $\bar\partial$ は次数の理由で零となり、上の $\partial$ が外微分 $d$ と一致する。$X$ は境界なしで $T$ は閉じているため、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により、この全微分の積分は零。従って $-\int v^{q-1}i\partial\bar\partial v\wedge T=(q-1)\int v^{q-2}i\partial v\wedge\bar\partial v\wedge T$。境界があるとStokesの境界積分を制御せずに落とせない。
+**詳細解答。** 二つの $n$ 乗の差を因数分解すると
+
+$$
+\omega_\varphi^n-\omega^n=-i\partial\bar\partial v\wedge T.
+$$
+
+$T$ が閉じているので、積の微分を展開して
+
+$$
+\begin{aligned}
+\partial(v^{q-1}i\bar\partial v\wedge T)
+&=(q-1)v^{q-2}i\partial v\wedge\bar\partial v\wedge T\\
+&\quad+v^{q-1}i\partial\bar\partial v\wedge T
+\end{aligned}
+$$
+
+を得る。左辺で微分される形式 $v^{q-1}i\bar\partial v\wedge T$ は型 $(n-1,n)$ だから、その $\bar\partial$ は次数の理由で零であり、この $\partial$ は外微分 $d$ と一致する。
+
+$X$ は境界がないので、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によって全微分の積分は零となる。よって
+
+$$
+\int_X v^{q-1}(\rho-1)\omega^n
+=-\int_X v^{q-1}i\partial\bar\partial v\wedge T
+=(q-1)\int_X v^{q-2}i\partial v\wedge\bar\partial v\wedge T.
+$$
+
+境界があると、Stokesの境界積分を制御せずに落とせない。
 <!-- solution-end -->
 
 <a id="ex-yau1-07-b02"></a>
