@@ -1,0 +1,39 @@
+id: "IG12"
+title: "自然勾配・KL trust region・mirror descent"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - IG2
+  - IG3
+  - IG5
+  - IG9
+  - IG10
+official_scope: []
+learning_objectives:
+  - 正定値 Fisher 計量に対する Riemann 勾配を微分の定義から導き、普通の座標勾配と区別できる
+  - 再パラメータ化で自然勾配が接ベクトルとして変換することを示し、有限 Euler 更新は一般に不変でないと説明できる
+  - 局所 KL の二次近似と一次損失から trust region の最適方向・歩幅を導出できる
+  - KL trust region の二次近似の条件と、有限半径の厳密な KL 制約との違いを説明できる
+  - Bregman divergence による mirror descent の存在条件と最適性条件、双対変数での更新を導ける
+  - 正定値 Hessian ポテンシャルの mirror descent が局所的に自然勾配へ一致することを証明できる
+  - Bernoulli の確率・logit 座標で Fisher 計量と自然勾配を検算できる
+  - 正のカテゴリカル単体で自然勾配と負エントロピー mirror descent を計算し、境界・退化計量の限界を説明できる
+definitions:
+  - { id: IG12-DEF-01, name: Riemann 勾配と自然勾配 }
+  - { id: IG12-DEF-02, name: 局所 KL trust region }
+  - { id: IG12-DEF-03, name: Bregman 鏡映更新 }
+theorems:
+  - { id: IG12-THM-01, name: 自然勾配の座標変換則 }
+  - { id: IG12-THM-02, name: 局所 KL trust region の最適方向 }
+  - { id: IG12-THM-03, name: 鏡映更新の最適性と自然勾配への局所極限 }
+  - { id: IG12-THM-04, name: 正の確率単体の自然勾配と負エントロピー鏡映更新 }
+canonical_examples:
+  - Bernoulli の確率・logit 座標変換と有限 Euler 更新の差
+  - Bernoulli の正確な KL 制約とその二次近似
+  - 正のカテゴリカル単体における複製子型方向と指数重み更新
+  - Hessian が退化するポテンシャルと正の確率単体の境界
+problem_patterns: [IG12-A01, IG12-A02, IG12-A03, IG12-A04, IG12-A05, IG12-B01, IG12-B02, IG12-B03, IG12-B04, IG12-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 8.0, review: 2.0 }

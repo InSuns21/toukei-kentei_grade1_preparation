@@ -1,0 +1,53 @@
+chapter: IG12
+scope: dream-theater
+coverage: complete
+prerequisites: [IG2, IG3, IG5, IG9, IG10]
+concepts:
+  - id: information-geometry.natural-gradient
+    name: Riemann 勾配と自然勾配
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Riemann 勾配と自然勾配）"]
+    requires: [information-geometry.fisher-rao-metric, information-geometry.fisher-nondegeneracy]
+
+  - id: information-geometry.natural-gradient-coordinates
+    name: 自然勾配の座標変換則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自然勾配の座標変換則）"]
+    requires: [information-geometry.natural-gradient, information-geometry.fisher-coordinate-invariance]
+
+  - id: information-geometry.kl-trust-region
+    name: 局所 KL trust region
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所 KL trust region）"]
+    requires: [information-geometry.kl-local-fisher, information-geometry.natural-gradient]
+
+  - id: information-geometry.kl-trust-direction
+    name: 局所 KL trust region の最適方向
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所 KL trust region の最適方向）"]
+    requires: [information-geometry.kl-trust-region, information-geometry.natural-gradient]
+
+  - id: information-geometry.mirror-descent
+    name: Bregman 鏡映更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bregman 鏡映更新）"]
+    requires: [information-geometry.bregman-divergence]
+
+  - id: information-geometry.mirror-natural-limit
+    name: 鏡映更新の最適性と自然勾配への局所極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（鏡映更新の最適性と自然勾配への局所極限）"]
+    requires: [information-geometry.mirror-descent, information-geometry.natural-gradient, information-geometry.bregman-nonnegative]
+
+  - id: information-geometry.simplex-natural-mirror
+    name: 正の確率単体の自然勾配と負エントロピー鏡映更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正の確率単体の自然勾配と負エントロピー鏡映更新）"]
+    requires: [information-geometry.mirror-descent, information-geometry.fisher-rao-metric, information-geometry.natural-gradient]
