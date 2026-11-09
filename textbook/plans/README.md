@@ -29,7 +29,6 @@
 | 強連続半群・mild 解の基本導入 | 完了済み `GPDE10` |
 | 閉作用素・半群生成論・Hille--Yosida・抽象発展方程式・半線形発展方程式 | `DREAM_THEATER_EVOLUTION_EQUATIONS_SEMIGROUP_PLAN.md` |
 | 現代調和解析・最大作用素・補間・特異積分・Littlewood--Paley・restriction | `DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md` |
-| 幾何学的測度論・Frostman・射影・rectifiability・有限周長・Kakeya interface | `DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md` |
 | Riesz potential / Riesz transform / Calderón--Zygmund | `DREAM_THEATER_HARMONIC_ANALYSIS_PLAN.md` |
 | 幾何解析・Laplace--Beltrami・manifold Sobolev・harmonic map | `DREAM_THEATER_GEOMETRIC_ANALYSIS_PLAN.md` |
 | 逆問題・ill-posedness・正則化・tomography・Bayes/PDE 逆問題 | `DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md` |

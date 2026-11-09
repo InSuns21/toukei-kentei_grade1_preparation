@@ -47,7 +47,7 @@ GitHub の系列 manifest と直接必要な chapter.yaml の完成状態を確�
 
 | family | 現在の canonical 前提 | 判定 |
 | --- | --- | --- |
-| 074 | MT8 完成、HA1–11 完成。GMT1–36 は [幾何学的測度論 PLAN](DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md) のみで、GMT 系列 manifest は未作成 | **GMT待ち**。声明・資料調査は直ちに可。EOM074A–074の本文完成には GMT1–8・GMT31–36 の canonical 化が必要（GMT9–30全講は一律必修ではない） |
+| 074 | MT8 完成、HA1–11 完成。GMT1 完成、GMT2–36 は [進行中の幾何学的測度論 PLAN](../plans_progress/DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md) と GMT 系列 manifest で管理 | **GMTの続講待ち**。声明・資料調査は直ちに可。EOM074A–074の本文完成には GMT2–8・GMT31–36 の canonical 化が必要（GMT9–30全講は一律必修ではない） |
 | 017 | NT7、NDA1–8 完成 | **着手可能** |
 | 004 | NT9–10、CMP1–8、EC1–11 完成 | **着手可能**。原論文固有の算術的橋渡しは EOM004 で精査 |
 | 376 | NS1–8A、CMP1–8、CELL1–15 完成 | **着手可能** |

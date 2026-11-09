@@ -1,0 +1,80 @@
+chapter: GMT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT3
+  - MT5
+  - MT7
+  - MT8
+  - HA1
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt1-besicovitch-covering
+    name: Euclid球の有界重複被覆
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Euclid球の有界重複被覆）"]
+    requires: []
+
+  - id: geometric-measure.gmt1-centered-maximal
+    name: Radon測度の中心付き球最大平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Radon測度の中心付き球最大平均）"]
+    requires:
+      - measure.radon-measure
+
+  - id: geometric-measure.gmt1-weak-maximal
+    name: Radon測度に関する局所弱型評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Radon測度に関する局所弱型評価）"]
+    requires:
+      - geometric-measure.gmt1-besicovitch-covering
+      - geometric-measure.gmt1-centered-maximal
+
+  - id: geometric-measure.gmt1-function-differentiation
+    name: Radon測度の球に関するLebesgue微分定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Radon測度の球に関するLebesgue微分定理）"]
+    requires:
+      - geometric-measure.gmt1-weak-maximal
+      - measure.cc-dense-in-lp
+
+  - id: geometric-measure.gmt1-measure-differentiation
+    name: Radon測度の微分・球比版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Radon測度の微分・球比版）"]
+    requires:
+      - geometric-measure.gmt1-function-differentiation
+      - measure.radon-nikodym-signed
+
+  - id: geometric-measure.gmt1-upper-lower-density
+    name: 上・下密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（上・下密度）"]
+    requires:
+      - measure.radon-measure
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt1-cantor-measure
+    name: 中三分Cantor測度
+    kind: definition
+    aliases: [Cantor測度]
+    introduction: formal
+    introduction_aliases: ["定義（中三分Cantor測度）"]
+    requires:
+      - measure.cantor-hausdorff-dimension
+
+  - id: geometric-measure.gmt1-cantor-density
+    name: Cantor測度の二側密度評価と非収束例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Cantor測度の二側密度評価と非収束例）"]
+    requires:
+      - geometric-measure.gmt1-upper-lower-density
+      - geometric-measure.gmt1-cantor-measure
