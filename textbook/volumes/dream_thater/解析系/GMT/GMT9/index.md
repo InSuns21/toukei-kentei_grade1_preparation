@@ -4,7 +4,7 @@
 
 これまでの[Hausdorff測度に関するLipschitz像の評価](../../MT/MT8/index.md#thm-mt8-lipschitz)では、距離を最大 $L$ 倍にしか伸ばさない写像は、集合の測度・次元を制御することを学びました。しかしその評価だけでは、曲線や曲面を小さく拡大したとき、写像がどんな線形変換に見えるのかは分かりません。次のGMT10でJacobianを測るには、各点での線形近似が必要です。
 
-Lipschitz写像は折り目を持てるので、**すべての点**で滑らかとは限りません。それでも **Lebesgue測度に関してほとんど至る所（a.e.）で全微分可能**です。これがRademacherの定理です。証明では、[1変数の絶対連続関数の基本定理](../../MT/MT4/index.md#thm-mt4-ac-ftc)を直線に適用し、[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)で座標導関数の平均を制御します。偏微分が存在する点と全微分可能な点は区別して進みます。
+Lipschitz写像は折り目を持てるので、**すべての点**で滑らかとは限りません。それでも **Lebesgue測度に関してほとんど至る所（almost everywhere; a.e.）で全微分可能**です。これがRademacherの定理です。証明では、[1変数の絶対連続関数の基本定理](../../MT/MT4/index.md#thm-mt4-ac-ftc)を直線に適用し、[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)で座標導関数の平均を制御します。偏微分が存在する点と全微分可能な点は区別して進みます。
 
 以下、$\Omega\subset\mathbb R^n$ は非空開集合、$n,m\ge1$、$f:\Omega\to\mathbb R^m$ とします。$|\cdot|$ はEuclidノルム、$\mathcal L^n$ は $n$ 次元Lebesgue測度、$B_r=B(0,r)$ とし、$\operatorname{avg}_{B}g=|B|^{-1}\int_B g$ は球平均を表します。
 
