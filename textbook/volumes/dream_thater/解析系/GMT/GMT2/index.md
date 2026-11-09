@@ -95,7 +95,7 @@ $$
 \mu(B(x,r))\le Cr^s
 $$
 
-> を満たすことをいう。$K$ に支えられるとは $\mu(\mathbb R^d\setminus K)=0$ という意味である。コンパクト台の有限Borel測度は [MT5のRadon測度](../../MT/MT5/index.md#def-mt5-radon) の正則性条件を満たす。
+> を満たすことをいう。$K$ に支えられるとは $\mu(\mathbb R^d\setminus K)=0$ という意味である。コンパクト台の有限Borel測度は、[MT5で定義したRadon測度](../../MT/MT5/index.md#def-mt5-radon) である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt2-frostman-measure -->
@@ -242,7 +242,7 @@ $$
 > が成立する（開集合側のPortmanteau不等式）。
 <!-- formal-statement-end -->
 
-以下、この積分の収束を $\mu_{n_j}\Rightarrow\mu$ と略記します。これは確率変数の分布収束ではなく、ここで定めた **$K$ 上の測度の弱収束**を表します。
+以下、この積分の収束を $\mu_{n_j}\Rightarrow\mu$ と略記します。この記号はここで定めた **$K$ 上の測度の弱収束**を表し、連続関数に対する積分の収束によって意味を定めています。
 
 ### 証明の見取り図
 
@@ -368,7 +368,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-1を仮定すると、[内容量の正値性](#lem-gmt2-positive-content)から $\mathcal H^s(K)>0$ です。[MT8の臨界指数性](../../MT/MT8/index.md#thm-mt8-threshold)を使うと $s\le\dim_HK\le d$ なので、ここで初めて [Frostman補題](#thm-gmt2-frostman) の指数条件 $0<s\le d$ が確認できます。従って2が成立します。逆に2を仮定して、$K\subset\bigcup_i U_i$ を任意の可算被覆とし、$\rho_i=\operatorname{diam}U_i$ と置きます。$K$ と交わらない $U_i$ は除き、各 $i$ で $x_i\in K\cap U_i$ を取ります。$\rho_i>0$ なら、任意の $y\in U_i\cap K$ に対して $|y-x_i|\le\rho_i<2\rho_i$ なので
+1を仮定します。[内容量の正値性](#lem-gmt2-positive-content)から $\mathcal H^s(K)>0$ です。[MT8の臨界指数性](../../MT/MT8/index.md#thm-mt8-threshold)によって
+
+$$
+0<s\le\dim_HK\le d
+$$
+
+となり、[Frostman補題](#thm-gmt2-frostman) の指数条件が確認できたので2が成立します。
+
+逆に2を仮定し、$K\subset\bigcup_i U_i$ を任意の可算被覆とします。$\rho_i=\operatorname{diam}U_i$ と置き、$K$ と交わらない集合は除きます。各 $i$ で $x_i\in K\cap U_i$ を取ります。
+
+$\rho_i>0$ なら、任意の $y\in U_i\cap K$ に対して $|y-x_i|\le\rho_i<2\rho_i$ なので
 
 $$
 U_i\cap K\subset B(x_i,2\rho_i),\qquad
@@ -533,7 +543,11 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-任意の $\varepsilon>0$ に対して費用が $\min\{\varepsilon,\delta^s\}$ 未満の被覆 $(U_i)$ を選び、$\rho_i=\operatorname{diam}U_i$ と置きます。各非空集合の $\rho_i^s$ は総和以下なので $\rho_i^s<\delta^s$、$s>0$ により $\rho_i<\delta$ です。従って $\mathcal H_\delta^s(E)\le\varepsilon$。$\varepsilon\downarrow0$ から結論が出ます。$s=0$ では非空集合の直径の0乗は1と定義するため、$\rho_i^0<\delta^0$ から $\rho_i<\delta$ とは推論できません。
+任意の $\varepsilon>0$ に対して費用が $\min\{\varepsilon,\delta^s\}$ 未満の被覆 $(U_i)$ を選び、$\rho_i=\operatorname{diam}U_i$ と置きます。
+
+各非空集合では $\rho_i^s$ が費用の総和以下なので、$\rho_i^s<\delta^s$ です。ここで $s>0$ だから $\rho_i<\delta$ が従い、この被覆は尺度制限も満たします。従って $\mathcal H_\delta^s(E)\le\varepsilon$ です。
+
+$\varepsilon\downarrow0$ より結論が出ます。$s=0$ では非空集合の直径の0乗は1と定義するため、$\rho_i^0<\delta^0$ から $\rho_i<\delta$ とは推論できません。
 <!-- solution-end -->
 
 ### Level B：構成の中間論証
@@ -590,7 +604,17 @@ $$
 
 各 $C_n$ は閉区間の減少列の共通部分なのでコンパクトです。また $2^{-n}+2^{-3n}C_n\subset[2^{-n},2^{-n}+2^{-3n}]$ は $n\to\infty$ で一様に0へ近づきます。$K$ 内の点列が同じ成分へ無限回入るならその閉性で極限は $K$ に属し、成分番号が無限大へ向かう部分列なら極限は0です。従って $K$ は有界閉集合、ゆえにコンパクトです。
 
-深さ $k$ の $C_n$ は長さ $\rho_n^k$ の区間 $2^k$ 個で覆えます。$2\rho_n<1$ なので全長 $2^k\rho_n^k=(2\rho_n)^k\to0$、よって $\mathcal H^1(C_n)=0$。次元の下界では、中三分の [MT8のCantor測度の構成](../../MT/MT8/index.md#thm-mt8-cantor-dimension) と同様に、深さ $k$ の各基本区間へ質量 $2^{-k}$ を割り当てた確率測度 $\nu_n$ を使います。ただし縮小率が $1/3$ とは限らないため、区間間隔を改めて評価します。$\beta_n=\log2/\log(1/\rho_n)$、$\ell=\rho_n^k$ とすると、異なる深さ $k$ の基本区間の隙間は少なくとも
+深さ $k$ の $C_n$ は長さ $\rho_n^k$ の区間 $2^k$ 個で覆えます。$2\rho_n<1$ なので、その全長は
+
+$$
+2^k\rho_n^k=(2\rho_n)^k\longrightarrow0
+$$
+
+です。従って $\mathcal H^1(C_n)=0$ です。
+
+次元の下界では、中三分の [MT8のCantor測度の構成](../../MT/MT8/index.md#thm-mt8-cantor-dimension) と同様に、深さ $k$ の各基本区間へ質量 $2^{-k}$ を割り当てた確率測度 $\nu_n$ を使います。ただし縮小率が $1/3$ とは限らないため、区間間隔を改めて評価します。
+
+$\beta_n=\log2/\log(1/\rho_n)$、$\ell=\rho_n^k$ と置きます。異なる深さ $k$ の基本区間の隙間は少なくとも
 
 $$
 g_k=(1-2\rho_n)\rho_n^{k-1}
@@ -636,7 +660,11 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\alpha=\dim_HK$ とします。まず $\alpha>0$、$0<s<\alpha$ とします。[Frostman補題](#thm-gmt2-frostman)により $K$ 上に $\mu(B_d(x,r))\le Cr^s$ を満たす確率測度が存在します。$[0,1]$ 上のLebesgue確率測度 $\lambda$ は $\lambda((t-r,t+r))\le2r$ を満たします。直積確率測度 $\nu=\mu\otimes\lambda$ は $K\times[0,1]$ に支えられます。ここで直積測度の存在は、連続関数 $f$ に対する
+$\alpha=\dim_HK$ とします。まず $\alpha>0$、$0<s<\alpha$ とします。[Frostman補題](#thm-gmt2-frostman)により、$K$ 上に球成長評価 $\mu(B_d(x,r))\le Cr^s$ を満たす確率測度が存在します。
+
+$[0,1]$ 上のLebesgue確率測度を $\lambda$ とすると、区間の長さから $\lambda((t-r,t+r))\le2r$ です。直積確率測度 $\nu=\mu\otimes\lambda$ は $K\times[0,1]$ に支えられます。
+
+この直積測度の存在は、連続関数 $f$ に対する
 
 $$
 T(f)=\int_K\left(\int_0^1 f(x,t)\,dt\right)d\mu(x)
@@ -671,7 +699,11 @@ $$
 
 [質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)で $\dim_H(K\times[0,1])\ge s+1$。$s\uparrow\alpha$ で $\ge\alpha+1$ です。$\alpha=0$ なら任意の $x_0\in K$ に対して $\{x_0\}\times[0,1]$ が含まれ、この線分は [MT8の区間次元の定理](../../MT/MT8/index.md#thm-mt8-interval-dimension) により次元1なので同じ下界が得られます。
 
-上界では、球の縦座標に使った $t$ と区別して、被覆費用の指数を $q>\alpha$ と置きます。[MT8の臨界指数性](../../MT/MT8/index.md#thm-mt8-threshold)から $\mathcal H^q(K)=0$ なので、任意の $0<\delta<1$、$\varepsilon>0$ に対し、$K$ を覆う集合 $U_i$ を $\rho_i=\operatorname{diam}U_i<\delta$ かつ $\sum_i\rho_i^q<\varepsilon$ となるよう選べます。直径0の $U_i$ は周囲の任意に小さい球へ少し拡大し、追加費用の和を任意に小さく取れるので、以下では $0<\rho_i<\delta$ としてよいです。
+上界では、球の縦座標に使った $t$ と区別して、被覆費用の指数を $q>\alpha$ と置きます。[MT8の臨界指数性](../../MT/MT8/index.md#thm-mt8-threshold)から $\mathcal H^q(K)=0$ です。
+
+任意の $0<\delta<1$、$\varepsilon>0$ に対し、$K$ を覆う集合 $U_i$ を、$\rho_i=\operatorname{diam}U_i<\delta$ かつ $\sum_i\rho_i^q<\varepsilon$ となるよう選べます。
+
+直径0の $U_i$ は周囲の任意に小さい球へ拡大できます。元の被覆を費用 $\varepsilon/2$ 未満に取り、追加費用の総和を $\varepsilon/2$ 未満にすれば、なお上記の費用上界を維持できます。従って以下では $0<\rho_i<\delta$ としてよいです。
 
 各 $U_i\times[0,1]$ を $U_i\times J_{i,k}$ で覆い、$J_{i,k}$ を長さ高々 $\rho_i$ の区間として高々 $\lceil1/\rho_i\rceil\le2/\rho_i$ 個使います。各直積の直径は高々 $\sqrt2\rho_i$ であり、従って
 
