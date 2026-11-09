@@ -48,7 +48,7 @@ $$
 よって $L^2$ 密度の全条件を満たします。対照的に $\delta_0$ を $f\,du$ と書けるなら $1=\delta_0(\{0\})=\int_{\{0\}}f\,du=0$ となり矛盾します。後者では、どんなに密度を高くしようとしても「一点に正の質量を置く」条件を満たせません。
 <!-- definition-example-end -->
 
-この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、$\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
+この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、$\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、$\pi_\theta K$ のコンパクト性から $\boldsymbol{1}_{\pi_\theta K}\in L^2(\mathbb R)$ であり、$\|\boldsymbol{1}_{\pi_\theta K}\|_2^2=\mathcal L^1(\pi_\theta K)$ です。そこで $f_\theta$ とこの指示関数に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 M=\int_{\pi_\theta K}f_\theta(u)\,du
@@ -98,12 +98,12 @@ $$
 
 ### 証明の見取り図
 
-（i）から（ii）は[Plancherelの定理](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)です。逆向きは測度をGaussianで滑らかにします。こうして得た関数のFourier変換は元の $\widehat\nu$ にGaussian因子を掛けたものなので、$L^2$ 内でCauchy列となります。その極限が元の測度を表すことを、コンパクト台付き連続関数に対する積分で確かめます。
+（i）から（ii）は、[L1 Fourier変換との整合性](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)と[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)から従います。逆向きは測度をGaussianで滑らかにします。こうして得た関数のFourier変換は元の $\widehat\nu$ にGaussian因子を掛けたものなので、$L^2$ 内でCauchy列となります。その極限が元の測度を表すことを、コンパクト台付き連続関数に対する積分で確かめます。
 
 <!-- proof-start -->
 ### 証明
 
-（i）が成立すれば $\widehat\nu=\widehat f$ です。[Plancherel](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)を $f\in L^1\cap L^2$ に使えば（ii）と等式を得ます。
+（i）が成立すれば $\widehat\nu=\widehat f$ です。$f\in L^1\cap L^2$ なので、[古典的Fourier変換とL2変換の整合性](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)から $\widehat f=\mathcal F_2f$ がほとんど至る所で成立します。[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)をこの $f$ に適用すれば（ii）と等式を得ます。
 
 逆向きに（ii）を仮定します。$\varepsilon>0$ に対して
 
@@ -127,9 +127,9 @@ $$
 =e^{-\varepsilon^2r^2/2}\widehat\nu(r).
 $$
 
-よってPlancherelより
+よって[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)より
 
-$$
+$
 \|g_\varepsilon-g_\delta\|_2^2
 =\frac1{2\pi}\int_{\mathbb R}
 \left|e^{-\varepsilon^2r^2/2}-e^{-\delta^2r^2/2}\right|^2
@@ -152,7 +152,15 @@ $$
 =\int\left(\int\varphi(u)h_\varepsilon(u-v)\,du\right)d\nu(v).
 $$
 
-内側は $\varphi$ のGaussian平均です。$\varphi$ は一様連続で有界なので、平均は $\varepsilon\downarrow0$ で $\varphi(v)$ へ一様収束します。実際 $|u-v|<\eta$ では一様連続性、外側ではGaussianの尾確率で誤差を抑えられます。$\nu$ は有限ですから、この積分は $\int\varphi\,d\nu$ へ収束します。従って
+内側は $\varphi$ のGaussian平均です。$\varphi$ の連続性とコンパクト台から一様連続性・有界性が従います。任意の $\eta>0$ について、一様連続性の係数 $\omega_\varphi(\eta)=\sup_{|x-y|<\eta}|\varphi(x)-\varphi(y)|$ を置くと、変数 $w=u-v$ への置換によって
+
+$
+\left|\int\varphi(u)h_\varepsilon(u-v)\,du-\varphi(v)\right|
+\le\omega_\varphi(\eta)+2\|\varphi\|_\infty
+\int_{|w|\ge\eta}h_\varepsilon(w)\,dw.
+$
+
+右辺は $v$ に依存しません。先に $\varepsilon\downarrow0$ としてGaussianの尾確率を0へ送り、次に $\eta\downarrow0$ とすると $\omega_\varphi(\eta)\to0$ です。従って平均は $\varphi(v)$ へ一様収束します。$\nu$ は有限なので、外側の積分は $\int\varphi\,d\nu$ へ収束します。従って
 
 $$
 \int\varphi\,d\nu=\int\varphi(u)f(u)\,du
@@ -169,7 +177,7 @@ $$
 
 開集合で一致する二つのBorel測度は、開集合が生成するBorel $\sigma$-代数上でも一致します。したがって $\nu=f\,du$ であり、$\int f\,du=\nu(\mathbb R)<\infty$ です。
 
-最後に $g_\varepsilon\to f$ の $L^2$ 収束とPlancherelを用い、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
+最後に $g_\varepsilon\to f$ の $L^2$ 収束と[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を用い、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
 
 $$
 \|f\|_2^2=\lim_{\varepsilon\downarrow0}\|g_\varepsilon\|_2^2
@@ -216,9 +224,9 @@ $$
 
 [GMT5の「Fourier切片からの方向平均」](../GMT5/index.md#prop-gmt5-fourier-slicing)の証明にある切片等式から、左辺の内側は $|\widehat\mu(re_\theta)|^2$ です。有限測度のFourier変換は連続なので、$(r,\theta)$ に関して可測です。非負性から[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)が適用できます。
 
-写像 $F(r,\theta)=(r\cos\theta,r\sin\theta)$ のJacobianは
+写像 $F(r,\theta)=(r\cos\theta,r\sin\theta)$ について、$r$ を動かし $\theta$ を固定した偏微分が $\partial_rF=e_\theta$、$\theta$ を動かし $r$ を固定した偏微分が $\partial_\theta F=r(-\sin\theta,\cos\theta)$ です。この二つの列ベクトルを並べた微分行列 $DF$ の行列式（面積倍率の符号付き値）は
 
-$$
+$
 \det DF(r,\theta)=
 \det\begin{pmatrix}\cos\theta&-r\sin\theta\\
 \sin\theta&r\cos\theta\end{pmatrix}=r.
@@ -346,7 +354,7 @@ $$
 
 $$
 \nu_\theta=(\pi_\theta)_\#\mu=f_\theta\,du,
-\qquad f_\theta\ge0,quad
+\qquad f_\theta\ge0,\qquad
 0<\|f_\theta\|_2^2<\infty
 $$
 
@@ -504,7 +512,7 @@ $$
 \|f\|_2^2=\int_0^1du=1.
 $$
 
-[Plancherel](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)をこの $f$ に適用すれば
+[L1/L2変換の整合性](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)で $\widehat f=\mathcal F_2f$ を確認し、[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を適用すれば
 
 $$
 \int_{\mathbb R}\frac{4\sin^2(r/2)}{r^2}\,dr
