@@ -29,7 +29,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（一様Hölder係数族）**  
-> 有限個の固定座標チャートの各コンパクト部分上で、行列値関数族 $a_t=(a_t^{i\bar j})$ が $\lambda|\xi|^2\le a_t^{i\bar j}\xi_i\overline{\xi_j}\le\Lambda|\xi|^2$ および $\|a_t\|_{C^{0,\alpha}}\le M$ をすべての $t$ に同じ $\lambda,\Lambda,M>0$ で満たすとき、**一様Hölder係数族**という。
+> 有限個の固定座標チャートの各コンパクト部分上で、行列値関数族 $a_t$ が次の二条件を全時刻に共通する正定数で満たすとき、**一様Hölder係数族**という。
+
+$$
+\lambda|\xi|^2\le a_t^{i\bar j}\xi_i\overline{\xi_j}\le\Lambda|\xi|^2,
+\qquad \|a_t\|_{C^{0,\alpha}}\le M
+$$
 <!-- formal-statement-end -->
 
 ここで正定値条件は実線形の主部 $a^{i\bar j}\partial_i\partial_{\bar j}$ にも一様楕円性を与える。複素座標 $z^i=x^i+iy^i$ で $\partial_i\partial_{\bar i}=\tfrac14(\partial_{x^ix^i}+\partial_{y^iy^i})$ となるため、実楕円定数には固定係数 $1/4$ が入るが、一様性は変わらない。
@@ -42,7 +47,13 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（三階評価から係数のHölder制御）**  
-> 上記のコンパクトKähler多様体、$cg\le h_t\le Cg$、$|\nabla^gh_t|_g\le C_1$ の下で、任意の固定 $0<\alpha<1$ に対して $h_t^{i\bar j}$ は各固定チャートの小さいコンパクト部分上で一様 $C^{0,\alpha}$ 有界であり、一様Hölder係数族である。
+> 上記のコンパクトKähler多様体上で、解計量族が次の二側評価と微分評価を満たすとする。
+
+$$
+cg\le h_t\le Cg,\qquad |\nabla^gh_t|_g\le C_1.
+$$
+
+> 任意の固定Hölder指数に対して、逆行列 $h_t^{-1}$ は固定チャートの小さいコンパクト部分上で一様Hölder有界であり、一様Hölder係数族である。
 <!-- formal-statement-end -->
 
 <details>
@@ -121,7 +132,13 @@ $C$ は次元、$r$、楕円定数、係数のHölderノルム、$\alpha$ のみ
 
 <!-- formal-statement-start -->
 > **定理（一様高階事前評価）**  
-> $(X,\omega)$ は境界のないコンパクト連結Kähler多様体、$F\in C^\infty(X,\mathbb R)$ は体積整合条件を満たすとする。$t\in[0,1]$ で存在する滑らかな平均零解 $\varphi_t$ が $\omega_{\varphi_t}^n=(1-t+te^F)\omega^n$ を満たすとき、二階・三階の既習事前評価の下で、すべての整数 $m\ge0$ と固定 $0<\alpha<1$ に対して
+> 境界のないコンパクト連結Kähler多様体 $(X,\omega)$ と滑らかな実関数 $F$ を固定する。$F$ は体積整合条件を満たすとする。連続性のパス上に存在する滑らかな平均零解 $\varphi_t$ が以下の方程式を満たし、既習の二階・三階事前評価が成立すると仮定する。
+
+$$
+\omega_{\varphi_t}^n=(1-t+te^F)\omega^n,\qquad t\in[0,1].
+$$
+
+> このとき、任意の非負整数 $m$ と固定したHölder指数 $0<\alpha<1$ について次の評価が成立する。
 >
 > $$\|\varphi_t\|_{C^{m,\alpha}(X,g)}\le C_{m,\alpha}$$
 >
