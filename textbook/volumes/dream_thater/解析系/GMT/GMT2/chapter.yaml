@@ -1,0 +1,45 @@
+id: GMT2
+title: Frostman補題と測度の構成
+volume: foundations
+status: supplementary
+prerequisites:
+  - MT5
+  - MT8
+  - GMT1
+official_scope: []
+learning_objectives:
+  - 非制限Hausdorff内容量を定義し、コンパクト集合でHausdorff測度が正なら内容量も正である理由を証明できる
+  - Frostman測度の球成長条件を定義し、区間とCantor集合で直接検証できる
+  - 有限二進木の容量再帰と配分アルゴリズムから、全ての階層で立方体質量を抑えた離散測度を構成できる
+  - コンパクト集合上の確率測度の弱収束部分列と開球のPortmanteau不等式を使い、極限の球成長評価を導ける
+  - 非制限内容量とFrostman確率測度の存在を両方向に証明し、質量分布原理から次元を特徴付けられる
+  - 臨界指数での存在を無条件に主張できない理由を具体的なコンパクト集合で説明できる
+definitions:
+  - { id: GMT2-DEF-01, name: 非制限Hausdorff内容量 }
+  - { id: GMT2-DEF-02, name: Frostman測度 }
+theorems:
+  - { id: GMT2-LEM-01, name: コンパクト集合の内容量の正値性 }
+  - { id: GMT2-LEM-02, name: 有限二進木の容量配分 }
+  - { id: GMT2-LEM-03, name: コンパクト台の確率測度の弱部分列 }
+  - { id: GMT2-THM-01, name: Frostman補題・コンパクト集合版 }
+  - { id: GMT2-THM-02, name: 球成長と非制限内容量の同値 }
+  - { id: GMT2-COR-01, name: Frostman指数によるHausdorff次元の特徴付け }
+canonical_examples:
+  - 区間上の正規化Lebesgue測度と球成長指数
+  - 中三分Cantor測度の分数指数の球成長
+  - 四分木の有限段階容量配分
+  - 次元1で長さが零のコンパクト集合と臨界指数の失敗
+problem_patterns:
+  - GMT2-POINT-CONTENT
+  - GMT2-INTERVAL-GROWTH
+  - GMT2-DYADIC-FLOW
+  - GMT2-COVER-LOWER-BOUND
+  - GMT2-CONTENT-POSITIVITY
+  - GMT2-CANTOR-GROWTH
+  - GMT2-WEAK-OPEN-BALL
+  - GMT2-CRITICAL-COUNTEREXAMPLE
+  - GMT2-FROSTMAN-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 6, review: 2 }
