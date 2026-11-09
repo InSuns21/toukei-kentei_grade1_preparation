@@ -210,7 +210,11 @@ $$
 
 $b\in B$ の近傍で正則座標 $t^a$ と、$\pi$ が $(t,z)\mapsto t$ になる全空間の局所正則座標を選ぶ。固定した $v=\partial/\partial t^a$ について各チャートに正則持ち上げ $s_i=\partial_{t^a}|_{z_i}$ がある。重なりの差 $\kappa_{ij}=s_j-s_i$ はファイバーに接する正則ベクトル場であり、[Kodaira–Spencer類の構成](../DEF1-01/index.md#def-def1-01-kodaira-spencer)と同じものである。
 
-相対正則de Rham複体の $\Omega^{\ge p}_{\mathcal X/B}$ によって $s$ を局所的なČech–de Rhamコサイクルで表す。次数 $r\ge p$ の相対正則形式 $\alpha_i$ は、各座標系で同じ $dz_i$ の外積を全空間の正則形式 $\widetilde\alpha_i$ へ持ち上げられる。隣接チャート間で $s_i$ を $s_j$ に替えたとき、方向微分の差は $\mathcal L_{\kappa_{ij}}\widetilde\alpha_i$ である。ファイバー方向の外微分を $d_F$ とすると、[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)の相対版から
+相対正則de Rham複体の $\Omega^{\ge p}_{\mathcal X/B}$ によって、切断を局所的なČech–de Rhamコサイクルで表す。
+
+相対正則次数 $r\ge p$ の形式を $\alpha_i$ と書く。各座標系では、相対座標微分の外積を全空間の正則形式 $\widetilde\alpha_i$ へ持ち上げられる。
+
+重なりで基底方向の持ち上げを $s_i$ から $s_j$ に替えると、方向微分の差は $\mathcal L_{\kappa_{ij}}\widetilde\alpha_i$ である。ファイバー方向の外微分を $d_F$ とすると、[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)の相対版から
 
 $$
 \mathcal L_{\kappa_{ij}}\alpha_i
@@ -249,7 +253,16 @@ $$
 <!-- formal-statement-start -->
 > **命題（周期写像の微分とKodaira–Spencer収縮）**
 >
-> $\pi:\mathcal X\to B$ をコンパクトKählerファイバーの固有正則沈め込みとし、$b\in B$、$v\in T_b^{1,0}B$、$p+q=k$ とする。次数 $k$ の周期写像の微分を $F_b^p/F_b^{p+1}$ から $F_b^{p-1}/F_b^p$ への成分に射影した写像を $\theta_v^{p,q}$ と書く。これは延長の選択によらない線形写像であり、[Kodaira–Spencer類](../DEF1-01/index.md#def-def1-01-kodaira-spencer)を $\mu_v\in A^{0,1}(T^{1,0}X_b)$ で表すと、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)の調和代表 $\alpha^{p,q}$ に対して
+> $\pi:\mathcal X\to B$ をコンパクトKählerファイバーの固有正則沈め込みとする。点 $b\in B$ と複素接方向 $v\in T_b^{1,0}B$ を固定し、$p+q=k$ と置く。
+>
+> [Griffiths横断性](#thm-def1-13-griffiths)によって、次数 $k$ の周期写像の微分は商空間の間の線形写像を誘導する。
+
+$$
+\theta_v^{p,q}:
+F_b^p/F_b^{p+1}\longrightarrow F_b^{p-1}/F_b^p.
+$$
+
+> これは切断の延長の選択によらない。[Kodaira–Spencer類](../DEF1-01/index.md#def-def1-01-kodaira-spencer)の代表を $\mu_v\in A^{0,1}(T^{1,0}X_b)$ とする。[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)の調和代表 $\alpha^{p,q}$ に対して、次の式が成り立つ。
 
 $$
 \theta_v^{p,q}[\alpha^{p,q}]
