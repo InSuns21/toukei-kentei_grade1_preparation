@@ -1,0 +1,35 @@
+id: "CAT1-01"
+title: "対象・射・合成から圏を定義する"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A
+official_scope: []
+learning_objectives:
+  - 対象とHomの集まり、射の合成・恒等射を型付きで記述できる
+  - 圏の結合則と左右の単位律を混同せずに検証できる
+  - 集合と写像の圏の公理を写像の値に戻って証明できる
+  - 有限有向グラフから合成を補って有限圏を構成し、構成不能な指定を判定できる
+  - 圏の恒等射の一意性と有限経路の括弧付けの独立性を証明できる
+definitions:
+  - { id: CAT1-01-DEF-01, name: 圏・対象・射・Hom・合成・恒等射 }
+theorems:
+  - { id: CAT1-01-PROP-01, name: 恒等射の一意性 }
+  - { id: CAT1-01-PROP-02, name: 集合と写像は圏をなす }
+  - { id: CAT1-01-PROP-03, name: 有限経路の合成の括弧付けは結果を変えない }
+canonical_examples:
+  - 対象二つで一方向の射だけを持つ有限圏
+  - 三点鎖の射と強制される合成射
+  - 集合と写像の圏
+  - 単一対象の有限圏
+problem_patterns:
+  - CAT1-01-TYPE
+  - CAT1-01-IDENTITY
+  - CAT1-01-THIN
+  - CAT1-01-SET
+  - CAT1-01-MONOID
+  - CAT1-01-PATH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }

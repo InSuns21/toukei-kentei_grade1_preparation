@@ -1,7 +1,7 @@
 # DREAM THEATER：圏論 I〜IV（CAT）系列PLAN
 
 設計確定日: 2026-11-10  
-状態: **planned**（設計のみ。本文・章metadata・系列manifestの実装は未着手）  
+状態: **in progress**（CAT1-01 の本文・章metadata・系列manifestの実装に着手）  
 講義数: **40講に確定**（I：12講、II：12講、III：10講、IV：6講）
 
 ## 1. 中心問い・読者・到達点
@@ -36,7 +36,7 @@
 
 - 新系列IDは**`CAT`**、章IDは**`CAT1-01`〜`CAT1-12`、`CAT2-01`〜`CAT2-12`、`CAT3-01`〜`CAT3-10`、`CAT4-01`〜`CAT4-06`**の40個。既存`CAG`（複素代数幾何）・`CTM`（連続体力学）とは別。章実装前にID衝突を再検査する。
 - 講義の配置候補は`textbook/volumes/dream_thater/基礎論系/CAT/<章ID>/`。初章着手時に公開目次の8分類と実装スクリプトの許容ID形を検証する。目次へのリンク追加は公開可能な章だけを対象とする。
-- **計画書のみ作成する今回の作業では**`textbook/plans/`へ置き、series manifestを新規作成したり`planned`章を`completed`と宣言したりしない。着手時に`plans_progress/`へ移動し、manifestの`plan`をその実在パスへ合わせる。
+- 設計確定時は`textbook/plans/`へ置き、系列manifest・本文はまだ作らなかった。CAT1-01着手に伴い`plans_progress/`へ移動し、CAT系列manifestの`plan`をこの実在パスへ合わせた。全40講の完了までは進行中とする。
 - `HM1-01`（ホモロジカル・ミラー対称性PLAN）にも圏論導入の候補があるため、**後続HM実装前に同内容の二重執筆を回避**し、CATで証明された結果のみをstable anchor参照する。CAT終了はFukaya圏や導来圏の証明の完了を意味しない。
 
 ## 4. 講義構成（確定40講）
@@ -115,7 +115,7 @@
 
 ## 6. 実装の順序と完成ゲート
 
-- 最初の実装PRでリポジトリ最新の規約を確認し、`plans/`から`plans_progress/`へ**移動**、`textbook/dream-theater-series/CAT.yaml`を初期化し、その`plan`を新パスに一致させる。`dream-theater-work.yaml`に単一`active_series`を足さない。
+- CAT1-01の実装PRでリポジトリ最新の規約を確認し、`plans/`から`plans_progress/`へ**移動**、`textbook/dream-theater-series/CAT.yaml`を初期化して、その`plan`を新パスに一致させる。`dream-theater-work.yaml`に単一`active_series`を足さない。
 - 最初の講義 `CAT1-01` は、`F0-00A`の集合・写像の既存定義を実在stable anchorで確認してから執筆する。以降の`chapter.yaml`・`knowledge.yaml`は前講の全件を無条件に前提化せず、**各主要証明が必要とする直接prerequisiteだけ**を登録する。
 - 新章では、導入 → 直接例 → 主要定義とformal statement → 完全証明 → 演習と全詳細解答の導線を構築する。初出専門語の使用順・記法・図式型を検査し、参照する既習結果名から実在するstable anchorへリンクする。
 - 新規本文は**区分C**として主要定義・全主要証明・全演習と解答を棚卸しし、出発点から全件自己再計算と完成本文の別観点再読を実施する。同じ担当者の別観点再読を第三者査読と称さない。表示だけの修正は現行規約のA/B/C区分を再判定する。
