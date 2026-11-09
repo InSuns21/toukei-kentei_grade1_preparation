@@ -18,7 +18,7 @@ ds^2=-f(r)dt^2+\frac{dr^2}{f(r)}+r^2d\Omega^2,
 \quad F=\frac{Q}{r^2}dt\wedge dr.
 $$
 
-ここで $d\Omega^2=d\vartheta^2+\sin^2\vartheta\,d\varphi^2$ です。$F$ はMaxwellの電磁場2形式で、電荷の符号は $F_{tr}=Q/r^2$ という既習の選択で固定されています。$f$ の根は[GR31の地平線半径の定義](../../GR/GR31/index.md#def-gr31-rn-horizon-radii)から
+ここで $d\Omega^2=d\vartheta^2+\sin^2\vartheta\,d\varphi^2$ です。$F$ はMaxwellの電磁場2形式で、電荷の符号は $F_{tr}=Q/r^2$ という既習の選択で固定されています。$f$ の根は[GR31の根の分類](../../GR/GR31/index.md#prop-gr31-horizons)と二次方程式 $r^2-2Mr+Q^2=0$ から
 
 $$
 r_\pm=M\pm\sqrt{M^2-Q^2},\qquad
@@ -55,19 +55,30 @@ $$
 \sqrt{M^2-Q^2}=4L,\qquad r_+=9L,\qquad r_-=L.
 $$
 
-$f(r)=(r-9L)(r-L)/r^2$ だから $r>9L$ で $f>0$、また $f(r)\to1$ なので無限遠で $\chi$ が規格化されています。[GR31の静的球対称Einstein–Maxwell外部解](../../GR/GR31/index.md#thm-gr31-rn-solution)により計量と $F$ は所定の無電流方程式を満たします。根が異なるので[正則延長の条件](../../GR/GR31/index.md#prop-gr31-horizons)にも合い、定義の非自明な条件を確認できました。
+$f(r)=(r-9L)(r-L)/r^2$ だから $r>9L$ で $f>0$、また $f(r)\to1$ なので無限遠で $\chi$ が規格化されています。
+
+計量と $F$ の成分は $t$ に依存せず $\partial_t$ はKilling場であり、$F$ は角度方向の磁荷成分を持ちません。
+
+[GR31の静的球対称Einstein–Maxwell外部解](../../GR/GR31/index.md#thm-gr31-rn-solution)により計量と $F$ は所定の無電流方程式を満たします。根が異なるので[正則延長の条件](../../GR/GR31/index.md#prop-gr31-horizons)にも合い、定義の非自明な条件を確認できました。
 <!-- definition-example-end -->
 
 ## 2. 面積・表面重力・電位を同じ解から求める
 
-地平線の面積は $r_+$ における二球面の誘導計量 $h=r_+^2d\Omega^2$ から求めます。角度基底 $(\partial_\vartheta,\partial_\varphi)$ に関して $\det h=r_+^4\sin^2\vartheta$ であり、
+地平線の面積は、正則な入射座標で $v$ と $r=r_+$ を固定した二球面の誘導計量から求めます。時空計量を角度方向の基底 $(\partial_\vartheta,\partial_\varphi)$ に制限すると、$i,j\in\{\vartheta,\varphi\}$ に対して $h_{ij}=g(\partial_i,\partial_j)$ で、
+
+$$
+(h_{ij})=\begin{pmatrix}r_+^2&0\\0&r_+^2\sin^2\vartheta\end{pmatrix},\qquad
+\sqrt{\det h}=r_+^2\sin\vartheta\quad(0\le\vartheta\le\pi).
+$$
+
+したがって、面積要素 $\sqrt{\det h}\,d\vartheta\,d\varphi$ を積分して
 
 $$
 A=\int_0^{2\pi}\!\int_0^\pi r_+^2\sin\vartheta\,d\vartheta\,d\varphi
 =4\pi r_+^2.
 $$
 
-表面重力は[GR45の静的球対称地平線公式](../../GR/GR45/index.md#thm-gr45-static)を、非極限単純根 $r_+$ と無限遠で規格化した $\chi=\partial_v$ に適用します。根の因数分解を先に行うと
+表面重力は[GR45の静的球対称地平線公式](../../GR/GR45/index.md#thm-gr45-static)を、非極限単純根 $r_+$ と無限遠で規格化した $\chi=\partial_v$ に適用します。ここで $f'(r_+)$ は $M,Q$ を固定して半径 $r$ で微分した $df/dr$ を $r=r_+$ で評価する意味です。根の因数分解を先に行うと
 
 $$
 f(r)=\frac{(r-r_+)(r-r_-)}{r^2},\quad
@@ -75,7 +86,7 @@ f'(r_+)=\frac{r_+-r_-}{r_+^2},\quad
 \kappa=\frac{f'(r_+)}2=\frac{r_+-r_-}{2r_+^2}>0.
 $$
 
-次の電位は、重力の $\kappa$ と違ってMaxwell場のゲージの基準を指定する必要があります。電磁場の2形式そのものと、そのポテンシャル1形式 $\mathcal A$ を区別します。$F=d\mathcal A$ とし、GR31の $F_{tr}=Q/r^2$ の符号に合わせると、静的外部で
+次の電位は、重力の $\kappa$ と違ってMaxwell場のゲージの基準を指定する必要があります。電磁場の2形式そのものと、そのポテンシャル1形式 $\mathcal A$ を区別します。[GR9のMaxwell場のポテンシャルによる定義](../../GR/GR9/index.md#def-gr9-maxwell-action)に従い $F=d\mathcal A$ とし、GR31の $F_{tr}=Q/r^2$ の符号に合わせると、静的外部で
 
 $$
 \mathcal A=\frac Qr\,dt,\qquad
@@ -83,7 +94,23 @@ d\mathcal A=-\frac{Q}{r^2}\,dr\wedge dt
 =\frac Q{r^2}\,dt\wedge dr=F.
 $$
 
-この規格化では、時間成分 $\chi^a\mathcal A_a=Q/r$ は無限遠で零、地平線へ近づくと $Q/r_+$ です。$dt$ を使ったこの表示は静的領域のゲージであり、地平線を横切る正則な1形式としては $\mathcal A_{\rm in}=(Q/r)dv$ を用いられます。両者は外部で $-(Q/rf)dr$ という完全微分だけ異なり、同じ $F$ を与えます。地平線の値を取る際は、まず無限遠の静的ゲージを基準にした電位差として定めます。
+この規格化では、時間成分 $\chi^a\mathcal A_a=Q/r$ は無限遠で零、地平線へ近づくと $Q/r_+$ です。$dt$ を使ったこの表示は静的領域のゲージであり、地平線を横切る正則な1形式としては $\mathcal A_{\rm in}=(Q/r)dv$ を用いられます。
+
+外部の $f>0$ の領域では座標の変換式から
+
+$$
+dt=dv-\frac{dr}{f(r)},\qquad
+\mathcal A=\mathcal A_{\rm in}-\frac{Q}{r f(r)}dr
+$$
+
+です。半径の区間 $(r_+,\infty)$ で基準点 $r_0>r_+$ を選び、関数
+
+$$
+\lambda(r):=-\int_{r_0}^{r}\frac{Q}{u f(u)}\,du,\qquad
+d\lambda=-\frac{Q}{r f(r)}dr
+$$
+
+を用いれば、両者は完全微分だけ異なって同じ $F$ を与えます。地平線の値を取る際は、まず無限遠の静的ゲージを基準にした電位差として定めます。
 
 <a id="def-bht4-horizon-potential"></a>
 
@@ -132,7 +159,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[GR31の地平線半径](../../GR/GR31/index.md#def-gr31-rn-horizon-radii)より根の和と積は $2M,Q^2$ です。$|Q|<M$ から $r_+>r_-\ge0$、また $r_+r_-=Q^2$ なので $r_+^2>Q^2$ です。断面面積は誘導計量の積分により $A=4\pi r_+^2$。表面重力には[GR45の公式](../../GR/GR45/index.md#thm-gr45-static)を適用し、
+[GR31の根の分類](../../GR/GR31/index.md#prop-gr31-horizons)と第1節の二次方程式より根の和と積は $2M,Q^2$ です。$|Q|<M$ から $r_+>r_-\ge0$、また $r_+r_-=Q^2$ なので $r_+^2>Q^2$ です。断面面積は誘導計量の積分により $A=4\pi r_+^2$。表面重力には[GR45の公式](../../GR/GR45/index.md#thm-gr45-static)を適用し、
 
 $$
 \kappa=\frac12f'(r_+)
@@ -163,7 +190,7 @@ $$
 
 となり、この式から得る $M$ は $M>|Q|$ です。また他方の根は $r_-=Q^2/r_+<r_+$ なので、$r_+$ は確かに**外側**根です。したがって $(M,Q)$ の代わりに $(r_+,Q)$ を解族の局所座標として使えます。
 
-この二変数関数の全微分では、$r_+$ を動かす寄与と $Q$ を動かす寄与を独立に計算します。
+この二変数関数の全微分では、$r_+$ を動かす寄与と $Q$ を動かす寄与を独立に計算します。$\delta$ は解族の接方向に沿う微分（例えば $\delta M$）であり、偏導関数の添字 $_Q$ は $Q$ 固定、$_{r_+}$ は $r_+$ 固定を表します。半径 $r$ に関する先ほどの $f'(r_+)$ とは微分する変数が異なります。
 
 $$
 \begin{aligned}
@@ -210,7 +237,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[RN地平線半径](../../GR/GR31/index.md#def-gr31-rn-horizon-radii)の関係 $r_+r_-=Q^2$ と $r_++r_-=2M$ を用いると $2M=r_++Q^2/r_+$ です。非極限領域 $r_+>|Q|$ は開いており、$M(r_+,Q)$ はそこで滑らかです。従って任意の接方向について全微分が取れ、
+[GR31の根の分類](../../GR/GR31/index.md#prop-gr31-horizons)から従う関係 $r_+r_-=Q^2$ と $r_++r_-=2M$ を用いると $2M=r_++Q^2/r_+$ です。非極限領域 $r_+>|Q|$ は開いており、$M(r_+,Q)$ はそこで滑らかです。従って任意の接方向について全微分が取れ、
 
 $$
 \delta M=\frac{r_+^2-Q^2}{2r_+^2}\delta r_+
@@ -269,7 +296,7 @@ $r_+$ の平方根を微分すると $1/s$ が現れます。$\kappa=s/r_+^2$ �
 <!-- proof-start -->
 ### 証明
 
-[GR31の外側根](../../GR/GR31/index.md#def-gr31-rn-horizon-radii)から、$s>0$ の開領域で連鎖律を適用し
+[GR31の根の分類](../../GR/GR31/index.md#prop-gr31-horizons)から、$s>0$ の開領域で連鎖律を適用し
 
 $$
 \begin{aligned}
@@ -418,7 +445,7 @@ $$
 $Q=0$ かつ $\delta Q=0$ とする。$A(M),\kappa(M)$ を求めて $\delta M=\kappa\delta A/(8\pi)$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** [RN地平線半径](../../GR/GR31/index.md#def-gr31-rn-horizon-radii)で $Q=0$ を代入すると $r_+=2M$、$r_-=0$ です。従って[状態データ](#prop-bht4-rn-data)から
+**詳細解答。** [GR31の根の分類](../../GR/GR31/index.md#prop-gr31-horizons)に従って $Q=0$ とすると $r_+=2M$、$r_-=0$ です。従って[状態データ](#prop-bht4-rn-data)から
 
 $$
 A=4\pi(2M)^2=16\pi M^2,
