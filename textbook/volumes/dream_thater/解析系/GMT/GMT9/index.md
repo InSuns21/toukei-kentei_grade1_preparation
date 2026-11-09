@@ -26,11 +26,29 @@ $$
 
 高次元の証明をいきなり全微分から始めず、まず一方向だけ動かします。$x=(x_1,\ldots,x_n)$ で第 $j$ 座標を動かした関数は、元のLipschitz定数を超えません。[絶対連続性の基本定理](../../MT/MT4/index.md#thm-mt4-ac-ftc)によって、この切片はa.e.に微分でき、導関数を積分すると値の差を回復できます。
 
+第 $j$ 座標だけを変える**偏微分**の記法は、他の座標を固定して
+
+$$
+\partial_jf(x)=\lim_{u\to0}\frac{f(x+ue_j)-f(x)}u
+$$
+
+とするものです（極限が存在する場合）。$x=z+te_j$ と表したときの、$z$ を固定した1変数関数の導関数との関係は
+
+$$
+\frac d{dt}f(z+te_j)=\partial_jf(z+te_j)
+$$
+
+です。以下の $\partial_j\varphi$ も同じく第 $j$ 座標での偏微分です。
+
+また $C_c^1(\Omega)$ は、$\Omega$ 上で1階連続微分可能で、台（0でない場所の閉包）が $\Omega$ 内のコンパクト集合となる実数値関数の集合です。このような $\varphi$ を使い、1変数の積分公式を全空間へ移します。
+
 <a id="lem-gmt9-coordinate-slices"></a>
 
 <!-- formal-statement-start -->
 > **補題（Lipschitz写像の座標切片と有界導関数）**  
-> $\Omega\subset\mathbb R^n$ を開集合、$f:\Omega\to\mathbb R^m$ を $L$-Lipschitz写像とする。各 $j=1,\ldots,n$ に対して偏導関数 $\partial_jf(x)$ が $\mathcal L^n$-a.e.に存在し、$|\partial_jf(x)|\le L$ である。存在する点で $G_j(x)=\partial_jf(x)$、それ以外で $G_j(x)=0$ と定めると、$G_j$ は可測・局所有界であり、$\varphi\in C_c^1(\Omega)$ に対して成分ごとに
+> $\Omega\subset\mathbb R^n$ を開集合、$f:\Omega\to\mathbb R^m$ を $L$-Lipschitz写像とする。各 $j=1,\ldots,n$ に対して偏導関数 $\partial_jf(x)$ が $\mathcal L^n$-a.e.に存在し、$|\partial_jf(x)|\le L$ である。
+>
+> 存在する点で $G_j(x)=\partial_jf(x)$、それ以外で $G_j(x)=0$ と定めると、$G_j$ は可測・局所有界であり、$\varphi\in C_c^1(\Omega)$ に対して成分ごとに
 
 $$
 \int_\Omega f(x)\,\partial_j\varphi(x)\,dx
@@ -55,7 +73,15 @@ $$
 
 なので、有限個の互いに交わらない小区間について変化量の和は $L$ 倍の長さの和以下です。従って切片は絶対連続であり、[1変数の絶対連続関数の基本定理](../../MT/MT4/index.md#thm-mt4-ac-ftc)から $t$ のa.e.で導関数が存在し、その大きさは $L$ 以下です（$m$ 個の成分に同時に適用します）。
 
-偏微分の存在は、例えば有理数列 $q\to0$ に沿う差商 $\{f(x+qe_j)-f(x)\}/q$ の収束と同値です。これはLipschitz性により、有理差商の極限が存在すれば任意の実数の差商へも近似できるためです。よって存在集合は可測で、零に延長した $G_j$ も可測です。$z$ ごとの例外集合は1次元零測度なので、コンパクトな座標箱で[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を使って全空間の例外集合は $\mathcal L^n$-零と分かります。
+偏微分の存在は、有理数 $q\to0$ に沿う差商 $\{f(x+qe_j)-f(x)\}/q$ の収束と同値です。実際、十分小さい実数 $u\ne0$ に対して $|q-u|<|u|^2$ となる有理数 $q$ を選ぶと、Lipschitz条件と $|f(x+qe_j)-f(x)|\le L|q|$ から
+
+$$
+\left|\frac{f(x+ue_j)-f(x)}u
+-\frac{f(x+qe_j)-f(x)}q\right|
+\le\frac{2L|u-q|}{|u|}\le2L|u|\longrightarrow0.
+$$
+
+有理差商は可算個の連続関数から作られるため、その収束集合は可測です。従って零に延長した $G_j$ も可測です。$z$ ごとの例外集合は1次元零測度なので、コンパクトな座標箱で[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を使って全空間の例外集合は $\mathcal L^n$-零と分かります。
 
 $\varphi\in C_c^1(\Omega)$ に対して、各切片で1変数の部分積分を行います。$\varphi$ の台がコンパクトなので端点項は0となり、
 
@@ -67,7 +93,15 @@ $$
 両辺は台の近くで絶対可積分（$f$ は連続で有界、$G_j$ は $L$ 以下）です。もう一度[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で $z$ を積分して主張を得ます。$\square$
 <!-- proof-end -->
 
-ここで $G(x)$ は、**第 $j$ 列が $G_j(x)$ である $m\times n$ 行列**とします。定義した代表値により $G$ はすべての $x$ で定義でき、各列の長さが高々 $L$ です。$v=\sum_jv_je_j$ に対し
+ここで $G(x)$ は、**第 $j$ 列が $G_j(x)$ である $m\times n$ 行列**とします。もし $f$ の全微分 $Df(x)=A$ が存在すれば、$h=ue_j$ をFréchet微分の定義に代入して $Ae_j=\partial_jf(x)$ となります。そこで各偏導関数を列に並べた $G$ が全微分の**候補**になります。
+
+標準基底に関する展開 $v=\sum_jv_je_j$ により
+
+$$
+G(x)v=\sum_{j=1}^nv_jG_j(x)
+$$
+
+です。定義した代表値により $G$ はすべての $x$ で定義でき、各列の長さが高々 $L$ なので
 
 $$
 |G(x)v|\le\sum_j|v_j|\,|G_j(x)|
@@ -107,7 +141,15 @@ $$
 =-\int_\Omega (Ge)\varphi\,dx
 $$
 
-です。直交基底の第1軸を $e$ に取り、$x=z+se$（$z\perp e$）と変数変換します。直交変換のJacobianの絶対値は1です。$f(z+se)$ は各直線上でLipschitz、従って絶対連続ですから、切片の通常の導関数 $d f(z+se)/ds$ がa.e.存在します。
+です。直交基底の第1軸を $e$ に取り、$x=z+se$（$z\perp e$）と変数変換します。$s$ だけを動かし $z$ を固定します。滑らかな $\varphi$ に対する連鎖律は
+
+$$
+\frac d{ds}\varphi(z+se)
+=\sum_{j=1}^n e_j\partial_j\varphi(z+se)
+=\partial_e\varphi(z+se)
+$$
+
+であり、ここで $\partial_e$ は方向 $e$ の微分を表します。直交変換の行列 $Q$ は $Q^\mathsf TQ=I$ を満たすので $|\det Q|^2=1$、従って変数変換のJacobianの絶対値は1です。$f(z+se)$ は各直線上でLipschitz、従って絶対連続ですから、同じ変数 $s$ についての1変数導関数 $d f(z+se)/ds$ がa.e.存在します。これは $f$ の全微分を仮定した記法ではありません。
 
 直線上の部分積分をもう一度使うと、上の式の左辺は次の式でも表せます。
 
@@ -310,7 +352,15 @@ $$
 
 ### 例2：折り目が直線全体にある
 
-$f(x,y)=\max\{x,y\}$ とします。最大値の差の絶対値は入力2成分の最大差以下なので、$f$ は1-Lipschitzです。$x>y$ では $f=x$ で $Df=(1,0)$、$x<y$ では $f=y$ で $Df=(0,1)$ です。$x=y$ では $(1,-1)$ 方向に $t$ と $-t$ で動くと、関数値は常に $x+|t|$ となり微分不能です。例外集合は対角線で、平面Lebesgue測度は0ですがHausdorff次元は1です。
+$f(x,y)=\max\{x,y\}$ とします。最大値の差の絶対値は入力2成分の最大差以下なので、$f$ は1-Lipschitzです。$x>y$ の領域では $f=x$ で $Df=(1,0)$、$x<y$ の領域では $f=y$ で $Df=(0,1)$ です。
+
+対角線上の点 $(s,s)$ では方向 $(1,-1)$ に動かすと
+
+$$
+f(s+t,s-t)=s+|t|
+$$
+
+です。$t=0$ で左右の差商が食い違うため、全微分は存在しません。例外集合は対角線で、平面Lebesgue測度は0ですがHausdorff次元は1です。
 
 ### 例3：偏微分が二つとも存在しても足りない
 
@@ -396,7 +446,19 @@ f((x,y)+h)-f(x,y)
 =\frac{2(x,y)\cdot h+|h|^2}{|(x,y)+h|+r}.
 $$
 
-右辺の一次項は $(x,y)\cdot h/r$ です。差の剰余は、分母が $2r+O(|h|)$ であることから $O(|h|^2/r)$ なので、$Df=(x/r,y/r)$。Cauchy--Schwarzより $|Df\,h|\le|h|$、$h=(x/r,y/r)$ で等号となるので作用素ノルムは1です。原点で $h=te_1$ と置くと差商 $|t|/t$ は $t>0$ と $t<0$ で符号が異なり、微分不能です。
+一次近似の候補を $A h=(x,y)\cdot h/r$ とし、$p=(x,y)$、$D=|p+h|+r$ と置きます。$D\ge r$ と[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality) $|D-2r|\le|h|$ より
+
+$$
+\begin{aligned}
+f(p+h)-f(p)-Ah
+&=\frac{|h|^2}{D}+\frac{p\cdot h}{r}\left(\frac{2r}{D}-1\right),\\
+|f(p+h)-f(p)-Ah|
+&\le\frac{|h|^2}{r}+\frac{|p\cdot h|}{r}\frac{|2r-D|}{D}
+\le\frac{2|h|^2}{r}.
+\end{aligned}
+$$
+
+$r>0$ を固定すれば最後の上界は $o(|h|)$ なので、$Df=(x/r,y/r)$ です。Cauchy--Schwarzより $|Df\,h|\le|h|$、$h=(x/r,y/r)$ で等号となるので作用素ノルムは1です。原点で $h=te_1$ と置くと差商 $|t|/t$ は $t>0$ と $t<0$ で符号が異なり、微分不能です。
 <!-- solution-end -->
 
 <a id="ex-gmt9-a5"></a>
@@ -426,7 +488,7 @@ $f(t,0)=f(0,t)=0$ なので原点での二偏微分は0です。全微分候補 
 **B1. 切片積分公式を折り目のある写像で検算する**
 
 - Level: B
-- 問題: $f(x,y)=|x|+2y$ とし、$G(x,y)=(\operatorname{sgn}x,2)$（$x\ne0$）を導関数候補とする。$a=(a_1,a_2)$、$h=(h_1,h_2)$ に対し、$[a_1,a_1+h_1]$ が0を横切る場合も含め、$f(a+h)-f(a)=\int_0^1G(a+th)h\,dt$ を検証せよ。ただし $\operatorname{sgn}0$ の値は任意に固定してよい。
+- 問題: $f(x,y)=|x|+2y$ とし、$G(x,y)=(\operatorname{sgn}x,2)$（$x\ne0$）を導関数候補とする。ここで $\operatorname{sgn}x$ は $x>0$ で1、$x<0$ で$-1$ を表す。$a=(a_1,a_2)$、$h=(h_1,h_2)$ に対し、$[a_1,a_1+h_1]$ が0を横切る場合も含め、$f(a+h)-f(a)=\int_0^1G(a+th)h\,dt$ を検証せよ。ただし $\operatorname{sgn}0$ の値は任意に固定してよい。
 
 <!-- solution-start -->
 **詳細解答**
@@ -524,7 +586,7 @@ $x=0$ では第1成分 $|x|$ の左右差商が食い違い、$x=y$ では第2�
 - 問題: $f:\mathbb R^n\to\mathbb R^m$ を $L$-Lipschitzとする。次の道具を使い、a.e.でFréchet微分できることを証明せよ。
 
   1. 1変数Lipschitz関数は絶対連続でa.e.微分可能。
-  2. [Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)と高次元Lebesgue微分定理。
+  2. [Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)と[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)。
   3. 各固定方向 $v$ の線分積分公式。
   4. $K$-Lipschitzな剰余の平均が $o(r)$ なら、一様剰余も $o(r)$。
 
@@ -557,7 +619,16 @@ $$
 \end{aligned}
 $$
 
-最後の等式は $z=th$ による $dh=t^{-n}dz$ と $|B_{tr}|=t^n|B_r|$ の相殺です。固定 $t>0$ で内側は0へ、かつ $\|G\|_{\mathrm{op}}\le\sqrt nL$ により一様有界なので優収束で全体が0へ収束します。$R$ は $K=L+\|A\|_{\mathrm{op}}$-Lipschitzです。もし半径 $r$ 内に $|R(h_0)|\ge\varepsilon r$ があれば、$B(h_0,\delta r)\subset B_{2r}$、$\delta=\min(1/2,\varepsilon/(4K))$ で $|R|\ge3\varepsilon r/4$ が成立し、平均は正の定数倍の $r$ 以上となり矛盾します。よって $R(h)=o(|h|)$、$Df(x)=A$ です。
+最後の等式は $z=th$ による $dh=t^{-n}dz$ と $|B_{tr}|=t^n|B_r|$ の相殺です。固定 $t>0$ で内側は0へ、かつ $\|G\|_{\mathrm{op}}\le\sqrt nL$ により一様有界なので、優収束で全体が0へ収束します。
+
+$R$ は $K=L+\|A\|_{\mathrm{op}}$-Lipschitzです。$K=0$ なら $R=0$ です。$K>0$ で半径 $r$ 内に $|R(h_0)|\ge\varepsilon r$ があれば、$\delta=\min\{1/2,\varepsilon/(4K)\}$ と置きます。$B(h_0,\delta r)\subset B_{2r}$ において $|R|\ge3\varepsilon r/4$ となるため、体積比から
+
+$$
+\frac1{2r}\operatorname{avg}_{B_{2r}}|R(h)|\,dh
+\ge\frac{3\varepsilon}{8}\left(\frac\delta2\right)^n>0
+$$
+
+です。これは平均の $o(r)$ に矛盾します。従って $R(h)=o(|h|)$ であり、$Df(x)=A$ です。
 
 最後に任意の $|v|=1$ に対し $|f(x+tv)-f(x)|/|t|\le L$ とFréchet微分の極限を比較して $|Df(x)v|\le L$。上限を取れば $\|Df(x)\|_{\mathrm{op}}\le L$ です。
 <!-- solution-end -->
@@ -566,5 +637,5 @@ $$
 
 - Lipschitz写像は曲線・曲面上で折れても、$\mathcal L^n$-a.e.の点では線形近似できます。
 - Rademacher定理の要点は、1変数の絶対連続性から得る切片積分公式、導関数のLebesgue点、Lipschitz性による平均誤差の一様化です。偏微分が存在するだけでは結論できません。
-- 微分が存在すれば、その作用素ノルムは元のLipschitz定数以下です。ただし例外集合は任意の $m$ 次元Hausdorff測度について零とは限りません。
+- 微分が存在すれば、その作用素ノルムは元のLipschitz定数以下です。ただし非微分可能集合は $\mathcal L^n$-零でも、$\mathcal H^{n-1}$-零とは限りません（例2の折り目を参照）。
 - 次のGMT10では、このa.e.微分と、零集合の扱いをより柔軟にした**近似微分**を区別し、次元に応じたJacobianをGram行列から構成します。
