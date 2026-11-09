@@ -1,0 +1,41 @@
+chapter: YAU1-10
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-09]
+concepts:
+  - id: yau.kahler-connection-difference
+    name: Kähler接続差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler接続差）"]
+    requires: [yau.path-uniform-ellipticity, yau.relative-kahler-traces]
+  - id: yau.calabi-third-order-energy
+    name: Calabi型三階量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Calabi型三階量）"]
+    requires: [yau.kahler-connection-difference]
+  - id: yau.connection-curvature-difference
+    name: 接続差の曲率恒等式と微分評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（接続差の曲率恒等式と微分評価）"]
+    requires: [yau.kahler-connection-difference, yau.path-uniform-ellipticity]
+  - id: yau.calabi-laplacian-lower-bound
+    name: Calabi型三階量のLaplacian下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Calabi型三階量のLaplacian下界）"]
+    requires: [yau.connection-curvature-difference, yau.calabi-third-order-energy]
+  - id: yau.trace-third-order-coercivity
+    name: 相対跡の三階量支配
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（相対跡の三階量支配）"]
+    requires: [yau.relative-trace-laplacian, yau.calabi-third-order-energy]
+  - id: yau.global-third-order-estimate
+    name: 連続性のパス上のCalabi型三階評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続性のパス上のCalabi型三階評価）"]
+    requires: [yau.calabi-laplacian-lower-bound, yau.trace-third-order-coercivity, yau.global-second-order-estimate]
