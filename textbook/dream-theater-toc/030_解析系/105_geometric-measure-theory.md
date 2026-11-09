@@ -10,3 +10,4 @@
 7. [GMT7 高次元・Grassmann射影](textbook/volumes/dream_thater/解析系/GMT/GMT7/index.md)
 8. [GMT8 例外方向の定量評価](textbook/volumes/dream_thater/解析系/GMT/GMT8/index.md)
 9. [GMT9 Lipschitz写像とRademacher定理](textbook/volumes/dream_thater/解析系/GMT/GMT9/index.md)
+10. [GMT10 近似微分と幾何的Jacobian](textbook/volumes/dream_thater/解析系/GMT/GMT10/index.md)
