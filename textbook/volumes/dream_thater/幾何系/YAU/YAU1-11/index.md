@@ -56,8 +56,8 @@ $$
 > 任意の固定Hölder指数に対して、逆行列 $h_t^{-1}$ は固定チャートの小さいコンパクト部分上で一様Hölder有界であり、一様Hölder係数族である。
 <!-- formal-statement-end -->
 
-<details>
-<summary>証明：逆行列の微分まで追う</summary>
+<!-- proof-start -->
+### 証明：逆行列の微分まで追う
 
 固定チャートでは $\partial_kh_{i\bar j}=\nabla_k^gh_{i\bar j}+\Gamma(g)_{ki}^ph_{p\bar j}$ だから、背景接続の有界性により $|\partial h|\le C_2$。共役方向にも同じ評価が成立する。線分がチャート内部にある二点 $x,y$ を結び、微積分の基本定理を成分ごとに適用すると
 
@@ -72,7 +72,7 @@ $$
 $$
 
 チャートの直径を $D$ とすれば $|x-y|\le D^{1-\alpha}|x-y|^\alpha$。有限チャートの最大定数を取れば一様 $C^{0,\alpha}$ 評価となる。固有値の二側評価は逆行列の一様楕円性も保証する。□
-</details>
+<!-- proof-end -->
 
 注意すべき点は、ここで制御したのは $h=g+\partial\bar\partial\varphi$ であって、ポテンシャルの純正則三階微分すべてではないことである。次の方程式は混合微分にだけ作用するので、この制限と整合する。
 
@@ -95,8 +95,8 @@ $$
 > ただし $R_\beta$ は $h^{-1}$ と、次数 $1$ から $m-1$ の $h$ の微分の積からなる有限和である。
 <!-- formal-statement-end -->
 
-<details>
-<summary>証明：合成関数の最高階項を分離する</summary>
+<!-- proof-start -->
+### 証明：合成関数の最高階項を分離する
 
 $A\mapsto\log\det A$ の方向微分は $d(\log\det)_A[B]=\operatorname{tr}(A^{-1}B)$ である。$\det(A+sB)=\det A\det(I+sA^{-1}B)$ を $s=0$ で微分すればこれを直接確認できる。一階の式は $D\log\det h=h^{i\bar j}Dh_{i\bar j}$ に $Dh=Dg+\partial\bar\partial D\varphi$ を代入し、両辺を移項したものである。
 
@@ -109,7 +109,7 @@ D_1D_2\log\det h
 $$
 
 これは $D(h^{-1})=-h^{-1}(Dh)h^{-1}$ を用いた積の微分である。一般の $m$ 階ではこの操作を繰り返すと、ただ一つの因子に $m$ 階微分が集中する項が $\operatorname{tr}(h^{-1}D^\beta h)$ となり、それ以外の項では各 $h$ 微分の次数が $m-1$ 以下である。ここへ $D^\beta h=D^\beta g+\partial\bar\partial D^\beta\varphi$ を代入して結論を得る。□
-</details>
+<!-- proof-end -->
 
 一次元では $h=g+\varphi_{z\bar z}$ として、$h_z/h=H_z+g_z/g$。したがって $h^{-1}(\varphi_z)_{z\bar z}=H_z+g_z/g-h^{-1}g_z$ となり、補題の一階式と一致する。二階微分すると負の項 $-h^{-2}h_zh_{\bar z}$ が現れる。
 
@@ -151,8 +151,8 @@ $$
 > が成立する。定数は $X,g,F,m,\alpha$ のみに依存し、解のある時刻 $t$ に依存しない。
 <!-- formal-statement-end -->
 
-<details>
-<summary>証明：循環を避けて各階を閉じる</summary>
+<!-- proof-start -->
+### 証明：循環を避けて各階を閉じる
 
 **初期段階。** [一様 $C^0$ 評価](../YAU1-07/index.md#thm-yau1-07-moser)と[二側計量評価](../YAU1-09/index.md#thm-yau1-09-global-second-order)から $\|\varphi\|_{C^0}+\|\Delta_g\varphi\|_{C^0}\le C$。
 
@@ -169,7 +169,7 @@ $$
 **帰納段階。** ある $m\ge1$ について $\varphi$ の $C^{m+2,\alpha}$ 一様評価が得られたとする。すると $h$ と $h^{-1}$ の $C^{m,\alpha}$ ノルムは一様に有界である。$|\beta|=m+1$ の式を直接使うと $R_\beta$ は $m$ 階以下の $h$ 微分で構成されるため、$C^{0,\alpha}$ で一様有界となる。$D^\beta\varphi$ 自身の $C^0$ は帰納仮定から有界である。係数 $h^{-1}$ の $C^{0,\alpha}$ 一様性を用いてSchauder評価を適用すると $D^\beta\varphi\in C^{2,\alpha}$ が一様に従う。従って $\varphi\in C^{m+3,\alpha}$。数学的帰納法によりすべての階が閉じる。
 
 **大域化。** 各チャートでは $D^\beta\varphi$ がスカラーの座標微分として定義される。有限個のチャートと固定された滑らかな遷移写像で共変微分ノルムに戻せば定数は統一される。いずれの段階も $t$ に依らない楕円定数・右辺定数しか用いない。□
-</details>
+<!-- proof-end -->
 
 ここで三階評価に基づく係数のHölder制御が、変動する作用素に対するSchauder定数を固定する鍵だった。YAU1-12 では、この高階一様評価を使って解列の収束と極限方程式を扱う。
 
