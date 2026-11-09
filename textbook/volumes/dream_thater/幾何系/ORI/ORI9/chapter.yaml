@@ -1,0 +1,38 @@
+id: ORI9
+title: "公理O7と単一折りの尽くし方"
+volume: foundations
+status: supplementary
+prerequisites: [ORI8]
+official_scope: []
+learning_objectives:
+  - O7を一つの鏡映条件と折り線の垂直条件で定式化し、具体的な折り線を検算できる
+  - 非平行な二直線についてO7の一意解を導き、平行配置の0本・無数本を分類できる
+  - O7を既習の有限回の折りへ分解でき、単一折り操作と多段作図を区別できる
+  - 一折りの五種類の基本一致条件からO1〜O7を漏れなく列挙する証明を再現できる
+  - 網羅性の一般位置・有限解・観測可能性という仮定と史料上の発見の順序を区別できる
+definitions:
+  - { id: ORI9-DEF-01, name: 一折りの基本一致条件 }
+  - { id: ORI9-DEF-02, name: 最小の一折り指定 }
+theorems:
+  - { id: ORI9-AXIOM-01, name: Huzita–Justin公理O7 }
+  - { id: ORI9-THM-01, name: O7の全配置での解の本数 }
+  - { id: ORI9-PROP-01, name: O7の有限折りへの分解 }
+  - { id: ORI9-THM-02, name: 基本一致条件による七操作の網羅性 }
+canonical_examples:
+  - P=(2,3), 目標y=0, 参照x=0で折り線y=3/2
+  - 平行な目標y=0と参照y=2で点の所属に応じ0本・無数本
+  - 一折り一致条件の八組から不可能な組を除いた七操作の対応表
+problem_patterns:
+  - ORI9-O7-COORDINATE
+  - ORI9-O7-ROTATED-LINES
+  - ORI9-O7-PARALLEL-DEGENERACY
+  - ORI9-O7-SEQUENTIAL-CONSTRUCTION
+  - ORI9-ALIGNMENT-DOF
+  - ORI9-ALIGNMENT-TABLE
+  - ORI9-SELF-LINE-EXCEPTION
+  - ORI9-MODEL-BOUNDARY
+  - ORI9-INTEGRATED-PARAMETER-FAMILY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4.5, review: 2 }
