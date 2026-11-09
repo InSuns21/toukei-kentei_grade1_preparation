@@ -1,0 +1,35 @@
+chapter: DEF1-10
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-05, DEF1-07, DEF1-08, DEF1-09, HOD1-05, HOD1-06, CYG1-12, GA2, GA6]
+concepts:
+  - id: deformation.btt-kahler-homotopy
+    name: 体積形式によるKählerホモトピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（体積形式によるKählerホモトピー）"]
+    requires: [deformation.tian-todorov-identity, cyg.volume-contraction, hodge.kahler-hodge-decomposition]
+  - id: deformation.btt-partial-preserving-correction
+    name: ∂閉性を保つ補正
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（∂閉性を保つ補正）"]
+    requires: [deformation.btt-kahler-homotopy, deformation.tian-todorov-identity]
+  - id: deformation.btt-formal-unobstructedness
+    name: 全次数のBTT障害消滅
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全次数のBTT障害消滅）"]
+    requires: [deformation.btt-partial-preserving-correction, deformation.obstruction-bianchi-identity]
+  - id: deformation.btt-convergent-solution
+    name: 収束するBTT固定点解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（収束するBTT固定点解）"]
+    requires: [deformation.btt-formal-unobstructedness, deformation.sobolev-kuranishi-estimate]
+  - id: deformation.btt-smooth-kuranishi-base
+    name: Calabi–Yauの非障害性と滑らかなKuranishi基底
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Calabi–Yauの非障害性と滑らかなKuranishi基底）"]
+    requires: [deformation.btt-convergent-solution, deformation.kuranishi-semiuniversality, deformation.analytic-kuranishi-base]
