@@ -1,0 +1,44 @@
+version: 1
+id: GMT
+title: 幾何学的測度論
+plan: textbook/plans_progress/DREAM_THEATER_GEOMETRIC_MEASURE_THEORY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開目次へは completed の章だけを登録する。第IV部はHA11からの分岐を持つ。
+chapters:
+  - { id: GMT1, path: textbook/volumes/dream_thater/解析系/GMT/GMT1, status: completed, title: "Radon測度の球平均から局所密度を読む" }
+  - { id: GMT2, path: textbook/volumes/dream_thater/解析系/GMT/GMT2, status: planned, title: "Frostman補題と測度の構成" }
+  - { id: GMT3, path: textbook/volumes/dream_thater/解析系/GMT/GMT3, status: planned, title: "Riesz energyとcapacity" }
+  - { id: GMT4, path: textbook/volumes/dream_thater/解析系/GMT/GMT4, status: planned, title: "Fourier表示によるenergy法" }
+  - { id: GMT5, path: textbook/volumes/dream_thater/解析系/GMT/GMT5, status: planned, title: "平面Marstrand射影定理：次元" }
+  - { id: GMT6, path: textbook/volumes/dream_thater/解析系/GMT/GMT6, status: planned, title: "平面Marstrand射影定理：正測度" }
+  - { id: GMT7, path: textbook/volumes/dream_thater/解析系/GMT/GMT7, status: planned, title: "高次元・Grassmann射影" }
+  - { id: GMT8, path: textbook/volumes/dream_thater/解析系/GMT/GMT8, status: planned, title: "例外方向の定量評価" }
+  - { id: GMT9, path: textbook/volumes/dream_thater/解析系/GMT/GMT9, status: planned, title: "Lipschitz写像とRademacher定理" }
+  - { id: GMT10, path: textbook/volumes/dream_thater/解析系/GMT/GMT10, status: planned, title: "近似微分と幾何的Jacobian" }
+  - { id: GMT11, path: textbook/volumes/dream_thater/解析系/GMT/GMT11, status: planned, title: "area formula：重複度と測度" }
+  - { id: GMT12, path: textbook/volumes/dream_thater/解析系/GMT/GMT12, status: planned, title: "可算整流可能集合の定義と例" }
+  - { id: GMT13, path: textbook/volumes/dream_thater/解析系/GMT/GMT13, status: planned, title: "整流可能集合上のarea formula" }
+  - { id: GMT14, path: textbook/volumes/dream_thater/解析系/GMT/GMT14, status: planned, title: "coarea formula：レベル集合の測度" }
+  - { id: GMT15, path: textbook/volumes/dream_thater/解析系/GMT/GMT15, status: planned, title: "密度と近似接平面" }
+  - { id: GMT16, path: textbook/volumes/dream_thater/解析系/GMT/GMT16, status: planned, title: "純非整流性と分解・反例" }
+  - { id: GMT17, path: textbook/volumes/dream_thater/解析系/GMT/GMT17, status: planned, title: "Besicovitch--Federer射影判定 I" }
+  - { id: GMT18, path: textbook/volumes/dream_thater/解析系/GMT/GMT18, status: planned, title: "Besicovitch--Federer射影判定 II" }
+  - { id: GMT19, path: textbook/volumes/dream_thater/解析系/GMT/GMT19, status: planned, title: "blow-upと接測度の基礎" }
+  - { id: GMT20, path: textbook/volumes/dream_thater/解析系/GMT/GMT20, status: planned, title: "密度によるrectifiability判定" }
+  - { id: GMT21, path: textbook/volumes/dream_thater/解析系/GMT/GMT21, status: planned, title: "多変数BVと分布微分" }
+  - { id: GMT22, path: textbook/volumes/dream_thater/解析系/GMT/GMT22, status: planned, title: "BV近似・全変動の下半連続性" }
+  - { id: GMT23, path: textbook/volumes/dream_thater/解析系/GMT/GMT23, status: planned, title: "BVコンパクト性とcoarea" }
+  - { id: GMT24, path: textbook/volumes/dream_thater/解析系/GMT/GMT24, status: planned, title: "有限周長集合とGauss--Green測度" }
+  - { id: GMT25, path: textbook/volumes/dream_thater/解析系/GMT/GMT25, status: planned, title: "reduced boundaryと測度論的法線" }
+  - { id: GMT26, path: textbook/volumes/dream_thater/解析系/GMT/GMT26, status: planned, title: "De Giorgi構造定理 I：半空間blow-up" }
+  - { id: GMT27, path: textbook/volumes/dream_thater/解析系/GMT/GMT27, status: planned, title: "De Giorgi構造定理 II：整流可能性と測度同定" }
+  - { id: GMT28, path: textbook/volumes/dream_thater/解析系/GMT/GMT28, status: planned, title: "Gauss--Greenの境界積分・集合演算・切断" }
+  - { id: GMT29, path: textbook/volumes/dream_thater/解析系/GMT/GMT29, status: planned, title: "Euclid等周不等式" }
+  - { id: GMT30, path: textbook/volumes/dream_thater/解析系/GMT/GMT30, status: planned, title: "周長最小化の直接法" }
+  - { id: GMT31, path: textbook/volumes/dream_thater/解析系/GMT/GMT31, status: planned, title: "Besicovitch集合：有限段階から極限まで" }
+  - { id: GMT32, path: textbook/volumes/dream_thater/解析系/GMT/GMT32, status: planned, title: "δ-tube・方向分離・次元" }
+  - { id: GMT33, path: textbook/volumes/dream_thater/解析系/GMT/GMT33, status: planned, title: "平面Córdoba型tube評価" }
+  - { id: GMT34, path: textbook/volumes/dream_thater/解析系/GMT/GMT34, status: planned, title: "高次元tube幾何・古典的次元下界" }
+  - { id: GMT35, path: textbook/volumes/dream_thater/解析系/GMT/GMT35, status: planned, title: "Kakeya maximalと集合版の含意" }
+  - { id: GMT36, path: textbook/volumes/dream_thater/解析系/GMT/GMT36, status: planned, title: "Fourier restriction・wave packet・EOM074" }

@@ -1,0 +1,48 @@
+id: GMT1
+title: Radon測度の球平均から局所密度を読む
+volume: foundations
+status: supplementary
+prerequisites:
+  - MT3
+  - MT5
+  - MT7
+  - MT8
+  - HA1
+official_scope: []
+learning_objectives:
+  - 通常の3倍球被覆が一般のRadon測度の最大比評価に使えない理由を反例で説明できる
+  - Euclid球を2進半径帯で選んで有界重複にするBesicovitch型被覆補題を証明できる
+  - 一般Radon測度の中心付き最大平均の局所弱型評価を被覆補題から導ける
+  - CcのL1稠密性と弱型評価からRadon測度の球平均微分定理を証明できる
+  - Radon--Nikodym密度と特異部分を球測度の比で微分し、例外点の意味を説明できる
+  - 上下s密度を定義し、原子・線分・Cantor測度の値と非存在の例を計算できる
+  - 球成長評価とHausdorff測度・質量分布原理の関係を導出できる
+definitions:
+  - { id: GMT1-DEF-01, name: Radon測度の中心付き球最大平均 }
+  - { id: GMT1-DEF-02, name: 上・下密度 }
+  - { id: GMT1-DEF-03, name: 中三分Cantor測度 }
+theorems:
+  - { id: GMT1-LEM-01, name: Euclid球の有界重複被覆 }
+  - { id: GMT1-THM-01, name: Radon測度に関する局所弱型評価 }
+  - { id: GMT1-THM-02, name: Radon測度の球に関するLebesgue微分定理 }
+  - { id: GMT1-THM-03, name: Radon測度の微分・球比版 }
+  - { id: GMT1-PROP-01, name: Cantor測度の二側密度評価と非収束例 }
+canonical_examples:
+  - 3倍球で倍加性が壊れるDirac測度
+  - 原子の最大平均と幾何密度
+  - 線分の内点と端点の一次元密度
+  - Cantor測度の分数次元と密度の非存在
+  - 絶対連続部分と特異な点質量の球比
+problem_patterns:
+  - GMT1-ATOMIC-DENSITY
+  - GMT1-SEGMENT-DENSITY
+  - GMT1-CANTOR-SCALES
+  - GMT1-MEASURE-SCALING
+  - GMT1-WEAK-TYPE
+  - GMT1-ATOMIC-CONTINUOUS-DIFFERENTIATION
+  - GMT1-SINGULAR-RATIO
+  - GMT1-RADON-NIKODYM-QUOTIENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 5, review: 2 }

@@ -1,0 +1,4 @@
+<a id="dt-subject-geometric-measure-theory"></a>
+### 幾何学的測度論
+
+1. [GMT1 Radon測度の球平均から局所密度を読む](textbook/volumes/dream_thater/解析系/GMT/GMT1/index.md)
