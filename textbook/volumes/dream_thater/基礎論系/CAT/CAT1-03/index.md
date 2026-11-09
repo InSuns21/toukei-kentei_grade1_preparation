@@ -55,7 +55,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$g,h:B\to A$ がともに $f$ の逆射なら、定義から
+$g,h:B\to A$ がともに $f$ の逆射なら、[逆射の定義](#def-cat1-03-isomorphism)から
 
 $$
 g\circ f=1_A=h\circ f,\qquad
@@ -92,7 +92,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-03-monomorphism -->
-**定義の確認**。集合の包含写像 $i:\{0\}\hookrightarrow\{0,1\}$ を考える。任意の集合 $X$ と写像 $u,v:X\to\{0\}$ について、$i\circ u=i\circ v$ なら各 $x\in X$ で $i(u(x))=i(v(x))$。包含写像は異なる値を同じ値に送らないので $u(x)=v(x)$、従って $u=v$ である。$X=\varnothing$ でもこの含意は成立する。ゆえに $i$ はモノ射である。
+**定義の確認**。集合の包含写像 $i:\{0\}\hookrightarrow\{0,1\}$ を考える。任意の集合 $X$ と写像 $u,v:X\to\{0\}$ について、$i\circ u=i\circ v$ なら各 $x\in X$ で
+
+$$
+i(u(x))=i(v(x))\ \Longrightarrow\ u(x)=v(x)
+$$
+
+を得る。最後の含意は、包含写像が異なる値を同じ値に送らないことによる。各点で等しいので $u=v$ である。$X=\varnothing$ でも写像は高々一本なのでこの含意は成立する。ゆえに $i$ はモノ射である。
 <!-- definition-example-end -->
 
 等式は $f$ を**左側**から消す形である。図式の向きが逆の「右消去」と混同しないようにする。
@@ -115,7 +121,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-03-epimorphism -->
-**定義の確認**。$p:\{0,1\}\to\{*\}$ を定値写像とする。任意の集合 $Y$ と $r,s:\{*\}\to Y$ が $r\circ p=s\circ p$ を満たすなら、$0$ に代入して $r(*)=r(p(0))=s(p(0))=s(*)$ を得る。定義域は一元集合なので $r=s$。ゆえに $p$ はエピ射である。これは同型射ではない。実際、$p$ のどんな右逆 $t:\{*\}\to\{0,1\}$ についても $t\circ p$ は定値写像で、$1_{\{0,1\}}$ にならない。
+**定義の確認**。$p:\{0,1\}\to\{*\}$ を定値写像とする。任意の集合 $Y$ と $r,s:\{*\}\to Y$ が $r\circ p=s\circ p$ を満たすなら、$0$ に代入して
+
+$$
+r(*)=r(p(0))=s(p(0))=s(*)
+$$
+
+を得る。定義域は一元集合なので $r=s$。ゆえに $p$ はエピ射である。これは同型射ではない。実際、$p$ のどんな右逆 $t:\{*\}\to\{0,1\}$ についても $t\circ p$ は定値写像で、$1_{\{0,1\}}$ にならない。
 <!-- definition-example-end -->
 
 ### 同型なら両方の消去律が成り立つ
@@ -157,7 +169,7 @@ $$
 
 ## 5. 集合では単射・全射と対応する
 
-ここまでの定義は射の等式だけで述べられている。集合の圏 $\mathbf{Set}$ に戻り、使い慣れた元による判定と一致することを証明しよう。$mathbf{Set}$ は[局所小圏](../CAT1-02/index.md#prop-cat1-02-set-size)なので、固定した集合の間の射は通常の写像として扱える。
+ここまでの定義は射の等式だけで述べられている。集合の圏 $\mathbf{Set}$ に戻り、使い慣れた元による判定と一致することを証明しよう。$\mathbf{Set}$ は[局所小圏](../CAT1-02/index.md#prop-cat1-02-set-size)なので、固定した集合の間の射は通常の写像として扱える。
 
 <a id="prop-cat1-03-set-characterization"></a>
 
@@ -179,7 +191,7 @@ $$
 
 **（1）単射からモノ射へ**。$f$ が単射なら、任意の $u,v:X\to A$ に対し $f\circ u=f\circ v$ から、任意の $x\in X$ について $f(u(x))=f(v(x))$ を得る。単射性から $u(x)=v(x)$、したがって $u=v$ である。
 
-**（1）モノ射から単射へ**。$a,a'\in A$ が $f(a)=f(a')$ を満たすとする。一元集合 $X=\{*\}$ からの写像 $u(*)=a$, $v(*)=a'$ を取ると、$f\circ u=f\circ v$ である。モノ射の消去律から $u=v$、従って $a=a'$。これは $A=\varnothing$ の場合にも、検査すべき二点がないため成立する。
+**（1）モノ射から単射へ**。$a,a'\in A$ が $f(a)=f(a')$ を満たすとする。一元集合 $X=\{*\}$ からの写像 $u(*)=a$, $v(*)=a'$ を取ると、$f\circ u=f\circ v$ である。[モノ射の消去律](#def-cat1-03-monomorphism)から $u=v$、従って $a=a'$。これは $A=\varnothing$ の場合にも、検査すべき二点がないため成立する。
 
 **（2）全射からエピ射へ**。$f$ が全射で、$r,s:B\to Y$ が $r\circ f=s\circ f$ を満たすとする。任意の $b\in B$ に対して $f(a)=b$ となる $a\in A$ を一つ取れるから
 
@@ -197,7 +209,7 @@ r(b)=0\quad(b\in B),\qquad
 s(b)=\begin{cases}1,&b=b_0,\\0,&b\ne b_0\end{cases}
 $$
 
-で定める。$r\ne s$ だが、すべての $a\in A$ で $f(a)\ne b_0$ だから $r(f(a))=s(f(a))=0$、すなわち $r\circ f=s\circ f$ である。これはエピ射の定義に反する。ゆえに全射でなければエピ射でない。$A=\varnothing$ でも、$B\ne\varnothing$ なら同じ構成が使える。
+で定める。$r\ne s$ だが、すべての $a\in A$ で $f(a)\ne b_0$ だから $r(f(a))=s(f(a))=0$、すなわち $r\circ f=s\circ f$ である。これは[エピ射の定義](#def-cat1-03-epimorphism)に反する。ゆえに全射でなければエピ射でない。$A=\varnothing$ でも、$B\ne\varnothing$ なら同じ構成が使える。
 
 **（3）同型射から全単射へ**。同型射なら[同型射はモノ射かつエピ射](#prop-cat1-03-iso-mono-epi)なので、（1）（2）から単射かつ全射である。
 
@@ -218,7 +230,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-03-split -->
-**定義の確認**。集合 $A=\{0\}$、$B=\{0,1\}$ の包含 $i:A\to B$ と、両方の元を $0$ に送る $q:B\to A$ は $q\circ i=1_A$ を満たす。従って $i$ は分裂モノ射、$q$ は分裂エピ射である。一方 $i\circ q$ は $1\in B$ を $0$ に送るため $1_B$ でない。このため $i,q$ は同型射ではない。
+**定義の確認**。集合 $A=\{0\}$、$B=\{0,1\}$ の包含 $i:A\to B$ と、両方の元を $0$ に送る $q:B\to A$ を取ると
+
+$$
+(q\circ i)(0)=0,\qquad
+(i\circ q)(0)=0,\quad (i\circ q)(1)=0
+$$
+
+である。前者は $q\circ i=1_A$ なので $i$ は分裂モノ射、$q$ は分裂エピ射である。後者は $1\in B$ を $0$ に送るため $i\circ q\ne1_B$ であり、$i,q$ は同型射ではない。
 <!-- definition-example-end -->
 
 <a id="prop-cat1-03-split-cancel"></a>
@@ -273,9 +292,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u,v:X\to A$ が $(g\circ f)\circ u=(g\circ f)\circ v$ を満たすなら、結合則で $g\circ(f\circ u)=g\circ(f\circ v)$。$g$ の[モノ射](#def-cat1-03-monomorphism)性で $f\circ u=f\circ v$、続いて $f$ のモノ射性で $u=v$ を得る。
+$u,v:X\to A$ が $(g\circ f)\circ u=(g\circ f)\circ v$ を満たすなら、結合則と $g$、$f$ の[モノ射の消去律](#def-cat1-03-monomorphism)を順に使って
 
-$r,s:C\to Y$ が $r\circ(g\circ f)=s\circ(g\circ f)$ を満たすなら、$(r\circ g)\circ f=(s\circ g)\circ f$。$f$ の[エピ射](#def-cat1-03-epimorphism)性から $r\circ g=s\circ g$、$g$ のエピ射性から $r=s$ を得る。
+$$
+g\circ(f\circ u)=g\circ(f\circ v)
+\ \Longrightarrow\ f\circ u=f\circ v
+\ \Longrightarrow\ u=v
+$$
+
+を得る。
+
+$r,s:C\to Y$ が $r\circ(g\circ f)=s\circ(g\circ f)$ を満たすなら、結合則と $f$、$g$ の[エピ射の消去律](#def-cat1-03-epimorphism)を順に使って
+
+$$
+(r\circ g)\circ f=(s\circ g)\circ f
+\ \Longrightarrow\ r\circ g=s\circ g
+\ \Longrightarrow\ r=s
+$$
+
+を得る。
 
 最後に逆射 $f^{-1}:B\to A$, $g^{-1}:C\to B$ があれば、$h:=f^{-1}\circ g^{-1}:C\to A$ について
 
@@ -330,32 +365,51 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（モノイド準同型と圏 Mon）**  
-> モノイド $(M,\ast,e_M)$ からモノイド $(N,\diamond,e_N)$ へのモノイド準同型とは、上の二式をすべての $a,b\in M$ で満たす写像 $h:M\to N$ である。モノイドを対象、モノイド準同型を射、写像の合成を射の合成とする圏を $\mathbf{Mon}$ と書く。
+> モノイド $(M,\ast,e_M)$ からモノイド $(N,\diamond,e_N)$ へのモノイド準同型とは、任意の $a,b\in M$ について
+
+$$
+h(a\ast b)=h(a)\diamond h(b),\qquad h(e_M)=e_N
+$$
+
+> を満たす写像 $h:M\to N$ である。モノイドを対象、モノイド準同型を射、写像の合成を射の合成とする圏を $\mathbf{Mon}$ と書く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-03-monoid-hom -->
-**定義の確認**。$\mathbb N=\{0,1,2,\ldots\}$ と $\mathbb Z$ に加法を入れ、単位元を $0$ とする。包含 $i:\mathbb N\to\mathbb Z$ は任意の $m,n\in\mathbb N$ に対し $i(m+n)=m+n=i(m)+i(n)$、$i(0)=0$ なので準同型である。$\mathbf{Mon}$ の恒等射は演算と単位元を保つ。準同型 $h:M\to N$ と $k:N\to L$ の合成も、$k(h(a\ast b))=k(h(a)\diamond h(b))=k(h(a))\star k(h(b))$ および $k(h(e_M))=e_L$ を満たす（$\star$ は $L$ の演算）。写像の結合則・単位律により、確かに圏である。
+**定義の確認**。非負整数 $\mathbb N_0=\{0,1,2,\ldots\}$ と整数 $\mathbb Z$ に加法を入れる。両者は加法で閉じ、結合律と単位元 $0$ を持つのでモノイドである。包含 $i:\mathbb N_0\to\mathbb Z$ は任意の $m,n\in\mathbb N_0$ に対し
+
+$$
+i(m+n)=m+n=i(m)+i(n),\qquad i(0)=0
+$$
+
+を満たし、準同型である。また $\mathbf{Mon}$ の恒等写像 $1_M$ は $1_M(a\ast b)=a\ast b=1_M(a)\ast1_M(b)$ と $1_M(e_M)=e_M$ を満たす。準同型 $h:M\to N$ と $k:N\to L$ の合成も、$L$ の演算を $\star$ とすれば
+
+$$
+k(h(a\ast b))=k(h(a)\diamond h(b))=k(h(a))\star k(h(b)),\qquad
+k(h(e_M))=k(e_N)=e_L
+$$
+
+を満たす。写像の結合則・単位律も使えるので、確かに圏である。
 <!-- definition-example-end -->
 
-この包含 $i$ は写像として全射ではない。しかし準同型の世界では、$\mathbb Z$ 上の準同型の値が自然数上の値だけから決まってしまう。
+この包含 $i$ は写像として全射ではない。しかし準同型の世界では、$\mathbb Z$ 上の準同型の値が非負整数上の値だけから決まってしまう。
 
 <a id="prop-cat1-03-monoid-non-surj-epi"></a>
 
 <!-- formal-statement-start -->
 > **命題（全射でないモノイドのエピ射）**  
-> 加法モノイドの包含 $i:(\mathbb N,+,0)\to(\mathbb Z,+,0)$ は、$\mathbf{Mon}$ でモノ射かつエピ射だが、同型射ではない。特に $\mathbf{Mon}$ のエピ射は、台集合の写像として全射とは限らない。
+> 加法モノイドの包含 $i:(\mathbb N_0,+,0)\to(\mathbb Z,+,0)$ は、$\mathbf{Mon}$ でモノ射かつエピ射だが、同型射ではない。特に $\mathbf{Mon}$ のエピ射は、台集合の写像として全射とは限らない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-モノ射性は包含の単射性による。エピ射性では、$\mathbb Z$ から任意のモノイド $M$ への準同型 $u,v$ が自然数上で等しいと仮定する。$u(-1)$ と $v(-1)$ は共通の $u(1)=v(1)$ の逆元なので一致し、すべての整数上で一致する。
+モノ射性は包含の単射性による。エピ射性では、$\mathbb Z$ から任意のモノイド $M$ への準同型 $u,v$ が非負整数上で等しいと仮定する。$u(-1)$ と $v(-1)$ は共通の $u(1)=v(1)$ の逆元なので一致し、すべての整数上で一致する。
 
 <!-- proof-start -->
 ### 証明
 
-任意のモノイド $K$ と準同型 $a,b:K\to\mathbb N$ について $i\circ a=i\circ b$ なら、各 $k\in K$ で $i(a(k))=i(b(k))$。$i$ は集合としての包含なので $a(k)=b(k)$、よって $a=b$。これで $i$ はモノ射である。
+任意のモノイド $K$ と準同型 $a,b:K\to\mathbb N_0$ について $i\circ a=i\circ b$ なら、各 $k\in K$ で $i(a(k))=i(b(k))$。$i$ は集合としての包含なので $a(k)=b(k)$、よって $a=b$。これで $i$ は[モノ射](#def-cat1-03-monomorphism)である。
 
-次に任意のモノイド $(M,\ast,e)$ と準同型 $u,v:\mathbb Z\to M$ が $u\circ i=v\circ i$ を満たすとする。自然数 $n$ に対して $u(n)=v(n)$ であり、特に $u(1)=v(1)=:t$ である。準同型の加法保存と単位元保存から
+次に任意のモノイド $(M,\ast,e)$ と準同型 $u,v:\mathbb Z\to M$ が $u\circ i=v\circ i$ を満たすとする。非負整数 $n$ に対して $u(n)=v(n)$ であり、特に $u(1)=v(1)=:t$ である。[モノイド準同型](#def-cat1-03-monoid-hom)の加法保存と単位元保存から
 
 $$
 t\ast u(-1)=u(1+(-1))=u(0)=e,
@@ -376,7 +430,7 @@ u(-n)=\underbrace{u(-1)\ast\cdots\ast u(-1)}_{n\text{ 個}}
 =\underbrace{v(-1)\ast\cdots\ast v(-1)}_{n\text{ 個}}=v(-n).
 $$
 
-非負整数上でも一致するので $u=v$。従って $i$ は[エピ射](#def-cat1-03-epimorphism)である。一方、$-1\notin i(\mathbb N)$ だから $i$ は全射でない。[同型の逆射](#def-cat1-03-isomorphism)が存在すれば $i\circ g=1_{\mathbb Z}$ となり全射を強制するため、同型ではない。$\square$
+非負整数上でも一致するので $u=v$。従って $i$ は[エピ射](#def-cat1-03-epimorphism)である。一方、$-1\notin i(\mathbb N_0)$ だから $i$ は全射でない。[同型の逆射](#def-cat1-03-isomorphism)が存在すれば $i\circ g=1_{\mathbb Z}$ となり全射を強制するため、同型ではない。$\square$
 <!-- proof-end -->
 
 二つの反例は、それぞれ別の障害を明らかにする。順序圏では射が高々一本なので消去律は情報を持たず、$\mathbf{Mon}$ では射が**演算を保つ写像に制限されている**ので、エピ射の試験に使える $u,v$ が $\mathbf{Set}$ より少ない。どの圏で消去律を試すかを明示せずに「モノ射＝単射」「エピ射＝全射」と言ってはいけない。
@@ -458,7 +512,14 @@ $$
 $i:\{0\}\to\{0,1\}$ を包含、$q:\{0,1\}\to\{0\}$ を定値写像とする。$q\circ i$ と $i\circ q$ を両方求め、それぞれの分裂性と非同型性を述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$q(i(0))=q(0)=0$ だから $q\circ i=1_{\{0\}}$ である。一方、$i(q(0))=0$, $i(q(1))=0$ なので $i\circ q$ は $\{0,1\}$ 上の定値写像で、$1_{\{0,1\}}$ とは異なる。従って $q$ は $i$ の左逆で $i$ は分裂モノ射、$i$ は $q$ の右逆で $q$ は分裂エピ射である。$i$ は全射でなく、$q$ は単射でないため、[集合における特徴づけ](#prop-cat1-03-set-characterization)からいずれも同型でない。
+**詳細解答**。二つの合成を値に戻して計算すると
+
+$$
+(q\circ i)(0)=q(0)=0,\qquad
+(i\circ q)(0)=0,\quad(i\circ q)(1)=0
+$$
+
+である。したがって $q\circ i=1_{\{0\}}$ だが、$i\circ q$ は $\{0,1\}$ 上の定値写像で、$1_{\{0,1\}}$ とは異なる。[分裂射の定義](#def-cat1-03-split)により、$q$ は $i$ の左逆で $i$ は分裂モノ射、$i$ は $q$ の右逆で $q$ は分裂エピ射である。$i$ は全射でなく、$q$ は単射でないため、[集合における特徴づけ](#prop-cat1-03-set-characterization)からいずれも同型でない。
 <!-- solution-end -->
 
 ### CAT1-03-B01 空集合の射にも消去律を適用する
@@ -480,7 +541,23 @@ $d$ は空集合の唯一の自己写像なので $d=1_\varnothing$。$d\circ d=
 圏の射 $A\xrightarrow{f}B\xrightarrow{g}C$ において、$g\circ f$ がモノ射なら $f$ はモノ射であること、$g\circ f$ がエピ射なら $g$ はエピ射であることを示せ。逆向き（$g$ がモノ射、$f$ がエピ射）までは結論できないことも、集合の写像で反例を作れ。
 
 <!-- solution-start -->
-**詳細解答**。$f\circ u=f\circ v$（$u,v:X\to A$）なら、両辺の左に $g$ を合成して $(g\circ f)\circ u=(g\circ f)\circ v$。$g\circ f$ のモノ射性から $u=v$ を得る。従って $f$ はモノ射。次に $r\circ g=s\circ g$（$r,s:C\to Y$）なら、両辺の右に $f$ を合成して $r\circ(g\circ f)=s\circ(g\circ f)$。$g\circ f$ のエピ射性から $r=s$。従って $g$ はエピ射。
+**詳細解答**。任意の $u,v:X\to A$ が $f\circ u=f\circ v$ を満たすなら、両辺の左に $g$ を合成して
+
+$$
+(g\circ f)\circ u=g\circ(f\circ u)
+=g\circ(f\circ v)=(g\circ f)\circ v
+$$
+
+を得る。$g\circ f$ の[モノ射性](#def-cat1-03-monomorphism)から $u=v$。従って $f$ はモノ射である。
+
+次に任意の $r,s:C\to Y$ が $r\circ g=s\circ g$ を満たすなら、両辺の右に $f$ を合成して
+
+$$
+r\circ(g\circ f)=(r\circ g)\circ f
+=(s\circ g)\circ f=s\circ(g\circ f)
+$$
+
+を得る。$g\circ f$ の[エピ射性](#def-cat1-03-epimorphism)から $r=s$。従って $g$ はエピ射である。
 
 逆向きの反例として $A=\{*\}$、$B=\{0,1\}$、$C=\{*\}$、$f(*)=0$、$g(0)=g(1)=*$ とする。$g\circ f$ は一元集合上の恒等射なので同型であり、モノ射かつエピ射である。しかし $g$ は単射でないのでモノ射でなく、$f$ は全射でないのでエピ射でない。[集合における特徴づけ](#prop-cat1-03-set-characterization)で両方を判定できる。
 <!-- solution-end -->
@@ -500,7 +577,7 @@ $$
 
 だから $f\circ r=1_B$。よって $f$ は[分裂エピ射](#def-cat1-03-split)である。この構成は有限個の選択だけを使い、一般の無限集合の任意の全射に右逆があると主張するものではない。
 
-一般の圏ではエピ射が分裂するとは限らない。実際、[モノイドの包含](#prop-cat1-03-monoid-non-surj-epi) $i:\mathbb N\to\mathbb Z$ はエピ射だが、右逆 $r:\mathbb Z\to\mathbb N$ があれば $i(r(-1))=-1$ となり、$i$ の像が非負整数だけであることに反する。
+一般の圏ではエピ射が分裂するとは限らない。実際、[モノイドの包含](#prop-cat1-03-monoid-non-surj-epi) $i:\mathbb N_0\to\mathbb Z$ はエピ射だが、右逆 $r:\mathbb Z\to\mathbb N_0$ があれば $i(r(-1))=-1$ となり、$i$ の像が非負整数だけであることに反する。
 <!-- solution-end -->
 
 ### CAT1-03-B04 前順序では別対象が同型になり得る
@@ -528,7 +605,7 @@ $$
 
 1. 集合の圏 $\mathbf{Set}$ の包含 $j:\{0\}\to\{0,1\}$。
 2. 二点鎖 $0\prec1$ から作る順序圏の唯一の非恒等射 $k:0\to1$。
-3. 加法モノイドと準同型の圏 $\mathbf{Mon}$ の包含 $i:(\mathbb N,+,0)\to(\mathbb Z,+,0)$。
+3. 加法モノイドと準同型の圏 $\mathbf{Mon}$ の包含 $i:(\mathbb N_0,+,0)\to(\mathbb Z,+,0)$。
 
 各射がモノ射、エピ射、同型射、分裂モノ射、分裂エピ射のどれを満たすかを判定し、同じ台集合の単射・全射だけでは一般の圏の結論を決められない理由を説明せよ。
 
@@ -539,13 +616,13 @@ $$
 
 2. $k$ は[順序圏の命題](#prop-cat1-03-poset-bimorphism)からモノ射かつエピ射。しかし $1\to0$ の射がないため、同型射でなく、分裂モノ射でも分裂エピ射でもない。どちらの分裂性も逆方向の射を要求するからである。
 
-3. $i$ は[モノイドの命題](#prop-cat1-03-monoid-non-surj-epi)の通りモノ射かつエピ射だが、$-1$ は像に入らないので同型射でも分裂エピ射でもない。もし左逆 $\ell:\mathbb Z\to\mathbb N$ があれば $\ell\circ i=1_{\mathbb N}$。準同型性により $\ell(1)=1$（右辺の $1$ は自然数の元）であり、
+3. $i$ は[モノイドの命題](#prop-cat1-03-monoid-non-surj-epi)の通りモノ射かつエピ射だが、$-1$ は像に入らないので同型射でも分裂エピ射でもない。もし左逆 $\ell:\mathbb Z\to\mathbb N_0$ があれば $\ell\circ i=1_{\mathbb N_0}$。準同型性により $\ell(1)=1$（右辺の $1$ は非負整数の元）であり、
 
    $$
    0=\ell(0)=\ell(1+(-1))=\ell(1)+\ell(-1)=1+\ell(-1)
    $$
 
-   を得る。しかし $\ell(-1)\in\mathbb N$ なので右辺は少なくとも $1$、矛盾する。従って分裂モノ射でもない。
+   を得る。しかし $\ell(-1)\in\mathbb N_0$ なので右辺は少なくとも $1$、矛盾する。従って分裂モノ射でもない。
 
 まとめると、$j$ は「モノのみ・左逆あり」、$k$ と $i$ は「モノかつエピ・両側の逆なし」という相異なる現象を示す。$\mathbf{Set}$ ではすべての写像で消去律を試せるが、順序圏の Hom は高々一本、$\mathbf{Mon}$ の試験射は準同型だけである。したがって消去律の強さは選んだ圏によって異なる。
 <!-- solution-end -->
