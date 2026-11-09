@@ -13,3 +13,4 @@
 10. [YAU1-10 Calabi型三階評価](textbook/volumes/dream_thater/幾何系/YAU/YAU1-10/index.md)
 11. [YAU1-11 高階評価と正則性](textbook/volumes/dream_thater/幾何系/YAU/YAU1-11/index.md)
 12. [YAU1-12 閉性から存在へ](textbook/volumes/dream_thater/幾何系/YAU/YAU1-12/index.md)
+13. [YAU1-13 Ricci平坦Kähler計量の帰結](textbook/volumes/dream_thater/幾何系/YAU/YAU1-13/index.md)

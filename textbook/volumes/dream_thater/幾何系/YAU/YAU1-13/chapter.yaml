@@ -1,0 +1,39 @@
+id: "YAU1-13"
+title: "Ricci平坦Kähler計量の帰結"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-12
+  - CYG1-08
+official_scope: []
+learning_objectives:
+  - 実第一Chern類の消失と零Ricci形式指定の必要十分条件を区別して説明できる
+  - Ricciポテンシャルから正規化密度を構成しMonge–Ampère解を零Ricci計量に変換できる
+  - Kähler類を固定したときの計量一意性とポテンシャルの定数差を説明できる
+  - 複素トーラスの平行移動と一意性からRicci平坦計量が平坦になることを証明できる
+  - K3曲面と滑らかなquinticでKähler性と標準束の条件を確認して存在定理を適用できる
+  - 実Chern類の消失と標準束自明性ならびにRicci平坦とRiemann平坦を区別できる
+definitions: []
+theorems:
+  - { id: YAU1-13-LEM-01, name: 零Ricci目標の正規化密度と解の構成 }
+  - { id: YAU1-13-PROP-01, name: 複素トーラスのRicci平坦計量の平行移動不変性 }
+canonical_examples:
+  - 楕円曲線上の余弦係数計量を体積比から平坦計量へ戻し平均ゼロまで計算する
+  - Fermat四次K3とFermat五次三次元多様体の滑らかさ・Kähler性・標準束を照合する
+  - Enriques曲面で実第一Chern類零と標準束の非自明性を区別する
+problem_patterns:
+  - YAU1-13-RICCI-CHERN-NECESSITY
+  - YAU1-13-NORMALIZATION-CONSTANT
+  - YAU1-13-POSITIVE-MATRIX
+  - YAU1-13-WIRTINGER-TORUS
+  - YAU1-13-ADJUNCTION-DEGREE
+  - YAU1-13-TORUS-INVERSION
+  - YAU1-13-TRANSLATION-RIGIDITY
+  - YAU1-13-ENRIQUES-DISTINCTION
+  - YAU1-13-K3-NONFLATNESS
+  - YAU1-13-FULL-RICCI-FLAT-EXISTENCE
+  - YAU1-13-THREE-EXAMPLES-AND-OBSTRUCTIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 5 }
