@@ -91,7 +91,20 @@ $$
 
 ## 3. 極限で計量が退化しないことを検算する
 
-局所複素座標 $z^1,\ldots,z^n$ を固定し、$p,q=1,\ldots,n$ を動く添字として、$\omega=i\sum_{p,q}g_{p\bar q}\,dz^p\wedge d\bar z^q$、$\omega_{\varphi_k}=i\sum_{p,q}h_{k,p\bar q}\,dz^p\wedge d\bar z^q$ と書く。ここで $h_{k,p\bar q}=g_{p\bar q}+\partial_p\partial_{\bar q}\varphi_k$ で、$\partial_p=\partial/\partial z^p$、$\partial_{\bar q}=\partial/\partial\bar z^q$ は複素座標の偏微分を表す。
+局所複素座標 $z^1,\ldots,z^n$ を固定し、$p,q$ は $1,\ldots,n$ を動く添字とする。二つの実 $(1,1)$ 形式をその座標基底で展開すると
+
+$$
+\omega=i\sum_{p,q}g_{p\bar q}\,dz^p\wedge d\bar z^q,\qquad
+\omega_{\varphi_k}=i\sum_{p,q}h_{k,p\bar q}\,dz^p\wedge d\bar z^q
+$$
+
+となる。ここで $\partial_p=\partial/\partial z^p$ と $\partial_{\bar q}=\partial/\partial\bar z^q$ はそれぞれ複素座標の偏微分であり、
+
+$$
+h_{k,p\bar q}=g_{p\bar q}+\partial_p\partial_{\bar q}\varphi_k
+$$
+
+である。
 
 [正値Kählerポテンシャルの定義](../YAU1-03/index.md#def-yau1-03-positive-domain)と[実 $(1,1)$ 形式の係数行列による正値判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)を、$v=\sum_p v^p\partial_p\ne0$ に適用すると、
 
