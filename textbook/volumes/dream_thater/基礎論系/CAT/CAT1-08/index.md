@@ -32,7 +32,9 @@
 ここで $[\mathcal C,\mathcal D]$ の「射」は $\mathcal C$ や $\mathcal D$ の射そのものではなく、自然変換という**成分の集まり**である。
 
 <!-- definition-example-start: def-cat1-08-functor-category -->
-**定義の確認**（矢印からなる図式）。対象 $0,1$ と恒等射、一本の射 $u:0\to1$ だけを持つ小さい圏 $\mathcal A$ を取る。関手 $F:\mathcal A\to\mathbf{Set}$ を指定するには、二集合 $X=F(0),Y=F(1)$ と一写像 $f=F(u):X\to Y$ を選べばよい。恒等射の像は恒等写像に強制され、$u$ と恒等射以外の合成がないため[関手の公理](../CAT1-06/index.md#def-cat1-06-functor)も満たす。
+**定義の確認**（矢印からなる図式）。対象 $0,1$ と恒等射、一本の射 $u:0\to1$ だけを持つ小さい圏 $\mathcal A$ を取る。
+
+関手 $F:\mathcal A\to\mathbf{Set}$ を指定するには、二集合 $X=F(0),Y=F(1)$ と一写像 $f=F(u):X\to Y$ を選べばよい。恒等射の像は恒等写像に強制され、$u$ と恒等射以外の合成がないため[関手の公理](../CAT1-06/index.md#def-cat1-06-functor)も満たす。
 
 別の $G$ が $g:X'\to Y'$ に対応するとき、自然変換 $\alpha:F\Rightarrow G$ の成分は $a:X\to X'$ と $b:Y\to Y'$ であり、$u$ に対する[自然性](../CAT1-07/index.md#def-cat1-07-natural-transformation)は
 
@@ -102,7 +104,9 @@ $$
 ここで $\cdot$ の右側 $\alpha$ を**先に**行う。$\beta\cdot\alpha$ と $\alpha\cdot\beta$ は一般に両方定義できるわけではない。
 
 <!-- definition-example-start: def-cat1-08-vertical -->
-**定義の確認**（対角線と射影）。$I:\mathbf{Set}\to\mathbf{Set}$ を恒等関手、$D(X)=X\times X$ を二乗関手とする。前講の[対角自然変換の確認](../CAT1-07/index.md#def-cat1-07-natural-transformation)で構成した $\delta:I\Rightarrow D$ は $\delta_X(x)=(x,x)$ である。各 $X$ の第一射影 $\pi_X:X\times X\to X$ は $f:X\to Y$ に対して
+**定義の確認**（対角線と射影）。$I:\mathbf{Set}\to\mathbf{Set}$ を恒等関手、$D(X)=X\times X$ を二乗関手とする。前講の[対角自然変換の確認](../CAT1-07/index.md#def-cat1-07-natural-transformation)で構成した $\delta:I\Rightarrow D$ は $\delta_X(x)=(x,x)$ である。
+
+各 $X$ の第一射影 $\pi_X:X\times X\to X$ は $f:X\to Y$ に対して
 
 $$
 f\circ\pi_X(x,y)=f(x)=\pi_Y\circ D(f)(x,y)
@@ -179,7 +183,9 @@ $$
 
 ## 3. 横につなぐ前に whiskering を作る
 
-ここまでは、同じ $\mathcal C,\mathcal D$ の間の関手を縦に比較した。今度は $F,G:\mathcal C\to\mathcal D$ の外側へ別の関手 $H:\mathcal D\to\mathcal E$ を付けて、$HF,HG$ の間を比較したい。$HF$ は[関手の合成](../CAT1-06/index.md#prop-cat1-06-composition) $H\circ F$ の略記である。
+ここまでは、同じ $\mathcal C,\mathcal D$ の間の関手を縦に比較した。今度は $F,G:\mathcal C\to\mathcal D$ の外側へ別の関手 $H:\mathcal D\to\mathcal E$ を付けて、$HF,HG$ の間を比較したい。
+
+$HF$ は[関手の合成](../CAT1-06/index.md#prop-cat1-06-composition) $H\circ F$ の略記である。
 
 $\alpha_A:F(A)\to G(A)$ を $H$ で送れば、$H(\alpha_A):HF(A)\to HG(A)$ を得る。一方、別の $K:\mathcal B\to\mathcal C$ を内側から合成すると、$\alpha_{K(B)}$ が $FK(B)\to GK(B)$ を与える。前者は射へ関手を作用させ、後者は成分の添字を移すという、異なる操作である。
 
