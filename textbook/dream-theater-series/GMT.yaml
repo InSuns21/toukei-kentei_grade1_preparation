@@ -15,7 +15,7 @@ chapters:
   - { id: GMT7, path: textbook/volumes/dream_thater/解析系/GMT/GMT7, status: completed, title: "高次元・Grassmann射影" }
   - { id: GMT8, path: textbook/volumes/dream_thater/解析系/GMT/GMT8, status: completed, title: "例外方向の定量評価" }
   - { id: GMT9, path: textbook/volumes/dream_thater/解析系/GMT/GMT9, status: completed, title: "Lipschitz写像とRademacher定理" }
-  - { id: GMT10, path: textbook/volumes/dream_thater/解析系/GMT/GMT10, status: planned, title: "近似微分と幾何的Jacobian" }
+  - { id: GMT10, path: textbook/volumes/dream_thater/解析系/GMT/GMT10, status: completed, title: "近似微分と幾何的Jacobian" }
   - { id: GMT11, path: textbook/volumes/dream_thater/解析系/GMT/GMT11, status: planned, title: "area formula：重複度と測度" }
   - { id: GMT12, path: textbook/volumes/dream_thater/解析系/GMT/GMT12, status: planned, title: "可算整流可能集合の定義と例" }
   - { id: GMT13, path: textbook/volumes/dream_thater/解析系/GMT/GMT13, status: planned, title: "整流可能集合上のarea formula" }

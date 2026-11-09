@@ -11,7 +11,8 @@ GMT6着手日時: 2026-11-10 03:48:35 JST（Fourier L2密度判定・方向平�
 GMT7着手日時: 2026-11-10 04:07:05 JST（Grassmann核のBeta積分・高次元射影の次元定理と正測度定理）
 GMT8着手日時: 2026-11-10 04:34 JST（方向Frostman測度・二重energy・Kaufman型例外方向次元上界）
 GMT9着手日時: 2026-11-10 05:16:31 JST（Lipschitz切片・Rademacher定理・微分の作用素ノルム）
-状態: in_progress（GMT1--GMT9 は実装・査読済み。GMT10--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT10着手日時: 2026-11-10 06:00:52 JST（近似微分・Gram行列式・非正規化Hausdorff測度の面積倍率）
+状態: in_progress（GMT1--GMT10 は実装・査読済み。GMT11--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -61,7 +62,7 @@ Hausdorff次元は集合の大きさを測る。しかし、射影したとき�
 | 曲面の古典的法線・平均曲率・第一/第二変分 | GEO10、VAR7--VAR8。GMT24--30は**弱い境界と周長**を所有し、滑らかな曲面変分を再所有しない |
 | 多様体PDE・調和写像 | 完了済みGA系列。GMTはEuclidの可測的幾何、GAはmanifold PDEで分担 |
 
-- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT9は実装済みであり、GMT10以降の未完成章の公開リンクは作らない。
+- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT10は実装済みであり、GMT11以降の未完成章の公開リンクは作らない。
 - 完了済みHAの過去PLAN中の「GMT7--GMT8」は当時の**旧仮IDを参照した履歴**。新しいKakeya側の接続はGMT31--GMT36、特にGMT35--36とする。完了済み計画を過去に遡って書き換えない。
 - EOM074の基本ルートは **GMT1--GMT8 → GMT31--GMT36** とHA11。第II/III部全体をEOMへの無条件の必修にはしない。
 
@@ -124,7 +125,7 @@ Hausdorff次元は集合の大きさを測る。しかし、射影したとき�
 
 #### GMT10 近似微分と幾何的Jacobian
 
-- approximate differential、$m$次元JacobianのGram行列式。
+- approximate differential、$m$次元JacobianのGram行列式。MT8の非正規化Hausdorff測度とLebesgue測度の比例係数を明示する。
 - 線形写像・グラフ・rank欠損を計算。どの測度についてa.e.かを宣言。
 
 #### GMT11 area formula：重複度と測度
@@ -333,4 +334,4 @@ formal statementでは対象の可測性・次元・有限性、a.e.の参照測
 4. BV compactness/coarea→finite perimeter→reduced boundary→De Giorgi構造→Gauss--Green→等周・周長最小化の証明が閉じる。
 5. Besicovitch構成、tube overlap、Kakeya maximalからの次元含意を計算でき、HA11とEOM074へ正しく接続する。
 6. Preissの一般定理・currents/varifolds・Kakeya最新結果について、**証明済みの本科目範囲と停止線外**を読者が区別できる。
-7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT8完了後もGMT9--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
+7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT10完了後もGMT11--GMT36と横断監査が残るため、現在はplans_progress/に保持する。

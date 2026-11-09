@@ -1,0 +1,51 @@
+id: GMT10
+title: 近似微分と幾何的Jacobian
+volume: foundations
+status: supplementary
+prerequisites:
+  - F0-00F2
+  - F0-02C3
+  - LA3B
+  - MT8
+  - HA1
+  - GMT9
+official_scope: []
+learning_objectives:
+  - Lebesgue密度0の例外集合を許す近似微分を定義し、通常微分・近似微分の違いを例で検証できる
+  - 近似微分の一意性、Lipschitz写像での通常微分との同値、Rademacher定理との接続を証明できる
+  - m次元幾何的JacobianをGram行列式として導き、直交変換で不変なことを示せる
+  - 直交基底・線形体積変換からJacobianの線形面積倍率としての意味を証明できる
+  - 線形写像・グラフ・rank欠損・折り返しのJacobianを計算できる
+  - 近似微分のa.e.の基準測度と非正規化Hausdorff測度の係数を区別できる
+definitions:
+  - { id: GMT10-DEF-01, name: 近似微分 }
+  - { id: GMT10-DEF-02, name: m次元幾何的Jacobian }
+  - { id: GMT10-DEF-03, name: 写像の近似Jacobian }
+theorems:
+  - { id: GMT10-LEM-01, name: 近似微分の一意性 }
+  - { id: GMT10-PROP-01, name: Lipschitz写像の近似微分と通常微分の同値 }
+  - { id: GMT10-THM-01, name: Gram行列式と直交不変性 }
+  - { id: GMT10-LEM-02, name: 非正規化Hausdorff測度のEuclid空間上での比例 }
+  - { id: GMT10-THM-02, name: 線形写像のm次元面積倍率 }
+  - { id: GMT10-COR-01, name: Lipschitz写像の近似Jacobianのa.e.存在と評価 }
+canonical_examples:
+  - 零密度の細い区間上だけ傾きが残る非通常微分・近似微分の例
+  - 斜め線形写像のGram行列式と張られた平行四辺形
+  - グラフ写像(x,y)から(x,y,ax+by)の面積倍率
+  - rank欠損写像のJacobian消失
+  - 絶対値で折り返すLipschitz写像のa.e.Jacobian
+problem_patterns:
+  - GMT10-APPROX-DENSITY
+  - GMT10-SPIKES
+  - GMT10-GRAM-LINE
+  - GMT10-GRAPH-PLANE
+  - GMT10-RANK-DEFICIENCY
+  - GMT10-UNIQUENESS
+  - GMT10-LIPSCHITZ-RIGIDITY
+  - GMT10-HOUSE-NORMALIZATION
+  - GMT10-GRAPH-GENERAL
+  - GMT10-COMBINED-GEOMETRY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 3 }

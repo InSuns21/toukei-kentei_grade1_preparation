@@ -1,0 +1,90 @@
+chapter: GMT10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00F2
+  - F0-02C3
+  - LA3B
+  - MT8
+  - HA1
+  - GMT9
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt10-approximate-differential
+    name: 近似微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（近似微分）"]
+    requires:
+      - functional.frechet-derivative
+      - harmonic.ha1-differentiation
+
+  - id: geometric-measure.gmt10-approximate-unique
+    name: 近似微分の一意性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（近似微分の一意性）"]
+    requires:
+      - geometric-measure.gmt10-approximate-differential
+
+  - id: geometric-measure.gmt10-lipschitz-rigidity
+    name: Lipschitz写像の近似微分と通常微分の同値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lipschitz写像の近似微分と通常微分の同値）"]
+    requires:
+      - geometric-measure.gmt10-approximate-unique
+      - geometric-measure.gmt9-rademacher
+
+  - id: geometric-measure.gmt10-geometric-jacobian
+    name: m次元幾何的Jacobian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（m次元幾何的Jacobian）"]
+    requires: []
+
+  - id: geometric-measure.gmt10-gram-invariance
+    name: Gram行列式と直交不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gram行列式と直交不変性）"]
+    requires:
+      - geometric-measure.gmt10-geometric-jacobian
+      - linear.singular-value
+
+  - id: geometric-measure.gmt10-hausdorff-normalization
+    name: 非正規化Hausdorff測度のEuclid空間上での比例
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（非正規化Hausdorff測度のEuclid空間上での比例）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt10-linear-area
+    name: 線形写像のm次元面積倍率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形写像のm次元面積倍率）"]
+    requires:
+      - geometric-measure.gmt10-gram-invariance
+      - geometric-measure.gmt10-hausdorff-normalization
+
+  - id: geometric-measure.gmt10-approximate-jacobian
+    name: 写像の近似Jacobian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（写像の近似Jacobian）"]
+    requires:
+      - geometric-measure.gmt10-approximate-differential
+      - geometric-measure.gmt10-geometric-jacobian
+
+  - id: geometric-measure.gmt10-ae-jacobian
+    name: Lipschitz写像の近似Jacobianのa.e.存在と評価
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Lipschitz写像の近似Jacobianのa.e.存在と評価）"]
+    requires:
+      - geometric-measure.gmt10-lipschitz-rigidity
+      - geometric-measure.gmt10-approximate-jacobian
+      - geometric-measure.gmt9-derivative-bound
