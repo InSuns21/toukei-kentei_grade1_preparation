@@ -1,0 +1,45 @@
+id: "BHT10"
+title: "回転・電荷を含む熱力学の整合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT9
+  - BHT7
+  - BHT5
+  - BHT4
+official_scope: []
+learning_objectives:
+  - 非極限Kerr–Newman解族のエントロピー・角運動量・電荷の状態領域と正則な質量表示を導出できる
+  - 質量関数M(S,J,Q)の三つの偏微分を計算し、T_H・Ω_H・Φ_Hの幾何学的表示と一致させられる
+  - 第一法則とSmarr関係をRN・Kerr・Kerr–Newmanの具体値で独立に検算できる
+  - 電位差のゲージ基準と回転座標系の規格化が仕事項の意味を決めることを説明できる
+  - SI単位に復元したエネルギー・温度・エントロピー・角速度・電位の共役性と次元を検算できる
+  - 非極限領域での微分と極限境界・実時間の散逸過程・熱平衡の存在を区別できる
+definitions:
+  - { id: BHT10-DEF-01, name: "Kerr–Newmanの熱力学的状態座標" }
+theorems:
+  - { id: BHT10-THM-01, name: "Kerr–Newman質量関数と三つの共役量" }
+  - { id: BHT10-PROP-01, name: "熱力学的Smarr関係の直接検算" }
+  - { id: BHT10-PROP-02, name: "電磁ゲージと地平線電位差" }
+  - { id: BHT10-PROP-03, name: "回転・電荷付き第一法則のSI表示" }
+canonical_examples:
+  - RNのM=5,Q=3で2TSとΦQを独立に計算してSmarr関係を確認する
+  - KerrのM=5,a=3で2TSと2ΩJを独立に計算してSmarr関係を確認する
+  - Kerr–NewmanのM=5,a=3,Q²=7で三つの項が同時に現れることを確認する
+  - 電位の定数ゲージ変換を地平線と無限遠で差し引く
+  - SIの電荷変換と電位の積がエネルギーの次元になることを確認する
+problem_patterns:
+  - BHT10-STATE-DOMAIN
+  - BHT10-TEMPERATURE-DERIVATIVE
+  - BHT10-ROTATION-DERIVATIVE
+  - BHT10-ELECTRIC-DERIVATIVE
+  - BHT10-RN-SMARR
+  - BHT10-KERR-SMARR
+  - BHT10-GAUGE-DIFFERENCE
+  - BHT10-MIXED-PARTIALS
+  - BHT10-SI-CONJUGATES
+  - BHT10-KERR-NEWMAN-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
