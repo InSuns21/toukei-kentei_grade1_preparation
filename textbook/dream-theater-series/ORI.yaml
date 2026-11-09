@@ -10,7 +10,7 @@ chapters:
   - { id: ORI2, path: textbook/volumes/dream_thater/幾何系/ORI/ORI2, status: completed, title: "芳賀の定理と比の幾何" }
   - { id: ORI3, path: textbook/volumes/dream_thater/幾何系/ORI/ORI3, status: completed, title: "折りによる等分・面積・有理比" }
   - { id: ORI4, path: textbook/volumes/dream_thater/幾何系/ORI/ORI4, status: completed, title: "多角形・対称性・定理折り" }
-  - { id: ORI5, path: textbook/volumes/dream_thater/幾何系/ORI/ORI5, status: planned, title: "折りの包絡線と放物線" }
+  - { id: ORI5, path: textbook/volumes/dream_thater/幾何系/ORI/ORI5, status: completed, title: "折りの包絡線と放物線" }
   - { id: ORI6, path: textbook/volumes/dream_thater/幾何系/ORI/ORI6, status: planned, title: "Huzita–Justin公理O1〜O4" }
   - { id: ORI7, path: textbook/volumes/dream_thater/幾何系/ORI/ORI7, status: planned, title: "公理O5と二次方程式" }
   - { id: ORI8, path: textbook/volumes/dream_thater/幾何系/ORI/ORI8, status: planned, title: "公理O6と三次方程式" }

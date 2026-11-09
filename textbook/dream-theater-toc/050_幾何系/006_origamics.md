@@ -5,3 +5,4 @@
 2. [ORI2 芳賀の定理と比の幾何](textbook/volumes/dream_thater/幾何系/ORI/ORI2/index.md)
 3. [ORI3 折りによる等分・面積・有理比](textbook/volumes/dream_thater/幾何系/ORI/ORI3/index.md)
 4. [ORI4 多角形・対称性・定理折り](textbook/volumes/dream_thater/幾何系/ORI/ORI4/index.md)
+5. [ORI5 折りの包絡線と放物線](textbook/volumes/dream_thater/幾何系/ORI/ORI5/index.md)

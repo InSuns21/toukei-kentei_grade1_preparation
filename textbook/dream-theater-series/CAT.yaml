@@ -10,7 +10,7 @@ chapters:
   - { id: CAT1-01, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-01, status: completed, title: "対象・射・合成から圏を定義する" }
   - { id: CAT1-02, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-02, status: completed, title: "小さい圏と局所小圏" }
   - { id: CAT1-03, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-03, status: completed, title: "同型・モノ射・エピ射" }
-  - { id: CAT1-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-04, status: planned, title: "反対圏と双対原理" }
+  - { id: CAT1-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-04, status: completed, title: "反対圏と双対原理" }
   - { id: CAT1-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-05, status: planned, title: "部分圏・積圏・スライス圏" }
   - { id: CAT1-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-06, status: planned, title: "関手と保存する構造" }
   - { id: CAT1-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-07, status: planned, title: "自然変換と自然同型" }

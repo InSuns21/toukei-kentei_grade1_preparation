@@ -1,0 +1,47 @@
+id: GMT6
+title: 平面Marstrand射影定理：正測度
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT3
+  - GMT4
+  - GMT5
+official_scope: []
+learning_objectives:
+  - 射影測度がL2密度を持つ条件を定義し、密度とsupportの長さのCauchy--Schwarz下界を確認できる
+  - 有限測度のFourier変換がL2なら測度にL2密度が存在することをGaussian近似から証明できる
+  - 射影Fourier切片の方向平均が平面の重み|xi|^-1積分になることを極座標とJacobianで導出できる
+  - 1<s<2の有限Riesz energyから射影密度の平均L2上界を導き、2pi係数を検算できる
+  - dim_H K>1の非空コンパクト集合に対しほとんど全方向で射影長さが正となる定理を証明できる
+  - 可算コンパクト和への拡張と一般Borel集合への拡張に追加の集合論的根拠が必要であることを説明できる
+  - 次元1・長さ0の反例、Cantor積の例外方向、短い射影の方向測度評価を具体的に検算できる
+definitions:
+  - { id: GMT6-DEF-01, name: 射影測度のL2密度 }
+theorems:
+  - { id: GMT6-LEM-01, name: 有限測度のFourier L2判定 }
+  - { id: GMT6-LEM-02, name: 射影Fourier変換の方向平均 }
+  - { id: GMT6-PROP-01, name: 高指数energyによる射影密度評価 }
+  - { id: GMT6-THM-01, name: 平面Marstrand射影定理：コンパクト集合の正測度 }
+  - { id: GMT6-COR-01, name: 可算コンパクト和の正測度射影 }
+  - { id: GMT6-COR-02, name: 短い射影を持つ方向の割合 }
+canonical_examples:
+  - 一様区間のL2密度と点質量の非絶対連続性
+  - 水平線分の正測度とs>1有限energyの不成立
+  - 次元1で長さ0のコンパクト集合の全方向射影
+  - Cantor積の水平垂直例外方向とほとんど全方向での正測度
+  - 単位正方形の斜め射影と単位円板の射影密度
+problem_patterns:
+  - GMT6-INTERVAL-PLANCHEREL
+  - GMT6-ATOM-FOURIER
+  - GMT6-GAUSSIAN-DELTA
+  - GMT6-FREQUENCY-SPLIT
+  - GMT6-DILATION-DENSITY
+  - GMT6-SQUARE-DIAGONAL
+  - GMT6-CRITICAL-DIMENSION
+  - GMT6-CANTOR-PROJECTION
+  - GMT6-DISK-DENSITY
+  - GMT6-SMALL-PROJECTION-MEASURE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }
