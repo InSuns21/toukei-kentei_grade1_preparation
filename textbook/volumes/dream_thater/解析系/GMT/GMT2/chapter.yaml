@@ -27,7 +27,7 @@ theorems:
 canonical_examples:
   - 区間上の正規化Lebesgue測度と球成長指数
   - 中三分Cantor測度の分数指数の球成長
-  - 四分木の有限段階容量配分
+  - 二進木の一次元有限段階容量配分
   - 次元1で長さが零のコンパクト集合と臨界指数の失敗
 problem_patterns:
   - GMT2-POINT-CONTENT

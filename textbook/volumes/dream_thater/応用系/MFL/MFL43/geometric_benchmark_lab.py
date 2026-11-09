@@ -139,7 +139,10 @@ def fit_readout(training, names, ridge):
 
 
 def fit_mlp(training, seed, ridge, epochs, width=12, rate=0.025):
-    """One-hidden-layer coordinate MLP trained by full-batch gradient descent."""
+    """Full-batch descent on (MSE + ridge * squared weights)/2.
+
+    The effective learning rate for the unhalved objective is rate / 2.
+    """
     rng = random.Random(seed + 100003)
     d = 12
     w = [[rng.uniform(-0.20, 0.20) for _ in range(d)] for _ in range(width)]
