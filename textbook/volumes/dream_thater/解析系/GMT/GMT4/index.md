@@ -108,7 +108,18 @@ $$
 \exp\!\left(-\frac{|x|^2}{4\varepsilon}\right)
 $$
 
-は積分1の非負Gaussianです。$f_\varepsilon=\rho_\varepsilon*\mu$ は $f_\varepsilon(x)=\int\rho_\varepsilon(x-y)d\mu(y)$ という具体的な関数で、$\mu$ 自身に密度を仮定する必要はありません。
+は非負Gaussianです。[FOU3のGaussian積分](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)で $a=1/(4\varepsilon)$、$\xi=0$ とし、各座標について積分すると
+
+$$
+\begin{aligned}
+\int_{\mathbb R^d}\rho_\varepsilon(x)dx
+&=(4\pi\varepsilon)^{-d/2}
+\prod_{j=1}^d\int_{\mathbb R}e^{-x_j^2/(4\varepsilon)}dx_j\\
+&=(4\pi\varepsilon)^{-d/2}(\sqrt{4\pi\varepsilon})^d=1.
+\end{aligned}
+$$
+
+従って $f_\varepsilon=\rho_\varepsilon*\mu$ は、各 $y$ に中心を持つGaussian $\rho_\varepsilon(x-y)$ を測度 $\mu$ で重み付けして積分した関数 $f_\varepsilon(x)=\int\rho_\varepsilon(x-y)d\mu(y)$ です。$\mu$ 自身に密度を仮定する必要はありません。
 
 <a id="def-gmt4-gaussian-regularization"></a>
 
@@ -355,7 +366,44 @@ $$
 
 [正則化の補題](#lem-gmt4-heat-fourier)で $f_\varepsilon dx$ は非負有限測度、Fourier変換は $e^{-\varepsilon|\xi|^2}\widehat\mu$ です。従って[Riesz energyのFourier表示](#thm-gmt4-fourier-energy)から等式を得ます。$|\widehat\mu|\le M$ より、右辺は原点近くで $r^{s-1}$、無限遠で $e^{-2\varepsilon r^2}r^{s-1}$ で抑えられ、有限です。
 
-Plancherelから直接辿る場合にも、各 $t>0$ の $g_t(x)=e^{-t|x|^2}$ は $L^1$ で、$g_t*f_\varepsilon$ と $f_\varepsilon$ は $L^2$ です。[FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)と[Parseval等式](../../FOU/FOU4/index.md#thm-fou4-parseval)を各座標に拡張して
+Plancherelから直接辿る場合には、まず一次元の[FOU4のParseval等式](../../FOU/FOU4/index.md#thm-fou4-parseval)を多次元へ拡張する理由を確認します。積形関数 $F(x)=\prod_{j=1}^dF_j(x_j)$、$G(x)=\prod_{j=1}^dG_j(x_j)$（各因子は $L^1\cap L^2$）について、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)と一次元の等式を各座標へ適用すると
+
+$$
+\begin{aligned}
+\int_{\mathbb R^d}\widehat F(\xi)\overline{\widehat G(\xi)}d\xi
+&=\prod_{j=1}^d\int_{\mathbb R}\widehat F_j(\xi_j)
+\overline{\widehat G_j(\xi_j)}d\xi_j\\
+&=(2\pi)^d\prod_{j=1}^d\int_{\mathbb R}F_j(x_j)\overline{G_j(x_j)}dx_j\\
+&=(2\pi)^d\int_{\mathbb R^d}F(x)\overline{G(x)}dx.
+\end{aligned}
+$$
+
+有界な台を持つ階段関数で切断・近似すれば、長方形の指示関数（積形関数）の有限線形結合 $S_n$ により、任意の $F\in L^1\cap L^2$ を両ノルムで近似できます。このとき
+
+$$
+\|\widehat{S_n}-\widehat F\|_\infty\le\|S_n-F\|_1\to0,
+\qquad
+\|\widehat{S_n}-\widehat{S_m}\|_2
+=(2\pi)^{d/2}\|S_n-S_m\|_2\to0.
+$$
+
+よって $L^2$ 極限は積分で定義した $\widehat F$ と一致し、上の等式は $F,G\in L^1\cap L^2$ にも成立します。
+
+次に各 $t>0$ の $g_t(x)=e^{-t|x|^2}$ は $L^1$ で、$f_\varepsilon\in L^1\cap L^2$ です。平行移動の下では $L^2$ ノルムが不変なので、任意の $y\in\mathbb R^d$ について
+
+$$
+\|f_\varepsilon(\cdot-y)\|_2=\|f_\varepsilon\|_2
+$$
+
+が成立します。[FOU4の$L^1$–$L^2$畳み込み評価](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)の証明と同じ積分の三角不等式を $\mathbb R^d$ で適用すると
+
+$$
+\|g_t*f_\varepsilon\|_2
+\le\int_{\mathbb R^d}|g_t(y)|\,\|f_\varepsilon(\cdot-y)\|_2dy
+=\|g_t\|_1\|f_\varepsilon\|_2<\infty
+$$
+
+と従います。さらに $L^1$ 同士の畳み込みなので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)でFourier変換が積になることも確かめられます（一次元版は[FOU4の畳み込み公式](../../FOU/FOU4/index.md#thm-fou4-l1-l2-convolution)）。これらと $f_\varepsilon$ が実数値であることから
 
 $$
 \begin{aligned}

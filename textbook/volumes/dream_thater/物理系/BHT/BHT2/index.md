@@ -79,7 +79,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht2-gaussian-null-chart -->
-**定義の確認**：直接例。$L>0$ とし、$F=-1/L$、$h_A=0$、$\gamma_{AB}=\delta_{AB}$ を選ぶと
+**定義の確認**：直接例。座標基底 $(\partial_v,\partial_r)$ に関する計量行列の成分は $g_{ij}=g(\partial_i,\partial_j)$ です。計量の $dv^2$ の係数が $g_{vv}$、$2\,dv\,dr$ の係数が $2g_{vr}$ に対応します。
+
+以下の例では $h_A=0$ を選ぶので断面との交差ブロックが消え、逆計量の $(v,r)$ 部分も二行二列のブロックの逆行列として求められます。ここで $i,j,k\in\{v,r\}$、$\delta^i{}_j$ はKroneckerのデルタです。逆行列 $g^{ij}$ と法線 $dr$ の長さの関係は
+
+$$
+g^{ik}g_{kj}=\delta^i{}_j,\qquad g^{-1}(dr,dr)=g^{rr}
+$$
+
+です。[GR29のKilling地平線の定義](../../GR/GR29/index.md#def-gr29-killing-horizon)によれば、後者が地平線上で零であることを確かめます。
+
+$L>0$ とし、$F=-1/L$、$h_A=0$、$\gamma_{AB}=\delta_{AB}$ を選びます。ここで $\delta_{AB}$ は断面座標 $(x^1,x^2)$ の単位行列の成分です。このとき
 
 $$
 ds^2=-\frac rL\,dv^2+2\,dv\,dr+(dx^1)^2+(dx^2)^2.
@@ -93,7 +103,23 @@ $$
 (g^{ij})=\begin{pmatrix}0&1\\1&r/L\end{pmatrix}.
 $$
 
-行列式は $-1$ で、横断二次元の正定値行列と合わせて符号 $(-,+,+,+)$ の非退化計量です。$r=0$ では $g^{-1}(dr,dr)=g^{rr}=0$、$\chi^\flat=g(\partial_v,\cdot)=-(r/L)dv+dr\to dr$、$\chi=\partial_v\ne0$ です。さらに係数は $v$ に依存しないので $\chi$ はKilling場です。[GR29の全条件](../../GR/GR29/index.md#def-gr29-killing-horizon)を確認できました。次の式で $\kappa=1/(2L)$ も求まります。
+$(v,r)$ ブロックの行列式は $-1$ なので、対称な実行列の二つの固有値は異符号で、ブロックは非退化です。また断面方向では非零ベクトル $u=(u^1,u^2)$ に対し
+
+$$
+\gamma_{AB}u^Au^B=(u^1)^2+(u^2)^2>0\quad(u\ne0)
+$$
+
+です。交差ブロックは零だから、全計量は一つの負方向と三つの正方向を持つ符号 $(-,+,+,+)$ の非退化計量です。
+
+地平線 $r=0$ では、法線の長さ・生成場の計量双対・生成場自身を順に調べると
+
+$$
+g^{-1}(dr,dr)=g^{rr}=0,\qquad
+\chi^\flat=-\frac rLdv+dr\longrightarrow dr,\qquad
+\chi=\partial_v\ne0
+$$
+
+となります。さらに係数は $v$ に依存しないので $\chi$ はKilling場です。[GR29の全条件](../../GR/GR29/index.md#def-gr29-killing-horizon)を確認できました。次の式で $\kappa=1/(2L)$ も求まります。
 <!-- definition-example-end -->
 
 上の一般形では $\chi^2=g_{vv}=rF$、$\chi^\flat|_{r=0}=dr$ です。地平線へ制限する**前に**微分すると
@@ -293,7 +319,15 @@ $$
 d(\chi^2)|_{r=0}=-2\kappa(x)dr,
 $$
 
-だから[表面重力とKillingノルムの勾配](../../GR/GR45/index.md#prop-gr45-gradient)によって $\kappa_\chi=\kappa(x)$ です。$\partial_x\kappa_\chi=\alpha\ne0$ で一定性に反します。さらに[地平線横断方向のRicci恒等式](#lem-bht2-transverse-ricci)の $F=-2\kappa(x)$、$h_A=0$ を代入すれば $R_{vx}|_{r=0}=-\alpha\ne0$。零法則の証明の（4）に必要な $R_{vA}=0$ が破れています。よって、この模型をEinstein方程式の解と読むなら、優越エネルギー条件まで同時に満たすことはありません。$\square$
+だから[表面重力とKillingノルムの勾配](../../GR/GR45/index.md#prop-gr45-gradient)によって $\kappa_\chi=\kappa(x)$ です。横方向の微分は $\partial_x\kappa_\chi=\alpha\ne0$ で、一定性に反します。
+
+さらに[地平線横断方向のRicci恒等式](#lem-bht2-transverse-ricci)へ $F=-2\kappa(x)$ と $h_A=0$ を代入すると
+
+$$
+R_{vx}\big|_{r=0}=\frac12\partial_x[-2(\kappa_0+\alpha x)]=-\alpha\ne0
+$$
+
+です。零法則の証明の（4）に必要な $R_{vA}=0$ が破れています。よって、この模型をEinstein方程式の解と読むなら、優越エネルギー条件まで同時に満たすことはありません。$\square$
 <!-- proof-end -->
 
 この模型は漸近平坦なブラックホール全体を構成したものではなく、地平線近傍の**局所反例**です。反例の役割は「Killing地平線の定義から一定性が自動的に出る」という論理を否定することです。
@@ -301,6 +335,16 @@ $$
 ## 6. Killing時間とアフィンパラメータの関係
 
 各生成線で $\kappa$ が一定と分かれば、Killing時間 $v$ と光的測地線のアフィンパラメータ $\lambda$ の関係も計算できます。これは定常な幾何であってもKilling時間が光線のアフィン時間とは限らない理由です。
+
+以下の $d/dv$ は生成曲線 $x(v)$ に沿う**全微分**です。曲線上のスカラー関数 $u(x(v))$ について、パラメータ変更の連鎖律から
+
+$$
+\frac{d}{dv}u(x(v))=\frac{dx^\mu}{dv}\partial_\mu u
+=\chi^\mu\partial_\mu u,\qquad
+\frac{d}{d\lambda}=\frac{dv}{d\lambda}\frac{d}{dv}
+$$
+
+となります。Gaussian null座標で生成線の $r,x^A$ を固定していれば、前者は $\partial_v u$ と一致します。一方、$\lambda$ は別のパラメータで、その微分演算子は右端の式に従います。
 
 <a id="prop-bht2-affine-parameter"></a>
 
@@ -448,7 +492,12 @@ $$
 次の結論に必要な仮定を説明せよ。（1）$\chi(\kappa)=0$、（2）$T(\chi,\chi)=0$、（3）$T(\chi,e_A)=0$、（4）連結地平線全体で $\kappa$ が一定。
 
 <!-- solution-start -->
-**詳細解答。** （1）は[表面重力の生成線方向の一定性](#prop-bht2-generator-constancy)で、正則なKilling地平線だけでよいです。（2）はKilling対称性から膨張・せん断が零となること、[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)による $R(\chi,\chi)=0$、Einstein方程式による $R(\chi,\chi)=8\pi T(\chi,\chi)$ をつなぎます。（3）は（2）に[優越エネルギー条件](../../GR/GR35/index.md#def-gr35-dec)を加え、$J=-T(\cdot,\chi)^\sharp$ が因果的かつ $\chi$ に直交するので平行になると示します。（4）は（3）、[地平線横断方向のRicci恒等式](#lem-bht2-transverse-ricci)と（1）に加え連結性を使い、断面・生成線の両方向の微分を消します。
+**詳細解答。**
+
+1. [表面重力の生成線方向の一定性](#prop-bht2-generator-constancy)により、正則なKilling地平線だけでよいです。
+2. Killing対称性から膨張・せん断が零となり、[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)で $R(\chi,\chi)=0$ です。Einstein方程式で零方向を縮約すれば $R(\chi,\chi)=8\pi T(\chi,\chi)$ だから、結論できます。
+3. （2）に[優越エネルギー条件](../../GR/GR35/index.md#def-gr35-dec)を加えます。$J=-T(\cdot,\chi)^\sharp$ が因果的かつ $\chi$ に直交するので $\chi$ に平行となり、断面成分が消えます。
+4. （3）と[地平線横断方向のRicci恒等式](#lem-bht2-transverse-ricci)で断面方向の微分を消し、（1）で生成線方向を消します。最後に連結性から全体で一定と結論します。
 <!-- solution-end -->
 
 <a id="ex-bht2-b01"></a>

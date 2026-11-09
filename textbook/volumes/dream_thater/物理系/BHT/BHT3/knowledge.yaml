@@ -1,0 +1,28 @@
+chapter: BHT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT2
+  - GR36
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.area-monotonicity-reparametrization
+    name: 地平線面積の単調性と正の再媒介
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（地平線面積の単調性と正の再媒介）"]
+    requires: [gravity.smooth-horizon-area-monotonicity, gravity.horizon-area-transport]
+
+  - id: black-hole-thermodynamics.vaidya-future-area-integral
+    name: 入射Vaidya地平線の未来積分式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（入射Vaidya地平線の未来積分式）"]
+    requires: [gravity.vaidya-horizon-separation, gravity.vaidya-null-dust-source]
+
+  - id: black-hole-thermodynamics.area-equality-rigidity
+    name: 古典的面積一定区間の剛性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（古典的面積一定区間の剛性）"]
+    requires: [gravity.smooth-horizon-area-monotonicity, gravity.null-raychaudhuri]
