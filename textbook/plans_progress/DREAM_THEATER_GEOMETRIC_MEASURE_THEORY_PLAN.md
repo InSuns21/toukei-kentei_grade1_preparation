@@ -10,7 +10,8 @@ GMT5着手日時: 2026-11-10 03:18:12 JST（平面直交射影・角度平均ene
 GMT6着手日時: 2026-11-10 03:48:35 JST（Fourier L2密度判定・方向平均・Marstrand正測度定理）
 GMT7着手日時: 2026-11-10 04:07:05 JST（Grassmann核のBeta積分・高次元射影の次元定理と正測度定理）
 GMT8着手日時: 2026-11-10 04:34 JST（方向Frostman測度・二重energy・Kaufman型例外方向次元上界）
-状態: in_progress（GMT1--GMT8 は実装・査読済み。GMT9--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT9着手日時: 2026-11-10 05:16:31 JST（Lipschitz切片・Rademacher定理・微分の作用素ノルム）
+状態: in_progress（GMT1--GMT9 は実装・査読済み。GMT10--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -60,7 +61,7 @@ Hausdorff次元は集合の大きさを測る。しかし、射影したとき�
 | 曲面の古典的法線・平均曲率・第一/第二変分 | GEO10、VAR7--VAR8。GMT24--30は**弱い境界と周長**を所有し、滑らかな曲面変分を再所有しない |
 | 多様体PDE・調和写像 | 完了済みGA系列。GMTはEuclidの可測的幾何、GAはmanifold PDEで分担 |
 
-- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT8は実装済みであり、GMT9以降の未完成章の公開リンクは作らない。
+- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT9は実装済みであり、GMT10以降の未完成章の公開リンクは作らない。
 - 完了済みHAの過去PLAN中の「GMT7--GMT8」は当時の**旧仮IDを参照した履歴**。新しいKakeya側の接続はGMT31--GMT36、特にGMT35--36とする。完了済み計画を過去に遡って書き換えない。
 - EOM074の基本ルートは **GMT1--GMT8 → GMT31--GMT36** とHA11。第II/III部全体をEOMへの無条件の必修にはしない。
 
