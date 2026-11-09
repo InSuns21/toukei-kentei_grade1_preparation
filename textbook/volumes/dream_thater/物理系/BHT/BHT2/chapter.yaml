@@ -1,0 +1,52 @@
+id: "BHT2"
+title: "Killing地平線と零法則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT1
+  - GR14
+  - GR29
+  - GR31
+  - GR32
+  - GR34
+  - GR35
+  - GR45
+official_scope: []
+learning_objectives:
+  - 表面重力の非アフィン定義とノルム勾配式を既習結果から使い、生成線方向と地平線断面方向の一定性を区別できる
+  - Killing流が生成場と接続を保つことから表面重力が各生成線に沿って一定と証明できる
+  - Gaussian null座標の非退化性・零法線・生成Killing場を直接確かめ、Fの一次係数から表面重力を計算できる
+  - Gaussian null座標のChristoffel記号を計算しR_vA=-partial_A kappaの核心の打ち消しを再現できる
+  - Killing地平線上の膨張・せん断の消失、Raychaudhuri式、Einstein方程式、優越エネルギー条件を順につないで零法則を証明できる
+  - 局所反例でKilling性と零法則が同値でないこと、優越エネルギー条件と連結性の役割を説明できる
+  - Killing時間とアフィンパラメータの指数的・線形的関係を導出できる
+  - Schwarzschild・Reissner–Nordström・Kerrの時間規格化と表面重力を比較し熱力学的温度同定と区別できる
+definitions:
+  - { id: BHT2-DEF-01, name: "Killing地平線に適合するGaussian null座標表示" }
+theorems:
+  - { id: BHT2-PROP-01, name: "表面重力の生成線方向の一定性" }
+  - { id: BHT2-LEM-01, name: "地平線横断方向のRicci恒等式" }
+  - { id: BHT2-THM-01, name: "Einstein重力におけるブラックホール力学の零法則" }
+  - { id: BHT2-PROP-02, name: "Killing地平線だけでは零法則が成立しない反例" }
+  - { id: BHT2-PROP-03, name: "Killingパラメータとアフィンパラメータ" }
+canonical_examples:
+  - 定数FのGaussian null模型でKilling地平線条件と表面重力を直接確認する
+  - Gaussian null座標の横方向Ricci成分でh_Aの打ち消しを検算する
+  - 優越エネルギー条件による零流束の因果ベクトル論証を成分で確認する
+  - 横方向に変化する表面重力を持つ局所Killing地平線の反例を構成する
+  - Schwarzschild・RN・Kerrの規格化した表面重力と極限を比較する
+problem_patterns:
+  - BHT2-GAUSSIAN-NULL-CONDITIONS
+  - BHT2-GENERATOR-CONSTANCY
+  - BHT2-RN-SURFACE-GRAVITY
+  - BHT2-KILLING-NORMALIZATION
+  - BHT2-ZEROTH-LAW-HYPOTHESES
+  - BHT2-DEC-FLUX-CAUSALITY
+  - BHT2-RICCI-TRANSVERSE-CANCELLATION
+  - BHT2-VARIABLE-KAPPA-COUNTEREXAMPLE
+  - BHT2-AFFINE-PARAMETER
+  - BHT2-ZEROTH-LAW-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }

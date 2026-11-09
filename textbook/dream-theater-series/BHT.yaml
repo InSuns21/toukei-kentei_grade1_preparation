@@ -13,7 +13,7 @@ chapters:
     title: "ブラックホールを状態量で記述する"
   - id: BHT2
     path: textbook/volumes/dream_thater/物理系/BHT/BHT2
-    status: planned
+    status: completed
     title: "Killing地平線と零法則"
   - id: BHT3
     path: textbook/volumes/dream_thater/物理系/BHT/BHT3

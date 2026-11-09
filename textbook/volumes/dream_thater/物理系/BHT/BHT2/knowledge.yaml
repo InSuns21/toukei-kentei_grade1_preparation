@@ -1,0 +1,55 @@
+chapter: BHT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT1
+  - GR14
+  - GR29
+  - GR31
+  - GR32
+  - GR34
+  - GR35
+  - GR45
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.generator-surface-gravity-constancy
+    name: 表面重力の生成線方向の一定性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（表面重力の生成線方向の一定性）"]
+    requires: [gravity.killing-surface-gravity, gravity.killing-field]
+
+  - id: black-hole-thermodynamics.gaussian-null-chart
+    name: Killing地平線に適合するGaussian null座標表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Killing地平線に適合するGaussian null座標表示）"]
+    requires: [gravity.killing-horizon, gravity.surface-gravity-norm-gradient]
+
+  - id: black-hole-thermodynamics.transverse-ricci-identity
+    name: 地平線横断方向のRicci恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（地平線横断方向のRicci恒等式）"]
+    requires: [black-hole-thermodynamics.gaussian-null-chart, gravity.surface-gravity-norm-gradient]
+
+  - id: black-hole-thermodynamics.zeroth-law
+    name: Einstein重力におけるブラックホール力学の零法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Einstein重力におけるブラックホール力学の零法則）"]
+    requires: [black-hole-thermodynamics.generator-surface-gravity-constancy, black-hole-thermodynamics.transverse-ricci-identity, gravity.null-raychaudhuri, gravity.dominant-energy-condition]
+
+  - id: black-hole-thermodynamics.variable-kappa-counterexample
+    name: Killing地平線だけでは零法則が成立しない反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Killing地平線だけでは零法則が成立しない反例）"]
+    requires: [black-hole-thermodynamics.gaussian-null-chart, black-hole-thermodynamics.transverse-ricci-identity]
+
+  - id: black-hole-thermodynamics.affine-killing-parameter
+    name: Killingパラメータとアフィンパラメータ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Killingパラメータとアフィンパラメータ）"]
+    requires: [gravity.killing-surface-gravity, black-hole-thermodynamics.generator-surface-gravity-constancy]
