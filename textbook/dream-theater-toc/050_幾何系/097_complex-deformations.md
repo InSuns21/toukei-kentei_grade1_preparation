@@ -14,3 +14,4 @@
 11. [DEF1-11 Calabi–Yauの局所モジュライ](textbook/volumes/dream_thater/幾何系/DEF/DEF1-11/index.md)
 12. [DEF1-12 Gauss–Manin接続の構成](textbook/volumes/dream_thater/幾何系/DEF/DEF1-12/index.md)
 13. [DEF1-13 Hodge構造の変動と周期写像](textbook/volumes/dream_thater/幾何系/DEF/DEF1-13/index.md)
+14. [DEF1-14 quinticの101方向とミラーへの橋](textbook/volumes/dream_thater/幾何系/DEF/DEF1-14/index.md)

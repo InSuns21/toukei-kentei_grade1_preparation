@@ -1,7 +1,7 @@
 version: 1
 id: DEF1
 title: "複素構造の変形・モジュライ"
-plan: textbook/plans_progress/DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 本文と公開索引には完成した章のみを登録する。
@@ -60,5 +60,5 @@ chapters:
     title: "Hodge構造の変動と周期写像"
   - id: DEF1-14
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-14
-    status: planned
+    status: completed
     title: "quinticの101方向とミラーへの橋"
