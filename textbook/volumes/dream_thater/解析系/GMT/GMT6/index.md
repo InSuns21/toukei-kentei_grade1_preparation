@@ -48,7 +48,15 @@ $$
 よって $L^2$ 密度の全条件を満たします。対照的に $\delta_0$ を $f\,du$ と書けるなら $1=\delta_0(\{0\})=\int_{\{0\}}f\,du=0$ となり矛盾します。後者では、どんなに密度を高くしようとしても「一点に正の質量を置く」条件を満たせません。
 <!-- definition-example-end -->
 
-この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、$\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
+この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、射影測度 $\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。
+
+もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、$\pi_\theta K$ のコンパクト性からその指示関数も $L^2$ に属し、
+
+$$
+\|\boldsymbol{1}_{\pi_\theta K}\|_2^2=\mathcal L^1(\pi_\theta K)<\infty
+$$
+
+です。$f_\theta$ とこの指示関数に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すると
 
 $$
 M=\int_{\pi_\theta K}f_\theta(u)\,du
@@ -98,12 +106,12 @@ $$
 
 ### 証明の見取り図
 
-（i）から（ii）は[Plancherelの定理](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)です。逆向きは測度をGaussianで滑らかにします。こうして得た関数のFourier変換は元の $\widehat\nu$ にGaussian因子を掛けたものなので、$L^2$ 内でCauchy列となります。その極限が元の測度を表すことを、コンパクト台付き連続関数に対する積分で確かめます。
+（i）から（ii）は、[L1 Fourier変換との整合性](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)と[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)から従います。逆向きは測度をGaussianで滑らかにします。こうして得た関数のFourier変換は元の $\widehat\nu$ にGaussian因子を掛けたものなので、$L^2$ 内でCauchy列となります。その極限が元の測度を表すことを、コンパクト台付き連続関数に対する積分で確かめます。
 
 <!-- proof-start -->
 ### 証明
 
-（i）が成立すれば $\widehat\nu=\widehat f$ です。[Plancherel](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)を $f\in L^1\cap L^2$ に使えば（ii）と等式を得ます。
+（i）が成立すれば $\widehat\nu=\widehat f$ です。$f\in L^1\cap L^2$ なので、[古典的Fourier変換とL2変換の整合性](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)から $\widehat f=\mathcal F_2f$ がほとんど至る所で成立します。[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)をこの $f$ に適用すれば（ii）と等式を得ます。
 
 逆向きに（ii）を仮定します。$\varepsilon>0$ に対して
 
@@ -113,21 +121,21 @@ e^{-u^2/(2\varepsilon^2)},\qquad
 g_\varepsilon(u)=\int h_\varepsilon(u-v)\,d\nu(v)
 $$
 
-とします。$g_\varepsilon\ge0$、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)で $\|g_\varepsilon\|_1=\nu(\mathbb R)$、また
+とします。これは[GMT4のGaussian正則化](../GMT4/index.md#def-gmt4-gaussian-regularization)の $d=1$、時間パラメータ $t=\varepsilon^2/2$ の場合です。実際 $\rho_t(u)=(4\pi t)^{-1/2}e^{-u^2/(4t)}=h_\varepsilon(u)$ であり、ここでは $\varepsilon$ をGaussianの標準偏差として動かしています。$g_\varepsilon\ge0$、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)で $\|g_\varepsilon\|_1=\nu(\mathbb R)$、また
 
 $$
 0\le g_\varepsilon(u)\le
 \frac{\nu(\mathbb R)}{\sqrt{2\pi}\varepsilon}
 $$
 
-なので $g_\varepsilon\in L^1\cap L^2$ です。GaussianのFourier変換と[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)から
+なので $g_\varepsilon\in L^1\cap L^2$ です。[GMT4のGaussian正則化のFourier変換](../GMT4/index.md#lem-gmt4-heat-fourier)を上記の $t=\varepsilon^2/2$ で使い、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)から
 
 $$
 \widehat {g_\varepsilon}(r)
 =e^{-\varepsilon^2r^2/2}\widehat\nu(r).
 $$
 
-よってPlancherelより
+よって[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)より
 
 $$
 \|g_\varepsilon-g_\delta\|_2^2
@@ -145,14 +153,22 @@ $$
 \longrightarrow\int\varphi(u)f(u)\,du.
 $$
 
-一方、Fubiniで左辺を交換すると
+一方、$\int\!\int|\varphi(u)|h_\varepsilon(u-v)\,du\,d\nu(v)\le\|\varphi\|_\infty\nu(\mathbb R)<\infty$ なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で左辺を交換すると
 
 $$
 \int\varphi(u)g_\varepsilon(u)\,du
 =\int\left(\int\varphi(u)h_\varepsilon(u-v)\,du\right)d\nu(v).
 $$
 
-内側は $\varphi$ のGaussian平均です。$\varphi$ は一様連続で有界なので、平均は $\varepsilon\downarrow0$ で $\varphi(v)$ へ一様収束します。実際 $|u-v|<\eta$ では一様連続性、外側ではGaussianの尾確率で誤差を抑えられます。$\nu$ は有限ですから、この積分は $\int\varphi\,d\nu$ へ収束します。従って
+内側は $\varphi$ のGaussian平均です。$\varphi$ の連続性とコンパクト台から一様連続性・有界性が従います。任意の $\eta>0$ について、一様連続性の係数 $\omega_\varphi(\eta)=\sup_{|x-y|<\eta}|\varphi(x)-\varphi(y)|$ を置くと、変数 $w=u-v$ への置換によって
+
+$$
+\left|\int\varphi(u)h_\varepsilon(u-v)\,du-\varphi(v)\right|
+\le\omega_\varphi(\eta)+2\|\varphi\|_\infty
+\int_{|w|\ge\eta}h_\varepsilon(w)\,dw.
+$$
+
+右辺は $v$ に依存しません。先に $\varepsilon\downarrow0$ としてGaussianの尾確率を0へ送り、次に $\eta\downarrow0$ とすると $\omega_\varphi(\eta)\to0$ です。従って平均は $\varphi(v)$ へ一様収束します。$\nu$ は有限なので、外側の積分は $\int\varphi\,d\nu$ へ収束します。従って
 
 $$
 \int\varphi\,d\nu=\int\varphi(u)f(u)\,du
@@ -169,7 +185,7 @@ $$
 
 開集合で一致する二つのBorel測度は、開集合が生成するBorel $\sigma$-代数上でも一致します。したがって $\nu=f\,du$ であり、$\int f\,du=\nu(\mathbb R)<\infty$ です。
 
-最後に $g_\varepsilon\to f$ の $L^2$ 収束とPlancherelを用い、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
+最後に $g_\varepsilon\to f$ の $L^2$ 収束と[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を用い、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
 
 $$
 \|f\|_2^2=\lim_{\varepsilon\downarrow0}\|g_\varepsilon\|_2^2
@@ -216,7 +232,7 @@ $$
 
 [GMT5の「Fourier切片からの方向平均」](../GMT5/index.md#prop-gmt5-fourier-slicing)の証明にある切片等式から、左辺の内側は $|\widehat\mu(re_\theta)|^2$ です。有限測度のFourier変換は連続なので、$(r,\theta)$ に関して可測です。非負性から[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)が適用できます。
 
-写像 $F(r,\theta)=(r\cos\theta,r\sin\theta)$ のJacobianは
+写像 $F(r,\theta)=(r\cos\theta,r\sin\theta)$ について、$r$ を動かし $\theta$ を固定した偏微分が $\partial_rF=e_\theta$、$\theta$ を動かし $r$ を固定した偏微分が $\partial_\theta F=r(-\sin\theta,\cos\theta)$ です。この二つの列ベクトルを並べた微分行列 $DF$ の行列式（面積倍率の符号付き値）は
 
 $$
 \det DF(r,\theta)=
@@ -346,11 +362,11 @@ $$
 
 $$
 \nu_\theta=(\pi_\theta)_\#\mu=f_\theta\,du,
-\qquad f_\theta\ge0,quad
+\qquad f_\theta\ge0,\qquad
 0<\|f_\theta\|_2^2<\infty
 $$
 
-となります。$\mu$ は $K$ に支えられるので、$\nu_\theta$ は $\pi_\theta K$ に支えられます。$\pi_\theta K$ はコンパクトでLebesgue可測です。$\theta\notin N$ ならCauchy--Schwarzにより
+となります。$\mu$ は $K$ に支えられるので、$\nu_\theta$ は $\pi_\theta K$ に支えられます。$\pi_\theta K$ はコンパクトでLebesgue可測です。$\theta\notin N$ なら、$\boldsymbol{1}_{\pi_\theta K}$ と $f_\theta$ に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用して
 
 $$
 1=\nu_\theta(\pi_\theta K)
@@ -452,7 +468,7 @@ $$
 
 $K$ のコンパクト性から、射影された集合の各点は角度を少し変えてもわずかしか動きません。実際 $R=\max_{x\in K}|x|$ とすると、任意の $x\in K$ について $|\pi_\theta(x)-\pi_\varphi(x)|\le R|e_\theta-e_\varphi|$ です。つまり $\pi_\theta K$ は $\pi_\varphi K$ の十分小さい近傍に含まれます。コンパクト集合の $\varepsilon$-近傍の長さが $\varepsilon\downarrow0$ で元の長さへ減少するため、$\theta\mapsto\mathcal L^1(\pi_\theta K)$ は上半連続、従って可測です。
 
-ほとんど全方向で[第3節の命題](#prop-gmt6-energy-to-l2)による密度 $f_\theta$ が存在し、第1節の不等式は
+ほとんど全方向で[第3節の命題](#prop-gmt6-energy-to-l2)による密度 $f_\theta$ が存在し、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から第1節で導いた長さ下界は
 
 $$
 M^2\le\mathcal L^1(\pi_\theta K)\|f_\theta\|_2^2
@@ -504,7 +520,7 @@ $$
 \|f\|_2^2=\int_0^1du=1.
 $$
 
-[Plancherel](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)をこの $f$ に適用すれば
+[L1/L2変換の整合性](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)で $\widehat f=\mathcal F_2f$ を確認し、[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を適用すれば
 
 $$
 \int_{\mathbb R}\frac{4\sin^2(r/2)}{r^2}\,dr
@@ -732,7 +748,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-水平座標 $u=x$ を固定すると円板内の縦断面は $-\sqrt{1-u^2}\le y\le\sqrt{1-u^2}$ です。従ってFubiniで
+水平座標 $u=x$ を固定すると円板内の縦断面は $-\sqrt{1-u^2}\le y\le\sqrt{1-u^2}$ です。従って[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で
 
 $$
 f_0(u)=\begin{cases}
@@ -779,7 +795,7 @@ $$
 =Q.
 $$
 
-次に影が長さ $\ell_\theta\le a$ なら、質量1とCauchy--Schwarzから
+次に影が長さ $\ell_\theta\le a$ なら、質量1と[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 1=\int_{\pi_\theta K}f_\theta du
