@@ -35,7 +35,7 @@ $$
 
 Jordan可測な集合では、格子で内側と外側を判定しきれないマスの総面積を細かい分割で0へ近づけられます。境界が零集合である条件が、この「境界のマスを無視できる」直感を保証します。ただしJordan可測だからといって、境界が滑らかな曲線である必要はありません。
 
-ここで[上box次元の定義](../SQC9/index.md#def-sqc9-upper-box-dimension)を使います。$N_\delta(F)$ を一辺 $\delta>0$ の格子正方形のうち有界集合 $F$ と交わるものの個数とすると、上box次元は
+ここで[上box次元の定義](../SQC9/index.md#def-sqc9-upper-box-dimension)を使います。同講の $N_\delta(F)$ は、一辺 $\delta>0$ の**自由に配置できる軸平行な閉正方形**で有界集合 $F$ を覆うための最小個数です。したがって上box次元は
 
 $$
 \overline{\dim}_{\mathrm{box}}F
@@ -43,7 +43,13 @@ $$
 \frac{\log N_\delta(F)}{\log(1/\delta)}
 $$
 
-です。次の補題が、この章で完全に証明する最初の橋渡しです。
+です。画像の固定格子で数えるときは、別の記号 $M_\delta(F)$（meshのマス数）を使います。これはマス $[i\delta,(i+1)\delta]\times[j\delta,(j+1)\delta]$（$i,j\in\mathbb Z$）のうち $F$ と交わるものの個数です。最小被覆と格子被覆の間には
+
+$$
+N_\delta(F)\le M_\delta(F)\le9N_\delta(F)
+$$
+
+が成り立ちます。左の不等号は格子マスも許された被覆だからです。右の不等号は、任意の一辺 $\delta$ の軸平行な正方形が固定格子の高々 $3\times3=9$ マスと交わるため、最小被覆の各正方形を格子マスへ置き換えて得られます。両辺の対数を $\log(1/\delta)$ で割ると $\log9/\log(1/\delta)\to0$ なので、どちらで数えても上box次元は同じです。ただし**各 $\delta$ における個数自体は同じとは限りません**。次の補題が、この章で完全に証明する最初の橋渡しです。
 
 <a id="lem-sqc12-box-jordan"></a>
 
@@ -79,7 +85,7 @@ $$
 N_\delta(\partial E)\le\delta^{-s}
 $$
 
-を得ます。境界は閉集合なのでBorel可測です。また $E$ が有界なので境界も有界です。境界と交わる格子正方形の閉包で境界全体を覆え、その個数は $N_\delta(\partial E)$ 以下の定数倍で抑えられます。従ってLebesgue測度の単調性・有限劣加法性より
+を得ます。境界は閉集合なのでBorel可測です。また $E$ が有界なので境界も有界です。$N_\delta(\partial E)$ の定義により、境界は面積 $\delta^2$ の閉正方形 $N_\delta(\partial E)$ 個で覆えます。従ってLebesgue測度の単調性・有限劣加法性より
 
 $$
 0\le\lambda_2(\partial E)
@@ -154,7 +160,7 @@ $$
 \partial C\subseteq\bigcup_{i=1}^m\partial E_i.
 $$
 
-> 特に各 $E_i$ の境界の上box次元が2未満で、$C$ が有界なら、$C$ はJordan可測である。
+> 特に各 $\partial E_i$ が空、またはその上box次元が2未満で、$C$ が有界なら、$C$ はJordan可測である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -166,11 +172,11 @@ $$
 
 $x\notin\bigcup_i\partial E_i$ とします。各 $i$ について、$x$ は $\operatorname{int}(E_i)$ または $\operatorname{int}(E_i^c)$ のどちらかにあります。従って $x$ のある開近傍 $U_i$ 上で $E_i$ への所属は一定です。$m$ が有限なので $U=\bigcap_{i=1}^m U_i$ は $x$ の開近傍です。$C$ への所属はこれらの真偽値のBoolean式で決まるため、$U$ 上でも一定です。よって $x\notin\partial C$ となり、境界の包含が成立します。
 
-各境界次元が2未満なら、その最大値 $b<2$ を取り、$b<s<2$ を選べます。[上box次元の定義](../SQC9/index.md#def-sqc9-upper-box-dimension)から十分小さい $\delta$ で各 $N_\delta(\partial E_i)\le\delta^{-s}$ です。境界の包含と有限和から
+境界が空の $E_i$ は被覆数の評価から除けます。$\partial C=\varnothing$ なら結論は直ちに成立します。そうでなければ、空でない境界の添字集合を $I=\{i:\partial E_i\ne\varnothing\}$ とします。その最大次元 $b<2$ を取り、$b<s<2$ を選べます。[上box次元の定義](../SQC9/index.md#def-sqc9-upper-box-dimension)から十分小さい $\delta$ で $i\in I$ に対して $N_\delta(\partial E_i)\le\delta^{-s}$ です。境界の包含と有限和から
 
 $$
 N_\delta(\partial C)
-\le\sum_{i=1}^m N_\delta(\partial E_i)
+\le\sum_{i\in I}N_\delta(\partial E_i)
 \le m\delta^{-s}.
 $$
 
@@ -387,7 +393,7 @@ $F$ は可算集合なので $\lambda_2(F)=0$。どの開球にも有理座標�
 <!-- solution-start -->
 **詳細解答**
 
-境界と交わる一辺 $\delta$ の格子正方形の和が $\partial E$ を覆います。各マスの面積は $\delta^2$ なので
+一辺 $\delta$ の自由配置の閉正方形を最小個数 $N_\delta(\partial E)$ だけ用いれば境界全体を覆えます。各正方形の面積は $\delta^2$ なので
 
 $$
 0\le\lambda_2(\partial E)
@@ -424,7 +430,7 @@ $$
 =([3,4]\times[-1,1])\setminus((3,4)\times(-1,1)).
 $$
 
-境界は長方形の四辺であり、[線分の上box次元](../SQC9/index.md#lem-sqc9-boundary-dimension)は1です。距離を保つ平行移動によって必要な細格子被覆の個数の増加率は変わらないので、元の境界の次元も像の境界の次元も1です。
+境界は長方形の四辺であり、[線分の上box次元](../SQC9/index.md#lem-sqc9-boundary-dimension)は1です。自由配置の被覆正方形も平行移動すれば同じ個数で像を覆え、逆向きの移動もできるので $N_\delta(\partial(E+v))=N_\delta(\partial E)$ です。固定格子の $M_\delta$ は位置により変わり得ますが、$N_\delta(F)\le M_\delta(F)\le9N_\delta(F)$ と対数の極限から上box次元は同じです。
 <!-- solution-end -->
 
 **SQC12-A5（面積・次元・Borel性を別々に）**　半径2の閉円盤と等面積の閉正方形の辺長を求め、[小境界等分解定理](#thm-sqc12-mnp)の基本三条件を照合せよ。
@@ -481,21 +487,21 @@ $$
 可算和では同じ推論はできません。$F=\bigcup_{q\in\mathbb Q^2\cap[0,1]^2}\{q\}$ は各片 $\{q\}$ の境界次元が0なのに、$\partial F=[0,1]^2$ なので次元2です。「有限個の定数の和」と「可算個の定数の和」を一様な被覆数の評価として交換してはいけません。
 <!-- solution-end -->
 
-**SQC12-B4（格子画像の曖昧なマス）**　有界集合 $E\subset\mathbb R^2$ について、$s<2$ と定数 $C>0$ が存在し、十分大きい整数 $n$ で $N_{1/n}(\partial E)\le Cn^s$ とする。辺長1の単位正方形内で格子を $n\times n$ にしたとき、境界に触れるマスの面積合計とマスの割合を評価せよ。
+**SQC12-B4（格子画像の曖昧なマス）**　有界集合 $E\subset\mathbb R^2$ について、$s<2$ と定数 $C>0$ が存在し、十分大きい整数 $n$ で $N_{1/n}(\partial E)\le Cn^s$ とする。第1節の固定格子 $M_{1/n}$ との比較を用い、辺長1の単位正方形内で格子を $n\times n$ にしたとき、境界に触れるマスの面積合計とマスの割合を評価せよ。
 
 - Level: B
 
 <!-- solution-start -->
 **詳細解答**
 
-一辺 $1/n$ の格子マスの面積は $1/n^2$ です。境界に触れるマスの個数が高々 $Cn^s$ なので、面積合計は
+一辺 $1/n$ の格子マスの面積は $1/n^2$ です。自由配置の最小被覆数と固定格子のマス数は同じとは限りませんが、第1節で証明した $M_{1/n}(\partial E)\le9N_{1/n}(\partial E)$ より、境界に触れるマスの個数は高々 $9Cn^s$ です。単位正方形内の格子に制限すると個数はこれ以下なので、面積合計は
 
 $$
-N_{1/n}(\partial E)\frac1{n^2}
-\le Cn^{s-2}\longrightarrow0
+M_{1/n}(\partial E)\frac1{n^2}
+\le9Cn^{s-2}\longrightarrow0
 $$
 
-です。全 $n^2$ マスに対する割合も高々 $Cn^s/n^2=Cn^{s-2}$ です。$s<2$ がこの減少を保証します。分割片が有限個なら、その境界に触れるマスの個数も有限和で抑えられます。ただし「曖昧なマスが0個になる」という意味ではなく、**面積比が0に近づく**だけです。
+です。全 $n^2$ マスに対する割合も高々 $9Cn^s/n^2=9Cn^{s-2}$ です。$s<2$ がこの減少を保証します。分割片が有限個なら、その境界に触れるマスの個数も有限和で抑えられます。ただし「曖昧なマスが0個になる」という意味ではなく、**面積比が0に近づく**だけです。
 <!-- solution-end -->
 
 ### Level C：六つの「可能性」を一つの図形で切り分ける

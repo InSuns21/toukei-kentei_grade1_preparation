@@ -12,7 +12,7 @@
 
 - 既存FLD1〜5、RNG4、RA4、CA1。
 - SQC7では[TRN11](../plan_done/DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md)のHermite–Lindemann定理を使う。SQC1〜6はTRNの履修を不要とする。
-- 独立分岐の[Tarski等分解コース](DREAM_THEATER_TARSKI_EQUIDECOMPOSITION_PLAN.md)は古典作図の超越性を直接前提としない。
+- 独立分岐の[Tarski等分解コース](../plan_done/DREAM_THEATER_TARSKI_EQUIDECOMPOSITION_PLAN.md)は古典作図の超越性を直接前提としない。
 
 ## 所有範囲
 

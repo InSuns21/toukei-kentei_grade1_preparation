@@ -1,7 +1,7 @@
 version: 1
 id: SQC_TARSKI
 title: "Tarski円積・可測等分解"
-plan: textbook/plans_progress/DREAM_THEATER_TARSKI_EQUIDECOMPOSITION_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_TARSKI_EQUIDECOMPOSITION_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # SQC1〜7の古典作図PLANとは独立。SQC7/TRN11を前提にしない。
