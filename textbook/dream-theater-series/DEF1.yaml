@@ -56,7 +56,7 @@ chapters:
     title: "Gauss–Manin接続の構成"
   - id: DEF1-13
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-13
-    status: planned
+    status: completed
     title: "Hodge構造の変動と周期写像"
   - id: DEF1-14
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-14

@@ -1,0 +1,41 @@
+chapter: DEF1-13
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-01, DEF1-12, HOD1-15, HOD1-16, CM2-05]
+concepts:
+  - id: deformation.hodge-filtration-bundle
+    name: Kähler族のHodgeフィルトレーション束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kähler族のHodgeフィルトレーション束）"]
+    requires: [deformation.gauss-manin-connection]
+  - id: deformation.hodge-filtration-holomorphic
+    name: Hodgeフィルトレーションの正則変動
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hodgeフィルトレーションの正則変動）"]
+    requires: [deformation.hodge-filtration-bundle]
+  - id: deformation.period-map
+    name: 周期写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期写像）"]
+    requires: [deformation.hodge-filtration-holomorphic]
+  - id: deformation.griffiths-transversality
+    name: Griffiths横断性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Griffiths横断性）"]
+    requires: [deformation.period-map, deformation.gauss-manin-connection]
+  - id: deformation.infinitesimal-period-map
+    name: 周期写像の微分とKodaira–Spencer収縮
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期写像の微分とKodaira–Spencer収縮）"]
+    requires: [deformation.griffiths-transversality, deformation.kodaira-spencer-map]
+  - id: deformation.elliptic-period-map
+    name: 楕円曲線族の周期写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（楕円曲線族の周期写像）"]
+    requires: [deformation.period-map, deformation.infinitesimal-period-map]
