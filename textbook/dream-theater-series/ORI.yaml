@@ -16,7 +16,7 @@ chapters:
   - { id: ORI8, path: textbook/volumes/dream_thater/幾何系/ORI/ORI8, status: completed, title: "公理O6と三次方程式" }
   - { id: ORI9, path: textbook/volumes/dream_thater/幾何系/ORI/ORI9, status: completed, title: "公理O7と単一折りの尽くし方" }
   - { id: ORI10, path: textbook/volumes/dream_thater/幾何系/ORI/ORI10, status: completed, title: "角の三等分と立方体倍積の折り紙作図" }
-  - { id: ORI11, path: textbook/volumes/dream_thater/幾何系/ORI/ORI11, status: planned, title: "折り紙可作図数と拡大次数" }
+  - { id: ORI11, path: textbook/volumes/dream_thater/幾何系/ORI/ORI11, status: completed, title: "折り紙可作図数と拡大次数" }
   - { id: ORI12, path: textbook/volumes/dream_thater/幾何系/ORI/ORI12, status: planned, title: "同時複数折り・曲線折りの作図能力" }
   - { id: ORI13, path: textbook/volumes/dream_thater/幾何系/ORI/ORI13, status: planned, title: "折り線図、山谷、平坦折り写像" }
   - { id: ORI14, path: textbook/volumes/dream_thater/幾何系/ORI/ORI14, status: planned, title: "Kawasaki–Justinの定理" }
