@@ -6,14 +6,25 @@
 
 この講義では「微分の面積倍率を積分した値」は、像を一回だけ測る量ではなく、**各像点が何回現れたかを数えて測る量**になることを示します。そのために、微分の rank が足りない部分、単射にできる部分、最後に各部分の重複を足す操作を分けます。次の GMT12・GMT13 ではこの公式を曲面状の集合へ広げます。
 
-以下 $1\le m\le d$、$\Omega\subset\mathbb R^m$ は開集合、$f:\Omega\to\mathbb R^d$ は $L$-Lipschitz 写像とします。$\mathcal L^m$ は定義域上の Lebesgue 測度、$\mathcal H^m$ は [MT8の直径による非正規化 Hausdorff 測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。[GMT10の比例定数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を
+以下 $1\le m\le d$、$\Omega\subset\mathbb R^m$ は開集合、$f:\Omega\to\mathbb R^d$ は $L>0$ を Lipschitz 定数とする写像とします。$\mathcal L^m$ は定義域上の Lebesgue 測度、$\mathcal H^m$ は [MT8の直径による非正規化 Hausdorff 測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。[GMT10の比例定数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を
 
 $$
 c_m=\mathcal H^m([0,1]^m)>0,\qquad
 \mathcal H^m\big|_{\mathbb R^m}=c_m\mathcal L^m
 $$
 
-と書きます。とくに $c_1=1$ ですが、一般の $m$ で $c_m=1$ と置いてはいけません。[Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)により $Df$ は $\mathcal L^m$ に関してほとんど至る所（almost everywhere; a.e.）で存在します。そこで $J_m f(x)=J_m(Df(x))$ を微分可能点で定義し、それ以外では便宜上 $J_m f=0$ と定めます。これは可測な非負関数です。
+と書きます。とくに $c_1=1$ ですが、一般の $m$ で $c_m=1$ と置いてはいけません。
+
+[Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)により $Df$ は Lebesgue 測度に関してほとんど至る所（almost everywhere; a.e.）で存在します。微分可能点 $x$ での $Df(x):\mathbb R^m\to\mathbb R^d$ は線形写像です。
+
+その標準基底の像を列に並べた行列から、既習の [m次元幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian) に従って
+
+$$
+J_m f(x)=J_m(Df(x))
+=\sqrt{\det(Df(x)^{\mathsf T}Df(x))}
+$$
+
+と置きます。行列 $Df(x)^{\mathsf T}Df(x)$ の $(i,j)$ 成分は $Df(x)e_i\cdot Df(x)e_j$ であり、微分が送る基底方向の長さと角度を記録します。微分不能点では便宜上 $J_m f=0$ と定めます。これは可測な非負関数です。
 
 ## 1. 折り重なった像をどう数えるか
 
@@ -81,7 +92,7 @@ Lipschitz性は二点間の距離を高々 $L$ 倍にするため、直径を使
 
 <!-- formal-statement-start -->
 > **補題（Lipschitz写像の零集合保存）**
-> $1\le m\le d$、$\Omega\subset\mathbb R^m$、$f:\Omega\to\mathbb R^d$ が $L$-Lipschitz なら、任意の集合 $A\subset\Omega$ について
+> $1\le m\le d$、$\Omega\subset\mathbb R^m$、$L>0$、$f:\Omega\to\mathbb R^d$ が $L$-Lipschitz なら、任意の集合 $A\subset\Omega$ について
 
 $$
 \mathcal H^m(f(A))\le L^m\mathcal H^m(A).
@@ -135,40 +146,42 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $C$ を有界な部分 $C\cap B(0,R)$ に制限します。$\varepsilon\in(0,1)$ を固定します。$x\in C$ では $A=Df(x)$ の rank は $k\le m-1$、かつ $\|A\|_{\mathrm{op}}\le L$ です。微分の定義より、十分小さい $r>0$ と $|h|<5r$ に対して
+まず $C$ を有界な部分 $C\cap B(0,R)$ に制限します。$\varepsilon\in(0,1)$ を固定します。$x\in C$ では $A=Df(x)$ の rank は $k\le m-1$、かつ $\|A\|_{\mathrm{op}}\le L$ です。微分の定義より、$B(x,r)\subset\Omega$ となる十分小さい $r>0$ と $|h|<r$ に対して
 
 $$
 |f(x+h)-f(x)-Ah|\le\varepsilon|h|
-\le5\varepsilon r.
+\le\varepsilon r.
 $$
 
-$A(B(0,5r))$ は $k$ 次元部分空間の半径 $5Lr$ 以下の球内にあります。そこに間隔 $5\varepsilon r$ の格子を置けば、高々
+$A(B(0,r))$ は $k$ 次元部分空間の半径 $Lr$ 以下の球内にあります。この部分空間の正規直交座標に幅 $\varepsilon r/\sqrt m$ の格子を置くと、どの点もある格子点から距離 $\varepsilon r$ 以下になり、必要な格子点数は高々
 
 $$
 M\le C_{m,d}(1+L/\varepsilon)^k
 $$
 
-個の $k$ 次元球で覆えます（各座標方向に必要な格子点数が $O(1+L/\varepsilon)$ で、それを $k$ 回掛ける）。残差 $5\varepsilon r$ を加えても $f(B(x,5r))$ は、半径 $10\varepsilon r$ 以下の $\mathbb R^d$ の球 $M$ 個で覆われます。従って直径の $m$ 乗の総和は
+です（各座標方向に $O_m(1+L/\varepsilon)$ 個、$k$ 方向の積）。微分の残差 $\varepsilon r$ を加えても $f(B(x,r))$ は、半径 $2\varepsilon r$ の $\mathbb R^d$ の球 $M$ 個で覆われます。従って直径の $m$ 乗の総和は
 
 $$
 \begin{aligned}
-M(20\varepsilon r)^m
+M(4\varepsilon r)^m
 &\le C_{m,d,L}\varepsilon^{m-k}r^m\\
 &\le C_{m,d,L}\varepsilon r^m.
 \end{aligned}
 $$
 
-各 $x\in C\cap B(0,R)$ を中心に、この性質を満たし、半径を任意に小さくできる球の族を作ります。[GMT1の有限重複被覆補題](../GMT1/index.md#lem-gmt1-besicovitch-balls)と同じ球選択の基本操作（互いに交わらない球を選び、元の中心集合を5倍球で覆う）を使い、互いに素な $B(x_i,r_i)$ を選びます。半径は上の近似が $5r_i$ で成立し、像の被覆球の直径が任意に指定した $\delta>0$ より小さくなるよう選べます。
+各 $x\in C\cap B(0,R)$ で $r_x<1$ とし、上の微分近似が $|h|<r_x$ で成立し、像を覆う球の直径 $4\varepsilon r_x$ が任意に指定した $\delta>0$ より小さくなるよう半径を選びます。
 
-選んだ球は $B(0,R+1)$ 内に置けるため
+ここでは [GMT1のEuclid球の有界重複被覆補題](../GMT1/index.md#lem-gmt1-besicovitch-balls)をそのまま使います。中心集合 $C\cap B(0,R)$ は有界、指定半径は $r_x<1$ なので、集合全体を覆い、各点での重複度が次元だけに依存する $N_m$ 以下となる球 $B(x_i,r_i)$ を可算個選べます。球は $B(0,R+1)$ 内にあり、指示関数を積分すると
 
 $$
-\sum_i r_i^m
-\le\frac{\mathcal L^m(B(0,R+1))}
-{\mathcal L^m(B(0,1))}.
+\begin{aligned}
+\mathcal L^m(B(0,1))\sum_i r_i^m
+&=\int_{\mathbb R^m}\sum_i\boldsymbol1_{B(x_i,r_i)}(z)\,dz\\
+&\le N_m\mathcal L^m(B(0,R+1)).
+\end{aligned}
 $$
 
-5倍球の像を先の小球で覆えば、$\delta$-Hausdorff被覆コストは高々
+選んだ球の像を先の小球で覆えば、$\delta$-Hausdorff被覆コストは高々
 
 $$
 C_{m,d,L}\varepsilon\sum_i r_i^m
@@ -182,13 +195,27 @@ rank欠損点では左辺の被積分関数が $0$ で、今示したように�
 
 ## 4. 単射な小片では線形面積倍率に戻せる
 
-全 rank の線形写像 $A$ には最小特異値
+rank $m$ の線形写像 $A:\mathbb R^m\to\mathbb R^d$ には、[F0-00F2で導入した特異値](../../../基礎科目/F0/F0-00F2/index.md#def-f0-00f2-singular-values-right-vectors)のうち最小のもの
 
 $$
 s(A)=\min_{|v|=1}|Av|>0
 $$
 
-があります。これは $|A(u-v)|\ge s(A)|u-v|$ を意味します。写像 $f$ が小片 $P$ 上で $A$ に対する二点差分の誤差を一様に小さく保てば、$A$ の像と $f$ の像は互いにほぼ等長な対応を持ちます。
+があります。実際、単位ベクトル $v$ について
+
+$$
+|Av|^2=v^{\mathsf T}A^{\mathsf T}Av
+$$
+
+なので、最小値の二乗は Gram 行列の最小固有値です。[GMT10のrank判定](../GMT10/index.md#thm-gmt10-gram-invariance)から rank $m$ ならその値は正です。
+
+任意の異なる二点 $u,v$ に対し、上式の単位ベクトルを $(u-v)/|u-v|$ と選べば
+
+$$
+|A(u-v)|\ge s(A)|u-v|
+$$
+
+が従います。小片 $P$ 上で写像 $f$ が $A$ に対する二点差分の誤差を一様に小さく保てば、二つの像は互いにほぼ等長な対応を持ちます。
 
 <a id="lem-gmt11-patch-comparison"></a>
 
@@ -234,6 +261,8 @@ $$
 $$
 
 $A$ は単射で $1-\eta/s>0$ なので $f$ も単射です。$T:A(P)\to f(P)$、$T(Au)=f(u)$ と置けば、上の第一式から $\operatorname{Lip}(T)\le1+\eta/s$、第二式から $\operatorname{Lip}(T^{-1})\le(1-\eta/s)^{-1}$ です。
+
+線形面積倍率は [GMT10では Borel 集合に対して](../GMT10/index.md#thm-gmt10-linear-area)述べられています。ここでの $F$ が Lebesgue 可測なだけでも、有限測度の球への切断と内側正則性を順に使い、$F$ に含まれる可算個のコンパクト集合で $F$ を零集合を除いて覆えます。$A$ と $f|_P$ は Lipschitz なので、[零集合保存補題](#lem-gmt11-lipschitz-null-image)から残りの像はともに Hausdorff 零集合です。従って $A(F)$、$f(F)$ は Hausdorff 測度の完備化で可測であり、$A(F)$ の線形面積倍率等式はコンパクト集合からの極限で拡張できます。$f(F)$ の面積は、これから比較によって評価します。
 
 $A(F)$ に $T$ を使って [零集合保存補題の一般のLipschitz評価](#lem-gmt11-lipschitz-null-image)を適用し、逆向きには $f(F)$ に $T^{-1}$ を適用すると
 
@@ -319,15 +348,31 @@ $$
 \end{aligned}
 $$
 
-$J_m(A_j)$ と $\int_F J_m(Df)/\mathcal L^m(F)$ の差は高々 $\omega_L(\varepsilon)$ なので、$\mathcal H^m(f(F))$ と $c_m\int_FJ_mf$ の差は、ある定数 $K_{q,L,m}$ に対し
+上の点ごとの誤差を $F$ で積分すると、$\mathcal L^m(F)=0$ の場合も含めて
+
+$$
+\left|J_m(A_j)\mathcal L^m(F)-\int_FJ_mf\,d\mathcal L^m\right|
+\le\omega_L(\varepsilon)\mathcal L^m(F)
+$$
+
+です。さらに $J_m(A_j)\le(L+\varepsilon)^m$ です。$a=4q\varepsilon<1/2$ と置けば、中間の面積比較係数には
+
+$$
+\max\{(1+a)^m-1,\,1-(1-a)^m\}
+\le m2^{m-1}a
+$$
+
+という評価を使えます（$t\mapsto t^m$ の平均値の定理）。したがって $\mathcal H^m(f(F))$ と $c_m\int_FJ_mf$ の差は、ある定数 $K_{q,L,m,d}$ に対し
 
 $$
 \left|\mathcal H^m(f(F))-c_m\int_FJ_mf\,dx\right|
-\le K_{q,L,m}
+\le K_{q,L,m,d}
 [\varepsilon+\omega_L(\varepsilon)]\mathcal L^m(F).
 $$
 
-**(4) 片の重複を数えて足す。** 前段の Borel 片は有限測度部分に限定しているので、Lebesgue測度の内側正則性により、各片の内部から互いに素な可算個のコンパクト集合 $K_i$ を選び、残りを $\mathcal L^m$-零集合にできます。第3節の [零集合保存](#lem-gmt11-lipschitz-null-image)により残りの像も $\mathcal H^m$-零集合です。各 $K_i$ 上で $f$ は単射、$f(K_i)$ はコンパクトなので、その指示関数は Borel 可測です。零測度の像を除けば
+**(4) 片の重複を数えて足す。** 前段の Borel 片 $P$ は有限測度部分に限定しています。Lebesgue測度の内側正則性により、$P$ に含まれるコンパクト集合 $K_1$ を選んで残余の測度を $1/2$ 未満にできます。次に $P\setminus K_1$ に含まれるコンパクト集合 $K_2$ を選んで残余を $1/4$ 未満にし、同様に残余を $2^{-i}$ 未満へ減らします。
+
+こうして各片に互いに素なコンパクト集合を可算個取り、すべての片についてまとめて $K_i$ と番号付けすれば、残りは Lebesgue 零集合です。[零集合保存補題](#lem-gmt11-lipschitz-null-image)によりその像も Hausdorff 零集合です。各 $K_i$ 上で $f$ は単射、$f(K_i)$ はコンパクトなので、その指示関数は Borel 可測です。残りの像を除けば
 
 $$
 N(f,E\cap D_q\cap B(0,R),y)
@@ -344,7 +389,7 @@ $$
 前段の面積誤差を各 $K_i$ で足すと、互いに素であるため誤差総量は高々
 
 $$
-K_{q,L,m}[\varepsilon+\omega_L(\varepsilon)]
+K_{q,L,m,d}[\varepsilon+\omega_L(\varepsilon)]
 \mathcal L^m(E\cap D_q\cap B(0,R)).
 $$
 
@@ -364,6 +409,8 @@ $$
 
 ## 6. 計算例：折り目・グラフ・潰れた面
 
+以下で閉区間・長方形上の写像を扱うときは、表示された式をその集合を含む開近傍まで定義し、面積公式をその中の Borel 集合に適用します。例えば $t^2$ は $[-1,1]$ 上だけでなく $\Omega=(-2,2)$ 上で Lipschitz です。
+
 ### 二次写像：Jacobian が一定でなくても二回数える
 
 $f(t)=t^2$ を $E=[-1,1]$ に制限します。$f$ はこの区間で $2$-Lipschitz、$f'(t)=2t$ なので
@@ -378,7 +425,7 @@ $y\in(0,1]$ では逆像が $\pm\sqrt y$、$y=0$ では一個なので、$\int N
 
 ### グラフ：重複がなければ曲面の面積になる
 
-$F(x,y)=(x,y,ax+by)$ を長方形 $E=[0,p]\times[0,q]$（$p,q>0$）へ適用します。[GMT10のグラフJacobian](../GMT10/index.md#def-gmt10-approximate-jacobian)と同じ列ベクトル計算により
+$F(x,y)=(x,y,ax+by)$ を長方形 $E=[0,p]\times[0,q]$（$p,q>0$）へ適用します。標準基底 $e_1,e_2$ の像 $DF e_1=(1,0,a)^{\mathsf T}$、$DF e_2=(0,1,b)^{\mathsf T}$ を列にした $DF$ について、[m次元幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian) に従い Gram 行列を作ると
 
 $$
 DF=\begin{pmatrix}1&0\\0&1\\a&b\end{pmatrix},
