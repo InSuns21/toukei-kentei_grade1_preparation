@@ -1,0 +1,37 @@
+id: "YAU1-12"
+title: "閉性から存在へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-11
+  - RA8
+official_scope: []
+learning_objectives:
+  - 高階一様評価からArzelà–Ascoliと対角部分列で滑らかな極限を構成できる
+  - 平均ゼロ規格化とKähler正値性が極限で保持されることを証明できる
+  - 複素Monge–Ampère方程式の行列式と右辺の極限を検算できる
+  - 可解集合の相対閉性を示し開性と連結性から全区間での存在を導ける
+  - 解の存在と定数差一意性を区別し体積整合条件の必要性を説明できる
+definitions: []
+theorems:
+  - { id: YAU1-12-LEM-01, name: 高階一様評価からの滑らかな部分列 }
+  - { id: YAU1-12-LEM-02, name: 極限での正値性と方程式の保存 }
+  - { id: YAU1-12-THM-01, name: 連続性の方法における閉性 }
+  - { id: YAU1-12-THM-02, name: 正規化複素Monge–Ampère方程式の存在と一意性 }
+canonical_examples:
+  - 楕円曲線の余弦密度パスで極限と正値下限を直接検算する
+  - 行列式だけが正でも正値下限は保証されない対角行列列を調べる
+problem_patterns:
+  - YAU1-12-DENSITY-BOUNDS
+  - YAU1-12-MEAN-ZERO-LIMIT
+  - YAU1-12-POSITIVITY-LIMIT
+  - YAU1-12-DETERMINANT-LIMIT
+  - YAU1-12-TORUS-PATH
+  - YAU1-12-DIAGONAL-COMPACTNESS
+  - YAU1-12-DEGENERACY
+  - YAU1-12-SOBOLEV-SMOOTHNESS
+  - YAU1-12-FULL-CONTINUITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 5 }
