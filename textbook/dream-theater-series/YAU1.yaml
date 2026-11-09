@@ -1,7 +1,7 @@
 version: 1
 id: YAU1
 title: "Calabi予想とYauの定理"
-plan: textbook/plans_progress/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 完成章だけを公開目次に置く。残りの章は設計上の予定。

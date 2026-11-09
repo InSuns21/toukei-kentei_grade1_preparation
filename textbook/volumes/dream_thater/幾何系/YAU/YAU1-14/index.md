@@ -84,7 +84,16 @@ $$
 \int_X\rho_t\omega^n=(1-t)V+tV=V.
 $$
 
-$t=0$ では $\varphi_0=0$ が解である。任意の可解時刻で局所係数行列を $G=(g_{j\bar k})$、$H=G+(\varphi_{j\bar k})$ と書くと、体積密度は $Q(\varphi)=\det H/\det G$。Jacobiの行列式微分から
+$t=0$ では $\varphi_0=0$ が解である。任意の可解時刻で正則局所座標 $z^1,\ldots,z^n$ を取り、$g_{j\bar k}$ を背景形式 $\omega$ の係数とする。$\partial_j=\partial/\partial z^j$、$\partial_{\bar k}=\partial/\partial\bar z^k$ と書くと、
+
+$
+\omega=i\sum_{j,k}g_{j\bar k}\,dz^j\wedge d\bar z^k,\qquad
+\omega_{\varphi}
+=i\sum_{j,k}(g_{j\bar k}+\partial_j\partial_{\bar k}\varphi)
+\,dz^j\wedge d\bar z^k.
+$
+
+従って $G=(g_{j\bar k})$、$H=G+(\varphi_{j\bar k})$（$\varphi_{j\bar k}:=\partial_j\partial_{\bar k}\varphi$）は二つの形式のHermite係数行列であり、[Kähler形式の行列による正値判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)から両者は正定値である。体積密度は $Q(\varphi)=\det H/\det G$。Jacobiの行列式微分から
 
 $$
 \begin{aligned}
@@ -110,7 +119,7 @@ $$
 \log S_t-A\varphi_t
 $$
 
-の最大点で逆跡 $\sum_j\lambda_j^{-1}$ を抑える。$\lambda_j>0$ を $H$ の $G$ に対する固有値とすれば、
+の最大点で逆跡 $\sum_j\lambda_j^{-1}$ を抑える。$\lambda_j>0$ を $H$ の $G$ に対する相対固有値とする。各点で正定値な $G$ の平方根を用いて $G^{-1/2}HG^{-1/2}$ を作ると、これは正定値Hermite行列なので正規直交基底で対角化できる。その固有値が $\lambda_1,\ldots,\lambda_n$ である。$G^{-1}H=G^{-1/2}(G^{-1/2}HG^{-1/2})G^{1/2}$ だから、相似な行列の跡・行列式は一致し、
 
 $$
 \sum_j\lambda_j=S_t,\qquad
@@ -125,7 +134,7 @@ $$
 c\omega\le\omega_{\varphi_t}\le C\omega
 $$
 
-を得る。次に[Calabi型三階評価](../YAU1-10/index.md#thm-yau1-10-global-third-order)を適用する。$h$ を $\omega_{\varphi_t}$ の計量、$\Psi=\Gamma(h)-\Gamma(g)$ を接続差とすれば、[Calabi型三階量の定義](../YAU1-10/index.md#def-yau1-10-calabi-energy)により、その平方量は
+を得る。次に[Calabi型三階評価](../YAU1-10/index.md#thm-yau1-10-global-third-order)を適用する。$g,h$ をそれぞれ $\omega,\omega_{\varphi_t}$ の計量、$\Gamma(g)_{ij}^k,\Gamma(h)_{ij}^k$ を正則座標での接続係数とする。[接続差の定義](../YAU1-10/index.md#def-yau1-10-connection-difference)による $\Psi_{ij}^k=\Gamma(h)_{ij}^k-\Gamma(g)_{ij}^k$ は二つのKähler接続の差である。[Calabi型三階量の定義](../YAU1-10/index.md#def-yau1-10-calabi-energy)により、その平方ノルムは
 
 $$
 \mathcal C_t
@@ -235,12 +244,14 @@ $$
 
 ### Kähler正値性を外す：行列式だけでは楕円性を選べない
 
-複素次元2の局所座標で、背景形式を $\omega=i\sum_{j=1}^2 dz^j\wedge d\bar z^j$ とする。$H_+=\operatorname{diag}(1,1)$ と $H_-=\operatorname{diag}(-1,-1)$ はともに行列式1を持つが、
+複素次元2の正則局所座標で、実 $(1,1)$ 形式 $\beta_H=i\sum_{j,k=1}^2H_{j\bar k}\,dz^j\wedge d\bar z^k$ の係数行列を $H$ とする。[Kähler形式の正値判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)によれば、Hermite行列 $H$ が定める形式の正値性は、**すべての非零ベクトル** $v\in\mathbb C^2$ に対する $v^\ast Hv>0$ と同値である。$v^\ast$ は共役転置を表す。
 
-$$
+背景形式を $\omega=i\sum_{j=1}^2 dz^j\wedge d\bar z^j$ とする。$H_+=\operatorname{diag}(1,1)$ と $H_-=\operatorname{diag}(-1,-1)$ はどちらも定数Hermite行列なので、対応する $\beta_H$ は実 $(1,1)$ 形式かつ閉形式であり、ともに行列式1を持つ。しかし任意の $v=(v^1,v^2)\ne0$ では、
+
+$
 v^\ast H_+v=|v^1|^2+|v^2|^2>0,\qquad
 v^\ast H_-v=-|v^1|^2-|v^2|^2<0.
-$$
+$
 
 $H_-$ は局所的に $\varphi=-2(|z^1|^2+|z^2|^2)$ を使うと $G+\partial\bar\partial\varphi=-I$ として実現する。しかし $H_-$ はKähler計量ではない。**行列式が正**だけでは、正値領域、線形化の正の二階係数、Moserエネルギーの符号、最大値原理の適用条件を保証できない。この局所例をコンパクトな固定類の反例と取り違えないこと。
 
@@ -389,11 +400,13 @@ $C$ は定数なので微分は零。さらに $u'=u+a$ とすれば $I'=\int e^
 体積が等しい二つの連結Kähler多様体の非交和上で、解のポテンシャルに各成分別の定数 $a_1,a_2$ を加える。全体で平均ゼロを維持する条件を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 各体積を $V_0$ とすると、元の解を各成分で平均ゼロに取った場合、新しい全体の積分は
+**詳細解答。** 各体積を $V_0$ とし、元の解 $\varphi$ を各成分で平均ゼロに取る。新しい関数 $\widetilde\varphi$ を $\widetilde\varphi|_{T_j}=\varphi|_{T_j}+a_j$ と定めると、
 
-$$
-\int_X(\varphi+a_j)\omega^n=a_1V_0+a_2V_0.
-$$
+$
+\int_X\widetilde\varphi\,\omega^n
+=\sum_{j=1}^2\left(\int_{T_j}\varphi\,\omega^n+a_jV_0\right)
+=a_1V_0+a_2V_0.
+$
 
 したがって条件は $a_1+a_2=0$。例えば $a_1=1,a_2=-1$ は非零でも全体平均を変えず、$\partial\bar\partial$ は両成分で定数を消す。連結成分ごとに平均ゼロを指定しなければポテンシャルは一意にならない。
 <!-- solution-end -->
@@ -528,7 +541,7 @@ $$
 **詳細解答。**
 
 1. $X=T_1\sqcup T_2$、各体積 $V_0$、密度 $3/2$ と $1/2$ なら、全体では $2V_0$ で一致するが、各成分で $3V_0/2\ne V_0$、$V_0/2\ne V_0$。成分別Stokesが矛盾を与える。[成分別体積命題](#prop-yau1-14-components)のように**各連結成分で**体積を合わせるのが修正である。
-2. $H=\operatorname{diag}(-1,-1)$ は $\det H=1>0$ だが $v^\ast Hv=-\|v\|^2<0$。行列式は固有値の積しか見ていない。正値領域での線形化・最大値原理と二階評価の代数を使うには、**全ての非零ベクトルで $v^\ast Hv>0$** が必要である。
+2. $H=\operatorname{diag}(-1,-1)$ は $\det H=1>0$ だが、任意の $v\ne0$ で $v^\ast Hv=-\|v\|^2<0$。行列式は固有値の積しか見ていない。正値領域での線形化・最大値原理と二階評価の代数を使うには、**全ての非零ベクトルで $v^\ast Hv>0$** が必要である。
 3. $\mathbb C$ の $\omega_1=i\,dz\wedge d\bar z$ と $\omega_2=2\omega_1$ は、差が $i\partial\bar\partial|z|^2$、Ricci形式は共に零だが異なる。全空間の体積は無限で「定数体積比を積分して1へ固定」の行が使えず、最大値の存在もない。**コンパクト連結**という仮定を戻すか、非コンパクトでは適切な境界・漸近条件を別途課す必要がある。
 4. コンパクトな複素トーラス $T$ で $\omega$ を定数正定値Hermite形式から作ると $\omega$ も $2\omega$ もRicci形式は零である。しかし
 
