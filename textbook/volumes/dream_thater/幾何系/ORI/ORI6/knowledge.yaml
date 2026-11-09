@@ -1,0 +1,77 @@
+chapter: ORI6
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI5]
+forward_references: []
+
+concepts:
+  - id: origami.admissible-single-crease
+    name: 一折りの許容折り線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一折りの許容折り線）]
+    requires: [origami.crease-reflection]
+
+  - id: origami.huzita-o1
+    name: Huzita–Justin公理O1
+    kind: axiom
+    introduction: formal
+    introduction_aliases: [公理（O1：二点を通る折り線）]
+    requires: [origami.admissible-single-crease]
+
+  - id: origami.o1-line-classification
+    name: O1の存在と一意性
+    kind: proposition
+    introduction: formal
+    requires: [origami.huzita-o1]
+
+  - id: origami.huzita-o2
+    name: Huzita–Justin公理O2
+    kind: axiom
+    introduction: formal
+    introduction_aliases: [公理（O2：二点を重ねる折り線）]
+    requires: [origami.admissible-single-crease, origami.point-alignment-bisector]
+
+  - id: origami.o2-bisector-classification
+    name: O2の存在と一意性
+    kind: proposition
+    introduction: formal
+    requires: [origami.huzita-o2, origami.point-alignment-bisector]
+
+  - id: origami.huzita-o3
+    name: Huzita–Justin公理O3
+    kind: axiom
+    introduction: formal
+    introduction_aliases: [公理（O3：二直線を重ねる折り線）]
+    requires: [origami.admissible-single-crease]
+
+  - id: origami.signed-distance-to-line
+    name: 直線への符号付き距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（直線への符号付き距離）]
+
+  - id: origami.o3-line-classification
+    name: O3の解の分類
+    kind: theorem
+    introduction: formal
+    requires: [origami.huzita-o3, origami.signed-distance-to-line, origami.reflection-isometry]
+
+  - id: origami.huzita-o4
+    name: Huzita–Justin公理O4
+    kind: axiom
+    introduction: formal
+    introduction_aliases: [公理（O4：点を通り直線に垂直な折り線）]
+    requires: [origami.admissible-single-crease]
+
+  - id: origami.o4-perpendicular-classification
+    name: O4の存在と一意性
+    kind: proposition
+    introduction: formal
+    requires: [origami.huzita-o4]
+
+  - id: origami.o1-o4-solution-counts
+    name: O1〜O4の解の本数
+    kind: theorem
+    introduction: formal
+    requires: [origami.o1-line-classification, origami.o2-bisector-classification, origami.o3-line-classification, origami.o4-perpendicular-classification]

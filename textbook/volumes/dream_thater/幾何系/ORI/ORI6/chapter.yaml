@@ -1,0 +1,44 @@
+id: ORI6
+title: "Huzita–Justin公理O1〜O4"
+volume: foundations
+status: supplementary
+prerequisites: [ORI5]
+official_scope: []
+learning_objectives:
+  - 一折りの条件を鏡映の点・直線の一致条件として読み、O1〜O4の違いを説明できる
+  - O1・O2の折り線を求め、二点が一致する場合の非一意性を証明できる
+  - O3の交差・平行・一致の各場合について折り線の本数と方程式を証明できる
+  - O4の垂線を射影によって構成し、点が直線上にある場合を含め一意性を証明できる
+  - 与えられた点・直線から一折りで得られる条件と、有限紙で実現できる範囲を区別できる
+definitions:
+  - { id: ORI6-DEF-01, name: 一折りの許容折り線 }
+  - { id: ORI6-DEF-02, name: 直線への符号付き距離 }
+theorems:
+  - { id: ORI6-AXIOM-01, name: Huzita–Justin公理O1 }
+  - { id: ORI6-PROP-01, name: O1の存在と一意性 }
+  - { id: ORI6-AXIOM-02, name: Huzita–Justin公理O2 }
+  - { id: ORI6-PROP-02, name: O2の存在と一意性 }
+  - { id: ORI6-AXIOM-03, name: Huzita–Justin公理O3 }
+  - { id: ORI6-THM-01, name: O3の解の分類 }
+  - { id: ORI6-AXIOM-04, name: Huzita–Justin公理O4 }
+  - { id: ORI6-PROP-03, name: O4の存在と一意性 }
+  - { id: ORI6-THM-02, name: O1〜O4の解の本数 }
+canonical_examples:
+  - O1の異なる二点と一致する二点、O2の中点と垂直二等分線
+  - O3の座標軸の二等分線と異なる平行線の中央線
+  - O3の一致直線を保つ無数の鏡映軸
+  - O4の斜めの直線と直線上にある点からの垂線
+problem_patterns:
+  - ORI6-O1-TWO-POINT-LINE
+  - ORI6-O2-PERPENDICULAR-BISECTOR
+  - ORI6-O3-INTERSECTING-LINES
+  - ORI6-O3-PARALLEL-COINCIDENT
+  - ORI6-O3-SIGNED-DISTANCE
+  - ORI6-O4-PERPENDICULAR-PROJECTION
+  - ORI6-DEGENERATE-CASES
+  - ORI6-TWO-STEP-PARALLEL-CONSTRUCTION
+  - ORI6-INTEGRATED-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 6, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.5, review: 1.5 }
