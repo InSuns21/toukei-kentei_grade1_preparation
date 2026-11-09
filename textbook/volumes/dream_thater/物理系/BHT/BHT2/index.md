@@ -363,7 +363,30 @@ Schwarzschildの未来地平線では、[静的球対称地平線の表面重力
 $L>0$ として $ds^2=-(r/L)dv^2+2dvdr+dx^2+dy^2$、$\chi=\partial_v$ とする。$r=0$ がKilling地平線であることを、逆計量、法線、非零生成場で確認し、表面重力を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $(v,r)$ ブロックは $\left(\begin{smallmatrix}-r/L&1\\1&0\end{smallmatrix}\right)$、逆行列は $\left(\begin{smallmatrix}0&1\\1&r/L\end{smallmatrix}\right)$ です。行列式は $-1$ で地平線でも正則です。$g^{rr}|_{r=0}=0$ なので $dr$ は零法線、$\chi^\flat=-(r/L)dv+dr\to dr$ で $\chi\ne0$ です。$g$ は $v$ に依存しないのでKilling条件も成立します。[GR29の定義](../../GR/GR29/index.md#def-gr29-killing-horizon)を満たします。$\chi^2=-r/L$ を微分して $d\chi^2=-dr/L$、[GR45の勾配式](../../GR/GR45/index.md#prop-gr45-gradient)より $-dr/L=-2\kappa dr$。したがって $\kappa=1/(2L)$ です。
+**詳細解答。** $(v,r)$ 座標で計量成分を並べると、ブロック行列とその逆行列は
+
+$$
+(g_{ij})=\begin{pmatrix}-r/L&1\\1&0\end{pmatrix},
+\qquad
+(g^{ij})=\begin{pmatrix}0&1\\1&r/L\end{pmatrix}.
+$$
+
+行列式は $-1$ なので、地平線上でも非退化です。$g^{rr}|_{r=0}=0$ より $dr$ は零法線です。一方、生成場の計量双対は
+
+$$
+\chi^\flat=-(r/L)dv+dr
+\ \xrightarrow{r\to0}\ dr.
+$$
+
+$\chi=\partial_v\ne0$ であり、計量成分が $v$ に依存しないためKilling条件も成立します。これで[GR29のKilling地平線](../../GR/GR29/index.md#def-gr29-killing-horizon)の全条件を確認しました。
+
+最後に $\chi^2=-r/L$ を地平線へ制限する前に微分し、[表面重力とKillingノルムの勾配](../../GR/GR45/index.md#prop-gr45-gradient)を適用します。
+
+$$
+d(\chi^2)|_{r=0}=-\frac1L dr
+=-2\kappa dr,\qquad
+\therefore\ \kappa=\frac1{2L}.
+$$
 <!-- solution-end -->
 
 <a id="ex-bht2-a02"></a>
@@ -475,7 +498,23 @@ $$
 $\kappa(x)=1/(2L)+x/(4L^2)$、$|x|<L$ を用いた計量 $ds^2=-2r\kappa(x)dv^2+2dvdr+dx^2+dy^2$ を考える。Killing地平線条件、$\kappa$ の値域、$R_{vx}|_{r=0}$ を求め、零法則のどの仮定を追加すれば排除できるか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $\kappa(x)>(1/2-1/4)/L=1/(4L)>0$ です。$(v,r)$ 行列式は $-1$、$g^{rr}=2r\kappa(x)$、$\chi^\flat=-2r\kappa dv+dr$ であり、$r=0$ では零法線 $dr$ と非零Killing場 $\partial_v$ が一致します。[GR29のKilling地平線](../../GR/GR29/index.md#def-gr29-killing-horizon)の条件は満たされます。[表面重力とKillingノルムの勾配](../../GR/GR45/index.md#prop-gr45-gradient)から表面重力は $\kappa(x)$、[地平線横断方向のRicci恒等式](#lem-bht2-transverse-ricci)から
+**詳細解答。** 範囲 $|x|<L$ では
+
+$$
+\frac1{4L}<\kappa(x)<\frac3{4L},
+$$
+
+なので表面重力の候補は正ですが一定ではありません。計量の $(v,r)$ ブロックの行列式は $-1$、逆計量の成分は $g^{rr}=2r\kappa(x)$ です。
+
+$\chi=\partial_v$ は $v$ に依存しない計量のKilling場であり、計量双対と法線を地平線で比較すると
+
+$$
+\chi^\flat=-2r\kappa(x)\,dv+dr
+\ \xrightarrow{r\to0}\ dr,
+\qquad g^{rr}|_{r=0}=0.
+$$
+
+したがって[GR29のKilling地平線](../../GR/GR29/index.md#def-gr29-killing-horizon)の正則性・零法線・非零生成場の条件が成立します。[表面重力とKillingノルムの勾配](../../GR/GR45/index.md#prop-gr45-gradient)から表面重力は $\kappa(x)$ です。[地平線横断方向のRicci恒等式](#lem-bht2-transverse-ricci)から
 
 $$
 R_{vx}|_{0}=-\partial_x\kappa=-\frac1{4L^2}\ne0.
@@ -522,7 +561,25 @@ $v\to-\infty$ で指数項が零になるので $\lambda\to D$ です。$\kappa=
 
 **（1）** $\chi=\partial_v$ だから $\chi^2=rF$、$\chi^\flat=rFdv+dr+rh_A dx^A$ です。$r=0$ では $\chi^\flat=dr$、$d\chi^2=F(0,x)dr$ です。[表面重力とKillingノルムの勾配](../../GR/GR45/index.md#prop-gr45-gradient)から $Fdr=-2\kappa dr$、よって $\kappa=-F/2$。係数は $v$ に依存しないため $\partial_v\kappa=0$ ですが、$\partial_A\kappa$ は未確定です。
 
-**（2）** アフィン生成場 $k=f\chi$ に対する[光的Raychaudhuri式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)へ $\theta=\sigma=\omega=0$ を入れると $0=-R_{ab}k^ak^b$、$f>0$ より $R(\chi,\chi)=0$。Einstein方程式は $g(\chi,\chi)=0$ によって $T(\chi,\chi)=0$ を与えます。$J=-T(\cdot,\chi)^\sharp$ は[優越エネルギー条件](../../GR/GR35/index.md#def-gr35-dec)から因果的または零で $g(J,\chi)=0$ です。零ベクトルに直交する因果ベクトルはその零ベクトルに比例するので $T_{vA}=0$。$g_{vA}|_0=0$ から $R_{vA}=8\pi T_{vA}=0$ です。
+**（2）** アフィン生成場を $k=f\chi$、$f>0$ とします。[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)に膨張・せん断・回転が零という仮定を代入すると
+
+$$
+0=-R_{ab}k^ak^b=-f^2 R_{ab}\chi^a\chi^b.
+$$
+
+Einstein方程式を零方向に縮約すれば $g(\chi,\chi)=0$ より $T(\chi,\chi)=0$ です。[優越エネルギー条件](../../GR/GR35/index.md#def-gr35-dec)を使うために $J=-T(\cdot,\chi)^\sharp$ と置きます。この流束は未来因果的または零で、
+
+$$
+g(J,\chi)=-T(\chi,\chi)=0.
+$$
+
+光的な $\chi$ に直交する因果ベクトル $J$ は $\chi$ に比例するため、断面接方向で $T_{vA}=0$ です。Gaussian null表示の地平線上では $g_{vA}=0$ なので、Einstein方程式の跡・宇宙項が消え、
+
+$$
+R_{vA}=8\pi T_{vA}=0
+$$
+
+と結論できます。
 
 **（3）** [地平線横断方向のRicci恒等式](#lem-bht2-transverse-ricci)により $0=R_{vA}=(\partial_A F)/2=-\partial_A\kappa$。さらに（1）で $\partial_v\kappa=0$。両方向で微分が零なので各局所近傍で $\kappa$ は一定です。地平線が連結なら重なり合う近傍の定数値が一致し、全体で一定です。非連結なら成分ごとに別の定数を許します。
 
