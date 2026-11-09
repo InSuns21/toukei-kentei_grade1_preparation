@@ -1,0 +1,42 @@
+id: ORI8
+title: "公理O6と三次方程式"
+volume: foundations
+status: supplementary
+prerequisites: [ORI7]
+official_scope: []
+learning_objectives:
+  - O6の二つの点・直線一致条件を単一の鏡映によって定式化できる
+  - 法線を用いて連立した鏡映条件から一般の三次同次式を導き、分母の非零条件を説明できる
+  - 垂直に交わる二目標直線の三次式と折り線を往復し、1・2・3本と重根を正しく数えられる
+  - 任意の実係数モニック三次方程式を具体的なO6入力として実現できる
+  - 平行目標の距離障害、例外的な法線方向、入力点の一致と無数解を区別できる
+definitions:
+  - { id: ORI8-DEF-01, name: O6の法線パラメータ }
+theorems:
+  - { id: ORI8-AXIOM-01, name: Huzita–Justin公理O6 }
+  - { id: ORI8-THM-01, name: O6の法線に対する三次条件 }
+  - { id: ORI8-THM-02, name: 垂直目標における三次式と折り線の一対一対応 }
+  - { id: ORI8-PROP-01, name: 実係数モニック三次方程式のO6実現 }
+  - { id: ORI8-PROP-02, name: 平行目標の距離による不可能性 }
+  - { id: ORI8-PROP-03, name: 同じ入力点と交わる目標直線 }
+canonical_examples:
+  - P=(0,-2), Q=(1,0) から三つの異なる折り線
+  - P=(0,1), Q=(1,0) から二重根と二つの折り線
+  - P=(1/2,-1), Q=(1,-1/2) から一つの折り線
+  - 平行目標 y=0 と y=3 および距離1の二点から解なし
+  - P=Qが二目標直線の交点にあるときの無数解
+problem_patterns:
+  - ORI8-O6-REFLECTION-COORDINATES
+  - ORI8-O6-CUBIC-FACTORIZATION
+  - ORI8-O6-UNIQUE-REAL-ROOT
+  - ORI8-O6-DOUBLE-ROOT
+  - ORI8-O6-ZERO-PARAMETER
+  - ORI8-O6-GENERAL-HOMOGENEOUS-CUBIC
+  - ORI8-O6-PARALLEL-DISTANCE-OBSTRUCTION
+  - ORI8-O6-COINCIDENT-POINTS
+  - ORI8-O6-MONIC-INVERSE-DESIGN
+  - ORI8-O6-CUBIC-DISCRIMINANT-FAMILY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

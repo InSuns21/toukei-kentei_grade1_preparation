@@ -8,3 +8,4 @@
 5. [ORI5 折りの包絡線と放物線](textbook/volumes/dream_thater/幾何系/ORI/ORI5/index.md)
 6. [ORI6 Huzita–Justin公理O1〜O4](textbook/volumes/dream_thater/幾何系/ORI/ORI6/index.md)
 7. [ORI7 公理O5と二次方程式](textbook/volumes/dream_thater/幾何系/ORI/ORI7/index.md)
+8. [ORI8 公理O6と三次方程式](textbook/volumes/dream_thater/幾何系/ORI/ORI8/index.md)
