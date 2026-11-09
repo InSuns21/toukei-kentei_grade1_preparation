@@ -1,0 +1,46 @@
+id: "BHT8"
+title: "Hawking温度の熱力学的意味"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT7
+  - BHT4
+  - QCURV11
+  - QCURV13
+  - QCURV14
+official_scope: []
+learning_objectives:
+  - Hawking温度のKilling時間と無限遠規格化を確認し、Schwarzschildの温度と逆温度を求められる
+  - Killing場の再規格化に伴う温度・周波数・静止時計の変換を導き、熱因子と局所温度の不変性を説明できる
+  - KMS平衡、後期の熱的出射スペクトル、正味エネルギー流束の三者を状態の境界条件ごとに区別できる
+  - Hartle–Hawking平衡の静止熱浴についてTolman則を適用し、局所エネルギーと熱浴温度の釣合いを検算できる
+  - 第一法則にHawking温度を代入して面積係数と力学的仕事項を分離し、温度の同定だけでエントロピーを確定しない理由を説明できる
+  - 次元付きHawking温度と質量依存性を導出し、静止地平線極限・崩壊の準静的近似・極限解への外挿の限界を判断できる
+definitions:
+  - { id: BHT8-DEF-01, name: "静止熱浴と地平線の温度整合条件" }
+theorems:
+  - { id: BHT8-PROP-01, name: "Hawking熱因子のKilling規格化不変性" }
+  - { id: BHT8-PROP-02, name: "静止熱浴と地平線のTolman整合" }
+  - { id: BHT8-PROP-03, name: "Hawking温度による第一法則の面積係数表示" }
+  - { id: BHT8-PROP-04, name: "Schwarzschild温度の物理単位と質量応答" }
+canonical_examples:
+  - SchwarzschildのMと2Mの温度・逆温度を比較する
+  - r=4Mに静止する熱浴の温度・局所エネルギー・詳細釣合いを検算する
+  - Killing場の2倍の再規格化で熱因子が変わらないことを確かめる
+  - 占有数n=2かつ透過率1/4におけるUnruh状態とHartle–Hawking状態の正味流束を比較する
+  - 第一法則のSchwarzschildおよび非極限RN制限で面積係数を検算する
+problem_patterns:
+  - BHT8-SCHWARZSCHILD-TEMPERATURE
+  - BHT8-BOLTZMANN-EXPONENT
+  - BHT8-TOLMAN-WALL
+  - BHT8-KILLING-NORMALIZATION
+  - BHT8-STATE-FLUX
+  - BHT8-DETAILED-BALANCE
+  - BHT8-FIRST-LAW-AREA
+  - BHT8-SI-TEMPERATURE
+  - BHT8-FINITE-BATH-MISMATCH
+  - BHT8-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
