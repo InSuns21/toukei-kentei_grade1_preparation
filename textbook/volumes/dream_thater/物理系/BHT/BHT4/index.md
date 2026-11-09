@@ -55,7 +55,11 @@ $$
 \sqrt{M^2-Q^2}=4L,\qquad r_+=9L,\qquad r_-=L.
 $$
 
-$f(r)=(r-9L)(r-L)/r^2$ だから $r>9L$ で $f>0$、また $f(r)\to1$ なので無限遠で $\chi$ が規格化されています。計量と $F$ の成分は $t$ に依存せず $\partial_t$ はKilling場であり、$F$ は角度方向の磁荷成分を持ちません。[GR31の静的球対称Einstein–Maxwell外部解](../../GR/GR31/index.md#thm-gr31-rn-solution)により計量と $F$ は所定の無電流方程式を満たします。根が異なるので[正則延長の条件](../../GR/GR31/index.md#prop-gr31-horizons)にも合い、定義の非自明な条件を確認できました。
+$f(r)=(r-9L)(r-L)/r^2$ だから $r>9L$ で $f>0$、また $f(r)\to1$ なので無限遠で $\chi$ が規格化されています。
+
+計量と $F$ の成分は $t$ に依存せず $\partial_t$ はKilling場であり、$F$ は角度方向の磁荷成分を持ちません。
+
+[GR31の静的球対称Einstein–Maxwell外部解](../../GR/GR31/index.md#thm-gr31-rn-solution)により計量と $F$ は所定の無電流方程式を満たします。根が異なるので[正則延長の条件](../../GR/GR31/index.md#prop-gr31-horizons)にも合い、定義の非自明な条件を確認できました。
 <!-- definition-example-end -->
 
 ## 2. 面積・表面重力・電位を同じ解から求める
@@ -90,7 +94,23 @@ d\mathcal A=-\frac{Q}{r^2}\,dr\wedge dt
 =\frac Q{r^2}\,dt\wedge dr=F.
 $$
 
-この規格化では、時間成分 $\chi^a\mathcal A_a=Q/r$ は無限遠で零、地平線へ近づくと $Q/r_+$ です。$dt$ を使ったこの表示は静的領域のゲージであり、地平線を横切る正則な1形式としては $\mathcal A_{\rm in}=(Q/r)dv$ を用いられます。外部の $f>0$ の領域では $dt=dv-dr/f$ より $\mathcal A=\mathcal A_{\rm in}-(Q/rf)dr$ です。半径の区間 $(r_+,\infty)$ で基準点 $r_0>r_+$ を選び、$\lambda(r)=-\int_{r_0}^r Q/[u f(u)]\,du$ と置けば $d\lambda=-(Q/rf)dr$ なので、両者は完全微分だけ異なって同じ $F$ を与えます。地平線の値を取る際は、まず無限遠の静的ゲージを基準にした電位差として定めます。
+この規格化では、時間成分 $\chi^a\mathcal A_a=Q/r$ は無限遠で零、地平線へ近づくと $Q/r_+$ です。$dt$ を使ったこの表示は静的領域のゲージであり、地平線を横切る正則な1形式としては $\mathcal A_{\rm in}=(Q/r)dv$ を用いられます。
+
+外部の $f>0$ の領域では座標の変換式から
+
+$$
+dt=dv-\frac{dr}{f(r)},\qquad
+\mathcal A=\mathcal A_{\rm in}-\frac{Q}{r f(r)}dr
+$$
+
+です。半径の区間 $(r_+,\infty)$ で基準点 $r_0>r_+$ を選び、関数
+
+$$
+\lambda(r):=-\int_{r_0}^{r}\frac{Q}{u f(u)}\,du,\qquad
+d\lambda=-\frac{Q}{r f(r)}dr
+$$
+
+を用いれば、両者は完全微分だけ異なって同じ $F$ を与えます。地平線の値を取る際は、まず無限遠の静的ゲージを基準にした電位差として定めます。
 
 <a id="def-bht4-horizon-potential"></a>
 
