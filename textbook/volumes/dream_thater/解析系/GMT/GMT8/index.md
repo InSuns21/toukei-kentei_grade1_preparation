@@ -73,7 +73,7 @@ $$
 <!-- definition-example-start: def-gmt8-angular-frostman -->
 **定義の確認**
 
-**一様方向分布**
+**角度を一様に選ぶ例**
 
 $F=\mathbb T_\pi$ に正規化角度測度 $d\sigma=d\theta/\pi$ を取ります。$0<r\le\pi/2$ の距離球は角度の長さが $2r$ の区間なので
 
