@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/dream_thater
 # 公開目次・本文・メタデータは completed 章のみ追加する。
 chapters:
   - { id: ORI1, path: textbook/volumes/dream_thater/幾何系/ORI/ORI1, status: completed, title: "折り目は何をする写像か" }
-  - { id: ORI2, path: textbook/volumes/dream_thater/幾何系/ORI/ORI2, status: planned, title: "芳賀の定理と比の幾何" }
+  - { id: ORI2, path: textbook/volumes/dream_thater/幾何系/ORI/ORI2, status: completed, title: "芳賀の定理と比の幾何" }
   - { id: ORI3, path: textbook/volumes/dream_thater/幾何系/ORI/ORI3, status: planned, title: "折りによる等分・面積・有理比" }
   - { id: ORI4, path: textbook/volumes/dream_thater/幾何系/ORI/ORI4, status: planned, title: "多角形・対称性・定理折り" }
   - { id: ORI5, path: textbook/volumes/dream_thater/幾何系/ORI/ORI5, status: planned, title: "折りの包絡線と放物線" }
