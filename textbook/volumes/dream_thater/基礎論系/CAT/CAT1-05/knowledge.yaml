@@ -1,0 +1,82 @@
+chapter: CAT1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-01
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+
+concepts:
+  - id: category.subcategory
+    name: 部分圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分圏・充満部分圏・広い部分圏）"]
+    requires: [category.category]
+  - id: category.full-subcategory
+    name: 充満部分圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分圏・充満部分圏・広い部分圏）"]
+    requires: [category.subcategory]
+  - id: category.wide-subcategory
+    name: 広い部分圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分圏・充満部分圏・広い部分圏）"]
+    requires: [category.subcategory]
+  - id: category.subcategory-construction
+    name: 部分圏の構成と充満部分圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（部分圏の構成と充満部分圏）"]
+    requires: [category.subcategory, category.full-subcategory]
+  - id: category.product-category
+    name: 積圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（積圏）"]
+    requires: [category.category]
+  - id: category.product-axioms
+    name: 積圏の公理と局所小性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（積圏の公理と局所小性）"]
+    requires: [category.product-category, category.locally-small-category]
+  - id: category.product-cancellation
+    name: 積圏の同型・モノ射・エピ射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（積圏の同型・モノ射・エピ射）"]
+    requires: [category.product-category, category.isomorphism, category.monomorphism, category.epimorphism]
+  - id: category.slice-category
+    name: スライス圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スライス圏）"]
+    requires: [category.category]
+  - id: category.slice-axioms
+    name: スライス圏の公理と局所小性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（スライス圏の公理と局所小性）"]
+    requires: [category.slice-category, category.locally-small-category]
+  - id: category.coslice-category
+    name: 余スライス圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余スライス圏）"]
+    requires: [category.category]
+  - id: category.slice-special-objects
+    name: スライス圏と余スライス圏の特別な対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（スライス圏と余スライス圏の特別な対象）"]
+    requires: [category.slice-category, category.coslice-category, category.initial-object, category.terminal-object]
+  - id: category.coslice-opposite
+    name: 余スライス圏と反対圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余スライス圏と反対圏）"]
+    requires: [category.slice-category, category.coslice-category, category.opposite-category]
