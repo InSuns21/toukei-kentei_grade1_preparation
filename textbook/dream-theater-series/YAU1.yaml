@@ -16,7 +16,7 @@ chapters:
   - { id: YAU1-08, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-08, status: completed, title: "二階評価の局所計算" }
   - { id: YAU1-09, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-09, status: completed, title: "二階評価の大域閉包" }
   - { id: YAU1-10, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-10, status: completed, title: "Calabi型三階評価" }
-  - { id: YAU1-11, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-11, status: planned, title: "高階評価と正則性" }
+  - { id: YAU1-11, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-11, status: completed, title: "高階評価と正則性" }
   - { id: YAU1-12, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-12, status: planned, title: "閉性から存在へ" }
   - { id: YAU1-13, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-13, status: planned, title: "Ricci平坦Kähler計量の帰結" }
   - { id: YAU1-14, path: textbook/volumes/dream_thater/幾何系/YAU/YAU1-14, status: planned, title: "総合証明と仮定の破綻例" }
