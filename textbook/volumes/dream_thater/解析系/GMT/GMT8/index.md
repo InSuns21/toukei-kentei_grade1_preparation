@@ -10,13 +10,21 @@
 
 ## 1. 例外方向と角度の距離
 
-$\theta\in\mathbb T_\pi:=\mathbb R/\pi\mathbb Z$ に対応する単位ベクトルを $e_\theta=(\cos\theta,\sin\theta)$ とし、平面の直交射影を
+無向方向の空間を $\mathbb T_\pi:=\mathbb R/\pi\mathbb Z$ とします。各方向から代表角 $\theta\in[0,\pi)$ を選び、$e_\theta=(\cos\theta,\sin\theta)$ として平面の直交射影の実数座標を
 
 $$
 \pi_\theta(x)=x\cdot e_\theta\in\mathbb R
 $$
 
-と表します。これは[GMT5の直交射影](../GMT5/index.md#def-gmt5-orthogonal-projection)を、同じ直線の二通りの向きを同一視して記したものです。$\pi_{\theta+\pi}=-\pi_\theta$ ですが、影のHausdorff次元は等しいため、方向は $\mathbb T_\pi$ 上で数えます。
+と表します。これは[GMT5の直交射影](../GMT5/index.md#def-gmt5-orthogonal-projection)の座標表示です。ただし、この座標値は**無向方向だけから決まる量ではありません**。代表角を $\theta+\pi$ に替えると
+
+$$
+\pi_{\theta+\pi}(x)=-\pi_\theta(x),\qquad
+|\pi_{\theta+\pi}x-\pi_{\theta+\pi}y|
+=|\pi_\theta x-\pi_\theta y|
+$$
+
+となります。すなわち座標の符号は変わりますが、影のHausdorff次元、二点の射影距離、射影測度のRiesz energyは変わりません。以下の計算では $[0,\pi)$ の代表角を用い、これら代表角に依存しない量について方向を $\mathbb T_\pi$ 上で数えます。
 
 方向同士の距離は
 
@@ -32,7 +40,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（射影次元の例外方向集合）**  
-> $E\subset\mathbb R^2$ を非空Borel集合、$0<t<1$ とする。$\mathbb T_\pi=\mathbb R/\pi\mathbb Z$ において、射影 $\pi_\theta(x)=x\cdot(\cos\theta,\sin\theta)$ のHausdorff次元が $t$ 未満になる方向の集合を
+> $E\subset\mathbb R^2$ を非空Borel集合、$0<t<1$ とする。$\mathbb T_\pi=\mathbb R/\pi\mathbb Z$ の各方向に代表角 $\theta\in[0,\pi)$ を取り、$\pi_\theta(x)=x\cdot(\cos\theta,\sin\theta)$ とする。射影像のHausdorff次元が $t$ 未満になる方向の集合を
 
 $$
 \mathcal E_t(E)=\{\theta\in\mathbb T_\pi:\dim_H(\pi_\theta E)<t\}
@@ -46,7 +54,13 @@ $$
 
 **水平線分**
 
-$E=[0,1]\times\{0\}$ とします。$\pi_\theta E$ は端点 $0$ と $\cos\theta$ を持つ区間なので、$\cos\theta\ne0$ のとき次元は $1$、$\theta=\pi/2$ のとき一点で次元は $0$ です。$0<t<1$ なら
+$E=[0,1]\times\{0\}$ とします。これは空でないコンパクト集合なのでBorel集合でもあります。点 $(u,0)$（$0\le u\le1$）について、座標表示の定義から
+
+$$
+\pi_\theta(u,0)=(u,0)\cdot(\cos\theta,\sin\theta)=u\cos\theta
+$$
+
+です。従って $\pi_\theta E$ は端点 $0$ と $\cos\theta$ を持つ区間で、$\cos\theta\ne0$ のとき次元は $1$、$\theta=\pi/2$ のとき一点で次元は $0$ です。$0<t<1$ なら
 
 $$
 \mathcal E_t(E)=\{\pi/2\},\qquad\dim_H\mathcal E_t(E)=0.
@@ -75,7 +89,7 @@ $$
 
 **角度を一様に選ぶ例**
 
-$F=\mathbb T_\pi$ に正規化角度測度 $d\sigma=d\theta/\pi$ を取ります。$0<r\le\pi/2$ の距離球は角度の長さが $2r$ の区間なので
+$F=\mathbb T_\pi$ はコンパクトです。この全体に台を持つBorel確率測度として、正規化角度測度 $d\sigma=d\theta/\pi$ を取ります。$0<r\le\pi/2$ の距離球は円周を一周しない長さ $2r$ の弧なので
 
 $$
 \sigma(B_\rho(\phi,r))=\frac{2r}{\pi}.
@@ -133,7 +147,7 @@ $$
 
 ## 3. 方向の平均と二重energy
 
-固定方向で $\pi_\theta(x-y)=0$ になると、射影後の負べき核は無限大になります。しかし小射影の方向が十分少なければ、方向全体で平均した値は有限です。
+固定方向で $\pi_\theta(x-y)=0$ になると、射影後の負べき核は無限大になります。しかし小射影の方向が十分少なければ、方向全体で平均した値は有限です。射影測度を表す $(\pi_\theta)_\#\mu$ は[GMT5で導入した押し出し測度](../GMT5/index.md#def-gmt5-orthogonal-projection)であり、$\theta$ の代表角を替えると実数直線上で反転しますが、二点間距離で定義するenergyは不変です。
 
 <a id="lem-gmt8-angular-kernel"></a>
 
@@ -216,7 +230,7 @@ I_t(\nu_\theta)
 |\pi_\theta x-\pi_\theta y|^{-t}\,d\mu(x)d\mu(y).
 $$
 
-被積分関数は $(\theta,x,y)$ の非負Borel関数です。[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で積分順序を交換し、対角を除く各 $(x,y)$ に[方向平均核の補題](#lem-gmt8-angular-kernel)を適用すると
+被積分関数は $(\theta,x,y)$ の非負Borel関数です。[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)で積分順序を交換し、対角を除く各 $(x,y)$ に[方向平均核の補題](#lem-gmt8-angular-kernel)を適用すると
 
 $$
 \begin{aligned}
@@ -249,14 +263,20 @@ $$
 
 この補題は、Borel集合が持つHausdorff容量の**内側からの近似可能性（capacitability）**に基づきます。一般Borel集合は必ずしも $\sigma$-コンパクトではなく、有限被覆の議論だけでこの主張を示すことはできません。ここでは記述集合論のChoquet容量定理を使う測度論的補題として採用します。対象はBorel集合（実際には解析集合まで）であり、任意の非可測集合への拡張を主張していません。以下の幾何学的な二重energy部分はこの補題とは独立に完全に証明できます。
 
-**可測性の確認。** コンパクト $K$ について、角度を動かすと射影像の点は一様に少ししか動きません。実際、$R=\sup_{x\in K}|x|<\infty$ とすれば、対応点の射影値の差は
+**可測性の確認。** コンパクト $K$ について、角度を動かすと射影像の点は一様に少ししか動きません。代表角の連続な局所区間内で $R=\sup_{x\in K}|x|<\infty$ とすれば、対応点の射影値の差は
 
 $$
 |\pi_\theta x-\pi_\phi x|
 \le R|e_\theta-e_\phi|\longrightarrow0
 $$
 
-で一様に小さくなります。コンパクト集合のHausdorff $q$-内容量を直径 $<\delta$ の有限開被覆で定義すると、固定した $q,\delta$ では集合の小さな摂動に対する上半連続な近似を取り、$\delta\downarrow0$ の可算極限から $\theta\mapsto\mathcal H^q(\pi_\theta K)$ がBorel可測と分かります。さらに
+で一様に小さくなります。ここから可測性への段階を確認します。
+
+$q>0$ と $\delta>0$ を固定し、コンパクトな射影像を覆う**直径 $<\delta$ の有限個の開区間**について、直径の $q$ 乗和の下限を $h_{q,\delta}(\theta)$ とします。角度 $\theta_0$ で有限開被覆を一つ選ぶと、被覆の合併は $\pi_{\theta_0}K$ の開近傍です。上の一様評価により、近い角度の射影像も同じ開被覆に入ります。従って $h_{q,\delta}$ は上半連続です。
+
+コンパクト集合では可算の小径被覆を少し膨らませて有限開被覆にできるため、$\delta=1/n$ とした可算極限は通常のHausdorff測度 $\mathcal H^q(\pi_\theta K)$ に一致します。よって $\theta\mapsto\mathcal H^q(\pi_\theta K)$ はBorel可測です。
+
+代表角の切替点で像が符号反転してもHausdorff測度は同じなので、これは $\mathbb T_\pi$ 上の可測関数を定めます。さらに
 
 $$
 \{\dim_H\pi_\theta K<t\}
@@ -270,7 +290,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Kaufman型例外方向上界：コンパクト版）**  
-> $K\subset\mathbb R^2$ を非空コンパクト集合、$0<t<\min\{\dim_HK,1\}$ とする。$\pi_\theta(x)=x\cdot(\cos\theta,\sin\theta)$ について
+> $K\subset\mathbb R^2$ を非空コンパクト集合、$0<t<\min\{\dim_HK,1\}$ とする。各無向方向の代表角 $\theta\in[0,\pi)$ を用いた $\pi_\theta(x)=x\cdot(\cos\theta,\sin\theta)$ について
 
 $$
 \dim_H\{\theta\in\mathbb T_\pi:\dim_H(\pi_\theta K)<t\}\le t.
@@ -309,7 +329,13 @@ $$
 
 角度円を長さ $\pi/3$ 未満の有限個の閉弧で覆います。Hausdorff次元の有限和則により、$L$ と交わる弧の一つで次元が $\beta$ を超えます。この交わりはコンパクトです。弧の座標上では $\rho$ が通常の距離に等しいので、[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)を適用し、その交わりに台を持つ確率測度 $\sigma$ を取ります。
 
-短い球について得た成長上界は、弧外の中心に対しても弧内の有限個の短い区間で評価できます。半径が大きい球では確率上界1を使います。定数 $A$ を大きくすれば全ての中心 $\phi$ と半径 $0<r\le\pi/2$ について
+弧を実数区間へほどいた座標では、Frostman補題によって**任意の実数中心** $a$ と半径 $r>0$ について $\sigma((a-r,a+r))\le Cr^\beta$ が成り立ちます。方向円上の球 $B_\rho(\phi,r)$ とこの弧との交わりは、ほどいた座標では高々2本の長さ $2r$ 以下の区間で覆えます。従って任意の方向中心 $\phi$ に対し
+
+$$
+\sigma(B_\rho(\phi,r))\le 2Cr^\beta\qquad(0<r\le\pi/2)
+$$
+
+となります（弧が一つの区間で収まる場合は1本で十分です）。従って $A=2C$ として、全ての中心 $\phi$ と半径 $0<r\le\pi/2$ について
 
 $$
 \sigma(B_\rho(\phi,r))\le Ar^\beta
@@ -326,7 +352,7 @@ $$
 となります。しかし $\sigma(L)=1$ かつ $L\subset F$ なので、$\sigma$ ほとんど全ての方向で $\dim_H(\pi_\theta K)<t$ です。矛盾しました。従って $\dim_HF\le t$。$\square$
 <!-- proof-end -->
 
-この上界は、方向の長さが零という結論より強いものです。$t<1$ だから $\dim_H\mathcal E_t(K)\le t<1$ であり、したがって方向の1次元Lebesgue測度も零です。逆は成り立ちません。例えば次元1のCantor型集合は長さ0でも方向集合として次元1を持てます。
+この上界は、方向の長さが零という結論より強いものです。$t<1$ だから $\dim_H\mathcal E_t(K)\le t<1$ であり、したがって方向の1次元Lebesgue測度も零です。逆は成り立ちません。例えば[GMT5の演習B4で構成したコンパクトCantor型集合](../GMT5/index.md#ex-gmt5-b4)は長さ0でも方向集合として次元1を持てます。
 
 ## 5. コンパクト集合からBorel集合へ
 
@@ -336,7 +362,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Kaufman型例外方向上界：Borel集合版）**  
-> $E\subset\mathbb R^2$ を非空Borel集合、$0<t<\min\{\dim_HE,1\}$ とする。無向直線方向を $\mathbb T_\pi=\mathbb R/\pi\mathbb Z$ とし、$\pi_\theta(x)=x\cdot(\cos\theta,\sin\theta)$ と定める。このとき
+> $E\subset\mathbb R^2$ を非空Borel集合、$0<t<\min\{\dim_HE,1\}$ とする。無向直線方向を $\mathbb T_\pi=\mathbb R/\pi\mathbb Z$ とし、各方向の代表角 $\theta\in[0,\pi)$ に対して $\pi_\theta(x)=x\cdot(\cos\theta,\sin\theta)$ と定める。このとき
 
 $$
 \dim_H\{\theta\in\mathbb T_\pi:\dim_H(\pi_\theta E)<t\}\le t.
@@ -377,7 +403,7 @@ $E=\{x\in\mathbb R^2:|x|<1\}$ の各射影は $(-1,1)$ です。実際 $\pi_\the
 
 ### 例3：次元と長さは別の閾値
 
-[GMT7の臨界次元の例](../GMT7/index.md#thm-gmt7-grassmann-positive-volume)と同様、$\dim_HF=1$ で $\mathcal L^1(F)=0$ となるコンパクト $F\subset\mathbb R$ を取れます。$E=F\times\{0\}$ とすれば、水平射影は長さ0ですが次元は1です。従って任意の $t<1$ に対して水平射影は**例外ではありません**。Kaufman上界は「影が長さ0になる方向」を直接数える主張ではないのです。
+[GMT5の演習B4](../GMT5/index.md#ex-gmt5-b4)で構成したように、$\dim_HF=1$ で $\mathcal L^1(F)=0$ となるコンパクト $F\subset\mathbb R$ を取れます。$E=F\times\{0\}$ とすれば、水平射影は長さ0ですが次元は1です。従って任意の $t<1$ に対して水平射影は**例外ではありません**。Kaufman上界は「影が長さ0になる方向」を直接数える主張ではないのです。
 
 ## 7. 演習
 
@@ -551,7 +577,7 @@ $$
 I_t(\nu_\theta)=\iint|\pi_\theta(x-y)|^{-t}d\mu(x)d\mu(y).
 $$
 
-$I_t(\mu)<\infty$ だから $\mu\times\mu$-対角は零測度です。核は零射影に対して値 $+\infty$ を許す非負Borel関数なので[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を有限性を先取りせず適用できます。$x\ne y$ には[方向平均核補題](#lem-gmt8-angular-kernel)が使えるため
+$I_t(\mu)<\infty$ だから $\mu\times\mu$-対角は零測度です。核は零射影に対して値 $+\infty$ を許す非負Borel関数なので[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を有限性を先取りせず適用できます。$x\ne y$ には[方向平均核補題](#lem-gmt8-angular-kernel)が使えるため
 
 $$
 \begin{aligned}
