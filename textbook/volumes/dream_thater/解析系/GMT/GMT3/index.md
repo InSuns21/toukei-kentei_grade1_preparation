@@ -71,7 +71,13 @@ $$
 F_\mu(r)=\int_{\mathbb R^d}\mu(B(x,r))\,d\mu(x)
 $$
 
-と置きます。これは二点を独立に $\mu$ から選んだときに距離が $r$ 未満となる組の質量で、確率測度なら $0\le F_\mu(r)\le1$ です。
+と置きます。積測度 $\mu\otimes\mu$ は二点の組 $(x,y)$ に対する質量を与え、具体的には
+
+$$
+F_\mu(r)=(\mu\otimes\mu)\{(x,y):|x-y|<r\}.
+$$
+
+$\mu$ が確率測度の場合には、$\mu$ に従う独立な二点の距離が $r$ 未満となる確率であり、$0\le F_\mu(r)\le1$ です。一般の有限測度では、確率ではなく組の質量として解釈します。
 
 <a id="lem-gmt3-layer-cake"></a>
 
@@ -277,7 +283,20 @@ U_s^\lambda(x)
 \end{aligned}
 $$
 
-両例とも定義域の全点について積分値を定めていますが、有限性は測度と点の組合せで異なります。
+区間の端点では $U_s^\lambda(0)=U_s^\lambda(1)=1/(1-s)$ です。区間外も定義域に含まれます。例えば $x<0$ では $y-x>0$ として、$x>1$ では $x-y>0$ としてそれぞれ積分すると
+
+$$
+\begin{aligned}
+U_s^\lambda(x)
+&=\frac{(1-x)^{1-s}-(-x)^{1-s}}{1-s}
+\quad (x<0),\\
+U_s^\lambda(x)
+&=\frac{x^{1-s}-(x-1)^{1-s}}{1-s}
+\quad (x>1).
+\end{aligned}
+$$
+
+従ってこの $\lambda$ のポテンシャルは全ての $x\in\mathbb R$ で有限です。一方、$\delta_a$ のポテンシャルは $a$ で無限大となり、有限性は測度と評価点の組合せで異なります。
 <!-- definition-example-end -->
 
 <a id="thm-gmt3-energy-dimension"></a>
@@ -334,8 +353,14 @@ $$
 \le \frac{2^s n}{m}r^s.
 $$
 
-これは全ての中心に対する球成長評価です。[MT8の質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)を適用するには、任意の小集合 $A$ が $E_n$ と交われば $x\in A\cap E_n$ を選び、任意の $\varepsilon>0$ で
-$A\subset B(x,\operatorname{diam}A+\varepsilon)$ として外測度の評価へ移ります。$\varepsilon\downarrow0$ により $\nu^*(A)\le(2^sn/m)(\operatorname{diam}A)^s$、従って
+これは全ての中心に対する球成長評価です。[MT8の質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)の外測度条件も確認します。任意の小集合 $A\subset\mathbb R^d$ が $E_n$ と交わらなければ、$\nu$ は $E_n$ に集中するので $\nu^*(A)=0$ です。交わる場合は $x\in A\cap E_n$ を選び、任意の $\varepsilon>0$ で $A\subset B(x,\operatorname{diam}A+\varepsilon)$ とします。球成長評価により
+
+$$
+\nu^*(A)\le\nu(B(x,\operatorname{diam}A+\varepsilon))
+\le\frac{2^s n}{m}(\operatorname{diam}A+\varepsilon)^s.
+$$
+
+$\varepsilon\downarrow0$ とすれば $\nu^*(A)\le(2^sn/m)(\operatorname{diam}A)^s$、従って
 
 $$
 \dim_HE_n\ge s,\qquad \dim_HK\ge s.
@@ -593,7 +618,14 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-まず $\int_0^1(1-\beta)x^{-\beta}dx=1$ で確率測度です。対角を除いて対称性を使い、$0<x<y<1$ で $x=yu$ と置くと
+まず $\int_0^1(1-\beta)x^{-\beta}dx=1$ で確率測度です。対角を除いて対称性を使います。$y>0$ を固定し、$0<x<y$ の内側の積分で $x=yu$ と置くと、$0<u<1$、$dx=y\,du$、$(y-x)^{-s}=y^{-s}(1-u)^{-s}$ です。従って
+
+$$
+\int_0^y x^{-\beta}(y-x)^{-s}\,dx
+=y^{1-\beta-s}\int_0^1u^{-\beta}(1-u)^{-s}\,du.
+$$
+
+これを外側の積分へ代入すると
 
 $$
 \begin{aligned}
