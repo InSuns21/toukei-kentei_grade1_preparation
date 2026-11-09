@@ -265,7 +265,15 @@ $\bar\partial\mathcal I_2([\phi_1,\phi_2])$ は $d\phi_1=0$ と $d\phi_2=-[\phi_
 
 ## 4. 形式級数を収束する固定点へ変える
 
-次数別の補正で作った $\sum\phi_r$ に、正の収束半径があることを示す。以下、実次元 $2n$ の[多様体Sobolev空間](../../GA/GA2/index.md#def-ga2-sobolev) $H^s$ を使い、整数 $s>n+2$ を固定する。[接束値Sobolev評価の局所座標での議論](../DEF1-07/index.md#lem-def1-07-sobolev-estimate)はスカラー値形式の各成分にも適用できる。実次元が $2n$ だから $s-2>n$ であり、$H^{s-2}$ と $H^{s-1}$ は積に閉じ、$H^s$ は $C^1$ に連続埋め込みされる。
+次数別の補正で作った $\sum\phi_r$ に、正の収束半径があることを示す。以下、実次元 $2n$ の[多様体Sobolev空間](../../GA/GA2/index.md#def-ga2-sobolev) $H^s$ を使い、整数 $s>n+2$ を固定する。
+
+[接束値Sobolev評価の局所座標での議論](../DEF1-07/index.md#lem-def1-07-sobolev-estimate)は、スカラー値形式の各成分にも適用できる。実次元が $2n$ なので、選んだ指数は
+
+$$
+s-2>n=\frac{2n}{2}
+$$
+
+を満たす。この余裕によって $H^{s-2}$ と $H^{s-1}$ は積に閉じ、$H^s$ は $C^1$ に連続埋め込みされる。
 
 $a\in H^s(X,\Lambda^{n-1,1}T^*X)$ に対し $\phi=\mathcal I_1^{-1}a$ と置き、二次写像を
 
