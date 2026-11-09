@@ -1,0 +1,33 @@
+id: "MFL40"
+title: "Gauge変換・moving frameと辺の輸送"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL39
+  - GEO13
+official_scope: []
+learning_objectives:
+  - 各頂点で独立なO(2)フレーム変更を定義し、接ベクトル成分が逆変換することを検算できる
+  - moving frameの接続行列を基底の共変微分から導き、歪対称性と非斉次ゲージ変換則を証明できる
+  - 共変微分の成分と平行方程式が局所フレーム変更で整合することを中間式から導ける
+  - 固定経路に沿う平行移動を辺輸送行列に表し、両端のゲージ変換則と内積保存を証明できる
+  - 逆輸送・経路合成・閉路共役とその不変量を計算し、経路依存性を説明できる
+  - 球面緯線の厳密模型と決定論的な実験で片側変換の失敗と丸め誤差を区別できる
+definitions:
+  - { id: MFL40-DEF-01, name: 有限頂点上の局所ゲージ変更 }
+  - { id: MFL40-DEF-02, name: moving frameの接続行列 }
+  - { id: MFL40-DEF-03, name: 辺の輸送行列 }
+theorems:
+  - { id: MFL40-THM-01, name: 接続と共変微分のゲージ変換則 }
+  - { id: MFL40-THM-02, name: 辺輸送の両端ゲージ変換則 }
+  - { id: MFL40-PROP-01, name: 輸送の逆・合成・閉路の共役変換 }
+canonical_examples:
+  - 二点で異なる90度回転を施した正規直交フレームと逆変換成分
+  - 球面緯線の接続行列とmoving frameの回転項
+  - 球面緯線に沿う平行移動の二端点行列と片側欠落の反例
+  - 三角閉路の直交行列模型と共役不変量
+problem_patterns: [MFL40-A01, MFL40-A02, MFL40-A03, MFL40-A04, MFL40-B01, MFL40-B02, MFL40-B03, MFL40-B04, MFL40-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }

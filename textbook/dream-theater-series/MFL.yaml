@@ -164,8 +164,8 @@ chapters:
     title: "接ベクトル場とchart/frameの変更"
   - id: MFL40
     path: textbook/volumes/dream_thater/応用系/MFL/MFL40
-    status: planned
-    title: "Gauge変換・moving frame"
+    status: completed
+    title: "Gauge変換・moving frameと辺の輸送"
   - id: MFL41
     path: textbook/volumes/dream_thater/応用系/MFL/MFL41
     status: planned
