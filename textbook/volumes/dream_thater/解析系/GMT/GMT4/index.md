@@ -6,7 +6,9 @@
 
 ただし $|x|^{-s}$ は無限遠で積分できず、測度そのものにも密度があるとは限りません。**核をそのまま $L^1$ Fourier変換したり、測度へ無条件にPlancherelを使ったりはできません**。本講ではGaussianを介してこの二つの障害を処理します。
 
-本章では $d\ge1$、$0<s<d$ とし、$\mu$ は $\mathbb R^d$ 上の非負有限Borel測度とします。$\mu$ の全質量を $M=\mu(\mathbb R^d)$ と書きます。$M=0$ も許し、$I_s(0)=0$ とします。Gauss積分、[FOU3のGaussian変換](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)、[FOU4のPlancherel等式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)を前提に、必要な多変数化と極限は本文で確認します。
+本章では $d\ge1$、$0<s<d$ とし、$\mu$ は $\mathbb R^d$ 上の非負有限Borel測度とします。$\mu$ の全質量を $M=\mu(\mathbb R^d)$ と書きます。零測度も許し、$I_s(0)=0$ とします。
+
+計算にはGauss積分、[FOU3のGaussian変換](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)、[FOU4のPlancherel等式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)を使います。必要な多変数化と極限交換は本文で確認します。
 
 ## 1. 関数ではなく測度を周波数へ移す
 
@@ -679,7 +681,11 @@ $$
 
 まず固定した $s\in(0,d)$ について、[Riesz energyのFourier表示](#thm-gmt4-fourier-energy)と $c_{d,s}>0$ により、積分が有限であることは $I_s(\mu)<\infty$ と同値です。この測度が $K$ に支えられるなら[有限energyによる次元下界](../GMT3/index.md#thm-gmt3-energy-dimension)から $\dim_HK\ge s$ です。従って $h_F(K)\le\dim_HK$。
 
-逆に $0<t<\dim_HK$ を固定します。$t<u<\dim_HK\le d$ を選べます。[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)で $u$ 次の球成長評価を満たす $\mu\in\mathcal P(K)$ を構成し、[GMT3の球成長から有限energyへの定理](../GMT3/index.md#thm-gmt3-frostman-energy)で $I_t(\mu)<\infty$ を得ます。再び[Riesz energyのFourier表示](#thm-gmt4-fourier-energy)からこの $\mu$ は $t$ に対する周波数積分を有限にします。任意の $t<\dim_HK$ で成立するので $h_F(K)\ge\dim_HK$。$\dim_HK=0$ は前半の上界と非負性から従います。
+逆に $0<t<\dim_HK$ を固定し、$t<u<\dim_HK\le d$ を選びます。
+
+[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)により、$u$ 次の球成長評価を満たす確率測度 $\mu\in\mathcal P(K)$ が得られます。[GMT3の球成長から有限energyへの定理](../GMT3/index.md#thm-gmt3-frostman-energy)で $I_t(\mu)<\infty$ が従います。
+
+再び[Riesz energyのFourier表示](#thm-gmt4-fourier-energy)から、この $\mu$ の $t$ に対する周波数積分は有限です。任意の $0<t<\dim_HK$ で成立するため $h_F(K)\ge\dim_HK$。$\dim_HK=0$ の場合は前半の上界と非負性から等号が成立します。
 
 最後に中三分Cantor集合 $C$ の次元は $\alpha=\log2/\log3$ ですが、[GMT3の臨界容量の演習](../GMT3/index.md#ex-gmt3-c1)で $C$ 上の**全ての**確率測度について $I_\alpha(\mu)=\infty$ と証明しました。[Riesz energyのFourier表示](#thm-gmt4-fourier-energy)により $s=\alpha$ の積分も全測度で発散します。ゆえに上限が $\alpha$ であっても、その端点が実現するとは限りません。
 <!-- solution-end -->
