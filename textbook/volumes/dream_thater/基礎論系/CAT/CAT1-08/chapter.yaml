@@ -1,0 +1,48 @@
+id: "CAT1-08"
+title: "関手圏と水平・垂直合成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-02
+  - CAT1-06
+  - CAT1-07
+official_scope: []
+learning_objectives:
+  - 小さい圏と局所小圏の仮定を区別し、関手圏の対象・Hom集合がなぜ構成できるか説明できる
+  - 関手圏の恒等自然変換と垂直合成が自然であること、および結合則・単位律を成分ごとに証明できる
+  - 矢印圏から集合の圏への関手と可換四角形の対応を具体的に検証できる
+  - 自然変換の前後からの whiskering の型と自然性を確認できる
+  - 水平合成の二つの成分公式が一致する理由を自然性から導出し、水平合成そのものの自然性を証明できる
+  - 水平合成の結合則・恒等変換との関係および垂直合成との交換法則を型付きで証明できる
+  - 集合の直積関手による例で二種類の合成を計算し、関手圏のサイズの落とし穴を判別できる
+definitions:
+  - { id: CAT1-08-DEF-01, name: 関手圏 }
+  - { id: CAT1-08-DEF-02, name: 垂直合成 }
+  - { id: CAT1-08-DEF-03, name: whiskering }
+  - { id: CAT1-08-DEF-04, name: 水平合成 }
+theorems:
+  - { id: CAT1-08-PROP-01, name: 関手圏の局所小性と小ささ }
+  - { id: CAT1-08-PROP-02, name: 関手圏の圏公理 }
+  - { id: CAT1-08-PROP-03, name: whiskering の自然性 }
+  - { id: CAT1-08-PROP-04, name: 水平合成の自然性と結合則 }
+  - { id: CAT1-08-PROP-05, name: 水平合成と垂直合成の交換法則 }
+canonical_examples:
+  - 二対象矢印圏から集合の圏への関手と可換四角形
+  - 対角自然変換と射影自然変換の垂直合成
+  - 対角自然変換と射影自然変換の水平合成
+  - 直積関手間の自然変換と交換法則の座標計算
+problem_patterns:
+  - CAT1-08-FUNCTOR-ARROW-CATEGORY
+  - CAT1-08-NAT-SETS-SIZE
+  - CAT1-08-VERTICAL-IDENTITY
+  - CAT1-08-WHISKERING
+  - CAT1-08-HORIZONTAL-COMPONENT
+  - CAT1-08-VERTICAL-ASSOCIATIVITY
+  - CAT1-08-HORIZONTAL-NATURALITY
+  - CAT1-08-INTERCHANGE-COORDINATES
+  - CAT1-08-HORIZONTAL-ASSOCIATIVITY
+  - CAT1-08-ARROW-CATEGORY-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 1 }

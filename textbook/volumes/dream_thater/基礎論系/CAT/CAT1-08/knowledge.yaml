@@ -1,0 +1,63 @@
+chapter: CAT1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-06
+  - CAT1-07
+
+concepts:
+  - id: category.functor-category
+    name: 関手圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（関手圏）"]
+    requires: [category.natural-transformation, category.covariant-functor]
+  - id: category.functor-category-size
+    name: 関手圏の局所小性と小ささ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（関手圏の局所小性と小ささ）"]
+    requires: [category.functor-category, category.locally-small-category, category.small-category]
+  - id: category.vertical-composition
+    name: 垂直合成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（垂直合成）"]
+    requires: [category.natural-transformation]
+  - id: category.functor-category-axioms
+    name: 関手圏の圏公理
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（関手圏の圏公理）"]
+    requires: [category.functor-category, category.vertical-composition]
+  - id: category.whiskering
+    name: whiskering
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（whiskering）"]
+    requires: [category.natural-transformation, category.composite-functor]
+  - id: category.whiskering-naturality
+    name: whiskering の自然性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（whiskering の自然性）"]
+    requires: [category.whiskering]
+  - id: category.horizontal-composition
+    name: 水平合成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（水平合成）"]
+    requires: [category.whiskering, category.vertical-composition]
+  - id: category.horizontal-laws
+    name: 水平合成の自然性と結合則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（水平合成の自然性と結合則）"]
+    requires: [category.horizontal-composition, category.whiskering-naturality]
+  - id: category.interchange-law
+    name: 水平合成と垂直合成の交換法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（水平合成と垂直合成の交換法則）"]
+    requires: [category.horizontal-composition, category.vertical-composition]
