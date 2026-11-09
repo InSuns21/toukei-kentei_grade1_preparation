@@ -1,0 +1,38 @@
+chapter: DEF1-11
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-01, DEF1-04, DEF1-08, DEF1-10, CYG1-12, HOD1-07, RA6A]
+# 第8節では次々章で扱う用語を学習予告としてだけ挙げ、ここでの論証に使わない。
+forward_references:
+  - hodge.hodge-filtration
+concepts:
+  - id: deformation.marked-local-moduli-chart
+    name: 標識付き局所変形座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標識付き局所変形座標）"]
+    requires: [deformation.versal-semiuniversal-universal]
+  - id: deformation.calabi-yau-local-chart
+    name: Calabi–Yauの滑らかな局所変形座標
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Calabi–Yauの滑らかな局所変形座標）"]
+    requires: [deformation.marked-local-moduli-chart, deformation.btt-smooth-kuranishi-base, cyg.infinitesimal-hodge-identification]
+  - id: deformation.hodge-coordinate-change
+    name: 体積形式とHodge基底による一次座標変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体積形式とHodge基底による一次座標変換）"]
+    requires: [deformation.calabi-yau-local-chart, cyg.contraction-dolbeault-isomorphism]
+  - id: deformation.hodge-automorphism-criterion
+    name: Hodge数と無限小自己同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hodge数と無限小自己同型）"]
+    requires: [cyg.contraction-dolbeault-isomorphism, deformation.automorphism-universality]
+  - id: deformation.calabi-yau-local-rigidity
+    name: Calabi–Yauの局所剛性判定
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Hodge数が零のときの局所剛性）"]
+    requires: [deformation.calabi-yau-local-chart]
