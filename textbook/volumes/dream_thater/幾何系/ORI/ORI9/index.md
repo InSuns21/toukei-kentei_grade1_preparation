@@ -31,7 +31,7 @@ $$
 > の双方を満たすことである。二直線が非平行であることや、点が $\ell$ の外にあることは、この操作の定義には含めない。
 <!-- formal-statement-end -->
 
-最小例として $P=(2,3)$、$\ell:y=0$、$k:x=0$ を考えます。$k$ が縦なので $m$ は横向き、すなわち $m:y=d$ です。[鏡映の座標公式](../ORI1/index.md#prop-ori1-coordinate-isometry)により、横軸 $y=d$ で鏡映すると
+最小例として $P=(2,3)$、$\ell:y=0$、$k:x=0$ を考えます。$k$ が縦なので $m$ は横向き、すなわち $m:y=d$ です。[鏡映の座標公式と等距離性](../ORI1/index.md#prop-ori1-coordinate-isometry)により、横軸 $y=d$ で鏡映すると
 
 $$
 R_m(2,3)=(2,2d-3).
@@ -227,7 +227,7 @@ A1とA2はそれぞれ二つの独立な座標条件を課すため、一般位�
 
 A2 は二本の直線の向きと位置を一致させる二条件で、[O3](../ORI6/index.md#axiom-ori6-o3)に対応する。一般位置ではどちらも軸の二自由度を拘束する。追加の一致条件を課しても軸を選ぶ自由度は残っていないため、最小性に反する。
 
-残りの A3・A4・A5 は各一条件である。A3 で要求するのは方向の一致だけでなく、**直線集合として** $R_m(L)=L$ となることである。軸を $m:n\cdot X=c$（$n\ne0$）、既知直線を $L=\{X_0+\lambda u:\lambda\in\mathbb R\}$（$u\ne0$）と書く。実数 $\lambda$ を動かし、[鏡映の座標公式](../ORI1/index.md#prop-ori1-coordinate-isometry)を適用すると
+残りの A3・A4・A5 は各一条件である。A3 で要求するのは方向の一致だけでなく、**直線集合として** $R_m(L)=L$ となることである。軸を $m:n\cdot X=c$（$n\ne0$）、既知直線を $L=\{X_0+\lambda u:\lambda\in\mathbb R\}$（$u\ne0$）と書く。実数 $\lambda$ を動かし、[鏡映の座標公式と等距離性](../ORI1/index.md#prop-ori1-coordinate-isometry)を適用すると
 
 $$
 \begin{aligned}
@@ -243,7 +243,7 @@ $$
 u'=u-\frac{2(n\cdot u)}{n\cdot n}n
 $$
 
-である。[鏡映の等距離性](../ORI1/index.md#prop-ori1-coordinate-isometry)により $u'$ は $u$ と同じ長さを持つ。よって二直線の方向が一致するなら、$u'=u$ または $u'=-u$ である。
+である。[鏡映の座標公式と等距離性](../ORI1/index.md#prop-ori1-coordinate-isometry)により $u'$ は $u$ と同じ長さを持つ。よって二直線の方向が一致するなら、$u'=u$ または $u'=-u$ である。
 
 **方向を保つ場合** $u'=u$ なら $n\cdot u=0$、すなわち $m\parallel L$ である。$L$ を $n\cdot X=d$ と書けば、像の各点について
 
