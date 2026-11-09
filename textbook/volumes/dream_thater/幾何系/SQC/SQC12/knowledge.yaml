@@ -1,0 +1,60 @@
+chapter: SQC12
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC9, SQC11, MT0, RA7]
+forward_references: [geometry.circle-squaring-impossibility] # SQC7の古典作図との比較のみ。証明の前提には用いない。
+
+concepts:
+  - id: geometry.circle-squaring-jordan-set
+    name: Jordan可測集合の境界判定
+    kind: definition
+    introduction: formal
+    requires: [analysis.jordan-measurable-set]
+
+  - id: geometry.circle-squaring-fsigma-set
+    name: Fσ集合
+    kind: definition
+    introduction: formal
+    requires: [geometry.circle-squaring-borel-set]
+
+  - id: geometry.circle-squaring-boolean-fsigma
+    name: Fσ集合の有限Boolean結合
+    kind: definition
+    introduction: formal
+    requires: [geometry.circle-squaring-fsigma-set]
+
+  - id: geometry.circle-squaring-box-jordan
+    name: 小さい境界次元からJordan可測性へ
+    kind: lemma
+    introduction: formal
+    requires: [geometry.upper-box-dimension, geometry.circle-squaring-jordan-set]
+
+  - id: geometry.circle-squaring-finite-boundary
+    name: 有限Boolean演算における境界の制御
+    kind: proposition
+    introduction: formal
+    requires: [geometry.circle-squaring-box-jordan]
+
+  - id: geometry.circle-squaring-small-boundary-theorem
+    name: Máthé–Noel–Pikhurkoの小境界等分解定理
+    kind: theorem
+    introduction: formal
+    requires: [geometry.translation-equidecomposition, geometry.circle-squaring-borel-theorem, geometry.circle-squaring-box-jordan, geometry.circle-squaring-boolean-fsigma]
+
+  - id: geometry.circle-squaring-overlap-condition
+    name: 円盤と正方形の零面積交差
+    kind: lemma
+    introduction: formal
+    requires: [geometry.circle-squaring-small-boundary-theorem]
+
+  - id: geometry.circle-squaring-jordan-disk-square
+    name: 正面積かつJordan可測な片による円積
+    kind: corollary
+    introduction: formal
+    requires: [geometry.circle-squaring-overlap-condition, geometry.circle-squaring-box-jordan]
+
+  - id: geometry.circle-squaring-positive-piece-obstruction
+    name: 孤立点による正面積片への障害
+    kind: proposition
+    introduction: formal
+    requires: [geometry.circle-squaring-small-boundary-theorem]
