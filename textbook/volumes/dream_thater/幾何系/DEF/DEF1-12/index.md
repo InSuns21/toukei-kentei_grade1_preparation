@@ -82,7 +82,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-12-cohomology-local-system -->
-**定義の確認**（積族から一般の族へ）。例えば $F=S^1$ と $B=\mathbb R$ の積族では、十分小さい区間 $U$ 上の $H^1(S^1\times U,\mathbb C)$ は $\mathbb C[dx]$ で、茎も $H^1(S^1,\mathbb C)$ と一致する。一般にも[Ehresmannの定理](../DEF1-01/index.md#thm-def1-01-ehresmann)の局所自明化で、さらに $U$ を小さい可縮な近傍とすれば $\pi^{-1}(U)\simeq F\times U$ であり、$F\times U\to F$ はホモトピー同値である。従って $H^k(\pi^{-1}(U),\mathbb C)\simeq H^k(F,\mathbb C)$ となる。[Hodge–de Rhamの有限次元同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から $H^k(F,\mathbb C)$ は有限次元であり（$F$ の各連結成分に計量と向きを選べる場合、一般には有限三角分割でも従う）、補題により遷移は局所定数。これで[局所系の定義](#def-def1-12-local-system)の条件が満たされる。
+**定義の確認**（積族から一般の族へ）。例えば $F=S^1$ と $B=\mathbb R$ の積族では、十分小さい区間 $U$ 上の $H^1(S^1\times U,\mathbb C)$ は $\mathbb C[dx]$ である。その茎も $H^1(S^1,\mathbb C)$ と一致する。
+
+一般の族でも[Ehresmannの定理](../DEF1-01/index.md#thm-def1-01-ehresmann)によって局所自明化が得られる。$U$ をさらに小さい可縮な近傍とすれば $\pi^{-1}(U)\simeq F\times U$ で、射影 $F\times U\to F$ はホモトピー同値。従って
+
+$$
+H^k(\pi^{-1}(U),\mathbb C)\simeq H^k(F,\mathbb C).
+$$
+
+コンパクトな向き付きRiemannファイバーなら[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から右辺の有限次元性が分かる。一般のコンパクト滑らかな $F$ に対しても、有限CW型を持つという位相幾何の事実から有限次元性が従う。既に証明した[遷移の局所定数性](#lem-def1-12-transition)を合わせれば、[局所系の定義](#def-def1-12-local-system)の条件がそろう。
 
 なおファイバーが向き付け可能でない場合も特異コホモロジーの局所系は定義できる。有限次元性はコンパクト滑らかな多様体の有限CW型から得られ、向き付けは本章の一般構成には不要である。
 <!-- definition-example-end -->
