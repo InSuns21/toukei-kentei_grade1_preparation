@@ -188,7 +188,7 @@ $$
 
 | 古典論で確認したこと | 後続で新たに必要なこと |
 |---|---|
-| [Killing表面重力と規格化](../GR45/index.md#def-gr45-surface-gravity)、[地平線の面積非減少に必要な仮定](../GR36/index.md#thm-gr36-smooth-area) | [BHT・ブラックホール熱力学](../../../../../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)で温度・エントロピー・第一法則の物理的同定と熱力学的前提を別途議論する |
+| [Killing表面重力と規格化](../GR45/index.md#def-gr45-surface-gravity)、[地平線の面積非減少に必要な仮定](../GR36/index.md#thm-gr36-smooth-area) | [BHT・ブラックホール熱力学](../../../../../plans_progress/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)で温度・エントロピー・第一法則の物理的同定と熱力学的前提を別途議論する |
 | [Kruskalの延長](../GR27/index.md#prop-gr27-regular-metric)、[Penrose図](../GR28/index.md#prop-gr28-boundary-classification)、[古典的な崩壊時空](../GR30/index.md#prop-gr30-collapse-event-horizon) | [QCURV・曲がった時空の量子場](../../../../../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)で場の状態・正負周波数の選択・量子場のモード・粒子概念を導入する |
 | [Kerrの保存量](../GR32/index.md#prop-gr32-killing-integrals)と[超放射の古典的な散乱関係](../GR33/index.md#thm-gr33-wronskian) | 古典波動の増幅を直ちに量子粒子数や蒸発速度へ置き換えない |
 
@@ -522,7 +522,7 @@ $$
 
 両者を掛けた平方根が $(r_+^2+a^2)\sin\vartheta$ です。これを $0\le\vartheta\le\pi$、$0\le\varphi<2\pi$ にわたって積分すると $4\pi(r_+^2+a^2)$ を得ます。
 
-しかし $\kappa$ も $A$ も、この古典的計算だけで熱平衡状態・温度・エントロピーを**定義**していません。熱力学の関係は[BHT](../../../../../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)で追加の物理的仮定とともに検討します。[QCURV](../../../../../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)には、例えばこの曲がった時空上の場の**量子状態**と、どのモードを正周波数と見なすかという情報が新たに必要です。古典的な地平線と表面重力だけで、粒子検出率やHawking放射スペクトルは定まりません。
+しかし $\kappa$ も $A$ も、この古典的計算だけで熱平衡状態・温度・エントロピーを**定義**していません。熱力学の関係は[BHT](../../../../../plans_progress/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)で追加の物理的仮定とともに検討します。[QCURV](../../../../../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)には、例えばこの曲がった時空上の場の**量子状態**と、どのモードを正周波数と見なすかという情報が新たに必要です。古典的な地平線と表面重力だけで、粒子検出率やHawking放射スペクトルは定まりません。
 <!-- solution-end -->
 
 ## 6. 章を閉じる前の確認
