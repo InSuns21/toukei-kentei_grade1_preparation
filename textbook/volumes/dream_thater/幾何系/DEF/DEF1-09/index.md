@@ -24,7 +24,7 @@ $\Omega$ の非消滅性は収縮の**逆**に必要であり、Kähler性はこ
 
 ## 2. 収縮が $\partial$-閉であるとは何か
 
-[体積形式による収縮](../../CYG/CYG1-12/index.md#def-cyg1-12-contraction)を、既習の「反正則成分は左」規約で使う。$\phi=\sum_jd\bar z^j\otimes\phi_{\bar j}$ と書けば
+[体積形式による収縮](../../CYG/CYG1-12/index.md#def-cyg1-12-contraction)を、既習の「反正則成分は左」規約で使う。第1節の $\phi\lrcorner\Omega$ は以下の $\mathcal I_{\Omega,1}(\phi)$ と同じ収縮を表し、添字 $1$ は入力の反正則次数である。$\phi=\sum_jd\bar z^j\otimes\phi_{\bar j}$ と書けば
 
 $$
 \mathcal I_{\Omega,1}(\phi)
@@ -54,6 +54,24 @@ $$
 $$
 <!-- formal-statement-end -->
 
+座標式は、収縮の[基底表示](../../CYG/CYG1-12/index.md#def-cyg1-12-contraction)から導ける。$\partial_{z^p}$ は $z^p$ に関するWirtinger微分（$\bar z$ を固定する微分）であり、[型別外微分の局所公式](../../CM/CM2-02/index.md#thm-cm2-02-local-formula)を滑らかな係数 $fv^p$ に使う。$p$ 番目の $dz^p$ を省くことを $\widehat{dz^p}$ で表せば
+
+$$
+\begin{aligned}
+\iota_v\Omega
+&=\sum_p(-1)^{p-1}fv^p\,
+ dz^1\wedge\cdots\wedge\widehat{dz^p}\wedge\cdots\wedge dz^n,\\
+\partial(\iota_v\Omega)
+&=\sum_p(-1)^{p-1}\partial_{z^p}(fv^p)\,
+ dz^p\wedge dz^1\wedge\cdots\wedge\widehat{dz^p}
+ \wedge\cdots\wedge dz^n\\
+&=\left(\sum_p\partial_{z^p}(fv^p)\right)
+ dz^1\wedge\cdots\wedge dz^n.
+\end{aligned}
+$$
+
+第2行で他の偏微分項は同じ $dz^q$ が二度現れて消え、第3行で先頭の $dz^p$ を元の位置へ戻す符号 $(-1)^{p-1}$ が打ち消される。$f\ne0$ なので $\Omega$ の係数を一意に読み取れ、定義の座標式が従う。
+
 <!-- definition-example-start: def-def1-09-volume-divergence -->
 **定義の確認**（平面で符号も確認）。$\mathbb C^2$、$\Omega=dz^1\wedge dz^2$、$v=z^1\partial_{z^1}+2z^2\partial_{z^2}$ とする。$\iota_v\Omega=z^1dz^2-2z^2dz^1$ だから
 
@@ -66,7 +84,7 @@ $$
 座標式でも $\partial_{z^1}(z^1)+\partial_{z^2}(2z^2)=1+2=3$。$\Omega$ は非零なのでこの係数は一意であり、定義の両方の表示が一致する。
 <!-- definition-example-end -->
 
-収縮の式に $\partial$ を作用させると、$\partial d\bar z^j=0$ と外積のLeibniz則（$d\bar z^j$ は次数1）より
+収縮の式に $\partial$ を作用させると、$\partial d\bar z^j=0$ と[型別外微分の次数付きLeibniz則](../../CM/CM2-02/index.md#prop-cm2-02-graded-leibniz)（$d\bar z^j$ は次数1）より
 
 $$
 \partial\mathcal I_{\Omega,1}(\phi)
@@ -186,7 +204,18 @@ $$
  -[\phi_{\bar k},\psi_{\bar j}]
 $$
 
-と書ける。右辺の括弧はここでは**通常のベクトル場のLie括弧**である。定義の四項に展開すれば、二種類の括弧を混同せずに一致を検算できる。
+と書ける。右辺の括弧はここでは**通常のベクトル場のLie括弧**である。$\phi_{\bar j}=\sum_p\phi^p_{\bar j}\partial_{z^p}$、$\psi_{\bar k}=\sum_i\psi^i_{\bar k}\partial_{z^i}$ と置き、$z^p$ 方向だけを微分すると、$i$ 成分は
+
+$$
+\sum_p\left(
+ \phi^p_{\bar j}\partial_{z^p}\psi^i_{\bar k}
+-\phi^p_{\bar k}\partial_{z^p}\psi^i_{\bar j}
++\psi^p_{\bar j}\partial_{z^p}\phi^i_{\bar k}
+-\psi^p_{\bar k}\partial_{z^p}\phi^i_{\bar j}
+\right)
+$$
+
+となり、[次数1括弧の四項定義](../DEF1-03/index.md#def-def1-03-bracket)と一致する。反正則方向の微分はこの括弧には含まない。
 
 <a id="thm-def1-09-tian-todorov"></a>
 
@@ -355,7 +384,7 @@ $$
 =-\bar\partial(\partial u).
 $$
 
-$\eta:=\mathcal I_{\Omega,1}^{-1}(-\partial u)\in\mathcal A^{0,1}(X,T_X)$ と定める。[収縮の複体同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)により
+[型別外微分の反交換則](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)で $\partial\bar\partial u=-\bar\partial\partial u$ と読み、$\eta:=\mathcal I_{\Omega,1}^{-1}(-\partial u)\in\mathcal A^{0,1}(X,T_X)$ と定める。[収縮の複体同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)により
 
 $$
 \mathcal I_{\Omega,2}(\bar\partial_T\eta)
@@ -395,7 +424,17 @@ $$
 $\Omega=dz^1\wedge dz^2\wedge dz^3$、$U=\partial_{z^1}$、$V=\partial_{z^3}$ とする。$\iota_U\Omega$ と $\iota_V\iota_U\Omega$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** 最初の引数を $U$ に固定すると $\iota_U\Omega=dz^2\wedge dz^3$。この1番目の引数へ $V=\partial_{z^3}$ を入れると、$\iota_V(dz^2\wedge dz^3)=dz^2(V)dz^3-dz^3(V)dz^2=0-dz^2=-dz^2$。よって二重収縮は $-dz^2$ である。内部積の作用順を逆にすると符号が反転する。
+**詳細解答。** 最初の引数を $U$ に固定して $\iota_U\Omega=dz^2\wedge dz^3$ を得る。次に $V=\partial_{z^3}$ を入れると
+
+$$
+\begin{aligned}
+\iota_V\iota_U\Omega
+&=dz^2(V)\,dz^3-dz^3(V)\,dz^2\\
+&=0-dz^2=-dz^2.
+\end{aligned}
+$$
+
+内部積の作用順を逆にすると交代性によって符号が反転する。
 <!-- solution-end -->
 
 #### DEF1-09-A02 発散零の判定
@@ -415,7 +454,20 @@ $\mathbb C^2$ で $\Omega=dz^1\wedge dz^2$、$U=z^2\partial_{z^1}+z^1\partial_{z
 $\phi=z^2d\bar z^1\otimes\partial_{z^1}$、$\psi=z^1d\bar z^2\otimes\partial_{z^2}$ に対して、$[\phi,\psi]_{\bar1\bar2}$ を既習の四項式から求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [括弧の成分式](../DEF1-03/index.md#def-def1-03-bracket)の $i=1$ では $-\psi^2_{\bar2}\partial_{z^2}\phi^1_{\bar1}=-z^1\partial_{z^2}z^2=-z^1$ だけが残る。$i=2$ では $\phi^1_{\bar1}\partial_{z^1}\psi^2_{\bar2}=z^2\partial_{z^1}z^1=z^2$ だけが残る。ゆえに $[\phi,\psi]_{\bar1\bar2}=-z^1\partial_{z^1}+z^2\partial_{z^2}$。両入力を交換しても次数1の括弧は同じである。
+**詳細解答。** [括弧の四項成分式](../DEF1-03/index.md#def-def1-03-bracket)を用いる。$i=1$ と $i=2$ について零でない項を取り出すと
+
+$$
+\begin{aligned}
+[\phi,\psi]^1_{\bar1\bar2}
+&=-\psi^2_{\bar2}\partial_{z^2}\phi^1_{\bar1}
+=-z^1\partial_{z^2}z^2=-z^1,\\
+[\phi,\psi]^2_{\bar1\bar2}
+&=\phi^1_{\bar1}\partial_{z^1}\psi^2_{\bar2}
+=z^2\partial_{z^1}z^1=z^2.
+\end{aligned}
+$$
+
+したがって $[\phi,\psi]_{\bar1\bar2}=-z^1\partial_{z^1}+z^2\partial_{z^2}$。二つの入力を交換しても次数1の括弧は同じである。
 <!-- solution-end -->
 
 #### DEF1-09-A04 複素曲線の例外
@@ -447,7 +499,30 @@ $\phi=z^1d\bar z^1\otimes\partial_{z^1}$、$\psi=d\bar z^2\otimes\partial_{z^2}$
 $\mathbb C^2$ で $U=a(z,\bar z)\partial_{z^1}$、$V=b(z,\bar z)\partial_{z^2}$、$\Omega=dz^1\wedge dz^2$ とする。$\partial(\iota_V\iota_U\Omega)$ と、発散2項から $\iota_{[U,V]}\Omega$ を引いた式をそれぞれ計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\iota_U\Omega=a dz^2$、$\iota_V\iota_U\Omega=ab$ なので $\partial(ab)=\partial_{z^1}(ab)dz^1+\partial_{z^2}(ab)dz^2$。発散は $\operatorname{div}U=\partial_{z^1}a$、$\operatorname{div}V=\partial_{z^2}b$。通常の括弧は $[U,V]=a(\partial_{z^1}b)\partial_{z^2}-b(\partial_{z^2}a)\partial_{z^1}$ であり、収縮は $\iota_{[U,V]}\Omega=-a(\partial_{z^1}b)dz^1-b(\partial_{z^2}a)dz^2$。従って補題の右辺は
+**詳細解答。** 収縮を二回計算し、[発散の定義](#def-def1-09-volume-divergence)を適用する。
+
+$$
+\begin{aligned}
+\iota_U\Omega&=a\,dz^2,&
+\iota_V\iota_U\Omega&=ab,\\
+\partial(ab)&=\partial_{z^1}(ab)\,dz^1+\partial_{z^2}(ab)\,dz^2,\\
+\operatorname{div}_\Omega U&=\partial_{z^1}a,&
+\operatorname{div}_\Omega V&=\partial_{z^2}b.
+\end{aligned}
+$$
+
+通常のLie括弧を成分ごとに計算すると
+
+$$
+\begin{aligned}
+[U,V]&=a(\partial_{z^1}b)\partial_{z^2}
+      -b(\partial_{z^2}a)\partial_{z^1},\\
+\iota_{[U,V]}\Omega
+&=-a(\partial_{z^1}b)\,dz^1-b(\partial_{z^2}a)\,dz^2.
+\end{aligned}
+$$
+
+従って[正則Cartan収縮恒等式](#lem-def1-09-cartan)の右辺は
 
 $$
 \begin{aligned}
@@ -484,7 +559,7 @@ $$
 \gamma=\partial\bar\partial u=-\bar\partial(\partial u)
 $$
 
-とできる。第2の等号は $\partial\bar\partial=-\bar\partial\partial$ による。$-\partial u$ は $(n-1,1)$ 型なので[収縮の逆同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)を適用し、$\eta=\mathcal I_{\Omega,1}^{-1}(-\partial u)$ と置く。すると
+とできる。第2の等号は[型別外微分の反交換則](../../CM/CM2-02/index.md#thm-cm2-02-double-complex-identities)による。$-\partial u$ は $(n-1,1)$ 型なので[収縮の逆同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-cohomology-isomorphism)を適用し、$\eta=\mathcal I_{\Omega,1}^{-1}(-\partial u)$ と置く。すると
 
 $$
 \mathcal I_{\Omega,2}(\bar\partial_T\eta)
@@ -572,10 +647,10 @@ $$
 正則体積形式の収縮、発散零条件、二重収縮を[正則Cartan収縮恒等式](#lem-def1-09-cartan)でつなぐと
 
 $$
-\partial\mathcal I_\Omega(\phi)
-=\partial\mathcal I_\Omega(\psi)=0
+\partial\mathcal I_{\Omega,1}(\phi)
+=\partial\mathcal I_{\Omega,1}(\psi)=0
 \quad\Longrightarrow\quad
-\mathcal I_\Omega([\phi,\psi])=-\partial B_\Omega(\phi,\psi)
+\mathcal I_{\Omega,2}([\phi,\psi])=-\partial B_\Omega(\phi,\psi)
 $$
 
 となる。コンパクトKählerではさらに、[Dolbeaultコホモロジーの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)を選び、[大域∂∂̄補題](../../HOD/HOD1-08/index.md#thm-hod1-08-ddbar-lemma)を使って、$H^1(X,T_X)$ の二次障害類が零であることまで証明した。これはBogomolov–Tian–Todorovの**核心恒等式**であり、BTT非障害性の全証明はまだ先にある。次のDEF1-10では、二次を越えてすべての次数の方程式を解き、形式解と実際の解析的変形族をつなぐ。
