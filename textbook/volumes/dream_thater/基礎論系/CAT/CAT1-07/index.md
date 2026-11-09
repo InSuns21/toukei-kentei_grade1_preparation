@@ -449,7 +449,7 @@ $$
 
 - Level: A
 
-三点鎖 $P=\{0<1<2\}$ と三点鎖 $Q=\{a<b<c\}$ を[順序圏](../CAT1-02/index.md#prop-cat1-02-order-category)とする。関手 $F,G:P\to Q$ は対象上で
+三点鎖 $P=\{0,1,2\}$（$0<1<2$）と三点鎖 $Q=\{a,b,c\}$（$a<b<c$） を[順序圏](../CAT1-02/index.md#prop-cat1-02-order-category)とする。関手 $F,G:P\to Q$ は対象上で
 
 $$
 F(0)=a,\quad F(1)=a,\quad F(2)=b,\qquad
