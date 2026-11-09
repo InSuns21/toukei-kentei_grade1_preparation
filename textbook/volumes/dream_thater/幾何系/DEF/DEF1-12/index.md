@@ -4,6 +4,8 @@
 
 [Calabi–Yauの局所変形座標](../DEF1-11/index.md#thm-def1-11-local-chart)では、基底の点 $b$ ごとに複素多様体 $X_b$ が変わる。しかし $H^k(X_b,\mathbb C)$ の元は、最初から同じベクトル空間に入っているわけではない。「$b$ で微分する」と書くには、まず近隣のファイバーの類を比較する方法が要る。
 
+ここで $H^k(-,\mathbb C)$ は**複素係数の特異コホモロジー**を表す。後で微分形式を使う際には、[de Rham比較の入力](../../HOD/HOD1-15/index.md#def-hod1-15-rational-complexification)による自然な同型で $H^k_{\mathrm{dR}}(-;\mathbb C)$ と同一視する。複素構造がなくても、この同型は滑らかな多様体で使える。
+
 すでに[Ehresmannの局所自明化定理](../DEF1-01/index.md#thm-def1-01-ehresmann)によって、滑らかな固有沈め込みのファイバーは**微分可能多様体として**局所的に同一視できる。一方、その同一視は一意ではない。異なる局所自明化を使っても整合するコホモロジーの比較が欲しい。
 
 本章で作るものは次の三つである。
@@ -18,6 +20,8 @@
 
 まず「局所系」という語を明確にしよう。これは、点ごとのベクトル空間を近くでは一定のベクトル空間と同一視でき、同一視の変更が**点に依らない線形写像**になる仕組みである。滑らかなベクトル束より強い条件を課している。
 
+その記述に使う**層**とは、各開集合に切断というデータを対応させ、開集合を小さくしたときの制限と、重なりで一致する局所切断の一意な貼り合わせができる仕組みである。$\underline V_U$ は、開集合 $U$ 上で $V$ に値を取る**局所定数写像**（各点の近くで一定となる写像）を切断とする**定数層**を表す。$r$ 次元の複素ベクトル空間を基底で $\mathbb C^r$ と同一視したとき、基底変更は $r\times r$ 行列で表され、二つとも基底ならその行列は可逆、すなわち $\operatorname{GL}_r(\mathbb C)$ に属する。
+
 <a id="def-def1-12-local-system"></a>
 
 <!-- formal-statement-start -->
@@ -29,10 +33,22 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-12-local-system -->
-**定義の確認**（積族）。$F$ を境界なしコンパクト多様体、$\mathcal X=F\times B$、$\pi(x,b)=b$ とする。すべてのファイバーを $(x,b)\mapsto x$ で $F$ と同定すれば、$H^k(X_b,\mathbb C)=H^k(F,\mathbb C)$。重なりの遷移行列は恒等行列であり、局所定数性と可逆性の両方が確かめられる。これが最も簡単な局所系である。
+**定義の確認**（積族）。$F$ を境界なしコンパクト多様体とし、$\mathcal X=F\times B$、$\pi(x,b)=b$ とする。各ファイバーを $(x,b)\mapsto x$ で $F$ と同定すると
+
+$$
+H^k(X_b,\mathbb C)=H^k(F,\mathbb C).
+$$
+
+この固定空間の元を $b$ に依らず一定にした切断は、制限・貼り合わせの条件を満たす定数層になる。同じ固定基底による局所同型間の遷移行列は $I_r$ であり、
+
+$$
+I_r^{-1}=I_r,\qquad dI_r=0.
+$$
+
+別の固定基底を選んでも遷移は一定の可逆行列になる。これで局所系の局所同型・可逆性・局所定数性をそれぞれ確認した。
 <!-- definition-example-end -->
 
-一般の族には局所自明化 $\Phi_i:\pi^{-1}(U_i)\to F_i\times U_i$ がある。重なりの各 $b$ で生じる微分同相 $g_{ij}(b):F_j\to F_i$ は $b$ に滑らかに依存する。$g_{ij}(b)$ 自体は動くが、コホモロジーに誘導する線形写像は局所定数となる。この違いが核心だ。
+一般の族には局所自明化 $\Phi_i:\pi^{-1}(U_i)\to F_i\times U_i$ がある。重なりの各 $b$ で生じる微分同相 $g_{ij}(b):F_j\to F_i$ は $b$ に滑らかに依存する。コホモロジーには向きを反転した引き戻し $g_{ij}(b)^*:H^k(F_i,\mathbb C)\to H^k(F_j,\mathbb C)$ が作用する。$g_{ij}(b)$ 自体は動くが、この線形写像は局所定数となる。この違いが核心だ。
 
 <a id="lem-def1-12-transition"></a>
 
@@ -49,23 +65,23 @@
 <!-- proof-start -->
 ### 証明
 
-$b_0,b_1$ を $U_i\cap U_j$ の一つの連結成分で取る。多様体の連結開集合は道連結なので、滑らかな区分的道 $c:[0,1]\to U_i\cap U_j$ で結べる。写像
+$b_0,b_1$ を $U_i\cap U_j$ の一つの連結成分で取る。多様体の連結開集合は道連結であり、区分的に滑らかな道の角を局所座標で滑らかにできるので、**滑らかな道** $c:[0,1]\to U_i\cap U_j$ で結べる。写像
 
 $$
 H:[0,1]\times F_j\longrightarrow F_i,\qquad
 H(t,x)=g_{ij}(c(t))(x)
 $$
 
-は $g_{ij}(b_0)$ から $g_{ij}(b_1)$ へのホモトピーである。[ホモトピー公式](../../GEO/GEO9/index.md#thm-geo9-homotopy-formula)を閉形式 $\omega$ に適用すると
+は $g_{ij}(b_0)$ から $g_{ij}(b_1)$ へのホモトピーである。ここでは $d_F$ を**引き戻し先 $F_j$ 上の外微分**、$K$ をこのホモトピーの次数を1下げる作用素とする。[ホモトピー公式](../../GEO/GEO9/index.md#thm-geo9-homotopy-formula)を $F_i$ 上の閉形式 $\omega$ に適用すると
 
 $$
 g_{ij}(b_1)^*\omega-g_{ij}(b_0)^*\omega=d_FK\omega
 $$
 
-となり、二つの引き戻しは同じ de Rham 類を誘導する。ここで $d_F$ は $F_j$ 上の外微分、$K$ はホモトピー作用素である。[de Rham比較定理の入力](../../HOD/HOD1-15/index.md#def-hod1-15-rational-complexification)によって、この等式は複素係数の特異コホモロジーへの作用についても同じ結論を与える。従って作用は連結成分上で一定。$\square$
+となり、二つの引き戻しは同じ de Rham 類を誘導する。[de Rham比較の自然性](../../HOD/HOD1-15/index.md#def-hod1-15-rational-complexification)によって、この等式は複素係数の特異コホモロジーへの作用についても同じ結論を与える。従って作用は連結成分上で一定。$\square$
 <!-- proof-end -->
 
-局所系を層として述べるための言葉も用意しておく。**層**とは、各開集合上のデータを制限でき、重なりで一致する局所データを一意に貼り合わせられる仕組みである。**層化**は前層からその仕組みを作る操作で、**茎**は一点の十分小さな近傍で一致する切断を同一視した「その点の近傍の情報」である。$R^k\pi_*$ はここでは以下の具体的な前層の層化を表す記号として使う。
+次に**前層**とは、開集合への切断の割当てと制限だけを指定し、貼り合わせをまだ要求しないものをいう。**層化**は前層から貼り合わせ可能な層を作る操作で、**茎**は一点の十分小さな近傍で一致する切断を同一視した「その点の近傍の情報」である。$R^k\pi_*$ はここでは以下の具体的な前層の層化を表す記号として使う。
 
 <a id="def-def1-12-cohomology-local-system"></a>
 
@@ -82,7 +98,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-12-cohomology-local-system -->
-**定義の確認**（積族から一般の族へ）。例えば $F=S^1$ と $B=\mathbb R$ の積族では、十分小さい区間 $U$ 上の $H^1(S^1\times U,\mathbb C)$ は $\mathbb C[dx]$ である。その茎も $H^1(S^1,\mathbb C)$ と一致する。
+**定義の確認**（積族から一般の族へ）。例えば $F=S^1=\mathbb R/\mathbb Z$ と $B=\mathbb R$ の積族では、$x$ を円周の周期1座標として、十分小さい区間 $U$ 上の $H^1(S^1\times U,\mathbb C)$ は $\mathbb C[dx]$ である。区間を縮めても $[dx]$ は同じ類へ制限されるので、茎も $H^1(S^1,\mathbb C)$ と一致する。
 
 一般の族でも[Ehresmannの定理](../DEF1-01/index.md#thm-def1-01-ehresmann)によって局所自明化が得られる。$U$ をさらに小さい可縮な近傍とすれば $\pi^{-1}(U)\simeq F\times U$ で、射影 $F\times U\to F$ はホモトピー同値。従って
 
@@ -97,7 +113,7 @@ $$
 
 ## 3. 局所系を滑らかな束へ拡張し、平坦接続を作る
 
-局所系 $\mathscr L^k$ の局所定数な基底 $e_1,\ldots,e_r$ に対し、係数を滑らかな関数 $f_j(b)$ に広げれば、滑らかな切断 $s=\sum_j f_je_j$ が得られる。局所定数な基底そのものは微分しても零となるべきである。
+局所系 $\mathscr L^k$ の局所定数な基底 $e_1,\ldots,e_r$ に対し、係数を滑らかな関数 $f_j(b)$ に広げれば、滑らかな切断 $s=\sum_j f_je_j$ が得られる。局所定数な基底そのものは微分しても零となるべきである。$T^*B$ は余接束で、$df_j$ は基底変数 $b$ についての外微分である。
 
 接続とは、ベクトル束の滑らかな切断 $s$ の微分を、$B$ 上の1形式を係数とする束の切断 $\nabla s$ として返し、$\nabla(fs)=df\otimes s+f\nabla s$ を満たす演算である。局所系の遷移行列が一定であることが、その微分を座標に依らず貼り合わせる。
 
@@ -122,9 +138,31 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-12-gauss-manin -->
-**定義の確認**（同一視の変更）。$e'_j=\sum_i e_iG_{ij}$ と取り替えると、重なりの連結成分上で $G\in\operatorname{GL}_r(\mathbb C)$ は一定である。$s=e f=e'f'$ なら $f=Gf'$。従って $df=G\,df'$ となり、どちらの基底で微分しても同じ $T^*B\otimes\mathcal H^k$ の切断を得る。行列が単に可逆なだけでは不十分で、$dG=0$ が要点である。
+**定義の確認**（同一視の変更）。旧基底を行ベクトル $e=(e_1,\ldots,e_r)$、新基底を $e'=(e'_1,\ldots,e'_r)$ と並べる。$e'_j=\sum_i e_iG_{ij}$ なので**行列 $G$ の第 $j$ 列は新基底 $e'_j$ の旧基底表示**であり、$e'=eG$ となる。両方が基底だから $\det G\ne0$、かつ[遷移の局所定数性](#lem-def1-12-transition)により重なりの連結成分上で $dG=0$ である。切断 $s=e f=e'f'$ の係数列を比較すれば $f=Gf'$。従って
 
-例えば積族 $T^2\times\mathbb R_t$ で $e=([dx],[dy])$、$e'=([dx],[dx]+[dy])$ と取ると、$G=\bigl(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\bigr)$ は定数で行列式が1。切断 $s=t([dx]+[dy])$ は旧基底では係数 $(t,t)^{\mathsf T}$、新基底では $(0,t)^{\mathsf T}$ となる。どちらで微分しても $\nabla_{\partial_t}s=[dx]+[dy]$ で、条件を直接検証できる。
+$$
+df=d(Gf')=(dG)f'+G\,df'=G\,df',
+\qquad e\,df=e'\,df',
+$$
+
+となり、どちらの基底で微分しても同じ $T^*B\otimes\mathcal H^k$ の切断を得る。行列が単に可逆なだけでは不十分で、$dG=0$ が要点である。
+
+例えば積族 $T^2\times\mathbb R_t$ で $e=([dx],[dy])$、$e'=([dx],[dx]+[dy])$ と取る。$e'_1=e_1$、$e'_2=e_1+e_2$ なので、列の係数を並べると
+
+$$
+G=\begin{pmatrix}1&1\\0&1\end{pmatrix},
+\qquad \det G=1,\qquad dG=0.
+$$
+
+切断 $s=t([dx]+[dy])$ は、旧基底では係数 $f=(t,t)^{\mathsf T}$、新基底では $f'=(0,t)^{\mathsf T}$ となり、実際に $Gf'=f$。従って
+
+$$
+e\,df=e\begin{pmatrix}dt\\dt\end{pmatrix}
+=e'\begin{pmatrix}0\\dt\end{pmatrix},
+\qquad \nabla_{\partial_t}s=[dx]+[dy].
+$$
+
+この直接計算でも、異なる基底で接続が一致することを確認できる。
 <!-- definition-example-end -->
 
 接続を1形式を係数とする束値形式へ積の符号規則に従って拡張し、その二乗を曲率という。平坦とは、その曲率が零であることだ。
@@ -190,7 +228,13 @@ $$
 
 いま $\omega_b$ がファイバー $X_b$ 上の滑らかな閉 $k$ 形式として滑らかに動くとする。単なる係数の微分は、異なる $X_b$ を同じ座標で見てよいかに依存する。局所自明化で同じ固定多様体 $F$ に引き戻してから微分し、その**コホモロジー類**を取るのが正しい。
 
-この節の $d_F$ はファイバー方向の外微分、$d_{\mathcal X}$ は全空間の外微分を表す。ベクトル場 $V$ を基底上に取り、$\pi$ の微分で $V$ に写る全空間のベクトル場 $\widetilde V$ を**持ち上げ**という。局所自明化を使えば持ち上げを作れるが、その選択には任意性がある。
+この節の $d_F$ はファイバー方向の外微分、$d_{\mathcal X}$ は全空間の外微分を表す。基底上の実ベクトル場 $V$ と、$b'(0)=V_b$ となる道 $b(t)$ を取る。固定ファイバー表示の係数を微分する操作を
+
+$$
+V\omega_b=\left.\frac{d}{dt}\right|_{0}\omega_{b(t)}
+$$
+
+と書く。ここでは**基底の変数だけ**を動かし、ファイバー座標は固定する。さらに、$\pi$ の微分で $V$ に写る全空間のベクトル場 $\widetilde V$ を**持ち上げ**という。局所自明化を使えば持ち上げを作れるが、その選択には任意性がある。
 
 <a id="prop-def1-12-de-rham-formula"></a>
 
@@ -262,7 +306,14 @@ $$
 をファイバーへ制限すると、第一項はファイバー方向の完全形式になるため最後の等式が従う。$\square$
 <!-- proof-end -->
 
-**計算例（固定トーラスに動く複素構造）。** $B=\{\tau\in\mathbb C:\operatorname{Im}\tau>0\}$、$X_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ とする。実座標 $(x,y)\in\mathbb R^2/\mathbb Z^2$ から $z=x+\tau y$ への写像が、滑らかなファイバーの同一視を与える。$dx,dy$ はこの同一視では一定の閉形式なので
+**計算例（固定トーラスに動く複素構造）。** $B=\{\tau\in\mathbb C:\operatorname{Im}\tau>0\}$、$X_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ とする。実座標 $(x,y)\in\mathbb R^2/\mathbb Z^2$ から $z=x+\tau y$ への写像が、滑らかなファイバーの同一視を与える。$\tau=u+iv$（$v>0$）と書き、複素方向の微分は実方向への接続の複素線形拡張
+
+$$
+\partial_\tau=\frac12(\partial_u-i\partial_v),\qquad
+\partial_{\bar\tau}=\frac12(\partial_u+i\partial_v)
+$$
+
+とする。$\partial/\partial\tau$ も $\partial_\tau$ と同じ意味で、$x,y$ は固定して $u,v$ を動かす。$dx,dy$ はこの同一視では一定の閉形式なので
 
 $$
 \nabla^{\mathrm{GM}}[dx]=\nabla^{\mathrm{GM}}[dy]=0.
@@ -369,7 +420,7 @@ $F=S^1$、$B=\mathbb R$、$\mathcal X=F\times B$ とする。$k=0,1,2$ で $\mat
 <!-- solution-start -->
 **詳細解答**
 
-各ファイバーは円周に同一視される。[円周のde Rhamコホモロジー](../../GEO/GEO9/index.md#thm-geo9-h1-circle)と連結性から $H^0(S^1,\mathbb C)=\mathbb C$、$H^1(S^1,\mathbb C)=\mathbb C[dx]$、$H^2(S^1,\mathbb C)=0$。従って階数は順に $1,1,0$。$k=1$ の滑らかな切断は $s(t)=a(t)[dx]$ で、接続は $\nabla_{\partial_t}s=a'(t)[dx]$。従って平行条件は $a'=0$、すなわち $a$ が定数である。
+各ファイバーは円周に同一視される。[円周のde Rhamコホモロジー](../../GEO/GEO9/index.md#thm-geo9-h1-circle)と連結性から $H^0(S^1,\mathbb C)=\mathbb C$、$H^1(S^1,\mathbb C)=\mathbb C[dx]$、$H^2(S^1,\mathbb C)=0$。従って階数は順に $1,1,0$。$k=1$ の滑らかな切断は $s(t)=a(t)[dx]$ である。$\partial_t=\partial/\partial t$ は基底変数 $t$ の方向で、この一変数関数の $a'(t)=da/dt$ を用いると $\nabla_{\partial_t}s=a'(t)[dx]$。従って平行条件は $a'=0$、すなわち $a$ が定数である。
 <!-- solution-end -->
 
 <a id="ex-def1-12-a02"></a>
@@ -441,7 +492,15 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-各連結なファイバーの局所定数関数は定数なので $H^0(X_b,\mathbb C)=\mathbb C\cdot[1]$。[Ehresmann自明化](../DEF1-01/index.md#thm-def1-01-ehresmann)は定数関数 $1$ を $1$ に移す。従って $\mathscr L^0=\underline{\mathbb C}_B$、$\mathcal H^0$ は自明な線束で $\nabla(f[1])=df\otimes[1]$ である。ファイバーが2成分なら $H^0(X_b,\mathbb C)\simeq\mathbb C^2$ となり、基底の閉路で2成分が交換される可能性がある。階数1という結論には連結性が必要である。
+各連結なファイバーの局所定数関数は定数なので $H^0(X_b,\mathbb C)=\mathbb C\cdot[1]$。[Ehresmann自明化](../DEF1-01/index.md#thm-def1-01-ehresmann)は定数関数 $1$ を $1$ に移す。従って、局所系・束・接続はそれぞれ
+
+$$
+\mathscr L^0=\underline{\mathbb C}_B,\qquad
+\mathcal H^0=B\times\mathbb C,\qquad
+\nabla(f[1])=df\otimes[1]
+$$
+
+である。一方、ファイバーが2成分なら $H^0(X_b,\mathbb C)\simeq\mathbb C^2$ となり、基底の閉路で2成分が交換される可能性がある。階数1という結論には連結性が必要である。
 <!-- solution-end -->
 
 <a id="ex-def1-12-b01"></a>
@@ -495,7 +554,7 @@ $S^1\times\mathbb R\to\mathbb R$ で $\omega_t=u(t,x)\,dx$ とする（$u$ は $
 <!-- solution-start -->
 **詳細解答**
 
-$\omega=u\,dx$ としてCartanの公式を展開すると、$x$ 成分は
+$\omega=u\,dx$ として[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を展開すると、$x$ 成分は（$\partial_t$ は $x$ を、$\partial_x$ は $t$ を固定して微分する）
 
 $$
 \left.\mathcal L_{\widetilde V}(u\,dx)\right|_{S^1}

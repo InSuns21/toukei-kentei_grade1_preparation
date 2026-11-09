@@ -18,17 +18,27 @@
 
 ## 2. 緯線を周期メッシュにする
 
-単位球面の余緯度 $\theta_0\in(0,\pi)$ の緯線を、経度 $t\in\mathbb R/(2\pi\mathbb Z)$ で表す。[MFL40のmoving frame](../MFL40/index.md#def-mfl40-connection-matrix)の正規直交基底 $E(t)=(e_\theta,e_\varphi)$ では、経度 $t$ に関する接続行列が $kJ$ となる。ただし $k=\cos\theta_0$、$J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ である。したがって成分列 $c(t)\in\mathbb R^2$ の経度方向の共変微分は
+単位球面の余緯度 $\theta_0\in(0,\pi)$ の緯線を、経度 $t\in\mathbb R/(2\pi\mathbb Z)$ で表す。[MFL40のmoving frame](../MFL40/index.md#def-mfl40-connection-matrix)の正規直交基底 $E(t)=(e_\theta,e_\varphi)$ では、経度 $t$ に関する接続行列が $kJ$ となる。ただし $k=\cos\theta_0$、$J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ である。
+
+緯線に沿う接ベクトル場を $V(t)=E(t)c(t)$ と成分表示し、$c'(t)=dc/dt$ は**経度 $t$ による一変数の通常微分**とする（球面上の二変数の偏微分ではない）。[MFL40の接続行列の定義](../MFL40/index.md#def-mfl40-connection-matrix)に従う経度方向の共変微分は
 
 $$
 D_tc=c'(t)+kJc(t).
 $$
 
-ここで $c'$ は経度による通常の微分である。$t$ は**弧長ではなく経度**なので、$-D_t^2$ はこの曲線に沿う共変二階作用素であり、球面全体のLaplace–Beltrami作用素とは異なる。緯線の弧長は $s=(\sin\theta_0)t$ だから、弧長の二階作用素に直すなら $(\sin\theta_0)^{-2}$ が必要になる。
+$t$ は**弧長ではなく経度**なので、$-D_t^2$ はこの曲線に沿う共変二階作用素であり、球面全体のLaplace–Beltrami作用素とは異なる。緯線の弧長は $s=(\sin\theta_0)t$ だから、弧長の二階作用素に直すなら $(\sin\theta_0)^{-2}$ が必要になる。
 
 頂点数 $N\ge3$ を固定し、$h=2\pi/N$、$t_i=ih$（$i=0,\ldots,N-1$）とする。添字は $N$ を法として解釈し、例えば $c_N=c_0$ とする。辺 $i+1\to i$ は経度を $-h$、辺 $i-1\to i$ は $+h$ だけ進む短い緯線弧を選び、端の継ぎ目でも同じ向きの弧を使う。
 
-二つの隣接点の接平面からの成分を、中心点 $i$ のフレームへ輸送してから差を取る。この手順を次に定義する。$R(\alpha)=\cos\alpha I_2+\sin\alpha J$ は平面回転であり、$R(\alpha)^{-1}=R(-\alpha)$ である。
+二つの隣接点の接平面からの成分を、中心点 $i$ のフレームへ輸送してから差を取る。$R(\alpha)=\cos\alpha I_2+\sin\alpha J$ は平面回転であり、$R(\alpha)^{\mathsf T}=R(-\alpha)=R(\alpha)^{-1}$ である。
+
+輸送行列は勝手に回転角を選んだものではない。[MFL40の辺輸送の定義](../MFL40/index.md#def-mfl40-edge-transport)と[接続行列の平行移動条件](../MFL40/index.md#thm-mfl40-connection-gauge)から、平行な場の成分は $D_tc=0$、すなわち $c'=-kJc$ を満たす。$k$ が一定なので、経度を $\Delta t$ だけ進むと
+
+$$
+c(t+\Delta t)=R(-k\Delta t)c(t).
+$$
+
+したがって $i+1$ から $i$ へは $\Delta t=-h$ で $R(kh)$、$i-1$ から $i$ へは $\Delta t=h$ で $R(-kh)$ を使う。これはそれぞれ**出発フレームから到着フレームへの輸送**を表し、$R(-kh)=R(kh)^{\mathsf T}$ が逆向き辺の条件に対応する。
 
 <a id="def-mfl42-covariant-mesh"></a>
 <!-- formal-statement-start -->
@@ -49,7 +59,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl42-covariant-mesh -->
-**定義の確認**：赤道では $\theta_0=\pi/2$、$k=0$ となり、両輸送が $I_2$ で、普通の周期中心差分に戻る。一方 $\theta_0=\pi/3$ では $k=1/2$。$N=4$、$h=\pi/2$、$c_{i+1}=(1,0)^{\mathsf T}$、$c_i=c_{i-1}=0$ なら、$T_{i,i+1}=R(\pi/4)$ は正規直交行列で、
+**定義の確認**：赤道では $\theta_0=\pi/2$ で $k=0$ となる。両方向の輸送と逆向き輸送はすべて $I_2$ なので、定義式は通常の周期中心差分に戻る。
+
+一方、$\theta_0=\pi/3$、$N=4$、$h=\pi/2$ とすると $k=1/2$ だから、両隣からの輸送は
+
+$$
+T_{i,i+1}=R(\pi/4),\qquad T_{i,i-1}=R(-\pi/4).
+$$
+
+$R(\alpha)^{\mathsf T}R(\alpha)=I_2$ により各輸送は長さ・内積を保存する。逆向き辺でも
+
+$$
+T_{i+1,i}=R(-\pi/4)=T_{i,i+1}^{\mathsf T}
+$$
+
+となり、定義の逆向き条件を満たす。さらに $c_{i+1}=(1,0)^{\mathsf T}$、$c_i=c_{i-1}=0$ とする。出発点の成分を中心の到着フレームへ移せば
+
+$$
+R(\pi/4)(1,0)^{\mathsf T}=\frac1{\sqrt2}(1,1)^{\mathsf T}
+$$
+
+となる。これを差分の定義式に代入すると
 
 $$
 (L_hc)_i=-\frac{R(\pi/4)(1,0)^{\mathsf T}}{(\pi/2)^2}
@@ -58,8 +88,6 @@ $$
 
 > 特に近傍の値をそのまま引くのではなく、接ベクトルを到着フレームへ合わせてから引く。
 <!-- definition-example-end -->
-
-なぜ輸送の符号がこうなるのか。[MFL40の接続行列の平行移動方程式](../MFL40/index.md#thm-mfl40-connection-gauge)とその緯線計算により、$c'=-kJc$ を経度差 $\Delta t$ だけ解くと $R(-k\Delta t)$ となる。$i+1$ から $i$ への $\Delta t=-h$ を代入すると $R(kh)$、逆側は $R(-kh)$ である。
 
 ## 3. フレーム変更は誤差の大きさを変えない
 
@@ -109,7 +137,7 @@ $$
 
 ## 4. メッシュ細分化で連続の何へ近づくか
 
-滑らかな周期場 $c(t)$ の標本 $c_i=c(t_i)$ を考える。離散作用素の目標を $\mathcal Lc=-D_t^2c$ と定める。$D_t$ は第2節の共変微分で、連続二階作用素は次のように計算される。
+滑らかな周期場 $c(t)$ の標本 $c_i=c(t_i)$ を考える。$D_t^r$ は第2節の共変微分 $D_t$ を $r$ 回合成する記号とし、離散作用素の目標を $\mathcal Lc=-D_t^2c$ と定める。連続二階作用素は次のように計算される。
 
 $$
 D_t^2c=c''+2kJc'-k^2c,
@@ -158,12 +186,12 @@ $$
 左辺は定義により所望の差である。$\square$
 <!-- proof-end -->
 
-**手で分かる固有モード。** 整数 $m$ と固定 $u\in\mathbb R^2$ に対し、周期場 $c(t)=R(mt)u$ とする。$m$ が整数なので $c(t+2\pi)=c(t)$ であり、$D_tc=(m+k)Jc$ となる。
+**手で分かる固有モード。** 整数 $m$ と固定した非零ベクトル $u\in\mathbb R^2\setminus\{0\}$ に対し、周期場 $c(t)=R(mt)u$ とする。$m$ が整数なので $c(t+2\pi)=c(t)$ であり、$D_tc=(m+k)Jc$ となる。
 
 <a id="prop-mfl42-mode-error"></a>
 <!-- formal-statement-start -->
 > **命題（回転モードの離散固有値と誤差）**  
-> $N\ge3$、$h=2\pi/N$、$k=\cos\theta_0$、$m\in\mathbb Z$、$c_i=R(mt_i)u$（$u\in\mathbb R^2$）とする。このとき $c$ は $L_h$ の固有列で、連続作用素 $\mathcal L=-D_t^2$ と比較した固有値は
+> $N\ge3$、$h=2\pi/N$、$k=\cos\theta_0$、$m\in\mathbb Z$、$c_i=R(mt_i)u$（$u\in\mathbb R^2\setminus\{0\}$）とする。このとき $c$ は $L_h$ の非零固有列で、連続作用素 $\mathcal L=-D_t^2$ と比較した固有値は
 
 $$
 \lambda_h=\frac{4\sin^2((m+k)h/2)}{h^2},
@@ -443,12 +471,26 @@ $$
 <!-- solution-end -->
 
 <a id="ex-mfl42-a04"></a>
-**A04（安定な刻み）。** $h=1/4$ の周期メッシュで直交輸送を用いる。$\tau=1/64$ と $\tau=1/16$ のうち、[安定性定理](#thm-mfl42-explicit-stability)が非増幅を保証するのはどちらか。値を比較せよ。
+**A04（安定な刻み）。** $N=8$、$h=2\pi/N=\pi/4$ の周期メッシュで直交輸送を用いる。$\tau=\pi^2/64$ と $\tau=\pi^2/16$ のうち、[安定性定理](#thm-mfl42-explicit-stability)が非増幅を保証するのはどちらか。値を比較せよ。
 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $h^2/2=(1/16)/2=1/32$ が上限である。$1/64\le1/32$ だから前者は保証範囲内。$1/16>1/32$ なので後者は保証されない。後者がすべての初期値で必ず増幅するのではなく、定理の条件を外れるという結論である。
+**詳細解答。** $h=\pi/4$ なので、[安定性定理](#thm-mfl42-explicit-stability)の上限は
+
+$$
+\frac{h^2}{2}=\frac{\pi^2}{32}.
+$$
+
+前者は $\pi^2/64\le\pi^2/32$ より保証範囲内である。後者は $\pi^2/16>\pi^2/32$ なので保証されない。
+
+さらに後者は $r=\tau/h^2=1$ である。赤道で交互列を選ぶと、一歩の倍率は
+
+$$
+1-4r=1-4=-3
+$$
+
+となり、長さを増幅する。ただし任意の初期列が必ず増幅するという意味ではない。
 <!-- solution-end -->
 
 ### Level B：異なる誤差を区別する
