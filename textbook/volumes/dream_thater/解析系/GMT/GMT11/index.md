@@ -13,7 +13,7 @@ c_m=\mathcal H^m([0,1]^m)>0,\qquad
 \mathcal H^m\big|_{\mathbb R^m}=c_m\mathcal L^m
 $$
 
-と書きます。とくに $c_1=1$ ですが、一般の $m$ で $c_m=1$ と置いてはいけません。また $J_m f(x)=J_m(Df(x))$ とし、[Rademacher の定理](../GMT9/index.md#thm-gmt9-rademacher)によって $Df$ が存在する $\mathcal L^m$-a.e. の点で定義します。それ以外では便宜上 $J_m f=0$ と定めます。これは可測な非負関数です。
+と書きます。とくに $c_1=1$ ですが、一般の $m$ で $c_m=1$ と置いてはいけません。[Rademacher の定理](../GMT9/index.md#thm-gmt9-rademacher)により $Df$ は $\mathcal L^m$ に関してほとんど至る所（almost everywhere; a.e.）で存在します。そこで $J_m f(x)=J_m(Df(x))$ を微分可能点で定義し、それ以外では便宜上 $J_m f=0$ と定めます。これは可測な非負関数です。
 
 ## 1. 折り重なった像をどう数えるか
 
@@ -652,7 +652,10 @@ rank が2なら球数が $O(\varepsilon^{-2})$ となり、この積で $\vareps
 
 **C1. 折り返した斜面の重複度と重み**
 - Level: C
-- 問題: 定数 $a,b\in\mathbb R$ と $E=[-1,2]\times[0,1]$ に対し、$F:E\to\mathbb R^3$ を $F(x,y)=(|x|,y,a|x|+by)$ とする。(1) $x\ne0$ での $J_2F$ を求めよ。(2) 像点 $(u,v,au+bv)$ の重複度を $u$ の範囲で表し、非正規化 $\mathcal H^2$ を用いて area formula を検算せよ。(3) 重み $g(x,y)=1+x\ge0$ について重み付き formula の両辺を計算せよ。
+- 問題: 定数 $a,b\in\mathbb R$ と $E=[-1,2]\times[0,1]$ に対し、$F:E\to\mathbb R^3$ を $F(x,y)=(|x|,y,a|x|+by)$ とする。次の3項目を調べよ。
+  1. $x\ne0$ での $J_2F$ を求めよ。
+  2. 像点 $(u,v,au+bv)$ の重複度を $u$ の範囲で表し、非正規化 $\mathcal H^2$ を用いて area formula を検算せよ。
+  3. 重み $g(x,y)=1+x\ge0$ について重み付き formula の両辺を計算せよ。
 
 <!-- solution-start -->
 **詳細解答**
