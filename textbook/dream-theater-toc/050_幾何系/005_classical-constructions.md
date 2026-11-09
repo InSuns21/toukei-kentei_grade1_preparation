@@ -10,3 +10,4 @@
 7. [SQC7 円積不可能性の決着](textbook/volumes/dream_thater/幾何系/SQC/SQC7/index.md)
 8. [SQC8 多角形の等積分割](textbook/volumes/dream_thater/幾何系/SQC/SQC8/index.md)
 9. [SQC9 Tarskiの円積問題とLaczkovichの解](textbook/volumes/dream_thater/幾何系/SQC/SQC9/index.md)
+10. [SQC10 有限等分解を支える組合せ論](textbook/volumes/dream_thater/幾何系/SQC/SQC10/index.md)
