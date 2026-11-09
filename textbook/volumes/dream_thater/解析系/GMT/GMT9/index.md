@@ -109,7 +109,23 @@ $$
 
 です。直交基底の第1軸を $e$ に取り、$x=z+se$（$z\perp e$）と変数変換します。直交変換のJacobianの絶対値は1です。$f(z+se)$ は各直線上でLipschitz、従って絶対連続ですから、切片の通常の導関数 $d f(z+se)/ds$ がa.e.存在します。
 
-直線上の部分積分をもう一度使うと、上の式の左辺は $-\int (d f(z+se)/ds)\varphi(z+se)\,dz\,ds$ でもあります。差を $H(z,s)=d f(z+se)/ds-G(z+se)e$ と置けば、任意の滑らかなコンパクト台関数 $\varphi$ に対して $\int H\varphi=0$ です。これから $H=0$ a.e.を確かめます。非負の滑らかな球内支持関数 $\eta$ で $\int\eta=1$ を取り、$\eta_\varepsilon(u)=\varepsilon^{-n}\eta(u/\varepsilon)$ とします。$H$ のLebesgue点 $p$ の十分小さい近傍では $\varphi(q)=\eta_\varepsilon(p-q)$ を選べるので $\int H(q)\eta_\varepsilon(p-q)dq=0$ です。一方、$\eta_\varepsilon\le C\varepsilon^{-n}$ と[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)から、この積分は $\varepsilon\downarrow0$ で $H(p)$ へ収束します。従って $H(p)=0$、すなわちa.e.で $H=0$ です。よって
+直線上の部分積分をもう一度使うと、上の式の左辺は次の式でも表せます。
+
+$$
+-\int\frac d{ds}f(z+se)\,\varphi(z+se)\,dz\,ds.
+$$
+
+両方の表示を引き、差を $H(z,s)=d f(z+se)/ds-G(z+se)e$ と置きます。任意の滑らかなコンパクト台関数 $\varphi$ に対して $\int H\varphi=0$ です。これから $H=0$ a.e.を確かめます。
+
+非負の滑らかな球内支持関数 $\eta$ で $\int\eta=1$ を取り、$\eta_\varepsilon(u)=\varepsilon^{-n}\eta(u/\varepsilon)$ と定めます。$H$ のLebesgue点 $p$ を固定します。
+
+十分小さい $\varepsilon$ について $\varphi(q)=\eta_\varepsilon(p-q)$ は許される関数です。従って
+
+$$
+\int H(q)\eta_\varepsilon(p-q)\,dq=0.
+$$
+
+$\eta_\varepsilon\le C\varepsilon^{-n}$ と[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)から、左辺は $\varepsilon\downarrow0$ で $H(p)$ へ収束します。ゆえに $H(p)=0$ です。Lebesgue点はa.e.存在するので $H=0$ a.e.となり、
 
 $$
 \frac d{ds}f(z+se)=G(z+se)e
@@ -505,7 +521,14 @@ $x=0$ では第1成分 $|x|$ の左右差商が食い違い、$x=y$ では第2�
 **C1. 一変数の微分からRademacher定理まで**
 
 - Level: C
-- 問題: $f:\mathbb R^n\to\mathbb R^m$ を $L$-Lipschitzとする。次を使い、a.e.でFréchet微分できることを証明せよ。(1) 1変数Lipschitz関数は絶対連続でa.e.微分可能、(2) [Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)と高次元Lebesgue微分定理、(3) 各固定方向 $v$ の線分積分公式、(4) $K$-Lipschitzな剰余の平均が $o(r)$ なら一様剰余も $o(r)$。特に、方向ごとの例外集合を無条件に交差させないこと、変数変換の体積因子、微分の作用素ノルムを明記せよ。
+- 問題: $f:\mathbb R^n\to\mathbb R^m$ を $L$-Lipschitzとする。次の道具を使い、a.e.でFréchet微分できることを証明せよ。
+
+  1. 1変数Lipschitz関数は絶対連続でa.e.微分可能。
+  2. [Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)と高次元Lebesgue微分定理。
+  3. 各固定方向 $v$ の線分積分公式。
+  4. $K$-Lipschitzな剰余の平均が $o(r)$ なら、一様剰余も $o(r)$。
+
+  特に方向ごとの例外集合を無条件に交差させないこと、変数変換の体積因子、微分の作用素ノルムを明記せよ。
 
 <!-- solution-start -->
 **詳細解答**
@@ -516,7 +539,13 @@ $$
 \operatorname{avg}_{B_\rho}\|G(x+z)-A\|_{\mathrm{op}}dz\to0.
 $$
 
-各**固定** $v$ について、座標積分恒等式を合成して直線方向の弱い導関数が $Gv$ であることを示し、直線の絶対連続性から $f(x+v)-f(x)=\int_0^1G(x+tv)vdt$ をa.e.の $x$ で得ます。$v$ ごとに零集合が違ってよいことを保ったまま、$(x,h)$ に[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用して、a.e.の $x$ ではa.e.の $h$ についてこの等式が成り立つとします。
+各**固定** $v$ について、座標積分恒等式を合成し、直線方向の導関数が $Gv$ に等しいと示します。直線の絶対連続性から、a.e.の $x$ で
+
+$$
+f(x+v)-f(x)=\int_0^1G(x+tv)v\,dt
+$$
+
+を得ます。ここでは方向 $v$ ごとに例外集合が違って構いません。$(x,h)$ に[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用すると、a.e.の $x$ ではa.e.の $h$ について同じ積分公式が成立します。
 
 このようなLebesgue点 $x$ を固定し、$R(h)=f(x+h)-f(x)-Ah$ と置きます。$|h|\le r$ と[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から
 
