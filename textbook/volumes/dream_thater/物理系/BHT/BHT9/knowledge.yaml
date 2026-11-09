@@ -1,0 +1,43 @@
+chapter: BHT9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT8
+  - BHT7
+  - TH4
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.stationary-entropy-potential
+    name: 定常解族のエントロピー・ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定常解族のエントロピー・ポテンシャル）"]
+    requires: [black-hole-thermodynamics.hawking-first-law-area-coefficient, thermodynamics.entropy]
+
+  - id: black-hole-thermodynamics.area-entropy-difference
+    name: 非極限定常解族の面積エントロピー差と積分定数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非極限定常解族の面積エントロピー差と積分定数）"]
+    requires: [black-hole-thermodynamics.stationary-entropy-potential, black-hole-thermodynamics.hawking-first-law-area-coefficient]
+
+  - id: black-hole-thermodynamics.bekenstein-hawking-entropy
+    name: Bekenstein–Hawking面積規格化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bekenstein–Hawking面積規格化）"]
+    requires: [black-hole-thermodynamics.area-entropy-difference]
+
+  - id: black-hole-thermodynamics.schwarzschild-entropy-mass-law
+    name: Schwarzschildエントロピーの質量依存と有限差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschildエントロピーの質量依存と有限差）"]
+    requires: [black-hole-thermodynamics.bekenstein-hawking-entropy, black-hole-thermodynamics.schwarzschild-state-data]
+
+  - id: black-hole-thermodynamics.entropy-si-units
+    name: Bekenstein–Hawkingエントロピーの物理単位
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Bekenstein–Hawkingエントロピーの物理単位）"]
+    requires: [black-hole-thermodynamics.bekenstein-hawking-entropy, black-hole-thermodynamics.schwarzschild-hawking-si-response]

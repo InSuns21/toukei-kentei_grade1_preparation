@@ -1,0 +1,43 @@
+id: "BHT9"
+title: "Bekenstein–Hawkingエントロピー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT8
+  - BHT7
+  - TH4
+official_scope: []
+learning_objectives:
+  - 定常非極限ブラックホールの第一法則とHawking温度からエントロピー微分がdA/4であることを証明できる
+  - 正則な連結状態領域での積分定数と面積規格化の選択を区別し、第一法則だけでは絶対値を決められない理由を説明できる
+  - Schwarzschildの面積・温度からS=4πM²とdM=T_HdSを独立に検算し、有限差への誤用を防げる
+  - SI単位でS=k_B c³ A/(4Gℏ)=4πk_B Gm²/(ℏc)を導き、温度との積の単位と係数を検算できる
+  - Planck面積と太陽質量級のスケールを数値検算し、面積則の適用範囲と量子蒸発時の面積減少を区別できる
+definitions:
+  - { id: BHT9-DEF-01, name: "定常解族のエントロピー・ポテンシャル" }
+  - { id: BHT9-DEF-02, name: "Bekenstein–Hawking面積規格化" }
+theorems:
+  - { id: BHT9-THM-01, name: "非極限定常解族の面積エントロピー差と積分定数" }
+  - { id: BHT9-PROP-01, name: "Schwarzschildエントロピーの質量依存と有限差" }
+  - { id: BHT9-PROP-02, name: "Bekenstein–Hawkingエントロピーの物理単位" }
+canonical_examples:
+  - SchwarzschildのA=16πM²とT=1/(8πM)の双方からS=4πM²+Cを得る
+  - Mから2Mへの変化でエントロピー差と温度付き積分を比較する
+  - Kerr–Newmanの固定面積方向でdS=0でも仕事項は残ることを説明する
+  - Planck面積と太陽質量級の面積・温度・エントロピーを数値検算する
+  - 古典的面積定理の仮定が量子蒸発に引き継がれないことを確認する
+problem_patterns:
+  - BHT9-SCHWARZSCHILD-INTEGRATION
+  - BHT9-INTEGRATION-CONSTANT
+  - BHT9-MASS-SCALING
+  - BHT9-PLANCK-AREA
+  - BHT9-SI-DIMENSIONS
+  - BHT9-FINITE-DIFFERENCE
+  - BHT9-FIXED-AREA-WORK
+  - BHT9-AREA-THEOREM-LIMIT
+  - BHT9-SOLAR-MASS-SCALE
+  - BHT9-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
