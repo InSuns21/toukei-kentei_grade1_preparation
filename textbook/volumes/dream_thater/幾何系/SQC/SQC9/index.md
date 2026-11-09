@@ -81,7 +81,21 @@ $f(x)=f(x')=y$ とします。$x\in A_i$、$x'\in A_j$ なら、$y\in(A_i+v_i)\c
 
 ### 面積をいつ足してよいか
 
-ここで $\lambda_2(E)$ を平面のLebesgue可測集合 $E$ の面積とします。これは直線のLebesgue測度を[積測度として構成する方法](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-01)に基づく平面の測度で、長方形 $I\times J$ では $\lambda_2(I\times J)=\lambda_1(I)\lambda_1(J)$ です（$\lambda_1$ は直線上のLebesgue測度）。平行移動しても長方形の辺長は変わらず、この不変性は測度の構成から一般のLebesgue可測集合にも及びます。可測な片については、$\lambda_2$ の有限加法性と $\lambda_2(E+v)=\lambda_2(E)$ を使えます。
+ここで $\lambda_2(E)$ を平面のLebesgue可測集合 $E$ の面積とします。これは直線のLebesgue測度を[積測度として構成する方法](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-01)に基づく平面の測度で、長方形 $I\times J$ では
+
+$$
+\lambda_2(I\times J)=\lambda_1(I)\lambda_1(J)
+$$
+
+です。$\lambda_1$ は直線上のLebesgue測度を表します。
+
+平行移動しても長方形の辺長は変わらず、この不変性は測度の構成から一般のLebesgue可測集合にも及びます。可測な片については、$\lambda_2$ の有限加法性と平行移動不変性
+
+$$
+\lambda_2(E+w)=\lambda_2(E)
+$$
+
+を使えます。
 
 <a id="prop-sqc9-measurable-area"></a>
 
@@ -129,7 +143,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sqc9-upper-box-dimension -->
-**定義の確認** （水平線分）　$E=[0,L]\times\{0\}$（$L>0$）を考えます。第1座標への射影とは点 $(x,y)$ から第1成分 $x$ だけを取り出す操作です。一辺 $\delta$ の正方形の射影は長さ $\delta$ の区間なので、$[0,L]$ を覆うには少なくとも $L/\delta$ 個が必要です。一方、長さ $L$ の線分を $\lceil L/\delta\rceil+1$ 個の正方形で覆えます。したがって
+**定義の確認** （水平線分）　$E=[0,L]\times\{0\}$（$L>0$）を考えます。第1座標への射影とは点 $(x,y)$ から第1成分 $x$ だけを取り出す操作です。
+
+一辺 $\delta$ の正方形の射影は長さ $\delta$ の区間なので、区間 $[0,L]$ を覆うには少なくとも $L/\delta$ 個が必要です。一方、長さ $L$ の線分を $\lceil L/\delta\rceil+1$ 個の正方形で覆えます。したがって
 
 $$
 \frac{L}{\delta}\le N_\delta(E)
@@ -182,7 +198,27 @@ $$
 
 被覆の一辺を半分にすると、曲線なら必要数は概ね2倍、面全体なら概ね4倍になります。この違いが次の存在定理で使う「境界の次元が周囲の空間の次元より小さい」という仮定です。
 
-なお、**面積が0であることだけでは**上box次元が2未満とはいえません。例えば $E=[0,1]^2\cap\mathbb Q^2$ は可算で面積0ですが、任意の小さな開正方形にも有理数座標の点があるため、正方形全体に稠密です。集合の**閉包** $\overline E$ とは、その集合の点列の極限になり得る点をすべて集めたものです。$E$ を覆う有限個の閉正方形の和は閉集合なので、閉包 $\overline E=[0,1]^2$ まで覆います。被覆の個数を $N$ とすると面積の劣加法性から $N\delta^2\ge1$、従って $N_\delta(E)\ge\delta^{-2}$ です。逆に格子状に正方形を並べれば高々 $(\lceil1/\delta\rceil+1)^2$ 個で覆えるため、$\overline{\dim}_{\mathrm{box}}(E)=2$ となります。
+なお、**面積が0であることだけでは**上box次元が2未満とはいえません。例えば
+
+$$
+E=[0,1]^2\cap\mathbb Q^2
+$$
+
+は可算で面積0ですが、任意の小さな開正方形にも有理数座標の点があるため、正方形全体に稠密です。集合の**閉包** $\overline E$ とは、その集合の点列の極限になり得る点をすべて集めたものです。
+
+$E$ を覆う有限個の閉正方形の和は閉集合なので、閉包 $\overline E=[0,1]^2$ まで覆います。被覆の個数を $N$ とすると、面積の劣加法性から
+
+$$
+N\delta^2\ge1,\qquad N_\delta(E)\ge\delta^{-2}
+$$
+
+を得ます。逆に格子状に正方形を並べれば
+
+$$
+N_\delta(E)\le(\lceil1/\delta\rceil+1)^2
+$$
+
+なので、上下界の対数を取って $\delta\downarrow0$ とすれば $\overline{\dim}_{\mathrm{box}}(E)=2$ です。
 
 ---
 
@@ -190,7 +226,15 @@ $$
 
 1990年、LaczkovichはTarskiの円積問題を肯定的に解きました。続く1992年には、円盤・正方形に限らない一般的な十分条件が示されました。ここではその一般形を引用します。
 
-空間が $\mathbb R^d$ の場合も、[有限平行移動等分解](#def-sqc9-translation-equidecomposition)はまったく同様に定義します（片と移動ベクトルを $d$ 次元に取り替えます）。また、[上box次元](#def-sqc9-upper-box-dimension)の定義でも一辺 $\delta$ の $d$ 次元立方体の最小被覆数を使います。集合 $A$ の**位相的境界** $\partial A$ とは、$A$ とその補集合の点がどちらも任意に近くにある点の集まりで、閉包を使えば $\partial A=\overline A\cap\overline{\mathbb R^d\setminus A}$ です。$d$ 次元Lebesgue測度を $\lambda_d$ と書きます。
+空間が $\mathbb R^d$ の場合も、[有限平行移動等分解](#def-sqc9-translation-equidecomposition)は同様に定義します。片と移動ベクトルを $d$ 次元に取り替え、[上box次元](#def-sqc9-upper-box-dimension)の被覆には一辺 $\delta$ の $d$ 次元立方体を用います。
+
+集合 $A$ の**位相的境界** $\partial A$ は、$A$ とその補集合の点がどちらも任意に近くにある点の集合です。前節で導入した閉包で表せば
+
+$$
+\partial A=\overline A\cap\overline{\mathbb R^d\setminus A}
+$$
+
+です。以下、$d$ 次元Lebesgue測度を $\lambda_d$ と書きます。
 
 <a id="thm-sqc9-laczkovich-general"></a>
 
