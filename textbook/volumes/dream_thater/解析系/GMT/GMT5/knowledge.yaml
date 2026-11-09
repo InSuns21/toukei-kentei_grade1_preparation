@@ -1,0 +1,63 @@
+chapter: GMT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT3
+  - GMT4
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt5-orthogonal-projection
+    name: 平面の直交射影と射影測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面の直交射影と射影測度）"]
+    requires:
+      - measure.hausdorff-dimension
+
+  - id: geometric-measure.gmt5-angular-kernel
+    name: 方向平均された特異核
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（方向平均された特異核）"]
+    requires:
+      - geometric-measure.gmt5-orthogonal-projection
+
+  - id: geometric-measure.gmt5-projection-energy
+    name: 射影energyの方向平均
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（射影energyの方向平均）"]
+    requires:
+      - geometric-measure.gmt5-angular-kernel
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt5-fourier-slicing
+    name: Fourier切片からの方向平均
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fourier切片からの方向平均）"]
+    requires:
+      - geometric-measure.gmt4-fourier-energy
+      - geometric-measure.gmt5-projection-energy
+
+  - id: geometric-measure.gmt5-marstrand-dimension
+    name: 平面Marstrand射影定理：コンパクト集合の次元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平面Marstrand射影定理：コンパクト集合の次元）"]
+    requires:
+      - geometric-measure.gmt5-projection-energy
+      - geometric-measure.gmt3-frostman-energy
+      - geometric-measure.gmt3-energy-dimension
+      - geometric-measure.gmt2-frostman-lemma
+      - measure.hausdorff-lipschitz
+
+  - id: geometric-measure.gmt5-sigma-compact
+    name: 可算個のコンパクト集合の和の射影次元
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（可算個のコンパクト集合の和の射影次元）"]
+    requires:
+      - geometric-measure.gmt5-marstrand-dimension
+      - measure.hausdorff-threshold

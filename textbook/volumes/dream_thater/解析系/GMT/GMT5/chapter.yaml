@@ -1,0 +1,44 @@
+id: GMT5
+title: 平面Marstrand射影定理：次元
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT3
+  - GMT4
+official_scope: []
+learning_objectives:
+  - 平面から直線への直交射影と射影測度を定義し、方向の正規化と1-Lipschitz性を具体的に確認できる
+  - 0<t<1で方向平均した特異核を角度積分で計算し、t=1の発散理由を説明できる
+  - 射影測度のRiesz energy平均恒等式を押し出し公式とTonelliにより導出できる
+  - Fourier切片公式と極座標を使ってenergyの方向平均を別法で再導出し、定数を検算できる
+  - コンパクト集合のMarstrand射影次元定理をFrostman測度と可算例外集合から証明できる
+  - 可算コンパクト和への拡張と一般Borel集合への拡張に必要な追加前提を区別できる
+  - 線分・Cantor積の典型方向と例外方向を計算し、次元1と正の長さを区別できる
+definitions:
+  - { id: GMT5-DEF-01, name: 平面の直交射影と射影測度 }
+theorems:
+  - { id: GMT5-LEM-01, name: 方向平均された特異核 }
+  - { id: GMT5-LEM-02, name: 射影energyの方向平均 }
+  - { id: GMT5-PROP-01, name: Fourier切片からの方向平均 }
+  - { id: GMT5-THM-01, name: 平面Marstrand射影定理：コンパクト集合の次元 }
+  - { id: GMT5-COR-01, name: 可算個のコンパクト集合の和の射影次元 }
+canonical_examples:
+  - 水平線分の垂直方向射影と射影測度の点質量化
+  - 傾きを持つ線分の一方向だけの次元低下
+  - Cantor積集合の座標射影とほとんど全方向の次元
+  - 次元1・長さ0のコンパクト集合による正測度の非含意
+problem_patterns:
+  - GMT5-LINE-PROJECTION
+  - GMT5-ATOMIC-ENERGY
+  - GMT5-ANGULAR-THRESHOLD
+  - GMT5-INTERVAL-ENERGY
+  - GMT5-FOURIER-SLICE
+  - GMT5-LINE-AVERAGE
+  - GMT5-TWO-SEGMENT-EXCEPTION
+  - GMT5-CANTOR-PRODUCT
+  - GMT5-ZERO-LENGTH-DIMENSION-ONE
+  - GMT5-MIXED-CANTOR-PROJECTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }

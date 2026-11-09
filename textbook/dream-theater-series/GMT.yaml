@@ -10,7 +10,7 @@ chapters:
   - { id: GMT2, path: textbook/volumes/dream_thater/解析系/GMT/GMT2, status: completed, title: "Frostman補題と測度の構成" }
   - { id: GMT3, path: textbook/volumes/dream_thater/解析系/GMT/GMT3, status: completed, title: "Riesz energyとcapacity" }
   - { id: GMT4, path: textbook/volumes/dream_thater/解析系/GMT/GMT4, status: completed, title: "Fourier表示によるenergy法" }
-  - { id: GMT5, path: textbook/volumes/dream_thater/解析系/GMT/GMT5, status: planned, title: "平面Marstrand射影定理：次元" }
+  - { id: GMT5, path: textbook/volumes/dream_thater/解析系/GMT/GMT5, status: completed, title: "平面Marstrand射影定理：次元" }
   - { id: GMT6, path: textbook/volumes/dream_thater/解析系/GMT/GMT6, status: planned, title: "平面Marstrand射影定理：正測度" }
   - { id: GMT7, path: textbook/volumes/dream_thater/解析系/GMT/GMT7, status: planned, title: "高次元・Grassmann射影" }
   - { id: GMT8, path: textbook/volumes/dream_thater/解析系/GMT/GMT8, status: planned, title: "例外方向の定量評価" }
