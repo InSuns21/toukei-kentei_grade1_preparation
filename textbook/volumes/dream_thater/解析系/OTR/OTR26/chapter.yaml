@@ -1,0 +1,45 @@
+id: "OTR26"
+title: "理論と数値解はどこまで一致するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - OTR25
+official_scope: []
+learning_objectives:
+  - 有限輸送の主双対実行可能性と主双対差を検算し数値的な最適性証明書を構成できる
+  - 一次元分位点結合と非可換な2次元GaussianのW2公式を独立な手計算とコードで照合できる
+  - 周期境界の保存型熱差分法について質量保存・正値性・離散エントロピー減少を証明できる
+  - Sinkhornの周辺残差・双対差・結合エントロピー正則化費用誤差を区別し停止を判定できる
+  - score・逆時間拡散・flow matching・OT測地線・JKOの相違を条件と反例で説明できる
+  - 同じ対象・費用・境界条件を比較し数値実験の射程と許容誤差を明示できる
+definitions:
+  - { id: OTR26-DEF-01, name: 有限輸送の数値的証明書と残差 }
+  - { id: OTR26-DEF-02, name: 周期熱方程式の保存型差分法 }
+  - { id: OTR26-DEF-03, name: 密度score }
+  - { id: OTR26-DEF-04, name: 逆時間拡散とflow matchingの速度 }
+theorems:
+  - { id: OTR26-THM-01, name: 有限主双対差の恒等式と最適性判定 }
+  - { id: OTR26-LEM-01, name: 正定値2次行列の平方根 }
+  - { id: OTR26-THM-02, name: 保存型熱差分の質量・正値性・エネルギー減少 }
+canonical_examples:
+  - 対称2x2有限輸送の厳密な主双対証明書とSinkhornの正則化費用誤差
+  - 一次元原子分布の分位点結合と有限LP最適解の一致
+  - 非可換な2x2 Gaussian共分散の平方根とW2公式の再現
+  - 周期熱方程式の質量・正値性・自由エネルギー減少と余弦振幅
+  - Brownian熱発展とOT測地線・独立flow matchingの反例
+problem_patterns:
+  - OTR26-A01
+  - OTR26-A02
+  - OTR26-A03
+  - OTR26-A04
+  - OTR26-A05
+  - OTR26-B01
+  - OTR26-B02
+  - OTR26-B03
+  - OTR26-B04
+  - OTR26-C01
+  - OTR26-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 3.0 }

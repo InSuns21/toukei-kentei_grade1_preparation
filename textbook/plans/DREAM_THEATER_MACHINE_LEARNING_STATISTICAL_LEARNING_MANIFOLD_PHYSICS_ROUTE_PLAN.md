@@ -83,7 +83,7 @@ SGTは有限グラフのスペクトル定理の正本、MFLは標本グラフ�
 - [高次元確率・集中不等式](DREAM_THEATER_HIGH_DIMENSIONAL_PROBABILITY_PLAN.md)
 - [スペクトルグラフ理論](DREAM_THEATER_SPECTRAL_GRAPH_THEORY_PLAN.md)
 - [ランダム行列理論](DREAM_THEATER_RANDOM_MATRIX_THEORY_PLAN.md)
-- [最適輸送・Wasserstein 幾何](DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md)
+- [最適輸送・Wasserstein 幾何](../plan_done/DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md)
 
 ## 3. 学習依存と必修判定
 
