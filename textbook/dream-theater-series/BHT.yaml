@@ -33,7 +33,7 @@ chapters:
     title: "物理過程版の第一法則"
   - id: BHT7
     path: textbook/volumes/dream_thater/物理系/BHT/BHT7
-    status: planned
+    status: completed
     title: "Smarr関係・不可逆質量と仕事"
   - id: BHT8
     path: textbook/volumes/dream_thater/物理系/BHT/BHT8
