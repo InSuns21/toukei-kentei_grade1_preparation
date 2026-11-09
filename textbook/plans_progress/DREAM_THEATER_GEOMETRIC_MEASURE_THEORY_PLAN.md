@@ -6,7 +6,8 @@ GMT1着手日: 2026-11-10（幾何的被覆・Radon微分・上下密度を実�
 GMT2着手日: 2026-11-10（有限二進木の容量配分からFrostman測度を構成）
 GMT3着手日: 2026-11-10（Riesz energyの層ケーキ表示・capacity・Cantor臨界発散）
 GMT4着手日時: 2026-11-10 02:26:52 JST（有限測度Fourier変換・Gaussian正則化・Riesz energy恒等式）
-状態: in_progress（GMT1--GMT4 は実装・査読済み。GMT5--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT5着手日時: 2026-11-10 03:18:12 JST（平面直交射影・角度平均energy・Marstrand次元定理）
+状態: in_progress（GMT1--GMT5 は実装・査読済み。GMT6--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -56,7 +57,7 @@ Hausdorff次元は集合の大きさを測る。しかし、射影したとき�
 | 曲面の古典的法線・平均曲率・第一/第二変分 | GEO10、VAR7--VAR8。GMT24--30は**弱い境界と周長**を所有し、滑らかな曲面変分を再所有しない |
 | 多様体PDE・調和写像 | 完了済みGA系列。GMTはEuclidの可測的幾何、GAはmanifold PDEで分担 |
 
-- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT3は実装済みであり、GMT4以降の未完成章の公開リンクは作らない。
+- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT5は実装済みであり、GMT6以降の未完成章の公開リンクは作らない。
 - 完了済みHAの過去PLAN中の「GMT7--GMT8」は当時の**旧仮IDを参照した履歴**。新しいKakeya側の接続はGMT31--GMT36、特にGMT35--36とする。完了済み計画を過去に遡って書き換えない。
 - EOM074の基本ルートは **GMT1--GMT8 → GMT31--GMT36** とHA11。第II/III部全体をEOMへの無条件の必修にはしない。
 
@@ -328,4 +329,4 @@ formal statementでは対象の可測性・次元・有限性、a.e.の参照測
 4. BV compactness/coarea→finite perimeter→reduced boundary→De Giorgi構造→Gauss--Green→等周・周長最小化の証明が閉じる。
 5. Besicovitch構成、tube overlap、Kakeya maximalからの次元含意を計算でき、HA11とEOM074へ正しく接続する。
 6. Preissの一般定理・currents/varifolds・Kakeya最新結果について、**証明済みの本科目範囲と停止線外**を読者が区別できる。
-7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT4完了後もGMT5--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
+7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT5完了後もGMT6--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
