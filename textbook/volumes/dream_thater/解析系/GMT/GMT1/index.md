@@ -12,7 +12,7 @@ $$
 B(x,r)=\{y\in\mathbb R^d:|y-x|<r\}
 $$
 
-と書きます。$\mu$ は $\mathbb R^d$ 上の正の [Radon測度](../../MT/MT5/index.md#def-mt5-radon)、すなわちBorel測度で、コンパクト集合上で有限かつ内外正則なものです。$\mathbb R^d$ は可算個のコンパクト球で覆えるため、$\mu$ は $\sigma$ 有限です。
+と書きます。$\mu$ は $\mathbb R^d$ 上の正の [Radon測度](../../MT/MT5/index.md#def-mt5-radon)、すなわちコンパクト集合上で有限、開集合上で内正則、Borel集合上で外正則なBorel測度です。$\mathbb R^d$ は可算個のコンパクト球で覆えるため、$\mu$ は $\sigma$ 有限です。
 
 点の近くに質量があるかを表す台 $\operatorname{supp}\mu$ は、すべての $r>0$ で $\mu(B(x,r))>0$ となる点 $x$ の集合です。台の外側は零質量の有理球の可算合併で覆えるので、$\mu(\mathbb R^d\setminus\operatorname{supp}\mu)=0$ です。
 
@@ -28,6 +28,8 @@ $$
 
 必要なのは、**元の球を拡大せずに**中心の集合を覆い、球の重なりだけを次元で抑える方法です。次の幾何学的選択法には、$\mu$ の倍加性を全く仮定しません。
 
+球の重なりは指示関数 $\boldsymbol{1}_B(y)$（$y\in B$ なら1、それ以外は0）の和で数えます。従って $\sum_j\boldsymbol{1}_{B_j}(y)$ は点 $y$ を含む選択球の個数です。
+
 <a id="lem-gmt1-besicovitch-balls"></a>
 
 <!-- formal-statement-start -->
@@ -35,7 +37,7 @@ $$
 > $A\subset\mathbb R^d$ を有界集合、$R>0$ とし、各 $x\in A$ に一つずつ $0<r_x\le R$ を指定する。このとき、中心が $A$ にある指定球 $B(x_j,r_{x_j})$ を有限個または可算個選んで $A$ を覆い、任意の $y\in\mathbb R^d$ で
 
 $$
-\sum_j\mathbf1_{B(x_j,r_{x_j})}(y)\le N_d,\qquad
+\sum_j\boldsymbol{1}_{B(x_j,r_{x_j})}(y)\le N_d,\qquad
 N_d=5^d(3^d+1)
 $$
 
@@ -83,7 +85,7 @@ $$
 2uv\cos\theta=u^2+v^2-|a-b|^2
 \le\min\{u,v\}^2,
 \qquad
-\cos\theta\le\frac12.
+\cos\theta\le\frac{\min\{u,v\}^2}{2uv}\le\frac12.
 $$
 
 よって、各区間から代表中心を一つずつ取ると、$y$ から見た単位方向ベクトル同士の距離は $1$ 以上です。単位方向ベクトルを中心とする半径 $1/2$ の小球は互いに素で、半径 $3/2$ の球に含まれるため、該当する区間は高々 $3^d$ 個です。$y$ と一致する中心は選択過程上高々一つで、これを別途1区間として数えます。
@@ -116,7 +118,25 @@ $$
 <!-- definition-example-start: def-gmt1-centered-maximal -->
 **定義の確認**
 
-点質量 $\mu=2\delta_0$、$h(0)=3$ なら、$x=0$ を中心とする任意の球は $\mu(B)=2$、$\int_B|h|d\mu=6$ です。よって $M_{\mu,R}h(0)=3$。$x\ne0$ では半径を十分小さくすれば $\mu(B)=0$ となりますが、台の外の値は微分の主張には使いません。
+点質量 $\mu=2\delta_0$、$h(0)=3$ を取ります。この $h$ は $L^1_{\mathrm{loc}}(\mu)$ に属し、原点を中心とするどの球でも
+
+$$
+\mu(B(0,r))=2,\qquad
+\int_{B(0,r)}|h|\,d\mu=6,\qquad
+M_{\mu,R}h(0)=3
+$$
+
+です。$x\ne0$ で $R\le|x|$ なら候補球はすべて質量0なので、空集合の場合の規約から最大平均は0です。一方 $R>|x|$ なら $|x|<r<R$ の球が原子0を含み、その平均は3です。すなわち
+
+$$
+M_{\mu,R}h(x)=
+\begin{cases}
+0&(x\ne0,\ R\le|x|),\\
+3&(x\ne0,\ R>|x|).
+\end{cases}
+$$
+
+台の外の値は、いずれにせよ微分の主張には使いません。
 <!-- definition-example-end -->
 
 有限球で重複が一様に抑えられることから、最大平均が大きい場所の $\mu$-測度が小さいと分かります。分母に通常の体積を使う [HA1の弱型評価](../../HA/HA1/index.md#thm-ha1-weak11)との違いは、被覆補題を使う位置です。
@@ -139,12 +159,14 @@ $$
 
 ### 証明の見取り図
 
-平均が $t$ を超える各中心で「良い球」を一つ選びます。上の補題で中心集合を元の球のまま覆うと、分母の $\mu(B)$ を分子の $\int_B|h|$ で上から抑えられます。
+平均が $t$ を超える各中心で「良い球」を一つ選びます。[有界重複被覆補題](#lem-gmt1-besicovitch-balls)で中心集合を元の球のまま覆うと、分母の $\mu(B)$ を分子の $\int_B|h|$ で上から抑えられます。
 
 <!-- proof-start -->
 ### 証明
 
-$E=\{x\in K:M_{\mu,R}h(x)>t\}$ と置きます。固定した有理半径 $r$ に対し $x\mapsto\mu(B(x,r))$ と $x\mapsto\int_{B(x,r)}|h|d\mu$ は Borel 可測です（$(x,y)\mapsto\mathbf1_{|x-y|<r}$ がBorelで、非負積分を取るため）。また任意の実数 $r<R$ について、$r_n\in\mathbb Q$ を $r_n\uparrow r$ と取れば単調収束によって分子・分母がそれぞれ収束するので、正の分母を持つ平均の上限は有理半径だけで計算できます。従って $E$ はBorel集合です。
+$E=\{x\in K:M_{\mu,R}h(x)>t\}$ と置きます。固定した有理半径 $r$ に対し、$x\mapsto\mu(B(x,r))$ と $x\mapsto\int_{B(x,r)}|h|\,d\mu$ はBorel可測です。実際、$(x,y)\mapsto\boldsymbol{1}_{\{|x-y|<r\}}$ はBorel可測で、非負積分の可測性を使えます。
+
+任意の実数 $0<r<R$ に対して有理数列 $r_n\uparrow r$ を取ると、$B(x,r_n)\uparrow B(x,r)$ です。単調収束によって分子・分母がそれぞれ収束し、$\mu(B(x,r))>0$ なら比も収束します。従って $M_{\mu,R}$ の上限は有理半径だけで計算でき、$E$ は可算個のBorel集合の和として可測です。
 
 各 $x\in E$ で $0<r_x<R$ を選び、
 
@@ -152,7 +174,7 @@ $$
 t\mu(B(x,r_x))<\int_{B(x,r_x)}|h|\,d\mu
 $$
 
-を満たさせます。$E$ は有界なので [有界重複被覆補題](#lem-gmt1-besicovitch-balls)を $A=E$ に適用し、$E\subset\bigcup_jB_j$、$\sum_j\mathbf1_{B_j}\le N_d$ を得ます。各球 $B_j$ は $K_R$ 内に含まれます。測度の可算劣加法性、各球の不等式、そして非負積分の単調収束の順に使うと
+を満たさせます。$E$ は有界なので [有界重複被覆補題](#lem-gmt1-besicovitch-balls)を $A=E$ に適用し、$E\subset\bigcup_jB_j$、$\sum_j\boldsymbol{1}_{B_j}\le N_d$ を得ます。各球 $B_j$ は $K_R$ 内に含まれます。測度の可算劣加法性、各球の不等式、そして非負積分の単調収束の順に使うと
 
 $$
 \begin{aligned}
@@ -160,7 +182,7 @@ $$
 &\le\sum_j\mu(B_j)
 <\frac1t\sum_j\int_{B_j}|h|\,d\mu\\
 &=\frac1t\int_{K_R}|h(y)|
-\left(\sum_j\mathbf1_{B_j}(y)\right)d\mu(y)
+\left(\sum_j\boldsymbol{1}_{B_j}(y)\right)d\mu(y)
 \le\frac{N_d}{t}\int_{K_R}|h|\,d\mu.
 \end{aligned}
 $$
@@ -171,6 +193,8 @@ $$
 ## 3. 球平均で局所関数値を復元する
 
 連続関数 $g$ なら $x$ を含む球が縮むと、球上の $|g(y)-g(x)|$ の最大値が0へ向かいます。$L^1$ 関数でも同じことを言いたい場合、$g$ へ近似した誤差の平均が問題です。そこで前節の最大比の評価を使います。[MT7の $C_c$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)によって、その誤差の $L^1(\mu)$ ノルムは小さくできます。
+
+以下、測度 $\mu$ に関して「ほとんど至る所」を $\mu$-a.e.（almost everywhere）と略記します。
 
 <a id="thm-gmt1-function-differentiation"></a>
 
@@ -213,7 +237,7 @@ D(x)\le M_{\mu,1}h(x)+|h(x)|
 \qquad(\mu\text{-a.e. }x\in K_n).
 $$
 
-$t>0$ に対して [局所弱型評価](#thm-gmt1-weak-maximal)を使います。また $\{|h|>t\}$ 上では $|h|\ge t$ なので、積分から直接
+$t>0$ に対して [局所弱型評価](#thm-gmt1-weak-maximal)を使います。ここで $\|h\|_1:=\int_{\mathbb R^d}|h|\,d\mu$ と略記します。また $\{|h|>t\}$ 上では $|h|\ge t$ なので、積分から直接
 
 $$
 t\mu(\{|h|>t\}\cap K_n)\le\int_{\{|h|>t\}\cap K_n}|h|\,d\mu\le\|h\|_1
@@ -231,7 +255,7 @@ $$
 \end{aligned}
 $$
 
-$\varepsilon$ は任意なので、この集合の測度は0です。$t=1/m$（$m\in\mathbb N$）を取れば $D=0$ が $K_n$ の $\mu$-a.e.、すなわち $\mu$ に関してほとんど至る所（almost everywhere, a.e.）で従います。さらに $n=1,2,\ldots$ で可算合併を取ると全空間の結論になります。$\square$
+$\varepsilon$ は任意なので、この集合の測度は0です。$t=1/m$（$m\in\mathbb N$）を取れば $D=0$ が $K_n$ の $\mu$-a.e.で従います。さらに $n=1,2,\ldots$ で可算合併を取ると全空間の結論になります。$\square$
 <!-- proof-end -->
 
 注意：この定理が返すのは $\mu$ の質量を分母にした平均です。**局所的な長さ・面積の指数**を求めるには、別の正規化が必要です。
@@ -240,7 +264,7 @@ $\varepsilon$ は任意なので、この集合の測度は0です。$t=1/m$（$
 
 たとえば $\mu$ は通常の長さ、$\nu$ は連続密度で重みを掛けた長さと点質量との和、と考えます。$\nu$ の球質量を $\mu$ の球質量で割ると、点質量のある場所で値が発散するかもしれません。しかしその点が $\mu$-零集合なら「$\mu$-ほとんど至る所の極限」は壊れません。
 
-[MT3のLebesgue分解](../../MT/MT3/index.md#thm-mt3-lebesgue-decomposition-signed)による $\nu=f\mu+\nu_s$ を出発点とします。ここで $f\mu$ は $\mu$ に絶対連続な部分、$\nu_s$ は $\mu$ と互いに特異な部分です。点ごとに特異部分を先に消そうとせず、両測度を同時に支配する $\lambda=\mu+|\nu|$ に対して前節の定理を使います。
+[MT3のLebesgue分解](../../MT/MT3/index.md#thm-mt3-lebesgue-decomposition-signed)による $\nu=f\mu+\nu_s$ を出発点とします。ここで $f\mu$ は $\mu$ に絶対連続な部分、$\nu_s$ は $\mu$ と互いに特異な部分です。$|\nu|$ は [全変動測度](../../MT/MT2/index.md#def-mt2-total-variation)であり、局所有限の場合には各コンパクト集合への制限で定義を整合的に適用します。点ごとに特異部分を先に消そうとせず、両測度を同時に支配する $\lambda=\mu+|\nu|$ に対して前節の定理を使います。
 
 <a id="thm-gmt1-measure-differentiation"></a>
 
@@ -352,6 +376,14 @@ $$
 **定義の確認**
 
 第0段階は $[0,1]$ 一つなので $\kappa([0,1])=1$。第1段階の $[0,1/3]$ と $[2/3,1]$ は互いに素で質量は各 $1/2$、第2段階の4区間は各 $1/4$ です。第 $n$ 段階の総質量は $2^n\cdot2^{-n}=1$ で、除去された中間の開区間には質量がありません。この構成で $\kappa(C)=1$ も成立します。
+
+台が正確に $C$ であることも球によって確認できます。$x\in C$ と $r>0$ に対し $3^{-n}<r$ となる $n$ を選べば、$x$ を含む第 $n$ 段階区間 $I_{n,j}$ は $B(x,r)$ に収まります。従って
+
+$$
+\kappa(B(x,r))\ge\kappa(I_{n,j})=2^{-n}>0.
+$$
+
+逆に $x\notin C$ なら $C$ は閉集合なので、十分小さい球 $B(x,r)$ は $C$ と交わらず、その質量は0です。両方向を合わせて $\operatorname{supp}\kappa=C$ です。
 <!-- definition-example-end -->
 
 $s=\log2/\log3$ と置くと $3^{-s}=1/2$ になります。以下ではこの測度の上下 $s$-密度を調べます。
@@ -448,7 +480,13 @@ $\mu=\mathcal H^1\llcorner[0,4]$ とする。$x=2,0$ における $s=1$、$s=1/2
 <!-- solution-start -->
 #### 詳細解答
 
-$x=2$ で $0<r<2$ なら球との交差は長さ $2r$、$x=0$ で $0<r<4$ なら長さ $r$ です。よって比は各点で $c r/(2r)^s$（$c=2$ または1）。$s=1$ ではそれぞれ $1,1/2$。$s=1/2$ では $c2^{-1/2}r^{1/2}\to0$、$s=2$ では $c4^{-1}r^{-1}\to\infty$ です。全て上下極限は一致します。
+$x=2$ で $0<r<2$ なら球との交差は長さ $2r$、$x=0$ で $0<r<4$ なら長さ $r$ です。従って $c=2$（内点）または $c=1$（端点）として、どちらも
+
+$$
+\frac{\mu(B(x,r))}{(2r)^s}=\frac{cr}{(2r)^s}=c2^{-s}r^{1-s}
+$$
+
+と表せます。$s=1$ なら定数 $c/2$ なので密度は順に $1,1/2$、$s=1/2$ なら $c2^{-1/2}r^{1/2}\to0$、$s=2$ なら $c4^{-1}r^{-1}\to+\infty$ です。いずれも下極限と上極限は一致します。
 <!-- solution-end -->
 
 ### GMT1-A03 Cantorの二つの尺度
@@ -484,11 +522,11 @@ $\mu$ を任意の正Radon測度、$h\in L^1(\mu)$、$K$ をコンパクト、$0
 <!-- solution-start -->
 #### 詳細解答
 
-各中心 $x$ に平均が $t$ を超える球 $B_x$ を一つ選びます。半径は $R$ 未満であるため、中心集合 $E$ は有界、選んだ球は $K_R$ 内にあります。[被覆補題](#lem-gmt1-besicovitch-balls)から $E\subset\bigcup_j B_j$ かつ $\sum_j\mathbf1_{B_j}\le N_d$ となる部分族を得ます。各 $j$ で $\mu(B_j)<t^{-1}\int_{B_j}|h|d\mu$ ですから
+各中心 $x$ に平均が $t$ を超える球 $B_x$ を一つ選びます。半径は $R$ 未満であるため、中心集合 $E$ は有界、選んだ球は $K_R$ 内にあります。[被覆補題](#lem-gmt1-besicovitch-balls)から $E\subset\bigcup_j B_j$ かつ $\sum_j\boldsymbol{1}_{B_j}\le N_d$ となる部分族を得ます。各 $j$ で $\mu(B_j)<t^{-1}\int_{B_j}|h|d\mu$ ですから
 
 $$
 \mu(E)\le\sum_j\mu(B_j)
-\le\frac1t\int_{K_R}|h|\sum_j\mathbf1_{B_j}\,d\mu
+\le\frac1t\int_{K_R}|h|\sum_j\boldsymbol{1}_{B_j}\,d\mu
 \le\frac{N_d}{t}\int_{K_R}|h|\,d\mu.
 $$
 
@@ -499,28 +537,42 @@ $$
 - Level: B
 - 目安時間: 25分
 
-$\mu=\mathcal L^1\llcorner[0,1]+\delta_0$、$f=\mathbf1_{[0,1/2]}$ とする。$x=0$ と $x\in(0,1/2)$ と $x\in(1/2,1)$ で、$\mu$-球平均 $\mu(B(x,r))^{-1}\int_{B(x,r)} f\,d\mu$ の極限を計算せよ。$x=1/2$ では何が起きるか。
+$\mu=\mathcal L^1\llcorner[0,1]+\delta_0$、$f=\boldsymbol{1}_{[0,1/2]}$ とする。$x=0$ と $x\in(0,1/2)$ と $x\in(1/2,1)$ で、$\mu$-球平均 $\mu(B(x,r))^{-1}\int_{B(x,r)} f\,d\mu$ の極限を計算せよ。$x=1/2$ では何が起きるか。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$0<r<1/2$ なら $B(0,r)$ は $[0,r)$ のLebesgue部分と原子 $\delta_0$ を含みます。分母も分子も $1+r$ で、平均は1です。
+$0<r<1/2$ なら $B(0,r)$ は $[0,r)$ のLebesgue部分と原子 $\delta_0$ を含みます。$f=1$ がこの全体で成り立つため、平均は
+
+$$
+\frac{\int_{B(0,r)}f\,d\mu}{\mu(B(0,r))}
+=\frac{r+1}{r+1}=1
+$$
+
+です。
 
 $x\in(0,1/2)$ では十分小さい球が $(0,1/2)$ 内に入り、分母・分子は共に $2r$ なので極限は1です。$x\in(1/2,1)$ では十分小さい球で $f=0$ となり、極限は0です。
 
-$x=1/2$ では $0<r<1/2$ の球に原子はなく、分母は $2r$、分子は左半分の長さ $r$ です。よって平均は $1/2$。これは $f(1/2)=1$ に一致しませんが、$\mu(\{1/2\})=0$ なので [微分定理](#thm-gmt1-function-differentiation)と矛盾しません。
+$x=1/2$ では $0<r<1/2$ の球に原子はなく、分母は $2r$、分子は左半分の長さ $r$ です。従って平均は
+
+$$
+\frac{\int_{B(1/2,r)}f\,d\mu}{\mu(B(1/2,r))}
+=\frac{r}{2r}=\frac12.
+$$
+
+これは $f(1/2)=1$ に一致しませんが、$\mu(\{1/2\})=0$ なので [微分定理](#thm-gmt1-function-differentiation)と矛盾しません。
 <!-- solution-end -->
 
 ### GMT1-B03 特異測度の比
 - Level: B
 - 目安時間: 25分
 
-$\mu=\mathcal L^1\llcorner[-1,1]$、$\nu=\mathbf1_{[0,1]}\mu+\delta_0$ とする。$\mu$-a.e.での $\nu(B(x,r))/\mu(B(x,r))$ の極限を求め、$x=0$ での挙動も直接計算せよ。
+$\mu=\mathcal L^1\llcorner[-1,1]$、$\nu=\boldsymbol{1}_{[0,1]}\mu+\delta_0$ とする。$\mu$-a.e.での $\nu(B(x,r))/\mu(B(x,r))$ の極限を求め、$x=0$ での挙動も直接計算せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\delta_0$ は $\mu$ に特異で、$\mathbf1_{[0,1]}\mu$ は絶対連続部分です。[Radon測度の微分・球比版](#thm-gmt1-measure-differentiation)により極限は $\mathbf1_{[0,1]}(x)$ が $\mu$-a.e.で成り立ちます。直接にも $-1<x<0$ で十分小さい球は原子と $[0,1]$ を避けて比0、$0<x<1$ では球内で両者の連続部分が一致し比1です。$x=0$ では $0<r<1$ のとき分母 $2r$、分子は右側の長さ $r$ に原子1を足した $r+1$ なので
+$\delta_0$ は $\mu$ に特異で、$\boldsymbol{1}_{[0,1]}\mu$ は絶対連続部分です。[Radon測度の微分・球比版](#thm-gmt1-measure-differentiation)により極限は $\boldsymbol{1}_{[0,1]}(x)$ が $\mu$-a.e.で成り立ちます。直接にも $-1<x<0$ で十分小さい球は原子と $[0,1]$ を避けて比0、$0<x<1$ では球内で両者の連続部分が一致し比1です。$x=0$ では $0<r<1$ のとき分母 $2r$、分子は右側の長さ $r$ に原子1を足した $r+1$ なので
 
 $$
 \frac{\nu(B(0,r))}{\mu(B(0,r))}
@@ -528,6 +580,76 @@ $$
 $$
 
 例外点0は $\mu$-零集合であることを明示しておく必要があります。
+<!-- solution-end -->
+
+### GMT1-B04 半径帯から有界重複を再構成する
+- Level: B
+- 目安時間: 35分
+
+$A\subset\mathbb R^d$ を有界とし、各 $x\in A$ に $0<r_x\le R$ が指定されている。$I_k=(2^{-k-1}R,2^{-k}R]$、$L_k=2^{-k-1}R$ とし、半径の大きい帯から、未被覆の中心のうち距離が $L_k$ 以上離れるものを貪欲に選ぶ。
+
+1. 各帯で選択が有限回で終わり、未被覆だった中心を覆える理由を示せ。
+2. 一点 $y$ を含む同一帯の選択球が高々 $5^d$ 個であることを導け。
+3. 異なる帯の選択球がともに $y$ を含む場合の中心方向の角度を評価し、全帯での重複数が $5^d(3^d+1)$ 以下となることを示せ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+1. $A$ は有界なので、選択中心の周りの半径 $L_k/2$ の小球は互いに素で、いずれも一つの有界な大球に入ります。小球の体積は共通の正数だから、体積比較により選択数は有限です。選択終了時に未被覆の $x$ が全選択中心から距離 $L_k$ 以上なら、なお追加選択できて矛盾します。従ってある選択中心 $z$ と $|x-z|<L_k<r_z$ を満たし、$x\in B(z,r_z)$ です。全帯の処理後、$A$ は選択球で覆われます。
+2. $y\in B(z,r_z)$ なら $|z-y|<r_z\le2L_k$。中心 $z$ の周りの半径 $L_k/2$ の小球は、互いに素で $B(y,5L_k/2)$ に入ります。$d$ 次元の球体積は半径の $d$ 乗に比例するから
+
+   $$
+   \#\{z:\text{帯 }k\text{ で }y\in B(z,r_z)\}
+   \le\frac{(5L_k/2)^d}{(L_k/2)^d}=5^d.
+   $$
+
+3. 先に選ばれた球を $B(a,r_a)$、後の球を $B(b,r_b)$ とすると、後の中心は先の球の外にあり、$|a-b|\ge r_a\ge r_b$ です。$u=|a-y|<r_a$、$v=|b-y|<r_b$ と置くと $|a-b|\ge\max(u,v)$。$u,v>0$ では余弦定理から
+
+   $$
+   \cos\theta
+   =\frac{u^2+v^2-|a-b|^2}{2uv}
+   \le\frac{\min(u,v)^2}{2uv}\le\frac12.
+   $$
+
+   各帯から一つずつ代表中心を取ると、$y$ からの単位方向は互いに60度以上離れ、単位ベクトル間の距離は1以上です。その周りの半径 $1/2$ の球を詰めると、方向数は $((3/2)/(1/2))^d=3^d$ 以下です。$y$ と一致する選択中心は一つ以下なので、それを含めて帯数は高々 $3^d+1$。第2問の帯内評価を掛け、重複数は $5^d(3^d+1)$ 以下です。
+<!-- solution-end -->
+
+### GMT1-B05 球成長評価とHausdorff測度
+- Level: B
+- 目安時間: 30分
+
+$E\subset\mathbb R^d$ を有界なBorel集合、$\mu$ を正Radon測度、$s>0$ とする。ある $C,r_0>0$ について、全ての $x\in E$ と $0<r<r_0$ に対して $\mu(B(x,r))\le C(2r)^s$ が成り立つとする。被覆集合がBorel可測とは限らないことにも注意して
+
+$$
+\mu(E)\le 2^s C\mathcal H^s(E)
+$$
+
+を証明せよ。また、定数 $C,r_0$ を各点ごとに違うものへ置き換えるだけでは、同じ証明が直ちには成立しない理由を説明せよ。
+
+<!-- solution-start -->
+#### 詳細解答
+
+$0<\delta<r_0/2$ とし、$E$ の直径 $\delta$ 未満の任意の可算被覆 $(U_i)$ を取ります。$U_i\cap E=\varnothing$ の項は捨て、他では $x_i\in U_i\cap E$ を選びます。$\operatorname{diam}U_i+\varepsilon<r_0$ となる $\varepsilon>0$ について
+
+$$
+U_i\subset B(x_i,\operatorname{diam}U_i+\varepsilon)
+$$
+
+なので、$\mu$ による外測度 $\mu^*$ と球成長評価から
+
+$$
+\mu^*(U_i)
+\le C\{2(\operatorname{diam}U_i+\varepsilon)\}^s.
+$$
+
+$\varepsilon\downarrow0$ として $\mu^*(U_i)\le2^sC(\operatorname{diam}U_i)^s$ を得ます。直径0でも、この手順から一点集合の外測度が0と分かります。$E$ はBorel可測だから
+
+$$
+\mu(E)\le\sum_i\mu^*(U_i)
+\le2^s C\sum_i(\operatorname{diam}U_i)^s.
+$$
+
+任意の被覆について下限を取り、次いで $\delta\downarrow0$ とすれば [Hausdorff測度の定義](../../MT/MT8/index.md#def-mt8-hausdorff-measure)より結論が従います。一様な $C,r_0$ を使ったから、全ての被覆要素へ同じ係数の評価を適用できました。点ごとに定数や半径が異なるだけでは、任意の被覆に一つの係数を掛けて和を評価する段階が正当化されません。
 <!-- solution-end -->
 
 ### GMT1-C01 球比の微分を二つの関数へ還元する
@@ -543,9 +665,29 @@ $\mu$ を $\mathbb R^d$ 上の正Radon測度、$\nu$ を局所有限符号付き
 <!-- solution-start -->
 #### 詳細解答
 
-1. コンパクト集合 $K$ では $\lambda(K)=\mu(K)+|\nu|(K)<\infty$、任意のBorel集合は内外正則測度の和として正則です。$\mathbb R^d=\bigcup_n\overline{B(0,n)}$ なので $\sigma$ 有限です。$\mu\ll\lambda$、$\nu\ll\lambda$ だから [Radon–Nikodym](../../MT/MT3/index.md#thm-mt3-rn-signed) により $a,b$ が存在し、コンパクト球 $K$ 上で $\int_K|a|d\lambda=|\nu|(K)<\infty$、$\int_K b\,d\lambda=\mu(K)<\infty$ です。
-2. [微分定理](#thm-gmt1-function-differentiation)を $a$ と $b$ に適用すると $\nu(B)/\lambda(B)\to a(x)$、$\mu(B)/\lambda(B)\to b(x)$ が $\lambda$-a.e.で成り立ちます。$\mu(\{b=0\})=\int_{\{b=0\}}b\,d\lambda=0$ なので $\mu$-a.e.で $b(x)>0$。この点で後者の比は十分小さい球で正となり、二つの極限の商として $\nu(B)/\mu(B)\to a(x)/b(x)$ です。
-3. $\mu(N)=0$、$|\nu_s|(\mathbb R^d\setminus N)=0$ となる $N$ を取ります。$N^c$ 上では $\nu=f\mu$ なので $a=fb$ が $\lambda$-a.e.です。$\mu(N)=0$ ゆえ $a/b=f$ が $\mu$-a.e.で従います。$N$ の点では $\mu$ の分母が速く0へ近づく可能性があり、特異測度の分子を同じ尺度で抑える保証はありません。したがって $N$ 上での発散は $\mu$-a.e.の結論と矛盾しません。
+1. コンパクト集合 $K$ では $\lambda(K)=\mu(K)+|\nu|(K)<\infty$ です。さらに開集合上の内正則性とBorel集合上の外正則性は測度の和でも保たれます。$\mathbb R^d=\bigcup_n\overline{B(0,n)}$ なので $\sigma$ 有限です。$\mu\ll\lambda$、$\nu\ll\lambda$ だから、コンパクト球ごとに [MT3のRadon–Nikodym定理](../../MT/MT3/index.md#thm-mt3-rn-signed)を適用して $a,b$ を構成できます。重なりでは一意性から一致し、各コンパクト球で
+
+   $$
+   \int_K|a|\,d\lambda=|\nu|(K)<\infty,\qquad
+   \int_K b\,d\lambda=\mu(K)<\infty
+   $$
+
+   なので局所可積分です。
+2. [微分定理](#thm-gmt1-function-differentiation)を $a$ と $b$ に適用すると、$\lambda$-a.e.で
+
+   $$
+   \frac{\nu(B(x,r))}{\lambda(B(x,r))}\to a(x),\qquad
+   \frac{\mu(B(x,r))}{\lambda(B(x,r))}\to b(x).
+   $$
+
+   また $\mu(\{b=0\})=\int_{\{b=0\}}b\,d\lambda=0$ なので、$\mu$-a.e.で $b(x)>0$ です。その点では後者の比が十分小さい球で正となり、商の極限から
+
+   $$
+   \frac{\nu(B(x,r))}{\mu(B(x,r))}\to\frac{a(x)}{b(x)}
+   $$
+
+   が得られます。
+3. $\mu(N)=0$、$|\nu_s|(\mathbb R^d\setminus N)=0$ となる $N$ を取ります。$N^c$ 上では $\nu=f\mu$ なので、同じ支配測度 $\lambda$ に関する密度の一意性から $a=fb$ が $\lambda$-a.e.で成立します。$\mu(N)=0$ ゆえ $a/b=f$ が $\mu$-a.e.で従います。$N$ の点では $\mu$ の分母が速く0へ近づく可能性があり、特異測度の分子を同じ尺度で抑える保証はありません。したがって $N$ 上での発散は $\mu$-a.e.の結論と矛盾しません。
 <!-- solution-end -->
 
 ## まとめ
