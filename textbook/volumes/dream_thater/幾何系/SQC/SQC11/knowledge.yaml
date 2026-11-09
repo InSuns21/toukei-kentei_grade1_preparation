@@ -1,0 +1,56 @@
+chapter: SQC11
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC9, SQC10, MT0, TOP6, SET1, F0-00D2C]
+forward_references: []
+
+concepts:
+  - id: geometry.circle-squaring-borel-set
+    name: 円積で使うBorel集合の再掲
+    kind: definition
+    introduction: formal
+    introduction_aliases: [Borel集合]
+    requires: [measure.borel-sigma-algebra]
+
+  - id: geometry.circle-squaring-baire-property
+    name: 円積で用いるBaire性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [Baire性]
+    requires: [topology.meagre-set]
+
+  - id: geometry.circle-squaring-borel-regularity
+    name: Borel集合のLebesgue可測性とBaire性
+    kind: proposition
+    introduction: formal
+    requires: [geometry.circle-squaring-borel-set, geometry.circle-squaring-baire-property]
+
+  - id: geometry.circle-squaring-nonborel-measurable
+    name: Lebesgue可測かつBaire性を持つ非Borel集合の存在
+    kind: proposition
+    introduction: formal
+    requires: [geometry.circle-squaring-borel-regularity]
+
+  - id: geometry.circle-squaring-borel-label
+    name: Borel分割と移動選択写像の対応
+    kind: proposition
+    introduction: formal
+    requires: [geometry.translation-matching-equivalence, geometry.circle-squaring-borel-set]
+
+  - id: geometry.circle-squaring-measurable-theorem
+    name: Grabowski–Máthé–Pikhurkoの可測等分解定理
+    kind: theorem
+    introduction: formal
+    requires: [geometry.translation-equidecomposition, geometry.upper-box-dimension, geometry.circle-squaring-baire-property]
+
+  - id: geometry.circle-squaring-borel-theorem
+    name: Marks–UngerのBorel等分解定理
+    kind: theorem
+    introduction: formal
+    requires: [geometry.translation-equidecomposition, geometry.upper-box-dimension, geometry.circle-squaring-borel-set]
+
+  - id: geometry.circle-squaring-borel-disk-square
+    name: Borelな分割片による円積
+    kind: corollary
+    introduction: formal
+    requires: [geometry.circle-squaring-borel-theorem, geometry.curve-boundary-box-dimension]
