@@ -1,0 +1,50 @@
+id: GMT12
+title: 可算整流可能集合の定義と例
+volume: foundations
+status: supplementary
+prerequisites:
+  - RA4
+  - RA6
+  - MT8
+  - GMT1
+  - GMT9
+  - GMT10
+  - GMT11
+official_scope: []
+learning_objectives:
+  - 可算m-整流可能性をHausdorff零集合を除いた可算Lipschitz像の被覆として正確に定義できる
+  - C1グラフをコンパクト立方体に分割して全空間のLipschitzパラメータ表示へ変換できる
+  - グラフの面積にGMT11のarea formulaを適用して正かつ有限のHausdorff m測度を計算・評価できる
+  - 可算和・零測度付着で整流可能性が保たれ、可算整流可能集合のHausdorff m測度がsigma有限となることを証明できる
+  - 純m-非整流可能性を全Lipschitz像とのm次元零交差として定義し、整流可能性との両立条件を示せる
+  - 四隅Cantor dustがHausdorff次元1かつ正有限H1であることを被覆と質量評価から導ける
+  - 四隅Cantor dustが純1-非整流可能であることをRadon微分定理とLipschitz曲線の双Lipschitz分割から証明できる
+definitions:
+  - { id: GMT12-DEF-01, name: 可算m-整流可能集合 }
+  - { id: GMT12-DEF-02, name: 純m-非整流可能集合 }
+theorems:
+  - { id: GMT12-PROP-01, name: C1グラフは可算整流可能 }
+  - { id: GMT12-PROP-02, name: 可算整流可能性の安定性とsigma有限性 }
+  - { id: GMT12-PROP-03, name: 両方に属する集合は零測度 }
+  - { id: GMT12-LEM-01, name: 四隅集合の長さと横方向の質量 }
+  - { id: GMT12-THM-01, name: 四隅Cantor dustの純非整流性 }
+canonical_examples:
+  - 二線分の和集合を切り詰め写像で厳密にパラメータ化
+  - C1グラフと放物線の非正規化Hausdorff面積評価
+  - Hausdorff零集合の付着と可算無限長の線分集合
+  - 四隅Cantor dustの正有限H1と純1-非整流可能性
+problem_patterns:
+  - GMT12-SEGMENT-UNION
+  - GMT12-NULL-ATTACHMENT
+  - GMT12-PURE-UNIVERSAL
+  - GMT12-GRAPH-AREA
+  - GMT12-INFINITE-LENGTH
+  - GMT12-CLAMP-EXTENSION
+  - GMT12-SIGMA-FINITE
+  - GMT12-CORNER-COVER
+  - GMT12-RECT-PURE-CONFLICT
+  - GMT12-CORNER-TANGENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }

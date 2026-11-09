@@ -1,0 +1,76 @@
+chapter: GMT12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+  - RA6
+  - MT8
+  - GMT1
+  - GMT9
+  - GMT10
+  - GMT11
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt12-countably-rectifiable
+    name: 可算m-整流可能集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（可算m-整流可能集合）"]
+    requires:
+      - measure.hausdorff-measure
+      - geometric-measure.gmt11-lipschitz-null-image
+
+  - id: geometric-measure.gmt12-c1-graphs
+    name: C1グラフは可算整流可能
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（C1グラフは可算整流可能）"]
+    requires:
+      - geometric-measure.gmt12-countably-rectifiable
+
+  - id: geometric-measure.gmt12-stability
+    name: 可算整流可能性の安定性とsigma有限性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（可算整流可能性の安定性とsigma有限性）"]
+    requires:
+      - geometric-measure.gmt12-countably-rectifiable
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt12-purely-unrectifiable
+    name: 純m-非整流可能集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（純m-非整流可能集合）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt12-zero-intersection
+    name: 両方に属する集合は零測度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（両方に属する集合は零測度）"]
+    requires:
+      - geometric-measure.gmt12-countably-rectifiable
+      - geometric-measure.gmt12-purely-unrectifiable
+
+  - id: geometric-measure.gmt12-corner-mass
+    name: 四隅集合の長さと横方向の質量
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（四隅集合の長さと横方向の質量）"]
+    requires:
+      - measure.hausdorff-measure
+      - geometric-measure.gmt1-function-differentiation
+
+  - id: geometric-measure.gmt12-corner-pure
+    name: 四隅Cantor dustの純非整流性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四隅Cantor dustの純非整流性）"]
+    requires:
+      - geometric-measure.gmt12-purely-unrectifiable
+      - geometric-measure.gmt12-corner-mass
+      - geometric-measure.gmt11-area-formula
+      - geometric-measure.gmt1-function-differentiation
