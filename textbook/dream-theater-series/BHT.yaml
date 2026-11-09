@@ -37,7 +37,7 @@ chapters:
     title: "Smarr関係・不可逆質量と仕事"
   - id: BHT8
     path: textbook/volumes/dream_thater/物理系/BHT/BHT8
-    status: planned
+    status: completed
     title: "Hawking温度の熱力学的意味"
   - id: BHT9
     path: textbook/volumes/dream_thater/物理系/BHT/BHT9

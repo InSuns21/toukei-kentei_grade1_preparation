@@ -1,0 +1,45 @@
+chapter: BHT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT7
+  - BHT4
+  - QCURV11
+  - QCURV13
+  - QCURV14
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.hawking-killing-normalization
+    name: Hawking熱因子のKilling規格化不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hawking熱因子のKilling規格化不変性）"]
+    requires: [qcurv.hawking-thermal-ratio, black-hole-thermodynamics.schwarzschild-state-data]
+
+  - id: black-hole-thermodynamics.static-bath-horizon-equilibrium
+    name: 静止熱浴と地平線の温度整合条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静止熱浴と地平線の温度整合条件）"]
+    requires: [qcurv.tolman-kms-redshift, qcurv.boulware-unruh-hartle-hawking-states]
+
+  - id: black-hole-thermodynamics.tolman-bath-matching
+    name: 静止熱浴と地平線のTolman整合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止熱浴と地平線のTolman整合）"]
+    requires: [black-hole-thermodynamics.static-bath-horizon-equilibrium, qcurv.tolman-kms-redshift]
+
+  - id: black-hole-thermodynamics.hawking-first-law-area-coefficient
+    name: Hawking温度による第一法則の面積係数表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hawking温度による第一法則の面積係数表示）"]
+    requires: [black-hole-thermodynamics.kerr-newman-first-law, qcurv.hawking-thermal-ratio]
+
+  - id: black-hole-thermodynamics.schwarzschild-hawking-si-response
+    name: Schwarzschild温度の物理単位と質量応答
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild温度の物理単位と質量応答）"]
+    requires: [black-hole-thermodynamics.schwarzschild-state-data, qcurv.hawking-thermal-ratio]
