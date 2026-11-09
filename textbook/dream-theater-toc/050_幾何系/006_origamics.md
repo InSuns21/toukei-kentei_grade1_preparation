@@ -2,3 +2,4 @@
 ### オリガミクス・数学的折り紙
 
 1. [ORI1 折り目は何をする写像か](textbook/volumes/dream_thater/幾何系/ORI/ORI1/index.md)
+2. [ORI2 芳賀の定理と比の幾何](textbook/volumes/dream_thater/幾何系/ORI/ORI2/index.md)

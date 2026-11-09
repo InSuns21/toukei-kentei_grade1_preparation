@@ -1,0 +1,37 @@
+chapter: ORI2
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI1]
+forward_references: []
+
+concepts:
+  - id: origami.haga-configuration
+    name: 芳賀折りの配置と三つの交点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（芳賀折りの配置と三つの交点）]
+    requires: [origami.point-alignment-bisector, origami.crease-reflection]
+
+  - id: origami.triangle-similarity
+    name: 三角形の相似
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（三角形の相似）, 相似]
+
+  - id: origami.haga-first-theorem
+    name: 芳賀の第一定理
+    kind: theorem
+    introduction: formal
+    requires: [origami.haga-configuration, origami.triangle-similarity, origami.reflection-isometry]
+
+  - id: origami.haga-general-ratio
+    name: 芳賀折りの一般比公式
+    kind: theorem
+    introduction: formal
+    requires: [origami.haga-configuration, origami.haga-first-theorem]
+
+  - id: origami.haga-inverse-ratio
+    name: 芳賀折りの比の逆算と有理性
+    kind: proposition
+    introduction: formal
+    requires: [origami.haga-general-ratio]
