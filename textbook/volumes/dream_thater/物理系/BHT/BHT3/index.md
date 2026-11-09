@@ -23,7 +23,7 @@ $$
 R_{ab}k^ak^b=8\pi T_{ab}k^ak^b\ge0.
 $$
 
-これは[GR36の光的Ricci集束条件（NCC）](../../GR/GR36/index.md#def-gr36-null-convergence)です。せん断の二乗も非負なので、上の微分方程式は $\theta'\le-\theta^2/2$ を与えます。ただし**微分が負であることは、膨張率そのものが非負であることを意味しません**。
+これは[GR36の光的Ricci集束条件（NCC）](../../GR/GR36/index.md#def-gr36-null-convergence)です。以下この節で $\theta'=d\theta/d\lambda$ と略記します。せん断の二乗も非負なので、上の微分方程式は $\theta'\le-\theta^2/2$ を与えます。ただし**微分が非正であることは、膨張率そのものが非負であることを意味しません**。
 
 初期値 $\theta(\lambda_0)=\theta_0<0$ なら、負値のままの区間で $u=1/\theta$ を微分して
 
@@ -43,7 +43,7 @@ $$
 
 両方があれば「負の膨張率なら有限未来に焦点」という帰結が矛盾となり、地平線上で $\theta\ge0$ と結論できます。この因果的な焦点の性質は局所Raychaudhuri方程式だけでは証明されず、大域因果幾何の入力です。
 
-[GR36の面積密度輸送式](../../GR/GR36/index.md#prop-gr36-area-transport)で、横断座標 $y=(y^1,y^2)$ に沿って運ぶ空間的二次元計量を $q_{AB}$ とすると
+[GR36の面積密度輸送式](../../GR/GR36/index.md#prop-gr36-area-transport)で、生成線に沿って運ぶ横断座標 $y=(y^1,y^2)$ を取ります。空間的切断の座標接ベクトル $e_A=\partial_{y^A}$（$A=1,2$）の内積を $q_{AB}=g(e_A,e_B)$ と置くと、$q=(q_{AB})$ は正定値の $2\times2$ 行列です。したがって、その行列式の平方根が座標面積要素の密度 $dA=\sqrt{\det q}\,dy^1dy^2$ を与えます。GR36で導いた輸送式は
 
 $$
 \frac{d}{d\lambda}\log\sqrt{\det q}=\theta,\qquad
@@ -106,7 +106,14 @@ $$
 積分区間の向きも $f>0$ で保存されるため、$\int\theta_{\widetilde k}\,ds=\int\theta_k\,d\lambda$ です。その指数である面積密度比 $J$ は等しく、切断上の積分面積も同じです。最後の非減少性は明記された仮定下で[GR36の定理](../../GR/GR36/index.md#thm-gr36-smooth-area)を適用した結果です。
 <!-- proof-end -->
 
-**直接例：** 半径 $r(\lambda)>0$ の球面切断では $a=r^2\sin\vartheta$ です。$\theta_k=2r'/r$、$d\lambda/ds=f$ より
+**直接例：** 半径 $r(\lambda)>0$ の球面切断を球面座標 $(\vartheta,\varphi)$ の $0<\vartheta<\pi$ の領域で考えます。角度方向の計量は $r^2(d\vartheta^2+\sin^2\vartheta\,d\varphi^2)$ なので、座標基底での行列と正の面積密度は
+
+$$
+q_{AB}=r^2\operatorname{diag}(1,\sin^2\vartheta),\qquad
+a=\sqrt{\det q}=r^2\sin\vartheta>0.
+$$
+
+球面座標の極では別の座標域を用います。角度を生成線に沿って固定し、$r'=dr/d\lambda$ とすれば、[面積密度輸送式](../../GR/GR36/index.md#prop-gr36-area-transport)から $\theta_k=(1/a)\,da/d\lambda=2r'/r$ です。$d\lambda/ds=f$ より
 
 $$
 \theta_{\widetilde k}=\frac2r\frac{dr}{ds}
@@ -120,14 +127,14 @@ $$
 
 ## 3. 流入Vaidya模型で仮定と面積変化を同時に検算する
 
-[GR29の入射Vaidya事象地平線](../../GR/GR29/index.md#prop-gr29-vaidya-separation)では、球対称の物質流入を時間依存の質量関数で表しました。幾何単位で $a(v)=2M(v)>0$ と書き、$a$ を $C^1$ 級、有限の $v_1$ 以後は正の定数 $a_1$ とします。$r>0$ の領域で
+[GR29の入射Vaidya事象地平線](../../GR/GR29/index.md#prop-gr29-vaidya-separation)では、球対称の物質流入を時間依存の質量関数で表しました。この節の $a(v)=2M(v)>0$ は§2の面積密度 $a$ とは別に、質量を長さに換算した関数です。$a$ を $C^1$ 級、有限の $v_1$ 以後は正の定数 $a_1$ とします。$r>0$ の領域で
 
 $$
 ds^2=-F(v,r)\,dv^2+2\,dv\,dr+r^2d\Omega^2,\qquad
 F(v,r)=1-\frac{a(v)}r.
 $$
 
-この計量の未来向き出射零方向は $\ell=\partial_v+(F/2)\partial_r$ です。実際、角度成分が零で、$g(\ell,\ell)=-F+2(F/2)=0$ となります。事象地平線の出射生成線を $r=r_E(v)>0$ とすると
+ここで $\partial_v$ と $\partial_r$ は、他の座標を固定した座標基底ベクトルです。この計量の未来向き出射零方向は $\ell=\partial_v+(F/2)\partial_r$ です。実際、角度成分が零で、$g(\ell,\ell)=-F+2(F/2)=0$ となります。事象地平線の出射生成線を $r=r_E(v)>0$ とすると、その曲線の接方向は $\partial_v+(dr_E/dv)\partial_r$ なので、$\ell$ との比較から $dr_E/dv=F(v,r_E)/2$ です。この節では $r_E'=dr_E/dv$、$a'=da/dv$ と記して
 
 $$
 r_E'=\frac12\left(1-\frac{a(v)}{r_E}\right),
@@ -142,7 +149,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（入射Vaidya地平線の未来積分式）**  
-> 上記の四次元入射Vaidya計量で $a\in C^1([v_0,v_1])$ は正、$v\ge v_1$ で $a=a_1>0$、$r_E>0$ は未来定常地平線から延長した上記境界値問題の解とする。$\delta=r_E-a$ とおくと
+> 四次元入射Vaidya計量 $ds^2=-(1-a(v)/r)dv^2+2\,dv\,dr+r^2d\Omega^2$（$r>0$）を考える。$a\in C^1([v_0,v_1])$ は正、$v\ge v_1$ では $a=a_1=a(v_1)>0$ で一定とする。未来定常地平線から過去へ延長した正の解 $r_E(v)$ が
+
+$$
+\frac{dr_E}{dv}=\frac12\left(1-\frac{a(v)}{r_E(v)}\right),
+\qquad r_E(v_1)=a_1
+$$
+
+> を満たすとし、$\delta(v)=r_E(v)-a(v)$ と置く。このとき
 
 $$
 \delta(v)=\int_v^{v_1}
@@ -209,7 +223,13 @@ T_{ab}=\frac{a'(v)}{8\pi r^2}(dv)_a(dv)_b,\qquad
 T_{ab}k^ak^b=\frac{a'(v)}{8\pi r^2}(k^v)^2.
 $$
 
-従って $a'\ge0$ なら、任意の光的方向にNECが成り立ちます。[未来積分式](#prop-bht3-vaidya-future-integral)でも $\delta\ge0$、$A_E'\ge0$ です。流入がまだ始まっていない区間で $a'(v)=0$ でも、その**将来**の区間に $a'(s)>0$ があれば、積分核が正なので $\delta(v)>0$、$A_E'(v)>0$ となり得ます。事象地平線が将来の因果構造で決まるという特徴です。
+従って将来の区間 $[v,v_1]$ 全体で $a'\ge0$ なら、任意の光的方向にNECが成り立ちます。[未来積分式](#prop-bht3-vaidya-future-integral)の核も正なので、次を得ます。
+
+$$
+\delta(v)\ge0,\qquad A_E'(v)=4\pi\delta(v)\ge0.
+$$
+
+流入がまだ始まっていない時刻に $a'(v)=0$ でも、その**将来**の一部で $a'(s)>0$ があれば、他の時刻の寄与も非負なので積分は厳密に正です。ここで $a'(s)$ は $da/dv$ を $v=s$ で評価したものです。従ってその時刻でも $A_E'(v)>0$ です。将来に負の流束も混ざる場合は正の寄与と相殺され得るため、この結論は無条件ではありません。事象地平線が将来の因果構造で決まるという特徴です。
 
 **直接例2：負の流入。** $a'(v)<0$ の区間では、$k^v\ne0$ の光的ベクトルを取ると $T_{ab}k^ak^b<0$ なのでNECに違反します。将来の全区間で $a'\le0$ なら[未来積分式](#prop-bht3-vaidya-future-integral)から $\delta\le0$、$A_E'\le0$ となり、非自明な減少区間で面積が減ります。これは**負のエネルギー流束を入れた古典的な模型**の計算であって、Hawking放射の量子場理論的導出ではありません。GR36の面積定理との矛盾ではなく、そのNCC仮定が失われた例です。
 
@@ -494,7 +514,7 @@ Ricci縮約とせん断が零でも、初期膨張率 $h>0$ が残って面積�
 
 - Level: B
 
-入射Vaidya模型で $a'(v)=0$ が $v\le v_0$、$a'(s)>0$ が $v_0<s<v_1$ の一部で成立し、$v\ge v_1$ では $a=a_1$ とする。$v<v_0$ で $T_{vv}=0$ なのに $A_E'(v)>0$ と結論できる理由を、未来境界条件と積分の符号を使って述べよ。
+入射Vaidya模型で $a'(v)=0$ が $v\le v_0$、$a'(s)\ge0$ が $v_0\le s\le v_1$ の全域で成立し、しかも $v_0<s<v_1$ のある開区間で $a'(s)>0$ とする。$v\ge v_1$ では $a=a_1$ とする。$v<v_0$ で $T_{vv}=0$ なのに $A_E'(v)>0$ と結論できる理由を、未来境界条件と積分の符号を使って述べよ。また、将来の $a'$ に負の部分も許すと何が変わるか。
 
 <!-- solution-start -->
 **詳細解答。** [Vaidyaの物質源](../../GR/GR30/index.md#prop-gr30-vaidya-source)から $T_{vv}=a'(v)/(8\pi r^2)=0$ です。しかし事象地平線は未来の最終定常半径 $r_E(v_1)=a_1$ から過去へ辿るので、[未来積分式](#prop-bht3-vaidya-future-integral)は
@@ -504,7 +524,7 @@ $$
 K(v,s)=\exp\left(-\int_v^s\frac{du}{2r_E(u)}\right)>0.
 $$
 
-$[v,v_0]$ の積分は零ですが、$[v_0,v_1]$ のうち $a'>0$ である領域は正の寄与を与えます。従って $\delta(v)>0$、さらに $A_E'(v)=4\pi\delta(v)>0$。局所の $T_{vv}(v)=0$ と、将来の事象地平線位置の決定は別の問いです。
+$[v,v_0]$ の積分は零ですが、$[v_0,v_1]$ では $K>0$ かつ $a'\ge0$ であり、ある開区間では $a'>0$ なので積分は厳密に正です。従って $\delta(v)>0$、さらに $A_E'(v)=4\pi\delta(v)>0$。もし負の $a'$ も許せばその寄与が正の寄与を打ち消し得て、符号を確定できません。局所の $T_{vv}(v)=0$ と、将来の事象地平線位置の決定は別の問いです。
 <!-- solution-end -->
 
 ### Level C：古典的「第二法則」を条件つきで運用する
