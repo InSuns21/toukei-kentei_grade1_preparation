@@ -171,8 +171,7 @@ $$
 はBorel集合です（$\{v\}$ は閉集合）。各 $x$ には $g(x)\in V$ の値が一つだけあるので、$A_v$ は互いに素で和が $A$。さらに $f$ は全単射なので、移動像 $f(A_v)=A_v+v$ も互いに素で和が $B$。従って(1)が成立します。
 <!-- proof-end -->
 
-<!-- definition-example-start: prop-sqc11-borel-label -->
-**定義の確認**（直接例）　$A=[0,2)\times[0,1)$、$B=[0,1)\times[0,2)$ とし、$x=(s,t)$ の第1座標に応じて、$0\le s<1$ では $f(s,t)=(s,t)$、$1\le s<2$ では $f(s,t)=(s-1,t+1)$ とします。移動候補は $V=\{(0,0),(-1,1)\}$ です。逆像として
+**具体例**　$A=[0,2)\times[0,1)$、$B=[0,1)\times[0,2)$ とし、$x=(s,t)$ の第1座標に応じて、$0\le s<1$ では $f(s,t)=(s,t)$、$1\le s<2$ では $f(s,t)=(s-1,t+1)$ とします。移動候補は $V=\{(0,0),(-1,1)\}$ です。逆像として
 
 $$
 A_{(0,0)}=[0,1)\times[0,1),\qquad
@@ -180,8 +179,6 @@ A_{(-1,1)}=[1,2)\times[0,1)
 $$
 
 を得ます。第1節で確認した半開長方形のBorel性と、像の上下二帯が互いに素で和が $B$ であることから、命題の全条件を具体的に満たします。
-<!-- definition-example-end -->
-
 要点は「有限の移動候補」というだけではBorel性が出ないことです。**その候補を選ぶ規則がBorelであること**が必要です。この質的な差が次の研究級の定理の中心です。
 
 ---
@@ -390,7 +387,15 @@ $T_v(x)=x+v$ は連続で逆写像 $T_{-v}$ も連続です。$\mathcal F=\{E\su
 <!-- solution-start -->
 **詳細解答**
 
-円盤の面積は $\pi\cdot2^2=4\pi$ です。正方形の辺長 $s>0$ は $s^2=4\pi$ より $s=2\sqrt\pi$ です。両者は閉集合でBorelです。[線分・円周・正方形境界の上box次元](../SQC9/index.md#lem-sqc9-boundary-dimension)からどちらの境界も上box次元 $1<2$。従って[Marks–Ungerの定理](#thm-sqc11-marks-unger)に $d=2$、$A=D_2$、$B=Q_{2\sqrt\pi}$ を代入する条件がすべて揃います。
+円盤の面積は $4\pi$ です。正方形の正の辺長 $s$ は
+
+$$
+s^2=4\pi,\qquad s=2\sqrt\pi
+$$
+
+となります。両者は閉集合なのでBorelです。
+
+[線分・円周・正方形境界の上box次元](../SQC9/index.md#lem-sqc9-boundary-dimension)から、双方の境界次元は $1<2$ です。よって[Marks–Ungerの定理](#thm-sqc11-marks-unger)に $d=2$、$A=D_2$、$B=Q_{2\sqrt\pi}$ を代入する条件がすべて揃います。
 <!-- solution-end -->
 
 ### Level B：定理の強さと失敗する推論を見抜く
@@ -402,7 +407,17 @@ $T_v(x)=x+v$ は連続で逆写像 $T_{-v}$ も連続です。$\mathcal F=\{E\su
 <!-- solution-start -->
 **詳細解答**
 
-$C$ の濃度は $\mathfrak c$、部分集合の個数は $2^{\mathfrak c}>\mathfrak c$。Borel集合の総数は高々 $\mathfrak c$ なので、$C$ の部分集合で非Borelな $N$ が存在します。中三分の第 $n$ 段階の被覆全長は $(2/3)^n\to0$ なので $C$ のLebesgue測度は0。**Lebesgue測度の完備性**から $N\subset C$ も可測で測度0です。$C$ は至る所疎で $N$ はmeagerだから、$N\triangle\varnothing=N$ となりBaire性を持ちます。従って[Borel集合のLebesgue可測性とBaire性](#prop-sqc11-borel-regularity)の逆は一般に成立しません。
+$C$ の濃度は $\mathfrak c$、部分集合の個数は $2^{\mathfrak c}$ です。[Cantorの定理](../../../基礎科目/SET/SET-U3/index.md#thm-setu3-cantor)より
+
+$$
+2^{\mathfrak c}>\mathfrak c.
+$$
+
+Borel集合の総数は高々 $\mathfrak c$ なので、$C$ の部分集合で非Borelな $N$ が存在します。
+
+中三分の第 $n$ 段階で被覆する区間の全長は $(2/3)^n\to0$ なので、$C$ のLebesgue測度は0です。**Lebesgue測度の完備性**から $N\subset C$ も可測で、測度は0です。
+
+また $C$ は至る所疎なので $N$ はmeagerです。$N\triangle\varnothing=N$ と書けるためBaire性も持ちます。従って[Borel集合のLebesgue可測性とBaire性](#prop-sqc11-borel-regularity)の逆は一般に成立しません。
 <!-- solution-end -->
 
 **SQC11-B2（Borel片から元の集合へ）**　任意の集合 $A$ が有限個のBorel集合片の互いに素な和として書けるなら $A$ 自体がBorelであることを証明せよ。これを用い、$A$ が非Borelなら「Borel片の有限平行移動等分解」は不可能である理由を述べよ。
@@ -472,7 +487,11 @@ $$
 s^2=\pi(R^2-a^2),\qquad s=\sqrt{\pi(R^2-a^2)}.
 $$
 
-$H,Q_s$ は閉有界なのでBorelで、内側に小開球を含むため内部非空です。$\partial H$ は半径 $a,R$ の二円周の和です。[線分・円周・正方形境界の上box次元](../SQC9/index.md#lem-sqc9-boundary-dimension)から各円周は上box次元1で、有限和の被覆数は各被覆数の和以下なので上界は1です。外周の座標射影から下界も1です。$\partial Q_s$ の次元も1なので両者とも $1<2$、面積は等しく正で有限です。
+$H,Q_s$ は閉有界なのでBorelで、内側に小開球を含むため内部非空です。$\partial H$ は半径 $a,R$ の二円周の和です。
+
+[線分・円周・正方形境界の上box次元](../SQC9/index.md#lem-sqc9-boundary-dimension)によれば、各円周の上box次元は1です。有限和の被覆数は各被覆数の和以下なので、二円周の和の次元は高々1です。外周の座標射影による下界から、ちょうど1となります。
+
+$\partial Q_s$ の次元も1なので、双方とも境界次元は $1<2$ です。面積は先ほど計算した等しい正の有限値です。
 
 (2) 従って[Marks–Ungerの定理](#thm-sqc11-marks-unger)が適用でき、有限個のBorel片 $A_i$ とベクトル $v_i$ で厳密分割
 
@@ -482,7 +501,20 @@ $$
 
 が存在します。[Borel集合のLebesgue可測性とBaire性](#prop-sqc11-borel-regularity)により各 $A_i$ はLebesgue可測かつBaire性を持ちます。
 
-(3) 外周の非Borel部分集合 $N$ は面積0で、$H'=H\setminus N$ の面積は $\pi(R^2-a^2)$ のままです。外周の点の近くには内外の点が必ずあり、円環内部と内周付近は変更していないので、$\partial H'=\partial H$ です。一方 $H'$ がBorelなら $N=H\setminus H'$ もBorelとなり矛盾するので、$H'$ は非Borelです。$H'$ は有界で内部非空、等面積、境界次元1の条件を満たすため[Grabowski–Máthé–Pikhurkoの定理](#thm-sqc11-gmp)が適用でき、Lebesgue可測かつBaire性を持つ片の有限等分解があります。対して[Marks–Ungerの定理](#thm-sqc11-marks-unger)の元のBorel性条件は破れ、そもそも非Borelな $H'$ を有限個のBorel片で分割することはできません。
+(3) 外周の非Borel部分集合 $N$ は面積0なので、$H'=H\setminus N$ の面積は $\pi(R^2-a^2)$ のままです。
+
+外周の点の近くには内外の点が必ずあり、円環内部と内周付近は変更していないので、
+
+$$
+\partial H'=\partial H,\qquad
+\overline{\dim}_{\mathrm{box}}(\partial H')=1
+$$
+
+です。一方、$H'$ がBorelなら $N=H\setminus H'$ もBorelとなり矛盾します。ゆえに $H'$ は非Borelです。
+
+$H'$ は有界で内部非空、等面積、境界次元1の条件を満たすため[Grabowski–Máthé–Pikhurkoの定理](#thm-sqc11-gmp)が適用でき、Lebesgue可測かつBaire性を持つ片の有限等分解があります。
+
+対して[Marks–Ungerの定理](#thm-sqc11-marks-unger)の元のBorel性条件は破れています。そもそも非Borelな $H'$ を有限個のBorel片で分割することはできません。
 
 (4) 有限平行移動等分解は片の正則性を要求しない存在主張です。Borel片を要求すると元の集合もBorelでなければならず、(3)のように成立範囲が狭まります。さらに両定理の境界次元仮定は元の図形に対するもので、分割片の境界が滑らか・次元1・あるいは次元2未満とは結論できません。この追加の境界正則性は次講の独立した問いです。
 <!-- solution-end -->
