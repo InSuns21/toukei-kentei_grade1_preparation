@@ -66,7 +66,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Hawking熱因子のKilling規格化不変性）**  
-> 非極限の定常Killing地平線で、$\chi$ の表面重力を $\kappa>0$ とし、$\chi$ の時間に関する正のモード周波数を $\omega>0$ とする。$a>0$ を定数として $\chi'=a\chi$ と再規格化すると、$\kappa'=a\kappa$、$\omega'=a\omega$ である。この両方を変換すると、Hawkingの逆温度 $\beta=2\pi/\kappa$ について
+> 非極限の定常Killing地平線で、$\chi$ の表面重力を $\kappa>0$ とし、$\chi$ の時間に関するスカラー場モードの正の周波数を $\omega>0$ とする。$a>0$ を定数として $\chi'=a\chi$ と再規格化すると、$\kappa'=a\kappa$、$\omega'=a\omega$ である。この両方を変換すると、Hawkingの逆温度 $\beta=2\pi/\kappa$ について
 
 $$
 \boxed{\beta'\omega'=\beta\omega,\qquad
