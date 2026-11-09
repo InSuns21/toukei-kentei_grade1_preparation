@@ -115,18 +115,18 @@ $$
 
 **何を一次として残すか。** 摂動した地平線の実際の未来向き零生成ベクトルを $\ell_\varepsilon$ と書き、生成線を滑らかに同定して $\ell_0=\chi$、その非アフィン係数を $\kappa_\varepsilon=\kappa+O(\varepsilon)$ とします。摂動後も背景の $\chi$ 自身が厳密に零・地平線接線であると仮定するのではありません。膨張・せん断を $\Theta_\varepsilon,\sigma^{(\varepsilon)}_{ab}$ と記すと、背景Kerrでは両者が零なので
 
-$
+$$
 \Theta_\varepsilon=\varepsilon\vartheta+O(\varepsilon^2),\qquad
 \sigma^{(\varepsilon)}_{ab}=\varepsilon s_{ab}+O(\varepsilon^2).
-$
+$$
 
 以後、定義式中の $\Theta_\chi(\varepsilon,v,x)$ は、この同定の下で測った $\Theta_\varepsilon$ の略記です。$\Theta_\varepsilon^2$ と $\sigma_\varepsilon^2$ は二次で、$\kappa_\varepsilon\Theta_\varepsilon=\varepsilon\kappa\vartheta+O(\varepsilon^2)$。さらに摂動後の零生成場にEinstein方程式を収縮すると、$g^{(\varepsilon)}(\ell_\varepsilon,\ell_\varepsilon)=0$ により跡の項が消え、
 
-$
+$$
 R^{(\varepsilon)}_{ab}\ell_\varepsilon^a\ell_\varepsilon^b
 =8\pi T^{(\varepsilon)}_{ab}\ell_\varepsilon^a\ell_\varepsilon^b
 =8\pi\varepsilon\tau_{ab}\chi^a\chi^b+O(\varepsilon^2).
-$
+$$
 
 従って一次式の係数には背景の $\chi,\kappa,dA_0$ を使えます。
 
@@ -183,7 +183,7 @@ $$
 
 摂動地平線上でも局所アフィン接線 $k_\varepsilon$ を取り、$\ell_\varepsilon=b_\varepsilon k_\varepsilon$、$b_\varepsilon=d\lambda_\varepsilon/dv>0$ とします。非アフィン条件から $\partial_v b_\varepsilon=\kappa_\varepsilon b_\varepsilon$ です（背景では $b_0=\kappa\lambda$）。面積輸送の定義により $\Theta_\varepsilon=b_\varepsilon\theta_{k_\varepsilon}$、せん断も $b_\varepsilon$ 倍なので、アフィンの[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)に積の微分を使うと
 
-$
+$$
 \begin{aligned}
 \partial_v\Theta_\varepsilon
 &=(\partial_v b_\varepsilon)\theta_{k_\varepsilon}
@@ -193,7 +193,7 @@ $
 -\sigma_\varepsilon^{ab}\sigma^{(\varepsilon)}_{ab}
 -R^{(\varepsilon)}_{ab}\ell_\varepsilon^a\ell_\varepsilon^b.
 \end{aligned}
-$
+$$
 
 直前に確認した次数を代入します。膨張・せん断の二乗は $O(\varepsilon^2)$、Ricci縮約は $8\pi\varepsilon f+O(\varepsilon^2)$ です。従って $\varepsilon$ の係数は
 
@@ -273,11 +273,11 @@ $$
 
 最後の内積分は、$v$ について $\partial_v e^{-\kappa(s-v)}=\kappa e^{-\kappa(s-v)}$ なので、
 
-$
+$$
 \int_{-\infty}^{s}e^{-\kappa(s-v)}\,dv
 =\left[\frac{e^{-\kappa(s-v)}}{\kappa}\right]_{v=-\infty}^{s}
 =\frac1\kappa
-$
+$$
 
 です。断面の面積要素をさらに積分して主張を得ます。
 <!-- proof-end -->
@@ -450,19 +450,19 @@ $$
 
 アフィン[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)の一次式は $\partial_\lambda\theta_k=-8\pi T_{kk}$ です。未来で $\theta_k\to0$、端点で $\lambda\theta_k\to0$（$\lambda\to0,\infty$）とし、以下の積分交換に必要な絶対可積分性を仮定します。未来側から積分して
 
-$
+$$
 \theta_k(\lambda)=8\pi\int_\lambda^\infty T_{kk}(s)\,ds,
-$
+$$
 
 さらに積分順序を交換すると
 
-$
+$$
 \begin{aligned}
 \int_0^\infty\theta_k(\lambda)\,d\lambda
 &=8\pi\int_0^\infty\left(\int_0^s d\lambda\right)T_{kk}(s)\,ds\\
 &=8\pi\int_0^\infty sT_{kk}(s)\,ds.
 \end{aligned}
-$
+$$
 
 よって面積輸送式 $\delta A=\int\theta_k\,d\lambda\,dA_0$ を使っても同じ係数 $8\pi$ が得られます。$\lambda=0$ は非極限分岐地平線の正規化であり、極限 $\kappa=0$ へこの変換を延長できません。
 
@@ -519,17 +519,17 @@ $\Theta_\chi=\varepsilon\vartheta+O(\varepsilon^2)$、$\sigma^\chi_{ab}=\varepsi
 <!-- solution-start -->
 **詳細解答。** 背景の膨張・せん断が零なので、時間微分、非アフィン項、物質項は一次であり、二乗項は
 
-$
+$$
 \tfrac12\Theta_\chi^2=\tfrac12\varepsilon^2\vartheta^2+O(\varepsilon^3),\qquad
 \sigma_\chi^2=\varepsilon^2s_{ab}s^{ab}+O(\varepsilon^3)
-$
+$$
 
 のように二次から始まります。従って一次係数は $\partial_v\vartheta=\kappa\vartheta-8\pi f$。一方、背景せん断が $\sigma^{(0)}_{ab}\ne0$ なら
 
-$
+$$
 \sigma^2=(\sigma^{(0)})^2
 +2\varepsilon\sigma^{(0)}_{ab}s^{ab}+O(\varepsilon^2)
-$
+$$
 
 という一次の交差項が残り、同じ線形方程式は得られません。
 <!-- solution-end -->
@@ -545,16 +545,16 @@ $G=c=1$ で質量 $M$、面積 $A$、表面重力 $\kappa$、角速度 $\Omega_H
 <!-- solution-start -->
 **詳細解答。** 幾何単位 $G=c=1$ では、質量・面積・角運動量・表面重力・角速度の長さ次元は
 
-$
+$$
 [M]=L,\quad [A]=[J]=L^2,\quad [\kappa]=[\Omega_H]=L^{-1}.
-$
+$$
 
 そのため第一法則の各項は
 
-$
+$$
 [\kappa\delta A]=L^{-1}L^2=L,\qquad
 [\Omega_H\delta J]=L^{-1}L^2=L=[\delta M]
-$
+$$
 
 となり、同次元です。$8\pi$ は無次元です。これは係数の正しさの証明ではありませんが、誤った面積や時間の規格化を検出できます。
 <!-- solution-end -->
