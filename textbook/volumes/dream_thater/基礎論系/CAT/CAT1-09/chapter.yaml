@@ -1,0 +1,48 @@
+id: "CAT1-09"
+title: "圏の同値と圏同型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00A2
+  - CAT1-02
+  - CAT1-03
+  - CAT1-05
+  - CAT1-06
+  - CAT1-07
+official_scope: []
+learning_objectives:
+  - 圏同型と圏の同値を区別し、自然同型を用いた準逆関手の条件を型付きで記述できる
+  - 関手の忠実性・充満性・本質的全射性を Hom 写像と対象の同型から判定できる
+  - 充満忠実関手が同型射を反映することを証明できる
+  - 準逆関手を持つ関手が充満忠実かつ本質的全射であることを証明できる
+  - 充満忠実かつ本質的全射な関手から、対象代表の選択に基づき準逆関手と二つの自然同型を構成できる
+  - 同型だが異なる対象を持つ亜群の例で同値だが圏同型でないことを示せる
+  - 充満・忠実・本質的全射の各条件が欠ける反例と、半順序圏での同値の剛性を判定できる
+definitions:
+  - { id: CAT1-09-DEF-01, name: 圏同型 }
+  - { id: CAT1-09-DEF-02, name: 忠実関手・充満関手・充満忠実関手 }
+  - { id: CAT1-09-DEF-03, name: 本質的全射関手 }
+  - { id: CAT1-09-DEF-04, name: 圏の同値と準逆関手 }
+theorems:
+  - { id: CAT1-09-PROP-01, name: 圏同型は圏の同値を与える }
+  - { id: CAT1-09-PROP-02, name: 充満忠実関手は同型射を反映する }
+  - { id: CAT1-09-THM-01, name: 圏の同値の充満忠実・本質的全射判定 }
+  - { id: CAT1-09-PROP-03, name: 半順序圏の同値は圏同型である }
+canonical_examples:
+  - 二対象の薄い連結亜群と一対象圏の同値
+  - 離散圏の包含による本質的全射性の失敗
+  - 半順序圏の関手の充満忠実性と対象の一致
+  - 同じ群を二対象へ複製した亜群の骨格化
+problem_patterns:
+  - CAT1-09-HOM-BIJECTION
+  - CAT1-09-ESSENTIAL-SURJECTIVITY
+  - CAT1-09-QUASI-INVERSE
+  - CAT1-09-REFLECT-ISOMORPHISM
+  - CAT1-09-FULL-FAITHFUL-ESSENTIAL
+  - CAT1-09-COUNTEREXAMPLES
+  - CAT1-09-POSET-RIGIDITY
+  - CAT1-09-GROUPOID-SKELETON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }
