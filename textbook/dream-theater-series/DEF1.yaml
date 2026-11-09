@@ -48,7 +48,7 @@ chapters:
     title: "Bogomolov–Tian–Todorov II――障害消滅と収束"
   - id: DEF1-11
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-11
-    status: planned
+    status: completed
     title: "Calabi–Yauの局所モジュライ"
   - id: DEF1-12
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-12
