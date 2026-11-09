@@ -95,11 +95,11 @@ $$
 
 [正値Kählerポテンシャルの定義](../YAU1-03/index.md#def-yau1-03-positive-domain)と[実 $(1,1)$ 形式の係数行列による正値判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)を、$v=\sum_p v^p\partial_p\ne0$ に適用すると、
 
-$
+$$
 -i\,\omega_{\varphi_k}(v,\bar v)
 =\sum_{p,q}h_{k,p\bar q}v^p\overline{v^q}
 >0.
-$
+$$
 
 したがって $h_k=(h_{k,p\bar q})$ はこの複素接基底でのHermite形式の係数行列であり、形式の正値性は行列の正値性と同値である。$C^2$ 収束から $h_k$ の各成分は収束するが、それだけでは厳密な正値性を保証しない。例えば正値行列 $\operatorname{diag}(1/k,1)$ は $\operatorname{diag}(0,1)$ へ収束して退化する。
 
@@ -148,11 +148,11 @@ $$
 
 係数行列から体積形式へ移る理由も確認する。最高次外積の交代性から、固定座標で
 
-$
+$$
 \omega_{\varphi_k}^n
 =n!\det(h_k)\bigwedge_{p=1}^n(i\,dz^p\wedge d\bar z^p),\qquad
 \omega^n=n!\det(g)\bigwedge_{p=1}^n(i\,dz^p\wedge d\bar z^p).
-$
+$$
 
 この共通因子が消えるので体積方程式は $\det(h_k)=\rho_{t_k}\det(g)$ と同値になる（[既習の行列式による体積比](../YAU1-03/index.md#def-yau1-03-log-ma)）。行列式は行列成分の多項式なので、$C^2$ 収束から
 
@@ -278,18 +278,18 @@ $$
 
 **直接例：平坦楕円曲線。** [パスの定義例](../YAU1-05/index.md#def-yau1-05-path)の $T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z$ を使い、$z=x+iy$（$x,y$ は実座標）、$0<|a|<1$、$e^F=1-a\cos(2\pi x)$ とする。各 $t\in[0,1]$ に
 
-$
+$$
 \varphi_t=\frac{ta}{\pi^2}\cos(2\pi x)
-$
+$$
 
 と置く。[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)より $\partial_z=(\partial_x-i\partial_y)/2$、$\partial_{\bar z}=(\partial_x+i\partial_y)/2$ であり、混合微分の交換から $\partial_z\partial_{\bar z}=(\partial_x^2+\partial_y^2)/4$ となる。$\varphi_t$ は $y$ に依存しないから
 
-$
+$$
 \partial_z\partial_{\bar z}\varphi_t
 =\frac14\partial_x^2\left(\frac{ta}{\pi^2}\cos(2\pi x)\right)
 =\frac14(-4ta\cos(2\pi x))
 =-ta\cos(2\pi x)
-$
+$$
 
 が成り立つ。従って計量係数は $1-ta\cos(2\pi x)\ge1-|a|>0$、密度も同じ $\rho_t$、平均は余弦の一周期積分が零なので零である。$t_k\to t_\ast$ なら $\varphi_{t_k}\to\varphi_{t_\ast}$ は全階で成立する。これは抽象的な閉性を、明示解と具体的な下界で確かめた例である。
 
