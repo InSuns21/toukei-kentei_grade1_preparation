@@ -1,0 +1,46 @@
+id: GMT3
+title: Riesz energyとcapacity
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT2
+official_scope: []
+learning_objectives:
+  - Riesz energyを対角を含む拡張実数値二重積分として定義し、原子と区間で有限・無限を判定できる
+  - 距離の負べき乗の層ケーキ表示とTonelliの定理から球積分表示を導出できる
+  - Frostman球成長評価から任意の低い指数のenergy有限性を定量的に示し、臨界指数へそのまま延長できない理由を説明できる
+  - Riesz capacityを確率測度のenergy下限で定義し、単調性・相似変換則・区間の正容量を導ける
+  - 有限energyからポテンシャル有界部分への制限と質量分布原理を経てHausdorff次元下界を証明できる
+  - コンパクト集合についてcapacityの正値指数の上限がHausdorff次元に一致することを証明できる
+  - 中三分Cantor測度のenergyを初分岐尺度で評価し、さらに全確率測度の臨界energy発散を示せる
+definitions:
+  - { id: GMT3-DEF-01, name: Riesz energy }
+  - { id: GMT3-DEF-02, name: Riesz capacity }
+  - { id: GMT3-DEF-03, name: 測度のRieszポテンシャル }
+theorems:
+  - { id: GMT3-LEM-01, name: Riesz energyの球積分表示 }
+  - { id: GMT3-THM-01, name: 球成長評価から有限energyへ }
+  - { id: GMT3-PROP-01, name: Riesz capacityの単調性と相似変換 }
+  - { id: GMT3-THM-02, name: 有限energyによる次元下界 }
+  - { id: GMT3-COR-01, name: Riesz capacityによるHausdorff次元の特徴付け }
+  - { id: GMT3-PROP-02, name: 中三分Cantor測度のenergy閾値 }
+canonical_examples:
+  - 点質量と区間上の一様確率測度のenergy
+  - 一点集合と区間のRiesz capacity
+  - 点質量と区間上の測度のRieszポテンシャル
+  - 有限energyだが元の測度はFrostman条件を満たさない特異密度
+  - 中三分Cantor測度と任意のCantor上確率測度の臨界発散
+problem_patterns:
+  - GMT3-ATOMIC-DIAGONAL
+  - GMT3-INTERVAL-ENERGY
+  - GMT3-LAYER-CAKE-ENDS
+  - GMT3-CAPACITY-SCALING
+  - GMT3-POTENTIAL-BALL-BOUND
+  - GMT3-LOCAL-FROSTMAN-ENERGY
+  - GMT3-ENERGY-NONUNIFORM-COUNTEREXAMPLE
+  - GMT3-DIMENSION-TO-CAPACITY
+  - GMT3-CANTOR-CRITICAL-CAPACITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 6, review: 2 }
