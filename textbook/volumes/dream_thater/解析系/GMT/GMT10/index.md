@@ -11,7 +11,7 @@
 
 第11講では、この点ごとの倍率を積分して像の測度と重複回数を結びます。ここではその前段として、例外を許した線形近似の意味・一意性と、線形写像についての倍率を完全に検証します。
 
-以下、$1\le m\le d$、$\Omega\subset\mathbb R^m$ は開集合、$f:\Omega\to\mathbb R^d$ とします。$|v|$ はEuclidノルム、$B(x,r)$ は開球、$\mathcal L^m$ は$\mathbb R^m$上の$m$次元Lebesgue測度です。特記しない **a.e.は定義域の$\mathcal L^m$について**であり、像に載る$\mathcal H^m$についてではありません。
+以下、$1\le m\le d$、$\Omega\subset\mathbb R^m$ は開集合、$f:\Omega\to\mathbb R^d$ とします。$|v|$ はEuclidノルム、$B(x,r)$ は開球、$\mathcal L^m$ は$\mathbb R^m$上の$m$次元Lebesgue測度です。特記しない「**ほとんど至る所（almost everywhere; a.e.）**」は定義域の$\mathcal L^m$についてであり、像に載る$\mathcal H^m$についてではありません。
 
 ## 1. 「ほとんどの方向」だけなら一次近似できるか
 
