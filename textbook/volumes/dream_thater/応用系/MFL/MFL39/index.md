@@ -6,12 +6,18 @@
 
 [MFL38のスカラー場](../MFL38/index.md#def-mfl38-scalar-chart)は、チャートを変えても同じ点の値を返した。しかし風速や曲面上の移動方向は数値一つではなく、各点の**接空間に属するベクトル**である。曲面の座標を変えると、接ベクトルそのものは同じでも「何本分の座標軸か」を表す数値は変わる。
 
-[GEO2の接空間の座標基底](../../../幾何系/GEO/GEO2/index.md#def-geo2-coordinate-basis)と[GEO5の滑らかなベクトル場](../../../幾何系/GEO/GEO5/index.md#def-geo5-vector-field)を利用し、曲面を局所的にパラメータ化する逆チャート $\phi:U\subset\mathbb R^2\to M$ を考える。ここでは滑らかな二次元埋め込み曲面 $M\subset\mathbb R^3$ を扱う。$\phi$ は像への微分同相であり、$D\phi$ の階数は2とする。座標 $x=(x^1,x^2)$ の方向に点を動かした速度 $\partial_{x^i}\phi$ は、各点の接空間の基底となる。
+[GEO2の接空間の座標基底](../../../幾何系/GEO/GEO2/index.md#def-geo2-coordinate-basis)と[GEO5の滑らかなベクトル場](../../../幾何系/GEO/GEO5/index.md#def-geo5-vector-field)を利用し、曲面を局所的にパラメータ化する逆チャート $\phi:U\subset\mathbb R^2\to M$ を考える。ここでは滑らかな二次元埋め込み曲面 $M\subset\mathbb R^3$ を扱う。$\phi$ は像への微分同相であり、$D\phi$ の階数は2とする。標準基底を $\boldsymbol\epsilon_i\in\mathbb R^2$ とすると、座標 $x=(x^1,x^2)$ の方向に点を動かした速度は
+
+$$
+D\phi_x(\boldsymbol\epsilon_i)=\partial_{x^i}\phi(x)\in T_{\phi(x)}M
+$$
+
+である。$D\phi_x$ の階数が2なので、この二本は一次独立であり、二次元の接空間の基底となる。以下の $E_x$ は、この**三次元接ベクトル二本を列に並べた行列**を意味する。
 
 <a id="def-mfl39-tangent-field-components"></a>
 <!-- formal-statement-start -->
 > **定義（接ベクトル場の局所成分表示）**  
-> $M\subset\mathbb R^3$ を滑らかな二次元埋め込み曲面、$\phi:U\to M$ を上記の逆チャートとする。滑らかな写像 $V:M\to\mathbb R^3$ が各 $p\in M$ で $V(p)\in T_pM$ を満たすとき、これを接ベクトル場とする。$x\in U$ で
+> $M\subset\mathbb R^3$ を滑らかな二次元埋め込み曲面、$\phi:U\subset\mathbb R^2\to M$ を像への滑らかな微分同相で、$D\phi$ の階数が2である逆チャートとする。滑らかな写像 $V:M\to\mathbb R^3$ が各 $p\in M$ で $V(p)\in T_pM$ を満たすとき、これを接ベクトル場とする。$x\in U$ で
 
 $$
 V(\phi(x))=v_\phi^1(x)\,\partial_{x^1}\phi(x)
@@ -30,7 +36,13 @@ e_u=\partial_u\phi=(-\sin u,\cos u,0),\quad
 e_v=\partial_v\phi=(0,0,1)
 $$
 
-とする。二つのベクトルは零でなく直交するので、接空間を張る。$V=2e_u-e_v$ と置けば $V$ は滑らかであり、実際に全点で接平面に入る。すなわち $(v_\phi^1,v_\phi^2)=(2,-1)$ である。三次元成分は $(-2\sin u,2\cos u,-1)$ で、点ごとに変わっても曲面上の同一の幾何学的規則を表す。**二成分**と**三次元の矢印**を混同しない。
+とする。$e_u,e_v$ は $D\phi$ の二列だから接ベクトルであり、内積は
+
+$$
+e_u\cdot e_u=e_v\cdot e_v=1,\qquad e_u\cdot e_v=0.
+$$
+
+よって一次独立で、二次元接空間を張る。$V=2e_u-e_v$ と置けば $V$ は滑らかであり、全点で接平面に入る。基底展開の一意性から二成分は $(v_\phi^1,v_\phi^2)=(2,-1)$ である。一方、三次元成分は $(-2\sin u,2\cos u,-1)$ と点ごとに変わる。**二成分**と**三次元の矢印**を混同しない。
 <!-- definition-example-end -->
 
 ## 2. チャートの軸を変えたら成分は逆向きに変える
@@ -46,7 +58,7 @@ $$
 <a id="thm-mfl39-chart-change"></a>
 <!-- formal-statement-start -->
 > **定理（チャート変更での接ベクトル成分と計量ノルム）**  
-> $(M,g)$ を滑らかな二次元Riemann多様体、$\phi,\psi$ を重なる滑らかな逆チャート、$T=\phi^{-1}\circ\psi$、$J=DT$ とする。$V$ を共通領域の滑らかな接ベクトル場とし、両チャートの成分を $v_\phi,v_\psi$ とする。対応する各点で、座標基底と成分はそれぞれ
+> $(M,g)$ を滑らかな二次元Riemann多様体、$\phi,\psi$ を重なる滑らかな逆チャート、$T=\phi^{-1}\circ\psi$、$J=DT$ とする。$V$ を共通領域の滑らかな接ベクトル場とし、両チャートの成分を $v_\phi,v_\psi$ とする。$E_x,E_y$ は各座標接ベクトルを列に並べたもの、$(G_x)_{ij}=g(\partial_{x^i},\partial_{x^j})$、$(G_y)_{ab}=g(\partial_{y^a},\partial_{y^b})$ は計量行列とする。対応する各点で、座標基底と成分はそれぞれ
 
 $$
 E_y=E_xJ,\qquad v_\psi=J^{-1}v_\phi
@@ -122,7 +134,13 @@ $$
 
 ## 3. チャート変更と、同じ点でのフレーム変更は違う
 
-チャートを固定しても、接平面内に二本の別の軸を自由に選べる。曲面の計量 $g$ に対して、各点の軸を長さ1かつ直交に選べば長さの計算は簡単になる。この軸の組を**局所フレーム**という。ここでは向きを反転する取り替えも含めるので、二次元直交群 $O(2)$ を使う。
+チャートを固定しても、接平面内に二本の別の軸を自由に選べる。各点で一次独立な滑らかな接ベクトル場二本の組を**局所フレーム**という。曲面の計量 $g$ に対して、各点の軸を長さ1かつ直交に選べば、長さの計算が簡単になる。以下でこの特別なフレームを定義する。$\delta_{ab}$ は $a=b$ なら1、それ以外は0となるKroneckerのデルタである。ここでは向きを反転する取り替えも含めるため、
+
+$$
+O(2)=\{R\in\mathbb R^{2\times2}:R^{\mathsf T}R=I_2\}
+$$
+
+という二次元直交群を使う。$I_2$ は二次の単位行列である。
 
 <a id="def-mfl39-orthonormal-frame"></a>
 <!-- formal-statement-start -->
@@ -143,7 +161,7 @@ $$
 <a id="prop-mfl39-frame-change"></a>
 <!-- formal-statement-start -->
 > **命題（正規直交フレーム変更則）**  
-> 同じ開領域の二つの局所正規直交フレーム $E,E'$ の間には、滑らかな $R:W\to O(2)$ が一意に存在して $E'=ER$ となる。同じ接ベクトル場 $V=Ec=E'c'$ のフレーム成分は
+> $(M,g)$ を二次元Riemann多様体、$W\subset M$ を開集合とし、$W$ 上の二つの滑らかな局所正規直交フレームを $E,E'$ とする。滑らかな $R:W\to O(2)$ が一意に存在して $E'=ER$ となる。同じ接ベクトル場 $V=Ec=E'c'$ のフレーム成分は
 
 $$
 c'=R^{\mathsf T}c,\qquad |c'|^2=|c|^2=g(V,V)
@@ -194,12 +212,18 @@ p(\theta,\varphi)=
 (\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta)
 $$
 
-と表す。接平面は $p$ と直交する二次元平面である。接ベクトルは $p$ をパラメータで微分して得られるため、球面上の座標軸の意味を三次元ベクトルに戻して検証できる。
+と表す。球面上の曲線 $q(t)$ は $q(t)\cdot q(t)=1$ を満たす。その両辺を微分すると
+
+$$
+2q(t)\cdot q'(t)=0.
+$$
+
+したがって接ベクトルは点 $p$ と直交する。球面は二次元で、$p\ne0$ だから接平面は $p$ に直交する二次元平面に一致する。接ベクトルは $p$ をパラメータで微分して得られるため、球面上の座標軸の意味を三次元ベクトルに戻して検証できる。
 
 <a id="prop-mfl39-sphere-frame"></a>
 <!-- formal-statement-start -->
 > **命題（球面の座標・正規直交フレーム）**  
-> 上の単位球面のチャート上で
+> 単位球面の逆チャート $p(\theta,\varphi)=(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta)$ を $0<\theta<\pi$、$-\pi<\varphi<\pi$ 上で用い、計量を三次元Euclid内積から誘導する。このチャート上で
 
 $$
 e_\theta=(\cos\theta\cos\varphi,\cos\theta\sin\varphi,-\sin\theta),
@@ -266,18 +290,47 @@ $V=e_\theta+2e_\varphi$ のフレーム成分は $(1,2)$、座標成分は $(1,4
 
 これまでの変換は**一点の同じ接空間内**で成立した。ところが異なる点 $p,q$ の接ベクトルは、原則として異なる接空間 $T_pM,T_qM$ に入る。フレーム成分が一定でも、実際の矢印の向きは変化しうる。これが、[GEO13の曲線に沿う共変微分](../../../幾何系/GEO/GEO13/index.md#def-geo13-curve-covariant-derivative)と[Levi-Civita接続](../../../幾何系/GEO/GEO13/index.md#def-geo13-levi-civita)が必要な理由である。
 
-球面に限れば、三次元の通常微分を球面の接平面へ直交射影することで、その共変微分を直接計算できる。射影は $P_p(w)=w-(w\cdot p)p$ であり、$|p|=1$ なので法線方向の成分を除く。この計算は[GEO13の接続](../../../幾何系/GEO/GEO13/index.md#thm-geo13-levi-civita-existence)の球面における具体形であり、任意の多様体の接続の新たな定義を主張するものではない。
+球面では、三次元の通常微分を接平面へ直交射影することで共変微分を直接計算できる。点 $p$ での射影は $P_p(w)=w-(w\cdot p)p$ であり、$|p|=1$ なので法線方向の成分を除く。
+
+この方法が球面のLevi-Civita接続を与える理由も確認しよう。球面の接ベクトル場 $X,Y,Z$ と三次元での方向微分 $D_XY$ に対して
+
+$$
+\widetilde\nabla_XY=P_p(D_XY)
+$$
+
+と置く。射影は接方向では恒等写像だから
+
+$$
+\begin{aligned}
+X\,g(Y,Z)
+&=(D_XY)\cdot Z+Y\cdot(D_XZ)\\
+&=g(\widetilde\nabla_XY,Z)+g(Y,\widetilde\nabla_XZ).
+\end{aligned}
+$$
+
+ここで $X\,g(Y,Z)$ は[GEO5のベクトル場の導分作用](../../../幾何系/GEO/GEO5/index.md#def-geo5-vector-field-derivation)をスカラー場 $g(Y,Z)$ に適用したものである。上式は[GEO13の計量両立性](../../../幾何系/GEO/GEO13/index.md#def-geo13-metric-compatibility)を表す。
+
+次に上で定めた球面の滑らかな座標写像 $p(x^1,x^2)$ の座標ベクトルを $\partial_i p$ と書く。$p$ は滑らかなので各成分に[RA6の混合偏微分の交換](../../../基礎科目/RA/RA6/index.md#thm-ra6-mixed-partials)を適用でき、
+
+$$
+\widetilde\nabla_{\partial_i}\partial_j-\widetilde\nabla_{\partial_j}\partial_i
+=P_p(\partial_i\partial_jp-\partial_j\partial_ip)=0
+$$
+
+となり、座標ベクトルのLie括弧も0である。[GEO13の捩率のテンソル性](../../../幾何系/GEO/GEO13/index.md#prop-geo13-torsion-tensor)により座標基底で捩率が消えれば全ての接ベクトル場について捩率は0となる。射影と通常微分は接続の線形性・Leibniz則を満たすため、[GEO13のLevi-Civita接続の存在一意性](../../../幾何系/GEO/GEO13/index.md#thm-geo13-levi-civita-existence)により $\widetilde\nabla=\nabla$ である。これは球面における具体的な計算方法であり、任意の多様体の接続を三次元射影で定義するものではない。
+
+以下、緯線上の $a'=da/d\varphi$、$b'=db/d\varphi$ は経度 $\varphi$ による導関数を表す。$\partial_\varphi$ は緯度 $\theta=\theta_0$ を固定する偏微分、$d/d\varphi$ は曲線に沿う全微分であり、$\dot\gamma=d\gamma/d\varphi$ と書く。
 
 <a id="prop-mfl39-sphere-connection"></a>
 <!-- formal-statement-start -->
 > **命題（球面緯線の接続項と平行成分）**  
-> $0<\theta_0<\pi$ を固定し、上のチャート内の緯線 $\gamma(\varphi)=p(\theta_0,\varphi)$ を考える。$\gamma$ に沿う滑らかな接ベクトル場を
+> 単位球面の逆チャート $p(\theta,\varphi)=(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta)$ を $0<\theta<\pi$、$-\pi<\varphi<\pi$ で用い、$e_\theta=\partial_\theta p$、$e_\varphi=(\sin\theta)^{-1}\partial_\varphi p$ とする。$0<\theta_0<\pi$ を固定し、このチャート内の緯線 $\gamma(\varphi)=p(\theta_0,\varphi)$ を考える。$\gamma$ に沿う滑らかな接ベクトル場を
 
 $$
 V(\varphi)=a(\varphi)e_\theta+b(\varphi)e_\varphi
 $$
 
-> とする。この球面のLevi-Civita共変微分は
+> とする。$a'=da/d\varphi$、$b'=db/d\varphi$ と書く。この球面のLevi-Civita共変微分は
 
 $$
 \nabla_{\dot\gamma}V
@@ -430,7 +483,14 @@ $\theta_0=\pi/3$ なら、成分一定の $e_\theta$ は $\nabla_{\dot\gamma}e_\
 ### Level A
 
 <!-- solution-start -->
-**MFL39-A01。** 新座標から旧座標への微分は $J=\begin{pmatrix}1&-2t\\0&1\end{pmatrix}$。$t=1/4$ で $J^{-1}=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}$ より
+**MFL39-A01。** 新座標から旧座標への微分を列ごとに求めると
+
+$$
+J=\begin{pmatrix}1&-2t\\0&1\end{pmatrix},\qquad
+J^{-1}\big|_{t=1/4}=\begin{pmatrix}1&1/2\\0&1\end{pmatrix}
+$$
+
+となる。[チャート変更則](#thm-mfl39-chart-change)により
 
 $$
 v_\psi=J^{-1}(3,-2)^{\mathsf T}=(2,-2)^{\mathsf T}.
@@ -442,7 +502,14 @@ $$
 G_y=\begin{pmatrix}1&-1/2\\-1/2&5/4\end{pmatrix}.
 $$
 
-$G_y(2,-2)^{\mathsf T}=(3,-7/2)^{\mathsf T}$ なので二乗長は $2\cdot3+(-2)(-7/2)=13$。旧表示でも $3^2+(-2)^2=13$。
+計量行列を新成分に作用させると
+
+$$
+G_y(2,-2)^{\mathsf T}=(3,-7/2)^{\mathsf T},\qquad
+(2,-2)G_y(2,-2)^{\mathsf T}=2\cdot3+(-2)(-7/2)=13.
+$$
+
+旧表示でも $3^2+(-2)^2=13$ となる。
 
 **MFL39-A02。** $R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ は $R^{\mathsf T}R=I$ を満たす。
 
@@ -460,7 +527,14 @@ $$
 
 ゆえに二乗長は $2^2+2^2=8$。座標計量で直接計算しても $4+(1/4)16=8$。
 
-**MFL39-A04。** [緯線の共変微分式](#prop-mfl39-sphere-connection)へ $a=1,b=0,a'=b'=0$ を代入すると $\nabla_{\dot\gamma}V=\cos\theta_0e_\varphi$。$\theta_0=\pi/3$ では $(1/2)e_\varphi\ne0$、赤道 $\theta_0=\pi/2$ では0である。成分一定だけでは平行か判定できず、フレームの回転率 $\cos\theta_0$ も必要。
+**MFL39-A04。** [緯線の共変微分式](#prop-mfl39-sphere-connection)へ $a=1,b=0,a'=b'=0$ を代入すると
+
+$$
+\nabla_{\dot\gamma}V=\cos\theta_0e_\varphi
+=\begin{cases}\frac12e_\varphi,&\theta_0=\pi/3,\\0,&\theta_0=\pi/2.\end{cases}
+$$
+
+前者は零でなく、赤道では零である。成分一定だけでは平行か判定できず、フレームの回転率 $\cos\theta_0$ も必要。
 <!-- solution-end -->
 
 ### Level B
@@ -512,39 +586,68 @@ $$
 
 $\varphi=\pi/2$ では $(a,b)=(1/\sqrt2,-1/\sqrt2)$ で、正規直交基底による二乗長は $1/2+1/2=1$。
 
-**MFL39-B04。** $\partial_\varphi=\sin\theta e_\varphi$ より $V=4\sin\theta\,e_\varphi$。長さは $4\sin\theta$。$\theta=\pi/6$ なら2、赤道なら4となる。座標成分の二乗和は両方16だが、計量 $G_{\varphi\varphi}=\sin^2\theta$ を無視している。極点へ近づくと、このベクトル場の長さは0へ近づき、同時に $\partial_\varphi$ が零へ退化するので、経度座標の二本は基底でなくなる。「フレームの同じ成分」という議論を極点へ持ち込めない。
+**MFL39-B04。** [球面の座標基底](#prop-mfl39-sphere-frame)の $\partial_\varphi=\sin\theta e_\varphi$ から $V=4\sin\theta\,e_\varphi$。$0<\theta<\pi$ なので長さと座標計量による検算は
+
+$$
+\lVert V\rVert=4\sin\theta,\qquad
+g(V,V)=(0,4)\begin{pmatrix}1&0\\0&\sin^2\theta\end{pmatrix}(0,4)^{\mathsf T}=16\sin^2\theta.
+$$
+
+$\theta=\pi/6$ なら長さ2、赤道 $\theta=\pi/2$ なら長さ4となる。座標成分の二乗和は両方16だが、計量係数を無視している。極点へ近づくとこのベクトル場の長さは0へ近づき、同時に $\partial_\varphi$ が零へ退化するので、経度座標の二本は基底でなくなる。「フレームの同じ成分」という議論を極点へ持ち込めない。
 <!-- solution-end -->
 
 ### Level C
 
 <!-- solution-start -->
-**MFL39-C01。** (1) $\theta=s,\varphi=t+s$ のJacobianと逆行列は
+**MFL39-C01。**
 
-$$
-J=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad
-J^{-1}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}.
-$$
+1. **チャート変更と計量。** $\theta=s,\varphi=t+s$ のJacobianと逆行列は
 
-$\theta=\pi/6$ では $\partial_\varphi=(1/2)e_\varphi$ なので $V=e_\theta+e_\varphi$ の旧座標成分は $(1,2)^{\mathsf T}$。したがって新座標成分は $J^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}$。旧座標の計量 $G_x=\operatorname{diag}(1,1/4)$ から
+   $$
+   J=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad
+   J^{-1}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}.
+   $$
 
-$$
-G_y=J^{\mathsf T}G_xJ
-=\begin{pmatrix}5/4&1/4\\1/4&1/4\end{pmatrix}.
-$$
+   $\theta=\pi/6$ では[球面の座標基底](#prop-mfl39-sphere-frame)より $\partial_\varphi=(1/2)e_\varphi$。$V=e_\theta+e_\varphi$ の旧座標成分は $(1,2)^{\mathsf T}$ だから、[チャート変更則](#thm-mfl39-chart-change)で新座標成分を得る。
 
-$(1,1)G_y(1,1)^{\mathsf T}=(1,1)(3/2,1/2)^{\mathsf T}=2$ であり、元の正規直交フレームでも $1^2+1^2=2$。
+   $$
+   v_y=J^{-1}(1,2)^{\mathsf T}=(1,1)^{\mathsf T}.
+   $$
 
-(2) $E'=(e_\varphi,-e_\theta)=ER$、$R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ なので、成分は $R^{\mathsf T}(1,1)^{\mathsf T}=(1,-1)^{\mathsf T}$。新しい基底を $e'_1=e_\varphi,\ e'_2=-e_\theta$ と書けば、再構成は $e'_1-e'_2=e_\theta+e_\varphi$ となり、矢印は同じ。
+   旧座標の計量 $G_x=\operatorname{diag}(1,1/4)$ から
 
-(3) $s=\theta$ を固定すれば $d\varphi/dt=1$、よって $\dot\gamma$ は命題の経度パラメータの速度と一致する。$a=b=1$ は一定なので、[接続項](#prop-mfl39-sphere-connection)に代入すると
+   $$
+   G_y=J^{\mathsf T}G_xJ
+   =\begin{pmatrix}5/4&1/4\\1/4&1/4\end{pmatrix}.
+   $$
 
-$$
-\nabla_{\dot\gamma}V
-=-\cos(\pi/6)e_\theta+\cos(\pi/6)e_\varphi
-=\frac{\sqrt3}{2}(-e_\theta+e_\varphi).
-$$
+   よって二乗長は
 
-二つは直交単位ベクトルだから二乗長は $(3/4)(1+1)=3/2$。$V$ 自体の二乗長2と微分の二乗長 $3/2$ は別の量であり、両者を混同しない。
+   $$
+   (1,1)G_y(1,1)^{\mathsf T}
+   =(1,1)(3/2,1/2)^{\mathsf T}=2.
+   $$
+
+   元の正規直交フレームでも $1^2+1^2=2$ となる。
+
+2. **フレーム変更。** $E'=(e_\varphi,-e_\theta)=ER$ で、$R$ は90度回転行列である。[フレーム変更則](#prop-mfl39-frame-change)から
+
+   $$
+   R=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
+   c'=R^{\mathsf T}(1,1)^{\mathsf T}=(1,-1)^{\mathsf T}.
+   $$
+
+   新しい基底は $e'_1=e_\varphi,\ e'_2=-e_\theta$ だから、再構成は $e'_1-e'_2=e_\theta+e_\varphi$。矢印は同じである。
+
+3. **緯線微分。** $s=\theta$ を固定すれば $d\varphi/dt=1$ であり、連鎖律 $dV/dt=(d\varphi/dt)(dV/d\varphi)$ により、$t$ による曲線速度は経度 $\varphi$ による速度と一致する。$a=b=1$ は一定なので、[接続項](#prop-mfl39-sphere-connection)に代入すると
+
+   $$
+   \nabla_{\dot\gamma}V
+   =-\cos(\pi/6)e_\theta+\cos(\pi/6)e_\varphi
+   =\frac{\sqrt3}{2}(-e_\theta+e_\varphi).
+   $$
+
+   二つは直交単位ベクトルだから二乗長は $(3/4)(1+1)=3/2$。$V$ 自体の二乗長2と微分の二乗長 $3/2$ は別の量であり、両者を混同しない。
 <!-- solution-end -->
 
 ## 8. まとめと次への問い

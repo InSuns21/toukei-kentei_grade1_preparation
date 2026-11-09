@@ -1,7 +1,7 @@
 chapter: SQC9
 scope: dream-theater
 coverage: complete
-prerequisites: [SQC8, MT0, SET1]
+prerequisites: [SQC8, MT0, SET1, F0-00D2C]
 forward_references: []
 
 concepts:
