@@ -497,7 +497,13 @@ $$
 K=D\times[0,1]^{m-1}\times\{0\}^{d-m}
 $$
 
-を取ります（$m=1$ では中央の積を一点とみなす）。$K$ は $m$ 次元座標平面内にあり、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)により $\mathcal H^m(K)=\mathcal L^m(D\times[0,1]^{m-1})=0$。射影は $1$-Lipschitzなので[MT8のHausdorff測度評価](../../MT/MT8/index.md#thm-mt8-lipschitz)から全ての $V$ について $\mathcal H^m(\pi_VK)=0$、従って $\mathcal L^m_V(\pi_VK)=0$ です。
+を取ります（$m=1$ では中央の積を一点とみなす）。$K$ は $m$ 次元座標平面内にあります。[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)から
+
+$$
+\mathcal H^m(K)=\mathcal L^m(D\times[0,1]^{m-1})=0
+$$
+
+です。射影は $1$-Lipschitzなので、[MT8のHausdorff測度評価](../../MT/MT8/index.md#thm-mt8-lipschitz)から全ての $V$ について $\mathcal H^m(\pi_VK)=0$。従って $\mathcal L^m_V(\pi_VK)=0$ です。
 
 それでも $\dim_HK=m$ です。上界は $m$ 平面に含まれることから従います。下界には任意の $0<a<1$ を取り、$\dim_HD=1>a$ から[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)で $D$ 上の $a$-成長確率測度 $\lambda_a$ を取ります。$\lambda_a$ と $[0,1]^{m-1}$ 上の一様確率測度の積を $\eta_a$ とすると、半径 $r\le1$ の球は各座標で半径 $r$ の範囲に収まるので
 
