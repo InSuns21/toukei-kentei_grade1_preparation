@@ -446,7 +446,15 @@ $$
 
 逆に $t\in\mathcal S_s$ の解 $u$ は $H^{s+2}$ に属する。$s=2n+1$ でのSobolev埋め込みから $u\in C^2$。許容領域の定義から $\omega_u>0$ であり、右辺 $\rho_t$ は固定された滑らかな $F$ によって滑らかかつ正である。
 
-ここで $G_u=G+\partial\bar\partial u$ の成分は $H^s$、正値性からその逆行列も定義される。$\log\det G_u-\log\det G=\log\rho_t$ を実座標方向に微分すると、$\partial_\ell u$ に対する一様楕円型の線形方程式を得る。[YAU1-05第7節の局所正則性の議論](../YAU1-05/index.md#thm-yau1-05-openness)では、その方程式に内部 $H^2$ 評価を繰り返し適用して $u\in H^m$ を任意の $m$ まで上げる。従ってSobolev埋め込みから $u\in C^\infty$ を得る。平均ゼロも保持されるから逆の包含も成立し、結局
+ここで $G_u=G+\partial\bar\partial u$ の成分は $H^s$ に属し、正値性から逆行列が定義される。体積方程式を局所行列式で書くと
+
+$$
+\log\det G_u-\log\det G=\log\rho_t
+$$
+
+となる。実座標方向 $x^\ell$ に微分すると、未知関数 $w_\ell=\partial_\ell u$ に対する一様楕円型線形方程式を得る。
+
+[YAU1-05第7節の局所正則性の議論](../YAU1-05/index.md#thm-yau1-05-openness)では、この線形方程式に内部 $H^2$ 評価を繰り返し適用し、$u\in H^m$ を任意の $m$ まで上げる。Sobolev埋め込みから $u\in C^\infty$ を得て、平均ゼロも保持される。よって逆の包含も成立し、結局
 
 $$
 \mathcal S_s=\mathcal S_\infty
