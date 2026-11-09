@@ -1,0 +1,45 @@
+id: "CAT1-03"
+title: "同型・モノ射・エピ射"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-01
+  - CAT1-02
+official_scope: []
+learning_objectives:
+  - 同型射・逆射・同型な対象を二つの合成等式で定義し、逆射の一意性を証明できる
+  - モノ射とエピ射の左右消去律を射の向きと全称量化を保って述べられる
+  - Set でモノ射と単射、エピ射と全射、同型射と全単射の一致を両方向に証明できる
+  - 分裂モノ射と分裂エピ射を区別し、逆射・消去律・合成との関係を証明できる
+  - 半順序圏およびモノイドの圏で、モノ射かつエピ射が同型でない例を構成できる
+  - モノイド準同型の圏の非全射エピ射を証明し、射のクラスに依存する性質を説明できる
+definitions:
+  - { id: CAT1-03-DEF-01, name: 同型射・逆射・同型な対象 }
+  - { id: CAT1-03-DEF-02, name: モノ射 }
+  - { id: CAT1-03-DEF-03, name: エピ射 }
+  - { id: CAT1-03-DEF-04, name: 分裂モノ射・分裂エピ射 }
+  - { id: CAT1-03-DEF-05, name: モノイド準同型と圏 Mon }
+theorems:
+  - { id: CAT1-03-PROP-01, name: 逆射の一意性 }
+  - { id: CAT1-03-PROP-02, name: 同型射はモノ射かつエピ射 }
+  - { id: CAT1-03-PROP-03, name: 集合における三つの特徴づけ }
+  - { id: CAT1-03-PROP-04, name: 分裂射の消去律と両側逆の一致 }
+  - { id: CAT1-03-PROP-05, name: モノ射・エピ射・同型射は合成で閉じる }
+  - { id: CAT1-03-PROP-06, name: 半順序圏のモノ射・エピ射・同型射 }
+  - { id: CAT1-03-PROP-07, name: 全射でないモノイドのエピ射 }
+canonical_examples:
+  - 二元集合の全単射と逆射
+  - 集合の包含写像と定値写像の左右消去律
+  - 分裂モノ射と分裂エピ射の片側逆
+  - 二点鎖のモノ射かつエピ射で非同型な射
+  - モノイドの圏における自然数から整数への包含
+problem_patterns:
+  - CAT1-03-ISOMORPHISM
+  - CAT1-03-CANCELLATION
+  - CAT1-03-SET-CHARACTERIZATION
+  - CAT1-03-SPLIT-MORPHISM
+  - CAT1-03-NONBALANCED-CATEGORY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 1 }
