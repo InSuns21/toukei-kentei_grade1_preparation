@@ -48,7 +48,15 @@ $$
 よって $L^2$ 密度の全条件を満たします。対照的に $\delta_0$ を $f\,du$ と書けるなら $1=\delta_0(\{0\})=\int_{\{0\}}f\,du=0$ となり矛盾します。後者では、どんなに密度を高くしようとしても「一点に正の質量を置く」条件を満たせません。
 <!-- definition-example-end -->
 
-この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、$\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、$\pi_\theta K$ のコンパクト性から $\boldsymbol{1}_{\pi_\theta K}\in L^2(\mathbb R)$ であり、$\|\boldsymbol{1}_{\pi_\theta K}\|_2^2=\mathcal L^1(\pi_\theta K)$ です。そこで $f_\theta$ とこの指示関数に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すると
+この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、射影測度 $\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。
+
+もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、$\pi_\theta K$ のコンパクト性からその指示関数も $L^2$ に属し、
+
+$$
+\|\boldsymbol{1}_{\pi_\theta K}\|_2^2=\mathcal L^1(\pi_\theta K)<\infty
+$$
+
+です。$f_\theta$ とこの指示関数に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すると
 
 $$
 M=\int_{\pi_\theta K}f_\theta(u)\,du
