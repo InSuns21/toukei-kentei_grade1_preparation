@@ -163,7 +163,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（入射Vaidya地平線の未来積分式）**  
-> 四次元入射Vaidya計量 $ds^2=-(1-a(v)/r)dv^2+2\,dv\,dr+r^2d\Omega^2$（$r>0$）を考える。$a\in C^1([v_0,v_1])$ は正、$v\ge v_1$ では $a=a_1=a(v_1)>0$ で一定とする。未来定常地平線から過去へ延長した正の解 $r_E(v)$ が
+> 四次元入射Vaidya計量（$r>0$）
+
+$$
+ds^2=-\left(1-\frac{a(v)}r\right)dv^2+2\,dv\,dr+r^2d\Omega^2
+$$
+
+> を考える。$a\in C^1([v_0,v_1])$ は正、$v\ge v_1$ では $a=a_1=a(v_1)>0$ で一定とする。未来定常地平線から過去へ延長した正の解 $r_E(v)$ が
 
 $$
 \frac{dr_E}{dv}=\frac12\left(1-\frac{a(v)}{r_E(v)}\right),
