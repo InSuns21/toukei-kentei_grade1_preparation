@@ -83,7 +83,7 @@ $$
 \Theta_\chi=\frac1a\frac{da}{dv}.
 $$
 
-ここで $x$ は生成線を識別する断面座標です。膨張率 $\Theta_\chi$ とせん断テンソル $\sigma^{(\chi)}_{ab}$ は生成線の変形を記録します。未来地平線の零法線に対する回転（twist）は零です。[GR34のアフィン媒介による光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)は
+ここで $x$ は生成線を識別する断面座標で、$d/dv$ はその $x$ を固定した $\partial_v$ と同じ生成線方向の微分です。これは摂動パラメータ $\varepsilon$ による微分とは異なります。膨張率 $\Theta_\chi$ とせん断テンソル $\sigma^{(\chi)}_{ab}$ は生成線の変形を記録します。未来地平線の零法線に対する回転（twist）は零です。[GR34のアフィン媒介による光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)は
 
 $$
 \frac{d\theta_k}{d\lambda}
@@ -91,7 +91,7 @@ $$
 -R_{ab}k^ak^b.
 $$
 
-アフィン零接線 $k^a=dx^a/d\lambda$ に対し、[BHT2のKilling・アフィン媒介の関係](../BHT2/index.md#prop-bht2-affine-parameter)を非極限 $\kappa>0$ の区間で適用すると
+ここで $\theta_k,\sigma^{(k)}_{ab}$ はGR34の $\hat\theta,\hat\sigma_{ab}$ を接線 $k$ に対して表したもので、$\Theta_\chi$ は別の媒介 $v$ についての膨張率です。アフィン零接線 $k^a=dx^a/d\lambda$ に対し、[BHT2のKilling・アフィン媒介の関係](../BHT2/index.md#prop-bht2-affine-parameter)を非極限 $\kappa>0$ の区間で適用すると
 
 $$
 \frac{d\lambda}{dv}=\kappa\lambda,\qquad
@@ -113,9 +113,22 @@ $$
 \end{aligned}
 $$
 
-真空Einstein方程式の周りでは、一次まで $R_{ab}\chi^a\chi^b=8\pi T_{ab}\chi^a\chi^b+O(\varepsilon^2)$ です。背景の $\chi$ が零であるため、Einstein方程式の跡の項は一次に寄与しません。摂動後の計量で背景 $\chi$ が厳密に零と断言する必要はありません。
+**何を一次として残すか。** 摂動した地平線の実際の未来向き零生成ベクトルを $\ell_\varepsilon$ と書き、生成線を滑らかに同定して $\ell_0=\chi$、その非アフィン係数を $\kappa_\varepsilon=\kappa+O(\varepsilon)$ とします。摂動後も背景の $\chi$ 自身が厳密に零・地平線接線であると仮定するのではありません。膨張・せん断を $\Theta_\varepsilon,\sigma^{(\varepsilon)}_{ab}$ と記すと、背景Kerrでは両者が零なので
 
-**何を一次として残すか。** 背景KerrのKilling地平線では $\Theta_\chi=0$、$\sigma^{(\chi)}_{ab}=0$ です。小さい流入に対し、地平線へ適合する一次摂動の同定を選んで、$\Theta_\chi=\varepsilon\vartheta+O(\varepsilon^2)$、$\sigma^{(\chi)}_{ab}=\varepsilon s_{ab}+O(\varepsilon^2)$ と書きます。従って $\Theta_\chi^2$ と $\sigma^2$ は二次です。$\chi,\kappa,dA_0$ は一次式の係数として背景値を使えます。
+$
+\Theta_\varepsilon=\varepsilon\vartheta+O(\varepsilon^2),\qquad
+\sigma^{(\varepsilon)}_{ab}=\varepsilon s_{ab}+O(\varepsilon^2).
+$
+
+以後、定義式中の $\Theta_\chi(\varepsilon,v,x)$ は、この同定の下で測った $\Theta_\varepsilon$ の略記です。$\Theta_\varepsilon^2$ と $\sigma_\varepsilon^2$ は二次で、$\kappa_\varepsilon\Theta_\varepsilon=\varepsilon\kappa\vartheta+O(\varepsilon^2)$。さらに摂動後の零生成場にEinstein方程式を収縮すると、$g^{(\varepsilon)}(\ell_\varepsilon,\ell_\varepsilon)=0$ により跡の項が消え、
+
+$
+R^{(\varepsilon)}_{ab}\ell_\varepsilon^a\ell_\varepsilon^b
+=8\pi T^{(\varepsilon)}_{ab}\ell_\varepsilon^a\ell_\varepsilon^b
+=8\pi\varepsilon\tau_{ab}\chi^a\chi^b+O(\varepsilon^2).
+$
+
+従って一次式の係数には背景の $\chi,\kappa,dA_0$ を使えます。
 
 <a id="def-bht6-linearized-expansion"></a>
 
@@ -168,29 +181,27 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$b=d\lambda/dv=\kappa\lambda$、$\Theta_\chi=b\theta_k$ であり、せん断とRicci収縮は各々 $b^2$ 倍されます。したがってアフィン方程式へ積の微分を施すと
+摂動地平線上でも局所アフィン接線 $k_\varepsilon$ を取り、$\ell_\varepsilon=b_\varepsilon k_\varepsilon$、$b_\varepsilon=d\lambda_\varepsilon/dv>0$ とします。非アフィン条件から $\partial_v b_\varepsilon=\kappa_\varepsilon b_\varepsilon$ です（背景では $b_0=\kappa\lambda$）。面積輸送の定義により $\Theta_\varepsilon=b_\varepsilon\theta_{k_\varepsilon}$、せん断も $b_\varepsilon$ 倍なので、アフィンの[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)に積の微分を使うと
 
-$$
-\partial_v(b\theta_k)
-=(db/dv)\theta_k+b^2\partial_\lambda\theta_k
-=\kappa b\theta_k-\frac12(b\theta_k)^2-b^2\sigma_k^2-R_{ab}\chi^a\chi^b.
-$$
+$
+\begin{aligned}
+\partial_v\Theta_\varepsilon
+&=(\partial_v b_\varepsilon)\theta_{k_\varepsilon}
++b_\varepsilon^2\partial_{\lambda_\varepsilon}\theta_{k_\varepsilon}\\
+&=\kappa_\varepsilon\Theta_\varepsilon
+-\tfrac12\Theta_\varepsilon^2
+-\sigma_\varepsilon^{ab}\sigma^{(\varepsilon)}_{ab}
+-R^{(\varepsilon)}_{ab}\ell_\varepsilon^a\ell_\varepsilon^b.
+\end{aligned}
+$
 
-ここで $db/dv=\kappa b$、$\sigma_\chi^2=b^2\sigma_k^2$ です。Einstein方程式から $R_{ab}\chi^a\chi^b=8\pi T_{ab}\chi^a\chi^b$ を代入します。右辺と左辺へ
-
-$$
-\Theta_\chi=\varepsilon\vartheta+O(\varepsilon^2),\quad
-\sigma_\chi^2=\varepsilon^2 s_{ab}s^{ab}+O(\varepsilon^3),\quad
-T_{\chi\chi}=\varepsilon f+O(\varepsilon^2)
-$$
-
-を代入すると、$\varepsilon$ の係数は
+直前に確認した次数を代入します。膨張・せん断の二乗は $O(\varepsilon^2)$、Ricci縮約は $8\pi\varepsilon f+O(\varepsilon^2)$ です。従って $\varepsilon$ の係数は
 
 $$
 \partial_v\vartheta=\kappa\vartheta-8\pi f.
 $$
 
-一次摂動での背景 $\kappa$ の変化は $\delta\kappa\,\Theta_\chi=O(\varepsilon^2)$ であり、式へ追加の一次項を作りません。
+非アフィン係数の補正も $(\kappa_\varepsilon-\kappa)\Theta_\varepsilon=O(\varepsilon^2)$ であり、一次式へ追加の項を作りません。
 <!-- proof-end -->
 
 ## 3. なぜ未来の境界条件から解くのか
@@ -260,7 +271,15 @@ $$
 \end{aligned}
 $$
 
-最後の内積分は $[-e^{-\kappa(s-v)}/\kappa]_{v=-\infty}^{s}=1/\kappa$ です。断面の面積要素をさらに積分して主張を得ます。
+最後の内積分は、$v$ について $\partial_v e^{-\kappa(s-v)}=\kappa e^{-\kappa(s-v)}$ なので、
+
+$
+\int_{-\infty}^{s}e^{-\kappa(s-v)}\,dv
+=\left[\frac{e^{-\kappa(s-v)}}{\kappa}\right]_{v=-\infty}^{s}
+=\frac1\kappa
+$
+
+です。断面の面積要素をさらに積分して主張を得ます。
 <!-- proof-end -->
 
 ### 有限時間パルスで、流入より先に地平線が広がる
@@ -295,6 +314,8 @@ $$
 ## 4. 二つの積分をつなぐ物理過程版の第一法則
 
 物質流束の積分には $\tau_{\chi\chi}$ が現れました。一方、Raychaudhuri方程式と面積輸送式から、まったく同じ $\tau_{\chi\chi}$ の積分が $\kappa\,\delta A/(8\pi)$ を与えました。この二つを結ぶには、外部へ抜ける一次流束がなく、初期と未来の状態が定常で、線形近似が有効でなければなりません。
+
+また、生成線の焦点（caustic）とは横断Jacobi写像が退化し、同じ滑らかな生成線ラベルでは面積を運べなくなる点です。[GR36の焦点補題](../../GR/GR36/index.md#lem-gr36-negative-expansion)のような事態が起こらず、各切断を同じ生成線で比較できる過程に限ります。
 
 <a id="thm-bht6-physical-process-first-law"></a>
 
@@ -381,7 +402,7 @@ $$
 =\mathcal F_{01}+\frac{\mathcal B_1-\mathcal B_0}{8\pi}}
 $$
 
-> を満たす。両端が定常（$\mathcal B_0=\mathcal B_1=0$）の場合だけ、区間内の流束と面積変化が端点項なしで一致する。
+> を満たす。端点項が消える必要十分条件は $\mathcal B_1=\mathcal B_0$ であり、両端が定常（$\mathcal B_0=\mathcal B_1=0$）なら確実に成り立つ。逆に、端点項の消失だけから両端の定常性は結論できない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -406,7 +427,7 @@ $$
 =-8\pi\mathcal F_{01}.
 $$
 
-移項し $8\pi$ で割ると所望の式です。端点量が非零であれば、それを無視した「有限時間の第一法則」は一般には誤りです。
+移項し $8\pi$ で割ると所望の式です。端点量の**差**が非零なら、それを無視した「有限時間の第一法則」は誤りです。両端の端点量が等しい場合には、その共通値が非零でも補正は相殺します。
 <!-- proof-end -->
 
 先の矩形パルスを $[0,T]$ だけで積分すると $\mathcal B_1=0$、$\mathcal B_0=A_0(8\pi F/\kappa)(1-e^{-\kappa T})>0$。よって
@@ -427,7 +448,23 @@ $$
 =\kappa\int \lambda T_{kk}\,d\lambda\,dA_0.
 $$
 
-アフィン[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)の一次式は $\partial_\lambda\theta_k=-8\pi T_{kk}$ です。未来で $\theta_k\to0$、$\lambda=0$ で $\lambda\theta_k\to0$、必要な積分が収束するなら、$\theta_k(\lambda)=8\pi\int_\lambda^\infty T_{kk}(s)\,ds$ と $\int_0^\infty\theta_kd\lambda=8\pi\int_0^\infty\lambda T_{kk}d\lambda$ が従い、同じ $8\pi$ が得られます。$\lambda=0$ は非極限分岐地平線の正規化であり、極限 $\kappa=0$ へこの変換を延長できません。
+アフィン[光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)の一次式は $\partial_\lambda\theta_k=-8\pi T_{kk}$ です。未来で $\theta_k\to0$、端点で $\lambda\theta_k\to0$（$\lambda\to0,\infty$）とし、以下の積分交換に必要な絶対可積分性を仮定します。未来側から積分して
+
+$
+\theta_k(\lambda)=8\pi\int_\lambda^\infty T_{kk}(s)\,ds,
+$
+
+さらに積分順序を交換すると
+
+$
+\begin{aligned}
+\int_0^\infty\theta_k(\lambda)\,d\lambda
+&=8\pi\int_0^\infty\left(\int_0^s d\lambda\right)T_{kk}(s)\,ds\\
+&=8\pi\int_0^\infty sT_{kk}(s)\,ds.
+\end{aligned}
+$
+
+よって面積輸送式 $\delta A=\int\theta_k\,d\lambda\,dA_0$ を使っても同じ係数 $8\pi$ が得られます。$\lambda=0$ は非極限分岐地平線の正規化であり、極限 $\kappa=0$ へこの変換を延長できません。
 
 **捨てた二次効果。** $\Theta_\chi^2$ も $\sigma_\chi^{ab}\sigma^{(\chi)}_{ab}$ も一次背景では零ですが、二次では無視できません。特に真空中の重力波の地平線せん断は、物質の $\tau_{\chi\chi}$ が零でも二次の面積増加へ寄与し得ます。一次の証明だけで有限振幅の重力波や合体の面積変化を計算しません。地平線の一時的な変形が大きくなりcausticや新たな生成線が発生すると、今回固定した生成線ラベルもそのまま使えません。
 
@@ -480,7 +517,21 @@ $$
 $\Theta_\chi=\varepsilon\vartheta+O(\varepsilon^2)$、$\sigma^\chi_{ab}=\varepsilon s_{ab}+O(\varepsilon^2)$ とする。非アフィンRaychaudhuri方程式の各項の次数を調べ、$O(\varepsilon)$ の式を書け。背景でせん断が零でない場合は何が変わるか。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_v\Theta_\chi,\kappa\Theta_\chi,T_{\chi\chi}$ はそれぞれ一次、$\Theta_\chi^2/2=\varepsilon^2\vartheta^2/2+O(\varepsilon^3)$ と $\sigma_\chi^2=\varepsilon^2s_{ab}s^{ab}+O(\varepsilon^3)$ は二次です。よって $\partial_v\vartheta=\kappa\vartheta-8\pi f$。背景せん断が $\sigma^{(0)}_{ab}\ne0$ なら $\sigma^2=(\sigma^{(0)})^2+2\varepsilon\sigma^{(0)}_{ab}s^{ab}+\cdots$ に一次の交差項が生じ、同じ線形方程式は得られません。
+**詳細解答。** 背景の膨張・せん断が零なので、時間微分、非アフィン項、物質項は一次であり、二乗項は
+
+$
+\tfrac12\Theta_\chi^2=\tfrac12\varepsilon^2\vartheta^2+O(\varepsilon^3),\qquad
+\sigma_\chi^2=\varepsilon^2s_{ab}s^{ab}+O(\varepsilon^3)
+$
+
+のように二次から始まります。従って一次係数は $\partial_v\vartheta=\kappa\vartheta-8\pi f$。一方、背景せん断が $\sigma^{(0)}_{ab}\ne0$ なら
+
+$
+\sigma^2=(\sigma^{(0)})^2
++2\varepsilon\sigma^{(0)}_{ab}s^{ab}+O(\varepsilon^2)
+$
+
+という一次の交差項が残り、同じ線形方程式は得られません。
 <!-- solution-end -->
 
 <a id="ex-bht6-a04"></a>
@@ -492,7 +543,20 @@ $\Theta_\chi=\varepsilon\vartheta+O(\varepsilon^2)$、$\sigma^\chi_{ab}=\varepsi
 $G=c=1$ で質量 $M$、面積 $A$、表面重力 $\kappa$、角速度 $\Omega_H$、角運動量 $J$ の長さ次元を求め、$\delta M=\kappa\delta A/(8\pi)+\Omega_H\delta J$ の各項が同次元か検査せよ。
 
 <!-- solution-start -->
-**詳細解答。** $[M]=L$、$[A]=L^2$、$[\kappa]=[\Omega_H]=L^{-1}$、$[J]=L^2$ です。$[\kappa\delta A]=L^{-1}L^2=L$、$[\Omega_H\delta J]=L^{-1}L^2=L$ なので両方とも $[\delta M]=L$ に一致します。$8\pi$ は無次元です。これは係数の正しさの証明ではありませんが、誤った面積や時間の規格化を検出できます。
+**詳細解答。** 幾何単位 $G=c=1$ では、質量・面積・角運動量・表面重力・角速度の長さ次元は
+
+$
+[M]=L,\quad [A]=[J]=L^2,\quad [\kappa]=[\Omega_H]=L^{-1}.
+$
+
+そのため第一法則の各項は
+
+$
+[\kappa\delta A]=L^{-1}L^2=L,\qquad
+[\Omega_H\delta J]=L^{-1}L^2=L=[\delta M]
+$
+
+となり、同次元です。$8\pi$ は無次元です。これは係数の正しさの証明ではありませんが、誤った面積や時間の規格化を検出できます。
 <!-- solution-end -->
 
 <a id="ex-bht6-a05"></a>
