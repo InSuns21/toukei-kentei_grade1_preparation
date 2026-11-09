@@ -1,0 +1,49 @@
+id: "CAT1-06"
+title: "関手と保存する構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT1-05
+official_scope: []
+learning_objectives:
+  - 共変関手の対象写像・Hom上の写像を型付きで書き、恒等射と合成の保存を検証できる
+  - 関手の合成と恒等関手を構成し、関手の公理を証明できる
+  - 反変関手を反対圏からの共変関手として記述し、合成順序を正しく反転できる
+  - モノイドの忘却関手、順序圏の順序保存写像、積圏の射影関手を具体的に構成できる
+  - 局所小圏の共変・反変Hom関手を合成から構成して各公理を証明できる
+  - 関手が同型・可換な合成・分裂射を保存することを証明し、モノ射・エピ射などの非保存例を説明できる
+definitions:
+  - { id: CAT1-06-DEF-01, name: 共変関手 }
+  - { id: CAT1-06-DEF-02, name: 恒等関手と合成関手 }
+  - { id: CAT1-06-DEF-03, name: 反変関手 }
+  - { id: CAT1-06-DEF-04, name: 共変Hom関手と反変Hom関手 }
+theorems:
+  - { id: CAT1-06-PROP-01, name: 関手の合成と恒等関手の公理 }
+  - { id: CAT1-06-PROP-02, name: 関手による同型と分裂射の保存 }
+  - { id: CAT1-06-PROP-03, name: 順序圏と一対象圏における関手の判定 }
+  - { id: CAT1-06-PROP-04, name: Hom関手の公理 }
+canonical_examples:
+  - 部分圏の包含と積圏の射影
+  - モノイドの忘却関手と非全射エピ射
+  - 二点鎖から集合の圏への非単射な射の割り当て
+  - 一対象圏の二倍写像
+  - 二点集合のHomによる後合成・前合成
+  - 逆像による反変冪集合関手
+problem_patterns:
+  - CAT1-06-ORDER-FUNCTOR
+  - CAT1-06-PROJECTION
+  - CAT1-06-COVARIANT-HOM
+  - CAT1-06-CONTRAVARIANT-HOM
+  - CAT1-06-FORGETFUL
+  - CAT1-06-COMPOSITION
+  - CAT1-06-MONOID-FUNCTOR
+  - CAT1-06-ISOMORPHISM-SPLIT
+  - CAT1-06-INVERSE-IMAGE
+  - CAT1-06-ARROW-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 1 }

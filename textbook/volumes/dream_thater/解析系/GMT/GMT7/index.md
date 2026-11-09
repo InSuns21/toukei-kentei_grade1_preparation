@@ -17,11 +17,20 @@
 
 ## 1. 方向の代わりに部分空間を動かす
 
-線形部分空間 $V$ の**正規直交基底** $v_1,\ldots,v_m$ を列に並べた $d\times m$ 行列を $A$ とします。$A^{\mathsf T}A=I_m$ であり、$P_V=AA^{\mathsf T}$ は $\mathbb R^d$ から $V$ への直交射影を表します。実際、
+線形部分空間 $V$ の**正規直交基底** $v_1,\ldots,v_m$ を列に並べた $d\times m$ 行列を $A$ とします。$A^{\mathsf T}A=I_m$ です。ベクトル $x$ の各基底方向への成分を取り出して足すと
 
 $$
-P_Vx=\sum_{j=1}^m(x\cdot v_j)v_j,\qquad
-x-P_Vx\perp v_j\quad(1\le j\le m).
+P_Vx=\sum_{j=1}^m(x\cdot v_j)v_j
+=A(A^{\mathsf T}x)=AA^{\mathsf T}x,\qquad
+(x-P_Vx)\cdot v_j=0\quad(1\le j\le m).
+$$
+
+したがって $P_V=AA^{\mathsf T}$ は、像が $V$ に属し、残差が $V$ と直交する射影です。$\operatorname{tr}$ を行列の対角成分の和（跡）とすれば、さらに
+
+$$
+P_V^{\mathsf T}=P_V,\qquad
+P_V^2=A(A^{\mathsf T}A)A^{\mathsf T}=P_V,\qquad
+\operatorname{tr}P_V=\operatorname{tr}(A^{\mathsf T}A)=m.
 $$
 
 基底を別の正規直交基底 $AQ$（$Q^{\mathsf T}Q=I_m$）へ替えても $(AQ)(AQ)^{\mathsf T}=AA^{\mathsf T}$ です。したがって射影は基底によらず $V$ だけで決まります。射影距離は[直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)から
@@ -32,9 +41,21 @@ $$
 
 を満たすので、$|P_Vx-P_Vy|\le|x-y|$、すなわち $1$-Lipschitzです。
 
-回転とは $R^{\mathsf T}R=I_d$ を満たす直交行列 $R\in O(d)$ による変換で、長さと角度を保存します。$G(d,m)$ は全ての $m$ 次元線形部分空間の集合であり、$V\mapsto P_V$ と同一視すると、対称・冪等・跡$m$の行列全体というコンパクト集合になります。
+直交変換全体を $O(d)$ と書きます。これは鏡映も含み、行列では次の条件を満たします。
 
-全方向を「等しい重み」で扱うため、回転 $R$ により $V$ を $RV$ へ移しても変わらない確率測度を使います。必要な条件を次の定義で明確にします。
+$$
+O(d)=\{R\in\mathbb R^{d\times d}:R^{\mathsf T}R=I_d\}.
+$$
+
+$G(d,m)$ は全ての $m$ 次元線形部分空間の集合です。逆に、対称で $P^2=P$ を満たす行列は、固有値が $0,1$ の直交固有基底を持ちます。$\operatorname{tr}P=m$ なら固有値 $1$ の空間が $m$ 次元で、その空間への直交射影が $P$ です。従って $V\mapsto P_V$ は
+
+$$
+G(d,m)\ \cong\ \{P:P^{\mathsf T}=P,\ P^2=P,\ \operatorname{tr}P=m\}
+$$
+
+という一対一対応です。右辺は行列成分について閉集合であり、$P$ の固有値が $0,1$ だから有界です。よってコンパクトで、$G(d,m)$ にこの行列表示による位相とBorel集合を入れます。ここでの「Borel」はこの位相に対する意味です。
+
+全方向を「等しい重み」で扱うため、直交変換 $R$ により $V$ を $RV$ へ移しても変わらない確率測度を使います。射影した測度には、[GMT5で定義した押し出し測度](../GMT5/index.md#def-gmt5-orthogonal-projection)の記法 $(\pi_V)_\#\mu$ を用います。必要な条件を次の定義で明確にします。
 
 <a id="def-gmt7-grassmann-projection"></a>
 
@@ -58,7 +79,13 @@ $$
 \nu_V=(\pi_V)_\#\mu
 $$
 
-> と定める。
+> と定める。すなわち、任意のBorel集合 $E\subset V$ について
+
+$$
+\nu_V(E)=\mu(\pi_V^{-1}(E))
+$$
+
+> である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt7-grassmann-projection -->
@@ -74,12 +101,49 @@ P_V=AA^{\mathsf T}=
 \qquad \pi_V(x_1,x_2,x_3)=(x_1,x_2,0).
 $$
 
-正規直交基底を回しても $P_V$ は同じです。また $R\in O(3)$ に対して $P_{RV}=RP_VR^{\mathsf T}$ なので、回転した立方体と観測平面を同時に回せば射影距離・面積が変わりません。
+この行列は $P_V^{\mathsf T}=P_V$、$P_V^2=P_V$、$\operatorname{tr}P_V=2$ を満たし、像はちょうど $V$、残差 $(0,0,x_3)$ は $V$ と直交します。正規直交基底を回しても $P_V$ は同じです。また $R\in O(3)$ に対して、$RA$ が $RV$ の正規直交基底行列なので
 
-確率測度の実際の作り方も確認します。独立な標準正規分布の $d$ 次元列ベクトル $Z_1,\ldots,Z_m$ を取り、$V=\operatorname{span}(Z_1,\ldots,Z_m)$ とします。連続密度を持つため列は確率1で一次独立です。$RZ_j$ も同じ同時分布を持つので、$V$ と $RV$ の分布は等しく、Borel確率かつ回転不変の条件を満たします。ここでの正規分布は方向を作る補助乱数であり、射影する測度 $\mu$ に正規性を仮定していません。
+$$
+P_{RV}=(RA)(RA)^{\mathsf T}=RP_VR^{\mathsf T}.
+$$
+
+従って、立方体と観測平面を同時に直交変換すれば射影距離・面積が変わりません。押し出し測度の条件も、例えば $\mu=\delta_{(1,2,3)}$ に対して $\nu_V=\delta_{(1,2,0)}$ となり、$\nu_V(E)=\mu(\pi_V^{-1}(E))$ で直接確かめられます。
+
+確率測度の実際の作り方も確認します。独立な標準正規分布の $d$ 次元列ベクトル $Z_1,\ldots,Z_m$ を取り、$V=\operatorname{span}(Z_1,\ldots,Z_m)$ とします。連続密度を持つため列は確率1で一次独立です。列を並べた行列 $Z$ に対し、$Za$ が射影点なら残差 $x-Za$ は各列と直交するため
+
+$$
+Z^{\mathsf T}(x-Za)=0,\qquad
+a=(Z^{\mathsf T}Z)^{-1}Z^{\mathsf T}x,\qquad
+P_V=Z(Z^{\mathsf T}Z)^{-1}Z^{\mathsf T}.
+$$
+
+列の一次独立性により、$a\ne0$ なら $a^{\mathsf T}Z^{\mathsf T}Za=|Za|^2>0$ なので $Z^{\mathsf T}Z$ は可逆です。この式は全列が一次独立な領域で $Z$ に連続に依存するので、$V$ はBorel可測な確率変数です。
+
+また $R\in O(d)$ に対し $RZ_j$ は $Z_j$ と同じ同時分布を持ちます。従って $V$ と $RV$ の分布は等しく、どのBorel集合 $B$ に対しても
+
+$$
+\gamma_{d,m}(RB)=\gamma_{d,m}(B)
+$$
+
+が成立します。ここでの正規分布は方向を作る補助乱数であり、射影する測度 $\mu$ に正規性を仮定していません。
 <!-- definition-example-end -->
 
-回転不変確率の一意性は、コンパクト直交群 $O(d)$ の正規化Haar確率を $R\mapsto RV_0$ で押し出す構成から従います。具体的にはHaar確率による平均は $V_0$ に依存せず、他の回転不変確率でさらに平均しても値が変わりません。存在は上のGaussian構成でも直接確認できました。以降の積分に必要なのは回転不変性と全質量1だけです。
+以下、積分式で混同のない箇所に限り $G=G(d,m)$、$d\gamma(V)=d\gamma_{d,m}(V)$ と略記します。
+
+回転不変確率の一意性も確認できます。コンパクト群 $O(d)$ の正規化Haar確率 $H$（左右の直交変換で不変な確率）を用い、連続関数 $h$ に対して
+
+$$
+T_h(V)=\int_{O(d)}h(RV)\,dH(R)
+$$
+
+と置きます。任意の $V,W\in G(d,m)$ に $W=SV$ となる $S\in O(d)$ があり、右不変性から $T_h(W)=T_h(V)$ です。回転不変な任意の確率 $\gamma$ に対し、左辺を先に $\gamma$ で積分しても右辺を先に積分しても
+
+$$
+\int_G h(V)\,d\gamma(V)
+=\int_G T_h(V)\,d\gamma(V)=T_h(V_0)
+$$
+
+です。従って全ての連続関数の積分が一致し、コンパクト空間上の確率は一意です。Haar確率の存在はコンパクト群に対する既知の結果ですが、本講で使う $\gamma_{d,m}$ の存在は上のGaussian構成で直接示しました。以降の計算に必要なのは回転不変性と全質量1です。
 
 ## 2. 射影距離の特異核を平均する
 
@@ -284,7 +348,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$S(V)=\{\omega\in V:|\omega|=1\}$ とします。各 $V$ での極座標は、非負関数について
+$S(V)=\{\omega\in V:|\omega|=1\}$ とし、$d\sigma_V$ をこの球面の通常の面積測度とします（$m=1$ では二点の計数測度）。各 $V$ での極座標は、非負関数について
 
 $$
 \int_VF(\xi)\,d\mathcal L^m_V(\xi)
@@ -337,7 +401,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-密度がある方向は、[FOU4のPlancherel定理](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)を各座標に反復適用して直ちに得ます。逆向きに $\widehat\nu\in L^2(V)$ とし、$\varepsilon>0$ について
+密度がある方向は、$f\in L^1(V)\cap L^2(V)$ を正規直交座標で $\mathbb R^m$ 上の関数とみなし、[FOU4の$L^2$ Plancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)と[$L^1$ Fourier変換との整合性](../../FOU/FOU4/index.md#thm-fou4-l1-l2-compatibility)を各座標へ反復適用します。[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)によりほとんど全ての残りの座標で一次元断面は $L^1\cap L^2$ に属し、各回で $2\pi$ 倍の二乗ノルムが得られるため、
+
+$$
+\int_V|\widehat f(\xi)|^2\,d\xi
+=(2\pi)^m\int_V|f(x)|^2\,dx.
+$$
+
+また $\widehat\nu=\widehat f$ は測度の定義から従います。逆向きに $\widehat\nu\in L^2(V)$ とし、$\varepsilon>0$ について
 
 $$
 \rho_\varepsilon(x)=(4\pi\varepsilon)^{-m/2}

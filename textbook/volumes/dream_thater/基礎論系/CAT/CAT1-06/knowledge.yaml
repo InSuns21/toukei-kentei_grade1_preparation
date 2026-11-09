@@ -1,0 +1,70 @@
+chapter: CAT1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT1-05
+
+concepts:
+  - id: category.covariant-functor
+    name: 共変関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変関手）"]
+    requires: [category.category]
+  - id: category.identity-functor
+    name: 恒等関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（恒等関手と合成関手）"]
+    requires: [category.covariant-functor]
+  - id: category.composite-functor
+    name: 合成関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（恒等関手と合成関手）"]
+    requires: [category.covariant-functor]
+  - id: category.functor-composition-axioms
+    name: 関手の合成と恒等関手の公理
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（関手の合成と恒等関手の公理）"]
+    requires: [category.identity-functor, category.composite-functor]
+  - id: category.functor-preserves-isomorphisms
+    name: 関手による同型と分裂射の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（関手による同型と分裂射の保存）"]
+    requires: [category.covariant-functor, category.isomorphism, category.split-morphism]
+  - id: category.functor-order-monoid
+    name: 順序圏と一対象圏における関手の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（順序圏と一対象圏における関手の判定）"]
+    requires: [category.covariant-functor, category.poset-category, category.monoid]
+  - id: category.contravariant-functor
+    name: 反変関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（反変関手）"]
+    requires: [category.covariant-functor, category.opposite-category]
+  - id: category.covariant-hom-functor
+    name: 共変Hom関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変Hom関手と反変Hom関手）"]
+    requires: [category.covariant-functor, category.locally-small-category]
+  - id: category.contravariant-hom-functor
+    name: 反変Hom関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変Hom関手と反変Hom関手）"]
+    requires: [category.contravariant-functor, category.locally-small-category]
+  - id: category.hom-functor-axioms
+    name: Hom関手の公理
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hom関手の公理）"]
+    requires: [category.covariant-hom-functor, category.contravariant-hom-functor]
