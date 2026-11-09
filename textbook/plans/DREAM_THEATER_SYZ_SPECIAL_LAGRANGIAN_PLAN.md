@@ -8,7 +8,7 @@
 
 Calabi–Yau上の特殊Lagrangeトーラスを双対化すると、なぜ鏡像の複素幾何が現れるのか。滑らかなトーラス束でのsemi-flat構成は実計算し、特異ファイバー・正則円板・インスタントン補正を未証明の一般原理で片付けない。SYZは一般の場合の完全な既証明定理ではない。
 
-直接依存：[CYG1](../plan_done/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md)、[YAU1](../plans_progress/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)のRicci平坦計量の存在、[SYM6を含むSYM1〜8](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。McLeanの変形理論には楕円型解析・Hodge理論の直接結果も必要。SYZ全体を知るための前提としてMIR2・HM1の全課程を無条件には要求しない。
+直接依存：[CYG1](../plan_done/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md)、[YAU1](../plan_done/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)のRicci平坦計量の存在、[SYM6を含むSYM1〜8](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)。McLeanの変形理論には楕円型解析・Hodge理論の直接結果も必要。SYZ全体を知るための前提としてMIR2・HM1の全課程を無条件には要求しない。
 
 ## 講義構成（確定14章）
 
