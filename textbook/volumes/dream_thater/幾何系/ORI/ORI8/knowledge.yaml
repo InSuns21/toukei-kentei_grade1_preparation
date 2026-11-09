@@ -1,0 +1,50 @@
+chapter: ORI8
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI7]
+forward_references: []
+
+concepts:
+  - id: origami.huzita-o6
+    name: Huzita–Justin公理O6
+    kind: axiom
+    introduction: formal
+    introduction_aliases: [公理（O6：二点をそれぞれ指定直線へ重ねる一折り）]
+    requires: [origami.admissible-single-crease]
+
+  - id: origami.o6-normal-parameter
+    name: O6の法線パラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（O6 の法線パラメータ）]
+    requires: [origami.crease-reflection]
+
+  - id: origami.o6-general-cubic
+    name: O6の法線に対する三次条件
+    kind: theorem
+    introduction: formal
+    requires: [origami.huzita-o6, origami.o6-normal-parameter]
+
+  - id: origami.o6-perpendicular-cubic
+    name: 垂直目標における三次式と折り線の一対一対応
+    kind: theorem
+    introduction: formal
+    requires: [origami.o6-general-cubic, origami.o6-normal-parameter]
+
+  - id: origami.o6-monic-realization
+    name: 実係数モニック三次方程式のO6実現
+    kind: proposition
+    introduction: formal
+    requires: [origami.o6-perpendicular-cubic]
+
+  - id: origami.o6-parallel-obstruction
+    name: 平行目標の距離による不可能性
+    kind: proposition
+    introduction: formal
+    requires: [origami.huzita-o6, origami.reflection-isometry]
+
+  - id: origami.o6-coincident-point
+    name: 同じ入力点と交わる目標直線
+    kind: proposition
+    introduction: formal
+    requires: [origami.huzita-o6, origami.point-alignment-bisector]
