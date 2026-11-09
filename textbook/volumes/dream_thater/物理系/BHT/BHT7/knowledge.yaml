@@ -1,0 +1,64 @@
+chapter: BHT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT5
+  - BHT6
+  - BHT3
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.kerr-length-scaling
+    name: Kerr解族の長さ再尺度変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kerr解族の長さ再尺度変換）"]
+    requires: [black-hole-thermodynamics.nonextremal-kerr-family]
+
+  - id: black-hole-thermodynamics.weighted-euler-identity
+    name: 重み付きEuler恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（重み付きEuler恒等式）"]
+    requires: [black-hole-thermodynamics.kerr-length-scaling]
+
+  - id: black-hole-thermodynamics.kerr-smarr-relation
+    name: 非極限Kerr解族のSmarr関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非極限Kerr解族のSmarr関係）"]
+    requires: [black-hole-thermodynamics.weighted-euler-identity, black-hole-thermodynamics.kerr-equilibrium-first-law]
+
+  - id: black-hole-thermodynamics.kerr-newman-smarr-relation
+    name: 非極限Kerr–Newman解族のSmarr関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非極限Kerr–Newman解族のSmarr関係）"]
+    requires: [black-hole-thermodynamics.weighted-euler-identity, black-hole-thermodynamics.kerr-newman-first-law]
+
+  - id: black-hole-thermodynamics.irreducible-mass
+    name: 地平線の不可約質量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（地平線の不可約質量）"]
+    requires: [black-hole-thermodynamics.kerr-horizon-data]
+
+  - id: black-hole-thermodynamics.christodoulou-mass-kerr
+    name: KerrのChristodoulou質量公式と不可約質量の範囲
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（KerrのChristodoulou質量公式と不可約質量の範囲）"]
+    requires: [black-hole-thermodynamics.irreducible-mass, black-hole-thermodynamics.kerr-area-angular-momentum-mass]
+
+  - id: black-hole-thermodynamics.kerr-constant-area-work
+    name: Kerrの固定面積曲線と回転仕事
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kerrの固定面積曲線と回転仕事）"]
+    requires: [black-hole-thermodynamics.christodoulou-mass-kerr, black-hole-thermodynamics.kerr-equilibrium-first-law]
+
+  - id: black-hole-thermodynamics.kerr-extraction-bound
+    name: Kerrからの古典的回転エネルギー抽出上限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kerrからの古典的回転エネルギー抽出上限）"]
+    requires: [black-hole-thermodynamics.christodoulou-mass-kerr, gravity.smooth-horizon-area-monotonicity]

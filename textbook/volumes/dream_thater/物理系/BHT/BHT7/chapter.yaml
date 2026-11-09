@@ -1,0 +1,47 @@
+id: "BHT7"
+title: "Smarr関係・不可逆質量と仕事"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT5
+  - BHT6
+  - BHT3
+official_scope: []
+learning_objectives:
+  - 非極限Kerr解族の状態量について長さ再尺度の重みを確認し、重み付きEuler恒等式を証明できる
+  - Kerrの第一法則と同次性からSmarr関係の係数を導き、地平線半径による独立な数値検算ができる
+  - Kerr–Newmanへの電荷項の拡張で電荷の重みと電位の規格化を説明できる
+  - 地平線面積から不可約質量を定義し、KerrのChristodoulou質量公式と状態域を証明できる
+  - 固定面積の可逆比較経路を積分し、回転仕事を直接計算できる
+  - 面積法則の条件の下で有限のエネルギー抽出上限を証明し、上限達成と一般の物理過程を区別できる
+  - 極限Kerrの29.3パーセントの上限と宇宙項を含む場合の同次性の変更を説明できる
+definitions:
+  - { id: BHT7-DEF-01, name: "Kerr解族の長さ再尺度変換" }
+  - { id: BHT7-DEF-02, name: "地平線の不可約質量" }
+theorems:
+  - { id: BHT7-LEM-01, name: "重み付きEuler恒等式" }
+  - { id: BHT7-THM-01, name: "非極限Kerr解族のSmarr関係" }
+  - { id: BHT7-PROP-01, name: "非極限Kerr–Newman解族のSmarr関係" }
+  - { id: BHT7-PROP-02, name: "KerrのChristodoulou質量公式と不可約質量の範囲" }
+  - { id: BHT7-PROP-03, name: "Kerrの固定面積曲線と回転仕事" }
+  - { id: BHT7-THM-02, name: "Kerrからの古典的回転エネルギー抽出上限" }
+canonical_examples:
+  - M=5Lかつa=3LのKerr解のSmarr二項を独立に検算する
+  - 同じKerr解の不可約質量を面積とChristodoulou公式の双方で検算する
+  - 固定面積に沿った角運動量積分と面積が1割増える終状態の仕事を比較する
+  - Jの符号反転およびSchwarzschild極限で質量分解を検算する
+problem_patterns:
+  - BHT7-LENGTH-SCALING
+  - BHT7-WEIGHTED-EULER
+  - BHT7-SMARR-KERR-NUMERICAL
+  - BHT7-IRREDUCIBLE-MASS
+  - BHT7-SPIN-REVERSAL
+  - BHT7-KERR-NEWMAN-WEIGHT
+  - BHT7-REVERSIBLE-WORK-INTEGRAL
+  - BHT7-AREA-INCREASE-BOUND
+  - BHT7-STATIONARY-VERSUS-PHYSICAL
+  - BHT7-EXTREMAL-EXTRACTION-BOUND
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
