@@ -1,0 +1,29 @@
+chapter: YAU1-12
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-11, RA8]
+concepts:
+  - id: yau.smooth-subsequence-compactness
+    name: 高階一様評価からの滑らかな部分列
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（高階一様評価からの滑らかな部分列）"]
+    requires: [yau.uniform-higher-regularity, analysis.arzela-ascoli]
+  - id: yau.limit-positivity-equation
+    name: 極限での正値性と方程式の保存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（極限での正値性と方程式の保存）"]
+    requires: [yau.smooth-subsequence-compactness, yau.global-second-order-estimate]
+  - id: yau.continuity-closedness
+    name: 連続性の方法における閉性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続性の方法における閉性）"]
+    requires: [yau.limit-positivity-equation, yau.continuity-path]
+  - id: yau.monge-ampere-existence
+    name: 正規化複素Monge–Ampère方程式の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正規化複素Monge–Ampère方程式の存在と一意性）"]
+    requires: [yau.continuity-closedness, yau.continuity-openness, yau.mean-zero-potential-gauge]
