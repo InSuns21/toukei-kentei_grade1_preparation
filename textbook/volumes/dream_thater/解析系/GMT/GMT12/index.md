@@ -6,7 +6,15 @@
 
 そこで「**ほとんどすべての点が、可算個の Lipschitz パラメータ表示に乗る**」という条件を導入します。この条件が *可算整流可能性* です。単なる Hausdorff 次元の値とは異なり、集合が積分できる曲面状の片へ分解できるかを表します。一方、どの Lipschitz 曲線とも長さの意味で重ならない集合もあります。本講義では両者を区別し、具体的な反例まで証明します。
 
-以下は整数 $1\le m\le d$ を固定し、$\mathcal H^m$ を [MT8の直径による非正規化 Hausdorff 測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)とします。$m$ 次元 Lebesgue 測度を $\mathcal L^m$、[GMT10の比例定数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を $c_m=\mathcal H^m([0,1]^m)$ と書きます。$c_1=1$ であり、$m\ge2$ で $c_m$ を勝手に $1$ と置きません。
+以下は整数 $1\le m\le d$ を固定し、$\mathcal H^m$ を [MT8の直径による非正規化 Hausdorff 測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)とします。$m$ 次元 Lebesgue 測度を $\mathcal L^m$ と書きます。
+
+[GMT10の比例定数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)は次のとおりです。
+
+$$
+c_m=\mathcal H^m([0,1]^m).
+$$
+
+特に $c_1=1$ ですが、一般の次元で $c_m=1$ と置いてはいけません。
 
 ## 1. 「可算枚のパラメータ片で、零集合を除いて覆う」
 
@@ -350,7 +358,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 曲線を単射片へ分ける。** 任意の Lipschitz 写像 $f:\mathbb R\to\mathbb R^2$ を固定し、$S=f(\mathbb R)$ と置きます。[Rademacher 定理](../GMT9/index.md#thm-gmt9-rademacher)で微分不能点は $1$ 次元 Lebesgue 零集合、[Lipschitz の零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)でその像は $\mathcal H^1$-零です。また $f'(t)=0$ の点の像は [rank 欠損像の補題](../GMT11/index.md#lem-gmt11-critical-image)で $\mathcal H^1$-零です。残る $f'(t)\ne0$ の点は、[面積公式の証明における一様な二点差分分割](../GMT11/index.md#thm-gmt11-area-formula)と [その双 Lipschitz 補題](../GMT11/index.md#lem-gmt11-patch-comparison)によって、可算個の Borel 集合 $A_j$ に分割でき、各 $f|_{A_j}$ は双 Lipschitz です。必要ならコンパクト部分で内側から近似して、$f(A_j)$ をコンパクトにし、像の零測度部分以外を可算枚で覆えます。
+**(1) 曲線を単射片へ分ける。** 任意の Lipschitz 写像 $f:\mathbb R\to\mathbb R^2$ を固定し、$S=f(\mathbb R)$ と置きます。[Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)で微分不能点は Lebesgue 零集合です。その像は [Lipschitz の零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)で $\mathcal H^1$-零です。
+
+また $f'(t)=0$ の点の像は [rank 欠損像の補題](../GMT11/index.md#lem-gmt11-critical-image)で $\mathcal H^1$-零です。残る微分が零でない点では、[面積公式の証明における一様な二点差分分割](../GMT11/index.md#thm-gmt11-area-formula)と [その双 Lipschitz 補題](../GMT11/index.md#lem-gmt11-patch-comparison)を使えます。
+
+これによって微分が零でない点を可算個の Borel 集合 $A_j$ に分割でき、各 $f|_{A_j}$ は双 Lipschitz です。必要ならコンパクト部分で内側から近似して、その像をコンパクトにし、像の零測度部分以外を可算枚で覆えます。
 
 従って $\mathcal H^1(K\cap S)>0$ と仮定すれば、ある双 Lipschitz 片 $A_j$ に対して
 
@@ -431,7 +443,16 @@ GMT11 はパラメータ側の積分を面積へ変えました。今回の GMT1
 <!-- solution-start -->
 **詳細解答**
 
-$p_{a,b}(t)=\min(b,\max(a,t))$ は $\mathbb R$ 上で $1$-Lipschitz です。$f_1(t)=(p_{0,2}(t),0)$、$f_2(t)=(0,p_{0,3}(t))$ とすると $E=f_1(\mathbb R)\cup f_2(\mathbb R)$ なので [整流可能性の定義](#def-gmt12-countably-rectifiable)の差集合は空です。二線分の交わりは一点だけで $\mathcal H^1$-零、[GMT11の面積公式](../GMT11/index.md#thm-gmt11-area-formula)をそれぞれの直線パラメータに用いれば長さは $2$ と $3$。従って $\mathcal H^1(E)=2+3=5$ です。
+切り詰め写像 $p_{a,b}(t)=\min(b,\max(a,t))$ は $1$-Lipschitz です。これを使って、次の二つのパラメータ表示を作ります。
+
+$$
+f_1(t)=(p_{0,2}(t),0),\qquad
+f_2(t)=(0,p_{0,3}(t)).
+$$
+
+すると $E=f_1(\mathbb R)\cup f_2(\mathbb R)$ なので [可算m-整流可能集合](#def-gmt12-countably-rectifiable)の定義の差集合は空です。
+
+二線分の交わりは一点だけで $\mathcal H^1$-零です。[GMT11の面積公式](../GMT11/index.md#thm-gmt11-area-formula)を各線分に用いると長さはそれぞれ2と3で、$\mathcal H^1(E)=2+3=5$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt12-a2"></a>
@@ -518,7 +539,16 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-[可算m-整流可能集合](#def-gmt12-countably-rectifiable)の定義から Lipschitz 写像 $f_j$ と例外集合 $N=E\setminus\bigcup_j f_j(\mathbb R^m)$ があり、$\mathcal H^m(N)=0$ です。$\mathbb R^m=\bigcup_{n\ge1}[-n,n]^m$ なので、$E$ は $N$ と $E\cap f_j([-n,n]^m)$ の可算族で覆われます。後者は可測集合 $E$ とコンパクト集合 $f_j([-n,n]^m)$ の交わりで可測です。[Hausdorff 測度の Lipschitz 評価](../../MT/MT8/index.md#thm-mt8-lipschitz)から
+[可算m-整流可能集合](#def-gmt12-countably-rectifiable)の定義から Lipschitz 写像 $f_j$ と、次の例外集合 $N$ が存在します。
+
+$$
+N=E\setminus\bigcup_j f_j(\mathbb R^m),\qquad
+\mathcal H^m(N)=0.
+$$
+
+$\mathbb R^m=\bigcup_{n\ge1}[-n,n]^m$ なので、$E$ は $N$ と各 $E\cap f_j([-n,n]^m)$ の可算族で覆われます。後者は可測集合とコンパクト集合の交わりなので可測です。
+
+[Hausdorff 測度の Lipschitz 評価](../../MT/MT8/index.md#thm-mt8-lipschitz)から
 
 $$
 \mathcal H^m(E\cap f_j([-n,n]^m))
@@ -540,7 +570,20 @@ $N$ も可測で零測度です。従って全体が無限測度でも、これ�
 
 第 $n$ 段階には $4^n$ 個、一辺 $4^{-n}$ の正方形があり、各直径は $\sqrt2\,4^{-n}$ です。[Hausdorff 測度の定義](../../MT/MT8/index.md#def-mt8-hausdorff-measure)に代入すると被覆費用は常に $\sqrt2$、よって $\mathcal H^1(K)\le\sqrt2$ です。
 
-$4^{-(n+1)}<r\le4^{-n}$ を選ぶと、半径 $r$ の球は離れた第 $n$ 段階正方形の高々絶対個数 $M$ 個と交わります。一個の質量は $4^{-n}<4r$ ですから $\mu(B(x,r))\le4Mr$ です。任意の直径 $\delta_i$ の被覆で各集合の $\mu$ 質量を $C\delta_i$ 以下に抑えられ、$1=\mu(K)\le C\sum_i\delta_i$。従って $\mathcal H^1(K)\ge1/C>0$。[臨界指数性](../../MT/MT8/index.md#thm-mt8-threshold)より $\dim_HK=1$ です。この段階では **純非整流可能性はまだ導けません**。別に直線から離れる質量の議論が必要です。
+半径 $r$ に対し $4^{-(n+1)}<r\le4^{-n}$ を選びます。球は離れた第 $n$ 段階正方形の高々絶対個数 $M$ 個としか交わりません。各正方形の質量は $4^{-n}<4r$ だから
+
+$$
+\mu(B(x,r))\le4Mr.
+$$
+
+直径 $\delta_i$ の任意の被覆について、各集合の $\mu$ 質量は $C\delta_i$ 以下です。したがって
+
+$$
+1=\mu(K)\le C\sum_i\delta_i,\qquad
+\mathcal H^1(K)\ge1/C>0.
+$$
+
+[Hausdorff 測度の臨界指数性](../../MT/MT8/index.md#thm-mt8-threshold)より $\dim_HK=1$ です。しかし **純非整流可能性はまだ導けません**。別に直線から離れる質量の議論が必要です。
 <!-- solution-end -->
 
 <a id="ex-gmt12-b4"></a>
@@ -569,7 +612,10 @@ $$
 
 **C1. 四隅の横方向質量と曲線の接線**
 - Level: C
-- 問題: 四隅集合 $K$ と第 $n$ 段階の一辺 $s=4^{-n}$ の正方形 $Q$ を考える。(i) 任意の直線 $\ell$ に対し $Q$ の子正方形の一つが $\ell$ から少なくとも $s/10$ 離れることを、法線方向への射影で証明せよ。(ii) $\nu=\mathcal H^1\!\llcorner K$、$\nu(K\cap Q')\ge cs/4$ と $\nu(B(x,2s))\le Cs$ を用い、$K$ が双 Lipschitz な微分可能曲線片 $\Gamma$ と正の $\mathcal H^1$ 測度で交われない理由を示せ。(iii) 最後に任意の Lipschitz 曲線を双 Lipschitz な片と零測度像へ分け、純 $1$-非整流可能性を結論せよ。
+- 問題: 四隅集合 $K$ と第 $n$ 段階の一辺 $s=4^{-n}$ の正方形 $Q$ を考え、次を示せ。
+  - (i) 任意の直線 $\ell$ に対し、$Q$ の子正方形の一つは $\ell$ から少なくとも $s/10$ 離れる。法線方向への射影で証明せよ。
+  - (ii) $\nu=\mathcal H^1\!\llcorner K$ とし、子正方形の長さ下界と球の長さ上界を使う。$K$ が双 Lipschitz な微分可能曲線片と正の $\mathcal H^1$ 測度で交われない理由を示せ。
+  - (iii) 任意の Lipschitz 曲線を双 Lipschitz な片と零測度像へ分け、純 $1$-非整流可能性を結論せよ。
 
 <!-- solution-start -->
 **詳細解答**
