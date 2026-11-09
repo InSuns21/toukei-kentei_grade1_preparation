@@ -1,0 +1,45 @@
+id: "BHT6"
+title: "物理過程版の第一法則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT5
+  - BHT3
+  - GR34
+  - GR35
+official_scope: []
+learning_objectives:
+  - Kerr背景上の小さな中性物質流入に対してエネルギーと軸角運動量の地平線流束をKilling保存流から符号付きで定義できる
+  - 地平線生成場の非アフィン媒介と膨張率の関係を導き、Raychaudhuri方程式を一次まで線形化できる
+  - 将来定常という境界条件から膨張率の未来積分表示を求め、面積変化と流束を積分して物理過程版の第一法則を証明できる
+  - 有限区間に残る端点項と事象地平線の先行応答を定量的に説明できる
+  - NECによる符号、回転仕事、二次のせん断効果、極限地平線の適用限界を判定できる
+  - 定常解族の平衡状態版と、定常端状態を結ぶ物理過程版の仮定・変分対象を比較できる
+definitions:
+  - { id: BHT6-DEF-01, name: "物理過程の地平線Killing流束" }
+  - { id: BHT6-DEF-02, name: "線形化された地平線膨張率" }
+theorems:
+  - { id: BHT6-LEM-01, name: "非アフィン媒介の線形化Raychaudhuri方程式" }
+  - { id: BHT6-PROP-01, name: "将来定常境界条件と面積応答" }
+  - { id: BHT6-THM-01, name: "中性物質流入の物理過程版第一法則" }
+  - { id: BHT6-PROP-02, name: "有限区間の端点補正" }
+canonical_examples:
+  - 定数Killing流束が有限時間だけ続くパルスで事象地平線の先行応答と総面積変化を積分する
+  - Kerrの正回転・逆回転に対する角運動量流束の符号を比較する
+  - Killing時間とアフィンパラメータの対応で同じ係数8πを検算する
+  - 端点の膨張率が非零の有限区間で欠ける項を具体的に計算する
+problem_patterns:
+  - BHT6-KILLING-CURRENT-FLUX
+  - BHT6-ANGULAR-MOMENTUM-SIGN
+  - BHT6-RAYCHAUDHURI-LINEARIZATION
+  - BHT6-AREA-DIMENSIONS
+  - BHT6-FINITE-ENDPOINT
+  - BHT6-PULSE-FUTURE-RESPONSE
+  - BHT6-AFFINE-PARAMETER-RECONCILIATION
+  - BHT6-FLUX-INTEGRAL
+  - BHT6-SECOND-ORDER-LIMIT
+  - BHT6-INTEGRATED-PROCESS-LAW
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }
