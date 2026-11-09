@@ -1,0 +1,47 @@
+id: GMT8
+title: 例外方向の定量評価
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT3
+  - GMT5
+official_scope: []
+learning_objectives:
+  - 無向方向空間と射影次元の例外集合を定義し、線分・円板で直接判定できる
+  - 方向Frostman測度を角度距離の球成長で定義し、一様弧長測度で検算できる
+  - 小射影確率の指数betaの評価を、射影距離と垂直角の三角関数比較から導ける
+  - t<betaのとき方向平均した特異核がC|x-y|^(-t)以下となることをdyadic分割で証明できる
+  - Tonelliと押し出し測度から二重energy平均を導き、対角と零射影の扱いを説明できる
+  - コンパクト集合のKaufman型例外方向次元上界をFrostman測度2種類の背理法で証明できる
+  - Borel集合への拡張に必要なcompact coreと可測性の役割を区別できる
+  - beta=tの発散例、長さ0と次元低下の違いを計算できる
+definitions:
+  - { id: GMT8-DEF-01, name: 射影次元の例外方向集合 }
+  - { id: GMT8-DEF-02, name: 方向上のFrostman測度 }
+theorems:
+  - { id: GMT8-LEM-01, name: 方向Frostman測度による小射影確率 }
+  - { id: GMT8-LEM-02, name: Frostman方向平均の特異核 }
+  - { id: GMT8-PROP-01, name: 二重energyの方向平均 }
+  - { id: GMT8-THM-01, name: Kaufman型例外方向上界：コンパクト版 }
+  - { id: GMT8-LEM-03, name: Borel集合のHausdorff次元のコンパクト芯 }
+  - { id: GMT8-THM-02, name: Kaufman型例外方向上界：Borel集合版 }
+canonical_examples:
+  - 水平・垂直線分に対する一点の例外方向
+  - 一様弧長分布のFrostman球成長と小射影確率
+  - 境界指数beta=tで発散するべき密度
+  - 開円板の全方向次元1と長さ0・次元1コンパクト集合の比較
+problem_patterns:
+  - GMT8-PERPENDICULAR-ANGLE
+  - GMT8-UNIFORM-SMALL-PROJECTION
+  - GMT8-VERTICAL-EXCEPTION
+  - GMT8-INTERVAL-ENERGY
+  - GMT8-FROSTMAN-MONOTONICITY
+  - GMT8-DYADIC-KERNEL
+  - GMT8-ENDPOINT-DIVERGENCE
+  - GMT8-TONELLI-ENERGY
+  - GMT8-LENGTH-VS-DIMENSION
+  - GMT8-KAUFMAN-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }

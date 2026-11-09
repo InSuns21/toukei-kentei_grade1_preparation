@@ -13,7 +13,7 @@ chapters:
   - { id: GMT5, path: textbook/volumes/dream_thater/解析系/GMT/GMT5, status: completed, title: "平面Marstrand射影定理：次元" }
   - { id: GMT6, path: textbook/volumes/dream_thater/解析系/GMT/GMT6, status: completed, title: "平面Marstrand射影定理：正測度" }
   - { id: GMT7, path: textbook/volumes/dream_thater/解析系/GMT/GMT7, status: completed, title: "高次元・Grassmann射影" }
-  - { id: GMT8, path: textbook/volumes/dream_thater/解析系/GMT/GMT8, status: planned, title: "例外方向の定量評価" }
+  - { id: GMT8, path: textbook/volumes/dream_thater/解析系/GMT/GMT8, status: completed, title: "例外方向の定量評価" }
   - { id: GMT9, path: textbook/volumes/dream_thater/解析系/GMT/GMT9, status: planned, title: "Lipschitz写像とRademacher定理" }
   - { id: GMT10, path: textbook/volumes/dream_thater/解析系/GMT/GMT10, status: planned, title: "近似微分と幾何的Jacobian" }
   - { id: GMT11, path: textbook/volumes/dream_thater/解析系/GMT/GMT11, status: planned, title: "area formula：重複度と測度" }
