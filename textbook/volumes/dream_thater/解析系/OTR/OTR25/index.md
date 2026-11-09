@@ -32,13 +32,23 @@ $$
 最後の $-\varepsilon$ は $\sum P_{ij}=1$ のため最小化解を変えませんが、微分を $\partial [p(\log p-1)]/\partial p=\log p$ と簡単にします。最小値の数値を比較するときはこの定数も含めてください。
 
 <!-- definition-example-start: def-otr25-entropic-primal -->
-**定義の確認**：正則化目的の直接例。$a=b=(1/2,1/2)$、$C_{11}=C_{22}=0$、$C_{12}=C_{21}=1$ では
+**定義の確認**：正則化目的の直接例。$a=b=(1/2,1/2)$、$C_{11}=C_{22}=0$、$C_{12}=C_{21}=1$ とします。結合の $(1,1)$ 成分を $x=P_{11}$ と置きます。行和・列和が各 $1/2$ という条件から
+
+$$
+\begin{aligned}
+P_{12}&=\frac12-P_{11}=\frac12-x,\\
+P_{21}&=\frac12-P_{11}=\frac12-x,\\
+P_{22}&=\frac12-P_{21}=x
+\end{aligned}
+$$
+
+と順に決まります。各成分の非負性は $0\le x\le1/2$ と同値です。従って、[輸送多面体の定義](../OTR4/index.md#def-otr4-transport-polytope)を満たす結合はちょうど
 
 $$
 P(x)=\begin{pmatrix}x&1/2-x\\1/2-x&x\end{pmatrix},\qquad 0\le x\le1/2.
 $$
 
-非負性と両方向の周辺条件が成り立つので、全ての $P(x)$ が $U(a,b)$ に入ります。輸送費用は $1-2x$ です。正則化では内点での導関数が
+で表せます。輸送費用は $C_{12}P_{12}+C_{21}P_{21}=1-2x$ です。$h(p)=p(\log p-1)$ と置き、$0<x<1/2$ で $h'(p)=\log p$ と連鎖律を使うと、正則化目的の導関数は
 
 $$
 \frac{dF_\varepsilon(P(x))}{dx}
@@ -323,7 +333,17 @@ $$
 
 例えば $C_{12}=1000$、$\varepsilon=10^{-2}$ だと $e^{-C_{12}/\varepsilon}=e^{-100000}$ は倍精度では0へアンダーフローします。核 $K$ を直接作って割り算すると、ゼロ除算やNaNが生じかねません。指数形の双対変数を**対数のまま**更新するのが対策です。
 
-$u_i=e^{f_i/\varepsilon}$、$v_j=e^{g_j/\varepsilon}$ をSinkhornの行更新へ代入し、対数を取れば
+$u_i=e^{f_i/\varepsilon}$、$v_j=e^{g_j/\varepsilon}$ をSinkhornの行更新へ代入すると
+
+$$
+e^{f_i/\varepsilon}=\frac{a_i}{\sum_j e^{(g_j-C_{ij})/\varepsilon}}
+$$
+
+です。ここで $i$ は更新する行を固定する添字、$j$ はその行で和を取る添字です。
+
+以下の $\operatorname{LSE}_j$ と $\operatorname{LSE}_i$ は、[定義したlog-sum-exp](#def-otr25-residual-lse)をそれぞれ $j$ または $i$ を動かして得られる有限個の入力に適用する略記です。
+
+両辺の対数を取り、列更新についても同様に $j$ を固定して $i$ の和を取ると
 
 $$
 \begin{aligned}
@@ -333,6 +353,8 @@ g_j&\leftarrow\varepsilon\left[\log b_j-
 \operatorname{LSE}_{i}\left(\frac{f_i-C_{ij}}{\varepsilon}\right)\right].
 \end{aligned}
 $$
+
+ここでの $f_i,g_j$ は時間微分ではなく、更新回数ごとに値を置き換える双対ポテンシャルです。
 
 LSEの最大値 $z_*$ を先に引けば各 $e^{z_k-z_*}\le1$ で、巨大な正の指数も避けられます。各回の $f_1$ を0にするゲージ変換 $f\leftarrow f-f_1$、$g\leftarrow g+f_1$ は結合を変えません。
 

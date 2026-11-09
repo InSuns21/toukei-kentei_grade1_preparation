@@ -6,6 +6,7 @@ prerequisites:
   - SQC8
   - MT0
   - SET1
+  - F0-00D2C
 official_scope: []
 learning_objectives:
   - 任意の集合片による有限平行移動等分解を、厳密な互いに素な分割と全単射として定義し、具体例で検証できる
