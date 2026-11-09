@@ -13,7 +13,7 @@ c_m=\mathcal H^m([0,1]^m)>0,\qquad
 \mathcal H^m\big|_{\mathbb R^m}=c_m\mathcal L^m
 $$
 
-と書きます。とくに $c_1=1$ ですが、一般の $m$ で $c_m=1$ と置いてはいけません。[Rademacher の定理](../GMT9/index.md#thm-gmt9-rademacher)により $Df$ は $\mathcal L^m$ に関してほとんど至る所（almost everywhere; a.e.）で存在します。そこで $J_m f(x)=J_m(Df(x))$ を微分可能点で定義し、それ以外では便宜上 $J_m f=0$ と定めます。これは可測な非負関数です。
+と書きます。とくに $c_1=1$ ですが、一般の $m$ で $c_m=1$ と置いてはいけません。[Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)により $Df$ は $\mathcal L^m$ に関してほとんど至る所（almost everywhere; a.e.）で存在します。そこで $J_m f(x)=J_m(Df(x))$ を微分可能点で定義し、それ以外では便宜上 $J_m f=0$ と定めます。これは可測な非負関数です。
 
 ## 1. 折り重なった像をどう数えるか
 
@@ -178,7 +178,7 @@ $$
 まず $\delta\downarrow0$、次に $\varepsilon\downarrow0$ として $\mathcal H^m(f(C\cap B(0,R)))=0$ です。$R=1,2,\ldots$ の可算和で $C$ 全体も零測度です。$m=1$ では $k=0$ であり、同じ計算が働きます。$\square$
 <!-- proof-end -->
 
-rank欠損点では左辺の被積分関数が $0$ で、今示したように像側の寄与も $\mathcal H^m$-零集合上に限られます。微分不能点は [Rademacher定理](../GMT9/index.md#thm-gmt9-rademacher)で $\mathcal L^m$-零となり、[零集合保存補題](#lem-gmt11-lipschitz-null-image)で像も零です。従って本質的に **full-rank 微分可能点**だけを調べれば十分です。
+rank欠損点では左辺の被積分関数が $0$ で、今示したように像側の寄与も $\mathcal H^m$-零集合上に限られます。微分不能点は [Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)で $\mathcal L^m$-零となり、[零集合保存補題](#lem-gmt11-lipschitz-null-image)で像も零です。従って本質的に **full-rank 微分可能点**だけを調べれば十分です。
 
 ## 4. 単射な小片では線形面積倍率に戻せる
 
