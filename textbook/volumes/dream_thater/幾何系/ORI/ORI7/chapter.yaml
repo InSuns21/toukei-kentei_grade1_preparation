@@ -1,0 +1,41 @@
+id: ORI7
+title: "公理O5と二次方程式"
+volume: foundations
+status: supplementary
+prerequisites: [ORI6]
+official_scope: []
+learning_objectives:
+  - O5の点・直線一致条件と折り線が通る指定点を鏡映で正確に定式化できる
+  - 候補像と円・直線の交点の対応から折り線を構成し、条件を往復で証明できる
+  - 判別量と二次方程式で0本・1本・2本を分類し、折り線を具体的に計算できる
+  - 入力点が指定直線上にある場合および指定点と一致する場合の退化を分類できる
+  - 一般二次方程式を平方完成し、O5の円・直線模型と実根を対応づけられる
+definitions:
+  - { id: ORI7-DEF-01, name: O5の候補像 }
+theorems:
+  - { id: ORI7-AXIOM-01, name: Huzita–Justin公理O5 }
+  - { id: ORI7-THM-01, name: O5の円と直線による解の対応 }
+  - { id: ORI7-THM-02, name: O5の判別量と0・1・2解 }
+  - { id: ORI7-THM-03, name: O5の退化配置の完全分類 }
+  - { id: ORI7-PROP-01, name: 一般二次方程式のO5による実現 }
+canonical_examples:
+  - P=(0,2), Q=(0,0), y=0 の二本の折り線 y=x と y=-x
+  - P=(2,2), Q=(0,2), y=0 の接する一解 x+y=2
+  - P=(0,1), Q=(0,2), y=0 の解なし
+  - P=(1,3), Q=(2,1), y=0 の二解 x+3y=5 と x-y=1
+  - Pが指定直線上にあるときの固定点像と、P=Qが指定直線上にあるときの無数解
+problem_patterns:
+  - ORI7-O5-CIRCLE-LINE-INTERSECTIONS
+  - ORI7-O5-TANGENCY
+  - ORI7-O5-NO-SOLUTION
+  - ORI7-O5-CREASE-EQUATIONS
+  - ORI7-O5-COINCIDENT-POINT-DEGENERACY
+  - ORI7-O5-ON-LINE-CLASSIFICATION
+  - ORI7-O5-INVARIANT-DISCRIMINANT
+  - ORI7-O5-QUADRATIC-COMPLETING-SQUARE
+  - ORI7-O5-PARAMETER-BIFURCATION
+  - ORI7-O5-INTEGRATED-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

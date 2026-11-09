@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 340" width="1020" height="340" role="img" data-layout-lint="strict" aria-labelledby="title desc">
+  <title id="title">O5の円と直線の交点数</title>
+  <desc id="desc">左は点Qを中心とする円が指定直線に届かず交点0個、中央は円が接して1個、右は円が横切って2個。それぞれ円上の点Pは指定直線の外にある。</desc>
+  <rect x="1" y="1" width="338" height="338" rx="8" fill="#fafcfe" stroke="#a9b6c5"/>
+  <rect x="341" y="1" width="338" height="338" rx="8" fill="#fafcfe" stroke="#a9b6c5"/>
+  <rect x="681" y="1" width="338" height="338" rx="8" fill="#fafcfe" stroke="#a9b6c5"/>
+  <g stroke="#23354c" fill="none" stroke-width="2.3">
+    <path d="M18 250 H322"/>
+    <path d="M358 250 H662"/>
+    <path d="M698 250 H1002"/>
+  </g>
+  <g stroke="#457b9d" stroke-width="2.5" fill="none" stroke-dasharray="8 5">
+    <circle cx="160" cy="160" r="55"/>
+  </g>
+  <g stroke="#457b9d" stroke-width="2.5" fill="none" stroke-dasharray="8 5">
+    <circle cx="500" cy="160" r="90"/>
+  </g>
+  <g stroke="#457b9d" stroke-width="2.5" fill="none" stroke-dasharray="8 5">
+    <circle cx="840" cy="160" r="130"/>
+  </g>
+  <g stroke="#b55d39" stroke-width="1.8" stroke-dasharray="3 5">
+    <path d="M160 160 V250"/>
+    <path d="M500 160 V250"/>
+    <path d="M840 160 V250"/>
+  </g>
+  <g fill="#23354c">
+    <circle cx="160" cy="160" r="4.5"/>
+    <circle cx="215" cy="160" r="4.5"/>
+    <circle cx="500" cy="160" r="4.5"/>
+    <circle cx="590" cy="160" r="4.5"/>
+    <circle cx="840" cy="160" r="4.5"/>
+    <circle cx="970" cy="160" r="4.5"/>
+  </g>
+  <g fill="#b55d39">
+    <circle cx="500" cy="250" r="5"/>
+    <circle cx="746.1917" cy="250" r="5"/>
+    <circle cx="933.8083" cy="250" r="5"/>
+  </g>
+  <g stroke="#b55d39" stroke-width="1.3" fill="none">
+    <path d="M746.1917 250 L720 267"/>
+    <path d="M933.8083 250 L960 267"/>
+  </g>
+  <g fill="#23354c" font-family="sans-serif" font-size="17" text-anchor="middle">
+    <text x="34" y="27">0</text>
+    <text x="374" y="27">1</text>
+    <text x="714" y="27">2</text>
+    <text x="143" y="145">Q</text>
+    <text x="483" y="145">Q</text>
+    <text x="823" y="145">Q</text>
+    <text x="500" y="279">S</text>
+    <text x="705" y="298">S₁</text>
+    <text x="968" y="298">S₂</text>
+    <text x="307" y="276">ℓ</text>
+    <text x="647" y="276">ℓ</text>
+    <text x="987" y="276">ℓ</text>
+  </g>
+  <g fill="#23354c" font-family="sans-serif" font-size="17" text-anchor="start">
+    <text x="228" y="166">P</text>
+    <text x="603" y="166">P</text>
+    <text x="983" y="166">P</text>
+  </g>
+</svg>
