@@ -42,7 +42,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt8-exceptional-directions -->
-**定義の確認：水平線分**
+**定義の確認**
+
+**水平線分**
 
 $E=[0,1]\times\{0\}$ とします。$\pi_\theta E$ は端点 $0$ と $\cos\theta$ を持つ区間なので、$\cos\theta\ne0$ のとき次元は $1$、$\theta=\pi/2$ のとき一点で次元は $0$ です。$0<t<1$ なら
 
@@ -69,9 +71,11 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt8-angular-frostman -->
-**定義の確認：一様方向分布**
+**定義の確認**
 
-$F=\mathbb T_\pi$ に正規化弧長測度 $d\sigma=d\theta/\pi$ を取ります。$0<r\le\pi/2$ の距離球は長さ $2r$ の弧なので
+**一様方向分布**
+
+$F=\mathbb T_\pi$ に正規化角度測度 $d\sigma=d\theta/\pi$ を取ります。$0<r\le\pi/2$ の距離球は角度の長さが $2r$ の区間なので
 
 $$
 \sigma(B_\rho(\phi,r))=\frac{2r}{\pi}.
@@ -245,7 +249,7 @@ $$
 
 この補題は、Borel集合が持つHausdorff容量の**内側からの近似可能性（capacitability）**に基づきます。一般Borel集合は必ずしも $\sigma$-コンパクトではなく、有限被覆の議論だけでこの主張を示すことはできません。ここでは記述集合論のChoquet容量定理を使う測度論的補題として採用します。対象はBorel集合（実際には解析集合まで）であり、任意の非可測集合への拡張を主張していません。以下の幾何学的な二重energy部分はこの補題とは独立に完全に証明できます。
 
-**可測性の確認。** コンパクト $K$ について、$\theta\mapsto\pi_\theta K$ は、角度を動かすとHausdorff距離で連続です。実際、$R=\sup_{x\in K}|x|<\infty$ とすれば、対応点の射影値の差は
+**可測性の確認。** コンパクト $K$ について、角度を動かすと射影像の点は一様に少ししか動きません。実際、$R=\sup_{x\in K}|x|<\infty$ とすれば、対応点の射影値の差は
 
 $$
 |\pi_\theta x-\pi_\phi x|
@@ -275,14 +279,43 @@ $$
 
 ### 証明の見取り図
 
-もし悪い方向の次元が $t$ より大きければ、そこへ指数 $\beta>t$ のFrostman確率測度 $\sigma$ を置けます。一方で $K$ には有限 $t$-energyを持つ $\mu$ を置けます。[二重energyの命題](#prop-gmt8-double-energy)により $\sigma$-ほとんど全ての方向で射影後の $t$-energyは有限となり、「影の次元は $t$ 未満」という仮定と矛盾します。
+もし悪い方向の次元が $t$ より大きければ、そこへ指数 $\beta>t$ のFrostman確率測度 $\sigma$ を置けます。一方で $K$ には有限 $t$-energyを持つ $\mu$ を置けます。[二重energyの方向平均](#prop-gmt8-double-energy)により $\sigma$-ほとんど全ての方向で射影後の $t$-energyは有限となり、「影の次元は $t$ 未満」という仮定と矛盾します。
 
 <!-- proof-start -->
 ### 証明
 
-$D=\dim_HK$ とし、$t<u<D$ を選びます（$t<1$ も仮定済み）。[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)を指数 $u$ で $K$ に適用して、$K$ 上の確率測度 $\mu$ と定数 $M$ を取り、$\mu(B(x,r))\le Mr^u$ を全ての球で満たすようにします。[GMT3の球成長からのenergy評価](../GMT3/index.md#thm-gmt3-frostman-energy)を指数 $t<u$ に適用すると $I_t(\mu)<\infty$ です。
+$D=\dim_HK$ とし、$t<u<D$ を選びます（$t<1$ も仮定済み）。
+[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)を指数 $u$ で $K$ に適用します。すると $K$ 上の確率測度 $\mu$ と定数 $M$ が存在し、全ての球に対して
 
-$F=\mathcal E_t(K)$ とします。射影したコンパクト集合の次元が閾値より小さいという条件は、方向についてBorel可測です（本節冒頭で判定法を説明しました）。背理法で $\dim_HF>t$ と仮定し、$t<\beta<\min\{\dim_HF,1\}$ を選びます。[コンパクト芯の補題](#lem-gmt8-compact-core)により $F$ 内のコンパクト集合 $L$ で $\dim_HL>\beta$ となるものが取れます。角度円を長さ $\pi/3$ 未満の有限個の閉弧で覆うと、Hausdorff次元の有限和則により $L$ と交わる弧の一つで次元が $\beta$ を超えます。この交わりはコンパクトであり、弧の座標上では $\rho$ が通常の距離に等しいので、[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)を適用して、その交わりに台を持つ確率測度 $\sigma$ と $A$ を取れます。弧の外の中心や半径の大きい球についても、球を弧内の短い区間で覆うか定数を大きくすれば $\sigma(B_\rho(\phi,r))\le Ar^\beta$ が全ての中心・半径で成り立ちます。
+$$
+\mu(B(x,r))\le Mr^u
+$$
+
+を満たします。[GMT3の球成長からのenergy評価](../GMT3/index.md#thm-gmt3-frostman-energy)において $t<u$ と対応させると
+
+$$
+I_t(\mu)<\infty
+$$
+
+となります。
+
+$F=\mathcal E_t(K)$ とします。本節冒頭で確認したように、この方向集合はBorel可測です。背理法で $\dim_HF>t$ と仮定し、
+
+$$
+t<\beta<\dim_HF\le1
+$$
+
+を選びます。[Borel集合のHausdorff次元のコンパクト芯](#lem-gmt8-compact-core)により、$F$ 内のコンパクト集合 $L$ で $\dim_HL>\beta$ となるものが取れます。
+
+角度円を長さ $\pi/3$ 未満の有限個の閉弧で覆います。Hausdorff次元の有限和則により、$L$ と交わる弧の一つで次元が $\beta$ を超えます。この交わりはコンパクトです。弧の座標上では $\rho$ が通常の距離に等しいので、[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)を適用し、その交わりに台を持つ確率測度 $\sigma$ を取ります。
+
+短い球について得た成長上界は、弧外の中心に対しても弧内の有限個の短い区間で評価できます。半径が大きい球では確率上界1を使います。定数 $A$ を大きくすれば全ての中心 $\phi$ と半径 $0<r\le\pi/2$ について
+
+$$
+\sigma(B_\rho(\phi,r))\le Ar^\beta
+$$
+
+が成り立ちます。
 
 [二重energyの方向平均](#prop-gmt8-double-energy)をこの $\mu,\sigma$ に適用すると、$\sigma$ ほとんど全ての $\theta$ で $I_t((\pi_\theta)_\#\mu)<\infty$ です。射影測度は質量1で $\pi_\theta K$ に台を持ちます。[GMT3の有限energyによる次元下界](../GMT3/index.md#thm-gmt3-energy-dimension)から、これらの方向で
 
@@ -317,7 +350,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t<s<\dim_HE$ を選びます。[コンパクト芯の補題](#lem-gmt8-compact-core)から $K\subset E$ で $K$ はコンパクト、$\dim_HK>s>t$ を満たすものを選べます。任意の $\theta$ で $\pi_\theta K\subset\pi_\theta E$ なのでHausdorff次元の単調性より
+$t<s<\dim_HE$ を選びます。[Borel集合のHausdorff次元のコンパクト芯](#lem-gmt8-compact-core)から $K\subset E$ で $K$ はコンパクト、$\dim_HK>s>t$ を満たすものを選べます。任意の $\theta$ で $\pi_\theta K\subset\pi_\theta E$ なのでHausdorff次元の単調性より
 
 $$
 \dim_H\pi_\theta K\le\dim_H\pi_\theta E.
@@ -379,7 +412,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$|\cos\theta|<u$ は $\pi/2-\arcsin u<\theta<\pi/2+\arcsin u$ を意味します。弧長は $2\arcsin u$ なので
+$|\cos\theta|<u$ は $\pi/2-\arcsin u<\theta<\pi/2+\arcsin u$ を意味します。角度区間の長さは $2\arcsin u$ なので
 
 $$
 \sigma\{\theta:|\pi_\theta z|<u\}=
