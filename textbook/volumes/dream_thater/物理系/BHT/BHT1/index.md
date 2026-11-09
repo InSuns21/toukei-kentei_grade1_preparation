@@ -20,7 +20,15 @@ ds^2=-f_M(r)\,dt^2+\frac{dr^2}{f_M(r)}
 \qquad f_M(r):=1-\frac{2M}{r}
 $$
 
-と書けます。ここで添字 $M$ は、各質量で異なる関数であることを示します。$r=2M$ ではこの静的座標表示が使えませんが、[GR25の正則な地平線横断表示](../../GR/GR25/index.md#prop-gr25-regular-horizon-chart)で時空がそこまで延長されます。[GR29の「Schwarzschildの三種類の地平線の一致」](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により、標準的な最大延長の未来地平線とKilling地平線の位置は一致します。
+と書けます。添字 $M$ は、各質量で異なる関数であることを示します。
+
+地平線候補 $r=2M$ では静的座標表示が使えません。[GR25の正則な地平線横断表示](../../GR/GR25/index.md#prop-gr25-regular-horizon-chart)に従い、外部で $dr_*/dr=1/f_M(r)$ と定め、入射座標 $v=t+r_*(r)$ を取ります。$dt=dv-dr/f_M(r)$ を上の計量へ代入すると
+
+$$
+ds^2=-f_M(r)\,dv^2+2\,dv\,dr+r^2d\Omega^2
+$$
+
+となり、右辺は地平線を越えて正則に延長できます。$r$ を固定した座標微分は $\partial_t=\partial_v$ なので、外部の時間並進Killing場も地平線上では $\partial_v$ として扱えます。[GR29の地平線同定](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により、標準的な最大延長の未来地平線とKilling地平線の位置が一致します。
 
 ここでは質量が異なる解を比較するため、同じ漸近平坦・真空・球対称・時計の規格化という条件を保ったまま、$M>0$ だけを動かします。比較するのはこのような古典解の幾何データであり、統計力学で必要な微視状態の確率分布まで与えたわけではありません。次に対象を正確に定めます。
 
@@ -40,11 +48,34 @@ $$
 <!-- definition-example-start: def-bht1-geometric-family -->
 ### 例：$M=L$ の解を指定する
 
-**定義の確認**：$L>0$ を長さの単位とし、$M=L$ と置けば $f_L(r)=1-2L/r$ です。真空・球対称・無限遠規格化は上で選んだSchwarzschild解の条件を満たし、$r>2L$ で $f_L>0$ です。正則延長した地平線断面は $r=2L$ の二球面なので、後で計算する面積と表面重力は
+**定義の確認**：$L>0$ を長さの単位とし、$M=L$ と置けば $f_L(r)=1-2L/r$ です。これは[GR16の真空Schwarzschild解](../../GR/GR16/index.md#thm-gr16-schwarzschild)で、球対称かつ漸近平坦です。
+
+$r>2L$ では $f_L>0$ であり、無限遠での時計の条件も
 
 $$
-A(L)=4\pi(2L)^2=16\pi L^2,\qquad
-\kappa(L)=\frac12 f_L'(2L)=\frac1{4L}
+g(\partial_t,\partial_t)=-f_L(r)\longrightarrow-1
+\qquad(r\to\infty)
+$$
+
+と確認できます。正の零点 $r_h=2L$ は[GR25の正則延長](../../GR/GR25/index.md#prop-gr25-regular-horizon-chart)上にあり、[GR29の地平線の同定](../../GR/GR29/index.md#prop-gr29-schwarzschild-coincidence)により未来地平線の断面を取れます。
+
+その断面で固定するのは正則座標の $v,r$ であり、角度方向の誘導計量は $h=(2L)^2(d\theta^2+\sin^2\theta\,d\phi^2)$ です。座標基底 $(\partial_\theta,\partial_\phi)$ に関する行列は
+
+$$
+(h_{ij})=\begin{pmatrix}(2L)^2&0\\0&(2L)^2\sin^2\theta\end{pmatrix}
+\quad\Longrightarrow\quad \sqrt{\det(h_{ij})}=(2L)^2\sin\theta
+$$
+
+です。一方、$L$ を固定して半径 $r$ で微分すると $f_L'(r)=2L/r^2$ です。$f_L$ は $r_h>0$ の近くで滑らかで、正則な入射座標の生成場 $\chi=\partial_v$ を用いるため、[GR45の静的球対称表面重力公式](../../GR/GR45/index.md#thm-gr45-static)を適用できます。よって定義の三つのデータは
+
+$$
+\begin{aligned}
+M&=L>0,\\
+A(L)&=\int_0^{2\pi}\!\int_0^\pi(2L)^2\sin\theta\,d\theta\,d\phi
+=4\pi(2L)^2=16\pi L^2,\\
+\kappa(L)&=\frac12 f_L'(2L)
+=\frac12\frac{2L}{(2L)^2}=\frac1{4L}.
+\end{aligned}
 $$
 
 です。$M=L$ の**一つの解**について三つの値を一緒に示したのであって、温度を測ったわけではありません。$M=0$ は平坦時空への極限として使えても、この定義の正質量ブラックホール族には含めません。
@@ -60,7 +91,21 @@ $$
 r_h=2M>0
 $$
 
-です。$r_h$ は面積半径だから、断面 $t$ 一定をそのまま地平線座標に延長するのではなく、正則な地平線上の丸い断面の誘導計量 $r_h^2d\Omega^2$ を使います。角度範囲は $0\le\theta\le\pi$、$0\le\phi<2\pi$ です。面積要素は $r_h^2\sin\theta\,d\theta\,d\phi$ となるので、
+です。$r_h$ は面積半径だから、断面 $t$ 一定をそのまま地平線座標に延長せず、正則な地平線上の丸い断面の誘導計量 $h=r_h^2d\Omega^2$ を使います。角度座標の基底での各成分は
+
+$$
+(h_{ij})=\begin{pmatrix}r_h^2&0\\0&r_h^2\sin^2\theta\end{pmatrix},
+\qquad \det(h_{ij})=r_h^4\sin^2\theta
+$$
+
+です。角度範囲 $0\le\theta\le\pi$、$0\le\phi<2\pi$ では $\sin\theta\ge0$ なので、面積要素は
+
+$$
+\sqrt{\det(h_{ij})}\,d\theta\,d\phi
+=r_h^2\sin\theta\,d\theta\,d\phi
+$$
+
+となります。したがって
 
 $$
 \begin{aligned}
@@ -71,7 +116,11 @@ r_h^2\sin\theta\,d\theta\,d\phi\\
 \end{aligned}
 $$
 
-次は表面重力です。これは単なる $M/r_h^2$ というNewton的な力ではなく、[GR45の表面重力の定義](../../GR/GR45/index.md#def-gr45-surface-gravity)でKilling場の非アフィン性を測る量です。[GR45の静的球対称地平線の定理](../../GR/GR45/index.md#thm-gr45-static)を、入射Eddington–Finkelstein座標へ正則に延長した同じ $f_M$ に適用します。適用条件は $M>0$、$r_h=2M>0$、$f_M\in C^1$、$f_M(r_h)=0$、正則な地平線表示です。
+次は表面重力です。これは単なるNewton的な力ではなく、[GR45の表面重力の定義](../../GR/GR45/index.md#def-gr45-surface-gravity)にあるKilling場の非アフィン性を測る量です。
+
+[GR45の静的球対称地平線の定理](../../GR/GR45/index.md#thm-gr45-static)を、入射Eddington–Finkelstein座標へ正則に延長した計量に適用します。生成場は $\chi=\partial_v$ で、外部座標では $\partial_t$ と同じ場です。
+
+適用条件は $M>0$、$r_h=2M>0$、$f_M\in C^1$、$f_M(r_h)=0$、正則な地平線表示です。ここで $f_M'$ は $M$ を一定に保った $r$ についての導関数です。
 
 $$
 f_M'(r)=\frac{2M}{r^2},\qquad
@@ -396,14 +445,18 @@ $$
 =\frac32M\ne M.
 $$
 
-微分恒等式は各点で係数 $\kappa(M)$ を評価する接方向の関係です。有限差に対しては係数が経路上で変わるため、正しい積分は
+微分恒等式は各点で係数 $\kappa(M)$ を評価する接方向の関係です。有限差に対しては係数が経路上で変わります。面積を積分変数 $A'>0$ にすると、$M'=\sqrt{A'/(16\pi)}$（正質量の枝）から $\kappa(A')=1/(4M')=\sqrt\pi/\sqrt{A'}$ です。従って正しい積分は
 
 $$
-\int_{A(M)}^{A(2M)}\frac{\kappa(A)}{8\pi}\,dA
-=\int_M^{2M}dM'=M
+\begin{aligned}
+\int_{A(M)}^{A(2M)}\frac{\kappa(A')}{8\pi}\,dA'
+&=\frac1{8\sqrt\pi}\int_{16\pi M^2}^{64\pi M^2}(A')^{-1/2}\,dA'\\
+&=\left[\frac{\sqrt{A'}}{4\sqrt\pi}\right]_{16\pi M^2}^{64\pi M^2}
+=2M-M=M.
+\end{aligned}
 $$
 
-です。最後の変数変換は最初に示した微分恒等式が成立する同じ解族上で行っています。
+これは最初に示した微分恒等式を同じ正質量解族上で積分した結果と一致します。
 <!-- solution-end -->
 
 <a id="ex-bht1-b02"></a>
