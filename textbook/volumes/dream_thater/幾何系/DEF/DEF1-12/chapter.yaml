@@ -1,0 +1,44 @@
+id: "DEF1-12"
+title: "Gauss–Manin接続の構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-01
+  - DEF1-11
+  - GEO9
+  - GA6
+  - HOD1-15
+learning_objectives:
+  - Ehresmann局所自明化の遷移がコホモロジー上で局所定数になることをホモトピーで証明できる
+  - 高次順像のファイバーコホモロジー局所系と平坦なGauss–Manin接続を構成し、平坦性を証明できる
+  - 並行移動とモノドロミーを区別し、写像トーラスの例でその作用を計算できる
+  - 持ち上げによるLie微分とde Rham代表の微分が同じ接続を与えることを検算できる
+  - 周期微分と基底変更公式を導き、楕円曲線の変動例へ適用できる
+theorems:
+  - { id: DEF1-12-DEF-01, name: "複素ベクトル空間の局所系" }
+  - { id: DEF1-12-LEM-01, name: "コホモロジー遷移の局所定数性" }
+  - { id: DEF1-12-DEF-02, name: "ファイバーコホモロジー局所系" }
+  - { id: DEF1-12-DEF-03, name: "Gauss–Manin接続" }
+  - { id: DEF1-12-THM-01, name: "平坦性と並行移動" }
+  - { id: DEF1-12-PROP-01, name: "de Rham表示" }
+  - { id: DEF1-12-PROP-02, name: "周期の微分" }
+  - { id: DEF1-12-PROP-03, name: "基底変更との可換性" }
+canonical_examples:
+  - 積族の恒等遷移と自明な局所系
+  - 円周反転の写像トーラスのモノドロミー
+  - 楕円曲線での平坦基底と動く正則1形式
+problem_patterns:
+  - DEF1-12-PRODUCT-LOCAL-SYSTEM
+  - DEF1-12-EXACT-REPRESENTATIVE
+  - DEF1-12-DIFFEO-TRANSITION
+  - DEF1-12-FLAT-SECOND-DERIVATIVE
+  - DEF1-12-DEGREE-ZERO
+  - DEF1-12-REFLECTION-MONODROMY
+  - DEF1-12-SHEAR-MONODROMY
+  - DEF1-12-LIFT-INDEPENDENCE
+  - DEF1-12-BASE-CHANGE
+  - DEF1-12-ELLIPTIC-PERIODS-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 5 }

@@ -52,7 +52,7 @@ chapters:
     title: "Calabi–Yauの局所モジュライ"
   - id: DEF1-12
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-12
-    status: planned
+    status: completed
     title: "Gauss–Manin接続の構成"
   - id: DEF1-13
     path: textbook/volumes/dream_thater/幾何系/DEF/DEF1-13
