@@ -1,0 +1,45 @@
+id: "DEF1-10"
+title: "Bogomolov–Tian–Todorov II――障害消滅と収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-05
+  - DEF1-07
+  - DEF1-08
+  - DEF1-09
+  - HOD1-05
+  - HOD1-06
+  - CYG1-12
+  - GA2
+  - GA6
+learning_objectives:
+  - Tian–Todorov恒等式とKählerの混合随伴反交換子から∂閉な補正を各次数で作れる
+  - Bianchi恒等式を次数で比較し高次障害形式のbar∂閉性と調和成分の消滅を説明できる
+  - Sobolev評価と縮小写像によって形式解の実際の収束と正則パラメータ依存を示せる
+  - 小さい解のMaurer–Cartan曲率が零になるNeumann型評価を再導出できる
+  - 収束する正則変形族とKuranishi半普遍性から局所基底が滑らかになることを論証できる
+theorems:
+  - { id: DEF1-10-DEF-01, name: "体積形式によるKählerホモトピー" }
+  - { id: DEF1-10-LEM-01, name: "∂閉性を保つ補正" }
+  - { id: DEF1-10-THM-01, name: "全次数のBTT障害消滅" }
+  - { id: DEF1-10-THM-02, name: "収束するBTT固定点解" }
+  - { id: DEF1-10-THM-03, name: "Calabi–Yauの非障害性と滑らかなKuranishi基底" }
+canonical_examples:
+  - 平坦複素トーラスの定数係数変形で二次以上が零となる計算
+  - 二次・三次補正での係数1/2と括弧の対称性
+  - H二次コホモロジーが非零でも障害写像が消える場合
+problem_patterns:
+  - DEF1-10-TYPE-HOMOTOPY
+  - DEF1-10-HARMONIC-PROJECTION
+  - DEF1-10-SECOND-ORDER
+  - DEF1-10-CONTRACTION-BOUND
+  - DEF1-10-CURVE-CASE
+  - DEF1-10-THIRD-ORDER
+  - DEF1-10-MIXED-ANTICOMMUTATOR
+  - DEF1-10-MAJORANT
+  - DEF1-10-SMOOTH-BASE
+  - DEF1-10-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 6 }
