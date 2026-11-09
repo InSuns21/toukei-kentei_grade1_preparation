@@ -1,0 +1,43 @@
+chapter: BHT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT3
+  - GR31
+  - GR45
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.nonextremal-rn-family
+    name: 非極限RNの定常解族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非極限RNの定常解族）"]
+    requires: [gravity.reissner-nordstrom-solution, gravity.rn-horizon-radii]
+
+  - id: black-hole-thermodynamics.rn-horizon-potential
+    name: RNの地平線電位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RNの地平線電位）"]
+    requires: [black-hole-thermodynamics.nonextremal-rn-family, gravity.rn-spherical-maxwell-stress]
+
+  - id: black-hole-thermodynamics.rn-geometric-data
+    name: RN地平線の幾何学的状態データ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RN地平線の幾何学的状態データ）"]
+    requires: [black-hole-thermodynamics.nonextremal-rn-family, black-hole-thermodynamics.rn-horizon-potential, gravity.static-spherical-surface-gravity]
+
+  - id: black-hole-thermodynamics.rn-equilibrium-first-law
+    name: 非極限RN定常解族の第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非極限RN定常解族の第一法則）"]
+    requires: [black-hole-thermodynamics.rn-geometric-data, black-hole-thermodynamics.rn-horizon-potential]
+
+  - id: black-hole-thermodynamics.rn-mq-check
+    name: 質量・電荷座標での第一法則の検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（質量・電荷座標での第一法則の検算）"]
+    requires: [black-hole-thermodynamics.rn-equilibrium-first-law, gravity.rn-horizon-radii]

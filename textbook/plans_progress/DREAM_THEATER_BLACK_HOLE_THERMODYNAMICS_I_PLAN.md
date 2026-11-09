@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 改訂: 2026-11-10（標準教科書・大学院講義資料と照合し講数・学修境界を確定）  
-状態: in progress（BHT1〜BHT3執筆・査読・公開導線整備済み。BHT4〜BHT24と横断監査は未完了）
+状態: in progress（BHT1〜BHT4執筆・査読・公開導線整備済み。BHT5〜BHT24と横断監査は未完了）
 
 ## 0. 中心問い・到達点
 
@@ -119,6 +119,6 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 
 ## 5. 着手・完了条件
 
-BHT1は状態量・面積・表面重力の同じ解族での検算、変分恒等式、単位復元、演習と査読を実装した。BHT系列manifestと物理系の公開目次に登録した。BHT2–BHT24の本文、各章の検証と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
+BHT1〜BHT4は状態量・零法則・面積法則・非回転第一法則までの本文、演習、各章の査読と公開導線を実装した。BHT5〜BHT24の本文、各章の検証と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
 
 全24章が原則の証明・演習水準を満たし、系列manifest・目次・prerequisite・stable anchorと横断査読・CIが整合したときだけ textbook/plan_done/ へ移す。**講義数が24であることと完成していることを混同しない。**
