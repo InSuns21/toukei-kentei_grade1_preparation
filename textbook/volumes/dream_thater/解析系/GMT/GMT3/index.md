@@ -369,7 +369,23 @@ $$
 
 $\operatorname{Cap}_t(K)>0$ とすると、定義の下限は有限です。もし全ての $\mu\in\mathcal P(K)$ で $I_t(\mu)=\infty$ なら下限も無限大なので、ある $\mu$ は $I_t(\mu)<\infty$ を満たします。[有限energyによる次元下界](#thm-gmt3-energy-dimension)より $\dim_HK\ge t$ です。
 
-逆に $0<t<\dim_HK$、$t<d$ とします。$t<s<\min\{d,\dim_HK\}$ を選べる場合はその $s$ を取ります。$\dim_HK=d$ の場合も $t<s<d$ を選べます。[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)を $K$ と指数 $s$ に適用すると確率測度 $\mu$ と $C>0$ が存在して $\mu(B(x,r))\le Cr^s$ です。[球成長から有限energyへの定理](#thm-gmt3-frostman-energy)で $I_t(\mu)<\infty$ だから $\operatorname{Cap}_t(K)\ge I_t(\mu)^{-1}>0$ です。これで $t<\dim_HK$ の全てが右辺の集合に入り、両側の不等式が従います。$\dim_HK=0$ なら最初の含意で正の容量指数は存在しません。$\square$
+逆に $0<t<\dim_HK$ とします。$t<s<\dim_HK$ を一つ選びます。Hausdorff次元は高々 $d$ なので、$s<d$ も満たします。
+
+[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)をコンパクト集合 $K$ とこの指数 $s$ に適用すると、確率測度 $\mu$ と定数 $C>0$ が存在して
+
+$$
+\mu(B(x,r))\le Cr^s
+$$
+
+が全ての中心と半径で成り立ちます。[球成長から有限energyへの定理](#thm-gmt3-frostman-energy)は $0<t<s$ の条件で適用できるので
+
+$$
+I_t(\mu)<\infty,
+\qquad
+\operatorname{Cap}_t(K)\ge I_t(\mu)^{-1}>0.
+$$
+
+こうして全ての $t<\dim_HK$ が右辺の集合に入り、両側の不等式が従います。$\dim_HK=0$ の場合は最初の含意から正容量の指数が存在せず、上限を0とする約束と一致します。$\square$
 <!-- proof-end -->
 
 容量の正値性と次元の関係は、一般に **$t<\dim_HK$ は正容量を保証し、$t>\dim_HK$ は零容量を強制するが、$t=\dim_HK$ は判定不能**、という三分岐です。
@@ -631,7 +647,15 @@ $h=d$ のときも $t<s<d=h$ を選べます。端点 $s=h$ のFrostman測度が
 **C1. Cantor集合の臨界容量は0**
 
 - Level: C
-- 問題: $C$ を中三分Cantor集合、$\alpha=\log2/\log3$ とする。任意のBorel確率測度 $\mu\in\mathcal P(C)$ について $I_\alpha(\mu)=\infty$ を示せ。ヒント：第 $n$ 段階の区間 $C_{n,j}$（$j=1,\ldots,2^n$）へ置く質量の二乗和は[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により $2^{-n}$ 以上である。さらに、$0<t<1$ での $\operatorname{Cap}_t(C)$ の正値・零値を分類せよ。
+- 問題: $C$ を中三分Cantor集合、$\alpha=\log2/\log3$ とする。任意のBorel確率測度 $\mu\in\mathcal P(C)$ について $I_\alpha(\mu)=\infty$ を示せ。さらに、$0<t<1$ での $\operatorname{Cap}_t(C)$ の正値・零値を分類せよ。
+
+**ヒント**　第 $n$ 段階の区間 $C_{n,j}$（$j=1,\ldots,2^n$）へ置く質量を $p_{n,j}$ とする。[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
+
+$$
+\sum_{j=1}^{2^n}p_{n,j}^2\ge2^{-n}
+$$
+
+を導き、層ケーキ表示に代入する。
 
 <!-- solution-start -->
 **詳細解答**
