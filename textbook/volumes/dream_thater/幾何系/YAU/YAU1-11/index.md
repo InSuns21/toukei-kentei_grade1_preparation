@@ -124,7 +124,13 @@ $$
 
 $C$ は次元、$r$、楕円定数、係数のHölderノルム、$\alpha$ のみに依存する。この入力は既習の楕円型Schauder理論の局所評価である。複素Laplacianの場合は実対称主部へ書き直して適用する。境界のないコンパクト $X$ を有限チャートで覆い、各小チャートの内側を評価すれば一様な大域評価が得られる。パス上で $\lambda,\Lambda$ と係数ノルムが同じであることが不可欠である。
 
-まず一階微分 $u_k=\partial_k\varphi$ を考える。[前章の三階評価](../YAU1-10/index.md#thm-yau1-10-global-third-order)によって混合三階微分は有界であり、$g$ と $H_t$ は固定された滑らかなデータの一様有界族である。補題の一階方程式の右辺 $DH_t+h^{-1}Dg-D\log\det g$ は $C^{0,\alpha}$ 一様有界となる。$u_k$ の $C^0$ はポテンシャルの一階評価から得る必要があるが、平均零と $\|\partial\bar\partial\varphi\|_{C^0}\le C$、コンパクト性を用いる固定背景Laplacianの楕円評価（$\Delta_g\varphi=\operatorname{tr}_g(h-g)$）により $\|\varphi\|_{C^{1,\alpha}}\le C$ を先に確保できる。この背景作用素は係数が固定で滑らかなので循環しない。
+まず一階微分 $u_k=\partial_k\varphi$ を考える。[前章の三階評価](../YAU1-10/index.md#thm-yau1-10-global-third-order)によって混合三階微分は有界であり、$g$ と $H_t$ は固定された滑らかなデータの一様有界族である。
+
+補題の一階方程式の右辺 $DH_t+h^{-1}Dg-D\log\det g$ は $C^{0,\alpha}$ 一様有界となる。
+
+$u_k$ の $C^0$ はポテンシャルの一階評価から得る必要があるが、平均零と $\|\partial\bar\partial\varphi\|_{C^0}\le C$、コンパクト性を用いる固定背景Laplacianの楕円評価（$\Delta_g\varphi=\operatorname{tr}_g(h-g)$）により $\|\varphi\|_{C^{1,\alpha}}\le C$ を先に確保できる。
+
+この背景作用素は係数が固定で滑らかなので循環しない。
 
 従って局所Schauder評価から $\partial_k\varphi\in C^{2,\alpha}$ が一様に従い、座標を変換して $\varphi\in C^{3,\alpha}$ が得られる。以後は係数の微分に必要な正則性を一段ずつ増やす。
 
@@ -148,7 +154,15 @@ $$
 <details>
 <summary>証明：循環を避けて各階を閉じる</summary>
 
-**初期段階。** [一様 $C^0$ 評価](../YAU1-07/index.md#thm-yau1-07-moser)と[二側計量評価](../YAU1-09/index.md#thm-yau1-09-global-second-order)から $\|\varphi\|_{C^0}+\|\Delta_g\varphi\|_{C^0}\le C$。固定係数の $L^p$ 楕円評価を $p>2n$ で使えば $\|\varphi\|_{W^{2,p}}\le C_p$、Sobolev埋め込みで $\|\varphi\|_{C^{1,\gamma}}\le C$（$\gamma=1-2n/p$）。ここでは任意の指定 $\alpha<1$ に対して $p$ を十分大きく取る。さらに三階評価による $h$ のLipschitz制御から $\Delta_g\varphi=\operatorname{tr}_g(h-g)$ は $C^{0,\alpha}$ 一様有界となり、固定背景作用素のSchauder評価で $\|\varphi\|_{C^{2,\alpha}}\le C$。これにより $D\varphi$ の $C^0$ も確保できる。
+**初期段階。** [一様 $C^0$ 評価](../YAU1-07/index.md#thm-yau1-07-moser)と[二側計量評価](../YAU1-09/index.md#thm-yau1-09-global-second-order)から $\|\varphi\|_{C^0}+\|\Delta_g\varphi\|_{C^0}\le C$。
+
+固定係数の $L^p$ 楕円評価を $p>2n$ で使えば $\|\varphi\|_{W^{2,p}}\le C_p$、Sobolev埋め込みで $\|\varphi\|_{C^{1,\gamma}}\le C$（$\gamma=1-2n/p$）。
+
+ここでは任意の指定 $\alpha<1$ に対して $p$ を十分大きく取る。
+
+さらに三階評価による $h$ のLipschitz制御から $\Delta_g\varphi=\operatorname{tr}_g(h-g)$ は $C^{0,\alpha}$ 一様有界となり、固定背景作用素のSchauder評価で $\|\varphi\|_{C^{2,\alpha}}\le C$。
+
+これにより $D\varphi$ の $C^0$ も確保できる。
 
 **最初の昇格。** [係数制御の補題](#lem-yau1-11-holder-control)により $h^{-1}$ は一様 $C^{0,\alpha}$、[微分公式](#lem-yau1-11-differentiation)の一階右辺も同様である。局所Schauder評価を $D\varphi$ に適用して $C^{3,\alpha}$ 評価を得る。
 
@@ -175,7 +189,9 @@ $$
 正値行列 $A(x)$ が $\|A^{-1}\|\le M$ と $\|DA\|\le K$ を満たすとき $\|D(A^{-1})\|\le M^2K$ を導け。
 
 <!-- solution-start -->
-**詳細解答。**
+**詳細解答。
+
+**
 $AA^{-1}=I$ を微分すると $(DA)A^{-1}+A D(A^{-1})=0$。左から $A^{-1}$ を掛け $D(A^{-1})=-A^{-1}(DA)A^{-1}$。作用素ノルムの劣乗法性から上界 $M\cdot K\cdot M=M^2K$ を得る。
 <!-- solution-end -->
 
@@ -185,7 +201,9 @@ $AA^{-1}=I$ を微分すると $(DA)A^{-1}+A D(A^{-1})=0$。左から $A^{-1}$ �
 直径 $D$ の領域で $|f(x)-f(y)|\le L|x-y|$ とする。任意の $0<\alpha<1$ のHölder半ノルムを評価せよ。
 
 <!-- solution-start -->
-**詳細解答。**
+**詳細解答。
+
+**
 $x\ne y$ について $|f(x)-f(y)|/|x-y|^\alpha\le L|x-y|^{1-\alpha}\le LD^{1-\alpha}$。上限を取れば $[f]_{C^{0,\alpha}}\le LD^{1-\alpha}$。
 <!-- solution-end -->
 
@@ -254,5 +272,18 @@ $\varphi$ に一様 $C^{m+2,\alpha}$ 評価があると仮定し、$m\ge1$ で $
 
 <!-- solution-start -->
 **詳細解答。**
-$|\beta|=m+1$ として未知関数を $u=D^\beta\varphi$ とする。係数 $a^{i\bar j}=h^{i\bar j}$ は $h=g+\partial\bar\partial\varphi\in C^{m,\alpha}$ と一様正値性から $C^{0,\alpha}$ 有界で、楕円定数も一定である。$R_\beta$ の各項は $h^{-1}$ および高々 $m$ 階の $Dh$ の積で、帰納仮定によって $C^{0,\alpha}$ 一様有界。$D^\beta(H+\log\det g)$ と $h^{-1}D^\beta g$ は固定滑らかなデータから同様に有界。$\|u\|_{C^0}$ は $\varphi\in C^{m+2,\alpha}$ から得られる。各固定小チャートの内点Schauder評価で $\|u\|_{C^{2,\alpha}}$ が一様になり、有限被覆で $\|\varphi\|_{C^{m+3,\alpha}}$ を得る。$m=0$ では $D\varphi$ の $C^0$ と $h^{-1}$ のHölder性を先に確保する必要があり、固定背景Laplacianと三階評価から初期段階を独立に構成する。
+
+$|\beta|=m+1$ として未知関数を $u=D^\beta\varphi$ とする。
+
+係数 $a^{i\bar j}=h^{i\bar j}$ は $h=g+\partial\bar\partial\varphi\in C^{m,\alpha}$ と一様正値性から $C^{0,\alpha}$ 有界で、楕円定数も一定である。
+
+$R_\beta$ の各項は $h^{-1}$ および高々 $m$ 階の $Dh$ の積で、帰納仮定によって $C^{0,\alpha}$ 一様有界。
+
+$D^\beta(H+\log\det g)$ と $h^{-1}D^\beta g$ は固定滑らかなデータから同様に有界。
+
+$\|u\|_{C^0}$ は $\varphi\in C^{m+2,\alpha}$ から得られる。
+
+各固定小チャートの内点Schauder評価で $\|u\|_{C^{2,\alpha}}$ が一様になり、有限被覆で $\|\varphi\|_{C^{m+3,\alpha}}$ を得る。
+
+$m=0$ では $D\varphi$ の $C^0$ と $h^{-1}$ のHölder性を先に確保する必要があり、固定背景Laplacianと三階評価から初期段階を独立に構成する。
 <!-- solution-end -->
