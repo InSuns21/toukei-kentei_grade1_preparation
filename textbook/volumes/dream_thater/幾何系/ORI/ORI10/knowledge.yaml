@@ -1,0 +1,39 @@
+chapter: ORI10
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI9]
+forward_references:
+  - geometry.cube-duplication-impossibility # SQC4との古典作図比較のみ。ORI10の折り紙作図の証明には用いない。
+  - geometry.sixty-degree-trisection-impossibility # 同上。後続ORI11で代数的な次数を体系化する。
+
+concepts:
+  - id: origami.abe-trisection-configuration
+    name: Abe型の角三等分配置
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Abe型の角三等分配置）]
+    requires: [origami.huzita-o6, origami.crease-reflection]
+
+  - id: origami.tangent-triple-angle-acute
+    name: 鋭角域での正接の三倍角公式
+    kind: lemma
+    introduction: formal
+    requires: []
+
+  - id: origami.abe-acute-trisection
+    name: Abe型の鋭角三等分作図
+    kind: theorem
+    introduction: formal
+    requires: [origami.abe-trisection-configuration, origami.tangent-triple-angle-acute, origami.crease-reflection]
+
+  - id: origami.abe-general-trisection
+    name: 全角域への三等分の還元
+    kind: proposition
+    introduction: formal
+    requires: [origami.abe-acute-trisection, origami.huzita-o3]
+
+  - id: origami.o6-cube-duplication
+    name: O6による立方体倍積作図
+    kind: theorem
+    introduction: formal
+    requires: [origami.o6-perpendicular-cubic, origami.huzita-o4]

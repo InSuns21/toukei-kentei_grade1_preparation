@@ -10,3 +10,4 @@
 7. [ORI7 公理O5と二次方程式](textbook/volumes/dream_thater/幾何系/ORI/ORI7/index.md)
 8. [ORI8 公理O6と三次方程式](textbook/volumes/dream_thater/幾何系/ORI/ORI8/index.md)
 9. [ORI9 公理O7と単一折りの尽くし方](textbook/volumes/dream_thater/幾何系/ORI/ORI9/index.md)
+10. [ORI10 角の三等分と立方体倍積の折り紙作図](textbook/volumes/dream_thater/幾何系/ORI/ORI10/index.md)

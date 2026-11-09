@@ -1,0 +1,38 @@
+id: ORI10
+title: "角の三等分と立方体倍積の折り紙作図"
+volume: foundations
+status: supplementary
+prerequisites: [ORI9]
+official_scope: []
+learning_objectives:
+  - Abe型の二点同時合わせの配置を作り、目的と異なるO6解を除いて三等分線を特定できる
+  - 鏡映像の座標と三倍角公式から鋭角の三等分を必要十分に検算できる
+  - 二等分と鋭角の三等分を組み合わせて任意の0度から180度の角へ拡張できる
+  - O6の垂直目標モデルでtの三乗が2となる配置を設計し、作図された線分から立方体倍積の辺を得られる
+  - 定規とコンパスの有限作図不能性とO6を許した折り紙の可能性を操作集合の違いとして説明できる
+definitions:
+  - { id: ORI10-DEF-01, name: Abe型の角三等分配置 }
+theorems:
+  - { id: ORI10-LEM-01, name: 鋭角域での正接の三倍角公式 }
+  - { id: ORI10-THM-01, name: Abe型の鋭角三等分作図 }
+  - { id: ORI10-PROP-01, name: 全角域への三等分の還元 }
+  - { id: ORI10-THM-02, name: O6による立方体倍積作図 }
+canonical_examples:
+  - 45度のAbe配置でh=1、B'=(2+sqrt(3),1)、F'=(1+sqrt(3),1+sqrt(3))
+  - 45度に対する別のO6解B'=(-1,1)を三等分線と誤認しない反例
+  - P=(1/2,2)、Q=(1,1)、目標y=0とx=0からt^3=2を作図
+problem_patterns:
+  - ORI10-ABE-BISECTOR
+  - ORI10-ABE-REFLECTION
+  - ORI10-ABE-45-DEGREES
+  - ORI10-CUBE-CUBIC
+  - ORI10-CUBE-SLOPE
+  - ORI10-ABE-WRONG-BRANCH
+  - ORI10-ABE-60-DEGREES
+  - ORI10-CUBE-DIRECT-REFLECTION
+  - ORI10-CUBE-SCALING
+  - ORI10-CLASSICAL-CONTRAST
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5, review: 2 }
