@@ -5,7 +5,8 @@
 GMT1着手日: 2026-11-10（幾何的被覆・Radon微分・上下密度を実装）  
 GMT2着手日: 2026-11-10（有限二進木の容量配分からFrostman測度を構成）
 GMT3着手日: 2026-11-10（Riesz energyの層ケーキ表示・capacity・Cantor臨界発散）
-状態: in_progress（GMT1--GMT3 は実装・査読済み。GMT4--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT4着手日時: 2026-11-10 02:26:52 JST（有限測度Fourier変換・Gaussian正則化・Riesz energy恒等式）
+状態: in_progress（GMT1--GMT4 は実装・査読済み。GMT5--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -327,4 +328,4 @@ formal statementでは対象の可測性・次元・有限性、a.e.の参照測
 4. BV compactness/coarea→finite perimeter→reduced boundary→De Giorgi構造→Gauss--Green→等周・周長最小化の証明が閉じる。
 5. Besicovitch構成、tube overlap、Kakeya maximalからの次元含意を計算でき、HA11とEOM074へ正しく接続する。
 6. Preissの一般定理・currents/varifolds・Kakeya最新結果について、**証明済みの本科目範囲と停止線外**を読者が区別できる。
-7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT3完了後もGMT4--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
+7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT4完了後もGMT5--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
