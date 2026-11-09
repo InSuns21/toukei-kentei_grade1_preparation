@@ -327,7 +327,23 @@ $$
 
 を要求する。すなわち、先に作用してから $T$ で写しても、先に $T$ で写してから作用しても一致する。
 
-特に加法モノイド $(\mathbb N,+,0)$ では $1$ が生成元であり、$u=F(1)$, $v=G(1)$ を指定すると、関手の合成保存より $F(n)=u^n$, $G(n)=v^n$ となる（$u^0=1_X$）。[生成射の判定](#prop-cat1-07-generators)から、自然性は
+特に非負整数の[加法モノイド](../CAT1-02/index.md#def-cat1-02-monoid) $(\mathbb N_0,+,0)$ では $0$ が単位元、$1$ が生成元である。ここでの $1$ は加法モノイドの元であり、第5節の一元集合 $1=\{*\}$ とは異なる。射 $n\in\mathbb N_0$ は生成射 $1$ を $n$ 回合成したものに当たる。
+
+$u=F(1):X\to X$, $v=G(1):Y\to Y$ と置く。$u^n,v^n$ はそれぞれ自己写像の $n$ 回の合成を表し、具体的には
+
+$$
+u^0=1_X,\qquad u^{n+1}=u\circ u^n,\qquad
+v^0=1_Y,\qquad v^{n+1}=v\circ v^n
+$$
+
+と定める（$n\in\mathbb N_0$）。[関手の恒等射・合成保存](../CAT1-06/index.md#def-cat1-06-functor)から、例えば
+
+$$
+F(0)=1_X=u^0,\qquad
+F(n+1)=F(1+n)=F(1)\circ F(n)=u\circ u^n=u^{n+1}
+$$
+
+と帰納でき、同様の式で $G(n)=v^n$ となる。[生成射の判定](#prop-cat1-07-generators)から、自然性は
 
 $$
 v\circ T=T\circ u
@@ -433,7 +449,7 @@ $$
 
 - Level: A
 
-三点鎖 $P=\{0<1<2\}$ と三点鎖 $Q=\{a<b<c\}$ を順序圏とする。関手 $F,G:P\to Q$ は対象上で
+三点鎖 $P=\{0<1<2\}$ と三点鎖 $Q=\{a<b<c\}$ を[順序圏](../CAT1-02/index.md#prop-cat1-02-order-category)とする。関手 $F,G:P\to Q$ は対象上で
 
 $$
 F(0)=a,\quad F(1)=a,\quad F(2)=b,\qquad
@@ -453,9 +469,9 @@ $$
 \alpha_2:b\to c.
 $$
 
-任意の $i\le j$ について、四角形の二経路はいずれも $F(i)\to G(j)$ の射である。順序圏の各Homは高々一元だから二経路は等しい。よって自然変換は存在する。
+任意の $i\le j$ について、$F(i)\le F(j)\le G(j)$ なので、四角形の二経路はどちらも $F(i)\to G(j)$ の射として存在する。[順序圏の構成](../CAT1-02/index.md#prop-cat1-02-order-category)では各Homは高々一元だから二経路は等しい。よって自然変換は存在する。
 
-自然同型なら各成分が同型射でなければならない。しかし半順序圏で同型になるのは対象が等しい場合だけであり、例えば $F(0)=a\ne b=G(0)$ である。[自然同型の成分判定](#prop-cat1-07-componentwise-iso)から自然同型は存在しない。
+自然同型なら各成分が同型射でなければならない。しかし[半順序圏の同型射の判定](../CAT1-03/index.md#prop-cat1-03-poset-bimorphism)によれば、同型になるのは対象が等しい場合だけであり、例えば $F(0)=a\ne b=G(0)$ である。[自然同型の成分判定](#prop-cat1-07-componentwise-iso)から自然同型は存在しない。
 <!-- solution-end -->
 
 ### CAT1-07-B01 逆成分の四角形
@@ -475,9 +491,9 @@ $$
 
 $$
 \begin{aligned}
-\alpha_B^{-1}G(f)\alpha_A\alpha_A^{-1}
-&=\alpha_B^{-1}\alpha_B F(f)\alpha_A^{-1},\\
-\alpha_B^{-1}G(f)&=F(f)\alpha_A^{-1}.
+\alpha_B^{-1}\circ G(f)\circ\alpha_A\circ\alpha_A^{-1}
+&=\alpha_B^{-1}\circ\alpha_B\circ F(f)\circ\alpha_A^{-1},\\
+\alpha_B^{-1}\circ G(f)&=F(f)\circ\alpha_A^{-1}.
 \end{aligned}
 $$
 
@@ -509,23 +525,23 @@ $*$ に代入すると $\alpha_X(a)=a$, $\alpha_X(b)=b$, $\alpha_X(c)=c$ とな�
 圏 $\mathcal C$ は対象 $0,1,2$、射 $u:0\to1$, $v:1\to2$, $w=v\circ u:0\to2$ と恒等射だけを持つ。共変関手 $F,G:\mathcal C\to\mathcal D$ と成分族 $\alpha_i:F(i)\to G(i)$ が $u,v$ の自然性を満たすとき、$w$ と恒等射の自然性をすべて導け。
 
 <!-- solution-start -->
-**詳細解答**。仮定は $G(u)\alpha_0=\alpha_1F(u)$ および $G(v)\alpha_1=\alpha_2F(v)$ である。[関手の合成保存](../CAT1-06/index.md#def-cat1-06-functor)と結合則を使い
+**詳細解答**。仮定は $G(u)\circ\alpha_0=\alpha_1\circ F(u)$ および $G(v)\circ\alpha_1=\alpha_2\circ F(v)$ である。[関手の合成保存](../CAT1-06/index.md#def-cat1-06-functor)と結合則を使い
 
 $$
 \begin{aligned}
-G(w)\alpha_0
-&=G(v)G(u)\alpha_0\\
-&=G(v)\alpha_1F(u)\\
-&=\alpha_2F(v)F(u)\\
-&=\alpha_2F(w).
+G(w)\circ\alpha_0
+&=G(v)\circ G(u)\circ\alpha_0\\
+&=G(v)\circ\alpha_1\circ F(u)\\
+&=\alpha_2\circ F(v)\circ F(u)\\
+&=\alpha_2\circ F(w).
 \end{aligned}
 $$
 
 二、三行目は順に $u,v$ への仮定を用いた。各 $i$ の恒等射では
 
 $$
-G(1_i)\alpha_i=1_{G(i)}\alpha_i
-=\alpha_i1_{F(i)}=\alpha_iF(1_i)
+G(1_i)\circ\alpha_i=1_{G(i)}\circ\alpha_i
+=\alpha_i\circ1_{F(i)}=\alpha_i\circ F(1_i)
 $$
 
 だから、すべての射で自然性が成立する。
@@ -564,7 +580,7 @@ $$
 
 - Level: C
 
-加法モノイド $(\mathbb N,+,0)$ を一対象圏 $\mathcal M$ とする。関手 $F,G:\mathcal M\to\mathbf{Set}$ は唯一の対象をそれぞれ $X=\{0,1\}$ と $Y=\{a,b,c\}$ に送り、生成射 $1\in\mathbb N$ を
+[加法モノイド](../CAT1-02/index.md#def-cat1-02-monoid) $(\mathbb N_0,+,0)$ を一対象圏 $\mathcal M$ とする。関手 $F,G:\mathcal M\to\mathbf{Set}$ は唯一の対象をそれぞれ $X=\{0,1\}$ と $Y=\{a,b,c\}$ に送り、生成射 $1\in\mathbb N_0$ を
 
 $$
 u:X\to X,\quad u(0)=1,\ u(1)=0,
@@ -589,7 +605,7 @@ $$
 
    同じく $G(m+n)=v^m\circ v^n$。従って[関手の二公理](../CAT1-06/index.md#def-cat1-06-functor)が成立する。
 
-2. 自然変換の成分は一つの写像 $T:X\to Y$。自然性は生成射 $1$ について $vT=Tu$ を満たせば、[生成射の判定](#prop-cat1-07-generators)により全 $n$ へ広がる。$T(0)=y$ と置くと、$0$ への等式から
+2. 自然変換の成分は一つの写像 $T:X\to Y$。自然性は生成射 $1$ について $v\circ T=T\circ u$ を満たせば、[生成射の判定](#prop-cat1-07-generators)により全 $n$ へ広がる。$T(0)=y$ と置くと、$0$ への等式から
 
    $$
    T(1)=T(u(0))=v(T(0))=v(y).
@@ -608,7 +624,7 @@ $$
 
    である。$X$ は二元、$Y$ は三元なので、どの $T$ も全単射ではない。[自然同型の成分判定](#prop-cat1-07-componentwise-iso)より自然同型は存在しない。
 
-3. $G'$ に対しても自然性は $v'T=Tu$ である。$T(0)=a$ なら $T(1)=b$、$T(0)=b$ なら $T(1)=a$ であり、これ以外はない。二つの $T$ はともに全単射で、上の計算により自然変換だから[成分判定](#prop-cat1-07-componentwise-iso)で自然同型である。逆成分も各全単射の逆写像であり、自然性が保証される。
+3. $G'$ に対しても自然性は $v'\circ T=T\circ u$ である。$T(0)=a$ なら $T(1)=b$、$T(0)=b$ なら $T(1)=a$ であり、これ以外はない。二つの $T$ はともに全単射で、上の計算により自然変換だから[成分判定](#prop-cat1-07-componentwise-iso)で自然同型である。逆成分も各全単射の逆写像であり、自然性が保証される。
 <!-- solution-end -->
 
 ## 8. 次の講義へ
