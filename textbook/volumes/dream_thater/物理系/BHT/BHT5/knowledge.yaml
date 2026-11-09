@@ -1,0 +1,50 @@
+chapter: BHT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT4
+  - GR32
+  - GR45
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.nonextremal-kerr-family
+    name: 非極限Kerrの定常解族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非極限Kerrの定常解族）"]
+    requires: [gravity.kerr-horizon-ingoing, gravity.kerr-boyer-lindquist-metric]
+
+  - id: black-hole-thermodynamics.kerr-horizon-data
+    name: Kerr地平線の面積と状態データ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kerr地平線の面積と状態データ）"]
+    requires: [black-hole-thermodynamics.nonextremal-kerr-family, gravity.kerr-surface-gravity, gravity.kerr-frame-dragging]
+
+  - id: black-hole-thermodynamics.kerr-equilibrium-first-law
+    name: 非極限Kerr定常解族の第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非極限Kerr定常解族の第一法則）"]
+    requires: [black-hole-thermodynamics.kerr-horizon-data]
+
+  - id: black-hole-thermodynamics.kerr-area-angular-momentum-mass
+    name: 面積・角運動量による質量公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（面積・角運動量による質量公式）"]
+    requires: [black-hole-thermodynamics.kerr-equilibrium-first-law]
+
+  - id: black-hole-thermodynamics.kerr-newman-potential
+    name: Kerr–Newmanの地平線電位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kerr–Newmanの地平線電位）"]
+    requires: [black-hole-thermodynamics.rn-horizon-potential, black-hole-thermodynamics.kerr-horizon-data]
+
+  - id: black-hole-thermodynamics.kerr-newman-first-law
+    name: 非極限Kerr–Newman解族の変分恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非極限Kerr–Newman解族の変分恒等式）"]
+    requires: [black-hole-thermodynamics.kerr-newman-potential, black-hole-thermodynamics.kerr-equilibrium-first-law]

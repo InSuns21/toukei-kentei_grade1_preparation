@@ -1,0 +1,46 @@
+id: "BHT5"
+title: "回転ブラックホールの第一法則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT4
+  - GR32
+  - GR45
+official_scope: []
+learning_objectives:
+  - Kerrの非極限定常解族と無限遠の時間・回転の規格化を定め、地平線生成場の角速度を説明できる
+  - 正則な地平線断面の誘導計量から面積を求め、表面重力・角運動量を同一のKerr解で検算できる
+  - 地平線半径と回転パラメータを局所座標として質量の全微分から平衡状態版の第一法則を証明できる
+  - 面積と角運動量による質量公式を独立に微分し、共役量を照合できる
+  - 固定面積・固定角運動量、回転反転、Schwarzschild部分族、極限境界の違いを判定できる
+  - Kerr–Newmanへの電荷項の拡張を、電位のゲージと代数的恒等式の成立条件を明記して検算できる
+  - 定常解族の接方向の恒等式と物理過程版・一般の定常摂動の第一法則を区別できる
+definitions:
+  - { id: BHT5-DEF-01, name: "非極限Kerrの定常解族" }
+  - { id: BHT5-DEF-02, name: "Kerr–Newmanの地平線電位" }
+theorems:
+  - { id: BHT5-PROP-01, name: "Kerr地平線の面積と状態データ" }
+  - { id: BHT5-THM-01, name: "非極限Kerr定常解族の第一法則" }
+  - { id: BHT5-PROP-02, name: "面積・角運動量による質量公式" }
+  - { id: BHT5-PROP-03, name: "非極限Kerr–Newman解族の変分恒等式" }
+canonical_examples:
+  - M=5Lかつa=3LのKerr解で地平線生成場・面積・表面重力・角速度・角運動量を検算する
+  - Kerrのr_+とaによる全微分を二つの独立方向で比較する
+  - 面積を固定した回転変化と角運動量を固定した質量変化を分ける
+  - Q=0とa=0をKerr–Newmanの式にそれぞれ代入してKerr・RNの結果を回復する
+  - 極限境界の平方根微分と表面重力ゼロを区別する
+problem_patterns:
+  - BHT5-HORIZON-AREA
+  - BHT5-HORIZON-GENERATOR
+  - BHT5-ROTATION-SIGN
+  - BHT5-SCHWARZSCHILD-LIMIT
+  - BHT5-KERR-PARTIAL-DERIVATIVES
+  - BHT5-FIXED-AREA-ROTATION
+  - BHT5-CHRISTODOULOU-MASS-CHECK
+  - BHT5-EXTREMAL-BOUNDARY
+  - BHT5-KERR-NEWMAN-ELECTRIC-CHECK
+  - BHT5-INTEGRATED-FIRST-LAW
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }

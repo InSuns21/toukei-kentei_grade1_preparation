@@ -25,7 +25,7 @@ chapters:
     title: "Schwarzschild・Reissner–Nordströmの第一法則"
   - id: BHT5
     path: textbook/volumes/dream_thater/物理系/BHT/BHT5
-    status: planned
+    status: completed
     title: "回転ブラックホールの第一法則"
   - id: BHT6
     path: textbook/volumes/dream_thater/物理系/BHT/BHT6
