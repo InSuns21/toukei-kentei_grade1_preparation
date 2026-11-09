@@ -10,7 +10,15 @@
 
 ## 1. 射影を座標で定義する
 
-角度 $\theta\in[0,\pi)$ の単位ベクトルを $e_\theta=(\cos\theta,\sin\theta)$ とします。原点を通り $e_\theta$ が向く直線への直交射影は、点 $x=(x_1,x_2)$ の $e_\theta$ 方向成分です。射影先の直線をその座標 $u\in\mathbb R$ と同一視し、$\pi_\theta(x)=x\cdot e_\theta$ と表します。角度を $\pi$ だけ変えると値の符号が変わるだけなので、方向は $[0,\pi)$ で一度ずつ数えます。
+角度 $\theta\in[0,\pi)$ の単位ベクトルを $e_\theta=(\cos\theta,\sin\theta)$ とします。原点を通り $e_\theta$ が向く直線への直交射影の**ベクトル**を $P_\theta x$ と書くと
+
+$$
+P_\theta x=(x\cdot e_\theta)e_\theta,
+\qquad (x-P_\theta x)\cdot e_\theta
+=x\cdot e_\theta-(x\cdot e_\theta)|e_\theta|^2=0.
+$$
+
+つまり射影点はその直線上にあり、残差は直線に直交します。射影先の点を $u e_\theta$（$u\in\mathbb R$）と表すと、その**実数座標**は $u=x\cdot e_\theta$ です。この座標表示を $\pi_\theta(x)$ と書きます。角度を $\pi$ だけ変えると座標の符号が変わるだけなので、方向は $[0,\pi)$ で一度ずつ数えます。
 
 <a id="def-gmt5-orthogonal-projection"></a>
 
@@ -48,7 +56,7 @@ $$
 $L$ 上に $u\in[0,1]$ の一様分布を載せた確率測度 $\mu$ を考えます。$\theta=0$ なら $\nu_0$ は $[0,1]$ の一様測度です。一方 $\theta=\pi/2$ なら、任意のBorel集合 $A$ について $\nu_{\pi/2}(A)=1$（$0\in A$ のとき）、$0$（それ以外）なので $\nu_{\pi/2}=\delta_0$ です。いずれも $\nu_\theta(\mathbb R)=\mu(\mathbb R^2)=1$ で、射影は質量を失いません。
 <!-- definition-example-end -->
 
-また、Cauchy--Schwarz不等式と $|e_\theta|=1$ から
+また、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)と $|e_\theta|=1$ から
 
 $$
 |\pi_\theta(x)-\pi_\theta(y)|
@@ -147,7 +155,7 @@ $$
 =\int h(\pi_\theta(x))\,d\mu(x).
 $$
 
-単関数で定義を確認し、非負単関数の増大近似に単調収束を使えば、この公式は非負Borel関数一般で成立します。これを二変数核 $h(u,v)=|u-v|^{-t}$ に各変数について順に適用すると
+単関数で定義を確認し、非負単関数の増大近似に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を使えば、この公式は非負Borel関数一般で成立します。これを二変数核 $h(u,v)=|u-v|^{-t}$ に各変数について順に適用すると
 
 $$
 I_t(\nu_\theta)
@@ -182,7 +190,7 @@ $$
 =\widehat\mu(re_\theta).
 $$
 
-つまり、射影測度の一次元Fourier変換は、平面上の $\widehat\mu$ を原点から出る一本の周波数直線に制限したものです。次の恒等式は前の補題を周波数側で再導出します。
+つまり、射影測度の一次元Fourier変換は、平面上の $\widehat\mu$ を原点から出る一本の周波数直線に制限したものです。上の押し出し積分公式は非負関数から始めましたが、有限測度に対する有界な複素関数にも、実部・虚部をそれぞれ正負の部分へ分けて適用できます。次の恒等式は前の補題を周波数側で再導出します。
 
 <a id="prop-gmt5-fourier-slicing"></a>
 
@@ -219,7 +227,17 @@ I_t(\nu_\theta)
 =c_{1,t}\int_{\mathbb R}|\widehat\mu(re_\theta)|^2|r|^{t-1}dr.
 $$
 
-非負性からTonelliで $r$ と $\theta$ を交換できます。$(r,\theta)\mapsto\xi=re_\theta$ は $r=0$ を除いて平面を重複なく覆います。$r>0$ の半平面と $r<0$ の半平面を合わせると、$\theta\in[0,\pi)$ で全ての方向が一度ずつ現れます。座標微分の行列式は
+非負性からTonelliで $r$ と $\theta$ を交換できます。$(r,\theta)\mapsto\xi=re_\theta$ は $r=0$ を除いて平面を重複なく覆います。$r>0$ の半平面と $r<0$ の半平面を合わせると、$\theta\in[0,\pi)$ で全ての方向が一度ずつ現れます。
+
+ここで $\xi=(\xi_1,\xi_2)=(r\cos\theta,r\sin\theta)$ と置きます。座標変換の微分行列の第1列は $r$ で偏微分したベクトル、第2列は $\theta$ で偏微分したベクトルなので
+
+$$
+\frac{\partial\xi}{\partial r}=(\cos\theta,\sin\theta),
+\qquad
+\frac{\partial\xi}{\partial\theta}=(-r\sin\theta,r\cos\theta).
+$$
+
+従って行列式は
 
 $$
 \det\begin{pmatrix}
@@ -228,7 +246,7 @@ $$
 \end{pmatrix}=r,
 $$
 
-だからJacobianの絶対値は $|r|$ です。従って
+だからJacobianの絶対値は $|r|$ です。$r=0$ は積分に影響しない零集合であり、$r\ne0$ ではこの座標変換がほとんど至る所で一対一です。変数変換公式により $d\xi=|r|\,dr\,d\theta$ としてよいことが分かります。従って
 
 $$
 \begin{aligned}
