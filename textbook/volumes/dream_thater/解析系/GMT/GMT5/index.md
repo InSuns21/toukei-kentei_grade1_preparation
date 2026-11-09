@@ -259,7 +259,7 @@ C_t&=\frac2\pi\int_0^{\pi/2}(\cos u)^{-t}du\\
 \end{aligned}
 $$
 
-ここで用いたBeta--Gammaの関係も確認します。$a,b>0$ に対して $u=sw$、$v=s(1-w)$（$s>0,\ 0<w<1$）と置けばJacobianは $s$ で、非負性からTonelliにより
+ここで用いたBeta--Gammaの関係も確認します。$a,b>0$ に対して $u=sw$、$v=s(1-w)$（$s>0,\ 0<w<1$）と置けばJacobianは $s$ で、非負性から[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)により
 
 $$
 \begin{aligned}
