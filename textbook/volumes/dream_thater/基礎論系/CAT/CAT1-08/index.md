@@ -32,7 +32,9 @@
 ここで $[\mathcal C,\mathcal D]$ の「射」は $\mathcal C$ や $\mathcal D$ の射そのものではなく、自然変換という**成分の集まり**である。
 
 <!-- definition-example-start: def-cat1-08-functor-category -->
-**定義の確認**（矢印からなる図式）。対象 $0,1$ と恒等射、一本の射 $u:0\to1$ だけを持つ小さい圏 $\mathcal A$ を取る。関手 $F:\mathcal A\to\mathbf{Set}$ を指定するには、二集合 $X=F(0),Y=F(1)$ と一写像 $f=F(u):X\to Y$ を選べばよい。恒等射の像は恒等写像に強制され、$u$ と恒等射以外の合成がないため[関手の公理](../CAT1-06/index.md#def-cat1-06-functor)も満たす。
+**定義の確認**（矢印からなる図式）。対象 $0,1$ と恒等射、一本の射 $u:0\to1$ だけを持つ小さい圏 $\mathcal A$ を取る。
+
+関手 $F:\mathcal A\to\mathbf{Set}$ を指定するには、二集合 $X=F(0),Y=F(1)$ と一写像 $f=F(u):X\to Y$ を選べばよい。恒等射の像は恒等写像に強制され、$u$ と恒等射以外の合成がないため[関手の公理](../CAT1-06/index.md#def-cat1-06-functor)も満たす。
 
 別の $G$ が $g:X'\to Y'$ に対応するとき、自然変換 $\alpha:F\Rightarrow G$ の成分は $a:X\to X'$ と $b:Y\to Y'$ であり、$u$ に対する[自然性](../CAT1-07/index.md#def-cat1-07-natural-transformation)は
 
@@ -84,11 +86,13 @@ $$
 
 関手 $F,G,H:\mathcal C\to\mathcal D$ と自然変換 $\alpha:F\Rightarrow G$, $\beta:G\Rightarrow H$ を考える。各対象 $A$ で $\alpha_A$ の終域と $\beta_A$ の始域はともに $G(A)$ なので、$\beta_A\circ\alpha_A$ が定義される。これを全対象で揃えて「縦に続ける」ことにする。
 
+この成分ごとの操作には、$\mathcal C$ が小さいという仮定は要らない。[自然変換の定義](../CAT1-07/index.md#def-cat1-07-natural-transformation)と同じく、対象ごとに射を指定できればよい。ただし、そのような自然変換をすべて集めて **Hom 集合を持つ関手圏**を作るには、§1 のような集合性の保証が別途必要である。
+
 <a id="def-cat1-08-vertical"></a>
 
 <!-- formal-statement-start -->
 > **定義（垂直合成）**  
-> 小さい圏 $\mathcal C$、局所小圏 $\mathcal D$ および共変関手 $F,G,H:\mathcal C\to\mathcal D$ を取る。自然変換 $\alpha:F\Rightarrow G$, $\beta:G\Rightarrow H$ の**垂直合成** $\beta\cdot\alpha:F\Rightarrow H$ は、各対象 $A\in\mathcal C$ で
+> 圏 $\mathcal C,\mathcal D$ および共変関手 $F,G,H:\mathcal C\to\mathcal D$ を取る。自然変換 $\alpha:F\Rightarrow G$, $\beta:G\Rightarrow H$ の**垂直合成** $\beta\cdot\alpha:F\Rightarrow H$ は、各対象 $A\in\mathcal C$ で
 
 $$
 (\beta\cdot\alpha)_A:=\beta_A\circ\alpha_A
@@ -100,7 +104,9 @@ $$
 ここで $\cdot$ の右側 $\alpha$ を**先に**行う。$\beta\cdot\alpha$ と $\alpha\cdot\beta$ は一般に両方定義できるわけではない。
 
 <!-- definition-example-start: def-cat1-08-vertical -->
-**定義の確認**（対角線と射影）。$I:\mathbf{Set}\to\mathbf{Set}$ を恒等関手、$D(X)=X\times X$ を二乗関手とする。前講で構成した自然変換 $\delta:I\Rightarrow D$ は $\delta_X(x)=(x,x)$ である。各 $X$ の第一射影 $\pi_X:X\times X\to X$ は $f:X\to Y$ に対して
+**定義の確認**（対角線と射影）。$I:\mathbf{Set}\to\mathbf{Set}$ を恒等関手、$D(X)=X\times X$ を二乗関手とする。前講の[対角自然変換の確認](../CAT1-07/index.md#def-cat1-07-natural-transformation)で構成した $\delta:I\Rightarrow D$ は $\delta_X(x)=(x,x)$ である。
+
+各 $X$ の第一射影 $\pi_X:X\times X\to X$ は $f:X\to Y$ に対して
 
 $$
 f\circ\pi_X(x,y)=f(x)=\pi_Y\circ D(f)(x,y)
@@ -115,6 +121,8 @@ $$
 $$
 
 前者は $1_I$ であり、後者は二元以上の集合では $1_D$ ではない。合成する順序と型の違いが実際に結果を変える。
+
+$\mathbf{Set}$ は小さくないが、ここで行ったのは各集合 $X$ における二写像の合成であり、$\operatorname{Nat}(I,D)$ などの全体を集合とする操作ではない。したがって、上の垂直合成の定義を適用できる。
 <!-- definition-example-end -->
 
 <a id="prop-cat1-08-axioms"></a>
@@ -144,7 +152,7 @@ H(f)\circ(\beta_A\circ\alpha_A)
 \end{aligned}
 $$
 
-従って $\beta\cdot\alpha$ は自然変換である。$1_F$ については[恒等射を保つ関手の公理](../CAT1-06/index.md#def-cat1-06-functor)から
+従って $\beta\cdot\alpha$ は自然変換である。$1_F$ については $\mathcal D$ の[射の左右単位律](../CAT1-01/index.md#def-cat1-01-category)から
 
 $$
 F(f)\circ1_{F(A)}=F(f)=1_{F(B)}\circ F(f)
@@ -175,7 +183,9 @@ $$
 
 ## 3. 横につなぐ前に whiskering を作る
 
-ここまでは、同じ $\mathcal C,\mathcal D$ の間の関手を縦に比較した。今度は $F,G:\mathcal C\to\mathcal D$ の外側へ別の関手 $H:\mathcal D\to\mathcal E$ を付けて、$HF,HG$ の間を比較したい。$HF$ は[関手の合成](../CAT1-06/index.md#prop-cat1-06-composition) $H\circ F$ の略記である。
+ここまでは、同じ $\mathcal C,\mathcal D$ の間の関手を縦に比較した。今度は $F,G:\mathcal C\to\mathcal D$ の外側へ別の関手 $H:\mathcal D\to\mathcal E$ を付けて、$HF,HG$ の間を比較したい。
+
+$HF$ は[関手の合成](../CAT1-06/index.md#prop-cat1-06-composition) $H\circ F$ の略記である。
 
 $\alpha_A:F(A)\to G(A)$ を $H$ で送れば、$H(\alpha_A):HF(A)\to HG(A)$ を得る。一方、別の $K:\mathcal B\to\mathcal C$ を内側から合成すると、$\alpha_{K(B)}$ が $FK(B)\to GK(B)$ を与える。前者は射へ関手を作用させ、後者は成分の添字を移すという、異なる操作である。
 
@@ -275,7 +285,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-08-horizontal -->
-**定義の確認**。$F=I$, $G=D$, $H=D$, $K=I$ とし、$\alpha=\delta:I\Rightarrow D$, $\beta=\pi:D\Rightarrow I$ を前節から取る。$\pi\ast\delta:DI\Rightarrow ID$ は $D\Rightarrow D$ の自然変換である。$(x,y)\in X\times X$ に対して、第一経路は
+**定義の確認**。$F=I$, $G=D$, $H=D$, $K=I$ とし、$\alpha=\delta:I\Rightarrow D$, $\beta=\pi:D\Rightarrow I$ を第2節から取る。$\pi\ast\delta:DI\Rightarrow ID$ は $D\Rightarrow D$ の自然変換である。$(x,y)\in X\times X$ に対して、第一経路は
 
 $$
 \begin{aligned}
@@ -672,7 +682,22 @@ $\mathcal A$ を対象 $0,1$、恒等射と $u:0\to1$ だけを持つ小さい�
 <!-- solution-start -->
 **詳細解答**。
 
-**1. 対象。** 任意の関手 $F:\mathcal A\to\mathbf{Set}$ は、対象 $0,1$ の値 $X,Y$ と、唯一の非恒等射 $u$ の像 $f:X\to Y$ で決まる。逆に任意の $f$ から $F(0)=X$, $F(1)=Y$, $F(u)=f$, $F(1_0)=1_X$, $F(1_1)=1_Y$ と定める。$u\circ1_0=u=1_1\circ u$ の像は $f\circ1_X=f=1_Y\circ f$ であり、恒等射同士の合成も保存する。従って関手の公理をすべて満たし、両構成は互いに逆になる。
+**1. 対象。** 任意の関手 $F:\mathcal A\to\mathbf{Set}$ は、対象 $0,1$ の値 $X,Y$ と、唯一の非恒等射 $u$ の像 $f:X\to Y$ で決まる。逆に任意の写像 $f:X\to Y$ から、対象・射への対応を
+
+$$
+\begin{gathered}
+F(0)=X,\quad F(1)=Y,\quad F(u)=f,\\
+F(1_0)=1_X,\quad F(1_1)=1_Y
+\end{gathered}
+$$
+
+と定める。$u\circ1_0=u=1_1\circ u$ の像は
+
+$$
+f\circ1_X=f=1_Y\circ f
+$$
+
+であり、恒等射同士の合成も保存する。従って関手の公理をすべて満たし、両構成は互いに逆になる。
 
 **2. 射。** 自然変換 $\alpha:F\Rightarrow G$ の成分は $a=\alpha_0:X\to X'$ と $b=\alpha_1:Y\to Y'$ である。恒等射の自然性は自動的に成り立つ。$u$ についての自然性を展開すると
 
@@ -706,7 +731,9 @@ $$
 \times\operatorname{Hom}_{\mathbf{Set}}(Y,Y')
 $$
 
-のうち $g\circ a=b\circ f$ を満たす部分集合である。従って局所小である。一方、すべての集合 $X$ に $1_X:X\to X$ に対応する異なる対象がある。もし関手圏の対象全体が集合なら、そこから各 $X$ を取り出してすべての集合の集合を作れてしまう。しかし[集合の圏の大きさ](../CAT1-02/index.md#prop-cat1-02-set-size)によってこれは不可能である。従って関手圏は小さくない。
+のうち $g\circ a=b\circ f$ を満たす部分集合である。従って局所小である。
+
+一方、すべての集合 $X$ に $1_X:X\to X$ に対応する異なる対象がある。もし関手圏の対象全体が集合なら、そこから各 $X$ を取り出してすべての集合の集合を作れてしまう。しかし[集合の圏の大きさ](../CAT1-02/index.md#prop-cat1-02-set-size)によってこれは不可能である。従って関手圏は小さくない。
 <!-- solution-end -->
 
 ## 7. 次の講義へ
