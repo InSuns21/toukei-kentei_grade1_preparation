@@ -19,7 +19,20 @@ $$
 \int_X\varphi_t\omega^n=0
 $$
 
-とする。$g$、$h$ はそれぞれ $\omega$、$\omega_{\varphi_t}$ のHermite係数、$L_{\varphi_t}f=h^{i\bar j}\partial_i\partial_{\bar j}f$ は複素Laplacianである。[相対跡と逆跡](../YAU1-08/index.md#def-yau1-08-relative-traces)を
+とする。正則座標 $z^1,\ldots,z^n$ で、$\omega$、$\omega_{\varphi_t}$ のHermite係数行列とその逆成分を
+
+$$
+G=(g_{i\bar j}),\qquad P=(h_{i\bar j}),\qquad
+(h^{i\bar j})=P^{-1}
+$$
+
+と書く。$\partial_i=\partial/\partial z^i$、$\partial_{\bar j}=\partial/\partial\bar z^j$ で、添字 $i,j$ は $1,\ldots,n$ を動く。複素Laplacianを
+
+$$
+L_{\varphi_t}f=h^{i\bar j}\partial_i\partial_{\bar j}f
+$$
+
+と書き、[前章で導入した相対跡と逆跡](../YAU1-08/index.md#def-yau1-08-relative-traces)を
 
 $$
 S=\operatorname{tr}_\omega\omega_{\varphi_t}=\sum_{i=1}^n\lambda_i,
@@ -70,14 +83,44 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-yau1-09-auxiliary -->
-**定義の確認**。平坦な複素二次元トーラスで $g=I$、$\varphi=0$ とすると $h=I>0$、相対固有値は $(1,1)$ だから $S=2$、$Q_A=\log2$ である。少し変形した $\varphi=\varepsilon\cos(2\pi x_1)$（$z_1=x_1+iy_1$、$0<\pi^2\varepsilon<1$）では、$\partial_{z_1}\partial_{\bar z_1}=\tfrac14\partial_{x_1}^2$ により
+**定義の確認**。平坦な複素二次元トーラスで $G=I$、$\varphi=0$ とすると $P=I>0$、相対固有値は $(1,1)$ だから $S=2$、$Q_A=\log2$ である。
+
+次に $\varphi=\varepsilon\cos(2\pi x_1)$（$z_1=x_1+iy_1$、$0<\pi^2\varepsilon<1$）を考える。[Wirtinger微分](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)を合成すると、一般の滑らかな関数に作用する微分作用素として
 
 $$
-h=\operatorname{diag}(1-\pi^2\varepsilon\cos(2\pi x_1),1),\qquad
+\partial_{z_1}\partial_{\bar z_1}
+=\frac14(\partial_{x_1}^2+\partial_{y_1}^2)
+$$
+
+である。ここでは $\varphi$ が $y_1$ に依存しないため、
+
+$$
+\partial_{z_1}\partial_{\bar z_1}\varphi
+=\frac14\partial_{x_1}^2\varphi
+=-\pi^2\varepsilon\cos(2\pi x_1).
+$$
+
+$P=G+(\partial_i\partial_{\bar j}\varphi)$ であり、他の混合微分は零なので、
+
+$$
+P=\operatorname{diag}(1-\pi^2\varepsilon\cos(2\pi x_1),1),\qquad
 S=2-\pi^2\varepsilon\cos(2\pi x_1).
 $$
 
-よって $h$ の二つの固有値はともに正、$Q_A=\log(2-\pi^2\varepsilon\cos(2\pi x_1))-A\varepsilon\cos(2\pi x_1)$ は実数値の滑らかな関数である。ここでは固有値を**基準計量 $g=I$ に関して**取っているので、跡が単純な和になる。$\varphi$ が小さくても、$Q_A$ の最大点は $S$ の最大点と一致する必要はない。
+固有値の下限は
+
+$$
+\lambda_1=1-\pi^2\varepsilon\cos(2\pi x_1)
+\ge1-\pi^2\varepsilon>0,\qquad \lambda_2=1>0
+$$
+
+だから全点で $P>0$ である。$S\ge2-\pi^2\varepsilon>0$ なので、補助関数は
+
+$$
+Q_A=\log(2-\pi^2\varepsilon\cos(2\pi x_1))-A\varepsilon\cos(2\pi x_1)
+$$
+
+と実数値で滑らかに定まる。ここでは固有値を**基準計量 $G=I$ に関して**取っているので、[相対跡の固有値表示](../YAU1-08/index.md#def-yau1-08-relative-traces)により跡が単純な和になる。$\varphi$ が小さくても、$Q_A$ の最大点は $S$ の最大点と一致する必要はない。
 <!-- definition-example-end -->
 
 ## 3. 最大点で逆跡を抑える
@@ -193,7 +236,7 @@ $$
 \ge\frac{m}{K^{n-1}}.
 $$
 
-$n=1$ では空積を $1$ と約束するため、両主張は $\lambda_1^{-1}\le D$、$m\le\lambda_1\le K$ に還元される。$\square$
+$n=1$ では空積を $1$ と約束する。前半は $\lambda_1^{-1}\le D$ と $\lambda_1\le M$ から $D^{-1}\le\lambda_1\le M$、後半は $m\le\lambda_1\le K$ にそれぞれ還元される。$\square$
 <!-- proof-end -->
 
 **最小例。** $\lambda=(2,3)$ なら $T=1/2+1/3=5/6$、積は $6$ である。たとえば $D=1,M=6$ とおくと補題の上界 $6$ は各固有値 $2,3$ を確かに包む。逆に積だけを固定した $\lambda=(R,R^{-1})$ では $R\to\infty$ に伴い $T=R+R^{-1}$ が発散し、補題に必要な**一定の** $D$ を選べない。
@@ -472,13 +515,22 @@ $$
 #### YAU1-09-B02 余弦ポテンシャルで実測する
 - Level: B
 
-平坦複素二次元トーラス $(\mathbb C/(\mathbb Z+i\mathbb Z))^2$ 上で $g=I$ とし、$\varphi(x_1)=\varepsilon\cos(2\pi x_1)$（$a=\pi^2\varepsilon\in(0,1)$）を取る。$S,T,\rho$ の範囲と $\operatorname{osc}_X\varphi$ を計算せよ。$Q_A$ を $x_1=0$ と $x_1=1/2$ で比較せよ。
+平坦複素二次元トーラス $(\mathbb C/(\mathbb Z+i\mathbb Z))^2$ 上で $G=I$ とし、$\varphi(x_1)=\varepsilon\cos(2\pi x_1)$（$a=\pi^2\varepsilon\in(0,1)$）を取る。$S,T,\rho$ の範囲と $\operatorname{osc}_X\varphi$ を計算せよ。$Q_A$ を $x_1=0$ と $x_1=1/2$ で比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\partial_{z_1}\partial_{\bar z_1}\varphi=\tfrac14\partial_{x_1}^2\varphi=-a\cos(2\pi x_1)$、他の成分は零だから
+**詳細解答。** $\varphi$ は $y_1$ に依存しないので、Wirtinger微分の合成で
 
 $$
-h=\operatorname{diag}(1-a\cos(2\pi x_1),1).
+\partial_{z_1}\partial_{\bar z_1}\varphi
+=\frac14(\partial_{x_1}^2+\partial_{y_1}^2)\varphi
+=\frac14\partial_{x_1}^2\varphi
+=-a\cos(2\pi x_1)
+$$
+
+となる。他の成分は零だから
+
+$$
+P=\operatorname{diag}(1-a\cos(2\pi x_1),1).
 $$
 
 $0<a<1$ より正値性が保たれる。相対固有値の和・逆数の和・積を使うと
@@ -548,7 +600,15 @@ $$
 #### YAU1-09-C01 大域二階評価を白紙から閉じる
 - Level: C
 
-境界のないコンパクト連結Kähler多様体 $(X,\omega)$（複素次元 $n\ge1$）上の滑らかな許容ポテンシャル $\varphi$ が $\omega_\varphi^n=\rho\omega^n$ を満たし、$m\le\rho\le M$、$\|\varphi\|_\infty\le C_0$、$L_\varphi\log S\ge-BT-C_1$（$B,C_1\ge0$）を仮定する。$S=\operatorname{tr}_\omega\omega_\varphi$、$T=\operatorname{tr}_{\omega_\varphi}\omega$ であり、$A>0$ に対して $Q_A=\log S-A\varphi$ と置く。$Q_A$ の極大点で $L_\varphi Q_A\le0$ とするところから双側計量評価まで、係数 $A$、最大点の $D$、全点の $K$、$c,C$ を明示して証明せよ。
+境界のないコンパクト連結Kähler多様体 $(X,\omega)$（複素次元 $n\ge1$）上の滑らかな許容ポテンシャル $\varphi$ が $\omega_\varphi^n=\rho\omega^n$ を満たすとする。次の評価を仮定する。
+
+$$
+0<m\le\rho\le M,\qquad
+\|\varphi\|_\infty\le C_0,\qquad
+L_\varphi\log S\ge-BT-C_1\quad(B,C_1\ge0).
+$$
+
+ここで $S=\operatorname{tr}_\omega\omega_\varphi$、$T=\operatorname{tr}_{\omega_\varphi}\omega$ である。$A>0$ に対して $Q_A=\log S-A\varphi$ と置く。$Q_A$ の極大点で $L_\varphi Q_A\le0$ とするところから双側計量評価まで、係数 $A$、最大点の $D$、全点の $K$、$c,C$ を明示して証明せよ。
 
 <!-- solution-start -->
 **詳細解答。** $A=B+1$ とし、[補助関数](#def-yau1-09-auxiliary) $Q_A=\log S-A\varphi$ を作る。許容性から $S>0$、コンパクト性から最大点 $p$ がある。$L_\varphi\varphi=n-T$ は $h^{i\bar j}(h_{i\bar j}-g_{i\bar j})$ の縮約で従う。したがって
@@ -589,7 +649,11 @@ $$
 #### YAU1-09-C02 パスの一様性と不足する正則性
 - Level: C
 
-複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体 $(X,\omega)$ と、$\int_Xe^F\omega^n=\int_X\omega^n$ を満たす滑らかな実関数 $F$ を固定する。$\rho_t=1-t+te^F$、$H_t=\log\rho_t$ とする。(i) $m,M$ と $\|L_\omega H_t\|_\infty$ の $t$ に依存しない上界を計算せよ。(ii) 解が存在する各 $t$ で $C^0$ 評価と局所対数跡不等式が成立するなら、最大値原理の定数が $t$ に依存しない理由を説明せよ。(iii) それだけでは $C^{2,\alpha}$ 評価や三階評価を主張できない理由を述べよ。
+複素次元 $n\ge1$ の境界のないコンパクト連結Kähler多様体 $(X,\omega)$ と、$\int_Xe^F\omega^n=\int_X\omega^n$ を満たす滑らかな実関数 $F$ を固定する。$\rho_t=1-t+te^F$、$H_t=\log\rho_t$ とする。
+
+1. $m,M$ と $\|L_\omega H_t\|_\infty$ の $t$ に依存しない上界を計算せよ。
+2. 解が存在する各 $t$ で $C^0$ 評価と局所対数跡不等式が成立するなら、最大値原理の定数が $t$ に依存しない理由を説明せよ。
+3. それだけでは $C^{2,\alpha}$ 評価や三階評価を主張できない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答。** $u=e^F>0$ と置くと $u$ はコンパクトな $X$ 上で正の最小値を持つ。従って
