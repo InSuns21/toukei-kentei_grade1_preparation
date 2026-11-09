@@ -1,0 +1,42 @@
+id: "BHT3"
+title: "面積定理と第二法則の仮定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT2
+  - GR36
+official_scope: []
+learning_objectives:
+  - 光的Raychaudhuri方程式から非負膨張を導く際の零エネルギー条件・未来完備性・非時間的境界性の役割を区別できる
+  - 古典面積定理の滑らかな切断間の証明と、形成時の非滑らかな地平線について残る大域的な論点を説明できる
+  - 生成光線の正の再媒介で面積増減の符号が不変であることを面積密度から導出できる
+  - 入射Vaidyaの地平線方程式から面積変化の未来積分表示を導き、正・負の零エネルギー流束で符号を検算できる
+  - 定常解族の状態間比較と同じ時空における地平線の時間発展を区別できる
+  - 面積一定の強い条件からせん断・光的Ricci縮約の消失を推論できる
+  - 古典的な面積非減少と熱力学的エントロピー第二法則・量子蒸発時の一般化第二法則を混同せず、未証明の接続を説明できる
+definitions: []
+theorems:
+  - { id: BHT3-PROP-01, name: "地平線面積の単調性と正の再媒介" }
+  - { id: BHT3-PROP-02, name: "入射Vaidya地平線の未来積分式" }
+  - { id: BHT3-PROP-03, name: "古典的面積一定区間の剛性" }
+canonical_examples:
+  - 正の再媒介で膨張率は倍率を受けても面積増加の符号は変わらないことを検算する
+  - 定常Schwarzschildの面積一定と別々の定常状態の面積差を区別する
+  - 入射Vaidyaの将来流束の正負で事象地平線の面積変化の符号を導く
+  - 流入前の真空区間でも事象地平線が増大する未来依存性を確認する
+  - Minkowskiの入射球面光束でNCCのみでは面積定理にならないことを確認する
+problem_patterns:
+  - BHT3-POSITIVE-REPARAMETRIZATION
+  - BHT3-SPHERICAL-AREA-RATE
+  - BHT3-VAIDYA-NEC-CHECK
+  - BHT3-STATIONARY-FAMILY-VERSUS-HISTORY
+  - BHT3-INGOING-CAUSTIC
+  - BHT3-VAIDYA-DELTA-IDENTITY
+  - BHT3-AREA-RIGIDITY
+  - BHT3-RAYCHAUDHURI-SHEARLESS-EXAMPLE
+  - BHT3-EARLY-HORIZON-GROWTH
+  - BHT3-CLASSICAL-SECOND-LAW-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
