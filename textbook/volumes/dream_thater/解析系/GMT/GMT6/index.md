@@ -129,7 +129,7 @@ $$
 
 よって[Plancherelの等長性](../../FOU/FOU4/index.md#thm-fou4-l2-extension)より
 
-$
+$$
 \|g_\varepsilon-g_\delta\|_2^2
 =\frac1{2\pi}\int_{\mathbb R}
 \left|e^{-\varepsilon^2r^2/2}-e^{-\delta^2r^2/2}\right|^2
@@ -154,11 +154,11 @@ $$
 
 内側は $\varphi$ のGaussian平均です。$\varphi$ の連続性とコンパクト台から一様連続性・有界性が従います。任意の $\eta>0$ について、一様連続性の係数 $\omega_\varphi(\eta)=\sup_{|x-y|<\eta}|\varphi(x)-\varphi(y)|$ を置くと、変数 $w=u-v$ への置換によって
 
-$
+$$
 \left|\int\varphi(u)h_\varepsilon(u-v)\,du-\varphi(v)\right|
 \le\omega_\varphi(\eta)+2\|\varphi\|_\infty
 \int_{|w|\ge\eta}h_\varepsilon(w)\,dw.
-$
+$$
 
 右辺は $v$ に依存しません。先に $\varepsilon\downarrow0$ としてGaussianの尾確率を0へ送り、次に $\eta\downarrow0$ とすると $\omega_\varphi(\eta)\to0$ です。従って平均は $\varphi(v)$ へ一様収束します。$\nu$ は有限なので、外側の積分は $\int\varphi\,d\nu$ へ収束します。従って
 
@@ -226,7 +226,7 @@ $$
 
 写像 $F(r,\theta)=(r\cos\theta,r\sin\theta)$ について、$r$ を動かし $\theta$ を固定した偏微分が $\partial_rF=e_\theta$、$\theta$ を動かし $r$ を固定した偏微分が $\partial_\theta F=r(-\sin\theta,\cos\theta)$ です。この二つの列ベクトルを並べた微分行列 $DF$ の行列式（面積倍率の符号付き値）は
 
-$
+$$
 \det DF(r,\theta)=
 \det\begin{pmatrix}\cos\theta&-r\sin\theta\\
 \sin\theta&r\cos\theta\end{pmatrix}=r.
@@ -742,7 +742,7 @@ $$
 
 水平座標 $u=x$ を固定すると円板内の縦断面は $-\sqrt{1-u^2}\le y\le\sqrt{1-u^2}$ です。従って[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で
 
-$
+$$
 f_0(u)=\begin{cases}
 \dfrac2\pi\sqrt{1-u^2},&|u|\le1,\\
 0,&|u|>1.
