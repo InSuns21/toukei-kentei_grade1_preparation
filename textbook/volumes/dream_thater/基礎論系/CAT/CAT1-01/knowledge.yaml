@@ -1,0 +1,31 @@
+chapter: CAT1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A
+
+concepts:
+  - id: category.category
+    name: 圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圏・対象・射・Hom・合成・恒等射）"]
+    requires: [set.function, set.identity-map, set.composition]
+  - id: category.identity-uniqueness
+    name: 圏の恒等射の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（恒等射の一意性）"]
+    requires: [category.category]
+  - id: category.set-category
+    name: 集合と写像の圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合と写像は圏をなす）"]
+    requires: [category.category, set.function, set.composition]
+  - id: category.path-parentheses
+    name: 有限経路の括弧付けの独立性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限経路の合成の括弧付け）"]
+    requires: [category.category]

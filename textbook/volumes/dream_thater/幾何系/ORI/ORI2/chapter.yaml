@@ -1,0 +1,35 @@
+id: ORI2
+title: "芳賀の定理と比の幾何"
+volume: foundations
+status: supplementary
+prerequisites: [ORI1]
+official_scope: []
+learning_objectives:
+  - 正方形の角を対辺の指定点へ折る配置で、折り線と折り返された辺を区別して交点を特定できる
+  - 芳賀の第一定理で得られる三等分点と3対4対5の直角三角形を合同・相似・三平方の定理で導出できる
+  - 移動先を上辺の一般点に変えたときの内分比を導き、端点・有理比・逆問題を検証できる
+  - 正方形という仮定を外した反例と、一回の折りの最終配置・運動過程の区別を説明できる
+definitions:
+  - { id: ORI2-DEF-01, name: 芳賀折りの配置と三つの交点 }
+  - { id: ORI2-DEF-02, name: 三角形の相似 }
+theorems:
+  - { id: ORI2-THM-01, name: 芳賀の第一定理 }
+  - { id: ORI2-THM-02, name: 芳賀折りの一般比公式 }
+  - { id: ORI2-PROP-01, name: 芳賀折りの比の逆算と有理性 }
+canonical_examples:
+  - 右下の角を上辺中点に重ねたときの左辺三等分点と3対4対5の三角形
+  - 上辺の3分の1点・3分の2点を指定したときの左辺の5分の1点・2分の1点
+  - 長方形では折り返された下辺が左辺を横切らない反例
+problem_patterns:
+  - ORI2-CREASE-VS-FOLDED-EDGE
+  - ORI2-HAGA-THIRDS
+  - ORI2-TRIANGLE-345
+  - ORI2-GENERAL-PARAMETER
+  - ORI2-EXISTENCE-ENDPOINTS
+  - ORI2-INVERSE-PARAMETER
+  - ORI2-NONSQUARE-COUNTEREXAMPLE
+  - ORI2-SIMILARITY-COORDINATE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.0, review: 1.5 }
