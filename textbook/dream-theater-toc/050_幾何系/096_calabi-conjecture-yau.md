@@ -14,3 +14,4 @@
 11. [YAU1-11 高階評価と正則性](textbook/volumes/dream_thater/幾何系/YAU/YAU1-11/index.md)
 12. [YAU1-12 閉性から存在へ](textbook/volumes/dream_thater/幾何系/YAU/YAU1-12/index.md)
 13. [YAU1-13 Ricci平坦Kähler計量の帰結](textbook/volumes/dream_thater/幾何系/YAU/YAU1-13/index.md)
+14. [YAU1-14 総合証明と仮定の破綻例](textbook/volumes/dream_thater/幾何系/YAU/YAU1-14/index.md)

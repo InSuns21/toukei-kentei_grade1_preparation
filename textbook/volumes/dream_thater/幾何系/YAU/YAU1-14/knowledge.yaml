@@ -1,0 +1,17 @@
+chapter: YAU1-14
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-13]
+concepts:
+  - id: yau.prescribed-ricci-synthesis
+    name: 指定Ricci形式に対する総合証明
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（指定Ricci形式に対する総合証明）"]
+    requires: [yau.monge-ampere-existence, yau.real-ricci-potential-existence]
+  - id: yau.disconnected-component-volume-obstruction
+    name: 非連結な場合の成分別体積障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非連結な場合の成分別体積障害）"]
+    requires: [yau.prescribed-ricci-synthesis]
