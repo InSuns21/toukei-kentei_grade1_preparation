@@ -1,0 +1,44 @@
+chapter: ORI7
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI6]
+forward_references: []
+
+concepts:
+  - id: origami.huzita-o5
+    name: Huzita–Justin公理O5
+    kind: axiom
+    introduction: formal
+    introduction_aliases: [公理（O5：点を直線へ重ね、指定点を通る折り線）]
+    requires: [origami.admissible-single-crease]
+
+  - id: origami.o5-candidate-image
+    name: O5の候補像
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（O5の候補像）]
+    requires: [origami.huzita-o5, origami.point-alignment-bisector]
+
+  - id: origami.o5-circle-correspondence
+    name: O5の円と直線による解の対応
+    kind: theorem
+    introduction: formal
+    requires: [origami.huzita-o5, origami.o5-candidate-image, origami.point-alignment-bisector]
+
+  - id: origami.o5-discriminant-classification
+    name: O5の判別量と0・1・2解
+    kind: theorem
+    introduction: formal
+    requires: [origami.o5-circle-correspondence]
+
+  - id: origami.o5-degenerate-classification
+    name: O5の退化配置の完全分類
+    kind: theorem
+    introduction: formal
+    requires: [origami.o5-circle-correspondence, origami.o5-discriminant-classification]
+
+  - id: origami.o5-quadratic-correspondence
+    name: 一般二次方程式のO5による実現
+    kind: proposition
+    introduction: formal
+    requires: [origami.o5-discriminant-classification]
