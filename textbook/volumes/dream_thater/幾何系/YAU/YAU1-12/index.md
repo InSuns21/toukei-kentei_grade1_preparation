@@ -144,7 +144,7 @@ h_\ast(v,\bar v)=\lim_{k\to\infty}h_k(v,\bar v)
 \ge c g(v,\bar v)>0.
 $$
 
-上側も同様に $h_\ast\le Cg$。従って $\omega+i\partial\bar\partial\varphi_\ast$ は**連続で厳密に正値な**実 $(1,1)$ 形式であり、分布の意味で閉じている。ただし $C^2$ 収束だけから $\varphi_\ast$ の滑らかさは言えず、この段階で滑らかなKähler形式とは呼ばない。閉性定理では先の滑らかな部分列補題がこの不足を補う。
+上側も同様に $h_\ast\le Cg$。従って $\omega+i\partial\bar\partial\varphi_\ast$ は**連続で厳密に正値な**実 $(1,1)$ 形式であり、分布の意味で閉じている。ただし $C^2$ 収束だけから $\varphi_\ast$ の滑らかさは言えず、この段階で滑らかなKähler形式とは呼ばない。閉性定理では先の[滑らかな部分列補題](#lem-yau1-12-smooth-compactness)がこの不足を補う。
 
 係数行列から体積形式へ移る理由も確認する。最高次外積の交代性から、固定座標で
 
