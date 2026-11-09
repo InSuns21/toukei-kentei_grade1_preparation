@@ -41,8 +41,10 @@ problem_patterns:
   - GMT1-WEAK-TYPE
   - GMT1-ATOMIC-CONTINUOUS-DIFFERENTIATION
   - GMT1-SINGULAR-RATIO
+  - GMT1-BOUNDED-OVERLAP-RECONSTRUCTION
+  - GMT1-BALL-GROWTH-HAUSDORFF
   - GMT1-RADON-NIKODYM-QUOTIENT
 past_exam_alignment: []
 integrated_exam_problems: []
-exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 8, exercises: 5, review: 2 }
