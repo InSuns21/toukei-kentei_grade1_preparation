@@ -91,21 +91,31 @@ $$
 
 ## 3. 極限で計量が退化しないことを検算する
 
-局所複素座標で $\omega=i g_{p\bar q}\,dz^p\wedge d\bar z^q$、$\omega_{\varphi_k}=i h_{k,p\bar q}\,dz^p\wedge d\bar z^q$ と書く。$C^2$ 収束から $h_k=g+\partial\bar\partial\varphi_k$ の各成分は収束するが、それだけでは厳密な正値性を保証しない。例えば正値行列 $\operatorname{diag}(1/k,1)$ は $\operatorname{diag}(0,1)$ へ収束して退化する。
+局所複素座標 $z^1,\ldots,z^n$ を固定し、$p,q=1,\ldots,n$ を動く添字として、$\omega=i\sum_{p,q}g_{p\bar q}\,dz^p\wedge d\bar z^q$、$\omega_{\varphi_k}=i\sum_{p,q}h_{k,p\bar q}\,dz^p\wedge d\bar z^q$ と書く。ここで $h_{k,p\bar q}=g_{p\bar q}+\partial_p\partial_{\bar q}\varphi_k$ で、$\partial_p=\partial/\partial z^p$、$\partial_{\bar q}=\partial/\partial\bar z^q$ は複素座標の偏微分を表す。
+
+[正値Kählerポテンシャルの定義](../YAU1-03/index.md#def-yau1-03-positive-domain)と[実 $(1,1)$ 形式の係数行列による正値判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)を、$v=\sum_p v^p\partial_p\ne0$ に適用すると、
+
+$
+-i\,\omega_{\varphi_k}(v,\bar v)
+=\sum_{p,q}h_{k,p\bar q}v^p\overline{v^q}
+>0.
+$
+
+したがって $h_k=(h_{k,p\bar q})$ はこの複素接基底でのHermite形式の係数行列であり、形式の正値性は行列の正値性と同値である。$C^2$ 収束から $h_k$ の各成分は収束するが、それだけでは厳密な正値性を保証しない。例えば正値行列 $\operatorname{diag}(1/k,1)$ は $\operatorname{diag}(0,1)$ へ収束して退化する。
 
 一方、[二階評価の大域閉包](../YAU1-09/index.md#thm-yau1-09-global-second-order)では、解のある $t$ に共通の $c>0$ があり
 
 $$
-c g\le h_t\le C g
+c g\le h_k\le C g
 $$
 
-となる。この下限こそ、極限を許容Kählerポテンシャルの**開いた**正値領域に留める保証である。
+となる。ここで $h_k=h_{t_k}$ は可解時刻 $t_k$ での行列を表し、同じ $c,C$ がすべての $k$ に使える。この下限こそ、極限を許容Kählerポテンシャルの**開いた**正値領域に留める保証である。
 
 <a id="lem-yau1-12-limit-equation"></a>
 
 <!-- formal-statement-start -->
 > **補題（極限での正値性と方程式の保存）**  
-> $(X,\omega)$ を境界のないコンパクトKähler多様体、$F\in C^\infty(X;\mathbb R)$ とする。$t_k\to t_\ast\in[0,1]$、$\varphi_k\to\varphi_\ast$ が $C^2(X)$ で成立すると仮定し、各 $\varphi_k$ が
+> $(X,\omega)$ を境界のないコンパクトKähler多様体、$F\in C^\infty(X;\mathbb R)$ とする。実関数 $\varphi_k,\varphi_\ast\in C^2(X;\mathbb R)$ に対し $\omega_\varphi:=\omega+i\partial\bar\partial\varphi$ と置く。$t_k\to t_\ast\in[0,1]$、$\varphi_k\to\varphi_\ast$ が $C^2(X)$ で成立すると仮定し、各 $\varphi_k$ が
 
 $$
 \omega_{\varphi_k}>0,\qquad
@@ -134,7 +144,17 @@ h_\ast(v,\bar v)=\lim_{k\to\infty}h_k(v,\bar v)
 \ge c g(v,\bar v)>0.
 $$
 
-上側も同様に $h_\ast\le Cg$。$\omega+i\partial\bar\partial\varphi_\ast$ は閉形式であり、正値なのでKähler形式である。固定座標では最高次外積の係数は $\det(h_k)$、背景側は $\det(g)$ である。行列式は行列成分の多項式なので、$C^2$ 収束から
+上側も同様に $h_\ast\le Cg$。従って $\omega+i\partial\bar\partial\varphi_\ast$ は**連続で厳密に正値な**実 $(1,1)$ 形式であり、分布の意味で閉じている。ただし $C^2$ 収束だけから $\varphi_\ast$ の滑らかさは言えず、この段階で滑らかなKähler形式とは呼ばない。閉性定理では先の滑らかな部分列補題がこの不足を補う。
+
+係数行列から体積形式へ移る理由も確認する。最高次外積の交代性から、固定座標で
+
+$
+\omega_{\varphi_k}^n
+=n!\det(h_k)\bigwedge_{p=1}^n(i\,dz^p\wedge d\bar z^p),\qquad
+\omega^n=n!\det(g)\bigwedge_{p=1}^n(i\,dz^p\wedge d\bar z^p).
+$
+
+この共通因子が消えるので体積方程式は $\det(h_k)=\rho_{t_k}\det(g)$ と同値になる（[既習の行列式による体積比](../YAU1-03/index.md#def-yau1-03-log-ma)）。行列式は行列成分の多項式なので、$C^2$ 収束から
 
 $$
 \det(h_\ast)=\lim_{k\to\infty}\det(h_k)
@@ -142,7 +162,7 @@ $$
 =(1-t_\ast+t_\ast e^F)\det(g).
 $$
 
-チャートを取り替える際の正則な遷移写像のJacobian行列を $J$ とすると、係数行列は $J^\ast hJ$、背景側は $J^\ast gJ$ に変わり、両行列式には同じ $|\det J|^2$ が掛かる。従って比 $\det h/\det g$ はチャートに依らず、上の局所等式は大域の体積形式の等式となる。$\square$
+チャートを取り替える際の正則な遷移写像のJacobian行列を $J$（$J^\ast$ は共役転置）とすると、係数行列は $J^\ast hJ$、背景側は $J^\ast gJ$ に変わり、両行列式には同じ $|\det J|^2$ が掛かる。従って比 $\det h/\det g$ はチャートに依らず、上の局所等式は大域の体積形式の等式となる。$\square$
 <!-- proof-end -->
 
 **何を混同してはいけないか。** 正の行列式は「全ての固有値が正」と同値ではない。たとえば $\operatorname{diag}(-1,-1)$ の行列式も $1$ である。また各 $k$ で全固有値が正でも、下限が $k$ に依存すれば退化を防げない。極限方程式だけから正値性を結論せず、二側評価を先に極限へ渡す。
@@ -170,7 +190,7 @@ $$
 \int_Xe^F\omega^n=\int_X\omega^n.
 $$
 
-> $\rho_t=1-t+te^F$ と置く。$\omega+i\partial\bar\partial\varphi_t>0$、$\omega_{\varphi_t}^n=\rho_t\omega^n$、$\int_X\varphi_t\omega^n=0$ を満たす滑らかな実関数 $\varphi_t$ が存在する時刻 $t\in[0,1]$ の集合 $\mathcal S_\infty$ は、$[0,1]$ の相対閉集合である。
+> $\rho_t=1-t+te^F$、$\omega_{\varphi_t}:=\omega+i\partial\bar\partial\varphi_t$ と置く。$\omega_{\varphi_t}>0$、$\omega_{\varphi_t}^n=\rho_t\omega^n$、$\int_X\varphi_t\omega^n=0$ を満たす滑らかな実関数 $\varphi_t$ が存在する時刻 $t\in[0,1]$ の集合 $\mathcal S_\infty$ は、$[0,1]$ の相対閉集合である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -256,12 +276,20 @@ $$
 従って正規化解は一意。逆に定数の $\partial\bar\partial$ は零だから、平均ゼロを外すと $\varphi+c$ は全て解である。$\square$
 <!-- proof-end -->
 
-**直接例：平坦楕円曲線。** [パスの定義例](../YAU1-05/index.md#def-yau1-05-path)の $T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z$ を使い、$0<|a|<1$、$e^F=1-a\cos(2\pi x)$ とする。各 $t\in[0,1]$ に
+**直接例：平坦楕円曲線。** [パスの定義例](../YAU1-05/index.md#def-yau1-05-path)の $T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega_0=i\,dz\wedge d\bar z$ を使い、$z=x+iy$（$x,y$ は実座標）、$0<|a|<1$、$e^F=1-a\cos(2\pi x)$ とする。各 $t\in[0,1]$ に
 
-$$
-\varphi_t=\frac{ta}{\pi^2}\cos(2\pi x),\qquad
-\partial_z\partial_{\bar z}\varphi_t=-ta\cos(2\pi x)
-$$
+$
+\varphi_t=\frac{ta}{\pi^2}\cos(2\pi x)
+$
+
+と置く。[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)より $\partial_z=(\partial_x-i\partial_y)/2$、$\partial_{\bar z}=(\partial_x+i\partial_y)/2$ であり、混合微分の交換から $\partial_z\partial_{\bar z}=(\partial_x^2+\partial_y^2)/4$ となる。$\varphi_t$ は $y$ に依存しないから
+
+$
+\partial_z\partial_{\bar z}\varphi_t
+=\frac14\partial_x^2\left(\frac{ta}{\pi^2}\cos(2\pi x)\right)
+=\frac14(-4ta\cos(2\pi x))
+=-ta\cos(2\pi x)
+$
 
 が成り立つ。従って計量係数は $1-ta\cos(2\pi x)\ge1-|a|>0$、密度も同じ $\rho_t$、平均は余弦の一周期積分が零なので零である。$t_k\to t_\ast$ なら $\varphi_{t_k}\to\varphi_{t_\ast}$ は全階で成立する。これは抽象的な閉性を、明示解と具体的な下界で確かめた例である。
 
@@ -405,7 +433,7 @@ $$
 
 逆に $t\in\mathcal S_s$ の解 $u$ は $H^{s+2}$ に属する。$s=2n+1$ でのSobolev埋め込みから $u\in C^2$。許容領域の定義から $\omega_u>0$ であり、右辺 $\rho_t$ は固定された滑らかな $F$ によって滑らかかつ正である。
 
-そこで[開性の章で確かめた局所正則性](../YAU1-05/index.md#thm-yau1-05-openness)を適用して $u\in C^\infty$ を得る。平均ゼロも保持されるから逆の包含も成立し、結局
+ここで $G_u=G+\partial\bar\partial u$ の成分は $H^s$、正値性からその逆行列も定義される。$\log\det G_u-\log\det G=\log\rho_t$ を実座標方向に微分すると、$\partial_\ell u$ に対する一様楕円型の線形方程式を得る。[YAU1-05第7節の局所正則性の議論](../YAU1-05/index.md#thm-yau1-05-openness)では、その方程式に内部 $H^2$ 評価を繰り返し適用して $u\in H^m$ を任意の $m$ まで上げる。従ってSobolev埋め込みから $u\in C^\infty$ を得る。平均ゼロも保持されるから逆の包含も成立し、結局
 
 $$
 \mathcal S_s=\mathcal S_\infty
