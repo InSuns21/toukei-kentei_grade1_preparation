@@ -86,12 +86,12 @@ $$
 
 $t=0$ では $\varphi_0=0$ が解である。任意の可解時刻で正則局所座標 $z^1,\ldots,z^n$ を取り、$g_{j\bar k}$ を背景形式 $\omega$ の係数とする。$\partial_j=\partial/\partial z^j$、$\partial_{\bar k}=\partial/\partial\bar z^k$ と書くと、
 
-$
+$$
 \omega=i\sum_{j,k}g_{j\bar k}\,dz^j\wedge d\bar z^k,\qquad
 \omega_{\varphi}
 =i\sum_{j,k}(g_{j\bar k}+\partial_j\partial_{\bar k}\varphi)
 \,dz^j\wedge d\bar z^k.
-$
+$$
 
 従って $G=(g_{j\bar k})$、$H=G+(\varphi_{j\bar k})$（$\varphi_{j\bar k}:=\partial_j\partial_{\bar k}\varphi$）は二つの形式のHermite係数行列であり、[Kähler形式の行列による正値判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)から両者は正定値である。体積密度は $Q(\varphi)=\det H/\det G$。Jacobiの行列式微分から
 
@@ -248,10 +248,10 @@ $$
 
 背景形式を $\omega=i\sum_{j=1}^2 dz^j\wedge d\bar z^j$ とする。$H_+=\operatorname{diag}(1,1)$ と $H_-=\operatorname{diag}(-1,-1)$ はどちらも定数Hermite行列なので、対応する $\beta_H$ は実 $(1,1)$ 形式かつ閉形式であり、ともに行列式1を持つ。しかし任意の $v=(v^1,v^2)\ne0$ では、
 
-$
+$$
 v^\ast H_+v=|v^1|^2+|v^2|^2>0,\qquad
 v^\ast H_-v=-|v^1|^2-|v^2|^2<0.
-$
+$$
 
 $H_-$ は局所的に $\varphi=-2(|z^1|^2+|z^2|^2)$ を使うと $G+\partial\bar\partial\varphi=-I$ として実現する。しかし $H_-$ はKähler計量ではない。**行列式が正**だけでは、正値領域、線形化の正の二階係数、Moserエネルギーの符号、最大値原理の適用条件を保証できない。この局所例をコンパクトな固定類の反例と取り違えないこと。
 
@@ -402,11 +402,11 @@ $C$ は定数なので微分は零。さらに $u'=u+a$ とすれば $I'=\int e^
 <!-- solution-start -->
 **詳細解答。** 各体積を $V_0$ とし、元の解 $\varphi$ を各成分で平均ゼロに取る。新しい関数 $\widetilde\varphi$ を $\widetilde\varphi|_{T_j}=\varphi|_{T_j}+a_j$ と定めると、
 
-$
+$$
 \int_X\widetilde\varphi\,\omega^n
 =\sum_{j=1}^2\left(\int_{T_j}\varphi\,\omega^n+a_jV_0\right)
 =a_1V_0+a_2V_0.
-$
+$$
 
 したがって条件は $a_1+a_2=0$。例えば $a_1=1,a_2=-1$ は非零でも全体平均を変えず、$\partial\bar\partial$ は両成分で定数を消す。連結成分ごとに平均ゼロを指定しなければポテンシャルは一意にならない。
 <!-- solution-end -->
