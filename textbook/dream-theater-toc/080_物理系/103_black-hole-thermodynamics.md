@@ -9,3 +9,4 @@
 6. [BHT6 物理過程版の第一法則](textbook/volumes/dream_thater/物理系/BHT/BHT6/index.md)
 7. [BHT7 Smarr関係・不可逆質量と仕事](textbook/volumes/dream_thater/物理系/BHT/BHT7/index.md)
 8. [BHT8 Hawking温度の熱力学的意味](textbook/volumes/dream_thater/物理系/BHT/BHT8/index.md)
+9. [BHT9 Bekenstein–Hawkingエントロピー](textbook/volumes/dream_thater/物理系/BHT/BHT9/index.md)

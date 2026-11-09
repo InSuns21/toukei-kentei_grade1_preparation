@@ -411,9 +411,17 @@ rank欠損なら像は$m$より低い次元の平面に収まり、$\mathcal H^m
 <!-- proof-start -->
 ### 証明
 
-$r=\operatorname{rank}A<m$のとき、$A(E)$は$r$次元線形部分空間$V$に含まれます。任意の$M>0$に対して$V\cap B(0,M)$を、一辺$\delta$の$r$次元立方体$O_M(\delta^{-r})$個で覆います。各立方体の直径は$O(\delta)$なので$\mathcal H^m_\delta(V\cap B(0,M))\le C_M\delta^{m-r}\to0$です。$M\to\infty$の可算和により$\mathcal H^m(A(E))=0$です。[Gram行列のrank判定](#thm-gmt10-gram-invariance)から$J_m(A)=0$でもあります。
+$r=\operatorname{rank}A<m$のとき、$A(E)$は$r$次元線形部分空間$V$に含まれます。任意の$M>0$に対し、$V\cap B(0,M)$を直径$\delta$以下の小立方体$O_M(\delta^{-r})$個で覆えます。例えば$r\ge1$では、$V$の正規直交座標で一辺$\delta/\sqrt r$の立方体を使えば、各立方体の直径は$\delta$です（$r=0$なら$V=\{0\}$を一点で覆えます）。したがってHausdorff被覆の径制約を実際に満たした上で
 
-次にrank $m$とします。$v_i=Ae_i$をGram--Schmidt直交化すると、$V=\operatorname{im}A$に正規直交基底$u_1,\ldots,u_m$が取れます。$U:\mathbb R^m\to V$を$Ue_i=u_i$で定めれば等長写像で、$T=U^{-1}A$は可逆な$m\times m$実行列です。内積保存により
+$$
+\mathcal H^m_\delta(V\cap B(0,M))
+\le C_M\delta^{-r}\delta^m
+=C_M\delta^{m-r}\longrightarrow0
+$$
+
+です。$M\to\infty$の可算和により$\mathcal H^m(A(E))=0$です。[Gram行列のrank判定](#thm-gmt10-gram-invariance)から$J_m(A)=0$でもあります。
+
+次にrank $m$とします。$v_i=Ae_i$は一次独立なので、[Gram--Schmidt直交化法](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-gram-schmidt)で$V=\operatorname{im}A$に正規直交基底$u_1,\ldots,u_m$が取れます。$U:\mathbb R^m\to V$を$Ue_i=u_i$で定めれば等長写像で、$T=U^{-1}A$は可逆な$m\times m$実行列です。内積保存により
 
 $$
 T^{\mathsf T}T
@@ -430,7 +438,21 @@ $$
 \qquad|\det T|=J_m(A).
 $$
 
-等長写像$U$はHausdorff測度を変えません。[比例定数の補題](#lem-gmt10-hausdorff-normalization)と$m$次元Lebesgue測度の線形変数変換をBorel集合$T(E)$へ適用し、
+ここで使う**可逆線形写像によるLebesgue体積の変換公式**は、可逆実行列$T$とBorel集合$E$に対する次の等式です。
+
+$$
+\mathcal L^m(T(E))=|\det T|\mathcal L^m(E).
+$$
+
+適用根拠を確認しましょう。可逆行列は三種類の基本行操作の積に分解でき、それぞれの座標変換の測度倍率は次の通りです。
+
+- **行交換**：座標の順序だけを替えるので倍率1。
+- **非零定数倍**：一つの座標を$\lambda\ne0$倍するので、その座標の区間長の倍率$|\lambda|$。
+- **他行の定数倍の加算（せん断）**：$(x_i,x_j)\mapsto(x_i+c x_j,x_j)$は、$x_j$を固定すると$x_i$方向の平行移動です。[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を非負の指示関数に適用すれば、各切片の長さが不変なので全体の測度も不変、倍率1です。
+
+いずれも行列式の絶対値の変化と一致します。基本行操作を合成して公式を得るので、一般の非線形area formulaは使っていません。
+
+等長写像$U$はHausdorff測度を変えません。[比例定数の補題](#lem-gmt10-hausdorff-normalization)と、いま確認した体積公式をBorel集合$E$へ適用し、
 
 $$
 \begin{aligned}
@@ -718,30 +740,33 @@ $\mathcal L^2(E)=1$で、[線形面積倍率定理](#thm-gmt10-linear-area)に$m
 
 **B4. 一般のグラフのGram行列**  
 - Level: B
-- 問題: $g:\mathbb R^m\to\mathbb R^k$は$C^1$級とし、$F(x)=(x,g(x))\in\mathbb R^{m+k}$とする。$DF$の形から$(DF)^{\mathsf T}DF=I_m+(Dg)^{\mathsf T}Dg$を導き、$J_m(F)\ge1$を示せ。
+- 問題: $g:\mathbb R^m\to\mathbb R^k$は$C^1$級とし、$F(x)=(x,g(x))\in\mathbb R^{m+k}$とする。各$x\in\mathbb R^m$において$DF(x)$の形から$(DF(x))^{\mathsf T}DF(x)=I_m+(Dg(x))^{\mathsf T}Dg(x)$を導き、$J_m^{\mathrm{ap}}F(x)\ge1$を示せ。
 
 <!-- solution-start -->
 **詳細解答**
 
-標準基底$e_j$を一つだけ動かすと、$F$の第$j$列は$(e_j,\partial_jg)^{\mathsf T}$です。従って行列を上下に分割して
+点$x$を固定します。$\partial_jg(x)$は$g$の第$j$入力変数$x_j$に関する偏微分ベクトルであり、$Dg(x)e_j=\partial_jg(x)$です。標準基底$e_j$の方向へ入力を動かすと、差商の極限から$DF(x)$の第$j$列は$(e_j,\partial_jg(x))^{\mathsf T}$となります。従って行列を上下に分割して
 
 $$
-DF=\begin{pmatrix}I_m\\Dg\end{pmatrix},
+DF(x)=\begin{pmatrix}I_m\\Dg(x)\end{pmatrix},
 \quad
-(DF)^{\mathsf T}DF
-=\begin{pmatrix}I_m&(Dg)^{\mathsf T}\end{pmatrix}
-\begin{pmatrix}I_m\\Dg\end{pmatrix}
-=I_m+(Dg)^{\mathsf T}Dg.
+(DF(x))^{\mathsf T}DF(x)
+=\begin{pmatrix}I_m&(Dg(x))^{\mathsf T}\end{pmatrix}
+\begin{pmatrix}I_m\\Dg(x)\end{pmatrix}
+=I_m+(Dg(x))^{\mathsf T}Dg(x).
 $$
 
-任意の$u$について$u^{\mathsf T}(Dg)^{\mathsf T}Dg\,u=|Dg\,u|^2\ge0$なので、$(Dg)^{\mathsf T}Dg$の固有値$\lambda_i$は非負です。Gram行列の固有値は$1+\lambda_i\ge1$だから
+任意の$u$について$u^{\mathsf T}(Dg(x))^{\mathsf T}Dg(x)\,u=|Dg(x)u|^2\ge0$なので、$(Dg(x))^{\mathsf T}Dg(x)$の固有値$\lambda_i$は非負です。Gram行列の固有値は$1+\lambda_i\ge1$だから
 
 $$
-J_m(F)^2=\det(I_m+(Dg)^{\mathsf T}Dg)
+=\prod_{i=1}^m(1+\lambda_i)\ge1.
+(J_m^{\mathrm{ap}}F(x))^2
+=\det(I_m+(Dg(x))^{\mathsf T}Dg(x))
+=\prod_{i=1}^m(1+\lambda_i)\ge1.
 =\prod_{i=1}^m(1+\lambda_i)\ge1.
 $$
 
-非負平方根を取って$J_m(F)\ge1$です。$F$は$C^1$級なので各点で近似Jacobianと通常Jacobianは一致します。
+ここでは$F$が$C^1$級なので、[近似微分と通常微分の同値](#prop-gmt10-lipschitz-rigidity)を各点の局所Lipschitz近傍に適用し、$\operatorname{ap}DF(x)=DF(x)$としています。[近似Jacobianの定義](#def-gmt10-approximate-jacobian)で非負平方根を取れば$J_m^{\mathrm{ap}}F(x)\ge1$です。
 <!-- solution-end -->
 
 ### Level C：近似・幾何・重複を接続する

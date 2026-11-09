@@ -41,7 +41,7 @@ chapters:
     title: "Hawking温度の熱力学的意味"
   - id: BHT9
     path: textbook/volumes/dream_thater/物理系/BHT/BHT9
-    status: planned
+    status: completed
     title: "Bekenstein–Hawkingエントロピー"
   - id: BHT10
     path: textbook/volumes/dream_thater/物理系/BHT/BHT10

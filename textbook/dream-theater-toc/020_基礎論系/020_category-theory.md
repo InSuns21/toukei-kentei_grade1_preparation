@@ -9,3 +9,4 @@
 6. [CAT1-06 関手と保存する構造](textbook/volumes/dream_thater/基礎論系/CAT/CAT1-06/index.md)
 7. [CAT1-07 自然変換と自然同型](textbook/volumes/dream_thater/基礎論系/CAT/CAT1-07/index.md)
 8. [CAT1-08 関手圏と水平・垂直合成](textbook/volumes/dream_thater/基礎論系/CAT/CAT1-08/index.md)
+9. [CAT1-09 圏の同値と圏同型](textbook/volumes/dream_thater/基礎論系/CAT/CAT1-09/index.md)

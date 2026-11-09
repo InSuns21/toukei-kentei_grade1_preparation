@@ -1,0 +1,60 @@
+chapter: CAT1-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00A2
+  - CAT1-02
+  - CAT1-03
+  - CAT1-05
+  - CAT1-06
+  - CAT1-07
+
+concepts:
+  - id: category.category-isomorphism
+    name: 圏同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圏同型）"]
+    requires: [category.covariant-functor, category.composite-functor]
+  - id: category.fully-faithful-functor
+    name: 忠実関手・充満関手・充満忠実関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（忠実・充満・充満忠実）"]
+    requires: [category.covariant-functor, category.locally-small-category]
+  - id: category.essentially-surjective-functor
+    name: 本質的全射関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本質的全射）"]
+    requires: [category.isomorphism, category.covariant-functor]
+  - id: category.equivalence-of-categories
+    name: 圏の同値と準逆関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圏の同値と準逆関手）"]
+    requires: [category.natural-isomorphism, category.composite-functor]
+  - id: category.category-iso-implies-equivalence
+    name: 圏同型は圏の同値を与える
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（圏同型は圏の同値を与える）"]
+    requires: [category.category-isomorphism, category.equivalence-of-categories]
+  - id: category.full-faithful-reflects-iso
+    name: 充満忠実関手は同型射を反映する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（充満忠実関手は同型射を反映する）"]
+    requires: [category.fully-faithful-functor, category.isomorphism]
+  - id: category.equivalence-criterion
+    name: 圏の同値の充満忠実・本質的全射判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（圏の同値の判定）"]
+    requires: [category.equivalence-of-categories, category.fully-faithful-functor, category.essentially-surjective-functor, category.full-faithful-reflects-iso]
+  - id: category.poset-equivalence-rigidity
+    name: 半順序圏の同値は圏同型である
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半順序圏の同値は圏同型である）"]
+    requires: [category.equivalence-criterion, category.poset-category]
