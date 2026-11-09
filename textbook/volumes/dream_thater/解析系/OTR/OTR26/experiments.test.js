@@ -7,6 +7,8 @@ test("finite primal/dual certificate and Sinkhorn costs agree within separately 
   const r = runAll();
   assert.equal(r.finiteLP.gap, 0);
   assert.equal(r.finiteLP.primalCost, 0);
+  assert.equal(r.finiteLP.marginalResidual, 0);
+  assert.equal(r.finiteLP.dualViolation, 0);
   let previous = Infinity;
   for (const x of r.regularized) {
     assert.equal(x.converged, true);

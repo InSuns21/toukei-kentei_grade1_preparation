@@ -1,0 +1,35 @@
+id: "YAU1-11"
+title: "高階評価と正則性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-10
+official_scope: []
+learning_objectives:
+  - Calabi型三階評価を係数行列の一様Lipschitz評価へ変換できる
+  - Monge–Ampère方程式の微分で現れる線形方程式と右辺を計算できる
+  - Schauder評価の局所・大域適用条件と一様定数の出所を説明できる
+  - 三階評価からすべての高階微分評価を帰納的に導ける
+  - 純正則微分のゲージ自由度とポテンシャルの大域正規化を区別できる
+definitions:
+  - { id: YAU1-11-DEF-01, name: 一様Hölder係数族 }
+theorems:
+  - { id: YAU1-11-LEM-01, name: 三階評価から係数のHölder制御 }
+  - { id: YAU1-11-LEM-02, name: 線形化方程式の微分公式 }
+  - { id: YAU1-11-THM-01, name: 一様高階事前評価 }
+canonical_examples:
+  - 複素一次元で対数行列式の微分を検算する
+  - 平坦トーラス上の小振幅ポテンシャルの係数ノルムを評価する
+problem_patterns:
+  - YAU1-11-LIPSCHITZ
+  - YAU1-11-INVERSE
+  - YAU1-11-DIFFERENTIATION
+  - YAU1-11-DIMENSION-ONE
+  - YAU1-11-HOLDER
+  - YAU1-11-LOCALIZATION
+  - YAU1-11-INDUCTION
+  - YAU1-11-BOOTSTRAP
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 5 }

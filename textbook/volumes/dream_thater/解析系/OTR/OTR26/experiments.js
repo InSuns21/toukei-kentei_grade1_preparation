@@ -93,6 +93,12 @@ function runAll() {
   const primalCost = primal.flat().reduce((s, p, k) => s + p * C[Math.floor(k / 2)][k % 2], 0);
   const dualValue = a.reduce((s, v, i) => s + v * dualF[i], 0) +
     b.reduce((s, v, j) => s + v * dualG[j], 0);
+  const rowResidual = Math.max(...a.map((v, i) =>
+    Math.abs(primal[i].reduce((s, p) => s + p, 0) - v)));
+  const columnResidual = Math.max(...b.map((v, j) =>
+    Math.abs(primal.reduce((s, row) => s + row[j], 0) - v)));
+  const dualViolation = Math.max(0, ...C.flatMap((row, i) =>
+    row.map((cost, j) => dualF[i] + dualG[j] - cost)));
   const quantile = quantileCoupling([0, 2], [0.25, 0.75], [1, 3], [0.5, 0.5]);
   const numericQuantile = sinkhorn([0.25, 0.75], [0.5, 0.5], [[1, 9], [1, 1]], 0.5);
   const regularized = [0.2, 0.1, 0.05].map(epsilon => {
@@ -102,7 +108,8 @@ function runAll() {
       closedFormCost: 1 / (1 + Math.exp(1 / epsilon)),
       errorBound: epsilon * Math.log(4), primalMinusDual: result.primalMinusDual };
   });
-  return { finiteLP: { primalCost, dualValue, gap: primalCost - dualValue },
+  return { finiteLP: { primalCost, dualValue, gap: primalCost - dualValue,
+      marginalResidual: Math.max(rowResidual, columnResidual), dualViolation },
     quantile: { ...quantile, numericRegularized: {
       epsilon: 0.5, converged: numericQuantile.converged,
       iterations: numericQuantile.iterations, residual: numericQuantile.residual,
