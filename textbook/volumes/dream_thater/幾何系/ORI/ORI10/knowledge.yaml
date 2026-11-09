@@ -16,7 +16,7 @@ concepts:
     name: 鋭角域での正接の三倍角公式
     kind: lemma
     introduction: formal
-    requires: [origami.abe-trisection-configuration]
+    requires: []
 
   - id: origami.abe-acute-trisection
     name: Abe型の鋭角三等分作図
