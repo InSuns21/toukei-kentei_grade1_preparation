@@ -467,6 +467,36 @@ $Q=R$ なら $\det R=1$、$Q=S$ なら $\det S=-1$。つまり回転では面積
 
 **失敗例**。鏡映で符号反転する面積 $a$ を「普通のスカラー」出力へ $F(a)=ca$ として送ると、入力変換後は $F(-a)=-ca$、出力変換後は $F(a)=ca$。全 $a$ で一致するには $c=0$ が必要である。型を無視した非零の係数は、鏡映への等変性と両立しない。
 
+### 7.2 全群元を列挙する計算実験
+
+有限群では、[絡作用素の定義](#def-mfl24-intertwiner)の条件を全元について直接検算できる。標準基底の二次元表現で用いる生成元は、鏡映 $S$ と90度回転 $R$ である。
+
+$$
+S=\operatorname{diag}(1,-1),\qquad
+R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+$$
+
+$C_2$ は $S$、$C_4$ は $R$、$D_4$ は両方から生成する。入力・出力を同じ表現にした場合、[絡作用素の条件](#def-mfl24-intertwiner)は次の行列等式になる。
+
+$$
+W\rho(g)-\rho(g)W=0\qquad(g\in G).
+$$
+
+次のラボは、許される行列と許されない行列を両方列挙し、各行列成分の最大絶対残差を計算する。また一つのベクトル $x=(2,-1)^T$ での残差とも比較する。**一点のベクトルで一致しても、全入力の等変性の証明にはならない**。
+
+```python-file-lab
+# lab-id: mfl24-representation-intertwiner
+# lab-title: 有限群の絡作用素を全元で検算
+# lab-file: textbook/volumes/dream_thater/応用系/MFL/MFL24/representation_intertwiner_lab.py
+# timeout-ms: 30000
+# lab-preset: 3種類の群の全元・自己テスト | --self-test
+# lab-preset: C2の符号型・許される混合 | --group C2
+# lab-preset: C4の回転と可換な行列 | --group C4
+# lab-preset: D4で鏡映条件も課す | --group D4
+```
+
+$C_4$ では $aI+bR$ が回転と可換でも、$D_4$ で鏡映 $S$ を追加すると $SR=-RS$ のため $b=0$ が必要になる。結果欄の全行列残差が0であることと、ベクトル残差が偶然0であることを混同しない。
+
 ## 8. 演習――表現を確かめ、許される係数を自分で解く
 
 <a id="ex-mfl24-a01"></a>
