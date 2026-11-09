@@ -1,0 +1,81 @@
+chapter: GMT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT3
+  - GMT5
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt8-exceptional-directions
+    name: 射影次元の例外方向集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影次元の例外方向集合）"]
+    requires:
+      - geometric-measure.gmt5-orthogonal-projection
+      - measure.hausdorff-dimension
+
+  - id: geometric-measure.gmt8-angular-frostman
+    name: 方向上のFrostman測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（方向上のFrostman測度）"]
+    requires:
+      - geometric-measure.gmt2-frostman-measure
+
+  - id: geometric-measure.gmt8-transversality
+    name: 方向Frostman測度による小射影確率
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（方向Frostman測度による小射影確率）"]
+    requires:
+      - geometric-measure.gmt8-angular-frostman
+      - geometric-measure.gmt8-exceptional-directions
+
+  - id: geometric-measure.gmt8-angular-kernel
+    name: Frostman方向平均の特異核
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Frostman方向平均の特異核）"]
+    requires:
+      - geometric-measure.gmt8-transversality
+
+  - id: geometric-measure.gmt8-double-energy
+    name: 二重energyの方向平均
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二重energyの方向平均）"]
+    requires:
+      - geometric-measure.gmt8-angular-kernel
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt8-compact-core
+    name: Borel集合のHausdorff次元のコンパクト芯
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Borel集合のHausdorff次元のコンパクト芯）"]
+    requires:
+      - measure.hausdorff-dimension
+
+  - id: geometric-measure.gmt8-kaufman-compact
+    name: Kaufman型例外方向上界：コンパクト版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kaufman型例外方向上界：コンパクト版）"]
+    requires:
+      - geometric-measure.gmt8-double-energy
+      - geometric-measure.gmt8-exceptional-directions
+      - geometric-measure.gmt8-compact-core
+      - geometric-measure.gmt3-energy-dimension
+      - geometric-measure.gmt3-frostman-energy
+      - geometric-measure.gmt2-frostman-lemma
+
+  - id: geometric-measure.gmt8-kaufman-borel
+    name: Kaufman型例外方向上界：Borel集合版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kaufman型例外方向上界：Borel集合版）"]
+    requires:
+      - geometric-measure.gmt8-kaufman-compact
+      - geometric-measure.gmt8-compact-core
