@@ -1,0 +1,46 @@
+chapter: MFL42
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL41
+  - NA6
+  - MFL19
+forward_references: []
+concepts:
+  - id: manifold-learning.covariant-periodic-mesh
+    name: 周期メッシュの輸送付き差分作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期メッシュの輸送付き差分作用素）"]
+    requires: [manifold-learning.edge-transport-matrix, manifold-learning.transport-neighbor-aggregation]
+  - id: manifold-learning.mesh-gauge-equivariance
+    name: 離散共変差分の厳密なゲージ等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.covariant-periodic-mesh, manifold-learning.edge-transport-gauge]
+  - id: manifold-learning.mesh-second-order-consistency
+    name: 緯線の輸送付き中心差分の二次整合性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.covariant-periodic-mesh, numerical.consistency]
+  - id: manifold-learning.mesh-rotation-mode-error
+    name: 回転モードの離散固有値と誤差
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.mesh-second-order-consistency]
+  - id: manifold-learning.edge-transport-approximation-error
+    name: 辺輸送近似誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辺輸送近似誤差）"]
+    requires: [manifold-learning.covariant-periodic-mesh]
+  - id: manifold-learning.mesh-transport-error-amplification
+    name: 輸送近似の離散作用素への影響
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.edge-transport-approximation-error]
+  - id: manifold-learning.mesh-explicit-stability
+    name: 直交輸送による陽的平滑化の安定性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.covariant-periodic-mesh, manifold-learning.mesh-gauge-equivariance]
