@@ -1,0 +1,44 @@
+id: "YAU1-10"
+title: "Calabi型三階評価"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-09
+official_scope: []
+learning_objectives:
+  - 二つのKähler接続の差がテンソルとなる理由と三階微分との対応を説明できる
+  - Calabi型三階量の三つの逆計量因子とKähler対称性を座標で検算できる
+  - 曲率差とKähler第二Bianchi恒等式で接続差のLaplacianをRicci微分へ還元できる
+  - Ricciの背景微分と接続差の関係からCalabi型三階量の下界不等式を証明できる
+  - 相対跡のLaplacianの非負平方和が三階量を下から支配することを示せる
+  - 最大値原理でパスに一様な三階量と背景共変微分の上界を導ける
+  - 密度の三階微分、一様正値下界、Kähler性、コンパクト性が必要な位置を特定できる
+  - 古典的三階評価とEvans–Krylov型の代替経路の制御対象を区別できる
+definitions:
+  - { id: YAU1-10-DEF-01, name: Kähler接続差 }
+  - { id: YAU1-10-DEF-02, name: Calabi型三階量 }
+theorems:
+  - { id: YAU1-10-LEM-01, name: 接続差の曲率恒等式と微分評価 }
+  - { id: YAU1-10-LEM-02, name: Calabi型三階量のLaplacian下界 }
+  - { id: YAU1-10-LEM-03, name: 相対跡の三階量支配 }
+  - { id: YAU1-10-THM-01, name: 連続性のパス上のCalabi型三階評価 }
+canonical_examples:
+  - 複素一次元で接続差を密度の対数微分として直接計算
+  - 平坦複素二次元トーラスの余弦ポテンシャルで三階量を検算
+  - 右辺の高階微分が固定されない高速振動ポテンシャル列の失敗例
+problem_patterns:
+  - YAU1-10-CONNECTION-DIMENSION-ONE
+  - YAU1-10-KAHLER-SYMMETRY
+  - YAU1-10-DIAGONAL-ENERGY
+  - YAU1-10-RICCI-DERIVATIVE
+  - YAU1-10-MAXIMUM-CONSTANTS
+  - YAU1-10-CONNECTION-TENSOR
+  - YAU1-10-CURVATURE-COMMUTATOR
+  - YAU1-10-TORUS-ENERGY
+  - YAU1-10-OSCILLATORY-COUNTEREXAMPLE
+  - YAU1-10-FULL-CALABI-ESTIMATE
+  - YAU1-10-ALTERNATIVE-REGULARITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 6 }
