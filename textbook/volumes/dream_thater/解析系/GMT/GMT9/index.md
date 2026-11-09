@@ -446,7 +446,7 @@ f((x,y)+h)-f(x,y)
 =\frac{2(x,y)\cdot h+|h|^2}{|(x,y)+h|+r}.
 $$
 
-一次近似の候補を $A h=(x,y)\cdot h/r$ とし、$p=(x,y)$、$D=|p+h|+r$ と置きます。$D\ge r$ と逆三角不等式 $|D-2r|\le|h|$ より
+一次近似の候補を $A h=(x,y)\cdot h/r$ とし、$p=(x,y)$、$D=|p+h|+r$ と置きます。$D\ge r$ と[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality) $|D-2r|\le|h|$ より
 
 $$
 \begin{aligned}
