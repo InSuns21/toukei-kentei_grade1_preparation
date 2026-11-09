@@ -1,0 +1,81 @@
+chapter: CAT1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-01
+  - CAT1-02
+  - CAT1-03
+
+concepts:
+  - id: category.opposite-category
+    name: 反対圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（反対圏）"]
+    requires: [category.category]
+  - id: category.opposite-involution
+    name: 反対圏の公理と二重反対圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反対圏の公理と二重反対圏）"]
+    requires: [category.opposite-category]
+  - id: category.opposite-size
+    name: 反対圏と大きさ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反対圏と大きさ）"]
+    requires: [category.opposite-category, category.small-category, category.locally-small-category]
+  - id: category.dual-statement
+    name: 圏論における双対命題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対命題）"]
+    requires: [category.opposite-involution]
+  - id: category.dual-principle
+    name: 双対原理
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対原理）"]
+    requires: [category.dual-statement, category.opposite-involution]
+  - id: category.duality-theorem
+    name: 普遍命題の双対化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（普遍命題の双対化）"]
+    requires: [category.dual-principle, category.opposite-involution]
+  - id: category.mono-epi-dual
+    name: モノ射とエピ射の双対性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モノ射とエピ射の双対性）"]
+    requires: [category.opposite-category, category.monomorphism, category.epimorphism]
+  - id: category.iso-split-dual
+    name: 同型射と分裂射の双対性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同型射と分裂射の双対性）"]
+    requires: [category.opposite-category, category.isomorphism, category.split-morphism]
+  - id: category.initial-object
+    name: 始対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（始対象・終対象）"]
+    requires: [category.category]
+  - id: category.terminal-object
+    name: 終対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（始対象・終対象）"]
+    requires: [category.category]
+  - id: category.initial-terminal-dual
+    name: 始対象と終対象の双対性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（始対象と終対象の双対性）"]
+    requires: [category.opposite-category, category.initial-object, category.terminal-object]
+  - id: category.initial-terminal-unique
+    name: 始対象・終対象の一意同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（始対象・終対象の一意同型）"]
+    requires: [category.initial-object, category.terminal-object, category.isomorphism]
