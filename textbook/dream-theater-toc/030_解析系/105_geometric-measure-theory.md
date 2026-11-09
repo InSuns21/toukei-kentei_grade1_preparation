@@ -11,3 +11,4 @@
 8. [GMT8 例外方向の定量評価](textbook/volumes/dream_thater/解析系/GMT/GMT8/index.md)
 9. [GMT9 Lipschitz写像とRademacher定理](textbook/volumes/dream_thater/解析系/GMT/GMT9/index.md)
 10. [GMT10 近似微分と幾何的Jacobian](textbook/volumes/dream_thater/解析系/GMT/GMT10/index.md)
+11. [GMT11 area formula：重複度と測度](textbook/volumes/dream_thater/解析系/GMT/GMT11/index.md)

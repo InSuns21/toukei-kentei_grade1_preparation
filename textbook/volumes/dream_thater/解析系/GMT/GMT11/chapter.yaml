@@ -1,0 +1,48 @@
+id: GMT11
+title: "area formula：重複度と測度"
+volume: foundations
+status: supplementary
+prerequisites:
+  - F0-00F2
+  - LA3B
+  - MT8
+  - HA1
+  - GMT1
+  - GMT9
+  - GMT10
+official_scope: []
+learning_objectives:
+  - 写像の重複度を定義し、非正規化Hausdorff測度の係数を含むarea formulaを正確に述べられる
+  - Lipschitz写像がLebesgue零集合をHausdorff m-零集合へ送る理由を被覆で説明できる
+  - rank欠損微分を持つ点集合の像がm次元Hausdorff零測度となることを証明できる
+  - full-rank点を可算個の双Lipschitz片へ分け、線形面積倍率の比較からarea formulaを導ける
+  - 折り返し写像・グラフ・rank欠損写像で重複度とJacobianを計算できる
+  - 非負重み付きarea formulaを単純関数近似で導き、重複度が無限大の場合も解釈できる
+definitions:
+  - { id: GMT11-DEF-01, name: 写像の重複度 }
+theorems:
+  - { id: GMT11-LEM-01, name: Lipschitz写像の零集合保存 }
+  - { id: GMT11-LEM-02, name: rank欠損集合の像のm次元測度は零 }
+  - { id: GMT11-LEM-03, name: 線形近似が一様な片の面積比較 }
+  - { id: GMT11-THM-01, name: Lipschitz写像のarea formula }
+  - { id: GMT11-COR-01, name: 重み付きarea formula }
+canonical_examples:
+  - 折り返し写像(x,y)から(|x|,y)で重複度2と面積の両辺を計算
+  - 一変数の二次写像tからt^2で重複度と可変Jacobianを照合
+  - 線形グラフ(x,y)から(x,y,ax+by)で非正規化Hausdorff測度の係数を保持
+  - rank欠損線形写像でJacobian零と像の零測度を区別
+problem_patterns:
+  - GMT11-FOLD-INTERVAL
+  - GMT11-GRAPH-LENGTH
+  - GMT11-RANK-COLLAPSE
+  - GMT11-LINEAR-SCALE
+  - GMT11-QUADRATIC-MULTIPLICITY
+  - GMT11-NULL-IMAGE
+  - GMT11-WEIGHTED-AREA
+  - GMT11-LOCAL-BILIPSCHITZ
+  - GMT11-CRITICAL-IMAGE
+  - GMT11-FOLDED-GRAPH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }
