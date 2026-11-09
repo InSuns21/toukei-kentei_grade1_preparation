@@ -227,7 +227,7 @@ A1とA2はそれぞれ二つの独立な座標条件を課すため、一般位�
 
 A2 は二本の直線の向きと位置を一致させる二条件で、[O3](../ORI6/index.md#axiom-ori6-o3)に対応する。一般位置ではどちらも軸の二自由度を拘束する。追加の一致条件を課しても軸を選ぶ自由度は残っていないため、最小性に反する。
 
-残りの A3・A4・A5 は各一条件である。A3 で要求するのは方向の一致だけでなく、**直線集合として** $R_m(L)=L$ となることである。この違いを[鏡映の座標公式](../ORI1/index.md#prop-ori1-coordinate-isometry)から確認する。軸を $m:\ n\cdot X=c$（$n\ne0$）、既知直線を $L=\{X_0+\lambda u:\lambda\in\mathbb R\}$（$u\ne0$）と書く。任意の実数 $\lambda$ に対して[鏡映公式](../ORI1/index.md#prop-ori1-coordinate-isometry)をそれぞれの点に適用すると
+残りの A3・A4・A5 は各一条件である。A3 で要求するのは方向の一致だけでなく、**直線集合として** $R_m(L)=L$ となることである。軸を $m:n\cdot X=c$（$n\ne0$）、既知直線を $L=\{X_0+\lambda u:\lambda\in\mathbb R\}$（$u\ne0$）と書く。実数 $\lambda$ を動かし、[鏡映の座標公式](../ORI1/index.md#prop-ori1-coordinate-isometry)を適用すると
 
 $$
 \begin{aligned}
@@ -237,7 +237,23 @@ R_m(X_0+\lambda u)
 \end{aligned}
 $$
 
-従って像直線の方向ベクトルは $u'=u-2(n\cdot u)n/(n\cdot n)$ である。鏡映は長さを保つため、$L$ と像直線の方向が同じなら $u'=u$ または $u'=-u$ である。前者は $n\cdot u=0$、すなわち $m\parallel L$ を意味する。このとき $L$ を $n\cdot X=d$ と書くと、$n\cdot R_m(X)=n\cdot X-2(n\cdot X-c)=2c-n\cdot X$ なので、像は $n\cdot X=2c-d$ となり、$L$ と一致するのは $d=c$、すなわち除外した $m=L$ の場合だけである。後者は $u=(n\cdot u)n/(n\cdot n)$、すなわち $u\parallel n$ を意味する。このとき $m\perp L$ で、両直線の交点が固定され、方向 $u$ は $-u$ へ写るため $R_m(L)=L$ となる。従って自明例を除いた A3 は軸の向きを決める一条件である。
+従って像直線の方向ベクトルは
+
+$$
+u'=u-\frac{2(n\cdot u)}{n\cdot n}n
+$$
+
+である。[鏡映の等距離性](../ORI1/index.md#prop-ori1-coordinate-isometry)により $u'$ は $u$ と同じ長さを持つ。よって二直線の方向が一致するなら、$u'=u$ または $u'=-u$ である。
+
+**方向を保つ場合** $u'=u$ なら $n\cdot u=0$、すなわち $m\parallel L$ である。$L$ を $n\cdot X=d$ と書けば、像の各点について
+
+$$
+n\cdot R_m(X)=n\cdot X-2(n\cdot X-c)=2c-n\cdot X
+$$
+
+なので、像直線は $n\cdot X=2c-d$ となる。$L$ と一致するのは $d=c$、すなわち除外した $m=L$ の場合だけである。
+
+**方向を反転する場合** $u'=-u$ なら $u=(n\cdot u)n/(n\cdot n)$、すなわち $u\parallel n$ である。このとき $m\perp L$ で、両直線の交点が固定され、方向 $u$ は $-u$ へ写るため、直線集合として $R_m(L)=L$ となる。従って自明例を除いた A3 は、軸の向きを決める一条件である。
 
 A4 は像点が目標直線に属する条件である。目標直線を非零法線 $a$ と実数 $b$ によって $L=\{X:a\cdot X=b\}$ と表せば、像点の所属は
 
