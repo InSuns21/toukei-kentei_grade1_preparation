@@ -29,7 +29,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl41-transport-aggregate -->
-**定義の確認**：二つの送り手。点 $1$ へ $N(1)=\{2,3\}$ から送り、$w_{12}=2$、$w_{13}=1$、$T_{12}=I_2$、$T_{13}=R(\pi/2)$、$c_2=(1,0)^{\mathsf T}$、$c_3=(0,1)^{\mathsf T}$ とする。$R(\theta)$ は平面の角度 $\theta$ の回転行列であり、$R(\pi/2)(0,1)^{\mathsf T}=(-1,0)^{\mathsf T}$ だから
+**定義の確認**：二つの送り手。点 $1$ へ $N(1)=\{2,3\}$ から送る有限模型として、重み・輸送・入力成分を
+
+$$
+\begin{gathered}
+w_{12}=2,\quad w_{13}=1,\quad T_{12}=I_2,\quad T_{13}=R(\pi/2),\\
+c_2=(1,0)^{\mathsf T},\qquad c_3=(0,1)^{\mathsf T}
+\end{gathered}
+$$
+
+とする。$R(\theta)$ は平面の角度 $\theta$ の回転行列であり、$R(\pi/2)(0,1)^{\mathsf T}=(-1,0)^{\mathsf T}$ だから
 
 $$
 (L_Tc)_1=2(1,0)^{\mathsf T}+(-1,0)^{\mathsf T}=(1,0)^{\mathsf T}.
@@ -90,6 +99,16 @@ $$
 ## 3. 行列値のカーネルを使うなら
 
 輸送は向きを揃えるが、単なるスカラー倍だけでは「辺に沿う成分を強調する」などの学習はできない。そこで、点 $j$ の二成分を点 $i$ の二成分へ写す任意の $2\times2$ 行列 $K_{ij}$ に置き換える。入力と出力のフレームが違うので、$K_{ij}$ は点 $j$ の成分から点 $i$ の成分への**線形写像の行列表現**である。これを行列値カーネルと呼ぶ。連続積分核や無限次元作用素を仮定しているわけではない。
+
+なぜ行列の左右に別々のフレーム変更が現れるのかを、[MFL40の辺輸送の行列表現](../MFL40/index.md#def-mfl40-edge-transport)と同じ方法で確かめる。幾何的な線形写像 $B_{i\leftarrow j}:T_{p_j}M\to T_{p_i}M$ を固定した場合、出発点の成分を $E_j$ で接ベクトルに戻し、写像を作用させ、到着点の $E_i^{*}$ で成分を取り出すので
+
+$$
+K_{ij}=E_i^{*}B_{i\leftarrow j}E_j,\qquad
+\widetilde K_{ij}=(E_iR_i)^{*}B_{i\leftarrow j}(E_jR_j)
+=R_i^{\mathsf T}K_{ij}R_j.
+$$
+
+学習した生成規則が入力に依存する場合も、フレーム変更後に同じ幾何的処理を表すための条件はこの両端則である。
 
 <a id="def-mfl41-kernel-covariance"></a>
 <!-- formal-statement-start -->
@@ -172,10 +191,16 @@ $u$ は任意なので行列として $\widetilde K_{ij}R_j^{\mathsf T}=R_i^{\ma
 単なる $aT_{ij}$ のほかに、辺の到着点で意味のある単位接方向 $d_i\in\mathbb R^2$ が分かる場合を考える。出発点には $d_j=T_{ij}^{\mathsf T}d_i$ を逆輸送して作る。$T_{ij}$ は直交だから両方とも単位長である。実数 $a,b$ がフレーム不変なら
 
 $$
-K_{ij}=aT_{ij}+b,d_id_j^{\mathsf T}
+K_{ij}=aT_{ij}+bd_id_j^{\mathsf T}
 $$
 
-とできる。後半は送り手の方向 $d_j$ に沿う成分を取り出して到着点の方向 $d_i$ に載せる階数一の写像である。$\widetilde d_i=R_i^{\mathsf T}d_i$ と[輸送の両端則](../MFL40/index.md#thm-mfl40-transport-gauge)から $\widetilde d_j=\widetilde T_{ij}^{\mathsf T}\widetilde d_i=R_j^{\mathsf T}d_j$。よって
+とできる。実際、任意の出発点の成分 $c_j$ に作用させると
+
+$$
+K_{ij}c_j=aT_{ij}c_j+b(d_j^{\mathsf T}c_j)d_i.
+$$
+
+後半の $d_j^{\mathsf T}c_j$ は出発点の正規直交フレームで測る方向成分であり、それを到着点の方向 $d_i$ に載せる階数一の写像である。$\widetilde d_i=R_i^{\mathsf T}d_i$ と[輸送の両端則](../MFL40/index.md#thm-mfl40-transport-gauge)から $\widetilde d_j=\widetilde T_{ij}^{\mathsf T}\widetilde d_i=R_j^{\mathsf T}d_j$。よって
 
 $$
 \begin{aligned}
@@ -243,7 +268,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl41-radial-gate -->
-**定義の確認**。$\varphi(s)=1/(1+s)$ なら $u=(3,4)^{\mathsf T}$ に対して $u^{\mathsf T}u=25$ であり、$\sigma_\varphi(u)=(3,4)^{\mathsf T}/26$。$R\in O(2)$ なら $|R^{\mathsf T}u|^2=u^{\mathsf T}RR^{\mathsf T}u=25$ なので、新フレームでは $R^{\mathsf T}(3,4)^{\mathsf T}/26$ となる。内積も零点も定義通りである。
+**定義の確認**。$\varphi(s)=1/(1+s)$、$u=(3,4)^{\mathsf T}$ なら、定義へ代入して
+
+$$
+u^{\mathsf T}u=3^2+4^2=25,\qquad
+\sigma_\varphi(u)=\frac1{26}(3,4)^{\mathsf T}.
+$$
+
+$R\in O(2)$ なら $|R^{\mathsf T}u|^2=u^{\mathsf T}RR^{\mathsf T}u=25$ なので、新フレームでの値は $R^{\mathsf T}(3,4)^{\mathsf T}/26$ となる。$u=0$ でも $\sigma_\varphi(0)=\varphi(0)0=0$ となり、内積の値と零点の条件をともに確認できる。
 <!-- definition-example-end -->
 
 <a id="thm-mfl41-layer-composition"></a>
@@ -381,7 +413,15 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** 旧重みは $1+1^2=2$、旧出力は $(2,0)^{\mathsf T}$。新入力は $\widetilde c_2=(0,-1)^{\mathsf T}$ なので新重みは $1+0^2=1$。輸送は[両端則](../MFL40/index.md#thm-mfl40-transport-gauge)で $\widetilde T_{12}=R(\pi/2)$、従って新出力は $1\cdot R(\pi/2)(0,-1)^{\mathsf T}=(1,0)^{\mathsf T}$。到着フレームは不変なので旧出力との不一致は1である。重みが不変という[輸送付き等変性定理](#thm-mfl41-transport-equivariance)の仮定を失ったため、和の外へ同一重みを取り出せない。
+**詳細解答。** 旧重みと旧出力は $w_{12}=1+1^2=2$、$(L_Tc)_1=(2,0)^{\mathsf T}$ である。一方、出発点だけフレームを回すと $\widetilde c_2=R(-\pi/2)c_2=(0,-1)^{\mathsf T}$ だから、新重みは $\widetilde w_{12}=1+0^2=1$ へ変化する。新たに計算した集約結果を $\widetilde z_1$ と書き、[輸送の両端則](../MFL40/index.md#thm-mfl40-transport-gauge)を使うと
+
+$$
+\widetilde T_{12}=R(\pi/2),\qquad
+\widetilde z_1=\widetilde w_{12}\widetilde T_{12}\widetilde c_2
+=1\cdot R(\pi/2)(0,-1)^{\mathsf T}=(1,0)^{\mathsf T}.
+$$
+
+到着フレームは不変なので旧出力との距離は1である。重みが不変という[輸送付き等変性定理](#thm-mfl41-transport-equivariance)の仮定を失ったため、和の外へ同一重みを取り出せない。
 
 一方、$|\widetilde c_2|^2=c_2^{\mathsf T}R_2R_2^{\mathsf T}c_2=|c_2|^2=1$ なので、新旧の重みはいずれも2。この場合、新出力は $(2,0)^{\mathsf T}$ と一致する。
 <!-- solution-end -->
@@ -452,10 +492,10 @@ $$
 ### Level C：輸送・方向・ゲートの統合
 
 <a id="ex-mfl41-c01"></a>
-**C01（有限メッシュの型付き層を設計する）。** 三頂点 $I=\{1,2,3\}$ について $N(1)=\{2,3\}$、$N(2)=\{1\}$、$N(3)=\{1\}$ とする。辺輸送 $T_{ij}\in O(2)$ と、各到着点の辺ごとの単位方向 $d_{ij}\in\mathbb R^2$ を与え、$d_{ji}=T_{ij}^{\mathsf T}d_{ij}$ が成り立つとする。$a_{ij},b_{ij}$ をフレーム不変な実数として
+**C01（有限メッシュの型付き層を設計する）。** 三頂点 $I=\{1,2,3\}$ について $N(1)=\{2,3\}$、$N(2)=\{1\}$、$N(3)=\{1\}$ とする。各有向辺 $j\to i$ に辺輸送 $T_{ij}\in O(2)$ と到着点での単位方向 $d_{ij}\in\mathbb R^2$ を与え、同じ辺の出発点での方向を $q_{ij}:=T_{ij}^{\mathsf T}d_{ij}$ と定める。添字 $ij$ はどちらも辺 $j\to i$ を指し、逆向きの辺 $i\to j$ の方向とは区別する。$a_{ij},b_{ij}$ をフレーム不変な実数として
 
 $$
-K_{ij}=a_{ij}T_{ij}+b_{ij}d_{ij}d_{ji}^{\mathsf T},
+K_{ij}=a_{ij}T_{ij}+b_{ij}d_{ij}q_{ij}^{\mathsf T},
 \qquad F(c)_i=\frac{z_i}{1+|z_i|^2},
 \quad z_i=\sum_{j\in N(i)}K_{ij}c_j
 $$
@@ -469,14 +509,14 @@ $$
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** まずどの点の成分かを固定する。$d_{ij}$ は到着点 $i$、$d_{ji}$ は出発点 $j$ の成分であり、両方が単位長である。各辺で $\widetilde T_{ij}=R_i^{\mathsf T}T_{ij}R_j$、$\widetilde d_{ij}=R_i^{\mathsf T}d_{ij}$ とすると
+**詳細解答。** まずどの点の成分かを固定する。$d_{ij}$ は到着点 $i$、$q_{ij}$ は同じ辺の出発点 $j$ の成分であり、$T_{ij}$ が直交するので両方が単位長である。各辺で $\widetilde T_{ij}=R_i^{\mathsf T}T_{ij}R_j$、$\widetilde d_{ij}=R_i^{\mathsf T}d_{ij}$ とすると
 
 $$
 \begin{aligned}
-\widetilde d_{ji}
+\widetilde q_{ij}
 &=\widetilde T_{ij}^{\mathsf T}\widetilde d_{ij}\\
 &=R_j^{\mathsf T}T_{ij}^{\mathsf T}R_iR_i^{\mathsf T}d_{ij}\\
-&=R_j^{\mathsf T}d_{ji}.
+&=R_j^{\mathsf T}q_{ij}.
 \end{aligned}
 $$
 
@@ -486,7 +526,7 @@ $$
 \begin{aligned}
 \widetilde K_{ij}
 &=a_{ij}R_i^{\mathsf T}T_{ij}R_j
- +b_{ij}(R_i^{\mathsf T}d_{ij})(R_j^{\mathsf T}d_{ji})^{\mathsf T}\\
+ +b_{ij}(R_i^{\mathsf T}d_{ij})(R_j^{\mathsf T}q_{ij})^{\mathsf T}\\
 &=R_i^{\mathsf T}K_{ij}R_j.
 \end{aligned}
 $$
@@ -503,7 +543,7 @@ $$
 第3問では $R_1^{\mathsf T}R_1=I_2$ なので
 
 $$
-|\widetilde F(c)_1|^2
+|F_{\widetilde K}(\widetilde c)_1|^2
 =\frac{(1,1)R_1R_1^{\mathsf T}(1,1)^{\mathsf T}}{9}
 =\frac29=|F(c)_1|^2.
 $$

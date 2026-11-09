@@ -1,0 +1,37 @@
+id: "MFL42"
+title: "Mesh離散化・幾何数値安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL41
+  - NA6
+  - MFL19
+official_scope: []
+learning_objectives:
+  - 緯線の周期メッシュで辺輸送を含む共変中心差分を構成できる
+  - 局所O(2)フレーム変更に対する有限メッシュ作用素の厳密な等変性を証明できる
+  - 滑らかな周期場の二次整合誤差と回転モードの固有値誤差を導出できる
+  - 辺輸送の角度誤差が差分のhの負二乗で増幅される仕組みを評価できる
+  - 接続の中点再積分と辺の両端共変変換を区別できる
+  - 直交輸送の陽的平滑化に対する安定刻みと反例を証明できる
+  - 等変性・離散化整合性・数値安定性・学習汎化を混同せず実験指標を設計できる
+definitions:
+  - { id: MFL42-DEF-01, name: 周期メッシュの輸送付き差分作用素 }
+  - { id: MFL42-DEF-02, name: 辺輸送近似誤差 }
+theorems:
+  - { id: MFL42-THM-01, name: 離散共変差分の厳密なゲージ等変性 }
+  - { id: MFL42-THM-02, name: 緯線の輸送付き中心差分の二次整合性 }
+  - { id: MFL42-PROP-01, name: 回転モードの離散固有値と誤差 }
+  - { id: MFL42-THM-03, name: 輸送近似の離散作用素への影響 }
+  - { id: MFL42-THM-04, name: 直交輸送による陽的平滑化の安定性 }
+canonical_examples:
+  - 赤道と非零接続の緯線での差分行列
+  - 固定回転モードの連続・離散固有値比較
+  - 中点積分による輸送近似の誤差増幅
+  - 独立なO(2)ゲージ変更と非等長輸送の反例
+  - 安定・不安定な陽的反復の比較
+problem_patterns: [MFL42-A01, MFL42-A02, MFL42-A03, MFL42-A04, MFL42-B01, MFL42-B02, MFL42-B03, MFL42-B04, MFL42-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 6.0, review: 2.0 }

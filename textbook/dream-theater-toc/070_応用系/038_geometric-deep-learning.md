@@ -21,3 +21,4 @@
 18. [MFL39 接ベクトル場とchart/frameの変更](textbook/volumes/dream_thater/応用系/MFL/MFL39/index.md)
 19. [MFL40 Gauge変換・moving frameと辺の輸送](textbook/volumes/dream_thater/応用系/MFL/MFL40/index.md)
 20. [MFL41 Gauge-equivariant convolution](textbook/volumes/dream_thater/応用系/MFL/MFL41/index.md)
+21. [MFL42 Mesh離散化・幾何数値安定性](textbook/volumes/dream_thater/応用系/MFL/MFL42/index.md)

@@ -549,6 +549,6 @@ $$
 
 ### 参考文献（研究級定理の原典）
 
-- A. Máthé, J. A. Noel, O. Pikhurko, “Circle squaring with pieces of small boundary and low Borel complexity,” *Advances in Mathematics* **484** (2026), 110685. [原論文PDF](https://pikhurko.github.io/E/MatheNoelPikhurko26am.pdf)、Theorem 1.2・Theorem 1.3。[プレプリント arXiv:2202.01412](https://arxiv.org/abs/2202.01412) は2022年公開。
+- A. Máthé, J. A. Noel, O. Pikhurko, “Circle squaring with pieces of small boundary and low Borel complexity,” *Advances in Mathematics* **484** (2026), 110685. [原論文の本文](https://pikhurko.github.io/E/MatheNoelPikhurko26am.pdf)、Theorem 1.2・Theorem 1.3。[プレプリント arXiv:2202.01412](https://arxiv.org/abs/2202.01412) は2022年公開。
 - Ł. Grabowski, A. Máthé, O. Pikhurko, “Measurable circle squaring,” *Annals of Mathematics* **185** (2017), 671–710。[原論文](https://annals.math.princeton.edu/2017/185-2/p06)。
 - A. S. Marks, S. T. Unger, “Borel circle squaring,” *Annals of Mathematics* **186** (2017), 581–605。[原論文](https://annals.math.princeton.edu/2017/186-2/p04)。

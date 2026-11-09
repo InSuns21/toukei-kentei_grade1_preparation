@@ -172,7 +172,7 @@ chapters:
     title: "Gauge-equivariant convolution"
   - id: MFL42
     path: textbook/volumes/dream_thater/応用系/MFL/MFL42
-    status: planned
+    status: completed
     title: "Mesh離散化・幾何数値安定性"
   - id: MFL43
     path: textbook/volumes/dream_thater/応用系/MFL/MFL43

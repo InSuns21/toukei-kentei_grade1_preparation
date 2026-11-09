@@ -12,7 +12,7 @@
 
 ## 1. 集合の「測れる」と「Borelである」は違う
 
-長方形・円盤の面積は計算できますが、任意の部分集合を面積の演算対象にしてよいわけではありません。前講で使ったLebesgue可測集合は、Lebesgue測度 $\lambda_d$ が定義される集合の族です。一方、**Borel集合**は開集合から可算回の集合演算で構成される集合の族で、面積とは別の出発点を持ちます。
+長方形・円盤の面積は計算できますが、任意の部分集合を面積の演算対象にしてよいわけではありません。前講で使ったLebesgue可測集合は、Lebesgue測度 $\lambda_d$ が定義される集合の族です。Lebesgue測度は[測度の完備化](../../../解析系/F0/F0-00D4/index.md#def-measure-completion)を含み、可測な零集合の任意の部分集合も可測です。一方、**Borel集合**は開集合から生成される $\sigma$-代数に属する集合で、面積とは別の出発点を持ちます。
 
 [F0-00D2で定義した$\sigma$-代数](../../../解析系/F0/F0-00D2/index.md#def-f0-00d2-01)は、全体集合を含み、補集合と可算和で閉じる集合族です。可算共通部分も補集合と可算和で表せるため閉じています。$\mathbb R^d$ の**開集合**とは、各点の周囲に十分小さい開球が丸ごと含まれる集合です。閉集合は開集合の補集合です。以下は[既習のBorel $\sigma$-代数](../../../解析系/F0/F0-00D2/index.md#def-f0-00d2-03)を $\mathbb R^d$ に拡張した再掲です。
 
@@ -24,7 +24,16 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sqc11-borel -->
-**定義の確認**　開区間 $(a,b)$ は開集合だからBorelです。閉区間 $[a,b]$ は開集合 $(-\infty,a)\cup(b,\infty)$ の補集合なのでBorelです。半開区間 $[a,b)=[a,b]\cap(-\infty,b)$ もBorelです。有限個の直積からなる半開長方形も、座標射影の連続性を用いればBorel集合です。例えば $[0,1)\times[0,1)$ は二つのBorelな帯の交わりとして書けます。
+**定義の確認**　$a<b$ とします。開区間 $(a,b)$ は開集合だからBorelです。閉区間 $[a,b]$ は開集合 $(-\infty,a)\cup(b,\infty)$ の補集合なのでBorelです。半開区間 $[a,b)=[a,b]\cap(-\infty,b)$ もBorelです。
+
+平面の点 $(x_1,x_2)$ から第 $j$ 座標を取り出す写像を $\pi_j(x_1,x_2)=x_j$（$j=1,2$）と書きます。これは連続なので開集合の逆像が開集合です。逆像は補集合・可算和と可換ですから、Borel集合の逆像もBorelになります。従って座標の条件から得る帯はBorelであり、例えば
+
+$$
+[0,1)\times[0,1)
+=\pi_1^{-1}([0,1))\cap\pi_2^{-1}([0,1))
+$$
+
+と書けます。これは[積Borel $\sigma$-代数](../../../解析系/F0/F0-00D2C/index.md#def-f0-00d2c-01)の長方形の具体例でもあります。同じ逆像の議論を各座標へ適用すれば、有限個の半開区間の直積もBorelと判定できます。
 
 さらに可算集合 $\{x_1,x_2,\ldots\}$ は、各一点集合 $\{x_n\}$ が閉集合なので $\bigcup_{n\ge1}\{x_n\}$ としてBorelです。これらの確認はどれも「出発点が開集合で、許された演算を有限回または可算回使った」ことの検証です。
 <!-- definition-example-end -->
@@ -60,7 +69,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Borel集合のLebesgue可測性とBaire性）**
-> 任意の整数 $d\ge1$ とBorel集合 $E\in\mathcal B(\mathbb R^d)$ に対し、$E$ はLebesgue可測であり、かつBaire性を持つ。すなわち
+> 任意の整数 $d\ge1$ とBorel集合 $E\in\mathcal B(\mathbb R^d)$ に対し、$E$ はLebesgue可測であり、かつBaire性を持つ。ここで $\mathcal L(\mathbb R^d)$ はLebesgue可測集合族、$\mathcal P_{\mathrm{Baire}}(\mathbb R^d)$ はBaire性を持つ集合族を表す。すなわち
 
 $$
 \mathcal B(\mathbb R^d)
@@ -68,7 +77,6 @@ $$
 \cap\mathcal P_{\mathrm{Baire}}(\mathbb R^d),
 $$
 
-> ただし $\mathcal L$ はLebesgue可測集合族、$\mathcal P_{\mathrm{Baire}}$ はBaire性を持つ集合族を表す。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -93,10 +101,10 @@ $$
 
 右辺はmeagerであり、その部分集合もmeagerです。左の開集合の可算和は開集合なので、$\bigcup_n E_n\in\mathcal P$ です。
 
-補集合については、$E\triangle U=M$ なら $E^c\triangle U^c=M$ です。$U^c$ は閉集合で、その内部 $V=\operatorname{int}(U^c)$ は開集合です。差 $U^c\setminus V$ は閉集合の境界であり、閉かつ内部が空なので至る所疎です。従って
+補集合については、$E\triangle U=M$ なら $E^c\triangle U^c=M$ です。$F=U^c$ は閉集合で、その内部 $V=\operatorname{int}(F)$ は開集合です。$F\setminus V$ は閉集合であり、もし空でない開集合 $W$ を含めば $W\subset F$ から $W\subset\operatorname{int}(F)=V$ となり矛盾します。従って $F\setminus V$ は内部が空の閉集合、すなわち至る所疎です。ゆえに
 
 $$
-E^c\triangle V\subseteq M\cup(U^c\setminus V)
+E^c\triangle V\subseteq M\cup(F\setminus V)
 $$
 
 はmeagerとなり、$E^c\in\mathcal P$ です。全体集合も開ですから、$\mathcal P$ は開集合を含む $\sigma$-代数です。再びBorelの最小性より $\mathcal B\subseteq\mathcal P$ です。
@@ -120,9 +128,17 @@ $$
 
 中三分Cantor集合 $C$ は第 $n$ 段階で $2^n$ 本、各長さ $3^{-n}$ の閉区間に含まれるので、その全長は $(2/3)^n$ です。$n\to\infty$ でこれが $0$ に収束するため $\lambda_1(C)=0$ です。また $C$ は閉で内部が空なので至る所疎です。
 
-各点は左右どちらの区間を残すかという二進無限列で指定でき、$C$ の濃度は連続体濃度 $\mathfrak c=|\mathbb R|$ です。その部分集合族 $\mathcal P(C)$ の濃度は $2^{\mathfrak c}$ です。一方、実数直線のBorel集合は可算の基底から可算回の集合演算を記述できるので、その総数は高々 $\mathfrak c$ です。[Cantorの定理](../../../基礎科目/SET/SET-U3/index.md#thm-setu3-cantor) $2^{\mathfrak c}>\mathfrak c$ により、$N\subset C$ でBorelでないものを選べます。
+各点は左右どちらの区間を残すかという無限列 $(b_n)_{n\ge1}\in\{0,1\}^{\mathbb N}$ から
 
-Lebesgue測度は**完備**であり、測度0の可測集合のすべての部分集合も可測です。従って $N\subset C$ はLebesgue可測で $\lambda_1(N)=0$。さらに $N$ は至る所疎な $C$ の部分集合だからmeagerで、$N\triangle\varnothing=N$ と書けてBaire性を持ちます。しかし選び方によりBorelではありません。
+$$
+x=\sum_{n=1}^{\infty}\frac{2b_n}{3^n}
+$$
+
+と一意に表せます。最初に異なる桁の寄与は後続桁の寄与の総和より大きいので異なる列は異なる点を与え、$C$ の濃度は連続体濃度 $\mathfrak c=|\mathbb R|$ です。その部分集合族 $\mathcal P(C)$ の濃度は $2^{\mathfrak c}$ です。
+
+一方、実数直線のBorel集合は、可算基底を出発点とし、補集合・可算和の演算順を可算個の記号で記録した符号で表せるので、その総数は高々 $\mathfrak c$ です（[BorelとLebesgue可測集合の比較](../../../解析系/F0/F0-00D4/index.md#def-measure-completion)も参照）。[Cantorの定理](../../../基礎科目/SET/SET-U3/index.md#thm-setu3-cantor) $2^{\mathfrak c}>\mathfrak c$ により、$N\subset C$ でBorelでないものを選べます。
+
+[Lebesgue測度の完備性](../../../解析系/F0/F0-00D4/index.md#def-measure-completion)により、測度0の可測集合 $C$ のすべての部分集合も可測です。従って $N\subset C$ はLebesgue可測で $\lambda_1(N)=0$。さらに $N$ は至る所疎な $C$ の部分集合だからmeagerで、$N\triangle\varnothing=N$ と書けてBaire性を持ちます。しかし選び方によりBorelではありません。
 <!-- proof-end -->
 
 この反例は**存在の議論**であり、非Borelな $N$ の点を一つずつ計算して列挙したものではありません。また、すべてのLebesgue可測集合がBaire性を持つ、あるいはその逆、とは本命題から推論できません。
@@ -162,7 +178,14 @@ $$
 
 各 $O-v$ は開、$A_v$ はBorel、和は有限なので逆像もBorelです。$f$ はBorel写像です。逆写像も移動後のBorel片 $A_v+v$ で $y\mapsto y-v$ と書けるためBorelです。
 
-(2) なら $g(x)=f(x)-x$ と置きます。$f$ と恒等写像はBorel写像で、差という連続演算で合成した $g:A\to\mathbb R^d$ もBorelです。各 $v\in V$ で
+(2) なら $g(x)=f(x)-x$ と置きます。なぜ $g$ もBorelかを確認します。任意の開集合 $U,W\subset\mathbb R^d$ に対し、写像 $x\mapsto(f(x),x)$ による開長方形 $U\times W$ の逆像は
+
+$$
+\{x\in A:(f(x),x)\in U\times W\}
+=f^{-1}(U)\cap(A\cap W)
+$$
+
+です。両者は $A$ の相対Borel集合であり、$\mathbb R^{2d}$ の開集合は可算個の開長方形の和で書けるので、$x\mapsto(f(x),x)$ はBorel写像です。差を取る写像 $(y,z)\mapsto y-z$ は連続であり、連続写像の逆像は開集合を開集合に戻すため、合成 $g:A\to\mathbb R^d$ もBorelです。各 $v\in V$ で
 
 $$
 A_v=g^{-1}(\{v\})=\{x\in A:f(x)=x+v\}
@@ -185,7 +208,25 @@ $$
 
 ## 3. 2017年の二つの存在定理を正確に読む
 
-ここからは引用結果です。まず平面に限らず $\mathbb R^d$ を考えます。位相的境界 $\partial A$ と[上box次元](../SQC9/index.md#def-sqc9-upper-box-dimension)は前講の定義に従い、$\overline{\dim}_{\mathrm{box}}(\partial A)$ と書きます。$d$ 次元Lebesgue測度は $\lambda_d$ です。空間全体を動かす操作は平行移動だけとし、回転も拡大縮小も使いません。
+ここからは引用結果です。まず平面に限らず $\mathbb R^d$ を考えます。位相的境界 $\partial A$ は集合とその補集合の両方に任意に近づける点の集まりで、$\partial$ はここでは偏微分ではありません。[上box次元](../SQC9/index.md#def-sqc9-upper-box-dimension)を用いて $\overline{\dim}_{\mathrm{box}}(\partial A)$ と書きます。$d$ 次元Lebesgue測度は $\lambda_d$ です。空間全体を動かす操作は平行移動だけとし、回転も拡大縮小も使いません。
+
+境界の上box次元が $d$ 未満なら、元の集合がBorelでなくてもLebesgue測度を使えます。有界な $E\subset\mathbb R^d$ の境界が空でないとき、その上box次元より大きく $d$ より小さい実数 $s$ を取ります。[被覆数の定義](../SQC9/index.md#def-sqc9-upper-box-dimension)と上極限の性質から、ある定数 $C>0$ と十分小さな $\delta>0$ について
+
+$$
+\overline{\dim}_{\mathrm{box}}(\partial E)<s<d,
+\qquad N_\delta(\partial E)\le C\delta^{-s}
+$$
+
+です。$\lambda_d^*$ を任意の集合に定義されるLebesgue外測度と書きます。境界を覆う立方体一個の体積は $\delta^d$ なので
+
+$$
+\lambda_d^*(\partial E)
+\le N_\delta(\partial E)\delta^d
+\le C\delta^{d-s}\longrightarrow0
+\qquad(\delta\downarrow0)
+$$
+
+です（境界が空なら外測度0は自明です）。$E=\operatorname{int}(E)\cup(E\cap\partial E)$ であり、内部は開集合、残りは外測度0の集合だから[測度の完備性](../../../解析系/F0/F0-00D4/index.md#def-measure-completion)によってLebesgue可測です。これが次の定理で、Borelでない元集合にも $\lambda_d(A)$ を使える理由です。
 
 ### Grabowski–Máthé–Pikhurko（2017）：二種類の可測性を同時に満たす
 
@@ -367,7 +408,7 @@ $F$ が至る所疎なら $E\subset F$ も至る所疎なので、meagerです�
 <!-- solution-start -->
 **詳細解答**
 
-$T_v(x)=x+v$ は連続で逆写像 $T_{-v}$ も連続です。$\mathcal F=\{E\subset\mathbb R^2:T_v(E)\text{ がBorel}\}$ と置けば、$T_v$ は全単射なので、全体集合、補集合、可算和を保ち、$\mathcal F$ は $\sigma$-代数です。開集合 $O$ の像 $O+v$ も開であるため $\mathcal F$ はすべての開集合を含みます。[Borelの最小性](#def-sqc11-borel)により $\mathcal B(\mathbb R^2)\subseteq\mathcal F$、従って $E+v$ はBorelです。
+$T_v(x)=x+v$ は連続で逆写像 $T_{-v}$ も連続です。$\mathcal G_v=\{H\subset\mathbb R^2:T_v(H)\text{ がBorel}\}$ と置けば、$T_v$ は全単射なので、全体集合、補集合、可算和を保ち、$\mathcal G_v$ は $\sigma$-代数です。開集合 $O$ の像 $O+v$ も開であるため $\mathcal G_v$ はすべての開集合を含みます。[Borelの最小性](#def-sqc11-borel)により $\mathcal B(\mathbb R^2)\subseteq\mathcal G_v$、従って $E+v$ はBorelです。
 <!-- solution-end -->
 
 **SQC11-A4（移動ラベルの逆像）**　$A=[0,2)\times[0,1)$ で、$0\le s<1$ なら移動ベクトル $(0,0)$、$1\le s<2$ なら $(-1,1)$ を割り当てる。各ラベルの逆像と像の二片を求め、両側で厳密な分割となることを示せ。
@@ -415,7 +456,7 @@ $$
 
 Borel集合の総数は高々 $\mathfrak c$ なので、$C$ の部分集合で非Borelな $N$ が存在します。
 
-中三分の第 $n$ 段階で被覆する区間の全長は $(2/3)^n\to0$ なので、$C$ のLebesgue測度は0です。**Lebesgue測度の完備性**から $N\subset C$ も可測で、測度は0です。
+中三分の第 $n$ 段階で被覆する区間の全長は $(2/3)^n\to0$ なので、$C$ のLebesgue測度は0です。[Lebesgue測度の完備性](../../../解析系/F0/F0-00D4/index.md#def-measure-completion)から $N\subset C$ も可測で、測度は0です。
 
 また $C$ は至る所疎なので $N$ はmeagerです。$N\triangle\varnothing=N$ と書けるためBaire性も持ちます。従って[Borel集合のLebesgue可測性とBaire性](#prop-sqc11-borel-regularity)の逆は一般に成立しません。
 <!-- solution-end -->
@@ -503,7 +544,7 @@ $$
 
 (3) 外周の非Borel部分集合 $N$ は面積0なので、$H'=H\setminus N$ の面積は $\pi(R^2-a^2)$ のままです。
 
-外周の点の近くには内外の点が必ずあり、円環内部と内周付近は変更していないので、
+外周上の点を削っても開円環 $\{a^2<x^2+y^2<R^2\}$ は丸ごと残り、外周の各点には内側から近づけます。従って $\overline{H'}=H$ です。また、削ったのは外周上の点だけなので $\operatorname{int}(H')=\operatorname{int}(H)$ です。境界を $\partial H'=\overline{H'}\setminus\operatorname{int}(H')$ と計算すると、
 
 $$
 \partial H'=\partial H,\qquad
