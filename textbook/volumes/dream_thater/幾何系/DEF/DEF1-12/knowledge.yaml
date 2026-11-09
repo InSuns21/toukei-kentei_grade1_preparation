@@ -1,0 +1,53 @@
+chapter: DEF1-12
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-01, DEF1-11, GEO9, GA6, HOD1-15]
+concepts:
+  - id: deformation.cohomology-local-system-general
+    name: 複素ベクトル空間の局所系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素ベクトル空間の局所系）"]
+    requires: [geometry.de-rham-cohomology]
+  - id: deformation.cohomology-transition-constant
+    name: コホモロジー遷移の局所定数性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（局所自明化のコホモロジー遷移は局所定数）"]
+    requires: [deformation.ehresmann-trivialization, geometry.de-rham-homotopy-invariance]
+  - id: deformation.fiber-cohomology-local-system
+    name: ファイバーコホモロジー局所系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ファイバーコホモロジー局所系）"]
+    requires: [deformation.cohomology-local-system-general, deformation.cohomology-transition-constant]
+  - id: deformation.gauss-manin-connection
+    name: Gauss–Manin接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gauss–Manin接続）"]
+    requires: [deformation.fiber-cohomology-local-system]
+  - id: deformation.gauss-manin-flatness
+    name: Gauss–Manin接続の平坦性と並行移動
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gauss–Manin接続の平坦性と並行移動）"]
+    requires: [deformation.gauss-manin-connection]
+  - id: deformation.gauss-manin-de-rham
+    name: Gauss–Manin接続のde Rham表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gauss–Manin接続のde Rham表示）"]
+    requires: [deformation.gauss-manin-connection, geometry.de-rham-cohomology]
+  - id: deformation.gauss-manin-period
+    name: 平行サイクル上の周期の微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平行サイクル上の周期の微分）"]
+    requires: [deformation.gauss-manin-de-rham]
+  - id: deformation.gauss-manin-base-change
+    name: Gauss–Manin接続の滑らかな基底変更
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな基底変更との可換性）"]
+    requires: [deformation.gauss-manin-connection]
