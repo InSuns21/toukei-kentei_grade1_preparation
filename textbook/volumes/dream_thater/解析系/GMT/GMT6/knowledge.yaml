@@ -1,0 +1,72 @@
+chapter: GMT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT3
+  - GMT4
+  - GMT5
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt6-l2-density
+    name: 射影測度のL2密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影測度のL2密度）"]
+    requires:
+      - geometric-measure.gmt5-orthogonal-projection
+
+  - id: geometric-measure.gmt6-fourier-l2-density
+    name: 有限測度のFourier L2判定
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限測度のFourier L2判定）"]
+    requires:
+      - geometric-measure.gmt6-l2-density
+      - geometric-measure.gmt4-fourier-measure
+
+  - id: geometric-measure.gmt6-directional-fourier
+    name: 射影Fourier変換の方向平均
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（射影Fourier変換の方向平均）"]
+    requires:
+      - geometric-measure.gmt5-fourier-slicing
+      - geometric-measure.gmt6-fourier-l2-density
+
+  - id: geometric-measure.gmt6-energy-to-l2
+    name: 高指数energyによる射影密度評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（高指数energyによる射影密度評価）"]
+    requires:
+      - geometric-measure.gmt6-directional-fourier
+      - geometric-measure.gmt6-fourier-l2-density
+      - geometric-measure.gmt4-fourier-energy
+
+  - id: geometric-measure.gmt6-marstrand-positive-measure
+    name: 平面Marstrand射影定理：コンパクト集合の正測度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平面Marstrand射影定理：コンパクト集合の正測度）"]
+    requires:
+      - geometric-measure.gmt6-energy-to-l2
+      - geometric-measure.gmt3-frostman-energy
+      - geometric-measure.gmt2-frostman-lemma
+
+  - id: geometric-measure.gmt6-sigma-compact
+    name: 可算コンパクト和の正測度射影
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（可算コンパクト和の正測度射影）"]
+    requires:
+      - geometric-measure.gmt6-marstrand-positive-measure
+      - geometric-measure.gmt5-sigma-compact
+
+  - id: geometric-measure.gmt6-small-projections
+    name: 短い射影を持つ方向の割合
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（短い射影を持つ方向の割合）"]
+    requires:
+      - geometric-measure.gmt6-energy-to-l2
