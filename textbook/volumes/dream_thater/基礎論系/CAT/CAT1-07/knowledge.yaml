@@ -1,0 +1,43 @@
+chapter: CAT1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-06
+
+concepts:
+  - id: category.natural-transformation
+    name: 自然変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自然変換）"]
+    requires: [category.covariant-functor]
+  - id: category.naturality-generators
+    name: 生成射による自然性判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生成射による自然性判定）"]
+    requires: [category.natural-transformation, category.functor-composition-axioms]
+  - id: category.natural-isomorphism
+    name: 自然同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自然同型）"]
+    requires: [category.natural-transformation, category.isomorphism]
+  - id: category.natural-inverse
+    name: 自然同型の成分判定と逆の自然性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自然同型の成分判定と逆の自然性）"]
+    requires: [category.natural-isomorphism]
+  - id: category.natural-product-classification
+    name: 直積関手の自然変換の分類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直積関手の自然変換の分類）"]
+    requires: [category.natural-transformation, category.natural-inverse]
+  - id: category.natural-id-set
+    name: 集合の恒等関手の自然自己変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合の恒等関手の自然自己変換）"]
+    requires: [category.natural-transformation]

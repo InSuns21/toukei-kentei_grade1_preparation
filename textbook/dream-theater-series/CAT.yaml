@@ -13,7 +13,7 @@ chapters:
   - { id: CAT1-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-04, status: completed, title: "反対圏と双対原理" }
   - { id: CAT1-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-05, status: completed, title: "部分圏・積圏・スライス圏" }
   - { id: CAT1-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-06, status: completed, title: "関手と保存する構造" }
-  - { id: CAT1-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-07, status: planned, title: "自然変換と自然同型" }
+  - { id: CAT1-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-07, status: completed, title: "自然変換と自然同型" }
   - { id: CAT1-08, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-08, status: planned, title: "関手圏と水平・垂直合成" }
   - { id: CAT1-09, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-09, status: planned, title: "圏の同値と圏同型" }
   - { id: CAT1-10, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-10, status: planned, title: "表現可能関手と普遍元" }

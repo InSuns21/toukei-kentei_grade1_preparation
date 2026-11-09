@@ -1,0 +1,40 @@
+id: "CAT1-07"
+title: "自然変換と自然同型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-06
+official_scope: []
+learning_objectives:
+  - 二つの共変関手の間の自然変換を成分と自然性の四角形で定義し、射の型を検証できる
+  - 集合の直積関手や有限の矢印圏で自然性を直接計算し、自然でない成分族と区別できる
+  - 自然性を恒等射と合成射へ拡張し、生成射だけの検査で十分となる理由を証明できる
+  - 自然同型の成分ごとの同型性と逆成分の自然性の同値を証明できる
+  - 直積関手間の自然変換を一元集合から分類し、自然同型の条件を判定できる
+  - 一対象圏の自然変換を作用との可換条件へ翻訳し、具体的な有限集合上で分類できる
+definitions:
+  - { id: CAT1-07-DEF-01, name: 自然変換 }
+  - { id: CAT1-07-DEF-02, name: 自然同型 }
+theorems:
+  - { id: CAT1-07-PROP-01, name: 生成射による自然性判定 }
+  - { id: CAT1-07-PROP-02, name: 自然同型の成分判定と逆の自然性 }
+  - { id: CAT1-07-PROP-03, name: 直積関手の自然変換の分類 }
+  - { id: CAT1-07-PROP-04, name: 集合の恒等関手の自然自己変換 }
+canonical_examples:
+  - 集合の対角写像の自然性
+  - 二対象矢印圏の自然でない成分族
+  - 固定集合間の写像による直積関手の自然変換
+  - 一対象圏での作用との可換条件
+problem_patterns:
+  - CAT1-07-NATURALITY-SQUARE
+  - CAT1-07-DIAGONAL
+  - CAT1-07-CONSTANT-FUNCTORS
+  - CAT1-07-GENERATING-ARROWS
+  - CAT1-07-PRODUCT-FUNCTORS
+  - CAT1-07-NATURAL-INVERSE
+  - CAT1-07-IDENTITY-NATURALITY
+  - CAT1-07-MONOID-INTERTWINERS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 1 }
