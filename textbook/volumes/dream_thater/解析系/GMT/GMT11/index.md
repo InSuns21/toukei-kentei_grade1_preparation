@@ -425,7 +425,14 @@ $y\in(0,1]$ では逆像が $\pm\sqrt y$、$y=0$ では一個なので、$\int N
 
 ### グラフ：重複がなければ曲面の面積になる
 
-$F(x,y)=(x,y,ax+by)$ を長方形 $E=[0,p]\times[0,q]$（$p,q>0$）へ適用します。標準基底 $e_1,e_2$ の像 $DF e_1=(1,0,a)^{\mathsf T}$、$DF e_2=(0,1,b)^{\mathsf T}$ を列にした $DF$ について、[m次元幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian) に従い Gram 行列を作ると
+$F(x,y)=(x,y,ax+by)$ を長方形 $E=[0,p]\times[0,q]$（$p,q>0$）へ適用します。微分 $DF(x,y)$ の第1列は $y$ を固定した $x$ の変化、第2列は $x$ を固定した $y$ の変化です。標準基底の像として
+
+$$
+DF e_1=\frac{\partial F}{\partial x}=(1,0,a)^{\mathsf T},\qquad
+DF e_2=\frac{\partial F}{\partial y}=(0,1,b)^{\mathsf T}
+$$
+
+となります。この列から [m次元幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian) に従い Gram 行列を作ると
 
 $$
 DF=\begin{pmatrix}1&0\\0&1\\a&b\end{pmatrix},
@@ -707,7 +714,13 @@ rank が2なら球数が $O(\varepsilon^{-2})$ となり、この積で $\vareps
 <!-- solution-start -->
 **詳細解答**
 
-**(1)** $x>0$ では列ベクトルが $(1,0,a)^{\mathsf T}$ と $(0,1,b)^{\mathsf T}$、$x<0$ では $(-1,0,-a)^{\mathsf T}$ と $(0,1,b)^{\mathsf T}$ です。両側で Gram 行列の行列式は
+**(1)** $DF$ の第1列は $y$ を固定した $x$ に関する偏微分、第2列は $x$ を固定した $y$ に関する偏微分です。折り目以外では
+
+$$
+\frac{d}{dx}|x|=\begin{cases}1&(x>0),\\-1&(x<0)\end{cases}
+$$
+
+なので、$x>0$ では列ベクトルが $(1,0,a)^{\mathsf T}$ と $(0,1,b)^{\mathsf T}$、$x<0$ では $(-1,0,-a)^{\mathsf T}$ と $(0,1,b)^{\mathsf T}$ です。両側で Gram 行列の行列式は
 
 $$
 \begin{aligned}
