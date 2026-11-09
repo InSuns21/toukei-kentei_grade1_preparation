@@ -1,0 +1,80 @@
+chapter: CAT1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-01
+  - CAT1-02
+
+concepts:
+  - id: category.isomorphism
+    name: 同型射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同型射・逆射・同型な対象）"]
+    requires: [category.category]
+  - id: category.inverse-unique
+    name: 逆射の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（逆射の一意性）"]
+    requires: [category.isomorphism]
+  - id: category.monomorphism
+    name: モノ射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノ射）"]
+    requires: [category.category]
+  - id: category.epimorphism
+    name: エピ射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（エピ射）"]
+    requires: [category.category]
+  - id: category.iso-mono-epi
+    name: 同型射はモノ射かつエピ射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同型射はモノ射かつエピ射）"]
+    requires: [category.isomorphism, category.monomorphism, category.epimorphism]
+  - id: category.set-characterization
+    name: 集合における三つの特徴づけ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合における三つの特徴づけ）"]
+    requires: [category.monomorphism, category.epimorphism, category.isomorphism, category.set-category]
+  - id: category.split-morphism
+    name: 分裂モノ射・分裂エピ射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分裂モノ射・分裂エピ射）"]
+    requires: [category.isomorphism]
+  - id: category.split-cancellation
+    name: 分裂射の消去律と両側逆の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（分裂射の消去律と両側逆の一致）"]
+    requires: [category.split-morphism, category.monomorphism, category.epimorphism]
+  - id: category.morphism-composition
+    name: モノ射・エピ射・同型射は合成で閉じる
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モノ射・エピ射・同型射は合成で閉じる）"]
+    requires: [category.monomorphism, category.epimorphism, category.isomorphism]
+  - id: category.poset-bimorphism
+    name: 半順序圏のモノ射・エピ射・同型射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半順序圏のモノ射・エピ射・同型射）"]
+    requires: [category.poset-category, category.monomorphism, category.epimorphism, category.isomorphism]
+  - id: category.monoid-hom
+    name: モノイド準同型と圏 Mon
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイド準同型と圏 Mon）"]
+    requires: [category.monoid, category.category]
+  - id: category.monoid-nonsurj-epi
+    name: 全射でないモノイドのエピ射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全射でないモノイドのエピ射）"]
+    requires: [category.monoid-hom, category.monomorphism, category.epimorphism, category.isomorphism]

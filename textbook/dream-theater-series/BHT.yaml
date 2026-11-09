@@ -17,7 +17,7 @@ chapters:
     title: "Killing地平線と零法則"
   - id: BHT3
     path: textbook/volumes/dream_thater/物理系/BHT/BHT3
-    status: planned
+    status: completed
     title: "面積定理と第二法則の仮定"
   - id: BHT4
     path: textbook/volumes/dream_thater/物理系/BHT/BHT4
