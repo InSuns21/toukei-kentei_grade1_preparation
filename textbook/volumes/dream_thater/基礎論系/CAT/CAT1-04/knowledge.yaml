@@ -26,7 +26,7 @@ concepts:
     introduction_aliases: ["命題（反対圏と大きさ）"]
     requires: [category.opposite-category, category.small-category, category.locally-small-category]
   - id: category.dual-statement
-    name: 双対命題
+    name: 圏論における双対命題
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（双対命題）"]

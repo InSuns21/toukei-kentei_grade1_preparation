@@ -21,7 +21,7 @@ chapters:
     title: "面積定理と第二法則の仮定"
   - id: BHT4
     path: textbook/volumes/dream_thater/物理系/BHT/BHT4
-    status: planned
+    status: completed
     title: "Schwarzschild・Reissner–Nordströmの第一法則"
   - id: BHT5
     path: textbook/volumes/dream_thater/物理系/BHT/BHT5

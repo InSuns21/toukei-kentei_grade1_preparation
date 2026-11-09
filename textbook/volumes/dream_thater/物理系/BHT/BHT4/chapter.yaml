@@ -1,0 +1,45 @@
+id: "BHT4"
+title: "Schwarzschild・Reissner–Nordströmの第一法則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT3
+  - GR31
+  - GR45
+official_scope: []
+learning_objectives:
+  - RNの非極限な定常解族とその許されるパラメータ領域を明示し、地平線半径・面積・表面重力を一つの解から求められる
+  - 電荷規格化・ゲージの基準と地平線電位の符号をMaxwellポテンシャルから確認できる
+  - RN解族を地平線半径と電荷でパラメータ化し、全微分から第一法則の面積項・電荷項を一つずつ再導出できる
+  - MとQを独立変数とする導出で第一法則を再検算できる
+  - Schwarzschildの一パラメータ族へ制限して既習の変分恒等式を再現できる
+  - 固定面積と固定電荷の変分を区別し、電荷符号による寄与と極限境界での微分の問題を説明できる
+  - 定常解の接方向の関係と非定常な流入過程の法則を混同しない
+definitions:
+  - { id: BHT4-DEF-01, name: "非極限RNの定常解族" }
+  - { id: BHT4-DEF-02, name: "RNの地平線電位" }
+theorems:
+  - { id: BHT4-PROP-01, name: "RN地平線の幾何学的状態データ" }
+  - { id: BHT4-THM-01, name: "非極限RN定常解族の第一法則" }
+  - { id: BHT4-PROP-02, name: "質量・電荷座標での第一法則の検算" }
+canonical_examples:
+  - M=5LかつQ=3LのRN解で内外半径・面積・表面重力・電位を検算する
+  - Qの符号反転で幾何データは変わらず電位の符号だけが変わることを確認する
+  - SchwarzschildのQ=0部分族へ制限する
+  - 固定面積と固定電荷の方向を具体的に比較する
+  - 極限境界で平方根の偏導関数が発散する例を調べる
+problem_patterns:
+  - BHT4-RN-NUMERIC-STATE
+  - BHT4-POTENTIAL-GAUGE-CHECK
+  - BHT4-SCHWARZSCHILD-VARIATION
+  - BHT4-SIGNED-CHARGE
+  - BHT4-RADIUS-CHARGE-COORDINATES
+  - BHT4-MASS-RADIUS-DIFFERENTIAL
+  - BHT4-MQ-INDEPENDENT-VARIATION
+  - BHT4-FIXED-CHARGE-AREA-RESPONSE
+  - BHT4-EXTREMAL-LIMIT
+  - BHT4-FIRST-LAW-INTEGRATED-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
