@@ -612,7 +612,10 @@ NECなら各点で $u+\Omega_Hw\ge0$、従って $\mathcal E_H-\Omega_H\mathcal 
 
 - Level: B
 
-真空摂動で一次物質源 $f=0$、初期背景の膨張とせん断は零とする。(1) 一次のRaychaudhuri方程式と将来定常境界条件から $\vartheta$ を求めよ。(2) $\sigma_\chi=\varepsilon s$ が非零の場合、二次でどの項が残るか書き、一次の面積不変から有限振幅での面積不変を結論できない理由を説明せよ。
+真空摂動で一次物質源 $f=0$、初期背景の膨張とせん断は零とする。
+
+1. 一次のRaychaudhuri方程式と将来定常境界条件から $\vartheta$ を求めよ。
+2. $\sigma_\chi=\varepsilon s$ が非零の場合、二次でどの項が残るか書き、一次の面積不変から有限振幅での面積不変を結論できない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。** (1) $\partial_v\vartheta-\kappa\vartheta=0$ の一般解は $\vartheta=Ce^{\kappa v}$ です。$\kappa>0$ で未来定常なら $C=0$。したがって一次面積差は零です。
