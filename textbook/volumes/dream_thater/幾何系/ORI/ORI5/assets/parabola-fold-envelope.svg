@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="510" viewBox="0 0 720 510" data-layout-lint="strict" role="img" aria-labelledby="ori5-fig-title ori5-fig-desc">
+  <title id="ori5-fig-title">点を準線へ重ねる折り線と放物線の接線</title>
+  <desc id="ori5-fig-desc">焦点Fは(0,1)、水平な準線dはy=-1。準線上のDは(2,-1)で、FDの中点Mは(1,0)。FDに垂直な折り線はy=x-1で、放物線y=xの2乗割る4にT=(2,1)で接する。頂点Vは(0,0)。</desc>
+  <rect x="1" y="1" width="718" height="508" rx="8" fill="#ffffff" stroke="#d9dfe5"/>
+  <g stroke="#d0d7de" stroke-width="1.5">
+    <line x1="350" y1="70" x2="350" y2="450"/>
+    <line x1="90" y1="350" x2="650" y2="350"/>
+  </g>
+  <g stroke="#697386" stroke-width="2" stroke-dasharray="7 8">
+    <line x1="90" y1="435" x2="650" y2="435"/>
+  </g>
+  <path d="M 95 158.75 Q 222.5 350 350 350 Q 477.5 350 605 158.75"
+        fill="none" stroke="#2564a2" stroke-width="4.5"
+        data-series-group="curve-and-tangent" data-series-label="放物線"/>
+  <line x1="350" y1="435" x2="605" y2="180"
+        stroke="#c56a20" stroke-width="3.5" stroke-dasharray="14 6"
+        data-series-group="curve-and-tangent" data-series-label="折り線の接線"/>
+  <line x1="350" y1="265" x2="520" y2="435" stroke="#66748c" stroke-width="2" stroke-dasharray="3 6"/>
+  <g fill="#19344d">
+    <circle cx="350" cy="265" r="5.8"/>
+    <circle cx="520" cy="435" r="5.8"/>
+    <circle cx="435" cy="350" r="4.5"/>
+    <circle cx="350" cy="350" r="4.5"/>
+  </g>
+  <rect x="514" y="259" width="12" height="12" fill="#c56a20" stroke="#ffffff" stroke-width="1.8"/>
+  <g font-family="Noto Sans, sans-serif" font-size="19" fill="#17283a">
+    <text x="322" y="250">F</text>
+    <text x="546" y="312">T</text>
+    <text x="535" y="475">D</text>
+    <text x="450" y="414">M</text>
+    <text x="322" y="379">V</text>
+    <text x="104" y="475">d</text>
+    <text x="615" y="203">ℓ₂</text>
+  </g>
+</svg>
