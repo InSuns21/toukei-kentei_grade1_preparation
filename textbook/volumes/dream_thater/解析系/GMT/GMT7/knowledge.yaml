@@ -1,0 +1,85 @@
+chapter: GMT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT3
+  - GMT4
+  - GMT5
+  - GMT6
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt7-grassmann-projection
+    name: Grassmann空間・直交射影・回転不変確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Grassmann空間・直交射影・回転不変確率）"]
+    requires:
+      - geometric-measure.gmt5-orthogonal-projection
+
+  - id: geometric-measure.gmt7-grassmann-kernel
+    name: Grassmann射影の特異核平均
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Grassmann射影の特異核平均）"]
+    requires:
+      - geometric-measure.gmt7-grassmann-projection
+      - geometric-measure.gmt5-angular-kernel
+
+  - id: geometric-measure.gmt7-projection-energy
+    name: 射影energyのGrassmann平均
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（射影energyのGrassmann平均）"]
+    requires:
+      - geometric-measure.gmt7-grassmann-kernel
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt7-grassmann-dimension
+    name: 高次元Marstrand射影次元定理：コンパクト版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（高次元Marstrand射影次元定理：コンパクト版）"]
+    requires:
+      - geometric-measure.gmt7-projection-energy
+      - geometric-measure.gmt3-frostman-energy
+      - geometric-measure.gmt3-energy-dimension
+      - geometric-measure.gmt2-frostman-lemma
+
+  - id: geometric-measure.gmt7-fourier-slice-average
+    name: Grassmann平均と極座標
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Grassmann平均と極座標）"]
+    requires:
+      - geometric-measure.gmt7-grassmann-projection
+      - geometric-measure.gmt6-directional-fourier
+
+  - id: geometric-measure.gmt7-multidimensional-l2
+    name: 部分空間上の有限測度のFourier L2判定
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（部分空間上の有限測度のFourier L2判定）"]
+    requires:
+      - geometric-measure.gmt6-fourier-l2-density
+      - geometric-measure.gmt4-fourier-measure
+
+  - id: geometric-measure.gmt7-energy-to-l2
+    name: 高指数energyによる射影密度の平均評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（高指数energyによる射影密度の平均評価）"]
+    requires:
+      - geometric-measure.gmt7-fourier-slice-average
+      - geometric-measure.gmt7-multidimensional-l2
+      - geometric-measure.gmt4-fourier-energy
+
+  - id: geometric-measure.gmt7-grassmann-positive-volume
+    name: 高次元Marstrand射影正測度定理：コンパクト版
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（高次元Marstrand射影正測度定理：コンパクト版）"]
+    requires:
+      - geometric-measure.gmt7-energy-to-l2
+      - geometric-measure.gmt2-frostman-lemma
+      - geometric-measure.gmt3-frostman-energy

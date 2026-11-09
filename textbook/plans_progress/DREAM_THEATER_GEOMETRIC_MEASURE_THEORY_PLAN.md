@@ -8,7 +8,8 @@ GMT3着手日: 2026-11-10（Riesz energyの層ケーキ表示・capacity・Canto
 GMT4着手日時: 2026-11-10 02:26:52 JST（有限測度Fourier変換・Gaussian正則化・Riesz energy恒等式）
 GMT5着手日時: 2026-11-10 03:18:12 JST（平面直交射影・角度平均energy・Marstrand次元定理）
 GMT6着手日時: 2026-11-10 03:48:35 JST（Fourier L2密度判定・方向平均・Marstrand正測度定理）
-状態: in_progress（GMT1--GMT6 は実装・査読済み。GMT7--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT7着手日時: 2026-11-10 04:07:05 JST（Grassmann核のBeta積分・高次元射影の次元定理と正測度定理）
+状態: in_progress（GMT1--GMT7 は実装・査読済み。GMT8--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 

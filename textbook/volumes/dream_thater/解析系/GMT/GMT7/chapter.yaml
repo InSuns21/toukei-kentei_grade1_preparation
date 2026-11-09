@@ -1,0 +1,48 @@
+id: GMT7
+title: 高次元・Grassmann射影
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT3
+  - GMT4
+  - GMT5
+  - GMT6
+official_scope: []
+learning_objectives:
+  - Grassmann空間上の回転不変確率と直交射影を定義し、正規直交基底による射影行列と直接例で条件を確認できる
+  - Gaussian二乗長さからBeta分布を導き、0<t<mでGrassmann射影核のGamma係数とt=mでの発散を計算できる
+  - 射影energy平均、Frostman測度、可算の例外集合から一般d,mの射影次元定理を証明できる
+  - 部分空間上の極座標からFourier切片平均の球面積係数と重み|xi|^(m-d)を導出できる
+  - 多変数の有限測度Fourier L2判定をGaussian正則化とテスト関数で証明できる
+  - m<s<dのenergyから射影密度平均を評価し、次元mを超えるコンパクト集合の正のm次元射影体積を導ける
+  - 臨界dim_H K=mで全方向の射影体積が零となる例と小体積方向の割合上界を検算できる
+definitions:
+  - { id: GMT7-DEF-01, name: Grassmann空間・直交射影・回転不変確率 }
+theorems:
+  - { id: GMT7-LEM-01, name: Grassmann射影の特異核平均 }
+  - { id: GMT7-COR-01, name: 射影energyのGrassmann平均 }
+  - { id: GMT7-THM-01, name: 高次元Marstrand射影次元定理：コンパクト版 }
+  - { id: GMT7-LEM-02, name: Grassmann平均と極座標 }
+  - { id: GMT7-LEM-03, name: 部分空間上の有限測度のFourier L2判定 }
+  - { id: GMT7-PROP-01, name: 高指数energyによる射影密度の平均評価 }
+  - { id: GMT7-THM-02, name: 高次元Marstrand射影正測度定理：コンパクト版 }
+canonical_examples:
+  - R3の座標平面での正規直交射影行列とGaussianによる回転不変確率
+  - m次元単位立方体の傾いた射影体積とL2密度
+  - 次元mかつm次元Hausdorff測度0のコンパクト集合の全方向零体積射影
+  - d=3,m=1およびm=2の射影核Gamma係数
+problem_patterns:
+  - GMT7-PROJECTION-MATRIX
+  - GMT7-LINE-KERNEL
+  - GMT7-PLANE-KERNEL
+  - GMT7-RADIAL-FOURIER
+  - GMT7-TILTED-DENSITY
+  - GMT7-BETA-JACOBIAN
+  - GMT7-SIGMA-COMPACT
+  - GMT7-LOW-DIMENSION-EXCEPTION
+  - GMT7-ENERGY-COEFFICIENT
+  - GMT7-SMALL-VOLUME-PROBABILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 7, review: 3 }
