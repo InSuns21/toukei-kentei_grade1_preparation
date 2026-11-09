@@ -12,7 +12,9 @@ $a$ と $b$ は異なる対象だが、$a\to b$ と $b\to a$ の合成は各恒�
 
 $\mathcal E$ の二対象を一つの対象 $*$ へ送る関手は、対象集合の全単射にはなり得ない。それでも、どの二対象の間の射が何本あるか、どの射を合成できるかという情報は失わない。「同型な対象を重複して数えるかどうか」を区別するために、まず厳密に元へ戻す条件を、次により柔軟な比較を定義する。
 
-以下の関手はすべて共変とする。$\mathcal C,\mathcal D$ は特に断らなければ局所小圏とし、$\operatorname{Hom}_{\mathcal C}(X,Y)$ は $X\to Y$ の射全体の集合を表す。大きな圏についても同じ式を使うが、代表対象を一斉に選ぶ場面では選択に関する仮定を明示する。
+以下の関手はすべて共変とする。$\mathcal C,\mathcal D$ は特に断らなければ[局所小圏](../CAT1-02/index.md#def-cat1-02-size)とし、$\operatorname{Hom}_{\mathcal C}(X,Y)$ は $X\to Y$ の射全体の集合を表す。大きな圏についても同じ式を使うが、代表対象を一斉に選ぶ場面では選択に関する仮定を明示する。
+
+[合成関手](../CAT1-06/index.md#def-cat1-06-composition) $G\circ F$ を本章では $GF$ と略記する。例えば $GF(X)=G(F(X))$、$GF(f)=G(F(f))$ であり、$GFX$ は $G(F(X))$ の略記である。$FG$ は適用順序が逆の合成 $F\circ G$ を表す。
 
 ## 2. 圏同型：戻すと対象も射も厳密に一致する
 
@@ -82,7 +84,7 @@ $$
 であり、$P_{x,y}(u_{xy})=1_*$ は一元集合間の全単射である。$x=y$ でも $x\ne y$ でも同じ検査が成立し、$P$ は充満忠実である。対象写像は単射でないが、**充満忠実は対象写像の単射性を要求しない**。
 <!-- definition-example-end -->
 
-対照的に、対象 $0,1$ と恒等射だけの離散圏 $\mathcal A$ から $\mathcal E$ へ、対象をそのまま移す関手 $J$ を取る。$x\ne y$ の Hom 写像は
+恒等射以外の射を持たない圏を **離散圏** という。対照的に、$\mathcal E$ と同じ対象 $a,b$ を持つ離散圏 $\mathcal A$ から $\mathcal E$ へ、対象と射をそのまま移す包含関手 $J$ を取る。$x\ne y$ の Hom 写像は
 
 $$
 \varnothing=\operatorname{Hom}_{\mathcal A}(x,y)
@@ -203,7 +205,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（圏の同値の判定）**
 >
-> 小さい圏 $\mathcal C,\mathcal D$ と共変関手 $F:\mathcal C\to\mathcal D$ に対して、次は同値である。
+> [小さい圏](../CAT1-02/index.md#def-cat1-02-size) $\mathcal C,\mathcal D$ と共変関手 $F:\mathcal C\to\mathcal D$ に対して、次は同値である。
 >
 > 1. $F$ は[圏の同値](#def-cat1-09-equivalence)、すなわち準逆関手と二つの自然同型を持つ。
 > 2. $F$ は[充満忠実](#def-cat1-09-fully-faithful)かつ[本質的全射](#def-cat1-09-essentially-surjective)である。
@@ -379,9 +381,16 @@ $$
 
 ### 7.2 三条件を一つずつ外すと何が壊れるか
 
-- **充満性を外す**：二対象離散圏 $\mathcal A\to\mathcal E$ の $J$ は忠実・本質的全射である。だが $\operatorname{Hom}_{\mathcal A}(0,1)=\varnothing$ から $\operatorname{Hom}_{\mathcal E}(0,1)=\{u_{01}\}$ への写像は全射でない。$\mathcal E$ で存在する $0\cong1$ の射を $\mathcal A$ に戻せず、準逆は存在しない。
+- **充満性を外す**：二対象離散圏 $\mathcal A\to\mathcal E$ の $J$ は忠実・本質的全射である。しかし異なる対象の間では
+
+  $$
+  J_{a,b}:\operatorname{Hom}_{\mathcal A}(a,b)=\varnothing
+  \longrightarrow\operatorname{Hom}_{\mathcal E}(a,b)=\{u_{ab}\}
+  $$
+
+  は全射でない。$\mathcal E$ で存在する $a\cong b$ の射を $\mathcal A$ に戻せず、準逆は存在しない。
 - **忠実性を外す**：対象一つ・射二つ $e,z$ を持つ圏 $\mathcal M$ を取り、合成を $e$ は単位、$z\circ z=z$ と定める。[一対象圏の構成](../CAT1-02/index.md#prop-cat1-02-one-object)から圏となる。唯一の関手 $\mathcal M\to\mathbf 1$ は二元 Hom を一元 Hom に写すので全射だが単射でない。対象上も全射なので充満・本質的全射だが同値でない。$e$ と $z$ が区別不能になっている。
-- **本質的全射性を外す**：一対象離散圏 $\mathbf 1$ を二対象離散圏 $\mathcal A$ の対象 $0$ へ含める関手は唯一の Hom 写像が全単射なので充満忠実。しかし $1$ は $0$ と同型でないため本質的全射ではない。
+- **本質的全射性を外す**：一対象離散圏 $\mathbf 1$ を二対象離散圏 $\mathcal A$ の対象 $a$ へ含める関手は唯一の Hom 写像が全単射なので充満忠実。しかし $b$ は $a$ と同型でないため本質的全射ではない。
 
 三条件を一つの「だいたい全単射」という印象にまとめず、射の消失・射の追加・到達できない対象という三つの失敗を別々に検査する。
 
@@ -444,17 +453,38 @@ $$
 充満忠実関手 $F:\mathcal C\to\mathcal D$、射 $f:X\to Y$ と $h:FY\to FX$ が $hF(f)=1_{FX}$、$F(f)h=1_{FY}$ を満たすとする。$g:Y\to X$ の存在と $gf=1_X$、$fg=1_Y$ を、それぞれどの条件で導くか明記せよ。
 
 <!-- solution-start -->
-**詳細解答**。[充満性](#def-cat1-09-fully-faithful)を Hom$(Y,X)$ に適用して $F(g)=h$ となる $g$ を得る。すると $F(gf)=F(g)F(f)=hF(f)=1_{FX}=F(1_X)$。忠実性を Hom$(X,X)$ に適用して $gf=1_X$ と分かる。逆側も $F(fg)=F(f)F(g)=F(f)h=1_{FY}=F(1_Y)$ に忠実性を Hom$(Y,Y)$ で適用して $fg=1_Y$。従って $f$ の逆射は $g$ である。
+**詳細解答**。[充満性](#def-cat1-09-fully-faithful)を $\operatorname{Hom}_{\mathcal C}(Y,X)$ に適用して $F(g)=h$ となる $g:Y\to X$ を得る。[関手の合成・恒等射保存](../CAT1-06/index.md#def-cat1-06-functor)と仮定から
+
+$$
+F(g\circ f)=F(g)\circ F(f)=h\circ F(f)
+=1_{FX}=F(1_X)
+$$
+
+である。[忠実性](#def-cat1-09-fully-faithful)を $\operatorname{Hom}_{\mathcal C}(X,X)$ に適用すれば $g\circ f=1_X$。他方も
+
+$$
+F(f\circ g)=F(f)\circ F(g)=F(f)\circ h
+=1_{FY}=F(1_Y)
+$$
+
+なので、$\operatorname{Hom}_{\mathcal C}(Y,Y)$ 上の忠実性から $f\circ g=1_Y$ を得る。従って $f$ の逆射は $g$ である。
 <!-- solution-end -->
 
 ### CAT1-09-A05 二対象の離散圏の包含
 
 - Level: A
 
-二対象 $0,1$ の離散圏 $\mathcal A$ と一対象 $0$ の充満部分圏 $\mathcal B$ を考える。包含 $K:\mathcal B\to\mathcal A$ の充満・忠実・本質的全射の真偽を調べよ。
+$a,b$ を対象とする先ほどの離散圏 $\mathcal A$ と、対象 $a$ だけからなる[充満部分圏](../CAT1-05/index.md#def-cat1-05-subcategory) $\mathcal B$ を考える。包含 $K:\mathcal B\to\mathcal A$ の充満・忠実・本質的全射の真偽を調べよ。
 
 <!-- solution-start -->
-**詳細解答**。$\mathcal B$ の対象組は $(0,0)$ だけで、$K_{0,0}:\{1_0\}\to\{1_0\}$ は全単射。よって充満かつ忠実である。対象 $1\in\mathcal A$ は、離散圏には $0\to1$ の射がないため $K(0)=0$ と同型でない。したがって本質的全射ではない。これは Hom の全単射性が、移し先の未到達対象まで保証しない例である。
+**詳細解答**。$\mathcal B$ の対象組は $(a,a)$ だけで、包含関手の Hom 写像は
+
+$$
+K_{a,a}:\operatorname{Hom}_{\mathcal B}(a,a)=\{1_a\}
+\longrightarrow\operatorname{Hom}_{\mathcal A}(a,a)=\{1_a\},\quad 1_a\mapsto1_a
+$$
+
+だから全単射であり、$K$ は充満かつ忠実である。一方、$b\in\mathcal A$ には $a\to b$ の射がなく、$K(a)=a$ と同型でない。したがって $K$ は本質的全射ではない。これは Hom の全単射性が、移し先の未到達対象まで保証しない例である。
 <!-- solution-end -->
 
 ### CAT1-09-B01 三つの欠損を異なる例で示す
@@ -465,14 +495,14 @@ $$
 
 1. 二対象離散圏 $\mathcal A$ から二対象の薄い連結亜群 $\mathcal E$ への対象恒等関手 $J$。
 2. 射が $e,z$ で $e$ が単位・$z^2=z$ の一対象圏 $\mathcal M$ から $\mathbf 1$ への唯一の関手 $Q$。
-3. 一対象離散圏 $\mathbf 1$ から $\mathcal A$ への包含 $K$。
+3. 一対象離散圏 $\mathbf 1$ から $\mathcal A$ の対象 $a$ への包含 $K$。
 
 <!-- solution-start -->
 **詳細解答**。
 
 1. $J$ は、異なる対象への Hom 写像 $\varnothing\to\{u_{xy}\}$ が単射・非全射、同一対象への写像は一元集合間の全単射なので忠実だが充満でない。$\mathcal E$ の両対象は自分自身が $J$ の像なので本質的全射である。像にない射 $u_{ab}$ を戻せない。
 2. $Q_{*,*}:\{e,z\}\to\{1_*\}$ は全射だが $Q(e)=Q(z)$ で単射でない。対象は一つで $Q(*)=*$ なので本質的全射。従って充満・本質的全射だが忠実でない。異なる射 $e\ne z$ がつぶれる。
-3. $K_{*,*}:\{1_*\}\to\{1_0\}$ は全単射で充満忠実。だが $\mathcal A$ の $1$ は $0$ と同型でないので本質的全射ではない。像の対象では表せない対象が残る。
+3. $K_{*,*}:\{1_*\}\to\{1_a\}$ は全単射で充満忠実。だが $\mathcal A$ の $b$ は $a$ と同型でないので本質的全射ではない。像の対象では表せない対象が残る。
 
 [同値判定](#thm-cat1-09-equivalence-criterion)によりいずれも同値ではない。三例はそれぞれ異なる一条件を落としている。
 <!-- solution-end -->
@@ -540,7 +570,7 @@ $q\le q'$ なら $p=F^{-1}(q)$、$p'=F^{-1}(q')$ の間へ、充満性によっ�
 
 - Level: C
 
-小さい亜群（groupoid）$\mathcal G$（すべての射が同型射である圏）を考える。各対象の同型類から代表を一つずつ選んだ対象全体を $R$ とし、$R$ 上の充満部分圏 $\mathcal S$ を取る。包含 $I:\mathcal S\to\mathcal G$ について次をすべて示せ。
+小さい亜群（groupoid）$\mathcal G$（すべての射が同型射である圏）を考える。ここで対象の **同型類** とは、$x\sim y\iff x\cong y$ による同値類である。恒等射・逆射・[同型射の合成](../CAT1-03/index.md#prop-cat1-03-composition)から、それぞれ反射律・対称律・推移律が従う。各同型類から代表を一つずつ選んだ対象全体を $R$ とし、$R$ 上の[充満部分圏](../CAT1-05/index.md#def-cat1-05-subcategory) $\mathcal S$ を取る。包含 $I:\mathcal S\to\mathcal G$ について次をすべて示せ。
 
 1. $I$ の充満性と忠実性。
 2. $I$ の本質的全射性。
@@ -550,7 +580,7 @@ $q\le q'$ なら $p=F^{-1}(q)$、$p'=F^{-1}(q')$ の間へ、充満性によっ�
 <!-- solution-start -->
 **詳細解答**。
 
-**1. Hom の全単射。** 充満部分圏の定義により、任意の $r,t\in R$ について
+**1. Hom の全単射。** [充満部分圏の定義](../CAT1-05/index.md#def-cat1-05-subcategory)により、任意の $r,t\in R$ について
 
 $$
 \operatorname{Hom}_{\mathcal S}(r,t)
@@ -586,14 +616,29 @@ $$
 s_y\circ IH(f)=s_y(s_y^{-1}fs_x)=f\circ s_x
 $$
 
-なので $s:IH\Rightarrow1_{\mathcal G}$ は自然同型。代表 $r$ に対して $r_r=r$、$s_r=1_r$ と選ぶと $HI(r)=r$、任意の $f:r\to t$ に対して $HI(f)=1_t^{-1}f1_r=f$ なので $HI=1_{\mathcal S}$。恒等自然変換 $1_{\mathcal S}\Rightarrow HI$ と $s$ が二つの必要な自然同型である。一般の選択でも $r\to r_r$ の同型から $1_{\mathcal S}\Rightarrow HI$ を作れるが、代表上で恒等を選ぶと厳密な等号になる。
+なので $s:IH\Rightarrow1_{\mathcal G}$ は自然同型。代表 $r$ に対して $r_r=r$、$s_r=1_r$ と選ぶと $HI(r)=r$、任意の $f:r\to t$ に対して $HI(f)=1_t^{-1}f1_r=f$ なので $HI=1_{\mathcal S}$。恒等自然変換 $1_{\mathcal S}\Rightarrow HI$ と $s$ が二つの必要な自然同型である。一般の選択でも $\theta_r:=s_r^{-1}:r\to r_r$ と置けば、任意の $f:r\to t$ で
+
+$$
+HI(f)\circ\theta_r=(s_t^{-1}\circ f\circ s_r)\circ s_r^{-1}
+=s_t^{-1}\circ f=\theta_t\circ f
+$$
+
+となり、$\theta:1_{\mathcal S}\Rightarrow HI$ が自然同型になる。代表上で恒等を選べばこの自然同型は恒等で、厳密な等号 $HI=1_{\mathcal S}$ が得られる。
 <!-- solution-end -->
 
 ### CAT1-09-C02 非自明な射を持つ二対象亜群の同値
 
 - Level: C
 
-群 $(H,\cdot,e)$ を任意に一つ取り、対象 $0,1$ の圏 $\mathcal T_H$ を次のように定める。各 $i,j\in\{0,1\}$ の Hom$(i,j)$ は $H$ のコピーであり、その元を $(i,j,h)$ と書く。合成は
+群 $(H,\cdot,e)$ を任意に一つ取る。ここで使う群の公理は、すべての $g,h,k\in H$ について
+
+$$
+(g\cdot h)\cdot k=g\cdot(h\cdot k),\quad
+e\cdot h=h=h\cdot e,\quad
+h^{-1}\cdot h=e=h\cdot h^{-1}
+$$
+
+を満たすことである。対象 $0,1$ の圏 $\mathcal T_H$ を次のように定める。各 $i,j\in\{0,1\}$ の Hom$(i,j)$ は $H$ のコピーであり、その元を $(i,j,h)$ と書く。合成は
 
 $$
 (j,k,g)\circ(i,j,h)=(i,k,g\cdot h)
