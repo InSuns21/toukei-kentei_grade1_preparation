@@ -79,7 +79,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht2-gaussian-null-chart -->
-**定義の確認**：直接例。座標基底 $(\partial_v,\partial_r)$ に関する計量行列の成分は $g_{ij}=g(\partial_i,\partial_j)$ です。したがって、計量の $dv^2$ の係数が $g_{vv}$、$2\,dv\,dr$ の係数が $2g_{vr}$ に対応します。以下の例では $h_A=0$ を選ぶので断面との交差ブロックが消え、逆計量の $(v,r)$ 部分も二行二列のブロックの逆行列として求められます。ここで $i,j,k\in\{v,r\}$、$\delta^i{}_j$ はKroneckerのデルタです。逆行列 $g^{ij}$ と法線 $dr$ の長さの関係は
+**定義の確認**：直接例。座標基底 $(\partial_v,\partial_r)$ に関する計量行列の成分は $g_{ij}=g(\partial_i,\partial_j)$ です。計量の $dv^2$ の係数が $g_{vv}$、$2\,dv\,dr$ の係数が $2g_{vr}$ に対応します。
+
+以下の例では $h_A=0$ を選ぶので断面との交差ブロックが消え、逆計量の $(v,r)$ 部分も二行二列のブロックの逆行列として求められます。ここで $i,j,k\in\{v,r\}$、$\delta^i{}_j$ はKroneckerのデルタです。逆行列 $g^{ij}$ と法線 $dr$ の長さの関係は
 
 $$
 g^{ik}g_{kj}=\delta^i{}_j,\qquad g^{-1}(dr,dr)=g^{rr}
