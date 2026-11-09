@@ -248,7 +248,7 @@ $$
 
 で定まり、$f$ が全単射でなくても定義できる。これは[同型射の逆射](../CAT1-03/index.md#def-cat1-03-isomorphism) $f^{-1}:Y\to X$ とは異なる記法である。このように向きが逆になる対応には、既習の[反対圏](../CAT1-04/index.md#def-cat1-04-opposite)を利用する。
 
-反対圏では、元の射 $f:A\to B$ を $f^{\mathrm{op}}:B\to A$ として扱う。以下、反変関手 $T:\mathcal C^{\mathrm{op}}\to\mathcal D$ の射への作用を $T(f)$ と略記するときは、厳密には $T(f^{\mathrm{op}})$ を意味する。この約束により、元の圏 $\mathcal C$ の射について式を読みやすく書ける。
+反対圏では、元の射 $f:A\to B$ を $f^{\mathrm{op}}:B\to A$ として扱う。以下、$\mathcal C^{\mathrm{op}}$ から $\mathcal D$ への共変関手 $T$ の射への作用を $T(f)$ と略記するときは、厳密には $T(f^{\mathrm{op}})$ を意味する。この約束により、元の圏 $\mathcal C$ の射について式を読みやすく書ける。
 
 <a id="def-cat1-06-contravariant"></a>
 
