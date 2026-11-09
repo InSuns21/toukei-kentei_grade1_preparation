@@ -168,7 +168,7 @@ chapters:
     title: "Gauge変換・moving frameと辺の輸送"
   - id: MFL41
     path: textbook/volumes/dream_thater/応用系/MFL/MFL41
-    status: planned
+    status: completed
     title: "Gauge-equivariant convolution"
   - id: MFL42
     path: textbook/volumes/dream_thater/応用系/MFL/MFL42
