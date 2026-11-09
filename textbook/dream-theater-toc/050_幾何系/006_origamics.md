@@ -3,3 +3,4 @@
 
 1. [ORI1 折り目は何をする写像か](textbook/volumes/dream_thater/幾何系/ORI/ORI1/index.md)
 2. [ORI2 芳賀の定理と比の幾何](textbook/volumes/dream_thater/幾何系/ORI/ORI2/index.md)
+3. [ORI3 折りによる等分・面積・有理比](textbook/volumes/dream_thater/幾何系/ORI/ORI3/index.md)
