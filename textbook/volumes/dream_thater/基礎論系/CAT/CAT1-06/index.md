@@ -240,7 +240,13 @@ $$
 
 ## 6. 反変関手：射の向きを反対に移す
 
-共変関手は $f:A\to B$ を $F(A)\to F(B)$ に送る。しかし集合への写像 $f:X\to Y$ に対し、$Y$ の部分集合 $T$ から逆像 $f^{-1}(T)=\{x\in X\mid f(x)\in T\}\subseteq X$ を作る操作は、**$Y$ の側から $X$ の側へ**進む。ここで $f^{-1}(T)$ は集合の逆像を表し、[同型射の逆射](../CAT1-03/index.md#def-cat1-03-isomorphism) $f^{-1}:Y\to X$ とは異なる。逆像は $f$ が全単射でなくても定義できる。このように向きが逆になる対応には、既習の[反対圏](../CAT1-04/index.md#def-cat1-04-opposite)を利用する。
+共変関手は $f:A\to B$ を $F(A)\to F(B)$ に送る。しかし集合への写像 $f:X\to Y$ に対し、$Y$ の部分集合 $T$ から逆像 $f^{-1}(T)\subseteq X$ を作る操作は、**$Y$ の側から $X$ の側へ**進む。この逆像は
+
+$
+f^{-1}(T)=\{x\in X\mid f(x)\in T\}
+$
+
+で定まり、$f$ が全単射でなくても定義できる。これは[同型射の逆射](../CAT1-03/index.md#def-cat1-03-isomorphism) $f^{-1}:Y\to X$ とは異なる記法である。このように向きが逆になる対応には、既習の[反対圏](../CAT1-04/index.md#def-cat1-04-opposite)を利用する。
 
 反対圏では、元の射 $f:A\to B$ を $f^{\mathrm{op}}:B\to A$ として扱う。以下、反変関手 $T:\mathcal C^{\mathrm{op}}\to\mathcal D$ の射への作用を $T(f)$ と略記するときは、厳密には $T(f^{\mathrm{op}})$ を意味する。この約束により、元の圏 $\mathcal C$ の射について式を読みやすく書ける。
 
