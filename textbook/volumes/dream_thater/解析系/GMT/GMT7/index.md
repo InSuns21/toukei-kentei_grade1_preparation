@@ -24,7 +24,7 @@ P_Vx=\sum_{j=1}^m(x\cdot v_j)v_j,\qquad
 x-P_Vx\perp v_j\quad(1\le j\le m).
 $$
 
-基底を別の正規直交基底 $AQ$（$Q^{\mathsf T}Q=I_m$）へ替えても $(AQ)(AQ)^{\mathsf T}=AA^{\mathsf T}$ です。したがって射影は基底によらず $V$ だけで決まります。射影距離は直交分解から
+基底を別の正規直交基底 $AQ$（$Q^{\mathsf T}Q=I_m$）へ替えても $(AQ)(AQ)^{\mathsf T}=AA^{\mathsf T}$ です。したがって射影は基底によらず $V$ だけで決まります。射影距離は[直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)から
 
 $$
 |x-y|^2=|P_V(x-y)|^2+|(I-P_V)(x-y)|^2
@@ -301,7 +301,7 @@ $$
 
 係数は $F\equiv1$ を代入すれば左辺が $\sigma_{m-1}$、右辺の球面積分が $\sigma_{d-1}$ となるので確定します。この球面上の平均の一意性は回転不変な球面確率が一意であることによります。
 
-非負性でTonelliを使い上式を半径積分へ戻すと
+非負性で[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を使い上式を半径積分へ戻すと
 
 $$
 \begin{aligned}
@@ -358,7 +358,7 @@ $$
 
 です。差の二乗は $4|\widehat\nu|^2$ 以下で積分可能です。よって $g_\varepsilon\to f$ in $L^2(V)$。非負関数の $L^2$ 極限だから $f\ge0$ がほとんど至る所で成立します。
 
-$\varphi\in C_c(V)$ を固定すると、$\varphi\in L^2$ なので $\int\varphi g_\varepsilon\to\int\varphi f$。他方、絶対可積分なFubiniを使って
+$\varphi\in C_c(V)$ を固定すると、$\varphi\in L^2$ なので $\int\varphi g_\varepsilon\to\int\varphi f$。他方、絶対可積分性を確認して[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を使うと
 
 $$
 \int_V\varphi(x)g_\varepsilon(x)\,dx
@@ -464,7 +464,7 @@ $m<s<t<\dim_HK$ を選んでFrostman測度を構成し、命題から密度を�
 
 $D=\dim_HK>m$ とします。$D\le d$ なので $m<s<t<D$ を選べます。[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)により、$K$ 上に確率測度 $\mu$ が存在し $\mu(B(x,r))\le Ar^t$ を満たします。[GMT3の有限energy評価](../GMT3/index.md#thm-gmt3-frostman-energy)から $I_s(\mu)<\infty$ です。
 
-[高指数energyによる射影密度評価](#prop-gmt7-energy-to-l2)から、例外零集合を除く $V$ で $\nu_V=f_V\,d\mathcal L^m_V$、$f_V\in L^2(V)$ です。射影で質量は保存されるため
+[本講の高指数energyによる射影密度の平均評価](#prop-gmt7-energy-to-l2)から、例外零集合を除く $V$ で $\nu_V=f_V\,d\mathcal L^m_V$、$f_V\in L^2(V)$ です。射影で質量は保存されるため
 
 $$
 1=\nu_V(V)=\int_{\pi_VK}f_V(u)\,d\mathcal L^m_V(u).
@@ -497,7 +497,7 @@ $$
 K=D\times[0,1]^{m-1}\times\{0\}^{d-m}
 $$
 
-を取ります（$m=1$ では中央の積を一点とみなす）。$K$ は $m$ 次元座標平面内にあり、Fubiniにより $\mathcal H^m(K)=\mathcal L^m(D\times[0,1]^{m-1})=0$。射影は $1$-Lipschitzなので[MT8のHausdorff測度評価](../../MT/MT8/index.md#thm-mt8-lipschitz)から全ての $V$ について $\mathcal H^m(\pi_VK)=0$、従って $\mathcal L^m_V(\pi_VK)=0$ です。
+を取ります（$m=1$ では中央の積を一点とみなす）。$K$ は $m$ 次元座標平面内にあり、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)により $\mathcal H^m(K)=\mathcal L^m(D\times[0,1]^{m-1})=0$。射影は $1$-Lipschitzなので[MT8のHausdorff測度評価](../../MT/MT8/index.md#thm-mt8-lipschitz)から全ての $V$ について $\mathcal H^m(\pi_VK)=0$、従って $\mathcal L^m_V(\pi_VK)=0$ です。
 
 それでも $\dim_HK=m$ です。上界は $m$ 平面に含まれることから従います。下界には任意の $0<a<1$ を取り、$\dim_HD=1>a$ から[GMT2のFrostman補題](../GMT2/index.md#thm-gmt2-frostman)で $D$ 上の $a$-成長確率測度 $\lambda_a$ を取ります。$\lambda_a$ と $[0,1]^{m-1}$ 上の一様確率測度の積を $\eta_a$ とすると、半径 $r\le1$ の球は各座標で半径 $r$ の範囲に収まるので
 
@@ -506,7 +506,7 @@ $$
 =C_a2^{m-1}r^{a+m-1}.
 $$
 
-[GMT2の質量分布原理](../GMT2/index.md#thm-gmt2-frostman)から $\dim_HK\ge a+m-1$。$a\uparrow1$ として $\dim_HK\ge m$ です。したがって射影次元が $m$ なのに全ての射影体積が0となる例が得られました。
+[MT8の質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)から $\dim_HK\ge a+m-1$。$a\uparrow1$ として $\dim_HK\ge m$ です。したがって射影次元が $m$ なのに全ての射影体積が0となる例が得られました。
 
 ここで破れたのは、正測度定理の $m<s<t<\dim_HK$ を選ぶ余裕です。次元定理の $t<m$ の核積分は成立しますが、$t=m$ で核平均が発散し、高指数energyによる $L^2$ 評価にも進めません。
 
