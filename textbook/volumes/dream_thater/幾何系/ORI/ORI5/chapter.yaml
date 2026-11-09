@@ -1,0 +1,39 @@
+id: ORI5
+title: "折りの包絡線と放物線"
+volume: foundations
+status: supplementary
+prerequisites: [ORI4]
+official_scope: []
+learning_objectives:
+  - 焦点・準線の等距離条件から放物線の方程式と頂点・軸を導ける
+  - 焦点を準線上の指定点へ重ねる折り線を垂直二等分線として構成し、その直線方程式を求められる
+  - 折り線族が放物線に一点だけ接し、全パラメータの包絡線が放物線になることを二通りで証明できる
+  - 非退化条件、有限折りと連続族の差、一般座標系への移行を検査できる
+definitions:
+  - { id: ORI5-DEF-01, name: 焦点・準線による放物線 }
+  - { id: ORI5-DEF-02, name: 点と準線を結ぶ折り線族 }
+  - { id: ORI5-DEF-03, name: 滑らかな直線族の包絡線 }
+theorems:
+  - { id: ORI5-THM-01, name: 焦点・準線の放物線の標準方程式 }
+  - { id: ORI5-PROP-01, name: 点を直線へ重ねる折り線の方程式 }
+  - { id: ORI5-THM-02, name: 折り線の接線性と一意な接触点 }
+  - { id: ORI5-THM-03, name: 折り線族の包絡線 }
+  - { id: ORI5-PROP-02, name: 平行移動と回転による一般配置 }
+canonical_examples:
+  - 焦点 (0,1) と準線 y=-1 に対する y=x^2/4 と折り線族 y=ux/2-u^2/4
+  - u=2 の折り線 y=x-1、接触点 (2,1)、準線上の足 (2,-1)
+  - u=0 の頂点接線と負の u に対する符号・位置の検算
+  - 焦点が準線上にある退化配置では等距離集合が直線となる反例
+problem_patterns:
+  - ORI5-FOCUS-DIRECTRIX-EQUATION
+  - ORI5-FOLD-PERPENDICULAR-BISECTOR
+  - ORI5-TANGENCY-DISCRIMINANT
+  - ORI5-ENVELOPE-DERIVATION
+  - ORI5-TRANSLATE-ROTATE
+  - ORI5-FINITE-VS-CONTINUUM
+  - ORI5-DEGENERATE-FOCUS
+  - ORI5-INTEGRATED-PROOF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 3.5, review: 1.5 }

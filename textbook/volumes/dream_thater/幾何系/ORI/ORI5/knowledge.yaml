@@ -1,0 +1,55 @@
+chapter: ORI5
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI4]
+forward_references: []
+
+concepts:
+  - id: origami.focus-directrix-parabola
+    name: 焦点・準線による放物線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（焦点・準線による放物線）]
+
+  - id: origami.parabola-equation
+    name: 焦点・準線の放物線の標準方程式
+    kind: theorem
+    introduction: formal
+    requires: [origami.focus-directrix-parabola]
+
+  - id: origami.point-to-directrix-fold-family
+    name: 点と準線を結ぶ折り線族
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（点と準線を結ぶ折り線族）]
+    requires: [origami.point-alignment-bisector, origami.focus-directrix-parabola]
+
+  - id: origami.point-to-directrix-fold-equation
+    name: 点を直線へ重ねる折り線の方程式
+    kind: proposition
+    introduction: formal
+    requires: [origami.point-to-directrix-fold-family, origami.point-alignment-bisector]
+
+  - id: origami.fold-parabola-tangency
+    name: 折り線の接線性と一意な接触点
+    kind: theorem
+    introduction: formal
+    requires: [origami.parabola-equation, origami.point-to-directrix-fold-equation]
+
+  - id: origami.smooth-line-envelope
+    name: 滑らかな直線族の包絡線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（滑らかな直線族の包絡線）]
+
+  - id: origami.fold-envelope-parabola
+    name: 折り線族の包絡線
+    kind: theorem
+    introduction: formal
+    requires: [origami.smooth-line-envelope, origami.fold-parabola-tangency]
+
+  - id: origami.parabola-rigid-motion
+    name: 平行移動と回転による一般配置
+    kind: proposition
+    introduction: formal
+    requires: [origami.fold-envelope-parabola, origami.reflection-isometry]
