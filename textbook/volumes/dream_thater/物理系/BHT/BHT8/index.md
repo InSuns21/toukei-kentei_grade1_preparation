@@ -44,18 +44,36 @@ $$
 
 上の $T_H$ は **無限遠で単位長の $\xi$ に対応する時刻** $t$ を採用した温度です。地平線生成Killing場を定数倍すると表面重力も定数倍されるため、温度の数値も変わります。しかし測定可能な熱的比がそれで変わっては困ります。比較するエネルギー側も同時に変わることを確かめます。
 
+以下の $\omega$ は、Killing場 $\chi$ の流れで測るスカラー場の正周波数です。モード $\phi$ に対して
+
+$$
+\mathcal L_\chi\phi=-i\omega\phi
+$$
+
+と書き、$\mathcal L$ はLie微分を表します。回転地平線では、[BHT5の地平線生成場](../BHT5/index.md#prop-bht5-kerr-data)のように $\chi$ は時間並進と軸回転の組合せであり、その軌道は一般に無限遠の座標系で静止せず**共回転**します。
+
+$\chi$ が時間的である領域に限り、$N:=\sqrt{-g(\chi,\chi)}>0$ と置くと、$u=\chi/N$ は単位時間的な観測者の四元速度です。同じモードをこの時計で測る局所エネルギー $E_{\rm loc}$ は、スカラー場に対するLie微分の作用から
+
+$$
+\mathcal L_u\phi=\frac1N\mathcal L_\chi\phi
+=-i\frac\omega N\phi,
+\qquad E_{\rm loc}=\frac\omega N.
+$$
+
+したがって $\chi$ 時間での温度パラメータ $\kappa/(2\pi)$ と局所エネルギーは**同じ時計へ換算**して比較します。これだけで回転する外部場の大域的なKMS平衡が存在すると主張するものではありません。
+
 <a id="prop-bht8-normalization"></a>
 
 <!-- formal-statement-start -->
 > **命題（Hawking熱因子のKilling規格化不変性）**  
-> 非極限の定常Killing地平線で、$\chi$ の表面重力を $\kappa>0$ とし、$\chi$ の時間に関する正のモード周波数を $\omega>0$ とする。$a>0$ を定数として $\chi'=a\chi$ と再規格化すると、$\kappa'=a\kappa$、$\omega'=a\omega$ である。この両方を変換すると、Hawkingの逆温度 $\beta=2\pi/\kappa$ について
+> 非極限の定常Killing地平線で、$\chi$ の表面重力を $\kappa>0$ とし、$\chi$ の時間に関するスカラー場モードの正の周波数を $\omega>0$ とする。$a>0$ を定数として $\chi'=a\chi$ と再規格化すると、$\kappa'=a\kappa$、$\omega'=a\omega$ である。この両方を変換すると、Hawkingの逆温度 $\beta=2\pi/\kappa$ について
 
 $$
 \boxed{\beta'\omega'=\beta\omega,\qquad
 e^{-\beta'\omega'}=e^{-\beta\omega}.}
 $$
 
-> また静止軌道で $N=\sqrt{-g(\chi,\chi)}>0$ とすれば、$T_{\rm loc}=\kappa/(2\pi N)$ はこの再規格化で不変である。無限遠の規格化を外した $\kappa'/(2\pi)$ を、そのまま無限遠の物理温度と呼んではならない。
+> また $\chi$ に沿う時間的軌道（回転時は共回転軌道）で $N=\sqrt{-g(\chi,\chi)}>0$ とすれば、形式的な局所温度パラメータ $T_{\rm loc}=\kappa/(2\pi N)$ はこの再規格化で不変である。この式単独では場のKMS平衡を保証しない。無限遠の規格化を外した $\kappa'/(2\pi)$ を、そのまま無限遠の物理温度と呼んではならない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -65,7 +83,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Killing場に関するモードを $\mathcal L_\chi\phi=-i\omega\phi$ と書きます。ここで $\mathcal L$ はLie微分で、$\chi$ に線形です。したがって
+導入で指定したスカラーモードの $\mathcal L_\chi\phi=-i\omega\phi$ を使います。Lie微分はKilling場の定数倍に線形なので
 
 $$
 \mathcal L_{\chi'}\phi
@@ -90,6 +108,7 @@ T'_{\rm loc}=\frac{\kappa'}{2\pi N'}
 $$
 
 ここで $a>0$ は将来向きと正周波数の向きを保つために必要です。
+局所エネルギーも $E'_{\rm loc}=\omega'/N'=(a\omega)/(aN)=E_{\rm loc}$ であり、共回転時計に対する周波数の変換と一致します。
 <!-- proof-end -->
 
 **数値による確認。** $\chi'=2\chi$ とすると $\beta'_H=4\pi M$、$\omega'=2\omega$。したがって $\beta'_H\omega'=(4\pi M)(2\omega)=8\pi M\omega$ のままです。物理的に別の質量 $2M$ の解へ移る操作とは違い、**同じ解の時間ラベルを取り換えただけ**です。
