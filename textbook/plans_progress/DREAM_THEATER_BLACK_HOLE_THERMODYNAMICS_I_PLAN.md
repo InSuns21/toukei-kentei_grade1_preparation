@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 改訂: 2026-11-10（標準教科書・大学院講義資料と照合し講数・学修境界を確定）  
-状態: planned（設計確定。BHT章本文・系列manifest・公開目次は未着手）
+状態: in progress（BHT1執筆・査読・公開導線整備済み。BHT2〜BHT24と横断監査は未完了）
 
 ## 0. 中心問い・到達点
 
@@ -31,9 +31,9 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 | [QFT I〜IV](../plan_done/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)の必要部分 | 場の作用、量子経路積分の形式的サドル展開 | 重力のEuclid境界値問題・on-shell作用・熱力学ポテンシャル。一般的QFTを再構築しない |
 | [QINF](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)の必要部分 | 密度演算子、von Neumann・エンタングルメントエントロピー | 地平線外部のエントロピー収支を定式化し、BHIへの入口を作る |
 
-**canonical ownership：** GRが地平線の幾何学的定義・一般的面積定理を、QCURVがUnruh/Hawking放射の場の導出を所有する。BHTは熱力学の四法則のブラックホールへの適用、状態量、Euclid重力熱力学、安定性、Waldエントロピー、一般化第二法則を所有する。[BHI I・II](DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)はPage曲線・情報損失・islandの計算、[HOLO](DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)はAdS/CFT辞書・RT/HRT・量子極値曲面を所有する。Hawking–Page転移はBHTで重力側の作用差まで扱い、CFT側の解釈はHOLOへ委ねる。
+**canonical ownership：** GRが地平線の幾何学的定義・一般的面積定理を、QCURVがUnruh/Hawking放射の場の導出を所有する。BHTは熱力学の四法則のブラックホールへの適用、状態量、Euclid重力熱力学、安定性、Waldエントロピー、一般化第二法則を所有する。[BHI I・II](../plans/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)はPage曲線・情報損失・islandの計算、[HOLO](../plans/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)はAdS/CFT辞書・RT/HRT・量子極値曲面を所有する。Hawking–Page転移はBHTで重力側の作用差まで扱い、CFT側の解釈はHOLOへ委ねる。
 
-[熱・時空・情報の横断ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)を学修経路の正本とする。[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)のLORG・HPDEの必要結果を参照し、MICA（Hadamardと繰り込み）・AQFT（局所環・モジュラー理論）は厳密化ルートの追加前提とする。全講を必修にしない。未実装または未確認の結果は既習扱いせず、章内で導入するか適用条件付きの参照結果とする。
+[熱・時空・情報の横断ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)を学修経路の正本とする。[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)のLORG・HPDEの必要結果を参照し、MICA（Hadamardと繰り込み）・AQFT（局所環・モジュラー理論）は厳密化ルートの追加前提とする。全講を必修にしない。未実装または未確認の結果は既習扱いせず、章内で導入するか適用条件付きの参照結果とする。
 
 基準：4次元、計量符号 $(-,+,+,+)$、まず $G=c=\hbar=k_B=1$。定理・計算ごとに漸近平坦性／AdS境界、定常性、地平線の正則性、Killing場の規格化、電荷、作用の境界条件を明記する。温度とエントロピーを次元付きに戻す回を設ける。宇宙検閲・エネルギー条件・半古典近似を無条件の定理にしない。
 
@@ -119,6 +119,6 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 
 ## 5. 着手・完了条件
 
-本改訂は**講数・章構成の設計確定**であり、PLAN固有の章本文を執筆・公開していないため、ファイルは textbook/plans/ に維持する。着手時にBHT1–BHT24のID衝突を再確認し、最初の実装と同じ変更単位でPLANを textbook/plans_progress/ に移し、BHT系列manifestと科目別目次を必要に応じて整備する。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
+BHT1は状態量・面積・表面重力の同じ解族での検算、変分恒等式、単位復元、演習と査読を実装した。BHT系列manifestと物理系の公開目次に登録した。BHT2–BHT24の本文、各章の検証と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
 
 全24章が原則の証明・演習水準を満たし、系列manifest・目次・prerequisite・stable anchorと横断査読・CIが整合したときだけ textbook/plan_done/ へ移す。**講義数が24であることと完成していることを混同しない。**
