@@ -35,7 +35,7 @@ $$
 無限グラフでも左側の集合 $S\subset A$ の近傍は、[既習の近傍](../../../計算系/DOPT/DOPT3/index.md#def-dopt3-neighborhood)をそのまま拡張して
 
 $$
-N(S)=\{y\in B:\exists x\in S,\ (x,y)\in E_V\}
+N(S)=\{y\in B:\exists x\in S,\ y-x\in V\}
 $$
 
 と定めます。
