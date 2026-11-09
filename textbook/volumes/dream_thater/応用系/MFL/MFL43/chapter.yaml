@@ -1,0 +1,40 @@
+id: "MFL43"
+title: "分子・物理・点群の統合実験"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL42
+  - MFL36
+  - MFL30
+  - ML1-12
+  - ML2-15
+official_scope: []
+learning_objectives:
+  - ラベル付き四点群の距離型特徴と向き付き体積を手で計算できる
+  - 剛体移動・適正回転・鏡映に対する特徴と予測器の変換則を証明できる
+  - 距離message passingと幾何的読出しを有限グラフで接続できる
+  - 対称性が誤ったタスクの鏡像ペアにおける二乗誤差下界を導出できる
+  - 正則化線形読出しと座標MLPの学習条件を明示して比較できる
+  - 独立なtrain/testとseed、位置・教師ノイズ、変換残差、計算量を分けて報告できる
+  - 有限の代数的等変性と標本・離散化・汎化の誤差を区別できる
+definitions:
+  - { id: MFL43-DEF-01, name: 四点群の比較用幾何特徴 }
+  - { id: MFL43-DEF-02, name: 対称変換に対する予測残差 }
+  - { id: MFL43-DEF-03, name: 特徴制約付き読出し }
+theorems:
+  - { id: MFL43-THM-01, name: 距離特徴と向き特徴の変換則 }
+  - { id: MFL43-PROP-01, name: 距離message passingの集約恒等式 }
+  - { id: MFL43-THM-02, name: 幾何的読出しの厳密な変換性 }
+  - { id: MFL43-THM-03, name: 鏡像ペアにおける誤った不変性の損失下界 }
+  - { id: MFL43-PROP-02, name: 正則化読出しの一意性と正規方程式 }
+canonical_examples:
+  - 左右の四面体の距離特徴と符号付き体積
+  - 距離message passingと通常座標特徴の対照
+  - 鏡映奇の物理量に不適切なO(3)不変化
+  - 独立分割・複数seed・雑音条件をそろえたモデル比較
+  - 座標MLP・距離GNN・SO(3)読出し・擬スカラー読出しの残差
+problem_patterns: [MFL43-A01, MFL43-A02, MFL43-A03, MFL43-A04, MFL43-B01, MFL43-B02, MFL43-B03, MFL43-B04, MFL43-B05, MFL43-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 7.0, review: 2.5 }

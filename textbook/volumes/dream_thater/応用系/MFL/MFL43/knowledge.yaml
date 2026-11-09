@@ -1,0 +1,54 @@
+chapter: MFL43
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL42
+  - MFL36
+  - MFL30
+  - ML1-12
+  - ML2-15
+forward_references: []
+concepts:
+  - id: manifold-learning.four-point-benchmark-signature
+    name: 四点群の比較用幾何特徴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（四点群の比較用幾何特徴）"]
+    requires: [manifold-learning.oriented-tetrahedron-chirality, manifold-learning.graph-invariant-readout]
+  - id: manifold-learning.four-point-feature-transform
+    name: 距離特徴と向き特徴の変換則
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.four-point-benchmark-signature, manifold-learning.cross-triple-transform]
+  - id: manifold-learning.distance-message-pooling-identity
+    name: 距離message passingの集約恒等式
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.four-point-benchmark-signature, manifold-learning.message-passing-layer]
+  - id: manifold-learning.point-cloud-prediction-residual
+    name: 対称変換に対する予測残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対称変換に対する予測残差）"]
+    requires: [manifold-learning.equivariance-residual, manifold-learning.four-point-feature-transform]
+  - id: manifold-learning.symmetry-constrained-readout
+    name: 特徴制約付き読出し
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（特徴制約付き読出し）"]
+    requires: [manifold-learning.four-point-benchmark-signature]
+  - id: manifold-learning.readout-exact-symmetry
+    name: 幾何的読出しの厳密な変換性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.symmetry-constrained-readout, manifold-learning.four-point-feature-transform]
+  - id: manifold-learning.mirror-pair-parity-bound
+    name: 鏡像ペアにおける誤った不変性の損失下界
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.readout-exact-symmetry, manifold-learning.wrong-invariance-risk-bound]
+  - id: manifold-learning.ridge-readout-normal-equation
+    name: 正則化読出しの一意性と正規方程式
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.symmetry-constrained-readout, learning.deep-regularized-objective]
