@@ -1,7 +1,7 @@
 chapter: SQC11
 scope: dream-theater
 coverage: complete
-prerequisites: [SQC9, SQC10, MT0, TOP6, SET1, F0-00D2C]
+prerequisites: [SQC9, SQC10, MT0, TOP6, SET1, SET-U3, F0-00D2C]
 forward_references: []
 
 concepts:
@@ -29,7 +29,7 @@ concepts:
     name: Lebesgue可測かつBaire性を持つ非Borel集合の存在
     kind: proposition
     introduction: formal
-    requires: [geometry.circle-squaring-borel-regularity]
+    requires: [geometry.circle-squaring-borel-regularity, set.cantor-theorem]
 
   - id: geometry.circle-squaring-borel-label
     name: Borel分割と移動選択写像の対応

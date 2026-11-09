@@ -4,7 +4,7 @@
 
 そこで問いを強めます。「厳密な有限分割を維持したまま、各片を面積が定義できる集合、さらにはBorel集合として選べるか」。この講義では、集合の正則性の三段階を手で確認してから、2017年の二つの存在定理を**正確な仮定つきで引用**し、円盤への適用だけを完全に証明します。研究級の存在定理そのものの証明と初等的な有限例を混同しません。
 
-前提は[集合と写像（SET1）](../../../基礎論系/SET/SET1/index.md)、[Lebesgue測度の正則性（MT0）](../../../解析系/MT/MT0/index.md#thm-mt0-outer-regularity-finite)、[平面の積測度（F0-00D2C）](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-01)、[至る所疎・第一類集合（TOP6）](../../../基礎科目/TOP/TOP6/index.md#def-top6-meagre)、[有限平行移動等分解（SQC9）](../SQC9/index.md#def-sqc9-translation-equidecomposition)、[有限移動とマッチング（SQC10）](../SQC10/index.md#prop-sqc10-translation-matching)です。Baire性について必要な部分はここで再確認します。
+前提は[集合と写像（SET1）](../../../基礎論系/SET/SET1/index.md)、[Cantorの定理（SET-U3）](../../../基礎科目/SET/SET-U3/index.md#thm-setu3-cantor)、[Lebesgue測度の正則性（MT0）](../../../解析系/MT/MT0/index.md#thm-mt0-outer-regularity-finite)、[平面の積測度（F0-00D2C）](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-01)、[至る所疎・第一類集合（TOP6）](../../../基礎科目/TOP/TOP6/index.md#def-top6-meagre)、[有限平行移動等分解（SQC9）](../SQC9/index.md#def-sqc9-translation-equidecomposition)、[有限移動とマッチング（SQC10）](../SQC10/index.md#prop-sqc10-translation-matching)です。Baire性について必要な部分はここで再確認します。
 
 <!-- definition-example-audit: strict -->
 
@@ -120,7 +120,7 @@ $$
 
 中三分Cantor集合 $C$ は第 $n$ 段階で $2^n$ 本、各長さ $3^{-n}$ の閉区間に含まれるので、その全長は $(2/3)^n$ です。$n\to\infty$ でこれが $0$ に収束するため $\lambda_1(C)=0$ です。また $C$ は閉で内部が空なので至る所疎です。
 
-各点は左右どちらの区間を残すかという二進無限列で指定でき、$C$ の濃度は連続体濃度 $\mathfrak c=|\mathbb R|$ です。その部分集合族 $\mathcal P(C)$ の濃度は $2^{\mathfrak c}$ です。一方、実数直線のBorel集合は可算の基底から可算回の集合演算を記述できるので、その総数は高々 $\mathfrak c$ です。Cantorの定理 $2^{\mathfrak c}>\mathfrak c$ により、$N\subset C$ でBorelでないものを選べます。
+各点は左右どちらの区間を残すかという二進無限列で指定でき、$C$ の濃度は連続体濃度 $\mathfrak c=|\mathbb R|$ です。その部分集合族 $\mathcal P(C)$ の濃度は $2^{\mathfrak c}$ です。一方、実数直線のBorel集合は可算の基底から可算回の集合演算を記述できるので、その総数は高々 $\mathfrak c$ です。[Cantorの定理](../../../基礎科目/SET/SET-U3/index.md#thm-setu3-cantor) $2^{\mathfrak c}>\mathfrak c$ により、$N\subset C$ でBorelでないものを選べます。
 
 Lebesgue測度は**完備**であり、測度0の可測集合のすべての部分集合も可測です。従って $N\subset C$ はLebesgue可測で $\lambda_1(N)=0$。さらに $N$ は至る所疎な $C$ の部分集合だからmeagerで、$N\triangle\varnothing=N$ と書けてBaire性を持ちます。しかし選び方によりBorelではありません。
 <!-- proof-end -->

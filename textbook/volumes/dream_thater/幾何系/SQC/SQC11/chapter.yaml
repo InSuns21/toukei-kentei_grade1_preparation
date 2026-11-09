@@ -8,6 +8,7 @@ prerequisites:
   - MT0
   - TOP6
   - SET1
+  - SET-U3
   - F0-00D2C
 official_scope: []
 learning_objectives:
