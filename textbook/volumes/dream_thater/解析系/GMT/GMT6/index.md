@@ -113,14 +113,14 @@ e^{-u^2/(2\varepsilon^2)},\qquad
 g_\varepsilon(u)=\int h_\varepsilon(u-v)\,d\nu(v)
 $$
 
-とします。$g_\varepsilon\ge0$、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)で $\|g_\varepsilon\|_1=\nu(\mathbb R)$、また
+とします。これは[GMT4のGaussian正則化](../GMT4/index.md#def-gmt4-gaussian-regularization)の $d=1$、時間パラメータ $t=\varepsilon^2/2$ の場合です。実際 $\rho_t(u)=(4\pi t)^{-1/2}e^{-u^2/(4t)}=h_\varepsilon(u)$ であり、ここでは $\varepsilon$ をGaussianの標準偏差として動かしています。$g_\varepsilon\ge0$、[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)で $\|g_\varepsilon\|_1=\nu(\mathbb R)$、また
 
 $$
 0\le g_\varepsilon(u)\le
 \frac{\nu(\mathbb R)}{\sqrt{2\pi}\varepsilon}
 $$
 
-なので $g_\varepsilon\in L^1\cap L^2$ です。GaussianのFourier変換と[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)から
+なので $g_\varepsilon\in L^1\cap L^2$ です。[GMT4のGaussian正則化のFourier変換](../GMT4/index.md#lem-gmt4-heat-fourier)を上記の $t=\varepsilon^2/2$ で使い、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)から
 
 $$
 \widehat {g_\varepsilon}(r)
