@@ -412,14 +412,18 @@ $s>0$ なので二つの値は異なり、全極限は存在しません。$\squ
 
 ### Hausdorff測度との接続
 
-球成長評価が一つの共通な $r_0>0$ と $C>0$ を用いて $\mu(B(x,r))\le C(2r)^s$（全ての $x\in E$、$0<r<r_0$）を満たす場合を考えます。$E$ の直径 $r_0/2$ 未満の被覆 $E\subset\bigcup_i U_i$ に対して、$U_i\cap E\ne\varnothing$ なら $x_i\in U_i\cap E$ を選びます。$U_i\subset B(x_i,\operatorname{diam}U_i+\varepsilon)$ だから、$\varepsilon\downarrow0$ として
+可測集合 $E$、$s>0$ に対して、球成長評価が一つの共通な $r_0>0$ と $C>0$ を用いて $\mu(B(x,r))\le C(2r)^s$（全ての $x\in E$、$0<r<r_0$）を満たす場合を考えます。
+
+$E$ の直径 $r_0/2$ 未満の被覆 $E\subset\bigcup_i U_i$ に対して、$U_i\cap E\ne\varnothing$ なら $x_i\in U_i\cap E$ を選びます。$U_i$ 自身は可測とは限らないため、$\mu^*(U_i)$ を $\mu$ から作る外測度（$U_i$ を含むBorel集合の測度の下限）と書きます。
+
+$U_i\subset B(x_i,\operatorname{diam}U_i+\varepsilon)$ で、右辺の球はBorel集合です。$\varepsilon\downarrow0$ として各 $i$ で球成長評価を使えば
 
 $$
-\mu(E)\le\sum_i\mu(U_i)
+\mu(E)\le\sum_i\mu^*(U_i)
 \le C\,2^s\sum_i(\operatorname{diam}U_i)^s.
 $$
 
-（直径0の集合は $s>0$ で別途 $\mu$-零と分かります。）下限を取り $\delta\downarrow0$ とすれば、[MT8の質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)の結論 $\mu(E)\le C2^s\mathcal H^s(E)$ を回復します。ここでの一様な球成長評価と、個々の点での上密度が有限という条件を混同しないよう注意します。
+（直径0の集合は一点集合であり、$s>0$ で球成長評価から外測度0と分かります。）被覆の下限を取り $\delta\downarrow0$ とすれば、[MT8の質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)の結論 $\mu(E)\le C2^s\mathcal H^s(E)$ を回復します。ここでの一様な球成長評価と、個々の点での上密度が有限という条件を混同しないよう注意します。
 
 ## 6. 演習
 
