@@ -271,7 +271,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（非連結な場合の成分別体積障害）**
-> $X=\bigsqcup_{j=1}^r X_j$ を有限個の境界のないコンパクト連結Kähler多様体の非交和とし、$\omega$ を各成分上でKählerな形式、$F\in C^\infty(X;\mathbb R)$ とする。$X$ 上で $\omega+i\partial\bar\partial\varphi>0$ と
+> $X=\bigsqcup_{j=1}^r X_j$ を**共通の複素次元 $n\ge1$** を持つ有限個の境界のないコンパクト連結Kähler多様体の非交和とし、$\omega$ を各成分上でKählerな形式、$F\in C^\infty(X;\mathbb R)$ とする。$X$ 上で $\omega+i\partial\bar\partial\varphi>0$ と
 
 $$
 (\omega+i\partial\bar\partial\varphi)^n=e^F\omega^n
