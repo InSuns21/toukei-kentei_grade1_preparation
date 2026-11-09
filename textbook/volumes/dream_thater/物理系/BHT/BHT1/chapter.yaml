@@ -1,0 +1,48 @@
+id: "BHT1"
+title: "ブラックホールを状態量で記述する"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - TH1
+  - TH5
+  - SM3
+  - GR16
+  - GR25
+  - GR29
+  - GR45
+official_scope: []
+learning_objectives:
+  - 熱力学の平衡状態・状態量・ポテンシャルと、古典的な定常Schwarzschild解族のデータを区別できる
+  - 漸近平坦性と無限遠Killing時間の規格化を固定して正質量Schwarzschild状態族を指定できる
+  - 同じ計量から地平線半径・断面積・表面重力を仮定・面積要素・導関数付きで計算できる
+  - Schwarzschild一パラメータ族上の微小変分恒等式を導き有限差への誤用を避けられる
+  - 質量パラメータの倍率と生成Killing場の倍率を区別し面積・表面重力の変化を求められる
+  - 自然単位からSIの質量・面積・表面重力の単位へ整合的に戻せる
+  - 幾何学的な変分関係と温度・エントロピーの熱力学的同定を区別し追加で必要な物理を説明できる
+definitions:
+  - { id: BHT1-DEF-01, name: "Schwarzschildの幾何学的状態族" }
+theorems:
+  - { id: BHT1-PROP-01, name: "Schwarzschildの幾何学的状態データ" }
+  - { id: BHT1-PROP-02, name: "Schwarzschild一パラメータ族の幾何学的変分恒等式" }
+  - { id: BHT1-PROP-03, name: "状態族の質量スケーリング" }
+canonical_examples:
+  - M=Lの正質量解で状態族の全仮定・面積・表面重力を確認する
+  - M=2Lで半径・面積・表面重力の異なる依存性を比較する
+  - Mから2Mへの有限差と微分恒等式を区別する
+  - Killing生成場の再規格化に対して面積と表面重力を比較する
+  - SIの質量と幾何単位の長さを区別して式の次元を検査する
+problem_patterns:
+  - BHT1-STATE-DATA
+  - BHT1-AREA-ELEMENT
+  - BHT1-SURFACE-GRAVITY-DERIVATIVE
+  - BHT1-CLASSICAL-VERSUS-THERMAL
+  - BHT1-SI-DIMENSION
+  - BHT1-VARIATION-FINITE-DIFFERENCE
+  - BHT1-MASS-VERSUS-KILLING-SCALING
+  - BHT1-REDSHIFTED-ACCELERATION
+  - BHT1-NORMALIZATION-FAILURE
+  - BHT1-INTEGRATED-STATE-FAMILY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
