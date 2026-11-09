@@ -1,0 +1,45 @@
+id: "DEF1-14"
+title: "quinticの101方向とミラーへの橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - DEF1-11
+  - DEF1-12
+  - DEF1-13
+  - CYG1-08
+  - CYG1-12
+  - CYG1-13
+  - CYG1-14
+learning_objectives:
+  - 五次単項式126個から方程式のスカラー1方向と射影座標24方向を除く計数を法束列・Euler列のコホモロジー計算と結び付ける
+  - Fermat quintic のJacobian環の次数5部分から101方向の具体的な基底を作る
+  - BTTの非障害性と局所変形座標から101次元の局所族を作り大域同型類とは区別する
+  - 正則体積形式とKodaira–Spencer収縮によって局所周期写像の微分が単射であることを証明する
+  - 留数形式のパラメータ微分とGauss–Manin接続を照合する
+  - Fermat位相対称群に不変な一方向を求めmirror側の構成に必要な未証明事項を挙げる
+theorems:
+  - { id: DEF1-14-THM-01, name: "quinticの局所周期写像の単射微分" }
+  - { id: DEF1-14-DEF-02, name: "quinticの留数体積形式" }
+  - { id: DEF1-14-PROP-01, name: "正則体積形式の留数表示と一次微分" }
+  - { id: DEF1-14-DEF-01, name: "位相対称群不変な一次変形方向" }
+  - { id: DEF1-14-PROP-02, name: "Fermat quintic の不変一次方向" }
+canonical_examples:
+  - Fermatの次数5単項式基底とJacobianイデアル
+  - 多項式座標から正規束列を経てHodge群に至る101の照合
+  - 積単項式による非自明な周期の一次変動
+  - 群の位相作用に不変な積単項式と不変でない単項式
+problem_patterns:
+  - DEF1-14-MONOMIAL-COUNT
+  - DEF1-14-COHOMOLOGY-INPUTS
+  - DEF1-14-JACOBIAN-DIRECTIONS
+  - DEF1-14-PERIOD-TARGET
+  - DEF1-14-PHASE-TEST
+  - DEF1-14-NORMAL-EXACT-SEQUENCE
+  - DEF1-14-COORDINATE-TRIVIAL-DIRECTION
+  - DEF1-14-INVARIANT-SUBSPACE
+  - DEF1-14-PERIOD-RATIOS
+  - DEF1-14-QUINTIC-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 11, review: 5 }
