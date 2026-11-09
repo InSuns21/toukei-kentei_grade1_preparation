@@ -1,0 +1,40 @@
+id: "SQC10"
+title: "有限等分解を支える組合せ論"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SQC9
+  - DOPT3
+official_scope: []
+learning_objectives:
+  - 有限二部グラフ・マッチング・隣接集合を定義し、候補割当ての具体例で確認できる
+  - Hallの隣接集合条件を全ての左部分集合で検査し、有限Hallの定理を帰納法から証明できる
+  - 増加道と単位容量ネットワークを構成し、整数最大流と最大マッチングの対応を証明できる
+  - 許された有限種類の平行移動と完全マッチングを往復し、衝突がないための必要十分条件を検算できる
+  - 有限と無限のマッチングの差、完全性と片の可測性が別問題である理由を説明できる
+definitions: []
+theorems:
+  - { id: SQC10-PROP-01, name: 有限移動集合と完全マッチングの対応 }
+  - { id: SQC10-PROP-02, name: 平行移動の衝突を防ぐ条件 }
+  - { id: SQC10-THM-03, name: 有限隣接集合に対する無限 Hall の定理 }
+canonical_examples:
+  - 3人3件の割当てで貪欲選択を増加道によって修正する
+  - Hallの等号部分集合を切り離す帰納法
+  - 単位容量ネットワークの整数流と最小切断
+  - 2片の平行移動が衝突する反例
+  - 無限次数を持つ頂点で有限Hall条件の拡張が破れる例
+  - 許容ベクトル集合から3片の厳密等分解を構成する
+problem_patterns:
+  - SQC10-BIPARTITE-MATCHING
+  - SQC10-HALL-NEIGHBORHOODS
+  - SQC10-AUGMENTING-PATH
+  - SQC10-NO-COLLISION
+  - SQC10-UNIT-FLOW
+  - SQC10-INDUCTIVE-HALL
+  - SQC10-MAX-FLOW-CUT
+  - SQC10-INFINITE-COUNTEREXAMPLE
+  - SQC10-TRANSLATION-EQUIDECOMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }

@@ -1,0 +1,24 @@
+chapter: SQC10
+scope: dream-theater
+coverage: complete
+prerequisites: [SQC9, DOPT3]
+forward_references: []
+
+concepts:
+  - id: geometry.translation-matching-equivalence
+    name: 有限移動集合と完全マッチングの対応
+    kind: proposition
+    introduction: formal
+    requires: [optimization.perfect-matching, geometry.translation-equidecomposition]
+
+  - id: geometry.translation-no-collision
+    name: 平行移動の衝突を防ぐ条件
+    kind: proposition
+    introduction: formal
+    requires: [geometry.translation-equidecomposition]
+
+  - id: geometry.infinite-hall-finite-neighborhoods
+    name: 有限隣接集合に対する無限 Hall の定理
+    kind: theorem
+    introduction: formal
+    requires: [optimization.hall-theorem]
