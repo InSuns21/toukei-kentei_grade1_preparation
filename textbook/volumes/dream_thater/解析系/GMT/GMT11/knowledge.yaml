@@ -1,0 +1,66 @@
+chapter: GMT11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00F2
+  - LA3B
+  - MT8
+  - HA1
+  - GMT1
+  - GMT9
+  - GMT10
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt11-multiplicity
+    name: 写像の重複度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（写像の重複度）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt11-lipschitz-null-image
+    name: Lipschitz写像の零集合保存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Lipschitz写像の零集合保存）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt11-critical-image
+    name: rank欠損集合の像のm次元測度は零
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（rank欠損集合の像のm次元測度は零）"]
+    requires:
+      - geometric-measure.gmt10-geometric-jacobian
+      - geometric-measure.gmt9-rademacher
+
+  - id: geometric-measure.gmt11-patch-comparison
+    name: 線形近似が一様な片の面積比較
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（線形近似が一様な片の面積比較）"]
+    requires:
+      - geometric-measure.gmt10-linear-area
+
+  - id: geometric-measure.gmt11-area-formula
+    name: Lipschitz写像のarea formula
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lipschitz写像のarea formula）"]
+    requires:
+      - geometric-measure.gmt11-multiplicity
+      - geometric-measure.gmt11-lipschitz-null-image
+      - geometric-measure.gmt11-critical-image
+      - geometric-measure.gmt11-patch-comparison
+      - geometric-measure.gmt10-hausdorff-normalization
+
+  - id: geometric-measure.gmt11-weighted-area
+    name: 重み付きarea formula
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（重み付きarea formula）"]
+    requires:
+      - geometric-measure.gmt11-area-formula

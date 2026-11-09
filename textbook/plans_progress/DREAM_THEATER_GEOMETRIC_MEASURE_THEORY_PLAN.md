@@ -12,7 +12,8 @@ GMT7着手日時: 2026-11-10 04:07:05 JST（Grassmann核のBeta積分・高次�
 GMT8着手日時: 2026-11-10 04:34 JST（方向Frostman測度・二重energy・Kaufman型例外方向次元上界）
 GMT9着手日時: 2026-11-10 05:16:31 JST（Lipschitz切片・Rademacher定理・微分の作用素ノルム）
 GMT10着手日時: 2026-11-10 06:00:52 JST（近似微分・Gram行列式・非正規化Hausdorff測度の面積倍率）
-状態: in_progress（GMT1--GMT10 は実装・査読済み。GMT11--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT11着手日時: 2026-11-10 06:39:08 JST（重複度・rank欠損像・可算双Lipschitz分割によるarea formula）
+状態: in_progress（GMT1--GMT11 は実装・査読済み。GMT12--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
