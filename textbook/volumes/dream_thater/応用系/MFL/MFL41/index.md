@@ -29,7 +29,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl41-transport-aggregate -->
-**定義の確認：二つの送り手。** 点 $1$ へ $N(1)=\{2,3\}$ から送り、$w_{12}=2$、$w_{13}=1$、$T_{12}=I_2$、$T_{13}=R(\pi/2)$、$c_2=(1,0)^{\mathsf T}$、$c_3=(0,1)^{\mathsf T}$ とする。$R(\theta)$ は平面の角度 $\theta$ の回転行列であり、$R(\pi/2)(0,1)^{\mathsf T}=(-1,0)^{\mathsf T}$ だから
+**定義の確認**：二つの送り手。点 $1$ へ $N(1)=\{2,3\}$ から送り、$w_{12}=2$、$w_{13}=1$、$T_{12}=I_2$、$T_{13}=R(\pi/2)$、$c_2=(1,0)^{\mathsf T}$、$c_3=(0,1)^{\mathsf T}$ とする。$R(\theta)$ は平面の角度 $\theta$ の回転行列であり、$R(\pi/2)(0,1)^{\mathsf T}=(-1,0)^{\mathsf T}$ だから
 
 $$
 (L_Tc)_1=2(1,0)^{\mathsf T}+(-1,0)^{\mathsf T}=(1,0)^{\mathsf T}.
@@ -110,7 +110,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl41-kernel-covariance -->
-**定義の確認：輸送のスカラー倍。** $K_{ij}=w_{ij}T_{ij}$ と選べば、重みがフレーム不変であることと[輸送の変換則](../MFL40/index.md#thm-mfl40-transport-gauge)から
+**定義の確認**：輸送のスカラー倍。$K_{ij}=w_{ij}T_{ij}$ と選べば、重みがフレーム不変であることと[輸送の変換則](../MFL40/index.md#thm-mfl40-transport-gauge)から
 
 $$
 \widetilde K_{ij}
@@ -243,7 +243,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl41-radial-gate -->
-**定義の確認。** $\varphi(s)=1/(1+s)$ なら $u=(3,4)^{\mathsf T}$ に対して $u^{\mathsf T}u=25$ であり、$\sigma_\varphi(u)=(3,4)^{\mathsf T}/26$。$R\in O(2)$ なら $|R^{\mathsf T}u|^2=u^{\mathsf T}RR^{\mathsf T}u=25$ なので、新フレームでは $R^{\mathsf T}(3,4)^{\mathsf T}/26$ となる。内積も零点も定義通りである。
+**定義の確認**。$\varphi(s)=1/(1+s)$ なら $u=(3,4)^{\mathsf T}$ に対して $u^{\mathsf T}u=25$ であり、$\sigma_\varphi(u)=(3,4)^{\mathsf T}/26$。$R\in O(2)$ なら $|R^{\mathsf T}u|^2=u^{\mathsf T}RR^{\mathsf T}u=25$ なので、新フレームでは $R^{\mathsf T}(3,4)^{\mathsf T}/26$ となる。内積も零点も定義通りである。
 <!-- definition-example-end -->
 
 <a id="thm-mfl41-layer-composition"></a>
