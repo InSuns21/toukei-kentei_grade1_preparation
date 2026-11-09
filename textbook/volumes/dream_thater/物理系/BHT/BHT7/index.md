@@ -36,7 +36,7 @@ $$
 
 ### 1.2 Eulerの同次性は、どの変数に何を掛けるかを教える
 
-前の例では$A,J$は二乗、$M$は一乗でした。$A,J$ を独立座標とみなせる[BHT5の質量公式](../BHT5/index.md#prop-bht5-mass-area-j)の非極限領域で、その差を微分へ変換します。
+前の例では $A,J$ は二乗、$M$ は一乗でした。$A,J$ を独立座標とみなせる[BHT5の質量公式](../BHT5/index.md#prop-bht5-mass-area-j)の非極限領域で、その差を微分へ変換します。以下の $\partial_i f$ は、ほかの座標を固定して第 $i$ 座標 $x_i$ で偏微分した値を表し、$g'(\lambda)=dg/d\lambda$ は再尺度の変数 $\lambda$ に関する一変数の導関数です。
 
 <a id="lem-bht7-weighted-euler"></a>
 
@@ -144,7 +144,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（非極限Kerr–Newman解族のSmarr関係）**  
-> 4次元、$G=c=1$、$\Lambda=0$ の漸近平坦なEinstein–Maxwellの非極限Kerr–Newman定常解を考える。$M>0$、$M^2>a^2+Q^2$、$J=Ma$、$r_+=M+\sqrt{M^2-a^2-Q^2}$、$A=4\pi(r_+^2+a^2)$ とする。電位 $\Phi_H$ は無限遠で零に規格化されたゲージの地平線電位差とする。このとき
+> 4次元、$G=c=1$、$\Lambda=0$ の漸近平坦なEinstein–Maxwellの非極限Kerr–Newman定常解を考える。$M>0$、$M^2>a^2+Q^2$、$J=Ma$、$r_+=M+\sqrt{M^2-a^2-Q^2}$、$A=4\pi(r_+^2+a^2)$ とする。電位 $\Phi_H$ は[BHT5の地平線電位の定義](../BHT5/index.md#def-bht5-kn-potential)に従い、無限遠で零に規格化されたゲージの地平線電位差とする。このとき
 
 $$
 \boxed{M=\frac{\kappa A}{4\pi}+2\Omega_HJ+\Phi_HQ}
@@ -177,21 +177,26 @@ M^2&=\frac R4+\frac{J^2}{R}+\frac{Q^2}{2}+\frac{Q^4}{4R}\\
 \end{aligned}
 $$
 
-独立変数として扱えることも確認します。$r=r_+$ とし、$M=(r^2+a^2+Q^2)/(2r)$ から
+独立変数として扱えることも確認します。$r=r_+$ とし、$r^2>a^2+Q^2$ を満たす外側根の領域で、$M=(r^2+a^2+Q^2)/(2r)$ と置きます。$M_r$ は $a,Q$ を固定した $r$ 偏微分、$M_a$ は $r,Q$ を固定した $a$ 偏微分として
 
 $$
 M_r=\frac{r^2-a^2-Q^2}{2r^2}\in(0,1/2],\qquad M_a=\frac ar.
 $$
 
-$A=4\pi(r^2+a^2)$、$J=aM$ なので、$Q$ を固定した変換のJacobianは
+$A=4\pi(r^2+a^2)$、$J=aM$ なので、$(r,a)$ から状態量 $(A,J)$ への微分行列の各列は、それぞれ $r,a$ を動かしたときの $(A,J)$ の変化率です。$Q$ を固定したそのJacobianを展開すると
 
 $$
+\begin{aligned}
 \det\frac{\partial(A,J)}{\partial(r,a)}
-=8\pi\{r(M+aM_a)-a^2M_r\}
-=8\pi\{rM+a^2(1-M_r)\}>0.
+&=\det\begin{pmatrix}8\pi r&8\pi a\\aM_r&M+aM_a\end{pmatrix}\\
+&=8\pi\{r(M+aM_a)-a^2M_r\}\\
+&=8\pi\{rM+a^2(1-M_r)\}>0.
+\end{aligned}
 $$
 
-さらに第三座標を $Q$ のままにすれば全Jacobianも非零です。よって[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $(A,J,Q)$ は非極限解族の局所座標となります。この正質量分枝はその開領域で滑らかです。$X,J,Q$ を $\lambda^2X,\lambda^2J,\lambda Q$ とすると右辺の各項が $\lambda^2$ 倍されるため、$M(\lambda^2A,\lambda^2J,\lambda Q)=\lambda M(A,J,Q)$ です。従って[補題](#lem-bht7-weighted-euler)より
+さらに第三座標を $Q$ のままにすれば、$(r,a,Q)\mapsto(A,J,Q)$ の微分行列は最下行が $(0,0,1)$ となるため、全Jacobianもこの正の二次小行列式に等しく非零です。領域は開集合で写像は滑らかなので、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $(A,J,Q)$ は非極限解族の局所座標となります。この正質量分枝はその開領域で滑らかです。
+
+$X,J,Q$ を $\lambda^2X,\lambda^2J,\lambda Q$ とすると質量二乗の各項が $\lambda^2$ 倍されるため、正の平方根から $M(\lambda^2A,\lambda^2J,\lambda Q)=\lambda M(A,J,Q)$ です。ここで $M_A,M_J,M_Q$ は、それぞれ $(J,Q),(A,Q),(A,J)$ を固定した偏導関数を指します。従って[補題](#lem-bht7-weighted-euler)より
 
 $$
 M=2AM_A+2JM_J+QM_Q.
@@ -222,7 +227,7 @@ $$
 
 $$
 M_{\mathrm{irr}}^2=\frac{360\pi L^2}{16\pi}
-=\frac{45}{2}L^2,qquad
+=\frac{45}{2}L^2,\qquad
 M_{\mathrm{irr}}=\frac{3\sqrt{10}}2 L<5L.
 $$
 
@@ -282,7 +287,7 @@ $$
 
 です。$\kappa>0$、$\Omega_H>0$ なので、$\delta A\ge0$ という古典面積条件の下でも $\delta M<0$ は可能ですが、$\delta M$ を任意に小さくできるわけではありません。流入物質の具体過程には[中性物質流入の物理過程版第一法則](../BHT6/index.md#thm-bht6-physical-process-first-law)を使い、そこで要請される小摂動・定常端状態・流束の仮定を別途満たす必要があります。
 
-面積を一定に保つ $\delta A=0$ は**可逆限界**と呼ぶ理想化で、実際の有限時間のPenrose過程が常にこれを達成するという主張ではありません。$\delta A>0$ なら同じ角運動量変化に対する質量減少の絶対値は可逆限界より小さくなります。
+面積を一定に保つ $\delta A=0$ は**可逆限界**と呼ぶ理想化で、実際の有限時間のPenrose過程が常にこれを達成するという主張ではありません。$\delta A>0$ なら同じ初期状態から同じ微小角運動量変化を与えたとき、質量減少の絶対値は可逆限界より小さくなります。以下の $dM=(dM/dJ)\,dJ$ は固定面積の**定常解族内の曲線**に沿う全微分で、[BHT5の第一法則](../BHT5/index.md#thm-bht5-kerr-first-law)の接方向 $\delta M,\delta J$ をその曲線へ制限したものです。物理過程の時間微分 $dA/dt$ とは区別します。
 
 <a id="prop-bht7-constant-area-path"></a>
 
@@ -387,7 +392,7 @@ $$
 <1-\frac1{\sqrt2}.
 $$
 
-定理の弱い不等号は極限Kerrへの極限も表す書き方です。等号 $M_f=\mu_f=\mu_i$ には最初の不等号で $J_f=0$、次の不等号で $A_f=A_i$ が必要です。
+極限Kerrが端状態に含まれる場合も、使用した代数的な質量公式は $|a|\uparrow M$ で連続に延長されます。ここでは極限点で第一法則を微分していないため、同じ不等号をその極限に適用できます。初期状態が非極限なら $W/M_i<1-1/\sqrt2$ で、弱い不等号は極限Kerrの境界値も含めた表記です。等号 $M_f=\mu_f=\mu_i$ には最初の不等号で $J_f=0$、次の不等号で $A_f=A_i$ が必要です。
 <!-- proof-end -->
 
 この上限は**エネルギー保存により無限遠への正味の流出を $M_i-M_f$ と同定できる孤立過程**の主張です。外部から同時にエネルギーを投入する場合は、正味の差と外部で数えた総仕事を混同しません。また、量子的なHawking蒸発、零エネルギー条件の破れ、地平線の大域的正則性が失われる状況にはこの証明を無条件に移せません。
@@ -531,7 +536,14 @@ $$
 M=2XM_X+2JM_J+QM_Q.
 $$
 
-$A=16\pi X$ だから $XM_X=AM_A$。$J=0$ の場合、$M^2=X+Q^2/2+Q^4/(16X)$ で $M_Q=(Q+Q^3/(4X))/(2M)$、$Q\ne0$ なら $QM_Q=(Q^2+Q^4/(4X))/(2M)>0$ です。誤って電荷にも重み2を付けると真の式より余分な $QM_Q>0$ が残り、等号は成り立ちません。[電荷付き第一法則](../BHT5/index.md#prop-bht5-kn-first-law)の $M_Q=\Phi_H$ から正しい式は $M=\kappa A/(4\pi)+2\Omega_HJ+\Phi_HQ$ です。
+$A=16\pi X$ だから、$J,Q$ を固定する連鎖律から
+
+$$
+M_X=\left(\frac{\partial M}{\partial A}\right)_{J,Q}\frac{dA}{dX}
+=16\pi M_A,\qquad XM_X=AM_A.
+$$
+
+$J=0$ の場合、$M^2=X+Q^2/2+Q^4/(16X)$ で $M_Q=(Q+Q^3/(4X))/(2M)$、$Q\ne0$ なら $QM_Q=(Q^2+Q^4/(4X))/(2M)>0$ です。誤って電荷にも重み2を付けると真の式より余分な $QM_Q>0$ が残り、等号は成り立ちません。[電荷付き第一法則](../BHT5/index.md#prop-bht5-kn-first-law)の $M_Q=\Phi_H$ から正しい式は $M=\kappa A/(4\pi)+2\Omega_HJ+\Phi_HQ$ です。
 <!-- solution-end -->
 
 <a id="ex-bht7-b02"></a>
