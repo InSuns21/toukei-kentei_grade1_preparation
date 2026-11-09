@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/dream_thater
 # 公開目次へは completed の章だけを登録する。第IV部はHA11からの分岐を持つ。
 chapters:
   - { id: GMT1, path: textbook/volumes/dream_thater/解析系/GMT/GMT1, status: completed, title: "Radon測度の球平均から局所密度を読む" }
-  - { id: GMT2, path: textbook/volumes/dream_thater/解析系/GMT/GMT2, status: planned, title: "Frostman補題と測度の構成" }
+  - { id: GMT2, path: textbook/volumes/dream_thater/解析系/GMT/GMT2, status: completed, title: "Frostman補題と測度の構成" }
   - { id: GMT3, path: textbook/volumes/dream_thater/解析系/GMT/GMT3, status: planned, title: "Riesz energyとcapacity" }
   - { id: GMT4, path: textbook/volumes/dream_thater/解析系/GMT/GMT4, status: planned, title: "Fourier表示によるenergy法" }
   - { id: GMT5, path: textbook/volumes/dream_thater/解析系/GMT/GMT5, status: planned, title: "平面Marstrand射影定理：次元" }

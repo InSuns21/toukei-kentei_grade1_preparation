@@ -1,0 +1,78 @@
+chapter: GMT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT5
+  - MT8
+  - GMT1
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt2-unrestricted-content
+    name: 非制限Hausdorff内容量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非制限Hausdorff内容量）"]
+    requires:
+      - measure.hausdorff-content
+
+  - id: geometric-measure.gmt2-frostman-measure
+    name: Frostman測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Frostman測度）"]
+    requires:
+      - measure.radon-measure
+
+  - id: geometric-measure.gmt2-positive-content
+    name: コンパクト集合の内容量の正値性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（コンパクト集合の内容量の正値性）"]
+    requires:
+      - geometric-measure.gmt2-unrestricted-content
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt2-tree-flow
+    name: 有限二進木の容量配分
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限二進木の容量配分）"]
+    requires: []
+
+  - id: geometric-measure.gmt2-weak-subsequence
+    name: コンパクト台の確率測度の弱部分列
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（コンパクト台の確率測度の弱部分列）"]
+    requires:
+      - measure.riesz-markov-positive
+
+  - id: geometric-measure.gmt2-frostman-lemma
+    name: Frostman補題・コンパクト集合版
+    kind: theorem
+    aliases: [Frostman補題]
+    introduction: formal
+    introduction_aliases: ["定理（Frostman補題・コンパクト集合版）"]
+    requires:
+      - geometric-measure.gmt2-positive-content
+      - geometric-measure.gmt2-tree-flow
+      - geometric-measure.gmt2-weak-subsequence
+
+  - id: geometric-measure.gmt2-content-equivalence
+    name: 球成長と非制限内容量の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（球成長と非制限内容量の同値）"]
+    requires:
+      - geometric-measure.gmt2-frostman-lemma
+      - measure.mass-distribution-principle
+
+  - id: geometric-measure.gmt2-dimension-characterization
+    name: Frostman指数によるHausdorff次元の特徴付け
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Frostman指数によるHausdorff次元の特徴付け）"]
+    requires:
+      - geometric-measure.gmt2-content-equivalence
+      - measure.hausdorff-dimension
