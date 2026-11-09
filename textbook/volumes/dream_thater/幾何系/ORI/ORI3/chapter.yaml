@@ -1,0 +1,38 @@
+id: ORI3
+title: "折りによる等分・面積・有理比"
+volume: foundations
+status: supplementary
+prerequisites: [ORI2]
+official_scope: []
+learning_objectives:
+  - 本講で許す有限折り操作を明示し、芳賀折りと二等分から任意の1/n目盛りを帰納的に構成できる
+  - 鏡映によって隣接目盛りを延長し、任意の有理数m/nの位置を有限回で作れる
+  - 目盛りから幅が等しい帯と三角形を構成し、元の紙の面積比を座標・底辺と高さから検算できる
+  - 芳賀折りの折り線交点と移動した辺の交点を区別し、二等分反復による収束と有限回の厳密作図を区別できる
+definitions:
+  - { id: ORI3-DEF-01, name: 本講の有限折り作図と印の操作 }
+  - { id: ORI3-DEF-02, name: 辺の等分目盛り }
+theorems:
+  - { id: ORI3-LEM-01, name: 芳賀折りによる奇数分母の更新 }
+  - { id: ORI3-THM-01, name: 任意の分母の逆数の有限折り作図 }
+  - { id: ORI3-PROP-01, name: 隣接目盛りの鏡映による複製 }
+  - { id: ORI3-THM-02, name: 有理比の等分と面積比 }
+  - { id: ORI3-PROP-02, name: 二等分近似の収束と非有限性 }
+canonical_examples:
+  - 1/2から1/3、1/5、1/10へ進む有限折りの具体手順
+  - t=1/3の芳賀折りで折り線交点Qの高さ1/18と移動辺交点Fの高さ1/5を区別
+  - 3/5の帯の面積と頂点から引く三角形の面積3/10
+  - 1/3を二等分区間で近似すると各段階は二進有理数で一致しない例
+problem_patterns:
+  - ORI3-FINITE-MARK-OPERATIONS
+  - ORI3-HAGA-ODD-RECURRENCE
+  - ORI3-ONE-OVER-N-INDUCTION
+  - ORI3-RATIONAL-MARK-REFLECTION
+  - ORI3-AREA-VS-PROJECTION
+  - ORI3-HAGA-INTERSECTION-CHECK
+  - ORI3-BINARY-CONVERGENCE
+  - ORI3-INTEGRATED-CONSTRUCTION-AREA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.5, review: 1.5 }

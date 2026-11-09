@@ -1,0 +1,50 @@
+chapter: ORI3
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI2]
+forward_references: []
+
+concepts:
+  - id: origami.finite-marking
+    name: 本講の有限折り作図と印の操作
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（本講の有限折り作図と印の操作）]
+    requires: [origami.crease-reflection, origami.point-alignment-bisector]
+
+  - id: origami.equal-division-marks
+    name: 辺の等分目盛り
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（辺の等分目盛り）]
+    requires: [origami.finite-marking]
+
+  - id: origami.haga-odd-denominator
+    name: 芳賀折りによる奇数分母の更新
+    kind: lemma
+    introduction: formal
+    requires: [origami.haga-general-ratio, origami.finite-marking]
+
+  - id: origami.unit-fraction-fold
+    name: 任意の分母の逆数の有限折り作図
+    kind: theorem
+    introduction: formal
+    requires: [origami.haga-odd-denominator, origami.point-alignment-bisector, origami.equal-division-marks]
+
+  - id: origami.adjacent-mark-reflection
+    name: 隣接目盛りの鏡映による複製
+    kind: proposition
+    introduction: formal
+    requires: [origami.finite-marking, origami.reflection-isometry]
+
+  - id: origami.rational-area-division
+    name: 有理比の等分と面積比
+    kind: theorem
+    introduction: formal
+    requires: [origami.unit-fraction-fold, origami.adjacent-mark-reflection, origami.equal-division-marks]
+
+  - id: origami.bisection-approximation
+    name: 二等分近似の収束と非有限性
+    kind: proposition
+    introduction: formal
+    requires: [origami.point-alignment-bisector]
