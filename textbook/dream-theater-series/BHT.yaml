@@ -45,7 +45,7 @@ chapters:
     title: "Bekenstein–Hawkingエントロピー"
   - id: BHT10
     path: textbook/volumes/dream_thater/物理系/BHT/BHT10
-    status: planned
+    status: completed
     title: "回転・電荷を含む熱力学の整合"
   - id: BHT11
     path: textbook/volumes/dream_thater/物理系/BHT/BHT11

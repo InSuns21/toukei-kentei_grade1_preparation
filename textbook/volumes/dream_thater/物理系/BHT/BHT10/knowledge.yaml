@@ -1,0 +1,44 @@
+chapter: BHT10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT9
+  - BHT7
+  - BHT5
+  - BHT4
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.kn-thermodynamic-coordinates
+    name: Kerr–Newmanの熱力学的状態座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kerr–Newmanの熱力学的状態座標）"]
+    requires: [black-hole-thermodynamics.bekenstein-hawking-entropy, black-hole-thermodynamics.kerr-newman-first-law]
+
+  - id: black-hole-thermodynamics.kn-mass-conjugates
+    name: Kerr–Newman質量関数と三つの共役量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kerr–Newman質量関数と三つの共役量）"]
+    requires: [black-hole-thermodynamics.kn-thermodynamic-coordinates, black-hole-thermodynamics.kerr-newman-first-law]
+
+  - id: black-hole-thermodynamics.thermodynamic-smarr-check
+    name: 熱力学的Smarr関係の直接検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（熱力学的Smarr関係の直接検算）"]
+    requires: [black-hole-thermodynamics.kn-mass-conjugates, black-hole-thermodynamics.kerr-newman-smarr-relation]
+
+  - id: black-hole-thermodynamics.kn-gauge-potential-difference
+    name: 電磁ゲージと地平線電位差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（電磁ゲージと地平線電位差）"]
+    requires: [black-hole-thermodynamics.kerr-newman-potential, black-hole-thermodynamics.kn-mass-conjugates]
+
+  - id: black-hole-thermodynamics.kn-si-first-law
+    name: 回転・電荷付き第一法則のSI表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（回転・電荷付き第一法則のSI表示）"]
+    requires: [black-hole-thermodynamics.kn-mass-conjugates, black-hole-thermodynamics.entropy-si-units]

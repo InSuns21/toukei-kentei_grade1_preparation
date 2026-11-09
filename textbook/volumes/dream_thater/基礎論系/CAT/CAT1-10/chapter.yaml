@@ -1,0 +1,52 @@
+id: "CAT1-10"
+title: "表現可能関手と普遍元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT1-06
+  - CAT1-07
+official_scope: []
+learning_objectives:
+  - 局所小圏上の共変Hom(A,-)と反変Hom(-,A)の型と射の作用を区別できる
+  - 共変・反変表現可能関手を自然同型で定義し具体例の全単射と自然性を確認できる
+  - 共変・反変普遍元の存在と一意性を検証できる
+  - 自然同型の恒等射の像と普遍元の対応を両方向に証明できる
+  - 元の圏で共変普遍元は始対象、反変普遍元は終対象となることを示せる
+  - 普遍元を保つ表現対象間の一意な同型を構成できる
+  - 空集合や有限集合でのHomの個数から非表現可能性を証明できる
+definitions:
+  - { id: CAT1-10-DEF-01, name: 共変表現可能関手・表現対象 }
+  - { id: CAT1-10-DEF-02, name: 共変普遍元 }
+  - { id: CAT1-10-DEF-03, name: 反変表現可能関手・表現対象 }
+  - { id: CAT1-10-DEF-04, name: 反変普遍元 }
+  - { id: CAT1-10-DEF-05, name: 元の圏 }
+theorems:
+  - { id: CAT1-10-THM-01, name: 共変表現可能性と普遍元の同値 }
+  - { id: CAT1-10-THM-02, name: 反変表現可能性と普遍元の同値 }
+  - { id: CAT1-10-PROP-01, name: 普遍元と始対象・終対象 }
+  - { id: CAT1-10-THM-03, name: 普遍元付き表現対象の一意性 }
+canonical_examples:
+  - 集合の恒等関手は一元集合とその唯一の元で共変に表現される
+  - 冪集合の逆像関手は二元集合と一元部分集合で反変に表現される
+  - 集合の二重直積関手X×Xは二元集合と順序対(0,1)で共変に表現される
+  - 定値一元集合関手の共変表現は空集合、反変表現は一元集合
+  - 定値二元集合関手は空集合におけるHomの個数から表現不可能
+problem_patterns:
+  - CAT1-10-HOM-VARIANCE
+  - CAT1-10-NATURAL-REPRESENTATION
+  - CAT1-10-COVARIANT-UNIVERSAL-ELEMENT
+  - CAT1-10-CONTRAVARIANT-UNIVERSAL-ELEMENT
+  - CAT1-10-EMPTY-SET-OBSTRUCTION
+  - CAT1-10-PRODUCT-FUNCTOR
+  - CAT1-10-NATURALITY-IDENTITY
+  - CAT1-10-CATEGORY-OF-ELEMENTS
+  - CAT1-10-REPRESENTING-UNIQUENESS
+  - CAT1-10-FINITE-POWERS
+  - CAT1-10-NONREPRESENTABILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }

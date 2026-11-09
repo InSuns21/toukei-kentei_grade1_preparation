@@ -16,7 +16,7 @@ chapters:
   - { id: CAT1-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-07, status: completed, title: "自然変換と自然同型" }
   - { id: CAT1-08, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-08, status: completed, title: "関手圏と水平・垂直合成" }
   - { id: CAT1-09, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-09, status: completed, title: "圏の同値と圏同型" }
-  - { id: CAT1-10, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-10, status: planned, title: "表現可能関手と普遍元" }
+  - { id: CAT1-10, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-10, status: completed, title: "表現可能関手と普遍元" }
   - { id: CAT1-11, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-11, status: planned, title: "Yonedaの補題" }
   - { id: CAT1-12, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT1-12, status: planned, title: "Yoneda埋め込み" }
   - { id: CAT2-01, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-01, status: planned, title: "図式・錐・極限" }
