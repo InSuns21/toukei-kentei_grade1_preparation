@@ -1,0 +1,34 @@
+id: ORI1
+title: "折り目は何をする写像か"
+volume: foundations
+status: supplementary
+prerequisites: [F0-00A]
+official_scope: []
+learning_objectives:
+  - 点・直線・折り線・鏡映を座標によって定義し、反射点を計算できる
+  - 鏡映が距離を保存し二回の反射で元へ戻ることを証明できる
+  - 異なる2点を重ねる折り線が垂直二等分線に一意に定まることを合同と座標で検証できる
+  - 正方形の中線・対角線の折りを計算し、紙面の部分ごとの等長性と大域等長性を区別できる
+definitions:
+  - { id: ORI1-DEF-01, name: 折り線と鏡映 }
+  - { id: ORI1-DEF-02, name: 一枚の紙の平面折りモデル }
+theorems:
+  - { id: ORI1-PROP-01, name: 鏡映の座標公式と等距離性 }
+  - { id: ORI1-THM-01, name: 点を重ねる折り線の垂直二等分線定理 }
+  - { id: ORI1-PROP-02, name: 折り写像の面ごとの等長性と非大域性 }
+canonical_examples:
+  - 直線 x=1/2 に関する正方形の中線折り
+  - 直線 y=x に関する正方形の対角線折り
+  - 垂直二等分線の必要十分性と点が一致する退化例
+problem_patterns:
+  - ORI1-REFLECTION-COORDINATE
+  - ORI1-MIDLINE-FOLD
+  - ORI1-DIAGONAL-FOLD
+  - ORI1-PERPENDICULAR-BISECTOR
+  - ORI1-REFLECTION-ISOMETRY
+  - ORI1-PIECEWISE-FOLD
+  - ORI1-RECTANGLE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.0, review: 1.0 }

@@ -1,0 +1,38 @@
+version: 1
+id: ORI
+title: "オリガミクス・数学的折り紙"
+plan: textbook/plans_progress/DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開目次・本文・メタデータは completed 章のみ追加する。
+chapters:
+  - { id: ORI1, path: textbook/volumes/dream_thater/幾何系/ORI/ORI1, status: completed, title: "折り目は何をする写像か" }
+  - { id: ORI2, path: textbook/volumes/dream_thater/幾何系/ORI/ORI2, status: planned, title: "芳賀の定理と比の幾何" }
+  - { id: ORI3, path: textbook/volumes/dream_thater/幾何系/ORI/ORI3, status: planned, title: "折りによる等分・面積・有理比" }
+  - { id: ORI4, path: textbook/volumes/dream_thater/幾何系/ORI/ORI4, status: planned, title: "多角形・対称性・定理折り" }
+  - { id: ORI5, path: textbook/volumes/dream_thater/幾何系/ORI/ORI5, status: planned, title: "折りの包絡線と放物線" }
+  - { id: ORI6, path: textbook/volumes/dream_thater/幾何系/ORI/ORI6, status: planned, title: "Huzita–Justin公理O1〜O4" }
+  - { id: ORI7, path: textbook/volumes/dream_thater/幾何系/ORI/ORI7, status: planned, title: "公理O5と二次方程式" }
+  - { id: ORI8, path: textbook/volumes/dream_thater/幾何系/ORI/ORI8, status: planned, title: "公理O6と三次方程式" }
+  - { id: ORI9, path: textbook/volumes/dream_thater/幾何系/ORI/ORI9, status: planned, title: "公理O7と単一折りの尽くし方" }
+  - { id: ORI10, path: textbook/volumes/dream_thater/幾何系/ORI/ORI10, status: planned, title: "角の三等分と立方体倍積の折り紙作図" }
+  - { id: ORI11, path: textbook/volumes/dream_thater/幾何系/ORI/ORI11, status: planned, title: "折り紙可作図数と拡大次数" }
+  - { id: ORI12, path: textbook/volumes/dream_thater/幾何系/ORI/ORI12, status: planned, title: "同時複数折り・曲線折りの作図能力" }
+  - { id: ORI13, path: textbook/volumes/dream_thater/幾何系/ORI/ORI13, status: planned, title: "折り線図、山谷、平坦折り写像" }
+  - { id: ORI14, path: textbook/volumes/dream_thater/幾何系/ORI/ORI14, status: planned, title: "Kawasaki–Justinの定理" }
+  - { id: ORI15, path: textbook/volumes/dream_thater/幾何系/ORI/ORI15, status: planned, title: "Maekawaの定理" }
+  - { id: ORI16, path: textbook/volumes/dream_thater/幾何系/ORI/ORI16, status: planned, title: "局所平坦折り可能性の判定" }
+  - { id: ORI17, path: textbook/volumes/dream_thater/幾何系/ORI/ORI17, status: planned, title: "複数頂点の大域条件・層順" }
+  - { id: ORI18, path: textbook/volumes/dream_thater/幾何系/ORI/ORI18, status: planned, title: "地図折り・切手折りと組合せ" }
+  - { id: ORI19, path: textbook/volumes/dream_thater/幾何系/ORI/ORI19, status: planned, title: "平坦折り判定の計算困難性" }
+  - { id: ORI20, path: textbook/volumes/dream_thater/幾何系/ORI/ORI20, status: planned, title: "一回の直線切断で何が切り出せるか" }
+  - { id: ORI21, path: textbook/volumes/dream_thater/幾何系/ORI/ORI21, status: planned, title: "直線骨格を使うfold-and-one-cut" }
+  - { id: ORI22, path: textbook/volumes/dream_thater/幾何系/ORI/ORI22, status: planned, title: "tree methodと円・河川パッキング" }
+  - { id: ORI23, path: textbook/volumes/dream_thater/幾何系/ORI/ORI23, status: planned, title: "box pleating・格子折りの設計" }
+  - { id: ORI24, path: textbook/volumes/dream_thater/幾何系/ORI/ORI24, status: planned, title: "Origamizerと多面体表面の実現" }
+  - { id: ORI25, path: textbook/volumes/dream_thater/幾何系/ORI/ORI25, status: planned, title: "剛体折りと4価頂点" }
+  - { id: ORI26, path: textbook/volumes/dream_thater/幾何系/ORI/ORI26, status: planned, title: "剛体折りの運動経路と特異点" }
+  - { id: ORI27, path: textbook/volumes/dream_thater/幾何系/ORI/ORI27, status: planned, title: "Miura折りと展開機構" }
+  - { id: ORI28, path: textbook/volumes/dream_thater/幾何系/ORI/ORI28, status: planned, title: "曲線折りと可展曲面" }
+  - { id: ORI29, path: textbook/volumes/dream_thater/幾何系/ORI/ORI29, status: planned, title: "紙厚・自己折り・実装制約" }
+  - { id: ORI30, path: textbook/volumes/dream_thater/幾何系/ORI/ORI30, status: planned, title: "総合設計・数学的検証" }

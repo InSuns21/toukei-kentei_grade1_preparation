@@ -1,0 +1,37 @@
+chapter: ORI1
+scope: dream-theater
+coverage: complete
+prerequisites: [F0-00A]
+forward_references: []
+
+concepts:
+  - id: origami.crease-reflection
+    name: 折り線と鏡映
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（折り線と鏡映）]
+
+  - id: origami.reflection-isometry
+    name: 鏡映の座標公式と等距離性
+    kind: proposition
+    introduction: formal
+    requires: [origami.crease-reflection]
+
+  - id: origami.point-alignment-bisector
+    name: 点を重ねる折り線の垂直二等分線定理
+    kind: theorem
+    introduction: formal
+    requires: [origami.reflection-isometry]
+
+  - id: origami.piecewise-fold-model
+    name: 一枚の紙の平面折りモデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（一枚の紙の平面折りモデル）]
+    requires: [origami.crease-reflection]
+
+  - id: origami.facewise-isometry
+    name: 折り写像の面ごとの等長性と非大域性
+    kind: proposition
+    introduction: formal
+    requires: [origami.piecewise-fold-model, origami.reflection-isometry]
