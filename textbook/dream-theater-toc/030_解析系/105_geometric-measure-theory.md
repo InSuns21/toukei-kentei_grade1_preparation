@@ -6,3 +6,4 @@
 3. [GMT3 Riesz energyとcapacity](textbook/volumes/dream_thater/解析系/GMT/GMT3/index.md)
 4. [GMT4 Fourier表示によるenergy法](textbook/volumes/dream_thater/解析系/GMT/GMT4/index.md)
 5. [GMT5 平面Marstrand射影定理：次元](textbook/volumes/dream_thater/解析系/GMT/GMT5/index.md)
+6. [GMT6 平面Marstrand射影定理：正測度](textbook/volumes/dream_thater/解析系/GMT/GMT6/index.md)
