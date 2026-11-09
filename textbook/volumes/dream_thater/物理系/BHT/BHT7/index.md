@@ -177,7 +177,21 @@ M^2&=\frac R4+\frac{J^2}{R}+\frac{Q^2}{2}+\frac{Q^4}{4R}\\
 \end{aligned}
 $$
 
-この正質量分枝は非極限の開領域で滑らかです。$X,J,Q$ を $\lambda^2X,\lambda^2J,\lambda Q$ とすると右辺の各項が $\lambda^2$ 倍されるため、$M(\lambda^2A,\lambda^2J,\lambda Q)=\lambda M(A,J,Q)$ です。従って[補題](#lem-bht7-weighted-euler)より
+独立変数として扱えることも確認します。$r=r_+$ とし、$M=(r^2+a^2+Q^2)/(2r)$ から
+
+$$
+M_r=\frac{r^2-a^2-Q^2}{2r^2}\in(0,1/2],\qquad M_a=\frac ar.
+$$
+
+$A=4\pi(r^2+a^2)$、$J=aM$ なので、$Q$ を固定した変換のJacobianは
+
+$$
+\det\frac{\partial(A,J)}{\partial(r,a)}
+=8\pi\{r(M+aM_a)-a^2M_r\}
+=8\pi\{rM+a^2(1-M_r)\}>0.
+$$
+
+さらに第三座標を $Q$ のままにすれば全Jacobianも非零です。よって逆関数定理により $(A,J,Q)$ は非極限解族の局所座標となります。この正質量分枝はその開領域で滑らかです。$X,J,Q$ を $\lambda^2X,\lambda^2J,\lambda Q$ とすると右辺の各項が $\lambda^2$ 倍されるため、$M(\lambda^2A,\lambda^2J,\lambda Q)=\lambda M(A,J,Q)$ です。従って[補題](#lem-bht7-weighted-euler)より
 
 $$
 M=2AM_A+2JM_J+QM_Q.
