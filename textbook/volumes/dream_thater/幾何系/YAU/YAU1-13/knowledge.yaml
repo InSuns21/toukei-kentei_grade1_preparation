@@ -1,0 +1,17 @@
+chapter: YAU1-13
+scope: dream-theater
+coverage: complete
+prerequisites: [YAU1-12, CYG1-08]
+concepts:
+  - id: yau.zero-ricci-normalized-density
+    name: 零Ricci目標の正規化密度と解の構成
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（零Ricci目標の正規化密度と解の構成）"]
+    requires: [yau.real-ricci-potential-existence, yau.monge-ampere-existence]
+  - id: yau.torus-ricci-flat-rigidity
+    name: 複素トーラスのRicci平坦計量の平行移動不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素トーラスのRicci平坦計量の平行移動不変性）"]
+    requires: [cyg.ricci-flat-existence, cyg.torus-flat-holonomy]
