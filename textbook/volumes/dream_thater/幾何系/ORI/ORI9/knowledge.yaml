@@ -1,0 +1,46 @@
+chapter: ORI9
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI8]
+forward_references: []
+
+concepts:
+  - id: origami.huzita-o7
+    name: Huzita–Justin公理O7
+    kind: axiom
+    introduction: formal
+    introduction_aliases: [公理（O7：点を直線へ重ね、折り線を別の直線に垂直にする）]
+    requires: [origami.admissible-single-crease, origami.crease-reflection]
+
+  - id: origami.o7-solution-classification
+    name: O7の全配置での解の本数
+    kind: theorem
+    introduction: formal
+    requires: [origami.huzita-o7, origami.reflection-isometry]
+
+  - id: origami.o7-sequential-construction
+    name: O7の有限折りへの分解
+    kind: proposition
+    introduction: formal
+    requires: [origami.o7-solution-classification, origami.huzita-o4, origami.huzita-o2]
+
+  - id: origami.one-fold-alignment
+    name: 一折りの基本一致条件
+    kind: definition
+    introduction: formal
+    aliases: [基本一致条件]
+    introduction_aliases: [定義（一折りの基本一致条件）]
+    requires: [origami.crease-reflection]
+
+  - id: origami.minimal-one-fold-specification
+    name: 最小の一折り指定
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（最小の一折り指定）]
+    requires: [origami.one-fold-alignment]
+
+  - id: origami.seven-single-crease-completeness
+    name: 基本一致条件による七操作の網羅性
+    kind: theorem
+    introduction: formal
+    requires: [origami.minimal-one-fold-specification, origami.huzita-o7, origami.huzita-o6, origami.huzita-o5, origami.huzita-o4, origami.huzita-o3, origami.huzita-o2, origami.huzita-o1]

@@ -9,3 +9,4 @@
 6. [ORI6 Huzita–Justin公理O1〜O4](textbook/volumes/dream_thater/幾何系/ORI/ORI6/index.md)
 7. [ORI7 公理O5と二次方程式](textbook/volumes/dream_thater/幾何系/ORI/ORI7/index.md)
 8. [ORI8 公理O6と三次方程式](textbook/volumes/dream_thater/幾何系/ORI/ORI8/index.md)
+9. [ORI9 公理O7と単一折りの尽くし方](textbook/volumes/dream_thater/幾何系/ORI/ORI9/index.md)
