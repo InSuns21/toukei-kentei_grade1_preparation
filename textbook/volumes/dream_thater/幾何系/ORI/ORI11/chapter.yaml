@@ -1,0 +1,42 @@
+id: ORI11
+title: "折り紙可作図数と拡大次数"
+volume: foundations
+status: supplementary
+prerequisites: [ORI10, SQC4, FLD1]
+official_scope: []
+learning_objectives:
+  - 初期データと有限候補の選択条件を明示し、単一折り紙可作図数を定義できる
+  - O1〜O7の一手で増える座標の次数が高々3であることをO6の三次同次式から証明できる
+  - 二次・三次拡大列の実例を検算し、その各段を折り紙作図へ戻せる
+  - 折り紙可作図数と実二次・三次拡大列の必要十分条件を両方向に証明できる
+  - 拡大次数が2と3の冪の積となる必要条件を導き、最小多項式の次数だけでは十分性を保証しないと説明できる
+  - 五次根の不可能性と立方根の可能性を古典作図との操作集合の違いとして判定できる
+definitions:
+  - { id: ORI11-DEF-01, name: 単一折り紙可作図点・折り紙可作図数 }
+  - { id: ORI11-DEF-02, name: 実二次・三次拡大列 }
+theorems:
+  - { id: ORI11-PROP-01, name: 単一折りの座標の次数上界 }
+  - { id: ORI11-THM-01, name: 単一折り紙可作図数の実二次・三次拡大列による特徴付け }
+  - { id: ORI11-COR-01, name: 折り紙可作図数の次数の必要条件 }
+canonical_examples:
+  - 単位正方形とO6立方体倍積から平方根2と立方根2を作図
+  - 三本のO6折り線の候補と無数解がある退化入力の区別
+  - QからQ(sqrt(2))を経てQ(sqrt(2),cuberoot(2))へ進む次数2・3の塔
+  - t^3-3t-1の係数からP=(-1,1),Q=(1,1/2)を逆設計
+  - sqrt(2)cuberoot(2)の次数6とcuberoot(2)の古典作図不能性
+  - fifthroot(2)の次数5による有限単一折り作図不能性
+problem_patterns:
+  - ORI11-FIELD-OPERATIONS
+  - ORI11-QUADRATIC-TOWER
+  - ORI11-CUBIC-INPUT-DESIGN
+  - ORI11-DEGREE-SIX-EXAMPLE
+  - ORI11-FIFTH-ROOT-OBSTRUCTION
+  - ORI11-CUBIC-BRANCH-CHOICE
+  - ORI11-DEGENERATE-INFINITE-CREASES
+  - ORI11-CUBIC-OVER-QUADRATIC-FIELD
+  - ORI11-MINIMAL-POLYNOMIAL-NECESSITY
+  - ORI11-INTEGRATED-CONSTRUCTIBILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

@@ -1,0 +1,37 @@
+chapter: ORI11
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI10, SQC4, FLD1]
+forward_references: []
+
+concepts:
+  - id: origami.single-fold-constructible-number
+    name: 折り紙可作図数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（単一折り紙可作図点・折り紙可作図数）]
+    requires: [origami.huzita-o6, origami.seven-single-crease-completeness]
+
+  - id: origami.single-fold-extension-degree-bound
+    name: 単一折りの座標の次数上界
+    kind: proposition
+    introduction: formal
+    requires: [origami.o6-general-cubic, algebra.simple-algebraic-extension-degree]
+
+  - id: origami.real-two-three-extension-tower
+    name: 実二次・三次拡大列
+    kind: definition
+    introduction: formal
+    requires: [algebra.extension-degree, algebra.tower-law]
+
+  - id: origami.single-fold-tower-characterization
+    name: 単一折り紙可作図数の実二次・三次拡大列による特徴付け
+    kind: theorem
+    introduction: formal
+    requires: [origami.single-fold-constructible-number, origami.real-two-three-extension-tower, origami.single-fold-extension-degree-bound, origami.o6-monic-realization, geometry.four-arithmetic-constructions]
+
+  - id: origami.constructible-degree-two-three
+    name: 折り紙可作図数の次数の必要条件
+    kind: corollary
+    introduction: formal
+    requires: [origami.single-fold-tower-characterization, algebra.tower-law, algebra.simple-algebraic-extension-degree]
