@@ -1,0 +1,51 @@
+id: GMT4
+title: Fourier表示によるenergy法
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT3
+  - FOU3
+  - FOU4
+  - FOU5
+  - HA7
+official_scope: []
+learning_objectives:
+  - 有限非負Borel測度のFourier変換を角周波数規約で定義し、点質量と区間で計算できる
+  - Gaussian正則化が質量を保ちL1かつL2に属することを証明し、Fourier乗数を導出できる
+  - Riesz核のGamma積分表示とGaussian二点平均のFourier表示をTonelli・Fubiniの条件付きで証明できる
+  - 0<s<dについてRiesz energyのFourier恒等式を無限大の場合も含めて証明し、定数を検算できる
+  - 角周波数規約と2π規約の間でenergy表示の定数を正確に変換できる
+  - Gaussian mollifierとPlancherelから正則化energyの有限性・単調性・原測度への収束を正当化できる
+  - 点質量・一様区間・Gaussian測度を両側で検算し、低周波数と高周波数の収束条件を分離できる
+  - Fourier側の有限energy条件をHausdorff次元とcapacityの既習結果へ接続できる
+definitions:
+  - { id: GMT4-DEF-01, name: 多変数有限測度のFourier変換 }
+  - { id: GMT4-DEF-02, name: 測度のGaussian正則化 }
+theorems:
+  - { id: GMT4-LEM-01, name: 有限測度のFourier変換の有界性・連続性 }
+  - { id: GMT4-LEM-02, name: Riesz核のGaussian積分表示 }
+  - { id: GMT4-LEM-03, name: Gaussian正則化のFourier変換 }
+  - { id: GMT4-LEM-04, name: Gaussian二点平均のFourier表示 }
+  - { id: GMT4-THM-01, name: Riesz energyのFourier表示 }
+  - { id: GMT4-THM-02, name: Gaussian正則化energyと単調極限 }
+canonical_examples:
+  - 点質量と区間のFourier変換
+  - 点質量のGaussian正則化とenergy発散
+  - d次元Gaussian確率測度のenergyを空間・周波数の両側で計算
+  - 2πの置き場所によるRiesz energy係数の変化
+  - 区間測度の高周波減衰によるenergy有限性
+problem_patterns:
+  - GMT4-ATOM-FOURIER
+  - GMT4-NORMALIZATION
+  - GMT4-LOW-FREQUENCY
+  - GMT4-MOLLIFIER-L2
+  - GMT4-INTERVAL-DECAY
+  - GMT4-FOURIER-SCALING
+  - GMT4-HEAT-MONOTONICITY
+  - GMT4-GAUSSIAN-DIFFERENCE
+  - GMT4-TAIL-EQUIVALENCE
+  - GMT4-FOURIER-DIMENSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }

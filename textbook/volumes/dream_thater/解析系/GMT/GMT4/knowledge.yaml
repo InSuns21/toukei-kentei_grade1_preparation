@@ -1,0 +1,80 @@
+chapter: GMT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT3
+  - FOU3
+  - FOU4
+  - FOU5
+  - HA7
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt4-fourier-measure
+    name: 多変数有限測度のFourier変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多変数有限測度のFourier変換）"]
+    requires:
+      - fourier.fou5-measure-transform
+
+  - id: geometric-measure.gmt4-measure-fourier-bounds
+    name: 有限測度のFourier変換の有界性・連続性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限測度のFourier変換の有界性・連続性）"]
+    requires:
+      - geometric-measure.gmt4-fourier-measure
+
+  - id: geometric-measure.gmt4-gaussian-mixture
+    name: Riesz核のGaussian積分表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Riesz核のGaussian積分表示）"]
+    requires:
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt4-gaussian-regularization
+    name: 測度のGaussian正則化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測度のGaussian正則化）"]
+    requires:
+      - geometric-measure.gmt4-fourier-measure
+
+  - id: geometric-measure.gmt4-heat-fourier
+    name: Gaussian正則化のFourier変換
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Gaussian正則化のFourier変換）"]
+    requires:
+      - geometric-measure.gmt4-gaussian-regularization
+      - geometric-measure.gmt4-fourier-measure
+
+  - id: geometric-measure.gmt4-gaussian-pair
+    name: Gaussian二点平均のFourier表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Gaussian二点平均のFourier表示）"]
+    requires:
+      - geometric-measure.gmt4-fourier-measure
+
+  - id: geometric-measure.gmt4-fourier-energy
+    name: Riesz energyのFourier表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Riesz energyのFourier表示）"]
+    requires:
+      - geometric-measure.gmt4-gaussian-mixture
+      - geometric-measure.gmt4-gaussian-pair
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt4-regularized-energy
+    name: Gaussian正則化energyと単調極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian正則化energyと単調極限）"]
+    requires:
+      - geometric-measure.gmt4-heat-fourier
+      - geometric-measure.gmt4-fourier-energy
+      - geometric-measure.gmt4-gaussian-pair
