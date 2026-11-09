@@ -29,7 +29,7 @@ chapters:
     title: "回転ブラックホールの第一法則"
   - id: BHT6
     path: textbook/volumes/dream_thater/物理系/BHT/BHT6
-    status: planned
+    status: completed
     title: "物理過程版の第一法則"
   - id: BHT7
     path: textbook/volumes/dream_thater/物理系/BHT/BHT7

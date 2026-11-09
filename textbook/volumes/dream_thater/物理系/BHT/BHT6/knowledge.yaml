@@ -1,0 +1,51 @@
+chapter: BHT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT5
+  - BHT3
+  - GR34
+  - GR35
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.physical-process-killing-flux
+    name: 物理過程の地平線Killing流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（物理過程の地平線Killing流束）"]
+    requires: [black-hole-thermodynamics.kerr-horizon-data]
+
+  - id: black-hole-thermodynamics.linearized-horizon-expansion
+    name: 線形化された地平線膨張率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形化された地平線膨張率）"]
+    requires: [gravity.congruence-volume-area-rate, gravity.null-screen-optical-split]
+
+  - id: black-hole-thermodynamics.nonaffine-linearized-raychaudhuri
+    name: 非アフィン媒介の線形化Raychaudhuri方程式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（非アフィン媒介の線形化Raychaudhuri方程式）"]
+    requires: [black-hole-thermodynamics.linearized-horizon-expansion, gravity.null-raychaudhuri]
+
+  - id: black-hole-thermodynamics.future-stationary-area-response
+    name: 将来定常境界条件と面積応答
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（将来定常境界条件と面積応答）"]
+    requires: [black-hole-thermodynamics.nonaffine-linearized-raychaudhuri]
+
+  - id: black-hole-thermodynamics.physical-process-first-law
+    name: 中性物質流入の物理過程版第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（中性物質流入の物理過程版第一法則）"]
+    requires: [black-hole-thermodynamics.physical-process-killing-flux, black-hole-thermodynamics.future-stationary-area-response]
+
+  - id: black-hole-thermodynamics.finite-cut-endpoint-correction
+    name: 有限区間の端点補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限区間の端点補正）"]
+    requires: [black-hole-thermodynamics.nonaffine-linearized-raychaudhuri]
