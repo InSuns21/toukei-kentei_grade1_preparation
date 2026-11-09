@@ -10,4 +10,4 @@ chapters:
   - { id: SQC9, path: textbook/volumes/dream_thater/幾何系/SQC/SQC9, status: completed, title: "Tarskiの円積問題とLaczkovichの解" }
   - { id: SQC10, path: textbook/volumes/dream_thater/幾何系/SQC/SQC10, status: completed, title: "有限等分解を支える組合せ論" }
   - { id: SQC11, path: textbook/volumes/dream_thater/幾何系/SQC/SQC11, status: completed, title: "可測・Borelな円積" }
-  - { id: SQC12, path: textbook/volumes/dream_thater/幾何系/SQC/SQC12, status: planned, title: "境界の小さい分割片と総合監査" }
+  - { id: SQC12, path: textbook/volumes/dream_thater/幾何系/SQC/SQC12, status: completed, title: "境界の小さい分割片と円積問題の到達点" }
