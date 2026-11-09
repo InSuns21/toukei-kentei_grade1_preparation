@@ -48,7 +48,7 @@ $$
 よって $L^2$ 密度の全条件を満たします。対照的に $\delta_0$ を $f\,du$ と書けるなら $1=\delta_0(\{0\})=\int_{\{0\}}f\,du=0$ となり矛盾します。後者では、どんなに密度を高くしようとしても「一点に正の質量を置く」条件を満たせません。
 <!-- definition-example-end -->
 
-この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、$\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、$\pi_\theta K$ のコンパクト性から $\boldsymbol{1}_{\pi_\theta K}\in L^2(\mathbb R)$ であり、$\|\boldsymbol{1}_{\pi_\theta K}\|_2^2=\mathcal L^1(\pi_\theta K)$ です。そこで $f_\theta$ とこの指示関数に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
+この定義が長さの正値性につながる理由を先に確認しましょう。$K\subset\mathbb R^2$ がコンパクトで、$\mu$ が $K$ に支えられた質量 $M>0$ の有限測度なら、$\nu_\theta$ はコンパクト集合 $\pi_\theta K$ の外側に質量を持ちません。もし $\nu_\theta=f_\theta\,du$ かつ $f_\theta\in L^2$ なら、$\pi_\theta K$ のコンパクト性から $\boldsymbol{1}_{\pi_\theta K}\in L^2(\mathbb R)$ であり、$\|\boldsymbol{1}_{\pi_\theta K}\|_2^2=\mathcal L^1(\pi_\theta K)$ です。そこで $f_\theta$ とこの指示関数に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すると
 
 $$
 M=\int_{\pi_\theta K}f_\theta(u)\,du
@@ -145,7 +145,7 @@ $$
 \longrightarrow\int\varphi(u)f(u)\,du.
 $$
 
-一方、Fubiniで左辺を交換すると
+一方、$\int\!\int|\varphi(u)|h_\varepsilon(u-v)\,du\,d\nu(v)\le\|\varphi\|_\infty\nu(\mathbb R)<\infty$ なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で左辺を交換すると
 
 $$
 \int\varphi(u)g_\varepsilon(u)\,du
@@ -358,7 +358,7 @@ $$
 0<\|f_\theta\|_2^2<\infty
 $$
 
-となります。$\mu$ は $K$ に支えられるので、$\nu_\theta$ は $\pi_\theta K$ に支えられます。$\pi_\theta K$ はコンパクトでLebesgue可測です。$\theta\notin N$ ならCauchy--Schwarzにより
+となります。$\mu$ は $K$ に支えられるので、$\nu_\theta$ は $\pi_\theta K$ に支えられます。$\pi_\theta K$ はコンパクトでLebesgue可測です。$\theta\notin N$ なら、$\boldsymbol{1}_{\pi_\theta K}$ と $f_\theta$ に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用して
 
 $$
 1=\nu_\theta(\pi_\theta K)
@@ -460,7 +460,7 @@ $$
 
 $K$ のコンパクト性から、射影された集合の各点は角度を少し変えてもわずかしか動きません。実際 $R=\max_{x\in K}|x|$ とすると、任意の $x\in K$ について $|\pi_\theta(x)-\pi_\varphi(x)|\le R|e_\theta-e_\varphi|$ です。つまり $\pi_\theta K$ は $\pi_\varphi K$ の十分小さい近傍に含まれます。コンパクト集合の $\varepsilon$-近傍の長さが $\varepsilon\downarrow0$ で元の長さへ減少するため、$\theta\mapsto\mathcal L^1(\pi_\theta K)$ は上半連続、従って可測です。
 
-ほとんど全方向で[第3節の命題](#prop-gmt6-energy-to-l2)による密度 $f_\theta$ が存在し、第1節の不等式は
+ほとんど全方向で[第3節の命題](#prop-gmt6-energy-to-l2)による密度 $f_\theta$ が存在し、[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から第1節で導いた長さ下界は
 
 $$
 M^2\le\mathcal L^1(\pi_\theta K)\|f_\theta\|_2^2
@@ -740,9 +740,9 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-水平座標 $u=x$ を固定すると円板内の縦断面は $-\sqrt{1-u^2}\le y\le\sqrt{1-u^2}$ です。従ってFubiniで
+水平座標 $u=x$ を固定すると円板内の縦断面は $-\sqrt{1-u^2}\le y\le\sqrt{1-u^2}$ です。従って[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で
 
-$$
+$
 f_0(u)=\begin{cases}
 \dfrac2\pi\sqrt{1-u^2},&|u|\le1,\\
 0,&|u|>1.
@@ -787,7 +787,7 @@ $$
 =Q.
 $$
 
-次に影が長さ $\ell_\theta\le a$ なら、質量1とCauchy--Schwarzから
+次に影が長さ $\ell_\theta\le a$ なら、質量1と[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 1=\int_{\pi_\theta K}f_\theta du
