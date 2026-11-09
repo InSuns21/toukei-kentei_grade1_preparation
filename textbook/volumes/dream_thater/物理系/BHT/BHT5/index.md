@@ -84,7 +84,7 @@ $$
 
 したがって断面の形は一般には球面の標準計量でなくても、面積は $4\pi(r_+^2+a^2)$ です。$a=0$ で $r_+=2M$ とすれば[BHT1のSchwarzschild面積](../BHT1/index.md#prop-bht1-schwarzschild-data)へ戻ります。
 
-表面重力は[GR45のKerr表面重力定理](../../GR/GR45/index.md#thm-gr45-kerr)を、同じ $\chi$ と非極限根へ適用します。$\Delta'(r_+)=r_+-r_-$ であり、
+表面重力は[GR45のKerr表面重力定理](../../GR/GR45/index.md#thm-gr45-kerr)を、同じ $\chi$ と非極限根へ適用します。ここでプライム $\Delta'(r)$ は $M,a$ を固定して $r$ で微分する記法で、$\Delta'(r_+)=2r_+-2M=r_+-r_-$ です。従って
 
 $$
 \kappa=\frac{r_+-r_-}{2R_+}
@@ -272,7 +272,15 @@ $M^2$ を直接微分してから $2M>0$ で割ります。$8\pi J/A=a/r$ を用
 <!-- proof-start -->
 ### 証明
 
-$A=8\pi Mr$ と $J=Ma$ から $8\pi J/A=a/r$ です。$r>|a|$ は $|J|<A/(8\pi)$ と同値で、この開領域では平方根内部は正で滑らかです。両辺を微分すると
+$A=8\pi Mr$ と $J=Ma$ から $8\pi J/A=a/r$ です。$r>|a|$ は $|J|<A/(8\pi)$ と同値で、この開領域では平方根内部は正で滑らかです。逆に $A>0,\ |J|<A/(8\pi)$ を与えて正の平方根 $M(A,J)$ を取れば、$r=A/(8\pi M)$、$a=J/M$ と戻せます。質量公式から
+
+$$
+r^2+a^2=\frac{A^2/(64\pi^2)+J^2}{M^2}
+=\frac A{4\pi}=2Mr,\qquad
+\frac{|a|}{r}=\frac{8\pi|J|}{A}<1
+$$
+
+なので、この逆変換も非極限Kerrの外側根を与えます。これで $(A,J)$ が主張の全状態域の独立座標であることが確認できました。質量公式の両辺を微分すると
 
 $$
 2M\,\delta M
@@ -343,22 +351,87 @@ A=4\pi R,\quad \Omega_H=\frac aR,\quad
 \kappa=\frac{r-r_-}{2R}=\frac{r^2-a^2-Q^2}{2rR}.
 $$
 
-面積式は正則な断面で $\Sigma_+$ と $R^2\sin^2\vartheta/\Sigma_+$ の積を取ればKerrと同じ方法で得られます。角速度は $\chi=\partial_t+\Omega_H\partial_\varphi$ が地平線で零となる条件から決まります。
+これらの面積・角速度を根の方程式だけから推測することはできません。ここで用いるKerr–Newman計量の時間・方位・極角成分は、$s:=\sin\vartheta$ として
 
-電場ポテンシャル1形式 $\mathcal A$ の符号とゲージを固定します。外部の静的基準へつながる表示として
+$$
+\begin{aligned}
+g_{tt}&=-\left(1-\frac{2Mr-Q^2}{\Sigma}\right),&
+g_{t\varphi}&=-\frac{a(2Mr-Q^2)s^2}{\Sigma},\\
+g_{\varphi\varphi}&=\frac{(R^2-a^2\Delta_Qs^2)s^2}{\Sigma},&
+g_{\vartheta\vartheta}&=\Sigma,\qquad g_{rr}=\frac{\Sigma}{\Delta_Q}.
+\end{aligned}
+$$
+
+これらは本節で入力する明示的な解の成分です。$Q=0$ とすると[GR32のKerr計量](../../GR/GR32/index.md#def-gr32-kerr-metric)の成分に一致します。$\Delta_Q=0$ では $2Mr-Q^2=R$ なので、外側根の時間・方位ブロックは
+
+$$
+\left.(g_{tt},g_{t\varphi},g_{\varphi\varphi})\right|_{r_+}
+=\frac{s^2}{\Sigma_+}(a^2,-aR,R^2).
+$$
+
+$0<\vartheta<\pi$ で $g(\partial_t+\Omega\partial_\varphi,\partial_\varphi)=0$ を解くと $\Omega=-g_{t\varphi}/g_{\varphi\varphi}=a/R$ です。$\Omega_H:=a/R$、$\chi:=\partial_t+\Omega_H\partial_\varphi$ とおけば $g(\chi,\partial_t)=0$ も成り立つので、$g(\chi,\chi)=0$ です。これは地平線上で**零ノルム**となるという意味で、$\chi$ が零ベクトルになるのではありません。軸上も正則な極限で同じ生成場を用います。
+
+面積は[GR32の入射座標による断面の取り方](../../GR/GR32/index.md#prop-gr32-horizon)と同様、$dv=dr=0$ の正則な断面で測ります。入射座標への変換 $dv=dt+((r^2+a^2)/\Delta_Q)dr$、$d\psi=d\varphi+(a/\Delta_Q)dr$ では、上の成分から
+
+$$
+(r^2+a^2)g_{tt}+ag_{t\varphi}=-\Delta_Q,\qquad
+(r^2+a^2)g_{t\varphi}+ag_{\varphi\varphi}=a\Delta_Qs^2
+$$
+
+となるため、変換後の $g_{vr}=1$、$g_{r\psi}=-as^2$ は根でも有限です。動径二次項も、二つの恒等式を使えば $g_{rr}^{\mathrm{in}}=\Sigma/\Delta_Q-\Sigma\Delta_Q/\Delta_Q^2=0$ と相殺します。よって正則な入射計量の断面で角方向成分は $h_{\vartheta\vartheta}=\Sigma_+$、$h_{\psi\psi}=R^2s^2/\Sigma_+$、$h_{\vartheta\psi}=0$ です。従って面積要素は $\sqrt{\det h}\,d\vartheta d\psi=R\sin\vartheta\,d\vartheta d\psi$、積分すると $A=4\pi R$ となります。
+
+表面重力も同じ計量から確かめられます。$\Omega_H$ を外側根での定数に固定し、$\rho$ を動径変数として $R(\rho)=\rho^2+a^2$、$\Sigma(\rho,\vartheta)=\rho^2+a^2\cos^2\vartheta$ と書くと、時間・方位ブロックから
+
+$$
+g(\chi,\chi)=-\frac{\Delta_Q(\rho)}{\Sigma(\rho,\vartheta)}\left(1-a\Omega_Hs^2\right)^2
++\frac{s^2}{\Sigma(\rho,\vartheta)}\left(R(\rho)\Omega_H-a\right)^2
+$$
+
+です。$\rho=r_+$ で右の二乗因子は零なので、その項の一階動径微分も零です。プライムを $M,a,Q$ を固定した動径微分として
+
+$$
+\left.\partial_\rho g(\chi,\chi)\right|_{\rho=r_+}
+=-\frac{\Delta_Q'(r_+)\Sigma_+}{R^2}
+$$
+
+を得ます。また入射計量では $g_{vr}=1$、$g_{r\psi}=-as^2$ なので、地平線での計量双対1形式は
+
+$$
+\left.\chi^\flat\right|_{r_+}
+=(g_{vr}+\Omega_Hg_{r\psi})dr
+=\left(1-\frac{a^2s^2}{R}\right)dr
+=\frac{\Sigma_+}{R}dr.
+$$
+
+[GR45のノルム勾配恒等式](../../GR/GR45/index.md#prop-gr45-gradient)の $dr$ 成分を照合すると、$-\Delta_Q'(r_+)\Sigma_+/R^2=-2\kappa\Sigma_+/R$ です。$\Sigma_+,R>0$ を約して
+
+$$
+\kappa=\frac{\Delta_Q'(r_+)}{2R}=\frac{r_+-r_-}{2R}
+$$
+
+となります。これは[GR45のKerrでの導出](../../GR/GR45/index.md#thm-gr45-kerr)を、電荷付きの同じ計量形式へ適用した計算です。
+
+電場ポテンシャル1形式 $\mathcal A$ の符号とゲージを固定します。無限遠で電位が零となる定常外部座標の表示として
 
 $$
 \mathcal A=\frac{Qr}{\Sigma}
 \left(dt-a\sin^2\vartheta\,d\varphi\right)
 $$
 
-を用いると、$a=0$ で[BHT4のRNポテンシャル](../BHT4/index.md#def-bht4-horizon-potential) $\mathcal A=(Q/r)dt$ に戻ります。$\chi\cdot\mathcal A$ は無限遠で零に近づき、地平線では角度によらない値を持ちます。
+を用いると、$a=0$ で[BHT4のRNポテンシャル](../BHT4/index.md#def-bht4-horizon-potential) $\mathcal A=(Q/r)dt$ に戻ります。外部で上の入射座標へ書き換えると
+
+$$
+\mathcal A=\frac{Qr}{\Sigma}\left(dv-a\sin^2\vartheta\,d\psi\right)
+-\frac{Qr}{\Delta_Q}\,dr.
+$$
+
+最後の動径1形式は $\Delta_Q\ne0$ の外部では局所的に完全微分であり、正則なゲージ $\mathcal A_{\mathrm{in}}=(Qr/\Sigma)(dv-a\sin^2\vartheta\,d\psi)$ に移れます。$\chi(r)=0$ のため動径成分は $\chi\cdot\mathcal A$ を変えません。この意味で、外部ゲージで定義する電位差を正則な入射ゲージから地平線まで延長して評価できます。$\chi\cdot\mathcal A$ は無限遠で零に近づき、地平線では角度によらない値を持ちます。
 
 <a id="def-bht5-kn-potential"></a>
 
 <!-- formal-statement-start -->
 > **定義（Kerr–Newmanの地平線電位）**
-> 4次元の非極限Kerr–Newman解族で $M>0,\ M^2>a^2+Q^2$、無限遠で規格化した $\chi=\partial_t+\Omega_H\partial_\varphi$、$\Omega_H=a/(r_+^2+a^2)$ を取る。電荷規約は $a=0$ で $F_{tr}=Q/r^2$ に一致するものとし、$\mathcal A=(Qr/\Sigma)(dt-a\sin^2\vartheta\,d\varphi)$ の静的外部ゲージで
+> 4次元の非極限Kerr–Newman解族で $M>0,\ M^2>a^2+Q^2$、無限遠で規格化した $\chi=\partial_t+\Omega_H\partial_\varphi$、$\Omega_H=a/(r_+^2+a^2)$ を取る。電荷規約は $a=0$ で $F_{tr}=Q/r^2$ に一致するものとし、$\mathcal A=(Qr/\Sigma)(dt-a\sin^2\vartheta\,d\varphi)$ の定常外部ゲージで
 
 $$
 \boxed{\Phi_H:=\left.\chi^a\mathcal A_a\right|_{r_+}
