@@ -603,7 +603,7 @@ $$
 (\lambda\otimes\lambda)(B((x,y),r))\le16\cdot3^{2\alpha}r^{2\alpha}.
 $$
 
-[質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)により $\dim_H(C\times C)\ge2\alpha$ です。水平射影は $C$ で次元 $\alpha<1$。一方、元の積集合は次元 $2\alpha>1$ なので、[平面Marstrand射影定理](#thm-gmt5-marstrand-dimension)の一般方向の次元1より小さく、例外方向であることが分かります。
+[質量分布原理](../../MT/MT8/index.md#thm-mt8-mass-principle)により $\dim_H(C\times C)\ge2\alpha$ です。水平射影は $C$ で次元 $\alpha<1$。一方、元の積集合は次元 $2\alpha>1$ なので、[平面Marstrand射影定理：コンパクト集合の次元](#thm-gmt5-marstrand-dimension)の一般方向の次元1より小さく、例外方向であることが分かります。
 <!-- solution-end -->
 
 <a id="ex-gmt5-b4"></a>
@@ -668,7 +668,7 @@ $$
 
 水平射影 $\pi_0K=A$ なので次元 $\alpha$。垂直射影 $\pi_{\pi/2}K=B$ なので次元 $\beta$。どちらも1未満です。
 
-最後に $K$ はコンパクトで、$D=\alpha+\beta>1$ です。[平面Marstrand射影定理](#thm-gmt5-marstrand-dimension)を適用すると、ほとんど全方向で
+最後に $K$ はコンパクトで、$D=\alpha+\beta>1$ です。[平面Marstrand射影定理：コンパクト集合の次元](#thm-gmt5-marstrand-dimension)を適用すると、ほとんど全方向で
 
 $$
 \dim_H\pi_\theta K=\min\{D,1\}=1
