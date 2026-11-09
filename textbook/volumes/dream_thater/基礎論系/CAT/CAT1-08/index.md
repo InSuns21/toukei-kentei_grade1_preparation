@@ -84,11 +84,13 @@ $$
 
 関手 $F,G,H:\mathcal C\to\mathcal D$ と自然変換 $\alpha:F\Rightarrow G$, $\beta:G\Rightarrow H$ を考える。各対象 $A$ で $\alpha_A$ の終域と $\beta_A$ の始域はともに $G(A)$ なので、$\beta_A\circ\alpha_A$ が定義される。これを全対象で揃えて「縦に続ける」ことにする。
 
+この成分ごとの操作には、$\mathcal C$ が小さいという仮定は要らない。[自然変換の定義](../CAT1-07/index.md#def-cat1-07-natural-transformation)と同じく、対象ごとに射を指定できればよい。ただし、そのような自然変換をすべて集めて **Hom 集合を持つ関手圏**を作るには、§1 のような集合性の保証が別途必要である。
+
 <a id="def-cat1-08-vertical"></a>
 
 <!-- formal-statement-start -->
 > **定義（垂直合成）**  
-> 小さい圏 $\mathcal C$、局所小圏 $\mathcal D$ および共変関手 $F,G,H:\mathcal C\to\mathcal D$ を取る。自然変換 $\alpha:F\Rightarrow G$, $\beta:G\Rightarrow H$ の**垂直合成** $\beta\cdot\alpha:F\Rightarrow H$ は、各対象 $A\in\mathcal C$ で
+> 圏 $\mathcal C,\mathcal D$ および共変関手 $F,G,H:\mathcal C\to\mathcal D$ を取る。自然変換 $\alpha:F\Rightarrow G$, $\beta:G\Rightarrow H$ の**垂直合成** $\beta\cdot\alpha:F\Rightarrow H$ は、各対象 $A\in\mathcal C$ で
 
 $$
 (\beta\cdot\alpha)_A:=\beta_A\circ\alpha_A
@@ -100,7 +102,7 @@ $$
 ここで $\cdot$ の右側 $\alpha$ を**先に**行う。$\beta\cdot\alpha$ と $\alpha\cdot\beta$ は一般に両方定義できるわけではない。
 
 <!-- definition-example-start: def-cat1-08-vertical -->
-**定義の確認**（対角線と射影）。$I:\mathbf{Set}\to\mathbf{Set}$ を恒等関手、$D(X)=X\times X$ を二乗関手とする。前講で構成した自然変換 $\delta:I\Rightarrow D$ は $\delta_X(x)=(x,x)$ である。各 $X$ の第一射影 $\pi_X:X\times X\to X$ は $f:X\to Y$ に対して
+**定義の確認**（対角線と射影）。$I:\mathbf{Set}\to\mathbf{Set}$ を恒等関手、$D(X)=X\times X$ を二乗関手とする。前講の[対角自然変換の確認](../CAT1-07/index.md#def-cat1-07-natural-transformation)で構成した $\delta:I\Rightarrow D$ は $\delta_X(x)=(x,x)$ である。各 $X$ の第一射影 $\pi_X:X\times X\to X$ は $f:X\to Y$ に対して
 
 $$
 f\circ\pi_X(x,y)=f(x)=\pi_Y\circ D(f)(x,y)
@@ -115,6 +117,8 @@ $$
 $$
 
 前者は $1_I$ であり、後者は二元以上の集合では $1_D$ ではない。合成する順序と型の違いが実際に結果を変える。
+
+$\mathbf{Set}$ は小さくないが、ここで行ったのは各集合 $X$ における二写像の合成であり、$\operatorname{Nat}(I,D)$ などの全体を集合とする操作ではない。したがって、上の垂直合成の定義を適用できる。
 <!-- definition-example-end -->
 
 <a id="prop-cat1-08-axioms"></a>
@@ -144,7 +148,7 @@ H(f)\circ(\beta_A\circ\alpha_A)
 \end{aligned}
 $$
 
-従って $\beta\cdot\alpha$ は自然変換である。$1_F$ については[恒等射を保つ関手の公理](../CAT1-06/index.md#def-cat1-06-functor)から
+従って $\beta\cdot\alpha$ は自然変換である。$1_F$ については $\mathcal D$ の[射の左右単位律](../CAT1-01/index.md#def-cat1-01-category)から
 
 $$
 F(f)\circ1_{F(A)}=F(f)=1_{F(B)}\circ F(f)
@@ -275,7 +279,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-08-horizontal -->
-**定義の確認**。$F=I$, $G=D$, $H=D$, $K=I$ とし、$\alpha=\delta:I\Rightarrow D$, $\beta=\pi:D\Rightarrow I$ を前節から取る。$\pi\ast\delta:DI\Rightarrow ID$ は $D\Rightarrow D$ の自然変換である。$(x,y)\in X\times X$ に対して、第一経路は
+**定義の確認**。$F=I$, $G=D$, $H=D$, $K=I$ とし、$\alpha=\delta:I\Rightarrow D$, $\beta=\pi:D\Rightarrow I$ を第2節から取る。$\pi\ast\delta:DI\Rightarrow ID$ は $D\Rightarrow D$ の自然変換である。$(x,y)\in X\times X$ に対して、第一経路は
 
 $$
 \begin{aligned}
