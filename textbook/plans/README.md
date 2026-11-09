@@ -43,7 +43,7 @@
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
 | 整数論・Diophantine近似・解析的整数論・楕円曲線・モジュラー形式の5科目間の履修ルート | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
 | 円積問題の2科目（古典作図SQC1〜7・Tarski等分解SQC8〜12）の履修ルート | `DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md`（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
-| オリガミクス・計算折り紙（ORI1〜30） | [DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md](DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md)（全30講設計確定、本文・SVG動画は未着手。定規・コンパスの作図不可能性はSQC/FLDを正本とし、ORIは折り紙公理・平坦折り・運動・設計を所有） |
+| オリガミクス・計算折り紙（ORI1〜30） | [進行中のORI計画](../plans_progress/DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md)（ORI1完成、ORI2以降とSVG動画は未完了。定規・コンパスの作図不可能性はSQC/FLDを正本とする） |
 | 超越数論Ⅰ・Hermiteの $e$ の超越性・Hermite–Lindemann・Lindemann–Weierstrass | `DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md`（TRN1–TRN14、独立科目。Liouville定理・Liouville数は整数論ルート `NDA6` が正本） |
 | 熱力学・熱力学ポテンシャル | `textbook/plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md`（TH1〜TH8 全章・横断監査完了） |
 | 平衡統計力学・アンサンブル・Ising | `DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md`（SM1〜8） |

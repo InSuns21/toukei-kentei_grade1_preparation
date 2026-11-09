@@ -8,7 +8,7 @@ $$
 E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z),\qquad \operatorname{Im}\tau>0
 $$
 
-の平坦な実座標 $x,y$ に対して、正則形式の類は
+を実トーラス $(\mathbb R/\mathbb Z)^2$ の座標 $x,y$ で表し、$z_\tau=x+\tau y$ と置く。[楕円曲線の周期基底の構成](../../HOD/HOD1-16/index.md#def-hod1-16-dual-period-basis)のとおり、$[dx],[dy]$ は整数周期に双対な基底である。この固定した滑らかなトーラスの上で、正則形式の類は
 
 $$
 [dz_\tau]=[dx]+\tau[dy]
@@ -64,7 +64,7 @@ $$
 =\left(\bigoplus_{r\ge p}H^{r,k-r}(X)\right)\times B
 $$
 
-となる。$r\ge p+1$ は $r\ge p$ に含まれ、$r\ge0$ は全項を含み、$r\ge k+1$ には $s=k-r<0$ しかないので零である。定義の三条件を直接検査できた。
+となる。右辺の各 $H^{r,k-r}(X)$ の基底を固定すれば、その定数切断が $B$ 上の正則枠になる。ゆえにこの例では正則部分束であることも直接分かる。また $r\ge p+1$ は $r\ge p$ に含まれ、$r\ge0$ は全項を含み、$r\ge k+1$ には $s=k-r<0$ しかないので零である。定義の包含関係と端点の二条件も確認できた。
 <!-- definition-example-end -->
 
 この段階では「束」と名付けただけで局所自由性をまだ証明していない。点ごとの $F_b^p$ の次元が一定であることと、局所で**正則に**基底を選べることの両方が必要である。
@@ -130,7 +130,7 @@ E_1^{r,s}=R^s\pi_*\Omega^r_{\mathcal X/B}
 \mathbb H^{r+s}(\mathcal X/B,\Omega^\bullet_{\mathcal X/B}).
 $$
 
-各ファイバー上で第1頁の全次元が $b_k$ に等しいため、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と比較すると第1頁以後に次元を減らす微分はない。基底変更後も各 $E_1^{r,s}$ の階数が固定なので、局所的な退化とフィルトレーションの各段の局所自由性が従う。相対正則Poincaréの補題による同定の下で、$\Omega^{\ge p}_{\mathcal X/B}$ の像のファイバーは
+各ファイバー上で第1頁の全次元が $b_k$ に等しいため、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)と比較すると第1頁以後に次元を減らす微分はない。実際、非零の微分があれば、次頁でその像と境界の分だけ関連する総次数の次元が減る。しかし極限の $H^k(X_b,\mathbb C)$ の次元は、最初から $E_1$ の同じ総次数の次元和に等しい。各 $E_1^{r,s}$ は基底変更で局所自由であり、すべてのファイバー上の微分が零なので束の微分も零である。退化によって得るフィルトレーションの連続する商も局所自由であり、対応する短完全列を局所的に分裂させれば各段が正則部分束となる。相対正則Poincaréの補題による同定の下で、$\Omega^{\ge p}_{\mathcal X/B}$ の像のファイバーは
 
 $$
 \bigoplus_{r\ge p}H^{r,k-r}(X_b)=F_b^p
@@ -169,7 +169,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-def1-13-period-map -->
-**定義の確認**（楕円曲線）。$U$ を $\mathbb H=\{\operatorname{Im}\tau>0\}$ 内の小円板とする。重さ1で $V_{\mathbb Q}=\mathbb Qe_1\oplus\mathbb Qe_2$、旗は $F^1_\tau=\mathbb C(e_1+\tau e_2)$ だけで決まる。係数列 $(1,\tau)^{\mathsf T}$ の第1成分は常に1なので、射影直線のこの座標チャートで周期写像は $\tau\mapsto\tau$ となる。共役した直線の係数列 $(1,\bar\tau)^{\mathsf T}$ との行列式は $\bar\tau-\tau=-2i\operatorname{Im}\tau\ne0$。従って反対条件を満たし、確かに $D_1$ に入る。
+**定義の確認**（楕円曲線）。$U$ を $\mathbb H=\{\operatorname{Im}\tau>0\}$ 内の小円板とする。重さ1では、旗は次の直線だけで決まる。
+
+$$
+V_{\mathbb Q}=\mathbb Qe_1\oplus\mathbb Qe_2,\qquad
+F^1_\tau=\mathbb C(e_1+\tau e_2).
+$$
+
+基底 $(e_1,e_2)$ で生成元を表す係数列は $(1,\tau)^{\mathsf T}$ である。第1成分が常に1なので、射影直線のこの座標チャートでは係数比が $\tau$ となる。
+
+さらに[反対フィルトレーション条件](../../HOD/HOD1-15/index.md#thm-hod1-15-opposite-filtration)は重さ1で $V_{\mathbb C}=F^1_\tau\oplus\overline{F^1_\tau}$ と同値である。二つの生成元を列に並べると、
+
+$$
+\det\begin{pmatrix}1&1\\\tau&\bar\tau\end{pmatrix}
+=\bar\tau-\tau=-2i\operatorname{Im}\tau\ne0.
+$$
+
+このため二直線は独立で二次元空間を張る。従って定義の反対条件を満たし、確かに $D_1$ に入る。周期写像の表示は $\tau\mapsto\tau$ である。
 <!-- definition-example-end -->
 
 [正則変動定理](#thm-def1-13-holomorphic-variation)により、平坦枠での $\mathcal F^p$ の基底を正則な係数行列で表せる。旗多様体の座標はこれらの行列成分の比で与えられるから、$\Phi_k$ は**正則写像**である。
@@ -185,7 +201,13 @@ $$
 
 ## 5. Griffiths横断性：一度の微分で下がるのは一段だけ
 
-正則な部分束が平坦接続で保存されるとは限らない。実際、楕円曲線で $\nabla^{\mathrm{GM}}_{\partial_\tau}(e_1+\tau e_2)=e_2$ は一般に $F_\tau^1$ に入らない。しかし $e_2$ は必ず $F_\tau^0$ に入る。高次の場合も、微分が $F^p$ から出るときは一段下の $F^{p-1}$ に収まる。
+正則な部分束が平坦接続で保存されるとは限らない。ここで $\partial_\tau=\partial/\partial\tau$ は固定実座標 $x,y$ を保って複素基底パラメータを微分する方向であり、[平坦枠の係数微分](../DEF1-12/index.md#def-def1-12-gauss-manin)を取る。楕円曲線では
+
+$$
+\nabla^{\mathrm{GM}}_{\partial_\tau}(e_1+\tau e_2)=e_2.
+$$
+
+この微分は一般に $F_\tau^1$ に入らない。しかし $e_2$ は必ず $F_\tau^0$ に入る。高次の場合も、微分が $F^p$ から出るときは一段下の $F^{p-1}$ に収まる。
 
 <a id="thm-def1-13-griffiths"></a>
 
@@ -247,7 +269,7 @@ $$
 F_b^{p-1}/F_b^p\simeq H^{p-1,k-p+1}(X_b)
 $$
 
-と同定できる。この商へ $\nabla_v s$ を写す操作は、$s$ の延長の取り方に依存しない。実際、延長の差が $b$ で零なら、局所枠 $e_j\in\mathcal F^p$ を用いて $\sum f_je_j$（$f_j(b)=0$）と表せ、その微分の値は $\sum (vf_j)(b)e_j(b)\in F_b^p$ だからである。
+と同定できる。この商へ $\nabla_v s$ を写す操作は、$s$ の延長の取り方に依存しない。実際、延長の差が $b$ で零なら、局所枠 $e_j\in\mathcal F^p$ を用いて $\sum f_je_j$（$f_j(b)=0$）と表せ、その微分の値は $\sum (vf_j)(b)e_j(b)\in F_b^p$ だからである。また入力を $F_b^p/F_b^{p+1}$ の類として考える場合、$F_b^{p+1}$ から別の代表を加えても、[横断性](#thm-def1-13-griffiths)によってその微分は $F_b^p$ に収まる。従って入力・出力の両方の商について写像が定まる。
 
 <a id="prop-def1-13-infinitesimal-period"></a>
 
@@ -310,11 +332,11 @@ $$
 $$
 (\bar\partial w)\lrcorner\alpha
 =\bar\partial(w\lrcorner\alpha)
-  -w\lrcorner(\bar\partial\alpha)
+  +w\lrcorner(\bar\partial\alpha)
 =\bar\partial(w\lrcorner\alpha)
 $$
 
-であり、Dolbeault類は不変である。よって表示は選択に依存せず、横断性の商への微分を与える。$\square$
+であり、Dolbeault類は不変である。中段の正号は、$\mu=\sum d\bar z^j\otimes\partial_{z^i}$ に対して $\mu\lrcorner\alpha=\sum d\bar z^j\wedge\iota_{\partial_{z^i}}\alpha$ と置く規約での次数付きLeibniz則による。最後の項が零なのは $\bar\partial\alpha=0$ を使ったからである。代表 $\alpha$ 自身を $\alpha+\bar\partial\eta$ に取り替えたときも $\bar\partial\mu_v=0$ と同じ規則から $\mu_v\lrcorner\bar\partial\eta$ は $\bar\partial$-完全である。よって表示は選択に依存せず、横断性の商への微分を与える。$\square$
 <!-- proof-end -->
 
 これは各 $v$ と各次数 $p,q$ に対する**微分の式**であり、周期写像の局所単射性やTorelli型の結論を自動的に意味しない。$\theta_v=0$ でも二次以上で周期が動くことはあり、逆に$\theta_v$ が非零でも大域的に周期が異なるファイバーを一意に識別できるとは限らない。
@@ -370,7 +392,21 @@ dz_\tau\wedge d\bar z_\tau
 =-2i\operatorname{Im}\tau\,dx\wedge dy.
 $$
 
-$\int_{E_\tau}dx\wedge dy=1$ だから $i\int dz_\tau\wedge d\bar z_\tau=2\operatorname{Im}\tau>0$。基本閉路に沿う周期はそれぞれ $1,\tau$ であり、旗のチャートの係数比も $\tau$ となる。$\square$
+$\int_{E_\tau}dx\wedge dy=1$ だから $i\int dz_\tau\wedge d\bar z_\tau=2\operatorname{Im}\tau>0$。さらに有理コホモロジー上の交叉形式を $Q([\alpha],[\beta])=\int_{E_\tau}\alpha\wedge\beta$ と置く。固定有理基底 $(e_1,e_2)$ に関して
+
+$$
+(Q(e_i,e_j))_{i,j=1,2}
+=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+$$
+
+なので $Q$ は有理かつ交代であり、[偏極の定義](../../HOD/HOD1-15/index.md#def-hod1-15-polarization)の（P1）を満たす。また $dz_\tau\wedge dz_\tau=d\bar z_\tau\wedge d\bar z_\tau=0$ により同じHodge型同士の直交条件（P2）も満たす。非零の $v=c[dz_\tau]\in H^{1,0}$ と $w=c[d\bar z_\tau]\in H^{0,1}$ については
+
+$$
+i^{-1}Q(\bar v,v)=2|c|^2\operatorname{Im}\tau>0,\qquad
+iQ(\bar w,w)=2|c|^2\operatorname{Im}\tau>0
+$$
+
+となり、（P3）も両型で確かめられる。基本閉路に沿う周期はそれぞれ $1,\tau$ であり、旗のチャートの係数比も $\tau$ となる。$\square$
 <!-- proof-end -->
 
 **偏極をどこで仮定したか。** 一般のコンパクトKähler族の $F^p$ と $\Phi_k$ は、有理偏極なしに作った。一方で、交叉形式が**有理**で、各ファイバーのHodge構造を偏極し、その形式が局所系上で平行に保たれるとき、周期写像の行き先を対応する偏極付き周期領域へ狭められる。[偏極の条件](../../HOD/HOD1-15/index.md#def-hod1-15-polarization)では単なるHodge分解の存在に加えて双線形形式の直交条件と符号付き正値性を要求する。一般の高次コホモロジーでは原始部分とLefschetz作用素の指定も必要であり、楕円曲線の $i\int dz\wedge d\bar z>0$ だけを全次数の偏極条件と混同しない。
@@ -415,7 +451,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-積族の平行同定は恒等写像なので $u_j$ は[Gauss–Maninの平行切断](../DEF1-12/index.md#thm-def1-12-flatness)である。Leibniz則を項ごとに適用すると
+積族の平行同定は恒等写像なので $u_j$ は[Gauss–Maninの平行切断](../DEF1-12/index.md#thm-def1-12-flatness)である。ここで $f'_j(t)=df_j/dt$ は複素基底座標 $t$ に関する正則関数の導関数であり、$\partial_t=\partial/\partial t$ は $X$ の座標を固定した基底方向を表す。Leibniz則を項ごとに適用すると
 
 $$
 \nabla_{\partial_t}^{\mathrm{GM}}s
@@ -611,7 +647,13 @@ h^{2,0}=1,\qquad h^{1,1}=4,\qquad h^{0,2}=1,
 \qquad \dim F^2=1,\quad\dim F^1=5.
 $$
 
-**(2)** $dz$ と $dw$ はそれぞれ正則かつ閉じた一次形式なので $\Omega=dz\wedge dw$ は非零の閉 $(2,0)$ 形式である。上の次元計算で $h^{2,0}=1$ だから、その類は $F^2=H^{2,0}$ を生成する。固定実トーラスで $dx,dy,du,dv$ が平坦なので
+**(2)** $dz$ と $dw$ はそれぞれ正則かつ閉じた一次形式なので $\Omega=dz\wedge dw$ は非零の閉 $(2,0)$ 形式である。第一因子の $x$ 閉路と第二因子の $u$ 閉路との積 $T^2$ では $dy=dv=0$ だから
+
+$$
+\int_{T^2}\Omega=\int_0^1\int_0^1 dx\,du=1.
+$$
+
+もし $\Omega$ が完全形式ならStokesの定理でこの積分は零になるため、$[\Omega]\ne0$ である。上の次元計算で $h^{2,0}=1$ だから、その類は $F^2=H^{2,0}$ を生成する。固定実トーラスで $dx,dy,du,dv$ が平坦なので
 
 $$
 \nabla_V^{\mathrm{GM}}[\Omega]

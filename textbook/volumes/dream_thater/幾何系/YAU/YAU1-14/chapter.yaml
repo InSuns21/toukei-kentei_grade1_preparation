@@ -1,0 +1,38 @@
+id: "YAU1-14"
+title: "総合証明と仮定の破綻例"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - YAU1-13
+official_scope: []
+learning_objectives:
+  - 許容Ricci形式を実ポテンシャルと体積正規化密度に帰着し符号を検算できる
+  - 開性とC0・二階・三階・高階評価と閉性の論理的依存を中間式とともに再構成できる
+  - Monge–Ampère解の一意性と指定Ricci形式の固定Kähler類一意性を区別して証明できる
+  - 体積整合・Kähler正値性・コンパクト性・連結性を外した具体例で失敗する段階を特定できる
+  - Ricci平坦計量の存在・一意性の帰結と固定類を外した場合の限界を説明できる
+definitions: []
+theorems:
+  - { id: YAU1-14-THM-01, name: 指定Ricci形式に対する総合証明 }
+  - { id: YAU1-14-PROP-01, name: 非連結な場合の成分別体積障害 }
+canonical_examples:
+  - 楕円曲線上の余弦密度による連続性のパスと曲率目標の完全検算
+  - 正定値行列と同じ行列式を持つ負定値行列の局所比較
+  - 非コンパクト複素直線上の同じde Rham類に属する異なるRicci平坦計量
+  - 二成分の複素トーラスで全体の体積整合が成分別整合を保証しない例
+problem_patterns:
+  - YAU1-14-VOLUME-NECESSITY
+  - YAU1-14-PATH-POSITIVITY
+  - YAU1-14-MATRIX-BRANCH
+  - YAU1-14-RICCI-SIGN
+  - YAU1-14-COMPONENT-CONSTANTS
+  - YAU1-14-TORUS-EXPLICIT-PATH
+  - YAU1-14-COMPONENT-DENSITY
+  - YAU1-14-SECOND-ORDER-EIGENVALUES
+  - YAU1-14-NONCOMPACT-FAILURE
+  - YAU1-14-FULL-CALABI-RECONSTRUCTION
+  - YAU1-14-ASSUMPTION-DIAGNOSTICS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 12, review: 6 }

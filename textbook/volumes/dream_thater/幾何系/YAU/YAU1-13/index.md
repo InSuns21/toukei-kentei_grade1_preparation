@@ -63,7 +63,7 @@ $$
 =\frac VI\,I=V.
 $$
 
-$u'=u+a$（$a\in\mathbb R$）と選び直すと
+$u'=u+a$（$a\in\mathbb R$）と選び直す。ここでプライムは微分ではなく、定数を変えて取り直した量を示す。同じ意味で $I',C'$ と書くと
 
 $$
 I'=\int_Xe^{-(u+a)}\omega^n=e^{-a}I,\qquad
@@ -109,15 +109,31 @@ $$
 
 抽象的な指数密度が何をするかを、複素次元1で計算してみよう。$T=\mathbb C/(\mathbb Z+i\mathbb Z)$、$z=x+iy$（$x,y$ は周期1の実変数）、$\omega_0=i\,dz\wedge d\bar z=2\,dx\wedge dy$ とする。これは[複素トーラスの平坦計量](../../CYG/CYG1-04/index.md#prop-cyg1-04-flat-holonomy)の例である。
 
-$0<|\varepsilon|<1$、$f(x)=1+\varepsilon\cos(2\pi x)$ とし、$\omega_\varepsilon=f\omega_0$ と置く。$1-|\varepsilon|\le f\le1+|\varepsilon|$ なので正値であり、実次元2では3形式が存在せず $d\omega_\varepsilon=0$、したがってKählerである。[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)より、$y$ に依存しない滑らかな関数 $h$ には
+$0<|\varepsilon|<1$、$f(x)=1+\varepsilon\cos(2\pi x)$ とし、$\omega_\varepsilon=f\omega_0$ と置く。$f$ は実数値かつ周期1なので、$\omega_\varepsilon$ は格子商へ降りる実 $(1,1)$ 形式である。$1-|\varepsilon|\le f\le1+|\varepsilon|$ より、任意の非零 $(1,0)$ ベクトル $v$ について
+
+$$
+-i\omega_\varepsilon(v,\bar v)
+=f[-i\omega_0(v,\bar v)]>0.
+$$
+
+実次元2では3形式が存在せず $d\omega_\varepsilon=0$ だから、Kähler性の各条件が揃う。
+
+[Wirtinger微分の定義](../../CM/CM2-02/index.md#def-cm2-02-wirtinger-operators)では、複素変数 $z=x+iy$ による偏微分と実座標での偏微分が
+
+$$
+\partial_z=\frac12(\partial_x-i\partial_y),\qquad
+\partial_{\bar z}=\frac12(\partial_x+i\partial_y)
+$$
+
+で対応する。混合偏微分が交換するため、$y$ に依存しない滑らかな関数 $h(x)$ には
 
 $$
 \partial_z\partial_{\bar z}h
 =\frac14(\partial_x^2+\partial_y^2)h
-=\frac14 h''(x)
+=\frac14\frac{d^2h}{dx^2}(x)
 $$
 
-が成り立つ。$\rho(\omega_\varepsilon)=-i\partial\bar\partial\log f$ であり、$x=0$ では
+が成り立つ。以下の $f'(x),f''(x)$ も実変数 $x$ に関する一階・二階の通常微分を表す。$\rho(\omega_\varepsilon)=-i\partial\bar\partial\log f$ であり、$x=0$ では
 
 $$
 \frac14(\log f)''(0)
@@ -166,7 +182,23 @@ $$
 
 一般にはRicci平坦でもRiemann曲率は残る。しかし複素トーラスでは、存在定理の**一意性**をもう一度使うと、さらに強い結論が出る。
 
-複素トーラス $T=\mathbb C^n/\Lambda$ の $\Lambda$ は実次元 $2n$ の全格子であり、$\mathbb C^n$ の平行移動は商へ降りて正則微分同相写像 $t_a$ を与える。$a\in T$ のリフトを $\widetilde a\in\mathbb C^n$ と選べば $s\mapsto t_{s\widetilde a}$（$0\le s\le1$）は恒等写像から $t_a$ への同位変形である。リフトを変えても端点は同じ写像であり、結論は変わらない。
+複素トーラス $T=\mathbb C^n/\Lambda$ の $\Lambda$ は実次元 $2n$ の全格子である。$a\in T$ のリフトを $\widetilde a\in\mathbb C^n$ と選ぶと、平行移動 $t_a([z])=[z+\widetilde a]$ は商上の正則微分同相写像になる。
+
+同じリフトで $H_s([z])=[z+s\widetilde a]$（$0\le s\le1$）と置けば、格子代表を変えても値は変わらず、$H_0=\mathrm{id},H_1=t_a$ である。従ってこれは同位変形となる。リフトを変えても端点の写像は同じで、以下の結論は変わらない。
+
+「定数正定値Hermite行列」は、標準正則座標における $(1,1)$ 形式の係数行列 $H=(H_{j\bar k})$ を指す。具体的には
+
+$$
+\omega_H=i\sum_{j,k=1}^nH_{j\bar k}\,dz^j\wedge d\bar z^k
+$$
+
+と書く。$(1,0)$ ベクトル $v=\sum_jv^j\partial_{z^j}$ をこの基底で展開すると
+
+$$
+-i\omega_H(v,\bar v)=\sum_{j,k}H_{j\bar k}v^j\overline{v^k}.
+$$
+
+従って[正の実 $(1,1)$ 形式の行列判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)により、$H_{j\bar k}=\overline{H_{k\bar j}}$ は実性、右辺が全ての $v\ne0$ で正となることは正値性に対応する。Kähler形式であるためには、これらに加えて商への降下と閉性も確認する。
 
 <a id="prop-yau1-13-torus-rigidity"></a>
 
