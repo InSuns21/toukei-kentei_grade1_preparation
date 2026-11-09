@@ -363,7 +363,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（逆時間拡散とflow matchingの速度）**
-> $T>0$、$0\le t\le T$ とする。前向き拡散 $dX_t=\sqrt2\,dB_t$ の密度が滑らかで厳密に正の $p_t$ であるとき、[密度score](#def-otr26-density-score)を用い、逆時刻 $u=T-t$ に対応するドリフト候補を $b_u^{\rm rev}(x)=2s_{T-u}(x)$ と定める。逆時間拡散の表現ではこのドリフトと拡散係数 $\sqrt2$ を使う。**flow matching**では、可積分な端点差 $\mathbb E|X_1-X_0|<\infty$ を持つ結合 $(X_0,X_1)$ を選び、$0\le t\le1$、$X_t=(1-t)X_0+tX_1$ とする。速度場 $v_t$ を次の条件付き期待値の版として定める。
+> $T>0$ とし、$0\le t\le T$ における前向き拡散 $dX_t=\sqrt2\,dB_t$ の密度 $p_t$ は滑らかで厳密に正とする。
+>
+> 逆時刻 $u=T-t$ では、[密度score](#def-otr26-density-score)を使うドリフト候補を次で定める。逆時間拡散の表現には、このドリフトと拡散係数 $\sqrt2$ を用いる。
+
+$$
+b_u^{\rm rev}(x)=2s_{T-u}(x)
+$$
+
+> **flow matching**では、端点差が可積分な結合 $(X_0,X_1)$ を選ぶ。すなわち $\mathbb E|X_1-X_0|<\infty$ とし、$0\le t\le1$ に対して補間 $X_t=(1-t)X_0+tX_1$ を用意する。このとき速度場 $v_t$ を次の条件付き期待値の版として定める。
 
 $$
 v_t(X_t)=\mathbb E[X_1-X_0\mid X_t]
@@ -500,7 +508,23 @@ $$
 $A=\operatorname{diag}(1,4)$、$B=\left(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right)$、平均差が $(2,-2)$ である二つのGaussianの $W_2^2$ を求めよ。単に対角成分の平方根を引けない理由も示せ。
 
 <!-- solution-start -->
-**詳細解答**。$A^{1/2}=\operatorname{diag}(1,2)$ より $H=A^{1/2}BA^{1/2}=\left(\begin{smallmatrix}2&2\\2&8\end{smallmatrix}\right)$。$\operatorname{tr}H=10,\det H=16-4=12$ だから[正定値2次行列の平方根](#lem-otr26-square-root-2x2)で $\operatorname{tr}H^{1/2}=\sqrt{10+4\sqrt3}$。平均差の二乗は $4+4=8$、跡は $5,4$。よって[非退化Gaussian分布間の最適写像とWasserstein距離](../OTR14/index.md#thm-otr14-gaussian-w2-spd)から $W_2^2=17-2\sqrt{10+4\sqrt3}$。$AB$ の右上は1だが $BA$ の右上は4で、両行列は可換でなく同じ直交基底で同時対角化できない。
+**詳細解答**。まず $A^{1/2}=\operatorname{diag}(1,2)$ だから、行列積は
+
+$$
+H=A^{1/2}BA^{1/2}=\begin{pmatrix}2&2\\2&8\end{pmatrix},
+\qquad \operatorname{tr}H=10,\quad \det H=12
+$$
+
+である。[正定値2次行列の平方根](#lem-otr26-square-root-2x2)より、$\operatorname{tr}H^{1/2}=\sqrt{10+4\sqrt3}$ を得る。平均差の二乗は $4+4=8$、共分散の跡はそれぞれ $5,4$ である。
+
+そこで[非退化Gaussian分布間の最適写像とWasserstein距離](../OTR14/index.md#thm-otr14-gaussian-w2-spd)を適用すると
+
+$$
+W_2^2=8+5+4-2\sqrt{10+4\sqrt3}
+=17-2\sqrt{10+4\sqrt3}
+$$
+
+となる。なお、$AB$ の右上成分は1だが $BA$ の右上成分は4である。したがって両行列は可換でなく、同一の直交基底による同時対角化を前提とした成分ごとの平方根差は使えない。
 <!-- solution-end -->
 
 ### OTR26-B03 余弦振幅の時間刻み依存
