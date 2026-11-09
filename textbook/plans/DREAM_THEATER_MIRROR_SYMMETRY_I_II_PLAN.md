@@ -10,7 +10,7 @@
 
 ## 直接依存と証明所有者
 
-- **MIR1**：[DEF1](../plans_progress/DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md)のGauss–Manin・変形、[HOD1](../plan_done/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md)のHodge構造、[CAG1](../plan_done/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md)と[CYG1](../plan_done/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md)のquintic。**YAU1やGW1の完成をMIR1の必須にしない。**
+- **MIR1**：[DEF1](../plan_done/DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md)のGauss–Manin・変形、[HOD1](../plan_done/DREAM_THEATER_KAHLER_HODGE_THEORY_PLAN.md)のHodge構造、[CAG1](../plan_done/DREAM_THEATER_COMPLEX_ALGEBRAIC_GEOMETRY_PLAN.md)と[CYG1](../plan_done/DREAM_THEATER_CALABI_YAU_GEOMETRY_PLAN.md)のquintic。**YAU1やGW1の完成をMIR1の必須にしない。**
 - **MIR2**：MIR1の周期・ミラー写像に加え、[GW1](DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md)のGW不変量・量子積を直接前提とする。一般仮想基本類の構成は別の深い理論であり、GW1内で完成済みと偽らない。
 - Greene–Plesser型の商と解消、Picard–Fuchs、ミラー定理の精密な証明は、適用条件・外部定理の役割・本文で実際に導出する範囲を分離する。「mirror symmetryという一般定理」が全例で証明済みとは書かない。
 

@@ -1,0 +1,35 @@
+chapter: DEF1-14
+scope: dream-theater
+coverage: complete
+prerequisites: [DEF1-11, DEF1-12, DEF1-13, CYG1-08, CYG1-12, CYG1-13, CYG1-14]
+concepts:
+  - id: deformation.quintic-period-immersion
+    name: quinticの局所周期写像の単射微分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（quinticの局所周期写像の単射微分）"]
+    requires: [deformation.infinitesimal-period-map, deformation.calabi-yau-local-chart, cyg.quintic-all-first-order]
+  - id: deformation.quintic-residue-volume
+    name: quinticの留数体積形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticの留数体積形式）"]
+    requires: [cyg.quintic-polynomial-first-order]
+  - id: deformation.quintic-residue-variation
+    name: 正則体積形式の留数表示と一次微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則体積形式の留数表示と一次微分）"]
+    requires: [deformation.quintic-residue-volume, deformation.gauss-manin-connection, deformation.quintic-period-immersion]
+  - id: deformation.phase-invariant-tangent
+    name: 位相対称群不変な一次変形方向
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相対称群不変な一次変形方向）"]
+    requires: [cyg.fermat-phase-group, cyg.quintic-polynomial-first-order]
+  - id: deformation.quintic-single-invariant
+    name: Fermat quintic の不変一次方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat quintic の不変一次方向）"]
+    requires: [deformation.phase-invariant-tangent, cyg.fermat-jacobian-quotient]
