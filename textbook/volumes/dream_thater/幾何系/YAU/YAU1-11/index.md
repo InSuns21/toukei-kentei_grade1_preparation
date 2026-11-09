@@ -23,13 +23,20 @@ $$
 
 ## 2. Hölder係数を用意する
 
-局所Schauder評価は、単に一様楕円性を持つ有界係数だけでは適用できない。係数が一定のHölder指数と定数で制御される必要がある。距離 $d_g$ に関する $0<\alpha<1$ のHölder半ノルムは、テンソルを同一の座標チャートで比較して定義し、有限個の固定チャートと小さい閉部分チャート上の値を合算する（重なりの遷移写像は固定で滑らか）。
+局所Schauder評価は、単に一様楕円性を持つ有界係数だけでは適用できない。係数が一定のHölder指数と定数で制御される必要がある。$0<\alpha<1$ に対して、同じ座標チャート内で成分を比較する半ノルムを
+
+$$
+[a]_{C^{0,\alpha}(K)}=\sup_{x\ne y\in K}\frac{|a(x)-a(y)|}{|x-y|^\alpha},\qquad
+\|a\|_{C^{0,\alpha}(K)}=\|a\|_{C^0(K)}+[a]_{C^{0,\alpha}(K)}
+$$
+
+とする。以下では有限個の固定チャートの小さい閉部分チャート $K$ でこのノルムを測る。背景距離 $d_g$ とチャート内のEuclid距離は各 $K$ で比較可能であり、重なりの遷移写像は固定で滑らかだから、この選択は一様性に影響しない。
 
 <a id="def-yau1-11-uniform-holder"></a>
 
 <!-- formal-statement-start -->
 > **定義（一様Hölder係数族）**  
-> 有限個の固定座標チャートの各コンパクト部分上で、行列値関数族 $a_t$ が次の二条件を全時刻に共通する正定数で満たすとき、**一様Hölder係数族**という。
+> 有限個の固定座標チャートの各コンパクト部分上で、$a_t=(a_t^{i\bar j})$ を正値Hermite行列値関数族とする。各 $t$ とすべての $\xi\in\mathbb C^n$ に対して次の二条件を、$t$ に依存しない $\lambda,\Lambda,M>0$ で満たすとき、**一様Hölder係数族**という。
 
 $$
 \lambda|\xi|^2\le a_t^{i\bar j}\xi_i\overline{\xi_j}\le\Lambda|\xi|^2,
@@ -37,10 +44,33 @@ $$
 $$
 <!-- formal-statement-end -->
 
-ここで正定値条件は実線形の主部 $a^{i\bar j}\partial_i\partial_{\bar j}$ にも一様楕円性を与える。複素座標 $z^i=x^i+iy^i$ で $\partial_i\partial_{\bar i}=\tfrac14(\partial_{x^ix^i}+\partial_{y^iy^i})$ となるため、実楕円定数には固定係数 $1/4$ が入るが、一様性は変わらない。
+なぜHermite行列を調べるのかを確認する。$a_t^{i\bar j}$ は、未知関数に作用する $L_t=a_t^{i\bar j}\partial_i\partial_{\bar j}$ の**二階微分の係数**である。$z^i=x^i+iy^i$ とすれば $\partial_i=\tfrac12(\partial_{x^i}-i\partial_{y^i})$、$\partial_{\bar i}=\tfrac12(\partial_{x^i}+i\partial_{y^i})$。実余接ベクトル $(\eta,\theta)\in\mathbb R^{2n}$ に対する主記号は
+
+$$
+\sigma_{L_t}(\eta,\theta)
+=\tfrac14a_t^{i\bar j}(\eta_i-i\theta_i)(\eta_j+i\theta_j),\qquad
+\tfrac\lambda4(|\eta|^2+|\theta|^2)
+\le\sigma_{L_t}\le\tfrac\Lambda4(|\eta|^2+|\theta|^2).
+$$
+
+これは複素二次形式の正値条件を実変数で読み直したもので、実非発散形作用素の一様楕円性にちょうど対応する。特に $n=1$ では $\partial_z\partial_{\bar z}=\tfrac14(\partial_{xx}+\partial_{yy})$ となる。
 
 <!-- definition-example-start: def-yau1-11-uniform-holder -->
-**定義の確認**。複素一次元の単位円板で $a_s(z)=2+s\operatorname{Re}z$、$0\le s\le1$ とすると $1\le a_s\le3$ であり、$|a_s(z)-a_s(w)|\le|z-w|\le 2^{1-\alpha}|z-w|^\alpha$ である。したがって $a_s$ は一様Hölder係数族である。単なる $1\le a_s\le3$ では差商の評価は得られない。
+**定義の確認**。複素一次元の単位円板で $a_s(z)=2+s\operatorname{Re}z$、$0\le s\le1$ とする。これは一行一列の実Hermite行列であり、その二次形式は $a_s(z)\xi\bar\xi=a_s(z)|\xi|^2$。$-1<\operatorname{Re}z<1$ より、すべての $s,z,\xi$ に対して
+
+$$
+|\xi|^2\le a_s(z)|\xi|^2\le3|\xi|^2
+$$
+
+が成立する。さらに単位円板の直径が $2$ であることから
+
+$$
+|a_s(z)-a_s(w)|=s|\operatorname{Re}(z-w)|
+\le|z-w|\le2^{1-\alpha}|z-w|^\alpha,
+\quad \|a_s\|_{C^{0,\alpha}}\le3+2^{1-\alpha}.
+$$
+
+二つの条件を同じ $\lambda=1,\Lambda=3,M=3+2^{1-\alpha}$ で確認した。単なる二側有界性だけでは差商の評価は得られない。
 <!-- definition-example-end -->
 
 <a id="lem-yau1-11-holder-control"></a>
@@ -53,7 +83,7 @@ $$
 cg\le h_t\le Cg,\qquad |\nabla^gh_t|_g\le C_1.
 $$
 
-> 任意の固定Hölder指数に対して、逆行列 $h_t^{-1}$ は固定チャートの小さいコンパクト部分上で一様Hölder有界であり、一様Hölder係数族である。
+> 任意の固定Hölder指数 $0<\alpha<1$ に対して、逆行列 $h_t^{-1}$ は固定チャートの小さいコンパクト部分上で一様Hölder有界であり、一様Hölder係数族である。
 <!-- formal-statement-end -->
 
 <!-- proof-start -->
@@ -71,14 +101,30 @@ $$
 |h^{-1}(x)-h^{-1}(y)|\le c_0^{-2}C_2|x-y|.
 $$
 
-チャートの直径を $D$ とすれば $|x-y|\le D^{1-\alpha}|x-y|^\alpha$。有限チャートの最大定数を取れば一様 $C^{0,\alpha}$ 評価となる。固有値の二側評価は逆行列の一様楕円性も保証する。□
+線分を含む小球で以上を得る。離れた二点には $\|h^{-1}\|_{C^0}$ の上界を使い、有限個の小球で閉部分チャートを覆えば、その上でも同じ型のHölder評価が成り立つ。直径を $D$ とすれば $|x-y|\le D^{1-\alpha}|x-y|^\alpha$。有限チャートの最大定数を取れば一様 $C^{0,\alpha}$ 評価となる。また $cg\le h\le Cg$ を固定チャートで比較すると $h$ の固有値は $[c_0,C_0]$ に入り、逆行列の固有値は $[C_0^{-1},c_0^{-1}]$ に入る。よって定義の楕円条件も確認できた。□
 <!-- proof-end -->
+
+**平坦トーラスでの直接確認**。$X=\mathbb C/(\mathbb Z+i\mathbb Z)$ の周期座標 $z=x+iy$ で $g_{z\bar z}=1$ とし、$\varphi_\varepsilon=\varepsilon\cos(2\pi x)$（$|\varepsilon|\le1/(2\pi^2)$）を取る。$\partial_z\partial_{\bar z}=\tfrac14(\partial_{xx}+\partial_{yy})$ を適用すると
+
+$$
+h_{z\bar z}=1-\pi^2\varepsilon\cos(2\pi x),\qquad
+\tfrac12\le h_{z\bar z}\le\tfrac32.
+$$
+
+したがってKähler正値性と二側評価を直接確認できる。さらに $|\partial_xh|\le2\pi^3|\varepsilon|\le\pi$、$\partial_yh=0$ だから、背景接続が零であるこの座標では $|\nabla^gh|$ が一様有界である。逆数の微分を省かず計算すると
+
+$$
+\partial_x(h^{-1})=-h^{-2}\partial_xh,\qquad
+|\partial_x(h^{-1})|\le4\pi,
+$$
+
+となる。有限個の固定チャート上で $h^{-1}$ の上界 $2$ とLipschitz定数 $4\pi$ が揃い、上の補題どおり一様Hölder係数になる。この例は**係数評価の検算**であり、$\varepsilon$ を動かした族が同じ固定 $F$ の連続性のパスを解くと主張してはいない。
 
 注意すべき点は、ここで制御したのは $h=g+\partial\bar\partial\varphi$ であって、ポテンシャルの純正則三階微分すべてではないことである。次の方程式は混合微分にだけ作用するので、この制限と整合する。
 
 ## 3. 方程式を微分して線形問題へ移す
 
-対数行列式の一階微分は $\partial_k\log\det h=h^{i\bar j}\partial_kh_{i\bar j}$ である。右辺を $H_t+\log\det g$ と置くと、$\partial_kh=\partial_kg+\partial_k\partial\bar\partial\varphi$ だから、座標微分 $u_k=\partial_k\varphi$ に対して主部 $L_h=h^{i\bar j}\partial_i\partial_{\bar j}$ が現れる。$u_k$ はチャートに依存するが、Schauder評価自体は局所的に行える。
+対数行列式の一階微分は $\partial_k\log\det h=h^{i\bar j}\partial_kh_{i\bar j}$ である。右辺を $H_t+\log\det g$ と置くと、$\partial_kh=\partial_kg+\partial_k\partial\bar\partial\varphi$ だから、座標微分 $u_k=\partial_k\varphi$ に対して主部 $L_h=h^{i\bar j}\partial_i\partial_{\bar j}$ が現れる。ここで $D$ は固定した局所座標の $\partial_{x^k},\partial_{y^k}$ または $\partial_{z^k},\partial_{\bar z^k}$ を表し、$D^\beta$ はそれらの合成を表す。滑らかな局所関数ではこれらの座標微分が可換であることを使う。$u_k$ はチャートに依存するが、Schauder評価自体は局所的に行える。
 
 <a id="lem-yau1-11-differentiation"></a>
 
@@ -86,7 +132,7 @@ $$
 > **補題（線形化方程式の微分公式）**  
 > 正値Hermite行列 $h=g+\partial\bar\partial\varphi$ と $\log\det h=H+\log\det g$ が滑らかな局所座標で成り立つなら、各実または複素座標微分 $D$ に対して
 >
-> $$L_h(D\varphi)=DH+h^{i\bar j}Dg_{i\bar j}-D\log\det g.$$
+> $$L_h(D\varphi)=DH+D\log\det g-h^{i\bar j}Dg_{i\bar j}.$$
 >
 > さらに任意の多重微分 $D^\beta$（$|\beta|=m\ge2$）について
 >
@@ -98,7 +144,13 @@ $$
 <!-- proof-start -->
 ### 証明：合成関数の最高階項を分離する
 
-$A\mapsto\log\det A$ の方向微分は $d(\log\det)_A[B]=\operatorname{tr}(A^{-1}B)$ である。$\det(A+sB)=\det A\det(I+sA^{-1}B)$ を $s=0$ で微分すればこれを直接確認できる。一階の式は $D\log\det h=h^{i\bar j}Dh_{i\bar j}$ に $Dh=Dg+\partial\bar\partial D\varphi$ を代入し、両辺を移項したものである。
+$A\mapsto\log\det A$ の方向微分は $d(\log\det)_A[B]=\operatorname{tr}(A^{-1}B)$ である。$\det(A+sB)=\det A\det(I+sA^{-1}B)$ を $s=0$ で微分すればこれを直接確認できる。一階では $D\log\det h=D(H+\log\det g)$ と $Dh=Dg+\partial\bar\partial D\varphi$ を代入して
+
+$$
+DH+D\log\det g=h^{i\bar j}Dg_{i\bar j}+L_h(D\varphi)
+$$
+
+を得る。背景項を左辺から**引く**ことで補題の符号となる。
 
 二階では
 
@@ -115,20 +167,73 @@ $$
 
 ## 4. 一段目のSchauder評価と帰納法
 
-用いる局所Schauder評価を明確にする。実次元 $2n$ の球 $B_{2r}\Subset U$ で一様楕円な非発散形作用素 $Lu=a^{pq}(x)\partial_{pq}u$ の係数が $C^{0,\alpha}$ なら、
+用いる局所Schauder評価を明確にする。実次元 $d=2n$ の球 $B_{2r}\Subset U$ で、実対称係数 $a^{pq}\in C^{0,\alpha}(B_{2r})$ を持つ非発散形作用素 $Lu=a^{pq}(x)\partial_{pq}u$ が一様楕円的で、$u\in C^{2,\alpha}(B_{2r})$ なら、
+
+<a id="eq-yau1-11-interior-schauder"></a>
 
 $$
 \|u\|_{C^{2,\alpha}(B_r)}
 \le C\bigl(\|u\|_{C^0(B_{2r})}+\|Lu\|_{C^{0,\alpha}(B_{2r})}\bigr).
 $$
 
-$C$ は次元、$r$、楕円定数、係数のHölderノルム、$\alpha$ のみに依存する。この入力は既習の楕円型Schauder理論の局所評価である。複素Laplacianの場合は実対称主部へ書き直して適用する。境界のないコンパクト $X$ を有限チャートで覆い、各小チャートの内側を評価すれば一様な大域評価が得られる。パス上で $\lambda,\Lambda$ と係数ノルムが同じであることが不可欠である。
+$C$ は次元、$r$、楕円定数、係数のHölderノルム、$\alpha$ のみに依存する。この係数Hölder版は、既習の[弱解の内部 $H^2$ 正則性](../../../解析系/GPDE/GPDE9/index.md#thm-gpde9-poisson-interior-h2)とは**別の評価**である。必要な解析上の核心をここで確かめる。
 
-まず一階微分 $u_k=\partial_k\varphi$ を考える。[前章の三階評価](../YAU1-10/index.md#thm-yau1-10-global-third-order)によって混合三階微分は有界であり、$g$ と $H_t$ は固定された滑らかなデータの一様有界族である。
+**内点Schauder評価の導出。** まず定数の正定値実対称行列 $A$ に対して $L_A=A^{pq}\partial_{pq}$ とおく。線形変換 $x=A^{1/2}y$ により $L_A$ は $y$ 座標のLaplacianになる。コンパクト台の滑らかな $v$ に対して $q=L_Av$ とおけば、基本解 $\Gamma_A$ により $v=\Gamma_A*q$ と表せる。
 
-補題の一階方程式の右辺 $DH_t+h^{-1}Dg-D\log\det g$ は $C^{0,\alpha}$ 一様有界となる。
+二階微分の核 $K_{pq}=\partial_{pq}\Gamma_A$ は原点以外で次を満たす。
 
-$u_k$ の $C^0$ はポテンシャルの一階評価から得る必要があるが、平均零と $\|\partial\bar\partial\varphi\|_{C^0}\le C$、コンパクト性を用いる固定背景Laplacianの楕円評価（$\Delta_g\varphi=\operatorname{tr}_g(h-g)$）により $\|\varphi\|_{C^{1,\alpha}}\le C$ を先に確保できる。
+$$
+|K(z)|\le C|z|^{-d},\qquad |\nabla K(z)|\le C|z|^{-d-1}.
+$$
+
+また $\partial_q\Gamma_A$ は次数 $1-d$ の斉次関数である。発散定理を同心球殻に適用すると、二つの境界での流束が等しいので
+
+$$
+\int_{r<|z|<R}K_{pq}(z)\,dz=0
+$$
+
+となる。一方 $K_{pq}$ は次数 $-d$ の斉次関数だから、極座標でこの積分は
+
+$$
+\log(R/r)\int_{S^{d-1}}K_{pq}(\theta)\,d\theta=0.
+$$
+
+つまり角度方向の積分が零になることを、ここで直接確かめた。小球の積分では $q(x-z)-q(x)$ を用いることで特異性を相殺する。二点 $x,y$ の距離を $\delta$ として積分を半径 $2\delta$ で分けると、近距離と遠距離の寄与はそれぞれ
+
+$$
+C[q]_{C^{0,\alpha}}\int_0^{2\delta}s^{\alpha-1}\,ds
+\le C_\alpha[q]_{C^{0,\alpha}}\delta^\alpha,
+\qquad
+C[q]_{C^{0,\alpha}}\delta\int_{2\delta}^{R}s^{\alpha-2}\,ds
+\le C_\alpha[q]_{C^{0,\alpha}}\delta^\alpha
+$$
+
+で抑えられる。遠方の有界部分は $\|q\|_{C^0}$ で処理する。この相殺と二つの積分により、定数係数について $\|D^2v\|_{C^{0,\alpha}}\le C\|L_Av\|_{C^{0,\alpha}}$ が従う（$d=2$ の基本解が対数形でも二階微分の核の次数は同じ）。
+
+変動係数では、中心 $x_0$、半径 $\rho$ の小球で係数を $A_0=a(x_0)$ に固定し、内側で $1$ となる切断関数 $\eta$ を掛ける。積の微分を省かずに書けば
+
+$$
+L_{A_0}(\eta u)=\eta Lu+\eta(A_0-a(x))^{pq}u_{pq}
++2A_0^{pq}(\partial_p\eta)(\partial_qu)+(L_{A_0}\eta)u.
+$$
+
+$\|a(x)-A_0\|_{C^0(B_\rho)}\le M\rho^\alpha$ なので、二項目のHölder半ノルムは $M\rho^\alpha[D^2u]_{C^{0,\alpha}}+M\|D^2u\|_{C^0}$ 型に抑えられる。内側の球の差分商による補間評価
+
+$$
+\|D^2u\|_{C^0}\le\varepsilon[D^2u]_{C^{0,\alpha}}+C_\varepsilon\|u\|_{C^0},
+\qquad
+\|Du\|_{C^{0,\alpha}}\le\varepsilon\|u\|_{C^{2,\alpha}}+C_\varepsilon\|u\|_{C^0}
+$$
+
+を、境界からの距離で重み付けした内点ノルムに適用する。先に $\rho$ を小さくし、次に $\varepsilon$ を小さく取ると、$D^2u$ を含む右辺を左辺へ吸収できる。残るのは $\|u\|_{C^0}$ と $\|Lu\|_{C^{0,\alpha}}$ のみであり、固定された小球の有限被覆で冒頭の評価を得る。ここで半径・切断関数・吸収定数は $\lambda,\Lambda,M,\alpha,r,d$ だけで決まり、個々の解には依らない。
+
+複素Laplacianの場合は第2節の主記号の計算により、実対称主部へ書き直して適用する。複素値の $D\varphi$ には実部・虚部それぞれへ実係数の評価を適用する。境界のないコンパクト $X$ を有限チャートで覆い、各小チャートの内側を評価すれば一様な大域評価が得られる。パス上で $\lambda,\Lambda$ と係数ノルムが同じであることが不可欠である。
+
+まず一階微分 $u_k=\partial_k\varphi$ を考える。[前章の三階評価](../YAU1-10/index.md#thm-yau1-10-global-third-order)によって混合三階微分は有界である。また $\rho_t=1-t+te^F\ge\min\{1,e^{\min_XF}\}>0$ で、$D^j\rho_t=tD^je^F$（$j\ge1$）は任意の固定次数で一様有界だから、合成微分から $H_t=\log\rho_t$ の各固定階の導関数も $t$ に依らず有界となる。
+
+補題の一階方程式の右辺 $DH_t+D\log\det g-h^{-1}Dg$ は $C^{0,\alpha}$ 一様有界となる。
+
+$u_k$ の $C^0$ はポテンシャルの一階評価から得る必要がある。$\Delta_g\varphi=\operatorname{tr}_g(h-g)$ の右辺は、第2節の $h$ のLipschitz評価により $C^{0,\alpha}$ 一様有界である。従って同じ内点Schauder評価を固定された滑らかな背景作用素 $\Delta_g$ に適用し、既習の $\|\varphi\|_{C^0}$ 評価と有限被覆を使えば、まず $\|\varphi\|_{C^{2,\alpha}}\le C$ が得られる。
 
 この背景作用素は係数が固定で滑らかなので循環しない。
 
@@ -144,7 +249,7 @@ $$
 \omega_{\varphi_t}^n=(1-t+te^F)\omega^n,\qquad t\in[0,1].
 $$
 
-> このとき、任意の非負整数 $m$ と固定したHölder指数 $0<\alpha<1$ について次の評価が成立する。
+> このとき、任意の非負整数 $m$ と固定したHölder指数 $0<\alpha<1$ について、
 >
 > $$\|\varphi_t\|_{C^{m,\alpha}(X,g)}\le C_{m,\alpha}$$
 >
@@ -154,19 +259,36 @@ $$
 <!-- proof-start -->
 ### 証明：循環を避けて各階を閉じる
 
-**初期段階。** [一様 $C^0$ 評価](../YAU1-07/index.md#thm-yau1-07-moser)と[二側計量評価](../YAU1-09/index.md#thm-yau1-09-global-second-order)から $\|\varphi\|_{C^0}+\|\Delta_g\varphi\|_{C^0}\le C$。
+**初期段階。** [一様 $C^0$ 評価](../YAU1-07/index.md#thm-yau1-07-moser)と[二側計量評価](../YAU1-09/index.md#thm-yau1-09-global-second-order)から
 
-固定係数の $L^p$ 楕円評価を $p>2n$ で使えば $\|\varphi\|_{W^{2,p}}\le C_p$、Sobolev埋め込みで $\|\varphi\|_{C^{1,\gamma}}\le C$（$\gamma=1-2n/p$）。
+$$
+\|\varphi\|_{C^0}+\|\Delta_g\varphi\|_{C^0}\le C.
+$$
 
-ここでは任意の指定 $\alpha<1$ に対して $p$ を十分大きく取る。
+さらに[三階評価](../YAU1-10/index.md#thm-yau1-10-global-third-order)から $h$ はLipschitz一様有界なので、$\Delta_g\varphi=\operatorname{tr}_g(h-g)$ は $C^{0,\alpha}$ 一様有界になる。固定背景作用素 $\Delta_g$ に[上記Schauder評価](#eq-yau1-11-interior-schauder)を適用すると
 
-さらに三階評価による $h$ のLipschitz制御から $\Delta_g\varphi=\operatorname{tr}_g(h-g)$ は $C^{0,\alpha}$ 一様有界となり、固定背景作用素のSchauder評価で $\|\varphi\|_{C^{2,\alpha}}\le C$。
+$$
+\|\varphi\|_{C^{2,\alpha}}\le C
+$$
+
+を得る。これは変動係数の $L_h$ に評価を適用する**前**に得られ、循環しない。
 
 これにより $D\varphi$ の $C^0$ も確保できる。
 
-**最初の昇格。** [係数制御の補題](#lem-yau1-11-holder-control)により $h^{-1}$ は一様 $C^{0,\alpha}$、[微分公式](#lem-yau1-11-differentiation)の一階右辺も同様である。局所Schauder評価を $D\varphi$ に適用して $C^{3,\alpha}$ 評価を得る。
+**最初の昇格。** [係数制御の補題](#lem-yau1-11-holder-control)により $h^{-1}$ は一様 $C^{0,\alpha}$、[微分公式](#lem-yau1-11-differentiation)の一階右辺も同様である。[局所Schauder評価](#eq-yau1-11-interior-schauder)を $D\varphi$ に適用して $C^{3,\alpha}$ 評価を得る。
 
-**帰納段階。** ある $m\ge1$ について $\varphi$ の $C^{m+2,\alpha}$ 一様評価が得られたとする。すると $h$ と $h^{-1}$ の $C^{m,\alpha}$ ノルムは一様に有界である。$|\beta|=m+1$ の式を直接使うと $R_\beta$ は $m$ 階以下の $h$ 微分で構成されるため、$C^{0,\alpha}$ で一様有界となる。$D^\beta\varphi$ 自身の $C^0$ は帰納仮定から有界である。係数 $h^{-1}$ の $C^{0,\alpha}$ 一様性を用いてSchauder評価を適用すると $D^\beta\varphi\in C^{2,\alpha}$ が一様に従う。従って $\varphi\in C^{m+3,\alpha}$。数学的帰納法によりすべての階が閉じる。
+**帰納段階。** ある $m\ge1$ について $\varphi$ の $C^{m+2,\alpha}$ 一様評価が得られたとする。すると $h=g+\partial\bar\partial\varphi$ と $h^{-1}$ の $C^{m,\alpha}$ ノルムは一様に有界である。
+
+$|\beta|=m+1$ の[微分公式](#lem-yau1-11-differentiation)を使うと、残差 $R_\beta$ は $m$ 階以下の $h$ 微分で構成されるため $C^{0,\alpha}$ で一様有界となる。未知関数 $u=D^\beta\varphi$ 自身の $C^0$ も帰納仮定から有界である。
+
+係数 $h^{-1}$ の一様楕円性・$C^{0,\alpha}$ 制御を使って[内点Schauder評価](#eq-yau1-11-interior-schauder)を適用すると
+
+$$
+\|D^\beta\varphi\|_{C^{2,\alpha}}\le C_{m+3,\alpha},
+\qquad \|\varphi\|_{C^{m+3,\alpha}}\le C'_{m+3,\alpha}.
+$$
+
+数学的帰納法によりすべての階が閉じる。
 
 **大域化。** 各チャートでは $D^\beta\varphi$ がスカラーの座標微分として定義される。有限個のチャートと固定された滑らかな遷移写像で共変微分ノルムに戻せば定数は統一される。いずれの段階も $t$ に依らない楕円定数・右辺定数しか用いない。□
 <!-- proof-end -->
@@ -189,10 +311,15 @@ $$
 正値行列 $A(x)$ が $\|A^{-1}\|\le M$ と $\|DA\|\le K$ を満たすとき $\|D(A^{-1})\|\le M^2K$ を導け。
 
 <!-- solution-start -->
-**詳細解答。
+**詳細解答。**
+$AA^{-1}=I$ を微分すると $(DA)A^{-1}+A D(A^{-1})=0$。左から $A^{-1}$ を掛けると
 
-**
-$AA^{-1}=I$ を微分すると $(DA)A^{-1}+A D(A^{-1})=0$。左から $A^{-1}$ を掛け $D(A^{-1})=-A^{-1}(DA)A^{-1}$。作用素ノルムの劣乗法性から上界 $M\cdot K\cdot M=M^2K$ を得る。
+$$
+D(A^{-1})=-A^{-1}(DA)A^{-1},\qquad
+\|D(A^{-1})\|\le\|A^{-1}\|^2\|DA\|\le M^2K.
+$$
+
+最後の評価は作用素ノルムの劣乗法性による。
 <!-- solution-end -->
 
 #### YAU1-11-A02 Hölder指数
@@ -201,9 +328,7 @@ $AA^{-1}=I$ を微分すると $(DA)A^{-1}+A D(A^{-1})=0$。左から $A^{-1}$ �
 直径 $D$ の領域で $|f(x)-f(y)|\le L|x-y|$ とする。任意の $0<\alpha<1$ のHölder半ノルムを評価せよ。
 
 <!-- solution-start -->
-**詳細解答。
-
-**
+**詳細解答。**
 $x\ne y$ について $|f(x)-f(y)|/|x-y|^\alpha\le L|x-y|^{1-\alpha}\le LD^{1-\alpha}$。上限を取れば $[f]_{C^{0,\alpha}}\le LD^{1-\alpha}$。
 <!-- solution-end -->
 
@@ -214,7 +339,12 @@ $x\ne y$ について $|f(x)-f(y)|/|x-y|^\alpha\le L|x-y|^{1-\alpha}\le LD^{1-\a
 
 <!-- solution-start -->
 **詳細解答。**
-$\det A(s+\varepsilon)=\det A(s)\det(I+\varepsilon A^{-1}A'+o(\varepsilon))$ と $\det(I+\varepsilon B)=1+\varepsilon\operatorname{tr}B+o(\varepsilon)$ より一階式が従う。これを微分し、$(A^{-1})'=-A^{-1}A'A^{-1}$ を代入して $(\log\det A)''=\operatorname{tr}(A^{-1}A'')-\operatorname{tr}(A^{-1}A'A^{-1}A')$。
+$\det A(s+\varepsilon)=\det A(s)\det(I+\varepsilon A^{-1}A'+o(\varepsilon))$ と $\det(I+\varepsilon B)=1+\varepsilon\operatorname{tr}B+o(\varepsilon)$ より一階式が従う。これを微分し、$(A^{-1})'=-A^{-1}A'A^{-1}$ を代入すると
+
+$$
+(\log\det A)''=\operatorname{tr}(A^{-1}A'')
+-\operatorname{tr}(A^{-1}A'A^{-1}A').
+$$
 <!-- solution-end -->
 
 #### YAU1-11-A04 一次元
@@ -224,7 +354,12 @@ $h=g+\varphi_{z\bar z}$、$\log(h/g)=H$ のとき $h^{-1}(\varphi_z)_{z\bar z}=H
 
 <!-- solution-start -->
 **詳細解答。**
-$\log h=H+\log g$ を $z$ 微分して $h_z/h=H_z+g_z/g$。$h_z=g_z+\partial_z(\varphi_{z\bar z})$ を代入して $h^{-1}(\varphi_z)_{z\bar z}=H_z+g_z/g-h^{-1}g_z$。
+$\log h=H+\log g$ を $z$ 微分すると $h_z/h=H_z+g_z/g$。一方、$h_z=g_z+\partial_z(\varphi_{z\bar z})$ なので、混合偏微分の順序を交換して
+
+$$
+h^{-1}(\varphi_z)_{z\bar z}=\frac{h_z-g_z}{h}
+=H_z+\frac{g_z}{g}-h^{-1}g_z.
+$$
 <!-- solution-end -->
 
 ### Level B
@@ -232,11 +367,18 @@ $\log h=H+\log g$ を $z$ 微分して $h_z/h=H_z+g_z/g$。$h_z=g_z+\partial_z(\
 #### YAU1-11-B01 局所化
 - Level: B
 
-$B_{2r}\Subset U$ で一様 $C^{0,\alpha}$ 係数の方程式 $Lu=f$ がある。$u$ と $f$ の一様ノルムが与えられたとき、なぜ $B_r$ に一様 $C^{2,\alpha}$ 評価が得られるか述べよ。境界に接する場合の不足も説明せよ。
+$B_{2r}\Subset U$ で一様 $C^{0,\alpha}$ 係数の方程式 $Lu=f$ がある。$\|u\|_{C^0(B_{2r})}$ と $\|f\|_{C^{0,\alpha}(B_{2r})}$ の一様上界が与えられたとき、なぜ $B_r$ に一様 $C^{2,\alpha}$ 評価が得られるか述べよ。境界に接する場合の不足も説明せよ。
 
 <!-- solution-start -->
 **詳細解答。**
-内点Schauder評価 $\|u\|_{C^{2,\alpha}(B_r)}\le C(\|u\|_{C^0(B_{2r})}+\|f\|_{C^{0,\alpha}(B_{2r})})$ を使用する。$C$ の依存する次元・半径・一様楕円定数・係数Hölderノルムがすべて固定されるので解ごとに変わらない。境界に接する場合は内部球が取れず、境界条件・境界の滑らかさを含む境界Schauder評価が別途必要となる。
+[内点Schauder評価](#eq-yau1-11-interior-schauder)を使うと、
+
+$$
+\|u\|_{C^{2,\alpha}(B_r)}
+\le C\bigl(\|u\|_{C^0(B_{2r})}+\|f\|_{C^{0,\alpha}(B_{2r})}\bigr).
+$$
+
+$C$ の依存する次元・半径・一様楕円定数・係数Hölderノルムがすべて固定されるので解ごとに変わらない。境界に接する場合は内部球が取れず、境界条件・境界の滑らかさを含む境界Schauder評価が別途必要となる。
 <!-- solution-end -->
 
 #### YAU1-11-B02 二階の残差
@@ -260,7 +402,13 @@ $\Delta_g\varphi=\operatorname{tr}_g(h-g)$ を確認し、右辺が $C^{0,\alpha
 
 <!-- solution-start -->
 **詳細解答。**
-$h_{i\bar j}-g_{i\bar j}=\partial_i\partial_{\bar j}\varphi$ を $g^{i\bar j}$ で縮約すれば等式となる。固定滑らかな計量 $g$ の大域Schauder評価は $\|\varphi\|_{C^{2,\alpha}}\le C(\|\varphi\|_{C^0}+\|\Delta_g\varphi\|_{C^{0,\alpha}})$。$C^0$ は前章までの評価で固定され、右辺のHölderノルムは $g^{-1}$ と $h$ のHölderノルムから固定される。平均零条件は定数核を固定する。
+$h_{i\bar j}-g_{i\bar j}=\partial_i\partial_{\bar j}\varphi$ を $g^{i\bar j}$ で縮約すれば等式となる。固定滑らかな計量 $g$ に[内点Schauder評価](#eq-yau1-11-interior-schauder)を有限個のチャートで適用すると
+
+$$
+\|\varphi\|_{C^{2,\alpha}}\le C\bigl(\|\varphi\|_{C^0}+\|\Delta_g\varphi\|_{C^{0,\alpha}}\bigr).
+$$
+
+$C^0$ は[前章までの一様評価](../YAU1-07/index.md#thm-yau1-07-moser)で固定され、右辺のHölderノルムは $g^{-1}$ と $h$ のHölderノルムから固定される。平均零条件は定数核を固定する。
 <!-- solution-end -->
 
 ### Level C
@@ -277,7 +425,7 @@ $|\beta|=m+1$ として未知関数を $u=D^\beta\varphi$ とする。
 
 係数 $a^{i\bar j}=h^{i\bar j}$ は $h=g+\partial\bar\partial\varphi\in C^{m,\alpha}$ と一様正値性から $C^{0,\alpha}$ 有界で、楕円定数も一定である。
 
-$R_\beta$ の各項は $h^{-1}$ および高々 $m$ 階の $Dh$ の積で、帰納仮定によって $C^{0,\alpha}$ 一様有界。
+$R_\beta$ の各項は $h^{-1}$ および次数が $1$ 以上 $m$ 以下の $h$ の微分の積で、帰納仮定によって $C^{0,\alpha}$ 一様有界。例えば $m=1$ で $\beta=(D_1,D_2)$ なら $R_\beta=-\operatorname{tr}(h^{-1}D_1h\,h^{-1}D_2h)$ であり、これを右辺から引くと正の二次項になる。
 
 $D^\beta(H+\log\det g)$ と $h^{-1}D^\beta g$ は固定滑らかなデータから同様に有界。
 
