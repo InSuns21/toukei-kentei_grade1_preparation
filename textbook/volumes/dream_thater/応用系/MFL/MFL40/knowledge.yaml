@@ -1,0 +1,41 @@
+chapter: MFL40
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL39
+  - GEO13
+forward_references: []
+concepts:
+  - id: manifold-learning.discrete-gauge-change
+    name: 有限頂点上の局所ゲージ変更
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限頂点上の局所ゲージ変更）"]
+    requires: [manifold-learning.local-orthonormal-frame, manifold-learning.orthonormal-frame-change]
+  - id: manifold-learning.moving-frame-connection-matrix
+    name: moving frameの接続行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（moving frameの接続行列）"]
+    requires: [manifold-learning.local-orthonormal-frame, geometry.covariant-derivative-along-curve, geometry.levi-civita-connection]
+  - id: manifold-learning.connection-gauge-transformation
+    name: 接続と共変微分のゲージ変換則
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.moving-frame-connection-matrix, manifold-learning.discrete-gauge-change, geometry.metric-compatible-connection]
+  - id: manifold-learning.edge-transport-matrix
+    name: 辺の輸送行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（辺の輸送行列）"]
+    requires: [geometry.parallel-transport, manifold-learning.local-orthonormal-frame]
+  - id: manifold-learning.edge-transport-gauge
+    name: 辺輸送の両端ゲージ変換則
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.edge-transport-matrix, manifold-learning.discrete-gauge-change, geometry.parallel-transport-isometry]
+  - id: manifold-learning.path-transport-composition
+    name: 輸送の逆・合成・閉路の共役変換
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.edge-transport-gauge, geometry.parallel-transport-existence-uniqueness]
