@@ -262,7 +262,11 @@ $$
 
 $A$ は単射で $1-\eta/s>0$ なので $f$ も単射です。$T:A(P)\to f(P)$、$T(Au)=f(u)$ と置けば、上の第一式から $\operatorname{Lip}(T)\le1+\eta/s$、第二式から $\operatorname{Lip}(T^{-1})\le(1-\eta/s)^{-1}$ です。
 
-線形面積倍率は [GMT10では Borel 集合に対して](../GMT10/index.md#thm-gmt10-linear-area)述べられています。ここでの $F$ が Lebesgue 可測なだけでも、有限測度の球への切断と内側正則性を順に使い、$F$ に含まれる可算個のコンパクト集合で $F$ を零集合を除いて覆えます。$A$ と $f|_P$ は Lipschitz なので、[零集合保存補題](#lem-gmt11-lipschitz-null-image)から残りの像はともに Hausdorff 零集合です。従って $A(F)$、$f(F)$ は Hausdorff 測度の完備化で可測であり、$A(F)$ の線形面積倍率等式はコンパクト集合からの極限で拡張できます。$f(F)$ の面積は、これから比較によって評価します。
+線形面積倍率は [GMT10では Borel 集合に対して](../GMT10/index.md#thm-gmt10-linear-area)述べられています。ここでの $F$ が Lebesgue 可測なだけでも、有限測度の球への切断と内側正則性を順に使い、$F$ に含まれる可算個のコンパクト集合で零集合を除いて覆えます。
+
+$A$ と $f|_P$ は Lipschitz なので、[零集合保存補題](#lem-gmt11-lipschitz-null-image)から残りの像はともに Hausdorff 零集合です。従って $A(F)$、$f(F)$ は Hausdorff 測度の完備化で可測です。
+
+$A(F)$ の線形面積倍率等式はコンパクト集合からの極限で拡張できます。$f(F)$ の面積は、これから比較によって評価します。
 
 $A(F)$ に $T$ を使って [零集合保存補題の一般のLipschitz評価](#lem-gmt11-lipschitz-null-image)を適用し、逆向きには $f(F)$ に $T^{-1}$ を適用すると
 
