@@ -191,7 +191,7 @@ $$
 =8\pi\{rM+a^2(1-M_r)\}>0.
 $$
 
-さらに第三座標を $Q$ のままにすれば全Jacobianも非零です。よって逆関数定理により $(A,J,Q)$ は非極限解族の局所座標となります。この正質量分枝はその開領域で滑らかです。$X,J,Q$ を $\lambda^2X,\lambda^2J,\lambda Q$ とすると右辺の各項が $\lambda^2$ 倍されるため、$M(\lambda^2A,\lambda^2J,\lambda Q)=\lambda M(A,J,Q)$ です。従って[補題](#lem-bht7-weighted-euler)より
+さらに第三座標を $Q$ のままにすれば全Jacobianも非零です。よって[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $(A,J,Q)$ は非極限解族の局所座標となります。この正質量分枝はその開領域で滑らかです。$X,J,Q$ を $\lambda^2X,\lambda^2J,\lambda Q$ とすると右辺の各項が $\lambda^2$ 倍されるため、$M(\lambda^2A,\lambda^2J,\lambda Q)=\lambda M(A,J,Q)$ です。従って[補題](#lem-bht7-weighted-euler)より
 
 $$
 M=2AM_A+2JM_J+QM_Q.
