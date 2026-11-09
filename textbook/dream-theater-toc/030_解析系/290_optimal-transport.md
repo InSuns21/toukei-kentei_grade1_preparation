@@ -26,3 +26,4 @@
 23. [OTR23 JKOの一歩はPDEにどう近づくか](textbook/volumes/dream_thater/解析系/OTR/OTR23/index.md)
 24. [OTR24 時間刻みをゼロにすると何が得られるか](textbook/volumes/dream_thater/解析系/OTR/OTR24/index.md)
 25. [OTR25 離散OTを安定して近似するには](textbook/volumes/dream_thater/解析系/OTR/OTR25/index.md)
+26. [OTR26 理論と数値解はどこまで一致するか](textbook/volumes/dream_thater/解析系/OTR/OTR26/index.md)

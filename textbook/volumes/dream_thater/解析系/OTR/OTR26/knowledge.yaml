@@ -1,0 +1,57 @@
+chapter: OTR26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - OTR25
+forward_references:
+  - stat.score-function
+
+concepts:
+  - id: transport.numeric-certificate
+    name: 有限輸送の数値的証明書と残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限輸送の数値的証明書と残差）"]
+    requires: [transport.finite-dual, transport.transportation-polytope]
+
+  - id: transport.numeric-gap-identity
+    name: 有限主双対差の恒等式と最適性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限主双対差の恒等式と最適性判定）"]
+    requires: [transport.numeric-certificate]
+
+  - id: transport.numeric-gaussian-square-root
+    name: 正定値2次行列の平方根
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（正定値2次行列の平方根）"]
+    requires: [linear.psd-square-root, transport.gaussian-w2-spd]
+
+  - id: transport.periodic-heat-scheme
+    name: 周期熱方程式の保存型差分法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期熱方程式の保存型差分法）"]
+    requires: [transport.continuity-measure-weak, transport.free-energy]
+
+  - id: transport.periodic-heat-invariants
+    name: 保存型熱差分の質量・正値性・エネルギー減少
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（保存型熱差分の質量・正値性・エネルギー減少）"]
+    requires: [transport.periodic-heat-scheme]
+
+  - id: transport.density-score
+    name: 密度score
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（密度score）"]
+    requires: [transport.free-energy-gradient-pde]
+
+  - id: transport.reverse-diffusion-flow-matching
+    name: 逆時間拡散とflow matchingの速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆時間拡散とflow matchingの速度）"]
+    requires: [transport.density-score, transport.displacement-interpolation, transport.jko-step]

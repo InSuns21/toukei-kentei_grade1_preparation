@@ -1,7 +1,7 @@
 version: 1
 id: OTR
 title: 最適輸送・Wasserstein幾何
-plan: textbook/plans_progress/DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 公開目次には completed の章だけを登録する。
@@ -31,4 +31,4 @@ chapters:
   - { id: OTR23, path: textbook/volumes/dream_thater/解析系/OTR/OTR23, status: completed, title: "JKOの一歩はPDEにどう近づくか" }
   - { id: OTR24, path: textbook/volumes/dream_thater/解析系/OTR/OTR24, status: completed, title: "時間刻みをゼロにすると何が得られるか" }
   - { id: OTR25, path: textbook/volumes/dream_thater/解析系/OTR/OTR25, status: completed, title: "離散OTを安定して近似するには" }
-  - { id: OTR26, path: textbook/volumes/dream_thater/解析系/OTR/OTR26, status: planned, title: "理論と数値解はどこまで一致するか" }
+  - { id: OTR26, path: textbook/volumes/dream_thater/解析系/OTR/OTR26, status: completed, title: "理論と数値解はどこまで一致するか" }
