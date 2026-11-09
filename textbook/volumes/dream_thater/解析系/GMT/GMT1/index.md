@@ -665,7 +665,7 @@ $\mu$ を $\mathbb R^d$ 上の正Radon測度、$\nu$ を局所有限符号付き
 <!-- solution-start -->
 #### 詳細解答
 
-1. コンパクト集合 $K$ では $\lambda(K)=\mu(K)+|\nu|(K)<\infty$ です。さらに開集合上の内正則性とBorel集合上の外正則性は測度の和でも保たれます。$\mathbb R^d=\bigcup_n\overline{B(0,n)}$ なので $\sigma$ 有限です。$\mu\ll\lambda$、$\nu\ll\lambda$ だから、コンパクト球ごとに [MT3のRadon–Nikodym定理](../../MT/MT3/index.md#thm-mt3-rn-signed)を適用して $a,b$ を構成できます。重なりでは一意性から一致し、各コンパクト球で
+1. コンパクト集合 $K$ では $\lambda(K)=\mu(K)+|\nu|(K)<\infty$ です。さらに開集合上の内正則性とBorel集合上の外正則性は測度の和でも保たれます。$\mathbb R^d=\bigcup_n\overline{B(0,n)}$ なので $\sigma$ 有限です。$\mu\ll\lambda$、$\nu\ll\lambda$ だから、コンパクト球ごとに [MT3の有限符号付き測度版](../../MT/MT3/index.md#thm-mt3-rn-signed)を適用して $a,b$ を構成できます。重なりでは一意性から一致し、各コンパクト球で
 
    $$
    \int_K|a|\,d\lambda=|\nu|(K)<\infty,\qquad
