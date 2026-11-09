@@ -1,0 +1,69 @@
+chapter: ORI4
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI3]
+forward_references: []
+
+concepts:
+  - id: origami.polygon-reflection-axis
+    name: 多角形の鏡映対称軸
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（多角形の鏡映対称軸）]
+    requires: [origami.crease-reflection]
+
+  - id: origami.convex-polygon-exterior-angle
+    name: 凸多角形の外角
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（凸多角形の外角）]
+
+  - id: origami.regular-polygon-central-angle
+    name: 正多角形と中心角
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正多角形と中心角）]
+    requires: [origami.convex-polygon-exterior-angle]
+
+  - id: origami.angle-bisector-reflection
+    name: 二方向を重ねる角の二等分線
+    kind: lemma
+    introduction: formal
+    requires: [origami.crease-reflection]
+
+  - id: origami.two-reflections-rotation
+    name: 二本の折り線の鏡映合成
+    kind: theorem
+    introduction: formal
+    requires: [origami.reflection-isometry, origami.angle-bisector-reflection]
+
+  - id: origami.regular-polygon-circle
+    name: 円上の等間隔配置と正多角形
+    kind: theorem
+    introduction: formal
+    aliases: [円上の等間隔配置定理]
+    requires: [origami.two-reflections-rotation, origami.regular-polygon-central-angle]
+
+  - id: origami.two-axis-regular-polygon
+    name: 二本の対称軸から得る正三角形・正五角形
+    kind: proposition
+    introduction: formal
+    requires: [origami.two-reflections-rotation, origami.regular-polygon-circle]
+
+  - id: origami.cyclic-quadrilateral-identity
+    name: 円に内接する四角形の対角線恒等式
+    kind: lemma
+    introduction: formal
+    requires: [origami.triangle-similarity]
+
+  - id: origami.pentagon-golden-diagonal
+    name: 正五角形の対角線と黄金比
+    kind: theorem
+    introduction: formal
+    requires: [origami.cyclic-quadrilateral-identity, origami.regular-polygon-circle]
+
+  - id: origami.haga-symmetric-trapezoid
+    name: 芳賀折りから作る等脚台形
+    kind: proposition
+    introduction: formal
+    requires: [origami.haga-first-theorem, origami.adjacent-mark-reflection, origami.polygon-reflection-axis]

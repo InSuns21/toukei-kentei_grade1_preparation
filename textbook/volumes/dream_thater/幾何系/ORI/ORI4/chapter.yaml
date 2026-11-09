@@ -1,0 +1,40 @@
+id: ORI4
+title: "多角形・対称性・定理折り"
+volume: foundations
+status: supplementary
+prerequisites: [ORI3]
+official_scope: []
+learning_objectives:
+  - 折り線による鏡映対称と正多角形を区別し、角の二等分線を折りの一致条件として必要十分に判定できる
+  - 同心の二本の折り線の鏡映合成を回転として導き、正三角形と正五角形の頂点配置および中心角・内角を検算できる
+  - 正五角形の辺と対角線の比が黄金比になることを円に内接する四角形の相似から証明できる
+  - 芳賀折りの三等分点から等脚台形を作り、対称であることと正多角形であることの違いを検証できる
+definitions:
+  - { id: ORI4-DEF-01, name: 多角形の鏡映対称軸 }
+  - { id: ORI4-DEF-03, name: 凸多角形の外角 }
+  - { id: ORI4-DEF-02, name: 正多角形と中心角 }
+theorems:
+  - { id: ORI4-LEM-01, name: 二方向を重ねる角の二等分線 }
+  - { id: ORI4-THM-01, name: 二本の折り線の鏡映合成 }
+  - { id: ORI4-THM-02, name: 円上の等間隔配置と正多角形 }
+  - { id: ORI4-PROP-01, name: 二本の対称軸から得る正三角形・正五角形 }
+  - { id: ORI4-LEM-02, name: 円に内接する四角形の対角線恒等式 }
+  - { id: ORI4-THM-03, name: 正五角形の対角線と黄金比 }
+  - { id: ORI4-PROP-02, name: 芳賀折りから作る等脚台形 }
+canonical_examples:
+  - 60度で交わる二本の鏡映軸から三頂点を生成し辺長を直接検算
+  - 36度で交わる二本の鏡映軸から五頂点を生成し中心角72度と内角108度を検算
+  - 連続四頂点の円内接四角形へ相似による恒等式を適用し対角線比を導出
+  - 芳賀折りの左辺三等分点を回転・鏡映して等脚台形を得て対称性と非正則性を検算
+problem_patterns:
+  - ORI4-ANGLE-BISECTOR-REFLECTION
+  - ORI4-TWO-REFLECTION-ROTATION
+  - ORI4-REGULAR-POLYGON-TEST
+  - ORI4-PENTAGON-GOLDEN-RATIO
+  - ORI4-HAGA-ISOSCELES-TRAPEZOID
+  - ORI4-SYMMETRIC-NONREGULAR-COUNTEREXAMPLE
+  - ORI4-CONDITIONAL-CONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 3.5, review: 1.5 }
