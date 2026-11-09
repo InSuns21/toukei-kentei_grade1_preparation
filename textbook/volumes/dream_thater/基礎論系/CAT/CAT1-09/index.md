@@ -383,10 +383,10 @@ $$
 
 - **充満性を外す**：二対象離散圏 $\mathcal A\to\mathcal E$ の $J$ は忠実・本質的全射である。しかし異なる対象の間では
 
-  $
+  $$
   J_{a,b}:\operatorname{Hom}_{\mathcal A}(a,b)=\varnothing
   \longrightarrow\operatorname{Hom}_{\mathcal E}(a,b)=\{u_{ab}\}
-  $
+  $$
 
   は全射でない。$\mathcal E$ で存在する $a\cong b$ の射を $\mathcal A$ に戻せず、準逆は存在しない。
 - **忠実性を外す**：対象一つ・射二つ $e,z$ を持つ圏 $\mathcal M$ を取り、合成を $e$ は単位、$z\circ z=z$ と定める。[一対象圏の構成](../CAT1-02/index.md#prop-cat1-02-one-object)から圏となる。唯一の関手 $\mathcal M\to\mathbf 1$ は二元 Hom を一元 Hom に写すので全射だが単射でない。対象上も全射なので充満・本質的全射だが同値でない。$e$ と $z$ が区別不能になっている。
@@ -455,17 +455,17 @@ $$
 <!-- solution-start -->
 **詳細解答**。[充満性](#def-cat1-09-fully-faithful)を $\operatorname{Hom}_{\mathcal C}(Y,X)$ に適用して $F(g)=h$ となる $g:Y\to X$ を得る。[関手の合成・恒等射保存](../CAT1-06/index.md#def-cat1-06-functor)と仮定から
 
-$
+$$
 F(g\circ f)=F(g)\circ F(f)=h\circ F(f)
 =1_{FX}=F(1_X)
-$
+$$
 
 である。[忠実性](#def-cat1-09-fully-faithful)を $\operatorname{Hom}_{\mathcal C}(X,X)$ に適用すれば $g\circ f=1_X$。他方も
 
-$
+$$
 F(f\circ g)=F(f)\circ F(g)=F(f)\circ h
 =1_{FY}=F(1_Y)
-$
+$$
 
 なので、$\operatorname{Hom}_{\mathcal C}(Y,Y)$ 上の忠実性から $f\circ g=1_Y$ を得る。従って $f$ の逆射は $g$ である。
 <!-- solution-end -->
@@ -479,10 +479,10 @@ $a,b$ を対象とする先ほどの離散圏 $\mathcal A$ と、対象 $a$ だ�
 <!-- solution-start -->
 **詳細解答**。$\mathcal B$ の対象組は $(a,a)$ だけで、包含関手の Hom 写像は
 
-$
+$$
 K_{a,a}:\operatorname{Hom}_{\mathcal B}(a,a)=\{1_a\}
 \longrightarrow\operatorname{Hom}_{\mathcal A}(a,a)=\{1_a\},\quad 1_a\mapsto1_a
-$
+$$
 
 だから全単射であり、$K$ は充満かつ忠実である。一方、$b\in\mathcal A$ には $a\to b$ の射がなく、$K(a)=a$ と同型でない。したがって $K$ は本質的全射ではない。これは Hom の全単射性が、移し先の未到達対象まで保証しない例である。
 <!-- solution-end -->
@@ -618,10 +618,10 @@ $$
 
 なので $s:IH\Rightarrow1_{\mathcal G}$ は自然同型。代表 $r$ に対して $r_r=r$、$s_r=1_r$ と選ぶと $HI(r)=r$、任意の $f:r\to t$ に対して $HI(f)=1_t^{-1}f1_r=f$ なので $HI=1_{\mathcal S}$。恒等自然変換 $1_{\mathcal S}\Rightarrow HI$ と $s$ が二つの必要な自然同型である。一般の選択でも $\theta_r:=s_r^{-1}:r\to r_r$ と置けば、任意の $f:r\to t$ で
 
-$
+$$
 HI(f)\circ\theta_r=(s_t^{-1}\circ f\circ s_r)\circ s_r^{-1}
 =s_t^{-1}\circ f=\theta_t\circ f
-$
+$$
 
 となり、$\theta:1_{\mathcal S}\Rightarrow HI$ が自然同型になる。代表上で恒等を選べばこの自然同型は恒等で、厳密な等号 $HI=1_{\mathcal S}$ が得られる。
 <!-- solution-end -->
@@ -632,11 +632,11 @@ $
 
 群 $(H,\cdot,e)$ を任意に一つ取る。ここで使う群の公理は、すべての $g,h,k\in H$ について
 
-$
+$$
 (g\cdot h)\cdot k=g\cdot(h\cdot k),\quad
 e\cdot h=h=h\cdot e,\quad
 h^{-1}\cdot h=e=h\cdot h^{-1}
-$
+$$
 
 を満たすことである。対象 $0,1$ の圏 $\mathcal T_H$ を次のように定める。各 $i,j\in\{0,1\}$ の Hom$(i,j)$ は $H$ のコピーであり、その元を $(i,j,h)$ と書く。合成は
 
