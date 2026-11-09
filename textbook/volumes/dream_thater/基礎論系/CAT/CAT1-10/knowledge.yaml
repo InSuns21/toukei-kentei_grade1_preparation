@@ -1,0 +1,65 @@
+chapter: CAT1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT1-06
+  - CAT1-07
+
+concepts:
+  - id: category.covariant-representable-functor
+    name: 共変表現可能関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変表現可能関手・表現対象）"]
+    requires: [category.covariant-hom-functor, category.natural-isomorphism]
+  - id: category.covariant-universal-element
+    name: 共変普遍元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変普遍元）"]
+    requires: [category.covariant-functor]
+  - id: category.covariant-representability-criterion
+    name: 共変表現可能性と普遍元の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共変表現可能性と普遍元の同値）"]
+    requires: [category.covariant-representable-functor, category.covariant-universal-element, category.natural-transformation]
+  - id: category.contravariant-representable-functor
+    name: 反変表現可能関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（反変表現可能関手・表現対象）"]
+    requires: [category.contravariant-hom-functor, category.natural-isomorphism]
+  - id: category.contravariant-universal-element
+    name: 反変普遍元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（反変普遍元）"]
+    requires: [category.contravariant-functor]
+  - id: category.contravariant-representability-criterion
+    name: 反変表現可能性と普遍元の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反変表現可能性と普遍元の同値）"]
+    requires: [category.contravariant-representable-functor, category.contravariant-universal-element, category.natural-transformation]
+  - id: category.category-of-elements
+    name: 元の圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（元の圏）"]
+    requires: [category.covariant-functor, category.contravariant-functor]
+  - id: category.universal-elements-initial-terminal
+    name: 普遍元と始対象・終対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（普遍元と始対象・終対象）"]
+    requires: [category.category-of-elements, category.covariant-universal-element, category.contravariant-universal-element, category.initial-object, category.terminal-object]
+  - id: category.representing-object-uniqueness
+    name: 普遍元付き表現対象の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（普遍元付き表現対象の一意性）"]
+    requires: [category.covariant-universal-element, category.contravariant-universal-element, category.isomorphism]
