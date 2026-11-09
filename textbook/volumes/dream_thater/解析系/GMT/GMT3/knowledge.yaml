@@ -1,0 +1,84 @@
+chapter: GMT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT2
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt3-riesz-energy
+    name: Riesz energy
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Riesz energy）"]
+    requires: []
+
+  - id: geometric-measure.gmt3-layer-cake
+    name: Riesz energyの球積分表示
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Riesz energyの球積分表示）"]
+    requires:
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt3-frostman-energy
+    name: 球成長評価から有限energyへ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（球成長評価から有限energyへ）"]
+    requires:
+      - geometric-measure.gmt3-layer-cake
+      - geometric-measure.gmt2-frostman-measure
+
+  - id: geometric-measure.gmt3-riesz-capacity
+    name: Riesz capacity
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Riesz capacity）"]
+    requires:
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt3-capacity-rules
+    name: Riesz capacityの単調性と相似変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Riesz capacityの単調性と相似変換）"]
+    requires:
+      - geometric-measure.gmt3-riesz-capacity
+
+  - id: geometric-measure.gmt3-riesz-potential
+    name: 測度のRieszポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測度のRieszポテンシャル）"]
+    requires:
+      - geometric-measure.gmt3-riesz-energy
+
+  - id: geometric-measure.gmt3-energy-dimension
+    name: 有限energyによる次元下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限energyによる次元下界）"]
+    requires:
+      - geometric-measure.gmt3-riesz-potential
+      - measure.mass-distribution-principle
+
+  - id: geometric-measure.gmt3-capacity-dimension
+    name: Riesz capacityによるHausdorff次元の特徴付け
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Riesz capacityによるHausdorff次元の特徴付け）"]
+    requires:
+      - geometric-measure.gmt3-riesz-capacity
+      - geometric-measure.gmt3-energy-dimension
+      - geometric-measure.gmt3-frostman-energy
+      - geometric-measure.gmt2-frostman-lemma
+
+  - id: geometric-measure.gmt3-cantor-energy
+    name: 中三分Cantor測度のenergy閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中三分Cantor測度のenergy閾値）"]
+    requires:
+      - geometric-measure.gmt3-riesz-energy
+      - geometric-measure.gmt1-cantor-measure
