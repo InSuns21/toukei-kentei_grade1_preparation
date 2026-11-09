@@ -1,0 +1,46 @@
+id: GMT9
+title: Lipschitz写像とRademacher定理
+volume: foundations
+status: supplementary
+prerequisites:
+  - F0-00D2C
+  - F0-02C3
+  - MT4
+  - MT8
+  - HA1
+official_scope: []
+learning_objectives:
+  - Lipschitz条件とFréchet微分を区別し、局所的な一次近似と作用素ノルムを計算できる
+  - 一変数絶対連続性とFubiniから座標切片のa.e.微分と有界性を導ける
+  - 座標導関数から任意の固定方向の切片積分公式を導ける
+  - Lebesgue点における勾配の平均誤差がo(r)になることを変数変換と優収束から示せる
+  - Lipschitz性が平均的な一次近似を全方向一様なFréchet微分へ高める論証を再構成できる
+  - Rademacher定理を証明し、存在する微分の作用素ノルムがLipschitz定数以下と示せる
+  - 折り目を持つ具体例の非微分可能集合を特定し、偏微分だけでは不十分な例を検証できる
+definitions: []
+theorems:
+  - { id: GMT9-LEM-01, name: Lipschitz写像の座標切片と有界導関数 }
+  - { id: GMT9-LEM-02, name: 固定方向に沿う切片積分公式 }
+  - { id: GMT9-LEM-03, name: 平均一次誤差からFréchet微分へ }
+  - { id: GMT9-THM-01, name: Rademacherの微分可能性定理 }
+  - { id: GMT9-COR-01, name: Lipschitz微分のノルム評価 }
+canonical_examples:
+  - 絶対値関数の零点と一変数の折り目
+  - Euclidノルムの原点以外での微分と原点の特異性
+  - max(x,y)の非微分可能直線とa.e.微分
+  - min(|x|,|y|)の原点での偏微分と全微分の差
+problem_patterns:
+  - GMT9-LINEAR-LIPSCHITZ
+  - GMT9-ABSOLUTE-VALUE
+  - GMT9-MAX-CREASE
+  - GMT9-NORM-DERIVATIVE
+  - GMT9-PARTIALS-NOT-FRECHET
+  - GMT9-SLICE-AC
+  - GMT9-RADIAL-AVERAGE
+  - GMT9-AVERAGE-TO-UNIFORM
+  - GMT9-PIECEWISE-VECTOR
+  - GMT9-RADEMACHER-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }

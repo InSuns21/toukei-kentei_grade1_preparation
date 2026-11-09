@@ -1,0 +1,55 @@
+chapter: GMT9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2C
+  - F0-02C3
+  - MT4
+  - MT8
+  - HA1
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt9-coordinate-slices
+    name: Lipschitz写像の座標切片と有界導関数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Lipschitz写像の座標切片と有界導関数）"]
+    requires:
+      - analysis.mt4-ac-ftc
+
+  - id: geometric-measure.gmt9-directional-slices
+    name: 固定方向に沿う切片積分公式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固定方向に沿う切片積分公式）"]
+    requires:
+      - geometric-measure.gmt9-coordinate-slices
+
+  - id: geometric-measure.gmt9-mean-to-uniform
+    name: 平均一次誤差からFréchet微分へ
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（平均一次誤差からFréchet微分へ）"]
+    requires:
+      - geometric-measure.gmt9-coordinate-slices
+
+  - id: geometric-measure.gmt9-rademacher
+    name: Rademacherの微分可能性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Rademacherの微分可能性定理）"]
+    requires:
+      - geometric-measure.gmt9-coordinate-slices
+      - geometric-measure.gmt9-directional-slices
+      - geometric-measure.gmt9-mean-to-uniform
+      - harmonic.ha1-differentiation
+      - functional.frechet-derivative
+
+  - id: geometric-measure.gmt9-derivative-bound
+    name: Lipschitz微分のノルム評価
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（Lipschitz微分のノルム評価）"]
+    requires:
+      - geometric-measure.gmt9-rademacher
