@@ -42,7 +42,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl40-discrete-gauge -->
-**定義の確認**：二点で逆向きの90度回転。** $R(\alpha)=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}$ とし、$R_i=R(\pi/2)$、$R_j=R(-\pi/2)$ を選ぶ。$R_i^{\mathsf T}R_i=R_j^{\mathsf T}R_j=I_2$ だから、$\widetilde E_i,\widetilde E_j$ はそれぞれ直交性と長さ1を保つ。例えば両点の旧成分が $c_i=c_j=(1,0)^{\mathsf T}$ でも、新成分は $\widetilde c_i=(0,-1)^{\mathsf T}$、$\widetilde c_j=(0,1)^{\mathsf T}$。実際に $E_iR_i\widetilde c_i=E_ic_i$、$E_jR_j\widetilde c_j=E_jc_j$ で各矢印は不変である。二点の旧成分が同じだからといって、二点の矢印が同じ接空間にあるわけではない。
+**定義の確認**：二点で逆向きの90度回転。回転行列を
+
+$$
+R(\alpha)=\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}
+$$
+
+と書き、$R_i=R(\pi/2)$、$R_j=R(-\pi/2)$ を選ぶ。$R_i^{\mathsf T}R_i=R_j^{\mathsf T}R_j=I_2$ だから、$\widetilde E_i,\widetilde E_j$ はそれぞれ直交性と長さ1を保つ。両点の旧成分が $c_i=c_j=(1,0)^{\mathsf T}$ のとき、新成分は $\widetilde c_i=(0,-1)^{\mathsf T}$、$\widetilde c_j=(0,1)^{\mathsf T}$ である。実際に $E_iR_i\widetilde c_i=E_ic_i$、$E_jR_j\widetilde c_j=E_jc_j$ で各矢印は不変である。二点の旧成分が同じだからといって、二点の矢印が同じ接空間にあるわけではない。
 <!-- definition-example-end -->
 
 任意の $i$ で新フレームの直交性は $(E_iR_i)^*(E_iR_i)=R_i^{\mathsf T}R_i=I_2$ と検算できる。逆に $E_i c_i=E_iR_i\widetilde c_i$ に $E_i^*$ を作用させれば $c_i=R_i\widetilde c_i$、したがって定義の成分変換則になる。これが以降の行列の左右を決める基準である。
@@ -50,6 +56,8 @@ $$
 ## 3. moving frameの回転率を接続行列に記録する
 
 二点を比べる前に、一つの滑らかな曲線 $\gamma:[a,b]\to M$ に沿って軸を連続的に動かす。曲線上の正規直交フレーム $E(t)=(e_1(t),e_2(t))$ と、滑らかな接ベクトル場 $V(t)=E(t)c(t)$ を選ぶ。[GEO13の曲線に沿う共変微分](../../../幾何系/GEO/GEO13/index.md#def-geo13-curve-covariant-derivative)をそれぞれの軸に作用させると、軸自身の接平面内の回転率が二行二列の数表になる。
+
+ここで $\nabla$ は[GEO13のLevi-Civita接続](../../../幾何系/GEO/GEO13/index.md#thm-geo13-levi-civita-existence)である。以下、$\dot\gamma=d\gamma/dt$、$\dot c=dc/dt$、$\dot R=dR/dt$ の上点は**曲線パラメータ $t$ による全微分**を表し、曲面の座標変数に関する偏微分 $\partial/\partial x^a$ とは区別する。後の球面緯線の例では、$t$ を経度として使う。
 
 <a id="def-mfl40-connection-matrix"></a>
 <!-- formal-statement-start -->
@@ -64,7 +72,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl40-connection-matrix -->
-**定義の確認**：球面の緯線。** [MFL39の球面緯線の計算](../MFL39/index.md#prop-mfl39-sphere-connection)では、余緯度 $\theta_0\in(0,\pi)$ を固定して経度 $t$ を動かすと $\nabla_{\dot\gamma}e_\theta=k e_\varphi$、$\nabla_{\dot\gamma}e_\varphi=-k e_\theta$、$k=\cos\theta_0$ である。したがって列ごとに内積を取れば
+**定義の確認**：球面の緯線。[MFL39の球面緯線の計算](../MFL39/index.md#prop-mfl39-sphere-connection)では、余緯度 $\theta_0\in(0,\pi)$ を固定して経度 $t$ を動かすと $\nabla_{\dot\gamma}e_\theta=k e_\varphi$、$\nabla_{\dot\gamma}e_\varphi=-k e_\theta$、$k=\cos\theta_0$ である。したがって列ごとに内積を取れば
 
 $$
 A=\begin{pmatrix}0&-k\\k&0\end{pmatrix}=kJ,\qquad
@@ -137,6 +145,8 @@ $\nabla_{\dot\gamma}V=E(\dot c+Ac)$ であり、$E$ は各時刻で一次独立�
 
 曲線 $\gamma_{ij}$ の始点を $p_j$、終点を $p_i$ とする。[GEO13の平行移動の存在一意性](../../../幾何系/GEO/GEO13/index.md#thm-geo13-parallel-existence)により、始点の接ベクトルを終点まで平行に動かす線形写像 $P_{i\leftarrow j}:T_{p_j}M\to T_{p_i}M$ が得られる。Levi-Civita接続による平行移動は内積を保つので、両端の正規直交フレームで行列表現できる。ただし、どの曲線をたどるかは指定しなければならない。同じ二点でも異なる経路なら結果が異なりうる。
 
+区分的に滑らかな曲線では、滑らかな各区間で平行方程式を解き、その終値を次の区間の初期値としてつなぐことで、同じ平行移動 $P_{i\leftarrow j}$ を定める。
+
 <a id="def-mfl40-edge-transport"></a>
 <!-- formal-statement-start -->
 > **定義（辺の輸送行列）**
@@ -150,14 +160,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mfl40-edge-transport -->
-**定義の確認**：球面緯線の一辺。** $\theta_0=\pi/3$ とし、[MFL39の球面フレーム](../MFL39/index.md#prop-mfl39-sphere-frame)を $p_j=p(\theta_0,0)$ から $p_i=p(\theta_0,\pi/2)$ まで緯線に沿って使う。接続行列は $A=\tfrac12J$。平行条件 $\dot c=-Ac$ を初期値 $c(0)=u$ で解けば
+**定義の確認**：球面緯線の一辺。$\theta_0=\pi/3$ とし、[MFL39の球面フレーム](../MFL39/index.md#prop-mfl39-sphere-frame)を $p_j=p(\theta_0,0)$ から $p_i=p(\theta_0,\pi/2)$ まで緯線に沿って使う。接続行列は $A=\tfrac12J$。平行条件 $\dot c=-Ac$ を初期値 $c(0)=u$ で解けば
 
 $$
 c(t)=R(-t/2)u,\qquad
 T_{ij}=R(-\pi/4)=\frac1{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix}.
 $$
 
-実際に二つの基底ベクトルを運んだ到着成分はこの行列の第1列と第2列である。各列の長さは1、内積は0なので $T_{ij}^{\mathsf T}T_{ij}=I_2$。これは**緯線に沿う**輸送であって、同じ端点間の測地線に沿う輸送と無条件に同じとは言えない。
+この解は $R(0)=I_2$ および $\frac{d}{dt}R(-t/2)=-\frac12 JR(-t/2)$ により初期値条件と微分方程式を満たす。実際に二つの基底ベクトルを運んだ到着成分はこの行列の第1列と第2列である。各列の長さは1、内積は0なので $T_{ij}^{\mathsf T}T_{ij}=I_2$。これは**緯線に沿う**輸送であって、同じ端点間の測地線に沿う輸送と無条件に同じとは言えない。
 <!-- definition-example-end -->
 
 <a id="thm-mfl40-transport-gauge"></a>
@@ -364,7 +374,14 @@ $$
 ### Level A
 
 <!-- solution-start -->
-**MFL40-A01。** $R(\pi/2)=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$R(-\pi/2)=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ なので
+**MFL40-A01。** 使用する回転行列は
+
+$$
+R(\pi/2)=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\qquad R(-\pi/2)=\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+$$
+
+したがって
 
 $$
 \widetilde c_i=R(-\pi/2)(2,1)^{\mathsf T}=(1,-2)^{\mathsf T},\qquad
@@ -377,7 +394,13 @@ $R_i\widetilde c_i=(2,1)^{\mathsf T}$、$R_j\widetilde c_j=(1,-1)^{\mathsf T}$ �
 
 **MFL40-A03。** $\dot R(t)=2R(t)J$、$A=0$ を[変換則](#thm-mfl40-connection-gauge)に入れると $\widetilde A=R^{\mathsf T}\dot R=2J$。旧成分 $c$ は一定、新成分は $\widetilde c=R(-2t)(1,0)^{\mathsf T}=(\cos2t,-\sin2t)^{\mathsf T}$。微分は $\dot{\widetilde c}=(-2\sin2t,-2\cos2t)^{\mathsf T}=-2J\widetilde c$ だから $\dot{\widetilde c}+\widetilde A\widetilde c=0$。
 
-**MFL40-A04。** $R(-\pi/2)=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ の第1列 $(0,-1)^{\mathsf T}$ が旧第1軸の輸送先、第2列 $(1,0)^{\mathsf T}$ が旧第2軸の輸送先の成分である。二列は単位・直交なので $T^{\mathsf T}T=\begin{pmatrix}1&0\\0&1\end{pmatrix}$。同じ曲線を逆走すると[逆輸送](#prop-mfl40-path-composition)は $T_{ji}=T^{\mathsf T}=R(\pi/2)$。
+**MFL40-A04。** 輸送行列は
+
+$$
+T=R(-\pi/2)=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+$$
+
+である。第1列 $(0,-1)^{\mathsf T}$ が旧第1軸の輸送先、第2列 $(1,0)^{\mathsf T}$ が旧第2軸の輸送先の成分である。二列は単位・直交なので $T^{\mathsf T}T=I_2$。同じ曲線を逆走すると[逆輸送](#prop-mfl40-path-composition)は $T_{ji}=T^{\mathsf T}=R(\pi/2)$。
 <!-- solution-end -->
 
 ### Level B
@@ -403,7 +426,13 @@ $$
 
 したがって $\widetilde T\widetilde c_j=(-1,-1)^{\mathsf T}/\sqrt2$。旧到着成分は $Tc_j=(1,-1)^{\mathsf T}/\sqrt2$、これへ $R(-\pi/2)$ を掛けても $(-1,-1)^{\mathsf T}/\sqrt2$。出発側 $R_j$ を欠くと $R(-3\pi/4)(0,1)^{\mathsf T}=(1,-1)^{\mathsf T}/\sqrt2$ となり、差は $(\sqrt2,0)^{\mathsf T}$、長さ $\sqrt2$。
 
-**MFL40-B04。** 同一方向の回転の積は角度を足すので $H_i=R(\pi/2)=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$。$\operatorname{tr}H_i=0$、$\det H_i=1$。$S=\operatorname{diag}(1,-1)$ は $S^{\mathsf T}=S=S^{-1}$ だから
+**MFL40-B04。** 同一方向の回転の積は角度を足すので
+
+$$
+H_i=R(\pi/2)=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+$$
+
+$\operatorname{tr}H_i=0$、$\det H_i=1$。$S=\operatorname{diag}(1,-1)$ は $S^{\mathsf T}=S=S^{-1}$ だから
 
 $$
 \widetilde H_i=S^{\mathsf T}H_iS
