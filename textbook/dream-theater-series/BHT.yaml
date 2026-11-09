@@ -1,0 +1,105 @@
+version: 1
+id: BHT
+title: "ブラックホール熱力学 I"
+plan: textbook/plans_progress/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 第I部7講、第II部4講、第III部6講、第IV部3講、第V部4講、全24講。
+# 連続するcompletedの後に現れる最初のplannedが次講。
+chapters:
+  - id: BHT1
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT1
+    status: completed
+    title: "ブラックホールを状態量で記述する"
+  - id: BHT2
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT2
+    status: planned
+    title: "Killing地平線と零法則"
+  - id: BHT3
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT3
+    status: planned
+    title: "面積定理と第二法則の仮定"
+  - id: BHT4
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT4
+    status: planned
+    title: "Schwarzschild・Reissner–Nordströmの第一法則"
+  - id: BHT5
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT5
+    status: planned
+    title: "回転ブラックホールの第一法則"
+  - id: BHT6
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT6
+    status: planned
+    title: "物理過程版の第一法則"
+  - id: BHT7
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT7
+    status: planned
+    title: "Smarr関係・不可逆質量と仕事"
+  - id: BHT8
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT8
+    status: planned
+    title: "Hawking温度の熱力学的意味"
+  - id: BHT9
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT9
+    status: planned
+    title: "Bekenstein–Hawkingエントロピー"
+  - id: BHT10
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT10
+    status: planned
+    title: "回転・電荷を含む熱力学の整合"
+  - id: BHT11
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT11
+    status: planned
+    title: "極限ブラックホールと第三法則"
+  - id: BHT12
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT12
+    status: planned
+    title: "Euclid周期性と円錐正則性"
+  - id: BHT13
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT13
+    status: planned
+    title: "重力作用と境界値問題"
+  - id: BHT14
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT14
+    status: planned
+    title: "Euclidサドルから自由エネルギーへ"
+  - id: BHT15
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT15
+    status: planned
+    title: "負熱容量と有限空洞"
+  - id: BHT16
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT16
+    status: planned
+    title: "AdSブラックホールとHawking–Page転移"
+  - id: BHT17
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT17
+    status: planned
+    title: "電荷・回転とアンサンブル選択"
+  - id: BHT18
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT18
+    status: planned
+    title: "共変位相空間とNoether流"
+  - id: BHT19
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT19
+    status: planned
+    title: "Wald公式とEinstein重力"
+  - id: BHT20
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT20
+    status: planned
+    title: "高階曲率とWald公式の適用限界"
+  - id: BHT21
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT21
+    status: planned
+    title: "一般化エントロピーと繰り込み"
+  - id: BHT22
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT22
+    status: planned
+    title: "一般化第二法則（GSL）"
+  - id: BHT23
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT23
+    status: planned
+    title: "Bekenstein boundと限界"
+  - id: BHT24
+    path: textbook/volumes/dream_thater/物理系/BHT/BHT24
+    status: planned
+    title: "総合検算・微視状態と情報問題への橋"

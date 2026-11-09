@@ -1,0 +1,75 @@
+chapter: CAT1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-01
+  - SET1
+  - F0-00A1D
+
+concepts:
+  - id: category.small-category
+    name: 小さい圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（小さい圏・局所小圏・大きい圏）"]
+    requires: [category.category, set.proper-class]
+  - id: category.locally-small-category
+    name: 局所小圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（小さい圏・局所小圏・大きい圏）"]
+    requires: [category.category, set.proper-class]
+  - id: category.large-category
+    name: 大きい圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（小さい圏・局所小圏・大きい圏）"]
+    requires: [category.small-category]
+  - id: category.small-implies-local
+    name: 小さい圏は局所小圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（小さい圏は局所小圏）"]
+    requires: [category.small-category, category.locally-small-category, set.separation-schema]
+  - id: category.object-set-and-local
+    name: 対象の集合性と局所小性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対象の集合性と局所小性）"]
+    requires: [category.locally-small-category, set.replacement-schema, set.union-axiom]
+  - id: order.preorder
+    name: 前順序
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前順序）"]
+    requires: [category.category]
+  - id: category.poset-category
+    name: 半順序集合の圏
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半順序集合の圏）"]
+    requires: [category.category, category.small-category, set.partial-order, order.preorder]
+  - id: category.monoid
+    name: モノイド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイド）"]
+    requires: [category.category]
+  - id: category.one-object-construction
+    name: 一対象圏の構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一対象圏の構成）"]
+    requires: [category.monoid, category.small-category]
+  - id: category.set-size
+    name: 集合と写像の圏の大きさ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合と写像の圏の大きさ）"]
+    requires: [category.locally-small-category, category.small-category, set.proper-class, set.power-set-axiom, set.separation-schema]
+  - id: category.one-object-large-hom
+    name: 対象が一つでも局所小でない例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対象が一つでも局所小でない例）"]
+    requires: [category.monoid, category.locally-small-category, set.proper-class, set.union-axiom]

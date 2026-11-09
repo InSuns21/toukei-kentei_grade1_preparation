@@ -1,0 +1,44 @@
+id: "CAT1-02"
+title: "小さい圏と局所小圏"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-01
+  - SET1
+  - F0-00A1D
+official_scope: []
+learning_objectives:
+  - 対象・射全体が集合であることと各Homが集合であることを区別できる
+  - 小さい圏は局所小であること、および対象が集合なら逆向きの含意が成り立つことを集合公理から証明できる
+  - 半順序集合と結合的な単位元付き演算から圏を作り、全公理と小ささを検証できる
+  - Set のHom集合を写像グラフとして構成し、Setが局所小だが小さくないことを証明できる
+  - 対象数が有限でもHomが真の類になり得ることを具体例で検証できる
+  - 全有限集合の圏と一対象の大きなHomの圏を比較し、誤ったサイズ推論を反証できる
+definitions:
+  - { id: CAT1-02-DEF-01, name: 小さい圏・局所小圏・大きい圏 }
+  - { id: CAT1-02-DEF-02, name: 前順序 }
+  - { id: CAT1-02-DEF-03, name: モノイド }
+theorems:
+  - { id: CAT1-02-PROP-01, name: 小さい圏は局所小圏 }
+  - { id: CAT1-02-PROP-02, name: 対象の集合性と局所小性 }
+  - { id: CAT1-02-PROP-03, name: 半順序集合の圏 }
+  - { id: CAT1-02-PROP-04, name: 一対象圏の構成 }
+  - { id: CAT1-02-PROP-05, name: 集合と写像の圏の大きさ }
+  - { id: CAT1-02-PROP-06, name: 対象が一つでも局所小でない例 }
+canonical_examples:
+  - 二対象の有限圏
+  - 三点鎖の半順序圏
+  - 二元モノイドから作る一対象圏
+  - Set のHom集合と真の類である対象全体
+  - 和集合を合成とする一対象の局所小でない圏
+  - すべての有限集合と写像からなる大きな局所小圏
+problem_patterns:
+  - CAT1-02-SIZE
+  - CAT1-02-ORDER
+  - CAT1-02-MONOID
+  - CAT1-02-FUNCTION-SETS
+  - CAT1-02-CLASS-HOM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 1 }
