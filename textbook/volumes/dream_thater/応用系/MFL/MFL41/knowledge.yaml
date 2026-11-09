@@ -1,0 +1,46 @@
+chapter: MFL41
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MFL40
+  - MFL25
+forward_references: []
+concepts:
+  - id: manifold-learning.transport-neighbor-aggregation
+    name: 輸送付き近傍集約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（輸送付き近傍集約）"]
+    requires: [manifold-learning.edge-transport-matrix, manifold-learning.discrete-gauge-change]
+  - id: manifold-learning.transport-aggregate-equivariance
+    name: 輸送付き集約の局所ゲージ等変性
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.transport-neighbor-aggregation, manifold-learning.edge-transport-gauge]
+  - id: manifold-learning.gauge-compatible-kernel
+    name: 有限グラフのゲージ整合カーネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限グラフのゲージ整合カーネル）"]
+    requires: [manifold-learning.edge-transport-gauge, manifold-learning.transport-neighbor-aggregation]
+  - id: manifold-learning.gauge-kernel-criterion
+    name: 全入力に対するゲージ等変性の必要十分条件
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.gauge-compatible-kernel]
+  - id: manifold-learning.fixed-channel-commutant
+    name: O(2)等変な固定チャネル行列
+    kind: proposition
+    introduction: formal
+    requires: [manifold-learning.gauge-kernel-criterion]
+  - id: manifold-learning.radial-gate
+    name: ノルムゲート
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ノルムゲート）"]
+    requires: [manifold-learning.compatible-activation]
+  - id: manifold-learning.gauge-layer-composition
+    name: 輸送付き畳み込みとノルムゲートの合成
+    kind: theorem
+    introduction: formal
+    requires: [manifold-learning.gauge-kernel-criterion, manifold-learning.radial-gate, manifold-learning.equivariant-layer-closure]

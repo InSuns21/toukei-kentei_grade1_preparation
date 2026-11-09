@@ -22,6 +22,8 @@ $$
 
 と置く。$\varphi_t$ は平均零で滑らかとする。$g=(g_{i\bar j})$、$h=(h_{i\bar j})=(g_{i\bar j}+\partial_i\partial_{\bar j}\varphi_t)$ はそれぞれ両計量のHermite係数で、$L_hf=h^{i\bar j}\partial_i\partial_{\bar j}f$ は[線形化の複素Laplacian](../YAU1-03/index.md#prop-yau1-03-linearization)である。
 
+以下の $\partial_i=\partial/\partial z^i$、$\partial_{\bar j}=\partial/\partial\bar z^j$ および $\nabla_i^g$ は、**時刻 $t$ を固定して $X$ の座標方向に**作用する。実座標 $z^i=x^i+iy^i$ では $\partial_i=\tfrac12(\partial_{x^i}-i\partial_{y^i})$ であり、後のトーラスの計算でもこの係数 $1/2$ を用いる。
+
 [前章の二側計量評価](../YAU1-09/index.md#thm-yau1-09-global-second-order)から、固定した $0<c\le C$ により
 
 $$
@@ -38,7 +40,7 @@ $\rho_t\ge \min\{1,\min_Xe^F\}>0$ と $\rho_t\le\max\{1,\max_Xe^F\}$ より、$H
 
 ## 2. 接続差とCalabi型三階量
 
-Kähler計量の正則接続係数は、正則座標で $\Gamma(g)_{ij}^{k}=g^{k\bar q}\partial_i g_{j\bar q}$ と書ける。[Kähler接続と曲率の計算](../../KAH/KAH1-09/index.md#prop-kah1-09-normal-curvature)で使った接続の規約である。接続係数自体は座標依存だが、二つの接続を引けば座標に依存しないテンソルが残る。
+[Kähler接続とChern接続の一致](../../KAH/KAH1-03/index.md#thm-kah1-03-main-equivalence)と[接束Chern接続の係数式](../../KAH/KAH1-03/index.md#prop-kah1-03-chern-coefficients)により、Kähler計量の正則接続係数は正則座標で $\Gamma(g)_{ij}^{k}=g^{k\bar q}\partial_i g_{j\bar q}$ と書ける。接続係数自体は座標依存だが、二つの接続を引けば座標に依存しないテンソルが残る。
 
 <a id="def-yau1-10-connection-difference"></a>
 
@@ -86,14 +88,33 @@ $$
 > と定める。$h=g+\partial\bar\partial\varphi>0$ のとき、$\mathcal C$ をポテンシャル $\varphi$ の **Calabi型三階量** とする。
 <!-- formal-statement-end -->
 
-この量が「三階」である理由を確かめよう。背景Kähler正規座標を取り、その点で $h_{i\bar j}=\lambda_i\delta_{ij}$ と対角化する。[正規座標の構成](../../KAH/KAH1-08/index.md#thm-kah1-08-normal-existence)により $\partial g=0$ なので
+この量が「三階」である理由を確かめよう。点 $p$ で[背景Kähler正規座標](../../KAH/KAH1-08/index.md#thm-kah1-08-normal-existence)を取ると
+
+$$
+g(p)=I,\qquad \partial g(p)=0
+$$
+
+である。さらに $h(p)$ は正値Hermite行列なので、[相対跡の導入で使った同時対角化](../YAU1-08/index.md#def-yau1-08-relative-traces)と同様、定数unitary座標変換で
+
+$$
+h(p)=\operatorname{diag}(\lambda_i),\qquad \lambda_i>0
+$$
+
+とできる。この定数変換は背景計量の正規座標条件を保つ。従って $p$ で
 
 $$
 \Psi_{ij}^{k}=\frac{\partial_i h_{j\bar k}}{\lambda_k}
-=\frac{\partial_i\partial_j\partial_{\bar k}\varphi}{\lambda_k},
-\qquad
-\mathcal C=\sum_{i,j,k}
-\frac{|\partial_i h_{j\bar k}|^2}{\lambda_i\lambda_j\lambda_k}.
+=\frac{\partial_i\partial_j\partial_{\bar k}\varphi}{\lambda_k}.
+$$
+
+三つの計量因子をこの座標表示に入れると
+
+$$
+\begin{aligned}
+\mathcal C
+&=\sum_{i,j,k}\lambda_i^{-1}\lambda_j^{-1}\lambda_k|\Psi_{ij}^{k}|^2\\
+&=\sum_{i,j,k}\frac{|\partial_i h_{j\bar k}|^2}{\lambda_i\lambda_j\lambda_k}.
+\end{aligned}
 $$
 
 ここで最後の等式は各添字の計量による縮約を実際に代入したものであり、背景計量の一階微分を近傍全体で零と仮定していない。三階微分の一部である $(2,1)$ 型を測り、その共役が $(1,2)$ 型を測る。純粋な $(3,0)$ 型まで抑えたという主張ではない。
@@ -175,7 +196,20 @@ $$
 \end{aligned}
 $$
 
-最後の行の等式を $\partial_{\bar b}$ でさらに微分する際は、**点 $p$ だけで零となる一次微分を近傍全体で零としてはいけない**。そこで行列表示 $\Gamma_i=h^{-1}\partial_i h$ を使い、逆行列の微分公式で近傍における恒等式
+最後の行の等式を $\partial_{\bar b}$ でさらに微分する際は、**点 $p$ だけで零となる一次微分を近傍全体で零としてはいけない**。接続行列の行を反変添字 $k$、列を共変添字 $j$ とし、計量の係数行列は転置して使う。[接束の接続係数式](../../KAH/KAH1-03/index.md#prop-kah1-03-chern-coefficients)から
+
+$$
+M=(h_{j\bar q})^{\mathsf T},\qquad
+\Gamma_i=(\Gamma(h)_{ij}^k)_{k,j}=M^{-1}\partial_iM
+$$
+
+となる。$M$ の行は反正則添字、列は正則添字を表す。$\partial_aM^{-1}=-M^{-1}(\partial_aM)M^{-1}$ を積の微分に代入すると
+
+$$
+\partial_a\Gamma_i=-\Gamma_a\Gamma_i+M^{-1}\partial_a\partial_iM
+$$
+
+となる。$a,i$ を交換した式を引き、混合偏微分の可換性を使えば、近傍全体で
 
 $$
 \partial_a\Gamma_i-\partial_i\Gamma_a
@@ -501,7 +535,7 @@ $$
 \end{aligned}
 $$
 
-第二行では背景のKähler閉性と滑らかな $\varphi$ の偏微分交換を使った。両辺に $h^{k\bar q}$ を縮約し、[接続差の定義](#def-yau1-10-connection-difference)を適用して $\Psi_{ij}^k=\Psi_{ji}^k$ を得る。
+第二行では[背景のKähler閉性](../../KAH/KAH1-02/index.md#thm-kah1-02-local-closedness)と滑らかな $\varphi$ の偏微分交換を使った。最後の反正則添字を $\bar q$ と書き換えて両辺に $h^{k\bar q}$ を掛け、$\bar q$ について和を取る。[接続差の定義](#def-yau1-10-connection-difference)により $\Psi_{ij}^k=\Psi_{ji}^k$ を得る。
 <!-- solution-end -->
 
 #### YAU1-10-A03 三階量と相対跡の正項
@@ -640,7 +674,15 @@ $$
 \mathcal C(1/4)=a^2\pi^2.
 $$
 
-$a\downarrow0$ なら分母は一様に $1$ へ近づき、$\mathcal C\to0$。一方 $a\uparrow1$ では計量の下界 $1-a$ が零へ近づくので、[三階評価の定理](#thm-yau1-10-global-third-order)の定数を $a$ と無関係に選べる仮定は満たされない。固定した $a<1$ では三階量はもちろん有界である。
+$a\downarrow0$ なら分母は一様に $1$ へ近づき、$\mathcal C\to0$。一方 $a\uparrow1$ で三階量そのものが発散することを確かめる。$x_1(a)=\arccos(a)/(2\pi)$ を選ぶと、$\cos(2\pi x_1(a))=a$、$\sin^2(2\pi x_1(a))=1-a^2$ なので
+
+$$
+\mathcal C(x_1(a))
+=\frac{a^2\pi^2(1-a^2)}{(1-a^2)^3}
+=\frac{a^2\pi^2}{(1-a^2)^2}\longrightarrow\infty.
+$$
+
+これは計量の下界 $1-a$ が零へ近づくことと対応する。[三階評価の定理](#thm-yau1-10-global-third-order)では入力 $F=\log(1-a\cos(2\pi x_1))$ も固定するので、$a$ を変えた列に共通の定数を要求していない。各 $a<1$ を固定すれば三階量は有界である。
 <!-- solution-end -->
 
 #### YAU1-10-B04 二階評価だけでは三階評価にならない

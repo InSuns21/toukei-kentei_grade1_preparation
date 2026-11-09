@@ -1,0 +1,35 @@
+id: "MFL41"
+title: "Gauge-equivariant convolution"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MFL40
+  - MFL25
+official_scope: []
+learning_objectives:
+  - 辺輸送で送り手の二成分を到着点へ揃え、有限近傍集約を構成できる
+  - 独立なO(2)フレーム変更に対する輸送付き集約の等変性を直接証明できる
+  - 行列値カーネルの両端変換則を必要十分条件として導き、方向選択核を検算できる
+  - 固定チャネル混合行列のO(2)・SO(2)可換性の差を分類できる
+  - ノルムゲートを含む多層構成の等変性と、成分別活性化の破綻を説明できる
+  - 有限グラフの代数的等変残差とメッシュ離散化・学習の誤差を区別できる
+definitions:
+  - { id: MFL41-DEF-01, name: 輸送付き近傍集約 }
+  - { id: MFL41-DEF-02, name: 有限グラフのゲージ整合カーネル }
+  - { id: MFL41-DEF-03, name: ノルムゲート }
+theorems:
+  - { id: MFL41-THM-01, name: 輸送付き集約の局所ゲージ等変性 }
+  - { id: MFL41-THM-02, name: 全入力に対するゲージ等変性の必要十分条件 }
+  - { id: MFL41-PROP-01, name: O(2)等変な固定チャネル行列 }
+  - { id: MFL41-THM-03, name: 輸送付き畳み込みとノルムゲートの合成 }
+canonical_examples:
+  - 二つの送り手の輸送付き和と到着点のフレーム成分
+  - 辺の両端変換を失った近傍集約の破綻
+  - 辺方向による階数一補正を含む行列値カーネル
+  - SO(2)で許されるJとO(2)の鏡映制約
+  - 回転・鏡映の独立変換に対する三頂点の決定論的検算
+problem_patterns: [MFL41-A01, MFL41-A02, MFL41-A03, MFL41-A04, MFL41-B01, MFL41-B02, MFL41-B03, MFL41-B04, MFL41-C01]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.0, review: 2.0 }

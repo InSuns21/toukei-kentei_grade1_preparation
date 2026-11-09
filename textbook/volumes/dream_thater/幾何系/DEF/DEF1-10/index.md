@@ -58,10 +58,19 @@ $$
 u=dz^1\wedge d\bar z^1\wedge d\bar z^2
 $$
 
-は $\bar\partial u=\bar\partial^*u=0$ なので調和であり、$H_2u=u$、$G_2u=0$、従って $h_2u=0$ である。これは定義の**作用対象と次数**、および調和成分を消す条件を直接確認している。$h_2u$ の型は $(1,1)$ であり、$u$ を逆に復元できるとは主張していない。
+は平坦計量の下で係数が定数である。局所的に $\bar\partial$ は係数の反正則微分、$\bar\partial^*$ は係数の正則微分と縮約の和で表されるため、どちらも $u$ を零へ送る。従って
+
+$$
+\bar\partial u=\bar\partial^*u=0,\qquad
+\Delta_{\bar\partial,2}u=0,\qquad H_2u=u.
+$$
+
+調和空間上では $G_2u=0$ と定義されているので、$h_2u=\bar\partial^*G_2u=0$ である。この計算は入力 $(1,2)$ 型、出力 $(1,1)$ 型、および調和成分を消す作用を確認している。$h_q$ 自体はKähler計量から決まり、$\Omega$ はこれを収縮同型 $\mathcal I_q$ を通じて接束値形式の補正へ使う際に必要となる。
 <!-- definition-example-end -->
 
 Green作用素は $\bar\partial$ と可換なので、[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)から得る連鎖ホモトピー恒等式は
+
+<a id="eq-def1-10-green-homotopy"></a>
 
 $$
 \bar\partial h_q+h_{q+1}\bar\partial=I-H_q.
@@ -129,7 +138,7 @@ $$
 =-\bar\partial^*G'_2(\partial R)=0.
 $$
 
-追加条件 $\bar\partial R=0$ の下ではGreen分解式から
+追加条件 $\bar\partial R=0$ の下では[Green分解式](#eq-def1-10-green-homotopy)から
 
 $$
 \bar\partial(h_2R)
@@ -202,7 +211,25 @@ $$
 \bar\partial R_r=0.
 $$
 
-この閉性を確認せずにGreen分解式を適用してはいけない。実際、$d\phi_i=-\frac12\sum_{p+q=i}[\phi_p,\phi_q]$ を $\bar\partial R_r$ に代入すると、[接束値Dolbeault複体の括弧恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)の次数付きJacobiの部分により三重括弧の和が相殺する。これは[Maurer–Cartan曲率のBianchi恒等式](../DEF1-05/index.md#lem-def1-05-bianchi)を次数 $r$ で比較した計算である。
+この閉性を確認せずにGreen分解式を適用してはいけない。実際、[接束値Dolbeault複体の括弧恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)の微分則と、次数 $1$ と次数 $2$ の括弧が反対称であることから、順序付きの組 $(i,j)$ を入れ替えて
+
+$$
+\begin{aligned}
+d\!\sum_{i+j=r}[\phi_i,\phi_j]
+&=2\sum_{i+j=r}[d\phi_i,\phi_j]\\
+&=-\sum_{p+q+j=r}[[\phi_p,\phi_q],\phi_j]
+\end{aligned}
+$$
+
+を得る。二行目では低次数の式 $d\phi_i=-\frac12\sum_{p+q=i}[\phi_p,\phi_q]$ を代入した。右辺は正整数の順序付き三つ組 $(p,q,j)$ すべての和であり、次数付きJacobi恒等式
+
+$$
+[[\phi_p,\phi_q],\phi_j]
++[[\phi_q,\phi_j],\phi_p]
++[[\phi_j,\phi_p],\phi_q]=0
+$$
+
+を巡回的に足すと零になる。収縮同型と $\bar\partial$ の可換性により $\bar\partial R_r=0$ が従う。これは[Maurer–Cartan曲率のBianchi恒等式](../DEF1-05/index.md#lem-def1-05-bianchi)を次数 $r$ で比較した計算でもある。
 
 よって[補正補題](#lem-def1-10-preserving-correction)の仮定がそろい、
 
@@ -238,7 +265,15 @@ $\bar\partial\mathcal I_2([\phi_1,\phi_2])$ は $d\phi_1=0$ と $d\phi_2=-[\phi_
 
 ## 4. 形式級数を収束する固定点へ変える
 
-次数別の補正で作った $\sum\phi_r$ に、正の収束半径があることを示す。以下、実次元 $2n$ のSobolev空間 $H^s$ を使い、整数 $s>n+2$ を固定する。[Sobolev積と埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)により $H^{s-1}$ は積に閉じ、$H^s$ は $C^1$ に埋め込まれる。
+次数別の補正で作った $\sum\phi_r$ に、正の収束半径があることを示す。以下、実次元 $2n$ の[多様体Sobolev空間](../../GA/GA2/index.md#def-ga2-sobolev) $H^s$ を使い、整数 $s>n+2$ を固定する。
+
+[接束値Sobolev評価の局所座標での議論](../DEF1-07/index.md#lem-def1-07-sobolev-estimate)は、スカラー値形式の各成分にも適用できる。実次元が $2n$ なので、選んだ指数は
+
+$$
+s-2>n=\frac{2n}{2}
+$$
+
+を満たす。この余裕によって $H^{s-2}$ と $H^{s-1}$ は積に閉じ、$H^s$ は $C^1$ に連続埋め込みされる。
 
 $a\in H^s(X,\Lambda^{n-1,1}T^*X)$ に対し $\phi=\mathcal I_1^{-1}a$ と置き、二次写像を
 
@@ -372,7 +407,7 @@ F=\mathcal I_2(F_T)
 =\bar\partial a+\frac12\mathcal R(a)
 $$
 
-と置く。固定点方程式とGreen分解式から
+と置く。固定点方程式と[Green分解式](#eq-def1-10-green-homotopy)から
 
 $$
 \begin{aligned}
@@ -461,19 +496,27 @@ $$
 
 を得る。$\mathcal R(a)$ は局所的に $a\,\partial a$ と滑らかな係数の零階項の和である。右辺の一階微分を左辺へ移すと、$D$ の主部に係数 $O(a)$ の摂動を加えた一階系となる。
 
-[小さい可積分解の楕円型正則性](../DEF1-07/index.md#lem-def1-07-elliptic-bootstrap)の差分商法をここへ適用する。$s>n+2$ から $\|a\|_{C^0}$ を小さくできるので、局所化した $H^{k+1}$ 評価の左辺へ摂動主部
+ここで[小さい可積分解の楕円型正則性](../DEF1-07/index.md#lem-def1-07-elliptic-bootstrap)の**証明に使った差分商法**を、スカラー値形式 $a$ に適用する。既習補題の接束値ゲージ $\bar\partial_T^*\phi=0$ と本章のスカラー値ゲージ $\bar\partial^*a=0$ は同一ではない。一般のKähler計量では $\mathcal I_1$ は随伴と可換とは限らないので、後者から前者を推論しない。その代わり、上で定めたスカラー値の $D=\bar\partial\oplus\bar\partial^*$ の主記号は、非零の実共変ベクトル $\xi$ に対して外積と随伴縮約の組であり、
 
 $$
-O(a)\nabla(\partial^\alpha a)
+\|\sigma_D(\xi)v\|^2=|\xi^{0,1}|^2\|v\|^2
 $$
 
-を吸収する。残る項は $0<\beta\le\alpha$ に関する積
+を満たす。従って $D$ は楕円型一階系であり、同じ差分商の議論をこの系に直接適用できる。
+
+以下、局所実座標 $x=(x^1,\ldots,x^{2n})$ と多重指数 $\alpha\in\mathbb N_0^{2n}$ に対し、$D_x^\alpha=\partial_{x^1}^{\alpha_1}\cdots\partial_{x^{2n}}^{\alpha_{2n}}$ と書く。これは形式上の演算子 $\partial$ とは別の、**空間座標の成分微分**であり、変形パラメータ $t$ は固定する。$s>n+2$ と $\|a\|_{H^s}$ の小ささから $\|a\|_{C^1}$ も小さいため、局所化した高階評価では摂動主部
 
 $$
-(\partial^\beta a)(\partial^{\alpha-\beta+1}a)
+O(a)\nabla(D_x^\alpha a)
 $$
 
-と滑らかな係数の微分であり、$H^{s-1}$ の積評価で一段前のノルムから制御できる。$H^s\to H^{s+1}\to\cdots$ と反復すると、各 $a(t)$ は空間変数について滑らかになる。
+を左辺へ吸収できる。残る高階積の典型項は、$0<\beta\le\alpha$ と座標方向の単位多重指数 $e_j$ に対して
+
+$$
+(D_x^\beta a)(D_x^{\alpha-\beta+e_j}a)
+$$
+
+である。これらと滑らかな係数の微分を $H^{s-1}$ の積評価と一段前のノルムで制御し、$H^s\to H^{s+1}\to\cdots$ と反復すると、各 $a(t)$ は空間変数について滑らかになる。
 
 パラメータの小閉球で同じ評価を一様に取れるので、$t$ に関する正則依存も各高階Sobolevノルムで維持できる。
 
@@ -557,7 +600,7 @@ $$
 $a_1=b$ が $\partial$・$\bar\partial$ ともに閉であるとする。$\phi_1=\mathcal I_1^{-1}b$、$R_2=\mathcal I_2([\phi_1,\phi_1])$ と置く。二次補正 $a_2$ を書き、$\bar\partial a_2=-R_2/2$ を確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $d\phi_1=0$ である。[接束値Dolbeault複体の括弧恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)を使うと $\bar\partial R_2=0$。また[Tian–Todorov核心恒等式](../DEF1-09/index.md#thm-def1-09-tian-todorov)で $R_2$ は $\partial$-完全、よって $H_2R_2=0$。$a_2=-h_2R_2/2$ と置くと
+**詳細解答。** $d\phi_1=0$ である。[接束値Dolbeault複体の括弧恒等式](../DEF1-05/index.md#lem-def1-05-graded-identities)を使うと $\bar\partial R_2=0$。また[Tian–Todorov核心恒等式](../DEF1-09/index.md#thm-def1-09-tian-todorov)で $R_2$ は $\partial$-完全、よって $H_2R_2=0$。$a_2=-h_2R_2/2$ と置き、[Green分解式](#eq-def1-10-green-homotopy)を適用すると
 
 $$
 \bar\partial a_2
@@ -565,7 +608,7 @@ $$
 =-\frac12R_2.
 $$
 
-同時に $\partial a_2=0$。従って $d\phi_2=-[\phi_1,\phi_1]/2$ となる。
+同時に[補正補題](#lem-def1-10-preserving-correction)で $\partial a_2=-\partial h_2R_2/2=0$。従って $d\phi_2=-[\phi_1,\phi_1]/2$ となる。
 <!-- solution-end -->
 
 <a id="ex-def1-10-a04"></a>
@@ -638,7 +681,7 @@ $$
 滑らかな $(n-1,2)$ 型形式 $R$ が $\bar\partial R=0$、$R=-\partial B$ を満たす。コンパクトKähler性の下で $a=-h_2R/2$ の二つの微分を計算せよ。Kähler性を仮定しない場合、どの等式をそのまま使用できないか特定せよ。
 
 <!-- solution-start -->
-**詳細解答。** KählerのLaplacian一致から $\partial^*v=0$ が調和 $v$ に対して成り立つため、演習A02より $H_2R=0$。Green分解式で
+**詳細解答。** KählerのLaplacian一致から $\partial^*v=0$ が調和 $v$ に対して成り立つため、演習A02より $H_2R=0$。[Green分解式](#eq-def1-10-green-homotopy)で
 
 $$
 \bar\partial a
@@ -715,7 +758,7 @@ $$
 a_3=-\tfrac12h_2R_3=-h_2\mathcal I_2([\phi_1,\phi_2]).
 $$
 
-補正補題により $\bar\partial a_3=-R_3/2$、$\partial a_3=0$。これで係数 $1/2$ と二つの順序の打消しも確認した。
+[補正補題](#lem-def1-10-preserving-correction)により $\bar\partial a_3=-R_3/2$、$\partial a_3=0$。これで係数 $1/2$ と二つの順序の打消しも確認した。
 
 **(2)** $a=b-\frac12h_2\mathcal R(a)$ とする。$s>n+2$ のSobolev指数に対して $h_2\mathcal R$ は $H^s\times H^s\to H^s$ の有界双線形写像で、$\|h_2\mathcal R(u,v)\|\le C\|u\|\|v\|$。[Green評価](../../GA/GA6/index.md#lem-ga6-elliptic)が括弧で失った一階を回復する。$\delta=\|b\|$、半径 $2\delta$ の閉球では
 
@@ -726,7 +769,7 @@ $$
 
 よって $2C\delta<1$ なら縮小写像で収束し、各反復が正則なので極限もパラメータに正則である。
 
-**(3)** $\partial a=0$ は反復で維持されるから、$\mathcal R(a)=-\partial B_\Omega(\phi,\phi)$ となり $H_2\mathcal R(a)=0$。Green分解式から
+**(3)** $\partial a=0$ は反復で維持されるから、$\mathcal R(a)=-\partial B_\Omega(\phi,\phi)$ となり $H_2\mathcal R(a)=0$。[Green分解式](#eq-def1-10-green-homotopy)から
 
 $$
 F=\tfrac12h_3\bar\partial\mathcal R(a).
@@ -740,7 +783,7 @@ $$
 
 $a$ を十分小さくして係数を1未満にすれば $F=0$。ここで最初から $F=0$ を仮定していない点が重要である。
 
-**(4)** 小さいMC解は楕円型正則性によって滑らかになり、相対正則座標の構成から $U\subset\mathbb C^m$ 上の正則族を得る。一次係数は $a=b+O(b^2)$ だから、Kodaira–Spencer写像は恒等である。
+**(4)** 小さいMC解は、スカラー値ゲージ $\bar\partial^*a=0$ と楕円型一階系 $D=\bar\partial\oplus\bar\partial^*$ の主記号評価によって滑らかになる。接束値ゲージ $\bar\partial_T^*\phi=0$ を仮定し直す必要はない。パラメータ $t$ に正則な相対座標の構成から $U\subset\mathbb C^m$ 上の正則族を得る。一次係数は $a=b+O(b^2)$ だから、Kodaira–Spencer写像は恒等である。
 
 [Kuranishi半普遍性](../DEF1-08/index.md#thm-def1-08-semiuniversal)が基底変更 $f:U\to K$ を与える。$K\subset V\subset\mathbb C^m$ の包含を $i$ と書くと、合成 $g=i\circ f$ は
 
