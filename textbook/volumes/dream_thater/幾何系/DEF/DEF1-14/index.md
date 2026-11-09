@@ -336,7 +336,22 @@ $R_5$ の基底は $z^a=z_0^{a_0}\cdots z_4^{a_4}$（$0\le a_i\le3$、$\sum_i a_
 
 $P$ は各 $\gamma$ で $\prod_i\zeta_i=1$ のため実際に不変である。各単項式が独立な固有ベクトルなので、これ以外の非不変単項式を線形結合して不変ベクトルを新たに作ることもできない。従って $R_5^\Gamma=\mathbb C[P]$。
 
-族について $\partial F_\psi/\partial z_i=5z_i^4-5\psi\prod_{j\ne i}z_j$ が全て零となる射影点を考える。どれかの $z_i=0$ なら残る偏微分から順次ほかの座標も零となり不可能。全て非零なら五式を掛け、$\prod_i z_i^4=\psi^5\prod_i\prod_{j\ne i}z_j=\psi^5\prod_i z_i^4$ を得るため $\psi^5=1$ が必要である。逆に $\psi^5=1$ なら $[\psi^{-1}:1:1:1:1]$ で全偏微分が零になり、[Euler恒等式](../../../代数系/AG/AG2-11/index.md#prop-ag2-11-euler-gradient)によって $F_\psi=0$ も成立する。[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)から滑らかさの条件が従う。$\square$
+族の滑らかさも確認する。偏微分は
+
+$$
+\frac{\partial F_\psi}{\partial z_i}
+=5z_i^4-5\psi\prod_{j\ne i}z_j
+$$
+
+である。これらが全て零となる射影点で、どれかの座標が零なら、残る偏微分からほかの座標も全て零となってしまう。全座標が非零なら五式を掛けて
+
+$$
+\prod_i z_i^4
+=\psi^5\prod_i\prod_{j\ne i}z_j
+=\psi^5\prod_i z_i^4
+$$
+
+を得る。積が非零だから $\psi^5=1$ が必要である。逆に $\psi^5=1$ なら射影点 $[\psi^{-1}:1:1:1:1]$ で全偏微分が零になる。[Euler恒等式](../../../代数系/AG/AG2-11/index.md#prop-ag2-11-euler-gradient)によってその点は $F_\psi=0$ も満たす。よって[Jacobian判定](../../../代数系/AG/AG2-11/index.md#thm-ag2-11-jacobian-criterion)から、滑らかさは $\psi^5\ne1$ と同値である。$\square$
 <!-- proof-end -->
 
 この一方向は、元のquinticにおける101個の一次複素構造変形のうち、**指定した対称群を保つ方向**である。群の位数125を101から引いたわけではない。101次元の線形表現の**不変部分空間**を計算したのである。
@@ -479,7 +494,23 @@ F_0(z_0+(t/5)z_1,z_1,\ldots)
 =F_0(z)+t z_0^4z_1+O(t^2).
 $$
 
-行列 $I+tA$ は $I-tA+O(t^2)$ を逆として持つので、この一次方向は座標の再表示で消える。実際 $G=(z_1/5)\partial_0F_0\in J(F_0)_5$、[全一次変形同型](../../CYG/CYG1-13/index.md#thm-cyg1-13-all-first-order)からKS類は零。[周期写像の微分公式](../DEF1-13/index.md#prop-def1-13-infinitesimal-period)では収縮類も零で、Hodge直線の一次微分は零となる。ただし枠を $\Omega_t$ から $f(t)\Omega_t$ へ変えると微分は $f'(0)\Omega_0$ だけ変わる。零と確定できるのは **$H^3/F^3$ の商での値**であり、$\nabla\Omega_t$ そのものを零と断言してはならない。
+行列 $I+tA$ は $I-tA+O(t^2)$ を逆として持つので、この一次方向は座標の再表示で消える。実際、
+
+$$
+G=(z_1/5)\partial_0F_0\in J(F_0)_5
+$$
+
+だから[全一次変形同型](../../CYG/CYG1-13/index.md#thm-cyg1-13-all-first-order)によってKodaira–Spencer類は零となる。[周期写像の微分公式](../DEF1-13/index.md#prop-def1-13-infinitesimal-period)の収縮類も零で、Hodge直線の一次微分は零である。
+
+ただし $f(0)=1$ の零点のない正則関数で枠を $\Omega_t$ から $f(t)\Omega_t$ へ変えると、Leibniz則により
+
+$$
+\nabla_{\partial_t}^{\mathrm{GM}}(f\Omega_t)\big|_0
+=\nabla_{\partial_t}^{\mathrm{GM}}\Omega_t\big|_0
++f'(0)\Omega_0.
+$$
+
+零と確定できるのは **$H^3/F^3$ の商での値**である。$\nabla\Omega_t$ そのものを零と断言してはならない。
 <!-- solution-end -->
 
 <a id="ex-def1-14-b03"></a>
@@ -492,7 +523,17 @@ $R_5$ の単項式基底を用い、$\Gamma$ が固定する部分空間の次�
 <!-- solution-start -->
 **詳細解答**
 
-$R_5$ の基底指数は $\sum_i a_i=5$、$0\le a_i\le3$ を満たす。$i,j$ 成分だけを原始五乗根 $\zeta,\zeta^{-1}$ で変える元の作用は $\zeta^{a_i-a_j}$ 倍。全元で固定されるなら $a_i\equiv a_j\pmod5$ であり、差の絶対値は3以下だから実際に $a_i=a_j$。五つとも $a$ で $5a=5$、よって $a=1$。$P=z_0z_1z_2z_3z_4$ は積が1という群の条件から本当に固定される。各単項式の作用は対角的だから、固有値1でない基底ベクトルの和で不変方向を増やすことはできない。従って $R_5^\Gamma=\mathbb C[P]$ で一次元。位数125は群を数えた数字であり、表現の不変空間次元を引き算で与えない。
+$R_5$ の単項式基底指数は、次の二条件を満たす。
+
+$$
+\sum_i a_i=5,\qquad 0\le a_i\le3.
+$$
+
+$i,j$ 成分だけを原始五乗根 $\zeta,\zeta^{-1}$ で変える群元は、その単項式を $\zeta^{a_i-a_j}$ 倍する。全元で固定されるには $a_i\equiv a_j\pmod5$ が必要である。指数の差の絶対値は3以下だから、この合同条件は $a_i=a_j$ を意味する。
+
+五つの指数がともに $a$ なら $5a=5$、すなわち $a=1$。$P=z_0z_1z_2z_3z_4$ は群元の五成分の積が1という条件から実際に固定される。各単項式の作用は対角的だから、固有値1でない基底ベクトルの和で不変方向を増やすことはできない。
+
+従って $R_5^\Gamma=\mathbb C[P]$ は一次元。群の位数125は、不変部分空間の次元を引き算で与える数字ではない。
 <!-- solution-end -->
 
 <a id="ex-def1-14-b04"></a>
