@@ -22,12 +22,18 @@ $\mathcal H^m$ は[MT8の非正規化Hausdorff測度](../../MT/MT8/index.md#def-
 
 ## 1. 射影だけでは面積は増えない
 
-直交射影では、差ベクトル $z=z_V+z_{V^\perp}$ のうち $z_V$ だけを残すので
+差ベクトルを $z=x-y$ とし、その直交分解の成分を
+
+$$
+z_V=\pi_Vz,\qquad z_{V^\perp}=\pi_{V^\perp}z,
+\qquad z=z_V+z_{V^\perp}
+$$
+
+と置きます。二成分は直交し、射影は $z_V$ だけを残すので
 
 $$
 |\pi_Vx-\pi_Vy|^2=|z_V|^2
-=|x-y|^2-|z_{V^\perp}|^2\le|x-y|^2
-\quad(z=x-y).
+=|x-y|^2-|z_{V^\perp}|^2\le|x-y|^2.
 $$
 
 従って射影は1-Lipschitzです。これを集合の大きさへ移すと次の上界になります。
@@ -59,7 +65,7 @@ $$
 \operatorname{diam}(\pi_VU_i)\le\operatorname{diam}U_i<\delta.
 $$
 
-従ってHausdorff前測度の定義で
+従って[Hausdorff前測度の定義](../../MT/MT8/index.md#def-mt8-hausdorff-measure)で
 
 $$
 \mathcal H^m_\delta(\pi_VE)
@@ -102,6 +108,15 @@ $$
 
 > と定める。$\sigma(T,V)>0$ は横断性と同値であり、横断的なら $0<\sigma(T,V)\le1$ である。
 <!-- formal-statement-end -->
+
+$T$ の単位球面はコンパクトで $u\mapsto|\pi_Vu|$ は連続だから、最小値は実際に存在します。$\sigma(T,V)=0$ なら単位ベクトル $u\in T$ で $\pi_Vu=0$、すなわち $u\in T\cap V^\perp$ です。逆に零でない核ベクトルがあれば単位長へ正規化でき、最小値は0になります。従って
+
+$$
+\sigma(T,V)>0\ \Longleftrightarrow\ T\cap V^\perp=\{0\}
+\ \Longleftrightarrow\ \pi_V|_T:T\to V\text{ は可逆}
+$$
+
+です。最後の同値性では、$T,V$ が同じ有限次元であることを使いました。
 
 <!-- definition-example-start: def-gmt17-transverse-projection -->
 ### 直接例：二本の直線のなす角
@@ -176,8 +191,16 @@ $$
 例えば $d=2,m=1$ のグラフ $A=\{(t,h(t)):t\in[-1,1]\}$ で $|h(t)-h(s)|\le L|t-s|$ とします。任意の二点差分 $z=(t-s,h(t)-h(s))$ は
 
 $$
-\operatorname{dist}(z,\mathbb Re_1)=|h(t)-h(s)|
-\le\frac{L}{\sqrt{1+L^2}}|z|.
+\operatorname{dist}(z,\mathbb Re_1)=|h(t)-h(s)|,
+\qquad |z|=\sqrt{(t-s)^2+(h(t)-h(s))^2}.
+$$
+
+ここで $t=s$ なら $z=0$ なので円錐条件は自明です。$t\ne s$ なら $q=|h(t)-h(s)|/|t-s|\le L$ と置けて、$q/\sqrt{1+q^2}$ が $q\ge0$ で単調増加することから
+
+$$
+\frac{\operatorname{dist}(z,\mathbb Re_1)}{|z|}
+=\frac{q}{\sqrt{1+q^2}}
+\le\frac{L}{\sqrt{1+L^2}}.
 $$
 
 従って $L/\sqrt{1+L^2}<\sigma/(2(1+\sigma))$ を満たすなら補題を使えます。この十分条件は保守的です。例えば水平射影なら実際には $\pi_{\mathbb Re_1}|_A$ は任意の有限 $L$ で双Lipschitzですが、補題は小さい傾きのときだけそれを保証します。
@@ -210,7 +233,7 @@ $T$ の正規直交基底を $t_1,\ldots,t_m$ とし、$\mathbb R^d$ で独立�
 
 $V=\operatorname{span}(g_1,\ldots,g_m)$ とします。Gaussianの分布は直交変換で不変なので、この $V$ の分布は[GMT7で構成した回転不変Grassmann確率](../GMT7/index.md#def-gmt7-grassmann-projection) $\gamma_{d,m}$ です。
 
-線形写像 $G^{\mathsf T}:T\to\mathbb R^m$ を
+列を $g_1,\ldots,g_m$ とする $d\times m$ 行列 $G=(g_1,\ldots,g_m)$ を置き、その転置を $T$ に制限した線形写像 $G^{\mathsf T}|_T:T\to\mathbb R^m$ を
 
 $$
 G^{\mathsf T}u=(\langle g_1,u\rangle,\ldots,\langle g_m,u\rangle)
@@ -251,7 +274,7 @@ $$
 
 ### 証明の見取り図
 
-固定した各接平面でJacobianが零になる方向は例外的です。これをTonelliで $R$ 上に積分すると、ほとんど全方向で接Jacobianが $R$ 上ほとんど至る所正になります。面積公式の左辺が正なら、右辺の重複度積分も正であり、射影像が零面積という可能性は消えます。
+固定した各接平面でJacobianが零になる方向は例外的です。これを[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)で $R$ 上に積分すると、ほとんど全方向で接Jacobianが $R$ 上ほとんど至る所正になります。[整流可能集合上の面積公式](../GMT13/index.md#thm-gmt13-rectifiable-area)の左辺が正なら、右辺の重複度積分も正であり、射影像が零面積という可能性は消えます。
 
 <!-- proof-start -->
 ### 証明
@@ -327,7 +350,13 @@ $E=R\dot\cup P$ と分解し、$R$ が正の面積なら上の定理で射影が
 <!-- proof-start -->
 ### 証明
 
-[GMT16の分解定理](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}P$ とします。もし $\mathcal H^m(R)>0$ なら、[整流可能部分はほとんど全方向で正面積に射影される](#thm-gmt17-rectifiable-positive-projection)ことから、ほとんど全方向で $\mathcal H^m(\pi_VR)>0$ です。$R\subset E$ だから $\pi_VR\subset\pi_VE$ であり、$\mathcal H^m(\pi_VE)>0$ がほとんど全方向で従って仮定と矛盾します。よって $\mathcal H^m(R)=0$ です。
+[GMT16の分解定理](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}P$ とします。もし $\mathcal H^m(R)>0$ なら、[整流可能部分はほとんど全方向で正面積に射影される](#thm-gmt17-rectifiable-positive-projection)ことから、ほとんど全方向で $\mathcal H^m(\pi_VR)>0$ です。他方、$R\subset E$ から $\pi_VR\subset\pi_VE$ であり、測度の単調性により
+
+$$
+0<\mathcal H^m(\pi_VR)\le\mathcal H^m(\pi_VE)
+$$
+
+がほとんど全方向で成立します。これは仮定に矛盾するため、$\mathcal H^m(R)=0$ です。
 
 任意のLipschitz写像 $f:\mathbb R^m\to\mathbb R^d$ について、$P$ の[純非整流性の定義](../GMT12/index.md#def-gmt12-purely-unrectifiable)と劣加法性から
 
@@ -474,14 +503,14 @@ $$
 
 に等しいです。$y=x$ では確率は1とし、同じく近距離領域へ含めます。
 
-まず $D_{-1}=B(x,\rho)$ 上の寄与は $\mu(D_{-1})\le A\rho^m$ です。残りの点を
+まず $D_{-1}=B(x,\rho)$ 上の寄与は $\mu(D_{-1})\le A\rho^m$ です。$N=\lceil\log_2(R/\rho)\rceil$ と置き、残りの点を
 
 $$
 D_j=\{y:2^j\rho\le|y-x|<\min(2^{j+1}\rho,R)\},
 \quad j=0,1,\ldots,N-1
 $$
 
-に分けます。$N=\lceil\log_2(R/\rho)\rceil$ と取れば、$B(x,R)\setminus B(x,\rho)$ はこれらの輪に含まれます。各輪の点では $|y-x|\ge2^j\rho$ なので
+に分けます。$B(x,R)\setminus B(x,\rho)$ はこれらの輪に含まれます。各輪の点では $|y-x|\ge2^j\rho$ なので
 
 $$
 \gamma_{d,m}\{V:|\pi_V(y-x)|<\rho\}
@@ -537,7 +566,7 @@ $T=\mathbb R(1,1)$、$V=\mathbb Re_1$、$W=\mathbb R(1,-1)$ とする。$\sigma(
 <!-- solution-start -->
 #### 詳細解答
 
-$T$ の単位基底は $t=(1,1)/\sqrt2$ です。$V$ の単位基底 $e_1$ への内積は $1/\sqrt2$ だから
+$T$ の単位基底は $t=(1,1)/\sqrt2$ です。$V$ の単位基底 $e_1$ への内積は $1/\sqrt2$ です。[幾何的JacobianのGram行列式](../GMT10/index.md#def-gmt10-geometric-jacobian)を一次元の制限射影に適用すると
 
 $$
 \sigma(T,V)=|\langle t,e_1\rangle|=\frac1{\sqrt2},
@@ -582,7 +611,7 @@ $$
 M=\begin{pmatrix}1&0\\0&0\end{pmatrix}.
 $$
 
-$e_2$ が核に属するため $\sigma(T,V)=0$、$J_2=|\det M|=0$ です。像は $\{(x,0,0):0\le x\le1\}$ という線分なので $\mathcal H^2(\pi_VR)=0$。$R$ の面積 $\mathcal H^2(R)=c_2>0$ は、この例外的な射影で潰れます。
+$e_2$ が核に属するため $\sigma(T,V)=0$、[幾何的JacobianのGram行列式](../GMT10/index.md#def-gmt10-geometric-jacobian)から $J_2=|\det M|=0$ です。像は $\{(x,0,0):0\le x\le1\}$ という線分なので $\mathcal H^2(\pi_VR)=0$。$R$ の面積 $\mathcal H^2(R)=c_2>0$ は、この例外的な射影で潰れます。
 <!-- solution-end -->
 
 ### GMT17-A05 平面の短距離方向確率
@@ -652,7 +681,7 @@ $d=3,m=2$ のとき、固定 $z\ne0$ に対して $X=|\pi_Vz|^2/|z|^2$ のBeta�
 <!-- solution-start -->
 #### 詳細解答
 
-$a=m/2=1$、$b=(d-m)/2=1/2$ です。Beta積分は
+[GMT7のBeta密度の導出](../GMT7/index.md#lem-gmt7-grassmann-kernel)を使い、$a=m/2=1$、$b=(d-m)/2=1/2$ です。正規化定数のBeta積分は
 
 $$
 B(1,1/2)=\int_0^1(1-u)^{-1/2}\,du
@@ -706,7 +735,7 @@ $\rho=R/2^k$ なら輪は $k$ 個あり、合計は高々 $A\rho^m(1+k2^mC_{d,m}
 $1\le m<d$、$E\subset\mathbb R^d$ を $\mathcal H^m(E)<\infty$ のBorel集合とする。
 
 1. $E$ がほとんど全 $V$ で $\mathcal H^m(\pi_VE)=0$ を満たすなら、[GMT16の分解定理](../GMT16/index.md#thm-gmt16-decomposition)と本講の結果から純 $m$-非整流可能と示せ。
-2. $m=1,d=2$ で水平線分 $S=[0,1]\times\{0\}$ の測度 $\mu=\mathcal H^1\llcorner S$ が $\mu(B(x,r))\le2r$ を満たすことを確かめよ。なぜこの球成長条件と本講の臨界対数上界だけから、ほとんど全方向の零射影を結論できないか。
+2. $m=1,d=2$ で水平線分 $S=[0,1]\times\{0\}$ の測度 $\mu=\mathcal H^1\llcorner S$ が $\mu(B(x,r))\le2r$ を満たすことを確かめよ。なぜこの球成長条件と[本講の臨界対数上界](#prop-gmt17-critical-concentration)だけから、ほとんど全方向の零射影を結論できないか。
 3. $S$ と四隅Cantor集合 $K$ の射影例を使い、「一方向で零射影」「一方向で正射影」「ほとんど全方向で零射影」の相違を述べよ。まだ証明していない含意を明示せよ。
 
 <!-- solution-start -->
@@ -731,7 +760,7 @@ $$
 
 ゆえに $E$ は純非整流です。
 
-**2. 上界の限界。** $x\in S$ と任意の $r>0$ について、直線と半径 $r$ の開球との交差は長さ高々 $2r$ の区間です。$S$ へ制限すればその長さは増えないので $\mu(B(x,r))\le2r$ です。従って臨界射影集中命題の仮定は $A=2$ で満たされます。
+**2. 上界の限界。** $x\in S$ と任意の $r>0$ について、直線と半径 $r$ の開球との交差は長さ高々 $2r$ の区間です。$S$ へ制限すればその長さは増えないので $\mu(B(x,r))\le2r$ です。従って[臨界射影集中命題](#prop-gmt17-critical-concentration)の仮定は $A=2$ で満たされます。
 
 一方、角度 $\theta$ の直線への射影は長さ $|\cos\theta|$ の区間です。この値は $\theta=\pi/2$ を除くすべての方向で正です。方向平均の上界 $O(\rho\log(R/\rho))$ はこの線分にも成り立つため、その上界だけから零射影を結論する論法は偽です。純非整流性に固有の追加情報が不可欠です。
 
