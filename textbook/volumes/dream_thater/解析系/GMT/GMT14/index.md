@@ -10,21 +10,27 @@
 
 **測度の規約**：$\mathcal L^j$ は Lebesgue 測度、$\mathcal H^j$ は [MT8の非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。[GMT10の正規化補題](../GMT10/index.md#lem-gmt10-hausdorff-normalization)に従って
 
-以下、「ほとんど至る所（almost everywhere; a.e.）」は、明記した測度について零集合を除いて成立することを意味します。
-
 $$
 c_j=\mathcal H^j([0,1]^j),\qquad
 \mathcal H^j|_{\mathbb R^j}=c_j\mathcal L^j\quad(j\ge1),\qquad
 c_0=1
 $$
 
-と置きます。$\mathcal H^0$ は点の個数です。特に $c_1=1$ ですが、$c_2$ を無断で $1$ としてはいけません。
+と置きます。$\mathcal H^0$ は点の個数です。特に $c_1=1$ ですが、$c_2$ を無断で $1$ としてはいけません。以下、「ほとんど至る所（almost everywhere; a.e.）」は、明記した測度について零集合を除いて成立することを意味します。
 
 ## 1. 像の次元だけを測るJacobian
 
-整数 $d\ge m\ge1$ を固定し、開集合 $\Omega\subset\mathbb R^d$ 上の Lipschitz 写像 $f:\Omega\to\mathbb R^m$ を考えます。微分 $Df(x)$ は $m\times d$ 行列です。[GMT10の $d$ 次元像に対する $m$ 次元Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)とは行列の向きが反対なので、**行のGram行列** $Df\,Df^{\mathsf T}$ を使います。
+整数 $d\ge m\ge1$ を固定し、開集合 $\Omega\subset\mathbb R^d$ 上の Lipschitz 写像 $f:\Omega\to\mathbb R^m$ を考えます。
 
-その理由は、$Df$ の各行が独立なら像の $m$ 方向の体積が正であり、行が従属なら $m$ 次元の体積が潰れるからです。Gram行列の行列式は、行ベクトルの作る平行体の体積の二乗です。
+[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)により、微分 $Df(x)$ は標準基底で $m\times d$ 行列です。[GMT10の幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)で扱った行列とは入出力次元が反対なので、ここでは**行のGram行列** $Df\,Df^{\mathsf T}$ を使います。
+
+その理由は、$Df$ の各行が独立なら像の $m$ 方向の体積が正であり、行が従属なら $m$ 次元の体積が潰れるからです。$Df$ の第 $i$ 行を $r_i$ とすると
+
+$$
+(Df\,Df^{\mathsf T})_{ij}=r_i\cdot r_j
+$$
+
+です。[GMT10のGram行列式とrankの判定](../GMT10/index.md#thm-gmt10-gram-invariance)を転置写像 $Df^{\mathsf T}:\mathbb R^m\to\mathbb R^d$ に使えば、その行列式は行ベクトルの作る平行体の体積の二乗で、rankが $m$ 未満のときに限り零となります。
 
 <a id="def-gmt14-coarea-jacobian"></a>
 
@@ -40,8 +46,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt14-coarea-jacobian -->
-**定義の確認**
-**定義を直接確認する例**：$f(x,y,z)=(2x,3y)$ なら
+**定義の確認**：$f(x,y,z)=(2x,3y)$ は全空間で Lipschitz かつ微分可能です。$\mathbb R^3$ の標準基底 $e_1,e_2,e_3$ に対する微分の像 $Df\,e_1=(2,0)$、$Df\,e_2=(0,3)$、$Df\,e_3=(0,0)$ を列に並べると
 
 $$
 Df=\begin{pmatrix}2&0&0\\0&3&0\end{pmatrix},\quad
@@ -50,7 +55,7 @@ Df\,Df^{\mathsf T}
 J_2f=\sqrt{36}=6.
 $$
 
-行が二本あり、独立でrank $2$、その作る面積倍率が $6$ です。一方 $q(x,y,z)=(x,2x)$ なら行が従属でrank $1<2$、Gram行列式は $0$ です。$Df$ の $d\times d$ 行列式を求めようとしても、そもそも $m<d$ では正方行列になりません。
+二つの行は $r_1=(2,0,0)$、$r_2=(0,3,0)$ で直交し、内積からGram行列が対角となります。rankは $2$ で、二行の平行四辺形の面積倍率が $2\cdot3=6$ です。一方 $q(x,y,z)=(x,2x)$ は同じく Lipschitz かつ微分可能ですが、行 $r_2=2r_1$ なので rank $1<2$、Gram行列式は $0$ です。$Df$ の $d\times d$ 行列式を求めようとしても、そもそも $m<d$ では正方行列になりません。
 <!-- definition-example-end -->
 
 ## 2. レベル集合の測度と公式の形
@@ -72,7 +77,7 @@ $$
 
 <!-- definition-example-start: def-gmt14-slice-integral -->
 **定義の確認**
-ここで被積分関数 $g$ は空間上の重みです。例えば $d=3,m=1,k=2$、$f(x,y,z)=z$、$E=[0,2]\times[0,3]\times[0,4]$、$g\equiv1$ とすれば、$E$ は Borel、$f$ は Lipschitz、$g$ は非負 Borel です。$0<t<4$ で断面は長方形であり、$S_1(t)=6c_2$、それ以外の高さでは $S_1(t)=0$ です（端点の値は積分に影響しません）。$\mathcal H^2$ を使う理由は断面が2次元だからです。
+ここで被積分関数 $g$ は空間上の重みです。例えば $d=3,m=1,k=2$、$f(x,y,z)=z$、$E=[0,2]\times[0,3]\times[0,4]$、$g\equiv1$ とすれば、$E$ は Borel、$f$ は Lipschitz、$g$ は非負 Borel です。$0\le t\le4$ で断面は長方形であり、$S_1(t)=6c_2$、$t<0$ または $t>4$ では $S_1(t)=0$ です。端点 $t=0,4$ の値も $6c_2$ ですが、外側の積分には影響しません。$\mathcal H^2$ を使う理由は断面が2次元だからです。
 <!-- definition-example-end -->
 
 これから導く等式では $\mathcal L^3$ で測る直方体体積が $24$、各断面の $\mathcal H^2$ が $6c_2$ なので、係数は $1/c_2$ でなければなりません。以下で滑らかとは限らない断面まで扱います。
@@ -103,16 +108,16 @@ $$
 
 $k=0$、すなわち $d=m$ の場合、[GMT11のrank欠損像の補題](../GMT11/index.md#lem-gmt11-critical-image)を $f:\mathbb R^d\to\mathbb R^d$ の局所制限に適用すれば $\mathcal L^d(f(C))=0$ です。以降は $k\ge1$ とします。
 
-まず $C_R=C\cap B(0,R)$ に制限し、Lipschitz 定数を $L$ とします。$\varepsilon\in(0,1)$ を固定します。任意の $x\in C_R$ で $A=Df(x)$ のrankを $r\le m-1$ とすると、微分の定義から十分小さい $\rho>0$ で
+まず $C_R=C\cap B(0,R)$ に制限し、Lipschitz 定数を $L$ とします。$\varepsilon\in(0,1)$ を固定します。任意の $x\in C_R$ で $A=Df(x)$ のrankを $r\le m-1$ とすると、微分の定義から十分小さい $0<\rho<\operatorname{dist}(x,\mathbb R^d\setminus\Omega)$ で
 
 $$
 f(B(x,\rho))\subset f(x)+A(B(0,\rho))+B(0,\varepsilon\rho)
 $$
 
-です。$A(B(0,\rho))$ は $r$ 次元部分空間の半径 $L\rho$ の球内なので、像全体はその周囲の厚さ $\varepsilon\rho$ の管です。$r$ 方向に長さ $O(L\rho)$、残る $m-r$ 方向に長さ $O(\varepsilon\rho)$ の箱で覆えば
+です。$A(B(0,\rho))$ は $r$ 次元部分空間の半径 $L\rho$ の球内なので、像全体はその周囲の厚さ $\varepsilon\rho$ の管です。$r$ 方向に長さ $O(L\rho)$、残る $m-r$ 方向に長さ $O(\varepsilon\rho)$ の直交座標箱 $V(x,\rho)$ を取り、$f(B(x,\rho))\subset V(x,\rho)$ とすれば
 
 $$
-\mathcal L^m(f(B(x,\rho)))
+\mathcal L^m(V(x,\rho))
 \le C_{d,m,L}\varepsilon^{m-r}\rho^m
 \le C_{d,m,L}\varepsilon\rho^m.
 $$
@@ -125,25 +130,31 @@ $$
 \le N_d\,\mathcal L^d(B(0,R+1)).
 $$
 
-ここで $\omega_d=\mathcal L^d(B(0,1))$ です。固定した $y$ に対して、$C_R\cap f^{-1}(y)$ を $y\in f(B_i)$ となる $B_i$ だけで覆えます。直径 $\delta$ 未満の Hausdorff 被覆コストを $\mathcal H^k_\delta$ と記せば
+ここで $\omega_d=\mathcal L^d(B(0,1))$ です。各 $B_i$ に上の箱 $V_i=V(x_i,\rho_i)$ を対応させます。固定した $y$ に対して、$C_R\cap f^{-1}(y)$ を $y\in V_i$ となる $B_i$ だけで覆えます。直径 $\delta$ 未満の Hausdorff 被覆コストを $\mathcal H^k_\delta$ と記せば
 
 $$
 \mathcal H^k_\delta(C_R\cap f^{-1}(y))
-\le\sum_i(2\rho_i)^k\boldsymbol1_{f(B_i)}(y).
+\le\sum_i(2\rho_i)^k\boldsymbol1_{V_i}(y).
 $$
 
-非負項について積分と和を交換し、$k+m=d$ を使うと
+右辺の可測上界を $U_{\delta,\varepsilon}(y)$ と置きます。$V_i$ は Borel の箱なので、非負項について積分と和を交換し、$k+m=d$ を使うと
 
 $$
 \begin{aligned}
-\int_{\mathbb R^m}\mathcal H^k_\delta(C_R\cap f^{-1}(y))\,dy
-&\le\sum_i(2\rho_i)^k\mathcal L^m(f(B_i))\\
+\int_{\mathbb R^m}U_{\delta,\varepsilon}(y)\,dy
+&=\sum_i(2\rho_i)^k\mathcal L^m(V_i)\\
 &\le C_{d,m,L}\varepsilon\sum_i\rho_i^{k+m}\\
 &\le C_{d,m,L,R}\varepsilon.
 \end{aligned}
 $$
 
-断面の外測度で書いた場合も、右辺の可測上界と可測包によって同じ零積分の結論を得ます。$\delta\downarrow0$ に沿う [Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)、次に $\varepsilon\downarrow0$ によって、$\int\mathcal H^k(C_R\cap f^{-1}(y))\,dy=0$ です。$R\to\infty$ の可算和を取れば主張が従います。$\square$
+固定した $\varepsilon$ に対し $\delta_n\downarrow0$ とし、各 $n$ の上界を $U_n$ と書きます。各 $y$ で $\mathcal H^k_{\delta_n}(C_R\cap f^{-1}(y))\le U_n(y)$ だから
+
+$$
+\mathcal H^k(C_R\cap f^{-1}(y))\le\liminf_{n\to\infty}U_n(y).
+$$
+
+可測な $U_n$ に [Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)を使うと右辺の積分は高々 $C_{d,m,L,R}\varepsilon$ です。$\varepsilon\downarrow0$ を可算列で取り、各列の零集合を除けば、断面の Hausdorff 外測度そのものが零と分かります。この手順は断面測度の可測性を先取りしません。$R\to\infty$ の可算和を取れば主張が従います。$\square$
 <!-- proof-end -->
 
 **微分不能点** $N$ は [Rademacher定理](../GMT9/index.md#thm-gmt9-rademacher)により $\mathcal L^d(N)=0$ です。
@@ -168,13 +179,13 @@ DT=\begin{pmatrix}A&B\\0&I_k\end{pmatrix},
 \qquad Df=(A\ B),\qquad\det DT=\det A\ne0.
 $$
 
-逆変換を $h(y,u)=(v(y,u),u)$ とすると、$y$ を固定したまま $u$ を動かす曲面 $h_y(u)=h(y,u)$ がレベル集合を表します。
+逆変換が定義される部分では $h(y,u)=(v(y,u),u)$ と書きます。$y$ を固定したまま $u$ を動かす $h_y(u)=h(y,u)$ がレベル集合を表します。ここで $D_uh$ は $y$ を固定し $u$ だけを微分する $d\times k$ 行列、$D_uh_y$ はその断面写像の微分です。
 
 <a id="lem-gmt14-full-rank-chart"></a>
 
 <!-- formal-statement-start -->
 > **補題（full-rank座標片のJacobian恒等式）**
-> $d=m+k$、$k\ge1$ とし、$f:\Omega\subset\mathbb R^d\to\mathbb R^m$ が点 $x=(v,u)$ で微分可能で、$Df(x)=(A\ B)$ の $m\times m$ 行列 $A$ が可逆とする。$T(v,u)=(f(v,u),u)$ と置く。局所逆変換の微分が存在する場所では
+> $d=m+k$、$k\ge1$、$\Omega\subset\mathbb R^d$ は開集合とし、$f:\Omega\to\mathbb R^m$ は Lipschitz で点 $x=(v,u)$ で微分可能、$Df(x)=(A\ B)$ の $m\times m$ 行列 $A$ は可逆とする。$T(v,u)=(f(v,u),u)$ と置く。$T$ が単射な片の逆写像 $h$ の微分が $T(x)$ で存在し、$Dh(T(x))=(DT(x))^{-1}$ を満たす場所では
 
 $$
 J_mf(x)
@@ -219,7 +230,7 @@ $$
 $|\det DT|=|\det A|$ と両辺の非負平方根から結論が得られます。$\square$
 <!-- proof-end -->
 
-この補題は **近傍全体での可逆性を保証しません**。一点で $DT$ が可逆であっても、Lipschitz 写像 $T$ がその近傍で単射とは限らないためです。次の導出では、単射な**可測小片**に分けて使います。
+この補題は **近傍全体での可逆性を保証しません**。一点で $DT$ が可逆であっても、Lipschitz 写像 $T$ がその近傍で単射とは限らないためです。次の導出では、単射な**可測小片**に分け、その片の密度1点における逆微分に適用します。
 
 <a id="thm-gmt14-coarea"></a>
 
@@ -249,7 +260,7 @@ rank欠損点と微分不能点を第3節で処理しました。full-rank点を
 
 まず $k\ge1$ とします。$Df$ が存在しrank $m$ の点 $x$ では、ある $m$ 本の列を抜いた行列 $A$ が可逆です。列の選び方は有限通りです。これを固定した部分では $T(x)=(f(x),u)$ の微分 $DT(x)$ が可逆です。
 
-**(1) 双Lipschitz片を作る。** [GMT11のfull-rank片への可算分割](../GMT11/index.md#thm-gmt11-area-formula)を、今度は同次元の Lipschitz 写像 $T:\mathbb R^d\to\mathbb R^d$ に適用します。
+**(1) 双Lipschitz片を作る。** [GMT11のfull-rank片への可算分割](../GMT11/index.md#thm-gmt11-area-formula)を、今度は同次元の Lipschitz 写像 $T:\Omega\to\mathbb R^d$ に適用します。開集合 $\Omega$ を可算個の小立方体へ局所化すれば、各片で $T$ とその微分を扱えます。
 
 微分の最小特異値を $1/q$ 以上に固定し、微分行列を一定の $M$ で $\eta$ 以内に近似します。点 $a,b$ の微分誤差を引き算すると、同じ小片 $P$ 上で
 
@@ -279,7 +290,11 @@ $$
 =\int_Bg(h(y,u))J_k(D_uh(y,u))\,dy\,du.
 $$
 
-逆写像 $h$ の任意の Lipschitz 延長の微分は $B$ の密度1点で同じです。$T$ の逆微分は、$T$ と $h$ の二点差分を密度1点で合成することにより $(DT)^{-1}$ となります。したがって上の等式は $\mathcal L^d$-a.e.の正しい導関数で成立します。
+逆写像 $h$ の任意の Lipschitz 延長の微分は $B$ の密度1点で同じです（[GMT13の密度1点での微分の説明](../GMT13/index.md#def-gmt13-tangent-plane)も参照）。
+
+各片上の密度1点で $T\circ h=\mathrm{id}$ と $h\circ T=\mathrm{id}$ に連鎖律を適用すると $Dh=(DT)^{-1}$ です。したがって上の等式は $\mathcal L^d$-a.e.の正しい導関数で成立します。
+
+ここで $dx,dy,du$ はそれぞれ $d$、$m$、$k$ 次元の Lebesgue 積分を表し、$y$ と $u$ は独立な積分変数です。
 
 **(3) Fubiniで断面ごとに積分する。** $B_y=\{u:(y,u)\in B\}$ とします。非負の被積分関数について [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli) を適用すると
 
@@ -342,14 +357,16 @@ $$
 
 ### 6.3 極座標：角度の「長さ」が $r$ 倍になる
 
-平面 $d=2,m=1,k=1$ では $c_1=1$ です。非負 Borel 関数 $g$ に対して $f(x)=|x|$ を使うと
+平面 $d=2,m=1,k=1$ では $c_1=1$ です。非負 Borel 関数 $g$ に対し、$f(x)=|x|$ を [Euclid空間のcoarea formula](#thm-gmt14-coarea)へ代入すると
 
 $$
 \int_{\mathbb R^2}g(x)\,dx
 =\int_0^\infty\left(\int_{|x|=r}g(x)\,d\mathcal H^1(x)\right)\,dr.
 $$
 
-円周を $\gamma_r(\theta)=(r\cos\theta,r\sin\theta)$、$0\le\theta<2\pi$ でパラメータ表示すると $|\gamma_r'(\theta)|=r$ です。[GMT11のarea formula](../GMT11/index.md#thm-gmt11-area-formula)から、円周上での積分は $\int_0^{2\pi}g(r\cos\theta,r\sin\theta)r\,d\theta$ です。従って
+円周を $\gamma_r(\theta)=(r\cos\theta,r\sin\theta)$、$0\le\theta<2\pi$ でパラメータ表示します。$r>0$ を固定して $\theta$ で微分した $\gamma_r'(\theta)=d\gamma_r/d\theta=(-r\sin\theta,r\cos\theta)$ の長さは $r$ です。[GMT11のarea formula](../GMT11/index.md#thm-gmt11-area-formula)から、円周上での積分は $\int_0^{2\pi}g(r\cos\theta,r\sin\theta)r\,d\theta$ です。従って
+
+<a id="eq-gmt14-polar-coordinates"></a>
 
 $$
 \int_{\mathbb R^2}g(x)\,dx
@@ -361,7 +378,20 @@ $$
 
 ## 7. 整流可能集合でも断面を積分できる
 
-$s$ 次元の可算整流可能集合 $E\subset\mathbb R^d$ 上で $f:E\to\mathbb R^m$（$1\le m\le s\le d$）を考えます。[GMT13の接平面](../GMT13/index.md#def-gmt13-tangent-plane) $T_xE$ に $f$ の微分を制限した線形写像 $D^Ef:T_xE\to\mathbb R^m$ は、$m\times s$ 行列で表せます。その **接coarea Jacobian** は行Gram行列式
+$s$ 次元の可算整流可能集合 $E\subset\mathbb R^d$ 上で $f:E\to\mathbb R^m$（$1\le m\le s\le d$）を考えます。[GMT13の接平面](../GMT13/index.md#def-gmt13-tangent-plane) $T_xE$ と双Lipschitz表示 $x=\phi(a)$ を取り、次の微分を比較します。
+
+$$
+P=D\phi(a):\mathbb R^s\to\mathbb R^d,
+\qquad Q=D(f\circ\phi)(a):\mathbb R^s\to\mathbb R^m.
+$$
+
+密度1点で $P$ がrank $s$ を持つため、$Pv$ から $v$ を一意に回収できます。そこで [GMT13の接微分の構成](../GMT13/index.md#def-gmt13-tangential-jacobian)と同じく
+
+$$
+D^Ef(x)(Pv)=Qv\qquad(v\in\mathbb R^s)
+$$
+
+と置きます。GMT13のarea公式では出力次元が $s$ 以上でしたが、接微分のこの構成自体は $m\le s$ にも有効です。正規直交接基底での $D^Ef:T_xE\to\mathbb R^m$ は $m\times s$ 行列であり、その **接coarea Jacobian** は行Gram行列式
 
 $$
 J_m^Ef(x)=\sqrt{\det(D^Ef(x)(D^Ef(x))^{\mathsf T})}
@@ -423,13 +453,34 @@ J_m^Ef(\phi(a))J_s\phi(a)
 =J_mF(a)J_k(D\phi(a)|_{\ker DF(a)})
 $$
 
-が成立します。rank $Q<m$ なら両辺の $m$-Jacobian は $0$ であり、[rank欠損集合のほとんどすべての断面は零測度という補題](#lem-gmt14-critical-slices)によりほとんどの $y$ の断面積分にも寄与しません。
+が成立します。rank $Q<m$ の点では
 
-まず [GMT11の重み付きarea formula](../GMT11/index.md#cor-gmt11-weighted-area)を単射な $\phi_i$ に使い、$c_s$ を保持します。次に上の恒等式を代入して $F_i$ に [Euclid coarea](#thm-gmt14-coarea)を適用します。
+$$
+\dim\ker Q=s-\operatorname{rank}Q>s-m=k
+$$
+
+なので、上の $J_k(P|_{\ker Q})$ はそこで定義しません。証明中の積の重みはrank欠損点で $0$ と定めます。
+
+この部分では $J_m^Ef$ と $J_mF$ はともに $0$ です。[rank欠損集合の断面補題](#lem-gmt14-critical-slices)を $F_i$ に適用すると、ほとんど全ての $y$ でその部分の $\mathcal H^k$-測度が零です。その Lipschitz 像も $\mathcal H^k$-零なので、断面側にも寄与しません。
+
+まず [GMT11の重み付きarea formula](../GMT11/index.md#cor-gmt11-weighted-area)を単射な $\phi_i$ に使い、$c_s$ を保持します。次に上の恒等式を代入します。rank $DF_i=m$ の点では
+
+$$
+W(a)=(g\circ\phi_i)(a)\,J_k(D\phi_i(a)|_{\ker DF_i(a)})
+$$
+
+と置き、それ以外では $W(a)=0$ とします。この非負の重みで $F_i$ に [Euclid coarea](#thm-gmt14-coarea)を適用します。
 
 ほとんど全ての $y$ に対し、$A_i\cap F_i^{-1}(y)$ は第5節のfull-rank片の逆像により可算 $k$-整流可能です。その接方向は $\ker DF_i$ となります。
 
-最後に断面上の $\phi_i$ へ [GMT13の整流可能集合上のarea formula](../GMT13/index.md#thm-gmt13-rectifiable-area)を適用します。この操作で $J_k(D\phi_i|_{\ker DF_i})$ の積分を、像の断面 $E_i\cap f^{-1}(y)$ の $\mathcal H^k$ 積分へ変えます。係数を明示すると
+最後に断面上の $\phi_i$ へ [GMT13の整流可能集合上のarea formula](../GMT13/index.md#thm-gmt13-rectifiable-area)を適用します。full-rank点で断面の接方向は $\ker DF_i$ なので、この操作で $J_k(D\phi_i|_{\ker DF_i})$ の積分を、像の断面 $E_i\cap f^{-1}(y)$ の $\mathcal H^k$ 積分へ変えます。具体的には、ほとんど全ての $y$ について
+
+$$
+\int_{A_i\cap F_i^{-1}(y)}W(a)\,d\mathcal H^k(a)
+=\int_{E_i\cap f^{-1}(y)}g(x)\,d\mathcal H^k(x)
+$$
+
+です。両側の $\mathcal H^k$ は同じ非正規化測度なので、ここに追加の係数は入りません。以上の係数を明示すると
 
 $$
 \begin{aligned}
@@ -441,15 +492,15 @@ $$
 \end{aligned}
 $$
 
-第2行から第3行では coarea と断面上の面積公式を続けて使い、断面の可算片を重複なく足しました。$E_i$ を足し合わせます。残余 $Z=E\setminus\bigcup_iE_i$ は $\mathcal H^s(Z)=0$ なので、任意の $\delta,\varepsilon>0$ に対し直径 $2r_j<\delta$ の球で $Z$ を覆い、$\sum_j(2r_j)^s<\varepsilon$ とできます。$f$ は $E$ 上で Lipschitz だから $f(Z\cap B_j)$ は半径 $2Lr_j$ の球に入り、$\mathcal L^m(f(Z\cap B_j))\le C_{m,L}r_j^m$ です。ほとんど全ての $y$ で測定できる断面の $\delta$-Hausdorff被覆コストを積分すると
+第2行から第3行では coarea と断面上の面積公式を続けて使い、断面の可算片を重複なく足しました。$E_i$ を足し合わせます。残余 $Z=E\setminus\bigcup_iE_i$ は $\mathcal H^s(Z)=0$ なので、任意の $\delta,\varepsilon>0$ に対し直径 $2r_j<\delta$ の球 $B_j$ で $Z$ を覆い、$\sum_j(2r_j)^s<\varepsilon$ とできます。$f$ は $E$ 上で Lipschitz だから $f(Z\cap B_j)$ は半径 $2Lr_j$ の Borel 球 $V_j$ に含まれ、$\mathcal L^m(V_j)\le C_{m,L}r_j^m$ です。第3節と同様に可測な断面被覆上界を積分すると
 
 $$
-\int_{\mathbb R^m}\mathcal H^k_\delta(Z\cap f^{-1}(y))\,dy
+\int_{\mathbb R^m}\sum_j(2r_j)^k\boldsymbol1_{V_j}(y)\,dy
 \le C_{m,L}\sum_j(2r_j)^kr_j^m
 \le C_{m,L}\varepsilon.
 $$
 
-$k+m=s$ を使いました。$\delta,\varepsilon\downarrow0$ によりほとんど全ての断面で $Z$ の $\mathcal H^k$ 測度は零となります。これで左辺・右辺とも残余は寄与しません。完備化により非負 $\mathcal H^s$-可測 $g$ にも拡張できます。$\square$
+$k+m=s$ を使いました。$\mathcal H^k_\delta(Z\cap f^{-1}(y))$ は上の可測和以下なので、第3節と同じ $\delta_n\downarrow0$、[Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)、$\varepsilon\downarrow0$ により、ほとんど全ての断面で $Z$ の $\mathcal H^k$ 測度は零となります。これで左辺・右辺とも残余は寄与しません。完備化により非負 $\mathcal H^s$-可測 $g$ にも拡張できます。$\square$
 <!-- proof-end -->
 
 **具体例：円柱の側面**。$E=\{(R\cos\theta,R\sin\theta,z):0\le\theta<2\pi,\ 0\le z\le H\}$、$f(x,y,z)=z$、$s=2,m=1,k=1$ では接Jacobian $J_1^Ef=1$、各 $z$ の断面長は $2\pi R$ です。したがって
@@ -480,7 +531,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$Df=(1,0,0)$、$Df\,Df^{\mathsf T}=(1)$ なので $J_1f=1$ です。$0<t<2$ で $E\cap f^{-1}(t)=\{t\}\times[0,3]\times[0,4]$、その $\mathcal H^2$ 測度は $12c_2$ です。したがって左辺は $2\cdot3\cdot4=24$、右辺は $c_2^{-1}\int_0^2 12c_2\,dt=24$ です。
+$Df=(1,0,0)$、$Df\,Df^{\mathsf T}=(1)$ なので $J_1f=1$ です。$0<t<2$ で $E\cap f^{-1}(t)=\{t\}\times[0,3]\times[0,4]$、その $\mathcal H^2$ 測度は $12c_2$ です。[coarea公式](#thm-gmt14-coarea)に代入すると左辺は $2\cdot3\cdot4=24$、右辺は $c_2^{-1}\int_0^2 12c_2\,dt=24$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt14-a2"></a>
@@ -492,7 +543,7 @@ $Df=(1,0,0)$、$Df\,Df^{\mathsf T}=(1)$ なので $J_1f=1$ です。$0<t<2$ で 
 <!-- solution-start -->
 **詳細解答**
 
-$Df=(3,0)$ なので $J_1f=3$、左辺は $3\mathcal L^2(E)=6$ です。$0<t<6$ では $f^{-1}(t)\cap E=\{t/3\}\times[0,1]$ という長さ1の線分です。$k=1$、$c_1=1$ だから右辺は $\int_0^6 1\,dt=6$ です。像の値域の長さが $3$ 倍になり、断面長は変わりません。
+$Df=(3,0)$ なので $J_1f=3$、[coarea公式](#thm-gmt14-coarea)の左辺は $3\mathcal L^2(E)=6$ です。$0<t<6$ では $f^{-1}(t)\cap E=\{t/3\}\times[0,1]$ という長さ1の線分です。$k=1$、$c_1=1$ だから右辺は $\int_0^6 1\,dt=6$ です。像の値域の長さが $3$ 倍になり、断面長は変わりません。
 <!-- solution-end -->
 
 <a id="ex-gmt14-a3"></a>
@@ -504,7 +555,7 @@ $Df=(3,0)$ なので $J_1f=3$、左辺は $3\mathcal L^2(E)=6$ です。$0<t<6$ 
 <!-- solution-start -->
 **詳細解答**
 
-原点以外では $Dr=(x/r,y/r)$、従って $J_1r=\sqrt{(x^2+y^2)/r^2}=1$ です。原点は零測度です。半径 $t>0$ の円周は $\gamma(\theta)=(t\cos\theta,t\sin\theta)$ により長さ $\int_0^{2\pi}|\gamma'(\theta)|\,d\theta=\int_0^{2\pi}t\,d\theta=2\pi t$ です。coarea右辺は $\int_0^R2\pi t\,dt=\pi R^2$、左辺は円板の面積です。
+原点以外では $Dr=(x/r,y/r)$、従って $J_1r=\sqrt{(x^2+y^2)/r^2}=1$ です。原点は零測度です。半径 $t>0$ を固定した円周表示 $\gamma(\theta)=(t\cos\theta,t\sin\theta)$ を $\theta$ で微分すると $\gamma'(\theta)=(-t\sin\theta,t\cos\theta)$ で、長さは $\int_0^{2\pi}|\gamma'(\theta)|\,d\theta=\int_0^{2\pi}t\,d\theta=2\pi t$ です。[coarea公式](#thm-gmt14-coarea)の右辺は $\int_0^R2\pi t\,dt=\pi R^2$、左辺は円板の面積です。
 <!-- solution-end -->
 
 <a id="ex-gmt14-a4"></a>
@@ -594,7 +645,7 @@ $Df=\operatorname{diag}(2,3)$ で $J_2f=|\det Df|=6$、左辺は $6$ です。$f
 <!-- solution-start -->
 **詳細解答**
 
-$\phi(\theta,z)=(R\cos\theta,R\sin\theta,z)$ の接方向を与える微分列は $\phi_\theta=(-R\sin\theta,R\cos\theta,0)$ と $\phi_z=(0,0,1)$ で直交します。正規直交接基底 $(\phi_\theta/R,\phi_z)$ への $D^Ef$ の値は $(0,1)$、従って $J_1^Ef=1$ です。$0<t<H$ の断面は半径 $R$ の円で $\mathcal H^1=2\pi R$。$c_1=1$ なので整流可能集合のcoarea公式の右辺は $c_2\int_0^H2\pi R\,dt=2\pi RHc_2$ です。左辺は $\int_E1\,d\mathcal H^2=\mathcal H^2(E)=c_2(2\pi RH)$ です。曲面 $E$ は $\mathcal L^3$-零なので、その体積積分では側面積を測れません。
+$\phi(\theta,z)=(R\cos\theta,R\sin\theta,z)$ で、一方の変数を固定して他方を微分した偏微分列は $\phi_\theta=\partial\phi/\partial\theta=(-R\sin\theta,R\cos\theta,0)$ と $\phi_z=\partial\phi/\partial z=(0,0,1)$ で直交します。正規直交接基底 $(\phi_\theta/R,\phi_z)$ への $D^Ef$ の値は $(0,1)$、従って $J_1^Ef=1$ です。$0<t<H$ の断面は半径 $R$ の円で $\mathcal H^1=2\pi R$。$c_1=1$ なので[整流可能集合のcoarea公式](#cor-gmt14-rectifiable-coarea)の右辺は $c_2\int_0^H2\pi R\,dt=2\pi RHc_2$ です。左辺は $\int_E1\,d\mathcal H^2=\mathcal H^2(E)=c_2(2\pi RH)$ です。曲面 $E$ は $\mathcal L^3$-零なので、その体積積分では側面積を測れません。
 <!-- solution-end -->
 
 ### Level C：radial重み・測度・例外集合を接続する
@@ -623,7 +674,7 @@ $$
 =\frac{4\pi}{5}(b^{5/2}-a^{5/2}).
 $$
 
-**(iii)** 左辺は $\int_E gJ_1f\,dx\,dy=\int_E2r^3\,dx\,dy$ です。[距離関数から導出した極座標](#thm-gmt14-coarea)の $dx\,dy=r\,dr\,d\theta$ を使い、
+**(iii)** 左辺は $\int_E gJ_1f\,dx\,dy=\int_E2r^3\,dx\,dy$ です。[第6.3節で導出した極座標積分式](#eq-gmt14-polar-coordinates)で積分変数を半径 $r$ と角度 $\theta$ に変えると、面積要素は $r\,dr\,d\theta$ なので
 
 $$
 \begin{aligned}
