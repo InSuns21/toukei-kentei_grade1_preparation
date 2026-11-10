@@ -122,7 +122,13 @@ $$
 \longrightarrow0.
 $$
 
-$K'$ の外で $u$ を0とした $w=u\boldsymbol1_{K'}\in L^1(\mathbb R^d)$ を考えると、十分小さい $|h|<\varepsilon$ について $K$ 上では $u(x-h)-u(x)=w(x-h)-w(x)$ です。[GPDE3の $L^p$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)（$p=1$）により
+$K'$ の外で $u$ を0とした関数を
+
+$$
+w=u\boldsymbol1_{K'}\in L^1(\mathbb R^d)
+$$
+
+と置きます。十分小さい $|h|<\varepsilon$ では、$K$ 上で $u(x-h)-u(x)=w(x-h)-w(x)$ です。[GPDE3の $L^p$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)を $p=1$ で適用すると
 
 $$
 \sup_{|h|<\varepsilon}\|w(\,\cdot-h)-w\|_{L^1(\mathbb R^d)}\longrightarrow0,
@@ -233,9 +239,30 @@ $$
 <!-- definition-example-start: def-gmt22-strict -->
 ### 直接例：一つのジャンプのstrict近似
 
-$\Omega=(-1,1)$、$u=\boldsymbol1_{(0,1)}$ とし、前節の偶・非負核を用います。$u$ を $\mathbb R$ 上へ同じ段差 $H(x)=\boldsymbol1_{(0,\infty)}$ として延長し、$\widetilde u_\varepsilon=H*\rho_\varepsilon$ を $\Omega$ 全体で定義します。$0<\varepsilon<1/2$ なら、局所平滑化 $u_\varepsilon$ は $\Omega_\varepsilon$ 上でのみ定義されますが、その範囲では $H|_\Omega=u$ と核の台の条件により $\widetilde u_\varepsilon=u_\varepsilon$ です。全区間でのstrict収束を判定する際は $\widetilde u_\varepsilon$ を使います。
+$\Omega=(-1,1)$、$u=\boldsymbol1_{(0,1)}$ とし、前節の偶・非負核を用います。$u$ を $\mathbb R$ 上へ同じ段差 $H(x)=\boldsymbol1_{(0,\infty)}$ として延長し、$\Omega$ 全体で次の滑らかな関数を定義します。
 
-差は $(-\varepsilon,\varepsilon)$ の中にしかなく、$|\widetilde u_\varepsilon-u|\le1$ だから $\|\widetilde u_\varepsilon-u\|_1\le2\varepsilon\to0$。また1変数の通常の導関数 $\widetilde u_\varepsilon'=d\widetilde u_\varepsilon/dx$ は $\rho_\varepsilon\ge0$ に等しく、[W11関数とBVの比較](../GMT21/index.md#prop-gmt21-w11-inclusion)により $D\widetilde u_\varepsilon=\widetilde u_\varepsilon'\,dx$ です。核の質量は1なので
+$$
+\widetilde u_\varepsilon=H*\rho_\varepsilon.
+$$
+
+$0<\varepsilon<1/2$ のとき、局所平滑化 $u_\varepsilon$ の定義域は $\Omega_\varepsilon$ だけです。その範囲では $H|_\Omega=u$ と核の台の条件から $\widetilde u_\varepsilon=u_\varepsilon$ ですが、全区間でのstrict収束を判定するには $\widetilde u_\varepsilon$ を用います。
+
+差は $(-\varepsilon,\varepsilon)$ の中にしかなく、$|\widetilde u_\varepsilon-u|\le1$ だから
+
+$$
+\|\widetilde u_\varepsilon-u\|_1\le2\varepsilon\longrightarrow0.
+$$
+
+ここでプライムは1変数 $x$ に関する通常の微分を表します。畳み込みを微分し、[W11関数とBVの比較](../GMT21/index.md#prop-gmt21-w11-inclusion)を適用すると
+
+$$
+\widetilde u_\varepsilon'
+=\frac{d\widetilde u_\varepsilon}{dx}
+=\rho_\varepsilon\ge0,\qquad
+D\widetilde u_\varepsilon=\widetilde u_\varepsilon'\,dx.
+$$
+
+核の質量は1なので
 
 $$
 |D\widetilde u_\varepsilon|(\Omega)=\int_{-\varepsilon}^{\varepsilon}\rho_\varepsilon\,dx=1=|Du|(\Omega).
