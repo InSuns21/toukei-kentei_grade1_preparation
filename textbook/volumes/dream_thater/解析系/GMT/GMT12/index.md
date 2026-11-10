@@ -90,7 +90,11 @@ $$
 M_j=\sup_{x\in Q_j}\|Dg(x)\|_{\mathrm{op}}<\infty.
 $$
 
-$x,y\in Q_j$ に対し線分 $\gamma(t)=x+t(y-x)$（$0\le t\le1$）は $Q_j$ 内です。ここで $Dg(z)$ は点 $z$ における全微分であり、[微分の Jacobian 行列表現](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)により $\mathbb R^m$ から $\mathbb R^{d-m}$ への線形写像として作用します。$t$ で動くのは $\gamma(t)$ であり、$x,y$ は固定です。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)により
+$x,y\in Q_j$ に対し、$\gamma(t)=x+t(y-x)$（$0\le t\le1$）は $Q_j$ 内の線分です。
+
+$Dg(z)$ は点 $z$ での全微分で、[微分の Jacobian 行列表現](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)により $\mathbb R^m$ から $\mathbb R^{d-m}$ への線形写像として作用します。
+
+ここで動かす変数は $t$ だけで、$x,y$ は固定します。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)により
 
 $$
 \frac{d}{dt}g(\gamma(t))
