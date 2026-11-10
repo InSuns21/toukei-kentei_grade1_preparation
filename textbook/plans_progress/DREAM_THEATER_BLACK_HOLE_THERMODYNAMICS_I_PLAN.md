@@ -1,9 +1,9 @@
 # DREAM THEATER ブラックホール熱力学 I（BHT1〜BHT24・全24講確定）
 
 分冊: 2026-10-11  
-改訂: 2026-11-11（BHT21の一般化エントロピーと繰り込みを追加。講数・学修境界は維持）
+改訂: 2026-11-11（BHT22の一般化第二法則・相対エントロピー型の条件付き証明を追加。講数・学修境界は維持）
 
-状態: in progress（BHT1〜BHT21執筆・査読・公開導線整備済み。BHT22〜BHT24と横断監査は未完了）
+状態: in progress（BHT1〜BHT22執筆・査読・公開導線整備済み。BHT23〜BHT24と横断監査は未完了）
 
 ## 0. 中心問い・到達点
 
@@ -120,6 +120,6 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 
 ## 5. 着手・完了条件
 
-BHT1〜BHT21は状態量・古典四法則・定常解族と物理過程の第一法則・Smarr関係、Hawking温度・Bekenstein–Hawkingエントロピー・極限地平線、Euclid作用と境界条件・有限空洞・AdS安定性・アンサンブル、共変位相空間・Noether電荷・Wald公式からのEinstein面積則、f(R)の高階曲率補正・適用限界、さらに量子場の外部エントロピーの面積発散、最小結合自由スカラー一ループ模型のNewton定数繰り込み、一般化エントロピーの局所反項と状態依存性までを実装した。BHT22〜BHT24の本文と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
+BHT1〜BHT22は状態量・古典四法則・定常解族と物理過程の第一法則・Smarr関係、Hawking温度・Bekenstein–Hawkingエントロピー・極限地平線、Euclid作用と境界条件・有限空洞・AdS安定性・アンサンブル、共変位相空間・Noether電荷・Wald公式からのEinstein面積則、f(R)の高階曲率補正・適用限界、量子場の外部エントロピーの面積発散とNewton定数の繰り込み・一般化エントロピー、さらにGSLの落下・放射収支とRindlerでの相対エントロピー型の条件付き証明までを実装した。BHT23〜BHT24の本文と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
 
 全24章が原則の証明・演習水準を満たし、系列manifest・目次・prerequisite・stable anchorと横断査読・CIが整合したときだけ textbook/plan_done/ へ移す。**講義数が24であることと完成していることを混同しない。**

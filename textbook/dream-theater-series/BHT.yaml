@@ -93,7 +93,7 @@ chapters:
     title: "一般化エントロピーと繰り込み"
   - id: BHT22
     path: textbook/volumes/dream_thater/物理系/BHT/BHT22
-    status: planned
+    status: completed
     title: "一般化第二法則（GSL）"
   - id: BHT23
     path: textbook/volumes/dream_thater/物理系/BHT/BHT23
