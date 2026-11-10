@@ -383,7 +383,34 @@ $$
 状態 $|\Psi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ の外部縮約を求め、エントロピーをビット単位と自然対数単位で計算せよ。全系のエントロピーと同じか。
 
 <!-- solution-start -->
-**詳細解答**：$\rho=|\Psi\rangle\langle\Psi|$ を展開すると $|00\rangle\langle00|$ と $|11\rangle\langle11|$ の係数は各 $1/2$、交差項は内側の直交性で部分トレース後に消えます。[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を使えば $\rho_{\rm out}=\operatorname{diag}(1/2,1/2)$。固有値の和は1、非負なので密度演算子です。[von Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)からビット単位で $-2(1/2)\log_2(1/2)=1$、自然対数では $-2(1/2)\ln(1/2)=\ln2$。全系はrank 1の純粋状態なので $S(\rho)=0$ です。外の混合は全体の古典的不確実性を意味しません。
+**詳細解答**：まず全系の密度演算子を作ります。
+
+$$
+\rho=|\Psi\rangle\langle\Psi|
+=\frac12\bigl(
+|00\rangle\langle00|+|00\rangle\langle11|
++|11\rangle\langle00|+|11\rangle\langle11|
+\bigr).
+$$
+
+[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)により、内側の基底の直交性から交差項が消えます。従って外側の基底で
+
+$$
+\rho_{\rm out}
+=\frac12|0\rangle\langle0|+\frac12|1\rangle\langle1|
+=\operatorname{diag}(1/2,1/2).
+$$
+
+これは非負固有値を持ち、トレースが1の密度演算子です。[von Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)の固有値式を適用して
+
+$$
+\begin{aligned}
+S_{\rm bit}(\rho_{\rm out})&=-2\left(\frac12\right)\log_2\frac12=1,\\
+S_{\rm nat}(\rho_{\rm out})&=-2\left(\frac12\right)\ln\frac12=\ln2.
+\end{aligned}
+$$
+
+全系はrank 1の純粋状態なのでエントロピーは0です。外の混合は全体の古典的不確実性を意味しません。
 <!-- solution-end -->
 
 <a id="ex-bht21-a02"></a>
