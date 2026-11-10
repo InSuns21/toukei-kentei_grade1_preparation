@@ -16,7 +16,13 @@ $$
 
 ## 2. 集合値前層とYoneda埋め込み
 
-前講で使った[反変関手](../CAT1-06/index.md#def-cat1-06-contravariant)のうち、集合に値を取るものを、ここでは「前層」という名前でまとめて扱う。$\mathcal C$ の射 $u:X\to Y$ に対する $P(u):P(Y)\to P(X)$ は、$Y$ 上のデータを $X$ へ引き戻す操作である。前層間の射には既習の[自然変換](../CAT1-07/index.md#def-cat1-07-natural-transformation)を使い、その全体を[関手圏](../CAT1-08/index.md#def-cat1-08-functor-category)として扱う。
+前講で使った[反変関手](../CAT1-06/index.md#def-cat1-06-contravariant)のうち、集合に値を取るものを、ここでは「前層」と呼ぶ。$\mathcal C$ の射 $u:X\to Y$ は前層 $P$ により
+
+$
+P(u):P(Y)\longrightarrow P(X)
+$
+
+という引き戻しになる。前層間の射には既習の[自然変換](../CAT1-07/index.md#def-cat1-07-natural-transformation)を使い、その全体を[関手圏](../CAT1-08/index.md#def-cat1-08-functor-category)として扱う。
 
 <a id="def-cat1-12-presheaf"></a>
 
@@ -28,7 +34,15 @@ $$
 <!-- definition-example-start: def-cat1-12-presheaf -->
 **定義の確認**
 
-**定義の確認：二対象の矢印圏。** $\mathcal A$ は $0\overset{u}{\longrightarrow}1$ と各恒等射だけを持つ小さい圏とする。集合 $S,T$ と写像 $r:T\to S$ を選べば、$P(0)=S$、$P(1)=T$、$P(u)=r$ として前層を作れる。反変性のために $r$ の向きは $P(1)\to P(0)$ であり、$P(1_0)=1_S$、$P(1_1)=1_T$ と置く。非自明な射を二本連続して合成する場合は存在しないので、残る合成は単位律だけであり関手公理を満たす。二つの前層 $(S,T,r)$、$(S',T',r')$ の自然変換の成分は写像 $a:S\to S'$、$b:T\to T'$ である。射 $u:0\to1$ の自然性を $t\in T$ に適用すると、$a(P(u)(t))=P'(u)(b(t))$ となる。$P(u)=r$、$P'(u)=r'$ を代入した条件は
+**定義の確認：二対象の矢印圏。** $\mathcal A$ は $0\overset{u}{\longrightarrow}1$ と各恒等射だけを持つ小さい圏とする。集合 $S,T$ と写像 $r:T\to S$ を選べば、$P(0)=S$、$P(1)=T$、$P(u)=r$ として前層を作れる。反変性のために $r$ の向きは $P(1)\to P(0)$ であり、$P(1_0)=1_S$、$P(1_1)=1_T$ と置く。非自明な射を二本連続して合成する場合は存在しないので、残る合成は単位律だけであり関手公理を満たす。
+
+二つの前層 $(S,T,r)$、$(S',T',r')$ の自然変換の成分は写像 $a:S\to S'$、$b:T\to T'$ である。射 $u:0\to1$ の自然性を任意の $t\in T$ に適用すると
+
+$
+a(P(u)(t))=P'(u)(b(t))
+$
+
+である。$P(u)=r$、$P'(u)=r'$ を代入した条件は
 
 $
 a\circ r=r'\circ b
