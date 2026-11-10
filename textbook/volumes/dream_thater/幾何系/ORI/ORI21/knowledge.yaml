@@ -1,0 +1,54 @@
+chapter: ORI21
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI20, ORI17]
+forward_references: []
+
+concepts:
+  - id: origami.inward-offset-wavefront
+    name: 等速内向き波面とイベント
+    kind: definition
+    introduction: formal
+    requires: [origami.one-cut-pattern]
+
+  - id: origami.convex-wavefront-offset
+    name: 凸多角形の等速移動
+    kind: proposition
+    introduction: formal
+    requires: [origami.inward-offset-wavefront]
+
+  - id: origami.straight-skeleton
+    name: 直線骨格
+    kind: definition
+    introduction: formal
+    requires: [origami.inward-offset-wavefront]
+
+  - id: origami.wavefront-angle-bisector
+    name: 二辺の波面交点は角二等分線上にある
+    kind: proposition
+    introduction: formal
+    requires: [origami.straight-skeleton]
+
+  - id: origami.rectangle-skeleton
+    name: 長方形の直線骨格
+    kind: proposition
+    introduction: formal
+    requires: [origami.convex-wavefront-offset, origami.straight-skeleton]
+
+  - id: origami.local-bisector-alignment
+    name: 角二等分線による局所的な辺の位置合わせ
+    kind: proposition
+    introduction: formal
+    requires: [origami.wavefront-angle-bisector, origami.reflection-isometry]
+
+  - id: origami.perpendicular-foot
+    name: 垂足の条件
+    kind: proposition
+    introduction: formal
+    requires: [origami.straight-skeleton]
+
+  - id: origami.straight-skeleton-fold-cut
+    name: fold-and-one-cut の一般存在定理
+    kind: theorem
+    introduction: formal
+    requires: [origami.straight-skeleton, origami.cut-preimage-criterion, origami.overlap-cell-precedence-graph]

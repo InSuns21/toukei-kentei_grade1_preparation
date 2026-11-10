@@ -26,7 +26,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht19-bifurcation-surface -->
-**定義の確認**：平坦時空のboost場 $\chi=\alpha(X\partial_T+T\partial_X)$ で $\alpha>0$ とする。$H^\pm=\{T=\pm X\}$ はそれぞれ零超曲面であり、その交わりは $B=\{T=X=0\}$。両法線 $d(T-X)$ と $d(T+X)$ は独立で、$B$ の誘導計量は $dY^2+dZ^2$ で正定値です。$\chi$ の二成分も $B$ で零になり、定義の各条件を満たします。
+**定義の確認**：平坦時空 $ds^2=-dT^2+dX^2+dY^2+dZ^2$ のboost場 $\chi=\alpha(X\partial_T+T\partial_X)$ で $\alpha>0$ とする。$H^\pm=\{T=\pm X\}$ の定義関数を $F_+=T-X$、$F_-=T+X$ と書くと、どちらも
+
+$$
+g^{ab}(\partial_aF_\pm)(\partial_bF_\pm)=-1+1=0
+$$
+
+を満たすので零超曲面です。boost場がKilling場であることも、$\chi_T=-\alpha X$、$\chi_X=\alpha T$ から $\partial_T\chi_X+\partial_X\chi_T=\alpha-\alpha=0$（他の対称微分成分も零）で確かめられます。さらに
+
+$$
+\chi(F_+)=\alpha(X-T),\qquad
+\chi(F_-)=\alpha(X+T),\qquad
+g(\chi,\chi)=\alpha^2(T^2-X^2)
+$$
+
+なので、$\chi$ は対応する各 $H^\pm$ に接し、その上で零ベクトルまたは零方向のベクトルになります。二面の交わりは $B=\{T=X=0\}$ で、法線 $dF_+$ と $dF_-$ は独立、誘導計量 $dY^2+dZ^2$ は正定値です。最後に $\chi|_B=0$ だから、定義の各条件を確認できました。
 <!-- definition-example-end -->
 
 面 $B$ 上の二つの独立な単位法線を、未来向き時間的 $u^a$ と外向き空間的 $n^a$ とし、$u\cdot u=-1$、$n\cdot n=1$、$u\cdot n=0$ とします。反対称な**双法線**を
@@ -38,6 +52,8 @@ $$
 $$
 
 で定めます。$B$ の誘導計量を $q_{ab}=g_{ab}+u_au_b-n_an_b$、面積要素を $dA=\sqrt{\det q_{ij}}\,d^2x$ とし、面の向きを $\hat\epsilon_{ab}$ と時空体積形式に整合させます。双法線の全体符号を逆にすると、Noether電荷の向きも同時に変わるため、片方だけ変えてはいけません。
+
+$B$ に接するベクトル $v^a$ に沿っては $\chi|_B=0$ を微分して $v^a\nabla_a\chi^b=0$ です。またKilling方程式 $\nabla_a\chi_b+\nabla_b\chi_a=0$ により、接方向の添字がもう一方にあっても零になります。従って $\nabla_a\chi_b|_B$ は法線2次元平面だけに成分を持つ反対称形式であり、その平面上の反対称2形式は $n_au_b-u_an_b$ のスカラー倍に限られます。生成場と向きを規格化し、非極限の場合のこの係数を正の表面重力 $\kappa$ として読みます。
 
 <a id="def-bht19-bifurcation-data"></a>
 
@@ -54,7 +70,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht19-bifurcation-data -->
-**定義の確認**（平坦時空のboost）：$ds^2=-dT^2+dX^2+dY^2+dZ^2$ で、$B=\{T=X=0\}$ の有限な $Y,Z$ 面片を考えます。$\chi=\kappa(X\partial_T+T\partial_X)$、$u=\partial_T$、$n=\partial_X$ とすると $\chi|_B=0$ です。$u_T=-1,n_X=1$ より $\hat\epsilon_{TX}=n_Tu_X-u_Tn_X=1$。一方、$\chi_T=-\kappa X,\chi_X=\kappa T$ なので $\nabla_T\chi_X=\kappa$、$\nabla_X\chi_T=-\kappa$。従って $\nabla_a\chi_b=\kappa\hat\epsilon_{ab}$、また $\hat\epsilon_{TX}\hat\epsilon^{TX}=-1$ から総縮約は $-2$ です。これはRindler地平線の局所模型であり、平坦時空に有限質量のブラックホールがあるという例ではありません。
+**定義の確認**（平坦時空のboost）：$ds^2=-dT^2+dX^2+dY^2+dZ^2$ で、$B=\{T=X=0\}$ の有限な $Y,Z$ 面片を考えます。$\chi=\kappa(X\partial_T+T\partial_X)$、$u=\partial_T$、$n=\partial_X$ とすると、まず $\chi|_B=0$ です。計量で法線を下げると $u_T=-1$、$n_X=1$ なので
+
+$$
+\hat\epsilon_{TX}=n_Tu_X-u_Tn_X=1,
+\qquad \hat\epsilon_{XT}=-1.
+$$
+
+一方、$\chi_T=-\kappa X$、$\chi_X=\kappa T$ で、平坦座標では接続係数が零です。従って
+
+$$
+\nabla_T\chi_X=\partial_T(\kappa T)=\kappa,
+\qquad
+\nabla_X\chi_T=\partial_X(-\kappa X)=-\kappa.
+$$
+
+他の成分は零なので $\nabla_a\chi_b=\kappa\hat\epsilon_{ab}$。また $\hat\epsilon^{TX}=-1$、$\hat\epsilon^{XT}=1$ から
+
+$$
+\hat\epsilon_{ab}\hat\epsilon^{ab}
+=1(-1)+(-1)(1)=-2
+$$
+
+です。これはRindler地平線の局所模型であり、平坦時空に有限質量のブラックホールがあるという例ではありません。
 <!-- definition-example-end -->
 
 分岐面では $\chi=0$ ですが、$\nabla\chi$ は一般に零ではありません。だから[Einstein重力のKomar型電荷](../BHT18/index.md#prop-bht18-einstein-q)は、分岐面でも面積に比例する非零の積分を持ちます。
@@ -170,7 +208,14 @@ $$
 =\left.\delta\Gamma^b{}_{ac}\chi^c+\nabla_a(\delta\chi^b)\right|_B=0.
 $$
 
-$p,q=0,1$ を法線方向、$i,j=2,3$ を接方向とし、背景の点で計量を二つのブロックに直交分解します。$\nabla_p\chi^q$ は法線面のboost生成子で、向きを選んだ直交フレームでは行列
+$p,q=0,1$ を法線方向、$i,j=2,3$ を接方向とし、背景の点で計量を二つのブロックに直交分解します。$K_p{}^q:=\nabla_p\chi^q$ は、ベクトル場の成分 $\chi^q$ を法線方向 $x^p$ に沿って共変微分した線形写像の成分です。前節の平坦boostでは、分岐面上で接続係数が零なので
+
+$$
+K_T{}^X=\partial_T(\kappa T)=\kappa,\qquad
+K_X{}^T=\partial_X(\kappa X)=\kappa
+$$
+
+で、他の法線成分は零でした。一般の分岐面でも、$\nabla\chi=\kappa\hat\epsilon$ と法線直交フレームの選択から同じ形になり、行列は
 
 $$
 K_p{}^q=\kappa
@@ -444,7 +489,7 @@ $$
 =\frac{A}{4G}.
 $$
 
-二つの計算が一致します。量子論で[Hawking温度](../BHT9/index.md#thm-bht9-area-difference)を同定すると、$T_H=\kappa/(2\pi)$ ですから $\delta M=T_H\delta S_W+\Omega_H\delta J$ と読めます。ただしここでのNoether電荷計算そのものは古典的作用の計算であり、放射の量子論を再証明したわけではありません。
+二つの計算が一致します。量子論で[Hawking温度のKilling規格化](../BHT8/index.md#prop-bht8-normalization)を同定すると、$T_H=\kappa/(2\pi)$ ですから $\delta M=T_H\delta S_W+\Omega_H\delta J$ と読めます。ただしここでのNoether電荷計算そのものは古典的作用の計算であり、放射の量子論を再証明したわけではありません。
 
 ## 6. 演習――生成場を固定して計算する
 
