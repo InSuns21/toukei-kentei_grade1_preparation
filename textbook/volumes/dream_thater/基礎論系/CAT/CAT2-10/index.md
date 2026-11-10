@@ -257,7 +257,25 @@ $$
 
 したがって[随伴の定義](../CAT2-08/index.md#def-cat2-08-adjunction)により $F\dashv G$ である。
 
-**1から2へ。** 既に $F\dashv G$ があれば、その[単位](../CAT2-09/index.md#def-cat2-09-unit)を $\eta_c:c\to GFc$ とする。任意の $f:c\to Gd$ に対し、[逆転置公式](../CAT2-09/index.md#prop-cat2-09-transpose)により $h=\Phi_{c,d}^{-1}(f):Fc\to d$ が存在し、$\Phi_{c,d}(h)=Gh\,\eta_c=f$。もし $h'$ も同じ条件を満たすなら $\Phi_{c,d}(h')=f$ なので全単射の単射性から $h'=h$。よって $(Fc,\eta_c)$ は普遍射である。$\square$
+**1から2へ。** 既に $F\dashv G$ があれば、その[単位](../CAT2-09/index.md#def-cat2-09-unit)を $\eta_c:c\to GFc$ とする。任意の射 $f:c\to Gd$ に対し、[逆転置公式](../CAT2-09/index.md#prop-cat2-09-transpose)を適用する。まず
+
+$$
+h:=\Phi_{c,d}^{-1}(f):Fc\to d
+$$
+
+が存在し、転置公式へ代入すると
+
+$$
+\Phi_{c,d}(h)=G(h)\eta_c=f
+$$
+
+となる。別の射 $h':Fc\to d$ も $G(h')\eta_c=f$ を満たすなら、
+
+$$
+\Phi_{c,d}(h')=f=\Phi_{c,d}(h)
+$$
+
+だから、全単射の単射性から $h'=h$。従って $(Fc,\eta_c)$ は普遍射である。$\square$
 <!-- proof-end -->
 
 同じ式 $G(Fu)\eta_c=\eta_{c'}u$ は、**関手 $F$ の構成**でも**単位の自然性**でもあった。普遍射は単なる存在する対象ではなく、変数 $c$ に沿って整合する構造を強制しているのである。
