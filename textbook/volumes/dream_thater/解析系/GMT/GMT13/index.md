@@ -25,11 +25,11 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（可算双Lipschitz片への分割）**
-> $E\subset\mathbb R^d$ が $\mathcal H^m$-可測かつ可算 $m$-整流可能ならば、互いに素な Borel 集合 $E_i\subset\mathbb R^d$ と、Borel 集合 $A_i\subset\mathbb R^m$ への双Lipschitzな写像 $\phi_i:A_i\to E_i$ が可算個存在し、
+> $E\subset\mathbb R^d$ が $\mathcal H^m$-可測かつ可算 $m$-整流可能ならば、互いに素な Borel 集合 $E_i\subset E$ と、Borel 集合 $A_i\subset\mathbb R^m$ から $E_i$ への双Lipschitz写像 $\phi_i:A_i\to E_i$ が可算個存在し、
 $$
 \mathcal H^m\left(E\setminus\bigcup_iE_i\right)=0
 $$
-> となる。$E$ 自体が Borel でない場合も、$E$ を零集合を除いた Borel 代表へ置き換えて同じ結論を得る。各 $\phi_i$ は $\mathbb R^m$ 上の Lipschitz 写像の制限として取れる。
+> となる。$E$ 自体が Borel でない場合も、$E$ に含まれる Borel 集合で差が零測度となるものを選べる。各 $\phi_i$ は $\mathbb R^m$ 上の Lipschitz 写像の制限として取れる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -59,14 +59,37 @@ $$
 
 各部分を Lebesgue 零集合を除いて可算枚のコンパクト集合へ縮めます。この操作とその像で失うのは、上記の[零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)により $\mathcal H^m$-零集合だけです。コンパクト像は Borel であり、順に先行する像を差し引くと互いに素な Borel 像片ができます。対応するパラメータ集合も Borel で、双Lipschitz性を保持します。
 
-$E$ が Borel なら各像片をさらに $E$ と交わらせます。一般の $\mathcal H^m$-可測な $E$ は [GMT12の$\sigma$有限性](../GMT12/index.md#prop-gmt12-stability)と Hausdorff 測度の正則性により零集合を除いた Borel 代表を持つため、同じ議論ができます。$\square$
+最後に、像片を $E$ の **内側 Borel 代表**と交わらせます。まず [GMT12の$\sigma$有限性](../GMT12/index.md#prop-gmt12-stability)により、$E$ を有限 $\mathcal H^m$ 測度の可測片 $E^{(k)}$ に可算分割します。
+
+[MT8のHausdorff被覆による構成](../../MT/MT8/index.md#def-mt8-hausdorff-measure)で被覆集合をわずかに開近傍へ広げれば、各 $E^{(k)}$ には同じ測度を持つ Borel 外側代表 $G_k\supset E^{(k)}$ が存在します。
+
+差 $G_k\setminus E^{(k)}$ は零測度です。これを含む Borel 零集合 $N_k$ を選べば、$G_k\setminus N_k\subset E^{(k)}$ は Borel 内側代表です。これらの和を $E_{\mathrm B}$ と置くと
+$$
+E_{\mathrm B}\subset E,\qquad
+\mathcal H^m(E\setminus E_{\mathrm B})=0
+$$
+となります。
+
+各コンパクト像から先行する像を差し引き、さらに $E_{\mathrm B}$ と交わらせたものを $E_i$ とします。逆像 $A_i$ も Borel で、制限後も双Lipschitz性を保ちます。
+
+特に $E_i\subset E$ なので、後で $F:E\to\mathbb R^n$ をこれらの片へ制限できます。$\square$
 <!-- proof-end -->
 
 この分割により、集合を「一回だけ」数える準備ができました。なお元の $h_j$ は像同士が重なってもよく、重なりが公式でどのように処理されるかは後で区別します。
 
 ## 2. 接方向と接Jacobianをどう定義するか
 
-例えば $\phi(t)=(t,t^2)$ で表される放物線では、$\phi'(t)=(1,2t)$ の張る直線が接方向です。一般のパラメータ表示 $\phi:A\subset\mathbb R^m\to\mathbb R^d$ でも、微分行列の列が張る $m$ 次元部分空間を考えます。ここで $A$ は開集合とは限りません。$A$ の Lebesgue 密度1の点では、$A$ 上の値から一次近似の微分が一意に定まります。
+例えば $\phi(t)=(t,t^2)$ で表される放物線では、パラメータ $t$ で微分した $\phi'(t)=d\phi/dt=(1,2t)$ の張る直線が接方向です。
+
+一変数の全微分 $D\phi(t)$ は、スカラー増分 $v\in\mathbb R$ に $v\phi'(t)$ を対応させる線形写像です。以下の $D\phi$ もこの全微分を表し、[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)に従います。
+
+一般の表示 $\phi:A\subset\mathbb R^m\to\mathbb R^d$ では、標準基底 $e_j$ の像 $D\phi(a)e_j$ が行列の第 $j$ 列です。これらの列が張る $m$ 次元部分空間を接方向として考えます。
+
+ここで $A$ は開集合とは限りません。$a$ が $A$ の **Lebesgue 密度1の点**とは、球 $B(a,r)$ に占める $A$ の割合が
+$$
+\lim_{r\downarrow0}\frac{\mathcal L^m(A\cap B(a,r))}{\mathcal L^m(B(a,r))}=1
+$$
+となることです（[HA1の密度定理](../../HA/HA1/index.md#cor-ha1-density)）。この点では $A$ 上の値から一次近似の微分が一意に定まります。
 
 **密度1と微分の準備**：$A\subset\mathbb R^m$ が Borel で $a$ が $A$ の密度1の点なら、任意の方向 $v$ と $t_k\downarrow0$ に対し、$a_k\in A$ を選んで $(a_k-a)/t_k\to v$ とできます。実際、$B(a+t_kv,\epsilon t_k)$ がすべて $A$ と交わらないなら $a$ の近傍内の $A$ の欠損割合は $\epsilon$ に応じた正の下界を持ち、密度1に反します。$\epsilon\downarrow0$ を使えば主張が従います。この事実により、$A$ 上で等しい二つの Lipschitz 拡張の微分は密度1の点で一致します。
 
@@ -120,7 +143,17 @@ $$
 
 **定義の確認**：双Lipschitzな表示の微分を接方向の正規直交基底へ変換し、接微分が線形かつその Gram 行列式から Jacobian を計算できることを確かめます。
 
-先ほどの $E=\{(t,2t):-1\le t\le1\}$ と $F(x,y)=x$ を用います。$u=(1,2)/\sqrt5$ は接方向の単位ベクトルで、$D^EF(u)=1/\sqrt5$ です。従って $C$ は $1\times1$ 行列 $(1/\sqrt5)$、
+先ほどの $E=\{(t,2t):-1\le t\le1\}$ と $F(x,y)=x$ を用います。$\phi(t)=(t,2t)$ の微分は $D\phi(t)v=v(1,2)$、合成は $(F\circ\phi)(t)=t$ なので $D(F\circ\phi)(t)v=v$ です。接方向の単位ベクトルを $u=(1,2)/\sqrt5$ とすると
+$$
+D\phi(t)(1/\sqrt5)=u,\qquad
+D^EF(u)=D(F\circ\phi)(t)(1/\sqrt5)=1/\sqrt5.
+$$
+
+ここでは接方向の単位ベクトル $u$ を作るパラメータ増分 $1/\sqrt5$ を先に求め、[接微分の定義](#def-gmt13-tangential-jacobian)に代入しました。
+
+$T_xE$ は1次元なので、単位ベクトル $u$ に対する像で線形写像 $D^EF$ が決まります。正規直交基底 $(u)$ の像を列に持つ $C$ は $1\times1$ 行列 $(1/\sqrt5)$ です。
+
+よって [Gram行列式によるJacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)から
 
 $$
 J^E_1F=\sqrt{C^{\mathsf T}C}=\frac1{\sqrt5}.
@@ -205,7 +238,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$U$ を $d\times m$ 行列とし、$U^{\mathsf T}U=I_m$、$\operatorname{im}U=T_{\phi(a)}E$ とします。$B=U^{\mathsf T}D\phi(a)$ と置くと $D\phi(a)=UB$ です。rank が $m$ なので $B$ は可逆で、
+$U$ を接平面の正規直交基底を列とする $d\times m$ 行列とし、$U^{\mathsf T}U=I_m$、$\operatorname{im}U=T_{\phi(a)}E$ とします。$B=U^{\mathsf T}D\phi(a)$ と置きます。$UU^{\mathsf T}$ は接平面への直交射影で、$D\phi(a)$ の各列は接平面に入るため
+$$
+UB=UU^{\mathsf T}D\phi(a)=D\phi(a)
+$$
+です。rank が $m$ なので、$B$ は $m$ 次正方行列かつ可逆で、
 
 $$
 (D\phi)^{\mathsf T}D\phi
@@ -255,9 +292,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-最初に $g$ を非負 Borel 関数として証明します。$E$ が Borel でない場合は零測度部分を除いた Borel 代表を使い、最後に $\mathcal H^m$ の完備化で元の集合へ戻します。
+まず $E$ と非負関数 $g$ がともに Borel 可測な場合を示します。一般の $\mathcal H^m$-可測な $E$ は第1節の内側 Borel 代表 $E_{\mathrm B}\subset E$ に制限して議論でき、残余 $E\setminus E_{\mathrm B}$ の測度が零であることと、その Lipschitz 像も零測度であることを最後に使います。
 
-[分割補題](#lem-gmt13-bilipschitz-pieces)によって互いに素な $E_i=\phi_i(A_i)$ を取り、$E\setminus\bigcup_iE_i$ は $\mathcal H^m$-零とします。$\phi_i$ は全空間の Lipschitz 写像の制限です。$F\circ\phi_i$ は $A_i$ 上で Lipschitz で、座標ごとに例えば
+[分割補題](#lem-gmt13-bilipschitz-pieces)によって互いに素な $E_i=\phi_i(A_i)$ を取り、$E\setminus\bigcup_iE_i$ は $\mathcal H^m$-零とします。$\phi_i$ は全空間の Lipschitz 写像の制限です。$F\circ\phi_i$ は $A_i$ 上で Lipschitz で、出力座標 $k=1,\dots,n$ ごとに例えば
 
 $$
 \widetilde F_{i,k}(u)=\inf_{a\in A_i}
@@ -297,7 +334,17 @@ $$
 
 ## 6. 滑らかな曲面積分と重なりの具体計算
 
-グラフ $S=\{(u,h(u)):u\in U\}\subset\mathbb R^{m+k}$（$U\subset\mathbb R^m$ は Borel、$h$ はその近傍で $C^1$）を考えます。局所的に $Dh$ が有界な領域へ切れば、$\Phi(u)=(u,h(u))$ は双Lipschitzです。$D\Phi$ の列は $(e_j,\partial_jh)$ なので、内積を並べると $I_m+(Dh)^{\mathsf T}Dh$ となります。
+グラフ $S=\{(u,h(u)):u\in U\}\subset\mathbb R^{m+k}$ を考えます。ここで $U\subset\mathbb R^m$ は Borel、$h$ はその開近傍で $C^1$ です。
+
+局所的に $Dh$ が有界な領域へ切れば、$\Phi(u)=(u,h(u))$ は双Lipschitzです。
+
+[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)により、$\partial_jh=\partial h/\partial u_j$ は他の座標を固定して $u_j$ で偏微分した列ベクトルです。従って
+$$
+D\Phi(u)e_j=(e_j,\partial_jh(u))
+$$
+です。
+
+列どうしの内積は $\delta_{ij}+\langle\partial_ih,\partial_jh\rangle$ となるため、Gram 行列は $I_m+(Dh)^{\mathsf T}Dh$ です。
 
 <a id="cor-gmt13-c1-change"></a>
 
@@ -330,7 +377,7 @@ $$
 
 ### 傾いた平面の射影と非正規化係数
 
-$S=\{(u,v,au+bv):(u,v)\in[0,1]^2\}\subset\mathbb R^3$ を $F(x,y,z)=(x,y)$ で射影します。$\Phi(u,v)=(u,v,au+bv)$ に対し
+実定数 $a,b$ を固定し、$S=\{(u,v,au+bv):(u,v)\in[0,1]^2\}\subset\mathbb R^3$ を $F(x,y,z)=(x,y)$ で射影します。$\Phi(u,v)=(u,v,au+bv)$ に対し
 
 $$
 J_2\Phi=\sqrt{\det\begin{pmatrix}1+a^2&ab\\ab&1+b^2\end{pmatrix}}
@@ -377,7 +424,13 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\phi(t)=(t,3t)$ は $D\phi=(1,3)^{\mathsf T}$、$J_1\phi=\sqrt{10}$ です。内部の点で接方向は $\operatorname{span}(1,3)$、単位方向 $u=(1,3)/\sqrt{10}$ へ $D^SF$ を作用させると $1/\sqrt{10}$ なので、[接微分と接Jacobian](#def-gmt13-tangential-jacobian)の定義から $J^S_1F=1/\sqrt{10}$ です。$\mathcal H^1(S)=2\sqrt{10}$ だから積分は $2$ です。$F(S)=[0,2]$ で重複度 $1$、右辺も $2$ です。
+$\phi(t)=(t,3t)$ の微分列は $D\phi=(1,3)^{\mathsf T}$ で、$J_1\phi=\sqrt{1+9}=\sqrt{10}$ です。内部では接方向が $\operatorname{span}(1,3)$、その単位ベクトルは $u=(1,3)/\sqrt{10}=D\phi(t)(1/\sqrt{10})$ です。$(F\circ\phi)(t)=t$ なので、[接微分と接Jacobian](#def-gmt13-tangential-jacobian)の定義から
+$$
+D^SF(u)=D(F\circ\phi)(t)(1/\sqrt{10})=\frac1{\sqrt{10}},
+\qquad J^S_1F=\frac1{\sqrt{10}}.
+$$
+
+線分の $\mathcal H^1$-長さは $2\sqrt{10}$ であるため、左辺は $(1/\sqrt{10})(2\sqrt{10})=2$ です。像 $F(S)=[0,2]$ 上の重複度は $1$ なので、右辺も $\int_0^2 1\,dy=2$ となります。
 <!-- solution-end -->
 
 <a id="ex-gmt13-a2"></a>
@@ -454,7 +507,17 @@ $Z$ は可算集合なので $\mathcal H^1(Z)=0$、$F(Z)=\mathbb Q\cap[0,1]$ も
 <!-- solution-start -->
 **詳細解答**
 
-$D\phi=(1,2)^{\mathsf T}$、$D\psi=(2,4)^{\mathsf T}=2D\phi$ なので、両方の像は $\operatorname{span}(1,2)$ です。$F\circ\phi(t)=-t$ から導関数は $-1$、$F\circ\psi(s)=-2s$ から導関数は $-2$ です。一つの接方向のベクトル $v=\alpha(1,2)$ は $D\phi(\alpha)$ とも $D\psi(\alpha/2)$ とも表せるので、両表示の[接微分と接Jacobian](#def-gmt13-tangential-jacobian)の定義から $D^SF(v)=-\alpha=(-2)(\alpha/2)$ です。よって接Jacobianも $1/\sqrt5$ と一致します。
+$D\phi=(1,2)^{\mathsf T}$、$D\psi=(2,4)^{\mathsf T}=2D\phi$ なので、両方の接方向は $\operatorname{span}(1,2)$ です。$F\circ\phi(t)=-t$ の導関数は $-1$、$F\circ\psi(s)=-2s$ の導関数は $-2$ です。接方向の任意の $v=\alpha(1,2)$ は
+$$
+v=D\phi(\alpha)=D\psi(\alpha/2).
+$$
+
+従って [接微分の定義](#def-gmt13-tangential-jacobian)にそれぞれ代入すると
+$$
+D^SF(v)=(-1)\alpha=(-2)(\alpha/2)=-\alpha.
+$$
+
+特に単位ベクトル $u=(1,2)/\sqrt5$ に対する像は $-1/\sqrt5$ なので、両表示の接Jacobianは $\sqrt{(-1/\sqrt5)^2}=1/\sqrt5$ と一致します。
 <!-- solution-end -->
 
 <a id="ex-gmt13-b2"></a>
@@ -466,7 +529,7 @@ $D\phi=(1,2)^{\mathsf T}$、$D\psi=(2,4)^{\mathsf T}=2D\phi$ なので、両方�
 <!-- solution-start -->
 **詳細解答**
 
-$\Phi(u,v)=(u,v,h(u,v))$ とすると
+$h_u=\partial h/\partial u$、$h_v=\partial h/\partial v$（それぞれ他方の変数を固定）と置き、$\Phi(u,v)=(u,v,h(u,v))$ とすると
 
 $$
 D\Phi=\begin{pmatrix}1&0\\0&1\\h_u&h_v\end{pmatrix},\quad
