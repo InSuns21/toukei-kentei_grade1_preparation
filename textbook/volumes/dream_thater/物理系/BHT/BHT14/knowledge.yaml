@@ -1,0 +1,55 @@
+chapter: BHT14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT13
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.euclidean-saddle-weight
+    name: 半古典サドル寄与と熱力学微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半古典サドル寄与と熱力学微分）"]
+    requires: [black-hole-thermodynamics.euclidean-gravity-action, black-hole-thermodynamics.euclidean-dirichlet-data]
+
+  - id: black-hole-thermodynamics.schwarzschild-relative-on-shell-action
+    name: Schwarzschildの相対on-shell作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschildの相対on-shell作用）"]
+    requires: [black-hole-thermodynamics.matched-background-subtraction, black-hole-thermodynamics.schwarzschild-flat-reference]
+
+  - id: black-hole-thermodynamics.euclidean-saddle-thermodynamic-potentials
+    name: Schwarzschildサドルの自由エネルギー・エネルギー・エントロピー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schwarzschildサドルの自由エネルギー・エネルギー・エントロピー）"]
+    requires: [black-hole-thermodynamics.euclidean-saddle-weight, black-hole-thermodynamics.schwarzschild-relative-on-shell-action]
+
+  - id: black-hole-thermodynamics.wall-thermodynamic-derivative
+    name: 有限壁での熱力学微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限壁での熱力学微分）"]
+    requires: [black-hole-thermodynamics.schwarzschild-relative-on-shell-action, black-hole-thermodynamics.euclidean-saddle-weight]
+
+  - id: black-hole-thermodynamics.conical-reduced-action
+    name: 有限壁の縮約円錐作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限壁の縮約円錐作用）"]
+    requires: [black-hole-thermodynamics.nonextremal-euclidean-period, black-hole-thermodynamics.wall-thermodynamic-derivative]
+
+  - id: black-hole-thermodynamics.conical-reduced-hessian
+    name: 円錐縮約作用の停留点と二階変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円錐縮約作用の停留点と二階変分）"]
+    requires: [black-hole-thermodynamics.conical-reduced-action]
+
+  - id: black-hole-thermodynamics.thermal-flat-relative-weight
+    name: 有限壁の相対サドル重み
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限壁の相対サドル重み）"]
+    requires: [black-hole-thermodynamics.schwarzschild-relative-on-shell-action]
