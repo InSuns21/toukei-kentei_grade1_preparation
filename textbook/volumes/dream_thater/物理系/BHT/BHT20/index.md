@@ -8,7 +8,7 @@
 
 ## 1. 面積だけでは決まらなくなる最小模型
 
-Einstein–Hilbert作用のスカラー $L=R/(16\pi G)$ を、滑らかな実関数 $f$ により $L=f(R)/(16\pi G)$ に置き換えてみます。$f$ はある曲率の値を入力して作用の密度を返し、$f'(R)$ はその値を変えたときの傾きを表します。微分時に保持するのは計量であり、$R_{abcd}$ はその添字対称性を満たす曲率変数です。
+Einstein–Hilbert作用のスカラー $L=R/(16\pi G)$ を、滑らかな実関数 $f$ により $L=f(R)/(16\pi G)$ に置き換えてみます。$f$ はある曲率の値を入力して作用のスカラー部分を定め、$f'(R)$ はその値を変えたときの傾きを表します。ここで $f'(R)=df/dR$ は実変数 $R$ に関する一変数微分です。Wald公式の曲率微分では計量 $g_{ab}$ を固定し、$R_{abcd}$ をその添字対称性を満たす形式的な曲率変数として動かします。一方、第2節の場の方程式では計量そのものを動かすため、両者の変分を区別します。
 
 <a id="def-bht20-fr-model"></a>
 
@@ -24,10 +24,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht20-fr-model -->
-**定義の確認**：$f(R)=R+\alpha R^2-2\Lambda$ を選びます。$\alpha$ は長さの二乗、$\Lambda$ は長さの逆二乗の次元を持ち、三項とも $R$ と同じ次元です。$f(0)=-2\Lambda$、$f'(R)=1+2\alpha R$、$f''(R)=2\alpha$ は通常の一変数微分で得られます。$\alpha=0$ なら宇宙項付きEinstein作用に戻ります。$R=0$ では二乗項は作用の値だけでなく一次曲率微分への寄与も零です。
+**定義の確認**：実定数 $\alpha,\Lambda$ に対し $f(R)=R+\alpha R^2-2\Lambda$ を選びます。これは実数 $R$ の多項式なので必要な階数の微分が存在します。$\alpha$ は長さの二乗、$\Lambda$ は長さの逆二乗の次元を持ち、三項とも $R$ と同じ次元です。滑らかなLorentz計量から曲率を $R=g^{ac}g^{bd}R_{abcd}$ と縮約し、この多項式を代入すると、定義どおり
+
+$$
+I_f[g]=\frac{1}{16\pi G}\int_M
+(R+\alpha R^2-2\Lambda)\sqrt{-g}\,d^4x
+$$
+
+を得ます。非コンパクトな領域では作用の積分や境界項について別途条件を課し、内部にコンパクト台を持つ計量変分なら境界寄与は零になります。曲率値について $f(0)=-2\Lambda$、$f'(R)=1+2\alpha R$、$f''(R)=2\alpha$ は通常の一変数微分で得られます。$\alpha=0$ なら宇宙項付きEinstein作用に戻ります。$R=0$ では二乗項は作用の値だけでなく一次曲率微分への寄与も零です。これらは定義の作用と微分可能性の検査であり、選んだ計量が場の方程式を満たすかは第2節で別に確認します。
 <!-- definition-example-end -->
 
-作用には体積形式が掛かっていますが、[Wald公式](../BHT19/index.md#def-bht19-wald-entropy)が微分するのはスカラー $L$ であり、$\sqrt{-g}L$ ではありません。まず計量を固定し、曲率だけを微小に変えて係数を取り出します。
+作用には体積形式が掛かっていますが、[Wald公式](../BHT19/index.md#def-bht19-wald-entropy)が微分するのはスカラー $L$ であり、$\sqrt{-g}L$ ではありません。以下の $\delta_R$ は計量を固定して曲率変数だけを微小に動かす操作で、第2節の $h^{ab}=\delta g^{ab}$ とは異なります。
 
 <a id="prop-bht20-fr-wald"></a>
 
@@ -68,7 +75,7 @@ $$
 (g^{ac}g^{bd}-g^{ad}g^{bc})\delta R_{abcd}.
 $$
 
-したがって曲率変分の係数は命題の $E_R^{abcd}$ です。分岐面の双法線は $\hat\epsilon_{ab}\hat\epsilon^{ab}=-2$ を満たし、
+したがって曲率変分の係数は命題の $E_R^{abcd}$ です。[分岐面の双法線の正規化](../BHT19/index.md#def-bht19-bifurcation-data)は $\hat\epsilon_{ab}\hat\epsilon^{ab}=-2$ を満たし、
 
 $$
 \begin{aligned}
@@ -105,14 +112,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（真空f(R)の場の方程式と定曲率条件）**
-> 4次元Lorentz計量 $g$ の作用 $I_f=(16\pi G)^{-1}\int_M f(R)\boldsymbol\epsilon$ を、境界項が消えるようなコンパクト台の逆計量変分で停留させる。$g$ は少なくとも4回、$f$ は少なくとも3回連続微分可能で、以下の微分と部分積分が許されるとする。真空の計量方程式は
+> 4次元Lorentz計量 $g$ の作用 $I_f=(16\pi G)^{-1}\int_M f(R)\boldsymbol\epsilon$ を、境界項が消えるようなコンパクト台の逆計量変分で停留させる。$g$ は少なくとも4回、$f$ は少なくとも3回連続微分可能で、以下の微分と部分積分が許されるとする。ここで $f'(R)=df/dR$、$\Box=g^{ab}\nabla_a\nabla_b$ はスカラーに作用する時空の波動演算子とする。真空の計量方程式は
 
 $$
 f'(R)R_{ab}-\frac12f(R)g_{ab}
 +(g_{ab}\Box-\nabla_a\nabla_b)f'(R)=0
 $$
 
-> である。ここで $\Box=g^{ab}\nabla_a\nabla_b$。$R=R_0$ が時空全体で一定なら必要条件は
+> である。$R=R_0$ が時空全体で一定なら必要条件は
 
 $$
 f'(R_0)R_0-2f(R_0)=0.
@@ -128,15 +135,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-逆計量の摂動を $h^{ab}=\delta g^{ab}$ と書きます。行列式の変分とRicciスカラーの変分（[GR6の曲率規約](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)）は
+逆計量の摂動を $h^{ab}=\delta g^{ab}$ と書き、その跡を $h=g_{ab}h^{ab}$ とします。これは座標微分ではなく計量族の変分パラメータに関する微分です。[GR10の体積密度の変分](../../GR/GR10/index.md#prop-gr10-volume-variation)と[Palatini恒等式を用いた曲率変分](../../GR/GR10/index.md#thm-gr10-eh-variation)を、[GR6の曲率規約](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)のもとで使用します。
 
 $$
-\delta\sqrt{-g}=-\frac12\sqrt{-g}\,g_{ab}h^{ab},
-\qquad
-\delta R=R_{ab}h^{ab}+g_{ab}\Box h^{ab}-\nabla_a\nabla_bh^{ab}.
+\delta\sqrt{-g}=-\frac12\sqrt{-g}\,h,\qquad
+\delta R=R_{ab}h^{ab}+g^{ab}\delta R_{ab}.
 $$
 
-後者の微分項は $\delta R=R_{ab}h^{ab}+\nabla_cV^c$ と書け、$V^c=g_{ab}\nabla^ch^{ab}-\nabla_bh^{cb}$ です。変分を代入すると
+なぜ後者が発散になるかを添字で追うと、[Palatini恒等式](../../GR/GR10/index.md#lem-gr10-palatini)と $\nabla g=0$ により
+
+$$
+\begin{aligned}
+g^{ab}\delta R_{ab}
+&=g^{ab}(\nabla_c\delta\Gamma^c{}_{ab}
+-\nabla_b\delta\Gamma^c{}_{ac})\\
+&=\nabla_cV^c,\qquad
+V^c=\nabla^c h-\nabla_bh^{cb}.
+\end{aligned}
+$$
+
+従って $\nabla_cV^c=\Box h-\nabla_c\nabla_bh^{cb}$、すなわち $\delta R=R_{ab}h^{ab}+g_{ab}\Box h^{ab}-\nabla_a\nabla_bh^{ab}$ です。ここで $\Box h=\Box(g_{ab}h^{ab})=g_{ab}\Box h^{ab}$ は計量両立性によります。変分を代入すると
 
 $$
 16\pi G\,\delta I_f
@@ -314,7 +332,7 @@ $$
 \end{aligned}
 $$
 
-最後に $B$ で $\xi=0$ なら $\iota_\xi\boldsymbol\mu|_B=0$。加えて $\mathbf Q_\xi\mapsto\mathbf Q_\xi+d\mathbf Z_\xi$ の自由度は、閉じた $B$ 上のStokesの定理によって積分に寄与しません。
+最後に $B$ で $\xi=0$ なら $\iota_\xi\boldsymbol\mu|_B=0$。加えて $\mathbf Q_\xi\mapsto\mathbf Q_\xi+d\mathbf Z_\xi$ の自由度は、閉じた $B$ 上の[Stokesの定理](../../../幾何系/VC/VC5/index.md#thm-vc5-stokes)によって $\int_Bd\mathbf Z_\xi=\int_{\partial B}\mathbf Z_\xi=0$ となり、電荷積分に寄与しません。
 <!-- proof-end -->
 
 もう一つの自由度は $\boldsymbol\theta\mapsto\boldsymbol\theta+d\mathbf Y(g;\delta g)$ です。共変な $\mathbf Y$ は場の変分に線形で、Noether電荷の対応する変更には $\mathbf Y(g;\mathcal L_\xi g)$ が現れます。**定常Killing背景では $\mathcal L_\chi g=0$** なので、この項は消えます。しかし動的背景の $\mathcal L_\xi g\ne0$ では一般に消えず、異なる非平衡エントロピー候補が生じます。これをJacobson–Kang–Myers（JKM）型の曖昧さと呼びます。
@@ -325,12 +343,22 @@ $$
 
 動的な地平線では、そもそも分岐Killing面の前提が失われます。仮に $f(R)$ 公式と同じ積分をある時間依存切片へ**候補として**延長しても、古典的な[面積非減少則](../../GR/GR36/index.md#thm-gr36-smooth-area)だけからその候補の非減少は出ません。
 
-切片の面積要素を $dA(\lambda)$、生成線に沿うパラメータを $\lambda$、面積膨張率を $\theta=(d/d\lambda)\log dA$ とします。$f'(R)>0$ の場所では積の微分により
+滑らかな生成線をラベル $y=(y^1,y^2)$ で固定し、それに沿うパラメータを $\lambda$、接ベクトルを $k=\partial/\partial\lambda$ とします。切片の誘導計量を $q_{AB}(\lambda,y)$ と書くと、面積要素は $dA(\lambda,y)=\sqrt{\det q_{AB}(\lambda,y)}\,d^2y$ です。ここで $d/d\lambda$ は **$y$ を固定した生成線方向の微分**を表し、[GR36の面積密度輸送](../../GR/GR36/index.md#prop-gr36-area-transport)に従って $\theta=(d/d\lambda)\log\sqrt{\det q_{AB}}$ と置きます。$f'(R)>0$ の場所では連鎖律によって
 
 $$
+\frac{d}{d\lambda}f'(R(\lambda,y))
+=f''(R)k^a\nabla_aR
+$$
+
+です。面積要素の輸送 $\frac{d}{d\lambda}(dA)=\theta\,dA$ と合わせ、積の微分を展開すると
+
+$$
+\begin{aligned}
 \frac{d}{d\lambda}\{f'(R)dA\}
-=f'(R)dA\left[
+&=\left[f''(R)k^a\nabla_aR+f'(R)\theta\right]dA\\
+&=f'(R)dA\left[
 \theta+\frac{d}{d\lambda}\log f'(R)\right].
+\end{aligned}
 $$
 
 面積定理が $\theta\ge0$ を与えるとしても、括弧の第2項の符号は指定しません。例えば純粋に運動学的な比較用の関数として $dA=e^\lambda dA_0$、$f'(R)=e^{-2\lambda}$ を置けば、面積は増えるのに重み付き面積は $e^{-\lambda}dA_0$ へ減ります。**これは場の方程式を満たすブラックホールを構成した反例ではありません**。面積定理だけを根拠にした推論が成り立たないことを示す検査です。
