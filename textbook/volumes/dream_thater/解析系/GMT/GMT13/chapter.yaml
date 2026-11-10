@@ -1,0 +1,49 @@
+id: GMT13
+title: 整流可能集合上のarea formula
+volume: foundations
+status: supplementary
+prerequisites:
+  - RA4
+  - RA6
+  - MT8
+  - GMT9
+  - GMT10
+  - GMT11
+  - GMT12
+official_scope: []
+learning_objectives:
+  - 可算整流可能集合をHausdorff零集合を除き可算個の双Lipschitz片へ分割できる
+  - 局所パラメータ表示の微分像から接m平面を構成し重なり部分で一意性を証明できる
+  - 接微分と接Jacobianをパラメータ表示に依存せず定義しGram行列式で計算できる
+  - 整流可能集合の面積公式をGMT11の重み付き公式から導き重複度と非正規化係数を検算できる
+  - C1曲面の面積・射影・折り重なりを計算し滑らかな曲面積分との整合を説明できる
+  - 可算整流可能性だけから局所有限測度や集合全体の円錐密度条件を仮定できない理由を反例で示せる
+definitions:
+  - { id: GMT13-DEF-01, name: 整流可能集合の接m平面 }
+  - { id: GMT13-DEF-02, name: 接微分と接Jacobian }
+theorems:
+  - { id: GMT13-LEM-01, name: 可算双Lipschitz片への分割 }
+  - { id: GMT13-LEM-02, name: 接平面と接微分のパラメータ表示からの独立性 }
+  - { id: GMT13-LEM-03, name: 接Jacobianの連鎖式 }
+  - { id: GMT13-THM-01, name: 整流可能集合上のarea formula }
+  - { id: GMT13-COR-01, name: C1グラフの面積・変数変換 }
+canonical_examples:
+  - 直線と放物線の接方向・正射影の接Jacobian
+  - 傾いたC1グラフの射影面積におけるc_mの相殺
+  - 離れた二枚の曲面が同じ像へ折り重なる重複度
+  - 有理数高さの直線の可算和で局所有限性が失われる例
+problem_patterns:
+  - GMT13-LINE-PROJECTION
+  - GMT13-PARABOLA-TANGENT
+  - GMT13-TWO-SHEETS
+  - GMT13-CORNER-FOLD
+  - GMT13-NULL-ATTACHMENT
+  - GMT13-OVERLAP-UNIQUENESS
+  - GMT13-GRAPH-CHANGE
+  - GMT13-DENSE-LINES
+  - GMT13-CHAIN-IDENTITY
+  - GMT13-FOLDED-PARABOLAS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }

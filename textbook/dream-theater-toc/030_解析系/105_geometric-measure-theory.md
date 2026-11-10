@@ -13,3 +13,4 @@
 10. [GMT10 近似微分と幾何的Jacobian](textbook/volumes/dream_thater/解析系/GMT/GMT10/index.md)
 11. [GMT11 area formula：重複度と測度](textbook/volumes/dream_thater/解析系/GMT/GMT11/index.md)
 12. [GMT12 可算整流可能集合の定義と例](textbook/volumes/dream_thater/解析系/GMT/GMT12/index.md)
+13. [GMT13 整流可能集合上のarea formula](textbook/volumes/dream_thater/解析系/GMT/GMT13/index.md)

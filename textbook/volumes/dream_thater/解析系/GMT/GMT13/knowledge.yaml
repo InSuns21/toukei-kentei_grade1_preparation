@@ -1,0 +1,81 @@
+chapter: GMT13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+  - RA6
+  - MT8
+  - GMT9
+  - GMT10
+  - GMT11
+  - GMT12
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt13-bilipschitz-pieces
+    name: 可算双Lipschitz片への分割
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（可算双Lipschitz片への分割）"]
+    requires:
+      - geometric-measure.gmt12-countably-rectifiable
+      - geometric-measure.gmt11-critical-image
+      - geometric-measure.gmt11-area-formula
+
+  - id: geometric-measure.gmt13-tangent-plane
+    name: 整流可能集合の接m平面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整流可能集合の接m平面）"]
+    requires:
+      - geometric-measure.gmt13-bilipschitz-pieces
+      - geometric-measure.gmt9-rademacher
+
+  - id: geometric-measure.gmt13-tangential-jacobian
+    name: 接微分と接Jacobian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接微分と接Jacobian）"]
+    requires:
+      - geometric-measure.gmt13-tangent-plane
+      - geometric-measure.gmt10-geometric-jacobian
+
+  - id: geometric-measure.gmt13-chart-independence
+    name: 接平面と接微分のパラメータ表示からの独立性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（接平面と接微分のパラメータ表示からの独立性）"]
+    requires:
+      - geometric-measure.gmt13-tangent-plane
+      - geometric-measure.gmt13-tangential-jacobian
+      - harmonic.ha1-differentiation
+      - geometric-measure.gmt9-rademacher
+
+  - id: geometric-measure.gmt13-jacobian-chain
+    name: 接Jacobianの連鎖式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（接Jacobianの連鎖式）"]
+    requires:
+      - geometric-measure.gmt13-tangential-jacobian
+      - geometric-measure.gmt10-gram-invariance
+
+  - id: geometric-measure.gmt13-rectifiable-area
+    name: 整流可能集合上のarea formula
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（整流可能集合上のarea formula）"]
+    requires:
+      - geometric-measure.gmt13-bilipschitz-pieces
+      - geometric-measure.gmt13-chart-independence
+      - geometric-measure.gmt13-jacobian-chain
+      - geometric-measure.gmt11-weighted-area
+
+  - id: geometric-measure.gmt13-c1-change
+    name: C1グラフの面積・変数変換
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（C1グラフの面積・変数変換）"]
+    requires:
+      - geometric-measure.gmt13-rectifiable-area
+      - geometric-measure.gmt12-c1-graphs
