@@ -55,6 +55,8 @@ $$
 <!-- definition-example-start: def-gmt15-plane-density -->
 ### 直接例：一枚の直線と交差する二本の直線
 
+**定義の確認**：集合のBorel可測性、局所有限性、小球内の面積、上下密度が一致することを順に確かめます。
+
 $m=1,d=2$ とし、$E_1=\mathbb R\times\{0\}$、$E_2=E_1\cup(\{0\}\times\mathbb R)$ とします。どちらも Borel で、各有界球との交差の長さは有限です。$0$ を中心とした半径 $r$ の球内には、$E_1$ の場合は長さ $2r$、$E_2$ の場合は交差点の重複を除いて長さ $4r$ があります。従って
 
 $$
@@ -103,6 +105,8 @@ $$
 
 <!-- definition-example-start: def-gmt15-approximate-tangent -->
 ### 直接例：放物線の原点
+
+**定義の確認**：可算整流可能性と局所有限性を確かめ、正で有限な上下密度と、任意の円錐幅での外側面積の消失を別々に計算します。
 
 $P=\{(t,t^2):|t|\le1\}$、$x=(0,0)$、$V=\mathbb R\times\{0\}$ とします。[GMT12のグラフ整流可能性](../GMT12/index.md#prop-gmt12-c1-graphs)により $P$ は可算1整流可能です。[GMT11の曲線の面積公式](../GMT11/index.md#thm-gmt11-area-formula)で $\phi(t)=(t,t^2)$ の速度を計算すると
 
