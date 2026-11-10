@@ -1,0 +1,36 @@
+chapter: ORI14
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI13]
+forward_references: []
+
+concepts:
+  - id: origami.unassigned-single-vertex-local-flat-foldability
+    name: 山谷未指定の単頂点局所平坦折り可能性
+    kind: definition
+    introduction: formal
+    requires: [origami.crease-pattern-plane-graph, origami.piecewise-isometric-flat-placement, origami.local-layer-order]
+
+  - id: origami.alternating-angular-walk
+    name: 扇形像の交互角歩行
+    kind: proposition
+    introduction: formal
+    requires: [origami.seam-reflection-dichotomy, origami.unassigned-single-vertex-local-flat-foldability]
+
+  - id: origami.kawasaki-justin-theorem
+    name: Kawasaki–Justinの定理
+    kind: theorem
+    introduction: formal
+    requires: [origami.alternating-angular-walk, origami.even-vertex-valence]
+
+  - id: origami.minimum-even-prefix-rotation
+    name: 偶数番目の最小和から始める
+    kind: lemma
+    introduction: formal
+    requires: [origami.alternating-angular-walk]
+
+  - id: origami.four-crease-alternating-angle-test
+    name: 四本の折り目の判定
+    kind: corollary
+    introduction: formal
+    requires: [origami.kawasaki-justin-theorem]

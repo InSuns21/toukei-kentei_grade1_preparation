@@ -14,3 +14,4 @@
 11. [ORI11 折り紙可作図数と拡大次数](textbook/volumes/dream_thater/幾何系/ORI/ORI11/index.md)
 12. [ORI12 同時複数折り・曲線折りの作図能力](textbook/volumes/dream_thater/幾何系/ORI/ORI12/index.md)
 13. [ORI13 折り線図、山谷、平坦折り写像](textbook/volumes/dream_thater/幾何系/ORI/ORI13/index.md)
+14. [ORI14 Kawasaki–Justinの定理](textbook/volumes/dream_thater/幾何系/ORI/ORI14/index.md)
