@@ -1,0 +1,42 @@
+chapter: ORI17
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI16]
+forward_references: []
+
+concepts:
+  - id: origami.global-flat-fold-candidate
+    name: 大域平坦折り候補と反射の閉路整合
+    kind: definition
+    introduction: formal
+    requires: [origami.piecewise-isometric-flat-placement, origami.seam-reflection-dichotomy, origami.assigned-single-vertex-crimp-decision]
+
+  - id: origami.reflection-holonomy-closure
+    name: 閉路の反射合成条件
+    kind: proposition
+    introduction: formal
+    requires: [origami.global-flat-fold-candidate, origami.seam-reflection-dichotomy]
+
+  - id: origami.overlap-cell-precedence-graph
+    name: 重なりセルと上下制約グラフ
+    kind: definition
+    introduction: formal
+    requires: [origami.global-flat-fold-candidate, origami.local-layer-order]
+
+  - id: origami.layer-cycle-obstruction
+    name: 共通重なり領域の層順と有向閉路
+    kind: proposition
+    introduction: formal
+    requires: [origami.overlap-cell-precedence-graph, origami.local-layer-order]
+
+  - id: origami.dag-topological-order
+    name: 有向非巡回グラフと上下順の同値
+    kind: theorem
+    introduction: formal
+    requires: [origami.layer-cycle-obstruction]
+
+  - id: origami.hinge-layer-adjacency
+    name: 折り目での隣接性の必要条件
+    kind: proposition
+    introduction: formal
+    requires: [origami.overlap-cell-precedence-graph, origami.local-layer-order]

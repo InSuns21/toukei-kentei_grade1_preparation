@@ -17,3 +17,4 @@
 14. [ORI14 Kawasaki–Justinの定理](textbook/volumes/dream_thater/幾何系/ORI/ORI14/index.md)
 15. [ORI15 Maekawaの定理](textbook/volumes/dream_thater/幾何系/ORI/ORI15/index.md)
 16. [ORI16 局所平坦折り可能性の判定](textbook/volumes/dream_thater/幾何系/ORI/ORI16/index.md)
+17. [ORI17 複数頂点の大域条件・層順](textbook/volumes/dream_thater/幾何系/ORI/ORI17/index.md)
