@@ -273,7 +273,7 @@ $$
 
 まず $E$ と非負関数 $g$ がともに Borel 可測な場合を示します。一般の $\mathcal H^m$-可測な $E$ は第1節の内側 Borel 代表 $E_{\mathrm B}\subset E$ に制限して議論でき、残余 $E\setminus E_{\mathrm B}$ の測度が零であることと、その Lipschitz 像も零測度であることを最後に使います。
 
-[分割補題](#lem-gmt13-bilipschitz-pieces)によって互いに素な $E_i=\phi_i(A_i)$ を取り、$E\setminus\bigcup_iE_i$ は $\mathcal H^m$-零とします。$\phi_i$ は全空間の Lipschitz 写像の制限です。$F\circ\phi_i$ は $A_i$ 上で Lipschitz で、座標ごとに例えば
+[分割補題](#lem-gmt13-bilipschitz-pieces)によって互いに素な $E_i=\phi_i(A_i)$ を取り、$E\setminus\bigcup_iE_i$ は $\mathcal H^m$-零とします。$\phi_i$ は全空間の Lipschitz 写像の制限です。$F\circ\phi_i$ は $A_i$ 上で Lipschitz で、出力座標 $k=1,\dots,n$ ごとに例えば
 
 $$
 \widetilde F_{i,k}(u)=\inf_{a\in A_i}
@@ -346,7 +346,7 @@ $$
 
 ### 傾いた平面の射影と非正規化係数
 
-$S=\{(u,v,au+bv):(u,v)\in[0,1]^2\}\subset\mathbb R^3$ を $F(x,y,z)=(x,y)$ で射影します。$\Phi(u,v)=(u,v,au+bv)$ に対し
+実定数 $a,b$ を固定し、$S=\{(u,v,au+bv):(u,v)\in[0,1]^2\}\subset\mathbb R^3$ を $F(x,y,z)=(x,y)$ で射影します。$\Phi(u,v)=(u,v,au+bv)$ に対し
 
 $$
 J_2\Phi=\sqrt{\det\begin{pmatrix}1+a^2&ab\\ab&1+b^2\end{pmatrix}}
@@ -498,7 +498,7 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\Phi(u,v)=(u,v,h(u,v))$ とすると
+$h_u=\partial h/\partial u$、$h_v=\partial h/\partial v$（それぞれ他方の変数を固定）と置き、$\Phi(u,v)=(u,v,h(u,v))$ とすると
 
 $$
 D\Phi=\begin{pmatrix}1&0\\0&1\\h_u&h_v\end{pmatrix},\quad
