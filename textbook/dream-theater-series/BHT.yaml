@@ -61,7 +61,7 @@ chapters:
     title: "重力作用と境界値問題"
   - id: BHT14
     path: textbook/volumes/dream_thater/物理系/BHT/BHT14
-    status: planned
+    status: completed
     title: "Euclidサドルから自由エネルギーへ"
   - id: BHT15
     path: textbook/volumes/dream_thater/物理系/BHT/BHT15
