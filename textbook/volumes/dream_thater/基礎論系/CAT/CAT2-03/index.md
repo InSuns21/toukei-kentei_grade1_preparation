@@ -203,7 +203,15 @@ $$
 
 ## 6. 群と位相空間の引き戻し
 
-**群。** 群準同型 $f:G\to K$、$g:H\to K$ に対し、[群の直積](../../../代数系/GRP/GRP1/index.md#prop-grp1-direct-product) $G\times H$ 上の準同型 $f\pi_G,g\pi_H$ を考える。第3節で示した群の等化子を取れば、前節の[積と等化子による引き戻しの構成定理](#thm-cat2-03-pullback-construction)により
+**群。** 群準同型 $f:G\to K$、$g:H\to K$ を取る。[群の直積](../../../代数系/GRP/GRP1/index.md#prop-grp1-direct-product) $G\times H$ が群の圏でも二項積となることを、前節の定理を使う前に確かめる。成分ごとの積で定めた $G\times H$ の座標射影 $\pi_G,\pi_H$ は準同型である。任意の群 $L$ と準同型 $u:L\to G$、$v:L\to H$ に対し、$w(\ell)=(u(\ell),v(\ell))$ と置けば
+
+$$
+w(\ell\ell')=(u(\ell)u(\ell'),v(\ell)v(\ell'))
+=w(\ell)w(\ell'),\qquad
+\pi_Gw=u,\quad\pi_Hw=v.
+$$
+
+よって $w$ は準同型であり、二つの射影後の値が指定されると各成分が固定されるため一意である。これは[圏論の二項積の定義](../CAT2-02/index.md#def-cat2-02-binary-product)そのものである。従って $G\times H$ 上の平行な準同型 $f\pi_G,g\pi_H$ に第3節の群の等化子を取り、前節の[積と等化子による引き戻しの構成定理](#thm-cat2-03-pullback-construction)を適用すると
 
 $$
 P=\{(x,y)\in G\times H\mid f(x)=g(y)\}
@@ -253,7 +261,13 @@ $$
 f(pa)=(fp)a=(gq)a=(gq)b=(fp)b=f(pb).
 $$
 
-$f$ は[モノ射](../CAT1-03/index.md#def-cat1-03-monomorphism)だから $pa=pb$。従って $pa=pb$ と $qa=qb$ の両方が成り立ち、引き戻しの普遍性の一意性から $a=b$。よって $q$ はモノ射。$g,p$ の場合は射の役割を交換して同じ二本の等式を追えばよい。$\square$
+$f$ は[モノ射](../CAT1-03/index.md#def-cat1-03-monomorphism)だから $pa=pb$。従って $pa=pb$ と $qa=qb$ の両方が成り立ち、引き戻しの普遍性の一意性から $a=b$。よって $q$ はモノ射。対称的に $g$ がモノ射で $pa=pb$ なら
+
+$$
+g(qa)=(gq)a=(fp)a=(fp)b=(gq)b=g(qb)
+$$
+
+であり、$g$ の左消去性から $qa=qb$ が出る。再び二本の脚についての一意性を使って $a=b$ なので、$p$ もモノ射である。$\square$
 <!-- proof-end -->
 
 **反例で仮定を確かめる。** $C=\{*\}$、$A=\{0,1\}$、$B=\{*\}$ とし、$f:A\to C$、$g:B\to C$ を一意な写像とする。$f$ は単射でない。引き戻し $P=A\times B$ から $B$ への射 $q$ は二元集合を一点へ送るので、[集合におけるモノ射の特徴づけ](../CAT1-03/index.md#prop-cat1-03-set-characterization)によりモノ射ではない。証明で $f(pa)=f(pb)$ から $pa=pb$ と消去する段階が失われる。
