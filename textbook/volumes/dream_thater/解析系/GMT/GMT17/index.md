@@ -230,6 +230,8 @@ $G^{\mathsf T}|_T$ の行列 $H=(\langle g_i,t_j\rangle)_{i,j}$ の各成分は�
 
 接平面が点ごとに変わっても、方向と点の二重積分を交換すれば上の補題を使えます。ここで必要なのは、[GMT13の可算整流可能集合上のarea formula](../GMT13/index.md#thm-gmt13-rectifiable-area)です。$R$ 上の接平面 $T_xR$ は[GMT13の接平面の定義と構成](../GMT13/index.md#def-gmt13-tangent-plane)により $\mathcal H^m$-ほとんど至る所で定まり、[GMT15の密度と近似接平面定理](../GMT15/index.md#thm-gmt15-rectifiable-density-tangent)によって局所の幾何とも一致します。
 
+注意したいのは、**点ごとの例外方向が同じ集合である必要はない**ことです。点に依存する零測度の例外方向集合を無限に合併しても零測度とは限りません。そこで方向と点の組全体を測度で扱い、積分順序の交換によって一つの「ほとんど全方向」という結論にまとめます。
+
 <a id="thm-gmt17-rectifiable-positive-projection"></a>
 
 <!-- formal-statement-start -->
