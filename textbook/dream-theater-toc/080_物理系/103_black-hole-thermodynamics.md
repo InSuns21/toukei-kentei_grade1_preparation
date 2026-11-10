@@ -13,3 +13,4 @@
 10. [BHT10 回転・電荷を含む熱力学の整合](textbook/volumes/dream_thater/物理系/BHT/BHT10/index.md)
 11. [BHT11 極限ブラックホールと第三法則](textbook/volumes/dream_thater/物理系/BHT/BHT11/index.md)
 12. [BHT12 Euclid周期性と円錐正則性](textbook/volumes/dream_thater/物理系/BHT/BHT12/index.md)
+13. [BHT13 重力作用と境界値問題](textbook/volumes/dream_thater/物理系/BHT/BHT13/index.md)
