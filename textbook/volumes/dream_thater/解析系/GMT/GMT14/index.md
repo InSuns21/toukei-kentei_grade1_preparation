@@ -143,7 +143,7 @@ $$
 \end{aligned}
 $$
 
-断面の外測度で書いた場合も、右辺の可測上界と可測包によって同じ零積分の結論を得ます。$\delta\downarrow0$ に沿う Fatou の補題、次に $\varepsilon\downarrow0$ によって、$\int\mathcal H^k(C_R\cap f^{-1}(y))\,dy=0$ です。$R\to\infty$ の可算和を取れば主張が従います。$\square$
+断面の外測度で書いた場合も、右辺の可測上界と可測包によって同じ零積分の結論を得ます。$\delta\downarrow0$ に沿う [Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)、次に $\varepsilon\downarrow0$ によって、$\int\mathcal H^k(C_R\cap f^{-1}(y))\,dy=0$ です。$R\to\infty$ の可算和を取れば主張が従います。$\square$
 <!-- proof-end -->
 
 **微分不能点** $N$ は [Rademacher定理](../GMT9/index.md#thm-gmt9-rademacher)により $\mathcal L^d(N)=0$ です。
@@ -281,7 +281,7 @@ $$
 
 逆写像 $h$ の任意の Lipschitz 延長の微分は $B$ の密度1点で同じです。$T$ の逆微分は、$T$ と $h$ の二点差分を密度1点で合成することにより $(DT)^{-1}$ となります。したがって上の等式は $\mathcal L^d$-a.e.の正しい導関数で成立します。
 
-**(3) Fubiniで断面ごとに積分する。** $B_y=\{u:(y,u)\in B\}$ とします。非負の被積分関数について Fubini--Tonelli を適用すると
+**(3) Fubiniで断面ごとに積分する。** $B_y=\{u:(y,u)\in B\}$ とします。非負の被積分関数について [Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli) を適用すると
 
 $$
 \int_Bg(h)J_k(D_uh)\,dy\,du
@@ -305,7 +305,7 @@ $$
 \int_{P\cap f^{-1}(y)}g\,d\mathcal H^k\,dy.
 $$
 
-**(4) 全体へ戻す。** 互いに素な可算片 $P_j$ に上の等式を足します。左辺は非負なので単調収束し、右辺の断面は互いに素なので加法的です。片に入らなかった微分不能集合とrank欠損集合は、第3節によって左辺・ほとんど全ての断面で零となります。Borel代表に対する等式から、非負 Borel $g$ と Borel $E$ 全体へ拡張されます。各片の断面積分は Fubini 表示から可測であり、零寄与集合を加えても完備化に関する可測性は維持されます。
+**(4) 全体へ戻す。** 互いに素な可算片 $P_j$ に上の等式を足します。左辺は非負なので [単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)で和を取れ、右辺の断面は互いに素なので加法的です。片に入らなかった微分不能集合とrank欠損集合は、第3節によって左辺・ほとんど全ての断面で零となります。Borel代表に対する等式から、非負 Borel $g$ と Borel $E$ 全体へ拡張されます。各片の断面積分は Fubini 表示から可測であり、零寄与集合を加えても完備化に関する可測性は維持されます。
 
 最後に $k=0$、つまり $d=m$ では、[GMT11の重み付きarea formula](../GMT11/index.md#cor-gmt11-weighted-area)をそのまま $f:\mathbb R^d\to\mathbb R^d$ に適用します。$c_d\int g|\det Df|\,dx=\int\sum g\,d\mathcal H^d=c_d\int\sum g\,dy$ であり、$J_df=|\det Df|$、$c_0=1$ なので同じ公式です。$\square$
 <!-- proof-end -->
