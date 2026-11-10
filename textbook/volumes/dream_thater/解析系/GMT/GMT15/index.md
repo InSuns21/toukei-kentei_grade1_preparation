@@ -114,6 +114,14 @@ $$
 |\phi'(t)|=\sqrt{1+4t^2}.
 $$
 
+$P$ は連続写像によるコンパクト区間の像なので Borel です。さらに同じ面積公式から
+
+$$
+\mathcal H^1(P)=\int_{-1}^1\sqrt{1+4t^2}\,dt\le2\sqrt5<\infty
+$$
+
+であり、局所有限性も確かめられます。
+
 $P\cap B(0,r)$ のパラメータ範囲は $|t|<\rho_r$、$\rho_r^2+\rho_r^4=r^2$ で、$\rho_r/r\to1$ です。従って
 
 $$
@@ -136,6 +144,18 @@ $$
 ## 3. 一枚の双Lipschitz片を拡大して平面と比較する
 
 まず、他の曲面が重ならない一枚だけを考えます。[GMT13の双Lipschitz分割](../GMT13/index.md#lem-gmt13-bilipschitz-pieces)を用いれば、可算整流可能集合の面積の大部分はこの形になります。以下の補題が本講義の計算の核心です。
+
+ここで $D\phi(a):\mathbb R^m\to\mathbb R^d$ はパラメータ $a$ での**全微分**です。標準基底 $e_j$ の像 $D\phi(a)e_j$ を第 $j$ 列に並べた行列で表します（[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)）。この列が張る平面が $V=\operatorname{im}D\phi(a)$ です。
+
+その平面への面積倍率を表す [GMT10の幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)は
+
+$$
+J_mD\phi(a)=\sqrt{\det\bigl(D\phi(a)^{\mathsf T}D\phi(a)\bigr)}
+$$
+
+と定義されます。以下の「$a$ が $J_mD\phi$ のLebesgue点」とは、全空間へ拡張した写像のJacobian関数について、[HA1のLebesgue点の定義](../../HA/HA1/index.md#def-ha1-lebesgue-point)に従い、球内での $|J_mD\phi(b)-J_mD\phi(a)|$ の平均が0へ向かうことです。
+
+一方、「$A$ の密度1の点」は [HA1の密度定理](../../HA/HA1/index.md#cor-ha1-density)の意味で、$\mathcal L^m(A\cap B(a,r))/\mathcal L^m(B(a,r))\to1$ を指します。この二つの条件は別々に使用します。
 
 <a id="lem-gmt15-chart-blowup"></a>
 
@@ -164,9 +184,18 @@ $$
 \lambda|u-v|\le|\phi(u)-\phi(v)|
 $$
 
-です。密度1点で差分方向を任意に近付けられること（[GMT13の密度1点の議論](../GMT13/index.md#def-gmt13-tangent-plane)）と $a$ での微分可能性から $|Th|\ge\lambda|h|$ が全ての $h$ で成立します。従って $T$ は単射です。
+です。任意の $h\in\mathbb R^m$ に対し、[GMT13の密度1点の準備](../GMT13/index.md#def-gmt13-tangent-plane)に従って $t_k\downarrow0$ と $b_k\in A$ を $(b_k-a)/t_k\to h$ となるように選べます。下側Lipschitz評価を $u=a,v=b_k$ に適用し、$t_k$ で割って [RA6の全微分の一次近似](../../../基礎科目/RA/RA6/index.md#def-ra6-multivariable-differentiability)を使えば
 
-$r>0$ に対し、球のパラメータ逆像を拡大した集合を
+$$
+\lambda\left|\frac{b_k-a}{t_k}\right|
+\le\left|\frac{\phi(b_k)-\phi(a)}{t_k}\right|
+\longrightarrow |Th|,
+\qquad \lambda|h|\le|Th|.
+$$
+
+従って $T$ は単射です。特に $J_mT>0$ で、後で用いる楕円体の体積は正かつ有限です。
+
+$r>0$ に対し $A_r=\{(b-a)/r:b\in A\}$ と置き、球のパラメータ逆像を拡大した集合を
 
 $$
 D_r=\left\{u:a+ru\in A,\ 
@@ -182,9 +211,23 @@ $$
 \left|\frac{\phi(a+ru)-\phi(a)}r-Tu\right|\longrightarrow0
 $$
 
-です。$A$ の密度1から $\mathcal L^m(B(0,R)\setminus(A-a)/r)\to0$ も成立します。よって $D_r$ の指示関数は $D$ の指示関数へ、固定有界球上で $L^1$ 収束します。
+です。$A$ の密度1から $\mathcal L^m(B(0,R)\setminus A_r)\to0$ も成立します。この二つを指示関数の収束に結び付けます。$R>\lambda^{-1}+1$ と $0<\eta<1$ を固定し、
 
-[GMT11の単射片の重み付き面積公式](../GMT11/index.md#cor-gmt11-weighted-area)を $M\cap B(x,r)$ に適用し、$b=a+ru$ と変数を替えると
+$$
+D_{-\eta}=\{u:|Tu|<1-\eta\},\qquad
+D_{+\eta}=\{u:|Tu|<1+\eta\}
+$$
+
+とします。上の一様一次近似により、十分小さい $r$ では $B(0,R)$ 内で
+
+$$
+D_{-\eta}\cap A_r\ \subset D_r
+\ \subset D_{+\eta}\cap A_r
+$$
+
+です。したがって $D_r$ と $D=\{u:|Tu|<1\}$ の対称差の測度は、$B(0,R)$ 内の $A$ の欠損測度と、$D_{+\eta}\setminus D_{-\eta}$ の体積の和で抑えられます。先に $r\downarrow0$、次に $\eta\downarrow0$ とすると、前者は密度1で0、後者は $\{|Tu|=1\}$ が零集合なので0です。従って $\boldsymbol1_{D_r}\to\boldsymbol1_D$ が $L^1$ で成立します。
+
+[GMT11の単射片の重み付き面積公式](../GMT11/index.md#cor-gmt11-weighted-area)を $M\cap B(x,r)$ に適用します。双Lipschitz性により重複度は1であり、変数変換 $b=a+ru$ では $db=r^mdu$ です。よって
 
 $$
 \frac{\mathcal H^m(M\cap B(x,r))}{r^m}
@@ -313,13 +356,20 @@ $$
 
 定理の典型点では、接方向 $V$ と異なる $m$ 次元平面 $W$ を近似接平面として選べません。
 
-実際 $V\ne W$ なら、$V$ 内には $W$ から正の角度だけ離れた方向の小球片があります。その片に対応する $D\phi_i(a)$ の逆像は正のLebesgue測度を持ちます。[双Lipschitz片の小球面積と円錐](#lem-gmt15-chart-blowup)の証明と同じ変数変換をこの逆像に制限すれば、ある $c>0$ に対して、この部分の $E_i$ の面積は十分小さい $r$ で
+実際 $V\ne W$ なら、$v_0\in V\setminus W$ を一つ取れます。$\delta=\operatorname{dist}(v_0,W)/|v_0|>0$ とおき、$0<\varepsilon<\delta/4$ を選びます。$T=D\phi_i(a)$ は $\mathbb R^m$ から $V$ への線形同型なので、$Tu_0=v_0/(2|v_0|)$ を満たす $u_0$ があります。連続性から $u_0$ の周りに正の体積を持つ開球 $G$ を、その閉包が $\{u:|Tu|<1\}$ に含まれるように選べて、すべての $u\in G$ で
+
+$$
+\operatorname{dist}(Tu,W)>2\varepsilon|Tu|,
+\qquad |Tu|<1.
+$$
+
+とできます。$a$ は $A_i$ の密度1の点なので、$G\cap\{u:a+ru\in A_i\}$ の体積は $\mathcal L^m(G)$ に収束します。このパラメータ集合上では一様一次近似から、十分小さい $r$ で $\phi_i(a+ru)\in B(x,r)\setminus X(x,W,\varepsilon)$ となります。Jacobianは $a$ のLebesgue点で $J_mT>0$ だから、[双Lipschitz片の小球面積と円錐](#lem-gmt15-chart-blowup)の証明と同じ面積公式をこの $G$ に制限すると
 
 $$
 \mathcal H^m(E_i\cap B(x,r)\setminus X(x,W,\varepsilon))\ge cr^m
 $$
 
-となります。ここで $\varepsilon>0$ は二平面の角度より十分小さく選び、微分の一次近似誤差もその半分以下に抑えています。従って $W$ は円錐外測度が $o(r^m)$ という条件を満たせません。
+となります。具体的には右辺を $c=(c_m/2)J_mT\,\mathcal L^m(G)>0$ としてよく、微分の誤差と面積積分の誤差をともに十分小さい $r$ で抑えています。従って $W$ は円錐外測度が $o(r^m)$ という条件を満たせません。
 
 この「正の面積を持つ方向を取り除けない」という理由が、接方向の**一意性**の幾何的な中身です。全ての点での一意性を言っているわけではありません。
 
@@ -414,7 +464,13 @@ $P=\{(t,t^2):|t|\le1\}$ とする。$\phi(t)=(t,t^2)$ の微分とrankを求め�
 <!-- solution-start -->
 #### 詳細解答
 
-$D\phi(t)v=v(1,2t)$ だから全ての $t$ でrank1です。第一座標の射影が逆写像を与え、$|s-t|\le|\phi(s)-\phi(t)|$、区間上で $|\phi(s)-\phi(t)|\le\sqrt5|s-t|$ なので双Lipschitzです。$t=1/2$ はパラメータ区間の密度1点であり、[整流可能集合の接m平面](../GMT13/index.md#def-gmt13-tangent-plane)の定義から
+一変数の導関数は $\phi'(t)=d\phi/dt=(1,2t)$ で、全微分は増分 $v\in\mathbb R$ に $D\phi(t)v=v\phi'(t)$ を対応させます（[RA6の全微分の表示](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)）。第一座標の射影が逆写像を与えます。また $s,t\in[-1,1]$ に対し
+
+$$
+|s-t|\le|\phi(s)-\phi(t)|\le\sqrt5|s-t|
+$$
+
+なので双Lipschitzです。$D\phi(t)$ の列 $(1,2t)^{\mathsf T}$ は非零で、全ての $t$ でrank1です。$t=1/2$ はパラメータ区間の密度1点であり、[整流可能集合の接m平面](../GMT13/index.md#def-gmt13-tangent-plane)の定義から
 
 $$
 V=\operatorname{im}D\phi(1/2)=\operatorname{span}(1,1).
@@ -462,7 +518,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$T$ の列は $(2,0,0)^{\mathsf T}$ と $(0,1,0)^{\mathsf T}$ なので
+$T$ の列は標準基底の像 $Te_1=(2,0,0)^{\mathsf T}$ と $Te_2=(0,1,0)^{\mathsf T}$ です。[GMT10の幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)で、各列の内積を並べたGram行列を使うため
 
 $$
 T^{\mathsf T}T=\begin{pmatrix}4&0\\0&1\end{pmatrix},
@@ -585,7 +641,20 @@ $$
 
 水平線 $V$ への距離と球の中心からの距離の比は $|t|/\sqrt{1+t^2}\le|t|<r$ です。$r<\varepsilon$ では円錐外が空となり、水平線が近似接線です。
 
-**3. 交点。** $P\cap L=\{(-1,1),(1,1)\}$ です。$x_1=(1,1)$ の十分小さい球には他方の交点は入りません。$P$ は端点 $t=1$ へ片側から近付き、その単位接方向は $(1,2)/\sqrt5$ です。$|\phi(1+h)-\phi(1)|/|h|\to\sqrt5$ であるため、$P\cap B(x_1,r)$ の長さは $r+o(r)$ です。$L$ は端点 $s=1$ なので $L\cap B(x_1,r)$ の長さは $r$。球内の交点は一つで長さ0ゆえ
+**3. 交点。** $P\cap L=\{(-1,1),(1,1)\}$ です。$x_1=(1,1)$ の十分小さい球には他方の交点は入りません。$P$ は端点 $t=1$ へ片側から近付き、その単位接方向は $(1,2)/\sqrt5$ です。$h=t-1<0$ とすると
+
+$$
+|\phi(1+h)-\phi(1)|^2=h^2\bigl(1+(2+h)^2\bigr).
+$$
+
+従って半径 $r$ の球に入る端点側のパラメータ幅は $|h_r|=r/\sqrt5+o(r)$ であり、[GMT11の曲線の面積公式](../GMT11/index.md#thm-gmt11-area-formula)によってその長さは
+
+$$
+\int_{1+h_r}^{1}\sqrt{1+4t^2}\,dt
+=(\sqrt5+o(1))|h_r|=r+o(r).
+$$
+
+$L$ も端点 $s=1$ なので $L\cap B(x_1,r)$ の長さは $r$ です。球内の交点は一つで長さ0ゆえ
 
 $$
 \frac{\mathcal H^1(E\cap B(x_1,r))}{2r}
