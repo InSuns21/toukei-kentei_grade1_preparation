@@ -1,0 +1,30 @@
+chapter: ORI15
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI14]
+forward_references: []
+
+concepts:
+  - id: origami.assigned-single-vertex-local-flat-foldability
+    name: 山谷指定の単頂点局所平坦折り可能性
+    kind: definition
+    introduction: formal
+    requires: [origami.mountain-valley-assignment, origami.piecewise-isometric-flat-placement, origami.local-layer-order, origami.unassigned-single-vertex-local-flat-foldability]
+
+  - id: origami.maekawa-theorem
+    name: Maekawaの定理
+    kind: theorem
+    introduction: formal
+    requires: [origami.assigned-single-vertex-local-flat-foldability, origami.local-layer-order]
+
+  - id: origami.maekawa-valence-count
+    name: 偶数次数と山谷本数
+    kind: corollary
+    introduction: formal
+    requires: [origami.maekawa-theorem, origami.even-vertex-valence]
+
+  - id: origami.strict-minimum-sector-mv-constraint
+    name: 厳密な局所最小扇形の山谷制約
+    kind: proposition
+    introduction: formal
+    requires: [origami.assigned-single-vertex-local-flat-foldability, origami.seam-reflection-dichotomy, origami.local-layer-order]
