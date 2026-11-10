@@ -26,18 +26,33 @@ $$
 +d\boldsymbol\theta(\phi;\delta\phi)
 $$
 
-> を満たすよう、Euler–Lagrange $n$ 形式 $\mathbf E\cdot\delta\phi$ と、$\delta\phi$ に線形な $(n-1)$ 形式 $\boldsymbol\theta$ を選ぶ。$\boldsymbol\theta$ を**シンプレクティックポテンシャル流**と呼ぶ。$\mathbf E=0$ が場の方程式である。ポテンシャルは一般に一意ではなく、局所的な $(n-2)$ 形式 $\mathbf Y$ により $\boldsymbol\theta\mapsto\boldsymbol\theta+d\mathbf Y$ と変えても変分式は保たれる。
+> を満たすよう、Euler–Lagrange $n$ 形式 $\mathbf E\cdot\delta\phi$ と、$\delta\phi$ に線形な $(n-1)$ 形式 $\boldsymbol\theta$ を選ぶ。$\boldsymbol\theta$ を**シンプレクティックポテンシャル流**と呼ぶ。$\mathbf E=0$ が場の方程式である。ポテンシャルは一般に一意ではなく、$\delta\phi$ に線形な局所的 $(n-2)$ 形式 $\mathbf Y(\phi;\delta\phi)$ により $\boldsymbol\theta\mapsto\boldsymbol\theta+d\mathbf Y$ と変えても変分式は保たれる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht18-variation -->
-**定義の確認**：まず計量を固定した質量零の実スカラー場 $f$ だけを変分します。作用密度を $\mathbf L_f=-\tfrac12 df\wedge *df$ とします。$*$ は固定計量によるHodge作用素です。積分部分を行えば
+**定義の確認**：まず計量を固定した質量零の実スカラー場 $f$ だけを変分します。$*$ はこの向き付きLorentz計量によるHodge作用素であり、1形式 $\alpha,\beta$ に対して
+
+$$
+\alpha\wedge *\beta=g^{ab}\alpha_a\beta_b\,\boldsymbol\epsilon
+$$
+
+を満たすように定めます（$\boldsymbol\epsilon$ は向きと計量が決める体積形式）。ここでは計量のLorentz符号を内積にそのまま反映するため、平坦座標の時間1形式なら $dt\wedge *dt=-\boldsymbol\epsilon$ です。この章では $*$ を場の配置方向に変分しないので、$\delta(*df)=*d(\delta f)$ となります。
+
+作用密度を $\mathbf L_f=-\tfrac12 df\wedge *df$ とすると、1形式のHodge内積の対称性により二項が等しく、積分部分を行えば
 
 $$
 \delta\mathbf L_f=-d(\delta f)\wedge *df
 =\delta f\,d*df-d(\delta f\,*df).
 $$
 
-従って $\mathbf E_f\cdot\delta f=\delta f\,d*df$、$\boldsymbol\theta_f=-\delta f\,*df$ です。実際に $\mathbf E_f=0$ は $d*df=0$、すなわち波動方程式 $\Box f=0$ に対応します。固定背景でのこの例はポテンシャルを**計算する**ためのもので、任意の微分同相をゲージ対称性にする議論ではありません。後でNoether流を作るときは、計量も変換する共変な重力理論へ戻ります。
+従って $\mathbf E_f\cdot\delta f=\delta f\,d*df$、$\boldsymbol\theta_f=-\delta f\,*df$ です。ここで $\boldsymbol\theta_f$ は $(n-1)$ 形式で $\delta f$ に線形です。局所座標で $(*df)_{a_2\cdots a_n}=\nabla^a f\,\epsilon_{aa_2\cdots a_n}$ と書けば
+
+$$
+d*df=(\nabla_a\nabla^a f)\,\boldsymbol\epsilon
+=(\Box f)\,\boldsymbol\epsilon.
+$$
+
+従って $\mathbf E_f=0$ は波動方程式 $\Box f=0$ に対応します。固定背景でのこの例はポテンシャルを**計算する**ためのもので、任意の微分同相をゲージ対称性にする議論ではありません。後でNoether流を作るときは、計量も変換する共変な重力理論へ戻ります。
 <!-- definition-example-end -->
 
 <a id="prop-bht18-scalar"></a>
@@ -96,7 +111,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht18-omega -->
-**定義の確認**：固定背景スカラーでは[前節の計算](#prop-bht18-scalar)から $\boldsymbol\omega_f=u\,*dv-v\,*du$ です。入れ替えると $\boldsymbol\omega_f(v,u)=-\boldsymbol\omega_f(u,v)$、同じ摂動二つなら零です。さらに $u,v$ がどちらも $d*du=d*dv=0$ を満たせば、
+**定義の確認**：固定背景スカラーでは[前節の計算](#prop-bht18-scalar)から $\boldsymbol\omega_f=u\,*dv-v\,*du$ です。1形式のHodge双対を使い、$\boldsymbol\omega_f=\omega^a\boldsymbol\epsilon_a$ と書けば、成分は
+
+$$
+\omega^a=u\nabla^av-v\nabla^au
+$$
+
+です。これはベクトルの座標成分を唐突に導入したものではなく、$*du=(\nabla^au)\boldsymbol\epsilon_a$ から従います。入れ替えると $\boldsymbol\omega_f(v,u)=-\boldsymbol\omega_f(u,v)$、同じ摂動二つなら零です。さらに $u,v$ がどちらも $d*du=d*dv=0$ を満たせば、
 
 $$
 d\boldsymbol\omega_f=d u\wedge *dv-d v\wedge *du+u\,d*dv-v\,d*du=0.
@@ -184,7 +205,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht18-noether -->
-**定義の確認**：Einstein真空の平坦Minkowski時空では $R=0$ です。定数時間並進 $\xi=\partial_t$ に対し $\mathcal L_\xi g=0$ なので $\boldsymbol\theta(g;\mathcal L_\xi g)=0$、また $\iota_\xi\mathbf L_{\rm EH}=0$、従って $\mathbf J_\xi=0$。後で導く $\mathbf Q_\xi\propto *d\xi^\flat$ も、$\xi^\flat=-dt$ の外微分が零なので一致します。流が零でも「任意の時空・任意の境界でエネルギーが零」という意味にはなりません。
+**定義の確認**：Einstein真空の平坦Minkowski時空では $R=0$ です。定数時間並進 $\xi=\partial_t$ は計量を変えないので、定義の二項を別々に確かめると
+
+$$
+\mathcal L_\xi g=0,\qquad
+\boldsymbol\theta(g;\mathcal L_\xi g)=0,\qquad
+\iota_\xi\mathbf L_{\rm EH}=0.
+$$
+
+従って $\mathbf J_\xi=0$ であり、その局所電荷形式として $\mathbf Q_\xi=0$ を選べます。$\xi^\flat=g_{ab}\xi^b dx^a$ を計量双対1形式と書けば、この例では $\xi^\flat=-dt$ です。後で導く[Einstein電荷公式](#prop-bht18-einstein-q)でも $d\xi^\flat=0$ から同じ電荷形式が得られます。流が零でも「任意の時空・任意の境界でエネルギーが零」という意味にはなりません。
 <!-- definition-example-end -->
 
 <a id="thm-bht18-noether-closure"></a>
@@ -222,7 +251,7 @@ d[\boldsymbol\theta(\phi;\mathcal L_\xi\phi)-\iota_\xi\mathbf L]
 =-\mathbf E(\phi)\cdot\mathcal L_\xi\phi.
 $$
 
-角括弧が $\mathbf J_\xi$ です。$\mathbf E=0$ なら閉形式となり、局所的にはPoincaréの補題で $\mathbf J_\xi=d\mathbf Q_\xi$ を得ます。非自明な位相の領域での大域的電荷形式はこの補題だけからは従いません。
+角括弧が $\mathbf J_\xi$ です。$\mathbf E=0$ なら閉形式となり、局所的には[Poincaréの補題](../../../幾何系/GEO/GEO9/index.md#thm-geo9-poincare-lemma)で $\mathbf J_\xi=d\mathbf Q_\xi$ を得ます。非自明な位相の領域での大域的電荷形式はこの補題だけからは従いません。
 <!-- proof-end -->
 
 ### Einstein重力で電荷の係数を固定する
@@ -270,14 +299,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-計量変分から $\delta g^{ab}=-h^{ab}$、$\delta\epsilon=\tfrac12h\epsilon$、接続変分から
+計量変分から $\delta g^{ab}=-h^{ab}$、$\delta\boldsymbol\epsilon=\tfrac12h\boldsymbol\epsilon$、接続変分から
 
 $$
 \delta\Gamma^a{}_{bc}=\frac12g^{ad}
 (\nabla_bh_{cd}+\nabla_ch_{bd}-\nabla_dh_{bc})
 $$
 
-を得ます。$R=g^{ab}R_{ab}$ を変分し、$\delta R_{ab}=\nabla_c\delta\Gamma^c{}_{ab}-\nabla_b\delta\Gamma^c{}_{ac}$ を入れて発散項をまとめると
+を得ます。$R=g^{ab}R_{ab}$ を変分し、[GR10のPalatini恒等式](../../GR/GR10/index.md#lem-gr10-palatini) $\delta R_{ab}=\nabla_c\delta\Gamma^c{}_{ab}-\nabla_b\delta\Gamma^c{}_{ac}$ を使います。上式の $\delta\Gamma$ を代入すると
+
+$$
+g^{ab}\delta R_{ab}=\nabla_a(\nabla_bh^{ab}-\nabla^ah),
+\qquad \delta R=-R^{ab}h_{ab}+g^{ab}\delta R_{ab}.
+$$
+
+これと体積形式の変分を合わせ、$-R^{ab}h_{ab}+Rh/2=-G^{ab}h_{ab}$ を用いれば
 
 $$
 \delta\mathbf L_{\rm EH}
@@ -299,7 +335,20 @@ $$
 =\Box\xi^a-\nabla^a(\nabla_b\xi^b)-R^a{}_b\xi^b.
 $$
 
-この発散に対応する $(n-2)$ 形式が記載の $\mathbf Q_\xi$ であり、係数差は
+この発散に対応する2形式を確認します。先の計量双対1形式 $\xi^\flat$ の $d\xi^\flat$ は反対称な一階微分です。Hodge双対と体積形式の規約から
+
+$$
+(*d\xi^\flat)_{ab}=\epsilon_{abcd}\nabla^c\xi^d,
+\qquad \mathbf Q_\xi=-\frac1{16\pi G}*d\xi^\flat
+$$
+
+と選びます。$\mathbf Q_\xi=\tfrac12(\mathbf Q_\xi)_{ab}dx^a\wedge dx^b$ として外微分すると
+
+$$
+d\mathbf Q_\xi=\frac1{16\pi G}(\nabla_bF^{ba})\boldsymbol\epsilon_a.
+$$
+
+ここで $\boldsymbol\epsilon_a=\iota_{\partial_a}\boldsymbol\epsilon$ であり、単に反対称成分を書くだけでなく、$d\mathbf Q_\xi$ が先の発散の体積形式であることまで確かめました。$\mathbf J_\xi$ との係数差は
 
 $$
 \frac1{16\pi G}(2R^a{}_b-R\delta^a_b)\xi^b
@@ -400,7 +449,16 @@ $$
 \end{aligned}
 $$
 
-背景が on shell なら最後の項は零です。また背景と線形化摂動が方程式を満たすため、on-shellの等式 $\mathbf J_\xi=d\mathbf Q_\xi$ を変分して $\delta\mathbf J_\xi=d(\delta\mathbf Q_\xi)$ と置けます。両式を比べて
+背景が on shell なら最後の項は零です。ただし「on shell で $\mathbf J_\xi=d\mathbf Q_\xi$」という等式を、任意の場方向にそのまま微分することはできません。ここで線形化方程式を使う理由を確認します。
+
+微分同相生成変分 $\mathcal L_\xi\phi$ は局所場と $\xi$ の有限階微分から作られます。$\mathbf E\cdot\mathcal L_\xi\phi$ を $\xi$ の微分について部分積分すると、$\xi$ に比例する項と $d\mathbf B_\xi(\mathbf E)$ に分かれます。コンパクト台の任意の $\xi$ に対する作用の微分同相不変性から、前者はNoether恒等式によって零です。従って
+
+$$
+\mathbf E\cdot\mathcal L_\xi\phi=d\mathbf B_\xi(\mathbf E),
+\qquad d(\mathbf J_\xi+\mathbf B_\xi)=0.
+$$
+
+$\mathbf B_\xi$ は $\mathbf E$ とその微分に線形なので、局所的に $\mathbf J_\xi=d\mathbf Q_\xi-\mathbf B_\xi$ と選ぶと、背景で $\mathbf B_\xi=0$、線形化解について $\delta\mathbf B_\xi=0$ です。Einstein重力では[先の命題](#prop-bht18-einstein-q)の $\mathbf B_\xi=-(8\pi G)^{-1}G^a{}_b\xi^b\boldsymbol\epsilon_a$ が具体例です。この形で初めて、$\delta\mathbf J_\xi=d(\delta\mathbf Q_\xi)$ と置けます。両式を比べて
 
 $$
 d(\delta\mathbf Q_\xi-\iota_\xi\boldsymbol\theta)
@@ -454,7 +512,7 @@ $$
 \end{aligned}
 $$
 
-です。従って $\mathbf Q'_\xi$ を記載のように選べます。最後に
+です（[Cartanの公式](../../../幾何系/GEO/GEO7/index.md#thm-geo7-cartan-formula)を $\boldsymbol\mu$ に適用）。従って $\mathbf Q'_\xi$ を記載のように選べます。最後に
 
 $$
 \begin{aligned}
@@ -523,7 +581,14 @@ $d(\delta f\,*df)=d(\delta f)\wedge*df+\delta f\,d*df$ を移項し、$\delta\ma
 - 問題: 1+1次元の平坦計量 $ds^2=-dt^2+dx^2$ で、波動方程式を満たす $u=t$, $v=x$ を考える。$\omega^a=u\nabla^av-v\nabla^au$ の成分と $\partial_a\omega^a$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：逆計量は $g^{tt}=-1$, $g^{xx}=1$ です。$\nabla^tu=-(\partial_tu)=-1$, $\nabla^xv=1$, $\nabla^tv=\nabla^xu=0$ なので
+**詳細解答**：逆計量は $g^{tt}=-1$, $g^{xx}=1$ です。したがって
+
+$$
+\nabla^tu=-\partial_tu=-1,\quad \nabla^xv=1,\quad
+\nabla^tv=\nabla^xu=0
+$$
+
+であり、[Hodge双対から得た成分表示](#def-bht18-omega)に代入すると
 
 $$
 \omega^t=t\cdot0-x(-1)=x,\qquad
@@ -603,7 +668,7 @@ $$
 d\xi^\flat=-dx\wedge dt+dt\wedge dx=2dt\wedge dx.
 $$
 
-$\nabla^t\xi^x=-1,\nabla^x\xi^t=1$、$\epsilon_{yztx}=1,\epsilon_{yzxt}=-1$ を[Einstein電荷公式](#prop-bht18-einstein-q)に代入して
+ここで $\nabla^t\xi^x=-1$, $\nabla^x\xi^t=1$ です。向きの規約から $\epsilon_{yztx}=1$, $\epsilon_{yzxt}=-1$ であり、これらを[Einstein電荷公式](#prop-bht18-einstein-q)に代入して
 
 $$
 Q_{yz}=-\frac1{16\pi G}[1(-1)+(-1)(1)]
