@@ -15,10 +15,10 @@ concepts:
     introduction_aliases: ["命題（空図式の極限と終対象）"]
     requires: [category.terminal-object, category.limit]
   - id: category.binary-product
-    name: 二項積
+    name: 圏論の二項積
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（二項積）"]
+    introduction_aliases: ["定義（圏論の二項積）"]
     requires: [category.limit]
   - id: category.pairing-laws
     name: 組の射の基本則
