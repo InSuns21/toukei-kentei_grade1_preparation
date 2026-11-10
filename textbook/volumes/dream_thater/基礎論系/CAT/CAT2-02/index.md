@@ -64,7 +64,9 @@ $$
 この定義を前講の言葉で読むと、二対象離散圏 $\{0,1\}$ の図式 $0\mapsto A,1\mapsto B$ に対する[図式への錐](../CAT2-01/index.md#def-cat2-01-cone)が二射の組 $(f,g)$、極限錐が $(P,p_A,p_B)$ である。そのため二項積とは、二対象離散図式の[極限](../CAT2-01/index.md#def-cat2-01-limit)にほかならない。値域 $\mathcal C$ が小さい必要も、局所小である必要もない。局所小性はHomを集合値関手として扱う場面で初めて必要になる。
 
 <!-- definition-example-start: def-cat2-02-binary-product -->
-**定義の確認：集合の直積。** 集合 $A,B$ に対し
+**定義の確認**
+
+**例：集合の直積。** 集合 $A,B$ に対し
 
 $$
 P=\{(a,b)\mid a\in A,\ b\in B\}
@@ -145,7 +147,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat2-02-diagonal -->
-**定義の確認。** $\mathbf{Set}$ で $A=\{0,1\}$ とする。$\delta_A(0)=(0,0)$、$\delta_A(1)=(1,1)$ と置けば、両射影との合成は各元をその元へ戻す恒等写像である。仮に別の $d:A\to A\times A$ が両射影に関して同じ条件を満たすなら、$d(a)$ の両成分はともに $a$ でなければならず、$d=\delta_A$。従って射の**存在・一意性**を共に確かめた。
+**定義の確認**
+
+$\mathbf{Set}$ で $A=\{0,1\}$ とする。$\delta_A(0)=(0,0)$、$\delta_A(1)=(1,1)$ と置けば、両射影との合成は各元をその元へ戻す恒等写像である。仮に別の $d:A\to A\times A$ が両射影に関して同じ条件を満たすなら、$d(a)$ の両成分はともに $a$ でなければならず、$d=\delta_A$。従って射の**存在・一意性**を共に確かめた。
 <!-- definition-example-end -->
 
 <a id="prop-cat2-02-diagonal-equality"></a>
@@ -248,7 +252,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat2-02-finite-product -->
-**定義の確認：三元の添字集合。** $\mathbf{Set}$ で $I=\{1,2,3\}$ とし $P=A_1\times A_2\times A_3$ を三つ組の集合とする。$p_i(a_1,a_2,a_3)=a_i$ と置く。任意の $X$ と写像 $f_i:X\to A_i$ から $h(x)=(f_1(x),f_2(x),f_3(x))$ が定まり、各 $p_i h=f_i$。同条件を満たす $k$ は各 $x$ の三成分を全て固定されるので $k=h$。$X=\varnothing$ でも一意な空写像が条件を満たす。積の結合順序を集合の等号として決める必要はない。
+**定義の確認**
+
+**例：三元の添字集合。** $\mathbf{Set}$ で $I=\{1,2,3\}$ とし $P=A_1\times A_2\times A_3$ を三つ組の集合とする。$p_i(a_1,a_2,a_3)=a_i$ と置く。任意の $X$ と写像 $f_i:X\to A_i$ から $h(x)=(f_1(x),f_2(x),f_3(x))$ が定まり、各 $p_i h=f_i$。同条件を満たす $k$ は各 $x$ の三成分を全て固定されるので $k=h$。$X=\varnothing$ でも一意な空写像が条件を満たす。積の結合順序を集合の等号として決める必要はない。
 <!-- definition-example-end -->
 
 <a id="thm-cat2-02-finite-products"></a>
