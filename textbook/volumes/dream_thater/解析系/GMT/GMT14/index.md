@@ -146,7 +146,11 @@ $$
 断面の外測度で書いた場合も、右辺の可測上界と可測包によって同じ零積分の結論を得ます。$\delta\downarrow0$ に沿う Fatou の補題、次に $\varepsilon\downarrow0$ によって、$\int\mathcal H^k(C_R\cap f^{-1}(y))\,dy=0$ です。$R\to\infty$ の可算和を取れば主張が従います。$\square$
 <!-- proof-end -->
 
-**微分不能点** $N$ は [Rademacher定理](../GMT9/index.md#thm-gmt9-rademacher)により $\mathcal L^d(N)=0$ です。$N$ を体積の総和が任意に小さい球で覆い、$f(B_i)$ の $m$ 次元体積を Lipschitz 性から $O(L^m\rho_i^m)$ と評価すれば、上の断面被覆の同じ積分は $O(\sum_i\rho_i^d)$ です。従って $\mathcal H^k(N\cap f^{-1}(y))=0$ がほとんど全ての $y$ で成立します（$k=0$ では [GMT11の零集合の像](../GMT11/index.md#lem-gmt11-lipschitz-null-image)を使います）。微分不能点に $J_mf=0$ を割り当てても両辺は変わりません。
+**微分不能点** $N$ は [Rademacher定理](../GMT9/index.md#thm-gmt9-rademacher)により $\mathcal L^d(N)=0$ です。
+
+$N$ を体積の総和が任意に小さい球で覆います。$f(B_i)$ の $m$ 次元体積を Lipschitz 性から $O(L^m\rho_i^m)$ と評価すると、先ほどと同じ断面被覆の積分は $O(\sum_i\rho_i^d)$ です。
+
+従って $\mathcal H^k(N\cap f^{-1}(y))=0$ がほとんど全ての $y$ で成立します。$k=0$ では [GMT11の零集合の像](../GMT11/index.md#lem-gmt11-lipschitz-null-image)を使います。微分不能点に $J_mf=0$ を割り当てても両辺は変わりません。
 
 ## 4. full-rank点での座標変換が核心
 
@@ -245,7 +249,9 @@ rank欠損点と微分不能点を第3節で処理しました。full-rank点を
 
 まず $k\ge1$ とします。$Df$ が存在しrank $m$ の点 $x$ では、ある $m$ 本の列を抜いた行列 $A$ が可逆です。列の選び方は有限通りです。これを固定した部分では $T(x)=(f(x),u)$ の微分 $DT(x)$ が可逆です。
 
-**(1) 双Lipschitz片を作る。** [GMT11のfull-rank片への可算分割](../GMT11/index.md#thm-gmt11-area-formula)を、今度は $d$ 次元から $d$ 次元への Lipschitz 写像 $T$ に適用します。要点は、微分の最小特異値を $1/q$ 以上に固定し、微分行列を一定の行列 $M$ で $\eta$ 以内に近似し、点 $a,b$ の微分誤差を互いに引き算することです。同じ小片 $P$ 上で
+**(1) 双Lipschitz片を作る。** [GMT11のfull-rank片への可算分割](../GMT11/index.md#thm-gmt11-area-formula)を、今度は同次元の Lipschitz 写像 $T:\mathbb R^d\to\mathbb R^d$ に適用します。
+
+微分の最小特異値を $1/q$ 以上に固定し、微分行列を一定の $M$ で $\eta$ 以内に近似します。点 $a,b$ の微分誤差を引き算すると、同じ小片 $P$ 上で
 
 $$
 |T(a)-T(b)-M(a-b)|\le2\eta|a-b|
@@ -419,7 +425,11 @@ $$
 
 が成立します。rank $Q<m$ なら両辺の $m$-Jacobian は $0$ であり、[rank欠損集合のほとんどすべての断面は零測度という補題](#lem-gmt14-critical-slices)によりほとんどの $y$ の断面積分にも寄与しません。
 
-まず [GMT11の重み付きarea formula](../GMT11/index.md#cor-gmt11-weighted-area)を単射な $\phi_i$ に使い、$c_s$ を保持します。次に上の恒等式を代入して $F_i$ に [Euclid coarea](#thm-gmt14-coarea)を適用します。ほとんど全ての $y$ に対し $A_i\cap F_i^{-1}(y)$ は第5節のfull-rank片の逆像により可算 $k$-整流可能で、その接方向は $\ker DF_i$ です。最後にその断面上の $\phi_i$ へ [GMT13の整流可能集合上のarea formula](../GMT13/index.md#thm-gmt13-rectifiable-area)を適用して、$J_k(D\phi_i|_{\ker DF_i})$ の積分を $E_i\cap f^{-1}(y)$ の $\mathcal H^k$ 積分へ変えます。係数を明示すると
+まず [GMT11の重み付きarea formula](../GMT11/index.md#cor-gmt11-weighted-area)を単射な $\phi_i$ に使い、$c_s$ を保持します。次に上の恒等式を代入して $F_i$ に [Euclid coarea](#thm-gmt14-coarea)を適用します。
+
+ほとんど全ての $y$ に対し、$A_i\cap F_i^{-1}(y)$ は第5節のfull-rank片の逆像により可算 $k$-整流可能です。その接方向は $\ker DF_i$ となります。
+
+最後に断面上の $\phi_i$ へ [GMT13の整流可能集合上のarea formula](../GMT13/index.md#thm-gmt13-rectifiable-area)を適用します。この操作で $J_k(D\phi_i|_{\ker DF_i})$ の積分を、像の断面 $E_i\cap f^{-1}(y)$ の $\mathcal H^k$ 積分へ変えます。係数を明示すると
 
 $$
 \begin{aligned}
