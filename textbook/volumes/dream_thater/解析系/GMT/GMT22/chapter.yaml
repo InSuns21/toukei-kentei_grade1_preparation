@@ -1,0 +1,36 @@
+id: GMT22
+title: BV近似・全変動の下半連続性
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT21
+  - MT6
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - 局所畳み込みの定義域を指定し、分布微分との交換と変動評価を証明できる
+  - L1収束に対する全変動の下半連続性を双対表示から導ける
+  - strict収束を定義し、L1収束・測度の全変動ノルム収束との違いを反例で説明できる
+  - 分割統一による任意の開集合上のBV関数の滑らかなstrict近似を構成できる
+  - 境界への変動の流出とゼロ拡張による余分な境界変動を区別できる
+definitions:
+  - { id: GMT22-DEF-01, name: 局所平滑化と内部領域 }
+  - { id: GMT22-DEF-02, name: BVのstrict収束 }
+theorems:
+  - { id: GMT22-PROP-01, name: 局所畳み込みと変動評価 }
+  - { id: GMT22-THM-01, name: 全変動の下半連続性 }
+  - { id: GMT22-THM-02, name: BVの滑らかなstrict近似 }
+canonical_examples:
+  - ジャンプ関数の畳み込みと変動質量
+  - 高周波・低振幅振動によるL1収束とstrict収束の差
+  - 境界へ移動するジャンプとゼロ拡張の余分な変動
+problem_patterns:
+  - GMT22-MOLLIFIER-LOCAL
+  - GMT22-LSC-DUAL
+  - GMT22-STRICT-NOT-STRONG
+  - GMT22-BOUNDARY-ESCAPE
+  - GMT22-PARTITION-APPROX
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 10, exercises: 7, review: 3 }
