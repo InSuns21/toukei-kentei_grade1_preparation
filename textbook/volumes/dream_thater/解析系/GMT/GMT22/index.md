@@ -122,7 +122,13 @@ $$
 \longrightarrow0.
 $$
 
-$L^1(K')$ 関数の平行移動の連続性と、$|h|<\varepsilon$ で積分することを用いました。$\square$
+$K'$ の外で $u$ を0とした $w=u\boldsymbol1_{K'}\in L^1(\mathbb R^d)$ を考えると、十分小さい $|h|<\varepsilon$ について $K$ 上では $u(x-h)-u(x)=w(x-h)-w(x)$ です。[GPDE3の $L^1$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)により
+
+$$
+\sup_{|h|<\varepsilon}\|w(\,\cdot-h)-w\|_{L^1(\mathbb R^d)}\longrightarrow0,
+$$
+
+ゆえに核の非負性・質量1から上の積分も0へ向かいます。$\square$
 <!-- proof-end -->
 
 ### 例：ジャンプの変動が薄い層に広がる
@@ -227,18 +233,18 @@ $$
 <!-- definition-example-start: def-gmt22-strict -->
 ### 直接例：一つのジャンプのstrict近似
 
-$\Omega=(-1,1)$、$u=\boldsymbol1_{(0,1)}$ とし、前節の偶・非負核を用いて $\widetilde u_\varepsilon=u*\rho_\varepsilon$ を $(-1,1)$ 上で考えます。ここでは $u$ を $\mathbb R$ 上へ同じ段差 $H(x)=\boldsymbol1_{(0,\infty)}$ として延長して畳み込みます。$\varepsilon<1/2$ なら $\Omega$ 内で $u_\varepsilon$ と同じ値です。
+$\Omega=(-1,1)$、$u=\boldsymbol1_{(0,1)}$ とし、前節の偶・非負核を用います。$u$ を $\mathbb R$ 上へ同じ段差 $H(x)=\boldsymbol1_{(0,\infty)}$ として延長し、$\widetilde u_\varepsilon=H*\rho_\varepsilon$ を $\Omega$ 全体で定義します。$0<\varepsilon<1/2$ なら、局所平滑化 $u_\varepsilon$ は $\Omega_\varepsilon$ 上でのみ定義されますが、その範囲では $H|_\Omega=u$ と核の台の条件により $\widetilde u_\varepsilon=u_\varepsilon$ です。全区間でのstrict収束を判定する際は $\widetilde u_\varepsilon$ を使います。
 
-差は $(-\varepsilon,\varepsilon)$ の中にしかなく、$|u_\varepsilon-u|\le1$ だから $\|u_\varepsilon-u\|_1\le2\varepsilon\to0$。また $u_\varepsilon'=\rho_\varepsilon\ge0$、核の質量は1であり
-
-$$
-|Du_\varepsilon|(\Omega)=\int_{-\varepsilon}^{\varepsilon}\rho_\varepsilon\,dx=1=|Du|(\Omega).
-$$
-
-したがってstrict収束です。一方 $Du_\varepsilon=\rho_\varepsilon dx$ と $Du=\delta_0$ は互いに特異です。従ってその差の全変動測度は両者の質量の和を持ち、
+差は $(-\varepsilon,\varepsilon)$ の中にしかなく、$|\widetilde u_\varepsilon-u|\le1$ だから $\|\widetilde u_\varepsilon-u\|_1\le2\varepsilon\to0$。また1変数の通常の導関数 $\widetilde u_\varepsilon'=d\widetilde u_\varepsilon/dx$ は $\rho_\varepsilon\ge0$ に等しく、[W11関数とBVの比較](../GMT21/index.md#prop-gmt21-w11-inclusion)により $D\widetilde u_\varepsilon=\widetilde u_\varepsilon'\,dx$ です。核の質量は1なので
 
 $$
-|Du_\varepsilon-Du|(\Omega)=2
+|D\widetilde u_\varepsilon|(\Omega)=\int_{-\varepsilon}^{\varepsilon}\rho_\varepsilon\,dx=1=|Du|(\Omega).
+$$
+
+したがってstrict収束です。一方 $D\widetilde u_\varepsilon=\rho_\varepsilon dx$ と $Du=\delta_0$ は互いに特異です。従ってその差の全変動測度は両者の質量の和を持ち、
+
+$$
+|D\widetilde u_\varepsilon-Du|(\Omega)=2
 $$
 
 であり、**分布微分の全変動ノルム収束ではありません**。strict収束の二条件と「測度自体のノルム差が0へ向かうこと」を混同してはいけません。
@@ -287,7 +293,15 @@ $$
 
 $f_i$ は $\Omega$ 内のコンパクト集合に台を持つため、$\mathbb R^d$ へゼロ拡張しても新たな境界分布微分は生じません。$g_i$ も $\mathbb R^d$ 上の $L^1$ 関数として扱えます。
 
-$L^1(\mathbb R^d)$ における近似恒等核の収束から、各 $i$ ごとに十分小さい $\varepsilon_i>0$ を選んで
+各 $f_i,g_i$ はゼロ拡張後に $L^1(\mathbb R^d)$ に属します。[GPDE3の $L^1$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)を $a=f_i,g_i$ に適用すると、$\tau_h a(x)=a(x-h)$ として
+
+$$
+\|\rho_\varepsilon*a-a\|_1
+\le\int\rho_\varepsilon(h)\|\tau_h a-a\|_1\,dh
+\le\sup_{|h|<\varepsilon}\|\tau_h a-a\|_1\longrightarrow0.
+$$
+
+したがって各 $i$ ごとに十分小さい $\varepsilon_i>0$ を選んで
 
 $$
 \|\rho_{\varepsilon_i}*f_i-f_i\|_1<\eta\,2^{-i-1},
@@ -295,7 +309,7 @@ $$
 \|\rho_{\varepsilon_i}*g_i-g_i\|_1<\eta\,2^{-i-1}
 $$
 
-を満たせます。同時に $\operatorname{supp}(\rho_{\varepsilon_i}*f_i)$ が $\Omega$ 内の、前述の局所有限な拡大近傍に収まるよう選びます。畳み込みの台は $\operatorname{supp}f_i+\overline{B(0,\varepsilon_i)}$ に含まれるので、これは半径を小さくすれば可能です。
+を満たせます。同時に $\operatorname{supp}(\rho_{\varepsilon_i}*f_i)$ が $\Omega$ 内の、前述の局所有限な拡大近傍に収まるよう選びます。畳み込みの台は $\operatorname{supp}f_i+\overline{B(0,\varepsilon_i)}$ に含まれるので、これは半径を小さくすれば可能です。$\operatorname{supp}g_i\subset\operatorname{supp}\zeta_i$ でもあるため、$\rho_{\varepsilon_i}*g_i$ の台も同じ局所有限な拡大近傍に収まります。
 
 $$
 w_\eta=\sum_i\rho_{\varepsilon_i}*f_i
