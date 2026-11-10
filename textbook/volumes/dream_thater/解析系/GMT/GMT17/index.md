@@ -350,7 +350,7 @@ $E=R\dot\cup P$ と分解し、$R$ が正の面積なら上の定理で射影が
 <!-- proof-start -->
 ### 証明
 
-[GMT16の分解定理](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}P$ とします。もし $\mathcal H^m(R)>0$ なら、[整流可能部分はほとんど全方向で正面積に射影される](#thm-gmt17-rectifiable-positive-projection)ことから、ほとんど全方向で $\mathcal H^m(\pi_VR)>0$ です。他方、$R\subset E$ から $\pi_VR\subset\pi_VE$ であり、測度の単調性により
+[GMT16の分解定理](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}P$ とします。もし $\mathcal H^m(R)>0$ なら、[整流可能部分はほとんど全方向で正面積に射影される](#thm-gmt17-rectifiable-positive-projection)ことから、ほとんど全方向で $\mathcal H^m(\pi_VR)>0$ です。他方、$R\subset E$ から $\pi_VR\subset\pi_VE$ であり、[測度の単調性](../../F0/F0-00D2/index.md#prop-f0-00d2-02)により
 
 $$
 0<\mathcal H^m(\pi_VR)\le\mathcal H^m(\pi_VE)
