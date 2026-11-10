@@ -27,7 +27,7 @@ chapters:
   - { id: GMT19, path: textbook/volumes/dream_thater/解析系/GMT/GMT19, status: completed, title: "blow-upと接測度の基礎" }
   - { id: GMT20, path: textbook/volumes/dream_thater/解析系/GMT/GMT20, status: completed, title: "密度によるrectifiability判定" }
   - { id: GMT21, path: textbook/volumes/dream_thater/解析系/GMT/GMT21, status: completed, title: "多変数BVと分布微分" }
-  - { id: GMT22, path: textbook/volumes/dream_thater/解析系/GMT/GMT22, status: planned, title: "BV近似・全変動の下半連続性" }
+  - { id: GMT22, path: textbook/volumes/dream_thater/解析系/GMT/GMT22, status: completed, title: "BV近似・全変動の下半連続性" }
   - { id: GMT23, path: textbook/volumes/dream_thater/解析系/GMT/GMT23, status: planned, title: "BVコンパクト性とcoarea" }
   - { id: GMT24, path: textbook/volumes/dream_thater/解析系/GMT/GMT24, status: planned, title: "有限周長集合とGauss--Green測度" }
   - { id: GMT25, path: textbook/volumes/dream_thater/解析系/GMT/GMT25, status: planned, title: "reduced boundaryと測度論的法線" }

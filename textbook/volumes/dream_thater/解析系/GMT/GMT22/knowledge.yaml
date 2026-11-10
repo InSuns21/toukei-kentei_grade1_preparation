@@ -1,0 +1,52 @@
+chapter: GMT22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT21
+  - MT6
+  - GPDE3
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt22-local-mollification
+    name: 局所平滑化と内部領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所平滑化と内部領域）"]
+    requires:
+      - geometric-measure.gmt21-measure-derivative
+
+  - id: geometric-measure.gmt22-mollifier-estimate
+    name: 局所畳み込みと変動評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所畳み込みと変動評価）"]
+    requires:
+      - geometric-measure.gmt22-local-mollification
+      - geometric-measure.gmt21-variation-duality
+
+  - id: geometric-measure.gmt22-lsc
+    name: 全変動の下半連続性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全変動の下半連続性）"]
+    requires:
+      - geometric-measure.gmt21-variation-duality
+
+  - id: geometric-measure.gmt22-strict
+    name: BVのstrict収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（BVのstrict収束）"]
+    requires:
+      - geometric-measure.gmt22-lsc
+
+  - id: geometric-measure.gmt22-smooth-approx
+    name: BVの滑らかなstrict近似
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（BVの滑らかなstrict近似）"]
+    requires:
+      - geometric-measure.gmt22-strict
+      - geometric-measure.gmt22-mollifier-estimate
+      - geometric-measure.gmt21-product

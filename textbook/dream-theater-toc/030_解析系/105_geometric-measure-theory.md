@@ -22,3 +22,4 @@
 19. [GMT19 blow-upと接測度の基礎](textbook/volumes/dream_thater/解析系/GMT/GMT19/index.md)
 20. [GMT20 密度によるrectifiability判定](textbook/volumes/dream_thater/解析系/GMT/GMT20/index.md)
 21. [GMT21 多変数BVと分布微分](textbook/volumes/dream_thater/解析系/GMT/GMT21/index.md)
+22. [GMT22 BV近似・全変動の下半連続性](textbook/volumes/dream_thater/解析系/GMT/GMT22/index.md)
