@@ -51,7 +51,13 @@ $E=([-1,1]\times\{0\})\cup(\{0\}\times[-1,1])$ とします。原点の球には
 
 近似接平面は一つの点 $x$ を中心にした**測度についての**条件です。グラフを構成するには、異なる二点 $x,y$ を結ぶ線分の方向を制限しなければなりません。そこで、各点での面積の下界を使い、円錐外へ離れた点 $y$ の周りには一定量の面積があることから矛盾を作ります。
 
-まず $m<d$ とし、原点を通る $m$ 次元平面 $V$ を固定します。$F\subset E$ の各点で、同じ定数 $a,\rho>0$ と小さな $\eta>0$ によって
+まず $m<d$ とし、原点を通る $m$ 次元平面 $V$ を固定します。[GMT7のGrassmann空間・直交射影の定義](../GMT7/index.md#def-gmt7-grassmann-projection)に従い、そのような平面全体を $G(d,m)$、$V$ への直交射影を $\pi_V$ と書きます。$u\in\mathbb R^d$ の $V$ からの距離は
+
+$$
+\operatorname{dist}(u,V)=|u-\pi_Vu|=|\pi_{V^\perp}u|
+$$
+
+であり、円錐条件はこの直交成分と $|u|$ の比を制限します。$F\subset E$ の各点で、同じ定数 $a,\rho>0$ と小さな $\eta>0$ によって
 
 $$
 \mu(B(x,r))\ge ar^m,\qquad
@@ -122,9 +128,21 @@ $$
 しかし $\eta<a/2^{4m}$ なら $\eta 2^m<a/8^m$ となり矛盾します。したがって二点間の差は $V$ に沿う円錐へ入ります。$\square$
 <!-- proof-end -->
 
-### 直接例：グラフなら射影を逆にたどれる
+### 直接例：密度・円錐を確かめて射影を逆にたどる
 
-$V=\mathbb R\times\{0\}\subset\mathbb R^2$ とし、$F=\{(t,t/2):0\le t\le1\}$ を考えます。異なる二点の差は $(h,h/2)$ なので、水平射影の長さは $|h|$、直交成分の長さは $|h|/2$、全体は $\sqrt5|h|/2$ です。従って直交成分と全体の比は $1/\sqrt5<1/2$ です。水平射影が同じであれば点も同じであり、逆写像は $t\mapsto(t,t/2)$ と一意に定まります。
+$V=\mathbb R\times\{0\}\subset\mathbb R^2$ とし、$F=E=\{(t,t/10):0\le t\le1\}$、$\mu=\mathcal H^1\llcorner E$ を考えます。$E$ はコンパクトな線分なのでBorelで、$\mu$ は有限です。線分の全長は $\sqrt{101}/10>1$ なので、各点 $x\in F$ から少なくとも片側に長さ $1/2$ 以上の線分が残ります。従って $0<r<\rho=1/4$ では、端点も含め
+
+$$
+\mu(B(x,r))\ge r=ar\qquad(a=1)
+$$
+
+です。異なる二点の差は $(h,h/10)$ で、その直交成分と全体の比は
+
+$$
+\frac{|h|/10}{\sqrt{101}|h|/10}=\frac1{\sqrt{101}}<\frac14.
+$$
+
+ゆえに $F$ の点を中心とする幅 $1/4$ の円錐外には $E$ の面積が残らず、$\eta=1/32<1/16=a/2^{4m}$（$m=1$）を取れます。補題の全前提が成立し、距離 $|x-y|<\rho/2$ の二点では同じ比が $1/2$ より小さいと確認できます。水平射影が同じであれば点も同じであり、逆写像は $t\mapsto(t,t/10)$ と一意に定まります。
 
 <a id="lem-gmt20-cone-graph"></a>
 
@@ -159,20 +177,36 @@ $$
 \le\frac1{\sqrt3}|v-w|.
 $$
 
-$V^\perp$ の直交基底 $e_1,\ldots,e_{d-m}$ で $g_0=\sum_j g_{0,j}e_j$ と書くと、各実数値成分は $1/\sqrt3$-Lipschitzです。各成分を
+$A=\varnothing$ なら $g=0$ とすればよいので、以下 $A\ne\varnothing$ とします。$V^\perp$ の正規直交基底 $e_1,\ldots,e_{d-m}$ で $g_0=\sum_j g_{0,j}e_j$ と書くと、各実数値成分は $L=1/\sqrt3$-Lipschitzです。各成分を
 
 $$
-g_j(v)=\inf_{w\in A}\left(g_{0,j}(w)+\frac{|v-w|}{\sqrt3}\right)
+g_j(v)=\inf_{w\in A}\left(g_{0,j}(w)+L|v-w|\right)
 $$
 
-で $V$ 全体へ拡張します。空集合 $A$ については $g=0$ とすればよいので、以下 $A$ は非空とします。三角不等式から $g_j$ は有限で $1/\sqrt3$-Lipschitz、$v\in A$ では $g_j(v)=g_{0,j}(v)$ です。$g=\sum_jg_je_j$ は高々 $\sqrt{d-m}/\sqrt3$-Lipschitzで、$F$ をグラフに含めます。$\square$
+で $V$ 全体へ拡張します。$w_0\in A$ を一つ固定します。任意の $w\in A$ について $g_{0,j}(w)\ge g_{0,j}(w_0)-L|w-w_0|$ であり、$|w-w_0|\le|w-v|+|v-w_0|$ です。この二式を組み合わせると
+
+$$
+\begin{aligned}
+g_{0,j}(w)+L|v-w|
+&\ge g_{0,j}(w_0)-L|w-w_0|+L|v-w|\\
+&\ge g_{0,j}(w_0)-L|v-w_0|.
+\end{aligned}
+$$
+
+従って下限は $-\infty$ ではなく、$w=w_0$ を代入すれば有限な上界もあります。また $|v-w|\le|v-v'|+|v'-w|$ を各項に適用して下限を取ると
+
+$$
+g_j(v)\le g_j(v')+L|v-v'|,
+$$
+
+$v,v'$ を交換して $g_j$ の $L$-Lipschitz性を得ます。$v\in A$ では $w=v$ により $g_j(v)\le g_{0,j}(v)$、一方すべての $w\in A$ で $g_{0,j}(w)+L|v-w|\ge g_{0,j}(v)$ なので、$g_j(v)=g_{0,j}(v)$ です。$g=\sum_jg_je_j$ は高々 $\sqrt{d-m}/\sqrt3$-Lipschitzで、$F$ をグラフに含めます。$\square$
 <!-- proof-end -->
 
 ここで「$F$ 上で $1/\sqrt3$」と「全平面へ拡張後の定数」は別です。後者の定数が少し増えても、可算整流可能性には支障がありません。
 
 ## 3. 近似接平面を持つ点を可算個のグラフへ並べる
 
-点ごとに接平面の向き、密度の下界、円錐外面積が小さくなる半径は異なります。しかし、これらの違いは可算個の選択に分けられます。平面の集合 $G(d,m)$ はコンパクトな距離空間で、直交射影 $\pi_V$ による距離 $\|\pi_V-\pi_W\|$ について可算な稠密集合を持ちます。
+点ごとに接平面の向き、密度の下界、円錐外面積が小さくなる半径は異なります。しかし、これらの違いは可算個の選択に分けられます。[GMT7で直交射影行列として構成したGrassmann空間](../GMT7/index.md#def-gmt7-grassmann-projection) $G(d,m)$ はコンパクトな距離空間で、直交射影 $\pi_V$ による距離 $\|\pi_V-\pi_W\|$（線形作用素ノルム）について可算な稠密集合を持ちます。
 
 <a id="thm-gmt20-tangent-criterion"></a>
 
@@ -241,7 +275,13 @@ $$
 \operatorname{dist}(y-x,V_j)<\frac12|x-y|.
 $$
 
-[局所円錐条件からLipschitzグラフへの包含](#lem-gmt20-cone-graph)を $F$ に適用すれば、その集合は $m$ 次元Lipschitzグラフに含まれます。各グラフは平面からEuclid空間へのLipschitz写像の像です。従って[可算m-整流可能集合の定義](../GMT12/index.md#def-gmt12-countably-rectifiable)から $E_*$ は可算 $m$-整流可能です。
+[局所円錐条件からLipschitzグラフへの包含](#lem-gmt20-cone-graph)を $F$ に適用すれば、その集合は $m$ 次元Lipschitzグラフに含まれます。ここで $V_j$ の正規直交基底 $e_1,\ldots,e_m$ を選び、$U:\mathbb R^m\to V_j$ を $U(t)=\sum_{i=1}^m t_ie_i$ と置きます。$U$ は等長写像なので、補題で得た $g:V_j\to V_j^\perp$ に対し
+
+$$
+f(t)=U(t)+g(U(t))\quad(t\in\mathbb R^m)
+$$
+
+はLipschitz写像で、その像がグラフ全体です。これが[可算m-整流可能集合の定義](../GMT12/index.md#def-gmt12-countably-rectifiable)で求められる $\mathbb R^m$ 上のパラメータ写像なので、$E_*$ は可算 $m$-整流可能です。
 
 しかも $\mu(E\setminus E_*)=0$ なので、零集合を除いて $E$ 全体をこの可算個のグラフで覆えます。
 
@@ -322,7 +362,19 @@ $$
 
 **定義の確認**：可算整流可能な支持集合とHausdorff測度に対する絶対連続性をそれぞれ確かめます。
 
-$R=[-1,1]\times\{0\}$ とし、$w(t)=2+|t|$、$\nu=w\,\mathcal H^1\llcorner R$ とします。$R$ は一本のLipschitz線分だから可算1整流可能です。$\nu$ は $R$ の外で零であり、$\mathcal H^1(A)=0$ なら $\nu(A)=\int_{A\cap R}w\,d\mathcal H^1=0$ なので絶対連続です。従ってこの測度は1整流可能です。
+$R=[-1,1]\times\{0\}$ とし、$R$ 上の重みを $w(t,0)=2+|t|$、$\nu=w\,\mathcal H^1\llcorner R$ とします。$R$ は一本のLipschitz線分だから可算1整流可能です。さらに $2\le w\le3$ はコンパクト集合 $R$ 上で連続で、$\nu$ は非負かつ
+
+$$
+\nu(\mathbb R^2)=\nu(R)\le3\mathcal H^1(R)=6
+$$
+
+を満たす有限Radon測度です。$\nu$ は $R$ の外で零であり、$\mathcal H^1(A)=0$ なら
+
+$$
+\nu(A)=\int_{A\cap R}w\,d\mathcal H^1=0
+$$
+
+なので絶対連続です。従ってこの測度は1整流可能です。
 
 さらに内点 $x=(a,0)$、$|a|<1$ において、$r<1-|a|$ なら
 
@@ -416,7 +468,7 @@ $F\subset\mathbb R^d$ の異なる二点 $x,y$ が常に $\operatorname{dist}(y-
 
 - Level: A
 
-$\nu=(1+t^2)\mathcal H^1\llcorner(\mathbb R\times\{0\})$ に対し、$x=(a,0)$ における $\lim_{r\downarrow0}\nu(B(x,r))/(2r)$ を求めよ。密度が1でないことは非整流性を意味するか。
+直線 $R=\mathbb R\times\{0\}$ 上の点 $(t,0)$ で重み $w(t,0)=1+t^2$ を定め、$\nu=w\,\mathcal H^1\llcorner R$ とする。$x=(a,0)$ における $\lim_{r\downarrow0}\nu(B(x,r))/(2r)$ を求めよ。密度が1でないことは非整流性を意味するか。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -507,7 +559,13 @@ $$
 f_0(a)+L|x-a|\ge f_0(a_0)-L|x-a_0|
 $$
 
-となるため下に有界であり、$a=a_0$ の項が有限な上界を与えます。任意の $x,y$ に対し $|x-a|\le|x-y|+|y-a|$ なので $f(x)\le f(y)+L|x-y|$、交換して $|f(x)-f(y)|\le L|x-y|$ です。$x\in A$ では $f(x)\le f_0(x)$（$a=x$）かつ $f_0(a)+L|x-a|\ge f_0(x)$（Lipschitz性）なので等号です。[グラフ補題](#lem-gmt20-cone-graph)では成分ごとにこの操作を行いました。
+となるため下に有界であり、$a=a_0$ の項が有限な上界を与えます。任意の $x,y$ に対し $|x-a|\le|x-y|+|y-a|$ を各項に適用して下限を取ると
+
+$$
+f(x)\le f(y)+L|x-y|.
+$$
+
+$x,y$ を交換して $|f(x)-f(y)|\le L|x-y|$ です。$x\in A$ では $a=x$ の項により $f(x)\le f_0(x)$ です。一方、すべての $a\in A$ で $f_0(a)+L|x-a|\ge f_0(x)$ なので下限も $f_0(x)$ 以上です。両側から挟んで $f(x)=f_0(x)$ を得ます。[グラフ補題](#lem-gmt20-cone-graph)では成分ごとにこの操作を行いました。
 <!-- solution-end -->
 
 <a id="ex-gmt20-b04"></a>
@@ -538,7 +596,14 @@ $$
 
 - Level: C
 
-$E\subset\mathbb R^d$ を局所有限な $\mathcal H^m$ を持つBorel集合とし、$\mu=\mathcal H^m\llcorner E$ とする。$\mu$-ほとんどすべての $x$ で、ある $m$ 平面 $V_x$ と $c_x>0$ が存在して、$r^{-m}(T_{x,r})_\#\mu\rightharpoonup_{\mathrm v}c_x\mathcal H^m\llcorner V_x$ が**全半径**で成立する、と仮定する。密度・接平面・整流可能性・係数同定を、どの結果をどの順で適用するか明示して導け。また、一つの平坦な接測度が存在するだけでは同じ論証にならない理由を述べよ。
+$E\subset\mathbb R^d$ を局所有限な $\mathcal H^m$ を持つBorel集合とし、$\mu=\mathcal H^m\llcorner E$ とする。$\mu$-ほとんどすべての点 $x$ で、ある $m$ 平面 $V_x$ と $c_x>0$ が存在し、
+
+$$
+r^{-m}(T_{x,r})_\#\mu\rightharpoonup_{\mathrm v}c_x\mathcal H^m\llcorner V_x
+\qquad(r\downarrow0)
+$$
+
+が**全半径**で成立すると仮定する。密度・接平面・整流可能性・係数同定を、どの結果をどの順で適用するか明示して導け。また、一つの平坦な接測度が存在するだけでは同じ論証にならない理由を述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
