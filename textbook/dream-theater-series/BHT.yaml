@@ -69,7 +69,7 @@ chapters:
     title: "負熱容量と有限空洞"
   - id: BHT16
     path: textbook/volumes/dream_thater/物理系/BHT/BHT16
-    status: planned
+    status: completed
     title: "AdSブラックホールとHawking–Page転移"
   - id: BHT17
     path: textbook/volumes/dream_thater/物理系/BHT/BHT17

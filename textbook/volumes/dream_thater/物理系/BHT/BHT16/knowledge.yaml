@@ -1,0 +1,55 @@
+chapter: BHT16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT15
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.ads-canonical-boundary
+    name: AdS正準境界と熱的AdS参照サドル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（AdS正準境界と熱的AdS参照サドル）"]
+    requires: [black-hole-thermodynamics.euclidean-dirichlet-data, black-hole-thermodynamics.matched-background-subtraction]
+
+  - id: black-hole-thermodynamics.schwarzschild-ads-state
+    name: Schwarzschild–AdSの状態量と第一法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild–AdSの状態量と第一法則）"]
+    requires: [black-hole-thermodynamics.ads-canonical-boundary, black-hole-thermodynamics.nonextremal-euclidean-period, black-hole-thermodynamics.bekenstein-hawking-entropy]
+
+  - id: black-hole-thermodynamics.ads-matched-on-shell-action
+    name: 熱的AdSとの整合境界での相対作用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（熱的AdSとの整合境界での相対作用）"]
+    requires: [black-hole-thermodynamics.ads-canonical-boundary, black-hole-thermodynamics.schwarzschild-ads-state, black-hole-thermodynamics.euclidean-gravity-action]
+
+  - id: black-hole-thermodynamics.ads-reduced-canonical-action
+    name: AdSの縮約正準作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（AdSの縮約正準作用）"]
+    requires: [black-hole-thermodynamics.schwarzschild-ads-state, black-hole-thermodynamics.conical-reduced-action]
+
+  - id: black-hole-thermodynamics.ads-two-branches
+    name: Schwarzschild–AdSの二分岐と局所符号
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Schwarzschild–AdSの二分岐と局所符号）"]
+    requires: [black-hole-thermodynamics.ads-reduced-canonical-action, black-hole-thermodynamics.boundary-specific-heat-capacity]
+
+  - id: black-hole-thermodynamics.hawking-page-saddle-transition
+    name: 重力サドルのHawking–Page転移
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重力サドルのHawking–Page転移）"]
+    requires: [black-hole-thermodynamics.ads-matched-on-shell-action, black-hole-thermodynamics.ads-two-branches]
+
+  - id: black-hole-thermodynamics.hawking-page-latent-heat
+    name: 転移点のエントロピー差と潜熱
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（転移点のエントロピー差と潜熱）"]
+    requires: [black-hole-thermodynamics.hawking-page-saddle-transition, black-hole-thermodynamics.schwarzschild-ads-state]
