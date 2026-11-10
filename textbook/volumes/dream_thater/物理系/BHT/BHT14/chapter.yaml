@@ -1,0 +1,43 @@
+id: "BHT14"
+title: "Euclidサドルから自由エネルギーへ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT13
+official_scope: []
+learning_objectives:
+  - 正則なEuclid Schwarzschildの境界固有周期と平坦参照周期を合わせ、GHY差から有限壁on-shell作用と無限遠極限を再導出できる
+  - 半古典の単一サドル寄与を正準分配関数の厳密な値と区別し、自由エネルギー・エネルギー・エントロピーを温度微分で求められる
+  - 固定壁半径・固有逆温度での熱力学微分を実行し、準局所エネルギーと面積エントロピーのLegendre関係を検算できる
+  - 円錐欠損の先端寄与から縮約されたoff-shell作用を導き、その停留条件と二階変分の符号を計算できる
+  - 平坦熱的背景とSchwarzschildの相対作用、負方向、赤外極限・境界固定・揺らぎの未評価を区別してサドル支配の可否を判定できる
+definitions:
+  - { id: BHT14-DEF-01, name: "半古典サドル寄与と熱力学微分" }
+  - { id: BHT14-DEF-02, name: "有限壁の縮約円錐作用" }
+theorems:
+  - { id: BHT14-PROP-01, name: "Schwarzschildの相対on-shell作用" }
+  - { id: BHT14-THM-01, name: "Schwarzschildサドルの自由エネルギー・エネルギー・エントロピー" }
+  - { id: BHT14-PROP-02, name: "有限壁での熱力学微分" }
+  - { id: BHT14-PROP-03, name: "円錐縮約作用の停留点と二階変分" }
+  - { id: BHT14-PROP-04, name: "有限壁の相対サドル重み" }
+canonical_examples:
+  - SchwarzschildのR=4GM壁で固有周期と相対作用を評価し、無限遠への極限と比較する
+  - I=beta²/(16πG)からEとSを独立に温度微分して面積則と突き合わせる
+  - 円錐先端の曲率寄与を二次元Gauss–Bonnetの周角から確認する
+  - R=4GMとR=5GM/2で縮約作用の二階変分の符号を比較する
+  - 固有周期を一致させた熱的平坦背景のI=0とSchwarzschildのIを比較する
+problem_patterns:
+  - BHT14-GHY-FINITE-WALL
+  - BHT14-ASYMPTOTIC-THERMODYNAMIC-DERIVATIVES
+  - BHT14-WALL-ENERGY-AND-LIMIT
+  - BHT14-CONE-TIP-DEFICIT
+  - BHT14-FIXED-BOUNDARY-DATA
+  - BHT14-WALL-LEGENDRE-DERIVATIVE
+  - BHT14-REDUCED-HESSIAN-SIGN
+  - BHT14-THERMAL-FLAT-COMPETITION
+  - BHT14-NEGATIVE-MODE-VS-REDUCED-DIRECTION
+  - BHT14-INTEGRATED-SADDLE-TEST
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 11, review: 6 }
