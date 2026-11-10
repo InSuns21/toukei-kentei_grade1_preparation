@@ -1,0 +1,47 @@
+id: "CAT2-08"
+title: "随伴のHom集合による定義"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-03
+  - CAT1-07
+  - CAT2-02
+  - CAT2-05
+official_scope: []
+learning_objectives:
+  - 局所小圏のHom集合を二変数の関手として扱い、前合成と後合成の型を確認できる
+  - 左随伴と右随伴をHom集合の二変数自然な全単射で定義し、別々の自然性と同時自然性を相互に導ける
+  - 自由モノイドと忘却関手のHom全単射を両方向に構成し、関手性と二変数自然性を証明できる
+  - 対角関手と積・余積の随伴を構成し、普遍性とHom全単射の対応を説明できる
+  - 半順序圏の随伴をGalois接続の不等式に翻訳し、存在しない場合の障害を示せる
+  - 同じ左随伴の右随伴が一意な自然同型を除いて定まることをHom全単射から証明できる
+definitions:
+  - { id: CAT2-08-DEF-01, name: 二変数Hom関手 }
+  - { id: CAT2-08-DEF-02, name: 随伴と転置 }
+theorems:
+  - { id: CAT2-08-PROP-01, name: 二変数自然性の分解 }
+  - { id: CAT2-08-THM-01, name: 自由モノイドと忘却関手の随伴 }
+  - { id: CAT2-08-THM-02, name: 対角関手と積関手の随伴 }
+  - { id: CAT2-08-THM-03, name: 余積関手と対角関手の随伴 }
+  - { id: CAT2-08-THM-04, name: 半順序圏の随伴判定 }
+  - { id: CAT2-08-THM-05, name: 右随伴の自然同型一意性 }
+canonical_examples:
+  - 集合の対角関手から二つの射を組にするHom全単射
+  - 二文字の自由モノイドで単語を値へ評価する転置
+  - 集合の余積と対角関手の双対的なHom全単射
+  - 整数から実数への包含と床関数・天井関数
+  - 積を第一射影に置き換えるとHom集合の濃度が一致しない反例
+problem_patterns:
+  - CAT2-08-NATURALITY-TYPES
+  - CAT2-08-WORD-EVALUATION
+  - CAT2-08-PRODUCT-PAIRING
+  - CAT2-08-ORDER-ADJUNCTION
+  - CAT2-08-CARDINALITY-OBSTRUCTION
+  - CAT2-08-FREE-NATURALITY
+  - CAT2-08-COPRODUCT-DIAGONAL
+  - CAT2-08-COMPOSE-ADJUNCTIONS
+  - CAT2-08-POWERSET-GALOIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 2 }

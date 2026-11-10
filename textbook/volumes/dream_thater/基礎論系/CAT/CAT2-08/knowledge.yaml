@@ -1,0 +1,58 @@
+chapter: CAT2-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-03
+  - CAT1-07
+  - CAT2-02
+  - CAT2-05
+
+concepts:
+  - id: category.hom-bifunctor
+    name: 二変数Hom関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二変数Hom関手）"]
+    requires: [category.covariant-hom-functor, category.contravariant-hom-functor]
+  - id: category.adjunction-hom
+    name: Hom集合による随伴
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（随伴と転置）"]
+    requires: [category.hom-bifunctor, category.natural-transformation]
+  - id: category.adjunction-separate-naturality
+    name: 二変数自然性の分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二変数自然性の分解）"]
+    requires: [category.adjunction-hom]
+  - id: category.free-monoid-adjunction
+    name: 自由モノイドと忘却関手の随伴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自由モノイドと忘却関手の随伴）"]
+    requires: [category.adjunction-hom, category.monoid-hom]
+  - id: category.diagonal-product-adjunction
+    name: 対角関手と積関手の随伴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対角関手と積関手の随伴）"]
+    requires: [category.adjunction-hom, category.binary-product, category.product-category]
+  - id: category.coproduct-diagonal-adjunction
+    name: 余積関手と対角関手の随伴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（余積関手と対角関手の随伴）"]
+    requires: [category.adjunction-hom, category.small-coproduct]
+  - id: category.poset-adjunction
+    name: 半順序圏の随伴判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（半順序圏の随伴判定）"]
+    requires: [category.adjunction-hom, category.poset-category]
+  - id: category.right-adjoint-uniqueness
+    name: 右随伴の自然同型一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（右随伴の自然同型一意性）"]
+    requires: [category.adjunction-hom, category.natural-isomorphism]
