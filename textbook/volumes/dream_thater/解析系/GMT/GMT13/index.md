@@ -59,14 +59,31 @@ $$
 
 各部分を Lebesgue 零集合を除いて可算枚のコンパクト集合へ縮めます。この操作とその像で失うのは、上記の[零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)により $\mathcal H^m$-零集合だけです。コンパクト像は Borel であり、順に先行する像を差し引くと互いに素な Borel 像片ができます。対応するパラメータ集合も Borel で、双Lipschitz性を保持します。
 
-最後に、像片を $E$ の **内側 Borel 代表**と交わらせます。詳しくは [GMT12の$\sigma$有限性](../GMT12/index.md#prop-gmt12-stability)により $E$ を有限 $\mathcal H^m$ 測度の可測片 $E^{(k)}$ に可算分割できます。[MT8のHausdorff被覆による構成](../../MT/MT8/index.md#def-mt8-hausdorff-measure)で被覆集合をわずかに開近傍へ広げれば、各 $E^{(k)}$ には同じ測度を持つ Borel 外側代表 $G_k\supset E^{(k)}$ が存在します。差 $G_k\setminus E^{(k)}$ は零測度なので、これを含む Borel 零集合 $N_k$ を選べば、$G_k\setminus N_k\subset E^{(k)}$ は Borel 内側代表です。その和を $E_{\mathrm B}\subset E$ と置けば、$E_{\mathrm B}$ は Borel で $\mathcal H^m(E\setminus E_{\mathrm B})=0$ です。各コンパクト像から先行する像を差し引き、さらに $E_{\mathrm B}$ と交わらせたものを $E_i$ とします。逆像 $A_i$ も Borel で、制限後も双Lipschitz性を保ちます。特に $E_i\subset E$ なので、後で $F:E\to\mathbb R^n$ をこれらの片へ制限できます。$\square$
+最後に、像片を $E$ の **内側 Borel 代表**と交わらせます。まず [GMT12の$\sigma$有限性](../GMT12/index.md#prop-gmt12-stability)により、$E$ を有限 $\mathcal H^m$ 測度の可測片 $E^{(k)}$ に可算分割します。
+
+[MT8のHausdorff被覆による構成](../../MT/MT8/index.md#def-mt8-hausdorff-measure)で被覆集合をわずかに開近傍へ広げれば、各 $E^{(k)}$ には同じ測度を持つ Borel 外側代表 $G_k\supset E^{(k)}$ が存在します。
+
+差 $G_k\setminus E^{(k)}$ は零測度です。これを含む Borel 零集合 $N_k$ を選べば、$G_k\setminus N_k\subset E^{(k)}$ は Borel 内側代表です。これらの和を $E_{\mathrm B}$ と置くと
+$$
+E_{\mathrm B}\subset E,\qquad
+\mathcal H^m(E\setminus E_{\mathrm B})=0
+$$
+となります。
+
+各コンパクト像から先行する像を差し引き、さらに $E_{\mathrm B}$ と交わらせたものを $E_i$ とします。逆像 $A_i$ も Borel で、制限後も双Lipschitz性を保ちます。
+
+特に $E_i\subset E$ なので、後で $F:E\to\mathbb R^n$ をこれらの片へ制限できます。$\square$
 <!-- proof-end -->
 
 この分割により、集合を「一回だけ」数える準備ができました。なお元の $h_j$ は像同士が重なってもよく、重なりが公式でどのように処理されるかは後で区別します。
 
 ## 2. 接方向と接Jacobianをどう定義するか
 
-例えば $\phi(t)=(t,t^2)$ で表される放物線では、パラメータ $t$ で微分した $\phi'(t)=d\phi/dt=(1,2t)$ の張る直線が接方向です。一変数では $D\phi(t)$ を線形写像として書くと $D\phi(t)v=v\phi'(t)$（$v\in\mathbb R$）であり、以下の $D\phi$ は多変数でも同じ全微分です（[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)）。一般の表示 $\phi:A\subset\mathbb R^m\to\mathbb R^d$ では、その行列の列 $D\phi(a)e_j$ が張る $m$ 次元部分空間を考えます。
+例えば $\phi(t)=(t,t^2)$ で表される放物線では、パラメータ $t$ で微分した $\phi'(t)=d\phi/dt=(1,2t)$ の張る直線が接方向です。
+
+一変数の全微分 $D\phi(t)$ は、スカラー増分 $v\in\mathbb R$ に $v\phi'(t)$ を対応させる線形写像です。以下の $D\phi$ もこの全微分を表し、[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)に従います。
+
+一般の表示 $\phi:A\subset\mathbb R^m\to\mathbb R^d$ では、標準基底 $e_j$ の像 $D\phi(a)e_j$ が行列の第 $j$ 列です。これらの列が張る $m$ 次元部分空間を接方向として考えます。
 
 ここで $A$ は開集合とは限りません。$a$ が $A$ の **Lebesgue 密度1の点**とは、球 $B(a,r)$ に占める $A$ の割合が
 $$
@@ -132,7 +149,11 @@ D\phi(t)(1/\sqrt5)=u,\qquad
 D^EF(u)=D(F\circ\phi)(t)(1/\sqrt5)=1/\sqrt5.
 $$
 
-ここでは $u$ を作るパラメータ増分 $1/\sqrt5$ を先に求め、[接微分の定義](#def-gmt13-tangential-jacobian)に代入しました。$T_xE$ は1次元だからこの値で線形写像 $D^EF$ が決まり、正規直交基底 $(u)$ の像を列に持つ $C$ は $1\times1$ 行列 $(1/\sqrt5)$ です。よって [Gram行列式によるJacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)から
+ここでは接方向の単位ベクトル $u$ を作るパラメータ増分 $1/\sqrt5$ を先に求め、[接微分の定義](#def-gmt13-tangential-jacobian)に代入しました。
+
+$T_xE$ は1次元なので、単位ベクトル $u$ に対する像で線形写像 $D^EF$ が決まります。正規直交基底 $(u)$ の像を列に持つ $C$ は $1\times1$ 行列 $(1/\sqrt5)$ です。
+
+よって [Gram行列式によるJacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)から
 
 $$
 J^E_1F=\sqrt{C^{\mathsf T}C}=\frac1{\sqrt5}.
@@ -313,7 +334,17 @@ $$
 
 ## 6. 滑らかな曲面積分と重なりの具体計算
 
-グラフ $S=\{(u,h(u)):u\in U\}\subset\mathbb R^{m+k}$（$U\subset\mathbb R^m$ は Borel、$h$ はその近傍で $C^1$）を考えます。局所的に $Dh$ が有界な領域へ切れば、$\Phi(u)=(u,h(u))$ は双Lipschitzです。[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)により、$\partial_jh=\partial h/\partial u_j$ は他の座標を固定して $u_j$ で偏微分した列ベクトルで、$D\Phi(u)e_j=(e_j,\partial_jh(u))$ です。従って列どうしの内積は $\delta_{ij}+\langle\partial_ih,\partial_jh\rangle$ となり、Gram 行列は $I_m+(Dh)^{\mathsf T}Dh$ です。
+グラフ $S=\{(u,h(u)):u\in U\}\subset\mathbb R^{m+k}$ を考えます。ここで $U\subset\mathbb R^m$ は Borel、$h$ はその開近傍で $C^1$ です。
+
+局所的に $Dh$ が有界な領域へ切れば、$\Phi(u)=(u,h(u))$ は双Lipschitzです。
+
+[RA6の微分とJacobian行列の対応](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)により、$\partial_jh=\partial h/\partial u_j$ は他の座標を固定して $u_j$ で偏微分した列ベクトルです。従って
+$$
+D\Phi(u)e_j=(e_j,\partial_jh(u))
+$$
+です。
+
+列どうしの内積は $\delta_{ij}+\langle\partial_ih,\partial_jh\rangle$ となるため、Gram 行列は $I_m+(Dh)^{\mathsf T}Dh$ です。
 
 <a id="cor-gmt13-c1-change"></a>
 
