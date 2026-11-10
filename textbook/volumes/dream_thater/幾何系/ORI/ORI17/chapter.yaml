@@ -1,0 +1,42 @@
+id: ORI17
+title: "複数頂点の大域条件・層順"
+volume: foundations
+status: supplementary
+prerequisites: [ORI16]
+official_scope: []
+learning_objectives:
+  - 単頂点の局所判定と複数面の大域的な平坦完成配置の存在を区別できる
+  - 面ごとの鏡映写像を折り目の隣接関係に沿って構成し、閉路の反射合成が恒等となる必要性を証明できる
+  - 穴のある紙に四本の放射状折り目を入れた反例で局所と大域の差を実計算できる
+  - 共通の開領域で重なる面の上下制約を有向グラフにし、循環が不可能性の証明となることを導出できる
+  - 有向非巡回グラフの位相順序を構成し、各領域での順序と大域の非交差条件を混同しない
+  - 折り目で接続する面の隣接性と層順の領域間整合を実例で検査できる
+  - 静的平坦完成形と連続運動・紙厚の条件を区別できる
+definitions:
+  - { id: ORI17-DEF-01, name: 大域平坦折り候補と反射の閉路整合 }
+  - { id: ORI17-DEF-02, name: 重なりセルと上下制約グラフ }
+theorems:
+  - { id: ORI17-PROP-01, name: 閉路の反射合成条件 }
+  - { id: ORI17-PROP-02, name: 共通重なり領域の層順と有向閉路 }
+  - { id: ORI17-THM-01, name: 有向非巡回グラフと上下順の同値 }
+  - { id: ORI17-PROP-03, name: 折り目での隣接性の必要条件 }
+canonical_examples:
+  - 角度0・30・90・150度の四放射状折り目を持つ円環では反射合成が半回転となり大域平坦像が存在しない
+  - 共通重なり領域でAがBより上、BがCより上、CがAより上という循環を検出する
+  - 三本の平行帯をx方向に反射して一つの帯へ重ねる構成で共有折り目と層の隣接を確認する
+  - 折り目の投影を横切った際に同じ二面の上下関係が勝手に反転しないことを確認する
+problem_patterns:
+  - ORI17-LOCAL-VS-GLOBAL
+  - ORI17-REFLECTION-PRODUCT
+  - ORI17-OVERLAP-CELL
+  - ORI17-CYCLE-CERTIFICATE
+  - ORI17-TOPOLOGICAL-SORT
+  - ORI17-HINGE-ADJACENCY
+  - ORI17-ANNULUS-PARAMETERS
+  - ORI17-STRIP-FOLD
+  - ORI17-CELL-COMPATIBILITY
+  - ORI17-INTEGRATED-CERTIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
