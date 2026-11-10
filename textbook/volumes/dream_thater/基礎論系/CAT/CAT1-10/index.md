@@ -25,7 +25,7 @@ $$
 
 [共変 Hom 関手](../CAT1-06/index.md#def-cat1-06-hom-functors) $\operatorname{Hom}_{\mathcal C}(A,-):\mathcal C\to\mathbf{Set}$ は、対象 $X$ に $A\to X$ の射全体を、射 $h:X\to Y$ に写像 $f\mapsto h\circ f$ を対応させる。
 
-この Hom 関手と自然同型になる集合値関手を「共変に表現可能」と呼ぶ。固定対象 $A$ は表現対象、対応を生み出す $A$ での特別な元は普遍元と呼ばれる。
+この Hom 関手と自然同型になる集合値関手を「共変に表現可能」と呼ぶ。固定対象 $A$ は表現対象という。対応を生み出す特別な元は、対象 $A$ 自身の元とは限らず、**集合 $F(A)$ の元** $u$ である。この $u$ を用いる普遍元の条件を以下で定義する。
 
 <a id="def-cat1-10-cov-representable"></a>
 
@@ -48,7 +48,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-10-cov-representable -->
-**定義の確認**。$F=I:\mathbf{Set}\to\mathbf{Set}$、$A=1$ とし、$\theta_X(f)=f(*)$ と置く。任意の $x\in X$ にはただ一つの写像 $f_x:1\to X$、$f_x(*)=x$ が対応し、$\theta_X^{-1}(x)=f_x$ である。任意の $h:X\to Y$ について $I(h)(\theta_X(f))=h(f(*))=\theta_Y(h\circ f)$。したがって全対象での全単射と全射に関する自然性の両方が検証できた。
+**定義の確認**。$F=I:\mathbf{Set}\to\mathbf{Set}$、$A=1$ とし、$\theta_X(f)=f(*)$ と置く。任意の $x\in X$ にはただ一つの写像 $f_x:1\to X$、$f_x(*)=x$ が対応し、$\theta_X^{-1}(x)=f_x$ である。$X=\varnothing$ でも両集合は空なので、全単射性は保たれる。
+
+さらに、任意の射 $h:X\to Y$ と $f:1\to X$ に対し
+
+$$
+I(h)(\theta_X(f))=h(f(*))=(h\circ f)(*)=\theta_Y(h\circ f).
+$$
+
+したがって、各対象での全単射性と、**任意の射**に関する自然性の両方を検証できた。
 <!-- definition-example-end -->
 
 自然同型 $\theta$ は全対象で一度に指定する必要がありそうだが、実は $\theta_A(1_A)$ だけで決まる。これは次講の Yoneda の補題の特別な入口であるが、ここでは必要な式を直接導く。
@@ -142,7 +150,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-10-contra-representable -->
-**定義の確認**。$P(X)=\mathcal P(X)$ を $X$ の部分集合全体とし、$P(h)(T)=h^{-1}(T)$ と定める。逆像の性質 $1_X^{-1}(T)=T$ と $(k\circ h)^{-1}(T)=h^{-1}(k^{-1}(T))$ により、これは反変関手である。$2=\{0,1\}$ を取り、$f:X\to2$ に $f^{-1}(\{1\})$ を対応させる。
+**定義の確認**。$P(X)=\mathcal P(X)$ を $X$ の部分集合全体とする。射 $h:X\to Y$ と部分集合 $T\subseteq Y$ に対し
+
+$$
+P(h)(T)=h^{-1}(T)=\{x\in X\mid h(x)\in T\}
+$$
+
+と置く。ここで $h^{-1}(T)$ は**逆像**であり、$h$ に逆写像があるという意味ではない。さらに $k:Y\to Z$、$U\subseteq Z$ に対して
+
+$$
+\begin{aligned}
+P(1_X)(S)&=S\qquad(S\subseteq X),\\
+P(k\circ h)(U)&=(k\circ h)^{-1}(U)\\
+ &=h^{-1}(k^{-1}(U))=P(h)(P(k)(U))
+\end{aligned}
+$$
+
+なので、反変関手の恒等射・合成則が成立する。$2=\{0,1\}$ を取り、$f:X\to2$ に $f^{-1}(\{1\})$ を対応させる。
 
 どの $T\subseteq X$ にも $T$ 上では $1$、補集合では $0$ を返す写像 $\chi_T:X\to2$ がただ一つあるから全単射であり、$h:X\to Y$ と $g:Y\to2$ に対して
 
@@ -207,7 +231,7 @@ P(h)(\psi_Y(g))
 \end{aligned}
 $$
 
-中央の等式は[反変関手の合成則](../CAT1-06/index.md#def-cat1-06-contravariant)である。したがって $\psi$ は自然同型。$\psi_A(1_A)=P(1_A)(u)=u$ で、任意の他の自然同型も最初の自然性の式で決まる。$\square$
+中央の等式は[反変関手の合成則](../CAT1-06/index.md#def-cat1-06-contravariant)である。よって $\psi$ は自然変換となり、各 $\psi_X$ が全単射なので[自然同型の成分判定](../CAT1-07/index.md#prop-cat1-07-componentwise-iso)から自然同型である。$\psi_A(1_A)=P(1_A)(u)=u$ で、任意の他の自然同型も最初の自然性の式で決まる。$\square$
 <!-- proof-end -->
 
 二種類の表現を取り違えないための型の確認を残しておく。
@@ -219,15 +243,15 @@ $$
 
 ## 4. 元を持つ対象の圏で普遍性を読む
 
-「任意の $x$ に一意の射がある」という条件は、[始対象・終対象](../CAT1-04/index.md#def-cat1-04-initial-terminal)の条件に似ている。その類似を正確に述べるため、関手の値に元を一つ付けた組を対象とする圏を作る。
+「任意の $x$ に一意の射がある」という条件は、[始対象・終対象](../CAT1-04/index.md#def-cat1-04-initial-terminal)の条件に似ている。その類似を正確に述べるため、関手の値に元を一つ付けた組を対象とする圏を作る。この構成を $\int F$ または $\int P$ と記す。記号 $\int$ は積分操作を意味しない。
 
 <a id="def-cat1-10-elements-categories"></a>
 
 <!-- formal-statement-start -->
 > **定義（元の圏）**  
-> 共変関手 $F:\mathcal C\to\mathbf{Set}$ の **元の圏** $\int F$ は、対象を $(X,x)$（$X\in\mathcal C$, $x\in F(X)$）とし、射 $(X,x)\to(Y,y)$ を $F(f)(x)=y$ を満たす $\mathcal C$ の射 $f:X\to Y$ とする。
+> 局所小圏 $\mathcal C$ 上の共変関手 $F:\mathcal C\to\mathbf{Set}$ の **元の圏** $\int F$ は、対象を $(X,x)$（$X\in\mathcal C$, $x\in F(X)$）とし、射 $(X,x)\to(Y,y)$ を $F(f)(x)=y$ を満たす $\mathcal C$ の射 $f:X\to Y$ とする。
 >
-> 反変関手 $P:\mathcal C^{\mathrm{op}}\to\mathbf{Set}$ の **元の圏** $\int P$ では対象を $(X,x)$（$x\in P(X)$）とし、射 $(X,x)\to(Y,y)$ を $P(f)(y)=x$ を満たす射 $f:X\to Y$ とする。両者とも恒等射・合成は $\mathcal C$ から引き継ぐ。
+> 同じ局所小圏上の反変関手 $P:\mathcal C^{\mathrm{op}}\to\mathbf{Set}$ の **元の圏** $\int P$ では対象を $(X,x)$（$X\in\mathcal C$, $x\in P(X)$）とし、射 $(X,x)\to(Y,y)$ を $P(f)(y)=x$ を満たす射 $f:X\to Y$ とする。両者とも恒等射・合成は $\mathcal C$ から引き継ぐ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat1-10-elements-categories -->
@@ -275,7 +299,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（普遍元付き表現対象の一意性）**  
-> 局所小圏 $\mathcal C$ と集合値関手を固定する。
+> 局所小圏 $\mathcal C$ を固定し、共変の場合は $F:\mathcal C\to\mathbf{Set}$、反変の場合は $P:\mathcal C^{\mathrm{op}}\to\mathbf{Set}$ という集合値関手を考える。
 >
 > - 共変 $F$ の共変普遍元 $(A,u)$ と $(B,v)$ があるとき、$F(t)(u)=v$ を満たす射 $t:A\to B$ はただ一つ存在し、同型射である。
 > - 反変 $P$ の反変普遍元 $(A,u)$ と $(B,v)$ があるとき、$P(t)(v)=u$ を満たす射 $t:A\to B$ はただ一つ存在し、同型射である。
@@ -297,7 +321,13 @@ F(s\circ t)(u)=F(s)(F(t)(u))=F(s)(v)=u
 =F(1_A)(u).
 $$
 
-$(A,u)$ の普遍性を $X=A$, $x=u$ に適用したときの射の一意性から $s\circ t=1_A$。同様に $F(t\circ s)(v)=v=F(1_B)(v)$ なので $t\circ s=1_B$。[同型射の定義](../CAT1-03/index.md#def-cat1-03-isomorphism)より $t$ は同型射。
+$(A,u)$ の普遍性を $X=A$, $x=u$ に適用したときの射の一意性から $s\circ t=1_A$。逆側は $F(t)(u)=v$ と $F(s)(v)=u$ を順に代入して
+
+$$
+F(t\circ s)(v)=F(t)(F(s)(v))=F(t)(u)=v=F(1_B)(v).
+$$
+
+$(B,v)$ の普遍性を $X=B$, $x=v$ に適用した射の一意性から $t\circ s=1_B$。[同型射の定義](../CAT1-03/index.md#def-cat1-03-isomorphism)より $t$ は同型射。
 
 **反変。** $(B,v)$ の普遍性を $X=A$, $x=u$ に適用すると、ただ一つの $t:A\to B$ で $P(t)(v)=u$ が存在する。$(A,u)$ の普遍性から $s:B\to A$ で $P(s)(u)=v$ がある。反変の合成則により
 
@@ -306,7 +336,13 @@ P(s\circ t)(u)=P(t)(P(s)(u))=P(t)(v)=u
 =P(1_A)(u).
 $$
 
-$(A,u)$ における一意性から $s\circ t=1_A$。同じ計算を $B$ で行えば $t\circ s=1_B$。従って $t$ は同型で、選ばれた普遍元を対応させる射の一意性も定義から従う。$\square$
+$(A,u)$ の反変普遍性を $X=A$, $x=u$ に適用した射の一意性から $s\circ t=1_A$。逆側は反変の合成順序に注意して
+
+$$
+P(t\circ s)(v)=P(s)(P(t)(v))=P(s)(u)=v=P(1_B)(v).
+$$
+
+$(B,v)$ の反変普遍性を $X=B$, $x=v$ に適用した射の一意性から $t\circ s=1_B$。従って $t$ は同型で、選ばれた普遍元を対応させる射の一意性も定義から従う。$\square$
 <!-- proof-end -->
 
 例えば共変の恒等関手を一元集合 $\{*\}$ と一元集合 $\{a\}$ で表現したとき、普遍元を $*$ と $a$ に指定すると、唯一の対応同型は $*\mapsto a$ である。対象が等号で同一という意味ではない。
@@ -402,7 +438,17 @@ $K_2$ を二元集合値の定値関手とする。共変・反変のいずれ�
 $F(X)=X\times X$、$F(h)(x_0,x_1)=(h(x_0),h(x_1))$ と置く。$A=2$ と $u=(0,1)\in2\times2$ が共変普遍元になることを証明し、対応する自然同型を書け。
 
 <!-- solution-start -->
-**詳細解答**。任意の $X$ と $(x_0,x_1)\in X\times X$ を取り、$f:2\to X$ を $f(0)=x_0$、$f(1)=x_1$ と定める。この値の組で写像は一意に定まる。さらに
+**詳細解答**。まず $F(1_X)(x_0,x_1)=(x_0,x_1)$ であり、$h:X\to Y$、$k:Y\to Z$ に対して
+
+$$
+\begin{aligned}
+F(k)(F(h)(x_0,x_1))
+  &=(k(h(x_0)),k(h(x_1)))\\
+  &=F(k\circ h)(x_0,x_1).
+\end{aligned}
+$$
+
+となるから $F$ は共変関手である。任意の $X$ と $(x_0,x_1)\in X\times X$ を取り、$f:2\to X$ を $f(0)=x_0$、$f(1)=x_1$ と定める。この値の組で写像は一意に定まる。さらに
 
 $$
 F(f)(u)=F(f)(0,1)=(f(0),f(1))=(x_0,x_1).

@@ -11,3 +11,4 @@
 8. [BHT8 Hawking温度の熱力学的意味](textbook/volumes/dream_thater/物理系/BHT/BHT8/index.md)
 9. [BHT9 Bekenstein–Hawkingエントロピー](textbook/volumes/dream_thater/物理系/BHT/BHT9/index.md)
 10. [BHT10 回転・電荷を含む熱力学の整合](textbook/volumes/dream_thater/物理系/BHT/BHT10/index.md)
+11. [BHT11 極限ブラックホールと第三法則](textbook/volumes/dream_thater/物理系/BHT/BHT11/index.md)
