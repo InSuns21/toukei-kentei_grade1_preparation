@@ -85,7 +85,7 @@ chapters:
     title: "Wald公式とEinstein重力"
   - id: BHT20
     path: textbook/volumes/dream_thater/物理系/BHT/BHT20
-    status: planned
+    status: completed
     title: "高階曲率とWald公式の適用限界"
   - id: BHT21
     path: textbook/volumes/dream_thater/物理系/BHT/BHT21

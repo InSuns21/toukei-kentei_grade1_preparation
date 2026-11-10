@@ -1,0 +1,41 @@
+id: "BHT20"
+title: "高階曲率とWald公式の適用限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT19
+official_scope: []
+learning_objectives:
+  - 計量形式のf(R)重力を導入しRiemann曲率の反対称射影からWaldエントロピーのf'(R)重みを導出できる
+  - 真空f(R)場の方程式を計量変分から導き定曲率の跡条件で例に使う解を検証できる
+  - 曲率導関数を含む作用で単純偏微分と曲率Euler微分が異なる理由を部分積分から説明できる
+  - 完全微分および共変ポテンシャル変更のNoether電荷への影響を定常分岐面と動的切片に分けて説明できる
+  - 面積非減少則と高階曲率のエントロピー増大と量子一般化第二法則を区別して成立条件を列挙できる
+definitions:
+  - { id: BHT20-DEF-01, name: "計量形式のf(R)重力" }
+theorems:
+  - { id: BHT20-PROP-01, name: "f(R)模型の定常Waldエントロピー" }
+  - { id: BHT20-THM-01, name: "真空f(R)の場の方程式と定曲率条件" }
+  - { id: BHT20-PROP-02, name: "曲率微分を含む模型の有効曲率微分" }
+  - { id: BHT20-PROP-03, name: "完全微分の追加と分岐面電荷" }
+canonical_examples:
+  - R+αR²-2Λで定曲率R0=4Λを方程式から求める
+  - Ricci-flat SchwarzschildではαR²項によるWald補正が消えることを検査する
+  - Rの勾配二乗作用で1-2η□Rの部分積分を導く
+  - 面積増大だけではf'(R)重み付き面積の増大を証明できない運動学例を検証する
+problem_patterns:
+  - BHT20-CURVATURE-ANTISYMMETRY
+  - BHT20-BINORMAL-CONTRACTION
+  - BHT20-FR-TRACE
+  - BHT20-RICCI-FLAT-CHECK
+  - BHT20-NORMAL-DERIVATIVE
+  - BHT20-QUADRATIC-CONSTANT-CURVATURE
+  - BHT20-DERIVATIVE-CURVATURE
+  - BHT20-EXACT-SHIFT
+  - BHT20-DYNAMIC-AREA-COUNTERCHECK
+  - BHT20-QUANTUM-BOUNDARY
+  - BHT20-INTEGRATED-WALD-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 13, review: 8 }
