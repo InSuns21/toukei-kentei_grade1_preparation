@@ -1,0 +1,73 @@
+chapter: GMT21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT4
+  - MT6
+  - GPDE3
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt21-bv
+    name: 多変数BVと双対変動量
+    kind: definition
+    aliases: [有界変動関数]
+    introduction: formal
+    introduction_aliases: ["定義（多変数BVと双対変動量）"]
+    requires:
+      - distribution.distributional-derivative
+      - analysis.mt4-bounded-variation
+
+  - id: geometric-measure.gmt21-vector-radon
+    name: 有限ベクトル値Radon測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限ベクトル値Radon測度）"]
+    requires:
+      - measure.finite-signed-radon
+
+  - id: geometric-measure.gmt21-measure-derivative
+    name: BVと測度値分布微分の同値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（BVと測度値分布微分の同値）"]
+    requires:
+      - geometric-measure.gmt21-bv
+      - measure.riesz-markov-c0-real
+      - geometric-measure.gmt21-vector-radon
+
+  - id: geometric-measure.gmt21-vector-variation
+    name: ベクトル値測度の全変動と極分解
+    kind: definition
+    aliases: [ベクトル値測度の極分解]
+    introduction: formal
+    introduction_aliases: ["定義（ベクトル値測度の全変動と極分解）"]
+    requires:
+      - geometric-measure.gmt21-measure-derivative
+      - measure.radon-nikodym-signed
+
+  - id: geometric-measure.gmt21-variation-duality
+    name: 全変動測度の双対表示
+    kind: theorem
+    aliases: [ベクトル値測度の双対公式]
+    introduction: formal
+    introduction_aliases: ["定理（全変動測度の双対表示）"]
+    requires:
+      - geometric-measure.gmt21-vector-variation
+
+  - id: geometric-measure.gmt21-w11-inclusion
+    name: W11関数とBVの比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（W11関数とBVの比較）"]
+    requires:
+      - geometric-measure.gmt21-variation-duality
+      - sobolev.wkp
+
+  - id: geometric-measure.gmt21-product
+    name: BVの滑らかな乗数積公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（BVの滑らかな乗数積公式）"]
+    requires:
+      - geometric-measure.gmt21-measure-derivative

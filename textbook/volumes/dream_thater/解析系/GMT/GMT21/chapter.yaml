@@ -1,0 +1,44 @@
+id: GMT21
+title: 多変数BVと分布微分
+volume: foundations
+status: supplementary
+prerequisites:
+  - MT4
+  - MT6
+  - GPDE3
+official_scope: []
+learning_objectives:
+  - テストベクトル場によるBVの変動量を定義し、符号と関数のa.e.同値性を説明できる
+  - 双対変動量の有限性と有限ベクトル値Radon測度Duの存在・一意性の同値を証明できる
+  - Radon–Nikodym密度からDuの極分解と全変動測度を構成し、双対公式を導ける
+  - W^{1,1}関数についてDuと弱勾配のLebesgue密度および全変動を比較できる
+  - 超平面ジャンプ・直方体の特性関数で分布微分の符号と境界の寄与を検算できる
+  - 領域の相対性と滑らかな乗数のBV積公式をテスト関数から導ける
+definitions:
+  - { id: GMT21-DEF-01, name: 多変数BVと双対変動量 }
+  - { id: GMT21-DEF-02, name: 有限ベクトル値Radon測度 }
+  - { id: GMT21-DEF-03, name: ベクトル値測度の全変動と極分解 }
+theorems:
+  - { id: GMT21-THM-01, name: BVと測度値分布微分の同値 }
+  - { id: GMT21-THM-02, name: 全変動測度の双対表示 }
+  - { id: GMT21-PROP-01, name: W11関数とBVの比較 }
+  - { id: GMT21-PROP-02, name: BVの滑らかな乗数積公式 }
+canonical_examples:
+  - 超平面の両側で値を変えるジャンプ関数
+  - 単位直方体の特性関数と各面の符号
+  - 同じ特性関数の領域変更による境界項の消滅
+problem_patterns:
+  - GMT21-BV-DUAL
+  - GMT21-JUMP-SIGN
+  - GMT21-RECTANGLE-FACES
+  - GMT21-RELATIVE-BOUNDARY
+  - GMT21-W11-DENSITY
+  - GMT21-VECTOR-POLAR
+  - GMT21-DUAL-LOCALITY
+  - GMT21-PRODUCT-RULE
+  - GMT21-L1-LIMIT
+  - GMT21-PIECEWISE-JUMP
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }
