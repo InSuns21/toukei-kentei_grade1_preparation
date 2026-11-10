@@ -1,0 +1,52 @@
+id: GMT19
+title: blow-upと接測度の基礎
+volume: foundations
+status: supplementary
+prerequisites:
+  - F0-00D2B
+  - MT5
+  - MT8
+  - GMT1
+  - GMT10
+  - GMT13
+  - GMT15
+official_scope: []
+learning_objectives:
+  - 平行移動と拡大による測度の押し出しを試験関数の積分から計算できる
+  - 局所弱収束と確率測度の弱収束を区別し、質量が無限遠へ逃げる例を説明できる
+  - 接測度の任意の正規化と非零極限の条件を述べ、存在に局所倍加性が十分なことを証明できる
+  - 平面、錐、点質量、疎な原子測度と滑らかな曲線の接測度を直接計算できる
+  - 正の有限密度と全スケールの平坦極限から近似接平面を導く機構を説明できる
+  - 一つの平坦な接測度の存在を強い一意性や一般Preiss定理と混同しない
+definitions:
+  - { id: GMT19-DEF-01, name: blow-up写像と測度の規格化 }
+  - { id: GMT19-DEF-02, name: 局所弱収束 }
+  - { id: GMT19-DEF-03, name: 接測度 }
+  - { id: GMT19-DEF-04, name: 点での局所倍加性 }
+theorems:
+  - { id: GMT19-LEM-01, name: 測度の局所弱コンパクト性 }
+  - { id: GMT19-THM-01, name: 局所倍加点での接測度の存在 }
+  - { id: GMT19-PROP-01, name: 接測度の再拡大不変性 }
+  - { id: GMT19-PROP-02, name: 拡大不変集合と平面の接測度 }
+  - { id: GMT19-THM-02, name: 滑らかな曲面の平坦な接測度 }
+  - { id: GMT19-PROP-03, name: 全スケール平坦極限から近似接平面へ }
+canonical_examples:
+  - Lebesgue測度とDirac測度の正規化
+  - 二本の半直線からなる錐の接測度
+  - 疎な原子測度で異なる二つの接測度
+  - 放物線の弧長測度の平坦な極限
+  - 二枚の接する曲線の面積密度2
+problem_patterns:
+  - GMT19-PUSHFORWARD
+  - GMT19-VAGUE-ESCAPE
+  - GMT19-DIRAC
+  - GMT19-CONE
+  - GMT19-DOUBLING
+  - GMT19-WEIGHTED-DENSITY
+  - GMT19-SPARSE-ATOMS
+  - GMT19-PARABOLA
+  - GMT19-TANGENT-MULTIPLICITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 3 }

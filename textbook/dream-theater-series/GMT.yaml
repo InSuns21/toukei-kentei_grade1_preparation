@@ -24,7 +24,7 @@ chapters:
   - { id: GMT16, path: textbook/volumes/dream_thater/解析系/GMT/GMT16, status: completed, title: "純非整流性と分解・反例" }
   - { id: GMT17, path: textbook/volumes/dream_thater/解析系/GMT/GMT17, status: completed, title: "Besicovitch--Federer射影判定 I" }
   - { id: GMT18, path: textbook/volumes/dream_thater/解析系/GMT/GMT18, status: completed, title: "Besicovitch--Federer射影判定 II" }
-  - { id: GMT19, path: textbook/volumes/dream_thater/解析系/GMT/GMT19, status: planned, title: "blow-upと接測度の基礎" }
+  - { id: GMT19, path: textbook/volumes/dream_thater/解析系/GMT/GMT19, status: completed, title: "blow-upと接測度の基礎" }
   - { id: GMT20, path: textbook/volumes/dream_thater/解析系/GMT/GMT20, status: planned, title: "密度によるrectifiability判定" }
   - { id: GMT21, path: textbook/volumes/dream_thater/解析系/GMT/GMT21, status: planned, title: "多変数BVと分布微分" }
   - { id: GMT22, path: textbook/volumes/dream_thater/解析系/GMT/GMT22, status: planned, title: "BV近似・全変動の下半連続性" }
