@@ -1,0 +1,45 @@
+chapter: CAT2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-02
+  - GRP2
+  - TOP1
+
+concepts:
+  - id: category.equalizer
+    name: 等化子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等化子）"]
+    requires: [category.limit]
+  - id: category.equalizer-uniqueness-monic
+    name: 等化子の一意性とモノ射性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等化子の一意性とモノ射性）"]
+    requires: [category.equalizer, category.monomorphism, category.isomorphism]
+  - id: category.pullback
+    name: 引き戻し
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（引き戻し）"]
+    requires: [category.limit]
+  - id: category.pullback-from-equalizer
+    name: 積と等化子による引き戻しの構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（積と等化子による引き戻しの構成）"]
+    requires: [category.binary-product, category.equalizer, category.pullback]
+  - id: category.pullback-mono
+    name: モノ射の引き戻し
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モノ射の引き戻し）"]
+    requires: [category.pullback, category.monomorphism]
+  - id: category.equalizer-as-pullback
+    name: 対角射の引き戻しによる等化子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対角射の引き戻しによる等化子）"]
+    requires: [category.pullback, category.equalizer, category.diagonal-morphism, category.pairing-laws]
