@@ -22,11 +22,17 @@ concepts:
     introduction: formal
     requires: [origami.tree-leaf-distance-constraint]
 
+  - id: origami.star-tree
+    name: 星形の木
+    kind: definition
+    introduction: formal
+    requires: [origami.weighted-tree-path]
+
   - id: origami.tree-leaf-disk
     name: 葉の円板
     kind: definition
     introduction: formal
-    requires: [origami.weighted-tree-path, origami.tree-leaf-distance-constraint]
+    requires: [origami.star-tree, origami.tree-leaf-distance-constraint]
 
   - id: origami.star-circle-packing
     name: 星形の木の距離制約と円の非重複

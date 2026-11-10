@@ -13,7 +13,8 @@ learning_objectives:
 definitions:
   - { id: ORI22-DEF-01, name: 長さ付き木と葉間経路長 }
   - { id: ORI22-DEF-02, name: 葉の距離制約と実行可能配置 }
-  - { id: ORI22-DEF-03, name: 葉の円板 }
+  - { id: ORI22-DEF-03, name: 星形の木 }
+  - { id: ORI22-DEF-04, name: 葉の円板 }
 theorems:
   - { id: ORI22-THM-01, name: 固定配置の最大縮尺 }
   - { id: ORI22-THM-02, name: 星形の木の距離制約と円の非重複 }
