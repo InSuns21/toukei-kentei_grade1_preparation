@@ -1,0 +1,49 @@
+id: GMT14
+title: coarea formula：レベル集合の測度
+volume: foundations
+status: supplementary
+prerequisites:
+  - RA4
+  - RA6
+  - MT8
+  - VC1
+  - GMT9
+  - GMT10
+  - GMT11
+  - GMT13
+official_scope: []
+learning_objectives:
+  - coarea Jacobianの行列式とrank欠損時の値を定義し、線形写像で検算できる
+  - 非正規化Hausdorff測度の係数を含むEuclid空間上のcoarea公式を正確に述べられる
+  - 微分のrank欠損集合のレベル断面がほとんど全ての値で測度零になる理由を被覆で証明できる
+  - full-rank片を座標変換とarea formulaに帰着してcoarea公式を証明できる
+  - 線形射影・距離関数・極座標のレベル集合積分を直接計算できる
+  - 整流可能集合上の接coarea公式の条件とJacobianの分解を説明できる
+definitions:
+  - { id: GMT14-DEF-01, name: coarea Jacobian }
+  - { id: GMT14-DEF-02, name: レベル集合の断面積分 }
+theorems:
+  - { id: GMT14-LEM-01, name: rank欠損集合のほとんどすべての断面は零測度 }
+  - { id: GMT14-LEM-02, name: full-rank座標片のJacobian恒等式 }
+  - { id: GMT14-THM-01, name: Euclid空間のcoarea formula }
+  - { id: GMT14-COR-01, name: 整流可能集合上のcoarea formula }
+canonical_examples:
+  - 座標射影で直方体の断面を積分する
+  - 距離関数の球面積から球の体積を復元する
+  - 円環の極座標で径と角度の係数を検算する
+  - rank欠損写像と臨界値における例外の区別
+problem_patterns:
+  - GMT14-PROJECTION
+  - GMT14-SCALING
+  - GMT14-RADIAL
+  - GMT14-RANK
+  - GMT14-CYLINDER
+  - GMT14-POLAR
+  - GMT14-CRITICAL
+  - GMT14-NONNORMALIZED
+  - GMT14-TANGENTIAL
+  - GMT14-WEIGHTED-ANNULUS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 7, review: 3 }
