@@ -1,0 +1,69 @@
+chapter: GMT20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT5
+  - MT8
+  - GMT10
+  - GMT11
+  - GMT12
+  - GMT15
+  - GMT16
+  - GMT18
+  - GMT19
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt20-cone-pair
+    name: 一様な密度・円錐条件から二点間の傾きが従う
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（一様な密度・円錐条件から二点間の傾きが従う）"]
+    requires:
+      - geometric-measure.gmt15-approximate-tangent
+
+  - id: geometric-measure.gmt20-cone-graph
+    name: 局所円錐条件からLipschitzグラフへの包含
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（局所円錐条件からLipschitzグラフへの包含）"]
+    requires:
+      - geometric-measure.gmt20-cone-pair
+
+  - id: geometric-measure.gmt20-tangent-criterion
+    name: 正の下密度と近似接平面による整流可能性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正の下密度と近似接平面による整流可能性判定）"]
+    requires:
+      - geometric-measure.gmt15-rectifiable-density-tangent
+      - geometric-measure.gmt20-cone-pair
+      - geometric-measure.gmt20-cone-graph
+      - geometric-measure.gmt12-countably-rectifiable
+
+  - id: geometric-measure.gmt20-flat-blowup
+    name: 全スケール平坦blow-upによる整流可能性判定
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（全スケール平坦blow-upによる整流可能性判定）"]
+    requires:
+      - geometric-measure.gmt19-flat-approximate
+      - geometric-measure.gmt20-tangent-criterion
+
+  - id: geometric-measure.gmt20-rectifiable-measure
+    name: m-整流可能Radon測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（m-整流可能Radon測度）"]
+    requires:
+      - geometric-measure.gmt12-countably-rectifiable
+      - measure.radon-measure
+
+  - id: geometric-measure.gmt20-preiss
+    name: Preissの密度による整流可能性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Preissの密度による整流可能性定理：ここでは証明せずに紹介）"]
+    requires:
+      - geometric-measure.gmt20-rectifiable-measure
+      - geometric-measure.gmt15-plane-density
