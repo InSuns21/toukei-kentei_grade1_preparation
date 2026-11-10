@@ -6,7 +6,7 @@
 
 [GPDE2の超関数微分](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)なら、その跳躍も微分として記録できます。この講義で解きたい問いは、**超関数としての微分が、積分できる密度より広い「有限な測度」として表されるのはいつか**、そしてその大きさをどう測るかです。[GPDE3のSobolev空間](../../GPDE/GPDE3/index.md#def-gpde3-sobolev-space)との違いも明確にします。
 
-以下、$d\ge1$、$\Omega\subset\mathbb R^d$ は空でない開集合、$dx$ は $d$ 次元Lebesgue測度とします。$C_c^\infty(\Omega;\mathbb R^d)$ は、各成分が滑らかで、台が $\Omega$ 内のコンパクト集合であるベクトル場の空間です。ベクトル場 $\varphi=(\varphi_1,\ldots,\varphi_d)$ の発散は $\operatorname{div}\varphi=\sum_{i=1}^d\partial_i\varphi_i$、$|\varphi|$ はEuclidノルムを表します。関数はLebesgue測度についてほとんど至る所（almost everywhere; a.e.）一致すれば同じ $L^1$ 元とみなします。
+以下、$d\ge1$、$\Omega\subset\mathbb R^d$ は空でない開集合、$dx$ は $d$ 次元Lebesgue測度とします。$C_c^\infty(\Omega;\mathbb R^d)$ は、各成分が滑らかで、台が $\Omega$ 内のコンパクト集合であるベクトル場の空間です。$\partial_i$ は座標 $x_i$ に関する偏微分を表し、滑らかな $u$ の勾配は $\nabla u=(\partial_1u,\ldots,\partial_du)$ です。ベクトル場 $\varphi=(\varphi_1,\ldots,\varphi_d)$ の発散は $\operatorname{div}\varphi=\sum_{i=1}^d\partial_i\varphi_i$、$|\varphi|$ はEuclidノルムを表します。関数はLebesgue測度についてほとんど至る所（almost everywhere; a.e.）一致すれば同じ $L^1$ 元とみなします。
 
 ## 1. 多変数の変動をテストベクトル場で測る
 
@@ -35,7 +35,7 @@ $$
 <!-- definition-example-start: def-gmt21-bv -->
 ### 直接例：定数と一次関数
 
-任意の $u\equiv c$ が $L^1(\Omega)$ に属する場合、コンパクト台の $\varphi$ について $\int_\Omega\operatorname{div}\varphi=0$ なので $V_\Omega(u)=0$ です。一方、$\Omega=(0,1)^2$ と $u(x)=x_1+2x_2$ を取ると、通常の勾配は $(1,2)$ です。部分積分とCauchy–Schwarzから、$|\varphi|\le1$ に対して
+任意の $u\equiv c$ が $L^1(\Omega)$ に属する場合、コンパクト台の $\varphi$ について $\int_\Omega\operatorname{div}\varphi=0$ なので $V_\Omega(u)=0$ です。一方、$\Omega=(0,1)^2$ と $u(x)=x_1+2x_2$ を取ると、通常の勾配は $(1,2)$ です。部分積分と[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から、$|\varphi|\le1$ に対して
 
 $$
 \int_\Omega u\operatorname{div}\varphi\,dx
@@ -105,7 +105,7 @@ $$
 |T_i(\psi)|\le V\|\psi\|_\infty.
 $$
 
-$C_c^\infty(\Omega)$ は $C_0(\Omega)$ で一様稠密です。具体的には $C_c$ 関数をまずコンパクト台を保って平滑化でき、[MT6の $C_c$ の $C_0$ 稠密性](../../MT/MT6/index.md#thm-mt6-cc-dense-c0)で一般の $C_0$ 関数へ進めます。よって $T_i$ は $C_0(\Omega)$ の有界実線形汎関数に一意に延長されます。
+$C_c^\infty(\Omega)$ は $C_0(\Omega)$ で一様稠密です。これを確かめるには、$f\in C_c(\Omega)$ の台 $K$ を取り、その閉 $r$ 近傍が $\Omega$ に含まれるような $r>0$ を選びます。$f$ を零で $\mathbb R^d$ へ延長し、$0<\varepsilon<r$ の[平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier) $\rho_\varepsilon$ と畳み込めば、$f*\rho_\varepsilon\in C_c^\infty(\Omega)$ です。$f$ の一様連続性から $\|f*\rho_\varepsilon-f\|_\infty\to0$ となり、さらに[MT6の $C_c$ の $C_0$ 稠密性](../../MT/MT6/index.md#thm-mt6-cc-dense-c0)で一般の $C_0$ 関数へ進めます。よって $T_i$ は $C_0(\Omega)$ の有界実線形汎関数に一意に延長されます。
 
 [MT6のRiesz–Markov定理](../../MT/MT6/index.md#thm-mt6-riesz-markov-c0)を局所コンパクトHausdorff空間 $\Omega$ に適用すると、有限符号付きRadon測度 $\mu_i$ が一意に存在し
 
@@ -131,13 +131,15 @@ $$
 
 ## 3. どの方向へ変動するか：ベクトル値測度の全変動
 
-ベクトル値測度 $\mu$ には座標ごとの正負だけでなく、各点で変動が向く方向があります。有限正測度 $\lambda=\sum_i|\mu_i|$ を基準に取れば、各 $\mu_i$ は $\lambda$ に絶対連続です。[MT3の符号付きRadon–Nikodym定理](../../MT/MT3/index.md#thm-mt3-rn-signed)がそれぞれの密度 $g_i$ を与えます。
+ベクトル値測度 $\mu$ には座標ごとの正負だけでなく、各点で変動が向く方向があります。各成分の[符号付き測度の全変動](../../MT/MT2/index.md#def-mt2-total-variation)を足した有限正測度 $\lambda=\sum_i|\mu_i|$ を基準に取れば、各 $\mu_i$ は $\lambda$ に絶対連続です。[MT3の符号付きRadon–Nikodym定理](../../MT/MT3/index.md#thm-mt3-rn-signed)がそれぞれの密度 $g_i$ を与えます。
 
 $$
 g_i=\frac{d\mu_i}{d\lambda},\qquad
 g=(g_1,\ldots,g_d),\qquad
 \mu=g\,\lambda.
 $$
+
+ここで $\mu=g\,\lambda$ はベクトル値測度の成分ごとの略記であり、任意のBorel集合 $A\subset\Omega$ に対して $\mu_i(A)=\int_A g_i\,d\lambda$ を意味します。密度 $g_i$ は $\lambda$-a.e.で決まり、$|g|$ は各成分の二乗和の平方根です。
 
 この $g$ は $\lambda$-a.e.で非零です。実際、$|\mu_i|=|g_i|\lambda$ だから、$\lambda=\sum_i|\mu_i|$ を代入すると $\sum_i|g_i|=1$ が $\lambda$-a.e.で成り立ちます。従って $|g|>0$ です。
 
@@ -203,7 +205,13 @@ $$
 
 逆向きは $U$ が開集合であることを使います。制限した有限Radon測度 $\nu=|\mu|\llcorner U$ に関し、[MT7の $C_c$ の $L^1$ 稠密性](../../MT/MT7/index.md#thm-mt7-cc-dense)を各成分に適用し、$\sigma_\mu$ を $L^1(\nu;\mathbb R^d)$ でコンパクト台連続場 $h_n$ に近似します。
 
-閉単位球への射影 $P(z)=z/\max\{1,|z|\}$ は1-Lipschitzで $P(0)=0$ なので、$k_n=P(h_n)$ はコンパクト台連続かつ $|k_n|\le1$ であり
+閉単位球への射影 $P(z)=z/\max\{1,|z|\}$ は1-Lipschitzで $P(0)=0$ です。実際、$p=P(x),q=P(y)$ と置くと、$p,q$ が閉単位球内にあることから $(x-p)\cdot(q-p)\le0$、$(y-q)\cdot(p-q)\le0$ です（$|x|>1$ なら $x-p=(|x|-1)p$、$|x|\le1$ なら $x-p=0$ として直接確かめられます）。両式を足し、[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
+
+$$
+|p-q|^2\le(x-y)\cdot(p-q)\le|x-y||p-q|,
+$$
+
+従って $|P(x)-P(y)|\le|x-y|$ です。この性質により $k_n=P(h_n)$ はコンパクト台連続かつ $|k_n|\le1$ であり
 
 $$
 \int_U|k_n-\sigma_\mu|\,d\nu
@@ -303,7 +311,7 @@ $$
 
 ### 直接例：長方形の四辺と角
 
-$Q=(0,1)^2$、$u=\boldsymbol{1}_Q$ を $\mathbb R^2$ 上で考えます。$\boldsymbol{1}_Q$ は特性関数で、集合内で1、外で0です。Fubiniで $x_1$ と $x_2$ を順に積分すると、すべての $\varphi\in C_c^\infty(\mathbb R^2;\mathbb R^2)$ について
+$Q=(0,1)^2$、$u=\boldsymbol{1}_Q$ を $\mathbb R^2$ 上で考えます。$\boldsymbol{1}_Q$ は特性関数で、集合内で1、外で0です。被積分関数 $\boldsymbol{1}_Q\partial_i\varphi_i$ は有界な $Q$ の外で0となるため絶対可積分です。[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で $x_1$ と $x_2$ を順に積分すると、すべての $\varphi\in C_c^\infty(\mathbb R^2;\mathbb R^2)$ について
 
 $$
 \int_{\mathbb R^2}\varphi\cdot dDu
@@ -453,12 +461,12 @@ $Q=(0,1)^2$、$u=\boldsymbol{1}_Q$ を $\mathbb R^2$ 上で考える。四辺に
 <!-- solution-start -->
 #### 詳細解答
 
-第一成分について $\int_0^1\partial_1\varphi_1(x_1,t)dx_1=\varphi_1(1,t)-\varphi_1(0,t)$ です。分布微分には先頭にマイナスがあるので、左辺に正、右辺に負の測度が生じます。第二成分も $x_2$ 方向へ同じ積分を行い、下辺に正、上辺に負が生じます。すなわち
+第一成分について $\int_0^1\partial_1\varphi_1(x_1,t)dx_1=\varphi_1(1,t)-\varphi_1(0,t)$ です。分布微分には先頭にマイナスがあるので、左辺に正、右辺に負の測度が生じます。第二成分も $x_2$ 方向へ同じ積分を行い、下辺に正、上辺に負が生じます。各成分を、任意の $\psi\in C_c^\infty(\mathbb R^2)$ に対する積分作用で書くと
 
 $$
 \begin{aligned}
-D_1u&=(\delta_0-\delta_1)(dx_1)\otimes\boldsymbol{1}_{(0,1)}(x_2)dx_2,\\
-D_2u&=\boldsymbol{1}_{(0,1)}(x_1)dx_1\otimes(\delta_0-\delta_1)(dx_2).
+ \int_{\mathbb R^2}\psi\,dD_1u&=\int_0^1[\psi(0,t)-\psi(1,t)]\,dt,\\
+ \int_{\mathbb R^2}\psi\,dD_2u&=\int_0^1[\psi(s,0)-\psi(s,1)]\,ds.
 \end{aligned}
 $$
 
@@ -475,7 +483,7 @@ $\Omega=(-1,1)^2$、$u(x_1,x_2)=|x_1|$ とする。$Du$ と全変動質量を求
 <!-- solution-start -->
 #### 詳細解答
 
-一変数の絶対値関数は局所絶対連続であり、そのa.e.導関数は $\operatorname{sgn}(x_1)$ です。$u\in W^{1,1}(\Omega)$ なので[W11とBVの比較](#prop-gmt21-w11-inclusion)より
+一変数の絶対値関数は局所絶対連続であり、そのa.e.導関数は $\operatorname{sgn}(x_1)$ です。ここで $\operatorname{sgn}(t)=1$（$t>0$）、$-1$（$t<0$）を表し、$t=0$ での値は積分に影響しません。$u\in W^{1,1}(\Omega)$ なので[W11とBVの比較](#prop-gmt21-w11-inclusion)より
 
 $$
 Du=(\operatorname{sgn}(x_1),0)\,dx,\qquad
@@ -559,7 +567,7 @@ $$
 \sigma_\mu=\frac{(3/7,4/7)}{5/7}=(3/5,4/5).
 $$
 
-任意の $|\varphi(p)|\le1$ に対し Cauchy–Schwarz で $3\varphi_1(p)+4\varphi_2(p)\le5$ です。$p$ の近傍で値が $(3/5,4/5)$ の滑らかなコンパクト台の場を取ればその値は5となります。従って上限は5です。
+任意の $|\varphi(p)|\le1$ に対し[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で $3\varphi_1(p)+4\varphi_2(p)\le5$ です。$p$ の近傍で値が $(3/5,4/5)$ の滑らかなコンパクト台の場を取ればその値は5となります。従って上限は5です。
 <!-- solution-end -->
 
 <a id="ex-gmt21-b04"></a>
