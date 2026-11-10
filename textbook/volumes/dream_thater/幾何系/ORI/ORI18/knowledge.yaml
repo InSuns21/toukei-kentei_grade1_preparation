@@ -1,0 +1,42 @@
+chapter: ORI18
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI17]
+forward_references: []
+
+concepts:
+  - id: origami.stamp-strip-stack-permutation
+    name: 切手一列の完全積層と層順順列
+    kind: definition
+    introduction: formal
+    requires: [origami.global-flat-fold-candidate, origami.local-layer-order]
+
+  - id: origami.stamp-hinge-arcs-interleaving
+    name: 折り目弧と交互端点
+    kind: definition
+    introduction: formal
+    requires: [origami.stamp-strip-stack-permutation, origami.hinge-layer-adjacency]
+
+  - id: origami.stamp-strip-noncrossing-criterion
+    name: 切手一列の非交互端点判定
+    kind: theorem
+    introduction: formal
+    requires: [origami.stamp-hinge-arcs-interleaving, origami.seam-reflection-dichotomy]
+
+  - id: origami.four-stamp-count
+    name: 四枚の切手折り16通り
+    kind: proposition
+    introduction: formal
+    requires: [origami.stamp-strip-noncrossing-criterion]
+
+  - id: origami.grid-folding-moving-stack
+    name: 格子折りの折り返し束
+    kind: definition
+    introduction: formal
+    requires: [origami.stamp-strip-stack-permutation, origami.hinge-layer-adjacency]
+
+  - id: origami.grid-stack-reversal
+    name: 折り返した束の層順反転
+    kind: lemma
+    introduction: formal
+    requires: [origami.grid-folding-moving-stack]
