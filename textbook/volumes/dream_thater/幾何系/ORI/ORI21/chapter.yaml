@@ -1,0 +1,43 @@
+id: ORI21
+title: "直線骨格を使うfold-and-one-cut"
+volume: foundations
+status: supplementary
+prerequisites: [ORI20, ORI17]
+official_scope: []
+learning_objectives:
+  - 等速内向き波面とイベント、直線骨格を定義から求められる
+  - 凸多角形の内向きオフセットを半平面表示から導出し三角形・長方形の骨格を検算できる
+  - 角二等分線に関する鏡映で二辺が一致する局所原理を証明できる
+  - 骨格頂点から辺への垂足を計算し折り線候補と平坦な実現の差を説明できる
+  - 一般fold-and-one-cut定理の文献依拠部分と本講の独立証明の範囲を区別できる
+definitions:
+  - { id: ORI21-DEF-01, name: 等速内向き波面とイベント }
+  - { id: ORI21-DEF-02, name: 直線骨格 }
+theorems:
+  - { id: ORI21-THM-01, name: 凸多角形の等速移動 }
+  - { id: ORI21-THM-02, name: 二辺の波面交点は角二等分線上にある }
+  - { id: ORI21-THM-03, name: 長方形の直線骨格 }
+  - { id: ORI21-THM-04, name: 角二等分線による局所的な辺の位置合わせ }
+  - { id: ORI21-THM-05, name: 垂足の条件 }
+  - { id: ORI21-THM-06, name: fold-and-one-cut の一般存在定理（文献引用） }
+canonical_examples:
+  - 正方形の法線表示とイベント時刻
+  - 直角三角形の頂点軌跡と内心
+  - 長方形の終端線分
+  - 鏡映による二辺の一致と垂足の座標検算
+  - 何も折らない配置による骨格だけでは不十分な例
+problem_patterns:
+  - ORI21-SQUARE-OFFSET
+  - ORI21-VERTEX-SPEED
+  - ORI21-RECTANGLE-EVENT
+  - ORI21-PERPENDICULAR-FOOT
+  - ORI21-LOCAL-REFLECTION
+  - ORI21-TRIANGLE-SKELETON
+  - ORI21-OFFSET-VS-SIMILARITY
+  - ORI21-FOOT-ON-SEGMENT
+  - ORI21-FLAT-FOLD-GAP
+  - ORI21-INTEGRATED-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
