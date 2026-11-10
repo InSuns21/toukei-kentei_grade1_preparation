@@ -8,7 +8,15 @@
 
 続いて、四隅Cantor集合の小球と射影を手で計算します。純非整流性は「集合が小さい」「すべての射影が零になる」とは同義ではありません。この違いが、次のGMT17・GMT18で扱う**ほとんどすべての方向**という条件の必要性を教えます。
 
-以下、整数 $1\le m\le d$ を固定し、$\mathcal H^m$ は[MT8の直径による非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)とします。$m$ 次元平面上では[GMT10の比例係数](../GMT10/index.md#lem-gmt10-hausdorff-normalization) $c_m=\mathcal H^m([0,1]^m)$ を使います。$m=1$ では $c_1=1$ です。記号 $\mathcal H^m\llcorner E$ は $E$ への測度の制限を表します。
+以下、整数 $1\le m\le d$ を固定します。$\mathcal H^m$ は[MT8の直径による非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。
+
+$m$ 次元平面上での[GMT10の比例係数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)は
+
+$$
+c_m=\mathcal H^m([0,1]^m),\qquad c_1=1
+$$
+
+です。記号 $\mathcal H^m\llcorner E$ は $E$ への測度の制限を表します。
 
 ## 1. 純非整流部分は、どの整流可能部分とも重ならない
 
@@ -171,7 +179,7 @@ $R=S$ は可算1整流可能、$P=K'$ は[純1非整流可能](../GMT12/index.md
 
 ### 整流可能成分の上では、元の集合も平面に見える
 
-分解の $R$ は $\mathcal H^m(R)\le\mathcal H^m(E)<\infty$ なので、[GMT15の定理](../GMT15/index.md#thm-gmt15-rectifiable-density-tangent)から $\mathcal H^m$-ほとんどすべての $x\in R$ で平面基準密度1と近似接平面 $V_x$ を持ちます。ただしこれだけでは、$E$ の残りの $P$ が $x$ の周囲で面積を余分に持つ可能性があります。
+分解の $R$ は $\mathcal H^m(R)\le\mathcal H^m(E)<\infty$ なので、[GMT15の「局所有限な可算整流可能集合の密度と近似接平面」](../GMT15/index.md#thm-gmt15-rectifiable-density-tangent)から $\mathcal H^m$-ほとんどすべての $x\in R$ で平面基準密度1と近似接平面 $V_x$ を持ちます。ただしこれだけでは、$E$ の残りの $P$ が $x$ の周囲で面積を余分に持つ可能性があります。
 
 そこで有限Radon測度 $\mu=\mathcal H^m\llcorner E$ に対し、[GMT1の測度微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を $\boldsymbol1_R$ に適用します。$\mu$-ほとんどすべての $x\in R$ で
 
@@ -264,7 +272,7 @@ $$
 $s_n\downarrow0$ なので、半径列 $r_n=2s_n$ に沿う下界は消えません。近似接線の円錐外極限が0という条件は全ての $V$ に対して破れます。$\square$
 <!-- proof-end -->
 
-この反例は[GMT15の整流可能集合のa.e.接平面定理](../GMT15/index.md#thm-gmt15-rectifiable-density-tangent)と矛盾しません。$K$ は[GMT12の純非整流性定理](../GMT12/index.md#thm-gmt12-corner-pure)により正の長さを持ちながら可算1整流可能ではありません。円錐の外へ各スケールで**一定割合の長さが残る**ことが、接線の失敗機構です。
+この反例は[GMT15の整流可能集合のほとんど至る所での接平面定理](../GMT15/index.md#thm-gmt15-rectifiable-density-tangent)と矛盾しません。$K$ は[GMT12の純非整流性定理](../GMT12/index.md#thm-gmt12-corner-pure)により正の長さを持ちながら可算1整流可能ではありません。円錐の外へ各スケールで**一定割合の長さが残る**ことが、接線の失敗機構です。
 
 注意してほしいのは、ここで証明したのは特定の集合 $K$ についての「全点で接線がない」という強い主張です。一般の純非整流集合について、同じ証明を無条件に流用してはなりません。
 
@@ -447,7 +455,7 @@ $\mathcal H^m(E)<\infty$、$\alpha=\sup_{M\in\mathscr M}\mathcal H^m(E\cap M)$ �
 
 $M_n=\bigcup_{j\ge1}f_{n,j}(\mathbb R^m)$ と書きます。自然数の対 $(n,j)$ は、例えば和 $n+j$ の小さい順に並べれば一列に数え上げられます。従って $M=\bigcup_{n,j}f_{n,j}(\mathbb R^m)$ は可算Lipschitz像の和で、$M\in\mathscr M$ です。
 
-$M$ は各 $M_n$ を含むので $\mathcal H^m(E\cap M)\ge\alpha-1/n$ が全ての $n$ で成立します。他方、$M\in\mathscr M$ だから上限の定義から $\mathcal H^m(E\cap M)\le\alpha$。$n\to\infty$ で両側が $\alpha$ に一致します。
+$M$ は各 $M_n$ を含むので $\mathcal H^m(E\cap M)\ge\alpha-1/n$ が全ての $n$ で成立します。他方、$M\in\mathscr M$ なので $\alpha$ の取り方から $\mathcal H^m(E\cap M)\le\alpha$。$n\to\infty$ で両側が $\alpha$ に一致します。
 
 有限面積なら $\alpha\le\mathcal H^m(E)<\infty$ であり、$\alpha+\delta>\alpha$（$\delta>0$）という矛盾を次の段階で使えます。$\alpha=\infty$ ではこの不等式は矛盾にならないので、単に同じ議論を写すことはできません。
 <!-- solution-end -->
@@ -456,7 +464,7 @@ $M$ は各 $M_n$ を含むので $\mathcal H^m(E\cap M)\ge\alpha-1/n$ が全て�
 - Level: B
 - 目安時間: 30分
 
-四隅集合 $K$ と第 $n$ 段階正方形 $Q_n(x)$ の辺長 $s_n=4^{-n}$ を使う。任意の直線 $\ell=x+V$ に対し、[GMT12の横方向の質量補題](../GMT12/index.md#lem-gmt12-corner-mass)から $\operatorname{dist}(Q',\ell)\ge s_n/10$ を満たす子正方形 $Q'$ を取れるとする。$r_n=2s_n$ で円錐外の長さを下から評価し、$V$ が近似接線でないことを示せ。
+四隅集合 $K$ と第 $n$ 段階正方形 $Q_n(x)$ の辺長 $s_n=4^{-n}$ を使う。任意の直線 $\ell=x+V$ に対し、[GMT12の「四隅集合の長さと横方向の質量」](../GMT12/index.md#lem-gmt12-corner-mass)から $\operatorname{dist}(Q',\ell)\ge s_n/10$ を満たす子正方形 $Q'$ を取れるとする。$r_n=2s_n$ で円錐外の長さを下から評価し、$V$ が近似接線でないことを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
