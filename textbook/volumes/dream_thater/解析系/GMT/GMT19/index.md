@@ -6,11 +6,17 @@
 
 本講義では点の周りを拡大する **blow-up** と、その拡大像の非零の測度極限を定めます。「極限が取れること」「零測度へ潰れないこと」「得られる形が一意であること」は別の問題です。十分条件を証明し、滑らかな曲面と特異な測度を計算して違いを確かめます。
 
-以下、$d\ge1$、$B(x,r)$ は $\mathbb R^d$ の開球です。測度は非負の [MT5のRadon測度](../../MT/MT5/index.md#def-mt5-radon)、すなわち各コンパクト集合の質量が有限で、必要な内外正則性を持つBorel測度とします。$\mathcal H^m$ は [MT8の非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。[非正規化Hausdorff測度のEuclid空間上での比例](../GMT10/index.md#lem-gmt10-hausdorff-normalization)より、$m$ 次元線形平面 $V$ について
+以下、$d\ge1$ とし、$B(x,r)$ は $\mathbb R^d$ の開球です。測度は非負の [MT5のRadon測度](../../MT/MT5/index.md#def-mt5-radon)、すなわちコンパクト集合上で有限で、必要な内外正則性を持つBorel測度とします。
+
+$\mathcal L^k$ は $\mathbb R^k$ のLebesgue測度、$\mathcal H^m$ は [MT8の非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。Borel集合 $E$ への制限は $(\mu\llcorner E)(A)=\mu(A\cap E)$ と書きます。測度の台 $\operatorname{supp}\mu$ は、すべての近傍に正の質量がある点の閉集合です。
+
+[非正規化Hausdorff測度のEuclid空間上での比例](../GMT10/index.md#lem-gmt10-hausdorff-normalization)に従い、$c_m=\mathcal H^m([0,1]^m)$、$\omega_m=\mathcal L^m(B_{\mathbb R^m}(0,1))$ と置きます。$1\le m\le d$ の $m$ 次元線形平面 $V$ を等長座標で $\mathbb R^m$ と同一視すると、平面上の球の質量は
 
 $$
-\mathcal H^m(V\cap B(0,r))=2^m r^m.
+\mathcal H^m(V\cap B(0,r))=c_m\omega_m r^m.
 $$
+
+特に $c_1=1,\ \omega_1=2$ です。[GMT1の密度](../GMT1/index.md#def-gmt1-upper-lower-density)に現れる分母 $(2r)^m$ と、[GMT15の平面基準密度](../GMT15/index.md#def-gmt15-plane-density)の分母 $c_m\omega_mr^m$ は一般には区別します。
 
 ## 1. 点を中心に拡大すると、測度はどう動くか
 
@@ -51,7 +57,7 @@ $$
 <!-- definition-example-start: def-gmt19-blow-up -->
 ### 直接例：Lebesgue測度と点質量
 
-**定義の確認**：逆像・押し出し・正の係数を順に計算します。$\mu=a\mathcal L^d$、$a>0$ とします。Borel集合 $A$ が有界なら、Lebesgue測度の平行移動不変性と $d$ 次元の拡大率から
+**定義の確認**：逆像・押し出し・正の係数を順に計算します。$\mu=a\mathcal L^d$、$a>0$ とします。任意のBorel集合 $A$ について、逆像 $T_{x,r}^{-1}(A)=x+rA$ を求め、Lebesgue測度の平行移動不変性と $d$ 次元の拡大率を用いると（無限大の質量も許して）
 
 $$
 ((T_{x,r})_\#\mu)(A)=a\mathcal L^d(x+rA)
@@ -64,7 +70,7 @@ $$
 \mu_{x,r}=\frac{\mathcal L^d}{\omega_d}.
 $$
 
-これは任意の $x,r$ で同じです。一方、$\mu=\delta_a$、$x=a$ とすると $T_{a,r}(a)=0$ なので
+これは任意の $x,r$ で同じです。一方、$\delta_a$ は点 $a$ に質量1を置くDirac測度、すなわち $a\in A$ なら $\delta_a(A)=1$、それ以外なら $0$ です。$\mu=\delta_a$、$x=a$ とすると $T_{a,r}(a)=0$ なので
 
 $$
 (T_{a,r})_\#\delta_a=\delta_0,\qquad
@@ -125,7 +131,7 @@ $$
 
 ## 3. 接測度：拡大し続けたときに残る非零の形
 
-球質量規格化は便利ですが、半径の取り方で局所的な質量が極端に増減する測度にも接したい場合があります。そこで任意の正の係数 $c_j$ を許し、代わりに **非零** という条件を課します。
+球質量規格化は便利ですが、半径の取り方で局所的な質量が極端に増減する測度にも接したい場合があります。そこで任意の正の係数 $c_j$ を許し、代わりに **非零** という条件を課します。実際の質量が任意の小球にある台の点を拡大の中心に選びます。
 
 <a id="def-gmt19-tangent"></a>
 
@@ -141,7 +147,7 @@ $$
 > となることをいう。接測度全体を $\operatorname{Tan}(\mu,x)$ と書く。$r_j\downarrow0$ は正で単調に0へ収束する半径列とする。
 <!-- formal-statement-end -->
 
-これは拡大して得られる「測度の接写」です。$\operatorname{supp}\mu$ は、どの近傍にも正の $\mu$ 質量を持つ点の閉集合です。すべてのRadon測度・すべての台の点で接測度が存在すると、定義だけからはまだ結論できません。まず定義から条件を実際に調べます。
+これは拡大して得られる「測度の接写」です。すべてのRadon測度・すべての台の点で接測度が存在すると、定義だけからはまだ結論できません。まず定義から条件を実際に調べます。
 
 <!-- definition-example-start: def-gmt19-tangent -->
 ### 直接例：点質量と定数密度
@@ -203,7 +209,7 @@ $$
 \end{aligned}
 $$
 
-固定された可逆な拡大は非零測度を非零のまま保ち、$sr_j\to0$ です。必要なら $r_j$ を部分列に取って単調にすれば定義を満たします。$\square$
+固定された可逆な拡大は非零測度を非零のまま保ちます。$r_j\downarrow0$ かつ $s>0$ なので $sr_j\downarrow0$ も成立し、定義を満たします。$\square$
 <!-- proof-end -->
 
 ## 4. 極限を確実に取り出す条件
@@ -278,7 +284,7 @@ $$
 $1\le m\le d$、$V$ を $m$ 平面、$\mu=\mathcal H^m\llcorner V$、$x\in V$ とします。上で確認した平面の球質量から
 
 $$
-\mu(B(x,r))=2^mr^m,\qquad
+\mu(B(x,r))=c_m\omega_mr^m,\qquad
 \frac{\mu(B(x,2r))}{\mu(B(x,r))}=2^m.
 $$
 
@@ -370,7 +376,7 @@ $$
 \mu_{0,r}=\frac{\mu}{\mathcal H^m(C\cap B(0,1))}
 $$
 
-> がすべての $r>0$ で成り立つ。特に後者は原点の接測度である。$C=V$ が $m$ 次元線形平面なら $\mu_{0,r}=2^{-m}\mathcal H^m\llcorner V$ である。
+> がすべての $r>0$ で成り立つ。特に後者は原点の接測度である。$C=V$ が $m$ 次元線形平面なら $\mu_{0,r}=(c_m\omega_m)^{-1}\mathcal H^m\llcorner V$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -380,7 +386,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意のBorel集合 $A$ に対し、拡大不変性から $C\cap rA=r(C\cap A)$ です。[MT8のHausdorff測度の拡大則](../../MT/MT8/index.md#def-mt8-hausdorff-measure)を適用して
+任意のBorel集合 $A$ に対し、拡大不変性から $C\cap rA=r(C\cap A)$ です。[GMT10で証明したHausdorff測度の拡大則](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を適用して
 
 $$
 \begin{aligned}
@@ -392,7 +398,7 @@ $$
 \end{aligned}
 $$
 
-$\mu(B(0,r))=r^m\mu(B(0,1))>0$ なので原点は台に含まれ、球質量規格化を行うと $r^m$ が約分されます。一定列の局所弱極限はその測度自体です。$C=V$ なら [非正規化Hausdorff測度のEuclid空間上での比例](../GMT10/index.md#lem-gmt10-hausdorff-normalization)から $\mu(B(0,1))=2^m$ です。$\square$
+$\mu(B(0,r))=r^m\mu(B(0,1))>0$ なので原点は台に含まれ、球質量規格化を行うと $r^m$ が約分されます。一定列の局所弱極限はその測度自体です。$C=V$ なら [非正規化Hausdorff測度のEuclid空間上での比例](../GMT10/index.md#lem-gmt10-hausdorff-normalization)から $\mu(B(0,1))=c_m\omega_m$ です。$\square$
 <!-- proof-end -->
 
 **二本の半直線の例。** $d=2,m=1$、$C=\{(t,0):t\ge0\}\cup\{(0,t):t\ge0\}$ とします。二つの半直線は原点以外で交わらないため
@@ -406,7 +412,16 @@ $$
 
 ### 5.2 滑らかな曲面は接平面へ近付く
 
-滑らかな曲面の一点 $x$ における接平面を、単に座標の絵から読み取るのではなく、測度の積分の極限から導きます。ここでは $C^1$ 埋め込みの局所表示を用い、[GMT13の整流可能集合上の面積公式](../GMT13/index.md#thm-gmt13-rectifiable-area)を適用します。
+滑らかな曲面の一点における接平面を、座標の絵だけから読むのではなく、測度の積分極限から導きます。
+
+局所座標 $t=(t_1,\ldots,t_m)$ に対する $C^1$ 写像 $F$ の微分 $DF(0)$ は、各座標方向の変化を列に持つ $d\times m$ 行列です。標準基底 $e_i$ について
+
+$$
+DF(0)e_i=\frac{\partial F}{\partial t_i}(0),\qquad
+V=\operatorname{span}\{DF(0)e_1,\ldots,DF(0)e_m\}
+$$
+
+となり、rank $m$ なら列は一次独立で、$V$ が接方向です。面積倍率は列の内積から作る [GMT10の幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)で測り、[GMT13の整流可能集合上の面積公式](../GMT13/index.md#thm-gmt13-rectifiable-area)を適用します。
 
 <a id="thm-gmt19-smooth-flat"></a>
 
@@ -420,7 +435,7 @@ r^{-m}(T_{x,r})_\#\mu
 \qquad(r\downarrow0).
 $$
 
-> 従って $\mathcal H^m\llcorner V$ と $2^{-m}\mathcal H^m\llcorner V$ はそれぞれ適切な規格化における $x$ の接測度である。
+> 従って $\mathcal H^m\llcorner V$ と $(c_m\omega_m)^{-1}\mathcal H^m\llcorner V$ はそれぞれ適切な規格化における $x$ の接測度である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -438,13 +453,15 @@ $$
 
 を小さい $t$ で満たします。$M$ は $x$ の近傍でこの一枚の像なので、$\varphi\in C_c$ の台が $B(0,R)$ に含まれるとき、十分小さい $r$ では $\varphi((y-x)/r)$ の積分がこの表示の内側に収まります。
 
-[GMT13の面積公式](../GMT13/index.md#thm-gmt13-rectifiable-area)で重複度が1となることを確認し、パラメータ $t\in U$ で積分します。$J_mF(t)=\sqrt{\det(DF(t)^{\mathsf T}DF(t))}$ です。
+[GMT13の面積公式](../GMT13/index.md#thm-gmt13-rectifiable-area)で埋め込みの重複度が1となることを確認し、パラメータ $t\in U$ で積分します。$\varphi$ が符号を持つときは正部分と負部分に分けて面積公式を適用します。$v_i(t)=\partial F/\partial t_i(t)$ と置けば、$DF(t)^{\mathsf T}DF(t)$ の $(i,j)$ 成分は $v_i(t)\cdot v_j(t)$ です。よって [幾何的Jacobianの定義](../GMT10/index.md#def-gmt10-geometric-jacobian)による面積倍率は $J_mF(t)=\sqrt{\det(DF(t)^{\mathsf T}DF(t))}$ です。
+
+ここで非正規化 $\mathcal H^m$ と座標上の $dt=d\mathcal L^m(t)$ を同一視してはいけません。[非正規化Hausdorff測度のEuclid空間上での比例](../GMT10/index.md#lem-gmt10-hausdorff-normalization)より、パラメータ空間 $\mathbb R^m$ では $d\mathcal H^m(t)=c_m\,dt$ です。従って面積公式と $t=ru$（Jacobian $dt=r^mdu$）から
 
 $$
 \begin{aligned}
 r^{-m}\int_M\varphi\left(\frac{y-x}{r}\right)d\mathcal H^m(y)
-&=r^{-m}\int_U\varphi\left(\frac{F(t)-x}{r}\right)J_mF(t)\,dt\\
-&=\int_{r^{-1}U}\varphi\left(\frac{F(ru)-x}{r}\right)J_mF(ru)\,du.
+&=c_mr^{-m}\int_U\varphi\left(\frac{F(t)-x}{r}\right)J_mF(t)\,dt\\
+&=c_m\int_{r^{-1}U}\varphi\left(\frac{F(ru)-x}{r}\right)J_mF(ru)\,du.
 \end{aligned}
 $$
 
@@ -455,9 +472,16 @@ $$
 J_mF(ru)\longrightarrow J_mA.
 $$
 
-Jacobianも有界で、固定球上の定数関数が可積分な支配関数になるので、[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。極限は $\int_{\mathbb R^m}\varphi(Au)J_mA\,du$ です。[GMT10の線形写像の面積倍率](../GMT10/index.md#thm-gmt10-linear-area)でこの積分は $\int_V\varphi\,d\mathcal H^m$ に等しくなります。これで局所弱収束が証明されました。
+Jacobianも有界で、固定球上の定数関数が可積分な支配関数になるので、[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。極限は
 
-最後に極限の球面 $\partial B(0,1)$ は $V$ 上の $\mathcal H^m$-零集合なので、球質量も $r^{-m}\mu(B(x,r))\to2^m$ です。したがって球質量規格化の極限は $2^{-m}\mathcal H^m\llcorner V$ となります。$\square$
+$$
+c_m\int_{\mathbb R^m}\varphi(Au)J_mA\,du
+=\int_V\varphi\,d\mathcal H^m
+$$
+
+です。最後の等号はrank $m$ の単射 $A$ に対する [GMT10の線形写像の面積倍率](../GMT10/index.md#thm-gmt10-linear-area)と、パラメータ空間の $d\mathcal H^m=c_m\,du$ から従います。これで局所弱収束が証明されました。
+
+最後に極限の球面 $\partial B(0,1)$ と $V$ の交わりは $m$ 次元Hausdorff測度0の集合なので、球質量も $r^{-m}\mu(B(x,r))\to c_m\omega_m$ です。したがって球質量規格化の極限は $(c_m\omega_m)^{-1}\mathcal H^m\llcorner V$ となります。$\square$
 <!-- proof-end -->
 
 **放物線の具体計算。** $M=\{(t,t^2):t\in\mathbb R\}$、$x=(0,0)$ とします。$F(t)=(t,t^2)$ なら $A(u)=(u,0)$、$J_1F(t)=\sqrt{1+4t^2}$ です。積分の変数を $t=ru$ とすると
@@ -503,10 +527,10 @@ $\nu_r=r^{-m}(T_{x,r})_\#\mu$ と置きます。極限測度 $\nu=c\mathcal H^m\
 $$
 \frac{\mu(B(x,r))}{r^m}
 =\nu_r(B(0,1))
-\longrightarrow\nu(B(0,1))=c2^m.
+\longrightarrow\nu(B(0,1))=c\,c_m\omega_m.
 $$
 
-[GMT15の平面基準密度](../GMT15/index.md#def-gmt15-plane-density)の分母は $2^mr^m$ なので $D^m(E,x)=c$ です。特に正で有限です。
+[GMT15の平面基準密度](../GMT15/index.md#def-gmt15-plane-density)の分母は $c_m\omega_mr^m$ なので $D^m(E,x)=c$ です。特に正で有限です。
 
 $0<\varepsilon<1$ を任意に固定し、$V$ から相対距離 $\varepsilon$ 以上外れた単位閉球内の集合を
 
