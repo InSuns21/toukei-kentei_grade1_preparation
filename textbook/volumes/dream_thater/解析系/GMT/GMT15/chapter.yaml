@@ -1,0 +1,49 @@
+id: GMT15
+title: 密度と近似接平面
+volume: foundations
+status: supplementary
+prerequisites:
+  - RA6
+  - MT8
+  - HA1
+  - GMT1
+  - GMT9
+  - GMT10
+  - GMT11
+  - GMT12
+  - GMT13
+official_scope: []
+learning_objectives:
+  - 非正規化Hausdorff測度の平面球係数とGMT1の上下密度を区別して計算できる
+  - 円錐外のm次元面積が消える条件から近似接平面を定義し、直接例で全条件を確認できる
+  - 双Lipschitz片の微分と面積公式から小球面積の極限を全中間式付きで証明できる
+  - 局所有限な可算整流可能集合のほとんど至る所で面積密度と近似接平面を導ける
+  - 角点と局所有限でない可算整流可能集合を反例として仮定の役割を説明できる
+  - 重み付き測度の球密度と集合のHausdorff面積密度を区別できる
+definitions:
+  - { id: GMT15-DEF-01, name: Hausdorff面積の平面基準密度 }
+  - { id: GMT15-DEF-02, name: 面積測度による近似接m平面 }
+theorems:
+  - { id: GMT15-LEM-01, name: 双Lipschitz片の小球面積と円錐 }
+  - { id: GMT15-THM-01, name: 局所有限な可算整流可能集合の密度と近似接平面 }
+canonical_examples:
+  - 平面上の直線一本と直交二直線の小球密度
+  - 放物線の原点での密度1と円錐条件
+  - 折れ線の角点で密度1でも接線が失敗する例
+  - 有理数高さの水平線分の可算和で局所有限性が失われる例
+  - 重み付きHausdorff測度の球密度
+problem_patterns:
+  - GMT15-SEGMENT-ENDPOINT
+  - GMT15-PARALLEL-LINES
+  - GMT15-PARABOLA-TANGENT
+  - GMT15-WEIGHTED-DENSITY
+  - GMT15-CROSSING-LINES
+  - GMT15-ELLIPSOID-JACOBIAN
+  - GMT15-DIFFERENTIATION-TRANSFER
+  - GMT15-CORNER-EXCEPTION
+  - GMT15-DENSE-LINES
+  - GMT15-GRAPH-AND-SEGMENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 3 }
