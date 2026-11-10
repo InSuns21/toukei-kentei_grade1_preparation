@@ -6,7 +6,7 @@
 
 [GPDE2の超関数微分](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)なら、その跳躍も微分として記録できます。この講義で解きたい問いは、**超関数としての微分が、積分できる密度より広い「有限な測度」として表されるのはいつか**、そしてその大きさをどう測るかです。[GPDE3のSobolev空間](../../GPDE/GPDE3/index.md#def-gpde3-sobolev-space)との違いも明確にします。
 
-以下、$d\ge1$、$\Omega\subset\mathbb R^d$ は空でない開集合、$dx$ は $d$ 次元Lebesgue測度とします。$C_c^\infty(\Omega;\mathbb R^d)$ は、各成分が滑らかで、台が $\Omega$ 内のコンパクト集合であるベクトル場の空間です。ベクトル場 $\varphi=(\varphi_1,\ldots,\varphi_d)$ の発散は $\operatorname{div}\varphi=\sum_{i=1}^d\partial_i\varphi_i$、$|\varphi|$ はEuclidノルムを表します。関数はLebesgue a.e.で一致すれば同じ $L^1$ 元とみなします。
+以下、$d\ge1$、$\Omega\subset\mathbb R^d$ は空でない開集合、$dx$ は $d$ 次元Lebesgue測度とします。$C_c^\infty(\Omega;\mathbb R^d)$ は、各成分が滑らかで、台が $\Omega$ 内のコンパクト集合であるベクトル場の空間です。ベクトル場 $\varphi=(\varphi_1,\ldots,\varphi_d)$ の発散は $\operatorname{div}\varphi=\sum_{i=1}^d\partial_i\varphi_i$、$|\varphi|$ はEuclidノルムを表します。関数はLebesgue測度についてほとんど至る所（almost everywhere; a.e.）一致すれば同じ $L^1$ 元とみなします。
 
 ## 1. 多変数の変動をテストベクトル場で測る
 
@@ -169,7 +169,7 @@ $$
 
 したがって $|\mu|(\mathbb R^2)=5$ であり、成分の変動を単純に足した7とは異なります。この例は一般のベクトル測度の例であり、$\mu$ が何らかの $BV$ 関数の勾配であるとは主張していません。
 
-**定義の確認**：$\lambda=|3\delta_p|+|4\delta_p|=7\delta_p$ は有限正Radon測度で、$g$ はそのRadon–Nikodym密度です。$|\sigma_\mu|=\sqrt{9+16}/5=1$、また $\sigma_\mu|\mu|=(3\delta_p,4\delta_p)=\mu$ なので、全変動測度の正性・有限性と極分解の方向・再構成の条件を直接確かめました。
+**定義の確認**：$\lambda=|3\delta_p|+|4\delta_p|=7\delta_p$ は有限正Radon測度で、$g$ はそのRadon–Nikodym密度です。$|\sigma_\mu|=\sqrt{9+16}/5=1$、また $\sigma_\mu|\mu|=(3\delta_p,4\delta_p)=\mu$ なので、全変動測度の正性・有限性と、単位方向から元の測度を再構成できることを直接確かめました。
 <!-- definition-example-end -->
 
 <a id="thm-gmt21-variation-duality"></a>
