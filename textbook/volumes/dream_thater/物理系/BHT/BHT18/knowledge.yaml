@@ -1,0 +1,77 @@
+chapter: BHT18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT17
+  - GR11
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.covariant-variation-potential
+    name: 共変変分とシンプレクティックポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変変分とシンプレクティックポテンシャル）"]
+    requires: [gravity.ghy-boundary-action]
+
+  - id: black-hole-thermodynamics.scalar-variation-current
+    name: 固定背景スカラー場の変分と流
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定背景スカラー場の変分と流）"]
+    requires: [black-hole-thermodynamics.covariant-variation-potential]
+
+  - id: black-hole-thermodynamics.covariant-symplectic-current
+    name: 共変シンプレクティック流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共変シンプレクティック流）"]
+    requires: [black-hole-thermodynamics.covariant-variation-potential]
+
+  - id: black-hole-thermodynamics.symplectic-current-conservation
+    name: 線形化解上のシンプレクティック流保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形化解上のシンプレクティック流保存）"]
+    requires: [black-hole-thermodynamics.covariant-symplectic-current]
+
+  - id: black-hole-thermodynamics.diffeomorphism-noether-current
+    name: 微分同相Noether流とNoether電荷
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（微分同相Noether流とNoether電荷）"]
+    requires: [black-hole-thermodynamics.covariant-variation-potential]
+
+  - id: black-hole-thermodynamics.noether-current-divergence
+    name: Noether流の発散とon-shell閉性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Noether流の発散とon-shell閉性）"]
+    requires: [black-hole-thermodynamics.diffeomorphism-noether-current]
+
+  - id: black-hole-thermodynamics.einstein-noether-charge
+    name: Einstein–HilbertのNoether電荷
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Einstein–HilbertのNoether電荷）"]
+    requires: [black-hole-thermodynamics.noether-current-divergence, gravity.ghy-boundary-action]
+
+  - id: black-hole-thermodynamics.surface-hamiltonian-variation
+    name: 表面Hamiltonian変分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表面Hamiltonian変分）"]
+    requires: [black-hole-thermodynamics.einstein-noether-charge, black-hole-thermodynamics.covariant-symplectic-current]
+
+  - id: black-hole-thermodynamics.covariant-boundary-identity
+    name: 共変位相空間の境界変分恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共変位相空間の境界変分恒等式）"]
+    requires: [black-hole-thermodynamics.surface-hamiltonian-variation, black-hole-thermodynamics.noether-current-divergence]
+
+  - id: black-hole-thermodynamics.exact-lagrangian-shift
+    name: 完全微分による作用変更の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全微分による作用変更の不変性）"]
+    requires: [black-hole-thermodynamics.covariant-boundary-identity]

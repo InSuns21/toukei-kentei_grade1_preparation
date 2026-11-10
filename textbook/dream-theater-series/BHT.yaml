@@ -77,7 +77,7 @@ chapters:
     title: "電荷・回転とアンサンブル選択"
   - id: BHT18
     path: textbook/volumes/dream_thater/物理系/BHT/BHT18
-    status: planned
+    status: completed
     title: "共変位相空間とNoether流"
   - id: BHT19
     path: textbook/volumes/dream_thater/物理系/BHT/BHT19

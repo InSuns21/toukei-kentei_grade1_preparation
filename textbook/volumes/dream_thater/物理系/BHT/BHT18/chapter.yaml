@@ -1,0 +1,46 @@
+id: "BHT18"
+title: "共変位相空間とNoether流"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT17
+  - GR11
+official_scope: []
+learning_objectives:
+  - 微分同相共変なLagrangianの一次変分をEuler–Lagrange項と境界ポテンシャルに分解し、固定背景のスカラー場で積分部分を検算できる
+  - 二つの線形化摂動からシンプレクティック流を構成し、その保存則と境界からの流出を区別できる
+  - 微分同相生成場のNoether流を定義し、off shellの発散式とon shellの局所Noether電荷を導ける
+  - Einstein–HilbertのシンプレクティックポテンシャルとKomar型Noether電荷の係数、境界項の曖昧さを確認できる
+  - Noether電荷と境界ポテンシャルからHamiltonianの変分公式を導き、線形化方程式・境界条件・積分可能性が必要な段階を説明できる
+definitions:
+  - { id: BHT18-DEF-01, name: "共変変分とシンプレクティックポテンシャル" }
+  - { id: BHT18-DEF-02, name: "共変シンプレクティック流" }
+  - { id: BHT18-DEF-03, name: "微分同相Noether流とNoether電荷" }
+  - { id: BHT18-DEF-04, name: "表面Hamiltonian変分" }
+theorems:
+  - { id: BHT18-PROP-01, name: "固定背景スカラー場の変分と流" }
+  - { id: BHT18-THM-01, name: "線形化解上のシンプレクティック流保存" }
+  - { id: BHT18-THM-02, name: "Noether流の発散とon-shell閉性" }
+  - { id: BHT18-PROP-02, name: "Einstein–HilbertのNoether電荷" }
+  - { id: BHT18-THM-03, name: "共変位相空間の境界変分恒等式" }
+  - { id: BHT18-PROP-03, name: "完全微分による作用変更の不変性" }
+canonical_examples:
+  - 1+1次元質量零スカラー場でthetaとomegaとd omegaを逐次検算する
+  - 区間の両端からのシンプレクティック流束による切片依存性を確認する
+  - Minkowskiの時間並進とboostでEinstein Noether電荷を比較する
+  - Lagrangianの全微分を加えたとき表面Hamiltonian変分が相殺することを確かめる
+problem_patterns:
+  - BHT18-SCALAR-INTEGRATION-BY-PARTS
+  - BHT18-SYMPLECTIC-ANTISYMMETRY
+  - BHT18-SCALAR-CONSERVATION
+  - BHT18-NOETHER-DIVERGENCE
+  - BHT18-BOUNDARY-FLUX
+  - BHT18-LINEARIZED-INTEGRABILITY
+  - BHT18-MINKOWSKI-KOMAR
+  - BHT18-EXACT-LAGRANGIAN-SHIFT
+  - BHT18-SURFACE-VARIATION
+  - BHT18-INTEGRATED-NOETHER-IDENTITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 7 }
