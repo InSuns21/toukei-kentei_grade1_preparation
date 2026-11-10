@@ -1,0 +1,54 @@
+chapter: ORI13
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI12, F0-00E1, LA3B]
+forward_references: []
+
+concepts:
+  - id: origami.crease-pattern-plane-graph
+    name: 有限直線折り線図・面・頂点
+    kind: definition
+    introduction: formal
+    requires: [origami.crease-reflection]
+
+  - id: origami.mountain-valley-assignment
+    name: 山谷割当て
+    kind: definition
+    introduction: formal
+    requires: [origami.crease-pattern-plane-graph]
+
+  - id: origami.piecewise-isometric-flat-placement
+    name: 面ごとの等長な平坦配置候補
+    kind: definition
+    introduction: formal
+    requires: [origami.crease-pattern-plane-graph, origami.crease-reflection]
+
+  - id: origami.seam-reflection-dichotomy
+    name: 共有折り線に沿う二面の相対写像
+    kind: proposition
+    introduction: formal
+    requires: [origami.piecewise-isometric-flat-placement, origami.crease-reflection]
+
+  - id: origami.finite-face-gluing
+    name: 有限個の面の貼り合わせ
+    kind: proposition
+    introduction: formal
+    requires: [origami.piecewise-isometric-flat-placement]
+
+  - id: origami.even-vertex-valence
+    name: 内部頂点の作動折り目の偶数性
+    kind: proposition
+    introduction: formal
+    requires: [origami.seam-reflection-dichotomy]
+
+  - id: origami.local-layer-order
+    name: 重なり面と層順
+    kind: definition
+    introduction: formal
+    requires: [origami.piecewise-isometric-flat-placement, origami.mountain-valley-assignment]
+
+  - id: origami.parallel-three-layer-placement
+    name: 二本の平行折り目による三層の平坦配置候補
+    kind: proposition
+    introduction: formal
+    requires: [origami.finite-face-gluing, origami.local-layer-order]
