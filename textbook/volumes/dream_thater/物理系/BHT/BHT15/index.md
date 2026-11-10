@@ -31,7 +31,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht15-heat-capacity -->
-**定義の確認**：有限個の準位 $0,\epsilon$ を持つ通常の正準系では、$b=1/T>0$ として $Z=1+e^{-b\epsilon}$、平均エネルギー $E(b)=\epsilon/(e^{b\epsilon}+1)$ です。$dE/db=-\epsilon^2e^{b\epsilon}/(1+e^{b\epsilon})^2$、$db/dT=-1/T^2$ なので $C=\epsilon^2e^{b\epsilon}/[T^2(1+e^{b\epsilon})^2]>0$。温度を変えたときのエネルギーの応答を、固定された同じ二準位系で評価しています。
+**定義の確認**（二準位系）：[BHT14の通常の正準統計の例](../BHT14/index.md#def-bht14-saddle-weight)にならい、エネルギー $E_0=0$、$E_1=\epsilon>0$ を持つ二状態と、その間隔 $\epsilon$ を固定します。
+
+逆温度 $b=1/T>0$ における二状態の重みは $1,e^{-b\epsilon}$ です。規格化因子（分配関数）$Z$ と平均エネルギー $E(b)$ は
+
+$$
+Z(b)=1+e^{-b\epsilon},\qquad
+E(b)=\frac{0\cdot1+\epsilon e^{-b\epsilon}}{Z(b)}
+=\frac{\epsilon}{e^{b\epsilon}+1}.
+$$
+
+したがって、準位を変えずに温度だけを動かすと
+
+$$
+\frac{dE}{db}=-\frac{\epsilon^2e^{b\epsilon}}{(1+e^{b\epsilon})^2},\qquad
+\frac{db}{dT}=-\frac1{T^2}\ne0,
+$$
+
+$$
+C=\frac{dE}{dT}=\frac{dE}{db}\frac{db}{dT}
+=\frac{\epsilon^2e^{b\epsilon}}{T^2(1+e^{b\epsilon})^2}>0.
+$$
+
+温度 $T>0$、固定準位 $\epsilon>0$、微分可能な一変数族という定義の条件を確認しました。ここでの $b$ は通常の二準位系の逆温度であり、後に導入する重力の壁固有周期と同じ記号を使いますが、物理系は別です。
 <!-- definition-example-end -->
 
 <a id="prop-bht15-negative-infinity"></a>
@@ -98,7 +120,34 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht15-cavity-ensembles -->
-**定義の確認**：同じ $R$ で $M_1<M_2$ なら $x(M_1)>x(M_2)$ なので $E_R(M_1)<E_R(M_2)$ です。したがって $E_R$ 固定なら、この一変数族内で $M$ も固定され、温度を保ったまま質量を揺らす正準操作とは違います。実際、$dE_R/dM=1/x>0$ を以下で確かめます。
+**定義の確認**（二つの境界条件）：$M_0>0$ を選び、壁半径と固有逆温度を次の値に固定します。
+
+$$
+R=4GM_0,\qquad b_0=\frac{8\pi GM_0}{\sqrt2},\qquad
+x_0=\sqrt{1-\frac{2GM_0}R}=\frac1{\sqrt2}.
+$$
+
+$R$ を固定して $x^2=1-2GM/R$ を微分すると
+
+$$
+2x\frac{dx}{dM}=-\frac{2G}R,\qquad
+\frac{dx}{dM}=-\frac{G}{Rx},\qquad
+\frac{dS}{dM}=8\pi GM.
+$$
+
+従って、固定した正準境界データでの作用と、壁エネルギーの質量微分は
+
+$$
+\left.\frac{dE_R}{dM}\right|_{M_0}=\frac1{x_0}=\sqrt2>0,\qquad
+\left.\frac{dI_{b_0}}{dM}\right|_{M_0}
+=\frac{b_0}{x_0}-8\pi GM_0=0.
+$$
+
+後者は[有限壁の縮約円錐作用](../BHT14/index.md#def-bht14-conical-reduction)を使う正準操作で、$b_0,R$ は固定したまま $M$ を動かしたときの停留条件です（停留点以外は一般に円錐を持ちます）。
+
+一方、同じ $R$ の全領域で $dE_R/dM=1/x>0$ なので、微正準条件で $E_R$ を固定すれば $M$ も固定されます。二つは許す変動が異なります。
+
+なお $R=4GM_0$ は評価点の選択であり、微分中に $R$ を $M$ とともに動かす条件ではありません。
 <!-- definition-example-end -->
 
 <a id="thm-bht15-wall-capacity"></a>
@@ -218,7 +267,7 @@ $$
 
 $y_*=2/3$ は $M_*=R/(3G)$ です。連続性と両側での厳密単調性から、$0<b<b_{\max}$ では $y$ が二つ、$b=b_{\max}$ で一つ、$b>b_{\max}$ で零です。$T=1/b$ に直すとステートメントの個数になります。
 
-次に[有限壁の縮約円錐作用](../BHT14/index.md#def-bht14-conical-reduction)の一変数式を使います。$I_b=bE_R-S$ で $b,R$ を固定して二度微分すると
+次に[有限壁の縮約円錐作用](../BHT14/index.md#def-bht14-conical-reduction)の一変数式を使います。壁第一法則・熱容量で用いた $d/dM$ は $R$ 一定の**正則解族**で $b=b(M)$ も変わる微分でした。ここからの $\partial_M$ は、$I_b(M)=I_b(M;b,R)$ の $b,R$ を固定し、円錐を許して $M$ だけを変える偏微分です。この違いを保って $I_b=bE_R-S$ を二度微分すると
 
 $$
 \partial_MI_b=\frac b x-8\pi GM,
@@ -374,13 +423,13 @@ $$
 =8\pi GMx=b.
 $$
 
-$x'= -G/(Rx)$ を用い、二階微分は
+$R$ を固定した $dx/dM=-G/(Rx)$ を用い、二階微分は
 
 $$
 \begin{aligned}
 \frac{d^2S}{dE_R^2}
 &=\frac{db/dM}{dE_R/dM}
-=x\cdot 8\pi G(x+Mx')\\
+=x\cdot 8\pi G\left(x+M\frac{dx}{dM}\right)\\
 &=8\pi G\left(x^2-\frac{GM}R\right)
 =8\pi G\left(1-\frac{3GM}R\right).
 \end{aligned}
@@ -466,10 +515,10 @@ $R$ を固定して変分する際に $R=4GM$ を微分してはなりません�
 - 問題: $0<M<R/(2G)$、$R$ 固定で $E_R=R(1-\sqrt{1-2GM/R})/G$、$S=4\pi GM^2$ とする。$dE_R/dM$ と $(dE_R/dM)/(dS/dM)$ を求め、壁温度と比較せよ。
 
 <!-- solution-start -->
-**詳細解答**：$x=\sqrt{1-2GM/R}$ とおけば $2xx'=-2G/R$ より $x'=-G/(Rx)$ です。従って
+**詳細解答**：$R$ を固定して $x=\sqrt{1-2GM/R}$ を $M$ で微分すると $2x(dx/dM)=-2G/R$ より $dx/dM=-G/(Rx)$ です。従って
 
 $$
-\frac{dE_R}{dM}=-\frac RG x'=\frac1x,
+\frac{dE_R}{dM}=-\frac RG\frac{dx}{dM}=\frac1x,
 \qquad \frac{dS}{dM}=8\pi GM.
 $$
 
@@ -550,7 +599,7 @@ $0<x<1$ の二解は $x_{\rm large}=1/2$ と $x_{\rm small}=(\sqrt{13}-1)/4$ で
 [二分岐定理](#thm-bht15-two-branches)の停留点で
 
 $$
-I_b''(M)=8\pi G\frac{3GM-R}{R-2GM}
+\left.\partial_M^2 I_b\right|_*=8\pi G\frac{3GM-R}{R-2GM}
 $$
 
 です。$x=1/2$ の大枝では $M=3R/(8G)$、$3GM-R=R/8>0$ なので局所極小。$x=(\sqrt{13}-1)/4>1/\sqrt3$ の小枝では $M<R/(3G)$ となり局所極大です。境界の $b,R$ は両方で共通です。
@@ -564,7 +613,14 @@ $$
 - 問題: $M,G>0$ を固定し $R>2GM$ を変える。$E_R=R(1-\sqrt{1-2GM/R})/G$、壁面積 $A_B=4\pi R^2$ に対し、$-\partial E_R/\partial A_B|_S$ を求めよ。また $dE_R=T_RdS-p_RdA_B$ を全微分で検証せよ。
 
 <!-- solution-start -->
-**詳細解答**：$x=\sqrt{1-2GM/R}$ と置きます。$S=4\pi GM^2$ は $M$ のみの関数なので、$S$ 固定は $M$ 固定です。このとき $x_R=GM/(R^2x)$、$A_{B,R}=8\pi R$ です。よって
+**詳細解答**：$x=\sqrt{1-2GM/R}$ と置きます。$S=4\pi GM^2$ は $M$ のみの関数なので、$S$ 固定は $M$ 固定です。このとき $R$ についての偏微分と面積の微分は
+
+$$
+\left.\frac{\partial x}{\partial R}\right|_M=\frac{GM}{R^2x},\qquad
+\frac{dA_B}{dR}=8\pi R.
+$$
+
+よって
 
 $$
 \begin{aligned}
@@ -582,7 +638,7 @@ p_R=-\frac{\partial_R E_R|_M}{8\pi R}
 =\frac{(1-x)^2}{16\pi GRx}>0.
 $$
 
-$E_R$ の $M$ 方向の微分は $1/x$、[壁第一法則](#thm-bht15-wall-capacity)で $T_RS_M=1/x$。従って
+$E_R$ の $M$ 方向の微分は $1/x$、[壁第一法則](#thm-bht15-wall-capacity)で $T_R(dS/dM)=1/x$。従って
 
 $$
 dE_R=\frac{dM}x-\frac{(1-x)^2}{2Gx}dR
@@ -628,7 +684,7 @@ $1/3<x<1/\sqrt3$ は $C_R>0$ でも作用差が正、すなわち平坦背景の
 - 問題: $R$ 固定で $0<M<R/(2G)$、$E_R=R(1-x)/G$、$S=4\pi GM^2$、$x=\sqrt{1-2GM/R}$ とする。$d^2S/dE_R^2$ を求め、その符号を各枝で判定せよ。また、固定ハミルトニアンの正準系で $Z=\sum_i e^{-bE_i}$ として $C=b^2\operatorname{Var}(E)$ を再導出せよ。
 
 <!-- solution-start -->
-**詳細解答**：$x_M=-G/(Rx)$ から $E_{R,M}=1/x$。$S_M=8\pi GM$ なので
+**詳細解答**：$R$ 固定で $dx/dM=-G/(Rx)$ です。この解答における $E_{R,M}$、$S_M$、$b_M$ という添字 $M$ は、それぞれ $R$ を固定した $M$ による微分を表します。従って $E_{R,M}=1/x$、$S_M=8\pi GM$ なので
 
 $$
 \frac{dS}{dE_R}=\frac{8\pi GM}{1/x}=8\pi GMx=b.
@@ -685,10 +741,10 @@ $$
 
 なので、二解が現れる領域にいます（$16>9\sqrt3$ は両辺を平方して $256>243$ で確認できます）。
 
-**（2）** $x_M=-G/(Rx)$ を使えば $\partial_MI_b=b/x-8\pi GM$ で、停留すると $b=8\pi GMx$。二度微分してからこの式を代入すると
+**（2）** $R$ 固定の $dx/dM=-G/(Rx)$ を使い、$b,R$ を固定した偏微分 $\partial_MI_b=b/x-8\pi GM$ を作ります。停留すると $b=8\pi GMx$。二度偏微分してからこの式を代入すると
 
 $$
-I_b''|_*=\frac{bG}{Rx^3}-8\pi G
+\left.\partial_M^2I_b\right|_*=\frac{bG}{Rx^3}-8\pi G
 =8\pi G\frac{3GM-R}{R-2GM}.
 $$
 
@@ -710,7 +766,9 @@ $$
 
 従って大枝は縮約作用で局所極小でも、平坦背景の先頭指数 $e^0$ より $e^{-I_{\rm BH}}$ は小さいです。「局所極小」と「大域的な古典指数の最大」は別です。
 
-**（4）** $E_{R,M}=1/x>0$ なので、同じ $R$ で $E_R$ を一定にすれば $M$ も一定です。正準条件で使った質量変動は、微正準条件では許されません。さらに本問で計算したのはSchwarzschild一変数族のHessianと、二つの古典サドルの相対指数だけです。非球対称摂動、量子揺らぎ、空洞内放射、積分経路を調べていないため、全重力モードの安定性や厳密な相転移の存在までは結論できません。
+**（4）** $R$ 固定では $dE_R/dM=1/x>0$ なので、同じ $R$ で $E_R$ を一定にすれば $M$ も一定です。正準条件で使った質量変動は、微正準条件では許されません。
+
+さらに本問で計算したのはSchwarzschild一変数族のHessianと、二つの古典サドルの相対指数だけです。非球対称摂動、量子揺らぎ、空洞内放射、積分経路を調べていないため、全重力モードの安定性や厳密な相転移の存在までは結論できません。
 <!-- solution-end -->
 
 ---
