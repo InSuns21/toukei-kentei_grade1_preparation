@@ -37,7 +37,7 @@ $$
 \hat\epsilon_{ab}\hat\epsilon^{ab}=-2
 $$
 
-で定めます。$B$ の誘導計量を $h_{ab}=g_{ab}+u_au_b-n_an_b$、面積要素を $dA=\sqrt{\det h_{ij}}\,d^2x$ とし、面の向きを $\hat\epsilon_{ab}$ と時空体積形式に整合させます。双法線の全体符号を逆にすると、Noether電荷の向きも同時に変わるため、片方だけ変えてはいけません。
+で定めます。$B$ の誘導計量を $q_{ab}=g_{ab}+u_au_b-n_an_b$、面積要素を $dA=\sqrt{\det q_{ij}}\,d^2x$ とし、面の向きを $\hat\epsilon_{ab}$ と時空体積形式に整合させます。双法線の全体符号を逆にすると、Noether電荷の向きも同時に変わるため、片方だけ変えてはいけません。
 
 <a id="def-bht19-bifurcation-data"></a>
 
@@ -206,7 +206,7 @@ $$
 =\frac{\kappa}{8\pi G}\,\delta\boldsymbol\epsilon_B,
 \quad
 \delta\boldsymbol\epsilon_B
-=\frac12 h^{ij}\delta h_{ij}\boldsymbol\epsilon_B.
+=\frac12 q^{ij}h_{ij}\boldsymbol\epsilon_B.
 $$
 
 最後の式を固定した $B$ 上で積分すれば主張が従います。計量変分の向きはあくまで背景における $\chi$ の固定を意味し、解ごとに新たな分岐面を同一視する任意の操作が同じ微分を与えるとは述べていません。
