@@ -1,0 +1,40 @@
+id: ORI16
+title: "局所平坦折り可能性の判定"
+volume: foundations
+status: supplementary
+prerequisites: [ORI15]
+official_scope: []
+learning_objectives:
+  - 山谷指定単頂点の局所判定で入力の正角・全折り目作動・周期順を確認し、必要条件と十分条件を区別できる
+  - クリンプ可能な非厳密局所最小角を山谷と角の大小から特定できる
+  - 二折り目を除く角の更新式と交互角和・山谷本数差の保存を導出できる
+  - 縮約後を円錐状の局所模型として理解し、元の360度条件を再適用しない
+  - クリンプ縮約の同値性と停止判定により山谷指定の単頂点局所平坦折り可能性を証明・判定できる
+  - 同角・零角・自己貫通・多頂点への適用範囲と線形時間実装の前提を説明できる
+definitions:
+  - { id: ORI16-DEF-01, name: クリンプ可能な扇形と縮約 }
+theorems:
+  - { id: ORI16-PROP-01, name: クリンプ縮約の角と符号の不変量 }
+  - { id: ORI16-LEM-01, name: 局所クリンプの除去・復元 }
+  - { id: ORI16-THM-01, name: 山谷指定単頂点のクリンプ縮約判定 }
+  - { id: ORI16-COR-01, name: 線形時間の判定 }
+canonical_examples:
+  - 四扇形60・120・120・60度のMVMMを縮約し円錐上の二扇形120・120度に到達する
+  - 六扇形すべて60度のMMVMVMで二回のクリンプと層順復元を行う
+  - 30・120・150・60度のMMMVは二つの古典条件を満たしてもクリンプ不能と判定する
+  - 等しい四扇形90度のMMMVは非厳密最小角を使って判定できる
+problem_patterns:
+  - ORI16-VALIDATE-INPUT
+  - ORI16-ANGLE-UPDATE
+  - ORI16-FOUR-SECTOR-TRACE
+  - ORI16-EQUAL-ANGLE
+  - ORI16-NECESSARY-NOT-SUFFICIENT
+  - ORI16-SIX-SECTOR-TRACE
+  - ORI16-INVARIANTS
+  - ORI16-CONE-BASE-CASE
+  - ORI16-GREEDY-CORRECTNESS
+  - ORI16-INTEGRATED-DIAGNOSIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
