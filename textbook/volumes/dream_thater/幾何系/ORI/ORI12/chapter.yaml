@@ -1,0 +1,43 @@
+id: ORI12
+title: "同時複数折り・曲線折りの作図能力"
+volume: foundations
+status: supplementary
+prerequisites: [ORI11]
+official_scope: []
+learning_objectives:
+  - 有限候補の同時複数折りを単一折りの逐次実行と区別し、連立鏡映条件を座標で検算できる
+  - 条件が分離できる場合と折り線相互に依存する場合を区別し、解が零個・有限個・無限個となる例を作れる
+  - 角の五等分が満たす五次方程式を余弦の加法公式から導き、方程式次数と根の作図可能性を混同しない
+  - 同時二折りの五等分・一般五次方程式に関する研究結果の適用模型と未証明の境界を説明できる
+  - 曲線を指定すること、曲線に折り目を付けること、紙を曲線折りで三次元に実現することを区別できる
+  - 非直線曲線を固定する非自明な平面等長変換が存在しないことを証明できる
+definitions:
+  - { id: ORI12-DEF-01, name: 有限候補の同時複数折り操作 }
+  - { id: ORI12-DEF-02, name: 曲線指定と曲線折りの区別 }
+theorems:
+  - { id: ORI12-PROP-01, name: 二本の連立折り線の具体解 }
+  - { id: ORI12-PROP-02, name: 分離可能な折り条件の逐次実行 }
+  - { id: ORI12-PROP-03, name: 角の五等分に現れる五次方程式 }
+  - { id: ORI12-PROP-04, name: 非直線曲線と平面等長鏡映の不可能性 }
+canonical_examples:
+  - 二本の平行折り線x=a、x=bの相互鏡映条件からa=1/3、b=2/3を求める
+  - 条件を一つ欠かすと無数解、矛盾する条件を足すと零解になる
+  - cos(5φ)=16cos^5φ-20cos^3φ+5cosφを余弦加法公式から導く
+  - xの五乗が2になる正の根は単一折りでは作れないという次数障害
+  - 三つの非共線固定点を持つ平面等長変換は恒等写像である
+  - パラメータを恣意的に与えた曲線からの交点取得は新しい作図数のオラクルになり得る
+problem_patterns:
+  - ORI12-COUPLED-FOLDS
+  - ORI12-REFLECTION-CHECK
+  - ORI12-SEPARABLE-OPERATIONS
+  - ORI12-COSINE-FIVEFOLD
+  - ORI12-RIGIDITY
+  - ORI12-DEGENERATE-SOLUTIONS
+  - ORI12-QUINTISECTION-BRANCH
+  - ORI12-FIFTH-ROOT-BOUNDARY
+  - ORI12-CURVE-DATA-ORACLE
+  - ORI12-INTEGRATED-MODEL-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }

@@ -1,0 +1,42 @@
+chapter: ORI12
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI11]
+forward_references: []
+
+concepts:
+  - id: origami.simultaneous-multifold-construction
+    name: 有限候補の同時複数折り操作
+    kind: definition
+    introduction: formal
+    requires: [origami.single-fold-constructible-number, origami.crease-reflection]
+
+  - id: origami.coupled-parallel-folds
+    name: 二本の連立折り線の具体解
+    kind: proposition
+    introduction: formal
+    requires: [origami.simultaneous-multifold-construction]
+
+  - id: origami.separable-fold-constraints
+    name: 分離可能な折り条件の逐次実行
+    kind: proposition
+    introduction: formal
+    requires: [origami.simultaneous-multifold-construction, origami.single-fold-constructible-number]
+
+  - id: origami.quintisection-cosine-polynomial
+    name: 角の五等分に現れる五次方程式
+    kind: proposition
+    introduction: formal
+    requires: [origami.simultaneous-multifold-construction]
+
+  - id: origami.curved-crease-model-boundary
+    name: 曲線指定と曲線折りの区別
+    kind: definition
+    introduction: formal
+    requires: [origami.single-fold-constructible-number]
+
+  - id: origami.nonlinear-fixed-curve-rigidity
+    name: 非直線曲線と平面等長鏡映の不可能性
+    kind: proposition
+    introduction: formal
+    requires: [origami.curved-crease-model-boundary, origami.crease-reflection]
