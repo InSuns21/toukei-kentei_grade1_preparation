@@ -229,7 +229,11 @@ $B$ で $\chi=0$ だから $\iota_\chi\boldsymbol\theta=0$（ポテンシャル�
 
 <!-- formal-statement-start -->
 > **定理（Noether電荷からの定常真空Einstein第一法則）**\
-> 向き付き4次元の漸近平坦・定常・軸対称な真空Einstein解が、コンパクトな分岐面 $B$ を持つ正則な非極限Killing地平線を持つとする。漸近時間並進 $t^a$ は無限遠で単位規格化、軸対称場 $\varphi^a$ は周期 $2\pi$、背景の地平線生成場を $\chi=t+\Omega_H\varphi$ とする。摂動は線形化真空方程式を満たし、無限遠のHamiltonian変分が有限で、$\delta H_t=\delta M$、$\delta H_\varphi=-\delta J$ と同定できるとする。変分では $B,\chi,\Omega_H$ の背景値を固定し、境界積分と変分を交換できるものとする。このとき
+> 向き付き4次元の漸近平坦・定常・軸対称な真空Einstein解が、コンパクトな分岐面 $B$ を持つ正則な非極限Killing地平線を持つとする。
+>
+> 漸近時間並進 $t^a$ は無限遠で単位規格化する。軸対称場 $\varphi^a$ は周期 $2\pi$ とし、背景の地平線生成場を $\chi=t+\Omega_H\varphi$ とする。
+>
+> 摂動は線形化真空方程式を満たし、無限遠のHamiltonian変分は有限で、$\delta H_t=\delta M$、$\delta H_\varphi=-\delta J$ と同定できるものとする。変分では $B,\chi,\Omega_H$ の背景値を固定し、境界積分と変分を交換できると仮定する。このとき
 
 $$
 \delta M-\Omega_H\delta J

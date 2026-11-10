@@ -1,0 +1,50 @@
+id: GMT20
+title: 密度によるrectifiability判定
+volume: foundations
+status: supplementary
+prerequisites:
+  - MT5
+  - MT8
+  - GMT10
+  - GMT11
+  - GMT12
+  - GMT15
+  - GMT16
+  - GMT18
+  - GMT19
+official_scope: []
+learning_objectives:
+  - 平面基準密度と近似接平面の条件を区別し、直線・角・重み付き測度で検算できる
+  - 正の下密度と小さい円錐外面積から二点間の傾きを制限する球包含と定数を導ける
+  - 直交射影の単射性からLipschitzグラフを構成し実数値成分を拡張できる
+  - 平面方向・下密度・半径閾値の可算化によって可算整流可能性を証明できる
+  - 全スケール平坦blow-upを密度・近似接平面判定に接続できる
+  - 一般Preiss定理の密度極限仮定と結論を正確に述べ、一般証明は本講義の範囲外と区別できる
+definitions:
+  - { id: GMT20-DEF-01, name: m-整流可能Radon測度 }
+theorems:
+  - { id: GMT20-LEM-01, name: 一様な密度・円錐条件から二点間の傾きが従う }
+  - { id: GMT20-LEM-02, name: 局所円錐条件からLipschitzグラフへの包含 }
+  - { id: GMT20-THM-01, name: 正の下密度と近似接平面による整流可能性判定 }
+  - { id: GMT20-COR-01, name: 全スケール平坦blow-upによる整流可能性判定 }
+  - { id: GMT20-THM-02, name: Preissの密度による整流可能性定理（紹介） }
+canonical_examples:
+  - 折れ線の交点と放物線の接線
+  - 傾きを持つグラフの射影単射性
+  - 単純な直線の全スケール平坦blow-up
+  - 重み付き線分のRadon測度と密度
+problem_patterns:
+  - GMT20-DENSITY-ENDPOINT
+  - GMT20-CONE-BALL
+  - GMT20-PROJECTION-INJECTIVITY
+  - GMT20-WEIGHTED-DENSITY
+  - GMT20-DENSITY-LIMIT
+  - GMT20-CONE-CONSTANT
+  - GMT20-GRASSMANN-NET
+  - GMT20-MCSHANE-EXTENSION
+  - GMT20-CROSS-EXCEPTION
+  - GMT20-FLAT-BLOWUP-CRITERION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 8, review: 3 }

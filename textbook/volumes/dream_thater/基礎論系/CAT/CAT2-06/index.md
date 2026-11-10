@@ -49,7 +49,19 @@ $$
 <!-- definition-example-start: def-cat2-06-pushout -->
 **定義の確認**
 
-**例：一方が恒等射。** スパン $A\xleftarrow{1_A}A\xrightarrow{g}B$ に対し $P=B$、$i_A=g$、$i_B=1_B$ とする。$i_A1_A=g=1_Bg=i_Bg$。任意の整合する $u:A\to X,v:B\to X$ は $u=vg$ を満たす。$h=v:B\to X$ と取れば $hg=u$、$h1_B=v$ であり、後者の等式から $h$ は必ず $v$ に等しい。存在・一意性の両方を確かめたので押し出しである。
+**例：一方が恒等射。** スパン $A\xleftarrow{1_A}A\xrightarrow{g}B$ に対し $P=B$、$i_A=g$、$i_B=1_B$ とする。可換性は
+
+$$
+i_A1_A=g=1_Bg=i_Bg
+$$
+
+で確かめられる。任意の整合する $u:A\to X,v:B\to X$ は $u=vg$ を満たす。$h=v:B\to X$ と取れば
+
+$$
+hi_A=vg=u,\qquad hi_B=v1_B=v.
+$$
+
+後者の等式から、条件を満たす $h$ は必ず $v$ に等しい。存在・一意性の両方を確かめたので押し出しである。
 <!-- definition-example-end -->
 
 この正方形では、上辺 $f:C\to A$、左辺 $g:C\to B$、右辺 $i_A:A\to P$、下辺 $i_B:B\to P$ が可換である。押し出しは[余極限](../CAT2-05/index.md#def-cat2-05-colimit)をスパンという特定の小図式に適用したものだから、存在する場合の同型一意性も同じ仕組みで成立する。
@@ -80,13 +92,13 @@ $P\to P$ で両脚を保存する射は普遍性から一意であり、恒等�
 
 ## 3. 余積で集め、余等化子で貼る
 
-押し出しの存在は定義だけでは保証されない。しかし $A\amalg B$ と、それに対する余等化子が作れる圏なら、具体的に組み立てられる。まず $A,B$ を[二項余積](../CAT2-05/index.md#def-cat2-05-coproduct) $S=A\amalg B$ の中で区別し、その標準射を $\iota_A,\iota_B$ とする。次に $C$ の各元（一般圏では各射）から見た二つの行き先
+押し出しの存在は定義だけでは保証されない。しかし $A\amalg B$ と、それに対する余等化子が作れる圏なら、具体的に組み立てられる。まず $A,B$ を[二項余積](../CAT2-05/index.md#def-cat2-05-coproduct) $S=A\amalg B$ の中で区別し、その標準射を $\iota_A,\iota_B$ とする。次に、同じ対象 $C$ から $S$ へ向かう二つの合成射
 
 $$
 \iota_A f,\ \iota_B g:C\rightrightarrows S
 $$
 
-を一致させればよい。
+を一致させればよい。これは一般圏で対象 $C$ の「元」を選ぶ操作ではなく、二射 $C\to S$ に[余等化子](../CAT2-05/index.md#def-cat2-05-coequalizer)を適用する操作である。
 
 <a id="thm-cat2-06-coequalizer"></a>
 
@@ -118,9 +130,16 @@ $$
 
 ## 4. 集合：最小の同値関係で貼り合わせる
 
-$\mathbf{Set}$ では、まずタグ付き非交和 $S=(\{A\}\times A)\cup(\{B\}\times B)$ を作る。$a\in A$ と $b\in B$ の表記を区別するため、以下では $\iota_A(a)$ と $\iota_B(b)$ と記す。$c\in C$ ごとに $\iota_A(f(c))$ と $\iota_B(g(c))$ を同一視したいが、同値関係は対称性と推移性も満たさねばならない。
+$\mathbf{Set}$ では、まず**異なる固定タグ** $0,1$ を使って非交和を作る。
 
-そこで各 $(\iota_A f(c),\iota_B g(c))$ を含む**最小の同値関係** $\sim$ を取る。これは「等号の向きを逆にすることと有限回つなぐことを許した有限鎖で到達できる」という条件で具体化できる。
+$$
+S=(\{0\}\times A)\cup(\{1\}\times B),\qquad
+\iota_A(a)=(0,a),\quad\iota_B(b)=(1,b).
+$$
+
+$A=B$ が同じ集合でも $(0,a)\ne(1,a)$ なので、貼る前には両側の元を区別できる。$c\in C$ ごとに $\iota_A(f(c))$ と $\iota_B(g(c))$ を同一視したいが、同値関係は対称性と推移性も満たさねばならない。
+
+そこで各 $(\iota_A(f(c)),\iota_B(g(c)))$ を含む**最小の同値関係** $\sim$ を取る。これは「等号の向きを逆にすることと有限回つなぐことを許した有限鎖で到達できる」という条件で具体化できる。
 
 <a id="thm-cat2-06-set"></a>
 
@@ -150,7 +169,13 @@ w(\iota_A(a))=u(a),\qquad
 w(\iota_B(b))=v(b)
 $$
 
-を定める。タグが異なるので $w:S\to X$ は関数であり、生成する各対の値は $w(\iota_A f(c))=uf(c)=vg(c)=w(\iota_B g(c))$。関数値の等しさは反射的・対称的・推移的なので、生成対と逆向きの生成対を有限回たどる任意の鎖の両端でも $w$ は同じ値となる。ゆえに
+を定める。タグが異なるので $w:S\to X$ は関数である。整合条件 $uf=vg$ により、各生成対で
+
+$$
+w(\iota_A(f(c)))=u(f(c))=v(g(c))=w(\iota_B(g(c)))
+$$
+
+となる。関数値の等しさは反射的・対称的・推移的なので、生成対と逆向きの生成対を有限回たどる任意の鎖の両端でも $w$ は同じ値となる。ゆえに
 
 $$
 h([s])=w(s)
@@ -175,7 +200,7 @@ $$
 
 この構成ではすべての語を**既約語**（隣接する逆記号の組を含まない語）へ縮約できる。消去順序が重なるのは $x_tx_t^{-1}x_t$ とその逆型だけで、どちらを先に消しても残りは同じ一文字である。離れた二組の消去は順序を交換できるので、語の長さに関する帰納法で既約語は一意となる。特に $x_ax_b$ と $x_bx_a$（$a\ne b$）は異なる既約語である。任意の写像 $\phi:T\to H$ について、語の各記号を $\phi(t)^{\pm1}$ へ置き換えた積は消去で変わらず、$F(T)\to H$ の**一意な群準同型**を定める。これを語による自由群の普遍性という。
 
-次は $T=(\{A\}\times A)\cup(\{B\}\times B)$ とし、元 $a\in A,b\in B$ を別々の文字 $x_{A,a}$、$x_{B,b}$ で表す。群 $A,B$ 内の積を保存させ、共通の $C$ の像を一致させるため、$F(T)$ に次の関係式を課す：
+次は群 $A,B$ の台集合に対し $T=(\{0\}\times A)\cup(\{1\}\times B)$ とし、元 $a\in A,b\in B$ を別々の文字 $x_{A,a}:=x_{(0,a)}$、$x_{B,b}:=x_{(1,b)}$ で表す。$A=B$ でも自由生成元を混同しない。群 $A,B$ 内の積を保存させ、共通の $C$ の像を一致させるため、$F(T)$ に次の関係式を課す：
 
 $$
 \begin{gathered}
@@ -185,13 +210,13 @@ x_{A,f(c)}=x_{B,g(c)}\quad(c\in C).
 \end{gathered}
 $$
 
-「関係式を課す」とは、各左辺と右辺の積の差を単位元へ送るような最小の**正規部分群** $N$（指定された元の共役と積と逆元で生成される部分群）で割ることをいう。[商群の構成](../../../代数系/GRP/GRP2/index.md#thm-grp2-quotient-well-defined)により $F(T)/N$ は群となる。
+「関係式を課す」とは、各等式 $L=R$ に対し $LR^{-1}$ を単位元へ送るような最小の[正規部分群](../../../代数系/GRP/GRP2/index.md#def-grp2-normal-subgroup) $N$（指定された元の共役と積と逆元で生成される部分群）で割ることをいう。$L,R$ はここで $F(T)$ の元を表す。[商群の構成](../../../代数系/GRP/GRP2/index.md#thm-grp2-quotient-well-defined)により $F(T)/N$ は群となる。
 
 <a id="thm-cat2-06-group"></a>
 
 <!-- formal-statement-start -->
 > **定理（群の押し出しと融合自由積）**  
-> 群準同型 $f:C\to A$、$g:C\to B$ が与えられたとする。$T$ を $A,B$ の台集合のタグ付き非交和、$F(T)$ を $T$ 上の自由群とする。$N$ は、$a,a'\in A$、$b,b'\in B$、$c\in C$ に対する次の元が生成する正規部分群とする。
+> 群準同型 $f:C\to A$、$g:C\to B$ が与えられたとする。$T=(\{0\}\times A)\cup(\{1\}\times B)$ を $A,B$ の台集合のタグ付き非交和、$F(T)$ を $T$ 上の自由群とする。$N$ は、$a,a'\in A$、$b,b'\in B$、$c\in C$ に対する次の元が生成する正規部分群とする。
 
 $$
 \begin{gathered}
@@ -201,7 +226,7 @@ x_{A,f(c)}x_{B,g(c)}^{-1}.
 \end{gathered}
 $$
 
-> ここで $x_{A,a},x_{B,b}$ は対応するタグ付き元の自由生成元である。群 $P=F(T)/N$ への写像を
+> ここで $x_{A,a}=x_{(0,a)},x_{B,b}=x_{(1,b)}$ は対応するタグ付き元の自由生成元である。群 $P=F(T)/N$ への写像を
 
 $$
 j_A(a)=[x_{A,a}],\qquad j_B(b)=[x_{B,b}]
@@ -217,11 +242,50 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$P$ の積で $j_A(a)j_A(a')=[x_{A,a}x_{A,a'}]=[x_{A,aa'}]=j_A(aa')$、また $j_A(e_A)=e_P$ が成立する。$j_B$ も同様で、逆元の保存は $aa^{-1}=e_A$ から従う。最後の関係式から各 $c\in C$ に対し $j_Af(c)=j_Bg(c)$。
+$P$ の積と課した関係式から、任意の $a,a'\in A$ について
 
-整合する群準同型 $u:A\to H$、$v:B\to H$ を取る。$T$ 上の写像 $x_{A,a}\mapsto u(a)$、$x_{B,b}\mapsto v(b)$ を語に沿って延長すると、一意な群準同型 $\widehat w:F(T)\to H$ を得る。$u(aa')=u(a)u(a')$、$u(e_A)=e_H$、$v(bb')=v(b)v(b')$、$v(e_B)=e_H$ と $uf=vg$ により、上記の各関係式の左辺と右辺は $\widehat w$ で等しい。ゆえに関係式から作った元の共役・積・逆元も $\ker\widehat w$ に入り、$N\subseteq\ker\widehat w$ である。
+$$
+j_A(a)j_A(a')=[x_{A,a}x_{A,a'}]
+=[x_{A,aa'}]=j_A(aa'),\qquad j_A(e_A)=e_P.
+$$
 
-したがって $h([z])=\widehat w(z)$ は商群 $P\to H$ 上で well-defined な準同型となり、$hj_A=u,hj_B=v$。もし別の $h'$ も両式を満たせば、全生成元の像について $h'[x_{A,a}]=u(a)=h[x_{A,a}]$、$h'[x_{B,b}]=v(b)=h[x_{B,b}]$。生成元の積と逆元で $P$ の全元を表せるので $h'=h$ である。$\square$
+$j_B$ も同じ計算で積と単位元を保存する。逆元の保存は $j_A(a)j_A(a^{-1})=j_A(e_A)=e_P$（$B$ 側も同様）から従う。最後の関係式を商へ移すと、各 $c\in C$ に対して
+
+$$
+j_A(f(c))=[x_{A,f(c)}]=[x_{B,g(c)}]=j_B(g(c))
+$$
+
+となり、押し出しの可換条件も満たされる。
+
+整合する群準同型 $u:A\to H$、$v:B\to H$ を取る。$T$ 上の写像 $x_{A,a}\mapsto u(a)$、$x_{B,b}\mapsto v(b)$ を語に沿って延長すると、一意な群準同型 $\widehat w:F(T)\to H$ を得る。例えば $A$ 側の積関係元と $C$ 側の関係元の像は
+
+$$
+\begin{aligned}
+\widehat w(x_{A,a}x_{A,a'}x_{A,aa'}^{-1})
+&=u(a)u(a')u(aa')^{-1}=e_H,\\
+\widehat w(x_{A,f(c)}x_{B,g(c)}^{-1})
+&=u(f(c))v(g(c))^{-1}=e_H.
+\end{aligned}
+$$
+
+$B$ 側も準同型性により同様で、単位元関係元も $e_H$ へ写る。したがって各関係元 $r$ は $\widehat w(r)=e_H$ を満たす。任意の $z\in F(T)$ に対して
+
+$$
+\widehat w(zrz^{-1})=\widehat w(z)e_H\widehat w(z)^{-1}=e_H
+$$
+
+であり、その有限積と逆元も単位元へ写る。ゆえに、関係元の共役・有限積・逆元から生成した正規部分群 $N$ は $\ker\widehat w$ に含まれる。
+
+したがって $h([z])=\widehat w(z)$ は商群 $P\to H$ 上で well-defined な準同型となり、$hj_A=u,hj_B=v$ を満たす。もし別の $h'$ も両式を満たせば、任意の生成元について
+
+$$
+\begin{aligned}
+h'([x_{A,a}])&=u(a)=h([x_{A,a}]),\\
+h'([x_{B,b}])&=v(b)=h([x_{B,b}]).
+\end{aligned}
+$$
+
+生成元の積と逆元で $P$ の全元を表せるので $h'=h$ である。$\square$
 <!-- proof-end -->
 
 **例：共通群が自明な場合。** $C=\{e\}$ なら最後の関係式はすでに各群の単位元関係から従う。$P=A*B$ は二群の自由積である。
@@ -252,7 +316,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（位相空間の押し出しと商位相）**  
-> 位相空間と連続写像の圏 $\mathbf{Top}$ のスパン $A\xleftarrow f C\xrightarrow g B$ を取る。$S=A\amalg B$ に非交和位相を入れ、$\iota_Af(c)\sim\iota_Bg(c)$（$c\in C$）で生成される最小同値関係で割り、$P=S/{\sim}$ とする。商写像 $q:S\to P$ の商位相を $P$ に入れる。すると
+> 位相空間と連続写像の圏 $\mathbf{Top}$ のスパン $A\xleftarrow f C\xrightarrow g B$ を取る。$S=A\amalg B$ に非交和位相を入れ、$\iota_A(f(c))\sim\iota_B(g(c))$（$c\in C$）で生成される最小同値関係で割り、$P=S/{\sim}$ とする。商写像 $q:S\to P$ の商位相を $P$ に入れる。すると
 
 $$
 j_A=q\iota_A:A\to P,\qquad
@@ -264,7 +328,7 @@ $$
 
 ### 証明の見取り図
 
-集合の普遍性で作った $h$ の連続性だけを改めて検査すればよい。非交和の逆像判定と、[商位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-final-universal)を続けて使う。
+集合の普遍性で作った $h$ の連続性だけを改めて検査すればよい。非交和の逆像判定と、[商写像の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-quotient-universal)を続けて使う。
 
 <!-- proof-start -->
 ### 証明
@@ -377,7 +441,13 @@ $C=\{0,1\}$、$A=\{a\}$、$B=\{b_0,b_1\}$ とし、$f$ は定数、$g(k)=b_k$ �
 <!-- solution-start -->
 **詳細解答**
 
-$c=0$ から $\iota_A(a)\sim\iota_B(b_0)$、$c=1$ から $\iota_A(a)\sim\iota_B(b_1)$ が生成される。推移性から $[\iota_B(b_0)]=[\iota_B(b_1)]$ となり、$P$ の同値類は一つだけ。したがって $j_B(b_0)=j_B(b_1)$ なのに $b_0\ne b_1$ であり、$j_B$ は単射でない。$X$ が一元なら $A,B$ からの関数はそれぞれ一つだけで、両合成も唯一の $C\to X$ に一致するので整合する組は一組である。
+$c=0,1$ から二つの生成対が生じ、推移性で
+
+$$
+\iota_B(b_0)\sim\iota_A(a)\sim\iota_B(b_1)
+$$
+
+となる。$P$ の同値類は一つだけであり、$b_0\ne b_1$ なのに $j_B(b_0)=j_B(b_1)$ なので $j_B$ は単射でない。$X$ が一元なら $A,B$ からの関数はそれぞれ一つだけで、両合成も唯一の $C\to X$ に一致するので整合する組は一組である。
 <!-- solution-end -->
 
 ### CAT2-06-A03 恒等射を含むスパン
@@ -389,7 +459,13 @@ $c=0$ から $\iota_A(a)\sim\iota_B(b_0)$、$c=1$ から $\iota_A(a)\sim\iota_B(
 <!-- solution-start -->
 **詳細解答**
 
-$P=B$、$i_C=g:C\to B$、$i_B=1_B$ と取る。可換性は $i_C1_C=g=1_Bg$。整合する $u:C\to X,v:B\to X$ は $u1_C=vg$、すなわち $u=vg$ を満たす。$h=v$ と取れば $hi_C=vg=u,hi_B=v1_B=v$ だから存在。別の $h'$ が両条件を満たせば $h'1_B=v$ から $h'=v=h$ となり一意である。
+$P=B$、$i_C=g:C\to B$、$i_B=1_B$ と取る。可換性は $i_C1_C=g=1_Bg$。整合する $u:C\to X,v:B\to X$ は $u=vg$ を満たす。$h=v:B\to X$ と選ぶと
+
+$$
+hi_C=vg=u,\qquad hi_B=v1_B=v
+$$
+
+なので媒介射は存在する。別の $h'$ が両条件を満たせば $h'1_B=v$ から $h'=v=h$ となり、一意である。
 <!-- solution-end -->
 
 ### CAT2-06-A04 二本の区間の写像を貼る
@@ -401,7 +477,19 @@ $A=B=[0,1]$、$C=\{*\}$、$f(*)=g(*)=0$ の $\mathbf{Top}$ での押し出しを
 <!-- solution-start -->
 **詳細解答**
 
-$u$ と $v$ は通常位相に関して連続であり、$uf(*)=u(0)=0=v(0)=vg(*)$。したがって[位相空間の押し出しの普遍性](#thm-cat2-06-top)により一意な連続写像 $h$ が存在する。具体的には $h([\iota_A(t)])=t$、$h([\iota_B(t)])=-t$ と定める。共有する $0$ の類で値がともに $0$ なので関数として定まり、商位相の連続性判定を満たす。$v(t)=1-t$ では $v(0)=1\ne u(0)$ なので $hj_Af=hj_Bg$ が必要という可換条件に反し、連続性以前に集合写像としてもそのような $h$ は存在しない。
+$u$ と $v$ は通常位相に関して連続であり、共通の点では
+
+$$
+u(f(*))=u(0)=0=v(0)=v(g(*)).
+$$
+
+したがって[位相空間の押し出しの普遍性](#thm-cat2-06-top)により一意な連続写像 $h$ が存在する。具体的には
+
+$$
+h([\iota_A(t)])=t,\qquad h([\iota_B(t)])=-t
+$$
+
+と定める。共有する $0$ の類で値がともに $0$ なので関数として定まり、[商写像の連続性判定](../../../基礎科目/TOP/TOP1/index.md#thm-top1-quotient-universal)を満たす。一方、$v(t)=1-t$ では $u(f(*))=0$ と $v(g(*))=1$ が異なる。これは媒介射に必要な $hj_Af=hj_Bg$ に反するため、連続性以前に集合写像としてもそのような $h$ は存在しない。
 <!-- solution-end -->
 
 ### CAT2-06-A05 自明群からの二本の射
@@ -429,7 +517,13 @@ $C$ が自明なので、[群の押し出し構成](#thm-cat2-06-group)に追加
 <!-- solution-start -->
 **詳細解答**
 
-二項余積の標準射を $\iota_A:A\to S=A\amalg B,\iota_B:B\to S$ とする。平行二射は $\iota_Af,\iota_Bg:C\rightrightarrows S$ であり、$f,g$ 自身は終域が違うからそのままでは余等化子に入力できない。余等化子 $q:S\to P$ を取れば $q\iota_Af=q\iota_Bg$。整合する $u:A\to X,v:B\to X$ に余積の普遍性を適用し、$w\iota_A=u,w\iota_B=v$ の一意な $w:S\to X$ を得る。
+二項余積の標準射を $\iota_A:A\to S=A\amalg B,\iota_B:B\to S$ とする。平行二射は
+
+$$
+\iota_Af,\ \iota_Bg:C\rightrightarrows S
+$$
+
+であり、$f,g$ 自身は終域が違うからそのままでは余等化子に入力できない。[余等化子](../CAT2-05/index.md#def-cat2-05-coequalizer) $q:S\to P$ を取れば $q\iota_Af=q\iota_Bg$。整合する $u:A\to X,v:B\to X$ に[余積の普遍性](../CAT2-05/index.md#def-cat2-05-coproduct)を適用し、$w\iota_A=u,w\iota_B=v$ の一意な $w:S\to X$ を得る。
 
 $$
 w\iota_Af=uf=vg=w\iota_Bg
@@ -467,7 +561,14 @@ $$
 \alpha qp=\varepsilon tp=\varepsilon sr=\delta r
 $$
 
-となる。外側の押し出しより $\varphi:F\to X$ が一意に存在して $\varphi v=\alpha,\varphi us=\delta$。$\varphi u$ と $\varepsilon$ はともに $E\to X$ で、$t:B\to E$ との合成は $\alpha q$、$s:D\to E$ との合成は $\delta$ で一致する。**左の**押し出しの一意性により $\varphi u=\varepsilon$。右への別の媒介射があれば $v$ と $us$ 上で外側の指定を満たすので、**外側の**一意性から同じ $\varphi$ になる。存在だけでなく二段階の一意性を使い分けた。
+となる。外側の押し出しより $\varphi:F\to X$ が一意に存在して $\varphi v=\alpha,\varphi us=\delta$。$\varphi u$ と $\varepsilon$ はともに $E\to X$ で、左正方形の二つの脚に沿って
+
+$$
+(\varphi u)t=\varphi vq=\alpha q=\varepsilon t,\qquad
+(\varphi u)s=\delta=\varepsilon s
+$$
+
+となる。**左の**押し出しの一意性により $\varphi u=\varepsilon$。右への別の媒介射があれば $v$ と $us$ 上で外側の指定を満たすので、**外側の**一意性から同じ $\varphi$ になる。存在だけでなく二段階の一意性を使い分けた。
 <!-- solution-end -->
 
 ### CAT2-06-B04 逆向きの貼り合わせは成立しない
