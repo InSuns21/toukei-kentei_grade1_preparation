@@ -10,6 +10,8 @@
 
 **測度の規約**：$\mathcal L^j$ は Lebesgue 測度、$\mathcal H^j$ は [MT8の非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。[GMT10の正規化補題](../GMT10/index.md#lem-gmt10-hausdorff-normalization)に従って
 
+以下、「ほとんど至る所（almost everywhere; a.e.）」は、明記した測度について零集合を除いて成立することを意味します。
+
 $$
 c_j=\mathcal H^j([0,1]^j),\qquad
 \mathcal H^j|_{\mathbb R^j}=c_j\mathcal L^j\quad(j\ge1),\qquad
