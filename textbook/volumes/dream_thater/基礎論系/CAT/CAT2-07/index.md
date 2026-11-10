@@ -56,7 +56,9 @@ D_a=\operatorname{ev}_a\circ D:\mathcal J\longrightarrow\mathcal C,
 D_a(j)=D(j)(a),\quad D_a(t)=D(t)_a.
 $$
 
-これは値域 $\mathcal C$ の通常の図式になる。以下では $D_j=D(j)$ と略す。二種類の射が交差するときに使う、自然性の等式は
+これは値域 $\mathcal C$ の通常の図式になる。以下では $D_j=D(j)$ と略す。$D_j(u)$ は関手が射 $u$ に与える像、$D(t)_a$ は自然変換の $a$ 成分を表す。また合成 $v\circ u$ を $vu$ とも書く。
+
+添字圏の射 $t:j\to k$ と定義域の射 $u:a\to b$ が交差するときに使う自然性の等式は
 
 $$
 D_k(u)\circ D(t)_a=D(t)_b\circ D_j(u)
@@ -166,7 +168,25 @@ $$
 =(F(v)F(u)(x),G(v)G(u)(y))
 $$
 
-だから関手である。射影 $\pi_{F,a}(x,y)=x$ は $\pi_{F,b}(F\times G)(u)=F(u)\pi_{F,a}$ を満たし、$\pi_G$ も同様。自然変換 $\alpha:N\Rightarrow F$、$\beta:N\Rightarrow G$ からの唯一の媒介自然変換は $h_a(z)=(\alpha_a(z),\beta_a(z))$ であり、両射影を戻すと元の $\alpha,\beta$ が得られる。単なる集合の積ではなく、関手圏の積を直接確認した。
+だから関手である。射影 $\pi_{F,a}(x,y)=x$ は、任意の $(x,y)\in F(a)\times G(a)$ について
+
+$$
+\pi_{F,b}(F\times G)(u)(x,y)=F(u)(x)
+=F(u)\pi_{F,a}(x,y)
+$$
+
+を満たす。第二射影についても両辺は $G(u)(y)$ となるので、両射影は自然変換である。自然変換 $\alpha:N\Rightarrow F$、$\beta:N\Rightarrow G$ から $h_a(z)=(\alpha_a(z),\beta_a(z))$ を作ると、$u:a\to b$ に対し
+
+$$
+\begin{aligned}
+(F\times G)(u)h_a(z)
+&=(F(u)\alpha_a(z),G(u)\beta_a(z))\\
+&=(\alpha_bN(u)(z),\beta_bN(u)(z))\\
+&=h_bN(u)(z)
+\end{aligned}
+$$
+
+であり、$\alpha,\beta$ の自然性から $h$ も自然変換となる。各成分の積の普遍性により、両射影との合成が $\alpha,\beta$ になる $h_a$ はこれ以外にない。単なる集合の積ではなく、関手圏の積を直接確認した。
 
 ## 4. 余極限も点ごとに組み立てられる
 
@@ -242,19 +262,47 @@ $$
 余極限の一意性で $N(u)h_a=h_bQ(u)$ が従い、$h:Q\Rightarrow N$ は自然変換である。各 $j$ で $h\cdot i_j=q_j$ が成立し、他の媒介自然変換も各成分で $h_a$ に等しい。よって余極限の普遍性が成り立つ。余完備性の場合は任意の小さい $\mathcal J$ で同じ構成ができる。$\square$
 <!-- proof-end -->
 
-**直接例：関手の余積。** $\mathbf{Set}$ 値の二関手の余積はタグ付き非交和で
+**直接例：関手の余積。** $\mathbf{Set}$ 値の二関手の余積はタグ付き非交和である。$u:a\to b$ と $x\in F(a),y\in G(a)$ を取り、$\iota_{F,a}:F(a)\to F(a)\amalg G(a)$、$\iota_{G,a}:G(a)\to F(a)\amalg G(a)$ を標準包含とする。添字 $a$ が明らかなときは $\iota_F(x),\iota_G(y)$ とも書く。このとき
 
 $$
 (F\amalg G)(a)=F(a)\amalg G(a),
 \qquad
-(F\amalg G)(u)(\iota_F(x))=\iota_F(F(u)(x))
+(F\amalg G)(u)(\iota_F(x))=\iota_F(F(u)(x)),
+\qquad
+(F\amalg G)(u)(\iota_G(y))=\iota_G(G(u)(y))
 $$
 
-と定まる（$G$ 側も同様）。二つのタグは保たれ、各標準包含は自然変換である。自然変換 $F\Rightarrow N,G\Rightarrow N$ があれば、各 $a$ のタグ付き元から $N(a)$ への写像を一意に貼れる。その写像が自然であることは定理の（3）の等式で確かめられる。[集合の余積](../CAT2-05/index.md#def-cat2-05-coproduct)を関手圏でも使える理由はこの自然性の検査にある。
+と定まる。第一標準包含の自然性の等式
+
+$$
+(F\amalg G)(u)\iota_{F,a}(x)=\iota_{F,b}F(u)(x)
+$$
+
+は上の定義式そのものであり、第二標準包含も同じように確認できる。自然変換 $\alpha:F\Rightarrow N$、$\beta:G\Rightarrow N$ があれば、各 $a$ で
+
+$$
+h_a\iota_{F,a}=\alpha_a,\qquad
+h_a\iota_{G,a}=\beta_a
+$$
+
+となる $h_a:F(a)\amalg G(a)\to N(a)$ を定める。[集合の余積](../CAT2-05/index.md#def-cat2-05-coproduct)の普遍性により一意である。さらに
+
+$$
+\begin{aligned}
+h_b(F\amalg G)(u)\iota_{F,a}(x)
+&=h_b\iota_{F,b}F(u)(x)\\
+&=\alpha_bF(u)(x)=N(u)\alpha_a(x)\\
+&=N(u)h_a\iota_{F,a}(x)
+\end{aligned}
+$$
+
+であり、$G$ 側も $\beta$ の自然性から同じ等式を満たす。二つの包含の像が余積の全要素を尽くすので $h_b(F\amalg G)(u)=N(u)h_a$ である。こうして関手圏の余積の普遍性も直接確認できる。
 
 ## 5. 前層圏：矢印の向きを反転しても点ごとに計算する
 
-既習の[集合値前層と前層圏の定義](../CAT1-12/index.md#def-cat1-12-presheaf)を思い出そう。集合値前層は、元の圏の射 $u:a\to b$ に対して、逆向きの写像 $P(b)\to P(a)$ を割り当てる。これは[反対圏](../CAT1-04/index.md#def-cat1-04-opposite)から集合の圏への共変関手として表現される。$P(u)$ を、$b$ のデータを $a$ へ**制限する写像**と読むことにする。制限写像の型と合成の順序を改めて書けば
+既習の[集合値前層と前層圏の定義](../CAT1-12/index.md#def-cat1-12-presheaf)を思い出そう。集合値前層は、元の圏の射 $u:a\to b$ に対して、逆向きの写像 $P(b)\to P(a)$ を割り当てる。
+
+これは[反対圏](../CAT1-04/index.md#def-cat1-04-opposite)の射 $u^{\mathrm{op}}:b\to a$ を集合の圏へ送る共変関手として表現される。以下では $P(u)$ を $P(u^{\mathrm{op}})$ の略記とし、$b$ のデータを $a$ へ**制限する写像**と読む。制限写像の型と合成の順序を改めて書けば
 
 $$
 P(u):P(b)\to P(a),\quad
@@ -292,7 +340,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathcal A$ が小さいので $\mathcal A^{\mathrm{op}}$ も同じ対象・射の集合を持ち小さい。[集合の圏の完備性](../CAT2-04/index.md#thm-cat2-04-completeness)と[余完備性](../CAT2-05/index.md#thm-cat2-05-cocompleteness)を使う。対象とする図式は小さい $\mathcal J$ から前層圏への関手である。そこで[関手圏の極限の点ごとの構成](#thm-cat2-07-pointwise-limit)には $\mathcal C=\mathbf{Set}$、関手の定義域には $\mathcal A^{\mathrm{op}}$ を代入する。[関手圏の余極限の点ごとの構成](#thm-cat2-07-pointwise-colimit)にも同じ値を代入できる。任意の $a$ で集合の（余）極限が存在し、前層の制限写像、自然変換、普遍性まで両定理が保証する。$\square$
+$\mathcal A$ が小さいので $\mathcal A^{\mathrm{op}}$ も同じ対象・射の集合を持ち小さい。[集合の圏の完備性](../CAT2-04/index.md#thm-cat2-04-completeness)と[余完備性](../CAT2-05/index.md#thm-cat2-05-cocompleteness)を使う。対象とする図式は小さい $\mathcal J$ から前層圏への関手である。
+
+そこで[関手圏の極限の点ごとの構成](#thm-cat2-07-pointwise-limit)には値域 $\mathcal C=\mathbf{Set}$、関手の定義域には $\mathcal A^{\mathrm{op}}$ を代入する。[関手圏の余極限の点ごとの構成](#thm-cat2-07-pointwise-colimit)にも同じ値を代入できる。任意の $a$ で集合の（余）極限が存在し、前層の制限写像、自然変換、普遍性まで両定理が保証する。$\square$
 <!-- proof-end -->
 
 **前層の積を手で確かめる。** 先ほどの $P,Q$ について、積 $P\times Q$ は
@@ -308,7 +358,13 @@ $$
 (\pi_P)_0(r,0)=r=P(u)(s)=P(u)(\pi_P)_1(s,t)
 $$
 
-と $Q$ 側の等式を満たすから、射影は前層の自然変換である。余積 $P\amalg Q$ では $(P\amalg Q)(1)$ の元は $\iota_P(s)$、$\iota_Q(t)$ の二つであり、制限先はそれぞれ $\iota_P(r),\iota_Q(0)$。タグを忘れて $r$ と $0$ を同一視してはいけない。
+となる。第二射影でも
+
+$$
+(\pi_Q)_0(r,0)=0=Q(u)(t)=Q(u)(\pi_Q)_1(s,t)
+$$
+
+となる。さらに $P\times Q$ の恒等射と合成は各成分の制限写像のそれから従うので、両射影は前層の自然変換である。余積 $P\amalg Q$ では $(P\amalg Q)(1)$ の元は $\iota_P(s)$、$\iota_Q(t)$ の二つであり、制限先はそれぞれ $\iota_P(r),\iota_Q(0)$。タグを忘れて $r$ と $0$ を同一視してはいけない。
 
 ## 6. 評価が保存するものと、仮定の境界
 
@@ -331,7 +387,7 @@ $$
 [点ごとの極限の構成](#thm-cat2-07-pointwise-limit)では $\operatorname{ev}_a(L)=L(a)$ で、評価した脚は $\operatorname{ev}_a(p_j)=p_{j,a}$ である。これらは定理の仮定で選んだ $D_a$ の極限錐そのものである。余極限の場合にも[点ごとの余極限の構成](#thm-cat2-07-pointwise-colimit)から評価後の頂点・脚が $(Q(a),i_{j,a})$ となり、$D_a$ の余極限余錐である。$\square$
 <!-- proof-end -->
 
-**存在仮定を落とせない例。** $\mathcal A$ を対象一つ・射は恒等射だけの小さい圏とする。このとき $[\mathcal A,\mathbf{FinSet}]$ は有限集合の圏 $\mathbf{FinSet}$ と同じ形をしている。しかし $\mathbf{FinSet}$ に可算個の二元集合の積があると仮定すると、積 $P$ と一元集合 $\{*\}$ の間の写像全体は
+**存在仮定を落とせない例。** $\mathcal A$ を対象一つ・射は恒等射だけの小さい圏とする。このとき $[\mathcal A,\mathbf{FinSet}]$ は有限集合の圏 $\mathbf{FinSet}$ と同じ形をしている。しかし $\mathbf{FinSet}$ に可算個の二元集合の積があると仮定すると、[小さい積の普遍性](../CAT2-04/index.md#def-cat2-04-small-product)を始域 $\{*\}$ に適用して、積 $P$ と一元集合の間の写像全体は
 
 $$
 \operatorname{Hom}_{\mathbf{FinSet}}(\{*\},P)
@@ -350,7 +406,7 @@ $$
 
 - Level: A
 
-小さい $\mathcal A$ と局所小な $\mathcal C$、$F\xRightarrow{\alpha}G\xRightarrow{\beta}H$ を取る。$\operatorname{ev}_a$ が恒等射・合成を保存することを示せ。
+小さい $\mathcal A$ と局所小な $\mathcal C$、任意の $a\in\mathcal A$、$F\xRightarrow{\alpha}G\xRightarrow{\beta}H$ を取る。$\operatorname{ev}_a$ が恒等射・合成を保存することを示せ。
 
 <!-- solution-start -->
 **詳細解答。** 恒等自然変換 $1_F$ の $a$ 成分は $1_{F(a)}$ だから、$\operatorname{ev}_a(1_F)=1_{\operatorname{ev}_a(F)}$ である。[垂直合成の定義](../CAT1-08/index.md#def-cat1-08-vertical)を使うと
@@ -418,7 +474,13 @@ $$
 (P\amalg Q)(0)=\{\iota_P(a),\iota_Q(a)\}.
 $$
 
-制限は $\iota_P(z)\mapsto\iota_P(a)$、$\iota_Q(w)\mapsto\iota_Q(a)$。両方の標準包含との自然性交換式を満たし、元を同一視しない。これは[点ごとの余極限定理](#thm-cat2-07-pointwise-colimit)の二項余積の場合である。
+制限は $\iota_P(z)\mapsto\iota_P(a)$、$\iota_Q(w)\mapsto\iota_Q(a)$。例えば $u:0\to1$ に対して、前層の制限を $R=P\amalg Q$ と書けば
+
+$$
+R(u)\iota_{P,1}(z)=\iota_{P,0}P(u)(z)=\iota_{P,0}(a)
+$$
+
+であり、$Q$ 側でも $R(u)\iota_{Q,1}(w)=\iota_{Q,0}Q(u)(w)$ となる。これが二つの標準包含との自然性交換式であり、同じ記号 $a$ の元を同一視しない。これは[点ごとの余極限定理](#thm-cat2-07-pointwise-colimit)の二項余積の場合である。
 <!-- solution-end -->
 
 ### CAT2-07-A05 射影の自然性
@@ -513,7 +575,26 @@ f_a(P(u)x)
 \end{aligned}
 $$
 
-となるので像は $T(a)$ に入る。恒等射と合成の保存は $P,Q$ の各成分から従う。二つの射影は制限と可換なので自然変換 $T\Rightarrow P,Q$ であり、$f\pi_P=g\pi_Q$ が各成分で成立する。
+となるので像は $T(a)$ に入る。恒等射では $T(1_a)(x,y)=(x,y)$。また $a\xrightarrow u b\xrightarrow v c$ と $(x,y)\in T(c)$ について
+
+$$
+\begin{aligned}
+T(u)T(v)(x,y)
+&=(P(u)P(v)x,Q(u)Q(v)y)\\
+&=(P(vu)x,Q(vu)y)=T(vu)(x,y).
+\end{aligned}
+$$
+
+よって $T$ は前層である。二つの射影は $\pi_{P,a}(x,y)=x$、$\pi_{Q,a}(x,y)=y$ であり、自然性は
+
+$$
+\begin{aligned}
+\pi_{P,a}T(u)(x,y)&=P(u)x=P(u)\pi_{P,b}(x,y),\\
+\pi_{Q,a}T(u)(x,y)&=Q(u)y=Q(u)\pi_{Q,b}(x,y)
+\end{aligned}
+$$
+
+で確認できる。さらに $f_a(x)=g_a(y)$ が $T(a)$ の定義条件なので $f\pi_P=g\pi_Q$ が各成分で成立する。
 
 任意の前層 $N$ と自然変換 $s:N\Rightarrow P,t:N\Rightarrow Q$ が $fs=gt$ を満たすなら、$h_a(z)=(s_a(z),t_a(z))$ は $T(a)$ に入る。制限について
 
@@ -534,7 +615,7 @@ $$
 $\mathcal A$ を一対象・恒等射のみの圏とする。$[\mathcal A,\mathbf{FinSet}]$ に可算個の二元集合の積が存在しないことを、始域が一元集合の Hom 集合の個数から証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** この関手圏の対象は有限集合一つを選ぶこと、射は集合の写像を選ぶことと同値である。積 $P$ があると仮定すると、積の普遍性を始域 $\{*\}$ で適用して
+**詳細解答。** この関手圏の対象は有限集合一つを選ぶこと、射は集合の写像を選ぶことと同値である。積 $P$ があると仮定すると、[小さい積の普遍性](../CAT2-04/index.md#def-cat2-04-small-product)を始域 $\{*\}$ で適用して
 
 $$
 \operatorname{Hom}(\{*\},P)
