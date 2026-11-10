@@ -20,3 +20,4 @@
 17. [ORI17 複数頂点の大域条件・層順](textbook/volumes/dream_thater/幾何系/ORI/ORI17/index.md)
 18. [ORI18 地図折り・切手折りと組合せ](textbook/volumes/dream_thater/幾何系/ORI/ORI18/index.md)
 19. [ORI19 平坦折り判定の計算困難性](textbook/volumes/dream_thater/幾何系/ORI/ORI19/index.md)
+20. [ORI20 一回の直線切断で何が切り出せるか](textbook/volumes/dream_thater/幾何系/ORI/ORI20/index.md)

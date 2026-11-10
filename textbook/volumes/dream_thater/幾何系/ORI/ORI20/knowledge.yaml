@@ -1,0 +1,42 @@
+chapter: ORI20
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI13]
+forward_references: []
+
+concepts:
+  - id: origami.one-cut-pattern
+    name: 一回の直線切断と切断集合
+    kind: definition
+    introduction: formal
+    requires: [origami.piecewise-isometric-flat-placement]
+
+  - id: origami.cut-preimage-criterion
+    name: 切断集合の逆像判定
+    kind: definition
+    introduction: formal
+    requires: [origami.one-cut-pattern]
+
+  - id: origami.diamond-one-cut
+    name: 対称折りによる菱形の一刀切り
+    kind: theorem
+    introduction: formal
+    requires: [origami.cut-preimage-criterion, origami.reflection-isometry]
+
+  - id: origami.square-one-cut
+    name: 対角折りによる正方形の一刀切り
+    kind: theorem
+    introduction: formal
+    requires: [origami.cut-preimage-criterion, origami.diamond-one-cut]
+
+  - id: origami.diamond-ring-one-cut
+    name: 二重輪郭の文字Oの一刀切り
+    kind: theorem
+    introduction: formal
+    requires: [origami.cut-preimage-criterion, origami.diamond-one-cut]
+
+  - id: origami.fold-and-one-cut-universality
+    name: fold-and-one-cutの一般定理
+    kind: theorem
+    introduction: formal
+    requires: [origami.one-cut-pattern]
