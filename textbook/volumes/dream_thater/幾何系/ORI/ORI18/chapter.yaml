@@ -1,0 +1,41 @@
+id: ORI18
+title: "地図折り・切手折りと組合せ"
+volume: foundations
+status: supplementary
+prerequisites: [ORI17]
+official_scope: []
+learning_objectives:
+  - 等幅の切手一列を一枚の山谷付き紙としてモデル化し、折り目の投影位置が左右に交互に現れることを計算できる
+  - 最終層順を順列として表し、同じ側の折り目弧の端点が交互に現れると実現できない理由を証明できる
+  - 端点非交互条件が一列の静的な全積層配置には十分であることを構成的に証明できる
+  - 4枚の16通りを証明付きで数え、5枚までの全列挙を再現できる
+  - 2行2列の格子折りで折り返す束の上下順が反転することを追跡できる
+  - 一列の順列列挙、格子の具体的折り方、一般の平坦折り判定、連続運動可能性を区別できる
+definitions:
+  - { id: ORI18-DEF-01, name: 切手一列の完全積層と層順順列 }
+  - { id: ORI18-DEF-02, name: 折り目弧と交互端点 }
+  - { id: ORI18-DEF-03, name: 格子折りの折り返し束 }
+theorems:
+  - { id: ORI18-THM-01, name: 切手一列の非交互端点判定 }
+  - { id: ORI18-PROP-01, name: 四枚の切手折り16通り }
+  - { id: ORI18-LEM-01, name: 折り返した束の層順反転 }
+canonical_examples:
+  - 4枚の層順1,3,2,4は右側の弧が交差して実現不能
+  - 4枚の層順1,4,3,2は右側の弧が入れ子で実現可能
+  - 1枚から5枚までの全列挙数1,2,6,16,50
+  - 2行2列の格子を縦から折る場合と横から折る場合の層順
+problem_patterns:
+  - ORI18-ALTERNATING-PROJECTION
+  - ORI18-ARC-INTERLACING
+  - ORI18-NESTED-ARCS
+  - ORI18-FOUR-STAMP-COUNT
+  - ORI18-FIVE-STAMP-ENUMERATION
+  - ORI18-STACK-REVERSAL
+  - ORI18-GRID-ORDER
+  - ORI18-MODEL-BOUNDARY
+  - ORI18-SYMMETRY-PAIRING
+  - ORI18-INTEGRATED-CLASSIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
