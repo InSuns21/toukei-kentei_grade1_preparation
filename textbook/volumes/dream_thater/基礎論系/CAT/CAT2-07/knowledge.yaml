@@ -1,0 +1,38 @@
+chapter: CAT2-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-05
+  - CAT1-08
+
+concepts:
+  - id: category.evaluation-functor
+    name: 評価関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（評価関手）"]
+    requires: [category.functor-category, category.natural-transformation]
+  - id: category.functor-pointwise-limits
+    name: 関手圏の極限の点ごとの構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（関手圏の極限の点ごとの構成）"]
+    requires: [category.evaluation-functor, category.limit, category.functor-category, category.complete-category]
+  - id: category.functor-pointwise-colimits
+    name: 関手圏の余極限の点ごとの構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（関手圏の余極限の点ごとの構成）"]
+    requires: [category.evaluation-functor, category.colimit, category.functor-category, category.cocomplete-category]
+  - id: category.presheaf-bicompleteness
+    name: 前層圏の完備性・余完備性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（前層圏の完備性・余完備性）"]
+    requires: [category.set-valued-presheaf, category.functor-pointwise-limits, category.functor-pointwise-colimits]
+  - id: category.evaluation-limit-preservation
+    name: 評価関手による極限・余極限の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（評価関手による極限・余極限の保存）"]
+    requires: [category.evaluation-functor, category.functor-pointwise-limits, category.functor-pointwise-colimits]

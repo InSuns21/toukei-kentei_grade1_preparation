@@ -25,7 +25,7 @@ chapters:
   - { id: CAT2-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-04, status: completed, title: "小図式の極限の構成" }
   - { id: CAT2-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-05, status: completed, title: "余極限・始対象・余積・余等化子" }
   - { id: CAT2-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-06, status: completed, title: "押し出しと貼り合わせ" }
-  - { id: CAT2-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-07, status: planned, title: "関手圏と前層圏の極限" }
+  - { id: CAT2-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-07, status: completed, title: "関手圏と前層圏の極限" }
   - { id: CAT2-08, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-08, status: planned, title: "随伴のHom集合による定義" }
   - { id: CAT2-09, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-09, status: planned, title: "単位・余単位と三角恒等式" }
   - { id: CAT2-10, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-10, status: planned, title: "普遍射とcomma圏" }
