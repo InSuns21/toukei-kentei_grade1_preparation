@@ -1,0 +1,55 @@
+chapter: BHT15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT14
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.boundary-specific-heat-capacity
+    name: 境界を指定した熱容量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界を指定した熱容量）"]
+    requires: [black-hole-thermodynamics.euclidean-saddle-thermodynamic-potentials]
+
+  - id: black-hole-thermodynamics.asymptotically-flat-negative-heat-capacity
+    name: Schwarzschildの無限遠熱容量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschildの無限遠熱容量）"]
+    requires: [black-hole-thermodynamics.boundary-specific-heat-capacity, black-hole-thermodynamics.euclidean-saddle-thermodynamic-potentials]
+
+  - id: black-hole-thermodynamics.cavity-ensembles
+    name: 有限空洞の正準・微正準熱力学
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限空洞の正準・微正準熱力学）"]
+    requires: [black-hole-thermodynamics.boundary-specific-heat-capacity, black-hole-thermodynamics.wall-thermodynamic-derivative]
+
+  - id: black-hole-thermodynamics.cavity-first-law-and-capacity
+    name: 有限空洞の壁第一法則と熱容量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限空洞の壁第一法則と熱容量）"]
+    requires: [black-hole-thermodynamics.cavity-ensembles, black-hole-thermodynamics.wall-thermodynamic-derivative]
+
+  - id: black-hole-thermodynamics.cavity-two-branches
+    name: 有限空洞の二分岐と局所安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限空洞の二分岐と局所安定性）"]
+    requires: [black-hole-thermodynamics.cavity-first-law-and-capacity, black-hole-thermodynamics.conical-reduced-hessian]
+
+  - id: black-hole-thermodynamics.cavity-flat-comparison
+    name: 有限空洞の古典サドル比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限空洞の古典サドル比較）"]
+    requires: [black-hole-thermodynamics.cavity-two-branches, black-hole-thermodynamics.thermal-flat-relative-weight]
+
+  - id: black-hole-thermodynamics.cavity-microcanonical-curvature
+    name: 微正準曲率と正準エネルギー変動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（微正準曲率と正準エネルギー変動）"]
+    requires: [black-hole-thermodynamics.cavity-ensembles, black-hole-thermodynamics.cavity-first-law-and-capacity]

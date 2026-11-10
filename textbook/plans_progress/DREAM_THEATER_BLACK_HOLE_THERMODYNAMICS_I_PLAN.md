@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 改訂: 2026-11-10（標準教科書・大学院講義資料と照合し講数・学修境界を確定）  
-状態: in progress（BHT1〜BHT14執筆・査読・公開導線整備済み。BHT15〜BHT24と横断監査は未完了）
+状態: in progress（BHT1〜BHT15執筆・査読・公開導線整備済み。BHT16〜BHT24と横断監査は未完了）
 
 ## 0. 中心問い・到達点
 
@@ -119,6 +119,6 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 
 ## 5. 着手・完了条件
 
-BHT1〜BHT14は状態量・零法則・面積法則・非回転および回転の定常解族の第一法則・物理過程版の第一法則・Smarr関係と不可約質量、Hawking温度の規格化・状態選択・熱浴整合、Bekenstein–Hawking面積エントロピーの差分・積分定数・物理単位、回転・電荷付きの質量関数と共役量・SI表示、極限地平線の有限エントロピー・第三法則の射程・Euclid幾何の極限順序、非極限静的地平線のEuclid正則周期・円錐欠損角・静止壁での固有周期、Euclid Einstein–Hilbert–GHY作用・境界Dirichlet条件・背景差引き・電磁境界データ、SchwarzschildのEuclid on-shell作用と自由エネルギー・熱力学微分・有限壁Legendre関係・円錐縮約作用の符号診断を実装した。BHT15〜BHT24の本文、各章の検証と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
+BHT1〜BHT15は状態量・零法則・面積法則・非回転および回転の定常解族の第一法則・物理過程版の第一法則・Smarr関係と不可約質量、Hawking温度の規格化・状態選択・熱浴整合、Bekenstein–Hawking面積エントロピーの差分・積分定数・物理単位、回転・電荷付きの質量関数と共役量・SI表示、極限地平線の有限エントロピー・第三法則の射程・Euclid幾何の極限順序、非極限静的地平線のEuclid正則周期・円錐欠損角・静止壁での固有周期、Euclid Einstein–Hilbert–GHY作用・境界Dirichlet条件・背景差引き・電磁境界データ、SchwarzschildのEuclid on-shell作用と自由エネルギー・熱力学微分・有限壁Legendre関係・円錐縮約作用の符号診断、有限空洞の負熱容量・正準二分岐・壁エネルギー・微正準条件の区別を実装した。BHT16〜BHT24の本文、各章の検証と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
 
 全24章が原則の証明・演習水準を満たし、系列manifest・目次・prerequisite・stable anchorと横断査読・CIが整合したときだけ textbook/plan_done/ へ移す。**講義数が24であることと完成していることを混同しない。**
