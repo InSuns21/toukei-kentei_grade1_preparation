@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">文字Oを一刀切りするための二本の輪郭の位置合わせ</title>
+  <desc id="desc">左では第一象限の菱形の内側、折り線、外側の三本の平行線をそれぞれ実線、一点鎖線、破線で示す。右では外側の線を中間の線で反射すると、内側の短い線分と同じ切断直線上へ重なる様子を示す。座標の単位は a=1、b=3、m=2 に対応する。</desc>
+  <rect x="24" y="28" width="332" height="268" rx="12" fill="#f8fbfe" stroke="#bcc8d0"/>
+  <rect x="400" y="28" width="332" height="268" rx="12" fill="#f8fbfe" stroke="#bcc8d0"/>
+  <path d="M110 95 V270 H285" fill="none" stroke="#5b6770" stroke-width="1.6"/>
+  <path d="M110 95 H285 V270" fill="none" stroke="#bac4cd" stroke-width="1.3" stroke-dasharray="5 5"/>
+  <path d="M160 270 L110 220" fill="none" stroke="#145e8f" stroke-width="4" data-series-group="before-cut-lines" data-series-label="inner"/>
+  <path d="M210 270 L110 170" fill="none" stroke="#777" stroke-width="2" stroke-dasharray="7 3 2 3" data-series-group="before-cut-lines" data-series-label="fold"/>
+  <path d="M260 270 L110 120" fill="none" stroke="#ae5135" stroke-width="3.2" stroke-dasharray="10 6" data-series-group="before-cut-lines" data-series-label="outer"/>
+  <path d="M425 205 H700 M520 278 V57" fill="none" stroke="#5b6770" stroke-width="1.6"/>
+  <path d="M458 93 L632 267" fill="none" stroke="#b4bec7" stroke-width="1.6"/>
+  <path d="M470 105 L620 255" fill="none" stroke="#ae5135" stroke-width="4" stroke-dasharray="10 6" data-series-group="after-cut-lines" data-series-label="outer-reflected"/>
+  <path d="M520 155 L570 205" fill="none" stroke="#145e8f" stroke-width="4.8" data-series-group="after-cut-lines" data-series-label="inner"/>
+  <circle cx="520" cy="155" r="4" fill="#145e8f"/>
+  <circle cx="570" cy="205" r="4" fill="#145e8f"/>
+</svg>

@@ -25,7 +25,7 @@ chapters:
   - { id: ORI17, path: textbook/volumes/dream_thater/幾何系/ORI/ORI17, status: completed, title: "複数頂点の大域条件・層順" }
   - { id: ORI18, path: textbook/volumes/dream_thater/幾何系/ORI/ORI18, status: completed, title: "地図折り・切手折りと組合せ" }
   - { id: ORI19, path: textbook/volumes/dream_thater/幾何系/ORI/ORI19, status: completed, title: "平坦折り判定の計算困難性" }
-  - { id: ORI20, path: textbook/volumes/dream_thater/幾何系/ORI/ORI20, status: planned, title: "一回の直線切断で何が切り出せるか" }
+  - { id: ORI20, path: textbook/volumes/dream_thater/幾何系/ORI/ORI20, status: completed, title: "一回の直線切断で何が切り出せるか" }
   - { id: ORI21, path: textbook/volumes/dream_thater/幾何系/ORI/ORI21, status: planned, title: "直線骨格を使うfold-and-one-cut" }
   - { id: ORI22, path: textbook/volumes/dream_thater/幾何系/ORI/ORI22, status: planned, title: "tree methodと円・河川パッキング" }
   - { id: ORI23, path: textbook/volumes/dream_thater/幾何系/ORI/ORI23, status: planned, title: "box pleating・格子折りの設計" }

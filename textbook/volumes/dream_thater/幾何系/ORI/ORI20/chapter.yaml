@@ -1,0 +1,40 @@
+id: ORI20
+title: "一回の直線切断で何が切り出せるか"
+volume: foundations
+status: supplementary
+prerequisites: [ORI13]
+official_scope: []
+learning_objectives:
+  - 一回の直線切断の入力、平坦折り写像、切断線、切断集合の逆像を区別できる
+  - 正方形の二回の対称折りから菱形を切り出し、逆像を式で証明できる
+  - 対角線を加えた三回の対称折りから軸平行な正方形を切り出せる
+  - 一つの追加折りで二つの菱形輪郭を重ね、文字O型の領域を切り出せる
+  - fold-and-one-cut一般定理と本講で完全に証明した特殊構成の範囲を区別できる
+definitions:
+  - { id: ORI20-DEF-01, name: 一回の直線切断と切断集合 }
+  - { id: ORI20-DEF-02, name: 切断集合の逆像判定 }
+theorems:
+  - { id: ORI20-THM-01, name: 対称折りによる菱形の一刀切り }
+  - { id: ORI20-THM-02, name: 対角折りによる正方形の一刀切り }
+  - { id: ORI20-THM-03, name: 二重輪郭の文字Oの一刀切り }
+  - { id: ORI20-THM-04, name: fold-and-one-cutの一般定理（文献引用） }
+canonical_examples:
+  - 菱形の境界を絶対値の和の等位線として検算
+  - 正方形の境界を最大絶対値の等位線として検算
+  - 文字Oの内外二本の輪郭を同じ切断直線へ写す
+  - 折り畳み条件を外した場合の余分な切断線
+problem_patterns:
+  - ORI20-PREIMAGE-SET
+  - ORI20-DIAMOND-PERIMETER
+  - ORI20-SQUARE-REFLECTION
+  - ORI20-ANNULUS-PARAMETERS
+  - ORI20-SINGLE-CUT-NECESSITY
+  - ORI20-DIAMOND-SQUARE-COMPARISON
+  - ORI20-ANNULUS-REVERSE-REASONING
+  - ORI20-BOUNDARY-CONTACT
+  - ORI20-GENERAL-THEOREM-BOUNDARY
+  - ORI20-INTEGRATED-DESIGN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
