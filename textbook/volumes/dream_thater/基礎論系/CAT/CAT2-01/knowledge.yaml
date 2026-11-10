@@ -1,0 +1,49 @@
+chapter: CAT2-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT1-06
+  - CAT1-07
+  - CAT1-10
+  - CAT1-12
+
+concepts:
+  - id: category.small-diagram
+    name: 小さい添字圏と図式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（小さい添字圏と図式）"]
+    requires: [category.small-category, category.covariant-functor]
+  - id: category.constant-diagram-cone
+    name: 定値図式と錐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定値図式と錐）"]
+    requires: [category.small-diagram, category.natural-transformation]
+  - id: category.cone-category
+    name: 錐の射と錐の圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（錐の射と錐の圏）"]
+    requires: [category.constant-diagram-cone]
+  - id: category.limit
+    name: 図式の極限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（図式の極限）"]
+    requires: [category.cone-category, category.terminal-object]
+  - id: category.limit-uniqueness
+    name: 極限錐の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（極限錐の一意性）"]
+    requires: [category.limit, category.isomorphism]
+  - id: category.cone-representability
+    name: 錐関手の表現可能性と極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（錐関手の表現可能性と極限）"]
+    requires: [category.limit, category.contravariant-representable-functor, category.locally-small-category]

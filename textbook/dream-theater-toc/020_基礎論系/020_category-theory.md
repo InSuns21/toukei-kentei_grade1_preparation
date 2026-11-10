@@ -13,3 +13,4 @@
 10. [CAT1-10 表現可能関手と普遍元](textbook/volumes/dream_thater/基礎論系/CAT/CAT1-10/index.md)
 11. [CAT1-11 Yonedaの補題](textbook/volumes/dream_thater/基礎論系/CAT/CAT1-11/index.md)
 12. [CAT1-12 Yoneda埋め込み](textbook/volumes/dream_thater/基礎論系/CAT/CAT1-12/index.md)
+13. [CAT2-01 図式・錐・極限](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-01/index.md)

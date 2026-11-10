@@ -1,0 +1,51 @@
+id: "CAT2-01"
+title: "図式・錐・極限"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT1-06
+  - CAT1-07
+  - CAT1-10
+  - CAT1-12
+official_scope: []
+learning_objectives:
+  - 小さい添字圏と図式の対象・射・合成を説明し、具体的な有限図式を作れる
+  - 定値図式から自然変換として錐を定義し、全ての射について脚の整合条件を検算できる
+  - 錐の圏を構成し、その終対象として極限の存在一意性を述べられる
+  - 一本の矢印・空・離散図式について極限候補の存在と一意性を検証できる
+  - 二つの極限錐の間の一意な同型を普遍性から構成し、両側の逆射条件を証明できる
+  - 錐の反変集合値関手の表現可能性と極限を対応させ、自然性とサイズ条件を検査できる
+  - 半順序圏での極限と非存在例を全称量化と射の向きに注意して判定できる
+definitions:
+  - { id: CAT2-01-DEF-01, name: 小さい添字圏と図式 }
+  - { id: CAT2-01-DEF-02, name: 定値図式と錐 }
+  - { id: CAT2-01-DEF-03, name: 錐の射と錐の圏 }
+  - { id: CAT2-01-DEF-04, name: 図式の極限 }
+theorems:
+  - { id: CAT2-01-THM-01, name: 極限錐の一意性 }
+  - { id: CAT2-01-PROP-01, name: 錐関手の表現可能性と極限 }
+canonical_examples:
+  - 一本の矢印図式では始域対象が極限となる
+  - 二本の矢印の図式で脚の合成が一致する条件
+  - 空図式の極限と終対象の対応
+  - 二対象離散図式の集合における極限は直積集合
+  - 偶数個の元を持つ有限集合の圏で空図式の極限が存在しない例
+  - ダイヤモンド半順序圏の下界と二対象離散図式の極限
+problem_patterns:
+  - CAT2-01-ARROW-CONES
+  - CAT2-01-DISCRETE-CONES
+  - CAT2-01-COSPAN-COMPATIBILITY
+  - CAT2-01-CONE-MORPHISM-COMPOSITION
+  - CAT2-01-EMPTY-DIAGRAM
+  - CAT2-01-ARROW-LIMIT-PROOF
+  - CAT2-01-UNIQUE-ISOMORPHISM
+  - CAT2-01-CONE-FUNCTOR-NATURALITY
+  - CAT2-01-NONEXISTENCE
+  - CAT2-01-POSET-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 8, review: 2 }
