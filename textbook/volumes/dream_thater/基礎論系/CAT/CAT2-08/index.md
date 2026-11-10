@@ -14,6 +14,8 @@
 
 既習の[共変・反変Hom関手](../CAT1-06/index.md#def-cat1-06-hom-functors)では一方の変数を固定した。今度は始域の対象 $c$ と終域の対象 $d$ を同時に動かす。射 $u:c'\to c$ は**前合成**によって始域を $c'$ に替え、射 $v:d\to d'$ は**後合成**によって終域を $d'$ に替える。
 
+この二つの向きを一つの関手で扱うため、既習の[反対圏](../CAT1-04/index.md#def-cat1-04-opposite)と[積圏](../CAT1-05/index.md#def-cat1-05-product)を用いる。反対圏での射 $u^{\mathrm{op}}:c\to c'$ は、元の圏の射 $u:c'\to c$ を逆向きに読み替えたものである。以下、射の合成を $vhu$ と続けて書く場合は $v\circ h\circ u$ の略記であり、右から順に作用する。
+
 <a id="def-cat2-08-hom-bifunctor"></a>
 
 <!-- formal-statement-start -->
@@ -201,7 +203,7 @@ $$
 従って[随伴の定義](#def-cat2-08-adjunction)の二変数自然性を満たす。$\square$
 <!-- proof-end -->
 
-**実際の計算。** $X=\{a,b\}$、$M=(\mathbb N,+,0)$ とし、$f(a)=2,\ f(b)=3$ とする。対応する準同型は
+**実際の計算。** $X=\{a,b\}$、$M=(\mathbb N_0,+,0)$（非負整数の加法モノイド）とし、$f(a)=2,\ f(b)=3$ とする。対応する準同型は
 
 $$
 \widehat f((a,b,b,a))=2+3+3+2=10,\qquad
