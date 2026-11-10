@@ -375,7 +375,7 @@ $$
 
 であり、$X\times Y$ からの部分空間位相を入れる。第二射影 $P\to\mathbb R$ は連続で像が $U$ に含まれる。[部分空間位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal)から、値域を $U$ とした $q:P\to U$ も連続である。
 
-逆写像候補 $j:U\to P$ は $j(t)=(t^2,t)$。$t\mapsto t^2$ と恒等写像は連続だから、[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal)により $U\to X\times Y$ への組の写像が連続。像は $P$ に含まれるため、同じ部分空間位相の普遍性から $j$ も連続になる。
+逆写像候補 $j:U\to P$ は $j(t)=(t^2,t)$。$t\mapsto t^2$ と恒等写像は連続だから、[積位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#thm-top1-product-universal)により $U\to X\times Y$ への組の写像が連続。像は $P$ に含まれるため、[部分空間位相の普遍性](../../../基礎科目/TOP/TOP1/index.md#prop-top1-subspace-universal)から $j$ も連続になる。
 
 最後に $qj(t)=t$、$jq(t^2,t)=(t^2,t)$ を直接確かめられるので、二写像は互いに逆である。$\square$
 <!-- solution-end -->
