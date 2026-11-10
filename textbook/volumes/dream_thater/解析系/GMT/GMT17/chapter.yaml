@@ -1,0 +1,52 @@
+id: GMT17
+title: Besicovitch--Federer射影判定 I
+volume: foundations
+status: supplementary
+prerequisites:
+  - MT8
+  - GMT5
+  - GMT7
+  - GMT10
+  - GMT12
+  - GMT13
+  - GMT15
+  - GMT16
+official_scope: []
+learning_objectives:
+  - 有限Hausdorff m測度集合の直交射影が測度を増やさないことを説明できる
+  - 二つのm平面の横断性を制限射影の最小伸長率と接Jacobianで判定できる
+  - 円錐に入る二点差分から射影の双Lipschitz評価を導ける
+  - 正の有限面積を持つ可算整流可能部分の射影がGrassmannほとんど全方向で正面積であることを証明できる
+  - 射影がほとんど全方向で零面積なら純非整流可能であるという含意を分解定理で導ける
+  - 射影短距離のGrassmann方向平均をBeta分布から評価し臨界指数の対数損失を再計算できる
+  - Marstrand次元定理と有限面積のBesicovitch--Federer射影判定の論理的差を区別できる
+definitions:
+  - { id: GMT17-DEF-01, name: 接平面に横断的な射影と最小伸長率 }
+theorems:
+  - { id: GMT17-LEM-01, name: 直交射影のHausdorff面積上界 }
+  - { id: GMT17-LEM-02, name: 円錐条件から射影の双Lipschitz評価 }
+  - { id: GMT17-LEM-03, name: 横断的な射影はGrassmannほとんど至る所で起きる }
+  - { id: GMT17-THM-01, name: 整流可能部分はほとんど全方向で正面積に射影される }
+  - { id: GMT17-COR-01, name: 零射影から純非整流性への必要条件 }
+  - { id: GMT17-LEM-04, name: 射影短距離の方向平均評価 }
+  - { id: GMT17-PROP-01, name: 上側m成長条件からの臨界射影集中評価 }
+canonical_examples:
+  - 傾いた直線と水平線の横断性・接Jacobian
+  - 水平線分の射影長さと例外方向
+  - 四隅Cantor集合の正射影が特定方向に存在しても純非整流性と矛盾しない例
+  - 直交射影の短距離確率を平面の角度積分で計算
+problem_patterns:
+  - GMT17-PROJECTION-LIPSCHITZ
+  - GMT17-TRANSVERSE-LINES
+  - GMT17-CONE-LOWER-BOUND
+  - GMT17-SINGULAR-DIRECTIONS
+  - GMT17-SEGMENT-AREA
+  - GMT17-MIXED-PROJECTION
+  - GMT17-BETA-TAIL
+  - GMT17-CRITICAL-ANNULI
+  - GMT17-AE-ZERO-PURE
+  - GMT17-CRITICAL-NOT-SUFFICIENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 3 }
