@@ -1,0 +1,43 @@
+id: "BHT16"
+title: "AdSブラックホールとHawking–Page転移"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT15
+official_scope: []
+learning_objectives:
+  - 固定したAdS曲率半径と境界の時間円周を指定し、Schwarzschild–AdSと熱的AdSの誘導境界計量を有限切断面で一致させられる
+  - 4次元Schwarzschild–AdSの地平線条件から質量・Hawking温度・面積エントロピーと固定Lでの第一法則を導出できる
+  - EH体積項とGHY境界項を両サドルで評価し、周期マッチング後の相対作用と自由エネルギーを検算できる
+  - 温度の最小点、二つの正則枝、熱容量と縮約作用の二階微分から一変数の局所安定性を判定できる
+  - 熱的AdSとの作用差からHawking–Page温度・エントロピー差・潜熱を求め、正準境界条件と半古典近似の限界を説明できる
+definitions:
+  - { id: BHT16-DEF-01, name: "AdS正準境界と熱的AdS参照サドル" }
+  - { id: BHT16-DEF-02, name: "AdSの縮約正準作用" }
+theorems:
+  - { id: BHT16-PROP-01, name: "Schwarzschild–AdSの状態量と第一法則" }
+  - { id: BHT16-PROP-02, name: "熱的AdSとの整合境界での相対作用" }
+  - { id: BHT16-THM-01, name: "Schwarzschild–AdSの二分岐と局所符号" }
+  - { id: BHT16-THM-02, name: "重力サドルのHawking–Page転移" }
+  - { id: BHT16-PROP-03, name: "転移点のエントロピー差と潜熱" }
+canonical_examples:
+  - 切断半径Rで熱的AdSとSchwarzschild–AdSのEuclid時間の円周を一致させる
+  - r_+=Lで質量・温度・面積エントロピー・自由エネルギーを直接検算する
+  - EH体積項とGHY境界項の差から有限値の相対作用を導く
+  - 同じ温度T=1/(pi L)にある小枝r_+=L/3と大枝r_+=Lの熱容量とHessianを比較する
+  - T_HP/T_minと転移点の潜熱を計算し局所安定性と相対指数を分ける
+problem_patterns:
+  - BHT16-HORIZON-TEMPERATURE
+  - BHT16-MATCHED-BOUNDARY-CIRCLE
+  - BHT16-MINIMUM-AND-TWO-BRANCHES
+  - BHT16-CAPACITY-SIGNS
+  - BHT16-FREE-ENERGY-SIGN-AND-LATENT-HEAT
+  - BHT16-EH-GHY-BACKGROUND-SUBTRACTION
+  - BHT16-ACTION-THERMODYNAMIC-DERIVATIVES
+  - BHT16-REDUCED-HESSIAN-AT-HP
+  - BHT16-HIGH-TEMPERATURE-SCALING
+  - BHT16-INTEGRATED-CANONICAL-SADDLES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 11, review: 6 }
