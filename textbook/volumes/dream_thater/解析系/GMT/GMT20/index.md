@@ -128,9 +128,21 @@ $$
 しかし $\eta<a/2^{4m}$ なら $\eta 2^m<a/8^m$ となり矛盾します。したがって二点間の差は $V$ に沿う円錐へ入ります。$\square$
 <!-- proof-end -->
 
-### 直接例：グラフなら射影を逆にたどれる
+### 直接例：密度・円錐を確かめて射影を逆にたどる
 
-$V=\mathbb R\times\{0\}\subset\mathbb R^2$ とし、$F=\{(t,t/2):0\le t\le1\}$ を考えます。異なる二点の差は $(h,h/2)$ なので、水平射影の長さは $|h|$、直交成分の長さは $|h|/2$、全体は $\sqrt5|h|/2$ です。従って直交成分と全体の比は $1/\sqrt5<1/2$ です。水平射影が同じであれば点も同じであり、逆写像は $t\mapsto(t,t/2)$ と一意に定まります。
+$V=\mathbb R\times\{0\}\subset\mathbb R^2$ とし、$F=E=\{(t,t/10):0\le t\le1\}$、$\mu=\mathcal H^1\llcorner E$ を考えます。$E$ はコンパクトな線分なのでBorelで、$\mu$ は有限です。線分の全長は $\sqrt{101}/10>1$ なので、各点 $x\in F$ から少なくとも片側に長さ $1/2$ 以上の線分が残ります。従って $0<r<\rho=1/4$ では、端点も含め
+
+$$
+\mu(B(x,r))\ge r=ar\qquad(a=1)
+$$
+
+です。異なる二点の差は $(h,h/10)$ で、その直交成分と全体の比は
+
+$$
+\frac{|h|/10}{\sqrt{101}|h|/10}=\frac1{\sqrt{101}}<\frac14.
+$$
+
+ゆえに $F$ の点を中心とする幅 $1/4$ の円錐外には $E$ の面積が残らず、$\eta=1/32<1/16=a/2^{4m}$（$m=1$）を取れます。補題の全前提が成立し、距離 $|x-y|<\rho/2$ の二点では同じ比が $1/2$ より小さいと確認できます。水平射影が同じであれば点も同じであり、逆写像は $t\mapsto(t,t/10)$ と一意に定まります。
 
 <a id="lem-gmt20-cone-graph"></a>
 
@@ -456,7 +468,7 @@ $F\subset\mathbb R^d$ の異なる二点 $x,y$ が常に $\operatorname{dist}(y-
 
 - Level: A
 
-$\nu=(1+t^2)\mathcal H^1\llcorner(\mathbb R\times\{0\})$ に対し、$x=(a,0)$ における $\lim_{r\downarrow0}\nu(B(x,r))/(2r)$ を求めよ。密度が1でないことは非整流性を意味するか。
+直線 $R=\mathbb R\times\{0\}$ 上の点 $(t,0)$ で重み $w(t,0)=1+t^2$ を定め、$\nu=w\,\mathcal H^1\llcorner R$ とする。$x=(a,0)$ における $\lim_{r\downarrow0}\nu(B(x,r))/(2r)$ を求めよ。密度が1でないことは非整流性を意味するか。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -547,7 +559,13 @@ $$
 f_0(a)+L|x-a|\ge f_0(a_0)-L|x-a_0|
 $$
 
-となるため下に有界であり、$a=a_0$ の項が有限な上界を与えます。任意の $x,y$ に対し $|x-a|\le|x-y|+|y-a|$ なので $f(x)\le f(y)+L|x-y|$、交換して $|f(x)-f(y)|\le L|x-y|$ です。$x\in A$ では $f(x)\le f_0(x)$（$a=x$）かつ $f_0(a)+L|x-a|\ge f_0(x)$（Lipschitz性）なので等号です。[グラフ補題](#lem-gmt20-cone-graph)では成分ごとにこの操作を行いました。
+となるため下に有界であり、$a=a_0$ の項が有限な上界を与えます。任意の $x,y$ に対し $|x-a|\le|x-y|+|y-a|$ を各項に適用して下限を取ると
+
+$$
+f(x)\le f(y)+L|x-y|.
+$$
+
+$x,y$ を交換して $|f(x)-f(y)|\le L|x-y|$ です。$x\in A$ では $a=x$ の項により $f(x)\le f_0(x)$ です。一方、すべての $a\in A$ で $f_0(a)+L|x-a|\ge f_0(x)$ なので下限も $f_0(x)$ 以上です。両側から挟んで $f(x)=f_0(x)$ を得ます。[グラフ補題](#lem-gmt20-cone-graph)では成分ごとにこの操作を行いました。
 <!-- solution-end -->
 
 <a id="ex-gmt20-b04"></a>
@@ -578,7 +596,14 @@ $$
 
 - Level: C
 
-$E\subset\mathbb R^d$ を局所有限な $\mathcal H^m$ を持つBorel集合とし、$\mu=\mathcal H^m\llcorner E$ とする。$\mu$-ほとんどすべての $x$ で、ある $m$ 平面 $V_x$ と $c_x>0$ が存在して、$r^{-m}(T_{x,r})_\#\mu\rightharpoonup_{\mathrm v}c_x\mathcal H^m\llcorner V_x$ が**全半径**で成立する、と仮定する。密度・接平面・整流可能性・係数同定を、どの結果をどの順で適用するか明示して導け。また、一つの平坦な接測度が存在するだけでは同じ論証にならない理由を述べよ。
+$E\subset\mathbb R^d$ を局所有限な $\mathcal H^m$ を持つBorel集合とし、$\mu=\mathcal H^m\llcorner E$ とする。$\mu$-ほとんどすべての点 $x$ で、ある $m$ 平面 $V_x$ と $c_x>0$ が存在し、
+
+$$
+r^{-m}(T_{x,r})_\#\mu\rightharpoonup_{\mathrm v}c_x\mathcal H^m\llcorner V_x
+\qquad(r\downarrow0)
+$$
+
+が**全半径**で成立すると仮定する。密度・接平面・整流可能性・係数同定を、どの結果をどの順で適用するか明示して導け。また、一つの平坦な接測度が存在するだけでは同じ論証にならない理由を述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
