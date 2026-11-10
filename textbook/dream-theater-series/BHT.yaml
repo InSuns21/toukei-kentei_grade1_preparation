@@ -89,7 +89,7 @@ chapters:
     title: "高階曲率とWald公式の適用限界"
   - id: BHT21
     path: textbook/volumes/dream_thater/物理系/BHT/BHT21
-    status: planned
+    status: completed
     title: "一般化エントロピーと繰り込み"
   - id: BHT22
     path: textbook/volumes/dream_thater/物理系/BHT/BHT22

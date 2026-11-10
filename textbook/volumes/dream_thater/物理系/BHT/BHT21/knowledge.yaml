@@ -1,0 +1,42 @@
+chapter: BHT21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT20
+  - QINF17
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.regulated-outside-entropy
+    name: カットオフ付き外部エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（カットオフ付き外部エントロピー）"]
+    requires: [quantum.von-neumann-entropy]
+
+  - id: black-hole-thermodynamics.scalar-cone-area-divergence
+    name: 自由スカラーの錐模型の面積発散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自由スカラーの錐模型の面積発散）"]
+    requires: [black-hole-thermodynamics.regulated-outside-entropy]
+
+  - id: black-hole-thermodynamics.newton-area-renormalization
+    name: 一ループのNewton定数と面積発散の整合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一ループのNewton定数と面積発散の整合）"]
+    requires: [black-hole-thermodynamics.scalar-cone-area-divergence, black-hole-thermodynamics.wald-entropy]
+
+  - id: black-hole-thermodynamics.generalized-entropy
+    name: 繰り込まれた一般化エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（繰り込まれた一般化エントロピー）"]
+    requires: [black-hole-thermodynamics.newton-area-renormalization, black-hole-thermodynamics.fr-wald-entropy]
+
+  - id: black-hole-thermodynamics.uv-equivalent-state-difference
+    name: 同一切断面のUV等価な状態差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一切断面のUV等価な状態差）"]
+    requires: [black-hole-thermodynamics.generalized-entropy]
