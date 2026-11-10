@@ -23,7 +23,7 @@ chapters:
   - { id: CAT2-02, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-02, status: completed, title: "終対象と積" }
   - { id: CAT2-03, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-03, status: completed, title: "等化子と引き戻し" }
   - { id: CAT2-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-04, status: completed, title: "小図式の極限の構成" }
-  - { id: CAT2-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-05, status: planned, title: "余極限・始対象・余積・余等化子" }
+  - { id: CAT2-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-05, status: completed, title: "余極限・始対象・余積・余等化子" }
   - { id: CAT2-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-06, status: planned, title: "押し出しと貼り合わせ" }
   - { id: CAT2-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-07, status: planned, title: "関手圏と前層圏の極限" }
   - { id: CAT2-08, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-08, status: planned, title: "随伴のHom集合による定義" }

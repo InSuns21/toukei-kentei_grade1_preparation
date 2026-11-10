@@ -1,0 +1,67 @@
+chapter: CAT2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-04
+
+concepts:
+  - id: category.cocone
+    name: 余錐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余錐）"]
+    requires: [category.small-diagram, category.dual-principle]
+  - id: category.colimit
+    name: 図式の余極限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（図式の余極限）"]
+    requires: [category.cocone, category.initial-object]
+  - id: category.colimit-uniqueness
+    name: 余極限の同型一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（余極限の同型一意性）"]
+    requires: [category.colimit, category.isomorphism]
+  - id: category.small-coproduct
+    name: 小さい余積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（小さい余積）"]
+    requires: [category.colimit, category.initial-object]
+  - id: category.empty-discrete-colimit
+    name: 空図式と離散図式の余極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空図式と離散図式の余極限）"]
+    requires: [category.small-coproduct, category.colimit, category.initial-object]
+  - id: category.coequalizer
+    name: 余等化子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余等化子）"]
+    requires: [category.equalizer, category.dual-principle]
+  - id: category.set-coequalizer
+    name: 集合の余等化子の商構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合の余等化子の商構成）"]
+    requires: [category.coequalizer]
+  - id: category.colimit-construction
+    name: 小さい余積と余等化子による余極限の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（小さい余積と余等化子による余極限の構成）"]
+    requires: [category.colimit, category.small-coproduct, category.coequalizer]
+  - id: category.cocomplete-category
+    name: 余完備圏と有限余完備圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余完備圏と有限余完備圏）"]
+    requires: [category.colimit, category.complete-category]
+  - id: category.cocompleteness-criterion
+    name: 余完備性の存在判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（余完備性の存在判定）"]
+    requires: [category.cocomplete-category, category.colimit-construction, category.empty-discrete-colimit]
