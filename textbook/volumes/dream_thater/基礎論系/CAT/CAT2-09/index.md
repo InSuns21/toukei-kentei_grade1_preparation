@@ -35,7 +35,13 @@ $$
 自然変換になることは第4節で証明する。ここで $\eta_c$ の始域は $Fc$ ではなく $c$ である。添字 $(c,Fc)$ を決めてからHom対応へ代入すれば、射の向きを取り違えない。
 
 <!-- definition-example-start: def-cat2-09-unit -->
-**定義の確認**（自由モノイド）。$W:\mathbf{Set}\to\mathbf{Mon}$ は有限語の関手、$U$ は忘却関手である。[前講の具体的なHom対応](../CAT2-08/index.md#thm-cat2-08-free-monoid)は準同型 $h:W(X)\to M$ を $U(h)\circ\iota_X$ へ送る。$M=W(X)$、$h=1_{W(X)}$ とすると
+**定義の確認**（自由モノイド）。$W:\mathbf{Set}\to\mathbf{Mon}$ は有限語の関手、$U$ は忘却関手である。まず一文字を長さ1の単語にする集合写像を
+
+$$
+\iota_X:X\longrightarrow U(W(X)),\qquad x\longmapsto(x)
+$$
+
+と置く。[前講の具体的なHom対応](../CAT2-08/index.md#thm-cat2-08-free-monoid)は準同型 $h:W(X)\to M$ を集合写像 $U(h)\circ\iota_X:X\to U(M)$ へ送る。ここで $M=W(X)$、$h=1_{W(X)}$ を選ぶと
 
 $$
 \eta_X(x)=U(1_{W(X)})(\iota_X(x))=(x)\in U(W(X)).
@@ -430,11 +436,40 @@ $$
 \varepsilon_X=[1_X,1_X]:X\sqcup X\to X.
 $$
 
-$\varepsilon_{\Sigma(A,B)}\Sigma(\eta_{(A,B)})$ は、$A$ のタグ付き元をまず左側のコピーへ、$B$ のタグ付き元を右側のコピーへ送り、その外側のタグだけを折り畳む。内側のタグは元の $A\sqcup B$ のタグのままなので恒等射となる。一方、$\Delta(\varepsilon_X)\eta_{\Delta X}$ は成分ごとに $[1_X,1_X]i_1=1_X$、$[1_X,1_X]i_2=1_X$ となる。二つの三角式は同じ「包含を畳み込む」計算の異なる型である。
+第一の三角合成の始域・終域は $A\sqcup B$ である。左側の元を $(0,a)$、右側の元を $(1,b)$ とタグ付きで書く。$\Sigma(\eta_{(A,B)})$ は元のタグを保ったまま、その元を **二つのコピーのどちらへ送ったか** を外側のタグで記録する。続いて $\varepsilon_{\Sigma(A,B)}$ が外側のタグだけを忘れるので
+
+$$
+\begin{aligned}
+(0,a)&\xmapsto{\Sigma(\eta_{(A,B)})}(0,(0,a))
+\xmapsto{\varepsilon_{\Sigma(A,B)}}(0,a),\\
+(1,b)&\xmapsto{\Sigma(\eta_{(A,B)})}(1,(1,b))
+\xmapsto{\varepsilon_{\Sigma(A,B)}}(1,b).
+\end{aligned}
+$$
+
+空集合の場合も定義域の元が存在しない側についての条件は空虚に成立する。第二の三角合成は $(X,X)$ 上の射の組であり、$\eta_{\Delta X}=(i_1,i_2)$ の後で $\Delta(\varepsilon_X)$ を適用する。各成分で
+
+$$
+\Delta(\varepsilon_X)\eta_{\Delta X}
+=([1_X,1_X]i_1,[1_X,1_X]i_2)
+=(1_X,1_X)=1_{\Delta X}
+$$
+
+となる。二つの三角式は同じ「包含を畳み込む」計算の異なる型である。
 
 ### 6.4 半順序圏：三角式は一意な射の合成になる
 
-[半順序圏の随伴判定](../CAT2-08/index.md#thm-cat2-08-poset)で $F:P\to Q$、$G:Q\to P$ が $Fp\le q\iff p\le Gq$ を満たすとする。恒等関係 $Fp\le Fp$ の転置が単位 $p\le GFp$、$Gq\le Gq$ の逆転置が余単位 $FGq\le q$ を与える。単位を $F$ で送ってから余単位を合成すると $Fp\le FGFp\le Fp$ であり、半順序圏では始域・終域が同じ射は恒等射しかない。もう一つも $Gq\le GFGq\le Gq$ で同様である。
+[半順序圏の随伴判定](../CAT2-08/index.md#thm-cat2-08-poset)で $F:P\to Q$、$G:Q\to P$ が $Fp\le q\iff p\le Gq$ を満たすとする。恒等関係 $Fp\le Fp$ を転置すると単位 $p\le GFp$、$Gq\le Gq$ を逆転置すると余単位 $FGq\le q$ が得られる。
+
+第一の三角合成では単位 $p\le GFp$ という射に関手 $F$ を適用し、続けて余単位を対象 $Fp$ で使う。第二の三角合成では単位を対象 $Gq$ で使い、続けて余単位 $FGq\le q$ という射に関手 $G$ を適用する。従ってそれぞれ
+
+$$
+Fp\xrightarrow{F(\eta_p)}FGFp\xrightarrow{\varepsilon_{Fp}}Fp,
+\qquad
+Gq\xrightarrow{\eta_{Gq}}GFGq\xrightarrow{G(\varepsilon_q)}Gq
+$$
+
+という射の合成である。半順序圏では始域・終域が同じ射は恒等射しかないから、両者とも恒等射となる。
 
 特に $I:\mathbb Z\hookrightarrow\mathbb R$ と床関数 $R(x)=\lfloor x\rfloor$ の随伴 $I\dashv R$ では
 
@@ -479,7 +514,7 @@ $0$ が像にないため全単射ではない。**失った仮定は三角恒�
 $W:\mathbf{Set}\to\mathbf{Mon}$ を有限語の関手、$U$ を忘却関手とし、$W\dashv U$ とする。$X=\{p,q\}$、$M=(\mathbb Z,+,0)$ とする。$\eta_X(p)$、$\varepsilon_M((2,-1,2))$ を求め、$w=(p,q,p)$ 上の $\varepsilon_{W(X)}W(\eta_X)$ と $m=-3$ 上の $U(\varepsilon_M)\eta_{UM}$ を直接計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [単位と余単位の定義例](#def-cat2-09-unit)より $\eta_X(p)=(p)$。$M$ では語の連結が整数の加法へ移るので、$\varepsilon_M((2,-1,2))=2+(-1)+2=3$ である。第一の合成は
+**詳細解答。** [単位の定義例](#def-cat2-09-unit)より $\eta_X(p)=(p)$。[余単位の定義例](#def-cat2-09-counit)を $M=(\mathbb Z,+,0)$ に適用すると、語の連結は整数の加法へ移るので $\varepsilon_M((2,-1,2))=2+(-1)+2=3$ である。第一の合成は
 
 $$
 (p,q,p)\xmapsto{W(\eta_X)}((p),(q),(p))
@@ -645,7 +680,7 @@ $$
 
 - Level: C
 
-集合写像 $f:X\to Y$ に対し、べき集合 $\mathcal P(X)$、$\mathcal P(Y)$ を包含順序の圏とする。$L:\mathcal P(X)\to\mathcal P(Y)$ を $L(A)=f(A)$、$R:\mathcal P(Y)\to\mathcal P(X)$ を $R(B)=f^{-1}(B)$ とする。
+集合写像 $f:X\to Y$ に対し、べき集合 $\mathcal P(X)$、$\mathcal P(Y)$ を包含順序の圏とする。$L:\mathcal P(X)\to\mathcal P(Y)$ を $L(A)=f(A)$、$R:\mathcal P(Y)\to\mathcal P(X)$ を $R(B)=f^{-1}(B)$ とする。ここで $f^{-1}(B)=\{x\in X\mid f(x)\in B\}$ は逆像であり、$f$ が逆写像を持つという意味ではない。
 
 1. $L\dashv R$ を包含関係から証明し、単位 $\eta_A$ と余単位 $\varepsilon_B$ を具体的な包含として求めよ。
 2. 二つの三角恒等式を、集合の等式 $f(f^{-1}(f(A)))=f(A)$ と $f^{-1}(f(f^{-1}(B)))=f^{-1}(B)$ を証明して確認せよ。
@@ -686,7 +721,21 @@ $$
 f(f^{-1}(f(A)))=f(A).
 $$
 
-同様に $f^{-1}(f(f^{-1}(B)))\subseteq f^{-1}(B)$ は $f(f^{-1}(B))\subseteq B$ の逆像を取り、逆向きは $f^{-1}(B)\subseteq f^{-1}(f(f^{-1}(B)))$ により得る。よって
+第二の式についても両包含を確認する。$f(f^{-1}(B))\subseteq B$ の逆像を取ると
+
+$$
+f^{-1}(f(f^{-1}(B)))\subseteq f^{-1}(B)
+$$
+
+を得る。逆向きには $x\in f^{-1}(B)$ を任意に取ると、$f(x)\in B$ であり、$f(x)$ は $f^{-1}(B)$ の元 $x$ の像でもある。従って
+
+$$
+x\in f^{-1}(B)
+\ \Longrightarrow\ f(x)\in f(f^{-1}(B))
+\ \Longrightarrow\ x\in f^{-1}(f(f^{-1}(B)))
+$$
+
+となる。これで逆向きの包含も成立し、
 
 $$
 f^{-1}(f(f^{-1}(B)))=f^{-1}(B).
