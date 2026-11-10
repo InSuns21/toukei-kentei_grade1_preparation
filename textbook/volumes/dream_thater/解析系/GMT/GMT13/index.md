@@ -13,7 +13,7 @@ c_m=\mathcal H^m([0,1]^m),\qquad
 \mathcal H^m\big|_{\mathbb R^m}=c_m\mathcal L^m
 $$
 
-と書きます。$m=1$ では $c_1=1$ ですが、一般の $m$ では $c_m$ を勝手に $1$ としません。「$E$ 上のほとんど至る所」は **$\mathcal H^m$ に関して**という意味です。
+と書きます。$m=1$ では $c_1=1$ ですが、一般の $m$ では $c_m$ を勝手に $1$ としません。「$E$ 上のほとんど至る所（almost everywhere; a.e.）」は **$\mathcal H^m$ に関して**という意味です。
 
 ## 1. 曲面を一枚ずつ、重ならない部分へ切る
 
@@ -153,7 +153,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A_S=\phi^{-1}(S)$、$B_S=\psi^{-1}(S)$ とします。双Lipschitz性と [Lipschitz像の零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)を写像・逆写像の両方に使い、さらに [高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)を適用すると、$S$ の $\mathcal H^m$-a.e.点の逆像 $a,b$ はそれぞれ $A_S,B_S$ の Lebesgue 密度1の点です。Lipschitz拡張 $\phi,\psi$ と、$F\circ\phi,F\circ\psi$ の各座標の Lipschitz拡張も [Rademacherの定理](../GMT9/index.md#thm-gmt9-rademacher)でそれらの点において微分可能です。双Lipschitzの下界を密度1の点へ向かう差商に適用すると $D\phi(a),D\psi(b)$ は単射、従って rank $m$ です。
+$A_S=\phi^{-1}(S)$、$B_S=\psi^{-1}(S)$ と置きます。双Lipschitz性によって、[Lipschitz像の零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)を写像と逆写像の両方に使えます。[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)を各逆像に適用すると、$S$ のほとんどすべての点に対応する $a,b$ は、それぞれの集合の Lebesgue 密度1の点です。
+
+Lipschitz拡張 $\phi,\psi$ および合成 $F\circ\phi,F\circ\psi$ の各座標の延長は、[Rademacherの定理](../GMT9/index.md#thm-gmt9-rademacher)によりそれらの点で微分可能です。双Lipschitzの下界を密度1の点へ向かう差商に適用すれば、$D\phi(a)$ と $D\psi(b)$ はともに単射、従って rank $m$ です。
 
 $v\in\mathbb R^m$ を任意に取り、$t_k\downarrow0$ に対して $a_k\in A_S$ を $(a_k-a)/t_k\to v$ と選びます。$x_k=\phi(a_k)\in S$ とおき $b_k=\psi^{-1}(x_k)\in B_S$ とすると、$\psi^{-1}$ の Lipschitz性から
 
@@ -418,7 +420,15 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-各軸上の開線分では接方向の単位ベクトルが $(1,0)$ または $(0,1)$ で、どちらも $|D^EF(u)|=1$ です。各線分の $\mathcal H^1$ は $1$、交点は一点で零測度なので左辺は $2$ です。$0<z\le1$ では逆像 $(z,0),(0,z)$ が二点、$z=0$ では原点一つです。よって右辺は $\int_0^1 2\,dz=2$ です。原点の接方向は一意ではありませんが、[整流可能集合上のarea formula](#thm-gmt13-rectifiable-area)は零測度の点での一意性を要求しません。
+各軸上の開線分では、接方向の単位ベクトルは $(1,0)$ または $(0,1)$ です。いずれも $F(x,y)=x+y$ の接微分は単位ベクトルを $1$ へ送るため、$J^E_1F=1$ です。
+
+各線分の長さは $1$ で、交点は一点の零測度集合なので左辺は $1+1=2$ です。$0<z\le1$ では逆像は二点 $(z,0),(0,z)$、$z=0$ では原点一つなので、右辺も
+
+$$
+\int_0^1 2\,dz=2
+$$
+
+となります。原点の接方向は一意ではありませんが、[整流可能集合上のarea formula](#thm-gmt13-rectifiable-area)は零測度の点での一意性を要求しません。
 <!-- solution-end -->
 
 <a id="ex-gmt13-a5"></a>
@@ -482,7 +492,15 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\mathbb Q=\{q_1,q_2,\dots\}$ と列挙すれば $E=\bigcup_j\{(t,q_j):t\in\mathbb R\}$ で、各写像 $t\mapsto(t,q_j)$ は $1$-Lipschitz です。従って [可算整流可能性](../GMT12/index.md#def-gmt12-countably-rectifiable)の定義を満たします。$x=(a,q)$ と $r>0$ を取ると $(q-r/2,q+r/2)$ に互いに異なる有理数 $q_j$ が無限個あり、各水平直線は球内に少なくとも長さ $\sqrt3r$ の開線分を持ちます。これらは互いに素なので、任意の $N$ 本を加えれば $\mathcal H^1(E\cap B(x,r))\ge N\sqrt3r$、従って無限大です。
+有理数を $\mathbb Q=\{q_1,q_2,\dots\}$ と列挙すると、$E$ は水平直線の可算和です。各直線は $t\mapsto(t,q_j)$ の Lipschitz 像なので、[可算整流可能性](../GMT12/index.md#def-gmt12-countably-rectifiable)の定義を満たします。
+
+$x=(a,q)$ と $r>0$ を固定します。区間 $(q-r/2,q+r/2)$ には、互いに異なる有理数が無限個あります。その高さの水平直線と $B(x,r)$ の交わりは、長さが少なくとも $\sqrt3r$ の線分です。これらは互いに素なので、任意の自然数 $N$ について
+
+$$
+\mathcal H^1(E\cap B(x,r))\ge N\sqrt3r.
+$$
+
+$N$ を無限大へ動かせば、球内の測度は無限大です。
 
 各線の接方向は水平ですが、集合全体の局所有限な長さや球内の円錐密度条件を結論することはできません。後者を評価するには別の仮定が要ります。
 <!-- solution-end -->
@@ -505,7 +523,7 @@ $U^{\mathsf T}U=I_m$ だから $A^{\mathsf T}A=B^{\mathsf T}B$、その行列式
 
 **C1. 二枚の折り返し放物線**
 - Level: C
-- 問題: $S_j=\{(t,t^2,j):-1\le t\le1\}\subset\mathbb R^3$（$j=0,1$）、$E=S_0\cup S_1$、$F(x,y,z)=x^2\in\mathbb R$ とする。(1) 各片で $T_xE$ と $J^E_1F$ を求めよ。(2) $N(F,E,s)$ を求め面積公式の両辺を計算せよ。(3) 重み $g(x,y,z)=1+z$ に対する両辺を計算せよ。端点や折り返し点の寄与も説明せよ。
+- 問題: $S_j=\{(t,t^2,j):-1\le t\le1\}\subset\mathbb R^3$（$j=0,1$）、$E=S_0\cup S_1$、$F(x,y,z)=x^2$ とする。各片の接方向と接Jacobianを求め、重複度による面積公式の両辺を計算せよ。さらに重み $g(x,y,z)=1+z$ の場合を検算し、端点や折り返し点の寄与も説明せよ。
 
 <!-- solution-start -->
 **詳細解答**
