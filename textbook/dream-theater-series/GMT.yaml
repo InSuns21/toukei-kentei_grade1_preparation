@@ -19,7 +19,7 @@ chapters:
   - { id: GMT11, path: textbook/volumes/dream_thater/解析系/GMT/GMT11, status: completed, title: "area formula：重複度と測度" }
   - { id: GMT12, path: textbook/volumes/dream_thater/解析系/GMT/GMT12, status: completed, title: "可算整流可能集合の定義と例" }
   - { id: GMT13, path: textbook/volumes/dream_thater/解析系/GMT/GMT13, status: completed, title: "整流可能集合上のarea formula" }
-  - { id: GMT14, path: textbook/volumes/dream_thater/解析系/GMT/GMT14, status: planned, title: "coarea formula：レベル集合の測度" }
+  - { id: GMT14, path: textbook/volumes/dream_thater/解析系/GMT/GMT14, status: completed, title: "coarea formula：レベル集合の測度" }
   - { id: GMT15, path: textbook/volumes/dream_thater/解析系/GMT/GMT15, status: planned, title: "密度と近似接平面" }
   - { id: GMT16, path: textbook/volumes/dream_thater/解析系/GMT/GMT16, status: planned, title: "純非整流性と分解・反例" }
   - { id: GMT17, path: textbook/volumes/dream_thater/解析系/GMT/GMT17, status: planned, title: "Besicovitch--Federer射影判定 I" }

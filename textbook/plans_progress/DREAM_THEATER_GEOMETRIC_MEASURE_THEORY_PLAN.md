@@ -15,7 +15,8 @@ GMT10着手日時: 2026-11-10 06:00:52 JST（近似微分・Gram行列式・非�
 GMT11着手日時: 2026-11-10 06:39:08 JST（重複度・rank欠損像・可算双Lipschitz分割によるarea formula）
 GMT12着手日時: 2026-11-10 08:19:27 JST（可算整流可能性、C1グラフ、四隅Cantor dustの純非整流性）
 GMT13着手日時: 2026-11-10 16:31:32 JST（双Lipschitz片、接微分・接Jacobian、整流可能集合上のarea formula）
-状態: in_progress（GMT1--GMT13 は実装・査読済み。GMT14--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT14着手日時: 2026-11-10 23:03:25 JST（coarea Jacobian、rank欠損断面、full-rank座標片、整流可能集合への拡張）
+状態: in_progress（GMT1--GMT14 は実装・査読済み。GMT15--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 

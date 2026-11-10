@@ -1,0 +1,71 @@
+chapter: GMT14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA4
+  - RA6
+  - MT8
+  - VC1
+  - GMT9
+  - GMT10
+  - GMT11
+  - GMT13
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt14-coarea-jacobian
+    name: coarea Jacobian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（coarea Jacobian）"]
+    requires:
+      - geometric-measure.gmt10-geometric-jacobian
+      - geometric-measure.gmt9-rademacher
+
+  - id: geometric-measure.gmt14-slice-integral
+    name: レベル集合の断面積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（レベル集合の断面積分）"]
+    requires:
+      - geometric-measure.gmt14-coarea-jacobian
+      - vector-calculus.level-surface
+      - geometric-measure.gmt13-rectifiable-area
+
+  - id: geometric-measure.gmt14-critical-slices
+    name: rank欠損集合のほとんどすべての断面は零測度
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（rank欠損集合のほとんどすべての断面は零測度）"]
+    requires:
+      - geometric-measure.gmt11-critical-image
+      - geometric-measure.gmt14-slice-integral
+
+  - id: geometric-measure.gmt14-full-rank-chart
+    name: full-rank座標片のJacobian恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（full-rank座標片のJacobian恒等式）"]
+    requires:
+      - geometric-measure.gmt14-coarea-jacobian
+      - geometric-measure.gmt10-gram-invariance
+
+  - id: geometric-measure.gmt14-coarea
+    name: Euclid空間のcoarea formula
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Euclid空間のcoarea formula）"]
+    requires:
+      - geometric-measure.gmt14-critical-slices
+      - geometric-measure.gmt14-full-rank-chart
+      - geometric-measure.gmt11-weighted-area
+
+  - id: geometric-measure.gmt14-rectifiable-coarea
+    name: 整流可能集合上のcoarea formula
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（整流可能集合上のcoarea formula）"]
+    requires:
+      - geometric-measure.gmt14-coarea
+      - geometric-measure.gmt13-rectifiable-area
+      - geometric-measure.gmt13-tangential-jacobian
