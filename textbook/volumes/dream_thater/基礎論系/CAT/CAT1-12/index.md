@@ -18,9 +18,9 @@ $$
 
 前講で使った[反変関手](../CAT1-06/index.md#def-cat1-06-contravariant)のうち、集合に値を取るものを、ここでは「前層」と呼ぶ。$\mathcal C$ の射 $u:X\to Y$ は前層 $P$ により
 
-$
+$$
 P(u):P(Y)\longrightarrow P(X)
-$
+$$
 
 という引き戻しになる。前層間の射には既習の[自然変換](../CAT1-07/index.md#def-cat1-07-natural-transformation)を使い、その全体を[関手圏](../CAT1-08/index.md#def-cat1-08-functor-category)として扱う。
 
@@ -38,15 +38,15 @@ $
 
 二つの前層 $(S,T,r)$、$(S',T',r')$ の自然変換の成分は写像 $a:S\to S'$、$b:T\to T'$ である。射 $u:0\to1$ の自然性を任意の $t\in T$ に適用すると
 
-$
+$$
 a(P(u)(t))=P'(u)(b(t))
-$
+$$
 
 である。$P(u)=r$、$P'(u)=r'$ を代入した条件は
 
-$
+$$
 a\circ r=r'\circ b
-$
+$$
 
 を満たす組である。これが前層圏での射の具体的な姿になる。成分ごとの恒等写像と合成もこの等式を保つので、[関手圏の圏公理](../CAT1-08/index.md#prop-cat1-08-axioms)がこの例でも確認できる。
 <!-- definition-example-end -->
