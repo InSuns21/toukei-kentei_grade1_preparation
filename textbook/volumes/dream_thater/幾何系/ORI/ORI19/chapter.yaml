@@ -1,0 +1,42 @@
+id: ORI19
+title: "平坦折り判定の計算困難性"
+volume: foundations
+status: supplementary
+prerequisites: [ORI18, CPLX8]
+official_scope: []
+learning_objectives:
+  - 山谷未指定、山谷指定、切手一列の指定層順の判定入力と静的完成配置を区別できる
+  - NP困難性・NP完全性と多項式時間証明書の違いをcanonicalな計算量理論に接続できる
+  - 非全等3-SATの真理値と3-SATからの完全な多項式時間帰着を両方向に証明できる
+  - Bern–Hayes型の伝送・分岐・節・交差ガジェットの役割と証明すべき幾何的事項を挙げられる
+  - 元の交差ガジェットの不備と修正研究結果を踏まえ一般NP完全性の引用範囲を正確に説明できる
+  - 切手一列の指定層順をO(n²)比較で判定し山谷未指定の存在を構成的に証明できる
+definitions:
+  - { id: ORI19-DEF-01, name: 平坦折りの三つの判定問題 }
+  - { id: ORI19-DEF-02, name: 非全等3-SAT }
+theorems:
+  - { id: ORI19-THM-01, name: NAE-3-SATのNP完全性 }
+  - { id: ORI19-THM-02, name: 切手一列の指定層順は多項式時間で判定できる }
+  - { id: ORI19-PROP-01, name: 山谷未指定の切手一列は常に完全積層できる }
+canonical_examples:
+  - 3入力NAEの全8通りと通常のORとの比較
+  - 3-SAT一節から二NAE節への変換と補助変数の選択
+  - 4枚の切手の交互端点不成立と入れ子端点成立
+  - 5枚の切手の順列二例でのアルゴリズム検証
+  - 層順の有向閉路と幾何ガジェットの証明境界
+problem_patterns:
+  - ORI19-NAE-TRUTH-TABLE
+  - ORI19-NP-HARD-VS-COMPLETE
+  - ORI19-STRIP-INTERLEAVING
+  - ORI19-STRIP-NESTING
+  - ORI19-INPUT-BIT-LENGTH
+  - ORI19-NAE-CLAUSE-REDUCTION
+  - ORI19-NAE-REDUCTION-COMPLEXITY
+  - ORI19-STRIP-FIVE-STAMPS
+  - ORI19-GLOBAL-LAYER-CYCLE
+  - ORI19-REDUCTION-INTEGRATED
+  - ORI19-RESTRICTED-VS-GENERAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
