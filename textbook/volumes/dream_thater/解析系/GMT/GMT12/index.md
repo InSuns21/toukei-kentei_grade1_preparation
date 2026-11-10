@@ -141,7 +141,9 @@ DG(x)=\begin{pmatrix}I_m\\Dg(x)\end{pmatrix},
 DG(x)^{\mathsf T}DG(x)=I_m+Dg(x)^{\mathsf T}Dg(x).
 $$
 
-実際、$|DG(x)h|^2=|h|^2+|Dg(x)h|^2$ だから、右辺は微分が各方向の長さをどう変えるかを表す Gram 行列です。[幾何的 Jacobian の定義](../GMT10/index.md#def-gmt10-geometric-jacobian)に従ってその行列式の平方根が $m$ 次元の面積倍率になります。$Q$ はコンパクトで $U$ は開集合なので、$Q$ を内包する少し大きな閉立方体 $Q_\varepsilon\subset U$ を取れます。$Dg$ は $Q_\varepsilon$ 上で有界であり、凸性と線分積分によりその内部で $G$ は Lipschitz です。$Q$ は Borel 集合で $G$ は単射ですから、[GMT11の面積公式](../GMT11/index.md#thm-gmt11-area-formula)の重複度は像上で $1$ となり
+実際、$|DG(x)h|^2=|h|^2+|Dg(x)h|^2$ だから、右辺は微分が各方向の長さをどう変えるかを表す Gram 行列です。[幾何的 Jacobian の定義](../GMT10/index.md#def-gmt10-geometric-jacobian)に従ってその行列式の平方根が $m$ 次元の面積倍率になります。
+
+$Q$ はコンパクトで $U$ は開集合なので、$Q$ を内包する少し大きな閉立方体 $Q_\varepsilon\subset U$ を取れます。$Dg$ は $Q_\varepsilon$ 上で有界であり、凸性と線分積分によりその内部で $G$ は Lipschitz です。$Q$ は Borel 集合で $G$ は単射ですから、[GMT11の面積公式](../GMT11/index.md#thm-gmt11-area-formula)の重複度は像上で $1$ となり
 
 $$
 \mathcal H^m(G(Q))
@@ -284,7 +286,9 @@ $$
 
 と定めます。これが **四隅 Cantor dust** です。第 $n$ 段階の各正方形の一辺は $s_n=4^{-n}$。
 
-各分岐へ質量を $1/4$ ずつ割り振った確率測度 $\mu$ は、次のように具体的に構成できます。$[0,1]$ を第 $n$ 段階で $4^n$ 個の等長区間へ分け、四進の各桁を四隅の選択に対応させます。端点では半開区間によって一方を選び、$1$ は最後の区間に含めます。各 $u\in[0,1]$ に対応する正方形は入れ子で直径が $\sqrt2\,4^{-n}\to0$ なので、中心の極限 $T(u)\in K$ が一意に決まります。有限段階の中心写像は Borel 可測で、その点ごとの極限 $T$ も可測です。Borel 集合 $B\subset\mathbb R^2$ に対し $\mu(B)=\mathcal L^1(T^{-1}(B))$ と置くと $\mu(K)=1$ であり、各第 $n$ 段階正方形 $Q$ の逆像は長さ $4^{-n}$ の区間（端点の違いを除く）だから
+各分岐へ質量を $1/4$ ずつ割り振った確率測度 $\mu$ は、次のように具体的に構成できます。$[0,1]$ を第 $n$ 段階で $4^n$ 個の等長区間へ分け、四進の各桁を四隅の選択に対応させます。端点では半開区間によって一方を選び、$1$ は最後の区間に含めます。
+
+各 $u\in[0,1]$ に対応する正方形は入れ子で直径が $\sqrt2\,4^{-n}\to0$ なので、中心の極限 $T(u)\in K$ が一意に決まります。有限段階の中心写像は Borel 可測で、その点ごとの極限 $T$ も可測です。Borel 集合 $B\subset\mathbb R^2$ に対し $\mu(B)=\mathcal L^1(T^{-1}(B))$ と置くと $\mu(K)=1$ であり、各第 $n$ 段階正方形 $Q$ の逆像は長さ $4^{-n}$ の区間（端点の違いを除く）だから
 
 $$
 \mu(Q)=4^{-n}=s_n.
@@ -395,7 +399,11 @@ $$
 
 また $f'(t)=0$ の点の像は [rank 欠損像の補題](../GMT11/index.md#lem-gmt11-critical-image)で $\mathcal H^1$-零です。残る微分が零でない点では、[面積公式の証明における一様な二点差分分割](../GMT11/index.md#thm-gmt11-area-formula)と [その双 Lipschitz 補題](../GMT11/index.md#lem-gmt11-patch-comparison)を使えます。
 
-これによって微分が零でない点を可算個の Borel 集合 $A_j$ に分割でき、各 $f|_{A_j}$ は双 Lipschitz です。像の可測性を曖昧にしないため、各 $A_j\cap[-R,R]$（$R\in\mathbb N$）を Lebesgue 測度の内側正則性によって可算個のコンパクト集合 $A_{j,R,k}$ で零測度部分を除いて覆います。具体的には各 $k$ で測度差が $1/k$ 未満のコンパクト部分を取り、その和集合の補集合が零測度であることを使います。$f$ は Lipschitz なので、残余の像も [零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)によって $\mathcal H^1$-零です。各 $f(A_{j,R,k})$ はコンパクトで、写像の制限は依然として双 Lipschitz です。
+これによって微分が零でない点を可算個の Borel 集合 $A_j$ に分割でき、各 $f|_{A_j}$ は双 Lipschitz です。
+
+像の可測性を曖昧にしないため、各 $A_j\cap[-R,R]$（$R\in\mathbb N$）を Lebesgue 測度の内側正則性によって可算個のコンパクト集合 $A_{j,R,k}$ で零測度部分を除いて覆います。具体的には各 $k$ で測度差が $1/k$ 未満のコンパクト部分を取り、その和集合の補集合が零測度であることを使います。
+
+$f$ は Lipschitz なので、残余の像も [零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)によって $\mathcal H^1$-零です。各 $f(A_{j,R,k})$ はコンパクトで、写像の制限は依然として双 Lipschitz です。
 
 従って $\mathcal H^1(K\cap S)>0$ と仮定すれば、あるコンパクトな双 Lipschitz 片 $A=A_{j,R,k}$ に対して
 
