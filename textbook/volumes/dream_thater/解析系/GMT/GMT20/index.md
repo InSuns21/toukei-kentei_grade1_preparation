@@ -6,17 +6,17 @@
 
 この講義では「正の下密度＋近似接平面」から可算個のグラフを実際に構成します。[GMT19の平坦なblow-up](../GMT19/index.md#prop-gmt19-flat-approximate)は、この判定条件を測度極限から読み取る道具になります。最後に、**密度の極限だけ**を仮定するPreiss定理を正確に述べ、ここで証明する初等的判定法とは区別します。
 
-以下、整数 $1\le m\le d$、$E\subset\mathbb R^d$ はBorel集合、$\mu=\mathcal H^m\llcorner E$ は局所有限なRadon測度とします。$\mathcal H^m$ は[MT8のHausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)で、$m$ 次元平面の半径 $r$ の球は、[GMT10の正規化](../GMT10/index.md#lem-gmt10-hausdorff-normalization)により $2^mr^m$ の測度を持ちます。球はすべて開球です。
+以下、整数 $1\le m\le d$、$E\subset\mathbb R^d$ はBorel集合、$\mu=\mathcal H^m\llcorner E$ は局所有限なRadon測度とします。$\mathcal H^m$ は[MT8のHausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。[GMT10の非正規化Hausdorff測度の比例定数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を $c_m=\mathcal H^m([0,1]^m)$、$\omega_m=\mathcal L^m(B_{\mathbb R^m}(0,1))$、$q_m=c_m\omega_m$ とします。$m$ 次元平面の半径 $r$ の球の測度は $q_mr^m$ です。特に $q_1=2$ です。球はすべて開球です。
 
 ## 1. 密度だけで「方向」は分かるか
 
 点 $x$ の周囲で $\mu(B(x,r))$ が $r^m$ に比例することは、$m$ 次元的な量があるという情報です。しかしそれだけでは、その面積が一つの平面方向へ集中するかどうかは見えません。
 
-[GMT15の平面基準密度](../GMT15/index.md#def-gmt15-plane-density)をもう一度用います。係数を $2^m$ と書けるのは、上で確かめた非正規化Hausdorff測度の規約によります。
+[GMT15の平面基準密度](../GMT15/index.md#def-gmt15-plane-density)をもう一度用います。一般次元では $q_m$ をそのまま残し、[GMT1の $(2r)^m$ による密度](../GMT1/index.md#def-gmt1-upper-lower-density)と混同しません。
 
 $$
-\underline D^m(E,x)=\liminf_{r\downarrow0}\frac{\mu(B(x,r))}{2^mr^m},\qquad
-\overline D^m(E,x)=\limsup_{r\downarrow0}\frac{\mu(B(x,r))}{2^mr^m}.
+\underline D^m(E,x)=\liminf_{r\downarrow0}\frac{\mu(B(x,r))}{q_mr^m},\qquad
+\overline D^m(E,x)=\limsup_{r\downarrow0}\frac{\mu(B(x,r))}{q_mr^m}.
 $$
 
 例えば二本の直線が原点で交わる場合、原点の密度は2です。一方、一本の直線の内点では1です。しかし二本の直線が交わる原点は一つの近似接線を持ちません。密度の**数値**と平面への**方向の集中**は別条件です。
@@ -533,10 +533,10 @@ $E\subset\mathbb R^d$ を局所有限な $\mathcal H^m$ を持つBorel集合と�
 <!-- solution-start -->
 #### 詳細解答
 
-まず各典型点 $x$ の全スケール極限に [GMT19の平坦極限命題](../GMT19/index.md#prop-gmt19-flat-approximate)を適用します。極限平面の単位球内測度が $2^m$ なので、
+まず各典型点 $x$ の全スケール極限に [GMT19の平坦極限命題](../GMT19/index.md#prop-gmt19-flat-approximate)を適用します。極限平面の単位球内測度が $q_m=c_m\omega_m$ なので、
 
 $$
-\frac{\mu(B(x,r))}{2^mr^m}\longrightarrow c_x,
+\frac{\mu(B(x,r))}{q_mr^m}\longrightarrow c_x,
 $$
 
 かつ円錐外部分の $r^{-m}$ 倍測度が0へ収束します。$c_x>0$ は正の下密度を、$c_x<\infty$ は有限の上密度を与えるため、[GMT20の判定定理](#thm-gmt20-tangent-criterion)の条件（2）を満たします。これで $E$ は可算 $m$-整流可能です。その後 [GMT15の密度定理](../GMT15/index.md#thm-gmt15-rectifiable-density-tangent)から密度1 a.e. が分かり、もともとの極限値と比較して $c_x=1$ a.e. です。
