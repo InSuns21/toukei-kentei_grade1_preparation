@@ -65,7 +65,7 @@ chapters:
     title: "Euclidサドルから自由エネルギーへ"
   - id: BHT15
     path: textbook/volumes/dream_thater/物理系/BHT/BHT15
-    status: planned
+    status: completed
     title: "負熱容量と有限空洞"
   - id: BHT16
     path: textbook/volumes/dream_thater/物理系/BHT/BHT16
