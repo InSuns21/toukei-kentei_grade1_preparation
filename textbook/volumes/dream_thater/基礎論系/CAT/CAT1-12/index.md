@@ -298,7 +298,7 @@ $$
 $f:A\to B$、$k:B\to D$ を持つ小さい圏で $y(1_A)=1_{y(A)}$、$y(k\circ f)=y(k)\circ y(f)$ を各成分で確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。任意の $X$ と $g:X\to A$ を取る。恒等射の場合、$(h^{1_A})_X(g)=1_A\circ g=g なので $h^{1_A}$ は恒等自然変換。合成の場合
+**詳細解答**。任意の $X$ と $g:X\to A$ を取る。恒等射の場合、$(h^{1_A})_X(g)=1_A\circ g=g$ なので $h^{1_A}$ は恒等自然変換。合成の場合
 
 $$
 (h^k)_X((h^f)_X(g))=k\circ(f\circ g)=(k\circ f)\circ g=(h^{k\circ f})_X(g).
