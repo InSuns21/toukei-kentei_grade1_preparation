@@ -1,0 +1,49 @@
+chapter: GMT16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT8
+  - GMT1
+  - GMT5
+  - GMT10
+  - GMT12
+  - GMT15
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt16-pure-meets-rectifiable
+    name: 純非整流部分と可算整流可能部分の零交差
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（純非整流部分と可算整流可能部分の零交差）"]
+    requires:
+      - geometric-measure.gmt12-countably-rectifiable
+      - geometric-measure.gmt12-purely-unrectifiable
+
+  - id: geometric-measure.gmt16-decomposition
+    name: 有限Hausdorff面積集合の整流可能・純非整流分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限Hausdorff面積集合の整流可能・純非整流分解）"]
+    requires:
+      - geometric-measure.gmt16-pure-meets-rectifiable
+      - geometric-measure.gmt12-countably-rectifiable
+      - geometric-measure.gmt12-purely-unrectifiable
+
+  - id: geometric-measure.gmt16-corner-no-tangent
+    name: 四隅Cantor集合には近似接線が存在しない
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（四隅Cantor集合には近似接線が存在しない）"]
+    requires:
+      - geometric-measure.gmt12-corner-mass
+      - geometric-measure.gmt15-approximate-tangent
+
+  - id: geometric-measure.gmt16-projection-contrast
+    name: 四隅集合の零射影と正射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四隅集合の零射影と正射影）"]
+    requires:
+      - geometric-measure.gmt12-corner-pure
+      - geometric-measure.gmt5-orthogonal-projection

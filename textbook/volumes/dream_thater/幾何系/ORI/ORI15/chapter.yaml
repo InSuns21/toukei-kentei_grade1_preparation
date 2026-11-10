@@ -1,0 +1,39 @@
+id: ORI15
+title: "Maekawaの定理"
+volume: foundations
+status: supplementary
+prerequisites: [ORI14]
+official_scope: []
+learning_objectives:
+  - 山谷指定の単頂点局所平坦折り可能性を、面の等長写像・共有辺一致・層順・指定山谷の整合から説明できる
+  - 頂点を切り落とした断面の符号付き外角和からMaekawaの定理 M-V=±2 を証明できる
+  - 全折り目作動の偶数次数2nに対して必要な山谷本数 (n+1,n-1) または (n-1,n+1) を導ける
+  - 厳密な局所最小扇形の両端の折り目は異なる山谷を要することを重なりと層順で証明できる
+  - Kawasaki条件とMaekawa条件を両方満たす指定でも平坦折り不可能な四折り線の例を検算できる
+  - 山谷未指定の存在・指定山谷の必要条件・指定山谷の実現可能性を区別できる
+definitions:
+  - { id: ORI15-DEF-01, name: 山谷指定の単頂点局所平坦折り可能性 }
+theorems:
+  - { id: ORI15-THM-01, name: Maekawaの定理 }
+  - { id: ORI15-COR-01, name: 偶数次数と山谷本数 }
+  - { id: ORI15-PROP-01, name: 厳密な局所最小扇形の山谷制約 }
+canonical_examples:
+  - 一本の直線を二本の半直線として数え、両者が同じ山谷になることを層順で確認する
+  - 八本の折り目の必要本数と表裏交換、六本の位置区別文字列の候補数を数える
+  - 四扇形30・120・150・60度と山谷MMMVで二つの古典条件を通過しても局所最小角で矛盾する
+  - 等しい四つの90度扇形では厳密な局所最小角の命題を適用できないと区別する
+problem_patterns:
+  - ORI15-TWO-RAY-CONVENTION
+  - ORI15-EIGHT-RAY-COUNT
+  - ORI15-KAWASAKI-FAILS
+  - ORI15-STRICT-LOCAL-MINIMUM
+  - ORI15-PAPER-ORIENTATION
+  - ORI15-TURNING-NUMBER-PROOF
+  - ORI15-SECTOR-OVERLAP
+  - ORI15-ASSIGNMENT-COUNT
+  - ORI15-EQUAL-ANGLE-BOUNDARY
+  - ORI15-THREE-STAGE-DIAGNOSTIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
