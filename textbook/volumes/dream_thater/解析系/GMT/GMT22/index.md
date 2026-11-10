@@ -6,7 +6,7 @@
 
 一つの落とし穴があります。$L^1$ でよく近づくことと、勾配の積分が近づくことは別です。また、領域の外まで勝手に関数を0と置くと、元の領域では数えなかった境界のジャンプまで平滑化されてしまいます。この講義では、**何が極限で失われ得るか**を双対表示で証明し、**変動質量を失わない滑らかな近似**を開集合の形に依らず構成します。
 
-以下、$d\ge1$、$\Omega\subset\mathbb R^d$ を開集合、$dx$ をLebesgue測度とします。関数の等号と収束は、断らない限り $dx$ に関するものです。$u\in BV(\Omega)$ なら、[BVと測度値分布微分の同値](../GMT21/index.md#thm-gmt21-measure-derivative)から $Du$ が定まり、[全変動測度の双対表示](../GMT21/index.md#thm-gmt21-variation-duality)により $V_\Omega(u)=|Du|(\Omega)$ です。
+以下、$d\ge1$、$\Omega\subset\mathbb R^d$ を開集合、$dx$ をLebesgue測度とします。関数の等号と収束は、断らない限り $dx$ に関するものです。測度について「ほとんど至る所（almost everywhere; a.e.）」という表現も使います。$u\in BV(\Omega)$ なら、[BVと測度値分布微分の同値](../GMT21/index.md#thm-gmt21-measure-derivative)から $Du$ が定まり、[全変動測度の双対表示](../GMT21/index.md#thm-gmt21-variation-duality)により $V_\Omega(u)=|Du|(\Omega)$ です。
 
 ## 1. ジャンプをなめらかにするには：局所畳み込み
 
