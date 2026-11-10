@@ -1,0 +1,56 @@
+chapter: BHT19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT18
+  - BHT9
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.bifurcation-surface
+    name: 分岐Killing地平線の分岐面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分岐Killing地平線の分岐面）"]
+    requires: [black-hole-thermodynamics.einstein-noether-charge]
+
+  - id: black-hole-thermodynamics.bifurcation-killing-data
+    name: 分岐面のKillingデータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分岐面のKillingデータ）"]
+    requires: [black-hole-thermodynamics.bifurcation-surface]
+
+  - id: black-hole-thermodynamics.einstein-bifurcation-charge
+    name: Einstein重力の分岐面電荷
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Einstein重力の分岐面電荷）"]
+    requires: [black-hole-thermodynamics.bifurcation-killing-data, black-hole-thermodynamics.einstein-noether-charge]
+
+  - id: black-hole-thermodynamics.fixed-generator-bifurcation
+    name: 固定生成場の分岐面変分
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（固定生成場の分岐面変分）"]
+    requires: [black-hole-thermodynamics.einstein-bifurcation-charge]
+
+  - id: black-hole-thermodynamics.noether-einstein-first-law
+    name: Noether電荷からの定常真空Einstein第一法則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Noether電荷からの定常真空Einstein第一法則）"]
+    requires: [black-hole-thermodynamics.fixed-generator-bifurcation, black-hole-thermodynamics.covariant-boundary-identity]
+
+  - id: black-hole-thermodynamics.wald-entropy
+    name: Waldエントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Waldエントロピー）"]
+    requires: [black-hole-thermodynamics.bifurcation-killing-data]
+
+  - id: black-hole-thermodynamics.wald-noether-charge
+    name: 分岐面のNoether電荷とWald公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（分岐面のNoether電荷とWald公式）"]
+    requires: [black-hole-thermodynamics.wald-entropy, black-hole-thermodynamics.covariant-boundary-identity]

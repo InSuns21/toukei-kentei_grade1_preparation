@@ -1,0 +1,43 @@
+id: "BHT19"
+title: "Wald公式とEinstein重力"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT18
+  - BHT9
+official_scope: []
+learning_objectives:
+  - 非極限分岐Killing地平線の分岐面・双法線・表面重力の規格化を説明しboostの局所模型で確かめられる
+  - Einstein–HilbertのNoether電荷を分岐面へ引き戻し向きと係数から積分κA/(8πG)を導ける
+  - 生成場と分岐面を固定した変分と解族の積微分を区別し境界変分恒等式から第一法則を証明できる
+  - 曲率に依存するLagrangianの曲率偏微分からWaldエントロピーを定義し分岐面Noether電荷との関係を導ける
+  - Einstein重力へ代入してA/(4G)を二通りに再現し定常・非極限・境界条件の適用限界を説明できる
+definitions:
+  - { id: BHT19-DEF-00, name: "分岐Killing地平線の分岐面" }
+  - { id: BHT19-DEF-01, name: "分岐面のKillingデータ" }
+  - { id: BHT19-DEF-02, name: "Waldエントロピー" }
+theorems:
+  - { id: BHT19-PROP-01, name: "Einstein重力の分岐面電荷" }
+  - { id: BHT19-LEM-01, name: "固定生成場の分岐面変分" }
+  - { id: BHT19-THM-01, name: "Noether電荷からの定常真空Einstein第一法則" }
+  - { id: BHT19-THM-02, name: "分岐面のNoether電荷とWald公式" }
+canonical_examples:
+  - Minkowskiのboostで双法線とκの規格化を直接確認する
+  - Schwarzschildで分岐面電荷M/2とHamiltonian変分δMの差を検算する
+  - Einstein–Hilbertの曲率偏微分と双法線縮約からA/(4G)を求める
+  - f(R)の定常分岐面公式を適用条件付きで計算する
+problem_patterns:
+  - BHT19-BOOST-BINORMAL
+  - BHT19-RIEMANN-DERIVATIVE
+  - BHT19-BINORMAL-CONTRACTION
+  - BHT19-BOUNDARY-ORIENTATION
+  - BHT19-SCHWARZSCHILD-COEFFICIENTS
+  - BHT19-FIXED-GENERATOR
+  - BHT19-NORMAL-METRIC-CANCELLATION
+  - BHT19-FR-ENTROPY
+  - BHT19-FIXED-ANGULAR-VELOCITY
+  - BHT19-NOETHER-THERMODYNAMICS-CROSSCHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 13, review: 8 }
