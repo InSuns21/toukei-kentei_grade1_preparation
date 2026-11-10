@@ -57,7 +57,7 @@ chapters:
     title: "Euclid周期性と円錐正則性"
   - id: BHT13
     path: textbook/volumes/dream_thater/物理系/BHT/BHT13
-    status: planned
+    status: completed
     title: "重力作用と境界値問題"
   - id: BHT14
     path: textbook/volumes/dream_thater/物理系/BHT/BHT14

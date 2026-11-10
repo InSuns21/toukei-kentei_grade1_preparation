@@ -1,0 +1,45 @@
+id: "BHT13"
+title: "重力作用と境界値問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT12
+  - GR11
+official_scope: []
+learning_objectives:
+  - Lorentz符号規約とEuclid作用の符号を区別し、Einstein–Hilbert・GHY項と宇宙項を正しい係数で書ける
+  - Euclid境界の誘導計量・外向き法線・第二基本形式を具体的に計算し、Dirichlet変分で法線微分が相殺する仕組みを説明できる
+  - 静的球対称の有限半径壁で境界計量・固有Euclid周期・Kの跡を求め、時間座標の周期だけを固定する誤りを判定できる
+  - 同じ誘導計量を保つ参照背景の周期を求め、背景差引きとAdS反項の役割・限界を区別できる
+  - 境界の計量Dirichlet条件とMaxwellの電位固定・流束固定を区別し、境界Legendre項の変分を検算できる
+  - 正則なEuclidサドルの境界値問題と熱的経路積分の形式的解釈を区別し、極限・円錐・角境界の適用外を指摘できる
+definitions:
+  - { id: BHT13-DEF-01, name: "Euclid Einstein–Hilbert–GHY作用" }
+  - { id: BHT13-DEF-02, name: "境界計量のDirichlet条件" }
+  - { id: BHT13-DEF-03, name: "一致境界での背景差引き" }
+  - { id: BHT13-DEF-04, name: "Maxwell境界データとLegendre項" }
+theorems:
+  - { id: BHT13-THM-01, name: "Euclid GHY項を含むDirichlet変分" }
+  - { id: BHT13-PROP-01, name: "静的球対称壁の誘導計量と外部曲率" }
+  - { id: BHT13-PROP-02, name: "Schwarzschild壁と平坦参照背景の整合" }
+  - { id: BHT13-PROP-03, name: "Maxwell境界Legendre変換" }
+canonical_examples:
+  - 平坦な四次元球とその外向きGHY項を計算する
+  - Euclid SchwarzschildのR=4M壁でKと固有周期を比較する
+  - 参照平坦時空の周期を調節して境界計量の等長性を確認する
+  - 変分の法線微分相殺と電場の表面流束を座標で検算する
+problem_patterns:
+  - BHT13-FLAT-BOUNDARY-K
+  - BHT13-DIRICHLET-VS-NORMAL-DERIVATIVE
+  - BHT13-WALL-PROPER-PERIOD
+  - BHT13-MATCHED-REFERENCE-PERIOD
+  - BHT13-WALL-K-TRACE
+  - BHT13-GHY-CANCELLATION
+  - BHT13-MAXWELL-LEGENDRE
+  - BHT13-ASYMPTOTIC-SUBTRACTION
+  - BHT13-ENSEMBLE-AND-EXCLUSIONS
+  - BHT13-INTEGRATED-BOUNDARY-VALUE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 5 }

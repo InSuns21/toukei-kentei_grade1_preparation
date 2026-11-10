@@ -1,0 +1,63 @@
+chapter: BHT13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT12
+  - GR11
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.euclidean-gravity-action
+    name: Euclid Einstein–Hilbert–GHY作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid Einstein–Hilbert–GHY作用）"]
+    requires: [gravity.ghy-boundary-action, black-hole-thermodynamics.nonextremal-euclidean-period]
+
+  - id: black-hole-thermodynamics.euclidean-dirichlet-data
+    name: 境界計量のDirichlet条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界計量のDirichlet条件）"]
+    requires: [black-hole-thermodynamics.euclidean-gravity-action, gravity.boundary-induced-metric]
+
+  - id: black-hole-thermodynamics.euclidean-dirichlet-variation
+    name: Euclid GHY項を含むDirichlet変分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Euclid GHY項を含むDirichlet変分）"]
+    requires: [black-hole-thermodynamics.euclidean-dirichlet-data, gravity.ghy-dirichlet-variation]
+
+  - id: black-hole-thermodynamics.static-wall-extrinsic-curvature
+    name: 静的球対称壁の誘導計量と外部曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的球対称壁の誘導計量と外部曲率）"]
+    requires: [black-hole-thermodynamics.euclidean-dirichlet-data, gravity.boundary-extrinsic-curvature]
+
+  - id: black-hole-thermodynamics.matched-background-subtraction
+    name: 一致境界での背景差引き
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一致境界での背景差引き）"]
+    requires: [black-hole-thermodynamics.euclidean-gravity-action, black-hole-thermodynamics.static-wall-extrinsic-curvature]
+
+  - id: black-hole-thermodynamics.schwarzschild-flat-reference
+    name: Schwarzschild壁と平坦参照背景の整合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild壁と平坦参照背景の整合）"]
+    requires: [black-hole-thermodynamics.matched-background-subtraction, black-hole-thermodynamics.static-wall-extrinsic-curvature, black-hole-thermodynamics.schwarzschild-state-data]
+
+  - id: black-hole-thermodynamics.maxwell-boundary-data
+    name: Maxwell境界データとLegendre項
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Maxwell境界データとLegendre項）"]
+    requires: [black-hole-thermodynamics.euclidean-dirichlet-data]
+
+  - id: black-hole-thermodynamics.maxwell-boundary-legendre
+    name: Maxwell境界Legendre変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Maxwell境界Legendre変換）"]
+    requires: [black-hole-thermodynamics.maxwell-boundary-data]
