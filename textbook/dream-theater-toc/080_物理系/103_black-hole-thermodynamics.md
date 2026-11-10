@@ -20,3 +20,4 @@
 17. [BHT17 電荷・回転とアンサンブル選択](textbook/volumes/dream_thater/物理系/BHT/BHT17/index.md)
 18. [BHT18 共変位相空間とNoether流](textbook/volumes/dream_thater/物理系/BHT/BHT18/index.md)
 19. [BHT19 Wald公式とEinstein重力](textbook/volumes/dream_thater/物理系/BHT/BHT19/index.md)
+20. [BHT20 高階曲率とWald公式の適用限界](textbook/volumes/dream_thater/物理系/BHT/BHT20/index.md)

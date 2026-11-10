@@ -1,9 +1,9 @@
 # DREAM THEATER ブラックホール熱力学 I（BHT1〜BHT24・全24講確定）
 
 分冊: 2026-10-11  
-改訂: 2026-11-11（BHT19のWald公式・Einstein重力教材を追加。講数・学修境界は2026-11-10版を維持）
+改訂: 2026-11-11（BHT20の高階曲率模型・Wald公式の適用限界を追加。講数・学修境界は維持）
 
-状態: in progress（BHT1〜BHT19執筆・査読・公開導線整備済み。BHT20〜BHT24と横断監査は未完了）
+状態: in progress（BHT1〜BHT20執筆・査読・公開導線整備済み。BHT21〜BHT24と横断監査は未完了）
 
 ## 0. 中心問い・到達点
 
@@ -120,6 +120,6 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 
 ## 5. 着手・完了条件
 
-BHT1〜BHT18は状態量・零法則・面積法則・非回転および回転の定常解族の第一法則・物理過程版の第一法則・Smarr関係と不可逆質量、Hawking温度の規格化・状態選択・熱浴整合、Bekenstein–Hawking面積エントロピーの差分・積分定数・物理単位、回転・電荷付きの質量関数と共役量・SI表示、極限地平線の有限エントロピー・第三法則の射程・Euclid幾何の極限順序、非極限静的地平線のEuclid正則周期・円錐欠損角・静止壁での固有周期、Euclid Einstein–Hilbert–GHY作用・境界Dirichlet条件・背景差引き・電磁境界データ、SchwarzschildのEuclid on-shell作用と自由エネルギー・熱力学微分・有限壁Legendre関係・円錐縮約作用の符号診断、有限空洞の負熱容量・正準二分岐・壁エネルギー・微正準条件の区別、Schwarzschild–AdSの状態量・境界周期マッチング・熱的AdSとの相対作用・安定枝・Hawking–Page転移温度と潜熱、RNの固定電荷・電位で異なる熱容量とHessian、Kerrの固定角運動量・角速度の境界データおよび超放射の平衡制限、共変作用の境界ポテンシャル・シンプレクティック流と保存則・Noether流とEinstein電荷・境界Hamiltonian変分の導出を実装した。BHT19〜BHT24の本文、各章の検証と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
+BHT1〜BHT20は状態量・古典四法則・定常解族と物理過程の第一法則・Smarr関係、Hawking温度・Bekenstein–Hawkingエントロピー・極限地平線、Euclid作用と境界条件・有限空洞・AdS安定性・アンサンブル、共変位相空間・Noether電荷・Wald公式からのEinstein面積則、さらにf(R)の場の方程式・定曲率例での高階曲率補正、曲率導関数・電荷の曖昧さ・動的地平線への外挿限界までを実装した。BHT21〜BHT24の本文と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
 
 全24章が原則の証明・演習水準を満たし、系列manifest・目次・prerequisite・stable anchorと横断査読・CIが整合したときだけ textbook/plan_done/ へ移す。**講義数が24であることと完成していることを混同しない。**

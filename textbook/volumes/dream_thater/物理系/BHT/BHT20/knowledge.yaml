@@ -1,0 +1,41 @@
+chapter: BHT20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT19
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.fr-gravity
+    name: 計量形式のf(R)重力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（計量形式のf(R)重力）"]
+    requires: [black-hole-thermodynamics.wald-entropy]
+
+  - id: black-hole-thermodynamics.fr-wald-entropy
+    name: f(R)模型の定常Waldエントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（f(R)模型の定常Waldエントロピー）"]
+    requires: [black-hole-thermodynamics.fr-gravity, black-hole-thermodynamics.wald-entropy]
+
+  - id: black-hole-thermodynamics.fr-field-equation
+    name: 真空f(R)の場の方程式と定曲率条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（真空f(R)の場の方程式と定曲率条件）"]
+    requires: [black-hole-thermodynamics.fr-gravity]
+
+  - id: black-hole-thermodynamics.curvature-derivative-euler
+    name: 曲率微分を含む模型の有効曲率微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（曲率微分を含む模型の有効曲率微分）"]
+    requires: [black-hole-thermodynamics.fr-wald-entropy]
+
+  - id: black-hole-thermodynamics.exact-shift-bifurcation
+    name: 完全微分の追加と分岐面電荷
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全微分の追加と分岐面電荷）"]
+    requires: [black-hole-thermodynamics.exact-lagrangian-shift, black-hole-thermodynamics.bifurcation-surface]
