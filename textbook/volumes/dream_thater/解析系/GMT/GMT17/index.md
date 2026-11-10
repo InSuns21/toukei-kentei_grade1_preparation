@@ -6,9 +6,19 @@
 
 [GMT16の分解定理](../GMT16/index.md#thm-gmt16-decomposition)によって、有限 $m$ 次元面積を持つ集合は、可算整流可能な部分 $R$ と純非整流部分 $P$ に分かれます。この二つを射影で見分けられるでしょうか。線分は多くの方向で正の長さを保ちます。一方、[四隅Cantor集合の射影例](../GMT16/index.md#prop-gmt16-projection-contrast)は、純非整流集合でも**特定の方向**で正の長さに射影され得ることを示しました。そこで問うべきなのは、ある一方向ではなく、**ほとんどすべての方向**です。
 
-本講義では、(1) 曲面片の射影を支える横断性・円錐評価、(2) 整流可能部分が正の面積を保つ方向についての定理、(3) 純非整流側の証明で注意すべき臨界次元の方向平均評価を、途中式から導きます。後者の「純非整流ならほとんど全方向で零面積」の核心を閉じるのは次のGMT18です。
+本講義では次の三点を途中式から導きます。
 
-以下、**整数 $d\ge2,\ 1\le m<d$** を固定します。$G(d,m)$ は $\mathbb R^d$ の原点を通る $m$ 平面の集合、$\gamma_{d,m}$ はその回転不変確率、$\pi_V:\mathbb R^d\to V$ は直交射影です。これらは[GMT7のGrassmann空間と直交射影の定義](../GMT7/index.md#def-gmt7-grassmann-projection)で導入済みです。$\mathcal H^m$ は[MT8の直径を用いた非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)を使い、$m$ 平面では $\mathcal H^m=c_m\mathcal L^m$ となる[GMT10の係数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を保持します。
+- 曲面片の射影を支える横断性・円錐評価。
+- 整流可能部分が正の面積を保つ方向についての定理。
+- 純非整流側の証明で注意すべき臨界次元の方向平均評価。
+
+最後の「純非整流ならほとんど全方向で零面積」という核心を閉じるのは次のGMT18です。
+
+以下、整数 $d\ge2$ と $1\le m<d$ を固定します。
+
+$G(d,m)$ は原点を通る $m$ 平面の集合、$\gamma_{d,m}$ はその回転不変確率です。$V\in G(d,m)$ に対し、$\pi_V$ は直交射影を表します。これらは[GMT7のGrassmann空間と直交射影の定義](../GMT7/index.md#def-gmt7-grassmann-projection)で導入済みです。
+
+$\mathcal H^m$ は[MT8の非正規化Hausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)を使います。$m$ 平面ではLebesgue測度と比例し、その係数は[GMT10の平面測度の正規化](../GMT10/index.md#lem-gmt10-hausdorff-normalization)による $c_m$ です。
 
 ## 1. 射影だけでは面積は増えない
 
@@ -700,7 +710,17 @@ $1\le m<d$、$E\subset\mathbb R^d$ を $\mathcal H^m(E)<\infty$ のBorel集合�
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 分解と矛盾。** [分解定理](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}P$ とし、$R$ は可算整流可能、$P$ は純非整流とします。もし $\mathcal H^m(R)>0$ なら $0<\mathcal H^m(R)\le\mathcal H^m(E)<\infty$ なので[正射影定理](#thm-gmt17-rectifiable-positive-projection)が適用でき、ほとんど全 $V$ で $\mathcal H^m(\pi_VR)>0$ となります。しかし $\pi_VR\subset\pi_VE$ なので仮定と矛盾します。従って $\mathcal H^m(R)=0$。任意のLipschitz像 $f(\mathbb R^m)$ に対して
+**1. 分解と矛盾。** [分解定理](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}P$ とします。$R$ は可算整流可能、$P$ は純非整流です。
+
+もし $\mathcal H^m(R)>0$ なら
+
+$$
+0<\mathcal H^m(R)\le\mathcal H^m(E)<\infty.
+$$
+
+そこで[整流可能部分の正射影定理](#thm-gmt17-rectifiable-positive-projection)が適用でき、ほとんど全 $V$ で $\mathcal H^m(\pi_VR)>0$ となります。しかし $\pi_VR\subset\pi_VE$ なので仮定と矛盾します。
+
+従って $\mathcal H^m(R)=0$ です。任意のLipschitz像 $f(\mathbb R^m)$ に対して
 
 $$
 \mathcal H^m(E\cap f(\mathbb R^m))
