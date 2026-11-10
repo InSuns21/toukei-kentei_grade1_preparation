@@ -373,7 +373,7 @@ $$
 
 - Level: A
 
-- 問題: ほぼ定常な中性Schwarzschildブラックホールに物体を落とす模型で $T_H=1/1000$、$E_\infty=1/50$、$S_{\rm box}=15$ とする。仕事・浮力・相関を無視した一次収支を求め、結論が適用できる条件を述べよ。
+- 問題: この設問に限り $G_{\rm ren}=1$ とし、ほぼ定常な中性Schwarzschildブラックホールに物体を落とす模型で $T_H=1/1000$、$E_\infty=1/50$、$S_{\rm box}=15$ とする。仕事・浮力・相関を無視した一次収支を求め、結論が適用できる条件を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：$\beta_H=1/T_H=1000$ です。[BHT8の第一法則の面積係数表示](../BHT8/index.md#prop-bht8-first-law-area)から $\Delta S_{\rm BH}\simeq\beta_HE_\infty=1000\cdot(1/50)=20$。外部で箱の自由度が失われるだけと置けば $\Delta S_{\rm out}\simeq-15$ なので、
