@@ -1,0 +1,92 @@
+chapter: GMT18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT8
+  - GMT7
+  - GMT12
+  - GMT15
+  - GMT16
+  - GMT17
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt18-cone-concentration
+    name: 射影核方向の細円錐と正規化集中量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影核方向の細円錐と正規化集中量）"]
+    requires:
+      - geometric-measure.gmt17-small-projection-tail
+
+  - id: geometric-measure.gmt18-sparse-cone
+    name: 疎な細円錐の零測度補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（疎な細円錐の零測度補題）"]
+    requires:
+      - geometric-measure.gmt18-cone-concentration
+      - geometric-measure.gmt12-purely-unrectifiable
+
+  - id: geometric-measure.gmt18-divergent-projection
+    name: 発散する円錐質量の零射影補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（発散する円錐質量の零射影補題）"]
+    requires:
+      - geometric-measure.gmt18-cone-concentration
+
+  - id: geometric-measure.gmt18-projection-fiber
+    name: 射影の繊維
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影の繊維）"]
+    requires:
+      - geometric-measure.gmt7-grassmann-projection
+
+  - id: geometric-measure.gmt18-infinite-fibers
+    name: 無限繊維の零射影補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（無限繊維の零射影補題）"]
+    requires:
+      - measure.hausdorff-measure
+      - geometric-measure.gmt18-projection-fiber
+
+  - id: geometric-measure.gmt18-density-dichotomy
+    name: 零内容集合上の密度二分法
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（零内容集合上の密度二分法）"]
+    requires:
+      - measure.hausdorff-measure
+
+  - id: geometric-measure.gmt18-three-alternatives
+    name: ほとんど全方向の幾何的三択補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（ほとんど全方向の幾何的三択補題）"]
+    requires:
+      - geometric-measure.gmt18-density-dichotomy
+      - geometric-measure.gmt18-cone-concentration
+
+  - id: geometric-measure.gmt18-besicovitch-federer
+    name: Besicovitch--Federer射影判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Besicovitch--Federer射影判定）"]
+    requires:
+      - geometric-measure.gmt18-sparse-cone
+      - geometric-measure.gmt18-divergent-projection
+      - geometric-measure.gmt18-infinite-fibers
+      - geometric-measure.gmt18-three-alternatives
+      - geometric-measure.gmt17-ae-zero-implies-pure
+
+  - id: geometric-measure.gmt18-rectifiable-part
+    name: 射影測度による整流可能成分の検出
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（射影測度による整流可能成分の検出）"]
+    requires:
+      - geometric-measure.gmt18-besicovitch-federer
+      - geometric-measure.gmt16-decomposition
