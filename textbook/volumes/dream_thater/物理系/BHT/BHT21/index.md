@@ -53,7 +53,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht21-regulated-outside -->
-**定義の確認**：滑らかで有限面積の $\Sigma$ とその内外を分ける空間断面 $C$ を固定し、境界にまたがる一対の正則化された量子ビットを置く模型を考えます。全系の状態を先ほどのBell対の $\rho^{(\epsilon)}=|\Psi\rangle\langle\Psi|$ とし、この有限模型では $\rho_{\rm out}^{(\epsilon)}$ を $\rho_{\rm out}$ と略します。規格化は $\langle\Psi|\Psi\rangle=(1+1)/2=1$ です。外部の基底 $|b\rangle$（$b=0,1$）で[部分トレースの基底和](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を具体的に書くと、$\psi_{ab}:=\langle a,b|\Psi\rangle=\delta_{ab}/\sqrt2$ より
+**定義の確認**：滑らかで有限面積の切断面 $\Sigma$ とその内外を分ける空間断面 $C$ を固定し、境界にまたがる一対の正則化された量子ビットを置く模型を考えます。全系の状態は先ほどのBell対であり、その密度演算子と規格化は
+
+$$
+\rho^{(\epsilon)}=|\Psi\rangle\langle\Psi|,
+\qquad \langle\Psi|\Psi\rangle=\frac{1+1}{2}=1
+$$
+
+です。この有限模型では $\rho_{\rm out}^{(\epsilon)}$ を $\rho_{\rm out}$ と略します。内外の基底をそれぞれ $|a\rangle,|b\rangle$（$a,b=0,1$）とすると、状態ベクトルの成分は
+
+$$
+\psi_{ab}:=\langle a,b|\Psi\rangle=\frac{\delta_{ab}}{\sqrt2}
+$$
+
+です。よって[部分トレースの基底和](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を外部の基底で書けば、
 
 $$
 \langle b|\rho_{\rm out}|b'\rangle
