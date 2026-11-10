@@ -26,7 +26,7 @@ $$
 <!-- definition-example-start: def-cat2-01-diagram -->
 **定義の確認**
 
-**定義の確認：一本の矢印。** $\mathcal J$ を上の矢印圏、$\mathcal C=\mathbf{Set}$ とする。対象と非恒等射の値を次で定める。
+**例：一本の矢印。** $\mathcal J$ を上の矢印圏、$\mathcal C=\mathbf{Set}$ とする。対象と非恒等射の値を次で定める。
 
 $$
 D(0)=\{0,1\},\quad D(1)=\{a,b\},\quad
@@ -68,7 +68,7 @@ $$
 
 **定義の確認：一本の矢印への錐。** $D(0)=A$、$D(1)=B$、$D(u)=f:A\to B$ とする。頂点 $N$ の錐とは $a:N\to A$、$b:N\to B$ で $b=f\circ a$ を満たすもの。例えば $N=A$ なら $(1_A,f)$ は錐になる。実際、非恒等射 $u$ について $D(u)1_A=f=b$ であり、恒等射についても $1_Aa=a$、$1_Bb=b$ と確認できる。逆にどの $a:N\to A$ からも $b=f\circ a$ が一意に決まり、錐となる。
 
-**定義の確認：二本の矢印への錐。** $A\overset p\to C\overset q\leftarrow B$ の形を持つ図式の錐は三つの脚 $a:N\to A$、$b:N\to B$、$c:N\to C$ で
+**例：二本の矢印への錐。** $A\overset p\to C\overset q\leftarrow B$ の形を持つ図式の錐は三つの脚 $a:N\to A$、$b:N\to B$、$c:N\to C$ で
 
 $$
 c=p\circ a=q\circ b
@@ -359,6 +359,6 @@ $$
 **4. Homとの照合。** $L=0$ に対して $\operatorname{Hom}_P(0,0)$ は恒等射だけの一元集合で、$\operatorname{Nat}(\Delta0,D)$ も1の唯一の錐からなる一元集合。$x=a,b,1$ では $\operatorname{Hom}_P(x,0)=\varnothing$ であり、錐も存在しないから右辺も空集合である。すべての $x$ で全単射があり、[錐関手の表現可能性による判定](#prop-cat2-01-limit-representable)と一致する。$\square$
 <!-- solution-end -->
 
-## 7. 次の問いへ
+## 7. 終対象と積へ
 
 図式を選べば、錐はその形に沿った整合条件で定まる。極限はその整合条件を、任意の頂点からの射の一意な対応として実現する対象であり、存在するとき錐として一意な同型を除いて決まる。次の CAT2-02 では、空図式と離散図式から現れた**終対象と積**を一般の圏で構成し、有限積の仕組みを詳しく調べる。
