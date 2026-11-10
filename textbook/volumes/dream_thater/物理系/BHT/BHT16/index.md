@@ -15,7 +15,15 @@ ds_L^2=-f(r)dt^2+\frac{dr^2}{f(r)}+r^2d\Omega_2^2,
 \qquad f(r)=1-\frac{2GM}{r}+\frac{r^2}{L^2}.
 $$
 
-$M>0$ は、熱的AdSを零点に取る保存質量です。$r=r_+>0$ を $f$ の最大の正の零点（外側の地平線）とします。この模型では $f'(r)=2GM/r^2+2r/L^2>0$ なので正の零点は一つだけです。$t=-i\tau$ とすると $r\ge r_+$ に正定値Euclid計量が得られます。地平線なしの比較候補は、$M=0$ とした $f_0(r)=1+r^2/L^2$ を使う**熱的AdS**で、Euclid時間の円周は中心 $r=0$ まで縮まらず、空間の球面だけが中心で縮みます。
+$M>0$ は、熱的AdSを零点に取る保存質量です。$r=r_+>0$ を $f$ の最大の正の零点（外側の地平線）とします。以下、プライム $f'(r)=df/dr$ は $M,L$ を固定して面積半径 $r$ で微分する記法です。この模型では
+
+$$
+f'(r)=\frac{2GM}{r^2}+\frac{2r}{L^2}>0\qquad(r>0)
+$$
+
+従って正の零点は一つだけです。$t=-i\tau$ とすると $r\ge r_+$ に正定値Euclid計量が得られます。
+
+地平線なしの比較候補は、$M=0$ とした $f_0(r)=1+r^2/L^2$ を使う**熱的AdS**です。熱的AdSではEuclid時間の円周は中心 $r=0$ まで縮まらず、空間の球面だけが中心で縮みます。
 
 無限遠では $f(R)\to\infty$ だから、切断半径 $R$ での固有円周長は $\beta\sqrt{f(R)}$ と発散します。したがって比較すべきは無限遠の生の固有長ではなく、$R$ を取り払う前に一致させた境界計量です。[BHT13のDirichlet条件](../BHT13/index.md#def-bht13-dirichlet-data)と[背景差引き](../BHT13/index.md#def-bht13-matched-subtraction)を、ここでも使います。
 
@@ -34,7 +42,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht16-ads-canonical -->
-**定義の確認**：同じ半径 $R$ で両者の2球は面積 $4\pi R^2$ と一致します。時間方向は $g_{\tau\tau}=f(R)$ と $f_0(R)$ で異なりますが、上式の $\beta_0$ を選ぶと両者の円周長の二乗が $\beta^2f(R)=\beta_0^2f_0(R)$ と一致します。$M>0$ では $f(R)<f_0(R)$ なので $\beta_0<\beta$ です。**同じ座標周期を無理に置く**と有限 $R$ で誘導計量が一致しません。
+**定義の確認**：両者の時間円周を共通の周期1の角座標 $u$ で表し、Schwarzschild–AdS側を $\tau=\beta u$、熱的AdS側を $\tau_0=\beta_0u$ とします。同じ切断半径 $R>r_+$ で誘導計量は
+
+$$
+h_{\rm BH}=\beta^2f(R)\,du^2+R^2d\Omega_2^2,\qquad
+h_0=\beta_0^2f_0(R)\,du^2+R^2d\Omega_2^2.
+$$
+
+2球部分は両者とも面積 $4\pi R^2$ です。時間方向も定義の $\beta_0>0$ を選ぶと $\beta^2f(R)=\beta_0^2f_0(R)$ となるため、円周長だけでなく誘導計量の各成分が一致します。$M>0$ では $0<f(R)<f_0(R)$ なので $0<\beta_0<\beta$ です。**同じ座標周期を無理に置く**と有限 $R$ で誘導計量が一致しません。
 <!-- definition-example-end -->
 
 共形境界の形だけを固定するので、$\beta$ はこの代表計量に対する逆温度です。有限半径の局所温度は $1/[\beta\sqrt{f(R)}]$ であり、境界の $1/\beta$ と同一視しません。[BHT12のEuclid正則周期](../BHT12/index.md#thm-bht12-nonextremal-period)が地平線を滑らかにすることで、正則ブラックホール候補の $\beta$ が決まります。
@@ -49,7 +64,16 @@ $$
 2GM=r_+\left(1+\frac{r_+^2}{L^2}\right).
 $$
 
-質量を独立のパラメータとする代わりに、$r_+>0$ を動かして正則ブラックホールの一変数族を調べられます。面積は $A=4\pi r_+^2$ です。[BHT9の面積エントロピー](../BHT9/index.md#thm-bht9-area-difference)をこの非極限Einstein地平線へ使うと $S=A/(4G)$ です。
+質量を独立のパラメータとする代わりに、$r_+>0$ を動かして正則ブラックホールの一変数族を調べられます。ここでの半径微分 $dM/dr_+$ は $L,G$ を固定して**解族に沿って**行うもので、先ほどの固定 $M$ の $f'(r)$ とは区別します。
+
+面積は $A=4\pi r_+^2$ です。[BHT9の面積エントロピー差の定理](../BHT9/index.md#thm-bht9-area-difference)は $\Lambda=0$ の漸近平坦な解族についての主張なので、AdSへ直接適用はできません。代わりに[BHT14の円錐先端の曲率寄与](../BHT14/index.md#def-bht14-conical-reduction)を局所的に使います。地平線でEuclid時間円周の開きを $2\pi\alpha$ としたとき、先端の曲率積分とEinstein–Hilbert作用への寄与は
+
+$$
+\int_{\rm tip}R[g]\sqrt g\,d^4x=4\pi(1-\alpha)A,\qquad
+I_{\rm tip}=-\frac{(1-\alpha)A}{4G}.
+$$
+
+宇宙定数項は滑らかな体積項であり、先端のデルタ状曲率の係数を変えません。従って、このEinstein重力の先頭古典エントロピーは $S=A/(4G)=\pi r_+^2/G$ です。これは $\Lambda=0$ の定理を仮定外へ拡張した結果ではなく、AdSの地平線に対する局所的な面積係数の確認です。
 
 <a id="prop-bht16-ads-state"></a>
 
@@ -126,7 +150,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-真空Einstein方程式の跡より $R[g]=4\Lambda=-12/L^2$、従って $R[g]-2\Lambda=-6/L^2$ です。Euclid計量の行列式は $\sqrt g=r^2\sin\theta$ なので、内端 $r_+$ を滑らかな円板の中心とするブラックホールでは
+真空Einstein方程式の跡より $R[g]=4\Lambda=-12/L^2$、従って $R[g]-2\Lambda=-6/L^2$ です。ここで $R[g]$ は計量 $g$ のスカラー曲率、引数のない $R$ は切断半径です。Euclid計量の行列式は $\sqrt g=r^2\sin\theta$ なので、内端 $r_+$ を滑らかな円板の中心とするブラックホールでは
 
 $$
 I_{\rm bulk}^{\rm BH}=\frac{3}{8\pi GL^2}\,
@@ -134,11 +158,17 @@ I_{\rm bulk}^{\rm BH}=\frac{3}{8\pi GL^2}\,
 =\frac\beta{2GL^2}(R^3-r_+^3).
 $$
 
-熱的AdSの内端 $r=0$ は滑らかで境界項を生まず、その体積項は $I_{\rm bulk}^{\rm AdS}=\beta_0R^3/(2GL^2)$ です。外端の単位法線は $n=\sqrt f\,\partial_r$。誘導計量 $h=f(R)d\tau^2+R^2d\Omega_2^2$ から
+熱的AdSの内端 $r=0$ は滑らかで境界項を生まず、その体積項は $I_{\rm bulk}^{\rm AdS}=\beta_0R^3/(2GL^2)$ です。
+
+外端では $f(R)>0$ なので単位法線は $n=\sqrt{f(R)}\,\partial_r$ です。[BHT13の静的球対称壁の外部曲率](../BHT13/index.md#prop-bht13-static-wall)を、誘導計量 $h=f(R)d\tau^2+R^2d\Omega_2^2$ に適用します。$h_{\tau\tau}=f(R)$ と球面の二つの対角成分 $R^2,R^2\sin^2\theta$ を法線方向に微分し、$h^{ij}$ で縮約すると
 
 $$
-K=\frac{f'(R)}{2\sqrt{f(R)}}+\frac{2\sqrt{f(R)}}R,
-\quad\int_{r=R}\sqrt h\,d^3y=4\pi\beta R^2\sqrt{f(R)}.
+\begin{aligned}
+K&=\frac12h^{ij}\mathcal L_nh_{ij}
+=\frac{\sqrt{f(R)}}2\left(\frac{f'(R)}{f(R)}+\frac2R+\frac2R\right)\\
+&=\frac{f'(R)}{2\sqrt{f(R)}}+\frac{2\sqrt{f(R)}}R,\\
+\int_{r=R}\sqrt h\,d^3y&=4\pi\beta R^2\sqrt{f(R)}.
+\end{aligned}
 $$
 
 ゆえにGHY項は
@@ -219,7 +249,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht16-ads-reduced -->
-**定義の確認**：$r=L$ かつ $\beta=\pi L$ では $M=L/G$、$S=\pi L^2/G$ なので $I_\beta(L)=\pi L^2/G-\pi L^2/G=0$。一方、$\beta=\pi L$ を保って $r=L/3$ とすると $I_\beta(L/3)=2\pi L^2/(27G)>0$ です。二つの半径で同じ外部温度を固定していることが計算の意味です。
+**定義の確認**：$r=L$ かつ $\beta=\pi L$ では $M=L/G$、$S=\pi L^2/G$ なので $I_\beta(L)=\pi L^2/G-\pi L^2/G=0$。一方、$\beta=\pi L$ を保って $r=L/3$ とすると $I_\beta(L/3)=2\pi L^2/(27G)>0$ です。
+
+さらに同じ固定 $\beta=\pi L$ で半径 $r$ だけを動かして微分すると
+
+$$
+I_\beta'(r)=\frac{\pi L}{2G}\left(1+\frac{3r^2}{L^2}-\frac{4r}{L}\right)
+=\frac{3\pi}{2GL}\left(r-\frac L3\right)(r-L).
+$$
+
+よって二つとも定義にいう停留点です。二階微分まで確認すると
+
+$$
+I_\beta'(L/3)=I_\beta'(L)=0,\qquad
+I_\beta''(L/3)=-\frac\pi G<0,\quad I_\beta''(L)=\frac\pi G>0.
+$$
+
+同じ境界温度の二候補でも半径方向の局所符号は異なります。これは全重力モードの安定性判定ではありません。
 <!-- definition-example-end -->
 
 <a id="thm-bht16-ads-branches"></a>
@@ -320,7 +366,16 @@ $$
 T(L)=\frac{1+3}{4\pi L}=\frac1{\pi L}.
 $$
 
-$L>L/\sqrt3$ なので交差点は大枝にあります。[二分岐定理](#thm-bht16-ads-branches)から大枝では $T'(r)>0$。従って $T_B<T_{\rm HP}$ の大枝は $r_+<L$ で $\Delta I_E>0$、逆に $T_B>T_{\rm HP}$ なら $r_+>L$ で $\Delta I_E<0$ です。小枝は常に $r_s<L/\sqrt3<L$ なので作用差は正です。熱的AdSの先頭重みを $e^0$ と選んだから、相対重み $e^{-\Delta I_E}$ の大小がこの符号で決まります。$T_B\le T_{\min}$ の根の個数についても同じ二分岐定理によります。
+交差点 $r_+=L$ は最小点 $L/\sqrt3$ より大きく、大枝にあります。[二分岐定理](#thm-bht16-ads-branches)から大枝では $T'(r)>0$ です。したがって
+
+$$
+\begin{aligned}
+T_{\min}<T_B<T_{\rm HP}&\ \Longrightarrow\ r_+<L\ \Longrightarrow\ \Delta I_E>0,\\
+T_B>T_{\rm HP}&\ \Longrightarrow\ r_+>L\ \Longrightarrow\ \Delta I_E<0.
+\end{aligned}
+$$
+
+小枝は常に $r_s<L/\sqrt3<L$ なので作用差は正です。熱的AdSの先頭重みを $e^0$ と選んだから、相対重み $e^{-\Delta I_E}$ の大小がこの符号で決まります。$T_B\le T_{\min}$ の根の個数についても上の二分岐定理によります。
 <!-- proof-end -->
 
 温度比は $T_{\rm HP}/T_{\min}=2/\sqrt3>1$ です。**熱容量が正に変わる温度と、熱的AdSを上回る温度は一致しません。** これは有限空洞で[局所極小と平坦背景の優勢がずれた例](../BHT15/index.md#prop-bht15-saddle-crossing)のAdS版です。
@@ -358,7 +413,7 @@ T_{\rm HP}\Delta S=\frac1{\pi L}\frac{\pi L^2}G
 \qquad \Delta F=\Delta M-T_{\rm HP}\Delta S=0.
 $$
 
-熱的AdS側とブラックホール側の $S=-\partial F/\partial T$ の先頭値が異なるため、競合サドルの最小自由エネルギーにはこの近似で傾きの飛びがあります。
+熱的AdS側とブラックホール側では、[BHT14の正準熱力学微分](../BHT14/index.md#def-bht14-saddle-weight)から導く $S=-\partial F/\partial T$ の先頭値が異なります。そのため、競合サドルの最小自由エネルギーにはこの近似で傾きの飛びがあります。微分では $G,L$ と境界の他のデータを固定します。
 <!-- proof-end -->
 
 ## 6. 何が成立し、何をまだ言えないか
@@ -440,8 +495,7 @@ $$
 
 $$
 \frac{1+3x^2}{4\pi Lx}=\frac1{\pi L}
-\Longleftrightarrow 3x^2-4x+1=0
-=(3x-1)(x-1).
+\Longleftrightarrow 3x^2-4x+1=(3x-1)(x-1)=0.
 $$
 
 よって $x=1/3,1$ の二つです。$1/3<1/\sqrt3<1$ なので、小枝・大枝をそれぞれ一つずつ与えます。
@@ -504,7 +558,7 @@ $$
 - 問題: $G,L>0$、$\Lambda=-3/L^2$ の4次元Euclid Einstein重力を考える。Schwarzschild–AdSの $f(r)=1-2GM/r+r^2/L^2$、正則周期 $\beta$、地平線 $r_+$、切断半径 $R>r_+$ とする。熱的AdSは $f_0=1+r^2/L^2$、周期 $\beta_0=\beta\sqrt{f(R)/f_0(R)}$ とする。$R[g]=-12/L^2$、$K=f'/(2\sqrt f)+2\sqrt f/R$ を用いて、両者の体積項とGHY項を計算し、差の $R\to\infty$ の極限を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[Euclid作用](../BHT13/index.md#def-bht13-euclidean-action)の体積被積分量は $-(R-2\Lambda)/(16\pi G)=3/(8\pi GL^2)$ です。$\sqrt g=r^2\sin\theta$ なので
+**詳細解答**：[Euclid作用](../BHT13/index.md#def-bht13-euclidean-action)の体積被積分量は $-(R[g]-2\Lambda)/(16\pi G)=3/(8\pi GL^2)$ です。$R[g]$ はスカラー曲率で、切断半径 $R$ とは異なります。$\sqrt g=r^2\sin\theta$ なので
 
 $$
 I_{\rm bulk}^{\rm BH}=\frac\beta{2GL^2}(R^3-r_+^3),\qquad
@@ -688,7 +742,7 @@ $$
 
 **（4）** 現在の $T_B=5/(4\pi L)$ は $T_{\rm HP}=1/(\pi L)$ より高いので、ここから冷やすと $T_{\rm HP}$ で大枝の相対作用が零になり、熱的AdSと先頭指数が等しくなります。$T_{\min}<T_B<T_{\rm HP}$ では大枝自体は存続して局所極小ですが熱的AdSより作用が高いです。さらに $T_{\min}=\sqrt3/(2\pi L)$ で二枝が合体し、それ未満では滑らかなブラックホール枝がなくなります。
 
-これは$S^1\times S^2$境界・固定$G,L$・純Einstein重力の指定サドルに関する半古典比較です。半径以外の重力変動、物質・放射、量子補正の寄与を計算していないため、全重力モードの安定性や有限$G$での厳密な非解析性までは導けません。
+これは $S^1\times S^2$ 境界・固定 $G,L$・純Einstein重力の指定サドルに関する半古典比較です。半径以外の重力変動、物質・放射、量子補正の寄与を計算していないため、全重力モードの安定性や有限 $G$ での厳密な非解析性までは導けません。
 <!-- solution-end -->
 
 ---
