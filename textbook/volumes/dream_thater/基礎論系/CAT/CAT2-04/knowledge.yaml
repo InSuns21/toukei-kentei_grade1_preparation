@@ -1,0 +1,40 @@
+chapter: CAT2-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-03
+  - CAT2-02
+  - CAT2-01
+  - CAT1-02
+
+concepts:
+  - id: category.small-product
+    name: 小さい積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（小さい積）"]
+    requires: [category.small-diagram, category.binary-product]
+  - id: category.limit-from-products-equalizers
+    name: 小さい積と等化子による極限の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（小さい積と等化子による極限の構成）"]
+    requires: [category.small-product, category.equalizer, category.limit]
+  - id: category.complete-category
+    name: 完備圏と有限完備圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完備圏と有限完備圏）"]
+    requires: [category.limit, category.small-diagram]
+  - id: category.completeness-criterion
+    name: 完備性の存在判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完備性の存在判定）"]
+    requires: [category.complete-category, category.limit-from-products-equalizers]
+  - id: category.finite-completeness-criterion
+    name: 有限極限の存在判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限極限の存在判定）"]
+    requires: [category.complete-category, category.finite-product, category.equalizer, category.limit-from-products-equalizers]

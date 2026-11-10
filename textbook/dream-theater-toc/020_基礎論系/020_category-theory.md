@@ -16,3 +16,4 @@
 13. [CAT2-01 図式・錐・極限](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-01/index.md)
 14. [CAT2-02 終対象と積](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-02/index.md)
 15. [CAT2-03 等化子と引き戻し](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-03/index.md)
+16. [CAT2-04 小図式の極限の構成](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-04/index.md)
