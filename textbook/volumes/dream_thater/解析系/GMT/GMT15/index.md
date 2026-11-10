@@ -302,7 +302,7 @@ $$
 \end{aligned}
 $$
 
-ここで最後の等式は上で証明した有限正の面積密度を使いました。任意の $\varepsilon$ で成立するため $V$ は近似接平面です。[GMT13のパラメータ表示からの独立性補題](../GMT13/index.md#lem-gmt13-chart-independence)により、この $V$ は同章の $T_xE$ と $\mu$-a.e.で一致します。可算個の片の例外の和は零なので定理が従います。$\square$
+ここで最後の等式は上で証明した有限正の面積密度を使いました。任意の $\varepsilon$ で成立するため $V$ は近似接平面です。[GMT13のパラメータ表示からの独立性補題](../GMT13/index.md#lem-gmt13-chart-independence)により、この $V$ は同章の $T_xE$ と $\mu$ に関してほとんどすべての点で一致します。可算個の片の例外の和は零なので定理が従います。$\square$
 <!-- proof-end -->
 
 ### 円錐の向きが一意になる理由
@@ -345,7 +345,7 @@ $$
 
 ### 重み付き測度の密度は重みを読む
 
-$E$ が定理の仮定を満たし、$g:E\to[0,\infty)$ が局所 $\mathcal H^m$-可積分なら、$\nu=g\,\mathcal H^m\llcorner E$ は局所有限です。[GMT1の球平均微分](../GMT1/index.md#thm-gmt1-function-differentiation)で $\mu$-a.e.の $x$ について
+$E$ が定理の仮定を満たし、$g:E\to[0,\infty)$ が局所 $\mathcal H^m$-可積分なら、$\nu=g\,\mathcal H^m\llcorner E$ は局所有限です。[GMT1の球平均微分](../GMT1/index.md#thm-gmt1-function-differentiation)で $\mu$ に関してほとんどすべての $x$ について
 
 $$
 \frac{\nu(B(x,r))}{\mu(B(x,r))}\longrightarrow g(x).
@@ -546,7 +546,7 @@ $P=\{(t,t^2):|t|\le1\}$、$L=\{(s,1):|s|\le1\}$、$E=P\cup L$ とする。次を
 1. $E$ は Borel、可算1整流可能で局所有限な $\mathcal H^1$ 測度を持つ。
 2. $x_0=(0,0)$ で $D^1(E,x_0)=1$、近似接線は水平線である。
 3. $x_1=(1,1)$ において、$\mathcal H^1(E\cap B(x_1,r))/(2r)$ の極限を計算し、なぜ定理の結論に反しないか説明せよ。
-4. 一般の $\mathcal H^1$-a.e. $x\in E$ において、接線と平面基準密度の結論がなぜ成り立つか、使用する既習結果を列挙して論証せよ。
+4. 一般の $\mathcal H^1$ に関してほとんどすべての $x\in E$ において、接線と平面基準密度の結論がなぜ成り立つか、使用する既習結果を列挙して論証せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -576,9 +576,9 @@ $$
 =\frac{r+o(r)+r}{2r}\longrightarrow1.
 $$
 
-密度が1でも、互いに異なる二方向の半直線が交わるため、$x_1$ では近似接線が存在しません（どの直線にも一方の半直線が一定の角度で外れ、円錐外長さは $r+o(r)$ 以上残ります）。これは $\mathcal H^1$-零集合である交点で起きており、定理の「a.e.」に反しません。
+密度が1でも、互いに異なる二方向の半直線が交わるため、$x_1$ では近似接線が存在しません（どの直線にも一方の半直線が一定の角度で外れ、円錐外長さは $r+o(r)$ 以上残ります）。これは $\mathcal H^1$-零集合である交点で起きており、定理の「ほとんどすべての点」に反しません。
 
-**4. 一般の典型点。** $P,L$ はそれぞれ双Lipschitzなパラメータ片へ分解できます。[GMT9のRademacher定理](../GMT9/index.md#thm-gmt9-rademacher)、[HA1の密度定理](../../HA/HA1/index.md#cor-ha1-density)と [Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)で、微分・Jacobianの典型点を取れます。[本章の双Lipschitz片補題](#lem-gmt15-chart-blowup)で各片の小球面積と円錐条件を得て、[GMT1の測度微分定理](../GMT1/index.md#thm-gmt1-measure-differentiation)により他の片の比率を消します。従って [本章の定理](#thm-gmt15-rectifiable-density-tangent)の密度1と近似接平面が $\mathcal H^1$-a.e.で成立します。交点や端点など有限個の例外は零測度です。
+**4. 一般の典型点。** $P,L$ はそれぞれ双Lipschitzなパラメータ片へ分解できます。[GMT9のRademacher定理](../GMT9/index.md#thm-gmt9-rademacher)、[HA1の密度定理](../../HA/HA1/index.md#cor-ha1-density)と [Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)で、微分・Jacobianの典型点を取れます。[本章の双Lipschitz片補題](#lem-gmt15-chart-blowup)で各片の小球面積と円錐条件を得て、[GMT1の測度微分定理](../GMT1/index.md#thm-gmt1-measure-differentiation)により他の片の比率を消します。従って [本章の定理](#thm-gmt15-rectifiable-density-tangent)の密度1と近似接平面が $\mathcal H^1$ に関してほとんどすべての点で成立します。交点や端点など有限個の例外は零測度です。
 <!-- solution-end -->
 
 ## まとめ
