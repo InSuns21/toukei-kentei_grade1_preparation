@@ -1,0 +1,29 @@
+chapter: CAT1-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-06
+  - CAT1-07
+  - CAT1-08
+  - CAT1-10
+
+concepts:
+  - id: category.contravariant-yoneda-lemma
+    name: 反変Yonedaの補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反変Yonedaの補題）"]
+    requires: [category.contravariant-hom-functor, category.natural-transformation]
+  - id: category.covariant-yoneda-lemma
+    name: 共変Yonedaの補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共変Yonedaの補題）"]
+    requires: [category.covariant-hom-functor, category.natural-transformation]
+  - id: category.yoneda-bivariable-naturality
+    name: Yoneda対応の二変数自然性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Yoneda対応の二変数自然性）"]
+    requires: [category.contravariant-yoneda-lemma, category.covariant-yoneda-lemma]
