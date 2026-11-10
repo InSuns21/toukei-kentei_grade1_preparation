@@ -461,7 +461,7 @@ $$
 
 [半順序圏の随伴判定](../CAT2-08/index.md#thm-cat2-08-poset)で $F:P\to Q$、$G:Q\to P$ が $Fp\le q\iff p\le Gq$ を満たすとする。恒等関係 $Fp\le Fp$ を転置すると単位 $p\le GFp$、$Gq\le Gq$ を逆転置すると余単位 $FGq\le q$ が得られる。
 
-第一の三角合成では単位 $p\le GFp$ に単調写像 $F$ を適用し、続けて余単位を対象 $Fp$ で使う。第二の三角合成では単位を対象 $Gq$ で使い、続けて余単位 $FGq\le q$ に $G$ を適用する。従ってそれぞれ
+第一の三角合成では単位 $p\le GFp$ という射に関手 $F$ を適用し、続けて余単位を対象 $Fp$ で使う。第二の三角合成では単位を対象 $Gq$ で使い、続けて余単位 $FGq\le q$ という射に関手 $G$ を適用する。従ってそれぞれ
 
 $$
 Fp\xrightarrow{F(\eta_p)}FGFp\xrightarrow{\varepsilon_{Fp}}Fp,
