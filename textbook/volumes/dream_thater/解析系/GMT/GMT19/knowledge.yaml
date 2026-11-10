@@ -1,0 +1,99 @@
+chapter: GMT19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00D2B
+  - MT5
+  - MT8
+  - GMT1
+  - GMT10
+  - GMT13
+  - GMT15
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt19-blow-up
+    name: blow-up写像と測度の規格化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（blow-up写像と測度の規格化）"]
+    requires:
+      - measure.radon-measure
+
+  - id: geometric-measure.gmt19-vague
+    name: 局所弱収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所弱収束）"]
+    requires:
+      - geometric-measure.gmt19-blow-up
+
+  - id: geometric-measure.gmt19-tangent
+    name: 接測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接測度）"]
+    requires:
+      - geometric-measure.gmt19-vague
+
+  - id: geometric-measure.gmt19-doubling
+    name: 点での局所倍加性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点での局所倍加性）"]
+    requires:
+      - measure.radon-measure
+
+  - id: geometric-measure.gmt19-vague-compactness
+    name: 測度の局所弱コンパクト性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（測度の局所弱コンパクト性）"]
+    requires:
+      - geometric-measure.gmt19-vague
+      - measure.riesz-markov-positive
+
+  - id: geometric-measure.gmt19-doubling-tangent
+    name: 局所倍加点での接測度の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所倍加点での接測度の存在）"]
+    requires:
+      - geometric-measure.gmt19-tangent
+      - geometric-measure.gmt19-doubling
+      - geometric-measure.gmt19-vague-compactness
+
+  - id: geometric-measure.gmt19-rescaling
+    name: 接測度の再拡大不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接測度の再拡大不変性）"]
+    requires:
+      - geometric-measure.gmt19-tangent
+
+  - id: geometric-measure.gmt19-cone
+    name: 拡大不変集合と平面の接測度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（拡大不変集合と平面の接測度）"]
+    requires:
+      - geometric-measure.gmt19-tangent
+      - geometric-measure.gmt10-hausdorff-normalization
+
+  - id: geometric-measure.gmt19-smooth-flat
+    name: 滑らかな曲面の平坦な接測度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな曲面の平坦な接測度）"]
+    requires:
+      - geometric-measure.gmt19-tangent
+      - geometric-measure.gmt13-rectifiable-area
+
+  - id: geometric-measure.gmt19-flat-approximate
+    name: 全スケール平坦極限から近似接平面へ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全スケール平坦極限から近似接平面へ）"]
+    requires:
+      - geometric-measure.gmt19-vague
+      - geometric-measure.gmt15-approximate-tangent

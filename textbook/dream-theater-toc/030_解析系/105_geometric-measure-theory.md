@@ -19,3 +19,4 @@
 16. [GMT16 純非整流性と分解・反例](textbook/volumes/dream_thater/解析系/GMT/GMT16/index.md)
 17. [GMT17 Besicovitch--Federer射影判定 I](textbook/volumes/dream_thater/解析系/GMT/GMT17/index.md)
 18. [GMT18 Besicovitch--Federer射影判定 II](textbook/volumes/dream_thater/解析系/GMT/GMT18/index.md)
+19. [GMT19 blow-upと接測度の基礎](textbook/volumes/dream_thater/解析系/GMT/GMT19/index.md)
