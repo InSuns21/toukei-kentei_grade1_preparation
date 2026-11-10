@@ -48,7 +48,14 @@ $$
 
 一つの対象 $N$ から各 $D(j)$ へ射を送るとき、その射たちが $D(u)$ と両立することを要求する。$N$ から各対象への射を全部並べた族を**脚**と呼び、整合条件を満たす脚の集まりを錐と呼ぶ。
 
-まず $N\in\mathcal C$ に対する**定値図式** $\Delta N:\mathcal J\to\mathcal C$ を、すべての対象 $j$ を $N$ に、すべての射 $u$ を $1_N$ に送る関手とする。$1_N\circ1_N=1_N$ なので関手の合成保存が成り立つ。ここで、各 $j$ で成分 $\lambda_j:N\to D(j)$ を持つ[自然変換の自然性](../CAT1-07/index.md#def-cat1-07-natural-transformation)は、まさしく $D(u)\lambda_i=\lambda_j$ になる。
+まず $N\in\mathcal C$ に対する**定値図式** $\Delta N:\mathcal J\to\mathcal C$ を、すべての対象 $j$ を $N$ に、すべての射 $u$ を $1_N$ に送る関手とする。恒等射は $1_N$ に移り、$1_N\circ1_N=1_N$ なので合成も保存される。各 $j$ で成分 $\lambda_j:N\to D(j)$ を持つ[自然変換の自然性](../CAT1-07/index.md#def-cat1-07-natural-transformation)は、射 $u:i\to j$ ごとに
+
+$$
+D(u)\circ\lambda_i=\lambda_j\circ\Delta N(u)
+=\lambda_j\circ1_N=\lambda_j
+$$
+
+となる。以下、射の合成では $gf$ を $g\circ f$ の略記としても用いる（右の射 $f$ から先に適用する）。
 
 <a id="def-cat2-01-cone"></a>
 
@@ -66,7 +73,13 @@ $$
 <!-- definition-example-start: def-cat2-01-cone -->
 **定義の確認**
 
-**定義の確認：一本の矢印への錐。** $D(0)=A$、$D(1)=B$、$D(u)=f:A\to B$ とする。頂点 $N$ の錐とは $a:N\to A$、$b:N\to B$ で $b=f\circ a$ を満たすもの。例えば $N=A$ なら $(1_A,f)$ は錐になる。実際、非恒等射 $u$ について $D(u)1_A=f=b$ であり、恒等射についても $1_Aa=a$、$1_Bb=b$ と確認できる。逆にどの $a:N\to A$ からも $b=f\circ a$ が一意に決まり、錐となる。
+**定義の確認：一本の矢印への錐。** $D(0)=A$、$D(1)=B$、$D(u)=f:A\to B$ とする。頂点 $N$ の錐とは $a:N\to A$、$b:N\to B$ で $b=f\circ a$ を満たすもの。例えば $N=A$ なら $(1_A,f)$ は錐になる。非恒等射 $u$ と二つの恒等射について、それぞれ
+
+$$
+D(u)\circ1_A=f,\qquad 1_A\circ1_A=1_A,\qquad 1_B\circ f=f
+$$
+
+と確認できる。逆にどの $a:N\to A$ からも $b=f\circ a$ が一意に決まり、錐となる。
 
 **例：二本の矢印への錐。** $A\overset p\to C\overset q\leftarrow B$ の形を持つ図式の錐は三つの脚 $a:N\to A$、$b:N\to B$、$c:N\to C$ で
 
@@ -83,7 +96,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（錐の射と錐の圏）**
-> 小さい $\mathcal J$ 上の図式 $D:\mathcal J\to\mathcal C$ について、**錐の圏** $\operatorname{Cone}(D)$ の対象は錐 $(N,\mu)$、射 $h:(N,\mu)\to(M,\nu)$ は $\mathcal C$ の射 $h:N\to M$ で、全ての $j\in\mathcal J$ に対し $\nu_jh=\mu_j$ を満たすものとする。恒等射と合成は $\mathcal C$ から受け継ぐ。
+> 小さい $\mathcal J$ 上の図式 $D:\mathcal J\to\mathcal C$ について、**錐の圏** $\operatorname{Cone}(D)$ の対象は錐 $(N,\mu)$、射 $h:(N,\mu)\to(M,\nu)$ は $\mathcal C$ の射 $h:N\to M$ で、全ての $j\in\operatorname{Ob}(\mathcal J)$ に対し $\nu_jh=\mu_j$ を満たすものとする。恒等射と合成は $\mathcal C$ から受け継ぐ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat2-01-cone-category -->
@@ -112,7 +125,13 @@ $$
 <!-- definition-example-start: def-cat2-01-limit -->
 **定義の確認**
 
-**定義の確認：一本の矢印の極限。** $D(0)=A$、$D(1)=B$、$D(u)=f:A\to B$ とする。頂点 $A$、脚 $\lambda_0=1_A$、$\lambda_1=f$ の錐は第3節で確認した。任意の錐 $(N,a,b)$ は $b=f a$ を満たすので $h=a:N\to A$ と置けば $1_Ah=a$、$fh=b$。逆にこの二等式を満たす $h'$ は第1式により $h'=a$ である。**存在と一意性の双方を検証**したので、この図式の極限は $A$ である。値域 $B$ でも射 $f$ の単射性も要求していない。
+**定義の確認：一本の矢印の極限。** $D(0)=A$、$D(1)=B$、$D(u)=f:A\to B$ とする。頂点 $A$、脚 $\lambda_0=1_A$、$\lambda_1=f$ の錐は第3節で確認した。任意の錐 $(N,a,b)$ は $b=fa$ を満たす。そこで $h=a:N\to A$ と置けば
+
+$$
+\lambda_0h=1_Aa=a,\qquad \lambda_1h=fa=b
+$$
+
+となり、脚を同時に保つ射が存在する。逆にこの二等式を満たす $h'$ は第1式により $h'=a$ である。**存在と一意性の双方を検証**したので、この図式の極限は $A$ である。射 $f$ に単射性や同型性は要求していない。
 <!-- definition-example-end -->
 
 ### 空の図式と離散図式
@@ -173,13 +192,32 @@ $$
 なので $uv=1_{L'}$。ゆえに $u$ は逆 $v$ を持つ[同型射](../CAT1-03/index.md#def-cat1-03-isomorphism)である。さらに全ての脚を保つ $L\to L'$ の射は最初の極限条件によってただ一つなので、同型 $u$ の一意性も従う。$\square$
 <!-- proof-end -->
 
-普遍性をHom集合で言い換えると、次の命題が得られる。各 $N$ から図式へ送る錐の集まりを $\operatorname{Cone}_D(N)$ と書く。$\mathcal J$ が小さく $\mathcal C$ が局所小であれば
+普遍性をHom集合で言い換えると、次の命題が得られる。各 $N$ から図式へ送る錐の集まりを $\operatorname{Cone}_D(N)$ と書き、自然変換 $\Delta N\Rightarrow D$ 全体の集合を $\operatorname{Nat}(\Delta N,D)$ と記す。$\mathcal J$ が小さく $\mathcal C$ が局所小であれば
 
 $$
 \operatorname{Cone}_D(N)=\operatorname{Nat}(\Delta N,D)
 $$
 
-は集合となる。実際、各脚は集合 $\operatorname{Hom}_{\mathcal C}(N,D(j))$ の元であり、錐はそれらの小さい添字の直積のうち整合条件を満たす部分集合だからである。射 $t:M\to N$ は錐 $\mu$ を $\mu_jt$ へ送るので、$N\mapsto\operatorname{Cone}_D(N)$ は反変集合値関手となる。これは第10講で学んだ[反変表現可能関手](../CAT1-10/index.md#def-cat1-10-contra-representable)と比較できる。
+は集合となる。実際、各脚は集合 $\operatorname{Hom}_{\mathcal C}(N,D(j))$ の元であり、錐はそれらの小さい添字の直積のうち整合条件を満たす部分集合だからである。射 $t:M\to N$ に対して、$\operatorname{Cone}_D(t)$ は頂点 $N$ の錐 $\mu$ を、各脚が $\mu_jt:M\to D(j)$ である頂点 $M$ の錐へ送る写像と定める。実際、任意の $u:i\to j$ に対し
+
+$$
+D(u)(\mu_i t)=(D(u)\mu_i)t=\mu_jt
+$$
+
+だから錐の整合条件を保つ。また、頂点 $P$ の錐 $\mu$ と射 $s:N\to P$、$t:M\to N$ を取ると各脚で
+
+$$
+(\mu_j s)t=\mu_j(st),\qquad \mu_j1_P=\mu_j
+$$
+
+が成り立つ。従って
+
+$$
+\operatorname{Cone}_D(st)=\operatorname{Cone}_D(t)\circ\operatorname{Cone}_D(s),
+\qquad \operatorname{Cone}_D(1_P)=1_{\operatorname{Cone}_D(P)}
+$$
+
+であり、$N\mapsto\operatorname{Cone}_D(N)$ は反変集合値関手となる。これは第10講で学んだ[反変表現可能関手](../CAT1-10/index.md#def-cat1-10-contra-representable)と比較できる。
 
 <a id="prop-cat2-01-limit-representable"></a>
 
@@ -209,7 +247,7 @@ $$
 D(u)(\lambda_i h)=(D(u)\lambda_i)h=\lambda_jh,
 $$
 
-なので $\Phi_N$ はwell-definedである。$\lambda$ が極限錐なら、任意の錐 $\mu$ に対し唯一の $h$ が $\lambda_jh=\mu_j$ を満たす。これは $\Phi_N$ の全射性と単射性を同時に意味する。逆にすべての $\Phi_N$ が全単射なら、任意の錐 $\mu$ は唯一の逆像 $h=\Phi_N^{-1}(\mu)$ を持ち、極限の普遍性になる。
+なので $\Phi_N$ は錐への写像として矛盾なく定まる。$\lambda$ が[極限錐](#def-cat2-01-limit)なら、任意の錐 $\mu$ に対し唯一の $h$ が $\lambda_jh=\mu_j$ を満たす。これは $\Phi_N$ の全射性と単射性を同時に意味する。逆にすべての $\Phi_N$ が全単射なら、任意の錐 $\mu$ は唯一の逆像 $h=\Phi_N^{-1}(\mu)$ を持ち、極限の普遍性になる。
 
 射 $t:M\to N$ に対して、Hom関手側では $h\mapsto h t$、錐側では $\mu\mapsto(\mu_j t)_j$ である。実際、
 
@@ -252,7 +290,7 @@ $D(0)=\{0,1\}$、$D(1)=\{a,b\}$、$D(u)(0)=D(u)(1)=a$ とする。頂点 $N=\{*\
 $A=B=\{0,1\}$、$C=\{0,1\}$ とし、$p:A\to C$ を恒等写像、$q:B\to C$ を $q(0)=q(1)=0$ とする。頂点 $N=\{*\}$ からの錐を全て求めよ。
 
 <!-- solution-start -->
-**詳細解答**。脚を $a(* )=s\in A$、$b(*)=t\in B$、$c(*)=r\in C$ と置く。二本の矢印に関する自然性は $r=p(s)=s$ と $r=q(t)=0$。従って $s=r=0$、$t\in\{0,1\}$ は任意であり、$(a(*),b(*),c(*))=(0,0,0),(0,1,0)$ の二つ。恒等射での条件は自明に成立し、これ以外の射はないので列挙は尽くされている。
+**詳細解答**。脚を $a(*)=s\in A$、$b(*)=t\in B$、$c(*)=r\in C$ と置く。二本の矢印に関する自然性は $r=p(s)=s$ と $r=q(t)=0$。従って $s=r=0$、$t\in\{0,1\}$ は任意であり、$(a(*),b(*),c(*))=(0,0,0),(0,1,0)$ の二つ。恒等射での条件は自明に成立し、これ以外の射はないので列挙は尽くされている。
 <!-- solution-end -->
 
 ### CAT2-01-A04 錐の射を合成する
@@ -292,7 +330,19 @@ $A=B=\{0,1\}$、$C=\{0,1\}$ とし、$p:A\to C$ を恒等写像、$q:B\to C$ を
 図式 $D$ の二つの極限錐 $(L,\lambda)$、$(M,\nu)$ を取る。$u:L\to M$、$v:M\to L$ を普遍性から構成し、$uv$ と $vu$ を計算して互いに逆射であることを示せ。なぜ $L=M$ と主張できないのかも述べよ。
 
 <!-- solution-start -->
-**詳細解答**。$(M,\nu)$ の普遍性を $(L,\lambda)$ に適用し、唯一の $u$ を $\nu_ju=\lambda_j$ で定義する。同様に $(L,\lambda)$ の普遍性から $\lambda_jv=\nu_j$ となる $v$ を得る。$\lambda_jvu=\nu_ju=\lambda_j$ と $\lambda_j1_L=\lambda_j$ は共に $(L,\lambda)$ への脚保存条件なので一意性より $vu=1_L$。$\nu_juv=\lambda_jv=\nu_j$ から $uv=1_M$。従って $u,v$ は逆同型射。定義は対象を同じ元として同定するのではなく、二つの対象の間の射の存在一意を述べるものなので等号 $L=M$ は結論できない。
+**詳細解答**。$(M,\nu)$ の普遍性を $(L,\lambda)$ に適用し、$\nu_ju=\lambda_j$ を満たす唯一の $u:L\to M$ を得る。逆向きも $(L,\lambda)$ の普遍性から $\lambda_jv=\nu_j$ となる $v:M\to L$ を得る。全ての $j$ で
+
+$$
+\lambda_j(vu)=(\lambda_jv)u=\nu_ju=\lambda_j=\lambda_j1_L
+$$
+
+だから、[極限錐の定義](#def-cat2-01-limit)の一意性より $vu=1_L$。同様に実際の脚を計算すると
+
+$$
+\nu_j(uv)=(\nu_ju)v=\lambda_jv=\nu_j=\nu_j1_M
+$$
+
+なので $uv=1_M$。従って $u,v$ は逆同型射。極限の定義は二つの対象の間の射の存在一意を述べるものであり、対象の等号 $L=M$ は結論できない。
 <!-- solution-end -->
 
 ### CAT2-01-B03 錐関手の自然性を型付きで調べる
@@ -302,7 +352,15 @@ $A=B=\{0,1\}$、$C=\{0,1\}$ とし、$p:A\to C$ を恒等写像、$q:B\to C$ を
 $\mathcal C$ を局所小、$\mathcal J$ を小さい圏とし、図式 $D$ の極限錐 $(L,\lambda)$ を取る。射 $t:M\to N$、$h:N\to L$ に対し、$\Phi_M(ht)=\operatorname{Cone}_D(t)(\Phi_N(h))$ を証明し、双方の型を記せ。
 
 <!-- solution-start -->
-**詳細解答**。$\Phi_N(h)$ は頂点 $N$ の錐 $(\lambda_jh)_j$ であり、$\operatorname{Cone}_D(t)$ は各脚を $t$ で前合成して頂点 $M$ の錐を作る。よって右辺は $((\lambda_jh)t)_j$。左辺は $ht:M\to L$ を入れた $\Phi_M$ の値だから $(\lambda_j(ht))_j$。$\mathcal C$ の合成の結合律で両者は成分ごとに一致し、いずれも $\operatorname{Nat}(\Delta M,D)$ の元である。$\mathcal C$ の局所小性と $\mathcal J$ の小ささにより両辺は集合間の写像として扱える。
+**詳細解答**。$\Phi_N(h)$ は頂点 $N$ の錐 $(\lambda_jh)_j$ であり、$\operatorname{Cone}_D(t)$ は各脚を $t$ で前合成して頂点 $M$ の錐を作る。右辺と左辺を成分で比べると、合成の結合律により
+
+$$
+\bigl(\operatorname{Cone}_D(t)(\Phi_N(h))\bigr)_j
+=(\lambda_jh)t=\lambda_j(ht)
+=\bigl(\Phi_M(ht)\bigr)_j
+$$
+
+となる。$ht:M\to L$ だから両辺は $\operatorname{Nat}(\Delta M,D)$ の元である。$\mathcal C$ の局所小性と $\mathcal J$ の小ささにより、錐の全体が集合となり、これらは集合間の写像として扱える。
 <!-- solution-end -->
 
 ### CAT2-01-B04 極限が存在しない理由を突き止める
