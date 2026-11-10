@@ -26,7 +26,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（射影核方向の細円錐と正規化集中量）**
-> $E\subset\mathbb R^d$ を $\mathcal H^m(E)<\infty$ のBorel集合、$W\in G(d,d-m)$、$\delta>0$ とする。$x\in E$、$0<s<1$ に対して
+> 整数 $d\ge2$、$1\le m<d$ とする。$E\subset\mathbb R^d$ を $\mathcal H^m(E)<\infty$ のBorel集合、$W\in G(d,d-m)$、$\delta>0$ とする。$x\in E$、$0<s<1$ に対して
 
 $$
 D_{E,W,\delta}(x,s)
@@ -60,7 +60,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（疎な細円錐の零測度補題）**
-> $E\subset\mathbb R^d$ は純 $m$-非整流なBorel集合で $\mathcal H^m(E)<\infty$ とする。$W\in G(d,d-m)$ と $\delta>0$ を任意に固定する。このとき
+> 整数 $d\ge2$、$1\le m<d$ とする。$E\subset\mathbb R^d$ は純 $m$-非整流なBorel集合で $\mathcal H^m(E)<\infty$ とする。$W\in G(d,d-m)$ と $\delta>0$ を任意に固定する。このとき
 
 $$
 \mathcal H^m\{x\in E:L_{E,W,\delta}(x)=0\}=0.
@@ -166,7 +166,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（発散する円錐質量の零射影補題）**
-> $E\subset\mathbb R^d$ は $\mathcal H^m(E)<\infty$ のBorel集合、$W\in G(d,d-m)$、$\delta>0$ とする。$P=\pi_{W^\perp}$ として
+> 整数 $d\ge2$、$1\le m<d$ とする。$E\subset\mathbb R^d$ は $\mathcal H^m(E)<\infty$ のBorel集合、$W\in G(d,d-m)$、$\delta>0$ とする。$P=\pi_{W^\perp}$ として
 
 $$
 A_\infty=\{x\in E:L_{E,W,\delta}(x)=\infty\}
@@ -213,7 +213,7 @@ $M\to\infty$ で右辺は0となります。$\square$
 
 <!-- formal-statement-start -->
 > **定義（射影の繊維）**
-> $P:\mathbb R^d\to V$ を直交射影、$V\in G(d,m)$ とする。$z\in V$ 上の**繊維**とは、$z$ へ射影される元の点全体
+> 整数 $d\ge2$、$1\le m<d$ とする。$P:\mathbb R^d\to V$ を直交射影、$V\in G(d,m)$ とする。$z\in V$ 上の**繊維**とは、$z$ へ射影される元の点全体
 
 $$
 P^{-1}\{z\}=\{x\in\mathbb R^d:Px=z\}
@@ -232,7 +232,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（無限繊維の零射影補題）**
-> $E\subset\mathbb R^d$ を $\mathcal H^m(E)<\infty$ のBorel集合、$P:\mathbb R^d\to\mathbb R^m$ を1-Lipschitzな直交射影とする。このとき
+> 整数 $d\ge2$、$1\le m<d$ とする。$E\subset\mathbb R^d$ を $\mathcal H^m(E)<\infty$ のBorel集合とし、$m$ 平面への直交射影の値をその平面の正規直交座標で $\mathbb R^m$ と同一視した写像を $P:\mathbb R^d\to\mathbb R^m$ とする（$P$ は1-Lipschitz）。このとき
 
 $$
 \mathcal H^m\{z\in\mathbb R^m:\#(E\cap P^{-1}\{z\})=\infty\}=0.
@@ -246,26 +246,37 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$N_t(z)$ を繊維中で任意の二点間距離が $>t$ となる点の最大個数（存在しないとき0）とします。$E$ が有界でない場合は先に $E\cap\overline B(0,j)$ を考え、最後に $j\to\infty$ とします。有限 $\mathcal H^m$ の集合を直径 $<t$ の可算集合 $U_i$ で覆うと、$t$ より離れた点は一つの $U_i$ に二個入れません。よって
+まず $K\subset E$ がコンパクトな場合を示します。$N_{K,t}(z)$ を、$K\cap P^{-1}\{z\}$ の中で任意の二点間距離が $>t$ となる点の最大個数とします（空なら0）。コンパクト性によりこれは有限です。
+
+可測性も確認します。$N_{K,t}(z)\ge n$ となる $z$ の集合は、$n$ 個の点 $x_i\in K$ が同じ射影を持ち、相互距離が $t+1/\ell$ 以上であるような条件を $\ell\ge1$ にわたって合併したものです。各 $\ell$ で条件を満たす点の組は $K^n$ の閉集合、従ってコンパクトで、その射影先の集合もコンパクトです。よって超水準集合は可算個のコンパクト集合の合併でBorel、$N_{K,t}$ は可測です。
+
+$K$ を直径 $<t$ の可算集合 $U_i$ で覆います。$t$ より離れた点は一つの $U_i$ に二個入れません。閉包 $\overline U_i$ も同じ直径なので、
 
 $$
-N_t(z)\le\sum_i\mathbf1_{P(U_i)}(z).
+N_{K,t}(z)\le\sum_i\mathbf1_{P(\overline U_i)}(z).
 $$
 
-各 $P(U_i)$ は直径 $<t$ なので、その $m$ 次元測度は高々 $(\operatorname{diam}U_i)^m$ です。可測な球状被覆に取り替えても上界を任意に近付けられます。従って（必要なら外積分で）
+各 $P(\overline U_i)$ はコンパクト（従ってBorel）です。[射影のHausdorff面積上界](../GMT17/index.md#lem-gmt17-projection-lipschitz)を各閉包に適用すれば $\mathcal H^m(P(\overline U_i))\le(\operatorname{diam}U_i)^m$ であり、被覆の費用を増やさずに積分できます。従って
 
 $$
-\int N_t(z)\,d\mathcal H^m(z)
+\int N_{K,t}(z)\,d\mathcal H^m(z)
 \le\sum_i(\operatorname{diam}U_i)^m.
 $$
 
-被覆の下限と $t\downarrow0$ を取ると、$N_t(z)\uparrow N(z)=\#(E\cap P^{-1}\{z\})$ なので単調収束より
+被覆の下限を取ると右辺は $\mathcal H_t^m(K)$ で抑えられます。$t\downarrow0$ で $N_{K,t}(z)\uparrow N_K(z)=\#(K\cap P^{-1}\{z\})$ なので、単調収束より
 
 $$
-\int N(z)\,d\mathcal H^m(z)\le\mathcal H^m(E)<\infty.
+\int N_K(z)\,d\mathcal H^m(z)\le\mathcal H^m(K).
 $$
 
-左辺が有限だから $N(z)=\infty$ の点の集合は測度0です。$\square$
+一般のBorel集合 $E$ については、有限測度 $\mathcal H^m\llcorner E$ の内側正則性から、増大するコンパクト集合 $K_j\subset E$ で $\mathcal H^m(E\setminus\bigcup_jK_j)=0$ となるものを取れます。$N_{K_j}(z)$ は単調増加するので、上の積分評価をもう一度単調収束にかけると
+
+$$
+\int\#\left((\bigcup_jK_j)\cap P^{-1}\{z\}\right)\,d\mathcal H^m(z)
+\le\lim_{j\to\infty}\mathcal H^m(K_j)\le\mathcal H^m(E).
+$$
+
+残りの零面積集合 $E\setminus\bigcup_jK_j$ は[射影のHausdorff面積上界](../GMT17/index.md#lem-gmt17-projection-lipschitz)により零面積の集合にしか射影されません。その射影先を除けば、上の積分に現れる点数は $\#(E\cap P^{-1}\{z\})$ と一致します。従って無限繊維のある射影点は零面積集合をなします。$\square$
 <!-- proof-end -->
 
 ## 3. ほとんど全方向で「0か無限大か」を得る
@@ -302,7 +313,7 @@ F_j=\left\{\theta\in D:
 \Psi(B(\theta,t))\le jt^m\quad(0<t<1/j)\right\}
 $$
 
-と置きます。上極限が有限の点は、ある $F_j$ に入ります。$F_j$ はBorelなので、球面の表面積測度の内側正則性により、$F_j$ の中にあるコンパクト集合 $K$ を選んで $\sigma_m(F_j\setminus K)$ を任意に小さくできます。$\Psi(K)=0$ です。
+と置きます。上極限が有限の点は、ある $F_j$ に入ります。$F_j$ の不等式は有理数 $0<t<1/j$ のみに課しても同値です。実際、任意の実数 $t$ に対して有理数 $t_n\downarrow t$ を選び、球の包含と $\Psi$ の単調性から $\Psi(B(\theta,t))\le jt_n^m\to jt^m$ となります。従って球内容のBorel可測性から $F_j$ はBorelです。球面の表面積測度の内側正則性により、$F_j$ の中にあるコンパクト集合 $K$ を選んで $\sigma_m(F_j\setminus K)$ を任意に小さくできます。$\Psi(K)=0$ です。
 
 球面上の局所座標を一つ固定します。$B(\theta,t)$ が $K$ に当たる場合、$\eta\in K\cap B(\theta,t)$ を取ると
 
@@ -311,21 +322,28 @@ $$
 \qquad(2t<1/j).
 $$
 
-$\theta\in K$、$t$ が十分小さいとします。$B(\theta,t)\setminus K$ の各 $y$ に $u_y=\operatorname{dist}(y,K)/2$ を対応させます。5倍球被覆で互いに素な $B(y_i,u_i)$ を選べば、差集合は5倍球で覆われ、各球は $B(\theta,3t)\setminus K$ の中に収まります。さらに $B(y_i,5u_i)$ は $K$ から距離 $O(u_i)$ にあるため、直前の評価を使って
+$\theta\in K$、$t$ が十分小さいとします。$B(\theta,t)\setminus K$ の各 $y$ に $u_y=\operatorname{dist}(y,K)/2$ を対応させます。$\theta\in K$ なので $u_y<t/2$ です。5倍球被覆で互いに素な $B(y_i,u_i)$ を選ぶと、**元の小球**は $B(\theta,2t)\setminus K$ に収まり、その5倍球が $B(\theta,t)\setminus K$ を覆います。5倍球自体は $K$ と交わり得るので、これを差集合内に置いてはいけません。各中心に最近接する $\eta_i\in K$ を取れば $|y_i-\eta_i|=2u_i$ であり、
+
+$$
+B(y_i,5u_i)\subset B(\eta_i,7u_i),\qquad
+\Psi(B(y_i,5u_i))\le j(7u_i)^m
+$$
+
+が $7u_i<1/j$ のとき成り立ちます。元の小球は互いに素で、その球面積は小半径では $u_i^m$ に一様比較できるので、
 
 $$
 \begin{aligned}
 \Psi(B(\theta,t)\setminus K)
 &\le\sum_i\Psi(B(y_i,5u_i))\\
 &\le C_mj\sum_i u_i^m
-\le C'_mj\,\sigma_m(B(\theta,3t)\setminus K).
+\le C'_mj\,\sigma_m(B(\theta,2t)\setminus K).
 \end{aligned}
 $$
 
-最後は小球の表面積が $u_i^m$ と比較可能であることと、その球の互いの素性です。$K$ の表面積密度点では通常のLebesgue密度定理の被覆証明によって
+最後は小球の表面積が $u_i^m$ と比較可能であることと、その球の互いの素性です。$K$ の表面積密度点では[HA1のLebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)を球面の局所座標へ適用して
 
 $$
-t^{-m}\sigma_m(B(\theta,3t)\setminus K)\longrightarrow0.
+t^{-m}\sigma_m(B(\theta,2t)\setminus K)\longrightarrow0.
 $$
 
 $\Psi(K)=0$ なので $\Psi(B(\theta,t))=\Psi(B(\theta,t)\setminus K)$ です。これにより上密度が0となります。コンパクト集合で $F_j$ を表面積ほとんど至る所覆い、さらに $j$ の可算和を取ると、上密度が有限なら0という主張が得られます。$\square$
@@ -342,7 +360,13 @@ $$
 \mu\bigl(B(a,r)\cap(a+L(B))\bigr)
 $$
 
-と置きます。上限を取ったものは加法的とは限りませんが、各半径の測度が可算劣加法的なので $\Psi_a$ は外測度です。$C_a$ を、$K\cap B(a,\delta)\setminus\{a\}$ に向かう実在方向の集合とします。$D_a=S^m\setminus C_a$ に向かう点は存在せず、$\Psi_a(D_a)=0$ です。[密度二分法](#lem-gmt18-density-dichotomy)を $D_a$ に適用します。
+と置きます。上限を取ったものは加法的とは限りませんが、各半径の測度が可算劣加法的なので $\Psi_a$ は外測度です。
+
+$\Psi_a(B(\theta,t))$ は、固定した $r$ における開いた方向条件の指示関数を積分した下半連続関数の上限です。従って、$(\theta,t)$ についてBorel可測です。
+
+$C_a$ を、$K\cap B(a,\delta)\setminus\{a\}$ に向かう実在方向の集合とします。これは $1/j\le |y-a|\le\delta-1/k$ で切ったコンパクト部分（空の場合を除く）の方向像の可算和であり、Borelです。
+
+$D_a=S^m\setminus C_a$ に向かう点は存在せず、$\Psi_a(D_a)=0$ です。[密度二分法](#lem-gmt18-density-dichotomy)を $D_a$ に適用します。
 
 線形代数的には、単位軸 $\theta$ の周りの角半径 $t$ の球面キャップと、$|\pi_{\theta^\perp}(y-a)|<s|y-a|$ の円錐は $t\asymp s$ で一致します。実際、角 $\varphi$ が $0\le\varphi\le\pi/2$ なら
 
@@ -352,15 +376,19 @@ $$
 \frac{|\pi_{\theta^\perp}(y-a)|}{|y-a|}=\sin\varphi,
 $$
 
-なので、$0<s<1/4$ では $s$ の円錐を幅 $2s$ の球面キャップで挟めます。軸の正負両側を合わせて考えれば、正規化円錐量の $s\downarrow0$ 上極限は0か無限大、またはその軸に沿う別点が実在するという結論になります。
+なので、$0<s<1/4$ では円錐の単位方向集合は $\pm\theta$ を中心とする半径 $s$ の二つの球面キャップの和を含み、半径 $2s$ の二つのキャップの和に含まれます。
 
-一般の余次元 $q=d-m>1$ では、この余次元1の球面論法を、$m+1$ 個の座標の方向に適用して合成します。次の補題でこの合成を確認します。
+実際、軸との鋭角を $\varphi$ とすれば $\sin\varphi\le2\sin(\varphi/2)\le2\sin\varphi$ です。幅を $s$ から $2s$ へ替えたときの正規化の違いは高々 $2^m$ 倍です。
+
+両方の軸で[密度二分法](#lem-gmt18-density-dichotomy)を適用すると、正規化円錐量の $s\downarrow0$ 上極限は0か無限大、またはその軸に沿う別点が実在するという結論になります。
+
+一般の余次元 $q=d-m>1$ では、射影先の $m$ 座標と核の一座標からなる $(m+1)$ 次元部分空間を、核の各座標について用いて合成します。次の補題でこの合成を確認します。
 
 <a id="lem-gmt18-three-alternatives"></a>
 
 <!-- formal-statement-start -->
 > **補題（ほとんど全方向の幾何的三択補題）**
-> $K\subset\mathbb R^d$ を $\mathcal H^m(K)<\infty$ のコンパクト集合とし、$\delta>0$ とする。$\gamma_{d,d-m}$ ほとんどすべての $W\in G(d,d-m)$ に対し、$\mathcal H^m$ ほとんどすべての $a\in K$ は次の少なくとも一つを満たす。
+> 整数 $d\ge2$、$1\le m<d$ とする。$K\subset\mathbb R^d$ を $\mathcal H^m(K)<\infty$ のコンパクト集合とし、$\delta>0$ とする。$\gamma_{d,d-m}$ ほとんどすべての $W\in G(d,d-m)$ に対し、$\mathcal H^m$ ほとんどすべての $a\in K$ は次の少なくとも一つを満たす。
 >
 > - **（0）** $L_{K,W,\delta}(a)=0$。
 > - **（∞）** $L_{K,W,\delta}(a)=\infty$。
@@ -374,7 +402,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**余次元1。** $d=m+1$ では直前の球面構成により、固定した $a\in K$ についてほとんどすべての直線 $W=\mathbb R\theta$ に三択が成り立ちます。実在方向 $C_a$ は、$K\setminus\{a\}$ を $|y-a|\ge1/j$ で切ったコンパクト部分の方向像の可算和なのでBorelです。円錐の測度も半径・角度の可算な稠密値で近似できるため、三択が破れる点集合は測度可能です。
+**余次元1。** $d=m+1$ では直前の球面構成により、固定した $a\in K$ についてほとんどすべての直線 $W=\mathbb R\theta$ に三択が成り立ちます。実在方向 $C_a$ のBorel性は上で内外の半径を切ったコンパクト像から確認しました。円錐の測度も半径・角度の可算な稠密値で近似できるため、三択が破れる点集合は測度可能です。
 
 **一般次元の座標比較。** $q=d-m$ とおき、座標を $z=(u,w)\in\mathbb R^m\oplus\mathbb R^q$ に分けます。基準核 $W_0=\{0\}\oplus\mathbb R^q$ を取り、$\alpha(s)=s^2/(1-s^2)$ とします。条件 $|u|<s|z|$ の両辺を二乗して $|u|^2<s^2(|u|^2+|w|^2)$ と移項すると
 
@@ -392,7 +420,23 @@ $$
 
 しかも $s\downarrow0$ で $s_*/s\to\sqrt q$ です。各 $Z_j$ は、$u$ と一つの座標 $w_j$ が張る $\mathbb R^{m+1}$ の軸円錐を、残りの $q-1$ 座標方向へ延ばしたものです。
 
-**回転平均。** $O(d)$ を $\mathbb R^d$ の直交変換全体の集合とし、その上で左・右から直交変換を合成しても変わらない確率（Haar確率）に従って $g$ を選びます。一つの $j$ を固定し、まず $u,w_j$ の $m+1$ 次元部分だけを回す $k\in O(m+1)$ を選びます。残りの座標を固定したまま方向内容の上の構成を適用すると、ほとんど全 $k$ について、$gkZ_j(s)$ 内の質量の正規化上極限は0か無限大、または $a+gkW_0$ に別点が実在します。
+**回転平均。** $O(d)$ を直交変換全体とし、その左・右から直交変換を合成しても変わらない確率（Haar確率）に従って $g$ を選びます。
+
+一つの $j$ を固定し、$L_j=\mathbb R^m\oplus\mathbb Re_j\cong\mathbb R^{m+1}$、$p_j(u,w)=(u,w_j)$ を定めます。後者はこの部分空間への直交射影です。
+
+$g^{-1}(y-a)$ の全長を半径制限に使い、非零の $p_j(g^{-1}(y-a))$ の方向だけを $S^m$ に写した内容を考えます。$p_j=0$ の点は $Z_j(s)$ に入らないので除いて構いません。この内容も各半径の測度の上限であり、前節の外測度の議論が適用できます。
+
+$k\in O(m+1)$ は $L_j$ のみを回し、残りの $q-1$ 座標を固定するとします。回転後の座標を $(u_k,w_{j,k})=k^{-1}p_j(g^{-1}(y-a))$ とすれば、
+
+$$
+g^{-1}(y-a)\in kZ_j(s)
+\quad\Longleftrightarrow\quad
+|u_k|^2<\alpha(s)w_{j,k}^2
+\quad\Longleftrightarrow\quad
+|u_k|<s\sqrt{|u_k|^2+w_{j,k}^2}.
+$$
+
+右端は $L_j$ 内の余次元1の軸円錐条件そのものです。従って球面の[密度二分法](#lem-gmt18-density-dichotomy)から、ほとんど全 $k$ について、$a+gkZ_j(s)$ 内の質量を $(rs)^m$ で正規化した上極限は0か無限大、または $a+gkW_0$ に別点が実在します。
 
 ここで $g$ が任意でも、$g^{-1}(K-a)$ は同じ有限面積条件を満たします。従って任意の固定 $g$ について、例外的な $k$ のHaar測度は0です。三択の失敗の指示関数を $\chi_j$ とすれば
 
@@ -411,7 +455,7 @@ $$
 
 有限個の $j=1,\ldots,q$ について例外集合を除きます。もしどれかの座標円錐に無限大側があれば、左の包含で核円錐にも無限大側があります。すべて0側なら、右の包含と $s_*/s$ の有界性から核円錐も0側です。繊維側があれば、その点の差は $gW_0$ に属するため核の繊維側が成り立ちます。これで固定 $a$ についてHaarほとんど全 $g$ に三択が得られました。
 
-最後に $(a,g)$ の例外集合の指示関数を $d\mathcal H^m\llcorner K(a)\,dg$ で積分します。各 $a$ に対する積分が0なので[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)により、ほとんど全 $g$ でほとんど全 $a\in K$ が三択を満たします。$gW_0$ の分布が $G(d,d-m)$ 上の $\gamma_{d,d-m}$ であることから結論です。$\square$
+最後に $(a,g)$ の例外集合の指示関数を $d\mu(a)\,dg$（$\mu=\mathcal H^m\llcorner K$）で積分します。各 $a$ に対する積分が0なので[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)により、ほとんど全 $g$ でほとんど全 $a\in K$ が三択を満たします。$gW_0$ の分布が $G(d,d-m)$ 上の $\gamma_{d,d-m}$ であることから結論です。$\square$
 <!-- proof-end -->
 
 [GMT17の平均評価](../GMT17/index.md#lem-gmt17-small-projection-tail)が各点の二体相互作用の**上界**だったのに対し、ここでは各方向の実在点の集合を用いて上密度が中途半端な値を取れないことを示しました。これは単なる対数評価の定数改善ではありません。
@@ -435,7 +479,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**2から1。** [GMT16の整流可能・純非整流分解](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}P$ と書きます。もし $\mathcal H^m(R)>0$ なら[GMT17の正射影定理](../GMT17/index.md#thm-gmt17-rectifiable-positive-projection)からほとんど全方向で $\mathcal H^m(\pi_VR)>0$、従って $\mathcal H^m(\pi_VE)>0$ となり矛盾します。よって $\mathcal H^m(R)=0$、$E$ は純非整流です。
+**2から1。** [GMT16の整流可能・純非整流分解](../GMT16/index.md#thm-gmt16-decomposition)で $E=R\mathbin{\dot\cup}Q$ と書きます。ここで $R$ は整流可能部分、$Q$ は純非整流部分です。本章で $P$ は射影写像を表すため、分解の部分集合には $Q$ を使います。
+
+もし $\mathcal H^m(R)>0$ なら[GMT17の正射影定理](../GMT17/index.md#thm-gmt17-rectifiable-positive-projection)からほとんど全方向で $\mathcal H^m(\pi_VR)>0$、従って $\mathcal H^m(\pi_VE)>0$ となり矛盾します。よって $\mathcal H^m(R)=0$ です。任意のLipschitz像 $f(\mathbb R^m)$ に対して
+
+$$
+\mathcal H^m(E\cap f(\mathbb R^m))
+\le\mathcal H^m(R)+\mathcal H^m(Q\cap f(\mathbb R^m))=0
+$$
+
+となるので、[純非整流性の定義](../GMT12/index.md#def-gmt12-purely-unrectifiable)から $E$ も純非整流です。
 
 **1から2：コンパクトな場合。** まず $E=K$ をコンパクト・純非整流とします。$\delta_j=1/j$ と置き、すべての $j$ について[三択補題](#lem-gmt18-three-alternatives)を満たす $W\in G(d,d-m)$ を固定します。可算個の例外集合の和を除いただけなので、こうした $W$ はほとんど全方向を占めます。$P=\pi_{W^\perp}$ と書きます。
 
@@ -491,10 +544,10 @@ $W\mapsto W^\perp$ はGrassmann上の回転不変確率を対応させるので�
 
 <!-- formal-statement-start -->
 > **系（射影測度による整流可能成分の検出）**
-> $E\subset\mathbb R^d$ を有限 $\mathcal H^m$ 測度のBorel集合とし、[GMT16の分解](../GMT16/index.md#thm-gmt16-decomposition)を $E=R\mathbin{\dot\cup}P$ とする。ほとんどすべての $V\in G(d,m)$ について
+> 整数 $d\ge2$、$1\le m<d$ とする。$E\subset\mathbb R^d$ を有限 $\mathcal H^m$ 測度のBorel集合とし、[GMT16の分解](../GMT16/index.md#thm-gmt16-decomposition)を $E=R\mathbin{\dot\cup}Q$（$R$ は整流可能部分、$Q$ は純非整流部分）とする。ほとんどすべての $V\in G(d,m)$ について
 
 $$
-\mathcal H^m(\pi_VP)=0
+\mathcal H^m(\pi_VQ)=0
 $$
 
 > であり、次が成り立つ。
@@ -506,7 +559,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$P$ は純非整流なので[判定定理](#thm-gmt18-besicovitch-federer)から $\pi_VP$ はほとんど全方向で零面積です。
+$Q$ は純非整流なので[判定定理](#thm-gmt18-besicovitch-federer)から $\pi_VQ$ はほとんど全方向で零面積です。
 
 $R$ が零面積なら[射影上界](../GMT17/index.md#lem-gmt17-projection-lipschitz)で $\pi_VR$ も全方向で零面積です。一方、$R$ が正面積なら[GMT17の正射影定理](../GMT17/index.md#thm-gmt17-rectifiable-positive-projection)でほとんど全方向について $\mathcal H^m(\pi_VR)>0$ です。$\pi_VR\subset\pi_VE$ の単調性を使えば結論です。$\square$
 <!-- proof-end -->
@@ -574,7 +627,7 @@ $$
 - Level: A
 - 目安時間: 15分
 
-$E=\bigcup_{j=0}^2([0,1]\times\{j\})$、$P(x,y)=x$ とする。$z\in(0,1)$ の繊維の点数 $N(z)$、$\int N(z)\,d\mathcal H^1(z)$、$\mathcal H^1(E)$ を求めよ。
+$E=\bigcup_{j=0}^2([0,1]\times\{j\})$ とする。水平軸を $(x,0)\leftrightarrow x$ によって $\mathbb R$ と同一視し、射影を $P(x,y)=x$ と表す。$z\in(0,1)$ の繊維の点数 $N(z)$、$\int N(z)\,d\mathcal H^1(z)$、$\mathcal H^1(E)$ を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
