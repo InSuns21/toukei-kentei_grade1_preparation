@@ -1,0 +1,42 @@
+id: "BHT21"
+title: "一般化エントロピーと繰り込み"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT20
+  - QINF17
+official_scope: []
+learning_objectives:
+  - 切断面・外部領域・量子状態・UV正則化を区別して一般化エントロピーの定義域と意味を説明できる
+  - Bell対による有限模型と4次元自由スカラーの錐熱核模型を使い外部エントロピーの面積発散の由来と係数を検算できる
+  - 一ループのEinstein–Hilbert作用に生じる曲率項とNewton定数の繰り込みを計算し面積発散との整合を示せる
+  - 同じ正則化でbare項と外部エントロピーを合成し有限の一般化エントロピーを構成できる
+  - 状態差・切断面・繰り込み方式・非最小結合・高階曲率の条件を分けて公式の適用限界を述べられる
+definitions:
+  - { id: BHT21-DEF-01, name: "カットオフ付き外部エントロピー" }
+  - { id: BHT21-DEF-02, name: "繰り込まれた一般化エントロピー" }
+theorems:
+  - { id: BHT21-PROP-01, name: "自由スカラーの錐模型の面積発散" }
+  - { id: BHT21-PROP-02, name: "一ループのNewton定数と面積発散の整合" }
+  - { id: BHT21-PROP-03, name: "同一切断面のUV等価な状態差" }
+canonical_examples:
+  - Bell対の縮約固有値から外部エントロピーln2を再計算する
+  - 独立境界対の個数Nに対する面積スケーリングを確認する
+  - 最小結合自由実スカラーの錐熱核からA/(48π ε²)を求める
+  - 曲率熱核係数からNewton結合の1/(12π ε²)を求めて相殺する
+  - 非最小結合と局所高階曲率反項が単純な面積相殺の外にあることを見分ける
+problem_patterns:
+  - BHT21-BELL-NATURAL-LOG
+  - BHT21-BOUNDARY-PAIR-COUNT
+  - BHT21-REPLICA-DERIVATIVE
+  - BHT21-HEAT-KERNEL-COUPLING
+  - BHT21-AREA-SUBTRACTION
+  - BHT21-TWO-CUTOFF-SCHEME
+  - BHT21-STATE-DIFFERENCE
+  - BHT21-NONMINIMAL-QUALIFICATION
+  - BHT21-WALD-LOCAL-TERM
+  - BHT21-INTEGRATED-CONE-RENORMALIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 7 }
