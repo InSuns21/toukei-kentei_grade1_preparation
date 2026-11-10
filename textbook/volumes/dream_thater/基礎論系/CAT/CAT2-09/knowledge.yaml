@@ -1,0 +1,49 @@
+chapter: CAT2-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-08
+
+concepts:
+  - id: category.adjunction-unit
+    name: 随伴の単位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（随伴の単位）"]
+    requires: [category.adjunction-hom, category.natural-transformation]
+  - id: category.adjunction-counit
+    name: 随伴の余単位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（随伴の余単位）"]
+    requires: [category.adjunction-hom, category.natural-transformation]
+  - id: category.adjunction-transpose-formulas
+    name: 随伴の転置公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（転置と逆転置の公式）"]
+    requires: [category.adjunction-unit, category.adjunction-counit]
+  - id: category.adjunction-triangle-identities
+    name: 随伴の三角恒等式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三角恒等式を満たす随伴データ）"]
+    requires: [category.adjunction-unit, category.adjunction-counit]
+  - id: category.adjunction-triangles-from-hom
+    name: Hom対応からの三角恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hom対応からの自然性と三角恒等式）"]
+    requires: [category.adjunction-transpose-formulas, category.adjunction-triangle-identities]
+  - id: category.adjunction-reconstruction
+    name: 単位・余単位からの随伴の復元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三角恒等式からHom対応を復元する）"]
+    requires: [category.adjunction-triangle-identities, category.adjunction-hom]
+  - id: category.adjunction-equivalent-descriptions
+    name: 随伴の二つの記述の同値
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（随伴の二つの記述と一意性）"]
+    requires: [category.adjunction-reconstruction, category.adjunction-triangles-from-hom]
