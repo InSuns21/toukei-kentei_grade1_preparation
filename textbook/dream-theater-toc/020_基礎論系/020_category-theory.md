@@ -22,3 +22,4 @@
 19. [CAT2-07 関手圏と前層圏の極限](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-07/index.md)
 20. [CAT2-08 随伴のHom集合による定義](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-08/index.md)
 21. [CAT2-09 単位・余単位と三角恒等式](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-09/index.md)
+22. [CAT2-10 普遍射とcomma圏](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-10/index.md)

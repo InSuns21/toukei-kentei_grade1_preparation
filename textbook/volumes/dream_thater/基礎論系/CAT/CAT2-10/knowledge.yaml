@@ -1,0 +1,83 @@
+chapter: CAT2-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-09
+  - CAT1-05
+  - CAT1-10
+  - GRP2
+  - MOD1
+
+concepts:
+  - id: category.comma-category
+    name: comma圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（comma圏）"]
+    requires: [category.product-category, category.category]
+  - id: category.comma-category-axioms
+    name: comma圏の公理と局所小性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（comma圏の公理と局所小性）"]
+    requires: [category.comma-category, category.locally-small-category]
+  - id: category.universal-arrow-to-functor
+    name: Gへの普遍射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gへの普遍射）"]
+    requires: [category.comma-category, category.initial-object]
+  - id: category.universal-arrow-from-functor
+    name: Fからの普遍射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fからの普遍射）"]
+    requires: [category.comma-category, category.terminal-object]
+  - id: category.universal-arrow-comma-characterization
+    name: 普遍射と始対象・終対象の特徴づけ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（普遍射とcomma圏の始対象・終対象）"]
+    requires: [category.universal-arrow-to-functor, category.universal-arrow-from-functor]
+  - id: category.left-adjoint-from-universal-arrows
+    name: 対象ごとの普遍射からの左随伴の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対象ごとの普遍射と左随伴）"]
+    requires: [category.universal-arrow-comma-characterization, category.adjunction-hom, category.adjunction-unit]
+  - id: category.right-adjoint-from-universal-arrows
+    name: 対象ごとの終普遍射からの右随伴の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対象ごとの終普遍射と右随伴）"]
+    requires: [category.universal-arrow-comma-characterization, category.adjunction-counit, category.adjunction-hom]
+  - id: category.universal-arrow-uniqueness
+    name: 普遍射の同型一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（普遍射の同型一意性）"]
+    requires: [category.universal-arrow-to-functor, category.initial-object]
+  - id: category.monoid-congruence
+    name: モノイド合同関係
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイド合同関係）"]
+    requires: [category.monoid]
+  - id: category.free-group-universal-arrow
+    name: 自由群の普遍射
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自由群の普遍射）"]
+    requires: [category.universal-arrow-to-functor, algebra.group, category.monoid-congruence]
+  - id: category.free-module-universal-arrow
+    name: 自由加群の普遍射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自由加群の普遍射）"]
+    requires: [category.universal-arrow-to-functor, algebra.free-module-universal-property]
+  - id: category.finite-set-inclusion-obstruction
+    name: 有限集合圏包含の随伴障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限集合の包含関手の障害）"]
+    requires: [category.left-adjoint-from-universal-arrows]
