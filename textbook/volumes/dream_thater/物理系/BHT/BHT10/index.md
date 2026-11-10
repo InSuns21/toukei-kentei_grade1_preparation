@@ -315,7 +315,7 @@ $$
 
 $$
 \xi'=\left.\partial_t\right|_{\varphi'}
-=\xi+\omega\eta,qquad
+=\xi+\omega\eta,\qquad
 \chi=\xi'+(\Omega_H-\omega)\eta
 $$
 

@@ -1,0 +1,52 @@
+id: "CAT2-02"
+title: "終対象と積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT2-01
+official_scope: []
+learning_objectives:
+  - 終対象が空図式の極限であることを射の存在一意性から証明できる
+  - 二項積の普遍性を錐と極限で表現し集合で射影と媒介射を直接検算できる
+  - 組の射の射影則と前合成則を普遍性の一意性から証明できる
+  - 対角射の存在とモノ射性および二射の等号判定を証明できる
+  - 射の積を構成し恒等・合成・対角射との自然性を射影の等式で確認できる
+  - 終対象と全ての二項積から空を含む有限積を帰納的に構成し逆向きの含意も示せる
+  - 積の括弧付けと交換の同型を射影を保つ普遍性から構成できる
+  - 半順序圏で積を最大下界として判定し存在しない例の失敗条件を説明できる
+definitions:
+  - { id: CAT2-02-DEF-01, name: 二項積 }
+  - { id: CAT2-02-DEF-02, name: 対角射 }
+  - { id: CAT2-02-DEF-03, name: 有限積 }
+theorems:
+  - { id: CAT2-02-PROP-01, name: 空図式の極限と終対象 }
+  - { id: CAT2-02-PROP-02, name: 組の射の基本則 }
+  - { id: CAT2-02-PROP-03, name: 対角射による等式の判定 }
+  - { id: CAT2-02-PROP-04, name: 積への射とその合成則 }
+  - { id: CAT2-02-THM-01, name: 有限積の存在判定 }
+  - { id: CAT2-02-PROP-05, name: 半順序圏の積 }
+canonical_examples:
+  - 集合の一元集合が空図式の極限になることの全称検査
+  - 空集合を含む集合の二項積と媒介射の一意性
+  - 二項積上の対角射と射影の合成
+  - 集合の三項積の射影と一意な組の射
+  - ダイヤモンド半順序圏での最大下界と終対象
+  - 終対象はあっても二項積が存在しない三元半順序圏
+problem_patterns:
+  - CAT2-02-TERMINAL-FACTOR
+  - CAT2-02-SET-PAIRING
+  - CAT2-02-PROJECTIONS-CANCEL
+  - CAT2-02-DIAGONAL-SET
+  - CAT2-02-CHAIN-MEET
+  - CAT2-02-SWAP-ISOMORPHISM
+  - CAT2-02-DIAGONAL-MONO
+  - CAT2-02-TERNARY-PRODUCT
+  - CAT2-02-DIAGONAL-NATURALITY
+  - CAT2-02-NONEXISTENCE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 8, review: 2 }

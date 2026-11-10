@@ -1,0 +1,64 @@
+chapter: CAT2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-04
+  - CAT2-01
+
+concepts:
+  - id: category.empty-product
+    name: 空図式の極限と終対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空図式の極限と終対象）"]
+    requires: [category.terminal-object, category.limit]
+  - id: category.binary-product
+    name: 圏論の二項積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圏論の二項積）"]
+    requires: [category.limit]
+  - id: category.pairing-laws
+    name: 組の射の基本則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（組の射の基本則）"]
+    requires: [category.binary-product]
+  - id: category.diagonal-morphism
+    name: 対角射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対角射）"]
+    requires: [category.binary-product]
+  - id: category.diagonal-equality
+    name: 対角射による等式の判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対角射による等式の判定）"]
+    requires: [category.diagonal-morphism, category.monomorphism]
+  - id: category.product-map
+    name: 積への射とその合成則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（積への射とその合成則）"]
+    requires: [category.binary-product, category.pairing-laws, category.diagonal-morphism]
+  - id: category.finite-product
+    name: 有限積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限積）"]
+    requires: [category.binary-product, category.terminal-object]
+  - id: category.finite-product-existence
+    name: 有限積の存在判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限積の存在判定）"]
+    requires: [category.finite-product, category.binary-product, category.empty-product]
+  - id: category.poset-product
+    name: 半順序圏の積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半順序圏の積）"]
+    requires: [category.binary-product, category.terminal-object, category.poset-category]
