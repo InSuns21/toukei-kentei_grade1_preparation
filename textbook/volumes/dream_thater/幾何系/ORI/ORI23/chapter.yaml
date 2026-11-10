@@ -1,0 +1,43 @@
+id: ORI23
+title: "box pleating・格子折りの設計"
+volume: foundations
+status: supplementary
+prerequisites: [ORI22]
+official_scope: []
+learning_objectives:
+  - 格子間隔と水平・垂直・45度斜めの候補折り線から有限な折り線図を定義できる
+  - 内部頂点の扇角を整数列へ直しKawasaki–Justin条件とMaekawa条件を検算できる
+  - 幾何的な平坦像の重なりを領域ごとに調べ局所条件との違いを説明できる
+  - 格子経路の長さの下界を証明し設計の目的関数と実現可能性を区別できる
+  - 蛇腹折りの面写像と層順を求め格子設計の保証範囲を述べられる
+definitions:
+  - { id: ORI23-DEF-01, name: 45度格子の折り線候補 }
+  - { id: ORI23-DEF-02, name: 格子頂点の扇角符号列 }
+  - { id: ORI23-DEF-03, name: 格子経路と折り線長目的関数 }
+  - { id: ORI23-DEF-04, name: 面像の外接矩形 }
+theorems:
+  - { id: ORI23-THM-01, name: 45度格子頂点の局所必要条件 }
+  - { id: ORI23-THM-02, name: 八方向格子の最短経路長 }
+  - { id: ORI23-THM-03, name: 外接矩形による重なりの除外 }
+  - { id: ORI23-THM-04, name: 四帯蛇腹の平坦写像と制約付き最小折り線長 }
+canonical_examples:
+  - 直交四価頂点と45度交差の局所判定
+  - 45度格子の扇角整数列の合否と山谷割当て
+  - 八方向格子のマンハッタン経路と対角経路
+  - 外接矩形が重なっても面内部が重ならない三角形
+  - 四本の帯を積む三本の平行折り目
+problem_patterns:
+  - ORI23-GRID-DIRECTION
+  - ORI23-CROSS-LOCAL
+  - ORI23-ANGLE-WORD
+  - ORI23-MV-COUNT
+  - ORI23-REFLECTION-STRIP
+  - ORI23-ANGLE-ENUMERATION
+  - ORI23-PATH-DUAL-BOUND
+  - ORI23-BOUNDING-BOX
+  - ORI23-LAYER-CYCLE
+  - ORI23-FOUR-STRIP-DESIGN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

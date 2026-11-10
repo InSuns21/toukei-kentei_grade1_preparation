@@ -23,3 +23,4 @@
 20. [ORI20 一回の直線切断で何が切り出せるか](textbook/volumes/dream_thater/幾何系/ORI/ORI20/index.md)
 21. [ORI21 直線骨格を使うfold-and-one-cut](textbook/volumes/dream_thater/幾何系/ORI/ORI21/index.md)
 22. [ORI22 tree methodと円・河川パッキング](textbook/volumes/dream_thater/幾何系/ORI/ORI22/index.md)
+23. [ORI23 box pleating・格子折りの設計](textbook/volumes/dream_thater/幾何系/ORI/ORI23/index.md)

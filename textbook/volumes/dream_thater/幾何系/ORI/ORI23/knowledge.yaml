@@ -1,0 +1,62 @@
+chapter: ORI23
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI22]
+forward_references: []
+
+concepts:
+  - id: origami.box-pleating-grid
+    name: 45度格子の折り線候補
+    kind: definition
+    introduction: formal
+    requires: [origami.crease-pattern-plane-graph]
+
+  - id: origami.grid-sector-word
+    name: 格子頂点の扇角符号列
+    kind: definition
+    introduction: formal
+    requires: [origami.box-pleating-grid]
+
+  - id: origami.grid-local-obstruction
+    name: 45度格子頂点の局所必要条件
+    kind: proposition
+    introduction: formal
+    requires: [origami.grid-sector-word]
+
+  - id: origami.grid-routing-path
+    name: 八方向格子経路
+    kind: definition
+    introduction: formal
+    introduction_aliases: [格子経路と折り線長目的関数]
+    requires: [origami.box-pleating-grid]
+
+  - id: origami.grid-routing-objective
+    name: 折り線長目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [格子経路と折り線長目的関数]
+    requires: [origami.grid-routing-path]
+
+  - id: origami.octile-path-length
+    name: 八方向格子の最短経路長
+    kind: theorem
+    introduction: formal
+    requires: [origami.grid-routing-objective]
+
+  - id: origami.folded-face-bounding-box
+    name: 面像の外接矩形
+    kind: definition
+    introduction: formal
+    requires: [origami.box-pleating-grid]
+
+  - id: origami.bounding-box-rejection
+    name: 外接矩形による重なりの除外
+    kind: proposition
+    introduction: formal
+    requires: [origami.folded-face-bounding-box]
+
+  - id: origami.four-strip-accordion
+    name: 四帯蛇腹の平坦写像と制約付き最小折り線長
+    kind: proposition
+    introduction: formal
+    requires: [origami.grid-routing-objective, origami.folded-face-bounding-box]

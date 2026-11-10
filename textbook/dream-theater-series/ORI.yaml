@@ -28,7 +28,7 @@ chapters:
   - { id: ORI20, path: textbook/volumes/dream_thater/幾何系/ORI/ORI20, status: completed, title: "一回の直線切断で何が切り出せるか" }
   - { id: ORI21, path: textbook/volumes/dream_thater/幾何系/ORI/ORI21, status: completed, title: "直線骨格を使うfold-and-one-cut" }
   - { id: ORI22, path: textbook/volumes/dream_thater/幾何系/ORI/ORI22, status: completed, title: "tree methodと円・河川パッキング" }
-  - { id: ORI23, path: textbook/volumes/dream_thater/幾何系/ORI/ORI23, status: planned, title: "box pleating・格子折りの設計" }
+  - { id: ORI23, path: textbook/volumes/dream_thater/幾何系/ORI/ORI23, status: completed, title: "box pleating・格子折りの設計" }
   - { id: ORI24, path: textbook/volumes/dream_thater/幾何系/ORI/ORI24, status: planned, title: "Origamizerと多面体表面の実現" }
   - { id: ORI25, path: textbook/volumes/dream_thater/幾何系/ORI/ORI25, status: planned, title: "剛体折りと4価頂点" }
   - { id: ORI26, path: textbook/volumes/dream_thater/幾何系/ORI/ORI26, status: planned, title: "剛体折りの運動経路と特異点" }
