@@ -1,0 +1,43 @@
+id: "CAT2-09"
+title: "単位・余単位と三角恒等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT2-08
+official_scope: []
+learning_objectives:
+  - Hom集合の随伴対応から単位と余単位の各成分を恒等射の転置として構成し、自然性を証明できる
+  - 任意の射の転置公式と逆転置公式を型付きで導き、三角恒等式を証明できる
+  - 単位・余単位の自然変換と三角恒等式から二変数自然なHom全単射を復元し、両方向の構成が互いに逆であると証明できる
+  - 自由モノイドと忘却関手、対角関手と積・余積関手で単位・余単位と三角恒等式を直接計算できる
+  - 半順序圏で単位・余単位を不等式に読み替え、存在だけで三角恒等式を省略できない一般圏との違いを説明できる
+  - 三角恒等式を外すとHom対応が全単射にならない反例を構成できる
+definitions:
+  - { id: CAT2-09-DEF-01, name: 随伴の単位 }
+  - { id: CAT2-09-DEF-02, name: 随伴の余単位 }
+  - { id: CAT2-09-DEF-03, name: 三角恒等式を満たす随伴データ }
+theorems:
+  - { id: CAT2-09-PROP-01, name: 転置と逆転置の公式 }
+  - { id: CAT2-09-THM-01, name: Hom対応からの自然性と三角恒等式 }
+  - { id: CAT2-09-THM-02, name: 三角恒等式からHom対応を復元する定理 }
+  - { id: CAT2-09-COR-01, name: 随伴の二つの記述の同値と一意性 }
+canonical_examples:
+  - 自由モノイドにおける一文字挿入と単語の評価
+  - 対角関手と積関手における対角写像と二つの射影
+  - 余積関手と対角関手における二つの包含と折り畳み写像
+  - 整数と実数の順序圏における床関数の単位・余単位
+  - 可換な一対象圏で三角恒等式が欠ける反例
+problem_patterns:
+  - CAT2-09-UNIT-COUNITS-TYPES
+  - CAT2-09-FREE-MONOID-TRIANGLES
+  - CAT2-09-DIAGONAL-PRODUCT-TRIANGLES
+  - CAT2-09-ORDER-UNIT-COUNITS
+  - CAT2-09-TRANSPOSE-FORMULA
+  - CAT2-09-COPRODUCT-TRIANGLES
+  - CAT2-09-COMPOSITE-ADJUNCTION
+  - CAT2-09-FAILURE-WITHOUT-TRIANGLES
+  - CAT2-09-POWERSET-CHARACTERIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 2 }
