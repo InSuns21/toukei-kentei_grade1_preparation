@@ -21,7 +21,7 @@ chapters:
   - { id: GMT13, path: textbook/volumes/dream_thater/解析系/GMT/GMT13, status: completed, title: "整流可能集合上のarea formula" }
   - { id: GMT14, path: textbook/volumes/dream_thater/解析系/GMT/GMT14, status: completed, title: "coarea formula：レベル集合の測度" }
   - { id: GMT15, path: textbook/volumes/dream_thater/解析系/GMT/GMT15, status: completed, title: "密度と近似接平面" }
-  - { id: GMT16, path: textbook/volumes/dream_thater/解析系/GMT/GMT16, status: planned, title: "純非整流性と分解・反例" }
+  - { id: GMT16, path: textbook/volumes/dream_thater/解析系/GMT/GMT16, status: completed, title: "純非整流性と分解・反例" }
   - { id: GMT17, path: textbook/volumes/dream_thater/解析系/GMT/GMT17, status: planned, title: "Besicovitch--Federer射影判定 I" }
   - { id: GMT18, path: textbook/volumes/dream_thater/解析系/GMT/GMT18, status: planned, title: "Besicovitch--Federer射影判定 II" }
   - { id: GMT19, path: textbook/volumes/dream_thater/解析系/GMT/GMT19, status: planned, title: "blow-upと接測度の基礎" }
