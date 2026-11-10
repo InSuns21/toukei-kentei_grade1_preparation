@@ -1,0 +1,42 @@
+id: "BHT22"
+title: "一般化第二法則（GSL）"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT21
+  - QINF20
+  - QCURV17
+official_scope: []
+learning_objectives:
+  - 二つの因果的地平線切断面の一般化エントロピー収支を同じ量子状態・繰り込み規約で定義し、古典的面積定理と区別できる
+  - 物体を落とす模型で第一法則・赤方偏移・外部エントロピー損失の条件付き収支を計算し、浮力や有限サイズを省いた議論の限界を説明できる
+  - Hawking放射の独立なボースモードのエントロピーを導出し、灰色体占有数に対して非負収支を微分で証明できる
+  - 量子相対エントロピーの自然対数規約・モジュラーエネルギーと切断面の包含を導入し、面積応答が相殺する条件下のGSLを導ける
+  - 線形化Raychaudhuri方程式とRindler真空のモジュラー流束を具体積分し、半古典GSLの証明の仮定と適用限界を判定できる
+definitions:
+  - { id: BHT22-DEF-01, name: "切断面間の一般化エントロピー収支" }
+  - { id: BHT22-DEF-02, name: "参照状態に対するモジュラーエネルギー差" }
+theorems:
+  - { id: BHT22-PROP-01, name: "独立なボース出射モードの収支" }
+  - { id: BHT22-PROP-02, name: "相対エントロピーによる条件付きGSL" }
+canonical_examples:
+  - 面積項が負3で外部項が正5の収支の意味を確認する
+  - 非極限地平線近傍で赤方偏移した物体のエネルギーと2πℓEの係数を求める
+  - ボース占有数と灰色体因子から外部エントロピーの正の余剰を直接計算する
+  - 二量子ビットから一方を捨てる相対エントロピーの減少を自然対数で確認する
+  - 矩形流束の未来積分から面積とモジュラー項の相殺を検算する
+problem_patterns:
+  - BHT22-DROP-ENERGY-BALANCE
+  - BHT22-NEAR-HORIZON-REDSHIFT
+  - BHT22-BOSON-DERIVATIVE
+  - BHT22-RELATIVE-ENTROPY-BASE
+  - BHT22-FUTURE-EXPANSION
+  - BHT22-GREYBODY-BALANCE
+  - BHT22-LOWERED-BOX-ASSUMPTIONS
+  - BHT22-DPI-GSL-CONDITIONS
+  - BHT22-MODULAR-FLUX-DERIVATIVE
+  - BHT22-RECTANGULAR-FLUX-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 8 }

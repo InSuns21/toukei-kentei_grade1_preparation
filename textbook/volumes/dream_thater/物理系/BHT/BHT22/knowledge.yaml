@@ -1,0 +1,36 @@
+chapter: BHT22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT21
+  - QINF20
+  - QCURV17
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.gsl-balance
+    name: 切断面間の一般化エントロピー収支
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（切断面間の一般化エントロピー収支）"]
+    requires: [black-hole-thermodynamics.generalized-entropy]
+
+  - id: black-hole-thermodynamics.boson-flux-balance
+    name: 独立なボース出射モードの収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立なボース出射モードの収支）"]
+    requires: [black-hole-thermodynamics.gsl-balance, quantum.von-neumann-entropy]
+
+  - id: black-hole-thermodynamics.modular-energy-difference
+    name: 参照状態に対するモジュラーエネルギー差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（参照状態に対するモジュラーエネルギー差）"]
+    requires: [quantum.relative-entropy]
+
+  - id: black-hole-thermodynamics.conditional-gsl
+    name: 相対エントロピーによる条件付きGSL
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相対エントロピーによる条件付きGSL）"]
+    requires: [black-hole-thermodynamics.modular-energy-difference, black-hole-thermodynamics.gsl-balance, quantum.relative-entropy-data-processing]
