@@ -1,0 +1,54 @@
+chapter: GMT15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RA6
+  - MT8
+  - HA1
+  - GMT1
+  - GMT9
+  - GMT10
+  - GMT11
+  - GMT12
+  - GMT13
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt15-plane-density
+    name: Hausdorff面積の平面基準密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Hausdorff面積の平面基準密度）"]
+    requires:
+      - geometric-measure.gmt1-upper-lower-density
+      - geometric-measure.gmt10-hausdorff-normalization
+
+  - id: geometric-measure.gmt15-approximate-tangent
+    name: 面積測度による近似接m平面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（面積測度による近似接m平面）"]
+    requires:
+      - geometric-measure.gmt15-plane-density
+      - geometric-measure.gmt13-tangent-plane
+
+  - id: geometric-measure.gmt15-chart-blowup
+    name: 双Lipschitz片の小球面積と円錐
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（双Lipschitz片の小球面積と円錐）"]
+    requires:
+      - geometric-measure.gmt13-bilipschitz-pieces
+      - geometric-measure.gmt10-linear-area
+      - geometric-measure.gmt11-weighted-area
+      - geometric-measure.gmt15-approximate-tangent
+
+  - id: geometric-measure.gmt15-rectifiable-density-tangent
+    name: 局所有限な可算整流可能集合の密度と近似接平面
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所有限な可算整流可能集合の密度と近似接平面）"]
+    requires:
+      - geometric-measure.gmt15-chart-blowup
+      - geometric-measure.gmt13-chart-independence
+      - geometric-measure.gmt1-measure-differentiation

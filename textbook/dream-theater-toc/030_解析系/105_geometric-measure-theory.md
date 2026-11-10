@@ -15,3 +15,4 @@
 12. [GMT12 可算整流可能集合の定義と例](textbook/volumes/dream_thater/解析系/GMT/GMT12/index.md)
 13. [GMT13 整流可能集合上のarea formula](textbook/volumes/dream_thater/解析系/GMT/GMT13/index.md)
 14. [GMT14 coarea formula：レベル集合の測度](textbook/volumes/dream_thater/解析系/GMT/GMT14/index.md)
+15. [GMT15 密度と近似接平面](textbook/volumes/dream_thater/解析系/GMT/GMT15/index.md)
