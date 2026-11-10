@@ -488,7 +488,7 @@ $$
 \le\mathcal H^m(R)+\mathcal H^m(Q\cap f(\mathbb R^m))=0
 $$
 
-となるので、[純非整流性の定義](../GMT12/index.md#def-gmt12-purely-unrectifiable)から $E$ も純非整流です。
+となるので、$E$ は[GMT12で定義した純 $m$-非整流可能集合](../GMT12/index.md#def-gmt12-purely-unrectifiable)の条件を満たします。
 
 **1から2：コンパクトな場合。** まず $E=K$ をコンパクト・純非整流とします。$\delta_j=1/j$ と置き、すべての $j$ について[三択補題](#lem-gmt18-three-alternatives)を満たす $W\in G(d,d-m)$ を固定します。可算個の例外集合の和を除いただけなので、こうした $W$ はほとんど全方向を占めます。$P=\pi_{W^\perp}$ と書きます。
 
