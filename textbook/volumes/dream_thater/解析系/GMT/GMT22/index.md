@@ -122,7 +122,7 @@ $$
 \longrightarrow0.
 $$
 
-$K'$ の外で $u$ を0とした $w=u\boldsymbol1_{K'}\in L^1(\mathbb R^d)$ を考えると、十分小さい $|h|<\varepsilon$ について $K$ 上では $u(x-h)-u(x)=w(x-h)-w(x)$ です。[GPDE3の $L^1$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)により
+$K'$ の外で $u$ を0とした $w=u\boldsymbol1_{K'}\in L^1(\mathbb R^d)$ を考えると、十分小さい $|h|<\varepsilon$ について $K$ 上では $u(x-h)-u(x)=w(x-h)-w(x)$ です。[GPDE3の $L^p$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)（$p=1$）により
 
 $$
 \sup_{|h|<\varepsilon}\|w(\,\cdot-h)-w\|_{L^1(\mathbb R^d)}\longrightarrow0,
@@ -293,7 +293,7 @@ $$
 
 $f_i$ は $\Omega$ 内のコンパクト集合に台を持つため、$\mathbb R^d$ へゼロ拡張しても新たな境界分布微分は生じません。$g_i$ も $\mathbb R^d$ 上の $L^1$ 関数として扱えます。
 
-各 $f_i,g_i$ はゼロ拡張後に $L^1(\mathbb R^d)$ に属します。[GPDE3の $L^1$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)を $a=f_i,g_i$ に適用すると、$\tau_h a(x)=a(x-h)$ として
+各 $f_i,g_i$ はゼロ拡張後に $L^1(\mathbb R^d)$ に属します。[GPDE3の $L^p$ 平行移動連続性](../../GPDE/GPDE3/index.md#lem-gpde3-lp-translation)（$p=1$）を $a=f_i,g_i$ に適用すると、$\tau_h a(x)=a(x-h)$ として
 
 $$
 \|\rho_\varepsilon*a-a\|_1
