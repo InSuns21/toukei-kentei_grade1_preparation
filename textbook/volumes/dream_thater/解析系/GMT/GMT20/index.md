@@ -6,7 +6,17 @@
 
 この講義では「正の下密度＋近似接平面」から可算個のグラフを実際に構成します。[GMT19の平坦なblow-up](../GMT19/index.md#prop-gmt19-flat-approximate)は、この判定条件を測度極限から読み取る道具になります。最後に、**密度の極限だけ**を仮定するPreiss定理を正確に述べ、ここで証明する初等的判定法とは区別します。
 
-以下、整数 $1\le m\le d$、$E\subset\mathbb R^d$ はBorel集合、$\mu=\mathcal H^m\llcorner E$ は局所有限なRadon測度とします。$\mathcal H^m$ は[MT8のHausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。[GMT10の非正規化Hausdorff測度の比例定数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を $c_m=\mathcal H^m([0,1]^m)$、$\omega_m=\mathcal L^m(B_{\mathbb R^m}(0,1))$、$q_m=c_m\omega_m$ とします。$m$ 次元平面の半径 $r$ の球の測度は $q_mr^m$ です。特に $q_1=2$ です。球はすべて開球です。
+以下、整数 $1\le m\le d$、$E\subset\mathbb R^d$ はBorel集合、$\mu=\mathcal H^m\llcorner E$ は局所有限なRadon測度とします。$\mathcal H^m$ は[MT8のHausdorff測度](../../MT/MT8/index.md#def-mt8-hausdorff-measure)です。球はすべて開球です。
+
+[GMT10の非正規化Hausdorff測度の比例定数](../GMT10/index.md#lem-gmt10-hausdorff-normalization)を用い、次の記号を固定します。
+
+$$
+c_m=\mathcal H^m([0,1]^m),\qquad
+\omega_m=\mathcal L^m(B_{\mathbb R^m}(0,1)),\qquad
+q_m=c_m\omega_m.
+$$
+
+$m$ 次元平面の半径 $r$ の球の測度は $q_mr^m$ です。特に $q_1=2$ となります。
 
 ## 1. 密度だけで「方向」は分かるか
 
