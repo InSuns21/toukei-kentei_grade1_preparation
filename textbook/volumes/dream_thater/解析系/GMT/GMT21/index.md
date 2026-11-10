@@ -32,6 +32,7 @@ $$
 > $V_\Omega(u)<\infty$ のとき $u$ は $\Omega$ 上の**有界変動関数**であるといい、$BV(\Omega)=\{u\in L^1(\Omega):V_\Omega(u)<\infty\}$ と書く。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-gmt21-bv -->
 ### 直接例：定数と一次関数
 
 任意の $u\equiv c$ が $L^1(\Omega)$ に属する場合、コンパクト台の $\varphi$ について $\int_\Omega\operatorname{div}\varphi=0$ なので $V_\Omega(u)=0$ です。一方、$\Omega=(0,1)^2$ と $u(x)=x_1+2x_2$ を取ると、通常の勾配は $(1,2)$ です。部分積分とCauchy–Schwarzから、$|\varphi|\le1$ に対して
@@ -41,7 +42,10 @@ $$
 =-\int_\Omega(1,2)\cdot\varphi\,dx\le\sqrt5.
 $$
 
-逆向きには、$0\le\eta_n\le1$、$\eta_n\in C_c^\infty(\Omega)$、$\eta_n\to1$ a.e.となる切断関数列を取り、$\varphi_n=-\eta_n(1,2)/\sqrt5$ とすれば、積分は $\sqrt5\int_\Omega\eta_n\,dx\to\sqrt5$ です。従って定義から直接 $V_\Omega(u)=\sqrt5$ と確定します。**成分の絶対値を足した3ではなく、ベクトルの長さ**を測る点に注意してください。
+逆向きには、$0\le\eta_n\le1$、$\eta_n\in C_c^\infty(\Omega)$、$\eta_n\to1$ a.e.となる切断関数列を取り、$\varphi_n=-\eta_n(1,2)/\sqrt5$ とすれば、積分は $\sqrt5\int_\Omega\eta_n\,dx\to\sqrt5$ です。従って定義から直接 $V_\Omega(u)=\sqrt5$ と確定します。
+
+**定義の確認**：$u\in L^1(\Omega)$ は有界領域上の多項式なので成立し、双対変動量の上界と、それへ近づく許容テスト場の両方を示しました。したがって $V_\Omega(u)<\infty$ で、実際に $u\in BV(\Omega)$ です。**成分の絶対値を足した3ではなく、ベクトルの長さ**を測る点に注意してください。
+<!-- definition-example-end -->
 
 ## 2. 有限変動なら分布微分はRadon測度になる
 
@@ -66,7 +70,11 @@ $$
 $$
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-gmt21-vector-radon -->
 例えば $\mathbb R^2$ の点 $p$ に対し $\mu=(2\delta_p,-\delta_p)$ はこの定義を満たします。二成分はいずれも有限符号付きRadon測度で、その作用は $2\varphi_1(p)-\varphi_2(p)$ です。測度を座標ごとに確認する方法が、定義から直接読めます。
+
+**定義の確認**：$\delta_p$ は1点に総質量1を持つ有限Radon測度で、定数倍 $2\delta_p$ と $-\delta_p$ も有限符号付きRadon測度です。二成分の和としての積分が上の式で具体的に計算できるため、定義の成分条件と作用の両方を検証しました。
+<!-- definition-example-end -->
 
 <a id="thm-gmt21-measure-derivative"></a>
 
@@ -150,6 +158,20 @@ $$
 
 この定義は基準測度 $\lambda$ の選び方に依存しません。そのことを次の双対表示が保証します。なお、記号 $|Du|(A)$ は集合 $A$ に割り当てる非負の量、$V_\Omega(u)$ は領域全体に対する数です。
 
+<!-- definition-example-start: def-gmt21-vector-variation -->
+### 直接例：同じ点へ集まる二成分
+
+$d=2$、点 $p=(0,0)$ とし、ベクトル値測度 $\mu=(3\delta_p,4\delta_p)$ を考えます。このとき $\lambda=7\delta_p$、$g=(3/7,4/7)$、$|g|=5/7$ なので
+
+$$
+|\mu|=5\delta_p,\qquad \sigma_\mu=(3/5,4/5).
+$$
+
+したがって $|\mu|(\mathbb R^2)=5$ であり、成分の変動を単純に足した7とは異なります。この例は一般のベクトル測度の例であり、$\mu$ が何らかの $BV$ 関数の勾配であるとは主張していません。
+
+**定義の確認**：$\lambda=|3\delta_p|+|4\delta_p|=7\delta_p$ は有限正Radon測度で、$g$ はそのRadon–Nikodym密度です。$|\sigma_\mu|=\sqrt{9+16}/5=1$、また $\sigma_\mu|\mu|=(3\delta_p,4\delta_p)=\mu$ なので、全変動測度の正性・有限性と極分解の方向・再構成の条件を直接確かめました。
+<!-- definition-example-end -->
+
 <a id="thm-gmt21-variation-duality"></a>
 
 <!-- formal-statement-start -->
@@ -205,16 +227,6 @@ $$
 
 これで等号が示されました。$\mu=Du$ には[測度値微分の定理](#thm-gmt21-measure-derivative)を使い、$\varphi$ を $-\varphi$ に取り替えれば定義中の符号と一致します。$\square$
 <!-- proof-end -->
-
-### 直接例：同じ点へ集まる二成分
-
-$d=2$、点 $p=(0,0)$ とし、ベクトル値測度 $\mu=(3\delta_p,4\delta_p)$ を考えます。このとき $\lambda=7\delta_p$、$g=(3/7,4/7)$、$|g|=5/7$ なので
-
-$$
-|\mu|=5\delta_p,\qquad \sigma_\mu=(3/5,4/5).
-$$
-
-したがって $|\mu|(\mathbb R^2)=5$ であり、成分の変動を単純に足した7とは異なります。この例は一般のベクトル測度の例であり、$\mu$ が何らかの $BV$ 関数の勾配であるとは主張していません。
 
 ## 4. Sobolevの勾配と、ジャンプで現れる測度
 
