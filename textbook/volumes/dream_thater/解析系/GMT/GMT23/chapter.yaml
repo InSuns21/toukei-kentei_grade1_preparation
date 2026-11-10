@@ -1,0 +1,43 @@
+id: GMT23
+title: BVコンパクト性とcoarea
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT14
+  - GMT21
+  - GMT22
+  - MT6
+official_scope: []
+learning_objectives:
+  - 局所BV有界性を定量的に述べ、L1制御が不可欠なことを反例で確かめられる
+  - BV関数の平行移動評価を局所平滑化から導き、局所L1コンパクト性を証明できる
+  - 超水準集合の相対周長を双対的に定義し、ジャンプと滑らかな例で計算できる
+  - 古典的coareaとBV coareaの違いおよび非正規化Hausdorff測度の係数を説明できる
+  - layer-cake、strict近似、下半連続性を用いてBV coareaを両向きに証明できる
+  - 局所コンパクト性とcoareaを有限周長集合の極限操作に応用できる
+definitions:
+  - { id: GMT23-DEF-01, name: 局所BV有界列 }
+  - { id: GMT23-DEF-02, name: 超水準集合の相対周長 }
+theorems:
+  - { id: GMT23-LEM-01, name: BVの局所平行移動評価 }
+  - { id: GMT23-THM-01, name: BVの局所L1コンパクト性 }
+  - { id: GMT23-PROP-01, name: 滑らかな関数の周長coarea }
+  - { id: GMT23-THM-02, name: BVのcoarea公式 }
+canonical_examples:
+  - 動くジャンプの局所コンパクト性と定数列によるL1制御の必要性
+  - 区間の指示関数の二つの端点と超水準集合の周長
+  - 連続勾配と一つのジャンプの双方を超水準集合が計上する例
+  - 無限領域で平行移動する有界BV列の質量逃避
+problem_patterns:
+  - GMT23-TRANSLATE
+  - GMT23-COMPACT-LOCAL
+  - GMT23-LEVEL-SET-L1
+  - GMT23-RELATIVE-PERIMETER
+  - GMT23-SMOOTH-COAREA
+  - GMT23-BV-COAREA
+  - GMT23-MASS-ESCAPE
+  - GMT23-DIRECT-METHOD
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 12, exercises: 8, review: 4 }
