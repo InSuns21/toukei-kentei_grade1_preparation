@@ -1,0 +1,36 @@
+chapter: ORI16
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI15]
+forward_references: []
+
+concepts:
+  - id: origami.crimpable-sector-reduction
+    name: クリンプ可能な扇形と縮約
+    kind: definition
+    introduction: formal
+    requires: [origami.assigned-single-vertex-local-flat-foldability, origami.strict-minimum-sector-mv-constraint]
+
+  - id: origami.crimp-invariants
+    name: クリンプ縮約の角と符号の不変量
+    kind: proposition
+    introduction: formal
+    requires: [origami.crimpable-sector-reduction, origami.kawasaki-justin-theorem, origami.maekawa-theorem]
+
+  - id: origami.crimp-reversibility
+    name: 局所クリンプの除去・復元
+    kind: lemma
+    introduction: formal
+    requires: [origami.crimpable-sector-reduction, origami.local-layer-order]
+
+  - id: origami.assigned-single-vertex-crimp-decision
+    name: 山谷指定単頂点のクリンプ縮約判定
+    kind: theorem
+    introduction: formal
+    requires: [origami.crimp-reversibility, origami.crimp-invariants, origami.assigned-single-vertex-local-flat-foldability]
+
+  - id: origami.single-vertex-linear-decision
+    name: 線形時間の判定
+    kind: corollary
+    introduction: formal
+    requires: [origami.assigned-single-vertex-crimp-decision]

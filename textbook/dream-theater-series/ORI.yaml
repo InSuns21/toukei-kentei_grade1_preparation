@@ -21,7 +21,7 @@ chapters:
   - { id: ORI13, path: textbook/volumes/dream_thater/幾何系/ORI/ORI13, status: completed, title: "折り線図、山谷、平坦折り写像" }
   - { id: ORI14, path: textbook/volumes/dream_thater/幾何系/ORI/ORI14, status: completed, title: "Kawasaki–Justinの定理" }
   - { id: ORI15, path: textbook/volumes/dream_thater/幾何系/ORI/ORI15, status: completed, title: "Maekawaの定理" }
-  - { id: ORI16, path: textbook/volumes/dream_thater/幾何系/ORI/ORI16, status: planned, title: "局所平坦折り可能性の判定" }
+  - { id: ORI16, path: textbook/volumes/dream_thater/幾何系/ORI/ORI16, status: completed, title: "局所平坦折り可能性の判定" }
   - { id: ORI17, path: textbook/volumes/dream_thater/幾何系/ORI/ORI17, status: planned, title: "複数頂点の大域条件・層順" }
   - { id: ORI18, path: textbook/volumes/dream_thater/幾何系/ORI/ORI18, status: planned, title: "地図折り・切手折りと組合せ" }
   - { id: ORI19, path: textbook/volumes/dream_thater/幾何系/ORI/ORI19, status: planned, title: "平坦折り判定の計算困難性" }
