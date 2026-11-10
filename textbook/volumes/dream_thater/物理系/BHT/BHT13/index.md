@@ -54,7 +54,23 @@ $$
 ds_E^2=dr^2+r^2d\Omega_3^2,\qquad\Lambda=0
 $$
 
-を与えます。平坦なので $R[g]=0$ です。境界は半径 $L$ の3球、外向き法線は $n=\partial_r$ で単位長を持ちます。$h_{ij}=L^2\bar h_{ij}$ に対して
+を与えます。平坦なので $R[g]=0$ です。境界は半径 $L$ の3球で、外向き単位法線は $n=\partial_r$ です。
+
+球面の接座標を $y^i$ とし、$\bar h_{ij}$ を単位3球の計量成分とします。この座標では
+
+$$
+g_{rr}=1,\qquad g_{ri}=0,\qquad n_r=1
+$$
+
+なので、[第二基本形式](../../GR/GR11/index.md#def-gr11-extrinsic-curvature)の定義と接続係数から
+
+$$
+\Gamma^r_{ij}=-\frac12\partial_rh_{ij},\qquad
+K_{ij}=\nabla_i n_j=-\Gamma^r_{ij}n_r
+=\frac12\partial_rh_{ij}
+$$
+
+が従います。境界上で $h_{ij}=L^2\bar h_{ij}$ として評価すると
 
 $$
 K_{ij}=\frac12\partial_r(r^2\bar h_{ij})\big|_{r=L}
@@ -157,14 +173,49 @@ $$
 =-\frac1{16\pi G}\int_B\sqrt h\,h^{ij}\partial_zq_{ij}\,d^3y.
 $$
 
-一方、EH項の境界流束をGaussian法線座標で評価すると、その法線微分部分は逆符号の
+一方、[GR10のEH変分公式](../../GR/GR10/index.md#thm-gr10-eh-variation)で使う逆計量変分を $v^{ab}=\delta g^{ab}$、その跡を $v=g_{ab}v^{ab}$ と書きます。このときEH項の境界流束は
 
 $$
-\delta I_{\mathrm{EH}}\big|_{\partial_zq}
-=+\frac1{16\pi G}\int_B\sqrt h\,h^{ij}\partial_zq_{ij}\,d^3y
+V^a=\nabla^av-\nabla_bv^{ab}
 $$
 
-です。二つが相殺します。残る $q_{ij}$ の係数は、境界の接方向の全微分を角のない閉じた境界上で積分して消去し、[GR11の局所変分の整理](../../GR/GR11/index.md#thm-gr11-dirichlet-variation)を正定値で繰り返すと $(K^{ij}-Kh^{ij})/(16\pi G)$ になります。逆計量 $u^{ij}=\delta h^{ij}$ を独立に取れば境界項は $-(K_{ij}-Kh_{ij})u^{ij}/(16\pi G)$ です。$q_{ij}$ と $u^{ij}$ の符号が反対であることを確認できました。
+です。$q^{ij}:=h^{ik}h^{j\ell}q_{k\ell}$ と添字を上げ、$q:=h^{ij}q_{ij}$ と略記します。Gaussian法線形を保つ変分では
+
+$$
+v^{zz}=v^{zi}=0,\qquad v^{ij}=-q^{ij},\qquad v=-q
+$$
+
+です。さらに $\Gamma^z_{ij}=-K_{ij}$ と $\partial_zh^{ij}=-2K^{ij}$ を使い、法線成分を一段ずつ計算すると
+
+$$
+\begin{aligned}
+\nabla_bv^{zb}&=\Gamma^z_{ij}v^{ij}=K^{ij}q_{ij},\\
+\partial_zq&=\partial_z(h^{ij}q_{ij})
+=-2K^{ij}q_{ij}+h^{ij}\partial_zq_{ij},\\
+V^z&=-\partial_zq-K^{ij}q_{ij}
+=-h^{ij}\partial_zq_{ij}+K^{ij}q_{ij}.
+\end{aligned}
+$$
+
+Euclid EH項の係数は $-1/(16\pi G)$ なので、境界流束全体は
+
+$$
+\delta I_{\mathrm{EH}}\big|_B
+=\frac1{16\pi G}\int_B\sqrt h\,
+\left(h^{ij}\partial_zq_{ij}-K^{ij}q_{ij}\right)d^3y
+$$
+
+です。このうち $h^{ij}\partial_zq_{ij}$ はGHY項の法線微分部分と正負が反対で相殺します。残る $q_{ij}$ の係数も、先ほど求めたGHY変分の係数と合わせれば
+
+$$
+\begin{aligned}
+&-K^{ij}q_{ij}
+-\left(Kh^{ij}-2K^{ij}\right)q_{ij}\\
+&=\left(K^{ij}-Kh^{ij}\right)q_{ij}
+\end{aligned}
+$$
+
+と得られます。境界の接方向の全微分は角のない閉じた境界上で積分すると消え、この計算は[GR11のDirichlet変分](../../GR/GR11/index.md#thm-gr11-dirichlet-variation)の正定値版とも一致します。逆計量 $u^{ij}=\delta h^{ij}$ を独立に取れば境界項は $-(K_{ij}-Kh_{ij})u^{ij}/(16\pi G)$ です。$q_{ij}$ と $u^{ij}$ の符号が反対であることも確認できました。
 
 以上で主張した式を得ます。$q_{ij}=0$ なら境界積分は零です。内部に台を持つ任意の $\delta g^{ab}$ に対する停留性から、基本補題により $G_{ab}+\Lambda g_{ab}=0$ です。
 <!-- proof-end -->
