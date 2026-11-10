@@ -81,7 +81,7 @@ chapters:
     title: "共変位相空間とNoether流"
   - id: BHT19
     path: textbook/volumes/dream_thater/物理系/BHT/BHT19
-    status: planned
+    status: completed
     title: "Wald公式とEinstein重力"
   - id: BHT20
     path: textbook/volumes/dream_thater/物理系/BHT/BHT20
