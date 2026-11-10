@@ -53,7 +53,7 @@ chapters:
     title: "極限ブラックホールと第三法則"
   - id: BHT12
     path: textbook/volumes/dream_thater/物理系/BHT/BHT12
-    status: planned
+    status: completed
     title: "Euclid周期性と円錐正則性"
   - id: BHT13
     path: textbook/volumes/dream_thater/物理系/BHT/BHT13
