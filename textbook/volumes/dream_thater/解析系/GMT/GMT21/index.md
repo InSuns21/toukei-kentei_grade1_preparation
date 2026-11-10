@@ -6,7 +6,16 @@
 
 [GPDE2の超関数微分](../../GPDE/GPDE2/index.md#def-gpde2-distributional-derivative)なら、その跳躍も微分として記録できます。この講義で解きたい問いは、**超関数としての微分が、積分できる密度より広い「有限な測度」として表されるのはいつか**、そしてその大きさをどう測るかです。[GPDE3のSobolev空間](../../GPDE/GPDE3/index.md#def-gpde3-sobolev-space)との違いも明確にします。
 
-以下、$d\ge1$、$\Omega\subset\mathbb R^d$ は空でない開集合、$dx$ は $d$ 次元Lebesgue測度とします。$C_c^\infty(\Omega;\mathbb R^d)$ は、各成分が滑らかで、台が $\Omega$ 内のコンパクト集合であるベクトル場の空間です。$\partial_i$ は座標 $x_i$ に関する偏微分を表し、滑らかな $u$ の勾配は $\nabla u=(\partial_1u,\ldots,\partial_du)$ です。ベクトル場 $\varphi=(\varphi_1,\ldots,\varphi_d)$ の発散は $\operatorname{div}\varphi=\sum_{i=1}^d\partial_i\varphi_i$、$|\varphi|$ はEuclidノルムを表します。関数はLebesgue測度についてほとんど至る所（almost everywhere; a.e.）一致すれば同じ $L^1$ 元とみなします。
+以下、$d\ge1$、$\Omega\subset\mathbb R^d$ は空でない開集合、$dx$ は $d$ 次元Lebesgue測度とします。$C_c^\infty(\Omega;\mathbb R^d)$ は、各成分が滑らかで、台が $\Omega$ 内のコンパクト集合であるベクトル場の空間です。
+
+$\partial_i$ は座標 $x_i$ に関する偏微分です。滑らかな $u$ の勾配と、ベクトル場 $\varphi=(\varphi_1,\ldots,\varphi_d)$ の発散を、それぞれ
+
+$$
+\nabla u=(\partial_1u,\ldots,\partial_du),\qquad
+\operatorname{div}\varphi=\sum_{i=1}^d\partial_i\varphi_i
+$$
+
+と書きます。$|\varphi|$ はEuclidノルムです。関数はLebesgue測度についてほとんど至る所（almost everywhere; a.e.）一致すれば同じ $L^1$ 元とみなします。
 
 ## 1. 多変数の変動をテストベクトル場で測る
 
@@ -105,7 +114,15 @@ $$
 |T_i(\psi)|\le V\|\psi\|_\infty.
 $$
 
-$C_c^\infty(\Omega)$ は $C_0(\Omega)$ で一様稠密です。これを確かめるには、$f\in C_c(\Omega)$ の台 $K$ を取り、その閉 $r$ 近傍が $\Omega$ に含まれるような $r>0$ を選びます。$f$ を零で $\mathbb R^d$ へ延長し、$0<\varepsilon<r$ の[平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier) $\rho_\varepsilon$ と畳み込めば、$f*\rho_\varepsilon\in C_c^\infty(\Omega)$ です。$f$ の一様連続性から $\|f*\rho_\varepsilon-f\|_\infty\to0$ となり、さらに[MT6の $C_c$ の $C_0$ 稠密性](../../MT/MT6/index.md#thm-mt6-cc-dense-c0)で一般の $C_0$ 関数へ進めます。よって $T_i$ は $C_0(\Omega)$ の有界実線形汎関数に一意に延長されます。
+$C_c^\infty(\Omega)$ は $C_0(\Omega)$ で一様稠密です。まず $f\in C_c(\Omega)$ の台 $K$ を取り、その閉 $r$ 近傍が $\Omega$ に含まれるような $r>0$ を選びます。$f$ を零で $\mathbb R^d$ へ延長し、$0<\varepsilon<r$ の[平滑化核](../../GPDE/GPDE2/index.md#def-gpde2-mollifier) $\rho_\varepsilon$ と畳み込むと、台は $\Omega$ 内に留まり、
+
+$$
+f*\rho_\varepsilon\in C_c^\infty(\Omega),\qquad
+\|f*\rho_\varepsilon-f\|_\infty\longrightarrow0
+\quad(\varepsilon\downarrow0)
+$$
+
+となります。後半の極限は $f$ の一様連続性によります。[MT6の $C_c$ の $C_0$ 稠密性](../../MT/MT6/index.md#thm-mt6-cc-dense-c0)で一般の $C_0$ 関数へ進めるので、$T_i$ は $C_0(\Omega)$ の有界実線形汎関数に一意に延長されます。
 
 [MT6のRiesz–Markov定理](../../MT/MT6/index.md#thm-mt6-riesz-markov-c0)を局所コンパクトHausdorff空間 $\Omega$ に適用すると、有限符号付きRadon測度 $\mu_i$ が一意に存在し
 
@@ -483,7 +500,7 @@ $\Omega=(-1,1)^2$、$u(x_1,x_2)=|x_1|$ とする。$Du$ と全変動質量を求
 <!-- solution-start -->
 #### 詳細解答
 
-一変数の絶対値関数は局所絶対連続であり、そのa.e.導関数は $\operatorname{sgn}(x_1)$ です。ここで $\operatorname{sgn}(t)=1$（$t>0$）、$-1$（$t<0$）を表し、$t=0$ での値は積分に影響しません。$u\in W^{1,1}(\Omega)$ なので[W11とBVの比較](#prop-gmt21-w11-inclusion)より
+ここで $\operatorname{sgn}(t)=1$（$t>0$）、$-1$（$t<0$）を表し、$t=0$ での値は積分に影響しません。一変数の絶対値関数は局所絶対連続であり、そのa.e.導関数は $\operatorname{sgn}(x_1)$ です。$u\in W^{1,1}(\Omega)$ なので[W11とBVの比較](#prop-gmt21-w11-inclusion)より
 
 $$
 Du=(\operatorname{sgn}(x_1),0)\,dx,\qquad
