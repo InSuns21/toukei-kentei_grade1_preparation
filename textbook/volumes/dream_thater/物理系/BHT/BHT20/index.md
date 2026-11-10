@@ -141,7 +141,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-逆計量の摂動を $h^{ab}=\delta g^{ab}$ と書き、その跡を $h=g_{ab}h^{ab}$ とします。これは座標微分ではなく計量族の変分パラメータに関する微分です。[GR10の体積密度の変分](../../GR/GR10/index.md#prop-gr10-volume-variation)と[Palatini恒等式を用いた曲率変分](../../GR/GR10/index.md#thm-gr10-eh-variation)を、[GR6の曲率規約](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)のもとで使用します。
+逆計量の摂動を $h^{ab}=\delta g^{ab}$ と書き、その跡を $h=g_{ab}h^{ab}$ とします。これは座標微分ではなく計量族の変分パラメータに関する微分です。[GR10の体積密度の変分](../../GR/GR10/index.md#prop-gr10-volume-variation)と[GR10の作用変分](../../GR/GR10/index.md#thm-gr10-eh-variation)を、[GR6の曲率規約](../../GR/GR6/index.md#prop-gr6-coordinate-curvature)のもとで使用します。
 
 $$
 \delta\sqrt{-g}=-\frac12\sqrt{-g}\,h,\qquad
