@@ -15,3 +15,4 @@
 12. [ORI12 同時複数折り・曲線折りの作図能力](textbook/volumes/dream_thater/幾何系/ORI/ORI12/index.md)
 13. [ORI13 折り線図、山谷、平坦折り写像](textbook/volumes/dream_thater/幾何系/ORI/ORI13/index.md)
 14. [ORI14 Kawasaki–Justinの定理](textbook/volumes/dream_thater/幾何系/ORI/ORI14/index.md)
+15. [ORI15 Maekawaの定理](textbook/volumes/dream_thater/幾何系/ORI/ORI15/index.md)
