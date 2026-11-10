@@ -1,0 +1,45 @@
+id: ORI13
+title: "折り線図、山谷、平坦折り写像"
+volume: foundations
+status: supplementary
+prerequisites: [ORI12, F0-00E1, LA3B]
+official_scope: []
+learning_objectives:
+  - 有限直線折り線図を平面グラフとして定め、内部頂点の次数と面を正しく数えられる
+  - 山谷割当てが二次元の配置写像だけからは定まらないことを説明できる
+  - 各面の等長変換と共有折り目の一致条件を確認し、連続な平坦配置候補を構成できる
+  - 共有折り線を点ごとに固定する相対等長変換が恒等写像か鏡映に限られることを証明できる
+  - 全折り目が作動する内部頂点の次数が偶数である必要条件を証明し、十分条件と混同しない
+  - 重なり面の層順における循環を判定し、局所・大域・運動の実現可能性を区別できる
+definitions:
+  - { id: ORI13-DEF-01, name: 有限直線折り線図・面・頂点 }
+  - { id: ORI13-DEF-02, name: 山谷割当て }
+  - { id: ORI13-DEF-03, name: 面ごとの等長な平坦配置候補 }
+  - { id: ORI13-DEF-04, name: 重なり面と層順 }
+theorems:
+  - { id: ORI13-PROP-01, name: 共有折り線に沿う二面の相対写像 }
+  - { id: ORI13-PROP-02, name: 有限個の面の貼り合わせ }
+  - { id: ORI13-PROP-03, name: 内部頂点の作動折り目の偶数性 }
+  - { id: ORI13-PROP-04, name: 二本の平行折り目による三層の平坦配置候補 }
+canonical_examples:
+  - 平行な二本の折り線で長方形を三面に分け、境界端点と内部頂点を区別する
+  - 一折りの左右を恒等写像と鏡映で貼り、二面が同じ像へ重なることを確認する
+  - 共有直線の固定条件から相対等長変換の直交行列を二種類に分類する
+  - 内部三価頂点で行列式の符号が一周して矛盾する
+  - 二本の平行折り線で三枚の層を同じ長方形へ写し、層順の循環を排除する
+  - 四象限の写像f(x,y)=(|x|,|y|)の連続性と四層の重なりを検算する
+problem_patterns:
+  - ORI13-PLANE-GRAPH-FACES
+  - ORI13-REFLECTION-OVERLAP
+  - ORI13-SEAM-CONTINUITY
+  - ORI13-ODD-VALENCE-OBSTRUCTION
+  - ORI13-PARALLEL-FOLDS
+  - ORI13-LINE-FIXING-ISOMETRY
+  - ORI13-LAYER-ORDER-CYCLE
+  - ORI13-ORIENTATION-PARITY
+  - ORI13-FOUR-QUADRANTS
+  - ORI13-FOUR-LAYER-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }
