@@ -61,7 +61,7 @@ $$
 > を満たすものをいう。選んだ積を $A\times B$、射影を $\pi_A,\pi_B$ と書き、媒介射 $h$ を $\langle f,g\rangle$ と記す。積は常に存在するとは限らない。
 <!-- formal-statement-end -->
 
-この定義を前講の言葉で読むと、二対象離散圏 $\{0,1\}$ の図式 $0\mapsto A,1\mapsto B$ に対する[図式への錐](../CAT2-01/index.md#def-cat2-01-cone)が二射の組 $(f,g)$、極限錐が $(P,p_A,p_B)$ である。そのため二項積とは、二対象離散図式の[極限](../CAT2-01/index.md#def-cat2-01-limit)にほかならない。値域 $\mathcal C$ が小さい必要も、局所小である必要もない。局所小性はHomを集合値関手として扱う場面で初めて必要になる。
+この定義を前講の言葉で読むと、二対象離散圏 $\{0,1\}$ の図式 $0\mapsto A,1\mapsto B$ に対する[図式への錐](../CAT2-01/index.md#def-cat2-01-cone)が二射の組 $(f,g)$、極限錐が $(P,p_A,p_B)$ である。そのため二項積とは、二対象離散図式の[極限](../CAT2-01/index.md#def-cat2-01-limit)にほかならない。値域 $\mathcal C$ が小さい必要も、[局所小](../CAT1-02/index.md#def-cat1-02-size)である必要もない。局所小性はHomを集合値関手として扱う場面で初めて必要になる。
 
 <!-- definition-example-start: def-cat2-02-binary-product -->
 **定義の確認**
@@ -200,17 +200,17 @@ $$
 f\times g:=\langle f\pi_A,g\pi_B\rangle:A\times B\to A'\times B'
 $$
 
-> と定める。さらに必要な積が選ばれているなら
+> と定める。さらに射 $f':A'\to A''$、$g':B'\to B''$ が与えられ、二項積 $A''\times B''$ も選ばれているなら
 
 $$
 1_A\times1_B=1_{A\times B},\qquad
 (f'\times g')(f\times g)=(f'f)\times(g'g)
 $$
 
-> が成り立つ。特に $A\times A,B\times B$ が存在するとき
+> が成り立つ。また、任意の射 $u:U\to V$ について二項積 $U\times U$、$V\times V$ が選ばれているなら
 
 $$
-(f\times f)\delta_A=\delta_Bf
+(u\times u)\delta_U=\delta_Vu
 $$
 
 > である。
@@ -218,26 +218,33 @@ $$
 
 ### 証明の見取り図
 
-全ての等号を、終域の積の二本の射影と合成して確かめる。対角射の式は「先に複製してから $f$ を二回作用」しても「先に $f$ を作用してから複製」しても同じことを表す。
+全ての等号を、終域の積の二本の射影と合成して確かめる。対角射の式は「先に複製してから $u$ を二回作用」しても「先に $u$ を作用してから複製」しても同じことを表す。
 
 <!-- proof-start -->
 ### 証明
 
-積の定義より $f\times g$ は存在・一意で、その終域の射影 $\pi_{A'},\pi_{B'}$ に対して
+[積の定義](#def-cat2-02-binary-product)より $f\times g$ は存在・一意で、その終域の射影 $\pi_{A'},\pi_{B'}$ に対して
 
 $$
 \pi_{A'}(f\times g)=f\pi_A,\qquad
 \pi_{B'}(f\times g)=g\pi_B
 $$
 
-となる。$f=1_A,g=1_B$ とすれば両成分は $\pi_A,\pi_B$ で、$1_{A\times B}$ も同じ条件を満たすので等しい。合成については、$f':A'\to A''$、$g':B'\to B''$ と置き、終域 $A''\times B''$ の第1射影を左から合成すると
+となる。$A'=A,B'=B$ とし、$f=1_A,g=1_B$ を代入すれば両成分は $\pi_A,\pi_B$ で、$1_{A\times B}$ も同じ条件を満たすので等しい。合成については、終域 $A''\times B''$ の第1射影を左から合成すると
 
 $$
 \pi_{A''}(f'\times g')(f\times g)
 =f'\pi_{A'}(f\times g)=f'f\pi_A.
 $$
 
-第2射影でも $g'g\pi_B$ を得る。これは $((f'f)\times(g'g))$ の二成分と一致するので、[組の射の一意性](#prop-cat2-02-pairing-laws)が等号を与える。最後に両射 $A\to B\times B$ を $B$ の各射影へ合成すると、いずれも $f$ となる。よって再び一意性で $(f\times f)\delta_A=\delta_Bf$。$\square$
+第2射影でも $g'g\pi_B$ を得る。これは $((f'f)\times(g'g))$ の二成分と一致するので、[組の射の一意性](#prop-cat2-02-pairing-laws)が等号を与える。最後に任意の $u:U\to V$ を取り、$V\times V$ の射影を $q_1,q_2$、$U\times U$ の射影を $p_1,p_2$ とする。$i=1,2$ のそれぞれについて
+
+$$
+q_i(u\times u)\delta_U=up_i\delta_U=u1_U=u,
+\qquad q_i\delta_Vu=1_Vu=u.
+$$
+
+二射 $(u\times u)\delta_U,\delta_Vu:U\to V\times V$ の両射影が一致するので、再び[組の射の一意性](#prop-cat2-02-pairing-laws)から $(u\times u)\delta_U=\delta_Vu$。$\square$
 <!-- proof-end -->
 
 ## 5. 有限個の積と括弧付け
@@ -276,13 +283,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-1から2は、[空図式の極限と終対象](#prop-cat2-02-empty-product)を $I=\varnothing$ に適用し、二項積の定義を $I=\{1,2\}$ に適用すればよい。
+1から2は、[空図式の極限と終対象](#prop-cat2-02-empty-product)を $I=\varnothing$ に適用し、[二項積の定義](#def-cat2-02-binary-product)を $I=\{1,2\}$ に適用すればよい。
 
 2から1を示す。有限集合 $I$ の元を $i_1,\ldots,i_n$ と列挙する。$n=0$ では仮定した終対象 $T$ を選べば、脚のない錐の一意な媒介射がある。$n=1$ では $P_1=A_{i_1}$、$p_1=1_{A_{i_1}}$ を選ぶ。任意の $f_1:X\to A_{i_1}$ を媒介する射 $h$ は $1h=f_1$ により $h=f_1$ と一意である。
 
 $n\ge1$ で $(P_n,p_1,\ldots,p_n)$ が最初の $n$ 対象の積と仮定する。存在を仮定した二項積 $P_{n+1}:=P_n\times A_{i_{n+1}}$ の射影を $q:P_{n+1}\to P_n$、$r:P_{n+1}\to A_{i_{n+1}}$ とする。新たな族の射影は $p_jq$（$1\le j\le n$）と $r$ である。
 
-任意の $f_j:X\to A_{i_j}$（$1\le j\le n+1$）を取る。帰納法の仮定からただ一つの $u:X\to P_n$ が $p_ju=f_j$（$j\le n$）を満たす。二項積の普遍性からただ一つの $h:=\langle u,f_{n+1}\rangle:X\to P_{n+1}$ が $qh=u$、$rh=f_{n+1}$ を満たす。従って
+任意の $f_j:X\to A_{i_j}$（$1\le j\le n+1$）を取る。帰納法の仮定からただ一つの $u:X\to P_n$ が $p_ju=f_j$（$j\le n$）を満たす。[二項積の普遍性](#def-cat2-02-binary-product)からただ一つの $h:=\langle u,f_{n+1}\rangle:X\to P_{n+1}$ が $qh=u$、$rh=f_{n+1}$ を満たす。従って
 
 $$
 (p_jq)h=p_j(qh)=p_ju=f_j\quad(1\le j\le n),
@@ -297,7 +304,7 @@ $$
 p_i(vu)=(p_iv)u=q_iu=p_i=p_i1_P.
 $$
 
-$P$ の普遍性から $vu=1_P$（$I=\varnothing$ の場合も空の条件に対する射の一意性を使う）。同様に $uv=1_Q$。$u$ は全射影を保つ唯一の同型となる。$\square$
+[有限積の普遍性](#def-cat2-02-finite-product)から $vu=1_P$（$I=\varnothing$ の場合も空の条件に対する射の一意性を使う）。同様に $uv=1_Q$。$u$ は全射影を保つ唯一の同型となる。$\square$
 <!-- proof-end -->
 
 **括弧付けと入れ替え。** 上の証明により $(A\times B)\times C$ と $A\times(B\times C)$ は、どちらも三対象 $A,B,C$ の積である。前者の三つの射影を順に書くと
@@ -312,9 +319,9 @@ $$
 \pi_A,\qquad\pi_B\pi_{B\times C},\qquad\pi_C\pi_{B\times C}
 $$
 
-となる。それぞれへの媒介射を二回作れば三本の脚を一意に束ねる。ゆえに上の定理により、これらは三成分を保つ**一意な同型**で結ばれる。
+となる。それぞれへの媒介射を二回作れば三本の脚を一意に束ねる。ゆえに[有限積の存在判定](#thm-cat2-02-finite-products)により、これらは三成分を保つ**一意な同型**で結ばれる。
 
-また $A\times B$ と $B\times A$ には、$\langle\pi_B,\pi_A\rangle$ と逆向きの組の射がある。合成の両射影が恒等射の両射影と一致するため互いに逆射になる。ただし、いずれも文字どおり対象が等しいとは主張しない。
+また $A\times B$ と $B\times A$ には、$\langle\pi_B,\pi_A\rangle$ と逆向きの組の射がある。[組の射の基本則](#prop-cat2-02-pairing-laws)により、合成の両射影が恒等射の両射影と一致するため互いに逆射になる。ただし、いずれも文字どおり対象が等しいとは主張しない。
 
 **境界条件。** 定理で必要なのは「二項積が**全ての組**にある」ことで、ある一組だけにあることではない。また、有限積の存在から無限添字族の積の存在は導けない。無限図式の一般の構成は後講で扱う。
 
@@ -336,7 +343,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-積 $(p,p\to a,p\to b)$ があれば $p\le a,b$。任意の共通下界 $x\le a,b$ について、二射 $x\to a,b$ を積の普遍性へ入れると射 $x\to p$ が存在し、$x\le p$。従って $p$ は最大下界である。逆に最大下界 $p$ があれば $p\le a,b$ なので射影があり、共通下界 $x$ について $x\le p$ から媒介射 $x\to p$ が存在する。射は高々一本なので媒介射は一意である。
+積 $(p,p\to a,p\to b)$ があれば $p\le a,b$。任意の共通下界 $x\le a,b$ について、二射 $x\to a,b$ を[積の普遍性](#def-cat2-02-binary-product)へ入れると射 $x\to p$ が存在し、$x\le p$。従って $p$ は最大下界である。逆に最大下界 $p$ があれば $p\le a,b$ なので射影があり、共通下界 $x$ について $x\le p$ から媒介射 $x\to p$ が存在する。射は高々一本なので媒介射は一意である。
 
 終対象 $t$ なら各 $x$ から $t$ へ射が存在し $x\le t$。逆に最大元 $t$ があれば全ての $x$ に射 $x\to t$ が存在し、半順序圏なので一意である。$\square$
 <!-- proof-end -->
@@ -429,7 +436,7 @@ $$
 $A\times B$ と $(A\times B)\times C$ が存在するとする。$X$ からの三射 $f:X\to A,g:X\to B,h:X\to C$ を与えたとき、三つの射影を同時に満たす射を構成し、一意性を証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $A\times B$ の射影を $p_A,p_B$、$(A\times B)\times C$ の射影を $q,r$ とする。まず $u=\langle f,g\rangle:X\to A\times B$ を作る。次に $w=\langle u,h\rangle:X\to(A\times B)\times C$ を作る。すると
+**詳細解答。** $A\times B$ の射影を $p_A,p_B$、$(A\times B)\times C$ の射影を $q,r$ とする。[二項積の普遍性](#def-cat2-02-binary-product)により、まず $u=\langle f,g\rangle:X\to A\times B$ を作る。次に $w=\langle u,h\rangle:X\to(A\times B)\times C$ を作る。すると
 
 $$
 (p_Aq)w=p_A(qw)=p_Au=f,\quad
@@ -453,7 +460,7 @@ q_i(f\times f)\delta_A=fp_i\delta_A=f1_A=f
 \quad(i=1,2).
 $$
 
-他方 $q_i\delta_Bf=1_Bf=f$。両射影との合成が同じなので積の一意性により二射は等しい。使用したのは合成と普遍性だけで、$f$ の逆射は不要である。
+他方 $q_i\delta_Bf=1_Bf=f$。[組の射の一意性](#prop-cat2-02-pairing-laws)により二射は等しい。使用したのは合成と普遍性だけで、$f$ の逆射は不要である。
 <!-- solution-end -->
 
 ### CAT2-02-C01 終対象はあるが二項積がない圏
