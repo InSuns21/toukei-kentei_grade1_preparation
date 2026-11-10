@@ -203,7 +203,9 @@ $u:X\to Y$ の作用を左から行えば $(u(g(0)),u(g(1)))$、右から $u\cir
 
 これまでの全単射は、$A$ と $P$（または $F$）をそれぞれ固定して証明した。しかし「自然な同型」と呼ぶためには、**入力の対象を変える場合**と**関手を自然変換で変える場合**にも、対応が両立しなければならない。
 
-まず反変の場合を手で考える。射 $t:A\to B$ を与えると、任意の $g:X\to A$ を $t\circ g:X\to B$ に送れる。これは $h^A$ から $h^B$ への自然変換 $h^t$ を作る。他方、反変関手 $P$ の作用は $P(t):P(B)\to P(A)$ であり、反対向きだ。$\alpha:h^B\Rightarrow P$ に $h^t$ を前合成すると、$h^A\Rightarrow P$ になる。この向きの対応が自然性の要点である。
+まず反変の場合を手で考える。射 $t:A\to B$ を与えると、任意の $g:X\to A$ を $t\circ g:X\to B$ に送れる。これは $h^A$ から $h^B$ への自然変換 $h^t$ を作る。
+
+他方、反変関手 $P$ の作用は $P(t):P(B)\to P(A)$ であり、反対向きだ。$\alpha:h^B\Rightarrow P$ に $h^t$ を前合成すると、$h^A\Rightarrow P$ になる。この向きの対応が自然性の要点である。
 
 共変の場合、同じ $t:A\to B$ は $h_B$ から $h_A$ への自然変換を作る。$g:B\to X$ を $g\circ t:A\to X$ に送るからである。これに $h_A\Rightarrow F$ を合成すると、$h_B\Rightarrow F$ を得るので、評価値も $F(t):F(A)\to F(B)$ の向きへ移る。
 
@@ -213,7 +215,7 @@ $u:X\to Y$ の作用を左から行えば $(u(g(0)),u(g(1)))$、右から $u\cir
 > **命題（Yoneda対応の二変数自然性）**
 > 局所小圏 $\mathcal C$、対象 $A,B$、射 $t:A\to B$ について、次が成立する。
 >
-> 1. 反変関手 $P,Q:\mathcal C^{\mathrm{op}}\to\mathbf{Set}$ と自然変換 $\eta:P\Rightarrow Q$、$\alpha:h^B\Rightarrow P$ に対して、$h^t_X(g)=t\circ g$ と置けば
+> **反変の場合。** 関手 $P,Q:\mathcal C^{\mathrm{op}}\to\mathbf{Set}$ と自然変換 $\eta:P\Rightarrow Q$、$\alpha:h^B\Rightarrow P$ に対して、$h^t_X(g)=t\circ g$ と置けば
 
 $$
 \begin{aligned}
@@ -224,7 +226,7 @@ $$
 \end{aligned}
 $$
 
-> 2. 共変関手 $F,G:\mathcal C\to\mathbf{Set}$ と自然変換 $\theta:F\Rightarrow G$、$\beta:h_A\Rightarrow F$ に対して、$(h_t)_X(g)=g\circ t$（$g:B\to X$）と置けば
+> **共変の場合。** 関手 $F,G:\mathcal C\to\mathbf{Set}$ と自然変換 $\theta:F\Rightarrow G$、$\beta:h_A\Rightarrow F$ に対して、$(h_t)_X(g)=g\circ t$（$g:B\to X$）と置けば
 
 $$
 \begin{aligned}
@@ -411,7 +413,16 @@ $$
 \end{array}
 $$
 
-となる。自然性を射 $e$ で確認する。$h_*(e)$ は $1\mapsto e$、$e\mapsto e$ とする写像で、$F(e)$ は両元を $0$ に送る。$\beta^0$、$\beta^1$ のいずれに対しても $F(e)(\beta^y(1))=0=\beta^y(e)$、$F(e)(\beta^y(e))=0=\beta^y(e)$ で一致する。射 $1$ では両辺がそのまま一致する。評価 $\beta^y(1)=y$ が異なるので二つは別の自然変換であり、補題から他にはない。
+となる。自然性を射 $e$ で確認する。$h_*(e)$ は $1\mapsto e$、$e\mapsto e$ とする写像で、$F(e)$ は両元を $0$ に送る。従って $y=0,1$ のどちらに対しても
+
+$$
+\begin{aligned}
+F(e)(\beta^y(1))&=0=\beta^y(e),\\
+F(e)(\beta^y(e))&=0=\beta^y(e)
+\end{aligned}
+$$
+
+で一致する。射 $1$ では両辺がそのまま一致する。評価 $\beta^y(1)=y$ が異なるので二つは別の自然変換であり、補題から他にはない。
 <!-- solution-end -->
 
 ### CAT1-11-A05 自然性を持たない写像を排除する
@@ -427,7 +438,9 @@ $$
 w(e)=w(e\circ1)=F(e)(w(1))=w(1).
 $$
 
-必要条件は $w(e)=w(1)$ である。逆にこの条件があれば、射 $e$ の作用 $1\mapsto e$、$e\mapsto e$ に対し、両側とも常に同じ値 $w(1)$ となる。射 $1$ での自然性は恒等写像どうしなので自動的に成立する。よって必要十分である。$w(1)$ は $0$ または $1$ の二通りなので、自然変換は定値 $0$ と定値 $1$ の二つだけ。二つの集合写像が $1$ で一致しても自然性を仮定しなければ $e$ で一致するとは限らないが、自然変換に限れば一致する。
+必要条件は $w(e)=w(1)$ である。逆にこの条件があれば、射 $e$ の作用 $1\mapsto e$、$e\mapsto e$ に対し、両側とも常に同じ値 $w(1)$ となる。射 $1$ での自然性は恒等写像どうしなので自動的に成立する。よって必要十分である。
+
+$w(1)$ は $0$ または $1$ の二通りなので、自然変換は定値 $0$ と定値 $1$ の二つだけ。二つの集合写像が $1$ で一致しても自然性を仮定しなければ $e$ で一致するとは限らないが、自然変換に限れば一致する。
 <!-- solution-end -->
 
 ### CAT1-11-B01 関手側の自然性を冪集合で計算する
@@ -579,7 +592,9 @@ $P:\mathbf{Set}^{\mathrm{op}}\to\mathbf{Set}$ を $P(X)=\mathcal P(X)$、$P(f)(S
 <!-- solution-start -->
 **詳細解答**。
 
-**1. 表現の確認。** 各 $S\subseteq X$ に対し $\chi_S(x)=1$ if $x\in S$、それ以外は $0$ と定める。この写像は $\chi_S^{-1}(\{1\})=S$ を満たし、逆に $f^{-1}(\{1\})=S$ を満たす $f:X\to2$ は全ての $x$ で $f(x)=\chi_S(x)$ となる。従って $\iota_X$ は全単射で、逆は $S\mapsto\chi_S$ である。$u:Y\to X$ について
+**1. 表現の確認。** 各 $S\subseteq X$ に対し、$\chi_S:X\to2$ を $x\in S$ なら $1$、それ以外なら $0$ を返す写像とする。この写像は $\chi_S^{-1}(\{1\})=S$ を満たす。逆に $f^{-1}(\{1\})=S$ を満たす $f:X\to2$ は全ての $x$ で $f(x)=\chi_S(x)$ となる。
+
+従って $\iota_X$ は全単射で、逆は $S\mapsto\chi_S$ である。$u:Y\to X$ について
 
 $$
 P(u)(\iota_X(f))=u^{-1}(f^{-1}(\{1\}))
