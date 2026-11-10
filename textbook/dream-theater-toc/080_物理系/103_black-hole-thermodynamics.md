@@ -17,3 +17,4 @@
 14. [BHT14 Euclidサドルから自由エネルギーへ](textbook/volumes/dream_thater/物理系/BHT/BHT14/index.md)
 15. [BHT15 負熱容量と有限空洞](textbook/volumes/dream_thater/物理系/BHT/BHT15/index.md)
 16. [BHT16 AdSブラックホールとHawking–Page転移](textbook/volumes/dream_thater/物理系/BHT/BHT16/index.md)
+17. [BHT17 電荷・回転とアンサンブル選択](textbook/volumes/dream_thater/物理系/BHT/BHT17/index.md)
