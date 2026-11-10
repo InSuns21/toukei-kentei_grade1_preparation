@@ -16,6 +16,13 @@ $$
 c_m=\mathcal H^m([0,1]^m),\qquad c_1=1
 $$
 
+です。また、$V$ を原点を通る $m$ 次元平面、$\omega_m$ を $m$ 次元単位球のLebesgue体積とすると、[GMT15の平面基準密度](../GMT15/index.md#def-gmt15-plane-density)で使った平面球の面積は
+
+$$
+\omega_m=\mathcal L^m(B_{\mathbb R^m}(0,1)),\qquad
+\mathcal H^m(V\cap B(0,r))=c_m\omega_mr^m
+$$
+
 です。記号 $\mathcal H^m\llcorner E$ は $E$ への測度の制限を表します。
 
 ## 1. 純非整流部分は、どの整流可能部分とも重ならない
@@ -181,7 +188,7 @@ $R=S$ は可算1整流可能、$P=K'$ は[純1非整流可能](../GMT12/index.md
 
 分解の $R$ は $\mathcal H^m(R)\le\mathcal H^m(E)<\infty$ なので、[GMT15の「局所有限な可算整流可能集合の密度と近似接平面」](../GMT15/index.md#thm-gmt15-rectifiable-density-tangent)から $\mathcal H^m$-ほとんどすべての $x\in R$ で平面基準密度1と近似接平面 $V_x$ を持ちます。ただしこれだけでは、$E$ の残りの $P$ が $x$ の周囲で面積を余分に持つ可能性があります。
 
-そこで有限Radon測度 $\mu=\mathcal H^m\llcorner E$ に対し、[GMT1の測度微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を $\boldsymbol1_R$ に適用します。$\mu$-ほとんどすべての $x\in R$ で
+そこで $E$ はBorelかつ有限面積なので、$\mu=\mathcal H^m\llcorner E$ は有限Radon測度です。この $\mu$ に対し、[GMT1の測度微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を、$R$ 上で1、$E\setminus R$ 上で0となる指示関数 $\boldsymbol1_R$ に適用します。$\mu$-ほとんどすべての $x\in R$ で
 
 $$
 \frac{\mathcal H^m(R\cap B(x,r))}
@@ -197,7 +204,31 @@ $$
 \longrightarrow1.
 $$
 
-また $E$ の円錐外部分は $R$ の円錐外部分と $P$ の部分に分かれ、前者は $o(r^m)$、後者も上の微分比と有限正の球面積密度から $o(r^m)$ です。よって $E$ 自体の近似接平面も $V_x$ になります。**分解の整流可能成分は、周囲に純非整流部分があっても、ほとんどすべての点で幾何を保ちます。** 逆向きの一般判定はGMT20の課題です。
+さらに、$E=R\mathbin{\dot\cup}P$ の加法性と上の二つの極限から、$\mathcal H^m(R\cap B(x,r))>0$ となる十分小さい $r$ で
+
+$$
+\begin{aligned}
+\frac{\mathcal H^m(P\cap B(x,r))}{r^m}
+&=\frac{\mathcal H^m(R\cap B(x,r))}{r^m}
+\left(\frac{\mathcal H^m(E\cap B(x,r))}
+{\mathcal H^m(R\cap B(x,r))}-1\right)\\
+&\longrightarrow c_m\omega_m(1-1)=0.
+\end{aligned}
+$$
+
+ここで $o(r^m)$ は、$r^m$ で割った量が0に収束することを表します。任意の円錐幅 $\varepsilon$ について、$E$ の円錐外部分の長さには次の上界があります。
+
+$$
+\begin{aligned}
+&\mathcal H^m(E\cap B(x,r)\setminus X(x,V_x,\varepsilon))\\
+&\quad\le\mathcal H^m(R\cap B(x,r)\setminus X(x,V_x,\varepsilon))
++\mathcal H^m(P\cap B(x,r)).
+\end{aligned}
+$$
+
+右辺の第1項は[GMT15の近似接平面条件](../GMT15/index.md#def-gmt15-approximate-tangent)で $o(r^m)$、第2項は上式で $o(r^m)$ です。従って $E$ 自体の近似接平面も $V_x$ になります。
+
+**分解の整流可能成分は、周囲に純非整流部分があっても、ほとんどすべての点で幾何を保ちます。** 逆向きの一般判定はGMT20の課題です。
 
 ## 3. 反例：正で有限の長さがあっても接線が一本もない
 
@@ -292,13 +323,20 @@ $$
 2^n4^{-n}=0.
 $$
 
-従って水平方向 $e_1=(1,0)$ の直交射影 $\pi_{e_1}(x,y)=x$ では $\mathcal H^1(\pi_{e_1}K)=0$ です。しかし、すべての方向で零になるわけではありません。
+[GMT5の直交射影の定義](../GMT5/index.md#def-gmt5-orthogonal-projection)では、単位方向 $u$ への射影点 $P_u(x,y)$ と、その直線上の実数座標 $\pi_u(x,y)$ を区別します。
+
+$$
+P_u(x,y)=((x,y)\cdot u)u,\qquad
+\pi_u(x,y)=(x,y)\cdot u.
+$$
+
+水平方向 $e_1=(1,0)$ なら $\pi_{e_1}(x,y)=x$ なので $\mathcal H^1(\pi_{e_1}K)=0$ です。しかし、すべての方向で零になるわけではありません。
 
 <a id="prop-gmt16-projection-contrast"></a>
 
 <!-- formal-statement-start -->
 > **命題（四隅集合の零射影と正射影）**  
-> $K=C\times C\subset\mathbb R^2$ を上記の四隅Cantor集合とし、単位方向 $v=(2,1)/\sqrt5$ への直交射影を、その方向の実数座標
+> $K=C\times C\subset\mathbb R^2$ を上記の四隅Cantor集合とし、長さ $|v|=\sqrt{4+1}/\sqrt5=1$ の単位方向 $v=(2,1)/\sqrt5$ への直交射影を、その方向の実数座標
 
 $$
 \pi_v(x,y)=\frac{2x+y}{\sqrt5}
@@ -427,7 +465,7 @@ $$
 \le\sum_{j>n}\frac3{4^j}=4^{-n}.
 $$
 
-最初の $n$ 桁の選び方は $2^n$ 通りなので、$C$ は長さ $4^{-n}$ の区間 $2^n$ 個で覆えます。最大直径は $4^{-n}\to0$、直径総和は $2^n4^{-n}=2^{-n}\to0$。Hausdorff測度の定義から $\mathcal H^1(C)=0$ です。$\pi_{e_1}K=C$ なので結論が従います。
+最初の $n$ 桁の選び方は $2^n$ 通りなので、$C$ は長さ $4^{-n}$ の区間 $2^n$ 個で覆えます。最大直径は $4^{-n}\to0$、直径総和は $2^n4^{-n}=2^{-n}\to0$。[Hausdorff測度の定義](../../MT/MT8/index.md#def-mt8-hausdorff-measure)から $\mathcal H^1(C)=0$ です。$\pi_{e_1}K=C$ なので結論が従います。
 <!-- solution-end -->
 
 ### GMT16-B01 分解が零集合を除いて一意である理由

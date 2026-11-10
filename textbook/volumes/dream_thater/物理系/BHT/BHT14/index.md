@@ -15,7 +15,7 @@ ds_E^2=f(r)d\tau^2+\frac{dr^2}{f(r)}+r^2d\Omega_2^2,
 \qquad f(r)=1-\frac{2GM}{r}
 $$
 
-とします。$r_h=2GM$ は地平線半径、$d\Omega_2^2$ は単位2球の計量です。[BHT12の非極限正則周期定理](../BHT12/index.md#thm-bht12-nonextremal-period)を $f'(r_h)=1/(2GM)>0$ に適用すると、滑らかな円板中心を持つ条件は
+とします。$r_h=2GM$ は地平線半径、$d\Omega_2^2$ は単位2球の計量で、$f'(r)=df/dr$ は面積半径 $r$ による微分です。[BHT12の非極限正則周期定理](../BHT12/index.md#thm-bht12-nonextremal-period)を $f'(r_h)=1/(2GM)>0$ に適用すると、滑らかな円板中心を持つ条件は
 
 $$
 \beta_H=\frac{4\pi}{f'(r_h)}=8\pi GM
@@ -141,7 +141,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht14-saddle-weight -->
-**定義の確認**（有限個の熱力学状態に対する通常の正準統計）：エネルギー $0,\epsilon>0$ の二状態なら $Z(b)=1+e^{-b\epsilon}$、$I(b)=-\log Z$ です。直接微分すると
+**定義の確認**（有限個の熱力学状態に対する通常の正準統計）：エネルギーが $E_0=0$、$E_1=\epsilon>0$ の二状態を考え、$H$ を各状態のエネルギーを返す関数（ハミルトニアン）、$b>0$ を逆温度とします。各状態の重みを $e^{-bE_j}$ とすれば
+
+$$
+Z(b)=\sum_{j=0}^1e^{-bE_j}=1+e^{-b\epsilon},\qquad
+\langle H\rangle_b:=\frac{\sum_{j=0}^1 E_j e^{-bE_j}}{Z(b)}
+=\frac{\epsilon e^{-b\epsilon}}{1+e^{-b\epsilon}}.
+$$
+
+この $\langle H\rangle_b$ は正規化した重みでの平均エネルギーです。$I(b)=-\log Z(b)$ と置き、$b$ で直接微分すると
 
 $$
 \frac{dI}{db}=\frac{\epsilon e^{-b\epsilon}}{1+e^{-b\epsilon}}
@@ -149,7 +157,7 @@ $$
 b\frac{dI}{db}-I=b\langle H\rangle_b+\log Z.
 $$
 
-従って定義の三量は正準統計の $F,E,S$ と一致します。ただしこの有限次元の $Z$ について成立する性質を、無限次元の重力積分へ無条件には移せません。
+従って $F=I/b=-\log Z/b$、$E=\langle H\rangle_b$、$S=b\langle H\rangle_b+\log Z$ と、定義の三量は正準統計の $F,E,S$ と一致します。ただしこの有限次元の $Z$ について成立する性質を、無限次元の重力積分へ無条件には移せません。
 <!-- definition-example-end -->
 
 <a id="thm-bht14-thermodynamic-potentials"></a>
@@ -307,7 +315,33 @@ $$
 
 この先端を滑らかな小円板で正則化してから半径を零にすると、二次元の曲率スカラーの積分は $4\pi(1-\alpha)$ に収束します。平坦な紙から扇形を除いて辺を貼ると欠損角のある円錐ができ、逆に扇形を付け足すと過剰角のある円錐になります。平坦部分を一周した向きのずれは、符号付きの角 $2\pi(1-\alpha)$ です。
 
-二次元ではこのずれはGauss曲率の面積積分に等しく、スカラー曲率はその2倍になります。先端に横たわる2球の面積 $A_H$ を掛けると、四次元の寄与は
+曲率積分への橋渡しを明示します。先端を半径 $\varepsilon$ の滑らかな回転対称の円板で置き換え、その計量を $d\rho^2+a_\varepsilon(\rho)^2d\vartheta^2$ とします。ここだけプライムは $\rho$ 微分です。滑らかな中心と外側の円錐への接続条件は
+
+$$
+a_\varepsilon(0)=0,\qquad a_\varepsilon'(0)=1,\qquad
+a_\varepsilon'(\varepsilon)=\alpha
+$$
+
+です。この計量の接続係数とGauss曲率 $K_2$ は
+
+$$
+\Gamma^\rho_{\vartheta\vartheta}=-a_\varepsilon a_\varepsilon',\qquad
+\Gamma^\vartheta_{\rho\vartheta}=\frac{a_\varepsilon'}{a_\varepsilon},\qquad
+R_{\rho\vartheta\rho\vartheta}=-a_\varepsilon a_\varepsilon'',\qquad
+K_2=\frac{R_{\rho\vartheta\rho\vartheta}}{a_\varepsilon^2}
+=-\frac{a_\varepsilon''}{a_\varepsilon}.
+$$
+
+従って面積要素 $a_\varepsilon\,d\rho\,d\vartheta$ を用いると
+
+$$
+\int_{\mathrm{disk}}K_2\,dA
+=-2\pi\int_0^\varepsilon a_\varepsilon''(\rho)\,d\rho
+=2\pi\bigl(a_\varepsilon'(0)-a_\varepsilon'(\varepsilon)\bigr)
+=2\pi(1-\alpha).
+$$
+
+二次元のスカラー曲率は $R_2=2K_2$ です。[BHT12の地平線近傍の固有距離表示](../BHT12/index.md#thm-bht12-nonextremal-period)では、直交する2球の面積は先端で $A_H$ に近づき、半径の補正は $O(\rho^2)$ です。従って $\varepsilon\to0$ で四次元の寄与は
 
 $$
 \int_{\mathrm{tip}} R[g]\sqrt g\,d^4x
@@ -320,7 +354,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限壁の縮約円錐作用）**  
-> $G>0$、$R>0$ とし、$0<M<R/(2G)$、$b>0$ を固定境界半径と固有逆温度の候補とする。$f_R=1-2GM/R$、$\beta_H=8\pi GM$、$A_H=16\pi G^2M^2$ と置き、時間周期を $\beta=b/\sqrt{f_R}$、円錐の開きを $\alpha=\beta/\beta_H$ とする。外壁のGHY差と正則化された先端の曲率寄与から得る、球対称な**縮約されたoff-shell作用**を
+> $G>0$、$R>0$、$0<M<R/(2G)$ とし、$R$ と $b>0$ を固定した境界半径・固有逆温度とする。
+>
+> $f_R=1-2GM/R$、$\beta_H=8\pi GM$、$A_H=16\pi G^2M^2$ と置く。時間周期を $\beta=b/\sqrt{f_R}$、円錐の開きを $\alpha=\beta/\beta_H$ とし、外壁のGHY差と正則化された先端の曲率寄与から得る球対称な**縮約されたoff-shell作用**を
 
 $$
 \begin{aligned}
@@ -334,7 +370,7 @@ $$
 > と定める。$\alpha=1$ のとき滑らかなサドルの $I_R$ に一致する。この円錐族は一般には滑らかな真空解ではなく、完全な重力揺らぎ空間やそのスペクトルを表さない。
 <!-- formal-statement-end -->
 
-定義の二つの表示が一致することを確かめます。先端の作用は
+定義の二つの表示が一致することを確かめます。[BHT13のEuclid Einstein–Hilbert作用](../BHT13/index.md#def-bht13-euclidean-action)の符号と係数を使うと、先端の作用は
 
 $$
 I_{\mathrm{tip}}=-\frac1{16\pi G}\left[4\pi(1-\alpha)A_H\right]
@@ -363,14 +399,24 @@ $$
 
 となります。先端項は零で、上の縮約作用は[滑らかな相対作用](#prop-bht14-relative-action)に一致します。
 
-同じ質量と壁半径のまま固有周期だけ $b/2$ にすると、開きは $\alpha=1/2$ です。先端の曲率積分は $2\pi A_H$、先端作用は $-A_H/(8G)$ となります。この場合は円板の滑らかさを失うので、正則なEinstein解のon-shell作用とは呼びません。
+同じ質量と壁半径のまま固有周期だけ $b/2$ にすると、開きは $\alpha=1/2$ です。先端の曲率積分は $2\pi A_H$、先端作用は $-A_H/(8G)=-2\pi GM^2$ となります。外壁項も座標周期 $\beta=4\pi GM$ で評価すると
+
+$$
+\begin{aligned}
+I_{\mathrm{wall}}&=4\pi GM^2\left(2\sqrt2-\frac52\right),\\
+I_{\mathrm{wall}}+I_{\mathrm{tip}}&=4\pi GM^2(2\sqrt2-3)\\
+&=\frac{b/2}{G}(4GM)\left(1-\frac1{\sqrt2}\right)-4\pi GM^2.
+\end{aligned}
+$$
+
+これは縮約作用の第二表示へ同じ固定壁データを代入した値で、両表示が円錐の場合にも一致します。この場合は円板の滑らかさを失うので、正則なEinstein解のon-shell作用とは呼びません。
 <!-- definition-example-end -->
 
 <a id="prop-bht14-reduced-hessian"></a>
 
 <!-- formal-statement-start -->
 > **命題（円錐縮約作用の停留点と二階変分）**  
-> 上記の $I_{\mathrm{red}}(M;b,R)$ を $R,b$ 固定で $M\in(0,R/(2G))$ に関して微分する。停留点は滑らかなSchwarzschild条件
+> [有限壁の縮約円錐作用](#def-bht14-conical-reduction) $I_{\mathrm{red}}(M;b,R)$ を $R,b$ 固定で $M\in(0,R/(2G))$ に関して微分する。停留点は滑らかなSchwarzschild条件
 
 $$
 b=8\pi GM\sqrt{f_R}
@@ -427,7 +473,7 @@ $$
 
 ### 6.1 熱的平坦背景との相対重み
 
-同じ半径 $R$ と固有周期 $b$ を持つ平坦幾何 $S^1_b\times B_R^3$ も滑らかな真空解です。平坦参照背景の相対作用は定義により $I_{\mathrm{flat}}=0$ です。二つの**候補サドルの古典的な指数**を比べることはできますが、それは完全な経路積分の位相重みを評価したことではありません。
+同じ半径 $R$ と固有周期 $b$ を持つ平坦幾何 $S^1_b\times B_R^3$ も滑らかな真空解です。[BHT13の一致境界での背景差引き](../BHT13/index.md#def-bht13-matched-subtraction)を採れば、平坦参照背景の相対作用は定義により $I_{\mathrm{flat}}=0$ です。二つの**候補サドルの古典的な指数**を比べることはできますが、それは完全な経路積分の位相重みを評価したことではありません。
 
 <a id="prop-bht14-relative-weight"></a>
 
@@ -593,13 +639,22 @@ $$
 - 問題: 地平線近傍の二次元計量 $d\rho^2+\alpha^2\rho^2d\vartheta^2$（$\vartheta$ の周期 $2\pi$）と地平線面積 $A_H>0$ を考える。円板正則化した先端の四次元スカラー曲率積分とEuclid Einstein–Hilbert作用の寄与を導け。$\alpha=1/2$ で検算せよ。
 
 <!-- solution-start -->
-**詳細解答**：半径 $\rho=\varepsilon$ の円周長は $2\pi\alpha\varepsilon$ です。平面で角度 $2\pi(1-\alpha)$ の扇形を除いて貼り合わせれば、先端以外は局所平坦で、円錐を一周した方向のずれは除いた扇形の角度です。二次元のGauss曲率の全積分はこのずれと等しく $2\pi(1-\alpha)$、スカラー曲率はその2倍です。直交する2球の面積を掛けて
+**詳細解答**：半径 $\rho=\varepsilon$ の円周長は $2\pi\alpha\varepsilon$ です。平面で角度 $2\pi(1-\alpha)$ の扇形を除いて貼り合わせれば、先端以外は局所平坦です。
+
+正則化した円板の計量を $d\rho^2+a(\rho)^2d\vartheta^2$ とし、$a(0)=0$、$a'(0)=1$、$a'(\varepsilon)=\alpha$ を課します。ここでプライムは $\rho$ 微分です。Gauss曲率 $K_2=-a''/a$ と面積要素 $dA=a\,d\rho\,d\vartheta$ を用いると
+
+$$
+\int K_2\,dA=-2\pi\int_0^\varepsilon a''(\rho)\,d\rho
+=2\pi(1-\alpha)
+$$
+
+を得ます。二次元スカラー曲率はその2倍で、直交する2球の面積が先端で $A_H$ に近づくことから
 
 $$
 \int_{\mathrm{tip}}R[g]\sqrt g\,d^4x=4\pi(1-\alpha)A_H.
 $$
 
-Einstein–Hilbert係数 $-1/(16\pi G)$ を掛けると
+[BHT13のEuclid Einstein–Hilbert作用](../BHT13/index.md#def-bht13-euclidean-action)の係数 $-1/(16\pi G)$ を掛けると
 
 $$
 I_{\mathrm{tip}}=-\frac{(1-\alpha)A_H}{4G}.
