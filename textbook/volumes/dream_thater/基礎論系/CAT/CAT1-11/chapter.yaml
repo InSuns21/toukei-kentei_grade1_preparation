@@ -1,0 +1,43 @@
+id: "CAT1-11"
+title: "Yonedaの補題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-02
+  - CAT1-06
+  - CAT1-07
+  - CAT1-08
+  - CAT1-10
+official_scope: []
+learning_objectives:
+  - 反変Yonedaの対応で自然変換を恒等射の像から一意に復元できる
+  - 反変Yonedaの逆構成を与え、すべての射で自然性を検証できる
+  - 共変Yonedaの射の向きを正しく区別し、両方向の対応を証明できる
+  - 対象Aと集合値関手PまたはFの両変数に関する自然性を型付きで証明できる
+  - Yonedaの補題が表現可能性を仮定しないことと、自然性を落とした場合の失敗を説明できる
+  - 冪集合関手の自然自己変換をYonedaの補題から分類できる
+definitions: []
+theorems:
+  - { id: CAT1-11-THM-01, name: 反変Yonedaの補題 }
+  - { id: CAT1-11-THM-02, name: 共変Yonedaの補題 }
+  - { id: CAT1-11-PROP-01, name: Yoneda対応の二変数自然性 }
+canonical_examples:
+  - 冪集合の反変関手と部分集合の逆像による自然変換
+  - 集合の二重直積関手と順序対の評価による自然変換
+  - 一対象圏で自然性を外すと恒等射での評価が単射でなくなる例
+  - 冪集合関手の四つの自然自己変換の分類
+problem_patterns:
+  - CAT1-11-CONTRAVARIANT-EVALUATION
+  - CAT1-11-COVARIANT-EVALUATION
+  - CAT1-11-PRESHEAF-POWERSET
+  - CAT1-11-NATURALITY-NECESSITY
+  - CAT1-11-CONSTANT-FUNCTOR
+  - CAT1-11-NATURAL-IN-FUNCTOR
+  - CAT1-11-NATURAL-IN-OBJECT
+  - CAT1-11-GROUP-ACTION
+  - CAT1-11-REPRESENTABLE-TRANSFORMATION
+  - CAT1-11-POWERSET-ENDOMORPHISMS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 2 }
