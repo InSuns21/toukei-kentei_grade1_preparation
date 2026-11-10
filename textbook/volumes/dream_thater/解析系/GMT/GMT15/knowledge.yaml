@@ -51,4 +51,4 @@ concepts:
     requires:
       - geometric-measure.gmt15-chart-blowup
       - geometric-measure.gmt13-chart-independence
-      - geometric-measure.gmt1-measure-differentiation
+      - geometric-measure.gmt1-function-differentiation

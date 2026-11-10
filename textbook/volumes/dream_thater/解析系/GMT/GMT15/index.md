@@ -25,7 +25,7 @@ $\mathcal H^m$ を無言で $\mathcal L^m$ と同一視せず、以下ではこ�
 
 例えば長い直線上で中心を動かさず球の半径を半分にすると、球内の長さも半分になります。平面の一部分でも同様に、$m$ 次元の量はおおむね $r^m$ に比例します。ただし、二本の線が交差する点では二枚分を数えます。
 
-集合 $E\subset\mathbb R^d$ が Borel で、各有界球 $B(0,R)$ に対し $\mathcal H^m(E\cap B(0,R))<\infty$ とします。これを **局所有限な $m$ 次元面積**という条件として用い、$\mu=\mathcal H^m\llcorner E$ と書きます。こうすれば $\mu$ は局所有限な正Radon測度となり、[GMT1の球測度微分定理](../GMT1/index.md#thm-gmt1-measure-differentiation)を使えます。
+集合 $E\subset\mathbb R^d$ が Borel で、各有界球 $B(0,R)$ に対し $\mathcal H^m(E\cap B(0,R))<\infty$ とします。これを **局所有限な $m$ 次元面積**という条件として用い、$\mu=\mathcal H^m\llcorner E$ と書きます。こうすれば $\mu$ は局所有限な正Radon測度となり、[Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を使えます。
 
 既習の $\underline\Theta^m(\mu,x)$、$\overline\Theta^m(\mu,x)$ は球質量を $(2r)^m$ で割ります。一方、実際の $m$ 平面と比較するため、分母を $c_m\omega_mr^m$ とする相対密度も併記します。後者で「1」は、局所的に一枚の平面と同じ量があることを表します。
 
@@ -216,7 +216,7 @@ $$
 双Lipschitz性で $|b-a|\le\lambda^{-1}|y-x|$ だから、左辺は $o(|y-x|)$ です。十分近くの $y\in M$ は $\operatorname{dist}(y-x,V)<\varepsilon|y-x|$ を満たし、円錐包含が従います。$\square$
 <!-- proof-end -->
 
-この補題の「密度1の点」「JacobianのLebesgue点」「微分可能点」は、[HA1の密度定理](../../HA/HA1/index.md#cor-ha1-density)、[HA1のLebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)、[GMT9のRademacher定理](../GMT9/index.md#thm-gmt9-rademacher)により、パラメータ集合のほとんどすべての点を占めます。双Lipschitz写像は零集合を零集合へ送るため、像上でも例外の $\mathcal H^m$ 測度は0です。
+この補題の「密度1の点」「JacobianのLebesgue点」「微分可能点」は、[高次元Lebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)、[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)、[Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)により、パラメータ集合のほとんどすべての点を占めます。双Lipschitz写像は零集合を零集合へ送るため、像上でも例外の $\mathcal H^m$ 測度は0です。
 
 ## 4. 可算枚が重なっても、ほとんど至る所では一枚になる
 
@@ -259,22 +259,22 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[GMT13の分割補題](../GMT13/index.md#lem-gmt13-bilipschitz-pieces)から、互いに素なBorel片 $E_i=\phi_i(A_i)$ と $\mu$-零集合 $N$ があり、
+[可算双Lipschitz片への分割](../GMT13/index.md#lem-gmt13-bilipschitz-pieces)から、互いに素なBorel片 $E_i=\phi_i(A_i)$ と $\mu$-零集合 $N$ があり、
 
 $$
 E=N\ \cup\ \bigcup_{i=1}^{\infty}E_i
 $$
 
-と測度零の違いを除いて書けます。各 $A_i$ で [HA1のLebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)と [GMT9のRademacher定理](../GMT9/index.md#thm-gmt9-rademacher)、$J_mD\phi_i$ に対する [Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)を使います。例外は $\mathcal L^m$-零で、[GMT11の零集合の像の測度](../GMT11/index.md#lem-gmt11-lipschitz-null-image)によりその像は $\mathcal H^m$-零です。
+と測度零の違いを除いて書けます。各 $A_i$ で [高次元Lebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)と [Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)を使います。また、Jacobian関数 $J_mD\phi_i$ には [高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)を適用します。例外は $\mathcal L^m$-零で、[GMT11の零集合の像の測度](../GMT11/index.md#lem-gmt11-lipschitz-null-image)によりその像は $\mathcal H^m$-零です。
 
-さらに局所有限な $\mu$ に対し、[GMT1の球測度微分定理](../GMT1/index.md#thm-gmt1-measure-differentiation)を $h=\boldsymbol1_{E_i}$ に適用します。$\mu$-ほとんどすべての $x\in E_i$ で
+さらに局所有限な $\mu$ に対し、[Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を $h=\boldsymbol1_{E_i}$ に適用します。$\mu$-ほとんどすべての $x\in E_i$ で
 
 $$
 \frac{\mu(B(x,r)\cap E_i)}{\mu(B(x,r))}
 \longrightarrow\boldsymbol1_{E_i}(x)=1.
 $$
 
-分母は十分小さい球で正です。$\mu_i=\mu\llcorner E_i$ とおけば、前節の [双Lipschitz片の補題](#lem-gmt15-chart-blowup)から
+分母は十分小さい球で正です。$\mu_i=\mu\llcorner E_i$ とおけば、[双Lipschitz片の小球面積と円錐](#lem-gmt15-chart-blowup)から
 
 $$
 \frac{\mu_i(B(x,r))}{r^m}\longrightarrow c_m\omega_m>0.
@@ -302,12 +302,20 @@ $$
 \end{aligned}
 $$
 
-ここで最後の等式は上で証明した有限正の面積密度を使いました。任意の $\varepsilon$ で成立するため $V$ は近似接平面です。[GMT13のパラメータ表示からの独立性補題](../GMT13/index.md#lem-gmt13-chart-independence)により、この $V$ は同章の $T_xE$ と $\mu$ に関してほとんどすべての点で一致します。可算個の片の例外の和は零なので定理が従います。$\square$
+ここで最後の等式は上で証明した有限正の面積密度を使いました。任意の $\varepsilon$ で成立するため $V$ は近似接平面です。[接平面と接微分のパラメータ表示からの独立性](../GMT13/index.md#lem-gmt13-chart-independence)により、この $V$ は同章の $T_xE$ と $\mu$ に関してほとんどすべての点で一致します。可算個の片の例外の和は零なので定理が従います。$\square$
 <!-- proof-end -->
 
 ### 円錐の向きが一意になる理由
 
-定理の典型点では、$V$ 以外の $m$ 平面 $W$ を近似接平面として選ぶことはできません。実際 $V\ne W$ なら $V$ 内に $W$ から正の角度だけ離れた方向の小球片があります。その片に対応する $D\phi_i(a)$ の逆像は正のLebesgue測度を持ち、[前節の面積積分](#lem-gmt15-chart-blowup)と同じ変数変換で、その領域に $\ge cr^m$（$c>0$）の $E_i$ の面積があると分かります。十分小さい $r$ で一次近似誤差を角度の半分以下にすれば、この領域は $W$ の細い円錐の外側に残ります。従って $W$ は円錐外測度 $o(r^m)$ を満たせません。
+定理の典型点では、接方向 $V$ と異なる $m$ 次元平面 $W$ を近似接平面として選べません。
+
+実際 $V\ne W$ なら、$V$ 内には $W$ から正の角度だけ離れた方向の小球片があります。その片に対応する $D\phi_i(a)$ の逆像は正のLebesgue測度を持ちます。[双Lipschitz片の小球面積と円錐](#lem-gmt15-chart-blowup)の証明と同じ変数変換をこの逆像に制限すれば、ある $c>0$ に対して、この部分の $E_i$ の面積は十分小さい $r$ で
+
+$$
+\mathcal H^m(E_i\cap B(x,r)\setminus X(x,W,\varepsilon))\ge cr^m
+$$
+
+となります。ここで $\varepsilon>0$ は二平面の角度より十分小さく選び、微分の一次近似誤差もその半分以下に抑えています。従って $W$ は円錐外測度が $o(r^m)$ という条件を満たせません。
 
 この「正の面積を持つ方向を取り除けない」という理由が、接方向の**一意性**の幾何的な中身です。全ての点での一意性を言っているわけではありません。
 
@@ -402,7 +410,7 @@ $P=\{(t,t^2):|t|\le1\}$ とする。$\phi(t)=(t,t^2)$ の微分とrankを求め�
 <!-- solution-start -->
 #### 詳細解答
 
-$D\phi(t)v=v(1,2t)$ だから全ての $t$ でrank1です。第一座標の射影が逆写像を与え、$|s-t|\le|\phi(s)-\phi(t)|$、区間上で $|\phi(s)-\phi(t)|\le\sqrt5|s-t|$ なので双Lipschitzです。$t=1/2$ はパラメータ区間の密度1点であり、[GMT13の接平面の定義](../GMT13/index.md#def-gmt13-tangent-plane)から
+$D\phi(t)v=v(1,2t)$ だから全ての $t$ でrank1です。第一座標の射影が逆写像を与え、$|s-t|\le|\phi(s)-\phi(t)|$、区間上で $|\phi(s)-\phi(t)|\le\sqrt5|s-t|$ なので双Lipschitzです。$t=1/2$ はパラメータ区間の密度1点であり、[整流可能集合の接m平面](../GMT13/index.md#def-gmt13-tangent-plane)の定義から
 
 $$
 V=\operatorname{im}D\phi(1/2)=\operatorname{span}(1,1).
@@ -492,7 +500,7 @@ $$
 =\mu(B(x,r))(1-p_r).
 $$
 
-$r^m$ で割ると右辺は $(\mu(B(x,r))/r^m)(1-p_r)\to a\cdot0=0$ です。局所有限性は、このような球比に [GMT1の測度微分定理](../GMT1/index.md#thm-gmt1-measure-differentiation)を適用するための仮定です。
+$r^m$ で割ると右辺は $(\mu(B(x,r))/r^m)(1-p_r)\to a\cdot0=0$ です。局所有限性は、球平均の比に [Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を適用するための仮定です。
 <!-- solution-end -->
 
 ### GMT15-B03 折れ線の角点を監査する
@@ -551,7 +559,11 @@ $P=\{(t,t^2):|t|\le1\}$、$L=\{(s,1):|s|\le1\}$、$E=P\cup L$ とする。次を
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 可測性・整流可能性・局所有限性。** $P$ と $L$ はコンパクトなのでその和集合 $E$ もコンパクト、従って Borel です。$P$ は $\phi(t)=(t,t^2)$ の $[-1,1]$ 上の Lipschitz像、$L$ は $\psi(s)=(s,1)$ の Lipschitz像です。切詰め写像で全実数へ拡張できるので [GMT12の可算整流可能性](../GMT12/index.md#def-gmt12-countably-rectifiable)を満たします。[GMT11のarea formula](../GMT11/index.md#thm-gmt11-area-formula)から
+**1. 可測性・整流可能性・局所有限性。** $P,L$ はコンパクトなので、その和集合もコンパクトです。従って $E$ は Borel です。
+
+$P$ はパラメータ表示 $\phi(t)=(t,t^2)$、$L$ は $\psi(s)=(s,1)$ の、それぞれ区間 $[-1,1]$ 上の Lipschitz像です。切詰め写像で全実数へ拡張できるので [可算整流可能集合の定義](../GMT12/index.md#def-gmt12-countably-rectifiable)を満たします。
+
+[GMT11のarea formula](../GMT11/index.md#thm-gmt11-area-formula)を二つの表示へ適用すると
 
 $$
 \mathcal H^1(P)=\int_{-1}^1\sqrt{1+4t^2}\,dt\le2\sqrt5,\quad
@@ -578,7 +590,9 @@ $$
 
 密度が1でも、互いに異なる二方向の半直線が交わるため、$x_1$ では近似接線が存在しません（どの直線にも一方の半直線が一定の角度で外れ、円錐外長さは $r+o(r)$ 以上残ります）。これは $\mathcal H^1$-零集合である交点で起きており、定理の「ほとんどすべての点」に反しません。
 
-**4. 一般の典型点。** $P,L$ はそれぞれ双Lipschitzなパラメータ片へ分解できます。[GMT9のRademacher定理](../GMT9/index.md#thm-gmt9-rademacher)、[HA1の密度定理](../../HA/HA1/index.md#cor-ha1-density)と [Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)で、微分・Jacobianの典型点を取れます。[本章の双Lipschitz片補題](#lem-gmt15-chart-blowup)で各片の小球面積と円錐条件を得て、[GMT1の測度微分定理](../GMT1/index.md#thm-gmt1-measure-differentiation)により他の片の比率を消します。従って [本章の定理](#thm-gmt15-rectifiable-density-tangent)の密度1と近似接平面が $\mathcal H^1$ に関してほとんどすべての点で成立します。交点や端点など有限個の例外は零測度です。
+**4. 一般の典型点。** $P,L$ はそれぞれ双Lipschitzなパラメータ片へ分解できます。[Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)、[高次元Lebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)と [高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)で、微分・Jacobianの典型点を取れます。
+
+[双Lipschitz片の小球面積と円錐](#lem-gmt15-chart-blowup)で各片の小球面積と円錐条件を得て、[Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)により他の片の比率を消します。従って [本章の定理](#thm-gmt15-rectifiable-density-tangent)の密度1と近似接平面が $\mathcal H^1$ に関してほとんどすべての点で成立します。交点や端点など有限個の例外は零測度です。
 <!-- solution-end -->
 
 ## まとめ
