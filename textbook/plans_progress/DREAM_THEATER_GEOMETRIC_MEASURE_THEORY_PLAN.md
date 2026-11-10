@@ -18,7 +18,8 @@ GMT13着手日時: 2026-11-10 16:31:32 JST（双Lipschitz片、接微分・接Ja
 GMT14着手日時: 2026-11-10 23:03:25 JST（coarea Jacobian、rank欠損断面、full-rank座標片、整流可能集合への拡張）
 GMT15着手日時: 2026-11-11 00:14:40 JST（小球密度・円錐条件・可算整流可能集合の近似接平面）
 GMT16着手日時: 2026-11-11 01:06:12 JST（有限面積集合の整流可能・純非整流分解、四隅Cantor集合の接線・射影反例）
-状態: in_progress（GMT1--GMT16 は実装・査読済み。GMT17--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT17着手日時: 2026-11-11 01:43:55 JST（横断的射影、整流可能部分の正射影、臨界次元の方向平均評価）
+状態: in_progress（GMT1--GMT17 は実装・査読済み。GMT18--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -68,7 +69,7 @@ Hausdorff次元は集合の大きさを測る。しかし、射影したとき�
 | 曲面の古典的法線・平均曲率・第一/第二変分 | GEO10、VAR7--VAR8。GMT24--30は**弱い境界と周長**を所有し、滑らかな曲面変分を再所有しない |
 | 多様体PDE・調和写像 | 完了済みGA系列。GMTはEuclidの可測的幾何、GAはmanifold PDEで分担 |
 
-- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT16は実装済みであり、GMT17以降の未完成章の公開リンクは作らない。
+- PLANのみを推敲する段階ではGMT manifest・仮chapter.yaml・公開目次を作らない方針としていた。GMT1着手時にID衝突、実在prerequisite、stable anchorを照合し、現在はGMT系列manifestを初期化済み。GMT1--GMT17は実装済みであり、GMT18以降の未完成章の公開リンクは作らない。
 - 完了済みHAの過去PLAN中の「GMT7--GMT8」は当時の**旧仮IDを参照した履歴**。新しいKakeya側の接続はGMT31--GMT36、特にGMT35--36とする。完了済み計画を過去に遡って書き換えない。
 - EOM074の基本ルートは **GMT1--GMT8 → GMT31--GMT36** とHA11。第II/III部全体をEOMへの無条件の必修にはしない。
 

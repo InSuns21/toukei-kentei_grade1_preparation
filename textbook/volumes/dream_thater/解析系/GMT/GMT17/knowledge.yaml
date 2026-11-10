@@ -1,0 +1,85 @@
+chapter: GMT17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MT8
+  - GMT5
+  - GMT7
+  - GMT10
+  - GMT12
+  - GMT13
+  - GMT15
+  - GMT16
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt17-transverse-projection
+    name: 接平面に横断的な射影と最小伸長率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接平面に横断的な射影と最小伸長率）"]
+    requires:
+      - geometric-measure.gmt7-grassmann-projection
+      - geometric-measure.gmt13-tangent-plane
+
+  - id: geometric-measure.gmt17-projection-lipschitz
+    name: 直交射影のHausdorff面積上界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（直交射影のHausdorff面積上界）"]
+    requires:
+      - measure.hausdorff-measure
+      - geometric-measure.gmt7-grassmann-projection
+
+  - id: geometric-measure.gmt17-cone-bilipschitz
+    name: 円錐条件から射影の双Lipschitz評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（円錐条件から射影の双Lipschitz評価）"]
+    requires:
+      - geometric-measure.gmt17-transverse-projection
+      - geometric-measure.gmt15-approximate-tangent
+
+  - id: geometric-measure.gmt17-generic-transversality
+    name: 横断的な射影はGrassmannほとんど至る所で起きる
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（横断的な射影はGrassmannほとんど至る所で起きる）"]
+    requires:
+      - geometric-measure.gmt17-transverse-projection
+      - geometric-measure.gmt7-grassmann-projection
+
+  - id: geometric-measure.gmt17-rectifiable-positive-projection
+    name: 整流可能部分はほとんど全方向で正面積に射影される
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（整流可能部分はほとんど全方向で正面積に射影される）"]
+    requires:
+      - geometric-measure.gmt17-generic-transversality
+      - geometric-measure.gmt13-rectifiable-area
+      - geometric-measure.gmt15-rectifiable-density-tangent
+
+  - id: geometric-measure.gmt17-ae-zero-implies-pure
+    name: 零射影から純非整流性への必要条件
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（零射影から純非整流性への必要条件）"]
+    requires:
+      - geometric-measure.gmt17-rectifiable-positive-projection
+      - geometric-measure.gmt16-decomposition
+
+  - id: geometric-measure.gmt17-small-projection-tail
+    name: 射影短距離の方向平均評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（射影短距離の方向平均評価）"]
+    requires:
+      - geometric-measure.gmt7-grassmann-kernel
+
+  - id: geometric-measure.gmt17-critical-concentration
+    name: 上側m成長条件からの臨界射影集中評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（上側m成長条件からの臨界射影集中評価）"]
+    requires:
+      - geometric-measure.gmt17-small-projection-tail
