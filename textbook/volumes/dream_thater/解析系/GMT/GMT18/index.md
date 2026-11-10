@@ -506,7 +506,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$P$ は純非整流なので[判定定理](#thm-gmt18-besicovitch-federer)から $\pi_VP$ はほとんど全方向で零面積です。$R$ が零面積なら[射影上界](../GMT17/index.md#lem-gmt17-projection-lipschitz)で $\pi_VR$ も全方向で零面積です。$R$ が正面積なら[GMT17の正射影定理](../GMT17/index.md#thm-gmt17-rectifiable-positive-projection)でほとんど全方向について $\mathcal H^m(\pi_VR)>0$。$\pi_VR\subset\pi_VE$ の単調性を使えば結論です。$\square$
+$P$ は純非整流なので[判定定理](#thm-gmt18-besicovitch-federer)から $\pi_VP$ はほとんど全方向で零面積です。
+
+$R$ が零面積なら[射影上界](../GMT17/index.md#lem-gmt17-projection-lipschitz)で $\pi_VR$ も全方向で零面積です。一方、$R$ が正面積なら[GMT17の正射影定理](../GMT17/index.md#thm-gmt17-rectifiable-positive-projection)でほとんど全方向について $\mathcal H^m(\pi_VR)>0$ です。$\pi_VR\subset\pi_VE$ の単調性を使えば結論です。$\square$
 <!-- proof-end -->
 
 ### 直接例：特定の方向は例外になり得る
@@ -693,7 +695,7 @@ $$
 \quad(\theta\ne\pi/2).
 $$
 
-従って $E$ の射影はほとんど全方向で正面積です。[GMT16の四隅集合の具体例](../GMT16/index.md#prop-gmt16-projection-contrast)に現れる特定方向の正射影は、例外方向一つの情報であり「a.e.で零」とは両立します。
+従って $E$ の射影はほとんど全方向で正面積です。[GMT16の四隅集合の具体例](../GMT16/index.md#prop-gmt16-projection-contrast)に現れる特定方向の正射影は、例外方向一つの情報であり「ほとんど全方向で零」とは両立します。
 <!-- solution-end -->
 
 ### GMT18-C01 任意の正面積部分集合を使った整流可能性判定
@@ -711,7 +713,9 @@ $E\subset\mathbb R^d$ を有限 $\mathcal H^m$ 測度のBorel集合とする。�
 
 **整流可能なら性質が成り立つ。** $E$ が可算 $m$ 整流可能なら、その部分集合 $B$ も同じ可算Lipschitz像の和から外れた零集合を除いて覆われるため、整流可能です。$0<\mathcal H^m(B)\le\mathcal H^m(E)<\infty$ を[GMT17の正射影定理](../GMT17/index.md#thm-gmt17-rectifiable-positive-projection)へ代入すれば、ほとんど全 $V$ で射影面積が正となります。
 
-**逆向き。** [有限Hausdorff面積集合の整流可能・純非整流分解](../GMT16/index.md#thm-gmt16-decomposition)により $E=R\mathbin{\dot\cup}P$、$R$ は可算整流可能、$P$ は純非整流です。もし $\mathcal H^m(P)>0$ なら、問題の性質で $B=P$ と選ぶとその射影がほとんど全方向で正でなければなりません。しかし[Besicovitch--Federer判定](#thm-gmt18-besicovitch-federer)は $\mathcal H^m(\pi_VP)=0$ がほとんど全方向で成り立つと示すので矛盾します。従って $\mathcal H^m(P)=0$、ゆえに $E$ は可算整流可能です。
+**逆向き。** [有限Hausdorff面積集合の整流可能・純非整流分解](../GMT16/index.md#thm-gmt16-decomposition)により $E=R\mathbin{\dot\cup}P$ と分けます。$R$ は可算整流可能、$P$ は純非整流です。
+
+もし $\mathcal H^m(P)>0$ なら、問題の性質で $B=P$ と選ぶとその射影がほとんど全方向で正でなければなりません。しかし[Besicovitch--Federer判定](#thm-gmt18-besicovitch-federer)は $\mathcal H^m(\pi_VP)=0$ がほとんど全方向で成り立つと示すので矛盾します。従って $\mathcal H^m(P)=0$、ゆえに $E$ は可算整流可能です。
 
 **端点と反例。** $\mathcal H^m(E)=0$ なら正面積部分集合 $B$ は存在せず、性質は空虚に真です。同時に零集合は可算整流可能の定義で零例外集合として扱えるので同値は壊れません。正面積の純非整流部分を残した反例として $E=S\cup(K+(2,2))$、$B=K+(2,2)$ を取れば、$E$ 自体はほとんど全方向で正射影ですが、$B$ の射影はほとんど全方向で零となります。全体 $E$ だけの正射影を条件にしてはいけないことが分かります。
 <!-- solution-end -->
