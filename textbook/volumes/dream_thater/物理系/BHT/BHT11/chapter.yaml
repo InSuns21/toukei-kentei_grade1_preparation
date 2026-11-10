@@ -1,0 +1,47 @@
+id: "BHT11"
+title: "極限ブラックホールと第三法則"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT10
+  - BHT6
+  - BHT3
+  - BHT8
+official_scope: []
+learning_objectives:
+  - RNの二重根条件を極限性の定義とし、固定電荷の非極限族から温度零・有限面積エントロピーの極限を再計算できる
+  - Kerr–Newmanの極限境界でMとSの有限値をJとQから導出し、Schwarzschildの大質量低温極限と区別できる
+  - Nernst型と有限時間到達不能型の第三法則が別の主張であることを具体例と条件で説明できる
+  - RNの固定電荷熱容量と低温漸近を微分から導き、平衡応答を実時間の冷却速度と混同しない
+  - Israelの歴史的到達不能主張とKehle–Ungerの正則な有限時間極限形成反例、模型依存の制限結果を区別できる
+  - 非極限Euclid地平線の円板正則性と厳密極限RNの無限のどを距離積分で検算し、周期固定の非可換性を説明できる
+definitions:
+  - { id: BHT11-DEF-01, name: "RNの極限地平線" }
+  - { id: BHT11-DEF-02, name: "第三法則の二つの表現を区別する" }
+theorems:
+  - { id: BHT11-PROP-01, name: "RNの固定電荷極限" }
+  - { id: BHT11-PROP-02, name: "Kerr–Newmanの極限境界と残留面積" }
+  - { id: BHT11-PROP-03, name: "RNの固定電荷熱容量と低温展開" }
+  - { id: BHT11-THM-01, name: "Kehle–Ungerによる有限進行時間での極限形成：外部結果" }
+  - { id: BHT11-PROP-04, name: "非極限と極限で変わるEuclid正則性条件" }
+canonical_examples:
+  - M=Q=2の極限RNとM=5,Q=3の非極限RNを根の判別式で直接区別する
+  - Q=1とQ=2の残留面積エントロピー差でNernst型の要請を検査する
+  - Q=0,J=3のKerr極限でS=6πを検算する
+  - 固定QのRN熱容量が近極限で正かつ零へ近づくことを微分で示す
+  - 厳密極限の動径距離が対数発散することと非極限での周期固定を比較する
+problem_patterns:
+  - BHT11-RN-EXTREMAL-DISCRIMINANT
+  - BHT11-RN-FINITE-ENTROPY
+  - BHT11-KERR-EXTREMAL-ENTROPY
+  - BHT11-EXTREMAL-THROAT-DISTANCE
+  - BHT11-NERNST-COMPARISON
+  - BHT11-HEAT-CAPACITY-SIGN
+  - BHT11-NEAR-EXTREMAL-EXPANSION
+  - BHT11-EUCLIDEAN-LIMIT-ORDER
+  - BHT11-PHYSICAL-PROCESS-SCOPE
+  - BHT11-THIRD-LAW-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 6 }

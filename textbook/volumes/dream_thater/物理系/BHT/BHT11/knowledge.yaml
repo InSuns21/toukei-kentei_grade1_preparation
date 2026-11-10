@@ -1,0 +1,64 @@
+chapter: BHT11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT10
+  - BHT6
+  - BHT3
+  - BHT8
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.extremal-rn-horizon
+    name: RNの極限地平線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RNの極限地平線）"]
+    requires: [black-hole-thermodynamics.rn-geometric-data]
+
+  - id: black-hole-thermodynamics.rn-fixed-charge-extremal-limit
+    name: RNの固定電荷極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RNの固定電荷極限）"]
+    requires: [black-hole-thermodynamics.extremal-rn-horizon, black-hole-thermodynamics.bekenstein-hawking-entropy, black-hole-thermodynamics.hawking-killing-normalization]
+
+  - id: black-hole-thermodynamics.kn-extremal-boundary
+    name: Kerr–Newmanの極限境界と残留面積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kerr–Newmanの極限境界と残留面積）"]
+    requires: [black-hole-thermodynamics.kn-mass-conjugates]
+
+  - id: black-hole-thermodynamics.third-law-formulations
+    name: 第三法則の二つの表現を区別する
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第三法則の二つの表現を区別する）"]
+    requires: [black-hole-thermodynamics.rn-fixed-charge-extremal-limit]
+
+  - id: black-hole-thermodynamics.rn-fixed-charge-heat-capacity
+    name: RNの固定電荷熱容量と低温展開
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RNの固定電荷熱容量と低温展開）"]
+    requires: [black-hole-thermodynamics.rn-fixed-charge-extremal-limit, black-hole-thermodynamics.rn-equilibrium-first-law]
+
+  - id: black-hole-thermodynamics.kehle-unger-extremal-formation
+    name: Kehle–Ungerによる有限進行時間での極限形成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kehle–Ungerによる有限進行時間での極限形成：外部結果）"]
+    requires: [black-hole-thermodynamics.third-law-formulations]
+
+  - id: black-hole-thermodynamics.local-mass-charge-bound
+    name: 局所的な質量・電荷不等式
+    kind: term
+    introduction: inline
+    requires: [black-hole-thermodynamics.kehle-unger-extremal-formation]
+
+  - id: black-hole-thermodynamics.euclidean-extremal-order
+    name: 非極限と極限で変わるEuclid正則性条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非極限と極限で変わるEuclid正則性条件）"]
+    requires: [black-hole-thermodynamics.extremal-rn-horizon, black-hole-thermodynamics.hawking-killing-normalization]

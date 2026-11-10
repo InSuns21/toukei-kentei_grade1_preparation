@@ -40,14 +40,14 @@ $$
 
 **定義の確認**：各パラメータ写像を全実数上で作り、被覆から漏れる点の $\mathcal H^1$ 測度が零であることを直接調べます。
 
-$E=([0,1]\times\{0\})\cup(\{1\}\times[0,1])\subset\mathbb R^2$ とします。$p(t)=\min(1,\max(0,t))$ と置けば、$p:\mathbb R\to[0,1]$ は $1$-Lipschitz です。したがって
+$E=([0,1]\times\{0\})\cup(\{1\}\times[0,1])\subset\mathbb R^2$ とします。$E$ は二つの閉線分の和集合なので Borel 集合、従って $\mathcal H^1$-可測です。$p(t)=\min(1,\max(0,t))$ と置けば、$p:\mathbb R\to[0,1]$ は $1$-Lipschitz です。したがって
 
 $$
 f_1(t)=(p(t),0),\qquad
 f_2(t)=(1,p(t))
 $$
 
-は $\mathbb R$ 上の Lipschitz 写像で、$E=f_1(\mathbb R)\cup f_2(\mathbb R)$ です。定義の差集合は空で $\mathcal H^1=0$、ゆえに $E$ は可算 $1$-整流可能です。
+は $\mathbb R$ 上の Lipschitz 写像で、$E=f_1(\mathbb R)\cup f_2(\mathbb R)$ です。$j\ge3$ には $f_j=f_1$ と置けば定義の可算族になり、差集合は空で $\mathcal H^1=0$、ゆえに $E$ は可算 $1$-整流可能です。
 
 さらに任意の $Z\subset\mathbb R^2$ が $\mathcal H^1(Z)=0$ なら、$E\cup Z$ の二つの像から漏れる点は $Z$ に含まれます。よって、$Z$ が $\mathcal H^1$-可測なとき $E\cup Z$ も可算 $1$-整流可能です。**集合全体が厳密に曲線の和集合である必要はない**という定義の条件を直接確認できました。
 <!-- definition-example-end -->
@@ -56,7 +56,7 @@ $$
 
 ## 2. 滑らかなグラフから可算整流可能性を作る
 
-実際に使いやすい判定法は、グラフを座標から持ち上げることです。$U\subset\mathbb R^m$ を開集合、$g:U\to\mathbb R^{d-m}$ を $C^1$ 写像とし、
+実際に使いやすい判定法は、グラフを座標から持ち上げることです。$U\subset\mathbb R^m$ を開集合、$g:U\to\mathbb R^{d-m}$ を $C^1$ 写像（各成分の1階偏導関数が連続な写像）とし、
 
 $$
 G(x)=(x,g(x)),\qquad x\in U
@@ -90,7 +90,19 @@ $$
 M_j=\sup_{x\in Q_j}\|Dg(x)\|_{\mathrm{op}}<\infty.
 $$
 
-$x,y\in Q_j$ に対し線分 $\gamma(t)=x+t(y-x)$ は $Q_j$ 内です。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)により各成分の導関数は $Dg(\gamma(t))(y-x)$ です。これを [微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)で積分すると
+$x,y\in Q_j$ に対し、$\gamma(t)=x+t(y-x)$（$0\le t\le1$）は $Q_j$ 内の線分です。
+
+$Dg(z)$ は点 $z$ での全微分で、[微分の Jacobian 行列表現](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)により $\mathbb R^m$ から $\mathbb R^{d-m}$ への線形写像として作用します。
+
+ここで動かす変数は $t$ だけで、$x,y$ は固定します。[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)により
+
+$$
+\frac{d}{dt}g(\gamma(t))
+=Dg(\gamma(t))\gamma'(t)
+=Dg(x+t(y-x))(y-x).
+$$
+
+これを [微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)で $t=0$ から $1$ まで積分すると
 
 $$
 g(y)-g(x)=\int_0^1Dg(x+t(y-x))(y-x)\,dt,
@@ -123,14 +135,33 @@ $$
 
 ### 面積が正で有限なグラフの実例
 
-$Q=[0,1]^m$ 上の $C^1$ 写像 $g$ の微分ノルムが $\|Dg\|_{\mathrm{op}}\le M$ なら、$G(x)=(x,g(x))$ は単射で $\sqrt{1+M^2}$-Lipschitz です。[GMT11の面積公式](../GMT11/index.md#thm-gmt11-area-formula)に、適当な開近傍で定義された $G$ と Borel 集合 $Q$ を入れると
+$Q=[0,1]^m$ を含む開集合で定義された $C^1$ 写像 $g:\mathbb R^m\supset U\to\mathbb R^{d-m}$ について、$Q$ 上で $\|Dg(x)\|_{\mathrm{op}}\le M$ とします。$G(x)=(x,g(x))$ は最初の $m$ 座標から $x$ が復元できるので単射であり、$Q$ 上では $\sqrt{1+M^2}$-Lipschitz です。
+
+面積を測る行列が現れる理由を確認します。[微分の行列表現](../../../基礎科目/RA/RA6/index.md#prop-ra6-derivative-jacobian)から、標準基底での $Dg(x)$ は $(d-m)\times m$ 行列です。$h\in\mathbb R^m$ に沿うグラフの微分は $DG(x)h=(h,Dg(x)h)$ なので、$I_m$ を $m$ 次単位行列、上付き $\mathsf T$ を転置として
+
+$$
+DG(x)=\begin{pmatrix}I_m\\Dg(x)\end{pmatrix},
+\qquad
+DG(x)^{\mathsf T}DG(x)=I_m+Dg(x)^{\mathsf T}Dg(x).
+$$
+
+実際、$|DG(x)h|^2=|h|^2+|Dg(x)h|^2$ だから、右辺は微分が各方向の長さをどう変えるかを表す Gram 行列です。[幾何的 Jacobian の定義](../GMT10/index.md#def-gmt10-geometric-jacobian)に従ってその行列式の平方根が $m$ 次元の面積倍率になります。
+
+$Q$ はコンパクトで $U$ は開集合なので、$Q$ を内包する少し大きな閉立方体 $Q_\varepsilon\subset U$ を取れます。$Dg$ は $Q_\varepsilon$ 上で有界であり、凸性と線分積分によりその内部で $G$ は Lipschitz です。$Q$ は Borel 集合で $G$ は単射ですから、[GMT11の面積公式](../GMT11/index.md#thm-gmt11-area-formula)の重複度は像上で $1$ となり
 
 $$
 \mathcal H^m(G(Q))
 =c_m\int_Q\sqrt{\det(I_m+Dg(x)^{\mathsf T}Dg(x))}\,dx.
 $$
 
-$Dg^{\mathsf T}Dg$ は非負定値で固有値は $[0,M^2]$ に入るため、$I_m+Dg^{\mathsf T}Dg$ の固有値は $[1,1+M^2]$ に入ります。その積の平方根を取って
+任意の $h\in\mathbb R^m$ に対して $0\le|Dg(x)h|^2\le M^2|h|^2$ なので
+
+$$
+|h|^2\le h^{\mathsf T}(I_m+Dg(x)^{\mathsf T}Dg(x))h
+\le(1+M^2)|h|^2.
+$$
+
+対称な Gram 行列の固有値はこの二次形式の上下界から $[1,1+M^2]$ に入ります。その $m$ 個の固有値の積が行列式なので、平方根を取って
 
 $$
 0<c_m\le\mathcal H^m(G(Q))
@@ -257,7 +288,17 @@ $$
 K=\bigcap_{n=0}^{\infty}K_n
 $$
 
-と定めます。これが **四隅 Cantor dust** です。第 $n$ 段階の各正方形の一辺は $s_n=4^{-n}$。各分岐へ質量を $1/4$ ずつ割り振った確率測度を $\mu$ とすれば、各第 $n$ 段階の正方形 $Q$ は $\mu(Q)=4^{-n}=s_n$ を持ちます。正方形は離れており、$\mu$ は $K$ を台とする Borel 確率測度です。
+と定めます。これが **四隅 Cantor dust** です。第 $n$ 段階の各正方形の一辺は $s_n=4^{-n}$。
+
+各分岐へ質量を $1/4$ ずつ割り振った確率測度 $\mu$ は、次のように具体的に構成できます。$[0,1]$ を第 $n$ 段階で $4^n$ 個の等長区間へ分け、四進の各桁を四隅の選択に対応させます。端点では半開区間によって一方を選び、$1$ は最後の区間に含めます。
+
+各 $u\in[0,1]$ に対応する正方形は入れ子で直径が $\sqrt2\,4^{-n}\to0$ なので、中心の極限 $T(u)\in K$ が一意に決まります。有限段階の中心写像は Borel 可測で、その点ごとの極限 $T$ も可測です。Borel 集合 $B\subset\mathbb R^2$ に対し $\mu(B)=\mathcal L^1(T^{-1}(B))$ と置くと $\mu(K)=1$ であり、各第 $n$ 段階正方形 $Q$ の逆像は長さ $4^{-n}$ の区間（端点の違いを除く）だから
+
+$$
+\mu(Q)=4^{-n}=s_n.
+$$
+
+各正方形は互いに離れており、$\mu$ は $K$ を台とする Borel 確率測度です。
 
 <a id="lem-gmt12-corner-mass"></a>
 
@@ -291,10 +332,10 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 球の上下界。** $4^{-(n+1)}<r\le s_n=4^{-n}$ となる $n\ge0$ を取ります。異なる第 $n$ 段階正方形の距離は少なくとも $2s_n$ です。半径 $r\le s_n$ の球が交わる第 $n$ 段階正方形の個数は、中心の間隔と平面内の有界な配置から高々ある絶対整数 $M$ 個です（例えば正方形を含む一辺 $2s_n$ の外接箱は互いに内部が交わらず、球の周りの一辺 $6s_n$ の箱に収まるので $M\le9$ としてよい）。各正方形の質量は $s_n<4r$ だから
+**(1) 球の上下界。** $4^{-(n+1)}<r\le s_n=4^{-n}$ となる $n\ge0$ を取ります。異なる第 $n$ 段階正方形の距離は少なくとも $2s_n$ です。$x\in K$ が属する第 $n$ 段階正方形を $Q_n(x)$ とすると、半径 $r\le s_n$ の球 $B(x,r)$ は他の第 $n$ 段階正方形と交わりません。従って球の質量は $Q_n(x)$ の質量以下であり、$s_n<4r$ だから
 
 $$
-\mu(B(x,r))\le Ms_n<4Mr.
+\mu(B(x,r))\le\mu(Q_n(x))=s_n<4r.
 $$
 
 下界は $x$ を含む第 $n+2$ 段階の子孫正方形 $Q_{n+2}$ を用います。その直径は $\sqrt2\,s_n/16<r$（$s_n<4r$）なので $Q_{n+2}\subset B(x,r)$。したがって
@@ -304,7 +345,7 @@ $$
 =s_n/16\ge r/16.
 $$
 
-例えば $a=1/16$、$b=4M$ と取れます。
+例えば $a=1/16$、$b=4$ と取れます。
 
 **(2) Hausdorff 長さ。** $K$ を第 $n$ 段階の $4^n$ 個の正方形で覆うと、直径の合計は
 
@@ -362,15 +403,19 @@ $$
 
 また $f'(t)=0$ の点の像は [rank 欠損像の補題](../GMT11/index.md#lem-gmt11-critical-image)で $\mathcal H^1$-零です。残る微分が零でない点では、[面積公式の証明における一様な二点差分分割](../GMT11/index.md#thm-gmt11-area-formula)と [その双 Lipschitz 補題](../GMT11/index.md#lem-gmt11-patch-comparison)を使えます。
 
-これによって微分が零でない点を可算個の Borel 集合 $A_j$ に分割でき、各 $f|_{A_j}$ は双 Lipschitz です。必要ならコンパクト部分で内側から近似して、その像をコンパクトにし、像の零測度部分以外を可算枚で覆えます。
+これによって微分が零でない点を可算個の Borel 集合 $A_j$ に分割でき、各 $f|_{A_j}$ は双 Lipschitz です。
 
-従って $\mathcal H^1(K\cap S)>0$ と仮定すれば、ある双 Lipschitz 片 $A_j$ に対して
+像の可測性を曖昧にしないため、各 $A_j\cap[-R,R]$（$R\in\mathbb N$）を Lebesgue 測度の内側正則性によって可算個のコンパクト集合 $A_{j,R,k}$ で零測度部分を除いて覆います。具体的には各 $k$ で測度差が $1/k$ 未満のコンパクト部分を取り、その和集合の補集合が零測度であることを使います。
+
+$f$ は Lipschitz なので、残余の像も [零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)によって $\mathcal H^1$-零です。各 $f(A_{j,R,k})$ はコンパクトで、写像の制限は依然として双 Lipschitz です。
+
+従って $\mathcal H^1(K\cap S)>0$ と仮定すれば、あるコンパクトな双 Lipschitz 片 $A=A_{j,R,k}$ に対して
 
 $$
-\mathcal H^1(K\cap f(A_j))>0
+\mathcal H^1(K\cap f(A))>0
 $$
 
-となります。以後この片を $A$、その像を $\Gamma=f(A)$ とします。
+となります。以後その像を $\Gamma=f(A)$ とします。この $\Gamma$ はコンパクトであり、次に用いる指示関数 $1_\Gamma$ は Borel 可測です。
 
 **(2) ほとんどの点が $\Gamma$ に属する点を取る。** $K$ はコンパクトで $\mathcal H^1(K)<\infty$ なので、$\nu=\mathcal H^1\!\llcorner K$ は有限 Radon 測度です。[Radon 測度の球微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を $1_\Gamma$ に適用すると、$\nu$-ほとんどすべての $x\in K\cap\Gamma$ で
 
@@ -381,7 +426,7 @@ $$
 
 です。$\nu(K\cap\Gamma)>0$ だから、そのような $x=f(t)$ を選べます。$t\in A$ は $f'(t)\ne0$ の微分可能点です。
 
-**(3) $\Gamma$ はその点の接線から離れられない。** $\ell=x+\mathbb R f'(t)$ とし、$f|_A$ の逆 Lipschitz 定数を $L_-$ と書きます。任意の $t'\in A$ に対して
+**(3) $\Gamma$ はその点の接線から離れられない。** $f'(t)=df/dt(t)$ は曲線のパラメータ $t$ に関する $\mathbb R^2$ 値の微分です。$\ell=x+\mathbb R f'(t)$ とし、$f|_A$ の逆 Lipschitz 定数を $L_-$ と書きます。任意の $t'\in A$ に対して
 
 $$
 |t'-t|\le L_-|f(t')-f(t)|.
