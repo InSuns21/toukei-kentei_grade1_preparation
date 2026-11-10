@@ -1,0 +1,50 @@
+id: GMT18
+title: Besicovitch--Federer射影判定 II
+volume: foundations
+status: supplementary
+prerequisites:
+  - MT8
+  - GMT7
+  - GMT12
+  - GMT15
+  - GMT16
+  - GMT17
+official_scope: []
+learning_objectives:
+  - 純非整流性とGrassmannほとんど全方向の零射影の同値を有限Hausdorff面積の条件下で述べられる
+  - 円錐内質量の正規化と三択補題が臨界対数上界を補う仕組みを説明できる
+  - 円錐が疎な点の零測度性を双Lipschitz分割と被覆評価で導ける
+  - 円錐質量が発散する点の射影が零測度になることをVitali被覆で証明できる
+  - 方向の非加法的内容に対する零・無限大密度二分法と回転平均の役割を追える
+  - 同じ射影繊維に無限個の点がある基底集合の零測度性を被覆から導ける
+  - 線分・四隅Cantor集合・混合集合に判定定理を正しく適用できる
+definitions:
+  - { id: GMT18-DEF-01, name: 射影核方向の細円錐と正規化集中量 }
+  - { id: GMT18-DEF-02, name: 射影の繊維 }
+theorems:
+  - { id: GMT18-LEM-01, name: 疎な細円錐の零測度補題 }
+  - { id: GMT18-LEM-02, name: 発散する円錐質量の零射影補題 }
+  - { id: GMT18-LEM-03, name: 無限繊維の零射影補題 }
+  - { id: GMT18-LEM-04, name: 零内容集合上の密度二分法 }
+  - { id: GMT18-LEM-05, name: ほとんど全方向の幾何的三択補題 }
+  - { id: GMT18-THM-01, name: Besicovitch--Federer射影判定 }
+  - { id: GMT18-COR-01, name: 射影測度による整流可能成分の検出 }
+canonical_examples:
+  - 水平線分の正射影と垂直例外方向
+  - 四隅Cantor集合の特定方向の正射影と典型方向の零射影
+  - 線分と純非整流集合の和集合の正射影
+  - 繊維内の有限点と無限点の区別
+problem_patterns:
+  - GMT18-CONE-NORMALIZATION
+  - GMT18-SPARSE-CONE
+  - GMT18-VITALI
+  - GMT18-FIBER-COUNT
+  - GMT18-SEGMENT
+  - GMT18-CANTOR
+  - GMT18-MIXED
+  - GMT18-DICHOTOMY
+  - GMT18-PROJECTION-EQUIVALENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 14, exercises: 10, review: 4 }
