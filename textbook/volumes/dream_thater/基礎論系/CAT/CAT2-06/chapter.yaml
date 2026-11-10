@@ -1,0 +1,48 @@
+id: "CAT2-06"
+title: "押し出しと貼り合わせ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT2-05
+  - GRP2
+  - TOP1
+official_scope: []
+learning_objectives:
+  - スパンと押し出しを射の向きと可換条件を明記して定義し、余極限との関係と同型一意性を証明できる
+  - 押し出しを余積と余等化子から構成し、普遍性の存在一意性を二段階で証明できる
+  - 集合の押し出しをタグ付き非交和の最小同値関係による商として構成し、非単射による追加同一視を判定できる
+  - 群の押し出しを生成元と関係式から構成し、自由積との関係および集合の押し出しとの違いを説明できる
+  - 位相空間の押し出しで非交和位相と商位相の連続性判定を導出し、貼り合わせた写像の連続性を確認できる
+  - 押し出しの貼り合わせ補題の二方向の主張を証明し、逆方向の誤用を反例で見抜ける
+definitions:
+  - { id: CAT2-06-DEF-01, name: スパン }
+  - { id: CAT2-06-DEF-02, name: 押し出し }
+theorems:
+  - { id: CAT2-06-PROP-01, name: 押し出しの同型一意性 }
+  - { id: CAT2-06-THM-01, name: 余積と余等化子による押し出し }
+  - { id: CAT2-06-THM-02, name: 集合の押し出しの商構成 }
+  - { id: CAT2-06-THM-03, name: 群の押し出しと融合自由積 }
+  - { id: CAT2-06-THM-04, name: 位相空間の押し出しと商位相 }
+  - { id: CAT2-06-THM-05, name: 押し出しの貼り合わせ補題 }
+canonical_examples:
+  - 一点の像を二つの有限集合で同一視する押し出し
+  - 片方の脚が非単射の場合に反対側の元まで同一視される例
+  - 二つの無限巡回群と自明群の押し出しが非可換な自由群となる例
+  - 二本の区間を端点で貼り合わせる位相空間の例
+  - 二つの原点をもつ直線と近傍の交わり
+  - 合成正方形の押し出しと成立しない逆推論
+problem_patterns:
+  - CAT2-06-SPAN
+  - CAT2-06-SET-IDENTIFICATION
+  - CAT2-06-IDENTITY-LEG
+  - CAT2-06-TOPOLOGY-GLUING
+  - CAT2-06-FREE-PRODUCT
+  - CAT2-06-COEQUALIZER
+  - CAT2-06-INJECTIVE-LEGS
+  - CAT2-06-PASTING
+  - CAT2-06-REVERSE-COUNTEREXAMPLE
+  - CAT2-06-CROSS-CATEGORY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 2 }

@@ -18,3 +18,4 @@
 15. [CAT2-03 等化子と引き戻し](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-03/index.md)
 16. [CAT2-04 小図式の極限の構成](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-04/index.md)
 17. [CAT2-05 余極限・始対象・余積・余等化子](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-05/index.md)
+18. [CAT2-06 押し出しと貼り合わせ](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-06/index.md)

@@ -1,0 +1,57 @@
+chapter: CAT2-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-05
+  - GRP2
+  - TOP1
+
+concepts:
+  - id: category.span
+    name: スパン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スパン）"]
+    requires: [category.small-diagram]
+  - id: category.pushout
+    name: 押し出し
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（押し出し）"]
+    requires: [category.span, category.colimit]
+  - id: category.pushout-uniqueness
+    name: 押し出しの同型一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（押し出しの同型一意性）"]
+    requires: [category.pushout, category.colimit-uniqueness]
+  - id: category.pushout-coequalizer
+    name: 余積と余等化子による押し出し
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（余積と余等化子による押し出し）"]
+    requires: [category.pushout, category.small-coproduct, category.coequalizer]
+  - id: category.set-pushout
+    name: 集合の押し出しの商構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合の押し出しの商構成）"]
+    requires: [category.pushout, category.set-coequalizer]
+  - id: category.group-pushout
+    name: 群の押し出しと融合自由積
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（群の押し出しと融合自由積）"]
+    requires: [category.pushout, algebra.quotient-group]
+  - id: category.top-pushout
+    name: 位相空間の押し出しと商位相
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（位相空間の押し出しと商位相）"]
+    requires: [category.pushout, topology.quotient-topology-map]
+  - id: category.pushout-pasting
+    name: 押し出しの貼り合わせ補題
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（押し出しの貼り合わせ補題）"]
+    requires: [category.pushout]
