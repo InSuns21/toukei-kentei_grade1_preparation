@@ -1,0 +1,42 @@
+chapter: CAT1-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-03
+  - CAT1-08
+  - CAT1-09
+  - CAT1-10
+  - CAT1-11
+
+concepts:
+  - id: category.set-valued-presheaf
+    name: 集合値前層と前層圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（集合値前層と前層圏）"]
+    requires: [category.functor-category, category.contravariant-functor, category.small-category]
+  - id: category.yoneda-embedding
+    name: Yoneda埋め込み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Yoneda埋め込み）"]
+    requires: [category.set-valued-presheaf, category.contravariant-hom-functor, category.natural-transformation]
+  - id: category.yoneda-fully-faithful
+    name: Yoneda埋め込みの充満忠実性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Yoneda埋め込みの充満忠実性）"]
+    requires: [category.yoneda-embedding, category.contravariant-yoneda-lemma, category.fully-faithful-functor]
+  - id: category.representables-iso-detection
+    name: 表現可能前層の自然同型と表現対象の同型
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（表現可能前層の自然同型と表現対象の同型）"]
+    requires: [category.yoneda-fully-faithful, category.full-faithful-reflects-iso]
+  - id: category.yoneda-universal-element-test
+    name: Yoneda評価による普遍元判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Yoneda評価による普遍元判定）"]
+    requires: [category.contravariant-yoneda-lemma, category.contravariant-universal-element, category.contravariant-representable-functor]
