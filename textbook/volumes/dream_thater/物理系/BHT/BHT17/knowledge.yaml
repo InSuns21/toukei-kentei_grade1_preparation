@@ -1,0 +1,50 @@
+chapter: BHT17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT16
+  - BHT10
+  - BHT13
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.charge-rotation-ensembles
+    name: 電荷・回転を含む熱力学アンサンブル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（電荷・回転を含む熱力学アンサンブル）"]
+    requires: [black-hole-thermodynamics.maxwell-boundary-data, black-hole-thermodynamics.kn-mass-conjugates]
+
+  - id: black-hole-thermodynamics.ensemble-legendre-differentials
+    name: アンサンブルのLegendre微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アンサンブルのLegendre微分）"]
+    requires: [black-hole-thermodynamics.charge-rotation-ensembles, black-hole-thermodynamics.kn-mass-conjugates]
+
+  - id: black-hole-thermodynamics.rn-fixed-ensemble-capacities
+    name: RNの固定電荷・固定電位熱容量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（RNの固定電荷・固定電位熱容量）"]
+    requires: [black-hole-thermodynamics.charge-rotation-ensembles, black-hole-thermodynamics.boundary-specific-heat-capacity]
+
+  - id: black-hole-thermodynamics.rn-reduced-ensemble-action
+    name: RNの縮約作用と局所Hessian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RNの縮約作用と局所Hessian）"]
+    requires: [black-hole-thermodynamics.charge-rotation-ensembles, black-hole-thermodynamics.conical-reduced-action]
+
+  - id: black-hole-thermodynamics.rn-ensemble-hessian-indefinite
+    name: RNの電位固定Hessianの不定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（RNの電位固定Hessianの不定性）"]
+    requires: [black-hole-thermodynamics.rn-reduced-ensemble-action, black-hole-thermodynamics.rn-fixed-ensemble-capacities]
+
+  - id: black-hole-thermodynamics.kerr-angular-bath
+    name: Kerrの回転ポテンシャルと回転浴の条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kerrの回転ポテンシャルと回転浴の条件）"]
+    requires: [black-hole-thermodynamics.ensemble-legendre-differentials, black-hole-thermodynamics.kn-mass-conjugates]
