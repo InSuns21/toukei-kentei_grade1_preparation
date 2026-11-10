@@ -1,0 +1,53 @@
+chapter: ORI22
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI13, ORI17, ORI21]
+forward_references: []
+
+concepts:
+  - id: origami.weighted-tree-path
+    name: 長さ付き木と葉間経路長
+    kind: definition
+    introduction: formal
+
+  - id: origami.tree-leaf-distance-constraint
+    name: 葉の距離制約と実行可能配置
+    kind: definition
+    introduction: formal
+    requires: [origami.weighted-tree-path]
+
+  - id: origami.fixed-placement-scale
+    name: 固定配置の最大縮尺
+    kind: proposition
+    introduction: formal
+    requires: [origami.tree-leaf-distance-constraint]
+
+  - id: origami.star-tree
+    name: 星形の木
+    kind: definition
+    introduction: formal
+    requires: [origami.weighted-tree-path]
+
+  - id: origami.tree-leaf-disk
+    name: 葉の円板
+    kind: definition
+    introduction: formal
+    requires: [origami.star-tree, origami.tree-leaf-distance-constraint]
+
+  - id: origami.star-circle-packing
+    name: 星形の木の距離制約と円の非重複
+    kind: theorem
+    introduction: formal
+    requires: [origami.tree-leaf-disk, origami.tree-leaf-distance-constraint]
+
+  - id: origami.two-fork-paths
+    name: 二分岐木の経路長
+    kind: proposition
+    introduction: formal
+    requires: [origami.weighted-tree-path, origami.tree-leaf-distance-constraint]
+
+  - id: origami.tree-diameter-scale-bound
+    name: 紙の対角線から得る縮尺上界
+    kind: proposition
+    introduction: formal
+    requires: [origami.tree-leaf-distance-constraint]

@@ -1,0 +1,43 @@
+id: ORI22
+title: "tree methodと円・河川パッキング"
+volume: foundations
+status: supplementary
+prerequisites: [ORI13, ORI17, ORI21]
+official_scope: []
+learning_objectives:
+  - 長さ付き木の葉間経路を定義し全葉対の経路長を計算できる
+  - 葉点の距離制約を検査し固定配置の最大縮尺と活性葉対を求められる
+  - 星形の木の葉間距離制約と円板内部の非交差が同値であることを証明できる
+  - 内部辺を河川として捉え二分岐木の六つの経路制約を検算できる
+  - 距離制約と折り線・層順・実現可能性の保証を区別できる
+definitions:
+  - { id: ORI22-DEF-01, name: 長さ付き木と葉間経路長 }
+  - { id: ORI22-DEF-02, name: 葉の距離制約と実行可能配置 }
+  - { id: ORI22-DEF-03, name: 星形の木 }
+  - { id: ORI22-DEF-04, name: 葉の円板 }
+theorems:
+  - { id: ORI22-THM-01, name: 固定配置の最大縮尺 }
+  - { id: ORI22-THM-02, name: 星形の木の距離制約と円の非重複 }
+  - { id: ORI22-THM-03, name: 二分岐木の経路長 }
+  - { id: ORI22-THM-04, name: 紙の対角線から得る縮尺上界 }
+canonical_examples:
+  - 三葉星形木の全葉間経路長
+  - 三葉の紙面配置と固定最大縮尺
+  - 葉円板の半径和と接触判定
+  - 四葉二分岐木の六対の制約と河川幅
+  - 円非重複でも内部辺の制約に違反する反例
+problem_patterns:
+  - ORI22-TREE-PATH-SUM
+  - ORI22-DISTANCE-FEASIBILITY
+  - ORI22-CIRCLE-TANGENCY
+  - ORI22-FIXED-SCALE
+  - ORI22-RIVER-PATH
+  - ORI22-STAR-PACKING
+  - ORI22-DIAMETER-BOUND
+  - ORI22-MISSING-RIVER
+  - ORI22-BRANCH-MONOTONICITY
+  - ORI22-INTEGRATED-FOUR-LEAF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
