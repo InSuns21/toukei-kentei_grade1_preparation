@@ -1,0 +1,35 @@
+chapter: BHT12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT11
+  - BHT8
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.euclidean-cone-deficit
+    name: Euclid時間の円錐欠損角
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid時間の円錐欠損角）"]
+    requires: [black-hole-thermodynamics.euclidean-extremal-order]
+
+  - id: black-hole-thermodynamics.nonextremal-euclidean-period
+    name: 非極限静的地平線のEuclid正則周期
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非極限静的地平線のEuclid正則周期）"]
+    requires: [black-hole-thermodynamics.euclidean-cone-deficit, gravity.static-spherical-surface-gravity]
+
+  - id: black-hole-thermodynamics.static-euclidean-period-examples
+    name: Schwarzschildと非極限RNの正則周期
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschildと非極限RNの正則周期）"]
+    requires: [black-hole-thermodynamics.nonextremal-euclidean-period, black-hole-thermodynamics.schwarzschild-state-data, black-hole-thermodynamics.rn-geometric-data]
+
+  - id: black-hole-thermodynamics.euclidean-wall-period
+    name: 静止壁でのEuclid周期とTolman換算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止壁でのEuclid周期とTolman換算）"]
+    requires: [black-hole-thermodynamics.nonextremal-euclidean-period, black-hole-thermodynamics.tolman-bath-matching]

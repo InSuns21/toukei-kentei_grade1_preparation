@@ -1,0 +1,42 @@
+id: "BHT12"
+title: "Euclid周期性と円錐正則性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT11
+  - BHT8
+official_scope: []
+learning_objectives:
+  - Euclid化したRindler模型から時間円周と固有半径の比を計算し、円錐欠損角・過剰角と滑らかな円板の条件を区別できる
+  - 非極限静的地平線の単純零点を固有動径距離へ変換し、時間・動径計量の先頭項と高次項を出発点から導出できる
+  - 正則な円板補完の必要十分条件を導き、beta=2pi/kappaをKilling時間の規格化と対応付けて説明できる
+  - Schwarzschildと非極限RNでfの地平線微分を計算し、Euclid正則周期とオフシェル円錐の欠損角を検算できる
+  - 有限半径の静止壁での固有Euclid周期を計算し、赤方偏移と熱平衡状態の物理的仮定を区別できる
+  - 非極限の円板と厳密な極限RNの無限のどを比較し、回転解や量子場のKMS性へ静的幾何の証明を無条件に拡張しない
+definitions:
+  - { id: BHT12-DEF-01, name: "Euclid時間の円錐欠損角" }
+theorems:
+  - { id: BHT12-THM-01, name: "非極限静的地平線のEuclid正則周期" }
+  - { id: BHT12-PROP-01, name: "Schwarzschildと非極限RNの正則周期" }
+  - { id: BHT12-PROP-02, name: "静止壁でのEuclid周期とTolman換算" }
+canonical_examples:
+  - Rindler模型でalpha=1とalpha=1/2の円周半径比を直接検算する
+  - Schwarzschild M=2でbeta=16piとrhoの先頭係数を検算する
+  - RN M=5,Q=3でbeta=81pi/2と半周期の欠損角を求める
+  - 固有半径の次の次数までの展開でfの二次係数が正則周期を変えないことを示す
+  - RNの壁R=5で固有周期と局所温度を検算し、厳密な極限RNののどと対比する
+problem_patterns:
+  - BHT12-RINDLER-CONE-DEFICIT
+  - BHT12-SCHWARZSCHILD-PERIOD
+  - BHT12-SIMPLE-ZERO-EXPANSION
+  - BHT12-RN-PERIOD-ROOT-GAP
+  - BHT12-STATIC-WALL-PROPER-TIME
+  - BHT12-HIGHER-ORDER-PROPER-RADIUS
+  - BHT12-CONE-EXCESS-NONREGULAR
+  - BHT12-KILLING-RESCALING
+  - BHT12-EXTREMAL-LIMIT-ORDER
+  - BHT12-RN-EUCLIDEAN-BOUNDARY-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }
