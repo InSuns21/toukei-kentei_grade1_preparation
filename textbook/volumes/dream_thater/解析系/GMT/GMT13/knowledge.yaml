@@ -49,6 +49,7 @@ concepts:
       - geometric-measure.gmt13-tangent-plane
       - geometric-measure.gmt13-tangential-jacobian
       - harmonic.ha1-differentiation
+      - geometric-measure.gmt9-rademacher
 
   - id: geometric-measure.gmt13-jacobian-chain
     name: 接Jacobianの連鎖式

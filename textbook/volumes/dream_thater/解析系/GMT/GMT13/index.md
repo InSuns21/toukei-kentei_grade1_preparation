@@ -155,7 +155,7 @@ $$
 
 $A_S=\phi^{-1}(S)$、$B_S=\psi^{-1}(S)$ と置きます。双Lipschitz性によって、[Lipschitz像の零集合保存](../GMT11/index.md#lem-gmt11-lipschitz-null-image)を写像と逆写像の両方に使えます。[高次元Lebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)を各逆像に適用すると、$S$ のほとんどすべての点に対応する $a,b$ は、それぞれの集合の Lebesgue 密度1の点です。
 
-Lipschitz拡張 $\phi,\psi$ および合成 $F\circ\phi,F\circ\psi$ の各座標の延長は、[Rademacherの定理](../GMT9/index.md#thm-gmt9-rademacher)によりそれらの点で微分可能です。双Lipschitzの下界を密度1の点へ向かう差商に適用すれば、$D\phi(a)$ と $D\psi(b)$ はともに単射、従って rank $m$ です。
+Lipschitz拡張 $\phi,\psi$ および合成 $F\circ\phi,F\circ\psi$ の各座標の延長は、[Rademacherの微分可能性定理](../GMT9/index.md#thm-gmt9-rademacher)によりそれらの点で微分可能です。双Lipschitzの下界を密度1の点へ向かう差商に適用すれば、$D\phi(a)$ と $D\psi(b)$ はともに単射、従って rank $m$ です。
 
 $v\in\mathbb R^m$ を任意に取り、$t_k\downarrow0$ に対して $a_k\in A_S$ を $(a_k-a)/t_k\to v$ と選びます。$x_k=\phi(a_k)\in S$ とおき $b_k=\psi^{-1}(x_k)\in B_S$ とすると、$\psi^{-1}$ の Lipschitz性から
 
