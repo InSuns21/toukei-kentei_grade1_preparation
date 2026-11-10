@@ -1,0 +1,36 @@
+chapter: ORI19
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI18, CPLX8]
+forward_references: []
+
+concepts:
+  - id: origami.flat-fold-decision-versions
+    name: 平坦折りの三つの判定問題
+    kind: definition
+    introduction: formal
+    requires: [origami.global-flat-fold-candidate, origami.stamp-strip-stack-permutation]
+
+  - id: theoretical-computer-science.nae-three-sat
+    name: 非全等3-SAT
+    kind: definition
+    introduction: formal
+    requires: [theoretical-computer-science.three-sat]
+
+  - id: theoretical-computer-science.nae-three-sat-np-complete
+    name: NAE-3-SATのNP完全性
+    kind: theorem
+    introduction: formal
+    requires: [theoretical-computer-science.nae-three-sat, theoretical-computer-science.three-sat-np-complete, theoretical-computer-science.np-hardness-transfer]
+
+  - id: origami.stamp-strip-order-polytime
+    name: 切手一列の指定層順は多項式時間で判定できる
+    kind: theorem
+    introduction: formal
+    requires: [origami.stamp-strip-noncrossing-criterion, origami.flat-fold-decision-versions]
+
+  - id: origami.stamp-strip-existence
+    name: 山谷未指定の切手一列は常に完全積層できる
+    kind: proposition
+    introduction: formal
+    requires: [origami.stamp-strip-order-polytime]
