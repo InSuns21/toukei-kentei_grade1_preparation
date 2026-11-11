@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">Kawasaki–Justinの成立例で四つの扇形が重なる構成図</title>
+  <desc id="desc">左は角60,120,120,60度の四扇形。右は偶数番目の最小途中和の後から順に読み直した角120,60,60,120度の面を平面に重ねた図。交互角歩行は0,120,60,120,0度で閉じる。これは完成配置の図で、連続折り運動ではない。</desc>
+  <rect x="2" y="2" width="756" height="336" rx="12" fill="#f9fcfd" stroke="#9aafb9"/>
+  <g font-family="system-ui, sans-serif" fill="#263b4c">
+    <text x="22" y="32" font-size="20" font-weight="700">ORI-V08　交互角和の成立例（単頂点）</text>
+    <text x="38" y="64" font-size="18" font-weight="600">折る前：角度を一周</text>
+    <text x="411" y="64" font-size="18" font-weight="600">平坦配置：扇形の像</text>
+    <!-- A（円弧）コマンドは現行layout lintの線分近似外。実SVGをレンダリングして文字位置を目視確認済み。 -->
+    <g stroke="#425a6b" stroke-width="2.3">
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L295 175 A105 105 0 0 0 242.5 84.1 Z" fill="#a7dce4"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L242.5 84.1 A105 105 0 0 0 85 175 Z" fill="#f0d8ae" stroke-dasharray="9 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L85 175 A105 105 0 0 0 242.5 265.9 Z" fill="#d0d1ee" stroke-dasharray="3 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L242.5 265.9 A105 105 0 0 0 295 175 Z" fill="#c8e2b3" stroke-dasharray="13 3 3 3"/>
+    </g>
+    <g stroke="#425a6b" stroke-width="2.3" fill-opacity=".48">
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L502.5 84.1 A105 105 0 0 1 660 175 Z" fill="#c8e2b3" stroke-dasharray="13 3 3 3"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L607.5 84.1 A105 105 0 0 0 502.5 84.1 Z" fill="#d0d1ee" stroke-dasharray="3 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L502.5 84.1 A105 105 0 0 1 607.5 84.1 Z" fill="#f0d8ae" stroke-dasharray="9 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L660 175 A105 105 0 0 0 502.5 84.1 Z" fill="#a7dce4"/>
+    </g>
+    <g fill="#223b4e" font-weight="600" font-size="16">
+      <text x="250" y="150">1</text><text x="168" y="111">2</text>
+      <text x="128" y="234">3</text><text x="254" y="214">4</text>
+      <text x="599" y="155">1</text><text x="555" y="115">2</text>
+      <text x="523" y="99">3</text><text x="625" y="133">4</text>
+    </g>
+    <g fill="#233c4f" font-size="17">
+      <text x="38" y="302">α=(60°,120°,120°,60°)</text>
+      <text x="411" y="302">β=(120°,60°,60°,120°)</text>
+      <text x="411" y="325">T=(0°,120°,60°,120°,0°)</text>
+      <text x="38" y="325">奇数和=偶数和=180°</text>
+    </g>
+  </g>
+</svg>

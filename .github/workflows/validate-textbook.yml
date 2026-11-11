@@ -143,6 +143,9 @@ jobs:
           TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: npm run validate:textbook:changed -- --base "$TEXTBOOK_BASE_SHA"
 
+      - name: Verify ORI animated SVG model invariants and fallback assets
+        run: npm run test:ori-svg-phase-a
+
       - name: Fast validate changed textbook dependencies and SVG
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
         env:
@@ -227,7 +230,10 @@ jobs:
           elif ! fc-list : family | grep -q 'Noto Sans CJK JP'; then
             # Pin upstream revision + Git blob checksum to keep the fallback reproducible.
             noto_file="$RUNNER_TEMP/NotoSansCJKjp-Regular.otf"
-            if curl --fail --location --retry 3 --retry-all-errors --connect-timeout 15 --max-time 240 --silent --show-error +              --output "$noto_file" +              'https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf'; then
+            if curl --fail --location --retry 3 --retry-all-errors --connect-timeout 15 \
+              --max-time 240 --silent --show-error \
+              --output "$noto_file" \
+              'https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf'; then
               noto_blob="$(git hash-object "$noto_file")"
               if [ "$noto_blob" != 'f56224957fb13a81b4c14bac34f2f058a017f9fb' ]; then
                 echo "::error::Noto CJK font checksum mismatch"

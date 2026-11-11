@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 320" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">折り線の周りの回転と終端の鏡映、三つの工程</title>
+  <desc id="desc">x-z断面を平行投影した三枚の図。tが0、1/2、1へ変わると、長さ1.8の線分は水平右、垂直上、水平左を向く。折り線上のQはすべての工程で動かない。終端の座標はxの符号を反転した鏡映点である。</desc>
+  <rect x="2" y="2" width="746" height="316" rx="12" fill="#f9fcfd" stroke="#9aafb9"/>
+  <g font-family="system-ui, sans-serif" fill="#233c4f">
+    <text x="25" y="32" font-size="20" font-weight="700">ORI-V01　折り線 x=0 の周りの回転：x-z断面</text>
+    <g stroke="#c6d3db" stroke-width="2" fill="#fff">
+      <rect x="20" y="51" width="224" height="206" rx="7"/>
+      <rect x="263" y="51" width="224" height="206" rx="7"/>
+      <rect x="506" y="51" width="224" height="206" rx="7"/>
+    </g>
+    <g font-size="18" font-weight="600">
+      <text x="36" y="79">t=0：折る前</text>
+      <text x="279" y="79">t=1/2：90°</text>
+      <text x="522" y="79">t=1：鏡映点</text>
+    </g>
+    <g stroke="#687c8b" stroke-width="1.8" stroke-dasharray="5 5">
+      <path d="M 45 203 H 224 M 115 114 V 225"/>
+      <path d="M 288 203 H 467 M 358 114 V 225"/>
+      <path d="M 531 203 H 710 M 601 114 V 225"/>
+    </g>
+    <g stroke="#136891" stroke-width="7" stroke-linecap="round">
+      <path d="M115 203 L207 203"/>
+      <path d="M358 203 L358 111"/>
+      <path d="M601 203 L509 203"/>
+    </g>
+    <g fill="#136891" stroke="#123447" stroke-width="1.5">
+      <circle cx="207" cy="203" r="7"/>
+      <circle cx="358" cy="111" r="7"/>
+      <circle cx="509" cy="203" r="7"/>
+    </g>
+    <g fill="#243746">
+      <circle cx="115" cy="203" r="5"/>
+      <circle cx="358" cy="203" r="5"/>
+      <circle cx="601" cy="203" r="5"/>
+    </g>
+    <g font-size="17">
+      <text x="87" y="244">Q</text><text x="211" y="181">P</text>
+      <text x="374" y="237">Q</text><text x="384" y="103">P</text>
+      <text x="620" y="237">Q</text><text x="518" y="177">P</text>
+      <text x="42" y="283">折り線上のQは固定。長さQP=1.8は全工程で一定。</text>
+      <text x="42" y="305">3D回転の断面図。t=1で (x,y)→(−x,y) が成立する。</text>
+    </g>
+  </g>
+</svg>
