@@ -6,13 +6,17 @@
 
 この問いには、真の解が不安定な特異方向へどれだけ成分を持つかという追加情報が必要です。本章では、**観測ノイズの増幅**と**正則化が真の信号を削る量**を別々に計算し、追加仮定から収束の速さを取り出します。次講で扱う、観測データからパラメータを選ぶ方法とは区別して、ここではノイズ水準と解についての事前情報を使います。
 
-以下では実 Hilbert 空間 $X,Y$ とコンパクト線形作用素 $A:X\to Y$ を固定します。[完全特異系](../INV3/index.md#def-inv3-singular-system)を $(\sigma_j,u_j,v_j)_{j\in J}$ とし、$J$ は有限または可算、各 $\sigma_j>0$ とします。正確なデータ $y\in\mathcal D(A^\dagger)$ と[最小ノルム解](../INV4/index.md#def-inv4-pseudoinverse-domain) $x^\dagger=A^\dagger y\in(\ker A)^\perp$、ノイズを含むデータ $y^\delta\in Y$ を
+以下では実 Hilbert 空間 $X,Y$ とコンパクト線形作用素 $A:X\to Y$ を固定します。
+
+[完全特異系](../INV3/index.md#def-inv3-singular-system)を $(\sigma_j,u_j,v_j)_{j\in J}$ とします。添字集合 $J$ は有限または可算で、各特異値は $\sigma_j>0$ です。
+
+正確なデータ $y\in\mathcal D(A^\dagger)$ に対し、[最小ノルム解](../INV4/index.md#def-inv4-pseudoinverse-domain)を $x^\dagger=A^\dagger y$ とします。この解は $(\ker A)^\perp$ に属します。ノイズを含むデータ $y^\delta\in Y$ は、次の誤差条件を満たすとします。
 
 $$
 \|y^\delta-y\|_Y\le\delta
 $$
 
-の下で考えます。$T=A^*A:X\to X$ は、[Hilbert随伴](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)により有界・自己共役・非負で、$Tv_j=\sigma_j^2v_j$、$\ker T=\ker A$ です。ここでは特異値の**二乗** $\lambda_j=\sigma_j^2$ を使うと計算が短くなります。
+$T=A^*A:X\to X$ は、[Hilbert随伴](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)により有界・自己共役・非負で、$Tv_j=\sigma_j^2v_j$、$\ker T=\ker A$ です。ここでは特異値の**二乗** $\lambda_j=\sigma_j^2$ を使うと計算が短くなります。
 
 ## 1. 誤差を二つの原因へ分ける
 
