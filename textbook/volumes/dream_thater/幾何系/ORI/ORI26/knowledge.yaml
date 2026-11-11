@@ -11,11 +11,17 @@ concepts:
     introduction: formal
     requires: [origami.rigid-panel-motion]
 
+  - id: origami.rigid-constraint-jacobian
+    name: 剛体折り拘束のJacobian行列
+    kind: definition
+    introduction: formal
+    requires: [origami.rigid-configuration-space]
+
   - id: origami.regular-rigid-folding
     name: 局所自由度と特異な配置
     kind: definition
     introduction: formal
-    requires: [origami.rigid-configuration-space, origami.four-vertex-diagonal-parametrization]
+    requires: [origami.rigid-configuration-space, origami.rigid-constraint-jacobian, origami.four-vertex-diagonal-parametrization]
 
   - id: origami.four-vertex-regular-branches
     name: 4価頂点の正則な1自由度枝

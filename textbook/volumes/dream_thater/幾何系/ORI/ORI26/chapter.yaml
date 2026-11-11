@@ -12,7 +12,8 @@ learning_objectives:
   - 代数的に存在するパネル重複と複数リンクの閉路ロックを検算し接触規約を明示して判定できる
 definitions:
   - { id: ORI26-DEF-01, name: 剛体折りの配置空間と許容経路 }
-  - { id: ORI26-DEF-02, name: 局所自由度と特異な配置 }
+  - { id: ORI26-DEF-02, name: 剛体折り拘束のJacobian行列 }
+  - { id: ORI26-DEF-03, name: 局所自由度と特異な配置 }
 theorems:
   - { id: ORI26-THM-01, name: 4価頂点の正則な1自由度枝 }
   - { id: ORI26-THM-02, name: 未折状態における二曲線の分岐 }
