@@ -218,7 +218,7 @@ $$
 g(r)=\int_0^rh(s)\,ds
 $$
 
-を得ます。[不定積分の絶対連続性と微分公式](../../MT/MT4/index.md#thm-mt4-indefinite-integral-ac)に $f=h$ を代入すると、$g$ は絶対連続で、Lebesgue測度零集合を除く半径（以下 a.e. と略記）について
+を得ます。[不定積分の絶対連続性と微分公式](../../MT/MT4/index.md#thm-mt4-indefinite-integral-ac)に $f=h$ を代入すると、$g$ は絶対連続で、Lebesgue測度零集合を除く半径、すなわちほとんど至る所（almost everywhere; a.e.）で
 
 $$
 g'(r)=h(r)=\widehat{\mathcal H}^{\,d-1}(E\cap\partial B_r)
