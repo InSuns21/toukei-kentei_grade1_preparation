@@ -33,7 +33,7 @@ chapters:
   - { id: GMT25, path: textbook/volumes/dream_thater/解析系/GMT/GMT25, status: completed, title: "縮約境界と測度論的外向き法線" }
   - { id: GMT26, path: textbook/volumes/dream_thater/解析系/GMT/GMT26, status: completed, title: "De Giorgi構造定理 I：半空間blow-up" }
   - { id: GMT27, path: textbook/volumes/dream_thater/解析系/GMT/GMT27, status: completed, title: "De Giorgi構造定理 II：整流可能性と測度同定" }
-  - { id: GMT28, path: textbook/volumes/dream_thater/解析系/GMT/GMT28, status: planned, title: "Gauss--Greenの境界積分・集合演算・切断" }
+  - { id: GMT28, path: textbook/volumes/dream_thater/解析系/GMT/GMT28, status: completed, title: "Gauss--Greenの境界積分・集合演算・切断" }
   - { id: GMT29, path: textbook/volumes/dream_thater/解析系/GMT/GMT29, status: planned, title: "Euclid等周不等式" }
   - { id: GMT30, path: textbook/volumes/dream_thater/解析系/GMT/GMT30, status: planned, title: "周長最小化の直接法" }
   - { id: GMT31, path: textbook/volumes/dream_thater/解析系/GMT/GMT31, status: planned, title: "Besicovitch集合：有限段階から極限まで" }

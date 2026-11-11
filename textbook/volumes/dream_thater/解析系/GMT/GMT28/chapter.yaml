@@ -1,0 +1,45 @@
+id: GMT28
+title: Gauss--Greenの境界積分・集合演算・切断
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT14
+  - GMT22
+  - GMT24
+  - GMT25
+  - GMT26
+  - GMT27
+official_scope: []
+learning_objectives:
+  - 縮約境界と非正規化Hausdorff測度を使ってGauss--Greenの境界積分を符号・係数まで導ける
+  - 補集合・和・共通部分のGauss--Green測度の恒等式と周長の劣加法性を区別できる
+  - 共有境界での法線の相殺を具体例と反例で計算できる
+  - 超平面切断のa.e.周長表示を整流可能集合上のcoareaと分布微分から証明できる
+  - 半空間との交わりの切断面を含む周長公式を導き例外高度を検討できる
+  - 二次元の円盤・長方形で切断周長、断面周長、面積の変化を再計算できる
+definitions: []
+theorems:
+  - { id: GMT28-THM-01, name: 縮約境界でのGauss--Green境界積分 }
+  - { id: GMT28-THM-02, name: 集合演算の周長劣加法性 }
+  - { id: GMT28-THM-03, name: 超平面切断の周長とcoarea }
+  - { id: GMT28-PROP-01, name: 半空間切断の周長公式 }
+canonical_examples:
+  - 円盤の発散と外向き法線の流束を直接積分
+  - 隣接長方形の共有辺と法線の相殺
+  - 長方形の水平断面の周長と共面積積分
+  - 円盤を水平切断した弧と弦の周長
+problem_patterns:
+  - GMT28-DISK-FLUX
+  - GMT28-COMPLEMENT-NORMAL
+  - GMT28-RECTANGLE-SLICE
+  - GMT28-RECTANGLE-CUT
+  - GMT28-EXCEPTIONAL-HEIGHT
+  - GMT28-ADJACENT-RECTANGLES
+  - GMT28-DISK-COAREA
+  - GMT28-CUTOFF-TRACE
+  - GMT28-LOCAL-SUBMODULARITY
+  - GMT28-CIRCULAR-SEGMENT
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 13, exercises: 8, review: 5 }
