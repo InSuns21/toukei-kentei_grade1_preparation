@@ -35,4 +35,4 @@ chapters:
   - { id: ORI27, path: textbook/volumes/dream_thater/幾何系/ORI/ORI27, status: completed, title: "Miura折りと展開機構" }
   - { id: ORI28, path: textbook/volumes/dream_thater/幾何系/ORI/ORI28, status: completed, title: "曲線折りと可展曲面" }
   - { id: ORI29, path: textbook/volumes/dream_thater/幾何系/ORI/ORI29, status: completed, title: "紙厚・自己折り・実装制約" }
-  - { id: ORI30, path: textbook/volumes/dream_thater/幾何系/ORI/ORI30, status: planned, title: "総合設計・数学的検証" }
+  - { id: ORI30, path: textbook/volumes/dream_thater/幾何系/ORI/ORI30, status: completed, title: "総合設計・数学的検証" }

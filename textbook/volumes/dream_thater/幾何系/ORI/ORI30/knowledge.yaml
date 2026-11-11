@@ -1,0 +1,42 @@
+chapter: ORI30
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI3, ORI13, ORI26, ORI29]
+forward_references: []
+
+concepts:
+  - id: origami.integrated-three-strip-model
+    name: 三枚帯の総合検証模型
+    kind: definition
+    introduction: formal
+    requires: [origami.unit-fraction-fold, origami.crease-pattern-plane-graph, origami.mountain-valley-assignment]
+
+  - id: origami.three-strip-flat-layering
+    name: 三枚帯の平坦配置と層順
+    kind: theorem
+    introduction: formal
+    requires: [origami.integrated-three-strip-model, origami.piecewise-isometric-flat-placement, origami.local-layer-order]
+
+  - id: origami.three-strip-rigid-path
+    name: 三枚帯の連続剛体折り経路
+    kind: theorem
+    introduction: formal
+    requires: [origami.integrated-three-strip-model, origami.rigid-configuration-space]
+
+  - id: origami.three-strip-panel-clearance
+    name: 非隣接パネル間の最短距離
+    kind: theorem
+    introduction: formal
+    requires: [origami.three-strip-rigid-path, origami.thickened-panel-clearance]
+
+  - id: origami.three-strip-thickness-limit
+    name: 厚み付き経路の安全角度と終点障害
+    kind: proposition
+    introduction: formal
+    requires: [origami.three-strip-panel-clearance, origami.thickness-collision-criterion]
+
+  - id: origami.integrated-verification-record
+    name: 総合判定の検証記録
+    kind: definition
+    introduction: formal
+    requires: [origami.three-strip-flat-layering, origami.three-strip-rigid-path, origami.three-strip-thickness-limit]
