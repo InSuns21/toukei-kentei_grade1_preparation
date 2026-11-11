@@ -1,0 +1,76 @@
+chapter: GMT26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT10
+  - GMT12
+  - GMT19
+  - GMT22
+  - GMT23
+  - GMT24
+  - GMT25
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt26-ball-sobolev
+    name: 球上のBV--Sobolev--Poincaré評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（球上のBV--Sobolev--Poincaré評価）"]
+    requires:
+      - geometric-measure.gmt22-smooth-approx
+
+  - id: geometric-measure.gmt26-relative-iso
+    name: 球上の相対等周不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（球上の相対等周不等式）"]
+    requires:
+      - geometric-measure.gmt26-ball-sobolev
+      - geometric-measure.gmt24-finite-perimeter
+
+  - id: geometric-measure.gmt26-spherical-flux
+    name: 球面flux恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（球面flux恒等式）"]
+    requires:
+      - geometric-measure.gmt24-gauss-green-identity
+
+  - id: geometric-measure.gmt26-density-bounds
+    name: 縮約境界点での二相体積密度と周長密度の上下評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（縮約境界点での二相体積密度と周長密度の上下評価）"]
+    requires:
+      - geometric-measure.gmt26-spherical-flux
+      - geometric-measure.gmt26-relative-iso
+      - geometric-measure.gmt25-reduced-boundary
+
+  - id: geometric-measure.gmt26-rescalings
+    name: 集合blow-upと周長測度の再尺度化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（集合blow-upと周長測度の再尺度化）"]
+    requires:
+      - geometric-measure.gmt24-gauss-green-measure
+
+  - id: geometric-measure.gmt26-rescaling-variation
+    name: BV微分と再尺度化の両立
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（BV微分と再尺度化の両立）"]
+    requires:
+      - geometric-measure.gmt26-rescalings
+      - geometric-measure.gmt24-gauss-green-identity
+
+  - id: geometric-measure.gmt26-halfspace-blowup
+    name: De Giorgiの半空間blow-up
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（De Giorgiの半空間blow-up）"]
+    requires:
+      - geometric-measure.gmt26-density-bounds
+      - geometric-measure.gmt26-rescaling-variation
+      - geometric-measure.gmt23-compactness
+      - geometric-measure.gmt25-normal-mean
