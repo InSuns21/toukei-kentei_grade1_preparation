@@ -642,7 +642,7 @@ $H=\ell^2\oplus\mathbb R$、$B:H\to H$ を $B((x_n),t)=((x_n/n),0)$ とする。
 <!-- solution-start -->
 #### 詳細解答
 
-$u=((u_n),s)$、$v=((v_n),t)\in H$ とすると、直交和の内積と実数列の対角作用素 $D$ の定義から
+$u=((u_n),s)$、$v=((v_n),t)\in H$ とすると、$Bu=((u_n/n),0)$ なので内積を成分ごとに計算でき、
 
 $$
 \langle Bu,v\rangle_H
