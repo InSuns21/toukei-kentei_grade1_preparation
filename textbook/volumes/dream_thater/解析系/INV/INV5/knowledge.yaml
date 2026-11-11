@@ -1,0 +1,43 @@
+chapter: INV5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV4
+
+forward_references: []
+
+concepts:
+  - id: inverse.tsvd-regularization
+    name: TSVD正則化作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（TSVD正則化作用素）"]
+    requires: [inverse.compact-singular-expansion, inverse.regularization-family]
+
+  - id: inverse.tikhonov-quadratic
+    name: 二乗ノルムTikhonov正則化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二乗ノルムTikhonov正則化）"]
+    requires: [functional.bounded-linear-operator]
+
+  - id: inverse.tikhonov-minimizer
+    name: Tikhonov最小点の存在・一意性と正規方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Tikhonov最小点の存在・一意性と正規方程式）"]
+    requires: [inverse.tikhonov-quadratic]
+
+  - id: inverse.spectral-filter-factors
+    name: TSVD・Tikhonovの特異値フィルタ表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（TSVD・Tikhonovの特異値フィルタ表示）"]
+    requires: [inverse.tsvd-regularization, inverse.tikhonov-minimizer, inverse.compact-singular-expansion]
+
+  - id: inverse.filter-convergence
+    name: TSVDとTikhonovの整合性・ノイズ下での収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（TSVDとTikhonovの整合性・ノイズ下での収束）"]
+    requires: [inverse.spectral-filter-factors, inverse.regularization-error-bound, inverse.pseudoinverse-domain]
