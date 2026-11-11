@@ -1,0 +1,64 @@
+chapter: GMT31
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT5
+  - MT1
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt31-besicovitch
+    name: Besicovitch集合と連続回転可能な針の集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Besicovitch集合と連続回転可能な針の集合）"]
+    requires: []
+
+  - id: geometric-measure.gmt31-heart-ears
+    name: Perron木の心三角形・耳
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Perron木の心三角形・耳）"]
+    requires: []
+
+  - id: geometric-measure.gmt31-two-triangle
+    name: 二分三角形の面積減少と方向保存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二分三角形の面積減少と方向保存）"]
+    requires:
+      - geometric-measure.gmt31-besicovitch
+
+  - id: geometric-measure.gmt31-perron-bound
+    name: 二進Perron木の有限段階面積評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二進Perron木の有限段階面積評価）"]
+    requires:
+      - geometric-measure.gmt31-two-triangle
+      - geometric-measure.gmt31-heart-ears
+
+  - id: geometric-measure.gmt31-localization
+    name: 開近傍内での局所Perron再配置
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（開近傍内での局所Perron再配置）"]
+    requires:
+      - geometric-measure.gmt31-perron-bound
+
+  - id: geometric-measure.gmt31-compact-segments
+    name: 入れ子コンパクト集合における線分の保存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（入れ子コンパクト集合における線分の保存）"]
+    requires:
+      - geometric-measure.gmt31-besicovitch
+
+  - id: geometric-measure.gmt31-null-existence
+    name: 測度零のコンパクト平面Besicovitch集合の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（測度零のコンパクト平面Besicovitch集合の存在）"]
+    requires:
+      - geometric-measure.gmt31-localization
+      - geometric-measure.gmt31-compact-segments
