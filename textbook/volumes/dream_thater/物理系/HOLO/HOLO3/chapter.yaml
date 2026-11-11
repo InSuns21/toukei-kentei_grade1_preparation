@@ -1,0 +1,42 @@
+id: "HOLO3"
+title: "境界のUV/IRと測地線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOLO2
+  - QFT48
+  - VAR1
+official_scope: []
+learning_objectives:
+  - Poincaré AdSのEuclid切替と半上空間計量の定義域・符号・等長尺度変換を確認できる
+  - 同じEuclid時刻の二端点を結ぶ半円測地線を変分と上半平面の等長写像から導き最短性を示せる
+  - 境界アンカーと有限cutoff面上の固定端点を区別して正則化測地線長を計算し漸近誤差を評価できる
+  - 距離と深さの比例から幾何学的UV/IR対応を説明し厳密なエネルギー辞書との違いを述べられる
+  - 重い一次演算子の測地線近似の条件と相関関数の厳密な等号との相違を検査できる
+definitions:
+  - { id: HOLO3-DEF-01, name: Euclid AdSの半上空間表示 }
+  - { id: HOLO3-DEF-02, name: 正則化された境界アンカー測地線長 }
+theorems:
+  - { id: HOLO3-PROP-01, name: 尺度変換と境界距離・深さの同時変化 }
+  - { id: HOLO3-THM-01, name: 対称二端点を結ぶ半円測地線とその最短性 }
+  - { id: HOLO3-PROP-02, name: 境界アンカーとcutoff端点の長さの差 }
+canonical_examples:
+  - Lで無次元化した半上空間の尺度等長性と固定z面の固有長を検算する
+  - Poincaré断面の半円を変分法とMöbius等長変換の二通りで確かめる
+  - 切断した半円とcutoff面に端点を固定した半円の正確な長さを別々に計算する
+  - 重い演算子の漸近冪とEuclid CFT二点関数の距離冪を条件付きで比較する
+problem_patterns:
+  - HOLO3-EUCLIDEAN-METRIC
+  - HOLO3-SCALE-ISOMETRY
+  - HOLO3-EULER-LAGRANGE
+  - HOLO3-SHORT-DISTANCE
+  - HOLO3-BOUNDARY-ANCHOR-CUTOFF
+  - HOLO3-FIXED-CUTOFF-ENDPOINTS
+  - HOLO3-MOBIUS-MINIMIZER
+  - HOLO3-UV-IR-DEPTH
+  - HOLO3-HEAVY-SADDLE-LIMIT
+  - HOLO3-INTEGRATED-REGULARIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
