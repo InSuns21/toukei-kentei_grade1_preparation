@@ -126,8 +126,8 @@ BHT1〜BHT24は、状態量・古典四法則・定常解族と物理過程の�
 
 - **対象**：BHT1〜BHT24の全index.md・chapter.yaml・knowledge.yaml、textbook/dream-theater-series/BHT.yaml、物理系目次、および外部canonical dependencyの参照先。各章のprerequisitesは章metadataとknowledge metadataで照合した。
 - **全件構造監査**：24章のformal statement・証明ブロック・定義例・演習解答の開始/終了マーカーを照合した。Level Aは各5題、Level Bは原則4題（BHT20は5題）、Level Cは各1題で、全241題に詳細解答がある。chapter IDとmanifestの全24件は一致し、完了状態が先頭から連続する。物理系目次は24講を順に掲出する。
-- **リンク監査**：全24章からのBHT系列内のindex.md#stable-anchor参照、および系列外69個のcanonical anchor（34ファイル）をそれぞれ実ファイルのIDと照合し、存在しない参照先は0件。BHT24の追加QINF17エントロピー定義リンクとQINF3部分跡の定義リンクも実在を確認した。
+- **リンク監査**：全24章からのBHT系列内のindex.md#stable-anchor参照、および系列外70個のcanonical anchor（35ファイル）をそれぞれ実ファイルのIDと照合し、存在しない参照先は0件。BHT24のQINF17エントロピー定義・QINF3部分跡・QINF2密度演算子の各定義リンクも実在を確認した。
 - **横断数理の再計算**：BHT5 Kerr第一法則、BHT7 Kerr–Newman Smarrの次数、BHT12 $\beta=2\pi/\kappa$、BHT13・14 Schwarzschild参照背景作用、BHT15空洞熱容量と符号、BHT16 Hawking–Pageの $r=L$、BHT17 RNの固定電荷/固定電位熱容量、BHT19・20 Einstein/$f(R)$ のWald係数、BHT22一般化エントロピー収支、BHT24 Schwarzschild/RN/AdSの全主要5命題・全10演習の計算と仮定を、異なる入口の式から追跡した。
-- **BHT24の重点点検**：半径による $f'(r)$ とRicci曲率による $f'(R)$ の微分変数、逆温度に関する $\partial_\beta I_E$、状態の基底展開 $\rho=\Omega^{-1}\sum|i\rangle\langle i|$ から固有値判定と $\ln\Omega$ への橋、$\operatorname{Tr}_B$ で交差項が消える中間式を本文・解答に明示した。非自明な計算を別行配置へ改め、全演習IDとstable anchorを維持した。
+- **BHT24の重点点検**：半径による $f'(r)$ とRicci曲率による $f'(R)$ の微分変数、逆温度に関する $dI_E/d\beta=\partial_\beta I_E$、ビット・ナット間の換算 $S_{\rm nat}=\ln2\,S_{\rm bit}$ と状態の基底展開 $\rho=\Omega^{-1}\sum|i\rangle\langle i|$ から固有値判定と $\ln\Omega$ への橋、$\operatorname{Tr}_B$ で交差項が消える中間式を本文・解答に明示した。非自明な計算を別行配置へ改め、全演習IDとstable anchorを維持した。
 - **適用範囲**：正準サドルの形式的作用評価と実際の大域安定性、極限幾何への外挿、半古典GSLと一般量子重力、有限次元模型の純粋/混合の違いを区別した。BHT以降のBHI/HOLOの情報回復や完全な4次元微視状態構成は、本PLANの完成条件ではなく未解決の次段階である。
 - **査読主体・限界**：教材編集担当AIが全24章の機械的構造・参照監査と上記代表的数理再計算、BHT24の全件再導出・別観点の自己再読を実施した。第三者による独立査読は実施していない。最終的なCI結果は対応PRに記録する。
