@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - CAT3-02
+  - CAT1-09
 official_scope: []
 learning_objectives:
   - モナド代数の単位律・結合律と代数射の可換条件を型付きで検証し、Eilenberg–Moore圏を構成できる

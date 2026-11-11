@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CAT3-02
+  - CAT1-09
 
 concepts:
   - id: category.em-algebra
@@ -52,7 +53,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（Kleisli圏の自由代数への埋め込み）"]
-    requires: [category.kleisli-adjunction, category.em-adjunction]
+    requires: [category.kleisli-adjunction, category.em-adjunction, category.fully-faithful-functor, category.essentially-surjective-functor]
   - id: category.list-em-monoids
     name: 有限語モナドの代数とモノイド
     kind: proposition
