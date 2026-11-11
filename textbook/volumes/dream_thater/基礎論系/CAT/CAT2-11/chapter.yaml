@@ -1,0 +1,49 @@
+id: "CAT2-11"
+title: "随伴の極限・余極限保存"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT2-09
+  - CAT2-05
+official_scope: []
+learning_objectives:
+  - 図式の極限・余極限を関手が保存するという条件を、指定した錐・余錐と比較射を使って説明できる
+  - 局所小圏の随伴のHom全単射を錐の成分ごとに転置し、右随伴が存在するすべての小図式の極限を保存することを証明できる
+  - 転置の二変数自然性を使って左随伴の余極限保存を双対的に再構成できる
+  - 終対象・積・等化子・始対象・余積・余等化子で保存定理を具体的に適用できる
+  - 保存・反映・創出を区別し、忘却関手が極限を創出する例と反映しない右随伴の反例を検証できる
+  - 自由モノイド関手の積非保存と忘却関手の余積非保存を具体的に示し、随伴の向きを取り違えない
+definitions:
+  - { id: CAT2-11-DEF-01, name: 極限の保存 }
+  - { id: CAT2-11-DEF-02, name: 余極限の保存 }
+  - { id: CAT2-11-DEF-03, name: 極限の反映 }
+  - { id: CAT2-11-DEF-04, name: 極限の創出 }
+theorems:
+  - { id: CAT2-11-THM-01, name: 右随伴の極限保存 }
+  - { id: CAT2-11-THM-02, name: 左随伴の余極限保存 }
+  - { id: CAT2-11-PROP-01, name: 比較射による保存判定 }
+  - { id: CAT2-11-PROP-02, name: モノイドの忘却関手による極限創出 }
+  - { id: CAT2-11-PROP-03, name: 保存と反映は異なる }
+  - { id: CAT2-11-PROP-04, name: 反対向きの保存は一般に成立しない }
+canonical_examples:
+  - 積関手が成分ごとの積・等化子を保存する
+  - 自由モノイドが余積を保存する
+  - モノイドの忘却関手が小図式の極限を創出する
+  - 集合から一対象圏への右随伴は極限を反映しない
+  - 自由モノイドが二項積を保存しない
+  - モノイドの忘却関手が余積を保存しない
+problem_patterns:
+  - CAT2-11-TRANSPOSED-CONE
+  - CAT2-11-TERMINAL
+  - CAT2-11-PRODUCT
+  - CAT2-11-INITIAL-COPRODUCT
+  - CAT2-11-FREE-MONOID-PRODUCT
+  - CAT2-11-EQUALIZER
+  - CAT2-11-MONOID-PULLBACK
+  - CAT2-11-COMPARISON-MAPS
+  - CAT2-11-NONREFLECTION
+  - CAT2-11-CREATION-ALL-SMALL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 2 }

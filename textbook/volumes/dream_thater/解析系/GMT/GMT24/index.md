@@ -1,5 +1,7 @@
 # GMT24 有限周長集合とGauss--Green測度
 
+<!-- definition-example-audit: strict -->
+
 ## 1. 周長に「向き」を与える
 
 前講では、可測集合 $E$ の[相対周長](../GMT23/index.md#def-gmt23-relative-perimeter) $P(E;\Omega)$ を、テスト場の発散の積分から定めました。周長は非負の数なので、直線上の区間の左右の端、あるいは長方形の上下左右の辺を区別しません。しかし境界を通る流量を計算するには、**どちらが外側か**が必要です。
@@ -18,7 +20,7 @@ $$
 \langle D\chi_E,\varphi\rangle=-\int_E\operatorname{div}\varphi\,dx
 $$
 
-と定めます。積分は $\varphi$ の台の近傍だけで行われるため、$|E|=\infty$ でも意味を持ちます。
+と定めます。積分は $\varphi$ の台の近傍だけで行われるため、$|E|=\infty$ でも意味を持ちます。以下、「ほとんど至る所（almost everywhere; a.e.）」は、指定した測度に関して例外集合が零測度であることを意味します。
 
 <a id="def-gmt24-finite-perimeter"></a>
 
@@ -33,7 +35,17 @@ $$
 > とする。$P(E;\Omega)<\infty$ なら $E$ を $\Omega$ における**有限周長集合**という。任意の $U\Subset\Omega$ で $P(E;U)<\infty$ なら局所有限周長集合という。$P(E):=P(E;\mathbb R^d)$ を全周長とする。
 <!-- formal-statement-end -->
 
-この定義はGMT23の相対周長を、集合の性質として読み直したものです。$\chi_E\in L^1(\Omega)$ は要求していません。したがって、例えば $E=(0,\infty)\subset\mathbb R$ は無限の長さを持ちますが、$P(E;\mathbb R)=1$ です。$\varphi$ を試すと $\int_0^\infty\varphi'=-\varphi(0)$ で、絶対値の最大値が1となるからです。
+<!-- definition-example-start: def-gmt24-finite-perimeter -->
+**定義の確認**（半直線）。この定義はGMT23の相対周長を、集合の性質として読み直したものです。$\chi_E\in L^1(\Omega)$ は要求していません。実際、$E=(0,\infty)\subset\mathbb R$ はLebesgue可測、$\Omega=\mathbb R$ は開集合で、$|E|=\infty$ です。
+
+任意の $\varphi\in C_c^1(\mathbb R)$ で $|\varphi|\le1$ なら
+
+$$
+\int_E\varphi'(x)\,dx=-\varphi(0)\le1.
+$$
+
+一方、$\varphi(0)=-1$ となる滑らかなコンパクト台の許容関数を取れるので上限値は1です。よって $P(E;\mathbb R)=1<\infty$ で、体積が無限でも有限周長であることを定義の全条件から確認できました。
+<!-- definition-example-end -->
 
 初めに知っておきたいのは、この定義が**集合の点ごとの形ではなく、ほとんど至る所での値**を見ていることです。$E$ と $F$ の対称差がLebesgue零集合なら、どのテスト場についても $\int_E\operatorname{div}\varphi=\int_F\operatorname{div}\varphi$ なので $P(E;\Omega)=P(F;\Omega)$ です。この違いは第5節の例で重要になります。
 
@@ -59,6 +71,16 @@ $$
 
 > と書き、$\nu_E$ を（$|\mathcal G_E|$-ほとんど至る所で定まる）**一般化外向き法線**と呼ぶ。$|\mathcal G_E|=|D\chi_E|$ は周長を測る正のRadon測度である。$|\mathcal G_E|$ が零である位置では $\nu_E$ の値は指定しない。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-gmt24-gauss-green -->
+**定義の確認**（半直線の向き）。先ほどの $E=(0,\infty)$ では、任意のテスト関数 $\varphi$ に対して
+
+$$
+\langle D\chi_E,\varphi\rangle=-\int_0^\infty\varphi'(x)\,dx=\varphi(0).
+$$
+
+従って $D\chi_E=\delta_0$、$\mathcal G_E=-\delta_0$ です。この測度は有限Radon測度で、$|\mathcal G_E|=\delta_0$ は正測度、$\nu_E(0)=-1$ は長さ1です。定義式 $\mathcal G_E=\nu_E|\mathcal G_E|$ が成り立ち、$P(E;\mathbb R)=|\mathcal G_E|(\mathbb R)=1$ とも一致します。半直線の外側は左なので、方向の符号も一致します。
+<!-- definition-example-end -->
 
 これは法線がすべての位相的境界点で定まるという主張ではありません。後のGMT25では、測度論的な境界点に法線を対応させ、GMT26–27で境界が面として表現できる範囲を証明します。現時点の $\nu_E$ は**全変動測度に関して決まる方向**です。
 

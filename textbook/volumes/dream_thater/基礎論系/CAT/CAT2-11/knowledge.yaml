@@ -1,0 +1,68 @@
+chapter: CAT2-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-09
+  - CAT2-05
+
+concepts:
+  - id: category.limit-preservation
+    name: 極限の保存
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極限の保存）"]
+    requires: [category.limit, category.covariant-functor]
+  - id: category.colimit-preservation
+    name: 余極限の保存
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余極限の保存）"]
+    requires: [category.colimit, category.covariant-functor]
+  - id: category.right-adjoint-preserves-limits
+    name: 右随伴の極限保存定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（右随伴の極限保存）"]
+    requires: [category.limit-preservation, category.adjunction-hom, category.adjunction-transpose-formulas]
+  - id: category.left-adjoint-preserves-colimits
+    name: 左随伴の余極限保存定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（左随伴の余極限保存）"]
+    requires: [category.colimit-preservation, category.adjunction-hom]
+  - id: category.limit-comparison-isomorphism
+    name: 比較射による保存判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（比較射による保存判定）"]
+    requires: [category.limit-preservation, category.colimit-preservation, category.limit-uniqueness, category.colimit-uniqueness]
+  - id: category.limit-reflection
+    name: 極限の反映
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極限の反映）"]
+    requires: [category.limit-preservation]
+  - id: category.limit-creation
+    name: 極限の創出
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極限の創出）"]
+    requires: [category.limit-reflection, category.limit]
+  - id: category.monoid-forgetful-creates-limits
+    name: モノイド忘却関手の極限創出
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モノイドの忘却関手による極限創出）"]
+    requires: [category.limit-creation, category.limit]
+  - id: category.preservation-not-reflection
+    name: 保存と反映の非同値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（保存と反映は異なる）"]
+    requires: [category.limit-reflection, category.right-adjoint-preserves-limits]
+  - id: category.adjoint-opposite-preservation-fails
+    name: 随伴の逆向きの保存の失敗
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反対向きの保存は一般に成立しない）"]
+    requires: [category.left-adjoint-preserves-colimits, category.right-adjoint-preserves-limits, category.free-monoid-adjunction]
