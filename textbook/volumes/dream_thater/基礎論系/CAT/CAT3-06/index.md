@@ -29,7 +29,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat3-06-precomposition -->
-**定義の確認**。上記の $K:\mathbf1\to\mathbf2$ が $0$ を選ぶとき、$H=(Y_0\xrightarrow{h}Y_1)$ に対して $K^*H=Y_0$ となる。射 $\theta=(u_0,u_1):H\Rightarrow H'$ は $h'u_0=u_1h$ を満たす可換四角形であり、$K^*\theta=u_0$ である。$1_H$ の $0$ 成分は $1_{Y_0}$、合成 $(v\cdot u)_0=v_0u_0$ だから、恒等射と合成の保存も成分から確認できる。
+**定義の確認**。上記の $K:\mathbf1\to\mathbf2$ が $0$ を選ぶとき、$H=(Y_0\xrightarrow{h}Y_1)$ に対して $K^*H=Y_0$ となる。もう一つの図式 $H'=(Y'_0\xrightarrow{h'}Y'_1)$ への自然変換は、成分写像 $u_0:Y_0\to Y'_0$、$u_1:Y_1\to Y'_1$ の組 $\theta=(u_0,u_1)$ であり、唯一の非恒等射に関する自然性は
+
+$$
+h'u_0=u_1h
+$$
+
+である。前合成は $0$ 成分を取るので $K^*\theta=u_0$。$1_H$ の $0$ 成分は $1_{Y_0}$、合成 $(v\cdot u)_0=v_0u_0$ だから、恒等射と合成の保存も成分から確認できる。
 <!-- definition-example-end -->
 
 一般にも $\theta$ の自然性を $Ka\xrightarrow{Kf}Ka'$ に適用すると
@@ -435,7 +441,15 @@ $K(*)=0$、$X=\{r,s\}$ とし、$H=(Y_0\xrightarrow{h}Y_1)$ を集合値図式�
 空圏 $\varnothing$ から $\mathbf1$ への唯一の $K$ と、非空有限集合圏 $\mathcal C$ を取る。左Kan拡張が存在しない理由を、二点集合への写像を用いて証明せよ。また右Kan拡張の値を答えよ。
 
 <!-- solution-start -->
-**詳細解答**：左の候補 $L$ は $L(*)=S$ という非空有限集合を選ぶことに等しい。空圏上の自然変換は一通りなので、左の普遍性はすべての非空有限集合 $Y$ への写像 $S\to Y$ が一通りであることを要求する。$Y=\{0,1\}$ では $S$ が非空ゆえ定数写像 $s\mapsto0$ と $s\mapsto1$ が異なり、矛盾する。右では $R(*)=\{*\}$ とすれば、任意の $Y$ から $\{*\}$ への写像が一意であるため普遍性が成立する。
+**詳細解答**：左の候補 $L$ は $L(*)=S$ という非空有限集合を選ぶことに等しい。空圏上の自然変換は一通りなので、左の普遍性はすべての非空有限集合 $Y$ に対し
+
+$$
+\operatorname{Hom}_{\mathcal C}(S,Y)\cong\{*\}
+$$
+
+を要求する。$Y=\{0,1\}$ では $S$ が非空ゆえ定数写像 $s\mapsto0$ と $s\mapsto1$ が異なり、矛盾する。
+
+右では $R(*)=\{*\}$ とすれば、任意の $Y$ から $\{*\}$ への写像が一意であるため普遍性が成立する。
 <!-- solution-end -->
 
 ### 問題6：比較を保つ同型は一つだけ
@@ -515,7 +529,13 @@ $$
 $J:\mathbf1\to\mathbf2$ が対象 $1$ を選び、$X$ が任意の集合であるとする。左Kan拡張 $(\varnothing\to X)$ と右Kan拡張 $(X\xrightarrow{1_X}X)$ の普遍性を、任意の $H=(Y_0\xrightarrow{h}Y_1)$ に対して検証せよ。
 
 <!-- solution-start -->
-**詳細解答**：$J^*H=Y_1$ である。左の $L=(\varnothing\to X)$ から $H$ への自然変換 $\theta=(\theta_0,\theta_1)$ では $\theta_0:\varnothing\to Y_0$ は唯一、$\theta_1:X\to Y_1$ は任意である。自然性 $h\theta_0=\theta_1(\varnothing\to X)$ は空集合からの写像の一意性で常に成り立つ。比較 $\eta_X:X\to LJ=X$ を恒等射とすれば $\theta_1=\alpha:X\to Y_1$ が一意な因子分解を与える。
+**詳細解答**：$J^*H=Y_1$ である。左の $L=(\varnothing\to X)$ から $H$ への自然変換 $\theta=(\theta_0,\theta_1)$ では $\theta_0:\varnothing\to Y_0$ は唯一、$\theta_1:X\to Y_1$ は任意である。自然性は
+
+$$
+h\theta_0=\theta_1(\varnothing\to X)
+$$
+
+となり、両辺が空集合からの写像なので常に成り立つ。比較 $\eta_X:X\to LJ=X$ を恒等射とすれば $\theta_1=\alpha:X\to Y_1$ が一意な因子分解を与える。
 
 右の $R=(X\xrightarrow{1_X}X)$ へ $H$ からの自然変換 $\phi=(\phi_0,\phi_1)$ を取る。自然性は $\phi_1h=1_X\phi_0=\phi_0$ である。比較 $\varepsilon_X=1_X:RJ=X\to X$ の条件から $\phi_1=\beta:Y_1\to X$、従って $\phi_0=\beta h$ に強制される。逆にこの二成分は可換であり、右普遍性が成立する。
 <!-- solution-end -->
