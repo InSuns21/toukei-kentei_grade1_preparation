@@ -58,9 +58,9 @@ $$
 >
 > $d\ge3$ のLorentz空間 $(\mathbb R^d,\eta)$ に一定のベクトル $b$ を固定する。$x^2=\eta_{\mu\nu}x^\mu x^\nu$、$b\cdot x=\eta_{\mu\nu}b^\mu x^\nu$、$b^2=\eta_{\mu\nu}b^\mu b^\nu$ とおき、$D_b^{(0)}(x)=1-2b\cdot x+b^2x^2$ とする。$D_b^{(0)}(x)>0$ の開領域で
 
-$
+$$
 f_b(x)^\mu=\frac{x^\mu-b^\mu x^2}{D_b^{(0)}(x)}
-$
+$$
 
 > と定めた滑らかな局所写像を、パラメータ $b$ による**境界の特殊共形変換**と呼ぶ。逆写像と共形因子は後の命題で検算する。Euclid空間では内積を正定値の内積に替えて同じ式を使う。
 <!-- formal-statement-end -->
@@ -68,16 +68,16 @@ $
 <!-- definition-example-start: def-holo4-special-conformal-map -->
 **定義の確認**：$d=3$ のLorentz境界で $b=(0,\beta,0)$、$x=(0,r,0)$、$\beta>0$、$0<\beta r<1$ とします。$x^2=r^2$、$b\cdot x=\beta r$ なので $D_b^{(0)}=(1-\beta r)^2>0$。式の分子は $x-bx^2=(0,r(1-\beta r),0)$ です。従って
 
-$
+$$
 f_b(0,r,0)=\left(0,\frac{r}{1-\beta r},0\right).
-$
+$$
 
 $r'=r/(1-\beta r)$ を逆向きへ代入すると $r'/(1+\beta r')=r$ です。さらにこの点での微分は $Df_b=(1-\beta r)^{-2}I_3$ となります。例えば時間成分の微分は、分母の時間微分が $t=0$ で零だから $(\partial t'/\partial t)=1/D_b^{(0)}$ です。横方向の微分も同じ値で、$r$ 方向は $d[r/(1-\beta r)]/dr=(1-\beta r)^{-2}$ です。従って
 
-$
+$$
 (Df_b)^T\eta Df_b=(1-\beta r)^{-4}\eta,
 \qquad \Omega_{f_b}=(1-\beta r)^{-2}>0.
-$
+$$
 
 この点の近傍で逆写像が存在することも、Jacobianが可逆であることから確認できます。定義域、局所正則性、共形倍率を直接確かめた例です。
 <!-- definition-example-end -->
