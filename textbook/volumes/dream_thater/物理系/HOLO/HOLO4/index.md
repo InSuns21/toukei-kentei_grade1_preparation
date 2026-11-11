@@ -47,16 +47,30 @@ $$
 境界写像は $f_\lambda(x)=\lambda x$、Jacobianは $\lambda I$、従って $f_\lambda^*h=\lambda^2h$、$\Omega_f=\lambda>0$。等長性、延長、逆写像、境界の共形性という定義の全条件を満たしました。固定した $z=\epsilon$ 面は $z=\lambda\epsilon$ へ移るので、固定cutoffを保つ変換だとは主張していません。
 <!-- definition-example-end -->
 
-### 1.2 境界の特殊共形変換を先に知る
+### 1.2 反転・並進・反転から非線形写像へ
 
-並進と拡大縮小だけでは、境界の点ごとに異なる尺度で座標を移す変換は見えません。[反転の共形性と距離恒等式](../../QFT/QFT48/index.md#prop-qft48-inversion)を使えば、反転・並進・反転を合成することで非線形な変換を作れます。この操作で得られる変換を境界の**特殊共形変換**と呼び、後でバルクまで等長変換として延ばせるか確かめます。
+並進と拡大縮小だけでは、境界の点ごとに異なる尺度で座標を移す変換は見えません。[反転のJacobianと距離恒等式](../../QFT/QFT48/index.md#prop-qft48-inversion)を使えば、反転・並進・反転を合成することで非線形な変換を作れます。この合成を表す写像の定義を次に与え、後でバルクまで等長変換として延ばせるか確かめます。
 
 <a id="def-holo4-special-conformal-map"></a>
 
 <!-- formal-statement-start -->
 > **定義（境界の特殊共形変換）**
 >
-> $d\ge3$ のLorentz空間 $(\mathbb R^d,\eta)$ に一定のベクトル $b$ を固定する。$x^2=\eta_{\mu\nu}x^\mu x^\nu$、$b\cdot x=\eta_{\mu\nu}b^\mu x^\nu$、$b^2=\eta_{\mu\nu}b^\mu b^\nu$ とおき、$D_b^{(0)}(x)=1-2b\cdot x+b^2x^2$ とする。$D_b^{(0)}(x)>0$ の開領域で
+> $d\ge3$ のLorentz空間 $(\mathbb R^d,\eta)$ と一定のベクトル $b$ を固定する。内積は $\eta$ で定め、記号を次のように略す。
+
+$$
+x^2=\eta_{\mu\nu}x^\mu x^\nu,\qquad
+b\cdot x=\eta_{\mu\nu}b^\mu x^\nu,\qquad
+b^2=\eta_{\mu\nu}b^\mu b^\nu.
+$$
+
+> 境界座標 $x$ に依存する分母を次で定める。
+
+$$
+D_b^{(0)}(x)=1-2b\cdot x+b^2x^2.
+$$
+
+> $D_b^{(0)}(x)>0$ の開領域で次の写像を考える。
 
 $$
 f_b(x)^\mu=\frac{x^\mu-b^\mu x^2}{D_b^{(0)}(x)}
