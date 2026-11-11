@@ -92,7 +92,7 @@ $$
 > **命題（普遍射と自然全単射）**
 > 小さい圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$、$K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$ を取る。
 >
-> 1. $(L,\eta:F\Rightarrow LK)$ が左Kan拡張であることと、各 $H:\mathcal B\to\mathcal C$ で次の写像が全単射であることは同値である。この全単射は $H$ に自然である。
+> **左の場合。** $(L,\eta:F\Rightarrow LK)$ が左Kan拡張であることと、各 $H:\mathcal B\to\mathcal C$ で次の写像が全単射であることは同値である。この全単射は $H$ に自然である。
 
 $$
 \Theta_H:\operatorname{Nat}(L,H)\longrightarrow
@@ -100,7 +100,7 @@ $$
 \quad \theta\longmapsto(\theta K)\cdot\eta.
 $$
 
-> 2. $(R,\varepsilon:RK\Rightarrow F)$ が右Kan拡張であることと、各 $H$ で次の写像が全単射であることは同値である。この全単射は $H$ に自然である。
+> **右の場合。** $(R,\varepsilon:RK\Rightarrow F)$ が右Kan拡張であることと、各 $H$ で次の写像が全単射であることは同値である。この全単射は $H$ に自然である。
 
 $$
 \Psi_H:\operatorname{Nat}(H,R)\longrightarrow
@@ -564,7 +564,22 @@ $J:\mathbf1\to\mathbf2$ が対象 $1$ を選び、$X$ が任意の集合であ�
 
    よって二変数自然なHom全単射となり、[随伴の定義](../CAT2-08/index.md#def-cat2-08-adjunction)から $L\dashv K^*$。
 
-2. $[\varnothing,\mathcal C]$ には図式 $F$ が一つだけあり、$K^*$ は全ての非空有限集合 $Y$ をその $F$ に写す。左普遍対の存在は、全ての $Y$ に $\operatorname{Hom}_{\mathcal C}(L(*),Y)$ が一元集合であること、すなわち始対象を要求する。非空集合 $L(*)$ から $\{0,1\}$ への二つの定数写像がそれを否定する。したがって左随伴はない。一方 $R(*)=\{*\}$ という終対象がある。任意の $H(*)=Y$ について $\operatorname{Hom}_{\mathcal C}(Y,\{*\})$ と空圏上の $\operatorname{Nat}(HK,F)$ はともに一元集合であり、自然な対応を与える。唯一の $F$ に右普遍対が存在するから、[右Kan拡張と随伴](#thm-cat3-06-right-adjoint)より $K^*\dashv\operatorname{Ran}_K$ が成立する。
+2. $[\varnothing,\mathcal C]$ には図式 $F$ が一つだけあり、$K^*$ は全ての非空有限集合 $Y$ をその $F$ に写す。左普遍対の存在は、全ての $Y$ に対して
+
+   $$
+   \operatorname{Hom}_{\mathcal C}(L(*),Y)\cong\{*\}
+   $$
+
+   が成立すること、すなわち始対象の存在を要求する。非空集合 $L(*)$ から二点集合 $\{0,1\}$ へは、値が常に $0$ の写像と常に $1$ の写像がある。従って左随伴はない。
+
+   一方 $R(*)=\{*\}$ という終対象がある。任意の $H(*)=Y$ について
+
+   $$
+   \operatorname{Hom}_{\mathcal C}(Y,\{*\})\cong
+   \operatorname{Nat}(HK,F)\cong\{*\}
+   $$
+
+   であり、左右の集合がともに一元集合なので唯一の全単射は自然である。[右Kan拡張と随伴](#thm-cat3-06-right-adjoint)より、$K^*\dashv\operatorname{Ran}_K$ が成立する。
 <!-- solution-end -->
 
 ## 9. 次の講義へ
