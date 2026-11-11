@@ -1,0 +1,51 @@
+chapter: CAT3-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-05
+  - CAT2-10
+  - CAT3-06
+
+concepts:
+  - id: category.left-kan-comma-diagram
+    name: 左Kan拡張のcomma添字図式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（左Kan拡張のcomma添字図式）"]
+    requires: [category.comma-category, category.covariant-functor, category.colimit]
+  - id: category.pointwise-left-kan-extension
+    name: 点ごとの左Kan拡張の余極限構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点ごとの左Kan拡張の余極限構成）"]
+    requires: [category.left-kan-comma-diagram, category.cocomplete-category]
+  - id: category.left-kan-comma-transport
+    name: comma添字の移送と左Kan関手の構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（comma添字の移送と関手の構成）"]
+    requires: [category.pointwise-left-kan-extension, category.colimit]
+  - id: category.pointwise-left-kan-universality
+    name: 点ごとの左Kan拡張の公式と普遍性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（点ごとの左Kan拡張の公式と普遍性）"]
+    requires: [category.pointwise-left-kan-extension, category.left-kan-extension, category.colimit]
+  - id: category.pointwise-left-kan-functoriality
+    name: 左Kan拡張のFに関する関手性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（左Kan拡張のFに関する関手性）"]
+    requires: [category.pointwise-left-kan-universality, category.left-kan-adjunction]
+  - id: category.left-kan-fully-faithful-unit
+    name: 充満忠実なKに沿う左Kan拡張の単位同型
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（充満忠実なKに沿う左Kan拡張の単位同型）"]
+    requires: [category.pointwise-left-kan-extension, category.fully-faithful-functor]
+  - id: category.left-kan-cocompleteness-obstruction
+    name: 余完備性が欠ける左Kan拡張の非存在例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余完備性を外すと存在しない場合）"]
+    requires: [category.left-kan-extension, category.cocomplete-category]
