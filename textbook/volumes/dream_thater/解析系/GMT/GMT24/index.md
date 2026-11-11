@@ -101,13 +101,13 @@ $\Omega$ が有界でなくても $\chi_E\in L^1_{\mathrm{loc}}(\Omega)$ です�
 
 各 $U$ で得た測度は同じ分布 $-D\chi_E$ を表すため、重なりで一致します。$\Omega$ を同種の開集合で増大近似して測度を一意に貼り合わせると、局所有限のベクトル値Radon測度 $\mathcal G_E$ を得ます。
 
-任意の $U\Subset\Omega$ について[全変動の双対表示](../GMT21/index.md#thm-gmt21-variation-duality)により
+任意の $U\Subset\Omega$ について[全変動測度の双対表示](../GMT21/index.md#thm-gmt21-variation-duality)により
 
 $$
 |\mathcal G_E|(U)=P(E;U)\le M.
 $$
 
-$U_k\nearrow\Omega$ を取って正測度の下からの連続性を使うと
+$U_k\nearrow\Omega$ を取って正測度の[下からの連続性](../../F0/F0-00D2/index.md#thm-f0-00d2-01)を使うと
 
 $$
 |\mathcal G_E|(\Omega)
@@ -510,7 +510,7 @@ $Q=(0,3)\times(0,2)$ とする。$\mathcal G_Q$ の各辺の向きと測度を�
 <!-- solution-start -->
 #### 詳細解答
 
-任意のテスト場 $\varphi$ についてFubiniから
+任意のテスト場 $\varphi$ について[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用すると
 
 $$
 \begin{aligned}
