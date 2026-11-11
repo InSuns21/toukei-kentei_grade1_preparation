@@ -146,7 +146,7 @@ $K$ の少し大きな領域 $U$ で一様な $L^1$・変動の上界を取り�
 <!-- proof-start -->
 ### 証明
 
-**(1) 一つのコンパクト集合での有限精度近似。** $K\Subset\Omega$ とし、$K\Subset U_0\Subset U_1\Subset\Omega$ となる開集合を選びます。局所BV有界性から、ある $M<\infty$ により全 $j$ で
+**(1) 一つのコンパクト集合での有限精度近似。** $K\Subset\Omega$ とし、$K\Subset U_0\Subset U_1\Subset\Omega$ となる開集合を選びます。局所BV有界性から、ある $1\le M<\infty$ により全 $j$ で
 
 $$
 \|u_j\|_{L^1(U_1)}+|Du_j|(U_1)\le M
@@ -310,7 +310,7 @@ $$
 =\varepsilon^{-1}\Theta'\left(\frac{v(x)-t}{\varepsilon}\right)|\nabla v(x)|.
 $$
 
-これを積分してcoareaに代入すると
+これを積分して[GMT14のcoarea公式](../GMT14/index.md#thm-gmt14-coarea)に代入し、最後に $z=(s-t)/\varepsilon$（$ds=\varepsilon\,dz$）と置換すると
 
 $$
 \begin{aligned}
@@ -602,7 +602,17 @@ $$
 \end{aligned}
 $$
 
-第2成分は $y=0,1$ で $\varphi_2=0$ なので消えます。従って $D\chi_E=(-\mathcal L^1\llcorner S,0)$（$S=\{1/2\}\times(0,1)$ の弧長測度）で、$P(E;\Omega)=1$ です。
+第2成分は $y=0,1$ で $\varphi_2=0$ なので消えます。ここで $S=\{1/2\}\times(0,1)$ とし、$S$ 上の長さ測度 $\lambda_S$ を、Borel集合 $B\subset\Omega$ に対して
+
+$$
+\lambda_S(B)=\int_0^1\chi_B(1/2,y)\,dy
+$$
+
+で定めます。これは平面のLebesgue測度 $\mathcal L^2$ を $S$ に制限したものではなく、$y$ 座標の長さを直線 $S$ へ移した測度です。上のテスト場との等式から $D\chi_E=(-\lambda_S,0)$ であり、[ベクトル値測度の全変動](../GMT21/index.md#def-gmt21-vector-variation)より
+
+$$
+P(E;\Omega)=|D\chi_E|(\Omega)=\lambda_S(\Omega)=\int_0^1dy=1.
+$$
 
 $u=3\chi_E$ なら $0\le t<3$ で $E_t=E$、外側の高さでは $\Omega$ または空集合です。従って $\int_{\mathbb R}P(E_t;\Omega)\,dt=\int_0^3 1\,dt=3$。左辺も $|Du|(\Omega)=3|D\chi_E|(\Omega)=3$ です。
 <!-- solution-end -->
@@ -617,7 +627,7 @@ $E=(0,1/2)$ とする。(1) $A=(0,1)$、(2) $A=\mathbb R$ で $P(E;A)$ をそれ
 <!-- solution-start -->
 #### 詳細解答
 
-$A=(0,1)$ 内のテスト関数 $\varphi$ なら
+$A=(0,1)$ 内のテスト関数 $\varphi$ を区間外へ0で延長すると、コンパクト台の条件から $\varphi(0)=0$ です。従って
 
 $$
 \int_E\varphi'\,dx=\varphi(1/2)-\varphi(0)=\varphi(1/2)
@@ -753,7 +763,7 @@ $\Omega=\mathbb R$、$u_j=\chi_{(j,j+1)}$ とする。
 2. $u_j\to0$ が $L^1_{\mathrm{loc}}(\mathbb R)$ で成立することを示せ。
 3. どの部分列も $L^1(\mathbb R)$ で収束できないことを証明せよ。
 
-さらに、$\Omega=(0,1)$、$v_j=\chi_{(0,1/j)}$ の場合と全変動の極限を比較せよ。
+さらに、$\Omega=(0,1)$、$v_j=\chi_{(0,1/j)}$（$j\ge2$）の場合と全変動の極限を比較せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -776,11 +786,11 @@ $\Omega\subset\mathbb R^d$ は開集合、$K\Subset\Omega$ はコンパクト集
 
 $$
 \mathcal A=\{v\in BV(\Omega):0\le v\le1\ \mathrm{a.e.},\
-\operatorname{supp}v\subset K\ \mathrm{a.e.},\
+v=0\ \mathrm{a.e.\ on}\ \Omega\setminus K,\
 \int_\Omega v\,dx=m\}
 $$
 
-上で $\inf_{v\in\mathcal A}|Dv|(\Omega)$ が実現されることを示せ。支持条件を固定している理由と、局所コンパクト性だけから大域 $L^1$ 収束を得る箇所を明確にせよ。
+上で $\inf_{v\in\mathcal A}|Dv|(\Omega)$ が実現されることを示せ。支持条件はBV関数のa.e.同値類について「$\Omega\setminus K$ 上でほとんど至る所0」を意味する。これを固定している理由と、局所コンパクト性だけから大域 $L^1$ 収束を得る箇所を明確にせよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -796,10 +806,12 @@ $$
 [BV局所コンパクト性](#thm-gmt23-compactness)により部分列と $v$ が存在し、$v_j\to v$ が $L^1_{\mathrm{loc}}(\Omega)$ で成り立ちます。$K\Subset\Omega$ を含む開集合 $U\Subset\Omega$ を一つ選ぶと、$\Omega\setminus K$ 上では全 $v_j=0$ a.e.です。従って局所収束先もそこでは0です。よって
 
 $$
+\begin{aligned}
 \|v_j-v\|_{L^1(\Omega)}
-=\|v_j-v\|_{L^1(U)}
-\int_{\Omega\setminus U}|v_j-v|\,dx
-=\|v_j-v\|_{L^1(U)}\to0.
+&=\|v_j-v\|_{L^1(U)}
++\int_{\Omega\setminus U}|v_j-v|\,dx\\
+&=\|v_j-v\|_{L^1(U)}\to0.
+\end{aligned}
 $$
 
 最後の積分が0なのは $U$ の外で $v_j=v=0$ だからです。ここで初めて、局所収束が大域収束へ強まります。
