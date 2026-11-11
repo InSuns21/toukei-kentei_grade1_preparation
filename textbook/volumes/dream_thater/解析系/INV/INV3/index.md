@@ -108,12 +108,17 @@ $$
 T:=A^*A:X\to X
 $$
 
-を考えます。[Hilbert随伴の定義](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)を $A$ に適用すると
+を考えます。[Hilbert随伴の定義](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)を $A$ に適用すると、任意の $x,z\in X$ について
 
 $$
-\langle Tx,x\rangle_X=\|Ax\|_Y^2\ge0,
-\qquad
-\langle Tx,z\rangle_X=\langle x,Tz\rangle_X
+\begin{aligned}
+\langle Tx,x\rangle_X
+&=\langle Ax,Ax\rangle_Y=\|Ax\|_Y^2\ge0,\\
+\langle Tx,z\rangle_X
+&=\langle Ax,Az\rangle_Y
+=\langle x,A^*Az\rangle_X
+=\langle x,Tz\rangle_X.
+\end{aligned}
 $$
 
 です。$T$ は非負かつ自己共役です。さらに $A$ はコンパクト、$A^*$ は有界なので[コンパクト作用素の合成に関する定理](../../FA/FA6/index.md#thm-fa6-ideal-property)を $A^*\circ A$ に適用でき、$T$ もコンパクトです。したがって $T$ に[コンパクト自己共役作用素のスペクトル定理](../../FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral)を使えます。
@@ -282,7 +287,27 @@ $$
 B((x_n),t)=((x_n/n),0)
 $$
 
-と置きます。$B^*=B$ で、$\ker B^*=\{0\}\oplus\mathbb R$、特異系は $u_j=v_j=(e_j,0)$、$\sigma_j=1/j$ です。データ $w=((1/n^2),1)$ では逆係数の二乗和は $\sum_n1/n^2<\infty$ ですが、
+と置きます。$B$ も定義の前提であるコンパクト性を満たします。最初の $N$ 座標だけを残す有限ランク作用素 $B_N$ について
+
+$$
+\|(B-B_N)((x_n),t)\|_H^2
+=\sum_{n>N}\frac{|x_n|^2}{n^2}
+\le\frac{\|((x_n),t)\|_H^2}{(N+1)^2}
+$$
+
+なので、$\|B-B_N\|\to0$ です。[有限ランク作用素のコンパクト性](../../FA/FA6/index.md#thm-fa6-finite-rank-compact)と[コンパクト作用素のノルム閉性](../../FA/FA6/index.md#thm-fa6-norm-closed)により $B$ はコンパクトです。
+
+直交和内積を展開すると、任意の $((x_n),t),((z_n),s)\in H$ に対して
+
+$$
+\langle B((x_n),t),((z_n),s)\rangle_H
+=\sum_{n\ge1}\frac{x_nz_n}{n}
+=\langle ((x_n),t),B((z_n),s)\rangle_H
+$$
+
+となり、$B^*=B$ です。従って $\ker B=\ker B^*=\{0\}\oplus\mathbb R$。$\sigma_j=1/j$、$u_j=v_j=(e_j,0)$ は正で、正規直交性と $Bv_j=\sigma_ju_j$、$B^*u_j=\sigma_jv_j$ を満たします。さらに $\ker B$ の直交補は $\ell^2\oplus\{0\}$ であり、$B$ の値域が含む有限台の列はそこに稠密です。従って二組とも必要な閉部分空間の完全正規直交系です。
+
+データ $w=((1/n^2),1)$ では逆係数の二乗和は $\sum_n1/n^2<\infty$ ですが、
 
 $$
 \langle w,(0,1)\rangle_H=1\ne0
@@ -476,7 +501,7 @@ $$
 D^{-1}\eta^{(N)}=e_N,\qquad\|e_N\|_2=1.
 $$
 
-これは観測が正確に解ける場合ですら、単に逆に割る操作が一様安定でないことを示します。次の INV4 では、誤差を増幅しすぎないように逆係数を制御する方法へ進みます。
+ここで $D^{-1}$ は、単射 $D$ の値域 $\mathcal R(D)$ 上で定義される逆写像を表し、$\ell^2$ 全体で定義された有界な逆作用素ではありません。$\eta^{(N)}=D e_N$ はその定義域に入ります。従って、観測が正確に解ける場合ですら、逆に割る操作が一様安定でないことが分かります。次の INV4 では、誤差を増幅しすぎないように逆係数を制御する方法へ進みます。
 
 ---
 
@@ -627,7 +652,16 @@ $$
 =\langle x,(3a,b,0)\rangle
 $$
 
-なので $A^*(a,b)=(3a,b,0)$ です。$A^*A=\operatorname{diag}(9,1,0)$ で、正の固有値は $9,1$。従って
+なので $A^*(a,b)=(3a,b,0)$ です。入力側の標準基底 $e_1,e_2,e_3$ に対して
+
+$$
+\begin{aligned}
+A^*A(x_1,x_2,x_3)&=(9x_1,x_2,0),\\
+A^*Ae_1&=9e_1,\quad A^*Ae_2=e_2,\quad A^*Ae_3=0.
+\end{aligned}
+$$
+
+従って各列を $A^*Ae_j$ の座標とする行列表現は $\operatorname{diag}(9,1,0)$ で、正の固有値は $9,1$ です。対応する固有ベクトルを $v_1=e_1$、$v_2=e_2$ と選び、$u_j=Av_j/\sigma_j$ とすると
 
 $$
 (\sigma_1,u_1,v_1)=(3,(1,0),(1,0,0)),
