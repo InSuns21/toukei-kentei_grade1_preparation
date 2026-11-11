@@ -1,0 +1,46 @@
+id: "CAT3-06"
+title: "Kan拡張の普遍性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-08
+  - CAT2-08
+  - CAT2-10
+official_scope: []
+learning_objectives:
+  - 前合成関手を関手圏間に構成し、自然変換の成分とHom集合の型を確認できる
+  - 左・右Kan拡張を普遍射およびHom集合の自然全単射として定義し、左右の射の向きを区別できる
+  - Kan拡張の同型一意性を普遍性から証明し、拡張の存在が自動でないことを示せる
+  - 各図式に対する普遍対を関手的に組み立て、前合成の左・右随伴と同値であることを証明できる
+  - 矢印圏で左右の拡張を具体的に計算し、空図式の非存在例を説明できる
+definitions:
+  - { id: CAT3-06-DEF-01, name: 前合成関手 }
+  - { id: CAT3-06-DEF-02, name: 左Kan拡張 }
+  - { id: CAT3-06-DEF-03, name: 右Kan拡張 }
+theorems:
+  - { id: CAT3-06-PROP-01, name: Kan拡張の普遍射・自然全単射による特徴づけ }
+  - { id: CAT3-06-PROP-02, name: 左右Kan拡張の同型一意性 }
+  - { id: CAT3-06-THM-01, name: 左Kan拡張と前合成の左随伴 }
+  - { id: CAT3-06-THM-02, name: 右Kan拡張と前合成の右随伴 }
+  - { id: CAT3-06-PROP-03, name: 矢印圏における左右Kan拡張 }
+  - { id: CAT3-06-PROP-04, name: 左Kan拡張が存在しない例 }
+canonical_examples:
+  - 恒等関手に沿う左右Kan拡張
+  - 矢印圏の始点に沿う左右Kan拡張
+  - 矢印圏の終点に沿う左右Kan拡張
+  - 非空有限集合圏における空図式の左Kan拡張の不存在
+problem_patterns:
+  - CAT3-06-PRECOMPOSE
+  - CAT3-06-LEFT-ARROW
+  - CAT3-06-RIGHT-ARROW
+  - CAT3-06-IDENTITY
+  - CAT3-06-NONEXISTENCE
+  - CAT3-06-UNIQUENESS
+  - CAT3-06-LEFT-FUNCTORIALITY
+  - CAT3-06-RIGHT-FUNCTORIALITY
+  - CAT3-06-TARGET-ARROW
+  - CAT3-06-UNIVERSAL-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 3 }
