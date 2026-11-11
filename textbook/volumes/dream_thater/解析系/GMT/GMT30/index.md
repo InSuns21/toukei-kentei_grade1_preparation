@@ -6,7 +6,7 @@
 
 [GMT29のEuclid等周不等式](../GMT29/index.md#thm-gmt29-general-sharp)は、体積だけを固定した全空間の問題では球が最も周長を節約することを教えました。しかし、容器に入る、障害物を含む、外側の配置を固定する、といった条件を課すと、球をそのまま選べるとは限りません。そのとき極小集合が存在するかを、形を最初から言い当てずに証明したいのです。
 
-[GMT24の有限周長集合](../GMT24/index.md#def-gmt24-finite-perimeter)の周長を使い、以下では $d\ge2$、$|E|=\mathcal L^d(E)$、$P(E)=|D\chi_E|(\mathbb R^d)$ とします。集合の包含と等号は、断らない限りLebesgue測度について**ほとんど至る所（almost everywhere; a.e.）**、すなわち零集合を除いた意味です。境界が滑らかなときの $P(E)$ は通常の境界面積ですが、非正規化Hausdorff測度そのものではなく、[GMT27の面積正規化](../GMT27/index.md#thm-gmt27-de-giorgi-structure)と整合する量です。
+[GMT24の有限周長集合](../GMT24/index.md#def-gmt24-finite-perimeter)の周長を使い、以下では $d\ge2$、$|E|=\mathcal L^d(E)$、$P(E)=|D\chi_E|(\mathbb R^d)$ とします。**集合間の包含・一致**は、断らない限りLebesgue測度について**ほとんど至る所（almost everywhere; a.e.）**、すなわち零集合を除いた意味です。境界が滑らかなときの $P(E)$ は通常の境界面積ですが、非正規化Hausdorff測度そのものではなく、[GMT27の面積正規化](../GMT27/index.md#thm-gmt27-de-giorgi-structure)と整合する量です。
 
 直接法（direct method）の鍵は次の三段階です。
 
@@ -18,7 +18,18 @@
 
 ## 2. 閉じた容器・障害物・体積を一つの許容クラスにする
 
-まず、有限体積の**容器**をコンパクト集合 $K\subset\mathbb R^d$ で表し、必ず含みたい可測集合 $A\subset K$ と、避けたい可測集合 $H\subset K$ を指定します。$A\cap H$ は零測度とします。容器を閉集合にしておけば、ほとんど至る所収束でその外側へ点が漏れることを防げます。
+まず、有限体積の**容器**をコンパクト集合 $K\subset\mathbb R^d$ で表し、必ず含みたい可測集合 $A\subset K$ と、避けたい可測集合 $H\subset K$ を指定します。$A\cap H$ は零測度とします。
+
+$K$ のコンパクト性は、すべての候補集合を**一つの有界球内**に収めるために使います。「容器の外で零」という条件が極限へ渡る理由は、閉集合性そのものではなく、指示関数の $L^1$ 収束です。
+
+実際、$E_j$ が $K$ の外で零なら、全空間 $L^1$ 極限 $E$ に対して
+
+$$
+|E\setminus K|=\int_{\mathbb R^d\setminus K}\chi_E\,dx
+\le\|\chi_E-\chi_{E_j}\|_{L^1(\mathbb R^d)}\longrightarrow0
+$$
+
+となります。この全空間収束を取り出せる仕組みを第3節で証明します。
 
 <a id="def-gmt30-admissible"></a>
 
@@ -69,7 +80,14 @@ $$
 <!-- definition-example-start: def-gmt30-minimizing-sequence -->
 ### 直接例：中心は動いても周長は最小
 
-直前の円盤モデルで $z_j=((-1)^j/4,0)$、$E_j=B_1(z_j)$ とします。$|z_j|=1/4$ なので $B_{1/2}(0)\subset B_1(z_j)\subset B_2(0)$、$|E_j|=\pi$、$P(E_j)=2\pi$ です。[Euclid等周不等式](../GMT29/index.md#thm-gmt29-general-sharp)からすべての許容集合 $F$ に $P(F)\ge2\pi$ なので $m=2\pi$。
+直前の円盤モデルで $z_j=((-1)^j/4,0)$、$E_j=B_1(z_j)$ とします。$z_j$ は第 $j$ 項の円盤の中心で、$|z_j|=1/4$ です。三角不等式をそれぞれの包含に使うと、$x\in B_{1/2}(0)$ では $|x-z_j|<1/2+1/4<1$、$x\in B_1(z_j)$ では $|x|<1+1/4<2$ なので、
+
+$$
+A=B_{1/2}(0)\subset E_j=B_1(z_j)\subset B_2(0)\subset K,
+\qquad |E_j|=\pi,\quad P(E_j)=2\pi.
+$$
+
+禁止集合は空であり、各 $E_j$ は許容です。[Euclid等周不等式](../GMT29/index.md#thm-gmt29-general-sharp)からすべての許容集合 $F$ に $P(F)\ge2\pi$ なので、$m=2\pi$ です。
 
 **定義の確認**：各 $E_j$ の許容性と $P(E_j)=m$ を別々に示したので、確かに $P(E_j)\to m$ です。したがって $(E_j)$ は最小化列ですが、偶数項・奇数項で中心が違うため、列全体は収束する必要がありません。部分列を取る理由が見えます。
 <!-- definition-example-end -->
@@ -228,7 +246,7 @@ $$
 
 ## 5. 外側の配置を固定するとき、何の周長を数えるか
 
-容器の「外側での集合」を指定する境界条件も作れます。開集合 $\Omega$ の外で所定の $F$ と一致させる場合、容器境界で新たにできるジャンプを数えるには**全空間の周長**を最小化します。$P(E;\Omega)$ だけを使うと、$\partial\Omega$ 上のジャンプはそもそも数えません。
+容器の「外側での集合」を指定する境界条件も作れます。開集合 $\Omega$ の外で所定の $F$ と一致させる場合、容器境界で新たにできるジャンプを数えるには**全空間の周長**を最小化します。ここで $P(E;\Omega)=|D\chi_E|(\Omega)$ は[GMT23で定義した相対周長](../GMT23/index.md#def-gmt23-relative-perimeter)であり、変動を開集合 $\Omega$ の内部だけで測ります。これだけを目的関数にすると、$\partial\Omega$ 上のジャンプは数えません。
 
 <a id="cor-gmt30-exterior-data"></a>
 
@@ -429,7 +447,13 @@ $$
 P(Q_a)=2\left(a+\frac1a\right).
 $$
 
-$(a-1)^2\ge0$ を $a>0$ で割ると $a+1/a\ge2$、等号は $a=1$ です。従って長方形に限ると最小値は4。一方、[GMT29の等周不等式](../GMT29/index.md#thm-gmt29-general-sharp)で $d=2$、$|E|=1$ とすると $P(E)\ge2\sqrt\pi$ で、半径 $1/\sqrt\pi$ の円盤が等号を達成します。$\pi<4$ より $2\sqrt\pi<4$ です。
+$(a-1)^2\ge0$ を $a>0$ で割ると $a+1/a\ge2$、等号は $a=1$ です。従って長方形に限ると最小値は $P(Q_1)=4$ です。一方、[GMT29の等周不等式](../GMT29/index.md#thm-gmt29-general-sharp)で $d=2$、$|E|=1$ とすると
+
+$$
+P(E)\ge2\sqrt{\pi|E|}=2\sqrt\pi.
+$$
+
+半径 $1/\sqrt\pi$ の円盤は面積 $\pi(1/\sqrt\pi)^2=1$ で等号を達成します。$\pi<4$ より $2\sqrt\pi<4$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt30-a03"></a>
