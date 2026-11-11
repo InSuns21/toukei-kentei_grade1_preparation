@@ -607,7 +607,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[特異系の展開](../INV3/index.md#thm-inv3-singular-expansion)による、$\overline{\mathcal R(A)}$ と $\ker A^*$ への直交分解を使います。$z_j=\langle z,u_j\rangle$ と置けば
+[閉部分空間の直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)を $Y$ の部分空間 $\overline{\mathcal R(A)}$ に適用し、さらに[特異系の展開](../INV3/index.md#thm-inv3-singular-expansion)で $z$ の観測可能成分を $u_j$ に沿って書きます。$z_j=\langle z,u_j\rangle$ と置けば
 
 $$
 z=z_0+z_\perp,\qquad
