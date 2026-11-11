@@ -1,0 +1,48 @@
+chapter: ORI26
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI25]
+forward_references: []
+
+concepts:
+  - id: origami.rigid-configuration-space
+    name: 剛体折りの配置空間と許容経路
+    kind: definition
+    introduction: formal
+    requires: [origami.rigid-panel-motion]
+
+  - id: origami.regular-rigid-folding
+    name: 局所自由度と特異な配置
+    kind: definition
+    introduction: formal
+    requires: [origami.rigid-configuration-space, origami.four-vertex-diagonal-parametrization]
+
+  - id: origami.four-vertex-regular-branches
+    name: 4価頂点の正則な1自由度枝
+    kind: theorem
+    introduction: formal
+    requires: [origami.four-vertex-diagonal-parametrization]
+
+  - id: origami.four-vertex-flat-branch
+    name: 未折状態における二曲線の分岐
+    kind: theorem
+    introduction: formal
+    requires: [origami.four-vertex-regular-branches, origami.regular-rigid-folding]
+
+  - id: origami.four-vertex-collision-exclusion
+    name: 内積拘束と非貫通の非同値
+    kind: proposition
+    introduction: formal
+    requires: [origami.rigid-configuration-space, origami.four-vertex-flat-branch]
+
+  - id: origami.infinitesimal-flex-warning
+    name: 一次可動条件は有限運動の十分条件ではない
+    kind: proposition
+    introduction: formal
+    requires: [origami.regular-rigid-folding]
+
+  - id: origami.loop-closure-lock
+    name: 閉路拘束によるロックの模型
+    kind: proposition
+    introduction: formal
+    requires: [origami.rigid-configuration-space]

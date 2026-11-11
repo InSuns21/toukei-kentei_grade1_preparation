@@ -26,3 +26,4 @@
 23. [ORI23 box pleating・格子折りの設計](textbook/volumes/dream_thater/幾何系/ORI/ORI23/index.md)
 24. [ORI24 Origamizerと多面体表面の実現](textbook/volumes/dream_thater/幾何系/ORI/ORI24/index.md)
 25. [ORI25 剛体折りと4価頂点](textbook/volumes/dream_thater/幾何系/ORI/ORI25/index.md)
+26. [ORI26 剛体折りの運動経路と特異点](textbook/volumes/dream_thater/幾何系/ORI/ORI26/index.md)

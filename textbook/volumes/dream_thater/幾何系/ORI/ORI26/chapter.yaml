@@ -1,0 +1,42 @@
+id: ORI26
+title: "剛体折りの運動経路と特異点"
+volume: foundations
+status: supplementary
+prerequisites: [ORI25]
+official_scope: []
+learning_objectives:
+  - 代数的配置空間・非貫通配置・連続な許容経路・到達可能性を相互に区別できる
+  - 4価頂点の対角角度表示から正則な1自由度枝と符号不変性を証明できる
+  - 扇角90度・60度・90度・120度の未折点における二曲線分岐を別パラメータで導出できる
+  - Jacobianの階数落ちと有限運動の関係を判定し一次可動条件の限界を反例で説明できる
+  - 代数的に存在する衝突配置と複数リンクの閉路ロックを検算し大域的可動性を過大に主張しない
+definitions:
+  - { id: ORI26-DEF-01, name: 剛体折りの配置空間と許容経路 }
+  - { id: ORI26-DEF-02, name: 局所自由度と特異な配置 }
+theorems:
+  - { id: ORI26-THM-01, name: 4価頂点の正則な1自由度枝 }
+  - { id: ORI26-THM-02, name: 未折状態における二曲線の分岐 }
+  - { id: ORI26-PROP-01, name: 内積拘束と非貫通の非同値 }
+  - { id: ORI26-PROP-02, name: 一次可動条件は有限運動の十分条件ではない }
+  - { id: ORI26-PROP-03, name: 閉路拘束によるロックの模型 }
+canonical_examples:
+  - 二面ヒンジの配置空間と非貫通の連続経路
+  - 4価頂点の4符号枝と30度から150度までの実数条件
+  - 未折点を通るτ座標と二つの交差する正則曲線
+  - 30度配置における二枚の扇形の内部重複
+  - 二円交点による閉路ロックと一次拘束反例
+problem_patterns:
+  - ORI26-CONFIGURATION-SPACE
+  - ORI26-DISCRIMINANT-INTERVAL
+  - ORI26-SIGN-INVARIANCE
+  - ORI26-SINGULAR-REPARAMETRIZATION
+  - ORI26-PANEL-COLLISION
+  - ORI26-JACOBIAN-RANK
+  - ORI26-BRANCH-TANGENTS
+  - ORI26-LOOP-CLOSURE
+  - ORI26-INFINITESIMAL-COUNTEREXAMPLE
+  - ORI26-COMPLETE-PATH-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
