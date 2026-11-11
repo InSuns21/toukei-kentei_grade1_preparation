@@ -86,6 +86,8 @@ $$
 
 ![未折状態t=0と折り上げ状態t=1/2のMiura格子の上面投影。横の周期と二行分の縦の周期がともに縮む](assets/miura-projected-grid.svg)
 
+小さな画面で記号が読みにくい場合は、[原図を開いて拡大表示](assets/miura-projected-grid.svg)できます。
+
 <a id="thm-ori27-rigid-motion"></a>
 <!-- formal-statement-start -->
 > **定理（有限Miuraパッチの連続な剛体折り）**  
