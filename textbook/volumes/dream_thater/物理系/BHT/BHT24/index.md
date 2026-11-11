@@ -345,7 +345,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\rho_{BR}=|\Psi_p\rangle\langle\Psi_p|$ は一つの固有値1と残り0を持つため $S_{BR}=0$。$B$ の正規直交基底で[部分跡の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を適用すると、非対角項 $|0_B\rangle\langle1_B|$ の跡は0なので
+$\rho_{BR}=|\Psi_p\rangle\langle\Psi_p|$ は一つの固有値1と残り0を持つため $S_{BR}=0$。[部分跡の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を $B$ の正規直交基底で適用すると、非対角項 $|0_B\rangle\langle1_B|$ の跡は0なので
 
 $$
 \rho_R=p|0_R\rangle\langle0_R|+(1-p)|1_R\rangle\langle1_R|.
