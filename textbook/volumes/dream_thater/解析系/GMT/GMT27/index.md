@@ -325,7 +325,17 @@ $$
 \qquad |\pi_{V_j}(y-x)|>\frac{\sqrt3}{2}|x-y|.
 $$
 
-射影像上の高さ関数 $g_0(\pi_{V_j}x)=\pi_{V_j^\perp}x$ のLipschitz定数は $1/\sqrt3$ 以下です。[局所円錐条件からLipschitzグラフへの包含](../GMT20/index.md#lem-gmt20-cone-graph)を適用し、$g_0$ を $V_j$ 全体に延長すると $F$ はそのグラフに入ります。$V_j$ と $\mathbb R^m$ の等長同一視によって、これは $\mathbb R^m$ からのLipschitz写像の像です。$j,l$ と小立方体は可算個なので、[可算m-整流可能集合](../GMT12/index.md#def-gmt12-countably-rectifiable)の定義により $S$ は可算 $m$-整流可能です。この構成では、実際には $S$ の**全点**をグラフで覆えており、零集合を捨てる段階はありません。
+射影像上の高さ関数を定めます。
+
+$$
+g_0(\pi_{V_j}x)=\pi_{V_j^\perp}x.
+$$
+
+上の直交成分・射影成分の評価から、$g_0$ のLipschitz定数は $1/\sqrt3$ 以下です。[局所円錐条件からLipschitzグラフへの包含](../GMT20/index.md#lem-gmt20-cone-graph)を適用して、$g_0$ を平面全体へ延長すると $F$ はそのグラフに入ります。
+
+$V_j$ と $\mathbb R^m$ は等長に同一視できます。従って得られたグラフは $\mathbb R^m$ からのLipschitz写像の像です。
+
+方向の番号 $j$、尺度の番号 $l$、小立方体はいずれも可算個です。[可算m-整流可能集合](../GMT12/index.md#def-gmt12-countably-rectifiable)の定義により $S$ は可算 $m$-整流可能です。この構成では $S$ の**全点**をグラフで覆えており、零集合を捨てる段階はありません。
 
 **(2) 面積測度の局所有限性と絶対連続性。** [球密度比較補題](#lem-gmt27-density-comparison)を $\mu$ と $S$ に適用します。上で示したように $\mu$ は $S$ に集中し、[平坦接測度補題](#lem-gmt27-flat-perimeter-tangent)が $x\in S$ のすべての点で
 
@@ -425,7 +435,20 @@ $H=\{(u,t)\in\mathbb R^2:t<0\}$、$x=(a,0)$ とする。$\partial^*H$、$\nu_H^*
 <!-- solution-start -->
 #### 詳細解答
 
-[半空間の縮約境界の直接例](../GMT25/index.md#def-gmt25-reduced-boundary)から $\partial^*H=\{t=0\}$、$\nu_H^*(x)=e_2$ です。[滑らかな境界表示](../GMT24/index.md#prop-gmt24-smooth-boundary)で $\mathcal G_H=e_2\mathcal H^1\llcorner\{t=0\}$ となり、$\mu_H=\mathcal H^1\llcorner\{t=0\}$ です。球との交わりは $(a-r,a+r)\times\{0\}$ で長さ $2r$、従って両測度の球質量は $2r$。定数は[GMT10の正規化](../GMT10/index.md#lem-gmt10-hausdorff-normalization)で $c_1=1$ です。符号が正の $e_2$ になるのは、$-D\chi_H$ が外向き法線を持つからです。
+[半空間の縮約境界の直接例](../GMT25/index.md#def-gmt25-reduced-boundary)から
+
+$$
+\partial^*H=\{t=0\},\qquad \nu_H^*(x)=e_2.
+$$
+
+[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)を使うと
+
+$$
+\mathcal G_H=e_2\mathcal H^1\llcorner\{t=0\},\qquad
+\mu_H=\mathcal H^1\llcorner\{t=0\}
+$$
+
+です。球との交わりは線分 $(a-r,a+r)\times\{0\}$ なので、両測度の球質量は $2r$。定数は[非正規化Hausdorff測度の比例](../GMT10/index.md#lem-gmt10-hausdorff-normalization)から $c_1=1$ です。符号が正の $e_2$ になるのは、$-D\chi_H$ が外向き法線を持つからです。
 <!-- solution-end -->
 
 <a id="ex-gmt27-a02"></a>
