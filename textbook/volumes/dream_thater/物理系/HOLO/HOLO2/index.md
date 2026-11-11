@@ -29,7 +29,14 @@ $$
 
 ### 1.1 共形的に境界を付ける
 
-[GEO8で定義した境界付き多様体](../../../幾何系/GEO/GEO8/index.md#def-geo8-manifold-with-boundary)では、境界点の近くを半空間の座標で扱えます。global AdSでは、空間の方向を $\boldsymbol n\in S^{d-1}$ として $\boldsymbol q=\rho\boldsymbol n$ を使い、$|\boldsymbol q|\le\pi/2$ の閉球まで動径範囲を広げた $\overline M=\mathbb R_\tau\times\{\boldsymbol q\in\mathbb R^d:|\boldsymbol q|\le\pi/2\}$ を考えます。$\rho=0$ では $\boldsymbol n$ が定まらなくても、$\boldsymbol q=0$ は普通の内部点です。
+[GEO8で定義した境界付き多様体](../../../幾何系/GEO/GEO8/index.md#def-geo8-manifold-with-boundary)では、境界点の近くを半空間の座標で扱えます。global AdSでは、空間の方向を $\boldsymbol n\in S^{d-1}$ として $\boldsymbol q=\rho\boldsymbol n$ を使い、動径範囲を閉球まで広げて
+
+$$
+\overline M=\mathbb R_\tau\times
+\left\{\boldsymbol q\in\mathbb R^d:|\boldsymbol q|\le\frac\pi2\right\}
+$$
+
+を考えます。$\rho=0$ では $\boldsymbol n$ が定まらなくても、$\boldsymbol q=0$ は普通の内部点です。
 
 この広げた空間の内部で正、付け加えた境界でだけゼロになる滑らかな関数 $\omega$ を探します。境界で $d\omega\ne0$ は、$\omega=0$ が境界に垂直な方向へ一次で変化し、滑らかな一枚の境界を指定するための条件です。
 
@@ -492,7 +499,15 @@ $$
 $d=2$、$L>0$ とし、$z=L$、$t=L$、$y=0$ を[Poincaré座標の対応式](#prop-holo2-poincare-metric)へ代入する。得られた $(U,V,w^1,W)$ が双曲面制約とパッチの符号条件を満たすことを確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** $U=(L^2+L^2-L^2)/(2L)=L/2$、$W=(L^2-L^2+L^2)/(2L)=L/2$、$V=Lt/z=L$、$w^1=0$ です。従って
+**詳細解答。** [逆変換](#prop-holo2-poincare-metric)へ指定値を代入して
+
+$$
+U=\frac{L^2+L^2-L^2}{2L}=\frac L2,\quad
+W=\frac{L^2-L^2+L^2}{2L}=\frac L2,\quad
+V=\frac{Lt}{z}=L,\quad w^1=0
+$$
+
+を得ます。従って
 
 $$
 -U^2-V^2+(w^1)^2+W^2
