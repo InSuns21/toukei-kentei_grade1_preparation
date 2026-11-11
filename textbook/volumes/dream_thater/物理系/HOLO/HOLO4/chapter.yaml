@@ -15,6 +15,7 @@ learning_objectives:
   - 二点三点関数の運動学的冪とOPEの次元整合性を検算し、模型依存係数とAdS/CFTの力学的辞書と区別できる
 definitions:
   - { id: HOLO4-DEF-01, name: 境界へ誘導される共形作用 }
+  - { id: HOLO4-DEF-02, name: 境界の特殊共形変換 }
 theorems:
   - { id: HOLO4-PROP-01, name: 特殊共形変換のバルク等長延長 }
   - { id: HOLO4-PROP-02, name: バルクに対応する境界の大域Ward演算子 }
