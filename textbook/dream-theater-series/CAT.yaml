@@ -30,7 +30,7 @@ chapters:
   - { id: CAT2-09, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-09, status: completed, title: "単位・余単位と三角恒等式" }
   - { id: CAT2-10, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-10, status: completed, title: "普遍射とcomma圏" }
   - { id: CAT2-11, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-11, status: completed, title: "随伴の極限・余極限保存" }
-  - { id: CAT2-12, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-12, status: planned, title: "一般随伴関手定理" }
+  - { id: CAT2-12, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-12, status: completed, title: "一般随伴関手定理" }
   - { id: CAT3-01, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-01, status: planned, title: "モナドと随伴" }
   - { id: CAT3-02, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-02, status: planned, title: "Kleisli圏" }
   - { id: CAT3-03, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-03, status: planned, title: "Eilenberg–Moore圏と比較関手" }
