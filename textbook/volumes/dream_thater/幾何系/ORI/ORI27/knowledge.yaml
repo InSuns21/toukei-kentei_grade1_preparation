@@ -1,0 +1,54 @@
+chapter: ORI27
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI26]
+forward_references: []
+
+concepts:
+  - id: origami.miura-grid
+    name: 対称Miura格子
+    kind: definition
+    introduction: formal
+    requires: [origami.rigid-panel-motion]
+
+  - id: origami.miura-symmetric-motion
+    name: 対称Miura運動族
+    kind: definition
+    introduction: formal
+    requires: [origami.miura-grid, origami.rigid-configuration-space]
+
+  - id: origami.miura-rigid-path
+    name: 有限Miuraパッチの連続な剛体折り
+    kind: theorem
+    introduction: formal
+    requires: [origami.miura-symmetric-motion]
+
+  - id: origami.miura-unsigned-fold-angle
+    name: Miura格子の無符号折り角
+    kind: definition
+    introduction: formal
+    requires: [origami.miura-symmetric-motion]
+
+  - id: origami.miura-half-angle-relation
+    name: Miura折り角の半角関係
+    kind: theorem
+    introduction: formal
+    requires: [origami.miura-unsigned-fold-angle, origami.miura-rigid-path]
+
+  - id: origami.miura-projected-period
+    name: Miura格子の投影周期と運動学的Poisson比
+    kind: definition
+    introduction: formal
+    requires: [origami.miura-symmetric-motion]
+
+  - id: origami.miura-negative-poisson
+    name: 投影角と負の運動学的Poisson比
+    kind: theorem
+    introduction: formal
+    requires: [origami.miura-projected-period]
+
+  - id: origami.miura-endpoint
+    name: 折り切り極限は正則な展開経路の内部にない
+    kind: proposition
+    introduction: formal
+    requires: [origami.miura-rigid-path, origami.miura-projected-period]
