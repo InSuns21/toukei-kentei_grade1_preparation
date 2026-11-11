@@ -133,7 +133,11 @@ $L$ の極限性により $\bar v=h$、従って $v=\Phi_{c,L}(h)=u$ である�
 
 ### 具体例：積・等化子・終対象
 
-1. [対角関手と積関手の随伴](../CAT2-08/index.md#thm-cat2-08-diagonal-product) $\Delta\dashv\Pi$ に定理を適用する。ここで $\Pi:\mathbf{Set}\times\mathbf{Set}\to\mathbf{Set}$ は $(A,B)\mapsto A\times B$ とする積関手である。$X,Y:\mathcal J\to\mathbf{Set}$ を二つの図式とし、$X_j=X(j)$、$Y_j=Y(j)$、射 $\alpha:i\to j$ に対して $X(\alpha):X_i\to X_j$、$Y(\alpha):Y_i\to Y_j$ と書く。$\mathbf{Set}\times\mathbf{Set}$ の図式 $j\mapsto(X_j,Y_j)$ の極限が $(\lim_j X_j,\lim_j Y_j)$ なら、
+1. [対角関手と積関手の随伴](../CAT2-08/index.md#thm-cat2-08-diagonal-product) $\Delta\dashv\Pi$ に定理を適用する。  
+   $\Pi:\mathbf{Set}\times\mathbf{Set}\to\mathbf{Set}$ は $(A,B)\mapsto A\times B$ とする積関手である。  
+   二つの図式 $X,Y:\mathcal J\to\mathbf{Set}$ を取り、$X_j=X(j)$、$Y_j=Y(j)$ と書く。  
+   射 $\alpha:i\to j$ に対し、$X(\alpha):X_i\to X_j$、$Y(\alpha):Y_i\to Y_j$ である。  
+   $\mathbf{Set}\times\mathbf{Set}$ の図式 $j\mapsto(X_j,Y_j)$ の極限が $(\lim_j X_j,\lim_j Y_j)$ なら、
 
 $$
 \left(\lim_jX_j\right)\times\left(\lim_jY_j\right)
@@ -636,7 +640,9 @@ $$
 
 **1.** 任意に選んだ集合極限 $(K,q_j)$ には、両錐の普遍性を互いに適用して、全脚を保つ写像 $s:K\to P$ と $r:P\to K$ が得られる。$rs$ と $sr$ はそれぞれ恒等射と同じ脚を持つので、[極限錐の同型一意性](../CAT2-01/index.md#thm-cat2-01-limit-uniqueness)により $rs=1_K$、$sr=1_P$。従って $s$ は全単射である。
 
-$a\cdot_K b=s^{-1}(s(a)s(b))$、$e_K=s^{-1}(e_P)$ により $K$ をモノイドにできる。別のモノイド積 $\star$ で全 $q_j$ が準同型なら、任意の $a,b$ とすべての $j$ に対して $q_j(a\star b)=q_j(a)q_j(b)=q_j(a\cdot_K b)$。$q_j$ は共同単射なので $\star=\cdot_K$。単位も一意。さらに任意のモノイド錐 $h_j:H\to M_j$ から $P$ への一意な媒介準同型 $f:H\to P$ に $s^{-1}$ を後合成すると、$q_js^{-1}f=p_jf=h_j$ を満たす準同型 $H\to K$ を得る。別の媒介準同型 $g$ は $sg=f$ となるから一意である。従って $(K,q_j)$ はモノイド極限であり、選んだ集合極限を一意に持ち上げられる。$\mathcal J$ が空でも積集合 $P$ は一元集合であり、唯一のモノイド構造を持つ。
+$a\cdot_K b=s^{-1}(s(a)s(b))$、$e_K=s^{-1}(e_P)$ により $K$ をモノイドにできる。別のモノイド積 $\star$ で全 $q_j$ が準同型なら、任意の $a,b$ とすべての $j$ に対して $q_j(a\star b)=q_j(a)q_j(b)=q_j(a\cdot_K b)$。$q_j$ は共同単射なので $\star=\cdot_K$。単位も一意。
+
+さらに任意のモノイド錐 $h_j:H\to M_j$ から $P$ への一意な媒介準同型 $f:H\to P$ に $s^{-1}$ を後合成すると、$q_js^{-1}f=p_jf=h_j$ を満たす準同型 $H\to K$ を得る。別の媒介準同型 $g$ は $sg=f$ となるから一意である。従って $(K,q_j)$ はモノイド極限であり、選んだ集合極限を一意に持ち上げられる。$\mathcal J$ が空でも積集合 $P$ は一元集合であり、唯一のモノイド構造を持つ。
 
 **2.** モノイド錐 $(N,n_j)$ の像が集合の極限なら、任意のモノイド錐 $(H,h_j)$ の集合媒介射 $t:UH\to UN$ は、各 $n_j$ が準同型であり共同単射だから
 
