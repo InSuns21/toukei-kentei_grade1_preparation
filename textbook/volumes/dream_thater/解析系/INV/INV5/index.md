@@ -51,7 +51,15 @@ $$
 <!-- definition-example-start: def-inv5-tsvd -->
 ### 例：三つの方向のうち一つを捨てる
 
-**定義の確認**：$A=\operatorname{diag}(1,1/2,1/4)$ では標準基底 $e_j$ が両側の正規直交基底で、$Ae_j=\sigma_je_j=A^*e_j$、$\sigma=(1,1/2,1/4)$ です。核は零、値域は全空間なので完全性も満たします。
+**定義の確認**：$A=\operatorname{diag}(1,1/2,1/4)$ の標準基底を $e_1,e_2,e_3$ とします。標準内積では、$x=\sum_{j=1}^3x_je_j$ と $w=\sum_{j=1}^3w_je_j$ に対して
+
+$$
+\langle Ax,w\rangle=\sum_{j=1}^3\sigma_jx_jw_j
+=\langle x,Aw\rangle,
+\qquad (\sigma_1,\sigma_2,\sigma_3)=(1,1/2,1/4).
+$$
+
+よって $A^*=A$ です。$u_j=v_j=e_j$ と選ぶと、$\sigma_j>0$、両組の正規直交性、$Av_j=\sigma_ju_j$ と $A^*u_j=\sigma_jv_j$ を直接確認できます。さらに $Ax=0$ なら $\sigma_jx_j=0$ が全 $j$ で成り立つため $x=0$ です。任意の $w=\sum_jw_je_j$ に対し $A(\sum_j(w_j/\sigma_j)e_j)=w$ なので値域は全空間です。したがって両側の標準基底は、[完全特異系の定義](../INV3/index.md#def-inv3-singular-system)が求める核の直交補と値域の閉包を尽くします。
 
 $\tau=2/5$ を選ぶと、$1,1/2\ge2/5$ で $1/4<2/5$ です。定義の和は最初の二方向だけとなり、
 
@@ -88,7 +96,14 @@ $$
 
 **定義の確認**：データ適合項と罰則を別々に書き、最小点の存在・一意性と観測不能成分の扱いを直接確認します。
 
-$A:\mathbb R^2\to\mathbb R^2$ を $A(x_1,x_2)=(2x_1,0)$、$z=(a,b)$ とします。$A$ は有界線形、$\alpha>0$ であり、定義の目的関数は
+$A:\mathbb R^2\to\mathbb R^2$ を $A(x_1,x_2)=(2x_1,0)$、$z=(a,b)$ とします。標準内積について
+
+$$
+\langle A(x_1,x_2),(u,v)\rangle=2x_1u
+=\langle(x_1,x_2),(2u,0)\rangle
+$$
+
+なので $A^*(u,v)=(2u,0)$ です。従って $\ker A=\ker A^*=\operatorname{span}\{(0,1)\}$ で、$(0,b)$ は観測値の $\ker A^*$ 成分、$(0,x_2)$ は未知量の $\ker A$ 成分です。$A$ は有界線形、$\alpha>0$ であり、[二乗ノルムTikhonov正則化](#def-inv5-tikhonov)の目的関数は
 
 $$
 \begin{aligned}
@@ -157,7 +172,7 @@ $$
 \le\alpha^{-1}\|B_\alpha h_n-B_\alpha h_m\|_X
 $$
 
-から $(h_n)$ は Cauchy 列です。$X$ は完備なので $h_n\to h$ となり、$B_\alpha$ の有界性より $w=B_\alpha h$。従って $\mathcal R(B_\alpha)$ は閉です。一方、すでに確かめた $B_\alpha^*=B_\alpha$ と随伴の内積関係から
+から $(h_n)$ は Cauchy 列です。$X$ は完備なので $h_n\to h$ となり、$B_\alpha$ の有界性より $w=B_\alpha h$。従って $\mathcal R(B_\alpha)$ は閉です。一方、$w\perp\mathcal R(B_\alpha)$ であることは、全ての $h\in X$ に対し $\langle B_\alpha h,w\rangle=\langle h,B_\alpha^*w\rangle=0$ であること、すなわち $B_\alpha^*w=0$ と同値です。すでに確かめた $B_\alpha^*=B_\alpha$ から
 
 $$
 \mathcal R(B_\alpha)^\perp=\ker B_\alpha^*=\ker B_\alpha=\{0\}.
@@ -468,7 +483,7 @@ $$
 ### INV5-B01 直接法を使わず一意性を再構成する
 - Level: B
 
-実 Hilbert 空間 $X,Y$ と有界線形作用素 $A:X\to Y$、$\alpha>0$ に対し、$B=A^*A+\alpha I$ の値域が閉であることを示せ。また $B^*=B$、$\ker B=\{0\}$ を使い $B$ が全射だと証明し、最小点の唯一性まで結べ。
+実 Hilbert 空間 $X,Y$ と有界線形作用素 $A:X\to Y$、$z\in Y$、$\alpha>0$ に対し、$B=A^*A+\alpha I$ の値域が閉であることを示せ。また $B^*=B$、$\ker B=\{0\}$ を使い $B$ が全射だと証明し、$J_{\alpha,z}$ の最小点の唯一性まで結べ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -488,7 +503,14 @@ J_{\alpha,z}(x_\alpha+h)-J_{\alpha,z}(x_\alpha)
 =\|Ah\|^2+\alpha\|h\|^2\ge\alpha\|h\|^2.
 $$
 
-一次交差項は $Bx_\alpha=A^*z$ によって零です。等号は $h=0$ の場合に限るので $x_\alpha$ は唯一の最小点です。
+展開前の一次交差項は
+
+$$
+2\langle Ax_\alpha-z,Ah\rangle+2\alpha\langle x_\alpha,h\rangle
+=2\langle Bx_\alpha-A^*z,h\rangle=0
+$$
+
+であり、$Bx_\alpha=A^*z$ を使いました。等号は $h=0$ の場合に限るので $x_\alpha$ は唯一の最小点です。
 <!-- solution-end -->
 
 <a id="ex-inv5-b02"></a>
@@ -562,7 +584,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$z_j=\langle z,u_j\rangle$ とし $z=z_0+z_\perp$（$z_\perp\in\ker A^*$）と直交分解します。[特異値表示](#thm-inv5-spectral-filters)より
+$z_j=\langle z,u_j\rangle$ とし、[特異系の展開](../INV3/index.md#thm-inv3-singular-expansion)から $\overline{\mathcal R(A)}$ を張る $u_j$ を用いて $z_0=\sum_jz_ju_j$、$z_\perp=z-z_0\in\ker A^*$ と直交分解します。[特異値表示](#thm-inv5-spectral-filters)より
 
 $$
 \|R_\alpha^{\mathrm K}z\|_X^2
