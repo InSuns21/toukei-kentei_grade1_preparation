@@ -628,7 +628,7 @@ $$
 \qquad \nabla q(x)\cdot e=0.
 $$
 
-方向 $e$ は任意なので $\nabla u(x)=\nabla v(x)$ です。また $w=(u+v+|q|)/2$、$z=(u+v-|q|)/2$ で、$q(x)=0$ かつ $\nabla q(x)=0$ なら $|q(x+h)|=o(|h|)$ です。従って $w,z$ の勾配もこの共通値になります。[Lebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)により $Z$ のほとんどすべての点が密度1点であり、各場合で求める等式が成立します。
+方向 $e$ は任意なので $\nabla u(x)=\nabla v(x)$ です。また $w=(u+v+|q|)/2$、$z=(u+v-|q|)/2$ で、$q(x)=0$ かつ $\nabla q(x)=0$ なら $|q(x+h)|=o(|h|)$ です。従って $w,z$ の勾配もこの共通値になります。[高次元Lebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)により $Z$ のほとんどすべての点が密度1点であり、各場合で求める等式が成立します。
 
 次に [GMT22のstrict近似](../GMT22/index.md#thm-gmt22-smooth-approx)で $\chi_E,\chi_F$ を $u_j,v_j$ へ近似します。$\max,\min$ は $L^1$ 極限で $\chi_{E\cup F},\chi_{E\cap F}$ を与え、勾配の積分の和は近似の各段階で一致します。しかし [全変動の下半連続性](../GMT22/index.md#thm-gmt22-lsc)から得られるのは
 
