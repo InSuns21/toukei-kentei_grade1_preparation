@@ -1,0 +1,41 @@
+id: "HOLO4"
+title: "対称性と境界CFT"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOLO3
+  - QFT49
+  - QFT54
+official_scope: []
+learning_objectives:
+  - Lorentz境界のSO(2,d)とEuclid境界のSO(1,d+1)を区別し、普遍被覆の大域群との違いを説明できる
+  - 純粋AdSの並進・Lorentz回転・拡大縮小・特殊共形の局所等長変換を直接検算できる
+  - バルク特殊共形の分母にz二乗が現れる理由を反転の計量変換から導き、境界共形因子を求められる
+  - スカラー一次場の有限変換則から大域共形Ward恒等式を導き二点関数で確認できる
+  - 二点三点関数の運動学的冪とOPEの次元整合性を検算し、模型依存係数とAdS/CFTの力学的辞書と区別できる
+definitions:
+  - { id: HOLO4-DEF-01, name: 境界へ誘導される共形作用 }
+  - { id: HOLO4-DEF-02, name: 境界の特殊共形変換 }
+theorems:
+  - { id: HOLO4-PROP-01, name: 特殊共形変換のバルク等長延長 }
+  - { id: HOLO4-PROP-02, name: バルクに対応する境界の大域Ward演算子 }
+canonical_examples:
+  - 拡大縮小のバルク等長性と境界計量倍率を直接検算する
+  - 反転二回と並進で特殊共形変換を作り作用可能領域を確認する
+  - 特殊共形ベクトルの発散と二点関数のWard打消しを計算する
+  - 三点関数のスケーリング次元と二次元自由電流OPEのウェイトを別模型として検算する
+problem_patterns:
+  - HOLO4-DILATATION
+  - HOLO4-EUCLIDEAN-INVERSION
+  - HOLO4-LIE-ALGEBRA-COUNT
+  - HOLO4-THREE-POINT-SCALING
+  - HOLO4-OPE-WEIGHTS
+  - HOLO4-SPECIAL-CONFORMAL-GENERATOR
+  - HOLO4-WARD-TWO-POINT
+  - HOLO4-SYMMETRY-NOT-DUALITY
+  - HOLO4-CONFORMAL-CORRELATOR-FREEDOM
+  - HOLO4-INTEGRATED-SYMMETRY-CFT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
