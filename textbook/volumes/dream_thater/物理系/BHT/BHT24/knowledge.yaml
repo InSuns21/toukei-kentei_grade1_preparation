@@ -1,0 +1,49 @@
+chapter: BHT24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT23
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.microstate-count-correspondence
+    name: 微視状態数によるエントロピーとの対応
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（微視状態数によるエントロピーとの対応）"]
+    requires: [black-hole-thermodynamics.bekenstein-hawking-entropy]
+  - id: black-hole-thermodynamics.radiation-fine-grained-entropy
+    name: 放射部分系の精細エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（放射部分系の精細エントロピー）"]
+    requires: [quantum.partial-trace, quantum.von-neumann-entropy]
+  - id: black-hole-thermodynamics.schwarzschild-three-checks
+    name: Schwarzschild熱力学の三経路検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schwarzschild熱力学の三経路検算）"]
+    requires: [black-hole-thermodynamics.euclidean-saddle-thermodynamic-potentials, black-hole-thermodynamics.bekenstein-hawking-entropy]
+  - id: black-hole-thermodynamics.rn-law-smarr-check
+    name: RNの第一法則とSmarr関係の同時検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RNの第一法則とSmarr関係の同時検算）"]
+    requires: [black-hole-thermodynamics.bekenstein-hawking-entropy]
+  - id: black-hole-thermodynamics.ads-stability-transition-check
+    name: AdS正準枝の安定性と転移点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AdS正準枝の安定性と転移点）"]
+    requires: [black-hole-thermodynamics.hawking-page-saddle-transition]
+  - id: black-hole-thermodynamics.hypothetical-state-count-response
+    name: 仮想微視状態数からの温度と熱容量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（仮想微視状態数からの温度と熱容量）"]
+    requires: [black-hole-thermodynamics.microstate-count-correspondence, black-hole-thermodynamics.schwarzschild-three-checks]
+  - id: black-hole-thermodynamics.pure-global-mixed-radiation
+    name: 純粋全体系と混合放射部分系
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純粋全体系と混合放射部分系）"]
+    requires: [black-hole-thermodynamics.radiation-fine-grained-entropy]

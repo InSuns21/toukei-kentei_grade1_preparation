@@ -3,7 +3,7 @@
 分冊: 2026-10-11  
 改訂: 2026-11-11（BHT23のBekenstein型境界・降下模型・浮力・相対エントロピーによる条件付き評価を追加。講数・学修境界は維持）
 
-状態: in progress（BHT1〜BHT23執筆・査読・公開導線整備済み。BHT24と横断監査は未完了）
+状態: in progress（BHT1〜BHT24の予定講義は執筆・章単位査読・公開導線整備済み。系列横断の最終監査は未完了）
 
 ## 0. 中心問い・到達点
 
@@ -120,6 +120,6 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 
 ## 5. 着手・完了条件
 
-BHT1〜BHT23は状態量・古典四法則・定常解族と物理過程の第一法則・Smarr関係、Hawking温度・Bekenstein–Hawkingエントロピー・極限地平線、Euclid作用と境界条件・有限空洞・AdS安定性・アンサンブル、共変位相空間・Noether電荷・Wald公式からのEinstein面積則、f(R)の高階曲率補正・適用限界、量子場の外部エントロピーの面積発散とNewton定数の繰り込み・一般化エントロピー、GSLの条件付き証明、Bekenstein型境界の理想降下条件・量子浮力・相対エントロピー形式までを実装した。BHT24の本文と系列横断監査は残るため、PLANは textbook/plans_progress/ に置く。未実装章のcanonical結果をDAGや公開索引へ先取りしない。
+BHT1〜BHT23は状態量・古典四法則・定常解族と物理過程の第一法則・Smarr関係、Hawking温度・Bekenstein–Hawkingエントロピー・極限地平線、Euclid作用と境界条件・有限空洞・AdS安定性・アンサンブル、共変位相空間・Noether電荷・Wald公式からのEinstein面積則、f(R)の高階曲率補正・適用限界、量子場の外部エントロピーの面積発散とNewton定数の繰り込み・一般化エントロピー、GSLの条件付き証明、Bekenstein型境界の理想降下条件・量子浮力・相対エントロピー形式までを実装した。BHT24ではSchwarzschild/RN/AdSの条件付き横断検算と、微視状態数・放射の精細エントロピーの区別を執筆した。全24講の予定本文は揃ったが、PLAN第4節の**系列全体に対する最終横断監査**（既存各章の式・参照・公開導線の網羅検査）は本講の新規執筆・自己査読とは別作業として残るため、PLANは textbook/plans_progress/ に置く。
 
 全24章が原則の証明・演習水準を満たし、系列manifest・目次・prerequisite・stable anchorと横断査読・CIが整合したときだけ textbook/plan_done/ へ移す。**講義数が24であることと完成していることを混同しない。**
