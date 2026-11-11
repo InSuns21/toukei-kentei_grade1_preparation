@@ -1,0 +1,47 @@
+id: GMT27
+title: De Giorgi構造定理 II：整流可能性と測度同定
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT1
+  - GMT10
+  - GMT12
+  - GMT15
+  - GMT20
+  - GMT24
+  - GMT25
+  - GMT26
+official_scope: []
+learning_objectives:
+  - 縮約境界での周長測度の全スケール平坦blow-upを指示関数と法線の収束から導ける
+  - 周長測度の円錐外質量を制御し、密度下界とともに可算Lipschitzグラフ被覆を構成できる
+  - 上下球密度から周長測度とHausdorff面積の絶対連続性・局所有限性を被覆で証明できる
+  - 整流可能集合の密度1と測度微分を使いDe Giorgiの測度同定を証明できる
+  - 非正規化Hausdorff測度の定数c_{d-1}と周長の外向き法線の符号を低次元例で検算できる
+  - 集合のL1収束だけでは周長測度の収束が従わない理由を反例で説明できる
+definitions: []
+theorems:
+  - { id: GMT27-LEM-01, name: 縮約境界での周長測度の平坦接測度 }
+  - { id: GMT27-LEM-02, name: 球密度からの面積測度の比較 }
+  - { id: GMT27-THM-01, name: De Giorgi構造定理の整流可能性と測度同定 }
+canonical_examples:
+  - 平面半空間で縮約境界・法線・正規化面積を同時計算
+  - 三次元球面でc2係数を保持して表面積を検算
+  - 長方形の辺と角点で縮約境界と位相境界を区別
+  - 高周波微小振幅グラフでL1と周長の非連続性を示す
+problem_patterns:
+  - GMT27-HALFSPACE-NORMALIZATION
+  - GMT27-SPHERE-PERIMETER
+  - GMT27-POLYGON-CORNERS
+  - GMT27-CONE-GEOMETRY
+  - GMT27-TANGENT-TEST
+  - GMT27-CONE-PAIR-BOUNDS
+  - GMT27-LOWER-DENSITY-COVER
+  - GMT27-ABSOLUTE-CONTINUITY
+  - GMT27-BALL-DENSITY-RATIO
+  - GMT27-POLYGON-GAUSS-GREEN
+  - GMT27-OSCILLATING-GRAPH
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 14, exercises: 9, review: 5 }
