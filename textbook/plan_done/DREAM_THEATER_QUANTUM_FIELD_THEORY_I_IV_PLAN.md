@@ -214,7 +214,7 @@
 | Hadamard・波面集合・曲がった時空の局所くりこみ | [MICA](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、QCURV | QFT IIの平坦摂動論の反項と混同しない |
 | Weyl代数・局所環・Type III・Tomita–Takesaki | [AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md) | QFT IVで必要な問題の動機と参照にとどめる |
 | von Neumann entropy・量子チャネル・誤り訂正 | [QINF](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) | QFT IVは連続場の局所性・UV・CFTに固有の計算 |
-| AdS/CFT・RT/HRT・量子極値曲面 | [HOLO](../plans/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md) | QFT IVのCFTは境界側だけ |
+| AdS/CFT・RT/HRT・量子極値曲面 | [HOLO](../plans_progress/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md) | QFT IVのCFTは境界側だけ |
 | Page曲線・replica wormhole・island | [BHI I／II](../plans/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md) | QFT IVのreplicaは非重力の領域エントロピーまで |
 
 **実用的な履修経路:**
