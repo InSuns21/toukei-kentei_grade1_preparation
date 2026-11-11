@@ -159,7 +159,14 @@ $$
 D_uN=\frac{u}{L}.
 $$
 
-$\langle N,N\rangle_{2,d}=-1$ に注意して法線成分を求めると、$D_uv$ の法線射影は $g(u,v)N/L$ です。接成分が $\nabla_uv$ ですから
+$\langle N,N\rangle_{2,d}=-1$ に注意して法線成分を求めます。法線方向への射影は、法線の長さの符号で割って
+
+$$
+\frac{\langle D_uv,N\rangle_{2,d}}{\langle N,N\rangle_{2,d}}N
+=\frac{-g(u,v)/L}{-1}N=\frac{g(u,v)}{L}N
+$$
+
+です。接成分が $\nabla_uv$ ですから
 
 $$
 \boxed{D_uv=\nabla_uv+\frac{g(u,v)}{L}N}.
@@ -208,7 +215,7 @@ $$
 \bigl(g(v,w)u-g(u,w)v\bigr).
 $$
 
-これを移項して最初の式を得ます。非退化な二平面で分母 $g(u,u)g(v,v)-g(u,v)^2\ne0$ を使って断面曲率を定義すれば、分子 $g(R(u,v)v,u)$ は同じ分母の $-1/L^2$ 倍です。
+これを移項して最初の式を得ます。[GEO16の断面曲率の定義](../../../幾何系/GEO/GEO16/index.md#def-geo16-sectional-curvature)では正定値計量の二平面で曲率を商として表しました。ここでは同じ商をLorentz計量の**非退化な二平面**に用い、分母 $g(u,u)g(v,v)-g(u,v)^2\ne0$ を確認してから割ります。分子 $g(R(u,v)v,u)$ は同じ分母の $-1/L^2$ 倍です。退化した二平面にはこの商を定義しません。
 
 次に $n=d+1$ 次元のLorentz正規直交枠 $e_0,\ldots,e_d$ を一点で取り、$\varepsilon_a=g(e_a,e_a)\in\{-1,1\}$ とします。[GR6のRicci縮約定義](../../GR/GR6/index.md#def-gr6-ricci-scalar)では
 
@@ -226,7 +233,15 @@ $$
 -\sum_a\varepsilon_a g(e_a,w)g(v,e_a)\right).
 $$
 
-第一の和は $n$、第二の和は直交枠の完全性により $g(v,w)$ です。したがって $\operatorname{Ric}=-(n-1)g/L^2=-dg/L^2$。逆計量でさらに縮約すると $g^{ab}g_{ab}=n$ だから $\mathcal R=-n(n-1)/L^2=-d(d+1)/L^2$ です。時間方向の負符号は $\varepsilon_0$ に含まれており、勝手に正定値の跡を使っていません。$\square$
+第一の和は $\sum_a\varepsilon_a^2=n$ です。第二の和は正規直交枠での展開
+
+$$
+w=\sum_a\varepsilon_a g(e_a,w)e_a,
+\qquad
+g(v,w)=\sum_a\varepsilon_a g(e_a,w)g(v,e_a)
+$$
+
+から $g(v,w)$ です。したがって $\operatorname{Ric}=-(n-1)g/L^2=-dg/L^2$。逆計量でさらに縮約すると $g^{ab}g_{ab}=n$ だから $\mathcal R=-n(n-1)/L^2=-d(d+1)/L^2$ です。時間方向の負符号は $\varepsilon_0$ に含まれており、勝手に正定値の跡を使っていません。$\square$
 <!-- proof-end -->
 
 **定義からの適用例**：$d=3$（4次元時空）なら $\operatorname{Ric}=-3g/L^2$、$\mathcal R=-12/L^2$ です。[Einsteinテンソルの定義](../../GR/GR7/index.md#def-gr7-einstein-tensor) $G_{ab}=\operatorname{Ric}_{ab}-\mathcal Rg_{ab}/2$ を用いると
@@ -278,14 +293,22 @@ $$
 <!-- definition-example-start: def-holo1-universal-cover -->
 **定義の確認**：$\pi(0,\boldsymbol0)=\pi(2\pi L,\boldsymbol0)=(L,0,\boldsymbol0)$ ですが、被覆上の $(0,\boldsymbol0)$ と $(2\pi L,\boldsymbol0)$ は別の点です。
 
-時刻微分とその内積を計算すると
+ここで $\partial_tX$ は、空間座標 $\boldsymbol{x}$ を固定して被覆上の実数時刻 $t$ だけを変えたときの埋め込み写像 $X=\pi(t,\boldsymbol{x})$ の偏微分です。第2節の $dU,dV$ はすべての座標の変化を含む全微分であり、
+
+$$
+dX=(\partial_tX)\,dt+\sum_{i=1}^d(\partial_{x^i}X)\,dx^i
+$$
+
+の $dt$ の係数が $\partial_tX$ です。実際に時刻微分とその内積を計算すると
 
 $$
 \partial_t(U,V)=\frac{A}{L}(-\sin(t/L),\cos(t/L)),
 \qquad \langle\partial_tX,\partial_tX\rangle_{2,d}=-\frac{A^2}{L^2}.
 $$
 
-空間方向の微分も第2節と同じため、$\pi^*g$ は定義したglobal計量に一致します。各点の近くで時刻を幅 $2\pi L$ 未満に制限すれば逆角度が選べるので、$\pi$ は局所微分同相です。
+空間方向の微分も第2節と同じため、$\pi^*g$ は定義したglobal計量に一致します。
+
+円周上の一周しない開弧を、無次元角度の区間 $I\subset\mathbb R$（長さは $2\pi$ 未満）で表します。この開弧と全空間座標の積の逆像は、整数 $k\in\mathbb Z$ ごとに時刻が $t\in L(I+2\pi k)$ となる互いに素な開集合へ分かれます。各集合から開弧と $\mathbb R^d$ の積への制限は微分同相です。よって[GEO18の被覆写像の定義](../../../幾何系/GEO/GEO18/index.md#def-geo18-covering-map)のシート条件を満たし、局所等長な被覆写像になります。
 
 被覆空間は $\mathbb R\times\mathbb R^d$ であり、[GEO18の単連結性の定義](../../../幾何系/GEO/GEO18/index.md#def-geo18-simply-connected)を満たします。$Q_L$ は円周時刻と $\mathbb R^d$ の積なので、$\pi$ は普遍被覆です。
 <!-- definition-example-end -->
@@ -301,7 +324,18 @@ $$
 
 ## 5. 等長変換はどこから来るか
 
-AdSの高い対称性は、埋め込み空間の二次形式を保つ線形変換から見えます。行列 $\eta=\operatorname{diag}(-1,-1,1,\ldots,1)$ を置くと、条件 $M^\mathsf T\eta M=\eta$ を満たす行列は制約式と接ベクトル間の内積を保ちます。従ってその制限は $Q_L$ の等長変換になります。
+AdSの高い対称性は、埋め込み空間の二次形式を保つ線形変換から見えます。座標の順序を $(U,V,x^1,\ldots,x^d)$ とした基底で、前節までの双線形形式の行列を $\eta=\operatorname{diag}(-1,-1,1,\ldots,1)$ と置きます。この基底で内積と変換後の内積を書けば、
+
+$$
+\langle X,Y\rangle_{2,d}=X^\mathsf T\eta Y,\qquad
+\langle MX,MY\rangle_{2,d}=X^\mathsf TM^\mathsf T\eta MY.
+$$
+
+従って任意の二つのベクトルの内積を保存する条件は $M^\mathsf T\eta M=\eta$ です。この条件を満たす行列の制限は $Q_L$ の等長変換になります。
+
+この行列群を $O(2,d)$ と書き、$GL(d+2,\mathbb R)$ は可逆な $(d+2)$ 次実行列全体を表します。その中で恒等行列から連続な道で到達できる成分が $SO_0(2,d)$ です。
+
+行列群の **Lie代数** とは、恒等行列を通る滑らかな曲線 $M(s)$ の速度 $B=M'(0)$ を集めた接空間に、交換子 $[B,C]=BC-CB$ を演算として入れたものです。$M(0)=I$ と置き、$M(s)^\mathsf T\eta M(s)=\eta$ を $s$ で微分すれば、その速度の条件を求められます。
 
 <a id="prop-holo1-linear-isometry"></a>
 
@@ -334,7 +368,28 @@ $$
 
 従って $M$ は $Q_L$ を保ちます。接ベクトル $u,v$ に対しても $\langle Mu,Mv\rangle_{2,d}=\langle u,v\rangle_{2,d}$ なので、誘導計量を保ちます。
 
-$M(s)^\mathsf T\eta M(s)=\eta$ を $s=0$ で微分すると、$B=M'(0)$ は $B^\mathsf T\eta+\eta B=0$ を満たします。$\eta B$ は反対称な $(d+2)\times(d+2)$ 行列で、上三角の非対角成分が自由です。従って次元は $\binom{d+2}{2}=(d+2)(d+1)/2$ です。
+$M(s)^\mathsf T\eta M(s)=\eta$ を $s=0$ で微分すると、$B=M'(0)$ は $B^\mathsf T\eta+\eta B=0$ を満たします。逆に、この条件を満たす任意の $B$ に対し、行列指数関数を収束する級数で定めます。
+
+$$
+M(s)=e^{sB}=\sum_{k=0}^{\infty}\frac{s^kB^k}{k!}.
+$$
+
+有限次元行列では級数とその導関数の級数が任意の有限区間上一様収束するため、項別微分から $M'(s)=BM(s)$ が従い、
+
+$$
+\frac{d}{ds}\bigl(M(s)^\mathsf T\eta M(s)\bigr)
+=M(s)^\mathsf T(B^\mathsf T\eta+\eta B)M(s)=0.
+$$
+
+$M(0)=I$ なので $M(s)^\mathsf T\eta M(s)=\eta$ がすべての $s$ で成り立ち、$M(s)$ は恒等成分内の曲線です。従って上の線形条件は必要十分で、Lie代数は表示した集合に等しくなります。さらに $B,C$ がこの条件を満たすとき
+
+$$
+[B,C]^\mathsf T\eta
+=C^\mathsf TB^\mathsf T\eta-B^\mathsf TC^\mathsf T\eta
+=\eta CB-\eta BC=-\eta[B,C]
+$$
+
+なので、交換子でも閉じています。$\eta$ は可逆なので $\eta B$ と $B$ は一対一に対応します。$\eta B$ は反対称な $(d+2)\times(d+2)$ 行列で、上三角の非対角成分が自由です。従って次元は $\binom{d+2}{2}=(d+2)(d+1)/2$ です。
 
 $U,V$ 平面の回転では $(U,V)\mapsto(U\cos\theta-V\sin\theta,U\sin\theta+V\cos\theta)$ となり、global時刻は $t\mapsto t+L\theta$ です。$\theta=2\pi$ は $Q_L$ では同じ点へ戻りますが、被覆上では $t\mapsto t+2\pi L$ となります。従って被覆上の作用を角度 $\theta\bmod2\pi$ のみから定義することはできません。$\square$
 <!-- proof-end -->
@@ -485,7 +540,7 @@ $$
 $d\ge2$、$L>0$ の $\mathbb R^{2,d}$ で無限小変換 $\delta U=x^1$、$\delta x^1=U$、他成分の変化ゼロを考える。双曲面制約と誘導計量を保つ理由を示せ。さらに $U,V$ 平面の回転角 $2\pi$ が $Q_L$ と時間被覆でどう作用するか区別せよ。
 
 <!-- solution-start -->
-**詳細解答。** 変換行列の非零成分を $B^U{}_{x^1}=B^{x^1}{}_U=1$ とすると、$B^\mathsf T\eta+\eta B=0$ は $(U,x^1)$ の $2\times2$ 成分で
+**詳細解答。** $\delta X=BX$ と表すと、指定された変換行列の非零成分は $B^U{}_{x^1}=B^{x^1}{}_U=1$ です。$B^\mathsf T\eta+\eta B=0$ は $(U,x^1)$ の $2\times2$ 成分で
 
 $$
 \begin{pmatrix}0&1\\1&0\end{pmatrix}
@@ -496,7 +551,14 @@ $$
 =0
 $$
 
-となります。よって $e^{sB}$ は $\eta$ を保ち、[AdSの線形等長変換と時間周期](#prop-holo1-linear-isometry)により $Q_L$ の等長変換です。一次の変分でも $\delta(-U^2+(x^1)^2)=-2Ux^1+2x^1U=0$ と確認できます。
+となります。他の成分は $B$ が零なので、行列全体で同じ関係が成り立ちます。[AdSの線形等長変換と時間周期](#prop-holo1-linear-isometry)の証明で確かめたとおり、
+
+$$
+\frac{d}{ds}\left(e^{sB^\mathsf T}\eta e^{sB}\right)
+=e^{sB^\mathsf T}(B^\mathsf T\eta+\eta B)e^{sB}=0
+$$
+
+です。$s=0$ での値は $\eta$ なので $e^{sB}$ は常に内積を保ち、$Q_L$ の等長変換です。一次の変分でも $\delta(-U^2+(x^1)^2)=-2Ux^1+2x^1U=0$ と確認できます。
 
 $U,V$ の角度を $2\pi$ 増す回転は行列として恒等で、$Q_L$ 上の点を変えません。しかし被覆に持ち上げた角度の連続経路の終点は $t\mapsto t+2\pi L$ であり、被覆上では恒等ではありません。被覆群を無視して単に $SO(2,d)$ が同じ形で作用するとしてはいけません。
 <!-- solution-end -->
@@ -515,7 +577,13 @@ $d=2$、$L>0$ とし、$\mathbb R^{2,2}$ の双曲面 $-U^2-V^2+(x^1)^2+(x^2)^2=
 <!-- solution-start -->
 **詳細解答。**
 
-1. $A=\sqrt{L^2+r^2}$ と置けば、$dU^2+dV^2=dA^2+A^2dt^2/L^2$ で、$dA=r\,dr/A$ です。空間座標は $dx_1^2+dx_2^2=dr^2+r^2d\phi^2$ となるため
+1. $A=\sqrt{L^2+r^2}$ と置けば、$dU^2+dV^2=dA^2+A^2dt^2/L^2$ で、$dA=r\,dr/A$ です。空間座標は $(x^1,x^2)=r(\cos\phi,\sin\phi)$ なので、$d(x^1)=\cos\phi\,dr-r\sin\phi\,d\phi$ と $d(x^2)=\sin\phi\,dr+r\cos\phi\,d\phi$ から
+
+   $$
+   (d(x^1))^2+(d(x^2))^2=dr^2+r^2d\phi^2
+   $$
+
+   となります。よって
 
    $$
    ds^2=-\left(1+\frac{r^2}{L^2}\right)dt^2
@@ -530,15 +598,21 @@ $d=2$、$L>0$ とし、$\mathbb R^{2,2}$ の双曲面 $-U^2-V^2+(x^1)^2+(x^2)^2=
    -\frac{(\boldsymbol{x}\cdot d\boldsymbol{x})^2}{L^2+|\boldsymbol{x}|^2}
    $$
 
-   で分母が常に正、$r=0$ に滑らかに延長されます。
+   で分母が常に正、$r=0$ に滑らかに延長されます。中心では $ds^2=-dt^2+(d(x^1))^2+(d(x^2))^2$ で非退化です。
 
-2. 接方向 $u$ では $D_uN=u/L$ で、$g(N,N)=-1$。接ベクトル場 $v$ の微分を法線射影すると $D_uv=\nabla_uv+g(u,v)N/L$ です。これを $D_uD_vw-D_vD_uw-D_{[u,v]}w=0$ に代入し、接成分を取れば
+2. 接方向 $u$ では $D_uN=u/L$ で、$g(N,N)=-1$。接ベクトル場 $v$ の微分を法線射影すると $\langle D_uv,N\rangle=-g(u,v)/L$ なので $D_uv=\nabla_uv+g(u,v)N/L$ です。さらに
+
+   $$
+   (D_uD_vw)^\top=\nabla_u\nabla_vw+\frac{g(v,w)}{L^2}u
+   $$
+
+   を $u,v$ を交換した式と差し引き、平坦性 $D_uD_vw-D_vD_uw-D_{[u,v]}w=0$ の接成分を取れば
 
    $$
    R(u,v)w=-\frac{g(v,w)u-g(u,w)v}{L^2}.
    $$
 
-   直交枠でRicciを取ると時空次元 $n=3$ より
+   直交枠 $e_0,e_1,e_2$ で $\varepsilon_a=g(e_a,e_a)$ とすると、[GR6の縮約](../../GR/GR6/index.md#prop-gr6-constant-curvature)で $\sum_a\varepsilon_a g(e_a,e_a)=3$、$\sum_a\varepsilon_a g(e_a,w)g(v,e_a)=g(v,w)$ です。従って $\operatorname{Ric}=-(3-1)g/L^2$ となり、さらに逆計量で3成分を縮約すると
 
    $$
    \operatorname{Ric}=-\frac{2}{L^2}g,\qquad
