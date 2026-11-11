@@ -21,7 +21,7 @@ definitions:
   - { id: GMT30-DEF-01, name: 容器・障害物・体積付きの許容クラス }
   - { id: GMT30-DEF-02, name: 周長最小化列 }
 theorems:
-  - { id: GMT30-LEM-01, name: 共通コンパクト支持と全空間L1収束 }
+  - { id: GMT30-LEM-01, name: 共通コンパクト支持による全空間収束 }
   - { id: GMT30-THM-01, name: コンパクト容器・体積・障害物条件下の周長極小集合の存在 }
   - { id: GMT30-COR-01, name: 固定外部データと体積条件の周長極小集合 }
   - { id: GMT30-PROP-01, name: 円盤障害物付き固定面積問題の全極小集合 }

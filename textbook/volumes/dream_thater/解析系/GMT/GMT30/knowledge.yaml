@@ -28,10 +28,10 @@ concepts:
       - geometric-measure.gmt30-admissible
 
   - id: geometric-measure.gmt30-global-l1
-    name: 共通コンパクト支持と全空間L1収束
+    name: 共通コンパクト支持による全空間収束
     kind: lemma
     introduction: formal
-    introduction_aliases: ["補題（共通コンパクト支持と全空間L1収束）"]
+    introduction_aliases: ["補題（共通コンパクト支持による全空間収束）"]
     requires:
       - geometric-measure.gmt24-set-compactness
 
