@@ -2,7 +2,7 @@ chapter: ORI14
 scope: dream-theater
 coverage: complete
 prerequisites: [ORI13]
-forward_references: [ORI15]
+forward_references: [origami.maekawa-theorem] # 次講ORI15の予告のみ。現在講の証明には用いない。
 
 concepts:
   - id: origami.unassigned-single-vertex-local-flat-foldability
