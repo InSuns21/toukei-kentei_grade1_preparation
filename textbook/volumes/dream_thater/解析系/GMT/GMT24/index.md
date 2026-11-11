@@ -22,6 +22,26 @@ $$
 
 と定めます。積分は $\varphi$ の台の近傍だけで行われるため、$|E|=\infty$ でも意味を持ちます。以下、「ほとんど至る所（almost everywhere; a.e.）」は、指定した測度に関して例外集合が零測度であることを意味します。
 
+[GMT23の相対周長](../GMT23/index.md#def-gmt23-relative-perimeter)ではテスト場を $C_c^\infty$ としましたが、本章では $C_c^1$ まで広げても上限は同じです。
+
+実際、コンパクト台の $C^1$ ベクトル場を零で延長し、非負・積分1の平滑化核 $\rho_\varepsilon$ と畳み込んで $\varphi_\varepsilon$ を作ります。十分小さい半径なら台は領域内に留まり、関数とその一階導関数が一様に収束します。
+
+$$
+\varphi_\varepsilon\longrightarrow\varphi,\qquad
+D\varphi_\varepsilon\longrightarrow D\varphi
+\quad\text{一様に}.
+$$
+
+さらに $|\varphi|\le1$ なら、核が非負なので次のようにノルムを積分の内側へ移して評価できます。
+
+$$
+|\varphi_\varepsilon(x)|
+\le\int\rho_\varepsilon(z)|\varphi(x-z)|\,dz
+\le\int\rho_\varepsilon(z)\,dz=1
+$$
+
+です。発散積分も収束するので、どちらのテスト場で定義しても同じ周長になります。
+
 <a id="def-gmt24-finite-perimeter"></a>
 
 <!-- formal-statement-start -->
@@ -152,8 +172,8 @@ $$
 **符号の検算：** $E=(a,b)\subset\mathbb R$ なら
 
 $$
-D\chi_E=\delta_a-\delta_b,qquad
-\mathcal G_E=\delta_b-\delta_a,qquad
+D\chi_E=\delta_a-\delta_b,\qquad
+\mathcal G_E=\delta_b-\delta_a,\qquad
 |\mathcal G_E|=\delta_a+\delta_b.
 $$
 
@@ -191,7 +211,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所的に $x=(y,t)\in\mathbb R^{d-1}\times\mathbb R$、$E=\{t<g(y)\}$ とし、$g\in C^1$、$\varphi$ の台がこのグラフ表示の有効な開集合に入るとします。各 $i\le d-1$ について
+局所的に $x=(y,t)\in\mathbb R^{d-1}\times\mathbb R$、$E=\{t<g(y)\}$ とし、$g\in C^1$、$\varphi$ の台がこのグラフ表示の有効な開集合に入るとします。$\partial_{y_i}$ は $t$ を固定した偏微分、$\partial_t$ は $y$ を固定した偏微分です。各 $i\le d-1$ について、$y$ の関数
 
 $$
 F_i(y)=\int_{-\infty}^{g(y)}\varphi_i(y,t)\,dt
@@ -227,7 +247,28 @@ $$
 \varphi(y,g(y))\cdot(-\nabla g(y),1)\,dy.
 $$
 
-$E$ はグラフの下側なので、外向き単位法線は $n=(-\nabla g,1)/\sqrt{1+|\nabla g|^2}$ です。グラフ写像 $F(y)=(y,g(y))$ のGram行列は $I+\nabla g\otimes\nabla g$ で、$\det(I+vv^T)=1+|v|^2$ により $J_{d-1}F=\sqrt{1+|\nabla g|^2}$ です。[整流可能集合の面積公式](../GMT13/index.md#thm-gmt13-rectifiable-area)へこの単射 $F$ を代入すると、右辺は
+$E$ はグラフの下側なので、外向き単位法線は $n=(-\nabla g,1)/\sqrt{1+|\nabla g|^2}$ です。$e_i\in\mathbb R^{d-1}$ を第 $i$ 成分だけが1で他は0のベクトルとします。グラフ写像 $F(y)=(y,g(y))$ の微分行列の第 $i$ 列は $DF(y)e_i=(e_i,\partial_{y_i}g)$ です。従ってその列どうしの内積を並べたGram行列は
+
+$$
+\bigl(DF(y)^{\mathsf T}DF(y)\bigr)_{ij}
+=\delta_{ij}+\partial_{y_i}g\,\partial_{y_j}g,
+\qquad DF(y)^{\mathsf T}DF(y)=I+\nabla g\otimes\nabla g.
+$$
+
+勾配を $v=\nabla g$ と略記します。$vv^{\mathsf T}$ は $v$ 方向に固有値 $|v|^2$、その直交補に固有値0を持つため、$v=0$ の場合も含めて
+
+$$
+\det(I+vv^{\mathsf T})=1+|v|^2
+$$
+
+です。[m次元幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)の定義に $m=d-1$ を代入すると、面積倍率は
+
+$$
+J_{d-1}F=\sqrt{\det(DF^{\mathsf T}DF)}
+=\sqrt{1+|\nabla g|^2}.
+$$
+
+[整流可能集合の面積公式](../GMT13/index.md#thm-gmt13-rectifiable-area)へ単射 $F$ を代入すると、右辺は
 
 $$
 \int_{\partial E\cap\text{局所近傍}}
@@ -254,10 +295,23 @@ $$
 =\int_{-1}^1\varphi(s,ms)\cdot(-m,1)\,ds
 $$
 
-を得るので、$\mathcal G_E=F_\#((-m,1)\,ds)$、$|\mathcal G_E|=F_\#(\sqrt{1+m^2}\,ds)$ です。$P(E;\Omega)=2\sqrt{1+m^2}$ となります。グラフの下側、法線の長さ1、面積倍率の三つを同時に検証できました。
+を得ます。ここで $F_\#(v(s)\,ds)$ はグラフ写像 $F$ によって得られるベクトル値の**像測度**を表し、任意のテスト場 $\varphi$ について
+
+$$
+\int\varphi\cdot dF_\#(v\,ds)=\int_{-1}^1\varphi(F(s))\cdot v(s)\,ds
+$$
+
+と作用します。正の像測度も同様に、任意のスカラー値テスト関数 $h$ について
+
+$$
+\int h\,dF_\#(w\,ds)=\int_{-1}^1h(F(s))w(s)\,ds
+$$
+
+と定めます。$F$ は単射なので異なる $s$ の測度が互いに打ち消されることはなく、ベクトル像測度の全変動は大きさ $|(-m,1)|=\sqrt{1+m^2}$ の像測度になります。従って $\mathcal G_E=F_\#((-m,1)\,ds)$、$|\mathcal G_E|=F_\#(\sqrt{1+m^2}\,ds)$ です。$P(E;\Omega)=2\sqrt{1+m^2}$ となります。グラフの下側、法線の長さ1、面積倍率の三つを同時に検証できました。
 
 ## 4. 球と長方形を測度として計算する
 
+<a id="ref-gmt24-ball-formula"></a>
 ### 例2：球の外向きフラックス
 
 $d\ge2$、$E=B_R(0)=\{x\in\mathbb R^d:|x|<R\}$、$R>0$ とします。境界上の外向き単位法線は $n(x)=x/R$ です。球面は滑らかでコンパクトなので、[滑らかな境界の表示](#prop-gmt24-smooth-boundary)から
@@ -287,15 +341,32 @@ $$
 
 とくに平面の円盤では $P(B_R)=2\pi R$ です。球面の各点で $|n|=1$ なので、周長は符号付き測度の成分和でなく**ベクトル測度の全変動**である点にも注意してください。
 
+<a id="ref-gmt24-rectangle-formula"></a>
 ### 例3：長方形の各面と角
 
-$Q=\prod_{i=1}^d(a_i,b_i)$、$\ell_i=b_i-a_i>0$ とします。$F_i^\pm$ は $x_i=b_i$ または $x_i=a_i$ にあり、他の座標は開区間内の面です（$\pm$ は上側・下側）。[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で座標ごとに積分を分け、一次元の微分を端点で評価すると
+直方体とその辺長を次で表します。
+
+$$
+Q=\prod_{i=1}^d(a_i,b_i),\qquad \ell_i=b_i-a_i>0.
+$$
+
+$F_i^+$ は第 $i$ 座標が上端の面、$F_i^-$ は下端の面で、他の座標は開区間内を動きます。$e_i$ は第 $i$ 標準単位ベクトルです。
+
+また $x_{-i}$ は第 $i$ 成分を除いた座標列、$dx_{-i}$ は残りの $d-1$ 座標の積分要素です。固定値 $s$ を第 $i$ 成分に戻した点を
+
+$$
+x^{(i)}(s)=(x_1,\ldots,x_{i-1},s,x_{i+1},\ldots,x_d)
+$$
+
+と書きます。$d=1$ では空積・零次元積分を1とします。
+
+[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で各座標を積分し、一次元の微分を端点で評価すると
 
 $$
 \begin{aligned}
 \int_Q\operatorname{div}\varphi\,dx
 &=\sum_{i=1}^d\int_{\prod_{j\ne i}(a_j,b_j)}
-\bigl[\varphi_i(x_{-i},b_i)-\varphi_i(x_{-i},a_i)\bigr],dx_{-i}.
+\bigl[\varphi_i(x^{(i)}(b_i))-\varphi_i(x^{(i)}(a_i))\bigr]\,dx_{-i}.
 \end{aligned}
 $$
 
@@ -442,9 +513,22 @@ $$
 \|\chi_{E_j}\|_{L^1(U)}=|E_j\cap U|\le|U|.
 $$
 
-また[相対周長と変動の同一性](#thm-gmt24-gauss-green)から $|D\chi_{E_j}|(U)=P(E_j;U)$ です。従って $(\chi_{E_j})$ は[GMT23の局所BV有界列](../GMT23/index.md#def-gmt23-local-bv-bounded)です。[BVの局所L1コンパクト性](../GMT23/index.md#thm-gmt23-compactness)から、部分列と $u\in L^1_{\mathrm{loc}}(\Omega)$ があり、各 $U\Subset\Omega$ で $\chi_{E_{j_k}}\to u$ が $L^1(U)$ で成り立ちます。
+また[相対周長と変動の同一性](#thm-gmt24-gauss-green)から、同じ領域で
 
-相対コンパクト開集合を可算個取って $\Omega$ を尽くし、それぞれの上でさらに部分列を取る対角線法により、同じ部分列について $\chi_{E_{j_k}}(x)\to u(x)$ がほとんどすべての $x\in\Omega$ で成立します。各値は $0$ または $1$ なので $u(x)\in\{0,1\}$ a.e.です。$E=\{x\in\Omega:u(x)=1\}$ とし、$\Omega$ の外側は任意に補えば $u=\chi_E$ a.e.となります。
+$$
+|D\chi_{E_j}|(U)=P(E_j;U)\le \sup_j P(E_j;U)<\infty
+$$
+
+です。これら二つの上界により指示関数列は[GMT23の局所BV有界列](../GMT23/index.md#def-gmt23-local-bv-bounded)です。[BVの局所L1コンパクト性](../GMT23/index.md#thm-gmt23-compactness)から部分列と局所可積分な極限 $u$ が存在し、各 $U\Subset\Omega$ で $\chi_{E_{j_k}}\to u$ が $L^1(U)$ で成り立ちます。
+
+相対コンパクト開集合を可算個取って領域を尽くし、それぞれの上でさらに部分列を取る対角線法により、同じ部分列がほとんど至る所で点ごとにも収束します。
+
+$$
+\chi_{E_{j_k}}(x)\longrightarrow u(x)\in\{0,1\}
+\quad\text{a.e. }x\in\Omega.
+$$
+
+各指示関数が0か1だけを取るため、極限の値域もこの二点に限られます。$E=\{x\in\Omega:u(x)=1\}$ と置き、領域の外側を任意に補えば、$u=\chi_E$ がほとんど至る所で成り立ちます。
 
 任意の開集合 $A\subset\Omega$ と $\varphi\in C_c^1(A;\mathbb R^d)$ に対し、その台を含む $U\Subset A$ 上での $L^1$ 収束を使うと
 
@@ -481,7 +565,15 @@ $$
 =\varphi(2)-\varphi(5).
 $$
 
-したがって $D\chi_E=\delta_2-\delta_5$、[Gauss--Green測度の定義](#def-gmt24-gauss-green)から $\mathcal G_E=\delta_5-\delta_2$ です。二つのDirac測度は互いに特異なので、その全変動は $|\mathcal G_E|=\delta_2+\delta_5$ です。単位方向の値は点2で $-1$、点5で $+1$ であり、どちらも絶対値1です。相対領域 $A=(0,4)$ に入る端点は2のみだから、[周長と全変動の一致](#thm-gmt24-gauss-green)より
+したがって[Gauss--Green測度の定義](#def-gmt24-gauss-green)と、二つのDirac測度が互いに特異であることから
+
+$$
+D\chi_E=\delta_2-\delta_5,\quad
+\mathcal G_E=\delta_5-\delta_2,\quad
+|\mathcal G_E|=\delta_2+\delta_5
+$$
+
+です。単位方向は点2で $-1$、点5で $+1$ と決まり、どちらも絶対値1です。相対領域 $A=(0,4)$ に入る端点は2のみだから、[周長と全変動の一致](#thm-gmt24-gauss-green)より
 
 $$
 P(E;A)=|\mathcal G_E|(A)=1.
@@ -498,7 +590,7 @@ $B=B_2(0)\subset\mathbb R^2$ とする。$\nu_B$ と $P(B)$ を求めよ。ま�
 <!-- solution-start -->
 #### 詳細解答
 
-円周上では $\nu_B(x)=x/2$、[球の周長の計算](#prop-gmt24-smooth-boundary)と $\omega_2=\pi$ から
+円周上では $\nu_B(x)=x/2$、[球の周長の計算](#ref-gmt24-ball-formula)と $\omega_2=\pi$ から
 
 $$
 P(B)=2\omega_2\cdot2=4\pi.
@@ -583,7 +675,7 @@ $E=B_1(0)\subset\mathbb R^3$、$F=3E+(2,0,0)$ とする。$P(E)$、$P(E^c)$、$P
 <!-- solution-start -->
 #### 詳細解答
 
-$\omega_3=4\pi/3$ なので[球の公式](#prop-gmt24-smooth-boundary)から
+$\omega_3=4\pi/3$ なので[球の公式](#ref-gmt24-ball-formula)から
 
 $$
 P(E)=3\omega_3=4\pi.
@@ -612,7 +704,7 @@ $\Omega=(-2,2)\times\mathbb R$、$E=\{(s,t):t<2s\}$ とする。任意の $\varp
 <!-- solution-start -->
 #### 詳細解答
 
-$F(s)=\int_{-\infty}^{2s}\varphi_1(s,t)\,dt$ と置きます。積分上端 $2s$ の導関数が2であることを使って微分すると
+$F(s)=\int_{-\infty}^{2s}\varphi_1(s,t)\,dt$ と置きます。ここで $F'(s)=dF/ds$ は $s$ の通常の導関数で、$\partial_s\varphi_1$ は $t$ を固定する偏導関数です。積分上端 $2s$ の導関数が2であることを使って微分すると
 
 $$
 F'(s)=\int_{-\infty}^{2s}\partial_s\varphi_1(s,t)\,dt
@@ -643,7 +735,7 @@ $Q_1=(0,1)\times(0,2)$、$Q_2=(1,3)\times(0,2)$ とする。各集合の $P$ を
 <!-- solution-start -->
 #### 詳細解答
 
-各長方形の辺長は $(1,2)$、$(2,2)$ なので、[長方形の測度計算](#prop-gmt24-smooth-boundary)から $P(Q_1)=2(1+2)=6$、$P(Q_2)=2(2+2)=8$ です。
+各長方形の辺長は $(1,2)$、$(2,2)$ なので、[長方形の測度計算](#ref-gmt24-rectangle-formula)から $P(Q_1)=2(1+2)=6$、$P(Q_2)=2(2+2)=8$ です。
 
 共有辺 $S=\{1\}\times(0,2)$ で $Q_1$ の外向き法線は $+e_1$、$Q_2$ では $-e_1$。従って
 
@@ -777,7 +869,22 @@ $Q_1=(0,1)\times(0,1)$、$Q_2=(1,2)\times(0,1)$ とし、$u=2\chi_{Q_1}+\chi_{Q_
 <!-- solution-start -->
 #### 詳細解答
 
-[分布微分の線形性](../GMT21/index.md#thm-gmt21-measure-derivative)から $Du=2D\chi_{Q_1}+D\chi_{Q_2}=-(2\mathcal G_{Q_1}+\mathcal G_{Q_2})$ です。左端 $x=0$ の $\mathcal G$ 密度は $-2e_1$、右端 $x=2$ は $+e_1$、共有面 $x=1$ は $2e_1-e_1=+e_1$ です。水平辺では $0<x<1$ の上下の $\mathcal G$ 密度がそれぞれ $-2e_2,+2e_2$、$1<x<2$ では $-e_2,+e_2$ です。$Du$ の密度はこれらのすべてのベクトルの**反対向き**です。
+[分布微分の線形性](../GMT21/index.md#thm-gmt21-measure-derivative)により
+
+$$
+Du=2D\chi_{Q_1}+D\chi_{Q_2}
+=-(2\mathcal G_{Q_1}+\mathcal G_{Q_2})
+$$
+
+です。まず $\mathcal G=-Du$ の密度を、外向き方向で数えます。垂直辺では左端、共有面、右端の順に
+
+$$
+x=0:\ -2e_1,\qquad
+x=1:\ 2e_1-e_1=e_1,\qquad
+x=2:\ e_1
+$$
+
+となります。水平辺では上下それぞれの密度が、左の正方形の区間で $-2e_2,+2e_2$、右の区間で $-e_2,+e_2$ です。求める $Du$ の密度はこれらのすべてのベクトルの**反対向き**です。
 
 各辺の長さは1、交点は弧長零です。したがって $Du$ の全変動は、垂直三辺が $2+1+1=4$、水平上下の寄与が $2(2+1)=6$ で
 
