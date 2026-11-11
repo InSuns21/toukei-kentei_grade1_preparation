@@ -215,7 +215,11 @@ $$
 <a id="thm-ori24-origamizer"></a>
 <!-- formal-statement-start -->
 > **定理（Demaine–TachiのOrigamizer構成保証・原著の結果）**  
-> 有限個の厳密に凸な多角形面からなり、向き付け可能で、指定した切開により円板となる多面体曲面 $Q$ を考える。clean側・tuck側を整合的に指定し、切開辺の対を除いて少なくともtuck側で自己接触しないとする。任意の $\varepsilon>0$ に対し、ある凸多角形紙 $P$ と折り線図・完成折り状態 $f$ をアルゴリズムで構成できる。その状態は $Q$ のすべての面を覆い、tuck側への $\varepsilon$追加折りであり、各凸面でseamless、かつ紙の全境界 $\partial P$ を用いて $\varepsilon$-watertight である。
+> 有限個の厳密に凸な多角形面からなり、向き付け可能で、指定した切開により円板となる多面体曲面 $Q$ を考える。clean側とtuck側を整合的に指定する。切開辺の対を除いて、少なくともtuck側で自己接触しないと仮定する。
+>
+> 任意の $\varepsilon>0$ に対し、ある凸多角形紙 $P$ と、その折り線図・完成折り状態 $f$ をアルゴリズムで構成できる。
+>
+> その折り状態は目標 $Q$ の各面をすべて覆い、tuck側への $\varepsilon$追加折りを満たす。さらに各凸面でseamlessであり、紙の全境界 $\partial P$ を使う $\varepsilon$-watertight 条件を満たす。
 <!-- formal-statement-end -->
 
 この定理は[Demaine–Tachi（SoCG 2017）](https://origami.c.u-tokyo.ac.jp/~tachi/cg/DemaineTachiOrigamizerSoCG2017.pdf)の一般結果です。非向き付け可能な複体や非多様体を扱うには、面を二重化する等の入力の変換が必要です。閉曲面では適切な切開を指定してから円板として扱います。表面が凸多角形面から構成されることと、立体全体が凸であることも異なります。値 $\varepsilon$ は任意に小さく選べますが、**$\varepsilon=0$ が一般に可能**だとは主張していません。
