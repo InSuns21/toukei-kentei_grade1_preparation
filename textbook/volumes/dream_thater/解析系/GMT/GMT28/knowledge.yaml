@@ -1,0 +1,49 @@
+chapter: GMT28
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT14
+  - GMT22
+  - GMT24
+  - GMT25
+  - GMT26
+  - GMT27
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt28-boundary-integration
+    name: 縮約境界でのGauss--Green境界積分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（縮約境界でのGauss--Green境界積分）"]
+    requires:
+      - geometric-measure.gmt24-gauss-green-identity
+      - geometric-measure.gmt27-de-giorgi-structure
+
+  - id: geometric-measure.gmt28-perimeter-submodularity
+    name: 集合演算の周長劣加法性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合演算の周長劣加法性）"]
+    requires:
+      - geometric-measure.gmt24-set-operations
+      - geometric-measure.gmt22-smooth-approx
+      - geometric-measure.gmt22-lsc
+
+  - id: geometric-measure.gmt28-hyperplane-slicing
+    name: 超平面切断の周長とcoarea
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（超平面切断の周長とcoarea）"]
+    requires:
+      - geometric-measure.gmt27-de-giorgi-structure
+      - geometric-measure.gmt14-coarea
+
+  - id: geometric-measure.gmt28-halfspace-cut
+    name: 半空間切断の周長公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半空間切断の周長公式）"]
+    requires:
+      - geometric-measure.gmt28-boundary-integration
+      - geometric-measure.gmt28-hyperplane-slicing

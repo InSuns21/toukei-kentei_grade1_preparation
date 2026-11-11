@@ -1,0 +1,41 @@
+version: 1
+id: HOLO
+title: "ホログラフィー I：AdS/CFTと量子誤り訂正"
+plan: textbook/plans_progress/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 進捗は先頭から連続する completed と次の planned から導出する。
+chapters:
+  - { id: HOLO1, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO1, status: completed, title: "反de Sitter時空の埋め込みと定曲率" }
+  - { id: HOLO2, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO2, status: planned, title: "座標と共形境界" }
+  - { id: HOLO3, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO3, status: planned, title: "境界のUV/IRと測地線" }
+  - { id: HOLO4, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO4, status: planned, title: "対称性と境界CFT" }
+  - { id: HOLO5, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO5, status: planned, title: "制御された双対性の原型" }
+  - { id: HOLO6, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO6, status: planned, title: "大Nと半古典重力" }
+  - { id: HOLO7, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO7, status: planned, title: "作用の境界値問題" }
+  - { id: HOLO8, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO8, status: planned, title: "スカラー漸近とBF境界" }
+  - { id: HOLO9, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO9, status: planned, title: "GKPWと2点関数" }
+  - { id: HOLO10, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO10, status: planned, title: "Witten接触図" }
+  - { id: HOLO11, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO11, status: planned, title: "交換図と4点関数" }
+  - { id: HOLO12, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO12, status: planned, title: "バルクゲージ場と保存流" }
+  - { id: HOLO13, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO13, status: planned, title: "バルク重力場と応力テンソル" }
+  - { id: HOLO14, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO14, status: planned, title: "ホログラフィック繰り込み" }
+  - { id: HOLO15, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO15, status: planned, title: "境界の熱状態とAdSブラックホール" }
+  - { id: HOLO16, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO16, status: planned, title: "BTZ・熱場二重状態" }
+  - { id: HOLO17, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO17, status: planned, title: "境界領域のエントロピー" }
+  - { id: HOLO18, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO18, status: planned, title: "RT公式の最小模型" }
+  - { id: HOLO19, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO19, status: planned, title: "homology条件と面積競合" }
+  - { id: HOLO20, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO20, status: planned, title: "RTとエントロピー不等式" }
+  - { id: HOLO21, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO21, status: planned, title: "重力レプリカ法" }
+  - { id: HOLO22, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO22, status: planned, title: "共変HRT面" }
+  - { id: HOLO23, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO23, status: planned, title: "FLM量子補正" }
+  - { id: HOLO24, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO24, status: planned, title: "量子極値曲面QES" }
+  - { id: HOLO25, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO25, status: planned, title: "causal wedgeとentanglement wedge" }
+  - { id: HOLO26, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO26, status: planned, title: "HKLL再構成" }
+  - { id: HOLO27, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO27, status: planned, title: "部分領域再構成" }
+  - { id: HOLO28, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO28, status: planned, title: "JLMSと相対エントロピー" }
+  - { id: HOLO29, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO29, status: planned, title: "消失訂正としてのバルク" }
+  - { id: HOLO30, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO30, status: planned, title: "作用素代数量子誤り訂正" }
+  - { id: HOLO31, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO31, status: planned, title: "テンソル網・HaPPY模型" }
+  - { id: HOLO32, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO32, status: planned, title: "エンタングルメントと重力の線形応答" }
+  - { id: HOLO33, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO33, status: planned, title: "何が双対で何が未解決か" }

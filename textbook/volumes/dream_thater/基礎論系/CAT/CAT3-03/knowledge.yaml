@@ -1,0 +1,67 @@
+chapter: CAT3-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT3-02
+
+concepts:
+  - id: category.em-algebra
+    name: モナド代数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モナド代数）"]
+    requires: [category.monad]
+  - id: category.em-algebra-morphism
+    name: モナド代数の射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モナド代数の射）"]
+    requires: [category.em-algebra]
+  - id: category.em-category
+    name: Eilenberg–Moore圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Eilenberg–Moore圏）"]
+    requires: [category.em-algebra-morphism]
+  - id: category.em-category-laws
+    name: Eilenberg–Moore圏の圏公理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eilenberg–Moore圏の圏公理）"]
+    requires: [category.em-category]
+  - id: category.em-adjunction
+    name: 自由代数・忘却随伴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自由代数・忘却随伴）"]
+    requires: [category.em-category-laws, category.adjunction-induced-monad]
+  - id: category.em-comparison
+    name: 比較関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（比較関手）"]
+    requires: [category.em-algebra, category.adjunction-induced-monad]
+  - id: category.em-comparison-construction
+    name: 比較関手の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（比較関手の構成）"]
+    requires: [category.em-comparison, category.em-adjunction]
+  - id: category.kleisli-em-embedding
+    name: Kleisli圏の自由代数への埋め込み
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kleisli圏の自由代数への埋め込み）"]
+    requires: [category.kleisli-adjunction, category.em-adjunction]
+  - id: category.list-em-monoids
+    name: 有限語モナドの代数とモノイド
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限語モナドの代数とモノイド）"]
+    requires: [category.em-algebra, category.free-monoid-monad]
+  - id: category.exception-em-algebras
+    name: 例外モナドの代数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（例外モナドの代数）"]
+    requires: [category.em-algebra, category.exception-monad]

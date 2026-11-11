@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 改訂: 2026-11-11（標準的教科書・講義ノートとの範囲照合、講義数と図版計画の確定）  
-状態: planned（PLAN設計のみ。HOLO1〜HOLO33の本文・系列manifest・公開は未着手）
+状態: in progress（HOLO1完了。HOLO2〜HOLO33は未着手）
 
 ## 0. 中心問いと到達点
 
@@ -33,9 +33,9 @@
 | GEO12〜GEO19・既存変分問題 | 測地線、面積変分、曲率、極小曲面の初歩 | RT/HRTのアンカー・homology・共変的極値面の適用条件 |
 
 - 正本の確認は各章執筆時に実在するcanonical stable anchorで行う。上表は**科目の学修案内**であり、`chapter.yaml`・`knowledge.yaml` の直接prerequisiteへ無条件に全科目を列挙する趣旨ではない。依存は章ごとに必要な最小集合を選ぶ。
-- 厳密な局所作用素環、Type III因子・モジュラー理論を追う分岐では[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)を参照。未実装の場合は一般定理を既習扱いせず、有限次元またはUV正則化された例を主に使い、一般の無限次元QFTへの拡張を明記する。
+- 厳密な局所作用素環、Type III因子・モジュラー理論を追う分岐では[AQFT](../plans/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)を参照。未実装の場合は一般定理を既習扱いせず、有限次元またはUV正則化された例を主に使い、一般の無限次元QFTへの拡張を明記する。
 - **HOLOの固有責務**はAdS/CFT辞書、RT/HRT・FLM・QES、entanglement wedge、HKLL、JLMS、重力側の量子誤り訂正。一般の量子情報・CFT・重力熱力学を複製しない。
-- [BHI I/IIの横断ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)へはQESと辞書の意味を渡す。island、replica wormhole、蒸発のPage曲線の再現と因数分解問題は**BHI II**に置き、HOLOでは一般的に解決済みと主張しない。
+- [BHI I/IIの横断ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)へはQESと辞書の意味を渡す。island、replica wormhole、蒸発のPage曲線の再現と因数分解問題は**BHI II**に置き、HOLOでは一般的に解決済みと主張しない。
 - Lorentz計量は[$(-,+,+,+)$規約](../dream-theater-lorentz-conventions.md)。一般の$AdS_{d+1}$では時間方向1・空間方向$d$、曲率の符号はGR/GEOの規約に従う。計算ごとに$L,G_N,\hbar$、作用の境界項、Euclid/Lorentz、有限カットオフ、$1/N$次数を宣言する。
 
 ## 2. 教科書・講義ノートとの照合と範囲決定

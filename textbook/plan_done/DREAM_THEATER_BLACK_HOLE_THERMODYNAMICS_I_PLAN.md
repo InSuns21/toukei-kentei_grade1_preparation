@@ -32,7 +32,7 @@ GR IIで学んだ地平線・表面重力・Raychaudhuri方程式と、QCURVで�
 | [QFT I〜IV](../plan_done/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)の必要部分 | 場の作用、量子経路積分の形式的サドル展開 | 重力のEuclid境界値問題・on-shell作用・熱力学ポテンシャル。一般的QFTを再構築しない |
 | [QINF](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)の必要部分 | 密度演算子、von Neumann・エンタングルメントエントロピー | 地平線外部のエントロピー収支を定式化し、BHIへの入口を作る |
 
-**canonical ownership：** GRが地平線の幾何学的定義・一般的面積定理を、QCURVがUnruh/Hawking放射の場の導出を所有する。BHTは熱力学の四法則のブラックホールへの適用、状態量、Euclid重力熱力学、安定性、Waldエントロピー、一般化第二法則を所有する。[BHI I・II](../plans/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)はPage曲線・情報損失・islandの計算、[HOLO](../plans/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)はAdS/CFT辞書・RT/HRT・量子極値曲面を所有する。Hawking–Page転移はBHTで重力側の作用差まで扱い、CFT側の解釈はHOLOへ委ねる。
+**canonical ownership：** GRが地平線の幾何学的定義・一般的面積定理を、QCURVがUnruh/Hawking放射の場の導出を所有する。BHTは熱力学の四法則のブラックホールへの適用、状態量、Euclid重力熱力学、安定性、Waldエントロピー、一般化第二法則を所有する。[BHI I・II](../plans/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)はPage曲線・情報損失・islandの計算、[HOLO](../plans_progress/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)はAdS/CFT辞書・RT/HRT・量子極値曲面を所有する。Hawking–Page転移はBHTで重力側の作用差まで扱い、CFT側の解釈はHOLOへ委ねる。
 
 [熱・時空・情報の横断ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)を学修経路の正本とする。[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)のLORG・HPDEの必要結果を参照し、MICA（Hadamardと繰り込み）・AQFT（局所環・モジュラー理論）は厳密化ルートの追加前提とする。全講を必修にしない。未実装または未確認の結果は既習扱いせず、章内で導入するか適用条件付きの参照結果とする。
 

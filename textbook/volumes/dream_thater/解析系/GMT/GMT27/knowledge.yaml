@@ -1,0 +1,45 @@
+chapter: GMT27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT1
+  - GMT10
+  - GMT12
+  - GMT15
+  - GMT20
+  - GMT24
+  - GMT25
+  - GMT26
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt27-flat-perimeter-tangent
+    name: 縮約境界での周長測度の平坦接測度
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（縮約境界での周長測度の平坦接測度）"]
+    requires:
+      - geometric-measure.gmt26-halfspace-blowup
+      - geometric-measure.gmt25-normal-mean
+
+  - id: geometric-measure.gmt27-density-comparison
+    name: 球密度からの面積測度の比較
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（球密度からの面積測度の比較）"]
+    requires:
+      - geometric-measure.gmt1-besicovitch-covering
+      - geometric-measure.gmt10-hausdorff-normalization
+
+  - id: geometric-measure.gmt27-de-giorgi-structure
+    name: De Giorgi構造定理の整流可能性と測度同定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（De Giorgi構造定理：整流可能性と測度同定）"]
+    requires:
+      - geometric-measure.gmt27-flat-perimeter-tangent
+      - geometric-measure.gmt27-density-comparison
+      - geometric-measure.gmt20-cone-pair
+      - geometric-measure.gmt20-cone-graph
+      - geometric-measure.gmt15-rectifiable-density-tangent
+      - geometric-measure.gmt25-normal-mean

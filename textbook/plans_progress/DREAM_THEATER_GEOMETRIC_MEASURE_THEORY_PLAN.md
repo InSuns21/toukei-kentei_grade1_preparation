@@ -27,7 +27,9 @@ GMT22着手日時: 2026-11-11 07:23:38 JST（局所畳み込み、全変動の�
 GMT23着手日時: 2026-11-11 08:01:44 JST（BVの局所平行移動評価・局所L1コンパクト性、相対周長とBV coarea）
 GMT24着手日時: 2026-11-11 14:39:21 JST（有限周長、Gauss--Green測度の極分解、滑らかな境界・合併・コンパクト性）
 GMT25着手日時: 2026-11-11 17:17:10 JST（縮約境界の点ごとの法線平均、周長測度a.e.の存在、滑らかな半空間blow-up・角点反例）
-状態: in_progress（GMT1--GMT25 は実装・査読済み。GMT26--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT27着手日時: 2026-11-11 23:04 JST（縮約境界の可算グラフ被覆、周長と正規化Hausdorff面積の同定）
+GMT28着手日時: 2026-11-12 00:57 JST（縮約境界のGauss--Green、集合演算と周長劣加法性、超平面切断・coarea）
+状態: in_progress（GMT1--GMT28 は実装・査読済み。GMT29--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -234,7 +236,7 @@ Hausdorff次元は集合の大きさを測る。しかし、射影したとき�
 
 #### GMT27 De Giorgi構造定理 II：整流可能性と測度同定
 
-- $\partial^*E$の可算$(d-1)$-rectifiability、$|D\chi_E|=\mathcal H^{d-1}\llcorner\partial^*E$。
+- $\partial^*E$の可算$(d-1)$-rectifiability、$|D\chi_E|=c_{d-1}^{-1}\mathcal H^{d-1}\llcorner\partial^*E$。MT8の直径による非正規化$\mathcal H^m$のため、$c_m=\mathcal H^m([0,1]^m)$を保持する。
 - 半空間近似→局所グラフ被覆→測度同定の核心を証明。正規化と零集合を検算。
 
 #### GMT28 Gauss--Greenの境界積分・集合演算・切断
