@@ -30,7 +30,8 @@ GMT25着手日時: 2026-11-11 17:17:10 JST（縮約境界の点ごとの法線�
 GMT27着手日時: 2026-11-11 23:04 JST（縮約境界の可算グラフ被覆、周長と正規化Hausdorff面積の同定）
 GMT28着手日時: 2026-11-12 00:57 JST（縮約境界のGauss--Green、集合演算と周長劣加法性、超平面切断・coarea）
 GMT29着手日時: 2026-11-12 01:20:54 JST（ABP法による鋭い等周定数、strict近似、等号剛性の射程）
-状態: in_progress（GMT1--GMT29 は実装・査読済み。GMT30--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT30着手日時: 2026-11-12 02:40:53 JST（共通有界支持、許容クラスの閉性、外部データ付き周長最小化、質量逃避・境界反例）
+状態: in_progress（GMT1--GMT30 は実装・査読済み。GMT31--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -352,4 +353,4 @@ formal statementでは対象の可測性・次元・有限性、a.e.の参照測
 4. BV compactness/coarea→finite perimeter→reduced boundary→De Giorgi構造→Gauss--Green→等周・周長最小化の証明が閉じる。
 5. Besicovitch構成、tube overlap、Kakeya maximalからの次元含意を計算でき、HA11とEOM074へ正しく接続する。
 6. Preissの一般定理・currents/varifolds・Kakeya最新結果について、**証明済みの本科目範囲と停止線外**を読者が区別できる。
-7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT10完了後もGMT11--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
+7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT30完了後もGMT31--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
