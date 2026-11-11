@@ -203,7 +203,7 @@ $$
 
 [MT8のHausdorff次元](../../MT/MT8/index.md#def-mt8-hausdorff-dimension)は、任意の細かい可算被覆の直径のべきを足す方法で定義されました。tubeの議論ではむしろ、**一つの尺度 $\delta$ で何個の球が要るか**を知りたい場面が多くあります。
 
-非空有界集合 $E\subset\mathbb R^d$ に対し $N_\delta(E)$ を、「中心を $E$ に置いた半径 $\delta$ の開球で $E$ を覆う」ための最小個数とします。$E$ が有界ならこの数は有限です。上下Minkowski次元は、被覆数の $\delta$ に関する成長指数で定義します。
+非空有界集合 $E\subset\mathbb R^d$ に対し $N_\delta(E)$ を、「中心を $E$ に置いた半径 $\delta$ の開球で $E$ を覆う」ための最小個数とします。$E$ が有界ならこの数は有限です。被覆数の $\delta$ に関する成長について、下側と上側の二つの指数を次に定義します。
 
 <a id="def-gmt32-minkowski"></a>
 
@@ -450,7 +450,7 @@ $$
 
 <a id="ex-gmt32-a03"></a>
 
-**A03　線分の箱次元**
+**A03　線分のMinkowski次元**
 
 - Level: A
 - 問題: $E=[0,1]\times\{0\}\subset\mathbb R^2$ の $\delta$-近傍面積を計算し、上下Minkowski次元を求めよ。
