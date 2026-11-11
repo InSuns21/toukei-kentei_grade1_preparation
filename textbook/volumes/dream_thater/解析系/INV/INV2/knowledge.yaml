@@ -1,0 +1,44 @@
+chapter: INV2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV1
+  - FA6
+
+forward_references: []
+
+concepts:
+  - id: inverse.lower-bound-stability
+    name: 下界評価と逆の安定性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（下界評価と逆の安定性）"]
+    requires: [inverse.hadamard-well-posedness, functional.bounded-linear-operator]
+
+  - id: inverse.closed-range-stability
+    name: 単射作用素の閉値域と下界評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単射作用素の閉値域と下界評価）"]
+    requires: [inverse.lower-bound-stability, functional.bounded-inverse-theorem]
+
+  - id: inverse.compact-instability
+    name: 無限次元単射コンパクト作用素の不安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無限次元単射コンパクト作用素の不安定性）"]
+    requires: [inverse.closed-range-stability, functional.compact-operator]
+
+  - id: inverse.compact-closed-range
+    name: コンパクト作用素の閉値域は有限次元
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（コンパクト作用素の閉値域は有限次元）"]
+    requires: [inverse.compact-instability]
+
+  - id: inverse.diagonal-range
+    name: 対角観測の値域と非閉性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対角観測の値域と非閉性）"]
+    requires: [inverse.compact-instability, functional.diagonal-compact-criterion]
