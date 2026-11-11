@@ -25,3 +25,4 @@
 22. [ORI22 tree methodと円・河川パッキング](textbook/volumes/dream_thater/幾何系/ORI/ORI22/index.md)
 23. [ORI23 box pleating・格子折りの設計](textbook/volumes/dream_thater/幾何系/ORI/ORI23/index.md)
 24. [ORI24 Origamizerと多面体表面の実現](textbook/volumes/dream_thater/幾何系/ORI/ORI24/index.md)
+25. [ORI25 剛体折りと4価頂点](textbook/volumes/dream_thater/幾何系/ORI/ORI25/index.md)
