@@ -1,0 +1,42 @@
+id: "BHT23"
+title: "Bekenstein boundと限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT22
+  - QINF20
+official_scope: []
+learning_objectives:
+  - 弱自己重力と有限サイズの条件、エネルギーとエントロピーの定義を指定してBekenstein型境界の係数と物理単位を説明できる
+  - Schwarzschild地平線近傍の固有距離・赤方偏移・第一法則から2πERを再計算し、下限だけでは境界が論理的に導けないことを示せる
+  - 理想降下操作の実在性と誤差消失を仮定した条件付き命題を証明し、量子浮力・熱的雰囲気・箱の壁・外部相関が壊す前提を特定できる
+  - 種数問題・Casimirエネルギー・強重力の例を検算し、見かけの反例と実際のGSLの反例を区別できる
+  - 相対エントロピーの非負性から真空差し引き境界を導き、Rindler領域のモジュラー重みによる2πRΔE評価の追加仮定を検査できる
+definitions:
+  - { id: BHT23-DEF-01, name: "弱重力系に対するBekenstein型境界の主張" }
+theorems:
+  - { id: BHT23-PROP-01, name: "理想降下とGSLからの条件付き境界" }
+  - { id: BHT23-PROP-02, name: "熱的雰囲気を省いた収支の限界" }
+  - { id: BHT23-PROP-03, name: "相対エントロピーからの真空差し引き境界" }
+canonical_examples:
+  - 弱重力パラメータとS≤2πERの数値判定を区別する
+  - Schwarzschildの固有距離と赤方偏移から地平線近傍の係数を復元する
+  - 高さの小さい箱の上下の圧力差から浮力の向きを求める
+  - N種の等確率状態のエントロピーと壁の物理的費用を比較する
+  - 真空を参照する二準位模型で負のエントロピー差と正の相対エントロピーを照合する
+  - Rindlerの局在エネルギー密度の一次モーメントを積分する
+problem_patterns:
+  - BHT23-PHYSICAL-UNITS
+  - BHT23-REDSHIFT-FACTOR
+  - BHT23-LOWER-BOUND-LOGIC
+  - BHT23-LOCAL-PRESSURE-GRADIENT
+  - BHT23-SCHWARZSCHILD-FORMAL-SATURATION
+  - BHT23-GSL-FINITE-ERROR
+  - BHT23-SPECIES-COUNTING
+  - BHT23-RELATIVE-ENTROPY-QUBIT
+  - BHT23-RINDLER-MODULAR-MOMENT
+  - BHT23-INTEGRATED-DROP-AND-ENTROPY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 8 }
