@@ -465,7 +465,7 @@ $$
 =1+\frac{\log(2+\pi\delta)}{\log\delta}\longrightarrow1.
 $$
 
-[近傍体積公式](#lem-gmt32-neighborhood-cover)から下・上Minkowski次元はともに $2-1=1$ です。
+[近傍体積公式](#lem-gmt32-neighborhood-cover)から上下Minkowski次元はともに $2-1=1$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt32-a04"></a>
