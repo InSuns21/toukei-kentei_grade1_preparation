@@ -1,0 +1,65 @@
+chapter: GMT30
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT22
+  - GMT23
+  - GMT24
+  - GMT27
+  - GMT28
+  - GMT29
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt30-admissible
+    name: 容器・障害物・体積付きの許容クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（容器・障害物・体積付きの許容クラス）"]
+    requires:
+      - geometric-measure.gmt24-finite-perimeter
+
+  - id: geometric-measure.gmt30-minimizing-sequence
+    name: 周長最小化列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周長最小化列）"]
+    requires:
+      - geometric-measure.gmt30-admissible
+
+  - id: geometric-measure.gmt30-global-l1
+    name: 共通コンパクト支持による全空間収束
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（共通コンパクト支持による全空間収束）"]
+    requires:
+      - geometric-measure.gmt24-set-compactness
+
+  - id: geometric-measure.gmt30-existence
+    name: コンパクト容器・体積・障害物条件下の周長極小集合の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト容器・体積・障害物条件下の周長極小集合の存在）"]
+    requires:
+      - geometric-measure.gmt30-admissible
+      - geometric-measure.gmt30-minimizing-sequence
+      - geometric-measure.gmt30-global-l1
+      - geometric-measure.gmt22-lsc
+
+  - id: geometric-measure.gmt30-exterior-data
+    name: 固定外部データと体積条件の周長極小集合
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（固定外部データと体積条件の周長極小集合）"]
+    requires:
+      - geometric-measure.gmt30-existence
+
+  - id: geometric-measure.gmt30-disc-minimizers
+    name: 円盤障害物付き固定面積問題の全極小集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円盤障害物付き固定面積問題の全極小集合）"]
+    requires:
+      - geometric-measure.gmt30-existence
+      - geometric-measure.gmt29-sharp-isoperimetric
+      - geometric-measure.gmt29-equality
