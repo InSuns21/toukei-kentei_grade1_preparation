@@ -12,7 +12,7 @@
 
 ### 1.1 時間を虚数方向へ回すと何が変わるか
 
-[Poincaré計量](../HOLO2/index.md#prop-holo2-poincare-metric)の時間座標 $t$ を、形式的に $t=-i\tau_E$、実数のEuclid時刻 $\tau_E$ へ置き換えると、$-dt^2=d\tau_E^2$ になります。これは実Lorentz多様体の実座標変換ではありません。ここでは得られる正定値計量を、独立したRiemann幾何として扱います。境界の座標を $\boldsymbol x=(\tau_E,y^1,\ldots,y^{d-1})\in\mathbb R^d$ とまとめます。
+[Poincaré計量](../HOLO2/index.md#prop-holo2-poincare-metric)の時間座標 $t$ を、形式的に $t=-i\tau_E$、実数のEuclid時刻 $\tau_E$ へ置き換えると、$-dt^2=d\tau_E^2$ になります。これは実Lorentz多様体の実座標変換ではありません。ここでは得られる正定値計量を、独立したRiemann幾何として扱います。境界の座標を $\boldsymbol x=(\tau_E,y^1,\ldots,y^{d-1})\in\mathbb R^d$ とまとめます。以下では $x^1=\tau_E$、$x^i=y^{i-1}$（$2\le i\le d$）と成分番号を定め、$dx^i$ と $dz$ はそれぞれ対応する境界座標と動径座標の微分を表します。
 
 <a id="def-holo3-euclidean-ads"></a>
 
@@ -29,13 +29,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo3-euclidean-ads -->
-**定義の確認**： $d=2$ として $(z,\tau_E,y)=(L,0,0)$ を取ります。接ベクトル $v=(v_z,v_\tau,v_y)$ に対し
+**定義の確認**： $d=2$ として $(z,\tau_E,y)=(L,0,0)$ を取ります。座標基底 $\partial_z,\partial_{\tau_E},\partial_y$ で接ベクトルを $v=v_z\partial_z+v_\tau\partial_{\tau_E}+v_y\partial_y$ と展開すると、その成分 $(v_z,v_\tau,v_y)$ に対し
 
 $$
 g_E(v,v)=\frac{L^2}{L^2}(v_z^2+v_\tau^2+v_y^2)>0\quad(v\ne0)
 $$
 
-であり、定義域は $z=L>0$ を満たします。$z=\epsilon$ 上で $dy$ だけを動かした固有長要素は $L|dy|/\epsilon$ です。一方、$z=0$ は係数が発散し、この計量を内部点の計量としてそのまま代入できません。$\omega=z/L$ を掛けた $\omega^2g_E=dz^2+|d\boldsymbol x|^2$ は境界まで滑らかで、[共形コンパクト化](../HOLO2/index.md#def-holo2-conformal-compactification)の正定値版を直接確認できます。
+です。この計算は一点の例ですが、任意の $z>0$ でも $g_E(v,v)=(L^2/z^2)(v_z^2+v_\tau^2+v_y^2)>0$（$v\ne0$）なので、正定値性は全定義域で成立します。$z=\epsilon$ 上で $dy$ だけを動かすと $dz=d\tau_E=0$ であり、固有長要素は $L|dy|/\epsilon$ です。
+
+$z=0$ は係数が発散し、この計量を内部点の計量としてそのまま代入できません。[共形コンパクト化](../HOLO2/index.md#def-holo2-conformal-compactification)の条件を正定値計量に読み替え、$\omega=z/L$ とします。内部で $\omega>0$、付け加えた境界で $\omega=0$、そこで $d\omega=dz/L\ne0$ です。さらに
+
+$
+\overline g_E=\omega^2g_E=dz^2+d\tau_E^2+dy^2
+$
+
+は境界まで滑らかで、座標基底に関する係数行列が単位行列なので境界でも非退化かつ正定値です。HOLO2の元の定義の**Lorentz符号**ではなく、ここではEuclid側の正定値性を確認している点に注意します。
 <!-- definition-example-end -->
 
 「深い」とは $z$ が大きいことです。ただし $z$ 自身は固有距離でなく、例えば同じ $\boldsymbol x$ のまま $z_1$ から $z_2$ へ進む長さは
@@ -69,7 +77,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z'=\lambda z$、$x'^i=\lambda x^i$ とすると $dz'=\lambda dz$、$dx'^i=\lambda dx^i$ であり、引き戻し計量は
+ここで $z'$、$x'^i$ のプライムは**変換後の座標**を表し、後で使う $z'(x)=dz/dx$ という導関数とは異なります。$z'=\lambda z$、$x'^i=\lambda x^i$ とすると、$\lambda$ を固定して微分して $dz'=\lambda dz$、$dx'^i=\lambda dx^i$ であり、引き戻し計量は
 
 $$
 S_\lambda^*g_E=\frac{L^2}{(\lambda z)^2}\left((\lambda dz)^2+\sum_i(\lambda dx^i)^2\right)=g_E.
@@ -88,7 +96,15 @@ $$
 ds_E^2=\frac{L^2}{z^2}(dx^2+dz^2),\qquad z>0.
 $$
 
-任意の曲線の長さは、他の座標を動かす成分も足し合わせるため、断面へ射影した曲線の長さ以上です。従ってこの断面で全ての曲線に対する最短性を証明できれば、全 $H^{d+1}$ に対する最短性も従います。
+任意の曲線をパラメータ $s$ で $(x(s),z(s),q^1(s),\ldots,q^{d-1}(s))$ と表し、$q^j$ は残りの境界座標とします。この段落だけプライムを $s$ に関する導関数として書けば、正定値性から
+
+$
+\mathcal L_{\mathrm{full}}
+=L\int\frac{\sqrt{(x')^2+(z')^2+\sum_j(q'^j)^2}}{z}\,ds
+\ge L\int\frac{\sqrt{(x')^2+(z')^2}}{z}\,ds.
+$
+
+右辺は二次元断面への射影の長さです。等号には $q'^j=0$（ほとんど至る所）が必要です。従って断面内で全ての曲線に対する最短性を証明できれば、全 $H^{d+1}$ に対する最短性も従います。
 
 ### 2.1 変分の第一積分から円を求める
 
@@ -98,20 +114,42 @@ $$
 \mathcal L[z]=L\int_{-a}^a\frac{\sqrt{1+(z'(x))^2}}{z(x)}\,dx.
 $$
 
-曲線の傾き $z'$ は $x$ に関する微分です。被積分関数 $F(z,z')=\sqrt{1+(z')^2}/z$ は $x$ に明示的に依存しません。[VAR1の第一変分と境界項](../../../解析系/VAR/VAR1/index.md#prop-var1-first-variation-boundary)を固定端の $z(x)$ に適用すると $F_z-dF_{z'}/dx=0$ です。さらに $d(F-z'F_{z'})/dx=z'(F_z-dF_{z'}/dx)=0$ を直接計算すると、正の定数 $1/R$ を用いて
+ここからは $z'(x)=dz/dx$ を $x$ に関する導関数とします。$p=z'(x)$ と書くと、$F(z,p)=\sqrt{1+p^2}/z$ は $x$ に明示的に依存しません。$z>0$ の滑らかな固定端グラフについて[VAR1の第一変分と境界項](../../../解析系/VAR/VAR1/index.md#prop-var1-first-variation-boundary)を適用し、端点の変分をゼロにすると $F_z-dF_p/dx=0$ です。実際、
 
-$$
-F-z'F_{z'}=\frac{1}{z\sqrt{1+(z')^2}}=\frac1R.
-$$
+$
+F_z=-\frac{\sqrt{1+p^2}}{z^2},\qquad
+F_p=\frac{p}{z\sqrt{1+p^2}}
+$
 
-従って $z^2(1+(z')^2)=R^2$。上昇・下降する枝で $x$ を $z$ の関数として見れば
+なので、連鎖律 $p=dz/dx$ より
 
-$$
-\left(\frac{dx}{dz}\right)^2=\frac{z^2}{R^2-z^2},\qquad
-x-x_0=\pm\sqrt{R^2-z^2}.
-$$
+$
+\frac{d}{dx}(F-pF_p)
+=p\left(F_z-\frac{dF_p}{dx}\right)=0.
+$
 
-積分定数 $x_0$ は円の中心の横座標です。$P_-$ と $P_+$ を代入して $x_0=0$、$R^2=a^2+\epsilon^2$ を得ます。$z=R$ で二枝が滑らかにつながります。ただし、停留曲線を求めただけではまだ「最短」を示したことにはなりません。
+$F-pF_p>0$ だから正数 $R$ を用いて
+
+$
+F-pF_p=\frac{1}{z\sqrt{1+p^2}}=\frac1R,
+\qquad z^2(1+p^2)=R^2
+$
+
+と表せます。$0<z<R$、$p\ne0$ の上昇・下降する各枝では、逆関数の微分 $dx/dz=1/p$ を使えます。この範囲で
+
+$
+\frac{dx}{dz}=\pm\frac{z}{\sqrt{R^2-z^2}},\qquad
+\frac{d}{dz}\sqrt{R^2-z^2}=-\frac{z}{\sqrt{R^2-z^2}}
+$
+
+を積分し、定数 $x_0$ と枝の符号を選ぶと円 $(x-x_0)^2+z^2=R^2$ を得ます。二端点を代入して
+
+$
+(-a-x_0)^2+\epsilon^2
+=(a-x_0)^2+\epsilon^2=R^2
+$
+
+ですから、$a>0$ により $x_0=0$、$R^2=a^2+\epsilon^2$ です。頂点 $z=R$ では $p=0$ なので逆関数表示は使えませんが、$z=\sqrt{R^2-x^2}$ はそこで滑らかに両枝をつなぎます。ただし、停留曲線を求めただけではまだ「最短」を示したことにはなりません。
 
 <a id="thm-holo3-semicircle"></a>
 
@@ -161,7 +199,7 @@ $$
 =\frac{L^2|d\zeta|^2}{z^2}.
 $$
 
-この写像は正定値計量 $L^2|d\zeta|^2/z^2$ を保つ等長写像です。円 $|\zeta|=R$ では分子・分母に $R-\overline\zeta$ を掛けると
+この写像は上半平面の正定値計量 $L^2|d\zeta|^2/z^2$ を保ち、逆写像 $\zeta=R(w-1)/(w+1)$ も $v>0$ 上で定義されます。したがって曲線を像へ移してから戻せます。円 $|\zeta|=R$ では分子・分母に $R-\overline\zeta$ を掛けると
 
 $$
 w=\frac{R(\zeta-\overline\zeta)}{|R-\zeta|^2}
@@ -175,7 +213,9 @@ w(P_-)=i\frac{\epsilon}{R+a},\qquad
 w(P_+)=i\frac{R+a}{\epsilon}.
 $$
 
-像の任意の区分的滑らかな曲線 $w(s)=u(s)+iv(s)$ は $v(s)>0$ を満たし、その長さに
+端点の高さも直接確かめます。$P_-$ で $|R-\zeta|^2=(R+a)^2+\epsilon^2=2R(R+a)$ ですから $v_-=\epsilon/(R+a)$ です。$P_+$ では $|R-\zeta|^2=2R(R-a)$ となり、$v_+=\epsilon/(R-a)=(R+a)/\epsilon$ です。
+
+像の任意の区分的滑らかな曲線 $w(s)=u(s)+iv(s)$ は $v(s)>0$ を満たし、ここで $u'$ と $v'$ はパラメータ $s$ に関する微分です。その長さに
 
 $$
 \begin{aligned}
@@ -524,19 +564,19 @@ $$
 G(\ell)=C\ell^{-2\Delta},\qquad \ell>0.
 $$
 
-一方、重いバルクプローブの質量 $m>0$ は $mL\gg1$ を満たし、測地線近似が次を与えるとする。
+一方、重いバルクプローブの質量 $m>0$ は $mL\gg1$ を満たし、測地線近似の**先頭指数因子だけ**を
 
-$$
-G_{\mathrm{geo}}(\ell)\propto e^{-mD_{\mathrm{ren}}(\ell;L)}.
-$$
+$
+G_{\mathrm{geo}}^{(\mathrm{exp})}(\ell):=e^{-mD_{\mathrm{ren}}(\ell;L)}
+$
 
-距離の指数を比較し、$\Delta=mL+\delta$（$\delta$ が $mL\to\infty$ でも有界）なら、この近似が何を保証し、何を保証しないか述べよ。
+と定める。前因子は一般に $\ell$ に依存し得るので、この記号は完全な相関関数を表さない。距離の指数を比較し、$\Delta=mL+\delta$（$\delta$ が $mL\to\infty$ でも有界）なら、この近似が何を保証し、何を保証しないか述べよ。
 
 <!-- solution-start -->
 **詳細解答。** [繰り込み長](#prop-holo3-cutoff-lengths)の後に定めた $D_{\rm ren}=2L\log(\ell/L)$ を使うと
 
 $$
-G_{\rm geo}(\ell)\propto\exp[-2mL\log(\ell/L)]=(L/\ell)^{2mL}.
+G_{\rm geo}^{(\mathrm{exp})}(\ell)=\exp[-2mL\log(\ell/L)]=(L/\ell)^{2mL}.
 $$
 
 [一次場二点関数定理](../../QFT/QFT48/index.md#thm-qft48-primary-two-point)による厳密な距離指数は $2\Delta=2mL+2\delta$。大きな $mL$ に比例する**先頭指数**は一致しますが、差の因子 $(L/\ell)^{2\delta}$ は一般に1とは限りません。ゆらぎの前因子、演算子の正規化、状態・背景・作用の仮定も必要で、測地線だけから $C$ や全次数の厳密等号は出ません。
@@ -572,7 +612,7 @@ $$
 D_{\rm cut}=2L\log\left[n\left(1+\sqrt{1+n^{-2}}\right)\right].
 $$
 
-(3) $u=n^{-2}$ とすると、$\sqrt{1\pm u}=1\pm u/2+O(u^2)$ です。従って
+(3) $u=n^{-2}$ とすると、$\sqrt{1\pm u}=1\pm u/2+O(u^2)$ です。このため $1+\sqrt{1\pm u}=2(1\pm u/4+O(u^2))$ であり、$\log(1+v)=v+O(v^2)$ を $v=\pm u/4+O(u^2)$ に適用して、従って
 
 $$
 \begin{aligned}
