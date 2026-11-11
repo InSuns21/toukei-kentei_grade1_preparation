@@ -207,8 +207,8 @@ A(Q)
 &\le\sum_{F\in\mathcal F(Q)}\sum_{i=1}^{m}
   \operatorname{area}(F\cap f(T_i))\\
 &=\sum_{i=1}^{m}\operatorname{area}(Q\cap f(T_i))\\
-&\le\sum_{i=1}^{m}\operatorname{area}(f(T_i))
-=\operatorname{area}(P).
+&\le\sum_{i=1}^{m}\operatorname{area}(f(T_i))\\
+&=\operatorname{area}(P).
 \end{aligned}
 $$
 
