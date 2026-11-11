@@ -1,0 +1,54 @@
+chapter: HOLO2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO1
+concepts:
+  - id: holography.conformal-compactification
+    name: 共形コンパクト化と共形境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共形コンパクト化と共形境界）"]
+    requires: [holography.ads-global-metric]
+  - id: holography.boundary-conformal-class
+    name: 境界計量の共形類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界計量の共形類）"]
+    requires: [holography.conformal-compactification]
+  - id: holography.global-conformal-boundary
+    name: global AdSの共形境界と径方向零曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（global AdSの共形境界と径方向零曲線）"]
+    requires: [holography.boundary-conformal-class, holography.ads-global-metric]
+  - id: holography.poincare-patch
+    name: Poincaré座標パッチ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poincaré座標パッチ）"]
+    requires: [holography.ads-quadric, holography.ads-universal-cover]
+  - id: holography.poincare-metric
+    name: Poincaréパッチの計量と領域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poincaréパッチの計量と領域）"]
+    requires: [holography.poincare-patch]
+  - id: holography.boundary-conformal-map
+    name: 二つの境界計量の共形関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二つの境界計量の共形関係）"]
+    requires: [holography.global-conformal-boundary, holography.poincare-metric]
+  - id: holography.fg-gauge
+    name: Fefferman–Graham型表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fefferman–Graham型表示）"]
+    requires: [holography.conformal-compactification, holography.poincare-metric]
+  - id: holography.poincare-horizon
+    name: Poincaré地平面の零性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poincaré地平面の零性）"]
+    requires: [holography.poincare-patch, holography.ads-quadric]

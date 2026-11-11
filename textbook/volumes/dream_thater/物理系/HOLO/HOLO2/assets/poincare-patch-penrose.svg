@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 510" width="570" height="510" data-layout-lint="strict" role="img" aria-labelledby="holo2-patch-title holo2-patch-desc">
+  <title id="holo2-patch-title">AdSの二次元断面におけるPoincaréパッチ</title>
+  <desc id="holo2-patch-desc">横軸は符号付き動径σ、縦軸はglobal時刻τ。両端の実線はσが±π/2の共形境界。τが0の中心を含むPoincaréパッチは、左端のτ=0から右上と右下へ伸びる二本の斜め破線の間の三角形であり、破線は零地平面である。</desc>
+  <rect x="0" y="0" width="570" height="510" fill="#ffffff"/>
+  <rect x="110" y="60" width="340" height="380" fill="#f8fafc"/>
+  <polygon points="110,250 450,60 450,440" fill="#dbeafe"/>
+  <g stroke="#475569" stroke-width="2.5" fill="none">
+    <path d="M110 60V440" />
+    <path d="M450 60V440" />
+  </g>
+  <g stroke="#0f766e" stroke-width="2.7" stroke-dasharray="11 7" fill="none" data-series-group="horizons" data-series-label="upper-null-horizon">
+    <path d="M110 250L450 60"/>
+  </g>
+  <g stroke="#0f766e" stroke-width="2.7" stroke-dasharray="7 7" fill="none" data-series-group="horizons" data-series-label="lower-null-horizon">
+    <path d="M110 250L450 440"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 6" fill="none">
+    <path d="M110 250H450"/>
+    <path d="M280 60V440"/>
+  </g>
+  <g fill="#0f172a" font-family="sans-serif" font-size="19">
+    <text x="64" y="65">pi</text>
+    <text x="68" y="255">0</text>
+    <text x="55" y="445">-pi</text>
+    <text x="78" y="38">tau</text>
+    <text x="294" y="301" font-size="21" font-weight="600">patch</text>
+    <text x="84" y="479" font-size="20">-pi/2</text>
+    <text x="430" y="479" font-size="20">pi/2</text>
+    <text x="477" y="259">sigma</text>
+  </g>
+</svg>
