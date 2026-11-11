@@ -78,7 +78,7 @@ $$
 
 ### 証明の見取り図
 
-体積は線分に平行な方向で断面積分します。重複度の二乗を展開すると、対角項は各管の体積、非対角項は交差体積です。最後は $m_\delta$ が合併の外で零であることからCauchy--Schwarz不等式を使います。
+体積は線分に平行な方向で断面積分します。重複度の二乗を展開すると、対角項は各管の体積、非対角項は交差体積です。最後は $m_\delta$ が合併の外で零であることから[Cauchy--Schwarz](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)不等式を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -94,7 +94,7 @@ $$
 =\sum_{i,j=1}^M|T_i\cap T_j|.
 $$
 
-$m_\delta=\mathbf1_{U_\delta}m_\delta$ とCauchy--Schwarzから
+$m_\delta=\mathbf1_{U_\delta}m_\delta$ と[Cauchy--Schwarz](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \left(\int m_\delta\,dx\right)^2
@@ -393,7 +393,7 @@ $$
 =\int m_\delta\,dx\le C_0<\infty.
 $$
 
-$K$ はコンパクトなので $K_\delta$ は有界で、$\delta_n\downarrow0$ に対して $K_{\delta_n}$ は減少し、その共通部分は $K$ です。Lebesgue測度の上からの連続性（最初の近傍の測度が有限）により $|K_{\delta_n}|\to|K|=0$。これは任意の $\delta\downarrow0$ に対して成立します。
+$K$ はコンパクトなので $K_\delta$ は有界で、$\delta_n\downarrow0$ に対して $K_{\delta_n}$ は減少し、その共通部分は $K$ です。Lebesgue[測度の上からの連続性](../../MT/MT1/index.md#thm-mt1-continuity-from-above-finite)（最初の近傍の測度が有限）により $|K_{\delta_n}|\to|K|=0$。これは任意の $\delta\downarrow0$ に対して成立します。
 
 $U_\delta=\bigcup_vT_v\subset K_\delta$ であり、[重複度不等式](#prop-gmt32-tube-volume)から
 
@@ -488,7 +488,7 @@ $E$ は可算だから $\dim_{\mathrm H}E=0$。任意の $x\in[0,1]^2$ と $\del
 **A05　二重に数えたtube**
 
 - Level: A
-- 問題: 面積 $A>0$ の二つの可測集合 $T_1,T_2$ が同じ集合の場合と、互いに交わらない場合の二通りで、$m=\mathbf1_{T_1}+\mathbf1_{T_2}$ の $\int m$、$\int m^2$ と Cauchy--Schwarz による合併体積下界を計算せよ。
+- 問題: 面積 $A>0$ の二つの可測集合 $T_1,T_2$ が同じ集合の場合と、互いに交わらない場合の二通りで、$m=\mathbf1_{T_1}+\mathbf1_{T_2}$ の $\int m$、$\int m^2$ と [Cauchy--Schwarz](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) による合併体積下界を計算せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -567,7 +567,7 @@ $u=\underline{\dim}_{\mathrm M}E$ とし、$s>u$ に対して $u<t<s$ を選び�
 
 [方向数補題](#lem-gmt32-direction-count)から $c\delta^{-1}\le M_\delta\le C\delta^{-1}$、[tube面積式](#prop-gmt32-tube-volume)から $|T_v|=2\delta+\pi\delta^2$ です。積を取れば $2c\le\sum_v|T_v|\le C(2+\pi)$ です。
 
-一方、各管は $K_\delta$ に含まれるので $U_\delta=\bigcup_vT_v\subset K_\delta$。$K$ がコンパクトで零面積だから、例えば $K_{\delta_n}$ の減少列と測度の上からの連続性により $|K_\delta|\to0$ です。従って $0\le|U_\delta|\le|K_\delta|\to0$。総和と合併は交差部分を重複計上するかどうかが異なります。
+一方、各管は $K_\delta$ に含まれるので $U_\delta=\bigcup_vT_v\subset K_\delta$。$K$ がコンパクトで零面積だから、例えば $K_{\delta_n}$ の減少列と[測度の上からの連続性](../../MT/MT1/index.md#thm-mt1-continuity-from-above-finite)により $|K_\delta|\to0$ です。従って $0\le|U_\delta|\le|K_\delta|\to0$。総和と合併は交差部分を重複計上するかどうかが異なります。
 <!-- solution-end -->
 
 <a id="ex-gmt32-b04"></a>
@@ -586,7 +586,7 @@ $$
 \int m^2\,dx=MA+2\sum_{i<j}|T_i\cap T_j|.
 $$
 
-さらに $m$ は $U$ の外で零ですから Cauchy--Schwarz により $(MA)^2=(\int_Um)^2\le|U|\int m^2\le\varepsilon\int m^2$。よって $\int m^2\ge M^2A^2/\varepsilon$ です。前式へ代入して対角項 $MA$ を引き、2で割れば結論です。$\varepsilon>0$ を仮定しています。
+さらに $m$ は $U$ の外で零ですから [Cauchy--Schwarz](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により $(MA)^2=(\int_Um)^2\le|U|\int m^2\le\varepsilon\int m^2$。よって $\int m^2\ge M^2A^2/\varepsilon$ です。前式へ代入して対角項 $MA$ を引き、2で割れば結論です。$\varepsilon>0$ を仮定しています。
 <!-- solution-end -->
 
 ### Level C：総合的な判定
@@ -619,7 +619,7 @@ $$
 \le C(2+\pi).
 $$
 
-**(ii)** [GMT31の零面積コンパクト集合](../GMT31/index.md#thm-gmt31-null-existence)を使っています。コンパクト性と測度の上からの連続性から $|K_\delta|\to0$。さらに $\bigcup_vT_v\subset K_\delta$ なので、[重複度不等式](#prop-gmt32-tube-volume)より
+**(ii)** [GMT31の零面積コンパクト集合](../GMT31/index.md#thm-gmt31-null-existence)を使っています。コンパクト性と[測度の上からの連続性](../../MT/MT1/index.md#thm-mt1-continuity-from-above-finite)から $|K_\delta|\to0$。さらに $\bigcup_vT_v\subset K_\delta$ なので、[重複度不等式](#prop-gmt32-tube-volume)より
 
 $$
 (2c)^2
