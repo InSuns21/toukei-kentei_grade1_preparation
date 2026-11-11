@@ -30,7 +30,7 @@ concepts:
     requires: [origami.four-vertex-regular-branches, origami.regular-rigid-folding]
 
   - id: origami.four-vertex-collision-exclusion
-    name: 内積拘束と非貫通の非同値
+    name: 内積拘束と厳格な非重複条件の非同値
     kind: proposition
     introduction: formal
     requires: [origami.rigid-configuration-space, origami.four-vertex-flat-branch]
