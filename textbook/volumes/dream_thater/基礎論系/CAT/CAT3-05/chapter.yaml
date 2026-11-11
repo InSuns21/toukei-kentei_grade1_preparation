@@ -1,0 +1,38 @@
+id: "CAT3-05"
+title: "Beckのモナド性定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT3-04
+official_scope: []
+learning_objectives:
+  - モナド的関手と比較関手の圏の同値を定義し、同型の反映・R-分裂対の余等化子の存在・保存・創出の違いを説明できる
+  - Beckのモナド性定理の必要性を、Eilenberg–Moore忘却関手による創出と比較関手の同値から証明できる
+  - Beckの十分性の充満忠実性を、余単位の標準平行二射と同型反映性から証明できる
+  - 任意のモナド代数を余等化子で構成し、比較関手の本質的全射性を代数射の式まで検証できる
+  - モノイド忘却関手のモナド性と位相空間忘却関手の非モナド性を具体的に判定できる
+definitions:
+  - { id: CAT3-05-DEF-01, name: モナド的関手 }
+theorems:
+  - { id: CAT3-05-THM-01, name: Beckのモナド性定理 }
+  - { id: CAT3-05-PROP-01, name: モノイド忘却関手はモナド的 }
+  - { id: CAT3-05-PROP-02, name: 位相空間の台集合への忘却はモナド的でない }
+canonical_examples:
+  - 恒等随伴に対する比較関手の圏同型
+  - 代数の標準平行二射と分裂余等化子
+  - 有限語モナドのEilenberg–Moore圏と単位元付きモノイド
+  - 離散位相と密着位相を持つ二点集合の連続全単射
+problem_patterns:
+  - CAT3-05-SPLIT-ALGEBRA
+  - CAT3-05-MONOID-ISO
+  - CAT3-05-COEQUALIZER-ISO
+  - CAT3-05-TOPOLOGY-FAIL
+  - CAT3-05-COUNIT-QUOTIENT
+  - CAT3-05-ALGEBRA-IDENTIFY
+  - CAT3-05-NECESSITY-LIFT
+  - CAT3-05-HYPOTHESIS-ROLES
+  - CAT3-05-BECK-RECONSTRUCT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 4 }

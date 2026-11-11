@@ -35,7 +35,7 @@ chapters:
   - { id: CAT3-02, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-02, status: completed, title: "Kleisli圏" }
   - { id: CAT3-03, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-03, status: completed, title: "Eilenberg–Moore圏と比較関手" }
   - { id: CAT3-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-04, status: completed, title: "モナド性を判定するための条件" }
-  - { id: CAT3-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-05, status: planned, title: "Beckのモナド性定理" }
+  - { id: CAT3-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-05, status: completed, title: "Beckのモナド性定理" }
   - { id: CAT3-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-06, status: planned, title: "Kan拡張の普遍性" }
   - { id: CAT3-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-07, status: planned, title: "点ごとの左Kan拡張" }
   - { id: CAT3-08, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-08, status: planned, title: "点ごとの右Kan拡張" }
