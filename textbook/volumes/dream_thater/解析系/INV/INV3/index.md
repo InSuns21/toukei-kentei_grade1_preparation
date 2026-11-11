@@ -140,7 +140,7 @@ $A^*A$ の正の固有値を $\sigma_j^2$ と置き、その固有ベクトル�
 <!-- proof-start -->
 ### 証明
 
-$T=A^*A$ は前述の通りコンパクト・自己共役・非負です。[スペクトル定理](../../FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral)により、非零固有値に属する固有ベクトルを重複度だけ数えて正規直交化し、$(\lambda_j,v_j)_{j\in J}$ と書けます。非零固有値は実数で、単位固有ベクトル $v_j$ に対し
+$T=A^*A$ は前述の通りコンパクト・自己共役・非負です。[コンパクト自己共役作用素のスペクトル定理](../../FA/FA7/index.md#thm-fa7-compact-self-adjoint-spectral)により、非零固有値に属する固有ベクトルを重複度だけ数えて正規直交化し、$(\lambda_j,v_j)_{j\in J}$ と書けます。非零固有値は実数で、単位固有ベクトル $v_j$ に対し
 
 $$
 \lambda_j=\langle Tv_j,v_j\rangle_X
@@ -154,7 +154,7 @@ Tx=0\ \Longrightarrow\ \|Ax\|_Y^2=\langle Tx,x\rangle_X=0
 \ \Longrightarrow\ Ax=0,
 $$
 
-逆向きは $Ax=0\Rightarrow Tx=A^*0=0$ より、$\ker T=\ker A$ です。従ってスペクトル定理の直交分解から $(v_j)$ は $X_0=(\ker A)^\perp$ を尽くします。無限個のとき $\lambda_j\to0$ なので $\sigma_j\to0$ です。
+逆向きは $Ax=0\Rightarrow Tx=A^*0=0$ より、$\ker T=\ker A$ です。従って先ほどの固有空間分解から $(v_j)$ は $X_0=(\ker A)^\perp$ を尽くします。無限個のとき $\lambda_j\to0$ なので $\sigma_j\to0$ です。
 
 次に $u_j:=Av_j/\sigma_j$ と定めます。$j,k\in J$ について
 
@@ -371,7 +371,7 @@ Ax_N
 =\sum_{j=1}^N\langle y,u_j\rangle_Yu_j.
 $$
 
-（P1）から $y\in Y_0$ で、[特異系の完全性](#thm-inv3-singular-expansion)により右辺は $Y$ のノルムで $y$ に収束します。よって極限の一意性から $Ax_0=y$ です。有限・空の $J$ では同じ議論を有限和・空和として読めます。$\square$
+（P1）から $y\in Y_0$ で、[特異系の完全性](#thm-inv3-singular-expansion)により右辺は $Y$ のノルムで $y$ に収束します。よって[極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)から $Ax_0=y$ です。有限・空の $J$ では同じ議論を有限和・空和として読めます。$\square$
 <!-- proof-end -->
 
 解が存在したときも、核方向は観測から復元できません。しかしその中からノルムが最小の解は一意に選べます。
