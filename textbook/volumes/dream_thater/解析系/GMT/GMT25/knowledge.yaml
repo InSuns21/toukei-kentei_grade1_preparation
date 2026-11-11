@@ -1,0 +1,64 @@
+chapter: GMT25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT1
+  - GMT10
+  - GMT13
+  - GMT21
+  - GMT23
+  - GMT24
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt25-essential-boundary
+    name: 本質的境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（体積密度と本質的境界）"]
+    requires:
+      - geometric-measure.gmt24-finite-perimeter
+
+  - id: geometric-measure.gmt25-reduced-boundary
+    name: 縮約境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（縮約境界と測度論的外向き法線）"]
+    requires:
+      - geometric-measure.gmt24-gauss-green-measure
+      - geometric-measure.gmt25-essential-boundary
+
+  - id: geometric-measure.gmt25-normal-mean
+    name: 縮約境界上の法線の平均振動と周長測度ほとんど至る所での存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（縮約境界上の法線の平均振動と周長測度ほとんど至る所での存在）"]
+    requires:
+      - geometric-measure.gmt25-reduced-boundary
+      - geometric-measure.gmt1-function-differentiation
+
+  - id: geometric-measure.gmt25-smooth-boundary
+    name: 滑らかな境界の縮約境界・半空間近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな境界の縮約境界・半空間近似）"]
+    requires:
+      - geometric-measure.gmt25-reduced-boundary
+      - geometric-measure.gmt24-smooth-boundary
+
+  - id: geometric-measure.gmt25-invariance
+    name: 零集合変更・補集合・相似変換との両立
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零集合変更・補集合・相似変換との両立）"]
+    requires:
+      - geometric-measure.gmt25-reduced-boundary
+      - geometric-measure.gmt24-set-operations
+
+  - id: geometric-measure.gmt25-halfspace-density
+    name: 半空間近似から体積密度二分の一への含意
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半空間近似から体積密度二分の一への含意）"]
+    requires:
+      - geometric-measure.gmt25-essential-boundary
