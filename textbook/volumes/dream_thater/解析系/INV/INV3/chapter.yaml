@@ -1,0 +1,44 @@
+id: "INV3"
+title: "特異系から可解性を判定できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV2
+  - FA7
+  - F0-02C3B
+official_scope: []
+learning_objectives:
+  - コンパクト作用素の特異系を随伴とコンパクト自己共役スペクトル定理から構成し零空間を含めて展開できる
+  - 値域の閉包と値域そのものを区別し直交条件とPicard級数の両方による可解性を証明できる
+  - 可解データの全解と最小ノルム解を構成し零空間成分の自由度を説明できる
+  - ell2対角観測に対して観測値の属する空間とPicard級数の収束を計算できる
+  - 有限項打切りがデータでは収束しても復元で発散する例を作り非閉値域と結び付けられる
+definitions:
+  - { id: INV3-DEF-01, name: コンパクト作用素の完全特異系 }
+  - { id: INV3-DEF-02, name: Picard可解条件 }
+theorems:
+  - { id: INV3-THM-01, name: コンパクト作用素の特異系と展開 }
+  - { id: INV3-THM-02, name: Picardの可解性判定 }
+  - { id: INV3-COR-01, name: 最小ノルム解と核の自由度 }
+  - { id: INV3-PROP-01, name: 有限項復元と非閉値域の具体例 }
+canonical_examples:
+  - ell2の対角作用素の完全特異系と特異値の逆数
+  - 観測値が値域の閉包にあるがPicard級数が発散する例
+  - Picard級数は収束するが観測がker A*に直交しない例
+  - 有限ランク作用素では特異系が有限であり像が閉じる例
+  - 有限項打切りのデータ収束と復元ノルムの発散
+problem_patterns:
+  - INV3-A01
+  - INV3-A02
+  - INV3-A03
+  - INV3-A04
+  - INV3-A05
+  - INV3-B01
+  - INV3-B02
+  - INV3-B03
+  - INV3-B04
+  - INV3-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

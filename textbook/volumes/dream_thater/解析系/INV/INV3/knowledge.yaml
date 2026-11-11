@@ -1,0 +1,52 @@
+chapter: INV3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV2
+  - FA7
+  - F0-02C3B
+
+forward_references: []
+
+concepts:
+  - id: inverse.compact-singular-system
+    name: コンパクト作用素の完全特異系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（コンパクト作用素の完全特異系）"]
+    requires: [functional.compact-self-adjoint-spectral-theorem, functional.compact-operator]
+
+  - id: inverse.compact-singular-expansion
+    name: コンパクト作用素の特異系と展開
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト作用素の特異系と展開）"]
+    requires: [inverse.compact-singular-system, functional.compact-self-adjoint-spectral-theorem]
+
+  - id: inverse.picard-condition
+    name: Picard可解条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Picard可解条件）"]
+    requires: [inverse.compact-singular-expansion]
+
+  - id: inverse.picard-solvability
+    name: Picardの可解性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Picardの可解性判定）"]
+    requires: [inverse.picard-condition, inverse.compact-singular-expansion]
+
+  - id: inverse.picard-minimum-norm
+    name: 最小ノルム解と核の自由度
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（最小ノルム解と核の自由度）"]
+    requires: [inverse.picard-solvability]
+
+  - id: inverse.picard-truncation-instability
+    name: 有限項復元と非閉値域の具体例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限項復元と非閉値域の具体例）"]
+    requires: [inverse.picard-solvability, inverse.compact-instability]
