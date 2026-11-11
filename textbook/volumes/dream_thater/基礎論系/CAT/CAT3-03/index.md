@@ -437,7 +437,7 @@ $$
 
 よって有限語モナドについて $\mathcal C_T$ の像は自由モノイドに限られる一方、$\mathcal C^T$ は上の二元モノイドも含む。これは[完全忠実な埋め込み](#prop-cat3-03-kleisli-em)が一般には圏の同値でない直接の理由である。
 
-さらに自由モノイド関手 $L:\mathbf{Set}\to\mathbf{Mon}$ と忘却関手 $R:\mathbf{Mon}\to\mathbf{Set}$ の随伴を考えると、$R\varepsilon_M:(RM)^*\to RM$ は語を $M$ の演算で評価する写像である。したがって[比較関手](#def-cat3-03-comparison)はモノイド $M$ をその評価代数へ写す。上の命題によって、**この随伴の比較関手は圏同型**になる。比較関手が同値になる例と、Kleisli随伴からの比較関手が同値にならない例を同じモナドで比較できる。
+さらに自由モノイド関手 $L:\mathbf{Set}\to\mathbf{Mon}$ と忘却関手 $R:\mathbf{Mon}\to\mathbf{Set}$ の随伴を考えると、$R\varepsilon_M:(RM)^*\to RM$ は語を $M$ の演算で評価する写像である。したがって[比較関手](#def-cat3-03-comparison)はモノイド $M$ をその評価代数へ写す。上の命題によって、**この随伴の比較関手は圏同型**になる。比較関手が同値になる例と、[Kleisli随伴](../CAT3-02/index.md#thm-cat3-02-adjunction)からの比較関手が同値にならない例を同じモナドで比較できる。
 
 ## 7. 例外を受け取る代数は指定された値を持つ
 
