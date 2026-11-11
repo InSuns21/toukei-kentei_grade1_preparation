@@ -28,3 +28,4 @@
 25. [CAT3-01 モナドと随伴](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-01/index.md)
 26. [CAT3-02 Kleisli圏](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-02/index.md)
 27. [CAT3-03 Eilenberg–Moore圏と比較関手](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-03/index.md)
+28. [CAT3-04 モナド性を判定するための条件](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-04/index.md)
