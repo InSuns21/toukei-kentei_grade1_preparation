@@ -1,0 +1,63 @@
+chapter: CAT3-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-08
+  - CAT2-08
+  - CAT2-10
+
+concepts:
+  - id: category.precomposition-functor
+    name: 前合成関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前合成関手）"]
+    requires: [category.functor-category, category.natural-transformation]
+  - id: category.left-kan-extension
+    name: 左Kan拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（左Kan拡張）"]
+    requires: [category.precomposition-functor, category.adjunction-hom]
+  - id: category.right-kan-extension
+    name: 右Kan拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右Kan拡張）"]
+    requires: [category.precomposition-functor, category.adjunction-hom]
+  - id: category.kan-universal-correspondence
+    name: Kan拡張の普遍射・自然全単射による特徴づけ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（普遍射と自然全単射）"]
+    requires: [category.left-kan-extension, category.right-kan-extension, category.comma-category]
+  - id: category.kan-uniqueness
+    name: 左右Kan拡張の同型一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kan拡張の同型一意性）"]
+    requires: [category.left-kan-extension, category.right-kan-extension]
+  - id: category.left-kan-adjunction
+    name: 左Kan拡張と前合成の左随伴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（左Kan拡張と前合成の随伴）"]
+    requires: [category.kan-universal-correspondence, category.adjunction-hom]
+  - id: category.right-kan-adjunction
+    name: 右Kan拡張と前合成の右随伴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（右Kan拡張と前合成の随伴）"]
+    requires: [category.kan-universal-correspondence, category.adjunction-hom]
+  - id: category.arrow-kan-extension
+    name: 矢印圏における左右Kan拡張
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（矢印圏の始点に沿うKan拡張）"]
+    requires: [category.left-kan-extension, category.right-kan-extension]
+  - id: category.left-kan-obstruction
+    name: 左Kan拡張が存在しない例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空図式の左Kan拡張が存在しない例）"]
+    requires: [category.left-kan-extension, category.initial-object]

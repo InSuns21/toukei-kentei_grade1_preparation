@@ -30,3 +30,4 @@
 27. [CAT3-03 Eilenberg–Moore圏と比較関手](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-03/index.md)
 28. [CAT3-04 モナド性を判定するための条件](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-04/index.md)
 29. [CAT3-05 Beckのモナド性定理](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-05/index.md)
+30. [CAT3-06 Kan拡張の普遍性](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-06/index.md)
