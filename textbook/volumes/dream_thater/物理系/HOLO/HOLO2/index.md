@@ -35,7 +35,12 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（共形コンパクト化と共形境界）**
-> Lorentz多様体 $(M,g)$ が滑らかな境界付き多様体 $\overline M$ の内部であるとする。$\overline M$ 上の滑らかな関数 $\omega$ が内部で正、境界 $\partial\overline M$ 上でゼロ、かつ境界で $d\omega\ne0$ を満たし、$\overline g=\omega^2g$ が境界まで滑らかな非退化Lorentz計量として延長されるとき、この組を**共形コンパクト化**と呼ぶ。$\omega$ を境界定義関数、$\partial\overline M$ をこのコンパクト化の**共形境界**と呼ぶ。境界そのものがコンパクトであることは要求しない。
+> Lorentz多様体 $(M,g)$ が、滑らかな境界付き多様体 $\overline M$ の内部であるとする。次の条件を満たす滑らかな関数 $\omega$ を取る。
+>
+> - $\omega$ は内部で正、境界 $\partial\overline M$ でゼロ、かつ境界上で $d\omega\ne0$ である。
+> - $\overline g=\omega^2g$ は境界まで滑らかな非退化Lorentz計量として延長される。
+>
+> このとき、この組を**共形コンパクト化**と呼ぶ。$\omega$ を境界定義関数、$\partial\overline M$ を**共形境界**と呼ぶ。境界そのものがコンパクトであることは要求しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo2-conformal-compactification -->
@@ -348,7 +353,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo2-fg-form -->
-**定義の確認**： [Poincaré計量](#prop-holo2-poincare-metric)で $x^i=(t,y^1,\ldots,y^{d-1})$ と置けば、$h_{ij}(z,x)=\operatorname{diag}(-1,1,\ldots,1)$ です。交差項 $g_{zi}=0$、$g_{zz}=L^2/z^2$ を直接読み取れます。$h_{ij}$ は $z$ に依らず境界まで滑らかで行列式 $-1\ne0$、時間方向一つが負です。定義関数 $\omega=z/L$ は $z>0$ で正、$z=0$ でゼロ、$d\omega=dz/L\ne0$ となります。従ってこの例はFG型条件と[共形コンパクト化の条件](#def-holo2-conformal-compactification)の両方を満たします。
+**定義の確認**：[Poincaré計量](#prop-holo2-poincare-metric)で境界に沿う座標を $x^i=(t,y^1,\ldots,y^{d-1})$ と置きます。その係数行列は
+
+$$
+h_{ij}(z,x)=\operatorname{diag}(-1,1,\ldots,1).
+$$
+
+交差項 $g_{zi}=0$、動径成分 $g_{zz}=L^2/z^2$ が定義の指定形です。行列 $h_{ij}$ は $z$ に依らず境界まで滑らかで、行列式 $-1\ne0$、負方向は一つです。
+
+また $\omega=z/L$ は内部で正、$z=0$ でゼロ、$d\omega=dz/L\ne0$ です。従ってFG型条件と[共形コンパクト化の条件](#def-holo2-conformal-compactification)の両方を満たします。
 <!-- definition-example-end -->
 
 **注意。** これはPoincaréパッチで厳密に成立する表示です。任意の漸近AdS計量が全域で同じ座標を持つこと、あるいはその $h_{ij}$ が一意に決まることを意味しません。曲率・運動方程式を入れた漸近展開と反項は後続講義で扱います。
@@ -383,7 +396,16 @@ $$
 \langle X,N_F\rangle_{2,d}=U+W=0,
 $$
 
-ゆえに $N_F\in T_XQ_L$ です。さらに $v\in T_XQ_L$ には $dF(v)=\langle N_F,v\rangle_{2,d}$ が成立します。$N_F$ は零でない接ベクトルで、$dF(N_F)=0$、また接空間全体への $dF$ の制限は非零です（非退化な誘導計量で $N_F\ne0$）。従って $F=0$ は正則な超曲面で、その法線は同時に接する零方向です。[AdS定曲率](../HOLO1/index.md#thm-holo1-constant-curvature)はこの面の上でも有限なので、ここで幾何が壊れるのではなく座標パッチが終わります。$\square$
+ゆえに $N_F\in T_XQ_L$ です。さらに双曲面の任意の接ベクトル $v$ に対して
+
+$$
+dF(v)=\langle N_F,v\rangle_{2,d},\qquad
+dF(N_F)=0
+$$
+
+です。$N_F$ は零でない接ベクトルであり、非退化な誘導計量によって $dF$ の接空間への制限も非零です。
+
+従って $F=0$ は正則な超曲面で、その法線は同時に面に接する零方向です。[AdS定曲率](../HOLO1/index.md#thm-holo1-constant-curvature)はこの面の上でも有限なので、ここで幾何が壊れるのではなく座標パッチが終わります。$\square$
 <!-- proof-end -->
 
 代表的な光路も比べましょう。[Poincaré計量](#prop-holo2-poincare-metric)で $d\boldsymbol y=0$ とする零曲線は
@@ -523,7 +545,13 @@ $$
 $d\ge2$、$L>0$ のglobal AdSで $\rho=0$、$\tau=0,\pi/2,\pi$ の三点を比較する。$D=\cos\tau+\sin\rho\,n^d$ の符号、Poincaré座標の適用、地平面の位置を判定せよ。$\tau=2\pi$ の中心を $\tau=0$ と同一視してよいかも述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $\rho=0$ で $\sin\rho=0$ なので $D=\cos\tau$ です。$\tau=0$ は $D=1>0$ で、$z=L$、$t=0$、$\boldsymbol y=0$。$\tau=\pi/2$ は $D=0$ で $U+W=0$ の地平面上にあり、有限なPoincaré座標は定義されません。$\tau=\pi$ は $D=-1<0$ で正パッチの外です。$\tau=2\pi$ は埋め込みの値こそ最初と同じですが、[時間被覆](../HOLO1/index.md#def-holo1-universal-cover)では別の点です。したがって最初のパッチと別の連結持ち上げの点を同一視できません。
+**詳細解答。** 中心 $\rho=0$ では $\sin\rho=0$ なので $D=\cos\tau$ です。各時刻で判定すると、
+
+- $\tau=0$：$D=1>0$ で、Poincaré座標は $(z,t,\boldsymbol y)=(L,0,\boldsymbol0)$。
+- $\tau=\pi/2$：$D=0$ で $U+W=0$ の地平面上。有限なPoincaré座標は定義されない。
+- $\tau=\pi$：$D=-1<0$ で正パッチの外。
+
+$\tau=2\pi$ は埋め込みの値こそ $\tau=0$ と同じですが、[時間被覆](../HOLO1/index.md#def-holo1-universal-cover)では別の点です。最初のパッチと別の連結持ち上げの点を同一視できません。
 <!-- solution-end -->
 
 <a id="ex-holo2-b3"></a>
@@ -617,5 +645,21 @@ $d=2$、$L>0$ の時間をほどいた $\mathrm{AdS}_3$ を考える。global座
 
    を得ます。$D_0>0$ で因子は滑らかかつ正なので、零方向と共形類が一致します。
 
-3. global計量で角度一定かつ零なら $d\tau=d\rho$。中心 $\rho=0$ を時刻 $\tau_0$ に出る光は $\tau=\tau_0+\rho$ なので境界到達は $\tau=\tau_0+\pi/2$ です。一方Poincaréで $dy=0$ の未来外向き零曲線は $dt=-dz$。$t=t_0$、$z=z_0$ からは $z=z_0-(t-t_0)$ となり、境界到達は $t=t_0+z_0$ です。globalの「球面角度固定」とPoincaréの「$y$ 固定」は一般には同じ曲線条件でなく、座標の時間も $\tau$ と $t$ で非線形に関係します。さらに前者は全global時空、後者は指定された一パッチ内の光路です。したがって二つの到達時刻を直接同じ数として比較するのは誤りです。
+3. global計量で角度一定かつ零なら $d\tau=d\rho$。中心を時刻 $\tau_0$ に出る外向き光線は、積分により
+
+   $$
+   \tau=\tau_0+\rho,\qquad
+   \tau_{\mathrm{end}}=\tau_0+\frac{\pi}{2}
+   $$
+
+   で境界に達します。
+
+   Poincaré側で $dy=0$ とした未来外向き零曲線は $dt=-dz$。初期条件 $(t_0,z_0)$ を使うと
+
+   $$
+   z=z_0-(t-t_0),\qquad
+   t_{\mathrm{end}}=t_0+z_0
+   $$
+
+   です。globalの「球面角度固定」とPoincaréの「$y$ 固定」は一般には同じ曲線条件ではありません。両者の時間座標は非線形に関係し、後者は指定パッチ内の光路に限られます。到達時刻を無条件に同じ数として比較するのは誤りです。
 <!-- solution-end -->
