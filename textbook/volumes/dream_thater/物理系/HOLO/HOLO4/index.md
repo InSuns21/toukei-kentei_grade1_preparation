@@ -37,7 +37,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo4-induced-boundary-action -->
-**定義の確認（拡大縮小）**：$\lambda>0$ として $F_\lambda(z,x)=(\lambda z,\lambda x)$ を取ります。逆写像は $F_{1/\lambda}$ で、$z>0$ を保ちます。計量へ代入すれば
+**定義の確認**（拡大縮小）：$\lambda>0$ として $F_\lambda(z,x)=(\lambda z,\lambda x)$ を取ります。逆写像は $F_{1/\lambda}$ で、$z>0$ を保ちます。計量へ代入すれば
 
 $$
 F_\lambda^*g=\frac{L^2}{(\lambda z)^2}
@@ -47,7 +47,42 @@ $$
 境界写像は $f_\lambda(x)=\lambda x$、Jacobianは $\lambda I$、従って $f_\lambda^*h=\lambda^2h$、$\Omega_f=\lambda>0$。等長性、延長、逆写像、境界の共形性という定義の全条件を満たしました。固定した $z=\epsilon$ 面は $z=\lambda\epsilon$ へ移るので、固定cutoffを保つ変換だとは主張していません。
 <!-- definition-example-end -->
 
-### 1.2 $SO(2,d)$ と二種類の境界
+### 1.2 境界の特殊共形変換を先に知る
+
+並進と拡大縮小だけでは、境界の点ごとに異なる尺度で座標を移す変換は見えません。[反転の共形性と距離恒等式](../../QFT/QFT48/index.md#prop-qft48-inversion)を使えば、反転・並進・反転を合成することで非線形な変換を作れます。この操作で得られる変換を境界の**特殊共形変換**と呼び、後でバルクまで等長変換として延ばせるか確かめます。
+
+<a id="def-holo4-special-conformal-map"></a>
+
+<!-- formal-statement-start -->
+> **定義（境界の特殊共形変換）**
+>
+> $d\ge3$ のLorentz空間 $(\mathbb R^d,\eta)$ に一定のベクトル $b$ を固定する。$x^2=\eta_{\mu\nu}x^\mu x^\nu$、$b\cdot x=\eta_{\mu\nu}b^\mu x^\nu$、$b^2=\eta_{\mu\nu}b^\mu b^\nu$ とおき、$D_b^{(0)}(x)=1-2b\cdot x+b^2x^2$ とする。$D_b^{(0)}(x)>0$ の開領域で
+
+$
+f_b(x)^\mu=\frac{x^\mu-b^\mu x^2}{D_b^{(0)}(x)}
+$
+
+> と定めた滑らかな局所写像を、パラメータ $b$ による**境界の特殊共形変換**と呼ぶ。逆写像と共形因子は後の命題で検算する。Euclid空間では内積を正定値の内積に替えて同じ式を使う。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-holo4-special-conformal-map -->
+**定義の確認**：$d=3$ のLorentz境界で $b=(0,\beta,0)$、$x=(0,r,0)$、$\beta>0$、$0<\beta r<1$ とします。$x^2=r^2$、$b\cdot x=\beta r$ なので $D_b^{(0)}=(1-\beta r)^2>0$。式の分子は $x-bx^2=(0,r(1-\beta r),0)$ です。従って
+
+$
+f_b(0,r,0)=\left(0,\frac{r}{1-\beta r},0\right).
+$
+
+$r'=r/(1-\beta r)$ を逆向きへ代入すると $r'/(1+\beta r')=r$ です。さらにこの点での微分は $Df_b=(1-\beta r)^{-2}I_3$ となります。例えば時間成分の微分は、分母の時間微分が $t=0$ で零だから $(\partial t'/\partial t)=1/D_b^{(0)}$ です。横方向の微分も同じ値で、$r$ 方向は $d[r/(1-\beta r)]/dr=(1-\beta r)^{-2}$ です。従って
+
+$
+(Df_b)^T\eta Df_b=(1-\beta r)^{-4}\eta,
+\qquad \Omega_{f_b}=(1-\beta r)^{-2}>0.
+$
+
+この点の近傍で逆写像が存在することも、Jacobianが可逆であることから確認できます。定義域、局所正則性、共形倍率を直接確かめた例です。
+<!-- definition-example-end -->
+
+### 1.3 $SO(2,d)$ と二種類の境界
 
 [HOLO1の埋め込み](../HOLO1/index.md#def-holo1-ads-quadric)に用いた平坦空間は負符号二つ、正符号 $d$ 個の二次形式を持ちます。その二次形式を保つ行列群の単位元連結成分は $SO_0(2,d)$ です。対応するLie代数 $\mathfrak{so}(2,d)$ の次元は
 
@@ -58,7 +93,7 @@ $$
 
 右辺の四項は順に並進、Lorentz回転、拡大縮小、特殊共形変換の生成子数になります。**この一致が意味するのは局所的な対称Lie代数の対応**です。時間周期を解いた[普遍被覆AdS](../HOLO1/index.md#def-holo1-universal-cover)の大域等長群を、被覆の問題を無視してそのまま $SO(2,d)$ と同定してはいけません。
 
-また上の $SO(2,d)$ は**時間一方向のLorentz境界**の大域共形対称性の局所代数を記述するものです。Euclid $d$ 次元空間を共形コンパクト化した場合の連結共形群の対応は $SO_0(1,d+1)$（精確な群作用では適切な中心による商に注意）で、$SO(2,d)$ ではありません。以下では共形変換の数式を両符号で検算しますが、両者の実Lie群を同一視しません。
+また上の $SO(2,d)$ は**時間一方向のLorentz境界**の大域共形対称性の局所代数を記述するものです。Euclid $d$ 次元空間を共形コンパクト化した場合の連結共形群の対応は $SO_0(1,d+1)$（大域的な共形変換群を厳密に同定するときは適切な中心による商に注意）で、$SO(2,d)$ ではありません。以下では共形変換の数式を両符号で検算しますが、両者の実Lie群を同一視しません。
 
 ## 2. Poincaré座標で四種類の変換を作る
 
@@ -373,7 +408,7 @@ $$
 - 問題: $d=3$ のEuclid CFTでスカラー一次場の次元が $(\Delta_1,\Delta_2,\Delta_3)=(2,3,4)$ である。相異なる点の三点関数の各距離 $r_{12},r_{23},r_{31}$ の分母指数を求め、拡大縮小と整合するか確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** [QFT48の三点関数定理](../../QFT/QFT48/index.md#thm-qft48-primary-three-point)へ代入すると $a=2+3-4=1$、$b=3+4-2=5$、$c=4+2-3=3$。従って
+**詳細解答。** [スカラー一次場の三点関数](../../QFT/QFT48/index.md#thm-qft48-primary-three-point)へ代入すると $a=2+3-4=1$、$b=3+4-2=5$、$c=4+2-3=3$。従って
 
 $$
 G_3=\frac{C_{123}}{r_{12}r_{23}^5r_{31}^3}.
@@ -449,7 +484,7 @@ $$
 - 問題: $d=3$ のEuclid CFTに二つのスカラー一次場 $\mathcal O_A,\mathcal O_B$ があり、両方の次元は $\Delta=5$ とする。いずれも二点関数が非零だが規格化定数は $C_A,C_B$ と異なる。共形対称性が保証すること、保証しないことをそれぞれ式で示せ。またバルクに同じ次元の粒子が必ず存在すると結論できるか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [QFT48の二点関数定理](../../QFT/QFT48/index.md#thm-qft48-primary-two-point)から、相異なる点では
+**詳細解答。** [スカラー一次場の二点関数と次元の選択則](../../QFT/QFT48/index.md#thm-qft48-primary-two-point)から、相異なる点では
 
 $$
 \langle\mathcal O_A(x)\mathcal O_A(y)\rangle=C_A|x-y|^{-10},
