@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 370" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">境界アンカー半円と動径cutoff</title>
+  <desc id="desc">上端のz=0の二点x=-a,+aを結ぶ半円の最深部はz=a。破線のz=εは円弧を途中で切り、残る実線の円弧の端点はアンカーより内側にある。zの正方向は下向き。</desc>
+  <defs>
+    <marker id="arrow-z" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#505b68"/>
+    </marker>
+  </defs>
+  <line x1="70" y1="62" x2="648" y2="62" stroke="#45546a" stroke-width="2"/>
+  <line x1="70" y1="180" x2="648" y2="180" stroke="#64748b" stroke-width="2" stroke-dasharray="8 7"/>
+  <path d="M 130 62 A 235 235 0 0 0 161.76 180" fill="none" stroke="#8493a6" stroke-width="3" stroke-dasharray="7 5" data-series-group="arc-segments" data-series-label="omitted"/>
+  <path d="M 161.76 180 A 235 235 0 0 0 568.24 180" fill="none" stroke="#125a94" stroke-width="4" data-series-group="arc-segments" data-series-label="kept"/>
+  <path d="M 568.24 180 A 235 235 0 0 0 600 62" fill="none" stroke="#8493a6" stroke-width="3" stroke-dasharray="7 5" data-series-group="arc-segments" data-series-label="omitted"/>
+  <line x1="365" y1="63" x2="365" y2="297" stroke="#64748b" stroke-width="1.6" stroke-dasharray="4 6"/>
+  <circle cx="130" cy="62" r="5" fill="white" stroke="#243b53" stroke-width="2.5"/>
+  <circle cx="600" cy="62" r="5" fill="white" stroke="#243b53" stroke-width="2.5"/>
+  <circle cx="161.76" cy="180" r="5" fill="white" stroke="#125a94" stroke-width="2.5"/>
+  <circle cx="568.24" cy="180" r="5" fill="white" stroke="#125a94" stroke-width="2.5"/>
+  <circle cx="365" cy="297" r="5" fill="#125a94"/>
+  <line x1="54" y1="80" x2="54" y2="327" stroke="#505b68" stroke-width="1.8" marker-end="url(#arrow-z)"/>
+  <text x="115" y="42" font-size="19" font-family="Arial, sans-serif" fill="#1d334d">−a</text>
+  <text x="586" y="42" font-size="19" font-family="Arial, sans-serif" fill="#1d334d">+a</text>
+  <text x="674" y="68" font-size="20" font-family="Arial, sans-serif" fill="#1d334d">z=0</text>
+  <text x="674" y="185" font-size="20" font-family="Arial, sans-serif" fill="#1d334d">z=ε</text>
+  <text x="380" y="318" font-size="19" font-family="Arial, sans-serif" fill="#1d334d">zmax=a</text>
+  <text x="14" y="349" font-size="20" font-family="Arial, sans-serif" fill="#1d334d">z</text>
+</svg>
