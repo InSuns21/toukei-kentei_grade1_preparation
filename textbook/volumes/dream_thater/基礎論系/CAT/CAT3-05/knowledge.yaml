@@ -1,0 +1,31 @@
+chapter: CAT3-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT3-04
+
+concepts:
+  - id: category.monadic-right-adjoint
+    name: モナド的関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モナド的関手）"]
+    requires: [category.em-comparison, category.equivalence-criterion]
+  - id: category.beck-monadicity-theorem
+    name: Beckのモナド性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Beckのモナド性定理、分裂余等化子版）"]
+    requires: [category.monadic-right-adjoint, category.r-split-creation, category.comparison-full-faithfulness, category.em-creates-split-coequalizers, category.conservative-functor]
+  - id: category.monoid-forgetful-monadic
+    name: モノイド忘却関手はモナド的
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モノイド忘却関手はモナド的）"]
+    requires: [category.beck-monadicity-theorem, category.list-em-monoids]
+  - id: category.top-forgetful-nonmonadic
+    name: 位相空間の台集合への忘却はモナド的でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（位相空間の台集合への忘却はモナド的でない）"]
+    requires: [category.beck-monadicity-theorem, category.conservative-functor]
