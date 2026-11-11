@@ -8,16 +8,16 @@
     <text x="411" y="64" font-size="18" font-weight="600">平坦配置：扇形の像</text>
     <!-- A（円弧）コマンドは現行layout lintの線分近似外。実SVGをレンダリングして文字位置を目視確認済み。 -->
     <g stroke="#425a6b" stroke-width="2.3">
-      <path data-layout-ignore="text-overlap" d="M190 175 L295 175 A105 105 0 0 0 242.5 84.1 Z" fill="#a7dce4"/>
-      <path data-layout-ignore="text-overlap" d="M190 175 L242.5 84.1 A105 105 0 0 0 85 175 Z" fill="#f0d8ae" stroke-dasharray="9 5"/>
-      <path data-layout-ignore="text-overlap" d="M190 175 L85 175 A105 105 0 0 0 242.5 265.9 Z" fill="#d0d1ee" stroke-dasharray="3 5"/>
-      <path data-layout-ignore="text-overlap" d="M190 175 L242.5 265.9 A105 105 0 0 0 295 175 Z" fill="#c8e2b3" stroke-dasharray="13 3 3 3"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L295 175 A105 105 0 0 0 242.5 84.1 Z" fill="#a7dce4"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L242.5 84.1 A105 105 0 0 0 85 175 Z" fill="#f0d8ae" stroke-dasharray="9 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L85 175 A105 105 0 0 0 242.5 265.9 Z" fill="#d0d1ee" stroke-dasharray="3 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M190 175 L242.5 265.9 A105 105 0 0 0 295 175 Z" fill="#c8e2b3" stroke-dasharray="13 3 3 3"/>
     </g>
     <g stroke="#425a6b" stroke-width="2.3" fill-opacity=".48">
-      <path data-layout-ignore="text-overlap" d="M555 175 L502.5 84.1 A105 105 0 0 1 660 175 Z" fill="#c8e2b3" stroke-dasharray="13 3 3 3"/>
-      <path data-layout-ignore="text-overlap" d="M555 175 L607.5 84.1 A105 105 0 0 0 502.5 84.1 Z" fill="#d0d1ee" stroke-dasharray="3 5"/>
-      <path data-layout-ignore="text-overlap" d="M555 175 L502.5 84.1 A105 105 0 0 1 607.5 84.1 Z" fill="#f0d8ae" stroke-dasharray="9 5"/>
-      <path data-layout-ignore="text-overlap" d="M555 175 L660 175 A105 105 0 0 0 502.5 84.1 Z" fill="#a7dce4"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L502.5 84.1 A105 105 0 0 1 660 175 Z" fill="#c8e2b3" stroke-dasharray="13 3 3 3"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L607.5 84.1 A105 105 0 0 0 502.5 84.1 Z" fill="#d0d1ee" stroke-dasharray="3 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L502.5 84.1 A105 105 0 0 1 607.5 84.1 Z" fill="#f0d8ae" stroke-dasharray="9 5"/>
+      <path data-layout-ignore="text-overlap: SVG arc A command unsupported by lint segment parser; rendered labels visually checked" d="M555 175 L660 175 A105 105 0 0 0 502.5 84.1 Z" fill="#a7dce4"/>
     </g>
     <g fill="#223b4e" font-weight="600" font-size="16">
       <text x="250" y="150">1</text><text x="168" y="111">2</text>
