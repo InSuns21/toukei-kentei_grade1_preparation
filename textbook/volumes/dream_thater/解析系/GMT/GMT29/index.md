@@ -54,7 +54,14 @@ I(B_R(z))=\frac{d\omega_dR^{d-1}}{d\omega_d^{1/d}(\omega_dR^d)^{(d-1)/d}}=1,
 \qquad\alpha(B_R(z))=0.
 $$
 
-最後の等式は、非対称度のinfimumで中心を $z$ と取れば対称差が空となり、非負性から0になるためです。逆に $\alpha(E)=0$ なら $E$ はある球とほとんど至る所（almost everywhere; a.e.）一致します。実際、半径が固定された球の中心が無限遠へ逃げると交わりの体積が0になるので、対称差が0へ近づく球の中心 $z_j$ を並べた列は有界です。収束部分列 $z_j\to z$ を取り、球の指示関数の $L^1$ 連続性を使えば $|E\triangle B_{r_E}(z)|=0$ です。
+最後の等式は、非対称度のinfimumで中心を $z$ と取れば対称差が空となり、非負性から0になるためです。逆に $\alpha(E)=0$ なら $E$ はある球とほとんど至る所（almost everywhere; a.e.）一致します。対称差が0へ近づくように各 $j$ で球の中心 $z_j$ を選ぶと、$|B_{r_E}(z_j)|=|E|$ から
+
+$$
+|E\cap B_{r_E}(z_j)|
+=|E|-\frac12|E\triangle B_{r_E}(z_j)|\longrightarrow|E|>0.
+$$
+
+もし $|z_j|\to\infty$ となる部分列があれば、球は任意の固定した大球の外へ逃げ、$E$ の有限体積性から左辺は0へ向かって矛盾します。従って球の中心の列 $z_j$ は有界です。収束部分列 $z_j\to z$ を取り、球の指示関数の $L^1$ 連続性（並進で動く球の対称差は球面近傍に含まれ、その体積は0へ向かう）を使えば $|E\triangle B_{r_E}(z)|=0$ です。
 <!-- definition-example-end -->
 
 並進や倍率 $\lambda>0$ については、変数変換と[周長測度の変換](../GMT24/index.md#prop-gmt24-set-operations)から
@@ -118,7 +125,14 @@ $$
 
 ## 3. 滑らかな領域で鋭い定数を作る：下接触集合
 
-ここではまず、有界・連結で境界が $C^{2,\beta}$（$0<\beta<1$）の開集合 $\Omega$ を考えます。正則な境界なら体積 $|\Omega|$ と周長 $P(\Omega)$ は通常の体積と曲面積に一致します。
+ここではまず、有界・連結で境界が $C^{2,\beta}$（$0<\beta<1$）の開集合 $\Omega$ を考えます。正則な境界なら体積 $|\Omega|$ と周長 $P(\Omega)$ は通常の体積と曲面積に一致します。$\nu$ は $\partial\Omega$ の外向き単位法線です。ここで外向き法線微分とLaplacianは、それぞれ
+
+$$
+\partial_\nu u=\nabla u\cdot\nu,\qquad
+\Delta u=\sum_{i=1}^d\partial_i^2u
+$$
+
+と表します。
 
 証明では、関数 $u$ のグラフの下から接する接平面に注目します。点 $x$ で接平面が領域全体のグラフより上へ出ない、すなわち
 
@@ -144,7 +158,14 @@ $$
 > である。$\Gamma_u$ は接平面が全域でグラフの下側にある内点の集合である。
 <!-- formal-statement-end -->
 
-接平面を局所的に下から当てているので、$x\in\Gamma_u$ では $\nabla^2u(x)$ は半正定値です。実際、任意の方向 $v$ で $y=x+tv$ として二階Taylor展開し、$t^2v^{\mathsf T}\nabla^2u(x)v/2+o(t^2)\ge0$ とすれば分かります。
+ここでHessian $\nabla^2u(x)=(\partial_i\partial_j u(x))_{i,j=1}^d$ は、勾配写像 $x\mapsto\nabla u(x)$ の微分行列です。$u\in C^2$ なので混合偏微分が交換でき、この行列は対称です。下接触条件が行列の半正定値性へ移る理由は、任意の方向 $v\in\mathbb R^d$ と十分小さい $t$ に対して $y=x+tv\in\Omega$ と置いた二階Taylor展開
+
+$$
+u(x+tv)-u(x)-t\nabla u(x)\cdot v
+=\frac{t^2}{2}v^{\mathsf T}\nabla^2u(x)v+o(t^2)\ge0
+$$
+
+です。$t\ne0$ で $t^2/2$ により割って $t\to0$ とすれば、$v^{\mathsf T}\nabla^2u(x)v\ge0$ がすべての $v$ で成り立ちます。これが対称行列の半正定値の条件であり、従って固有値も非負です。後で用いる $\det\nabla^2u$ は、この勾配写像のJacobian行列式に当たります。
 
 <!-- definition-example-start: def-gmt29-lower-contact -->
 ### 放物面の直接例
@@ -157,7 +178,7 @@ $$
 u(y)-u(x)-\nabla u(x)\cdot(y-x)=\frac a2|y-x|^2\ge0.
 $$
 
-したがって[下接触集合の定義](#def-gmt29-lower-contact)の全条件を満たし、$\Gamma_u=\Omega$、$\nabla^2u=aI_d$、$\det\nabla^2u=a^d$ です。後の等号条件は、この放物面へ戻ることを意味します。
+また $\partial_i u=ax_i+b_i$ なので、$\partial_j\partial_i u=a\delta_{ij}$ です。これは標準座標で勾配の各成分を微分して得た行列であり、$\nabla^2u=aI_d$、$\det\nabla^2u=a^d$ となります。上の差がすべての $x\in\Omega$、$y\in\overline\Omega$ で非負なので、[下接触集合の定義](#def-gmt29-lower-contact)の全条件を満たして $\Gamma_u=\Omega$ です。後の等号条件は、この放物面へ戻ることを意味します。
 <!-- definition-example-end -->
 
 <a id="thm-gmt29-smooth-sharp"></a>
@@ -224,7 +245,16 @@ $$
 B_1(0)\subset\nabla u(\Gamma_u).
 $$
 
-**(3) 面積公式と行列式。** $\Gamma_u$ は可測です。$u\in C^{2,\beta}(\overline\Omega)$ と境界の滑らかさにより、$\nabla u$ は境界近傍へ $C^1$ に延長でき、コンパクトな $\overline\Omega$ 上でLipschitzです。[area formula](../GMT11/index.md#thm-gmt11-area-formula)により、勾配像の多重度を数えると
+**(3) 面積公式と行列式。** $\Gamma_u$ の可測性も確かめます。$\overline\Omega$ はコンパクトなので
+
+$$
+h(x)=\min_{y\in\overline\Omega}
+\{u(y)-u(x)-\nabla u(x)\cdot(y-x)\}
+$$
+
+は $x\in\Omega$ の連続関数です。従って $\Gamma_u=\{x\in\Omega:h(x)\ge0\}$ はBorel集合です。
+
+$u\in C^{2,\beta}(\overline\Omega)$ と境界の滑らかさにより、$\nabla u$ は境界近傍へ $C^1$ に延長でき、コンパクトな $\overline\Omega$ 上でLipschitzです。[area formula](../GMT11/index.md#thm-gmt11-area-formula)の定義域・値域とも $d$ 次元の場合を $f=\nabla u$、$E=\Gamma_u$ に適用します。このとき $Df=\nabla^2u$ は $d\times d$ 行列なので、Jacobianは $|\det\nabla^2u|$ です。勾配像の多重度は1以上として積分されるため
 
 $$
 \omega_d=|B_1|\le|\nabla u(\Gamma_u)|
@@ -318,13 +348,30 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 有界集合への切断。** 半径関数 $|x|$ の通常のcoareaと $|E|<\infty$ より
+**(1) 有界集合への切断。** [Euclid空間のcoarea formula](../GMT14/index.md#thm-gmt14-coarea)を半径関数 $f(x)=|x|$（原点以外で $|\nabla f|=1$）と $E$ に適用すると、$|E|<\infty$ より
 
 $$
 \int_0^\infty \mathcal A^{d-1}(E\cap\partial B_r)\,dr=|E|<\infty.
 $$
 
-従って $R_j\to\infty$ を、$E$ の球面切断が定義でき、$\mathcal A^{d-1}(E\cap\partial B_{R_j})\to0$ となるように選べます。$F_j=E\cap B_{R_j}$ と置くと、$|F_j\triangle E|=|E\setminus B_{R_j}|\to0$ です。[GMT28の半空間切断の証明](../GMT28/index.md#prop-gmt28-halfspace-cut)と同じcutoffの積の微分を、半径 $|x|$ に適用すると
+従って $R_j\to\infty$ を、$E$ の球面切断が定義でき、$\mathcal A^{d-1}(E\cap\partial B_{R_j})\to0$ となるように選べます。さらに有限測度 $|D\chi_E|$ が各球面に正の質量を持つ半径は高々可算個なので、その半径も避けます。$F_j=E\cap B_{R_j}$ と置くと、$|F_j\triangle E|=|E\setminus B_{R_j}|\to0$ です。
+
+[GMT28の半空間切断の証明](../GMT28/index.md#prop-gmt28-halfspace-cut)と同じcutoffの積の微分を、半径 $|x|$ に適用します。具体的には、$\eta_{r,\delta}$ を $B_r$ 上で1、$\mathbb R^d\setminus B_{r+\delta}$ 上で0、間の殻で $(r+\delta-|x|)/\delta$ としたLipschitz関数とします。BVの積の微分評価から
+
+$$
+|D(\eta_{r,\delta}\chi_E)|(\mathbb R^d)
+\le P(E;B_{r+\delta})
++\frac1\delta|E\cap(B_{r+\delta}\setminus B_r)|.
+$$
+
+$\delta\downarrow0$ で $\eta_{r,\delta}\chi_E\to\chi_{E\cap B_r}$ が $L^1$ 収束します。[Euclid空間のcoarea formula](../GMT14/index.md#thm-gmt14-coarea)により殻の体積項は
+
+$$
+\frac1\delta|E\cap(B_{r+\delta}\setminus B_r)|
+=\frac1\delta\int_r^{r+\delta}\mathcal A^{d-1}(E\cap\partial B_s)\,ds
+$$
+
+と書けます。この被積分関数は $L^1(0,\infty)$ に属し、[HA1のLebesgue微分定理](../../HA/HA1/index.md#thm-ha1-differentiation)の1次元の場合により、ほとんどすべての $r$ で上の平均は $\mathcal A^{d-1}(E\cap\partial B_r)$ へ収束します。全変動の下半連続性によって
 
 $$
 P(F_j)\le P(E;B_{R_j})
@@ -375,7 +422,9 @@ $$
 +\int_0^1(P(F)-q_k(t))_+\,dt\longrightarrow0.
 $$
 
-両符号の部分の積分が0へ向かるので $q_k\to P(F)$ は $L^1(0,1)$ 収束し、もう一度部分列を取ればa.e. $t$ でも収束します。[GEO3の正則値の定義](../../../幾何系/GEO/GEO3/index.md#def-geo3-regular-critical)でいう正則でない値 $t$ の集合は、滑らかな実数値関数の臨界値が零測度となる古典的な事実（Sard）により、各 $k$ で零測度です。この一般的な微分位相の事実は外部結果として採用し、ここではその証明を追加しません。可算和を除いて同じ $t$ を正則値に取れ、その超レベル集合の境界は滑らかです。
+両符号の部分の積分が0へ向かうので $q_k\to P(F)$ は $L^1(0,1)$ 収束し、もう一度部分列を取ればa.e. $t$ でも収束します。[GEO3の正則値の定義](../../../幾何系/GEO/GEO3/index.md#def-geo3-regular-critical)でいう正則でない値 $t$ の集合は、滑らかな実数値関数の臨界値が零測度となる古典的な事実（Sard）により、各 $k$ で零測度です。この一般的な微分位相の事実は外部結果として採用し、ここではその証明を追加しません。
+
+可算和を除いて同じ $t$ を正則値に取れ、その超レベル集合の境界は滑らかです。しかも $t>0$ なのでこの境界は有界な領域内のコンパクトな正則レベル集合です。コンパクトな滑らかな超曲面は有限個の連結成分しか持たず、各超レベル集合の成分には境界があるため、超レベル集合も有限個の連結成分からなります。従って第3節で証明した「有限成分の滑らかな領域」の定理を実際に適用できます（空集合なら不等式は自明です）。
 
 **(3) 対角化。** 各 $F_j$ について、周長・体積の誤差を $1/j$ 未満にする滑らかな集合を選びます。(1)の極限と合わせれば、主張の $E_j$ が得られます。
 <!-- proof-end -->
@@ -516,7 +565,7 @@ $d=3$、$E=B_R(0)$、$R>0$ に対し、$|E|$、$P(E)$、$I(E)$ を計算せよ�
 <!-- solution-start -->
 #### 詳細解答
 
-球の体積は $|E|=(4\pi/3)R^3$ です。[Gauss--Green](../GMT28/index.md#thm-gmt28-boundary-integration)を $\Phi=x$ に適用すると $RP(E)=3|E|$ なので $P(E)=4\pi R^2$。従って
+球の体積は $|E|=(4\pi/3)R^3$ です。球の近傍で $\Phi(x)=x$ となる $C_c^1(\mathbb R^3;\mathbb R^3)$ ベクトル場を取り、[Gauss--Green](../GMT28/index.md#thm-gmt28-boundary-integration)を適用すると $RP(E)=3|E|$ なので $P(E)=4\pi R^2$。従って
 
 $$
 I(E)=\frac{4\pi R^2}{3(4\pi/3)^{1/3}((4\pi/3)R^3)^{2/3}}
@@ -542,7 +591,7 @@ $$
 P(Q)^2=4(a+b)^2\ge16ab=16|Q|.
 $$
 
-$16>4\pi$（$\pi<4$）だから $P(Q)^2\ge16|Q|>4\pi|Q|$ です。$a=b$ なら最初の不等式は等号ですが、**Euclid等周不等式**では依然として厳密です。
+$16>4\pi$（$\pi<4$）だから $P(Q)^2\ge16|Q|>4\pi|Q|$ です。$a=b$ なら最初の不等式は等号ですが、[Euclid等周不等式](#thm-gmt29-general-sharp)では依然として厳密です。
 <!-- solution-end -->
 
 <a id="ex-gmt29-a03"></a>
