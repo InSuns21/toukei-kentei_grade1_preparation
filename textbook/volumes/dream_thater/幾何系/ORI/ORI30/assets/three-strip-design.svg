@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" data-layout-lint="strict" role="img" aria-labelledby="ori30-title ori30-desc">
+  <title id="ori30-title">三枚帯の原図</title>
+  <desc id="ori30-desc">横方向0から3、縦方向0から1の長方形を二本の縦の折り目x=1とx=2で三等分する。左の折り目はMを表す実線、右はVを表す破線で、左L、中央C、右Rの三面がある。折り目の端点は外周上にあり、内部頂点はない。</desc>
+  <rect x="140" y="80" width="180" height="120" fill="#e9f2fa"/>
+  <rect x="320" y="80" width="180" height="120" fill="#f5f5f1"/>
+  <rect x="500" y="80" width="180" height="120" fill="#fff1df"/>
+  <rect x="140" y="80" width="540" height="120" fill="none" stroke="#24374b" stroke-width="2.5"/>
+  <line x1="320" y1="80" x2="320" y2="200" stroke="#215a92" stroke-width="4" data-series-group="crease" data-series-label="M"/>
+  <line x1="500" y1="80" x2="500" y2="200" stroke="#a14c19" stroke-width="4" stroke-dasharray="9 7" data-series-group="crease" data-series-label="V"/>
+  <g font-family="sans-serif" font-size="25" fill="#182b3c" text-anchor="middle">
+    <text x="230" y="151">L</text>
+    <text x="410" y="151">C</text>
+    <text x="590" y="151">R</text>
+    <text x="320" y="54">M</text>
+    <text x="500" y="54">V</text>
+  </g>
+  <g font-family="sans-serif" font-size="22" fill="#182b3c" text-anchor="middle">
+    <text x="140" y="232">0</text>
+    <text x="320" y="232">1</text>
+    <text x="500" y="232">2</text>
+    <text x="680" y="232">3</text>
+  </g>
+</svg>

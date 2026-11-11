@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORI30 三枚帯の断面運動</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; }
+    body { max-width: 860px; margin: 0 auto; padding: 1rem; line-height: 1.6; background: #fafcfb; color: #172b3a; }
+    h1 { font-size: 1.5rem; }
+    .frame { background: white; border: 1px solid #adb9c1; border-radius: .6rem; padding: .5rem; }
+    svg { width: 100%; height: auto; display: block; }
+    .controls { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; align-items: center; }
+    button, select { font: inherit; padding: .3rem .65rem; border: 1px solid #526577; border-radius: .4rem; background: white; color: #173954; }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #1865ad; outline-offset: 2px; }
+    input[type=range] { width: 100%; }
+    #readout { font-variant-numeric: tabular-nums; padding: .6rem; background: #eef4f9; }
+    .swatch { font-weight: bold; }
+    .left { color: #215a92; } .right { color: #a14c19; }
+    details { margin-top: 1rem; }
+    table { border-collapse: collapse; width: 100%; } td, th { text-align: left; border: 1px solid #b5c3cf; padding: .35rem; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <h1>ORI30 三枚帯の断面運動</h1>
+  <p>三枚の剛体パネルを y=1/2 で切った <strong>(x,z) 断面の直交投影</strong>です。<span class="swatch left">左 L は実線</span>、中央 C は太線、<span class="swatch right">右 R は破線</span>で区別します。静止状態から始まり、自動再生しません。</p>
+  <div class="frame">
+    <svg id="stage" viewBox="0 0 610 405" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="stage-title stage-desc">
+      <title id="stage-title">三枚帯の連続剛体折り断面</title>
+      <desc id="stage-desc">中央パネルはx=1から2で固定。左パネルはx=1のヒンジから上へ、右パネルはx=2のヒンジから下へ回転する。各パネルの長さは常に1である。</desc>
+      <rect x="1" y="1" width="608" height="403" rx="8" fill="#ffffff"/>
+      <line x1="65" y1="205" x2="540" y2="205" stroke="#8998a6" stroke-width="1.5"/>
+      <line x1="90" y1="85" x2="90" y2="320" stroke="#8998a6" stroke-width="1.5" stroke-dasharray="3 6"/>
+      <g fill="#24374b" font-size="16" font-family="system-ui, sans-serif">
+        <text x="548" y="211">x</text><text x="80" y="75">z</text>
+        <text x="86" y="232">0</text><text x="214" y="232">1</text><text x="344" y="232">2</text><text x="474" y="232">3</text>
+      </g>
+      <line id="left" x1="90" y1="205" x2="220" y2="205" stroke="#215a92" stroke-width="6" stroke-linecap="round"/>
+      <line x1="220" y1="205" x2="350" y2="205" stroke="#263746" stroke-width="7" stroke-linecap="round"/>
+      <line id="right" x1="350" y1="205" x2="480" y2="205" stroke="#a14c19" stroke-width="6" stroke-dasharray="15 9" stroke-linecap="round"/>
+      <circle cx="220" cy="205" r="5" fill="#263746"/>
+      <circle cx="350" cy="205" r="5" fill="#263746"/>
+      <circle id="left-end" cx="90" cy="205" r="6" fill="#215a92"/>
+      <circle id="right-end" cx="480" cy="205" r="6" fill="#a14c19"/>
+      <g fill="#24374b" font-size="17" font-family="system-ui, sans-serif">
+        <text x="70" y="360">上: z &gt; 0 / 下: z &lt; 0</text>
+      </g>
+    </svg>
+  </div>
+  <div class="controls" role="group" aria-label="再生操作">
+    <button type="button" id="play">再生</button>
+    <button type="button" id="reset">初めから</button>
+    <button type="button" id="previous">前の工程</button>
+    <button type="button" id="next">次の工程</button>
+    <label for="speed">速度</label>
+    <select id="speed"><option value="0.5">0.5倍</option><option value="1" selected>1倍</option><option value="2">2倍</option></select>
+  </div>
+  <label for="time">時刻 t （キー操作でも変更可能）</label>
+  <input id="time" type="range" min="0" max="1" step="0.001" value="0" aria-label="時刻を指定"/>
+  <p id="readout" role="status" aria-live="polite">t=0.000, θ=0.0°, A=(0.000,0.000), B=(3.000,0.000), δ=1.000</p>
+  <p>角度は θ=πt。ヒンジは常に (1,0)、(2,0)、左端 A=(1−cosθ,sinθ)、右端 B=(2+cosθ,−sinθ)。左右の最短距離は θ≤π/2 で1、以後は sinθ。<strong>端点 t=1 の重なりは厚さゼロの層順 R&lt;C&lt;L を表す</strong>もので、実物の衝突回避証明ではありません。</p>
+  <details><summary>静止フレームの数値表（アニメーションが表示されない場合）</summary>
+    <table>
+      <thead><tr><th>t</th><th>左端 A=(x,z)</th><th>右端 B=(x,z)</th><th>距離 δ</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>(0, 0)</td><td>(3, 0)</td><td>1</td></tr>
+        <tr><td>1/3</td><td>(0.5, √3/2)</td><td>(2.5, −√3/2)</td><td>1</td></tr>
+        <tr><td>1/2</td><td>(1, 1)</td><td>(2, −1)</td><td>1</td></tr>
+        <tr><td>2/3</td><td>(1.5, √3/2)</td><td>(1.5, −√3/2)</td><td>√3/2</td></tr>
+        <tr><td>5/6</td><td>(1+√3/2, 1/2)</td><td>(2−√3/2, −1/2)</td><td>1/2</td></tr>
+        <tr><td>1</td><td>(2, 0)</td><td>(1, 0)</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </details>
+  <p>検証上の境界：この動く図は指定した角度の幾何配置を表示します。材料の変形・摩擦・駆動力・有限厚みのヒンジ構造はモデル化していません。元の折り線図は <a href="three-strip-design.svg">別のSVG</a> で確認できます。</p>
+  <script>
+    (() => {
+      'use strict';
+      const time = document.getElementById('time');
+      const play = document.getElementById('play');
+      const speed = document.getElementById('speed');
+      const left = document.getElementById('left');
+      const right = document.getElementById('right');
+      const leftEnd = document.getElementById('left-end');
+      const rightEnd = document.getElementById('right-end');
+      const readout = document.getElementById('readout');
+      const xPixels = x => 90 + 130 * x;
+      const zPixels = z => 205 - 110 * z;
+      const round = n => n.toFixed(3);
+      const frames = [0, 1 / 6, 1 / 3, 1 / 2, 2 / 3, 5 / 6, 1];
+      let t = 0;
+      let running = false;
+      let lastTimestamp;
+      function lineSet(line, x1, z1, x2, z2) {
+        line.setAttribute('x1', xPixels(x1));
+        line.setAttribute('y1', zPixels(z1));
+        line.setAttribute('x2', xPixels(x2));
+        line.setAttribute('y2', zPixels(z2));
+      }
+      function render(value) {
+        t = Math.max(0, Math.min(1, value));
+        const theta = Math.PI * t;
+        const c = Math.cos(theta), s = Math.sin(theta);
+        const ax = 1 - c, az = s, bx = 2 + c, bz = -s;
+        const delta = theta <= Math.PI / 2 ? 1 : s;
+        lineSet(left, ax, az, 1, 0);
+        lineSet(right, 2, 0, bx, bz);
+        leftEnd.setAttribute('cx', xPixels(ax));
+        leftEnd.setAttribute('cy', zPixels(az));
+        rightEnd.setAttribute('cx', xPixels(bx));
+        rightEnd.setAttribute('cy', zPixels(bz));
+        time.value = String(t);
+        readout.textContent = `t=${round(t)}, θ=${(theta * 180 / Math.PI).toFixed(1)}°, A=(${round(ax)},${round(az)}), B=(${round(bx)},${round(bz)}), δ=${round(Math.max(0, delta))}`;
+      }
+      function stop() { running = false; lastTimestamp = undefined; play.textContent = '再生'; }
+      function tick(timestamp) {
+        if (!running) return;
+        if (lastTimestamp !== undefined) {
+          const next = t + Math.min((timestamp - lastTimestamp) / 1000, 0.1) * Number(speed.value) / 8;
+          render(next);
+          if (t >= 1) { stop(); return; }
+        }
+        lastTimestamp = timestamp;
+        requestAnimationFrame(tick);
+      }
+      play.addEventListener('click', () => {
+        if (running) { stop(); return; }
+        if (t >= 1) render(0);
+        running = true;
+        play.textContent = '一時停止';
+        requestAnimationFrame(tick);
+      });
+      document.getElementById('reset').addEventListener('click', () => { stop(); render(0); });
+      time.addEventListener('input', () => { stop(); render(Number(time.value)); });
+      function moveFrame(direction) {
+        stop();
+        const tolerance = 1e-7;
+        const candidates = frames.filter(f => direction > 0 ? f > t + tolerance : f < t - tolerance);
+        render(candidates.length ? (direction > 0 ? candidates[0] : candidates[candidates.length - 1]) : (direction > 0 ? 1 : 0));
+      }
+      document.getElementById('previous').addEventListener('click', () => moveFrame(-1));
+      document.getElementById('next').addEventListener('click', () => moveFrame(1));
+      document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) stop();
+      render(0);
+    })();
+  </script>
+</body>
+</html>

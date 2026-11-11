@@ -30,3 +30,4 @@
 27. [ORI27 Miura折りと展開機構](textbook/volumes/dream_thater/幾何系/ORI/ORI27/index.md)
 28. [ORI28 曲線折りと可展曲面](textbook/volumes/dream_thater/幾何系/ORI/ORI28/index.md)
 29. [ORI29 紙厚・自己折り・実装制約](textbook/volumes/dream_thater/幾何系/ORI/ORI29/index.md)
+30. [ORI30 総合設計・数学的検証](textbook/volumes/dream_thater/幾何系/ORI/ORI30/index.md)

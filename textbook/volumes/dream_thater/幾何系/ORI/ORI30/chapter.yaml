@@ -1,0 +1,40 @@
+id: ORI30
+title: "総合設計・数学的検証"
+volume: foundations
+status: supplementary
+prerequisites: [ORI3, ORI13, ORI26, ORI29]
+official_scope: []
+learning_objectives:
+  - 三枚帯の折り線の有限作図と山谷・境界頂点の条件を確認できる
+  - 面ごとの平坦等長写像・貼り合わせ・層順を数式で検証できる
+  - 一パラメータの三次元運動を構成し、剛性・非貫通・端点を区別できる
+  - 非隣接パネルの最短距離を厳密に最小化し、厚みで失われる可動域を判定できる
+  - 数式・元の折り線図・時間ごとの投影図を突き合わせ、模型の保証範囲を報告できる
+definitions:
+  - { id: ORI30-DEF-01, name: 三枚帯の総合検証模型 }
+  - { id: ORI30-DEF-02, name: 総合判定の検証記録 }
+theorems:
+  - { id: ORI30-THM-01, name: 三枚帯の平坦配置と層順 }
+  - { id: ORI30-THM-02, name: 三枚帯の連続剛体折り経路 }
+  - { id: ORI30-THM-03, name: 非隣接パネル間の最短距離 }
+  - { id: ORI30-PROP-01, name: 厚み付き経路の安全角度と終点障害 }
+canonical_examples:
+  - 長方形の三等分折りと折り線の端点検査
+  - 三枚の反射写像による同一矩形への重なり
+  - 左端と右端の六つの角度フレーム
+  - 非隣接パネル間距離の二変数から一変数への最小化
+  - 厚さ0.1の接触角と切り欠き・材料・駆動の未判定項目
+problem_patterns:
+  - ORI30-FINITE-CREASES
+  - ORI30-FLAT-GLUING
+  - ORI30-LAYER-ORDER
+  - ORI30-RIGID-ISOMETRY
+  - ORI30-CLEARANCE-MINIMIZATION
+  - ORI30-ANIMATION-KEYFRAMES
+  - ORI30-WRONG-MV-PATH
+  - ORI30-THICKNESS-BOUND
+  - ORI30-INTEGRATED-CERTIFICATE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }
