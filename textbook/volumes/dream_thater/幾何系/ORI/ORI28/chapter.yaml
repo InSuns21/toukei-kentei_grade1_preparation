@@ -1,0 +1,44 @@
+id: ORI28
+title: "曲線折りと可展曲面"
+volume: foundations
+status: supplementary
+prerequisites: [ORI27, GEO11, GEO19]
+official_scope: []
+learning_objectives:
+  - 曲線折りの左右の面を区分的C2局所等長写像として定式化し折り角を接平面から定められる
+  - 第一基本形式とGaussの驚異の定理を使い可展性の必要条件を説明できる
+  - 線織曲面のGauss曲率の式を導き母線があるだけでは可展とは限らないことを判定できる
+  - 折り目の平面曲率・空間曲率と折り角の関係を導き適用条件と例外を説明できる
+  - 円弧の両側を局所等長に折る円錐面模型を構成し正則性・非重複性・大域的限界を検算できる
+definitions:
+  - { id: ORI28-DEF-01, name: 滑らかな曲線折り模型 }
+  - { id: ORI28-DEF-02, name: 可展パッチ }
+  - { id: ORI28-DEF-03, name: 線織曲面と母線 }
+  - { id: ORI28-DEF-04, name: 曲線折りの折り角 }
+theorems:
+  - { id: ORI28-THM-01, name: 局所等長な紙面は Gauss 曲率0 }
+  - { id: ORI28-PROP-01, name: 線織曲面の可展性判定 }
+  - { id: ORI28-THM-02, name: 曲線折りの曲率と折り角 }
+  - { id: ORI28-THM-03, name: 円弧の局所的円錐面折り }
+  - { id: ORI28-PROP-02, name: 円錐面模型の閉曲線への延長障害 }
+canonical_examples:
+  - 円柱の第一基本形式と母線
+  - 母線を持つがGauss曲率が負の線織曲面
+  - 半径2の平面円弧を半径1の空間円弧へ折る局所模型
+  - 円錐面模型の展開角のずれと全周閉鎖の失敗
+  - Gauss曲率が正の球面への等長変形不能性
+problem_patterns:
+  - ORI28-CYLINDER-METRIC
+  - ORI28-CONICAL-METRIC
+  - ORI28-SPHERE-OBSTRUCTION
+  - ORI28-RULED-NEGATIVE-CURVATURE
+  - ORI28-FOLD-ANGLE-CURVATURE
+  - ORI28-FOLD-LAW-DERIVATION
+  - ORI28-CLOSED-CREASE-OBSTRUCTION
+  - ORI28-NAIVE-LIFT-STRETCH
+  - ORI28-LOCAL-VS-GLOBAL-INJECTIVITY
+  - ORI28-COMPLETE-ARC-FOLD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

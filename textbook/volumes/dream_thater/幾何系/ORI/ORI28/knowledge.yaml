@@ -1,0 +1,60 @@
+chapter: ORI28
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI27, GEO11, GEO19]
+forward_references: []
+
+concepts:
+  - id: origami.curved-crease-model
+    name: 滑らかな曲線折り模型
+    kind: definition
+    introduction: formal
+    requires: [geometry.first-fundamental-form, origami.rigid-panel-motion]
+
+  - id: origami.developable-patch
+    name: 可展パッチ
+    kind: definition
+    introduction: formal
+    requires: [geometry.gauss-curvature, origami.curved-crease-model]
+
+  - id: origami.isometry-zero-gauss-curvature
+    name: 局所等長な紙面は Gauss 曲率0
+    kind: theorem
+    introduction: formal
+    requires: [origami.developable-patch, geometry.theorema-egregium]
+
+  - id: origami.ruled-surface-generator
+    name: 線織曲面と母線
+    kind: definition
+    introduction: formal
+    requires: [origami.developable-patch]
+
+  - id: origami.ruled-developability-test
+    name: 線織曲面の可展性判定
+    kind: proposition
+    introduction: formal
+    requires: [origami.ruled-surface-generator, geometry.gauss-curvature]
+
+  - id: origami.curved-fold-angle
+    name: 曲線折りの折り角
+    kind: definition
+    introduction: formal
+    requires: [origami.curved-crease-model]
+
+  - id: origami.crease-curvature-fold-law
+    name: 曲線折りの曲率と折り角
+    kind: theorem
+    introduction: formal
+    requires: [origami.curved-fold-angle, geometry.geodesic-curvature]
+
+  - id: origami.circular-crease-conical-fold
+    name: 円弧の局所的円錐面折り
+    kind: theorem
+    introduction: formal
+    requires: [origami.crease-curvature-fold-law, origami.isometry-zero-gauss-curvature]
+
+  - id: origami.closed-conical-crease-obstruction
+    name: 円錐面模型の閉曲線への延長障害
+    kind: proposition
+    introduction: formal
+    requires: [origami.circular-crease-conical-fold]
