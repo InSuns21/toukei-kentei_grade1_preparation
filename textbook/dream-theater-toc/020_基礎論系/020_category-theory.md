@@ -26,3 +26,4 @@
 23. [CAT2-11 随伴の極限・余極限保存](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-11/index.md)
 24. [CAT2-12 一般随伴関手定理](textbook/volumes/dream_thater/基礎論系/CAT/CAT2-12/index.md)
 25. [CAT3-01 モナドと随伴](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-01/index.md)
+26. [CAT3-02 Kleisli圏](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-02/index.md)

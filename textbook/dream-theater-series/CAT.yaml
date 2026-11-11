@@ -32,7 +32,7 @@ chapters:
   - { id: CAT2-11, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-11, status: completed, title: "随伴の極限・余極限保存" }
   - { id: CAT2-12, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT2-12, status: completed, title: "一般随伴関手定理" }
   - { id: CAT3-01, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-01, status: completed, title: "モナドと随伴" }
-  - { id: CAT3-02, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-02, status: planned, title: "Kleisli圏" }
+  - { id: CAT3-02, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-02, status: completed, title: "Kleisli圏" }
   - { id: CAT3-03, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-03, status: planned, title: "Eilenberg–Moore圏と比較関手" }
   - { id: CAT3-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-04, status: planned, title: "モナド性の条件" }
   - { id: CAT3-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-05, status: planned, title: "Beckのモナド性定理" }

@@ -2,7 +2,7 @@
 
 作成日: 2026-10-05  
 講義構成確定: 2026-11-09  
-状態: planned（講義構成のみ確定、本文・系列 manifest 未着手）  
+状態: in_progress（INV1 の本文・系列 manifest・公開導線を整備。INV2〜INV18 は未着手）
 移行元: `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` 旧 U1  
 **確定講義数: 全18講（INV1〜INV18）**
 
@@ -49,7 +49,7 @@
 | 確率・統計 | 条件付き分布、Bayes 公式、多変量 Gaussian、共分散行列 |
 | PDE / GPDE | 対応する楕円・放物型 PDE の弱解とエネルギー評価、Sobolev 空間 |
 
-未執筆 PLAN の表題だけを prerequisite の既習保証にはしない。**各章の執筆開始前**に系列 manifest、直接必要な `chapter.yaml` / `knowledge.yaml` と canonical stable anchor を実在照合し、欠けている前提は導入するか着手を延期する。現段階では系列 manifest・章本文を作らず、PLAN は `textbook/plans/` に留める。
+未執筆 PLAN の表題だけを prerequisite の既習保証にはしない。**各章の執筆開始前**に系列 manifest、直接必要な `chapter.yaml` / `knowledge.yaml` と canonical stable anchor を実在照合し、欠けている前提は導入するか着手を延期する。INV1 は `F0-00F2` の実特異値分解・作用素ノルムと `NA1` の行列条件数・感度定理を直接前提とし、Hadamard の三条件および逆問題固有の擬似逆・誤差増幅を扱う。以降の講義は系列 manifest の進捗に従い個別に着手する。
 
 ## 3. 共通の数学的骨格
 
