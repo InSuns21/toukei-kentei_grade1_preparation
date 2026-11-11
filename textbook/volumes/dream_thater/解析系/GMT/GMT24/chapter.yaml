@@ -1,0 +1,47 @@
+id: GMT24
+title: 有限周長集合とGauss--Green測度
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT10
+  - GMT13
+  - GMT21
+  - GMT22
+  - GMT23
+official_scope: []
+learning_objectives:
+  - 有限周長を相対周長と測度値分布微分から特徴付け、体積が無限の場合にも適用できる
+  - Gauss--Green測度の符号と極分解を導き、分布的な境界フラックスを説明できる
+  - 滑らかなグラフのフラックスをFubiniと連鎖律から導き、非正規化Hausdorff測度の係数を扱える
+  - 区間・球・長方形の周長と外向き法線を計算し、合併で共有界面が相殺されることを示せる
+  - 測度零集合の変更では周長が変わらず位相的境界と異なることを例で示せる
+  - 周長の下半連続性と有限周長集合の局所コンパクト性を既習BV理論から証明できる
+definitions:
+  - { id: GMT24-DEF-01, name: 有限周長集合 }
+  - { id: GMT24-DEF-02, name: Gauss--Green測度と一般化外向き法線 }
+theorems:
+  - { id: GMT24-THM-01, name: Gauss--Green測度の存在・極分解・双対性 }
+  - { id: GMT24-PROP-01, name: 滑らかな境界のGauss--Green表示 }
+  - { id: GMT24-PROP-02, name: 集合演算と相似変換の境界測度恒等式 }
+  - { id: GMT24-THM-02, name: 有限周長集合の局所コンパクト性と下半連続性 }
+canonical_examples:
+  - 区間の両端のDirac測度と相対周長
+  - 球の外向き法線とd次元球の表面積
+  - 長方形の各辺の法線と角点に質量を置かない計算
+  - 隣り合う正方形の共有界面におけるベクトル測度の相殺
+  - 有理点を除いた開球の位相的境界と周長の不一致
+problem_patterns:
+  - GMT24-INTERVAL-SIGN
+  - GMT24-BALL-FLUX
+  - GMT24-RECTANGLE-FACES
+  - GMT24-NULL-MODIFICATION
+  - GMT24-COMPLEMENT-SCALE
+  - GMT24-GRAPH-FLUX
+  - GMT24-INTERFACE-CANCEL
+  - GMT24-PERIMETER-COMPACTNESS
+  - GMT24-GAUSS-TEST-FIELD
+  - GMT24-PIECEWISE-HEIGHT
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 12, exercises: 8, review: 4 }

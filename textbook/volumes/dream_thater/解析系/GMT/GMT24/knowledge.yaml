@@ -1,0 +1,63 @@
+chapter: GMT24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT10
+  - GMT13
+  - GMT21
+  - GMT22
+  - GMT23
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt24-finite-perimeter
+    name: 有限周長集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限周長集合）"]
+    requires:
+      - geometric-measure.gmt23-relative-perimeter
+
+  - id: geometric-measure.gmt24-gauss-green-measure
+    name: Gauss--Green測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gauss--Green測度と一般化外向き法線）"]
+    requires:
+      - geometric-measure.gmt24-finite-perimeter
+      - geometric-measure.gmt21-vector-variation
+
+  - id: geometric-measure.gmt24-gauss-green-identity
+    name: Gauss--Green測度の存在・極分解・双対性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gauss--Green測度の存在・極分解・双対性）"]
+    requires:
+      - geometric-measure.gmt24-gauss-green-measure
+      - geometric-measure.gmt21-variation-duality
+
+  - id: geometric-measure.gmt24-smooth-boundary
+    name: 滑らかな境界のGauss--Green表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな境界のGauss--Green表示）"]
+    requires:
+      - geometric-measure.gmt24-gauss-green-identity
+      - geometric-measure.gmt13-rectifiable-area
+
+  - id: geometric-measure.gmt24-set-operations
+    name: 集合演算と相似変換の境界測度恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（集合演算と相似変換の境界測度恒等式）"]
+    requires:
+      - geometric-measure.gmt24-gauss-green-identity
+
+  - id: geometric-measure.gmt24-set-compactness
+    name: 有限周長集合の局所コンパクト性と下半連続性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限周長集合の局所コンパクト性と下半連続性）"]
+    requires:
+      - geometric-measure.gmt23-compactness
+      - geometric-measure.gmt22-lsc

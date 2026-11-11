@@ -29,7 +29,7 @@ chapters:
   - { id: GMT21, path: textbook/volumes/dream_thater/解析系/GMT/GMT21, status: completed, title: "多変数BVと分布微分" }
   - { id: GMT22, path: textbook/volumes/dream_thater/解析系/GMT/GMT22, status: completed, title: "BV近似・全変動の下半連続性" }
   - { id: GMT23, path: textbook/volumes/dream_thater/解析系/GMT/GMT23, status: completed, title: "BVコンパクト性とcoarea" }
-  - { id: GMT24, path: textbook/volumes/dream_thater/解析系/GMT/GMT24, status: planned, title: "有限周長集合とGauss--Green測度" }
+  - { id: GMT24, path: textbook/volumes/dream_thater/解析系/GMT/GMT24, status: completed, title: "有限周長集合とGauss--Green測度" }
   - { id: GMT25, path: textbook/volumes/dream_thater/解析系/GMT/GMT25, status: planned, title: "reduced boundaryと測度論的法線" }
   - { id: GMT26, path: textbook/volumes/dream_thater/解析系/GMT/GMT26, status: planned, title: "De Giorgi構造定理 I：半空間blow-up" }
   - { id: GMT27, path: textbook/volumes/dream_thater/解析系/GMT/GMT27, status: planned, title: "De Giorgi構造定理 II：整流可能性と測度同定" }
