@@ -27,7 +27,7 @@ $$
 
 ### 最小例：内部の線は外部境界ではない
 
-$Q_1=(0,1)\times(0,1)$ と $Q_2=(1,2)\times(0,1)$ を考えます。共有する縦線で $Q_1$ の外向き法線は $e_1$、$Q_2$ の外向き法線は $-e_1$。二つを合わせた領域 $(0,2)\times(0,1)$ の内部では、その二つの流束が相殺されます。各正方形の周長は4ですが、和集合の周長は6です。**面積の足し算と、向きのある境界測度の足し算を混同しない**ことが出発点です。
+$Q_1=(0,1)\times(0,1)$ と $Q_2=(1,2)\times(0,1)$ を考えます。$e_i$ はEuclid空間の第 $i$ 座標方向の単位ベクトル（平面なら $e_1=(1,0)$）です。共有する縦線で $Q_1$ の外向き法線は $e_1$、$Q_2$ の外向き法線は $-e_1$。二つを合わせた領域 $(0,2)\times(0,1)$ の内部では、その二つの流束が相殺されます。各正方形の周長は4ですが、和集合の周長は6です。**面積の足し算と、向きのある境界測度の足し算を混同しない**ことが出発点です。
 
 ## 2. 縮約境界上のGauss--Green
 
@@ -124,7 +124,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $V\Subset\Omega$ を有界な開集合とし、周長測度が $\partial V$ に質量を持たないように選びます。[GMT22のstrict近似定理](../GMT22/index.md#thm-gmt22-smooth-approx)を局所化し、$u_j,v_j$ を滑らかな関数で
+まず $V\Subset\Omega$ を有界な開集合とし、$\mu_E(\partial V)=\mu_F(\partial V)=0$ となるように選びます。[GMT22のstrict近似定理](../GMT22/index.md#thm-gmt22-smooth-approx)を局所化し、$u_j,v_j$ を滑らかな関数で
 
 $$
 u_j\to\chi_E,\quad v_j\to\chi_F\quad\text{in }L^1(V),
@@ -153,7 +153,7 @@ P(E\cup F;V)+P(E\cap F;V)
 \end{aligned}
 $$
 
-コンパクト集合を含むこのような $V$ を選べるので、局所有限周長が従います。任意の開 $U\subset\Omega$ については、周長のRadon測度としての内正則性から $V$ を増大させれば同じ不等式です。
+任意のコンパクト集合 $K\subset U\subset\Omega$ に対し $K\subset V\Subset U$ で上の二つの境界零条件を満たす $V$ を選べます。左辺の周長測度は $K$ 上で $V$ 上以下、右辺は $U$ 上以下なので、$K$ に対して上の不等式による有限の評価が得られます。従って和集合・共通部分も局所有限周長を持ちます。$K$ を増大させ、周長のRadon測度の内正則性を使えば任意の開 $U\subset\Omega$ 上の不等式が従います。
 
 最後に、$\chi_{E^c}=1-\chi_E$ と
 
@@ -180,14 +180,16 @@ $$
 
 これは $E$ の **断面集合** であり、半空間 $H_t=\{s<t\}$ と交わらせた集合とは異なります。$E_t$ は代表の選び方により例外的な高さでは変わり得ますが、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)によりほとんどすべての $t$ で差は消えます。
 
-ここで元の境界 $S=\partial^*E$ 上の法線を $\nu_E^*=(\nu'(x),\nu_d(x))$ と分けます。高さ写像 $h(x)=s$ の境界接平面上での微分の長さは
+ここで元の境界 $S=\partial^*E$ 上の法線を $\nu_E^*=(\nu'(x),\nu_d(x))$ と分けます。$\nu'(x)\in\mathbb R^{d-1}$ は水平成分、$\nu_d(x)\in\mathbb R$ は高さ方向の成分です。[GMT13の接平面の定義](../GMT13/index.md#def-gmt13-tangent-plane)でいう $T_xS$ は、[GMT27の平坦接測度と整流可能性](../GMT27/index.md#lem-gmt27-flat-perimeter-tangent)から、境界面積ほとんど至る所で $\nu_E^*(x)$ に直交する $(d-1)$ 次元平面になります。
+
+高さ写像 $h(x',s)=s$ は周囲の空間で勾配 $e_d$ を持ちます。しかし境界上を動くときには接方向だけの変化を測るため、$e_d$ を $T_xS$ へ直交射影します。[GMT14の接coarea Jacobian](../GMT14/index.md#cor-gmt14-rectifiable-coarea)で出力が一次元の場合、これは接微分の行ベクトルの長さに等しく、次のように計算できます。
 
 $$
 J^S_1h(x)=|\pi_{T_xS}e_d|
 =\sqrt{1-(\nu_E^*(x)\cdot e_d)^2}=|\nu'(x)|.
 $$
 
-理由は、法線方向 $e_d\cdot\nu_E^*$ を $e_d$ から引いた $\pi_{T_xS}e_d=e_d-(e_d\cdot\nu_E^*)\nu_E^*$ の長さの二乗が $1-(e_d\cdot\nu_E^*)^2$ だからです。[GMT27の整流可能性](../GMT27/index.md#thm-gmt27-de-giorgi-structure)により接平面は面積a.e.存在します。**水平な境界片は $|\nu'|=0$ なので、典型的な水平断面の境界へは寄与しません。**
+実際、$\pi_{T_xS}e_d=e_d-(e_d\cdot\nu_E^*)\nu_E^*$ であり、$|\nu_E^*|=|e_d|=1$ だからその長さの二乗は $1-(e_d\cdot\nu_E^*)^2$ です。さらに $|\nu'|^2+\nu_d^2=1$ を使いました。**水平な境界片は $|\nu'|=0$ なので、典型的な水平断面の境界へは寄与しません。**
 
 <a id="thm-gmt28-hyperplane-slicing"></a>
 
@@ -229,13 +231,13 @@ $$
 
 が非負可測 $g$ に対して成立します。$\nu'=0$ の集合は左辺に寄与せず、右辺でもほとんどすべての高さで $\mathcal A^{d-2}$-零です。この公式へ $g=\mathbf1_{\{|\nu'|>0\}}$ を入れると、右辺の断面面積は $t$ について局所可積分になります。
 
-横方向成分 $i\in\{1,\dots,d-1\}$ と $\psi\in C_c^1(A_0)$、$\eta\in C_c^1(I_0)$ を固定し、
+横方向成分 $i\in\{1,\dots,d-1\}$ と $\psi\in C_c^1(A_0)$、$\eta\in C_c^1(I_0)$ を固定します。ここで $\partial_i\psi$ は水平変数 $x'_i$ に関する偏微分、$\nu_i$ は外向き法線の同じ座標成分です。高さ変数 $s$ について微分するわけではありません。テスト場を
 
 $$
 \Phi(x',s)=\eta(s)\psi(x')e_i
 $$
 
-を[境界積分定理](#thm-gmt28-boundary-integration)へ代入します。Fubiniとcoarea（符号付き関数には正負部分を適用）から
+として[境界積分定理](#thm-gmt28-boundary-integration)へ代入します。$\operatorname{div}\Phi=\eta(s)\partial_i\psi(x')$ であり、$s$ に関する $\eta'$ の項は、$\Phi$ の高さ成分が零なので現れません。Fubiniとcoarea（符号付き関数には正負部分を適用）から
 
 $$
 \begin{aligned}
@@ -249,7 +251,7 @@ $$
 
 両辺の $t$ に関する被積分関数は局所可積分なので、$\eta$ の任意性によりa.e. $t$ で等しいです。$i$ は有限個、$\psi$ は $C_c^1(A_0)$ の可算稠密族から始め、上の断面測度の局所有限性で一般の $\psi$ へ拡張します。$A_0,I_0$ は有理端点の可算直方体で尽くせるため、例外高さを一つの零集合へまとめられます。
 
-そこでa.e. $t$ の断面の分布微分は、$A_0$ 上で
+そこでa.e. $t$ の断面の分布微分は、$A_0$ 上で次の表示を持ちます。$|\nu'|=0$ での比 $\nu'/|\nu'|$ は使用せず、その集合を測度の制限から除いています。
 
 $$
 -D_{x'}\chi_{E_t}
@@ -283,6 +285,15 @@ $$
 ## 5. 半空間との交わりは、新しい切断面を作る
 
 断面の周長 $P(E_t)$ と、**切った集合** $E\cap H_t$ の周長は違います。例えば長方形を半分にすると、新しい水平の辺が一本生まれます。その長さは断面の **長さ $\mathcal L^1(E_t)$** であり、断面の周長（端点数）ではありません。一般次元でも新しい面を測るのは $\mathcal L^{d-1}(E_t)$ です。
+
+次のベクトル値測度の式で $\bigl(\mathcal L^{d-1}\llcorner E_t\bigr)\otimes\delta_t$ と書くのは、断面の各点 $x'$ に高さ $t$ を付けて平面 $\{s=t\}$ に載せた測度という意味です。具体的に、Borel集合 $B\subset\mathbb R^d$ に対して
+
+$$
+\bigl[\bigl(\mathcal L^{d-1}\llcorner E_t\bigr)\otimes\delta_t\bigr](B)
+=\int_{E_t}\mathbf1_B(x',t)\,dx'
+$$
+
+です。$\delta_t$ は高さ $t$ の点質量です。
 
 <a id="prop-gmt28-halfspace-cut"></a>
 
@@ -322,9 +333,17 @@ $$
 =\int_{E_t}f(x',t)\,dx'
 $$
 
-が成立します（まず可算稠密な $f$ で同時に成立させ、一様近似で一般の $f$ へ広げます）。これらの条件を満たす $t$ を固定します。
+が成立します。これは高さ $s$ の関数 $F_f(s)=\int_{E_s}f(x',s)\,dx'$ に対する一次元の微分定理であり、積分変数 $x'$ を固定したまま $s$ を微分する主張ではありません。まず共通のコンパクト台上の可算稠密な $f$ で同時に成立させ、$E$ が有界であることから得られる一様評価で一般の $f$ へ広げます。これらの条件を満たす $t$ を固定します。
 
-滑らかな $\theta_\varepsilon(s)$ を $s\le t$ で1、$s\ge t+\varepsilon$ で0、$-1/\varepsilon$ 程度の非正の導関数を持ち $\int\theta_\varepsilon'=-1$ となるように取ります。$\Phi\in C_c^1(\mathbb R^d;\mathbb R^d)$ に対して [境界積分定理](#thm-gmt28-boundary-integration)を $\theta_\varepsilon\Phi$ に適用すると
+滑らかな $\theta_\varepsilon(s)$ を $s\le t$ で1、$s\ge t+\varepsilon$ で0、$\theta_\varepsilon'\le0$、$|\theta_\varepsilon'|\le C/\varepsilon$、$\int\theta_\varepsilon'=-1$ となるように取ります。$-\theta_\varepsilon'$ は $[t,t+\varepsilon]$ 上に台を持つ積分1の重みであり、$t$ が $F_f$ のLebesgue点なら
+
+$$
+\left|\int(-\theta_\varepsilon'(s))F_f(s)\,ds-F_f(t)\right|
+\le\frac C\varepsilon\int_t^{t+\varepsilon}|F_f(s)-F_f(t)|\,ds
+\longrightarrow0.
+$$
+
+これが以下の高さ微分項の極限を保証します。$\Phi=(\Phi_1,\ldots,\Phi_d)\in C_c^1(\mathbb R^d;\mathbb R^d)$ に対し、$\Phi_d$ は高さ方向の成分であり、積の発散では $\partial_s\theta_\varepsilon=\theta_\varepsilon'$ だけが追加されます。[境界積分定理](#thm-gmt28-boundary-integration)を $\theta_\varepsilon\Phi$ に適用すると
 
 $$
 \int_E\theta_\varepsilon\operatorname{div}\Phi\,dx
@@ -425,7 +444,20 @@ E^c & -2 & +2
 \end{array}
 $$
 
-です。縦辺の内積は0。両集合とも合計は0ですが、各辺の流束の符号は逆です。定数場はcutoffして、境界と対象集合を含む有界領域で局所的に考えればよいです。
+です。縦辺の内積は0です。両集合とも合計は0ですが、各辺の流束の符号は逆です。
+
+$\Phi$ 自体はコンパクト台を持ちません。そこで $\overline E$ の近傍で1になる $\eta\in C_c^1(\mathbb R^2)$ を取り、$\eta\Phi$ を[境界積分公式](#thm-gmt28-boundary-integration)に適用します。$E^c$ は非有界なので、補集合全体を有界なcutoffの内側に入れるわけではありません。両集合の縮約境界上では $\eta\Phi=\Phi$ であり、各辺の流束は上表のままです。
+
+左辺も $\operatorname{div}(\eta\Phi)$ がコンパクト台を持つことから
+
+$$
+\int_{E^c}\operatorname{div}(\eta\Phi)\,dx
+=\int_{\mathbb R^2}\operatorname{div}(\eta\Phi)\,dx
+-\int_E\operatorname{div}(\eta\Phi)\,dx
+=0-0=0
+$$
+
+となり、符号を反転しても矛盾しません。
 <!-- solution-end -->
 
 <a id="ex-gmt28-a03"></a>
@@ -586,7 +618,17 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$u>v$ の開集合では $w=u,z=v$、$u<v$ では $w=v,z=u$ なので等式は成り立ちます。等号集合 $\{u=v\}$ では、微分可能な関数 $u-v$ が0になる集合上でその勾配はLebesgue a.e.0です。よって $\nabla u=\nabla v$ がa.e.成り立ち、$w,z$ のa.e.勾配もこの共通値です。従って各場合で等式が成立します。
+$u>v$ の開集合では $w=u,z=v$、$u<v$ では $w=v,z=u$ なので等式は成り立ちます。等号集合 $Z=\{u=v\}$ で勾配が一致することも確かめます。
+
+$Z$ のLebesgue密度1の点 $x$ で $q=u-v$ と書きます。各単位方向 $e$ と $h\downarrow0$ に対して $Z$ 内の点 $x_h$ を $(x_h-x)/h\to e$ となるように取れます。もし取れなければ $x+he$ を中心とする半径 $\varepsilon h$ の球が $Z$ と交わらない列があり、$x$ での密度1に反するからです。そこで $q(x_h)=q(x)=0$ を微分展開すると
+
+$$
+0=q(x_h)-q(x)
+=\nabla q(x)\cdot(x_h-x)+o(|x_h-x|),
+\qquad \nabla q(x)\cdot e=0.
+$$
+
+方向 $e$ は任意なので $\nabla u(x)=\nabla v(x)$ です。また $w=(u+v+|q|)/2$、$z=(u+v-|q|)/2$ で、$q(x)=0$ かつ $\nabla q(x)=0$ なら $|q(x+h)|=o(|h|)$ です。従って $w,z$ の勾配もこの共通値になります。[高次元Lebesgue密度定理](../../HA/HA1/index.md#cor-ha1-density)により $Z$ のほとんどすべての点が密度1点であり、各場合で求める等式が成立します。
 
 次に [GMT22のstrict近似](../GMT22/index.md#thm-gmt22-smooth-approx)で $\chi_E,\chi_F$ を $u_j,v_j$ へ近似します。$\max,\min$ は $L^1$ 極限で $\chi_{E\cup F},\chi_{E\cap F}$ を与え、勾配の積分の和は近似の各段階で一致します。しかし [全変動の下半連続性](../GMT22/index.md#thm-gmt22-lsc)から得られるのは
 
@@ -615,7 +657,7 @@ $E=B_R(0)\subset\mathbb R^2$、$-R<t<R$ とし、$F_t=E\cap\{y<t\}$ を考える
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 弧と切断面。** 円周を $(R\cos\theta,R\sin\theta)$ と媒介表示すると、高さ条件は $\sin\theta<t/R$ です。$\alpha=\arcsin(t/R)\in(-\pi/2,\pi/2)$ とおけば、$y<t$ の円弧に対応する角度集合の総長は $\pi+2\alpha$。弧長要素が $R\,d\theta$ なので、その弧長は
+**1. 弧と切断面。** 円周を $(R\cos\theta,R\sin\theta)$ と媒介表示すると、高さ条件は $\sin\theta<t/R$ です。$\alpha=\arcsin(t/R)\in(-\pi/2,\pi/2)$ とおくと、$\sin\theta\ge t/R$ の弧は上側にあり、その角度の総長は $\pi-2\alpha$ です（$\alpha<0$ でも左右対称な二交点から同じ式を得ます）。従って下側の角度の総長は $2\pi-(\pi-2\alpha)=\pi+2\alpha$ です。弧長要素 $ds=R\,d\theta$ を掛けるので、その弧長は
 
 $$
 L_{\mathrm{arc}}(t)=R\bigl(\pi+2\arcsin(t/R)\bigr).

@@ -1,0 +1,67 @@
+chapter: CAT3-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT3-03
+
+concepts:
+  - id: category.split-coequalizer
+    name: 分裂余等化子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分裂余等化子）"]
+    requires: [category.coequalizer]
+  - id: category.absolute-split-coequalizer
+    name: 分裂余等化子の普遍性と絶対保存性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（分裂余等化子の普遍性と絶対保存性）"]
+    requires: [category.split-coequalizer, category.covariant-functor]
+  - id: category.r-split-pair
+    name: R-分裂平行二射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（R-分裂平行二射）"]
+    requires: [category.split-coequalizer]
+  - id: category.r-split-creation
+    name: R-分裂余等化子の創出
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（R-分裂余等化子の創出）"]
+    requires: [category.r-split-pair, category.coequalizer]
+  - id: category.conservative-functor
+    name: 同型を反映する関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同型を反映する関手）"]
+    requires: [category.isomorphism, category.covariant-functor]
+  - id: category.em-forgetful-conservative
+    name: 代数忘却関手は同型を反映する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（代数忘却関手は同型を反映する）"]
+    requires: [category.conservative-functor, category.em-algebra-morphism]
+  - id: category.em-creates-split-coequalizers
+    name: Eilenberg–Moore忘却関手による創出
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Eilenberg–Moore忘却関手による創出）"]
+    requires: [category.r-split-creation, category.absolute-split-coequalizer, category.em-category]
+  - id: category.counit-standard-pair
+    name: 余単位の標準平行二射
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（余単位の標準平行二射）"]
+    requires: [category.em-comparison-construction, category.split-coequalizer]
+  - id: category.algebra-morphism-transpose-test
+    name: 代数射の転置判定
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（代数射の転置判定）"]
+    requires: [category.counit-standard-pair, category.adjunction-transpose-formulas, category.em-algebra-morphism]
+  - id: category.comparison-full-faithfulness
+    name: 比較関手の充満忠実性の判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（比較関手の充満忠実性の判定）"]
+    requires: [category.algebra-morphism-transpose-test, category.em-creates-split-coequalizers, category.em-forgetful-conservative]
