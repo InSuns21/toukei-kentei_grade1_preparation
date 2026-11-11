@@ -172,7 +172,19 @@ $E,R$ を固定できると仮定したまま $N>e^{2\pi ER}$ を選べば、見
 
 境界条件を外から無償で固定した場では、負のCasimirエネルギーを通常の正の励起エネルギーから引けることがあります。$E$ を部分系の形式的な差だけで定義すれば、右辺を不当に小さくできます。壁や相互作用まで含めた**孤立系の全エネルギー**と、基準真空との差を区別する必要があります。
 
-一方、[Schwarzschildの面積エントロピー](../BHT9/index.md#prop-bht9-schwarzschild-entropy)を使うと、ブラックホール自身の半径 $R_s=2GM$ とエントロピー $S_{\rm BH}=A/(4G)=\pi R_s^2/G$ は、$E=M$ と置けば $2\pi ER_s=\pi R_s^2/G=S_{\rm BH}$ を満たします（ここでは $c=\hbar=k_B=1$）。これは係数の印象的な整合ですが、$2GE/R_s=1$ なので**弱自己重力の仮定に反します**。この一致から強重力の任意の状態への定理を導いてはいけません。
+一方、[Schwarzschildの面積エントロピー](../BHT9/index.md#prop-bht9-schwarzschild-entropy)を使い、$c=\hbar=k_B=1$ とすると、ブラックホール自身の半径とエントロピーは
+
+$$
+R_s=2GM,\qquad S_{\rm BH}=\frac{A}{4G}=\frac{\pi R_s^2}{G}
+$$
+
+です。$E=M$ と置いた形式的評価は
+
+$$
+2\pi ER_s=2\pi MR_s=\frac{\pi R_s^2}{G}=S_{\rm BH}
+$$
+
+となります。これは係数の印象的な整合ですが、$2GE/R_s=1$ なので**弱自己重力の仮定に反します**。この一致から強重力の任意の状態への定理を導いてはいけません。
 
 ## 5. 相対エントロピーから得られる、別の厳密な主張
 
@@ -216,7 +228,21 @@ $$
 追加仮定 $\Delta K\le2\pi R\Delta E$ と推移律を使えば $\Delta S\le2\pi R\Delta E$ を得ます。$\square$
 <!-- proof-end -->
 
-**直接例**：$\sigma=I_2/2$ は固有値 $1/2$ を二つ持ち、$\rho=|0\rangle\langle0|$ は階数1の射影です。両者は正半定値・トレース1で、$\sigma$ は忠実です。固有値ごとに対数を適用すると $K=-\ln\sigma=-(\ln(1/2))I_2=(\ln2)I_2$ となるので $\Delta K=(\ln2)(\operatorname{Tr}\rho-\operatorname{Tr}\sigma)=0$。また $S(\rho)=0$、$S(\sigma)=\ln2$ から $\Delta S=-\ln2$、従って $D=\ln2\ge0$ です。$\Delta S$ が負でも整合し、量子情報の不等式は「すべてのエントロピーは正のエネルギーで押さえられる」という意味ではありません。
+**直接例**：$\sigma=I_2/2$ は固有値 $1/2$ を二つ持ち、$\rho=|0\rangle\langle0|$ は階数1の射影です。両者は正半定値・トレース1で、$\sigma$ は忠実です。固有値ごとに対数を適用すると
+
+$$
+K=-\ln\sigma=-(\ln(1/2))I_2=(\ln2)I_2,\qquad
+\Delta K=(\ln2)\operatorname{Tr}(\rho-\sigma)=0
+$$
+
+となります。また、$\rho$ と $\sigma$ の固有値から
+
+$$
+S(\rho)=0,\qquad S(\sigma)=\ln2,\qquad
+\Delta S=-\ln2,\qquad D=\Delta K-\Delta S=\ln2\ge0
+$$
+
+です。$\Delta S$ が負でも整合し、量子情報の不等式は「すべてのエントロピーは正のエネルギーで押さえられる」という意味ではありません。
 
 ### 5.1 Rindler半空間で係数 $2\pi$ が現れる仕組み
 
@@ -227,7 +253,21 @@ K_{x>0}=2\pi\int_{x>0}x\,T_{00}(x,\mathbf y)\,dx\,d^2\mathbf y
 +\text{定数}.
 $$
 
-励起状態 $\rho$ と参照真空 $\sigma$ のエネルギー密度の差 $e(x,\mathbf y):=\langle T_{00}\rangle_\rho-\langle T_{00}\rangle_\sigma=\Delta\langle T_{00}\rangle$ が**非負**で、$0<x\le R$ に支持を持ち、積分 $\Delta E=\int e\,dx\,d^2\mathbf y$ が有限なら、位置 $0<x\le R$ で $xe\le Re$ なので
+励起状態 $\rho$ と参照真空 $\sigma$ のエネルギー密度の差を
+
+$$
+e(x,\mathbf y):=\langle T_{00}(x,\mathbf y)\rangle_\rho-
+\langle T_{00}(x,\mathbf y)\rangle_\sigma
+=\Delta\langle T_{00}(x,\mathbf y)\rangle
+$$
+
+と定めます。$e\ge0$ が点ごとに成り立ち、$0<x\le R$ に支持を持ち、エネルギー差
+
+$$
+\Delta E:=\int_{x>0}e(x,\mathbf y)\,dx\,d^2\mathbf y<\infty
+$$
+
+が存在するとします。すると支持上で $xe\le Re$ なので
 
 $$
 0\le\Delta K=2\pi\int xe\le2\pi R\int e=2\pi R\Delta E.
