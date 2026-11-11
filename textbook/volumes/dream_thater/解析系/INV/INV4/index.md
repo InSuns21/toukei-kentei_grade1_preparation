@@ -725,11 +725,11 @@ $$
 
 **1. 核と一般化逆の定義域。** $B((z_n),t)=0$ なら全ての $z_n/n=0$ なので $z=0$ です。一方 $t$ は観測されません。直交和の内積を $u=((u_n),s)$、$v=((v_n),t)\in H$ に適用すると
 
-$
+$$
 \langle Bu,v\rangle_H
 =\sum_{n=1}^\infty\frac{u_nv_n}{n}
 =\langle u,Bv\rangle_H.
-$
+$$
 
 従って $B^*=B$ であり、
 
