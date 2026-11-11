@@ -47,7 +47,7 @@ $$
 境界写像は $f_\lambda(x)=\lambda x$、Jacobianは $\lambda I$、従って $f_\lambda^*h=\lambda^2h$、$\Omega_f=\lambda>0$。等長性、延長、逆写像、境界の共形性という定義の全条件を満たしました。固定した $z=\epsilon$ 面は $z=\lambda\epsilon$ へ移るので、固定cutoffを保つ変換だとは主張していません。
 <!-- definition-example-end -->
 
-### 1.2 \(SO(2,d)\) と二種類の境界
+### 1.2 $SO(2,d)$ と二種類の境界
 
 [HOLO1の埋め込み](../HOLO1/index.md#def-holo1-ads-quadric)に用いた平坦空間は負符号二つ、正符号 $d$ 個の二次形式を持ちます。その二次形式を保つ行列群の単位元連結成分は $SO_0(2,d)$ です。対応するLie代数 $\mathfrak{so}(2,d)$ の次元は
 
