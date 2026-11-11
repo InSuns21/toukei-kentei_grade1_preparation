@@ -26,13 +26,24 @@ $$
 
 解が存在しない観測値に対してまで $A^{-1}$ と書くことはできません。また $A$ に核があれば、厳密な解は一意でない場合があります。[INV3 の最小ノルム解](../INV3/index.md#cor-inv3-minimum-norm)は、厳密に実現できるデータ $y_0\in\mathcal R(A)$ に対して、この曖昧さをなくします。
 
-ここでは、観測空間を[直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)して考えます。$Y_0=\overline{\mathcal R(A)}$ と置き、随伴の定義から $\mathcal R(A)^\perp=\ker A^*$ なので
+ここでは未知量側の $\ker A$ と観測データ側の $\ker A^*$ を区別します。$k\in\ker A$ なら $A(x+k)=Ax$ なので、前者は観測結果を変えない未知量の方向です。一方、後者の意味を確かめるため、[Hilbert 随伴の定義](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)を $z\in Y$ に適用します。
+
+$$
+\begin{aligned}
+z\perp\mathcal R(A)
+&\Longleftrightarrow \langle Ax,z\rangle_Y=0\quad(\forall x\in X)\\
+&\Longleftrightarrow \langle x,A^*z\rangle_X=0\quad(\forall x\in X)\\
+&\Longleftrightarrow A^*z=0.
+\end{aligned}
+$$
+
+従って $\mathcal R(A)^\perp=\ker A^*$ です。$Y_0=\overline{\mathcal R(A)}$ と置き、[閉部分空間の直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)を $Y_0$ に適用すると、
 
 $$
 Y=Y_0\oplus\ker A^*
 $$
 
-です。$z\in\ker A^*$ は、どの未知量からも生成できない観測方向です。厳密に実現できる部分 $y_0$ と観測不能方向 $z$ に分けられるデータだけを、以下の一般化逆の入力とします。
+です。$\ker A^*$ は、どの未知量からも生成できない**観測データ側**の方向です。$\ker A$ と $\ker A^*$ は属する空間も役割も異なります。データを厳密に実現できる部分 $y_0$ と到達不能な方向 $z$ に分けられる場合に、以下の一般化逆を定義します。
 
 <a id="def-inv4-pseudoinverse-domain"></a>
 
@@ -72,7 +83,14 @@ $$
 
 **定義の確認**：定義域の直交和、解の存在、核への直交性による一意性を順に確かめます。
 
-$A:\mathbb R^2\to\mathbb R^2$ を $A(s,t)=(2s,0)$ とします。内積から $A^*(a,b)=(2a,0)$、よって
+$A:\mathbb R^2\to\mathbb R^2$ を $A(s,t)=(2s,0)$ とします。両空間の標準内積で[Hilbert 随伴の定義](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)を具体的に書くと、任意の $(s,t),(a,b)\in\mathbb R^2$ に対して
+
+$$
+\langle A(s,t),(a,b)\rangle=2sa
+=\langle(s,t),(2a,0)\rangle
+$$
+
+です。従って $A^*(a,b)=(2a,0)$ であり、これらの写像の出力を成分ごとに調べると
 
 $$
 \mathcal R(A)=\operatorname{span}\{(1,0)\},\quad
@@ -141,7 +159,7 @@ $$
 
 で有界です。$y=e_{m(\alpha)}$ では等号になるので $\|R_\alpha\|=m(\alpha)$ とも分かります。
 
-無雑音データ $y=Dx$（$x\in\ell^2$）については $R_\alpha y=(x_1,\ldots,x_{m(\alpha)},0,\ldots)$ です。$\alpha\downarrow0$ なら $m(\alpha)\to\infty$、従って
+無雑音データ $y=Dx$（$x\in\ell^2$）については $R_\alpha y=(x_1,\ldots,x_{m(\alpha)},0,\ldots)$ です。$D$ は単射なので、[INV3 の最小ノルム解の系](../INV3/index.md#cor-inv3-minimum-norm)を $y=Dx$ に適用すると $D^\dagger y=x$ となります。$\alpha\downarrow0$ なら $m(\alpha)\to\infty$、従って
 
 $$
 \|R_\alpha y-D^\dagger y\|_2^2
@@ -486,7 +504,7 @@ $$
 \le\delta\|R_\alpha\|
 $$
 
-です。第2項は無雑音の無雑音で残る誤差 $\|R_\alpha y-A^\dagger y\|_X$ そのものです。[誤差分解定理](#thm-inv4-error-splitting)の評価は三角不等式で両者を足した結果です。
+です。第2項は無雑音で残る誤差 $\|R_\alpha y-A^\dagger y\|_X$ そのものです。[誤差分解定理](#thm-inv4-error-splitting)の評価は三角不等式で両者を足した結果です。
 <!-- solution-end -->
 
 <a id="ex-inv4-a04"></a>
@@ -624,14 +642,22 @@ $H=\ell^2\oplus\mathbb R$、$B:H\to H$ を $B((x_n),t)=((x_n/n),0)$ とする。
 <!-- solution-start -->
 #### 詳細解答
 
-$B$ は直交和上で自己共役であり、$B^*=B$ です。出力の最後の実数成分は必ず零で、先頭の列は $D$ の値域なので
+$u=((u_n),s)$、$v=((v_n),t)\in H$ とすると、$Bu=((u_n/n),0)$ なので内積を成分ごとに計算でき、
+
+$$
+\langle Bu,v\rangle_H
+=\sum_{n=1}^\infty\frac{u_nv_n}{n}
+=\langle u,Bv\rangle_H.
+$$
+
+従って $B$ は自己共役であり $B^*=B$ です。出力の最後の実数成分は必ず零で、先頭の列は $D$ の値域なので
 
 $$
 \mathcal R(B)=\mathcal R(D)\oplus\{0\},\quad
 \ker B^*=\{0\}\oplus\mathbb R.
 $$
 
-$Dx=(x_n/n)$ で、$w=(Dx,0)+(0,a)$ はこの二つの直交部分に分解されます。従って[一般化逆の定義](#def-inv4-pseudoinverse-domain)により $w\in\mathcal D(B^\dagger)$ で
+$Dx=(x_n/n)$ で、$w=(Dx,0)+(0,a)$ はこの二つの直交部分に分解されます。また $B((z_n),t)=0$ なら全ての $z_n=0$ なので $\ker B=\{0\}\oplus\mathbb R$ です。$(x,0)$ はこの核に直交するため、[一般化逆の定義](#def-inv4-pseudoinverse-domain)の全条件を満たし、$w\in\mathcal D(B^\dagger)$ で
 
 $$
 B^\dagger w=(x,0).
@@ -697,7 +723,15 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 核と一般化逆の定義域。** $B((z_n),t)=0$ なら全ての $z_n/n=0$ なので $z=0$ です。一方 $t$ は観測されません。$B^*=B$ は直交和内積の成分表示から確認できるので
+**1. 核と一般化逆の定義域。** $B((z_n),t)=0$ なら全ての $z_n/n=0$ なので $z=0$ です。一方 $t$ は観測されません。直交和の内積を $u=((u_n),s)$、$v=((v_n),t)\in H$ に適用すると
+
+$$
+\langle Bu,v\rangle_H
+=\sum_{n=1}^\infty\frac{u_nv_n}{n}
+=\langle u,Bv\rangle_H.
+$$
+
+従って $B^*=B$ であり、
 
 $$
 \ker B=\ker B^*=\{0\}\oplus\mathbb R,\quad
