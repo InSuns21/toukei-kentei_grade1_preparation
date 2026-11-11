@@ -22,7 +22,7 @@
 
 ## 2. Schwarzschild：温度・作用・エントロピーの三経路
 
-まず、回転も電荷もない質量 $M>0$ の漸近平坦Schwarzschild解を考えます。座標時間 $t$ は無限遠で単位規格化した時間です。計量の静的係数 $f(r)=1-2M/r$ から、正則な非極限地平線 $r_+=2M$ の面積と表面重力を計算できます。
+まず、回転も電荷もない質量 $M>0$ の漸近平坦Schwarzschild解を考えます。座標時間 $t$ は無限遠で単位規格化した時間です。計量の静的係数 $f(r)=1-2M/r$ から、正則な非極限地平線 $r_+=2M$ の面積と表面重力を計算できます。ここで $f'(r)=df/dr$ は面積半径 $r$ による通常の微分であり、Killing時間 $t$ に関する微分ではありません。
 
 $$
 A=4\pi r_+^2=16\pi M^2,\qquad
@@ -173,7 +173,7 @@ $$
 S_{\rm Wald}=\frac1{4G}\int_{\mathcal B}f'(R)\,dA.
 $$
 
-例えば $f(R)=R+\alpha R^2-2\Lambda$ の**定曲率解が実際に場の方程式を満たし** $R=4\Lambda$ なら、$f'(R)=1+8\alpha\Lambda$ で $S_{\rm Wald}=A(1+8\alpha\Lambda)/(4G)$。$\Lambda=0$ のRicci-flat Schwarzschildでは補正が消えます。場の方程式を満たさない仮の計量へこの数式を適用しても物理的ブラックホールのエントロピーを計算したことにはなりません。
+ここで $f(R)$ の $R$ は前節の地平線半径 $r$ とは異なるRicciスカラーであり、$f'(R)=df/dR$ はスカラー曲率を動かした微分です。例えば $f(R)=R+\alpha R^2-2\Lambda$ の**定曲率解が実際に場の方程式を満たし** $R=4\Lambda$ なら、$f'(R)=1+8\alpha\Lambda$ で $S_{\rm Wald}=A(1+8\alpha\Lambda)/(4G)$。$\Lambda=0$ のRicci-flat Schwarzschildでは補正が消えます。場の方程式を満たさない仮の計量へこの数式を適用しても物理的ブラックホールのエントロピーを計算したことにはなりません。
 
 量子場を含む半古典的な一般化エントロピーは、同じ切断面 $\mathcal B$ と同じ繰り込み処方で、概念的には
 
@@ -193,7 +193,13 @@ $$
 
 ## 6. 面積エントロピーが示唆する「状態数」
 
-通常の統計力学では、十分に狭いエネルギー窓 $[E,E+\Delta E]$ の中で許される微視状態の数 $\Omega(E,\Delta E)$ を数え、その対数を粗視的エントロピーと結びます。連続スペクトルでは窓幅・体積・規格化なしに「状態数」を数値として定義できないため、以下では有限個の直交状態のある模型を考えます。
+通常の統計力学では、十分に狭いエネルギー窓 $[E,E+\Delta E]$ の中で許される微視状態の数 $\Omega(E,\Delta E)$ を数え、その対数を粗視的エントロピーと結びます。連続スペクトルでは窓幅・体積・規格化なしに「状態数」を数値として定義できないため、以下では有限個の直交状態のある模型を考えます。$\Omega$ 個の互いに直交する状態 $|i\rangle$ を等確率で混合したとき、密度演算子は
+
+$$
+\rho=\frac1\Omega\sum_{i=1}^{\Omega}|i\rangle\langle i|
+$$
+
+となります。この演算子は許容状態の張る部分空間上で固有値 $1/\Omega$ を $\Omega$ 個持ち、正半定値・トレース1です。その固有値を[既習のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)へ代入して $\ln\Omega$ を得ることが、次の対応の判定方法です。
 
 <a id="def-bht24-microstate-count"></a>
 
@@ -209,7 +215,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht24-microstate-count -->
-**定義の確認**：同じエネルギー窓に直交状態が4個あり、等確率 $1/4$ なら $S_{\rm count}=-4(1/4)\ln(1/4)=\ln4$。$\exp(S_{\rm count})=4$ と元の個数が戻ります。重みが $(1/2,1/4,1/8,1/8)$ なら、同じ4状態でもエントロピーは $\ln4$ より小さくなります。状態数と状態の混合度も区別します。
+**定義の確認**：同じエネルギー窓に直交状態が4個あり、等確率 $1/4$ なら、上の密度演算子はその4次元部分空間の恒等演算子を $I_4=\sum_{i=1}^4|i\rangle\langle i|$ と表すと、$\rho=I_4/4$ です。基底 $|j\rangle$ に作用させれば $\rho|j\rangle=|j\rangle/4$ です。したがって $\rho$ は正半定値・トレース1で、4個の固有値はすべて $1/4$ となり、
+
+$$
+S_{\rm count}=-4\cdot\frac14\ln\frac14=\ln4,\qquad
+\exp(S_{\rm count})=4
+$$
+
+と元の個数が戻ります。形式的に面積との対応まで試すなら $A=4G\hbar\ln4$ と置いたときだけ $S_{\rm BH}=\ln4$ です。これは実在のブラックホールの状態数を構成したわけではありません。重みが $(1/2,1/4,1/8,1/8)$ なら、同じ4状態でもエントロピーは $\ln4$ より小さくなります。状態数と混合度を区別します。
 <!-- definition-example-end -->
 
 面積則は、形式的に $\Omega_{\rm eff}\sim\exp(A/4)$ という**指数的な規模**を予言します。しかし $A/4$ は連続的に変わり、$e^{A/4}$ は一般に整数ではありません。指数の主項、エネルギー窓、対数補正、境界条件、どの状態を数えるかを定めて初めて、実際の微視状態計数との比較になります。
@@ -267,7 +280,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht24-radiation-entropy -->
-**定義の確認**：二量子ビット $|\Psi\rangle=(|0_B0_R\rangle+|1_B1_R\rangle)/\sqrt2$ は規格化された純粋状態です。$B$ の基底で部分跡を取ると交差項は $\langle0_B|1_B\rangle=0$ により消え、$\rho_R=(|0\rangle\langle0|+|1\rangle\langle1|)/2$。固有値は $1/2,1/2$ なので $S_R=\ln2$ ですが、全体の固有値は $1,0,0,0$ で $S_{BR}=0$ です。
+**定義の確認**：二量子ビット $|\Psi\rangle=(|0_B0_R\rangle+|1_B1_R\rangle)/\sqrt2$ は、直交する二つの基底ベクトルの係数二乗和が1なので規格化された純粋状態です。全体の密度演算子を展開すると
+
+$$
+\rho_{BR}=\frac12\bigl(|00\rangle\langle00|+|00\rangle\langle11|
++|11\rangle\langle00|+|11\rangle\langle11|\bigr).
+$$
+
+$B$ の基底で部分跡を取ると、交差項は $\operatorname{Tr}(|0_B\rangle\langle1_B|)=\langle1_B|0_B\rangle=0$ により消えます。従って
+
+$$
+\rho_R=\frac12\bigl(|0_R\rangle\langle0_R|+|1_R\rangle\langle1_R|\bigr).
+$$
+
+$\rho_R$ の固有値は $1/2,1/2$ なので $S_R=\ln2$ ですが、全体の固有値は $1,0,0,0$ で $S_{BR}=0$ です。
 <!-- definition-example-end -->
 
 <a id="prop-bht24-global-pure-local-mixed"></a>
@@ -302,7 +328,7 @@ $$
 \rho_R=p|0_R\rangle\langle0_R|+(1-p)|1_R\rangle\langle1_R|.
 $$
 
-従って固有値から表示の $S_R$ を得ます。$0<p<1$ で $S_R'(p)=\ln((1-p)/p)$、$S_R''(p)=-1/p-1/(1-p)<0$ なので、唯一の内点極大は $p=1/2$、値は $\ln2$ です。端点では両エントロピーが0です。$\square$
+従って固有値から表示の $S_R$ を得ます。ここでプライムは実数パラメータ $p$ による通常の微分を表します。$0<p<1$ で $S_R'(p)=\ln((1-p)/p)$、$S_R''(p)=-1/p-1/(1-p)<0$ なので、唯一の内点極大は $p=1/2$、値は $\ln2$ です。端点では両エントロピーが0です。$\square$
 <!-- proof-end -->
 
 この玩具模型はPage曲線の時間依存、重力の拘束条件、蒸発後のHilbert空間の同一視を**証明していません**。ただし、「放射の一部が混合だから、全体の量子発展が非ユニタリ」と推論できないことを具体的に示します。逆に半古典Hawking計算で得られた近似的熱スペクトルだけから、全放射の最終状態が純粋だとも言えません。
@@ -326,7 +352,16 @@ $$
 - 問題: $M=3$、自然単位の漸近平坦Schwarzschild解で $r_+,A,\kappa,T,S$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**　$r_+=2M=6$。球面面積は $A=4\pi(6)^2=144\pi$。$\kappa=1/(4M)=1/12$、$T=\kappa/(2\pi)=1/(24\pi)$、$S=A/4=36\pi$ です。$T\,dS/dM=(1/(24\pi))8\pi(3)=1$ も検算できます。
+**詳細解答**　[Schwarzschildの面積・表面重力](#prop-bht24-schwarzschild-three-checks)を $M=3$ で評価します。地平線半径は $r_+=2M=6$ で、球面の面積・表面重力・温度・エントロピーは順に
+$$
+\begin{aligned}
+A&=4\pi(6)^2=144\pi,&
+\kappa&=\frac1{4M}=\frac1{12},\\
+T&=\frac{\kappa}{2\pi}=\frac1{24\pi},&
+S&=\frac A4=36\pi
+\end{aligned}
+$$
+です。検算として $dS/dM=8\pi M$ を使えば、$M=3$ で $T(dS/dM)=(1/(24\pi))(24\pi)=1$ となり第一法則 $dM=T\,dS$ と一致します。
 <!-- solution-end -->
 
 <a id="ex-bht24-a02"></a>
@@ -338,7 +373,16 @@ $$
 - 問題: $I_E(\beta)=\beta^2/(16\pi)$ から $E$ と $S$ を求めよ。$\beta>0$ とする。
 
 <!-- solution-start -->
-**詳細解答**　正準サドルの式で $E=\partial_\beta I_E=2\beta/(16\pi)=\beta/(8\pi)$。さらに $S=\beta E-I_E=\beta^2/(8\pi)-\beta^2/(16\pi)=\beta^2/(16\pi)$。$M=\beta/(8\pi)$ へ戻せば $E=M$、$S=4\pi M^2$ です。
+**詳細解答**　[参照背景差引きEuclidサドルの熱力学恒等式](#prop-bht24-schwarzschild-three-checks) $E=\partial_\beta I_E,\ S=\beta E-I_E$ を、逆温度 $\beta$ を変数として用います。従って
+$$
+\begin{aligned}
+E&=\frac{\partial}{\partial\beta}\frac{\beta^2}{16\pi}
+  =\frac{\beta}{8\pi},\\
+S&=\beta\frac{\beta}{8\pi}-\frac{\beta^2}{16\pi}
+  =\frac{\beta^2}{16\pi}.
+\end{aligned}
+$$
+Schwarzschildの関係 $\beta=8\pi M$ を代入すると、$E=M$、$S=(8\pi M)^2/(16\pi)=4\pi M^2$ です。ここで $\partial/\partial\beta$ はサドル作用を逆温度で微分する記法で、地平線半径 $r$ や座標時間 $t$ による微分ではありません。
 <!-- solution-end -->
 
 <a id="ex-bht24-a03"></a>
@@ -388,7 +432,22 @@ $$
 - 問題: $M=(r+Q^2/r)/2$、$S=\pi r^2$、$T=(r^2-Q^2)/(4\pi r^3)$、$\Phi_H=Q/r$ とする。非極限領域 $r>|Q|$ で $dr$ と $dQ$ の係数を別々に比較して第一法則を導け。
 
 <!-- solution-start -->
-**詳細解答**　$\partial_rM=(1-Q^2/r^2)/2$、$\partial_QM=Q/r$ だから $dM=[(1-Q^2/r^2)/2]dr+(Q/r)dQ$。$dS=2\pi r\,dr$ を温度へ掛ければ $TdS=[(r^2-Q^2)/(4\pi r^3)](2\pi r\,dr)=[(1-Q^2/r^2)/2]dr$。残る $dQ$ 係数は $\Phi_H=Q/r$ です。よって独立な $dr,dQ$ の双方で $dM=TdS+\Phi_HdQ$ が成立します。$dQ=0$ だけを調べたのでは全変分を検算できません。
+**詳細解答**　[RNの第一法則](#prop-bht24-rn-law-smarr)を、状態空間の独立変数 $(r,Q)$ で直接検算します。まず全微分は
+$$
+\begin{aligned}
+\frac{\partial M}{\partial r}\bigg|_Q
+  &=\frac12\left(1-\frac{Q^2}{r^2}\right),&
+\frac{\partial M}{\partial Q}\bigg|_r
+  &=\frac Qr,\\
+dM&=\frac12\left(1-\frac{Q^2}{r^2}\right)dr+\frac Qr\,dQ.
+\end{aligned}
+$$
+一方、$S=\pi r^2$ は $Q$ に陽に依存しないので $dS=2\pi r\,dr$。従って
+$$
+T\,dS=\frac{r^2-Q^2}{4\pi r^3}\,2\pi r\,dr
+       =\frac12\left(1-\frac{Q^2}{r^2}\right)dr.
+$$
+残る $dQ$ 係数も $\Phi_H=Q/r$ と一致します。よって独立な $dr,dQ$ の双方で $dM=T\,dS+\Phi_HdQ$ が成立します。$dQ=0$ だけの計算では全変分の検証になりません。
 <!-- solution-end -->
 
 <a id="ex-bht24-b02"></a>
@@ -400,7 +459,16 @@ $$
 - 問題: 同一の境界温度 $T=1/(\pi L)$ のSchwarzschild–AdS解が $r=L$ と $r=L/3$ に対応することを示し、各枝の $F$ と $C_L$ の符号を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**　温度式へ代入すると $T(L)=(1+3)/(4\pi L)=1/(\pi L)$、$T(L/3)=(1+1/3)/(4\pi L/3)=1/(\pi L)$。$F=r(1-r^2/L^2)/4$ より $F(L)=0$、$F(L/3)=(L/12)(1-1/9)=2L/27>0$。熱容量 $C_L=2\pi r^2(1+3r^2/L^2)/(3r^2/L^2-1)$ の分子は正なので、$r=L$ は分母 $2>0$ で $C_L>0$、$r=L/3$ は $1/3-1<0$ で $C_L<0$。前者が熱的AdSとの自由エネルギー交差点、後者は局所不安定な小枝です。
+**詳細解答**　[AdSの温度・自由エネルギー・熱容量](#prop-bht24-ads-transition)へ二つの半径をそれぞれ代入します。
+$$
+\begin{aligned}
+T(L)&=\frac{1+3}{4\pi L}=\frac1{\pi L},&
+T(L/3)&=\frac{1+1/3}{4\pi L/3}=\frac1{\pi L},\\
+F(L)&=\frac L4(1-1)=0,&
+F(L/3)&=\frac L{12}\left(1-\frac19\right)=\frac{2L}{27}>0.
+\end{aligned}
+$$
+熱容量 $C_L=2\pi r^2(1+3r^2/L^2)/(3r^2/L^2-1)$ の分子は $r>0$ で正です。分母は大枝 $r=L$ では $3-1=2>0$、小枝 $r=L/3$ では $1/3-1=-2/3<0$。したがって $C_L(L)>0$、$C_L(L/3)<0$。前者は熱的AdSとの自由エネルギー交差点（同じ境界温度と参照作用で比較）、後者は局所不安定な小枝です。
 <!-- solution-end -->
 
 <a id="ex-bht24-b03"></a>
@@ -424,7 +492,19 @@ $$
 - 問題: $|\Psi\rangle=\sqrt3|0_B0_R\rangle/2+|1_B1_R\rangle/2$ とする。$S_{BR},S_R$ を求め、$S_R>0$ が非ユニタリ性の証拠にならない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**　係数の二乗和は $3/4+1/4=1$ なので純粋全状態は正規化されています。$\rho_{BR}=|\Psi\rangle\langle\Psi|$ の非零固有値は1だから $S_{BR}=0$。部分跡では $B$ の直交性で交差項が消え、$\rho_R=\operatorname{diag}(3/4,1/4)$。従って $S_R=-(3/4)\ln(3/4)-(1/4)\ln(1/4)>0$。放射の混合状態は、$B$ と $R$ の相関を捨てて $R$ のみを観測した結果です。全体の状態は純粋で、局所的な混合状態から全体の時間発展が非ユニタリだとは結論できません。
+**詳細解答**　係数の二乗和は $3/4+1/4=1$。規格化した射影 $\rho_{BR}=|\Psi\rangle\langle\Psi|$ の固有値は $1,0,0,0$ なので $S_{BR}=0$ です。[部分跡の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)により、$B$ の正規直交基底に関して $\langle 0_B|1_B\rangle=0$ を使うと
+$$
+\begin{aligned}
+\rho_R&=\operatorname{Tr}_B(|\Psi\rangle\langle\Psi|)\\
+&=\frac34|0_R\rangle\langle0_R|
+  +\frac14|1_R\rangle\langle1_R|.
+\end{aligned}
+$$
+$R$ の順序付き基底 $(|0_R\rangle,|1_R\rangle)$ での行列表現は $\operatorname{diag}(3/4,1/4)$ です。この二つが固有値だから
+$$
+S_R=-\frac34\ln\frac34-\frac14\ln\frac14>0.
+$$
+放射だけを観測すると $B$ との相関を捨てるため混合しますが、全体は純粋なままです。部分系の混合から全体の時間発展の非ユニタリ性は導けません。
 <!-- solution-end -->
 
 ### Level C：条件を付け替えずに総合する
