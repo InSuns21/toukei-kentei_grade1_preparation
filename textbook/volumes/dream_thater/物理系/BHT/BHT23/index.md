@@ -35,7 +35,7 @@ $$
 
 ## 2. 箱を下ろす理想実験の計算
 
-質量 $M$ の大きなSchwarzschildブラックホールへ、$E\ll M$、$R\ll2M$、$2GE/R\ll1$ の箱を準静的に下ろします。ここだけ $G=1$ とし、背景の地平線は $r_H=2M$ です。静止観測者の時計の赤方偏移係数は
+質量 $M$ の大きなSchwarzschildブラックホールへ、$E\ll M$、$R\ll2M$、$2GE/R\ll1$ の箱を準静的に下ろします。ここだけ $G=1$ とし、背景の地平線は $r_H=2M$ です。[Schwarzschild地平線データ](../BHT1/index.md#prop-bht1-schwarzschild-data)と[静止時計の赤方偏移](../../QCURV/QCURV9/index.md#prop-qcurv9-redshift)に基づく、静止観測者の時計の赤方偏移係数は
 
 $$
 \chi(r)=\sqrt{1-\frac{2M}{r}}.
@@ -54,7 +54,7 @@ $$
 \end{aligned}
 $$
 
-静的箱を保持する糸が無限遠へ仕事を取り出し、位置 $\ell$ で糸を切るとします。潮汐力・箱の内部エネルギー分布・保持装置の重力への寄与・量子浮力を無視した点粒子近似では、残るブラックホールへのエネルギーは $E_\infty\simeq\chi E$ です。[Hawking温度と表面重力の関係](../BHT8/index.md#prop-bht8-normalization) $T_H=\kappa/(2\pi)$ と、[第一法則の面積係数表示](../BHT8/index.md#prop-bht8-first-law-area)を仕事・電荷・回転が変化しない一次摂動へ適用すると
+静的箱を保持する糸が無限遠へ仕事を取り出し、位置 $\ell$ で糸を切るとします。潮汐力・箱の内部エネルギー分布・保持装置の重力への寄与・量子浮力を無視した点粒子近似では、残るブラックホールへのエネルギーは $E_\infty\simeq\chi E$ です。[Hawking温度と表面重力の関係](../BHT8/index.md#prop-bht8-normalization) $T_H=\kappa/(2\pi)$ と、[第一法則の面積係数表示](../BHT8/index.md#prop-bht8-first-law-area)、[Schwarzschildエントロピーの質量微分](../BHT9/index.md#prop-bht9-schwarzschild-entropy) $dS_{\rm BH}/dM=1/T_H$ を、仕事・電荷・回転のない十分小さい投入 $\Delta M=E_\infty$ へ適用すると
 
 $$
 \begin{aligned}
@@ -105,7 +105,7 @@ $$
 
 ## 3. 降下中の浮力、熱的雰囲気、箱の境界
 
-静的地平線近傍に保持された観測者が測る局所温度は、[Tolman赤方偏移の関係](../BHT8/index.md#prop-bht8-tolman-bath)から
+ここでは非極限Schwarzschild地平線の周囲に、[Tolman則の適用条件](../BHT8/index.md#prop-bht8-tolman-bath)にあるHartle–Hawking（HH）のKMS熱平衡状態、または同じ局所熱平衡関係を仮定した近似模型を置きます。静止観測者の局所温度は、この条件の下で
 
 $$
 T_{\rm loc}=\frac{T_H}{\chi}\simeq\frac{1}{2\pi\ell}.
@@ -172,7 +172,19 @@ $E,R$ を固定できると仮定したまま $N>e^{2\pi ER}$ を選べば、見
 
 境界条件を外から無償で固定した場では、負のCasimirエネルギーを通常の正の励起エネルギーから引けることがあります。$E$ を部分系の形式的な差だけで定義すれば、右辺を不当に小さくできます。壁や相互作用まで含めた**孤立系の全エネルギー**と、基準真空との差を区別する必要があります。
 
-一方、Schwarzschildブラックホール自身の半径 $R_s=2GM$ とエントロピー $S_{\rm BH}=A/(4G)=\pi R_s^2/G$ は、$E=M$ と置けば $2\pi ER_s=\pi R_s^2/G=S_{\rm BH}$ を満たします（ここでは $c=\hbar=k_B=1$）。これは係数の印象的な整合ですが、$2GE/R_s=1$ なので**弱自己重力の仮定に反します**。この一致から強重力の任意の状態への定理を導いてはいけません。
+一方、[Schwarzschildの面積エントロピー](../BHT9/index.md#prop-bht9-schwarzschild-entropy)を使い、$c=\hbar=k_B=1$ とすると、ブラックホール自身の半径とエントロピーは
+
+$$
+R_s=2GM,\qquad S_{\rm BH}=\frac{A}{4G}=\frac{\pi R_s^2}{G}
+$$
+
+です。$E=M$ と置いた形式的評価は
+
+$$
+2\pi ER_s=2\pi MR_s=\frac{\pi R_s^2}{G}=S_{\rm BH}
+$$
+
+となります。これは係数の印象的な整合ですが、$2GE/R_s=1$ なので**弱自己重力の仮定に反します**。この一致から強重力の任意の状態への定理を導いてはいけません。
 
 ## 5. 相対エントロピーから得られる、別の厳密な主張
 
@@ -216,18 +228,46 @@ $$
 追加仮定 $\Delta K\le2\pi R\Delta E$ と推移律を使えば $\Delta S\le2\pi R\Delta E$ を得ます。$\square$
 <!-- proof-end -->
 
-**直接例**：$\sigma=I_2/2$、$\rho=|0\rangle\langle0|$ とすると、$K=(\ln2)I_2$ なので $\Delta K=(\ln2)(\operatorname{Tr}\rho-\operatorname{Tr}\sigma)=0$。また $S(\rho)=0$、$S(\sigma)=\ln2$ から $\Delta S=-\ln2$、従って $D=\ln2\ge0$ です。$\Delta S$ が負でも整合し、量子情報の不等式は「すべてのエントロピーは正のエネルギーで押さえられる」という意味ではありません。
+**直接例**：$\sigma=I_2/2$ は固有値 $1/2$ を二つ持ち、$\rho=|0\rangle\langle0|$ は階数1の射影です。両者は正半定値・トレース1で、$\sigma$ は忠実です。固有値ごとに対数を適用すると
+
+$$
+K=-\ln\sigma=-(\ln(1/2))I_2=(\ln2)I_2,\qquad
+\Delta K=(\ln2)\operatorname{Tr}(\rho-\sigma)=0
+$$
+
+となります。また、$\rho$ と $\sigma$ の固有値から
+
+$$
+S(\rho)=0,\qquad S(\sigma)=\ln2,\qquad
+\Delta S=-\ln2,\qquad D=\Delta K-\Delta S=\ln2\ge0
+$$
+
+です。$\Delta S$ が負でも整合し、量子情報の不等式は「すべてのエントロピーは正のエネルギーで押さえられる」という意味ではありません。
 
 ### 5.1 Rindler半空間で係数 $2\pi$ が現れる仕組み
 
-平坦時空の真空を $x>0$ の半空間へ制限したときの、適切な相対論的量子場のモジュラー生成子について、Rindlerの幾何から次の既知の**外部入力**を用います（ここで一般的な場の代数論の証明は行いません）。
+平坦時空の慣性座標 $(t,x,\mathbf y)$ を取り、$t=0$ の切断面で $x>0$ を対象領域、$\mathbf y=(y^1,y^2)$ を境界に平行な二つの座標とします。$T_{00}(x,\mathbf y)$ はこの慣性時間 $t$ に関するエネルギー密度（応力エネルギーテンソルの $00$ 成分）です。真空を半空間へ制限したとき、適切な相対論的量子場についてRindlerの幾何から得られる次のモジュラー生成子を、**外部入力**として用います（一般的な場の代数論の証明はここでは行いません）。
 
 $$
 K_{x>0}=2\pi\int_{x>0}x\,T_{00}(x,\mathbf y)\,dx\,d^2\mathbf y
 +\text{定数}.
 $$
 
-真空との差のエネルギー密度 $e(x,\mathbf y):=\Delta\langle T_{00}\rangle$ が**非負**で、$0<x\le R$ に支持を持ち、積分 $\Delta E=\int e\,dx\,d^2\mathbf y$ が有限なら、位置 $0<x\le R$ で $xe\le Re$ なので
+励起状態 $\rho$ と参照真空 $\sigma$ のエネルギー密度の差を
+
+$$
+e(x,\mathbf y):=\langle T_{00}(x,\mathbf y)\rangle_\rho-
+\langle T_{00}(x,\mathbf y)\rangle_\sigma
+=\Delta\langle T_{00}(x,\mathbf y)\rangle
+$$
+
+と定めます。$e\ge0$ が点ごとに成り立ち、$0<x\le R$ に支持を持ち、エネルギー差
+
+$$
+\Delta E:=\int_{x>0}e(x,\mathbf y)\,dx\,d^2\mathbf y<\infty
+$$
+
+が存在するとします。すると支持上で $xe\le Re$ なので
 
 $$
 0\le\Delta K=2\pi\int xe\le2\pi R\int e=2\pi R\Delta E.
@@ -300,7 +340,13 @@ $\ell=R$ は球形箱の底が地平線の直上に来る理想位置です。�
 - 問題: $T_{\rm loc}=1/(2\pi\ell)$、$p=aT_{\rm loc}^4/3$（$a>0$）のとき $p'(\ell)$ を求め、浮力の向きを示せ。
 
 <!-- solution-start -->
-**詳細解答**：$p(\ell)=a/[3(2\pi)^4]\,\ell^{-4}$ を微分して $p'(\ell)=-4a/[3(2\pi)^4]\,\ell^{-5}=-4p(\ell)/\ell<0$。箱の下面はより高圧なので、$-Vp'(\ell)>0$ に対応する圧力差は外向きです。これは高さが $\ell$ より十分小さい箱の一次近似です。
+**詳細解答**：$p'(\ell)=dp/d\ell$ は外向き固有距離 $\ell$ に沿う圧力の導関数です。$p(\ell)=a\ell^{-4}/[3(2\pi)^4]$ を微分すると
+
+$$
+p'(\ell)=-\frac{4a}{3(2\pi)^4\ell^5}=-\frac{4p(\ell)}{\ell}<0.
+$$
+
+下面の方が高圧なので、十分薄い箱では $F_{\rm buoy}\simeq-Vp'(\ell)>0$、すなわち浮力は外向きです。ここでは箱の高さが $\ell$ より十分小さいという一次近似を使っています。
 <!-- solution-end -->
 
 <a id="ex-bht23-a05"></a>
@@ -312,7 +358,13 @@ $\ell=R$ は球形箱の底が地平線の直上に来る理想位置です。�
 - 問題: $c=\hbar=k_B=1$、$R_s=2GM$、$S_{\rm BH}=\pi R_s^2/G$ とする。$2\pi MR_s$ と $S_{\rm BH}$ を比較し、この結果が弱重力境界の一般的証明ではない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**：$2\pi MR_s=2\pi(R_s/(2G))R_s=\pi R_s^2/G=S_{\rm BH}$。ただし $2GM/R_s=1$ であり、要求した $2GE/R\ll1$ に反します。形式的に等号が出ることと、第2節の弱い自己重力の箱を実際に下ろせることは別です。
+**詳細解答**：$M=R_s/(2G)$ を代入すると
+
+$$
+2\pi MR_s=2\pi\frac{R_s}{2G}R_s=\frac{\pi R_s^2}{G}=S_{\rm BH}.
+$$
+
+ただし $2GM/R_s=1$ であり、要求した弱重力条件 $2GE/R\ll1$ に反します。形式的な等号と、弱い自己重力の箱を実際に下ろせることは別です。
 <!-- solution-end -->
 
 ### Level B：理想操作の仮定と量子情報
@@ -344,7 +396,19 @@ $+0.20$ が残る限り $S=2\pi ER+0.10$ も許され、強い方の $S\le2\pi E
 - 問題: 一粒子の種類が $N=16$、等確率である箱を考える。$S$ を求め、$ER=1/4$ の形式的境界と比較せよ。なぜこれだけでは実際のGSLの反例にならないか、少なくとも二つの独立した理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：$\rho=I_{16}/16$ だから $S=-16(1/16)\ln(1/16)=\ln16=4\ln2\simeq2.773$。形式的上限は $2\pi ER=\pi/2\simeq1.571$ なので数値上は越えます。しかし (1) $N=16$ の直交状態を$ER=1/4$の全エネルギー・サイズに閉じ込める相互作用や壁の費用を無視した、(2) 真空・箱の周囲の熱的雰囲気との相関と浮力を無視して $\Delta S_{\rm out}=-S$ と置いた、という二点は独立の仮定です。いずれもGSLを適用する現実の過程の成立を保証しません。
+**詳細解答**：$\rho=I_{16}/16$ の16個の固有値はすべて $1/16$ なので
+
+$$
+S=-16\cdot\frac1{16}\ln\frac1{16}=\ln16=4\ln2\simeq2.773,
+\qquad 2\pi ER=\frac\pi2\simeq1.571.
+$$
+
+数値上は形式的な境界を越えます。しかし実際のGSLの反例とは言えません。
+
+1. $N=16$ の直交状態を $ER=1/4$ の全エネルギー・サイズに閉じ込めるための相互作用や壁の費用を無視しています。
+2. 箱と周囲の熱的雰囲気の相関・浮力を無視し、$\Delta S_{\rm out}=-S$ と置いています。
+
+これらは異なる追加仮定であり、どちらもGSLを適用する現実の過程の成立を保証しません。
 <!-- solution-end -->
 
 <a id="ex-bht23-b03"></a>
