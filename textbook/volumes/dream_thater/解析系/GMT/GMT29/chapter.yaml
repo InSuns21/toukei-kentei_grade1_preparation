@@ -1,0 +1,47 @@
+id: GMT29
+title: Euclid等周不等式
+volume: foundations
+status: supplementary
+prerequisites:
+  - MT1
+  - GEO3
+  - GMT22
+  - GMT24
+  - GMT26
+  - GMT28
+  - GPDE8
+official_scope: []
+learning_objectives:
+  - 有限体積・有限周長の仮定と球の等号、拡大縮小の指数と定数を検算できる
+  - BV--Sobolev型評価による非鋭い不等式と鋭い不等式の論理的差を説明できる
+  - Neumann問題・下接触集合・Jacobian・相加相乗平均による鋭いABP証明を再構成できる
+  - 滑らかな集合から一般の有限周長集合へのstrict近似と体積極限を示せる
+  - 等号の剛性に必要な追加の安定性結果の位置と、球・箱・分離成分での厳密な比較を説明できる
+definitions:
+  - { id: GMT29-DEF-01, name: 等周比とFraenkel非対称度 }
+  - { id: GMT29-DEF-02, name: 下接触集合 }
+theorems:
+  - { id: GMT29-LEM-01, name: BV指示関数からの非鋭い等周評価 }
+  - { id: GMT29-THM-01, name: 滑らかな領域の鋭い等周不等式と等号剛性 }
+  - { id: GMT29-LEM-02, name: 有限周長集合の滑らかなstrict近似 }
+  - { id: GMT29-THM-02, name: 有限周長集合のEuclid等周不等式 }
+  - { id: GMT29-COR-01, name: 有限周長集合の等号分類 }
+canonical_examples:
+  - 球の体積と周長、半径に依らない等周比
+  - d次元直方体の体積・全周長と球との定数比較
+  - 離れた二球での厳密な劣加法性と等号失敗
+  - 零測度の穴では分布周長が変わらない例
+problem_patterns:
+  - GMT29-BALL-SCALING
+  - GMT29-RECTANGLE-PERIMETER
+  - GMT29-DISJOINT-BALLS
+  - GMT29-NULL-HOLES
+  - GMT29-ABP-CONTACT
+  - GMT29-NEUMANN-COMPATIBILITY
+  - GMT29-STRICT-APPROX
+  - GMT29-EQUALITY-RIGIDITY
+  - GMT29-MULTICOMPONENT
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 13, exercises: 8, review: 5 }
