@@ -108,7 +108,7 @@ $$
 T:=A^*A:X\to X
 $$
 
-を考えます。随伴の内積恒等式から
+を考えます。[Hilbert随伴の定義](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)を $A$ に適用すると
 
 $$
 \langle Tx,x\rangle_X=\|Ax\|_Y^2\ge0,
