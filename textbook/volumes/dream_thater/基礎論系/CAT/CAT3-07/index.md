@@ -47,7 +47,7 @@ $$
 となり合成が閉じる。$\pi_b(gf)=gf=\pi_b(g)\pi_b(f)$ なので射影は関手であり、$F$ との合成も関手となる。
 <!-- definition-example-end -->
 
-**小ささを確認する。** comma圏の対象は $a$ ごとのHom集合のタグ付き和で表せる。
+**小ささを確認する。** comma圏の対象は $a$ ごとのHom集合を互いに素にして集めたものである。
 
 $$
 \operatorname{Ob}(K\downarrow b)
