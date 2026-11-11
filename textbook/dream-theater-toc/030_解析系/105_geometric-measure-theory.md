@@ -24,3 +24,4 @@
 21. [GMT21 多変数BVと分布微分](textbook/volumes/dream_thater/解析系/GMT/GMT21/index.md)
 22. [GMT22 BV近似・全変動の下半連続性](textbook/volumes/dream_thater/解析系/GMT/GMT22/index.md)
 23. [GMT23 BVコンパクト性とcoarea](textbook/volumes/dream_thater/解析系/GMT/GMT23/index.md)
+24. [GMT24 有限周長集合とGauss--Green測度](textbook/volumes/dream_thater/解析系/GMT/GMT24/index.md)
