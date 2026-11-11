@@ -37,7 +37,7 @@ chapters:
   - { id: GMT29, path: textbook/volumes/dream_thater/解析系/GMT/GMT29, status: completed, title: "Euclid等周不等式" }
   - { id: GMT30, path: textbook/volumes/dream_thater/解析系/GMT/GMT30, status: completed, title: "周長最小化の直接法" }
   - { id: GMT31, path: textbook/volumes/dream_thater/解析系/GMT/GMT31, status: completed, title: "Besicovitch集合：有限段階から極限まで" }
-  - { id: GMT32, path: textbook/volumes/dream_thater/解析系/GMT/GMT32, status: planned, title: "δ-tube・方向分離・次元" }
+  - { id: GMT32, path: textbook/volumes/dream_thater/解析系/GMT/GMT32, status: completed, title: "δ-tube・方向分離・次元" }
   - { id: GMT33, path: textbook/volumes/dream_thater/解析系/GMT/GMT33, status: planned, title: "平面Córdoba型tube評価" }
   - { id: GMT34, path: textbook/volumes/dream_thater/解析系/GMT/GMT34, status: planned, title: "高次元tube幾何・古典的次元下界" }
   - { id: GMT35, path: textbook/volumes/dream_thater/解析系/GMT/GMT35, status: planned, title: "Kakeya maximalと集合版の含意" }
