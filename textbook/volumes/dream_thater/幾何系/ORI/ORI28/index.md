@@ -86,13 +86,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F$ の座標偏微分を $F_x,F_y$ とします。局所等長の仮定を標準基底 $e_1,e_2$ へ適用すると
+$F$ の座標偏微分を $F_x=\partial F/\partial x,F_y=\partial F/\partial y$ とします。局所等長の仮定を標準基底 $e_1,e_2$ へ適用すると、[第一基本形式の座標係数](../../GEO/GEO10/index.md#def-geo10-first-fundamental-form)は
 
 $$
-E=F_x\cdot F_x=1,\qquad
-F_{12}=F_x\cdot F_y=0,\qquad
-G=F_y\cdot F_y=1.
+g_{11}=F_x\cdot F_x=1,\qquad
+g_{12}=F_x\cdot F_y=0,\qquad
+g_{22}=F_y\cdot F_y=1.
 $$
+
+ここで $F_1:=F_x,F_2:=F_y$ と置くと $g_{ij}=F_i\cdot F_j$ は二つの接ベクトルの内積であり、$F_{12}$ のような二階偏微分とは区別します。
 
 よって像の第一基本形式は $dx^2+dy^2$ です。平面の第一基本形式もこれと等しく、平面の曲率は0です。各点で $F$ が正則かつ局所微分同相な曲面表示であるため、[Gauss の驚異の定理](../../GEO/GEO11/index.md#thm-geo11-egregium)をこの座標対応へ適用でき、像の $K$ は平面の $0$ に一致します。曲線折りでは $F_+$ と $F_-$ の内部にそれぞれ適用すればよく、折り目で二階微分が一致する必要はありません。$\square$
 <!-- proof-end -->
@@ -104,6 +106,8 @@ $$
 ## 3. 母線を持つことと可展であることは違う
 
 円柱は、軸に平行な直線を動かしてできています。このように、曲面を構成する直線を**母線**として追えば、折れた面の形を手で記述しやすくなります。しかし、直線を寄せ集めた曲面のすべてが紙から作れるわけではありません。
+
+直線の通過点を $\gamma(s)$、向きの単位ベクトルを $d(s)$ で指定し、$s$ で母線を選び、$v$ でその母線上を動くことにします。$X_s=\partial X/\partial s$ は $v$ を固定した偏微分、$X_v=\partial X/\partial v$ は $s$ を固定した偏微分です。
 
 <a id="def-ori28-ruled-surface"></a>
 <!-- formal-statement-start -->
@@ -121,7 +125,9 @@ $$
 **直接例：円柱の母線。** 先の $Y$ で $\gamma(s)=(R\cos(s/R),R\sin(s/R),0)$、$d(s)=(0,0,1)$ とします。**定義の確認**：$|d|=1$、$Y=\gamma+vd$、$|Y_s\times Y_v|=1$ を満たします。$s$ を固定すると $v$ の変化は鉛直の直線となり、母線の定義を文字どおり満たします。
 <!-- definition-example-end -->
 
-法曲率を計算する際には [GEO10 の第二基本形式](../../GEO/GEO10/index.md#prop-geo10-coordinate-forms)を用います。ここでは母線方向の二階微分が0であるため、Gauss 曲率の符号と可展性を比較的短く計算できます。
+Gauss 曲率を計算する際には [GEO10 の第二基本形式と座標表示](../../GEO/GEO10/index.md#prop-geo10-coordinate-forms)を用います。以下で $\gamma',d'$ はそれぞれ $s$ による通常微分です。また $\det(a,b,c)=(a\times b)\cdot c$ は3本のベクトルを列に並べた行列式（三重積）です。
+
+母線方向では $X_{vv}=0$ です。座標の順序を $(s,v)$ として $X_1=X_s,X_2=X_v$ と置き、第一基本形式の係数 $g_{ij}=X_i\cdot X_j$ と第二基本形式の係数 $b_{ij}=N\cdot X_{ij}$ を、それぞれ行列 $G=(g_{ij})$、$B=(b_{ij})$ に並べます。これが定義のどの条件を判定するか、以下の計算で追えます。
 
 <a id="prop-ori28-ruled-curvature"></a>
 <!-- formal-statement-start -->
@@ -143,19 +149,31 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$X_s=\gamma'+vd'$、$X_v=d$、$X_{sv}=d'$、$X_{vv}=0$ です。単位法線を $N=(X_s\times d)/w$、$w=|X_s\times d|>0$ とします。第二基本形式の係数を $L=N\cdot X_{ss}$、$M=N\cdot X_{sv}$、$P=N\cdot X_{vv}$ とすると
+$X_s=\gamma'+vd'$、$X_v=d$、$X_{sv}=d'$、$X_{vv}=0$ です。単位法線を $N=(X_s\times d)/w$、$w=|X_s\times d|>0$ とします。第二基本形式の $vv$ 成分と混合成分は
 
 $$
-P=0,\qquad
-M=\frac{(X_s\times d)\cdot d'}{w}
-=\frac{\det(\gamma',d,d')+v\det(d',d,d')}{w}
+\begin{aligned}
+b_{22}&=N\cdot X_{vv}=0,\\
+b_{12}&=N\cdot X_{sv}
+=\frac{(X_s\times d)\cdot d'}{w}\\
+&=\frac{\det(\gamma',d,d')+v\det(d',d,d')}{w}
 =\frac{\det(\gamma',d,d')}{w}.
+\end{aligned}
 $$
 
-第一基本形式の行列式は $EG-F^2=|X_s\times d|^2=w^2$。従って [GEO10 の形作用素の座標表示](../../GEO/GEO10/index.md#prop-geo10-coordinate-forms)から
+最終等号では二つの列が同じ三重積 $\det(d',d,d')=0$ を用いました。第一基本形式の行列式は、外積の恒等式により
 
 $$
-K=\frac{LP-M^2}{EG-F^2}
+\det(g_{ij})
+=(X_s\cdot X_s)(d\cdot d)-(X_s\cdot d)^2
+=|X_s\times d|^2=w^2.
+$$
+
+したがって [形作用素の座標表示 $G^{-1}B$](../../GEO/GEO10/index.md#prop-geo10-coordinate-forms)と [Gauss 曲率の定義](../../GEO/GEO10/index.md#def-geo10-principal-curvature)から
+
+$$
+K=\det(G^{-1}B)
+=\frac{b_{11}b_{22}-b_{12}^2}{\det(g_{ij})}
 =-\frac{\det(\gamma',d,d')^2}{w^4}.
 $$
 
@@ -178,7 +196,7 @@ $$
 
 ## 4. 折り目の曲率から折り角を計算する
 
-面が可展でも、折り目の左右で接平面がどれだけずれるかを決めなければなりません。平面の折り目を弧長 $s$ でたどったときの単位接線を $T_0(s)$、その平面内の単位横方向を $n_0(s)$ とします。$n_0$ は**左右両側へ延長する際の同じ向き**を選びます。
+面が可展でも、折り目の左右で接平面がどれだけずれるかを決めなければなりません。平面の折り目を弧長 $s$ でたどる単位速曲線を $\gamma_0(s)$ と書き、単位接線を $T_0(s)=\gamma_0'(s)$、平面内で $T_0$ に直交する単位横方向を $n_0(s)$ とします。プライムはここでは弧長 $s$ による微分です。$n_0$ は**左右両側へ延長する際の同じ向き**を選びます。
 
 折った後の共通空間曲線を $C(s)$ と書きます。局所等長なので $|C'(s)|=1$ です。その単位接線を $T=C'$、横方向の像を $m_+,m_-$ とすると、それぞれ $T$ に直交する単位ベクトルです。ここで二本の横方向の開きが折り角を定めます。
 
@@ -199,7 +217,13 @@ $$
 **直接例：直線折り。** 平面の折り目を $x$ 軸とし、$n_0=(0,1)$ とします。左右の面を $x$ 軸まわりにそれぞれ角 $\beta$、$-\beta$ 回転すると、$m_+=(0,\cos\beta,\sin\beta)$、$m_-=(0,\cos\beta,-\sin\beta)$ です。$0\le\beta<\pi/2$ なら内積は $\cos2\beta$、したがって $\theta=2\beta$。**定義の確認**：両側は回転なので局所等長、折り目で一致し、$m_\pm$ は単位かつ折り目接線に直交します。横方向の内積から角度が定まることまで直接確かめました。
 <!-- definition-example-end -->
 
-平面での折り目の**符号付き測地曲率**を $k_g$ とします。これは横方向 $n_0$ を固定して $k_g=\gamma_0''(s)\cdot n_0(s)$ と計算した値です。[GEO19 の測地曲率](../../GEO/GEO19/index.md#def-geo19-kg)の符号を、選んだ横方向へ合わせた表現です。空間曲線の曲率は $\kappa(s)=|C''(s)|$ とします。
+平面での折り目の**符号付き測地曲率**を $k_g$ とします。これは横方向 $n_0$ を固定して
+
+$$
+k_g(s)=\gamma_0''(s)\cdot n_0(s)
+$$
+
+と計算した値です。[GEO19 の測地曲率の定義](../../GEO/GEO19/index.md#def-geo19-kg)では正の $90^\circ$ 回転 $J$ に対する $JT$ を用いるので、ここでは $JT_0=n_0$ となる平面の向きを選びます。折り後の各側でも $JC'=m_\pm$ となる向きを別々に選んで同じ符号を比較します。空間曲線の曲率は $\kappa(s)=|C''(s)|$ とします。
 
 <a id="thm-ori28-curvature-fold-law"></a>
 <!-- formal-statement-start -->
@@ -222,7 +246,32 @@ $$
 
 $|C'|=1$ を微分して $C''\cdot C'=0$ を得ます。よって $C''$、$m_+$、$m_-$ はいずれも $T=C'$ に直交する同一の二次元平面にあります。
 
-まず [測地曲率の定義](../../GEO/GEO19/index.md#def-geo19-kg)を、平面側の接線 $\gamma_0'$ と横方向 $n_0$、各像の接線 $C'$ と横方向 $m_\pm$ に適用します。各 $F_\pm$ は局所等長で第一基本形式を保つため、曲線の共変加速度の横方向成分も保たれます。したがって
+まず、局所等長性が測地曲率を保つことを、[第一基本形式の座標表示](../../GEO/GEO10/index.md#def-geo10-first-fundamental-form)から直接確かめます。平面の直交座標を $x=(x^1,x^2)$ とし、各側で $F_i=\partial F_\pm/\partial x^i$、$F_{ij}=\partial^2F_\pm/(\partial x^i\partial x^j)$ と書きます。$F_i\cdot F_j=\delta_{ij}$ を座標 $x^k$ で偏微分し、添字を巡回して整理すると
+
+$$
+2F_{ij}\cdot F_k
+=\partial_i(F_j\cdot F_k)+\partial_j(F_i\cdot F_k)
+-\partial_k(F_i\cdot F_j)=0.
+$$
+
+したがって二階偏微分 $F_{ij}$ は各接ベクトル $F_k$ に直交します。$\gamma_0(s)=(\gamma_0^1(s),\gamma_0^2(s))$ として $C=F_\pm\circ\gamma_0$ を弧長 $s$ で二回微分すると、連鎖律から
+
+$$
+C''=\sum_i F_i(\gamma_0^i)''
++\sum_{i,j}F_{ij}(\gamma_0^i)'(\gamma_0^j)',
+\qquad
+m_\pm=\sum_k F_k n_0^k.
+$$
+
+第二項は $m_\pm$ に直交し、第一項では $F_i\cdot F_k=\delta_{ik}$ です。よって [測地曲率の定義](../../GEO/GEO19/index.md#def-geo19-kg)と、先に選んだ各側の向きから
+
+$$
+C''\cdot m_\pm
+=\sum_i(\gamma_0^i)''n_0^i
+=\gamma_0''\cdot n_0=k_g.
+$$
+
+この式は両側で同じなので
 
 $$
 C''\cdot m_+=k_g=C''\cdot m_-.
@@ -319,7 +368,7 @@ $$
 最後に大域的な重複を排除します。各像の水平半径は $\rho+au=a(r+u)>0$、偏角は $\lambda\varphi\in(-\lambda\eta,\lambda\eta)$ です。仮定 $\lambda\eta<\pi$ によりこの角度区間の幅は $2\pi$ 未満なので、水平位置から $u$ と $\varphi$ が一意に復元できます。さらに $u>0$ 側の水平半径は $\rho$ より大きく、$u<0$ 側では小さいため、両側は折り目以外では交わりません。全帯の像は単射です。$\square$
 <!-- proof-end -->
 
-**直接計算：$r=2,\rho=1$ の折り角。** $a=1/2$、$b=\sqrt3/2$、$\lambda=2$ なので $\theta=2\arccos(1/2)=2\pi/3$ です。平面の折り目は半径2の円弧で $|k_g|=1/2$、空間の像は半径1の円弧で $\kappa=1$。確かに
+**直接計算：$r=2,\rho=1$ の折り角。** 折り目の弧長は $s=r\varphi$ なので、第4節の $C(s)$ とここでの角度表示 $F_\pm(0,\varphi)$ は $\varphi=s/r$ で対応します。$a=1/2$、$b=\sqrt3/2$、$\lambda=2$ なので $\theta=2\arccos(1/2)=2\pi/3$ です。平面の折り目は半径2の円弧で $|k_g|=1/2$、空間の像は半径1の円弧で $\kappa=1$。確かに
 
 $$
 \kappa\cos(\theta/2)=1\cdot\cos(\pi/3)=\frac12=|k_g|.
@@ -344,7 +393,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-折り目の像は $C(\varphi)=(\rho\cos\lambda\varphi,\rho\sin\lambda\varphi,0)$。始点と終点が一致するのは $\lambda\in\mathbb Z$ の場合だけです。$\lambda=r/\rho>1$ なので整数なら $n\ge2$。このとき $\varphi=0$ と $\varphi=2\pi/n$ は平面円周上の異なる点ですが
+この証明では弧長 $s$ でなく角度 $\varphi$ を引数にして、折り目の像を $C(\varphi)=(\rho\cos\lambda\varphi,\rho\sin\lambda\varphi,0)$ と書きます。始点と終点が一致するのは $\lambda\in\mathbb Z$ の場合だけです。$\lambda=r/\rho>1$ なので整数なら $n\ge2$。このとき $\varphi=0$ と $\varphi=2\pi/n$ は平面円周上の異なる点ですが
 
 $$
 C(0)=(\rho,0,0)=C(2\pi/n).
@@ -534,7 +583,7 @@ $$
 Y(s_1,v)=(0,R,v)=Y(s_2,v)
 $$
 
-となります。局所の計量が保存されても、全体の写像が単射とは限りません。定理5で角度幅を $2\pi$ 未満に制限した理由も、同じ重複を防ぐためです。
+となります。局所の計量が保存されても、全体の写像が単射とは限りません。[円弧の局所的円錐面折りの定理](#thm-ori28-conical-construction)で角度幅を $2\pi$ 未満に制限した理由も、同じ重複を防ぐためです。
 <!-- solution-end -->
 
 ### Level C：曲線折りを一つ完全に構成する
