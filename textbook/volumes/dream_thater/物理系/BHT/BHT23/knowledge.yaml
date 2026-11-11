@@ -1,0 +1,35 @@
+chapter: BHT23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - BHT22
+  - QINF20
+forward_references: []
+concepts:
+  - id: black-hole-thermodynamics.bekenstein-bound-weak-gravity
+    name: 弱重力系に対するBekenstein型境界の主張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱重力系に対するBekenstein型境界の主張）"]
+    requires: [black-hole-thermodynamics.gsl-balance]
+
+  - id: black-hole-thermodynamics.conditional-bekenstein-bound
+    name: 理想降下とGSLからの条件付き境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（理想降下とGSLからの条件付き境界）"]
+    requires: [black-hole-thermodynamics.bekenstein-bound-weak-gravity, black-hole-thermodynamics.gsl-balance]
+
+  - id: black-hole-thermodynamics.buoyancy-caveat
+    name: 熱的雰囲気を省いた収支の限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（熱的雰囲気を省いた収支の限界）"]
+    requires: [black-hole-thermodynamics.conditional-bekenstein-bound]
+
+  - id: black-hole-thermodynamics.relative-bekenstein-bound
+    name: 相対エントロピーからの真空差し引き境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相対エントロピーからの真空差し引き境界）"]
+    requires: [black-hole-thermodynamics.modular-energy-difference, quantum.relative-entropy]

@@ -23,3 +23,4 @@
 20. [BHT20 高階曲率とWald公式の適用限界](textbook/volumes/dream_thater/物理系/BHT/BHT20/index.md)
 21. [BHT21 一般化エントロピーと繰り込み](textbook/volumes/dream_thater/物理系/BHT/BHT21/index.md)
 22. [BHT22 一般化第二法則（GSL）](textbook/volumes/dream_thater/物理系/BHT/BHT22/index.md)
+23. [BHT23 Bekenstein boundと限界](textbook/volumes/dream_thater/物理系/BHT/BHT23/index.md)
