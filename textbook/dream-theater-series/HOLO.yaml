@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/dream_thater
 # 進捗は先頭から連続する completed と次の planned から導出する。
 chapters:
   - { id: HOLO1, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO1, status: completed, title: "反de Sitter時空の埋め込みと定曲率" }
-  - { id: HOLO2, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO2, status: planned, title: "座標と共形境界" }
+  - { id: HOLO2, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO2, status: completed, title: "座標と共形境界" }
   - { id: HOLO3, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO3, status: planned, title: "境界のUV/IRと測地線" }
   - { id: HOLO4, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO4, status: planned, title: "対称性と境界CFT" }
   - { id: HOLO5, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO5, status: planned, title: "制御された双対性の原型" }

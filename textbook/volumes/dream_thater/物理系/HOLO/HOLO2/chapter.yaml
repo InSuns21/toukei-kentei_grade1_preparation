@@ -1,0 +1,43 @@
+id: "HOLO2"
+title: "座標と共形境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOLO1
+official_scope: []
+learning_objectives:
+  - global座標の有限な共形動径範囲を導き、滑らかな共形境界とその共形類を構成できる
+  - 埋め込みからPoincaré座標と計量を導き、U+W>0がAdS全体でないことを説明できる
+  - globalとPoincaréの座標変換および境界での共形写像を検算できる
+  - globalとPoincaréの代表的な零曲線、地平面、境界の因果構造を区別できる
+  - Fefferman–Graham型表示の意味とPoincaré座標での正確な適用範囲を述べられる
+definitions:
+  - { id: HOLO2-DEF-01, name: 共形コンパクト化と共形境界 }
+  - { id: HOLO2-DEF-02, name: 境界計量の共形類 }
+  - { id: HOLO2-DEF-03, name: Poincaré座標パッチ }
+  - { id: HOLO2-DEF-04, name: Fefferman–Graham型表示 }
+theorems:
+  - { id: HOLO2-PROP-01, name: global AdSの共形境界と径方向零曲線 }
+  - { id: HOLO2-PROP-02, name: Poincaréパッチの計量と領域 }
+  - { id: HOLO2-PROP-03, name: 二つの境界計量の共形関係 }
+  - { id: HOLO2-PROP-04, name: Poincaré地平面の零性 }
+canonical_examples:
+  - global AdSでr=L tan rhoにより境界を有限座標へ移し光線の到達時刻を求める
+  - AdS中心のglobal時刻を比較してPoincaréパッチの真部分集合性を確認する
+  - AdS3境界で光円錐座標のtan半角公式を直接微分する
+  - Poincaréの厳密Fefferman–Graham型計量と境界Minkowski計量を確認する
+problem_patterns:
+  - HOLO2-GLOBAL-COMPACTIFY
+  - HOLO2-RADIAL-NULL
+  - HOLO2-EMBEDDING-CONSTRAINT
+  - HOLO2-POINCARE-BOUNDARY
+  - HOLO2-CONFORMAL-REPRESENTATIVE
+  - HOLO2-POINCARE-METRIC
+  - HOLO2-PATCH-HORIZON
+  - HOLO2-BOUNDARY-MAP
+  - HOLO2-NULL-HORIZON
+  - HOLO2-INTEGRATED-CAUSAL-GEOMETRY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }
