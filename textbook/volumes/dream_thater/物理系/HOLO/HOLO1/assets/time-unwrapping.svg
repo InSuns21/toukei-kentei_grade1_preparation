@@ -11,7 +11,7 @@
     <circle cx="545" cy="125" r="7"/>
   </g>
   <g fill="#152e42" font-family="sans-serif" font-size="18" text-anchor="middle">
-    <text x="154" y="39">0 ≡ 2πL</text>
+    <text x="154" y="39">0 ~ 2πL</text>
     <text x="418" y="96">0</text>
     <text x="545" y="96">2πL</text>
   </g>
