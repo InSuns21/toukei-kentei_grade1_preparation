@@ -11,7 +11,7 @@ chapters:
   - { id: INV3, path: textbook/volumes/dream_thater/解析系/INV/INV3, status: completed, title: "特異系から可解性を判定できるか" }
   - { id: INV4, path: textbook/volumes/dream_thater/解析系/INV/INV4, status: completed, title: "逆を正則化するとはどういうことか" }
   - { id: INV5, path: textbook/volumes/dream_thater/解析系/INV/INV5, status: completed, title: "TSVDとTikhonovは何を抑えるか" }
-  - { id: INV6, path: textbook/volumes/dream_thater/解析系/INV/INV6, status: planned, title: "正則化の収束速度をどう求めるか" }
+  - { id: INV6, path: textbook/volumes/dream_thater/解析系/INV/INV6, status: completed, title: "正則化の収束速度をどう求めるか" }
   - { id: INV7, path: textbook/volumes/dream_thater/解析系/INV/INV7, status: planned, title: "正則化パラメータをどう選ぶか" }
   - { id: INV8, path: textbook/volumes/dream_thater/解析系/INV/INV8, status: planned, title: "一般変分正則化の解は存在するか" }
   - { id: INV9, path: textbook/volumes/dream_thater/解析系/INV/INV9, status: planned, title: "疎性とTVは何を残すか" }
