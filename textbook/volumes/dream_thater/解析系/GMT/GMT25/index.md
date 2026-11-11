@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt25-essential-boundary -->
-**定義の確認**（半空間）。$E=\{x\in\mathbb R^d:x_d<0\}$ とします。$x_d<0$ なら $r<-x_d$ の球は $E$ に含まれ体積比1、$x_d>0$ なら小球は $E$ と交わらず比0です。$x_d=0$ なら反射 $(x',t)\mapsto(x',-t)$ が球の上下半分を交換するため、すべての $r>0$ で体積比は $1/2$ です。よって $E^{(1)}=\{x_d<0\}$、$E^{(0)}=\{x_d>0\}$、$\partial^eE=\{x_d=0\}$ です。定義の可測性・分母・極限の三点を直接確かめました。
+**定義の確認**（半空間）。$E=\{x\in\mathbb R^d:x_d<0\}$ とし、点を $x=(x',t)$（$x'\in\mathbb R^{d-1}$、$t=x_d$）と分けます。$x_d<0$ なら $r<-x_d$ の球は $E$ に含まれ体積比1、$x_d>0$ なら小球は $E$ と交わらず比0です。$x_d=0$ なら反射 $(x',t)\mapsto(x',-t)$ が球の上下半分を交換するため、すべての $r>0$ で体積比は $1/2$ です。よって $E^{(1)}=\{x_d<0\}$、$E^{(0)}=\{x_d>0\}$、$\partial^eE=\{x_d=0\}$ です。定義の可測性・分母・極限の三点を直接確かめました。
 <!-- definition-example-end -->
 
 位相的境界 $\partial E$ は点を一つ抜いた操作にさえ反応しますが、$\theta_E$ はLebesgue零集合の追加・削除で変わりません。体積比が $1/2$ なら二側が同じ量だけ見えるものの、**法線が一方向へ揃うかどうかはまだ分かりません**。
@@ -64,16 +64,31 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt25-reduced-boundary -->
-**定義の確認**（同じ半空間）。$E=\{x_d<0\}$ で $x_d=0$ とすると、[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)から、超平面上の面積測度を $\sigma$ として $\mathcal G_E=e_d\sigma$、$\mu_E=\sigma$ です。
+**定義の確認**（同じ半空間）。$E=\{x_d<0\}$ の境界点 $x_d=0$ を考えます。$d\ge2$ では、境界が水平な $C^1$ グラフで、外向き単位法線が $e_d$ なので、[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)を適用できます。
 
-任意の $r>0$ について
+$d=1$ ではコンパクト台のテスト関数 $\varphi$ に対して
+
+$$
+\int_{-\infty}^0\varphi'(t)\,dt=\varphi(0),\qquad
+\mathcal G_E=\delta_0,\quad \mu_E=\delta_0
+$$
+
+です。両者をまとめ、超平面上の正規化された面積測度（$d=1$ では一点の計数測度）を $\sigma$ として
+
+$$
+\mathcal G_E=e_d\sigma,\qquad \mu_E=\sigma
+$$
+
+と書けます。これはベクトル測度の方向 $e_d$ が長さ1で、その全変動が $\sigma$ であることを[全変動と方向の表示](../GMT21/index.md#def-gmt21-vector-variation)で確かめた式です。
+
+ここで $\omega_{d-1}$ は $\mathbb R^{d-1}$ の単位球の体積で、$d=1$ では $\omega_0=1$ とします。任意の $r>0$ について
 
 $$
 \mu_E(B_r(x))=\omega_{d-1}r^{d-1}>0,\qquad
 \mathcal G_E(B_r(x))=e_d\mu_E(B_r(x)).
 $$
 
-$d=1$ では面積測度は一点の計数測度で値1です。したがって $N_r(E,x)=e_d$、$\nu_E^*(x)=e_d$ で $|\nu_E^*(x)|=1$。超平面以外では小球の周長測度が0になるため台の条件を満たしません。ゆえに $\partial^*E=\{x_d=0\}$ です。
+したがって $N_r(E,x)=e_d$、$\nu_E^*(x)=e_d$ で $|\nu_E^*(x)|=1$。超平面以外では小球の周長測度が0になるため台の条件を満たしません。ゆえに $\partial^*E=\{x_d=0\}$ です。
 <!-- definition-example-end -->
 
 三角不等式から $|N_r(E,x)|\le1$ です。極限が存在するだけでは足りず、長さが**ちょうど1**であることが大切です。長さが小さくなるのは、球内の異なる法線が相殺し合うためです。
@@ -101,7 +116,7 @@ $$
 
 ### 証明の見取り図
 
-法線が単位長なので、二乗を展開すると平均振動は $2-2n\cdot N_r$ となります。$mu_E$ に関して $\nu_E$ を球平均すれば、微分定理により元の値へ戻り、法線はほとんど至る所で単位長です。
+法線が単位長なので、二乗を展開すると平均振動は $2-2n\cdot N_r$ となります。$\mu_E$ に関して $\nu_E$ を球平均すれば、微分定理により元の値へ戻り、法線はほとんど至る所で単位長です。
 
 <!-- proof-start -->
 ### 証明
@@ -125,7 +140,9 @@ $$
 \le\left(\frac{1}{\mu_E(B_r)}\int_{B_r}|\nu_E-n|^2\,d\mu_E\right)^{1/2}\to0.
 $$
 
-これで同値性を得ます。後半では $\Omega$ の閉包が $\Omega$ に収まる有界開集合で可算被覆します。その各集合上で $|\nu_E|\le1$ なので $\nu_E$ は局所 $L^1(\mu_E)$ です。[Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を $\nu_E$ の各座標と $\mu_E$ に適用すると、$\mu_E$-a.e. の $x$ で
+これで同値性を得ます。後半では、領域 $\Omega$ を閉包が領域内に収まる有界開集合で可算被覆します。各集合の少し大きい開近傍 $V$ で $\overline V\subset\Omega$ がコンパクトとなるものを取り、周長測度を $V$ へ制限して全空間へ零延長します。これは全空間上の有限な正Radon測度なので、球が $V$ に収まる各点には微分定理を使えます。
+
+単位方向の長さは周長測度に関してほとんど至る所で1なので、その各座標は局所可積分です。[Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を $\nu_E$ の各座標へ適用すると、$\mu_E$-a.e. の $x$ で
 
 $$
 \lim_{r\downarrow0}\frac{\int_{B_r(x)}\nu_E(y)\,d\mu_E(y)}{\mu_E(B_r(x))}
@@ -163,7 +180,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-平行移動・直交回転で $x=0$、$n(x)=e_d$ としてよいです。$x=(y,t)$、$y\in\mathbb R^{d-1}$ と書けば、ある近傍で $E=\{t<g(y)\}$、$g(0)=0$、$\nabla g(0)=0$、$g\in C^1$ です。[GMT24の滑らかな境界の表示](../GMT24/index.md#prop-gmt24-smooth-boundary)から、局所的に $\mathcal G_E=n(y)\,\sigma$、$\mu_E=\sigma$、$\sigma=\widehat{\mathcal H}^{\,d-1}\llcorner\partial E$ です。$|n(y)|=1$ で $n(y)\to e_d$。十分小さい $r$ では球と境界が交わり $\mu_E(B_r)>0$ なので
+平行移動・直交回転で $x=0$、$n(x)=e_d$ としてよいです。点を $(y,t)$、$y\in\mathbb R^{d-1}$ と書けば、ある近傍で $E=\{t<g(y)\}$、$g(0)=0$、$\nabla g(0)=0$、$g\in C^1$ です。グラフ写像 $F(y)=(y,g(y))$ の第 $i$ 座標方向の微分は $e_i+(\partial_i g)e_d$（$i=1,\ldots,d-1$）です。その全てと直交し、$E$ の外側（上側）を向くベクトルは $(-\nabla g,1)$ です。これを単位化して
+
+$$
+n(y)=\frac{(-\nabla g(y),1)}{\sqrt{1+|\nabla g(y)|^2}}
+$$
+
+と得ます。[GMT24の滑らかな境界の表示](../GMT24/index.md#prop-gmt24-smooth-boundary)から、局所的に $\mathcal G_E=n(y)\,\sigma$、$\mu_E=\sigma$、$\sigma=\widehat{\mathcal H}^{\,d-1}\llcorner\partial E$ です。$|n(y)|=1$ で $n(y)\to e_d$。十分小さい $r$ では球と境界が交わり $\mu_E(B_r)>0$ なので
 
 $$
 |N_r(E,0)-e_d|
@@ -204,7 +227,7 @@ $$
 
 ### 正方形の角点では平均法線の長さが足りない
 
-$E=(0,1)^2\subset\mathbb R^2$ を取り、左下角 $x=(0,0)$ を考えます。十分小さい $r<1$ なら $B_r(0)$ 内にある境界は正の $x$ 軸・正の $y$ 軸上の長さ $r$ の二線分です。[GMT24の長方形のGauss--Green計算](../GMT24/index.md#prop-gmt24-smooth-boundary)を各直線片へ適用すると、法線は順に $-e_2$ と $-e_1$ なので
+$E=(0,1)^2\subset\mathbb R^2$ を取り、左下角 $x=(0,0)$ を考えます。十分小さい $r<1$ なら $B_r(0)$ 内にある境界は正の $x$ 軸・正の $y$ 軸上の長さ $r$ の二線分です。[GMT24の長方形のGauss--Green計算](../GMT24/index.md#ref-gmt24-rectangle-formula)を使うと、法線は順に $-e_2$ と $-e_1$ なので
 
 $$
 \mathcal G_E(B_r(0))=-r(e_1+e_2),\qquad
@@ -220,7 +243,13 @@ $F=\{(s,t)\in\mathbb R^2:st>0\}$、すなわち第1・第3象限の合併を取�
 
 ### 零測度の穴は境界を増やさない
 
-$B=B_1(0)$、$E=B\setminus\mathbb Q^d$ とします。$\mathbb Q^d$ はLebesgue零集合なので $\chi_E=\chi_B$ がa.e.で成り立ち、$\mathcal G_E=\mathcal G_B$、$\mu_E=\mu_B$ です。球の内部の有理点は位相的には境界点になり得ても、そこでは十分小さい球で $\mu_E=0$、$\theta_E=1$ です。縮約境界は球面 $\partial B$ と一致し、法線は $x/|x|$ です。点の取り去り方に左右されないことが、測度論的な境界の利点です。
+$B=B_1(0)$、$E=B\setminus\mathbb Q^d$ とします。有理点集合はLebesgue零集合なので、指示関数がほとんど至る所で一致し、分布微分も一致します。従って
+
+$$
+\mathcal G_E=\mathcal G_B,\qquad \mu_E=\mu_B.
+$$
+
+球の内部の有理点は位相的には境界点でも、十分小さい球では周長測度が0、体積密度は1です。$d\ge2$ では[球のGauss--Green測度](../GMT24/index.md#ref-gmt24-ball-formula)と法線の連続性から、縮約境界は球面 $\partial B$ と一致し、法線は $x/|x|$ です。$d=1$ でも二端点で直接同じ結論を計算できます。点の取り去り方に左右されないことが、測度論的な境界の利点です。
 
 この振る舞いを変換の下でも確かめておきます。
 
@@ -256,14 +285,34 @@ $$
 
 [GMT24の補集合の恒等式](../GMT24/index.md#prop-gmt24-set-operations)では $\mathcal G_{E^c}=-\mathcal G_E$、$\mu_{E^c}=\mu_E$ です。よってすべての許容球で $N_r(E^c,x)=-N_r(E,x)$ となり、極限の長さは変わりません。
 
-変換の場合、$y=T(z)$ と変数変換して $\operatorname{div}_z(Q^T\varphi(Tz))=\lambda\operatorname{div}_y\varphi(Tz)$ を使うと
+変換の場合、$T_\#\eta$ は測度 $\eta$ の $T$ による像測度、すなわち可測集合 $A$ に対し $(T_\#\eta)(A)=\eta(T^{-1}(A))$ を表し、ベクトル値測度に対しても各成分で定義します。テスト場 $\varphi$ に対し $y=T(z)$ と変数変換します。$Q$ の直交性 $\sum_j Q_{ij}Q_{kj}=\delta_{ik}$ から
+
+$$
+\begin{aligned}
+\operatorname{div}_z\bigl(Q^{\mathsf T}\varphi(Tz)\bigr)
+&=\sum_{j,i,k}Q_{ij}\lambda Q_{kj}(\partial_{y_k}\varphi_i)(Tz)\\
+&=\lambda\operatorname{div}_y\varphi(Tz).
+\end{aligned}
+$$
+
+よって[Gauss--Green測度の積分表示](../GMT24/index.md#thm-gmt24-gauss-green)により
+
+$$
+\begin{aligned}
+\int_{T(E)}\operatorname{div}_y\varphi(y)\,dy
+&=\lambda^{d-1}\int_E\operatorname{div}_z\bigl(Q^{\mathsf T}\varphi(Tz)\bigr)\,dz\\
+&=\lambda^{d-1}\int_E\bigl(Q^{\mathsf T}\varphi(Tz)\bigr)\cdot d\mathcal G_E(z).
+\end{aligned}
+$$
+
+これが任意のテスト場で成立するので
 
 $$
 \mathcal G_{T(E)}=\lambda^{d-1}Q\,T_\#\mathcal G_E,
 \qquad \mu_{T(E)}=\lambda^{d-1}T_\#\mu_E.
 $$
 
-ここで $T_\#$ は写像 $T$ による像測度であり、ベクトル測度の方向は $Q$ で回転させています。$B_{\lambda r}(T(x))=T(B_r(x))$ を代入すると
+ベクトル測度の方向は $Q$ で回転させています。$B_{\lambda r}(T(x))=T(B_r(x))$ を代入すると
 
 $$
 N_{\lambda r}(T(E),T(x))
@@ -325,7 +374,19 @@ $E=(a,b)\subset\mathbb R$、$a<b$ とする。$\mathcal G_E$、$\mu_E$ を求め
 <!-- solution-start -->
 #### 詳細解答
 
-任意の $\varphi\in C_c^1(\mathbb R)$ に対して $\int_E\varphi'=\varphi(b)-\varphi(a)$ なので $\mathcal G_E=\delta_b-\delta_a$、$\mu_E=\delta_a+\delta_b$ です。$0<r<(b-a)/2$ なら $B_r(a)$ にある原子は $a$ だけで、$N_r(E,a)=-1/1=-1$。同様に $N_r(E,b)=1$ です。台は $\{a,b\}$ だから $\partial^*E=\{a,b\}$、法線は $\nu_E^*(a)=-1$、$\nu_E^*(b)=1$ です。どちらの点でも十分小さい区間 $(x-r,x+r)$ の半分が $E$ なので $\theta_E(a)=\theta_E(b)=1/2$ です。
+任意の $\varphi\in C_c^1(\mathbb R)$ に対して $\int_E\varphi'=\varphi(b)-\varphi(a)$ なので、[Gauss--Green測度の定義](../GMT24/index.md#def-gmt24-gauss-green)と互いに異なる点のDirac測度の全変動から
+
+$$
+\mathcal G_E=\delta_b-\delta_a,\qquad \mu_E=\delta_a+\delta_b
+$$
+
+です。$0<r<(b-a)/2$ なら $B_r(a)$ にある原子は $a$ だけで、$N_r(E,a)=-1$、同様に $N_r(E,b)=1$ です。台は $\{a,b\}$ だから、[縮約境界の定義](#def-gmt25-reduced-boundary)の分母正・極限存在・単位長の三条件を満たす点はちょうど二端点であり
+
+$$
+\partial^*E=\{a,b\},\qquad \nu_E^*(a)=-1,\quad \nu_E^*(b)=1
+$$
+
+です。どちらの点でも十分小さい区間 $(x-r,x+r)$ の半分が $E$ なので $\theta_E(a)=\theta_E(b)=1/2$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt25-a02"></a>
@@ -351,7 +412,16 @@ $E=(0,2)^2$ に対して $x=(0,0)$ と $y=(1,0)$ を調べる。各点で十分�
 <!-- solution-start -->
 #### 詳細解答
 
-$0<r<1$ とします。$x$ では長さ $r$ の二線分に外向き法線 $-e_1$、$-e_2$ が付き、$\mu_E(B_r(x))=2r$、$\mathcal G_E(B_r(x))=-r(e_1+e_2)$ です。$N_r=-(e_1+e_2)/2$ の長さは $1/\sqrt2$ なので $x\notin\partial^*E$、体積比は四分円で $\theta_E(x)=1/4$ です。$y$ では下辺の長さ $2r$ だけが入り、$\mu_E(B_r(y))=2r$、$\mathcal G_E(B_r(y))=-2r e_2$。従って $N_r=-e_2$、$y\in\partial^*E$、体積比は半円で $\theta_E(y)=1/2$ です。
+$0<r<1$ とします。[長方形の面ごとのGauss--Green測度](../GMT24/index.md#ref-gmt24-rectangle-formula)を用いると、$x$ では長さ $r$ の二線分に外向き法線 $-e_1$、$-e_2$ が付きます。$y$ では長さ $2r$ の下辺だけが入るため
+
+$$
+\begin{aligned}
+\mu_E(B_r(x))&=2r,&\mathcal G_E(B_r(x))&=-r(e_1+e_2),\\
+\mu_E(B_r(y))&=2r,&\mathcal G_E(B_r(y))&=-2r e_2.
+\end{aligned}
+$$
+
+従って $N_r(E,x)=-(e_1+e_2)/2$ の長さは $1/\sqrt2$ なので $x\notin\partial^*E$、体積比は四分円で $\theta_E(x)=1/4$ です。一方 $N_r(E,y)=-e_2$ は単位長で、$y\in\partial^*E$、体積比は半円で $\theta_E(y)=1/2$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt25-a04"></a>
@@ -370,7 +440,7 @@ $$
 |E\cap B_r(x)|=|B_r(x)|,\qquad \theta_E(x)=1.
 $$
 
-前講の[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)で球面上にのみ周長測度が集中するため、同じ $r$ で $\mu_E(B_r(x))=0$。よって $x$ は縮約境界に属しません。
+前講の[球面上のGauss--Green測度](../GMT24/index.md#ref-gmt24-ball-formula)で球面上にのみ周長測度が集中するため、同じ $r$ で $\mu_E(B_r(x))=0$。よって $x$ は縮約境界に属しません。
 
 一方 $x\notin E$ であり、有理点・無理点がともに $B$ 内で稠密なので、どの近傍も $E$ と $E^c$ に交わり、$x\in\partial E$ です。
 <!-- solution-end -->
@@ -385,7 +455,13 @@ $E=(0,\infty)\subset\mathbb R$ と $F=E^c$ を比べる。原点での $\mathcal
 <!-- solution-start -->
 #### 詳細解答
 
-$\int_E\varphi'=-\varphi(0)$ より $\mathcal G_E=-\delta_0$、$\mu_E=\delta_0$、$\nu_E^*(0)=-1$ です。$\chi_F=1-\chi_E$ なので $\mathcal G_F=+\delta_0$、$\mu_F=\delta_0$、$\nu_F^*(0)=+1$ です。いずれも $\operatorname{supp}\mu=\{0\}$、平均法線の長さ1の条件を満たします。原点中心の区間の半分がそれぞれの集合に入るので、両方の体積密度は $1/2$ で変わりません。
+$\varphi\in C_c^1(\mathbb R)$ に対して $\int_E\varphi'=-\varphi(0)$ より、$\mathcal G_E=-\delta_0$、$\mu_E=\delta_0$ です。$\chi_F=1-\chi_E$ なので、[補集合のGauss--Green測度](../GMT24/index.md#prop-gmt24-set-operations)から $\mathcal G_F=+\delta_0$、$\mu_F=\delta_0$ です。いずれも台は $\{0\}$ で、任意の $r>0$ について
+
+$$
+N_r(E,0)=-1,\qquad N_r(F,0)=+1.
+$$
+
+従って $\nu_E^*(0)=-1$、$\nu_F^*(0)=+1$ で、平均法線の長さ1の条件を満たします。原点中心の区間の半分がそれぞれの集合に入るので、両方の体積密度は $1/2$ で変わりません。
 <!-- solution-end -->
 
 ### Level B：平均・極限・反例を再構成する
@@ -425,7 +501,15 @@ $E=\{(s,t)\in\mathbb R^2:t<s+s^2\}$、$x=(0,0)$ とする。$x$ での外向き�
 <!-- solution-start -->
 #### 詳細解答
 
-$g(s)=s+s^2$、$g'(0)=1$ なので[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)より $n=(-1,1)/\sqrt2$ です。$s=ru$、$t=rv$ を代入すると $rv<ru+r^2u^2$、すなわち $v<u+ru^2$ が $E_{0,r}$ の条件です。極限半空間は $H=\{v<u\}$。$B_R$ 内で両者が異なるなら $u\le v<u+ru^2$ なので、各 $u\in[-R,R]$ に対する縦の差の長さは高々 $ru^2$ です。Fubiniで
+$g(s)=s+s^2$、$g'(0)=1$ なので[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)より $n=(-1,1)/\sqrt2$ です。
+
+$s=ru$、$t=rv$ を代入して $r>0$ で割ると、拡大集合の条件は
+
+$$
+rv<ru+r^2u^2\quad\Longleftrightarrow\quad v<u+ru^2.
+$$
+
+極限半空間を $H=\{v<u\}$ とします。$B_R$ 内で両者が異なるなら $u\le v<u+ru^2$ なので、各 $u\in[-R,R]$ に対する縦の差の長さは高々 $ru^2$ です。[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で
 
 $$
 \int_{B_R}|\chi_{E_{0,r}}-\chi_H|\,du\,dv
@@ -469,7 +553,17 @@ $E=\{(s,t):t<|s|\}$ とする。原点での $\mathcal G_E(B_r)$、$\mu_E(B_r)$�
 <!-- solution-start -->
 #### 詳細解答
 
-境界は原点から右上方向・左上方向への二本の半直線です。グラフの下側の外向き法線は、$s>0$ 側では $n_+=(-1,1)/\sqrt2$、$s<0$ 側では $n_-=(1,1)/\sqrt2$ です。各半直線の $B_r$ 内長さは $r$ で、原点自身に周長測度の原子はないため、
+境界は原点から右上方向・左上方向への二本の半直線です。原点に周長測度の原子がないことも、積分から確認します。$\operatorname{sgn}(s)$ を $s>0$ なら $+1$、$s<0$ なら $-1$ とする符号関数とします。$\varphi=(\varphi_1,\varphi_2)\in C_c^1(\mathbb R^2;\mathbb R^2)$ について、各 $s\ne0$ で積分の上端 $|s|$ を微分すると
+
+$$
+\begin{aligned}
+\int_E\operatorname{div}\varphi\,ds\,dt
+&=\int_{\mathbb R}\left[\varphi_2(s,|s|)
+-\operatorname{sgn}(s)\varphi_1(s,|s|)\right]ds.
+\end{aligned}
+$$
+
+右辺には原点での点評価項がなく、境界に沿う弧長測度のみが現れます。$s>0$ 側では外向き法線が $n_+=(-1,1)/\sqrt2$、$s<0$ 側では $n_-=(1,1)/\sqrt2$ です。弧長要素が $\sqrt2\,ds$ なので、各半直線の $B_r$ 内長さは $r$ となり
 
 $$
 \mathcal G_E(B_r)=r(n_++n_-)=r(0,\sqrt2),\qquad
@@ -495,7 +589,13 @@ $E=(0,a)\times(0,b)\subset\mathbb R^2$、$a,b>0$ とする。
 <!-- solution-start -->
 #### 詳細解答
 
-[長方形のGauss--Green測度](../GMT24/index.md#prop-gmt24-smooth-boundary)の面ごとの表示から、$\mu_E$ は四つの閉辺を台とし、角には質量を置きません。従って $\operatorname{supp}\mu_E=\partial E$（四辺と四角）です。内部では密度1、外部では0、各開辺では半円で密度 $1/2$、四角では四分円で密度 $1/4$。いずれも0・1でない境界点なので $\partial^eE=\partial E$ です。
+[長方形のGauss--Green測度](../GMT24/index.md#ref-gmt24-rectangle-formula)の面ごとの表示から、$\mu_E$ は四つの開辺の長さ測度の和で、角には質量を置きません。ただし角の任意の球も辺と交わって正測度を持つため、台には角も含まれます。従って
+
+$$
+\operatorname{supp}\mu_E=\partial E.
+$$
+
+内部では体積密度1、外部では0、各開辺では小円の半分で密度 $1/2$、四隅では小円の四分の一で密度 $1/4$ です。いずれも0・1でない境界点なので、[本質的境界の定義](#def-gmt25-essential-boundary)から $\partial^eE=\partial E$ です。
 
 開いた下辺は $-e_2$、上辺は $+e_2$、左辺は $-e_1$、右辺は $+e_1$ の一定法線を持ちます。各開辺の点 $x$ では十分小さい $B_r(x)$ にその辺だけが入り、$N_r$ は該当の単位ベクトルです。一方、左下角では二辺の球内長さがそれぞれ $r$ なので $N_r=-(e_1+e_2)/2$ で長さ $1/\sqrt2$。他の角も二つの符号を変えた単位ベクトルの平均で同じ長さです。従って $\partial^*E$ は**四つの開辺の合併**です。
 
@@ -512,7 +612,9 @@ $E\subset\mathbb R^d$ が開集合 $\Omega$ で局所有限周長を持つ。$\m
 <!-- solution-start -->
 #### 詳細解答
 
-$\mu_E$ は正Radon測度で、$|\nu_E|=1$ が $\mu_E$-a.e.なので $\nu_E$ の各座標は局所 $L^1(\mu_E)$ です。$\Omega$ を閉包が $\Omega$ に収まる有界開集合で可算被覆し、各座標に[Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を適用すると、共通の $\mu_E$-全測度集合上で
+$\mu_E$ は正Radon測度で、$|\nu_E|=1$ が周長測度に関してほとんど至る所で成立するので、各座標は局所可積分です。
+
+領域を閉包が領域内でコンパクトな有界開集合で可算被覆し、各集合を含む少し大きい開近傍（その閉包も領域内でコンパクト）へ測度を制限して全空間へ零延長します。これに各座標の[Radon測度の球に関するLebesgue微分定理](../GMT1/index.md#thm-gmt1-function-differentiation)を適用すると、共通の $\mu_E$-全測度集合上で
 
 $$
 \lim_{r\downarrow0}N_r(E,x)=\nu_E(x),\qquad |\nu_E(x)|=1.
