@@ -122,7 +122,7 @@ $$
 
 $d=2$ で $v_k=(\cos(2\pi k/M),\sin(2\pi k/M))$、$k=0,\ldots,M-1$ とします。隣り合う弦長は $2\sin(\pi/M)$ で、最短の異なる二点間距離も同じです。従って $\delta\le2\sin(\pi/M)$ なら $\delta$-分離です。$M\asymp\delta^{-1}$ と取れることが具体的に見えます。
 
-単に $M$ が多いだけで極大とは限りません。極大性を確かめるには、球面の任意の新しい方向が既存の方向から距離 $\delta$ 未満にあるという**被覆条件**も必要です。
+単に $M$ が多いだけで極大とは限りません。極大性を確かめるには、球面の任意の新しい方向が既存の方向から距離 $\delta$ 未満にあることも確かめます。これは球面上に追加できる方向がないという定義の確認です。
 <!-- definition-example-end -->
 
 <a id="lem-gmt32-direction-count"></a>
@@ -531,7 +531,7 @@ $$
 **B02　被覆数からHausdorff測度を零にする**
 
 - Level: B
-- 問題: 有界集合 $E\subset\mathbb R^d$ と数列 $\delta_n\downarrow0$ があり、$N_{\delta_n}(E)\le C\delta_n^{-t}$ が成立するとする。任意の $s>t\ge0$ に対して $\mathcal H^s(E)=0$ を証明せよ。さらにこの主張とMinkowski次元の定義から $\dim_{\mathrm H}E\le\underline{\dim}_{\mathrm M}E$ を再構成せよ。
+- 問題: 有界集合 $E\subset\mathbb R^d$ と数列 $\delta_n\downarrow0$ があり、$N_{\delta_n}(E)\le C\delta_n^{-t}$ が成立するとする。任意の $s>t\ge0$ に対して $\mathcal H^s(E)=0$ を証明せよ。さらに[上下Minkowski次元の定義](#def-gmt32-minkowski)の $\liminf$ を使い、$\dim_{\mathrm H}E\le\underline{\dim}_{\mathrm M}E$ を再構成せよ。
 
 <!-- solution-start -->
 #### 詳細解答
