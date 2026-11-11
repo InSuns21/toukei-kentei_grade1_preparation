@@ -1,0 +1,43 @@
+id: "CAT3-01"
+title: "モナドと随伴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT2-09
+  - CAT2-08
+official_scope: []
+learning_objectives:
+  - 自己関手・単位・乗法の型を区別し、二つの単位律と結合律の射の始域・終域を明示できる
+  - 随伴の単位・余単位から T=GF と μ=GεF を構成し、μの自然性を余単位の自然性から証明できる
+  - 随伴の二つの三角恒等式からモナドの左右単位律を、余単位の自然性から結合律を再導出できる
+  - 自由モノイド随伴から有限語モナドを構成し、空語を含む連結の自然性・三公理を値の計算で検証できる
+  - 冪集合モナドの単位・乗法の自然性と三公理を集合族の量化条件で証明できる
+  - 印付き集合 M×X のモナド公理とモノイド公理の同値を証明し、非結合的な反例で結合律の必要性を説明できる
+definitions:
+  - { id: CAT3-01-DEF-01, name: モナド }
+theorems:
+  - { id: CAT3-01-THM-01, name: 随伴が誘導するモナド }
+  - { id: CAT3-01-PROP-01, name: 自由モノイドから得る語のモナド }
+  - { id: CAT3-01-PROP-02, name: 冪集合モナド }
+  - { id: CAT3-01-PROP-03, name: 印付き集合のモナド判定 }
+canonical_examples:
+  - 恒等自己関手のモナド
+  - 自由モノイド随伴と有限語の平坦化
+  - 冪集合の単元集合と集合族の合併
+  - 二元加法モノイドによる印付き集合
+  - 左右単位元を持つ非結合的演算の結合律反例
+  - 定数一元集合のモナドと定数空集合関手の単位不在
+problem_patterns:
+  - CAT3-01-UNIT-TYPES
+  - CAT3-01-LIST-NATURALITY
+  - CAT3-01-POWERSET-FLATTEN
+  - CAT3-01-WRITER-Z2
+  - CAT3-01-MULTIPLICATION-NATURAL
+  - CAT3-01-POWERSET-ASSOCIATIVITY
+  - CAT3-01-FREE-MONOID-TRIANGLES
+  - CAT3-01-CONSTANT-TERMINAL
+  - CAT3-01-NONASSOCIATIVE-WRITER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 2 }
