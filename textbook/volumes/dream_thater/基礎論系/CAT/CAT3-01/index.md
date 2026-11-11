@@ -12,11 +12,11 @@ $$
 
 この三つ、すなわち**自己関手**、**一段入れる操作**、**二段を一段に戻す操作**を整合的な公理にまとめたい。単なる集合上のプログラミングの構文ではなく、どの圏にも定義できる構造を次節で与える。
 
-以下、$\mathcal C$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)とし、必要に応じて別の圏 $\mathcal D$ を用いる。圏全体を小さいとは仮定しない。[関手の合成](../CAT1-06/index.md#def-cat1-06-composition)は $ST=S\circ T$、射の合成は右から左に読む。$1_{\mathcal C}$ は恒等関手、$1_X$ は対象 $X$ の恒等射であり、両者を区別する。
+以下、$\mathcal C$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)とし、必要に応じて別の圏 $\mathcal D$ を用いる。圏全体を小さいとは仮定しない。[関手の合成](../CAT1-06/index.md#def-cat1-06-composition)は $ST=S\circ T$、射の合成は右から左に読み、$gf$ と略記したときも $g\circ f$ を表す。$1_{\mathcal C}$ は恒等関手、$1_X$ は対象 $X$ の恒等射であり、両者を区別する。
 
 ## 2. 自己関手と二つの自然変換
 
-自己関手とは同じ圏から同じ圏への[共変関手](../CAT1-06/index.md#def-cat1-06-functor) $T:\mathcal C\to\mathcal C$ である。$T^2=TT$、$T^3=TTT$ と書き、例えば $T^2 X=T(TX)$ と読む。
+自己関手とは同じ圏から同じ圏への[共変関手](../CAT1-06/index.md#def-cat1-06-functor) $T:\mathcal C\to\mathcal C$ である。$T^2=TT$、$T^3=TTT$ と書き、例えば対象では $T^2X=T(TX)$、射 $f$ では $T^2f=T(Tf)$ と読む。
 
 各対象 $X$ について $X\to TX$ を与えるだけでは、射 $f:X\to Y$ と整合する保証がない。[自然変換](../CAT1-07/index.md#def-cat1-07-natural-transformation) $\eta:1_{\mathcal C}\Rightarrow T$ を要求すると、各 $f$ に対して
 
@@ -40,9 +40,18 @@ $$
 > **定義（モナド）**
 > 圏 $\mathcal C$ 上のモナドとは、自己関手 $T:\mathcal C\to\mathcal C$、自然変換 $\eta:1_{\mathcal C}\Rightarrow T$ および $\mu:T^2\Rightarrow T$ の三つ組 $(T,\eta,\mu)$ で、すべての対象 $X$ について次を満たすものである。
 >
-> **左右単位律**：$\mu_X\circ\eta_{TX}=1_{TX}$、$\mu_X\circ T\eta_X=1_{TX}$。
->
-> **結合律**：$\mu_X\circ\mu_{TX}=\mu_X\circ T\mu_X$。
+> **左右単位律**：二通りの $TX\to T^2X$ を平らにすると恒等射になる。
+
+$$
+\mu_X\circ\eta_{TX}=1_{TX},\qquad
+\mu_X\circ T\eta_X=1_{TX}.
+$$
+
+> **結合律**：三段から一段へ平らにする二経路が一致する。
+
+$$
+\mu_X\circ\mu_{TX}=\mu_X\circ T\mu_X.
+$$
 >
 > 単位律の両辺は $TX\to TX$、結合律の両辺は $T^3X\to TX$ の射である。
 <!-- formal-statement-end -->
@@ -50,7 +59,7 @@ $$
 ここで $\eta_{TX}:TX\to T^2X$ は**対象 $TX$ での $\eta$ の成分**、$T\eta_X:TX\to T^2X$ は**射 $\eta_X$ を関手 $T$ で写したもの**であり、一般に同じ射ではない。$\mu_{TX}:T^3X\to T^2X$ と $T\mu_X:T^3X\to T^2X$ も区別する。
 
 <!-- definition-example-start: def-cat3-01-monad -->
-**定義の確認**（恒等モナド）。$T=1_{\mathcal C}$、$\eta_X=1_X$、$\mu_X=1_X$ とする。任意の $f:X\to Y$ について $Tf=f$ なので、$f1_X=1_Yf$ かつ $f1_X=1_Yf$ から $\eta$、$\mu$ は自然である。また $T^2X=T^3X=X$ であり、二つの単位律も結合律も $1_X\circ1_X=1_X$ になる。自己関手性、自然性、三公理の**すべて**を確認した。
+**定義の確認**（恒等モナド）。$T=1_{\mathcal C}$、$\eta_X=1_X$、$\mu_X=1_X$ とする。恒等関手の関手性は既知である。任意の $f:X\to Y$ について $Tf=T^2f=f$ なので、$\eta$ の自然性 $Tf\circ\eta_X=\eta_Y\circ f$ と $\mu$ の自然性 $Tf\circ\mu_X=\mu_Y\circ T^2f$ は、**別々の型の自然性条件**だがいずれも $f\circ1_X=1_Y\circ f$ に帰着する。また $T^2X=T^3X=X$ であり、二つの単位律も結合律も $1_X\circ1_X=1_X$ になる。自己関手性、自然性、三公理の**すべて**を確認した。
 <!-- definition-example-end -->
 
 以下で「モナドを作った」と主張するときは、単なる写像の提示にとどまらず、この自然性と三つの等式を検算する。
@@ -148,7 +157,7 @@ $$
 
 ## 4. 語のモナド：二重の語を連結する
 
-前節の定理を[自由モノイド随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid) $W\dashv U$ に適用する。集合 $X$ に対し $TX$ は有限語全体（空語 $[]$ も含む）で、写像 $f:X\to Y$ は各文字に $f$ を適用する $Tf:X^*\to Y^*$ を与える。$T^2X$ の元は「各文字が $X$ の語になっている語」である。
+前節の[随伴が誘導するモナドの定理](#thm-cat3-01-adjunction-monad)を[自由モノイド随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid) $W\dashv U$ に適用する。集合 $X$ に対し $TX$ は有限語全体（空語 $[]$ も含む）で、写像 $f:X\to Y$ は各文字に $f$ を適用する $Tf:X^*\to Y^*$ を与える。語 $u,v$ の連結を $u\mathbin{+\!+}v$ と書く。$T^2X$ の元は「各文字が $X$ の語になっている語」である。
 
 <a id="prop-cat3-01-list-monad"></a>
 
@@ -171,7 +180,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$W$ は語を自由に作り、$U$ は積を忘れる。[自由モノイドの随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid)における単位は $x\mapsto[x]$ である。$W(UX^*)$ の語 $[w_1,\ldots,w_n]$ に余単位 $\varepsilon_{WX}$ を適用すると、自由モノイド $WX$ 内で文字 $w_i$ を順に掛ける。これは語を順番につなぐ演算だから $\mu_X=U\varepsilon_{WX}$ と一致する。
+$W$ は語を自由に作り、$U$ は積を忘れる。[自由モノイドの随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid)における単位は $x\mapsto[x]$ である。$WX$ はモノイド、$U(WX)=X^*$ はその台集合である。従って余単位の始域 $W(U(WX))$ は **$X$ の語を文字とする語のモノイド**であり、その語 $[w_1,\ldots,w_n]$ に $\varepsilon_{WX}:W(U(WX))\to WX$ を適用すると、$WX$ 内で $w_i$ を順に掛ける。これは語を順番につなぐ演算だから $\mu_X=U\varepsilon_{WX}:T^2X\to TX$ と一致する。
 
 直接の確認も行う。写像 $f:X\to Y$ と語 $[x_1,\ldots,x_n]$ について
 
@@ -202,7 +211,19 @@ $$
 
 ## 5. 冪集合のモナド：集合族の合併
 
-語を連結する構造が唯一の例ではない。集合 $X$ の冪集合 $\mathcal P(X)$ に対して、写像 $f:X\to Y$ から像集合を取る $\mathcal P f:\mathcal P X\to\mathcal P Y$ が得られる。$\mathcal P^2X$ の元は $X$ の部分集合の**集合**なので、合併によって一段にできる。
+語を連結する構造が唯一の例ではない。集合 $X$ の冪集合 $\mathcal P(X)$ に対して、写像 $f:X\to Y$ から像集合を取る $\mathcal P f:\mathcal P X\to\mathcal P Y$ が得られる。ここで $A\subseteq X$ に対し、像集合の記号と関手の作用を
+
+$$
+f[A]=\{f(a)\mid a\in A\},\qquad (\mathcal P f)(A)=f[A]
+$$
+
+と定める。さらに $X$ の部分集合からなる集合族 $\mathcal A\subseteq\mathcal P(X)$ では
+
+$$
+(\mathcal P^2f)(\mathcal A)=\{f[A]\mid A\in\mathcal A\}
+$$
+
+である。$\mathcal P^2X$ の元は $X$ の部分集合の**集合**なので、合併によって一段にできる。
 
 <a id="prop-cat3-01-powerset-monad"></a>
 
@@ -270,7 +291,7 @@ $$
 
 ## 6. $M\times-$：公理が何を要求するか
 
-モナドの三公理は「ほぼ似た操作」を排除する。集合 $M$ に二項演算 $\star:M\times M\to M$ と指定元 $e\in M$ があるとする。$X$ の元に「印」$m\in M$ を添える操作 $TX=M\times X$ を考える。$M$ の演算がどの性質を要するかをモナド公理から逆に導こう。
+[モナドの三公理](#def-cat3-01-monad)は「ほぼ似た操作」を排除する。集合 $M$ に二項演算 $\star:M\times M\to M$ と指定元 $e\in M$ があるとする。$X$ の元に「印」$m\in M$ を添える操作 $TX=M\times X$ を考える。$M$ の演算がどの性質を要するかをモナド公理から逆に導こう。既習の[モノイドの定義](../CAT1-02/index.md#def-cat1-02-monoid)にある左右単位律と結合律が、ここでは自然変換の公理から現れる。
 
 <a id="prop-cat3-01-writer-criterion"></a>
 
@@ -278,9 +299,14 @@ $$
 > **命題（印付き集合のモナド判定）**
 > 空でない集合 $M$、元 $e\in M$、二項演算 $\star$ を固定する。$\mathbf{Set}$ の自己関手を $TX=M\times X$、$Tf(m,x)=(m,f(x))$ とし、
 >
-> $\eta_X(x)=(e,x)$、$\mu_X(m,(n,x))=(m\star n,x)$
+> 単位と乗法を次のように定める。
+
+$$
+\eta_X(x)=(e,x),\qquad
+\mu_X(m,(n,x))=(m\star n,x).
+$$
 >
-> とする。この三つ組がモナドとなる必要十分条件は、$e\star m=m=m\star e$ が任意の $m\in M$ で成り立ち、$\star$ が結合的なことである。つまり $(M,\star,e)$ がモノイドであることに等しい。
+> この三つ組がモナドとなる必要十分条件は、$e\star m=m=m\star e$ が任意の $m\in M$ で成り立ち、$\star$ が結合的なことである。つまり $(M,\star,e)$ がモノイドであることに等しい。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -308,7 +334,7 @@ $$
 \mu_X T\eta_X(m,x)=(m\star e,x).
 $$
 
-それぞれ $(m,x)$ に等しい必要十分条件は $e$ が左右の単位元であることである。結合律の二経路は
+すべての $X$ で二経路が $(m,x)$ に等しい必要十分条件は $e$ が左右の単位元であることである。必要性は $X=\{*\}$ に置けば任意の $m$ から読み取れ、十分性は任意の $X$ で成り立つ。結合律の二経路は
 
 $$
 \begin{aligned}
@@ -423,7 +449,16 @@ $$
 \mu_X(1,(1,x))=(1+1\bmod 2,x)=(0,x).
 $$
 
-次の $(1,(0,(1,x)))$ は $T^3X$ の元である。$\mu_{TX}$ を先に作用させると $(1,(1,x))$、続けて $\mu_X$ で $(0,x)$ になる。$T\mu_X$ を先に作用させると $(1,(1,x))$、続けて $\mu_X$ でも $(0,x)$ となる。
+次の $(1,(0,(1,x)))$ は $T^3X$ の元である。$\mu_{TX}$ は外側二つの印を合成し、$T\mu_X$ は内側二つを合成するので、それぞれ
+
+$$
+\begin{aligned}
+\mu_{TX}(v)&=(1+0\bmod2,(1,x))=(1,(1,x)),\\
+T\mu_X(v)&=(1,(0+1\bmod2,x))=(1,(1,x)).
+\end{aligned}
+$$
+
+となる。続けて両者へ $\mu_X$ を作用させると $(1+1\bmod2,x)=(0,x)$ で一致する。
 
 $0+m=m+0=m\pmod2$ なので二つの単位律が成立する。また剰余加法は $(m+n)+p\equiv m+(n+p)\pmod2$ なので[印付き集合の判定命題](#prop-cat3-01-writer-criterion)の結合律条件も満たす。自然性と自己関手性は同命題の証明で任意の $\star$ に対し確認済みだから、これはモナドである。$\square$
 <!-- solution-end -->
