@@ -8,7 +8,7 @@
 
 対になるのは[余極限](../CAT2-05/index.md#def-cat2-05-colimit)である。二つの対象から出る射を束ねる余積は、**左随伴**と相性がよい。以下では両者を射の向きから証明する。その後、「保存」と「反映」、さらに「創出」は別の主張であることを実例で確かめる。
 
-本講で $\mathcal C,\mathcal D$ は局所小圏、$\mathcal J$ は**小さい**添字圏とする（[小さい添字圏と図式](../CAT2-01/index.md#def-cat2-01-diagram)）。特にHomは集合であり、$\mathcal J$ の対象と射の集合を添字に使える。随伴 $F\dashv G$ を用いる節では、二変数自然な全単射を
+本講で $\mathcal C,\mathcal D$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)、$\mathcal J$ は**小さい**添字圏とする（[小さい添字圏と図式](../CAT2-01/index.md#def-cat2-01-diagram)）。特にHomは集合であり、$\mathcal J$ の対象と射の集合を添字に使える。随伴 $F\dashv G$ を用いる節では、二変数自然な全単射を
 
 $$
 \Phi_{c,d}:\operatorname{Hom}_{\mathcal D}(Fc,d)
@@ -93,7 +93,7 @@ $$
 GD(\alpha)\circ q_i=q_j
 $$
 
-を満たす。$\bar q_j=\Phi_{c,D_j}^{-1}(q_j):Fc\to D_j$ と定義する。[転置公式](../CAT2-09/index.md#prop-cat2-09-transpose)のうち終域の射に関する自然性から
+を満たす。$\bar q_j=\Phi_{c,D_j}^{-1}(q_j):Fc\to D_j$ と定義する。[随伴の終域変数に関する自然性](../CAT2-08/index.md#prop-cat2-08-separate-naturality)から
 
 $$
 \begin{aligned}
@@ -133,7 +133,7 @@ $L$ の極限性により $\bar v=h$、従って $v=\Phi_{c,L}(h)=u$ である�
 
 ### 具体例：積・等化子・終対象
 
-1. [対角関手と積関手の随伴](../CAT2-08/index.md#thm-cat2-08-diagonal-product) $\Delta\dashv\times:\mathbf{Set}\times\mathbf{Set}\to\mathbf{Set}$ に定理を適用する。$\mathbf{Set}\times\mathbf{Set}$ の図式 $j\mapsto(X_j,Y_j)$ の極限が $(\lim_j X_j,\lim_j Y_j)$ なら、
+1. [対角関手と積関手の随伴](../CAT2-08/index.md#thm-cat2-08-diagonal-product) $\Delta\dashv\Pi$ に定理を適用する。ここで $\Pi:\mathbf{Set}\times\mathbf{Set}\to\mathbf{Set}$ は $(A,B)\mapsto A\times B$ とする積関手である。$X,Y:\mathcal J\to\mathbf{Set}$ を二つの図式とし、$X_j=X(j)$、$Y_j=Y(j)$、射 $\alpha:i\to j$ に対して $X(\alpha):X_i\to X_j$、$Y(\alpha):Y_i\to Y_j$ と書く。$\mathbf{Set}\times\mathbf{Set}$ の図式 $j\mapsto(X_j,Y_j)$ の極限が $(\lim_j X_j,\lim_j Y_j)$ なら、
 
 $$
 \left(\lim_jX_j\right)\times\left(\lim_jY_j\right)
@@ -184,7 +184,7 @@ $$
 v_j\circ FA(\alpha)=v_i.
 $$
 
-$w_j=\Phi_{A_j,d}(v_j):A_j\to Gd$ と定める。随伴全単射の第1変数の自然性から
+$w_j=\Phi_{A_j,d}(v_j):A_j\to Gd$ と定める。[随伴全単射の第1変数の自然性](../CAT2-08/index.md#prop-cat2-08-separate-naturality)から
 
 $$
 \begin{aligned}
@@ -332,7 +332,13 @@ $$
 
 すべての射影 $p_j$ による成分が等しいので $f(ab)=f(a)f(b)$。単位元についても各 $p_j$ の値が $e_{M_j}$ だから $f(e_N)=e_P$。従って $f$ は準同型であり、唯一の錐の媒介射となる。
 
-標準集合極限 $(P,p_j)$ と任意に選んだ集合極限 $(K,q_j)$ には、脚を保つ一意な全単射 $s:K\to P$ がある。$K$ 上に $ab=s^{-1}(s(a)s(b))$、$e_K=s^{-1}(e_P)$ と定めると、$s$ はモノイド同型になり、$q_j=p_js$ は準同型になる。もし $K$ に別のモノイド構造があり全 $q_j$ が準同型なら、各 $a,b$ について
+標準集合極限 $(P,p_j)$ と任意に選んだ集合極限 $(K,q_j)$ には、[極限錐の同型一意性](../CAT2-01/index.md#thm-cat2-01-limit-uniqueness)から脚を保つ一意な全単射 $s:K\to P$ がある。$K$ 上に $ab=s^{-1}(s(a)s(b))$、$e_K=s^{-1}(e_P)$ と定めると、$s$ はモノイド同型になり、$q_j=p_js$ は準同型になる。任意のモノイド錐 $f_j:N\to M_j$ を取ると、上で構成した一意な媒介準同型 $f:N\to P$ を使い、$s^{-1}f:N\to K$ は準同型であり
+
+$
+q_j\circ s^{-1}\circ f=p_j\circ f=f_j
+$
+
+を満たす。別の準同型 $g:N\to K$ が同じ脚を与えれば $sg:N\to P$ は $f$ と同じ脚を持つので $sg=f$、従って $g=s^{-1}f$ である。これで $(K,q_j)$ もモノイドの極限錐となる。もし $K$ に別のモノイド構造があり全 $q_j$ が準同型なら、各 $a,b$ について
 
 $$
 q_j(ab)=q_j(a)q_j(b)
@@ -414,7 +420,7 @@ $$
 $F\dashv G$、$f,g:d_0\to d_1$ とし、$x:c\to Gd_0$ を取る。$\bar x=\Phi_{c,d_0}^{-1}(x)$ とする。$Gf\circ x=Gg\circ x$ と $f\circ\bar x=g\circ\bar x$ が同値であることを示せ。
 
 <!-- solution-start -->
-**詳細解答**：右辺の二射は $Fc\to d_1$、左辺は $c\to Gd_1$ という型を持つ。終域変数の自然性をそれぞれに適用すると
+**詳細解答**：右辺の二射は $Fc\to d_1$、左辺は $c\to Gd_1$ という型を持つ。[終域変数の自然性](../CAT2-08/index.md#prop-cat2-08-separate-naturality)をそれぞれに適用すると
 
 $$
 \Phi_{c,d_1}(f\bar x)=Gf\circ x,\qquad
@@ -450,7 +456,7 @@ $$
 $G$ を右随伴とし、$\mathcal D$ に $d_1\times d_2$ があるとする。任意の $x_i:c\to Gd_i$ から $c\to G(d_1\times d_2)$ を一意に作り、二つの射影と合成すると $x_i$ になることを示せ。
 
 <!-- solution-start -->
-**詳細解答**：$\bar x_i=\Phi_{c,d_i}^{-1}(x_i):Fc\to d_i$ とする。積の普遍性により $h=\langle\bar x_1,\bar x_2\rangle:Fc\to d_1\times d_2$ がただ一つ存在し、$\pi_i h=\bar x_i$ となる。$u=\Phi_{c,d_1\times d_2}(h)$ なら
+**詳細解答**：$\bar x_i=\Phi_{c,d_i}^{-1}(x_i):Fc\to d_i$ とする。[積の普遍性](../CAT2-02/index.md#def-cat2-02-binary-product)により $h=\langle\bar x_1,\bar x_2\rangle:Fc\to d_1\times d_2$ がただ一つ存在し、$\pi_i h=\bar x_i$ となる。$u=\Phi_{c,d_1\times d_2}(h)$ なら
 
 $$
 G\pi_i\circ u=\Phi_{c,d_i}(\pi_i h)
@@ -476,7 +482,7 @@ $$
 \cong\{\ast\},
 $$
 
-なので $F0$ は始対象。次に任意の $u:Fa\to d$、$v:Fb\to d$ を転置して $\bar u:a\to Gd$、$\bar v:b\to Gd$ とする。余積の普遍性から一意な $t:a\sqcup b\to Gd$ が $t\iota_a=\bar u$、$t\iota_b=\bar v$ を満たす。逆転置 $h=\Phi^{-1}_{a\sqcup b,d}(t):F(a\sqcup b)\to d$ は第1変数の自然性で $hF\iota_a=u$、$hF\iota_b=v$。別の $h'$ は転置後に同じ二本の脚を持つため $t$ に等しく、$h'=h$。従って二項余積である。
+なので $F0$ は始対象。次に任意の $u:Fa\to d$、$v:Fb\to d$ を転置して $\bar u:a\to Gd$、$\bar v:b\to Gd$ とする。[余積の普遍性](../CAT2-05/index.md#def-cat2-05-coproduct)から一意な $t:a\sqcup b\to Gd$ が $t\iota_a=\bar u$、$t\iota_b=\bar v$ を満たす。逆転置 $h=\Phi^{-1}_{a\sqcup b,d}(t):F(a\sqcup b)\to d$ は第1変数の自然性で $hF\iota_a=u$、$hF\iota_b=v$。別の $h'$ は転置後に同じ二本の脚を持つため $t$ に等しく、$h'=h$。従って二項余積である。
 <!-- solution-end -->
 
 ### 問題5：自由モノイドの積の失敗
@@ -504,7 +510,7 @@ $$
 $F\dashv G$ とし、$e:E\to d_0$ は $f,g:d_0\to d_1$ の等化子とする。$Ge$ が $Gf,Gg$ の等化子であることを、$c\to Gd_0$ の任意の射から媒介射を構成して証明せよ。
 
 <!-- solution-start -->
-**詳細解答**：$fe=ge$ だから $GfGe=GgGe$。任意の $x:c\to Gd_0$ が $Gfx=Ggx$ を満たすとする。問題1の転置計算（[随伴の転置公式](../CAT2-09/index.md#prop-cat2-09-transpose)）から
+**詳細解答**：$fe=ge$ だから $GfGe=GgGe$。任意の $x:c\to Gd_0$ が $Gfx=Ggx$ を満たすとする。問題1の転置計算（[随伴の終域変数に関する自然性](../CAT2-08/index.md#prop-cat2-08-separate-naturality)）から
 
 $$
 f\,\Phi^{-1}_{c,d_0}(x)
@@ -550,7 +556,7 @@ h(zz')=(u(z)u(z'),v(z)v(z'))=h(z)h(z'),\quad
 h(e_H)=(e_M,e_N).
 $$
 
-ゆえに $h$ は準同型で $\pi_Mh=u$、$\pi_Nh=v$。この二条件を満たす $h'$ は各 $z$ に対し両成分が $u(z),v(z)$ と決まるため $h'=h$。これは引き戻しの存在・一意性の両方である。
+ゆえに $h$ は準同型で $\pi_Mh=u$、$\pi_Nh=v$。この二条件を満たす $h'$ は各 $z$ に対し両成分が $u(z),v(z)$ と決まるため $h'=h$。これは[引き戻し](../CAT2-03/index.md#def-cat2-03-pullback)の存在・一意性の両方である。
 <!-- solution-end -->
 
 ### 問題8：比較射の向きと同型
@@ -618,7 +624,7 @@ P=\{(x_j)_j\in\prod_j UM_j\mid
 UM(\alpha)(x_i)=x_j\;(\alpha:i\to j)\}
 $$
 
-は集合であり、集合の極限の標準構成となる。各 $M(\alpha)$ が準同型であることから
+は集合であり、[小さい図式の極限構成](../CAT2-04/index.md#thm-cat2-04-construction)に従う集合の極限となる。各 $M(\alpha)$ が準同型であることから
 
 $$
 M(\alpha)(x_iy_i)
@@ -630,7 +636,7 @@ $$
 
 **1.** 任意に選んだ集合極限 $(K,q_j)$ には、両錐の普遍性を互いに適用して、全脚を保つ写像 $s:K\to P$ と $r:P\to K$ が得られる。$rs$ と $sr$ はそれぞれ恒等射と同じ脚を持つので、[極限錐の同型一意性](../CAT2-01/index.md#thm-cat2-01-limit-uniqueness)により $rs=1_K$、$sr=1_P$。従って $s$ は全単射である。
 
-$a\cdot_K b=s^{-1}(s(a)s(b))$、$e_K=s^{-1}(e_P)$ により $K$ をモノイドにできる。別のモノイド積 $\star$ で全 $q_j$ が準同型なら、任意の $a,b$ とすべての $j$ に対して $q_j(a\star b)=q_j(a)q_j(b)=q_j(a\cdot_K b)$。$q_j$ は共同単射なので $\star=\cdot_K$。単位も一意。従って選んだ集合極限を一意に持ち上げられ、創出である。$\mathcal J$ が空でも積集合 $P$ は一元集合であり、唯一のモノイド構造を持つ。
+$a\cdot_K b=s^{-1}(s(a)s(b))$、$e_K=s^{-1}(e_P)$ により $K$ をモノイドにできる。別のモノイド積 $\star$ で全 $q_j$ が準同型なら、任意の $a,b$ とすべての $j$ に対して $q_j(a\star b)=q_j(a)q_j(b)=q_j(a\cdot_K b)$。$q_j$ は共同単射なので $\star=\cdot_K$。単位も一意。さらに任意のモノイド錐 $h_j:H\to M_j$ から $P$ への一意な媒介準同型 $f:H\to P$ に $s^{-1}$ を後合成すると、$q_js^{-1}f=p_jf=h_j$ を満たす準同型 $H\to K$ を得る。別の媒介準同型 $g$ は $sg=f$ となるから一意である。従って $(K,q_j)$ はモノイド極限であり、選んだ集合極限を一意に持ち上げられる。$\mathcal J$ が空でも積集合 $P$ は一元集合であり、唯一のモノイド構造を持つ。
 
 **2.** モノイド錐 $(N,n_j)$ の像が集合の極限なら、任意のモノイド錐 $(H,h_j)$ の集合媒介射 $t:UH\to UN$ は、各 $n_j$ が準同型であり共同単射だから
 
