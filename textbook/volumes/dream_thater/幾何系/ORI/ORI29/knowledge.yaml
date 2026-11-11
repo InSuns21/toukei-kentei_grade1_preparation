@@ -1,0 +1,60 @@
+chapter: ORI29
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI26, ORI27, ORI28]
+forward_references: []
+
+concepts:
+  - id: origami.thickened-panel-clearance
+    name: 厚み近傍とパネル間すきま
+    kind: definition
+    introduction: formal
+    requires: [origami.rigid-panel-motion, origami.rigid-configuration-space]
+
+  - id: origami.thickness-collision-criterion
+    name: 離れたパネルの厚み干渉判定
+    kind: theorem
+    introduction: formal
+    requires: [origami.thickened-panel-clearance]
+
+  - id: origami.hinge-relief-cross-section
+    name: ヒンジ逃げの断面模型
+    kind: definition
+    introduction: formal
+    requires: [origami.thickened-panel-clearance]
+
+  - id: origami.hinge-relief-clearance-law
+    name: ヒンジ逃げに必要なすきま
+    kind: proposition
+    introduction: formal
+    requires: [origami.hinge-relief-cross-section, origami.thickness-collision-criterion]
+
+  - id: origami.neutral-surface-bending
+    name: 中立面円筒曲げと表面ひずみ
+    kind: definition
+    introduction: formal
+    requires: [origami.developable-patch]
+
+  - id: origami.cylindrical-bending-strain-bound
+    name: 円筒曲げのひずみ条件
+    kind: proposition
+    introduction: formal
+    requires: [origami.neutral-surface-bending]
+
+  - id: origami.actuation-energy-model
+    name: 一自由度の駆動エネルギーと過減衰模型
+    kind: definition
+    introduction: formal
+    requires: [origami.rigid-configuration-space]
+
+  - id: origami.linear-spring-actuation
+    name: 線形ばねと一定駆動項の到達挙動
+    kind: theorem
+    introduction: formal
+    requires: [origami.actuation-energy-model]
+
+  - id: origami.energy-barrier-obstruction
+    name: 配置経路があっても越えられないエネルギー障壁
+    kind: proposition
+    introduction: formal
+    requires: [origami.actuation-energy-model]

@@ -1,0 +1,44 @@
+id: ORI29
+title: "紙厚・自己折り・実装制約"
+volume: foundations
+status: supplementary
+prerequisites: [ORI26, ORI27, ORI28]
+official_scope: []
+learning_objectives:
+  - 厚さゼロの剛体折り経路と厚みのある実物の干渉判定を区別できる
+  - 閉集合の距離と厚み近傍から非隣接パネルの衝突条件を導ける
+  - ヒンジ周辺の逃げ寸法と開き角の関係を断面模型で検算できる
+  - 中立面の円筒曲げで厚さ・曲率半径・最大ひずみの関係を導ける
+  - 駆動力・安定平衡・エネルギー障壁と幾何学的可動性を区別して総合判定できる
+definitions:
+  - { id: ORI29-DEF-01, name: 厚み近傍とパネル間すきま }
+  - { id: ORI29-DEF-02, name: ヒンジ逃げの断面模型 }
+  - { id: ORI29-DEF-03, name: 中立面円筒曲げと表面ひずみ }
+  - { id: ORI29-DEF-04, name: 一自由度の駆動エネルギーと過減衰模型 }
+theorems:
+  - { id: ORI29-THM-01, name: 離れたパネルの厚み干渉判定 }
+  - { id: ORI29-PROP-01, name: ヒンジ逃げに必要なすきま }
+  - { id: ORI29-PROP-02, name: 円筒曲げのひずみ条件 }
+  - { id: ORI29-THM-02, name: 線形ばねと一定駆動項の到達挙動 }
+  - { id: ORI29-PROP-03, name: 配置経路があっても越えられないエネルギー障壁 }
+canonical_examples:
+  - 距離0.30の二つのパネルの厚み判定
+  - 逃げ寸法を持つ二本の半直線の最短距離
+  - 中立面半径5の円筒曲げによる表面ひずみ
+  - ばねと一定トルクで駆動する一自由度折り
+  - 二つの安定状態の間のエネルギー障壁
+problem_patterns:
+  - ORI29-THICKENED-GAP
+  - ORI29-HINGE-CLEARANCE
+  - ORI29-BENDING-STRAIN
+  - ORI29-DRIVE-EQUILIBRIUM
+  - ORI29-ENERGY-BARRIER
+  - ORI29-UNIFORM-TIME-CLEARANCE
+  - ORI29-JOINT-DESIGN
+  - ORI29-OVERDAMPED-REACHABILITY
+  - ORI29-FLEXIBLE-CREASE-WIDTH
+  - ORI29-INTEGRATED-FEASIBILITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
