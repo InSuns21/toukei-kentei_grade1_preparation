@@ -1,0 +1,43 @@
+id: "BHT24"
+title: "総合検算・微視状態と情報問題への橋"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - BHT23
+official_scope: []
+learning_objectives:
+  - 境界条件とアンサンブルを区別しSchwarzschildの温度・面積・作用・自由エネルギー・熱容量を別経路から検算できる
+  - 非極限Reissner–Nordströmの第一法則・Smarr関係とSchwarzschild–AdSの安定枝・Hawking–Page転移を計算し適用範囲を特定できる
+  - Einstein重力のWaldエントロピーとf(R)模型の補正および一般化エントロピー・GSLの仮定を条件表で整理できる
+  - 面積エントロピーから示唆される状態数を条件付き統計模型で検算し実際の微視状態計数と区別できる
+  - 放射部分系のfine-grainedエントロピーを具体的な純粋状態から計算し熱的スペクトルだけでは情報問題が解けない理由を説明できる
+definitions:
+  - { id: BHT24-DEF-01, name: "微視状態数によるエントロピーとの対応" }
+  - { id: BHT24-DEF-02, name: "放射部分系の精細エントロピー" }
+theorems:
+  - { id: BHT24-PROP-01, name: "Schwarzschild熱力学の三経路検算" }
+  - { id: BHT24-PROP-02, name: "RNの第一法則とSmarr関係の同時検算" }
+  - { id: BHT24-PROP-03, name: "AdS正準枝の安定性と転移点" }
+  - { id: BHT24-PROP-04, name: "仮想微視状態数からの温度と熱容量" }
+  - { id: BHT24-PROP-05, name: "純粋全体系と混合放射部分系" }
+canonical_examples:
+  - SchwarzschildのEuclid作用を質量と逆温度で微分してEとSを一致させる
+  - RNのr+=6・Q=3で二つの第一法則係数とSmarr式を数値照合する
+  - Schwarzschild–AdSのr+=L/3・Lで同じ温度でも安定性と自由エネルギーが異なることを確認する
+  - f(R)の定曲率Wald補正とEinstein重力を適用条件付きで比較する
+  - 二量子ビット純粋状態の部分跡とエントロピーを計算する
+problem_patterns:
+  - BHT24-SCHWARZSCHILD-DATA
+  - BHT24-EUCLID-DERIVATIVES
+  - BHT24-RN-POTENTIAL
+  - BHT24-ADS-BRANCH
+  - BHT24-WALD-CONDITIONS
+  - BHT24-RN-FIRST-LAW
+  - BHT24-ADS-HP-POINT
+  - BHT24-STATE-COUNT-DERIVATIVES
+  - BHT24-RADIATION-ENTROPY
+  - BHT24-INTEGRATED-SCOPE-AND-INFORMATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 13, review: 8 }

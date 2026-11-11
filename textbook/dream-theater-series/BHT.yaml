@@ -101,5 +101,5 @@ chapters:
     title: "Bekenstein boundと限界"
   - id: BHT24
     path: textbook/volumes/dream_thater/物理系/BHT/BHT24
-    status: planned
+    status: completed
     title: "総合検算・微視状態と情報問題への橋"
