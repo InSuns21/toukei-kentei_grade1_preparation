@@ -12,12 +12,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（境界へ誘導される共形作用）"]
     requires: [holography.boundary-conformal-class, holography.poincare-metric]
+  - id: holography.boundary-special-conformal-map
+    name: 境界の特殊共形変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界の特殊共形変換）"]
+    requires: [holography.induced-boundary-conformal-action]
   - id: holography.bulk-special-conformal-isometry
     name: 特殊共形変換のバルク等長延長
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（特殊共形変換のバルク等長延長）"]
-    requires: [holography.induced-boundary-conformal-action, holography.poincare-metric]
+    requires: [holography.boundary-special-conformal-map, holography.induced-boundary-conformal-action, holography.poincare-metric]
   - id: holography.boundary-global-ward-operators
     name: バルクに対応する境界の大域Ward演算子
     kind: proposition
