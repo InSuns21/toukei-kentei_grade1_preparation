@@ -1,0 +1,41 @@
+id: ORI24
+title: "Origamizerと多面体表面の実現"
+volume: foundations
+status: supplementary
+prerequisites: [ORI13, ORI17, ORI22, ORI23]
+official_scope: []
+learning_objectives:
+  - 向き付き多面体円板・clean側とtuck側・凸面の入力条件を具体例で検査できる
+  - ε追加折り・seamless・watertightの保証を区別し境界のFréchet距離を説明できる
+  - 二面の直交する多面体円板を一枚の長方形から厳密に折る写像を構成できる
+  - 面積下界と二点Voronoi境界の反射を計算し保証できる範囲を限定できる
+  - Origamizerのwaffle・局所展開・stream・site配置・Voronoi折りの入出力と研究級証明の境界を説明できる
+definitions:
+  - { id: ORI24-DEF-01, name: 向き付き多面体円板と二つの側 }
+  - { id: ORI24-DEF-02, name: ε追加折り }
+  - { id: ORI24-DEF-03, name: seamless条件 }
+  - { id: ORI24-DEF-04, name: 境界のFréchet距離とwatertight条件 }
+theorems:
+  - { id: ORI24-THM-01, name: 直交する二面の厳密な折り実現 }
+  - { id: ORI24-THM-02, name: 等長な面分割の面積下界 }
+  - { id: ORI24-THM-03, name: 二点Voronoi境界の鏡映関係 }
+  - { id: ORI24-THM-04, name: Demaine–TachiのOrigamizer構成保証（原著から引用） }
+canonical_examples:
+  - 互いに直交する二長方形の多面体円板と側の選択
+  - 二面の平面折りを三次元へ回転させる連続ヒンジ経路
+  - 二つの点siteの垂直二等分線と鏡映対
+  - 同じ距離集合でも境界の周回順序は保証されない例
+problem_patterns:
+  - ORI24-INPUT-MANIFOLD
+  - ORI24-EXTRA-SIDE
+  - ORI24-WATERTIGHT-BOUNDARY
+  - ORI24-HINGE-ISOMETRY
+  - ORI24-AREA-LOWER-BOUND
+  - ORI24-VORONOI-MIRROR
+  - ORI24-ALGORITHM-STAGES
+  - ORI24-HINGE-PATH
+  - ORI24-COMPLETE-TWO-PANEL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
