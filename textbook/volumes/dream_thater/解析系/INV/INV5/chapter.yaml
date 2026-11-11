@@ -1,0 +1,40 @@
+id: "INV5"
+title: "TSVDとTikhonovは何を抑えるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV4
+official_scope: []
+learning_objectives:
+  - TSVDの打切り特異値分解を完全特異系から構成し有界性と核方向の扱いを確認できる
+  - 二乗ノルムTikhonov最小化問題の存在一意性をHilbert空間で証明し正規方程式を導出できる
+  - TSVDとTikhonovのフィルタ因子を導き打切りと滑らかな減衰を具体例で比較できる
+  - 特異値に沿ってバイアスとノイズ増幅を計算し両方式の無雑音整合性とノイズ下の収束を示せる
+  - 零空間と観測不能成分および誤ったパラメータ選択の失敗機構を区別できる
+definitions:
+  - { id: INV5-DEF-01, name: TSVD正則化作用素 }
+  - { id: INV5-DEF-02, name: 二乗ノルムTikhonov正則化 }
+theorems:
+  - { id: INV5-THM-01, name: Tikhonov最小点の存在・一意性と正規方程式 }
+  - { id: INV5-THM-02, name: TSVD・Tikhonovの特異値フィルタ表示 }
+  - { id: INV5-THM-03, name: TSVDとTikhonovの整合性・ノイズ下での収束 }
+canonical_examples:
+  - 対角三次元観測に対するTSVDの打切りとTikhonovの滑らかな減衰
+  - 観測不能成分と核方向を持つ二次元Tikhonovの平方完成
+  - ell2対角観測の無罰則最小二乗における最小点不存在
+  - ell2と一次元の直交和に対するノイズと偏りの比較
+problem_patterns:
+  - INV5-A01
+  - INV5-A02
+  - INV5-A03
+  - INV5-A04
+  - INV5-A05
+  - INV5-B01
+  - INV5-B02
+  - INV5-B03
+  - INV5-B04
+  - INV5-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
