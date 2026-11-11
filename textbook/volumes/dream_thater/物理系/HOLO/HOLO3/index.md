@@ -12,7 +12,15 @@
 
 ### 1.1 時間を虚数方向へ回すと何が変わるか
 
-[Poincaré計量](../HOLO2/index.md#prop-holo2-poincare-metric)の時間座標 $t$ を、形式的に $t=-i\tau_E$、実数のEuclid時刻 $\tau_E$ へ置き換えると、$-dt^2=d\tau_E^2$ になります。これは実Lorentz多様体の実座標変換ではありません。ここでは得られる正定値計量を、独立したRiemann幾何として扱います。境界の座標を $\boldsymbol x=(\tau_E,y^1,\ldots,y^{d-1})\in\mathbb R^d$ とまとめます。以下では $x^1=\tau_E$、$x^i=y^{i-1}$（$2\le i\le d$）と成分番号を定め、$dx^i$ と $dz$ はそれぞれ対応する境界座標と動径座標の微分を表します。
+[Poincaré計量](../HOLO2/index.md#prop-holo2-poincare-metric)の時間座標 $t$ を、形式的に $t=-i\tau_E$、実数のEuclid時刻 $\tau_E$ へ置き換えると、$-dt^2=d\tau_E^2$ になります。これは実Lorentz多様体の実座標変換ではありません。ここでは得られる正定値計量を、独立したRiemann幾何として扱います。
+
+境界の座標を $\boldsymbol x=(\tau_E,y^1,\ldots,y^{d-1})\in\mathbb R^d$ とまとめます。計量の総和記号に使う成分番号は
+
+$$
+x^1=\tau_E,\qquad x^i=y^{i-1}\quad (2\le i\le d)
+$$
+
+と定めます。各 $dx^i$ は対応する境界座標の微分、$dz$ は動径座標の微分です。
 
 <a id="def-holo3-euclidean-ads"></a>
 
