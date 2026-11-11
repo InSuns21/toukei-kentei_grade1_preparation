@@ -22,7 +22,7 @@
 
 ## 2. Schwarzschild：温度・作用・エントロピーの三経路
 
-まず、回転も電荷もない質量 $M>0$ の漸近平坦Schwarzschild解を考えます。座標時間 $t$ は無限遠で単位規格化した時間です。計量の静的係数 $f(r)=1-2M/r$ から、正則な非極限地平線 $r_+=2M$ の面積と表面重力を計算できます。
+まず、回転も電荷もない質量 $M>0$ の漸近平坦Schwarzschild解を考えます。座標時間 $t$ は無限遠で単位規格化した時間です。計量の静的係数 $f(r)=1-2M/r$ から、正則な非極限地平線 $r_+=2M$ の面積と表面重力を計算できます。ここで $f'(r)=df/dr$ は、質量 $M$ を固定して半径 $r$ で微分したものです。
 
 $$
 A=4\pi r_+^2=16\pi M^2,\qquad
@@ -54,10 +54,10 @@ $$
 
 $$
 I_E(\beta)=\frac{\beta^2}{16\pi},\qquad
-E=\frac{\partial I_E}{\partial\beta}=\frac\beta{8\pi}=M.
+E=\frac{d I_E}{d\beta}=\frac\beta{8\pi}=M.
 $$
 
-正準サドルの関係 $I_E=\beta F$ と $S=\beta E-I_E$ を**このサドルの形式的な熱力学恒等式として**適用すれば
+ここでは他の境界データを固定して逆温度 $\beta$ だけを変えるため、[Euclidサドルからの熱力学ポテンシャル](../BHT14/index.md#thm-bht14-thermodynamic-potentials)で使う偏微分 $\partial I_E/\partial\beta$ は、一変数関数 $I_E(\beta)$ の全微分 $dI_E/d\beta$ と一致します。正準サドルの関係 $I_E=\beta F$ と $S=\beta E-I_E$ を**このサドルの形式的な熱力学恒等式として**適用すれば
 
 $$
 F=\frac{\beta}{16\pi}=\frac M2,\qquad
@@ -72,7 +72,7 @@ $$
 
 ## 3. RN：電荷を固定するか変えるか
 
-次は $M>|Q|$ の非極限RN解です。地平線半径 $r=r_+>|Q|$ を状態の座標に選ぶと、内側地平線が $r_-=Q^2/r$ なので、$M=(r+Q^2/r)/2$ と書けます。無限遠で電磁ポテンシャルをゼロに固定したゲージで、地平線電位は $\Phi_H=Q/r$ です。$Q$ を動かす微分を忘れると第一法則を誤ります。
+次は $M>|Q|$ の非極限RN解です。[RN解の地平線データ](../BHT4/index.md#prop-bht4-rn-data)に従い、地平線半径 $r=r_+>|Q|$ を状態の座標に選ぶと、内側地平線が $r_-=Q^2/r$ なので、$M=(r+Q^2/r)/2$ と書けます。無限遠で電磁ポテンシャルをゼロに固定したゲージで、地平線電位は $\Phi_H=Q/r$ です。以後の $dM$ は独立な二変数 $(r,Q)$ の全微分です。$Q$ を動かす項を忘れると第一法則を誤ります。
 
 <a id="prop-bht24-rn-law-smarr"></a>
 
@@ -120,7 +120,7 @@ $Q\to M$ で $T\to0$ でも $S\to\pi Q^2$ は有限です。**この極限値**�
 
 ## 4. AdS：同じ温度の二枝と自由エネルギーの符号
 
-漸近平坦なSchwarzschildの負熱容量を「すべてのブラックホールは熱的に不安定」と言い換えることも誤りです。4次元Schwarzschild–AdSの静的関数を $f(r)=1-2M/r+r^2/L^2$ とし、AdS半径 $L$ を固定します。ここで熱的AdSと比較するのは、**同じ境界時間円周を持つ重力側の正準アンサンブル**です。
+漸近平坦なSchwarzschildの負熱容量を「すべてのブラックホールは熱的に不安定」と言い換えることも誤りです。4次元Schwarzschild–AdSの静的関数を $f(r)=1-2M/r+r^2/L^2$ とし、AdS半径 $L$ を固定します。ここで熱的AdSと比較するのは、**同じ境界時間円周を持つ重力側の正準アンサンブル**です。球対称解の質量・温度を地平線半径 $r$ の関数と見て、$C_L=dM/dT=(dM/dr)/(dT/dr)$ を固定 $L$ での熱容量と呼びます。ただし最後の比は $dT/dr\ne0$ の点に限ります。
 
 <a id="prop-bht24-ads-transition"></a>
 
@@ -134,7 +134,7 @@ F=\frac r4\left(1-\frac{r^2}{L^2}\right),\quad
 C_L=\frac{2\pi r^2(1+3r^2/L^2)}{3r^2/L^2-1}
 $$
 
-> となる。$r=L/\sqrt3$ は温度最小点、$r=L$ は $F=0$ のHawking–Page転移点である。ただし熱容量の符号は球対称の熱的枝の局所応答を表し、すべての摂動モードの安定性を単独では保証しない。
+> となる。ただし $C_L$ の表示式は $r\ne L/\sqrt3$ で定義され、$r=L/\sqrt3$ では $dT/dr=0$ のため発散する。そこは温度最小点であり、$r=L$ は $F=0$ のHawking–Page転移点である。熱容量の符号は球対称の熱的枝の局所応答を表し、すべての摂動モードの安定性を単独では保証しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -173,7 +173,17 @@ $$
 S_{\rm Wald}=\frac1{4G}\int_{\mathcal B}f'(R)\,dA.
 $$
 
-例えば $f(R)=R+\alpha R^2-2\Lambda$ の**定曲率解が実際に場の方程式を満たし** $R=4\Lambda$ なら、$f'(R)=1+8\alpha\Lambda$ で $S_{\rm Wald}=A(1+8\alpha\Lambda)/(4G)$。$\Lambda=0$ のRicci-flat Schwarzschildでは補正が消えます。場の方程式を満たさない仮の計量へこの数式を適用しても物理的ブラックホールのエントロピーを計算したことにはなりません。
+ここでの $f$ は第2・4節の半径 $r$ の静的計量係数とは別物で、作用を曲率スカラー $R$ の関数として書いたものです。従って $f'(R)=df/dR$ は $R$ に関する微分です。
+
+例えば $f(R)=R+\alpha R^2-2\Lambda$ では、[真空場の方程式と定曲率条件](../BHT20/index.md#thm-bht20-fr-field-equation)から定曲率解に $R=4\Lambda$ が必要です。**実際に場の方程式を満たす定常分岐面を持つ解**に限り、次の計算を適用できます。
+
+$$
+f'(R)=1+2\alpha R,\qquad
+f'(4\Lambda)=1+8\alpha\Lambda,\qquad
+S_{\rm Wald}=\frac{A(1+8\alpha\Lambda)}{4G}.
+$$
+
+$\Lambda=0$ のRicci-flat Schwarzschildでは補正が消えます。場の方程式を満たさない仮の計量へこの数式を適用しても物理的ブラックホールのエントロピーを計算したことにはなりません。
 
 量子場を含む半古典的な一般化エントロピーは、同じ切断面 $\mathcal B$ と同じ繰り込み処方で、概念的には
 
@@ -195,6 +205,15 @@ $$
 
 通常の統計力学では、十分に狭いエネルギー窓 $[E,E+\Delta E]$ の中で許される微視状態の数 $\Omega(E,\Delta E)$ を数え、その対数を粗視的エントロピーと結びます。連続スペクトルでは窓幅・体積・規格化なしに「状態数」を数値として定義できないため、以下では有限個の直交状態のある模型を考えます。
 
+[QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)は底2の対数で**ビット**を単位にしましたが、本講は冒頭で宣言した自然対数による無次元エントロピー（ナット）を使います。両者は $S_{\rm nat}=(\ln2)S_{\rm bit}$ の関係です。$\Omega$ 個の正規直交状態 $|i\rangle$ を等重みで混ぜた $\rho=\Omega^{-1}\sum_{i=1}^{\Omega}|i\rangle\langle i|$ は、各 $|i\rangle$ を固有値 $1/\Omega$ に写します。従って固有値の和から
+
+$$
+-\operatorname{Tr}(\rho\ln\rho)
+=-\Omega\frac1\Omega\ln\frac1\Omega=\ln\Omega.
+$$
+
+これが「状態数からエントロピーを求める」判定方法の根拠です。数えた状態の存在・直交性・等重みという条件を先に確認する必要があります。
+
 <a id="def-bht24-microstate-count"></a>
 
 <!-- formal-statement-start -->
@@ -209,7 +228,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht24-microstate-count -->
-**定義の確認**：同じエネルギー窓に直交状態が4個あり、等確率 $1/4$ なら $S_{\rm count}=-4(1/4)\ln(1/4)=\ln4$。$\exp(S_{\rm count})=4$ と元の個数が戻ります。重みが $(1/2,1/4,1/8,1/8)$ なら、同じ4状態でもエントロピーは $\ln4$ より小さくなります。状態数と状態の混合度も区別します。
+**定義の確認**：同じエネルギー窓に互いに直交する4状態があり、各確率が $1/4$ なら、密度演算子の4固有値はすべて $1/4$ です。そのため
+
+$$
+S_{\rm count}=-4\left(\frac14\right)\ln\frac14=\ln4,
+\qquad \exp(S_{\rm count})=4
+$$
+
+と元の個数が戻ります。重みを $(1/2,1/4,1/8,1/8)$ に替えると、総和は1でも等重み条件を失い、固有値から計算するエントロピーは $\tfrac74\ln2<\ln4=2\ln2$ です。許された状態数と実際の混合度は区別します。
 <!-- definition-example-end -->
 
 面積則は、形式的に $\Omega_{\rm eff}\sim\exp(A/4)$ という**指数的な規模**を予言します。しかし $A/4$ は連続的に変わり、$e^{A/4}$ は一般に整数ではありません。指数の主項、エネルギー窓、対数補正、境界条件、どの状態を数えるかを定めて初めて、実際の微視状態計数との比較になります。
@@ -235,7 +261,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$S_{\rm count}'(E)=8\pi E$ なので $\beta=8\pi E>0$、$T=1/(8\pi E)$。従って
+$S_{\rm count}'(E)=dS_{\rm count}/dE=8\pi E$ なので $\beta=8\pi E>0$、$T=1/(8\pi E)$。プライムはこの節では質量・エネルギー変数 $E$ での微分です。従って
 
 $$
 \frac{dT}{dE}=-\frac1{8\pi E^2},\qquad
@@ -251,7 +277,7 @@ $$
 
 ここまでは質量・電荷・面積など**巨視的状態量**が主役でした。しかし情報問題が問うのは、最終的に放射の量子状態に初期状態の識別情報が残るか、全時間にわたる相関がどうなるかです。個々の周波数の平均占有数がほぼ熱的であることと、全放射の密度演算子が厳密な熱混合であることは同値ではありません。
 
-厳密な重力理論では部分系の分割自体に境界・拘束条件の問題があります。以下はまず[部分跡](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)が定義できる有限次元の二部系模型で、その違いを直接確かめます。
+厳密な重力理論では部分系の分割自体に境界・拘束条件の問題があります。以下はまず[部分跡](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)が定義できる有限次元の二部系模型で、その違いを直接確かめます。部分系の密度演算子の固有値を $\lambda_i$ とすると、[von Neumannエントロピーの固有値表示](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)を自然対数へ変換した値は $-\sum_i\lambda_i\ln\lambda_i$ です。対角行列の場合も、任意の基底の対角成分ではなく**固有値**を使います。
 
 <a id="def-bht24-radiation-entropy"></a>
 
@@ -267,7 +293,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht24-radiation-entropy -->
-**定義の確認**：二量子ビット $|\Psi\rangle=(|0_B0_R\rangle+|1_B1_R\rangle)/\sqrt2$ は規格化された純粋状態です。$B$ の基底で部分跡を取ると交差項は $\langle0_B|1_B\rangle=0$ により消え、$\rho_R=(|0\rangle\langle0|+|1\rangle\langle1|)/2$。固有値は $1/2,1/2$ なので $S_R=\ln2$ ですが、全体の固有値は $1,0,0,0$ で $S_{BR}=0$ です。
+**定義の確認**：二量子ビット $|\Psi\rangle=(|0_B0_R\rangle+|1_B1_R\rangle)/\sqrt2$ は直交する二項の係数の二乗和が1で、規格化された純粋状態です。$B$ の正規直交基底 $|0_B\rangle,|1_B\rangle$ に対し、[部分跡の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)から
+
+$$
+\operatorname{Tr}_B\bigl(|i_B\rangle\langle j_B|\otimes|u_R\rangle\langle v_R|\bigr)
+=\langle j_B|i_B\rangle|u_R\rangle\langle v_R|.
+$$
+
+$\rho_{BR}=|\Psi\rangle\langle\Psi|$ の4項をこの式へ代入すると、$i\ne j$ の交差項は直交性により0となり、残る二項は
+
+$$
+\rho_R=\frac12|0_R\rangle\langle0_R|+\frac12|1_R\rangle\langle1_R|
+=\operatorname{diag}(1/2,1/2)
+$$
+
+です。最後の行列は $R$ の基底 $|0_R\rangle,|1_R\rangle$ における表示で、自己共役・非負・跡1という[密度演算子の三条件](../../../応用系/QINF/QINF2/index.md#def-qinf2-ensemble-density)を満たします。この基底では固有値も $1/2,1/2$ となり $S_R=\ln2$ です。一方 $\rho_{BR}$ は正規化ベクトルへの射影なので固有値は $1,0,0,0$、従って $S_{BR}=0$ です。
 <!-- definition-example-end -->
 
 <a id="prop-bht24-global-pure-local-mixed"></a>
@@ -338,7 +378,7 @@ $$
 - 問題: $I_E(\beta)=\beta^2/(16\pi)$ から $E$ と $S$ を求めよ。$\beta>0$ とする。
 
 <!-- solution-start -->
-**詳細解答**　正準サドルの式で $E=\partial_\beta I_E=2\beta/(16\pi)=\beta/(8\pi)$。さらに $S=\beta E-I_E=\beta^2/(8\pi)-\beta^2/(16\pi)=\beta^2/(16\pi)$。$M=\beta/(8\pi)$ へ戻せば $E=M$、$S=4\pi M^2$ です。
+**詳細解答**　他の境界データを固定し、ここでは $\beta$ のみを動かすので、[正準サドルの関係](../BHT14/index.md#thm-bht14-thermodynamic-potentials)での偏微分は一変数の $d/d\beta$ と一致します。$E=dI_E/d\beta=2\beta/(16\pi)=\beta/(8\pi)$。さらに $S=\beta E-I_E=\beta^2/(8\pi)-\beta^2/(16\pi)=\beta^2/(16\pi)$。$M=\beta/(8\pi)$ へ戻せば $E=M$、$S=4\pi M^2$ です。
 <!-- solution-end -->
 
 <a id="ex-bht24-a03"></a>
@@ -424,7 +464,22 @@ $$
 - 問題: $|\Psi\rangle=\sqrt3|0_B0_R\rangle/2+|1_B1_R\rangle/2$ とする。$S_{BR},S_R$ を求め、$S_R>0$ が非ユニタリ性の証拠にならない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**　係数の二乗和は $3/4+1/4=1$ なので純粋全状態は正規化されています。$\rho_{BR}=|\Psi\rangle\langle\Psi|$ の非零固有値は1だから $S_{BR}=0$。部分跡では $B$ の直交性で交差項が消え、$\rho_R=\operatorname{diag}(3/4,1/4)$。従って $S_R=-(3/4)\ln(3/4)-(1/4)\ln(1/4)>0$。放射の混合状態は、$B$ と $R$ の相関を捨てて $R$ のみを観測した結果です。全体の状態は純粋で、局所的な混合状態から全体の時間発展が非ユニタリだとは結論できません。
+**詳細解答**　係数の二乗和は $3/4+1/4=1$ なので純粋全状態は正規化されています。$\rho_{BR}=|\Psi\rangle\langle\Psi|$ の非零固有値は1だから $S_{BR}=0$。
+
+[部分跡の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を $B$ の正規直交基底で使うと、交差項 $|0_B\rangle\langle1_B|$ とその随伴の跡が0になります。よって
+
+$$
+\rho_R=\frac34|0_R\rangle\langle0_R|+\frac14|1_R\rangle\langle1_R|
+=\operatorname{diag}(3/4,1/4)
+$$
+
+です。右端は $R$ の正規直交基底での表示なので、二つの対角成分が固有値になります。従って
+
+$$
+S_R=-\frac34\ln\frac34-\frac14\ln\frac14>0.
+$$
+
+放射の混合状態は、$B$ と $R$ の相関を捨てて $R$ のみを観測した結果です。全体の状態は純粋で、局所的な混合状態から全体の時間発展が非ユニタリだとは結論できません。
 <!-- solution-end -->
 
 ### Level C：条件を付け替えずに総合する
