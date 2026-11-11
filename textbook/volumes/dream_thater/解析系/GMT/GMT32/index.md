@@ -1,4 +1,4 @@
-# GMT32 $\delta$-tube・方向分離・次元
+# GMT32 δ-tube・方向分離・次元
 
 <!-- definition-example-audit: strict -->
 
