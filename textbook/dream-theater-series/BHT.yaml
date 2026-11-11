@@ -1,7 +1,7 @@
 version: 1
 id: BHT
 title: "ブラックホール熱力学 I"
-plan: textbook/plans_progress/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 第I部7講、第II部4講、第III部6講、第IV部3講、第V部4講、全24講。
