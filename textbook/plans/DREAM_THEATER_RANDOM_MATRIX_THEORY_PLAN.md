@@ -23,7 +23,7 @@
 | 文献 | 確認した主題・本PLANへの採用 | 役割 |
 |---|---|---|
 | Terence Tao, [*Topics in Random Matrix Theory*](https://www.ams.org/books/gsm/132/)（[著者公開草稿](https://terrytao.wordpress.com/wp-content/uploads/2011/08/matrix-book.pdf)） | 行列ノルム、半円則、自由確率、Gaussian ensemble、最小特異値、円則。著者草稿の §2.3–2.8 を中心に参照する | 基本証明の粒度・非Hermitianへの橋 |
-| G. W. Anderson, A. Guionnet, O. Zeitouni, [*An Introduction to Random Matrices*](https://www.cambridge.org/core/books/an-introduction-to-random-matrices/51FCDD7E7C4C18B1D62DC6E2B774B7A0) | Wigner行列、Hermite多項式・Gaussian ensembleの間隔と極限、自由確率 | Gaussian固有値過程と局所統計の正本 |
+| G. W. Anderson, A. Guionnet, O. Zeitouni, [*An Introduction to Random Matrices*](https://www.cambridge.org/core/books/abs/an-introduction-to-random-matrices/contents/11BE9B0FF18D9BA559EDC5C5DE27177E) | Wigner行列、Hermite多項式・Gaussian ensembleの間隔と極限、自由確率 | Gaussian固有値過程と局所統計の正本 |
 | Z. Bai, J. W. Silverstein, [*Spectral Analysis of Large Dimensional Random Matrices*, 2nd ed.](https://link.springer.com/book/10.1007/978-1-4419-0661-8) | Wigner、MP、極値、spectrum separation、線形スペクトル統計のCLT、円則。truncation / resolvent / Stieltjesの技法 | sample covarianceとglobal spectral analysisの正本 |
 | Roman Vershynin, [*High-Dimensional Probability*](https://webapps.math.uci.edu/~rvershyn/papers/HDP-book/HDP-book.html) | sub-Gaussian、標本共分散、作用素ノルム等の非漸近評価 | 既存HDPとの境界を確認する対照文献 |
 | J. Baik, G. Ben Arous, S. Péché, [BBP原論文](https://doi.org/10.1214/009117905000000233) | 複素Gaussian spiked sample covarianceの最大固有値の相転移と極限分布 | 高度な主張の正確な模型・停止線 |
