@@ -24,7 +24,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（球上のBV--Sobolev--Poincaré評価）**
-> $d\ge2$、$B=B_r(x)\subset\mathbb R^d$ とする。$u\in BV(B)$、$u_B=|B|^{-1}\int_Bu$ に対し、$q=d/(d-1)$ とおくと、次の定数 $C_d$ は $u,x,r$ に依存しない。
+> $d\ge2$、$B=B_r(x_0)\subset\mathbb R^d$ とする。$u\in BV(B)$、$u_B=|B|^{-1}\int_Bu$ に対し、$q=d/(d-1)$ とおくと、次の定数 $C_d$ は $u,x_0,r$ に依存しない。
 
 $$
 \left(\int_B|u-u_B|^q\,dy\right)^{1/q}\le C_d|Du|(B).
@@ -79,7 +79,14 @@ $$
 |u(x)-u(y)|\le |x-y|\int_0^1|\nabla u((1-t)y+tx)|\,dt.
 $$
 
-$x,y$ について積分し、$t\le1/2$ では $y\mapsto(1-t)y+tx$、$t\ge1/2$ では $x\mapsto(1-t)y+tx$ に変数変換すると、各Jacobianの逆数は高々 $2^d$ です。$|x-y|\le2r$ なので
+$x,y$ について積分します。$t\le1/2$ では $x$ を固定して $y\mapsto z=(1-t)y+tx$ と変数変換し、$t\ge1/2$ では $y$ を固定して $x\mapsto z=(1-t)y+tx$ と変数変換します。各Jacobianは
+
+$$
+|\det D_yz|=(1-t)^d\ge2^{-d}\quad(t\le1/2),\qquad
+|\det D_xz|=t^d\ge2^{-d}\quad(t\ge1/2)
+$$
+
+です。球の凸性によりどちらの像も $B$ に含まれるため、変数変換後の勾配積分は $2^d\int_B|\nabla u|$ 以下です。$|x-y|\le2r$ なので
 
 $$
 \int_B|u-u_B|\le |B|^{-1}\int_B\int_B|u(x)-u(y)|\,dy\,dx
@@ -268,7 +275,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt26-rescalings -->
-**定義の確認**（半空間）。$E=\{y_d<0\}$、$x=0$ とすると $E_{0,r}=E$。境界上の面積測度は $\mu_E(B_{rR})=\omega_{d-1}(rR)^{d-1}$ だから
+**定義の確認**（半空間）。$E=\{y_d<0\}$、$x=0$ とします。$E$ はLebesgue可測で局所有限周長を持ちます。境界平面 $\{y_d=0\}$ に[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)を適用し、外向き法線が $e_d$ であることから
+
+$$
+\mu_E=\widehat{\mathcal H}^{\,d-1}\llcorner\{y_d=0\},\qquad
+\mathcal G_E=e_d\mu_E
+$$
+
+を得ます。$T_{0,r}$ は半空間と境界平面をそれぞれ自分自身へ写すので $E_{0,r}=E$ です。球 $B_R$ の逆像は $B_{rR}$ で、正規化された超平面面積から $\mu_E(B_{rR})=\omega_{d-1}(rR)^{d-1}$ となります。従って
 
 $$
 \mu_{0,r}(B_R)=r^{1-d}\omega_{d-1}(rR)^{d-1}
@@ -276,7 +290,18 @@ $$
 \mathcal G_{0,r}(B_R)=e_d\omega_{d-1}R^{d-1}.
 $$
 
-集合も測度も拡大の前後で一致します。係数を $r^{-d}$ とすると周長は $r^{-1}$ 倍に発散してしまい、集合の体積密度との次元が食い違います。
+球についてだけでなく、任意のBorel集合 $A$ でも、超平面上の $(d-1)$ 次元面積が拡大率 $r$ で $r^{d-1}$ 倍になるため、
+
+$$
+\begin{aligned}
+\mu_{0,r}(A)
+&=r^{1-d}\widehat{\mathcal H}^{\,d-1}(rA\cap\{y_d=0\})\\
+&=\widehat{\mathcal H}^{\,d-1}(A\cap\{y_d=0\})=\mu_E(A),\\
+\mathcal G_{0,r}(A)&=e_d\mu_{0,r}(A)=\mathcal G_E(A).
+\end{aligned}
+$$
+
+従って集合と二つの測度の一致を、定義の対象であるBorel集合全体について確認できました。係数を $r^{-d}$ とすると周長は $r^{-1}$ 倍に発散し、集合の体積密度との次元が食い違います。
 <!-- definition-example-end -->
 
 <a id="lem-gmt26-rescaling-variation"></a>
@@ -298,18 +323,36 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\varphi\in C_c^1(U;\mathbb R^d)$ とします。$z=(y-x)/r$、$dy=r^d dz$ なので
+$\varphi\in C_c^1(U;\mathbb R^d)$ とします。$z=(y-x)/r$、$dy=r^d dz$ です。各成分への連鎖律 $\partial_{y_i}[\varphi_i((y-x)/r)]=r^{-1}\partial_{z_i}\varphi_i(z)$ を足し合わせれば、
+
+$$
+\operatorname{div}_y[\varphi((y-x)/r)]
+=r^{-1}\operatorname{div}_z\varphi(z)
+$$
+
+です。従って
 
 $$
 \begin{aligned}
 \int_{E_{x,r}}\operatorname{div}_z\varphi(z)\,dz
 &=r^{-d}\int_E\operatorname{div}_z\varphi((y-x)/r)\,dy\\
-&=r^{1-d}\int_E\operatorname{div}_y\bigl[\varphi((y-x)/r)\bigr],dy\\
+&=r^{1-d}\int_E\operatorname{div}_y\bigl[\varphi((y-x)/r)\bigr]\,dy\\
 &=r^{1-d}\int\varphi((y-x)/r)\cdot d\mathcal G_E(y).
 \end{aligned}
 $$
 
-最後は[Gauss--Green恒等式](../GMT24/index.md#thm-gmt24-gauss-green)です。これが第1式を示します。正値の倍率と双Lipschitz写像による像測度の操作はベクトル値測度の全変動と可換なので、第2式も従います。$\square$
+最後は[Gauss--Green恒等式](../GMT24/index.md#thm-gmt24-gauss-green)です。任意のテスト場に対する等式だから第1式が従います。第2式も、[ベクトル値測度の全変動と方向の表示](../GMT21/index.md#def-gmt21-vector-variation)の定義に戻って確かめます。$T_{x,r}$ は一対一であり、Borel分割 $A=\bigsqcup_k A_k$ と $x+rA=\bigsqcup_k(x+rA_k)$ は一対一に対応します。従って
+
+$$
+\begin{aligned}
+|\mathcal G_{x,r}|(A)
+&=\sup_{\{A_k\}}\sum_k|\mathcal G_{x,r}(A_k)|\\
+&=r^{1-d}\sup_{\{A_k\}}\sum_k|\mathcal G_E(x+rA_k)|\\
+&=r^{1-d}\mu_E(x+rA)=\mu_{x,r}(A).
+\end{aligned}
+$$
+
+第1式の両辺の全変動を取れば $|D\chi_{E_{x,r}}|=|\mathcal G_{x,r}|$ ですから、第2式を得ます。$\square$
 <!-- proof-end -->
 
 ## 5. すべての縮約境界点で半空間になる
@@ -395,7 +438,17 @@ $$
 D_i\chi_F=0\quad(i<d),\qquad D_d\chi_F=-\mu_F\le0.
 $$
 
-非負の滑らかなmollifier $\rho_\varepsilon$ と畳み込んだ $f_\varepsilon=\rho_\varepsilon*\chi_F$ は滑らかで、$\partial_i f_\varepsilon=0$（$i<d$）、$\partial_df_\varepsilon\le0$ を満たします。従って $f_\varepsilon(z',t)=h_\varepsilon(t)$ で、$h_\varepsilon$ は非増加です。$\varepsilon\downarrow0$ で $L^1_{\mathrm{loc}}$ 収束させると、$\chi_F$ は横方向 $z'$ に依存せず、縦方向 $t$ に非増加な $\{0,1\}$ 値関数です。ゆえに（零集合を除いて）
+$F$ は局所有限周長なので任意の有界球で $\chi_F\in BV$ です。球内で[局所畳み込みと分布微分の両立](../GMT22/index.md#prop-gmt22-local-convolution)を適用し、球を広げれば全空間で同じ微分式が得られます。非負で積分1の滑らかなmollifier $\rho_\varepsilon$ を取り、$f_\varepsilon=\rho_\varepsilon*\chi_F$ とすると、
+
+$$
+\partial_i f_\varepsilon=\rho_\varepsilon*D_i\chi_F
+=\begin{cases}
+0 &(i<d),\\
+-\rho_\varepsilon*\mu_F\le0 &(i=d)
+\end{cases}
+$$
+
+です。従って $f_\varepsilon(z',t)=h_\varepsilon(t)$ で、$h_\varepsilon$ は非増加です。$\varepsilon\downarrow0$ で $L^1_{\mathrm{loc}}$ 収束させると、$\chi_F$ は横方向 $z'$ に依存せず、縦方向 $t$ に非増加な $\{0,1\}$ 値関数です。ゆえに（零集合を除いて）
 
 $$
 F=\{(z',t):t<a\},\qquad a\in\mathbb R\cup\{-\infty,+\infty\}.
@@ -577,7 +630,15 @@ $F\subset\mathbb R^2$ は局所有限周長で $-D\chi_F=e_2|D\chi_F|$ とする
 <!-- solution-start -->
 #### 詳細解答
 
-$u_\varepsilon=\rho_\varepsilon*\chi_F$ とおきます。測度値微分を畳み込めば $\partial_su_\varepsilon=0$、$\partial_tu_\varepsilon=-\rho_\varepsilon*|D\chi_F|\le0$ です。従って $u_\varepsilon(s,t)=h_\varepsilon(t)$ で非増加です。
+$F$ は局所有限周長なので、任意の有界球に制限すれば $\chi_F\in BV$ です。$u_\varepsilon=\rho_\varepsilon*\chi_F$ とおき、各球の内部で[局所畳み込みと分布微分の両立](../GMT22/index.md#prop-gmt22-local-convolution)を使います。微分と畳み込みの交換から
+
+$$
+\partial_su_\varepsilon=\rho_\varepsilon*D_s\chi_F=0,\qquad
+\partial_tu_\varepsilon=\rho_\varepsilon*D_t\chi_F
+=-\rho_\varepsilon*|D\chi_F|\le0
+$$
+
+です。従って $u_\varepsilon(s,t)=h_\varepsilon(t)$ で非増加です。
 
 $u_\varepsilon\to\chi_F$ が $L^1_{\rm loc}$ なので、部分列のa.e.極限は横座標に依存しない非増加の $\{0,1\}$ 値関数となります。非増加な指示関数の1の部分は下向き半直線であり、$F=\{t<a\}$（$a=\pm\infty$ を含む）と書けます。
 
@@ -689,7 +750,17 @@ $$
 \nu_k(s)=\frac{(-\cos(ks),1)}{\sqrt{1+\cos^2(ks)}}
 $$
 
-であり、点ごとに $e_2$ へ近づきません。周長の余剰が残る例です。
+です。点ごとの法線の不収束だけでなく、グラフ上の周長測度で二乗振動を積分すると、弧長要素 $\sqrt{1+\cos^2(ks)}\,ds$ により
+
+$$
+\begin{aligned}
+\int_{-\pi}^{\pi}|\nu_k(s)-e_2|^2\sqrt{1+\cos^2(ks)}\,ds
+&=2\int_{-\pi}^{\pi}\bigl(\sqrt{1+\cos^2(ks)}-1\bigr)\,ds\\
+&=2\int_{-\pi}^{\pi}\bigl(\sqrt{1+\cos^2s}-1\bigr)\,ds>0.
+\end{aligned}
+$$
+
+整数 $k$ に対する周期変換を使った最後の量は $k$ に依存しません。よって法線の二乗振動は消失せず、周長の余剰が残ります。
 
 (3) 条件(I)は弱*極限 $G_F=n\lambda$ を出し、$\chi_F$ が横方向に一定で縦方向に非増加であることを保証します。しかし平行移動の自由度 $a$ が残ります。条件(II)は、半空間境界が原点以外なら小球の一相が消えるという矛盾で $a=0$ を確定します。逆に(II)だけでは、原点の交差する二象限のような法線が相殺する形を排除できません。両方を組み合わせて初めて向きと位置の双方が決まります。
 <!-- solution-end -->
