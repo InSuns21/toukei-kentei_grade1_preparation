@@ -12,7 +12,7 @@
 
 ## 2. まず前合成を関手にする
 
-$H:\mathcal B\to\mathcal C$ を $K$ に沿って「見る範囲を狭める」と、$HK:\mathcal A\to\mathcal C$ になる。自然変換 $\theta:H\Rightarrow H'$ も成分 $\theta_{Ka}$ を取り出せる。これは[whiskering](../CAT1-08/index.md#def-cat1-08-whiskering)の特別な場合である。
+$H:\mathcal B\to\mathcal C$ を $K$ に沿って「見る範囲を狭める」と、合成関手 $HK=H\circ K:\mathcal A\to\mathcal C$ になる。自然変換 $\theta:H\Rightarrow H'$ も $K$ に沿って前合成でき、$\theta K:HK\Rightarrow H'K$ の $a$ 成分を $(\theta K)_a=\theta_{K(a)}$ とする。これは[whiskering](../CAT1-08/index.md#def-cat1-08-whiskering)の特別な場合である。
 
 <a id="def-cat3-06-precomposition"></a>
 
@@ -29,7 +29,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat3-06-precomposition -->
-**定義の確認**。上記の $K:\mathbf1\to\mathbf2$ が $0$ を選ぶとき、$H=(Y_0\xrightarrow{h}Y_1)$ に対して $K^*H=Y_0$ となる。射 $\theta=(u_0,u_1):H\Rightarrow H'$ は $h'u_0=u_1h$ を満たす可換四角形であり、$K^*\theta=u_0$ である。$1_H$ の $0$ 成分は $1_{Y_0}$、合成 $(v\cdot u)_0=v_0u_0$ だから、恒等射と合成の保存も成分から確認できる。
+**定義の確認**。上記の $K:\mathbf1\to\mathbf2$ が $0$ を選ぶとき、$H=(Y_0\xrightarrow{h}Y_1)$ に対して $K^*H=Y_0$ となる。もう一つの図式 $H'=(Y'_0\xrightarrow{h'}Y'_1)$ への自然変換は、成分写像 $u_0:Y_0\to Y'_0$、$u_1:Y_1\to Y'_1$ の組 $\theta=(u_0,u_1)$ であり、唯一の非恒等射に関する自然性は
+
+$$
+h'u_0=u_1h
+$$
+
+である。前合成は $0$ 成分を取るので $K^*\theta=u_0$。$1_H$ の $0$ 成分は $1_{Y_0}$、合成 $(v\cdot u)_0=v_0u_0$ だから、恒等射と合成の保存も成分から確認できる。
 <!-- definition-example-end -->
 
 一般にも $\theta$ の自然性を $Ka\xrightarrow{Kf}Ka'$ に適用すると
@@ -108,7 +114,7 @@ $$
 \quad \phi\longmapsto\varepsilon\cdot(\phi K).
 $$
 
-> さらに、左の普遍対は comma 圏 $(F\downarrow K^*)$ の始対象、右の普遍対は $(K^*\downarrow F)$ の終対象である。
+> さらに、左の普遍対は [comma 圏](../CAT2-10/index.md#def-cat2-10-comma) $(F\downarrow K^*)$ の[始対象](../CAT1-04/index.md#def-cat1-04-initial-terminal)、右の普遍対は $(K^*\downarrow F)$ の終対象である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -183,13 +189,13 @@ $$
 であり、$1_R$ の一意性で $t't=1_R$。同じく $tt'=1_{R'}$ を得る。
 <!-- proof-end -->
 
-さらに、**各 $F$ に普遍対が存在する**という全称条件は、前合成関手に随伴があることと一致する。固定した一つの $F$ にだけ Kan 拡張が存在しても、関手圏全体の随伴はまだ得られない。
+さらに、**各 $F$ の普遍対を一斉に指定できる**なら、前合成関手に随伴があることと一致する。固定した一つの $F$ にだけ Kan 拡張が存在しても、関手圏全体の随伴はまだ得られない。$[\mathcal A,\mathcal C]$ が大きい場合、各 $F$ での存在だけから類全体の選択を無条件には行えない。この注意は[対象ごとの普遍射から随伴を構成する定理](../CAT2-10/index.md#thm-cat2-10-left-adjoint)と同じである。
 
 <a id="thm-cat3-06-left-adjoint"></a>
 
 <!-- formal-statement-start -->
 > **定理（左Kan拡張と前合成の随伴）**
-> 小さい圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$、関手 $K:\mathcal A\to\mathcal B$ に対し、各 $F\in[\mathcal A,\mathcal C]$ の $K$ に沿う左Kan拡張が存在することと、$K^*:[\mathcal B,\mathcal C]\to[\mathcal A,\mathcal C]$ が左随伴を持つことは同値である。選んだ拡張を関手的に組み立てると
+> 小さい圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$、関手 $K:\mathcal A\to\mathcal B$ に対し、各 $F\in[\mathcal A,\mathcal C]$ の $K$ に沿う左Kan拡張の普遍対 $(L_F,\eta_F)$ を**一斉に指定できること**と、$K^*:[\mathcal B,\mathcal C]\to[\mathcal A,\mathcal C]$ が左随伴を持つことは同値である。選んだ拡張を関手的に組み立てると
 
 $$
 \operatorname{Lan}_K\dashv K^*,
@@ -214,7 +220,7 @@ $$
 ((L\alpha)K)\cdot\eta_F=\eta_G\cdot\alpha.
 $$
 
-で定義する。$\alpha=1_F$ の場合 $1_{L_F}$ が (1) を満たすので一意性により $L(1_F)=1_{L_F}$。
+で定義する。$\alpha=1_F$ の場合 $1_{L_F}$ がこの特徴づけの等式を満たすので、一意性により $L(1_F)=1_{L_F}$。
 
 $F\xrightarrow{\alpha}G\xrightarrow{\beta}J$ に対して
 
@@ -225,9 +231,9 @@ $$
 =\eta_J\beta\alpha.
 $$
 
-これは $L(\beta\alpha)$ を特徴づける式 (1) なので $L(\beta\alpha)=L\beta\cdot L\alpha$。従って $L:[\mathcal A,\mathcal C]\to[\mathcal B,\mathcal C]$ は関手である。
+この計算の両端は、$\beta\alpha:F\Rightarrow J$ を最初の特徴づけの等式へ代入した条件そのものである。従って一意性から $L(\beta\alpha)=L\beta\cdot L\alpha$ となり、$L:[\mathcal A,\mathcal C]\to[\mathcal B,\mathcal C]$ は関手である。
 
-[普遍射と自然全単射](#prop-cat3-06-correspondence)を使い $\Theta_{F,H}(\theta)=(\theta K)\eta_F$ と置く。$H$ 側の自然性はすでに証明した。$F\xrightarrow{\alpha}G$ と $\theta:L_G\Rightarrow H$ に対して (1) を代入すると
+[普遍射と自然全単射](#prop-cat3-06-correspondence)を使い $\Theta_{F,H}(\theta)=(\theta K)\eta_F$ と置く。$H$ 側の自然性はすでに証明した。$F\xrightarrow{\alpha}G$ と $\theta:L_G\Rightarrow H$ に対して、$((L\alpha)K)\eta_F=\eta_G\alpha$ を代入すると
 
 $$
 \Theta_{F,H}(\theta\cdot L\alpha)
@@ -245,7 +251,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（右Kan拡張と前合成の随伴）**
-> 小さい圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$、関手 $K:\mathcal A\to\mathcal B$ に対し、各 $F\in[\mathcal A,\mathcal C]$ の右Kan拡張が存在することと、$K^*$ が右随伴を持つことは同値である。選んだ拡張から関手 $\operatorname{Ran}_K$ を作ると
+> 小さい圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$、関手 $K:\mathcal A\to\mathcal B$ に対し、各 $F\in[\mathcal A,\mathcal C]$ の右Kan拡張の普遍対 $(R_F,\varepsilon_F)$ を**一斉に指定できること**と、$K^*$ が右随伴を持つことは同値である。選んだ拡張から関手 $\operatorname{Ran}_K$ を作ると
 
 $$
 K^*\dashv\operatorname{Ran}_K,
@@ -270,7 +276,7 @@ $$
 \varepsilon_G\cdot((R\alpha)K)=\alpha\cdot\varepsilon_F.
 $$
 
-を満たす唯一の $R\alpha:R_F\Rightarrow R_G$ を得る。$1_{R_F}$ は $\alpha=1_F$ で (2) を満たす。$\beta:G\Rightarrow J$ に対しては
+を満たす唯一の $R\alpha:R_F\Rightarrow R_G$ を得る。$1_{R_F}$ は $\alpha=1_F$ でこの特徴づけの等式を満たす。$\beta:G\Rightarrow J$ に対しては
 
 $$
 \varepsilon_J((R\beta\cdot R\alpha)K)
@@ -281,7 +287,7 @@ $$
 
 従って一意性で $R(1_F)=1_{R_F}$、$R(\beta\alpha)=R\beta\cdot R\alpha$。$R$ は関手となる。
 
-$\Psi_{H,F}(\phi)=\varepsilon_F(\phi K)$ は前命題で $H$ に自然な全単射だった。$F\xrightarrow{\alpha}G$ に対し (2) を使うと
+$\Psi_{H,F}(\phi)=\varepsilon_F(\phi K)$ は[普遍射と自然全単射の命題](#prop-cat3-06-correspondence)で $H$ に自然な全単射だった。$F\xrightarrow{\alpha}G$ に対し、$\varepsilon_G((R\alpha)K)=\alpha\varepsilon_F$ を代入すると
 
 $$
 \Psi_{H,G}(R\alpha\cdot\phi)
@@ -293,7 +299,7 @@ $$
 従って $F$ にも自然で、$\Psi^{-1}$ が表示した随伴のHom全単射となる。逆に $K^*\dashv R$ の[余単位](../CAT2-09/index.md#def-cat2-09-counit) $\varepsilon_F:(RF)K\Rightarrow F$ を取れば、[転置の公式](../CAT2-09/index.md#prop-cat2-09-transpose)から $\Psi_{H,F}(\phi)=\varepsilon_F(\phi K)$ は全単射になる。[前命題](#prop-cat3-06-correspondence)により $(RF,\varepsilon_F)$ は右Kan拡張である。
 <!-- proof-end -->
 
-二つの定理は「左・右随伴の両方が常に存在する」とは言っていない。例えば左だけが存在する場合もある。**どの図式にも**普遍対があるときに限って、関手圏間の随伴が得られる。
+二つの定理は「左・右随伴の両方が常に存在する」とは言っていない。例えば左だけが存在する場合もある。**どの図式にも**普遍対を選んで一斉に指定できるときに、関手圏間の随伴が得られる。
 
 ## 6. 矢印圏で左右を手計算する
 
@@ -435,7 +441,15 @@ $K(*)=0$、$X=\{r,s\}$ とし、$H=(Y_0\xrightarrow{h}Y_1)$ を集合値図式�
 空圏 $\varnothing$ から $\mathbf1$ への唯一の $K$ と、非空有限集合圏 $\mathcal C$ を取る。左Kan拡張が存在しない理由を、二点集合への写像を用いて証明せよ。また右Kan拡張の値を答えよ。
 
 <!-- solution-start -->
-**詳細解答**：左の候補 $L$ は $L(*)=S$ という非空有限集合を選ぶことに等しい。空圏上の自然変換は一通りなので、左の普遍性はすべての非空有限集合 $Y$ への写像 $S\to Y$ が一通りであることを要求する。$Y=\{0,1\}$ では $S$ が非空ゆえ定数写像 $s\mapsto0$ と $s\mapsto1$ が異なり、矛盾する。右では $R(*)=\{*\}$ とすれば、任意の $Y$ から $\{*\}$ への写像が一意であるため普遍性が成立する。
+**詳細解答**：左の候補 $L$ は $L(*)=S$ という非空有限集合を選ぶことに等しい。空圏上の自然変換は一通りなので、左の普遍性はすべての非空有限集合 $Y$ に対し
+
+$$
+\operatorname{Hom}_{\mathcal C}(S,Y)\cong\{*\}
+$$
+
+を要求する。$Y=\{0,1\}$ では $S$ が非空ゆえ定数写像 $s\mapsto0$ と $s\mapsto1$ が異なり、矛盾する。
+
+右では $R(*)=\{*\}$ とすれば、任意の $Y$ から $\{*\}$ への写像が一意であるため普遍性が成立する。
 <!-- solution-end -->
 
 ### 問題6：比較を保つ同型は一つだけ
@@ -515,7 +529,13 @@ $$
 $J:\mathbf1\to\mathbf2$ が対象 $1$ を選び、$X$ が任意の集合であるとする。左Kan拡張 $(\varnothing\to X)$ と右Kan拡張 $(X\xrightarrow{1_X}X)$ の普遍性を、任意の $H=(Y_0\xrightarrow{h}Y_1)$ に対して検証せよ。
 
 <!-- solution-start -->
-**詳細解答**：$J^*H=Y_1$ である。左の $L=(\varnothing\to X)$ から $H$ への自然変換 $\theta=(\theta_0,\theta_1)$ では $\theta_0:\varnothing\to Y_0$ は唯一、$\theta_1:X\to Y_1$ は任意である。自然性 $h\theta_0=\theta_1(\varnothing\to X)$ は空集合からの写像の一意性で常に成り立つ。比較 $\eta_X:X\to LJ=X$ を恒等射とすれば $\theta_1=\alpha:X\to Y_1$ が一意な因子分解を与える。
+**詳細解答**：$J^*H=Y_1$ である。左の $L=(\varnothing\to X)$ から $H$ への自然変換 $\theta=(\theta_0,\theta_1)$ では $\theta_0:\varnothing\to Y_0$ は唯一、$\theta_1:X\to Y_1$ は任意である。自然性は
+
+$$
+h\theta_0=\theta_1(\varnothing\to X)
+$$
+
+となり、両辺が空集合からの写像なので常に成り立つ。比較 $\eta_X:X\to LJ=X$ を恒等射とすれば $\theta_1=\alpha:X\to Y_1$ が一意な因子分解を与える。
 
 右の $R=(X\xrightarrow{1_X}X)$ へ $H$ からの自然変換 $\phi=(\phi_0,\phi_1)$ を取る。自然性は $\phi_1h=1_X\phi_0=\phi_0$ である。比較 $\varepsilon_X=1_X:RJ=X\to X$ の条件から $\phi_1=\beta:Y_1\to X$、従って $\phi_0=\beta h$ に強制される。逆にこの二成分は可換であり、右普遍性が成立する。
 <!-- solution-end -->
@@ -527,7 +547,7 @@ $J:\mathbf1\to\mathbf2$ が対象 $1$ を選び、$X$ が任意の集合であ�
 
 小さい圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$ と $K:\mathcal A\to\mathcal B$ を取る。
 
-1. 左普遍対 $(L_F,\eta_F)$ が全ての $F$ に存在するとき、$(F\downarrow K^*)$ の始対象性から、$L_F$ が自然変換に対して関手的に動き、$L\dashv K^*$ となることを証明せよ。$F$ 側の自然性を省略してはならない。
+1. 左普遍対 $(L_F,\eta_F)$ が全ての $F$ に対して一斉に指定されているとき、$(F\downarrow K^*)$ の始対象性から、$L_F$ が自然変換に対して関手的に動き、$L\dashv K^*$ となることを証明せよ。$F$ 側の自然性を省略してはならない。
 2. $\mathcal A=\varnothing,\mathcal B=\mathbf1$、$\mathcal C$ を非空有限集合圏に取る場合、1の仮定が破れる箇所を指摘せよ。また $K^*$ に**右随伴**はあるか、全ての $F$ を考えて判定せよ。
 
 <!-- solution-start -->
