@@ -1,0 +1,48 @@
+id: GMT32
+title: δ-tube・方向分離・次元
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT31
+  - MT8
+official_scope: []
+learning_objectives:
+  - 長さ1・半径δのtubeの体積を円柱と端部に分けて計算できる
+  - 重複度の一次・二次積分とtubeの交差体積を対応させ、合併体積下界を証明できる
+  - 球殻の体積比較によってδ-分離方向の本数がδの負のd-1乗に比例することを証明できる
+  - 一定尺度の被覆数と近傍体積の比較を上下両方向に証明できる
+  - 上下Minkowski次元のliminfとlimsupおよびHausdorff次元との大小関係を正しく判定できる
+  - 可算稠密集合とコンパクト零測度集合の近傍の違いを例で確認できる
+  - Besicovitch集合の各方向のtube配置で二乗重複度が発散する理由を再現できる
+definitions:
+  - { id: GMT32-DEF-01, name: δ-tubeと重複度 }
+  - { id: GMT32-DEF-02, name: δ-分離方向集合 }
+  - { id: GMT32-DEF-03, name: 上下Minkowski次元 }
+theorems:
+  - { id: GMT32-PROP-01, name: tube体積と重複度の積分 }
+  - { id: GMT32-LEM-01, name: 分離方向の本数 }
+  - { id: GMT32-LEM-02, name: 被覆数と近傍体積の比較 }
+  - { id: GMT32-THM-01, name: Hausdorff次元と上下Minkowski次元 }
+  - { id: GMT32-PROP-02, name: 零面積Besicovitch集合に伴う重複度の発散 }
+canonical_examples:
+  - 平面tubeの長方形と半円による断面計算
+  - 二つの一致するtubeと交わらないtubeの二乗積分
+  - 平面の正多角形の方向分離と最短弦長
+  - 線分のMinkowski次元とその近傍面積
+  - 有理点の稠密可算集合でHausdorff次元と箱次元が異なる例
+  - 零面積コンパクトBesicovitch集合のtube重複度発散
+problem_patterns:
+  - GMT32-TUBE-ENDCAP
+  - GMT32-DIRECTION-CHORD
+  - GMT32-SEGMENT-BOX
+  - GMT32-DENSE-COUNTABLE
+  - GMT32-TWO-TUBE-MULTIPLICITY
+  - GMT32-SPHERE-SHELL
+  - GMT32-COVER-HAUSDORFF
+  - GMT32-KAKEYA-TUBE-VOLUME
+  - GMT32-OVERLAP-SQUARE
+  - GMT32-DIMENSION-COMPARISON
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
