@@ -1,0 +1,49 @@
+id: GMT25
+title: 縮約境界と測度論的外向き法線
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT1
+  - GMT10
+  - GMT13
+  - GMT21
+  - GMT23
+  - GMT24
+official_scope: []
+learning_objectives:
+  - 体積密度による測度論的内部・外部・本質的境界と位相的境界を区別できる
+  - 周長測度の球平均から縮約境界と点ごとの測度論的外向き法線を定義し、単位長の条件を検算できる
+  - 周長測度ほとんど至る所で縮約境界が成立することをRadon測度の微分定理から証明できる
+  - 滑らかな境界の法線・密度二分の一・半空間へのL1 blow-upを局所グラフから導出できる
+  - 角点と測度零の穴を計算し、密度二分の一だけでは縮約境界を特徴付けられないことを説明できる
+  - 一般の半空間blow-upと境界面積の同定には後続の構造定理が必要だと区別できる
+definitions:
+  - { id: GMT25-DEF-01, name: 体積密度と本質的境界 }
+  - { id: GMT25-DEF-02, name: 縮約境界と測度論的外向き法線 }
+theorems:
+  - { id: GMT25-THM-01, name: 縮約境界上の法線の平均振動と周長測度ほとんど至る所での存在 }
+  - { id: GMT25-PROP-01, name: 滑らかな境界の縮約境界・半空間近似 }
+  - { id: GMT25-PROP-02, name: 零集合変更・補集合・相似変換との両立 }
+  - { id: GMT25-PROP-03, name: 半空間近似から体積密度二分の一への含意 }
+canonical_examples:
+  - 直線上の区間の二端点と外向き単位法線
+  - 半空間とC1グラフの球内法線平均および半空間blow-up
+  - 正方形の辺と角点の法線平均の比較
+  - 有理点を抜いた円盤の位相的境界と縮約境界
+  - 対頂象限の合併で密度二分の一でも縮約境界でない反例
+problem_patterns:
+  - GMT25-INTERVAL-REDUCED
+  - GMT25-HALFSPACE-NORMAL
+  - GMT25-CORNER-AVERAGE
+  - GMT25-NULL-HOLES
+  - GMT25-COMPLEMENT
+  - GMT25-MEAN-OSCILLATION
+  - GMT25-GRAPH-BLOWUP
+  - GMT25-CROSS-COUNTEREXAMPLE
+  - GMT25-V-CORNER
+  - GMT25-RECTANGLE-BOUNDARY
+  - GMT25-RADON-TO-REDUCED
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 12, exercises: 8, review: 4 }
