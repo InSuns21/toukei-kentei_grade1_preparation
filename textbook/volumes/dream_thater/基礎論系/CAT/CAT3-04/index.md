@@ -4,7 +4,7 @@
 
 [比較関手](../CAT3-03/index.md#def-cat3-03-comparison)は、随伴 $L:\mathcal C\rightleftarrows\mathcal D:R$ から得たモナド $T=RL$ の代数圏 $\mathcal C^T$ へ、$\mathcal D$ の対象を送る。しかし比較関手が圏の同値になるとは限らない。代数として見た射が、もとの $\mathcal D$ の射からすべて得られるかどうかすら、まだ分からない。
 
-例えば集合と集合の組の圏 $\mathbf{Set}\times\mathbf{Set}$ から第二成分だけを忘れる関手は、第一成分の射の違いを見分けられない。このような忘却と、モノイドの演算だけを忘れる関手とを区別したい。そのために、忘却した後で確かめられる「特別な余等化子」と、忘却関手が同型を見落とさない条件を用意する。
+例えば集合の組の圏 $\mathbf{Set}\times\mathbf{Set}$ から**第一成分を忘れて第二成分を取り出す**関手は、第一成分の射の違いを見分けられない。このような忘却と、モノイドの演算だけを忘れる関手とを区別したい。そのために、忘却した後で確かめられる「特別な余等化子」と、忘却関手が同型を見落とさない条件を用意する。
 
 本講で使う基本図式は、平行二射 $f,g:A\to B$ の[余等化子](../CAT2-05/index.md#def-cat2-05-coequalizer)である。すなわち $q:B\to Q$ は $qf=qg$ を満たし、$hf=hg$ である任意の $h:B\to X$ が一意に $q$ を通って分解する。以下の合成は右から左へ読み、圏と関手には必要な箇所で局所小性を仮定する。
 
@@ -124,7 +124,7 @@ $$
 
 ## 4. 同型を見落とさないこと
 
-忘却関手が射の同型性を見落とせば、比較関手が圏の同値であることは期待できない。例えば積圏 $\mathbf{Set}\times\mathbf{Set}$ の射は二成分の写像であり、第二成分だけの検査では第一成分の可逆性が分からない。
+忘却関手が射の[同型性](../CAT1-03/index.md#def-cat1-03-isomorphism)を見落とせば、比較関手が圏の同値であることは期待できない。例えば積圏 $\mathbf{Set}\times\mathbf{Set}$ の射は二成分の写像であり、第二成分だけの検査では第一成分の可逆性が分からない。
 
 <a id="def-cat3-04-conservative"></a>
 
@@ -180,7 +180,7 @@ $$
 
 ## 5. 代数忘却関手は分裂余等化子を創出する
 
-$U^T$ にとって、像の圏で分裂余等化子を取ったとき、商対象上に代数構造を作れるだろうか。分裂余等化子は任意の関手で保存されるので、$Tq$ も余等化子である。これは $TB$ 上の評価を $TQ$ 上の評価へ降ろすための正確な道具になる。
+前講の[自由代数・忘却随伴](../CAT3-03/index.md#thm-cat3-03-free-adjunction)で定義した $U^T:\mathcal C^T\to\mathcal C$ にとって、像の圏で分裂余等化子を取ったとき、商対象上に代数構造を作れるだろうか。分裂余等化子は任意の関手で保存されるので、$Tq$ も余等化子である。これは $TB$ 上の評価を $TQ$ 上の評価へ降ろすための正確な道具になる。
 
 <a id="thm-cat3-04-em-creates"></a>
 
@@ -210,6 +210,14 @@ $$
 
 となる。$Tq$ には右逆 $Ts$ があるので $c$ の一意性は射の等式としても確認できる。
 
+ここで $qs=1_Q$ に $T$ と $T^2$ を適用すれば
+
+$$
+(Tq)(Ts)=1_{TQ},\qquad (T^2q)(T^2s)=1_{T^2Q}
+$$
+
+となる。一般に右逆 $r$ を持つ射 $e$ は[エピ射](../CAT1-03/index.md#def-cat1-03-epimorphism)である。実際、$xe=ye$ なら $x=xer=yer=y$ だからである。以下、この理由で $q,Tq,T^2q$ のエピ性を用いる。
+
 **単位律。** $\eta$ の自然性 $Tq\,\eta_B=\eta_Qq$ と $b\eta_B=1_B$ から
 
 $$
@@ -230,7 +238,7 @@ cTc\,T^2q
 \end{aligned}
 $$
 
-$b\mu_B=bTb$ は $(B,b)$ の代数公理なので右辺は一致する。$T^2q$ は $T^2s$ を右逆に持ちエピ射だから、$c\mu_Q=cTc$ が従う。よって $(Q,c)$ は代数で、$cTq=qb$ により $q$ は代数射である。
+$b\mu_B=bTb$ は $(B,b)$ の[代数公理](../CAT3-03/index.md#def-cat3-03-algebra)なので右辺は一致する。$T^2q$ は $T^2s$ を右逆に持ちエピ射だから、$c\mu_Q=cTc$ が従う。よって $(Q,c)$ は代数で、$cTq=qb$ により $q$ は代数射である。
 
 **余等化子の普遍性。** 代数射 $h:(B,b)\to(D,d)$ が $hf=hg$ を満たすとする。$q$ は $\mathcal C$ で余等化子なので、唯一の $u:Q\to D$ があり $uq=h$ となる。$u$ が代数射であることを、$Tq$ の後で確認する。
 
@@ -244,10 +252,10 @@ $$
 最後は $h$ が代数射であることによる。$Tq$ はエピ射なので $uc=dTu$。従って $u$ は代数射であり、$uq=h$ の一意性も $\mathcal C$ での一意性から従う。最後に別の $c'$ でも $q$ が代数射なら $c'Tq=qb=cTq$ なので $c'=c$。$\square$
 <!-- proof-end -->
 
-**有限語の例。** [有限語モナドの代数](../CAT3-03/index.md#prop-cat3-03-list-monoids)として加法モノイド $(\mathbb N,+,0)$ を考える。語 $w=[2,3]$ なら評価は $a(w)=5$。代数から生じる平行二射 $\mu_{\mathbb N},\,Ta:T^2\mathbb N\to T\mathbb N$ に対して、二重の語 $[[2,3],[4]]$ は
+**有限語の例。** [有限語モナドの代数](../CAT3-03/index.md#prop-cat3-03-list-monoids)として、0を含む非負整数の加法モノイド $(\mathbb N_0,+,0)$ を考える。語 $w=[2,3]$ なら評価は $a(w)=5$。代数から生じる平行二射 $\mu_{\mathbb N_0},\,Ta:T^2\mathbb N_0\to T\mathbb N_0$ に対して、二重の語 $[[2,3],[4]]$ は
 
 $$
-\mu_{\mathbb N}([[2,3],[4]])=[2,3,4],\quad
+\mu_{\mathbb N_0}([[2,3],[4]])=[2,3,4],\quad
 Ta([[2,3],[4]])=[5,4]
 $$
 
@@ -255,7 +263,15 @@ $$
 
 ## 6. 比較関手の充満忠実性は余単位の余等化子で測る
 
-比較関手 $K:\mathcal D\to\mathcal C^T$ の射が欠けていないかを確かめるには、任意の代数射 $b:KD\to KE$ から、元の射 $D\to E$ を一意に復元できればよい。[随伴の転置](../CAT2-09/index.md#prop-cat2-09-transpose)を使うと、$b:RD\to RE$ は $v=\varepsilon_E Lb:LRD\to E$ に対応する。問題は、この $v$ が余単位 $\varepsilon_D:LRD\to D$ を通って分解するか、である。
+比較関手 $K:\mathcal D\to\mathcal C^T$ の[充満忠実性](../CAT1-09/index.md#def-cat1-09-fully-faithful)を確かめるには、任意の代数射 $b:KD\to KE$ から、元の射 $D\to E$ を一意に復元できればよい。
+
+[随伴の転置](../CAT2-09/index.md#prop-cat2-09-transpose)を使うと、代数射の元の射 $b:RD\to RE$ は
+
+$$
+v=\varepsilon_E Lb:LRD\longrightarrow E
+$$
+
+に対応する。問題は、この $v$ が余単位 $\varepsilon_D:LRD\to D$ を通って分解するか、である。
 
 以下、$L:\mathcal C\rightleftarrows\mathcal D:R$ を局所小圏間の随伴とし、単位を $\eta$、余単位を $\varepsilon$、$T=RL$ とする。$D\in\mathcal D$ に付随する代数構造を
 
@@ -269,7 +285,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（余単位の標準平行二射）**
-> 随伴 $L:\mathcal C\rightleftarrows\mathcal D:R$ と対象 $D\in\mathcal D$ に対し、平行二射
+> 随伴 $L:\mathcal C\rightleftarrows\mathcal D:R$（単位 $\eta$、余単位 $\varepsilon$）と対象 $D\in\mathcal D$ を取る。$T=RL$、$a_D=R\varepsilon_D$ と置いたとき、平行二射
 
 $$
 p_D=\varepsilon_{LRD},\qquad
@@ -320,7 +336,8 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（代数射の転置判定）**
-> 上の随伴と対象 $D,E\in\mathcal D$ に対し、射 $b:RD\to RE$ の随伴転置を $v=\varepsilon_E Lb:LRD\to E$ とする。このとき、$b:KD\to KE$ が $T$-代数射であることと
+> 局所小圏間の随伴 $L:\mathcal C\rightleftarrows\mathcal D:R$（単位 $\eta$、余単位 $\varepsilon$）から得るモナド $T=RL$ と[比較関手](../CAT3-03/index.md#def-cat3-03-comparison) $K:\mathcal D\to\mathcal C^T$ を考える。
+> 対象 $D,E\in\mathcal D$ に対し、[標準平行二射](#lem-cat3-04-counit-pair) $p_D=\varepsilon_{LRD}$、$r_D=LR\varepsilon_D$ と射 $b:RD\to RE$ を取る。$b$ の随伴転置を $v=\varepsilon_E Lb:LRD\to E$ とすると、$b:KD\to KE$ が $T$-代数射であることと
 
 $$
 vp_D=vr_D:LRLRD\to E
@@ -420,7 +437,16 @@ $$
 
 $K$ の充満性で $b=Kk$ となる射 $k:D\to E$ を取ると、忠実性から $k\varepsilon_D=h$。この因子分解は $K$ の忠実性と代数圏での一意性によって一意である。ゆえに $\varepsilon_D$ は余等化子となる。
 
-**同型の反映。** $Ru$ が同型なら、[代数忘却関手による同型の反映](#prop-cat3-04-forgetful-conservative)から $Ku$ は同型である。充満忠実な関手は同型を反映する。実際、$Ku$ の逆を充満性で $Kv$ と書けば $K(vu)=1$、$K(uv)=1$、忠実性から $vu=1$、$uv=1$ である。従って $u$ は同型で、$R$ も同型を反映する。$\square$
+**同型の反映。** $Ru$ が同型なら、[代数忘却関手による同型の反映](#prop-cat3-04-forgetful-conservative)から $Ku$ は同型である。ここで[充満忠実関手は同型射を反映する](../CAT1-09/index.md#prop-cat1-09-reflect-iso)結果を $K$ に適用できる。
+
+具体的には $Ku:KD\to KE$ の逆を、充満性で $Kv:KE\to KD$ と書く。関手性から
+
+$$
+K(vu)=Kv\,Ku=1_{KD}=K(1_D),\qquad
+K(uv)=Ku\,Kv=1_{KE}=K(1_E).
+$$
+
+忠実性より $vu=1_D$、$uv=1_E$ なので $u$ は同型であり、$R$ も同型を反映する。$\square$
 <!-- proof-end -->
 
 この定理の重要な点は、同型の反映が欠かせない性質であっても、それだけでは比較関手の充満性を証明していないことである。次に考えるべき問いは、$R$-分裂した任意の対について、像で作れる商を元の圏へ持ち上げられるかどうかである。
@@ -444,7 +470,13 @@ $$
 \varepsilon_{(A,B)}:(\varnothing,B)\longrightarrow(A,B)
 $$
 
-で、第一成分は $\varnothing\to A$、第二成分は $1_B$ である。$p_D=r_D=1_{(\varnothing,B)}$ だが、$A\ne\varnothing$ なら $\varepsilon_D$ はこの対の余等化子ではない。実際 $h=1_{(\varnothing,B)}$ は $hp_D=hr_D$ を満たすものの、$h=k\varepsilon_D$ とする $k:(A,B)\to(\varnothing,B)$ は第一成分に $A\to\varnothing$ を要求し存在しない。[充満忠実性の判定](#thm-cat3-04-full-faithfulness)の失敗を、商の普遍性そのものから読み取れた。
+で、第一成分は $\varnothing\to A$、第二成分は $1_B$ である。この例では
+
+$$
+p_D=r_D=1_{(\varnothing,B)}
+$$
+
+だが、$A\ne\varnothing$ なら $\varepsilon_D$ はこの対の余等化子ではない。実際 $h=1_{(\varnothing,B)}$ は $hp_D=hr_D$ を満たす。もし $h=k\varepsilon_D$ となる射 $k:(A,B)\to(\varnothing,B)$ があれば、第一成分に $A\to\varnothing$ が必要になる。これは $A\ne\varnothing$ と矛盾する。[充満忠実性の判定](#thm-cat3-04-full-faithfulness)の失敗を、商の普遍性から読み取れた。
 
 ## 8. 演習：分裂の四条件から比較関手まで
 
@@ -456,7 +488,15 @@ $$
 $A=\{u,v\}$、$B=\{0,1\}$、$f(u)=0,f(v)=1$、$g(u)=g(v)=0$ とする。$Q=\{*\}$、$q:B\to Q$ を唯一の写像とし、$s(*)=0$、$t(0)=u,t(1)=v$ を取る。分裂余等化子の四条件を一つずつ確認し、$hf=hg$ を満たす任意の $h:B\to X$ の一意な分解を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：$qf(u)=qg(u)=*$、$qf(v)=qg(v)=*$ なので $qf=qg$。$qs(*)=q(0)=*$ より $qs=1_Q$。$ft(0)=f(u)=0$、$ft(1)=f(v)=1$ より $ft=1_B$。$gt(0)=g(u)=0$、$gt(1)=g(v)=0$ で、$sq$ も $0,1$ の両方を $0$ に送るから $gt=sq$。
+**詳細解答**：四条件を順番に確かめる。まず $qf$ と $qg$ は $u,v$ をともに $*$ へ送るので $qf=qg$。また $qs(*)=q(0)=*$ だから $qs=1_Q$ である。
+
+次に
+
+$$
+ft(0)=f(u)=0,\qquad ft(1)=f(v)=1
+$$
+
+より $ft=1_B$。最後に $gt(0)=g(u)=0$、$gt(1)=g(v)=0$ であり、$sq$ も両点を $0$ へ送る。よって $gt=sq$。これで分裂の四条件がすべて成立する。
 
 $hf=hg$ を $v$ に適用すると $h(1)=h(0)$。従って $\bar h(*)=h(0)$ と置けば $\bar hq=h$。別の $\ell:Q\to X$ も $\ell q=h$ なら $\ell(*)=\ell(q(0))=h(0)=\bar h(*)$ なので一意である。これは一般の式 $\bar h=hs$ の具体形である。
 <!-- solution-end -->
@@ -493,10 +533,15 @@ $A=\varnothing$、$B=\{b\}$、$f,g:A\to B$ を唯一の写像とする。$1_B$ �
 代数射 $f:(A,a)\to(B,b)$ の基底の射 $f:A\to B$ が同型であるとする。$f^{-1}$ が代数射となる式を導け。また $U^T$ が忠実であることを説明し、忠実であることと同型を反映することを混同しないよう述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[代数射の条件](../CAT3-03/index.md#def-cat3-03-morphism)は $fa=bTf$。$Tf$ は関手性により逆 $Tf^{-1}$ を持つ。左右に逆を合成すると
+**詳細解答**：[代数射の条件](../CAT3-03/index.md#def-cat3-03-morphism)は $fa=bTf$。$Tf$ は関手性により逆 $T(f^{-1})$ を持つ。両側へ逆を合成すると
 
 $$
-f^{-1}b=f^{-1}(fa)(Tf^{-1})=aTf^{-1},
+\begin{aligned}
+f^{-1}b
+&=f^{-1}b\,(Tf)\,T(f^{-1})\\
+&=f^{-1}(fa)\,T(f^{-1})\\
+&=a\,T(f^{-1}),
+\end{aligned}
 $$
 
 ゆえに $f^{-1}$ も代数射である。$U^T$ は二つの代数の間のHom集合を $\mathcal C$ のHom集合の部分集合として埋め込むので、異なる代数射を同じ射へ送らず忠実である。同型を反映することは、逆射が元の代数圏でも存在するという別の条件であり、上の計算がその追加の証明となる。
@@ -530,7 +575,7 @@ $$
 - Level: B
 - 問題ID: CAT3-04-CREATE-ALGEBRA
 
-局所小圏 $\mathcal C$ 上のモナド $T$ について、代数射 $f,g:(A,a)\to(B,b)$ の underlying な平行二射が分裂余等化子 $q:B\to Q$ を持つとする。$cTq=qb$ により $c:TQ\to Q$ を定める理由を述べ、$c\eta_Q=1_Q$ と $c\mu_Q=cTc$ を、エピ射である写像を明記して証明せよ。
+局所小圏 $\mathcal C$ 上のモナド $T$ について、代数射 $f,g:(A,a)\to(B,b)$ の忘却した元の平行二射が分裂余等化子 $q:B\to Q$ を持つとする。$cTq=qb$ により $c:TQ\to Q$ を定める理由を述べ、$c\eta_Q=1_Q$ と $c\mu_Q=cTc$ を、エピ射である写像を明記して証明せよ。
 
 <!-- solution-start -->
 **詳細解答**：$fa=bTf$、$ga=bTg$ と $qf=qg$ から
@@ -636,7 +681,9 @@ p_D=r_D=1_{(\varnothing,B)},\qquad
 $$
 
    $h=1_{(\varnothing,B)}$ は $hp_D=hr_D$ を満たす。もし $h=k\varepsilon_D$ となる $k:(A,B)\to(\varnothing,B)$ が存在すれば、その第一成分に写像 $A\to\varnothing$ が必要である。しかし $A\ne\varnothing$ なので不可能。ゆえに普遍性が破れる。
-3. $u:(\{0\},\{*\})\to(\{0,1\},\{*\})$ を第一成分が包含、第二成分が恒等写像の組とする。$Ru$ は同型だが $u$ の第一成分は全射でなく、$u$ は同型でない。[比較関手の充満忠実性の判定](#thm-cat3-04-full-faithfulness)により、2で $\varepsilon_D$ が余等化子でない以上 $K$ は充満忠実ではない。実際 $K(A,B)=B$ となり第一成分の射情報を失う。3は必要条件の失敗、2はその背後にある余等化子の失敗を直接示している。
+3. $u:(\{0\},\{*\})\to(\{0,1\},\{*\})$ を、第一成分が包含、第二成分が恒等写像の組とする。$Ru=1_{\{*\}}$ は同型だが、$u$ の第一成分は全射でないから $u$ は同型でない。
+
+   また、2で $\varepsilon_D$ が余等化子でないと証明したので、[比較関手の充満忠実性の判定](#thm-cat3-04-full-faithfulness)から $K$ は充満忠実でない。実際 $K(A,B)=B$ は第一成分の射情報を失う。3は同型反映という必要条件の失敗、2はその背後の余等化子の失敗を直接示す。
 <!-- solution-end -->
 
 ここまでで、モナド代数の商を一意に持ち上げられること、同型を反映すること、余単位が標準平行二射の余等化子になることの関係が見えた。次の講義で扱う Beck のモナド性定理では、これらを比較関手の**圏の同値**まで結び付ける条件を扱う。
