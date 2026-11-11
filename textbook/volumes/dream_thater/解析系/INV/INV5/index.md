@@ -46,7 +46,7 @@ $$
 \le\frac{\|z\|_Y^2}{\tau^2}.
 $$
 
-最後の不等式は[ Bessel の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-bessel)です。ゆえに $\|R_\tau^{\mathrm T}\|\le1/\tau$ です。残す方向を減らすことで、データ誤差の増幅を有限にしています。
+最後の不等式は[Bessel不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-bessel-inequality)を有限個の $u_j$ に適用したものです。ゆえに $\|R_\tau^{\mathrm T}\|\le1/\tau$ です。残す方向を減らすことで、データ誤差の増幅を有限にしています。
 
 <!-- definition-example-start: def-inv5-tsvd -->
 ### 例：三つの方向のうち一つを捨てる
@@ -140,7 +140,7 @@ $$
 =\langle h,B_\alpha k\rangle_X.
 $$
 
-特に Cauchy--Schwarz の不等式から
+特に[Cauchy--Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を $B_\alpha h$ と $h$ に適用すると
 
 $$
 \alpha\|h\|_X^2
@@ -267,7 +267,7 @@ s^2+\alpha\ge2s\sqrt\alpha,
 \qquad 0\le\frac{s}{s^2+\alpha}\le\frac1{2\sqrt\alpha}.
 $$
 
-よって[ Bessel の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-bessel)と $v_j$ の直交性から
+よって[Bessel不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-bessel-inequality)を $(u_j)$ の任意の有限部分系に適用し、部分和の上界を取ると、$v_j$ の直交性から
 
 $$
 \begin{aligned}
@@ -421,7 +421,7 @@ $$
 f_{1/4}^{\mathrm K}(1/2)=\frac{1/4}{1/4+1/4}=\frac12.
 $$
 
-無罰則の逆算係数は $z/s=2$ です。Tikhonov はその半分なので $x_\alpha=1$。正規方程式からも $(1/4+1/4)x=(1/2)z$ となり $x=1$ と確かめられます。
+無罰則の逆算係数は $z/s=2$ です。Tikhonov はその半分なので $x_\alpha=1$。[本章のTikhonov最小点の定理](#thm-inv5-tikhonov-minimizer)へ $A^*A=1/4$、$\alpha=1/4$、$A^*z=1/2$ を代入しても、$(1/4+1/4)x=1/2$ となり $x=1$ と確かめられます。
 <!-- solution-end -->
 
 <a id="ex-inv5-a04"></a>
