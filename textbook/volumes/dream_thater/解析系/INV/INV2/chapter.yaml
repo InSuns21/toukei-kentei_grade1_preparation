@@ -1,0 +1,42 @@
+id: "INV2"
+title: "コンパクト作用素はなぜ逆を不安定にするか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV1
+  - FA6
+official_scope: []
+learning_objectives:
+  - 単射な有界線形作用素の逆写像の連続性・下界評価・閉値域が同値であることを仮定とともに証明できる
+  - 無限次元Hilbert空間上の単射コンパクト作用素が下から有界にならず逆が不安定であることを証明できる
+  - 非単射なコンパクト作用素では閉値域が有限次元像を意味することと反例を区別できる
+  - ell2対角観測の定義域・値域・稠密性・非閉性・ノイズ増幅を具体的に計算できる
+  - 有限次元切断の一様不安定性とデータノルムの選択による安定性の違いを説明できる
+definitions:
+  - { id: INV2-DEF-01, name: 下界評価と逆の安定性 }
+theorems:
+  - { id: INV2-THM-01, name: 単射作用素の閉値域と下界評価 }
+  - { id: INV2-THM-02, name: 無限次元単射コンパクト作用素の不安定性 }
+  - { id: INV2-COR-01, name: コンパクト作用素の閉値域は有限次元 }
+  - { id: INV2-PROP-01, name: 対角観測の値域と非閉性 }
+canonical_examples:
+  - ell2上の恒等作用素とコンパクト対角観測の下界比較
+  - 対角観測の稠密だが閉でない値域とデータ範囲外の極限
+  - 有限次元切断の逆ノルムの増大と微小観測誤差
+  - 有限ランク射影の閉値域と非単射性
+  - 重み付きデータノルムによる同じ観測の安定化
+problem_patterns:
+  - INV2-A01
+  - INV2-A02
+  - INV2-A03
+  - INV2-A04
+  - INV2-A05
+  - INV2-B01
+  - INV2-B02
+  - INV2-B03
+  - INV2-B04
+  - INV2-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

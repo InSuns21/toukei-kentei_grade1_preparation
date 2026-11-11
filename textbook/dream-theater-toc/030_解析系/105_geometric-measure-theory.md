@@ -27,3 +27,5 @@
 24. [GMT24 有限周長集合とGauss--Green測度](textbook/volumes/dream_thater/解析系/GMT/GMT24/index.md)
 25. [GMT25 縮約境界と測度論的外向き法線](textbook/volumes/dream_thater/解析系/GMT/GMT25/index.md)
 26. [GMT26 De Giorgi構造定理 I：半空間blow-up](textbook/volumes/dream_thater/解析系/GMT/GMT26/index.md)
+27. [GMT27 De Giorgi構造定理 II：整流可能性と測度同定](textbook/volumes/dream_thater/解析系/GMT/GMT27/index.md)
+28. [GMT28 Gauss--Greenの境界積分・集合演算・切断](textbook/volumes/dream_thater/解析系/GMT/GMT28/index.md)

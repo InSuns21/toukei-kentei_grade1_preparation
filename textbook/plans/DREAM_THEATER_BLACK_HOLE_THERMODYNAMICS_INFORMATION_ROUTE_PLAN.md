@@ -15,7 +15,7 @@
 - [量子場理論 I〜IV（QFT系列・仮章数可変）](../plan_done/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)
 - [曲がった時空の量子場 I（QCURV系列）](../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)
 - [ブラックホール熱力学 I（BHT1〜24）](../plan_done/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)
-- [ホログラフィー I（HOLO1〜33）](DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
+- [ホログラフィー I（HOLO1〜33）](../plans_progress/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
 - [ブラックホール情報 I・II（BHI1〜30）](DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)
 
 ## 直接依存の有向経路
