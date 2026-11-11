@@ -16,6 +16,7 @@ concepts:
     name: 境界の特殊共形変換
     kind: definition
     introduction: formal
+    aliases: ["特殊共形変換"]
     introduction_aliases: ["定義（境界の特殊共形変換）"]
     requires: [holography.induced-boundary-conformal-action]
   - id: holography.bulk-special-conformal-isometry
