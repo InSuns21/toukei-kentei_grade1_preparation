@@ -6,3 +6,4 @@
 3. [INV3 特異系から可解性を判定できるか](textbook/volumes/dream_thater/解析系/INV/INV3/index.md)
 4. [INV4 逆を正則化するとはどういうことか](textbook/volumes/dream_thater/解析系/INV/INV4/index.md)
 5. [INV5 TSVDとTikhonovは何を抑えるか](textbook/volumes/dream_thater/解析系/INV/INV5/index.md)
+6. [INV6 正則化の収束速度をどう求めるか](textbook/volumes/dream_thater/解析系/INV/INV6/index.md)

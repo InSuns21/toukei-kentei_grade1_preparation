@@ -1,0 +1,64 @@
+chapter: INV6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV5
+
+forward_references: []
+
+concepts:
+  - id: inverse.noise-bias-decomposition
+    name: 正則化のノイズ誤差とバイアス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則化のノイズ誤差とバイアス）"]
+    requires: [inverse.regularization-error-bound, inverse.filter-convergence]
+
+  - id: inverse.hilbert-source-condition
+    name: 分数冪によるsource condition
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分数冪によるsource condition）"]
+    requires: [inverse.compact-singular-expansion, inverse.pseudoinverse-domain]
+
+  - id: inverse.tikhonov-source-rate
+    name: Tikhonovのsource condition下での誤差上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Tikhonovのsource condition下での誤差上界）"]
+    requires: [inverse.hilbert-source-condition, inverse.noise-bias-decomposition, inverse.spectral-filter-factors]
+
+  - id: inverse.tikhonov-apriori-rate
+    name: Tikhonovの事前パラメータと収束率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Tikhonovの事前パラメータと収束率）"]
+    requires: [inverse.tikhonov-source-rate]
+
+  - id: inverse.tikhonov-residual-filter
+    name: Tikhonovの残差フィルタ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Tikhonovの残差フィルタ）"]
+    requires: [inverse.spectral-filter-factors]
+
+  - id: inverse.filter-qualification
+    name: フィルタのqualification
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フィルタのqualification）"]
+    requires: [inverse.tikhonov-residual-filter, inverse.hilbert-source-condition]
+
+  - id: inverse.tikhonov-qualification-one
+    name: Tikhonovのqualificationが1であること
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Tikhonovのqualificationが1であること）"]
+    requires: [inverse.filter-qualification]
+
+  - id: inverse.tsvd-source-rate
+    name: TSVDのsource condition下での収束率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（TSVDのsource condition下での収束率）"]
+    requires: [inverse.hilbert-source-condition, inverse.noise-bias-decomposition, inverse.tsvd-regularization]
