@@ -552,7 +552,7 @@ $$
 U_r=\{x:\operatorname{dist}(x,S)<r\}
 $$
 
-を取ると、$S\subset U_r$、$\overline{U_r}\subset V$。$S$ は有界なので $U_r$ も有界です。$r\downarrow0$ で $\overline{U_r}\downarrow S$、近傍はいずれもある固定の有界集合に含まれるため測度の上からの連続性により $|\overline{U_r}|\downarrow|S|$。$|S|<\eta$ なので十分小さい $r$ で $|U_r|\le|\overline{U_r}|<\eta$。これを $U$ とすれば全条件を満たします。
+を取ると、$S\subset U_r$、$\overline{U_r}\subset V$。$S$ は有界なので $U_r$ も有界です。$r\downarrow0$ で $\overline{U_r}\downarrow S$、近傍はいずれもある固定の有界集合に含まれるため[測度の上からの連続性](../../MT/MT1/index.md#thm-mt1-continuity-from-above-finite)により $|\overline{U_r}|\downarrow|S|$。$|S|<\eta$ なので十分小さい $r$ で $|U_r|\le|\overline{U_r}|<\eta$。これを $U$ とすれば全条件を満たします。
 <!-- solution-end -->
 
 <a id="ex-gmt31-b04"></a>
