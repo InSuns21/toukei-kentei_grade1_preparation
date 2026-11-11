@@ -1,0 +1,43 @@
+id: ORI27
+title: "Miura折りと展開機構"
+volume: foundations
+status: supplementary
+prerequisites: [ORI26]
+official_scope: []
+learning_objectives:
+  - 偶奇で傾きの変わる平行四辺形の対称Miura格子を座標から構成できる
+  - 1パラメータ立体格子の辺長・内積・接合を検算し有限パッチの連続非貫通経路を証明できる
+  - 隣接パネルの法線から横・斜折り目の半角関係を導ける
+  - 投影角・縦横周期と負の運動学的Poisson比を計算できる
+  - 対称族の1自由度と全配置空間の自由度を区別し折り切り端点・紙厚の限界を説明できる
+definitions:
+  - { id: ORI27-DEF-01, name: 対称Miura格子 }
+  - { id: ORI27-DEF-02, name: 対称Miura運動族 }
+  - { id: ORI27-DEF-03, name: Miura格子の無符号折り角 }
+  - { id: ORI27-DEF-04, name: Miura格子の投影周期と運動学的Poisson比 }
+theorems:
+  - { id: ORI27-THM-01, name: 有限Miuraパッチの連続な剛体折り }
+  - { id: ORI27-THM-02, name: Miura折り角の半角関係 }
+  - { id: ORI27-THM-03, name: 投影角と負の運動学的Poisson比 }
+  - { id: ORI27-PROP-01, name: 折り切り極限は正則な展開経路の内部にない }
+canonical_examples:
+  - 辺長2・1、鋭角60度の交代平行四辺形格子
+  - tが2分の1のときの頂点座標と面のGram行列
+  - 二種の折り目の法線と半角正接の関係
+  - 縦横投影周期の同時縮小と運動学的Poisson比
+  - 行間隔が0になる折り切り極限と非貫通証明の境界
+problem_patterns:
+  - ORI27-ALTERNATING-GRID
+  - ORI27-PARAMETER-DOMAIN
+  - ORI27-PANEL-GRAM
+  - ORI27-DIHEDRAL-HALF-ANGLE
+  - ORI27-PROJECTED-ANGLE
+  - ORI27-RECONSTRUCT-CONSTRAINTS
+  - ORI27-NORMAL-COMPATIBILITY
+  - ORI27-INJECTIVE-PROJECTION
+  - ORI27-KINEMATIC-POISSON
+  - ORI27-COMPLETE-PATCH-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
