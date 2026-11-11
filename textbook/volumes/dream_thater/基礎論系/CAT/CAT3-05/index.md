@@ -201,7 +201,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[有限語モナドの代数とモノイド](../CAT3-03/index.md#prop-cat3-03-list-monoids)の対応を、比較関手の両向きの写像として使う。モノイド $(M,\cdot,1)$ に $K(M)=(M,a)$ を対応させ、$a([m_1,\dots,m_n])=m_1\cdots m_n$、$a([])=1$ とする。まず $a\eta_M(m)=a([m])=m$。また語の語 $[w_1,\ldots,w_k]$ に対し、$a\mu_M$ は連結語の積を、$aTa$ は各 $w_i$ の積をさらに掛け合わせたものを返す。積の結合律と空語に対する単位元の扱いから両者は一致する。従って $a\eta_M=1_M$、$a\mu_M=aTa$ の二つの代数公理を満たす。
+[有限語モナドの代数とモノイド](../CAT3-03/index.md#prop-cat3-03-list-monoids)の対応を、比較関手の両向きの写像として使う。モノイド $(M,\cdot,1)$ に $K(M)=(M,a)$ を対応させ、語の評価を
+
+$$
+a([m_1,\dots,m_n])=m_1\cdots m_n,\qquad a([])=1
+$$
+
+と定める。単位律は $a\eta_M(m)=a([m])=m$ から確認できる。
+
+また語の語 $[w_1,\ldots,w_k]$ に対し、$a\mu_M$ は連結語の積を、$aTa$ は各 $w_i$ の積をさらに掛け合わせたものを返す。積の結合律と空語に対する単位元の扱いから両者は一致する。従って
+
+$$
+a\eta_M=1_M,\qquad a\mu_M=aTa
+$$
+
+の二つの代数公理を満たす。
 
 逆に代数 $(A,a)$ から $1=a([])$ と $x\cdot y=a([x,y])$ を定める。代数の結合律を二重の語 $[[x,y],[z]]$ と $[[x],[y,z]]$ に適用すると
 
@@ -310,10 +324,18 @@ $$
 - Level: A
 - 問題ID: CAT3-05-TOPOLOGY-FAIL
 
-$S=\{0,1\}$ に離散位相 $\tau_d$ と密着位相 $\tau_i=\{\varnothing,S\}$ を与える。$f:(S,\tau_d)\to(S,\tau_i)$ を集合恒等写像とする。(1) $f$ が連続であること、(2) 逆集合写像が連続でないことを開集合の逆像から示し、(3) $\mathbf{Top}\to\mathbf{Set}$ が Beck のどの必要条件を満たさないか述べよ。
+$S=\{0,1\}$ に離散位相 $\tau_d$ と密着位相 $\tau_i=\{\varnothing,S\}$ を与える。$f:(S,\tau_d)\to(S,\tau_i)$ を集合恒等写像とする。
+
+1. $f$ が連続であることを示せ。
+2. 逆集合写像が連続でないことを、開集合の逆像から示せ。
+3. $\mathbf{Top}\to\mathbf{Set}$ が Beck のどの必要条件を満たさないか述べよ。
 
 <!-- solution-start -->
-**詳細解答**：(1) 終域の開集合は $\varnothing,S$ のみで、その $f$ による逆像はそれぞれ $\varnothing,S$。いずれも離散位相で開だから $f$ は連続。(2) 逆向きの集合恒等写像を $g$ とすれば、離散位相の開集合 $\{0\}$ の逆像は $g^{-1}(\{0\})=\{0\}$ であり、密着位相では開でない。よって $g$ は連続でなく $f$ は位相同型ではない。(3) $Uf=1_S$ は集合の同型なのに $f$ は同型でないから、$U$ は[同型を反映する条件](../CAT3-04/index.md#def-cat3-04-conservative)を破る。左随伴の有無や余等化子の条件を計算するまでもなく Beck の必要性から非モナド的と判定できる。
+**詳細解答**：
+
+1. 終域の開集合は $\varnothing,S$ のみで、その $f$ による逆像はそれぞれ $\varnothing,S$。いずれも離散位相で開だから、$f$ は連続である。
+2. 逆向きの集合恒等写像を $g$ とする。離散位相の開集合 $\{0\}$ の逆像は $g^{-1}(\{0\})=\{0\}$ であり、密着位相では開でない。よって $g$ は連続でなく、$f$ は位相同型ではない。
+3. $Uf=1_S$ は集合の同型なのに $f$ は同型でない。従って $U$ は[同型を反映する条件](../CAT3-04/index.md#def-cat3-04-conservative)を破る。左随伴の有無や余等化子の条件を計算するまでもなく、Beck の必要性から非モナド的と判定できる。
 <!-- solution-end -->
 
 ### 問題5：余単位を余等化子にする
@@ -324,7 +346,21 @@ $S=\{0,1\}$ に離散位相 $\tau_d$ と密着位相 $\tau_i=\{\varnothing,S\}$ 
 随伴 $L\dashv R$ で $R$ が同型を反映し、$R$-分裂対の余等化子が $\mathcal D$ で存在して $R$ に保存されるとする。$D\in\mathcal D$ の標準対 $p_D,r_D$ に余等化子 $e:LRD\to E$ を取り、$\theta:RE\xrightarrow{\cong}RD$ を $\theta Re=R\varepsilon_D$ で定める。$\varepsilon_D$ が $p_D,r_D$ の余等化子であることを証明せよ。
 
 <!-- solution-start -->
-**詳細解答**：[標準平行二射](../CAT3-04/index.md#lem-cat3-04-counit-pair)は $\varepsilon_Dp_D=\varepsilon_Dr_D$ を満たすので、$e$ の普遍性で唯一の $u:E\to D$ があり $ue=\varepsilon_D$。適用 $R$ により $Ru\,Re=R\varepsilon_D=\theta Re$。$Re$ は余等化子としてエピ射だから $Ru=\theta$。$\theta$ は同型なので同型反映性から $u$ は同型。従って $\varepsilon_D=ue$ は余等化子と同型の後合成であり、余等化子となる。明示的には $h:LRD\to Z$ が $hp_D=hr_D$ なら $h=ve$ の一意な $v:E\to Z$ を取り、$h=(vu^{-1})\varepsilon_D$ と因子分解する。一意性は $e=u^{-1}\varepsilon_D$ のエピ性で従う。
+**詳細解答**：[標準平行二射](../CAT3-04/index.md#lem-cat3-04-counit-pair)は $\varepsilon_Dp_D=\varepsilon_Dr_D$ を満たすので、$e$ の普遍性で唯一の射 $u:E\to D$ があり $ue=\varepsilon_D$ となる。関手 $R$ を適用すると
+
+$$
+Ru\,Re=R\varepsilon_D=\theta Re.
+$$
+
+$Re$ は余等化子としてエピ射だから $Ru=\theta$。右辺が同型なので、同型反映性から $u$ も同型である。
+
+従って $\varepsilon_D=ue$ は余等化子と同型の後合成であり、余等化子となる。実際、$h:LRD\to Z$ が $hp_D=hr_D$ なら、$e$ の普遍性で得る一意な $v:E\to Z$ を使って
+
+$$
+h=ve=(vu^{-1})\varepsilon_D
+$$
+
+と分解する。一意性は $e=u^{-1}\varepsilon_D$ のエピ性で従う。
 <!-- solution-end -->
 
 ### 問題6：新しい代数構造を同定する
@@ -335,7 +371,20 @@ $S=\{0,1\}$ に離散位相 $\tau_d$ と密着位相 $\tau_i=\{\varnothing,S\}$ 
 モナド代数 $(A,a)$ に対し、$\mathcal D$ の $\varepsilon_{LA},La$ の余等化子 $e:LA\to E$ が存在し、$Re$ が余等化子であるとする。$\theta:RE\to A$ は $\theta Re=a$ を満たす同型とする。$b=R\varepsilon_E$ と置き、$\theta b=aT\theta$ を証明せよ。$T(Re)$ を消去できる理由も示せ。
 
 <!-- solution-start -->
-**詳細解答**：$Ke$ は自由代数 $(TA,\mu_A)$ から $(RE,b)$ への代数射なので $bT(Re)=Re\mu_A$。左から $\theta$ を合成して $\theta bT(Re)=a\mu_A$。代数公理 $a\mu_A=aTa$ と $a=\theta Re$ から $a\mu_A=aT\theta\,T(Re)$。従って $\theta bT(Re)=aT\theta\,T(Re)$ である。$a\eta_A=1_A$ より $Re$ は右逆 $\eta_A\theta$ を持つ。関手 $T$ を適用すると $T(Re)\,T(\eta_A\theta)=1_{TRE}$ だから $T(Re)$ はエピ射である。両辺からそれを右消去し、$\theta b=aT\theta$。これは $\theta:KE\to(A,a)$ が代数射である条件である。
+**詳細解答**：$Ke$ は自由代数 $(TA,\mu_A)$ から $(RE,b)$ への代数射なので $bT(Re)=Re\mu_A$。左から $\theta$ を合成し、代数公理と $a=\theta Re$ を代入すると
+
+$$
+\theta bT(Re)=\theta Re\mu_A=a\mu_A
+=aTa=aT\theta\,T(Re).
+$$
+
+一方、$a\eta_A=1_A$ と $\theta Re=a$ から、$Re$ は右逆 $\eta_A\theta$ を持つ。関手 $T$ を適用すると
+
+$$
+T(Re)\,T(\eta_A\theta)=1_{TRE}
+$$
+
+なので $T(Re)$ はエピ射である。前式の両辺からこれを右消去し $\theta b=aT\theta$ を得る。これは $\theta:KE\to(A,a)$ が代数射である条件である。
 <!-- solution-end -->
 
 ### 問題7：必要性の持ち上げを再構成する
@@ -346,7 +395,17 @@ $S=\{0,1\}$ に離散位相 $\tau_d$ と密着位相 $\tau_i=\{\varnothing,S\}$ 
 $K:\mathcal D\to\mathcal C^T$ が圏の同値とする。$R$-分裂対 $f,g:D_1\rightrightarrows D_0$ とその像の分裂余等化子 $q:RD_0\to Q$ から、$\mathcal D$ の余等化子 $e:D_0\to E$ を構成する手順を述べ、$Re$ が余等化子である理由を証明せよ。
 
 <!-- solution-start -->
-**詳細解答**：$U^TK=R$ なので $Kf,Kg$ は $U^T$-分裂対である。[代数忘却関手の創出](../CAT3-04/index.md#thm-cat3-04-em-creates)で $\widehat q:KD_0\to(Q,c)$ を $U^T\widehat q=q$ となる余等化子として作る。$K$ の本質的全射性で $E\in\mathcal D$ と同型 $\alpha:KE\to(Q,c)$ を選び、充満性で $Ke=\alpha^{-1}\widehat q$ となる $e:D_0\to E$ を取る。$Ke$ は $Kf,Kg$ の余等化子。任意の $h:D_0\to Z$ が対を余等化するとき $Kh$ は $Ke$ を一意に通って分解し、その因子分解を充満性で $\mathcal D$ へ戻し忠実性で一意性を確認するから $e$ も余等化子。さらに $(U^T\alpha)Re=q$ なので $Re$ は $q$ と同型を通じて一致する。$q$ は余等化子であり、よって $Re$ も余等化子である。
+**詳細解答**：$U^TK=R$ なので $Kf,Kg$ は $U^T$-分裂対である。[代数忘却関手の創出](../CAT3-04/index.md#thm-cat3-04-em-creates)で余等化子
+
+$$
+\widehat q:KD_0\to(Q,c),\qquad U^T\widehat q=q
+$$
+
+を得る。$K$ の本質的全射性で対象 $E\in\mathcal D$ と同型 $\alpha:KE\to(Q,c)$ を選ぶ。充満性で $Ke=\alpha^{-1}\widehat q$ となる $e:D_0\to E$ を取れば、$Ke$ は $Kf,Kg$ の余等化子となる。
+
+任意の $h:D_0\to Z$ が $hf=hg$ を満たすとき、$Kh$ は $Ke$ を一意に通って分解する。その因子分解を充満性で $\mathcal D$ へ戻し、忠実性で一意性を確認する。従って $e$ も余等化子である。
+
+最後に $(U^T\alpha)Re=q$ であり、$U^T\alpha$ は同型だから、$Re$ は余等化子 $q$ と同型を通じて一致する。従って $Re$ も余等化子である。
 <!-- solution-end -->
 
 ### 問題8：保存だけでは消せない仮定
@@ -357,7 +416,13 @@ $K:\mathcal D\to\mathcal C^T$ が圏の同値とする。$R$-分裂対 $f,g:D_1\
 Beck の定理2の三条件（同型の反映、$R$-分裂対の余等化子の存在、それらの保存）が、十分性の証明のどの式・操作で必要か説明せよ。「余等化子が保存される」という文だけでその存在を保証できない理由も、量化の違いから述べよ。
 
 <!-- solution-start -->
-**詳細解答**：存在は $e_D:LRD\to E_D$ と $e:LA\to E$ をまず $\mathcal D$ 内で選ぶときに必要。保存は $Re_D$ と $Re$ が像の余等化子となり、それぞれ $a_D$、$a$ に同型 $\theta_D$、$\theta$ で比較できることを保証する。同型反映性は $Ru_D=\theta_D$ が同型と判明した後に $u_D$ 自身を同型とする箇所で使い、余単位の余等化子性、従って比較関手の充満忠実性につなぐ。「保存」は **存在する余等化子 $e$ について** $Re$ も余等化子だとする全称条件であって、「任意の対 $f,g$ に余等化子 $e$ が存在する」という存在条件を含まない。余等化子が一つもない対について保存条件は真偽を制約しない。
+**詳細解答**：三条件の使い道を区別する。
+
+- **存在**：元の圏 $\mathcal D$ で余等化子 $e_D:LRD\to E_D$ と $e:LA\to E$ を選ぶときに必要である。
+- **保存**：$Re_D$ と $Re$ が像の余等化子となり、それぞれ $a_D$ と $a$ に同型 $\theta_D$、$\theta$ で比較できることを保証する。
+- **同型の反映**：$Ru_D=\theta_D$ が同型と判明した後に $u_D$ 自身を同型とする箇所で使い、余単位の余等化子性、ひいては比較関手の充満忠実性につなぐ。
+
+「保存」は**既に存在する余等化子**について、その $R$ 像も余等化子だとする全称条件である。他方「存在」は任意の $R$-分裂対に対して元の圏で余等化子があるという別の条件である。余等化子が一つもない対については保存性だけでは存在を導けない。
 <!-- solution-end -->
 
 ### 問題9：一つの代数から圏の同値まで
@@ -374,15 +439,34 @@ Beck の定理2の三条件（同型の反映、$R$-分裂対の余等化子の�
 <!-- solution-start -->
 **詳細解答**：
 
-1. [標準平行二射](../CAT3-04/index.md#lem-cat3-04-counit-pair)は $R$-分裂する。仮定で $p_D,r_D$ の余等化子 $e_D$ があり、$Re_D$ と $a_D=R\varepsilon_D$ は同じ像の余等化子だから $\theta_DRe_D=a_D$ なる同型 $\theta_D:RE_D\to RD$ がある。$\varepsilon_Dp_D=\varepsilon_Dr_D$ より $u_De_D=\varepsilon_D$ となる $u_D$ がある。$Ru_DRe_D=\theta_DRe_D$ を $Re_D$ のエピ性で消去して $Ru_D=\theta_D$、同型反映で $u_D$ は同型。従って $\varepsilon_D$ は余等化子。[充満忠実性の判定](../CAT3-04/index.md#thm-cat3-04-full-faithfulness)で $K$ は充満忠実となる。
-2. $Rp=R\varepsilon_{LA}=\mu_A$、$Rr=RLa=Ta$ である。$q=a$、$s=\eta_A$、$t=\eta_{TA}$ として $a\mu_A=aTa$（代数結合律）、$a\eta_A=1_A$（代数単位律）、$\mu_A\eta_{TA}=1_{TA}$（モナド単位律）、$Ta\eta_{TA}=\eta_Aa$（自然性）を順に確かめる。ゆえに $p,r$ は $R$-分裂する。
-3. 仮定で余等化子 $e:LA\to E$ が存在し、$Re$ と $a$ は同じ対の余等化子だから一意な同型 $\theta:RE\to A$ があり $\theta Re=a$。$b=R\varepsilon_E$ と置く。$Ke$ が代数射なので $bT(Re)=Re\mu_A$。代数結合律を使い
+1. [標準平行二射](../CAT3-04/index.md#lem-cat3-04-counit-pair)は $R$-分裂する。仮定で $p_D,r_D$ の余等化子 $e_D$ があり、$Re_D$ と $a_D=R\varepsilon_D$ は同じ像の余等化子だから、一意同型 $\theta_D:RE_D\to RD$ を取れて $\theta_DRe_D=a_D$ となる。
+
+   $\varepsilon_Dp_D=\varepsilon_Dr_D$ より $u_De_D=\varepsilon_D$ となる射 $u_D$ がある。$R$ を適用して
+
+   $$
+   Ru_DRe_D=\theta_DRe_D
+   $$
+
+   を得る。$Re_D$ のエピ性で右消去し $Ru_D=\theta_D$、同型反映で $u_D$ は同型。従って $\varepsilon_D$ は余等化子となり、[充満忠実性の判定](../CAT3-04/index.md#thm-cat3-04-full-faithfulness)により $K$ は充満忠実である。
+2. $Rp=R\varepsilon_{LA}=\mu_A$、$Rr=RLa=Ta$ である。$q=a$、$s=\eta_A$、$t=\eta_{TA}$ として四式
+
+   $$
+   a\mu_A=aTa,\quad a\eta_A=1_A,\quad
+   \mu_A\eta_{TA}=1_{TA},\quad Ta\eta_{TA}=\eta_Aa
+   $$
+
+   を順に代数結合律・単位律、モナド単位律、自然性で確かめる。ゆえに $p,r$ は $R$-分裂する。
+3. 仮定で余等化子 $e:LA\to E$ が存在し、$Re$ と $a$ は同じ対の余等化子だから一意同型 $\theta:RE\to A$ があり $\theta Re=a$ となる。
+
+   $b=R\varepsilon_E$ と置く。$Ke$ は代数射なので $bT(Re)=Re\mu_A$。代数結合律を使うと
 
    $$
    \theta bT(Re)=a\mu_A=aTa=aT\theta\,T(Re).
    $$
 
-   $Re=\theta^{-1}a$ には右逆 $\eta_A\theta$ があるので $T(Re)$ も右逆を持つ。従って $\theta b=aT\theta$。$\theta$ は基底で同型の代数射だから[同型反映](../CAT3-04/index.md#prop-cat3-04-forgetful-conservative)で代数同型である。任意の $(A,a)$ が $KE$ と同型になり $K$ は本質的全射。1で得た充満忠実性と[圏の同値判定](../CAT1-09/index.md#thm-cat1-09-equivalence-criterion)により同値である。
+   $Re=\theta^{-1}a$ には右逆 $\eta_A\theta$ があるので $T(Re)$ も右逆を持つ。従って $\theta b=aT\theta$。
+
+   $\theta$ は基底で同型の代数射だから[同型反映](../CAT3-04/index.md#prop-cat3-04-forgetful-conservative)で代数同型である。任意の代数が $KE$ と同型になり $K$ は本質的全射。1で得た充満忠実性と[圏の同値判定](../CAT1-09/index.md#thm-cat1-09-equivalence-criterion)により同値である。
 <!-- solution-end -->
 
 ## 7. 何を得たか
