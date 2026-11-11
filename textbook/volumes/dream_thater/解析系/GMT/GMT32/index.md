@@ -17,7 +17,7 @@
 <a id="def-gmt32-tube"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\delta$-tubeと重複度）**  
+> **定義（δ-tubeと重複度）**  
 > $d\ge2$、$0<\delta<1$、$a\in\mathbb R^d$、$v\in S^{d-1}$ とする。長さ1・半径 $\delta$ のtubeを
 
 $$
@@ -113,7 +113,7 @@ $$
 <a id="def-gmt32-separated"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\delta$-分離方向集合）**  
+> **定義（δ-分離方向集合）**  
 > $d\ge2$、$\delta>0$ とする。有限集合 $V_\delta\subset S^{d-1}$ が $\delta$-分離であるとは、異なる $v,w\in V_\delta$ のすべてについて $|v-w|\ge\delta$ が成り立つことをいう。これ以上方向を追加して $\delta$-分離を保てない集合を極大 $\delta$-分離集合という。
 <!-- formal-statement-end -->
 
@@ -199,7 +199,7 @@ $$
 
 [MT8のHausdorff次元](../../MT/MT8/index.md#def-mt8-hausdorff-dimension)は、任意の細かい可算被覆の直径のべきを足す方法で定義されました。tubeの議論ではむしろ、**一つの尺度 $\delta$ で何個の球が要るか**を知りたい場面が多くあります。
 
-非空有界集合 $E\subset\mathbb R^d$ に対し $N_\delta(E)$ を、「中心を $E$ に置いた半径 $\delta$ の開球で $E$ を覆う」ための最小個数とします。$E$ が有界ならこの数は有限です。下・上Minkowski次元（箱次元）は、被覆数の $\delta$ に関する成長指数で定義します。
+非空有界集合 $E\subset\mathbb R^d$ に対し $N_\delta(E)$ を、「中心を $E$ に置いた半径 $\delta$ の開球で $E$ を覆う」ための最小個数とします。$E$ が有界ならこの数は有限です。下Minkowski次元と上Minkowski次元は、被覆数の $\delta$ に関する成長指数で定義します。
 
 <a id="def-gmt32-minkowski"></a>
 
@@ -590,7 +590,17 @@ $$
 **C01　集合の次元とtube重複を一続きで読む**
 
 - Level: C
-- 問題: $d=2$ とする。コンパクトで面積零のBesicovitch集合 $K$ に対し、$V_\delta$ を極大 $\delta$-分離方向集合、$T_v\subset K_\delta$ を各方向の単位線分から作ったtubeとし、$m_\delta=\sum_{v\in V_\delta}\mathbf1_{T_v}$ とする。(i) $M_\delta\asymp\delta^{-1}$ と $\int m_\delta\asymp1$ を導け。(ii) $|K_\delta|\to0$ から $\int m_\delta^2\to\infty$ を証明せよ。(iii) この情報だけで $\overline{\dim}_{\mathrm M}K=2$ と結論してよいか。次元公式の対数を使って理由を説明せよ。(iv) 比較として $E=\mathbb Q^2\cap[0,1]^2$ のHausdorff次元と上下Minkowski次元を求め、面積零と「近傍面積が零に減ること」の違いを述べよ。
+- 問題: $d=2$ とする。コンパクトで面積零のBesicovitch集合 $K$ を取り、$V_\delta$ を極大 $\delta$-分離方向集合とする。各方向の単位線分から作ったtube $T_v$ と重複度 $m_\delta$ を次のように定める。
+
+$$
+T_v\subset K_\delta,\qquad
+m_\delta=\sum_{v\in V_\delta}\mathbf1_{T_v}.
+$$
+
+  - (i) $M_\delta\asymp\delta^{-1}$ と $\int m_\delta\asymp1$ を示せ。
+  - (ii) $|K_\delta|\to0$ から $\int m_\delta^2\to\infty$ を証明せよ。
+  - (iii) この情報だけで $\overline{\dim}_{\mathrm M}K=2$ と結論してよいか。近傍体積の次元公式で判定せよ。
+  - (iv) $E=\mathbb Q^2\cap[0,1]^2$ のHausdorff次元と上下Minkowski次元を求め、面積零と近傍面積の極限を区別せよ。
 
 <!-- solution-start -->
 #### 詳細解答
