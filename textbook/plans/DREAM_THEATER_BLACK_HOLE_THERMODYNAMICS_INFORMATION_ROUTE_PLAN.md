@@ -1,7 +1,7 @@
 # DREAM THEATER 熱力学・ブラックホール・情報：科目別履修ルート
 
 分冊: 2026-10-11  
-状態: planned（横断ルートのみ、独立科目PLANの実装は未着手）
+状態: planned（横断ルートの設計。各独立科目の実装状態は各PLAN・系列manifestを正本とする）
 
 ## 独立科目PLANへのリンク
 
@@ -14,8 +14,8 @@
 - [一般相対論 I・II（GR1〜46）](../plan_done/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md)
 - [量子場理論 I〜IV（QFT系列・仮章数可変）](../plan_done/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md)
 - [曲がった時空の量子場 I（QCURV系列）](../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)
-- [ブラックホール熱力学 I（BHT1〜24）](../plans_progress/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)
-- [ホログラフィー I（HOLO1〜15）](DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
+- [ブラックホール熱力学 I（BHT1〜24）](../plan_done/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)
+- [ホログラフィー I（HOLO1〜33）](DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
 - [ブラックホール情報 I・II（BHI1〜30）](DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)
 
 ## 直接依存の有向経路
@@ -72,7 +72,7 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | 時空・量子場 | 量子場理論 IV：共形場・OPE・レプリカ・エンタングルメント | 新規 QFT IV（仮IDは着手時に確定） | CFTの基本演算・区間エントロピーからHOLOへ |
 | 時空・量子場 | 曲がった時空の量子場 I：Unruh効果とHawking放射 | 新規 QCURV1–QCURV15 | 導出可能範囲・近似・観測量の総点検 |
 | ブラックホール | ブラックホール熱力学 I：地平線・温度・エントロピー | 新規 BHT1–BHT24 | 微視状態数の問いと情報問題への導線 |
-| ブラックホール | ホログラフィー I：AdS/CFTと量子誤り訂正 | 新規 HOLO1–HOLO15 | モデル・双対性・仮説の境界を監査 |
+| ブラックホール | ホログラフィー I：AdS/CFTと量子誤り訂正 | 新規 HOLO1–HOLO33 | モデル・双対性・仮説の境界を監査 |
 | ブラックホール | ブラックホール情報 I：Hawking計算・Page曲線・矛盾 | 新規 BHI1–BHI15 | 諸立場の比較・未解決事項の整理 |
 | ブラックホール | ブラックホール情報 II：Island・レプリカ・研究最前線 | 新規 BHI16–BHI30 | 2026時点の到達点と残る問いを論証評価 |
 
