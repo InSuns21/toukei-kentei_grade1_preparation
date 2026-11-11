@@ -1,0 +1,51 @@
+id: GMT26
+title: De Giorgi構造定理 I：半空間blow-up
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT10
+  - GMT12
+  - GMT19
+  - GMT22
+  - GMT23
+  - GMT24
+  - GMT25
+official_scope: []
+learning_objectives:
+  - 球上のBV--Sobolev--Poincaré評価から相対等周不等式を証明し、d次元体積とd-1次元周長の尺度を検算できる
+  - 球面Gauss--Greenのflux恒等式をcutoffで導出し、縮約境界の法線平均から二相の体積密度と周長密度の上下評価を証明できる
+  - 集合のL1局所blow-upと周長測度の弱*再尺度化を区別し、Jacobianと符号を検算できる
+  - BVコンパクト性、法線振動の消失、一定法線の剛性から半空間blow-upを全尺度で証明できる
+  - 両相の密度評価によって極限半空間の位置を原点に固定し、体積密度1/2と周長密度の正規化を導ける
+  - 法線平均やL1収束だけでは周長測度の同定ができないことを具体的な反例で説明できる
+definitions:
+  - { id: GMT26-DEF-01, name: 集合blow-upと周長測度の再尺度化 }
+theorems:
+  - { id: GMT26-LEM-01, name: 球上のBV--Sobolev--Poincaré評価 }
+  - { id: GMT26-THM-01, name: 球上の相対等周不等式 }
+  - { id: GMT26-LEM-02, name: 球面flux恒等式 }
+  - { id: GMT26-THM-02, name: 縮約境界点での二相体積密度と周長密度の上下評価 }
+  - { id: GMT26-LEM-03, name: BV微分と再尺度化の両立 }
+  - { id: GMT26-THM-03, name: De Giorgiの半空間blow-up }
+canonical_examples:
+  - 半平面の相対等周と球面fluxを符号まで直接計算
+  - 三次元半空間の周長測度再尺度化
+  - 正方形角点の法線相殺と縮約境界条件の不成立
+  - 高周波・低振幅グラフでL1収束と周長収束を区別
+  - 一定法線でも境界位置の決定には両相密度が必要な反例
+problem_patterns:
+  - GMT26-HALFSPACE-RELATIVE-ISO
+  - GMT26-3D-PERIMETER-SCALE
+  - GMT26-CORNER-NORMAL
+  - GMT26-WEAKSTAR-TEST
+  - GMT26-SPHERICAL-FLUX
+  - GMT26-ODE-VOLUME-DENSITY
+  - GMT26-CONSTANT-NORMAL-RIGIDITY
+  - GMT26-OSCILLATING-GRAPH
+  - GMT26-POLAR-MEASURE-LIMIT
+  - GMT26-BLOWUP-UNIQUENESS
+  - GMT26-SHIFT-AND-OSCILLATION
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 14, exercises: 9, review: 5 }
