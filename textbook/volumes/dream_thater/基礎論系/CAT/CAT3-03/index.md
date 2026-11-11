@@ -132,6 +132,8 @@ Homは $\operatorname{Hom}_{\mathcal C}(A,B)$ の部分集合であり、$\mathc
 
 すべての対象に代数構造が存在するとは限らない。しかし $X$ に一度モナドを適用した $TX$ には、乗法 $\mu_X:T^2X\to TX$ がすでにある。これは自由な代数を与える。**自由**とは、任意の射 $f:X\to A$ が、代数射 $TX\to A$ に一意に延長できるという意味であり、単に「生成元を付けた」という比喩ではない。
 
+一方、代数 $(A,a)$ から構造写像 $a$ を忘れて対象 $A$ を、代数射から元の圏の射を取り出す操作が、これから構成する忘却関手である。
+
 <a id="thm-cat3-03-free-adjunction"></a>
 
 <!-- formal-statement-start -->
@@ -310,7 +312,7 @@ $$
 
 ## 5. Kleisli圏は自由代数の部分だけを捉える
 
-[Kleisli随伴](../CAT3-02/index.md#thm-cat3-02-adjunction)では、同じ $T$ から圏 $\mathcal C_T$ を作った。Kleisli射 $f:X\to TY$ を $f^\sharp=\mu_YTf:TX\to TY$ に持ち上げれば、自由代数の射になるはずである。
+[Kleisli随伴](../CAT3-02/index.md#thm-cat3-02-adjunction)では、同じ $T$ から圏 $\mathcal C_T$ を作った。Kleisli射 $f:X\to TY$ を $f^\sharp=\mu_YTf:TX\to TY$ に持ち上げれば、自由代数の射になるはずである。関手の像の対象と、それらに**同型な対象もすべて含めた範囲**を本質像と呼ぶ。ここでは、その本質像がどの代数まで届くかを問う。
 
 <a id="prop-cat3-03-kleisli-em"></a>
 
