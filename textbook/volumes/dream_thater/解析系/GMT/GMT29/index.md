@@ -224,7 +224,7 @@ $$
 B_1(0)\subset\nabla u(\Gamma_u).
 $$
 
-**(3) 面積公式と行列式。** $\Gamma_u$ は可測、$\nabla u$ はコンパクト集合 $\overline\Omega$ 上でLipschitzです。[area formula](../GMT11/index.md#thm-gmt11-area-formula)により、勾配像の多重度を数えると
+**(3) 面積公式と行列式。** $\Gamma_u$ は可測です。$u\in C^{2,\beta}(\overline\Omega)$ と境界の滑らかさにより、$\nabla u$ は境界近傍へ $C^1$ に延長でき、コンパクトな $\overline\Omega$ 上でLipschitzです。[area formula](../GMT11/index.md#thm-gmt11-area-formula)により、勾配像の多重度を数えると
 
 $$
 \omega_d=|B_1|\le|\nabla u(\Gamma_u)|
@@ -359,7 +359,23 @@ $$
 P(F)\le\liminf_k P(F_{\varepsilon_k,t}).
 $$
 
-一方、周長の $t$ 積分は常に $P(F)$ 以下です。[Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)と二つの不等式を合わせると、$P(F_{\varepsilon_k,t})\to P(F)$ となる部分列をa.e. $t$ で選べます（少なくとも収束する測度の部分列を取り、差の積分が0へ行くことを使います）。[GEO3の正則値の定義](../../../幾何系/GEO/GEO3/index.md#def-geo3-regular-critical)でいう正則でない値 $t$ の集合は、滑らかな実数値関数の臨界値が零測度となる古典的な事実（Sard）により、各 $k$ で零測度です。この一般的な微分位相の事実は外部結果として採用し、ここではその証明を追加しません。可算和を除いて同じ $t$ を正則値に取れ、その超レベル集合の境界は滑らかです。
+一方、周長の $t$ 積分は常に $P(F)$ 以下です。$q_k(t)=P(F_{\varepsilon_k,t})$ と書くと、上の下半連続性は $\liminf_k q_k(t)\ge P(F)$ がa.e. $t$ で成り立つことを意味します。[Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)を $q_k$ に適用して
+
+$$
+P(F)\le\int_0^1\liminf_kq_k(t)\,dt
+\le\liminf_k\int_0^1q_k(t)\,dt
+\le P(F)
+$$
+
+を得ます。さらに $(P(F)-q_k)_+\to0$ はa.e.かつ $0\le(P(F)-q_k)_+\le P(F)$ なので、[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)からその積分は0へ向かいます。このことと $\int q_k\to P(F)$ を合わせると
+
+$$
+\int_0^1(q_k(t)-P(F))_+\,dt
+=\int_0^1q_k(t)\,dt-P(F)
++\int_0^1(P(F)-q_k(t))_+\,dt\longrightarrow0.
+$$
+
+両符号の部分の積分が0へ向かるので $q_k\to P(F)$ は $L^1(0,1)$ 収束し、もう一度部分列を取ればa.e. $t$ でも収束します。[GEO3の正則値の定義](../../../幾何系/GEO/GEO3/index.md#def-geo3-regular-critical)でいう正則でない値 $t$ の集合は、滑らかな実数値関数の臨界値が零測度となる古典的な事実（Sard）により、各 $k$ で零測度です。この一般的な微分位相の事実は外部結果として採用し、ここではその証明を追加しません。可算和を除いて同じ $t$ を正則値に取れ、その超レベル集合の境界は滑らかです。
 
 **(3) 対角化。** 各 $F_j$ について、周長・体積の誤差を $1/j$ 未満にする滑らかな集合を選びます。(1)の極限と合わせれば、主張の $E_j$ が得られます。
 <!-- proof-end -->
