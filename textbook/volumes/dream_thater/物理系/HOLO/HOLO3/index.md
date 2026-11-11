@@ -207,7 +207,7 @@ $$
 =\frac{L^2|d\zeta|^2}{z^2}.
 $$
 
-この写像は上半平面の正定値計量 $L^2|d\zeta|^2/z^2$ を保ち、逆写像 $\zeta=R(w-1)/(w+1)$ も $v>0$ 上で定義されます。したがって曲線を像へ移してから戻せます。円 $|\zeta|=R$ では分子・分母に $R-\overline\zeta$ を掛けると
+この写像は $\operatorname{Im}\zeta=z>0$ で定義された正定値計量 $L^2|d\zeta|^2/z^2$ を保ち、逆写像 $\zeta=R(w-1)/(w+1)$ も $\operatorname{Im}w=v>0$ 上で定義されます。したがって曲線を像へ移してから戻せます。円 $|\zeta|=R$ では分子・分母に $R-\overline\zeta$ を掛けると
 
 $$
 w=\frac{R(\zeta-\overline\zeta)}{|R-\zeta|^2}
