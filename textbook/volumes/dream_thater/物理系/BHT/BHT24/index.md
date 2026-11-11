@@ -228,14 +228,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht24-microstate-count -->
-**定義の確認**：同じエネルギー窓に互いに直交する4状態があり、各確率が $1/4$ なら、密度演算子の4固有値はすべて $1/4$ です。そのため
+**定義の確認**：同じエネルギー窓に互いに直交する4状態があり、各確率が $1/4$ なら、4次元の許容部分空間の恒等演算子は $I_4=\sum_{i=1}^4|i\rangle\langle i|$ であり、等重み混合は $\rho=I_4/4$ です。基底に作用させると $\rho|j\rangle=|j\rangle/4$ なので、正半定値・トレース1と固有値4個の条件を確認できます。そのため
 
 $$
 S_{\rm count}=-4\left(\frac14\right)\ln\frac14=\ln4,
 \qquad \exp(S_{\rm count})=4
 $$
 
-と元の個数が戻ります。重みを $(1/2,1/4,1/8,1/8)$ に替えると、総和は1でも等重み条件を失い、固有値から計算するエントロピーは $\tfrac74\ln2<\ln4=2\ln2$ です。許された状態数と実際の混合度は区別します。
+と元の個数が戻ります。また $A=4G\hbar\ln4$ という形式的な面積を選んだ場合に限り $S_{\rm BH}=\ln4$ と一致しますが、実在するブラックホールの微視状態数を構成したわけではありません。重みを $(1/2,1/4,1/8,1/8)$ に替えると、総和は1でも等重み条件を失い、固有値から計算するエントロピーは $\tfrac74\ln2<\ln4=2\ln2$ です。許された状態数と実際の混合度は区別します。
 <!-- definition-example-end -->
 
 面積則は、形式的に $\Omega_{\rm eff}\sim\exp(A/4)$ という**指数的な規模**を予言します。しかし $A/4$ は連続的に変わり、$e^{A/4}$ は一般に整数ではありません。指数の主項、エネルギー窓、対数補正、境界条件、どの状態を数えるかを定めて初めて、実際の微視状態計数との比較になります。
@@ -300,7 +300,16 @@ $$
 =\langle j_B|i_B\rangle|u_R\rangle\langle v_R|.
 $$
 
-$\rho_{BR}=|\Psi\rangle\langle\Psi|$ の4項をこの式へ代入すると、$i\ne j$ の交差項は直交性により0となり、残る二項は
+実際に射影を分配法則で4項へ展開すると
+
+$$
+\rho_{BR}=\frac12\bigl(
+|00\rangle\langle00|+|00\rangle\langle11|
++|11\rangle\langle00|+|11\rangle\langle11|
+\bigr).
+$$
+
+この4項を上式へ代入すると、$i\ne j$ の交差項は直交性により0となり、残る二項は
 
 $$
 \rho_R=\frac12|0_R\rangle\langle0_R|+\frac12|1_R\rangle\langle1_R|
@@ -336,13 +345,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\rho_{BR}=|\Psi_p\rangle\langle\Psi_p|$ は一つの固有値1と残り0を持つため $S_{BR}=0$。$B$ の正規直交基底で部分跡を取ると、非対角項 $|0_B\rangle\langle1_B|$ の跡は0なので
+$\rho_{BR}=|\Psi_p\rangle\langle\Psi_p|$ は一つの固有値1と残り0を持つため $S_{BR}=0$。$B$ の正規直交基底で[部分跡の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を適用すると、非対角項 $|0_B\rangle\langle1_B|$ の跡は0なので
 
 $$
 \rho_R=p|0_R\rangle\langle0_R|+(1-p)|1_R\rangle\langle1_R|.
 $$
 
-従って固有値から表示の $S_R$ を得ます。$0<p<1$ で $S_R'(p)=\ln((1-p)/p)$、$S_R''(p)=-1/p-1/(1-p)<0$ なので、唯一の内点極大は $p=1/2$、値は $\ln2$ です。端点では両エントロピーが0です。$\square$
+従って固有値から表示の $S_R$ を得ます。ここで $S_R'(p)=dS_R/dp$ は実数パラメータ $p$ による通常の微分です。$0<p<1$ で $S_R'(p)=\ln((1-p)/p)$、$S_R''(p)=-1/p-1/(1-p)<0$ なので、唯一の内点極大は $p=1/2$、値は $\ln2$ です。端点では両エントロピーが0です。$\square$
 <!-- proof-end -->
 
 この玩具模型はPage曲線の時間依存、重力の拘束条件、蒸発後のHilbert空間の同一視を**証明していません**。ただし、「放射の一部が混合だから、全体の量子発展が非ユニタリ」と推論できないことを具体的に示します。逆に半古典Hawking計算で得られた近似的熱スペクトルだけから、全放射の最終状態が純粋だとも言えません。
@@ -366,7 +375,16 @@ $$
 - 問題: $M=3$、自然単位の漸近平坦Schwarzschild解で $r_+,A,\kappa,T,S$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**　$r_+=2M=6$。球面面積は $A=4\pi(6)^2=144\pi$。$\kappa=1/(4M)=1/12$、$T=\kappa/(2\pi)=1/(24\pi)$、$S=A/4=36\pi$ です。$T\,dS/dM=(1/(24\pi))8\pi(3)=1$ も検算できます。
+**詳細解答**　[Schwarzschildの面積・表面重力](#prop-bht24-schwarzschild-three-checks)を $M=3$ で評価します。地平線半径は $r_+=2M=6$ で、球面の面積・表面重力・温度・エントロピーは順に
+$$
+\begin{aligned}
+A&=4\pi(6)^2=144\pi,&
+\kappa&=\frac1{4M}=\frac1{12},\\
+T&=\frac{\kappa}{2\pi}=\frac1{24\pi},&
+S&=\frac A4=36\pi
+\end{aligned}
+$$
+です。検算として $dS/dM=8\pi M$ を使えば、$M=3$ で $T(dS/dM)=(1/(24\pi))(24\pi)=1$ となり第一法則 $dM=T\,dS$ と一致します。
 <!-- solution-end -->
 
 <a id="ex-bht24-a02"></a>
@@ -378,7 +396,18 @@ $$
 - 問題: $I_E(\beta)=\beta^2/(16\pi)$ から $E$ と $S$ を求めよ。$\beta>0$ とする。
 
 <!-- solution-start -->
-**詳細解答**　他の境界データを固定し、ここでは $\beta$ のみを動かすので、[正準サドルの関係](../BHT14/index.md#thm-bht14-thermodynamic-potentials)での偏微分は一変数の $d/d\beta$ と一致します。$E=dI_E/d\beta=2\beta/(16\pi)=\beta/(8\pi)$。さらに $S=\beta E-I_E=\beta^2/(8\pi)-\beta^2/(16\pi)=\beta^2/(16\pi)$。$M=\beta/(8\pi)$ へ戻せば $E=M$、$S=4\pi M^2$ です。
+**詳細解答**　[Euclidサドルからの熱力学ポテンシャル](../BHT14/index.md#thm-bht14-thermodynamic-potentials)を使います。他の境界データを固定して逆温度 $\beta$ のみを動かすので、偏微分 $\partial I_E/\partial\beta$ と一変数関数の導関数 $dI_E/d\beta$ は一致し、
+$$
+\begin{aligned}
+E&=\frac{dI_E}{d\beta}
+  =\frac{d}{d\beta}\frac{\beta^2}{16\pi}
+  =\frac{\beta}{8\pi},\\
+S&=\beta E-I_E
+  =\frac{\beta^2}{8\pi}-\frac{\beta^2}{16\pi}
+  =\frac{\beta^2}{16\pi}.
+\end{aligned}
+$$
+Schwarzschildの関係 $\beta=8\pi M$ を代入すると $E=M$、$S=(8\pi M)^2/(16\pi)=4\pi M^2$ です。
 <!-- solution-end -->
 
 <a id="ex-bht24-a03"></a>
@@ -428,7 +457,22 @@ $$
 - 問題: $M=(r+Q^2/r)/2$、$S=\pi r^2$、$T=(r^2-Q^2)/(4\pi r^3)$、$\Phi_H=Q/r$ とする。非極限領域 $r>|Q|$ で $dr$ と $dQ$ の係数を別々に比較して第一法則を導け。
 
 <!-- solution-start -->
-**詳細解答**　$\partial_rM=(1-Q^2/r^2)/2$、$\partial_QM=Q/r$ だから $dM=[(1-Q^2/r^2)/2]dr+(Q/r)dQ$。$dS=2\pi r\,dr$ を温度へ掛ければ $TdS=[(r^2-Q^2)/(4\pi r^3)](2\pi r\,dr)=[(1-Q^2/r^2)/2]dr$。残る $dQ$ 係数は $\Phi_H=Q/r$ です。よって独立な $dr,dQ$ の双方で $dM=TdS+\Phi_HdQ$ が成立します。$dQ=0$ だけを調べたのでは全変分を検算できません。
+**詳細解答**　[RNの第一法則](#prop-bht24-rn-law-smarr)を、状態空間の独立変数 $(r,Q)$ で直接検算します。まず全微分は
+$$
+\begin{aligned}
+\frac{\partial M}{\partial r}\bigg|_Q
+  &=\frac12\left(1-\frac{Q^2}{r^2}\right),&
+\frac{\partial M}{\partial Q}\bigg|_r
+  &=\frac Qr,\\
+dM&=\frac12\left(1-\frac{Q^2}{r^2}\right)dr+\frac Qr\,dQ.
+\end{aligned}
+$$
+一方、$S=\pi r^2$ は $Q$ に陽に依存しないので $dS=2\pi r\,dr$。従って
+$$
+T\,dS=\frac{r^2-Q^2}{4\pi r^3}\,2\pi r\,dr
+       =\frac12\left(1-\frac{Q^2}{r^2}\right)dr.
+$$
+残る $dQ$ 係数も $\Phi_H=Q/r$ と一致します。よって独立な $dr,dQ$ の双方で $dM=T\,dS+\Phi_HdQ$ が成立します。$dQ=0$ だけの計算では全変分の検証になりません。
 <!-- solution-end -->
 
 <a id="ex-bht24-b02"></a>
@@ -440,7 +484,16 @@ $$
 - 問題: 同一の境界温度 $T=1/(\pi L)$ のSchwarzschild–AdS解が $r=L$ と $r=L/3$ に対応することを示し、各枝の $F$ と $C_L$ の符号を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**　温度式へ代入すると $T(L)=(1+3)/(4\pi L)=1/(\pi L)$、$T(L/3)=(1+1/3)/(4\pi L/3)=1/(\pi L)$。$F=r(1-r^2/L^2)/4$ より $F(L)=0$、$F(L/3)=(L/12)(1-1/9)=2L/27>0$。熱容量 $C_L=2\pi r^2(1+3r^2/L^2)/(3r^2/L^2-1)$ の分子は正なので、$r=L$ は分母 $2>0$ で $C_L>0$、$r=L/3$ は $1/3-1<0$ で $C_L<0$。前者が熱的AdSとの自由エネルギー交差点、後者は局所不安定な小枝です。
+**詳細解答**　[AdSの温度・自由エネルギー・熱容量](#prop-bht24-ads-transition)へ二つの半径をそれぞれ代入します。
+$$
+\begin{aligned}
+T(L)&=\frac{1+3}{4\pi L}=\frac1{\pi L},&
+T(L/3)&=\frac{1+1/3}{4\pi L/3}=\frac1{\pi L},\\
+F(L)&=\frac L4(1-1)=0,&
+F(L/3)&=\frac L{12}\left(1-\frac19\right)=\frac{2L}{27}>0.
+\end{aligned}
+$$
+熱容量 $C_L=2\pi r^2(1+3r^2/L^2)/(3r^2/L^2-1)$ の分子は $r>0$ で正です。分母は大枝 $r=L$ では $3-1=2>0$、小枝 $r=L/3$ では $1/3-1=-2/3<0$。したがって $C_L(L)>0$、$C_L(L/3)<0$。前者は熱的AdSとの自由エネルギー交差点（同じ境界温度と参照作用で比較）、後者は局所不安定な小枝です。
 <!-- solution-end -->
 
 <a id="ex-bht24-b03"></a>
