@@ -1,0 +1,59 @@
+chapter: INV1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00F2
+  - NA1
+
+forward_references:
+  - functional.compact-operator
+
+concepts:
+  - id: inverse.forward-map
+    name: 観測写像と逆問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測写像と逆問題）"]
+    requires: [linear.linear-map]
+
+  - id: inverse.hadamard-well-posedness
+    name: 逆問題の三条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆問題の三条件）"]
+    requires: [inverse.forward-map]
+
+  - id: inverse.identifiability
+    name: 識別可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（識別可能性）"]
+    requires: [inverse.forward-map]
+
+  - id: inverse.finite-linear-wellposedness
+    name: 有限次元線形逆問題の三条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限次元線形逆問題の三条件）"]
+    requires: [inverse.hadamard-well-posedness, inverse.identifiability, linear.singular-value-decomposition]
+
+  - id: inverse.moore-penrose-pseudoinverse
+    name: 擬似逆による復元写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（擬似逆による復元写像）"]
+    requires: [linear.singular-value-decomposition]
+
+  - id: inverse.minimum-norm-reconstruction
+    name: 最小ノルム解の特異値表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最小ノルム解の特異値表示）"]
+    requires: [inverse.moore-penrose-pseudoinverse, linear.singular-value-decomposition]
+
+  - id: inverse.noise-amplification
+    name: 誤差増幅の鋭い評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（誤差増幅の鋭い評価）"]
+    requires: [inverse.minimum-norm-reconstruction]

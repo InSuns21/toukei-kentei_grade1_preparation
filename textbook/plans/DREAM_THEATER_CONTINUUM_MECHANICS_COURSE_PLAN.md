@@ -117,3 +117,14 @@ PDE の大学院理論、Sobolev 空間、Navier--Stokes の弱解は前提に�
 5. CTM8 で生体材料への橋
 6. FEM / fluid / developmental biology への cross-link
 7. knowledge DAG / validation
+
+## 6. 剛体力学 RBD1〜16 との境界・接続（2026-11-11）
+
+[剛体力学・全16講PLAN](DREAM_THEATER_RIGID_BODY_DYNAMICS_PLAN.md)は、有限サイズの**変形しない物体**の姿勢・角速度・慣性・外力・転がり・衝突を担当する。CTMでは以下の局所量と有限変形を所有し、両コースで同じ定理を重複構築しない。
+
+- **CTM1〜2**：RBD1の剛体運動 $x=c+R(X-X_C)$ を例に $F=R$、$\det F=1$、Green–Lagrangeひずみ $E=(F^TF-I)/2=0$ を確認する。有限回転で線形ひずみが一般に0になると誤認しない。strain/objectivityの定義と証明はCTM2に置く。
+- **CTM2〜4**：RBD3の剛体速度場 $v=\dot c+\omega\times(x-c)$ は速度勾配の対称部分が0。CTMは局所スピン・ひずみ速度・物質微分と、密度・応力を伴う収支を扱う。
+- **CTM4**：RBD7の重心まわりNewton–Euler方程式と領域積分の線形・角運動量収支を対応させる。**剛体の応力・拘束反力は必ずしも0でない**。応力対称性は古典的Cauchy連続体で体積偶力等を置かない場合の角運動量収支から導く。
+- **CTM5〜8**：RBD14〜15の理想的な無滑り・衝撃拘束と、変形体の構成則・粘弾性・接触力の違いを確認する。Hertz接触・塑性・応力波などは別扱い。
+
+CTMの履修にRBD全16講を一律必須としない。RBDも未実装CTMを必須にしない。章別の直接prerequisiteとstable anchorは各章の執筆時に実在確認する。CTM1〜8の計画講数・章ID・状態は本追記では変更しない。

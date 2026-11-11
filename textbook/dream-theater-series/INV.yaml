@@ -1,0 +1,26 @@
+version: 1
+id: INV
+title: 逆問題
+plan: textbook/plans_progress/DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開目次には completed の章だけを登録する。
+chapters:
+  - { id: INV1, path: textbook/volumes/dream_thater/解析系/INV/INV1, status: completed, title: "観測から未知量を戻せるのはいつか" }
+  - { id: INV2, path: textbook/volumes/dream_thater/解析系/INV/INV2, status: planned, title: "コンパクト作用素はなぜ逆を不安定にするか" }
+  - { id: INV3, path: textbook/volumes/dream_thater/解析系/INV/INV3, status: planned, title: "特異系から可解性を判定できるか" }
+  - { id: INV4, path: textbook/volumes/dream_thater/解析系/INV/INV4, status: planned, title: "逆を正則化するとはどういうことか" }
+  - { id: INV5, path: textbook/volumes/dream_thater/解析系/INV/INV5, status: planned, title: "TSVDとTikhonovは何を抑えるか" }
+  - { id: INV6, path: textbook/volumes/dream_thater/解析系/INV/INV6, status: planned, title: "正則化の収束速度をどう求めるか" }
+  - { id: INV7, path: textbook/volumes/dream_thater/解析系/INV/INV7, status: planned, title: "正則化パラメータをどう選ぶか" }
+  - { id: INV8, path: textbook/volumes/dream_thater/解析系/INV/INV8, status: planned, title: "一般変分正則化の解は存在するか" }
+  - { id: INV9, path: textbook/volumes/dream_thater/解析系/INV/INV9, status: planned, title: "疎性とTVは何を残すか" }
+  - { id: INV10, path: textbook/volumes/dream_thater/解析系/INV/INV10, status: planned, title: "非線形逆問題を局所的に見分けられるか" }
+  - { id: INV11, path: textbook/volumes/dream_thater/解析系/INV/INV11, status: planned, title: "反復正則化をいつ止めるか" }
+  - { id: INV12, path: textbook/volumes/dream_thater/解析系/INV/INV12, status: planned, title: "Radon変換は何を測っているか" }
+  - { id: INV13, path: textbook/volumes/dream_thater/解析系/INV/INV13, status: planned, title: "投影データからどう反転するか" }
+  - { id: INV14, path: textbook/volumes/dream_thater/解析系/INV/INV14, status: planned, title: "不完全観測で何が見えなくなるか" }
+  - { id: INV15, path: textbook/volumes/dream_thater/解析系/INV/INV15, status: planned, title: "Gaussian事前分布で何が復元できるか" }
+  - { id: INV16, path: textbook/volumes/dream_thater/解析系/INV/INV16, status: planned, title: "逆問題の不確実性をどう読むか" }
+  - { id: INV17, path: textbook/volumes/dream_thater/解析系/INV/INV17, status: planned, title: "PDEの係数から観測までをどう微分するか" }
+  - { id: INV18, path: textbook/volumes/dream_thater/解析系/INV/INV18, status: planned, title: "随伴法から感度と識別をどう得るか" }

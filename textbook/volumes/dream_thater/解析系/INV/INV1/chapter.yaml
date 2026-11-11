@@ -1,0 +1,43 @@
+id: "INV1"
+title: "観測から未知量を戻せるのはいつか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00F2
+  - NA1
+official_scope: []
+learning_objectives:
+  - 観測写像と未知量・正確なデータ・ノイズ付きデータを区別し、存在・一意性・連続依存を別々に判定できる
+  - 有限次元線形問題の全射性・単射性・安定性を階数と特異値で証明できる
+  - 最小二乗解と元の方程式の解を区別し、SVDから最小ノルム解を構成できる
+  - 特異値と条件数による誤差増幅の鋭い評価を導ける
+  - 固定した有限行列の安定性と条件数が発散する行列列を混同しない
+definitions:
+  - { id: INV1-DEF-01, name: 観測写像と逆問題 }
+  - { id: INV1-DEF-02, name: 逆問題の三条件 }
+  - { id: INV1-DEF-03, name: 識別可能性 }
+  - { id: INV1-DEF-05, name: 擬似逆による復元写像 }
+theorems:
+  - { id: INV1-THM-01, name: 有限次元線形逆問題の三条件 }
+  - { id: INV1-THM-02, name: 最小ノルム解の特異値表示 }
+  - { id: INV1-THM-03, name: 誤差増幅の鋭い評価 }
+canonical_examples:
+  - 可逆な2成分観測と小特異値方向の増幅
+  - 重複観測による識別不能・データ非整合
+  - 長方形の列フルランク行列での最小二乗と厳密解の違い
+  - 対角行列列の条件数発散と各行列の適切設定性
+problem_patterns:
+  - INV1-A01
+  - INV1-A02
+  - INV1-A03
+  - INV1-A04
+  - INV1-A05
+  - INV1-B01
+  - INV1-B02
+  - INV1-B03
+  - INV1-B04
+  - INV1-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
