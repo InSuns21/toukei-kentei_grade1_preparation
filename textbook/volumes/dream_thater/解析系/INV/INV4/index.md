@@ -47,7 +47,25 @@ $$
 > とする。各 $y=y_0+z\in\mathcal D(A^\dagger)$（$y_0\in\mathcal R(A)$、$z\in\ker A^*$）について、$A^\dagger y$ は $Ax=y_0$ を満たす解のうち $(\ker A)^\perp$ に属する唯一の元とする。
 <!-- formal-statement-end -->
 
-これが well-defined であることも確認しましょう。$y_0=Ax$ を一つ選び、[閉部分空間の直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)により $x=x_0+k$、$x_0\perp\ker A$、$k\in\ker A$ とすれば、$Ax_0=y_0$ です。もし $x_0'$ も同じ条件なら、$x_0-x_0'\in\ker A\cap(\ker A)^\perp=\{0\}$。また $y_0+z$ の分け方も $\mathcal R(A)\perp\ker A^*$ により一意です。従って $A^\dagger$ は定義でき、分解の一意性から線形でもあります。
+定義が一意に意味を持つことを確認しましょう。$y_0\in\mathcal R(A)$ なので、$Ax=y_0$ となる $x$ を選べます。[閉部分空間の直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)を $x$ と $\ker A$ に適用すると
+
+$$
+x=x_0+k,\qquad x_0\perp\ker A,\quad k\in\ker A
+$$
+
+です。$Ak=0$ を代入して $Ax_0=Ax-Ak=y_0$ となり、必要な解が存在します。同じ条件を満たす $x_0'$ があれば、
+
+$$
+x_0-x_0'\in\ker A\cap(\ker A)^\perp=\{0\}
+$$
+
+なので解は一意です。さらに $\mathcal R(A)\perp\ker A^*$ なので、入力 $y=y_0+z$ の分け方も一意です。$y,w$ に対応する核と直交する解を $x_y,x_w$ とすると、$ax_y+bx_w$ も $ay+bw$ の実現可能部分を与え、核に直交します。この一意性により
+
+$$
+A^\dagger(ay+bw)=aA^\dagger y+bA^\dagger w
+$$
+
+が成立し、一般化逆の線形性も確かめられます。
 
 <!-- definition-example-start: def-inv4-pseudoinverse-domain -->
 ### 例：観測できない第二成分を持つ行列
