@@ -12,7 +12,15 @@ $$
 
 この三つ、すなわち**自己関手**、**一段入れる操作**、**二段を一段に戻す操作**を整合的な公理にまとめたい。単なる集合上のプログラミングの構文ではなく、どの圏にも定義できる構造を次節で与える。
 
-以下、$\mathcal C$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)とし、必要に応じて別の圏 $\mathcal D$ を用いる。圏全体を小さいとは仮定しない。[関手の合成](../CAT1-06/index.md#def-cat1-06-composition)は $ST=S\circ T$、射の合成は右から左に読み、$gf$ と略記したときも $g\circ f$ を表す。$1_{\mathcal C}$ は恒等関手、$1_X$ は対象 $X$ の恒等射であり、両者を区別する。
+以下、$\mathcal C$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)とし、必要に応じて別の圏 $\mathcal D$ を用いる。圏全体を小さいとは仮定しない。
+
+[関手の合成](../CAT1-06/index.md#def-cat1-06-composition)と射の合成は右から左に読み、合成記号を省くときも
+
+$$
+ST=S\circ T,\qquad gf=g\circ f
+$$
+
+という意味である。$1_{\mathcal C}$ は恒等関手、$1_X$ は対象 $X$ の恒等射であり、両者を区別する。
 
 ## 2. 自己関手と二つの自然変換
 
@@ -59,7 +67,18 @@ $$
 ここで $\eta_{TX}:TX\to T^2X$ は**対象 $TX$ での $\eta$ の成分**、$T\eta_X:TX\to T^2X$ は**射 $\eta_X$ を関手 $T$ で写したもの**であり、一般に同じ射ではない。$\mu_{TX}:T^3X\to T^2X$ と $T\mu_X:T^3X\to T^2X$ も区別する。
 
 <!-- definition-example-start: def-cat3-01-monad -->
-**定義の確認**（恒等モナド）。$T=1_{\mathcal C}$、$\eta_X=1_X$、$\mu_X=1_X$ とする。恒等関手の関手性は既知である。任意の $f:X\to Y$ について $Tf=T^2f=f$ なので、$\eta$ の自然性 $Tf\circ\eta_X=\eta_Y\circ f$ と $\mu$ の自然性 $Tf\circ\mu_X=\mu_Y\circ T^2f$ は、**別々の型の自然性条件**だがいずれも $f\circ1_X=1_Y\circ f$ に帰着する。また $T^2X=T^3X=X$ であり、二つの単位律も結合律も $1_X\circ1_X=1_X$ になる。自己関手性、自然性、三公理の**すべて**を確認した。
+**定義の確認**（恒等モナド）。$T=1_{\mathcal C}$、$\eta_X=1_X$、$\mu_X=1_X$ とする。恒等関手の関手性は既知である。任意の $f:X\to Y$ について $Tf=T^2f=f$ なので、二つの自然性の式は
+
+$$
+\begin{aligned}
+Tf\circ\eta_X&=\eta_Y\circ f,\\
+Tf\circ\mu_X&=\mu_Y\circ T^2f
+\end{aligned}
+\qquad\Longleftrightarrow\qquad
+f\circ1_X=1_Y\circ f
+$$
+
+となる。両式は**別々の型の自然性条件**で、恒等モナドに限り同じ等式に帰着する。また $T^2X=T^3X=X$ であり、二つの単位律も結合律も $1_X\circ1_X=1_X$ になる。自己関手性、自然性、三公理の**すべて**を確認した。
 <!-- definition-example-end -->
 
 以下で「モナドを作った」と主張するときは、単なる写像の提示にとどまらず、この自然性と三つの等式を検算する。
@@ -157,7 +176,11 @@ $$
 
 ## 4. 語のモナド：二重の語を連結する
 
-前節の[随伴が誘導するモナドの定理](#thm-cat3-01-adjunction-monad)を[自由モノイド随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid) $W\dashv U$ に適用する。集合 $X$ に対し $TX$ は有限語全体（空語 $[]$ も含む）で、写像 $f:X\to Y$ は各文字に $f$ を適用する $Tf:X^*\to Y^*$ を与える。語 $u,v$ の連結を $u\mathbin{+\!+}v$ と書く。$T^2X$ の元は「各文字が $X$ の語になっている語」である。
+前節の[随伴が誘導するモナドの定理](#thm-cat3-01-adjunction-monad)を[自由モノイド随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid) $W\dashv U$ に適用する。
+
+集合 $X$ に対し $TX=X^*$ は有限語全体（空語 $[]$ も含む）とする。写像 $f:X\to Y$ から得る $Tf:X^*\to Y^*$ は各文字に $f$ を適用する。語 $u,v$ の連結を $u\mathbin{+\!+}v$ と書く。
+
+$T^2X$ の元は「各文字が $X$ の語になっている語」である。
 
 <a id="prop-cat3-01-list-monad"></a>
 
@@ -180,7 +203,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$W$ は語を自由に作り、$U$ は積を忘れる。[自由モノイドの随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid)における単位は $x\mapsto[x]$ である。$WX$ はモノイド、$U(WX)=X^*$ はその台集合である。従って余単位の始域 $W(U(WX))$ は **$X$ の語を文字とする語のモノイド**であり、その語 $[w_1,\ldots,w_n]$ に $\varepsilon_{WX}:W(U(WX))\to WX$ を適用すると、$WX$ 内で $w_i$ を順に掛ける。これは語を順番につなぐ演算だから $\mu_X=U\varepsilon_{WX}:T^2X\to TX$ と一致する。
+$W$ は語を自由に作り、$U$ は積を忘れる。[自由モノイドの随伴](../CAT2-08/index.md#thm-cat2-08-free-monoid)における単位は $x\mapsto[x]$ である。$WX$ はモノイド、$U(WX)=X^*$ はその台集合である。
+
+従って余単位の始域 $W(U(WX))$ は **$X$ の語を文字とする語のモノイド**である。その元 $[w_1,\ldots,w_n]$ に対し、余単位は
+
+$$
+\varepsilon_{WX}:W(U(WX))\longrightarrow WX,\qquad
+[w_1,\ldots,w_n]\longmapsto w_1\mathbin{+\!+}\cdots\mathbin{+\!+}w_n
+$$
+
+となる。つまり $WX$ 内で語を順に掛ける演算なので、$\mu_X=U\varepsilon_{WX}:T^2X\to TX$ と一致する。
 
 直接の確認も行う。写像 $f:X\to Y$ と語 $[x_1,\ldots,x_n]$ について
 
