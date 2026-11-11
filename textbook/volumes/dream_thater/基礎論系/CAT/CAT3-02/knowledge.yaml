@@ -1,0 +1,55 @@
+chapter: CAT3-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT3-01
+
+concepts:
+  - id: category.kleisli-extension
+    name: Kleisli持ち上げ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kleisli持ち上げ）"]
+    requires: [category.monad]
+  - id: category.kleisli-extension-laws
+    name: Kleisli持ち上げの三法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kleisli持ち上げの三法則）"]
+    requires: [category.kleisli-extension, category.monad]
+  - id: category.kleisli-category
+    name: Kleisli圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kleisli圏）"]
+    requires: [category.kleisli-extension]
+  - id: category.kleisli-category-laws
+    name: Kleisli圏の圏公理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kleisli圏の圏公理）"]
+    requires: [category.kleisli-category, category.kleisli-extension-laws]
+  - id: category.kleisli-adjunction
+    name: Kleisli随伴
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kleisli随伴）"]
+    requires: [category.kleisli-category-laws, category.adjunction-unit, category.adjunction-counit]
+  - id: category.kleisli-list-composition
+    name: 有限語のKleisli合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限語のKleisli合成）"]
+    requires: [category.kleisli-category, category.free-monoid-monad]
+  - id: category.exception-monad
+    name: 例外モナドと失敗伝播
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（例外モナドと失敗伝播）"]
+    requires: [category.kleisli-category, category.monad]
+  - id: category.kleisli-relations
+    name: 冪集合のKleisli圏と二項関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（冪集合のKleisli圏と二項関係）"]
+    requires: [category.kleisli-category, category.powerset-monad]
