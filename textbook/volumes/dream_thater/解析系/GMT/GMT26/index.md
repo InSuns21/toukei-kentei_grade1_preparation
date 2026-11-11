@@ -226,7 +226,20 @@ $$
 
 となります。微分変数は球半径 $r$ であり、球面点 $y$ の微分ではありません。
 
-また $g(r)>0$ が全小半径で成立します。もし $g(r)=0$ なら $\chi_E=0$ が $B_r$ でa.e.なので、$D\chi_E$ もそこで0となり、$0\in\operatorname{supp}\mu_E$ に反するためです。$F_r=E\cap B_r$ へ球面で切断すると、a.e.半径で
+また $g(r)>0$ が全小半径で成立します。もし $g(r)=0$ なら $\chi_E=0$ が $B_r$ でa.e.なので、$D\chi_E$ もそこで0となり、$0\in\operatorname{supp}\mu_E$ に反するためです。
+
+球で切り取った $F_r=E\cap B_r$ の周長を確認します。球内で1、半径 $r+\varepsilon$ の外で0となり、殻 $r<|y|<r+\varepsilon$ で径方向に $1/\varepsilon$ の速さで下がるcutoff $\eta_\varepsilon(y)$ を使います。[BVの滑らかな乗数積公式](../GMT21/index.md#prop-gmt21-product)を滑らかな近似cutoffに適用してからその折れ目を平滑化極限で戻すと、
+
+$$
+\begin{aligned}
+|D(\chi_E\eta_\varepsilon)|(\mathbb R^d)
+&\le\int\eta_\varepsilon\,d\mu_E+\int_E|\nabla\eta_\varepsilon|\,dy\\
+&\le\mu_E(B_{r+\varepsilon})
++\frac1\varepsilon\int_{E\cap\{r<|y|<r+\varepsilon\}}dy.
+\end{aligned}
+$$
+
+$\chi_E\eta_\varepsilon\to\chi_{F_r}$ は $L^1$ 収束します。$\mu_E(\partial B_r)=0$ で $h(r)$ が球面積関数のLebesgue点となるa.e.半径では、[全変動の下半連続性](../GMT22/index.md#thm-gmt22-lsc)と直前の極座標積分から、次を得ます。
 
 $$
 P(F_r;\mathbb R^d)\le \mu_E(B_r)+\widehat{\mathcal H}^{\,d-1}(E\cap\partial B_r)
