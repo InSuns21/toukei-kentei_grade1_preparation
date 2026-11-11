@@ -32,3 +32,4 @@
 29. [GMT29 Euclid等周不等式](textbook/volumes/dream_thater/解析系/GMT/GMT29/index.md)
 30. [GMT30 周長最小化の直接法](textbook/volumes/dream_thater/解析系/GMT/GMT30/index.md)
 31. [GMT31 Besicovitch集合：有限段階から極限まで](textbook/volumes/dream_thater/解析系/GMT/GMT31/index.md)
+32. [GMT32 δ-tube・方向分離・次元](textbook/volumes/dream_thater/解析系/GMT/GMT32/index.md)
