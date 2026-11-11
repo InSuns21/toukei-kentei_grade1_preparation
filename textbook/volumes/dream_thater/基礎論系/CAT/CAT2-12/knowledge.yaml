@@ -1,0 +1,64 @@
+chapter: CAT2-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-10
+  - CAT2-11
+  - CAT2-04
+  - SET2
+
+concepts:
+  - id: category.weakly-initial-set
+    name: 弱始対象集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弱始対象集合）"]
+    requires: [category.initial-object, category.locally-small-category]
+  - id: category.initial-object-from-weak-set
+    name: 弱始対象集合から始対象を得る定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（弱始対象集合から始対象）"]
+    requires: [category.weakly-initial-set, category.complete-category, category.small-product, category.equalizer]
+  - id: category.adjoint-solution-set-condition
+    name: 解集合条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（解集合条件）"]
+    requires: [category.comma-category, category.locally-small-category]
+  - id: category.solution-set-comma-equivalence
+    name: 解集合条件とcomma圏の弱始対象集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（解集合条件のcomma圏表示）"]
+    requires: [category.adjoint-solution-set-condition, category.weakly-initial-set]
+  - id: category.complete-comma-for-limit-functor
+    name: comma圏の完備性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（comma圏の完備性）"]
+    requires: [category.comma-category, category.limit-preservation, category.complete-category]
+  - id: category.freyd-general-adjoint-functor-theorem
+    name: Freydの一般随伴関手定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Freydの一般随伴関手定理）"]
+    requires: [category.initial-object-from-weak-set, category.complete-comma-for-limit-functor, category.solution-set-comma-equivalence, category.left-adjoint-from-universal-arrows, category.right-adjoint-preserves-limits]
+  - id: category.small-complete-adjoint-criterion
+    name: 小さい圏の解集合条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（小さい圏の解集合条件）"]
+    requires: [category.adjoint-solution-set-condition, category.freyd-general-adjoint-functor-theorem]
+  - id: category.powerset-adjoint-example
+    name: 冪集合の和集合関手の随伴
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（冪集合の和集合関手）"]
+    requires: [category.freyd-general-adjoint-functor-theorem, category.adjunction-hom]
+  - id: category.solution-set-necessity-counterexample
+    name: 解集合条件が必要な反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（解集合条件を省けない）"]
+    requires: [category.adjoint-solution-set-condition, category.freyd-general-adjoint-functor-theorem]
