@@ -8,7 +8,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: INV1, path: textbook/volumes/dream_thater/解析系/INV/INV1, status: completed, title: "観測から未知量を戻せるのはいつか" }
   - { id: INV2, path: textbook/volumes/dream_thater/解析系/INV/INV2, status: completed, title: "コンパクト作用素はなぜ逆を不安定にするか" }
-  - { id: INV3, path: textbook/volumes/dream_thater/解析系/INV/INV3, status: planned, title: "特異系から可解性を判定できるか" }
+  - { id: INV3, path: textbook/volumes/dream_thater/解析系/INV/INV3, status: completed, title: "特異系から可解性を判定できるか" }
   - { id: INV4, path: textbook/volumes/dream_thater/解析系/INV/INV4, status: planned, title: "逆を正則化するとはどういうことか" }
   - { id: INV5, path: textbook/volumes/dream_thater/解析系/INV/INV5, status: planned, title: "TSVDとTikhonovは何を抑えるか" }
   - { id: INV6, path: textbook/volumes/dream_thater/解析系/INV/INV6, status: planned, title: "正則化の収束速度をどう求めるか" }
