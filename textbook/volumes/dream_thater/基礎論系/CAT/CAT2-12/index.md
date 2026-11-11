@@ -108,9 +108,9 @@ $$
 
 は $I$ の自己射なので、(3)より $qve=1_I$。すなわち $q(ve)=1_I$ である。一方、[等化子のモノ性](../CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)から $q$ はモノ射なので
 
-$
+$$
 q(veq)=(qve)q=q=q1_Q\quad\Longrightarrow\quad veq=1_Q.
-$
+$$
 
 従って $ve=q^{-1}$ であり、等化条件 $fq=gq$ の両辺に $q^{-1}$ を合成して $f=g$ を得る。従って $I$ は始対象である。$\square$
 <!-- proof-end -->
