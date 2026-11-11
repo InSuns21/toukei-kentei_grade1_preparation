@@ -14,7 +14,7 @@
 
 - **数学の正本**：有限次元Lie群・Lie環表現の基礎、SU(2)の既約表現とテンソル積、Lorentz群の有限次元表現、平坦Minkowski時空のSpin被覆・Clifford表現、Poincaré群の物理的な正エネルギー1粒子表現の構成。
 - **適用の正本**：既存[QFT7](../volumes/dream_thater/物理系/QFT/QFT7/index.md)は自由Dirac場の具体計算、[QFT15](../volumes/dream_thater/物理系/QFT/QFT15/index.md)はMaxwell場のゲージ自由度、[QFT32](../volumes/dream_thater/物理系/QFT/QFT32/index.md)はPoincaré粒子・Weyl／Majorana場のQFT内での適用。LREPはこれらを既存の完成章として扱い、量子化・散乱・場の統計を再執筆しない。既存章のprerequisiteを遡ってLREP全体へ付け替えない。
-- **大域幾何の正本**：一般Lorentz多様体上のspin構造・spinor束・存在障害は[主束・ゲージ幾何](DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)および[LORG](../plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の必要箇所と分担する。平坦時空でSpin被覆があることから任意の多様体のspin構造の存在を結論しない。
+- **大域幾何の正本**：一般Lorentz多様体上のspin構造・spinor束・存在障害は[主束・ゲージ幾何](DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)および[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の必要箇所と分担する。平坦時空でSpin被覆があることから任意の多様体のspin構造の存在を結論しない。
 
 ## 2. 前提・記法・理論的な停止線
 
