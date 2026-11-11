@@ -6,6 +6,8 @@
 
 前講の[Gauss--Green測度](../GMT24/index.md#def-gmt24-gauss-green)は、有限周長集合 $E$ に対して、境界の向きと大きさをベクトル値測度として記録しました。しかしその測度の単位方向を表す法線は**周長測度に関してほとんど至る所**で決まるものであり、特定の点 $x$ に値を指定する操作とは違います。例えば正方形の角には二つの面から異なる法線が近づきます。ここで「法線が一方向に揃っている境界点」を、測度の球平均から取り出します。
 
+「ほとんど至る所（almost everywhere; a.e.）」とは、その場で指定した測度に関して例外集合が零測度であることを意味します。
+
 以下、$d\ge1$、$\Omega\subset\mathbb R^d$ は開集合、$E\subset\mathbb R^d$ はLebesgue可測集合とします。$B_r(x)$ は中心 $x$・半径 $r>0$ の開球、$\omega_d=\mathcal L^d(B_1(0))$ は単位球の体積です。$E$ は $\Omega$ で**局所有限周長**を持つと仮定します。これは各 $U\Subset\Omega$ で $P(E;U)<\infty$ という意味です。[前講の測度表示](../GMT24/index.md#thm-gmt24-gauss-green)を局所的に適用して
 
 $$
@@ -62,7 +64,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt25-reduced-boundary -->
-**定義の確認**（同じ半空間）。$E=\{x_d<0\}$ で $x_d=0$ とすると、[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)から、超平面上の面積測度を $\sigma$ として $\mathcal G_E=e_d\sigma$、$\mu_E=\sigma$ です。任意の $r>0$ について $\mu_E(B_r(x))=\omega_{d-1}r^{d-1}>0$（$d=1$ では一点の計数測度で値1）であり、$\mathcal G_E(B_r(x))=e_d\mu_E(B_r(x))$ です。よって $N_r(E,x)=e_d$、$\nu_E^*(x)=e_d$ で $|\nu_E^*(x)|=1$。超平面以外では小球の周長測度が0になるため台の条件を満たしません。従って $\partial^*E=\{x_d=0\}$ です。
+**定義の確認**（同じ半空間）。$E=\{x_d<0\}$ で $x_d=0$ とすると、[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)から、超平面上の面積測度を $\sigma$ として $\mathcal G_E=e_d\sigma$、$\mu_E=\sigma$ です。
+
+任意の $r>0$ について
+
+$$
+\mu_E(B_r(x))=\omega_{d-1}r^{d-1}>0,\qquad
+\mathcal G_E(B_r(x))=e_d\mu_E(B_r(x)).
+$$
+
+$d=1$ では面積測度は一点の計数測度で値1です。したがって $N_r(E,x)=e_d$、$\nu_E^*(x)=e_d$ で $|\nu_E^*(x)|=1$。超平面以外では小球の周長測度が0になるため台の条件を満たしません。ゆえに $\partial^*E=\{x_d=0\}$ です。
 <!-- definition-example-end -->
 
 三角不等式から $|N_r(E,x)|\le1$ です。極限が存在するだけでは足りず、長さが**ちょうど1**であることが大切です。長さが小さくなるのは、球内の異なる法線が相殺し合うためです。
@@ -353,7 +364,15 @@ $B=B_1(0)\subset\mathbb R^2$、$E=B\setminus\mathbb Q^2$ とする。$x\in B\cap
 <!-- solution-start -->
 #### 詳細解答
 
-有理点集合のLebesgue測度は0だから $E$ と $B$ の指示関数はa.e.で一致します。$x$ は球の内点なので $r<1-|x|$ では $|E\cap B_r(x)|=|B_r(x)|$、ゆえに $\theta_E(x)=1$ です。前講の[球面のGauss--Green測度](../GMT24/index.md#prop-gmt24-smooth-boundary)は球面にのみ集中するので、同じ $r$ で $\mu_E(B_r(x))=0$。よって $x$ は縮約境界に属しません。一方 $x\notin E$ であり、有理点・無理点がともに $B$ 内で稠密なので、どの近傍も $E$ と $E^c$ に交わり $x\in\partial E$ です。
+有理点集合のLebesgue測度は0だから、$E$ と $B$ の指示関数はa.e.で一致します。$x$ は球の内点なので、$r<1-|x|$ では
+
+$$
+|E\cap B_r(x)|=|B_r(x)|,\qquad \theta_E(x)=1.
+$$
+
+前講の[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)で球面上にのみ周長測度が集中するため、同じ $r$ で $\mu_E(B_r(x))=0$。よって $x$ は縮約境界に属しません。
+
+一方 $x\notin E$ であり、有理点・無理点がともに $B$ 内で稠密なので、どの近傍も $E$ と $E^c$ に交わり、$x\in\partial E$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt25-a05"></a>
@@ -426,7 +445,18 @@ $F=\{(s,t):st>0\}\subset\mathbb R^2$ とする。原点における体積密度�
 <!-- solution-start -->
 #### 詳細解答
 
-原点での球は四つの等面積象限に分かれ、そのうち第1・第3象限が $F$ なので $\theta_F(0)=1/2$ です。正の $s$ 軸上の外向き法線は $-e_2$、負の $s$ 軸上は $+e_2$、正の $t$ 軸上は $-e_1$、負の $t$ 軸上は $+e_1$ です。各半線の球内長さは $r$ なので、ベクトル測度は $r(-e_2+e_2-e_1+e_1)=0$、全変動は $4r$。したがって $N_r=0$ で原点は縮約境界でありません。さらに $F_{0,r}=F$ がすべての $r>0$ で成り立ちます。仮に半空間 $H_n^-$ へ $L^1(B_1)$ 収束するなら $\mathcal L^2((F\mathbin{\triangle}H_n^-)\cap B_1)=0$ のはずですが、$F$ の四象限交互の配置はどんな一つの半空間ともa.e.一致しません（境界以外に異なる開領域が残る）。よって半空間近似も失敗します。
+原点での球は四つの等面積象限に分かれ、そのうち第1・第3象限が $F$ なので $\theta_F(0)=1/2$ です。
+
+正の $s$ 軸上の外向き法線は $-e_2$、負の $s$ 軸上は $+e_2$。正の $t$ 軸上は $-e_1$、負の $t$ 軸上は $+e_1$ です。各半線の球内長さは $r$ なので
+
+$$
+\mathcal G_F(B_r(0))=r(-e_2+e_2-e_1+e_1)=0,\qquad
+\mu_F(B_r(0))=4r.
+$$
+
+したがって $N_r=0$ で原点は縮約境界ではありません。さらに $F_{0,r}=F$ がすべての $r>0$ で成り立ちます。
+
+仮に半空間 $H_n^-$ へ $L^1(B_1)$ 収束するなら $\mathcal L^2((F\mathbin{\triangle}H_n^-)\cap B_1)=0$ のはずです。しかし四象限交互の配置はどんな半空間ともa.e.一致せず、境界以外に異なる開領域が残ります。よって半空間近似も失敗します。
 <!-- solution-end -->
 
 <a id="ex-gmt25-b04"></a>
@@ -456,7 +486,11 @@ $$
 
 - Level: C
 
-$E=(0,a)\times(0,b)\subset\mathbb R^2$、$a,b>0$ とする。(1) $\operatorname{supp}\mu_E$、$\partial^eE$、$\partial^*E$ を各々確定する。(2) 辺の法線と角の平均法線を計算する。(3) $\mu_E(\mathbb R^2\setminus\partial^*E)=0$ および $P(E)=2(a+b)$ を直接確かめよ。
+$E=(0,a)\times(0,b)\subset\mathbb R^2$、$a,b>0$ とする。
+
+1. $\operatorname{supp}\mu_E$、$\partial^eE$、$\partial^*E$ を各々確定せよ。
+2. 辺の法線と角の平均法線を計算せよ。
+3. $\mu_E(\mathbb R^2\setminus\partial^*E)=0$ および $P(E)=2(a+b)$ を直接確かめよ。
 
 <!-- solution-start -->
 #### 詳細解答
