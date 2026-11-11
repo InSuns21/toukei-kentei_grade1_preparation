@@ -55,6 +55,8 @@ $$
 
 を使います（$\Omega$ の外では必要な半径の球を取らず、固定コンパクト上で十分小さい $r$ だけを考えます）。ここで $(T_{x,r})_\#\mu_E$ は写像 $T_{x,r}$ による像測度です。
 
+[GMT26の再尺度化の定義](../GMT26/index.md#def-gmt26-rescalings)に合わせ、拡大後の集合を $E_{x,r}=T_{x,r}(E)$ と書きます。測度の係数 $r^{-m}$ は、面積が相似比 $r^{-1}$ に対して $r^{-m}$ 倍されることに対応します。
+
 <a id="lem-gmt27-flat-perimeter-tangent"></a>
 
 <!-- formal-statement-start -->
@@ -67,7 +69,7 @@ $$
 \quad\text{in }\mathbb R^d.
 $$
 
-> ここで $\rightharpoonup_{\mathrm v}$ はコンパクト台連続関数で試す局所弱収束である。さらに
+> ここで $\rightharpoonup_{\mathrm v}$ は[GMT19の局所弱収束](../GMT19/index.md#def-gmt19-vague)、すなわちコンパクト台連続関数で試す収束である。さらに
 
 $$
 \lim_{r\downarrow0}\frac{\mu_E(B(x,r))}{\omega_mr^m}=1.
@@ -88,7 +90,15 @@ $$
 =r_j^{-m}\mu_E(B(x,r_jR))\le C_dR^m
 $$
 
-が十分大きい $j$ に対して成立します。[局所弱コンパクト性](../GMT19/index.md#lem-gmt19-vague-compactness)（GMT26の前提閉包で既習）から、適当な部分列について $\mu_{x,r_j}\rightharpoonup_{\mathrm v}\lambda$ とできます。再尺度化後の外向き法線を $\nu_j$ とすると、[縮約境界上の法線の平均振動と周長測度ほとんど至る所での存在](../GMT25/index.md#thm-gmt25-normal-mean)により
+が十分大きい $j$ に対して成立します。[局所弱コンパクト性](../GMT19/index.md#lem-gmt19-vague-compactness)（GMT26の前提閉包で既習）から、適当な部分列について $\mu_{x,r_j}\rightharpoonup_{\mathrm v}\lambda$ とできます。
+
+再尺度化後の外向き法線を $\nu_j(z)=\nu_E(x+r_jz)$（$\mu_{x,r_j}$-ほとんど至る所）と定めます。[GMT26の尺度変換](../GMT26/index.md#lem-gmt26-rescaling-variation)により
+
+$$
+\mathcal G_{E_{x,r_j}}=\nu_j\mu_{x,r_j}
+$$
+
+です。[縮約境界上の法線平均の定義](../GMT25/index.md#def-gmt25-reduced-boundary)と[二乗平均振動の同値性](../GMT25/index.md#thm-gmt25-normal-mean)により
 
 $$
 \begin{aligned}
@@ -204,16 +214,24 @@ $$
 \mu(B(x,r))\le2\omega_mr^m
 $$
 
-となる $x\in S$ の集合とします。上密度の仮定から $S=\bigcup_kS_k$ です。$\mathcal H^m(A)=0$ となるBorel集合 $A\subset S$ に対し、$A\cap S_k$ を、中心 $x_i\in A\cap S_k$、半径 $r_i<1/k$ の可算個の球で覆います。Hausdorff零測度であるため、各球の直径コスト $\sum_i(2r_i)^m$ を任意に小さく取れます（任意の細かい被覆の各集合に $A\cap S_k$ の一点を選び、半径をその直径よりわずかに大きくすればよい）。よって
+となる $x\in S$ の集合とします。上密度の仮定から $S=\bigcup_kS_k$ です。各固定 $r$ の球質量は中心 $x$ についてBorel可測で、半径を有理数に限っても球質量の[下からの連続性](../../F0/F0-00D2/index.md#thm-f0-00d2-01)により同じ条件になるため、$S_k$ はBorel集合です。
+
+$\mathcal H^m(A)=0$ となるBorel集合 $A\subset S$ と $\varepsilon>0$ を取ります。$A\cap S_k$ を、中心 $x_i\in A\cap S_k$、半径 $r_i<1/k$ の可算個の球で覆い、直径コストを
+
+$$
+\sum_i(2r_i)^m<\varepsilon
+$$
+
+とできます。実際、Hausdorff零測度による十分細かい被覆の各集合から $A\cap S_k$ の点を選び、元の直径よりわずかに大きい半径の球へ置き換えます。定数倍のコスト増加を含めても、元の被覆をさらに安く取れば $\varepsilon$ 未満にできます。よって
 
 $$
 \mu(A\cap S_k)
 \le\sum_i\mu(B(x_i,r_i))
 \le2\omega_m\sum_i r_i^m
-=\frac{2\omega_m}{2^m}\sum_i(2r_i)^m=0.
+<\frac{2\omega_m}{2^m}\varepsilon.
 $$
 
-可算合併で $\mu(A)=0$、また $\mu$ は $S$ に集中するので $\mu\ll\sigma$ です。$\square$
+$\varepsilon\downarrow0$ で $\mu(A\cap S_k)=0$、$k$ について可算合併して $\mu(A)=0$ です。さらに $\mu$ は $S$ に集中するので、一般の $\sigma$-零集合についても $\mu\ll\sigma$ が従います。$\square$
 <!-- proof-end -->
 
 **使い分けの例。** 線分に沿う通常の長さは密度が内点で1です。長さに原点の点質量 $\delta_0$ を足すと、原点の球質量を $r$ で割った比が発散し、この補題の全点での**有限な上密度**が壊れます。一方、長さに定数2を掛けただけなら密度の極限は2であり、絶対連続性は残っても最終的な係数は1になりません。
@@ -278,7 +296,7 @@ $$
 
 **(1) 可算グラフ被覆。** $S=\partial^*E\cap\Omega$、$\mu=\mu_E\llcorner\Omega$ とします。[縮約境界上の法線の平均振動と周長測度ほとんど至る所での存在](../GMT25/index.md#thm-gmt25-normal-mean)により $\mu(\Omega\setminus S)=0$ です。$S$ は球平均の極限で記述できるBorel集合です。実際、各固定半径の球質量とベクトル球質量は中心についてBorel可測であり、有理半径列と球の内側からの連続性によって、極限・単位長条件をBorel演算で表せます。
 
-$m$ 次元平面全体 $G(d,m)$ は、[GMT20で使ったGrassmann空間](../GMT20/index.md#thm-gmt20-tangent-criterion)と同じコンパクト距離空間です。直交射影の作用素ノルムで可算稠密な平面 $\{V_j\}_{j\ge1}$ を選びます。任意の $x\in S$ の $V_x=(\nu_E^*(x))^\perp$ に対し、ある $j$ は $\|\pi_{V_j}-\pi_{V_x}\|<1/8$ を満たします。よって
+$m$ 次元平面全体 $G(d,m)$ は、[GMT7で直交射影とともに定義したGrassmann空間](../GMT7/index.md#def-gmt7-grassmann-projection)です。直交射影の作用素ノルムで距離を測るとコンパクトなので、可算稠密な平面 $\{V_j\}_{j\ge1}$ を選べます。任意の $x\in S$ の $V_x=(\nu_E^*(x))^\perp$ に対し、ある $j$ は $\|\pi_{V_j}-\pi_{V_x}\|<1/8$ を満たします。よって
 
 $$
 B(x,r)\setminus X(x,V_j,1/4)
@@ -481,7 +499,29 @@ $E=B(0,R)\subset\mathbb R^3$、$R>0$ とする。$\nu_E^*(x)$、$\mu_E(\mathbb R
 <!-- solution-start -->
 #### 詳細解答
 
-球面の外向き単位法線は $x/R$ です（$|x|=R$）。面積は球面座標の面積要素 $R^2\sin\theta\,d\theta\,d\varphi$ を用いて
+球面の外向き単位法線は $x/R$ です（$|x|=R$）。球面の座標表示を
+
+$$
+F(\theta,\varphi)=(R\sin\theta\cos\varphi,\ R\sin\theta\sin\varphi,\ R\cos\theta),
+\quad 0<\theta<\pi,\quad 0<\varphi<2\pi
+$$
+
+と取ります。$\theta$、$\varphi$ はそれぞれ極角・方位角で、偏微分では他方を固定します。座標表示 $F$ を各角度で偏微分して得る二つのベクトルは互いに直交し、
+
+$$
+|\partial_\theta F|=R,\qquad
+|\partial_\varphi F|=R\sin\theta,\qquad
+\partial_\theta F\cdot\partial_\varphi F=0.
+$$
+
+従って[GMT10の幾何的Jacobian](../GMT10/index.md#def-gmt10-geometric-jacobian)から面積要素は
+
+$$
+\sqrt{R^2(R^2\sin^2\theta)}\,d\theta\,d\varphi
+=R^2\sin\theta\,d\theta\,d\varphi
+$$
+
+です。$F$ は極と経度の切れ目を除いて1対1であり、それらの例外部分は面積零です。[GMT11のarea formula](../GMT11/index.md#thm-gmt11-area-formula)でこのJacobianを積分し、[滑らかな境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)を用いると
 
 $$
 \begin{aligned}
@@ -504,7 +544,14 @@ $E=(0,2)\times(0,3)$ とする。$\partial^*E$ を記述し、位相的境界と
 <!-- solution-start -->
 #### 詳細解答
 
-四本の開辺では球内の境界が一直線で、法線平均はその辺の一定単位法線です。例えば左辺では $-e_1$ です。角点では同じ長さ $r$ の二本の辺から法線が入り、平均の長さは $1/\sqrt2$ なので[縮約境界の単位長条件](../GMT25/index.md#def-gmt25-reduced-boundary)を満たしません。従って $\partial^*E$ は四本の開辺の合併で、差は四隅です。一点の $\mathcal H^1$ は0なので差の測度も0。辺の長さの和は $2+3+2+3=10$、[境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)を辺ごとに適用して $\mu_E(\mathbb R^2)=10$ です。
+四本の開辺では球内の境界が一直線で、法線平均はその辺の一定単位法線です。例えば左辺では $-e_1$ です。角点の十分小さい球には、互いに直交する外向き法線 $n_1,n_2$ の二本の辺がそれぞれ長さ $r$ だけ入ります。従って
+
+$$
+N_r(E,x)=\frac{rn_1+rn_2}{2r}=\frac{n_1+n_2}{2},\qquad
+|N_r(E,x)|^2=\frac{1+1+2n_1\cdot n_2}{4}=\frac12.
+$$
+
+角点では[縮約境界の単位長条件](../GMT25/index.md#def-gmt25-reduced-boundary)を満たしません。従って $\partial^*E$ は四本の開辺の合併で、差は四隅です。一点の $\mathcal H^1$ は0なので差の測度も0。辺の長さの和は $2+3+2+3=10$、[境界のGauss--Green表示](../GMT24/index.md#prop-gmt24-smooth-boundary)を辺ごとに適用して $\mu_E(\mathbb R^2)=10$ です。
 <!-- solution-end -->
 
 <a id="ex-gmt27-a05"></a>
@@ -633,14 +680,24 @@ $\varepsilon\downarrow0$ で $\mu(A_k)=0$、$k$ について可算合併を取�
 
 - Level: C
 
-$E=(0,a)\times(0,b)\subset\mathbb R^2$（$a,b>0$）とする。四辺を $S_L,S_R,S_B,S_T$（角を除いた開辺）と書く。$(i)$ $\partial^*E$ と各辺の外向き法線を求め、$(ii)$ 任意の $\varphi\in C_c^1(\mathbb R^2;\mathbb R^2)$ について $\int_E\operatorname{div}\varphi=\int_{\partial^*E}\varphi\cdot\nu_E^*\,d\mathcal H^1$ を座標積分から確かめ、$(iii)$ 周長を求めよ。
+$E=(0,a)\times(0,b)\subset\mathbb R^2$（$a,b>0$）とする。四辺を $S_L,S_R,S_B,S_T$（角を除いた開辺）と書く。次を示せ。
+
+1. $\partial^*E$ と各辺の外向き法線を求めよ。
+2. 任意の $\varphi\in C_c^1(\mathbb R^2;\mathbb R^2)$ について、次を座標積分から確かめよ。
+
+   $$
+   \int_E\operatorname{div}\varphi
+   =\int_{\partial^*E}\varphi\cdot\nu_E^*\,d\mathcal H^1
+   $$
+
+3. 周長を求めよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$(i)$ 内点での法線平均は辺の法線に等しく、角点では二つの法線を平均して長さ $1/\sqrt2$ となるため[縮約境界の定義](../GMT25/index.md#def-gmt25-reduced-boundary)の単位長条件を満たしません。従って $\partial^*E=S_L\cup S_R\cup S_B\cup S_T$ です。法線は順に $-e_1,e_1,-e_2,e_2$ です。
+$(i)$ 開辺の点では法線平均は辺の法線に等しく、角点では半径 $r$ の小球に直交する外向き法線 $n_1,n_2$ を持つ二辺が各長さ $r$ だけ入ります。従って法線平均は $(n_1+n_2)/2$ で、二乗長が $(1+1+2n_1\cdot n_2)/4=1/2$ となり、[縮約境界の定義](../GMT25/index.md#def-gmt25-reduced-boundary)の単位長条件を満たしません。従って $\partial^*E=S_L\cup S_R\cup S_B\cup S_T$ です。法線は順に $-e_1,e_1,-e_2,e_2$ です。
 
-$(ii)$ $\varphi=(\varphi_1,\varphi_2)$ とし、Fubiniと一変数の微積分学の基本定理で
+$(ii)$ $\varphi=(\varphi_1,\varphi_2)$ とし、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)と一変数の微積分学の基本定理で
 
 $$
 \begin{aligned}
@@ -667,7 +724,11 @@ $c_1=1$ なので $\mathcal H^1(\partial^*E)=2(a+b)$ であり、[De Giorgi構�
 
 - Level: C
 
-整数 $k\ge1$ に対して $E_k=\{(u,t)\in\mathbb R^2:t<k^{-1}\sin(ku)\}$、$H=\{t<0\}$ とし、$Q=(-\pi,\pi)\times(-2,2)$ とする。$(i)$ $\|\chi_{E_k}-\chi_H\|_{L^1(Q)}$、$(ii)$ $\mu_{E_k}(Q)$ を求め、$(iii)$ 集合の $L^1$ 収束だけから周長測度の弱収束や測度同定を主張できない理由を述べよ。
+整数 $k\ge1$ に対して $E_k=\{(u,t)\in\mathbb R^2:t<k^{-1}\sin(ku)\}$、$H=\{t<0\}$ とし、$Q=(-\pi,\pi)\times(-2,2)$ とする。次を示せ。
+
+1. $\|\chi_{E_k}-\chi_H\|_{L^1(Q)}$ を求めよ。
+2. $\mu_{E_k}(Q)$ を求めよ。
+3. 集合の $L^1$ 収束だけから周長測度の弱収束や測度同定を主張できない理由を述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -683,7 +744,13 @@ $$
 \end{aligned}
 $$
 
-$(ii)$ グラフ関数 $f_k(u)=k^{-1}\sin(ku)$ の導関数は $f_k'(u)=\cos(ku)$ です。[Lipschitz曲線のarea formula](../GMT11/index.md#thm-gmt11-area-formula)（GMT20の前提閉包で既習）をパラメータ表示 $u\mapsto(u,f_k(u))$ に用いると
+$(ii)$ グラフ関数 $f_k(u)=k^{-1}\sin(ku)$ の導関数は、$u$ に関する一変数微分として
+
+$$
+f_k'(u)=\frac{df_k}{du}(u)=\cos(ku)
+$$
+
+です。パラメータ表示 $\gamma_k(u)=(u,f_k(u))$ の速度は $\gamma_k'(u)=(1,\cos(ku))$ なので、[Lipschitz曲線のarea formula](../GMT11/index.md#thm-gmt11-area-formula)（GMT20の前提閉包で既習）を適用すると
 
 $$
 \begin{aligned}
@@ -694,7 +761,7 @@ $$
 \end{aligned}
 $$
 
-最後の等号は被積分関数の周期が $\pi$ で、積分区間が $2k$ 周期分だからです。不等号は $\cos v\ne0$ が正の長さの集合で成立するため厳密です。一方 $\mu_H(Q)=2\pi$ です。
+第2行では $v=ku$、$dv=k\,du$ と置換し、第3行では被積分関数の周期が $\pi$ で、積分区間が $2k$ 周期分であることを使いました。不等号は $\cos v\ne0$ が正の長さの集合で成立するため厳密です。一方 $\mu_H(Q)=2\pi$ です。
 
 $(iii)$ ここで単に球や矩形の質量を比較するだけでは、弱収束が失敗した証明としては不十分です。そこで
 

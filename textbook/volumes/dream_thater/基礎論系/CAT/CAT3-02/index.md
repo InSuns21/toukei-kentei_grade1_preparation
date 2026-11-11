@@ -4,7 +4,7 @@
 
 [モナド](../CAT3-01/index.md#def-cat3-01-monad) $(T,\eta,\mu)$ は、対象 $X$ から $TX$ を作り、値を一段入れる $\eta_X:X\to TX$ と二段を一段に戻す $\mu_X:T^2X\to TX$ を備えていた。例えば[有限語モナド](../CAT3-01/index.md#prop-cat3-01-list-monad)では $TX=X^*$ は有限語全体である。
 
-ここで $f:A\to TB$ を考える。入力 $a\in A$ から一つの $b\in B$ を返すとは限らず、有限語なら複数の $b$ を返し、空語を返す場合もある。別の計算 $g:B\to TC$ を $f$ の後で実行したいが、通常の射の合成 $g\circ f$ は**型が合わない**。$f$ の終域は $TB$ なのに、$g$ の始域は $B$ だからである。
+ここで $f:A\to TB$ を考える。集合の圏なら、入力 $a\in A$ から一つの $b\in B$ を返すとは限らず、有限語では複数の $b$ を返し、空語を返す場合もある。一般の圏では元を使わず射の型で考える。別の計算 $g:B\to TC$ を $f$ の後で実行したいが、通常の射の合成 $g\circ f$ は**型が合わない**。$f$ の終域は $TB$ なのに、$g$ の始域は $B$ だからである。
 
 求めるのは、$f$ が作った効果を保ちつつ $g$ を各結果へ適用し、最後に効果を一段へ戻す操作である。$f$、$g$ を普通の射として扱える新しい圏を作ると、計算の合成順序がモナドの三公理で保証される。
 
@@ -27,9 +27,22 @@ $$
 
 <!-- definition-example-start: def-cat3-02-extension -->
 **定義の確認**（恒等モナド）。$T=1_{\mathcal C}$、$\eta_X=\mu_X=1_X$ とすると、$f:A\to B$ に対して $Tf=f:A\to B$、$\mu_B=1_B$ である。したがって $f^\sharp=1_B\circ f=f$、その始域は $TA=A$、終域は $TB=B$ となり、定義された型を満たす。一般のモナドでだけ「持ち上げ」が必要になる理由も分かる。
+
+**定義の確認**（有限語モナド）。[有限語モナド](../CAT3-01/index.md#prop-cat3-01-list-monad)では $TX=X^*$ である。$f:X\to Y^*$ を関手 $T$ で写すと、$Tf:X^*\to(Y^*)^*$ は入力の語の各文字を $f$ によって語へ置き換える。次に $\mu_Y:(Y^*)^*\to Y^*$ が語の語を連結するので、$f^\sharp:X^*\to Y^*$ はこの二段を実行する。
+
+例えば $X=\{a,b\}$、$Y=\{0,1\}$ とし、$f(a)=[0,1]$、$f(b)=[]$ とすれば
+
+$$
+\begin{aligned}
+Tf([a,b,a])&=[[0,1],[],[0,1]],\\
+f^\sharp([a,b,a])&=\mu_Y([[0,1],[],[0,1]])=[0,1,0,1].
+\end{aligned}
+$$
+
+ここでは「各文字を語にする」操作が $Tf$、「語の語を連結する」操作が $\mu_Y$ に対応し、抽象的な合成の両段階と始域・終域を確かめられる。
 <!-- definition-example-end -->
 
-$f^\sharp$ が本当に「同じ計算の効果付き入力への拡張」なら、純粋な入力 $\eta_A(a)$ から始めても $f$ を直接使うのと同じであり、二つの計算を持ち上げる順番にも整合性が欲しい。
+$f^\sharp$ が本当に「同じ計算の効果付き入力への拡張」なら、$A\xrightarrow{\eta_A}TA\xrightarrow{f^\sharp}TB$ は $f:A\to TB$ と一致するはずである。これは一般の圏でも意味を持ち、二つの計算を持ち上げる順番にも整合性が欲しい。
 
 <a id="prop-cat3-02-extension-laws"></a>
 
@@ -379,17 +392,43 @@ $T^2X=(X\sqcup E)\sqcup E$ には「内側の成功・内側の例外・外側�
 <!-- proof-start -->
 ### 証明
 
-関手性はタグごとに確かめられる。成功タグでは $T(vu)(\operatorname{inl}x)=\operatorname{inl}(v(u(x)))=Tv(Tu(\operatorname{inl}x))$、例外タグではいずれも $\operatorname{inr}e$ であり、恒等射も同様に保存する。
-
-$\eta$ の自然性は $Tu(\operatorname{inl}x)=\operatorname{inl}(u(x))$ である。$\mu$ の自然性では、$T^2u$ の引数を $\operatorname{inl}(\operatorname{inl}x)$、$\operatorname{inl}(\operatorname{inr}e)$、$\operatorname{inr}e$ に分ける。$Tu\mu_X$ と $\mu_YT^2u$ の結果は順に
+まず関手性を確認する。$u:X\to Y$、$v:Y\to Z$ に対して、成功・例外の二つのタグ上で
 
 $$
-\operatorname{inl}(u(x)),\qquad
-\operatorname{inr}e,\qquad
-\operatorname{inr}e
+\begin{aligned}
+Tv(Tu(\operatorname{inl}x))
+ &=\operatorname{inl}(v(u(x)))=T(v\circ u)(\operatorname{inl}x),\\
+Tv(Tu(\operatorname{inr}e))
+ &=\operatorname{inr}e=T(v\circ u)(\operatorname{inr}e).
+\end{aligned}
 $$
 
-で一致する。単位律について任意の $t\in TX$ を取ると
+さらに $T(1_X)$ は $\operatorname{inl}x$ を $\operatorname{inl}x$ に、$\operatorname{inr}e$ を $\operatorname{inr}e$ に写す。よって $T$ は恒等射と合成を保存する。
+
+$\eta$ の自然性は $Tu(\operatorname{inl}x)=\operatorname{inl}(u(x))=\eta_Y(u(x))$ である。$\mu$ の自然性は $Tu\circ\mu_X=\mu_Y\circ T^2u:T^2X\to TY$ の確認である。$T^2X$ の三種類の元について、左経路は
+
+$$
+\begin{aligned}
+Tu(\mu_X(\operatorname{inl}(\operatorname{inl}x)))&=Tu(\operatorname{inl}x)=\operatorname{inl}(u(x)),\\
+Tu(\mu_X(\operatorname{inl}(\operatorname{inr}e)))&=Tu(\operatorname{inr}e)=\operatorname{inr}e,\\
+Tu(\mu_X(\operatorname{inr}e))&=Tu(\operatorname{inr}e)=\operatorname{inr}e.
+\end{aligned}
+$$
+
+一方、右経路は $T^2u$ が内側の成功値にだけ $u$ を適用するから
+
+$$
+\begin{aligned}
+\mu_Y(T^2u(\operatorname{inl}(\operatorname{inl}x)))
+ &=\mu_Y(\operatorname{inl}(\operatorname{inl}(u(x))))=\operatorname{inl}(u(x)),\\
+\mu_Y(T^2u(\operatorname{inl}(\operatorname{inr}e)))
+ &=\mu_Y(\operatorname{inl}(\operatorname{inr}e))=\operatorname{inr}e,\\
+\mu_Y(T^2u(\operatorname{inr}e))
+ &=\mu_Y(\operatorname{inr}e)=\operatorname{inr}e.
+\end{aligned}
+$$
+
+三種類すべてで一致する。単位律について任意の $t\in TX$ を取ると
 
 $$
 \mu_X\eta_{TX}(t)=\mu_X(\operatorname{inl}t)=t.
@@ -405,12 +444,12 @@ $$
 \operatorname{inr}e
 $$
 
-のいずれかである。$\mu_X\mu_{TX}$ の結果は順に $t,\operatorname{inr}e,\operatorname{inr}e$。$\mu_XT\mu_X$ では、最初に $T\mu_X$ が順に $\operatorname{inl}t,\operatorname{inl}(\operatorname{inr}e),\operatorname{inr}e$ を作り、$\mu_X$ で同じ三結果になる。三公理が成立した。
+のいずれかである。$\mu_X\mu_{TX}$ は先に外側二段を平らにして、順に $\operatorname{inl}t,\operatorname{inr}e,\operatorname{inr}e$ を経て $t,\operatorname{inr}e,\operatorname{inr}e$ を与える。一方 $\mu_XT\mu_X$ は、まず $T\mu_X$ により順に $\operatorname{inl}t,\operatorname{inl}(\operatorname{inr}e),\operatorname{inr}e$ とし、次に $\mu_X$ を作用させると同じ三結果になる。これで結合律も確かめられ、モナドの三公理が成立した。
 
 最後に $f(x)=\operatorname{inl}y$ の場合は $Tg(f(x))=\operatorname{inl}(g(y))$、$f(x)=\operatorname{inr}e$ の場合は $Tg(f(x))=\operatorname{inr}e$ なので、$\mu_Z$ を作用させると主張の合成式になる。$\square$
 <!-- proof-end -->
 
-$E$ が空集合なら通常の写像の圏に戻る。$E=\{\bot\}$ が一個の失敗記号だけを持つ場合、失敗を許す部分写像との関係は最後の総合演習で証明する。
+$E$ が空集合なら $X\sqcup\varnothing$ と $X$ は左側のタグを外す全単射で対応し、Kleisli圏は通常の写像の圏と同型になる。$E=\{\bot\}$ が一個の失敗記号だけを持つ場合、失敗を許す部分写像との関係は最後の総合演習で証明する。
 
 ## 7. 冪集合モナド：射を二項関係として読む
 
@@ -468,7 +507,9 @@ $$
 
 ## 8. 印を蓄積する例：合成順序が本当に効く
 
-[印付き集合のモナド判定](../CAT3-01/index.md#prop-cat3-01-writer-criterion)でモノイド $(M,\star,e)$ から $TX=M\times X$ を作った。$f:X\to M\times Y$、$g:Y\to M\times Z$ で $f(x)=(m,y)$、$g(y)=(n,z)$ なら
+[印付き集合のモナド判定](../CAT3-01/index.md#prop-cat3-01-writer-criterion)でモノイド $(M,\star,e)$ から $TX=M\times X$ を作った。ここでは $\star$ を $M$ の二項演算にも Kleisli射の合成にも使う。$m\star n\in M$ と $g\star f:X\to M\times Z$ は型が違うので区別する。
+
+$f:X\to M\times Y$、$g:Y\to M\times Z$ で $f(x)=(m,y)$、$g(y)=(n,z)$ なら
 
 $$
 Tg(f(x))=(m,(n,z)),\qquad
