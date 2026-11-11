@@ -205,7 +205,7 @@ $$
 
 任意の小半径 $r$ に対してこの不等式が成立する $s\in(r,2r)$ を取り、球質量の単調性を使えば $\mu_E(B_r)\le2d\omega_d(2r)^{d-1}$ です。$r_x$ を小さくして $B_{2r}\Subset\Omega$ を確保すれば、上側周長密度が示されました。
 
-次に $g(r)=|E\cap B_r|$ とします。球面積分についての[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)から $g$ は絶対連続であり
+次に $g(r)=|E\cap B_r|$ とします。球面積分についての[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)から $g$ は絶対連続です。以下の「ほとんど至る所（almost everywhere; a.e.）」は、Lebesgue測度零集合を除く半径で成立することを意味します。
 
 $$
 g(r)=\int_0^r\widehat{\mathcal H}^{\,d-1}(E\cap\partial B_s)\,ds,\qquad
@@ -354,7 +354,11 @@ $$
 \qquad |D\chi_{E_j}|(B_R)=r_j^{1-d}\mu_E(B_{r_jR})\le C_dR^{d-1}.
 $$
 
-$R=1,2,3,\ldots$ ごとに[BV局所コンパクト性](../GMT23/index.md#thm-gmt23-compactness)を適用し対角部分列を取ると、ある $f$ へ $L^1_{\mathrm{loc}}$ 収束します。さらに部分列を取り、各球 $B_m$ 上で誤差の $L^1$ ノルムの級数が有限になるよう選べば、誤差の級数はLebesgueほとんどすべての点で有限になり、点ごとにも収束します。各 $\chi_{E_j}\in\{0,1\}$ から $f\in\{0,1\}$ がほとんど至る所で成立し、$f=\chi_F$ と書けます。[全変動の下半連続性](../GMT22/index.md#thm-gmt22-lsc)から $F$ も局所有限周長です。
+$R=1,2,3,\ldots$ ごとに[BV局所コンパクト性](../GMT23/index.md#thm-gmt23-compactness)を適用し、対角部分列を取ります。すると、ある $f$ へ $L^1_{\mathrm{loc}}$ 収束します。
+
+さらに部分列を取り、各球 $B_m$ 上で誤差の $L^1$ ノルムの級数が有限になるよう選びます。誤差の級数はLebesgueほとんどすべての点で有限になり、点ごとにも収束します。
+
+各 $\chi_{E_j}\in\{0,1\}$ から $f\in\{0,1\}$ がほとんど至る所で成立するので、$f=\chi_F$ と書けます。[全変動の下半連続性](../GMT22/index.md#thm-gmt22-lsc)から $F$ も局所有限周長です。
 
 **(2) 測度の極限の方向。** 拡大後の周長測度を $\mu_j=|D\chi_{E_j}|$、外向き法線を $\nu_j$ とします。$\mu_j(B_R)$ は一様有界なので、[GMT19の局所弱コンパクト性](../GMT19/index.md#lem-gmt19-vague-compactness)を適用し、さらに対角部分列で $\mu_j\rightharpoonup_{\mathrm v}\lambda$ とできます。法線の二乗平均振動の恒等式は[前講](../GMT25/index.md#thm-gmt25-normal-mean)から
 
@@ -573,7 +577,11 @@ $F\subset\mathbb R^2$ は局所有限周長で $-D\chi_F=e_2|D\chi_F|$ とする
 <!-- solution-start -->
 #### 詳細解答
 
-$u_\varepsilon=\rho_\varepsilon*\chi_F$ とおきます。測度値微分を畳み込めば $\partial_su_\varepsilon=0$、$\partial_tu_\varepsilon=-\rho_\varepsilon*|D\chi_F|\le0$ です。従って $u_\varepsilon(s,t)=h_\varepsilon(t)$ で非増加です。$u_\varepsilon\to\chi_F$ が $L^1_{\rm loc}$ なので、部分列のa.e.極限は横座標に依存しない非増加の $\{0,1\}$ 値関数となります。非増加な指示関数の1の部分は下向き半直線であり、$F=\{t<a\}$（$a=\pm\infty$ を含む）と書けます。法線が同じ半空間 $\{t<4\}$ も条件を満たすので、**この条件だけでは $a=0$ は示せません**。中心を固定するには[両相の体積密度下界](#thm-gmt26-density-bounds)が別途必要です。
+$u_\varepsilon=\rho_\varepsilon*\chi_F$ とおきます。測度値微分を畳み込めば $\partial_su_\varepsilon=0$、$\partial_tu_\varepsilon=-\rho_\varepsilon*|D\chi_F|\le0$ です。従って $u_\varepsilon(s,t)=h_\varepsilon(t)$ で非増加です。
+
+$u_\varepsilon\to\chi_F$ が $L^1_{\rm loc}$ なので、部分列のa.e.極限は横座標に依存しない非増加の $\{0,1\}$ 値関数となります。非増加な指示関数の1の部分は下向き半直線であり、$F=\{t<a\}$（$a=\pm\infty$ を含む）と書けます。
+
+法線が同じ半空間 $\{t<4\}$ も条件を満たすので、**この条件だけでは $a=0$ は示せません**。中心を固定するには[両相の体積密度下界](#thm-gmt26-density-bounds)が別途必要です。
 <!-- solution-end -->
 
 <a id="ex-gmt26-b03"></a>
