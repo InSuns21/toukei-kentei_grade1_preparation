@@ -37,7 +37,7 @@ chapters:
   - { id: CAT3-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-04, status: completed, title: "モナド性を判定するための条件" }
   - { id: CAT3-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-05, status: completed, title: "Beckのモナド性定理" }
   - { id: CAT3-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-06, status: completed, title: "Kan拡張の普遍性" }
-  - { id: CAT3-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-07, status: planned, title: "点ごとの左Kan拡張" }
+  - { id: CAT3-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-07, status: completed, title: "点ごとの左Kan拡張" }
   - { id: CAT3-08, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-08, status: planned, title: "点ごとの右Kan拡張" }
   - { id: CAT3-09, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-09, status: planned, title: "end・coendとKan公式" }
   - { id: CAT3-10, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-10, status: planned, title: "密度定理とKan拡張" }

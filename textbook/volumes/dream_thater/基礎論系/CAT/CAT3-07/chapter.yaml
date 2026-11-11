@@ -1,0 +1,44 @@
+id: "CAT3-07"
+title: "点ごとの左Kan拡張"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT2-05
+  - CAT2-10
+  - CAT3-06
+official_scope: []
+learning_objectives:
+  - comma圏 (K↓b) の対象・射・射影関手と余極限図式を型付きで構成し、小ささの仮定を点検できる
+  - 点ごとの左Kan拡張の余極限公式を導き、bの射に沿う作用が関手を定めることを証明できる
+  - 余極限の標準射から単位ηを定め、その自然性と左Kan拡張の全自然変換に対する普遍性を証明できる
+  - Fの自然変換に対するLanの作用を構成し、二変数での自然なHom全単射と随伴を説明できる
+  - 小圏・余完備性の条件、充満忠実なKに沿う場合の単位の同型性、有限例と非存在例を検証できる
+definitions:
+  - { id: CAT3-07-DEF-01, name: 左Kan拡張のcomma添字図式 }
+  - { id: CAT3-07-DEF-02, name: 点ごとの左Kan拡張の余極限構成 }
+theorems:
+  - { id: CAT3-07-PROP-01, name: comma添字の移送と左Kan関手の構成 }
+  - { id: CAT3-07-THM-01, name: 点ごとの左Kan拡張の公式と普遍性 }
+  - { id: CAT3-07-PROP-02, name: 左Kan拡張のFに関する関手性 }
+  - { id: CAT3-07-PROP-03, name: 充満忠実なKの単位は同型 }
+  - { id: CAT3-07-PROP-04, name: 余完備性が欠ける非存在例 }
+canonical_examples:
+  - 矢印圏の始点・終点を選ぶ関手に沿う左Kan拡張
+  - 離散二点から一点への関手に沿う余積
+  - 一本の矢印を一点へ潰す関手に沿う終域の余極限
+  - 非空有限集合では始対象がなく左Kan拡張が存在しない例
+problem_patterns:
+  - CAT3-07-COMMA-ARROW
+  - CAT3-07-DISCRETE-COPRODUCT
+  - CAT3-07-ARROW-COLLAPSE
+  - CAT3-07-UNIT-NATURALITY
+  - CAT3-07-NONEXISTENCE
+  - CAT3-07-MIXED-ARROW
+  - CAT3-07-FULLY-FAITHFUL
+  - CAT3-07-FUNCTOR-IN-F
+  - CAT3-07-POSET-JOIN
+  - CAT3-07-COMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 3 }
