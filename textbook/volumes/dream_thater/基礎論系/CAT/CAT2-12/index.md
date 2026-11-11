@@ -65,7 +65,7 @@ $$
 H=\operatorname{Hom}_{\mathcal E}(P,P)
 $$
 
-は集合である。$H$ には $1_P$ が入る。完備性で積 $P^H=\prod_{\alpha\in H}P$ を取り、二射 $a,b:P\to P^H$ を各成分が
+は集合である。$H$ には $1_P$ が入る。完備性で $H$ を添字集合とする積 $\prod_{\alpha\in H}P$ を取り、その射影を $\pi_\alpha$ と書く。二射 $a,b:P\to\prod_{\alpha\in H}P$ を各成分が
 
 $$
 \pi_\alpha a=1_P,\qquad \pi_\alpha b=\alpha
@@ -106,7 +106,13 @@ $$
 qve:I\longrightarrow I
 $$
 
-は $I$ の自己射なので、(3)より $qve=1_I$。特に $q$ は右逆 $ve$ を持つ。等化子 $q$ はモノ射でもあるから、$q$ は同型となる。等化条件 $fq=gq$ の両辺に $q^{-1}$ を合成して $f=g$ を得る。従って $I$ は始対象である。$\square$
+は $I$ の自己射なので、(3)より $qve=1_I$。すなわち $q(ve)=1_I$ である。一方、[等化子のモノ性](../CAT2-03/index.md#prop-cat2-03-equalizer-unique-mono)から $q$ はモノ射なので
+
+$$
+q(veq)=(qve)q=q=q1_Q\quad\Longrightarrow\quad veq=1_Q.
+$$
+
+従って $ve=q^{-1}$ であり、等化条件 $fq=gq$ の両辺に $q^{-1}$ を合成して $f=g$ を得る。従って $I$ は始対象である。$\square$
 <!-- proof-end -->
 
 大切なのは、任意の射 $I\to X$ の一意性を「自己射が一意」だけから直接結論していないことである。$f,g$ の**等化子**を介し、弱始対象 $P$ からその等化子へ射を送り、$q$ が同型であることまで示して初めて一意性が閉じる。完備性は積と二種類の等化子に、局所小性は自己射の全体を一つの集合にする箇所に働いた。
@@ -205,7 +211,7 @@ Gp_j\circ Gh\circ v
 =Gp_j u.
 $$
 
-$(GL,Gp_j)$ は極限錐で、その脚は共同でモノだから $Gh\,v=u$。よって $h$ はcomma圏の射になり、元の一意性からcomma圏でも一意となる。空の $\mathcal J$ にも適用でき、終対象も得られる。
+二射 $Gh\,v,u:d\to GL$ は、すべての脚 $Gp_j$ との合成が一致する。よって[極限の普遍性](../CAT2-01/index.md#def-cat2-01-limit)による媒介射の一意性から $Gh\,v=u$。よって $h$ はcomma圏の射になり、元の一意性からcomma圏でも一意となる。空の $\mathcal J$ にも適用でき、終対象も得られる。
 
 最後に二対象 $(c,u),(c',u')$ 間のcomma圏のHomは
 
@@ -523,7 +529,7 @@ $$
 Gp_i(Gh\,v)=Gq_i v=u_i=Gp_i u.
 $$
 
-積の射影 $Gp_i$ は共同でモノなので $Gh\,v=u$。よって $h$ はcomma圏の媒介射で、一意性も $\mathcal C$ の積から従う。$\mathcal D$ ではこの二項積の存在だけを $G$ の保存性から得た。$\square$
+二射 $Gh\,v,u:d\to GP$ は、両方の積射影 $Gp_1,Gp_2$ と合成するとそれぞれ $u_1,u_2$ を与える。従って[二項積の普遍性](../CAT2-02/index.md#def-cat2-02-binary-product)によって $Gh\,v=u$。よって $h$ はcomma圏の媒介射で、一意性も $\mathcal C$ の積から従う。$\mathcal D$ ではこの二項積の存在だけを $G$ の保存性から得た。$\square$
 <!-- solution-end -->
 
 ### 問題6：普遍射から左随伴の射への作用を導く
