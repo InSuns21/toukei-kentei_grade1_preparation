@@ -1,0 +1,54 @@
+chapter: ORI24
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI13, ORI17, ORI22, ORI23]
+forward_references: []
+
+concepts:
+  - id: origami.oriented-polyhedral-disk
+    name: 向き付き多面体円板と二つの側
+    kind: definition
+    introduction: formal
+    requires: [origami.crease-pattern-plane-graph]
+
+  - id: origami.epsilon-extra-folding
+    name: ε追加折り
+    kind: definition
+    introduction: formal
+    requires: [origami.oriented-polyhedral-disk]
+
+  - id: origami.seamless-facet
+    name: seamless条件
+    kind: definition
+    introduction: formal
+    requires: [origami.epsilon-extra-folding]
+
+  - id: origami.watertight-boundary
+    name: 境界のFréchet距離とwatertight条件
+    kind: definition
+    introduction: formal
+    requires: [origami.epsilon-extra-folding]
+
+  - id: origami.right-angle-two-panel
+    name: 直交する二面の厳密な折り実現
+    kind: theorem
+    introduction: formal
+    requires: [origami.seamless-facet, origami.watertight-boundary]
+
+  - id: origami.fold-surface-area-bound
+    name: 等長な面分割の面積下界
+    kind: proposition
+    introduction: formal
+    requires: [origami.epsilon-extra-folding]
+
+  - id: origami.two-site-voronoi-reflection
+    name: 二点Voronoi境界の鏡映関係
+    kind: proposition
+    introduction: formal
+    requires: [origami.oriented-polyhedral-disk]
+
+  - id: origami.origamizer-guarantee
+    name: Demaine–TachiのOrigamizer構成保証
+    kind: theorem
+    introduction: formal
+    requires: [origami.epsilon-extra-folding, origami.seamless-facet, origami.watertight-boundary]
