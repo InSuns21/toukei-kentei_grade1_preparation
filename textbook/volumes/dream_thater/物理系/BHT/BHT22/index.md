@@ -36,7 +36,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht22-gsl-balance -->
-**定義の確認**：ある近似で $\Delta S_{\rm grav}=-3$、$\Delta S_{\rm out}^{\rm ren}=5$ と計算できたなら、同一規約で加えた $\Delta S_{\rm gen}=2\ge0$ はGSLと整合します。逆に $-3+1=-2$ なら、その近似の収支は負です。しかしこの二数値が実際に許される半古典状態かどうかは、エネルギー流束・場の状態・地平線方程式を調べるまで分かりません。GSLは「負になる二数値を禁止する」ための根拠を要求します。
+**定義の確認**：未来向きに順序付けた $\Sigma_1\prec\Sigma_2$ に、同じ理論・量子状態・繰り込み規約で有限な値が得られたと**仮定する数値模型**を考えます。たとえば $(S_{\rm grav},S_{\rm out}^{\rm ren})$ が $\Sigma_1$ で $(10,7)$、$\Sigma_2$ で $(7,12)$ なら、二切断面の差をとることで
+
+$$
+\Delta S_{\rm grav}=7-10=-3,\quad
+\Delta S_{\rm out}^{\rm ren}=12-7=5,\quad
+\Delta S_{\rm gen}=2\ge0
+$$
+
+となりGSLと整合します。外部項の後の値を $8$ に変えれば $-3+(8-7)=-2$ で収支は負です。ただしこれは**定義の代入例**であり、数値を持つ物理状態の存在は証明していません。同じ規約で有限という前提を満たす実在の半古典状態かどうかは、エネルギー流束・場の状態・地平線方程式を調べる必要があります。GSLは「負になる二数値を禁止する」ための根拠を要求します。
 <!-- definition-example-end -->
 
 古典的な[面積非減少の議論](../BHT3/index.md#prop-bht3-vaidya-future-integral)は零エネルギー条件と大域的な地平線仮定を使います。量子場の繰り込まれた応力テンソルは点ごとの零エネルギー条件を満たすとは限らず、蒸発するブラックホールでは $\Delta A<0$ も起こります。GSLが比較するのは**面積単独でなく和**です。
@@ -170,7 +178,9 @@ $$
 
 前節は放射の模型ごとに外部エントロピーを推測しました。一般の量子相関を含む議論では、**未来の切断面へ進むと、外部から利用できる情報が減る**という構造を使う方が強力です。二つの切断面に対応する場の領域の代数を $\mathcal A_1\supseteq\mathcal A_2$ と書きます。初めに有限次元の正則化模型で、後者への制限が一部の自由度を捨てる量子チャネルとして表せる場合を考えます。
 
-参照状態 $\sigma_i$ と実際の状態 $\rho_i$ を各領域へ制限した密度演算子とします。[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)は底2ですが、ここでは自然対数の量 $D_{\rm nat}=\ln2\,D_{\rm bit}$ を用います。さらに参照状態が忠実（零固有値なし）なら、**モジュラーHamiltonian** を有限次元で $K_i=-\ln\sigma_i$ と定義できます。すると
+参照状態 $\sigma_i$ と実際の状態 $\rho_i$ を各領域へ制限した密度演算子とします。[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)は底2ですが、ここでは自然対数の量 $D_{\rm nat}=\ln2\,D_{\rm bit}$ を用います。参照状態が忠実（零固有値なし）なら、**モジュラーHamiltonian** を有限次元で $K_i=-\ln\sigma_i$ と定義できます。
+
+同じ切断面 $i$ で状態 $\rho_i$ と $\sigma_i$ を比べる記号を $\Delta_\sigma X_i:=X_i(\rho)-X_i(\sigma)$ と定めます。これは異なる切断面を比べる $\Delta X:=X_2-X_1$ とは別です。有限次元では $S_{{\rm out},i}(\tau)=-\operatorname{Tr}(\tau_i\ln\tau_i)$（$\tau=\rho,\sigma$）なので、
 
 $$
 \begin{aligned}
@@ -181,7 +191,7 @@ D_i&:=D_{\rm nat}(\rho_i\Vert\sigma_i)\\
 \end{aligned}
 $$
 
-となります。$\Delta_\sigma X:=X(\rho)-X(\sigma)$ は**同じ切断面上での参照状態との差**を表します。時間差 $\Delta X=X_2-X_1$ と混同しません。連続場では局所代数を有限次元Hilbert空間へ単純に因子分解できないため、この式とデータ処理を使うには、相対エントロピーを局所代数に拡張できる状態・正則化を仮定します。
+となります。連続場では局所代数を有限次元Hilbert空間へ単純に因子分解できないため、この式とデータ処理を使うには、相対エントロピーを局所代数に拡張できる状態・正則化を仮定します。
 
 <a id="def-bht22-modular-energy"></a>
 
@@ -198,7 +208,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bht22-modular-energy -->
-**定義の確認**：二準位の忠実な参照状態 $\sigma=\operatorname{diag}(3/4,1/4)$ と $\rho=\operatorname{diag}(1,0)$ を考えます。両者は正値半定値でトレース1、$\sigma$ の固有値は正ですから $\ln\sigma$ は有限です。$K=\operatorname{diag}(-\ln(3/4),-\ln(1/4))$ と固有基底で計算すると
+**行列表示への橋渡し**：忠実な参照状態を固有分解して $\sigma=\sum_j s_j|j\rangle\langle j|$（$s_j>0$）と書けば、行列の対数はこの固有基底で $\ln\sigma=\sum_j(\ln s_j)|j\rangle\langle j|$ です。$\rho$ も同じ基底で対角な例では $\rho=\sum_j r_j|j\rangle\langle j|$ と表せるので、トレースの定義から
+
+$$
+\operatorname{Tr}[(\rho-\sigma)(-\ln\sigma)]
+=\sum_j(r_j-s_j)(-\ln s_j)
+$$
+
+となります。つまり、対角成分の計算はモジュラーエネルギー差の**定義を固有基底で展開したもの**です。一般に $\rho$ と $\sigma$ が可換でなければ両方を同じ基底で対角化できず、右辺の $r_j$ を $\rho$ の固有値で置き換えてはいけません。
+
+**定義の確認**：二準位の参照状態と実際の状態を同じ基底で
+
+$$
+\sigma=\operatorname{diag}(3/4,1/4),\qquad
+\rho=\operatorname{diag}(1,0)
+$$
+
+と指定します。固有値は非負、両者のトレースは1なので密度演算子です。$\sigma$ の固有値はともに正だから[QINF20の台の包含条件](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)を満たし、$K=-\ln\sigma$ は有限です。上の展開式へ $s=(3/4,1/4)$、$r=(1,0)$ を代入すると
 
 $$
 \begin{aligned}
@@ -209,7 +235,15 @@ $$
 \end{aligned}
 $$
 
-負でも問題ありません。モジュラーエネルギー差そのものには非負性は要求せず、非負なのは上の**相対エントロピー**です。この表示が成立するのは $\sigma$ の固有基底で対数を定義したからです。
+負でも問題ありません。モジュラーエネルギー差そのものには非負性は要求せず、非負なのは上の**相対エントロピー**です。ここでは $\rho$ と $\sigma$ が同じ固有基底で対角であることも実際に使いました。確かに $S(\rho)=0$、$S(\sigma)=\ln4-\tfrac34\ln3$ なので、先に得た恒等式は
+
+$$
+D_{\rm nat}(\rho\Vert\sigma)
+=-\frac14\ln3-\left(-\ln4+\frac34\ln3\right)
+=\ln\frac43>0
+$$
+
+を与え、[量子相対エントロピーの定義](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)から直接計算した値と一致します。
 <!-- definition-example-end -->
 
 ### 4.1 何があれば一般化第二法則になるか
@@ -283,7 +317,7 @@ $$
 
 ## 5. 地平線の面積がモジュラー項を打ち消す模型
 
-面積とモジュラーエネルギーが結び付く仕組みを、平坦なRindler地平線の小さな摂動で追います。未来向きのアフィンパラメータを $v$、地平線生成方向の接ベクトルを $k^a$ とし、横断面で積分した繰り込まれた応力テンソルの参照状態差を
+面積とモジュラーエネルギーが結び付く仕組みを、平坦なRindler地平線の小さな摂動で追います。未来向きのアフィンパラメータを $v$、地平線生成方向の接ベクトルを $k^a=dx^a/dv$ とします。横断座標を $y$ とし、以下の $d^2y$ は背景の横断面積要素を表すものとします。横断面で積分した繰り込まれた応力テンソルの参照状態差を
 
 $$
 F(v):=\int d^2y\,\Delta_\sigma\langle T_{ab}(v,y)\rangle k^ak^b
@@ -291,7 +325,16 @@ $$
 
 と置きます。ここでは十分速く減衰する滑らかな流束、有限の一次モーメント、未来の無せん断・定常端状態を仮定します。$F$ は量子論では符号が必ずしも正とは限りません。
 
-地平線膨張率の摂動 $\delta\theta$ に対して、[GR34の光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)を、背景で $\theta=0$、$\sigma_{ab}=0$、ねじれ0、摂動一次で $\theta^2$ とせん断二乗を落とし、[QCURV17の半古典Einstein方程式](../../QCURV/QCURV17/index.md#def-qcurv17-semiclassical-equation)へ代入すると
+地平線膨張率の一次の状態差を $\delta\theta(v,y)$、対応する断面積の一次の状態差を $\delta A(v)$ とします。[GR34の光的Raychaudhuri方程式](../../GR/GR34/index.md#thm-gr34-null-raychaudhuri)を使い、背景で膨張率・せん断・ねじれが零、摂動一次で膨張率の二乗とせん断二乗を落とします。せん断 $\sigma_{ab}$ の記号は参照量子状態 $\sigma_i$ とは別です。
+
+[QCURV17の半古典Einstein方程式](../../QCURV/QCURV17/index.md#def-qcurv17-semiclassical-equation)のEinstein項が支配的なら、$g_{ab}k^ak^b=0$ により、光的なRicci縮約は
+
+$$
+R_{ab}k^ak^b
+=8\pi G_{\rm ren}\langle T_{ab}\rangle k^ak^b
+$$
+
+です。参照状態と実際の状態の一次差をとって代入すると、
 
 $$
 \frac{d\,\delta\theta}{dv}
@@ -299,14 +342,31 @@ $$
  \Delta_\sigma\langle T_{ab}\rangle k^ak^b.
 $$
 
-未来境界条件 $\delta\theta(+\infty)=0$ から積分すれば、横断面積について
+まず[GR34の面積の対数微分](../../GR/GR34/index.md#prop-gr34-volume-area)を背景の面積要素で一次展開すると、$\theta=\partial_v\ln\sqrt h$ より
+
+$$
+\frac{d\,\delta A(v)}{dv}
+=\int d^2y\,\delta\theta(v,y),
+\qquad
+\frac{d^2\,\delta A(v)}{dv^2}
+=-8\pi G_{\rm ren}F(v).
+$$
+
+未来境界条件 $\delta\theta(+\infty,y)=0$ と流束の可積分性から、固定した $y$ でRaychaudhuri方程式を $v$ から未来へ積分し、さらに横断面で積分します。こうして
+
+$$
+\frac{d\,\delta A(v)}{dv}
+=8\pi G_{\rm ren}\int_v^\infty F(u)\,du
+$$
+
+を得ます。$\Delta_\sigma S_{\rm grav}=\delta A/(4G_{\rm ren})$ と同定するEinstein重力の一次近似では、
 
 $$
 \frac{d}{dv}\Delta_\sigma S_{\rm grav}(v)
 =2\pi\int_v^\infty F(u)\,du
 $$
 
-を得ます。ここで $S_{\rm grav}=A/(4G_{\rm ren})$、$\frac{d\,\delta A}{dv}=\int d^2y\,\delta\theta$ を一次の範囲で使い、$8\pi G_{\rm ren}/(4G_{\rm ren})=2\pi$ としました。
+となります。係数は $8\pi G_{\rm ren}/(4G_{\rm ren})=2\pi$ です。$\delta A$ は同じ切断面上の二状態の幾何応答であり、異なる切断面間の差 $A(v_2)-A(v_1)$ ではありません。
 
 Rindler真空の地平線上では、参照状態のモジュラーHamiltonianの**状態差**が、適切な量子場・地平線代数・正則化の下で次の加重流束表示を持つことを**量子場理論側の入力**とします：
 
@@ -315,7 +375,18 @@ $$
 =2\pi\int_v^\infty(u-v)F(u)\,du.
 $$
 
-この式は任意の時空の任意の参照状態で成り立つ定義ではありません。積分核 $u-v$ がどこから来るかは、Rindlerブースト対称性とその真空のモジュラー構造に依存します。今の仮定で $F$ が可積分なら下端微分を行えて
+この式は任意の時空の任意の参照状態で成り立つ定義ではありません。積分核 $u-v$ がどこから来るかは、Rindlerブースト対称性とその真空のモジュラー構造に依存します。$u$ は積分変数で、$v$ は動かす切断面の位置です。$F(u)$ は $v$ に依存しないので、有限な一次モーメントを使って下端の寄与を確認します：
+
+$$
+\begin{aligned}
+\frac{d}{dv}\Delta_\sigma\langle K_v\rangle
+&=2\pi\left[-(v-v)F(v)
+  +\int_v^\infty\frac{\partial}{\partial v}\{(u-v)F(u)\}\,du\right]\\
+&=2\pi\left[0-\int_v^\infty F(u)\,du\right].
+\end{aligned}
+$$
+
+したがって
 
 $$
 \frac{d}{dv}\Delta_\sigma\langle K_v\rangle
@@ -376,13 +447,27 @@ $$
 - 問題: この設問に限り $G_{\rm ren}=1$ とし、ほぼ定常な中性Schwarzschildブラックホールに物体を落とす模型で $T_H=1/1000$、$E_\infty=1/50$、$S_{\rm box}=15$ とする。仕事・浮力・相関を無視した一次収支を求め、結論が適用できる条件を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：$\beta_H=1/T_H=1000$ です。[BHT8の第一法則の面積係数表示](../BHT8/index.md#prop-bht8-first-law-area)から $\Delta S_{\rm BH}\simeq\beta_HE_\infty=1000\cdot(1/50)=20$。外部で箱の自由度が失われるだけと置けば $\Delta S_{\rm out}\simeq-15$ なので、
+**詳細解答**：$\beta_H=1/T_H=1000$ です。[BHT8の第一法則の面積係数表示](../BHT8/index.md#prop-bht8-first-law-area)を仕事なし・小さい質量変化に適用すると、
+
+$$
+\Delta S_{\rm BH}\simeq\beta_HE_\infty
+=1000\cdot\frac1{50}=20.
+$$
+
+外部で箱の自由度が失われるだけと置けば $\Delta S_{\rm out}\simeq-15$ なので、
 
 $$
 \Delta S_{\rm gen}\simeq20-15=5>0.
 $$
 
-質量変化は背景質量より十分小さく、温度変化を一次で無視できる必要があります。実際この温度に対応するSchwarzschild質量は $M=1/(8\pi T_H)=125/\pi$ なので、$E_\infty/M=\pi/6250\ll1$ です。$S_{\rm box}$ が外部全体の微細エントロピーの減少に一致するには、初期・最終の他の自由度との相関が無視できることも必要です。この数値例は一般的な投下過程のGSLを証明しません。
+質量変化は背景質量より十分小さく、温度変化を一次で無視できる必要があります。実際この温度に対応するSchwarzschild質量について、
+
+$$
+M=\frac1{8\pi T_H}=\frac{125}{\pi},\qquad
+\frac{E_\infty}{M}=\frac{\pi}{6250}\ll1.
+$$
+
+$S_{\rm box}$ が外部全体の微細エントロピーの減少に一致するには、初期・最終の他の自由度との相関が無視できることも必要です。この数値例は一般的な投下過程のGSLを証明しません。
 <!-- solution-end -->
 
 <a id="ex-bht22-a02"></a>
@@ -415,13 +500,20 @@ $\kappa>0$ が分母と分子で相殺されます。$\ell$ は外向きの固�
 - 問題: $s(n)=(1+n)\ln(1+n)-n\ln n$（$n>0$）、$x=\beta_H\omega>0$ とする。$f(n)=s(n)-xn$ の導関数を求め、$n=(e^x-1)^{-1}$ で0となることを示せ。
 
 <!-- solution-start -->
-**詳細解答**：積の微分で $s'(n)=\ln(1+n)+1-\ln n-1=\ln((1+n)/n)$。従って
+**詳細解答**：$n>0$ で積の微分を使うと、
+
+$$
+s'(n)=[\ln(1+n)+1]-[\ln n+1]
+=\ln\frac{1+n}{n}.
+$$
+
+従って
 
 $$
 f'(n)=\ln(1+1/n)-x.
 $$
 
-$n=(e^x-1)^{-1}$ では $1+1/n=e^x$ なので $f'(n)=\ln(e^x)-x=0$ です。これは $f$ の最大点が理想熱占有数にあることを示します。$n=0$ で直接対数微分せず、関数値は $n\ln n\to0$ の極限で定めます。
+$n=(e^x-1)^{-1}$ では $1+1/n=e^x$ なので $f'(n)=\ln(e^x)-x=0$ です。さらに $f'(n)>0$（$0<n<n_H$）であり $f'(n)<0$（$n>n_H$）なので、これは最大点です。$n=0$ で直接対数微分せず、関数値は $n\ln n\to0$ の極限で定めます。
 <!-- solution-end -->
 
 <a id="ex-bht22-a04"></a>
@@ -484,7 +576,14 @@ $v<1$ でも正なのは未来の境界条件を使って地平線を定めた�
 - 問題: $x>0$、$n_H=(e^x-1)^{-1}$、$n=\Gamma n_H$（$0\le\Gamma\le1$）とする。$f(n)=(1+n)\ln(1+n)-n\ln n-xn$ の符号を判定せよ。$\Gamma=0,1$ の値を示し、なぜ放射全体のGSLの証明ではないか説明せよ。
 
 <!-- solution-start -->
-**詳細解答**：$0<\Gamma\le1$ なら $0<n\le n_H$ です。$f'(n)=\ln(1+1/n)-x$ で、$n\le n_H$ から $1+1/n\ge e^x$、ゆえに $f'(n)\ge0$。$f(0)=0$ より全区間で $f(n)\ge0$。$\Gamma=0$ では $n=0$ で $f=0$、$\Gamma=1$ では
+**詳細解答**：$0<\Gamma\le1$ なら $0<n\le n_H$ です。$n_H^{-1}=e^x-1$ を代入すれば、
+
+$$
+f'(n)=\ln(1+1/n)-x
+\ge\ln(1+1/n_H)-x=0.
+$$
+
+$f(0)=0$ より全区間で $f(n)\ge0$。$\Gamma=0$ では $n=0$ で $f=0$、$\Gamma=1$ では
 
 $$
 f(n_H)=-\ln(1-e^{-x})>0.
@@ -508,7 +607,10 @@ $$
 \Delta S_{\rm gen}\simeq2\pi\ell E_{\rm loc}-S_{\rm box}.
 $$
 
-$\ell\ge R$、$E_{\rm loc}\ge0$ なので $2\pi\ell E_{\rm loc}\ge2\pi R E_{\rm loc}$。従って $S_{\rm box}\le2\pi R E_{\rm loc}$ を**仮定すれば** $\Delta S_{\rm gen}\ge0$ です。しかし（1）この境界自体は落下収支から導けず、置いた追加条件です。（2）箱の保持・浮力・熱的雰囲気・エネルギー測定の仕方を省いており、現実の準静的降下で $\Delta S_{\rm out}=-S_{\rm box}$ が成り立つとは限りません。よって境界の普遍性を証明したことにはなりません。
+$\ell\ge R$、$E_{\rm loc}\ge0$ なので $2\pi\ell E_{\rm loc}\ge2\pi R E_{\rm loc}$。従って $S_{\rm box}\le2\pi R E_{\rm loc}$ を**仮定すれば** $\Delta S_{\rm gen}\ge0$ です。しかし普遍的な境界の証明ではありません。
+
+1. この境界自体は落下収支から導けず、置いた追加条件です。
+2. 箱の保持・浮力・熱的雰囲気・エネルギー測定の仕方を省いており、現実の準静的降下で $\Delta S_{\rm out}=-S_{\rm box}$ が成り立つとは限りません。
 <!-- solution-end -->
 
 <a id="ex-bht22-b03"></a>
@@ -562,9 +664,20 @@ $$
 
 - Level: C
 
-- 問題: 半古典的なRindler地平線の一次摂動で、横断積分流束を $F(u)=f>0$（$1\le u\le2$）、それ以外0とする。未来の定常境界条件を仮定し、$K_v=2\pi\int_v^\infty(u-v)F(u)\,du$ と $\partial_vS_{\rm grav}=2\pi\int_v^\infty F(u)\,du$ を用いる。$v_1=0$、$v_2=3/2$ とする。
+- 問題: 半古典的なRindler地平線の一次摂動で、横断積分流束を $F(u)=f>0$（$1\le u\le2$）、それ以外0とする。未来の定常境界条件を仮定する。モジュラーHamiltonian演算子 $K_v$ の参照状態に対する**期待値差**と重力エントロピーの**状態差**を、それぞれ次の数値関数で表す。
 
-1. $K_{v_1},K_{v_2}$ と重力エントロピー変化を計算する。
+$$
+\begin{aligned}
+\mathcal K(v)&:=\Delta_\sigma\langle K_v\rangle
+=2\pi\int_v^\infty(u-v)F(u)\,du,\\
+S_g(v)&:=\Delta_\sigma S_{\rm grav}(v),\qquad
+\frac{dS_g}{dv}=2\pi\int_v^\infty F(u)\,du.
+\end{aligned}
+$$
+
+切断面を $v_1=0$、$v_2=3/2$ に取る。
+
+1. $\mathcal K(v_1),\mathcal K(v_2)$ と重力エントロピーの参照状態差の時間変化を計算する。
 2. 状態 $\rho$ と参照状態 $\sigma$ の相対エントロピーが $D_{v_1}=2a$、$D_{v_2}=a$（$a>0$）で、参照状態の一般化エントロピーは一定とする。外部エントロピーの**参照状態差の時間変化**を求める。
 3. 全一般化エントロピーの変化を求める。流束だけから2. の相対エントロピー値を計算できるか、また非極限ブラックホール以外へ一般化できるか説明する。
 
@@ -575,22 +688,22 @@ $$
 
 $$
 \begin{aligned}
-K_0&=2\pi f\int_1^2u\,du
+\mathcal K(0)&=2\pi f\int_1^2u\,du
 =2\pi f\left[\frac{u^2}{2}\right]_1^2=3\pi f,\\
-K_{3/2}&=2\pi f\int_{3/2}^2(u-3/2)\,du\\
+\mathcal K(3/2)&=2\pi f\int_{3/2}^2(u-3/2)\,du\\
 &=2\pi f\left[\frac{(u-3/2)^2}{2}\right]_{3/2}^2
 =\frac{\pi f}{4}.
 \end{aligned}
 $$
 
-よって $K_{3/2}-K_0=-11\pi f/4$。$S_{\rm grav}'+K'=0$ を同じ $v$ 区間で積分し、
+よって $\mathcal K(3/2)-\mathcal K(0)=-11\pi f/4$。$S_g'(v)+\mathcal K'(v)=0$ を同じ $v$ 区間で積分し、
 
 $$
-S_{\rm grav}(3/2)-S_{\rm grav}(0)
-=-(K_{3/2}-K_0)=\frac{11\pi f}{4}.
+S_g(3/2)-S_g(0)
+=-[\mathcal K(3/2)-\mathcal K(0)]=\frac{11\pi f}{4}.
 $$
 
-ここでは $S_{\rm grav}$ は参照状態との差の幾何摂動部分を表しています。
+ここでは $S_g$ は参照状態との差の幾何摂動部分を表し、絶対的な重力エントロピーとは区別しています。
 
 **2. 外部項。** [自然対数の相対エントロピー恒等式](#def-bht22-modular-energy)は
 
@@ -604,7 +717,7 @@ $$
 $$
 \begin{aligned}
 \Delta_\sigma S_{\rm out}(3/2)-\Delta_\sigma S_{\rm out}(0)
-&=(K_{3/2}-a)-(K_0-2a)\\
+&=[\mathcal K(3/2)-a]-[\mathcal K(0)-2a]\\
 &=-\frac{11\pi f}{4}+a.
 \end{aligned}
 $$
