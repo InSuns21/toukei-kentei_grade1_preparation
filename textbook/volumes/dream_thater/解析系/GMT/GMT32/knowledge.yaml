@@ -1,0 +1,74 @@
+chapter: GMT32
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT31
+  - MT8
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt32-tube
+    name: δ-tubeと重複度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$\\delta$-tubeと重複度）"]
+    requires: []
+
+  - id: geometric-measure.gmt32-tube-volume
+    name: tube体積と重複度の積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（tube体積と重複度の積分）"]
+    requires:
+      - geometric-measure.gmt32-tube
+
+  - id: geometric-measure.gmt32-separated
+    name: δ-分離方向集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（$\\delta$-分離方向集合）"]
+    requires: []
+
+  - id: geometric-measure.gmt32-direction-count
+    name: 分離方向の本数
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（分離方向の本数）"]
+    requires:
+      - geometric-measure.gmt32-separated
+
+  - id: geometric-measure.gmt32-minkowski
+    name: 上下Minkowski次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（上下Minkowski次元）"]
+    requires:
+      - measure.hausdorff-dimension
+
+  - id: geometric-measure.gmt32-neighborhood-cover
+    name: 被覆数と近傍体積の比較
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（被覆数と近傍体積の比較）"]
+    requires:
+      - geometric-measure.gmt32-minkowski
+
+  - id: geometric-measure.gmt32-dimension-comparison
+    name: Hausdorff次元と上下Minkowski次元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Hausdorff次元と上下Minkowski次元）"]
+    requires:
+      - geometric-measure.gmt32-minkowski
+      - measure.hausdorff-dimension
+      - measure.hausdorff-threshold
+
+  - id: geometric-measure.gmt32-kakeya-overlap
+    name: 零面積Besicovitch集合に伴う重複度の発散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零面積Besicovitch集合に伴う重複度の発散）"]
+    requires:
+      - geometric-measure.gmt31-null-existence
+      - geometric-measure.gmt32-tube-volume
+      - geometric-measure.gmt32-direction-count
