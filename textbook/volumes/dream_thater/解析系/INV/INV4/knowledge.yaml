@@ -1,0 +1,57 @@
+chapter: INV4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV3
+
+forward_references: []
+
+concepts:
+  - id: inverse.pseudoinverse-domain
+    name: 最小ノルム一般化逆の定義域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小ノルム一般化逆の定義域）"]
+    requires: [inverse.picard-minimum-norm, inverse.compact-singular-expansion]
+
+  - id: inverse.regularization-family
+    name: 正則化作用素族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則化作用素族）"]
+    requires: [inverse.pseudoinverse-domain, functional.bounded-linear-operator]
+
+  - id: inverse.noisy-regularization-convergence
+    name: ノイズ下での正則化収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ノイズ下での正則化収束）"]
+    requires: [inverse.regularization-family]
+
+  - id: inverse.regularization-error-bound
+    name: 正則化誤差の二項分解と収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正則化誤差の二項分解と収束）"]
+    requires: [inverse.noisy-regularization-convergence, inverse.regularization-family]
+
+  - id: inverse.regularization-norm-divergence
+    name: 不安定な逆に対する正則化ノルムの発散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（不安定な逆に対する正則化ノルムの発散）"]
+    requires: [inverse.regularization-family, inverse.closed-range-stability]
+
+  - id: inverse.diagonal-truncation-regularization
+    name: 対角観測の有限項正則化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対角観測の有限項正則化）"]
+    requires: [inverse.regularization-error-bound, inverse.picard-minimum-norm]
+
+  - id: inverse.noise-amplification-necessity
+    name: ノイズ増幅条件の必要性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ノイズ増幅条件の必要性）"]
+    requires: [inverse.noisy-regularization-convergence, inverse.regularization-error-bound]

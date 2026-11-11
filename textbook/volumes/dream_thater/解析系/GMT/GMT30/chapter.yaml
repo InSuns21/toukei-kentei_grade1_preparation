@@ -1,0 +1,46 @@
+id: GMT30
+title: 周長最小化の直接法
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT22
+  - GMT23
+  - GMT24
+  - GMT27
+  - GMT28
+  - GMT29
+official_scope: []
+learning_objectives:
+  - 共通コンパクト支持と有限周長から全空間L1収束部分列を構成できる
+  - 体積・含有障害物・排除障害物条件のL1閉性を積分評価から証明できる
+  - 有界容器内の周長最小化の存在を最小化列・コンパクト性・下半連続性で示せる
+  - 固定外部データに対する全周長と相対周長の差を説明できる
+  - 並進逃避・可変境界層・連結性非閉性の失敗機構を反例で検算できる
+  - 円盤障害物付き問題の極小値と全極小集合を等周不等式から決定できる
+definitions:
+  - { id: GMT30-DEF-01, name: 容器・障害物・体積付きの許容クラス }
+  - { id: GMT30-DEF-02, name: 周長最小化列 }
+theorems:
+  - { id: GMT30-LEM-01, name: 共通コンパクト支持による全空間収束 }
+  - { id: GMT30-THM-01, name: コンパクト容器・体積・障害物条件下の周長極小集合の存在 }
+  - { id: GMT30-COR-01, name: 固定外部データと体積条件の周長極小集合 }
+  - { id: GMT30-PROP-01, name: 円盤障害物付き固定面積問題の全極小集合 }
+canonical_examples:
+  - 円盤容器と円盤障害物による極小値・極小集合の決定
+  - 無限遠へ平行移動する球による質量消失
+  - 可変幅の境界層で境界近傍条件が失われる固定体積列
+  - 細い通路が消えて連結性が失われる列
+  - 容器境界に沿う長方形の全周長と相対周長
+problem_patterns:
+  - GMT30-VOLUME-L1
+  - GMT30-OBSTACLE-CLOSURE
+  - GMT30-COMPACT-SUPPORT
+  - GMT30-EXTERIOR-DATA
+  - GMT30-BOUNDARY-LAYER
+  - GMT30-MASS-ESCAPE
+  - GMT30-PENALTY-VS-CONSTRAINT
+  - GMT30-EXACT-DISC-MINIMIZERS
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 11, exercises: 8, review: 5 }

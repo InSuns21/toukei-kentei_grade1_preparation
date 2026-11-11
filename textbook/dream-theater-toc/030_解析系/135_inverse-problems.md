@@ -4,3 +4,4 @@
 1. [INV1 観測から未知量を戻せるのはいつか](textbook/volumes/dream_thater/解析系/INV/INV1/index.md)
 2. [INV2 コンパクト作用素はなぜ逆を不安定にするか](textbook/volumes/dream_thater/解析系/INV/INV2/index.md)
 3. [INV3 特異系から可解性を判定できるか](textbook/volumes/dream_thater/解析系/INV/INV3/index.md)
+4. [INV4 逆を正則化するとはどういうことか](textbook/volumes/dream_thater/解析系/INV/INV4/index.md)

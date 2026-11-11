@@ -30,3 +30,4 @@
 27. [GMT27 De Giorgi構造定理 II：整流可能性と測度同定](textbook/volumes/dream_thater/解析系/GMT/GMT27/index.md)
 28. [GMT28 Gauss--Greenの境界積分・集合演算・切断](textbook/volumes/dream_thater/解析系/GMT/GMT28/index.md)
 29. [GMT29 Euclid等周不等式](textbook/volumes/dream_thater/解析系/GMT/GMT29/index.md)
+30. [GMT30 周長最小化の直接法](textbook/volumes/dream_thater/解析系/GMT/GMT30/index.md)
