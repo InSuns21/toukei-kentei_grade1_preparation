@@ -1,0 +1,39 @@
+chapter: HOLO1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GR6
+  - GR7
+  - LORG4
+  - GEO18
+concepts:
+  - id: holography.ads-quadric
+    name: 反de Sitter双曲面とその誘導計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（反de Sitter双曲面とその誘導計量）"]
+    requires: [gravity.lorentz-ricci-curvature, lorentz-geometry.lorentz-levi-civita-extension]
+  - id: holography.ads-global-metric
+    name: 双曲面のglobal計量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双曲面のglobal計量）"]
+    requires: [holography.ads-quadric]
+  - id: holography.ads-constant-curvature
+    name: AdSの定曲率と縮約
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（AdSの定曲率と縮約）"]
+    requires: [holography.ads-quadric, gravity.lorentz-ricci-curvature]
+  - id: holography.ads-universal-cover
+    name: 時間を解いた普遍被覆AdS
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間を解いた普遍被覆AdS）"]
+    requires: [holography.ads-global-metric, topology.simply-connected]
+  - id: holography.ads-linear-isometries
+    name: AdSの線形等長変換と時間周期
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AdSの線形等長変換と時間周期）"]
+    requires: [holography.ads-quadric, holography.ads-universal-cover]

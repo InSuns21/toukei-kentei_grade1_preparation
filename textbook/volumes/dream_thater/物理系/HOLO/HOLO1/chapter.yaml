@@ -1,0 +1,42 @@
+id: "HOLO1"
+title: "反de Sitter時空の埋め込みと定曲率"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GR6
+  - GR7
+  - LORG4
+  - GEO18
+official_scope: []
+learning_objectives:
+  - 符号数2の平坦な埋め込み空間にあるAdS双曲面の正則性とLorentz誘導計量を説明できる
+  - 双曲面制約を直接微分してglobal座標の計量を導き曲率半径Lの意味を説明できる
+  - 平坦な外部接続と法線を用いてGauss型の曲率式を導出しRicciとスカラー曲率を検算できる
+  - 周期的な時間を持つ双曲面と時間を解いた普遍被覆を区別し閉時間的曲線を特定できる
+  - 埋め込み空間の直交群が誘導する等長変換とその次元を説明し作用範囲を限定できる
+definitions:
+  - { id: HOLO1-DEF-01, name: 反de Sitter双曲面とその誘導計量 }
+  - { id: HOLO1-DEF-02, name: 時間を解いた普遍被覆AdS }
+theorems:
+  - { id: HOLO1-PROP-01, name: 双曲面のglobal計量 }
+  - { id: HOLO1-THM-01, name: AdSの定曲率と縮約 }
+  - { id: HOLO1-PROP-02, name: AdSの線形等長変換と時間周期 }
+canonical_examples:
+  - 中心x=0で誘導計量と時間的閉曲線の固有時を確認する
+  - 動径座標r=L sinh rhoの変換と時空符号の直接検算
+  - 埋め込みの接線ベクトルと単位法線から曲率の負符号を確認する
+  - 宇宙項の符号と曲率半径の関係を確認する
+problem_patterns:
+  - HOLO1-REGULAR-HYPERBOLOID
+  - HOLO1-TANGENT-SIGNATURE
+  - HOLO1-GLOBAL-COORDINATES
+  - HOLO1-RADIAL-CHANGE
+  - HOLO1-CONNECTION-GAUSS
+  - HOLO1-RICCI-EINSTEIN
+  - HOLO1-TIME-COVER
+  - HOLO1-ISOMETRY-ALGEBRA
+  - HOLO1-INTEGRATED-GEOMETRY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 8, review: 4 }

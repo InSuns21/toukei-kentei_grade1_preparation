@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 210" width="640" height="210" data-layout-lint="strict" role="img" aria-labelledby="holo1-time-title holo1-time-desc">
+  <title id="holo1-time-title">周期的時刻を実直線へほどく模式図</title>
+  <desc id="holo1-time-desc">左は円周状の時刻で0と2πLが同じ一点を表す。右は実数の時刻で0と2πLが離れた二点を表す。空間方向を省略した位相の模式図であり、曲率の埋め込み図ではない。</desc>
+  <g fill="none" stroke="#235d8c" stroke-width="4">
+    <circle cx="154" cy="125" r="60"/>
+    <path d="M358 125 H606"/>
+  </g>
+  <g fill="#173c60" stroke="#ffffff" stroke-width="2">
+    <circle cx="154" cy="65" r="7"/>
+    <circle cx="418" cy="125" r="7"/>
+    <circle cx="545" cy="125" r="7"/>
+  </g>
+  <g fill="#152e42" font-family="sans-serif" font-size="18" text-anchor="middle">
+    <text x="154" y="39">0 ≡ 2πL</text>
+    <text x="418" y="96">0</text>
+    <text x="545" y="96">2πL</text>
+  </g>
+</svg>
