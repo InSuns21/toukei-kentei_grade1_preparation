@@ -133,11 +133,11 @@
 
 ## 6. 実装順・状態管理・完了判定
 
-1. 本PLANは**設計のみ**なので \`textbook/plans/\` に保持する。PLAN本文の改訂を理由に \`plans_progress/\` へ移さない。
-2. 初回の章執筆時に、\`textbook/dream-theater-series/RMT.yaml\` の有無、既存IDとsubject routing、前提章の実体・stable anchorを再検査し、30講のmanifestを作る。同じ作業単位でPLANを \`plans_progress/\` へ移動し、manifestの \`plan\` パスも更新する。現時点ではmanifestの先行作成は行わない。
+1. 本PLANは**設計のみ**なので `textbook/plans/` に保持する。PLAN本文の改訂を理由に `plans_progress/` へ移さない。
+2. 初回の章執筆時に、`textbook/dream-theater-series/RMT.yaml` の有無、既存IDとsubject routing、前提章の実体・stable anchorを再検査し、30講のmanifestを作る。同じ作業単位でPLANを `plans_progress/` へ移動し、manifestの `plan` パスも更新する。現時点ではmanifestの先行作成は行わない。
 3. 先行してRMT1–RMT5の定義・記号・前提と演習方針を統一し、次にglobal lawの核心証明（RMT6–RMT15）を閉じる。発展講（RMT16–RMT28）では完全証明部分と引用定理を区別し、最後にRMT29–RMT30で適用条件を突き合わせる。
-4. 章ごとの実本文・\`chapter.yaml\`・\`knowledge.yaml\`・series manifestを整合させ、DREAM THEATER標準の主要結果と全演習解答を自己検算・別観点で再査読する。新規本文は区分Cとして扱い、変更スコープに合うCI、公開リンク、数式表示を確認する。
-5. **30講すべて**についてlearning objectives、証明契約、詳細解答、定理引用の正確性、直接必要な前提、routing・索引、横断実験・総合監査が完了して初めて \`plan_done/\` に移す。講数だけ達成しても完了とはしない。
+4. 章ごとの実本文・`chapter.yaml`・`knowledge.yaml`・series manifestを整合させ、DREAM THEATER標準の主要結果と全演習解答を自己検算・別観点で再査読する。新規本文は区分Cとして扱い、変更スコープに合うCI、公開リンク、数式表示を確認する。
+5. **30講すべて**についてlearning objectives、証明契約、詳細解答、定理引用の正確性、直接必要な前提、routing・索引、横断実験・総合監査が完了して初めて `plan_done/` に移す。講数だけ達成しても完了とはしない。
 
 ## 7. 既案からの変更記録
 
