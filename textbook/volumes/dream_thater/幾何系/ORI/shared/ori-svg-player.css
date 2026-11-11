@@ -1,0 +1,27 @@
+:root { font: 17px/1.6 system-ui, -apple-system, sans-serif; color: #173044; background: #f7fafc; }
+* { box-sizing: border-box; }
+body { margin: 0 auto; max-width: 910px; padding: clamp(.8rem, 3vw, 1.5rem); }
+h1 { font-size: clamp(1.35rem, 3vw, 1.8rem); line-height: 1.35; }
+h2 { font-size: 1.15rem; }
+a { color: #175c93; }
+.surface { background: #fff; border: 1px solid #a1b2c0; border-radius: .65rem; padding: .75rem; }
+.graphic { background: white; border-radius: .4rem; }
+svg { display: block; width: 100%; height: auto; }
+.panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 315px), 1fr)); gap: .75rem; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: 1rem; }
+button, select, input { font: inherit; }
+button, select { color: #173044; background: #fff; border: 1px solid #47647b; border-radius: .4rem; padding: .28rem .65rem; min-height: 2.6rem; }
+button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid #1672be; outline-offset: 2px; }
+button:hover { background: #e7f1fa; }
+.timeline { display: block; margin: .8rem 0; }
+.timeline input { width: 100%; min-height: 2rem; margin-top: .25rem; accent-color: #14628f; }
+.readout { background: #eaf3f8; padding: .7rem; border-radius: .35rem; font-variant-numeric: tabular-nums; min-height: 3.5rem; }
+.step { font-weight: 700; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { border: 1px solid #a8b7c3; padding: .3rem .4rem; text-align: left; }
+th { background: #eaf3f8; }
+.footnote { border-left: 4px solid #62788c; padding-left: .8rem; }
+@media (max-width: 470px) { :root { font-size: 16px; } .surface { padding: .4rem; } .controls { gap: .4rem; } button { flex: 1 1 auto; } }
+@media (max-width: 470px) { #stage { min-width: 580px; } .v01-scroll { overflow-x: auto; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }

@@ -143,6 +143,9 @@ jobs:
           TEXTBOOK_BASE_SHA: ${{ env.PR_COMPARISON_SHA }}
         run: npm run validate:textbook:changed -- --base "$TEXTBOOK_BASE_SHA"
 
+      - name: Verify ORI animated SVG model invariants and fallback assets
+        run: npm run test:ori-svg-phase-a
+
       - name: Fast validate changed textbook dependencies and SVG
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
         env:

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORI-V08 Kawasaki–Justinの角扇</title>
+  <link rel="stylesheet" href="../../shared/ori-svg-player.css">
+</head>
+<body>
+  <h1>ORI-V08 Kawasaki–Justinの交互角と扇形の重なり</h1>
+  <p>左は折る前の四つの扇形、右は折り線を渡るたびに<strong>鏡映した完成配置の構成図</strong>です。再生時間は「面1〜4を順に表示する説明の工程」であり、<strong>紙の連続的な折り運動を表しません</strong>。どちらの図も単頂点近傍を上から見た二次元図です。</p>
+  <div class="surface">
+    <label for="case">角度の例</label>
+    <select id="case"><option value="valid">成立：60°, 120°, 120°, 60°</option><option value="invalid">不成立：60°, 120°, 60°, 120°</option></select>
+    <div class="panels">
+      <div class="graphic">
+        <svg id="original" viewBox="0 0 360 345" role="img" aria-labelledby="original-title original-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="original-title">元の四つの扇形と角度</title>
+          <desc id="original-desc">一周360度の四つの扇形。各角度を半直線間に記している。</desc>
+          <text x="20" y="28" fill="#263f50" font-size="19" font-family="system-ui, sans-serif" font-weight="bold">折る前：角度の巡回順</text>
+          <g id="original-sectors"/>
+          <circle cx="168" cy="184" r="4" fill="#132d41"/>
+          <text x="22" y="330" fill="#263f50" font-size="15" font-family="system-ui, sans-serif">すべての角度は正。一周は360°。</text>
+        </svg>
+      </div>
+      <div class="graphic">
+        <svg id="folded" viewBox="0 0 360 345" role="img" aria-labelledby="folded-title folded-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="folded-title">扇形像を一つずつ重ねて表示</title>
+          <desc id="folded-desc">同じ頂点に面を重ねる構成図。初めの面は上の層、後から表示する面は下の層として番号を付ける。交互角歩行の始辺と終辺が一致するかを示す。</desc>
+          <text x="20" y="28" fill="#263f50" font-size="19" font-family="system-ui, sans-serif" font-weight="bold">完成配置：交互角歩行</text>
+          <g id="folded-sectors"/>
+          <line x1="168" y1="184" x2="293" y2="184" stroke="#354f60" stroke-width="2" stroke-dasharray="5 5"/>
+          <line id="terminal-ray" x1="168" y1="184" x2="293" y2="184" stroke="#ab482f" stroke-width="3"/>
+          <circle cx="168" cy="184" r="4" fill="#132d41"/>
+          <text x="22" y="312" fill="#263f50" font-size="15" font-family="system-ui, sans-serif">破線：始辺　実線：終辺</text>
+          <text x="22" y="332" fill="#263f50" font-size="15" font-family="system-ui, sans-serif">面番号1が上・4が下（構成上の層順）</text>
+        </svg>
+      </div>
+    </div>
+    <div class="controls" role="group" aria-label="工程の再生操作">
+      <button type="button" data-player="play" aria-pressed="false">再生</button>
+      <button type="button" data-player="reset">初めから</button>
+      <button type="button" data-player="previous">前の工程</button>
+      <button type="button" data-player="next">次の工程</button>
+      <label for="speed">速度</label>
+      <select id="speed" data-player="speed" aria-label="再生速度"><option value="0.25">0.25倍</option><option value="0.5">0.5倍</option><option value="1" selected>1倍</option><option value="2">2倍</option></select>
+    </div>
+    <label class="timeline" for="time">工程の進捗（矢印キー、Home/Endキーで移動できます）<input id="time" data-player="time" type="range" min="0" max="1" step="0.001" value="0" aria-label="扇形を表示する工程の進捗"></label>
+    <p class="step" data-player="step">工程 0/4</p>
+    <p class="readout" data-player="status">数理状態を準備しています。</p>
+    <p class="sr-only" data-player="announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+  <h2>角度の読み方と検算</h2>
+  <p>折り前の角を α<sub>1</sub>, …, α<sub>4</sub> とすると、折り後の扇形の境界角は <strong>T<sub>0</sub>=0°, T<sub>j</sub>=T<sub>j−1</sub>+(-1)<sup>j−1</sup>β<sub>j</sub></strong> です。βは元の角を偶数個だけ巡回移動した列で、隣接順を変えません。成立例では β=(120°,60°,60°,120°)、T=(0°,120°,60°,120°,0°)。各面の幅 |T<sub>j</sub>−T<sub>j−1</sub>|=β<sub>j</sub> が不変です。</p>
+  <p>必要十分な判定は <strong>α<sub>1</sub>+α<sub>3</sub>=α<sub>2</sub>+α<sub>4</sub>=180°</strong>。不成立例では奇数・偶数和が120°・240°で、境界は閉じません。完成配置の存在だけを示すもので、指定山谷による実現、有限厚み、連続運動は主張しません。</p>
+  <details><summary>全工程の文章代替と静止フレーム</summary>
+    <ol>
+      <li>工程0：四つの扇形角を巡回順に確認。成立例は60°,120°,120°,60°。</li>
+      <li>工程1：最小偶数途中和を開始点にし、面1を幅120°で置く。</li>
+      <li>工程2：面2を反転した向きに幅60°で置く。境界角は120°から60°へ戻る。</li>
+      <li>工程3：面3を正向きに幅60°で置く。境界角は120°になる。</li>
+      <li>工程4：面4を負向きに幅120°で置く。終辺は始辺0°と一致する。</li>
+    </ol>
+    <p><a href="ori-v08-poster.svg">成立例を描いた静的SVG</a></p>
+  </details>
+  <p class="footnote">色に加え、面番号と輪郭の線種で区別しています。動きの軽減を設定した環境では最後の静止工程を既定表示にします。JavaScript非対応でも<a href="ori-v08-poster.svg">静止図</a>と判定式で確認できます。</p>
+  <p><a href="../index.md#thm-ori14-kawasaki-justin">ORI14：Kawasaki–Justinの定理</a>／<a href="../index.md#lem-ori14-minimum-start">偶数途中和の最小から始める補題</a></p>
+  <script type="module">
+    import { mountPlayer } from '../../shared/ori-svg-player.mjs';
+    import { stageAt, sectorPath } from './ori-v08-model.mjs';
+    const ns = 'http://www.w3.org/2000/svg';
+    const original = document.getElementById('original-sectors');
+    const folded = document.getElementById('folded-sectors');
+    const terminal = document.getElementById('terminal-ray');
+    const choice = document.getElementById('case');
+    let drawnCase = null;
+    let foldedGroups = [];
+    const colors = ['#a7dce4', '#f0d8ae', '#d0d1ee', '#c8e2b3'];
+    const dashes = ['', '10 5', '3 5', '14 3 3 3'];
+    const point = (angle, radius) => {
+      const rad = angle * Math.PI / 180;
+      return [168 + radius * Math.cos(rad), 184 - radius * Math.sin(rad)];
+    };
+    function makeSector(parent, from, to, number, visible = 1, radial = 0) {
+      const g = document.createElementNS(ns, 'g');
+      g.setAttribute('opacity', String(visible));
+      const path = document.createElementNS(ns, 'path');
+      path.setAttribute('d', sectorPath(168,184,124,from,to));
+      path.setAttribute('fill', colors[(number-1)%4]);
+      path.setAttribute('fill-opacity', '.64');
+      path.setAttribute('stroke', '#34566b');
+      path.setAttribute('stroke-width', '2.5');
+      if (dashes[number-1]) path.setAttribute('stroke-dasharray', dashes[number-1]);
+      g.append(path);
+      const text = document.createElementNS(ns, 'text');
+      const [x,y] = point((from+to)/2, radial || 80);
+      text.setAttribute('x', x.toFixed(1));
+      text.setAttribute('y', (y+5).toFixed(1));
+      text.setAttribute('text-anchor', 'middle');
+      text.setAttribute('font-size', '17');
+      text.setAttribute('font-weight', 'bold');
+      text.setAttribute('font-family', 'system-ui, sans-serif');
+      text.setAttribute('fill', '#183248');
+      text.textContent = String(number);
+      g.append(text);
+      parent.append(g);
+      return g;
+    }
+    function render(t) {
+      const state = stageAt(t, choice.value);
+      if (drawnCase !== choice.value) {
+        original.replaceChildren();
+        folded.replaceChildren();
+        state.source.angles.forEach((angle,i) => makeSector(original, state.source.original[i], state.source.original[i+1], i+1, 1, 80));
+        // 新しい面は下の層。DOMでも4→1で描いて層番号を保つ。
+        foldedGroups = new Array(4);
+        for (let i=3; i>=0; i--) foldedGroups[i] = makeSector(folded, state.placed.alternating[i], state.placed.alternating[i+1], i+1, 0, 37+21*i);
+        const [x,y] = point(state.placed.alternating.at(-1), 124);
+        terminal.setAttribute('x2', x.toFixed(2));
+        terminal.setAttribute('y2', y.toFixed(2));
+        terminal.setAttribute('stroke', state.source.closed ? '#285e63' : '#b13a2d');
+        drawnCase = choice.value;
+      }
+      for (let i=0; i<4; i++) foldedGroups[i].setAttribute('opacity', state.visibility[i].toFixed(3));
+      const visible = state.visibility.filter(v => v >= 1).length;
+      return {
+        step: `工程 ${visible}/4：${state.source.closed ? '平坦配置が閉じる' : '終辺が閉じない反例'}（描画中の面を含む）`,
+        readout: `奇数角和 ${state.source.odd}°／偶数角和 ${state.source.even}°。折り後の境界角 T=(${state.placed.alternating.join('°, ')}°)。終辺−始辺=${state.placed.alternating.at(-1)}°。${state.source.closed ? '閉じるので局所平坦折りの構成が可能。' : '0°ではないため、この折り線図は局所平坦折り不可。'}`
+      };
+    }
+    const player = mountPlayer({ render, steps: [0,.25,.5,.75,1], durationMs: 10000 });
+    choice.addEventListener('change', () => player.seek(player.time));
+    window.oriPlayer = player;
+  </script>
+</body>
+</html>

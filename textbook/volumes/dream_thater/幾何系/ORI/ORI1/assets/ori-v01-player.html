@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORI-V01 鏡映と折り線の固定点</title>
+  <link rel="stylesheet" href="../../shared/ori-svg-player.css">
+</head>
+<body>
+  <h1>ORI-V01 折り線を軸に点を動かす</h1>
+  <p>折り線を <strong>x=0</strong> とし、右側の紙を角度 <strong>θ=πt</strong>（0≤t≤1）だけ回します。図は理想的な紙の三次元座標 (x,y,z) を<strong>斜め上から平行投影した模式図</strong>で、投影された画面上の距離は紙上の距離とは限りません。</p>
+  <div class="surface">
+    <div class="graphic v01-scroll" role="region" aria-label="必要に応じて横スクロールできる折り図" tabindex="0">
+      <svg id="stage" viewBox="0 0 680 385" role="img" aria-labelledby="stage-title stage-description" xmlns="http://www.w3.org/2000/svg">
+        <title id="stage-title">折り線の周りで右側の紙が半回転する図</title>
+        <desc id="stage-description">左側は動かない灰色の紙、右側は実線で囲った青い紙。Pは塗りつぶし点、Bは白抜き点、折り線上のQは黒い点。点Pの軌跡は点線の半円。投影座標は見やすさのため斜めになっている。</desc>
+        <rect x="1" y="1" width="678" height="383" rx="8" fill="#fff"/>
+        <polygon id="fixed-panel" fill="#e1e7ec" stroke="#5f6e7b" stroke-width="2" points="152.4,272 335,272 378.2,226.4 195.6,226.4" />
+        <polygon id="moving-panel" fill="#b6dbea" fill-opacity=".8" stroke="#14638d" stroke-width="3" stroke-linejoin="round"/>
+        <line x1="335" y1="272" x2="378.2" y2="226.4" stroke="#253b4c" stroke-width="5" stroke-linecap="round"/>
+        <line x1="335" y1="272" x2="538" y2="272" stroke="#a07b38" stroke-width="2" stroke-dasharray="5 5" />
+        <line x1="335" y1="272" x2="152" y2="272" stroke="#a07b38" stroke-width="2" stroke-dasharray="5 5" />
+        <path id="orbit" fill="none" stroke="#7e4e86" stroke-width="2" stroke-dasharray="3 7"/>
+        <circle id="point-p" r="6.5" fill="#115f87" stroke="#102b41" stroke-width="1.5"/>
+        <circle id="point-b" r="6.5" fill="#fff" stroke="#115f87" stroke-width="3"/>
+        <circle id="point-q" cx="344" cy="262.5" r="6" fill="#243746"/>
+        <text id="label-p" font-size="18" fill="#15374a" font-family="system-ui, sans-serif" font-weight="600">P</text>
+        <text id="label-b" font-size="18" fill="#15374a" font-family="system-ui, sans-serif" font-weight="600">B</text>
+        <text x="351" y="283" font-size="18" fill="#243746" font-family="system-ui, sans-serif">Q</text>
+        <text x="115" y="294" font-size="17" fill="#243746" font-family="system-ui, sans-serif">固定面</text>
+        <text x="386" y="50" font-size="17" fill="#14638d" font-family="system-ui, sans-serif">動く面</text>
+        <text x="47" y="342" font-size="17" fill="#243746" font-family="system-ui, sans-serif">● P: 塗りつぶし　○ B: 白抜き　● Q: 固定点　点線: Pの軌跡</text>
+        <text x="47" y="365" font-size="15" fill="#243746" font-family="system-ui, sans-serif">途中の図は3D回転を投影したもの。最終配置だけが平面上の鏡映。</text>
+      </svg>
+    </div>
+    <div class="controls" role="group" aria-label="動画の再生操作">
+      <button type="button" data-player="play" aria-pressed="false">再生</button>
+      <button type="button" data-player="reset">初めから</button>
+      <button type="button" data-player="previous">前の工程</button>
+      <button type="button" data-player="next">次の工程</button>
+      <label for="speed">速度</label>
+      <select id="speed" data-player="speed" aria-label="再生速度"><option value="0.25">0.25倍</option><option value="0.5">0.5倍</option><option value="1" selected>1倍</option><option value="2">2倍</option></select>
+    </div>
+    <label class="timeline" for="time">全工程の時刻 t（左右矢印キー、Home/Endキーでも操作できます）<input id="time" data-player="time" type="range" min="0" max="1" step="0.001" value="0" aria-label="折りの進捗 0 から 100 パーセント"></label>
+    <p class="step" data-player="step">初期状態</p>
+    <p class="readout" data-player="status">数理状態を準備しています。</p>
+    <p class="sr-only" data-player="announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+  </div>
+  <h2>検算できる式</h2>
+  <p>右の点 (x,y,0) は <strong>F<sub>t</sub>(x,y,0)=(x cos(πt), y, x sin(πt))</strong> へ移ります。折り線上の (0,y,0) は動かず、同じ面上の2点間の三次元距離も一定です。t=1 のとき F<sub>1</sub>(x,y,0)=(-x,y,0) となり、平面上の鏡映公式と一致します。</p>
+  <details><summary>工程別の文章・静止フレーム（動かない場合の代替）</summary>
+    <ol>
+      <li>t=0: 動く面は机上の右側、P=(1.8,0.5,0)。</li>
+      <li>t=1/4: θ=45°、P=(1.8/√2,0.5,1.8/√2)。</li>
+      <li>t=1/2: θ=90°、P=(0,0.5,1.8)。</li>
+      <li>t=3/4: θ=135°、P=(-1.8/√2,0.5,1.8/√2)。</li>
+      <li>t=1: θ=180°、P=(-1.8,0.5,0)。鏡映点へ到着。</li>
+    </ol>
+    <p><a href="ori-v01-poster.svg">折り途中を示す静的SVG</a></p>
+  </details>
+  <p class="footnote">理想的なゼロ厚の紙の運動です。伸びや曲げ抵抗、自己接触をモデル化しません。減速設定の環境では終端の静止図から始まり、明示的に再生した場合だけ動きます。JavaScriptを使用できない場合も<a href="ori-v01-poster.svg">静止図</a>と上の式を参照できます。</p>
+  <p><a href="../index.md#prop-ori1-coordinate-isometry">ORI1：鏡映の座標公式と等距離性</a></p>
+  <script type="module">
+    import { mountPlayer } from '../../shared/ori-svg-player.mjs';
+    import { POINTS, foldPoint, stateAt, project, polygon } from './ori-v01-model.mjs';
+    const element = id => document.getElementById(id);
+    const moving = element('moving-panel');
+    const orbit = element('orbit');
+    const positions = Array.from({ length: 65 }, (_, i) => project(foldPoint(POINTS.P, i / 64)));
+    orbit.setAttribute('d', positions.map(([x,y], i) => `${i ? 'L' : 'M'} ${x.toFixed(2)} ${y.toFixed(2)}`).join(' '));
+    const setPoint = (id, point) => {
+      const [x,y] = project(point);
+      element(id).setAttribute('cx', x.toFixed(2));
+      element(id).setAttribute('cy', y.toFixed(2));
+      return [x,y];
+    };
+    function render(t) {
+      const state = stateAt(t);
+      moving.setAttribute('points', polygon([
+        { x: 0, y: 0, z: 0 }, foldPoint({ x: 2.2, y: 0, z: 0 }, t),
+        foldPoint({ x: 2.2, y: 2.4, z: 0 }, t), { x: 0, y: 2.4, z: 0 }
+      ]));
+      const [px,py] = setPoint('point-p', state.P);
+      const [bx,by] = setPoint('point-b', state.B);
+      element('label-p').setAttribute('x', px + 10);
+      element('label-p').setAttribute('y', py + 6);
+      element('label-b').setAttribute('x', bx + 10);
+      element('label-b').setAttribute('y', by - 9);
+      const step = Math.min(4, Math.floor(t * 4 + 1e-8));
+      return {
+        step: `工程 ${step}/4`,
+        readout: `t=${t.toFixed(3)}／θ=${(state.theta * 180 / Math.PI).toFixed(1)}°／P=(${state.P.x.toFixed(3)}, ${state.P.y.toFixed(3)}, ${state.P.z.toFixed(3)})。固定点 Q=(0,0.5,0)、距離 |PQ|=${state.creaseDistance.toFixed(3)}、|PB|=${state.panelDistance.toFixed(3)} は一定。`
+      };
+    }
+    window.oriPlayer = mountPlayer({ render, steps: [0,.25,.5,.75,1], durationMs: 8000 });
+  </script>
+</body>
+</html>
