@@ -1,0 +1,42 @@
+id: ORI25
+title: "剛体折りと4価頂点"
+volume: foundations
+status: supplementary
+prerequisites: [ORI13, ORI14, ORI15, ORI24]
+official_scope: []
+learning_objectives:
+  - 剛体パネル、ヒンジ、折り角、非貫通を区別し平坦配置と連続剛体折りの条件差を説明できる
+  - 4価単頂点の扇角を球面4節リンクの隣接内積条件へ翻訳し必要十分性を証明できる
+  - 対角角度を運動パラメータとして4本の折り線方向を復元し実数条件と枝の違いを判定できる
+  - 扇角が90度・60度・90度・120度の具体例の非平坦経路、折り角と自己非交差を検算できる
+  - 局所拘束、静的平坦折り条件、大域的な衝突・運動経路の判定を混同せず限定的な結論を述べられる
+definitions:
+  - { id: ORI25-DEF-01, name: 剛体パネルと剛体折り経路 }
+  - { id: ORI25-DEF-02, name: 4価頂点の扇角と折り角 }
+  - { id: ORI25-DEF-03, name: 球面4節リンクと対角角度 }
+theorems:
+  - { id: ORI25-THM-01, name: 単頂点剛体パネルの隣接内積拘束と再構成 }
+  - { id: ORI25-THM-02, name: 4価頂点の対角角度パラメータ表示 }
+  - { id: ORI25-THM-03, name: 90度・60度・90度・120度頂点の非貫通剛体運動 }
+  - { id: ORI25-PROP-01, name: 4価頂点の折り角の法線公式 }
+canonical_examples:
+  - 1本の直線ヒンジでつながる二パネルの等長回転
+  - 扇角90度・60度・90度・120度のKawasaki条件と初期配置
+  - 対角角度120度での4本の三次元単位折り線方向と隣接内積の検算
+  - 折り角の符号と法線内積の計算
+  - 球面リンクの実数条件が破れる不可能なパラメータ
+problem_patterns:
+  - ORI25-PANEL-ISOMETRY
+  - ORI25-KAWASAKI-DIFFERENCE
+  - ORI25-SECTOR-DOT
+  - ORI25-HALF-ANGLE
+  - ORI25-DIAGONAL-BOUND
+  - ORI25-SIGNED-FOLD
+  - ORI25-GRAM-RECONSTRUCTION
+  - ORI25-COLLISION-CHECK
+  - ORI25-GAUGE-MOTION
+  - ORI25-COMPLETE-FOUR-VERTEX
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

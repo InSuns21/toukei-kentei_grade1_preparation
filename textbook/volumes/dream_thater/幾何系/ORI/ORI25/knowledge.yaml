@@ -1,0 +1,48 @@
+chapter: ORI25
+scope: dream-theater
+coverage: complete
+prerequisites: [ORI13, ORI14, ORI15, ORI24]
+forward_references: []
+
+concepts:
+  - id: origami.rigid-panel-motion
+    name: 剛体パネルと剛体折り経路
+    kind: definition
+    introduction: formal
+    requires: [origami.crease-pattern-plane-graph, origami.piecewise-isometric-flat-placement]
+
+  - id: origami.four-vertex-fold-angle
+    name: 4価頂点の扇角と折り角
+    kind: definition
+    introduction: formal
+    requires: [origami.rigid-panel-motion]
+
+  - id: origami.spherical-four-link
+    name: 球面4節リンクと対角角度
+    kind: definition
+    introduction: formal
+    requires: [origami.four-vertex-fold-angle]
+
+  - id: origami.four-vertex-gram-criterion
+    name: 単頂点剛体パネルの隣接内積拘束と再構成
+    kind: theorem
+    introduction: formal
+    requires: [origami.spherical-four-link]
+
+  - id: origami.four-vertex-diagonal-parametrization
+    name: 4価頂点の対角角度パラメータ表示
+    kind: theorem
+    introduction: formal
+    requires: [origami.four-vertex-gram-criterion]
+
+  - id: origami.four-vertex-fold-normal-formula
+    name: 4価頂点の折り角の法線公式
+    kind: proposition
+    introduction: formal
+    requires: [origami.four-vertex-gram-criterion]
+
+  - id: origami.four-vertex-explicit-path
+    name: 90度・60度・90度・120度頂点の非貫通剛体運動
+    kind: theorem
+    introduction: formal
+    requires: [origami.four-vertex-diagonal-parametrization, origami.four-vertex-fold-normal-formula]
