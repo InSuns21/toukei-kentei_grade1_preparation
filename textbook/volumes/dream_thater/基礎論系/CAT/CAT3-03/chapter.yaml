@@ -1,0 +1,44 @@
+id: "CAT3-03"
+title: "Eilenberg–Moore圏と比較関手"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT3-02
+official_scope: []
+learning_objectives:
+  - モナド代数の単位律・結合律と代数射の可換条件を型付きで検証し、Eilenberg–Moore圏を構成できる
+  - 自由代数・忘却関手とそのHom自然全単射を構成し、随伴が元のモナドを誘導することを証明できる
+  - 任意の随伴から比較関手を構成し、対象の代数公理と射の可換性を三角恒等式・自然性から証明できる
+  - Kleisli圏から自由代数の充満部分圏への完全忠実な関手を導き、全代数との違いを説明できる
+  - 有限語モナドの代数とモノイド、例外モナドの代数と指定点集合の対応を計算できる
+definitions:
+  - { id: CAT3-03-DEF-01, name: モナド代数 }
+  - { id: CAT3-03-DEF-02, name: モナド代数の射 }
+  - { id: CAT3-03-DEF-03, name: Eilenberg–Moore圏 }
+  - { id: CAT3-03-DEF-04, name: 比較関手 }
+theorems:
+  - { id: CAT3-03-THM-01, name: Eilenberg–Moore圏の圏公理 }
+  - { id: CAT3-03-THM-02, name: 自由代数・忘却随伴 }
+  - { id: CAT3-03-THM-03, name: 比較関手の構成 }
+  - { id: CAT3-03-PROP-01, name: Kleisli圏の自由代数への埋め込み }
+  - { id: CAT3-03-PROP-02, name: 有限語モナドの代数とモノイド }
+  - { id: CAT3-03-PROP-03, name: 例外モナドの代数 }
+canonical_examples:
+  - 恒等モナドの代数
+  - 有限語の評価と非自由な二元モノイド
+  - 例外のタグごとに指定値を持つ代数
+  - 自由モノイド随伴の比較関手
+problem_patterns:
+  - CAT3-03-ALGEBRA-AXIOMS
+  - CAT3-03-ALGEBRA-MORPHISMS
+  - CAT3-03-FREE-ALGEBRA
+  - CAT3-03-COMPARISON-TYPES
+  - CAT3-03-LIST-ALGEBRA
+  - CAT3-03-EXCEPTION-ALGEBRA
+  - CAT3-03-KLEISLI-EMBEDDING
+  - CAT3-03-COMPARISON-ADJUNCTION
+  - CAT3-03-NONFREE-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 2 }
