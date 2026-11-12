@@ -1,0 +1,38 @@
+chapter: AQFT16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT15
+  - AQFT14
+  - AQFT9
+  - AQFT2
+  - AQFT1
+  - VN7
+  - VN2
+forward_references: []
+concepts:
+  - id: aqft.split-inclusion
+    name: split inclusionとnetのsplit property
+    kind: definition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, operator-algebra.factor-type-classification]
+  - id: aqft.typei-spatial-form
+    name: Type I因子の空間的表示
+    kind: theorem
+    introduction: formal
+    requires: [aqft.split-inclusion, operator-algebra.minimal-projection, operator-algebra.von-neumann-bicommutant-theorem]
+  - id: aqft.split-tensor-inclusion
+    name: split inclusionの内外テンソル積表示
+    kind: theorem
+    introduction: formal
+    requires: [aqft.typei-spatial-form, aqft.gns-local-net-isotony-locality, operator-algebra.commutant]
+  - id: aqft.split-product-vector-state
+    name: split表示における積ベクトル状態
+    kind: proposition
+    introduction: formal
+    requires: [aqft.split-tensor-inclusion, aqft.gns-local-normal-state]
+  - id: aqft.commutation-not-split
+    name: 可換性はsplitを含意しない
+    kind: proposition
+    introduction: formal
+    requires: [aqft.split-inclusion, operator-algebra.factor]
