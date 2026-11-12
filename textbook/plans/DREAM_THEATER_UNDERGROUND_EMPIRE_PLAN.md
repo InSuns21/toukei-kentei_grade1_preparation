@@ -147,9 +147,9 @@ $$
 1. U2-01 Bayes localization
 2. U2-02 Kalman filter
 3. U2-03 particle filterからSLAM入口
-4. U3-01 random walkからBrown運動・GBM
-5. U3-02 Monte Carlo pricing・Black–Scholes
-6. U3-03 最適執行・確率制御入口（HJB / viscosity の正本は 最適制御・HJB・微分ゲーム計画）
+4. U3-01 1期間二項モデルと複製ポートフォリオ
+5. U3-02 無裁定条件と状態価格
+6. U3-03 多期間二項モデルと割引マルチンゲール（U3は[確定版56講PLAN](DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)に従い、二項モデル→PDE・期待値→数値計算→VaR/ES→最適執行まで展開する。HJB / viscosity の理論正本は最適制御・微分ゲーム計画）
 7. U4-01 静的裁定と凸最適化
 8. U4-02 無裁定とマルチンゲール測度
 9. U4-03 統計的裁定・共和分
