@@ -57,7 +57,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（客観的な変形自由エネルギーの表示）"]
-    requires: [continuum.constitutive-objectivity, continuum.helmholtz-free-energy, continuum.green-strain]
+    requires: [continuum.constitutive-objectivity, continuum.helmholtz-free-energy, continuum.right-cauchy-green-tensor]
   - id: continuum.material-isotropy
     name: 基準配置に関する材料等方性
     kind: definition
