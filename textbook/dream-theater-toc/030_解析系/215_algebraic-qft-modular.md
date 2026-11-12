@@ -9,3 +9,4 @@
 6. [AQFT6 Weyl CCRと局所C*net](textbook/volumes/dream_thater/解析系/AQFT/AQFT6/index.md)
 7. [AQFT7 quasifree状態と二点形式](textbook/volumes/dream_thater/解析系/AQFT/AQFT7/index.md)
 8. [AQFT8 Minkowski真空とFock二点関数](textbook/volumes/dream_thater/解析系/AQFT/AQFT8/index.md)
+9. [AQFT9 GNSから局所von Neumann環へ](textbook/volumes/dream_thater/解析系/AQFT/AQFT9/index.md)
