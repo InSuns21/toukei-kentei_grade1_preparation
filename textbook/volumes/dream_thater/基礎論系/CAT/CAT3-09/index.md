@@ -4,9 +4,9 @@
 
 [点ごとの左Kan拡張](../CAT3-07/index.md#thm-cat3-07-pointwise)は、$Ka\to b$ を持つ対象を集めた余極限だった。[右Kan拡張](../CAT3-08/index.md#thm-cat3-08-pointwise)は $b\to Ka$ を集めた極限だった。どちらも正しいが、添字の対象に「射 $u$ と値 $x$」を毎回書くのは煩雑である。
 
-例えば $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathbf{Set}$、$b\in\mathcal B$ を固定する。左Kan拡張の $b$ での元は、まず射 $u:Ka\to b$ と $x\in F(a)$ の組で表せる。射 $f:a\to a'$ と $u':Ka'\to b$ を取ると、$K(f):Ka\to Ka'$ だから、$u'Kf=u'\circ K(f):Ka\to b$ も射になる。このとき次の二つの組は
+例えば $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathbf{Set}$、$b\in\mathcal B$ を固定する。左Kan拡張の $b$ での元は、まず射 $u:Ka\to b$ と $x\in F(a)$ の組で表せる。射 $f:a\to a'$ と $u':Ka'\to b$ を取ると、$K(f):Ka\to Ka'$ だから、$u'Kf=u'\circ K(f):Ka\to b$ も射になる。このとき次の二つの組
 
-$$
+$
 (u'Kf,x)\quad\text{と}\quad(u',F(f)(x))
 $$
 
