@@ -390,7 +390,19 @@ $$
 
 となり、時間・記憶量ともこの次数に増えます。異なる履歴が同じ拡張状態に到達したときだけ、計算結果を再利用できます。ここでは状態を近似的に丸めず、厳密な有限木だけを扱います。
 
-実装例 [asian_tree_check.py](assets/asian_tree_check.py) は Python 標準ライブラリの有理数を用い、経路列挙と拡張状態の後退計算を独立に実行します。N=2 の価格 $11500/1323$ 円、N=3 の価格 $29375/2744$ 円、および時点2の $UD$ と $DU$ の異なる価値を検証します。実行方法：python3 assets/asian_tree_check.py。丸め誤差を数学的な差と取り違えないため、小木では浮動小数点数ではなく分数で照合します。
+実装例 [asian_tree_check.py](assets/asian_tree_check.py) は Python 標準ライブラリの有理数を用い、経路列挙と拡張状態の後退計算を独立に実行します。N=2 の価格 $11500/1323$ 円、N=3 の価格 $29375/2744$ 円、および時点2の $UD$ と $DU$ の異なる価値を検証します。丸め誤差を数学的な差と取り違えないため、小木では浮動小数点数ではなく分数で照合します。
+
+次の「このページで実行」を押すと、同じ Python ソースをブラウザ内で実行して分数の検算結果を表示できます。Python のインストールは不要で、初回の実行環境の読み込みのみ通信が必要です。
+
+```python-file-lab
+# lab-id: U3-08-BROWSER-CHECK
+# lab-title: Asian call：経路列挙と後退価格の一致
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-08/assets/asian_tree_check.py
+# timeout-ms: 15000
+# lab-preset: 本文の基準例を検算 | 
+```
+
+ローカルで再実行する場合は、Python 3.10 以上で章のディレクトリから `python3 assets/asian_tree_check.py` を実行します。
 
 ## 7. 演習（各問の後に詳細解答）
 

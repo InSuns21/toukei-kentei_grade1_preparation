@@ -430,9 +430,19 @@ $$
 
 となります。株数と預金額が節点ごとに変わること、変わる際に**資金が保存**されること、満期に**4経路すべて**で一致することを区別して確かめました。時点別の表と経路別の表で符号まで読めるため、ここでは装飾的な線図・アニメーションより正確な表を採用します。
 
-### 手元で再実行する
+### ブラウザで再実行する
 
-同じ複製を浮動小数点でも独立に照合するため、標準ライブラリだけで動く [Python 実験](assets/replication.py)と [自動テスト](assets/tests/test_replication.py)を付けました。Python 3.10 以上でリポジトリのルートから次を実行します。
+同じ複製を浮動小数点でも独立に照合するため、標準ライブラリだけで動く [Python 実験](assets/replication.py)と [自動テスト](assets/tests/test_replication.py)を付けました。次の「このページで実行」ボタンを押すと、公開されている同じ Python ソースをブラウザ内で実行し、結果をこの場に表示できます。Python のインストールは不要です。初回は実行環境の読み込みに通信が必要です。
+
+```python-file-lab
+# lab-id: U3-04-BROWSER-CHECK
+# lab-title: 自己金融複製：価格と残差
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-04/assets/replication.py
+# timeout-ms: 15000
+# lab-preset: 本文の基準例を検算 | 
+```
+
+自動テストまで手元で実行したい場合は、Python 3.10 以上を利用し、リポジトリのルートから次を実行します。
 
 ~~~bash
 python textbook/volumes/dream_thater/応用系/U/U3-04/assets/replication.py

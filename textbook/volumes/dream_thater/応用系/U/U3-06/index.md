@@ -366,12 +366,24 @@ American が European **より必ず厳しく高い**わけではなく、等号
 
 ## 7. 数値の再実行
 
-[Python の二項木コード](assets/american_binomial.py)は標準ライブラリのみ（Python 3.10以降）で動作します。ターミナルから次を実行します。
+[Python の二項木コード](assets/american_binomial.py)は標準ライブラリのみ（Python 3.10以降）で動作します。次の「このページで実行」を押すと、同じ Python ソースがブラウザ内で動作し、American/European 価格と各節点の行使判断を表示します。初回はブラウザ実行環境の取得に通信が必要ですが、Python のインストールは不要です。
 
-- python assets/american_binomial.py
-- python -m unittest discover -s assets/tests -v
+```python-file-lab
+# lab-id: U3-06-BROWSER-CHECK
+# lab-title: American put：Snell 包絡と行使判断
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-06/assets/american_binomial.py
+# timeout-ms: 15000
+# lab-preset: 本文の基準例を検算 | 
+```
 
-前者は本講の put の American/European 価格と各節点の行使判断を表示し、後者は小さい木で**全ての適法な停止時刻の列挙**と後退計算が一致するか独立に確認します。$N=0$、$K=0$、$R=1$、同点で即時行使、無裁定条件違反も検査します。
+[自動テスト](assets/tests/test_american_binomial.py)は別に用意しています。ローカルで検算する場合は、Python 3.10 以上でこの章のディレクトリから次を実行します。
+
+~~~bash
+python assets/american_binomial.py
+python -m unittest discover -s assets/tests -v
+~~~
+
+ローカルの自動テストは小さい木で**全ての適法な停止時刻の列挙**と後退計算が一致するか独立に確認し、$N=0$、$K=0$、$R=1$、同点で即時行使、無裁定条件違反も検査します。
 
 再結合木は $t$ 期に $t+1$ 節点なので、全時点を保存すると時間・メモリとも $O(N^2)$。現在・次期の値だけなら作業メモリは $O(N)$ です。全経路列挙は $2^N$ 経路なので、小木での検算専用です。分数の厳密計算を手計算の基準とし、浮動小数の数値表示は許容誤差を用いて比較します。
 
