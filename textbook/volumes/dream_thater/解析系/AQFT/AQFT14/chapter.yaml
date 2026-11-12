@@ -1,0 +1,49 @@
+id: "AQFT14"
+title: "Haag双対性・wedge双対性・factor性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT13
+  - AQFT9
+  - AQFT2
+  - AQFT1
+  - VN2
+  - VN7
+  - OA5
+official_scope: []
+learning_objectives:
+  - Einstein局所性の可換子包含とHaag双対性の等号を区別して行列模型で判定できる
+  - 双対netを定義し包含単調性と因果完備領域での二重双対式を証明できる
+  - wedge双対性の定義とwedge補集合を理解し共変性による等号の伝播を証明できる
+  - 相対可換子を計算して双対拡大の余剰自由度を検出できる
+  - 共同生成の既約性から局所環の因子性を導き逆向きが不成立と説明できる
+  - 双対性・因子性・巡回分離性・状態の純粋性を有限次元模型で区別できる
+definitions:
+  - { id: AQFT14-DEF-01, name: "Haag双対性" }
+  - { id: AQFT14-DEF-02, name: "双対net" }
+  - { id: AQFT14-DEF-03, name: "wedge双対性" }
+  - { id: AQFT14-DEF-04, name: "相対可換子" }
+theorems:
+  - { id: AQFT14-PROP-01, name: "双対割当ての包含単調性" }
+  - { id: AQFT14-THM-01, name: "共変性によるwedge双対性の伝播" }
+  - { id: AQFT14-PROP-02, name: "相対可換子と因子性の十分条件" }
+canonical_examples:
+  - 二因子模型で補領域の可換子との等号を行列単位から導出
+  - 三因子模型で因子性があっても双対性が失敗することを判定
+  - 対角環の双対性と非自明な中心および混合状態を比較
+  - 因果補領域での二重双対とwedge共変性を計算
+problem_patterns:
+  - AQFT14-DIAGONAL-COMMUTANT
+  - AQFT14-TWO-FACTOR-DUALITY
+  - AQFT14-DUAL-ISOTONY
+  - AQFT14-CENTER-RELATIVE-COMMUTANT
+  - AQFT14-WEDGE-COMPLEMENT
+  - AQFT14-THREE-FACTOR-GAP
+  - AQFT14-DOUBLE-DUAL
+  - AQFT14-GENERATED-ALGEBRA-IRREDUCIBILITY
+  - AQFT14-DUALITY-MIXED-STATE
+  - AQFT14-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 6 }
