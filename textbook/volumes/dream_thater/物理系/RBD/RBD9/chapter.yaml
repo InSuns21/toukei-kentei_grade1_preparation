@@ -20,7 +20,7 @@ definitions:
   - { id: RBD9-DEF-03, name: "自由剛体の角運動量球面と分離曲線" }
 theorems:
   - { id: RBD9-THM-01, name: "三主軸回転の線形安定性分類" }
-  - { id: RBD9-PROP-01, name: "三軸自由回転の二保存量" }
+  - { id: RBD9-PROP-01, name: "三軸自由回転の二不変量" }
   - { id: RBD9-THM-02, name: "両端主軸回転の非線形安定性" }
   - { id: RBD9-THM-03, name: "中間軸回転の非線形不安定性" }
 canonical_examples:
