@@ -101,7 +101,9 @@ $$
 
 両辺を $\varepsilon$ で割ると差ベクトルの長さは $\varepsilon\|Fa+o(1)\|$。基準側の長さ $\varepsilon\|a\|$ で割って $\varepsilon\to0$ とすれば倍率が出る。
 
-次に $a,b,c$ を三つの線素方向とし、$A=[a\ b\ c]$ と置く。$F$ の線形性から像の列行列は $FA$ である。$F$ の各列を $f_i=Fe_i$、$a,b,c$ の座標成分を $a_i,b_j,c_k$ と書いて行列式を列ごとに展開する。交代性により重複添字の項はゼロ、相異なる三つの添字の項は $\det(f_i,f_j,f_k)$ が $J$ に置換の符号を掛けたものとなる。この列ごとの展開は[LA3C の行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)の $3\times3$ の場合でもある。従って
+次に $a,b,c$ を三つの線素方向とし、$A=[a\ b\ c]$ と置く。$F$ の線形性から像の列行列は $FA$ である。
+
+$F$ の各列を $f_i=Fe_i$ とし、$a,b,c$ の座標成分をそれぞれ $a_i,b_j,c_k$ と書いて行列式を列ごとに展開する。交代性により重複添字の項はゼロになる。相異なる添字の項に現れる $\det(f_i,f_j,f_k)$ は、添字の置換符号を $J$ に掛けたものである。この列ごとの展開は[LA3C の行列式の乗法性](../../../基礎科目/LA/LA3C/index.md#thm-la3c-det-multiplicative)の $3\times3$ の場合でもある。従って
 
 $$
 \det(Fa,Fb,Fc)=\det(FA)
@@ -138,7 +140,15 @@ $$
 
 となる。最後の等号は[LA3C の Laplace 展開](../../../基礎科目/LA/LA3C/index.md#thm-la3c-laplace-expansion)を第1列に適用した式である。
 
-**同じ「余因子行列」という名称でも転置に注意する。** [LA3C の余因子](../../../基礎科目/LA/LA3C/index.md#def-la3c-cofactor)を $C_{ij}=(-1)^{i+j}\det M_{ij}$ とすると、[LA3C で余因子行列と呼ぶ $\operatorname{adj}F$](../../../基礎科目/LA/LA3C/index.md#def-la3c-adjugate) は成分が $(C_{ji})$ の行列である。一方、この講義で面積変換に使う $\operatorname{cof}F$ は $(C_{ij})$ の行列であり、
+**同じ「余因子行列」という名称でも転置に注意する。** [LA3C の余因子](../../../基礎科目/LA/LA3C/index.md#def-la3c-cofactor)は、$i$ 行と $j$ 列を除いた小行列 $M_{ij}$ から
+
+$$
+C_{ij}=(-1)^{i+j}\det M_{ij}
+$$
+
+と定義する。[LA3C で余因子行列と呼ぶ $\operatorname{adj}F$](../../../基礎科目/LA/LA3C/index.md#def-la3c-adjugate) は成分が $(C_{ji})$ の行列である。
+
+一方、この講義で面積変換に使う $\operatorname{cof}F$ は $(C_{ij})$ の行列であり、
 
 $$
 \operatorname{cof}F=(\operatorname{adj}F)^T
