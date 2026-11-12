@@ -1,0 +1,46 @@
+id: "AQFT7"
+title: "quasifree状態と二点形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT6
+  - AQFT5
+  - AQFT3
+  - OA5
+  - QM7
+official_scope: []
+learning_objectives:
+  - 実対称共分散の不確定性条件と複素二点形式のGram正値性が同値であることを証明できる
+  - 標準二次元シンプレクティック空間の対角共分散でab≥1/4の必要十分条件を計算できる
+  - Gaussian型Weyl特性汎関数の有限線形結合での正値性を指数Gram核から証明できる
+  - 代数的正値性と具体的C*ノルムへの延長を区別しFølner平均によるノルム支配を追える
+  - 状態のGaussian形から不確定性条件を二次の極限として逆導出できる
+  - 中心化quasifree状態の二点形式とCCR反対称部の整合を計算できる
+  - GNS表現の規則性を巡回ベクトルから稠密性で示し真空条件とは区別できる
+definitions:
+  - { id: AQFT7-DEF-01, name: "実共分散と不確定性条件" }
+  - { id: AQFT7-DEF-02, name: "CCRと整合する二点形式" }
+  - { id: AQFT7-DEF-03, name: "中心化quasifree状態" }
+theorems:
+  - { id: AQFT7-PROP-01, name: "不確定性条件と二点形式の同値" }
+  - { id: AQFT7-THM-01, name: "許容共分散からのGaussian Weyl状態" }
+  - { id: AQFT7-PROP-02, name: "quasifree状態のGNS表現は規則的" }
+canonical_examples:
+  - 標準二次元の対角共分散とab≥1/4判定
+  - 境界共分散の半正定値二点行列と負固有値の反例
+  - Gaussian Weyl二元積の逆順による位相差
+  - 有限生成部分群のFølner平均とGNSの強連続性
+problem_patterns:
+  - AQFT7-UNCERTAINTY-BOUNDARY
+  - AQFT7-UNCERTAINTY-FAILURE
+  - AQFT7-WEYL-TWO-POINT-PHASE
+  - AQFT7-HERMITIAN-TWO-POINT
+  - AQFT7-ROBERTSON-DETERMINANT
+  - AQFT7-GAUSSIAN-GRAM-POSITIVITY
+  - AQFT7-GNS-STRONG-CONTINUITY
+  - AQFT7-CSTAR-NORM-EXTENSION
+  - AQFT7-QUASIFREE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 8, review: 6 }

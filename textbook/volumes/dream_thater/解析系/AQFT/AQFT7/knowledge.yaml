@@ -1,0 +1,41 @@
+chapter: AQFT7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT6
+  - AQFT5
+  - AQFT3
+  - OA5
+  - QM7
+forward_references: []
+concepts:
+  - id: aqft.quasifree-covariance
+    name: 実共分散と不確定性条件
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-minkowski-causal-symplectic, aqft.weyl-ccr]
+  - id: aqft.quasifree-two-point-form
+    name: CCRと整合する二点形式
+    kind: definition
+    introduction: formal
+    requires: [aqft.quasifree-covariance, aqft.weyl-ccr]
+  - id: aqft.quasifree-uncertainty-equivalence
+    name: 不確定性条件と二点形式の同値
+    kind: proposition
+    introduction: formal
+    requires: [aqft.quasifree-two-point-form]
+  - id: aqft.gaussian-weyl-state-existence
+    name: 許容共分散からのGaussian Weyl状態
+    kind: theorem
+    introduction: formal
+    requires: [aqft.quasifree-uncertainty-equivalence, aqft.weyl-twisted-translation, operator-algebra.state, operator-algebra.gns-construction]
+  - id: aqft.centered-quasifree-state
+    name: 中心化quasifree状態
+    kind: definition
+    introduction: formal
+    requires: [aqft.gaussian-weyl-state-existence]
+  - id: aqft.quasifree-regular-gns
+    name: quasifree状態のGNS表現は規則的
+    kind: proposition
+    introduction: formal
+    requires: [aqft.centered-quasifree-state, aqft.weyl-regular-representation, quantum.strongly-continuous-unitary-group]
