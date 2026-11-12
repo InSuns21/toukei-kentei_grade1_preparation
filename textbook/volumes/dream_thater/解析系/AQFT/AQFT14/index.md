@@ -6,10 +6,10 @@
 
 必要な場合、開領域 $V$ の代数を次の式で拡張します。
 
-$
+$$
 \mathcal M(V)
 =\left(\bigcup_{D\Subset V}\mathcal M(D)\right)''.
-$
+$$
 
 ここで $D\Subset V$ は、閉包が $V$ にコンパクトに含まれる有界double coneを走る記号です。この式は開領域への拡張を新たに選ぶ場合の規約です。もともとのnetが全開領域で定義されている場合、それと一致するには内側からの加法性などの追加仮定が必要であり、無条件には同一視しません。
 
@@ -185,15 +185,15 @@ $$
 > **定理（共変性によるwedge双対性の伝播）**  
 > $\mathcal M$ を正時間向き・正空間向きのPoincaré群 $G=\mathcal P_+^\uparrow$ に関してユニタリ共変な局所von Neumann netとする。全てのwedgeは右wedge $W_R$ の $G$-軌道に属するとし、右wedgeで
 >
-$
+$$
 \mathcal M(W_R)'=\mathcal M(W_R^\perp)
-$
+$$
 >
 > が成立すると仮定する。このとき任意の $W\in\mathcal W$ に対して
 >
-$
+$$
 \mathcal M(W)'=\mathcal M(W^\perp)
-$
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -337,10 +337,10 @@ $$
 
 さらに同じ $\Omega$ を全作用素環 $B(\mathbb C^2)$ 上のベクトル状態として見れば純粋ですが、$B(\mathbb C^2)$ に対しては分離的ではありません。前者を確かめるには、[VN5の密度作用素と状態の対応](../../VN/VN5/index.md#thm-vn5-density-state-correspondence)を使います。この状態の密度行列は階数1の射影 $P_\Omega=|\Omega\rangle\langle\Omega|$ です。もし $P_\Omega=t\rho_1+(1-t)\rho_2$、$0<t<1$ と正の跡1行列に分解できたなら、$\eta\perp\Omega$ に対し
 
-$
+$$
 0=\langle\eta,P_\Omega\eta\rangle
 =t\langle\eta,\rho_1\eta\rangle+(1-t)\langle\eta,\rho_2\eta\rangle
-$
+$$
 
 で、非負な二項がともに零です。正性から $\rho_i^{1/2}\eta=0$、したがって $\rho_i\eta=0$。各 $\rho_i$ は $\mathbb C\Omega$ 上にのみ支持を持ち、跡1なので $\rho_i=P_\Omega$ です。非自明な凸分解が存在しないから純粋です。一方 $P_{\Omega^\perp}=I-P_\Omega$ は非零なのに $P_{\Omega^\perp}\Omega=0$ なので分離性は失敗します。状態を定義する代数を変えると純粋性と分離性の判定は変わることが分かります。局所代数の $Z(N)$、補領域との等号、全体の状態の純粋性はそれぞれ別に調べる必要があります。
 
