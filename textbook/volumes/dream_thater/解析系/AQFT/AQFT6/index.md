@@ -294,7 +294,7 @@ $$
 (W_{\mathrm S}(tq,tp)\psi)(x)
 =e^{itq(x+tp/2)}\psi(x+tp)\longrightarrow\psi(x)
 $$
-が各 $x$ で成立します。$|t|\le1$ に制限すれば共通コンパクト集合の外で両辺は零となり、差の絶対値は $2\|\psi\|_\infty$ 以下です。優収束定理により $L^2$ ノルムでも収束します。
+が各 $x$ で成立します。$|t|\le1$ に制限すれば共通コンパクト集合の外で両辺は零となり、差の絶対値は $2\|\psi\|_\infty$ 以下です。[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)により $L^2$ ノルムでも収束します。
 
 一般の $\xi\in L^2$ には $\|\xi-\psi\|_2<\varepsilon$ となる $\psi\in C_c^\infty$ を選びます。ユニタリ性から
 $$
@@ -484,7 +484,7 @@ $$
 W_{\mathrm S}(tF)\psi(x)
 =e^{itq(x+tp/2)}\psi(x+tp)\to\psi(x)
 $$
-です。$|t|\le1$ なら $\psi(x+tp)$ の台は $\operatorname{supp}\psi+[-|p|,|p|]$ 内にあり、差の二乗は共通コンパクト集合の指示関数に $4\|\psi\|_\infty^2$ を掛けた可積分関数で上から抑えられます。優収束定理から
+です。$|t|\le1$ なら $\psi(x+tp)$ の台は $\operatorname{supp}\psi+[-|p|,|p|]$ 内にあり、差の二乗は共通コンパクト集合の指示関数に $4\|\psi\|_\infty^2$ を掛けた可積分関数で上から抑えられます。[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から
 $$
 \|W_{\mathrm S}(tF)\psi-\psi\|_2\to0.
 $$
