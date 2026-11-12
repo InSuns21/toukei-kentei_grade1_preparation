@@ -119,7 +119,19 @@ $$
 G_{\mathrm{ret}}f=\chi u,\qquad
 G_{\mathrm{adv}}f=(\chi-1)u,\qquad Ef=u
 $$
-となります。$h$ に対しても $Eh=v$ です。したがって源を具体的に取っても $\sigma([f],[h])=\int a^2>0$ が再現されます。$P(\chi u)$ と $P\chi\cdot u$ は異なる表記であることに注意してください。
+となります。$h$ に対しても $Eh=v$ です。ここでは[Green対の符号公式](../../HPDE/HPDE23/index.md#prop-hpde23-green-pairing)を引用せず、$\chi$ の微分から負号を再確認することもできます。$f=\chi''u+2\chi'\partial_tu$ と $Pv=0$ を使い、時間部分積分（$\chi'$ はコンパクト支持）すると
+$
+\begin{aligned}
+-\int_M f v\,d^4x
+&=-\int_M(\chi''uv+2\chi'\partial_tu\,v)\,d^4x\\
+&=\int_M\chi'(\partial_tu\,v+u\,\partial_tv-2\partial_tu\,v)\,d^4x\\
+&=\int_{\mathbb R}\chi'(t)
+  \left\{\int_{\mathbb R^3}(u\partial_tv-v\partial_tu)\,d^3x\right\}\,dt\\
+&=\left(\int_{\mathbb R}\chi'(t)\,dt\right)\Omega(u,v)
+=\Omega(u,v).
+\end{aligned}
+$
+三番目の式では括弧内が時刻に依存しないことを[面独立性](../../HPDE/HPDE23/index.md#thm-hpde23-slice-independence)で使いました。したがって源を具体的に取っても $\sigma([f],[h])=\int a^2>0$ が再現されます。$P(\chi u)$ と $P\chi\cdot u$ は異なる表記であることに注意してください。
 
 ## 3. 局所部分空間とシンプレクティック直交
 
