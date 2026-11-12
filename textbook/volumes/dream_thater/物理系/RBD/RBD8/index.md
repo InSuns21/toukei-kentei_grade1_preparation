@@ -8,7 +8,7 @@
 
 ## 1. 対称軸が一本だけ特別な物体
 
-[RBD6の主慣性モーメントの縮退の定義](../RBD6/index.md#def-rbd6-principal-degeneracy)から、第一・第二主軸の慣性モーメントが等しい場合、第三主軸を対称軸として選べます。ここでは正の慣性モーメントを仮定します。回転対称性をもつ物体の代表例は円板や軸対称の円柱ですが、必要なのは力学的な主慣性値の条件です。
+[RBD6の主慣性値の縮退](../RBD6/index.md#def-rbd6-principal-degeneracy)から、第一・第二主軸の慣性モーメントが等しい場合、第三主軸を対称軸として選べます。ここでは正の慣性モーメントを仮定します。回転対称性をもつ物体の代表例は円板や軸対称の円柱ですが、必要なのは力学的な主慣性値の条件です。
 
 <a id="def-rbd8-symmetric-body"></a>
 
@@ -386,7 +386,7 @@ $$
 第二成分の微分は $\dot\omega_2(t)=\cos(t/2)$ なので $\dot\omega_2(0)=1>0$。$t=\pi$ では $\omega_1=0$、$\omega_2=2$ です。
 <!-- solution-end -->
 
-### 問題 A2：保存量と対称軸の角
+### 問題 A2：一定のエネルギー・角運動量と対称軸の角
 
 $I=2,J=3$、$R_0=I_3$、$\omega_b(0)=(1,0,1)$ とする。$E$、$L_0$、$\ell$、$\cos\theta$、$\sin\theta$ を求めよ。
 
@@ -501,7 +501,7 @@ R_0^{\mathsf T}\dot R(0)
 =\widehat{(a,b,w)}.
 $$
 
-[RBD3の角速度の定義](../RBD3/index.md#def-rbd3-angular-velocity)により初期角速度が再現されました。
+[RBD3の空間角速度と物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)により初期角速度が再現されました。
 <!-- solution-end -->
 
 ### 問題 B2：円錐の速さを角運動量から再導出
@@ -578,7 +578,7 @@ $I,J>0$、$I\ne J$、$\omega_b=(x,y,w)$、$\rho=\sqrt{x^2+y^2}$ とする。$\om
 <!-- solution-start -->
 ### 詳細解答
 
-$J_b\omega_b=(Ix,Iy,Jw)$ を外積へ代入すると
+$J_b\omega_b=(Ix,Iy,Jw)$ をベクトル積へ代入すると
 
 $$
 \begin{aligned}
