@@ -1,0 +1,51 @@
+id: "AQFT8"
+title: "Minkowski真空とFock二点関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT7
+  - AQFT5
+  - AQFT3
+  - QFT4
+  - QFT5
+  - OA5
+official_scope: []
+learning_objectives:
+  - 自由Klein–Gordon解のCauchyデータから正周波数写像Kを構成し源商の代表に依存しないことを示せる
+  - sigma=2Im(KF,KG)をCauchyデータのFourier表示から符号付きで再計算できる
+  - 因果伝播子の正弦核からK[f]=i(2pi)^(-3/2)u_fを導いてQFT4の規格化と照合できる
+  - Minkowski真空の二点形式とQFT5のWightman核の一致・Gram正値性・CCR反対称部を証明できる
+  - Fock Weyl表現の指数ベクトル計算からWeyl積とGaussian真空期待値を導ける
+  - Poincare不変性とFock多粒子スペクトルの前方光円錐包含および真空一意性を示せる
+  - Weyl真空の巡回Fock表現とGNS表現の同値を確認し一般状態への無条件の拡張を避けられる
+definitions:
+  - { id: AQFT8-DEF-01, name: "Minkowski正周波数写像" }
+  - { id: AQFT8-DEF-02, name: "Minkowski真空共分散と二点形式" }
+  - { id: AQFT8-DEF-03, name: "自由場のFock Weyl表現" }
+theorems:
+  - { id: AQFT8-PROP-01, name: "正周波数写像の虚部と実部" }
+  - { id: AQFT8-THM-01, name: "自由場Fock真空とAQFT二点形式の一致" }
+  - { id: AQFT8-PROP-02, name: "Fock Weyl関係と真空特性汎関数" }
+  - { id: AQFT8-THM-02, name: "Minkowski Fock状態の正エネルギーと真空一意性" }
+  - { id: AQFT8-PROP-03, name: "真空quasifree状態のGNSとFock表現" }
+canonical_examples:
+  - コンパクト支持初期データの位置・速度モードの二点虚部とシンプレクティック形式
+  - 質量殻Fourier波束の位相iと(2pi)の規格化
+  - 正負のWeyl位相と正のGaussian期待値
+  - 一粒子・多粒子平行移動の共同スペクトル
+  - 質量零の赤外積分の空間次元依存性
+problem_patterns:
+  - AQFT8-POSITIVE-FREQUENCY-COEFFICIENT
+  - AQFT8-CAUCHY-SYMPLECTIC
+  - AQFT8-MASS-SHELL-NORM
+  - AQFT8-TRANSLATION-SIGN
+  - AQFT8-MASSLESS-INFRARED
+  - AQFT8-TWO-POINT-POSITIVITY
+  - AQFT8-WEYL-GAUSSIAN-PHASE
+  - AQFT8-FORWARD-SPECTRUM
+  - AQFT8-INNER-PRODUCT-CONVENTION
+  - AQFT8-VACUUM-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 10, review: 7 }
