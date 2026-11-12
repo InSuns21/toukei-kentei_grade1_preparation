@@ -131,6 +131,22 @@ try {
   const roles=new Set(ax.map(n=>n.role?.value));
   assert.ok(roles.has('button')&&roles.has('slider'),'Chrome accessibility tree missing player controls '+id);
   assert.equal(await at(),0,'normal-motion first frame '+id);
+  // Links inside standalone HTML must return to Docsify, not serve raw Markdown.
+  const lectureUrl=await js('document.querySelector(\'a[href*="#/textbook/volumes/dream_thater/"]\')?.href');
+  assert.ok(lectureUrl,'missing rendered lecture return link '+id);
+  const lecture=new URL(lectureUrl);
+  assert.equal(lecture.origin,origin,'lecture link origin '+id);
+  assert.equal(lecture.pathname,'/','lecture link must go to Docsify shell '+id);
+  assert.ok(decodeURI(lecture.hash).startsWith('#/textbook/volumes/dream_thater/幾何系/ORI/'+chapter+'/index'),
+    'lecture link must route to the matching chapter '+id);
+  if(id==='12'){
+    assert.match(await js('document.querySelector("[data-player=\\"status\\"]").textContent'),/重複/);
+    await seek(.25);
+    assert.match(await js('document.querySelector("[data-player=\\"status\\"]").textContent'),/一点で接する/);
+    await seek(.5);
+    assert.match(await js('document.querySelector("[data-player=\\"status\\"]").textContent'),/内部非交差/);
+    await seek(0);
+  }
   const isB=id!=='01'&&id!=='08';
   if(isB){
    const residuals=await js('[...document.querySelectorAll("#invariants tr")].map(r=>Number(r.cells[1]?.textContent))');

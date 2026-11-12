@@ -2,12 +2,15 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORI-V12 円パッキングの必要制約</title><link rel="stylesheet" href="../../shared/ori-svg-player.css"></head>
 <body><h1>ORI-V12 円パッキングの必要制約</h1>
-<p><strong>数理モデル：</strong>半径0.60と0.45の円の中心距離dは1.05以上で非重複。</p>
-<p><strong>適用範囲：</strong>tree method全構成の実装ではない。 実写の折り動作ではなく、数式から幾何状態をSVGで描く教材です。条件の表示工程と物理的な連続折り運動を区別してください。</p>
+<h2>この動画の問い：二つの円板は、いつ重ならなくなるか</h2>
+<p>折り紙の <em>tree method</em> では、星形の木の葉から伸びる枝の長さに応じた円板を紙面に配置します。ここではその一対だけを取り出し、<strong>中心A・Bの距離d</strong>を変えて、円板の内部が重ならないための条件を検査します。</p>
+<p><strong>数理モデル：</strong>半径0.60と0.45の円板は中心距離d≥1.05で内部非交差、d=1.05で接する。</p>
+<p><strong>見方：</strong>実線の大きい円板（A中心、半径0.60）は固定、破線の小さい円板（B中心、半径0.45）が右へ動きます。上の寸法線が中心距離dです。再生すると <strong>重なり → ちょうど接する → 離れる</strong> の順に変化します。まず「次の工程」を1回押して境界の接触を確認してください。</p>
+<p><strong>適用範囲：</strong>これは円板の距離制約を確かめる図であり、tree method 全構成や紙の連続折り運動を再現するものではありません。円板が重ならないことだけで折り線・層順まで保証されるわけではありません。</p>
 <div class="surface">
 <div class="graphic" role="region" tabindex="0" aria-label="必要なら横スクロールで拡大した図を閲覧" style="overflow-x:auto">
 <svg id="ori-b-stage" viewBox="0 0 760 430" style="display:block;width:100%;height:auto;min-width:min(100%,600px)" role="img" aria-labelledby="stage-title stage-desc" xmlns="http://www.w3.org/2000/svg">
-<title id="stage-title">ORI-V12 円パッキングの必要制約</title><desc id="stage-desc">半径0.60と0.45の円の中心距離dは1.05以上で非重複。 tree method全構成の実装ではない。</desc><g id="ori-b-frame"></g></svg>
+<title id="stage-title">ORI-V12 円パッキングの必要制約</title><desc id="stage-desc">左の実線円板は半径0.60で固定、右の破線円板は半径0.45で右へ動く。中心距離dが0.65から2.25に変わり、重なり・接触・内部非交差の3状態を見せる。tree method全構成の実装ではない。</desc><g id="ori-b-frame"></g></svg>
 <noscript><img src="ori-v12-poster.svg" alt="ORI-V12 円パッキングの必要制約の静止図" style="width:100%;height:auto"></noscript></div>
 <div class="controls" role="group" aria-label="工程の再生操作">
 <button type="button" data-player="play" aria-pressed="false">再生</button><button type="button" data-player="reset">初めから</button>
@@ -21,12 +24,22 @@
 <p class="readout" data-player="status">数理状態を準備しています。</p>
 <p data-player="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
 </div>
-<h2>数学的な不変量の数値検査</h2>
-<table><thead><tr><th scope="col">条件</th><th scope="col">残差</th></tr></thead><tbody id="invariants"><tr><td>読込中</td><td>—</td></tr></tbody></table>
-<h2>工程別の文章代替</h2><details><summary>各表示例の5工程と式を開く</summary><h3>基本例</h3><ol><li>工程0（t=0）：中心距離d=1.300、半径和1.05、余裕d−1.05=0.250。</li><li>工程1（t=0.25）：中心距離d=1.500、半径和1.05、余裕d−1.05=0.450。</li><li>工程2（t=0.5）：中心距離d=1.700、半径和1.05、余裕d−1.05=0.650。</li><li>工程3（t=0.75）：中心距離d=1.900、半径和1.05、余裕d−1.05=0.850。</li><li>工程4（t=1）：中心距離d=2.100、半径和1.05、余裕d−1.05=1.050。</li></ol></details>
+<h2>判定方法：dと半径和を比較する</h2>
+<p>二つの半径の和は0.60+0.45=1.05です。差 <strong>Δ=d−1.05</strong> が負なら内部が重なり、0なら一点で接し、正なら離れています。これは星形の木の葉間距離制約に対応します。</p>
+<table><thead><tr><th scope="col">差 Δ=d−1.05</th><th scope="col">判定</th></tr></thead><tbody><tr><td>Δ&lt;0</td><td>重複：距離制約を満たさない</td></tr><tr><td>Δ=0</td><td>接触：ちょうど制約を満たす</td></tr><tr><td>Δ&gt;0</td><td>内部非交差：距離制約を満たす</td></tr></tbody></table>
+<h2>モデルの計算検算</h2>
+<p>下表の残差は「表示した中心距離」と「中心座標から再計算した距離」などの一致を確かめます。<strong>残差が0でも、距離制約が成立するとは限りません。</strong> 制約の成立は上のΔの符号で判定します。</p>
+<table><thead><tr><th scope="col">計算量</th><th scope="col">等式の残差</th></tr></thead><tbody id="invariants"><tr><td>読込中</td><td>—</td></tr></tbody></table>
+<h2>工程別の文章代替</h2><details><summary>全5工程の数値と判定を開く</summary><ol>
+<li>工程0（t=0）：中心距離d=0.650、半径和1.05、差d−1.05=-0.400。重複（制約違反）。</li>
+<li>工程1（t=0.25）：中心距離d=1.050、半径和1.05、差d−1.05=0.000。一点で接する（等号成立）。</li>
+<li>工程2（t=0.5）：中心距離d=1.450、半径和1.05、差d−1.05=0.400。離れている（内部非交差）。</li>
+<li>工程3（t=0.75）：中心距離d=1.850、半径和1.05、差d−1.05=0.800。離れている（内部非交差）。</li>
+<li>工程4（t=1）：中心距離d=2.250、半径和1.05、差d−1.05=1.200。離れている（内部非交差）。</li>
+</ol></details>
 <p><a href="ori-v12-poster.svg">静止SVGを開く</a>。動画を動かせなくても上の数式と工程説明から検算できます。</p>
 <p class="footnote">自動再生はしません。動きを減らすOS設定では静止終端から開始。モデルの数学的制約と、有限厚み・層の非貫通・連続折り運動は別々に判定してください。</p>
-<p><a href="../index.md">講義 ORI22 の本文に戻る</a></p>
+<p><a href="../../../../../../../#/textbook/volumes/dream_thater/幾何系/ORI/ORI22/index">講義 ORI22 の本文に戻る</a></p>
 <script type="module">
 import { mountPlayer } from '../../shared/ori-svg-player.mjs';
 import { stateAt } from './ori-v12-model.mjs';
