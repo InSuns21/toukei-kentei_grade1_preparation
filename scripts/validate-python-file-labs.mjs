@@ -131,6 +131,56 @@ for (const chapter of chapterIds) {
   }
 }
 
+// U3 financial examples use the same published Python files in the browser
+// (python-file-lab) and in the local CLI. Do not duplicate the computation in JS.
+const u3FileLabs = [
+  ['U3-04', 'replication.py', /initial price \(yen\):/],
+  ['U3-05', 'parity_check.py', /ALL EXACT CHECKS PASSED/],
+  ['U3-06', 'american_binomial.py', /American=/],
+  ['U3-07', 'bermudan_binomial.py', /All exact-arithmetic cross-checks passed/],
+  ['U3-08', 'asian_tree_check.py', /All exact-arithmetic checks passed/],
+];
+for (const [chapter, file, expectedOutput] of u3FileLabs) {
+  const chapterDir = `textbook/volumes/dream_thater/応用系/U/${chapter}`;
+  const markdown = await readFile(path.join(root, chapterDir, 'index.md'), 'utf8');
+  const blocks = [...markdown.matchAll(/```python-file-lab\s*\n([\s\S]*?)\n```/g)];
+  assert.equal(blocks.length, 1, `${chapter}: one browser-executable file lab required`);
+  const metadata = new Map();
+  let presetCount = 0;
+  for (const line of blocks[0][1].split('\n')) {
+    const match = line.match(/^#\s*([a-z-]+):\s*(.*?)\s*$/);
+    assert.ok(match, `${chapter}: malformed lab metadata: ${line}`);
+    if (match[1] === 'lab-preset') {
+      presetCount += 1;
+      const separator = match[2].indexOf('|');
+      assert.ok(separator > 0 && match[2].slice(0, separator).trim(),
+        `${chapter}: preset needs a label`);
+      assert.deepEqual(parseArguments(match[2].slice(separator + 1).trim()), [],
+        `${chapter}: standard-library baseline must run without CLI arguments`);
+    } else {
+      assert.ok(!metadata.has(match[1]), `${chapter}: duplicated ${match[1]}`);
+      metadata.set(match[1], match[2]);
+    }
+  }
+  assert.equal(presetCount, 1, `${chapter}: exactly one fixed baseline preset required`);
+  const id = metadata.get('lab-id');
+  assert.equal(id, `${chapter}-BROWSER-CHECK`);
+  assert.ok(!seenIds.has(id), `duplicate lab id: ${id}`);
+  seenIds.add(id);
+  assert.ok(metadata.get('lab-title'));
+  assert.ok(Number(metadata.get('timeout-ms')) >= 250 &&
+    Number(metadata.get('timeout-ms')) <= 60000);
+  assert.match(blocks[0][1], /^# lab-preset: /m);
+  const script = `${chapterDir}/assets/${file}`;
+  assert.equal(metadata.get('lab-file'), script);
+  const scriptPath = await validatedFile(script);
+  const output = execFileSync('python3',
+    ['-c', 'import runpy, sys; runpy.run_path(sys.argv[1], run_name="__main__")', scriptPath],
+    { cwd: root, encoding: 'utf8', timeout: 30000, maxBuffer: 2 * 1024 * 1024,
+      env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' } });
+  assert.match(output, expectedOutput, `${chapter}: Python source smoke output changed`);
+}
+
 const runtime = await readFile(path.join(root, 'pages/numerical-lab-runtime.js'), 'utf8');
 const worker = await readFile(path.join(root, 'pages/numerical-lab-worker.mjs'), 'utf8');
 assert.match(runtime, /python-file-lab/);
@@ -140,4 +190,4 @@ assert.match(runtime, /function appendSeriesPlot/);
 assert.match(worker, /runpy\.run_path/);
 assert.match(worker, /FILE_LAB_ROOT/);
 
-console.log(`Python file labs: ${chapterIds.length} chapters, ${presetsChecked} presets passed`);
+console.log(`Python file labs: ${chapterIds.length} MFL + ${u3FileLabs.length} U3 chapters, ${presetsChecked} MFL presets passed`);

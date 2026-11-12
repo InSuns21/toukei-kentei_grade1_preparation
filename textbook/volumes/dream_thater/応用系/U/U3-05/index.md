@@ -424,9 +424,19 @@ $$
 
 と、無配当の $C_0\le S_0$ より強い上界を得ます。これは**既知の配当を期日ごとに相殺できる**ことに依存します。配当が不確実な場合、単純にその額を現在価値として差し引くことはできません。
 
-## 7. 手元での検算
+## 7. ブラウザでの検算
 
-標準ライブラリの有理数で、1期間・2期間・配当付き1期間を [検算スクリプト](assets/parity_check.py) として再現します。リポジトリルートから Python 3.10 以上で実行します。
+標準ライブラリの有理数で、1期間・2期間・配当付き1期間を [検算スクリプト](assets/parity_check.py) として再現します。次の「このページで実行」から同じ Python ソースをブラウザ内で実行できます。ソフトウェアのインストールは不要です（初回は実行環境を取得する通信が必要です）。
+
+```python-file-lab
+# lab-id: U3-05-BROWSER-CHECK
+# lab-title: put–call parity：分数による検算
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-05/assets/parity_check.py
+# timeout-ms: 15000
+# lab-preset: 本文の基準例を検算 |
+```
+
+ローカルでも同じ結果を検算したい場合は、Python 3.10 以上を使ってリポジトリルートから実行します。
 
 ~~~bash
 python textbook/volumes/dream_thater/応用系/U/U3-05/assets/parity_check.py
