@@ -15,7 +15,7 @@ T_\delta(a,v)=\{x\in\mathbb R^d:\operatorname{dist}(x,\{a+tv:0\le t\le1\})<\delt
 \quad a\in\mathbb R^d,\ v\in S^{d-1}
 $$
 
-です。管の体積は[既出の体積公式](../GMT32/index.md#prop-gmt32-tube-volume)から
+です。管の体積は[「tube体積と重複度の積分」](../GMT32/index.md#prop-gmt32-tube-volume)にある円柱・半球の計算から
 
 $$
 V_d(\delta):=|T_\delta(a,v)|
@@ -122,13 +122,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-角度 $\theta$ に最も近い格子点 $j\pi/N$ を、端点 $0,\pi$ を同一視して選びます。必要なら方向を反転して、線分の始点を $a$ から $a+v$ に変更できます。格子間隔 $h=\pi/N\le\delta$ なので無向角距離は $h/2\le\delta/2$ です。対応する始点 $a'$ を取ると、任意の $0\le t\le1$ について
+角度 $\theta$ に最も近い格子点 $j\pi/N$ を、端点 $0,\pi$ を同一視して選びます。格子間隔 $h=\pi/N\le\delta$ なので、無向角距離は $h/2\le\delta/2$ です。このため $|v-v_j|\le\delta/2$ または $|v+v_j|\le\delta/2$ となります。
+
+前者では $a'=a$ と置き、対応する線分上の点を $a'+tv_j$ と $a+tv$ に取ります。後者では向きを反転させ、$a'=a+v$ と置き、$a'+tv_j$ と $a+(1-t)v$ を対応させます。それぞれ $0\le t\le1$ に対し
 
 $$
-|(a'+tv_j)-(a+tv)|\le|v_j-v|\le\delta/2.
+\begin{aligned}
+|(a'+tv_j)-(a+tv)|&=t|v_j-v|\le\delta/2
+\quad\text{（前者）},\\
+|(a'+tv_j)-(a+(1-t)v)|&=t|v_j+v|\le\delta/2
+\quad\text{（後者）}.
+\end{aligned}
 $$
 
-従って $T_\delta(a,v)\subset T_{2\delta}(a',v_j)$ です。体積公式より $V_2(2\delta)/V_2(\delta)\le C$ であるため、非負性から
+どちらの場合も二線分の対応する点が距離 $\delta/2$ 以内にあり、線分からの距離を三角不等式で比較すれば $T_\delta(a,v)\subset T_{2\delta}(a',v_j)$ です。体積公式より $V_2(2\delta)/V_2(\delta)\le C$ であるため、非負性から
 
 $$
 \mathcal K_\delta f(v)\le C\mathcal K_{2\delta}f(v_j).
@@ -161,7 +168,7 @@ $$
 
 ### 証明の見取り図
 
-各管平均を並べた線形写像の双対を考えます。双対のノルムの二乗はすべての二管交差面積の行列で表せます。[二管の交差補題](../GMT33/index.md#lem-gmt33-two-tubes)と[角距離の定義](../GMT33/index.md#def-gmt33-projective-angle)を使うと、行列の各行和が $r\log(2/r)$ 以下になるため、最後に離散測度 $r\sum_j$ の重みと打ち消し合います。
+各管平均を並べた線形写像の双対を考えます。双対のノルムの二乗はすべての二管交差面積の行列で表せます。[二tubeの交差面積](../GMT33/index.md#lem-gmt33-two-tubes)と[無向方向の角距離](../GMT33/index.md#def-gmt33-projective-angle)を使うと、行列の各行和が $r\log(2/r)$ 以下になるため、最後に離散測度 $r\sum_j$ の重みと打ち消し合います。
 
 <!-- proof-start -->
 ### 証明
@@ -370,7 +377,7 @@ $$
 \le p\beta-\frac{p\log C}{\log\delta}.
 $$
 
-$\delta\downarrow0$ で後項は0へ収束します。[近傍体積の次元公式](../GMT32/index.md#lem-gmt32-neighborhood-cover)を使うと、上下Minkowski次元はいずれも $d-p\beta$ 以上です。
+$\delta\downarrow0$ で後項は0へ収束します。[被覆数と近傍体積の比較](../GMT32/index.md#lem-gmt32-neighborhood-cover)を使うと、上下Minkowski次元はいずれも $d-p\beta$ 以上です。
 <!-- proof-end -->
 
 ただし、[Hausdorff次元とMinkowski次元の比較](../GMT32/index.md#thm-gmt32-dimension-comparison)は一般に Hausdorff $\le$ 下Minkowski の向きです。**この系単独からHausdorff次元の下界を逆向きに結論してはいけません。** ここでは最大評価が**すべての尺度で一様**に使えることを利用し、異なる太さの被覆を同時に処理します。
@@ -401,7 +408,7 @@ $$
 \sum_i r_i^s<\eta
 $$
 
-となる可算被覆を選べます（Hausdorff測度零の被覆定義により可能です）。各球を $2^{-(k+1)}<r_i\le2^{-k}$（$k\ge7$）によって群 $I_k$ に分け、$h_k=2^{-k}$ とおきます。$I_k$ の各球を $B(x_i,3h_k)$ に拡大した合併を $U_k$ とします。$H_k=\sum_{i\in I_k}r_i^s$ です。
+となる可算被覆を選べます。これは $\mathcal H^s(K)=0$ から、被覆半径と被覆和を任意に小さくできることによります。各球を $2^{-(k+1)}<r_i\le2^{-k}$（$k\ge7$）によって群 $I_k$ に分け、$h_k=2^{-k}$ とおきます。$I_k$ の各球を $B(x_i,3h_k)$ に拡大した合併を $U_k$ とします。$H_k=\sum_{i\in I_k}r_i^s$ です。
 
 $h_k/2<r_i\le h_k$ なので、球体積を一個ずつ足して
 
@@ -659,7 +666,7 @@ $$
 
 <a id="ex-gmt35-b02"></a>
 
-**問題 B02：分離方向から正測度の帽へ。** $d\ge2$、$0<\delta<1/100$ とする。球面上の互いに角距離 $c\delta$ 以上離れた $N\ge c\delta^{-(d-1)}$ 方向 $v_j$ のまわりに角半径 $c_0\delta$（$0<c_0<c/4$）の帽 $H_j$ を置く。$\sigma(\bigcup_jH_j)\ge c'>0$ を証明し、$T_{c_0\delta}(a_j,w)\subset T_\delta(a_j,v_j)$ の成立条件を説明せよ。
+**問題 B02：分離方向から正測度の帽へ。** $d\ge2$、$0<\delta<1/100$ とする。球面上の互いに角距離 $c\delta$ 以上離れた $N\ge c\delta^{-(d-1)}$ 方向 $v_j$ のまわりに角半径 $c_0\delta$（$0<c_0<\min(c/4,1/4)$）の帽 $H_j$ を置く。$\sigma(\bigcup_jH_j)\ge c'>0$ を証明し、$T_{c_0\delta}(a_j,w)\subset T_\delta(a_j,v_j)$ の成立条件を説明せよ。
 
 - Level: B
 
@@ -725,7 +732,11 @@ $\eta$ を任意に小さく取れるので矛盾します。$\tau=0$ ではこ�
 
 <a id="ex-gmt35-c01"></a>
 
-**問題 C01：平面最大定理からHausdorff次元2まで。** $0<\delta<1/100$、$\mathbb R^2$ の単位長・半径$\delta$管、正規化弧長測度 $\sigma$ を使う。(1) $\delta$-間隔の無向方向格子に各一本の管を選んだ際、二管交差上界から作用素の離散 $L^2$ ノルムを評価せよ。(2) 最大作用素に関する上限操作を処理せよ。(3) 全方向の単位線分集合 $K$ が有界であるとき、Hausdorff次元が2となる論理を、多尺度被覆が必要な理由とともに示せ。[二管交差補題](../GMT33/index.md#lem-gmt33-two-tubes)と[Hausdorff次元との比較](../GMT32/index.md#thm-gmt32-dimension-comparison)は使用してよい。
+**問題 C01：平面最大定理からHausdorff次元2まで。** $0<\delta<1/100$、$\mathbb R^2$ の単位長・半径$\delta$管、正規化弧長測度 $\sigma$ を使い、次を解け。[二tubeの交差面積](../GMT33/index.md#lem-gmt33-two-tubes)と[Hausdorff次元との比較](../GMT32/index.md#thm-gmt32-dimension-comparison)は使用してよい。
+
+1. $\delta$-間隔の無向方向格子に各一本の管を選んだ際、二管交差上界から作用素の離散 $L^2$ ノルムを評価せよ。
+2. 最大作用素に関する上限操作を処理せよ。
+3. 全方向の単位線分集合 $K$ が有界であるとき、Hausdorff次元が2となる論理を、多尺度被覆が必要な理由とともに示せ。
 
 - Level: C
 
@@ -783,7 +794,11 @@ $$
 
 <a id="ex-gmt35-c02"></a>
 
-**問題 C02：強さを混同しない。** $d\ge2$ で任意の $\varepsilon>0$ に対する $(d,d,\varepsilon)$ 一様最大評価を仮定する。(1) 指示関数への代入で得る体積・Minkowski次元の式を書け。(2) それだけでHausdorff次元を証明したことにならない理由を述べよ。(3) 同じ最大評価からHausdorff次元を得るには被覆半径 $r_i$ のどんな処理が必要か、収束に使う指数とともに答えよ。
+**問題 C02：強さを混同しない。** $d\ge2$ で任意の $\varepsilon>0$ に対する $(d,d,\varepsilon)$ 一様最大評価を仮定し、次を解け。
+
+1. 指示関数への代入で得る体積・Minkowski次元の式を書け。
+2. それだけでHausdorff次元を証明したことにならない理由を述べよ。
+3. 同じ最大評価からHausdorff次元を得るには被覆半径 $r_i$ のどんな処理が必要か、収束に使う指数とともに答えよ。
 
 - Level: C
 
