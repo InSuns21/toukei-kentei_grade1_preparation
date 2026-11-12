@@ -461,29 +461,30 @@ $$
 
 ## Level A
 
-### A1. 場所の時間微分と物質微分
+### A1. 伸びる座標で一定の標識
 
-$\chi(X,t)=(X_1+ktX_2,X_2,X_3)$、$q(x,t)=x_1-ktx_2$ とする。$v,\partial_tq,\nabla_xq,D_tq$ を求め、$q(\chi(X,t),t)$ からも検算せよ。
+$\chi(X,t)=(e^{at}X_1,X_2,X_3)$、$q(x,t)=e^{-2at}x_1^2$ とする（$a$ は s$^{-1}$）。$v,\partial_tq,\nabla_xq,D_tq$ を求め、$q(\chi(X,t),t)$ からも検算せよ。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\chi$ は多項式で $C^2$ 級、$F=\begin{pmatrix}1&kt&0\\0&1&0\\0&0&1\end{pmatrix}$、$\det F=1$、逆写像は $(x_1-ktx_2,x_2,x_3)$ なので運動条件を満たす。$v(x,t)=(k x_2,0,0)$。
+$\chi$ は $C^2$ 級で $\chi(X,0)=X$、$F=\operatorname{diag}(e^{at},1,1)$ の行列式は $e^{at}>0$、逆写像は $(e^{-at}x_1,x_2,x_3)$ なので運動条件を満たす。$v(x,t)=(ax_1,0,0)$。
 
 $$
-\partial_tq=-kx_2,\qquad
-\nabla_xq=(1,-kt,0).
+\partial_tq=-2ae^{-2at}x_1^2,\qquad
+\nabla_xq=(2e^{-2at}x_1,0,0).
 $$
 
 [物質微分の定義](#def-ctm4-material-derivative)より
 
 $$
-D_tq=-kx_2+(kx_2,0,0)\cdot(1,-kt,0)=0.
+D_tq=-2ae^{-2at}x_1^2
++(ax_1,0,0)\cdot(2e^{-2at}x_1,0,0)=0.
 $$
 
-一方 $q(\chi(X,t),t)=X_1+ktX_2-ktX_2=X_1$ であり、固定 $X$ での微分も $0$ となる。$q$ の単位を m とすれば両時間微分の単位は m/s で整合する。
+一方 $q(\chi(X,t),t)=e^{-2at}(e^{at}X_1)^2=X_1^2$ であり、固定 $X$ での時間微分も $0$ である。$q$ の単位を m$^2$ とすれば時間微分の単位も m$^2$/s で一致する。場の偏時間微分が一般に非零でも標識は同じ物質点に沿って保存される。
 <!-- solution-end -->
 
 ### A2. 体積を保存する三軸伸縮
