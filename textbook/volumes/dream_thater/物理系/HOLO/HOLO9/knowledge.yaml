@@ -3,7 +3,6 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - HOLO8
-  - QFT48
 concepts:
   - id: holography.bulk-to-boundary-kernel
     name: 規格化されたbulk-to-boundary核
