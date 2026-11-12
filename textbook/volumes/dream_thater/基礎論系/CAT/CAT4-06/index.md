@@ -2,7 +2,7 @@
 
 ## 1. プログラムの式と射はどう結び付くか
 
-前講では、[Cartesian閉圏](../CAT4-05/index.md#def-cat4-05-cartesian-closed)で、二引数の射を一引数の射へ移す[評価とカリー化](../CAT4-05/index.md#thm-cat4-05-evaluation-curry)を学んだ。集合上の関数 $f(x,a)$ に対する $x\mapsto(a\mapsto f(x,a))$ は、その一例だった。
+前講では、[Cartesian閉圏](../CAT4-05/index.md#def-cat4-05-ccc)で、二引数の射を一引数の射へ移す[評価とカリー化](../CAT4-05/index.md#thm-cat4-05-evaluation-curry)を学んだ。集合上の関数 $f(x,a)$ に対する $x\mapsto(a\mapsto f(x,a))$ は、その一例だった。
 
 プログラムでも、変数を受け取る式から関数を作り、その関数に実引数を渡す。しかし「関数を作って直ちに適用する」操作が元の式への変数の代入と等しいのはなぜか。さらに、引数を取り出して直ちに関数を作り直しても、元の関数と同じなのはなぜか。これらを型付きの構文と圏論の両方で確認する。
 
@@ -227,7 +227,7 @@ $$
 <a id="lem-cat4-06-substitution"></a>
 
 <!-- formal-statement-start -->
-> **補題（置換補題）**  
+> **補題（型付きラムダ計算の置換補題）**  
 > Cartesian閉圏 $\mathcal C$、基底対象の割当て、文脈 $\Gamma,\Delta$、型付き同時代入 $\sigma:\Delta\Rightarrow\Gamma$、項 $\Gamma\vdash t:B$ を取る。捕獲を避ける代入の解釈は次を満たす。
 
 $$
