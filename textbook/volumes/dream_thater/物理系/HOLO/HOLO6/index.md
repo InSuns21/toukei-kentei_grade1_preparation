@@ -170,6 +170,8 @@ $$
 \end{aligned}
 $$
 
+ここで$\operatorname{Var}_0(X)=\langle X^2\rangle_0-\langle X\rangle_0^2$はこのGauss期待値に関する分散です。
+
 二つの$\operatorname{tr}M^2$の積では、[Wickの四点公式](#holo6-wick-pairings)を適用すると、各跡の内部だけで縮約する項が$(N\lambda)^2$、跡をまたぐ二通りの縮約が各$\lambda^2$なので、
 
 $$
@@ -178,7 +180,7 @@ $$
 \operatorname{Var}_0(\mathfrak o)=\frac{2\lambda^2}{N^2}.
 $$
 
-ここで$\operatorname{Var}_0(X)=\langle X^2\rangle_0-\langle X\rangle_0^2$はこのGauss期待値に関する分散です。この模型では、各固定$\lambda$に対して$\mathfrak o$の平均は有限のまま、揺らぎが$1/N$の大きさになります。
+この模型では、各固定$\lambda$に対して$\mathfrak o$の平均は有限のまま、揺らぎが$1/N$の大きさになります。
 
 <a id="prop-holo6-factorization"></a>
 
