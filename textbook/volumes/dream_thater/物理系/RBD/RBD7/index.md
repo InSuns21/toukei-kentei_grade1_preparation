@@ -15,7 +15,7 @@ x(t,u_b)=c(t)+R(t)u_b,\qquad
 \int u_b\,dm=0.
 $$
 
-$R$ は物体系の列ベクトルを空間系へ写す能動回転です。[RBD3 の剛体点の速度場](../RBD3/index.md#prop-rbd3-point-velocity)から、$u_s=Ru_b$ とおいて
+$R$ は物体系の列ベクトルを空間系へ写す能動回転です。下付き添字 $s,b$ はそれぞれ空間系・物体系の成分、点の添字 $C,O$ は角運動量やトルクを取る基準点を表します。上付きのドットと $d/dt$ はいずれも時刻 $t$ による微分で、空間系ベクトルの微分は慣性系の固定基底で行います（物体系の成分を微分するときには回転基底の補正が必要です）。[RBD3 の剛体点の速度場](../RBD3/index.md#prop-rbd3-point-velocity)から、$u_s=Ru_b$ とおいて
 
 $$
 v_P=\dot c+\omega_s\times u_s,\qquad
@@ -23,7 +23,7 @@ v_P=\dot c+\omega_s\times u_s,\qquad
 \dot R=R\widehat{\omega}_b.
 $$
 
-外力は、各作用点 $P_a$ での力 $f_{a,s}$ と、作用点によらない自由偶力（純粋なトルク） $m_{a,s}$ に分けて表します。分布力がある場合は以下の和を質量または適切な面・体積積分へ置き換えます。内力の合力・合トルクは消える理想剛体モデルを仮定します（内部の作用反作用が同一直線上にある条件が必要です）。
+外力は、各作用点 $P_a$ での力 $f_{a,s}$（$a=1,\dots,n$）と、作用点によらない自由偶力（純粋なトルク） $m_{k,s}$（$k=1,\dots,q$）に分けて表します。分布力がある場合は以下の和を質量または適切な面・体積積分へ置き換えます。内力の合力・合トルクは消える理想剛体モデルを仮定します（内部の作用反作用が同一直線上にある条件が必要です）。
 
 [MECH4 のトルク](../../MECH/MECH4/index.md#def-mech4-torque)と[MECH7 の重心](../../MECH/MECH7/index.md#def-mech7-center-of-mass)を組み合わせ、外力系の情報を二つにまとめます。
 
@@ -139,7 +139,16 @@ $$
 \left(\frac{dH_C}{dt}\right)_s
 =\sum_i u_i\times f_{i,\mathrm{ext}}
 +\sum_k m_{k,s}=\tau_{C,s}.
-$$
+$
+
+ここで自由偶力の項を加えた理由も確認します。等しく逆向きの二力 $f,-f$ を異なる点 $x_+,x_-$ に加えれば、合力は零ですが、重心まわりの合トルクは
+
+$
+(x_+-c)\times f+(x_--c)\times(-f)
+=(x_+-x_-)\times f
+$
+
+となり、基準点 $c$ に依存しません。自由偶力 $m_{k,s}$ はこのような力の偶力モーメントを独立な外部入力として表すので、並進方程式には寄与せず、角運動量収支にだけ加えます。
 
 一方、[MECH8 の慣性テンソルと角運動量の関係](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)より $H_C=R J_b\omega_b$ です。ここで $L_b=J_b\omega_b$ とおき、[回転基底の微分公式](../../MECH/MECH8/index.md#prop-mech8-rotating-basis-derivative)を **$A=H_C=RL_b$** に適用します。
 
@@ -197,6 +206,19 @@ $$
 
 両者は $H_O^{\mathrm{rel}}=H_O^{\mathrm{in}}-M(c-o)\times\dot o$ で関係する。連続質量分布では和を質量積分へ置き換える。
 <!-- formal-statement-end -->
+
+二つの式を引き算すると、重心の定義 $\sum_i m_i(x_i-c)=0$ から
+
+$
+\begin{aligned}
+H_O^{\mathrm{in}}-H_O^{\mathrm{rel}}
+&=\sum_i m_i(x_i-o)\times\dot o\\
+&=\left[\sum_i m_i(x_i-c)+M(c-o)\right]\times\dot o\\
+&=M(c-o)\times\dot o
+\end{aligned}
+$
+
+です。これは行列の変換公式ではなく、**どの速度を角運動量に入れるか**の違いから直接出ます。
 
 <!-- definition-example-start: def-rbd7-origin-momenta -->
 ### 直接例：自由並進する剛体を斜めに動く原点から見る
@@ -276,10 +298,10 @@ $$
 $$
 \begin{aligned}
 \frac{dH_O^{\mathrm{rel}}}{dt}
-&=\tau_O-\dot o\times M\dot c
+&=\tau_{O,s}-\dot o\times M\dot c
  -M(\dot c-\dot o)\times\dot o
  -Md\times\ddot o\\
-&=\tau_O-Md\times\ddot o.
+&=\tau_{O,s}-Md\times\ddot o.
 \end{aligned}
 $$
 
@@ -297,11 +319,18 @@ $$
 
 ### どの点なら $J_O\omega$ と書けるか
 
-[平行軸のテンソル公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)は点 $O$ に関する慣性テンソルの値を与えますが、それだけで $H_O^{\mathrm{in}}=J_O\omega$ とはなりません。$O$ が**剛体に固定された物質点**であれば剛体速度場から $v_i-\dot o=\omega_s\times(x_i-o)$ であり、[慣性テンソルの定義](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)を代入して
+[平行軸のテンソル公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)は点 $O$ に関する慣性テンソルの値を与えますが、それだけで $H_O^{\mathrm{in}}=J_O\omega$ とはなりません。$O$ が**剛体に固定された物質点**であれば剛体速度場から $v_i-\dot o=\omega_s\times(x_i-o)$ であり、[慣性テンソルの定義](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)とベクトル三重積を照合します。$r_i=x_i-o$ とすると、
 
-$$
-H_O^{\mathrm{rel}}=J_{O,s}\omega_s
-$$
+$
+\begin{aligned}
+H_O^{\mathrm{rel}}
+&=\sum_i m_i r_i\times(\omega_s\times r_i)\\
+&=\sum_i m_i\left(|r_i|^2 I_3-r_i r_i^{\mathsf T}\right)\omega_s\\
+&=J_{O,s}\omega_s.
+\end{aligned}
+$
+
+中段の行列は、空間系で表示した点 $O$ まわりの慣性テンソルです。つまり、$J_O\omega$ と書けるのは座標を選んだからではなく、**原点が剛体に固定され、各点の相対速度が回転だけで表せる**という条件のためです。
 
 が得られます。ただし $O$ が加速して動くなら、その微分は定理の加速度補正を必ず伴います。$O$ が**空間固定かつ剛体の固定点**である場合に限り、相対速度と慣性速度が一致して
 
@@ -755,13 +784,13 @@ $$
 
 ### 問題 C1：回転した剛体への推力と移動する機体標識点
 
-三次元剛体の質量を $M>0$、物体系慣性テンソルを $J_b=\operatorname{diag}(A,B,C)$（$A,B,C>0$）とする。ある時刻 $t_0$ に $R=R_z(\pi/2)$、$\omega_b=(0,0,\Omega)$、$\dot c=(V,0,0)$ である。物体固定点 $P$ の重心相対位置は $u_{P,b}=(a,0,0)$ で、空間系の外力 $f_s=(F,0,0)$（$a,F>0$）が $P$ に作用する。他の外力と偶力はない。
+三次元剛体の質量を $M>0$、物体系慣性テンソルを $J_b=\operatorname{diag}(I_1,I_2,I_3)$（$I_1,I_2,I_3>0$）とする。ある時刻 $t_0$ に $R=R_z(\pi/2)$、$\omega_b=(0,0,\Omega)$、$\dot c=(V,0,0)$ である。物体固定点 $P$ の重心相対位置は $u_{P,b}=(a,0,0)$ で、空間系の外力 $f_s=(F,0,0)$（$a,F>0$）が $P$ に作用する。他の外力と偶力はない。
 
 さらに別の物体固定標識点 $O$ を、$c-o=R(d,0,0)$（$d>0$）で指定する。この $O$ は**空間固定ではない**。
 
 1. $P$ の空間位置の腕、$\tau_{C,s}$、$\tau_{C,b}$、$\ddot c$、$\dot\omega_b$ を求めよ。
 2. $P$ の速度と力の仕事率を求め、運動エネルギーの時間微分と照合せよ。
-3. $O$ まわりの外力トルク $\tau_{O,s}$、$O$ の空間加速度 $\ddot o$ を求め、$\dot H_O^{\mathrm{rel}}=\tau_O-M(c-o)\times\ddot o$ の $z$ 成分を検算せよ。$O$ まわりの慣性の $z$ 成分には $C+Md^2$ を用いてよい。
+3. $O$ まわりの外力トルク $\tau_{O,s}$、$O$ の空間加速度 $\ddot o$ を求め、$\dot H_O^{\mathrm{rel}}=\tau_O-M(c-o)\times\ddot o$ の $z$ 成分を検算せよ。$O$ まわりの慣性の $z$ 成分には $I_3+Md^2$ を用いてよい。
 
 - Level: C
 
@@ -782,12 +811,12 @@ $$
 =(0,a,0)\times(F,0,0)=(0,0,-aF).
 $$
 
-$z$ 成分は $R$ で変わらないため $\tau_{C,b}=R^{\mathsf T}\tau_{C,s}=(0,0,-aF)$。角速度は物体 $z$ 主軸方向で $J_b\omega_b=(0,0,C\Omega)$、従って $\omega_b\times J_b\omega_b=0$。[Newton–Euler方程式](#thm-rbd7-newton-euler)より
+$z$ 成分は $R$ で変わらないため $\tau_{C,b}=R^{\mathsf T}\tau_{C,s}=(0,0,-aF)$。角速度は物体 $z$ 主軸方向で $J_b\omega_b=(0,0,I_3\Omega)$、従って $\omega_b\times J_b\omega_b=0$。[Newton–Euler方程式](#thm-rbd7-newton-euler)より
 
 $$
 \boxed{\ddot c=(F/M,0,0)},\qquad
 \boxed{\dot\omega_b=(0,0,\alpha)},\quad
-\alpha:=-aF/C.
+\alpha:=-aF/I_3.
 $$
 
 **2. 作用点速度とエネルギー。** 空間系の角速度は $\omega_s=R\omega_b=(0,0,\Omega)$。したがって[点速度](../RBD3/index.md#prop-rbd3-point-velocity)は
@@ -807,7 +836,7 @@ $$
 です。$K=\frac12M|\dot c|^2+\frac12\omega_b^{\mathsf T}J_b\omega_b$ を微分しても、この瞬間に
 
 $$
-\dot K=M V(F/M)+C\Omega\alpha
+\dot K=M V(F/M)+I_3\Omega\alpha
 =FV-aF\Omega.
 $$
 
@@ -837,13 +866,13 @@ $$
 \tau_{O,z}-M(d_s\times\ddot o)_z
 &=-(a+d)F+Md(F/M+d\alpha)\\
 &=-aF+Md^2\alpha\\
-&=(C+Md^2)\alpha.
+&=(I_3+Md^2)\alpha.
 \end{aligned}
 $$
 
-最後の等号に $C\alpha=-aF$ を使いました。左辺は、$O$ が剛体固定点であるため $H_O^{\mathrm{rel}}=J_{O,s}\omega_s$。ここでは $z$ は $J_{O,s}$ の主軸であり、[平行軸のテンソル公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)により $(J_{O,s})_{zz}=C+Md^2$ です。従って微分した $z$ 成分は $(C+Md^2)\alpha$ と一致します（$R$ は $z$ 軸回転、$z$ と他軸の慣性積は零）。
+最後の等号に $I_3\alpha=-aF$ を使いました。左辺は、$O$ が剛体固定点であるため $H_O^{\mathrm{rel}}=J_{O,s}\omega_s$。ここでは $z$ は $J_{O,s}$ の主軸であり、[平行軸のテンソル公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)により $(J_{O,s})_{zz}=I_3+Md^2$ です。従って微分した $z$ 成分は $(I_3+Md^2)\alpha$ と一致します（$R$ は $z$ 軸回転、$z$ と他軸の慣性積は零）。
 
-もし $O$ を空間固定と誤認して補正を落とせば、$-(a+d)F=(C+Md^2)\alpha$ という一般には偽の関係になります。機体標識点が剛体上に固定されることと、空間に固定されることは異なります。
+もし $O$ を空間固定と誤認して補正を落とせば、$-(a+d)F=(I_3+Md^2)\alpha$ という一般には偽の関係になります。機体標識点が剛体上に固定されることと、空間に固定されることは異なります。
 <!-- solution-end -->
 
 ---
