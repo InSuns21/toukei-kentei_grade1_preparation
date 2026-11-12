@@ -9,14 +9,14 @@
 <path d="M385 90 V345" stroke="#485c6a" stroke-width="3" stroke-dasharray="9 7" fill="none"/>
 <text x="278" y="205" font-size="24" text-anchor="middle" fill="#253c50">U_L</text>
 <text x="490" y="205" font-size="24" text-anchor="middle" fill="#253c50">U_R</text>
-<text x="397" y="77" font-size="22" fill="#334c60">S</text>
+<text x="397" y="53" font-size="22" fill="#334c60">S</text>
 <circle cx="385" cy="260" r="5" fill="#222"/>
 <path d="M385 260 H485" stroke="#20548a" stroke-width="4" marker-end="url(#arrow-solid)" fill="none"/>
 <path d="M385 260 H286" stroke="#9c452d" stroke-width="3" stroke-dasharray="7 4" marker-end="url(#arrow-open)" fill="none"/>
 <text x="433" y="245" font-size="19" text-anchor="middle" fill="#20548a">t(n)</text>
 <text x="333" y="294" font-size="19" text-anchor="middle" fill="#8d3b26">t(-n)</text>
 <path d="M385 308 H443" stroke="#536979" stroke-width="2" marker-end="url(#arrow-solid)" fill="none"/>
-<text x="448" y="328" font-size="19" fill="#3d5466">n</text>
+<text x="474" y="323" font-size="19" fill="#3d5466">n</text>
 <circle cx="385" cy="90" r="5" fill="#263d50"/>
 <path d="M385 90 H510" stroke="#20548a" stroke-width="4" marker-end="url(#arrow-solid)" fill="none"/>
 <text x="510" y="65" font-size="22" text-anchor="middle" fill="#20548a">F</text>
