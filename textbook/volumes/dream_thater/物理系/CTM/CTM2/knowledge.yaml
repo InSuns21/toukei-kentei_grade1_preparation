@@ -1,0 +1,42 @@
+chapter: CTM2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM1
+concepts:
+  - id: continuum.deformation-gradient
+    name: 変形勾配
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変形勾配と体積 Jacobian）"]
+    requires: [continuum.motion-current-configuration, analysis.jacobian-matrix]
+  - id: continuum.volume-jacobian
+    name: 体積 Jacobian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変形勾配と体積 Jacobian）"]
+    requires: [continuum.deformation-gradient, linear.determinant-invertibility-criterion]
+  - id: continuum.line-volume-transformation
+    name: 線素と向き付き微小体積の変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線素と向き付き微小体積の変換）"]
+    requires: [continuum.deformation-gradient, continuum.volume-jacobian]
+  - id: continuum.cofactor-area-vector
+    name: 余因子行列と面積ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余因子行列と面積ベクトル）"]
+    requires: [continuum.deformation-gradient]
+  - id: continuum.cofactor-inverse-transpose
+    name: 余因子行列と逆転置行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余因子行列と逆転置行列）"]
+    requires: [continuum.cofactor-area-vector, continuum.volume-jacobian]
+  - id: continuum.nanson-area-formula
+    name: Nanson の面積変換公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Nanson の面積変換公式）"]
+    requires: [continuum.cofactor-inverse-transpose, continuum.line-volume-transformation]
