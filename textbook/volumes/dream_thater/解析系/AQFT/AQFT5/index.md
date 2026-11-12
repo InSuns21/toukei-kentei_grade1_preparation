@@ -49,7 +49,7 @@ $$
 <!-- definition-example-start: def-aqft5-causal-symplectic -->
 ### 直接例：変位と速度の組で零でない値を作る
 
-零でない実数値 $a\in C_c^\infty(\mathbb R^3)$ を選びます。[Klein–Gordonの大域Cauchy存在一意性](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)を使い、初期データ
+**定義の確認**。零でない実数値 $a\in C_c^\infty(\mathbb R^3)$ を選びます。[Klein–Gordonの大域Cauchy存在一意性](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)を使い、初期データ
 $$
 (u_0,u_1)=(a,0),\qquad
 (v_0,v_1)=(0,a)
@@ -114,7 +114,7 @@ $$
 f=P(\chi u)=\chi''u+2\chi'\partial_tu,\qquad
 h=P(\chi v)=\chi''v+2\chi'\partial_tv.
 $$
-$\chi',\chi''$ は有限時間帯に支持を持ち、有限伝播によりこの帯で $u,v$ の空間台も有界なので $f,h\in\mathcal D$ です。[AQFT4のカットオフ逆写像](../AQFT4/index.md#thm-aqft4-kg-quotient)によって
+$\chi',\chi''$ は有限時間帯に支持を持ち、Cauchy解の因果的支持条件によりこの帯で $u,v$ の空間台も有界なので $f,h\in\mathcal D$ です。[AQFT4のカットオフ逆写像](../AQFT4/index.md#thm-aqft4-kg-quotient)によって
 $$
 G_{\mathrm{ret}}f=\chi u,\qquad
 G_{\mathrm{adv}}f=(\chi-1)u,\qquad Ef=u
@@ -489,7 +489,7 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-(i) $\chi'$、$\chi''$ は $[-\varepsilon,\varepsilon]$ に支持を持ちます。初期データの台は $\overline B_r(0)$ に含まれるため、[有限伝播](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)より
+(i) $\chi'$、$\chi''$ は $[-\varepsilon,\varepsilon]$ に支持を持ちます。初期データの台は $\overline B_r(0)$ に含まれるため、[Cauchy解の因果的支持](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)より
 $$
 \operatorname{supp}u\cap\{|t|\le\varepsilon\},
 \quad
