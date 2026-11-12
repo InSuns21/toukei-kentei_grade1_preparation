@@ -24,3 +24,4 @@
 21. [HOLO21 重力レプリカ法](textbook/volumes/dream_thater/物理系/HOLO/HOLO21/index.md)
 22. [HOLO22 共変HRT面](textbook/volumes/dream_thater/物理系/HOLO/HOLO22/index.md)
 23. [HOLO23 FLM量子補正](textbook/volumes/dream_thater/物理系/HOLO/HOLO23/index.md)
+24. [HOLO24 量子極値曲面QES](textbook/volumes/dream_thater/物理系/HOLO/HOLO24/index.md)

@@ -29,7 +29,7 @@ chapters:
   - { id: HOLO21, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO21, status: completed, title: "重力レプリカ法" }
   - { id: HOLO22, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO22, status: completed, title: "共変HRT面" }
   - { id: HOLO23, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO23, status: completed, title: "FLM量子補正" }
-  - { id: HOLO24, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO24, status: planned, title: "量子極値曲面QES" }
+  - { id: HOLO24, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO24, status: completed, title: "量子極値曲面QES" }
   - { id: HOLO25, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO25, status: planned, title: "causal wedgeとentanglement wedge" }
   - { id: HOLO26, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO26, status: planned, title: "HKLL再構成" }
   - { id: HOLO27, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO27, status: planned, title: "部分領域再構成" }
