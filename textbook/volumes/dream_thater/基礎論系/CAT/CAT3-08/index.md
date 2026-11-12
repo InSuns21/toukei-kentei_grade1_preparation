@@ -53,10 +53,10 @@ $$
 
 $\mathcal A$ は小さく、$\mathcal B$ のHomは集合なので右辺は集合である。また、固定した二対象 $(a,u),(a',u')$ の間の射集合は
 
-$
+$$
 \operatorname{Hom}_{(b\downarrow K)}((a,u),(a',u'))
 =\{f\in\operatorname{Hom}_{\mathcal A}(a,a')\mid K(f)u=u'\}
-$
+$$
 
 である。各Hom集合は集合であり、対象の組も集合をなすので、全射の集まりも集合になる。従って $(b\downarrow K)$ は小さい。$\mathcal A$ が大きい場合には、この結論を無条件に使ってはいけない。
 
@@ -161,25 +161,25 @@ $$
 
 $f:a\to a'$ に対し、まず $(Ka\downarrow K)$ において
 
-$
+$$
 f:(a,1_{Ka})\longrightarrow(a',Kf)
-$
+$$
 
 は $Kf\,1_{Ka}=Kf$ を満たす射である。この添字圏での錐条件から
 
-$
+$$
 Ff\,p^{Ka}_{a,1_{Ka}}=p^{Ka}_{a',Kf}.
-$
+$$
 
 一方、[添字の引き戻し](#prop-cat3-08-transport)を $v=Kf:Ka\to Ka'$ と $(a',1_{Ka'})\in(Ka'\downarrow K)$ に適用すると、
 
-$
+$$
 p^{Ka'}_{a',1_{Ka'}}R(Kf)=p^{Ka}_{a',Kf}.
-$
+$$
 
 従って両式をつないで
 
-$
+$$
 \begin{aligned}
 Ff\,\varepsilon_a
 &=Ff\,p^{Ka}_{a,1_{Ka}}\\
@@ -187,7 +187,7 @@ Ff\,\varepsilon_a
 &=p^{Ka'}_{a',1_{Ka'}}R(Kf)\\
 &=\varepsilon_{a'}R(Kf).
 \end{aligned}
-$
+$$
 
 両辺は $R(Ka)\to F(a')$ であり、$\varepsilon:RK\Rightarrow F$ が自然変換であることが証明された。
 
@@ -546,24 +546,24 @@ $K:\mathbf2\to\mathbf1$ を唯一の関手、$F=(X\xrightarrow{f}Y)$ とする�
 - Level: A
 - 問題ID: CAT3-08-COUNIT-NATURALITY
 
-小圏 $\mathcal A,\mathcal B$、関手 $K,F$ と必要な極限を仮定する。$f:a\to a'$ を固定し、$(Ka'\downarrow K)$ で使用する射を一つ作れ。[引き戻しの式](#prop-cat3-08-transport)と錐条件を用いて $Ff\,\varepsilon_a=\varepsilon_{a'}R(Kf)$ を再導出し、型を記せ。
+小圏 $\mathcal A,\mathcal B$、関手 $K,F$ と必要な極限を仮定する。$f:a\to a'$ を固定し、$(Ka\downarrow K)$ で使用する射を一つ作れ。[引き戻しの式](#prop-cat3-08-transport)と錐条件を用いて $Ff\,\varepsilon_a=\varepsilon_{a'}R(Kf)$ を再導出し、型を記せ。
 
 <!-- solution-start -->
 **詳細解答**：$(Ka\downarrow K)$ の対象 $(a,1_{Ka})$ と $(a',Kf)$ を取る。$Kf\,1_{Ka}=Kf$ より $f:(a,1_{Ka})\to(a',Kf)$ はcomma圏の射である。この添字圏の錐条件は
 
-$
+$$
 Ff\,p^{Ka}_{a,1_{Ka}}=p^{Ka}_{a',Kf}.
-$
+$$
 
 一方、[引き戻しの式](#prop-cat3-08-transport)に $v=Kf:Ka\to Ka'$ と $(a',1_{Ka'})$ を代入すると
 
-$
+$$
 p^{Ka'}_{a',1_{Ka'}}R(Kf)=p^{Ka}_{a',Kf}.
-$
+$$
 
 左の式の $p^{Ka}_{a',Kf}$ に右の式を代入して
 
-$
+$$
 \begin{aligned}
 Ff\,\varepsilon_a
 &=Ff\,p^{Ka}_{a,1_{Ka}}\\
@@ -571,7 +571,7 @@ Ff\,\varepsilon_a
 &=p^{Ka'}_{a',1_{Ka'}}R(Kf)\\
 &=\varepsilon_{a'}R(Kf).
 \end{aligned}
-$
+$$
 
 両辺は $R(Ka)\to F(a')$ である。
 <!-- solution-end -->
