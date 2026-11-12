@@ -4,7 +4,6 @@ volume: foundations
 status: supplementary
 prerequisites:
   - HOLO8
-  - QFT48
 official_scope: []
 learning_objectives:
   - Euclid AdS自由スカラーのbulk-to-boundary核を方程式と境界規格化から導出できる
