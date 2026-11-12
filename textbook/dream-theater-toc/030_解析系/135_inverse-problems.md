@@ -16,3 +16,5 @@
 13. [INV13 投影データからどう反転するか](textbook/volumes/dream_thater/解析系/INV/INV13/index.md)
 14. [INV14 不完全観測で何が見えなくなるか](textbook/volumes/dream_thater/解析系/INV/INV14/index.md)
 15. [INV15 Gaussian事前分布で何が復元できるか](textbook/volumes/dream_thater/解析系/INV/INV15/index.md)
+
+16. [INV16 逆問題の不確実性をどう読むか](textbook/volumes/dream_thater/解析系/INV/INV16/index.md)
