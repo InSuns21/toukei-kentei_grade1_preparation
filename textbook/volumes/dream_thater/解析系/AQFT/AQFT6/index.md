@@ -63,6 +63,8 @@ $$
 <!-- definition-example-start: def-aqft6-weyl-ccr -->
 ### 直接例：位相が逆順で反転する
 
+**定義の確認**。交代形式・Weyl積・逆元の三条件を、一組の具体的な自由度に代入して検算します。
+
 二次元実空間 $V_0=\mathbb R^2$ 上の $\sigma_0((q,p),(q',p'))=qp'-pq'$ を用い、$F=(1,0)$、$G=(0,1)$ とします。$\sigma_0(F,G)=1$、$\sigma_0(G,F)=-1$ なので
 $$
 W(F)W(G)=e^{-i/2}W(1,1),\qquad
@@ -175,6 +177,8 @@ $$
 <!-- definition-example-start: def-aqft6-local-weyl-net -->
 ### 直接例：二つの入れ子のdouble cone
 
+**定義の確認**。局所部分空間の包含、生成元の随伴、C*閉包と空集合の単位元を順に確認します。
+
 $O_r=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<r\}$ と $O_R$（$0<r<R$）を取ります。[AQFT1のdouble cone](../AQFT1/index.md#def-aqft1-double-cone)で $O_r\subset O_R$ です。$f\in\mathcal D(O_r)$ なら同じ台が $O_R$ にも含まれるので
 $$
 [f]\in\mathcal V(O_r)\subset\mathcal V(O_R).
@@ -259,7 +263,7 @@ $$
 > が強連続、すなわち任意の $\xi\in\mathcal H$ に対して $\|\pi(L(tF))\xi-\xi\|\to0$（$t\to0$）となることをいう。
 <!-- formal-statement-end -->
 
-規則的な表現であれば、[QM7のStone定理](../../QM/QM7/index.md#thm-qm7-stone)をこのユニタリ群に適用でき、一意な自己共役作用素 $\Phi_\pi(F)$ が存在して
+規則的な表現であれば、[QM7のStone定理](../../QM/QM7/index.md#thm-qm7-stone)をこの強連続な一パラメータ群に適用でき、一意な自己共役作用素 $\Phi_\pi(F)$ が存在して
 $$
 \pi(L(tF))=e^{it\Phi_\pi(F)}
 $$
@@ -267,6 +271,8 @@ $$
 
 <!-- definition-example-start: def-aqft6-regular-representation -->
 ### 直接例：二次元のSchrödinger表示は規則的である
+
+**定義の確認**。有限二次元のWeyl模型について、群の積と随伴の後に、定義が要求する強連続性を直接検算します。
 
 二次元実空間 $(q,p)\in\mathbb R^2$ と $\sigma_0((q,p),(q',p'))=qp'-pq'$ を使います。$\mathcal H=L^2(\mathbb R,dx)$ 上に
 $$
