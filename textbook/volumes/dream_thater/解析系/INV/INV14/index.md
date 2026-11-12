@@ -59,9 +59,9 @@ $$
 
 > とする。**欠測扇形**（missing wedge）は、観測周波数領域の閉包を除いた開集合
 
-$
+$$
 U_I=\mathbb R^2\setminus\overline{W_I}
-$
+$$
 
 > と定める。境界の方向は $W_I$ に含まれない場合があるが、$U_I$ にも含めない。有限方向 $\Phi$ の観測周波数集合は、$\bigcup_{\varphi\in\Phi}\mathbb R\theta_\varphi$ である。
 <!-- formal-statement-end -->
@@ -130,20 +130,20 @@ $$
 
 残るのは $h\neq0$ の確認です。$\widehat g(0)=\int g(x)\,dx>0$ なので、連続性から原点近くで $\widehat g(\xi)\neq0$ です。有限本の直線 $\{\xi:\xi\cdot v_j=0\}$ の和集合は小円板を埋め尽くしません。そこで全ての $\xi\cdot v_j\neq0$ かつ $\widehat g(\xi)\neq0$ である $\xi$ を取れます。コンパクト台によって境界項が消えるので、一回の方向微分に対して部分積分すると
 
-$
+$$
 \begin{aligned}
 \widehat{D_{v_j}g}(\xi)
 &=\int_{\mathbb R^2}(v_j\cdot\nabla g(x))e^{-ix\cdot\xi}\,dx\\
 &=-\int_{\mathbb R^2}g(x)(v_j\cdot\nabla e^{-ix\cdot\xi})\,dx\\
 &=i(\xi\cdot v_j)\widehat g(\xi).
 \end{aligned}
-$
+$$
 
 これを各 $j$ について繰り返すと
 
-$
+$$
 \widehat h(\xi)=i^m\prod_{j=1}^m(\xi\cdot v_j)\widehat g(\xi)\neq0.
-$
+$$
 
 Fourier 変換が零でないので $h$ は零関数でありません。実数値性とコンパクト台も構成から保たれます。
 <!-- proof-end -->
@@ -332,11 +332,11 @@ $$
 
 ただし、周波数を急に遮断した後の関数は一般に Schwartz 級ではありません。$f\in\mathcal S(\mathbb R^2)$ なら $\widehat f\in L^2(\mathbb R^2)$ であり、観測領域の指示関数を掛けたものも
 
-$
+$$
 \int_{\mathbb R^2}|\mathbf1_{W_I}(\xi)\widehat f(\xi)|^2\,d\xi
 =\int_{W_I}|\widehat f(\xi)|^2\,d\xi
 \leq\int_{\mathbb R^2}|\widehat f(\xi)|^2\,d\xi<\infty
-$
+$$
 
 を満たします。[FOU4 の $L^2$ Fourier 反転](../../FOU/FOU4/index.md#thm-fou4-l2-inversion)を二つの座標に順に適用すれば、この周波数関数に対応する $L^2(\mathbb R^2)$ の元が一意に存在します。以下の $\widehat{Z_I f}$ は、この $L^2$ の意味での Fourier 変換です。
 
@@ -401,22 +401,22 @@ $$
 
 **線状の模様が生まれる幾何学的理由**：[単純逆投影](../INV13/index.md#def-inv13-backprojection)は、投影値 $g(\varphi,s)$ を直線 $x\cdot\theta_\varphi=s$ 上の全点へ配り直します。例えば $a>0$、中心 $x_0$ の Gaussian $f_a(x)=e^{-a|x-x_0|^2}$ を考えます。法線と接線の正規直交座標では
 
-$
+$$
 |s\theta_\varphi+t\theta_\varphi^\perp-x_0|^2
 =(s-x_0\cdot\theta_\varphi)^2
 +(t-x_0\cdot\theta_\varphi^\perp)^2.
-$
+$$
 
 従って、[Radon変換の定義](../INV12/index.md#def-inv12-radon)に代入して $t$ を積分すると
 
-$
+$$
 \begin{aligned}
 (Rf_a)(\varphi,s)
 &=e^{-a(s-x_0\cdot\theta_\varphi)^2}
 \int_{\mathbb R}e^{-a(t-x_0\cdot\theta_\varphi^\perp)^2}\,dt\\
 &=\sqrt{\pi/a}\,e^{-a(s-x_0\cdot\theta_\varphi)^2}.
 \end{aligned}
-$
+$$
 
 固定角度の逆投影値は、$x\cdot\theta_\varphi=x_0\cdot\theta_\varphi$ を満たす直線全体で最大になります。多数の角度があれば重ね合わせ・フィルタ処理で方向が補われますが、方向が不足すると偏った線状の寄与が目立ちます。これは直接計算した機構の説明であり、どの特異性がどこへ伝播するかの完全な定理ではありません。
 
@@ -445,17 +445,17 @@ $$
 
 実際、この二つの一次元信号は、**固定した一方向での**二次元 Schwartz 画像の Radon 投影としても実現できます。$\theta=\theta_\varphi$、$v=\theta_\varphi^\perp$ とし、$r=p,q$ に対して
 
-$
+$$
 f_r(x)=\frac1{\sqrt\pi}\,r(x\cdot\theta)\,
 e^{-(x\cdot v)^2}
-$
+$$
 
 と置きます。$\{\theta,v\}$ は正規直交基底、$r$ は Schwartz 級だから $f_r\in\mathcal S(\mathbb R^2)$ です。[Radon 変換の定義](../INV12/index.md#def-inv12-radon)に $x=s\theta+tv$ を代入すると、
 
-$
+$$
 (Rf_r)(\varphi,s)=
 \frac{r(s)}{\sqrt\pi}\int_{\mathbb R}e^{-t^2}\,dt=r(s)
-$
+$$
 
 です。従って同じ角度の検出器格子で全標本が一致する二つの異なる画像が存在します。ただし、**別の全角度でも標本が一致する**とまでは主張しません。
 
