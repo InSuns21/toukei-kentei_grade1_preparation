@@ -247,13 +247,13 @@ $$
 S_E[\phi]=\frac12\int_{T^d}\left[\phi(\epsilon,x)\pi_\epsilon(x)+\phi(Z,x)\pi_Z(x)\right]d^dx.
 $$
 
-> さらに両端で解の滑らかな一パラメータ族 $\phi_s$ が存在し、赤外側の値 $\phi_s(Z,x)=J_Z(x)$ を固定したまま、紫外側で $\phi_s(\epsilon,x)=J_\epsilon(x)+s\,\delta J_\epsilon(x)$ とする。族に沿ったon-shell作用を $w(s)=S_E[\phi_s]$ と置けば
+> さらに $\phi_0=\phi$ を満たす滑らかな一パラメータ解族 $\phi_s$ が存在し、赤外側の値 $\phi_s(Z,x)=J_Z(x)$ を固定したまま、紫外側で $\phi_s(\epsilon,x)=J_\epsilon(x)+s\,\delta J_\epsilon(x)$ とする。族に沿ったon-shell作用を $w(s)=S_E[\phi_s]$ と置けば
 
 $
 w'(0)=\int_{T^d}\pi_\epsilon(x)\,\delta J_\epsilon(x)\,d^dx.
 $
 
-> これは、存在を仮定した解の族に沿う微分である。境界データに対する解が滑らかかつ一意に定まる場合には、$W_\epsilon[J_\epsilon]=S_E[\phi]$ を境界データの汎関数と見なし、上式を $\delta W_\epsilon[J_\epsilon;\delta J_\epsilon]$ と書ける。一般の $m^2<0$ でも境界値だけから解が一意になる、と主張しているわけではない。
+> ここで $\pi_\epsilon$ は基準解 $\phi_0$ から定義した法線運動量密度である。これは、存在を仮定した解の族に沿う微分である。境界データに対する解が滑らかかつ一意に定まる場合には、$W_\epsilon[J_\epsilon]=S_E[\phi]$ を境界データの汎関数と見なし、上式を $\delta W_\epsilon[J_\epsilon;\delta J_\epsilon]$ と書ける。一般の $m^2<0$ でも境界値だけから解が一意になる、と主張しているわけではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
