@@ -1,6 +1,6 @@
 # HOLO18 RT公式の最小模型
 
-[HOLO17の境界区間エントロピー](../HOLO17/index.md#def-holo17-boundary-data)では、二次元CFTの真空区間 $A=[-a,a]$ の普遍主項が $S(A)\sim(c/3)\log(\ell/\epsilon)$（$\ell=2a$）になることを整理しました。しかし境界の量子状態を縮約する計算と、三次元重力の**曲線の長さ**を求める計算は別の仕事です。両者を結ぶ等式まで測地線方程式から証明できるわけではありません。
+[HOLO17の境界区間エントロピー](../HOLO17/index.md#def-holo17-boundary-data)では、二次元CFTの真空区間 $A=[-a,a]$ の普遍主項が $S(A)\sim(c/3)\log(\ell/\epsilon)$（$\ell=2a$）になることを整理しました。しかし境界の量子状態を縮約する計算と、三次元重力の**曲線の長さ**を求める計算は別の仕事です。境界量子論と幾何を結ぶ等式は、半円の長さを計算するだけでは証明できません。
 
 本章の問いは、**静的な純AdSの一つの区間で、重力側からどこまで実際に計算でき、どの段階でRT処方を入力するのか**です。[HOLO3の測地線](../HOLO3/index.md#thm-holo3-semicircle)と[HOLO13のBrown–Henneaux関係](../HOLO13/index.md#prop-holo13-brown-henneaux)を、正則化の規約を揃えて結びます。$\hbar=1$、自然対数、境界に重力がない標準的なAdS/CFTの半古典的領域を使います。
 
