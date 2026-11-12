@@ -583,7 +583,15 @@ $$
 \int x_1^k h(x)e^{-i(\xi_0x_1+\eta x_2)}\,dx.
 $$
 
-$|x_1|\le R$ なので総和と積分の交換は $e^{R|t|}\int|h|$ による優越から正当化できます。$t$ が十分小さい区間では左辺は0です。よって各係数が0となり、無限半径の冪級数によって任意の $t\in\mathbb R$ で $\widehat h(\xi_0+t,\eta)=0$ です。
+台上で $|x_1|\le R$ なので、絶対値和は $e^{R|t|}\int|h|$ 以下です。これにより総和と積分を交換できます。
+
+左辺は $t=0$ の周囲で恒等的に0です。従って全係数は0となり、この冪級数は任意の実数 $t$ で0です。すなわち
+
+$
+\widehat h(\xi_0+t,\eta)=0\qquad(t\in\mathbb R)
+$
+
+です。
 
 これで全 $\xi_1\in\mathbb R$、$\eta\in(c,d)$ に対し $\widehat h(\xi_1,\eta)=0$ と分かりました。今度は $\xi_1$ を固定し、$\eta_0\in(c,d)$ の周りで $e^{-itx_2}$ を同じように展開します。左辺は $t$ の小区間で0なので全 $t$ で0。結果 $\widehat h$ は全平面で0となり、[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)から $h=0$ です。コンパクト台は $e^{R|t|}$ によって**全ての $t$ まで展開を延長できる**ところに使いました。
 <!-- solution-end -->
@@ -667,7 +675,9 @@ $\Phi=\{0,\pi/2\}$、$I=(0,\pi/3)$ とする。以下の問いに答えよ。
 
 **1.** $g(x)=e^{-|x|^2}$ として $h=\partial_{x_1}\partial_{x_2}g=4x_1x_2e^{-|x|^2}$ と置きます。これは非零実数値の Schwartz 関数です。$\varphi=0$ の線 $(s,t)$ では $h=4st e^{-s^2-t^2}$、$\varphi=\pi/2$ の線 $(-t,s)$ では $h=-4st e^{-s^2-t^2}$。いずれも $t$ について奇関数だから積分0です。有限個の方向の核を示したのであり、連続角度 $I$ の核を示したわけではありません。
 
-**2.** $h=f_1-f_2$ とすれば、[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)により $\widehat h$ は $W_I$ 上で0です。$I$ が開区間なので $W_I$ の内部から長方形 $(a,b)\times(c,d)$ を取れます。$h$ はコンパクト台なので、$\widehat h(\xi_0+t,\eta)$ を
+**2.** $h=f_1-f_2$ と置きます。[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)から、観測周波数領域で $\widehat h=0$ です。
+
+$I$ は開区間なので、$W_I$ の内部に長方形 $(a,b)\times(c,d)$ を取れます。$h$ はコンパクト台だから、固定した $\xi_0\in(a,b)$ と $\eta\in(c,d)$ に対して $\widehat h(\xi_0+t,\eta)$ を
 
 $$
 \sum_{k=0}^{\infty}\frac{(-it)^k}{k!}
