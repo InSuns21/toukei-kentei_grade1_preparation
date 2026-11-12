@@ -226,7 +226,7 @@ R^{-N}E_Q[X_N^{\mathrm{in}}]+R^{-N}E_Q[X_N^{\mathrm{out}}]
 =R^{-N}E_Q[(S_N-K)_+]
 $$
 
-を得ます。[後退帰納価格定理](#thm-u3-09-barrier-backward)と [European オプションの二項評価](../U3-05/index.md#prop-u3-05-european-price) がそれぞれの項を無裁定価格と同定します。
+を得ます。[後退帰納価格定理](#thm-u3-09-barrier-backward)と [European オプションの二項評価](../U3-05/index.md#prop-u3-05-valuation) がそれぞれの項を無裁定価格と同定します。
 <!-- proof-end -->
 
 2期間例の European call は
@@ -337,7 +337,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Barrier の各節点における複製保有量）**  
-> $0<d<R<u$、$S_0>0$ の無配当二項市場で、時点 $t<N$ の到達可能な状態 $(S_t,J_t)=(s,a)$、$s>0$ と、[Bar​rier の後退価値](#thm-u3-09-barrier-backward)の子の価値 $V^+=V_{t+1}(s_+,a_+)$、$V^-=V_{t+1}(s_-,a_-)$ を取る。時点 $t$ に株式を $\Delta_t$ 株、預金へ $\beta_t$ 円投じる複製保有量は唯一に定まり、
+> $0<d<R<u$、$S_0>0$ の無配当二項市場で、時点 $t<N$ の到達可能な状態 $(S_t,J_t)=(s,a)$、$s>0$ と、[Barrier の後退価値](#thm-u3-09-barrier-backward)の子の価値 $V^+=V_{t+1}(s_+,a_+)$、$V^-=V_{t+1}(s_-,a_-)$ を取る。時点 $t$ に株式を $\Delta_t$ 株、預金へ $\beta_t$ 円投じる複製保有量は唯一に定まり、
 
 $$
 \Delta_t=\frac{V^+-V^-}{s(u-d)},\qquad
