@@ -1,0 +1,43 @@
+id: HOLO10
+title: "Witten接触図"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO9
+official_scope: []
+learning_objectives:
+  - GKPW辞書を仮定し3次バルク相互作用から木レベル連結3点を導出できる
+  - 接触Witten積分の定義とbulk-to-boundary核3本の関係を説明できる
+  - 境界の一般点と各挿入点近傍から接触積分の必要十分収束条件を検算できる
+  - AdS反転共変性から分離3点の距離冪を導出できる
+  - FeynmanパラメータとBeta積分でGamma係数を出発点から計算できる
+  - d3でDelta2の係数を計算し3次作用の組合せ係数と符号を検算できる
+  - 分離点と一致点の分布的相関及び木レベルと有限Nの適用範囲を区別できる
+definitions:
+  - { id: HOLO10-DEF-01, name: 接触Witten積分 }
+theorems:
+  - { id: HOLO10-PROP-01, name: 木レベル3点と接触積分 }
+  - { id: HOLO10-PROP-02, name: 接触積分の絶対収束条件 }
+  - { id: HOLO10-PROP-03, name: 接触積分の厳密評価 }
+  - { id: HOLO10-PROP-04, name: 木レベルの共形3点関数 }
+canonical_examples:
+  - d3で3本の核とzの積分次数を検算
+  - 境界一般点と源点近傍の可積分性を別々に確認
+  - 収束域外の三角不等式等号で対数発散を確認
+  - d3 Delta2でGamma係数と源の3次微分を照合
+problem_patterns:
+  - HOLO10-BULK-VOLUME
+  - HOLO10-CONTACT-INTEGRAL
+  - HOLO10-BOUNDARY-CONVERGENCE
+  - HOLO10-SYMMETRY-FACTORS
+  - HOLO10-GAMMA-NORMALIZATION
+  - HOLO10-CONFORMAL-RESCALING
+  - HOLO10-FEYNMAN-PARAMETER
+  - HOLO10-INVERSION-COVARIANCE
+  - HOLO10-BETA-INTEGRAL
+  - HOLO10-DIVERGENCE-COUNTEREXAMPLE
+  - HOLO10-COMPLETE-THREEPOINT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 7 }
