@@ -6,7 +6,7 @@
 
 プログラムでも、変数を受け取る式から関数を作り、その関数に実引数を渡す。しかし「関数を作って直ちに適用する」操作が元の式への変数の代入と等しいのはなぜか。さらに、引数を取り出して直ちに関数を作り直しても、元の関数と同じなのはなぜか。これらを型付きの構文と圏論の両方で確認する。
 
-この章では基底型を一種類 $\mathsf o$ に絞った**単純型付きラムダ計算**を扱う。型付き項の等式には外延的な $\beta\eta$ 則を採用する。計算の停止性や型推論アルゴリズムを仮定しない。一般の圏の射の合成は右から左へ読む。
+この章では基底型を一種類 $\mathsf o$ に絞った**型付きラムダ計算**を扱う。型付き項の等式には外延的な $\beta\eta$ 則を採用する。計算の停止性や型推論アルゴリズムを仮定しない。一般の圏の射の合成は右から左へ読む。
 
 ## 2. 型・文脈・項を作る
 
@@ -83,7 +83,23 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（捕獲を避ける同時代入）**  
-> $\Gamma=(x_1:A_1,\ldots,x_n:A_n)$、$\Delta$ を文脈とし、各 $i$ に $\Delta\vdash s_i:A_i$ が与えられたとする。この列を $\sigma:\Delta\Rightarrow\Gamma$ と記す。$\Gamma\vdash t:B$ の自由変数 $x_i$ を同時に $s_i$ に置き換え、束縛変数の捕獲を $\alpha$ 変換で避けた項を $t[\sigma]$ とする。結果は $\Delta\vdash t[\sigma]:B$ である。
+> 文脈 $\Gamma$ と $\Delta$ を取る。$\Gamma$ の宣言を次のように並べる。
+
+$
+\Gamma=(x_1:A_1,\ldots,x_n:A_n).
+$
+
+> 各変数に対し、$\Delta$ で次の型付き項が与えられたとする。
+
+$
+\Delta\vdash s_i:A_i\qquad(i=1,\ldots,n).
+$
+
+> この列を $\sigma:\Delta\Rightarrow\Gamma$ と記す。$\Gamma\vdash t:B$ の自由変数を対応する $s_i$ に同時に置き換え、束縛変数の捕獲を $\alpha$ 変換で避けた項を $t[\sigma]$ とする。結果は次の型を持つ。
+
+$
+\Delta\vdash t[\sigma]:B.
+$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-06-substitution -->
@@ -106,7 +122,7 @@ $y$ を改名せず $\lambda y:\mathsf o.y$ とすると、代入する項の自
 <a id="def-cat4-06-beta-eta"></a>
 
 <!-- formal-statement-start -->
-> **定義（外延的 $\beta\eta$ 等式理論）**  
+> **定義（外延的βη等式理論）**  
 > 上の型付き項の間の等号 $\equiv_{\beta\eta}$ を、$\alpha$ 変換を同一視し、以下の等式を含み、反射律・対称律・推移律、項の各構成子についての合同律、型の合う代入についての合同律で閉じた最小の等式関係とする。すべての式は型の合う文脈で解釈し、関数 $\eta$ 則の $x$ は $f$ に自由に現れない新しい変数とする。
 
 $$
@@ -192,7 +208,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-導出の長さに関する帰納法を行う。変数については積の射影を必要な回数合成し、$*_ \Gamma$ については終対象への一意な射を取るため、始域と終域が合う。対の場合は帰納法で $u:X\to A$、$v:X\to B$ が得られ、[二項積の普遍性](../CAT2-02/index.md#def-cat2-02-binary-product)から $\langle u,v\rangle:X\to A\times B$ が存在する。射影の場合は $\pi_i$ を後合成すればよい。
+導出の長さに関する帰納法を行う。変数については積の射影を必要な回数合成し、$*$ については終対象への一意な射を取るため、始域と終域が合う。対の場合は帰納法で $u:X\to A$、$v:X\to B$ が得られ、[二項積の普遍性](../CAT2-02/index.md#def-cat2-02-binary-product)から $\langle u,v\rangle:X\to A\times B$ が存在する。射影の場合は $\pi_i$ を後合成すればよい。
 
 抽象の場合、帰納法で
 
@@ -282,7 +298,7 @@ $$
 <a id="thm-cat4-06-soundness"></a>
 
 <!-- formal-statement-start -->
-> **定理（$\beta\eta$ 等式の健全性）**  
+> **定理（βη等式の健全性）**  
 > 任意の局所小Cartesian閉圏 $\mathcal C$ と基底対象 $O$ について、同じ文脈と型を持つ項 $\Gamma\vdash t,u:A$ が $t\equiv_{\beta\eta}u$ を満たすなら、
 
 $$
@@ -332,7 +348,7 @@ $$
 <a id="def-cat4-06-syntactic-category"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\beta\eta$ 構文圏）**  
+> **定義（βη構文圏）**  
 > 単純型付きラムダ計算の型を対象とし、対象 $A,B$ の間の射を、一変数の判定 $x:A\vdash t:B$ の項の $\alpha\beta\eta$ 等式類とする。恒等射は $x:A\vdash x:A$、射 $[t]:A\to B$ と $[u]:B\to C$ の合成は $u[t/y]$ の等式類と定める。得られる構造を $\mathcal S$ と書く。
 <!-- formal-statement-end -->
 
