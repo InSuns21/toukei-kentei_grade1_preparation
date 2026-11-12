@@ -36,7 +36,7 @@ $$
 
 ### 積分が確実に定義できる関数から始める
 
-直線上で積分し、その積分をさらに Fourier 変換するには、無限遠での減衰を確認する必要があります。まず十分滑らかで、関数と全ての偏導関数が多項式の逆数より速く減る関数に限定します。
+直線上で積分し、その積分をさらに Fourier 変換するには、無限遠での減衰を確認する必要があります。まず十分滑らかで、関数と全ての偏導関数が多項式の逆数より速く減る関数に限定します。以下では $x=(x_1,x_2)$、$\partial_j=\partial/\partial x_j$（$j=1,2$）とし、$\partial^\beta=\partial_1^{\beta_1}\partial_2^{\beta_2}$ は $x_1$ で $\beta_1$ 回、$x_2$ で $\beta_2$ 回偏微分する記号です。
 
 <a id="def-inv12-schwartz"></a>
 
@@ -114,7 +114,7 @@ $$
 
 <!-- definition-example-end -->
 
-幾何をもう一つ確認します。$f=1_{\{|x|\le a\}}$ は Schwartz 級ではありませんが、各直線上の積分は定義できます。$|s|<a$ なら円盤と直線の交わりは $t^2\le a^2-s^2$、つまり長さ $2\sqrt{a^2-s^2}$ の線分です。このため
+幾何をもう一つ確認します。$a>0$ とし、$f=1_{\{|x|\le a\}}$ は Schwartz 級ではありませんが、各直線上の積分は定義できます。$|s|<a$ なら円盤と直線の交わりは $t^2\le a^2-s^2$、つまり長さ $2\sqrt{a^2-s^2}$ の線分です。このため
 
 $$
 (Rf)(\varphi,s)=
@@ -208,7 +208,7 @@ $$
 
 二行目では $u=-t$ とし、全実数区間の積分方向も反転させています。
 
-総量の証明では $x=s\theta_\varphi+t\theta_\varphi^\perp$ と置きます。Jacobian 行列は
+総量の証明では $x=s\theta_\varphi+t\theta_\varphi^\perp$ と置きます。第1節の正規直交基底の二つのベクトルを列に並べると、座標 $(s,t)$ から元の平面座標 $(x_1,x_2)$ への線形写像の行列になります。この写像の Jacobian 行列は
 
 $$
 Q_\varphi=
@@ -216,10 +216,10 @@ Q_\varphi=
 \cos\varphi&-\sin\varphi\\
 \sin\varphi&\cos\varphi
 \end{pmatrix},
-\qquad \det Q_\varphi=1.
-$$
+\qquad \det Q_\varphi=\cos^2\varphi+\sin^2\varphi=1.
+$
 
-$f$ は絶対可積分なので [Fubini の定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を使用できます。従って
+$f$ は絶対可積分なので [Fubini の定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を使用できます。参照先の定理は実数値で記述されていますが、ここで許す複素数値 $f$ には実部と虚部にそれぞれ適用します。従って
 
 $$
 \begin{aligned}
@@ -414,7 +414,23 @@ $$
 \le C_{M,N}(1+|\xi_1|)^{-M}(1+|x_2|)^{-N}.
 $$
 
-この評価は、$x_1$ に関して部分積分したあと $f$ の偏導関数を $x_1$ 積分することで得られます。その際、$x_1$ と $x_2$ に対する急減少の指数を十分大きく選べば、$x_1$ 積分の有限性と $x_2$ の任意次数の減衰を同時に確保できます。$x_2$ での微分についても同じ評価が成り立ちます。
+この評価を得る中間計算を確認します。$x_1$ について $M$ 回部分積分すると、$M\ge1$ かつ $\xi_1\ne0$ では
+
+$
+|\xi_1|^M|g(\xi_1,x_2)|
+\le\int_{\mathbb R}|\partial_1^M f(x_1,x_2)|\,dx_1.
+$
+
+任意の $N\ge0$ に対し、Schwartz 級の減衰を $N+2$ 次まで使うと、右辺は
+
+$
+\int_{\mathbb R}|\partial_1^M f(x_1,x_2)|\,dx_1
+\le C\int_{\mathbb R}
+(1+|x_1|)^{-2}(1+|x_2|)^{-N}\,dx_1
+\le C'(1+|x_2|)^{-N}
+$
+
+で抑えられます。$M=0$ にも同じ積分評価を使い、$|\xi_1|\le1$ と $|\xi_1|>1$ を合わせると上記の $(1+|\xi_1|)^{-M}$ 評価になります。$x_2$ について偏微分した $f$ に同じ議論を適用すれば、$g$ の $x_2$ 微分にも同様の評価が得られます。
 
 従って $g(\xi_1,\cdot)$ とその一変数 Fourier 変換はいずれも $L^1$ で、連続です。[$L^1$ Fourier反転定理](../../FOU/FOU3/index.md#thm-fou3-inversion)を $x_2$ について適用すると
 
@@ -775,14 +791,22 @@ $\xi=(\omega,0)=\omega\theta_0$ と置けば同じ式になります。
 
 - Level: B
 
-単位法線 $\theta$ を一つ固定し、$\theta^\perp$ をその直交単位ベクトルとする。$g(x)=e^{-|x|^2}$ とし、$x$ から $\theta^\perp$ 方向へ動かした際の一変数微分で $h(x)=\left.\frac{d}{du}g(x+u\theta^\perp)\right|_{u=0}$ を定める。$h$ が零関数でない Schwartz 級の関数であること、およびその方向の全ての直線で $Rh=0$ となることを示せ。INV12の完全角度単射性と矛盾しない理由を述べよ。
+角度 $\varphi\in\mathbb R$ を一つ固定し、$\theta=\theta_\varphi$、$\theta^\perp=\theta_\varphi^\perp$ と略記する。$g(x)=e^{-|x|^2}$ とし、$x$ から $\theta^\perp$ 方向へ動かした際の一変数微分で $h(x)=\left.\frac{d}{du}g(x+u\theta^\perp)\right|_{u=0}$ を定める。$h$ が零関数でない Schwartz 級の関数であること、およびその方向の全ての直線で $Rh=0$ となることを示せ。INV12の完全角度単射性と矛盾しない理由を述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$g(x+u\theta^\perp)=e^{-|x+u\theta^\perp|^2}$ を $u$ で微分し、$u=0$ を代入すると
+$u$ は点 $x$ を接線方向へ移す変数です。合成関数の連鎖律より、$x$ を固定して $u$ で微分すると
 
-$$
+$
+\frac{d}{du}g(x+u\theta^\perp)\bigg|_{u=0}
+=\nabla g(x)\cdot\theta^\perp,
+\qquad \nabla g(x)=-2x e^{-|x|^2}.
+$
+
+従って
+
+$
 h(x)=-2(x\cdot\theta^\perp)e^{-|x|^2}.
 $$
 
@@ -793,12 +817,12 @@ $$
 $$
 h(s\theta+t\theta^\perp)=-2t\,e^{-(s^2+t^2)}
 =\frac{d}{dt}e^{-(s^2+t^2)}.
-$$
+$
 
-従って
+ここでは $s$ を固定し、$x=s\theta+t\theta^\perp$ の $t$ を動かしています。$g(x+u\theta^\perp)$ の $u$ 微分を $u=0$ で評価することは、同じ直線上の $t$ 微分と一致します。従って角度 $\varphi$ の Radon 変換は
 
-$$
-(Rh)(\theta,s)=\int_{-\infty}^\infty\frac{d}{dt}
+$
+(Rh)(\varphi,s)=\int_{-\infty}^\infty\frac{d}{dt}
 e^{-(s^2+t^2)}dt
 =\lim_{T\to\infty}\left[e^{-(s^2+t^2)}\right]_{-T}^T=0.
 $$
