@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="350" viewBox="0 0 680 350" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">回転する剛体点の位置ベクトルと接線速度</title>
+  <desc id="desc">上から見た座標平面で、点Cから点Pへ向く位置ベクトルrと、Pから左上へ向く接線速度vP-vCが直交する。正の角速度は手前へ向くz軸に沿う。</desc>
+  <defs>
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,5 L0,10 Z" fill="#718096"/></marker>
+    <marker id="radiusArrow" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5 L0,11 Z" fill="#205b9f"/></marker>
+    <marker id="velocityArrow" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L11,5 L0,11 Z" fill="#bd4a34"/></marker>
+  </defs>
+  <path d="M220 260 L530 260" fill="none" stroke="#718096" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#axisArrow)"/>
+  <path d="M220 260 L220 40" fill="none" stroke="#718096" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#axisArrow)"/>
+  <text x="544" y="266" font-size="19" fill="#334155">x</text>
+  <text x="208" y="27" font-size="19" fill="#334155">y</text>
+  <path d="M220 260 L400 200" fill="none" stroke="#205b9f" stroke-width="4" marker-end="url(#radiusArrow)"/>
+  <path d="M400 200 L340 20" fill="none" stroke="#bd4a34" stroke-width="4" stroke-dasharray="12 4" marker-end="url(#velocityArrow)"/>
+  <path d="M383 205 L388 220 L403 215" fill="none" stroke="#334155" stroke-width="2"/>
+  <circle cx="220" cy="260" r="7" fill="#0f172a"/>
+  <circle cx="400" cy="200" r="7" fill="#0f172a"/>
+  <text x="188" y="290" font-size="19" fill="#0f172a">C</text>
+  <text x="408" y="191" font-size="19" fill="#0f172a">P</text>
+  <text x="305" y="256" font-size="19" fill="#205b9f">r_CP</text>
+  <text x="415" y="80" font-size="19" fill="#bd4a34">v_P − v_C</text>
+  <circle cx="220" cy="317" r="16" fill="none" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="220" cy="317" r="4" fill="#0f172a"/>
+  <text x="248" y="324" font-size="19" fill="#0f172a">ω_s (+z)</text>
+</svg>
