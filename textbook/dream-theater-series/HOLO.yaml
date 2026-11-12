@@ -14,7 +14,7 @@ chapters:
   - { id: HOLO6, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO6, status: completed, title: "大Nと半古典重力" }
   - { id: HOLO7, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO7, status: completed, title: "作用の境界値問題" }
   - { id: HOLO8, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO8, status: completed, title: "スカラー漸近とBF境界" }
-  - { id: HOLO9, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO9, status: planned, title: "GKPWと2点関数" }
+  - { id: HOLO9, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO9, status: completed, title: "GKPWと2点関数" }
   - { id: HOLO10, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO10, status: planned, title: "Witten接触図" }
   - { id: HOLO11, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO11, status: planned, title: "交換図と4点関数" }
   - { id: HOLO12, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO12, status: planned, title: "バルクゲージ場と保存流" }
