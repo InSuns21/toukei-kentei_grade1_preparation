@@ -1,4 +1,4 @@
-# HOLO23 FLM量子補正：古典面の向こう側にある量子情報
+# HOLO23 FLM量子補正
 
 [HOLO22の古典HRT処方](../HOLO22/index.md#def-holo22-hrt-surface)は、境界領域 $A$ に対するエントロピーの主項を、空間的余次元2極値面 $\gamma_A$ の面積から求めました。しかし古典面積が同じでも、バルク量子場の状態を変えれば、面の両側をまたぐ量子相関は変化します。その情報は面積だけでは識別できません。
 
@@ -320,7 +320,7 @@ $$
 M'(n)=\left(\frac34\right)^n\log\frac34+
        \left(\frac14\right)^n\log\frac14.
 $$
-従って $M'(1)=(3/4)\log(3/4)+(1/4)\log(1/4)$ であり、[有限次元レプリカ微分の命題](#prop-holo23-replica-entropy)から $-M'(1)/M(1)$ はA01のエントロピーと一致します。$M(2)=5/8$ だけから $S=-\log M(2)$ と置くのは、Rényiとvon Neumannを取り違える誤りです。
+従って $M'(1)=(3/4)\log(3/4)+(1/4)\log(1/4)$ であり、[有限次元のレプリカ微分](#prop-holo23-replica-entropy)から $-M'(1)/M(1)$ はA01のエントロピーと一致します。$M(2)=5/8$ だけから $S=-\log M(2)$ と置くのは、Rényiとvon Neumannを取り違える誤りです。
 <!-- solution-end -->
 
 <a id="ex-holo23-a03"></a>
@@ -361,7 +361,7 @@ $\delta_g A$ の $G_N$ が小さいという理由で面積への寄与まで無
 $d=2$、$A_0=3$、$a=1/5$、$\alpha=1/20$、$1/(4G_{\rm ren})=2$ とする。$1/(4G_{\rm bare})$ を求め、$s_{\rm fin}=\log2$ のとき和が $6+\log2$ となることを直接示せ。
 
 <!-- solution-start -->
-**詳細解答**：[面積発散の吸収命題](#prop-holo23-counterterm)から $\alpha/a=(1/20)/(1/5)=1/4$ です。従って
+**詳細解答**：[面積型UV発散の反項吸収](#prop-holo23-counterterm)から $\alpha/a=(1/20)/(1/5)=1/4$ です。従って
 $$
 \frac{1}{4G_{\rm bare}}=2-\frac14=\frac74.
 $$
