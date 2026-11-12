@@ -373,7 +373,7 @@ $$
 (KT_af)(\boldsymbol k)
 =e^{i(\omega_{\boldsymbol k}a^0-\boldsymbol k\cdot\boldsymbol a)}K[f](\boldsymbol k)
 $$
-を満たします。Lorentz変換 $\ell$ の平方根の重みは、質量殻Fourier波束の定義から決められます。$p_{\boldsymbol k}=(\omega_{\boldsymbol k},\boldsymbol k)$ とし、$p_{\boldsymbol k'}=\ell^{-1}p_{\boldsymbol k}$ で $\boldsymbol k'$ を定めます。固有時向きLorentz変換は正の質量殻を保つので $\omega_{\boldsymbol k'}>0$ です。$K[f](\boldsymbol k)=i(2\pi)^{-3/2}\widetilde f(p_{\boldsymbol k})/\sqrt{2\omega_{\boldsymbol k}}$ に $\widetilde{T_\ell f}(p)=\widetilde f(\ell^{-1}p)$ を代入すると、
+を満たします。Lorentz変換 $\ell$ の平方根の重みは、上で構成した[正周波数写像](#def-aqft8-positive-frequency)の質量殻表示とノルム保存の条件を照合して決めます。$p_{\boldsymbol k}=(\omega_{\boldsymbol k},\boldsymbol k)$ とし、$p_{\boldsymbol k'}=\ell^{-1}p_{\boldsymbol k}$ で $\boldsymbol k'$ を定めます。固有時向きLorentz変換は正の質量殻を保つので $\omega_{\boldsymbol k'}>0$ です。$K[f](\boldsymbol k)=i(2\pi)^{-3/2}\widetilde f(p_{\boldsymbol k})/\sqrt{2\omega_{\boldsymbol k}}$ に $\widetilde{T_\ell f}(p)=\widetilde f(\ell^{-1}p)$ を代入すると、
 $$
 \begin{aligned}
 (KT_\ell f)(\boldsymbol k)
