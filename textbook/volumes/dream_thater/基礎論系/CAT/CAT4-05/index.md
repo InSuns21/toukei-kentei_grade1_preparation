@@ -436,7 +436,7 @@ $$
 
 を一意に定める。$b$ の双線形性から $L_b$ は上記の四関係を全て $0$ に送るので、$N\subset\ker L_b$。よって $L_b$ は一意な線形写像 $\widetilde b:F/N\to B$ を誘導し、$\widetilde b(x\otimes a)=b(x,a)$ を満たす。逆に純テンソル $x\otimes a$ は $F/N$ を生成するから、その値を指定した線形写像は一意である。したがって[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)が、次元制限なしに成立する。
 
-結合子 $\alpha_{X,A,B}$ は純テンソル上で $((x\otimes a)\otimes b)\mapsto x\otimes(a\otimes b)$、単位子は $x\otimes c\mapsto cx$ として同じ普遍性から構成できる。逆向きの対応も存在し、三重・四重の純テンソル上で両経路の値が一致するため、結合子・単位子の自然性と五角形・三角形条件を満たす。ゆえに $\mathbf{Vect}_k$ は任意次元の対象を含めてモノイダル圏になる。
+結合子 $\alpha_{X,A,B}$ は純テンソル上で $((x\otimes a)\otimes b)\mapsto x\otimes(a\otimes b)$、左右の単位子は $c\otimes x\mapsto cx$、$x\otimes c\mapsto cx$ として同じ普遍性から構成できる。逆向きの対応も存在し、三重・四重の純テンソル上で両経路の値が一致するため、結合子・単位子の自然性と五角形・三角形条件を満たす。ゆえに $\mathbf{Vect}_k$ は任意次元の対象を含めてモノイダル圏になる。
 
 [テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)により、$f:X\otimes_k A\to B$ を与えることと、双線形写像 $b_f(x,a)=f(x\otimes a)$ を与えることは同値である。$x$ を固定すると、$a\mapsto b_f(x,a)$ は線形なので $\widehat f(x)\in\operatorname{Hom}_k(A,B)$ を定める。$s,t\in k$ と $x,y\in X$ について
 
