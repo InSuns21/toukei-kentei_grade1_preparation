@@ -1,0 +1,49 @@
+chapter: CTM4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM3
+  - VC9
+concepts:
+  - id: continuum.velocity-gradient
+    name: 速度勾配
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（速度勾配）"]
+    requires: [continuum.spatial-velocity, continuum.deformation-gradient]
+  - id: continuum.velocity-deformation-relation
+    name: 速度勾配と変形勾配の時間変化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（速度勾配と変形勾配の時間変化）"]
+    requires: [continuum.velocity-gradient, continuum.deformation-gradient]
+  - id: continuum.rate-of-deformation-spin
+    name: 変形速度テンソルとスピンテンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変形速度テンソルとスピンテンソル）"]
+    requires: [continuum.velocity-gradient]
+  - id: continuum.line-rate-deformation
+    name: 線素の長さと内積の瞬間変化率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線素の長さと内積の瞬間変化率）"]
+    requires: [continuum.rate-of-deformation-spin, continuum.velocity-deformation-relation]
+  - id: continuum.jacobian-rate
+    name: 体積 Jacobian の時間発展
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（体積 Jacobian の時間発展）"]
+    requires: [continuum.velocity-deformation-relation, continuum.volume-jacobian, continuum.rate-of-deformation-spin]
+  - id: continuum.observer-objectivity
+    name: 観測者の剛体運動と客観性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測者の剛体運動と客観性）"]
+    requires: [continuum.superposed-rotation-strain-invariance]
+  - id: continuum.observer-transform-velocity-gradient
+    name: 観測者の回転による速度勾配の変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（観測者の回転による速度勾配の変換）"]
+    requires: [continuum.observer-objectivity, continuum.velocity-gradient, continuum.rate-of-deformation-spin]
