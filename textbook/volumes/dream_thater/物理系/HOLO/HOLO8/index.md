@@ -23,8 +23,10 @@ $$
 
 ここで $\Delta_x=\sum_i\partial_i^2$ は境界方向の通常のLaplace作用素です。波数 $k$ の実Fourier成分 $\phi(z,x)=f_k(z)e^{ik\cdot x}$ を一つ取り出すと、$\Delta_xe^{ik\cdot x}=-|k|^2e^{ik\cdot x}$ により
 
-$$
-z^2 f_k''-(d-1)zf_k'-(|k|^2z^2+m^2L^2)f_k=0. \tag{1}
+<a id="ref-holo8-radial-equation"></a>
+
+$
+z^2 f_k''-(d-1)zf_k'-(|k|^2z^2+m^2L^2)f_k=0. 
 $$
 
 ここでプライムは $z$ 微分です。まず $k=0$ なら冪 $f=z^\alpha$ を代入して厳密な解を探せます。$f'=\alpha z^{\alpha-1}$、$f''=\alpha(\alpha-1)z^{\alpha-2}$ なので、左辺は
@@ -60,7 +62,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（質量と漸近指数の関係）**  
-> $d\ge2$、$L>0$、実数 $m^2$、$k=0$ の方程式 (1) を考える。$\nu>0$ が実数なら、二つの一次独立な解は $z^{\Delta_-}$ と $z^{\Delta_+}$ であり、その指数は
+> $d\ge2$、$L>0$、実数 $m^2$、$k=0$ の方程式 [径方向方程式](#ref-holo8-radial-equation) を考える。$\nu>0$ が実数なら、二つの一次独立な解は $z^{\Delta_-}$ と $z^{\Delta_+}$ であり、その指数は
 
 $$
 m^2L^2=\Delta_\pm(\Delta_\pm-d),\qquad
@@ -72,12 +74,12 @@ $$
 
 ### 証明の見取り図
 
-零波数に限ると (1) はEuler型方程式です。$s=\log(z/\ell)$ と置き、$f=z^{d/2}u(s)$ に変えると、根が異なる場合と一致する場合を一つの定係数方程式で処理できます。
+零波数に限ると [径方向方程式](#ref-holo8-radial-equation) はEuler型方程式です。$s=\log(z/\ell)$ と置き、$f=z^{d/2}u(s)$ に変えると、根が異なる場合と一致する場合を一つの定係数方程式で処理できます。
 
 <!-- proof-start -->
 ### 証明
 
-$D=z\,d/dz=d/ds$ と書き、$z^2f''=D(D-1)f$、$zf'=Df$ を使います。$k=0$ の (1) は
+$D=z\,d/dz=d/ds$ と書き、$z^2f''=D(D-1)f$、$zf'=Df$ を使います。$k=0$ の [径方向方程式](#ref-holo8-radial-equation) は
 
 $$
 (D^2-dD-m^2L^2)f=0.
@@ -90,10 +92,10 @@ u''-\left(\frac{d^2}{4}+m^2L^2\right)u
 =u''-\nu^2u=0
 $$
 
-となります。$\nu>0$ なら $u=Ae^{-\nu s}+Be^{\nu s}$、したがって $f=\widetilde A z^{d/2-\nu}+\widetilde Bz^{d/2+\nu}$（定数に $\ell$ の冪を吸収）。$\nu=0$ なら $u''=0$ なので $u=A+Bs$、すなわち $f=z^{d/2}(A+B\log(z/\ell))$ です。どちらも直接 (1) に代入すれば成立し、異なる冪または冪・対数は一次独立です。$\square$
+となります。$\nu>0$ なら $u=Ae^{-\nu s}+Be^{\nu s}$、したがって $f=\widetilde A z^{d/2-\nu}+\widetilde Bz^{d/2+\nu}$（定数に $\ell$ の冪を吸収）。$\nu=0$ なら $u''=0$ なので $u=A+Bs$、すなわち $f=z^{d/2}(A+B\log(z/\ell))$ です。どちらも直接 [径方向方程式](#ref-holo8-radial-equation) に代入すれば成立し、異なる冪または冪・対数は一次独立です。$\square$
 <!-- proof-end -->
 
-**境界次元との接続**：[HOLO4で扱った境界のスケーリング変換と一次演算子](../HOLO4/index.md#def-holo4-primary-operator)を念頭に、バルクの座標を $(z,x)\mapsto(\lambda z,\lambda x)$ と拡大すると計量は変わりません。境界源が次元 $d-\Delta$ の量として変換するという**双対性の辞書を仮定**した場合、境界近くの源に掛かる冪は $z^{d-\Delta}$ です。標準的選択では遅い指数が $d-\Delta_+=\Delta_-$ なので、演算子次元の候補が $\Delta_+$ となります。これは境界対称性と整合する関係であって、一般のCFTに演算子の存在を保証する定理ではありません。
+**境界次元との接続**：[HOLO4の境界拡大縮小](../HOLO4/index.md#def-holo4-induced-boundary-action)と[QFT48のスカラー一次場](../../QFT/QFT48/index.md#def-qft48-scalar-primary)を念頭に、バルクの座標を $(z,x)\mapsto(\lambda z,\lambda x)$ と拡大すると計量は変わりません。境界源が次元 $d-\Delta$ の量として変換するという**双対性の辞書を仮定**した場合、境界近くの源に掛かる冪は $z^{d-\Delta}$ です。標準的選択では遅い指数が $d-\Delta_+=\Delta_-$ なので、演算子次元の候補が $\Delta_+$ となります。これは境界対称性と整合する関係であって、一般のCFTに演算子の存在を保証する定理ではありません。
 
 ## 2. BF下限はなぜ負の質量二乗を許すか
 
@@ -146,11 +148,13 @@ $$
 
 $u$ はコンパクト台なので $\int_0^\infty duu'\,dz=(d/2)[u^2]_0^\infty=0$。したがって
 
-$$
+<a id="ref-holo8-square"></a>
+
+$
 \frac{Q_m[f]}{L^{d-1}}
 =\int_0^\infty z(u')^2dz+
 \left(m^2L^2+\frac{d^2}{4}\right)
-\int_0^\infty\frac{u^2}{z}dz. \tag{2}
+\int_0^\infty\frac{u^2}{z}dz. 
 $$
 
 BF下限以上では二項とも非負です。逆向きを証明するため $c=m^2L^2+d^2/4<0$ とし、零でない実数値 $\psi\in C_c^\infty(\mathbb R)$ を選びます。$s=\log(z/\ell)$、$u_R(z)=\psi(s/R)$（$R>0$）とすれば $du_R/dz=\psi'(s/R)/(Rz)$。$dz/z=ds$ を用いると
@@ -162,7 +166,7 @@ $$
 =R\int_{\mathbb R}|\psi(v)|^2dv.
 $$
 
-ゆえに (2) は $a/R+cRb$（$a\ge0,b>0$）となり、十分大きい $R$ で負です。$f_R=z^{d/2}u_R$ は各有限の $R$ で $z>0$ にコンパクト台を持つ滑らかな関数です。$\square$
+ゆえに [平方完成式](#ref-holo8-square) は $a/R+cRb$（$a\ge0,b>0$）となり、十分大きい $R$ で負です。$f_R=z^{d/2}u_R$ は各有限の $R$ で $z>0$ にコンパクト台を持つ滑らかな関数です。$\square$
 <!-- proof-end -->
 
 この命題は**自由場の二次形式に対する正確な判定**です。Lorentz時間発展の自己共役な境界条件、エネルギーの境界項、一般の初期値問題の存在は別に検査が必要です。とくに有限区間 $[\epsilon,Z]$ の幅を固定したまま負の試験関数が必ず存在する、と証明したわけではありません。$\nu^2<0$ の場合は $\nu=i\sigma$（$\sigma>0$）として零波数解が $z^{d/2}\cos(\sigma\log(z/\ell))$ と $z^{d/2}\sin(\sigma\log(z/\ell))$ になり、単調な二冪という境界辞書も壊れます。
@@ -293,7 +297,7 @@ $f_j'=\Delta_-A_jz^{\Delta_--1}+\Delta_+B_jz^{\Delta_+-1}$ を代入し、$A_1A_
 
 ## 5. 二次の後続項と共鳴の落とし穴
 
-境界方向に変化する場に対しては、先頭指数だけでは場の全てを表せません。方程式 (1) で $k\ne0$ とし、$f=z^\Delta(1+az^2+\cdots)$ を代入します。先頭項は $\Delta(\Delta-d)=m^2L^2$ により消えます。$z^{\Delta+2}$ の係数を合わせると
+境界方向に変化する場に対しては、先頭指数だけでは場の全てを表せません。方程式 [径方向方程式](#ref-holo8-radial-equation) で $k\ne0$ とし、$f=z^\Delta(1+az^2+\cdots)$ を代入します。先頭項は $\Delta(\Delta-d)=m^2L^2$ により消えます。$z^{\Delta+2}$ の係数を合わせると
 
 $$
 a\{(\Delta+2)(\Delta+2-d)-m^2L^2\}-|k|^2=0.
@@ -323,10 +327,10 @@ $$
 ### A2. 重根で対数が必要な理由
 
 - Level: A
-- 問題: $d=2$、$m^2L^2=-1$、$k=0$ とする。$f=z(A+B\log(z/\ell))$ が (1) を満たすことを導関数から直接確かめよ。
+- 問題: $d=2$、$m^2L^2=-1$、$k=0$ とする。$f=z(A+B\log(z/\ell))$ が [径方向方程式](#ref-holo8-radial-equation) を満たすことを導関数から直接確かめよ。
 
 <!-- solution-start -->
-**詳細解答。** $f'=A+B\log(z/\ell)+B$、$f''=B/z$。式 (1) は $z^2f''-zf'+f=0$ です。左辺は $Bz-z(A+B\log(z/\ell)+B)+z(A+B\log(z/\ell))=0$。対数を取らずに $Az+Bz$ と置くと二項は同じ解なので一次独立ではありません。
+**詳細解答。** $f'=A+B\log(z/\ell)+B$、$f''=B/z$。式 [径方向方程式](#ref-holo8-radial-equation) は $z^2f''-zf'+f=0$ です。左辺は $Bz-z(A+B\log(z/\ell)+B)+z(A+B\log(z/\ell))=0$。対数を取らずに $Az+Bz$ と置くと二項は同じ解なので一次独立ではありません。
 <!-- solution-end -->
 
 <a id="ex-holo8-a3"></a>
@@ -392,10 +396,10 @@ $$
 ### B3. 波数が共鳴を強制する
 
 - Level: B
-- 問題: $d=4$、$m^2L^2=-3$、$|k|>0$ で遅い根 $\Delta_-=1$ を使う。$f(z)=z(1+az^2+\cdots)$ という試行がなぜ矛盾するかを式 (1) から示せ。$k=0$ の場合も比較せよ。
+- 問題: $d=4$、$m^2L^2=-3$、$|k|>0$ で遅い根 $\Delta_-=1$ を使う。$f(z)=z(1+az^2+\cdots)$ という試行がなぜ矛盾するかを式 [径方向方程式](#ref-holo8-radial-equation) から示せ。$k=0$ の場合も比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** $d=4$、$m^2L^2=-3$ の (1) は $z^2f''-3zf'-(|k|^2z^2-3)f=0$。$f=z+az^3+\cdots$ を代入すると $z$ の係数は $0-3+3=0$、$z^3$ の係数は $6a-9a+3a-|k|^2=-|k|^2$。$|k|>0$ では $a$ をどう選んでも消せず、冪級数だけの仮定が破れます。$z^3\log z$ のような項は $z^3$ の係数を作れるため、対数補正を検討する必要があります。$k=0$ なら障害 $-|k|^2$ は零で、$z$ と $z^3$ は厳密解です。
+**詳細解答。** $d=4$、$m^2L^2=-3$ の [径方向方程式](#ref-holo8-radial-equation) は $z^2f''-3zf'-(|k|^2z^2-3)f=0$。$f=z+az^3+\cdots$ を代入すると $z$ の係数は $0-3+3=0$、$z^3$ の係数は $6a-9a+3a-|k|^2=-|k|^2$。$|k|>0$ では $a$ をどう選んでも消せず、冪級数だけの仮定が破れます。$z^3\log z$ のような項は $z^3$ の係数を作れるため、対数補正を検討する必要があります。$k=0$ なら障害 $-|k|^2$ は零で、$z$ と $z^3$ は厳密解です。
 <!-- solution-end -->
 
 <a id="ex-holo8-b4"></a>
