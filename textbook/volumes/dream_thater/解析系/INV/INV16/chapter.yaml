@@ -1,0 +1,50 @@
+id: "INV16"
+title: "逆問題の不確実性をどう読むか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV15
+  - F0-00D2C
+  - MT3
+official_scope: []
+learning_objectives:
+  - 事後分布から信用領域と線形観測量の信用区間を作り確率条件を直接検証できる
+  - 事後確率と固定真値下の頻度論的被覆率を区別し縮小推定の被覆率を導出できる
+  - Gaussian事前分散の変化による事後平均・分散の感度を計算できる
+  - 決定論的モデル不一致と独立な確率的モデル不一致を区別し識別不能性を反例で示せる
+  - 可分Hilbert空間の事前確率測度を基準とするBayes公式の正規化を証明できる
+  - 関数空間の事後測度が条件付き分布であることをTonelliの定理で検証できる
+  - 原子的事前分布と無限Gaussian座標の直接例で無限次元の測度更新を再構成できる
+  - 有限次元Lebesgue密度の形式的拡張の限界とこの講の定理の適用範囲を説明できる
+definitions:
+  - { id: INV16-DEF-01, name: 信用領域 }
+  - { id: INV16-DEF-02, name: 頻度論的被覆率 }
+  - { id: INV16-DEF-03, name: モデル不一致 }
+  - { id: INV16-DEF-04, name: 事前測度を基準とする事後分布 }
+theorems:
+  - { id: INV16-PROP-01, name: 線形観測量のGaussian信用区間 }
+  - { id: INV16-PROP-02, name: Gaussian縮小事後の信用区間と被覆率 }
+  - { id: INV16-PROP-03, name: 一次元Gaussian更新の事前感度 }
+  - { id: INV16-THM-01, name: 関数空間でのBayes更新の正当化 }
+canonical_examples:
+  - 二次元の相関する差のGaussian信用区間
+  - 固定真値下の縮小推定の被覆率低下
+  - 事前分散の強弱による平均と信用幅
+  - 固定バイアスと独立Gaussianモデル誤差の違い
+  - ell2の原子的事前分布のBayes更新
+  - ell2上の可算Gaussian座標による確率測度の構成
+problem_patterns:
+  - INV16-A01
+  - INV16-A02
+  - INV16-A03
+  - INV16-A04
+  - INV16-A05
+  - INV16-B01
+  - INV16-B02
+  - INV16-B03
+  - INV16-B04
+  - INV16-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
