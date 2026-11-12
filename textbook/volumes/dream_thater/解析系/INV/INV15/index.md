@@ -102,16 +102,16 @@ p_0(x)=\frac{1}{(2\pi)^{n/2}\sqrt{\det\Gamma_0}}
 \exp\left[-\frac12(x-\mu_0)^T\Gamma_0^{-1}(x-\mu_0)\right].
 $$
 
-この二つを掛ける理由を同時密度から確かめます。$(X,E)$ は独立なので同時密度は $p_0(x)p_E(e)$ です。$(x,e)$ から $(x,y)=(x,Ax+e)$ への変換の Jacobian 行列は
+この二つを掛ける理由を同時密度から確かめます。$(X,E)$ は独立なので同時密度は $p_0(x)p_E(e)$ です。変換 $(x,e)\mapsto(x,y)=(x,Ax+e)$ の Jacobian 行列は、他方の入力を固定して各出力を偏微分すると、その四つのブロックが
 
-$$
-\begin{pmatrix}
-I_n&0\\
-A&I_m
-\end{pmatrix}
-$$
+$
+\frac{\partial x}{\partial x}=I_n,\qquad
+\frac{\partial x}{\partial e}=0,\qquad
+\frac{\partial y}{\partial x}=A,\qquad
+\frac{\partial y}{\partial e}=I_m
+$
 
-で、下三角ブロック行列だから行列式は1です。逆変換 $e=y-Ax$ を代入しても体積倍率は変わらず、$(X,Y)$ の同時密度は $p_0(x)p_E(y-Ax)=p_0(x)p(y\mid x)$ になります。
+です。ここで $\partial y/\partial x$ は $e$ を固定した $y$ の $x$ による微分を表します。対角ブロックが $I_n,I_m$、右上が0の下三角ブロック行列なので、その行列式は1です。逆変換 $e=y-Ax$ を代入しても体積倍率は変わらず、$(X,Y)$ の同時密度は $p_0(x)p_E(y-Ax)=p_0(x)p(y\mid x)$ になります。
 
 観測値 $y$ を得ると、未知量の確率分布を条件付き分布として更新できます。積 $p(y\mid x)p_0(x)$ を $x$ について積分すると、$y$ の周辺密度 $p_Y(y)$ になります。積は正で、さらに $p(y\mid x)\le (2\pi)^{-m/2}(\det\Gamma_\varepsilon)^{-1/2}$ と $\int p_0=1$ から有限積分となるので、全ての $y\in\mathbb R^m$ に対して $p_Y(y)>0$ です。
 
