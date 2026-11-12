@@ -171,29 +171,29 @@ $$
 
 となります。従って $R(q)e_1=e_2$ です。残りの二本についても、まず Hamilton積の定義に代入すると
 
-$
+$$
 q\otimes(0,e_2)=(0,ce_2-se_1),\qquad
 q\otimes(0,e_3)=(-s,ce_3)
-$
+$$
 
 となり、さらに右から $q^*$ を掛ければ
 
-$
+$$
 \begin{aligned}
 q\otimes(0,e_2)\otimes q^*
   &=(0,(c^2-s^2)e_2-2cs\,e_1)=(0,-e_1),\\
 q\otimes(0,e_3)\otimes q^*
   &=(0,(c^2+s^2)e_3)=(0,e_3)
 \end{aligned}
-$
+$$
 
 です。写像は各 $x$ に線形に作用するので、**標準基底の像を順に列へ並べたもの**がその行列表示です（[RBD1 の回転行列の定義と列表示](../RBD1/index.md#def-rbd1-proper-rotation)）。従って
 
-$
+$$
 R(q)=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}
 =R_z(\pi/2),\qquad
 R(q)^TR(q)=I_3,\qquad \det R(q)=1.
-$
+$$
 
 軸 $e_3$ を固定し、他の二本を右手系の正方向へ四分の一回転させています。列の直交性と行列式の両方を検査したため、定義どおり $R(q)\in SO(3)$ と判定できます。
 <!-- definition-example-end -->
@@ -278,11 +278,11 @@ $$
 
 直前の成分公式は $x$ に線形です。すべての $x,y$ に対してノルム保存を $x+y$ にも使い、
 
-$
+$$
 2(R(q)x)\cdot(R(q)y)
 =\lVert R(q)(x+y)\rVert^2-\lVert R(q)x\rVert^2-\lVert R(q)y\rVert^2
 =2x\cdot y
-$
+$$
 
 を得ます。$x=e_i,y=e_j$ と取れば三列の内積は $\delta_{ij}$ なので、$R(q)^TR(q)=I_3$ です。従って行列式は $\pm1$ です。
 
@@ -443,7 +443,7 @@ $$
 
 です。実際、共役と時間微分は成分ごとに交換できるので、$\dot q^*=(\dot q)^*=\frac12((0,\eta)^*\otimes q^*)$ です。従って
 
-$
+$$
 \begin{aligned}
 \dot X
 &=\frac12q\otimes(0,\eta)\otimes(0,x)\otimes q^*
@@ -759,11 +759,11 @@ $$
 
 [姿勢ODE](#thm-rbd5-attitude-ode)の右辺を、物体系で一定の $\omega_b=e_2$ として計算すると
 
-$
+$$
 \frac12q(t)\otimes(0,e_2)
 =\frac12(-\sin(t/2),\,e_2\cos(t/2))
 =\dot q(t)
-$
+$$
 
 です。したがって求める物体角速度は $e_2$ です。ここで $\dot q$ は $t$ による導関数、積に現れる $e_2$ は物体系の固定単位軸です。$t=0$ の $R=I_3$ は [RBD4 の Euler角特異姿勢](../RBD4/index.md#prop-rbd4-coordinate-singularity)ですが、四元数の微分は存在し一意に計算できます。Euler角の三つの速度の選び方が一意でないことと、物理的角速度が定まらないことを混同しません。
 <!-- solution-end -->
@@ -836,9 +836,9 @@ $$
 
 **第2問**　[RBD2 のハット記法](../RBD2/index.md#def-rbd2-hat)による $\widehat{e_3}e_1=e_2$、$\widehat{e_3}e_2=-e_1$ を用います。$R_z(\varphi)$ の基底像は $\cos\varphi\,e_1+\sin\varphi\,e_2$、$-\sin\varphi\,e_1+\cos\varphi\,e_2$、$e_3$ なので、これを時刻 $t$ で微分する連鎖律から
 
-$
+$$
 \frac{d}{dt}R_z(\Omega t)=\Omega R_z(\Omega t)\widehat{e_3}
-$
+$$
 
 です。$R_x(\gamma)$ は $t$ に依存しないため、積の微分と直交性を使うと
 
