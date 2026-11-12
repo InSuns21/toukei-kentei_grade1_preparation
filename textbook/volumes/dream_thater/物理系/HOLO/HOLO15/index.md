@@ -323,7 +323,7 @@ S=-\frac{\partial F}{\partial T}
 =\frac{16\pi^3L^4}{9G}T^2-\frac{2\pi L^2}{3G}+O(T^{-2}).
 $$
 
-この温度微分は、$r_l=r_l(T)$ という解族に沿った**連鎖律**としても直接確認できます。大枝では $r_l>L/\sqrt3$ なので $dT/dr_l\ne0$ であり、[温度式と相対自由エネルギー](../../BHT/BHT16/index.md#prop-bht16-ads-state)から
+この温度微分は、$r_l=r_l(T)$ という解族に沿った**連鎖律**としても直接確認できます。大枝では $r_l>L/\sqrt3$ なので $dT/dr_l\ne0$ であり、[BHT16の温度式](../../BHT/BHT16/index.md#prop-bht16-ads-state)と[相対自由エネルギー](../../BHT/BHT16/index.md#prop-bht16-ads-action)から
 
 $$
 \frac{d\Delta F_{\rm cl}(r_l(T))}{dT}
