@@ -2,13 +2,13 @@
   <title id="replica-title">二枚レプリカの滑らかな被覆と円錐商の横断面</title>
   <desc id="replica-desc">左は固定点を中心に全周2πを持つ滑らかな被覆の横断円板。右は同じ固定点を中心に開き角πの扇形を展開した商の基本領域。扇形の二本の破線の半径は同一視する。局所的な二次元横断面の模式図であり、バルク全体の埋め込み図ではない。</desc>
   <rect x="1" y="1" width="778" height="258" rx="9" fill="#ffffff" stroke="#d6dce4" stroke-width="2"/>
-  <text x="190" y="36" text-anchor="middle" font-size="17" fill="#1d2939" font-family="sans-serif">滑らかな被覆 M₂</text>
-  <text x="550" y="36" text-anchor="middle" font-size="17" fill="#1d2939" font-family="sans-serif">商の基本領域 M̂₂</text>
-  <circle cx="190" cy="137" r="73" fill="#e8f1ff" stroke="#315989" stroke-width="3"/>
+  <text x="190" y="36" text-anchor="middle" font-size="17" fill="#1d2939" font-family="sans-serif">滑らかな被覆 M2</text>
+  <text x="550" y="36" text-anchor="middle" font-size="17" fill="#1d2939" font-family="sans-serif">商の基本領域 M2/Z2</text>
+  <circle cx="190" cy="137" r="73" data-series-group="replica-section" data-series-label="smooth-cover" fill="#e8f1ff" stroke="#315989" stroke-width="3"/>
   <circle cx="190" cy="137" r="5" fill="#1d2939"/>
   <text x="190" y="104" text-anchor="middle" font-size="23" fill="#1d2939" font-family="sans-serif">2π</text>
   <text x="190" y="164" text-anchor="middle" font-size="14" fill="#1d2939" font-family="sans-serif">固定点</text>
-  <path d="M 550 145 L 623 145 A 73 73 0 0 0 477 145 Z" fill="#e8f1ff" stroke="#315989" stroke-width="3"/>
+  <path d="M 550 145 L 623 145 A 73 73 0 0 0 477 145 Z" data-series-group="replica-section" data-series-label="quotient-sector" fill="#e8f1ff" stroke="#315989" stroke-width="3"/>
   <path d="M 477 145 L 550 145 L 623 145" fill="none" stroke="#a34c28" stroke-width="3" stroke-dasharray="7 5"/>
   <circle cx="550" cy="145" r="5" fill="#1d2939"/>
   <text x="550" y="108" text-anchor="middle" font-size="23" fill="#1d2939" font-family="sans-serif">π</text>
