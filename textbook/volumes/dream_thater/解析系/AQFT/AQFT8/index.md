@@ -365,7 +365,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Minkowski Fock状態の正エネルギーと真空一意性）**  
-> $m>0$ の実Klein–Gordon源商 $\mathcal V$ のWeyl C*netと、上記の共分散から得られる中心化quasifree状態 $\omega_{\mathrm{vac}}$ を考える。この状態は固有時向きPoincaré群に不変である。対応するFock実装は
+> $m>0$ の実Klein–Gordon源商 $\mathcal V$ のWeyl C*netと、上記の許容実対称形式から得られる中心化quasifree状態 $\omega_{\mathrm{vac}}$ を考える。この状態は固有時向きPoincaré群に不変である。対応するFock実装は
 $$
 U_{\mathcal F}(h)=\Gamma(U_1(h))
 $$
@@ -426,7 +426,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$q\in C_c^\infty(\mathbb R^3,\mathbb R)$、$p=0$ に対応する $K(q,0)=\sqrt{\omega/2}\widehat q$ は、全ての実コンパクト支持 $q$ を走らせます。これらの**複素線形包**が $\mathfrak h$ で稠密であることを示すには、任意の $b\in C_c^\infty(\mathbb R^3,\mathbb C)$ を $q_1+iq_2$ と書けば十分です。$b$ のFourier変換の複素線形包は稠密であり、$\omega\ge m>0$ なので、任意のコンパクトな運動量領域で $\omega^{-1/2}$ による掛け算を滑らかに近似できます。したがって $\sqrt\omega\widehat q$ の複素線形包も稠密です。各 $(q,0)$ は[AQFT4の商・解同型](../AQFT4/index.md#thm-aqft4-kg-quotient)により何らかの $F\in\mathcal V$ に対応します。
+位置データだけを使い、速度データは零に固定します。実数値のコンパクト支持滑らかな関数 $q$ に対応する正周波数波束は
+$$
+K(q,0)=\sqrt{\omega/2}\,\widehat q
+$$
+です。ここで $\widehat q$ は空間Fourier変換を表します。
+
+これらの波束の複素線形包が一粒子空間で稠密であることを、直交補から確かめます。$g\in\mathfrak h$ がその全てに直交するとします。任意の複素数値コンパクト支持滑らかな $q$ は二つの実数値関数の複素線形結合ですから、直交性は
+$$
+0=(g,K(q,0))_{\mathfrak h}
+=\frac1{\sqrt2}\int_{\mathbb R^3}
+\overline{g(k)}\sqrt{\omega_k}\widehat q(k)\,d^3k
+$$
+をその全ての $q$ に対して要求します。
+
+$\sqrt{\omega_k}\,g(k)$ は局所可積分で高々多項式の増大を持つ重み付き $L^2$ 関数なので、緩増加分布を定めます。上式はその逆Fourier変換が全てのコンパクト支持滑らかな試験関数に対して零であることを意味します。Fourier変換の単射性から、この分布は零です。従って $\sqrt{\omega_k}g(k)=0$ がほとんど至る所で成立します。$\omega_k\ge m>0$ より $g=0$。直交補が零なので、複素線形包は稠密です。
+
+なお各実データ $(q,0)$ は[AQFT4の商・解同型](../AQFT4/index.md#thm-aqft4-kg-quotient)により何らかの $F\in\mathcal V$ に対応します。
 
 [Weyl期待値の計算](#prop-aqft8-fock-weyl)により
 $$
