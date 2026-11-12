@@ -452,7 +452,7 @@ $p\to0^+$ で $p\log p\to0$（例えば $p=e^{-t},t\to\infty$ と置くと $p\lo
 ### 演習 HOLO23-B03：誘導計量による面積の変化
 - Level: B
 
-一次元の面を $\sigma\in[0,1]$ で表示し、誘導計量が $h_{\sigma\sigma}^{(0)}=4$、計量の変化が $\delta h_{\sigma\sigma}=2G_Nk$（$k$ は $G_N$ に依存しない実数）とする。$G_N$ が十分小さく $4+2G_Nk>0$ とする。長さの直接展開と[第5節の行列式変分式](#eq-holo23-induced-metric-variation)を別々に使い、$\delta_g A/(4G_N)$ を求めよ。
+一次元の面を $\sigma\in[0,1]$ で表示し、誘導計量が $h_{\sigma\sigma}^{(0)}=4$、計量の変化が $\delta h_{\sigma\sigma}=2G_Nk$（$k$ は $G_N$ に依存しない実数）とする。$G_N$ が十分小さく $4+2G_Nk>0$ とする。長さの直接展開と[第5節の行列式変分式](#eq-holo23-induced-metric-variation)を別々に使い、$\delta_g A/(4G_N)$ の $G_N^0$ の項を求め、残差の次数も述べよ。
 
 <!-- solution-start -->
 **詳細解答**：面は一次元なので面積は長さです。座標基底 $\partial_\sigma$ に対する誘導計量は1行1列、$\det h^{(0)}=4$、逆行列成分 $(h^{(0)})^{\sigma\sigma}=1/4$ です。直接には
@@ -464,9 +464,10 @@ $$
 [第5節の変分式](#eq-holo23-induced-metric-variation)では
 $$
 \delta_g A=\frac12\int_0^1 2\cdot\frac14\cdot(2G_Nk)\,d\sigma
-=\frac{G_Nk}{2}.
++O(G_N^2)
+=\frac{G_Nk}{2}+O(G_N^2).
 $$
-二方法が一致し、$\delta_g A/(4G_N)=k/8$。面位置の変位を計算したのではなく、同じ $\sigma$ 上の**誘導計量**の変化を測っています。
+二方法の一次係数が一致し、$\delta_g A/(4G_N)=k/8+O(G_N)$。したがって1ループ次数の項は $k/8$ です。面位置の変位を計算したのではなく、同じ $\sigma$ 上の**誘導計量**の変化を測っています。
 <!-- solution-end -->
 
 <a id="ex-holo23-b04"></a>
