@@ -145,7 +145,10 @@ try {
   assert.ok(frame0&&frameMid&&frame1,'keyframes '+id);
   // Some films visualize a discrete predicate (e.g. V09), with unchanged
   // figures between time positions. Their mode selector is tested separately.
-  if(!['09'].includes(id))assert.notEqual(frame0,frame1,'SVG did not change between endpoints '+id);
+  // V05 at h=+3 and h=-3 has no visible intersection in either endpoint;
+  // its central frame must instead differ, since h=0 yields two candidates.
+  if(id==='05')assert.notEqual(frame0,frameMid,'O5 two-root middle differs from no-root frame');
+  else if(id!=='09')assert.notEqual(frame0,frame1,'SVG did not change between endpoints '+id);
   await click('reset');assert.equal(await at(),0,'reset '+id);
   const speed=await js('(()=>{const e=document.querySelector("[data-player=\\"speed\\"]");e.value="2";e.dispatchEvent(new Event("change"));return e.value;})()');
   assert.equal(speed,'2');
