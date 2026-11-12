@@ -192,7 +192,20 @@ $$
 =i\int_{\Sigma_t}\sqrt h\,n^\mu\left(\overline{\phi_1}\,\partial_\mu\phi_2-(\partial_\mu\overline{\phi_1})\phi_2\right)d^dy
 $$
 
-とします。$\Sigma_t$ は $t$ を固定した空間断面、$h$ はその誘導計量の行列式、$n^\mu$ は未来向き単位法線、$d^dy=dz\,d^{d-1}\boldsymbol x$ です。内積の保存には境界流束を消す条件が別途必要です。$t=\mathrm{const}$ の面の体積密度は $\sqrt h=L^d z^{-d}$、未来向き単位法線は $n^t=z/L$。よってKG内積に現れる密度は $\sqrt h\,n^t=L^{d-1}z^{1-d}$ です。
+とします。$\Sigma_t$ は $t$ を固定した空間断面、$h$ はその誘導計量の行列式、$n^\mu$ は未来向き単位法線、$d^dy=dz\,d^{d-1}\boldsymbol x$ です。内積の保存には境界流束を消す条件が別途必要です。$t=\mathrm{const}$ の空間断面では、座標 $y=(z,\boldsymbol x)$ に関する誘導計量は $d$ 行 $d$ 列の対角行列 $h_{ab}=(L^2/z^2)\delta_{ab}$ です。従って、行列式と体積密度は
+
+$$
+\det h=\left(\frac{L^2}{z^2}\right)^d,\qquad
+\sqrt h=\frac{L^d}{z^d}
+$$
+
+となります。また $g_{tt}=-L^2/z^2$ なので、未来向き単位法線の時間成分は $n^t=z/L$ であり、$g_{tt}(n^t)^2=-1$ を確かめられます。よってKG内積に現れる密度は
+
+$$
+\sqrt h\,n^t=L^{d-1}z^{1-d}
+$$
+
+です。
 
 正周波数 $\omega>0$ の一つの分離モードを $\phi=e^{-i\omega t}f(z)v(\boldsymbol x)$ とし、$v$ の空間ノルムを有限に取ります。同じ正周波数モードをKG内積の両方に入れると、$\overline\phi\,\partial_t\phi-(\partial_t\overline\phi)\phi=(-i\omega-i\omega)|\phi|^2=-2i\omega|\phi|^2$ です。外側の $i$ を掛けて $2\omega|\phi|^2$ となるので、空間方向の有限なノルムを取り除いた径方向部分は正の定数 $2\omega L^{d-1}$ を除き $\int z^{1-d}|f|^2dz$ となります。なぜこの重みが必要なのかは、計量から求めた $\sqrt h\,n^t$ にあり、Euclid体積密度 $z^{-d-1}$ と取り違えません。
 
