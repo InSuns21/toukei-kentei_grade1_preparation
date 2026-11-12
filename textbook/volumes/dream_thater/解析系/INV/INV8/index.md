@@ -575,7 +575,7 @@ $F:\ell^2\to\mathbb R$、$F(x)=\|x\|$ とする。$F$ はノルム連続だが�
 <!-- solution-start -->
 #### 詳細解答
 
-逆三角不等式 $\bigl|\|x\|-\|v\|\bigr|\le\|x-v\|$ より $F$ は $1$-Lipschitz、特にノルム連続です。一方、標準基底は $e_n\rightharpoonup0$ ですが $F(e_n)=1\not\to0=F(0)$。$D(u,1)=(u-1)^2$ とすると
+[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality) $\bigl|\|x\|-\|v\|\bigr|\le\|x-v\|$ より $F$ は $1$-Lipschitz、特にノルム連続です。一方、標準基底は $e_n\rightharpoonup0$ ですが $F(e_n)=1\not\to0=F(0)$。$D(u,1)=(u-1)^2$ とすると
 
 $$
 D(F(e_n),1)=0,\qquad D(F(0),1)=1.
