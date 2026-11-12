@@ -1,0 +1,48 @@
+chapter: U3-10
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-08, U3-09]
+forward_references: []
+concepts:
+  - id: finance.lookback-discrete-payoff
+    name: 離散監視 Lookback の満期受取額
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散監視 Lookback の満期受取額）"]
+    requires: [finance.european-call-put, finance.multiperiod-binomial-market]
+  - id: finance.lookback-extrema-state
+    name: 極値を保存する拡張状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極値を保存する拡張状態）"]
+    requires: [finance.lookback-discrete-payoff, finance.binomial-information]
+  - id: finance.lookback-backward-pricing
+    name: Lookback の拡張状態後退帰納と一意価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lookback の拡張状態後退帰納と一意価格）"]
+    requires: [finance.lookback-extrema-state, finance.backward-conditional-value, finance.binomial-self-financing-replication]
+  - id: finance.lookback-stock-insufficient
+    name: Lookback では現在株価だけで条件付き価格が決まらない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lookback では現在株価だけで条件付き価格が決まらない）"]
+    requires: [finance.lookback-backward-pricing]
+  - id: finance.lookback-log-lattice-state
+    name: 逆数倍率の指数・極値状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆数倍率の指数・極値状態）"]
+    requires: [finance.lookback-extrema-state]
+  - id: finance.lookback-compression-complexity
+    name: 正しい状態併合と逆数倍率での計算量上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正しい状態併合と逆数倍率での計算量上界）"]
+    requires: [finance.lookback-log-lattice-state, finance.lookback-backward-pricing]
+  - id: finance.lookback-node-replication
+    name: Lookback の節点複製
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lookback の節点複製）"]
+    requires: [finance.lookback-backward-pricing, finance.binomial-self-financing-replication]
