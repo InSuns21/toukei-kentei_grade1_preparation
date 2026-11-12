@@ -66,7 +66,9 @@ $$
 
 ## 2. 代表元独立性・交代性・非退化性を検算する
 
-ここで必要なのは[交代双線形形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-alternating-form)と[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form)の区別です。LA3Eと[SYM1の非退化交代形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-nondegenerate-form)は有限次元の空間で導入しましたが、これらの条件自体は[HPDE23の無限次元解空間](../../HPDE/HPDE23/index.md#def-hpde23-symplectic)と同様に今回の商にも適用できます。交代性は $\sigma(v,v)=0$、非退化性は全ての相手との値が零である元が零だけである、という別々の条件です。有限次元の行列式による判定を商にそのまま使うのではなく、以下では解空間との同型を用います。
+ここで必要なのは[交代双線形形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-alternating-form)と[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form)の区別です。LA3Eと[SYM1の非退化交代形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-nondegenerate-form)は有限次元の空間で導入しましたが、これらの条件自体は[HPDE23の無限次元解空間](../../HPDE/HPDE23/index.md#def-hpde23-symplectic)と同様に今回の商にも適用できます。
+
+交代性は $\sigma(v,v)=0$、非退化性は全ての相手との値が零である元が零だけである、という別々の条件です。有限次元の行列式による判定を商にそのまま使うのではなく、以下では解空間との同型を用います。
 
 ### 代表を変えたときの主要中間式
 
@@ -205,7 +207,7 @@ $$
 \sigma(v_1,v_2)
 =-\int_M f(x)(Eh)(x)\,d^4x=0.
 $$
-[代表元独立性](#def-aqft5-causal-symplectic)の検算があるため、$f,h$ を別の代表で書いてもこの値は変わりません。第一の結論と直交補への包含が従います。
+第2節で直接検算した代表元独立性（一般形は[HPDE23の商への誘導形式](../../HPDE/HPDE23/index.md#cor-hpde23-quotient-form)）により、$f,h$ を別の代表で書いてもこの値は変わりません。第一の結論と直交補への包含が従います。
 
 次に $O_1\subset O_2$ なら任意の $f\in\mathcal D(O_1)$ は $\mathcal D(O_2)$ にも属します。よって
 $$
