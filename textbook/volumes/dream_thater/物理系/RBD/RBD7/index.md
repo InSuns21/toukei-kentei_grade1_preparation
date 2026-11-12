@@ -46,7 +46,7 @@ $$
 <!-- definition-example-start: def-rbd7-resultant-torque -->
 ### 直接例：同じ力を右端に加えるか、重心に加えるか
 
-**定義の確認**：作用点 $P$ と重心 $C$ を同じ空間系で指定し、力の和と腕の外積を別々に求めます。ある瞬間に $C=(0,0,0)$、$P=(a,0,0)$（$a>0$）、外力 $f=(0,F,0)$（$F>0$）とし、自由偶力はないとします。定義の第一式は $F_s=(0,F,0)$。第二式は
+**定義の確認**：作用点 $P$ と重心 $C$ を同じ空間系で指定し、力の和と、腕に力を作用させた $\tau_C=(x_P-c)\times f$ を別々に求めます。ある瞬間に $C=(0,0,0)$、$P=(a,0,0)$（$a>0$）、外力 $f=(0,F,0)$（$F>0$）とし、自由偶力はないとします。定義の第一式は $F_s=(0,F,0)$。第二式は
 
 $$
 \tau_{C,s}=(a,0,0)\times(0,F,0)=(0,0,aF).
@@ -283,7 +283,7 @@ $$
 \end{aligned}
 $$
 
-二行目では外積の反対称性 $\dot c\times\dot o=-\dot o\times\dot c$ と $\dot o\times\dot o=0$ を使いました。
+二行目では $\times$ の反対称性 $\dot c\times\dot o=-\dot o\times\dot c$ と $\dot o\times\dot o=0$ を使いました。
 
 最後に $x_i-o=(x_i-c)+d$、$v_i=\dot u_i+\dot c$ をそれぞれの定義に代入します。$\sum_i m_i u_i=0$ と $\sum_i m_i\dot u_i=0$ により交差項が消え、
 
@@ -538,7 +538,7 @@ $$
 \boxed{\dot\omega_b=(0,0,-aF/I_3)}.
 $$
 
-物体の腕を空間の力と直接外積するのは座標系の混同です。
+物体系の腕と空間系の力を座標変換せずに $\times$ で組み合わせるのは座標系の混同です。
 <!-- solution-end -->
 
 ### 問題 A3：角速度成分が一定でもトルクが要る
@@ -550,7 +550,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$J_b\omega_b=(2I\Omega,3I\Omega,0)$ です。外積の第3成分は
+$J_b\omega_b=(2I\Omega,3I\Omega,0)$ です。$\omega_b\times(J_b\omega_b)$ の第3成分は
 
 $$
 (\omega_b\times J_b\omega_b)_3
