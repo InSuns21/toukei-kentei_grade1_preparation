@@ -509,6 +509,6 @@ $$
 
 ## 8. 次講へ
 
-本章ではHRTの**両法線方向での面積停留条件**を定義し、$AdS_3$ の傾いた区間についてboost、曲線、cutoff長、変分の符号を自力で計算しました。さらにmaximinの選択順序と、一般定理を使える条件を切り分けました。HOLO23では古典面の上で量子場のエントロピーを評価するFLM補正へ進み、HOLO24で面の位置そのものを一般化エントロピーに対して変分します。
+本章では[古典HRT候補の定義](#def-holo22-hrt-surface)にある、両法線方向の面積一次変分が零になる条件を確認し、$AdS_3$ の傾いた区間についてboost、曲線、cutoff長、変分の符号を自力で計算しました。さらにmaximinの選択順序と、一般定理を使える条件を切り分けました。HOLO23では古典面の上で量子場のエントロピーを評価するFLM補正へ進み、HOLO24で面の位置そのものを一般化エントロピーに対して変分します。
 
 参考：Hubeny–Rangamani–Takayanagi, [*A Covariant Holographic Entanglement Entropy Proposal*](https://arxiv.org/abs/0705.0016) (2007)；Wall, [*Maximin Surfaces, and the Strong Subadditivity of the Covariant Holographic Entanglement Entropy*](https://arxiv.org/abs/1211.3494) (2014)。これらは条件付きの物理的処方と幾何学的定理を含む原論文であり、AdS/CFT一般の厳密な証明ではありません。
