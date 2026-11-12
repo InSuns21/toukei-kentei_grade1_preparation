@@ -448,7 +448,12 @@ $$
 $$
 をその全ての $q$ に対して要求します。
 
-$\sqrt{\omega_k}\,g(k)$ は局所可積分で高々多項式の増大を持つ重み付き $L^2$ 関数なので、緩増加分布を定めます。上式はその逆Fourier変換が全てのコンパクト支持滑らかな試験関数に対して零であることを意味します。Fourier変換の単射性から、この分布は零です。従って $\sqrt{\omega_k}g(k)=0$ がほとんど至る所で成立します。$\omega_k\ge m>0$ より $g=0$。直交補が零なので、複素線形包は稠密です。
+$\sqrt{\omega_k}\,g(k)$ が通常の $L^2$ に属するとは限りません。しかし任意のSchwartz関数 $\varphi$ について
+$$
+\left|\int_{\mathbb R^3}\overline{g(k)}\sqrt{\omega_k}\,\varphi(k)\,d^3k\right|
+\le\|g\|_2\,\|\sqrt{\omega}\,\varphi\|_2<\infty
+$$
+であり、右辺はSchwartz半ノルムで抑えられます。従って重み付き関数 $\sqrt{\omega}\,\overline g$ は緩増加分布を定めます。上の直交性は、その逆Fourier変換が全てのコンパクト支持滑らかな試験関数に対して零であることを意味します。Fourier変換の単射性から、この分布は零です。従って $\sqrt{\omega_k}g(k)=0$ がほとんど至る所で成立します。$\omega_k\ge m>0$ より $g=0$。直交補が零なので、複素線形包は稠密です。
 
 なお各実データ $(q,0)$ は[AQFT4の商・解同型](../AQFT4/index.md#thm-aqft4-kg-quotient)により何らかの $F\in\mathcal V$ に対応します。
 
