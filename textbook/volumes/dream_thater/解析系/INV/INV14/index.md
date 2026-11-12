@@ -593,7 +593,11 @@ $
 
 です。
 
-これで全 $\xi_1\in\mathbb R$、$\eta\in(c,d)$ に対し $\widehat h(\xi_1,\eta)=0$ と分かりました。今度は $\xi_1$ を固定し、$\eta_0\in(c,d)$ の周りで $e^{-itx_2}$ を同じように展開します。左辺は $t$ の小区間で0なので全 $t$ で0。結果 $\widehat h$ は全平面で0となり、[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)から $h=0$ です。コンパクト台は $e^{R|t|}$ によって**全ての $t$ まで展開を延長できる**ところに使いました。
+以上から、任意の実数 $\xi_1$ と $\eta\in(c,d)$ に対して $\widehat h(\xi_1,\eta)=0$ です。
+
+今度は $\xi_1$ を固定し、$x_2$ について同じ冪級数展開を行います。$\eta_0\in(c,d)$ の周囲で0なので、全ての実数 $\xi_2$ で0となります。
+
+従って $\widehat h$ は全平面で0です。[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)から $h=0$。コンパクト台は、冪級数が任意の $t$ まで収束する保証に使いました。
 <!-- solution-end -->
 
 <a id="ex-inv14-b03"></a>
@@ -684,7 +688,11 @@ $$
 \int x_1^k h(x)e^{-i(\xi_0x_1+\eta x_2)}\,dx
 $$
 
-と全ての実数 $t$ に対して展開できます。台上の $|x_1|\le R$ により、係数の絶対値和は $e^{R|t|}\int|h|$ 以下です。小さい $t$ の範囲で0なので係数がすべて0、従って固定した $\eta\in(c,d)$ について全ての $\xi_1$ で0です。続けて $x_2$ に関する同じ展開を行うと $\widehat h$ は全平面で0になります。[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)より $h=0$ です。
+と任意の実数 $t$ に対して展開できます。$|x_1|\le R$ なので、係数の絶対値和は $e^{R|t|}\int|h|$ 以下です。
+
+左辺は小さい $t$ で0だから全係数は0です。よって固定した $\eta\in(c,d)$ について、全ての $\xi_1$ で $\widehat h(\xi_1,\eta)=0$ です。
+
+次に $x_2$ に関する同じ展開を行えば、$\widehat h=0$ が全平面で成立します。[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)から $h=0$ です。
 
 **3.** 欠測方向 $u=(0,1)$、非零 $g\in C_c^\infty$ を選び、$h_n=e^{inu\cdot x}g$ とします。$0\le\varphi\le\pi/3$ では $|u\cdot\theta_\varphi|=\sin\varphi\le\sqrt3/2<1$。従って
 
