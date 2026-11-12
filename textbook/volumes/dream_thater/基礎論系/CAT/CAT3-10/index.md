@@ -55,6 +55,8 @@ D_P:\int_{\mathcal A}P\longrightarrow\widehat{\mathcal A},
 $$
 を得る。$(h^v)(h^u)=h^{vu}$、$h^{1_a}=1_{h^a}$ なので関手の公理も満たす。
 
+ここで確かめたい[余錐の条件](../CAT2-05/index.md#def-cat2-05-cocone)は、各 $u:(a,x)\to(b,y)$ に対して二つの脚の合成が一致することである。以下では、まず各 $\iota_{a,x}$ が前層間の自然変換であることを確かめ、続いて $\iota_{b,y}h^u=\iota_{a,x}$ を確認する。
+
 <a id="def-cat3-10-canonical-cocone"></a>
 
 <!-- formal-statement-start -->
@@ -193,9 +195,11 @@ coendは $P$ を「射と元の組」から再構築する公式である。一�
 
 ## 5. Yoneda埋め込みに沿う左Kan拡張
 
-ここでKan拡張と接続しよう。[左Kan拡張の普遍性](../CAT3-06/index.md#def-cat3-06-left-kan)は、$K:\mathcal A\to\mathcal B$ に沿って関手 $F:\mathcal A\to\mathcal C$ を $\mathcal B$ へ延長する最も普遍的な方法を定める。[点ごとの左Kan拡張](../CAT3-07/index.md#thm-cat3-07-pointwise)では、$b$ での値を $(K\downarrow b)$ 上の余極限から作った。
+ここでKan拡張と接続しよう。この節では $y$ をYoneda埋め込みの記号として用い、前層 $P(b)$ の元は $z$ と書き分ける。また $x\in P(a)$ に対応する自然変換 $\widehat{x}:h^a\to P$ は、第2節で定義した $\iota_{a,x}$ と同じ写像である。
 
-$K=y$ とすると、$(y\downarrow P)$ の対象は自然変換 $h^a\to P$ である。[Yonedaの補題](../CAT1-11/index.md#thm-cat1-11-contravariant-yoneda)でこれは元 $x\in P(a)$ に一意に対応する。さらに射 $h^a\xrightarrow{h^u}h^b$ が $P$ への写像と可換であることは $x=P(u)(y)$ と同値である。したがって
+[左Kan拡張の普遍性](../CAT3-06/index.md#def-cat3-06-left-kan)は、$K:\mathcal A\to\mathcal B$ に沿って関手 $F:\mathcal A\to\mathcal C$ を $\mathcal B$ へ延長する最も普遍的な方法を定める。[点ごとの左Kan拡張](../CAT3-07/index.md#thm-cat3-07-pointwise)では、$b$ での値を $(K\downarrow b)$ 上の余極限から作った。
+
+$K=y$ とすると、$(y\downarrow P)$ の対象は自然変換 $h^a\to P$ である。[Yonedaの補題](../CAT1-11/index.md#thm-cat1-11-contravariant-yoneda)でこれは元 $x\in P(a)$ に一意に対応する。さらに $z\in P(b)$ に対応する射 $h^b\to P$ を取ると、$h^a\xrightarrow{h^u}h^b$ を経由した射が $x\in P(a)$ の射と一致することは $x=P(u)(z)$ と同値である。したがって
 $$
 (y\downarrow P)\cong\int_{\mathcal A}P
 $$
@@ -228,9 +232,9 @@ comma圏を元の圏へ置き換えると、Kan拡張の点ごとの余極限は
 
 まず各 $P$ で $(y\downarrow P)\cong\int P$ を具体的に確かめる。$h^a\to P$ はYonedaにより $x\in P(a)$ を指定し、$h^a\to h^b$ は[Yoneda埋め込みの充満忠実性](../CAT1-12/index.md#thm-cat1-12-full-faithful)で一意に $u:a\to b$ と書ける。三角形の可換条件
 $$
-\widehat{y}\,h^u=\widehat{x}
+\widehat{z}\,h^u=\widehat{x}
 $$
-を $a$ で $1_a$ に適用すると $P(u)(y)=x$ が得られる。逆にこの等式があれば、任意の $f:c\to a$ について $P(uf)(y)=P(f)(x)$ なので三角形は全成分で可換である。合成と恒等射も双方で同じ $u$ を使う。
+を $a$ で $1_a$ に適用すると $P(u)(z)=x$ が得られる。逆にこの等式があれば、任意の $f:c\to a$ について $P(uf)(z)=P(f)(x)$ なので三角形は全成分で可換である。合成と恒等射も双方で同じ $u$ を使う。
 
 従って点ごとのKan公式の図式は $D_P$ である。前層圏の小さい余極限が存在するので、$L_P=\operatorname*{colim}D_P$ を構成でき、射 $t:P\to Q$ の作用は[密度定理](#thm-cat3-10-density)の証明第5段の $L(t)$ と一致する。$\kappa_P:L_P\to P$ は $P$ に自然な同型だから $L\cong1_{\widehat{\mathcal A}}$ となる。
 
@@ -295,7 +299,7 @@ $$
 
 ### 証明の見取り図
 
-元の圏 $\int P$ は既に小さい。射影 $\pi:\int P\to\mathcal A$ と $F$ を合成し、$F\pi$ の余極限を取る。普遍性は[点ごとの左Kan拡張の定理](../CAT3-07/index.md#thm-cat3-07-pointwise)にそのまま適用できるが、単位と射の作用を明記する。
+元の圏 $\int P$ は既に小さい。射影 $\pi:\int P\to\mathcal A$ と $F$ を合成し、$F\pi$ の余極限を取る。[点ごとの左Kan拡張の定理](../CAT3-07/index.md#thm-cat3-07-pointwise)の形を使うが、同定先 $\widehat{\mathcal A}$ は一般に大きい圏であり、既習定理の小圏仮定をそのまま適用できない。各 $P$ に対する小さい $\int P$ 上の余極限から関手を作り、単位と普遍性を直接検証する。
 
 <!-- proof-start -->
 ### 証明
@@ -547,7 +551,7 @@ H(X,Y)\cong\left(\coprod_{x\in X}H(h^p)\right)
 \amalg\left(\coprod_{y\in Y}H(h^q)\right)
 \cong(X\times S)\amalg(Y\times T).
 $$
-射 $(u,v)$ に関して左辺の構造写像 $H(h^p)\to H(X,Y)$ は $x$ を $u(x)$ に送り、右辺の表現でも $(x,s)\mapsto(u(x),s)$ となるから同型は自然である。$q$ 成分も同じ計算で $v$ が働く。
+射 $(u,v):(X,Y)\to(X',Y')$ を取る。$x\in X$ に対応する射 $h^p\to(X,Y)$ は、$(u,v)$ と合成すると $u(x)\in X'$ に対応する射になる。従って $H$ が誘導する射は、余積の $x$ 番目の成分にある $s\in S$ を $u(x)$ 番目の成分へ移し、$(x,s)\mapsto(u(x),s)$ と書ける。同様に $q$ 成分では $(y,t)\mapsto(v(y),t)$ となる。右辺の関手の射作用と一致するため、この同型は自然である。
 
 **(2) 自然変換。** $\alpha:H\Rightarrow G$ に対して $f=\alpha_{h^p}:S\to S'$、$g=\alpha_{h^q}:T\to T'$ を取る。自然性を各余積への標準射で使うと、$\alpha_{(X,Y)}$ は
 $$
