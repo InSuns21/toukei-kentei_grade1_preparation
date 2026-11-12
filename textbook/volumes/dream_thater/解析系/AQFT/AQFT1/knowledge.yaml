@@ -1,0 +1,58 @@
+chapter: AQFT1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SREL2
+  - LORG6
+forward_references: []
+concepts:
+  - id: aqft.minkowski-point-causality
+    name: Minkowskiの点間因果判定
+    kind: proposition
+    introduction: formal
+    requires: [relativity.causal-types, lorentz-geometry.minkowski-causal-future]
+  - id: aqft.causal-complement
+    name: 開いた因果補集合
+    kind: definition
+    introduction: formal
+    requires: [aqft.minkowski-point-causality]
+  - id: aqft.spacelike-separated-regions
+    name: 領域の空間的分離
+    kind: definition
+    introduction: formal
+    requires: [aqft.causal-complement]
+  - id: aqft.complement-antitonicity
+    name: 因果補集合と包含順序
+    kind: proposition
+    introduction: formal
+    requires: [aqft.causal-complement, aqft.spacelike-separated-regions]
+  - id: aqft.double-cone
+    name: 標準double cone
+    kind: definition
+    introduction: formal
+    requires: [lorentz-geometry.chronological-causal-future]
+  - id: aqft.double-cone-complement
+    name: double coneの因果補集合
+    kind: theorem
+    introduction: formal
+    requires: [aqft.double-cone, aqft.causal-complement]
+  - id: aqft.rindler-wedges
+    name: 右・左Rindler wedge
+    kind: definition
+    introduction: formal
+    requires: [relativity.light-cone]
+  - id: aqft.wedge-complement
+    name: 右wedgeと左wedgeの因果補集合
+    kind: theorem
+    introduction: formal
+    requires: [aqft.rindler-wedges, aqft.complement-antitonicity]
+  - id: aqft.double-cone-separation
+    name: 同時刻中心の二つのdouble cone
+    kind: theorem
+    introduction: formal
+    requires: [aqft.double-cone, aqft.spacelike-separated-regions]
+  - id: aqft.poincare-covariance
+    name: Poincaré変換と因果補集合
+    kind: proposition
+    introduction: formal
+    requires: [aqft.causal-complement, relativity.interval-invariance]

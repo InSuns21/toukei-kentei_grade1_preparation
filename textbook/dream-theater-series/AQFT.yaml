@@ -1,0 +1,142 @@
+version: 1
+id: AQFT
+title: "代数的量子場理論・モジュラー理論"
+plan: textbook/plans_progress/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - id: AQFT1
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT1
+    status: completed
+    title: "Minkowskiの領域と因果補集合"
+  - id: AQFT2
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT2
+    status: planned
+    title: "Haag–Kastler net"
+  - id: AQFT3
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT3
+    status: planned
+    title: "状態・共変表現・正エネルギー真空"
+  - id: AQFT4
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT4
+    status: planned
+    title: "Klein–GordonのGreen作用素と試験関数の商"
+  - id: AQFT5
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT5
+    status: planned
+    title: "因果伝播子とシンプレクティック形式"
+  - id: AQFT6
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT6
+    status: planned
+    title: "Weyl CCRと局所C*net"
+  - id: AQFT7
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT7
+    status: planned
+    title: "quasifree状態と二点形式"
+  - id: AQFT8
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT8
+    status: planned
+    title: "Minkowski真空とFock二点関数"
+  - id: AQFT9
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT9
+    status: planned
+    title: "GNSから局所von Neumann環へ"
+  - id: AQFT10
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT10
+    status: planned
+    title: "無限自由度と非同値表現"
+  - id: AQFT11
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT11
+    status: planned
+    title: "正エネルギーと解析性"
+  - id: AQFT12
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT12
+    status: planned
+    title: "Reeh–Schlieder定理"
+  - id: AQFT13
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT13
+    status: planned
+    title: "巡回性・分離性・局所性"
+  - id: AQFT14
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT14
+    status: planned
+    title: "Haag双対性・wedge双対性・factor性"
+  - id: AQFT15
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT15
+    status: planned
+    title: "Type I/II/III因子"
+  - id: AQFT16
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT16
+    status: planned
+    title: "split propertyと緩衝領域"
+  - id: AQFT17
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT17
+    status: planned
+    title: "splitの帰結とnuclearityへの入口"
+  - id: AQFT18
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT18
+    status: planned
+    title: "標準対とTomita作用素"
+  - id: AQFT19
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT19
+    status: planned
+    title: "反線形極分解とモジュラー対象"
+  - id: AQFT20
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT20
+    status: planned
+    title: "Hilbert–Schmidt標準表現の全計算"
+  - id: AQFT21
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT21
+    status: planned
+    title: "モジュラーHilbert環の準備補題"
+  - id: AQFT22
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT22
+    status: planned
+    title: "Tomitaの可換子定理"
+  - id: AQFT23
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT23
+    status: planned
+    title: "Takesakiのモジュラー不変性"
+  - id: AQFT24
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT24
+    status: planned
+    title: "Gibbs状態とKMSの帯解析"
+  - id: AQFT25
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT25
+    status: planned
+    title: "一般モジュラーKMS定理"
+  - id: AQFT26
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT26
+    status: planned
+    title: "Rindler wedgeとboostの解析性"
+  - id: AQFT27
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT27
+    status: planned
+    title: "Bisognano–Wichmann（自由スカラー場）"
+  - id: AQFT28
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT28
+    status: planned
+    title: "局所Type III₁性の適用境界"
+  - id: AQFT29
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT29
+    status: planned
+    title: "相対Tomita作用素"
+  - id: AQFT30
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT30
+    status: planned
+    title: "Araki相対エントロピーの有限次元還元"
+  - id: AQFT31
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT31
+    status: planned
+    title: "非忠実状態・支持射影・無限値"
+  - id: AQFT32
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT32
+    status: planned
+    title: "相対エントロピーの正値性"
+  - id: AQFT33
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT33
+    status: planned
+    title: "部分環制限と単調性"
+  - id: AQFT34
+    path: textbook/volumes/dream_thater/解析系/AQFT/AQFT34
+    status: planned
+    title: "同一自由場模型の総合演習と次の理論"

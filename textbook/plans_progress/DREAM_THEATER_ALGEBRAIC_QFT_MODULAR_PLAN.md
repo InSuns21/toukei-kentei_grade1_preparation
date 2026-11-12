@@ -2,7 +2,7 @@
 
 作成・分冊: 2026-10-11  
 改訂: 2026-11-11（標準教科書・講義ノート・原論文に照合し、全34講と証明責務・図の配置を確定）  
-状態: planned（設計の推敲のみ。本文・series manifest・公開は未着手）
+状態: in_progress（AQFT1本文・系列manifest・公開を実装。AQFT2–34と最終横断監査は未完了）
 
 ## 中心問いと出口
 
@@ -22,9 +22,9 @@
 |---|---|---|
 | `QM5–8`、`OA3–5`、`VN1–7`（[QMOA系列manifest](../dream-theater-series/QMOA.yaml)） | 自己共役作用素・Stone定理・C*環・正汎関数とGNS・可換子・正規状態・factor分類の入口 | **GNSはOA5が所有**する。AQFTでは局所netへの適用と非同値表現の現象を扱い、一般定理を重複証明しない |
 | `HPDE18–24`（[HPDE系列manifest](../dream-theater-series/HPDE.yaml)） | 先進／遅延Green作用素・因果伝播子・実Klein–Gordon解のシンプレクティック形式 | どの商空間上の形式が非退化かを照合してWeyl関係の符号へ接続する |
-| `SREL`・[LORG](../plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の必要部分 | Minkowski因果構造・空間的分離・wedge・Lorentz boost | 最初は平坦時空に限定する。大域双曲性一般論は必要箇所にだけ接続する |
+| `SREL`・[LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)の必要部分 | Minkowski因果構造・空間的分離・wedge・Lorentz boost | 最初は平坦時空に限定する。大域双曲性一般論は必要箇所にだけ接続する |
 | `QFT4–6`、`QINF1–3/17/20`（[QFT](../dream-theater-series/QFT.yaml)・[QINF](../dream-theater-series/QINF.yaml)系列manifest） | 自由場・二点関数・Fock表現、有限次元のテンソル積・密度行列・相対エントロピー | 有限次元計算を比較模型に使うが、QFT・QINF全講を一律必修にしない |
-| [MICA](../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | 曲がった時空でのHadamard状態、二点分布のmicrolocal条件 | **基本のMinkowski AQFTには全講を要求しない**。曲がった時空への拡張・局所共変性の発展課題で必要部分を指定する |
+| [MICA](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | 曲がった時空でのHadamard状態、二点分布のmicrolocal条件 | **基本のMinkowski AQFTには全講を要求しない**。曲がった時空への拡張・局所共変性の発展課題で必要部分を指定する |
 
 `OA/VN/QM`の一般結果、`HPDE23`のシンプレクティック形式、`QINF20`の有限次元量子相対エントロピーが既習側の正本。章IDがmanifest上で`completed`でも、対応する定理・定義がどのstable anchorにあり、どこまで証明されているかは**執筆着手時に実本文で確認**する。実在しない定理を既習扱いしない。
 
@@ -34,7 +34,7 @@
 
 - **AQFTが所有:** Haag–Kastler型局所net、状態・表現と局所von Neumann環、無限自由度の非同値表現、Reeh–Schlieder、局所環の型の条件付き結果、split property、標準対からのTomita–Takesaki理論・KMS・Bisognano–Wichmann、相対モジュラー作用素とAraki相対エントロピー。
 - **既存OA/VNが所有:** 一般のC*環・von Neumann環、GNS、作用素位相、極分解、factorと射影比較の基礎。AQFT固有の物理的適用と必要な追加補題だけを新たに証明する。
-- **[MQFC I/II](DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)が所有:** Wightman／Schwinger／Osterwalder–Schrader再構成、構成的相互作用模型、Epstein–Glaser型の対角延長・摂動くりこみ。AQFTでは必要なWightman仮定を述べるが、その再構成定理は再執筆しない。
+- **[MQFC I/II](../plans/DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)が所有:** Wightman／Schwinger／Osterwalder–Schrader再構成、構成的相互作用模型、Epstein–Glaser型の対角延長・摂動くりこみ。AQFTでは必要なWightman仮定を述べるが、その再構成定理は再執筆しない。
 - **MICAが所有:** 波面集合、Hadamard条件、自由場の点分離・局所くりこみ。AQFTのquasifree状態の正値性・CCRと、MICAのmicrolocal Hadamard条件を別の要件として扱う。
 - **QINFが所有:** Type Iの有限次元量子相対エントロピーとデータ処理。AQFTはType IIIを含む正規状態への拡張、局所環包含での単調性を所有する。重力双対・island・Page曲線の物理的議論はHOLO/BHIの正本に委ねる。
 
@@ -48,7 +48,7 @@
 
 ## 確定講義構成：全34講
 
-**講義数は全34講（第I部10講・第II部7講・第III部10講・第IV部7講）と確定する。** 旧AQFT1–15と前版の19候補テーマは以下へ再編する。番号は**AQFT系列の通算講義番号**であり、実装開始時に系列manifestへ全34講をこの順に登録し、正式章ID・pathを照合する。これは34週・34時間という時間割ではない。講数は証明の自然な切れ目と独習者の再現可能性から定め、数合わせによる統合・引き延ばしをしない。章実装を始めるまではmanifest・本文を作らず、PLANは未着手のままにする。
+**講義数は全34講（第I部10講・第II部7講・第III部10講・第IV部7講）と確定する。** 旧AQFT1–15と前版の19候補テーマは以下へ再編する。番号は**AQFT系列の通算講義番号**であり、実装開始時に系列manifestへ全34講をこの順に登録し、正式章ID・pathを照合する。これは34週・34時間という時間割ではない。講数は証明の自然な切れ目と独習者の再現可能性から定め、数合わせによる統合・引き延ばしをしない。AQFT1実装時に系列manifestへ全34講を登録し、AQFT1をcompleted、AQFT2–34をplannedとした。
 
 ### I. 局所netと自由場の構成（第1–10講、10講）
 
@@ -174,7 +174,7 @@
 
 ## 執筆・査読・完了条件
 
-1. **設計と実装を混同しない。** 全34講の講数・順序はこのPLANで確定したが、この変更はPLANの推敲であり、章本文やseries manifestを新設しない。`plans/`のまま維持する。AQFT固有の実装・検証・監査に着手したら`plans_progress/`へ移し、必要なmanifest・直接参照を同じ作業単位で更新する。
+1. **設計と実装を混同しない。** 全34講の講数・順序は本PLANで確定した。AQFT1の章本文・series manifest・公開導線を実装したので、本PLANは`plans_progress/`へ移動した。AQFT2–34と系列横断監査は残るため、全PLANを完了扱いしない。
 2. 最初に`chapter.yaml`/`knowledge.yaml`の直接prerequisiteと実在stable anchorを確認する。初出専門語はformal statementより前に通常文と直接例で導入し、既習定理の実際の使用箇所から根拠リンクを付ける。
 3. 各章で**動機→定義の直接例→仮定付きの定理→証明の核心→演習・全詳細解答**を閉じる。作用素の定義域、位相、支持、二点関数の正値性、factorの型の追加条件、相対エントロピーの向き・支持条件を重点監査する。
 4. 新規・実質改稿した**変更章自身**の主要証明と全演習解答を再計算し、完成本文を別観点で再読する。**別の完了章の追跡監査は明示的な章ID指定があった場合だけ**行い、過去の「直前章の一律追跡監査」は適用しない。
