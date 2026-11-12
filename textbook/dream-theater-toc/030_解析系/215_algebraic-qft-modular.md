@@ -2,3 +2,4 @@
 ### 代数的量子場理論・モジュラー理論
 
 1. [AQFT1 Minkowskiの領域と因果補集合](textbook/volumes/dream_thater/解析系/AQFT/AQFT1/index.md)
+2. [AQFT2 Haag–Kastler net](textbook/volumes/dream_thater/解析系/AQFT/AQFT2/index.md)
