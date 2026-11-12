@@ -252,7 +252,30 @@ $$
 
 逆向きは二回の逆転置の後に $\alpha_{X,A,B}^{-1}$ を前合成して構成する。二度の全単射と結合子の同型を合成したので、これらは互いに逆である。結合子の自然性と[転置の自然性](#prop-cat4-05-internal-hom-functor)から $X$ に自然。
 
-$X=[A\otimes B,C]$ で恒等射を送って得る $\theta:[A\otimes B,C]\to[A,[B,C]]$ と、逆向きのHom対応で得る $\psi$ を取る。任意の $X$ からの射にこの二つを後合成した写像は上の全単射とその逆であるから、特に $X$ に各々の内部Homを代入して $\psi\theta=1$、$\theta\psi=1$ が従う。$A,B,C$ の自然性も、各入力射に対する[内部Homの作用](#prop-cat4-05-internal-hom-functor)と結合子の自然性を順に適用し、一意な転置を比較して得られる。
+$H=[A\otimes B,C]$、$K=[A,[B,C]]$ と置き、先に構成した自然なHom全単射を $\beta_X:\operatorname{Hom}(X,H)\to\operatorname{Hom}(X,K)$ と書く。恒等射を代入して、次の二射を作る。
+
+$
+\theta=\beta_H(1_H):H\to K,\qquad
+\psi=\beta_K^{-1}(1_K):K\to H.
+$
+
+$\beta$ が $X$ に自然だから、任意の $h:X\to H$ と $g:X\to K$ に対して
+
+$
+\beta_X(h)=\theta h,\qquad
+\beta_X^{-1}(g)=\psi g.
+$
+
+従って $X=H$ として $h=1_H$ を転置・逆転置すると $\psi\theta=1_H$。また $X=K$ として $g=1_K$ を逆転置・転置すると $\theta\psi=1_K$ となる。よって $\theta$ は同型である。
+
+さらに $u:A'\to A$、$v:B'\to B$、$w:C\to C'$ を取る。$f:X\otimes(A\otimes B)\to C$ から両経路で得る射は、[内部Homの作用](#prop-cat4-05-internal-hom-functor)と結合子の自然性によって、ともに
+
+$
+w\,f\,(1_X\otimes(u\otimes v)):
+X\otimes(A'\otimes B')\to C'
+$
+
+を二度転置したものである。一意性により $A,B,C$ に関する自然性も成立する。
 <!-- proof-end -->
 
 これは「括弧が文字どおり等しい」という主張ではない。[モノイダル圏の結合子](../CAT4-01/index.md#def-cat4-01-monoidal)を用いた**正準的な同型**である。
