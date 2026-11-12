@@ -20,7 +20,17 @@ $$
 
 ## 1. 一境界の熱状態を二境界の純粋状態にする
 
-単一の境界系に熱状態 $\rho_\beta=e^{-\beta H}/Z$ を置くと、密度行列は通常 $\rho_\beta^2\ne\rho_\beta$ です。これを純粋状態の部分系として表現するには、同じエネルギー準位を持つ補助系 $\mathcal H_L$ を導入します。縮約は「左側の基底を和で消す」操作です。**左と右の準位が同じ**になるように重ねることが鍵になります。
+単一の境界系に熱状態 $\rho_\beta=e^{-\beta H}/Z$ を置くと、密度行列は通常 $\rho_\beta^2\ne\rho_\beta$ です。これを純粋状態の部分系として表現するには、同じエネルギー準位を持つ補助系 $\mathcal H_L$ を導入します。縮約には[QINF3で定義した部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を使います。左の正規直交基底 $|k\rangle_L$ ごとに全体の演算子を左右から $({}_L\langle k|\otimes I_R)$ と $(|k\rangle_L\otimes I_R)$ で挟み、その結果を $k$ について足す操作です。単に左側のケットを消すのではありません。**左と右の準位が同じ**になるように重ねることが鍵になります。
+
+エネルギーが縮退すると、同じ固有値に属する基底を取り替えられます。右基底を $|n\rangle'_R=\sum_m U_{mn}|m\rangle_R$ とユニタリ行列 $U$ で取り替えるなら、左基底は $|n\rangle'_L=\sum_m\overline{U_{mn}}|m\rangle_L$ と**係数を複素共役にして**取り替えます。この対応を反線形共役な対応と呼びます。同じエネルギーの固有空間内での変換なら
+
+$$
+\sum_n |n\rangle'_L\otimes|n\rangle'_R
+=\sum_{m,k}\left(\sum_n\overline{U_{mn}}U_{kn}\right)|m\rangle_L\otimes|k\rangle_R
+=\sum_m|m\rangle_L\otimes|m\rangle_R
+$$
+
+です。二番目の等号は $UU^\dagger=I$ によります。したがって縮退空間内の基底変更は、左右を共役に対応させればTFDを変えません。
 
 <a id="def-holo16-tfd"></a>
 
@@ -38,7 +48,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo16-tfd -->
-**定義の確認**：$H_R=\operatorname{diag}(0,\varepsilon)$、$\varepsilon>0$、$q=e^{-\beta\varepsilon}\in(0,1)$ の二準位系を取ります。$Z=1+q$ であり
+**定義の確認**：右側の正規直交基底 $|0\rangle_R,|1\rangle_R$ に対して $H_R|0\rangle_R=0$、$H_R|1\rangle_R=\varepsilon|1\rangle_R$（$\varepsilon>0$）とします。この作用を基底の順 $(|0\rangle_R,|1\rangle_R)$ で表した行列が $H_R=\operatorname{diag}(0,\varepsilon)$ です。固有値が実数なので $H_R$ は自己共役であり、[熱重みの固有基底計算](../HOLO15/index.md#def-holo15-thermal-state)と同じく $e^{-\beta H_R}|j\rangle_R=e^{-\beta E_j}|j\rangle_R$ です。左右にこの基底を対応させ、$\beta>0$ と $q=e^{-\beta\varepsilon}\in(0,1)$ を取れば、$Z=e^{-\beta\cdot0}+e^{-\beta\varepsilon}=1+q$ は正で有限です。定義の係数 $e^{-\beta E_j/2}/\sqrt Z$ を各基底対に掛けると
 
 $$
 |\mathrm{TFD}_\beta\rangle
@@ -95,7 +105,7 @@ $$
 |n\rangle_L\langle m|\otimes|n\rangle_R\langle m|.
 $$
 
-左の部分跡を固有基底で取ると
+[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)に従い、左の固有基底で取ると
 
 $$
 \operatorname{Tr}_L(|n\rangle_L\langle m|)
@@ -216,7 +226,14 @@ $$
 よって第一法則も一致します。$\square$
 <!-- proof-end -->
 
-特に $r_+=L$ なら $\beta=2\pi L$、$M=1/(8G_3)$、$S_{\rm BH}=\pi L/(2G_3)$、$F=-1/(8G_3)$。**BTZ質量零の状態とglobal AdS真空は同一ではありません。** global AdS$_3$ の真空エネルギーは同じ規約で $-1/(8G_3)$ です。
+特に $r_+=L$ の代入結果は
+
+$$
+\beta=2\pi L,\qquad M=\frac1{8G_3},\qquad
+S_{\rm BH}=\frac{\pi L}{2G_3},\qquad F=-\frac1{8G_3}
+$$
+
+です。**BTZ質量零の状態とglobal AdS真空は同一ではありません。** global AdS$_3$ の真空エネルギーは同じ規約で $-1/(8G_3)$ です。
 
 ## 3. 境界CFTの温度・円周とBTZを合わせる
 
@@ -227,6 +244,8 @@ c_{\rm CFT}=\frac{3L}{2G_3}
 $$
 
 です。これを使うには、**二次元の左右対称なCFT**で、空間円周が $2\pi L$、十分高温で真空がモジュラー変換後の分配関数を支配する条件が必要です。一般のCFTの任意の温度や任意の状態で単一BTZサドルが支配するとは言いません。
+
+以下の $\partial_\beta$ は、円周 $2\pi L$、中央電荷 $c_{\rm CFT}$（重力側では $L,G_3$）を固定して**逆温度 $\beta$ のみ**を微分する演算です。この一変数での微分は $d/d\beta$ と同じであり、$r_+$ を動かす前節の $dM/dr_+$ とは変数が異なります。
 
 <a id="prop-holo16-cft-matching"></a>
 
@@ -284,7 +303,15 @@ $$
 三つがそれぞれ一致します。$\square$
 <!-- proof-end -->
 
-**同じ境界トーラスのもう一つの充填**は熱的global AdS$_3$ です。真空エネルギーは $F_{\rm AdS}^{\rm(cl)}=-c_{\rm CFT}/(12L)=-1/(8G_3)$。BTZは $F_{\rm BTZ}=-\pi^2L^2/(2G_3\beta^2)$ なので、二つの古典自由エネルギーが等しくなるのは $\beta=2\pi L$ です。これは[BHTとHOLO15の熱サドル比較](../HOLO15/index.md#prop-holo15-free-energy-dictionary)と同じ考え方ですが、**次元と温度式は異なります**。前因子や他の鞍点を含む厳密な分配関数に鋭い相転移を証明したわけではありません。
+**同じ境界トーラスのもう一つの充填**は熱的global AdS$_3$ です。真空エネルギーとBTZの古典自由エネルギーは
+
+$$
+F_{\rm AdS}^{\rm(cl)}=-\frac{c_{\rm CFT}}{12L}=-\frac1{8G_3},
+\qquad
+F_{\rm BTZ}^{\rm(cl)}=-\frac{\pi^2L^2}{2G_3\beta^2}
+$$
+
+です。二つの値を等置して $1/(8G_3)=\pi^2L^2/(2G_3\beta^2)$ と解くと、$\beta>0$ より交差点は $\beta=2\pi L$ です。これは[BHTとHOLO15の熱サドル比較](../HOLO15/index.md#prop-holo15-free-energy-dictionary)と同じ考え方ですが、**次元と温度式は異なります**。前因子や他の鞍点を含む厳密な分配関数に鋭い相転移を証明したわけではありません。
 
 ## 4. 二つの境界とEinstein–Rosen橋
 
@@ -349,11 +376,25 @@ ds^2=-\frac{4L^2}{(1+UV)^2}\,dU\,dV+
 r_+^2\left(\frac{1-UV}{1+UV}\right)^2d\phi^2
 $$
 
-となります。ここで $dU\,dV$ は対称化した交差項を表します。未来の向きを $dU\ge0,dV\ge0$ と取れば、任意の未来向き因果曲線でこの両不等式が成り立ちます。右から左へ行くには $V>0$ から $V<0$ へ減らさなければならず不可能です。従ってTFDの相関や空間橋は、**可通行なワームホールや超光速通信を意味しません**。このKruskal計算はLevel Cでも再構成します。
+となります。ここで $dU\,dV$ は対称化した交差項を表します。因果接ベクトル $(\dot U,\dot V,\dot\phi)$ では $ds^2(\dot\gamma,\dot\gamma)\le0$ なので、$1+UV>0$ の領域では
+
+$$
+\frac{4L^2}{(1+UV)^2}\dot U\dot V
+\ge r^2\dot\phi^2\ge0.
+$$
+
+従って $\dot U,\dot V$ は同符号（または一方が零）です。右外部の未来向き静的時間並進は、$U<0,V>0$ において $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ を満たします。この未来円錐を連続に延長すると、未来向き因果曲線では $\dot U\ge0,\dot V\ge0$ です。右から左へ行くには $V>0$ から $V<0$ へ減らさなければならず不可能です。従ってTFDの相関や空間橋は、**可通行なワームホールや超光速通信を意味しません**。このKruskal計算はLevel Cでも再構成します。
 
 ## 5. 両側相関は片側の熱的相関とどう違うか
 
-片側の熱的期待値は $\rho_R$ で計算できますが、左右の演算子の積の期待値には純粋なTFD全体が必要です。左右のエネルギー基底の対応を固定し、右のHermitian演算子 $O$ に対する左の対応演算子をその転置 $O_L=O^{\mathsf T}$ と置きます。**転置は定めた基底で行い**、空間反転や「左側の時間の逆向き」と同じ演算ではありません。
+片側の熱的期待値は $\rho_R$ で計算できますが、左右の演算子の積の期待値には純粋なTFD全体が必要です。左右のエネルギー固有基底の対応を固定し、右のHermitian演算子 $O=O^\dagger$ の行列要素を $O_{mn}={}_R\langle m|O|n\rangle_R$ とします。右の基底表示と**転置で定める**左演算子の基底表示は
+
+$$
+O_R=\sum_{m,n}O_{mn}|m\rangle_R\langle n|,\qquad
+O_L=O^{\mathsf T}=\sum_{m,n}O_{nm}|m\rangle_L\langle n|.
+$$
+
+すなわち左の $(m,n)$ 成分には右の $(n,m)$ 成分を置きます。Hermitian性から $O_{nm}=\overline{O_{mn}}$ なので、後の二側相関で二つの行列要素の積は $|O_{mn}|^2$ になります。**転置は定めた基底で行い**、空間反転や「左側の時間の逆向き」と同じ演算ではありません。
 
 <a id="prop-holo16-two-sided-correlator"></a>
 
@@ -425,10 +466,10 @@ $$
 **時間の注意**：TFDは同じエネルギーの左右ペアからなるので
 
 $$
-(H_R-H_L)|\mathrm{TFD}\rangle=0.
+(I_L\otimes H_R-H_L\otimes I_R)|\mathrm{TFD}\rangle=0.
 $$
 
-従って $e^{-is(H_R-H_L)}|\mathrm{TFD}\rangle=|\mathrm{TFD}\rangle$ です。一方、左右それぞれの未来向き物理時間を同符号で進める $H_L+H_R$ では一般に位相が変わります。二境界BTZのグローバルな静的Killing時間は右では未来向き、左では過去向きに作用し、生成子の符号差と整合します。左右の**局所的な未来時間** $t_L,t_R$ をグローバルKilling時間と混ぜないことが重要です。
+ここで二体系の生成子を $H_R-H_L:=I_L\otimes H_R-H_L\otimes I_R$ と略記すれば、$e^{-is(H_R-H_L)}|\mathrm{TFD}\rangle=|\mathrm{TFD}\rangle$ です。一方、左右それぞれの未来向き物理時間を同符号で進める $H_L+H_R$ では一般に位相が変わります。二境界BTZのグローバルな静的Killing時間は右では未来向き、左では過去向きに作用し、生成子の符号差と整合します。左右の**局所的な未来時間** $t_L,t_R$ をグローバルKilling時間と混ぜないことが重要です。
 
 ## 6. 対応するもの・対応しないもの
 
@@ -690,7 +731,7 @@ ds^2=-\frac{4L^2}{(1+UV)^2}\,dU\,dV+
 r_+^2\frac{(1-UV)^2}{(1+UV)^2}d\phi^2.
 $$
 
-(iv) この計量では未来向き因果接ベクトルについて $dU\ge0$、$dV\ge0$ が必要です（角方向の成分を加えても符号は逆転しません）。右外部で $V>0$ だった点から未来に進むと $V$ は減少しないため、$V<0$ の左外部には到達できません。$t=0$ の橋が空間的に連結でも、因果的には非可通行です。TFDの左右相関から直接の通信可能性は導けません。
+(iv) 因果曲線の接ベクトルに計量を適用すれば $4L^2\dot U\dot V/(1+UV)^2\ge r^2\dot\phi^2\ge0$ です。よって $\dot U,\dot V$ は同符号であり、右外部の未来向き時間並進 $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ と同じ未来円錐を選べば $\dot U,\dot V\ge0$ です。右外部で $V>0$ だった点から未来に進むと $V$ は減少しないため、$V<0$ の左外部には到達できません。$t=0$ の橋が空間的に連結でも、因果的には非可通行です。TFDの左右相関から直接の通信可能性は導けません。
 <!-- solution-end -->
 
 ## 8. まとめと次講
