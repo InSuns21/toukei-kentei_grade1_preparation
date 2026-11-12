@@ -88,7 +88,7 @@
       <label for="speed">再生速度 <output id="vspeed">1.00 倍</output></label>
       <input type="range" id="speed" min=".25" max="2" step=".25" value="1">
       <h2>質量分布と初期値</h2>
-      <p class="small">変更すると t=0 へ戻ります。I=J、ρ=0、w=0 も確認できます。</p>
+      <p class="small">変更すると t=0 へ戻ります。実在する対称剛体の主慣性値の条件 0 &lt; J ≤ 2I を保つように J の上限を調整します。I=J、ρ=0、w=0 も確認できます。</p>
       <label for="inertiaI">横慣性 I <output id="vI">2.00</output></label>
       <input type="range" id="inertiaI" min=".5" max="4" step=".25" value="2">
       <label for="inertiaJ">軸慣性 J <output id="vJ">3.00</output></label>
@@ -191,7 +191,14 @@
     } else {$("orbit").setAttribute("d","");}
     return ok;
   }
-  function changeModel(){pause();t=0;draw();}
+  function changeModel(){
+    pause();t=0;
+    const I=Number($("inertiaI").value),jSlider=$("inertiaJ");
+    const jmax=Math.min(5,2*I);
+    jSlider.max=String(jmax);
+    if(Number(jSlider.value)>jmax)jSlider.value=String(jmax);
+    draw();
+  }
   inputs.forEach(id=>$(id).addEventListener("input",changeModel));
   $("speed").addEventListener("input",draw);
   $("time").addEventListener("input",()=>{pause();t=Number($("time").value);draw();});
