@@ -1,0 +1,60 @@
+chapter: U3-03
+scope: dream-theater
+coverage: complete
+prerequisites: [F0-00A, F0-00P2A, F0-00P3A, U3-01, U3-02]
+forward_references: []
+concepts:
+  - id: finance.multiperiod-binomial-market
+    name: 多期間二項市場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多期間二項市場）"]
+    requires: [finance.one-period-binomial-market, finance.one-period-no-arbitrage]
+  - id: finance.binomial-information
+    name: 時点別情報
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時点別情報）"]
+    requires: [finance.multiperiod-binomial-market]
+  - id: finance.binomial-path-measure
+    name: 多期間の評価用確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多期間の評価用確率）"]
+    requires: [finance.binomial-information, finance.one-period-risk-neutral-probability]
+  - id: finance.binomial-conditional-average
+    name: 次の一歩の条件付き平均
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（次の一歩の条件付き平均）"]
+    requires: [finance.binomial-path-measure]
+  - id: finance.discrete-martingale
+    name: 離散時間マルチンゲール
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散時間マルチンゲール）"]
+    requires: [finance.binomial-conditional-average]
+  - id: finance.discounted-stock-martingale
+    name: 割引株価のマルチンゲール性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（割引株価のマルチンゲール性）"]
+    requires: [finance.discrete-martingale, finance.one-period-risk-neutral-pricing]
+  - id: finance.backward-binomial-value
+    name: 後退帰納評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（後退帰納評価）"]
+    requires: [finance.binomial-path-measure]
+  - id: finance.backward-conditional-value
+    name: 後退帰納と条件付き期待値の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（後退帰納と条件付き期待値の一致）"]
+    requires: [finance.backward-binomial-value, finance.binomial-conditional-average, finance.discrete-martingale]
+  - id: finance.binomial-terminal-sum
+    name: 満期株価だけに依存する請求権の二項和
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（満期株価だけに依存する請求権の二項和）"]
+    requires: [finance.backward-conditional-value]
