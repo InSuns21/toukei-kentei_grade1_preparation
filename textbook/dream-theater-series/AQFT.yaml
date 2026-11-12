@@ -62,7 +62,7 @@ chapters:
     title: "Haag双対性・wedge双対性・factor性"
   - id: AQFT15
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT15
-    status: planned
+    status: completed
     title: "Type I/II/III因子"
   - id: AQFT16
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT16

@@ -1,0 +1,43 @@
+chapter: AQFT15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT14
+  - AQFT13
+  - AQFT9
+  - VN7
+  - VN5
+  - VN2
+  - QINF3
+forward_references: []
+concepts:
+  - id: aqft.faithful-normal-semifinite-trace
+    name: 忠実・正規・半有限トレース
+    kind: definition
+    introduction: formal
+    requires: [operator-algebra.factor-type-classification, operator-algebra.finite-projection]
+  - id: aqft.finite-trace-projection-finite
+    name: 有限トレース射影は有限射影
+    kind: proposition
+    introduction: formal
+    requires: [aqft.faithful-normal-semifinite-trace, operator-algebra.murray-von-neumann-equivalence, operator-algebra.finite-projection]
+  - id: aqft.type-iii-trace-obstruction
+    name: Type III因子のトレース障害
+    kind: theorem
+    introduction: formal
+    requires: [aqft.finite-trace-projection-finite, operator-algebra.factor-type-classification]
+  - id: aqft.ii1-finite-permutation-group-example
+    name: 有限台置換群が作るII₁因子
+    kind: proposition
+    introduction: formal
+    requires: [operator-algebra.factor, operator-algebra.factor-type-classification, aqft.finite-trace-projection-finite]
+  - id: aqft.ambient-rank-one-density
+    name: Type III局所von Neumann環と周囲の階数1密度作用素
+    kind: proposition
+    introduction: formal
+    requires: [aqft.type-iii-trace-obstruction, operator-algebra.factor-type-classification]
+  - id: aqft.type-iii-typei-tensor-obstruction
+    name: Type III因子に対するType Iテンソル分解の障害
+    kind: proposition
+    introduction: formal
+    requires: [operator-algebra.factor-type-classification, aqft.ambient-rank-one-density]
