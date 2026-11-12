@@ -325,14 +325,36 @@ $$
 
 ### A1. 断熱と熱の流入の符号
 
-直方体の左面・右面はともに面積 $A$。右向きに一定の熱流束 $q_*>0$（W/m$^2$）があり、側面熱流束はゼロとする。(i) 左右の $q\cdot n$ を求めよ。(ii) 正味境界熱入力率を計算せよ。(iii) 右面だけから追加で $h>0$ W/m$^2$ の熱を外へ逃すとき、正味入力率はどうなるか。
+直方体の左面・右面はともに面積 $A$。右向きに一定の熱流束 $q_*>0$（W/m$^2$）があり、側面熱流束はゼロとする。
+
+1. 左右の $q\cdot n$ を求めよ。
+2. 正味境界熱入力率を計算せよ。
+3. 右面だけから追加で $h>0$ W/m$^2$ の熱を外へ逃すとき、正味入力率はどうなるか。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-(i) 右向きを $e_1$ とすれば $q=q_*e_1$。左面の外向き法線は $-e_1$ なので $q\cdot n=-q_*$、右面は $+e_1$ で $q\cdot n=q_*$。(ii) [熱流束の定義](#def-ctm9-heat-transport)から $H_{\partial U}=-[(-q_*A)+(q_*A)]=0$。(iii) 右面の流出を $q_*+h$ にすれば $H_{\partial U}=-[-q_*A+(q_*+h)A]=-hA$ W。負の符号は外へ失う熱を表す。
+1. 右向きを $e_1$ とすれば $q=q_*e_1$。左面の外向き法線は $-e_1$、右面は $+e_1$ だから、
+
+   $$
+   (q\cdot n)_{\rm 左}=-q_*,\qquad (q\cdot n)_{\rm 右}=q_*.
+   $$
+
+2. [熱流束の定義](#def-ctm9-heat-transport)から、両面を通る外向き流率を差し引けば、
+
+   $$
+   H_{\partial U}=-[(-q_*A)+(q_*A)]=0.
+   $$
+
+3. 右面の外向き流率密度だけが $q_*+h$ に増えるため、
+
+   $$
+   H_{\partial U}=-[-q_*A+(q_*+h)A]=-hA\quad\text{W}.
+   $$
+
+   負の符号は外へ失う熱を表す。
 <!-- solution-end -->
 
 ### A2. 応力が回転に仕事をしないこと
@@ -356,7 +378,21 @@ $\sigma=\operatorname{diag}(p,0,0)$（Pa）、$L=\begin{pmatrix}a&-\omega&0\\\om
 <!-- solution-start -->
 #### 詳細解答
 
-[内部エネルギーの局所収支](#thm-ctm9-internal-energy)の $D_te=\partial_te$、$\sigma:D=0$、$\operatorname{div}_xq=0$ を代入すると $\rho\partial_te=\rho r$。$\rho>0$ なので $\partial_te=r$。模型の微分で $\partial_te=c\partial_tT$、よって $\partial_tT=30/600=0.05$ K/s。積分して $T(10)=280+0.05\cdot10=280.5$ K。$c$ は物性の仮定であり全エネルギー収支そのものではない。
+静止しているので $D_te=\partial_te$ であり、応力仕事も熱流束の発散もゼロである。[内部エネルギーの局所収支](#thm-ctm9-internal-energy)から、
+
+$$
+\rho\partial_te=\rho r,\qquad \rho>0
+\quad\Longrightarrow\quad \partial_te=r.
+$$
+
+一方、模型の仮定 $e=c(T-T_{\rm ref})$ を $x$ 固定で時間微分すると $\partial_te=c\partial_tT$ である。$c=600$ J/(kg K) を代入して、
+
+$$
+\partial_tT=\frac{r}{c}=\frac{30}{600}=0.05\quad\text{K/s},\qquad
+T(10\ \mathrm s)=280+0.05\cdot10=280.5\quad\text{K}.
+$$
+
+$c$ は物性の追加仮定であり、エネルギー収支自体から得られた値ではない。
 <!-- solution-end -->
 
 ### A4. 基準面を通る熱流束
@@ -412,20 +448,47 @@ $$
 
 ### B2. 熱が出入りする棒の全体と局所を照合する
 
-静止した直方体 $0<x_1<L$、横断面積 $A$、密度 $\rho_*>0$ で、応力仕事率ゼロ、$q=(q_*+ax_1)e_1$、$q_*,a$ は時刻一定、$r=r_*$ とする。$q_*$ の単位は W/m$^2$、$a$ は W/m$^3$。(i) $D_te$ を求めよ。(ii) 左右の熱流率を積分し、全体の内部エネルギー変化率が局所式の積分と一致することを示せ。
+静止した直方体 $0<x_1<L$、横断面積 $A$、密度 $\rho_*>0$ で、応力仕事率ゼロ、$q=(q_*+ax_1)e_1$、$q_*,a$ は時刻一定、$r=r_*$ とする。$q_*$ の単位は W/m$^2$、$a$ は W/m$^3$。
+
+1. $D_te$ を求めよ。
+2. 左右の熱流率を積分し、全体の内部エネルギー変化率が局所式の積分と一致することを示せ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-(i) $\operatorname{div}_xq=\partial_{x_1}(q_*+ax_1)=a$。従って [内部エネルギー式](#thm-ctm9-internal-energy)より $\rho_*\partial_te=-a+\rho_*r_*$、すなわち $\partial_te=r_*-a/\rho_*$（J/(kg s)）。(ii) 左面の外向き法線は $-e_1$ なので外向き流量は $-q_*A$、右面では $(q_*+aL)A$。正味の外向き熱は $aLA$、熱入力は $-aLA$。体積源は $\rho_*r_*LA$ だから、全体式では
+1. 静止しているので $D_te=\partial_te$ である。$\operatorname{div}_xq=\partial_{x_1}(q_*+ax_1)=a$ を [内部エネルギー式](#thm-ctm9-internal-energy)へ代入すると、
 
-$$
-\frac{dE_{\rm int}}{dt}=-aLA+\rho_*r_*LA.
-$$
+   $$
+   \rho_*\partial_te=-a+\rho_*r_*,
+   \qquad \partial_te=r_*-\frac{a}{\rho_*}\quad\text{J/(kg s)}.
+   $$
 
-局所式を全体積 $LA$ で積分しても $(\rho_*r_*-a)LA$。両者は一致し、一定成分 $q_*$ は左右を通過するだけなので蓄積に寄与しない。
+2. 左面の外向き法線は $-e_1$、右面の法線は $e_1$ である。両面で積分した外向き熱流率と、それを反転した熱入力率は、
+
+   $$
+   \begin{aligned}
+   \int_{\partial U}q\cdot n\,dS
+   &=(-q_*)A+(q_*+aL)A=aLA,\\
+   H_{\partial U}&=-aLA.
+   \end{aligned}
+   $$
+
+   体積熱源は $\rho_*r_*LA$ だから、積分収支は、
+
+   $$
+   \frac{dE_{\rm int}}{dt}=-aLA+\rho_*r_*LA.
+   $$
+
+   他方、局所式の左辺を体積 $LA$ で積分すると、
+
+   $$
+   \int_U\rho_*\partial_te\,dV
+   =\int_U(\rho_*r_*-a)\,dV=(\rho_*r_*-a)LA.
+   $$
+
+   両者は一致する。一定成分 $q_*$ は左右を通過するだけなので、蓄積に寄与しない。
 <!-- solution-end -->
 
 ### B3. 剛体回転中に仕事と熱が通過する場合
@@ -476,7 +539,10 @@ $$
 
 で動かす。$\rho_0>0$ kg/m$^3$ は基準で一様、$\sigma=\operatorname{diag}(p,0,0)$（$p>0$ Pa）、$b=0$、$q(x,t)=\alpha x_1e_1$（$\alpha>0$ W/m$^3$）、$r=r_*$（一定 W/kg）とする。初期比内部エネルギーは $e(X,0)=e_0$（一定 J/kg）。
 
-(i) $F,J,\rho,v,D,P,Q$ を求めよ。(ii) 運動量方程式を確かめ、運動エネルギー全体の時間変化率を計算せよ。(iii) 局所内部エネルギー式から $e(X,t)$ を求めよ。(iv) 基準面の外向き応力仕事率、熱流出率、体積熱供給率を別々に積分し、全エネルギー収支と基準配置の局所式を照合せよ。
+1. $F,J,\rho,v,D,P,Q$ を求めよ。
+2. 運動量方程式を確かめ、運動エネルギー全体の時間変化率を計算せよ。
+3. 局所内部エネルギー式から $e(X,t)$ を求めよ。
+4. 基準面の外向き応力仕事率、熱流出率、体積熱供給率を別々に積分し、全エネルギー収支と基準配置の局所式を照合せよ。
 
 - Level: C
 
