@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 282" data-layout-lint="strict" role="img" aria-labelledby="rbd2-title rbd2-desc">
+  <title id="rbd2-title">有限回転の順序差</title>
+  <desc id="rbd2-desc">同じ初期ベクトルe3に、左ではx軸回転からy軸回転、右ではy軸回転からx軸回転を順に作用させる。左の終点は負のe2方向、右の終点は正のe1方向で、どちらも共通のe1e2平面内にある。</desc>
+  <defs><marker id="rbd2-arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8 Z" fill="#123c58"/></marker></defs>
+  <rect x="8" y="8" width="363" height="265" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <rect x="389" y="8" width="363" height="265" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+  <g fill="#102a43" font-family="sans-serif" font-weight="bold" font-size="18">
+    <text x="24" y="38">x → y：Rᵧ Rₓ</text>
+    <text x="405" y="38">y → x：Rₓ Rᵧ</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4">
+    <path d="M125 130 L286 130 M125 130 L125 55 M505 130 L666 130 M505 130 L505 55" fill="none"/>
+  </g>
+  <g fill="#475569" font-family="sans-serif" font-size="16">
+    <text x="292" y="134">e₁</text><text x="108" y="53">e₂</text>
+    <text x="672" y="134">e₁</text><text x="488" y="53">e₂</text>
+  </g>
+  <g fill="#102a43"><circle cx="125" cy="130" r="4"/><circle cx="505" cy="130" r="4"/></g>
+  <g fill="none" stroke="#123c58" stroke-width="5" marker-end="url(#rbd2-arr)" data-series-group="final-e3" data-series-label="変換後のe3">
+    <path d="M125 130 L125 222"/>
+    <path d="M505 130 L644 130"/>
+  </g>
+  <g fill="#123c58" font-family="sans-serif" font-size="19" font-weight="bold">
+    <text x="144" y="210">−e₂</text><text x="588" y="112">+e₁</text>
+  </g>
+  <g fill="#334155" font-family="sans-serif" font-size="14">
+    <text x="24" y="67">最終方向：e₁–e₂平面</text>
+    <text x="405" y="67">最終方向：e₁–e₂平面</text>
+    <text x="24" y="251">Rₓ e₃ = −e₂ → Rᵧ(−e₂) = −e₂</text>
+    <text x="405" y="251">Rᵧ e₃ = e₁ → Rₓ e₁ = e₁</text>
+  </g>
+</svg>

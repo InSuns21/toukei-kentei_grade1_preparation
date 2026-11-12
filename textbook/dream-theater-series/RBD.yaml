@@ -11,7 +11,7 @@ chapters:
     title: 剛体の配置と六自由度
   - id: RBD2
     path: textbook/volumes/dream_thater/物理系/RBD/RBD2
-    status: planned
+    status: completed
     title: 回転行列・軸角・非可換な有限回転
   - id: RBD3
     path: textbook/volumes/dream_thater/物理系/RBD/RBD3

@@ -1,0 +1,44 @@
+id: "RBD2"
+title: "回転行列・軸角・非可換な有限回転"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD1
+official_scope: []
+learning_objectives:
+  - 任意のSO(3)の元が固定軸を持つことを証明できる
+  - 軸角からRodrigues公式を導き行列とベクトルの像を計算できる
+  - 反対称行列の恒等式から指数表示を復元できる
+  - 跡と反対称部分で角と軸を求め0度と180度の例外を説明できる
+  - 有限回転二つの合成順序と非可換性を検算できる
+  - 微小回転の交換子による二次の順序差を導出できる
+  - 能動回転と受動的な基底変換を区別できる
+definitions:
+  - { id: RBD2-DEF-01, name: "回転の軸角表示" }
+  - { id: RBD2-DEF-02, name: "ベクトル積の反対称行列" }
+theorems:
+  - { id: RBD2-THM-01, name: "Eulerの回転定理" }
+  - { id: RBD2-THM-02, name: "Rodriguesの回転公式" }
+  - { id: RBD2-PROP-01, name: "回転の指数表示" }
+  - { id: RBD2-PROP-02, name: "有限回転の非可換性" }
+  - { id: RBD2-PROP-03, name: "微小回転の順序差" }
+canonical_examples:
+  - "90度のz軸回転で単位軸・固定方向・平面回転・SO(3)所属を確認"
+  - "90度のx軸とy軸の回転で順序によるe3の像を比較"
+  - "合成120度回転の固有軸と跡と反対称部分を照合"
+  - "180度で反対称部分から軸を復元できない例"
+problem_patterns:
+  - RBD2-AXIS-ANGLE
+  - RBD2-AXIS-FIXED
+  - RBD2-HALF-TURN
+  - RBD2-FINITE-COMPOSITION
+  - RBD2-ACTIVE-PASSIVE
+  - RBD2-AXIS-RECONSTRUCTION
+  - RBD2-EXPONENTIAL
+  - RBD2-COMMUTATOR
+  - RBD2-HALF-TURN-FORM
+  - RBD2-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
