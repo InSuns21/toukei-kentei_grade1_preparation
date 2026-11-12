@@ -799,12 +799,12 @@ $\xi=(\omega,0)=\omega\theta_0$ と置けば同じ式になります。
 $u$ は点 $x$ を接線方向へ移す変数です。合成関数の連鎖律より、$x$ を固定して $u$ で微分すると
 
 $$
-\frac{d}{du}g(x+u\theta^\perp)\bigg|_{u=0}
-=\nabla g(x)\cdot\theta^\perp,
-\qquad \nabla g(x)=-2x e^{-|x|^2}.
+\frac{d}{du}g(x+u\theta^\perp)
+=-2\bigl((x+u\theta^\perp)\cdot\theta^\perp\bigr)
+e^{-|x+u\theta^\perp|^2}.
 $$
 
-従って
+ここで $u=0$ を代入すると
 
 $$
 h(x)=-2(x\cdot\theta^\perp)e^{-|x|^2}.
