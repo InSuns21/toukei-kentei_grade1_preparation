@@ -32,7 +32,7 @@
 - [古典力学 I](../plan_done/DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md)のMECH8が剛体・慣性・Euler方程式の**基本定理の所有者**。RBDは姿勢の表現・具体的外力・時間発展・拘束へ進む。既存の証明を別IDの新定理にしない。
 - [解析力学 I](../plan_done/DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md)のAMECH2が一般の拘束力学の所有者。RBD14は転がりの具体的な仮定・計算の所有者。
 - [幾何学的力学 I](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のGMECH6（Lie–Poisson）、**GMECH7（Euler剛体・角運動量球面の簡約位相図）**、GMECH8（相対平衡と安定性）は必要箇所で参照。RBD9〜10は姿勢の復元・物理的安定性・Poinsotの幾何を主役とし、一般論を二重に証明しない。GMECHを履修しない読者にも必要な初等計算を本文で再現できるようにする。
-- [連続体力学（CTM1〜8、計画のみ）](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)は**RBDの前提ではない**。CTM2の変形勾配・客観性とCTM4の収支法則への具体的な接続を§5に定める。
+- [連続体力学（CTM1〜22、計画のみ）](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)は**RBDの前提ではない**。CTM2〜4の変形勾配・ひずみ・客観性とCTM5〜8の収支法則への具体的な接続を§5に定める。
 - 高度な剛体多体系、ロボット機構の制御、接触ソルバ、弾塑性接触、一般の非ホロノミック可積分性は別系列へ送る。
 
 予定章ID RBD1〜RBD16 は本新規系列の仮IDとして採用。実装開始時には現在のseries/章/knowledge DAGと衝突監査し、その時点で manifest を初期化する。PLAN設計だけで章・公開目次・manifestを作らない。
@@ -174,14 +174,14 @@
 3. 図は自作し、章内assetsへ配置。本文の数式と座標・向き・作用点・接触条件を再計算して照合。重力の合力は重心から、反力は接点から描き、色以外の線種・記号で識別する。
 4. [SVG品質規約](../DREAM_THEATER_SVG_QUALITY_GUIDE.md)のstrictレイアウトlint、alt・title・desc、通常幅と縮小幅の目視監査、キャプションとの近接、実表示での衝突検査を適用する。
 
-## 5. 連続体力学 CTM1〜8 との橋
+## 5. 連続体力学 CTM1〜22 との橋
 
 | 接続箇所 | 式・直観 | 注意・担当 |
 |---|---|---|
-| RBD1 → CTM1/2 | 剛体写像$x=c+R(X-X_C)$なら$F=\partial x/\partial X=R$、$\det F=1$、Green–Lagrangeひずみ$\frac12(F^TF-I)=0$ | 有限変形・客観性・ひずみの定義は**CTM2**が所有 |
-| RBD3 → CTM2/4 | 剛体速度場$v=\dot c+\omega\times(x-c)$の速度勾配は反対称、対称部分は0 | 有限回転に線形化ひずみを無条件適用しない |
-| RBD7 ↔ CTM4 | 連続体の線形・角運動量収支を領域で積分すると合力・トルクに結びつく | 表面力・応力・輸送定理は**CTM4**。剛体でも拘束反力・内部応力は必ずしも0でない |
-| RBD14/15 ↔ CTM5〜8 | 無滑り・反発係数という理想拘束と、変形・粘弾性をもつ接触の違い | Hertz接触・塑性変形・応力波を本コースで証明済み扱いしない |
+| RBD1 → CTM2/3 | 剛体写像$x=c+R(X-X_C)$なら$F=\partial x/\partial X=R$、$\det F=1$、Green–Lagrangeひずみ$\frac12(F^TF-I)=0$ | 変形勾配は**CTM2**、有限ひずみは**CTM3**、客観性は**CTM4**が所有 |
+| RBD3 → CTM4 | 剛体速度場$v=\dot c+\omega\times(x-c)$の速度勾配は反対称、対称部分は0 | 有限回転に線形化ひずみを無条件適用しない |
+| RBD7 ↔ CTM5〜8 | 連続体の線形・角運動量収支を領域で積分すると合力・トルクに結びつく | 輸送定理は**CTM5**、表面力・応力は**CTM6**、線形・角運動量収支は**CTM7**、基準配置の応力は**CTM8**。剛体でも拘束反力・内部応力は必ずしも0でない |
+| RBD14/15 ↔ CTM11〜22 | 無滑り・反発係数という理想拘束と、変形・粘弾性をもつ接触の違い | Hertz接触・塑性変形・応力波を本コースで証明済み扱いしない |
 
 RBDを履修するために未実装のCTMを要求しない。逆にCTMの全章でRBDを一律必修にせず、CTM側の章実装時に具体的な直接前提を決める。
 
