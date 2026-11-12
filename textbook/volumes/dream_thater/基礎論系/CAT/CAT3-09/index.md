@@ -5,8 +5,7 @@
 [点ごとの左Kan拡張](../CAT3-07/index.md#thm-cat3-07-pointwise)は、$Ka\to b$ を持つ対象を集めた余極限だった。[右Kan拡張](../CAT3-08/index.md#thm-cat3-08-pointwise)は $b\to Ka$ を集めた極限だった。どちらも正しいが、添字の対象に「射 $u$ と値 $x$」を毎回書くのは煩雑である。
 
 例えば $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathbf{Set}$、$b\in\mathcal B$ を固定する。左Kan拡張の $b$ での元は、まず射 $u:Ka\to b$ と $x\in F(a)$ の組で表せる。射 $f:a\to a'$ と $u':Ka'\to b$ を取ると、$K(f):Ka\to Ka'$ だから、$u'Kf=u'\circ K(f):Ka\to b$ も射になる。このとき次の二つの組
-
-$
+$$
 (u'Kf,x)\quad\text{と}\quad(u',F(f)(x))
 $$
 
@@ -527,15 +526,13 @@ $$
 逆にこの関係を満たす関数族 $(\phi_a)$ から $q_{a,u}:\{*\}\to F(a)$、$q_{a,u}(*)=\phi_a(u)$ を作ると、これは $(b\downarrow K)$ 上の錐である。[極限の普遍性](../CAT2-01/index.md#def-cat2-01-limit)によって一意の $\{*\}\to R(b)$、すなわち $r\in R(b)$ が得られる。各射影による一意性で二方向の対応は互いに逆になる。
 
 $v:b\to b'$ について [右Kan関手の射への作用](../CAT3-08/index.md#prop-cat3-08-transport)は $p^{b'}_{a,u'}R(v)=p^b_{a,u'v}$ である。従って end 側では $\phi_a(u')\mapsto\phi_a(u'v)$ に一致する。自然変換 $\alpha:F\Rightarrow G$ に対しては、関数族 $(\phi_a)$ を $\phi'_a(u)=\alpha_a(\phi_a(u))$ へ送る。実際、$f:a\to a'$ について
-
-$
+$$
 G(f)(\phi'_a(u))
 =G(f)\alpha_a(\phi_a(u))
 =\alpha_{a'}F(f)(\phi_a(u))
 =\alpha_{a'}(\phi_{a'}(Kf\,u))
 =\phi'_{a'}(Kf\,u)
-$
-
+$$
 であり、自然変換の自然性から end の整合条件も保存される。この作用は $b$ の射による前合成とも可換である。
 <!-- proof-end -->
 
