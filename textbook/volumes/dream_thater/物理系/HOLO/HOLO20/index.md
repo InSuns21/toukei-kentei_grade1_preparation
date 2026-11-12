@@ -26,7 +26,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo20-cut-paste -->
-**定義の確認**（隣接三区間）。 境界に沿って三つの隣接区間 $U=[x_0,x_1]$、$V=[x_1,x_2]$、$W=[x_2,x_3]$（$x_0<x_1<x_2<x_3$）を選び、$A=U\cup V$、$B=V\cup W$ とします。境界上の各小区間を「領域に含まれるか」で数えると
+**定義の確認**（隣接三区間）。 境界に沿って三つの隣接区間 $U=[x_0,x_1]$、$V=[x_1,x_2]$、$W=[x_2,x_3]$（$x_0<x_1<x_2<x_3$）を選び、$A=U\cup V$、$B=V\cup W$ とします。cutoff境界上の端点を除く各小区間では、内側へ十分小さな帯を取れば $R_A,R_B$ の所属はそれぞれ $A,B$ への所属と一致します。このため共通部分と和集合の境界トレースは、元の二つのトレースの0–1の積と和で判定できます。境界上の各小区間を「領域に含まれるか」で数えると
 
 | 境界小区間 | $R_A$ の境界トレース | $R_B$ の境界トレース | $R_{\cap}$ | $R_{\cup}$ |
 | --- | ---: | ---: | ---: | ---: |
@@ -42,7 +42,7 @@ $$
 
 ## 2. なぜ貼り合わせた二面の総面積は増えないか
 
-二つの領域の所属を組 $(a,b)$、$a,b\in\{0,1\}$ で表示すると、バルクの各小片は $00,10,01,11$ の四種類です。新しい領域への所属は、共通部分が $a\land b$、和集合が $a\lor b$ で決まります。
+二つの領域の所属を組 $(a,b)$、$a,b\in\{0,1\}$ で表示すると、バルクの各小片は $00,10,01,11$ の四種類です。ここで $a\land b$ は両方が1のときだけ1、$a\lor b$ は少なくとも一方が1のとき1となる0–1演算です。新しい領域への所属は、共通部分が $a\land b$、和集合が $a\lor b$ で決まります。
 
 二つの状態の間にある短い内部境界片の面積を $d\sigma>0$ とします。もとの二領域の境界面では $a$ が切り替われば1回、$b$ が切り替われば1回数えます。新しい二領域でも同じように $\land,\lor$ の切替回数を数えます。
 
@@ -162,6 +162,8 @@ $$
 $4G_N>0$ で割れば結論です。正則化面を使う場合は同じcutoffで各不等式を成立させ、同一の極限規約で比較します。
 <!-- proof-end -->
 
+以下、境界領域を引数とする $S^{(0)}(X)$ は $S_{\mathrm{RT}}^{(0)}(X)$ の略記とします。単一区間の普遍対数項だけを取り出す場合には別記号を使います。
+
 **三つの隣接領域に翻訳する。** $U,V,W$ が境界上で互いに内部を共有しない三つの領域なら、$A=U\cup V$、$B=V\cup W$ と置くことで
 $$
 A\cap B=V,\qquad A\cup B=U\cup V\cup W
@@ -179,30 +181,44 @@ $$
 $$
 U=[0,a],\quad V=[a,a+b],\quad W=[a+b,a+b+d]
 $$
-を取ります。真空の一つの区間長 $\ell$ に対する古典主項は、共通cutoff $\epsilon$ とBrown–Henneaux中央電荷 $c_{\mathrm{BH}}=3L/(2G_3)>0$ により
+を取ります。共通cutoff $\epsilon$ とBrown–Henneaux中央電荷 $c_{\mathrm{BH}}=3L/(2G_3)>0$ を用います。[HOLO18の単一区間RT係数](../HOLO18/index.md#thm-holo18-interval-coefficient)は有限cutoffでの厳密な等号ではなく、$0<\epsilon<b/2$ とした $\epsilon\to0$ での漸近式
 $$
-S_{\mathrm{RT}}^{(0)}(\ell)
+S_{\mathrm{RT},\epsilon}^{(0)}(\ell)
 =\frac{c_{\mathrm{BH}}}{3}\log\frac{\ell}{\epsilon}
++O\left(c_{\mathrm{BH}}\frac{\epsilon^2}{\ell^2}\right),
+\qquad \ell\in\{a+b,b+d,b,a+b+d\}
 $$
-です（長さに依存しない非普遍項を同じ規約で消した主項）。四つの区間長は $a+b,b+d,b,a+b+d$ なので、強劣加法性の左辺から右辺を引くと
+を与えます。ここで区間の**普遍対数項だけ**を
+$$
+s_{\log}^{(0)}(\ell):=\frac{c_{\mathrm{BH}}}{3}\log\frac{\ell}{\epsilon}
+$$
+と定め、有限cutoffでの正則化RTエントロピーと区別します。四つの区間長は $a+b,b+d,b,a+b+d$ なので、この普遍対数項の強劣加法性の左辺から右辺を引くと
 $$
 \begin{aligned}
-\Delta_{\mathrm{SSA}}^{(0)}
-&=S^{(0)}(UV)+S^{(0)}(VW)-S^{(0)}(V)-S^{(0)}(UVW)\\
+\Delta_{\mathrm{SSA},\log}^{(0)}
+&=s_{\log}^{(0)}(a+b)+s_{\log}^{(0)}(b+d)
+-s_{\log}^{(0)}(b)-s_{\log}^{(0)}(a+b+d)\\
 &=\frac{c_{\mathrm{BH}}}{3}
 \log\frac{(a+b)(b+d)}{b(a+b+d)}\\
 &=\frac{c_{\mathrm{BH}}}{3}
 \log\left(1+\frac{ad}{b(a+b+d)}\right).
 \end{aligned}
 $$
-二行目では $\log(\ell/\epsilon)$ の係数が $1+1-1-1=0$ となり、cutoffが消えます。三行目は
+二行目では $\log(\ell/\epsilon)$ の係数が $1+1-1-1=0$ となり、cutoffが消えます。一方、有限cutoffでの面積から作る差は各区間長が $b$ 以上であるため
+$$
+\Delta_{\mathrm{SSA},\epsilon}^{(0)}
+=\Delta_{\mathrm{SSA},\log}^{(0)}
++O\left(c_{\mathrm{BH}}\frac{\epsilon^2}{b^2}\right)
+\qquad(\epsilon\to0;\ a,b,d>0\ \text{固定})
+$$
+です。普遍対数項の三行目は
 $$
 (a+b)(b+d)-b(a+b+d)
 =ab+ad+b^2+bd-ab-b^2-bd=ad
 $$
-による変形です。$a,d>0$ なので対数の中は1より大きく、$\Delta_{\mathrm{SSA}}^{(0)}>0$ です。例えば $a=b=d=1$ なら
+による変形です。$a,d>0$ なので対数の中は1より大きく、$\Delta_{\mathrm{SSA},\log}^{(0)}>0$ です。固定した区間長に対しては、有限cutoffでの差も十分小さい $\epsilon$ で正です。例えば $a=b=d=1$ なら
 $$
-\Delta_{\mathrm{SSA}}^{(0)}
+\Delta_{\mathrm{SSA},\log}^{(0)}
 =\frac{c_{\mathrm{BH}}}{3}\log\frac43>0.
 $$
 
@@ -210,10 +226,10 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（純AdSの隣接三区間での強劣加法性の余裕）**  
-> $a,b,d>0$ の隣接三区間 $U,V,W$ を純粋 $AdS_3$ の平面境界の同時刻に取り、同一cutoffの静的古典RT処方と $c_{\mathrm{BH}}=3L/(2G_3)>0$ を仮定する。強劣加法性の差は
+> $a,b,d>0$ の隣接三区間 $U,V,W$ を純粋 $AdS_3$ の平面境界の同時刻に取り、同一cutoffの静的古典RT処方と $c_{\mathrm{BH}}=3L/(2G_3)>0$ を仮定する。$\epsilon\to0$ における**普遍対数項**の強劣加法性の差は
 >
 $$
-\Delta_{\mathrm{SSA}}^{(0)}
+\Delta_{\mathrm{SSA},\log}^{(0)}
 =\frac{c_{\mathrm{BH}}}{3}
 \log\left(1+\frac{ad}{b(a+b+d)}\right)>0
 $$
@@ -228,7 +244,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-直前の四本の長さの代入から対数比を得ます。分子と分母の差は $ad>0$ なので比は $1+ad/[b(a+b+d)]>1$、従って正です。$a\downarrow0$ では分子 $ad\to0$、分母 $b(a+b+d)\to b(b+d)>0$ なので分数は0へ収束し、$\log(1+x)\to0$ の連続性から差も0へ近づきます。
+直前の四本の長さの代入から対数比を得ます。分子と分母の差は $ad>0$ なので比は $1+ad/[b(a+b+d)]>1$、従って正です。$a\downarrow0$（$b,d$ 固定）では分子 $ad\to0$、分母 $b(a+b+d)\to b(b+d)>0$ なので分数は0へ収束し、$\log(1+x)\to0$ の連続性から普遍対数項の差も0へ近づきます。この極限と有限cutoffの誤差を無条件に混同しません。
 <!-- proof-end -->
 
 **この例から言えること・言えないこと。** 上の差が正なのはこの真空の三区間模型の事実です。定理は一般には非負だけを保証し、面の位相競合によって等号になる場合もあります。等号を得ることだけを目的に、正則化の異なるエントロピーを混ぜてはいけません。
@@ -286,10 +302,11 @@ $$
 I_{\mathrm{RT}}^{(0)}(X:Y)
 =\frac{c_{\mathrm{BH}}}{3}
 \max\left\{0,\log\frac{a^2}{b(2a+b)}\right\}
++o(1)\qquad(\epsilon\to0;\ a,b\ \text{固定})
 $$
-です。$b/a\ge\sqrt2-1$ の非連結相では**古典主項**が0です。しかしこれは「全量子論での相互情報量が厳密に0」を意味しません。[HOLO19の候補計算](../HOLO19/index.md#prop-holo19-two-pairings)は同じcutoffを用いた古典最小面の比較だからです。
+です。$b/a\ge\sqrt2-1$ の非連結相では**普遍対数部分**が0です。しかしこれは「全量子論での相互情報量が厳密に0」を意味しません。[HOLO19の候補計算](../HOLO19/index.md#prop-holo19-two-pairings)は同じcutoffを用いた古典最小面の比較だからです。
 
-さらに、境界**全体が純粋状態**で $S^{(0)}(Z)=S^{(0)}(Z^c)$ が成立するなら、境界を互いに交わらない $X,Y,C$ に分け、$C=(X\cup Y)^c$ と置きます。劣加法性を $Y,C$ に使うと
+さらに、境界**全体が純粋状態**で、有限cutoffの領域分割に対する[純粋二部状態の縮約エントロピーの一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)に対応する $S^{(0)}(Z)=S^{(0)}(Z^c)$ がRT主項でも成立するなら、境界を互いに交わらない $X,Y,C$ に分け、$C=(X\cup Y)^c$ と置きます。劣加法性を $Y,C$ に使うと
 $$
 S^{(0)}(Y)+S^{(0)}(C)\ge S^{(0)}(Y\cup C).
 $$
@@ -340,10 +357,21 @@ $$
 <!-- solution-end -->
 
 <a id="ex-holo20-a04"></a>
-**A4. 純AdSの具体値。** 純粋 $AdS_3$ の三区間の長さを $a=b=d=1$ として、強劣加法性の差を $c_{\mathrm{BH}}$ で表せ。$\epsilon$ が消える計算も示せ。
+**A4. 純AdSの具体値。** 純粋 $AdS_3$ の三区間の長さを $a=b=d=1$ として、普遍対数項の強劣加法性の差を $c_{\mathrm{BH}}$ で表せ。$\epsilon$ が消える計算も示せ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** 四区間の長さは $2,2,1,3$。共通cutoffで $S^{(0)}(\ell)=(c_{\mathrm{BH}}/3)\log(\ell/\epsilon)$ だから、差は $(c_{\mathrm{BH}}/3)[\log(2/\epsilon)+\log(2/\epsilon)-\log(1/\epsilon)-\log(3/\epsilon)]$。$-\log\epsilon$ の係数が $1+1-1-1=0$ なので $(c_{\mathrm{BH}}/3)\log(4/3)>0$。中央電荷は正である。
+**詳細解答。** 四区間の長さは順に $2,2,1,3$ です。共通cutoffで[HOLO18の区間係数](../HOLO18/index.md#thm-holo18-interval-coefficient)の普遍対数項 $s_{\log}^{(0)}(\ell)$ を使うと、
+$$
+\begin{aligned}
+\Delta_{\mathrm{SSA},\log}^{(0)}
+&=\frac{c_{\mathrm{BH}}}{3}\left[
+\log\frac{2}{\epsilon}+\log\frac{2}{\epsilon}
+-\log\frac{1}{\epsilon}-\log\frac{3}{\epsilon}
+\right]\\
+&=\frac{c_{\mathrm{BH}}}{3}\log\frac43>0
+\end{aligned}
+$$
+です。$-\log\epsilon$ の係数は $1+1-1-1=0$ なのでcutoffが消えます。中央電荷は正であり、固定した区間長で $\epsilon\to0$ とする普遍対数項の結論です。
 <!-- solution-end -->
 
 <a id="ex-holo20-a05"></a>
@@ -359,25 +387,59 @@ $$
 **B1. 六種類の境界片。** 二つの所属状態 $(a,b)$ が異なる全6組について、$n_{\mathrm{old}}$ と $n_{\mathrm{new}}$ を求め、面積劣加法性の補題を再構成せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $00\leftrightarrow10$ と $00\leftrightarrow01$ は旧・新とも $(1,1)$。$10\leftrightarrow11$ と $01\leftrightarrow11$ も $(1,1)$。$00\leftrightarrow11$ では両座標が変わり旧2、新も $\land$ と $\lor$ が両方変わるため2。$10\leftrightarrow01$ は旧2だが $\land$ は0のまま、$\lor$ は1のままだから新0。従って全6組で $n_{\mathrm{new}}\le n_{\mathrm{old}}$。各面片の面積要素が非負なので $\sum n_{\mathrm{new}}d\sigma\le\sum n_{\mathrm{old}}d\sigma$ を積分して $\operatorname{Area}(\widetilde\gamma_{\cap})+\operatorname{Area}(\widetilde\gamma_{\cup})\le\operatorname{Area}(\gamma_A)+\operatorname{Area}(\gamma_B)$ を得る。角と横断交線は面積0である。
+**詳細解答。** 各所属状態の間で、旧境界の回数 $n_{\mathrm{old}}$ と新境界の回数 $n_{\mathrm{new}}$ をそれぞれ計算します。
+
+| 両側の所属 | $n_{\mathrm{old}}$ | $n_{\mathrm{new}}$ |
+| --- | ---: | ---: |
+| $00\leftrightarrow10$ | 1 | 1 |
+| $00\leftrightarrow01$ | 1 | 1 |
+| $10\leftrightarrow11$ | 1 | 1 |
+| $01\leftrightarrow11$ | 1 | 1 |
+| $00\leftrightarrow11$ | 2 | 2 |
+| $10\leftrightarrow01$ | 2 | 0 |
+
+最初の四組では一つの所属だけが変わるため、旧・新とも1回です。第五の組では両方の所属と論理積・論理和が切り替わり、どちらも2回です。最後の組では旧境界で2回数えますが、論理積は両側0、論理和は両側1であり、新境界は0回です。従って全6組で $n_{\mathrm{new}}\le n_{\mathrm{old}}$ です。各面片の共通の面積要素 $d\sigma\ge0$ を掛けて積分すると
+$$
+\operatorname{Area}(\widetilde\gamma_{\cap})
++\operatorname{Area}(\widetilde\gamma_{\cup})
+\le\operatorname{Area}(\gamma_A)+\operatorname{Area}(\gamma_B)
+$$
+を得ます。角と横断交線は面積0であり、この積分を変えません。
 <!-- solution-end -->
 
 <a id="ex-holo20-b02"></a>
-**B2. 一般の三区間長。** 純粋 $AdS_3$ の平面境界の隣接三区間の長さを $a,b,d>0$ とする。RT係数から強劣加法性の差を導き、$a\downarrow0$ での極限を求めよ。
+**B2. 一般の三区間長。** 純粋 $AdS_3$ の平面境界の隣接三区間の長さを $a,b,d>0$ とする。RT係数の普遍対数項から強劣加法性の差を導き、$b,d$ 固定で $a\downarrow0$ とする極限を求めよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** 区間 $UV,VW,V,UVW$ の長さはそれぞれ $a+b,b+d,b,a+b+d$。従って[区間RT公式](../HOLO18/index.md#thm-holo18-interval-coefficient)へ代入し、同じcutoffを消して
+**詳細解答。** 区間 $UV,VW,V,UVW$ の長さはそれぞれ $a+b,b+d,b,a+b+d$。従って[区間RT公式](../HOLO18/index.md#thm-holo18-interval-coefficient)の普遍対数項 $s_{\log}^{(0)}$ へ代入し、同じcutoffを消して
 $$
-\Delta=\frac{c_{\mathrm{BH}}}{3}\log\frac{(a+b)(b+d)}{b(a+b+d)}.
+\Delta_{\mathrm{SSA},\log}^{(0)}
+=\frac{c_{\mathrm{BH}}}{3}\log\frac{(a+b)(b+d)}{b(a+b+d)}.
 $$
-分子から分母を引くと $(a+b)(b+d)-b(a+b+d)=ad$。ゆえに $\Delta=(c_{\mathrm{BH}}/3)\log[1+ad/(b(a+b+d))]>0$。$a\downarrow0$ で分子 $ad\to0$、分母は $b(b+d)>0$ へ向かうので $\Delta\to0$。
+分子から分母を引くと $(a+b)(b+d)-b(a+b+d)=ad$。ゆえに $\Delta_{\mathrm{SSA},\log}^{(0)}=(c_{\mathrm{BH}}/3)\log[1+ad/(b(a+b+d))]>0$。$a\downarrow0$ で分子 $ad\to0$、分母は $b(b+d)>0$ へ向かうので $\Delta_{\mathrm{SSA},\log}^{(0)}\to0$。これは有限cutoffの誤差を無条件に捨てた等号ではない。
 <!-- solution-end -->
 
 <a id="ex-holo20-b03"></a>
 **B3. 純粋状態なら下界が出る。** 全境界が純粋状態で、互いに素な $X,Y,C$ が全境界を分割する。RTの劣加法性と $S^{(0)}(Z)=S^{(0)}(Z^c)$ から $|S^{(0)}(X)-S^{(0)}(Y)|\le S^{(0)}(X\cup Y)$ を示し、なぜ熱状態に同じ論証を流用できないか説明せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** 劣加法性を互いに素な $Y,C$ に適用して $S(Y)+S(C)\ge S(Y\cup C)$。全体純粋なら $C^c=X\cup Y$、$(Y\cup C)^c=X$ なので $S(C)=S(X\cup Y)$、$S(Y\cup C)=S(X)$。従って $S(X)-S(Y)\le S(X\cup Y)$。$X$ と $Y$ を交換すれば $S(Y)-S(X)\le S(X\cup Y)$。二つの最大は絶対値なので結論。熱混合状態では一般に $S(C)\ne S(X\cup Y)$ であり、置換に用いた補集合の等式が失われる。BTZでは地平線のエントロピーも無視できない。
+**詳細解答。** [静的RTの劣加法性](#prop-holo20-subadditivity)を互いに素な $Y,C$ に適用すると
+$$
+S^{(0)}(Y)+S^{(0)}(C)\ge S^{(0)}(Y\cup C)
+$$
+です。全体が純粋なら[純粋二部系の縮約エントロピーの一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)に対応する補集合等式が使えます。集合の補集合は
+$$
+C^c=X\cup Y,\qquad (Y\cup C)^c=X
+$$
+なので、それぞれ $S^{(0)}(C)=S^{(0)}(X\cup Y)$、$S^{(0)}(Y\cup C)=S^{(0)}(X)$ です。代入して移項すれば
+$$
+S^{(0)}(X)-S^{(0)}(Y)\le S^{(0)}(X\cup Y)
+$$
+となります。$X$ と $Y$ を交換すると左辺の符号が逆の不等式を得るので
+$$
+|S^{(0)}(X)-S^{(0)}(Y)|\le S^{(0)}(X\cup Y)
+$$
+が成立します。熱混合状態では一般に補集合のエントロピーは等しくなく、この置換ができません。[HOLO19のBTZ相同命題](../HOLO19/index.md#prop-holo19-btz-homology)の地平線も落とせません。
 <!-- solution-end -->
 
 <a id="ex-holo20-b04"></a>
@@ -393,18 +455,23 @@ $$
 **C1. 四状態から物理的結論まで。** 静的な $AdS_3$ 真空で $U=[0,1]$、$V=[1,3]$、$W=[3,6]$ とする。次を全て説明せよ。(i) $R_{UV},R_{VW}$ から $V,UVW$ に相同な比較面を作る。(ii) それらの長さの和の不等式とRTの最小性からSSAを導く。(iii) 単一区間RT公式で差を計算する。(iv) 同じ計算を時間依存HRTや量子補正の完全な証明と呼べない理由を示す。
 - Level: C
 <!-- solution-start -->
-**詳細解答。** (i) 境界上で $UV$ のトレースは $U,V$ で1、$W$ で0、$VW$ のトレースは $U$ で0、$V,W$ で1。従って $R_{\cap}=R_{UV}\cap R_{VW}$ の境界側トレースは $V$、$R_{\cup}=R_{UV}\cup R_{VW}$ は $UVW$。それぞれのバルク側境界を $\widetilde\gamma_V,\widetilde\gamma_{UVW}$ と取れば、領域境界が実際に作られているため相同条件を満たす。
+**詳細解答。** (i) 境界上で $R_{UV}$ は $U,V$ に接し、$R_{VW}$ は $V,W$ に接しています。各小区間での所属を順に書くと $U:(1,0)$、$V:(1,1)$、$W:(0,1)$ です。共通部分と和集合のトレースはそれぞれ $V$ と $UVW$ なので、
+$$
+\partial(R_{UV}\cap R_{VW})=V+\widetilde\gamma_V,\qquad
+\partial(R_{UV}\cup R_{VW})=UVW+\widetilde\gamma_{UVW}
+$$
+となります。バルク側の全境界を取ったため、端点の一致だけでなく相同条件を満たすことが確認できました。
 
 (ii) [面積補題](#lem-holo20-perimeter)により $\operatorname{Length}(\widetilde\gamma_V)+\operatorname{Length}(\widetilde\gamma_{UVW})\le\operatorname{Length}(\gamma_{UV}^{\min})+\operatorname{Length}(\gamma_{VW}^{\min})$。一方、最小性より $\operatorname{Length}(\gamma_V^{\min})\le\operatorname{Length}(\widetilde\gamma_V)$、$\operatorname{Length}(\gamma_{UVW}^{\min})\le\operatorname{Length}(\widetilde\gamma_{UVW})$。合わせ、$4G_3>0$ で割れば $S^{(0)}(V)+S^{(0)}(UVW)\le S^{(0)}(UV)+S^{(0)}(VW)$。
 
-(iii) $a=1,b=2,d=3$、四区間長は $3,5,2,6$。[RT仮定の下でのAdS3区間普遍係数](../HOLO18/index.md#thm-holo18-interval-coefficient)を共通cutoffで用いると
+(iii) $a=1,b=2,d=3$、四区間長は $3,5,2,6$。[RT仮定の下でのAdS3区間普遍係数](../HOLO18/index.md#thm-holo18-interval-coefficient)から得た普遍対数項 $s_{\log}^{(0)}$ を共通cutoffで用いると
 $$
-\Delta_{\mathrm{SSA}}^{(0)}
+\Delta_{\mathrm{SSA},\log}^{(0)}
 =\frac{c_{\mathrm{BH}}}{3}
 \log\frac{3\cdot5}{2\cdot6}
 =\frac{c_{\mathrm{BH}}}{3}\log\frac54>0.
 $$
-分子と分母の差は $15-12=3=ad$ とも確認できる。
+分子と分母の差は $15-12=3=ad$ とも確認できる。有限cutoffでの面積差には $O(c_{\mathrm{BH}}\epsilon^2/b^2)$ の補正が残る。
 
 (iv) (i)(ii) は**共通の静的Riemann断面と面積最小性**に依存する。時間依存HRT面はその条件を自動では満たさない。また $O(G_N^0)$ の量子補正の符号は(iii)の古典長だけからは分からない。よって本問が再現したのは、同一幾何・同一cutoffでの古典RT主項のSSAである。
 <!-- solution-end -->
