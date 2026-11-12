@@ -1,0 +1,43 @@
+chapter: CTM5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM4
+  - VC9
+concepts:
+  - id: continuum.reference-current-mass-density
+    name: 現在密度と基準密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（現在密度と基準密度）"]
+    requires: [continuum.motion-current-configuration, continuum.volume-jacobian]
+  - id: continuum.material-mass-conservation
+    name: 物質領域における質量保存
+    kind: principle
+    introduction: formal
+    introduction_aliases: ["原理（物質領域における質量保存）"]
+    requires: [continuum.reference-current-mass-density, continuum.motion-current-configuration]
+  - id: continuum.density-jacobian-relation
+    name: 質量保存と密度の Jacobian 関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（質量保存と密度の Jacobian 関係）"]
+    requires: [continuum.material-mass-conservation, continuum.volume-jacobian, analysis.multivariable-riemann-change-of-variables]
+  - id: continuum.material-reynolds-transport
+    name: 物質領域の Reynolds 輸送定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（物質領域の Reynolds 輸送定理）"]
+    requires: [continuum.jacobian-rate, vector-calculus.material-derivative, analysis.multivariable-riemann-change-of-variables]
+  - id: continuum.mass-conservation-equivalence
+    name: 物質質量保存・密度変換・局所式の同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（物質質量保存・密度変換・局所式の同値性）"]
+    requires: [continuum.material-reynolds-transport, continuum.density-jacobian-relation, vector-calculus.mass-continuity]
+  - id: continuum.fixed-control-mass-balance
+    name: 固定検査体積の質量収支
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（固定検査体積の質量収支）"]
+    requires: [continuum.mass-conservation-equivalence, vector-calculus.gauss-divergence, vector-calculus.mass-flux]

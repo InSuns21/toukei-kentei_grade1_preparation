@@ -36,8 +36,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo21-gravity-replica -->
-**定義の確認**（規格化を落とさない例）。 有限二準位で $\rho_A=\operatorname{diag}(3/4,1/4)$ とすると、$R_2=(3/4)^2+(1/4)^2=5/8$ です。未規格化演算子を $W=Z_1\rho_A$ と置くと $\operatorname{Tr}W^2=Z_1^2(5/8)$、従って $\operatorname{Tr}W^2/(\operatorname{Tr}W)^2=5/8$。重力でも $-I_2$ だけを微分せず、分母による $+nI_1$ を残す必要があります。
+**定義の確認**（規格化を落とさない例）。 二準位の正規直交固有基底 $e_1,e_2$ を選び、$\rho_A e_i=p_i e_i$、$(p_1,p_2)=(3/4,1/4)$ とします。この基底での行列が $\rho_A=\operatorname{diag}(3/4,1/4)$ です。各 $p_i\ge0$ かつ $p_1+p_2=1$ なので、$\rho_A$ は正の半定値でトレース1の密度演算子です。対角表示を用いるのは、$\rho_A^n e_i=p_i^n e_i$ から
+$$
+\operatorname{Tr}\rho_A^n=p_1^n+p_2^n
+$$
+と計算でき、[有限cutoffのレプリカモーメント](../../QFT/QFT57/index.md#def-qft57-replica-moments)を直接確かめられるからです。よって $R_2=(3/4)^2+(1/4)^2=5/8$。
+
+一枚の未規格化分配関数を $Z_1:=Z[\mathcal B_1]>0$ と書き、この有限模型で未規格化演算子を $W=Z_1\rho_A$ とします。すると $\operatorname{Tr}W=Z_1$、$\operatorname{Tr}W^2=Z_1^2(5/8)$ であり、
+$$
+\frac{\operatorname{Tr}W^2}{(\operatorname{Tr}W)^2}
+=\frac{Z_1^2(5/8)}{Z_1^2}=\frac58.
+$$
+これは[整数レプリカ分配関数比](../../QFT/QFT58/index.md#thm-qft58-replica-partition)の有限模型での確認です。重力でも $-I_2$ だけでなく、分母に対応する $+nI_1$ を残す必要があります。
 <!-- definition-example-end -->
+
+以後 $\partial_n$ は、領域 $A$、背景の境界条件、結合定数、cutoffを固定して**連続パラメータ $n$ だけを動かす微分**を表します。したがって一変数表示 $I(n):=I_n$ を使えば $\partial_n I_n=dI(n)/dn=I'(n)$ です。演習C1で用いる $I_n'$ も、この $dI(n)/dn$ の略記です。これは時空座標に関する偏微分ではありません。
 
 物理的に適切な $n=1$ 近傍の連続・微分可能な拡張が得られ、規格化 $R_1=1$ と微分・正則化極限の交換を正当化できるなら、[有限次元レプリカ微分公式](../../QFT/QFT57/index.md#thm-qft57-replica-derivative)に対応する重力側の形式は
 
@@ -69,7 +82,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo21-quotient-cone -->
-**定義の確認**（角度と次元）。 $n=2$ なら商の角度周期は $\pi$、欠損は $\pi$、$n=3$ なら周期 $2\pi/3$、欠損 $4\pi/3$ です。$n=1$ へ戻すと周期 $2\pi$、欠損0です。$d+1$ 次元のバルクではこの横断二次元を除いた $\mathcal C_n$ の次元は $(d+1)-2=d-1$。特に $AdS_3$ では曲線、$AdS_4$ では曲面です。
+**定義の確認**（滑らかな被覆から商の角度へ）。 固定面に垂直な平坦二次元の局所模型を複素座標 $w=re^{i\theta}$、$0\le\theta<2\pi$ で表します。$w\mapsto e^{2\pi i/n}w$ は距離を保存する位数 $n$ の回転で、$w=0$ を固定し、$r>0$ では固定点を持ちません。被覆の $w$ 平面は原点を含めて滑らかですが、回転で同一視した商では $\theta$ の代表範囲が $[0,2\pi/n)$ になり、原点が円錐先端になります。
+
+$n=2$ なら商の角度周期は $\pi$、欠損は $\pi$、$n=3$ なら周期 $2\pi/3$、欠損 $4\pi/3$ です。$n=1$ へ戻すと周期 $2\pi$、欠損0です。$d+1$ 次元のバルクではこの横断二次元を除いた $\mathcal C_n$ の次元は $(d+1)-2=d-1$。特に $AdS_3$ では曲線、$AdS_4$ では曲面です。これは**商の局所幾何の検算**であって、指定境界を持つ重力鞍点の存在証明ではありません。
 <!-- definition-example-end -->
 
 | 見る空間 | 固定点のまわりの局所角 | 正則性 |
@@ -195,7 +210,15 @@ $$
 
 面積係数が出ても、$\gamma_A$ の**位置**が未決定です。ここで商の円錐欠損を、固定面上の余次元2の張力源として表示します。これはEinstein方程式を面に垂直な小円板で積分する局所計算により、欠損角と張力を結び付ける書き方です。商に実在の新しい物質を必ず追加するという意味ではありません。
 
-欠損角と張力の関係 $\delta=8\pi G_N T$ に[商の定義](#def-holo21-quotient-cone)を代入すれば
+欠損角と張力の関係を、先ほどの局所円錐模型から確かめます。[円錐曲率補題](#lem-holo21-cone-curvature)で $\alpha=1/n$ とすると、横断二次元の曲率積分は $\int_\perp R_\perp\sqrt{g_\perp}=2\delta_n$ です。固定面に沿う添字を $i,j$、その誘導計量を $h_{ij}$ とします。直積的な先端近傍の分布的なEinsteinテンソルは、固定面方向で
+$$
+\int_\perp\sqrt{g_\perp}\,G_{ij}^{\rm sing}
+=-\frac12 h_{ij}\int_\perp\sqrt{g_\perp}\,R_\perp
+=-\delta_n h_{ij}
+$$
+となります。一方、正の張力 $T_n$ の余次元2面源は同じ積分に対して $\int_\perp\sqrt{g_\perp}\,T_{ij}^{\rm sing}=-T_n h_{ij}$ を与えます。両者を $G_{ij}=8\pi G_N T_{ij}$ で照合し、$h_{ij}$ が非退化であることを使うと $\delta_n=8\pi G_N T_n$ です。これは局所直積と先端以外の正則性を仮定した**局在項の照合**であり、任意の曲がった商にそのまま適用する一般定理ではありません。
+
+従って、[商の定義](#def-holo21-quotient-cone)を代入すれば
 
 $$
 T_n=\frac{\delta_n}{8\pi G_N}
@@ -203,6 +226,12 @@ T_n=\frac{\delta_n}{8\pi G_N}
 $$
 
 $n>1$ では正、$n\to1$ では0です。商を**先端を除いた重力作用 + $T_n\operatorname{Area}(\mathcal C_n)$ の有効表示**で扱うと、位置の変分から極値条件を得られます。ただし前節で曲率先端を含めた作用とこの表示を**同時には加算しません**。
+
+位置を動かす前に判定すべき量を定義します。固定面の接方向の座標添字を $i,j=1,\ldots,d-1$、誘導計量を $h_{ij}$、互いに直交する二本の単位法線を $N_a$（$a=1,2$）とします。各法線方向の第二基本形式を $K^{(a)}_{ij}$ と書くと、その誘導計量によるトレース
+$$
+H_a=\sum_{i,j=1}^{d-1}h^{ij}K^{(a)}_{ij}\qquad(a=1,2)
+$$
+が**二方向の平均曲率成分**です。$h^{ij}$ は行列 $(h_{ij})$ の逆行列の成分で、座標を変えてもこの縮約値は不変です。後の証明では、二方向を独立に動かす法線変位 $V=V^1N_1+V^2N_2$ に対して面積の第一変分が $-\int\sqrt h(H_1V^1+H_2V^2)$ となることを導き、各 $H_a=0$ を判定します。
 
 <a id="prop-holo21-fixed-surface"></a>
 
@@ -247,7 +276,7 @@ $V^2=0$ とします。$H_1$ がある点で正なら、連続性により近傍
 
 ## 5. $AdS_3$ 区間で係数を再計算する
 
-半古典的な純粋 $AdS_3$ の静的真空で、平面境界の長さ $\ell>0$ の単一区間 $A$ と同一cutoff $0<\epsilon\ll\ell$ を取ります。時間反転対称な一定時刻断面において、[HOLO3の半円測地線](../HOLO3/index.md#thm-holo3-semicircle)が端点をつなぐ候補です。[HOLO19の相同条件](../HOLO19/index.md#def-holo19-homology)を満たす半円板を使い、別の位相の競合鞍点がない支配サドルを仮定します。
+半古典的な純粋 $AdS_3$ の静的真空で、平面境界の長さ $\ell>0$ の単一区間 $A$ と同一cutoff $0<\epsilon\ll\ell$ を取ります。時間反転対称な一定時刻断面において、[HOLO3の半円測地線](../HOLO3/index.md#thm-holo3-semicircle)が端点をつなぐ候補です。[HOLO19の相同条件](../HOLO19/index.md#def-holo19-homology)を満たす半円板を使い、別の位相の競合鞍点がない支配サドルを仮定します。境界CFTの中央電荷の記号は、[HOLO13のBrown–Henneaux関係](../HOLO13/index.md#prop-holo13-brown-henneaux)に従い $c_{\rm BH}=3L/(2G_3)$ とします。この関係には純三次元Einstein重力、標準の漸近境界条件、左右等しい中央電荷という条件が必要です。
 
 <a id="prop-holo21-ads3-check"></a>
 
@@ -314,35 +343,116 @@ $$
 **A1. 正規化と二次Rényi。** 二準位の縮約状態 $\rho_A=\operatorname{diag}(3/4,1/4)$ に対して $R_1,R_2,S_2$ を求める。さらに $W=5\rho_A$ とした場合、$\operatorname{Tr}W^2/(\operatorname{Tr}W)^2$ を計算せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\operatorname{Tr}\rho_A=3/4+1/4=1$ なので $R_1=1$。$R_2=(3/4)^2+(1/4)^2=(9+1)/16=5/8$、従って[有限cutoffのレプリカモーメントとRényiエントロピー](../../QFT/QFT57/index.md#def-qft57-replica-moments)から $S_2=\log(5/8)/(1-2)=\log(8/5)$。$W$ の固有値は $15/4,5/4$ で、$\operatorname{Tr}W=5$、$\operatorname{Tr}W^2=(225+25)/16=125/8$。比は $(125/8)/25=5/8$。分母の二乗を忘れるとこの不変性が崩れる。
+**詳細解答。** 二つの固有値は非負で、その和は $3/4+1/4=1$ なので密度演算子の規格化は満たされます。[有限cutoffのレプリカモーメントとRényiエントロピー](../../QFT/QFT57/index.md#def-qft57-replica-moments)を用い、
+$$
+R_1=1,\qquad R_2=\left(\frac34\right)^2+\left(\frac14\right)^2=\frac{9+1}{16}=\frac58.
+$$
+$$
+S_2=\frac{\log(5/8)}{1-2}=\log\frac85.
+$$
+
+$W=5\rho_A$ の固有値は $15/4,5/4$ なので、
+$$
+\operatorname{Tr}W=\frac{15+5}{4}=5,\qquad
+\operatorname{Tr}W^2=\frac{225+25}{16}=\frac{125}{8}.
+$$
+$$
+\frac{\operatorname{Tr}W^2}{(\operatorname{Tr}W)^2}
+=\frac{125/8}{25}=\frac58.
+$$
+分母の二乗を忘れると、全固有値を同じ倍率で変更したときの比の不変性が崩れます。
 <!-- solution-end -->
 
 <a id="ex-holo21-a02"></a>
 **A2. 商の角度と張力。** $n=2,3$ とした商の開き角、欠損角および張力 $T_n$ を $G_N>0$ で表し、$n\downarrow1$ の極限を求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** [商の円錐欠損](#def-holo21-quotient-cone)から $n=2$ では開き角 $2\pi/2=\pi$、欠損 $\pi$、$T_2=\pi/(8\pi G_N)=1/(8G_N)$。$n=3$ では開き角 $2\pi/3$、欠損 $2\pi(1-1/3)=4\pi/3$、$T_3=(4\pi/3)/(8\pi G_N)=1/(6G_N)$。一般に $T_n=(n-1)/(4nG_N)\to0$。張力が極限で消えても $\partial_n T_n|_{1}=1/(4G_N)$ は有限である。
+**詳細解答。** [商の円錐欠損](#def-holo21-quotient-cone)より、商の開き角は $2\pi/n$、欠損角は $2\pi(1-1/n)$、張力はその欠損角を $8\pi G_N$ で割った値です。従って
+$$
+\begin{aligned}
+n=2:\quad &\frac{2\pi}{2}=\pi,\quad \delta_2=\pi,\quad
+T_2=\frac{\pi}{8\pi G_N}=\frac1{8G_N},\\
+n=3:\quad &\frac{2\pi}{3},\quad \delta_3=\frac{4\pi}{3},\quad
+T_3=\frac{4\pi/3}{8\pi G_N}=\frac1{6G_N}.
+\end{aligned}
+$$
+いずれも開き角が $2\pi$ より小さく、張力は正です。連続パラメータへの拡張を仮定すれば
+$$
+\lim_{n\downarrow1}T_n
+=\lim_{n\downarrow1}\frac{n-1}{4nG_N}=0,\qquad
+\left.\partial_nT_n\right|_{n=1}
+=\left.\frac{1}{4G_Nn^2}\right|_{n=1}=\frac1{4G_N}.
+$$
+張力そのものは消えても、その一次変化は有限です。
 <!-- solution-end -->
 
 <a id="ex-holo21-a03"></a>
 **A3. 円錐の符号。** 横断角度周期が $2\pi\alpha$ の円錐を考え、$\alpha=3/2$ と $\alpha=1/2$ に対する $\int R\sqrt g$ とEinstein曲率作用の先端項を、固定面積 $\mathcal A>0$ で計算せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** [円錐曲率補題](#lem-holo21-cone-curvature)より $\alpha=3/2$ では $\int_{\rm tip}R\sqrt g=4\pi(1-3/2)=-2\pi$、作用の局在寄与は $-(-2\pi)\mathcal A/(16\pi G_N)=\mathcal A/(8G_N)$。$\alpha=1/2$ では曲率積分は $2\pi$、作用寄与は $-2\pi\mathcal A/(16\pi G_N)=-\mathcal A/(8G_N)$。前者は円錐過剰、後者は欠損であり、$I_{\rm tip}=(\alpha-1)\mathcal A/(4G_N)$ に代入しても符号が一致する。
+**詳細解答。** [円錐曲率補題](#lem-holo21-cone-curvature)の横断二次元の曲率積分は $4\pi(1-\alpha)$、固定面積 $\mathcal A$ を掛けたEuclid曲率作用は $-\mathcal A\int_{\rm tip}R\sqrt g/(16\pi G_N)$ です。
+
+$\alpha=3/2$ の円錐過剰では
+$$
+\int_{\rm tip}R\sqrt g=4\pi\left(1-\frac32\right)=-2\pi.
+$$
+$$
+I_{\rm tip}=-\frac{-2\pi\mathcal A}{16\pi G_N}
+=\frac{\mathcal A}{8G_N}.
+$$
+
+$\alpha=1/2$ の円錐欠損では
+$$
+\int_{\rm tip}R\sqrt g=4\pi\left(1-\frac12\right)=2\pi.
+$$
+$$
+I_{\rm tip}=-\frac{2\pi\mathcal A}{16\pi G_N}
+=-\frac{\mathcal A}{8G_N}.
+$$
+
+両方とも $I_{\rm tip}=(\alpha-1)\mathcal A/(4G_N)$ に代入した結果と一致します。
 <!-- solution-end -->
 
 <a id="ex-holo21-a04"></a>
 **A4. 微分の正規化。** $I_n=nI_1+(n-1)K+b(n-1)^2$、$K>0$、$b$ は $n$ に依らない定数とする。$-\partial_n\log R_n|_{1}$ の古典近似を求めよ。$-\partial_n(-I_n)|_{1}$ と比較せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** [規格化された重力レプリカ量](#def-holo21-gravity-replica)から $\log R_n\simeq-I_n+nI_1=-(n-1)K-b(n-1)^2$。微分して $\partial_n\log R_n|_{1}=-K$、従って $S^{(0)}=K$。一方、分母を落とした $-\partial_n(-I_n)|_{1}=I_1+K$ は $I_1$ だけ余分である。$b$ の項は $\partial_n(n-1)^2|_1=0$ なので寄与しない。
+**詳細解答。** [正規化された重力レプリカ量](#def-holo21-gravity-replica)から
+$$
+\log R_n\simeq-I_n+nI_1=-(n-1)K-b(n-1)^2.
+$$
+従って、$I_1$ と $K,b$ を固定して $n$ だけで微分すると
+$$
+-\left.\partial_n\log R_n\right|_{n=1}
+=\left.K+2b(n-1)\right|_{n=1}=K.
+$$
+一方、分母による $+nI_1$ を落としてしまうと
+$$
+-\left.\partial_n(-I_n)\right|_{n=1}
+=\left.I_1+K+2b(n-1)\right|_{n=1}=I_1+K.
+$$
+正規化の欠落により $I_1$ だけ余分です。二次項は $n=1$ の一次微分では消えます。
 <!-- solution-end -->
 
 <a id="ex-holo21-a05"></a>
 **A5. $AdS_3$ の面積係数。** $L=2G_3$、$\ell/\epsilon=e^3$ とする。真空単一区間の正則化半円長と古典エントロピーの対数主項、中央電荷 $c_{\rm BH}$ を求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** [半円長](../HOLO18/index.md#prop-holo18-regulated-length)の主項は $2L\log(\ell/\epsilon)=2(2G_3)\cdot3=12G_3$。これを $4G_3$ で割ると $S^{(0)}=3$（cutoff補正を除く）。中央電荷は $c_{\rm BH}=3L/(2G_3)=3$ で、$c_{\rm BH}\log(\ell/\epsilon)/3=(3/3)\cdot3=3$ と一致する。有限cutoffの正確なエントロピーを3と断定したのではない。
+**詳細解答。** [正則化半円長](../HOLO18/index.md#prop-holo18-regulated-length)の普遍主項に $L=2G_3$ と $\log(\ell/\epsilon)=3$ を入れると、
+$$
+\operatorname{Length}(\gamma_A)
+\simeq 2L\log\frac{\ell}{\epsilon}
+=2(2G_3)\cdot3=12G_3.
+$$
+古典RT係数と[HOLO13のBrown–Henneaux関係](../HOLO13/index.md#prop-holo13-brown-henneaux)から
+$$
+S^{(0)}(A)\simeq\frac{12G_3}{4G_3}=3,\qquad
+c_{\rm BH}=\frac{3L}{2G_3}=3.
+$$
+$$
+\frac{c_{\rm BH}}3\log\frac{\ell}{\epsilon}=\frac33\cdot3=3.
+$$
+一致しているのは対数主項の係数であり、有限cutoffの正確なエントロピーを3と断定したのではありません。
 <!-- solution-end -->
 
 ### Level B：仮定を使って導出する
@@ -401,7 +511,13 @@ $\eta\ne0$ なら差は零ではありません。したがって解析関数と
 **B4. 二つの極値候補。** 正規化されたレプリカ作用差の候補が $F_a(n)=(n-1)a+O((n-1)^2)$、$F_b(n)=(n-1)b+O((n-1)^2)$、$0<a<b$ とする。$n>1$ の十分近くでどちらの $e^{-F}$ が大きいかを判断し、局所極値条件・鞍点支配・相同条件の役割を分けよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** 差は $F_b-F_a=(n-1)(b-a)+O((n-1)^2)$。$b-a>0$ なので十分小さい $n-1>0$ では $F_b-F_a>0$、従って $e^{-F_a}>e^{-F_b}$ となる。ただしこれは両候補が同一の $n=1$ 主鞍点に接続し、競合の重みが単純に指数作用で比較でき、解析接続が同じ枝である形式的な場合である。[固定面の命題](#prop-holo21-fixed-surface)は各候補の一次変分0しか述べず、大小比較は与えない。さらに[相同条件](../HOLO19/index.md#def-holo19-homology)を満たさない候補は、面積が小さくても境界領域 $A$ の許容RT候補として数えられない。支配枝が入れ替わる点の微分可能性も確認が必要。
+**詳細解答。** 正規化された作用差の差を取ると
+$$
+F_b(n)-F_a(n)=(n-1)(b-a)+O((n-1)^2).
+$$
+$h=n-1>0$ と置けば、$F_b-F_a=h\{(b-a)+O(h)\}$ です。$b-a>0$ なので、十分小さい $h$ では括弧は正となり $F_a<F_b$、ゆえに $e^{-F_a}>e^{-F_b}$ となります。
+
+ただしこれは二候補が同じ $n=1$ の主鞍点につながり、同じ解析接続の枝で指数作用を比較できる**形式的な設定**での結論です。[固定面の極値条件](#prop-holo21-fixed-surface)は各候補の一次変分が零であることを示すだけで、候補間の大小は決めません。さらに[HOLO19の相同条件](../HOLO19/index.md#def-holo19-homology)を満たさない面は、面積が小さくても許容RT候補ではありません。支配枝の交差点で微分可能かどうかも別に検査します。
 <!-- solution-end -->
 
 ### Level C：境界データから幾何の係数まで統合する

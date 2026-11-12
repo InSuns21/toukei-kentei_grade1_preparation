@@ -9,7 +9,7 @@ chapters:
   - { id: CTM2, path: textbook/volumes/dream_thater/物理系/CTM/CTM2, status: completed, title: "変形勾配は長さ・面積・体積をどう変えるか" }
   - { id: CTM3, path: textbook/volumes/dream_thater/物理系/CTM/CTM3, status: completed, title: "有限ひずみと剛体回転をどう区別するか" }
   - { id: CTM4, path: textbook/volumes/dream_thater/物理系/CTM/CTM4, status: completed, title: "速度勾配と客観性は何を測るか" }
-  - { id: CTM5, path: textbook/volumes/dream_thater/物理系/CTM/CTM5, status: planned, title: "物質領域の質量保存から連続の式へ" }
+  - { id: CTM5, path: textbook/volumes/dream_thater/物理系/CTM/CTM5, status: completed, title: "物質領域の質量保存から連続の式へ" }
   - { id: CTM6, path: textbook/volumes/dream_thater/物理系/CTM/CTM6, status: planned, title: "面に作用する力はなぜ二階テンソルで書けるか" }
   - { id: CTM7, path: textbook/volumes/dream_thater/物理系/CTM/CTM7, status: planned, title: "運動量・角運動量保存は応力に何を課すか" }
   - { id: CTM8, path: textbook/volumes/dream_thater/物理系/CTM/CTM8, status: planned, title: "基準配置へ応力を戻すと何が変わるか" }
