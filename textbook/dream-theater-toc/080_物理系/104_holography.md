@@ -18,3 +18,4 @@
 15. [HOLO15 境界の熱状態とAdSブラックホール](textbook/volumes/dream_thater/物理系/HOLO/HOLO15/index.md)
 16. [HOLO16 BTZ・熱場二重状態](textbook/volumes/dream_thater/物理系/HOLO/HOLO16/index.md)
 17. [HOLO17 境界領域のエントロピー](textbook/volumes/dream_thater/物理系/HOLO/HOLO17/index.md)
+18. [HOLO18 RT公式の最小模型](textbook/volumes/dream_thater/物理系/HOLO/HOLO18/index.md)

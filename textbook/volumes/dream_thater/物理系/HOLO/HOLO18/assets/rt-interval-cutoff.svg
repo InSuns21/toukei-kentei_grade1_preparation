@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="310" viewBox="0 0 680 310" role="img" data-layout-lint="strict" aria-labelledby="rt-title rt-desc">
+  <title id="rt-title">AdS3の境界区間とRT半円</title>
+  <desc id="rt-desc">横方向xの境界z=0上の区間Aは両端がマイナスaとa。z正方向は下。境界アンカーから下へ張る半円x二乗足すz二乗イコールa二乗は、点線のcutoff面z=epsilonで切断され、残りが実線の測地線となる。</desc>
+  <rect x="0" y="0" width="680" height="310" fill="#fff"/>
+  <defs><marker id="rt-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#42576b"/></marker></defs>
+  <line x1="95" y1="70" x2="565" y2="70" stroke="#6b7280" stroke-width="2" stroke-dasharray="7 5"/>
+  <line x1="95" y1="100" x2="565" y2="100" stroke="#ab6d25" stroke-width="2" stroke-dasharray="3 5"/>
+  <line x1="88" y1="75" x2="88" y2="244" stroke="#42576b" stroke-width="2" marker-end="url(#rt-arrow)"/>
+  <path d="M182 70 A160 160 0 0 0 502 70" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M184.84 100 A160 160 0 0 0 499.16 100" fill="none" stroke="#1765ac" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="182" cy="70" r="4" fill="#1f2937"/>
+  <circle cx="502" cy="70" r="4" fill="#1f2937"/>
+  <text x="333" y="43" text-anchor="middle" font-size="17" fill="#111827">A</text>
+  <text x="166" y="56" text-anchor="middle" font-size="16" fill="#111827">-a</text>
+  <text x="515" y="56" text-anchor="middle" font-size="16" fill="#111827">a</text>
+  <text x="585" y="75" font-size="16" fill="#374151">z=0</text>
+  <text x="585" y="106" font-size="16" fill="#92400e">z=ε</text>
+  <text x="75" y="267" font-size="16" fill="#374151">z</text>
+  <text x="342" y="263" text-anchor="middle" font-size="19" fill="#1765ac">γ_A</text>
+</svg>
