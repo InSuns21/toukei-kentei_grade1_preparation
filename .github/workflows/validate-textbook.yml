@@ -312,6 +312,12 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-06/assets/american_binomial.py
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-06/assets/tests -v
 
+      # U3-09: fraction-exact barrier oracle and monitoring-set regression suite.
+      - name: Verify U3-09 barrier monitoring experiment
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-09/assets/barrier_tree_check.py
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-09/assets/tests -v
+
       # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding
