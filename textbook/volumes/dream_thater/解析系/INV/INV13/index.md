@@ -333,9 +333,9 @@ $$
 [FOU4 のGaussian Fourier coreの稠密性](../../FOU/FOU4/index.md#thm-fou4-core-density)の証明では、近似元としてコンパクト台の連続関数 $h$ と Gaussian 核 $k_\varepsilon$ の畳み込みを選べます。$h$ の台が有界で、Gaussian 核の各階導関数は多項式と Gaussian の積なので、
 
 $$
-\partial_x^m(h*k_\varepsilon)(x)
+\frac{d^m}{dx^m}(h*k_\varepsilon)(x)
 =\int_{\operatorname{supp}h}h(t)\,
-(\partial_x^m k_\varepsilon)(x-t)\,dt
+k_\varepsilon^{(m)}(x-t)\,dt
 $$
 
 は $|x|\to\infty$ で任意の多項式より速く減衰します。従ってこの近似元は [Schwartz級](../INV12/index.md#def-inv12-schwartz)に入り、一変数の Schwartz 級は $L^2$ に稠密です。
