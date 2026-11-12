@@ -4,71 +4,71 @@ title: "数理ファイナンス：無裁定価格付け・数値計算・金融
 plan: textbook/plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
-  - { id: U3-01, path: textbook/volumes/dream_thater/応用系/U3/U3-01, status: completed, title: "1期間二項モデルの株式・債券・オプション" }
-  - { id: U3-02, path: textbook/volumes/dream_thater/応用系/U3/U3-02, status: planned, title: "無裁定条件と状態価格" }
-  - { id: U3-03, path: textbook/volumes/dream_thater/応用系/U3/U3-03, status: planned, title: "多期間二項モデルと割引マルチンゲール" }
-  - { id: U3-04, path: textbook/volumes/dream_thater/応用系/U3/U3-04, status: planned, title: "自己金融戦略・複製可能性・完備性" }
-  - { id: U3-05, path: textbook/volumes/dream_thater/応用系/U3/U3-05, status: planned, title: "European call/put・先渡・put–call parity" }
-  - { id: U3-06, path: textbook/volumes/dream_thater/応用系/U3/U3-06, status: planned, title: "American オプションと停止時刻" }
-  - { id: U3-07, path: textbook/volumes/dream_thater/応用系/U3/U3-07, status: planned, title: "Bermudan・行使境界・配当効果" }
-  - { id: U3-08, path: textbook/volumes/dream_thater/応用系/U3/U3-08, status: planned, title: "Asian：算術平均に依存するペイオフ" }
-  - { id: U3-09, path: textbook/volumes/dream_thater/応用系/U3/U3-09, status: planned, title: "Barrier：knock-in/knock-out と監視頻度" }
-  - { id: U3-10, path: textbook/volumes/dream_thater/応用系/U3/U3-10, status: planned, title: "Lookback と経路依存状態の圧縮" }
-  - { id: U3-11, path: textbook/volumes/dream_thater/応用系/U3/U3-11, status: planned, title: "CRR 木・三項木と収束・計算量" }
-  - { id: U3-12, path: textbook/volumes/dream_thater/応用系/U3/U3-12, status: planned, title: "ランダムウォークから Brown 運動への極限" }
-  - { id: U3-13, path: textbook/volumes/dream_thater/応用系/U3/U3-13, status: planned, title: "金融モデルへの Itô 公式の適用" }
-  - { id: U3-14, path: textbook/volumes/dream_thater/応用系/U3/U3-14, status: planned, title: "幾何 Brown 運動と対数正規価格分布" }
-  - { id: U3-15, path: textbook/volumes/dream_thater/応用系/U3/U3-15, status: planned, title: "連続時間のリスク中立測度とヘッジ" }
-  - { id: U3-16, path: textbook/volumes/dream_thater/応用系/U3/U3-16, status: planned, title: "自己金融 delta hedge と Black–Scholes–Merton PDE" }
-  - { id: U3-17, path: textbook/volumes/dream_thater/応用系/U3/U3-17, status: planned, title: "Feynman–Kac：期待値と PDE の橋" }
-  - { id: U3-18, path: textbook/volumes/dream_thater/応用系/U3/U3-18, status: planned, title: "Black–Scholes 閉形式と正規積分" }
-  - { id: U3-19, path: textbook/volumes/dream_thater/応用系/U3/U3-19, status: planned, title: "配当・金利・先渡価格・割引規約" }
-  - { id: U3-20, path: textbook/volumes/dream_thater/応用系/U3/U3-20, status: planned, title: "Greeks とヘッジ誤差" }
-  - { id: U3-21, path: textbook/volumes/dream_thater/応用系/U3/U3-21, status: planned, title: "連続時間の American 価格：最適停止" }
-  - { id: U3-22, path: textbook/volumes/dream_thater/応用系/U3/U3-22, status: planned, title: "Black–Scholes PDE の格子化・陽解法" }
-  - { id: U3-23, path: textbook/volumes/dream_thater/応用系/U3/U3-23, status: planned, title: "陰解法・Crank–Nicolson 法・Rannacher smoothing" }
-  - { id: U3-24, path: textbook/volumes/dream_thater/応用系/U3/U3-24, status: planned, title: "American オプションの障害問題を解く" }
-  - { id: U3-25, path: textbook/volumes/dream_thater/応用系/U3/U3-25, status: planned, title: "Barrier/Asian の PDE：境界と状態追加" }
-  - { id: U3-26, path: textbook/volumes/dream_thater/応用系/U3/U3-26, status: planned, title: "リスク中立期待値の Monte Carlo 推定" }
-  - { id: U3-27, path: textbook/volumes/dream_thater/応用系/U3/U3-27, status: planned, title: "Itô 積分の数値近似と誤差の実測" }
-  - { id: U3-28, path: textbook/volumes/dream_thater/応用系/U3/U3-28, status: planned, title: "厳密 GBM・Euler–Maruyama・Milstein" }
-  - { id: U3-29, path: textbook/volumes/dream_thater/応用系/U3/U3-29, status: planned, title: "強収束・弱収束と誤差予算" }
-  - { id: U3-30, path: textbook/volumes/dream_thater/応用系/U3/U3-30, status: planned, title: "Itô–Taylor 展開・高次法・安定性" }
-  - { id: U3-31, path: textbook/volumes/dream_thater/応用系/U3/U3-31, status: planned, title: "Multilevel Monte Carlo（MLMC）" }
-  - { id: U3-32, path: textbook/volumes/dream_thater/応用系/U3/U3-32, status: planned, title: "分散減少：対称変量・対照変量" }
-  - { id: U3-33, path: textbook/volumes/dream_thater/応用系/U3/U3-33, status: planned, title: "層化抽出・重要度サンプリング" }
-  - { id: U3-34, path: textbook/volumes/dream_thater/応用系/U3/U3-34, status: planned, title: "準 Monte Carlo と次元削減" }
-  - { id: U3-35, path: textbook/volumes/dream_thater/応用系/U3/U3-35, status: planned, title: "Brownian bridge・連続障壁の越境補正" }
-  - { id: U3-36, path: textbook/volumes/dream_thater/応用系/U3/U3-36, status: planned, title: "Least-squares Monte Carlo で American を評価" }
-  - { id: U3-37, path: textbook/volumes/dream_thater/応用系/U3/U3-37, status: planned, title: "Monte Carlo Greeks と手法横断ベンチマーク" }
-  - { id: U3-38, path: textbook/volumes/dream_thater/応用系/U3/U3-38, status: planned, title: "Fourier／特性関数による価格付け" }
-  - { id: U3-39, path: textbook/volumes/dream_thater/応用系/U3/U3-39, status: planned, title: "インプライド・ボラティリティと校正" }
-  - { id: U3-40, path: textbook/volumes/dream_thater/応用系/U3/U3-40, status: planned, title: "局所ボラティリティ・確率ボラティリティ" }
-  - { id: U3-41, path: textbook/volumes/dream_thater/応用系/U3/U3-41, status: planned, title: "ジャンプ拡散と非完備市場" }
-  - { id: U3-42, path: textbook/volumes/dream_thater/応用系/U3/U3-42, status: planned, title: "金利曲線・債券・短期金利モデル" }
-  - { id: U3-43, path: textbook/volumes/dream_thater/応用系/U3/U3-43, status: planned, title: "価格付けモデルの横断較正・検証" }
-  - { id: U3-44, path: textbook/volumes/dream_thater/応用系/U3/U3-44, status: planned, title: "損益分布・リスクファクター・P と Q" }
-  - { id: U3-45, path: textbook/volumes/dream_thater/応用系/U3/U3-45, status: planned, title: "Value at Risk の定義と限界" }
-  - { id: U3-46, path: textbook/volumes/dream_thater/応用系/U3/U3-46, status: planned, title: "Expected Shortfall の定義と性質" }
-  - { id: U3-47, path: textbook/volumes/dream_thater/応用系/U3/U3-47, status: planned, title: "正規・t 分布と分散共分散法による VaR/ES" }
-  - { id: U3-48, path: textbook/volumes/dream_thater/応用系/U3/U3-48, status: planned, title: "historical / filtered historical simulation" }
-  - { id: U3-49, path: textbook/volumes/dream_thater/応用系/U3/U3-49, status: planned, title: "シナリオ Monte Carlo と full repricing" }
-  - { id: U3-50, path: textbook/volumes/dream_thater/応用系/U3/U3-50, status: planned, title: "Delta–Gamma 近似と複雑なポートフォリオ" }
-  - { id: U3-51, path: textbook/volumes/dream_thater/応用系/U3/U3-51, status: planned, title: "極値理論：POT・一般化 Pareto 尾部" }
-  - { id: U3-52, path: textbook/volumes/dream_thater/応用系/U3/U3-52, status: planned, title: "相関・copula・尾部依存とリスク集約" }
-  - { id: U3-53, path: textbook/volumes/dream_thater/応用系/U3/U3-53, status: planned, title: "VaR バックテスト：超過数とクラスタリング" }
-  - { id: U3-54, path: textbook/volumes/dream_thater/応用系/U3/U3-54, status: planned, title: "ES バックテストと予測分布検証" }
-  - { id: U3-55, path: textbook/volumes/dream_thater/応用系/U3/U3-55, status: planned, title: "ストレステスト・シナリオ・流動性とモデルリスク" }
-  - { id: U3-56, path: textbook/volumes/dream_thater/応用系/U3/U3-56, status: planned, title: "限界・成分リスクとリスク配賦" }
-  - { id: U3-57, path: textbook/volumes/dream_thater/応用系/U3/U3-57, status: planned, title: "ES（CVaR）最適化とヘッジ" }
-  - { id: U3-58, path: textbook/volumes/dream_thater/応用系/U3/U3-58, status: planned, title: "信用・相手先・流動性リスクの入口" }
-  - { id: U3-59, path: textbook/volumes/dream_thater/応用系/U3/U3-59, status: planned, title: "板・注文方式・執行コストの定義" }
-  - { id: U3-60, path: textbook/volumes/dream_thater/応用系/U3/U3-60, status: planned, title: "TWAP／VWAP／POV と基準執行スケジュール" }
-  - { id: U3-61, path: textbook/volumes/dream_thater/応用系/U3/U3-61, status: planned, title: "市場インパクトと価格形成" }
-  - { id: U3-62, path: textbook/volumes/dream_thater/応用系/U3/U3-62, status: planned, title: "Almgren–Chriss 最適清算の導出" }
-  - { id: U3-63, path: textbook/volumes/dream_thater/応用系/U3/U3-63, status: planned, title: "最適執行の数値最適化と感度" }
-  - { id: U3-64, path: textbook/volumes/dream_thater/応用系/U3/U3-64, status: planned, title: "板の回復・過渡的インパクト" }
-  - { id: U3-65, path: textbook/volumes/dream_thater/応用系/U3/U3-65, status: planned, title: "指値・成行注文と約定不確実性" }
-  - { id: U3-66, path: textbook/volumes/dream_thater/応用系/U3/U3-66, status: planned, title: "状態依存最適執行と HJB の応用" }
-  - { id: U3-67, path: textbook/volumes/dream_thater/応用系/U3/U3-67, status: planned, title: "複数資産・クロスインパクト・流動性調整リスク" }
-  - { id: U3-68, path: textbook/volumes/dream_thater/応用系/U3/U3-68, status: planned, title: "執行バックテスト・TCA と全科目統合" }
+  - { id: U3-01, path: textbook/volumes/dream_thater/応用系/U/U3-01, status: completed, title: "1期間二項モデルの株式・債券・オプション" }
+  - { id: U3-02, path: textbook/volumes/dream_thater/応用系/U/U3-02, status: planned, title: "無裁定条件と状態価格" }
+  - { id: U3-03, path: textbook/volumes/dream_thater/応用系/U/U3-03, status: planned, title: "多期間二項モデルと割引マルチンゲール" }
+  - { id: U3-04, path: textbook/volumes/dream_thater/応用系/U/U3-04, status: planned, title: "自己金融戦略・複製可能性・完備性" }
+  - { id: U3-05, path: textbook/volumes/dream_thater/応用系/U/U3-05, status: planned, title: "European call/put・先渡・put–call parity" }
+  - { id: U3-06, path: textbook/volumes/dream_thater/応用系/U/U3-06, status: planned, title: "American オプションと停止時刻" }
+  - { id: U3-07, path: textbook/volumes/dream_thater/応用系/U/U3-07, status: planned, title: "Bermudan・行使境界・配当効果" }
+  - { id: U3-08, path: textbook/volumes/dream_thater/応用系/U/U3-08, status: planned, title: "Asian：算術平均に依存するペイオフ" }
+  - { id: U3-09, path: textbook/volumes/dream_thater/応用系/U/U3-09, status: planned, title: "Barrier：knock-in/knock-out と監視頻度" }
+  - { id: U3-10, path: textbook/volumes/dream_thater/応用系/U/U3-10, status: planned, title: "Lookback と経路依存状態の圧縮" }
+  - { id: U3-11, path: textbook/volumes/dream_thater/応用系/U/U3-11, status: planned, title: "CRR 木・三項木と収束・計算量" }
+  - { id: U3-12, path: textbook/volumes/dream_thater/応用系/U/U3-12, status: planned, title: "ランダムウォークから Brown 運動への極限" }
+  - { id: U3-13, path: textbook/volumes/dream_thater/応用系/U/U3-13, status: planned, title: "金融モデルへの Itô 公式の適用" }
+  - { id: U3-14, path: textbook/volumes/dream_thater/応用系/U/U3-14, status: planned, title: "幾何 Brown 運動と対数正規価格分布" }
+  - { id: U3-15, path: textbook/volumes/dream_thater/応用系/U/U3-15, status: planned, title: "連続時間のリスク中立測度とヘッジ" }
+  - { id: U3-16, path: textbook/volumes/dream_thater/応用系/U/U3-16, status: planned, title: "自己金融 delta hedge と Black–Scholes–Merton PDE" }
+  - { id: U3-17, path: textbook/volumes/dream_thater/応用系/U/U3-17, status: planned, title: "Feynman–Kac：期待値と PDE の橋" }
+  - { id: U3-18, path: textbook/volumes/dream_thater/応用系/U/U3-18, status: planned, title: "Black–Scholes 閉形式と正規積分" }
+  - { id: U3-19, path: textbook/volumes/dream_thater/応用系/U/U3-19, status: planned, title: "配当・金利・先渡価格・割引規約" }
+  - { id: U3-20, path: textbook/volumes/dream_thater/応用系/U/U3-20, status: planned, title: "Greeks とヘッジ誤差" }
+  - { id: U3-21, path: textbook/volumes/dream_thater/応用系/U/U3-21, status: planned, title: "連続時間の American 価格：最適停止" }
+  - { id: U3-22, path: textbook/volumes/dream_thater/応用系/U/U3-22, status: planned, title: "Black–Scholes PDE の格子化・陽解法" }
+  - { id: U3-23, path: textbook/volumes/dream_thater/応用系/U/U3-23, status: planned, title: "陰解法・Crank–Nicolson 法・Rannacher smoothing" }
+  - { id: U3-24, path: textbook/volumes/dream_thater/応用系/U/U3-24, status: planned, title: "American オプションの障害問題を解く" }
+  - { id: U3-25, path: textbook/volumes/dream_thater/応用系/U/U3-25, status: planned, title: "Barrier/Asian の PDE：境界と状態追加" }
+  - { id: U3-26, path: textbook/volumes/dream_thater/応用系/U/U3-26, status: planned, title: "リスク中立期待値の Monte Carlo 推定" }
+  - { id: U3-27, path: textbook/volumes/dream_thater/応用系/U/U3-27, status: planned, title: "Itô 積分の数値近似と誤差の実測" }
+  - { id: U3-28, path: textbook/volumes/dream_thater/応用系/U/U3-28, status: planned, title: "厳密 GBM・Euler–Maruyama・Milstein" }
+  - { id: U3-29, path: textbook/volumes/dream_thater/応用系/U/U3-29, status: planned, title: "強収束・弱収束と誤差予算" }
+  - { id: U3-30, path: textbook/volumes/dream_thater/応用系/U/U3-30, status: planned, title: "Itô–Taylor 展開・高次法・安定性" }
+  - { id: U3-31, path: textbook/volumes/dream_thater/応用系/U/U3-31, status: planned, title: "Multilevel Monte Carlo（MLMC）" }
+  - { id: U3-32, path: textbook/volumes/dream_thater/応用系/U/U3-32, status: planned, title: "分散減少：対称変量・対照変量" }
+  - { id: U3-33, path: textbook/volumes/dream_thater/応用系/U/U3-33, status: planned, title: "層化抽出・重要度サンプリング" }
+  - { id: U3-34, path: textbook/volumes/dream_thater/応用系/U/U3-34, status: planned, title: "準 Monte Carlo と次元削減" }
+  - { id: U3-35, path: textbook/volumes/dream_thater/応用系/U/U3-35, status: planned, title: "Brownian bridge・連続障壁の越境補正" }
+  - { id: U3-36, path: textbook/volumes/dream_thater/応用系/U/U3-36, status: planned, title: "Least-squares Monte Carlo で American を評価" }
+  - { id: U3-37, path: textbook/volumes/dream_thater/応用系/U/U3-37, status: planned, title: "Monte Carlo Greeks と手法横断ベンチマーク" }
+  - { id: U3-38, path: textbook/volumes/dream_thater/応用系/U/U3-38, status: planned, title: "Fourier／特性関数による価格付け" }
+  - { id: U3-39, path: textbook/volumes/dream_thater/応用系/U/U3-39, status: planned, title: "インプライド・ボラティリティと校正" }
+  - { id: U3-40, path: textbook/volumes/dream_thater/応用系/U/U3-40, status: planned, title: "局所ボラティリティ・確率ボラティリティ" }
+  - { id: U3-41, path: textbook/volumes/dream_thater/応用系/U/U3-41, status: planned, title: "ジャンプ拡散と非完備市場" }
+  - { id: U3-42, path: textbook/volumes/dream_thater/応用系/U/U3-42, status: planned, title: "金利曲線・債券・短期金利モデル" }
+  - { id: U3-43, path: textbook/volumes/dream_thater/応用系/U/U3-43, status: planned, title: "価格付けモデルの横断較正・検証" }
+  - { id: U3-44, path: textbook/volumes/dream_thater/応用系/U/U3-44, status: planned, title: "損益分布・リスクファクター・P と Q" }
+  - { id: U3-45, path: textbook/volumes/dream_thater/応用系/U/U3-45, status: planned, title: "Value at Risk の定義と限界" }
+  - { id: U3-46, path: textbook/volumes/dream_thater/応用系/U/U3-46, status: planned, title: "Expected Shortfall の定義と性質" }
+  - { id: U3-47, path: textbook/volumes/dream_thater/応用系/U/U3-47, status: planned, title: "正規・t 分布と分散共分散法による VaR/ES" }
+  - { id: U3-48, path: textbook/volumes/dream_thater/応用系/U/U3-48, status: planned, title: "historical / filtered historical simulation" }
+  - { id: U3-49, path: textbook/volumes/dream_thater/応用系/U/U3-49, status: planned, title: "シナリオ Monte Carlo と full repricing" }
+  - { id: U3-50, path: textbook/volumes/dream_thater/応用系/U/U3-50, status: planned, title: "Delta–Gamma 近似と複雑なポートフォリオ" }
+  - { id: U3-51, path: textbook/volumes/dream_thater/応用系/U/U3-51, status: planned, title: "極値理論：POT・一般化 Pareto 尾部" }
+  - { id: U3-52, path: textbook/volumes/dream_thater/応用系/U/U3-52, status: planned, title: "相関・copula・尾部依存とリスク集約" }
+  - { id: U3-53, path: textbook/volumes/dream_thater/応用系/U/U3-53, status: planned, title: "VaR バックテスト：超過数とクラスタリング" }
+  - { id: U3-54, path: textbook/volumes/dream_thater/応用系/U/U3-54, status: planned, title: "ES バックテストと予測分布検証" }
+  - { id: U3-55, path: textbook/volumes/dream_thater/応用系/U/U3-55, status: planned, title: "ストレステスト・シナリオ・流動性とモデルリスク" }
+  - { id: U3-56, path: textbook/volumes/dream_thater/応用系/U/U3-56, status: planned, title: "限界・成分リスクとリスク配賦" }
+  - { id: U3-57, path: textbook/volumes/dream_thater/応用系/U/U3-57, status: planned, title: "ES（CVaR）最適化とヘッジ" }
+  - { id: U3-58, path: textbook/volumes/dream_thater/応用系/U/U3-58, status: planned, title: "信用・相手先・流動性リスクの入口" }
+  - { id: U3-59, path: textbook/volumes/dream_thater/応用系/U/U3-59, status: planned, title: "板・注文方式・執行コストの定義" }
+  - { id: U3-60, path: textbook/volumes/dream_thater/応用系/U/U3-60, status: planned, title: "TWAP／VWAP／POV と基準執行スケジュール" }
+  - { id: U3-61, path: textbook/volumes/dream_thater/応用系/U/U3-61, status: planned, title: "市場インパクトと価格形成" }
+  - { id: U3-62, path: textbook/volumes/dream_thater/応用系/U/U3-62, status: planned, title: "Almgren–Chriss 最適清算の導出" }
+  - { id: U3-63, path: textbook/volumes/dream_thater/応用系/U/U3-63, status: planned, title: "最適執行の数値最適化と感度" }
+  - { id: U3-64, path: textbook/volumes/dream_thater/応用系/U/U3-64, status: planned, title: "板の回復・過渡的インパクト" }
+  - { id: U3-65, path: textbook/volumes/dream_thater/応用系/U/U3-65, status: planned, title: "指値・成行注文と約定不確実性" }
+  - { id: U3-66, path: textbook/volumes/dream_thater/応用系/U/U3-66, status: planned, title: "状態依存最適執行と HJB の応用" }
+  - { id: U3-67, path: textbook/volumes/dream_thater/応用系/U/U3-67, status: planned, title: "複数資産・クロスインパクト・流動性調整リスク" }
+  - { id: U3-68, path: textbook/volumes/dream_thater/応用系/U/U3-68, status: planned, title: "執行バックテスト・TCA と全科目統合" }
