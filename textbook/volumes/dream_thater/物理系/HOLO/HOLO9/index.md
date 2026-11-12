@@ -56,7 +56,18 @@ $$
 K_2(z,x;y)=\frac{z^2}{\pi^2(z^2+|x-y|^2)^2}>0.
 $$
 
-任意の $z>0$ で $\int K_2(z,x;y)\,d^3y=z$ となります（次の命題で積分を計算します）。従って定数源を形式的に入れると $\phi=zJ$ です。定数源はコンパクト台ではありませんが、**規格化の局所的な検算**としては意味があり、コンパクト台の源では $z^{-1}\phi_J\to J$ が成り立ちます。この例は核の正値性、指数、境界規格化を直接点検しています。
+ここで積分は、境界方向の極座標 $r=|x-y|$ と $r=z\tan\theta$ を使うと直接確認できます。
+
+$$
+\begin{aligned}
+\int_{\mathbb R^3}K_2(z,x;y)\,d^3y
+&=\frac{4z^2}{\pi}\int_0^\infty\frac{r^2}{(z^2+r^2)^2}\,dr\\
+&=\frac{4z}{\pi}\int_0^{\pi/2}\sin^2\theta\,d\theta
+=\frac{4z}{\pi}\cdot\frac{\pi}{4}=z.
+\end{aligned}
+$$
+
+従って定数源を形式的に入れると $\phi=zJ$ です。定数源はコンパクト台ではありませんが、**規格化の局所的な検算**としては意味があり、コンパクト台の源では $z^{-1}\phi_J\to J$ が成り立ちます。この例は核の正値性、指数、境界規格化を直接点検しています。
 <!-- definition-example-end -->
 
 <a id="prop-holo9-kernel-solution"></a>
@@ -74,28 +85,49 @@ $$
 
 ### 証明の見取り図
 
-核を $z^\Delta(z^2+r^2)^{-\Delta}$ に分解して微分し、質量と指数の関係を使います。境界極限は $y=x+zu$ と変数を変えると、積分核が確率密度と同じ「全質量1」の形になることから従います。
+核を $z^\Delta(z^2+r^2)^{-\Delta}$ に分解して微分し、質量と指数の関係を使います。境界極限は無次元ベクトル $u=(y-x)/z$ への変数変換をすると、積分核が確率密度と同じ「全質量1」の形になることから従います。
 
 <!-- proof-start -->
 ### 証明
 
-$u=z^2+|x-y|^2$、$F=z^\Delta u^{-\Delta}$ と書きます。対数微分から
+$q=z^2+|x-y|^2$、$F=z^\Delta q^{-\Delta}$ と書きます。対数微分から
 
 $$
-\frac{\partial_zF}{F}=\frac{\Delta}{z}-\frac{2\Delta z}{u},\qquad
+\frac{\partial_zF}{F}=\frac{\Delta}{z}-\frac{2\Delta z}{q},\qquad
 \frac{\partial_z^2F}{F}=\frac{\Delta(\Delta-1)}{z^2}
--\frac{2\Delta(2\Delta+1)}{u}
-+\frac{4\Delta(\Delta+1)z^2}{u^2}.
+-\frac{2\Delta(2\Delta+1)}{q}
++\frac{4\Delta(\Delta+1)z^2}{q^2}.
 $$
 
 境界方向の $d$ 個の微分を足すと
 
 $$
 \frac{\Delta_xF}{F}
-=-\frac{2d\Delta}{u}+\frac{4\Delta(\Delta+1)|x-y|^2}{u^2}.
+=-\frac{2d\Delta}{q}+\frac{4\Delta(\Delta+1)|x-y|^2}{q^2}.
 $$
 
-[HOLO8の成分表示](../HOLO8/index.md#ref-holo8-radial-equation)での $\nabla_E^2=L^{-2}[z^2\partial_z^2-(d-1)z\partial_z+z^2\Delta_x]$ に代入します。$u^{-2}$ の分子は $z^2+|x-y|^2=u$ にまとめられ、残る $1/u$ の係数も相殺されるため
+[HOLO8の成分表示](../HOLO8/index.md#ref-holo8-radial-equation)での $\nabla_E^2=L^{-2}[z^2\partial_z^2-(d-1)z\partial_z+z^2\Delta_x]$ に代入します。$q^{-2}$ の項を先に合算すると、その寄与は
+
+$$
+4\Delta(\Delta+1)\frac{z^2(z^2+|x-y|^2)}{q^2}
+=4\Delta(\Delta+1)\frac{z^2}{q}
+$$
+
+です。一方、$z^2/q$ に掛かる残りの係数は、$z^2\partial_z^2F$、$-(d-1)z\partial_zF$、$z^2\Delta_xF$ の順に
+
+$$
+-2\Delta(2\Delta+1),\qquad
+2(d-1)\Delta,\qquad -2d\Delta
+$$
+
+です。したがって全係数は
+
+$$
+-2\Delta(2\Delta+1)+2(d-1)\Delta-2d\Delta
++4\Delta(\Delta+1)=0.
+$$
+
+残る定数項は
 
 $$
 \frac{L^2\nabla_E^2F}{F}
@@ -105,7 +137,7 @@ $$
 
 従って各 $y$ ごとに方程式を満たします。$J$ のコンパクト台と $z>0$ によって微分を積分の中へ移せるので $\phi_J$ も解です。
 
-次に $y=x+zu$ と変数変換し、$dy=z^ddu$ を使うと
+次に、先ほどのスカラー量 $q$ とは別に、境界方向の無次元ベクトル $u=(y-x)/z\in\mathbb R^d$ を導入します。$z>0$ なので $y=x+zu$ は可逆な変数変換であり、Jacobianは $d^dy=z^d\,d^du$ です。これを使うと
 
 $$
 z^{-\Delta_-}\phi_J(z,x)
@@ -258,7 +290,53 @@ $$
 =2\nu z^{\Delta-1}B+o(z^{\Delta-1}).
 $$
 
-後者を得る際、遅い係数の $\Delta_-z^{\Delta_--1}J$ は差で消え、速い係数は $(\Delta-\Delta_-)z^{\Delta-1}B=2\nu z^{\Delta-1}B$ となります。$\Delta+\Delta_-=d$ だから積に付く指数は $1-d+\Delta_-+\Delta-1=0$ です。誤差は $J$ が滑らかでコンパクト台のとき積分後も収束するため、極限は $-\nu L^{d-1}\int JB$ です。
+後者は単に $o(z^\Delta)$ を形式的に微分した結論ではありません。微分と積分極限を確かめるため、$r=y-x$ と置いて
+
+$$
+R_z(x)=c_\Delta\int_{\mathbb R^d}
+\frac{J(x+r)-J(x)}{(z^2+|r|^2)^\Delta}\,d^dr,
+\qquad
+P_z(x)=z^{-\Delta_-}\phi_J(z,x)
+$$
+
+と書きます（固定した $z>0$ では通常の絶対収束積分で、$z\downarrow0$ の極限が対称主値になります）。先の積分の恒等式から
+
+$$
+\phi_J=z^{\Delta_-}J+z^\Delta R_z,\qquad
+\left(\partial_z-\frac{\Delta_-}{z}\right)\phi_J
+=z^{\Delta-1}(2\nu R_z+z\partial_zR_z)
+$$
+
+が **$z>0$ で厳密に** 成り立ちます。局所的には $J(x+r)-J(x)$ から一次Taylor項 $\nabla J(x)\cdot r$ を引けます。この項の積分は反転対称性により零で、残りは $C|r|^2$ 以下です。従って $0<z\le1$ で $R_z$ は $x$ に関して一様有界であり、$R_z(x)\to B[J](x)$ です。また $z$ で微分した核から
+
+$$
+z\partial_zR_z(x)
+=-2\Delta c_\Delta z^2
+\int_{\mathbb R^d}
+\frac{J(x+r)-J(x)}{(z^2+|r|^2)^{\Delta+1}}\,d^dr
+$$
+
+を得ます。ここでも一次Taylor項の積分は零です。$r$ は境界方向のベクトルなので、極座標の動径を $\rho=|r|$ と書きます。$\rho<1$ と $\rho\ge1$ に分け、前者で $\rho=zv$（$v\ge0$）と置き、球面積係数を定数 $C$ に含めると
+
+$$
+\begin{aligned}
+\sup_x|z\partial_zR_z(x)|
+&\le C z^2\int_0^1
+\frac{\rho^{d+1}}{(z^2+\rho^2)^{\Delta+1}}\,d\rho+Cz^2\\
+&\le C' z^{2-2\nu}
+\int_0^\infty\frac{v^{d+1}}{(1+v^2)^{\Delta+1}}\,dv+Cz^2
+\longrightarrow0.
+\end{aligned}
+$$
+
+最後の積分は無限遠で $v^{-1-2\nu}$ の次数であり、$\nu>0$ により有限です。さらに前節の規格化核は非負で積分1の近似恒等作用素なので、滑らかなコンパクト台の $J$ に対して $P_z\to J$ が $L^1(\mathbb R^d)$ でも成り立ち、$\|P_z\|_1\le\|J\|_1$ です。$R_z$ の一様有界性、各点収束と $\sup_x|z\partial_zR_z|\to0$ を合わせると
+
+$$
+\int P_z(2\nu R_z+z\partial_zR_z)\,d^dx
+\longrightarrow2\nu\int J(x)B[J](x)\,d^dx.
+$$
+
+ここで $z^{1-d}\phi_Jz^{\Delta-1}=P_z$ は $\Delta+\Delta_-=d$ から従います。以上より、極限は $-\nu L^{d-1}\int JB$ となります。
 
 次に [応答の主値積分](#ref-holo9-response)について対称なcutoff $|x-y|>\rho$ を入れます。$J,h$ のコンパクト台と対称性により
 
@@ -285,7 +363,7 @@ $$
 
 ## 4. GKPW辞書から2点関数を得る
 
-[HOLO4で調べたCFTのスカラー一次場](../../QFT/QFT48/index.md#def-qft48-scalar-primary)は、相異なる二点で $|x-y|^{-2\Delta}$ に比例する相関関数を持ちます。ただし、対称性だけでは係数が決まりません。ここでバルク作用の計算結果を境界演算子の生成汎関数と**対応させる仮定**を明示します。
+$d\ge3$ では、[QFT48のスカラー一次場の定義](../../QFT/QFT48/index.md#def-qft48-scalar-primary)と[二点関数の次元選択則](../../QFT/QFT48/index.md#thm-qft48-primary-two-point)をHOLO4でも使い、相異なる二点の相関関数が $|x-y|^{-2\Delta}$ に比例することを既習です。ただし両講の定理は $d\ge3$ を仮定しており、**本講で許す $d=2$ へそのまま引用できません**。$d=2$ も含む以下の距離冪は、共形対称性の既習定理を拡張したものとしてではなく、明示するGKPW辞書とバルク核から直接導きます。いずれの次元でも対称性だけでは係数が決まりません。ここでバルク作用の計算結果を境界演算子の生成汎関数と**対応させる仮定**を明示します。
 
 <a id="def-holo9-gkpw"></a>
 
@@ -303,7 +381,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo9-gkpw -->
-**定義の確認**： 互いに台が重ならない実試験関数 $h_1,h_2$ を選び、$J=s h_1+t h_2$ とします。指数を $s,t$ で一回ずつ微分すると左辺は $\int h_1(x)h_2(y)\langle\mathcal O(x)\mathcal O(y)\rangle\,dxdy$ を与えます。$W=\log Z$ の微分は、積 $\langle\mathcal O(x)\rangle\langle\mathcal O(y)\rangle$ を差し引いた**連結部分**を返します。一方、右辺の $W=-S_{\mathrm{ren}}$ は二次汎関数なので一次の期待値は $J=0$ で零となり、二階微分が非自明です。二つの微分の対象、符号と「連結」の意味をこの例で確かめました。
+**定義の確認**：互いに台が重ならない実試験関数 $h_1,h_2$ を選び、$J=s h_1+t h_2$ とします。左辺を $s,t$ で一回ずつ微分し、$Z[0]=1$ を用いると
+
+$$
+\left.\partial_s\partial_t\log Z[sh_1+th_2]\right|_{s=t=0}
+=\iint h_1(x)h_2(y)
+\bigl(\langle\mathcal O(x)\mathcal O(y)\rangle
+-\langle\mathcal O(x)\rangle\langle\mathcal O(y)\rangle\bigr)
+\,d^dx\,d^dy.
+$$
+
+つまり対数が**連結部分**を返します。一方、本講の $W=-S_{\mathrm{ren}}$ は二次汎関数であり、源零で一次微分は零です。さらに [応答の対称性と変分](#prop-holo9-finite-action)を使い、二つの台が交わらないので局所的な引き算の項が消えることを確かめると
+
+$$
+\left.\partial_s\partial_tW[sh_1+th_2]\right|_{s=t=0}
+=2\nu L^{d-1}c_\Delta
+\iint\frac{h_1(x)h_2(y)}{|x-y|^{2\Delta}}\,d^dx\,d^dy.
+$$
+
+このように試験方向で微分を定義すれば、分離点の二点核と生成汎関数の対応を直接検査できます。
 <!-- definition-example-end -->
 
 <a id="prop-holo9-two-point"></a>
@@ -472,7 +568,29 @@ $\Delta_-=2-3/2=1/2$ なので、必要な $z^{\Delta_-}$ に一致します。
 - 問題: $d=3$、$\Delta=2$ の $F=z^2/(z^2+r^2)^2$ について、$\nabla_E^2F= -2F/L^2$ となることを確認し、対応する $m^2L^2$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [核の証明](#prop-holo9-kernel-solution)で得た一般計算に $\Delta=2$、$d=3$ を代入すると $L^2\nabla_E^2F/F=2(2-3)=-2$ です。よって $\nabla_E^2F=-2F/L^2$、場の式 $(-\nabla_E^2+m^2)F=0$ の質量は $m^2L^2=-2$。指数判別は $\nu=\sqrt{9/4-2}=1/2$ なので、今回の開いた窓にあります。核の前係数は微分方程式を変えず、境界の規格化だけを決めます。
+**詳細解答。** $u=z^2+r^2$ と置き、[核の証明](#prop-holo9-kernel-solution)の微分を $\Delta=2$ に具体化すると
+
+$$
+\frac{\partial_zF}{F}=\frac2z-\frac{4z}{u},\qquad
+\frac{\partial_z^2F}{F}=\frac{2}{z^2}-\frac{20}{u}+\frac{24z^2}{u^2},
+\qquad
+\frac{\Delta_xF}{F}=-\frac{12}{u}+\frac{24r^2}{u^2}
+$$
+
+です。境界方向が3次元なので、[HOLO8のLaplace作用素](../HOLO8/index.md#ref-holo8-radial-equation)における $-(d-1)z\partial_z=-2z\partial_z$ と合わせれば
+
+$$
+\begin{aligned}
+\frac{L^2\nabla_E^2F}{F}
+&=z^2\left(\frac{2}{z^2}-\frac{20}{u}+\frac{24z^2}{u^2}\right)
+-2z\left(\frac2z-\frac{4z}{u}\right)
++z^2\left(-\frac{12}{u}+\frac{24r^2}{u^2}\right)\\
+&=-2-\frac{24z^2}{u}
++\frac{24z^2(z^2+r^2)}{u^2}=-2.
+\end{aligned}
+$$
+
+従って $\nabla_E^2F=-2F/L^2$、場の式 $(-\nabla_E^2+m^2)F=0$ の質量は $m^2L^2=-2$ です。指数判別は $\nu=\sqrt{9/4-2}=1/2$ なので、今回の開いた窓にあります。核の前係数は微分方程式を変えず、境界の規格化だけを決めます。
 <!-- solution-end -->
 
 <a id="ex-holo9-a3"></a>
