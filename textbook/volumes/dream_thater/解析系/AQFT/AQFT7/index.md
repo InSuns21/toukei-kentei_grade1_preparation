@@ -101,6 +101,8 @@ $$
 =\begin{pmatrix}a&i/2\\-i/2&b\end{pmatrix},
 \qquad [\Lambda]^*=[\Lambda].
 $$
+これは標準内積を持つ $\mathbb C^2$ 上での[LA5のHermitian作用素の定義](../../../基礎科目/LA/LA5/index.md#def-la5-hermitian)に合致します。ただし、Hermitian性と半正定値性は別々の条件です。
+
 $a>0$ なので、任意の $w=(w_1,w_2)^T\in\mathbb C^2$ に対し平方完成すると
 $$
 w^*[\Lambda]w
@@ -412,7 +414,7 @@ $$
 \le\liminf_{t\to0}\frac{1-e^{-t^2\mu(F,F)/2}}{t^2}
 =\frac12\mu(F,F)<\infty.
 $$
-したがって二次モーメントが有限です。さらに $0\le(1-\cos(t\lambda))/t^2\le\lambda^2/2$ なので優収束定理で等号が得られます。自己共役作用素のスペクトル計算での定義域判定より
+したがって二次モーメントが有限です。さらに $0\le(1-\cos(t\lambda))/t^2\le\lambda^2/2$ なので優収束定理で等号が得られます。[QM6の非有界スペクトル積分の定義](../../QM/QM6/index.md#def-qm6-unbounded-spectral-integral)と[二次モーメントのノルム公式](../../QM/QM6/index.md#prop-qm6-unbounded-integral-domain)を適用すると
 $$
 \Omega_\mu\in D(\Phi_\mu(F)),\qquad
 \|\Phi_\mu(F)\Omega_\mu\|^2
