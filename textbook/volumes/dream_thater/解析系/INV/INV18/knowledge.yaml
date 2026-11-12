@@ -1,0 +1,45 @@
+chapter: INV18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV17
+  - INV10
+  - INV8
+  - GPDE8
+forward_references: []
+
+concepts:
+  - id: inverse.pde-reduced-objective
+    name: PDE制約付き目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PDE 制約付き目的関数）"]
+    requires: [inverse.pde-state-map, inverse.pde-observation-map]
+
+  - id: inverse.pde-adjoint-state
+    name: 随伴状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（随伴状態）"]
+    requires: [inverse.pde-reduced-objective, inverse.pde-state-existence]
+
+  - id: inverse.pde-lagrangian
+    name: PDE制約のLagrangian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PDE 制約の Lagrangian）"]
+    requires: [inverse.pde-reduced-objective, inverse.pde-state-map]
+
+  - id: inverse.pde-adjoint-gradient
+    name: 随伴法による縮約目的関数の微分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（随伴法による縮約目的関数の微分）"]
+    requires: [inverse.pde-adjoint-state, inverse.pde-lagrangian, inverse.pde-state-frechet, inverse.pde-sensitivity-equation]
+
+  - id: inverse.pde-two-sensor-identifiability
+    name: 二観測による二係数の局所安定識別
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二観測による二係数の局所安定識別）"]
+    requires: [inverse.pde-adjoint-gradient, inverse.finite-full-rank-identifiability, inverse.pde-observation-derivative]
