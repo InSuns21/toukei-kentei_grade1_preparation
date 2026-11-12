@@ -57,6 +57,8 @@ $$
 <!-- definition-example-start: def-aqft9-local-vn-net -->
 ### 直接例：二点可換環の局所閉包
 
+**定義の確認**。元のC*netの包含と局所性、選んだ状態のGNS表現、像の二重可換子を順に計算し、同じHilbert空間上の局所von Neumann環が確かに得られることを確認します。
+
 $\mathfrak A=\mathbb C^2$、任意の非空領域で $\mathfrak A(O)=\mathbb C^2$ とします。積と随伴は成分ごとに定めます。この割当ては包含に対して単調で、異なる領域間の観測量もすべて可換です。
 
 状態 $\omega_{\rm av}(a,b)=(a+b)/2$ を選ぶと、GNS商の零空間は $\{0\}$ です。実際、
@@ -411,6 +413,8 @@ $$
 
 <!-- definition-example-start: def-aqft9-fock-local-vn -->
 ### 直接例：零源・実スケールと局所可換性
+
+**定義の確認**。領域 $O$ の実源商に対し、零元・実数倍・随伴から単位的Weyl生成族を確かめ、さらに空間的に分離した二領域で生成元と二重可換子の可換性を確認します。
 
 $\mathcal V(O)$ は実線形部分空間なので、$0\in\mathcal V(O)$ と $tF\in\mathcal V(O)$（$t\in\mathbb R$）を含みます。[Weyl関係](../AQFT6/index.md#def-aqft6-weyl-ccr)から
 
