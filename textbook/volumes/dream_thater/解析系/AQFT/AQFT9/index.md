@@ -110,7 +110,7 @@ $$
 
 ### 証明の見取り図
 
-包含は二重可換子の順序保存性を追います。局所性では、一方の局所代数の像が他方の**可換子**へ入ることを先に示し、可換子のWOT閉性を使って二度にわたり極限へ拡張します。
+包含は二重可換子の順序保存性を追います。局所性では、一方の局所代数の像が他方の**可換子**へ入ることを先に示し、[可換子のWOT閉性](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)を使って二度にわたり極限へ拡張します。
 
 <!-- proof-start -->
 ### 証明
@@ -137,7 +137,7 @@ $$
 S''\subset T'.
 $$
 
-従って $T\subset(S'')'$。再び可換子のWOT閉性を用いると $T''\subset(S'')'$ です。これは $S''$ の各元が $T''$ の各元と可換であることそのものです。したがって
+従って $T\subset(S'')'$。再び[可換子のWOT閉性](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)を用いると $T''\subset(S'')'$ です。これは $S''$ の各元が $T''$ の各元と可換であることそのものです。したがって
 
 $$
 \mathcal M_\omega(O_1)
@@ -299,7 +299,7 @@ $$
 \longrightarrow0.
 $$
 
-被積分関数は $|\xi|^2\in L^1$ で上から抑えられ、ほとんど至る所で零へ収束するため、Lebesgueの優収束定理を適用しました。これがSOT収束です。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から $P\in\pi(C([0,1]))''$ です。
+被積分関数は $|\xi|^2\in L^1$ で上から抑えられ、ほとんど至る所で零へ収束するため、[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用しました。これがSOT収束です。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から $P\in\pi(C([0,1]))''$ です。
 
 仮に $P=\pi(f)$ となる連続関数 $f$ があれば、$f=1$ が $(0,1/2)$ 上のほとんど至る所、$f=0$ が $(1/2,1)$ 上のほとんど至る所で成立します。連続性からそれぞれの開区間の**全点**で同じ等式が成立します。よって $t\uparrow1/2$ での左極限は1、$t\downarrow1/2$ での右極限は0となり、連続性に矛盾します。
 <!-- proof-end -->
@@ -335,7 +335,7 @@ $$
 =\int_0^1|f_n(t)|^2|\xi(t)|^2\,dt\longrightarrow0
 $$
 
-が優収束定理から従います。つまり $\pi(f_n)\to0$ はSOT収束、かつ $\|\pi(f_n)\|\le1$ です。[VN4のWOTとultraweak位相の比較](../../VN/VN4/index.md#prop-vn4-wot-ultraweak)を適用すると、一様ノルム有界なこの列はultraweakでも零へ収束します。
+が[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から従います。つまり $\pi(f_n)\to0$ はSOT収束、かつ $\|\pi(f_n)\|\le1$ です。[VN4のWOTとultraweak位相の比較](../../VN/VN4/index.md#prop-vn4-wot-ultraweak)を適用すると、一様ノルム有界なこの列はultraweakでも零へ収束します。
 
 もし正規な延長 $\varphi$ があれば、[正規汎関数の定義](../../VN/VN5/index.md#def-vn5-normal-functional)から $\varphi(\pi(f_n))\to\varphi(0)=0$ のはずです。しかし延長条件から $\varphi(\pi(f_n))=\delta_0(f_n)=1$ であり矛盾します。
 <!-- proof-end -->
@@ -603,7 +603,7 @@ $\mathbb C$ と $\mathbb C^2$ は複素ベクトル空間の次元が異なり�
 $H=L^2([0,1])$、$\pi(f)=M_f$ とし、第5節の $f_n$ と $P=M_{\mathbf1_{[0,1/2]}}$ について、任意の $\xi\in H$ で $\|(M_{f_n}-P)\xi\|_2\to0$ を示す一方、$\|M_{f_n}-P\|\to0$ とはならないことを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $|f_n-\mathbf1_{[0,1/2]}|\le1$ で、$t\ne1/2$ では点wiseに零へ収束します。従って $\xi\in L^2$ を固定すると、被積分関数の上界 $|\xi|^2$ は可積分です。優収束定理より
+**詳細解答。** $|f_n-\mathbf1_{[0,1/2]}|\le1$ で、$t\ne1/2$ では点wiseに零へ収束します。従って $\xi\in L^2$ を固定すると、被積分関数の上界 $|\xi|^2$ は可積分です。[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)より
 
 $$
 \|(M_{f_n}-P)\xi\|_2^2
