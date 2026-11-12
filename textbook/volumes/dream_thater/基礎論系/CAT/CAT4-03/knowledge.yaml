@@ -1,0 +1,51 @@
+chapter: CAT4-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-07
+  - CAT4-01
+  - CAT4-02
+
+concepts:
+  - id: category.braiding
+    name: 組紐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（組紐モノイダル圏）"]
+    requires: [category.monoidal-category, category.natural-isomorphism, category.pentagon-coherence]
+  - id: category.braided-monoidal
+    name: 組紐モノイダル圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（組紐モノイダル圏）"]
+    requires: [category.braiding]
+  - id: category.symmetric-monoidal
+    name: 対称モノイダル圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対称モノイダル圏）"]
+    requires: [category.braided-monoidal]
+  - id: category.symmetric-inverse-braiding
+    name: 対称性と逆組紐
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称性と逆組紐）"]
+    requires: [category.symmetric-monoidal, category.braiding]
+  - id: category.vector-tensor-symmetry
+    name: ベクトル空間のテンソル積の対称性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ベクトル空間のテンソル積の対称性）"]
+    requires: [category.symmetric-monoidal, category.braiding]
+  - id: category.non-symmetric-braiding
+    name: 対称とは限らない組紐
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称とは限らない組紐）"]
+    requires: [category.braided-monoidal, category.symmetric-monoidal]
+  - id: category.braid-relation
+    name: 組紐関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（組紐関係）"]
+    requires: [category.braiding, category.canonical-rebracketing]
