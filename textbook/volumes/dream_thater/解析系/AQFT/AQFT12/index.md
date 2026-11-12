@@ -226,7 +226,7 @@ $$
 =0.
 $$
 
-最後に全域巡回性 $\overline{\mathcal M\Omega}=\mathcal H$ を使います。$\psi$ は稠密な $\mathcal M\Omega$ に直交するので $\psi=0$。すなわち $K^\perp=\{0\}$。Hilbert空間の直交分解により閉部分空間 $K$ は $\mathcal H$ に等しく、結論を得ます。$\square$
+最後に全域巡回性 $\overline{\mathcal M\Omega}=\mathcal H$ を使います。$\psi$ は稠密な $\mathcal M\Omega$ に直交するので $\psi=0$。すなわち $K^\perp=\{0\}$。Hilbert空間の[直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)により閉部分空間 $K$ は $\mathcal H$ に等しく、結論を得ます。$\square$
 <!-- proof-end -->
 
 この証明は「全域環の元を局所von Neumann環の元 **一個** で近似した」のではありません。全並進された局所演算子の**積の線形結合**を経由しています。積を許さなければ弱加法性を正しく利用できません。
