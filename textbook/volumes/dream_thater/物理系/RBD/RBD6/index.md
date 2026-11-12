@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **前提**：[MECH8 の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)、[MECH8 の主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)と[主軸の存在](../../MECH/MECH8/index.md#thm-mech8-principal-axis)、[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)、[RBD3 の空間・物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)を用います。$R$ は**物体固定成分を空間成分へ移す**右手系の能動回転、すなわち $R^{\mathsf T}R=I_3$、$\det R=1$ です。
+> **前提**：[MECH8 の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)、[MECH8 の主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)と[主軸の存在](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)、[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)、[RBD3 の空間・物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)を用います。$R$ は**物体固定成分を空間成分へ移す**右手系の能動回転、すなわち $R^{\mathsf T}R=I_3$、$\det R=1$ です。
 
 ## 1. 同じ物体なのに慣性テンソルの数字が変わるのはなぜか
 
@@ -79,7 +79,7 @@ J_s=R\left[\int\bigl(|u_b|^2I_3-u_bu_b^{\mathsf T}\bigr)\,dm\right]R^{\mathsf T}
 =RJ_bR^{\mathsf T}.
 $$
 
-[MECH8 の角運動量の公式](../../MECH/MECH8/index.md#thm-mech8-inertia-angular-momentum)を両座標系に適用すると
+[MECH8 の角運動量の公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)を両座標系に適用すると
 
 $$
 J_s\omega_s=RJ_bR^{\mathsf T}R\omega_b
@@ -385,7 +385,7 @@ J_s=\frac{M\ell^2}{24}
 \end{pmatrix}.
 $$
 
-空間成分の角速度を $\omega_s=(\Omega,0,0)^{\mathsf T}$（$\Omega\ne0$）とすれば、[MECH8 の角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-angular-momentum)から
+空間成分の角速度を $\omega_s=(\Omega,0,0)^{\mathsf T}$（$\Omega\ne0$）とすれば、[MECH8 の角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)から
 
 $$
 L_s=J_s\omega_s
@@ -437,7 +437,7 @@ $J_O$ が正定値でないなら、実対称かつ半正定値なので、あ�
 逆に、質量が $O+\mathbb Rv$（$v\ne0$）上に集中していれば、そこで $v\times u=0$ なので $v^{\mathsf T}J_Ov=0$ となり、正定値ではありません。二方向がともに成立しました。
 <!-- proof-end -->
 
-正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis)によって直交主軸で二次形式を対角にできます。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
+正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)によって直交主軸で二次形式を対角にできます。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
 
 <a id="def-rbd6-inertia-ellipsoid"></a>
 
@@ -604,7 +604,7 @@ $\frac12>\frac13$ なので最大は円柱の中心軸 $z$ 方向です。単位
 <!-- solution-start -->
 ### 詳細解答
 
-[角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-angular-momentum)より
+[角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)より
 
 $$
 L_s=J_s\omega_s=Q\Omega(-1,3,0)^{\mathsf T}.
@@ -807,7 +807,7 @@ $$
 
 非対角項は円柱自体の姿勢変更ではなく、$d$ が $x,y$ 両方の成分を持つ**基準点の移動**で生じます。
 
-今回は $O$ が空間固定点で、そのまわりの純回転と明示されているため、[MECH8 の角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-angular-momentum)を $O$ に適用できます。
+今回は $O$ が空間固定点で、そのまわりの純回転と明示されているため、[MECH8 の角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)を $O$ に適用できます。
 
 $$
 \boxed{
