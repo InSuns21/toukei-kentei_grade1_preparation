@@ -351,7 +351,7 @@ U(\Lambda)U(a)U(\Lambda)^*
 &=\int e^{ib(\Lambda^{-1}p,a)}\,dE(p).
 \end{aligned}
 $$
-一方、左辺は $\int e^{ib(p,a)}\,d(U(\Lambda)E(p)U(\Lambda)^*)$ です。平行移動群の共同スペクトル測度の一意性から、任意のBorel集合 $B\subset\mathbb R^4$ について
+一方、左辺は射影値測度 $B\mapsto U(\Lambda)E(B)U(\Lambda)^*$ に関する同じ被積分関数の積分です。平行移動群の共同スペクトル測度の一意性から、任意のBorel集合 $B\subset\mathbb R^4$ について
 $$
 U(\Lambda)E(B)U(\Lambda)^*=E(\Lambda B)
 $$
