@@ -110,6 +110,13 @@ $$
 
 さらに演算の単位となる対象を $I$ とし、$I\otimes A$ と $A\otimes I$ を $A$ に移す同型をそれぞれ**左単位子** $\lambda_A$ と**右単位子** $\rho_A$ と書く。「単位」といっても等号 $I\otimes A=A$ を要求するわけではない。
 
+ここで「三変数で自然」とは、[積圏](../CAT1-05/index.md#def-cat1-05-product) $\mathcal C\times\mathcal C\times\mathcal C$ から $\mathcal C$ への二つの関手
+$$
+(A,B,C)\longmapsto(A\otimes B)\otimes C,
+\qquad (A,B,C)\longmapsto A\otimes(B\otimes C)
+$$
+の間の[自然同型](../CAT1-07/index.md#def-cat1-07-natural-isomorphism)という意味である。射の三重組 $(f,g,h)$ に対して前者の関手は $(f\otimes g)\otimes h$、後者は $f\otimes(g\otimes h)$ を返す。左右単位子も、$A\mapsto I\otimes A$ および $A\mapsto A\otimes I$ から恒等関手への自然同型として読む。従って対象成分が同型なだけでは足りず、各射との可換性を検査しなければならない。
+
 三対象について一つの結合子を選ぶだけでは、四対象に対する二通りの移し替えが同じになる保証がない。そこで、四対象を組み替える二つの経路の一致を追加で要求する。また、括弧の中の単位対象 $I$ を異なる順番で取り除く二つの経路も一致させる。これらの等式を備える構造を次に定義する。
 
 <a id="def-cat4-01-monoidal"></a>
@@ -172,11 +179,18 @@ $$
 \rho_A(a,*)&=a.
 \end{aligned}
 $$
-各写像の逆は $(a,(b,c))\mapsto((a,b),c)$、$a\mapsto(*,a)$、$a\mapsto(a,*)$ である。従ってどれも同型である。自然性は $f:A\to A'$、$g:B\to B'$、$h:C\to C'$ を取って、結合子の両経路の像を
+各写像の逆は $(a,(b,c))\mapsto((a,b),c)$、$a\mapsto(*,a)$、$a\mapsto(a,*)$ である。従ってどれも同型である。[自然性](../CAT1-07/index.md#def-cat1-07-natural-transformation)は $f:A\to A'$、$g:B\to B'$、$h:C\to C'$ を取って、共通の出発点 $((a,b),c)$ から
 $$
-(f(a),(g(b),h(c)))
+\begin{aligned}
+\alpha_{A',B',C'}((f\times g)\times h)((a,b),c)
+ &=\alpha_{A',B',C'}((f(a),g(b)),h(c))\\
+ &=(f(a),(g(b),h(c))),\\
+(f\times(g\times h))\alpha_{A,B,C}((a,b),c)
+ &=(f\times(g\times h))(a,(b,c))\\
+ &=(f(a),(g(b),h(c)))
+\end{aligned}
 $$
-と計算することで確認できる。単位子についても、左右の経路がそれぞれ $f(a)$ になる。
+と照合して確認できる。両単位子についても、$\lambda_{A'}(1_I\times f)(*,a)=f(a)=f\lambda_A(*,a)$、$\rho_{A'}(f\times1_I)(a,*)=f(a)=f\rho_A(a,*)$ である。
 
 <!-- definition-example-start: def-cat4-01-monoidal -->
 **定義の確認**（五角形と三角形を最後まで）。 四対象の元を $((((a,b),c),d))$ と書く。五角形の左辺は
@@ -254,11 +268,21 @@ $$
 $$
 \alpha_{A,B,C}=\langle q_A,\langle q_B,q_C\rangle\rangle
 $$
-を作る。ここで $\langle u,v\rangle$ は[積への一意な組の射](../CAT2-02/index.md#def-cat2-02-binary-product)であり、いずれの射も出発点は $((A\times B)\times C)$ である。反対向きの射を
+を作る。ここで $\langle u,v\rangle$ は[積への一意な組の射](../CAT2-02/index.md#def-cat2-02-binary-product)であり、いずれの射も出発点は $((A\times B)\times C)$ である。反対向きの射の始域を $Y=A\times(B\times C)$ とし、ここからの三つの反復射影を
 $$
-\beta_{A,B,C}=\langle\langle p_A,p_Bp_{B\times C}\rangle,p_Cp_{B\times C}\rangle
+s_A=p_A:Y\to A,\qquad
+s_B=p_Bp_{B\times C}:Y\to B,\qquad
+s_C=p_Cp_{B\times C}:Y\to C
 $$
-とする（この式の $p_A,p_B,p_C$ はそれぞれ当該積の射影を示す）。$\beta\alpha$ と恒等射を $A,B,C$ への三射影に続けると、両方とも $q_A,q_B,q_C$ になる。三射影への合成で射が一意なので $\beta\alpha=1$。逆順でも右側の三射影を使えば $\alpha\beta=1$。よって $\alpha$ は同型である。
+と区別する（各 $p$ は添字の積に応じた射影である）。そこで
+$$
+\beta_{A,B,C}=\langle\langle s_A,s_B\rangle,s_C\rangle:Y\to(A\times B)\times C
+$$
+と置ける。$q_A\beta=s_A$、$q_B\beta=s_B$、$q_C\beta=s_C$ であり、$s_A\alpha=q_A$、$s_B\alpha=q_B$、$s_C\alpha=q_C$ だから
+$$
+q_A\beta\alpha=q_A,\qquad q_B\beta\alpha=q_B,\qquad q_C\beta\alpha=q_C.
+$$
+三射影への合成で射が一意なので $\beta\alpha=1_{(A\times B)\times C}$。逆順でも $s_A\alpha\beta=s_A$、$s_B\alpha\beta=s_B$、$s_C\alpha\beta=s_C$ となり、$\alpha\beta=1_Y$。よって $\alpha$ は同型である。
 
 **(3) 単位子と逆射。** 終対象 $I$ への一意な射を $!_A:A\to I$ とする。左単位子を第二射影 $\lambda_A=p_A:I\times A\to A$、右単位子を第一射影 $\rho_A=p_A:A\times I\to A$ とする。逆射の候補は
 $$
@@ -296,7 +320,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-01-strict -->
-**定義の確認**（離散圏上の加法）。 自然数 $0,1,2,\ldots$ を対象とし、恒等射以外を持たない離散圏 $\mathcal N$ を取る。$m\otimes n=m+n$、$I=0$ とし、恒等射の組を恒等射に送る。射は恒等射しかないため、双関手の恒等射・合成保存は成立する。対象の等式
+**定義の確認**（離散圏上の加法）。 非負整数 $0,1,2,\ldots$ を対象とし、異なる対象の間には射がなく各対象の恒等射だけを持つ**離散圏** $\mathcal N$ を取る。$m\otimes n=m+n$、$I=0$ とし、恒等射の組を恒等射に送る。射は恒等射しかないため、双関手の恒等射・合成保存は成立する。対象の等式
 $$
 (m+n)+p=m+(n+p),\quad 0+n=n,\quad n+0=n
 $$
@@ -349,11 +373,12 @@ $$
 (\eta\otimes(\theta\otimes\kappa))_X
 =\eta_{G'H'X}\,F((\theta\otimes\kappa)_X)
 $$
-で、$F$ の合成保存により同じ式になる。恒等自然変換と水平合成についても、各 $X$ で
+で、$F$ の合成保存により同じ式になる。恒等自然変換と水平合成についても、$1_{1_{\mathcal A}}$ は恒等関手 $1_{\mathcal A}$ 上の恒等**自然変換**であることに注意すると、各 $X$ で
 $$
 (1_{1_{\mathcal A}}\otimes\eta)_X
-=(1_{\mathcal A}\eta)_X=\eta_X,\qquad
-(\eta\otimes1_{1_{\mathcal A}})_X=\eta_X
+=1_{F'X}\,1_{\mathcal A}(\eta_X)=\eta_X,\\
+(\eta\otimes1_{1_{\mathcal A}})_X
+=\eta_{1_{\mathcal A}X}\,F(1_X)=\eta_X
 $$
 が成り立つ。従って結合子と単位子は全て恒等自然変換でよい。五角形・三角形はその合成の等式として成立する。$\square$
 <!-- proof-end -->
@@ -418,7 +443,21 @@ $$
 ((A\otimes B)\otimes(C\otimes D))
 \to A\otimes(B\otimes(C\otimes D)).
 $$
-右経路の第一射 $\alpha_{A,B,C}\otimes1_D$ の終域は $(A\otimes(B\otimes C))\otimes D$、第二射 $\alpha_{A,B\otimes C,D}$ の終域は $A\otimes((B\otimes C)\otimes D)$、第三射 $1_A\otimes\alpha_{B,C,D}$ の終域は $A\otimes(B\otimes(C\otimes D))$ である。第一射の始域は左経路と同じで、各中間域が次の射の始域になるため両方の合成が定義できる。
+右経路の三つの射は次のとおりである。
+$$
+\begin{aligned}
+\alpha_{A,B,C}\otimes1_D:\;&
+(((A\otimes B)\otimes C)\otimes D)
+\to((A\otimes(B\otimes C))\otimes D),\\
+\alpha_{A,B\otimes C,D}:\;&
+((A\otimes(B\otimes C))\otimes D)
+\to A\otimes((B\otimes C)\otimes D),\\
+1_A\otimes\alpha_{B,C,D}:\;&
+A\otimes((B\otimes C)\otimes D)
+\to A\otimes(B\otimes(C\otimes D)).
+\end{aligned}
+$$
+各中間の終域が次の射の始域と一致し、二経路は共通の始域・終域を持つため合成を比較できる。
 <!-- solution-end -->
 
 ### 問題3：三角形の具体計算
