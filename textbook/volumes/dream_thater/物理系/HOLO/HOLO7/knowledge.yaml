@@ -1,0 +1,49 @@
+chapter: HOLO7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO6
+  - QCURV1
+concepts:
+  - id: holography.cutoff-euclidean-scalar-action
+    name: 有限cutoffのEuclidスカラー作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限cutoffのEuclidスカラー作用）"]
+    requires: [holography.poincare-metric]
+  - id: holography.cutoff-dirichlet-data
+    name: 有限cutoffのDirichletデータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限cutoffのDirichletデータ）"]
+    requires: [holography.cutoff-euclidean-scalar-action]
+  - id: holography.cutoff-boundary-variation
+    name: Euclidスカラー作用の境界付き第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Euclidスカラー作用の境界付き第一変分）"]
+    requires: [holography.cutoff-dirichlet-data]
+  - id: holography.cutoff-normal-momentum
+    name: cutoff面の法線運動量密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（cutoff面の法線運動量密度）"]
+    requires: [holography.cutoff-boundary-variation]
+  - id: holography.cutoff-onshell-boundary-action
+    name: on-shell作用の境界表示と境界微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（on-shell作用の境界表示と境界微分）"]
+    requires: [holography.cutoff-normal-momentum]
+  - id: holography.cutoff-boundary-response-map
+    name: 有限cutoffの境界応答写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限cutoffの境界応答写像）"]
+    requires: [holography.cutoff-onshell-boundary-action]
+  - id: holography.cutoff-boundary-response-positivity
+    name: 非負質量二乗での一意性・応答の対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非負質量二乗での一意性・応答の対称性）"]
+    requires: [holography.cutoff-boundary-response-map]
