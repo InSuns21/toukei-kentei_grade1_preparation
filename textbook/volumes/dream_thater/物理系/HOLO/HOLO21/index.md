@@ -345,16 +345,18 @@ $$
 <!-- solution-start -->
 **詳細解答。** 二つの固有値は非負で、その和は $3/4+1/4=1$ なので密度演算子の規格化は満たされます。[有限cutoffのレプリカモーメントとRényiエントロピー](../../QFT/QFT57/index.md#def-qft57-replica-moments)を用い、
 $$
-R_1=1,\qquad
-R_2=\left(\frac34\right)^2+\left(\frac14\right)^2=\frac{9+1}{16}=\frac58,
-\qquad
+R_1=1,\qquad R_2=\left(\frac34\right)^2+\left(\frac14\right)^2=\frac{9+1}{16}=\frac58.
+$$
+$$
 S_2=\frac{\log(5/8)}{1-2}=\log\frac85.
 $$
 
 $W=5\rho_A$ の固有値は $15/4,5/4$ なので、
 $$
 \operatorname{Tr}W=\frac{15+5}{4}=5,\qquad
-\operatorname{Tr}W^2=\frac{225+25}{16}=\frac{125}{8},\qquad
+\operatorname{Tr}W^2=\frac{225+25}{16}=\frac{125}{8}.
+$$
+$$
 \frac{\operatorname{Tr}W^2}{(\operatorname{Tr}W)^2}
 =\frac{125/8}{25}=\frac58.
 $$
@@ -392,14 +394,18 @@ $$
 
 $\alpha=3/2$ の円錐過剰では
 $$
-\int_{\rm tip}R\sqrt g=4\pi\left(1-\frac32\right)=-2\pi,\qquad
+\int_{\rm tip}R\sqrt g=4\pi\left(1-\frac32\right)=-2\pi.
+$$
+$$
 I_{\rm tip}=-\frac{-2\pi\mathcal A}{16\pi G_N}
 =\frac{\mathcal A}{8G_N}.
 $$
 
 $\alpha=1/2$ の円錐欠損では
 $$
-\int_{\rm tip}R\sqrt g=4\pi\left(1-\frac12\right)=2\pi,\qquad
+\int_{\rm tip}R\sqrt g=4\pi\left(1-\frac12\right)=2\pi.
+$$
+$$
 I_{\rm tip}=-\frac{2\pi\mathcal A}{16\pi G_N}
 =-\frac{\mathcal A}{8G_N}.
 $$
@@ -441,7 +447,9 @@ $$
 古典RT係数と[HOLO13のBrown–Henneaux関係](../HOLO13/index.md#prop-holo13-brown-henneaux)から
 $$
 S^{(0)}(A)\simeq\frac{12G_3}{4G_3}=3,\qquad
-c_{\rm BH}=\frac{3L}{2G_3}=3,\qquad
+c_{\rm BH}=\frac{3L}{2G_3}=3.
+$$
+$$
 \frac{c_{\rm BH}}3\log\frac{\ell}{\epsilon}=\frac33\cdot3=3.
 $$
 一致しているのは対数主項の係数であり、有限cutoffの正確なエントロピーを3と断定したのではありません。
