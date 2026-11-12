@@ -154,7 +154,7 @@ $t$ を固定すると $e^{it\xi^2}$ は絶対値1の乗数です。[FOU3のFour
 <!-- proof-start -->
 ### 証明
 
-$g_t(\xi)=e^{it\xi^2}\sum_j f_j(\xi)$ と置けば、定義から $\sum_jF_j(x,t)=(2\pi)^{-1/2}\int e^{ix\xi}g_t(\xi)d\xi$。単位的Fourier反転とPlancherelの恒等式によって
+$g_t(\xi)=e^{it\xi^2}\sum_j f_j(\xi)$ と置けば、定義から $\sum_jF_j(x,t)=(2\pi)^{-1/2}\int e^{ix\xi}g_t(\xi)d\xi$。[FOU4の$L^2$ Fourier変換の一意な拡張](../../FOU/FOU4/index.md#thm-fou4-l2-extension)で得られるPlancherel等式を、$(2\pi)^{-1/2}$ を付けた単位的反転に適用すると
 
 $$
 \int_{\mathbb R}\left|\sum_jF_j(x,t)\right|^2dx
