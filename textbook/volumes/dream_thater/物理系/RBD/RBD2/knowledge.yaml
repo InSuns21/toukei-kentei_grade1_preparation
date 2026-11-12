@@ -1,0 +1,66 @@
+chapter: RBD2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD1
+forward_references: []
+concepts:
+  - id: mechanics.axis-angle-rotation
+    name: 回転の軸角表示
+    kind: definition
+    aliases: [axis-angle representation]
+    introduction: formal
+    introduction_aliases: [定義（回転の軸角表示）]
+    requires:
+      - mechanics.proper-rotation
+  - id: mechanics.euler-rotation-theorem
+    name: Eulerの回転定理
+    kind: theorem
+    aliases: [Euler rotation theorem]
+    introduction: formal
+    introduction_aliases: [定理（Eulerの回転定理）]
+    requires:
+      - mechanics.axis-angle-rotation
+  - id: mechanics.cross-product-skew-matrix
+    name: ベクトル積の反対称行列
+    kind: definition
+    aliases: [cross-product matrix]
+    introduction: formal
+    introduction_aliases: [定義（ベクトル積の反対称行列）]
+    requires:
+      - mechanics.axis-angle-rotation
+  - id: mechanics.rodrigues-formula
+    name: Rodriguesの回転公式
+    kind: theorem
+    aliases: [Rodrigues rotation formula, Rodrigues公式]
+    introduction: formal
+    introduction_aliases: [定理（Rodriguesの回転公式）]
+    requires:
+      - mechanics.cross-product-skew-matrix
+      - mechanics.euler-rotation-theorem
+  - id: mechanics.rotation-matrix-exponential
+    name: 回転の指数表示
+    kind: proposition
+    aliases: [rotation matrix exponential representation]
+    introduction: formal
+    introduction_aliases: [命題（回転の指数表示）]
+    requires:
+      - mechanics.rodrigues-formula
+  - id: mechanics.finite-rotation-noncommutativity
+    name: 有限回転の非可換性
+    kind: proposition
+    aliases: [noncommutativity of finite rotations]
+    introduction: formal
+    introduction_aliases: [命題（有限回転の非可換性）]
+    requires:
+      - mechanics.rodrigues-formula
+      - mechanics.rigid-motion-composition
+  - id: mechanics.small-rotation-commutator
+    name: 微小回転の順序差
+    kind: proposition
+    aliases: [commutator of infinitesimal rotations]
+    introduction: formal
+    introduction_aliases: [命題（微小回転の順序差）]
+    requires:
+      - mechanics.rotation-matrix-exponential
+      - mechanics.finite-rotation-noncommutativity
