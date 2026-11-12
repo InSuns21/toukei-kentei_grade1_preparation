@@ -393,35 +393,105 @@ $$
 **A1. 二端点とboostの範囲。** $\Delta x=13$、$\Delta t=5$、$L>0$ とする。$v,\Gamma,D,R$ を求め、二端点を同じ $T$ に置けることを確認せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $v=5/13$、$1-v^2=1-25/169=144/169$、従って $\Gamma=13/12$。不変長は $D=\sqrt{169-25}=\sqrt{144}=12$、$R=D/2=6$。$T_2-T_1=\Gamma(\Delta t-v\Delta x)=(13/12)(5-5)=0$ です。$|\Delta t|<\Delta x$ が成立するのでboostは実数で空間的端点条件を満たします。
+**詳細解答。** $|\Delta t|=5<13=\Delta x$ なので実数のboostを取れます。各量を定義から計算すると
+
+$
+v=\frac5{13},\qquad
+1-v^2=1-\frac{25}{169}=\frac{144}{169},\qquad
+\Gamma=\frac{13}{12},
+$
+
+$
+D=\sqrt{13^2-5^2}=12,\qquad R=\frac D2=6.
+$
+
+時間差は
+
+$
+T_2-T_1
+=\Gamma(\Delta t-v\Delta x)
+=\frac{13}{12}\left(5-\frac5{13}\cdot13\right)=0
+$
+
+です。$D>0$ なのでboost後に同じ $T$ 上の空間的二端点となります。
 <!-- solution-end -->
 
 <a id="ex-holo22-a02"></a>
 **A2. null曲率の縮約。** $R_{ab}=-2L^{-2}g_{ab}$、$g(k,k)=0$ を持つ $AdS_3$ で $R_{ab}k^ak^b$ を求めよ。これはNCCを満たすか。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $R_{ab}k^ak^b=(-2/L^2)g_{ab}k^ak^b=(-2/L^2)\cdot0=0$。NCCは $R_{ab}k^ak^b\ge0$ なので等号で成立します。厳密に正であることは求められていません。NCCだけからmaximinの存在は結論できません。
+**詳細解答。** 与えられたRicciテンソルにnullベクトルを二度縮約すると
+
+$
+R_{ab}k^ak^b
+=-\frac{2}{L^2}\,g_{ab}k^ak^b
+=-\frac{2}{L^2}\cdot0=0.
+$
+
+したがって[null曲率条件](#def-holo22-null-curvature) $R_{ab}k^ak^b\ge0$ は等号で成立します。厳密に正である必要はありません。ただし、この不等式だけではmaximin面の存在・安定性を結論できません。
 <!-- solution-end -->
 
 <a id="ex-holo22-a03"></a>
 **A3. null膨張率。** Minkowski $ds^2=-dt^2+dr^2+r^2d\phi^2$ の $t=0$、$r=2$ の円に対し、$k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とする。規格化 $g(k,l)$ と両膨張率を求め、極値性を判定せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $g(k,l)=\frac12(g(\partial_t,\partial_t)-g(\partial_r,\partial_r))=(-1-1)/2=-1$。円周は $2\pi r$。null方向の半径変化率は $\pm1/\sqrt2$ なので[膨張率の定義](#def-holo22-null-expansion)から $\theta_{(k)}=1/(\sqrt2r)=1/(2\sqrt2)$、$\theta_{(l)}=-1/(2\sqrt2)$。両方は零でなく、[二方向の膨張率と平均曲率](#prop-holo22-expansion-equivalence)より極値候補ではありません。
+**詳細解答。** $g(\partial_t,\partial_t)=-1$、$g(\partial_r,\partial_r)=1$、両者は直交するので
+
+$
+g(k,l)=\frac12(-1-1)=-1.
+$
+
+円の誘導計量は $h_{\phi\phi}=r^2$、円周は $\ell=2\pi r$ です。[膨張率の定義](#def-holo22-null-expansion)を円周の対数変化率として評価します。$dr/d\lambda=\pm1/\sqrt2$ より、$r=2$ で
+
+$
+\theta_{(k)}=\frac1\ell\frac{d\ell}{d\lambda}
+=\frac{1}{\sqrt2\,r}=\frac{1}{2\sqrt2},\qquad
+\theta_{(l)}=-\frac{1}{2\sqrt2}.
+$
+
+両方は零でなく、[二方向の膨張率と平均曲率](#prop-holo22-expansion-equivalence)より極値候補ではありません。
 <!-- solution-end -->
 
 <a id="ex-holo22-a04"></a>
 **A4. cutoff長の数値例。** $L=2$、$R=5$、$\epsilon=3$ で半円の正確なcutoff長を求めよ。さらに$\epsilon/R$が小さくないので対数主項だけで代用してよいか述べよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\sqrt{R^2-\epsilon^2}=\sqrt{25-9}=4$。[boost半円の命題](#prop-holo22-boosted-geodesic)の正確式から $\mathcal L_\epsilon=2L\log((R+4)/3)=4\log3$。対数主項だけなら $2L\log(2R/\epsilon)=4\log(10/3)$ で異なります。$\epsilon/R=3/5$ は十分小さいとは言えず、誤差項を無視して正確な値と呼んではいけません。
+**詳細解答。** $0<\epsilon=3<R=5$ を確認し、平方根を計算すると
+
+$
+\sqrt{R^2-\epsilon^2}=\sqrt{25-9}=4.
+$
+
+[boost半円の命題](#prop-holo22-boosted-geodesic)の**正確式**へ $L=2$ を代入して
+
+$
+\mathcal L_\epsilon
+=2L\log\frac{R+\sqrt{R^2-\epsilon^2}}{\epsilon}
+=4\log\frac{5+4}{3}=4\log3.
+$
+
+一方、対数主項だけなら $2L\log(2R/\epsilon)=4\log(10/3)$ となります。$\epsilon/R=3/5$ は十分小さい極限ではないので、主項を正確な長さと呼べません。
 <!-- solution-end -->
 
 <a id="ex-holo22-a05"></a>
 **A5. maximinの順序。** 二断面の候補面積が $\Sigma_1:(2,9)$、$\Sigma_2:(6,4)$ である。各断面での最小値、maximin値、列ごとに最大化した後のminimax値を求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\Sigma_1$ の最小は $\min(2,9)=2$、$\Sigma_2$ の最小は $\min(6,4)=4$。その最大は $\max(2,4)=4$。逆順は列ごとに $\max(2,6)=6$、$\max(9,4)=9$ を求め、その最小は $\min(6,9)=6$。したがって $4\ne6$。この表は[定義](#def-holo22-maximin)の演算順を確認する代数模型です。
+**詳細解答。** 各行で先に最小化し、その結果を断面間で最大化します。
+
+$
+\min(2,9)=2,\qquad \min(6,4)=4,
+\qquad \max(2,4)=4.
+$
+
+逆順では先に列ごとに最大化してから最小化するので
+
+$
+\max(2,6)=6,\qquad \max(9,4)=9,
+\qquad \min(6,9)=6.
+$
+
+したがって $4\ne6$ です。この表は[maximinの定義](#def-holo22-maximin)の演算順を確認する代数模型であり、幾何学的な存在定理ではありません。
 <!-- solution-end -->
 
 ### Level B：変分と選択条件を導く
@@ -430,7 +500,20 @@ $$
 **B1. Lorentz boostした曲線を元の座標に戻す。** $\Delta x=10$、$\Delta t=6$、$t_c=x_c=0$ とする。$T=0$、$X^2+z^2=R^2$ を $(t,x,z)$ で表し、曲線が $t=\text{一定}$ でないことと、$z>0$ で空間的であることを検査せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $v=6/10=3/5$、$D=\sqrt{100-36}=8$、$R=4$、$\Gamma=5/4$。$T=\Gamma(t-vx)=0$ より $t=3x/5$。$X=\Gamma(x-vt)=\Gamma x(1-v^2)=x/\Gamma=4x/5$。よって
+**詳細解答。** 定義から $v=3/5$、$D=\sqrt{10^2-6^2}=8$、$R=4$、$\Gamma=5/4$ です。$T=0$ の条件と空間座標の変換は順に
+
+$
+T=\Gamma(t-vx)=0
+\quad\Longrightarrow\quad t=vx=\frac35x,
+$
+
+$
+X=\Gamma(x-vt)
+=\Gamma(1-v^2)x
+=\frac{x}{\Gamma}=\frac45x
+$
+
+となります。これを $X^2+z^2=16$ に代入すると
 
 $$
 z^2+\frac{16}{25}x^2=16,\qquad t=\frac35x.
@@ -504,7 +587,18 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**（1）** $D^2=(\Delta x)^2-(\Delta t)^2=100-36=64>0$ なので空間的です。$v=3/5$、$\Gamma=5/4$、$D=8$、$R=4$。boostした端点差は $T_2-T_1=\Gamma(6-(3/5)10)=0$、$X_2-X_1=\Gamma(10-(3/5)6)=(5/4)(32/5)=8$。従って中点を原点に取って $T=0$、$X^2+z^2=16$ です。
+**（1）** 境界端点のLorentz不変な二乗距離は $D^2=10^2-6^2=64>0$ なので空間的です。$v=\Delta t/\Delta x=3/5$、$1-v^2=16/25$ より $\Gamma=5/4$、$D=8$、$R=4$ と求まります。boostの両端点差を計算すると
+
+$
+T_2-T_1=\frac54\left(6-\frac35\cdot10\right)=0,
+$
+
+$
+X_2-X_1=\frac54\left(10-\frac35\cdot6\right)
+=\frac54\cdot\frac{32}{5}=8.
+$
+
+よって中点を原点に取って $T=0$、$X^2+z^2=16$ です。
 
 **（2）** boostは等長変換で、[HOLO18の静的半円](../HOLO18/index.md#prop-holo18-regulated-length)は空間的測地線。時間反転対称な $T=0$ 断面上では時間法線の一次変分も零です。半円板と境界区間で挟まれた領域の境界は、その区間と半円に一致するので[HOLO19の相同条件](../HOLO19/index.md#def-holo19-homology)を満たします。$R=4$ を[本章の長さ命題](#prop-holo22-boosted-geodesic)へ代入すると
 
