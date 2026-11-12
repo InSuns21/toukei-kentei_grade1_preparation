@@ -249,9 +249,9 @@ $$
 と一致します。$T=0$ 断面の最短性は[既習の静的半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)の結果を使っています。従って局所的には空間方向で最小、時間方向で最大という鞍点のふるまいです。
 <!-- proof-end -->
 
-## 5. maximinでは何を最大化し、何を最小化するか
+## 5. maximinでは最小と最大の順番がなぜ重要か
 
-静的でない時空でHRT極値候補が複数現れた場合、単に一次変分が零というだけでは選択できません。そこで空間的なバルクCauchy断面 $\Sigma$ を一つ固定し、その中で許容される曲面の面積を**最小化**します。次に、境界領域 $A$ を含む同じ境界Cauchy断面に接続する $\Sigma$ を動かし、そこで得た最小面積を**最大化**します。順序を逆にしてはいけません。
+静的でない時空でHRT極値候補が複数現れた場合、単に一次変分が零というだけでは選択できません。そこで空間的なバルクCauchy断面 $\Sigma$ を一つ固定し、その中で許容される曲面のうち面積が最も小さいものを選びます。次に、境界領域 $A$ を含む同じ境界Cauchy断面に接続する $\Sigma$ を動かし、そこで得た最小面積を**最大化**します。順序を逆にしてはいけません。
 
 <a id="def-holo22-maximin"></a>
 
@@ -269,14 +269,50 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-maximin -->
-**定義の確認（順序で答えが変わる例）。** 数学的な有限候補模型として、断面 $\Sigma_1,\Sigma_2$ の二候補の面積表を考えます。$\Sigma_1$ で $(4,7)$、$\Sigma_2$ で $(5,6)$ なら各断面内の最小は $4,5$、その最大は $5$ です。一方、各候補列を先に最大化すると $5,7$、最小は $5$ で、この例では偶然一致します。しかし $\Sigma_1$ で $(4,100)$、$\Sigma_2$ で $(100,4)$ とすればmaximinは $4$、逆順のminimaxは $100$ です。**順序は本質的**です。この表は幾何学的なHRT面の存在証明ではなく、量化順序の直接例です。
+**定義の確認（順序で答えが変わる例）。** 断面ごとに二つの候補曲面がある有限模型を考えます。各行をバルク断面、各列を同じラベルの候補とします。
+
+| 断面 | 候補1の面積 | 候補2の面積 |
+| --- | ---: | ---: |
+| $\Sigma_1$ | 4 | 100 |
+| $\Sigma_2$ | 100 | 4 |
+
+断面を固定して小さい方を選ぶと、両方の行で値は4です。さらに断面間の大きい方を選ぶmaximinは
+
+$
+\max\{\min(4,100),\min(100,4)\}=\max\{4,4\}=4.
+$
+
+反対に各列の最大値を先に求めると、いずれの列も100となり、
+
+$
+\min\{\max(4,100),\max(100,4)\}=100.
+$
+
+従って4と100は一致しません。この表はmaximinの演算順序の直接例であり、幾何学的なHRT面の存在証明ではありません。
 <!-- definition-example-end -->
 
 実際には時空の端・特異点・断面の極限で最大が失われたり、最小面が不連続に飛び移ったりします。そこでmaximinの「存在」と「極値面との一致」を、滑らかさ・安定性・因果構造・エネルギー条件などを点検せずに使うことはできません。
 
-### null曲率条件とエネルギー条件
+### 光線束の収束を制御する曲率の仮定
 
-将来向きnullベクトル $k$ に対して $R_{ab}k^ak^b\ge0$ を要求する**null曲率条件（NCC）**は、null測地線束の収束を制御する条件です。通常のEinstein方程式
+時空のRicciテンソルを $R_{ab}$ とします。null測地線束を比較するには、null方向でRicci曲率がどの符号を持つかが重要です。具体的には次の不等式を仮定します。
+
+<a id="def-holo22-null-curvature"></a>
+
+<!-- formal-statement-start -->
+> **定義（null曲率条件）**  
+> Lorentz時空 $(M,g)$ で、すべてのnull接ベクトル $k^a$ に対してRicci曲率の縮約が非負であるとき、null曲率条件（NCC）が成立するという。
+>
+$
+R_{ab}k^ak^b\ge0\qquad\text{for all }k\ne0\text{ with }g(k,k)=0.
+$
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-holo22-null-curvature -->
+**定義の確認（純AdS）。** 定曲率 $AdS_3$ では $R_{ab}=-2L^{-2}g_{ab}$ です。任意のnullベクトルに代入すると $R_{ab}k^ak^b=-2L^{-2}g(k,k)=0$。したがってNCCを等号で満たします。一般にはNCCを満たすことと、全断面でmaximinの極値が達成されることは別の問題です。
+<!-- definition-example-end -->
+
+この曲率条件はnull測地線束の収束を制御するものです。通常のEinstein方程式
 
 $$
 R_{ab}-\frac12Rg_{ab}+\Lambda g_{ab}=8\pi G_N T_{ab}
@@ -345,7 +381,7 @@ $$
 **A3. null膨張率。** Minkowski $ds^2=-dt^2+dr^2+r^2d\phi^2$ の $t=0$、$r=2$ の円に対し、$k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とする。規格化 $g(k,l)$ と両膨張率を求め、極値性を判定せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $g(k,l)=\frac12(g(\partial_t,\partial_t)-g(\partial_r,\partial_r))=(-1-1)/2=-1$。円周は $2\pi r$。null方向の半径変化率は $\pm1/\sqrt2$ なので[膨張率の定義](#def-holo22-null-expansion)から $\theta_{(k)}=1/(\sqrt2r)=1/(2\sqrt2)$、$\theta_{(l)}=-1/(2\sqrt2)$。両方は零でなく、[二方向の同値命題](#prop-holo22-expansion-equivalence)より極値候補ではありません。
+**詳細解答。** $g(k,l)=\frac12(g(\partial_t,\partial_t)-g(\partial_r,\partial_r))=(-1-1)/2=-1$。円周は $2\pi r$。null方向の半径変化率は $\pm1/\sqrt2$ なので[膨張率の定義](#def-holo22-null-expansion)から $\theta_{(k)}=1/(\sqrt2r)=1/(2\sqrt2)$、$\theta_{(l)}=-1/(2\sqrt2)$。両方は零でなく、[二方向の膨張率と平均曲率](#prop-holo22-expansion-equivalence)より極値候補ではありません。
 <!-- solution-end -->
 
 <a id="ex-holo22-a04"></a>
@@ -473,6 +509,6 @@ $$
 
 ## 8. 次講へ
 
-本章ではHRTの共変的な**二方向の極値条件**を定義し、$AdS_3$ の傾いた区間についてboost、曲線、cutoff長、変分の符号を自力で計算しました。さらにmaximinの選択順序と、一般定理を使える条件を切り分けました。HOLO23では古典面の上で量子場のエントロピーを評価するFLM補正へ進み、HOLO24で面の位置そのものを一般化エントロピーに対して変分します。
+本章ではHRTの**両法線方向での面積停留条件**を定義し、$AdS_3$ の傾いた区間についてboost、曲線、cutoff長、変分の符号を自力で計算しました。さらにmaximinの選択順序と、一般定理を使える条件を切り分けました。HOLO23では古典面の上で量子場のエントロピーを評価するFLM補正へ進み、HOLO24で面の位置そのものを一般化エントロピーに対して変分します。
 
 参考：Hubeny–Rangamani–Takayanagi, [*A Covariant Holographic Entanglement Entropy Proposal*](https://arxiv.org/abs/0705.0016) (2007)；Wall, [*Maximin Surfaces, and the Strong Subadditivity of the Covariant Holographic Entanglement Entropy*](https://arxiv.org/abs/1211.3494) (2014)。これらは条件付きの物理的処方と幾何学的定理を含む原論文であり、AdS/CFT一般の厳密な証明ではありません。
