@@ -11,3 +11,4 @@
 8. [INV8 一般変分正則化の解は存在するか](textbook/volumes/dream_thater/解析系/INV/INV8/index.md)
 9. [INV9 疎性とTVは何を残すか](textbook/volumes/dream_thater/解析系/INV/INV9/index.md)
 10. [INV10 非線形逆問題を局所的に見分けられるか](textbook/volumes/dream_thater/解析系/INV/INV10/index.md)
+11. [INV11 反復正則化をいつ止めるか](textbook/volumes/dream_thater/解析系/INV/INV11/index.md)
