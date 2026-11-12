@@ -1,0 +1,24 @@
+chapter: CTM7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM6
+concepts:
+  - id: continuum.material-linear-angular-balance
+    name: 物質領域の線形運動量・角運動量収支
+    kind: principle
+    introduction: formal
+    introduction_aliases: ["原理（物質領域の線形運動量・角運動量収支）"]
+    requires: [continuum.cauchy-stress-theorem, continuum.material-reynolds-transport, vector-calculus.momentum-balance-integral]
+  - id: continuum.material-momentum-local
+    name: 物質領域の運動量収支と局所運動方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（物質領域の運動量収支と局所運動方程式）"]
+    requires: [continuum.material-linear-angular-balance, continuum.mass-conservation-equivalence, vector-calculus.momentum-balance-local]
+  - id: continuum.material-angular-stress-symmetry
+    name: 角運動量収支からの応力の対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（角運動量収支からの応力の対称性）"]
+    requires: [continuum.material-linear-angular-balance, continuum.material-momentum-local, vector-calculus.stress-symmetry]
