@@ -292,20 +292,20 @@ h_{ij}^{(0)}=g_{0,\mu\nu}e_i^\mu e_j^\nu,
 $$
 
 を得ます。ここで $h_{ij}^{(0)}$ はバルクの計量摂動テンソル $k$ と異なり**曲面上の誘導計量**で、$\delta h_{ij}$ は固定した埋め込みでの $h_{ij}(g_{\rm sc})-h_{ij}(g_0)$ です。固定cutoffのもとで積分領域が有限、$h^{(0)}$ が一様に正定値、摂動が一様に小さいと仮定します。各点で $E=(h^{(0)})^{-1}\delta h$ と置くと、正定値性により逆行列が存在し、行列式の置換展開で一次項は対角成分の和だけなので
-$
+$$
 \det(h^{(0)}+\delta h)
 =\det h^{(0)}\det(I+E)
 =\det h^{(0)}\bigl(1+\operatorname{tr}E+O(G_N^2)\bigr).
-$
+$$
 $\operatorname{tr}E=(h^{(0)})^{ij}\delta h_{ji}$（$i,j=1,\ldots,d-1$ について和を取る）であり、$\sqrt{1+u}=1+u/2+O(u^2)$ を用いて積分すると次を得ます。
 
 <a id="eq-holo23-induced-metric-variation"></a>
 
-$
+$$
 \delta_g\operatorname{Area}
 =\frac12\int_{\gamma_A^{(0)}}d^{d-1}\sigma\,
 \sqrt{\det h^{(0)}}\,(h^{(0)})^{ij}\delta h_{ij}+O(G_N^2).
-$
+$$
 この式は**面積の一次変分**を表し、有限の面積差と厳密に等しいのではありません。$\delta h_{ij}=O(G_N)$ なら $\delta_g\operatorname{Area}/(4G_N)=O(1)$。**面の変位の寄与が $O(G_N)$ という事実から、計量反作用の寄与まで消してはいけません。** $\det$ と逆行列は、この正定値な誘導計量を同じ局所座標基底で表示したものです。面積の座標表示と変分公式の接続がこの式の判定根拠です。
 
 ## 6. FLMの適用範囲を整理する
