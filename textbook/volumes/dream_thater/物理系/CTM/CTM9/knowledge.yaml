@@ -1,0 +1,42 @@
+chapter: CTM9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM8
+concepts:
+  - id: continuum.specific-internal-energy
+    name: 比内部エネルギーと全エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（比内部エネルギーと全エネルギー）"]
+    requires: [continuum.density-jacobian-relation]
+  - id: continuum.heat-transport
+    name: 熱流束と熱供給率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（熱流束と熱供給率）"]
+    requires: [continuum.specific-internal-energy]
+  - id: continuum.total-energy-balance
+    name: 物質領域の全エネルギー収支
+    kind: principle
+    introduction: formal
+    introduction_aliases: ["原理（物質領域の全エネルギー収支）"]
+    requires: [continuum.specific-internal-energy, continuum.heat-transport, continuum.cauchy-stress-theorem]
+  - id: continuum.kinetic-energy-balance
+    name: 運動エネルギーの局所・積分収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（運動エネルギーの局所・積分収支）"]
+    requires: [continuum.material-momentum-local, continuum.material-angular-stress-symmetry]
+  - id: continuum.internal-energy-balance
+    name: 内部エネルギーの局所収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（内部エネルギーの局所収支）"]
+    requires: [continuum.total-energy-balance, continuum.kinetic-energy-balance]
+  - id: continuum.reference-internal-energy-balance
+    name: 基準配置での内部エネルギー収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（基準配置での内部エネルギー収支）"]
+    requires: [continuum.internal-energy-balance, continuum.piola-work-conjugacy]
