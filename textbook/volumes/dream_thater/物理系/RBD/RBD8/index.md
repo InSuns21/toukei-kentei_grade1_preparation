@@ -29,15 +29,15 @@ $$
 
 **定義の確認**：二つの等しい主慣性値、第三主慣性値との相違、正定値性を具体的に計算し、無トルク条件は独立に調べます。
 
-半径 $a>0$、質量 $M>0$ の一様な薄円板を考えます。円板の面内に直交する単位軸 $e_1,e_2$ をとり、$(e_1,e_2,e_3)$ が正向きになるように面に垂直な方向 $e_3$ を選びます。[RBD6の円板の慣性テンソル](../RBD6/index.md#prop-rbd6-uniform-disc)は、重心を原点とするこの基底で対角行列になり、対角成分はそれぞれの軸の主慣性モーメントです。したがって
+半径 $r>0$、質量 $M>0$ の一様な薄円板を考えます。円板の面内に直交する単位軸 $e_1,e_2$ をとり、$(e_1,e_2,e_3)$ が正向きになるように面に垂直な方向 $e_3$ を選びます。[RBD6の円板の慣性テンソル](../RBD6/index.md#prop-rbd6-uniform-disc)で半径の文字を $r$ に置き換えると、重心を原点とするこの基底で対角行列になり、対角成分はそれぞれの軸の主慣性モーメントです。したがって
 
 $$
-J_b=\operatorname{diag}\left(\frac14Ma^2,\frac14Ma^2,\frac12Ma^2\right)
+J_b=\operatorname{diag}\left(\frac14Mr^2,\frac14Mr^2,\frac12Mr^2\right)
 =\operatorname{diag}(I,I,J),\qquad
-I=\frac14Ma^2,\quad J=\frac12Ma^2=2I.
+I=\frac14Mr^2,\quad J=\frac12Mr^2=2I.
 $$
 
-$M,a>0$ なので $I>0,J>0,I\ne J$ です。さらに任意の非零ベクトル $v=(v_1,v_2,v_3)^{\mathsf T}$ で
+$M,r>0$ なので $I>0,J>0,I\ne J$ です。さらに任意の非零ベクトル $v=(v_1,v_2,v_3)^{\mathsf T}$ で
 
 $$
 v^{\mathsf T}J_bv=I(v_1^2+v_2^2)+Jv_3^2>0
