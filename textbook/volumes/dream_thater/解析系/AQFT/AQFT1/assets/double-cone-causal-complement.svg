@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" width="720" height="460" role="img" aria-labelledby="aqft1-title aqft1-desc" data-layout-lint="strict">
+  <title id="aqft1-title">Double coneと開いた因果補集合の時空断面</title>
+  <desc id="aqft1-desc">横軸x1、縦軸tの1+1次元断面。中央に頂点tが正負R、左右の頂点x1が正負Rの開いた菱形D_Rがある。因果補集合は左と右の斜線領域で、両者の境界は破線であり含まれない。菱形の上下は因果補集合でない。</desc>
+  <defs>
+    <pattern id="aqft1-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="9" height="9" fill="#e8eef3"/>
+      <path d="M0 0V9" stroke="#8b9ba8" stroke-width="1.3"/>
+    </pattern>
+    <marker id="aqft1-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1L7 4L1 7" fill="none" stroke="#3c4856" stroke-width="1.4"/>
+    </marker>
+  </defs>
+  <rect x="25" y="25" width="670" height="410" rx="7" fill="#fff" stroke="#d0d7de" stroke-width="1"/>
+  <g data-series-group="causal-complement" data-series-label="左右の因果補集合">
+    <path d="M50 50H80L260 230L80 410H50Z" fill="url(#aqft1-hatch)"/>
+    <path d="M640 50H670V410H640L460 230Z" fill="url(#aqft1-hatch)"/>
+  </g>
+  <path d="M360 130L460 230L360 330L260 230Z" fill="#c9e5ec" stroke="#145a72" stroke-width="2.4" stroke-dasharray="7 5" data-series-group="double-cone" data-series-label="開いたdouble cone"/>
+  <g fill="none" stroke="#6f7c89" stroke-width="1.4">
+    <path d="M30 230H687" marker-end="url(#aqft1-arrow)"/>
+    <path d="M360 428V33" marker-end="url(#aqft1-arrow)"/>
+  </g>
+  <g fill="none" stroke="#31566c" stroke-width="2.3" stroke-dasharray="8 5" data-series-group="causal-complement" data-series-label="因果補集合の除外境界">
+    <path d="M80 50L260 230L80 410"/>
+    <path d="M640 50L460 230L640 410"/>
+  </g>
+  <g fill="#183444" font-family="DejaVu Sans, Arial, sans-serif" font-size="17">
+    <text x="385" y="196">D_R</text>
+    <text x="128" y="201">D_R⊥</text>
+    <text x="553" y="201">D_R⊥</text>
+    <text x="698" y="252" text-anchor="end">x¹</text>
+    <text x="373" y="47">t</text>
+  </g>
+  <g fill="#283f50" font-family="DejaVu Sans, Arial, sans-serif" font-size="14">
+    <text x="471" y="253">R</text>
+    <text x="227" y="253">−R</text>
+    <text x="338" y="118">b</text>
+    <text x="338" y="351">a</text>
+    <text x="341" y="247">0</text>
+  </g>
+</svg>
