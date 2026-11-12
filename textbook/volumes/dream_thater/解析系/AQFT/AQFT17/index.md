@@ -401,7 +401,7 @@ h e_{\boldsymbol n}
 =\sqrt{m^2+(2\pi/L)^2|\boldsymbol n|^2}.
 $$
 
-$a=2\pi\beta/(L\sqrt3)>0$、$q=e^{-a}\in(0,1)$ と置きます。Cauchy–Schwarz不等式から
+$a=2\pi\beta/(L\sqrt3)>0$、$q=e^{-a}\in(0,1)$ と置きます。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 |\boldsymbol n|_1=|n_1|+|n_2|+|n_3|
@@ -487,7 +487,7 @@ $$
 
 のような上界を要求します。これは**核写像の定義から導かれる式ではなく、模型ごとに検証する追加仮定**です。
 
-<a id="ref-aqft17-nuclearity-split-literature"></a>
+<a id="thm-aqft17-nuclearity-split-literature"></a>
 
 <!-- formal-statement-start -->
 > **定理（Buchholz–Wichmann型核性からsplitへ：発展的文献結果、ここでは証明しない）**  
@@ -726,7 +726,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** 三次元のCauchy–Schwarz不等式で $|\boldsymbol n|_1\le\sqrt3|\boldsymbol n|$。従って
+**詳細解答。** 三次元の[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用すると $|\boldsymbol n|_1\le\sqrt3|\boldsymbol n|$。従って
 
 $$
 e^{-\beta\omega_{\boldsymbol n}}
