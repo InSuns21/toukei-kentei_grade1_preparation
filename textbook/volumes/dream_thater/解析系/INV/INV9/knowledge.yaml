@@ -1,0 +1,78 @@
+chapter: INV9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV8
+
+forward_references: []
+
+concepts:
+  - id: inverse.l1-regularization
+    name: 有限次元のl1正則化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限次元のl1正則化）"]
+    requires: [inverse.variational-objective]
+
+  - id: inverse.subgradient-finite
+    name: 劣勾配と劣微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（劣勾配と劣微分）"]
+    requires: [inverse.l1-regularization]
+
+  - id: inverse.absolute-l1-subdifferential
+    name: 絶対値とl1ノルムの劣微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（絶対値とl1ノルムの劣微分）"]
+    requires: [inverse.subgradient-finite]
+
+  - id: inverse.l1-optimality
+    name: 有限次元l1正則化の必要十分な最適性条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限次元l1正則化の必要十分な最適性条件）"]
+    requires: [inverse.l1-regularization, inverse.absolute-l1-subdifferential]
+
+  - id: inverse.soft-threshold
+    name: 恒等観測のソフト閾値公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（恒等観測のソフト閾値公式）"]
+    requires: [inverse.l1-optimality]
+
+  - id: inverse.bregman-distance
+    name: 劣勾配に依存するBregman距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（劣勾配に依存するBregman距離）"]
+    requires: [inverse.subgradient-finite]
+
+  - id: inverse.bregman-nonnegativity
+    name: Bregman距離の非負性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Bregman距離の非負性）"]
+    requires: [inverse.bregman-distance]
+
+  - id: inverse.discrete-tv
+    name: 一次元離散全変動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次元離散全変動）"]
+    requires: [inverse.l1-regularization]
+
+  - id: inverse.tv-certificate
+    name: 離散TVの最小性を示す証明書
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（離散TVの最小性を示す証明書）"]
+    requires: [inverse.discrete-tv, inverse.absolute-l1-subdifferential]
+
+  - id: inverse.pointwise-variation
+    name: 区間上の点ごとの全変動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区間上の点ごとの全変動）"]
+    requires: [inverse.discrete-tv]
