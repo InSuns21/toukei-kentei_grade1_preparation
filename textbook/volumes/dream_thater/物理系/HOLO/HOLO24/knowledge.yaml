@@ -1,0 +1,49 @@
+chapter: HOLO24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO23
+forward_references: []
+concepts:
+  - id: holography.qes-generalized-entropy
+    name: 面に付随する一般化エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（面に付随する一般化エントロピー）"]
+    requires: [holography.flm-first-quantum-correction, holography.flm-area-counterterm]
+  - id: holography.qes-surface
+    name: 量子極値曲面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（量子極値曲面）"]
+    requires: [holography.qes-generalized-entropy, holography.covariant-hrt-surface]
+  - id: holography.qes-null-expansions
+    name: 二つの量子膨張率によるQES判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二つの量子膨張率によるQES判定）"]
+    requires: [holography.qes-surface, holography.hrt-expansion-mean-curvature]
+  - id: holography.qes-cutoff-variation
+    name: 面積型発散の相殺と形状変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（面積型発散の相殺と形状変分）"]
+    requires: [holography.qes-generalized-entropy, holography.flm-area-counterterm]
+  - id: holography.qes-finite-shift
+    name: 非退化な有限次元QES変位
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非退化な有限次元QES変位）"]
+    requires: [holography.qes-surface, holography.flm-perturbative-surface-shift]
+  - id: holography.qes-minimal-prescription
+    name: 最小一般化エントロピーQESの処方
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最小一般化エントロピーQESの処方）"]
+    requires: [holography.qes-surface, holography.qes-generalized-entropy, holography.static-rt-homology]
+  - id: holography.qes-degenerate-shift
+    name: 退化した面積極値の非線形変位
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（退化した面積極値の非線形変位：模型）"]
+    requires: [holography.qes-finite-shift]
