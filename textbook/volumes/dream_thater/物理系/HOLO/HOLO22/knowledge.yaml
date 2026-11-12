@@ -41,9 +41,15 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（古典maximin構成）"]
     requires: [holography.covariant-hrt-surface, holography.static-rt-homology]
+  - id: holography.hrt-null-curvature-condition
+    name: null曲率条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（null曲率条件）"]
+    requires: [holography.covariant-hrt-surface]
   - id: holography.hrt-maximin-conditional
     name: 古典maximinとHRTの一致
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（古典maximinとHRTの一致：既存の結果を条件付きで使用）"]
-    requires: [holography.hrt-maximin-construction, holography.hrt-null-expansions]
+    requires: [holography.hrt-maximin-construction, holography.hrt-null-expansions, holography.hrt-null-curvature-condition]
