@@ -46,7 +46,7 @@ chapters:
     title: "無限自由度と非同値表現"
   - id: AQFT11
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT11
-    status: planned
+    status: completed
     title: "正エネルギーと解析性"
   - id: AQFT12
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT12

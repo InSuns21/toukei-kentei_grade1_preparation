@@ -1,0 +1,49 @@
+chapter: AQFT11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT3
+  - AQFT9
+  - CA7
+forward_references: []
+concepts:
+  - id: aqft.future-tube
+    name: 未来管領域
+    kind: definition
+    introduction: formal
+    requires: [aqft.translation-spectrum-condition]
+  - id: aqft.positive-energy-tube-extension
+    name: 正エネルギー並進の管領域正則延長
+    kind: theorem
+    introduction: formal
+    requires: [aqft.future-tube, aqft.translation-spectrum-condition]
+  - id: aqft.tube-boundary-fourier-support
+    name: 境界値のFourier支持
+    kind: proposition
+    introduction: formal
+    requires: [aqft.positive-energy-tube-extension]
+  - id: aqft.entire-translation-analytic-vector
+    name: 全複素並進に対する解析的試験ベクトル
+    kind: definition
+    introduction: formal
+    requires: [quantum.strongly-continuous-unitary-group]
+  - id: aqft.gaussian-dense-analytic-vectors
+    name: Gaussian平滑化による稠密な解析ベクトル
+    kind: proposition
+    introduction: formal
+    requires: [aqft.entire-translation-analytic-vector]
+  - id: aqft.halfplane-boundary-uniqueness
+    name: 境界零区間の一意性
+    kind: lemma
+    introduction: formal
+    requires: [complex-analysis.schwarz-reflection-principle, complex-analysis.isolated-zeros-identity-theorem]
+  - id: aqft.real-open-uniqueness
+    name: 正エネルギー行列要素の実開集合一意性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.halfplane-boundary-uniqueness, aqft.positive-energy-tube-extension]
+  - id: aqft.multipoint-tube-uniqueness
+    name: 有限個の有界演算子を挟む管領域解析性と一意性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.positive-energy-tube-extension, aqft.real-open-uniqueness, aqft.invariant-gns-covariance]
