@@ -8,7 +8,23 @@ function itemMarkup(sh,poster){
  const dash=kind==='fold'?'9 5':kind==='mountain'?'11 4':kind==='valley'?'2 6':kind==='guide'?'4 6':'';
  const sw=kind==='target'?3:kind==='curve'?2.4:kind==='guide'?1.5:2.2;
  const style='stroke="'+stroke+'" stroke-width="'+sw+'"'+(dash?' stroke-dasharray="'+dash+'"':'');
- if(sh.type==='line'){const a=xy(sh.p,sh.x1,sh.y1),b=xy(sh.p,sh.x2,sh.y2);return '<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" '+style+'/>';}
+ if(sh.type==='line'){
+  // Clip the actual line geometry to the painted panel, rather than relying on
+  // a clipPath alone: SVG lint also measures raw segment coordinates.
+  const a=xy(sh.p,sh.x1,sh.y1).map(Number),b=xy(sh.p,sh.x2,sh.y2).map(Number);
+  const x0=sh.p?406:26,x1=sh.p?734:354,y0=90,y1=381;
+  const d=[b[0]-a[0],b[1]-a[1]];
+  let lo=0,hi=1;
+  for(const [p,q] of [[-d[0],a[0]-x0],[d[0],x1-a[0]],[-d[1],a[1]-y0],[d[1],y1-a[1]]]){
+   if(Math.abs(p)<1e-10){if(q<0)return '';continue;}
+   const r=q/p;
+   if(p<0)lo=Math.max(lo,r);else hi=Math.min(hi,r);
+   if(lo>hi)return '';
+  }
+  const u=[(a[0]+lo*d[0]).toFixed(2),(a[1]+lo*d[1]).toFixed(2)];
+  const v=[(a[0]+hi*d[0]).toFixed(2),(a[1]+hi*d[1]).toFixed(2)];
+  return '<line x1="'+u[0]+'" y1="'+u[1]+'" x2="'+v[0]+'" y2="'+v[1]+'" '+style+'/>';
+ }
  if(sh.type==='ring'||sh.type==='point'){const a=xy(sh.p,sh.x,sh.y);return '<circle cx="'+a[0]+'" cy="'+a[1]+'" r="'+(sh.type==='point'?5.5:(sh.r*S).toFixed(2))+'" fill="'+(sh.type==='point'?c.point:'none')+'" '+style+'/>';}
  if(sh.type==='polygon'){const pts=sh.pts.map(v=>xy(sh.p,...v).join(',')).join(' ');return '<polygon points="'+pts+'" fill="'+(c[kind]||c.paper)+'" fill-opacity="'+(kind==='paper'?'.48':'.57')+'" '+style+'/>';}
  if(sh.type==='label'&&!poster){const a=xy(sh.p,sh.x,sh.y);return '<text x="'+a[0]+'" y="'+a[1]+'" font-family="system-ui,sans-serif" font-size="15" fill="#243c4f">'+esc(sh.value)+'</text>';}
