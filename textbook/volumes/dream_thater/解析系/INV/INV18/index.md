@@ -545,7 +545,28 @@ $a_+(x)=1+\varepsilon(x-1/2)$、$a_-(x)=1-\varepsilon(x-1/2)$、$0<|\varepsilon|
 <!-- solution-start -->
 #### 詳細解答
 
-$|x-1/2|\le1/2$ より $a_\pm\ge1-|\varepsilon|/2>0$ であり、両者は有界なので[許容集合](../INV17/index.md#def-inv17-admissible-coefficients)に入ります。$a_-(x)=a_+(1-x)$ です。$u_+=S(a_+)$ に対し $\widetilde u(x)=u_+(1-x)$ とおくと $\widetilde u$ の端点トレースは零で、$y=1-x$ の置換を弱形式へ入れると $\int a_-\widetilde u'v'=\int v$ が全 $v\in V$ で成立します。[状態の唯一性](../INV17/index.md#thm-inv17-state-existence)により $S(a_-)=\widetilde u$。よって $O(S(a_-))=\int_0^1u_+(1-x)dx=\int_0^1u_+(y)dy=O(S(a_+))$。係数は異なるので厳密な非一意性です。
+区間上で $|x-\tfrac12|\le\tfrac12$ だから、両係数は有界であり、
+
+$$
+a_\pm(x)\ge1-\frac{|\varepsilon|}{2}>0
+$$
+
+です。従って[許容集合](../INV17/index.md#def-inv17-admissible-coefficients)に属します。
+
+反射関係 $a_-(x)=a_+(1-x)$ を使い、$u_+=S(a_+)$ に対して $\widetilde u(x)=u_+(1-x)$ とおきます。この関数の端点トレースは零です。$y=1-x$ の置換を弱形式に施せば、任意の $v\in V$ に対して
+
+$$
+\int_0^1a_-\widetilde u'v'\,dx=\int_0^1v\,dx
+$$
+
+を得ます。[状態の唯一性](../INV17/index.md#thm-inv17-state-existence)より $S(a_-)=\widetilde u$ です。したがって、
+
+$$
+O(S(a_-))=\int_0^1u_+(1-x)\,dx
+=\int_0^1u_+(y)\,dy=O(S(a_+)).
+$$
+
+両係数は異なるため、これは厳密な非一意性です。
 <!-- solution-end -->
 
 <a id="ex-inv18-a05"></a>
@@ -727,7 +748,21 @@ $$
 
 です。[B03](#ex-inv18-b03) と同じ通分を使えば $-1/144$ との差の絶対値は $(2\varepsilon^2-\varepsilon^4)/(144(1-\varepsilon^2)^2)\le(2/81)\varepsilon^2$ となります。独立な厳密式と随伴勾配が一致しました。
 
-**(4) 識別。** $0<|\varepsilon|<1$ として $a_\pm(x)=1\pm\varepsilon(x-1/2)$ は相異なりますが、反射で状態が入れ替わるため $O_1(S(a_+))=O_1(S(a_-))$ です。これは非線形観測についての厳密な非一意性です。一方、二観測の $\mathcal G$ の基準微分は[二観測の定理](#thm-inv18-two-sensor-identifiability)により行列式 $1/4320\ne0$ の $2\times2$ 行列で、近傍 $C^1$ と合わせて[局所二点安定性](../INV10/index.md#cor-inv10-finite-full-rank)を得ます。これは二パラメータ族の近傍に限った結論で、全ての $L^\infty$ 係数に対する復元の一意性を主張しません。
+**(4) 識別。** $0<|\varepsilon|<1$ として、異なる二係数
+
+$$
+a_\pm(x)=1\pm\varepsilon(x-\tfrac12)
+$$
+
+を取ります。反射で二つの状態が入れ替わるため、
+
+$$
+O_1(S(a_+))=O_1(S(a_-))
+$$
+
+となり、非線形観測について厳密な非一意性があります。
+
+一方、[二観測の定理](#thm-inv18-two-sensor-identifiability)では $\mathcal G$ の基準微分が行列式 $1/4320\ne0$ の $2\times2$ 行列です。近傍での $C^1$ と合わせ、[局所二点安定性](../INV10/index.md#cor-inv10-finite-full-rank)が得られます。ただしこれは二パラメータ族の近傍の結論であり、係数空間 $L^\infty$ 全体の一意性を意味しません。
 <!-- solution-end -->
 
 ## 6. ここまでの道筋と次への展望
