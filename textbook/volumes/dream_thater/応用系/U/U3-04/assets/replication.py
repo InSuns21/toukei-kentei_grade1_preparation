@@ -1,7 +1,7 @@
 """Finite-tree self-financing replication (Python 3.10+, standard library only).
 
 All monetary figures are yen. No floating point random simulation is involved.
-The algorithm retains full paths, and so costs O(2**N) memory and time.
+Tuple histories have length up to N: time and memory cost O(N * 2**N).
 """
 from itertools import product
 from math import isclose
