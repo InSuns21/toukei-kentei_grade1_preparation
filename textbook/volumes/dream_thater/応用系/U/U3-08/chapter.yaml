@@ -1,0 +1,42 @@
+id: "U3-08"
+title: "Asian オプション：算術平均と経路依存の価格付け"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05]
+official_scope: []
+learning_objectives:
+  - 観測日を固定した算術平均 Asian call/put の受取額を定義し、同じ終値でも経路平均が異なることを数値で確認できる
+  - 累積株価和を状態に追加し、株価と累積和の上枝・下枝への更新則を導ける
+  - 拡張状態の後退帰納価格と全経路列挙の一致を条件付き期待値から証明できる
+  - 2期間および3期間の Asian call を有理数で計算し、同じ株価でも異なる条件付き価格を区別できる
+  - 各節点の株式と預金による完全複製量を計算し、経路依存と完備性が別の論点であると説明できる
+  - 期待平均からの価格上下界と状態数の増加を証明し、独立した Python 全経路列挙で後退帰納を照合できる
+definitions:
+  - { id: U3-08-DEF-01, name: 算術平均 Asian オプション }
+  - { id: U3-08-DEF-02, name: Asian 評価の拡張状態 }
+theorems:
+  - { id: U3-08-THM-01, name: 算術平均 Asian の後退帰納価格 }
+  - { id: U3-08-PROP-01, name: 株価だけでは Asian の後退価値を決められない }
+  - { id: U3-08-PROP-02, name: 拡張状態での1期間複製 }
+  - { id: U3-08-PROP-03, name: Asian call の期待平均による上下界 }
+canonical_examples:
+  - 2期間 call の UD と DU は同じ終値96円でも平均316/3円と92円で受取額が異なる
+  - 2期間の全4経路列挙と後退帰納が11500/1323円で一致する
+  - 3期間の UD と DU の時点2価格は65/14円と0円で異なる
+  - 3期間の全8経路列挙と後退帰納が29375/2744円で一致する
+  - 時点1上枝の株式1/3株・預金-1600/63円による複製を両子で確認する
+problem_patterns:
+  - U3-08-A1
+  - U3-08-A2
+  - U3-08-A3
+  - U3-08-A4
+  - U3-08-A5
+  - U3-08-B1
+  - U3-08-B2
+  - U3-08-B3
+  - U3-08-B4
+  - U3-08-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
