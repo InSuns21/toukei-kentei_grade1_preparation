@@ -63,6 +63,8 @@ $N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E
 <!-- definition-example-start: def-aqft15-nsf-trace -->
 ### 直接例：通常の行列トレース
 
+**定義の確認**：三条件を行列の性質から一つずつ検算します。
+
 $M=M_2(\mathbb C)$、$\tau(a)=a_{11}+a_{22}$ とします。任意の $x$ に対して
 
 $$
@@ -214,13 +216,13 @@ $p_j$ と $p$ を結ぶ部分等長作用素 $v_j$ を用い $e_{ij}=v_iv_j^*$ �
 
 元の $M$ は無限次元です。実際、相異なる群元 $g_1,\ldots,g_k$ に対して
 
-$
+$$
 \sum_{j=1}^{k}a_j\lambda(g_j)=0
 \ \Longrightarrow\
 \sum_{j=1}^{k}a_j\delta_{g_j}=0
 \ \Longrightarrow\
 a_1=\cdots=a_k=0.
-$
+$$
 
 従って無限個の $\lambda(g)$ は線形独立であり、上の結論から $M$ は最小射影を持ちません。
 
@@ -257,11 +259,11 @@ $D^*=D$、$D^2=D$、$D\ge0$、$\operatorname{Tr}_{\mathcal H}D=1$ は、$\Omega$
 
 もし $D\in M$ なら、$M$ 内の射影 $q\le D$ の像は周囲の $B(\mathcal H)$ 上でも $\mathbb C\Omega$ の部分空間です。従って
 
-$
+$$
 0\le q\le D
 \quad\Longrightarrow\quad
 q=0\ \text{または}\ q=D.
-$
+$$
 
 これは $D$ が $M$ の非零最小射影であることを意味し、[Type IIIの定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)と矛盾します。従って $D\notin M$ です。また、[Type III因子のトレース障害](#thm-aqft15-typeiii-no-nsf-trace)により局所von Neumann環内の忠実半有限トレースも存在しません。$\square$
 <!-- proof-end -->
