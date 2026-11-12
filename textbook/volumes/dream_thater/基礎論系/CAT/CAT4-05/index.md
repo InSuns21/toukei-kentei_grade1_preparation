@@ -43,7 +43,7 @@ $$
 となる。これを**評価射**という。内部Homの元を「関数のように」入力 $A$ へ作用させる射と考えればよい。ただし、一般の圏では文字どおりの関数の集合とは限らない。
 
 <!-- definition-example-start: def-cat4-05-right-closed -->
-**定義の直接確認（集合）。** $\mathbf{Set}$ は直積で[モノイダル圏](../CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)になる。$[A,B]=B^A$ を関数 $A\to B$ の集合とし、任意の $f:X\times A\to B$ に
+**定義の確認**（集合）。 $\mathbf{Set}$ は直積で[モノイダル圏](../CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)になる。$[A,B]=B^A$ を関数 $A\to B$ の集合とし、任意の $f:X\times A\to B$ に
 
 $$
 f^\sharp(x)(a)=f(x,a)
@@ -302,7 +302,7 @@ $$
 **型を分ける。** $\Lambda(f)$ の始域は $X$、終域は $B^A$。評価射の始域は $B^A\times A$ なので、$\Lambda(f)\times1_A$ の始域・終域はそれぞれ $X\times A$、$B^A\times A$ となり、合成できる。積の添字の順を入れ替えてはいけない。
 
 <!-- definition-example-start: def-cat4-05-exponential -->
-**定義の確認（有限集合）。** $A=\{0,1\}$、$B=\{a,b,c\}$ とすると $B^A$ は $3^2=9$ 個の写像からなる集合。$X=\{p,q\}$ で $f(p,0)=a,\ f(p,1)=b,\ f(q,0)=c,\ f(q,1)=c$ とする。$\Lambda(f)(p)$ は $(a,b)$ を値に持つ写像、$\Lambda(f)(q)$ は $(c,c)$ を値に持つ写像である。任意の $(x,t)\in X\times A$ について
+**定義の確認**（有限集合）。 $A=\{0,1\}$、$B=\{a,b,c\}$ とすると $B^A$ は $3^2=9$ 個の写像からなる集合。$X=\{p,q\}$ で $f(p,0)=a,\ f(p,1)=b,\ f(q,0)=c,\ f(q,1)=c$ とする。$\Lambda(f)(p)$ は $(a,b)$ を値に持つ写像、$\Lambda(f)(q)$ は $(c,c)$ を値に持つ写像である。任意の $(x,t)\in X\times A$ について
 
 $$
 \operatorname{ev}(\Lambda(f)(x),t)=\Lambda(f)(x)(t)=f(x,t).
@@ -323,7 +323,7 @@ $$
 終対象と二項積があれば[有限積の存在判定](../CAT2-02/index.md#thm-cat2-02-finite-products)により有限積があり、[有限積からのモノイダル構造](../CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)を使える。従って積をテンソルとする閉構造を考える資格がある。ただし指数対象の存在は有限積から自動的には出ない。
 
 <!-- definition-example-start: def-cat4-05-ccc -->
-**定義の確認（集合）。** $\mathbf{Set}$ の終対象は一元集合、二項積は直積である。任意の集合 $A,B$ に対する $B^A$ は前節の全ての関数の集合として存在する。評価とカリー化の普遍性を任意の $X$ について確認したので、$\mathbf{Set}$ は Cartesian 閉圏である。$\mathbf{FinSet}$ でも直積と関数集合は有限集合に留まり、同じ論証が成立する。
+**定義の確認**（集合）。 $\mathbf{Set}$ の終対象は一元集合、二項積は直積である。任意の集合 $A,B$ に対する $B^A$ は前節の全ての関数の集合として存在する。評価とカリー化の普遍性を任意の $X$ について確認したので、$\mathbf{Set}$ は Cartesian 閉圏である。$\mathbf{FinSet}$ でも直積と関数集合は有限集合に留まり、同じ論証が成立する。
 <!-- definition-example-end -->
 
 <a id="thm-cat4-05-cartesian-characterization"></a>
