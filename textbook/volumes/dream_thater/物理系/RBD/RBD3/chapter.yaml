@@ -1,0 +1,42 @@
+id: "RBD3"
+title: "角速度と回転系の輸送定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD2
+official_scope: []
+learning_objectives:
+  - R^T R=I の微分から角速度の空間・物体表示を定義し反対称性を検証できる
+  - hat行列の共役を用いて omega_s=R omega_b と dot R の二つの表現を導出できる
+  - 回転基底での輸送公式と空間ベクトルの微分の違いを例で説明できる
+  - 剛体固定点の速度場 v_P=v_C+omega_s cross r_CP を導出できる
+  - 回転系加速度の相対・Coriolis・角加速度・向心の各項を検算できる
+  - 実際の外力と遠心・Coriolis等の慣性力を符号付きで区別できる
+definitions:
+  - { id: RBD3-DEF-01, name: "空間角速度と物体角速度" }
+theorems:
+  - { id: RBD3-PROP-01, name: "角速度の空間・物体対応" }
+  - { id: RBD3-PROP-02, name: "剛体点の速度場" }
+  - { id: RBD3-THM-01, name: "回転座標における加速度の分解" }
+  - { id: RBD3-PROP-03, name: "回転座標の運動方程式" }
+canonical_examples:
+  - z軸まわりの角速度行列を微分から直接計算する
+  - 空間に固定されたベクトルが物体系では逆回転することを検算する
+  - 重心速度を含む剛体点の接線速度を求める
+  - 回転溝の小球の加速度を位置の直接二階微分と照合する
+  - 回転台の拘束力と遠心慣性力の符号を比較する
+problem_patterns:
+  - RBD3-SKEW-DERIVATIVE
+  - RBD3-ANGULAR-COORDINATES
+  - RBD3-POINT-VELOCITY
+  - RBD3-CONSTANT-SPACE-VECTOR
+  - RBD3-ANGULAR-ACCELERATION
+  - RBD3-ROTATING-SLOT
+  - RBD3-SECOND-TRANSPORT
+  - RBD3-CONSTRAINT-INERTIAL-FORCE
+  - RBD3-COMPOSED-ROTATION-RATE
+  - RBD3-INTEGRATED-MOVING-ORIGIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
