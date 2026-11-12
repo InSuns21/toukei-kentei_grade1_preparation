@@ -1,6 +1,6 @@
 # AQFT4 Klein–GordonのGreen作用素と試験関数の商
 
-[AQFT2の局所net](../AQFT2/index.md#def-aqft2-haag-kastler)は領域から観測量の代数への割当てを公理として扱い、[AQFT3の状態と真空](../AQFT3/index.md#def-aqft3-positive-vacuum)はその上で期待値とエネルギーを考えました。しかし、まだ「どの量を領域 $O$ の観測量と呼ぶか」を実際の場の方程式から作っていません。
+[AQFT2の局所net](../AQFT2/index.md#def-aqft2-haag-kastler)は領域から観測量の代数への割当てを公理として扱い、[AQFT3の状態と真空](../AQFT3/index.md#def-aqft3-vacuum)はその上で期待値とエネルギーを考えました。しかし、まだ「どの量を領域 $O$ の観測量と呼ぶか」を実際の場の方程式から作っていません。
 
 自由な実スカラー場では、滑らかで狭い領域に台を持つ関数 $f$ を使い、場を空間時間にわたって平均した量を後で作ります。ところが、異なる $f$ が同じ物理的な自由度を表すことがあります。**方程式の像を零と見なす商空間**が必要です。本講では、[HPDEで既に証明したGreen作用素の理論](../../HPDE/HPDE22/index.md#thm-hpde22-surjectivity-exact)を四次元Minkowski時空へ具体化し、その商と局所領域への割当てを構成します。
 
@@ -357,7 +357,7 @@ $P\rho_F=\rho_FP$ から $\rho_F(P\mathcal D)=P\mathcal D$。したがって $[f
 
 ## 6. 因果支持から次講の交代形式へ
 
-局所の源が遠く離れた領域にあるとき、伝播子がその相手の源に重なるかどうかは、すでに判断できます。二領域が**空間的に分離**とは、$O_1$ 内の全点と $O_2$ 内の全点の間に因果的な結び付きがないことであり、[AQFT1の定義](../AQFT1/index.md#def-aqft1-spacelike-separated)を使います。
+局所の源が遠く離れた領域にあるとき、伝播子がその相手の源に重なるかどうかは、すでに判断できます。二領域が**空間的に分離**とは、$O_1$ 内の全点と $O_2$ 内の全点の間に因果的な結び付きがないことであり、[AQFT1の定義](../AQFT1/index.md#def-aqft1-separated-regions)を使います。
 
 <a id="prop-aqft4-spacelike-pairing"></a>
 
