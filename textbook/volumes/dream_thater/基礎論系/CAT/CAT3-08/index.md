@@ -653,7 +653,7 @@ $\mathcal A,\mathcal B,\mathcal D$ は小圏、$\mathcal C$ は完備な局所�
 <!-- solution-start -->
 **詳細解答**：
 
-1. $f:a\to a'$ に対して、まず $\varepsilon^J:R(J{-})\leftarrow S(J{-})$ の自然性を $Kf$ に、次に $\varepsilon^K$ の自然性を $f$ に適用する。
+1. $f:a\to a'$ に対して、まず余単位 $\varepsilon^J_b:S(Jb)\to R(b)$ の自然性を $b=Ka$ と $Kf:Ka\to Ka'$ に適用し、続いて $\varepsilon^K$ の自然性を $f$ に適用する。
 
    $$
    \begin{aligned}
