@@ -1,0 +1,41 @@
+id: "AQFT5"
+title: "因果伝播子とシンプレクティック形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT4
+  - HPDE23
+official_scope: []
+learning_objectives:
+  - 四次元Minkowskiの実Klein–Gordon作用素でE=G_ret-G_advの符号を保ち、商上のsigma=-int f E hとCauchyデータのOmegaを一致させられる
+  - コンパクト源の商に誘導した形式の代表元独立性をEP=PE=0と形式的自己随伴性から直接検算できる
+  - 交代性・非退化性を区別し、源・空間コンパクト解の全射性と初期データの非退化性を使って証明できる
+  - 時間カットオフからコンパクト支持源を構成し、ゼロでないシンプレクティック積分を手計算できる
+  - 局所商V(O)の正しい定義と因果支持を用い、空間的に分離した領域の直交性を証明できる
+  - 直交補の包含反転を説明し、二つの元の零対合から支持分離を推論する誤りを反例で退けられる
+  - 固有・未来向きPoincaré変換でのsigmaの不変性と、時間反転で符号が変わる原因を検算できる
+definitions:
+  - { id: AQFT5-DEF-01, name: "Minkowski源商の因果的シンプレクティック形式" }
+theorems:
+  - { id: AQFT5-PROP-01, name: "空間的に分離した局所源のシンプレクティック直交性" }
+  - { id: AQFT5-PROP-02, name: "Poincaré共変性とシンプレクティック形式の保存" }
+canonical_examples:
+  - Cauchyデータ(a,0)と(0,a)から積分int a^2が正となる例
+  - 時間カットオフによるコンパクト源と源・解同型の具体的検算
+  - 中心を離した二つのdouble coneの全点対の空間的分離
+  - 非零の同じ元を二度入れるとsigma(v,v)=0となり逆命題が破れる反例
+  - 時間反転が遅延と先進を交換しsigmaの符号を反転する例
+problem_patterns:
+  - AQFT5-CAUCHY-PAIRING
+  - AQFT5-REPRESENTATIVE-INVARIANCE
+  - AQFT5-DOUBLE-CONE-LOCALITY
+  - AQFT5-ALTERNATION-VS-NONDEGENERACY
+  - AQFT5-CUTOFF-SOURCES
+  - AQFT5-TIME-REVERSAL-SIGN
+  - AQFT5-ORTHOGONAL-INCLUSION
+  - AQFT5-CONVERSE-COUNTEREXAMPLE
+  - AQFT5-LOCAL-SYMPLECTIC-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 8, review: 5 }

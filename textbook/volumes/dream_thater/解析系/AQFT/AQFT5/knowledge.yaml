@@ -1,0 +1,23 @@
+chapter: AQFT5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT4
+  - HPDE23
+forward_references: []
+concepts:
+  - id: aqft.kg-minkowski-causal-symplectic
+    name: Minkowski源商の因果的シンプレクティック形式
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-local-quotient, hpde.kg-quotient-symplectic]
+  - id: aqft.kg-local-symplectic-orthogonality
+    name: 空間的に分離した局所源のシンプレクティック直交性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.kg-minkowski-causal-symplectic, aqft.kg-spacelike-pairing, symplectic.orthogonal-complement]
+  - id: aqft.kg-poincare-symplectic-covariance
+    name: Poincaré共変性とシンプレクティック形式の保存
+    kind: proposition
+    introduction: formal
+    requires: [aqft.kg-minkowski-causal-symplectic, aqft.kg-poincare-quotient]
