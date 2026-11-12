@@ -193,7 +193,19 @@ $$
 
 ### 3.3 テンソル積では結合代数になる
 
-体 $k$ 上のベクトル空間と線形写像の圏で、[テンソル積の定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)を使う。ここでモノイダル圏の記号 $\otimes$ は体 $k$ 上のテンソル積 $\otimes_k$ を表す。線形写像 $f,g$ のテンソルは純テンソル上で $(f\otimes_k g)(v\otimes w)=f(v)\otimes g(w)$ と定まる。結合子は $((u\otimes v)\otimes w)\mapsto u\otimes(v\otimes w)$、単位対象は $k$ であり、これらの写像と単位子を純テンソル上で合成すると[モノイダル圏の五角形・三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)を満たす（各テンソル積は純テンソルの線形結合で張られる）。このため、以下の射の等式は純テンソル上で判定できる。
+体 $k$ 上のベクトル空間と線形写像の圏で、[テンソル積の定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)を使う。ここでモノイダル圏の記号 $\otimes$ は、体 $k$ 上のテンソル積 $\otimes_k$ を表す。
+
+線形写像 $f:V\to V'$ と $g:W\to W'$ のテンソルは、双線形写像 $(v,w)\mapsto f(v)\otimes g(w)$ をテンソル積の普遍性で線形化した射である。従って純テンソル上で
+$$
+(f\otimes_k g)(v\otimes w)=f(v)\otimes g(w)
+$$
+と計算できる。
+
+結合子は純テンソルを
+$$
+((u\otimes v)\otimes w)\longmapsto u\otimes(v\otimes w)
+$$
+へ送る線形同型であり、単位対象は $k$ である。四つの純テンソルに対する五角形の二経路は、いずれも括弧を $u\otimes(v\otimes(w\otimes z))$ に変える。三角形の二経路は、$((u\otimes t)\otimes v)$ をそれぞれ $u\otimes(tv)$ と $(tu)\otimes v$ に送り、テンソル積の釣合い関係によって一致する。ゆえに[モノイダル圏の五角形・三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)が成り立つ。各テンソル積は純テンソルの線形結合で張られるため、一般のテンソルについても成立する。この性質により、以下の射の等式も純テンソル上で判定できる。
 
 $k$-双線形写像 $b:V\times V\to V$ は、テンソル積の普遍性によってただ一つの線形写像
 $$
@@ -326,7 +338,7 @@ $$
 \end{aligned}
 $$
 元のモノイド対象の結合律は $m(m\otimes1_M)=m(1_M\otimes m)\alpha_{M,M,M}$。これを代入し、[lax関手の結合条件](#def-cat4-04-lax)（A）を用いて
-$
+$$
 \begin{aligned}
 m_F(m_F\otimes'1_{FM})
 &=F(m(1_M\otimes m))\,
@@ -336,7 +348,7 @@ m_F(m_F\otimes'1_{FM})
  (1_{FM}\otimes'\phi_{M,M})\alpha'_{FM,FM,FM}\\
 &=m_F(1_{FM}\otimes'm_F)\alpha'_{FM,FM,FM}.
 \end{aligned}
-$
+$$
 を得る。二行目は $\phi$ の自然性を $(1_M,m)$ に適用したもの、最後は[テンソル双関手の合成保存](../CAT4-01/index.md#def-cat4-01-tensor-bifunctor)による。
 
 **（2）左単位。** 自然性を $(e,1_M)$ に適用して
@@ -357,12 +369,12 @@ m_F(e_F\otimes'1_{FM})
 \end{aligned}
 $$
 第三行目は元の左単位律、第四行目は（L）である。右単位では、自然性を $(1_M,e)$ に適用して
-$
+$$
 \phi_{M,M}(1_{FM}\otimes'Fe)
 =F(1_M\otimes e)\phi_{M,I}
-$
+$$
 を得る。従って、元の右単位律 $m(1_M\otimes e)=\rho_M$ と（R）を順に使うと
-$
+$$
 \begin{aligned}
 m_F(1_{FM}\otimes'e_F)
 &=Fm\,\phi_{M,M}(1_{FM}\otimes'Fe)
@@ -373,7 +385,7 @@ m_F(1_{FM}\otimes'e_F)
  (1_{FM}\otimes'\phi_0)\\
 &=\rho'_{FM}.
 \end{aligned}
-$
+$$
 両辺は $FM\otimes'J\to FM$ の射である。
 
 **（3）準同型。** $h:(M,m,e)\to(N,n,d)$ を準同型とする。自然性と $hm=n(h\otimes h)$ から
