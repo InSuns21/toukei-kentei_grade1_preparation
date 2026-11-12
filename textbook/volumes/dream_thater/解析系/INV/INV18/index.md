@@ -44,7 +44,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（PDE 制約付き目的関数）**  
-> $I=(0,1)$、$V=H_0^1(I)$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$ を固定する。各 $a\in\mathcal U\subset L^\infty(I)$ について、$u=S(a)$ を上の拡散の弱方程式の唯一解とし、観測残差を
+> $I=(0,1)$、$V=H_0^1(I)$、$\mathcal U=\{a\in L^\infty(I):\operatorname*{ess\,inf}a>0\}$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$（$1\le i\le m$）を固定する。各 $a\in\mathcal U$ について、$u=S(a)$ を上の拡散の弱方程式の唯一解とし、観測残差を
 
 $$
 r_i(a)=O_i(S(a))-d_i
@@ -187,7 +187,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（随伴法による縮約目的関数の微分）**  
-> $I=(0,1)$、$V=H_0^1(I)$、$\mathcal U\subset L^\infty(I)$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$g_i\in L^2(I)$、$d_i\in\mathbb R$ を上記のように固定する。このとき $j:\mathcal U\to\mathbb R$ は $L^\infty$ ノルムで Fréchet 微分可能である。$u=S(a)$ と[随伴状態](#def-inv18-adjoint) $p=p(a)$ に対し、任意の $h\in L^\infty(I)$ で
+> $I=(0,1)$、$V=H_0^1(I)$、$\mathcal U=\{a\in L^\infty(I):\operatorname*{ess\,inf}a>0\}$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$（$1\le i\le m$）を固定する。$S(a)\in V$ は $\int_0^1 aS(a)'v'=\int_0^1fv$（全 $v\in V$）の唯一解、$O_i(v)=\int_0^1g_iv$ とし、[縮約目的関数](#def-inv18-objective)を $j(a)=\tfrac12\sum_i(O_i(S(a))-d_i)^2+\tfrac\alpha2\|a-a_0\|_2^2$ とする。このとき $j:\mathcal U\to\mathbb R$ は $L^\infty$ ノルムで Fréchet 微分可能である。$u=S(a)$ と[随伴状態](#def-inv18-adjoint) $p=p(a)$ に対し、任意の $h\in L^\infty(I)$ で
 
 $$
 Dj(a)[h]
@@ -381,13 +381,29 @@ u(x)=\frac{x(1-x)}2,\qquad
 O_1(u)=\frac1{12},\quad O_2(u)=0.
 $$
 
+座標 $(s,t)$ の単位方向 $(1,0)$、$(0,1)$ は、係数の関数としてそれぞれ $\partial_s a_{s,t}=1$、$\partial_t a_{s,t}=x$ に対応します。[観測写像の微分公式](../INV17/index.md#cor-inv17-observation-derivative)により、Jacobi 行列の第1列は $(O_1(DS(1)[1]),O_2(DS(1)[1]))^\mathsf T$、第2列は $(O_1(DS(1)[x]),O_2(DS(1)[x]))^\mathsf T$ です。ここで[有限次元の Jacobi 行列と列フルランクの対応](../INV10/index.md#cor-inv10-finite-full-rank)を用いており、二つの列が一次独立なら微分は単射です。
+
 $1$ 方向の感度 $w_s=-u$ と、$x$ 方向の感度
 
 $$
 w_t(x)=\frac{x^3}3-\frac{x^2}4-\frac x{12}
 $$
 
-は[INV17 の感度方程式](../INV17/index.md#def-inv17-sensitivity-equation)から導かれます。実際、$w_t'=-xu'+C$ と置けば $C=-1/12$ が零端点条件から決まり、この $w_t$ になります。観測へ代入して
+は[INV17 の感度方程式](../INV17/index.md#def-inv17-sensitivity-equation)から導かれます。$a=1$、$h=x$ の弱形式を整理すると、全 $v\in V$ に対して
+
+$
+\int_0^1(w_t'+xu')v'\,dx=0
+$
+
+です。[INV17 の空間依存感度の計算](../INV17/index.md#cor-inv17-observation-derivative)で示した平均零の導関数による判定から、$w_t'+xu'=C$（ほとんど至る所）と分かります。$w_t(1)-w_t(0)=0$ を代入して
+
+$
+0=-\int_0^1x(\tfrac12-x)\,dx+C
+=-\left(\tfrac14-\tfrac13\right)+C,
+\qquad C=-\tfrac1{12}
+$
+
+を得ます。従って $w_t'=x^2-x/2-1/12$ を積分し、$w_t(0)=0$ から表示した $w_t$ が得られ、さらに $w_t(1)=0$ も確認できます。観測へ代入して
 
 $$
 \begin{aligned}
@@ -580,7 +596,7 @@ $$
 
 - Level: A
 
-$a_{s,t}=1+s+tx$、$a_0=1$、$\alpha>0$ とする。罰則 $R(s,t)=\alpha\int_0^1(a_{s,t}-1)^2/2$ を求め、方向 $(p,q)$ への微分を計算せよ。
+$a_{s,t}=1+s+tx$、$a_0=1$、$\alpha>0$ とする。罰則 $R(s,t)=\alpha\int_0^1(a_{s,t}-1)^2/2$ を求め、方向 $(\eta,\zeta)\in\mathbb R^2$ への微分を計算せよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -591,14 +607,14 @@ $$
 R(s,t)=\frac\alpha2\left(s^2+st+\frac{t^2}3\right).
 $$
 
-$(s,t)\mapsto(s+\tau p,t+\tau q)$ を代入して $\tau$ の一次係数を取ると
+$(s,t)\mapsto(s+\tau\eta,t+\tau\zeta)$ を代入して $\tau$ の一次係数を取ると
 
 $$
-DR(s,t)[p,q]
-=\alpha\left(sp+\frac{sq+tp}2+\frac{tq}3\right).
+DR(s,t)[\eta,\zeta]
+=\alpha\left(s\eta+\frac{s\zeta+t\eta}2+\frac{t\zeta}3\right).
 $$
 
-他方、[目的関数の罰則微分](#thm-inv18-adjoint-gradient)へ $h=p+qx$ を入れると $\alpha\int(s+tx)(p+qx)$ となり、同じ式です。基準 $(0,0)$ ではこの一次微分は零です。
+他方、[目的関数の罰則微分](#thm-inv18-adjoint-gradient)へ $h=\eta+\zeta x$ を入れると $\alpha\int(s+tx)(\eta+\zeta x)$ となり、同じ式です。基準 $(0,0)$ ではこの一次微分は零です。
 <!-- solution-end -->
 
 ### Level B：随伴消去・検算・安定性
@@ -754,7 +770,7 @@ $$
 
 です。[B03](#ex-inv18-b03) と同じ通分を使えば $-1/144$ との差の絶対値は $(2\varepsilon^2-\varepsilon^4)/(144(1-\varepsilon^2)^2)\le(2/81)\varepsilon^2$ となります。独立な厳密式と随伴勾配が一致しました。
 
-**(4) 識別。** $0<|\varepsilon|<1$ として、異なる二係数
+**(4) 識別。** $0<|\varepsilon|<1/3$ として、異なる二係数
 
 $$
 a_\pm(x)=1\pm\varepsilon(x-\tfrac12)
@@ -762,11 +778,11 @@ $$
 
 を取ります。反射で二つの状態が入れ替わるため、
 
-$$
+$
 O_1(S(a_+))=O_1(S(a_-))
-$$
+$
 
-となり、非線形観測について厳密な非一意性があります。
+となります。ここで $a_\pm=1+s_\pm+t_\pm x$ の係数は $(s_\pm,t_\pm)=(\mp\varepsilon/2,\pm\varepsilon)$ であり、$|s_\pm|+|t_\pm|=3|\varepsilon|/2<1/2$ です。したがって**二つとも問題文の許容二パラメータ族に属し**、非線形観測について厳密な非一意性があります。
 
 一方、[二観測の定理](#thm-inv18-two-sensor-identifiability)では $\mathcal G$ の基準微分が行列式 $1/4320\ne0$ の $2\times2$ 行列です。近傍での $C^1$ と合わせ、[局所二点安定性](../INV10/index.md#cor-inv10-finite-full-rank)が得られます。ただしこれは二パラメータ族の近傍の結論であり、係数空間 $L^\infty$ 全体の一意性を意味しません。
 <!-- solution-end -->
