@@ -9,7 +9,7 @@
 <circle cx="238.00" cy="335.55" r="5.5" fill="#192b42" stroke="white" stroke-width="1.5"/>
 <g fill="#1c3148" font-family="system-ui, sans-serif" font-size="19" font-weight="600">
 <text x="268" y="157">+e₂</text>
-<text x="268" y="306">−e₂</text>
+<text x="312" y="295">−e₂</text>
 <text x="540" y="126">Sℓ</text>
 <text x="540" y="191">L₃ = +√2 L₁</text>
 <text x="540" y="258">L₃ = −√2 L₁</text>
