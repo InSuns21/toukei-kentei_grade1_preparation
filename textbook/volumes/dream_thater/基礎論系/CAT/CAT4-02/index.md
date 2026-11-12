@@ -25,7 +25,18 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-02-formal-expression -->
-**定義の確認**。 $T=((A\otimes I)\otimes(B\otimes I))$ と $U=A\otimes B$ なら $w(T)=w(U)=(A,B)$ だが、$\lVert T\rVert$ と $\lVert U\rVert$ が同一対象であるとは仮定しない。$V=I\otimes I$ の語は空列である。$A,B$ の順序を交換した $B\otimes A$ の語は $(B,A)$ なので、別の語となる。
+**定義の確認**。 $T=((A\otimes I)\otimes(B\otimes I))$ と $U=A\otimes B$ は別の形式的テンソル式である。明示的な $I$ だけを削るので、$w(T)=w(U)=(A,B)$ となる。一方、評価は
+$
+\lVert T\rVert=(A\otimes I)\otimes(B\otimes I),
+\qquad \lVert U\rVert=A\otimes B
+$
+であり、両者が同一対象であるとは仮定しない。前講で定義した[右単位子](../CAT4-01/index.md#def-cat4-01-monoidal)は $\rho_A:A\otimes I\to A$、$\rho_B:B\otimes I\to B$ だから、[テンソル双関手](../CAT4-01/index.md#def-cat4-01-tensor-bifunctor)で二射を合わせた
+$
+\rho_A\otimes\rho_B:\lVert T\rVert\longrightarrow\lVert U\rVert
+$
+は、定義に列挙した構造射の具体例になる。語が同じことと、評価対象が等しいことと、構造射があることは別々に確認する。
+
+また $V=I\otimes I$ の語は空列である。$B\otimes A$ の語は $(B,A)$ であり、もとの $(A,B)$ から順序を交換する規則は定義に含まれない。
 <!-- definition-example-end -->
 
 構造射は圏の任意の射とは違う。特に $A\otimes B\to B\otimes A$ という交換射を新しく許してはいない。
@@ -180,7 +191,26 @@ $$
 \lambda^{\mathrm{rev}}_A=\rho_A,\quad
 \rho^{\mathrm{rev}}_A=\lambda_A
 $$
-である。始域・終域を代入すると、五角形は元の五角形を逆順にたどった等式に、三角形は元の三角形に帰着するので、これもモノイダル圏である。(1) をこの $\odot$ に適用すれば
+である。$\odot$ は元のテンソル双関手に二変数の交換を前置した双関手であり、結合子と単位子の自然性は元の自然性を変数の逆順で読めば従う。整合条件も型と式で確認する。
+
+逆向きテンソルの三角形は
+$
+(\rho_B\otimes1_A)\alpha^{-1}_{B,I,A}
+=1_B\otimes\lambda_A
+$
+となる。これは元の三角形 $(1_B\otimes\lambda_A)\alpha_{B,I,A}=\rho_B\otimes1_A$ の右に $\alpha^{-1}_{B,I,A}$ を合成した等式である。
+
+逆向きテンソルの五角形は、元の四対象 $(D,C,B,A)$ の五角形の両辺を逆射にした
+$
+\begin{aligned}
+&\alpha^{-1}_{D\otimes C,B,A}
+ \alpha^{-1}_{D,C,B\otimes A}\\
+&\quad=(\alpha^{-1}_{D,C,B}\otimes1_A)
+ \alpha^{-1}_{D,C\otimes B,A}
+ (1_D\otimes\alpha^{-1}_{C,B,A})
+\end{aligned}
+$
+に一致する。したがって $\odot$ もモノイダル構造を持つ。(1) をこの $\odot$ に適用すれば
 $$
 \rho_{B\otimes A}\alpha^{-1}_{B,A,I}=1_B\otimes\rho_A.
 $$
@@ -331,7 +361,7 @@ $$
 g=(1_A\otimes\rho_B)(1_A\otimes\lambda_{B\otimes I})
 \alpha_{A,I,B\otimes I}.
 $$
-$f$ は左右の単位を同時に消し、$g$ は先に括弧を移してから消す。定理により $f=g$ である。ここでは二つの式の語がどちらも $(A,B)$ であることが必要であり、$B\otimes A$ へ同じ結論を言うことはできない。
+$f$ は左右の単位を同時に消し、$g$ は先に括弧を移してから消す。[整合性定理](#thm-cat4-02-coherence)により $f=g$ である。ここでは二つの式の語がどちらも $(A,B)$ であることが必要であり、$B\otimes A$ へ同じ結論を言うことはできない。
 
 <a id="cor-cat4-02-canonical"></a>
 
@@ -513,21 +543,38 @@ $$
 右辺は始域 $S$ と終域 $U$ だけから決まる。$T$ の選び方も途中経路も消える。元の圏の任意の射ではなく構造射に限定している点が重要である。
 <!-- solution-end -->
 
-### 問題9：単位条件を失うと何が壊れるか
+### 問題9：三角形条件だけを失うと何が壊れるか
 
 - Level: B
 - 問題ID: CAT4-02-FAILED-TRIANGLE
 
-一対象圏で自己射を $\mathbb Z/2\mathbb Z$ の加法とし、テンソルも加法、結合子 $\alpha=1$、単位子 $\lambda=\rho=0$ とする。$((I\otimes I)\otimes I)$ から $I\otimes I$ に向かう二つの射 $(1_I\otimes\lambda_I)\alpha_{I,I,I}$ と $\rho_I\otimes1_I$ を計算し、何が整合しないか説明せよ。
+一対象圏で自己射を $\mathbb Z/2\mathbb Z$ の加法とし、テンソルも加法、結合子 $\alpha=0$、左単位子 $\lambda=1$、右単位子 $\rho=0$ とする。ここで $0$ は恒等射、$1$ は非自明な自己同型射である。
+
+1. テンソル双関手の条件・構造射の自然性と可逆性・五角形条件が成立することを確認せよ。
+2. $((I\otimes I)\otimes I)$ から $I\otimes(I\otimes I)$ を経て $I\otimes I$ に進む射 $(1_I\otimes\lambda_I)\alpha_{I,I,I}$ と、直接 $I\otimes I$ へ進む射 $\rho_I\otimes1_I$ を計算せよ。
+3. 失われた仮定と、[局所的合流命題](#prop-cat4-02-local-confluence)の証明のどこが破綻するか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 唯一の対象を $I$ と書く。この圏で射の合成とテンソルは共に加法で、恒等射は $0$。したがって
+**詳細解答。** 唯一の対象を $I$ と書く。射の合成とテンソルはともに $\mathbb Z/2\mathbb Z$ 上の加法で、恒等射は $0$ である。
+
+**(1) 残した条件。** テンソルは恒等射を $0+0=0$ に移し、任意の射 $u,u',v,v'$ に対し
+$$
+(u'+u)\otimes(v'+v)=u'+u+v'+v
+=(u'+v')+(u+v)
+$$
+なので、可換性によって合成を保存する。すべての射は $x+x=0$ を満たす可逆射である。結合子・単位子の自然性も、いずれの自然性の等式も同じ射の和を異なる順序で足したものになるため成立する。
+
+[五角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)は、結合子を二度使う左辺が $0+0=0$、三度使う右辺が $0+0+0=0$ で成立する。この例では五角形を失っていない。
+
+**(2) 三角形の二経路。** 始域は形式的には $((I\otimes I)\otimes I)$、両経路の終域は $I\otimes I$ である。射の値は
 $$
 (1_I\otimes\lambda_I)\alpha_{I,I,I}
-=(0+0)+1=1,\qquad
-\rho_I\otimes1_I=0+0=0.
+=(0+1)+0=1,\qquad
+\rho_I\otimes1_I=0+0=0
 $$
-両射は $I$ から $I$ への射だが異なる。この選択では[三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)が成立しない。そのため[局所的合流命題](#prop-cat4-02-local-confluence)の結合子と単位子の重なりを解決できず、正規化射の一意性の証明が破綻する。$\alpha=1$ は可逆で自然だが、その二条件だけでは十分ではない。
+と異なる。したがって[三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)だけが、この指定から失われた整合条件である。
+
+**(3) 失敗する論証。** [局所的合流命題](#prop-cat4-02-local-confluence)の証明 (d) の中央の重なり $((A\otimes I)\otimes B)$ に $A=B=I$ を代入した場合、二つの合流経路が等しい射にならない。正規化射の一意性を導く整礎帰納法では最初の一手をそろえられず、証明は成立しない。この例はモノイダル圏ではないから、整合性定理の反例ではなく、三角形という仮定の必要性を示す例である。
 <!-- solution-end -->
 
 ### 問題10：単位を含む四文字の正準射
