@@ -232,7 +232,13 @@ $\|\Psi\|=\|k\|\|l\|=1$ であり、ベクトル状態は $B(H)$ 上で正規な
 
 <!-- formal-statement-start -->
 > **命題（可換性はsplitを含意しない）**  
-> $H=L^2([0,1])$ とし、$D=\{M_f:f\in L^\infty([0,1])\}\subset B(H)$ を有界関数の乗法作用素環とする。$D$ と $D$ は可換なvon Neumann環であるが、$D\subset D'$ をsplit inclusionにするType I中間因子は存在しない。
+> $H=L^2([0,1])$ とし、$D$ を次の有界関数の乗法作用素環とする。
+>
+$
+D=\{M_f:f\in L^\infty([0,1])\}\subset B(H).
+$
+>
+> $D$ は可換なvon Neumann環だが、$D\subset D'$ をsplit inclusionにするType I中間因子は存在しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
