@@ -63,7 +63,7 @@ $
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo7-cutoff-action -->
-**定義の確認。** $\phi=c$（定数）、$\chi=1$ とすれば全ての偏微分が零なので、トーラスの座標体積を $V_T=\int_{T^d}d^dx$ として
+**定義の確認**： $\phi=c$（定数）、$\chi=1$ とすれば全ての偏微分が零なので、トーラスの座標体積を $V_T=\int_{T^d}d^dx$ として
 
 $$
 S_E[c]=\frac{m^2c^2L^{d+1}V_T}{2}
@@ -98,7 +98,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo7-cutoff-dirichlet -->
-**定義の確認。** $\phi(z,x)=a+bz$ に対して $J_\epsilon=a+b\epsilon$、$J_Z=a+bZ$ を固定します。$\chi(z,x)=(z-\epsilon)(Z-z)$ は両端で零なので $\phi+s\chi$ は任意の実数 $s$ について同じ端点値を保ちます。一方 $\chi=1$ は端点値を $s$ だけ変え、固定Dirichletデータの許容変分ではありません。$\phi=a+bz$ が場の方程式を満たすかどうかは、この**境界条件の確認とは独立**です。
+**定義の確認**： $\phi(z,x)=a+bz$ に対して $J_\epsilon=a+b\epsilon$、$J_Z=a+bZ$ を固定します。$\chi(z,x)=(z-\epsilon)(Z-z)$ は両端で零なので $\phi+s\chi$ は任意の実数 $s$ について同じ端点値を保ちます。一方 $\chi=1$ は端点値を $s$ だけ変え、固定Dirichletデータの許容変分ではありません。$\phi=a+bz$ が場の方程式を満たすかどうかは、この**境界条件の確認とは独立**です。
 <!-- definition-example-end -->
 
 ## 3. 境界項を消さずに第一変分を導く
@@ -210,7 +210,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo7-cutoff-flux -->
-**定義の確認。** $\phi(z,x)=a+bz^d$ と置くと $\phi_z=dbz^{d-1}$ なので
+**定義の確認**： $\phi(z,x)=a+bz^d$ と置くと $\phi_z=dbz^{d-1}$ なので
 
 $$
 \pi_\epsilon=-dL^{d-1}b,\qquad \pi_Z=+dL^{d-1}b.
@@ -331,7 +331,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo7-cutoff-response-map -->
-**定義の確認。** 定数関数 $J(x)=J_0$ には前節の滑らかな解が実在し、$\phi(\epsilon)=J_0$、$\phi(Z)=0$ です。その法線微分から
+**定義の確認**： 定数関数 $J(x)=J_0$ には前節の滑らかな解が実在し、$\phi(\epsilon)=J_0$、$\phi(Z)=0$ です。その法線微分から
 
 $$
 \Lambda_{\epsilon,Z}J_0
