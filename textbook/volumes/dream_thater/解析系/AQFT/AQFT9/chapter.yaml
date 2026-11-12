@@ -1,0 +1,54 @@
+id: "AQFT9"
+title: "GNSから局所von Neumann環へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT8
+  - AQFT6
+  - AQFT3
+  - AQFT2
+  - OA5
+  - VN2
+  - VN5
+official_scope: []
+learning_objectives:
+  - GNS表現と局所C*環の像から局所von Neumann環を定義し強作用素・弱作用素閉包と対応させられる
+  - 局所C*netの包含単調性とEinstein局所性が二重可換子を取っても維持されることを両包含で証明できる
+  - GNSベクトル状態が局所von Neumann環上で正規であることをrank-one密度作用素から証明できる
+  - 同じC*netの異なる状態から非同型な局所環が生じる具体的なGNS商を計算できる
+  - 連続関数の乗法表現でノルム閉包と強作用素閉包が異なることを指示関数の極限で検証できる
+  - C*状態の正規な延長が固定した他の表現では失敗することを優収束から説明できる
+  - 不変状態の共変GNS表現によるユニタリ共役が局所二重可換子へ拡張することを証明できる
+  - 自由Klein–Gordon真空のGNS局所環とFock Weyl生成von Neumann環を同定し局所巡回性の未証明部分を区別できる
+definitions:
+  - { id: AQFT9-DEF-01, name: "状態に伴う局所von Neumann net" }
+  - { id: AQFT9-DEF-02, name: "真空Fock局所von Neumann環" }
+theorems:
+  - { id: AQFT9-THM-01, name: "局所von Neumann netの包含単調性と局所性" }
+  - { id: AQFT9-PROP-01, name: "局所環へのGNS状態の正規な延長" }
+  - { id: AQFT9-PROP-02, name: "二点netの異なるGNS局所環" }
+  - { id: AQFT9-PROP-03, name: "乗法表現の弱閉包に新しい射影が現れる" }
+  - { id: AQFT9-PROP-04, name: "点評価状態は乗法表現へ正規に延長できない" }
+  - { id: AQFT9-PROP-05, name: "不変状態の局所von Neumann netの共変性" }
+  - { id: AQFT9-THM-02, name: "自由場のGNS局所環とFock局所環の一致" }
+canonical_examples:
+  - 二点可換netの平均状態と点評価状態から得る異なるGNS局所環
+  - 対角行列の可換子と二重可換子
+  - ベクトル状態の正規性と忠実性の違い
+  - 連続乗法作用素のSOT極限として得られる不連続な射影
+  - 点評価状態の別表現における正規延長不可能性
+  - Fock Weyl生成元による局所von Neumann環
+problem_patterns:
+  - AQFT9-COMMUTANT-ORDER
+  - AQFT9-DIAGONAL-BICOMMUTANT
+  - AQFT9-VECTOR-STATE
+  - AQFT9-LOCAL-WEYL-COMMUTATION
+  - AQFT9-STATE-DEPENDENT-GNS
+  - AQFT9-SOT-NORM-SEPARATION
+  - AQFT9-NONNORMAL-EXTENSION
+  - AQFT9-UNITARY-COVARIANCE
+  - AQFT9-FOCK-LOCAL-VN-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
