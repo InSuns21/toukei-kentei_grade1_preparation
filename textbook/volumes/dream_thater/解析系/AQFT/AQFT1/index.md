@@ -112,7 +112,7 @@ $$
 $$
 
 近傍まで確かめるため、$p'=(T,\boldsymbol X)$ が $|T|<1/4$ と $|\boldsymbol X-(2,0,0)|<1/4$ を満たすとします。どの $q=(s,\boldsymbol y)\in S$ についても
-$
+$$
 \begin{aligned}
 |\boldsymbol X-\boldsymbol y|
 &\ge2-|\boldsymbol X-(2,0,0)|-|\boldsymbol y|\\
@@ -120,7 +120,7 @@ $
 >3/4+|s|\\
 &>|T|+|s|\ge|T-s|.
 \end{aligned}
-$
+$$
 従ってこの開近傍の全点が $C_{\mathrm{sp}}(S)$ に入り、$p\in\operatorname{int}C_{\mathrm{sp}}(S)=S^\perp$ まで示せました。点 $p$ だけで不等式が成り立つことと、近傍を確保することを区別しています。
 <!-- definition-example-end -->
 
@@ -463,7 +463,7 @@ $D_3$ の $t=0,1,2,3$ における空間断面を求め、$(2,(1,0,0))$ が領�
 $u=(1,(-2,50,0))$、$v=(1,(2,50,0))$、$w=(2,(2,0,0))$ の右・左wedgeへの所属を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[wedgeの定義](#def-aqft1-wedges)では $x^1$ と $t$ だけを比較します。$u$ は $-x^1=2>|t|=1$ なので左wedge、$v$ は $x^1=2>1$ なので右wedgeです。$w$ は $x^1=|t|=2$ なので**右wedgeの境界上**であり、左wedgeについては $-x^1=-2\not>|t|=2$ なので外部です。従ってどちらの開wedgeにも属しません。左右両方の境界にあるわけではありません。横方向の50は条件に入っていません。
+**詳細解答**。[wedgeの定義](#def-aqft1-wedges)では $x^1$ と $t$ だけを比較します。$u$ は $-x^1=2>|t|=1$ なので左wedge、$v$ は $x^1=2>1$ なので右wedgeです。$w$ は $x^1=|t|=2$ なので**右wedgeの境界上**であり、左wedgeについては $-x^1=-2<|t|=2$ なので外部です。従ってどちらの開wedgeにも属しません。左右両方の境界にあるわけではありません。横方向の50は条件に入っていません。
 <!-- solution-end -->
 
 <a id="ex-aqft1-a04"></a>
