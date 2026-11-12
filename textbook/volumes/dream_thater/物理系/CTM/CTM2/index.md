@@ -35,6 +35,8 @@ $$
 
 を意味する。したがって、基準側の短い線分 $h=\varepsilon a$（$\varepsilon\to0$、$a$ 固定）は一次精度で $\varepsilon Fa$ へ移る。$F$ が無次元なのは、$X$ と $\chi$ の両方が長さの単位を持つからである。
 
+このように微小な線分の一次部分を**線素**と呼ぶ。基準側の曲線を $s\mapsto X(s)$ と表すとき、$s$ は線に沿って動かすパラメータ、$a=dX/ds$ はその接線であり、線素を $dX=a\,ds$ と書く。ここで時間 $t$ は固定する。
+
 <!-- definition-example-start: def-ctm2-deformation-gradient -->
 
 ### **定義の確認**：一様伸長とせん断
