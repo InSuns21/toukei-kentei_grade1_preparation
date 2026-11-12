@@ -1,0 +1,51 @@
+id: "INV14"
+title: "不完全観測で何が見えなくなるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV12
+  - INV13
+  - FOU4
+official_scope: []
+learning_objectives:
+  - 限定角度・有限方向・検出器の標本化を区別しFourier sliceによる観測周波数領域を判定できる
+  - 接線方向微分を用い有限方向観測のコンパクト台の非自明な核を構成できる
+  - 欠測扇形にFourier台を持つSchwartz級画像の観測不能を証明できる
+  - コンパクト台の限定角度一意性を二変数の冪級数展開とFourier反転から示せる
+  - 欠測方向の高周波変調列から任意の代数次数で観測ノルムが減衰する不安定性を導ける
+  - 欠測周波数の零埋め再構成とL2誤差のPlancherel表示を求められる
+  - 有限viewの周波数間隔と一次元検出器aliasを計算し安定性との関係を説明できる
+definitions:
+  - { id: INV14-DEF-01, name: 限定角度観測と有限方向観測 }
+  - { id: INV14-DEF-02, name: 観測周波数領域と欠測扇形 }
+  - { id: INV14-DEF-03, name: 欠測周波数の零埋め再構成 }
+  - { id: INV14-DEF-04, name: 等間隔検出器標本 }
+theorems:
+  - { id: INV14-THM-01, name: 有限方向観測の非自明な核 }
+  - { id: INV14-THM-02, name: 限定角度のSchwartz級における非一意性 }
+  - { id: INV14-THM-03, name: コンパクト台の限定角度一意性 }
+  - { id: INV14-THM-04, name: コンパクト台でも限定角度逆問題は極端に不安定 }
+  - { id: INV14-PROP-01, name: 零埋めの誤差は欠測領域のFourierエネルギー }
+canonical_examples:
+  - 2方向で消えるGaussianの混合微分
+  - 有限方向の接線方向微分による非零コンパクト台反例
+  - 欠測扇形に置いた対称な周波数台
+  - コンパクト台の二変数冪級数による延長
+  - 欠測方向に進む高周波変調と観測ノルムの減衰
+  - Fourier零埋めのL2偏りとGaussianの投影線
+  - 検出器格子で一致する異なるSchwartz信号
+problem_patterns:
+  - INV14-A01
+  - INV14-A02
+  - INV14-A03
+  - INV14-A04
+  - INV14-A05
+  - INV14-B01
+  - INV14-B02
+  - INV14-B03
+  - INV14-B04
+  - INV14-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

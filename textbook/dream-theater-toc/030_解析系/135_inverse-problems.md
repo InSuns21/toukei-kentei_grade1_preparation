@@ -14,3 +14,4 @@
 11. [INV11 反復正則化をいつ止めるか](textbook/volumes/dream_thater/解析系/INV/INV11/index.md)
 12. [INV12 Radon変換は何を測っているか](textbook/volumes/dream_thater/解析系/INV/INV12/index.md)
 13. [INV13 投影データからどう反転するか](textbook/volumes/dream_thater/解析系/INV/INV13/index.md)
+14. [INV14 不完全観測で何が見えなくなるか](textbook/volumes/dream_thater/解析系/INV/INV14/index.md)
