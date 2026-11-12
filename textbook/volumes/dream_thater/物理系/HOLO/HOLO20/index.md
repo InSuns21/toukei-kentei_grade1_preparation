@@ -18,9 +18,9 @@
 > **定義（RT領域の切断・貼合せ候補）**  
 > 同じ静的時間断面 $\Sigma$ と同じ境界cutoffの下で、境界領域 $A,B$ に相同な二つの区分的滑らかなRT候補と、それらが囲むバルク領域を選ぶ。これらを $\gamma_A,\gamma_B$ および $R_A,R_B$ と書く。領域の共通部分と和集合を
 >
-$
+$$
 R_{\cap}=R_A\cap R_B,\qquad R_{\cup}=R_A\cup R_B
-$
+$$
 >
 > とし、それらの境界から境界cutoff上の部分を除いたバルク側の面を、それぞれ $\widetilde\gamma_{\cap},\widetilde\gamma_{\cup}$ とする。これらを境界領域 $A\cap B$ と $A\cup B$ の**切断・貼合せ候補**と呼ぶ。面の交点と角を許し、有限個の交点は長さ0として数える。
 <!-- formal-statement-end -->
