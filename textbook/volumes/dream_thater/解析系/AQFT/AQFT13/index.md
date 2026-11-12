@@ -23,16 +23,18 @@ $$
 > **定義（分離ベクトル）**  
 > $\mathcal H$ を複素Hilbert空間、$\mathcal N\subset B(\mathcal H)$ を単位元を含む作用素環とする。$\Omega\in\mathcal H$ が $\mathcal N$ に対して **分離的（separating）** であるとは、
 >
-> $$
-> A\in\mathcal N,\quad A\Omega=0
-> \quad\Longrightarrow\quad A=0
-> $$
+$$
+A\in\mathcal N,\quad A\Omega=0
+\quad\Longrightarrow\quad A=0
+$$
 >
 > が成り立つことをいう。局所von Neumann環 $\mathcal M(O)$ に対して成り立つとき、$O$ において局所分離的という。**巡回性** $\overline{\mathcal N\Omega}=\mathcal H$ と **分離性** は、別々に判定する条件である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft13-separating-vector -->
 ### 直接例：三つの環は二つの性質を区別する
+
+**定義の確認**として、まず分離性の含意を行列成分で調べ、次に巡回性の閉包を求めます。
 
 同じ $\mathbb C^2$ で、まず $\Omega=(1,1)/\sqrt2$ とし、対角行列環 $D=\{\operatorname{diag}(a,b):a,b\in\mathbb C\}$ を使います。
 $$
@@ -94,7 +96,7 @@ $$
 $$
 P\in(\mathcal N')'=\mathcal N
 $$
-です。最後の等号は $\mathcal N$ がvon Neumann環であることによる[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)です。$I\in\mathcal N'$ より $\Omega\in K$、したがって $(I-P)\Omega=0$。$I-P\in\mathcal N$ と分離性から $I-P=0$、つまり $P=I$ となり、$K=\mathcal H$ です。
+です。最後の等号は $\mathcal N$ がvon Neumann環であることによる[von Neumann の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)です。$I\in\mathcal N'$ より $\Omega\in K$、したがって $(I-P)\Omega=0$。$I-P\in\mathcal N$ と分離性から $I-P=0$、つまり $P=I$ となり、$K=\mathcal H$ です。
 
 **(2)。** 可換子 $\mathcal N'$ もvon Neumann環であり $(\mathcal N')'=\mathcal N$ です。(1)の同値に $\mathcal N'$ を代入すれば、「$\mathcal N'$ に分離的 $\Leftrightarrow$ $\mathcal N$ に巡回的」となります。$\square$
 <!-- proof-end -->
@@ -111,9 +113,9 @@ $$
 > **命題（局所von Neumann環の補領域包含）**  
 > 四次元Minkowski時空の開領域に定義された単位的な局所von Neumann net $O\mapsto\mathcal M(O)\subset B(\mathcal H)$ がEinstein局所性を満たすとする。$O$ が開領域で、$O^\perp$ がその開いた因果補集合なら
 >
-> $$
-> \mathcal M(O^\perp)\subset\mathcal M(O)'.
-> $$
+$$
+\mathcal M(O^\perp)\subset\mathcal M(O)'.
+$$
 >
 > 特に $Q\subset O^\perp$ が開領域なら $\mathcal M(Q)\subset\mathcal M(O)'$ である。**一般には等号を主張しない**。
 <!-- formal-statement-end -->
@@ -190,11 +192,11 @@ $\xi$ は任意なので $A=0$。すなわち $\Omega$ は $\mathcal M$ に分�
 > [AQFT12のReeh–Schlieder定理](../AQFT12/index.md#thm-aqft12-reeh-schlieder)の全仮定、すなわち四次元Minkowski時空での包含単調な単位的局所von Neumann net、強連続な平行移動共変表現 $U$ の未来閉光円錐スペクトル条件、不変単位ベクトル $\Omega$、$\Omega$ の全域環に対する巡回性、弱加法性を仮定し、**さらにEinstein局所性**を仮定する。
 >
 > このとき、任意の非空有界double cone $O$ について
-> $$
-> \overline{\mathcal M(O)\Omega}=\mathcal H,
-> \qquad
-> A\in\mathcal M(O),\ A\Omega=0\Longrightarrow A=0
-> $$
+$$
+\overline{\mathcal M(O)\Omega}=\mathcal H,
+\qquad
+A\in\mathcal M(O),\ A\Omega=0\Longrightarrow A=0
+$$
 > が同時に成り立つ。
 <!-- formal-statement-end -->
 
@@ -225,9 +227,9 @@ $$
 <!-- formal-statement-start -->
 > **命題（分離ベクトルとベクトル状態の忠実性）**  
 > $\mathcal N\subset B(\mathcal H)$ を単位的von Neumann環、$\Omega$ を単位ベクトルとする。$\omega_\Omega(A)=\langle\Omega,A\Omega\rangle$ と置く。この状態が **忠実**、すなわち任意の $A\in\mathcal N$ について
-> $$
-> \omega_\Omega(A^*A)=0\Longrightarrow A=0
-> $$
+$$
+\omega_\Omega(A^*A)=0\Longrightarrow A=0
+$$
 > となることと、$\Omega$ が $\mathcal N$ に対して分離的であることは同値である。また $\omega_\Omega$ は $\mathcal N$ 上の正規状態である。
 <!-- formal-statement-end -->
 
@@ -352,7 +354,7 @@ $$
 $$
 なので $BK^\perp\subset K^\perp$ です。従って $B$ は $K\oplus K^\perp$ に関してブロック対角となり、$BP=PB$ です。
 
-全ての $B\in\mathcal N'$ と $P$ が可換なので $P\in(\mathcal N')'=\mathcal N$。ここで[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)を使いました。$I\in\mathcal N'$ なので $\Omega\in K$ であり、$P\Omega=\Omega$ です。従って $(I-P)\Omega=0$、かつ $I-P\in\mathcal N$。分離性を適用すると $I-P=0$、すなわち $P=I$。その値域 $K$ は $\mathcal H$ 全体です。
+全ての $B\in\mathcal N'$ と $P$ が可換なので $P\in(\mathcal N')'=\mathcal N$。ここで[von Neumann の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)を使いました。$I\in\mathcal N'$ なので $\Omega\in K$ であり、$P\Omega=\Omega$ です。従って $(I-P)\Omega=0$、かつ $I-P\in\mathcal N$。分離性を適用すると $I-P=0$、すなわち $P=I$。その値域 $K$ は $\mathcal H$ 全体です。
 <!-- solution-end -->
 
 <a id="ex-aqft13-b02"></a>
