@@ -1,0 +1,36 @@
+chapter: HOLO20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO19
+concepts:
+  - id: holography.rt-cut-paste-candidates
+    name: RT領域の切断・貼合せ候補
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RT領域の切断・貼合せ候補）"]
+    requires: [holography.static-rt-homology]
+  - id: holography.rt-area-submodularity
+    name: 切断・貼合せの面積劣加法性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（切断・貼合せの面積劣加法性）"]
+    requires: [holography.rt-cut-paste-candidates]
+  - id: holography.rt-static-ssa
+    name: 静的古典RTの強劣加法性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静的古典RTの強劣加法性）"]
+    requires: [holography.rt-area-submodularity, holography.static-rt-homology]
+  - id: holography.ads3-adjacent-interval-ssa
+    name: 純AdSの隣接三区間での強劣加法性の余裕
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純AdSの隣接三区間での強劣加法性の余裕）"]
+    requires: [holography.rt-static-ssa, holography.ads3-rt-interval-coefficient]
+  - id: holography.rt-static-subadditivity
+    name: 静的RTの劣加法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静的RTの劣加法性）"]
+    requires: [holography.rt-area-submodularity, holography.rt-static-ssa]
