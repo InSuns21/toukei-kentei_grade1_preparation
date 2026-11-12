@@ -1,0 +1,42 @@
+chapter: U3-11
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-08, U3-09, U3-10]
+forward_references: []
+concepts:
+  - id: finance.crr-time-step-binomial
+    name: CRR の時間刻み付き二項木
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CRR の時間刻み付き二項木）"]
+    requires: [finance.multiperiod-binomial-market, finance.one-period-risk-neutral-probability]
+  - id: finance.crr-probability-admissibility
+    name: CRR 確率の有効条件と再結合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（CRR 確率の有効条件と再結合）"]
+    requires: [finance.crr-time-step-binomial]
+  - id: finance.trinomial-fixed-middle-probability
+    name: 横ばい確率を固定した再結合三項木
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（横ばい確率を固定した再結合三項木）"]
+    requires: [finance.crr-time-step-binomial, finance.trinomial-incompleteness]
+  - id: finance.trinomial-positive-probability-log-moments
+    name: 三項木の正確な有効条件と対数増分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三項木の正確な有効条件と対数増分）"]
+    requires: [finance.trinomial-fixed-middle-probability]
+  - id: finance.lattice-square-claim-convergence
+    name: 二乗受取額の CRR・三項木評価と一次収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二乗受取額の CRR・三項木評価と一次収束）"]
+    requires: [finance.crr-time-step-binomial, finance.trinomial-fixed-middle-probability, finance.backward-conditional-value]
+  - id: finance.recombining-lattice-complexity
+    name: 満期株価依存の二項木・三項木の計算量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（満期株価依存の二項木・三項木の計算量）"]
+    requires: [finance.crr-time-step-binomial, finance.trinomial-fixed-middle-probability, finance.backward-conditional-value]
