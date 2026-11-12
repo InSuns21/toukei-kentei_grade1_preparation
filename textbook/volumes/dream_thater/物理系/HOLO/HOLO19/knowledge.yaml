@@ -1,0 +1,37 @@
+chapter: HOLO19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO18
+  - HOLO16
+concepts:
+  - id: holography.static-rt-homology
+    name: 静的RT面の相同条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静的RT面の相同条件）"]
+    requires: [holography.static-interval-rt-length]
+  - id: holography.two-interval-rt-pairings
+    name: 二つの区間のRT候補と長さ差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二つの区間のRT候補と長さ差）"]
+    requires: [holography.static-rt-homology, holography.ads3-interval-regulated-length]
+  - id: holography.btz-rt-horizon-homology
+    name: BTZの二候補と地平線の必要性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（BTZの二候補と地平線の必要性）"]
+    requires: [holography.static-rt-homology, holography.btz-nonrotating-exterior]
+  - id: holography.btz-regulated-interval-length
+    name: BTZ境界区間の正則化測地線長
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（BTZ境界区間の正則化測地線長）"]
+    requires: [holography.btz-nonrotating-exterior, holography.btz-thermodynamics]
+  - id: holography.btz-rt-competition
+    name: 非回転BTZの古典RT候補の切替
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非回転BTZの古典RT候補の切替）"]
+    requires: [holography.btz-rt-horizon-homology, holography.btz-regulated-interval-length]
