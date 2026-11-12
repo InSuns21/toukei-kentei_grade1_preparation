@@ -15,6 +15,7 @@ concepts:
 
   - id: inverse.radon-transform
     name: 平面Radon変換
+    aliases: [Radon変換, "Radon 変換"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（平面Radon変換）"]
