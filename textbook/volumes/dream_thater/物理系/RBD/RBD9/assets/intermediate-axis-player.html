@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RBD9 非対称剛体：中間軸と二保存量の数値実験</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,"Yu Gothic",sans-serif;color:#1e3042;background:#f3f6fa}
+*{box-sizing:border-box}body{max-width:1080px;margin:auto;padding:18px;line-height:1.58}
+h1{font-size:clamp(1.3rem,3vw,1.9rem);line-height:1.4}
+a{color:#165e9a}.panel{padding:14px;border:1px solid #c9d5df;background:white;border-radius:12px;margin:12px 0}
+.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.9fr);gap:12px}
+canvas{display:block;width:100%;height:auto;background:#f8fbfd;border-radius:7px}
+label{font-weight:600;display:block;margin:10px 0 4px}
+select,input[type=range]{width:100%;font:inherit;padding:8px}
+input[type=range]{padding:6px 0}
+.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+button{padding:10px 14px;border-radius:7px;border:2px solid #145d93;background:#145d93;color:white;font:inherit;font-weight:600;cursor:pointer}
+button.secondary{background:white;color:#145d93}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #dc7719;outline-offset:3px}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:3px 10px}
+dt{color:#506379}dd{margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.small{font-size:.88rem;color:#42596a}
+.legend{display:flex;flex-wrap:wrap;gap:8px 15px;font-size:.87rem}
+.line{width:21px;display:inline-block;vertical-align:middle;border-top:3px solid;margin-right:5px}
+.line.dash{border-top-style:dashed}
+.line.dot{border-top-style:dotted}
+.error{color:#a32629;font-weight:bold}
+@media(max-width:750px){body{padding:10px}.layout{grid-template-columns:1fr}.panel{padding:11px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD9/index">← RBD9 講義に戻る</a>
+<h1>無トルク非対称剛体：三主軸と中間軸効果</h1>
+<p>重心まわりの慣性モーメントを <strong>(I₁,I₂,I₃)=(2,3,4)</strong> に固定します。描画は自由回転のEuler方程式と姿勢四元数の連立初期値問題を数値積分したものです。矢印は方向を示し、長さは物理量の相対的な大きさを表しません。</p>
+<div class="layout">
+<section class="panel">
+<canvas id="scene" width="740" height="480" role="img" aria-label="Euler方程式の解から描く三本の物体主軸と空間で固定された角運動量。中間軸の向きの先端軌跡も描く。">JavaScriptが無効の場合は講義本文のEuler方程式、保存量、分離曲線の図を参照してください。</canvas>
+<div class="legend" aria-label="描画凡例">
+<span><i class="line" style="border-color:#17609a"></i>e₁（最小慣性）</span>
+<span><i class="line dash" style="border-color:#bd6c20"></i>e₂（中間慣性）</span>
+<span><i class="line dot" style="border-color:#177c64"></i>e₃（最大慣性）</span>
+<span><i class="line" style="border-color:#272e43"></i>空間角運動量 Lₛ</span>
+</div>
+<p class="small">背景の薄い軌跡は物体の中間軸 e₂ の先端が空間を動いた履歴です。カメラを固定した斜めの正射影です。</p>
+</section>
+<section class="panel">
+<div class="controls">
+<label for="axis">基準にする主軸</label>
+<select id="axis">
+<option value="0">e₁：最小慣性（安定）</option>
+<option value="1" selected>e₂：中間慣性（不安定）</option>
+<option value="2">e₃：最大慣性（安定）</option>
+</select>
+<label for="epsilon">初期摂動の大きさ <output id="epsout">0.080</output></label>
+<input type="range" id="epsilon" min="0.005" max="0.18" step="0.005" value="0.080">
+<label for="step">積分刻み幅 dt</label>
+<select id="step"><option value="0.04">0.04</option><option value="0.02" selected>0.02</option><option value="0.01">0.01</option></select>
+<div class="buttons">
+<button id="play">再生</button>
+<button id="advance" class="secondary">1ステップ</button>
+<button id="reset" class="secondary">初期化</button>
+<button id="compare" class="secondary">刻み幅半減比較</button>
+</div>
+</div>
+<dl>
+<dt>時刻 t</dt><dd id="t">0.000</dd>
+<dt>物体系角速度</dt><dd id="omega">—</dd>
+<dt>初期エネルギー</dt><dd id="energy">—</dd>
+<dt>相対 E 誤差</dt><dd id="edrift">—</dd>
+<dt>初期 |L|</dt><dd id="momentum">—</dd>
+<dt>相対 |L| 誤差</dt><dd id="ldrift">—</dd>
+<dt>空間 Lₛ のずれ</dt><dd id="sdrift">—</dd>
+</dl>
+<p id="comparison" class="small" aria-live="polite">刻み幅半減を押すと、同じ初期値・同じ時刻で姿勢と角速度を比較します。</p>
+<p id="status" aria-live="polite" class="small"></p>
+</section>
+</div>
+<section class="panel">
+<h2>式と検算方法</h2>
+<p>外トルク零では I₁ω̇₁=(I₂−I₃)ω₂ω₃、I₂ω̇₂=(I₃−I₁)ω₃ω₁、I₃ω̇₃=(I₁−I₂)ω₁ω₂。姿勢は q̇=½q⊗(0,ω)（スカラー先頭Hamilton積）を同じ4次Runge–Kutta法で更新し、四元数を各ステップで単位長へ正規化します。</p>
+<p>中間軸では初期の角運動量を、分離曲線 L₃=−√2L₁、|L|=3 の上に選びます。ほかの主軸ではω主成分=1に小さい横方向成分を加えます。正しい計算なら E=½Σ Iᵢωᵢ²、|L|²=Σ(Iᵢωᵢ)²、Lₛ=R(q)L が時間によらず保たれます。正規化は姿勢の単位性を保ちますが、E と L の保存を保証する操作ではありません。</p>
+<p>刻み幅半減比較は、現在時刻まで初期状態から dt/2 で再積分します。差が縮むことは数値収束の手掛かりであって真の解との厳密な誤差評価ではありません。特に中間軸近傍では長時間の軌道が初期誤差や丸め誤差に敏感です。</p>
+</section>
+<script>
+"use strict";
+const I=[2,3,4],canvas=document.getElementById("scene"),ctx=canvas.getContext("2d");
+const axis=document.getElementById("axis"),epsilon=document.getElementById("epsilon"),step=document.getElementById("step");
+const $=id=>document.getElementById(id), norm=v=>Math.hypot(...v), dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0);
+let s,s0,t=0,dt=0.02,playing=false,raf=0,trail=[],L0,E0,ls0;
+function deriv(x){
+ const [w1,w2,w3,q0,q1,q2,q3]=x;
+ return [(I[1]-I[2])/I[0]*w2*w3,
+ (I[2]-I[0])/I[1]*w3*w1,
+ (I[0]-I[1])/I[2]*w1*w2,
+ -.5*(q1*w1+q2*w2+q3*w3),
+ .5*(q0*w1+q2*w3-q3*w2),
+ .5*(q0*w2+q3*w1-q1*w3),
+ .5*(q0*w3+q1*w2-q2*w1)];
+}
+function advanceRK4(x,h){
+ const k1=deriv(x), add=(a,k,f)=>a.map((v,i)=>v+f*k[i]);
+ const k2=deriv(add(x,k1,h/2)), k3=deriv(add(x,k2,h/2)), k4=deriv(add(x,k3,h));
+ const next=x.map((v,i)=>v+h*(k1[i]+2*k2[i]+2*k3[i]+k4[i])/6);
+ const qn=Math.hypot(...next.slice(3));for(let i=3;i<7;i++)next[i]/=qn;
+ return next;
+}
+function quatRotate(q,v){
+ const [w,x,y,z]=q;const [a,b,c]=v;
+ const tx=2*(y*c-z*b),ty=2*(z*a-x*c),tz=2*(x*b-y*a);
+ return [a+w*tx+y*tz-z*ty,b+w*ty+z*tx-x*tz,c+w*tz+x*ty-y*tx];
+}
+function energy(x){return .5*(I[0]*x[0]**2+I[1]*x[1]**2+I[2]*x[2]**2)}
+function angular(x){return [I[0]*x[0],I[1]*x[1],I[2]*x[2]]}
+function spaceL(x){return quatRotate(x.slice(3),angular(x))}
+function initialize(){
+ stop();dt=Number(step.value);const e=Number(epsilon.value),k=Number(axis.value);
+ const omega=[0,0,0];omega[k]=1;
+ if(k===1){
+  const L1=e,L3=-Math.SQRT2*e,L2=Math.sqrt(9-3*e*e);
+  omega[0]=L1/2;omega[1]=L2/3;omega[2]=L3/4;
+ }else if(k===0){omega[1]=e;omega[2]=e/2}
+ else{omega[0]=e;omega[1]=e/2}
+ s0=[...omega,1,0,0,0];s=s0.slice();t=0;trail=[];
+ L0=norm(angular(s));E0=energy(s);ls0=spaceL(s);
+ $("epsout").textContent=e.toFixed(3);
+ $("comparison").textContent="刻み幅半減を押すと、同じ初期値・同じ時刻で姿勢と角速度を比較します。";
+ $("status").textContent=k===1?"中間軸：正確な分離曲線上の初期値です。":"両端軸：小さい摂動を加えた初期値です。";
+ render();
+}
+function takeStep(){
+ if(t>=70){stop();$("status").textContent="時刻70で停止。初期化して条件を変えてください。";return}
+ const h=Math.min(dt,70-t);s=advanceRK4(s,h);t+=h;
+ const p=quatRotate(s.slice(3),[0,1,0]);trail.push(p);
+ if(trail.length>400)trail.shift();
+}
+function stop(){playing=false;if(raf)cancelAnimationFrame(raf);raf=0;$("play").textContent="再生"}
+function loop(){if(!playing)return;for(let i=0;i<7;i++)takeStep();render();if(playing)raf=requestAnimationFrame(loop)}
+function screen(v){const z=norm(v)||1,x=v[0]/z,y=v[1]/z,w=v[2]/z;return [canvas.width/2+183*(x-w)/Math.SQRT2,canvas.height/2-183*((x+w)/2+y/Math.SQRT2)]}
+function line(from,to,color,width=3,dash=[]){
+ ctx.beginPath();ctx.setLineDash(dash);ctx.moveTo(...from);ctx.lineTo(...to);
+ ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();ctx.setLineDash([]);
+}
+function arrow(v,color,label,dash=[]){
+ const origin=screen([0,0,0]),end=screen(v);const dx=end[0]-origin[0],dy=end[1]-origin[1],a=Math.atan2(dy,dx);
+ line(origin,end,color,4,dash);ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(...end);
+ ctx.lineTo(end[0]-12*Math.cos(a-.43),end[1]-12*Math.sin(a-.43));
+ ctx.lineTo(end[0]-12*Math.cos(a+.43),end[1]-12*Math.sin(a+.43));ctx.closePath();ctx.fill();
+ ctx.font="bold 18px system-ui";ctx.fillText(label,end[0]+9,end[1]-9);
+}
+function draw(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);
+ ctx.strokeStyle="#c7d5e0";ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(canvas.width/2,canvas.height/2,183,183,0,0,2*Math.PI);ctx.stroke();
+ if(trail.length>1){ctx.beginPath();trail.forEach((v,i)=>{const p=screen(v);if(i===0)ctx.moveTo(...p);else ctx.lineTo(...p)});ctx.strokeStyle="#a4b6c5";ctx.lineWidth=2;ctx.stroke()}
+ const q=s.slice(3),a=quatRotate(q,[1,0,0]),b=quatRotate(q,[0,1,0]),c=quatRotate(q,[0,0,1]);
+ arrow(a,"#17609a","e₁");arrow(b,"#bd6c20","e₂",[10,5]);arrow(c,"#177c64","e₃",[3,5]);
+ const L=spaceL(s).map(v=>v/norm(spaceL(s)));
+ arrow(L,"#272e43","Lₛ");
+ ctx.fillStyle="#526679";ctx.font="16px system-ui";ctx.fillText("慣性系の固定カメラ",18,31);ctx.fillText("t = "+t.toFixed(2),18,55);
+}
+function render(){
+ draw();
+ $("t").textContent=t.toFixed(3);
+ $("omega").textContent="("+s.slice(0,3).map(v=>v.toFixed(4)).join(", ")+")";
+ $("energy").textContent=E0.toFixed(7);
+ $("momentum").textContent=L0.toFixed(7);
+ $("edrift").textContent=(Math.abs(energy(s)/E0-1)).toExponential(3);
+ $("ldrift").textContent=(Math.abs(norm(angular(s))/L0-1)).toExponential(3);
+ const d=spaceL(s).map((v,i)=>v-ls0[i]);
+ $("sdrift").textContent=(norm(d)/L0).toExponential(3);
+}
+$("play").addEventListener("click",()=>{if(playing){stop()}else{playing=true;$("play").textContent="停止";raf=requestAnimationFrame(loop)}});
+$("advance").addEventListener("click",()=>{stop();takeStep();render()});
+$("reset").addEventListener("click",initialize);
+for(const control of [axis,epsilon,step])control.addEventListener("change",initialize);
+epsilon.addEventListener("input",()=>$("epsout").textContent=Number(epsilon.value).toFixed(3));
+$("compare").addEventListener("click",()=>{
+ stop();const h=dt/2;let ref=s0.slice(),tt=0;
+ while(tt<t-1e-10){const jump=Math.min(h,t-tt);ref=advanceRK4(ref,jump);tt+=jump}
+ const wd=norm(s.slice(0,3).map((v,i)=>v-ref[i]));
+ const q1=s.slice(3),q2=ref.slice(3);
+ const qdot=Math.min(1,Math.abs(dot(q1,q2)));
+ const angle=2*Math.acos(qdot);
+ const fineEd=Math.abs(energy(ref)/E0-1),fineLd=Math.abs(norm(angular(ref))/L0-1);
+ $("comparison").textContent="dt/2 再計算：角速度差="+wd.toExponential(3)+
+ "、姿勢角差(rad)="+angle.toExponential(3)+
+ "、半減側の相対E誤差="+fineEd.toExponential(3)+
+ "、相対|L|誤差="+fineLd.toExponential(3)+
+ "。誤差と差の収束傾向を確認してください。";
+});
+initialize();
+</script>
+</body>
+</html>

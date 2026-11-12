@@ -1,0 +1,47 @@
+id: "RBD9"
+title: "非対称剛体・中間軸の不安定性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD8
+official_scope: []
+learning_objectives:
+  - 三つの異なる正の主慣性値を実物体の慣性テンソルで確認し、各主軸回転がEuler方程式の平衡解であることを示せる
+  - 中間軸と両端主軸の微小摂動方程式をそれぞれ一次で導出し、固有値の符号から線形安定性を分類できる
+  - 物体系と空間系の角運動量を区別し、回転エネルギーと角運動量ノルムの保存を導出できる
+  - 角運動量球面とエネルギー二次曲面の交線から分離曲線の二平面を求められる
+  - 保存量の正定値な組合せを用いて最大・最小慣性主軸の非線形安定性を証明できる
+  - 分離曲線上の厳密な初期値を構成し中間軸回転が非線形でも不安定であることを証明できる
+  - 対称極限や外トルクが保存量と安定性分類を変える機構を説明できる
+  - 姿勢のODE積分、刻み幅半減、エネルギー・角運動量監査により可視化の数理的整合性を検算できる
+definitions:
+  - { id: RBD9-DEF-01, name: "三軸非対称剛体と主軸回転" }
+  - { id: RBD9-DEF-02, name: "主軸回転の線形安定性" }
+  - { id: RBD9-DEF-03, name: "自由剛体の角運動量球面と分離曲線" }
+theorems:
+  - { id: RBD9-THM-01, name: "三主軸回転の線形安定性分類" }
+  - { id: RBD9-PROP-01, name: "三軸自由回転の二不変量" }
+  - { id: RBD9-THM-02, name: "両端主軸回転の非線形安定性" }
+  - { id: RBD9-THM-03, name: "中間軸回転の非線形不安定性" }
+canonical_examples:
+  - 均質直方体の三つの主慣性モーメントの条件確認
+  - 中間軸横摂動の指数増大
+  - 両端軸の保存量による横成分の拘束
+  - I1=2 I2=3 I3=4 での分離曲線の二平面
+  - 球面上の厳密な分離曲線初期値と離脱
+  - 対称剛体への縮退と外トルクの適用限界
+problem_patterns:
+  - RBD9-EULER-COMPONENT-SIGNS
+  - RBD9-LINEARIZED-THREE-AXES
+  - RBD9-INERTIA-PHYSICAL-TRIANGLE
+  - RBD9-TORQUE-FREE-INVARIANTS
+  - RBD9-LYAPUNOV-STABLE-EXTREME-AXES
+  - RBD9-SEPARATRIX-INTERSECTION
+  - RBD9-SEPARATRIX-ESCAPE
+  - RBD9-SYMMETRIC-LIMIT
+  - RBD9-LINEAR-VERSUS-NONLINEAR
+  - RBD9-INTEGRATED-TRIAXIAL-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 7.0, review: 2.5 }

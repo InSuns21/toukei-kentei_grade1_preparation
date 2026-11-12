@@ -9,3 +9,4 @@
 6. [RBD6 慣性テンソルの座標変換と具体物体](textbook/volumes/dream_thater/物理系/RBD/RBD6/index.md)
 7. [RBD7 Newton–Euler方程式：外力と基準点](textbook/volumes/dream_thater/物理系/RBD/RBD7/index.md)
 8. [RBD8 無トルク対称剛体と姿勢の再構成](textbook/volumes/dream_thater/物理系/RBD/RBD8/index.md)
+9. [RBD9 非対称剛体・中間軸の不安定性](textbook/volumes/dream_thater/物理系/RBD/RBD9/index.md)
