@@ -23,6 +23,7 @@ theorems:
   - { id: RBD6-PROP-02, name: "一様薄円板の慣性テンソル" }
   - { id: RBD6-PROP-03, name: "一様直方体の慣性テンソル" }
   - { id: RBD6-PROP-04, name: "慣性テンソルの非負性と正定値性" }
+  - { id: RBD6-PROP-05, name: "主慣性値の三角不等式" }
 canonical_examples:
   - z軸の四分の一回転および斜め回転で非対角成分を生じること
   - 原点をx方向に平行移動した場合の補正行列
