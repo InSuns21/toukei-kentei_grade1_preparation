@@ -1,0 +1,48 @@
+id: "INV18"
+title: "随伴法から感度と識別をどう得るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV17
+  - INV10
+  - INV8
+  - GPDE8
+official_scope: []
+learning_objectives:
+  - PDE弱状態方程式と有界な積分観測から残差二乗の縮約目的関数を構成できる
+  - 随伴弱方程式の存在一意性と零端点条件を確認し具体的な随伴状態を解ける
+  - Lagrangianの状態・随伴・係数変分を計算し符号と境界項を検算できる
+  - 係数感度方程式と随伴方程式を消去しL∞方向のFréchet勾配公式を証明できる
+  - 定数拡散係数の厳密微分と中心有限差分により随伴勾配を独立に照合できる
+  - 反射対称性による単一観測の厳密な非一意性を構成できる
+  - 二つの観測を持つ二パラメータ係数の微分を計算し局所Lipschitz安定性を示せる
+  - 方向微分の積分表示とL2勾配の相違および有限次元識別の適用範囲を説明できる
+definitions:
+  - { id: INV18-DEF-01, name: PDE制約付き目的関数 }
+  - { id: INV18-DEF-02, name: 随伴状態 }
+  - { id: INV18-DEF-03, name: PDE制約のLagrangian }
+theorems:
+  - { id: INV18-THM-01, name: 随伴法による縮約目的関数の微分 }
+  - { id: INV18-THM-02, name: 二観測による二係数の局所安定識別 }
+canonical_examples:
+  - 一次元Dirichlet拡散問題における空間平均観測と残差目的関数
+  - 定数係数で随伴解が残差と状態の積になる直接検証
+  - Lagrangianの三変分と境界項の符号照合
+  - 定数係数の随伴勾配と厳密微分・中心有限差分の一致
+  - 反射された異なる一様正値係数の厳密な観測一致
+  - 二センサの二パラメータ微分行列と局所二点安定性
+problem_patterns:
+  - INV18-A01
+  - INV18-A02
+  - INV18-A03
+  - INV18-A04
+  - INV18-A05
+  - INV18-B01
+  - INV18-B02
+  - INV18-B03
+  - INV18-B04
+  - INV18-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.5, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
