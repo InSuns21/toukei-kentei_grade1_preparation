@@ -38,3 +38,4 @@
 35. [CAT4-01 モノイダル圏](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-01/index.md)
 36. [CAT4-02 Mac Laneの整合性定理](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-02/index.md)
 37. [CAT4-03 組紐・対称モノイダル圏](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-03/index.md)
+38. [CAT4-04 モノイダル関手とモノイド対象](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-04/index.md)

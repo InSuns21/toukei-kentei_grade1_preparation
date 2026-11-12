@@ -1,0 +1,46 @@
+id: "AQFT1"
+title: "Minkowskiの領域と因果補集合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SREL2
+  - LORG6
+official_scope: []
+learning_objectives:
+  - Minkowski計量(-+++)から点間の空間的・因果的分離条件を導出できる
+  - 因果補集合を開集合として定義し、通常の集合補集合や点ごとの空間的関係と区別できる
+  - double coneと右・左wedgeを定義し、座標による所属判定と因果補集合を証明できる
+  - 二つのdouble coneの空間的分離を中心距離と半径から必要十分条件で判定できる
+  - 領域包含と因果補集合の反変性、Poincaré変換の共変性を計算で説明できる
+definitions:
+  - { id: AQFT1-DEF-01, name: 開いた因果補集合 }
+  - { id: AQFT1-DEF-02, name: 領域の空間的分離 }
+  - { id: AQFT1-DEF-03, name: 標準double cone }
+  - { id: AQFT1-DEF-04, name: 右・左Rindler wedge }
+theorems:
+  - { id: AQFT1-PROP-01, name: Minkowskiの点間因果判定 }
+  - { id: AQFT1-PROP-02, name: 因果補集合と包含順序 }
+  - { id: AQFT1-THM-01, name: double coneの因果補集合 }
+  - { id: AQFT1-THM-02, name: 右wedgeと左wedgeの因果補集合 }
+  - { id: AQFT1-THM-03, name: 同時刻中心の二つのdouble cone }
+  - { id: AQFT1-PROP-03, name: Poincaré変換と因果補集合 }
+canonical_examples:
+  - 四次元Minkowskiの点間間隔の正負
+  - 開いたdouble coneの時刻断面と境界
+  - 右wedgeと左wedgeの横方向を含む点
+  - 中心距離が半径和に等しい二つのdouble cone
+problem_patterns:
+  - AQFT1-POINT-CAUSAL-TEST
+  - AQFT1-DOUBLE-CONE-SLICE
+  - AQFT1-WEDGE-MEMBERSHIP
+  - AQFT1-ORDINARY-VS-CAUSAL-COMPLEMENT
+  - AQFT1-INCLUSION
+  - AQFT1-BOUNDARY
+  - AQFT1-DOUBLE-CONE-SEPARATION
+  - AQFT1-ANTITONICITY
+  - AQFT1-WEDGE-TRANSVERSE
+  - AQFT1-COVARIANCE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 5 }

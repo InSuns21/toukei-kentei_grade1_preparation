@@ -1,0 +1,63 @@
+chapter: CAT4-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT4-01
+  - CAT4-02
+  - LA3E
+
+concepts:
+  - id: category.lax-monoidal-functor
+    name: laxモノイダル関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（laxモノイダル関手）"]
+    requires: [category.monoidal-category, category.covariant-functor, category.natural-isomorphism]
+  - id: category.strong-monoidal-functor
+    name: 強モノイダル関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（laxモノイダル関手）"]
+    requires: [category.lax-monoidal-functor]
+  - id: category.powerset-lax-monoidal
+    name: 冪集合関手はlaxだが強とは限らない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（冪集合関手はlaxだが強とは限らない）"]
+    requires: [category.lax-monoidal-functor, category.strong-monoidal-functor, category.cartesian-monoidal]
+  - id: category.monoid-object
+    name: モノイド対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイド対象）"]
+    requires: [category.monoidal-category]
+  - id: category.set-monoid-object
+    name: 直積モノイダル圏でのモノイド対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直積モノイダル圏でのモノイド対象）"]
+    requires: [category.monoid-object, category.cartesian-monoidal]
+  - id: category.algebra-monoid-object
+    name: ベクトル空間のモノイド対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ベクトル空間のモノイド対象）"]
+    requires: [category.monoid-object, linear.tensor-product]
+  - id: category.monoid-object-morphism
+    name: モノイド対象の準同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイド対象の準同型）"]
+    requires: [category.monoid-object]
+  - id: category.monoid-objects-category
+    name: モノイド対象と準同型は圏をなす
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モノイド対象と準同型は圏をなす）"]
+    requires: [category.monoid-object-morphism, category.tensor-bifunctor]
+  - id: category.lax-monoid-transport
+    name: laxモノイダル関手によるモノイド対象の移送
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（laxモノイダル関手によるモノイド対象の移送）"]
+    requires: [category.lax-monoidal-functor, category.monoid-object, category.monoid-object-morphism]
