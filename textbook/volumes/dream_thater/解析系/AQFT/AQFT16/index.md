@@ -1,6 +1,6 @@
 # AQFT16 split propertyと緩衝領域
 
-[AQFT15のType III因子に対する鋭いテンソル分解の障害](../AQFT15/index.md#prop-aqft15-typei-tensor-obstruction)は、局所環 $M(O)$ 自身を $B(K)\otimes I$ と書けない、という主張でした。これは、**少し広い領域 $O_2$ の中に、狭い領域 $O_1$ を包むType I因子を置けない**という意味ではありません。
+[AQFT15のType III因子に対する鋭いテンソル分解の障害](../AQFT15/index.md#prop-aqft15-typei-tensor-obstruction)は、局所von Neumann環 $M(O)$ 自身を $B(K)\otimes I$ と書けない、という主張でした。これは、**少し広い領域 $O_2$ の中に、狭い領域 $O_1$ を包むType I因子を置けない**という意味ではありません。
 
 本講の問いは「領域の境界に緩衝帯を残したとき、内側の観測量と外側の観測量をどこまでテンソル積として扱えるか」です。内外を厳密に切り離した状態が真空そのものであるとは仮定しません。
 
@@ -26,7 +26,7 @@ $$
 
 ## 2. split inclusionの定義
 
-von Neumann環の間に挟まる、中心がスカラーで最小射影を持つType I因子を**中間因子**として探します。ここで[Type I因子の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)を使います。中間因子は内側の環自身と同じである必要はなく、外側の環とも同じである必要はありません。
+von Neumann環の間に挟まる、中心がスカラーで最小射影を持つType I因子を**中間因子**として探します。ここで[VN7の因子の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)を使います。中間因子は内側の環自身と同じである必要はなく、外側の環とも同じである必要はありません。
 
 <a id="def-aqft16-split-inclusion"></a>
 
@@ -63,7 +63,7 @@ $M_1\subset N\subset M_2$ は各恒等作用素を残りの因子に挿入する
 
 ## 3. Type I中間因子からテンソル座標を作る
 
-splitの定義から空間的分解を使うには、まず**Type I因子を表現しているHilbert空間がどう分解するか**を確かめなければなりません。証明の出発点は、[VN7の最小射影](../../VN/VN7/index.md#def-vn7-minimal-projection)です。
+[split inclusion](#def-aqft16-split-inclusion)から空間的分解を使うには、まず**Type I因子を表現しているHilbert空間がどう分解するか**を確かめなければなりません。証明の出発点は、[VN7の最小射影](../../VN/VN7/index.md#def-vn7-minimal-projection)です。
 
 <a id="thm-aqft16-typei-spatial-form"></a>
 
@@ -86,7 +86,7 @@ splitの定義から空間的分解を使うには、まず**Type I因子を表�
 <!-- proof-start -->
 ### 証明
 
-**(1) 最小射影と内積。** [Type I因子の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)によって、非零最小射影 $e\in N$ が存在します。$eNe$ は単位元を $e$ とするvon Neumann環です。自己共役元に非自明なスペクトル射影があれば $e$ の真の非零部分射影ができるので、$eNe=\mathbb Ce$ です。
+**(1) 最小射影と内積。** [VN7の因子の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)によって、非零最小射影 $e\in N$ が存在します。$eNe$ は単位元を $e$ とするvon Neumann環です。自己共役元に非自明なスペクトル射影があれば $e$ の真の非零部分射影ができるので、$eNe=\mathbb Ce$ です。
 
 左イデアル $Ne=\{ae:a\in N\}$ に、$e a^*b e=\langle ae,be\rangle_K e$ で複素内積を定めます。例えば
 
@@ -106,7 +106,7 @@ $$
 \end{aligned}
 $$
 
-よって $V_0$ は等長で、$V:K\otimes L\to H$ に延長できます。$V$ の像は $\overline{NeH}$ です。この閉部分空間は $N$ の各元とその随伴で不変です。また $C\in N'$ に対して $C(ae\xi)=ae(C\xi)$ となり、$N'$ でも不変です。その直交射影 $P$ は $N$ と $N'$ の両方と可換なので $P\in N\cap N'=Z(N)$ です。$eH\ne0$ より $P\ne0$、[因子の中心の定義](../../VN/VN7/index.md#def-vn7-factor)から $P=I$。従って $V$ は全射でユニタリです。
+よって $V_0$ は等長で、$V:K\otimes L\to H$ に延長できます。$V$ の像は $\overline{NeH}$ です。この閉部分空間は $N$ の各元とその随伴で不変です。また $C\in N'$ に対して $C(ae\xi)=ae(C\xi)$ となり、$N'$ でも不変です。その直交射影 $P$ は $N$ と $N'$ の両方と可換なので $P\in N\cap N'=Z(N)$ です。$eH\ne0$ より $P\ne0$、[VN7で定めた因子性](../../VN/VN7/index.md#def-vn7-factor)から $P=I$。従って $V$ は全射でユニタリです。
 
 **(3) 左因子が全有界作用素環となる。** $a\in N$ に対し $V^*aV$ は $K$ の左乗法 $\lambda(a)(be)=abe$ と $L$ の恒等作用素のテンソル積です。$\|\lambda(a)\|\le\|a\|$。$\lambda(e)K$ は $\mathbb Ce$ の1次元空間です。$T\in\lambda(N)'$ なら
 
@@ -268,7 +268,7 @@ $D\subset N\subset D'=D$ なら $N=D$ しかありません。$D$ は可換で�
 
 これは**可換性とsplitの論理的差**を示す作用素環の反例であり、Minkowski空間上の適切に離れたdouble coneを持つ局所netの反例ではありません。空間的分離や領域の正則性を追加しても、splitを得るには模型に応じた別の解析的条件が必要です。
 
-また、Type III因子 $M$ に対し、同じ環を内側と外側に置いた包含 $M\subset M$ はsplitではありません。中間因子は $N=M$ に限られるのに、[Type III型の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)から $M$ はType Iではないためです。ただしこの零幅の例は $O_1\Subset O_2$ という幾何学的条件を満たす例ではありません。
+また、Type III因子 $M$ に対し、同じ環を内側と外側に置いた包含 $M\subset M$ はsplitではありません。中間因子は $N=M$ に限られるのに、[VN7の因子の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)から $M$ はType Iではないためです。ただしこの零幅の例は $O_1\Subset O_2$ という幾何学的条件を満たす例ではありません。
 
 本講で証明したのは **splitを仮定した場合の構造** です。局所性、Haag双対性、真空の巡回分離性、Type III性のいずれかだけからsplitを結論することはありません。特定の自由場でsplitが成立する十分条件や、nuclearityとの関係は後の講義で別途確認します。
 
@@ -284,7 +284,7 @@ $O_R=\{(t,\boldsymbol x):|t|+\|\boldsymbol x\|<R\}$ とする。$R=3$、$r=1$ �
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $\overline{O_1}=\{(t,\boldsymbol x):|t|+\|\boldsymbol x\|\le1\}$ は閉かつ有界なので $\mathbb R^4$ でコンパクトです。この閉包の各点で $|t|+\|\boldsymbol x\|\le1<3$ だから $O_3$ に含まれます。よって $O_1\Subset O_3$。一方 $r=R$ なら $(R,0,0,0)\in\overline{O_R}$ であり、$|R|=R$ のため $(R,0,0,0)\notin O_R$。従って $\overline{O_R}\not\subset O_R$ です。
+**詳細解答。** $\overline{O_1}=\{(t,\boldsymbol x):|t|+\|\boldsymbol x\|\le1\}$ は閉かつ有界です。[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)を $\mathbb R^4$ に適用するとコンパクトです。この閉包の各点で $|t|+\|\boldsymbol x\|\le1<3$ だから $O_3$ に含まれます。よって $O_1\Subset O_3$。一方 $r=R$ なら $(R,0,0,0)\in\overline{O_R}$ であり、$|R|=R$ のため $(R,0,0,0)\notin O_R$。従って $\overline{O_R}\not\subset O_R$ です。
 <!-- solution-end -->
 
 <a id="ex-aqft16-a02"></a>
@@ -398,7 +398,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**(1)** $M_1=B(H_1)\otimes I_2\otimes I_3\otimes I_4$、$N=B(H_1\otimes H_2)\otimes I_3\otimes I_4$、$M_2=B(H_1\otimes H_2\otimes H_3)\otimes I_4$ です。各包含は恒等作用を取り込むので成立し、$N$ は [Type I因子の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)を満たすためsplitです。
+**(1)** $M_1=B(H_1)\otimes I_2\otimes I_3\otimes I_4$、$N=B(H_1\otimes H_2)\otimes I_3\otimes I_4$、$M_2=B(H_1\otimes H_2\otimes H_3)\otimes I_4$ です。各包含は恒等作用を取り込むので成立し、$N$ は [VN7の因子の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)を満たすためsplitです。
 
 **(2)** $K=H_1\otimes H_2$、$L=H_3\otimes H_4$ として $H=K\otimes L$ と再結合します。$N=B(K)\otimes I_L$、$N'=I_K\otimes B(L)$ です。$M_2'=I_1\otimes I_2\otimes I_3\otimes B(H_4)$ なので $M_2'\subset N'$。$M_1$ は $K$ の $H_1$ だけ、$M_2'$ は $L$ の $H_4$ だけに作用するため、[内外テンソル積定理](#thm-aqft16-split-tensor-inclusion)を具体的に実現します。結合環は $B(H_1)\otimes I_2\otimes I_3\otimes B(H_4)$ です。
 
