@@ -467,7 +467,14 @@ $$
 
 ## 5. 外力を未知にした場合との比較
 
-同じ PDE でも、$a\in\mathcal U$ を固定して $f$ を動かすと話は変わります。$T_a(f)$ を全 $v\in V$ に対し $\int_0^1a(x)(T_a(f))'(x)v'(x)\,dx=\int_0^1f(x)v(x)\,dx$ を満たす唯一解とします。ここでプライムは $f$ での微分ではなく、状態 $T_a(f)$ の空間変数 $x$ に関する弱微分です。これは $L^2(I)\to V$ の線形写像です。
+同じ PDE でも、$a\in\mathcal U$ を固定して $f$ を動かすと話は変わります。$T_a(f)$ を全 $v\in V$ に対して
+
+$
+\int_0^1a(x)(T_a(f))'(x)v'(x)\,dx
+=\int_0^1f(x)v(x)\,dx
+$
+
+を満たす唯一解とします。ここでプライムは $f$ での微分ではなく、状態 $T_a(f)$ の空間変数 $x$ に関する弱微分です。これは $L^2(I)\to V$ の線形写像です。
 
 <a id="prop-inv17-source-derivative"></a>
 
@@ -807,14 +814,14 @@ $$
 
 です。$w_t(0)=w_t(1)=0$ であることも確認できます。
 
-**(3)** 係数への写像を $A(s,t)(x)=1+s+tx$ と書き、$(s,t)$ を動かし、位置 $x$ は固定して考えます。増分 $(p,q)$ に対し
+**(3)** 係数への写像を $\mathcal A(s,t)(x)=1+s+tx$ と書き、$(s,t)$ を動かし、位置 $x$ は固定して考えます。増分 $(p,q)$ に対し
 
 $
-A(p,q)-A(0,0)=p+qx,
+\mathcal A(p,q)-\mathcal A(0,0)=p+qx,
 \qquad \|p+qx\|_\infty\le |p|+|q|.
 $
 
-この増分は厳密に線形で剰余がないため、$DA(0,0)(p,q)=p+qx$ です。$H=G\circ A$ なので、[観測微分の系](#cor-inv17-observation-derivative)の二次剰余評価に $h=p+qx$ を代入すると、$(p,q)\to(0,0)$ で
+この増分は厳密に線形で剰余がないため、$D\mathcal A(0,0)(p,q)=p+qx$ です。$H=G\circ\mathcal A$ なので、[観測微分の系](#cor-inv17-observation-derivative)の二次剰余評価に $h=p+qx$ を代入すると、$(p,q)\to(0,0)$ で
 
 $
 H(p,q)-H(0,0)-DG(1)[p+qx]
