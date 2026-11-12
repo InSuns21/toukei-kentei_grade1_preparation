@@ -50,7 +50,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo9-bulk-boundary -->
-**定義の直接確認。** $d=3$、$\nu=1/2$ なら $\Delta=2$、$\Gamma(2)=1$、$\Gamma(1/2)=\sqrt\pi$ なので $c_\Delta=1/\pi^2$ です。従って
+**定義の確認**： $d=3$、$\nu=1/2$ なら $\Delta=2$、$\Gamma(2)=1$、$\Gamma(1/2)=\sqrt\pi$ なので $c_\Delta=1/\pi^2$ です。従って
 
 $$
 K_2(z,x;y)=\frac{z^2}{\pi^2(z^2+|x-y|^2)^2}>0.
@@ -204,7 +204,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo9-renormalized-action -->
-**定義の確認。** $d=3$、$\nu=1/2$ では $\Delta_-=1$ です。誘導面積密度は $\sqrt\gamma=L^3\epsilon^{-3}$ なので
+**定義の確認**： $d=3$、$\nu=1/2$ では $\Delta_-=1$ です。誘導面積密度は $\sqrt\gamma=L^3\epsilon^{-3}$ なので
 
 $$
 S_{\mathrm{ct},\epsilon}
@@ -301,7 +301,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo9-gkpw -->
-**定義の直接確認。** 互いに台が重ならない実試験関数 $h_1,h_2$ を選び、$J=s h_1+t h_2$ とします。指数を $s,t$ で一回ずつ微分すると左辺は $\int h_1(x)h_2(y)\langle\mathcal O(x)\mathcal O(y)\rangle\,dxdy$ を与えます。$W=\log Z$ の微分は、積 $\langle\mathcal O(x)\rangle\langle\mathcal O(y)\rangle$ を差し引いた**連結部分**を返します。一方、右辺の $W=-S_{\mathrm{ren}}$ は二次汎関数なので一次の期待値は $J=0$ で零となり、二階微分が非自明です。二つの微分の対象、符号と「連結」の意味をこの例で確かめました。
+**定義の確認**： 互いに台が重ならない実試験関数 $h_1,h_2$ を選び、$J=s h_1+t h_2$ とします。指数を $s,t$ で一回ずつ微分すると左辺は $\int h_1(x)h_2(y)\langle\mathcal O(x)\mathcal O(y)\rangle\,dxdy$ を与えます。$W=\log Z$ の微分は、積 $\langle\mathcal O(x)\rangle\langle\mathcal O(y)\rangle$ を差し引いた**連結部分**を返します。一方、右辺の $W=-S_{\mathrm{ren}}$ は二次汎関数なので一次の期待値は $J=0$ で零となり、二階微分が非自明です。二つの微分の対象、符号と「連結」の意味をこの例で確かめました。
 <!-- definition-example-end -->
 
 <a id="prop-holo9-two-point"></a>
