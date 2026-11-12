@@ -253,7 +253,36 @@ $$
 
 よって自然性の等式は全テンソル上で成立する。
 
-**(3) 結合子・単位子とhexagon。** 先に宣言した結合子が商上で定義できることを確かめる。固定した $w\in W$ に対し $(u,v)\mapsto u\otimes(v\otimes w)$ は二重線形であり、[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)から $U\otimes V$ 上の線形写像を定める。さらに $w$ にも線形に依存するため、$(U\otimes V)\otimes W$ 上の線形写像 $\alpha_{U,V,W}$ を誘導する。逆向きにも $u\otimes(v\otimes w)\mapsto(u\otimes v)\otimes w$ を同じ手順で定義でき、両合成が三重純テンソルを固定するから逆射になる。単位子の逆は $v\mapsto1\otimes v$ および $v\mapsto v\otimes1$ である。例えば $a\otimes v=1\otimes av$ なので $\lambda_V^{-1}\lambda_V(a\otimes v)=a\otimes v$ となり、右単位子も同様である。
+**(3) 結合子・単位子とhexagon。** 先に宣言した結合子が商上で定義できることを確かめる。固定した $w\in W$ に対し、$(u,v)\mapsto u\otimes(v\otimes w)$ は二重線形である。[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)から線形写像 $F_w$ が存在して、
+
+$$
+F_w(u\otimes v)=u\otimes(v\otimes w)
+$$
+
+となる。この写像は $w$ にも線形に依存するため、さらに普遍性を使うと
+
+$$
+\alpha_{U,V,W}(t\otimes w)=F_w(t)
+\qquad(t\in U\otimes V)
+$$
+
+が定まる。逆向きの結び直しも同じ手順で定義できる。両合成が三重純テンソルを固定するため、これらは互いに逆射である。
+
+単位子の逆は次の純テンソルへの写像である。
+
+$$
+\lambda_V^{-1}(v)=1\otimes v,\qquad
+\rho_V^{-1}(v)=v\otimes1.
+$$
+
+例えばテンソルのスカラー関係より
+
+$$
+\lambda_V^{-1}\lambda_V(a\otimes v)
+=1\otimes(av)=a\otimes v
+$$
+
+であり、逆順の合成も $v\mapsto v$ となる。右単位子でも同じ二方向の確認ができる。
 
 自然性も確認する。線形写像 $f:U\to U'$、$g:V\to V'$、$h:W\to W'$ について、結合子を先に使っても後に使っても、$((u\otimes v)\otimes w)$ の像は
 
