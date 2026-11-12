@@ -135,7 +135,7 @@ $$
 
 ### 証明の見取り図
 
-最初の等式は $I\otimes-$ をかけてから四対象の[五角形](../CAT4-01/index.md#def-cat4-01-monoidal)と[三角形](../CAT4-01/index.md#def-cat4-01-monoidal)を使う。$I\otimes-$ は $\lambda$ により恒等関手と自然同型なので、後でこの関手を消しても等式を保てる。第二式はテンソルの左右を逆にした圏で第一式を使う。第三式は自然性と三角形から得る。
+記号 $I\otimes-$ は $X\mapsto I\otimes X$、$-\otimes I$ は $X\mapsto X\otimes I$ とする一変数の関手を表す。最初の等式は $I\otimes-$ をかけてから四対象の[五角形](../CAT4-01/index.md#def-cat4-01-monoidal)と[三角形](../CAT4-01/index.md#def-cat4-01-monoidal)を使う。$I\otimes-$ は $\lambda$ により恒等関手と自然同型なので、後でこの関手を消しても等式を保てる。第二式はテンソルの左右を逆にした圏で第一式を使う。第三式は自然性と三角形から得る。
 
 <!-- proof-start -->
 ### 証明
@@ -277,18 +277,25 @@ $$
 $$
 という[五角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)そのものである。
 
-**(d) 結合子と単位子の真の重なり。** 左から右へ、書換え前の式と合流の等式を示す。
+**(d) 結合子と単位子の真の重なり。** 書換え前の式を明示し、二経路が一致する等式を一つずつ示す。
+
+- $((I\otimes A)\otimes B)$ の場合：
 $$
-\begin{array}{c|c}
-((I\otimes A)\otimes B)&
-\lambda_{A\otimes B}\alpha_{I,A,B}=\lambda_A\otimes1_B\\
-((A\otimes I)\otimes B)&
-(1_A\otimes\lambda_B)\alpha_{A,I,B}=\rho_A\otimes1_B\\
-((A\otimes B)\otimes I)&
-(1_A\otimes\rho_B)\alpha_{A,B,I}=\rho_{A\otimes B}
-\end{array}
+\lambda_{A\otimes B}\alpha_{I,A,B}
+=\lambda_A\otimes1_B.
 $$
-第一・第三行は[単位子の導出恒等式](#lem-cat4-02-kelly-units)、第二行は[三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)である。どれも書換え後の二対象は、表示した等式の終域で合流する。
+- $((A\otimes I)\otimes B)$ の場合：
+$$
+(1_A\otimes\lambda_B)\alpha_{A,I,B}
+=\rho_A\otimes1_B.
+$$
+- $((A\otimes B)\otimes I)$ の場合：
+$$
+(1_A\otimes\rho_B)\alpha_{A,B,I}
+=\rho_{A\otimes B}.
+$$
+
+第一・第三の等式は[単位子の導出恒等式](#lem-cat4-02-kelly-units)、第二行は[三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)である。どれも書換え後の二対象は、表示した等式の終域で合流する。
 
 **(e) 単位子どうしの真の重なり。** $I\otimes I$ では $\lambda_I$ を選ぶ道と $\rho_I$ を選ぶ道がある。[単位子の導出恒等式](#lem-cat4-02-kelly-units)から同じ射である。
 
@@ -574,7 +581,7 @@ $$
 $$
 と異なる。したがって[三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)だけが、この指定から失われた整合条件である。
 
-**(3) 失敗する論証。** [局所的合流命題](#prop-cat4-02-local-confluence)の証明 (d) の中央の重なり $((A\otimes I)\otimes B)$ に $A=B=I$ を代入した場合、二つの合流経路が等しい射にならない。正規化射の一意性を導く整礎帰納法では最初の一手をそろえられず、証明は成立しない。この例はモノイダル圏ではないから、整合性定理の反例ではなく、三角形という仮定の必要性を示す例である。
+**(3) 失敗する論証。** [局所的合流命題](#prop-cat4-02-local-confluence)の証明 (d) の中央の重なり $((A\otimes I)\otimes B)$ に $A=B=I$ を代入した場合、二つの合流経路が等しい射にならない。正規化射の一意性を導く整礎帰納法では最初の一手をそろえられず、証明は成立しない。実際、同じ始域・終域 $I\otimes I\to I$ を持つ構造射も $\lambda_I=1\ne0=\rho_I$ と一致しない。この例はモノイダル圏ではないから、整合性定理の反例ではなく、三角形という仮定の必要性を示す例である。
 <!-- solution-end -->
 
 ### 問題10：単位を含む四文字の正準射
