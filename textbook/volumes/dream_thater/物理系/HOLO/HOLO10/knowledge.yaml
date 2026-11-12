@@ -1,0 +1,36 @@
+chapter: HOLO10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO9
+concepts:
+  - id: holography.witten-contact-integral
+    name: 接触Witten積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接触Witten積分）"]
+    requires: [holography.bulk-to-boundary-kernel]
+  - id: holography.witten-contact-tree-vertex
+    name: 木レベル3点と接触積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（木レベル3点と接触積分）"]
+    requires: [holography.witten-contact-integral, holography.gkpw-tree-level-dictionary]
+  - id: holography.witten-contact-convergence
+    name: 接触積分の絶対収束条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接触積分の絶対収束条件）"]
+    requires: [holography.witten-contact-integral]
+  - id: holography.witten-contact-evaluation
+    name: 接触積分の厳密評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（接触積分の厳密評価）"]
+    requires: [holography.witten-contact-convergence, holography.bulk-to-boundary-solution]
+  - id: holography.witten-contact-threepoint
+    name: 木レベルの共形3点関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（木レベルの共形3点関数）"]
+    requires: [holography.witten-contact-evaluation, holography.witten-contact-tree-vertex]
