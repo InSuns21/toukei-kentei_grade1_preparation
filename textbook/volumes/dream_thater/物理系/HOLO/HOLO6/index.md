@@ -67,25 +67,25 @@ $$
 
 **四点期待値を二点縮約へ直す根拠（Wickの公式）。** 上の密度の独立な実Gauss変数を$Y_\nu$（平均零、分散$\sigma_\nu^2$）とします。平方完成により
 
-$
+$$
 \frac{\int_{\mathbb R}e^{s y-y^2/(2\sigma_\nu^2)}\,dy}
 {\int_{\mathbb R}e^{-y^2/(2\sigma_\nu^2)}\,dy}
 =\exp\left(\frac{\sigma_\nu^2s^2}{2}\right)
-$
+$$
 
 が成り立ちます。各$M_i{}^j$はこのような実Gauss変数の複素線形結合です。そこから選んだ四つの成分を$X_1,\ldots,X_4$と書き、$C_{ab}=\langle X_aX_b\rangle_0$、$t_a$を補助変数とすると、独立な実変数について上式を掛けることから
 
-$
+$$
 \left\langle e^{\sum_{a=1}^4t_aX_a}\right\rangle_0
 =\exp\left(\frac12\sum_{a,b=1}^4t_at_bC_{ab}\right).
-$
+$$
 
 右辺を展開し、$t_1t_2t_3t_4$の係数を取ります。指数の二次式を二つ選ぶ場合だけが寄与するため、
 
-$
+$$
 \langle X_1X_2X_3X_4\rangle_0
 =C_{12}C_{34}+C_{13}C_{24}+C_{14}C_{23}
-$
+$$
 
 を得ます。これが本講で使う**Wickの四点公式**です。四つの行列成分を二個ずつ組にする三通りを列挙し、それぞれに直前のKronecker記号を代入して独立な添字を数えます。
 
