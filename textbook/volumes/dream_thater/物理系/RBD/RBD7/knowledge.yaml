@@ -1,0 +1,61 @@
+chapter: RBD7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD6
+forward_references: []
+concepts:
+  - id: mechanics.rigid-body-external-resultant-torque
+    name: 外力系の合力と重心まわりの合トルク
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（外力系の合力と重心まわりの合トルク）]
+    requires:
+      - mechanics.center-of-mass
+      - mechanics.torque
+      - mechanics.rigid-body
+  - id: mechanics.rigid-body-forced-newton-euler
+    name: 外力付きNewton–Euler方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（外力付きNewton–Euler方程式）]
+    requires:
+      - mechanics.rigid-body-external-resultant-torque
+      - mechanics.center-of-mass-motion
+      - mechanics.rotating-basis-derivative
+      - mechanics.inertia-tensor-angular-momentum-energy
+  - id: mechanics.moving-origin-angular-momenta
+    name: 移動基準点に対する二種類の角運動量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（移動基準点に対する二種類の角運動量）]
+    requires:
+      - mechanics.angular-momentum
+      - mechanics.center-of-mass
+  - id: mechanics.moving-origin-angular-momentum-balance
+    name: 移動基準点の角運動量収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（移動基準点の角運動量収支）]
+    requires:
+      - mechanics.moving-origin-angular-momenta
+      - mechanics.angular-momentum-balance
+      - mechanics.rigid-body-forced-newton-euler
+  - id: mechanics.rigid-body-external-power-balance
+    name: 剛体外力の仕事率と運動エネルギー収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（剛体外力の仕事率と運動エネルギー収支）]
+    requires:
+      - mechanics.rigid-body-forced-newton-euler
+      - mechanics.rigid-point-velocity-field
+      - mechanics.rigid-body-kinetic-energy-decomposition
+  - id: mechanics.rigid-body-forced-initial-value-system
+    name: 外力付き剛体運動の一階初期値系
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（外力付き剛体運動の一階初期値系）]
+    requires:
+      - mechanics.rigid-body-forced-newton-euler
+      - mechanics.inertia-tensor-positive-definiteness
+      - mechanics.angular-velocity-conjugacy
