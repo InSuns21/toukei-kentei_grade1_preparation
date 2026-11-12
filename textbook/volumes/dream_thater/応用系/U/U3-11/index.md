@@ -20,21 +20,21 @@
 > **定義（CRR の時間刻み付き二項木）**  
 > $T>0$、$N\ge1$、$S_0>0$、$\sigma>0$、$r\in\mathbb R$ とし、$h=T/N$ に対して
 >
-> $$
-> u_h=e^{\sigma\sqrt h},\qquad d_h=e^{-\sigma\sqrt h},\qquad R_h=e^{rh}
-> $$
+$$
+u_h=e^{\sigma\sqrt h},\qquad d_h=e^{-\sigma\sqrt h},\qquad R_h=e^{rh}
+$$
 >
 > を毎期同一の倍率として用いる。**$d_h<R_h<u_h$ のときだけ**評価用の上昇確率
 >
-> $$
-> q_h=\frac{R_h-d_h}{u_h-d_h},\qquad 1-q_h=\frac{u_h-R_h}{u_h-d_h}
-> $$
+$$
+q_h=\frac{R_h-d_h}{u_h-d_h},\qquad 1-q_h=\frac{u_h-R_h}{u_h-d_h}
+$$
 >
 > を定める。時点 $t=0,\ldots,N$ に上枝が $k$ 本あれば
 >
-> $$
-> S_{t,k}=S_0u_h^kd_h^{\,t-k}=S_0 e^{(2k-t)\sigma\sqrt h},\quad 0\le k\le t.
-> $$
+$$
+S_{t,k}=S_0u_h^kd_h^{\,t-k}=S_0 e^{(2k-t)\sigma\sqrt h},\quad 0\le k\le t.
+$$
 >
 > 分割数 $N$ ごとに別々の有限二項市場を作るので、$q_h$ は現実の値上がり確率を意味しない。
 <!-- formal-statement-end -->
@@ -55,10 +55,10 @@ $S_0=100$ 円なら1期後は120円または $250/3$ 円。どちらも正であ
 <!-- formal-statement-start -->
 > **命題（CRR 確率の有効条件と再結合）**  
 > 上の CRR 木で $q_h\in(0,1)$ と $0<d_h<R_h<u_h$ は同値であり、さらに
-> $$
-> -\sigma\sqrt h<rh<\sigma\sqrt h
-> \quad\Longleftrightarrow\quad |r|\sqrt h<\sigma
-> $$
+$$
+-\sigma\sqrt h<rh<\sigma\sqrt h
+\quad\Longleftrightarrow\quad |r|\sqrt h<\sigma
+$$
 > と同値である。$r=0$ ならすべての $N\ge1$ が有効である。$r\ne0$ なら $N>r^2T/\sigma^2$ を満たす整数 $N$ で確率が正となる。時点 $t$ の到達株価節点はちょうど $t+1$ 個である。
 <!-- formal-statement-end -->
 
@@ -101,23 +101,23 @@ $$
 > **定義（横ばい確率を固定した再結合三項木）**  
 > $h=T/N$ とし、三つの株価倍率と預金の元利倍率を
 >
-> $$
-> a_h=\sigma\sqrt{3h},\quad u_h=e^{a_h},\quad
-> m_h=1,\quad d_h=e^{-a_h},\quad R_h=e^{rh}
-> $$
+$$
+a_h=\sigma\sqrt{3h},\quad u_h=e^{a_h},\quad
+m_h=1,\quad d_h=e^{-a_h},\quad R_h=e^{rh}
+$$
 >
 > と定める。毎期の横ばい確率を $p_0=2/3$ と選び、上昇・下落の確率を
 >
-> $$
-> p_+=\frac{R_h-\frac23-\frac13d_h}{u_h-d_h},
-> \qquad p_-=\frac13-p_+
-> $$
+$$
+p_+=\frac{R_h-\frac23-\frac13d_h}{u_h-d_h},
+\qquad p_-=\frac13-p_+
+$$
 >
 > とする。二つの非横ばい確率がともに正の場合に限り、この評価用確率を採用し、各期の三枝は独立に選ばれると定める。時点 $t$ では整数の格子位置 $j$ を用い、
 >
-> $$
-> -t\le j\le t,\qquad S_{t,j}=S_0e^{ja_h}
-> $$
+$$
+-t\le j\le t,\qquad S_{t,j}=S_0e^{ja_h}
+$$
 >
 > と置く。上・横ばい・下の枝によって位置 $j$ はそれぞれ $j+1,j,j-1$ へ移る。
 <!-- formal-statement-end -->
@@ -146,15 +146,15 @@ $$
 <!-- formal-statement-start -->
 > **命題（三項木の正確な有効条件と対数増分）**  
 > 上の三項木で $p_\pm>0$ は
-> $$
-> \frac{2+d_h}{3}<R_h<\frac{2+u_h}{3}
-> $$
+$$
+\frac{2+d_h}{3}<R_h<\frac{2+u_h}{3}
+$$
 > と同値である。固定した $T>0,r\in\mathbb R,\sigma>0$ に対し、十分大きい $N$ ではこの条件が成り立つ。$Y_h=\log(S_{t+1}/S_t)$ とすると、採用した確率の下で
-> $$
-> E_Q[Y_h]=\left(r-\frac{\sigma^2}{2}\right)h+O(h^2),
-> \quad E_Q[Y_h^2]=\sigma^2h,\quad
-> \operatorname{Var}_Q(Y_h)=\sigma^2h+O(h^2)
-> $$
+$$
+E_Q[Y_h]=\left(r-\frac{\sigma^2}{2}\right)h+O(h^2),
+\quad E_Q[Y_h^2]=\sigma^2h,\quad
+\operatorname{Var}_Q(Y_h)=\sigma^2h+O(h^2)
+$$
 > が $h\downarrow0$ で成立する。
 <!-- formal-statement-end -->
 
@@ -246,34 +246,34 @@ $$
 > **定理（二乗受取額の CRR・三項木評価と一次収束）**  
 > $S_0>0,T>0,\sigma>0,r\in\mathbb R$ を固定し、各 $N$ で両木の評価用確率が正となるものを取る。満期受取額 $S_N^2/S_0$ の時点0での割引評価を $C_N^{(2)}$（CRR）、$C_N^{(3)}$（三項木）とすると、$h=T/N$ に対し
 >
-> $$
-> \begin{aligned}
-> C_N^{(2)}&=S_0\bigl(u_h^{(2)}+d_h^{(2)}-R_h^{-1}\bigr)^N,\\
-> C_N^{(3)}&=S_0\left(\frac{(u_h^{(3)}+d_h^{(3)})(R_h-2/3)+1/3}{R_h}\right)^N
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+C_N^{(2)}&=S_0\bigl(u_h^{(2)}+d_h^{(2)}-R_h^{-1}\bigr)^N,\\
+C_N^{(3)}&=S_0\left(\frac{(u_h^{(3)}+d_h^{(3)})(R_h-2/3)+1/3}{R_h}\right)^N
+\end{aligned}
+$$
 >
 > である。二つの木の上下倍率はそれぞれ
 >
-> $$
-> \begin{aligned}
-> (u_h^{(2)},d_h^{(2)})&=(e^{\sigma\sqrt h},e^{-\sigma\sqrt h}),\\
-> (u_h^{(3)},d_h^{(3)})&=(e^{\sigma\sqrt{3h}},e^{-\sigma\sqrt{3h}})
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+(u_h^{(2)},d_h^{(2)})&=(e^{\sigma\sqrt h},e^{-\sigma\sqrt h}),\\
+(u_h^{(3)},d_h^{(3)})&=(e^{\sigma\sqrt{3h}},e^{-\sigma\sqrt{3h}})
+\end{aligned}
+$$
 >
 > である。両価格は次に収束する。
 >
-> $$
-> C_\infty=S_0 e^{(r+\sigma^2)T}.
-> $$
+$$
+C_\infty=S_0 e^{(r+\sigma^2)T}.
+$$
 >
 > 固定したパラメータについて誤差は次の次数を満たす。
 >
-> $$
-> |C_N^{(2)}-C_\infty|=O(N^{-1}),\qquad
-> |C_N^{(3)}-C_\infty|=O(N^{-1}).
-> $$
+$$
+|C_N^{(2)}-C_\infty|=O(N^{-1}),\qquad
+|C_N^{(3)}-C_\infty|=O(N^{-1}).
+$$
 <!-- formal-statement-end -->
 
 三項木の式では、**横ばい確率 $2/3$ が二乗の評価に残る**ので、二項木の $u+d-R^{-1}$ を形式的に三項へ足してはなりません。以下で正確に導きます。
@@ -525,13 +525,13 @@ $S_0=100,u=5/4,d=4/5,N=2$ の二項市場で、経路 $UD$ と $DU$ が同じ満
 
 **詳細解答**：経路 $UD$ の株価列は $100,125,100$、経路 $DU$ は $100,80,100$ です。満期株価はどちらも100円ですが、最大値と受取額をそれぞれ計算すると
 
-$
+$$
 \begin{array}{c|cc}
 \text{経路}&M_2&(M_2-110)_+\\ \hline
 UD&125&15\\
 DU&100&0
 \end{array}
-$
+$$
 
 となります。株価だけを状態とすると、この二つの履歴には同じ満期節点しか割り当てられません。すると異なる受取額15円と0円をその節点から区別できません。
 
