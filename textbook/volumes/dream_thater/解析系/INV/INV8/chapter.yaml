@@ -1,0 +1,44 @@
+id: "INV8"
+title: "一般変分正則化の解は存在するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV7
+  - VAR9
+  - FA4
+official_scope: []
+learning_objectives:
+  - 一般変分正則化のデータ誤差と罰則を区別し、二乗残差の二変数弱下半連続性を検証できる
+  - 弱逐次閉性・強制性・弱下半連続性・弱逐次連続性を使って最小点の存在を直接法で証明できる
+  - データと正則化パラメータが動く場合の弱部分列安定性を、固定候補との比較と下極限から導ける
+  - 厳密凸性による一意性と非線形前向き写像における非一意性を区別できる
+  - 二乗ノルム罰則では弱安定性から強安定性が得られることをノルムの収束から証明できる
+  - 強制性・弱下半連続性・弱逐次連続性を失った反例の破綻機構を説明できる
+definitions:
+  - { id: INV8-DEF-01, name: 一般変分正則化目的関数 }
+theorems:
+  - { id: INV8-THM-01, name: 一般変分正則化の最小点の存在 }
+  - { id: INV8-THM-02, name: 変分最小点の観測摂動に対する弱部分列安定性 }
+  - { id: INV8-PROP-01, name: 厳密凸罰則による変分最小点の一意性 }
+  - { id: INV8-COR-01, name: 二乗ノルム罰則の強安定性 }
+canonical_examples:
+  - 四次罰則と二乗残差を組み合わせた有限次元の一意な最小点
+  - 弱収束データとノルム収束観測の二変数下半連続性
+  - 非線形観測の二つの最小点と強制性・下半連続性の欠落
+  - ell2の平坦な罰則が生む弱安定性と強収束部分列の欠落
+problem_patterns:
+  - INV8-A01
+  - INV8-A02
+  - INV8-A03
+  - INV8-A04
+  - INV8-A05
+  - INV8-B01
+  - INV8-B02
+  - INV8-B03
+  - INV8-B04
+  - INV8-B05
+  - INV8-C01
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6.0, review: 2.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
