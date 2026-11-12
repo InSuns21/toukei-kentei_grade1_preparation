@@ -1,0 +1,48 @@
+chapter: HOLO12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO11
+concepts:
+  - id: holography.euclidean-maxwell-gauge-action
+    name: Euclid AdS上のMaxwell作用とゲージ変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euclid AdS上のMaxwell作用とゲージ変換）"]
+    requires: [holography.euclidean-ads-half-space]
+  - id: holography.maxwell-cutoff-momentum
+    name: Maxwell作用の第一変分と境界運動量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Maxwell作用の第一変分と境界運動量）"]
+    requires: [holography.euclidean-maxwell-gauge-action, holography.cutoff-normal-momentum]
+  - id: holography.boundary-conserved-current-response
+    name: 境界の保存電流応答
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界の保存電流応答）"]
+    requires: [holography.maxwell-cutoff-momentum, holography.gkpw-tree-level-dictionary]
+  - id: holography.radial-gauge-transverse-maxwell
+    name: 径方向ゲージの拘束と横波
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（径方向ゲージの拘束と横波）"]
+    requires: [holography.euclidean-maxwell-gauge-action, holography.maxwell-cutoff-momentum]
+  - id: holography.boundary-current-scaling-dimension
+    name: 保存流の境界スケーリング次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（保存流の境界スケーリング次元）"]
+    requires: [holography.boundary-conserved-current-response, holography.radial-scale-isometry]
+  - id: holography.maxwell-current-two-point-d3
+    name: 三次元境界の横射影された保存流2点関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元境界の横射影された保存流2点関数）"]
+    requires: [holography.radial-gauge-transverse-maxwell, holography.boundary-conserved-current-response]
+  - id: holography.gauge-ward-conservation
+    name: 源のゲージ不変性と保存流Ward恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（源のゲージ不変性と保存流Ward恒等式）"]
+    requires: [holography.boundary-conserved-current-response, holography.maxwell-current-two-point-d3]
