@@ -39,9 +39,9 @@ $$
 
 は任意の $v=ae_1+be_2+ce_3$ に対し
 
-$
+$$
 Qv=aQe_1+bQe_2+cQe_3=-be_1+ae_2+ce_3
-$
+$$
 
 と作用します。従って $Qe_3=e_3$ なので軸を固定し、$n^\perp=\operatorname{span}\{e_1,e_2\}$ 上では $(a,b)\mapsto(-b,a)$ となるため、正向き90度の平面回転です。さらに列が正規直交し $Q^{\mathsf T}Q=I_3$、左上の $2\times2$ 行列式が $1$ なので $\det Q=1$。従って $Q=R(e_3,\pi/2)\in SO(3)$ です。
 <!-- definition-example-end -->
@@ -240,9 +240,9 @@ $$
 
 $3\times3$ 実行列 $A$ の指数関数を冪級数
 
-$
+$$
 \exp(A)=\sum_{k=0}^{\infty}\frac{A^k}{k!}
-$
+$$
 
 で定めます。$A$ の各成分の絶対値を $M$ 以下とすると、行列積の定義から $k\ge1$ で $(A^k)$ の各成分の絶対値は $3^{k-1}M^k$ 以下です。$\sum_{k=1}^{\infty}3^{k-1}M^k/k!$ は収束するため、行列指数の各成分の級数も絶対収束します。$\widehat n^3=-\widehat n$ なら高次の冪が二種類にまとまります。
 
@@ -293,7 +293,7 @@ $$
 
 $$
 R(n,\theta)=I_3+\theta\widehat n+\frac{\theta^2}{2}\widehat n^2+O(\theta^3).
-$
+$$
 
 ここで $O(\theta^3)$ は、$\theta\to0$ のとき各行列成分の剰余がある定数倍の $|\theta|^3$ 以下であることを表します。
 
@@ -405,25 +405,25 @@ $$
 
 です。$A=\varepsilon K_x+\varepsilon^2E_x(\varepsilon)$、$B=\delta K_y+\delta^2E_y(\delta)$ と書きます。$E_x,E_y$ の各成分は角度が $0$ に近い範囲で有界です。積を展開すると
 
-$
+$$
 \begin{aligned}
 AB-BA={}&\varepsilon\delta(K_xK_y-K_yK_x)\\
 &+\varepsilon^2\delta(E_xK_y-K_yE_x)\\
 &+\varepsilon\delta^2(K_xE_y-E_yK_x)\\
 &+\varepsilon^2\delta^2(E_xE_y-E_yE_x).
 \end{aligned}
-$
+$$
 
 したがって、後の三項は $\varepsilon,\delta\to0$ で $O(|\varepsilon\delta|(|\varepsilon|+|\delta|))$ です。任意の $v=v_1e_1+v_2e_2+v_3e_3$ に対し、ベクトル三重積を展開すると
 
-$
+$$
 \begin{aligned}
 (K_xK_y-K_yK_x)v
 &=e_1\times(e_2\times v)-e_2\times(e_1\times v)\\
 &=v_1e_2-v_2e_1\\
 &=e_3\times v=\widehat{e_3}v.
 \end{aligned}
-$
+$$
 
 従って交換子は $\widehat{e_3}$ です。
 <!-- proof-end -->
