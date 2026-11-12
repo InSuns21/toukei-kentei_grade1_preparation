@@ -8,7 +8,7 @@
 
 この一元集合は偶然の選択ではない。$1$ から $K$ の像 $0$ へ向かう射が**存在しない**ことに対応して、空図式の**極限（終対象）**として現れる。左との違いは、対象の値だけでなく射の向きと比較変換の向きにある。
 
-以後、$\mathcal A,\mathcal B$ は**小さい圏**、$\mathcal C$ は**局所小圏**、$K:\mathcal A\to\mathcal B$ と $F:\mathcal A\to\mathcal C$ は関手とする。$gf$ は $f$ の後に $g$ を合成する記法である。[完備圏](../CAT2-04/index.md#def-cat2-04-complete)であれば以下で必要なすべての小極限が存在するが、実際に必要なのは各 $b$ の添字図式の極限だけである。
+以後、$\mathcal A,\mathcal B$ は[小さい圏](../CAT1-02/index.md#def-cat1-02-size)、$\mathcal C$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)、$K:\mathcal A\to\mathcal B$ と $F:\mathcal A\to\mathcal C$ は関手とする。$gf$ は $f$ の後に $g$ を合成する記法である。[完備圏](../CAT2-04/index.md#def-cat2-04-complete)であれば以下で必要なすべての小極限が存在するが、実際に必要なのは各 $b$ の添字図式の極限だけである。
 
 ## 2. $b$ から $Ka$ へ向かう射を集める
 
@@ -51,7 +51,14 @@ $$
 \operatorname{Hom}_{\mathcal B}(b,Ka).
 $$
 
-$\mathcal A$ は小さく、$\mathcal B$ のHomは集合なので右辺は集合である。射も $\mathcal A$ の射全体の部分集合として得られる。従って $(b\downarrow K)$ は小さい。$\mathcal A$ が大きい場合には、この結論を無条件に使ってはいけない。
+$\mathcal A$ は小さく、$\mathcal B$ のHomは集合なので右辺は集合である。また、固定した二対象 $(a,u),(a',u')$ の間の射集合は
+
+$
+\operatorname{Hom}_{(b\downarrow K)}((a,u),(a',u'))
+=\{f\in\operatorname{Hom}_{\mathcal A}(a,a')\mid K(f)u=u'\}
+$
+
+である。各Hom集合は集合であり、対象の組も集合をなすので、全射の集まりも集合になる。従って $(b\downarrow K)$ は小さい。$\mathcal A$ が大きい場合には、この結論を無条件に使ってはいけない。
 
 ## 3. 極限から値と射を作る
 
@@ -152,23 +159,35 @@ $$
 R(Ka)\longrightarrow F(a).
 $$
 
-$f:a\to a'$ に対し $(Ka'\downarrow K)$ の射
+$f:a\to a'$ に対し、まず $(Ka\downarrow K)$ において
 
-$$
-f:(a,Kf)\longrightarrow(a',1_{Ka'})
-$$
+$
+f:(a,1_{Ka})\longrightarrow(a',Kf)
+$
 
-は $Kf=1_{Ka'}Kf$ を満たす。錐の等式と [添字の引き戻し](#prop-cat3-08-transport)から
+は $Kf\,1_{Ka}=Kf$ を満たす射である。この添字圏での錐条件から
 
-$$
+$
+Ff\,p^{Ka}_{a,1_{Ka}}=p^{Ka}_{a',Kf}.
+$
+
+一方、[添字の引き戻し](#prop-cat3-08-transport)を $v=Kf:Ka\to Ka'$ と $(a',1_{Ka'})\in(Ka'\downarrow K)$ に適用すると、
+
+$
+p^{Ka'}_{a',1_{Ka'}}R(Kf)=p^{Ka}_{a',Kf}.
+$
+
+従って両式をつないで
+
+$
 \begin{aligned}
 Ff\,\varepsilon_a
 &=Ff\,p^{Ka}_{a,1_{Ka}}\\
-&=Ff\,p^{Ka'}_{a,Kf}R(Kf)\\
+&=p^{Ka}_{a',Kf}\\
 &=p^{Ka'}_{a',1_{Ka'}}R(Kf)\\
 &=\varepsilon_{a'}R(Kf).
 \end{aligned}
-$$
+$
 
 両辺は $R(Ka)\to F(a')$ であり、$\varepsilon:RK\Rightarrow F$ が自然変換であることが証明された。
 
@@ -530,19 +549,31 @@ $K:\mathbf2\to\mathbf1$ を唯一の関手、$F=(X\xrightarrow{f}Y)$ とする�
 小圏 $\mathcal A,\mathcal B$、関手 $K,F$ と必要な極限を仮定する。$f:a\to a'$ を固定し、$(Ka'\downarrow K)$ で使用する射を一つ作れ。[引き戻しの式](#prop-cat3-08-transport)と錐条件を用いて $Ff\,\varepsilon_a=\varepsilon_{a'}R(Kf)$ を再導出し、型を記せ。
 
 <!-- solution-start -->
-**詳細解答**：$(Ka'\downarrow K)$ の対象 $(a,Kf)$ と $(a',1_{Ka'})$ を取る。$Kf=1_{Ka'}Kf$ より $f:(a,Kf)\to(a',1_{Ka'})$ はcomma圏の射である。錐条件から
+**詳細解答**：$(Ka\downarrow K)$ の対象 $(a,1_{Ka})$ と $(a',Kf)$ を取る。$Kf\,1_{Ka}=Kf$ より $f:(a,1_{Ka})\to(a',Kf)$ はcomma圏の射である。この添字圏の錐条件は
 
-$$
-Ff\,p^{Ka'}_{a,Kf}=p^{Ka'}_{a',1_{Ka'}}=\varepsilon_{a'}.
-$$
+$
+Ff\,p^{Ka}_{a,1_{Ka}}=p^{Ka}_{a',Kf}.
+$
 
-一方、$v=Kf:Ka\to Ka'$ と $(a,1_{Ka})$ を引き戻しの式へ代入すると
+一方、[引き戻しの式](#prop-cat3-08-transport)に $v=Kf:Ka\to Ka'$ と $(a',1_{Ka'})$ を代入すると
 
-$$
-p^{Ka'}_{a,Kf}R(Kf)=p^{Ka}_{a,1_{Ka}}=\varepsilon_a.
-$$
+$
+p^{Ka'}_{a',1_{Ka'}}R(Kf)=p^{Ka}_{a',Kf}.
+$
 
-前者へ右から $R(Kf)$ を合成して後者を代入すれば $Ff\,\varepsilon_a=\varepsilon_{a'}R(Kf)$。両辺は $R(Ka)\to F(a')$ である。
+左の式の $p^{Ka}_{a',Kf}$ に右の式を代入して
+
+$
+\begin{aligned}
+Ff\,\varepsilon_a
+&=Ff\,p^{Ka}_{a,1_{Ka}}\\
+&=p^{Ka}_{a',Kf}\\
+&=p^{Ka'}_{a',1_{Ka'}}R(Kf)\\
+&=\varepsilon_{a'}R(Kf).
+\end{aligned}
+$
+
+両辺は $R(Ka)\to F(a')$ である。
 <!-- solution-end -->
 
 ### 問題5：終対象の非存在を見抜く
