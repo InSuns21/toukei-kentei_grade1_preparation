@@ -30,9 +30,9 @@ $$
 > **命題（Minkowskiの点間因果判定）**  
 > $p=(t,\boldsymbol x),q=(s,\boldsymbol y)\in M$ とする。$p,q$ が空間的に分離しているための必要十分条件は
 >
-> $$
+$
 > |\boldsymbol y-\boldsymbol x|>|s-t|
-> $$
+$
 >
 > である。$q\in J^+(p)$ の必要十分条件は $s-t\ge|\boldsymbol y-\boldsymbol x|$ である。
 <!-- formal-statement-end -->
@@ -85,9 +85,9 @@ $$
 > **定義（開いた因果補集合）**  
 > $S\subset M$ の**因果補集合**を
 >
-> $$
+$
 > S^\perp:=\operatorname{int} C_{\mathrm{sp}}(S)
-> $$
+$
 >
 > と定める。すなわち、$S^\perp$ は $S$ の全点と空間的に分離している点全体のうち、開いた近傍までその性質を保つ点の集合である。この定義では $S^\perp$ は必ず開集合となる。
 <!-- formal-statement-end -->
@@ -95,6 +95,7 @@ $$
 <!-- definition-example-start: def-aqft1-causal-complement -->
 ### 直接例：通常の補集合と違う
 
+**定義の確認**。
 $S=\{(t,\boldsymbol x): |t|+|\boldsymbol x|<1\}$ とし、$p=(3,\boldsymbol0)$ を取ります。$p\notin S$ ですから通常の集合補集合 $M\setminus S$ には入ります。しかし $q=(0,\boldsymbol0)\in S$ と $p$ の差は
 
 $$
@@ -125,6 +126,7 @@ $$
 <!-- definition-example-start: def-aqft1-separated-regions -->
 ### 直接例：二つの小領域
 
+**定義の確認**。
 $O_1=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<\frac14\}$、$O_2=\{(s,\boldsymbol y):|s|+|\boldsymbol y-(1,0,0)|<\frac14\}$ とします。任意の点対について
 
 $$
@@ -165,7 +167,7 @@ $$
 
 ## 3. double cone：有限時間・有限空間の観測領域
 
-二点 $a=(-R,\boldsymbol0)$、$b=(R,\boldsymbol0)$（$R>0$）を選び、$a$ の未来で $b$ の過去にある点の共通部分を取ります。このように二つの時間的端点で挟んだ領域を **double cone（因果ダイヤモンド）** と呼びます。時間的未来・過去 $I^\pm$ は[既習の定義](../../../幾何系/LORG/LORG6/index.md#def-lorg6-chronological-causal-future)を使います。
+二点 $a=(-R,\boldsymbol0)$、$b=(R,\boldsymbol0)$（$R>0$）を選び、$a$ の未来で $b$ の過去にある点の共通部分を取ります。この二つの時間的端点で挟んだ形を調べます。時間的未来・過去 $I^\pm$ は[既習の定義](../../../幾何系/LORG/LORG6/index.md#def-lorg6-chronological-causal-future)を使います。
 
 <a id="def-aqft1-double-cone"></a>
 
@@ -173,10 +175,10 @@ $$
 > **定義（標準double cone）**  
 > $R>0$ に対し
 >
-> $$
+$
 > D_R:=I^+\bigl((-R,\boldsymbol0)\bigr)\cap
 > I^-\bigl((R,\boldsymbol0)\bigr)
-> $$
+$
 >
 > と定める。中心 $(t_0,\boldsymbol a)$ に移した領域を $D_R(t_0,\boldsymbol a)=(t_0,\boldsymbol a)+D_R$ と書く。
 <!-- formal-statement-end -->
@@ -194,6 +196,7 @@ $$
 <!-- definition-example-start: def-aqft1-double-cone -->
 ### 直接例：$D_2$ の断面
 
+**定義の確認**。
 $D_2=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<2\}$ です。$t=0$ では半径2の開球、$t=1$ では半径1の開球となり、$|t|\ge2$ では空です。例えば $p=(1,(1/2,0,0))$ は $1+1/2<2$ なので内部、$q=(1,(1,0,0))$ は和が2なので境界上であって内部には含まれません。二つの端点の**時間的**未来・過去を取ったので不等号は厳密です。
 <!-- definition-example-end -->
 
@@ -207,9 +210,9 @@ $D_2=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<2\}$ です。$t=0$ では半径2�
 > **定理（double coneの因果補集合）**  
 > $M=\mathbb R^{1,3}$、$R>0$ とし、$D_R=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<R\}$ とする。第2節の[因果補集合](#def-aqft1-causal-complement)について
 >
-> $$
+$
 > D_R^\perp=\{(t,\boldsymbol x):|\boldsymbol x|>R+|t|\}.
-> $$
+$
 >
 > 一方で $C_{\mathrm{sp}}(D_R)=\{(t,\boldsymbol x):|\boldsymbol x|\ge R+|t|\}$ であり、両者は境界の扱いが異なる。
 <!-- formal-statement-end -->
@@ -262,10 +265,10 @@ $$
 > **定義（右・左Rindler wedge）**  
 > 4次元Minkowski時空の開領域
 >
-> $$
+$
 > W_R=\{(t,x^1,x^2,x^3):x^1>|t|\},\qquad
 > W_L=\{(t,x^1,x^2,x^3):-x^1>|t|\}
-> $$
+$
 >
 > を、それぞれ標準右wedge、標準左wedgeという。両領域とも $x^2,x^3$ は任意である。
 <!-- formal-statement-end -->
@@ -273,6 +276,7 @@ $$
 <!-- definition-example-start: def-aqft1-wedges -->
 ### 直接例：横方向の位置と境界
 
+**定義の確認**。
 $p=(2,3,100,0)$ は $3>|2|$ なので $W_R$ に入ります。横方向の値100はこの判定に影響しません。一方 $(2,2,0,0)$ は光的境界上、$(0,-3,0,0)$ は $W_L$ 内部です。$W_R$ と $W_L$ は共通点を持ちませんが、「共通点がない」ことだけから空間的分離を結論してはいけません。次に点対を判定します。
 <!-- definition-example-end -->
 
@@ -280,11 +284,11 @@ $p=(2,3,100,0)$ は $3>|2|$ なので $W_R$ に入ります。横方向の値100
 
 <!-- formal-statement-start -->
 > **定理（右wedgeと左wedgeの因果補集合）**  
-> 第2節の定義により
+> 先ほどの[開いた因果補集合](#def-aqft1-causal-complement)の定義から
 >
-> $$
+$
 > W_R^\perp=W_L,\qquad W_L^\perp=W_R.
-> $$
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -328,9 +332,9 @@ $$
 > **定理（同時刻中心の二つのdouble cone）**  
 > $R,S>0$、$\boldsymbol a,\boldsymbol b\in\mathbb R^3$ とする。開領域 $D_R(0,\boldsymbol a)$ と $D_S(0,\boldsymbol b)$ が空間的に分離しているための必要十分条件は
 >
-> $$
+$
 > |\boldsymbol a-\boldsymbol b|\ge R+S
-> $$
+$
 >
 > である。等号の場合も、開領域の内部点対はすべて厳密に空間的である。
 <!-- formal-statement-end -->
@@ -377,9 +381,9 @@ $$
 > **命題（Poincaré変換と因果補集合）**  
 > $F:M\to M$ がPoincaré変換で、$S\subset M$ が任意の集合なら
 >
-> $$
+$
 > F(S^\perp)=(F(S))^\perp
-> $$
+$
 >
 > が成り立つ。特に移動したdouble coneやwedgeの因果補集合は、標準領域の補集合を同じ変換で移したものになる。
 <!-- formal-statement-end -->
@@ -547,7 +551,7 @@ $$
 \ge y+3>|s|+2\ge|s-2|.
 $$
 
-したがってすべての $a,b,s,y$ に対して空間的です。変更した点 $p'=(2,(-2,0,0))$ では $-x^1=2=|t|$ で、$W_L$ の**境界**にあります。$p'$ は $W_L$ には属さず、[wedgeの因果補集合定理](#thm-aqft1-wedge-complement)より $W_R^\perp$ にも属しません。開いた補集合と点対ごとの厳密な分離を区別します。
+したがってすべての $a,b,s,y$ に対して空間的です。変更した点 $p'=(2,(-2,0,0))$ では $-x^1=2=|t|$ で、$W_L$ の**境界**にあります。$p'$ は $W_L$ には属さず、[右wedgeと左wedgeの因果補集合](#thm-aqft1-wedge-complement)より $W_R^\perp$ にも属しません。開いた補集合と点対ごとの厳密な分離を区別します。
 <!-- solution-end -->
 
 ### Level C：領域・境界・共変性を統合する
