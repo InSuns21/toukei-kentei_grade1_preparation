@@ -180,7 +180,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mu_{\psi,\varphi}(B):=\langle\psi,E(B)\varphi\rangle$ と置きます。互いに素な有限分割 $\{B_j\}$ について射影の直交性とCauchy–Schwarz不等式から
+$\mu_{\psi,\varphi}(B):=\langle\psi,E(B)\varphi\rangle$ と置きます。互いに素な有限分割 $\{B_j\}$ について射影の直交性と[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 \begin{aligned}
@@ -259,7 +259,7 @@ U(z)G_\varepsilon\psi
 :=\int_{\mathbb R^4}e^{ip\cdot z-\varepsilon q(p)}\,dE(p)\psi
 $$
 
-と定めます。$r=\sqrt{q(p)}$、$C_y=\sqrt{(y^0)^2+|\boldsymbol y|^2}$ とすれば、通常の四次元Euclid内積のCauchy–Schwarz不等式により
+と定めます。$r=\sqrt{q(p)}$、$C_y=\sqrt{(y^0)^2+|\boldsymbol y|^2}$ とすれば、通常の四次元Euclid内積の[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
 
 $$
 |e^{ip\cdot z-\varepsilon q(p)}|
@@ -678,7 +678,7 @@ $$
 
 ## 8. 到達点と次講
 
-正エネルギー条件は $p^0\ge|\boldsymbol p|$ という**共同スペクトルの幾何学的制約**であり、それが未来管領域での指数減衰を与えました。境界値はFourier支持を持ち、開集合で零なら複素解析の反射・恒等定理により全実時空へ零が伝わります。Gaussianで稠密な全複素並進解析ベクトルを作れる一方、局所操作とその平滑化を混同しないことも確認しました。
+正エネルギー条件は $p^0\ge|\boldsymbol p|$ という**共同スペクトルの幾何学的制約**であり、それが未来管領域での指数減衰を与えました。境界値はFourier支持を持ち、開集合で零なら[Schwarzの鏡像原理](../../CA/CA7/index.md#thm-ca7-schwarz-reflection)と[CA3の恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により全実時空へ零が伝わります。Gaussianで稠密な全複素並進解析ベクトルを作れる一方、局所操作とその平滑化を混同しないことも確認しました。
 
 次の **AQFT12「Reeh–Schlieder定理」** は、ここで証明した[複数演算子の一意性](#prop-aqft11-multipoint-tube)に、適切な局所領域の選択・弱加法性・真空の大域巡回性を加えます。局所性から分離性を引き出すのはさらに後の段階であり、解析性の結論と混ぜません。
 
