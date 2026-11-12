@@ -30,9 +30,9 @@ $$
 > **命題（Minkowskiの点間因果判定）**  
 > $p=(t,\boldsymbol x),q=(s,\boldsymbol y)\in M$ とする。$p,q$ が空間的に分離しているための必要十分条件は
 >
-$
+$$
 > |\boldsymbol y-\boldsymbol x|>|s-t|
-$
+$$
 >
 > である。$q\in J^+(p)$ の必要十分条件は $s-t\ge|\boldsymbol y-\boldsymbol x|$ である。
 <!-- formal-statement-end -->
@@ -85,9 +85,9 @@ $$
 > **定義（開いた因果補集合）**  
 > $S\subset M$ の**因果補集合**を
 >
-$
+$$
 > S^\perp:=\operatorname{int} C_{\mathrm{sp}}(S)
-$
+$$
 >
 > と定める。すなわち、$S^\perp$ は $S$ の全点と空間的に分離している点全体のうち、開いた近傍までその性質を保つ点の集合である。この定義では $S^\perp$ は必ず開集合となる。
 <!-- formal-statement-end -->
@@ -175,10 +175,10 @@ $$
 > **定義（標準double cone）**  
 > $R>0$ に対し
 >
-$
+$$
 > D_R:=I^+\bigl((-R,\boldsymbol0)\bigr)\cap
 > I^-\bigl((R,\boldsymbol0)\bigr)
-$
+$$
 >
 > と定める。中心 $(t_0,\boldsymbol a)$ に移した領域を $D_R(t_0,\boldsymbol a)=(t_0,\boldsymbol a)+D_R$ と書く。
 <!-- formal-statement-end -->
@@ -210,9 +210,9 @@ $D_2=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<2\}$ です。$t=0$ では半径2�
 > **定理（double coneの因果補集合）**  
 > $M=\mathbb R^{1,3}$、$R>0$ とし、$D_R=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<R\}$ とする。第2節の[因果補集合](#def-aqft1-causal-complement)について
 >
-$
+$$
 > D_R^\perp=\{(t,\boldsymbol x):|\boldsymbol x|>R+|t|\}.
-$
+$$
 >
 > 一方で $C_{\mathrm{sp}}(D_R)=\{(t,\boldsymbol x):|\boldsymbol x|\ge R+|t|\}$ であり、両者は境界の扱いが異なる。
 <!-- formal-statement-end -->
@@ -265,10 +265,10 @@ $$
 > **定義（右・左Rindler wedge）**  
 > 4次元Minkowski時空の開領域
 >
-$
+$$
 > W_R=\{(t,x^1,x^2,x^3):x^1>|t|\},\qquad
 > W_L=\{(t,x^1,x^2,x^3):-x^1>|t|\}
-$
+$$
 >
 > を、それぞれ標準右wedge、標準左wedgeという。両領域とも $x^2,x^3$ は任意である。
 <!-- formal-statement-end -->
@@ -286,9 +286,9 @@ $p=(2,3,100,0)$ は $3>|2|$ なので $W_R$ に入ります。横方向の値100
 > **定理（右wedgeと左wedgeの因果補集合）**  
 > 先ほどの[開いた因果補集合](#def-aqft1-causal-complement)の定義から
 >
-$
+$$
 > W_R^\perp=W_L,\qquad W_L^\perp=W_R.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -332,9 +332,9 @@ $$
 > **定理（同時刻中心の二つのdouble cone）**  
 > $R,S>0$、$\boldsymbol a,\boldsymbol b\in\mathbb R^3$ とする。開領域 $D_R(0,\boldsymbol a)$ と $D_S(0,\boldsymbol b)$ が空間的に分離しているための必要十分条件は
 >
-$
+$$
 > |\boldsymbol a-\boldsymbol b|\ge R+S
-$
+$$
 >
 > である。等号の場合も、開領域の内部点対はすべて厳密に空間的である。
 <!-- formal-statement-end -->
@@ -381,9 +381,9 @@ $$
 > **命題（Poincaré変換と因果補集合）**  
 > $F:M\to M$ がPoincaré変換で、$S\subset M$ が任意の集合なら
 >
-$
+$$
 > F(S^\perp)=(F(S))^\perp
-$
+$$
 >
 > が成り立つ。特に移動したdouble coneやwedgeの因果補集合は、標準領域の補集合を同じ変換で移したものになる。
 <!-- formal-statement-end -->
