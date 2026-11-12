@@ -53,7 +53,15 @@ $P$ は Pa を単位にもつが、$\sigma$ と同じ行列ではない。第 $i
 <!-- definition-example-start: def-ctm8-first-piola -->
 ### **定義の確認**：三軸伸長で面積と合力を突き合わせる
 
-ある時刻で $F=\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3)$、$\lambda_i>0$ とし、$\sigma=\operatorname{diag}(p_1,p_2,p_3)$ Pa とする。正の対角成分から $F$ の可逆性・向きの保持が確認でき、$J=\lambda_1\lambda_2\lambda_3$。行列積を各列で計算すると
+基準側と現在側の標準直交基底をそれぞれ $e_1,e_2,e_3$ で表す。ある時刻の運動を $\chi(X)=(\lambda_1X_1,\lambda_2X_2,\lambda_3X_3)$、$\lambda_i>0$（無次元）とし、現在応力を $\sigma=\operatorname{diag}(p_1,p_2,p_3)$ Pa とする。物質座標で各成分を微分すると
+
+$$
+F=D_X\chi=\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3),\qquad
+F^{-T}=\operatorname{diag}(1/\lambda_1,1/\lambda_2,1/\lambda_3),\qquad
+J=\lambda_1\lambda_2\lambda_3>0.
+$$
+
+$\chi$ は逆写像 $X_i=x_i/\lambda_i$ をもち、$F$ は可逆で向きを保つ。これは[変形勾配の定義](../CTM2/index.md#def-ctm2-deformation-gradient)の条件そのものである。基準法線の各列へ $JF^{-T}$ を掛けると、[Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)による面積倍率が得られる。続けて $P=J\sigma F^{-T}$ を各列で計算すると
 
 $$
 P=\operatorname{diag}(\lambda_2\lambda_3p_1,\,
@@ -61,7 +69,16 @@ P=\operatorname{diag}(\lambda_2\lambda_3p_1,\,
 \lambda_1\lambda_2p_3).
 $$
 
-例えば $N=e_1$ の基準面では $n=e_1$、$da=\lambda_2\lambda_3\,dA$ なので現在側の力は $p_1e_1\,\lambda_2\lambda_3dA$。基準側では $PN\,dA=\lambda_2\lambda_3p_1e_1\,dA$ で一致する。他の二面もそれぞれ対応する二方向の伸長倍率を掛ければ一致する。これは定義式の**全列**と面法線の取り方を確かめている。
+例えば $N=e_1$ では $F^{-T}e_1=e_1/\lambda_1$ なので $n=e_1$、$da=J\,dA/\lambda_1=\lambda_2\lambda_3\,dA$。現在側の力 $p_1e_1\,\lambda_2\lambda_3dA$ は基準側の $Pe_1\,dA=\lambda_2\lambda_3p_1e_1\,dA$ と一致する。残る二面も法線をそれぞれ $e_2,e_3$ として計算すると
+
+$$
+\begin{aligned}
+N=e_2:\quad &\sigma n\,da=p_2e_2\,\lambda_1\lambda_3dA=Pe_2\,dA,\\
+N=e_3:\quad &\sigma n\,da=p_3e_3\,\lambda_1\lambda_2dA=Pe_3\,dA.
+\end{aligned}
+$$
+
+どちらも $F^{-T}e_i=e_i/\lambda_i$ から $n=e_i$、$da=J\,dA/\lambda_i$ を求めた。これで定義式の**全列**と面法線の対応を確認できた。
 <!-- definition-example-end -->
 
 ## 2. 基準配置で力の釣合はどう書けるか
@@ -149,6 +166,8 @@ $$
 再び任意の領域についての等式と連続性から $\operatorname{Div}_X P=J(\operatorname{div}_x\sigma)\circ\chi$ となる。両辺の単位は N/m$^3$（基準体積当たり）である。 $\square$
 <!-- proof-end -->
 
+<a id="identity-ctm8-piola"></a>
+
 ### 成分で何が相殺しているか
 
 微分の取り違えを防ぐため、発散変換の中間式を成分でも確かめる。$K_{jA}:=JF^{-1}_{Aj}$ と置く。これは [CTM2 の余因子行列](../CTM2/index.md#prop-ctm2-cofactor-inverse)の成分である。$F_{kA}=\partial_{X_A}\chi_k$ の二階混合微分が交換できるとき
@@ -219,7 +238,14 @@ $$
 <!-- definition-example-start: def-ctm8-second-piola -->
 ### **定義の確認**：せん断では $P$ は非対称でも $S$ は対称
 
-$F=\begin{pmatrix}1&\gamma&0\\0&1&0\\0&0&1\end{pmatrix}$、$J=1$、$\sigma=pI_3$（$p$ は Pa）とする。$\gamma$ は無次元。$F$ の逆を掛ければ
+基準座標 $X$ で $\chi(X)=(X_1+\gamma X_2,X_2,X_3)$（$\gamma$ は無次元）という単純せん断を考え、現在応力を $\sigma=pI_3$（$p$ は Pa）とする。運動写像の成分を物質座標で微分すると
+
+$$
+F=D_X\chi=
+\begin{pmatrix}1&\gamma&0\\0&1&0\\0&0&1\end{pmatrix},\qquad J=1>0.
+$$
+
+逆写像は $X=(x_1-\gamma x_2,x_2,x_3)$ で存在するため、第一・第二 Piola 応力の定義条件を満たす。$F^{-1}$ と $JF^{-T}$ を順に掛ければ
 
 $$
 F^{-1}=\begin{pmatrix}1&-\gamma&0\\0&1&0\\0&0&1\end{pmatrix},
@@ -341,7 +367,20 @@ $$
 
 ### 例：時間依存の単純せん断で三つの仕事率を計算する
 
-$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$ とし、$\gamma(0)=0$、$t$ は s。$\sigma=\begin{pmatrix}0&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix}$ とする（$\tau$ は Pa）。$F=I_3+\gamma e_1e_2^T$、$J=1$、$\dot F_{12}=\dot\gamma$ でその他の成分はゼロ。定義から
+$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$ とし、$\gamma(0)=0$、$t$ の単位は s とする。現在応力は、$\tau$ を Pa 単位の値として
+
+$$
+\sigma=\begin{pmatrix}0&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix}
+$$
+
+と置く。$X$ を固定した時間微分と、それを現在座標へ移した速度場は
+
+$$
+\partial_t\chi(X,t)|_X=(\dot\gamma X_2,0,0),\qquad
+v(x,t)=(\dot\gamma x_2,0,0)
+$$
+
+である。後者では $x_2=X_2$ を代入した。$F=I_3+\gamma e_1e_2^T$、$J=1$、$\dot F_{12}=\partial_tF_{12}|_X=\dot\gamma$ で、その他の $\dot F$ 成分はゼロ。これらを応力の定義へ代入すると
 
 $$
 P=\begin{pmatrix}-\gamma\tau&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix},
@@ -349,7 +388,7 @@ P=\begin{pmatrix}-\gamma\tau&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix},
 S=\begin{pmatrix}-2\gamma\tau&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix}.
 $$
 
-現在位置で $v=(\dot\gamma x_2,0,0)$ だから $L_{12}=\dot\gamma$、$D_{12}=D_{21}=\dot\gamma/2$。また
+現在座標 $x$ を固定して速度を空間微分すると $L_{12}=\partial v_1/\partial x_2=\dot\gamma$、他の $L_{ij}=0$ なので $D_{12}=D_{21}=\dot\gamma/2$。また
 
 $$
 E=\frac12\begin{pmatrix}0&\gamma&0\\\gamma&\gamma^2&0\\0&0&0\end{pmatrix},
@@ -502,7 +541,7 @@ $$
 \partial_{X_1}(-g(X_2))+\partial_{X_2}(1)+\partial_{X_3}0=0+0+0=0.
 $$
 
-第3行もゼロ。$g$ の変化を $X_1$ 微分したと誤読しない。[Piola 恒等式の導出](#thm-ctm8-reference-momentum)における混合微分交換が成立する例である。
+第3行もゼロ。$g$ の変化を $X_1$ 微分したと誤読しない。[Piola 恒等式の導出](#identity-ctm8-piola)における混合微分交換が成立する例である。
 <!-- solution-end -->
 
 ### B3. 応力の対称性と仕事率
@@ -534,7 +573,10 @@ $$
 
 ### B4. 失われた仮定を見抜く
 
-$F$ は可逆で $J>0$ とする。(i) $\sigma$ が非対称なら $S$ の対称性はどうなるか。(ii) $F$ がただの任意の可逆行列場で、運動写像の勾配でない場合、発散変換の成分証明のどこが破れるか。具体例として $F(X)=\operatorname{diag}(1+X_2/\ell,1,1)$（$|X_2|<\ell/2$、$\ell>0$）を検討せよ。
+$F$ は可逆で $J>0$ とする。
+
+1. $\sigma$ が非対称なら $S$ の対称性はどうなるか。
+2. $F$ が任意の可逆行列場で、運動写像の勾配でない場合、発散変換の成分証明のどこが破れるか。具体例として $F(X)=\operatorname{diag}(1+X_2/\ell,1,1)$（$|X_2|<\ell/2$、$\ell>0$）を検討せよ。
 
 - Level: B
 
@@ -543,16 +585,50 @@ $F$ は可逆で $J>0$ とする。(i) $\sigma$ が非対称なら $S$ の対称
 
 (i) [第二 Piola 応力の対称性の命題](#prop-ctm8-symmetry)の逆向きから、$\sigma\ne\sigma^T$ なら $S\ne S^T$。例えば $F=I_3$、$J=1$ なら $S=\sigma$ なので即座に確かめられる。この場合に古典的な角運動量収支まで仮定してはいけない。
 
-(ii) $g(X_2)=1+X_2/\ell>0$ と置けば $F=\operatorname{diag}(g,1,1)$、$J=g$、$K=JF^{-T}=\operatorname{diag}(1,g,g)$。第2行の発散は $\partial_{X_2}g=1/\ell\ne0$ である。もし $F=D_X\chi$ なら、$\partial_{X_2}F_{11}=\partial_{X_1}F_{12}$ が必要だが、左は $1/\ell$、右は $0$ で矛盾する。従って $F$ はこの領域で運動写像の勾配でなく、[発散変換の証明](#thm-ctm8-reference-momentum)の Piola 恒等式を適用できない。$J>0$ だけでは足りない。
+(ii) $g(X_2)=1+X_2/\ell>0$ と置く。各行列を直接計算すると
+
+$$
+F=\operatorname{diag}(g,1,1),\qquad
+J=g>0,\qquad
+K=JF^{-T}=\operatorname{diag}(1,g,g).
+$$
+
+第2行の発散は
+
+$$
+\sum_A\partial_{X_A}K_{2A}
+=\partial_{X_1}0+\partial_{X_2}g+\partial_{X_3}0
+=\frac1\ell\ne0.
+$$
+
+もし $F=D_X\chi$ なら、二階混合微分の交換が必要だが、今回の行列では
+
+$$
+\partial_{X_2}F_{11}=\frac1\ell\ne0=\partial_{X_1}F_{12}
+$$
+
+と矛盾する。従って $F$ はこの領域で運動写像の勾配でなく、[Piola 恒等式の成分証明](#identity-ctm8-piola)を適用できない。$J>0$ だけでは足りない。
 <!-- solution-end -->
 
 ## Level C
 
-### C1. 時間依存せん断と不均一応力を一つの物体で確かめる
+### C1. 時間依存せん断と空間的に一様な応力を一つの物体で確かめる
 
-$\Omega_0$ を有界な直方体とし、$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$、$\gamma(0)=0$、$\gamma$ は $C^2$ 級とする。密度は一定の基準密度 $\rho_0>0$、現在応力は $\sigma(x,t)=\begin{pmatrix}0&\tau(t)&0\\\tau(t)&0&0\\0&0&0\end{pmatrix}$ とし、$\tau$ は Pa 単位の $C^1$ 関数である。単位質量当たりの体積力は $b(x,t)=\ddot\gamma(t)x_2e_1$ とする。
+$\Omega_0$ を有界な直方体とし、$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$、$\gamma(0)=0$、$\gamma$ は $C^2$ 級とする。基準密度は一定の $\rho_0>0$ とする。現在応力と単位質量当たりの体積力は
 
-(i) $F,J,\rho,P,S$ を求め、$S$ の対称性を確認せよ。(ii) $N=e_2$ の面で Nanson の公式を用い、基準側と現在側の面力ベクトルが一致することを求めよ。(iii) $\operatorname{Div}_XP$、$\rho_0\ddot\chi$、$\rho_0b\circ\chi$ を計算して基準運動量式を検算せよ。(iv) $D,\dot E$ を求め、三つの仕事率を独立に照合せよ。$t$ は $\gamma$ とその導関数が有限な範囲を考える。
+$$
+\sigma(x,t)=\begin{pmatrix}0&\tau(t)&0\\\tau(t)&0&0\\0&0&0\end{pmatrix},\qquad
+b(x,t)=\ddot\gamma(t)x_2e_1
+$$
+
+で与えられる。$\tau$ は Pa 単位の $C^1$ 関数、$b$ の単位は N/kg とする。
+
+$t$ は $\gamma$ とその導関数が有限な範囲を考える。
+
+1. $F,J,\rho,P,S$ を求め、$S$ の対称性を確認せよ。
+2. $N=e_2$ の面で Nanson の公式を用い、基準側と現在側の面力ベクトルが一致することを求めよ。
+3. $\operatorname{Div}_XP$、$\rho_0\ddot\chi$、$\rho_0b\circ\chi$ を計算して基準運動量式を検算せよ。
+4. $D,\dot E$ を求め、三つの仕事率を独立に照合せよ。
 
 - Level: C
 
@@ -597,7 +673,21 @@ $$
 
 よって [基準運動量方程式](#thm-ctm8-reference-momentum)の左辺は $0+\rho_0\ddot\gamma X_2e_1$、右辺も $\rho_0\ddot\gamma X_2e_1$ で一致する。
 
-(iv) $v=(\dot\gamma x_2,0,0)$ より $L_{12}=\dot\gamma$、$D_{12}=D_{21}=\dot\gamma/2$。また $E=(F^TF-I_3)/2$ なので $\dot E_{12}=\dot E_{21}=\dot\gamma/2$、$\dot E_{22}=\gamma\dot\gamma$。従って
+(iv) まず $X$ を固定して運動を時間微分し、$x_2=X_2$ を代入して現在座標で速度を表示する。
+
+$$
+\partial_t\chi(X,t)|_X=(\dot\gamma X_2,0,0),\qquad
+v(x,t)=(\dot\gamma x_2,0,0).
+$$
+
+この速度を今度は $x$ 固定で空間微分すると $L_{12}=\partial_{x_2}v_1=\dot\gamma$、ほかの成分は0だから
+
+$$
+D_{12}=D_{21}=\frac{\dot\gamma}{2},\qquad
+D_{ij}=0\quad ((i,j)\notin\{(1,2),(2,1)\}).
+$$
+
+一方、[Green–Lagrange ひずみ](../CTM3/index.md#def-ctm3-green-strain) $E=(F^TF-I_3)/2$ は物質座標 $X$ を固定して時間微分する。従って $\dot E_{12}=\dot E_{21}=\dot\gamma/2$、$\dot E_{22}=\gamma\dot\gamma$ であり、三つの仕事率は
 
 $$
 P:\dot F=P_{12}\dot\gamma=\tau\dot\gamma,
