@@ -1,0 +1,43 @@
+id: "U3-03"
+title: "多期間二項モデルと割引マルチンゲール"
+volume: "foundations"
+status: supplementary
+prerequisites: [F0-00A, F0-00P2A, F0-00P3A, U3-01, U3-02]
+official_scope: []
+learning_objectives:
+  - 多期間二項市場の全経路と再結合する株価節点を区別し時点別株価を求められる
+  - 履歴に応じた情報と評価用確率を定義し条件付き平均の二枝公式を証明できる
+  - 割引株価が評価用確率下のマルチンゲールとなることを示せる
+  - 後退帰納評価が満期請求権の割引条件付き期待値に一致することを証明できる
+  - 全経路評価と後退帰納を数値照合し経路依存の状態圧縮の可否を判定できる
+definitions:
+  - { id: U3-03-DEF-01, name: 多期間二項市場 }
+  - { id: U3-03-DEF-02, name: 時点別情報 }
+  - { id: U3-03-DEF-03, name: 多期間の評価用確率 }
+  - { id: U3-03-DEF-04, name: 離散時間マルチンゲール }
+  - { id: U3-03-DEF-05, name: 後退帰納評価 }
+theorems:
+  - { id: U3-03-PROP-01, name: 次の一歩の条件付き平均 }
+  - { id: U3-03-THM-01, name: 割引株価のマルチンゲール性 }
+  - { id: U3-03-THM-02, name: 後退帰納と条件付き期待値の一致 }
+  - { id: U3-03-PROP-02, name: 満期株価だけに依存する請求権の二項和 }
+canonical_examples:
+  - 2期間4経路と株価108円への再結合
+  - 上下両節点での割引株価の条件付き平均
+  - 2期間コールの全経路と後退評価の厳密一致
+  - UDだけを支払う請求権と経路順序の必要性
+problem_patterns:
+  - U3-03-A1
+  - U3-03-A2
+  - U3-03-A3
+  - U3-03-A4
+  - U3-03-A5
+  - U3-03-B1
+  - U3-03-B2
+  - U3-03-B3
+  - U3-03-B4
+  - U3-03-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 0.75 }
+past_exam_alignment: []
+integrated_exam_problems: []
