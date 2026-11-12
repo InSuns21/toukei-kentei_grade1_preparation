@@ -4,7 +4,9 @@
 
 [QCURV1の曲がった時空のスカラー作用](../../QCURV/QCURV1/index.md#def-qcurv1-curved-action)では、台を内部に限定した変分から場の方程式を求めました。本講ではその制限を外し、**有限の動径cutoff面で変分の境界項を残す**ところまで導きます。境界での場の値を指定するDirichlet問題、法線方向の応答、古典解上で評価した作用（on-shell作用）を区別します。
 
-整数 $d\ge2$、半径 $L>0$、有限の数 $0<\epsilon<Z<\infty$ とし、$\hbar=1$ とします。場の逆反作用を無視する固定背景だけを扱い、$G_N$は計算へ入りません。Euclid側では[HOLO3のEuclid AdS](../HOLO3/index.md#def-holo3-euclidean-ads)のPoincaré計量を使い、境界方向を体積有限の平坦トーラス $T^d$（周期座標 $x^i$）にして積分を確実に有限化します。これは平坦な $\mathbb R^d$ 境界を局所的に調べるための赤外箱であり、global AdS全体でも、$z=0$ そのものでもありません。
+整数 $d\ge2$、半径 $L>0$、有限の数 $0<\epsilon<Z<\infty$ とし、$\hbar=1$ とします。場の逆反作用を無視する固定背景だけを扱い、$G_N$ は計算へ入りません。
+
+Euclid側では[HOLO3のEuclid AdS](../HOLO3/index.md#def-holo3-euclidean-ads)のPoincaré計量を使います。境界方向は、周期座標 $x^i$ を持つ体積有限の平坦トーラス $T^d$ とし、積分を確実に有限化します。これは平坦な $\mathbb R^d$ 境界を局所的に調べるための赤外箱です。global AdS全体でも、$z=0$ そのものでもありません。
 
 ## 1. バルクのどちら側が境界か
 
@@ -532,7 +534,19 @@ $$
 ### C1. cutoff源から作用まで一気に検算する
 
 - Level: C
-- 問題: $d\ge2$、$L>0$、$0<\epsilon<Z$、$V_T>0$ の有限トーラス、$m^2=0$ を固定する。$x$ に依存しない解でDirichletデータ $\phi(\epsilon)=J$、$\phi(Z)=0$ を課す。(1) 全ての滑らかな解と境界条件で選ばれる解を求めよ。(2) $\pi_\epsilon,\pi_Z$、on-shell作用 $W_\epsilon(J)$ を求めよ。(3) $dW_\epsilon/dJ=V_T\pi_\epsilon$ を独立に検算せよ。(4) $J\ne0$ のとき同じ解が上下の自由Neumann条件も満たすか判定せよ。(5) $Z$ 固定で $\epsilon\downarrow0$ とした結果だけから、$J$ を境界CFTの規格化済み源と断言できるか論ぜよ。
+- 問題: $d\ge2$、$L>0$、$0<\epsilon<Z$、$V_T>0$ の有限トーラスで $m^2=0$ とする。境界方向に一定の解にDirichletデータを課す。
+
+$
+\phi(\epsilon)=J,\qquad \phi(Z)=0.
+$
+
+  次を順に求めよ。
+
+  1. 境界条件を課す前の一般解と、条件で選ばれる解。
+  2. 両端の法線応答 $\pi_\epsilon,\pi_Z$ とon-shell作用 $W_\epsilon(J)$。
+  3. 応答と作用の微分の関係を、作用を直接微分して検算すること。
+  4. $J\ne0$ の解が両端の自由Neumann条件も満たすかどうか。
+  5. $Z$ 固定の極限 $\epsilon\downarrow0$ だけから、$J$ を境界CFTの規格化済み源と断言できるかどうか。
 
 <!-- solution-start -->
 **詳細解答。**
