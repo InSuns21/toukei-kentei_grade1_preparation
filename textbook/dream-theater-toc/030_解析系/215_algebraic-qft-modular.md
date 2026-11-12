@@ -4,3 +4,4 @@
 1. [AQFT1 Minkowskiの領域と因果補集合](textbook/volumes/dream_thater/解析系/AQFT/AQFT1/index.md)
 2. [AQFT2 Haag–Kastler net](textbook/volumes/dream_thater/解析系/AQFT/AQFT2/index.md)
 3. [AQFT3 状態・共変表現・正エネルギー真空](textbook/volumes/dream_thater/解析系/AQFT/AQFT3/index.md)
+4. [AQFT4 Klein–GordonのGreen作用素と試験関数の商](textbook/volumes/dream_thater/解析系/AQFT/AQFT4/index.md)
