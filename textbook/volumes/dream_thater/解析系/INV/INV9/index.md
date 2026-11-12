@@ -222,6 +222,10 @@ $$
 > である。
 <!-- formal-statement-end -->
 
+### 証明の見取り図
+
+成分ごとに正・負・零の三場合を比較します。零座標を認める区間は、絶対値の劣微分が幅を持つ部分に一致します。
+
 <!-- proof-start -->
 ### 証明
 
@@ -451,7 +455,7 @@ $$
 <a id="def-inv9-continuous-variation"></a>
 
 <!-- formal-statement-start -->
-> **定義（区間上の点wise全変動）**  
+> **定義（区間上の点ごとの全変動）**  
 > 実数値関数 $u:[a,b]\to\mathbb R$（$a<b$）に対し、
 
 $$
