@@ -44,7 +44,15 @@ F_\lambda^*g=\frac{L^2}{(\lambda z)^2}
 \left(\lambda^2dz^2+\lambda^2\eta_{\mu\nu}dx^\mu dx^\nu\right)=g.
 $$
 
-境界写像は $f_\lambda(x)=\lambda x$、Jacobianは $\lambda I$、従って $f_\lambda^*h=\lambda^2h$、$\Omega_f=\lambda>0$。等長性、延長、逆写像、境界の共形性という定義の全条件を満たしました。固定した $z=\epsilon$ 面は $z=\lambda\epsilon$ へ移るので、固定cutoffを保つ変換だとは主張していません。
+境界写像は $f_\lambda(x)=\lambda x$ です。境界座標基底でのJacobian $Df_\lambda=\lambda I_d$ は、任意の接ベクトル $v$ が $(df_\lambda)_xv=\lambda v$ に移ることを表します。従って二つの境界接ベクトル $v,w$ に対して
+
+$
+(f_\lambda^*h)_x(v,w)
+=h_{f_\lambda(x)}(\lambda v,\lambda w)
+=\lambda^2h_x(v,w).
+$
+
+これが定義の双線形形式の等式 $f_\lambda^*h=\Omega_f^2h$ を確認する方法であり、$\Omega_f=\lambda>0$ です。等長性、延長、逆写像、境界の共形性という定義の全条件を満たしました。固定した $z=\epsilon$ 面は $z=\lambda\epsilon$ へ移るので、固定cutoffを保つ変換だとは主張していません。
 <!-- definition-example-end -->
 
 ### 1.2 反転・並進・反転から非線形写像へ
@@ -104,6 +112,8 @@ $$
 \frac{(d+2)(d+1)}{2}
 =d+\frac{d(d-1)}2+1+d.
 $$
+
+[HOLO1の線形等長変換の命題](../HOLO1/index.md#prop-holo1-linear-isometry)によれば、埋め込み空間の二次形式を表す行列を $H=\operatorname{diag}(-1,-1,+1,\ldots,+1)$ とすると、生成行列 $A$ の条件は $A^{\mathsf T}H+HA=0$ です。これは **$A$ 自体が通常の意味で反対称**という条件ではありません。$H$ は対称かつ可逆なので $HA$ が反対称行列になることと同値であり、独立成分が $(d+2)(d+1)/2$ 個と数えられます。
 
 右辺の四項は順に並進、Lorentz回転、拡大縮小、特殊共形変換の生成子数になります。**この一致が意味するのは局所的な対称Lie代数の対応**です。時間周期を解いた[普遍被覆AdS](../HOLO1/index.md#def-holo1-universal-cover)の大域等長群を、被覆の問題を無視してそのまま $SO(2,d)$ と同定してはいけません。
 
@@ -202,14 +212,29 @@ $$
 
 これが命題の式です。途中で $s=0$ となる点はこの**反転による表示**では扱えません。しかし得られた有理式は $D_b>0$ の全開領域で滑らかで、その領域の $s\ne0$ の稠密な部分で等長性が成り立ちます。計量引き戻しの成分は連続なので、$s=0$ でも同じ恒等式へ延長できます。逆写像は同様の式で $b\mapsto-b$ とした $K_{-b}$（適切な逆像領域に制限）です。
 
-境界では $z=0$ とおき、共形因子を確かめます。バルクの $z$ 方向係数の変換を境界で比較すると、$z'/z\to1/D_b(0,x)$ です。等長性から、境界接方向について
+境界での共形因子を確かめます。$D_0(x)=D_b(0,x)>0$ と略記すると、$z$ を固定した境界座標微分 $\partial_\mu=\partial/\partial x^\mu$ に対し
 
-$$
-\frac{L^2}{z'^2}(df_b)^*h
-=\frac{L^2}{z^2}h
-$$
+$
+\begin{aligned}
+z'&=\frac{z}{D_0(x)+b^2z^2},
+&\partial_\mu z'&=-\frac{z\,\partial_\mu D_0}{D_0^2}+O(z^3),\\
+x'^\nu&=f_b(x)^\nu+O(z^2),
+&\partial_\mu x'^\nu&=\partial_\mu f_b^\nu+O(z^2).
+\end{aligned}
+$
 
-の境界先頭項が一致します。よって $(df_b)^*h=D_b(0,x)^{-2}h$。分母が正の領域なので $\Omega_{f_b}=D_b(0,x)^{-1}>0$ です。$\square$
+従って境界接方向への $dz'^2$ の引き戻しは $O(z^2)$ で、$z'^{-2}=D_0^2z^{-2}+O(1)$ です。計量の境界接成分を引き戻して $z^{-2}$ の先頭係数を比較すると
+
+$
+(K_b^*g)_{\mu\nu}
+=\frac{L^2}{z^2}\left[
+D_0^2\,h_{\alpha\beta}
+(\partial_\mu f_b^\alpha)(\partial_\nu f_b^\beta)+O(z^2)
+\right]
+=\frac{L^2}{z^2}h_{\mu\nu}.
+$
+
+よって $(f_b^*h)_{\mu\nu}=D_0^{-2}h_{\mu\nu}$。分母が正の領域なので $\Omega_{f_b}=D_b(0,x)^{-1}>0$ です。$\square$
 <!-- proof-end -->
 
 **定義への直接例。** Euclid計量へ置き換えた $d=3$ で $x=(r,0,0)$、$b=(\beta,0,0)$、$z>0$ とすれば
@@ -222,7 +247,9 @@ $$
 
 ### 2.1 無限小の特殊共形変換を検算する
 
-前の式で $b$ を小さくすると、$D_b^{-1}=1+2b\cdot x+O(|b|^2)$ だから
+一定のベクトル $b$ を固定し、無次元の実パラメータ $\varepsilon$ に沿って $K_{\varepsilon b}$ を動かします。像の座標を $x'^\mu(\varepsilon),z'(\varepsilon)$ とし、$\delta_bx^\mu=\left.\frac{d}{d\varepsilon}x'^\mu(\varepsilon)\right|_{\varepsilon=0}$、$\delta_bz=\left.\frac{d}{d\varepsilon}z'(\varepsilon)\right|_{\varepsilon=0}$ と定義します。ここで $x,z,b$ は微分中に固定し、$\delta_b$ は座標 $x$ に関する偏微分ではありません。
+
+$D_{\varepsilon b}^{-1}=1+2\varepsilon(b\cdot x)+O(\varepsilon^2)$ を分子に掛けて $\varepsilon$ の係数を取り出すと
 
 $$
 \begin{aligned}
@@ -259,7 +286,7 @@ $$
 
 ## 3. 境界CFTのWard恒等式を読み直す
 
-ここからは $d\ge3$ の**Euclid CFTの共形不変な真空**を仮定し、すべての挿入点 $x_i$ は互いに異なるものとします。スカラー一次場 $\mathcal O_i$ の次元は $\Delta_i$。その[変換則](../../QFT/QFT48/index.md#def-qft48-scalar-primary)を知れば、相関関数の微分方程式が得られます。
+ここからは $d\ge3$ の**Euclid CFTの共形不変な真空**を仮定し、すべての挿入点 $x_i$ は互いに異なるものとします。スカラー一次場 $\mathcal O_i$ の次元は $\Delta_i$。その[変換則](../../QFT/QFT48/index.md#def-qft48-scalar-primary)を知れば、相関関数の微分方程式が得られます。$\nabla_i$ はほかの挿入点を固定して $x_i$ の各成分で偏微分した勾配、$\xi(x_i)\cdot\nabla_i$ はその方向への微分です。以下の内積はすべてEuclid内積に切り替えます。
 
 微小共形変換 $f_\varepsilon(x)=x+\varepsilon\xi(x)+O(\varepsilon^2)$ が計量を $\Omega_\varepsilon(x)^2$ 倍し、$\Omega_\varepsilon=1+\varepsilon\sigma(x)+O(\varepsilon^2)$ とする場合、一次場相関関数は
 
@@ -333,12 +360,18 @@ $$
 \nabla_yG_2=\frac{2\Delta r}{|r|^2}G_2.
 $$
 
-特殊共形ベクトル場の差の内積を展開すると
+特殊共形ベクトル場の差の内積も、$r=x-y$、$b\cdot r=b\cdot x-b\cdot y$、$x=y+r$ を使って展開します。
 
-$$
-\bigl(\xi_b(x)-\xi_b(y)\bigr)\cdot(x-y)
-=(b\cdot x+b\cdot y)|x-y|^2.
-$$
+$
+\begin{aligned}
+\bigl(\xi_b(x)-\xi_b(y)\bigr)\cdot r
+&=2\bigl[(b\cdot x)x-(b\cdot y)y\bigr]\cdot r
+ -(b\cdot r)(|x|^2-|y|^2)\\
+&=2(b\cdot r)(y\cdot r)+2(b\cdot x)|r|^2
+ -(b\cdot r)(2y\cdot r+|r|^2)\\
+&=(b\cdot x+b\cdot y)|r|^2.
+\end{aligned}
+$
 
 従って微分項は $-2\Delta(b\cdot x+b\cdot y)G_2$、局所倍率項は $+2\Delta(b\cdot x+b\cdot y)G_2$ で相殺します。
 
@@ -357,7 +390,7 @@ $$
 
 二点・三点の距離依存が同じでも、どの局所演算子が存在し、積がどう分解されるかは異なり得ます。相関関数内で二点を近付け、他の挿入からは十分離して展開する操作が[OPE](../../QFT/QFT54/index.md#def-qft54-ope)です。ここで一般の高次元OPEの収束を証明するのではなく、**既習の具体的な二次元自由CFTのOPEを照合し**、対称性と係数の役割を分けます。
 
-[QFT54の自由電流のOPE](../../QFT/QFT54/index.md#prop-qft54-current-ope)で、正則座標 $w$、小さい非零の複素数 $s$ を取り、自由電流 $a$ の正則ウェイトを1、応力テンソル $t=\tfrac12:\!a^2\!:$ のウェイトを2とします。ほかの挿入から孤立した領域の相関関数内で
+[QFT54の自由電流のOPE](../../QFT/QFT54/index.md#prop-qft54-current-ope)で、正則座標 $w$、小さい非零の複素数 $s$ を取り、$s$ は第一挿入点 $w+s$ から第二挿入点 $w$ への座標差とします。自由電流 $a$ の正則ウェイトを1、応力テンソル $t=\tfrac12:\!a^2\!:$ のウェイトを2とし、$\partial t(w)=dt(w)/dw$ はほかの挿入を固定した正則座標 $w$ に関する微分を表します。ほかの挿入から孤立した領域の相関関数内で
 
 $$
 a(w+s)a(w)=\frac1{s^2}+2t(w)+s\,\partial t(w)+O(s^2).
@@ -412,7 +445,7 @@ $$
 - 問題: $d=4$ のLorentz境界における並進、Lorentz回転、拡大縮小、特殊共形生成子の数と総数を計算せよ。これを $\dim\mathfrak{so}(2,4)$ と比較せよ。
 
 <!-- solution-start -->
-**詳細解答。** 並進は4、反対称添字対 $\mu<\nu$ は $4\cdot3/2=6$、拡大縮小は1、特殊共形は4。総数は $4+6+1+4=15$ です。他方 $SO(2,4)$ が保つ二次形式の基礎空間は6次元で、反対称生成行列の独立成分は $6\cdot5/2=15$。これはLie代数の次元の一致であり、普遍被覆の群としての同一性まで示していません。
+**詳細解答。** 並進は4、反対称添字対 $\mu<\nu$ は $4\cdot3/2=6$、拡大縮小は1、特殊共形は4。総数は $4+6+1+4=15$ です。他方 $SO(2,4)$ が保つ二次形式の基礎空間は6次元です。[HOLO1のLie代数条件](../HOLO1/index.md#prop-holo1-linear-isometry) $A^{\mathsf T}H+HA=0$ から、可逆な符号行列 $H$ を掛けた $HA$ が反対称となるため、独立成分は $6\cdot5/2=15$。これはLie代数の次元の一致であり、普遍被覆の群としての同一性まで示していません。
 <!-- solution-end -->
 
 <a id="ex-holo4-a4"></a>
@@ -448,13 +481,16 @@ $$
 - 問題: $D_b=1-2b\cdot x+b^2(z^2+x^2)$ と $K_b$ の式から、$b$ の一次までの $\delta x^\mu,\delta z$ を計算し、$z=0$ で $\partial_\mu\xi^\mu=2d(b\cdot x)$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $b$ の一次を残すと $D_b^{-1}=1+2b\cdot x+O(b^2)$ です。分子を掛ければ
+**詳細解答。** 第2.1節と同様に $b$ を固定して $K_{\varepsilon b}$ の $\varepsilon$ 微分を考えます。$\varepsilon\to0$ で $D_{\varepsilon b}^{-1}=1+2\varepsilon b\cdot x+O(\varepsilon^2)$ です。分子を掛ければ
 
-$$
-x'^\mu=x^\mu+2(b\cdot x)x^\mu-b^\mu(z^2+x^2)+O(b^2),
-\quad
-z'=z+2z(b\cdot x)+O(b^2).
-$$
+$
+\begin{aligned}
+x'^\mu(\varepsilon)&=x^\mu+\varepsilon\bigl[2(b\cdot x)x^\mu-b^\mu(z^2+x^2)\bigr]+O(\varepsilon^2),\\
+z'(\varepsilon)&=z+2\varepsilon z(b\cdot x)+O(\varepsilon^2).
+\end{aligned}
+$
+
+従って角括弧内が $\delta_bx^\mu$、$z$ の一次係数が $\delta_bz$ です。
 
 境界の $\xi^\mu=2(b\cdot x)x^\mu-b^\mu x^2$ に対し
 
@@ -544,7 +580,7 @@ $$
 
 境界 $h_E=|dx|^2$ は $f_\lambda^*h_E=\lambda^2h_E$、$\Omega_\lambda=\lambda>0$ です。
 
-(2) $D_b=1-2b\cdot x+|b|^2(z^2+|x|^2)$ とし、一次で $D_b^{-1}=1+2b\cdot x+O(b^2)$ を代入すると
+(2) 固定した $b$ に対して $K_{\varepsilon b}$ を考えると、$D_{\varepsilon b}=1-2\varepsilon b\cdot x+\varepsilon^2|b|^2(z^2+|x|^2)$ です。$\varepsilon$ の一次で $D_{\varepsilon b}^{-1}=1+2\varepsilon b\cdot x+O(\varepsilon^2)$ を代入し、$\varepsilon=0$ で微分すると
 
 $$
 \delta_bx=2(b\cdot x)x-b(z^2+|x|^2),\qquad
