@@ -234,7 +234,17 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（半円曲線の時間法線に沿う局所最大性）**  
-> $L,R>0$、$0<\epsilon<R$ を固定し、$a_\epsilon=\sqrt{R^2-\epsilon^2}$ とする。$f$ を $(-a_\epsilon,a_\epsilon)$ にコンパクト支持を持つ滑らかな非定数関数とする。$X^2+z_0^2=R^2$ を固定して $T=\eta f(X)$ と変形した曲線の、同じcutoff端点間の有限長さは $\eta\to0$ において
+> $L,R>0$ を取り、cutoff $0<\epsilon<R$ を固定する。次の値を定める。
+>
+$$
+a_\epsilon=\sqrt{R^2-\epsilon^2}.
+$$
+>
+> $f$ を $(-a_\epsilon,a_\epsilon)$ 内にコンパクト支持を持つ滑らかな非定数関数とする。
+>
+> 半円 $X^2+z_0(X)^2=R^2$ を固定し、時間座標だけを $T(X)=\eta f(X)$ と変形する。
+>
+> 同じcutoff端点間の有限長さは $\eta\to0$ において
 >
 $$
 \mathcal L_\epsilon(\eta)=\mathcal L_\epsilon(0)
