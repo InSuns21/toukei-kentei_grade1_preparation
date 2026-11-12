@@ -7,7 +7,7 @@ chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: CTM1, path: textbook/volumes/dream_thater/物理系/CTM/CTM1, status: completed, title: "物質点・配置・運動をどう記述するか" }
   - { id: CTM2, path: textbook/volumes/dream_thater/物理系/CTM/CTM2, status: completed, title: "変形勾配は長さ・面積・体積をどう変えるか" }
-  - { id: CTM3, path: textbook/volumes/dream_thater/物理系/CTM/CTM3, status: planned, title: "有限ひずみと剛体回転をどう区別するか" }
+  - { id: CTM3, path: textbook/volumes/dream_thater/物理系/CTM/CTM3, status: completed, title: "有限ひずみと剛体回転をどう区別するか" }
   - { id: CTM4, path: textbook/volumes/dream_thater/物理系/CTM/CTM4, status: planned, title: "速度勾配と客観性は何を測るか" }
   - { id: CTM5, path: textbook/volumes/dream_thater/物理系/CTM/CTM5, status: planned, title: "物質領域の質量保存から連続の式へ" }
   - { id: CTM6, path: textbook/volumes/dream_thater/物理系/CTM/CTM6, status: planned, title: "面に作用する力はなぜ二階テンソルで書けるか" }
