@@ -1,0 +1,46 @@
+chapter: HOLO26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO25
+  - HOLO8
+  - HOLO9
+  - HOLO6
+forward_references: []
+concepts:
+  - id: holography.global-normal-mode
+    name: global正規化可能モード
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（global正規化可能モード）"]
+    requires: [holography.mass-dimension-relation]
+  - id: holography.hkll-mode-spectrum
+    name: 正則な多項式モードのスペクトル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則な多項式モードのスペクトル）"]
+    requires: [holography.global-normal-mode]
+  - id: holography.normalizable-boundary-data
+    name: 正規化可能な境界データ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化可能な境界データ）"]
+    requires: [holography.global-normal-mode, holography.hkll-mode-spectrum]
+  - id: holography.hkll-fourier-inversion
+    name: 境界Fourier係数によるモードの復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界Fourier係数によるモードの復元）"]
+    requires: [holography.normalizable-boundary-data, holography.hkll-mode-spectrum]
+  - id: holography.hkll-global-kernel
+    name: global有限モードHKLL型核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（global有限モードHKLL型核）"]
+    requires: [holography.hkll-fourier-inversion]
+  - id: holography.hkll-finite-reconstruction
+    name: 有限モードでのHKLL型再構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限モードでのHKLL型再構成）"]
+    requires: [holography.hkll-global-kernel, holography.hkll-fourier-inversion]
