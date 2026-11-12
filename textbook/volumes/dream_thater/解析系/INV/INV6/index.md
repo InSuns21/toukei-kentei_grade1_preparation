@@ -26,7 +26,7 @@ $T=A^*A:X\to X$ は、[Hilbert随伴](../../F0/F0-02C3A/index.md#def-f0-02c3a-hi
 
 <!-- formal-statement-start -->
 > **定義（正則化のノイズ誤差とバイアス）**
-> 実 Hilbert 空間間の有界線形作用素 $A:X\to Y$、$y\in\mathcal D(A^\dagger)$、$x^\dagger=A^\dagger y$、$\alpha>0$ および $y^\delta\in Y$ に対し、Tikhonov正則化の**ノイズ誤差**と**バイアス**をそれぞれ
+> 実 Hilbert 空間間の有界線形作用素 $A:X\to Y$、$y\in\mathcal D(A^\dagger)$、$x^\dagger=A^\dagger y$、$\alpha>0$、$\delta\ge0$ および $\|y^\delta-y\|_Y\le\delta$ を満たす $y^\delta\in Y$ を取る。$R_\alpha^{\mathrm K}=(A^*A+\alpha I)^{-1}A^*$ として、Tikhonov正則化の**ノイズ誤差**と**バイアス**をそれぞれ
 
 $$
 E_{\mathrm{noise}}(\alpha,\delta;y^\delta,y)
@@ -62,7 +62,7 @@ $$
 
 **定義の確認**：ノイズを復元する成分と、正確な観測からも残る成分をそれぞれ計算し、二項の意味を確かめます。
 
-$X=Y=\mathbb R^2$、$A=\operatorname{diag}(1,1/2)$、$x^\dagger=(2,2)$、$y=Ax^\dagger=(2,1)$ とします。$A$ は可逆で $y\in\mathcal D(A^\dagger)$、$x^\dagger=A^\dagger y$ です。$\alpha=1/4$、$y^\delta=(2,1+\varepsilon)$ なら $\|y^\delta-y\|=|\varepsilon|$ です。
+$X=Y=\mathbb R^2$、$A=\operatorname{diag}(1,1/2)$、$x^\dagger=(2,2)$、$y=Ax^\dagger=(2,1)$ とします。$A$ は可逆で $y\in\mathcal D(A^\dagger)$、$x^\dagger=A^\dagger y$ です。$\alpha=1/4$、$y^\delta=(2,1+\varepsilon)$ なら $\delta=|\varepsilon|$ と置けて、$\|y^\delta-y\|=\delta$ です。標準基底 $e_1,e_2$ は $Ae_i=s_i e_i$、$A^*e_i=s_i e_i$（$s_1=1$、$s_2=1/2$）を満たすので、各方向で $A^*A+\alpha I$ は $s_i^2+\alpha$ 倍として作用します。これが次の倍率を成分ごとに適用できる理由です。
 
 [Tikhonovの特異値フィルタ](../INV5/index.md#thm-inv5-spectral-filters)は $s/(s^2+\alpha)$ を各データ成分へ掛けます。二つの倍率は $4/5$ と $1$ なので、
 
@@ -137,7 +137,7 @@ $\ker A$ 方向の $w_0$ は $T^\nu$ で消えるため、表現する $w$ は�
 
 **定義の確認**：作用素の正固有方向では $\lambda^\nu$ を掛け、核方向は零になることを直接確かめます。
 
-$A=\operatorname{diag}(1,1/2,0):\mathbb R^3\to\mathbb R^3$ とすると、標準基底が特異方向で $T=A^*A=\operatorname{diag}(1,1/4,0)$ です。各標準基底への作用を分数冪の定義に代入するため、
+$A=\operatorname{diag}(1,1/2,0):\mathbb R^3\to\mathbb R^3$ とします。標準基底 $e_1,e_2,e_3$ について $Ae_1=e_1$、$Ae_2=e_2/2$、$Ae_3=0$ であり、$A^*=A$ です。従って $Te_1=e_1$、$Te_2=e_2/4$、$Te_3=0$ となり、正の固有値 $1,1/4$ に対応する $e_1,e_2$ は[完全特異系](../INV3/index.md#def-inv3-singular-system)の特異方向、$e_3$ は核方向です。つまり $T=A^*A=\operatorname{diag}(1,1/4,0)$ であり、この基底で分数冪の定義を適用すると、
 
 $$
 T^{1/2}=\operatorname{diag}(1,1/2,0).
@@ -359,11 +359,19 @@ $$
 $L$ は $A^*A$ の非負固有値を含む固定区間の上端、例えば $\|A\|^2$ です。ここでは $A\ne0$ とし、区間に正の値がある場合を考えます。$0$ の核方向はsource conditionの分数冪で零になるため、上の不等式の対象から外しています。
 
 <!-- definition-example-start: def-inv6-qualification -->
-### 例：一つの正の特異方向で試す
+### 例：全区間の上界と一方向の反例
 
-**定義の確認**：指数 $\mu=1$ の一様定数は存在し、$\mu=2$ では存在しないことを同じ例で検査します。
+**定義の確認**：指数 $\mu=1$ では定義どおり全ての $0<\lambda\le L$ を共通定数で抑え、$\mu=2$ では一つの正の方向だけで破綻することを確かめます。
 
-$A=I:\mathbb R\to\mathbb R$ なら $L=1$ とでき、$\lambda=1$ です。Tikhonovの残差は $\alpha/(1+\alpha)$。$\mu=1$ なら $\alpha/(1+\alpha)\le\alpha$ なので $C_1=1$ が使えます。しかし $\mu=2$ の場合、もし $C_2\alpha^2$ で抑えられれば
+$A=I:\mathbb R\to\mathbb R$ なら $L=1$ とできます。$\mu=1$ では任意の $\alpha>0$、$0<\lambda\le1$ について
+
+$
+|r_\alpha^{\mathrm K}(\lambda)|\lambda
+=\frac{\alpha\lambda}{\lambda+\alpha}
+\le\alpha
+$
+
+なので、$\lambda$ に依存しない $C_1=1$ が使えます。一方、$\mu=2$ の不成立には $\lambda=1$ を試すだけで十分です。このとき残差は $\alpha/(1+\alpha)$ であり、もし $C_2\alpha^2$ で抑えられれば
 
 $$
 \frac{\alpha/(1+\alpha)}{\alpha^2}
@@ -473,7 +481,7 @@ $$
 両方とも $M^{1/(2\nu+1)}\delta^{2\nu/(2\nu+1)}$ なので足せば主張の係数 $2$ です。$\nu>0$ より $\tau\to0$、$\delta/\tau\to0$ も成り立ちます。$\square$
 <!-- proof-end -->
 
-TSVDでは $\nu>1$ にも同じ計算が成立します。ただし特異値に閾値が直接作用するため、データに小さな変化があって採用される方向が入れ替われば、復元値が不連続に変化することがあります。この「硬い切断」とTikhonovの滑らかな減衰の違いは[前講のフィルタ比較](../INV5/index.md#thm-inv5-spectral-filters)で確かめられます。
+TSVDでは $\nu>1$ にも同じ計算が成立します。**固定した $A$ と $\tau>0$ に対して**、[TSVDの作用素ノルム評価](../INV5/index.md#thm-inv5-spectral-filters)より $\|R_\tau^{\mathrm T}(z_1-z_2)\|_X\le\|z_1-z_2\|_Y/\tau$ ですから、データ $z\in Y$ に関する復元値は連続です。一方、**閾値 $\tau$ を動かす**と、特異値を横切る瞬間に採用方向が切り替わります。例えば $A=I:\mathbb R\to\mathbb R$、$z=1$ では $R_\tau^{\mathrm T}z=1$（$0<\tau\le1$）、$R_\tau^{\mathrm T}z=0$（$\tau>1$）です。固定データに対する閾値依存は不連続になり得ますが、固定閾値でのデータ依存と混同してはいけません。この「硬い切断」とTikhonovの滑らかな減衰の違いは[前講のフィルタ比較](../INV5/index.md#thm-inv5-spectral-filters)に対応します。
 
 ## 7. 演習：誤差率を計算と反例から確かめる
 
