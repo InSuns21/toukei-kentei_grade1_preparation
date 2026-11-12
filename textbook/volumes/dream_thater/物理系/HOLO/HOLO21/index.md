@@ -220,7 +220,7 @@ $$
 (H_1V^1+H_2V^2).
 $$
 
-実際、第二基本形式の符号を $δ_Vh_{ij}=-2V^aK^{(a)}_{ij}$ と取ると、行列式の第一変分 $δ_V\sqrt h=(\sqrt h/2)h^{ij}δ_Vh_{ij}$ により上式を得ます。ここで各法線方向のトレースが $H_a=h^{ij}K^{(a)}_{ij}$ です。前提の有効作用の位置停留から
+実際、第二基本形式の符号を $\delta_Vh_{ij}=-2V^aK^{(a)}_{ij}$ と取ると、行列式の第一変分 $δ_V\sqrt h=(\sqrt h/2)h^{ij}δ_Vh_{ij}$ により上式を得ます。ここで各法線方向のトレースが $H_a=h^{ij}K^{(a)}_{ij}$ です。前提の有効作用の位置停留から
 
 $$
 0=\delta_V I_{\rm eff}
@@ -382,7 +382,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-1. [重力レプリカ量の定義](#def-holo21-gravity-replica)より $\operatorname{Tr}\rho_A^n=Z[\mathcal B_n]/Z[\mathcal B_1]^n\simeq e^{-I_n+nI_1}$。したがって $\log R_n\simeq-I_n+nI_1$。$R_1=1$ と物理的な微分可能性を仮定し、
+**（1）** [重力レプリカ量の定義](#def-holo21-gravity-replica)より $\operatorname{Tr}\rho_A^n=Z[\mathcal B_n]/Z[\mathcal B_1]^n\simeq e^{-I_n+nI_1}$。したがって $\log R_n\simeq-I_n+nI_1$。$R_1=1$ と物理的な微分可能性を仮定し、
 $$
 S^{(0)}=-\partial_n\log R_n|_1
 =\partial_n(I_n-nI_1)|_1
@@ -390,9 +390,9 @@ S^{(0)}=-\partial_n\log R_n|_1
 $$
 分母の $nI_1$ は最後の $-I_1$ を生むため省略できない。
 
-2. [円錐欠損の定義](#def-holo21-quotient-cone)より $\delta_n=2\pi(1-1/n)$、$T_n=\delta_n/(8\pi G_3)=(n-1)/(4nG_3)$。$n>1$ で $T_n>0$ と独立な法線変分を許すと[固定面の極値条件](#prop-holo21-fixed-surface)により平均曲率は各方向で0となる。しかし一次変分0は二次変分や他候補との作用比較を決めない。[相同条件](../HOLO19/index.md#def-holo19-homology)と支配鞍点の選択が別途必要である。
+**（2）** [円錐欠損の定義](#def-holo21-quotient-cone)より $\delta_n=2\pi(1-1/n)$、$T_n=\delta_n/(8\pi G_3)=(n-1)/(4nG_3)$。$n>1$ で $T_n>0$ と独立な法線変分を許すと[固定面の極値条件](#prop-holo21-fixed-surface)により平均曲率は各方向で0となる。しかし一次変分0は二次変分や他候補との作用比較を決めない。[相同条件](../HOLO19/index.md#def-holo19-homology)と支配鞍点の選択が別途必要である。
 
-3. 横断面の角度を $2\pi\alpha$ とすれば $\int_{\rm tip}R\sqrt g=4\pi(1-\alpha)$。[円錐曲率補題](#lem-holo21-cone-curvature)を $\alpha=n$ へ代入し、Einstein作用の係数を掛けて
+**（3）** 横断面の角度を $2\pi\alpha$ とすれば $\int_{\rm tip}R\sqrt g=4\pi(1-\alpha)$。[円錐曲率補題](#lem-holo21-cone-curvature)を $\alpha=n$ へ代入し、Einstein作用の係数を掛けて
 $$
 I_{\rm tip}(n)
 =-\frac{4\pi(1-n)}{16\pi G_3}\operatorname{Length}(\gamma_A)
@@ -406,7 +406,7 @@ S^{(0)}
 $$
 [HOLO18の中央電荷の照合](../HOLO18/index.md#thm-holo18-interval-coefficient)から $c_{\rm BH}=3L/(2G_3)$、従って係数は $c_{\rm BH}/3$。[QFT59の境界CFT結果](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)と条件付きで一致する。
 
-4. レプリカ対称性が破れる支配鞍点では $M_n/\mathbb Z_n$ という固定面の単純な商構成と張力源の議論が成立しない。整数データだけなら $n\to1$ の微分可能な**物理的な**補間が定まらず、(1) の最後の微分と (3) の作用微分からエントロピーを読む行が未証明となる。どちらの場合も「円錐模型の局所曲率を計算できた」ことだけではこの不足を補えない。
+**（4）** レプリカ対称性が破れる支配鞍点では $M_n/\mathbb Z_n$ という固定面の単純な商構成と張力源の議論が成立しない。整数データだけなら $n\to1$ の微分可能な**物理的な**補間が定まらず、(1) の最後の微分と (3) の作用微分からエントロピーを読む行が未証明となる。どちらの場合も「円錐模型の局所曲率を計算できた」ことだけではこの不足を補えない。
 <!-- solution-end -->
 
 ## 8. 次講との接続
