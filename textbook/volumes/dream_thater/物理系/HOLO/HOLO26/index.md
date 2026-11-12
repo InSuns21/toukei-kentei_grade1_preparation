@@ -63,7 +63,14 @@ $$
 +\left(\omega^2-\frac{\ell^2}{\sin^2\rho}\right)f=0.}
 $$
 
-ここでプライムは $\rho$ 微分です。中心 $\rho=0$ では $\sin\rho\sim\rho$ のため、有限エネルギーで正則な解は $|\ell|=k$ とおくと $f\sim\rho^k$ となります。境界 $\rho\to\pi/2$ では、[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)を $d=2,m=0$ に適用すると $\Delta(\Delta-2)=0$ です。この模型では $\nu=\sqrt{d^2/4+m^2L^2}=1$ です。[HOLO8の境界KG可積分条件](../HOLO8/index.md#prop-holo8-normalizability-window)に照らすと、速い枝 $\Delta=2$ は許容される一方、遅い枝 $\Delta=0$ は境界でKG非可積分です。そこで標準Dirichlet条件として源に当たる零冪の係数を零とし、$f=O(\cos^2\rho)$ を選びます。$0<\nu<1$ の場合だけを扱う代替境界選択の定義を、この $\nu=1$ の場合へ適用しているわけではありません。
+ここでプライムは $\rho$ 微分です。中心 $\rho=0$ では $\sin\rho\sim\rho$ のため、有限エネルギーで正則な解は $|\ell|=k$ とおくと $f\sim\rho^k$ となります。境界 $\rho\to\pi/2$ では、$z=\cos\rho\downarrow0$ として径関数の先頭を $f=z^\Delta$ と試します。$df/d\rho=-\Delta\sin\rho\,z^{\Delta-1}$ をもう一度微分して径方程式の微分項をまとめると
+
+$$
+f''+\frac{f'}{\sin\rho\cos\rho}
+=\Delta(\Delta-2)z^{\Delta-2}-\Delta^2z^\Delta.
+$$
+
+$\omega^2f-\ell^2f/\sin^2\rho$ は $O(z^\Delta)$ なので、先頭の係数が消える条件は $\Delta(\Delta-2)=0$ です。これは[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)の $d=2,m=0$ と一致します。Poincaré座標の式を根拠なしにglobal径方程式へ流用したのではなく、ここでも同じ指数方程式が出ることを確かめました。この模型では $\nu=\sqrt{d^2/4+m^2L^2}=1$ です。[HOLO8の境界KG可積分条件](../HOLO8/index.md#prop-holo8-normalizability-window)に照らすと、速い枝 $\Delta=2$ は許容される一方、遅い枝 $\Delta=0$ は境界でKG非可積分です。そこで標準Dirichlet条件として源に当たる零冪の係数を零とし、$f=O(\cos^2\rho)$ を選びます。$0<\nu<1$ の場合だけを扱う代替境界選択の定義を、この $\nu=1$ の場合へ適用しているわけではありません。
 
 ## 2. globalモードの具体式を導く
 
