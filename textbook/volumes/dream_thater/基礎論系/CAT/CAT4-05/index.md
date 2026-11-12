@@ -51,7 +51,7 @@ $$
 
 を対応させる。逆に $g:X\to B^A$ から $g^\flat(x,a)=g(x)(a)$ を定める。いずれも定義域・値域が合い、$(f^\sharp)^\flat(x,a)=f(x,a)$、$(g^\flat)^\sharp(x)(a)=g(x)(a)$ なので逆写像である。$h:X'\to X$、$k:B\to B'$ を取り、$k_*:B^A\to(B')^A$ を $k_*(q)=k\circ q$ と定める。このとき
 
-$
+$$
 (f\circ(h\times1_A))^\sharp=f^\sharp\circ h,
 \qquad
 (k\circ f)^\sharp=k_*\circ f^\sharp,
@@ -418,21 +418,21 @@ $$
 
 $X\times A$ の各組 $(x,a)$ を形式記号 $\langle x,a\rangle$ とし、これらの**有限**な $k$ 係数線形結合からなるベクトル空間 $F$ を作る。$N\subset F$ を、任意の $x,x'\in X$、$a,a'\in A$、$c\in k$ に対して次の四種類の式が生成する部分空間とする。
 
-$
+$$
 \begin{aligned}
 &\langle x+x',a\rangle-\langle x,a\rangle-\langle x',a\rangle,\\
 &\langle cx,a\rangle-c\langle x,a\rangle,\\
 &\langle x,a+a'\rangle-\langle x,a\rangle-\langle x,a'\rangle,\\
 &\langle x,ca\rangle-c\langle x,a\rangle.
 \end{aligned}
-$
+$$
 
 商空間 $F/N$ を $X\otimes_k A$ とし、$\langle x,a\rangle$ の剰余類を $x\otimes a$ と書く。上の四関係によって $(x,a)\mapsto x\otimes a$ は各変数で線形である。任意の双線形写像 $b:X\times A\to B$ は $F$ 上の線形写像
 
-$
+$$
 L_b\!\left(\sum_{i=1}^n c_i\langle x_i,a_i\rangle\right)
 =\sum_{i=1}^n c_i b(x_i,a_i)
-$
+$$
 
 を一意に定める。$b$ の双線形性から $L_b$ は上記の四関係を全て $0$ に送るので、$N\subset\ker L_b$。よって $L_b$ は一意な線形写像 $\widetilde b:F/N\to B$ を誘導し、$\widetilde b(x\otimes a)=b(x,a)$ を満たす。逆に純テンソル $x\otimes a$ は $F/N$ を生成するから、その値を指定した線形写像は一意である。したがって[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)が、次元制限なしに成立する。
 
@@ -678,9 +678,9 @@ $$
 
 標準基底 $e_1=(1,0)$、$e_2=(0,1)$ を固定する。任意の線形汎関数 $q:\mathbb R^2\to\mathbb R$ は $a=a_1e_1+a_2e_2$ に対して
 
-$
+$$
 q(a)=a_1q(e_1)+a_2q(e_2)
-$
+$$
 
 を満たすので、行ベクトル $(q(e_1),q(e_2))$ がこの基底での $q$ の表示になる。ここでは $f^\sharp(x)(e_1)=x_1$、$f^\sharp(x)(e_2)=2x_2$ だから、$f^\sharp(x)$ に対応する行ベクトルは $(x_1,2x_2)$ である。これは[線形空間の閉構造](#thm-cat4-05-vector-spaces)で得た転置を座標表示しただけで、行列の値から閉性を推測しているのではない。任意の $s,t\in\mathbb R$ と $x,y$ に対し
 
