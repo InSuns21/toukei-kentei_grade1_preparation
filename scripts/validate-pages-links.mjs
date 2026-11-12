@@ -73,7 +73,7 @@ function validateStandaloneHtmlRoutes(markdown, sourceLabel, errors) {
     const href = match[1];
     if (/^(?:https?:)?\/\//i.test(href)) continue;
     const directives = match[4] || '';
-    if (!href.startsWith('textbook/') || !/(?:^|\s):ignore(?:\s|$)/.test(directives)) {
+    if (/^(?:\.{1,2}\/|\/)/.test(href) || !/(?:^|\s):ignore(?:\s|$)/.test(directives)) {
       errors.push(`${sourceLabel}: standalone HTML must use a plain site-root-relative link with Docsify :ignore: ${href}`);
     }
   }
@@ -95,6 +95,8 @@ function testExtractLinks() {
   const errors = [];
   validateStandaloneHtmlRoutes(source, 'self-test', errors);
   if (errors.length !== 0) throw new Error('standalone HTML link was routed through Docsify: ' + errors.join('; '));
+  validateStandaloneHtmlRoutes('[lab](simulation/ml1-04.html \':ignore\')', 'self-test', errors);
+  if (errors.length !== 0) throw new Error('site-root simulation links should be valid');
   validateStandaloneHtmlRoutes('[broken](textbook/ori-v12-player.html)', 'self-test', errors);
   if (errors.length !== 1) throw new Error('missing :ignore must be rejected for standalone HTML');
 
