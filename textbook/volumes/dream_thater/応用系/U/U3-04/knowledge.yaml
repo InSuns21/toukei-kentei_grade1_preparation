@@ -1,0 +1,60 @@
+chapter: U3-04
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03]
+forward_references: []
+concepts:
+  - id: finance.predictable-trading-strategy
+    name: 予測可能な取引戦略と資産価値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（予測可能な取引戦略と資産価値）"]
+    requires: [finance.binomial-information, finance.multiperiod-binomial-market]
+  - id: finance.self-financing-strategy
+    name: 自己金融戦略
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自己金融戦略）"]
+    requires: [finance.predictable-trading-strategy]
+  - id: finance.self-financing-gain-identity
+    name: 自己金融の価値変化式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自己金融の価値変化式）"]
+    requires: [finance.self-financing-strategy]
+  - id: finance.attainable-claim
+    name: 複製可能な請求権
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複製可能な請求権）"]
+    requires: [finance.self-financing-strategy, finance.two-state-contingent-claim]
+  - id: finance.binomial-self-financing-replication
+    name: 多期間二項市場の自己金融完全複製
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（多期間二項市場の自己金融完全複製）"]
+    requires: [finance.attainable-claim, finance.backward-conditional-value, finance.two-state-replication]
+  - id: finance.discounted-self-financing-gain
+    name: 自己金融価値の割引利得公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自己金融価値の割引利得公式）"]
+    requires: [finance.self-financing-gain-identity, finance.discounted-stock-martingale]
+  - id: finance.replication-price-uniqueness
+    name: 複製費用の一意性と無裁定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複製費用の一意性と無裁定）"]
+    requires: [finance.discounted-self-financing-gain, finance.binomial-path-measure]
+  - id: finance.market-completeness
+    name: 有限市場の完備性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限市場の完備性）"]
+    requires: [finance.attainable-claim]
+  - id: finance.trinomial-incompleteness
+    name: 三状態市場での複製不能と評価用確率の非一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三状態市場での複製不能と評価用確率の非一意性）"]
+    requires: [finance.market-completeness, finance.replication-price-uniqueness]
