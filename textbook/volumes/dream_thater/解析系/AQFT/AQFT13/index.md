@@ -4,7 +4,7 @@
 
 この問いに答える性質を「分離性」と呼びます。巡回性だけでは分離性を導けません。一方、別の場所にある演算子が元の演算子と交換し、そこで真空が巡回的なら、零作用素であることを証明できます。ここでは、局所性がまさにその橋を架けることを、定義・有限次元計算・一般の証明・反例を通じて学びます。
 
-舞台は計量符号 $(-,+,+,+)$ の四次元Minkowski時空です。複素Hilbert空間の内積は第2変数線形、$\Omega$ は単位ベクトルとします。[AQFT9の局所von Neumann環](../AQFT9/index.md#def-aqft9-local-vn-net)を $\mathcal M(O)\subset B(\mathcal H)$ と書きます。領域 $O$ の[開いた因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)は $O^\perp$ と記します。局所環の分離性とHaag双対性は異なるので、等号の問題は次講で扱います。
+舞台は計量符号 $(-,+,+,+)$ の四次元Minkowski時空です。複素Hilbert空間の内積は第2変数線形、$\Omega$ は単位ベクトルとします。[AQFT9の局所von Neumann環](../AQFT9/index.md#def-aqft9-local-vn-net)を $\mathcal M(O)\subset B(\mathcal H)$ と書きます。領域 $O$ の[開いた因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)は $O^\perp$ と記します。局所von Neumann環の分離性とHaag双対性は異なるので、等号の問題は次講で扱います。
 
 ## 1. 巡回的なのに分離的でないことがある
 
@@ -49,7 +49,7 @@ $B(\mathbb C^2)$ の例では、真空に作用する方法が多数ありすぎ
 
 ## 2. 分離性は可換子の巡回性と表裏一体
 
-分離性を調べるには、$\mathcal N$ 自身だけでなく、$\mathcal N$ の全ての元と交換する演算子全体を使います。[VN2の可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)により
+分離性を調べるには、$\mathcal N$ 自身だけでなく、$\mathcal N$ の全ての元と交換する演算子全体を使います。[可換子](../../VN/VN2/index.md#def-vn2-commutant)により
 $$
 \mathcal N'=\{B\in B(\mathcal H):BA=AB\text{ for all }A\in\mathcal N\}
 $$
@@ -125,7 +125,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p\in O^\perp$、$q\in O$ を任意に取ります。[因果補集合の定義](../AQFT1/index.md#def-aqft1-causal-complement)より $g(p-q,p-q)>0$ です。従って $O^\perp$ と $O$ は空間的に分離しています。[局所von Neumann netの局所性](../AQFT9/index.md#thm-aqft9-isotony-locality)により、全ての $B\in\mathcal M(O^\perp)$、$A\in\mathcal M(O)$ に対し $BA=AB$。これは [可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)そのものなので、$B\in\mathcal M(O)'$ です。ゆえに最初の包含が成立します。
+$p\in O^\perp$、$q\in O$ を任意に取ります。[因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)の定義より $g(p-q,p-q)>0$ です。従って $O^\perp$ と $O$ は空間的に分離しています。[局所von Neumann netの局所性](../AQFT9/index.md#thm-aqft9-isotony-locality)により、全ての $B\in\mathcal M(O^\perp)$、$A\in\mathcal M(O)$ に対し $BA=AB$。これは [可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)そのものなので、$B\in\mathcal M(O)'$ です。ゆえに最初の包含が成立します。
 
 さらに $Q\subset O^\perp$ なら[包含単調性](../AQFT9/index.md#thm-aqft9-isotony-locality)から $\mathcal M(Q)\subset\mathcal M(O^\perp)$ であり、二つの包含を合成すれば結論です。$\square$
 <!-- proof-end -->
@@ -212,7 +212,7 @@ $$
 です。追加仮定のEinstein局所性から[補領域包含](#prop-aqft13-causal-complement-commutant)を使って $\mathcal M(Q)\subset\mathcal M(O)'$ を得ます。従って[補領域巡回性からの分離性](#thm-aqft13-complement-cyclicity-separating)を適用でき、$\Omega$ は $\mathcal M(O)$ に分離的です。$\square$
 <!-- proof-end -->
 
-ここまでの結論は **有界なdouble cone** に対するものです。たとえば時空全体 $O=M$ には非空な空間的補領域が存在しないため、この証明を適用できません。仮定なしに「任意の開領域で真空は分離的」と拡張してはいけません。また、真空の一意性、局所環のfactor性、Haag双対性は証明中で使っていません。
+ここまでの結論は **有界なdouble cone** に対するものです。たとえば時空全体 $O=M$ には非空な空間的補領域が存在しないため、この証明を適用できません。仮定なしに「任意の開領域で真空は分離的」と拡張してはいけません。また、真空の一意性、局所代数の中心がスカラーだけであるという条件、Haag双対性は証明中で使っていません。
 
 ## 5. 忠実な局所ベクトル状態と、双対性ではない包含
 
@@ -413,6 +413,6 @@ $$
 
 ## 8. 何が分かり、次に何が残るか
 
-巡回性は「作用素を真空に作用させると稠密なベクトルが作れる」、分離性は「真空を零にする局所作用素は零」という別の性質です。可換子の巡回性と分離性は同値で、局所netでは因果補領域の巡回性と局所性が分離性を保証します。Reeh–Schlieder定理の全仮定に局所性を加えれば、非空有界double coneで真空は **巡回的かつ分離的** となり、局所ベクトル状態は忠実です。
+巡回性は「作用素を真空に作用させると稠密なベクトルが作れる」、分離性は「真空を零にするその領域の作用素は零」という別の性質です。可換子の巡回性と分離性は同値で、局所netでは因果補領域の巡回性と局所性が分離性を保証します。Reeh–Schlieder定理の全仮定に局所性を加えれば、非空有界double coneで真空は **巡回的かつ分離的** となり、局所ベクトル状態は忠実です。
 
 しかし $\mathcal M(O^\perp)\subset\mathcal M(O)'$ が等号になるか、また中心が自明かは別問題です。次の [AQFT14「Haag双対性・wedge双対性・factor性」](../AQFT14/index.md) では、この差をさらに調べます。
