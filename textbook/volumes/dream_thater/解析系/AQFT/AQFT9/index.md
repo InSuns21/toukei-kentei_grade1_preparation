@@ -28,7 +28,14 @@ $$
 
 です。単位元を含み随伴で閉じた代数に対しては、[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により、この $S''$ が強作用素位相（SOT）と弱作用素位相（WOT）の閉包に一致します。
 
-[VN1の弱作用素位相](../../VN/VN1/index.md#def-vn1-wot)で $T_\alpha$ が $T$ に収束するとは、すべてのベクトル対について行列係数が収束することです。すなわち、
+これらの位相のうち、[VN1の強作用素位相（SOT）](../../VN/VN1/index.md#def-vn1-sot)では、作用素の族 $T_\alpha$ が $T$ に収束するとは、各 $\eta\in\mathcal H_\omega$ に作用させたベクトルがノルム収束することです。
+
+$
+\|(T_\alpha-T)\eta\|\longrightarrow0
+\qquad(\eta\in\mathcal H_\omega)
+$
+
+一方、[VN1の弱作用素位相（WOT）](../../VN/VN1/index.md#def-vn1-wot)での収束は、すべてのベクトル対に対して行列係数が収束することです。すなわち、
 
 $$
 \langle\xi,T_\alpha\eta\rangle\longrightarrow
@@ -69,7 +76,28 @@ $$
 \quad\Longleftrightarrow\quad a=b=0.
 $$
 
-$\mathcal H_{\rm av}=\mathbb C^2$、$\pi_{\rm av}(a,b)=\operatorname{diag}(a,b)$、$\Omega_{\rm av}=2^{-1/2}(1,1)$ と同一視できます。内積による状態の再現と巡回性は
+なぜここで対角行列を使えるのでしょうか。[OA5のGNS商内積](../../OA/OA5/index.md#prop-oa5-quotient-inner-product)をこの状態へ適用すると、零空間がないため商の元を $[(c,d)]$ と書けて、
+
+$
+\langle[(a,b)],[(c,d)]\rangle_{\rm av}
+=\frac{\overline a c+\overline b d}{2}.
+$
+
+従って $e_1=\sqrt2[(1,0)]$、$e_2=\sqrt2[(0,1)]$ は正規直交基底です。[GNSの左乗法表現](../../OA/OA5/index.md#prop-oa5-left-multiplication-bounded)は
+
+$
+\pi_{\rm av}(a,b)[(c,d)]=[(ac,bd)]
+$
+
+なので、この**基底での**行列が $\operatorname{diag}(a,b)$ となります。さらにGNS巡回ベクトルは単位元の類 $[(1,1)]$ だから、基底座標では
+
+$
+\mathcal H_{\rm av}\simeq\mathbb C^2,\qquad
+\pi_{\rm av}(a,b)=\operatorname{diag}(a,b),\qquad
+\Omega_{\rm av}=\frac{1}{\sqrt2}(1,1).
+$
+
+内積による状態の再現と巡回性は
 
 $$
 \langle\Omega_{\rm av},\pi_{\rm av}(a,b)\Omega_{\rm av}\rangle
@@ -256,7 +284,7 @@ $\omega_{\rm av}$ では第1節の計算によりGNS零空間は零で、表現�
 
 有限次元の例だけを見ると、局所C*環をわざわざ弱閉包する意味が見えません。次の無限次元模型では、**連続関数の乗法作用素から不連続な射影が出現する**ことを示します。
 
-$\mathcal H=L^2([0,1],dt)$ に $\mathfrak A=C([0,1])$ を $\pi(f)\xi=f\xi$ で表します。この表現は忠実です。なぜなら連続関数 $f$ が零でない点の近くで $|f|$ は正の下限を持ち、その区間の指示関数に掛けると非零になるからです。
+$\mathcal H=L^2([0,1],dt)$ に $\mathfrak A=C([0,1])$ を乗法表現 $\pi(f)=M_f$ で表します。ここで $t\in[0,1]$ は積分変数であり、$\xi\in\mathcal H$ に対し $(M_f\xi)(t)=f(t)\xi(t)$（ほとんど至る所）です。この表現は忠実です。なぜなら連続関数 $f$ が零でない点の近くで $|f|$ は正の下限を持ち、その区間の指示関数に掛けると非零になるからです。
 
 <a id="prop-aqft9-weak-closure-new-projection"></a>
 
@@ -268,7 +296,7 @@ P\in\pi(C([0,1]))''
 \quad\text{だが}\quad
 P\notin\pi(C([0,1])).
 $$
-> 従ってこの表現での局所von Neumann環は、元のC*環の像より真に大きい。
+> 従ってこの表現でのvon Neumann環は、元のC*環の像より真に大きい。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -277,6 +305,15 @@ $$
 
 <!-- proof-start -->
 ### 証明
+
+$E=[0,1/2]$ とおきます。指示関数は実数値で $\mathbf1_E^2=\mathbf1_E$ を満たすので、乗法作用素について
+
+$
+P^*=M_{\overline{\mathbf1_E}}=P,\qquad
+P^2=M_{\mathbf1_E^2}=P
+$
+
+です。従って $P$ は確かに直交射影です。
 
 $n\ge3$ とし、$f_n\in C([0,1])$ を
 
