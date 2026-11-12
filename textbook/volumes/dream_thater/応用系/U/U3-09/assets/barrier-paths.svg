@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" width="720" height="350" role="img" data-layout-lint="strict" aria-labelledby="title desc">
+  <title id="title">障壁への到達判定：UD と DU</title>
+  <desc id="desc">時点0で100円。実線UDは時点1で120円に触れてから時点2で96円に戻る。破線DUは時点1に80円へ下がり、時点2で96円に戻る。両経路の終値は同じだが、上側障壁120円への到達はUDだけ。</desc>
+  <rect x="0" y="0" width="720" height="350" fill="#ffffff"/>
+  <line x1="110" y1="306" x2="613" y2="306" stroke="#444" stroke-width="1.8"/>
+  <line x1="110" y1="54" x2="110" y2="306" stroke="#444" stroke-width="1.8"/>
+  <line x1="110" y1="94" x2="611" y2="94" stroke="#666" stroke-width="1.6" stroke-dasharray="3 6"/>
+  <text x="22" y="32" font-size="18" font-family="sans-serif" fill="#222">株価（円）</text>
+  <text x="47" y="100" font-size="17" font-family="sans-serif" fill="#333">120</text>
+  <text x="47" y="205" font-size="17" font-family="sans-serif" fill="#333">100</text>
+  <text x="57" y="288" font-size="17" font-family="sans-serif" fill="#333">80</text>
+  <text x="621" y="100" font-size="17" font-family="sans-serif" fill="#333">H=120</text>
+  <polyline points="120,200 350,94 570,218" fill="none" stroke="#176a9a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-series-group="paths" data-series-label="UD"/>
+  <polyline points="120,200 350,283 570,218" fill="none" stroke="#b05a25" stroke-width="3.5" stroke-dasharray="12 7" stroke-linecap="round" stroke-linejoin="round" data-series-group="paths" data-series-label="DU"/>
+  <g fill="#ffffff" stroke="#176a9a" stroke-width="2.5">
+    <circle cx="350" cy="94" r="6"/><circle cx="570" cy="218" r="6"/>
+  </g>
+  <g fill="#ffffff" stroke="#b05a25" stroke-width="2.5">
+    <circle cx="120" cy="200" r="6"/><circle cx="350" cy="283" r="6"/>
+  </g>
+  <text x="341" y="66" font-size="19" font-family="sans-serif" font-weight="bold" fill="#176a9a">UD</text>
+  <text x="341" y="255" font-size="19" font-family="sans-serif" font-weight="bold" fill="#9a4c16">DU</text>
+  <text x="581" y="238" font-size="17" font-family="sans-serif" fill="#333">96</text>
+  <text x="114" y="332" font-size="17" font-family="sans-serif" fill="#222">0</text>
+  <text x="345" y="332" font-size="17" font-family="sans-serif" fill="#222">1</text>
+  <text x="565" y="332" font-size="17" font-family="sans-serif" fill="#222">2</text>
+  <text x="627" y="332" font-size="17" font-family="sans-serif" fill="#222">時点 t</text>
+</svg>
