@@ -1,0 +1,21 @@
+chapter: HOLO17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO16
+  - QFT57
+  - QFT59
+  - QFT60
+concepts:
+  - id: holography.boundary-regulated-entropy-data
+    name: 境界領域の正則化エントロピーデータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界領域の正則化エントロピーデータ）"]
+    requires: [qft.cutoff-region-entropy, qft.replica-moments]
+  - id: holography.tfd-spatial-subregion-reduction
+    name: TFD片側の空間部分領域への縮約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（TFD片側の空間部分領域への縮約）"]
+    requires: [holography.thermofield-partial-trace, holography.boundary-regulated-entropy-data]

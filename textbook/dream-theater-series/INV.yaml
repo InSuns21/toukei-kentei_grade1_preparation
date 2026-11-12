@@ -1,7 +1,7 @@
 version: 1
 id: INV
 title: 逆問題
-plan: textbook/plans_progress/DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 公開目次には completed の章だけを登録する。

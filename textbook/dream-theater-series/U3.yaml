@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: U3-01, path: textbook/volumes/dream_thater/応用系/U/U3-01, status: completed, title: "1期間二項モデルの株式・債券・オプション" }
-  - { id: U3-02, path: textbook/volumes/dream_thater/応用系/U/U3-02, status: planned, title: "無裁定条件と状態価格" }
+  - { id: U3-02, path: textbook/volumes/dream_thater/応用系/U/U3-02, status: completed, title: "無裁定条件と状態価格" }
   - { id: U3-03, path: textbook/volumes/dream_thater/応用系/U/U3-03, status: planned, title: "多期間二項モデルと割引マルチンゲール" }
   - { id: U3-04, path: textbook/volumes/dream_thater/応用系/U/U3-04, status: planned, title: "自己金融戦略・複製可能性・完備性" }
   - { id: U3-05, path: textbook/volumes/dream_thater/応用系/U/U3-05, status: planned, title: "European call/put・先渡・put–call parity" }
