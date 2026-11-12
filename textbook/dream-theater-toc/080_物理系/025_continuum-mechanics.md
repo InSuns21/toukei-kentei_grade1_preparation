@@ -2,3 +2,4 @@
 ### 連続体力学
 
 1. [CTM1 物質点・配置・運動をどう記述するか](textbook/volumes/dream_thater/物理系/CTM/CTM1/index.md)
+2. [CTM2 変形勾配は長さ・面積・体積をどう変えるか](textbook/volumes/dream_thater/物理系/CTM/CTM2/index.md)
