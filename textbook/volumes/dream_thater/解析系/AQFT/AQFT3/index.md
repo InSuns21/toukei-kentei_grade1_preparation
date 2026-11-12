@@ -35,6 +35,8 @@ $$
 <!-- definition-example-start: def-aqft3-state-transform -->
 ### 直接例：行列の状態を回転させる
 
+**定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
+
 $U=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$\alpha_U(A)=UAU^*$、$v=e_1$ とします。$U^{-1}=U=U^*$ なので、定義から
 $$
 (U\cdot\omega_{e_1})(A)
@@ -101,6 +103,8 @@ $$
 <!-- definition-example-start: def-aqft3-invariant-state -->
 ### 直接例：二つの点の確率的混合
 
+**定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
+
 $\mathfrak B=\mathbb C^2$、$\alpha_F=\mathrm{id}$ とすると、$0\le\lambda\le1$ の各値に対し
 $$
 \omega_\lambda(z_1,z_2)=\lambda z_1+(1-\lambda)z_2
@@ -134,6 +138,8 @@ $$
 
 <!-- definition-example-start: def-aqft3-covariant-cyclic -->
 ### 直接例：自明な群作用
+
+**定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
 $\mathfrak B=\mathbb C^2$ に前節の自明な作用を入れ、$0<\lambda<1$ に対するGNS空間を $\mathbb C^2$ と同一視します。$\pi(z_1,z_2)=\operatorname{diag}(z_1,z_2)$、$\Omega=(\sqrt\lambda,\sqrt{1-\lambda})$、$U(F)=I_2$ と置くと、$\pi(\mathfrak B)\Omega$ は両成分を任意に動かせるので巡回的です。$U(F)\pi(A)U(F)^*=\pi(A)=\pi(\alpha_F(A))$、$U(F)\Omega=\Omega$ も直接成立します。GNS表現の構成とこれが一致することは第5節で計算します。
 <!-- definition-example-end -->
@@ -288,6 +294,8 @@ $$
 <!-- definition-example-start: def-aqft3-spectrum -->
 ### 直接例：同時固有値を光円錐で判定する
 
+**定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
+
 $\mathcal H=\mathbb C^3$ とし、$H=\operatorname{diag}(0,2,1)$、$P_1=\operatorname{diag}(0,1,2)$、$P_2=P_3=0$ とします。全作用素は対角なので $U(a)$ は強連続で、同時スペクトルは $(0,0,0,0)$、$(2,1,0,0)$、$(1,2,0,0)$ です。最初の二つは $p^0\ge|\boldsymbol p|$ を満たしますが、最後は $1<2$ なので外れます。全固有値で $H\ge0$ であってもスペクトル条件は失敗します。これは**平行移動群だけ**の表現例であり、Lorentz群への拡張を主張しません。
 <!-- definition-example-end -->
 
@@ -363,6 +371,8 @@ $$
 
 <!-- definition-example-start: def-aqft3-vacuum -->
 ### 直接例：同じnet上の一意性の違い
+
+**定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
 前節の $\mathbb C^2$ に自明なPoincaré作用を入れたnetでは、混合状態 $\omega_{1/2}$ のGNS空間は二次元で $U(F)=I$。よってスペクトル条件は成立し $\Omega$ も不変ですが、$\Omega$ に直交する $(1,-1)$ の方向にも不変ベクトルがあります。一方、評価状態 $\omega_1(z_1,z_2)=z_1$ のGNS空間は一次元なので、**その表現の中では**不変ベクトルは $\mathbb C\Omega$ のみです。netそのものに他の状態が存在しないとは言っていません。
 <!-- definition-example-end -->
@@ -484,6 +494,8 @@ $$
 <!-- definition-example-start: def-aqft3-additivity -->
 ### 直接例：一定な可換net
 
+**定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
+
 第5節のnetは非空領域に同じ $\mathbb C^2$ を割り当てます。非空な $O$ の開被覆には非空な $O_i$ が少なくとも一つあるため、右辺は $\mathbb C^2$ になり加法性を満たします。$O=\varnothing$ の場合は空被覆から生成される単位的C*-環を $\mathbb C1$ とする規約です。
 <!-- definition-example-end -->
 
@@ -502,6 +514,8 @@ $$
 
 <!-- definition-example-start: def-aqft3-time-slice -->
 ### 直接例：時間帯
+
+**定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
 $N=\{(t,\boldsymbol x):|t|<1\}$ は $\{t=0\}$ というMinkowskiのCauchy面の開近傍です。一定な可換netなら $\mathfrak A(N)=\mathfrak A(M)=\mathbb C^2$ なので、この $N$ で条件を確認できます。同じ理由で任意のCauchy面近傍でも成立します。一般の大域双曲な部分時空に対する強いtime-slice条件は後の構成と区別します。
 <!-- definition-example-end -->
