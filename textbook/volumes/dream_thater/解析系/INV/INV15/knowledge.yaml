@@ -1,0 +1,66 @@
+chapter: INV15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV5
+  - F0-00P3
+  - F0-00P6
+  - F0-00P7
+forward_references: []
+
+concepts:
+  - id: inverse.gaussian-density-finite
+    name: 正定値分散共分散行列をもつ多変量正規分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正定値分散共分散行列をもつ多変量正規分布）"]
+    requires: [prob.random-variable, prob.expectation, prob.covariance]
+
+  - id: inverse.linear-gaussian-model
+    name: 線形Gaussian逆問題モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形 Gaussian 逆問題モデル）"]
+    requires: [inverse.gaussian-density-finite, prob.independent-random-variables]
+
+  - id: inverse.posterior-density-finite
+    name: 事後密度と周辺密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（事後密度と周辺密度）"]
+    requires: [inverse.linear-gaussian-model, stat.likelihood]
+
+  - id: inverse.gaussian-posterior-formula
+    name: 線形Gaussian逆問題の事後平均と事後共分散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形 Gaussian 逆問題の事後平均と事後共分散）"]
+    requires: [inverse.posterior-density-finite, inverse.gaussian-density-finite]
+
+  - id: inverse.gaussian-observation-update
+    name: 観測側の事後更新公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（観測側の事後更新公式）"]
+    requires: [inverse.gaussian-posterior-formula, prob.independent-random-variables]
+
+  - id: inverse.map-estimator-finite
+    name: MAP推定値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（MAP推定値）"]
+    requires: [inverse.posterior-density-finite]
+
+  - id: inverse.map-weighted-tikhonov
+    name: MAPと加重Tikhonov正則化の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（MAPと加重Tikhonov正則化の一致）"]
+    requires: [inverse.map-estimator-finite, inverse.gaussian-posterior-formula, inverse.tikhonov-quadratic]
+
+  - id: inverse.gaussian-independent-unobserved
+    name: 独立な未観測成分は更新されない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立な未観測成分は更新されない）"]
+    requires: [inverse.posterior-density-finite, prob.independence-joint-factorization]
