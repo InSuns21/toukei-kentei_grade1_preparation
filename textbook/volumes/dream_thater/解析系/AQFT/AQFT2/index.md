@@ -169,6 +169,18 @@ $$
 > ここで $[\mathfrak A(O_1),\mathfrak A(O_2)]=0$ は、双方から選んだ全ての元について $AB-BA=0$ という意味である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-aqft2-haag-kastler -->
+### 直接例：スカラー観測量だけのnet
+
+**定義の確認**。容器を $\mathfrak B=M_2(\mathbb C)$ とし、全ての開集合 $O$（空集合を含む）に $\mathfrak A(O)=\mathbb CI_2$ を割り当てます。$\alpha_F=\mathrm{id}_{\mathfrak B}$ とすると次を直接確認できます。
+
+1. **isotony**：$O_1\subset O_2$ でも双方の代数は $\mathbb CI_2$ であるため、$\mathfrak A(O_1)\subset\mathfrak A(O_2)$。
+2. **局所性**：任意の $aI_2,bI_2$ について $(aI_2)(bI_2)=abI_2=(bI_2)(aI_2)$。よって空間的に分離した領域でも交換します。
+3. **共変性**：$\alpha_F(\mathfrak A(O))=\mathbb CI_2=\mathfrak A(F(O))$。恒等自己同型は $\alpha_{F_1F_2}=\alpha_{F_1}\alpha_{F_2}$ も満たします。
+
+各代数は単位元を共有するノルム閉なC*-部分環で、空集合についての規約にも適合します。これは物理的情報の少ない退化的な例ですが、**三条件が互いにどのような論理的役割を持つか**を確認する基準になります。第5節では非定数の局所観測量を持つ模型へ進みます。
+<!-- definition-example-end -->
+
 本講では三条件を**まとめて**netの基本要件としていますが、文献によっては局所netを isotony だけで定義し、局所性・共変性を別公理として付けます。いずれの流儀でも、次に必要となる**期待値の指定**、**エネルギー・運動量の追加条件**、**真空の存在・一意性**、**time-slice**、**加法性**、**Haag双対性**、**split property** はこの三条件から自動的には出ません。特にこの段階でHilbert空間・非有界場・量子真空を必要条件として持ち込みません。
 
 ## 5. 二つの小模型を本当に検査する
