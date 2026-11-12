@@ -3,6 +3,7 @@ title: "物質点・配置・運動をどう記述するか"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - F0-00B
   - RA6A
   - MECH1
 official_scope: []
