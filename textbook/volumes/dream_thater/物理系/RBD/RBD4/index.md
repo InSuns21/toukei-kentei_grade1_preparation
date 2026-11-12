@@ -52,7 +52,7 @@ $$
 
 ### 実際の角度操作
 
-[ZYZ Euler角の操作と特異姿勢の可視化](assets/euler-angles.html)では $\phi,\theta,\psi$ を別々に動かせます。青の実線は空間基底、物体基底はそれぞれ $b_1,b_2,b_3$ と表示し、実際の行列の三列から描画します。$\theta=0$ にしたとき、$\phi$ を増やし同じだけ $\psi$ を減らすと、三本の物体軸が変化しないことを確かめてください。ページ内にはJavaScript無効時にも読める計算例を併記しています。
+[ZYZ Euler角の操作と特異姿勢の可視化](https://insuns21.github.io/toukei-kentei_grade1_preparation/textbook/volumes/dream_thater/物理系/RBD/RBD4/assets/euler-angles.html)では $\phi,\theta,\psi$ を別々に動かせます。青の実線は空間基底、物体基底はそれぞれ $b_1,b_2,b_3$ と表示し、実際の行列の三列から描画します。$\theta=0$ にしたとき、$\phi$ を増やし同じだけ $\psi$ を減らすと、三本の物体軸が変化しないことを確かめてください。ページ内にはJavaScript無効時にも読める計算例を併記しています。
 
 ## 3. 姿勢の時間変化と三つの角速度成分
 
