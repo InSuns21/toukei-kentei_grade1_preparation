@@ -6,7 +6,7 @@ prerequisites:
   - AQFT5
   - AQFT2
   - OA3
-  - QM7
+  - QM8
 official_scope: []
 learning_objectives:
   - AQFT5の実シンプレクティック商と符号からWeyl CCRの位相と逆元を導き、結合律を検算できる
