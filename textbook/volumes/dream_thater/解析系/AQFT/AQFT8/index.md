@@ -336,10 +336,10 @@ $$
 [AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から具体的Weyl C*環の状態と一致します。
 
 なおFockの有限Weyl線形結合が[AQFT6の具体的なC*ノルム](../AQFT6/index.md#prop-aqft6-twisted-translation)で有界であることも必要です。[AQFT7のGaussian Weyl状態構成定理](../AQFT7/index.md#thm-aqft7-quasifree-state)の証明中のFølner平均を**今回のFockユニタリ表示**に適用すると、任意の有限和に対し
-$
+$$
 \left\|\sum_jc_jW_{\mathcal F}(F_j)\right\|
 \le\left\|\sum_jc_jL(F_j)\right\| .
-$
+$$
 従ってFock表示は具体的Weyl C*環の有界 *-表現へ延長し、上のベクトル状態はそのC*環上で正しく定義されます。
 <!-- proof-end -->
 
