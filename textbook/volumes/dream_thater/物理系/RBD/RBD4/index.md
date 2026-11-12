@@ -37,6 +37,8 @@ $\phi$ は歳差角、$\theta$ は章動角、$\psi$ は自転角と呼ぶ。通
 <!-- definition-example-start: def-rbd4-zyz-euler -->
 ### 直接例：物体軸を水平に倒す
 
+**定義の確認**：三つの指定角から回転行列を作り、第三軸の向きと $SO(3)$ の二条件を直接検査します。
+
 $\phi=0,\theta=\pi/2,\psi=0$ なら $R=R_y(\pi/2)$ です。列の像を計算すると $Re_1=-e_3$、$Re_2=e_2$、$Re_3=e_1$。従って物体の第三軸は空間の $e_1$ 方向を向きます。各列は互いに直交し長さ1、行列式は $1$ なので [RBD1 の回転条件](../RBD1/index.md#def-rbd1-proper-rotation)を満たします。三つの角度を選んだだけで鏡映が混入することはありません。
 
 一般の場合にも各因子は $SO(3)$ に属するので $R^{\mathsf T}R=I_3$、$\det R=1$ です。さらに三番目の列を計算すれば
@@ -65,9 +67,9 @@ $C^1$ 級の角度関数 $\phi(t),\theta(t),\psi(t)$ を考えます。[RBD3 の
 
 $I\subset\mathbb R$ 上で $\phi,\theta,\psi\in C^1(I)$ とし、姿勢を
 
-$
+$$
 R(t)=R_z(\phi(t))R_y(\theta(t))R_z(\psi(t))
-$
+$$
 
 と定める。[RBD3 の定義](../RBD3/index.md#def-rbd3-angular-velocity)による空間・物体角速度は
 
@@ -280,25 +282,25 @@ $$
 
 ZYZ 姿勢写像 $F:\mathbb R^3\to SO(3)$ を次のように定める。
 
-$
+$$
 F(\phi,\theta,\psi)=R_z(\phi)R_y(\theta)R_z(\psi).
-$
+$$
 
 この写像では、次の角度速度方向へ変化させても姿勢の一次変化はゼロである。
 
-$
+$$
 \theta=0:\quad(\dot\phi,\dot\theta,\dot\psi)=(1,0,-1),
-$
+$$
 
-$
+$$
 \theta=\pi:\quad(\dot\phi,\dot\theta,\dot\psi)=(1,0,1).
-$
+$$
 
 一方、各姿勢行列 $R=F(\phi,\theta,\psi)$ 自体は常に次を満たす。
 
-$
+$$
 R^{\mathsf T}R=I_3,\qquad\det R=1.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
