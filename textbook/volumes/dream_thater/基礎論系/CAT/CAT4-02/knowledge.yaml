@@ -1,0 +1,52 @@
+chapter: CAT4-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-05
+  - CAT1-06
+  - CAT1-07
+  - CAT4-01
+
+concepts:
+  - id: category.formal-tensor-expression
+    name: 形式的テンソル式と語
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形式的テンソル式と語）"]
+    requires: [category.monoidal-category]
+  - id: category.tensor-reduction-normal-form
+    name: 書換え、正規形、正規化射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（書換え、正規形、正規化射）"]
+    requires: [category.formal-tensor-expression, category.monoidal-category]
+  - id: category.tensor-normalization-termination
+    name: 正規化の停止と正規形の対象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規化の停止と正規形の対象）"]
+    requires: [category.tensor-reduction-normal-form]
+  - id: category.monoidal-unit-identities
+    name: 単位子の導出恒等式
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（単位子の導出恒等式）"]
+    requires: [category.monoidal-category, category.pentagon-coherence, category.triangle-coherence]
+  - id: category.monoidal-local-confluence
+    name: 書換えの局所的合流と射の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（書換えの局所的合流と射の一致）"]
+    requires: [category.tensor-reduction-normal-form, category.monoidal-unit-identities, category.tensor-interchange]
+  - id: category.mac-lane-coherence
+    name: Mac Laneの整合性定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Mac Lane の整合性定理）"]
+    requires: [category.tensor-normalization-termination, category.monoidal-local-confluence]
+  - id: category.canonical-rebracketing
+    name: 正準的な結び直しとその合成
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（正準的な結び直しとその合成）"]
+    requires: [category.mac-lane-coherence]

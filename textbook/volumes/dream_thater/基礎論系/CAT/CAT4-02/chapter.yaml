@@ -1,0 +1,47 @@
+id: "CAT4-02"
+title: "Mac Laneの整合性定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-05
+  - CAT1-06
+  - CAT1-07
+  - CAT4-01
+official_scope: []
+learning_objectives:
+  - 形式的テンソル式の語と評価を区別し、括弧と単位の正規形を具体的に構成できる
+  - 葉数と左への括弧の偏りを用いた辞書式の減少量から書換えの停止を証明できる
+  - 五角形・三角形・自然性から左・右単位の派生恒等式と単位上の一致を検証できる
+  - 書換えの局所的衝突を型付きで列挙し、各合流経路の射の一致を導ける
+  - 整礎帰納法で正規化射の一意性を示し、Mac Laneの整合性定理を証明できる
+  - 構造射の一意性と任意の射や因子の交換可能性を区別できる
+definitions:
+  - { id: CAT4-02-DEF-01, name: 形式的テンソル式と語 }
+  - { id: CAT4-02-DEF-02, name: 書換え・正規形・正規化射 }
+theorems:
+  - { id: CAT4-02-PROP-01, name: 正規化の停止と正規形の対象 }
+  - { id: CAT4-02-LEM-01, name: 単位子の導出恒等式 }
+  - { id: CAT4-02-PROP-02, name: 書換えの局所的合流と射の一致 }
+  - { id: CAT4-02-THM-01, name: Mac Laneの整合性定理 }
+  - { id: CAT4-02-COR-01, name: 正準的な結び直しとその合成 }
+canonical_examples:
+  - 単位を二つ含む語の右結合正規形
+  - 三角形と五角形に対応する競合経路
+  - Iとテンソルの左右交換を使わない正規化
+  - Setの直積での左単位の二経路
+  - 三角形がない一対象圏の反例
+problem_patterns:
+  - CAT4-02-WORDS
+  - CAT4-02-HEIGHT
+  - CAT4-02-TRIANGLE-PATHS
+  - CAT4-02-UNIT-UNIT
+  - CAT4-02-ALPHA-WORD
+  - CAT4-02-PENTAGON-NORMAL
+  - CAT4-02-LEFT-UNIT-PEAK
+  - CAT4-02-CANONICAL-COMPOSE
+  - CAT4-02-FAILED-TRIANGLE
+  - CAT4-02-FULL-NORMALIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 3 }
