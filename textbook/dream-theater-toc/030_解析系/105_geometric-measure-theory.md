@@ -36,3 +36,4 @@
 33. [GMT33 平面Córdoba型tube評価](textbook/volumes/dream_thater/解析系/GMT/GMT33/index.md)
 34. [GMT34 高次元tubeの交差とbush法による次元下界](textbook/volumes/dream_thater/解析系/GMT/GMT34/index.md)
 35. [GMT35 Kakeya最大作用素から集合の次元を読む](textbook/volumes/dream_thater/解析系/GMT/GMT35/index.md)
+36. [GMT36 Fourier restrictionとwave packetのtube幾何](textbook/volumes/dream_thater/解析系/GMT/GMT36/index.md)

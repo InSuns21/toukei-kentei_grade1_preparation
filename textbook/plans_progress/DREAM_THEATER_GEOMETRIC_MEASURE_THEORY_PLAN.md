@@ -36,7 +36,8 @@ GMT32着手日時: 2026-11-12 04:02 JST（δ-tube体積・方向分離の球殻�
 GMT33着手日時: 2026-11-12 12:40 JST（二管の帯交差・無向角距離・調和和・Córdoba型合併面積下界）
 GMT34着手日時: 2026-11-12 13:41 JST（高次元二tube交差・球面殻・bush法・古典的Minkowski次元下界）
 GMT35着手日時: 2026-11-12 16:01 JST（Kakeya最大作用素・平面対数L2評価・多尺度Hausdorff次元含意）
-状態: in_progress（GMT1--GMT35 は実装・査読済み。GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT36着手日時: 2026-11-12 16:29 JST（放物線restriction、単一wave packet、tube交差・重複度、EOM074への読書導線）
+状態: in_progress（GMT1--GMT36 は実装・変更章査読済み。全系列横断監査が未完了のため本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
@@ -358,4 +359,4 @@ formal statementでは対象の可測性・次元・有限性、a.e.の参照測
 4. BV compactness/coarea→finite perimeter→reduced boundary→De Giorgi構造→Gauss--Green→等周・周長最小化の証明が閉じる。
 5. Besicovitch構成、tube overlap、Kakeya maximalからの次元含意を計算でき、HA11とEOM074へ正しく接続する。
 6. Preissの一般定理・currents/varifolds・Kakeya最新結果について、**証明済みの本科目範囲と停止線外**を読者が区別できる。
-7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT30完了後もGMT31--GMT36と横断監査が残るため、現在はplans_progress/に保持する。
+7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT36の講義実装後も全系列横断監査が残るため、現在はplans_progress/に保持する。

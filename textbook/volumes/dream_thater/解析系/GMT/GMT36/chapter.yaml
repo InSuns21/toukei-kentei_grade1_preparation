@@ -1,0 +1,51 @@
+id: GMT36
+title: Fourier restrictionとwave packetのtube幾何
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT35
+  - HA11
+official_scope: []
+learning_objectives:
+  - 放物線Fourier拡張の位相とcapの二次展開からtubeの幅Rの平方根と長さRを導出できる
+  - 周波数capで正規化した単一wave packetの厳密式と急減少上界および中心近傍の下界を証明できる
+  - 周波数分離から各時刻のPlancherel直交性を証明し点ごとの干渉と区別できる
+  - 時空間tubeの二本の交差面積を時間切片のFubini積分から導ける
+  - 単位尺度への縮小でcap幅とKakeyaの方向・半径を対応させられる
+  - 重み付き重複度とpacketの点ごとの上界をCauchy--Schwarzから導ける
+  - 放物線拡張のKnapp必要指数を計算し必要条件と十分条件を区別できる
+  - EOM074の個別研究で確認すべき対象・次元・損失・endpoint・証明状況を列挙できる
+definitions:
+  - { id: GMT36-DEF-01, name: 放物線Fourier拡張 }
+  - { id: GMT36-DEF-02, name: 放物線の単一wave packet }
+  - { id: GMT36-DEF-03, name: 放物線の時空間tube }
+theorems:
+  - { id: GMT36-PROP-01, name: wave packetの厳密式と管への集中 }
+  - { id: GMT36-PROP-02, name: 空間断面でのPlancherel直交性 }
+  - { id: GMT36-LEM-01, name: 異なる方向の時空間tube交差 }
+  - { id: GMT36-PROP-03, name: 重み付きtube重複度による点ごとの評価 }
+  - { id: GMT36-PROP-04, name: 放物線拡張のKnapp必要条件 }
+canonical_examples:
+  - 放物線の原点での単位区間振幅の直接積分
+  - R=100のwave packetの周波数台・L2正規化・初期位置
+  - 異なる中心周波数のpacket中心線
+  - 平行tubeと角度の離れたtubeの交差面積比較
+  - 空間直交でも一点で同位相に足し合わされる例
+  - capと時空間tubeの尺度の単位化
+  - 放物線のKnapp矩形の冪比較
+problem_patterns:
+  - GMT36-PACKET-NORMALIZATION
+  - GMT36-PACKET-CENTER
+  - GMT36-PHASE-SCALE
+  - GMT36-KNAPP-NECESSITY
+  - GMT36-TUBE-RESCALING
+  - GMT36-PACKET-DECAY
+  - GMT36-CAP-ORTHOGONALITY
+  - GMT36-INTERSECTION
+  - GMT36-POINTWISE-VS-INTEGRATED
+  - GMT36-CAP-TO-TUBE
+  - GMT36-WEIGHTED-MULTIPLICITY
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
