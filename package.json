@@ -83,6 +83,7 @@
     "validate:svg-quality": "node scripts/validate-svg-quality.mjs",
     "validate:svg-quality:changed": "node scripts/validate-svg-quality.mjs --changed-only",
     "test:ori-svg-phase-a": "node --test scripts/test-ori-svg-phase-a.mjs",
+    "test:ori-svg-phase-b": "node --test scripts/test-ori-svg-phase-b.mjs",
     "audit:svg-quality:existing": "node scripts/validate-svg-quality.mjs --audit-existing"
   },
   "dependencies": {

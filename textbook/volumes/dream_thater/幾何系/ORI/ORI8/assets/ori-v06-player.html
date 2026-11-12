@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORI-V06 O6の三次式の実根</title><link rel="stylesheet" href="../../shared/ori-svg-player.css"></head>
+<body><h1>ORI-V06 O6の三次式の実根</h1>
+<p><strong>数理モデル：</strong>二組の点・線一致を満たす折り線y=mx+bはm³-3m-c=0を満たす。</p>
+<p><strong>適用範囲：</strong>この座標配置に限った三次根の例。 実写の折り作業ではなく、数式で決まる状態をSVGへ描き直しています。</p>
+<div class="surface">
+<div class="graphic" role="region" tabindex="0" aria-label="必要なら横スクロールで拡大した図を閲覧" style="overflow-x:auto">
+<svg id="ori-b-stage" viewBox="0 0 760 430" style="display:block;width:100%;height:auto;min-width:min(100%,600px)" role="img" aria-labelledby="stage-title stage-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="stage-title">ORI-V06 O6の三次式の実根</title><desc id="stage-desc">二組の点・線一致を満たす折り線y=mx+bはm³-3m-c=0を満たす。 この座標配置に限った三次根の例。</desc><g id="ori-b-frame"></g></svg>
+<noscript><img src="ori-v06-poster.svg" alt="ORI-V06 O6の三次式の実根の静止図" style="width:100%;height:auto"></noscript></div>
+<div class="controls" role="group" aria-label="工程の再生操作">
+<button type="button" data-player="play" aria-pressed="false">再生</button><button type="button" data-player="reset">初めから</button>
+<button type="button" data-player="previous">前の工程</button><button type="button" data-player="next">次の工程</button>
+<label for="speed">速度</label><select id="speed" data-player="speed" aria-label="再生速度">
+<option value="0.25">0.25倍</option><option value="0.5">0.5倍</option><option value="1" selected>1倍</option><option value="2">2倍</option></select>
+</div>
+<label class="timeline" for="time">工程の進捗（矢印キー・Home・Endでも操作可能）
+<input id="time" data-player="time" type="range" min="0" max="1" step="0.001" value="0" aria-label="工程の位置"></label>
+<p class="step" data-player="step">工程0/4</p>
+<p class="readout" data-player="status">数理状態を準備しています。</p>
+<p data-player="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+</div>
+<h2>数学的な不変量の数値検査</h2>
+<table><thead><tr><th scope="col">条件</th><th scope="col">残差</th></tr></thead><tbody id="invariants"><tr><td>読込中</td><td>—</td></tr></tbody></table>
+<h2>工程別の文章代替</h2><details><summary>各表示例の5工程と式を開く</summary><h3>基本例</h3><ol><li>工程0（t=0）：c=-2.500、三次式の異なる実根1個：-2.0536。</li><li>工程1（t=0.25）：c=-1.250、三次式の異なる実根3個：-1.9115, 0.4463, 1.4652。</li><li>工程2（t=0.5）：c=0.000、三次式の異なる実根3個：-1.7321, -0.0000, 1.7321。</li><li>工程3（t=0.75）：c=1.250、三次式の異なる実根3個：-1.4652, -0.4463, 1.9115。</li><li>工程4（t=1）：c=2.500、三次式の異なる実根1個：2.0536。</li></ol></details>
+<p><a href="ori-v06-poster.svg">静止SVGを開く</a>。動画を動かせなくても上の数式と工程説明から検算できます。</p>
+<p class="footnote">自動再生はしません。動きを減らすOS設定では静止終端から開始。モデルの数学的制約と、有限厚み・層の非貫通・連続折り運動は別々に判定してください。</p>
+<p><a href="../index.md">講義 ORI8 の本文に戻る</a></p>
+<script type="module">
+import { mountPlayer } from '../../shared/ori-svg-player.mjs';
+import { stateAt } from './ori-v06-model.mjs';
+import { svgFrame } from '../../shared/ori-phase-b-svg.mjs';
+const stage=document.getElementById('ori-b-frame');
+const tbody=document.getElementById('invariants');
+const choice=document.getElementById('case');
+function render(t){
+ const s=stateAt('06',t,choice?.value||'default');
+ stage.innerHTML=svgFrame({...s,title:"O6の三次式の実根"});
+ tbody.replaceChildren(...s.checks.map(c=>{
+  const tr=document.createElement('tr'),name=document.createElement('td'),r=document.createElement('td');
+  name.textContent=c.name;r.textContent=(c.actual-c.expected).toExponential(2);tr.append(name,r);return tr;
+ }));
+ return {step:s.step,readout:s.readout};
+}
+const player=mountPlayer({render,steps:[0,.25,.5,.75,1],durationMs:9000});
+choice?.addEventListener('change',()=>player.seek(player.time));
+</script></body></html>
