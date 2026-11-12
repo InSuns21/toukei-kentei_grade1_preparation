@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **前提**：[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)、[RBD2 のベクトル積の反対称行列](../RBD2/index.md#def-rbd2-hat)、[MECH8 の回転基底での時間微分](../../MECH/MECH8/index.md#prop-mech8-rotating-basis-derivative)。ベクトルは列、外積は右手系、空間系は慣性系とします。
+> **前提**：[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)、[RBD2 のベクトル積の反対称行列](../RBD2/index.md#def-rbd2-hat)、[MECH8 の回転基底での時間微分](../../MECH/MECH8/index.md#prop-mech8-rotating-basis-derivative)。ベクトルは列、ベクトル積は右手系、空間系は慣性系とします。
 
 ## 1. 回転行列を時間微分したい
 
@@ -125,7 +125,7 @@ $$
 
 $\omega_s$ と $\omega_b$ は同じ角速度という幾何学的ベクトルを異なる基底で測った成分です。$\dot\omega_s=R\dot\omega_b$ は**角速度そのもの**の微分に固有の単純化で、一般のベクトルの時間微分ではありません。
 
-## 3. 輸送定理：固定された物差しと回る物差し
+## 3. 輸送公式：固定された物差しと回る物差し
 
 $R$ の各列 $b_i=Re_i$ は物体に固定した基底の空間での向きです。[角速度の対応](#prop-rbd3-angular-conjugacy)から
 
