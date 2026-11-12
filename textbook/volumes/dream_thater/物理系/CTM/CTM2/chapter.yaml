@@ -1,0 +1,37 @@
+id: "CTM2"
+title: "変形勾配は長さ・面積・体積をどう変えるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM1
+official_scope: []
+learning_objectives:
+  - 変形勾配の各列を物質線素の像として説明し、運動写像から F と J を求められる
+  - C1 級の運動の微分から線素の長さ倍率と微小体積倍率 J を導出できる
+  - 外積による余因子行列の定義と J F^{-T} の恒等式を計算と証明で再現できる
+  - Nanson の公式を接線・外積・三重積から導き、面法線と面積倍率を分けて計算できる
+  - 単純せん断や非一様変形で長さ・面積・体積倍率の違いと J>0 の必要性を説明できる
+definitions:
+  - { id: CTM2-DEF-01, name: "変形勾配と体積 Jacobian" }
+  - { id: CTM2-DEF-02, name: "余因子行列と面積ベクトル" }
+theorems:
+  - { id: CTM2-PROP-01, name: "線素と向き付き微小体積の変換" }
+  - { id: CTM2-PROP-02, name: "余因子行列と逆転置行列" }
+  - { id: CTM2-THM-01, name: "Nanson の面積変換公式" }
+canonical_examples:
+  - 一様伸長とせん断の運動写像
+  - 体積を変えず線素と面積を変える単純せん断
+  - 対角伸長と余因子行列の列の直接検算
+  - 外積で追う Nanson 法線と面積
+  - 非一様変形の局所 Jacobian と有限体積の区別
+problem_patterns:
+  - CTM2-LINE-VOLUME-JACOBIAN
+  - CTM2-COFACTOR-COLUMNS
+  - CTM2-NANSON-SHEAR-FACE
+  - CTM2-OBLIQUE-AREA
+  - CTM2-DEGENERACY-ORIENTATION
+  - CTM2-LOCAL-VS-GLOBAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
