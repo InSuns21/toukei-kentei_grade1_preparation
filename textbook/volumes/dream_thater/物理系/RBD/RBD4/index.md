@@ -18,7 +18,20 @@ $$
 
 ## 2. ZYZ Euler角を構成して判定する
 
-[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)で学んだように、姿勢行列 $R$ の第 $j$ 列 $b_j=Re_j$ は、物体に固定された第 $j$ 軸の空間での向きです。まず物体の第三軸 $b_3=Re_3$ がどこを向くか考えます。$R_z(\psi)e_3=e_3$、$R_y(\theta)e_3=(\sin\theta,0,\cos\theta)^{\mathsf T}$ なので、最後に空間の $z$ 軸のまわりへ $\phi$ だけ回せば、物体の軸の向きは二角 $\phi,\theta$ で決まります。残る $\psi$ はその軸のまわりの向きを区別します。
+[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)で学んだように、姿勢行列の第 $j$ 列は、物体に固定された第 $j$ 軸の空間での向きです。これを $b_j$ と書けば
+
+$
+b_j=Re_j\qquad (j=1,2,3)
+$
+
+です。まず物体の第三軸がどこを向くか考えます。回転行列の作用を右から順に追うと
+
+$
+R_z(\psi)e_3=e_3,\qquad
+R_y(\theta)e_3=(\sin\theta,0,\cos\theta)^{\mathsf T}
+$
+
+です。最後に空間の $z$ 軸のまわりへ $\phi$ だけ回せば、第三軸の向きは二角 $\phi,\theta$ で決まります。残る $\psi$ はその軸のまわりの向きを区別します。
 
 <a id="def-rbd4-zyz-euler"></a>
 
@@ -618,7 +631,35 @@ $$
 
 (2)と一致し、基底を混同していないことが分かります。
 
-**(4)** $\theta=0$ なら $R_z(\phi)R_z(\psi)=R_z(\phi+\psi)$。例えば $(\phi,\theta,\psi)=(0,0,\pi/2)$ と $(\pi/4,0,\pi/4)$ はともに $R_z(\pi/2)$ を与えます。$\theta=0$ を保つ運動（$\dot\theta=0$）では $R(t)=R_z(\phi(t)+\psi(t))$ なので、$\dot R$ は $\dot\phi+\dot\psi$ だけで決まります。従って $(\dot\phi,\dot\psi)\mapsto(\dot\phi+h,\dot\psi-h)$ で同じ角速度です。$\dot\theta\ne0$ ならその分の回転も生じますが、二つの角度速度のこの不定性は残ります。[特異性命題](#prop-rbd4-coordinate-singularity)の零方向 $(1,0,-1)$ がこの不定性を表し、回転行列 $R$ の正則性は失われません。
+**(4)** $\theta=0$ では、同じ $z$ 軸の回転が合成されます。
+
+$
+R_z(\phi)R_z(\psi)=R_z(\phi+\psi).
+$
+
+例えば、角度組 $(0,0,\pi/2)$ と $(\pi/4,0,\pi/4)$ はともに $R_z(\pi/2)$ を与えます。
+
+$\theta=0$ を保つ運動（$\dot\theta=0$）では
+
+$
+R(t)=R_z(\phi(t)+\psi(t)),\qquad
+\dot R=(\dot\phi+\dot\psi)\widehat{e_3}R.
+$
+
+従って、$\dot R$ を決めるのは二つの角度速度の和であり、個々の値ではありません。任意の実数 $h$ に対する置換
+
+$
+(\dot\phi,\dot\psi)\longmapsto(\dot\phi+h,\dot\psi-h)
+$
+
+は角速度を変えません。$\dot\theta\ne0$ の場合も、[角速度変換命題](#prop-rbd4-angular-velocity)を $\theta=0$ で評価すれば
+
+$
+\omega_b=\dot\theta(\sin\psi,\cos\psi,0)^{\mathsf T}
++(\dot\phi+\dot\psi)e_3
+$
+
+なので、この不定性は残ります。[特異性命題](#prop-rbd4-coordinate-singularity)の零方向 $(1,0,-1)$ がこれを表しますが、回転行列 $R$ の正則性は失われません。
 <!-- solution-end -->
 
 ## 8. 次講への接続
