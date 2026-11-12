@@ -6,7 +6,25 @@
 
 ## 0. 領域・滑らかさ・単位
 
-$\Omega_0\subset\mathbb R^3$ は開集合、$0\in I\subset\mathbb R$ は開区間とする。[CTM1 の運動](../CTM1/index.md#def-ctm1-motion-configuration) $\chi:\Omega_0\times I\to\mathbb R^3$ は $C^2$ 級で、$\chi(X,0)=X$、各 $t$ で単射かつ $F=D_X\chi$ の $J=\det F>0$ を満たす。$\Omega_t=\chi_t(\Omega_0)$ とし、$x=\chi(X,t)$、$v(x,t)=\partial_t\chi(X,t)$ とする。$\chi_t$ の逆写像は局所的に滑らかで、単射性により $\Omega_t$ 上で一意に定まる。
+$\Omega_0\subset\mathbb R^3$ は開集合、$I\subset\mathbb R$ は $0$ を含む開区間とする。[CTM1 の運動](../CTM1/index.md#def-ctm1-motion-configuration) $\chi:\Omega_0\times I\to\mathbb R^3$ は $C^2$ 級で、次を満たす。
+
+$$
+\chi(X,0)=X,\qquad
+F(X,t)=D_X\chi(X,t),\qquad
+J(X,t)=\det F(X,t)>0.
+$$
+
+各時刻に $\chi_t:X\mapsto\chi(X,t)$ は単射とする。現在配置と空間速度は
+
+$$
+\Omega_t=\chi_t(\Omega_0),\qquad
+x=\chi(X,t),\qquad
+v(x,t)=\partial_t\chi(X,t)
+$$
+
+である。$J>0$ は $F$ の可逆性を保証し、局所逆関数定理で $\chi_t$ の局所逆写像が滑らかになる。単射性を使ってこれらを貼り合わせると、$\Omega_t$ 上の一意な逆写像を得る。詳しくは [CTM1 の空間速度の構成](../CTM1/index.md#prop-ctm1-spatial-reconstruction)を参照する。
+
+微分する変数に注意する。$\partial_t\chi(X,t)$ と後で使う $\dot J(X,t)=\partial_tJ(X,t)$ は物質ラベル $X$ を固定する。一方、$\partial_t\rho(x,t)$ は現在位置 $x$ を固定する。粒子を追う $d\rho(\chi(X,t),t)/dt$ との差は第3節で連鎖律から確かめる。
 
 積分する物質領域 $U_0\Subset\Omega_0$ は空でない有界な、境界が区分的 $C^1$ の領域とし、$U_t=\chi_t(U_0)$ とする。記号 $\Subset$ は閉包が $\Omega_0$ に含まれることを表す。積分する関数は対象領域の閉包の近くで $C^1$ 級とし、時間についても連続微分可能とする。これにより [RA7 の変数変換定理](../../../基礎科目/RA/RA7/index.md#thm-ra7-change-of-variables)と固定領域での積分・時間微分の交換を適用できる。
 
@@ -33,13 +51,22 @@ $$
 <!-- definition-example-start: def-ctm5-mass-densities -->
 ### **定義の確認**：一様な初期密度
 
-一辺 $L$ m の立方体 $U_0=(0,L)^3$ で $\rho_0=\rho_*>0$ kg/m$^3$ なら、初期質量は
+基準領域を $\Omega_0=\mathbb R^3$、時間区間を $I=\mathbb R$ とし、一辺 $L>0$ m の立方体 $U_0=(0,L)^3$ を取る。運動を $\chi(X,t)=X$、現在密度を $\rho(x,t)=\rho_*>0$ kg/m$^3$（一定）とする。$\chi$ と $\rho$ は滑らかで、$\chi(X,0)=X$、$\chi_t$ は単射である。変形勾配がなぜ単位行列になるかは、標準基底の成分ごとに
 
 $$
-\int_{U_0}\rho_0\,dX=\rho_*L^3.
+F_{ij}=\frac{\partial\chi_i}{\partial X_j}=\frac{\partial X_i}{\partial X_j}=\delta_{ij},
+\qquad F=I_3,\quad J=\det I_3=1>0
 $$
 
-例えば $L=2\,\mathrm m$、$\rho_*=3\,\mathrm{kg/m^3}$ なら $3\times 2^3=24$ kg。密度だけでは質量にならず、体積を積分して初めて質量になる。
+と確かめられる。ここで $F$ は [CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)であり、$J>0$ と単射性はこの運動が許されるための条件である。定義に従って $\rho_0(X)=\rho(X,0)=\rho_*$、$U_t=U_0$ だから、現在質量と初期質量はそれぞれ
+
+$$
+\int_{U_t}\rho(x,t)\,dx=\rho_*L^3,
+\qquad
+\int_{U_0}\rho_0(X)\,dX=\rho_*L^3
+$$
+
+となる。例えば $L=2\,\mathrm m$、$\rho_*=3\,\mathrm{kg/m^3}$ なら、いずれも $3\times 2^3=24$ kg。密度の正値性と単位 kg/m$^3$、体積積分で得る質量の単位 kg を確認できた。動く物体の場合も両密度を混同せず、第2節の体積倍率 $J$ を介して対応させる。
 <!-- definition-example-end -->
 
 この講義で保存するのは「ある場所にある質量」ではなく、「同じ材料を集めた塊の質量」である。これは運動方程式から証明する数学的恒等式ではなく、生成も消滅もない材料について採用する物理的な原理である。
@@ -204,7 +231,15 @@ $$
 0=\int_{U_t}\bigl[D_t\rho+\rho\,\operatorname{div}v\bigr]\,dx.
 $$
 
-括弧内は連続であり、時刻 $t$ を固定すると小さい開球を $\Omega_t$ の任意の点に選べる。各球の逆像も許された物質領域になるので、[命題の局所化](#prop-ctm5-density-jacobian)と同じ正負の背理法により、括弧内は点ごとにゼロとなる。
+括弧内は連続である。時刻 $t$ と現在位置の任意の点 $x_*\in\Omega_t$ を固定する。点の周りに、閉包が $\Omega_t$ に含まれる十分小さい開球 $B$ を選び、その物質側の逆像を
+
+$$
+U_0=\chi_t^{-1}(B),\qquad U_t=\chi_t(U_0)=B
+$$
+
+とする。第0節の逆写像は滑らかなので、$U_0$ は閉包が $\Omega_0$ に含まれる有界領域である。その境界は球面の滑らかな逆像だから区分的 $C^1$ であり、輸送定理を適用できる。
+
+括弧内が $x_*$ で正または負なら、連続性により $B$ をさらに小さくして符号を一定にできる。するとその積分はゼロにならず、上の等式に矛盾する。[命題の局所化](#prop-ctm5-density-jacobian)と同じ理由で括弧内は点ごとにゼロとなる。
 
 この局所方程式は、[VC9 の質量保存の連続の式](../../../幾何系/VC/VC9/index.md#prop-vc9-continuity)を、物質領域の運動から構成し直したものである。既出の連続の式そのものを別名の独立定理にするのではなく、今回は**物質領域の原理・基準密度の関係・局所方程式が互いに同値**であることを示す。
 
@@ -273,7 +308,7 @@ $I$ は連結な時間区間なので、この積は時刻に依らない。$t=0
 <!-- formal-statement-start -->
 ### 系（固定検査体積の質量収支）
 
-[物質質量保存と局所式の同値性](#thm-ctm5-mass-equivalence)の仮定の下で、時間区間 $I_W\subset I$ の各時刻において閉包が $\Omega_t$ に含まれる、境界が区分的 $C^1$ の固定有界領域 $W$ を考える。このとき
+[物質質量保存と局所式の同値性](#thm-ctm5-mass-equivalence)の仮定の下で、時間区間 $I_W\subset I$ の各時刻において閉包が $\Omega_t$ に含まれる固定有界領域 $W$ を考える。$\partial W$ は有限個の $C^1$ 曲面片からなり、$W$ は有限分割によって各座標方向にグラフ表示できる部分領域へ分解できるとする（[VC4 の発散定理の領域条件](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)）。このとき
 
 $$
 \boxed{
@@ -573,7 +608,7 @@ $$
 
 ### B4. 発散ゼロだけでは保存則にならない
 
-$\Omega_0=\mathbb R^3$、$\chi(X,t)=(X_1+ktX_2,X_2,X_3)$、$\rho(x,t)=\rho_*(1+bt)$（$\rho_*>0$、$k,b$ は s$^{-1}$）を $1+bt>0$ となる時刻で考える。$\operatorname{div}v=0$ だが物質領域の質量は保存されないことを示し、失われた仮定を指摘せよ。
+$\Omega_0=\mathbb R^3$、$\chi(X,t)=(X_1+ktX_2,X_2,X_3)$、$\rho(x,t)=\rho_*(1+bt)$（$\rho_*>0$、$k,b$ は s$^{-1}$、**$b\ne0$**）を $1+bt>0$ となる $0$ を含む時間区間で考える。$\operatorname{div}v=0$ だが物質領域の質量は保存されないことを示し、失われた仮定を指摘せよ。
 
 - Level: B
 
@@ -654,7 +689,17 @@ $$
 (ae^{at}X_1+kX_2+u,\,-ae^{-at}X_2,\,0).
 $$
 
-上の逆写像を代入し、同じ種類の項をまとめると
+上の逆写像を代入する。第1成分では、どの変数を固定した微分かを保って
+
+$$
+\begin{aligned}
+v_1&=ae^{at}X_1+kX_2+u\\
+&=a(x_1-kt e^{at}x_2-ut)+ke^{at}x_2+u\\
+&=ax_1+k(1-at)e^{at}x_2+(1-at)u
+\end{aligned}
+$$
+
+と整理する。第2成分は $v_2=-ae^{-at}X_2=-ax_2$、第3成分は $v_3=0$ なので
 
 $$
 v(x,t)=
