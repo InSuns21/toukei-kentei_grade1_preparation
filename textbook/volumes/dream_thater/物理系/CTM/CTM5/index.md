@@ -6,9 +6,25 @@
 
 ## 0. 領域・滑らかさ・単位
 
-$\Omega_0\subset\mathbb R^3$ は開集合、$0\in I\subset\mathbb R$ は開区間とする。[CTM1 の運動](../CTM1/index.md#def-ctm1-motion-configuration) $\chi:\Omega_0\times I\to\mathbb R^3$ は $C^2$ 級で、$\chi(X,0)=X$、各 $t$ で単射かつ $F=D_X\chi$ の $J=\det F>0$ を満たす。$\Omega_t=\chi_t(\Omega_0)$ とし、$x=\chi(X,t)$、$v(x,t)=\partial_t\chi(X,t)$ とする。$\chi_t$ の逆写像は局所的に滑らかで、単射性により $\Omega_t$ 上で一意に定まる。これは $J>0$ による $F$ の可逆性から局所逆関数定理を使い、各時刻の単射性で逆写像を貼り合わせる [CTM1 の空間速度の構成](../CTM1/index.md#prop-ctm1-spatial-reconstruction)に基づく。
+$\Omega_0\subset\mathbb R^3$ は開集合、$I\subset\mathbb R$ は $0$ を含む開区間とする。[CTM1 の運動](../CTM1/index.md#def-ctm1-motion-configuration) $\chi:\Omega_0\times I\to\mathbb R^3$ は $C^2$ 級で、次を満たす。
 
-ここで $\chi_t(X)=\chi(X,t)$ は**時刻 $t$ を固定した写像**である。$\partial_t\chi(X,t)$ と後で使う $\dot J(X,t)=\partial_tJ(X,t)$ は物質ラベル $X$ を固定して微分し、$\partial_t\rho(x,t)$ は現在位置 $x$ を固定して微分する。粒子を追う $d\rho(\chi(X,t),t)/dt$ との差は第3節で連鎖律から確かめる。
+$$
+\chi(X,0)=X,\qquad
+F(X,t)=D_X\chi(X,t),\qquad
+J(X,t)=\det F(X,t)>0.
+$$
+
+各時刻に $\chi_t:X\mapsto\chi(X,t)$ は単射とする。現在配置と空間速度は
+
+$$
+\Omega_t=\chi_t(\Omega_0),\qquad
+x=\chi(X,t),\qquad
+v(x,t)=\partial_t\chi(X,t)
+$$
+
+である。$J>0$ は $F$ の可逆性を保証し、局所逆関数定理で $\chi_t$ の局所逆写像が滑らかになる。単射性を使ってこれらを貼り合わせると、$\Omega_t$ 上の一意な逆写像を得る。詳しくは [CTM1 の空間速度の構成](../CTM1/index.md#prop-ctm1-spatial-reconstruction)を参照する。
+
+微分する変数に注意する。$\partial_t\chi(X,t)$ と後で使う $\dot J(X,t)=\partial_tJ(X,t)$ は物質ラベル $X$ を固定する。一方、$\partial_t\rho(x,t)$ は現在位置 $x$ を固定する。粒子を追う $d\rho(\chi(X,t),t)/dt$ との差は第3節で連鎖律から確かめる。
 
 積分する物質領域 $U_0\Subset\Omega_0$ は空でない有界な、境界が区分的 $C^1$ の領域とし、$U_t=\chi_t(U_0)$ とする。記号 $\Subset$ は閉包が $\Omega_0$ に含まれることを表す。積分する関数は対象領域の閉包の近くで $C^1$ 級とし、時間についても連続微分可能とする。これにより [RA7 の変数変換定理](../../../基礎科目/RA/RA7/index.md#thm-ra7-change-of-variables)と固定領域での積分・時間微分の交換を適用できる。
 
@@ -215,7 +231,15 @@ $$
 0=\int_{U_t}\bigl[D_t\rho+\rho\,\operatorname{div}v\bigr]\,dx.
 $$
 
-括弧内は連続である。時刻 $t$ と任意の $x_*\in\Omega_t$ を固定し、$\overline B\subset\Omega_t$ となる十分小さい開球 $B$ を取る。$\chi_t$ は第0節の条件から滑らかな逆写像を持つため、$U_0=\chi_t^{-1}(B)$ は閉包が $\Omega_0$ に含まれる有界領域で、境界は球面の滑らかな逆像となり区分的 $C^1$ である。したがってこの $U_0$ に輸送定理を適用できる。もし括弧内が $x_*$ で正または負なら、球をさらに小さくして符号を一定にでき、その積分がゼロであることに矛盾する。[命題の局所化](#prop-ctm5-density-jacobian)と同じ理由で括弧内は点ごとにゼロとなる。
+括弧内は連続である。時刻 $t$ と現在位置の任意の点 $x_*\in\Omega_t$ を固定する。点の周りに、閉包が $\Omega_t$ に含まれる十分小さい開球 $B$ を選び、その物質側の逆像を
+
+$$
+U_0=\chi_t^{-1}(B),\qquad U_t=\chi_t(U_0)=B
+$$
+
+とする。第0節の逆写像は滑らかなので、$U_0$ は閉包が $\Omega_0$ に含まれる有界領域である。その境界は球面の滑らかな逆像だから区分的 $C^1$ であり、輸送定理を適用できる。
+
+括弧内が $x_*$ で正または負なら、連続性により $B$ をさらに小さくして符号を一定にできる。するとその積分はゼロにならず、上の等式に矛盾する。[命題の局所化](#prop-ctm5-density-jacobian)と同じ理由で括弧内は点ごとにゼロとなる。
 
 この局所方程式は、[VC9 の質量保存の連続の式](../../../幾何系/VC/VC9/index.md#prop-vc9-continuity)を、物質領域の運動から構成し直したものである。既出の連続の式そのものを別名の独立定理にするのではなく、今回は**物質領域の原理・基準密度の関係・局所方程式が互いに同値**であることを示す。
 
