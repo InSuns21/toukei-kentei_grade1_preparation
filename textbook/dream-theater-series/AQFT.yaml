@@ -58,7 +58,7 @@ chapters:
     title: "巡回性・分離性・局所性"
   - id: AQFT14
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT14
-    status: planned
+    status: completed
     title: "Haag双対性・wedge双対性・factor性"
   - id: AQFT15
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT15
