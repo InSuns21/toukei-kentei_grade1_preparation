@@ -13,7 +13,7 @@ chapters:
   - { id: U3-07, path: textbook/volumes/dream_thater/応用系/U/U3-07, status: completed, title: "Bermudan・行使境界・配当効果" }
   - { id: U3-08, path: textbook/volumes/dream_thater/応用系/U/U3-08, status: completed, title: "Asian オプション：算術平均と経路依存の価格付け" }
   - { id: U3-09, path: textbook/volumes/dream_thater/応用系/U/U3-09, status: completed, title: "Barrier：knock-in/knock-out と監視頻度" }
-  - { id: U3-10, path: textbook/volumes/dream_thater/応用系/U/U3-10, status: planned, title: "Lookback と経路依存状態の圧縮" }
+  - { id: U3-10, path: textbook/volumes/dream_thater/応用系/U/U3-10, status: completed, title: "Lookback と経路依存状態の圧縮" }
   - { id: U3-11, path: textbook/volumes/dream_thater/応用系/U/U3-11, status: planned, title: "CRR 木・三項木と収束・計算量" }
   - { id: U3-12, path: textbook/volumes/dream_thater/応用系/U/U3-12, status: planned, title: "ランダムウォークから Brown 運動への極限" }
   - { id: U3-13, path: textbook/volumes/dream_thater/応用系/U/U3-13, status: planned, title: "金融モデルへの Itô 公式の適用" }
