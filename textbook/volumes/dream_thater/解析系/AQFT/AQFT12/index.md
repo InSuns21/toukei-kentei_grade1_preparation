@@ -437,7 +437,14 @@ $$
 \operatorname{diag}(\sqrt2u,\sqrt2v)\Omega=(u,v)
 $$
 
-と表せるので全域巡回性があります。一方、$Q=D_r$（$0<r\le1$）を取ると、任意の $a,b\in Q$ で $|b^0-a^0|<2r\le2$ です。時間的な二点でも固有時間間隔は $ \sqrt{(b^0-a^0)^2-|\boldsymbol b-\boldsymbol a|^2}\le|b^0-a^0|<2 $ なので、$\mathcal M(Q)=\mathbb CI_2$。その作用は $\mathbb C\Omega$ に限られ、$\mathbb C^2$ に稠密ではありません。$U=I_2$ のスペクトルは $\{0\}$ で正エネルギーですが、$\mathcal M(Q+x)=\mathbb CI_2$ は全 $x$ で変わらず、弱加法性が失敗します。
+と表せるので全域巡回性があります。一方、$Q=D_r$（$0<r\le1$）を取ると、任意の $a,b\in Q$ で $|b^0-a^0|<2r\le2$ です。時間的な二点でも固有時間間隔は
+
+$
+\sqrt{(b^0-a^0)^2-|\boldsymbol b-\boldsymbol a|^2}
+\le|b^0-a^0|<2
+$
+
+なので、$\mathcal M(Q)=\mathbb CI_2$。その作用は $\mathbb C\Omega$ に限られ、$\mathbb C^2$ に稠密ではありません。$U=I_2$ のスペクトルは $\{0\}$ で正エネルギーですが、$\mathcal M(Q+x)=\mathbb CI_2$ は全 $x$ で変わらず、弱加法性が失敗します。
 <!-- solution-end -->
 
 <a id="ex-aqft12-b04"></a>
