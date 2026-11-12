@@ -52,7 +52,25 @@ function extractLinks(markdown) {
   // validate-pages-images.mjs. They are not root-oriented navigation links.
   return [...withoutMath.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)]
     .filter(match => match.index === 0 || withoutMath[match.index - 1] !== '!')
-    .map(match => match[1].trim());
+    .map(match => {
+      // Docsify directives live in an optional quoted Markdown link title,
+      // not in the file path (e.g. [player](./path.html ':ignore')).
+      const raw = match[1].trim();
+      return raw.match(/^(\S+)(?:\s+(['"])[^'"]*\2)?$/)?.[1] ?? raw;
+    });
+}
+
+function validateStandaloneHtmlRoutes(markdown, sourceLabel, errors) {
+  // Docsify ordinarily turns Markdown links into #/ routes, which cannot run
+  // a standalone HTML application's module scripts.
+  for (const match of markdown.matchAll(/\]\(([^\s)]+\.html?)(\s+(['"])([^'"]*)\3)?\)/gi)) {
+    const href = match[1];
+    if (/^(?:https?:)?\/\//i.test(href)) continue;
+    const directives = match[4] || '';
+    if (!href.startsWith('./') || !/(?:^|\s):ignore(?:\s|$)/.test(directives)) {
+      errors.push(`${sourceLabel}: standalone HTML must use a site-root-relative ./ link with Docsify :ignore: ${href}`);
+    }
+  }
 }
 
 function testExtractLinks() {
@@ -62,10 +80,17 @@ function testExtractLinks() {
     '$\\Bigr](\\varphi_t)$',
     '$$\\left[x\\right](\\varphi_t)$$',
     '\x60[code](not-a-link.md)\x60',
-    '[second](textbook/second.md#anchor)'
+    '[second](textbook/second.md#anchor)',
+    '[player](./textbook/ori-v12-player.html \':ignore\')'
   ].join('\n');
   const got = extractLinks(source);
-  const expected = ['textbook/example.md', 'textbook/second.md#anchor'];
+  const expected = ['textbook/example.md', 'textbook/second.md#anchor', './textbook/ori-v12-player.html'];
+  const errors = [];
+  validateStandaloneHtmlRoutes(source, 'self-test', errors);
+  if (errors.length !== 0) throw new Error('standalone HTML link was routed through Docsify: ' + errors.join('; '));
+  validateStandaloneHtmlRoutes('[broken](textbook/ori-v12-player.html)', 'self-test', errors);
+  if (errors.length !== 1) throw new Error('missing :ignore must be rejected for standalone HTML');
+
   if (JSON.stringify(got) !== JSON.stringify(expected)) {
     throw new Error('math/code-aware link extraction regression: ' + JSON.stringify(got));
   }
@@ -337,6 +362,7 @@ for (const relative of textbookVolumeFiles) {
   const filePath = path.join(textbookDir, 'volumes', ...relative.split('/'));
   const markdown = await readFile(filePath, 'utf8');
   const siteRelative = `textbook/volumes/${relative}`;
+  validateStandaloneHtmlRoutes(markdown, siteRelative, errors);
   textbookLinkCount += await validateRootOrientedLinks(markdown, siteRelative, errors);
 
   if (relative.endsWith('/index.md')) {
