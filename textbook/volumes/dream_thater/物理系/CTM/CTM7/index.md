@@ -32,7 +32,24 @@ $$
 
 - $\rho$ は kg/m$^3$、$v$ は m/s、$a$ と単位質量当たりの体積力 $b$ は m/s$^2$ = N/kg。
 - $\rho b$ は体積当たりの力 N/m$^3$、$\sigma$ は Pa = N/m$^2$、$\operatorname{div}\sigma$ は N/m$^3$。
-- 右手系の直交デカルト基底を $e_1,e_2,e_3$ とし、応力の添字 $\sigma_{ij}$ の第 $i$ は**力**、第 $j$ は**面法線**の成分とする。[CTM6 の Cauchy 応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)で得た線形性により、$n=\sum_j n_j e_j$ なら $t(n)=\sum_jn_jt(e_j)=\sum_{i,j}\sigma_{ij}n_j e_i$ となる。これが応力行列の列を面法線に掛ける理由である。$\partial_j=\partial/\partial x_j$ と書き、$(\operatorname{div}\sigma)_i=\sum_j\partial_j\sigma_{ij}$ とする。後の添字反復では $1,2,3$ の和を表す。
+- 右手系の直交デカルト基底を $e_1,e_2,e_3$ とする。応力の添字 $\sigma_{ij}$ の第 $i$ は**力**、第 $j$ は**面法線**の成分を表す。
+
+[CTM6 の Cauchy 応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)で得た線形性を法線ベクトルの基底展開へ適用すると
+
+$$
+\begin{aligned}
+n&=\sum_jn_j e_j,\\
+t(n)&=\sum_jn_jt(e_j)=\sum_{i,j}\sigma_{ij}n_j e_i
+\end{aligned}
+$$
+
+となる。これが応力行列の列を面法線に掛ける理由である。$\partial_j=\partial/\partial x_j$ と書けば
+
+$$
+(\operatorname{div}\sigma)_i=\sum_j\partial_j\sigma_{ij}
+$$
+
+である。以後、同じ項で反復する添字は $1,2,3$ の和を表す。
 - $n$ はいつでも**力を受ける物質領域から外へ向く**単位法線である。
 
 さらに、接触作用は面上の**力** $\sigma n$ だけ、遠隔作用は体積当たりの力 $\rho b$ だけと仮定する。境界に独立に与えられる面偶力（単位面積当たりのトルク）や体積偶力（単位体積当たりのトルク）、点・線に集中する力は含めない。内部に独立の回転自由度を持つ物質もここでは扱わない。これらの仮定が特に角運動量収支の結論を制限する。
@@ -173,7 +190,21 @@ $$
 
 図の破線 $S$ は左右の物質領域の共通面であり、同じ点で $t(n)$ と $t(-n)$ が逆向きに働く。上下面の $F,-F$ はそれぞれ分布する表面力の**合力の模式表示**で、点に集中する別種の力ではない。上面と下面の作用位置が違えば、合力の和がゼロでもトルクが残る。図の $n$ は左側領域から右へ向く面法線である。
 
-角運動量収支を式へ戻す前に、記号を整理する。$\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号で、[VC7 の Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon)を使えば $(r\times f)_i=\varepsilon_{ijk}r_jf_k$。繰り返される添字について $1,2,3$ の和を取る。ここで $\delta_{j\ell}$ は $j=\ell$ なら $1$、それ以外なら $0$ の Kronecker のデルタであり、$r_j=x_j-o_j$ の $o_j$ が定数だから $\partial_\ell r_j=\delta_{j\ell}$ となる。この式が積の微分の鍵になる。
+角運動量収支を式へ戻す前に、記号を整理する。[VC7 の Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon) $\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号であり、外積を成分で書くと
+
+$$
+(r\times f)_i=\varepsilon_{ijk}r_jf_k
+$$
+
+となる。反復する添字については $1,2,3$ の和を取る。
+
+Kronecker のデルタ $\delta_{j\ell}$ は $j=\ell$ なら $1$、それ以外なら $0$ である。基準点 $o$ は固定しているから、$r_j=x_j-o_j$ の空間微分は
+
+$$
+\partial_\ell r_j=\delta_{j\ell}
+$$
+
+となる。これが次の積の微分の鍵になる。
 
 <a id="prop-ctm7-angular-stress"></a>
 
@@ -265,7 +296,20 @@ $$
 \sigma=\begin{pmatrix}0&s&0\\s&0&0\\0&0&0\end{pmatrix}
 $$
 
-とする。各行の微分がゼロなので $\operatorname{div}\sigma=0$、また $\sigma=\sigma^T$ である。[局所運動量式](#thm-ctm7-material-momentum)が $0=0$ を満たし、[角運動量収支の証明](#prop-ctm7-angular-stress)の境界トルクと慣性項の差は $\int_{U_t}\varepsilon_{ijk}\sigma_{kj}\,dV=0$ だから、任意の物質領域で二つの収支が成り立つ。実際、平面の外向き法線 $e_2$ に対する表面力は $s e_1$ Pa、法線 $e_1$ の面では $s e_2$ Pa であり、**力はゼロではない**。したがって剛体的に静止しているというだけでは内部応力をゼロと結論できない。
+とする。行ごとに成分を微分すると応力の発散はゼロであり、この行列は対称である。
+
+$$
+\operatorname{div}\sigma=0,\qquad\sigma=\sigma^T.
+$$
+
+したがって [局所運動量式](#thm-ctm7-material-momentum)の両辺はゼロになる。また、[角運動量収支の証明](#prop-ctm7-angular-stress)で求めた境界トルクと慣性項の差は
+
+$$
+\int_{U_t}\varepsilon_{ijk}\sigma_{kj}\,dV=0
+\qquad(i=1,2,3)
+$$
+
+なので、任意の物質領域で両方の収支を満たす。実際、法線 $e_2$ の面には $s e_1$ Pa、法線 $e_1$ の面には $s e_2$ Pa の表面力が作用する。**力はゼロではない**。したがって静止しているというだけでは内部応力をゼロと結論できない。
 
 ## 4. 角運動量がないと破れる例
 
@@ -520,7 +564,15 @@ $$
 \end{aligned}
 $$
 
-従って $\operatorname{div}\sigma=\rho_0 a$ で、[局所運動量方程式](#thm-ctm7-material-momentum)の三成分を満たす。$\sigma_{12}=\sigma_{21}=s$ かつ他の非対角成分はゼロなので $\sigma^T=\sigma$。角運動量証明の残差 $\varepsilon_{ijk}\sigma_{kj}$ は $i=1,2,3$ のいずれもゼロである。実際、任意の物質部分領域 $U_t$ と固定点 $o$ に対し、[角運動量収支の証明](#prop-ctm7-angular-stress)の積の微分から、角運動量収支の右辺と左辺の差の第 $i$ 成分は
+[局所運動量方程式](#thm-ctm7-material-momentum)へ各成分を代入すると
+
+$$
+\operatorname{div}\sigma=\rho_0 a
+$$
+
+となり、三成分とも満たす。非対角成分は $\sigma_{12}=\sigma_{21}=s$ のほかはゼロだから、応力は対称である。すなわち $\varepsilon_{ijk}\sigma_{kj}=0$ が各 $i=1,2,3$ で成り立つ。
+
+任意の物質部分領域 $U_t$ と固定点 $o$ に対し、[角運動量収支の証明](#prop-ctm7-angular-stress)の積の微分を使えば、角運動量収支の右辺と左辺の差の第 $i$ 成分は
 
 $$
 \begin{aligned}
