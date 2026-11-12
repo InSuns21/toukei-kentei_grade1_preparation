@@ -11,7 +11,7 @@ $$
 \subset B(\mathcal H)
 $$
 
-です。[AQFT13の巡回・分離性](../AQFT13/index.md#cor-aqft13-reeh-schlieder-separating)が成立する場合にも、以下の型判定は別途必要です。
+です。[AQFT13の巡回・分離性](../AQFT13/index.md#cor-aqft13-vacuum-local-standard)が成立する場合にも、以下の型判定は別途必要です。
 
 ## 1. 因子と射影比較から型を再判定する
 
@@ -246,7 +246,7 @@ $D^*=D$、$D^2=D$、$D\ge0$、$\operatorname{Tr}_{\mathcal H}D=1$ は、$\Omega$
 もし $D\in M$ なら、$M$ 内の射影 $0\le q\le D$ は $B(\mathcal H)$ 上でも $\operatorname{ran}q\subset\mathbb C\Omega$ を満たします。従って $q=0$ または $D$ しかなく、$D$ は $M$ の非零最小射影です。これは[Type IIIの定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)と矛盾します。従って $D\notin M$ です。トレース障害は[前節の定理](#thm-aqft15-typeiii-no-nsf-trace)によります。$\square$
 <!-- proof-end -->
 
-[AQFT13の分離ベクトルによる忠実性](../AQFT13/index.md#prop-aqft13-separating-faithfulness)が使える場合、$\Omega$ の制限状態 $\omega|_M$ は忠実です。しかしその場合でさえ $D$ の $B(\mathcal H)$ 上の表現と、$M$ に内在するトレース密度の表現を混同できません。
+[AQFT13の分離ベクトルによる忠実性](../AQFT13/index.md#prop-aqft13-local-state-faithful)が使える場合、$\Omega$ の制限状態 $\omega|_M$ は忠実です。しかしその場合でさえ $D$ の $B(\mathcal H)$ 上の表現と、$M$ に内在するトレース密度の表現を混同できません。
 
 <a id="prop-aqft15-typei-tensor-obstruction"></a>
 
@@ -273,7 +273,7 @@ $\xi\in\mathcal K$ を単位ベクトルとし、$P_\xi=|\xi\rangle\langle\xi|$ 
 ユニタリ共役は射影の包含と最小性を保存します。仮定の等号が成立すると $M$ にも非零最小射影が存在し、Type IIIの定義に矛盾します。$\square$
 <!-- proof-end -->
 
-「Type IIIの局所環には部分トレースが**一切定義不能**」という表現は強すぎます。Type Iのtensor分解を使った**標準的な局所部分系の密度行列**が無条件には得られない、という意味です。緩衝領域を入れたType I中間因子の可能性は次講[AQFT16](../AQFT16/index.md)で扱います。鋭い境界と緩衝領域を混同しないことが重要です。
+「Type IIIの局所環には部分トレースが**一切定義不能**」という表現は強すぎます。Type Iのtensor分解を使った**標準的な局所部分系の密度行列**が無条件には得られない、という意味です。緩衝領域を入れたType I中間因子の可能性は次講AQFT16で扱います。鋭い境界と緩衝領域を混同しないことが重要です。
 
 ## 6. 物理的な読み方と論理的な境界
 
@@ -381,7 +381,7 @@ $M\subset B(H)$ をType III因子、$\|\Omega\|=1$ とし $D=|\Omega\rangle\lang
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** (1) ベクトル状態は正規である。[AQFT13の分離性と忠実性の命題](../AQFT13/index.md#prop-aqft13-separating-faithfulness)を適用する。分離性の仮定により $A\Omega=0$ なら $A=0$。$A\ge0$ で $\omega(A)=0$ なら $\|A^{1/2}\Omega\|^2=0$、ゆえに $A^{1/2}=0$、$A=0$ なので忠実。
+**詳細解答。** (1) ベクトル状態は正規である。[AQFT13の分離性と忠実性の命題](../AQFT13/index.md#prop-aqft13-local-state-faithful)を適用する。分離性の仮定により $A\Omega=0$ なら $A=0$。$A\ge0$ で $\omega(A)=0$ なら $\|A^{1/2}\Omega\|^2=0$、ゆえに $A^{1/2}=0$、$A=0$ なので忠実。
 
 (2) $D=|\Omega\rangle\langle\Omega|$ とすれば、$\Omega$ を最初の基底に選んだとき $D=\operatorname{diag}(1,0,\ldots)$。従って $D\ge0$、$\operatorname{Tr}_{\mathcal H}D=1$、さらに任意の $A\in B(\mathcal H)$ について $\operatorname{Tr}_{\mathcal H}(DA)=\langle\Omega,A\Omega\rangle$。これは周囲の環での密度作用素である。
 
