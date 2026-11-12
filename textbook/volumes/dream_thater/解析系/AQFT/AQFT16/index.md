@@ -137,13 +137,25 @@ $$
 
 $Ne$ は $K$ で稠密なので $T=cI_K$ です。従って $\lambda(N)'=\mathbb CI_K$。
 
-ここで $\lambda(N)$ 自身が弱作用素閉であることも確認します。$\lambda(a_i)\in\lambda(N)$ が $K$ 上で弱作用素収束して $S$ を極限に持つなら、任意の単純テンソルに関する行列係数を取ることで $\lambda(a_i)\otimes I_L\to S\otimes I_L$ が $K\otimes L$ 上で弱作用素収束します（有界な収束ネットであり、単純テンソルの線形結合は稠密です）。$V^*NV$ はvon Neumann環なので弱作用素閉です。よって $S\otimes I_L\in V^*NV=\lambda(N)\otimes I_L$。$L\ne\{0\}$ だから $S\in\lambda(N)$ です。
+$\lambda(N)$ が弱作用素閉であることを別途仮定する必要はありません。$V^*NV=\lambda(N)\otimes I_L$ は、もとの $N$ がvon Neumann環で $V$ がユニタリなので、すでに弱作用素閉です。
 
-従って[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により
+そこで可換子を直接計算します。$L$ の正規直交基底 $(l_j)$ を選び、$T\in(\lambda(N)\otimes I_L)'$ の $(i,j)$ 成分を
 
 $$
-\lambda(N)=\lambda(N)''=(\mathbb CI_K)'=B(K),
-\qquad V^*NV=B(K)\otimes I_L.
+T_{ij}k=(I_K\otimes\langle l_i,\cdot\rangle)\,T(k\otimes l_j)
+\qquad (k\in K)
+$$
+
+とします。$T$ と $\lambda(a)\otimes I_L$ の可換性から $T_{ij}\lambda(a)=\lambda(a)T_{ij}$ です。$\lambda(N)'=\mathbb CI_K$ より各成分は $T_{ij}=c_{ij}I_K$ となります。$T$ の有界性から係数 $(c_{ij})$ は $L$ 上の有界作用素 $S$ を定めるので、$T=I_K\otimes S$ です。逆にこの形の作用素は全て左因子と可換です。よって
+
+$$
+(\lambda(N)\otimes I_L)'=I_K\otimes B(L).
+$$
+
+同じ成分計算で $(I_K\otimes B(L))'=B(K)\otimes I_L$ です。[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)を**弱作用素閉な環 $V^*NV$** に適用すると
+
+$$
+V^*NV=(V^*NV)''=(I_K\otimes B(L))'=B(K)\otimes I_L.
 $$
 
 この等式の可換子を取れば $V^*N'V=I_K\otimes B(L)$。$U=V^*$ と置けば主張を得ます。$\square$
