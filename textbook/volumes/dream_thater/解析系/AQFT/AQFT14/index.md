@@ -1,6 +1,6 @@
 # AQFT14 Haag双対性・wedge双対性・factor性
 
-[AQFT13の局所性からの包含](../AQFT13/index.md#prop-aqft13-causal-complement-commutant)では、空間的に離れた領域の観測量が交換するため、$\mathcal M(O^\perp)\subset\mathcal M(O)'$ が分かりました。しかし可換子 $\mathcal M(O)'$ には、**補領域の観測量からは作れない余分な演算子**が含まれるかもしれません。包含が等号になる条件と、局所環を中心で分解できるかという条件は異なります。本講ではこれらを独立に計算し、後の局所環の型分類への足場を作ります。
+[AQFT13の局所性からの包含](../AQFT13/index.md#prop-aqft13-causal-complement-commutant)では、空間的に離れた領域の観測量が交換するため、$\mathcal M(O^\perp)\subset\mathcal M(O)'$ が分かりました。しかし可換子 $\mathcal M(O)'$ には、**補領域の観測量からは作れない余分な演算子**が含まれるかもしれません。包含が等号になる条件と、局所von Neumann環を中心で分解できるかという条件は異なります。本講ではこれらを独立に計算し、後の局所von Neumann環の型分類への足場を作ります。
 
 舞台は計量符号 $(-,+,+,+)$ の四次元Minkowski時空です。[AQFT1の因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)を $O^\perp$、[AQFT9の局所von Neumann net](../AQFT9/index.md#def-aqft9-local-vn-net)を $\mathcal M(O)\subset B(\mathcal H)$ と書きます。全ての可換子は同じ $\mathcal H$ 上の $B(\mathcal H)$ 内で取り、局所性と包含単調性を仮定します。ここで $\mathcal H$ は固定した表現のHilbert空間です。必要な場合、開領域 $V$ の代数は $\mathcal M(V)=\bigl(\bigcup_{D\Subset V}\mathcal M(D)\bigr)''$ と定め、$D$ は閉包が $V$ にコンパクトに含まれる有界double coneを走るものとします。この定義は開領域への拡張を新たに選ぶ場合の規約です。もともとのnetが全開領域で定義されている場合、それと一致するには内側からの加法性などの追加仮定が必要であり、無条件には同一視しません。
 
@@ -18,7 +18,7 @@ $$
 
 です。逆向きには両辺の可換子を取り、[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)による $\mathcal M(O)''=\mathcal M(O)$ を使います。
 
-この右端が等号になることを **Haag双対性** と呼びます。領域ごとに課す条件であり、局所性という公理と混ぜてはいけません。
+この右端が等号になることは、補領域の演算子で可換子を尽くすという追加の要求です。領域ごとに検証する条件であり、局所性という公理と混ぜてはいけません。
 
 <a id="def-aqft14-haag-duality"></a>
 
@@ -67,7 +67,7 @@ $$
 
 ## 2. 双対netを作り、何が保証されるかを見る
 
-双対性が失敗したとき、「補領域の観測量すべてと可換な作用素」を元の局所代数に追加することができます。この拡大を **双対net** と呼びます。ただし、代数が大きくなることと、新しい割当てが局所性まで保つことは別問題です。
+双対性が失敗したとき、「補領域の観測量すべてと可換な作用素」を元の局所代数に追加することができます。この拡大を次の割当てによって定義します。ただし、代数が大きくなることと、新しい割当てが局所性まで保つことは別問題です。
 
 <a id="def-aqft14-dual-net"></a>
 
@@ -147,7 +147,7 @@ $$
 
 ## 3. wedge双対性：大きい領域でも同じ等号か
 
-[AQFT1の右・左wedge](../AQFT1/index.md#def-aqft1-wedges)は、空間方向へ無限に延びた領域です。右wedge $W_R=\{(t,x^1,x^2,x^3):x^1>|t|\}$ と左wedge $W_L=\{x^1<-|t|\}$ は [wedgeの因果補集合の定理](../AQFT1/index.md#thm-aqft1-wedge-complement)により $W_R^\perp=W_L$、$W_L^\perp=W_R$ を満たします。**wedge双対性** はこのような領域に限って双対性の等号を要求します。
+[AQFT1の右・左wedge](../AQFT1/index.md#def-aqft1-wedges)は、空間方向へ無限に延びた領域です。右wedge $W_R=\{(t,x^1,x^2,x^3):x^1>|t|\}$ と左wedge $W_L=\{x^1<-|t|\}$ は [wedgeの因果補集合の定理](../AQFT1/index.md#thm-aqft1-wedge-complement)により $W_R^\perp=W_L$、$W_L^\perp=W_R$ を満たします。こうした領域に限って補領域との可換子の等号を要求する条件を、次に定義します。
 
 <a id="def-aqft14-wedge-duality"></a>
 
@@ -223,7 +223,7 @@ $$
 
 ## 4. 相対可換子と中心：余分な演算子を区別する
 
-包含 $N\subset D$ があるとき、$D$ の中で $N$ と交換する作用素全体 $N'\cap D$ を **相対可換子** と呼びます。可換子 $N'$ は $B(\mathcal H)$ 全体で探すのに対し、相対可換子はさらに $D$ に属するという条件を付けます。
+包含 $N\subset D$ があるとき、$D$ の中で $N$ と交換する作用素全体 $N'\cap D$ を次に定義します。通常の可換子 $N'$ は $B(\mathcal H)$ 全体で探すのに対し、こちらはさらに $D$ に属するという条件を付けます。
 
 <a id="def-aqft14-relative-commutant"></a>
 
@@ -256,7 +256,7 @@ $$
 これは $N$ と交換するが $D$ の外側にある第二因子の作用素を除き、第三因子だけを残しています。交わりは単位元・積・随伴に閉じ、有限次元ゆえ弱閉でもあります。相対可換子は **双対拡大に残った交換可能な自由度**を測るもので、中心とは別です。
 <!-- definition-example-end -->
 
-中心は自分自身の環の内部で全ての元と交換する部分です。[VN7の中心の定義](../../VN/VN7/index.md#def-vn7-center)により $Z(N)=N\cap N'$ です。[VN7の因子の定義](../../VN/VN7/index.md#def-vn7-factor)では、$Z(N)=\mathbb CI$ のとき $N$ をfactor（因子）と呼びます。**因子性**は一つの環 $N$ の内部の性質、**Haag双対性**は二つの領域の環を結ぶ等号です。
+中心は自分自身の環の内部で全ての元と交換する部分です。[中心](../../VN/VN7/index.md#def-vn7-center)により $Z(N)=N\cap N'$ です。[VN7の因子の定義](../../VN/VN7/index.md#def-vn7-factor)では、$Z(N)=\mathbb CI$ のとき $N$ をfactor（因子）と呼びます。**因子性**は一つの環 $N$ の内部の性質、**Haag双対性**は二つの領域の環を結ぶ等号です。
 
 <a id="prop-aqft14-relative-commutant-and-factor"></a>
 
@@ -278,7 +278,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-双対割当ての定義から
+[双対net](#def-aqft14-dual-net)の定義から
 
 $$
 N'\cap\mathcal M^d(O)=N'\cap K'.
@@ -313,7 +313,7 @@ $$
 
 逆に **因子でもHaag双対的でない** 例は三因子模型です。第一因子の全行列環の中心はスカラーだけなので $Z(N)=\mathbb CI_8$、また $Z(K)=\mathbb CI_8$ です。それでも $N\subsetneq K'$ が成立しました。
 
-最後に **純粋な状態**と混同しないようにします。状態 $\omega$ が純粋とは、$\omega=t\omega_1+(1-t)\omega_2$、$0<t<1$ と分解できるとき必ず $\omega_1=\omega_2=\omega$ であることです。[OA5のGNS表現](../../OA/OA5/index.md#thm-oa5-gns)と同じく、純粋性は状態の性質であり、ある局所環の中心についての主張ではありません。
+最後に **純粋な状態**と混同しないようにします。状態 $\omega$ が純粋とは、$\omega=t\omega_1+(1-t)\omega_2$、$0<t<1$ と分解できるとき必ず $\omega_1=\omega_2=\omega$ であることです。[OA5のGNS表現](../../OA/OA5/index.md#thm-oa5-gns)と同じく、純粋性は状態の性質であり、ある局所von Neumann環の中心についての主張ではありません。
 
 先ほどの $D$ における単位ベクトル $\Omega=(e_1+e_2)/\sqrt2$ の状態は
 
@@ -528,7 +528,7 @@ N'=I_2\otimes B(\mathbb C^2)\otimes B(\mathbb C^2),\quad
 N'\cap K'=I_2\otimes I_2\otimes B(\mathbb C^2).
 $$
 
-よって [共同生成と相対可換子の公式](#prop-aqft14-relative-commutant-and-factor)から
+よって [相対可換子と因子性の十分条件](#prop-aqft14-relative-commutant-and-factor)から
 
 $$
 N\vee K=B(\mathbb C^2)\otimes B(\mathbb C^2)\otimes I_2
@@ -540,6 +540,6 @@ $$
 
 ## 7. 次講への接続
 
-局所性から得られるのは $\mathcal M(O)\subset\mathcal M(O^\perp)'$ という包含であり、Haag双対性は等号を追加で要求します。wedge双対性も等号に関する別の領域族の条件です。一方、因子性は $\mathcal M(O)\cap\mathcal M(O)'=\mathbb CI$ という中心の条件で、全体の真空状態の純粋性とも別です。有限次元模型で独立性を確認しましたが、これだけで自由スカラー場の全局所環が双対的・因子的であるとは示していません。
+局所性から得られるのは $\mathcal M(O)\subset\mathcal M(O^\perp)'$ という包含であり、Haag双対性は等号を追加で要求します。wedge双対性も等号に関する別の領域族の条件です。一方、因子性は $\mathcal M(O)\cap\mathcal M(O)'=\mathbb CI$ という中心の条件で、全体の真空状態の純粋性とも別です。有限次元模型で独立性を確認しましたが、これだけで自由スカラー場の全局所von Neumann環が双対的・因子的であるとは示していません。
 
-次講AQFT15では、[VN7の因子と射影の分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)を使い、Type I/II/IIIの違いと、鋭い時空領域に部分トレースを持ち込む際の限界を考えます。
+次講AQFT15では、[VN7の因子と射影の分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)を使い、Type I/II/IIIの違いと、鋭い時空領域のvon Neumann環でトレースを使えるか、その制約を考えます。
