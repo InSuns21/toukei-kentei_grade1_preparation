@@ -23,7 +23,7 @@
 ## 2. 既習依存・正本との境界
 
 - **入口**：有限確率空間、条件付き期待値、分散、Taylor 展開、線形方程式、最適化の基本。第01〜11講は Ito 解析を前提とせず独立に進める。
-- **第12講以降**：Brown 運動・Itô 積分・SDE・測度変換は、実装時に GitHub の最新 STO／確率過程・測度論関連章で**実在する canonical stable anchor と到達可能な prerequisite**を特定する。未整備の定理を証明済みとして参照しない。数理上必要な金融特有の導出は U3 本文で閉じる。
+- **第12講以降（確率解析は既習正本を使う）**：確率積分の単純過程による構成・[Itô 等長性](../volumes/dream_thater/解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)・[\(L^2\) 完備化による構成](../volumes/dream_thater/解析系/STO/STO6/index.md#thm-sto6-l2-construction) は **STO6**、[Itô 公式](../volumes/dream_thater/解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) と [Itô–Stratonovich 変換](../volumes/dream_thater/解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion) は **STO7**、[SDE の強解の存在一意性](../volumes/dream_thater/解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness) は **STO9**、[Girsanov 定理](../volumes/dream_thater/解析系/STO/STO10/index.md#thm-sto10-girsanov) は **STO10**、[Feynman–Kac 定理](../volumes/dream_thater/解析系/STO/STO11/index.md#thm-sto11-feynman-kac) は **STO11** を理論正本とする。**U3 でこれらの定義・一般定理・核心証明を再構築しない。** 金融モデルの係数・満期条件・測度・商品 payoff を具体的に代入する導出と、Python による数値近似・誤差解析は U3 自身の責任範囲とする。各講の実装時に latest GitHub の stable anchor・prerequisite を再照合する。
 - **PDE・数値解析**：熱方程式、放物型 PDE、差分近似の canonical 結果があれば前提としてリンクする。存在・一意性・Feynman–Kac の適用条件（係数、成長条件、境界、可積分性）を省略しない。既習結果が使えない場合は導入または証明担当を先に確定する。
 - **最適停止・制御**：Snell envelope は U3-06 の有限離散モデルでは直接構成する。一般の DPP／HJB／粘性解／微分ゲームの理論正本は [最適制御・微分ゲーム PLAN](../plan_done/DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md) の**移動先を実装時に確認して**参照する。未実装 PLAN の結果は使わない。
 - **横断ルート**：[地下帝国の横断ルート](DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md)。U4 の裁定機会・統計的裁定とは内容を重複させず、U3 は**デリバティブ無裁定評価とリスク管理**を所有する。
@@ -58,7 +58,7 @@
 | 講義 | 学修対象・必ず導く内容 | 静図中心の図案／任意の補助操作 | 講内の数値検証・境界テスト |
 | --- | --- | --- | --- |
 | **U3-12** ランダムウォークから Brown 運動への極限 | 分散の時間スケーリングと連続極限の仮定を整理 | 格子歩行と Brown 運動標本路 | 有限刻みの平均・分散を確認 |
-| **U3-13** 二次変分と Itô 公式 | 通常の連鎖律との差、二次変分項の役割を再現 | 細分化による二次変分の収束図 | GBM 対数変換を手計算 |
+| **U3-13** 金融モデルへの Itô 公式の適用 | [STO7 の Itô 公式](../volumes/dream_thater/解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) を既習として、株価の対数変換と割引価値過程を係数・仮定つきで計算する。公式自体の証明は繰り返さない | 株価・対数株価の変換対応図 | GBM 対数変換と割引過程のドリフトを手計算・Python で照合 |
 | **U3-14** 幾何 Brown 運動と対数正規価格分布 | SDE の陽解、ドリフト補正、離散木との接続 | 価格過程と対数価格の分布比較 | 正値性と平均・分散の数値一致 |
 | **U3-15** 連続時間のリスク中立測度とヘッジ | numeraire、測度変換、同値マルチンゲール測度の仮定 | 実確率 P と評価測度 Q のドリフト比較図 | 割引株価の Q 下マルチンゲール性 |
 | **U3-16** 自己金融 delta hedge と Black–Scholes–Merton PDE | Itô 公式と株式・債券保有の係数比較から PDE を導出 | delta hedge と残差の時間変化 | PDE 各項の単位・符号・配当条件を検算 |
@@ -81,12 +81,12 @@
 
 ### IV. 確率積分・SDE数値解法と Monte Carlo 価格付け（第26〜37講）
 
-**確率積分／SDE の離散化誤差と、Monte Carlo による期待値推定の標本誤差を区別する。** Itô 積分の $L^2$ 近似を起点とし、強・弱収束、数値安定性、高次補正、MLMC、分散減少、経路依存価格付けまで独立に検証する。原則として実行可能な Python ソースと誤差の再現手順を添付。スカラーの滑らかな SDE で得た誤差次数を、多次元非可換ノイズや不連続 payoff に無条件に適用しない。
+**確率積分／SDE の離散化誤差と、Monte Carlo による期待値推定の標本誤差を区別する。** Itô 積分の定義・構成・等長性と Stratonovich 換算は既習の **STO6・STO7** を参照し、この部では繰り返して証明しない。既習理論から実行可能な数値和を導き、強・弱収束、数値安定性、高次補正、MLMC、分散減少、経路依存価格付けまで独立に検証する。原則として実行可能な Python ソースと誤差の再現手順を添付。スカラーの滑らかな SDE で得た誤差次数を、多次元非可換ノイズや不連続 payoff に無条件に適用しない。
 
 | 講義 | 学修対象・必ず導く内容 | 静図中心の図案／任意の補助操作 | 講内の数値検証・境界テスト |
 | --- | --- | --- | --- |
 | **U3-26** リスク中立期待値の Monte Carlo 推定 | 独立な経路ペイオフ標本の平均、標準誤差・信頼区間、標本誤差と時間離散化バイアスを分離 | 標本数と推定区間の推移図 | 既知の Black–Scholes 価格で被覆率・標準誤差の平方根則を検証 |
-| **U3-27** Itô 確率積分の離散近似と検算 | 適合単純過程の左端和、Itô 等長性、二次変分、右端／中点和との相違と Stratonovich の導入 | 同一 Brown 運動上の左端和・中点和の静図 | $\int_0^T W_t\,dW_t=(W_T^2-T)/2$ の二乗平均誤差・平均0・分散の検証 |
+| **U3-27** Itô 積分の数値近似と誤差の実測 | [STO6 の確率積分の構成](../volumes/dream_thater/解析系/STO/STO6/index.md#thm-sto6-l2-construction)・[Itô 等長性](../volumes/dream_thater/解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple) を前提に、適合左端和を Python で実装し刻み幅と誤差を検証。[STO7 の換算公式](../volumes/dream_thater/解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion) により中点和との差を確認。理論の定義・証明は重複させない | 同じ Brown 運動下の左端和・中点和と厳密値の比較図 | $\int_0^T W_t\,dW_t=(W_T^2-T)/2$ の二乗平均誤差・標本数と時間刻みの独立収束・有限精度の影響を Python で検算 |
 | **U3-28** 厳密 GBM・Euler–Maruyama・Milstein | SDE の積分形、正規な Brownian increment、scalar Itô–Taylor 補正、正値性の限界 | 同じ Brown 運動下での厳密経路と2種類の数値近似図 | 強誤差・弱誤差の導入、Milstein 補正、刻み・負値の限界 |
 | **U3-29** 強収束・弱収束と誤差予算 | 強誤差は同一 Brown 運動下の標本路差、弱誤差は試験関数の期待値差であることと仮定を示す | 対数–対数の誤差・次数推定図 | 滑らかな係数の GBM で Euler 強次数1/2・弱次数1、scalar Milstein 強次数1を検証 |
 | **U3-30** Itô–Taylor 展開・高次法・安定性 | 反復確率積分の補正、弱高次法・predictor–corrector の適用限界、平均二乗安定性と刻み選択 | 平均二乗安定・発散領域の図 | 線形SDEで安定性と収束費用を測定し非滑らか payoff への次数外挿を避ける |
@@ -201,7 +201,7 @@ Black–Scholes の限界を示し、モデルの選択・同定・価格差を�
 11. Larry Harris, *Trading and Exchanges: Market Microstructure for Practitioners* (Oxford University Press, 2003), [出版社](https://academic.oup.com/book/52292)。第59〜61講の板・注文方式・市場マイクロストラクチャの入口。
 12. Anna A. Obizhaeva, Jiang Wang, “Optimal Trading Strategy and Supply/Demand Dynamics” (*Journal of Financial Markets*, 2013), [NBER 著者公開稿](https://www.nber.org/papers/w11444)。第64講の板の回復と一時的インパクト。
 
-13. Peter E. Kloeden, Eckhard Platen, *Numerical Solution of Stochastic Differential Equations* (Springer, 1992), [出版社目次](https://link.springer.com/book/10.1007/978-3-662-12616-5)。第27〜30講の確率積分の離散化、Itô–Taylor、強・弱近似と高次法。
+13. Peter E. Kloeden, Eckhard Platen, *Numerical Solution of Stochastic Differential Equations* (Springer, 1992), [出版社目次](https://link.springer.com/book/10.1007/978-3-662-12616-5)。第27〜30講の既習確率積分に基づく数値近似、Itô–Taylor、強・弱近似と高次法。
 14. Desmond J. Higham, “An Algorithmic Introduction to Numerical Simulation of Stochastic Differential Equations” (*SIAM Review*, 2001), [原著](https://doi.org/10.1137/S0036144500378302)。第27〜30講の Itô 数値積分・Euler–Maruyama・Milstein・強弱収束・数値安定性の検証。
 15. Michael B. Giles, “Multilevel Monte Carlo Path Simulation” (*Operations Research*, 2008), [原著](https://doi.org/10.1287/opre.1070.0496) と “Multilevel Monte Carlo Methods” (*Acta Numerica*, 2015), [原著](https://doi.org/10.1017/S096249291500001X)。第31講の多重レベルの結合、計算量と誤差の検証。
 
