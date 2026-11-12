@@ -1,0 +1,44 @@
+id: "CAT4-03"
+title: "組紐・対称モノイダル圏"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-07
+  - CAT4-01
+  - CAT4-02
+  - LA3E
+official_scope: []
+learning_objectives:
+  - 組紐の自然性と二つのhexagonの始域・終域を照合し、式を射の経路として読み解ける
+  - 集合の直積における交換を自然同型として構成し、両hexagonを元ごとに検算できる
+  - 対称性と組紐の違いを二回交換の合成で説明できる
+  - ベクトル空間のテンソル積の交換が商の関係と整合することを示し、自然性とhexagonを検証できる
+  - 非対称組紐の例を構成し、hexagonと対称性を別々に判定できる
+  - 自然性とhexagonから組紐関係を導ける
+definitions:
+  - { id: CAT4-03-DEF-01, name: 組紐モノイダル圏 }
+  - { id: CAT4-03-DEF-02, name: 対称モノイダル圏 }
+theorems:
+  - { id: CAT4-03-PROP-01, name: 対称性と逆組紐 }
+  - { id: CAT4-03-THM-01, name: ベクトル空間のテンソル積の対称性 }
+  - { id: CAT4-03-PROP-02, name: 対称とは限らない組紐 }
+  - { id: CAT4-03-PROP-03, name: 組紐関係 }
+canonical_examples:
+  - 集合の直積による二つのhexagonと自然性の元ごとの検証
+  - ベクトル空間のテンソル積の商空間でのwell-defined性と対称性
+  - 語の連結を持つ離散圏で組紐の不存在
+  - 整数対象と有理数スカラーの圏におけるqの組紐と対称性の失敗
+problem_patterns:
+  - CAT4-03-NATURALITY
+  - CAT4-03-DOUBLE-SWAP
+  - CAT4-03-HEXAGON-TYPES
+  - CAT4-03-WORD-OBSTRUCTION
+  - CAT4-03-Q-DOUBLE
+  - CAT4-03-TENSOR-QUOTIENT
+  - CAT4-03-BRAID-PROOF
+  - CAT4-03-TENSOR-HEXAGON
+  - CAT4-03-CLASSIFY-BRAIDINGS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 3 }
