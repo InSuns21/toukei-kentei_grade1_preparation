@@ -1,0 +1,52 @@
+chapter: AQFT8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT7
+  - AQFT5
+  - AQFT3
+  - QFT4
+  - QFT5
+  - OA5
+forward_references: []
+concepts:
+  - id: aqft.minkowski-positive-frequency-map
+    name: Minkowski正周波数写像
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-minkowski-causal-symplectic]
+  - id: aqft.minkowski-frequency-symplectic
+    name: 正周波数写像の虚部と実部
+    kind: proposition
+    introduction: formal
+    requires: [aqft.minkowski-positive-frequency-map, aqft.quasifree-covariance]
+  - id: aqft.minkowski-vacuum-two-point
+    name: Minkowski真空共分散と二点形式
+    kind: definition
+    introduction: formal
+    requires: [aqft.minkowski-frequency-symplectic, aqft.quasifree-two-point-form]
+  - id: aqft.minkowski-wightman-matching
+    name: 自由場Fock真空とAQFT二点形式の一致
+    kind: theorem
+    introduction: formal
+    requires: [aqft.minkowski-vacuum-two-point]
+  - id: aqft.minkowski-fock-weyl
+    name: 自由場のFock Weyl表現
+    kind: definition
+    introduction: formal
+    requires: [aqft.minkowski-positive-frequency-map, aqft.weyl-ccr]
+  - id: aqft.minkowski-fock-gaussian
+    name: Fock Weyl関係と真空特性汎関数
+    kind: proposition
+    introduction: formal
+    requires: [aqft.minkowski-fock-weyl, aqft.minkowski-frequency-symplectic, aqft.centered-quasifree-state]
+  - id: aqft.minkowski-vacuum-spectrum
+    name: Minkowski Fock状態の正エネルギーと真空一意性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.minkowski-fock-gaussian, aqft.minkowski-vacuum-two-point]
+  - id: aqft.minkowski-fock-gns
+    name: 真空quasifree状態のGNSとFock表現
+    kind: proposition
+    introduction: formal
+    requires: [aqft.minkowski-fock-gaussian, operator-algebra.gns-construction]
