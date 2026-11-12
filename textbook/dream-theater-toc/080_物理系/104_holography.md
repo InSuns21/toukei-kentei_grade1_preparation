@@ -23,3 +23,4 @@
 20. [HOLO20 RTとエントロピー不等式](textbook/volumes/dream_thater/物理系/HOLO/HOLO20/index.md)
 21. [HOLO21 重力レプリカ法](textbook/volumes/dream_thater/物理系/HOLO/HOLO21/index.md)
 22. [HOLO22 共変HRT面](textbook/volumes/dream_thater/物理系/HOLO/HOLO22/index.md)
+23. [HOLO23 FLM量子補正](textbook/volumes/dream_thater/物理系/HOLO/HOLO23/index.md)
