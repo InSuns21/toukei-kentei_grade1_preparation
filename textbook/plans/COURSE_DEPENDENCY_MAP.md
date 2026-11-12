@@ -1,6 +1,6 @@
 # DREAM THEATER 未着手科目PLAN：分冊結果と直接依存
 
-更新: 2026-11-11  
+更新: 2026-11-12  
 状態: 設計上のルーティング一覧（本文の完成や公開を意味しない）
 
 ## 分割規則
@@ -16,7 +16,7 @@
 
 ## シミュレーション共通基盤（ソフトウェア依存）
 
-[対話型数値シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)をCELEVとMLが共有する**UI・Worker・実験記録の技術正本**として計画する。Newton時間積分・変分探索はCELEV、損失/学習/確率推論はMLがそれぞれ所有する。技術基盤の計画・実装状態は、学習内容の数学的prerequisiteや章statusを変更しない。基盤PLANは現在設計のみ（未実装）。
+[対話型数値シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)はCELEVとMLで利用を開始した**UI・Worker・実験記録の技術正本**で、Phase 1の実装はあるが実端末監査やPhase 2の検証は未完了。Newton時間積分・変分探索はCELEV、損失/学習/確率推論はML、流体CG数値カーネル・shaderはFCGがそれぞれ所有する。基盤のソフトウェア依存と学修上の数学的prerequisite/章statusを混同しない。
 
 ## 分冊した系列
 
@@ -25,6 +25,7 @@
 | 力学と対称性 | [SYM1〜8](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)、[GMECH1〜8](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md) | AMECH6/7・GEO→SYM、LIE+SYM→GMECH、SYM/AMECH→INT→CELE |
 | 剛体力学と連続体への橋 | [RBD1〜16](DREAM_THEATER_RIGID_BODY_DYNAMICS_PLAN.md)、[CTM1〜22](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md) | MECH4/7/8・AMECH1/2→RBD1〜16（GMECH6〜8は必要箇所だけ参照）、MECH/VC→CTM1〜22。RBD1/3/7の剛体運動・速度場・収支をCTM2/4へ接続。両者は互いに全講必修としない |
 | **流体力学（新規設計）** | [FLUID1〜48](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | CTM5/7/9/10/15〜17の輸送・応力・熱・Newton流体/低ReからFLUID1〜48へ。FLUIDは理想流・渦・粘性・波・乱流・圧縮性・CFDの具体模型。NS1〜8AはNSEの解析、NPDE1〜2は一般保存則の正本。数値実験はPythonと必要に応じWebGL表示（講義同時制作） |
+| **流体CG（新規設計）** | [FCG1〜20](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md) | FLUID4/10/27〜29/45〜48・CTMの直接必要部分 → FCG1〜20。流体の支配方程式の再証明ではなく、粒子/格子の時間更新、GPU表示、水面光学、体積煙・炎、相互作用、GISを一講ごとに実装・検証。共有Worker/UIは別の共通基盤PLANが所有 |
 | 変分法・8の字・舞踏解（追加） | [VAR1〜12](../plan_done/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md)、[CELEV1〜8](../plans_progress/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md) | GPDE3〜5/AMECH→VAR9〜10（存在）・VAR11〜12（臨界点/指数）、CELE2〜3+VAR9〜10→CELEV1〜6→CELEV7〜8。シミュレーションはNewton積分+離散変分探索の2モード |
 | 熱とスピングラス | [TH](../plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md)、[SM](../plan_done/DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md)、[SG](../plan_done/DREAM_THEATER_SPIN_GLASS_PLAN.md) | RA/MECH→TH→SM→SG |
 | Lorentz時空とQFT数学（既存4科目） | [LORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)、[HPDE](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)、[MICA](../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)、[AQFT](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md) | GEO/SREL→LORG→HPDE→MICA。HPDE+OA/VN/QINF→AQFT |
