@@ -197,7 +197,16 @@ $$
 $$
 \mathcal L=\frac12\left(\frac{L^2\dot r^2}{r^2-r_+^2}+r^2\dot\phi^2\right)
 $$
-は $\phi$ に陽に依存しません。[VAR1の第一変分と境界項](../../../解析系/VAR/VAR1/index.md#prop-var1-first-variation-boundary)を使い、$\phi(s)$ を $\phi(s)+\tau\eta(s)$（$\eta$ は両端で零となる滑らかな変分、$\tau$ は変分パラメータ）へ動かします。固有長規格化 $h(\dot\gamma,\dot\gamma)=1$ の下で、$v=h(\dot\gamma,\dot\gamma)$ と置けば、$\delta\sqrt v=\delta v/2=\delta(v/2)$ です。従って長さの停留条件はこの変分方向について $\int\mathcal L\,ds$ の停留条件と一致し、部分積分により
+は $\phi$ に陽に依存しません。
+
+[VAR1の第一変分と境界項](../../../解析系/VAR/VAR1/index.md#prop-var1-first-variation-boundary)を使います。角度を $\phi(s)+\tau\eta(s)$ へ動かします。ここで $\eta$ は両端で零の滑らかな変分で、$\tau$ は実数の変分パラメータです。
+
+変分後の曲線を $\gamma_\tau$ とし、$v_\tau=h(\dot\gamma_\tau,\dot\gamma_\tau)$ と置きます。元の曲線は固有長で規格化されているため $v_0=1$ です。したがって各 $s$ で
+$$
+\left.\frac{\partial\sqrt{v_\tau}}{\partial\tau}\right|_{\tau=0}
+=\left.\frac12\frac{\partial v_\tau}{\partial\tau}\right|_{\tau=0}
+$$
+です。この等式により長さの第一変分は、同じ変分方向でのエネルギー $\int\mathcal L\,ds$ の第一変分と一致します。$\delta_\eta$ を $\tau=0$ における変分微分と書き、端点条件を使って部分積分すると
 $$
 \begin{aligned}
 0=\delta_\eta D
