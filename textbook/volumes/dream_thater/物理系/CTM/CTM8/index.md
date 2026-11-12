@@ -149,7 +149,7 @@ $$
 再び任意の領域についての等式と連続性から $\operatorname{Div}_X P=J(\operatorname{div}_x\sigma)\circ\chi$ となる。両辺の単位は N/m$^3$（基準体積当たり）である。 $\square$
 <!-- proof-end -->
 
-### 成分で何が相殺しているか：Piola 恒等式
+### 成分で何が相殺しているか
 
 微分の取り違えを防ぐため、発散変換の中間式を成分でも確かめる。$K_{jA}:=JF^{-1}_{Aj}$ と置く。これは [CTM2 の余因子行列](../CTM2/index.md#prop-ctm2-cofactor-inverse)の成分である。$F_{kA}=\partial_{X_A}\chi_k$ の二階混合微分が交換できるとき
 
