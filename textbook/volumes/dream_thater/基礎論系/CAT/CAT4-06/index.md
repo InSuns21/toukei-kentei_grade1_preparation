@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-06-simple-types -->
-**定義の確認。** $\mathsf o$ は出発記号なので型である。これに関数型の構成規則を二度使えば $\mathsf o\Rightarrow(\mathsf o\Rightarrow\mathsf o)$ も型になる。一方、$\mathsf o\Rightarrow$ は右側の型がないので構文規則から作れない。$A\Rightarrow B$ の括弧は、$(A\Rightarrow B)\Rightarrow C$ と $A\Rightarrow(B\Rightarrow C)$ を区別する。
+**定義の確認**。 $\mathsf o$ は出発記号なので型である。これに関数型の構成規則を二度使えば $\mathsf o\Rightarrow(\mathsf o\Rightarrow\mathsf o)$ も型になる。一方、$\mathsf o\Rightarrow$ は右側の型がないので構文規則から作れない。$A\Rightarrow B$ の括弧は、$(A\Rightarrow B)\Rightarrow C$ と $A\Rightarrow(B\Rightarrow C)$ を区別する。
 <!-- definition-example-end -->
 
 ### 2.2 文脈と型付け
@@ -66,7 +66,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-06-typing -->
-**定義の確認。** $\Gamma=(x:A)$ とし、新しい $y:B$ を加える。変数規則から $\Gamma,y:B\vdash x:A$、単位項規則から $\Gamma,y:B\vdash *:1$、対の規則から $\Gamma,y:B\vdash\langle x,*\rangle:A\times1$ を得る。最後に抽象規則を適用して
+**定義の確認**。 $\Gamma=(x:A)$ とし、新しい $y:B$ を加える。変数規則から $\Gamma,y:B\vdash x:A$、単位項規則から $\Gamma,y:B\vdash *:1$、対の規則から $\Gamma,y:B\vdash\langle x,*\rangle:A\times1$ を得る。最後に抽象規則を適用して
 
 $$
 x:A\vdash\lambda y:B.\langle x,*\rangle:B\Rightarrow(A\times1)
@@ -85,25 +85,25 @@ $$
 > **定義（捕獲を避ける同時代入）**  
 > 文脈 $\Gamma$ と $\Delta$ を取る。$\Gamma$ の宣言を次のように並べる。
 
-$
+$$
 \Gamma=(x_1:A_1,\ldots,x_n:A_n).
-$
+$$
 
 > 各変数に対し、$\Delta$ で次の型付き項が与えられたとする。
 
-$
+$$
 \Delta\vdash s_i:A_i\qquad(i=1,\ldots,n).
-$
+$$
 
 > この列を $\sigma:\Delta\Rightarrow\Gamma$ と記す。$\Gamma\vdash t:B$ の自由変数を対応する $s_i$ に同時に置き換え、束縛変数の捕獲を $\alpha$ 変換で避けた項を $t[\sigma]$ とする。結果は次の型を持つ。
 
-$
+$$
 \Delta\vdash t[\sigma]:B.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-06-substitution -->
-**定義の確認。** $x,y:\mathsf o$ の名前を区別し、$x:\mathsf o\vdash\lambda y:\mathsf o.x:\mathsf o\Rightarrow\mathsf o$ とする。$x$ に自由変数 $y$ を代入する場合、先に束縛側の $y$ を新しい $z$ に改名する。
+**定義の確認**。 $x,y:\mathsf o$ の名前を区別し、$x:\mathsf o\vdash\lambda y:\mathsf o.x:\mathsf o\Rightarrow\mathsf o$ とする。$x$ に自由変数 $y$ を代入する場合、先に束縛側の $y$ を新しい $z$ に改名する。
 
 $$
 (\lambda y:\mathsf o.x)[x:=y]
@@ -138,7 +138,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-06-beta-eta -->
-**定義の確認。** $x:A$ の文脈で $\lambda y:B.x:B\Rightarrow A$ と $v:B$ が与えられると、関数 $\beta$ 則から $(\lambda y:B.x)\,v\equiv_{\beta\eta}x$。他方、$f:A\Rightarrow B$ を変数に持つ文脈では、新しい $y:A$ を使って $\lambda y:A.f\,y\equiv_{\beta\eta}f$。前者は代入の計算、後者は関数を全入力で観察したときの外延的同一性であり、向きが異なる。
+**定義の確認**。 $x:A$ の文脈で $\lambda y:B.x:B\Rightarrow A$ と $v:B$ が与えられると、関数 $\beta$ 則から $(\lambda y:B.x)\,v\equiv_{\beta\eta}x$。他方、$f:A\Rightarrow B$ を変数に持つ文脈では、新しい $y:A$ を使って $\lambda y:A.f\,y\equiv_{\beta\eta}f$。前者は代入の計算、後者は関数を全入力で観察したときの外延的同一性であり、向きが異なる。
 <!-- definition-example-end -->
 
 ## 4. 文脈を積、項を射として読む
@@ -352,7 +352,7 @@ $$
 > 単純型付きラムダ計算の型を対象とし、対象 $A,B$ の間の射を、一変数の判定 $x:A\vdash t:B$ の項の $\alpha\beta\eta$ 等式類とする。恒等射は $x:A\vdash x:A$、射 $[t]:A\to B$ と $[u]:B\to C$ の合成は $u[t/y]$ の等式類と定める。得られる構造を $\mathcal S$ と書く。
 <!-- formal-statement-end -->
 
-**定義の確認。** $A=\mathsf o$ とすると、$x:A\vdash\langle x,*\rangle:A\times1$ は $\mathcal S$ の射 $A\to A\times1$ を表す。その後に第一射影 $z:A\times1\vdash\pi_1z:A$ を合成すると $\pi_1\langle x,*\rangle\equiv_{\beta\eta}x$ だから、$\mathcal S$ の恒等射に一致する。型と合成先が一致することを確かめて初めて射として扱える。
+**定義の確認**。 $A=\mathsf o$ とすると、$x:A\vdash\langle x,*\rangle:A\times1$ は $\mathcal S$ の射 $A\to A\times1$ を表す。その後に第一射影 $z:A\times1\vdash\pi_1z:A$ を合成すると $\pi_1\langle x,*\rangle\equiv_{\beta\eta}x$ だから、$\mathcal S$ の恒等射に一致する。型と合成先が一致することを確かめて初めて射として扱える。
 
 <a id="thm-cat4-06-syntactic-ccc"></a>
 
@@ -370,9 +370,9 @@ $$
 
 **圏の公理。** 型の合う代入を二回実施した結果と、代入項を先に代入してから一回実施した結果は、$\alpha$ 変換を除いて一致する。三つの型付き項を順に合成する場合、その主張は
 
-$
+$$
 v[u/z][t/y]\equiv_\alpha v[u[t/y]/z]
-$
+$$
 
 という代入の結合性である。変数の項なら代入先を追うことで確かめられる。対・射影・適用では帰納法を部分項に適用し、抽象では束縛名を代入項の自由変数から避けて改名してから、内部の項に帰納法を適用する。これで合成の結合律が従う。
 
