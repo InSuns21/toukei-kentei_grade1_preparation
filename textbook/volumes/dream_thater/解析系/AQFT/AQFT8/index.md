@@ -299,13 +299,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-指数ベクトル $\varepsilon(v)=\bigoplus_{n\ge0}v^{\otimes n}/\sqrt{n!}$ は、$ \|\varepsilon(v)\|^2=e^{\|v\|^2}$ でFock空間に属し、これらの線形包は稠密です。生成・消滅演算子の定義から、有限粒子切断で計算した極限として
+指数ベクトル $\varepsilon(v)=\bigoplus_{n\ge0}v^{\otimes n}/\sqrt{n!}$ は、$\|\varepsilon(v)\|^2=e^{\|v\|^2}$ でFock空間に属し、これらの線形包は稠密です。生成・消滅演算子の定義から、有限粒子切断で計算した極限として
 $$
 W(h)\varepsilon(v)
-=\exp\left(-\frac{\|h\|^2}{2}- (h,v)_{\mathfrak h}\right)
+=\exp\left(-\frac{\|h\|^2}{2}+i(h,v)_{\mathfrak h}\right)
 \,\varepsilon(v+ih)
 $$
-を得ます。ここでは $W(h)=e^{i(a(h)+a^\dagger(h))}$ で、指数因子の第2項は $i a(h)$ と $i a^\dagger(h)$ の交換から得られる $- (h,v)$ です。実際 $a(h)\varepsilon(v)=(h,v)\varepsilon(v)$、$e^{ia^\dagger(h)}\varepsilon(v)=\varepsilon(v+ih)$ なので、分解
+を得ます。ここでは $W(h)=e^{i(a(h)+a^\dagger(h))}$ で、指数因子の第2項 $i(h,v)$ は、$e^{ia(h)}$ を $\varepsilon(v)$ に作用させて得ます。一方、定数項 $-\|h\|^2/2$ は交換子 $[ia(h),ia^\dagger(h)]=-\|h\|^2$ に由来します。実際 $a(h)\varepsilon(v)=(h,v)\varepsilon(v)$、$e^{ia^\dagger(h)}\varepsilon(v)=\varepsilon(v+ih)$ なので、分解
 $$
 W(h)=e^{-\|h\|^2/2}e^{ia^\dagger(h)}e^{ia(h)}
 $$
@@ -315,7 +315,7 @@ $W(h)W(k)\varepsilon(v)$ を順に計算すると
 $$
 \begin{aligned}
 &\exp\left(-\frac{\|h\|^2+\|k\|^2}{2}
--(h,v+ik)-(k,v)\right)\varepsilon(v+i(h+k))\\
++i(h,v+ik)+i(k,v)\right)\varepsilon(v+i(h+k))\\
 &=\exp\bigl(-i\operatorname{Im}(h,k)\bigr)
 \,W(h+k)\varepsilon(v).
 \end{aligned}
@@ -364,10 +364,10 @@ $$
 
 **(1) 共変性・不変性。** 実試験関数 $f$ のFourier変換に $f(h^{-1}x)$ を代入し、変数を $x=hy$ と置きます。固有時向きPoincaré変換のJacobian絶対値は1で、正の質量殻は正の質量殻へ移るため
 $$
-\widetilde{T_hf}(p)=e^{ip\cdot a}_{\mathrm{AQFT3}}
-\widetilde f(\ell^{-1}p)
+\widetilde{T_hf}(p)=
+e^{i(p^0a^0-\boldsymbol p\cdot\boldsymbol a)}\widetilde f(\ell^{-1}p)
 $$
-という形になります。ここで位相の記号は $p\cdot a_{\mathrm{AQFT3}}=p^0a^0-\boldsymbol p\cdot\boldsymbol a$ を意味します。質量殻測度 $d^3k/(2\omega_k)$ が不変なので、[二点形式の積分表示](#def-aqft8-vacuum-two-point)に代入すれば $\Lambda_{\mathrm{vac}}(T_hF,T_hG)=\Lambda_{\mathrm{vac}}(F,G)$。従って $\mu_{\mathrm{vac}}$ も不変、[AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から $\omega_{\mathrm{vac}}\circ\alpha_h=\omega_{\mathrm{vac}}$ です。
+という形になります。並進位相の符号は[AQFT3の規約](../AQFT3/index.md#def-aqft3-spectrum) $U(a)=e^{i(a^0H-\boldsymbol a\cdot\boldsymbol P)}$ と一致します。質量殻測度 $d^3k/(2\omega_k)$ が不変なので、[二点形式の積分表示](#def-aqft8-vacuum-two-point)に代入すれば $\Lambda_{\mathrm{vac}}(T_hF,T_hG)=\Lambda_{\mathrm{vac}}(F,G)$。従って $\mu_{\mathrm{vac}}$ も不変、[AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から $\omega_{\mathrm{vac}}\circ\alpha_h=\omega_{\mathrm{vac}}$ です。
 
 **(2) 強連続性。** 並進の一粒子表現は上の乗算位相であり、$a\to0$ で点ごとに $1$ へ収束し絶対値は1です。$h\in L^2$ に対し
 $$
