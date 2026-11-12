@@ -1,0 +1,48 @@
+chapter: AQFT14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT13
+  - AQFT9
+  - AQFT2
+  - AQFT1
+  - VN2
+  - VN7
+  - OA5
+forward_references: []
+concepts:
+  - id: aqft.haag-duality
+    name: Haag双対性
+    kind: definition
+    introduction: formal
+    requires: [aqft.causal-complement-vn-inclusion, operator-algebra.commutant]
+  - id: aqft.dual-net
+    name: 双対net
+    kind: definition
+    introduction: formal
+    requires: [aqft.haag-duality, aqft.gns-local-von-neumann-net]
+  - id: aqft.dual-net-isotony
+    name: 双対割当ての包含単調性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.dual-net, aqft.causal-complement, operator-algebra.von-neumann-bicommutant-theorem]
+  - id: aqft.wedge-duality
+    name: wedge双対性
+    kind: definition
+    introduction: formal
+    requires: [aqft.haag-duality, aqft.rindler-wedges]
+  - id: aqft.wedge-duality-covariance
+    name: 共変性によるwedge双対性の伝播
+    kind: theorem
+    introduction: formal
+    requires: [aqft.wedge-duality, aqft.gns-vn-covariance, aqft.poincare-covariance]
+  - id: aqft.local-relative-commutant
+    name: 相対可換子
+    kind: definition
+    introduction: formal
+    requires: [aqft.dual-net, operator-algebra.commutant]
+  - id: aqft.local-relative-commutant-factor
+    name: 相対可換子と因子性の十分条件
+    kind: proposition
+    introduction: formal
+    requires: [aqft.local-relative-commutant, operator-algebra.factor, operator-algebra.center]

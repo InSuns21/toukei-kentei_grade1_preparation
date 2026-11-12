@@ -1,0 +1,42 @@
+chapter: U3-08
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05]
+forward_references: []
+concepts:
+  - id: finance.asian-arithmetic-payoff
+    name: 算術平均 Asian オプション
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術平均 Asian オプション）"]
+    requires: [finance.european-call-put, finance.multiperiod-binomial-market]
+  - id: finance.asian-augmented-state
+    name: Asian 評価の拡張状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Asian 評価の拡張状態）"]
+    requires: [finance.asian-arithmetic-payoff, finance.binomial-information]
+  - id: finance.asian-backward-price
+    name: 算術平均 Asian の後退帰納価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（算術平均 Asian の後退帰納価格）"]
+    requires: [finance.asian-augmented-state, finance.backward-conditional-value, finance.binomial-self-financing-replication]
+  - id: finance.asian-stock-insufficiency
+    name: 株価だけでは Asian の後退価値を決められない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（株価だけでは Asian の後退価値を決められない）"]
+    requires: [finance.asian-backward-price]
+  - id: finance.asian-node-replication
+    name: 拡張状態での1期間複製
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（拡張状態での1期間複製）"]
+    requires: [finance.asian-backward-price, finance.binomial-self-financing-replication]
+  - id: finance.asian-price-bounds
+    name: Asian call の期待平均による上下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Asian call の期待平均による上下界）"]
+    requires: [finance.asian-backward-price, finance.discounted-stock-martingale]
