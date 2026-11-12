@@ -4,7 +4,15 @@
 
 本講は「状態を動かす → 変換しても期待値が変わらない場合にGNS表現上の対称性を作る → エネルギーのスペクトルを制限する → 真空の一意性を別に判定する」という順に進みます。後の自由場構成では、この追加条件を実際に満たす状態を探します。
 
-舞台は $M=\mathbb R^{1,3}$、計量 $(-,+,+,+)$、$c=1$、時間向きは未来です。$G=\mathcal P_+^\uparrow$ は固有時刻向きPoincaré群、$F=(a,\Lambda)$ は $x\mapsto\Lambda x+a$ を表します。$T=\mathbb R^4$ をその平行移動部分群とします。$\mathfrak B$ は[AQFT2のquasilocal C*-環](../AQFT2/index.md#prop-aqft2-quasilocal)として、$F\mapsto\alpha_F$ を単位的*-自己同型の群作用とします。以下、一般の局所netでノルム連続な群作用までは仮定しません。
+舞台は四次元Minkowski時空です。単位は $c=1$、時間向きは未来、計量は $(-,+,+,+)$ とします。
+
+$$
+M=\mathbb R^{1,3}.
+$$
+
+固有時刻向きPoincaré群を $G=\mathcal P_+^\uparrow$ と書きます。その元 $F=(a,\Lambda)$ は時空の点を $x\mapsto\Lambda x+a$ と移します。平行移動部分群を $T=\mathbb R^4$ とします。
+
+$\mathfrak B$ は[AQFT2のquasilocal C*-環](../AQFT2/index.md#prop-aqft2-quasilocal)とし、$F\mapsto\alpha_F$ を単位的*-自己同型の群作用とします。一般の局所netでノルム連続な群作用までは仮定しません。
 
 ## 1. 状態を時空変換で運ぶ
 
@@ -291,15 +299,15 @@ $\mathcal H=\mathbb C^3$ とし、$H=\operatorname{diag}(0,2,1)$、$P_1=\operato
 > **命題（Lorentz共変性とエネルギー正値性）**  
 > $G=\mathcal P_+^\uparrow$ の強連続ユニタリ表現 $U$ があり、平行移動の共同スペクトルを $\Sigma$ とする。Lorentz部分は平行移動を次のように運ぶものとする。
 >
-$
+$$
 U(\Lambda)U(a)U(\Lambda)^*=U(\Lambda a).
-$
+$$
 >
 > このとき時間並進生成作用素の非負性は、共同スペクトルが前方閉光円錐に入ることと同値である。
 >
-$
+$$
 H\ge0\quad\Longleftrightarrow\quad \Sigma\subset\overline V_+.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -337,7 +345,20 @@ netを用意し、状態のGNS表現が得られたとしても、正エネル�
 
 <!-- formal-statement-start -->
 > **定義（正エネルギー真空と真空一意性）**  
-> $G=\mathcal P_+^\uparrow$ が共変に作用する単位的局所C*netを考える。状態 $\omega$ が (i) $G$ 不変、(ii) その共変GNS実装 $U_\omega$ が強連続、(iii) $U_\omega$ の平行移動同時スペクトルが $\overline V_+$ に含まれる、という条件を満たすとき、この講では $\omega$ を **正エネルギー真空状態**、$\Omega_\omega$ をその真空ベクトルと呼ぶ。さらに $U_\omega$ の下で平行移動不変なベクトル全体が $\mathbb C\Omega_\omega$ であるとき **真空ベクトルが一意** という。異なる状態が存在しないという意味ではない。
+> $G=\mathcal P_+^\uparrow$ が共変に作用する単位的局所C*netを考える。状態 $\omega$ に次の三条件を課す。
+>
+> 1. $\omega$ は $G$ 不変である。
+> 2. $\omega$ の共変GNS実装 $U_\omega$ は強連続である。
+> 3. 平行移動の共同スペクトルは前方閉光円錐 $\overline V_+$ に含まれる。
+>
+> この三条件を満たす $\omega$ を **正エネルギー真空状態**、$\Omega_\omega$ をその真空ベクトルと呼ぶ。さらに平行移動不変なベクトル全体が次の空間に等しいとき **真空ベクトルが一意** という。
+>
+$$
+\{\psi\in\mathcal H_\omega:U_\omega(a)\psi=\psi\ (\forall a\in T)\}
+=\mathbb C\Omega_\omega.
+$$
+>
+> この一意性は、net上に異なる状態が存在しないという意味ではない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft3-vacuum -->
@@ -401,19 +422,19 @@ $\mathfrak B=\mathbb C^2$、任意の非空開領域 $O\subset M$ に $\mathfrak
 > **命題（二点可換netの真空非一意性）**  
 > 上の二点可換netで $0<\lambda<1$ とし、次の状態を取る。
 >
-$
+$$
 \omega_\lambda(z_1,z_2)=\lambda z_1+(1-\lambda)z_2.
-$
+$$
 >
 > この状態のGNS表現は次の組とユニタリ同値である。
 >
-$
+$$
 \begin{aligned}
 \mathcal H&=\mathbb C^2,\qquad
 \pi(z_1,z_2)=\operatorname{diag}(z_1,z_2),\\
 \Omega&=(\sqrt\lambda,\sqrt{1-\lambda}),\qquad U(F)=I_2.
 \end{aligned}
-$
+$$
 >
 > 従って正エネルギー真空は存在するが、この表現で真空ベクトルは一意でない。
 <!-- formal-statement-end -->
@@ -491,14 +512,14 @@ $N=\{(t,\boldsymbol x):|t|<1\}$ は $\{t=0\}$ というMinkowskiのCauchy面の�
 > **命題（基本net公理から加法性とtime-sliceは従わない）**  
 > Minkowski時空 $M=\mathbb R^{1,3}$ と容器 $\mathfrak B=\mathbb C^2$ を取り、任意の開集合 $O\subset M$ へ次の割当てと自明なPoincaré作用を定める。
 >
-$
+$$
 \mathfrak A(O)=
 \begin{cases}
 \mathbb C^2,&O=M,\\
 \mathbb C(1,1),&O\ne M,
 \end{cases}
 \qquad \alpha_F=\mathrm{id}.
-$
+$$
 >
 > この割当てはisotony・Einstein局所性・Poincaré共変性を満たすが、加法性も上で定めたtime-slice条件も満たさない。
 <!-- formal-statement-end -->
