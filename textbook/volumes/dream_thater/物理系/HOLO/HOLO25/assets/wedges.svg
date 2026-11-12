@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400" data-layout-lint="strict" role="img" aria-labelledby="wedge-title wedge-desc">
+  <title id="wedge-title">境界の因果菱形とバルクの相同領域</title>
+  <desc id="wedge-desc">左のt-x断面は原点を中心とする菱形。右の別断面t=0のx-z平面は半円で囲まれた領域。二つの断面は同じ立体図ではない。</desc>
+  <g>
+    <rect x="22" y="40" width="395" height="330" rx="12" fill="#f6f8fb" stroke="#d6dde7" stroke-width="1"/>
+    <polygon points="210,66 362,206 210,346 58,206" fill="#dceaf9" fill-opacity="0.86" stroke="#24619b" stroke-width="3" stroke-linejoin="round"/>
+    <line x1="40" y1="206" x2="392" y2="206" stroke="#333c49" stroke-width="1.8" stroke-dasharray="7 5"/>
+    <line x1="210" y1="352" x2="210" y2="55" stroke="#333c49" stroke-width="1.8" stroke-dasharray="7 5"/>
+    <circle cx="210" cy="66" r="4" fill="#193f66"/>
+    <circle cx="210" cy="346" r="4" fill="#193f66"/>
+    <text x="225" y="59" font-family="sans-serif" font-size="17" fill="#152f4d">t</text>
+    <text x="393" y="199" font-family="sans-serif" font-size="17" fill="#152f4d">x</text>
+  </g>
+  <g>
+    <rect x="455" y="40" width="420" height="330" rx="12" fill="#faf9f6" stroke="#dfded9" stroke-width="1"/>
+    <path d="M 514 347 A 148 148 0 0 1 810 347 L 514 347 Z" fill="#ffedcd" fill-opacity="0.9" stroke="#a56620" stroke-width="3" stroke-linejoin="round"/>
+    <line x1="486" y1="347" x2="837" y2="347" stroke="#35404a" stroke-width="1.8" stroke-dasharray="7 5"/>
+    <line x1="662" y1="360" x2="662" y2="166" stroke="#35404a" stroke-width="1.8" stroke-dasharray="7 5"/>
+    <circle cx="514" cy="347" r="4" fill="#90571c"/>
+    <circle cx="810" cy="347" r="4" fill="#90571c"/>
+    <text x="675" y="168" font-family="sans-serif" font-size="17" fill="#503618">z</text>
+    <text x="844" y="343" font-family="sans-serif" font-size="17" fill="#503618">x</text>
+  </g>
+</svg>
