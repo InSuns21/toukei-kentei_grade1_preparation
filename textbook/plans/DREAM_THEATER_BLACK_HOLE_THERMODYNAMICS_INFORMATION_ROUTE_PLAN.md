@@ -16,7 +16,7 @@
 - [曲がった時空の量子場 I（QCURV系列）](../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)
 - [ブラックホール熱力学 I（BHT1〜24）](../plan_done/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)
 - [ホログラフィー I（HOLO1〜33）](../plans_progress/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)
-- [ブラックホール情報 I・II（BHI1〜30）](DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)
+- [ブラックホール情報 I・II（BHI1〜36）](DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md)
 
 ## 直接依存の有向経路
 
@@ -73,13 +73,13 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | 時空・量子場 | 曲がった時空の量子場 I：Unruh効果とHawking放射 | 新規 QCURV1–QCURV15 | 導出可能範囲・近似・観測量の総点検 |
 | ブラックホール | ブラックホール熱力学 I：地平線・温度・エントロピー | 新規 BHT1–BHT24 | 微視状態数の問いと情報問題への導線 |
 | ブラックホール | ホログラフィー I：AdS/CFTと量子誤り訂正 | 新規 HOLO1–HOLO33 | モデル・双対性・仮説の境界を監査 |
-| ブラックホール | ブラックホール情報 I：Hawking計算・Page曲線・矛盾 | 新規 BHI1–BHI15 | 諸立場の比較・未解決事項の整理 |
-| ブラックホール | ブラックホール情報 II：Island・レプリカ・研究最前線 | 新規 BHI16–BHI30 | 2026時点の到達点と残る問いを論証評価 |
+| ブラックホール | ブラックホール情報 I：情報損失・Page曲線・AMPS・回収条件 | 新規 BHI1–BHI16 | Mathur／AMPSの論理・Hayden–Preskill模型の回収条件を検算 |
+| ブラックホール | ブラックホール情報 II：JT+bath・island・replica wormhole・復号 | 新規 BHI17–BHI36 | 二次元蒸発模型のPage曲線と重力レプリカ計算を再構成し限界を評価 |
 
 ### 各科目の単位規模
 
 - 1科目の講数・学習期間は固定しない。各章の中心問い、主要証明、独習に必要な演習で自然な区切りを選ぶ。TH/SMの既存8章を15週に引き伸ばさず、未証明部分があればそのために必要な講だけ追加する。
-- 教材の章IDは実装時に衝突監査を行ってから確定する。上の `GRI/GRII`、`QFTI/QFTII/QFTIII/QFTIV`、`BHII/BHIII` は**科目管理キー**であり、公開章IDはその都度確定する。旧QFT1–QFT30は未実装の仮IDであり、改訂後にそのまま継承・連番固定しない。
+- 教材の章IDは実装時に衝突監査を行ってから確定する。上の `GRI/GRII`、`QFTI/QFTII/QFTIII/QFTIV`、 `BHI I/BHI II` は**科目の部の名称**であり、公開章IDはその都度確定する。旧QFT1–QFT30は未実装の仮IDであり、改訂後にそのまま継承・連番固定しない。
 - TH/SMは既存PLANの **TH1–TH8 / SM1–SM8** を維持する。SG1–SG8はスピングラス独立科目として存続するが、ブラックホールへの必須前提には置かない。
 - この規模は一人が17科目を同時履修する前提ではない。量子情報 I〜III は一つのQINF教育系列に置いた3部であり、この既存の系列単位集計では1項目として計数する（3部を各独立セメスターと数えるときは規模表を再計算する）。TH→SM→情報、SREL→GR、SREL→QFTの並列経路を合流させるカリキュラムである。
 
