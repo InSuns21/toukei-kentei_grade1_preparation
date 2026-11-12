@@ -292,7 +292,7 @@ $$
 
 となる。単位子でも $f\lambda_U(a\otimes u)=af(u)=\lambda_{U'}(1_k\otimes f)(a\otimes u)$、$f\rho_U(u\otimes a)=af(u)=\rho_{U'}(f\otimes1_k)(u\otimes a)$ である。生成元での一致により、いずれも自然同型である。
 
-[モノイダル圏の五角形・三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)を具体的に検算する。四重純テンソル $(((u\otimes v)\otimes w)\otimes x)$ に対し、五角形の二つの経路は
+[モノイダル圏の五角形・三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)を具体的に検算する。任意の $k$-ベクトル空間 $X$ と $x\in X$ を取り、四重純テンソル $(((u\otimes v)\otimes w)\otimes x)$ に対し、五角形の二つの経路は
 
 $$
 \begin{aligned}
