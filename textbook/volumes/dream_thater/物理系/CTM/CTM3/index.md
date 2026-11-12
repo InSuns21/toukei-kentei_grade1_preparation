@@ -39,7 +39,7 @@ $C$ は任意の非零 $a$ に対し $a^TCa=\|Fa\|^2>0$ を満たす。最後の
 <!-- definition-example-start: def-ctm3-green-strain -->
 ### **定義の確認**：回転を含む一様伸長
 
-$\lambda_1,\lambda_2,\lambda_3>0$、$Q^TQ=I_3$、$\det Q=1$ とし、$F=Q\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3)$ とする。これは正の行列式を持つアフィン変形の局所勾配として実現できる。定義どおり列の内積をとると
+$\lambda_1,\lambda_2,\lambda_3>0$ とし、$Q$ を [RBD1 の向きを保つ回転行列](../../../物理系/RBD/RBD1/index.md#def-rbd1-proper-rotation)、すなわち $Q^TQ=I_3$、$\det Q=1$ を満たす行列とする。$F=Q\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3)$ と置けば、$\det F=\lambda_1\lambda_2\lambda_3>0$ である。固定時刻のアフィン写像 $X\mapsto FX+c$ の Jacobian は $F$ なので、この行列は変形勾配として実現できる。標準直交基底で列の内積をとると
 
 $$
 \begin{aligned}
@@ -279,7 +279,15 @@ $$
 
 ## 4. 微小ひずみが近似になる条件
 
-実務では、変位 $u(X,t)=\chi(X,t)-X$ の空間的な変化を使って、線形のひずみを計算することが多い。[CTM1 の変位](../CTM1/index.md#def-ctm1-material-displacement-velocity)を基準座標 $X$ で微分した行列を $H=D_Xu$ と書くと $F=I_3+H$。非線形の $E$ と比べて何を捨てるのかを計算してみよう。
+実務では、[CTM1 の変位](../CTM1/index.md#def-ctm1-material-displacement-velocity)の空間的な変化を使って、線形のひずみを計算することが多い。ここでも時刻 $t$ は固定し、変位写像 $X\mapsto u(X,t)=\chi(X,t)-X$ を基準座標 $X$ で微分する。
+
+この Jacobian 行列を $H=D_Xu$ と書く。[CTM2 の変形勾配の定義](../CTM2/index.md#def-ctm2-deformation-gradient)と $D_XX=I_3$ を用いると
+
+$$
+F=D_X\chi=D_X(X+u)=I_3+D_Xu=I_3+H.
+$$
+
+ここで行っているのは時間微分ではなく、物質座標についての微分である。非線形の $E$ と比べて何を捨てるのかを計算してみよう。
 
 <a id="def-ctm3-infinitesimal-strain"></a>
 
@@ -393,7 +401,7 @@ F=\begin{pmatrix}1&k&0\\0&1&0\\0&0&1\end{pmatrix},
 C=\begin{pmatrix}1&k&0\\k&1+k^2&0\\0&0&1\end{pmatrix}.
 $$
 
-上左の $2\times2$ ブロックを $C_2$ と書くと、$\det C_2=1$、$\operatorname{tr}C_2=k^2+2$ である。正定値行列の平方根を実際に作るため
+標準直交基底 $e_1,e_2,e_3$ で見ると、$C$ は $e_1,e_2$ の張る平面と $e_3$ 方向をそれぞれ保つ。したがって上左の $2\times2$ ブロック $C_2$ と第3軸の成分 $1$ に分けて固有値と平方根を調べられる。$\det C_2=1$、$\operatorname{tr}C_2=k^2+2$ である。正定値行列の平方根を実際に作るため
 
 $$
 U_2=\frac1{\sqrt{k^2+4}}
@@ -407,9 +415,30 @@ $$
 =(k^2+4)\begin{pmatrix}1&k\\k&k^2+1\end{pmatrix}
 $$
 
-となるので $U_2^2=C_2$。$U_2$ は対称で、先頭主小行列式 $2/\sqrt{k^2+4}>0$ と行列式 $1>0$ を持つため正定値である。従って[右伸長の定義](#def-ctm3-stretch-principal)の一意性によりこれが平方根だ。$U=\operatorname{diag}(U_2,1)$ と置く。
+となるので $U_2^2=C_2$。$U_2$ が正定値であることも、任意の非零 $z=(z_1,z_2)^T$ について二次形式を平方完成して確認できる。
 
-$R=FU^{-1}$ を直接掛けると
+$$
+z^TU_2z=\frac{1}{\sqrt{k^2+4}}
+\left[2\left(z_1+\frac{k}{2}z_2\right)^2
++\left(2+\frac{k^2}{2}\right)z_2^2\right]>0.
+$$
+
+$U_2$ は対称だから、[LA6 の正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)の一意性より $U=\operatorname{diag}(U_2,1)$ が $C$ の右伸長テンソルとなる。なお $\det U_2=[2(k^2+2)-k^2]/(k^2+4)=1$ である。
+
+[本章の極分解定理](#thm-ctm3-polar)に従い $R=FU^{-1}$ を求める。$2\times2$ ブロックでは
+
+$$
+\begin{aligned}
+U_2^{-1}
+&=\frac1{\sqrt{k^2+4}}
+\begin{pmatrix}k^2+2&-k\\-k&2\end{pmatrix},\\
+\begin{pmatrix}1&k\\0&1\end{pmatrix}U_2^{-1}
+&=\frac1{\sqrt{k^2+4}}
+\begin{pmatrix}2&k\\-k&2\end{pmatrix}.
+\end{aligned}
+$$
+
+よって三次元の回転部分は
 
 $$
 R=\begin{pmatrix}
@@ -436,7 +465,17 @@ $$
 =\mu^2-6\mu+1=0.
 $$
 
-従って固有値は $3\pm2\sqrt2$、主伸長は $\sqrt2+1$ と $\sqrt2-1$（三次元の残る主伸長は $1$）。対応する主 Green–Lagrange ひずみの固有値は $1+\sqrt2$、$1-\sqrt2$、$0$。せん断は体積を保存する（$J=1$）が、二つの主方向で伸びと縮みが起こる。
+固有値とその正の平方根（主伸長）、さらに $E=(C-I_3)/2$ の対応する固有値は順に
+
+$$
+\begin{aligned}
+\mu_\pm&=3\pm2\sqrt2=(\sqrt2\pm1)^2,\\
+\lambda_\pm&=\sqrt{\mu_\pm}=\sqrt2\pm1,\\
+\frac{\mu_\pm-1}{2}&=1\pm\sqrt2.
+\end{aligned}
+$$
+
+第3軸ではそれぞれ $1,1,0$ である。せん断は体積を保存する（$J=1$）が、二つの主方向で伸びと縮みが起こる。
 
 ## 6. 演習
 
@@ -453,7 +492,14 @@ $F=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}$ に対し、$J,C,E,U,R$ を
 <!-- solution-start -->
 #### 詳細解答
 
-$F^TF=I_3$ かつ $J=1>0$。従って[Green–Lagrange ひずみの定義](#def-ctm3-green-strain)より $C=I_3$、$E=0$。[極分解](#thm-ctm3-polar)で $U=C^{1/2}=I_3$、$R=FU^{-1}=F$。第1列 $Fe_1=e_2$、第2列 $Fe_2=-e_1$ なので、いずれも長さは $1$ である。回転を伸びと誤認しないことが確認できた。
+列の内積と行列式を計算すると $F^TF=I_3$、$J=1>0$ である。[Green–Lagrange ひずみの定義](#def-ctm3-green-strain)に $C=F^TF$ を代入すると、$E=0$ となる。さらに [本章の極分解定理](#thm-ctm3-polar)をこの $F$ に適用し、$U=I_3$、$R=F$ を得る。計算をまとめると
+
+$$
+C=I_3,\qquad E=\frac12(C-I_3)=0,\qquad
+U=C^{1/2}=I_3,\qquad R=FU^{-1}=F.
+$$
+
+第1列と第2列はそれぞれ $Fe_1=e_2$、$Fe_2=-e_1$ なので、$\|Fe_1\|=\|Fe_2\|=1$ である。各方向の長さが保存されるのは回転のためであり、伸長ではない。
 <!-- solution-end -->
 
 ### A2. 純伸長の主値
@@ -562,7 +608,13 @@ U_2^2=\frac12\begin{pmatrix}2&4\\4&10\end{pmatrix}
 =\begin{pmatrix}1&2\\2&5\end{pmatrix}=C_2.
 $$
 
-$U_2$ は対称で $U_{11}=1/\sqrt2>0$、$\det U_2=(3-1)/2=1>0$ より正定値。したがって[正定値平方根の一意性](#def-ctm3-stretch-principal)によって $U=\operatorname{diag}(U_2,1)$。さらに
+$U_2$ が対称であることは表示から分かる。非零の $z=(z_1,z_2)^T$ に対して
+
+$$
+z^TU_2z=\frac1{\sqrt2}\left[(z_1+z_2)^2+2z_2^2\right]>0
+$$
+
+なので正定値である。[LA6 の正定値平方根定理](../../../基礎科目/LA/LA6/index.md#thm-la6-psd-square-root)の一意性から $U=\operatorname{diag}(U_2,1)$ となる。さらに
 
 $$
 R_2=\frac1{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix},
