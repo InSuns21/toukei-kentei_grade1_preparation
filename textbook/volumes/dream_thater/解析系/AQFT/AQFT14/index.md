@@ -11,7 +11,7 @@ $$
 =\left(\bigcup_{D\Subset V}\mathcal M(D)\right)''.
 $$
 
-ここで $D\Subset V$ は、閉包が $V$ にコンパクトに含まれる有界double coneを走る記号です。この式は開領域への拡張を新たに選ぶ場合の規約です。もともとのnetが全開領域で定義されている場合、それと一致するには内側からの加法性などの追加仮定が必要であり、無条件には同一視しません。
+ここで $D\Subset V$ は、閉包が $V$ にコンパクトに含まれる有界[double cone](../AQFT1/index.md#def-aqft1-double-cone)を走る記号です。この式は開領域への拡張を新たに選ぶ場合の規約です。もともとのnetが全開領域で定義されている場合、それと一致するには内側からの加法性などの追加仮定が必要であり、無条件には同一視しません。
 
 ## 1. 局所性の包含とHaag双対性の等号
 
@@ -53,9 +53,30 @@ $$
 N=B(\mathbb C^2)\otimes I_2,\qquad K=I_2\otimes B(\mathbb C^2)
 $$
 
-と置きます。任意の $A,B\in B(\mathbb C^2)$ について $(A\otimes I_2)(I_2\otimes B)=A\otimes B=(I_2\otimes B)(A\otimes I_2)$、したがって局所性に相当する交換性が成立します。
+と置きます。ここで $I_2$ は $2\times2$ 単位行列で、$A\otimes I_2$ は第一因子にだけ、$I_2\otimes B$ は第二因子にだけ作用します。任意の $A,B\in B(\mathbb C^2)$ について
 
-さらに $N'=K$ です。なぜなら $T=\sum_{i,j=1}^2E_{ij}\otimes T_{ij}$ が全ての $E_{pp}\otimes I_2$ と交換すると、$i\ne j$ の $T_{ij}$ は零になります。残る $T=E_{11}\otimes T_{11}+E_{22}\otimes T_{22}$ が $E_{12}\otimes I_2$ と交換するには $T_{11}=T_{22}$ が必要です。よって $T=I_2\otimes T_{11}$。逆にこの形は全ての $N$ と交換します。対称に $K'=N$ です。
+$$
+(A\otimes I_2)(I_2\otimes B)=A\otimes B=(I_2\otimes B)(A\otimes I_2)
+$$
+
+なので、局所性に相当する交換性が成立します。
+
+次に $N'=K$ を行列表示から導きます。$e_1,e_2$ を $\mathbb C^2$ の標準基底とし、$E_{ij}e_k=\delta_{jk}e_i$ を行列単位とします。任意の $T\in B(\mathcal H)$ は第一因子のこの基底で一意に
+
+$$
+T=\sum_{i,j=1}^2 E_{ij}\otimes T_{ij},\qquad T_{ij}\in B(\mathbb C^2)
+$$
+
+と展開できます。$T\in N'$ なら $E_{11}\otimes I_2$ と $E_{22}\otimes I_2$ の両方と交換します。$E_{ab}E_{cd}=\delta_{bc}E_{ad}$ を用いて各係数を比較すると、$T_{12}=T_{21}=0$ です。さらに残る対角部分に対して
+
+$$
+\begin{aligned}
+(E_{12}\otimes I_2)T&=E_{12}\otimes T_{22},\\
+T(E_{12}\otimes I_2)&=E_{12}\otimes T_{11}
+\end{aligned}
+$$
+
+だから $T_{11}=T_{22}$。従って $T=I_2\otimes T_{11}\in K$ です。逆に $K$ の全元は先ほどの積の式で $N$ と交換するため $K\subset N'$、ゆえに $N'=K$。二つの因子を入れ替えれば $K'=N$ も得られます。**行列単位による全作用素の展開が、可換子の全称条件を係数の等式に換える根拠**です。
 
 従って、この二領域の組では **等号を直接確認**できました。これは完全なMinkowski共変netを構成したという主張ではなく、定義で要求する等号の行列判定です。
 <!-- definition-example-end -->
@@ -264,7 +285,20 @@ $$
 N'=I_2\otimes B(\mathbb C^2)\otimes B(\mathbb C^2)
 $$
 
-なので、行列因子ごとの交わりを取ると
+この等式は先ほどの行列単位による可換子の計算で、第一因子以外をまとめて一つのHilbert空間とみなして得られます。一方、$D$ の任意の元は第一因子の標準基底で一意に
+
+$$
+T=\sum_{i,j=1}^2 E_{ij}\otimes I_2\otimes C_{ij},
+\qquad C_{ij}\in B(\mathbb C^2)
+$$
+
+と展開できます。この $T$ が $N'$ にも属するには、第一因子の全行列と交換しなければなりません。§1と同じ行列単位の係数比較から
+
+$$
+C_{12}=C_{21}=0,\qquad C_{11}=C_{22}
+$$
+
+となるため、次を得ます。
 
 $$
 N'\cap D=I_2\otimes I_2\otimes B(\mathbb C^2).
@@ -489,7 +523,26 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $T\in N'\cap K'$ とは $T$ が $N\cup K$ の全元と可換なことです。可換子が弱閉であるため $T$ はその二重可換子 $(N\cup K)''=N\vee K$ とも可換です。逆に $N,K\subset N\vee K$ なので $(N\vee K)'\subset N'\cap K'$。両包含から等号です。[相対可換子と因子性の命題](#prop-aqft14-relative-commutant-and-factor)の仮定がそろい、$N'\cap K'=B(\mathcal H)'=\mathbb CI$。$Z(N)\subset N'\cap K'$ および $Z(K)\subset N'\cap K'$ より両中心はスカラーだけ、ゆえに両方因子です。
+**詳細解答。** $T\in N'\cap K'$ は、$T$ が $N\cup K$ の全元と可換であることと同値です。[VN2の可換子の弱作用素閉性](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)により、この交換関係は生成されたvon Neumann環にまで保たれます。よって
+
+$$
+\begin{aligned}
+N'\cap K'
+&=(N\cup K)'\\
+&=((N\cup K)'')'\\
+&=(N\vee K)'.
+\end{aligned}
+$$
+
+ここで二行目は可換子を二度取っても可換子自身が変わらないことによります。
+
+さらに $N\vee K=B(\mathcal H)$ と仮定すると、全作用素環の可換子はスカラーだけなので
+
+$$
+N'\cap K'=(N\vee K)'=B(\mathcal H)'=\mathbb CI.
+$$
+
+$N$ と $K$ は互いに可換です。従って、$N$ の中心元は $N'$ に属するだけでなく $K$ とも交換し、$Z(N)\subset N'\cap K'$ です。$K$ に対しても同様です。両中心は単位元を含むからどちらも $\mathbb CI$ に一致します。[因子の定義](../../VN/VN7/index.md#def-vn7-factor)により、$N,K$ はともに因子です。
 <!-- solution-end -->
 
 <a id="ex-aqft14-b04"></a>
@@ -545,12 +598,14 @@ N'=I_2\otimes B(\mathbb C^2)\otimes B(\mathbb C^2),\quad
 N'\cap K'=I_2\otimes I_2\otimes B(\mathbb C^2).
 $$
 
-よって [相対可換子と因子性の十分条件](#prop-aqft14-relative-commutant-and-factor)から
+次に $N$ と $K$ が生成する環の具体的な元を構成します。$N$ の $A\otimes I_2\otimes I_2$ と $K$ の $I_2\otimes B\otimes I_2$ を掛けると $A\otimes B\otimes I_2$ となります。$A,B$ を行列単位にわたって動かした積は第一・第二因子の全行列のテンソル積を線形に張ります。有限次元なのでその線形空間は弱閉であり、逆に積と和で生成できない第三因子の非スカラー作用素は入りません。従って
 
 $$
 N\vee K=B(\mathbb C^2)\otimes B(\mathbb C^2)\otimes I_2
 \subsetneq B(\mathcal H).
 $$
+
+これは [相対可換子と共同生成環の等式](#prop-aqft14-relative-commutant-and-factor)における $(N\vee K)'=N'\cap K'$ とも整合します。
 
 **一般的結論。** 局所性 $[N,K]=0$ と共同生成 $N\vee K=B(\mathcal H)$ があれば [本講の因子性の十分条件](#prop-aqft14-relative-commutant-and-factor)より両方が因子です。しかしこの事実だけで $N=K'$ を証明することはできません。因子性の判定は中心、双対性の判定は補領域の可換子全体を比較するからです。提示した二模型は因子性と双対性の論理的独立をそれぞれ逆方向から示しています。
 <!-- solution-end -->
