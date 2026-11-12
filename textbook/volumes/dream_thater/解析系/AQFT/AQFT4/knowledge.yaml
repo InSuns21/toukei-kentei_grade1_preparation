@@ -1,0 +1,44 @@
+chapter: AQFT4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT3
+  - HPDE22
+  - HPDE23
+forward_references: []
+concepts:
+  - id: aqft.kg-local-test-functions
+    name: 実試験関数空間と局所試験関数
+    kind: definition
+    introduction: formal
+    requires: [hpde.real-klein-gordon, hpde.compact-source-classes]
+  - id: aqft.kg-green-compositions
+    name: Klein–GordonのGreen合成と支持
+    kind: proposition
+    introduction: formal
+    requires: [hpde.green-existence-support, hpde.green-two-sided-identity]
+  - id: aqft.kg-local-quotient
+    name: 自由場の局所試験関数商
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-local-test-functions, hpde.compact-source-classes, linear.quotient-space]
+  - id: aqft.kg-source-solution-isomorphism
+    name: Minkowski自由Klein–Gordon場の源と解の対応
+    kind: theorem
+    introduction: formal
+    requires: [aqft.kg-green-compositions, aqft.kg-local-quotient, hpde.propagator-quotient]
+  - id: aqft.kg-local-image-kernel
+    name: 局所像と核の正しい商
+    kind: proposition
+    introduction: formal
+    requires: [aqft.kg-local-quotient, linear.quotient-space]
+  - id: aqft.kg-poincare-quotient
+    name: 試験関数商のPoincaré共変性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.kg-local-quotient, aqft.poincare-covariance, hpde.causal-green-uniqueness]
+  - id: aqft.kg-spacelike-pairing
+    name: 空間的に分離した源の伝播子積分は零
+    kind: proposition
+    introduction: formal
+    requires: [aqft.kg-local-quotient, aqft.spacelike-separated-regions, hpde.causal-propagator]
