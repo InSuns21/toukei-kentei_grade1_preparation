@@ -48,7 +48,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo16-tfd -->
-**定義の確認**：右側の正規直交基底 $|0\rangle_R,|1\rangle_R$ に対して $H_R|0\rangle_R=0$、$H_R|1\rangle_R=\varepsilon|1\rangle_R$（$\varepsilon>0$）とします。この作用を基底の順 $(|0\rangle_R,|1\rangle_R)$ で表した行列が $H_R=\operatorname{diag}(0,\varepsilon)$ です。固有値が実数なので $H_R$ は自己共役であり、[熱重みの固有基底計算](../HOLO15/index.md#def-holo15-thermal-state)と同じく $e^{-\beta H_R}|j\rangle_R=e^{-\beta E_j}|j\rangle_R$ です。左右にこの基底を対応させ、$\beta>0$ と $q=e^{-\beta\varepsilon}\in(0,1)$ を取れば、$Z=e^{-\beta\cdot0}+e^{-\beta\varepsilon}=1+q$ は正で有限です。定義の係数 $e^{-\beta E_j/2}/\sqrt Z$ を各基底対に掛けると
+**定義の確認**：右側の正規直交基底を $|0\rangle_R,|1\rangle_R$ とし、$\varepsilon>0$ に対して
+
+$
+H_R|0\rangle_R=0,\qquad H_R|1\rangle_R=\varepsilon|1\rangle_R
+$
+
+とします。この作用を基底の順 $(|0\rangle_R,|1\rangle_R)$ で表した行列が $H_R=\operatorname{diag}(0,\varepsilon)$ です。固有値が実数なので $H_R$ は自己共役です。
+
+[熱重みの固有基底計算](../HOLO15/index.md#def-holo15-thermal-state)と同じく、$j=0,1$ で
+
+$
+e^{-\beta H_R}|j\rangle_R=e^{-\beta E_j}|j\rangle_R
+$
+
+です。左右にこの基底を対応させ、$\beta>0$ と $q=e^{-\beta\varepsilon}\in(0,1)$ を取ります。すると
+
+$
+Z=e^{-\beta\cdot0}+e^{-\beta\varepsilon}=1+q>0
+$
+
+は有限です。定義の係数 $e^{-\beta E_j/2}/\sqrt Z$ を各基底対に掛けると
 
 $$
 |\mathrm{TFD}_\beta\rangle
@@ -385,7 +405,16 @@ $$
 \ge r^2\dot\phi^2\ge0.
 $$
 
-従って $\dot U,\dot V$ は同符号（または一方が零）です。右外部の未来向き静的時間並進は、$r$ を固定した $t$ 微分で $U<0,V>0$ において $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ を満たします。この未来円錐を連続に延長すると、未来向き因果曲線では $\dot U\ge0,\dot V\ge0$ です。右から左へ行くには $V>0$ から $V<0$ へ減らさなければならず不可能です。従ってTFDの相関や空間橋は、**可通行なワームホールや超光速通信を意味しません**。このKruskal計算はLevel Cでも再構成します。
+従って $\dot U,\dot V$ は同符号（または一方が零）です。右外部の未来向き静的時間並進について、$r$ を固定した $t$ 微分は $U<0,V>0$ で
+
+$
+\partial_tU=-\kappa U>0,\qquad
+\partial_tV=\kappa V>0
+$
+
+を満たします。この未来円錐を連続に延長すると、未来向き因果曲線では $\dot U\ge0,\dot V\ge0$ です。
+
+右から左へ行くには $V>0$ から $V<0$ へ減らさなければならず不可能です。従ってTFDの相関や空間橋は、**可通行なワームホールや超光速通信を意味しません**。このKruskal計算はLevel Cでも再構成します。
 
 ## 5. 両側相関は片側の熱的相関とどう違うか
 
@@ -733,7 +762,30 @@ ds^2=-\frac{4L^2}{(1+UV)^2}\,dU\,dV+
 r_+^2\frac{(1-UV)^2}{(1+UV)^2}d\phi^2.
 $$
 
-(iv) 曲線パラメータ $\lambda$ による微分を $\dot U=dU/d\lambda$、$\dot V=dV/d\lambda$、$\dot\phi=d\phi/d\lambda$ と置き、因果曲線の接ベクトルに計量を適用すれば $4L^2\dot U\dot V/(1+UV)^2\ge r^2\dot\phi^2\ge0$ です。よって $\dot U,\dot V$ は同符号であり、右外部の未来向き時間並進 $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ と同じ未来円錐を選べば $\dot U,\dot V\ge0$ です。右外部で $V>0$ だった点から未来に進むと $V$ は減少しないため、$V<0$ の左外部には到達できません。$t=0$ の橋が空間的に連結でも、因果的には非可通行です。TFDの左右相関から直接の通信可能性は導けません。
+(iv) 曲線パラメータ $\lambda$ による微分をドットで表し、
+
+$
+\dot U=\frac{dU}{d\lambda},\qquad
+\dot V=\frac{dV}{d\lambda},\qquad
+\dot\phi=\frac{d\phi}{d\lambda}
+$
+
+と置きます。因果曲線の接ベクトルに計量を適用すると
+
+$
+\frac{4L^2}{(1+UV)^2}\dot U\dot V
+\ge r^2\dot\phi^2\ge0
+$
+
+なので、$\dot U,\dot V$ は同符号です。右外部の未来向き時間並進は
+
+$
+\partial_tU=-\kappa U>0,\qquad \partial_tV=\kappa V>0
+$
+
+を満たします。同じ未来円錐を選べば $\dot U,\dot V\ge0$ です。
+
+右外部で $V>0$ だった点から未来に進むと $V$ は減少しないため、$V<0$ の左外部には到達できません。$t=0$ の橋が空間的に連結でも、因果的には非可通行です。TFDの左右相関から直接の通信可能性は導けません。
 <!-- solution-end -->
 
 ## 8. まとめと次講
