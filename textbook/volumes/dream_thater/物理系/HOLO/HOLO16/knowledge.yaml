@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - HOLO15
+  - QINF17
 concepts:
   - id: holography.thermofield-double
     name: 熱場二重状態
@@ -15,7 +16,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（TFDの片側縮約とエントロピー）"]
-    requires: [holography.thermofield-double]
+    requires: [holography.thermofield-double, quantum.von-neumann-entropy]
   - id: holography.btz-nonrotating-exterior
     name: 非回転BTZ外部領域
     kind: definition
