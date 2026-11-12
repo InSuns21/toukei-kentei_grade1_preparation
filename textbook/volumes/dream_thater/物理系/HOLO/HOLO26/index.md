@@ -28,7 +28,17 @@ $$
 =e^{-i\omega t+i\ell\theta}f_{\omega\ell}(\rho)
 $$
 
-と置きます。$\ell$ は円周方向のFourier番号、$\omega$ は無次元のglobal周波数です。実場はこれらのモードと複素共役を組み合わせます。計量の成分から
+と置きます。$\ell$ は円周方向のFourier番号、$\omega$ は無次元のglobal周波数です。実場はこれらのモードと複素共役を組み合わせます。計量の成分から、$0<\rho<\pi/2$ の座標領域では非対角成分がすべて零なので、$g_{\mu\nu}$ の行列式は対角成分の積です。ここで $|g|:=|\det(g_{\mu\nu})|$ は計量行列式の絶対値を表します。
+
+$$
+\det(g_{\mu\nu})=
+\left(-\frac{L^2}{\cos^2\rho}\right)
+\left(\frac{L^2}{\cos^2\rho}\right)
+\left(\frac{L^2\sin^2\rho}{\cos^2\rho}\right)
+=-\frac{L^6\sin^2\rho}{\cos^6\rho}.
+$$
+
+その平方根と逆計量の対角成分は
 
 $$
 \sqrt{|g|}=\frac{L^3\sin\rho}{\cos^3\rho},\quad
@@ -158,7 +168,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo26-global-normal-mode -->
-**定義の確認**。 $n=0,\ell=0$ なら $h_{00}=1$、$f_{00}=\cos^2\rho$、$\omega_{00}=2$ です。中心では $f_{00}(0)=1$ と有限で、境界では $f_{00}/\cos^2\rho=1$ です。さらにKGノルムの径積分は $\int_0^{\pi/2}\tan\rho\cos^4\rho\,d\rho=\int_0^{\pi/2}\sin\rho\cos^3\rho\,d\rho=1/4<\infty$ で、正規化可能性も直接確認できます。径方程式にも、$\tan\rho\,f'_{00}=-2\sin^2\rho$ から $(\tan\rho)^{-1}(\tan\rho f'_{00})'=-4\cos^2\rho$ を得て、$\omega^2f_{00}=4\cos^2\rho$ と打ち消すので確かに解です。
+**定義の確認**。 $n=0,\ell=0$ なら $h_{00}=1$、$f_{00}=\cos^2\rho$、$\omega_{00}=2$ です。中心では $f_{00}(0)=1$ と有限で、境界では $f_{00}/\cos^2\rho=1$ です。さらにKGノルムの径積分は
+
+$$
+\int_0^{\pi/2}\tan\rho\cos^4\rho\,d\rho
+=\int_0^{\pi/2}\sin\rho\cos^3\rho\,d\rho
+=\left[-\frac{\cos^4\rho}{4}\right]_0^{\pi/2}
+=\frac14<\infty
+$$
+
+で、正規化可能性も直接確認できます。径方程式にも、$\tan\rho\,f'_{00}=-2\sin^2\rho$ から $(\tan\rho)^{-1}(\tan\rho f'_{00})'=-4\cos^2\rho$ を得て、$\omega^2f_{00}=4\cos^2\rho$ と打ち消すので確かに解です。
 <!-- definition-example-end -->
 
 <a id="prop-holo26-mode-spectrum"></a>
