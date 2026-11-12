@@ -5,3 +5,4 @@
 2. [CTM2 変形勾配は長さ・面積・体積をどう変えるか](textbook/volumes/dream_thater/物理系/CTM/CTM2/index.md)
 3. [CTM3 有限ひずみと剛体回転をどう区別するか](textbook/volumes/dream_thater/物理系/CTM/CTM3/index.md)
 4. [CTM4 速度勾配と客観性は何を測るか](textbook/volumes/dream_thater/物理系/CTM/CTM4/index.md)
+5. [CTM5 物質領域の質量保存から連続の式へ](textbook/volumes/dream_thater/物理系/CTM/CTM5/index.md)

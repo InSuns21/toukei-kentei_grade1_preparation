@@ -1,0 +1,41 @@
+id: "CTM5"
+title: "物質領域の質量保存から連続の式へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM4
+  - VC9
+official_scope: []
+learning_objectives:
+  - 基準密度と現在密度の単位と積分による質量の定義を区別し、物質領域と固定検査体積を説明できる
+  - C1変数変換と任意領域での質量保存から rho(chi,t)J=rho0 の点ごとの関係を証明できる
+  - 動く物質領域のReynolds輸送定理を連鎖律とJacobianの時間微分から導出できる
+  - 物質質量保存と二つの局所連続の式の同値性を仮定・初期条件込みで説明できる
+  - 固定検査体積の質量収支を発散定理から導き、流出の符号を積分で検算できる
+  - 一様伸長・せん断・非一様初期密度で物質領域と固定領域の質量変化を独立に計算できる
+definitions:
+  - { id: CTM5-DEF-01, name: "現在密度と基準密度" }
+  - { id: CTM5-PRINCIPLE-01, name: "物質領域における質量保存" }
+theorems:
+  - { id: CTM5-PROP-01, name: "質量保存と密度の Jacobian 関係" }
+  - { id: CTM5-THM-01, name: "物質領域の Reynolds 輸送定理" }
+  - { id: CTM5-THM-02, name: "物質質量保存・密度変換・局所式の同値性" }
+  - { id: CTM5-COR-01, name: "固定検査体積の質量収支" }
+canonical_examples:
+  - 一様基準密度の立方体と密度の単位検算
+  - 一様三次元伸長の密度減少と物質総質量保存
+  - 単純せん断下の非一様密度の移流と固定位置の時間変化
+  - 移動する不均一密度が固定箱を通過する境界流束
+  - 伸長・せん断・並進の合成運動で動く物質立方体と固定箱を対照
+problem_patterns:
+  - CTM5-DENSITY-UNITS-MASS
+  - CTM5-REFERENCE-CURRENT-DENSITY
+  - CTM5-REYNOLDS-PROOF-EXAMPLE
+  - CTM5-CONTINUITY-EQUIVALENCE
+  - CTM5-FIXED-CONTROL-FLUX
+  - CTM5-DIVERGENCE-NOT-SUFFICIENT
+  - CTM5-AFFINE-INHOMOGENEOUS-TRANSPORT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
