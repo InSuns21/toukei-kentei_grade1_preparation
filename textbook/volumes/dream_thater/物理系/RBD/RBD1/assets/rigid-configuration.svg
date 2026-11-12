@@ -28,7 +28,7 @@
     <text x="505" y="291">R e2</text>
     <text x="738" y="186">R e3</text>
     <circle cx="566" cy="360" r="5" fill="#1d2831"/>
-    <path d="M566 360 L650 273" stroke="#206f56" stroke-width="3" fill="none" marker-end="url(#rbd1-a3)"/>
+    <path d="M566 360 L656 266" stroke="#206f56" stroke-width="3" fill="none" marker-end="url(#rbd1-a3)"/>
     <text x="544" y="389">O</text>
     <text x="587" y="328">c</text>
   </g>
