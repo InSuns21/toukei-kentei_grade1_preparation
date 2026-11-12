@@ -50,7 +50,14 @@ S_E[\phi]=\frac12\int_{M_{\epsilon,Z}}\sqrt{g_E}\,
 \left(g_E^{ab}\partial_a\phi\,\partial_b\phi+m^2\phi^2\right)dzd^dx
 $$
 
-> と定める。$\chi$ を滑らかな実変分方向として $\delta_\phi S_E[\phi;\chi]=\left.\frac{d}{ds}S_E[\phi+s\chi]\right|_{s=0}$ を第一変分とする。
+> と定める。$\chi$ を滑らかな実変分方向として、作用の第一変分を
+
+$
+\delta_\phi S_E[\phi;\chi]
+=\left.\frac{d}{ds}S_E[\phi+s\chi]\right|_{s=0}
+$
+
+> と定義する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo7-cutoff-action -->
@@ -73,7 +80,7 @@ z^{1-d}\left[(\partial_z\phi)^2+\sum_i(\partial_i\phi)^2+
 \frac{m^2L^2}{z^2}\phi^2\right].
 $$
 
-Dirichlet境界条件では、端面で **場の値を固定し、変分方向をゼロに制限**します。法線微分を固定するNeumann条件とは異なります。
+端面の場の値を指定する場合には、**場の値を固定し、変分方向をゼロに制限**します。法線微分を指定する別の境界条件とは異なります。次にこの指定を定義します。
 
 <a id="def-holo7-cutoff-dirichlet"></a>
 
@@ -100,7 +107,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Euclidスカラー作用の境界付き第一変分）**  
-> $M_{\epsilon,Z}$、$g_E$、$m^2\in\mathbb R$ を上記のように固定し、$\phi,\chi$ を境界まで滑らかな実スカラー場とする。$\nabla_E^2\phi=\frac{1}{\sqrt{g_E}}\partial_a(\sqrt{g_E}g_E^{ab}\partial_b\phi)$ とすると、
+> $M_{\epsilon,Z}$、$g_E$、$m^2\in\mathbb R$ を上記のように固定し、$\phi,\chi$ を境界まで滑らかな実スカラー場とする。Euclid側のLaplace作用素を次の座標式で表す。
+
+$
+\nabla_E^2\phi=\frac{1}{\sqrt{g_E}}\partial_a
+\left(\sqrt{g_E}g_E^{ab}\partial_b\phi\right)
+$
+
+> このとき、
 
 $$
 \delta_\phi S_E[\phi;\chi]
@@ -371,7 +385,7 @@ $$
 
 **重要な限定。** この証明は解の**一意性**を示しましたが、任意の不連続な $J$ や任意の負の $m^2$ での存在を保証しません。滑らかなデータの存在問題には楕円型方程式の理論が必要です。$m^2<0$ では非負性の行が壊れるため、この証明は使えません（だからといって全ての負質量が必ず非一意という意味でもありません）。
 
-## 6. 「源」と「状態」は同じものではない
+## 6. 源の指定だけでは時間発展の初期データは決まらない
 
 ここまでの $J_\epsilon$ は、**有限cutoff面における古典的Dirichletデータ**です。HOLO8では $z\downarrow0$ の二つの独立した漸近的挙動を調べ、どの係数を境界の源として固定できるかを追加条件付きで決めます。有限cutoffの $J_\epsilon$、無限遠で規格化した源、正規化可能なモードの係数を、現時点で等号で結んではいけません。
 
