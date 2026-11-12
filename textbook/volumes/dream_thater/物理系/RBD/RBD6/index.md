@@ -536,25 +536,25 @@ $$
 
 **定義の確認**：$I>0$ を慣性モーメントの次元をもつ定数、$M>0$ を総質量とします。次の辺長をもつ一様直方体を考えます。
 
-$
+$$
 a^2=\frac{30I}{M},\qquad
 b^2=\frac{18I}{M},\qquad
 c^2=\frac{6I}{M}.
-$
+$$
 
 [一様直方体の慣性テンソル](#prop-rbd6-rectangular-block)に代入すると、重心を通る三本の辺方向を主軸とする基底では
 
-$
+$$
 J_C=\frac{M}{12}\operatorname{diag}(b^2+c^2,\ a^2+c^2,\ a^2+b^2)
 =\operatorname{diag}(2I,3I,4I).
-$
+$$
 
 [主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)の定義によれば、この基底の単位ベクトル $e_i$ に対し $J_Ce_i=I_ie_i$ が成り立ち、三つの固有値は $2I,3I,4I$ です。各固有値が正なので $J_C$ は正定値です。角速度を同じ正規直交基底で $\omega=\omega_1e_1+\omega_2e_2+\omega_3e_3$ と展開すると、直交性から
 
-$
+$$
 \omega^{\mathsf T}J_C\omega
 =2I\omega_1^2+3I\omega_2^2+4I\omega_3^2.
-$
+$$
 
 $E_0>0$ を固定し、定義式の等エネルギー条件へ代入すると
 
