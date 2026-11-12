@@ -1,7 +1,7 @@
 # DREAM THEATER 地下帝国・U3 数理ファイナンス：無裁定価格付け・数値計算・金融リスク・最適執行
 
 作成: 2026-10-11／講義構成確定: 2026-11-12  
-状態: in progress（**U3-01 完了・68講中1講実装。残67講と最終横断監査は未完了**）
+状態: in progress（**U3-02 まで完了・68講中2講実装。残66講と最終横断監査は未完了**）
 
 > **講義数は全68講で確定する。** 二項モデルから入り、期待値・PDE の価格付けを照合し、木・有限差分・Monte Carlo・Fourier の数値誤差を評価する。American と経路依存商品の両方を扱い、VaR／ES／ストレス・リスク配賦・信用リスクを経て、最適執行へ至る。各講義の本文・必要な視覚教材・数値検証・査読を**同一作業単位**で完成させ、全講完了後の**科目全体の横断監査は1回だけ**実施する。
 
@@ -27,7 +27,7 @@
 - **PDE・数値解析**：熱方程式、放物型 PDE、差分近似の canonical 結果があれば前提としてリンクする。存在・一意性・Feynman–Kac の適用条件（係数、成長条件、境界、可積分性）を省略しない。既習結果が使えない場合は導入または証明担当を先に確定する。
 - **最適停止・制御**：Snell envelope は U3-06 の有限離散モデルでは直接構成する。一般の DPP／HJB／粘性解／微分ゲームの理論正本は [最適制御・微分ゲーム PLAN](../plan_done/DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md) の**移動先を実装時に確認して**参照する。未実装 PLAN の結果は使わない。
 - **横断ルート**：[地下帝国の横断ルート](../plans/DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md)。U4 の裁定機会・統計的裁定とは内容を重複させず、U3 は**デリバティブ無裁定評価とリスク管理**を所有する。
-- **科目ID**：以下の `U3-01`〜`U3-68` は固定設計ID。系列 manifest は `textbook/dream-theater-series/U3.yaml` に置き、U3-01 の `chapter.yaml`・`knowledge.yaml`・本文を公開済みとする。残り U3-02〜68 は `planned` のまま、各講実装時に status を更新する。
+- **科目ID**：以下の `U3-01`〜`U3-68` は固定設計ID。系列 manifest は `textbook/dream-theater-series/U3.yaml` に置き、U3-01 と U3-02 の `chapter.yaml`・`knowledge.yaml`・本文を公開済みとする。残り U3-03〜68 は `planned` のまま、各講実装時に status を更新する。
 
 ## 3. 各講義の確定シラバスと同時制作資産
 

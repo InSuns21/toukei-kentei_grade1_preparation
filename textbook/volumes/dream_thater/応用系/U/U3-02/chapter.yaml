@@ -1,0 +1,41 @@
+id: "U3-02"
+title: "無裁定条件と正の状態価格を結び付ける"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01]
+official_scope: []
+learning_objectives:
+  - 1期間2状態の裁定を初期費用と両状態の満期受取額から判定できる
+  - 将来の各状態で1円を支払う請求権を株式・預金から複製し正負を含む状態価格を導出できる
+  - 無裁定条件 d<R<u と両状態価格の厳密な正値性の必要十分性を証明できる
+  - R<=d と R>=u および等号の境界で初期費用ゼロの裁定を具体的に構成できる
+  - 状態価格からリスク中立確率を一意に導き実確率との違いと評価式を説明できる
+definitions:
+  - { id: U3-02-DEF-01, name: 1期間市場の裁定 }
+  - { id: U3-02-DEF-02, name: 状態価格 }
+  - { id: U3-02-DEF-03, name: 1期間のリスク中立確率 }
+theorems:
+  - { id: U3-02-THM-01, name: 1期間二項市場の無裁定条件 }
+  - { id: U3-02-PROP-01, name: 状態価格による一意な複製費用 }
+  - { id: U3-02-PROP-02, name: リスク中立確率の一意性と評価公式 }
+canonical_examples:
+  - R<d で株式購入と借入により両状態正利益の裁定
+  - 将来1円の状態請求権を複製し状態価格が10/21円となる例
+  - R=d と R=u の境界で非負状態価格だけでは裁定を防げない例
+  - 上状態の状態価格が負の市場でデジタル請求権を合成して裁定を構成する例
+  - 実確率 P(U)=1/4 と評価用確率 Q(U)=1/2 の違い
+problem_patterns:
+  - U3-02-A1
+  - U3-02-A2
+  - U3-02-A3
+  - U3-02-A4
+  - U3-02-A5
+  - U3-02-B1
+  - U3-02-B2
+  - U3-02-B3
+  - U3-02-B4
+  - U3-02-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 3.0, review: 0.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
