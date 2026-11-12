@@ -38,13 +38,19 @@ O_i(v)=\int_0^1g_i(x)v(x)\,dx,\qquad
 O(v)=(O_1(v),\ldots,O_m(v))
 $$
 
-とします。[Poincaré 不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)と Cauchy–Schwarz から各 $O_i$ は $V$ 上有界線形です。$r_i(a)=O_i(S(a))-d_i$ を**観測残差**と呼びます。小さな残差を選ぶため、二乗和と、必要なら基準係数 $a_0$ からのずれを組み合わせます。
+とします。[Poincaré 不等式](../../GPDE/GPDE4/index.md#thm-gpde4-poincare)と Cauchy–Schwarz から各 $O_i$ は $V$ 上有界線形です。観測値と測定データの差を $r_i(a)=O_i(S(a))-d_i$ と書きます。小さな差を得るため、以下では二乗和と、必要なら基準係数 $a_0$ からのずれを組み合わせます。
 
 <a id="def-inv18-objective"></a>
 
 <!-- formal-statement-start -->
 > **定義（PDE 制約付き目的関数）**  
-> $I=(0,1)$、$V=H_0^1(I)$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$ を固定する。各 $a\in\mathcal U\subset L^\infty(I)$ について、$u=S(a)$ を上の弱拡散の弱方程式の唯一解とし、
+> $I=(0,1)$、$V=H_0^1(I)$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$ を固定する。各 $a\in\mathcal U\subset L^\infty(I)$ について、$u=S(a)$ を上の拡散の弱方程式の唯一解とし、観測残差を
+
+$$
+r_i(a)=O_i(S(a))-d_i
+$$
+
+> と定義する。これを用いて、
 
 $$
 j(a)=\frac12\sum_{i=1}^m
