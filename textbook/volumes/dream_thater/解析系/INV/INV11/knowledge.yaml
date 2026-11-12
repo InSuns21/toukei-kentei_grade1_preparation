@@ -1,0 +1,66 @@
+chapter: INV11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV5
+  - INV8
+  - INV10
+
+forward_references: []
+
+concepts:
+  - id: inverse.nonlinear-landweber
+    name: 非線形Landweber反復
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非線形 Landweber 反復）"]
+    requires: [inverse.frechet-forward-derivative, inverse.tikhonov-quadratic]
+
+  - id: inverse.tangential-cone-condition
+    name: 接線錐条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（接線錐条件）"]
+    requires: [inverse.frechet-forward-derivative]
+
+  - id: inverse.iterative-discrepancy-stopping
+    name: 不一致原理による反復停止
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不一致原理による反復停止）"]
+    requires: [inverse.nonlinear-landweber, inverse.tangential-cone-condition]
+
+  - id: inverse.nonlinear-landweber-finite-stop
+    name: 接線錐条件の下での誤差減少と有限停止
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（接線錐条件の下での誤差減少と有限停止）"]
+    requires: [inverse.tangential-cone-condition, inverse.iterative-discrepancy-stopping]
+
+  - id: inverse.noiseless-landweber-residual
+    name: 雑音なしの残差収束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（雑音なしの残差収束）"]
+    requires: [inverse.nonlinear-landweber-finite-stop]
+
+  - id: inverse.landweber-stopped-error
+    name: 停止残差から復元誤差への変換
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（停止残差から復元誤差への変換）"]
+    requires: [inverse.nonlinear-landweber-finite-stop, inverse.local-stability]
+
+  - id: inverse.newton-gauss-newton-update
+    name: Newton法とGauss–Newton法の局所更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Newton 法と Gauss–Newton 法の局所更新）"]
+    requires: [inverse.frechet-forward-derivative]
+
+  - id: inverse.irgnm-update
+    name: 反復的正則化Gauss–Newton型更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（反復的正則化 Gauss–Newton 型更新）"]
+    requires: [inverse.newton-gauss-newton-update, inverse.tikhonov-minimizer]
