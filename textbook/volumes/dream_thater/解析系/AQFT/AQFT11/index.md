@@ -639,7 +639,7 @@ $$
 $$
 \begin{aligned}
 &\alpha_{x_1}(A)\alpha_{x_2}(B)\Omega\\
-&=U(x_1)AU(-x_1)U(x_2)BU(-x_2)\Omega.
+&=U(x_1)AU(-x_1)U(x_2)BU(-x_2)\Omega
 \end{aligned}
 $$
 
