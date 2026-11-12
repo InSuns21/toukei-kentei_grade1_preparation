@@ -141,7 +141,7 @@ $$
 |\boldsymbol x|<R-|t|,\qquad
 |\boldsymbol y|<r-|s|
 $$
-です。逆三角不等式から
+です。[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)から
 $$
 \begin{aligned}
 |\boldsymbol q-\boldsymbol p|
@@ -252,7 +252,7 @@ $$
 また $\omega_\Omega(I)=\|\Omega\|^2=1$、$\omega_\Omega(A^*A)=\|A\Omega\|^2\ge0$ なので状態です。[AQFT9のGNSベクトル状態の正規性](../AQFT9/index.md#prop-aqft9-local-normal-state)と同じく、固定ベクトルによる行列要素は弱作用素連続であり、von Neumann環への制限は正規です。$\square$
 <!-- proof-end -->
 
-前節の系から、真空状態はどの非空有界double coneの局所von Neumann環でも忠実な正規状態になります。しかし周囲の $B(\mathcal H)$ 上で忠実という意味ではありません。たとえば $\mathcal H=\mathbb C^2,\Omega=e_1$ に対して $P_2\in B(\mathcal H)$ は $P_2\ne0$ なのに $\omega_\Omega(P_2^*P_2)=0$ です。**この部分環に制限すること**が重要です。
+[真空の局所巡回・分離性の系](#cor-aqft13-vacuum-local-standard)から、真空状態はどの非空有界double coneの局所von Neumann環でも忠実な正規状態になります。しかし周囲の $B(\mathcal H)$ 上で忠実という意味ではありません。たとえば $\mathcal H=\mathbb C^2,\Omega=e_1$ に対して $P_2\in B(\mathcal H)$ は $P_2\ne0$ なのに $\omega_\Omega(P_2^*P_2)=0$ です。**この部分環に制限すること**が重要です。
 
 また分離性から得られるのは $\mathcal M(O^\perp)\subset\mathcal M(O)'$ と、真空の性質です。この包含が等号になる **Haag双対性** は別の追加要請です。例えば $\mathcal H=\mathbb C^2$、$D$ を対角環、$\Omega=(1,1)/\sqrt2$ とし、二つの互いに空間的分離した領域に、それぞれ $\mathcal M(O)=\mathbb CI_2$、$\mathcal M(Q)=D$ を割り当てるとします。この二つの環は交換し、$\Omega$ は $D$ に巡回的、$\mathbb CI_2$ に分離的です。しかし
 $$
