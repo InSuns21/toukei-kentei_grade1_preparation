@@ -174,6 +174,21 @@ $$
 
 次講では行列要素を時空変数で積分したり、局所試験関数との組合せを考えます。そこで「境界値」と「スペクトル支持」を、関数の値だけでなく分布の言葉でも確かめます。本節の**分布**とは、急減少する滑らかな関数（Schwartz試験関数）に連続線形に作用するものです。連続かつ有界な関数は積分でそのような分布を定めます。
 
+ここでは可積分とは限らない関数のFourier変換も扱います。Schwartz試験関数 $h\in\mathcal S(\mathbb R^4)$ に対し
+
+$$
+\check h(x):=\int_{\mathbb R^4}e^{-ik\cdot x}h(k)\,d^4k
+$$
+
+と置きます（$k\cdot x=k^0t-\boldsymbol k\cdot\boldsymbol x$）。$\check h$ もSchwartz試験関数です。緩増加分布 $T$ のFourier変換 $\widehat T$ は、任意の $h$ に対する作用を
+
+$$
+\langle\widehat T,h\rangle
+:=\langle T,\check h\rangle
+$$
+
+で定めます。この角括弧は**分布と試験関数の組合せ**であり、Hilbert空間の内積とは区別します。関数 $f$ が可積分なら通常の $\int e^{-ik\cdot x}f(x)\,d^4x$ と一致します。
+
 <a id="prop-aqft11-spectral-boundary"></a>
 
 <!-- formal-statement-start -->
@@ -184,7 +199,7 @@ $$
 f_{\psi,\varphi}(x)=\langle\psi,U(x)\varphi\rangle
 $$
 >
-> を緩増加分布とみなす。Fourier変換の符号を形式的に $\widehat f(k)=\int e^{-ik\cdot x}f(x)\,d^4x$ と書く約束で定める。ただし $f$ は一般に可積分とは限らないため、この式は**分布のFourier変換**として解釈する。そのFourier変換は $\overline V_+$ に支持される複素測度の定数倍である。
+> を緩増加分布とみなす。Fourier変換の符号を形式的に $\widehat f(k)=\int e^{-ik\cdot x}f(x)\,d^4x$ と書く約束で定める。ただし $f$ は一般に可積分とは限らないため、この式は直前で定めた**試験関数との双対性による作用**として解釈する。そのFourier変換は $\overline V_+$ に支持される複素測度の定数倍である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -212,7 +227,7 @@ f_{\psi,\varphi}(x)
 =\int_{\overline V_+}e^{ip\cdot x}\,d\mu_{\psi,\varphi}(p).
 $$
 
-Schwartz試験関数 $h\in\mathcal S(\mathbb R^4)$ を取り、$\check h(x):=\int_{\mathbb R^4}e^{-ik\cdot x}h(k)\,d^4k$ と書きます（ここでも $k\cdot x=k^0t-\boldsymbol k\cdot\boldsymbol x$）。$\check h$ は可積分で $\mu_{\psi,\varphi}$ の全変動も有限なので、Fubiniの定理で
+冒頭で定めたSchwartz試験関数 $h$ と $\check h$ を使います。$\check h$ は可積分で $\mu_{\psi,\varphi}$ の全変動も有限なので、Fubiniの定理で
 
 $$
 \begin{aligned}
