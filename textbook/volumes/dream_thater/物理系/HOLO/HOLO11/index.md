@@ -274,7 +274,7 @@ $$
 
 これを古典解で評価すると最初の平方項は零です。自由作用の$\phi_0$まわりの一次変分は固定源により零で、$\phi-\phi_0=O(g^2)$の作用への影響は$O(g^4)$です。したがって$S_{\rm on\text{-}shell}$の4次部分は$-g^2\langle\phi_0^2,G_\chi\phi_0^2\rangle/8$、$W=-S$なので符号は正となります。
 
-この計数には$G_\chi(X,Y)=G_\chi(Y,X)$を使います。[HOLO7の境界付き第一変分](../HOLO7/index.md#prop-holo7-boundary-variation)と同じ部分積分で、Dirichlet境界値零・赤外減衰を満たす試験関数$f,h$に対して
+この計数には$G_\chi(X,Y)=G_\chi(Y,X)$を使います。[HOLO7の境界付き第一変分](../HOLO7/index.md#prop-holo7-boundary-variation)と同じ部分積分で、Dirichlet境界値零・赤外減衰を満たす滑らかな関数$f,h$に対して
 
 $$
 \langle f,Bh\rangle-\langle Bf,h\rangle
