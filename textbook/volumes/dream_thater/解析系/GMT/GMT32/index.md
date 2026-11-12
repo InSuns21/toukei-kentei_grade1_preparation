@@ -8,11 +8,13 @@
 
 そこで線分の周囲に厚さ $\delta>0$ を与えます。各線分を**tube（管）**へ太らせ、方向を $\delta$ 以上離して有限個だけ選びます。「管の体積の総和」と「合併体積」は違います。この差を数値化する重複度が、次講の交差評価への入口です。
 
-本講では $d\ge2$ を固定します。$|\cdot|$ はEuclidノルム、$\mathcal L^d$ は $\mathbb R^d$ のLebesgue測度、$\omega_d=\mathcal L^d(B(0,1))$ です。$\delta\downarrow0$ は正の $\delta$ を零へ近づける極限です。正の量 $A_\delta,B_\delta$ に対し $A_\delta\asymp_d B_\delta$ は、$\delta$ に依存しない正の定数 $c_d,C_d$ が存在して $c_dB_\delta\le A_\delta\le C_dB_\delta$ となる意味です。
+本講ではまず $d\ge2$ を固定します。ベクトル $x$ に対する $|x|$ はEuclidノルム、可測集合 $A\subset\mathbb R^d$ に対する $|A|$ は $\mathcal L^d(A)$（$d$ 次元Lebesgue測度）を表します。また $\omega_d=\mathcal L^d(B(0,1))$ は単位球の体積です。$\delta\downarrow0$ は正の $\delta$ を零へ近づける極限です。
+
+正の量 $A_\delta,B_\delta$ に対し $A_\delta\asymp_d B_\delta$ は、$\delta$ に依存しない正の定数 $c_d,C_d$ が存在して $c_dB_\delta\le A_\delta\le C_dB_\delta$ となる意味です。
 
 ## 2. 線分を太らせた $\delta$-tube と重複度
 
-始点 $a\in\mathbb R^d$、単位方向 $v\in S^{d-1}=\{v:|v|=1\}$ の線分 $L(a,v)=\{a+tv:0\le t\le1\}$ を考えます。点 $x$ と集合 $E$ の距離は $\operatorname{dist}(x,E)=\inf_{y\in E}|x-y|$ です。$\delta$-近傍は $E_\delta=\{x:\operatorname{dist}(x,E)<\delta\}$ とします。端の半球も含む「長さ1の線分から距離 $\delta$ 未満の開いた管」を使います。
+始点 $a\in\mathbb R^d$、単位方向 $v\in S^{d-1}=\{v:|v|=1\}$ の線分 $L(a,v)=\{a+tv:0\le t\le1\}$ を考えます。点 $x$ と集合 $E$ の距離は $\operatorname{dist}(x,E)=\inf_{y\in E}|x-y|$ です。$\delta$-近傍は $E_\delta=\{x:\operatorname{dist}(x,E)<\delta\}$ とします。端の半球も含む「長さ1の線分から距離 $\delta$ 未満の開いた管」を使います。さらに $\mathbf1_A(x)$ は、$x\in A$ のとき1、それ以外では0となる**指示関数**です。
 
 <a id="def-gmt32-tube"></a>
 
@@ -37,7 +39,18 @@ $$
 <!-- definition-example-start: def-gmt32-tube -->
 ### 直接確認：水平tubeと交差の数え方
 
-$d=2$、$a=(0,0)$、$v=(1,0)$ とすると、$0<x_1<1$ では $|x_2|<\delta$ がtube内部の条件です。$x_1<0$ では $x_1^2+x_2^2<\delta^2$、$x_1>1$ では $(x_1-1)^2+x_2^2<\delta^2$ となり、中央の長方形と両端の半円が得られます。この形が距離による元の定義から生じる理由は、線分上への最近点が中央では垂線の足、左右では端点になるためです。
+$d=2$、$a=(0,0)$、$v=(1,0)$ とします。点 $x=(x_1,x_2)$ から線分上の点 $(t,0)$（$0\le t\le1$）までの距離の二乗は $(x_1-t)^2+x_2^2$ です。$t$ の取り得る範囲を考慮してこれを最小化すると、最近点の第1座標は $t_*=\min\{1,\max\{0,x_1\}\}$ になります。従って
+
+$$
+\operatorname{dist}(x,L)^2=(x_1-t_*)^2+x_2^2
+=\begin{cases}
+x_1^2+x_2^2 & (x_1<0),\\
+x_2^2 & (0\le x_1\le1),\\
+(x_1-1)^2+x_2^2 & (x_1>1).
+\end{cases}
+$$
+
+これが $\delta^2$ 未満という条件を各領域に適用すると、中央の長方形と両端の半円が得られます。座標による判定は、距離の定義の最小化を直接計算したものです。
 
 $T_1=T_2$ として同じ管を二度数えれば、管内で $m_\delta=2$、外では $m_\delta=0$ です。一方、二管が互いに交わらなければ各管内で $m_\delta=1$ です。**二本あることは合併体積が二倍になることを意味しません**。
 
@@ -122,11 +135,24 @@ $$
 <!-- definition-example-start: def-gmt32-separated -->
 ### 直接確認：平面の等間隔方向
 
-$d=2$ で $v_k=(\cos(2\pi k/M),\sin(2\pi k/M))$、$k=0,\ldots,M-1$ とします。隣り合う弦長は $2\sin(\pi/M)$ で、最短の異なる二点間距離も同じです。従って $\delta\le2\sin(\pi/M)$ なら $\delta$-分離です。$M\asymp\delta^{-1}$ と取れることが具体的に見えます。
+$d=2$、整数 $M\ge3$ に対して $v_k=(\cos(2\pi k/M),\sin(2\pi k/M))$、$k=0,\ldots,M-1$ とします。隣り合う弦長は $2\sin(\pi/M)$ で、最短の異なる二点間距離も同じです。従って $\delta\le2\sin(\pi/M)$ なら $\delta$-分離です。
 
-単に $M$ が多いだけで極大とは限りません。極大性を確かめるには、球面の任意の新しい方向が既存の方向から距離 $\delta$ 未満にあることも確かめます。これは球面上に追加できる方向がないという定義の確認です。
+**極大性も確かめます。** 任意の方向 $u\in S^1$ と最も近い $v_k$ との中心角は高々 $\pi/M$ なので、その弦長は
 
-**定義の確認**：異なる二方向の最短弦長を $2\sin(\pi/M)$ と計算して分離条件を直接検査しました。極大性についてはこの計算だけでは言えず、球面全体が既存の方向の $\delta$-近傍で覆われることを別に確かめる必要があります。
+$$
+\min_k|u-v_k|\le2\sin\left(\frac{\pi}{2M}\right).
+$$
+
+隣接頂点のちょうど中間の方向では等号です。従って
+
+$$
+2\sin\left(\frac{\pi}{2M}\right)
+<\delta\le2\sin\left(\frac{\pi}{M}\right)
+$$
+
+なら、すべての新しい方向が既存点から距離 $\delta$ 未満にある一方、既存点同士は $\delta$ 以上離れ、**分離性と極大性の双方**を満たします。具体的には $\delta_M=2\sin(3\pi/(4M))$ がこの範囲に入り、$M\asymp\delta_M^{-1}$ です。
+
+**定義の確認**：最短弦長から全ての異なる二方向の分離条件を、最大最近点距離から球面の被覆条件（新しい方向を追加できないこと）を、それぞれ検査しました。
 <!-- definition-example-end -->
 
 <a id="lem-gmt32-direction-count"></a>
@@ -201,7 +227,7 @@ $$
 
 ## 4. 太い近傍からMinkowski次元を読む
 
-[MT8のHausdorff次元](../../MT/MT8/index.md#def-mt8-hausdorff-dimension)は、任意の細かい可算被覆の直径のべきを足す方法で定義されました。tubeの議論ではむしろ、**一つの尺度 $\delta$ で何個の球が要るか**を知りたい場面が多くあります。
+[MT8のHausdorff次元](../../MT/MT8/index.md#def-mt8-hausdorff-dimension)は、任意の細かい可算被覆の直径のべきを足す方法で定義されました。tubeの議論ではむしろ、**一つの尺度 $\delta$ で何個の球が要るか**を知りたい場面が多くあります。この節からは方向集合を扱わないため、周囲の空間の次元を $d\ge1$ として扱います。
 
 非空有界集合 $E\subset\mathbb R^d$ に対し $N_\delta(E)$ を、「中心を $E$ に置いた半径 $\delta$ の開球で $E$ を覆う」ための最小個数とします。$E$ が有界ならこの数は有限です。被覆数の $\delta$ に関する成長について、下側と上側の二つの指数を次に定義します。
 
@@ -342,7 +368,7 @@ $$
 
 よって $\mathcal H^s(E)=0$。これを任意の $s>\underline{\dim}_{\mathrm M}E$ に適用し、[臨界指数としてのHausdorff次元](../../MT/MT8/index.md#thm-mt8-threshold)から第一の不等式を得ます。第二の不等式は $\liminf\le\limsup$ です。
 
-最後に $E$ を含む固定の立方体を幅 $\delta$ の小立方体で分割すると、高々 $C_E\delta^{-d}$ 個の半径 $C_d\delta$ の球で覆えます。半径を定数倍調整しても指数は変わらず、$\overline{\dim}_{\mathrm M}E\le d$ です。$\square$
+最後に $E$ を含む固定の立方体を一辺 $h=\delta/(2\sqrt d)$ の小立方体に分けます。各小立方体の直径は $\sqrt d\,h=\delta/2$ です。$E$ と交わる小立方体ごとにその**内部の $E$ の点**を一つ選べば、同じ小立方体内にある $E$ の点は、選んだ中心から距離が高々 $\delta/2<\delta$ です。したがって定義どおり中心が $E$ にある半径 $\delta$ の球で覆え、必要な球数は高々 $C_E\delta^{-d}$。これを $\log(1/\delta)$ で割った上極限から $\overline{\dim}_{\mathrm M}E\le d$ です。$\square$
 <!-- proof-end -->
 
 **反例：有理点の稠密集合。** $E=\mathbb Q^d\cap[0,1]^d$ は可算なので $\dim_{\mathrm H}E=0$ です（各点を十分小さい球で覆い、$s>0$ の直径の $s$ 乗和を任意に小さくします）。一方、$E$ は立方体に稠密なので任意の $\delta>0$ で $[0,1]^d\subset E_\delta\subset[-\delta,1+\delta]^d$ です。このため $1\le|E_\delta|\le(1+2\delta)^d$、近傍体積の公式から上下Minkowski次元はどちらも $d$ です。
@@ -575,7 +601,7 @@ $u=\underline{\dim}_{\mathrm M}E$ とし、$s>u$ に対して $u<t<s$ を選び�
 **B04　重複度の二乗と交差の寄与**
 
 - Level: B
-- 問題: 有限個の可測集合 $T_1,\ldots,T_M$ について $m=\sum_j\mathbf1_{T_j}$ とする。$\int m^2=\sum_j|T_j|+2\sum_{i<j}|T_i\cap T_j|$ を証明し、各 $|T_j|=A$ で $|U|\le\varepsilon$ なら $\sum_{i<j}|T_i\cap T_j|\ge(M^2A^2/\varepsilon-MA)/2$ を示せ。
+- 問題: 有限個の可測集合 $T_1,\ldots,T_M$ について $m=\sum_j\mathbf1_{T_j}$、$U=\bigcup_jT_j$ とする。$\int m^2=\sum_j|T_j|+2\sum_{i<j}|T_i\cap T_j|$ を証明し、$M\ge1$、各 $|T_j|=A>0$、$0<|U|\le\varepsilon<\infty$ なら $\sum_{i<j}|T_i\cap T_j|\ge(M^2A^2/\varepsilon-MA)/2$ を示せ。
 
 <!-- solution-start -->
 #### 詳細解答
