@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RBD4 ZYZ Euler角を動かして確かめる</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Yu Gothic",sans-serif;color-scheme:light}
+body{margin:0 auto;max-width:1020px;padding:clamp(14px,3vw,32px);color:#172334;background:#f8fafc;line-height:1.65}
+a{color:#1758a2}h1{font-size:1.45rem}h2{font-size:1.1rem}
+main{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(250px,1fr);gap:20px}
+.panel{background:white;border:1px solid #b9c7d5;border-radius:10px;padding:16px;min-width:0}
+svg{width:100%;height:auto;background:#fdfefe;border:1px solid #dce4ec;border-radius:8px}
+fieldset{border:0;padding:0;margin:10px 0}label{display:block;font-weight:650}
+input[type=range]{width:100%;min-height:28px;accent-color:#24568e}
+button{border:1px solid #496d97;background:white;color:#152d4a;border-radius:6px;padding:8px 11px;cursor:pointer;margin:3px}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #ed8e16;outline-offset:3px}
+output,pre{font-family:ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+table{border-collapse:collapse;width:100%;font-size:.88rem}th,td{padding:5px 7px;text-align:right;border-bottom:1px solid #dce3eb}
+th:first-child{text-align:left} .hint{font-size:.9rem}.special{font-weight:700}
+@media(max-width:720px){main{grid-template-columns:1fr}}@media print{button,input{display:none}body{background:white}.panel{break-inside:avoid}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<p><a href="../../../../../index.html#/textbook/volumes/dream_thater/物理系/RBD/RBD4/index">講義へ戻る（トップURL）</a></p>
+<h1>ZYZ Euler角：姿勢と座標特異性を操作する</h1>
+<p>能動・列ベクトル規約。先に右の回転が作用します。行列は <strong>R = Rz(φ) Ry(θ) Rz(ψ)</strong>。描いた物体軸は行列の各列そのものです。<strong>空間基底</strong>は細い破線、<strong>物体基底</strong>は太い実線で区別しています。</p>
+<main>
+<section class="panel">
+<h2>空間の三軸と動く物体の三軸</h2>
+<svg id="view" viewBox="0 0 500 420" role="img" aria-labelledby="svg-title svg-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="svg-title">ZYZ Euler角による物体基底の向き</title>
+<desc id="svg-desc">中央の原点から、空間固定基底の三本が破線で、回転行列の三列である物体基底 b1、b2、b3 が太い実線で描かれる。角度操作で向きが変わる。</desc>
+<defs><marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
+<g id="fixed" stroke="#667582" stroke-width="2" stroke-dasharray="6 5" fill="none">
+<path id="space1" marker-end="url(#arr)"/><path id="space2" marker-end="url(#arr)"/><path id="space3" marker-end="url(#arr)"/>
+</g>
+<g id="moving" stroke-width="4" fill="none">
+<path id="body1" stroke="#a52b32" marker-end="url(#arr)"/>
+<path id="body2" stroke="#14764f" marker-end="url(#arr)"/>
+<path id="body3" stroke="#164d9b" marker-end="url(#arr)"/>
+</g>
+<circle cx="245" cy="210" r="4" fill="#162536"/>
+<g font-family="system-ui,sans-serif" font-weight="700" font-size="17">
+<text id="label1" fill="#91242a">b1</text><text id="label2" fill="#126343">b2</text><text id="label3" fill="#154686">b3</text>
+<text id="fixedlabel1" fill="#5d6873">x</text><text id="fixedlabel2" fill="#5d6873">y</text><text id="fixedlabel3" fill="#5d6873">z</text>
+</g>
+</svg>
+<p class="hint">模式投影：長さは三次元の単位軸を一定として描画。透視による見かけの短縮は物体の変形を意味しません。値は下の行列成分が正本です。</p>
+<h2>現在の姿勢行列（各列が b1, b2, b3）</h2>
+<pre id="matrix" aria-live="polite">R = I</pre>
+<h2>特異性の診断</h2>
+<p id="diagnostic" class="special" aria-live="polite">θ = π/2：座標は正則です。</p>
+<p id="invariance">θ=0なら φ+ψ、θ=πなら φ−ψ だけで姿勢が決まります。</p>
+</section>
+<section class="panel">
+<h2>角度を操作する（度表示）</h2>
+<fieldset><label for="phi">歳差 φ：<output id="phiVal">0°</output></label><input id="phi" type="range" min="0" max="360" step="1" value="0"></fieldset>
+<fieldset><label for="theta">章動 θ：<output id="thetaVal">90°</output></label><input id="theta" type="range" min="0" max="180" step="1" value="90"></fieldset>
+<fieldset><label for="psi">自転 ψ：<output id="psiVal">0°</output></label><input id="psi" type="range" min="0" max="360" step="1" value="0"></fieldset>
+<p><button type="button" id="reset">初期化</button><button type="button" id="north">θ=0</button><button type="button" id="south">θ=180</button></p>
+<p><button type="button" id="stepBack">φ を −5°</button><button type="button" id="step">φ を +5°</button></p>
+<p><button type="button" id="compensate">φ+5°, ψ−5°</button><button type="button" id="compensateSouth">φ+5°, ψ+5°</button></p>
+<p class="hint">θ=0 で「φ+5°, ψ−5°」を、θ=180° で「φ+5°, ψ+5°」を押すと、行列の各列は変わりません。θが他の値なら変わります。数値の行列を前後で比較してください。</p>
+<table aria-label="角速度変換の診断">
+<tr><th>量</th><th>現在の値</th></tr>
+<tr><td>sin θ</td><td id="sinTheta">1.000000</td></tr>
+<tr><td>det T</td><td id="detT">-1.000000</td></tr>
+<tr><td>R の det</td><td id="detR">1.000000</td></tr>
+</table>
+<p class="hint">T は (φ̇, θ̇, ψ̇) を物体角速度に写す行列です。det T = −sin θ は極で0になりますが、det R は常に1です。</p>
+<noscript><p>JavaScript が無効です。静止状態は φ=0°, θ=90°, ψ=0° で、R=Ry(90°)、物体第三軸は空間 x 軸です。θ=0° では R=Rz(φ+ψ)、θ=180° では R=Rz(φ−ψ)Ry(180°)。角速度変換の行列式は −sinθ ですが、姿勢行列の行列式は常に1です。詳しくは講義本文の節4・5を参照してください。</p></noscript>
+</section>
+</main>
+<script>
+"use strict";
+(function(){
+const byId=id=>document.getElementById(id);
+const input=["phi","theta","psi"].map(byId);
+const r=a=>a*Math.PI/180;
+const mm=(A,B)=>A.map(row=>B[0].map((_,j)=>row.reduce((v,a,k)=>v+a*B[k][j],0)));
+const Z=a=>[[Math.cos(a),-Math.sin(a),0],[Math.sin(a),Math.cos(a),0],[0,0,1]];
+const Y=a=>[[Math.cos(a),0,Math.sin(a)],[0,1,0],[-Math.sin(a),0,Math.cos(a)]];
+const p=v=>[245+118*(.9*v[0]+.30*v[1]),210-118*(.25*v[0]-.45*v[1]+.83*v[2])];
+const vec=(A,k)=>A.map(row=>row[k]);
+const end=(id,v,lab)=>{const q=p(v),s=byId(id);s.setAttribute("d","M245 210 L"+q.map(a=>a.toFixed(2)).join(" "));if(lab){const t=byId(lab);const d=Math.hypot(q[0]-245,q[1]-210)||1;t.setAttribute("x",(q[0]+13*(q[0]-245)/d+3).toFixed(2));t.setAttribute("y",(q[1]+13*(q[1]-210)/d-2).toFixed(2));}};
+function render(){
+const [phi,theta,psi]=input.map(x=>r(Number(x.value)));
+const R=mm(mm(Z(phi),Y(theta)),Z(psi));
+const val=x=>Math.abs(x)<5e-11?"0.000000":x.toFixed(6);
+input.forEach(x=>byId(x.id+"Val").textContent=x.value+"°");
+for(let k=0;k<3;k++){end("body"+(k+1),vec(R,k),"label"+(k+1));end("space"+(k+1),vec([[1,0,0],[0,1,0],[0,0,1]],k),"fixedlabel"+(k+1));}
+byId("matrix").textContent="R =\n"+R.map(row=>"[ "+row.map(val).join("  ")+" ]").join("\n");
+const sint=Math.sin(theta),detT=-sint,detR=R[0][0]*(R[1][1]*R[2][2]-R[1][2]*R[2][1])-R[0][1]*(R[1][0]*R[2][2]-R[1][2]*R[2][0])+R[0][2]*(R[1][0]*R[2][1]-R[1][1]*R[2][0]);
+byId("sinTheta").textContent=val(sint);byId("detT").textContent=val(detT);byId("detR").textContent=val(detR);
+const deg=Number(input[1].value);
+byId("diagnostic").textContent=deg===0?"θ=0°：特異。φ+ψ だけが姿勢を決めます。":deg===180?"θ=180°：特異。φ−ψ だけが姿勢を決めます。":Math.abs(sint)<.05?"極付近：正則ですが角速度の逆変換は不安定です。":"0<θ<π：角速度の逆変換は正則です。";
+byId("invariance").textContent=deg===0?"φ+ψ = "+((Number(input[0].value)+Number(input[2].value))%360)+"°（360°を法）":deg===180?"φ−ψ = "+((Number(input[0].value)-Number(input[2].value)+360)%360)+"°（360°を法）":"端点以外では三つの角が独立な局所座標です。";
+}
+const add=(i,d)=>{input[i].value=((Number(input[i].value)+d)%360+360)%360;};
+input.forEach(x=>x.addEventListener("input",render));
+byId("reset").addEventListener("click",()=>{input[0].value=0;input[1].value=90;input[2].value=0;render()});
+byId("north").addEventListener("click",()=>{input[1].value=0;render()});
+byId("south").addEventListener("click",()=>{input[1].value=180;render()});
+byId("step").addEventListener("click",()=>{add(0,5);render()});
+byId("stepBack").addEventListener("click",()=>{add(0,-5);render()});
+byId("compensate").addEventListener("click",()=>{add(0,5);add(2,-5);render()});
+byId("compensateSouth").addEventListener("click",()=>{add(0,5);add(2,5);render()});
+render();
+})();
+</script>
+</body>
+</html>

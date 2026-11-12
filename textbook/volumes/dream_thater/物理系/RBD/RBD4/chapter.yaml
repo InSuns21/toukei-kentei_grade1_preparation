@@ -1,0 +1,41 @@
+id: "RBD4"
+title: "Euler角と姿勢の座標特異性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD3
+official_scope: []
+learning_objectives:
+  - 能動列ベクトルとZYZ規約を明示しRz(phi)Ry(theta)Rz(psi)の軸像を計算できる
+  - 三つのEuler角の時間微分から空間・物体角速度の成分式を行列微分で導出できる
+  - 角速度変換行列の行列式と正則域での逆変換を検算できる
+  - theta=0,piで同じ姿勢を表す角度組と角度速度の零方向を説明できる
+  - 正則域の姿勢行列から角の代表を復元し枝の切替と真の座標特異性を区別できる
+  - 有限の角速度と不安定なEuler角速度の違いを例で示せる
+definitions:
+  - { id: RBD4-DEF-01, name: "ZYZ Euler角" }
+theorems:
+  - { id: RBD4-PROP-01, name: "ZYZ Euler角速度の変換" }
+  - { id: RBD4-THM-01, name: "Euler角の正則域と角度速度の逆変換" }
+  - { id: RBD4-PROP-02, name: "ZYZ Euler角の座標特異性" }
+canonical_examples:
+  - theta=pi/2の物体軸の向きとSO(3)条件
+  - theta=0で和、theta=piで差が一定の角度組
+  - 有限omega_bに対するthetaが0へ近づく角度速度の発散
+  - 回転行列の成分から正則域の角度を復元
+  - theta=0を通過する滑らかなRy(t)と角度の枝の切替
+problem_patterns:
+  - RBD4-ACTIVE-ZYZ
+  - RBD4-SAME-ORIENTATION
+  - RBD4-BODY-SPACE-RATES
+  - RBD4-KERNEL-AT-POLES
+  - RBD4-EXTRACT-ANGLES
+  - RBD4-RATE-JACOBIAN
+  - RBD4-INVERSE-ANGULAR-VELOCITY
+  - RBD4-NEAR-SINGULARITY
+  - RBD4-BRANCH-SWITCHING
+  - RBD4-INTEGRATED-ORIENTATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }

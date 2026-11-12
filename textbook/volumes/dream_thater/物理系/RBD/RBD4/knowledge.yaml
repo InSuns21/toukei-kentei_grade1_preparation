@@ -1,0 +1,39 @@
+chapter: RBD4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD3
+forward_references: []
+concepts:
+  - id: mechanics.zyz-euler-angles
+    name: ZYZ Euler角
+    kind: definition
+    aliases: [ZYZ Euler angles]
+    introduction: formal
+    introduction_aliases: [定義（ZYZ Euler角）]
+    requires:
+      - mechanics.proper-rotation
+      - mechanics.spatial-body-angular-velocity
+  - id: mechanics.zyz-angular-velocity-map
+    name: ZYZ Euler角速度の変換
+    kind: proposition
+    aliases: [ZYZ Euler angular velocity map]
+    introduction: formal
+    introduction_aliases: [命題（ZYZ Euler角速度の変換）]
+    requires:
+      - mechanics.zyz-euler-angles
+      - mechanics.angular-velocity-conjugacy
+  - id: mechanics.zyz-euler-rate-inverse
+    name: Euler角の正則域と角度速度の逆変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euler角の正則域と角度速度の逆変換）]
+    requires:
+      - mechanics.zyz-angular-velocity-map
+  - id: mechanics.zyz-coordinate-singularity
+    name: ZYZ Euler角の座標特異性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ZYZ Euler角の座標特異性）]
+    requires:
+      - mechanics.zyz-euler-rate-inverse

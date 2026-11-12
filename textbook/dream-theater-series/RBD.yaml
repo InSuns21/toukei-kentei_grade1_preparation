@@ -19,7 +19,7 @@ chapters:
     title: 角速度と回転系の輸送定理
   - id: RBD4
     path: textbook/volumes/dream_thater/物理系/RBD/RBD4
-    status: planned
+    status: completed
     title: Euler角と姿勢の座標特異性
   - id: RBD5
     path: textbook/volumes/dream_thater/物理系/RBD/RBD5
