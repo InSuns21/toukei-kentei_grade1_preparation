@@ -248,7 +248,7 @@ C^\ast=(F^\ast)^TF^\ast=C,\qquad
 E^\ast=E,\qquad U^\ast=U.
 $$
 
-また、$F=RU$ の極分解を使えば $F^\ast=(QR)U$ が極分解となる。
+また、[LA6 の極分解](../../../基礎科目/LA/LA6/index.md#thm-la6-polar)を $F$ に適用して $F=RU$ と表すと、$F^\ast=(QR)U$ も同条件を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -662,7 +662,7 @@ E&=\frac12\operatorname{diag}((1+\tau)^2-1,(1+\tau)^{-2}-1,0).
 \end{aligned}
 $$
 
-$D$ は対称正定値かつ $D^2=C$ なので[一意な極分解](#thm-ctm3-polar)より $U=D$、$R=Q(\theta)$。主伸長は $1+\tau,(1+\tau)^{-1},1$（数値の大きさ順とは限らない）。
+$D$ は対称正定値かつ $D^2=C$ なので、[LA6 の極分解](../../../基礎科目/LA/LA6/index.md#thm-la6-polar)の可逆時の一意性より $U=D$、$R=Q(\theta)$。主伸長は $1+\tau,(1+\tau)^{-1},1$（数値の大きさ順とは限らない）。
 
 **(3) 特定時刻。** $\tau=1/2$ で $D=\operatorname{diag}(3/2,2/3,1)$。従って
 
