@@ -342,7 +342,7 @@ $$
 **A4. TFDと右境界の区間。** $\mathcal H_R=\mathbb C^2_A\otimes\mathbb C^2_B$、$H_R=0$ とする。TFDの規格化係数、$\rho_R$、$\rho_A$ とそれぞれのエントロピーを求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** 右側の四つの基底 $|ab\rangle_R$（$a,b\in\{0,1\}$）はすべてエネルギー0を持つ。$Z=\operatorname{Tr}e^{-\beta H_R}=\operatorname{Tr}I_4=4$ だから、[HOLO16のTFD定義](../HOLO16/index.md#def-holo16-tfd)より
+**詳細解答。** 右側の四つの基底 $|ab\rangle_R$（$a,b\in\{0,1\}$）はすべてエネルギー0を持つ。$Z=\operatorname{Tr}e^{-\beta H_R}=\operatorname{Tr}I_4=4$ だから、[熱場二重状態](../HOLO16/index.md#def-holo16-tfd)の定義に代入すると
 
 $$
 |\mathrm{TFD}_\beta\rangle
@@ -407,7 +407,7 @@ $$
 S(A)=S(B)=\ln2,\qquad S(AB)=0.
 $$
 
-問題文の相互情報の定義を用いれば
+$I(A:B)=S(A)+S(B)-S(AB)$ に各値を代入すれば
 
 $$
 I(A:B)=S(A)+S(B)-S(AB)=2\ln2.
