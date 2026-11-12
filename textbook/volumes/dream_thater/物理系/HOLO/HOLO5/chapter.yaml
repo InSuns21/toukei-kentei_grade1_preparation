@@ -1,0 +1,44 @@
+id: "HOLO5"
+title: "制御された双対性の原型"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOLO4
+official_scope: []
+learning_objectives:
+  - 重なったD3-braneの開弦端点ラベルと低エネルギーU(N)理論の場の内容を、相互作用するSU(N)と重心U(1)を分けて説明できる
+  - 分離極限でalpha primeとrをどう同時に変化させるかを定義し、固定rとの極限の違いを計算できる
+  - D3-brane超重力解を入力として赤方偏移と近接地平線AdS5×S5計量を導出できる
+  - 固定Uの分離極限で計量をalpha prime単位へ変換し、誤差と極限順序を検証できる
+  - ゲージ結合・'t Hooft結合・AdS曲率半径と弦長の関係を規格化条件付きで計算できる
+  - 双対性の提案と証明済みの幾何計算を区別し、大Nだけでは古典重力が導けない理由を説明できる
+definitions:
+  - { id: HOLO5-DEF-01, name: 本講で扱う重なったD3-braneの二つの記述 }
+  - { id: HOLO5-DEF-02, name: D3-braneの分離極限 }
+  - { id: HOLO5-DEF-03, name: 本講の't Hooft結合 }
+  - { id: HOLO5-DEF-04, name: 本講でいうAdS/CFT双対性の原型という主張 }
+theorems:
+  - { id: HOLO5-PROP-01, name: D3計量の近接地平線形 }
+  - { id: HOLO5-PROP-02, name: 分離極限の無次元計量 }
+canonical_examples:
+  - Nが1と2のChan–Paton端点ラベルを数え、世界体積の場の行列成分と区別する
+  - alpha primeをゼロに近づけたときの固定Uと固定rを数列で比較する
+  - 赤方偏移をg_ttから計算して喉の有限局所エネルギーを検証する
+  - r=L/10でHの近接地平線近似を数値的に確認する
+  - lambdaを固定するNの変化とlambdaを変える変化を比べる
+  - lambdaとNの数値から曲率半径と弦結合の独立条件を検証する
+problem_patterns:
+  - HOLO5-CHAN-PATON-COUNT
+  - HOLO5-DECOPLING-FIXED-QUANTITIES
+  - HOLO5-REDSHIFT
+  - HOLO5-SPHERE-RADIUS
+  - HOLO5-THOOFT-FIXED-LIMIT
+  - HOLO5-THROAT-ERROR
+  - HOLO5-SCALED-METRIC
+  - HOLO5-DOUBLE-CONTROL
+  - HOLO5-SYMMETRY-NOT-DUALITY
+  - HOLO5-INTEGRATED-DUALITY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 4 }
