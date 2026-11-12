@@ -1,0 +1,46 @@
+id: HOLO24
+title: "量子極値曲面QES"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO23
+official_scope: []
+learning_objectives:
+  - 境界アンカーと相同領域を固定し繰り込み済み一般化エントロピーを各許容面へ定義できる
+  - 二つの独立null法線方向の量子膨張率を導きQES停留条件と法線再規格化不変性を証明できる
+  - 面積型バルクUV発散と裸重力結合の相殺を面の形状微分にも適用できる
+  - 非退化な多方向の面積Hessianを用いてQES変位と値の次数を求めFLMとの整合性を説明できる
+  - 停留点と最小点の違いをLorentz型模型で確認できる
+  - 二つの相同QES候補の一般化エントロピーを比較し切替条件を導ける
+  - 古典面積Hessianが退化する場合の変位則の破綻とQES処方の適用範囲を説明できる
+definitions:
+  - { id: HOLO24-DEF-01, name: 面に付随する一般化エントロピー }
+  - { id: HOLO24-DEF-02, name: 量子極値曲面 }
+  - { id: HOLO24-DEF-03, name: 最小一般化エントロピーQESの処方 }
+theorems:
+  - { id: HOLO24-PROP-01, name: 二つの量子膨張率によるQES判定 }
+  - { id: HOLO24-PROP-02, name: 面積型発散の相殺と形状変分 }
+  - { id: HOLO24-PROP-03, name: 非退化な有限次元QES変位 }
+  - { id: HOLO24-PROP-04, name: 退化した面積極値の非線形変位 }
+canonical_examples:
+  - 一次関数の量子項によって変位する1方向の面族
+  - 二つの独立法線変分とLorentz符号を持つ停留鞍点
+  - 面積型UV発散の相殺とshape derivativeの模型
+  - 不定符号Hessianの逆行列から二方向のQES位置と値を直接計算
+  - 二つの許容QES候補の量子選択と切替
+  - 零モードをもつ四次面積の非解析的変位
+problem_patterns:
+  - HOLO24-A01
+  - HOLO24-A02
+  - HOLO24-A03
+  - HOLO24-A04
+  - HOLO24-A05
+  - HOLO24-B01
+  - HOLO24-B02
+  - HOLO24-B03
+  - HOLO24-B04
+  - HOLO24-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 6 }
+past_exam_alignment: []
+integrated_exam_problems: []
