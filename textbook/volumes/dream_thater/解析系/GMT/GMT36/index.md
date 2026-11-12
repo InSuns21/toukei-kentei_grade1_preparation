@@ -44,7 +44,7 @@ $|u|\le1$ の範囲で積分を考えると、$r|x+2\theta t|\lesssim1$、$r^2|t
 
 <!-- formal-statement-start -->
 > **定義（放物線の単一wave packet）**  
-> 上記の $\varphi,\theta,x_0,R,r$ に対し、周波数capに支えられたデータ $f_{\theta,x_0}$ とそのwave packet $F_{\theta,x_0}$ を定める。
+> $\varphi\in C_c^\infty((-1/4,1/4))$ は非負で $\|\varphi\|_2=1$、$\int\varphi(u)\,du>0$ を満たすものとする。$R\ge16$、$r=R^{-1/2}$、$\theta\in[-1,1]$、$x_0\in\mathbb R$ に対し、周波数capに支えられたデータ $f_{\theta,x_0}$ とそのwave packet $F_{\theta,x_0}$ を定める。
 
 $$
 f_{\theta,x_0}(\xi)
@@ -57,7 +57,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt36-packet -->
-**定義の確認**　 $R=100$、$\theta=0$、$x_0=3$ なら $r=1/10$ で、周波数台は $[-1/40,1/40]$。変数変換 $\xi=ru$ により
+**定義の確認**　 $R=100$、$\theta=0$、$x_0=3$ なら $r=1/10$ で、周波数台は $[-1/40,1/40]$ に含まれます。$\varphi$ の台は開区間 $(-1/4,1/4)$ 内のコンパクト集合なので、この区間全体が台だとは限りません。変数変換 $\xi=ru$ により
 
 $$
 \|f_{0,3}\|_2^2
@@ -65,7 +65,22 @@ $$
 =\int|\varphi(u)|^2du=1.
 $$
 
-$t=0$ では $F_{0,3}(x,0)=r^{1/2}\Phi(r(x-3),0)$ となり、波は $x=3$ の周囲に幅10で集まります。ここで $\Phi$ は次の命題で具体的に計算します。
+$t=0$ では、$\xi=ru$、$d\xi=r\,du$ と置けば定義から直接
+
+$
+F_{0,3}(x,0)
+=(2\pi)^{-1/2}r^{1/2}
+\int e^{ir(x-3)u}\varphi(u)\,du
+$
+
+となります。$x=3$ では積分内の位相が1で、$F_{0,3}(3,0)=(2\pi)^{-1/2}r^{1/2}\int\varphi>0$ です。また $|x-3|\le r^{-1}=10$ なら、$\varphi$ の台上で $|r(x-3)u|<1/4$ なので、実部を取ると
+
+$
+|F_{0,3}(x,0)|
+\ge(2\pi)^{-1/2}r^{1/2}\cos(1/4)\int\varphi(u)\,du>0.
+$
+
+このように周波数capの幅 $r$ が、初期時刻での横方向の尺度 $r^{-1}=10$ に対応します。管から遠い場所で急減少することは、次の命題で証明します。
 <!-- definition-example-end -->
 
 <a id="prop-gmt36-packet-formula"></a>
@@ -245,7 +260,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（重み付きtube重複度による点ごとの評価）**  
-> 上記の有限packet族について、$|t|\le R$ の各点で
+> $R\ge16$、$r=R^{-1/2}$、整数 $N\ge2$ とする。有限集合 $J$ の各 $j$ について $\theta_j\in[-1,1]$、$x_j\in\mathbb R$、$c_j\in\mathbb C$ を取り、$w_j(x,t)=(1+r|x-x_j+2\theta_jt|)^{-N}$、$M_N(x,t)=\sum_{j\in J}w_j(x,t)$ と置く。$|t|\le R$ の各点で
 
 $$
 \left|\sum_{j\in J}c_jF_{\theta_j,x_j}(x,t)\right|^2
@@ -411,14 +426,35 @@ $R^{1/2}=100$。元の縦方向長さは $2R=20000$、横方向全幅は $2R^{1/
 
 <a id="ex-gmt36-b01"></a>
 
-**問題 B01：非定常位相による横方向減衰。** $\varphi\in C_c^\infty((-1/4,1/4))$、$|s|\le1$ のとき、$\Phi(y,s)=\int e^{iyu}e^{isu^2}\varphi(u)\,du$ が $|\Phi(y,s)|\le C(1+|y|)^{-2}$ を満たすことを示せ。
+**問題 B01：非定常位相による横方向減衰。** $\varphi\in C_c^\infty((-1/4,1/4))$、$|s|\le1$ のとき、[packet公式](#prop-gmt36-packet-formula)で定めた $\Phi(y,s)=(2\pi)^{-1/2}\int e^{i(yu+su^2)}\varphi(u)\,du$ が $|\Phi(y,s)|\le C(1+|y|)^{-2}$ を満たすことを示せ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-$a_s(u)=e^{isu^2}\varphi(u)$ と置きます。固定コンパクト台上、$|s|\le1$ のため $a_s,a_s''$ の $L^1$ ノルムは一様に有限です。境界項は零なので二回部分積分して $-y^2\Phi(y,s)=\int e^{iyu}a_s''(u)\,du$。一方 $|\Phi|\le\|a_s\|_1$。よって $(1+y^2)|\Phi(y,s)|\le\|a_s-a_s''\|_1\le C$。$1+y^2\ge(1+|y|)^2/2$ を使い、所望の上界です。定数 $(2\pi)^{-1/2}$ を掛けても同じ結論です。
+$a_s(u)=e^{isu^2}\varphi(u)$ と置きます。$u$ で微分すると
+
+$
+a_s''(u)
+=e^{isu^2}\bigl(\varphi''(u)+4isu\varphi'(u)+(2is-4s^2u^2)\varphi(u)\bigr).
+$
+
+$\varphi$ とその導関数は固定コンパクト台上で有界であり、$|s|\le1$ かつ $|u|<1/4$ なので、$\|a_s\|_1+\|a_s''\|_1\le C_0$ は $s$ に依存しません。境界項は零で、二回の部分積分から
+
+$
+-y^2\Phi(y,s)
+=(2\pi)^{-1/2}\int e^{iyu}a_s''(u)\,du.
+$
+
+定義式も足し合わせれば $(1+y^2)\Phi(y,s)=(2\pi)^{-1/2}\int e^{iyu}(a_s-a_s'')(u)\,du$。従って
+
+$
+(1+y^2)|\Phi(y,s)|
+\le(2\pi)^{-1/2}\|a_s-a_s''\|_1\le C_1.
+$
+
+$1+y^2\ge(1+|y|)^2/2$ を使えば、要求された減衰上界を得ます。
 <!-- solution-end -->
 
 <a id="ex-gmt36-b02"></a>
@@ -430,7 +466,7 @@ $a_s(u)=e^{isu^2}\varphi(u)$ と置きます。固定コンパクト台上、$|s
 <!-- solution-start -->
 #### 詳細解答
 
-各 $f_j$ の周波数台は中心 $\theta_j$ の左右 $r/4$ 内です。中心距離 $r$ なら二台の端点間には少なくとも $r-r/2=r/2>0$ の隙間があります。固定 $t$ でPlancherelを使えば $\int F_1\overline{F_2}\,dx=\int e^{it\xi^2}f_1(\xi)\overline{e^{it\xi^2}f_2(\xi)}\,d\xi=\int f_1\overline{f_2}\,d\xi=0$。位相因子は内積で打ち消されます。
+各 $f_j$ の周波数台は中心 $\theta_j$ の左右 $r/4$ 内です。中心距離 $r$ なら二台の端点間には少なくとも $r-r/2=r/2>0$ の隙間があります。固定 $t$ で[Plancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を使えば $\int F_1\overline{F_2}\,dx=\int e^{it\xi^2}f_1(\xi)\overline{e^{it\xi^2}f_2(\xi)}\,d\xi=\int f_1\overline{f_2}\,d\xi=0$。位相因子は内積で打ち消されます。
 <!-- solution-end -->
 
 <a id="ex-gmt36-b03"></a>
@@ -442,7 +478,7 @@ $a_s(u)=e^{isu^2}\varphi(u)$ と置きます。固定コンパクト台上、$|s
 <!-- solution-start -->
 #### 詳細解答
 
-中心差は $(x_1-x_2)-2(\theta_1-\theta_2)t$。両切片が交わるにはその絶対値が $2r^{-1}$ 以下であり、$\alpha>0$ なら該当する $t$ の長さは高々 $2r^{-1}/\alpha$。観測窓からは長さ $2r^{-2}$ 以下なので、交差面積は $2r^{-1}$ と時間長の積以下、すなわち $Cr^{-2}/(r+\alpha)$。$\alpha=r$ なら上界 $\asymp r^{-3}$、$\alpha=1$ なら上界 $\asymp r^{-2}$。近い方向ほど長く重なります。
+中心差は $(x_1-x_2)-2(\theta_1-\theta_2)t$。両切片が交わるにはその絶対値が $2r^{-1}$ 以下であり、$\alpha>0$ なら該当する $t$ の長さは高々 $2r^{-1}/\alpha$。観測窓からは長さ $2r^{-2}$ 以下なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)による断面積分から交差面積は $2r^{-1}$ と時間長の積以下、すなわち $Cr^{-2}/(r+\alpha)$。$\alpha=r$ なら上界 $\asymp r^{-3}$、$\alpha=1$ なら上界 $\asymp r^{-2}$。近い方向ほど長く重なります。
 <!-- solution-end -->
 
 <a id="ex-gmt36-b04"></a>
@@ -477,14 +513,14 @@ $a_s(u)=e^{isu^2}\varphi(u)$ と置きます。固定コンパクト台上、$|s
 
 (2) capの幅は $r/2$、中心距離は $r$ 以上なので周波数台は交わりません。[空間断面でのPlancherel直交性](#prop-gmt36-slice-orthogonality)から各 $t$ で $\int|\sum_jF_j|^2dx=\sum_j\|f_j\|_2^2=\#J$ です。これは空間全体に関する主張です。
 
-(3) 各管は $|x-x_j+2\theta_jt|\le r^{-1}$。二中心の差が $2r^{-1}$ 以下になる時間の長さは高々 $2r^{-1}/\alpha$、かつ観測幅 $2r^{-2}$ 以下。横切片は高々 $2r^{-1}$ なので面積は $Cr^{-2}/(r+\alpha)$ です。
+(3) 各管は $|x-x_j+2\theta_jt|\le r^{-1}$。二中心の差が $2r^{-1}$ 以下になる時間の長さは高々 $2r^{-1}/\alpha$、かつ観測幅 $2r^{-2}$ 以下。横切片は高々 $2r^{-1}$ なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で横切片長を時間積分すると面積は $Cr^{-2}/(r+\alpha)$ です。
 
 (4) $(x,t)$ の両座標を $R=r^{-2}$ で割ると面積は $R^{-2}=r^4$ 倍され、上界は $Cr^2/(r+\alpha)$。横幅は $2r$、縦長は2となるため[GMT33の二tube交差](../GMT33/index.md#lem-gmt33-two-tubes)と同じ尺度です。ここから任意のrestriction評価までは結論できません。
 <!-- solution-end -->
 
 <a id="ex-gmt36-c02"></a>
 
-**問題 C02：重複度評価の限界を説明する。** $w_j=(1+r|x-x_j+2\theta_jt|)^{-N}$、$M_N=\sum_jw_j$ とし、$\bigl|\sum_jc_jF_j\bigr|^2\le C_NrM_N\sum_j|c_j|^2w_j$ を導出せよ。次に、この式とGMT35の最大作用素からHausdorff次元への含意を比較し、結論できることと結論できないことを明確に述べよ。
+**問題 C02：重複度評価の限界を説明する。** $R\ge16$、$r=R^{-1/2}$、整数 $N\ge2$ とする。有限個のpacket $F_j=F_{\theta_j,x_j}$ と係数 $c_j\in\mathbb C$ を取り、$w_j=(1+r|x-x_j+2\theta_jt|)^{-N}$、$M_N=\sum_jw_j$ とする。**$|t|\le R$ の各点で** $\bigl|\sum_jc_jF_j\bigr|^2\le C_NrM_N\sum_j|c_j|^2w_j$ を導出せよ。次に、この式とGMT35の最大作用素からHausdorff次元への含意を比較し、結論できることと結論できないことを明確に述べよ。
 
 - Level: C
 
