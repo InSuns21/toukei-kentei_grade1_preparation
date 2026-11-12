@@ -26,7 +26,13 @@ $$
 
 を小さくすれば、観測と候補が近づきます。ただし観測が合っても未知量が合うとは限りません。
 
-$x\in U$ を固定し、$x+h\in U$ となる十分小さい $h\in X$ を動かします。[Fréchet 微分](../INV10/index.md#def-inv10-frechet-forward)の定義から、$k(h)=F'(x)h+q(h)$、$\|q(h)\|_Y=o(\|h\|_X)$ と書けます。$F'(x)$ が有界なので $\|k(h)\|_Y=O(\|h\|_X)$ です。従って二乗ノルムを先に展開すると
+$x\in U$ を固定し、$x+h\in U$ となる十分小さい $h\in X$ を動かします。[Fréchet 微分](../INV10/index.md#def-inv10-frechet-forward)の定義から、
+
+$$
+k(h)=F'(x)h+q(h),\qquad \|q(h)\|_Y=o(\|h\|_X)
+$$
+
+と書けます。$F'(x)$ が有界なので $\|k(h)\|_Y=O(\|h\|_X)$ です。従って二乗ノルムを先に展開すると
 
 $$
 \begin{aligned}
@@ -264,7 +270,12 @@ $\|x_0^\delta-x^\dagger\|^2-N\omega c_\tau\tau^2\delta^2$
 
 <!-- formal-statement-start -->
 > **命題（雑音なしの残差収束）**  
-> $X,Y$ を実 Hilbert 空間、$x^\dagger\in X$、$r>0$ とし、$F$ は $B_r(x^\dagger)$ を含む開集合上で $C^1$ とする。$F$ は $B_r(x^\dagger)$ 上で定数 $0\le\eta<1/2$ の[接線錐条件](#def-inv11-tangential-cone)を満たし、$\|F'(x)\|\le L$（$0<L<\infty$）が球内の全点で成立するとする。真のデータ $y=F(x^\dagger)$ を正確に与え、$x_0\in B_r(x^\dagger)$ とし、$\omega>0$、$\omega L^2\le1$ で[非線形 Landweber 反復](#def-inv11-landweber)を行う。このとき反復は全回で球内にあり、
+> $X,Y$ を実 Hilbert 空間、$x^\dagger\in X$、$r>0$ とする。$F$ は $B_r(x^\dagger)$ を含む開集合上で $C^1$ とする。
+>
+> $F$ は $B_r(x^\dagger)$ 上で定数 $0\le\eta<1/2$ の[接線錐条件](#def-inv11-tangential-cone)を満たす。また、球内の全点で $\|F'(x)\|\le L$（$0<L<\infty$）とする。
+>
+> 真のデータ $y=F(x^\dagger)$ を正確に与え、$x_0\in B_r(x^\dagger)$、$\omega>0$、$\omega L^2\le1$ として[非線形 Landweber 反復](#def-inv11-landweber)を行う。
+> このとき反復は全回で球内にあり、
 
 $$
 \sum_{n=0}^{\infty}\|F(x_n)-y\|_Y^2<\infty,
