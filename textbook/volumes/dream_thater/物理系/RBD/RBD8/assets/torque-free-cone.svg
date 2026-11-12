@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" data-layout-lint="strict" role="img" aria-labelledby="rbd8-title rbd8-desc">
   <title id="rbd8-title">無トルク対称剛体の固定角運動量と動く対称軸</title>
-  <desc id="rbd8-desc">I=2、J=3、初期角速度(1,0,1)の例。共通の重心Cから、空間に固定された角運動量L0=(2,0,3)、初期対称軸n(0)=(0,0,1)、初期空間角速度omega_s(0)=(1,0,1)、半歳差後の対称軸n(T)=(12/13,0,5/13)を異なる線種で描く。細い点線の閉曲線が対称軸先端の時間軌跡で、正確な回転公式による斜投影。長さの比較は意味せず方向のみ示す。</desc>
+  <desc id="rbd8-desc">I=2、J=3、初期角速度(1,0,1)の例。共通の重心Cから、空間に固定された角運動量L0=(2,0,3)、初期対称軸n(0)=(0,0,1)、初期空間角速度omega_s(0)=(1,0,1)、半歳差後の対称軸n(T)=(12/13,0,5/13)を異なる線種で描く。細い点線の閉曲線はRodrigues公式で計算した対称軸先端の時間軌跡の斜投影。長さの比較は意味せず方向のみ示す。</desc>
   <defs>
     <marker id="rbd8-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#26364a"/></marker>
     <marker id="rbd8-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1965a3"/></marker>
@@ -19,11 +19,11 @@
     <text x="118" y="385">y</text>
   </g>
   <g fill="none">
-    <path d="M200 130 C219 139 229 154 249 170 C285 197 313 211 340 215 C362 223 376 240 389 256 C362 247 334 235 307 216 C268 187 229 146 200 130 Z" stroke="#7a8997" stroke-width="2" stroke-dasharray="4 7"/>
-    <path d="M200 335 L314 164" stroke="#26364a" stroke-width="4" marker-end="url(#rbd8-arrow)"/>
-    <path d="M200 335 L200 130" stroke="#1965a3" stroke-width="4.5" marker-end="url(#rbd8-blue)"/>
-    <path d="M200 335 L389 256" stroke="#1965a3" stroke-width="3" stroke-dasharray="10 5" marker-end="url(#rbd8-blue)"/>
-    <path d="M200 335 L345 190" stroke="#b75c25" stroke-width="3.5" stroke-dasharray="3 6" marker-end="url(#rbd8-orange)"/>
+    <path d="M200.0 NaN L197.2 NaN L194.9 NaN L192.9 NaN L191.5 NaN L190.4 NaN L189.8 NaN L189.6 NaN L189.9 NaN L190.7 NaN L191.9 NaN L193.5 NaN L195.5 NaN L198.0 NaN L200.9 NaN L204.2 NaN L207.9 NaN L212.0 NaN L216.4 NaN L221.1 NaN L226.2 NaN L231.5 NaN L237.2 NaN L243.0 NaN L249.1 NaN L255.4 NaN L261.9 NaN L268.5 NaN L275.2 NaN L282.0 NaN L288.8 NaN L295.7 NaN L302.5 NaN L309.4 NaN L316.1 NaN L322.8 NaN L329.4 NaN L335.8 NaN L342.0 NaN L348.0 NaN L353.8 NaN L359.4 NaN L364.6 NaN L369.6 NaN L374.2 NaN L378.5 NaN L382.5 NaN L386.1 NaN L389.2 NaN L392.0 NaN L394.4 NaN L396.3 NaN L397.8 NaN L398.8 NaN L399.4 NaN L399.6 NaN L399.3 NaN L398.6 NaN L397.4 NaN L395.7 NaN L393.7 NaN L391.2 NaN L388.3 NaN L385.0 NaN L381.3 NaN L377.3 NaN L372.8 NaN L368.1 NaN L363.0 NaN L357.7 NaN L352.1 NaN L346.2 NaN L340.1 NaN L333.8 NaN L327.4 NaN L320.8 NaN L314.1 NaN L307.3 NaN L300.4 NaN L293.6 NaN L286.7 NaN L279.9 NaN L273.1 NaN L266.4 NaN L259.9 NaN L253.5 NaN L247.2 NaN L241.2 NaN L235.4 NaN L229.9 NaN L224.6 NaN L219.6 NaN L215.0 NaN L210.7 NaN L206.7 NaN L203.2 NaN L200.0 NaN Z" stroke="#7a8997" stroke-width="2" stroke-dasharray="4 7"/>
+    <path d="M200 335 L314 164" data-series-group="rbd8-vectors" data-series-label="L0" stroke="#26364a" stroke-width="4" marker-end="url(#rbd8-arrow)"/>
+    <path d="M200 335 L200 130" data-series-group="rbd8-vectors" data-series-label="n0" stroke="#1965a3" stroke-width="4.5" marker-end="url(#rbd8-blue)"/>
+    <path d="M200 335 L389 256" data-series-group="rbd8-vectors" data-series-label="nT" stroke="#1965a3" stroke-width="3" stroke-dasharray="10 5" marker-end="url(#rbd8-blue)"/>
+    <path d="M200 335 L345 190" data-series-group="rbd8-vectors" data-series-label="omega" stroke="#b75c25" stroke-width="3.5" stroke-dasharray="3 6" marker-end="url(#rbd8-orange)"/>
   </g>
   <circle cx="200" cy="335" r="5" fill="#26364a"/>
   <g fill="#26364a" font-size="15">
