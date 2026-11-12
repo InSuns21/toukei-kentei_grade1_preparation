@@ -22,7 +22,7 @@ $$
 g(q-p,q-p)=-(s-t)^2+|\boldsymbol y-\boldsymbol x|^2
 $$
 
-です。[時間的・光的・空間的分離の定義](../../../物理系/SREL/SREL2/index.md#def-srel2-causal-types)により、この値が正なら**空間的分離**、零なら光的分離（ただし同一点は零間隔の退化例）、負なら時間的分離です。例えば $p=(0,\boldsymbol0)$ と $q=(1,(2,0,0))$ は $-1+4=3>0$ なので空間的ですが、$q=(2,(1,0,0))$ なら $-4+1=-3<0$ なので時間的です。
+です。[時間的・光的・空間的分離の定義](../../../物理系/SREL/SREL2/index.md#def-srel2-causal-types)により、この値が正なら**空間的分離**、零なら光的分離（ただし同一点は零間隔の退化例）、負なら時間的分離です。例えば $p=(0,\boldsymbol0)$ と $q=(1,(2,0,0))$ は $-1+4=3>0$ なので空間的ですが、$q=(2,(1,0,0))$ なら $-4+1=-3<0$ なので時間的です。以下の $J^+(p)$ は、$p$ から未来向き因果曲線（定数曲線も含む）で到達できる点の集合で、[LORG6の因果的未来の定義](../../../幾何系/LORG/LORG6/index.md#def-lorg6-chronological-causal-future)に従います。
 
 <a id="prop-aqft1-point-test"></a>
 
@@ -52,13 +52,34 @@ $$
 \iff |\boldsymbol y-\boldsymbol x|>|s-t|.
 $$
 
-また、[Minkowskiの因果的未来の座標表示](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を $p$ に適用すると、$q\in J^+(p)$ は $s-t\ge|\boldsymbol y-\boldsymbol x|$ に同値です。この結果の核心を確認すると、未来向き因果曲線 $\gamma(u)=(t(u),\boldsymbol x(u))$ では $|\dot{\boldsymbol x}(u)|\le\dot t(u)$ だから、積分して
+また、[Minkowskiの因果的未来の座標表示](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を $p$ に適用すると、到達条件は次の不等式です。
+
+$$
+q\in J^+(p)\quad\Longleftrightarrow\quad s-t\ge|\boldsymbol y-\boldsymbol x|.
+$$
+
+この結果の核心を確認します。$p$ から $q$ への未来向き区分的 $C^1$ 因果曲線を $\gamma(u)=(t(u),\boldsymbol x(u))$（$0\le u\le1$）と書きます。上の点は、媒介変数 $u$ に関する微分を表し、
+
+$$
+\dot t=\frac{dt}{du},\qquad
+\dot{\boldsymbol x}=\frac{d\boldsymbol x}{du}
+$$
+
+です。計量の $(-+++)$ 符号と未来向き条件から、各滑らかな片で
+
+$$
+-\dot t^2+|\dot{\boldsymbol x}|^2\le0,\qquad
+\dot t\ge0
+\quad\Longrightarrow\quad |\dot{\boldsymbol x}|\le\dot t
+$$
+
+が成り立ちます。各片の積分を加えると、
 
 $$
 |\boldsymbol y-\boldsymbol x|
-=\left|\int\dot{\boldsymbol x}\,du\right|
-\le\int|\dot{\boldsymbol x}|\,du
-\le\int\dot t\,du=s-t.
+=\left|\int_0^1\dot{\boldsymbol x}(u)\,du\right|
+\le\int_0^1|\dot{\boldsymbol x}(u)|\,du
+\le\int_0^1\dot t(u)\,du=s-t.
 $$
 
 逆に $s>t$ で不等式が成り立つなら、両端を結ぶ直線の空間速度は $|\boldsymbol y-\boldsymbol x|/(s-t)\le1$ であり未来向き因果的です。$s=t$ のとき不等式から $\boldsymbol y=\boldsymbol x$ となり、同一点は反射的な因果到達として扱います。$\square$
@@ -111,7 +132,19 @@ $$
 \ge2-|\boldsymbol y|>1+|s|>|s|.
 $$
 
-不等式は少し動かしても保たれるため、$p$ の近傍も $C_{\mathrm{sp}}(S)$ に入ります。
+近傍まで確かめるため、$p'=(T,\boldsymbol X)$ が $|T|<1/4$ と $|\boldsymbol X-(2,0,0)|<1/4$ を満たすとします。どの $q=(s,\boldsymbol y)\in S$ についても
+
+$$
+\begin{aligned}
+|\boldsymbol X-\boldsymbol y|
+&\ge2-|\boldsymbol X-(2,0,0)|-|\boldsymbol y|\\
+&>7/4-|\boldsymbol y|
+>3/4+|s|\\
+&>|T|+|s|\ge|T-s|.
+\end{aligned}
+$$
+
+従ってこの開近傍の全点が $C_{\mathrm{sp}}(S)$ に入り、$p\in\operatorname{int}C_{\mathrm{sp}}(S)=S^\perp$ まで示せました。点 $p$ だけで不等式が成り立つことと、近傍を確保することを区別しています。
 <!-- definition-example-end -->
 
 二つの**開領域** $O_1,O_2$ の間で全ての点対が空間的に分離することを「二領域が空間的に分離する」と呼び、次の定義にまとめます。
@@ -257,7 +290,7 @@ $$
 
 ## 4. wedge：無限に延びる領域とその向かい側
 
-次に $x^1$ 方向だけに着目します。$x^2,x^3$ には制約を課しません。光速で動く二本の直線 $x^1=\pm t$ に挟まれた**右側**を右wedge、その左側に対応する領域を左wedgeと呼びます。
+次に $x^1$ 方向だけに着目します。$x^2,x^3$ には制約を課しません。断面 $x^2=x^3=0$ では、二本の光的な直線 $x^1=\pm t$ の外側の**右側**を右wedge、左側を左wedgeと呼びます。4次元時空では $x^1=\pm t$ は超平面であり、横方向 $x^2,x^3$ は自由です。以下の $W_R,W_L$ の添字は right（右）・left（左）で、double coneの $D_R$ の半径 $R$ とは別です。
 
 <a id="def-aqft1-wedges"></a>
 
@@ -308,13 +341,13 @@ $$
 
 従って二領域は空間的に分離し、[開領域の分離判定](#prop-aqft1-complement-order)から $W_L\subset W_R^\perp$ となります。
 
-逆包含を確かめます。$W_R$ は時間反転 $t\mapsto-t$ で不変なので、$T\ge0$ としてよいです。$\boldsymbol w=\boldsymbol z$ を固定します。
+逆包含を確かめます。$W_R$ は時間反転 $t\mapsto-t$ で不変であり、点間の空間的分離条件 $|\Delta\boldsymbol x|>|\Delta t|$ もこの反転で保存されます。従って $C_{\mathrm{sp}}(W_R)$ とその内部も時間反転で不変なので、$T\ge0$ の場合だけを調べれば十分です。$\boldsymbol w=\boldsymbol z$ を固定します。
 
 - $-T<X<0$ の場合、$0<y<T+X$ を選び $q=(0,y,\boldsymbol z)\in W_R$ とします。このとき $|X-y|=y-X<T$ なので $q$ と $p$ は時間的に分離します。
 - $0\le X<T$ の場合、$y>0$ を $|X-y|<T$ となるよう選べます（$X>0$ なら $y=X$、$X=0$ なら $0<y<T$）。同じ $q=(0,y,\boldsymbol z)\in W_R$ と $p$ は時間的に分離します。
 - $X>T$ の場合、$p\in W_R$ であり、$q=p$ を選べば空間的に分離しません。
 - $X=T$ で $T>0$ の場合、$0<\varepsilon<T$ として $q=(T-\varepsilon,T-\varepsilon/2,\boldsymbol z)\in W_R$ を選びます。差は時間 $\varepsilon$、空間 $\varepsilon/2$ なので時間的です。
-- $X=T=0$ の場合、$q=(\varepsilon,2\varepsilon,\boldsymbol z)\in W_R$ は $p$ とは空間的ですが、$p$ が $W_R^\perp$ に入らないことは別に確かめます。実際 $p$ は $W_L$ の境界で、任意の近傍に $X>0$ の点があり、それらは $W_R$ にも含まれるので、$p$ は $\operatorname{int}C_{\mathrm{sp}}(W_R)$ に入れません。
+- $X=T=0$ の場合、$p=(0,0,\boldsymbol z)$ は $W_L$ の境界です。任意の $\delta>0$ に対し $p_\delta=(0,\delta,\boldsymbol z)\in W_R$ は $p$ に近づきますが、$p_\delta$ 自身を $q=p_\delta\in W_R$ と選ぶと $g(p_\delta-q,p_\delta-q)=0$ なので $p_\delta\notin C_{\mathrm{sp}}(W_R)$ です。従って $p$ のどの近傍も $C_{\mathrm{sp}}(W_R)$ に含まれず、$p\notin W_R^\perp$ です。
 - $X=-T$（$T>0$）でも $p$ は $W_L$ の境界です。任意の近傍に $X>-T$ の点があり、上記の時間的分離の反例を持つため、$p$ は因果補集合の内部に入れません。
 
 以上、$p\notin W_L$ なら $p\notin W_R^\perp$ です。逆側は $x^1\mapsto-x^1$ によって同じ証明が成り立ちます。$\square$
@@ -366,14 +399,31 @@ $$
 
 よって[点間因果判定](#prop-aqft1-point-test)より空間的分離です。
 
-逆に $d<R+S$ なら、時刻0の開球 $B_R(\boldsymbol a)$ と $B_S(\boldsymbol b)$ は重なります。実際、$d>0$ なら中心を結ぶ線分上で $\boldsymbol z=\boldsymbol a+\lambda(\boldsymbol b-\boldsymbol a)$ を選び、$\lambda d<R$ かつ $(1-\lambda)d<S$ とします。$\lambda$ が存在するのは $1-S/d<R/d$ と同値な $d<R+S$ のためです。$d=0$ なら $\boldsymbol z=\boldsymbol a=\boldsymbol b$ を取ります。すると $p=q=(0,\boldsymbol z)$ が両領域に属し、この点対は空間的ではありません。従って必要条件も示されました。$\square$
+逆に $d<R+S$ なら、時刻0の開球 $B_R(\boldsymbol a)$ と $B_S(\boldsymbol b)$ は重なります。実際、$d>0$ なら中心を結ぶ線分上で $\boldsymbol z=\boldsymbol a+\lambda(\boldsymbol b-\boldsymbol a)$ を選び、$\lambda d<R$ かつ $(1-\lambda)d<S$ とします。$\lambda$ は $\max\{0,1-S/d\}<\lambda<\min\{1,R/d\}$ の範囲から取れます。この区間が空でないのは $d>0$、$R,S>0$、$d<R+S$ によります。従って $0<\lambda<1$ かつ両球の不等式が満たされます。$d=0$ なら $\boldsymbol z=\boldsymbol a=\boldsymbol b$ を取ります。すると $p=q=(0,\boldsymbol z)$ が両領域に属し、この点対は空間的ではありません。従って必要条件も示されました。$\square$
 <!-- proof-end -->
 
 境界が接する $d=R+S$ のとき二つの**閉包**は接しますが、開いた内部領域は空間的に分離しています。開領域と閉包の条件を取り違えると、局所性を使える範囲を誤ります。
 
 ## 6. 座標変換しても因果補集合は保たれる
 
-後の理論では、同じ形の領域を移動・回転・Lorentz変換したものも使います。ここで必要な**Poincaré変換**とは、$\Lambda$ をLorentz線形変換、$a$ を平行移動ベクトルとして、$F(p)=\Lambda p+a$ と表す時空の可逆アフィン写像です。[Lorentz不変性](../../../物理系/SREL/SREL2/index.md#thm-srel2-interval-invariance)によって $g(F(p)-F(q),F(p)-F(q))=g(p-q,p-q)$ が成立します。
+後の理論では、領域を移動・回転・Lorentz変換したものも使います。**Poincaré変換**は、時空ベクトルの計量を保存する可逆線形写像 $\Lambda$ と、平行移動ベクトル $a\in M$ を用いた可逆アフィン写像です。すなわち任意の時空ベクトル $v,w$ と点 $p$ に対し
+
+$$
+g(\Lambda v,\Lambda w)=g(v,w),\qquad
+F(p)=\Lambda p+a
+$$
+
+とします。[Lorentz不変性](../../../物理系/SREL/SREL2/index.md#thm-srel2-interval-invariance)はboost・空間回転での具体例です。一般の $\Lambda$ に対しても、平行移動項が点の差で消えることと、上の定義式から
+
+$$
+\begin{aligned}
+g(F(p)-F(q),F(p)-F(q))
+&=g(\Lambda(p-q),\Lambda(p-q))\\
+&=g(p-q,p-q)
+\end{aligned}
+$$
+
+が成り立ちます。
 
 <a id="prop-aqft1-poincare-complement"></a>
 
@@ -423,7 +473,7 @@ $\square$
 $p=(0,(0,0,0))$ とし、$q_1=(2,(3,0,0))$、$q_2=(3,(1,2,0))$、$q_3=(2,(2,0,0))$ について計量間隔を求め、空間的・時間的・光的を区別せよ。
 
 <!-- solution-start -->
-**詳細解答**。基準点が原点なので計量間隔は $-t^2+(x^1)^2+(x^2)^2+(x^3)^2$ です。個別に
+**詳細解答**。基準点が原点なので、[Minkowskiの点間因果判定](#prop-aqft1-point-test)に使う計量間隔は $-t^2+(x^1)^2+(x^2)^2+(x^3)^2$ です。個別に
 
 $$
 g(q_1,q_1)=-4+9=5,\quad
@@ -442,7 +492,7 @@ $$
 $D_3$ の $t=0,1,2,3$ における空間断面を求め、$(2,(1,0,0))$ が領域内にあるか判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$D_3$ の条件は $|t|+|\boldsymbol x|<3$ です。$t=0,1,2$ ではそれぞれ $|\boldsymbol x|<3,2,1$ の開球です。$t=3$ では $3+|\boldsymbol x|<3$ を満たす点はないので空集合です。指定点では $|2|+|(1,0,0)|=3$ だから境界上であり、領域内には入りません。
+**詳細解答**。[標準double coneの座標条件](#def-aqft1-double-cone)から $D_3$ の条件は $|t|+|\boldsymbol x|<3$ です。$t=0,1,2$ ではそれぞれ $|\boldsymbol x|<3,2,1$ の開球です。$t=3$ では $3+|\boldsymbol x|<3$ を満たす点はないので空集合です。指定点では $|2|+|(1,0,0)|=3$ だから境界上であり、領域内には入りません。
 <!-- solution-end -->
 
 <a id="ex-aqft1-a03"></a>
@@ -453,7 +503,17 @@ $D_3$ の $t=0,1,2,3$ における空間断面を求め、$(2,(1,0,0))$ が領�
 $u=(1,(-2,50,0))$、$v=(1,(2,50,0))$、$w=(2,(2,0,0))$ の右・左wedgeへの所属を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[wedgeの定義](#def-aqft1-wedges)では $x^1$ と $t$ だけを比較します。$u$ は $-x^1=2>|t|=1$ なので左wedge、$v$ は $x^1=2>1$ なので右wedgeです。$w$ は $x^1=|t|=2$ なので双方の開wedgeの境界上で、どちらにも属しません。横方向の50は条件に入っていません。
+**詳細解答**。[wedgeの定義](#def-aqft1-wedges)では、時刻 $t$ と第一空間座標 $x^1$ だけを比較します。各点で条件を計算すると
+
+$$
+\begin{aligned}
+u &: \quad -x^1=2>|t|=1 && (W_L\text{ の内部}),\\
+v &: \quad x^1=2>|t|=1 && (W_R\text{ の内部}),\\
+w &: \quad x^1=2=|t|,\quad -x^1=-2<|t|=2
+\end{aligned}
+$$
+
+です。$w$ は**右wedgeの境界上**で、左wedgeの境界ではなく外部です。従ってどちらの開wedgeにも属しません。横方向の50は所属条件に影響しません。
 <!-- solution-end -->
 
 <a id="ex-aqft1-a04"></a>
@@ -464,7 +524,7 @@ $u=(1,(-2,50,0))$、$v=(1,(2,50,0))$、$w=(2,(2,0,0))$ の右・左wedgeへの�
 $S=D_1$、$p=(2,\boldsymbol0)$ とする。$p\in M\setminus S$ か、$p\in S^\perp$ か、$q=(0,\boldsymbol0)$ を使って判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$|2|+|\boldsymbol0|=2>1$ なので $p\notin S$、従って $p\in M\setminus S$ です。一方で $q\in S$ かつ $g(p-q,p-q)=-4$ なので、$p$ は $S$ の全点から空間的という条件を満たしません。ゆえに $p\notin C_{\mathrm{sp}}(S)$、従って $p\notin S^\perp$ です。
+**詳細解答**。$|2|+|\boldsymbol0|=2>1$ なので $p\notin S$、従って $p\in M\setminus S$ です。一方で $q\in S$ かつ $g(p-q,p-q)=-4$ なので、$p$ は $S$ の全点から空間的という条件を満たしません。ゆえに $p\notin C_{\mathrm{sp}}(S)$ であり、[開いた因果補集合の定義](#def-aqft1-causal-complement)から $p\notin S^\perp$ です。
 <!-- solution-end -->
 
 <a id="ex-aqft1-a05"></a>
@@ -475,7 +535,7 @@ $S=D_1$、$p=(2,\boldsymbol0)$ とする。$p\in M\setminus S$ か、$p\in S^\pe
 $0<r<R$ のとき $D_r\subset D_R$ を示せ。また $D_R^\perp\subset D_r^\perp$ を座標不等式から確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$p\in D_r$ なら $|t|+|\boldsymbol x|<r<R$ なので $p\in D_R$ です。補集合については
+**詳細解答**。$p\in D_r$ なら $|t|+|\boldsymbol x|<r<R$ なので $p\in D_R$ です。[double coneの因果補集合の定理](#thm-aqft1-double-cone-complement)を使うと、補集合については
 
 $$
 p\in D_R^\perp
@@ -496,7 +556,7 @@ $$
 $D_R$ に対し $p=(0,(R,0,0))$ が $C_{\mathrm{sp}}(D_R)$ に入るが $D_R^\perp$ には入らないことを、内部点との不等式と近傍の反例の両方から示せ。
 
 <!-- solution-start -->
-**詳細解答**。任意の $q=(s,\boldsymbol y)\in D_R$ では $|s|+|\boldsymbol y|<R$ なので
+**詳細解答**。[標準double coneの座標条件](#def-aqft1-double-cone)から、任意の $q=(s,\boldsymbol y)\in D_R$ について $|s|+|\boldsymbol y|<R$ なので
 
 $$
 |(R,0,0)-\boldsymbol y|\ge R-|\boldsymbol y|>|s|.
@@ -532,7 +592,26 @@ $$
 $S\subset T\subset M$ のとき $T^\perp\subset S^\perp$ を定義から証明せよ。また空間的に分離した開領域 $O_1,O_2$ について $O_1\subset O_2^\perp$ を示す際、開集合性を使う場所を明記せよ。
 
 <!-- solution-start -->
-**詳細解答**。$T$ の全点と空間的な点は、$S$ の全点とも空間的だから $C_{\mathrm{sp}}(T)\subset C_{\mathrm{sp}}(S)$ です。内部を取る操作は包含を保つため $T^\perp\subset S^\perp$ です。続いて、すべての $p\in O_1$ と $q\in O_2$ が空間的なら、量化の順番を固定して $O_1\subset C_{\mathrm{sp}}(O_2)$ が従います。ここで**$O_1$ は開集合**なので、$C_{\mathrm{sp}}(O_2)$ に含まれる開集合の一つであり、その最大の開部分集合 $\operatorname{int}C_{\mathrm{sp}}(O_2)$ に含まれます。これが $O_1\subset O_2^\perp$ です。
+**詳細解答**。[開いた因果補集合の定義](#def-aqft1-causal-complement)に戻ります。$T$ の全点と空間的な点は、$S$ の全点とも空間的です。集合の内部を取る操作も包含を保つので
+
+$$
+C_{\mathrm{sp}}(T)\subset C_{\mathrm{sp}}(S)
+\quad\Longrightarrow\quad T^\perp\subset S^\perp.
+$$
+
+続いて、両領域のすべての点対が空間的なら、全称条件から
+
+$$
+O_1\subset C_{\mathrm{sp}}(O_2)
+$$
+
+となります。**$O_1$ が開集合であること**をここで使います。右辺に含まれる任意の開集合はその内部にも含まれるため、
+
+$$
+O_1\subset\operatorname{int}C_{\mathrm{sp}}(O_2)=O_2^\perp
+$$
+
+です。
 <!-- solution-end -->
 
 <a id="ex-aqft1-b04"></a>
