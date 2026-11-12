@@ -2,7 +2,7 @@
 
 作成日: 2026-10-05  
 講義構成確定: 2026-11-09  
-状態: in_progress（INV1〜INV18 の講義実装と系列 manifest・公開導線を整備。予定18講はすべて実装済み。PLAN全体の完了判定は全講横断参照・統合検証・公開ゲートの確認後に行う）
+状態: completed（2026-11-13。INV1〜INV18 の全18講、系列 manifest、解析系公開目次、本文と演習解答を整備。全講の横断参照と統合検証を確認する本PRで完了とする）
 移行元: `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` 旧 U1  
 **確定講義数: 全18講（INV1〜INV18）**
 
@@ -213,3 +213,12 @@ $$
 3. 旧8講案で圧縮されていた収束率・parameter choice・FBP・limited-angle・Bayes / PDE 微分を、実際の演習と詳細解答で再現できる。
 4. 用語・参照・chapter / knowledge metadata / series manifest・公開導線が整合し、変更区分に応じた自己査読・別観点再査読、CI と表示確認を終える。
 5. **18講を列挙した時点では完了としない。** 全講の本文・必要な検証・横断参照まで終了した段階で PLAN の lifecycle を更新する。
+
+
+## 8. 完了確認（2026-11-13）
+
+- 系列 manifest は INV1〜INV18 の18章すべてを `completed` とし、全18章の `index.md` / `chapter.yaml` / `knowledge.yaml` を実在確認した。各 `knowledge.yaml` は `coverage: complete` であり、章ごとの prerequisite は `chapter.yaml` と一致する。
+- 科目別公開目次には INV1〜INV18 の18リンクが登録され、18章の本文には計182題（A90題、B74題、C18題）の演習と全182件の詳細解答がある。formal statement、proof、solution の開始・終了マーカーは全章で対応し、章内 anchor 参照欠損0件、INV系列内の別章への anchor 付き参照182件中欠損0件を検査した。数式・本文の内容査読そのものは各講の執筆・監査作業に属し、今回の横断構造チェックを数学的独立査読と称しない。
+- 最終講 INV18 の指定追跡監査では主要定義・定理2件の証明、A01〜A05・B01〜B04・C01の全10問と解答を再計算し、使用前定義、Jacobi行列の導出、パラメータ方向と係数方向の対応、反例の許容領域、数式配置とstable anchorを確認・補修した。監査の証拠・検証結果は完了PR本文に記録する。
+- PLANの停止線外の一般 PDE 逆問題や全体的な posterior contraction 理論を、完了条件へ新たに追加しない。本PLANの成果物は既存18講と直接必要な公開・routing整合で閉じる。
+- 本移動は `textbook/dream-theater-series/INV.yaml` の `plan` と同一コミットで実施する。PRの必須CI・Pages組み立てが成功し、mainとの差分に競合しないことをマージ前の最終ゲートとする。
