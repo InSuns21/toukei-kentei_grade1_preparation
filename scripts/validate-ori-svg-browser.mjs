@@ -127,14 +127,17 @@ try {
   assert.ok((await js('document.querySelector("[data-player=\\"play\\"]").textContent')).includes('再生'),
    'no autoplay '+id);
   assert.ok(await js('document.querySelector("[data-player=\\"announcement\\"]")?.getAttribute("aria-live")==="polite"'),'live region '+id);
+  const ax=(await cdp('Accessibility.getFullAXTree')).nodes||[];
+  const roles=new Set(ax.map(n=>n.role?.value));
+  assert.ok(roles.has('button')&&roles.has('slider'),'Chrome accessibility tree missing player controls '+id);
   assert.equal(await at(),0,'normal-motion first frame '+id);
   const isB=id!=='01'&&id!=='08';
   if(isB){
-   const residuals=await js('[...document.querySelectorAll("#invariants tr")].slice(1).map(r=>Number(r.cells[1].textContent))');
+   const residuals=await js('[...document.querySelectorAll("#invariants tr")].map(r=>Number(r.cells[1]?.textContent))');
    if(id==='05'){
     assert.ok(await js('document.querySelector("#invariants").textContent.includes("候補が0本")'),'O5 zero-root message');
     await seek(.5);
-    const values=await js('[...document.querySelectorAll("#invariants tr")].slice(1).map(r=>Number(r.cells[1].textContent))');
+    const values=await js('[...document.querySelectorAll("#invariants tr")].map(r=>Number(r.cells[1]?.textContent))');
     assert.ok(values.length>0&&values.every(x=>Number.isFinite(x)&&Math.abs(x)<1e-6),'O5 two-root diagnostics');
     await seek(0);
    } else assert.ok(residuals.length>0&&residuals.every(x=>Number.isFinite(x)&&Math.abs(x)<1e-6),'model diagnostics '+id);
@@ -173,7 +176,7 @@ try {
   // and the spoken text without stale previous-mode data.
   const variants=await js('(()=>{const s=document.querySelector("#case");return s?[...s.options].map(o=>o.value):[];})()');
   if(variants.length>1){
-   await seek(.5);
+   await seek(id==='10'?1:.5);
    const a=await capture(id,'mode-first');
    await js('(()=>{const e=document.querySelector("#case");e.selectedIndex=1;e.dispatchEvent(new Event("change"));})()');
    const b=await capture(id,'mode-second');
