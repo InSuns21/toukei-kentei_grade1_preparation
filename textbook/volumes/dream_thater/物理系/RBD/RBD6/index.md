@@ -22,6 +22,8 @@ $$
 
 まず対角の慣性テンソルを空間座標へ移すと、一般には非対角成分が現れます。これは新たな相互作用ではなく、基底を傾けた結果です。
 
+ここでの $SO(3)$ は[RBD1で定義した向きを保つ回転行列の集合](../RBD1/index.md#def-rbd1-proper-rotation)です。回転行列 $R$ は物体成分を空間成分へ移すものとして、式の左右の基底を統一します。
+
 <a id="thm-rbd6-inertia-rotation"></a>
 
 <!-- formal-statement-start -->
@@ -527,7 +529,13 @@ $$
 
 この条件により、たとえば $\operatorname{diag}(I,2I,4I)$（$I>0$）は正定値行列でも、実在する三次元質量分布の慣性テンソルにはなれません。正定値性だけで物理的な実現可能性を判断しないことが重要です。
 
-正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)によって直交主軸で二次形式を対角にできます。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
+正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)によって直交主軸で二次形式を対角にできます。[MECH8の回転エネルギー公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)を重心まわりの角速度に適用すると
+
+$$
+K_{\mathrm{rot}}=\frac12\omega^{\mathsf T}J_C\omega
+$$
+
+です。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
 
 <a id="def-rbd6-inertia-ellipsoid"></a>
 
