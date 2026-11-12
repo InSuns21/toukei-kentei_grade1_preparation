@@ -118,7 +118,7 @@ $$
 \rho_A=\operatorname{Tr}_B(I_4/4)=I_2/2.
 $$
 
-よって $S(\rho_R)=\ln4=2\ln2$、$S(\rho_A)=\ln2$。この例は有限次元の**部分跡**の計算であって、BTZ幾何やRT公式から得られた値ではありません。
+よって $S(\rho_R)=\ln4=2\ln2$、$S(\rho_A)=\ln2$。この例は有限次元の**部分跡**の計算であり、バルク幾何と面積の対応を用いません。
 
 ## 3. Rényi量からvon Neumann量へ
 
@@ -268,7 +268,7 @@ $$
 **A4. TFDと右境界の区間。** $\mathcal H_R=\mathbb C^2_A\otimes\mathbb C^2_B$、$H_R=0$ とする。TFDの規格化係数、$\rho_R$、$\rho_A$ とそれぞれのエントロピーを求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** エネルギーは4準位とも0で $Z=\operatorname{Tr}I_4=4$、各TFD振幅は $1/\sqrt4=1/2$。[TFD縮約命題](../HOLO16/index.md#prop-holo16-partial-trace)より $\rho_R=I_4/4$。$B$ の直交基底二つを足すと $\rho_A=\operatorname{Tr}_B(I_A\otimes I_B/4)=2I_A/4=I_2/2$。固有値から $S_R=-4(1/4)\ln(1/4)=\ln4$、$S_A=-2(1/2)\ln(1/2)=\ln2$。
+**詳細解答。** エネルギーは4準位とも0で $Z=\operatorname{Tr}I_4=4$、各TFD振幅は $1/\sqrt4=1/2$。[TFDの片側縮約とエントロピー](../HOLO16/index.md#prop-holo16-partial-trace)より $\rho_R=I_4/4$。$B$ の直交基底二つを足すと $\rho_A=\operatorname{Tr}_B(I_A\otimes I_B/4)=2I_A/4=I_2/2$。固有値から $S_R=-4(1/4)\ln(1/4)=\ln4$、$S_A=-2(1/2)\ln(1/2)=\ln2$。
 <!-- solution-end -->
 
 <a id="ex-holo17-a05"></a>
