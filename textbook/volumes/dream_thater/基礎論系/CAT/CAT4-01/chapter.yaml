@@ -1,0 +1,48 @@
+id: "CAT4-01"
+title: "モノイダル圏"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-02
+  - CAT1-05
+  - CAT1-06
+  - CAT1-07
+  - CAT1-08
+  - CAT2-02
+official_scope: []
+learning_objectives:
+  - 積圏からのテンソル双関手を定義し、恒等射・合成保存と交換則を型付きで検証できる
+  - 結合子と左右単位子を自然同型として定義し、自然性の式を対象と射ごとに確認できる
+  - 五角形・三角形条件の始域・終域を追い、集合の直積で両経路を具体的に検算できる
+  - 有限積を持つ圏で結合子と単位子を普遍性から構成し、自然性と整合条件を証明できる
+  - 厳密モノイダル圏の条件を判定し、自己関手の合成から厳密な例を作れる
+  - 自然同型と整合条件を区別し、一対象圏で整合条件の失敗を反証できる
+definitions:
+  - { id: CAT4-01-DEF-01, name: テンソル双関手 }
+  - { id: CAT4-01-DEF-02, name: モノイダル圏 }
+  - { id: CAT4-01-DEF-03, name: 厳密モノイダル圏 }
+theorems:
+  - { id: CAT4-01-PROP-01, name: テンソルの交換則 }
+  - { id: CAT4-01-THM-01, name: 有限積からのモノイダル構造 }
+  - { id: CAT4-01-PROP-02, name: 自己関手の合成は厳密モノイダル構造を与える }
+canonical_examples:
+  - 集合の直積のテンソル双関手と結合子・単位子の成分
+  - 集合の直積で五角形と三角形を全元で照合
+  - 二項積と終対象の普遍性による結合子・単位子の構成
+  - 離散圏の自然数加法と自己関手合成の厳密モノイダル圏
+  - 空集合の単位対象の失敗と一対象圏での整合条件の失敗
+problem_patterns:
+  - CAT4-01-PRODUCT-FUNCTOR
+  - CAT4-01-PENTAGON-TYPES
+  - CAT4-01-TRIANGLE-SET
+  - CAT4-01-DISCRETE-ADDITION
+  - CAT4-01-EMPTY-UNIT
+  - CAT4-01-ASSOCIATOR-NATURAL
+  - CAT4-01-PRODUCT-ASSOCIATOR
+  - CAT4-01-TENSOR-INVERSES
+  - CAT4-01-INTERCHANGE-SQUARE
+  - CAT4-01-COHERENCE-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 3 }
