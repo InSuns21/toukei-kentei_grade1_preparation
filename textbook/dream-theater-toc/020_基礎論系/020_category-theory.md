@@ -39,3 +39,4 @@
 36. [CAT4-02 Mac Laneの整合性定理](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-02/index.md)
 37. [CAT4-03 組紐・対称モノイダル圏](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-03/index.md)
 38. [CAT4-04 モノイダル関手とモノイド対象](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-04/index.md)
+39. [CAT4-05 閉モノイダル圏と Cartesian closed category](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-05/index.md)

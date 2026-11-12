@@ -1,0 +1,78 @@
+chapter: CAT4-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT4-01
+  - CAT4-03
+  - CAT4-04
+  - CAT2-08
+  - CAT2-09
+  - LA3E
+
+concepts:
+  - id: category.right-closed-monoidal
+    name: 右閉モノイダル圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右閉モノイダル圏と内部Hom）"]
+    requires: [category.monoidal-category, category.adjunction-hom]
+  - id: category.internal-hom
+    name: 内部Hom
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右閉モノイダル圏と内部Hom）"]
+    requires: [category.right-closed-monoidal]
+  - id: category.evaluation-currying
+    name: 評価射とカリー化の普遍性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（評価射とカリー化の普遍性）"]
+    requires: [category.internal-hom, category.adjunction-transpose-formulas]
+  - id: category.internal-hom-bifunctor
+    name: 内部Homの反変・共変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（内部Homの反変・共変性）"]
+    requires: [category.evaluation-currying, category.tensor-bifunctor]
+  - id: category.iterated-currying
+    name: 反復カリー化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反復カリー化）"]
+    requires: [category.evaluation-currying, category.internal-hom-bifunctor]
+  - id: category.exponential-object
+    name: 指数対象
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（指数対象）"]
+    requires: [category.binary-product, category.evaluation-currying]
+  - id: category.cartesian-closed-category
+    name: Cartesian閉圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cartesian closed category）"]
+    requires: [category.finite-product, category.exponential-object]
+  - id: category.cartesian-closed-characterization
+    name: Cartesian閉圏と閉モノイダル構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cartesian 閉圏と閉モノイダル構造）"]
+    requires: [category.cartesian-closed-category, category.cartesian-monoidal, category.right-closed-monoidal]
+  - id: category.vector-space-closed
+    name: ベクトル空間の閉構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ベクトル空間の閉構造）"]
+    requires: [category.evaluation-currying, linear.tensor-product]
+  - id: category.two-element-poset-exponential
+    name: 二元順序圏の指数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二元順序圏の指数）"]
+    requires: [category.exponential-object, category.poset-category]
+  - id: category.pointed-set-non-ccc
+    name: 基点付き集合の反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（基点付き集合の反例）"]
+    requires: [category.exponential-object, category.cartesian-closed-category]
