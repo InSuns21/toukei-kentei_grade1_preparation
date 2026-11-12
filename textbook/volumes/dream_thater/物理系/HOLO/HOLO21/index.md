@@ -8,7 +8,7 @@
 
 境界の有限cutoff領域 $A$ の縮約密度演算子を $\rho_A$ とし、$\operatorname{Tr}\rho_A=1$ とします。整数 $n\ge2$ では $n$ 個のEuclid経路積分を $A$ の切断に沿って巡回的に貼れば、$\operatorname{Tr}\rho_A^n$ を計算する境界多様体 $\mathcal B_n$ が生じます。**これは時空の別々のコピーを貼る操作**であり、境界部分領域 $A$ を物理的な壁で仕切る操作ではありません。[QFT58のレプリカ分配関数](../../QFT/QFT58/index.md#thm-qft58-replica-partition)との違いも確認してください。
 
-正規化前の境界分配関数を $Z[\mathcal B_n]$、元のものを $Z[\mathcal B_1]$ と書きます。重力側では、指定した境界 $\partial M_n=\mathcal B_n$ を持つEuclid鞍点 $M_n$ の繰り込み済み作用 $I_n=I_E[M_n]$ を用います。背景に応じた境界項と反項は[HOLO14のホログラフィック繰り込み](../HOLO14/index.md)で扱ったものを含みます。
+正規化前の境界分配関数を $Z[\mathcal B_n]$、元のものを $Z[\mathcal B_1]$ と書きます。重力側では、指定した境界 $\partial M_n=\mathcal B_n$ を持つEuclid鞍点 $M_n$ の繰り込み済み作用 $I_n=I_E[M_n]$ を用います。背景に応じた境界項は[HOLO13のGHYを含むDirichlet作用](../HOLO13/index.md#def-holo13-dirichlet-action)を、局所反項の考え方は[HOLO14の反項の定義](../HOLO14/index.md#def-holo14-local-counterterm)を参照してください。
 
 <a id="def-holo21-gravity-replica"></a>
 
@@ -107,7 +107,7 @@ $$
 =2\pi\alpha.
 $$
 
-円板に対する[Gauss–Bonnetの定理](../../../幾何系/GEO/GEO19/index.md)の $\int_{D_r}K\,dA+\oint k_g\,ds=2\pi\chi(D_r)$ に $\chi(D_r)=1$ を代入し、
+円板に対する[境界付きGauss–Bonnetの定理](../../../幾何系/GEO/GEO19/index.md#thm-geo19-gauss-bonnet-boundary)の $\int_{D_r}K\,dA+\oint k_g\,ds=2\pi\chi(D_r)$ に $\chi(D_r)=1$ を代入し、
 
 $$
 \int_{D_r}K\,dA=2\pi(1-\alpha).
@@ -216,7 +216,7 @@ $$
 (H_1V^1+H_2V^2).
 $$
 
-これは[面積変分の基本公式](../../../幾何系/GEO/GEO19/index.md)を二つの法線成分へ分解した式です。前提の有効作用の位置停留から
+実際、第二基本形式の符号を $δ_Vh_{ij}=-2V^aK^{(a)}_{ij}$ と取ると、行列式の第一変分 $δ_V\sqrt h=(\sqrt h/2)h^{ij}δ_Vh_{ij}$ により上式を得ます。ここで各法線方向のトレースが $H_a=h^{ij}K^{(a)}_{ij}$ です。前提の有効作用の位置停留から
 
 $$
 0=\delta_V I_{\rm eff}
@@ -273,7 +273,7 @@ $$
 +O\left(\frac{L}{G_3}\frac{\epsilon^2}{\ell^2}\right).
 $$
 
-さらに[HOLO13で用いたBrown–Henneaux係数](../HOLO13/index.md) $c_{\rm BH}=3L/(2G_3)$ を代入すれば $L/(2G_3)=c_{\rm BH}/3$ です。[QFT59の条件付きvon Neumann普遍係数](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)は同じ平面真空条件で $c/3$ を与えます。**係数が一致するのは指定した半古典的双対性・状態・cutoff・解析接続の下**であり、この一例からAdS/CFT一般の証明はできません。
+さらに[HOLO13のBrown–Henneaux関係](../HOLO13/index.md#prop-holo13-brown-henneaux) $c_{\rm BH}=3L/(2G_3)$ を代入すれば $L/(2G_3)=c_{\rm BH}/3$ です。[QFT59の条件付きvon Neumann普遍係数](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)は同じ平面真空条件で $c/3$ を与えます。**係数が一致するのは指定した半古典的双対性・状態・cutoff・解析接続の下**であり、この一例からAdS/CFT一般の証明はできません。
 <!-- proof-end -->
 
 ## 6. 証明したことと証明していないこと
