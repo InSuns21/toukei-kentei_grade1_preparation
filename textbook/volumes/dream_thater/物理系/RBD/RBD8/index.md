@@ -8,7 +8,7 @@
 
 ## 1. 対称軸が一本だけ特別な物体
 
-[RBD6の主慣性値の縮退](../RBD6/index.md#def-rbd6-principal-degeneracy)から、第一・第二主軸の慣性モーメントが等しい場合、第三主軸を対称軸として選べます。ここでは正の慣性モーメントを仮定します。回転対称性をもつ物体の代表例は円板や軸対称の円柱ですが、必要なのは力学的な主慣性値の条件です。
+[MECH8の主軸・主慣性モーメントの定義](../../MECH/MECH8/index.md#def-mech8-principal-axis)では、慣性テンソルを対角表示する直交方向を主軸と呼びます。[RBD6の主慣性値の縮退](../RBD6/index.md#def-rbd6-principal-degeneracy)により、第一・第二主軸の慣性モーメントが等しい場合、残る第三主軸を力学的な対称軸として選べます。ここでは正の慣性モーメントを仮定します。回転対称性をもつ物体の代表例は円板や軸対称の円柱ですが、必要なのは力学的な主慣性値の条件です。
 
 <a id="def-rbd8-symmetric-body"></a>
 
@@ -29,13 +29,21 @@ $$
 
 **定義の確認**：二つの等しい主慣性値、第三主慣性値との相違、正定値性を具体的に計算し、無トルク条件は独立に調べます。
 
-半径 $a>0$、質量 $M>0$ の一様な薄円板を考え、円板に垂直な方向を $e_3$ とします。[RBD6の円板の慣性モーメント](../RBD6/index.md#prop-rbd6-uniform-disc)は
+半径 $r>0$、質量 $M>0$ の一様な薄円板を考えます。円板の面内に直交する単位軸 $e_1,e_2$ をとり、$(e_1,e_2,e_3)$ が正向きになるように面に垂直な方向 $e_3$ を選びます。[RBD6の円板の慣性テンソル](../RBD6/index.md#prop-rbd6-uniform-disc)で半径の文字を $r$ に置き換えると、重心を原点とするこの基底で対角行列になり、対角成分はそれぞれの軸の主慣性モーメントです。したがって
 
 $$
-I=\frac14Ma^2,\qquad J=\frac12Ma^2=2I.
+J_b=\operatorname{diag}\left(\frac14Mr^2,\frac14Mr^2,\frac12Mr^2\right)
+=\operatorname{diag}(I,I,J),\qquad
+I=\frac14Mr^2,\quad J=\frac12Mr^2=2I.
 $$
 
-したがって $I>0,J>0,I\ne J$ の三条件をすべて満たし、垂直軸が物体対称軸です。自由空間中で外トルクを加えない理想模型なら $\tau_{C,s}=0$ となり、定義を満たします。**形が対称**であることと**外トルクが零**であることは別条件です。支点や重力がトルクを与える状況では円板でも無トルクとは限りません。
+$M,r>0$ なので $I>0,J>0,I\ne J$ です。さらに任意の非零ベクトル $v=(v_1,v_2,v_3)^{\mathsf T}$ で
+
+$$
+v^{\mathsf T}J_bv=I(v_1^2+v_2^2)+Jv_3^2>0
+$$
+
+となり、[RBD6の慣性テンソルの正定値性](../RBD6/index.md#prop-rbd6-positivity)とも整合します。対角化された基底の第三軸が物体対称軸です。自由空間中で外トルクを加えない理想模型なら $\tau_{C,s}=0$ となり、無トルク条件も満たします。**形が対称**であることと**外トルクが零**であることは別条件です。支点や重力がトルクを与える状況では円板でも無トルクとは限りません。
 <!-- definition-example-end -->
 
 [RBD6の主慣性値の三角不等式](../RBD6/index.md#prop-rbd6-inertia-triangle)も確認しましょう。実際の質量分布から得られる $I,I,J$ は $J\le 2I$ を満たします。等号は質量が対称軸に垂直な平面へ集中する薄円板などの理想模型で成立します。この条件はEuler方程式を形式的に解くためだけなら不要ですが、具体的な物体の初期条件を選ぶ際には必要です。
@@ -44,7 +52,14 @@ $$
 
 ## 2. 物体系では横角速度が等速で回る
 
-[外力付きNewton–Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)の回転式へ $\tau_{C,b}=0$ と $J_b=\operatorname{diag}(I,I,J)$ を代入すると、成分は
+[外力付きNewton–Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)の回転式で、空間の零トルクを物体系へ移しても $\tau_{C,b}=R^{\mathsf T}0=0$ です。対角行列 $J_b=\operatorname{diag}(I,I,J)$ を使えば
+
+$$
+\omega_b\times(J_b\omega_b)
+=\bigl((J-I)\omega_2\omega_3,\ (I-J)\omega_3\omega_1,\ 0\bigr).
+$$
+
+したがって $J_b\dot\omega_b+\omega_b\times(J_b\omega_b)=0$ の各成分は次のとおりです。上点は時刻 $t$ に関する常微分、例えば $\dot\omega_1=d\omega_1/dt$ を表します。
 
 $$
 \begin{aligned}
@@ -125,7 +140,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（自由回転の角運動量・エネルギーと円錐角）
 
-前定理の仮定の下で、任意の初期姿勢 $R_0\in SO(3)$ に対して
+重心まわりに外トルクを受けず、物体系で $J_b=\operatorname{diag}(I,I,J)$、$I,J>0$、$I\ne J$ となる三次元剛体を考える。初期角速度を $\omega_b(0)=(a,b,w)\in\mathbb R^3$、初期姿勢を $R(0)=R_0\in SO(3)$ とする。このとき
 
 $$
 L_s(t)=L_0:=R_0(Ia,Ib,Jw)^{\mathsf T}
@@ -202,7 +217,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（無トルク対称剛体の姿勢の再構成）
 
-前定理の仮定の下で、$\ell=|R_0J_b\omega_b(0)|>0$ とする。角運動量の固定単位軸 $k=L_0/\ell$、空間での歳差角速度の大きさ $\nu=\ell/I>0$、物体系横角速度の回転率 $\alpha=(J-I)w/I$ を定める。初期姿勢が $R_0\in SO(3)$ なら、姿勢方程式 $\dot R=R\widehat{\omega}_b$ の解は
+重心まわりに外トルクを受けない三次元剛体について、物体系慣性テンソルを $J_b=\operatorname{diag}(I,I,J)$、$I,J>0$、$I\ne J$ とする。初期姿勢 $R(0)=R_0\in SO(3)$、初期角速度 $\omega_b(0)=(a,b,w)\in\mathbb R^3$ を与え、$L_0:=R_0(Ia,Ib,Jw)^{\mathsf T}$、$\ell:=|L_0|>0$ とする。固定単位軸 $k=L_0/\ell$、空間での歳差角速度の大きさ $\nu=\ell/I>0$、物体系横角速度の回転率 $\alpha=(J-I)w/I$ を定める。このとき、[物体系角速度の明示解](#thm-rbd8-euler-solution)に対する姿勢方程式 $\dot R=R\widehat{\omega}_b$ の解は
 
 $$
 \boxed{R(t)=Q(k,\nu t)\,R_0\,Q(e_3,-\alpha t),\qquad t\in\mathbb R.}
@@ -224,14 +239,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A(t)=Q(k,\nu t)$、$B(t)=Q(e_3,-\alpha t)$ とおくと、$R=A R_0 B$ は三つの $SO(3)$ 行列の積だから $R(t)\in SO(3)$、また $R(0)=R_0$ です。指数の微分と、回転 $S$ に対する $S\widehat vS^{\mathsf T}=\widehat{Sv}$ により
+$A(t)=Q(k,\nu t)$、$B(t)=Q(e_3,-\alpha t)$ とおくと、$R=A R_0 B$ は三つの $SO(3)$ 行列の積だから $R(t)\in SO(3)$、また $R(0)=R_0$ です。[RBD2の回転の指数表示](../RBD2/index.md#prop-rbd2-exponential)で $A=\exp(\nu t\widehat k)$、$B=\exp(-\alpha t\widehat{e_3})$ と書けます。各生成行列は時間に依存しないため、指数級数を項別に微分すると
 
 $$
-\dot A=\nu\widehat k A,\qquad
-\dot B=-\alpha B\widehat{e_3}.
+\frac{dA}{dt}=\nu\widehat k\,A,\qquad
+\frac{dB}{dt}=-\alpha B\,\widehat{e_3}
 $$
 
-積の微分を行い、左から $R^{\mathsf T}$ を掛けると
+を得ます（右側のハット行列と $B$ は同じ行列の冪級数なので交換します）。さらに[RBD3の回転とハット行列の共役関係](../RBD3/index.md#prop-rbd3-angular-conjugacy)を用います。積の微分を行い、左から $R^{\mathsf T}$ を掛けると
 
 $$
 \begin{aligned}
@@ -272,7 +287,7 @@ $$
 さらに $\ell=0$ なら $I,J>0$ より $a=b=w=0$。Euler方程式は $\omega_b(t)=0$ を与え、姿勢方程式は $\dot R=0$ となります。
 <!-- proof-end -->
 
-**角速度ベクトルの見方**も確認しておきます。上の証明の式を空間系に移すと
+**角速度ベクトルの見方**も確認しておきます。[RBD3の空間・物体角速度の対応](../RBD3/index.md#prop-rbd3-angular-conjugacy)より $\omega_s=R\omega_b$ です。証明中の $\omega_b=R^{\mathsf T}L_0/I-\alpha e_3$ に左から $R$ を掛け、$RR^{\mathsf T}=I_3$ と $Re_3=n$ を使えば
 
 $$
 \boxed{\omega_s(t)=\frac{L_0}{I}-\alpha n(t).}
@@ -349,7 +364,7 @@ $$
 
 したがって $\dot\psi$ が負でも、物体角速度の軸方向成分 $\omega_3=w$ は正になり得ます。**Euler角の自転角速度 $\dot\psi$ と、剛体の対称軸方向の角速度成分 $w$ は同一ではありません。**
 
-$\rho=0$ のときは $|\cos\theta|=1$ で、Euler角は座標特異です。対称軸は空間に固定され、実際の姿勢はその軸の周りを角速度 $w$ で回ります。このときも[姿勢の再構成定理](#thm-rbd8-attitude-reconstruction)の行列式は有効ですが、$\dot\phi$ と $\dot\psi$ を個別の観測可能な回転率と見なしてはいけません。$\ell=0$ なら回転せず、歳差軸 $k$ 自体を定義しません。
+$\rho=0$ のときは $|\cos\theta|=1$ で、Euler角は座標特異です。対称軸は空間に固定され、実際の姿勢はその軸の周りを角速度 $w$ で回ります。このときも[姿勢の再構成定理](#thm-rbd8-attitude-reconstruction)の行列の積による表示は有効ですが、$\dot\phi$ と $\dot\psi$ を個別の観測可能な回転率と見なしてはいけません。$\ell=0$ なら回転せず、歳差軸 $k$ 自体を定義しません。
 
 ## 6. モデルの境界と次の問い
 
@@ -568,7 +583,16 @@ R(t)\longrightarrow Q\!\left(
 \frac{R_0\omega_b(0)}{|\omega_b(0)|},\,|\omega_b(0)|t\right)R_0.
 $$
 
-一方 $J_b=I I_3$ をEuler方程式へ代入すると $I\dot\omega_b+\omega_b\times(I\omega_b)=I\dot\omega_b=0$。$\omega_b(t)=\omega_b(0)$、$R(t)=R_0Q(\omega_b(0)/|\omega_b(0)|,|\omega_b(0)|t)$ です。回転の共役関係 $R_0Q(u,\beta)=Q(R_0u,\beta)R_0$ により極限と一致します。
+一方 $J_b=I I_3$ をEuler方程式へ代入すると $I\dot\omega_b+\omega_b\times(I\omega_b)=I\dot\omega_b=0$。$\omega_b(t)=\omega_b(0)$、$R(t)=R_0Q(\omega_b(0)/|\omega_b(0)|,|\omega_b(0)|t)$ です。ここでは[RBD2の回転の指数表示](../RBD2/index.md#prop-rbd2-exponential)と[RBD3のハット行列の共役関係](../RBD3/index.md#prop-rbd3-angular-conjugacy)を適用します。$R_0\in SO(3)$ なので
+
+$$
+R_0Q(u,\beta)R_0^{\mathsf T}
+=\exp(\beta R_0\widehat uR_0^{\mathsf T})
+=\exp(\beta\widehat{R_0u})
+=Q(R_0u,\beta).
+$$
+
+右から $R_0$ を掛ければ $R_0Q(u,\beta)=Q(R_0u,\beta)R_0$ となり、極限と一致します。
 
 $\omega_b(0)=0$ なら、全時刻で $\omega_b=0$、$R=R_0$ です。$k=L_0/|L_0|$ を定義して極限をとる必要はありません。
 <!-- solution-end -->

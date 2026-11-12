@@ -11,10 +11,25 @@
 - [CTM5 の密度と質量保存](../CTM5/index.md#prop-ctm5-density-jacobian)：$\rho(x,t)>0$、$\rho_0(X)=J\rho(\chi(X,t),t)>0$、$J=\det F>0$、$F=D_X\chi$。単位は密度が kg/m$^3$、$F,J$ は無次元。
 - [CTM4 の速度勾配と変形速度](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)：$v(x,t)=\partial_t\chi(X,t)$、$L=\nabla_xv$、$D=(L+L^T)/2$。$D$ の単位は s$^{-1}$。
 - [CTM6 の面力](../CTM6/index.md#def-ctm6-traction)：現在配置の外向き単位法線 $n$ に対し、単位現在面積の力は $\sigma n$。$\sigma$ は Pa = N/m$^2$、$b$ は単位質量当たりの体積力 N/kg。古典的 Cauchy 連続体に対する[角運動量の帰結](../CTM7/index.md#prop-ctm7-angular-stress)から $\sigma=\sigma^T$ とする。
-- $D_tf:=\partial_t f+v\cdot\nabla_x f$ は物質点に沿う時間変化率である。$D_tv$ は物質加速度である。$\operatorname{div}_x$ は現在座標の発散、$\operatorname{Div}_X$ は基準座標の発散。
+- [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を、この章の空間速度 $v$ に対して $D_tf:=\partial_t f+v\cdot\nabla_x f$ と書く。$\partial_t f$ は現在位置 $x$ を固定した微分、$D_tf$ は同じ物質点に沿う変化率で、ベクトル場には成分ごとに作用する。$D_tv$ は物質加速度である。$\operatorname{div}_x$ は現在座標の発散、$\operatorname{Div}_X$ は基準座標の発散。
 - 時間は s、仕事・エネルギーは J = N m、仕事率・熱流率は W = J/s。内積 $A:B=\sum_{i,j}A_{ij}B_{ij}$ を使う。
+- $e_i$（$i=1,2,3$）は $\mathbb R^3$ の固定直交座標の標準基底であり、例えば $e_1=(1,0,0)^T$、$e_2=(0,1,0)^T$。物質ラベルと現在位置の両方をこの座標で成分表示する。
 
 この講でいう**温度** $T(x,t)>0$ は、熱的な状態を表す絶対温度（単位 K）である。温度と内部エネルギーの関係はまだ仮定しない。「温度が高いから必ずある向きへ熱が流れる」とする法則も、後で導入する材料固有の規則である。
+
+ここで空間表示の $D_tf$ と、基準表示の $\partial_t(f\circ\chi)$ の対応を確認する。滑らかなスカラー場 $f(x,t)$ に対し、$X$ を固定し $x=\chi(X,t)$ を動かして[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を使えば、
+
+$$
+\begin{aligned}
+\partial_t(f\circ\chi)(X,t)
+&=(\partial_t f)(\chi(X,t),t)
++\sum_{i=1}^{3}(\partial_{x_i}f)(\chi(X,t),t)\,\partial_t\chi_i(X,t)\\
+&=(\partial_t f+v\cdot\nabla_x f)(\chi(X,t),t)
+=(D_tf)(\chi(X,t),t).
+\end{aligned}
+$$
+
+最後の等式では $v(\chi(X,t),t)=\partial_t\chi(X,t)$ を使った。この対応は $f=e$ の内部エネルギーだけでなく、$f=k$ の運動エネルギーでも成立する。
 
 ## 1. エネルギーを分け、熱の出入りに符号を付ける
 
@@ -236,7 +251,7 @@ $$
 =\left(JF^{-1}(q\circ\chi)\right)\cdot N\,dA.
 $$
 
-このため基準面積当たりの外向き熱流束を $Q=JF^{-1}(q\circ\chi)$（W/m$^2$）と置く。$Q$ は基準法線 $N$ と内積を取る量で、同じ物理的な熱を表す。力の [第一 Piola 応力](../CTM8/index.md#def-ctm8-first-piola) $P=J(\sigma\circ\chi)F^{-T}$ とは行列の掛かる位置が違う。
+このため基準面積当たりの外向き熱流束を $Q=JF^{-1}(q\circ\chi)$（W/m$^2$）と置く。$Q$ は基準法線 $N$ と内積を取る量で、同じ物理的な熱を表す。力の [第一 Piola 応力](../CTM8/index.md#def-ctm8-first-piola) $P=J(\sigma\circ\chi)F^{-T}$ とは行列の掛かる位置が違う。以下、$\dot F=\partial_tF(X,t)$ は物質ラベル $X$ を固定した時間微分であり、[速度勾配と変形勾配の時間変化](../CTM4/index.md#prop-ctm4-velocity-deformation)に対応する。
 
 <a id="prop-ctm9-reference-energy"></a>
 
@@ -310,14 +325,36 @@ $$
 
 ### A1. 断熱と熱の流入の符号
 
-直方体の左面・右面はともに面積 $A$。右向きに一定の熱流束 $q_*>0$（W/m$^2$）があり、側面熱流束はゼロとする。(i) 左右の $q\cdot n$ を求めよ。(ii) 正味境界熱入力率を計算せよ。(iii) 右面だけから追加で $h>0$ W/m$^2$ の熱を外へ逃すとき、正味入力率はどうなるか。
+直方体の左面・右面はともに面積 $A$。右向きに一定の熱流束 $q_*>0$（W/m$^2$）があり、側面熱流束はゼロとする。
+
+1. 左右の $q\cdot n$ を求めよ。
+2. 正味境界熱入力率を計算せよ。
+3. 右面だけから追加で $h>0$ W/m$^2$ の熱を外へ逃すとき、正味入力率はどうなるか。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-(i) 右向きを $e_1$ とすれば $q=q_*e_1$。左面の外向き法線は $-e_1$ なので $q\cdot n=-q_*$、右面は $+e_1$ で $q\cdot n=q_*$。(ii) [熱流束の定義](#def-ctm9-heat-transport)から $H_{\partial U}=-[(-q_*A)+(q_*A)]=0$。(iii) 右面の流出を $q_*+h$ にすれば $H_{\partial U}=-[-q_*A+(q_*+h)A]=-hA$ W。負の符号は外へ失う熱を表す。
+1. 右向きを $e_1$ とすれば $q=q_*e_1$。左面の外向き法線は $-e_1$、右面は $+e_1$ だから、
+
+   $$
+   (q\cdot n)_{\mathrm{left}}=-q_*,\qquad (q\cdot n)_{\mathrm{right}}=q_*.
+   $$
+
+2. [熱流束の定義](#def-ctm9-heat-transport)から、両面を通る外向き流率を差し引けば、
+
+   $$
+   H_{\partial U}=-[(-q_*A)+(q_*A)]=0.
+   $$
+
+3. 右面の外向き流率密度だけが $q_*+h$ に増えるため、
+
+   $$
+   H_{\partial U}=-[-q_*A+(q_*+h)A]=-hA\quad\text{W}.
+   $$
+
+   負の符号は外へ失う熱を表す。
 <!-- solution-end -->
 
 ### A2. 応力が回転に仕事をしないこと
@@ -341,7 +378,21 @@ $\sigma=\operatorname{diag}(p,0,0)$（Pa）、$L=\begin{pmatrix}a&-\omega&0\\\om
 <!-- solution-start -->
 #### 詳細解答
 
-[内部エネルギーの局所収支](#thm-ctm9-internal-energy)の $D_te=\partial_te$、$\sigma:D=0$、$\operatorname{div}_xq=0$ を代入すると $\rho\partial_te=\rho r$。$\rho>0$ なので $\partial_te=r$。模型の微分で $\partial_te=c\partial_tT$、よって $\partial_tT=30/600=0.05$ K/s。積分して $T(10)=280+0.05\cdot10=280.5$ K。$c$ は物性の仮定であり全エネルギー収支そのものではない。
+静止しているので $D_te=\partial_te$ であり、応力仕事も熱流束の発散もゼロである。[内部エネルギーの局所収支](#thm-ctm9-internal-energy)から、
+
+$$
+\rho\partial_te=\rho r,\qquad \rho>0
+\quad\Longrightarrow\quad \partial_te=r.
+$$
+
+一方、模型の仮定 $e=c(T-T_{\rm ref})$ を $x$ 固定で時間微分すると $\partial_te=c\partial_tT$ である。$c=600$ J/(kg K) を代入して、
+
+$$
+\partial_tT=\frac{r}{c}=\frac{30}{600}=0.05\quad\text{K/s},\qquad
+T(10\ \mathrm s)=280+0.05\cdot10=280.5\quad\text{K}.
+$$
+
+$c$ は物性の追加仮定であり、エネルギー収支自体から得られた値ではない。
 <!-- solution-end -->
 
 ### A4. 基準面を通る熱流束
@@ -353,7 +404,20 @@ $F=\operatorname{diag}(2,3,1)$、$q=(4,5,0)^T$ W/m$^2$ は現在配置で一様�
 <!-- solution-start -->
 #### 詳細解答
 
-$J=2\cdot3\cdot1=6>0$、$F^{-1}=\operatorname{diag}(1/2,1/3,1)$。よって $Q=6(2,5/3,0)^T=(12,10,0)^T$ W/m$^2$。基準法線と内積を取り、$Q\cdot e_1=12$、$Q\cdot e_2=10$。現在面の面積倍率はそれぞれ $3$ と $2$ なので、$4\cdot3=12$、$5\cdot2=10$ と一致する。[Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)の面積倍率を確かめた。
+$J=2\cdot3\cdot1=6>0$、$F^{-1}=\operatorname{diag}(1/2,1/3,1)$ である。現在側の一様な $q$ を基準側に引き戻すと、
+
+$$
+Q=JF^{-1}q
+=6(2,5/3,0)^T=(12,10,0)^T\quad\text{W/m}^2.
+$$
+
+基準面 $N=e_1,e_2$ からの外向き流率密度は、それぞれ $Q\cdot e_1=12$、$Q\cdot e_2=10$ W/m$^2$ である。これが面積での判定と一致する理由も確かめよう。[Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)による現在面の面積倍率は $|JF^{-T}N|$ だから、
+
+$$
+JF^{-T}e_1=3e_1,\qquad JF^{-T}e_2=2e_2.
+$$
+
+したがって現在面での熱流束の法線成分と面積倍率を掛けると、$4\cdot3=12$、$5\cdot2=10$ となる。これは $Q\cdot N$ が表す**単位基準面積当たりの流率**に等しい。
 <!-- solution-end -->
 
 ### Level B
@@ -384,20 +448,47 @@ $$
 
 ### B2. 熱が出入りする棒の全体と局所を照合する
 
-静止した直方体 $0<x_1<L$、横断面積 $A$、密度 $\rho_*>0$ で、応力仕事率ゼロ、$q=(q_*+ax_1)e_1$、$q_*,a$ は時刻一定、$r=r_*$ とする。$q_*$ の単位は W/m$^2$、$a$ は W/m$^3$。(i) $D_te$ を求めよ。(ii) 左右の熱流率を積分し、全体の内部エネルギー変化率が局所式の積分と一致することを示せ。
+静止した直方体 $0<x_1<L$、横断面積 $A$、密度 $\rho_*>0$ で、応力仕事率ゼロ、$q=(q_*+ax_1)e_1$、$q_*,a$ は時刻一定、$r=r_*$ とする。$q_*$ の単位は W/m$^2$、$a$ は W/m$^3$。
+
+1. $D_te$ を求めよ。
+2. 左右の熱流率を積分し、全体の内部エネルギー変化率が局所式の積分と一致することを示せ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-(i) $\operatorname{div}_xq=\partial_{x_1}(q_*+ax_1)=a$。従って [内部エネルギー式](#thm-ctm9-internal-energy)より $\rho_*\partial_te=-a+\rho_*r_*$、すなわち $\partial_te=r_*-a/\rho_*$（J/(kg s)）。(ii) 左面の外向き法線は $-e_1$ なので外向き流量は $-q_*A$、右面では $(q_*+aL)A$。正味の外向き熱は $aLA$、熱入力は $-aLA$。体積源は $\rho_*r_*LA$ だから、全体式では
+1. 静止しているので $D_te=\partial_te$ である。$\operatorname{div}_xq=\partial_{x_1}(q_*+ax_1)=a$ を [内部エネルギー式](#thm-ctm9-internal-energy)へ代入すると、
 
-$$
-\frac{dE_{\rm int}}{dt}=-aLA+\rho_*r_*LA.
-$$
+   $$
+   \rho_*\partial_te=-a+\rho_*r_*,
+   \qquad \partial_te=r_*-\frac{a}{\rho_*}\quad\text{J/(kg s)}.
+   $$
 
-局所式を全体積 $LA$ で積分しても $(\rho_*r_*-a)LA$。両者は一致し、一定成分 $q_*$ は左右を通過するだけなので蓄積に寄与しない。
+2. 左面の外向き法線は $-e_1$、右面の法線は $e_1$ である。両面で積分した外向き熱流率と、それを反転した熱入力率は、
+
+   $$
+   \begin{aligned}
+   \int_{\partial U}q\cdot n\,dS
+   &=(-q_*)A+(q_*+aL)A=aLA,\\
+   H_{\partial U}&=-aLA.
+   \end{aligned}
+   $$
+
+   体積熱源は $\rho_*r_*LA$ だから、積分収支は、
+
+   $$
+   \frac{dE_{\rm int}}{dt}=-aLA+\rho_*r_*LA.
+   $$
+
+   他方、局所式の左辺を体積 $LA$ で積分すると、
+
+   $$
+   \int_U\rho_*\partial_te\,dV
+   =\int_U(\rho_*r_*-a)\,dV=(\rho_*r_*-a)LA.
+   $$
+
+   両者は一致する。一定成分 $q_*$ は左右を通過するだけなので、蓄積に寄与しない。
 <!-- solution-end -->
 
 ### B3. 剛体回転中に仕事と熱が通過する場合
@@ -409,13 +500,21 @@ $\chi(X,t)=R(t)X$、$R(t)\in SO(3)$ は $C^2$ 級、密度は運動に沿って�
 <!-- solution-start -->
 #### 詳細解答
 
-まず $F=R$、$J=\det R=1$、$\dot F=\dot R$ である。$R^TR=I_3$ を時間で微分すると
+まず $F=R$、$J=\det R=1$、$\dot F=\dot R$ である。$R^TR=I_3$ より $X=R^Tx$ である。同じ物質点の速度を現在座標で書き直し、$x$ で微分すると、
 
 $$
-\dot R^TR+R^T\dot R=0.
+v(x,t)=\partial_t\chi(R^Tx,t)=\dot RR^Tx,\qquad
+L=\nabla_xv=\dot RR^T.
 $$
 
-右と左から $R$、$R^T$ を掛けると $(\dot RR^T)^T=-\dot RR^T$。ゆえに $L=\dot RR^T$ は反対称、$D=(L+L^T)/2=0$。[CTM3 の線素長さの判定](../CTM3/index.md#prop-ctm3-length-criterion)とも整合する。$\sigma:D=0$ である。
+次に $RR^T=I_3$ を時間で微分する。この微分は $X$ 固定の $F$ の微分と区別し、$R(t)$ の通常の時間微分として行う。
+
+$$
+\dot RR^T+R\dot R^T=0,\qquad
+L^T=R\dot R^T=-\dot RR^T=-L.
+$$
+
+ゆえに $L$ は反対称、$D=(L+L^T)/2=0$。[CTM3 の線素長さの判定](../CTM3/index.md#prop-ctm3-length-criterion)とも整合する。したがって $\sigma:D=0$ であり、回転だけでは応力による内部仕事率を生まない。
 
 現在熱流束 $q_0$ は空間一定だから $\operatorname{div}_xq_0=0$。基準熱流束は
 
@@ -440,7 +539,10 @@ $$
 
 で動かす。$\rho_0>0$ kg/m$^3$ は基準で一様、$\sigma=\operatorname{diag}(p,0,0)$（$p>0$ Pa）、$b=0$、$q(x,t)=\alpha x_1e_1$（$\alpha>0$ W/m$^3$）、$r=r_*$（一定 W/kg）とする。初期比内部エネルギーは $e(X,0)=e_0$（一定 J/kg）。
 
-(i) $F,J,\rho,v,D,P,Q$ を求めよ。(ii) 運動量方程式を確かめ、運動エネルギー全体の時間変化率を計算せよ。(iii) 局所内部エネルギー式から $e(X,t)$ を求めよ。(iv) 基準面の外向き応力仕事率、熱流出率、体積熱供給率を別々に積分し、全エネルギー収支と基準配置の局所式を照合せよ。
+1. $F,J,\rho,v,D,P,Q$ を求めよ。
+2. 運動量方程式を確かめ、運動エネルギー全体の時間変化率を計算せよ。
+3. 局所内部エネルギー式から $e(X,t)$ を求めよ。
+4. 基準面の外向き応力仕事率、熱流出率、体積熱供給率を別々に積分し、全エネルギー収支と基準配置の局所式を照合せよ。
 
 - Level: C
 
