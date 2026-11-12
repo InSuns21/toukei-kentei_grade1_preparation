@@ -1,0 +1,48 @@
+chapter: U3-09
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-08]
+forward_references: []
+concepts:
+  - id: finance.barrier-discrete-contract
+    name: 離散監視 Barrier call：knock-in と knock-out
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散監視 Barrier call：knock-in と knock-out）"]
+    requires: [finance.european-call-put, finance.binomial-path-measure]
+  - id: finance.barrier-hit-state
+    name: 到達フラグと拡張状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（到達フラグと拡張状態）"]
+    requires: [finance.barrier-discrete-contract, finance.binomial-information]
+  - id: finance.barrier-backward-price
+    name: 離散監視 Barrier の後退帰納価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（離散監視 Barrier の後退帰納価格）"]
+    requires: [finance.barrier-hit-state, finance.backward-conditional-value, finance.binomial-self-financing-replication]
+  - id: finance.barrier-in-out-parity
+    name: Barrier の in/out parity
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Barrier の in/out parity）"]
+    requires: [finance.barrier-discrete-contract, finance.barrier-backward-price, finance.european-binomial-valuation]
+  - id: finance.barrier-monitoring-monotonicity
+    name: 離散監視日追加による価格の単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（離散監視日追加による価格の単調性）"]
+    requires: [finance.barrier-discrete-contract, finance.barrier-backward-price]
+  - id: finance.barrier-stock-insufficiency
+    name: 満期前の同一株価でも Barrier 価値は異なる
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（満期前の同一株価でも Barrier 価値は異なる）"]
+    requires: [finance.barrier-hit-state, finance.barrier-backward-price]
+  - id: finance.barrier-node-replication
+    name: Barrier の各節点における複製保有量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Barrier の各節点における複製保有量）"]
+    requires: [finance.barrier-backward-price, finance.binomial-self-financing-replication]
