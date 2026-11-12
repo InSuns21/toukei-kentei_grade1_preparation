@@ -1,0 +1,45 @@
+chapter: AQFT6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT5
+  - AQFT2
+  - OA3
+  - QM8
+forward_references: []
+concepts:
+  - id: aqft.weyl-ccr
+    name: Weylの正準交換関係
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-minkowski-causal-symplectic, operator-algebra.cstar-algebra]
+  - id: aqft.weyl-twisted-translation
+    name: Weyl関係を満たす有界な模型
+    kind: proposition
+    introduction: formal
+    requires: [aqft.weyl-ccr]
+  - id: aqft.weyl-commutator-phase
+    name: Weyl交換子の位相判定
+    kind: proposition
+    introduction: formal
+    requires: [aqft.weyl-ccr]
+  - id: aqft.kg-weyl-local-net
+    name: 自由Klein–Gordon場の局所Weyl C*net
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-local-quotient, aqft.weyl-twisted-translation, aqft.local-cstar-assignment]
+  - id: aqft.kg-weyl-haag-kastler
+    name: Weyl netの包含単調性・局所性・共変性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.kg-weyl-local-net, aqft.kg-local-symplectic-orthogonality, aqft.kg-poincare-symplectic-covariance, aqft.haag-kastler-net]
+  - id: aqft.weyl-regular-representation
+    name: Weyl CCRの規則的表現
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-weyl-local-net, quantum.strongly-continuous-unitary-group]
+  - id: aqft.weyl-discrete-nonregular
+    name: 第3節の離散表示は非規則的
+    kind: proposition
+    introduction: formal
+    requires: [aqft.weyl-regular-representation, aqft.weyl-twisted-translation]
