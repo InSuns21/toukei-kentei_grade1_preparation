@@ -26,14 +26,14 @@
 
 <!-- definition-example-start: def-cat4-02-formal-expression -->
 **定義の確認**。 $T=((A\otimes I)\otimes(B\otimes I))$ と $U=A\otimes B$ は別の形式的テンソル式である。明示的な $I$ だけを削るので、$w(T)=w(U)=(A,B)$ となる。一方、評価は
-$
+$$
 \lVert T\rVert=(A\otimes I)\otimes(B\otimes I),
 \qquad \lVert U\rVert=A\otimes B
-$
+$$
 であり、両者が同一対象であるとは仮定しない。前講で定義した[右単位子](../CAT4-01/index.md#def-cat4-01-monoidal)は $\rho_A:A\otimes I\to A$、$\rho_B:B\otimes I\to B$ だから、[テンソル双関手](../CAT4-01/index.md#def-cat4-01-tensor-bifunctor)で二射を合わせた
-$
+$$
 \rho_A\otimes\rho_B:\lVert T\rVert\longrightarrow\lVert U\rVert
-$
+$$
 は、定義に列挙した構造射の具体例になる。語が同じことと、評価対象が等しいことと、構造射があることは別々に確認する。
 
 また $V=I\otimes I$ の語は空列である。$B\otimes A$ の語は $(B,A)$ であり、もとの $(A,B)$ から順序を交換する規則は定義に含まれない。
@@ -194,14 +194,14 @@ $$
 である。$\odot$ は元のテンソル双関手に二変数の交換を前置した双関手であり、結合子と単位子の自然性は元の自然性を変数の逆順で読めば従う。整合条件も型と式で確認する。
 
 逆向きテンソルの三角形は
-$
+$$
 (\rho_B\otimes1_A)\alpha^{-1}_{B,I,A}
 =1_B\otimes\lambda_A
-$
+$$
 となる。これは元の三角形 $(1_B\otimes\lambda_A)\alpha_{B,I,A}=\rho_B\otimes1_A$ の右に $\alpha^{-1}_{B,I,A}$ を合成した等式である。
 
 逆向きテンソルの五角形は、元の四対象 $(D,C,B,A)$ の五角形の両辺を逆射にした
-$
+$$
 \begin{aligned}
 &\alpha^{-1}_{D\otimes C,B,A}
  \alpha^{-1}_{D,C,B\otimes A}\\
@@ -209,7 +209,7 @@ $
  \alpha^{-1}_{D,C\otimes B,A}
  (1_D\otimes\alpha^{-1}_{C,B,A})
 \end{aligned}
-$
+$$
 に一致する。したがって $\odot$ もモノイダル構造を持つ。(1) をこの $\odot$ に適用すれば
 $$
 \rho_{B\otimes A}\alpha^{-1}_{B,A,I}=1_B\otimes\rho_A.
