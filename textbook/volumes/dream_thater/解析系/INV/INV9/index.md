@@ -480,14 +480,14 @@ $$
 
 特に $\operatorname{TV}_d(c,c,\ldots,c)=0$ はすべての $c$ で成立します。従って**TV罰則単独は強制的ではありません**。[INV8の存在定理](../INV8/index.md#thm-inv8-existence)が仮定する「罰則自体の強制性」はここでは満たされないため、その定理をそのまま適用してはなりません。一方、恒等観測の二乗残差がある $T_\lambda$ については
 
-$
+$$
 T_\lambda(x)\ge\frac12\|x-y\|_2^2,
 \qquad \|x-y\|_2\ge\|x\|_2-\|y\|_2
-$
+$$
 
 ですから、$\|x\|_2\to\infty$ なら $T_\lambda(x)\to\infty$。有限次元での連続性と有界閉集合のコンパクト性から最小点は存在します。また $x\ne v$ と $w=(x+v)/2$ に対して
 
-$
+$$
 \begin{aligned}
 \frac12\|w-y\|_2^2
 &=\frac14\|x-y\|_2^2+\frac14\|v-y\|_2^2-\frac18\|x-v\|_2^2,\\
@@ -495,7 +495,7 @@ $
 &=\left\|\frac{Dx+Dv}{2}\right\|_1
 \le\frac{\operatorname{TV}_d(x)+\operatorname{TV}_d(v)}{2}.
 \end{aligned}
-$
+$$
 
 従って $T_\lambda(w)<(T_\lambda(x)+T_\lambda(v))/2$ であり、最小点は一意です。**罰則が強制的・厳密凸であることと、目的関数全体がそうであることは別**です。
 
