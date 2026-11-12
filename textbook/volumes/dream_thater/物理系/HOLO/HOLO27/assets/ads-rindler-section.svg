@@ -10,7 +10,7 @@
   <circle cx="270" cy="198" r="7" fill="#144c6b"/>
   <rect x="385" y="310" width="14" height="14" fill="#a14f30" stroke="#69321d" stroke-width="1.5"/>
   <text x="321" y="58" text-anchor="middle" font-size="19" fill="#202b32">A</text>
-  <text x="91" y="116" text-anchor="middle" font-size="17" fill="#202b32">−R</text>
+  <text x="91" y="116" text-anchor="middle" font-size="17" fill="#202b32">-R</text>
   <text x="542" y="116" text-anchor="middle" font-size="17" fill="#202b32">R</text>
   <text x="621" y="74" font-size="19" fill="#202b32">x</text>
   <text x="584" y="210" font-size="19" fill="#202b32">z</text>
