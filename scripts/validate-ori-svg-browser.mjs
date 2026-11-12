@@ -126,7 +126,7 @@ try {
   await load(url);
   assert.ok((await js('document.querySelector("[data-player=\\"play\\"]").textContent')).includes('再生'),
    'no autoplay '+id);
-  assert.ok(await js('Boolean(document.querySelector("[data-player=\\"announcement\\"][aria-live="polite"]))'),'live region '+id);
+  assert.ok(await js('document.querySelector("[data-player=\\"announcement\\"]")?.getAttribute("aria-live")==="polite"'),'live region '+id);
   assert.equal(await at(),0,'normal-motion first frame '+id);
   const isB=id!=='01'&&id!=='08';
   if(isB){
