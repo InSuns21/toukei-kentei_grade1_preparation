@@ -165,9 +165,38 @@ function orientMarkdownLinks(markdown, siteRelativeFile) {
       throw new Error(`${siteRelativeFile}: link escapes the generated site: ${trimmed}`);
     }
 
+    // Standalone HTML applications (including the ORI animated SVG players)
+    // must be opened as actual files, not as Docsify Markdown routes. Under a
+    // Pages project site, "./" resolves against /<repository>/ even when the
+    // displayed chapter URL has a #/... Docsify route.
+    if (!open.startsWith('!') && /\.html?$/i.test(hrefPath)) {
+      const title = titleSuffix.trim().match(/^(['"])(.*?)\1$/)?.[2] || '';
+      const ignored = title.includes(':ignore') ? title : [title, ':ignore'].filter(Boolean).join(' ');
+      return `${open}./${resolved}${hrefSuffix} '${ignored}'${close}`;
+    }
+
     return `${open}${resolved}${hrefSuffix}${titleSuffix}${close}`;
   });
 }
+
+function selfTestStandaloneHtmlLinks() {
+  const source = [
+    '[Player](assets/ori-v12-player.html)',
+    '[Secondary](assets/demo.html "Open demo")',
+    '[Other chapter](../ORI21/index.md#theorem)',
+    '![Poster](assets/ori-v12-poster.svg)',
+  ].join('\n');
+  const page = 'textbook/volumes/dream_thater/幾何系/ORI/ORI22/index.md';
+  const actual = orientMarkdownLinks(source, page);
+  const prefix = 'textbook/volumes/dream_thater/幾何系/ORI/ORI22/assets/';
+  if (!actual.includes(`[Player](./${prefix}ori-v12-player.html ':ignore')`)
+    || !actual.includes(`[Secondary](./${prefix}demo.html 'Open demo :ignore')`)
+    || !actual.includes('[Other chapter](textbook/volumes/dream_thater/幾何系/ORI/ORI21/index.md#theorem)')
+    || !actual.includes(`![Poster](${prefix}ori-v12-poster.svg)`)) {
+    throw new Error('Standalone HTML must bypass Docsify routing without changing Markdown navigation or SVG assets');
+  }
+}
+selfTestStandaloneHtmlLinks();
 
 function selfTestImageLinksAfterMathIntervals() {
   const source = 'Angle $\\alpha\\in[0,2\\pi)$ is periodic.\n\n![section](assets/section.svg)\n\n[Zoom](assets/section.svg)';
