@@ -275,7 +275,7 @@ $$
 
 ## 4. 微小ひずみが近似になる条件
 
-実務では、変位 $u(X,t)=\chi(X,t)-X$ の空間的な変化を使って、線形のひずみを計算することが多い。[CTM1 の変位](../CTM1/index.md#def-ctm1-material-velocity)を基準座標 $X$ で微分した行列を $H=D_Xu$ と書くと $F=I_3+H$。非線形の $E$ と比べて何を捨てるのかを計算してみよう。
+実務では、変位 $u(X,t)=\chi(X,t)-X$ の空間的な変化を使って、線形のひずみを計算することが多い。[CTM1 の変位](../CTM1/index.md#def-ctm1-material-displacement-velocity)を基準座標 $X$ で微分した行列を $H=D_Xu$ と書くと $F=I_3+H$。非線形の $E$ と比べて何を捨てるのかを計算してみよう。
 
 <a id="def-ctm3-infinitesimal-strain"></a>
 
@@ -326,7 +326,7 @@ $$
 E=\varepsilon+\frac12H^TH.
 $$
 
-Euclidノルムに対応する行列の作用素ノルム $\|\cdot\|_{\mathrm{op}}$ について
+[Euclidノルムから誘導される作用素ノルム](../../../基礎科目/LA/LA6/index.md#def-la6-operator-norm) $\|\cdot\|_{\mathrm{op}}$ について
 
 $$
 \|E-\varepsilon\|_{\mathrm{op}}
