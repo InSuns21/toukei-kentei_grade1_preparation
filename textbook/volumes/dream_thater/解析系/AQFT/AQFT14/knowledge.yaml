@@ -30,12 +30,12 @@ concepts:
     name: wedge双対性
     kind: definition
     introduction: formal
-    requires: [aqft.haag-duality, aqft.wedges]
+    requires: [aqft.haag-duality, aqft.rindler-wedges]
   - id: aqft.wedge-duality-covariance
     name: 共変性によるwedge双対性の伝播
     kind: theorem
     introduction: formal
-    requires: [aqft.wedge-duality, aqft.gns-vn-covariance, aqft.poincare-complement]
+    requires: [aqft.wedge-duality, aqft.gns-vn-covariance, aqft.poincare-covariance]
   - id: aqft.local-relative-commutant
     name: 局所双対拡大の相対可換子
     kind: definition
