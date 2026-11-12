@@ -88,7 +88,7 @@ $$
 \le\sum_{j>N}|b_j|^2<\varepsilon
 $$
 
-です（有限個の $J$ では尾部は空）。したがって有限和の連続性から級数全体が連続になります。同じ尾部評価と有限項ごとの極限を合わせると、$\alpha\downarrow0$ で和は $0$、$\alpha\uparrow\infty$ で $\sum_j|b_j|^2$ に収束します。[直交分解](../INV3/index.md#def-inv3-singular-system)より $\sum_j|b_j|^2+\|P_{\ker A^*}z\|^2=\|z\|^2$ なので両端の式を得ます。
+です（有限個の $J$ では尾部は空）。したがって有限和の連続性から級数全体が連続になります。同じ尾部評価と有限項ごとの極限を合わせると、$\alpha\downarrow0$ で和は $0$、$\alpha\uparrow\infty$ で $\sum_j|b_j|^2$ に収束します。[閉部分空間の直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)を $Y_0$ に適用すると $\sum_j|b_j|^2+\|P_{\ker A^*}z\|^2=\|z\|^2$ なので両端の式を得ます。
 
 $0<\alpha<\beta$ なら各 $j$ で
 
@@ -244,7 +244,7 @@ $$
 \le(\tau+1)\delta\longrightarrow0.
 $$
 
-**第3段階（極限の特定）**。$\delta_n\downarrow0$ を任意に取り、$x_{\delta_n}$ を考えます。Hilbert 空間の有界列は弱収束部分列を持つので、ある部分列について $x_{\delta_{n_k}}\rightharpoonup\bar x$ です。有界線形作用素 $A$ は弱収束を弱収束へ写す一方、第2段階では $Ax_{\delta_{n_k}}\to y$ とノルム収束します。弱極限の一意性により $A\bar x=y$ です。
+**第3段階（極限の特定）**。$\delta_n\downarrow0$ を任意に取り、$x_{\delta_n}$ を考えます。Hilbert 空間の有界列は弱収束部分列を持つので、ある部分列について $x_{\delta_{n_k}}\rightharpoonup\bar x$ です。有界線形作用素 $A$ は弱収束を弱収束へ写す一方、第2段階では $Ax_{\delta_{n_k}}\to y$ とノルム収束します。この二つを、任意の $v\in Y$ に対する内積で比較します。弱収束から $\langle Ax_{\delta_{n_k}},v\rangle_Y\to\langle A\bar x,v\rangle_Y$、ノルム収束から同じ左辺が $\langle y,v\rangle_Y$ に収束します。従って $\langle A\bar x-y,v\rangle_Y=0$ がすべての $v$ で成り立ち、$v=A\bar x-y$ と置いて $A\bar x=y$ です。
 
 弱収束の定義により $\langle x_{\delta_{n_k}},\bar x\rangle_X\to\|\bar x\|_X^2$ です。また
 
@@ -482,7 +482,7 @@ $A=2:\mathbb R\to\mathbb R$、$y^\delta=6$、$\alpha>0$ とする。$x_\alpha^\d
 <!-- solution-start -->
 #### 詳細解答
 
-[正規方程式](../INV5/index.md#thm-inv5-tikhonov-minimizer)より $(4+\alpha)x=2\cdot6=12$ なので $x_\alpha^\delta=12/(4+\alpha)$。従って
+[Tikhonov最小点の存在・一意性と正規方程式](../INV5/index.md#thm-inv5-tikhonov-minimizer)より $(4+\alpha)x=2\cdot6=12$ なので $x_\alpha^\delta=12/(4+\alpha)$。従って
 
 $$
 \rho_\delta(\alpha)
@@ -772,7 +772,7 @@ $$
 \end{aligned}
 $$
 
-$\ell^2$ の有界列 $\{x_n\}$ は弱収束部分列を持ちます。どの弱極限 $\bar x$ も $A\bar x=y$ を満たし、$\|\bar x\|\le\sqrt2=\|x^\dagger\|$ です。$A$ は単射なので $\bar x=x^\dagger$。弱下半連続性と上界を合わせて $\|x_n\|\to\sqrt2$ が部分列上で成り立ち、内積展開から強収束します。強収束しない部分列を仮定しても同じ議論が適用できるため列全体が強収束します。よって実際に $\|x_n-x^\dagger\|\to0$ を証明できました。
+$\ell^2$ の有界列 $\{x_n\}$ は弱収束部分列を持ちます。どの弱極限 $\bar x$ も $A\bar x=y$ を満たし、$\|\bar x\|\le\sqrt2=\|x^\dagger\|$ です。$A$ は単射なので $\bar x=x^\dagger$。前述のノルム二乗恒等式を $x_n\rightharpoonup\bar x$ に適用すると $\|\bar x\|^2\le\liminf\|x_n\|^2$ です。これと $\|x_n\|\le\sqrt2=\|\bar x\|$ を合わせて $\|x_n\|\to\sqrt2$ が部分列上で成り立ち、内積展開から強収束します。強収束しない部分列を仮定しても同じ議論が適用できるため列全体が強収束します。よって実際に $\|x_n-x^\dagger\|\to0$ を証明できました。
 <!-- solution-end -->
 
 ---
