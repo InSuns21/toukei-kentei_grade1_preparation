@@ -125,7 +125,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p\in O^\perp$、$q\in O$ を任意に取ります。[因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)における「全ての点対が空間的に分離」の条件より $g(p-q,p-q)>0$ です。従って $O^\perp$ と $O$ は空間的に分離しています。[局所von Neumann netの局所性](../AQFT9/index.md#thm-aqft9-isotony-locality)により、全ての $B\in\mathcal M(O^\perp)$、$A\in\mathcal M(O)$ に対し $BA=AB$。これは [可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)そのものなので、$B\in\mathcal M(O)'$ です。ゆえに最初の包含が成立します。
+$p\in O^\perp$、$q\in O$ を任意に取ります。[因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)における「全ての点対が空間的に分離」の条件より $g(p-q,p-q)>0$ です。従って $O^\perp$ と $O$ は空間的に分離しています。
+
+[局所von Neumann netの局所性](../AQFT9/index.md#thm-aqft9-isotony-locality)により、全ての $B\in\mathcal M(O^\perp)$ と $A\in\mathcal M(O)$ に対し $BA=AB$ です。[可換子](../../VN/VN2/index.md#def-vn2-commutant)の定義から $B\in\mathcal M(O)'$。$B$ の任意性により最初の包含が成立します。
 
 さらに $Q\subset O^\perp$ なら[包含単調性](../AQFT9/index.md#thm-aqft9-isotony-locality)から $\mathcal M(Q)\subset\mathcal M(O^\perp)$ であり、二つの包含を合成すれば結論です。$\square$
 <!-- proof-end -->
@@ -258,7 +260,13 @@ $$
 
 ## 6. 仮定がないと、どの段階で証明が止まるか
 
-**局所性を欠く場合。** $\mathcal H=\mathbb C^2$、$\Omega=e_1$ とし、すべての非空開領域に $\mathcal M(O)=B(\mathbb C^2)$ を割り当て、$U(x)=I_2$ とします。包含単調性・平行移動共変性・正エネルギー・真空不変性・全域巡回性・弱加法性・全ての非空領域での巡回性は満たします。しかし二つの空間的に分離した非空領域に割り当てる $B(\mathbb C^2)$ 同士は可換ではありません。例えば $E_{12}E_{21}=E_{11}$、$E_{21}E_{12}=E_{22}$ です。また $P_2\Omega=0$ なのに $P_2\ne0$。**補領域の演算子を $A$ と交換させる一手が壊れる**ため、分離性は導けません。
+**局所性を欠く場合。** $\mathcal H=\mathbb C^2$、$\Omega=e_1$ とし、全ての非空開領域へ $\mathcal M(O)=B(\mathbb C^2)$、空集合へ $\mathcal M(\varnothing)=\mathbb CI_2$ を割り当て、$U(x)=I_2$ とします。
+
+包含単調性・平行移動共変性・正エネルギー・真空不変性・全域巡回性・弱加法性・全ての非空領域での巡回性は満たします。一方、離れた二領域の演算子として $E_{12}$、$E_{21}$ を選ぶと
+$$
+E_{12}E_{21}=E_{11}\ne E_{22}=E_{21}E_{12}
+$$
+ですから、**局所性は破れます**。また $P_2\Omega=0$ なのに $P_2\ne0$ です。補領域の演算子を元の $A$ と交換させる一手が壊れるため、分離性は導けません。
 
 **補領域の巡回性を欠く場合。** $\mathcal H=\mathbb C^2\otimes\mathbb C^2$、$\Omega=e_1\otimes e_1$ とします。離れた二領域の環を $\mathcal M=B(\mathbb C^2)\otimes I_2$、$\mathcal N=I_2\otimes B(\mathbb C^2)$ とすれば、任意の $A\in\mathcal M,B\in\mathcal N$ は交換します。しかし
 $$
@@ -335,7 +343,16 @@ $$
 $\mathcal N\subset B(\mathcal H)$ は単位的von Neumann環、$\Omega\in\mathcal H$ とする。$K=\overline{\mathcal N'\Omega}$ への直交射影を $P$ とする。$P\in\mathcal N$ を示し、$\Omega$ が $\mathcal N$ に分離的なら $P=I$ となることを証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $B,C\in\mathcal N'$ について $B(C\Omega)=(BC)\Omega\in\mathcal N'\Omega$ だから $BK\subset K$ です。$B^*\in\mathcal N'$ についても $B^*K\subset K$。$\eta\in K^\perp,\zeta\in K$ なら $\langle B\eta,\zeta\rangle=\langle\eta,B^*\zeta\rangle=0$ なので $BK^\perp\subset K^\perp$ です。よって $B$ は $K\oplus K^\perp$ に関してブロック対角で、$BP=PB$ です。任意の $B\in\mathcal N'$ と可換だから $P\in(\mathcal N')'=\mathcal N$、最後は[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)です。$I\in\mathcal N'$ なので $\Omega\in K$、$P\Omega=\Omega$。従って $(I-P)\Omega=0$、かつ $I-P\in\mathcal N$。分離性を適用すれば $I-P=0$ となり $P=I$。その値域 $K$ は $\mathcal H$ 全体です。
+**詳細解答。** $B,C\in\mathcal N'$ について、$B(C\Omega)=(BC)\Omega\in\mathcal N'\Omega$ です。従って $BK\subset K$。$B^*\in\mathcal N'$ についても $B^*K\subset K$ です。
+
+$\eta\in K^\perp,\zeta\in K$ なら、随伴の定義によって
+$$
+\langle B\eta,\zeta\rangle
+=\langle\eta,B^*\zeta\rangle=0
+$$
+なので $BK^\perp\subset K^\perp$ です。従って $B$ は $K\oplus K^\perp$ に関してブロック対角となり、$BP=PB$ です。
+
+全ての $B\in\mathcal N'$ と $P$ が可換なので $P\in(\mathcal N')'=\mathcal N$。ここで[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)を使いました。$I\in\mathcal N'$ なので $\Omega\in K$ であり、$P\Omega=\Omega$ です。従って $(I-P)\Omega=0$、かつ $I-P\in\mathcal N$。分離性を適用すると $I-P=0$、すなわち $P=I$。その値域 $K$ は $\mathcal H$ 全体です。
 <!-- solution-end -->
 
 <a id="ex-aqft13-b02"></a>
@@ -345,7 +362,22 @@ $\mathcal N\subset B(\mathcal H)$ は単位的von Neumann環、$\Omega\in\mathca
 $\mathcal H=\mathbb C^2,\Omega=e_1$ とし、全ての非空領域で $\mathcal M(O)=B(\mathbb C^2)$、$U(x)=I_2$ とする。(i) 弱加法性と正エネルギー、全領域での巡回性を確認し、(ii) 分離性が成り立たない理由を求め、(iii) 補領域の巡回性を用いる定理のどの仮定が失われたか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** (i) 任意の非空double cone $Q$ の全並進に割り当てられた環は全て $B(\mathbb C^2)$ なので、生成環はその二重可換子 $B(\mathbb C^2)$、すなわち全域環と一致します。$U(x)=I_2$ は強連続で共同スペクトルは $\{0\}\subset\overline V_+$、$\Omega$ は不変です。任意の $v$ に対して $A_v=\begin{pmatrix}v_1&0\\v_2&0\end{pmatrix}$ が $A_v\Omega=v$ となるので、各局所環で巡回的です。(ii) $P_2=\operatorname{diag}(0,1)$ は非零なのに $P_2\Omega=0$ です。(iii) 互いに離れた領域の $E_{12},E_{21}$ について $E_{12}E_{21}=E_{11}\ne E_{22}=E_{21}E_{12}$ であり、局所性が破れています。したがって $\mathcal M(Q)\subset\mathcal M(O)'$ を使えず、$A(B\Omega)=B(A\Omega)$ と書けないのです。
+**詳細解答。** (i) 任意の非空double cone $Q$ の全並進に割り当てられた環は全て $B(\mathbb C^2)$ なので、生成環の二重可換子は $B(\mathbb C^2)$、すなわち全域環と一致します。$U(x)=I_2$ は強連続で共同スペクトルは $\{0\}\subset\overline V_+$、$\Omega$ は不変です。
+
+任意の $v=(v_1,v_2)$ に対して
+$$
+A_v=\begin{pmatrix}v_1&0\\v_2&0\end{pmatrix},
+\qquad A_v\Omega=v
+$$
+なので、各非空局所環で巡回的です。
+
+(ii) $P_2=\operatorname{diag}(0,1)$ は非零なのに $P_2\Omega=0$ です。
+
+(iii) 互いに離れた領域の行列単位 $E_{12},E_{21}$ について
+$$
+E_{12}E_{21}=E_{11}\ne E_{22}=E_{21}E_{12}
+$$
+ですから、局所性が破れています。したがって $\mathcal M(Q)\subset\mathcal M(O)'$ を使えず、$A(B\Omega)=B(A\Omega)$ と書けないのです。
 <!-- solution-end -->
 
 <a id="ex-aqft13-b03"></a>
