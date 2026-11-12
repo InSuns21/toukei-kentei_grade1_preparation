@@ -6,3 +6,4 @@
 3. [U3-03 多期間二項モデルと割引マルチンゲール](textbook/volumes/dream_thater/応用系/U/U3-03/index.md)
 4. [U3-04 自己金融戦略・複製可能性・完備性](textbook/volumes/dream_thater/応用系/U/U3-04/index.md)
 5. [U3-05 European call/put・先渡・put–call parity](textbook/volumes/dream_thater/応用系/U/U3-05/index.md)
+6. [U3-06 American オプションと停止時刻](textbook/volumes/dream_thater/応用系/U/U3-06/index.md)
