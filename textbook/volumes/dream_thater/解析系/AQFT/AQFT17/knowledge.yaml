@@ -1,0 +1,47 @@
+chapter: AQFT17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT16
+  - AQFT9
+  - AQFT3
+  - AQFT8
+  - VN5
+  - VN4
+forward_references: []
+concepts:
+  - id: aqft.normal-product-extension
+    name: 正規積状態延長
+    kind: definition
+    introduction: formal
+    requires: [operator-algebra.normal-state, aqft.split-tensor-inclusion]
+  - id: aqft.normal-state-positive-lift
+    name: 具体的von Neumann環の正規状態の正の持ち上げ
+    kind: lemma
+    introduction: formal
+    requires: [operator-algebra.von-neumann-predual, operator-algebra.normal-state]
+  - id: aqft.split-normal-product-extension
+    name: split包含における任意の正規積状態延長
+    kind: theorem
+    introduction: formal
+    requires: [aqft.normal-state-positive-lift, aqft.split-tensor-inclusion, aqft.normal-product-extension, operator-algebra.density-state-correspondence]
+  - id: aqft.nuclear-map
+    name: Banach空間からHilbert空間への核写像
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: aqft.nuclear-map-compact
+    name: 核写像はコンパクトである
+    kind: proposition
+    introduction: formal
+    requires: [aqft.nuclear-map]
+  - id: aqft.energy-nuclearity-map
+    name: Buchholz–Wichmann型のエネルギー核性写像
+    kind: definition
+    introduction: formal
+    requires: [aqft.nuclear-map, aqft.positive-energy-vacuum, aqft.gns-local-von-neumann-net]
+  - id: aqft.nuclearity-split-literature
+    name: Buchholz–Wichmann型核性からsplitへ
+    kind: theorem
+    introduction: formal
+    requires: [aqft.energy-nuclearity-map, aqft.split-inclusion]
