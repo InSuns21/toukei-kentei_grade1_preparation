@@ -4,7 +4,7 @@
 
 ところが撮影装置が回転できる範囲は有限であり、撮影角度も離散的です。すると何が一意に分かり、何が分からなくなるのでしょうか。「有限本の方向しかない」「方向が連続的でも角度範囲が狭い」「検出器を離散的に読む」は異なる欠測です。本講では、この三つを分けて、非一意性・一意性・不安定性を直接計算します。
 
-本講では画像を主に複素数値の Schwartz 級関数とし、必要な箇所だけ台がコンパクトな滑らかな関数を使います。実画像の反例が必要なときは実数値に取ります。角度は法線方向を表し、$\theta_\varphi=(\cos\varphi,\sin\varphi)$、$\theta_\varphi^\perp=(-\sin\varphi,\cos\varphi)$、$0\leq\varphi<\pi$ とします。Fourier 変換は
+本講では画像を主に複素数値の [Schwartz 級関数](../INV12/index.md#def-inv12-schwartz)とし、必要な箇所だけ台がコンパクトな滑らかな関数を使います。実画像の反例が必要なときは実数値に取ります。角度は法線方向を表し、$\theta_\varphi=(\cos\varphi,\sin\varphi)$、$\theta_\varphi^\perp=(-\sin\varphi,\cos\varphi)$、$0\leq\varphi<\pi$ とします。Fourier 変換は
 
 $$
 \widehat f(\xi)=\int_{\mathbb R^2}f(x)e^{-ix\cdot\xi}\,dx,\qquad
@@ -128,11 +128,22 @@ q_j(s\theta_{\varphi_j}+tv_j)\,dt\\
 \end{aligned}
 $$
 
-残るのは $h\neq0$ の確認です。$\widehat g(0)=\int g(x)\,dx>0$ なので、連続性から原点近くで $\widehat g(\xi)\neq0$ です。有限本の直線 $\{\xi:\xi\cdot v_j=0\}$ の和集合は小円板を埋め尽くしません。そこで全ての $\xi\cdot v_j\neq0$ かつ $\widehat g(\xi)\neq0$ である $\xi$ を取れます。部分積分により
+残るのは $h\neq0$ の確認です。$\widehat g(0)=\int g(x)\,dx>0$ なので、連続性から原点近くで $\widehat g(\xi)\neq0$ です。有限本の直線 $\{\xi:\xi\cdot v_j=0\}$ の和集合は小円板を埋め尽くしません。そこで全ての $\xi\cdot v_j\neq0$ かつ $\widehat g(\xi)\neq0$ である $\xi$ を取れます。コンパクト台によって境界項が消えるので、一回の方向微分に対して部分積分すると
 
-$$
+$
+\begin{aligned}
+\widehat{D_{v_j}g}(\xi)
+&=\int_{\mathbb R^2}(v_j\cdot\nabla g(x))e^{-ix\cdot\xi}\,dx\\
+&=-\int_{\mathbb R^2}g(x)(v_j\cdot\nabla e^{-ix\cdot\xi})\,dx\\
+&=i(\xi\cdot v_j)\widehat g(\xi).
+\end{aligned}
+$
+
+これを各 $j$ について繰り返すと
+
+$
 \widehat h(\xi)=i^m\prod_{j=1}^m(\xi\cdot v_j)\widehat g(\xi)\neq0.
-$$
+$
 
 Fourier 変換が零でないので $h$ は零関数でありません。実数値性とコンパクト台も構成から保たれます。
 <!-- proof-end -->
@@ -186,7 +197,7 @@ $$
 \mathcal F_s(Rh)(\varphi,\omega)=0.
 $$
 
-各 $\varphi$ に対して $s\mapsto Rh(\varphi,s)$ は Schwartz 級なので、一次元 Fourier 反転によって $Rh(\varphi,s)=0$ が全 $s$ で成立します。
+各 $\varphi$ に対して $s\mapsto Rh(\varphi,s)$ は Schwartz 級なので、[FOU3 の一次元 Fourier 反転](../../FOU/FOU3/index.md#thm-fou3-inversion)によって $Rh(\varphi,s)=0$ が全 $s$ で成立します。
 <!-- proof-end -->
 
 この反例は長い距離まで尾を持つ画像です。撮影対象の範囲が厳密に分かっている場合には、結論が変わります。
@@ -388,12 +399,24 @@ $$
 
 コンパクト台の画像でも周波数の欠測エネルギーは一般に正です。**一意性の定理は、その値を0に埋めてよいとは主張していません**。実画像の再構成では境界の鋭い遮断が方向に依存した振動や線状の模様を生む場合がありますが、ここでは特定の artifact を分類する一般定理を主張しません。
 
-**線状の模様が生まれる幾何学的理由**：[単純逆投影](../INV13/index.md#def-inv13-backprojection)は、投影値 $g(\varphi,s)$ を直線 $x\cdot\theta_\varphi=s$ 上の全点へ配り直します。例えば中心 $x_0$ の Gaussian $f_a(x)=e^{-a|x-x_0|^2}$ の投影は
+**線状の模様が生まれる幾何学的理由**：[単純逆投影](../INV13/index.md#def-inv13-backprojection)は、投影値 $g(\varphi,s)$ を直線 $x\cdot\theta_\varphi=s$ 上の全点へ配り直します。例えば $a>0$、中心 $x_0$ の Gaussian $f_a(x)=e^{-a|x-x_0|^2}$ を考えます。法線と接線の正規直交座標では
 
-$$
-(Rf_a)(\varphi,s)=\sqrt{\pi/a}\,
-e^{-a(s-x_0\cdot\theta_\varphi)^2}.
-$$
+$
+|s\theta_\varphi+t\theta_\varphi^\perp-x_0|^2
+=(s-x_0\cdot\theta_\varphi)^2
++(t-x_0\cdot\theta_\varphi^\perp)^2.
+$
+
+従って、[Radon変換の定義](../INV12/index.md#def-inv12-radon)に代入して $t$ を積分すると
+
+$
+\begin{aligned}
+(Rf_a)(\varphi,s)
+&=e^{-a(s-x_0\cdot\theta_\varphi)^2}
+\int_{\mathbb R}e^{-a(t-x_0\cdot\theta_\varphi^\perp)^2}\,dt\\
+&=\sqrt{\pi/a}\,e^{-a(s-x_0\cdot\theta_\varphi)^2}.
+\end{aligned}
+$
 
 固定角度の逆投影値は、$x\cdot\theta_\varphi=x_0\cdot\theta_\varphi$ を満たす直線全体で最大になります。多数の角度があれば重ね合わせ・フィルタ処理で方向が補われますが、方向が不足すると偏った線状の寄与が目立ちます。これは直接計算した機構の説明であり、どの特異性がどこへ伝播するかの完全な定理ではありません。
 
