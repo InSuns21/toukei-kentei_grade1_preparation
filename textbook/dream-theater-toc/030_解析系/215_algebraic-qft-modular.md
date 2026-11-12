@@ -6,3 +6,4 @@
 3. [AQFT3 状態・共変表現・正エネルギー真空](textbook/volumes/dream_thater/解析系/AQFT/AQFT3/index.md)
 4. [AQFT4 Klein–GordonのGreen作用素と試験関数の商](textbook/volumes/dream_thater/解析系/AQFT/AQFT4/index.md)
 5. [AQFT5 因果伝播子とシンプレクティック形式](textbook/volumes/dream_thater/解析系/AQFT/AQFT5/index.md)
+6. [AQFT6 Weyl CCRと局所C*net](textbook/volumes/dream_thater/解析系/AQFT/AQFT6/index.md)
