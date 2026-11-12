@@ -15,6 +15,7 @@
     .panel { background:#fff; border:1px solid #ccd6df; border-radius:12px; padding:16px; margin:14px 0; }
     .layout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(270px,.8fr); gap:12px; }
     .controls label { display:flex; align-items:center; justify-content:space-between; gap:14px; font-weight:650; }
+    .controls select { display:block; width:100%; padding:9px 10px; margin:8px 0 14px; font:inherit; color:#1c2c3e; background:white; border:1px solid #aebdca; border-radius:6px; }
     .controls input[type=range] { display:block; width:100%; accent-color:#175e97; margin:8px 0 16px; }
     .controls output { min-width:5ch; text-align:right; font-variant-numeric:tabular-nums; }
     .buttons { display:flex; gap:8px; flex-wrap:wrap; }
@@ -69,13 +70,20 @@
         <text x="22" y="442" font-size="13" fill="#50647a">斜投影：3D方向を一枚の画面に表示（縮尺は比較不可）</text>
       </svg>
       <div class="legend" aria-label="線種凡例">
-        <span><b style="border-color:#273c51"></b>L₀ 固定</span>
-        <span><b style="border-color:#1666aa"></b>n(t) 対称軸</span>
-        <span><b class="dash" style="border-color:#b8581c"></b>ωₛ(t) 角速度</span>
-        <span><b class="dot" style="border-color:#8d9ba8"></b>対称軸の軌道</span>
+        <span id="legendL"><b style="border-color:#273c51"></b>L₀ 固定</span>
+        <span id="legendn"><b style="border-color:#1666aa"></b>n(t) 対称軸</span>
+        <span id="legendomega"><b class="dash" style="border-color:#b8581c"></b>ωₛ(t) 角速度</span>
+        <span id="legendorbit"><b class="dot" style="border-color:#8d9ba8"></b>対称軸の軌道</span>
       </div>
     </div>
     <div class="panel controls">
+      <h2>座標系の比較</h2>
+      <label for="frame">表示の基準</label>
+      <select id="frame" aria-label="表示の基準座標系">
+        <option value="space">空間系：角運動量が固定</option>
+        <option value="body">物体系：対称軸が固定</option>
+      </select>
+      <p class="small" id="frameNotes">空間系では L₀ が固定され、対称軸 n(t) が円錐を描きます。</p>
       <h2>時間操作</h2>
       <div class="buttons">
         <button id="play" type="button" aria-pressed="false">▶ 再生</button>
@@ -173,8 +181,30 @@
     $("time").value=t.toFixed(2);
     $("vspeed").value=Number($("speed").value).toFixed(2)+" 倍";
     [["I",I],["J",J],["rho",rho],["w",w]].forEach(([name,value])=>{$("v"+name).value=value.toFixed(2);});
-    setLine("axis1",b1,.72);setLine("axis2",b2,.72);
-    const pL=setLine("L",L0,1.15),pn=setLine("n",n,1.1),po=setLine("omega",omegaS,1.03);
+    const bodyView=$("frame").value==="body";
+    const displayedL=bodyView?LB:L0;
+    const displayedN=bodyView?[0,0,1]:n;
+    const displayedOmega=bodyView?omegaB:omegaS;
+    setLine("axis1",bodyView?[1,0,0]:b1,.72);
+    setLine("axis2",bodyView?[0,1,0]:b2,.72);
+    const pL=setLine("L",displayedL,1.15),pn=setLine("n",displayedN,1.1),po=setLine("omega",displayedOmega,1.03);
+    $("L").setAttribute("visibility",ell>0?"visible":"hidden");
+    $("omega").setAttribute("visibility",norm(displayedOmega)>0?"visible":"hidden");
+    $("labelL").textContent=bodyView?"Lᵦ(t)":"L₀";
+    $("labeln").textContent=bodyView?"e₃":"n(t)";
+    $("labelomega").textContent=bodyView?"ωᵦ(t)":"ωₛ(t)";
+    $("labelL").setAttribute("visibility",ell>0?"visible":"hidden");
+    $("labelomega").setAttribute("visibility",norm(displayedOmega)>0?"visible":"hidden");
+    $("legendL").lastChild.textContent=bodyView?"Lᵦ(t) 物体系では回転":"L₀ 固定";
+    $("legendn").lastChild.textContent=bodyView?"e₃ 物体に固定":"n(t) 対称軸";
+    $("legendomega").lastChild.textContent=bodyView?"ωᵦ(t) 角速度":"ωₛ(t) 角速度";
+    $("legendorbit").lastChild.textContent=bodyView?"Lᵦ(t) の軌道":"対称軸の軌道";
+    $("frameNotes").textContent=bodyView?
+      "物体系では e₃ が固定され、Lᵦ(t) の横成分が α の率で回ります。":
+      "空間系では L₀ が固定され、対称軸 n(t) が円錐を描きます。";
+    $("svgdesc").textContent=bodyView?
+      "物体固定の正規直交基底上で、e3と変化する角運動量L_b(t)、角速度omega_b(t)、角運動量先端の軌道を表示します。":
+      "慣性系で固定したL0、動く対称軸n(t)、角速度omega_s(t)、対称軸先端の軌道を表示します。";
     [["labelL",pL,-27,-6],["labeln",pn,8,-12],["labelomega",po,12,18]].forEach(([id,p,dx,dy])=>{
       $(id).setAttribute("x",Math.min(615,Math.max(10,p[0]+dx)).toFixed(2));
       $(id).setAttribute("y",Math.min(415,Math.max(24,p[1]+dy)).toFixed(2));
@@ -183,7 +213,7 @@
       let points=[];
       for(let j=0;j<=100;j++){
         const theta=2*Math.PI*j/100;
-        const v=rot(k,theta,[0,0,1]);
+        const v=bodyView?scale(zrot(theta,[I*rho,0,J*w]),1/ell):rot(k,theta,[0,0,1]);
         const p=project(scale(v,1.1));
         points.push((j?"L":"M")+p[0].toFixed(2)+" "+p[1].toFixed(2));
       }
@@ -201,6 +231,7 @@
   }
   inputs.forEach(id=>$(id).addEventListener("input",changeModel));
   $("speed").addEventListener("input",draw);
+  $("frame").addEventListener("change",draw);
   $("time").addEventListener("input",()=>{pause();t=Number($("time").value);draw();});
   $("prev").addEventListener("click",()=>{pause();t=Math.max(0,t-.1);draw();});
   $("next").addEventListener("click",()=>{pause();t=Math.min(40,t+.1);draw();});
