@@ -4,6 +4,7 @@ volume: foundations
 status: supplementary
 prerequisites:
   - HOLO12
+  - GR10
 official_scope: []
 learning_objectives:
   - Einstein–Hilbert作用にGHY境界項が必要な理由を法線微分の変分から説明できる
