@@ -321,7 +321,7 @@ $
 <!-- proof-start -->
 ### 証明
 
-時点 $t<N$ の情報を固定し、残り期間を $m=N-t\ge1$ とします。$R>0$ で、株式に配当がないので、[割引株価のマルチンゲール性](../U3-03/index.md#thm-u3-03-discounted-martingale)から
+時点 $t<N$ の情報を固定し、残り期間を $m=N-t\ge1$ とします。$R>0$ で、株式に配当がないので、[割引株価のマルチンゲール性](../U3-03/index.md#thm-u3-03-stock-martingale)から
 
 $$
 E_Q[S_N\mid\mathcal F_t]=R^mS_t.
