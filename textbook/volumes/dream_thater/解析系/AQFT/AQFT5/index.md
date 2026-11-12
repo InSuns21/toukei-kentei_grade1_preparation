@@ -66,7 +66,9 @@ $$
 
 ## 2. 代表元独立性・交代性・非退化性を検算する
 
-ここで必要なのは[交代双線形形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-alternating-form)と[非退化交代形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-nondegenerate-form)の区別です。交代性は $\sigma(v,v)=0$、非退化性は全ての相手との値が零である元が零だけである、という別々の条件です。
+ここで必要なのは[交代双線形形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-alternating-form)と[双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form)の区別です。LA3Eと[SYM1の非退化交代形式](../../../幾何系/SYM/SYM1/index.md#def-sym1-nondegenerate-form)は有限次元の空間で導入しましたが、これらの条件自体は[HPDE23の無限次元解空間](../../HPDE/HPDE23/index.md#def-hpde23-symplectic)と同様に今回の商にも適用できます。
+
+交代性は $\sigma(v,v)=0$、非退化性は全ての相手との値が零である元が零だけである、という別々の条件です。有限次元の行列式による判定を商にそのまま使うのではなく、以下では解空間との同型を用います。
 
 ### 代表を変えたときの主要中間式
 
@@ -105,15 +107,38 @@ $$
 $$
 [AQFT4の全射性](../AQFT4/index.md#thm-aqft4-kg-quotient)で $Eh$ は $\operatorname{Sol}_{\mathrm{sc}}(P)$ 全体を走ります。したがって[解空間の非退化性](../../HPDE/HPDE23/index.md#thm-hpde23-nondegenerate)から $Ef=0$、さらに[AQFT4の核の同定](../AQFT4/index.md#thm-aqft4-kg-quotient)から $f\in P\mathcal D$、つまり $[f]=0$ です。
 
-結局、$(\mathcal V,\sigma)$ は[シンプレクティックベクトル空間](../../../幾何系/SYM/SYM1/index.md#def-sym1-symplectic-vector-space)です。これを新しい一般定理として再証明したのではなく、HPDE23の結果を今回の符号・商・局所化に合わせて確かめました。
+結局、$(\mathcal V,\sigma)$ は[HPDE23と同じ意味のシンプレクティック形式](../../HPDE/HPDE23/index.md#def-hpde23-symplectic)を備えた無限次元実線形空間です。[SYM1のシンプレクティックベクトル空間](../../../幾何系/SYM/SYM1/index.md#def-sym1-symplectic-vector-space)は有限次元で定義されているので、そこでの標準行列や有限次元基底の結論を無断で適用することはできません。
+
+実際、互いに台が交わらない非零の $a_j\in C_c^\infty(\mathbb R^3)$ を任意個数選べます。[Cauchy存在一意性](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)から初期データ $(a_j,0)$ の解は一次独立となり、[AQFT4の源・解同型](../AQFT4/index.md#thm-aqft4-kg-quotient)により $\mathcal V$ も無限次元です。ここで用いたのは交代性・非退化性の代数的条件であり、新しい一般定理を証明したのではなくHPDE23の結果を今回の符号・商・局所化に合わせて確かめました。
 
 ### もう一つの独立検算：時間カットオフ
 
-上の直接例に登場した $f,h$ を実際に構成できます。$\chi\in C^\infty(\mathbb R)$ を、十分過去で $0$、十分未来で $1$ とし、$u,v$ はコンパクトな初期データからの斉次解とします。
+上の直接例に登場した源を、時間カットオフで実際に構成します。時刻だけに依存する滑らかな関数 $\chi$ を、十分過去で零、十分未来で一となるよう選びます。$u,v$ はコンパクトな初期データから得た斉次解です。
+
+ここでプライムは $\chi$ の通常の時間微分、$\partial_tu$ は空間座標を固定した時刻 $t$ による偏微分です。両者の対応は
+$$
+\chi'=\frac{d\chi}{dt},\qquad
+\chi''=\frac{d^2\chi}{dt^2},\qquad
+\partial_tu=\frac{\partial u(t,\boldsymbol x)}{\partial t}
+$$
+です。$\chi$ が空間座標に依存しないため、積の微分法則を各項に用いると
+$$
+\partial_t^2(\chi u)
+=\chi''u+2\chi'\partial_tu+\chi\partial_t^2u,
+\qquad
+\Delta(\chi u)=\chi\Delta u
+$$
+となります。よって $Pu=0$ を用いて
+$$
+P(\chi u)=\chi''u+2\chi'\partial_tu+\chi Pu
+=\chi''u+2\chi'\partial_tu
+$$
+を得ます。同様に $Pv=0$ から
 $$
 f=P(\chi u)=\chi''u+2\chi'\partial_tu,\qquad
-h=P(\chi v)=\chi''v+2\chi'\partial_tv.
+h=P(\chi v)=\chi''v+2\chi'\partial_tv
 $$
+と置きます。
 $\chi',\chi''$ は有限時間帯に支持を持ち、Cauchy解の因果的支持条件によりこの帯で $u,v$ の空間台も有界なので $f,h\in\mathcal D$ です。[AQFT4のカットオフ逆写像](../AQFT4/index.md#thm-aqft4-kg-quotient)によって
 $$
 G_{\mathrm{ret}}f=\chi u,\qquad
@@ -187,7 +212,7 @@ $$
 \sigma(v_1,v_2)
 =-\int_M f(x)(Eh)(x)\,d^4x=0.
 $$
-[代表元独立性](#def-aqft5-causal-symplectic)の検算があるため、$f,h$ を別の代表で書いてもこの値は変わりません。第一の結論と直交補への包含が従います。
+第2節で直接検算した代表元独立性（一般形は[HPDE23の商への誘導形式](../../HPDE/HPDE23/index.md#cor-hpde23-quotient-form)）により、$f,h$ を別の代表で書いてもこの値は変わりません。第一の結論と直交補への包含が従います。
 
 次に $O_1\subset O_2$ なら任意の $f\in\mathcal D(O_1)$ は $\mathcal D(O_2)$ にも属します。よって
 $$

@@ -21,7 +21,7 @@ chapters:
   - { id: HOLO13, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO13, status: completed, title: "バルク重力場と応力テンソル" }
   - { id: HOLO14, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO14, status: completed, title: "ホログラフィック繰り込み" }
   - { id: HOLO15, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO15, status: completed, title: "境界の熱状態とAdSブラックホール" }
-  - { id: HOLO16, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO16, status: planned, title: "BTZ・熱場二重状態" }
+  - { id: HOLO16, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO16, status: completed, title: "BTZ・熱場二重状態" }
   - { id: HOLO17, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO17, status: planned, title: "境界領域のエントロピー" }
   - { id: HOLO18, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO18, status: planned, title: "RT公式の最小模型" }
   - { id: HOLO19, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO19, status: planned, title: "homology条件と面積競合" }

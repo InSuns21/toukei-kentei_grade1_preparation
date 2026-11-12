@@ -16,3 +16,4 @@
 13. [HOLO13 バルク重力場と応力テンソル](textbook/volumes/dream_thater/物理系/HOLO/HOLO13/index.md)
 14. [HOLO14 ホログラフィック繰り込み](textbook/volumes/dream_thater/物理系/HOLO/HOLO14/index.md)
 15. [HOLO15 境界の熱状態とAdSブラックホール](textbook/volumes/dream_thater/物理系/HOLO/HOLO15/index.md)
+16. [HOLO16 BTZ・熱場二重状態](textbook/volumes/dream_thater/物理系/HOLO/HOLO16/index.md)
