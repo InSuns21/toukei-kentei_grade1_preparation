@@ -25,7 +25,7 @@ $$
 
 <a id="ref-holo8-radial-equation"></a>
 
-$
+$$
 z^2 f_k''-(d-1)zf_k'-(|k|^2z^2+m^2L^2)f_k=0. 
 $$
 
@@ -150,7 +150,7 @@ $u$ はコンパクト台なので $\int_0^\infty duu'\,dz=(d/2)[u^2]_0^\infty=0
 
 <a id="ref-holo8-square"></a>
 
-$
+$$
 \frac{Q_m[f]}{L^{d-1}}
 =\int_0^\infty z(u')^2dz+
 \left(m^2L^2+\frac{d^2}{4}\right)
