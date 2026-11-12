@@ -27,7 +27,7 @@ $$
 \int_{\mathbb R^3}q(\boldsymbol x)e^{-i\boldsymbol k\cdot\boldsymbol x}\,d^3x,\quad
 \omega_{\boldsymbol k}=\sqrt{|\boldsymbol k|^2+m^2}
 $$
-と定めます。運動量ごとに方程式は $\ddot{\widehat u}+\omega_{\boldsymbol k}^2\widehat u=0$ です。その解は
+と定めます。運動量ごとに方程式は $\ddot{\widehat u}+\omega_{\boldsymbol k}^2\widehat u=0$ です。ここでドットは時間 $t$ に関する微分を表し、$\ddot{\widehat u}=\partial_t^2\widehat u$（$\boldsymbol k$ を固定）です。その解は
 $$
 \widehat u(t,\boldsymbol k)=\widehat q(\boldsymbol k)\cos(\omega_{\boldsymbol k}t)
 +\frac{\widehat p(\boldsymbol k)}{\omega_{\boldsymbol k}}\sin(\omega_{\boldsymbol k}t).
@@ -268,7 +268,7 @@ $$
 \mathcal F_s(\mathfrak h)=\bigoplus_{n=0}^\infty\mathfrak h^{\otimes_s n},
 \qquad \Omega=(1,0,0,\ldots)
 $$
-を取ります。各 $h\in\mathfrak h$ の生成・消滅演算子はQFT4の式を密度によって拡張でき、$\Phi(h)=a(h)+a^\dagger(h)$ は実線形です。$e^{i\Phi(h)}$ はFock空間のユニタリとして定義でき、有限粒子ベクトル上の形式的なBaker–Campbell–Hausdorff計算だけに依存しないよう、次の命題では指数ベクトルで検算します。
+を取ります。QFT4での一粒子空間は測度 $d^3k/(2\pi)^3$ を使いましたが、ここでは $d^3k$ を使います。したがってQFT4の波束 $u_f$ と本講の波束 $K[f]=i(2\pi)^{-3/2}u_f$ の間の係数は、ノルムを保つ測度変換と位相 $i$ を併せたものです。各 $h\in\mathfrak h$ の生成・消滅演算子はQFT4の式を密度によって拡張でき、$\Phi(h)=a(h)+a^\dagger(h)$ は実線形です。$e^{i\Phi(h)}$ はFock空間のユニタリとして定義でき、有限粒子ベクトル上の形式的なBaker–Campbell–Hausdorff計算だけに依存しないよう、次の命題では指数ベクトルで検算します。
 
 <a id="def-aqft8-fock-weyl"></a>
 
@@ -286,7 +286,7 @@ $$
 
 **定義の確認**。$F=0$ では $K0=0$ であることを使います。
 
-直接例として $F=0$ なら $K0=0$、$\Phi(0)=0$ なので $W_{\mathcal F}(0)=I$、$\langle\Omega,W_{\mathcal F}(0)\Omega\rangle=1$ です。より非自明に、上の $(a,0)$ データなら $\|KF\|^2=\int\omega|\widehat a|^2/2$ で、真空期待値は $e^{-\|KF\|^2/2}\in(0,1)$ となります。定義の規格化を $e^{i\Phi/\sqrt2}$ に替えると指数の係数が半分になり、AQFT7と合わなくなるので注意してください。
+直接例として $F=0$ なら $K0=0$、$\Phi(0)=0$ なので $W_{\mathcal F}(0)=I$、$\langle\Omega,W_{\mathcal F}(0)\Omega\rangle=1$ です。より非自明に、上の $(a,0)$ データなら $\|KF\|^2=\int\omega|\widehat a|^2/2$ で、真空期待値は、次の命題で指数ベクトルから導く式によって $e^{-\|KF\|^2/2}\in(0,1)$ となります。定義の規格化を $e^{i\Phi/\sqrt2}$ に替えると指数の係数が半分になり、AQFT7と合わなくなるので注意してください。
 <!-- definition-example-end -->
 
 <a id="prop-aqft8-fock-weyl"></a>
@@ -367,7 +367,29 @@ $$
 (KT_af)(\boldsymbol k)
 =e^{i(\omega_{\boldsymbol k}a^0-\boldsymbol k\cdot\boldsymbol a)}K[f](\boldsymbol k)
 $$
-を満たします。Lorentz変換 $\ell$ には、質量殻上の運動量を $p\mapsto\ell^{-1}p$ と変換して波束へ代入し、$d^3k/(2\omega)$ と整合する平方根の重みを付けたユニタリ $U_1(\ell)$ が対応します。したがって全Poincaré群に対して $(KT_hF,KT_hG)=(KF,KG)$ が成立します。
+を満たします。Lorentz変換 $\ell$ の平方根の重みは、質量殻Fourier波束の定義から決められます。$p_{\boldsymbol k}=(\omega_{\boldsymbol k},\boldsymbol k)$ とし、$p_{\boldsymbol k'}=\ell^{-1}p_{\boldsymbol k}$ で $\boldsymbol k'$ を定めます。固有時向きLorentz変換は正の質量殻を保つので $\omega_{\boldsymbol k'}>0$ です。$K[f](\boldsymbol k)=i(2\pi)^{-3/2}\widetilde f(p_{\boldsymbol k})/\sqrt{2\omega_{\boldsymbol k}}$ に $\widetilde{T_\ell f}(p)=\widetilde f(\ell^{-1}p)$ を代入すると、
+$
+\begin{aligned}
+(KT_\ell f)(\boldsymbol k)
+&=\frac{i(2\pi)^{-3/2}\widetilde f(p_{\boldsymbol k'})}
+{\sqrt{2\omega_{\boldsymbol k}}}\\
+&=\sqrt{\frac{\omega_{\boldsymbol k'}}{\omega_{\boldsymbol k}}}\,
+(Kf)(\boldsymbol k').
+\end{aligned}
+$
+ゆえに $h=(a,\ell)$ に対する一粒子表現は
+$
+(U_1(a,\ell)v)(\boldsymbol k)
+=e^{i(\omega_{\boldsymbol k}a^0-\boldsymbol k\cdot\boldsymbol a)}
+\sqrt{\frac{\omega_{\boldsymbol k'}}{\omega_{\boldsymbol k}}}\,v(\boldsymbol k')
+$
+です。測度不変性 $d^3k/\omega_{\boldsymbol k}=d^3k'/\omega_{\boldsymbol k'}$ により
+$
+\|U_1(a,\ell)v\|^2
+=\int d^3k\,\frac{\omega_{\boldsymbol k'}}{\omega_{\boldsymbol k}}|v(\boldsymbol k')|^2
+=\int d^3k'\,|v(\boldsymbol k')|^2.
+$
+したがってこれはユニタリで、$KT_h=U_1(h)K$、特に $(KT_hF,KT_hG)=(KF,KG)$ が成立します。
 
 <a id="thm-aqft8-vacuum-spectrum"></a>
 
@@ -396,7 +418,12 @@ $$
 \widetilde{T_hf}(p)=
 e^{i(p^0a^0-\boldsymbol p\cdot\boldsymbol a)}\widetilde f(\ell^{-1}p)
 $$
-という形になります。並進位相の符号は[AQFT3の規約](../AQFT3/index.md#def-aqft3-spectrum) $U(a)=e^{i(a^0H-\boldsymbol a\cdot\boldsymbol P)}$ と一致します。質量殻測度 $d^3k/(2\omega_k)$ が不変なので、[二点形式の積分表示](#def-aqft8-vacuum-two-point)に代入すれば $\Lambda_{\mathrm{vac}}(T_hF,T_hG)=\Lambda_{\mathrm{vac}}(F,G)$。従って $\mu_{\mathrm{vac}}$ も不変、[AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から $\omega_{\mathrm{vac}}\circ\alpha_h=\omega_{\mathrm{vac}}$ です。
+という形になります。並進位相の符号は[AQFT3の規約](../AQFT3/index.md#def-aqft3-spectrum) $U(a)=e^{i(a^0H-\boldsymbol a\cdot\boldsymbol P)}$ と一致します。質量殻測度 $d^3k/(2\omega_k)$ が不変なので、[二点形式の積分表示](#def-aqft8-vacuum-two-point)に代入すれば $\Lambda_{\mathrm{vac}}(T_hF,T_hG)=\Lambda_{\mathrm{vac}}(F,G)$。従って $\mu_{\mathrm{vac}}$ も不変、[AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から $\omega_{\mathrm{vac}}\circ\alpha_h=\omega_{\mathrm{vac}}$ です。さらに $n$ 粒子空間上の $U_1(h)^{\otimes n}$ は生成演算子について
+$
+\Gamma(U_1(h))a^\dagger(v)\Gamma(U_1(h))^*
+=a^\dagger(U_1(h)v)
+$
+を満たします。これは真空と各対称テンソルに順に作用させれば直接確認でき、随伴を取れば消滅演算子にも成立します。従って $\Gamma(U_1(h))W_{\mathcal F}(F)\Gamma(U_1(h))^*=W_{\mathcal F}(T_hF)$ となり、単なる状態不変性だけでなく共変なFock実装も得られます。
 
 **(2) 強連続性。** 並進の一粒子表現は上の乗算位相であり、$a\to0$ で点ごとに $1$ へ収束し絶対値は1です。$h\in L^2$ に対し
 $$
@@ -461,14 +488,19 @@ $$
 $$
 W_{\mathcal F}(F)\Omega=e^{-\|KF\|^2/2}\varepsilon(iKF).
 $$
-有限個の $F_j$ と実数 $t_j$ について $t\mapsto W_{\mathcal F}(tF_j)\Omega$ はFockノルムで解析的で、$t_j=0$ の各階微分は $(KF_j)^{\otimes n}$ と低粒子数成分の線形結合を与えます。微分の定義に沿ってベクトルの差を $t$ で割る極限を取ると、巡回閉部分空間に $n$ 粒子純成分が入ります。例えば一次では
+有限個の $F_j$ と実数 $t_j$ について $t\mapsto W_{\mathcal F}(tF_j)\Omega$ はFockノルムで解析的です。実際、$h=KF$ と置くと $n$ 粒子成分は
+$
+\bigl(W_{\mathcal F}(tF)\Omega\bigr)_n
+=e^{-t^2\|h\|^2/2}\frac{(ith)^{\otimes n}}{\sqrt{n!}}.
+$
+従って $t=0$ での $n$ 階微分は、$n$ 粒子成分として $\sqrt{n!}\,i^n h^{\otimes n}$ を持ち、それより高い粒子数成分は零です。低い粒子数成分は先行する次数の議論で回収できるので、これらを差し引けば $n$ 粒子純成分が巡回閉部分空間に属します。導関数はFockノルムでの差商の極限として得られるため、閉部分空間に残ります。例えば一次では
 $$
 \lim_{t\to0}\frac{W_{\mathcal F}(tF)\Omega-\Omega}{t}
 =i\,a^\dagger(KF)\Omega,
 $$
 二次では二階微分から既知の零粒子成分を除くと $(iKF)^{\otimes2}$ が残ります。一般の $n$ も同じTaylor級数を次数順に用いて帰納します。偏極恒等式で $(KF)^{\otimes n}$ から混合対称テンソルを作り、$K(\mathcal V)$ の複素線形包の稠密性を使えば各 $\mathfrak h^{\otimes_s n}$ に稠密です。零粒子も $\Omega$ 自身があるので巡回性が従います。
 
-このFock三つ組は $\omega_{\mathrm{vac}}$ を実現する巡回表現です。[OA5のGNS一意性](../../OA/OA5/index.md#thm-oa5-gns)を適用すれば、$[A]\mapsto\pi_{\mathcal F}(A)\Omega$ が内積
+このFock三つ組は $\omega_{\mathrm{vac}}$ を実現する巡回表現です。[OA5のGNS巡回表現の一意性](../../OA/OA5/index.md#thm-oa5-gns-uniqueness)を適用すれば、$[A]\mapsto\pi_{\mathcal F}(A)\Omega$ が内積
 $$
 \langle[A],[B]\rangle_{\mathrm{GNS}}
 =\omega_{\mathrm{vac}}(A^*B)
@@ -512,7 +544,7 @@ $$
 #### AQFT8-A02 初期データの交代形式
 - Level: A
 
-実数 $q,p,q',p'$ と $\omega>0$ に対し $K(q,p)=(\sqrt\omega q+ip/\sqrt\omega)/\sqrt2$ を定める。$2\operatorname{Im}\overline{K(q,p)}K(q',p')$ を求めよ。
+実数 $q,p,q',p'$ と $\omega>0$ に対し $K(q,p)=(\sqrt\omega q+ip/\sqrt\omega)/\sqrt2$ を定める（プライムは微分ではなく、二組目のデータを区別する）。$2\operatorname{Im}\overline{K(q,p)}K(q',p')$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**。共役を先に取ると
