@@ -256,8 +256,7 @@ $$
 
 $$
 \varphi(R_N)
-=\langle\Psi_{\alpha,N},\,|\Psi_{\alpha,N}\rangle
-\langle\Psi_{\alpha,N}|\Psi_{\alpha,N}\rangle=1.
+=\langle\Psi_{\alpha,N},R_N\Psi_{\alpha,N}\rangle=1.
 $$
 
 一方、[補題](#lem-aqft10-coherent-projection-limit)から $R_N\downarrow0$ です。[VN5の正規汎関数の定義](../../VN/VN5/index.md#def-vn5-normal-functional)に従い、正規状態は単調な射影列の極限を保つので $\varphi(R_N)\downarrow\varphi(0)=0$ のはずです。これは $\varphi(R_N)=1$ と矛盾します。
@@ -470,27 +469,31 @@ $$
 <!-- solution-end -->
 
 <a id="ex-aqft10-b03"></a>
-#### AQFT10-B03 エネルギーと変位の違う収束条件
+#### AQFT10-B03 基底エネルギー発散と表現同値性
 - Level: B
 
-$\omega_j=j$、$h_j=j$（$j\ge1$）とする。線形源の変位と有限基底エネルギーの定数項を計算し、二つの和の収束性をそれぞれ判定せよ。
+$\omega_j=j^2$、$h_j=j^{3/2}$（$j\ge1$）とする。線形源の変位の二乗和と、有限基底エネルギーの定数項を計算せよ。エネルギーが $-\infty$ に向かってもFock実装が可能な理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [平方完成命題](#prop-aqft10-van-hove-displacement)から
+**詳細解答。** [平方完成命題](#prop-aqft10-van-hove-displacement)の変位係数は
 
 $$
-\alpha_j=\frac{j}{\sqrt2\,j^{3/2}}=\frac1{\sqrt{2j}},
+\alpha_j=\frac{j^{3/2}}{\sqrt2\,(j^2)^{3/2}}
+=\frac1{\sqrt2\,j^{3/2}},
 \qquad
-\sum_{j=1}^N|\alpha_j|^2=\frac12\sum_{j=1}^N\frac1j\to\infty.
+\sum_{j\ge1}|\alpha_j|^2
+=\frac12\sum_{j\ge1}\frac1{j^3}<\infty.
 $$
 
-一方、基底エネルギーの定数項は
+従って[D(α)による実装命題](#prop-aqft10-square-summable)により、極限変位状態は真空Fock表現とユニタリ同値です。一方、有限 $N$ での最低エネルギーは
 
 $$
-E_N=-\sum_{j=1}^N\frac{j^2}{2j^2}=-\frac N2\to-\infty.
+E_N=-\sum_{j=1}^N\frac{h_j^2}{2\omega_j^2}
+=-\frac12\sum_{j=1}^N\frac{j^3}{j^4}
+=-\frac12\sum_{j=1}^N\frac1j\longrightarrow-\infty.
 $$
 
-この例では両者が発散しますが、判定に使う重みは $\omega_j^{-3}$ と $\omega_j^{-2}$ で異なります。したがって一般には「エネルギーが発散するから非同値」と推論できず、非同値の直接の条件は $\sum_j|\alpha_j|^2=\infty$ です。
+エネルギーの式には $\omega_j^{-2}$、二乗変位には $\omega_j^{-3}$ が掛かります。大きい周波数ほど両者の収束条件が違うため、エネルギーの定数項の発散から表現の非同値を推論できません。また無限和のHamiltonianの存在・下界は別問題です。
 <!-- solution-end -->
 
 <a id="ex-aqft10-b04"></a>
