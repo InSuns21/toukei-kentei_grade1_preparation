@@ -1,0 +1,42 @@
+id: "CTM6"
+title: "面に作用する力はなぜ二階テンソルで書けるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM5
+  - LA6
+official_scope: []
+learning_objectives:
+  - 面の向きと表面力密度、全接触力、単位と法線の符号規約を区別できる
+  - 薄い円柱の力の釣合と有界性から t(x,-n)=-t(x,n) を極限で示せる
+  - Cauchy四面体の座標面積 An_i と体積・面積のスケールを検算して t(n)=sigma n を証明できる
+  - 応力行列の列と添字の意味から斜面の traction を計算できる
+  - 法線応力とせん断表面力密度を直交射影で分け、圧縮・引張・面の反転を判定できる
+  - 対称応力の主応力・主方向を固有値から求め、対称性がCauchy応力定理だけでは導けないことを説明できる
+definitions:
+  - { id: CTM6-DEF-01, name: "表面力密度・traction" }
+  - { id: CTM6-DEF-02, name: "法線応力とせん断表面力密度" }
+  - { id: CTM6-DEF-03, name: "対称応力の主応力と主方向" }
+theorems:
+  - { id: CTM6-PROP-01, name: "反対向きの面の表面力密度" }
+  - { id: CTM6-THM-01, name: "Cauchy の応力定理" }
+canonical_examples:
+  - 一様な接触力の面積密度と単位検算
+  - Cauchy四面体の各座標面の外向き法線と面積射影
+  - 非対称応力の列から斜面の表面力を構成
+  - 斜面 traction の法線・せん断分解と圧縮符号の検算
+  - 対称応力の主値・主方向と反対称応力の反例
+problem_patterns:
+  - CTM6-TRACTION-AREA-UNITS
+  - CTM6-TRACTION-COLUMNS-INDEX
+  - CTM6-ISOTROPIC-COMPRESSION
+  - CTM6-FORCE-BALANCE-SCALING
+  - CTM6-NORMAL-SHEAR-DECOMPOSITION
+  - CTM6-TETRAHEDRON-SIGNED-PROJECTION
+  - CTM6-PRINCIPAL-STRESS-EIGENVECTORS
+  - CTM6-INTERNAL-FACE-ACTION-REACTION
+  - CTM6-TRACTION-INTEGRATED-EXERCISE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
