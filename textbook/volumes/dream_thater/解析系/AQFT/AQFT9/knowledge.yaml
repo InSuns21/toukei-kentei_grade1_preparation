@@ -22,12 +22,12 @@ concepts:
     introduction: formal
     requires: [aqft.gns-local-von-neumann-net, aqft.isotony, aqft.einstein-locality, operator-algebra.commutant-wot-closed]
   - id: aqft.gns-local-normal-state
-    name: 局所環へのGNS状態の正規な延長
+    name: 局所von Neumann環へのGNS状態の正規な延長
     kind: proposition
     introduction: formal
     requires: [aqft.gns-local-von-neumann-net, operator-algebra.density-state-correspondence]
   - id: aqft.gns-state-dependent-local
-    name: 二点netの異なるGNS局所環
+    name: 二点netの異なるGNS局所von Neumann環
     kind: proposition
     introduction: formal
     requires: [aqft.gns-local-von-neumann-net, operator-algebra.gns-null-space]
@@ -52,7 +52,7 @@ concepts:
     introduction: formal
     requires: [aqft.gns-local-von-neumann-net, aqft.kg-weyl-local-net, aqft.minkowski-fock-weyl]
   - id: aqft.gns-fock-local-von-neumann-equivalence
-    name: 自由場のGNS局所環とFock局所環の一致
+    name: 自由場のGNS局所von Neumann環とFock局所von Neumann環の一致
     kind: theorem
     introduction: formal
     requires: [aqft.fock-local-von-neumann-net, aqft.minkowski-fock-gns, aqft.gns-local-net-isotony-locality]
