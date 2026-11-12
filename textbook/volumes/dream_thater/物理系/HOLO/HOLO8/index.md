@@ -175,10 +175,10 @@ $$
 
 BF下限以上でも、二つの解を境界で同じように許せるとは限りません。ここでいう**正規化可能性**は作用の通常の $L^2$ 積分ではなく、Lorentz場の固定時刻のKlein–Gordon（KG）内積について調べます。実スカラーの解を複素化して正周波数成分を扱うとき、二つの解 $\phi_1,\phi_2$ のKG内積を
 
-$
+$$
 (\phi_1,\phi_2)_{\mathrm{KG}}
 =i\int_{\Sigma_t}\sqrt h\,n^\mu\left(\overline{\phi_1}\,\partial_\mu\phi_2-(\partial_\mu\overline{\phi_1})\phi_2\right)d^dy
-$
+$$
 
 とします。$\Sigma_t$ は $t$ を固定した空間断面、$h$ はその誘導計量の行列式、$n^\mu$ は未来向き単位法線、$d^dy=dz\,d^{d-1}\boldsymbol x$ です。内積の保存には境界流束を消す条件が別途必要です。
 
