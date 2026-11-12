@@ -32,7 +32,7 @@ function itemMarkup(sh,poster){
 }
 export function svgFrame(state,poster=false){
  const head=[
- '<defs><marker id="ori-b-order-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#684e87" stroke-width="1.5"/></marker><clipPath id="ori-b-left"><rect x="24" y="89" width="332" height="294"/></clipPath><clipPath id="ori-b-right"><rect x="404" y="89" width="332" height="294"/></clipPath></defs>',
+ '<defs>'+(state.id==='10'?"<marker id=\"ori-b-order-arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\" markerUnits=\"strokeWidth\"><path d=\"M0 0 L6 3 L0 6\" fill=\"none\" stroke=\"#684e87\" stroke-width=\"1.5\"/></marker>":'')+'<clipPath id="ori-b-left"><rect x="24" y="89" width="332" height="294"/></clipPath><clipPath id="ori-b-right"><rect x="404" y="89" width="332" height="294"/></clipPath></defs>',
  '<rect x="2" y="2" width="756" height="426" rx="12" fill="#f8fbfd" stroke="#8ca3b3"/>',
  '<rect x="22" y="86" width="336" height="300" rx="8" fill="#fff" stroke="#a8b9c4"/>',
  '<rect x="402" y="86" width="336" height="300" rx="8" fill="#fff" stroke="#a8b9c4"/>',
