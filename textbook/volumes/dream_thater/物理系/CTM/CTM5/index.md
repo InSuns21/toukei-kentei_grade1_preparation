@@ -285,7 +285,7 @@ $$
 
 ### 証明の見取り図
 
-左辺の領域は動かないため時間微分を積分の内側へ入れ、[連続の式](#thm-ctm5-mass-equivalence)で $\partial_t\rho$ を流束の発散へ変える。その後、[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-ostrogradsky)を使う。マイナス符号は外向き流出が質量を減らすことを表す。
+左辺の領域は動かないため時間微分を積分の内側へ入れ、[連続の式](#thm-ctm5-mass-equivalence)で $\partial_t\rho$ を流束の発散へ変える。その後、[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を使う。マイナス符号は外向き流出が質量を減らすことを表す。
 
 <!-- proof-start -->
 ### 証明
@@ -296,7 +296,7 @@ $$
 \frac{d}{dt}\int_W\rho\,dx=\int_W\partial_t\rho\,dx.
 $$
 
-[局所連続の式](#thm-ctm5-mass-equivalence)により $\partial_t\rho=-\operatorname{div}(\rho v)$ である。[VC4 の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-ostrogradsky)へベクトル場 $\rho v$ と領域 $W$ を入力すると
+[局所連続の式](#thm-ctm5-mass-equivalence)により $\partial_t\rho=-\operatorname{div}(\rho v)$ である。[VC4 の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)へベクトル場 $\rho v$ と領域 $W$ を入力すると
 
 $$
 \int_W\operatorname{div}(\rho v)\,dx
