@@ -35,7 +35,8 @@ GMT31着手日時: 2026-11-12 03:18:57 JST（Perron三角形の有限段階面�
 GMT32着手日時: 2026-11-12 04:02 JST（δ-tube体積・方向分離の球殻評価・Minkowski次元・重複度二乗積分）
 GMT33着手日時: 2026-11-12 12:40 JST（二管の帯交差・無向角距離・調和和・Córdoba型合併面積下界）
 GMT34着手日時: 2026-11-12 13:41 JST（高次元二tube交差・球面殻・bush法・古典的Minkowski次元下界）
-状態: in_progress（GMT1--GMT34 は実装・査読済み。GMT35--GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
+GMT35着手日時: 2026-11-12 16:01 JST（Kakeya最大作用素・平面対数L2評価・多尺度Hausdorff次元含意）
+状態: in_progress（GMT1--GMT35 は実装・査読済み。GMT36 は planned。全36講と横断監査が完了するまで本PLANは進行中）
 
 ## 0. 中心問いと科目の射程
 
