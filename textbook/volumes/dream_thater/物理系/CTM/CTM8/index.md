@@ -18,7 +18,7 @@
 
 ## 1. 同じ面の同じ合力を基準面積で表す
 
-[CTM2 の Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)は、現在の向き付き面積ベクトルを
+[Nanson の面積変換公式](../CTM2/index.md#thm-ctm2-nanson)は、現在の向き付き面積ベクトルを
 
 $$
 n\,da=JF^{-T}N\,dA
@@ -31,7 +31,7 @@ $$
 =J(X,t)\sigma(\chi(X,t),t)F(X,t)^{-T}N\,dA
 $$
 
-となる。右辺の $N$ に掛かる行列を、**第一 Piola–Kirchhoff 応力**（第一 Piola 応力）$P$ と呼ぶ。$P$ は現在配置の**力成分**を基準配置の**面積・法線**で測る二点テンソルであり、対称行列とは限らない。
+となる。右辺の $N$ に掛かる行列が欲しい新しい応力 $P$ である。これは現在配置の**力成分**を基準配置の**面積・法線**で測る二点テンソルで、一般には対称行列にならない。以下で正式に定義する。
 
 <a id="def-ctm8-first-piola"></a>
 
@@ -100,7 +100,7 @@ $$
 \boxed{\operatorname{Div}_X P=J\,(\operatorname{div}_x\sigma)\circ\chi}
 $$
 
-が成り立つ。これをここでは **Piola の発散変換** と呼ぶ。
+が成り立つ。この等式は現在側と基準側の応力の発散を結ぶ変換式である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -110,7 +110,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[CTM2 の Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)より、任意の $U_0$ に対して
+[Nanson の面積変換公式](../CTM2/index.md#thm-ctm2-nanson)より、任意の $U_0$ に対して
 
 $$
 \int_{\partial U_t}\sigma n\,da
@@ -200,7 +200,7 @@ $$
 
 ## 3. なぜ第二 Piola 応力を作るのか
 
-第一 Piola 応力は基準法線を受け取る一方、力ベクトルを現在側に残す。このままでは基準配置だけの二つの方向を比べる対称行列として解釈できない。そこで力側の添字も $F^{-1}$ で引き戻した行列を **第二 Piola–Kirchhoff 応力** $S$ と呼ぶ。
+第一 Piola 応力は基準法線を受け取る一方、力ベクトルを現在側に残す。このままでは基準配置だけの二つの方向を比べる対称行列として解釈できない。そこで力側の添字も $F^{-1}$ で基準側の方向へ移した行列 $S$ を考え、以下で定義する。
 
 <a id="def-ctm8-second-piola"></a>
 
@@ -392,7 +392,7 @@ $F=\operatorname{diag}(2,3,1)$、$\sigma=\operatorname{diag}(5,7,11)$ Pa とす�
 <!-- solution-start -->
 #### 詳細解答
 
-$J=2\cdot3\cdot1=6>0$ であり、$F^{-T}=\operatorname{diag}(1/2,1/3,1)$。よって [第一 Piola 応力の定義](#def-ctm8-first-piola)から
+$J=2\cdot3\cdot1=6>0$ であり、$F^{-T}=\operatorname{diag}(1/2,1/3,1)$。よって [第一 Piola–Kirchhoff 応力](#def-ctm8-first-piola)から
 
 $$
 P=6\operatorname{diag}(5,7,11)\operatorname{diag}(1/2,1/3,1)
@@ -411,7 +411,7 @@ $P=\begin{pmatrix}a&b&0\\c&d&0\\0&0&e\end{pmatrix}$ Pa とし、基準法線 $N=
 <!-- solution-start -->
 #### 詳細解答
 
-$Pe_1=(a,c,0)^T$、$Pe_2=(b,d,0)^T$ Pa。$P_{12}=b$ は基準法線 $e_2$ の面が受ける**現在の第1方向**の力の密度である。$P_{21}=c$ は別の面・力成分であり、二点テンソルの二つの添字は同じ意味ではない。[第一 Piola 応力の定義](#def-ctm8-first-piola)の列が基準法線を受け取ることによる。
+$Pe_1=(a,c,0)^T$、$Pe_2=(b,d,0)^T$ Pa。$P_{12}=b$ は基準法線 $e_2$ の面が受ける**現在の第1方向**の力の密度である。$P_{21}=c$ は別の面・力成分であり、二点テンソルの二つの添字は同じ意味ではない。[第一 Piola–Kirchhoff 応力](#def-ctm8-first-piola)の列が基準法線を受け取ることによる。
 <!-- solution-end -->
 
 ### A3. 第二 Piola 応力を作る
@@ -476,7 +476,7 @@ P=J(\sigma\circ\chi)F^{-T}
 =\operatorname{diag}(k\lambda X_1,0,0).
 $$
 
-従って $(\operatorname{Div}_XP)_1=\partial_{X_1}(k\lambda X_1)=k\lambda$、残りはゼロ。現在側では $\operatorname{div}_x\sigma=ke_1$ であり、[Piola の発散変換](#thm-ctm8-reference-momentum)の右辺は $Jke_1=k\lambda e_1$。$x_1$ と $X_1$ を混同すると $\lambda$ を落とす。
+従って $(\operatorname{Div}_XP)_1=\partial_{X_1}(k\lambda X_1)=k\lambda$、残りはゼロ。現在側では $\operatorname{div}_x\sigma=ke_1$ であり、[基準配置の局所運動量方程式](#thm-ctm8-reference-momentum)の右辺は $Jke_1=k\lambda e_1$。$x_1$ と $X_1$ を混同すると $\lambda$ を落とす。
 <!-- solution-end -->
 
 ### B2. Piola 恒等式を二次元せん断で直接検算する
@@ -584,7 +584,7 @@ F^{-T}=\begin{pmatrix}1&0&0\\-\gamma&1&0\\0&0&1\end{pmatrix},
 \qquad JF^{-T}e_2=e_2.
 $$
 
-[CTM2 の Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)から $n=e_2$、$da=dA$。従って現在側で $\sigma n\,da=\tau e_1\,dA$、基準側で $PN\,dA=Pe_2\,dA=\tau e_1\,dA$ と一致する。
+[Nanson の面積変換公式](../CTM2/index.md#thm-ctm2-nanson)から $n=e_2$、$da=dA$。従って現在側で $\sigma n\,da=\tau e_1\,dA$、基準側で $PN\,dA=Pe_2\,dA=\tau e_1\,dA$ と一致する。
 
 面積と向きの変化を見たい場合、別の面 $N=e_1$ では $JF^{-T}e_1=(1,-\gamma,0)^T$、$da/dA=\sqrt{1+\gamma^2}$、$n=(1,-\gamma,0)^T/\sqrt{1+\gamma^2}$。その面でも $\sigma n\,da=(-\gamma\tau,\tau,0)^TdA=Pe_1\,dA$ となり、力の一致を確認できる。
 
