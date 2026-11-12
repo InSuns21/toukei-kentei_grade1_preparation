@@ -77,9 +77,9 @@ $$
 
 **定義の確認**。 任意の $Q$ と $x$ について $\mathcal M(Q+x)=D$ です。ここで[可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)に戻り、$D$ に含まれる $P=\operatorname{diag}(1,0)$ と任意の $T=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ について
 
-$
+$$
 TP-PT=\begin{pmatrix}0&-b\\c&0\end{pmatrix}
-$
+$$
 
 を計算します。$T$ が $D$ の全元と可換なら特に $P$ と可換なので $b=c=0$、すなわち $T$ は対角行列です。逆に対角行列同士は可換ですから $D'=D$、したがって $D''=D=\mathcal M$。これで弱加法性の生成条件を任意の $Q$ について確認できました。包含単調性・局所性・共変性は直前に確かめた通りです。前節の $\Omega$ はこのnetで各局所von Neumann環に巡回的です。
 <!-- definition-example-end -->
@@ -236,10 +236,10 @@ $$
 
 ここで引用する[閉部分空間の直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)は実Hilbert空間について述べられています。本章の複素Hilbert空間 $\mathcal H$ には $(v,w)_{\mathbb R}:=\operatorname{Re}\langle v,w\rangle$ を内積として実Hilbert空間の定理を適用します。$K$ は複素線形なので、実直交する $v$ は任意の $k\in K$ と $ik\in K$ に対して
 
-$
+$$
 0=\operatorname{Re}\langle v,k\rangle,\qquad
 0=\operatorname{Re}\langle v,ik\rangle=-\operatorname{Im}\langle v,k\rangle
-$
+$$
 
 を満たし、複素内積でも $v\perp K$ です。従って実直交補と複素直交補は一致し、実Hilbert空間の直交分解 $\mathcal H=K\oplus K^\perp$ を本章にも適用できます。$K^\perp=\{0\}$ だから $K=\mathcal H$ となり、結論を得ます。$\square$
 <!-- proof-end -->
@@ -292,10 +292,10 @@ $$
 
 具体的には $Q=D_r=\{(t,\boldsymbol y):|t|+|\boldsymbol y|<r\}$ を $0<r\le1$ で選びます。任意の $a,b\in D_r$ に対して $|b^0-a^0|<2r\le2$。二点が時間的ならその固有時間間隔は
 
-$
+$$
 \sqrt{(b^0-a^0)^2-|\boldsymbol b-\boldsymbol a|^2}
 \le |b^0-a^0|<2
-$
+$$
 
 なので $Q$ は閾値を超える二点を含みません。一方 $D_R$（$R>1$）では $1<t<R$ を選ぶと $(t,\boldsymbol0)$ と $(-t,\boldsymbol0)$ が入り、その固有時間間隔は $2t>2$ です。従って全域生成環は $D$ ですが、小さい $Q$ では
 
@@ -439,10 +439,10 @@ $$
 
 と表せるので全域巡回性があります。一方、$Q=D_r$（$0<r\le1$）を取ると、任意の $a,b\in Q$ で $|b^0-a^0|<2r\le2$ です。時間的な二点でも固有時間間隔は
 
-$
+$$
 \sqrt{(b^0-a^0)^2-|\boldsymbol b-\boldsymbol a|^2}
 \le|b^0-a^0|<2
-$
+$$
 
 なので、$\mathcal M(Q)=\mathbb CI_2$。その作用は $\mathbb C\Omega$ に限られ、$\mathbb C^2$ に稠密ではありません。$U=I_2$ のスペクトルは $\{0\}$ で正エネルギーですが、$\mathcal M(Q+x)=\mathbb CI_2$ は全 $x$ で変わらず、弱加法性が失敗します。
 <!-- solution-end -->
