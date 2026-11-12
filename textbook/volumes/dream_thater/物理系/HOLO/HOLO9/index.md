@@ -362,7 +362,7 @@ $$
 
 ## 5. Fourier空間での非局所性と接触項
 
-距離冪の正規化を違う方法で点検します。Fourier変換は $J(k)=\int e^{-ik\cdot x}J(x)\,d^dx$、逆変換は $\int e^{ik\cdot x}J(k)\,d^dk/(2\pi)^d$ とします。
+距離冪の正規化を違う方法で点検します。以下で使う負の引数のGamma記号は、積分表示の定義域 $a>0$ から漸化式で延長し、$Γ(-\nu)=-\Gamma(1-\nu)/\nu$（$0<\nu<1$）と定めます。Fourier変換は $J(k)=\int e^{-ik\cdot x}J(x)\,d^dx$、逆変換は $\int e^{ik\cdot x}J(k)\,d^dk/(2\pi)^d$ とします。
 
 <a id="prop-holo9-momentum"></a>
 
