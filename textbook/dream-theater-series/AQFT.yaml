@@ -54,7 +54,7 @@ chapters:
     title: "Reeh–Schlieder定理"
   - id: AQFT13
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT13
-    status: planned
+    status: completed
     title: "巡回性・分離性・局所性"
   - id: AQFT14
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT14
