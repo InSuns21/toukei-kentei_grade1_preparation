@@ -1,0 +1,43 @@
+id: HOLO17
+title: "境界領域のエントロピー"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO16
+  - QFT57
+  - QFT59
+  - QFT60
+official_scope: []
+learning_objectives:
+  - 有限cutoffの境界格子で領域と補領域を指定し局所観測量と縮約密度行列を計算できる
+  - TFDの境界全体の縮約と境界内部の空間部分領域の縮約を区別し順序を検算できる
+  - 固有値から整数Rényiモーメントとvon Neumannエントロピーをnatで計算できる
+  - cutoff付き密度行列と一般の連続体Type III局所代数の違いを説明できる
+  - 切断Bell対の個数とエントロピーを求め単純模型からCFT対数係数が出ると誤認しない
+  - 二次元CFT単一区間のRényiとvon Neumann普遍係数を既習結果から再導出し規格化差を検査できる
+  - 平面真空・熱直線・純粋円周の区間式の適用条件と整数レプリカからの解析接続の不足を判定できる
+definitions:
+  - { id: HOLO17-DEF-01, name: 境界領域の正則化エントロピーデータ }
+theorems:
+  - { id: HOLO17-PROP-01, name: TFD片側の空間部分領域への縮約 }
+canonical_examples:
+  - 二qubitのBell対における領域縮約とRényiモーメント
+  - 右二qubit零HamiltonianのTFDと右区間エントロピーの差
+  - 切断Bell対数によるcutoff依存性とType IIIの適用境界
+  - twistウェイトから区間Rényi普遍係数への変換
+  - 熱直線のsinhと純粋円周のsinの状態条件
+problem_patterns:
+  - HOLO17-BELL-REGION-REDUCTION
+  - HOLO17-ZERO-EIGEN-RENYI
+  - HOLO17-LOCAL-SUPPORT
+  - HOLO17-TFD-SUBREGION
+  - HOLO17-CROSSING-CUT
+  - HOLO17-MUTUAL-INFORMATION
+  - HOLO17-CUTOFF-REEXPRESSION
+  - HOLO17-REPLICA-DERIVATIVE
+  - HOLO17-THERMAL-INTERVAL-ASYMPTOTICS
+  - HOLO17-CFT-INTEGRATED-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 7 }
