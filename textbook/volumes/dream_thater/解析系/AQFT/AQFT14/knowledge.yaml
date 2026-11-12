@@ -37,7 +37,7 @@ concepts:
     introduction: formal
     requires: [aqft.wedge-duality, aqft.gns-vn-covariance, aqft.poincare-covariance]
   - id: aqft.local-relative-commutant
-    name: 局所双対拡大の相対可換子
+    name: 相対可換子
     kind: definition
     introduction: formal
     requires: [aqft.dual-net, operator-algebra.commutant]
