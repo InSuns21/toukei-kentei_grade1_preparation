@@ -7,7 +7,7 @@ prerequisites:
   - FOU3
 official_scope: []
 learning_objectives:
-  - 正規直交基底と弧長パラメータから平面の直線とRadon変換を定義し直接例を計算できる
+  - 正規直交基底と長さを表す直線座標から平面の直線とRadon変換を定義し直接例を計算できる
   - Schwartz級によって線積分と積分交換が正当化される理由を説明できる
   - sinogramの平行移動効果・方向反転対称性・投影総量保存を計算できる
   - 一次元と二次元のFourier規約を揃え変数変換とJacobianからFourier slice theoremを証明できる
