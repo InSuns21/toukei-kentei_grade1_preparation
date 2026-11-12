@@ -368,7 +368,7 @@ $$
 =e^{i(\omega_{\boldsymbol k}a^0-\boldsymbol k\cdot\boldsymbol a)}K[f](\boldsymbol k)
 $$
 を満たします。Lorentz変換 $\ell$ の平方根の重みは、質量殻Fourier波束の定義から決められます。$p_{\boldsymbol k}=(\omega_{\boldsymbol k},\boldsymbol k)$ とし、$p_{\boldsymbol k'}=\ell^{-1}p_{\boldsymbol k}$ で $\boldsymbol k'$ を定めます。固有時向きLorentz変換は正の質量殻を保つので $\omega_{\boldsymbol k'}>0$ です。$K[f](\boldsymbol k)=i(2\pi)^{-3/2}\widetilde f(p_{\boldsymbol k})/\sqrt{2\omega_{\boldsymbol k}}$ に $\widetilde{T_\ell f}(p)=\widetilde f(\ell^{-1}p)$ を代入すると、
-$
+$$
 \begin{aligned}
 (KT_\ell f)(\boldsymbol k)
 &=\frac{i(2\pi)^{-3/2}\widetilde f(p_{\boldsymbol k'})}
@@ -376,19 +376,19 @@ $
 &=\sqrt{\frac{\omega_{\boldsymbol k'}}{\omega_{\boldsymbol k}}}\,
 (Kf)(\boldsymbol k').
 \end{aligned}
-$
+$$
 ゆえに $h=(a,\ell)$ に対する一粒子表現は
-$
+$$
 (U_1(a,\ell)v)(\boldsymbol k)
 =e^{i(\omega_{\boldsymbol k}a^0-\boldsymbol k\cdot\boldsymbol a)}
 \sqrt{\frac{\omega_{\boldsymbol k'}}{\omega_{\boldsymbol k}}}\,v(\boldsymbol k')
-$
+$$
 です。測度不変性 $d^3k/\omega_{\boldsymbol k}=d^3k'/\omega_{\boldsymbol k'}$ により
-$
+$$
 \|U_1(a,\ell)v\|^2
 =\int d^3k\,\frac{\omega_{\boldsymbol k'}}{\omega_{\boldsymbol k}}|v(\boldsymbol k')|^2
 =\int d^3k'\,|v(\boldsymbol k')|^2.
-$
+$$
 したがってこれはユニタリで、$KT_h=U_1(h)K$、特に $(KT_hF,KT_hG)=(KF,KG)$ が成立します。
 
 <a id="thm-aqft8-vacuum-spectrum"></a>
@@ -419,10 +419,10 @@ $$
 e^{i(p^0a^0-\boldsymbol p\cdot\boldsymbol a)}\widetilde f(\ell^{-1}p)
 $$
 という形になります。並進位相の符号は[AQFT3の規約](../AQFT3/index.md#def-aqft3-spectrum) $U(a)=e^{i(a^0H-\boldsymbol a\cdot\boldsymbol P)}$ と一致します。質量殻測度 $d^3k/(2\omega_k)$ が不変なので、[二点形式の積分表示](#def-aqft8-vacuum-two-point)に代入すれば $\Lambda_{\mathrm{vac}}(T_hF,T_hG)=\Lambda_{\mathrm{vac}}(F,G)$。従って $\mu_{\mathrm{vac}}$ も不変、[AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から $\omega_{\mathrm{vac}}\circ\alpha_h=\omega_{\mathrm{vac}}$ です。さらに $n$ 粒子空間上の $U_1(h)^{\otimes n}$ は生成演算子について
-$
+$$
 \Gamma(U_1(h))a^\dagger(v)\Gamma(U_1(h))^*
 =a^\dagger(U_1(h)v)
-$
+$$
 を満たします。これは真空と各対称テンソルに順に作用させれば直接確認でき、随伴を取れば消滅演算子にも成立します。従って $\Gamma(U_1(h))W_{\mathcal F}(F)\Gamma(U_1(h))^*=W_{\mathcal F}(T_hF)$ となり、単なる状態不変性だけでなく共変なFock実装も得られます。
 
 **(2) 強連続性。** 並進の一粒子表現は上の乗算位相であり、$a\to0$ で点ごとに $1$ へ収束し絶対値は1です。$h\in L^2$ に対し
@@ -489,10 +489,10 @@ $$
 W_{\mathcal F}(F)\Omega=e^{-\|KF\|^2/2}\varepsilon(iKF).
 $$
 有限個の $F_j$ と実数 $t_j$ について $t\mapsto W_{\mathcal F}(tF_j)\Omega$ はFockノルムで解析的です。実際、$h=KF$ と置くと $n$ 粒子成分は
-$
+$$
 \bigl(W_{\mathcal F}(tF)\Omega\bigr)_n
 =e^{-t^2\|h\|^2/2}\frac{(ith)^{\otimes n}}{\sqrt{n!}}.
-$
+$$
 従って $t=0$ での $n$ 階微分は、$n$ 粒子成分として $\sqrt{n!}\,i^n h^{\otimes n}$ を持ち、それより高い粒子数成分は零です。低い粒子数成分は先行する次数の議論で回収できるので、これらを差し引けば $n$ 粒子純成分が巡回閉部分空間に属します。導関数はFockノルムでの差商の極限として得られるため、閉部分空間に残ります。例えば一次では
 $$
 \lim_{t\to0}\frac{W_{\mathcal F}(tF)\Omega-\Omega}{t}
