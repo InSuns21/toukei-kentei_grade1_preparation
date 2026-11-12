@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 370" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">境界区間に対応するAdSくさびの時刻零断面</title>
+  <desc id="desc">水平方向に境界x軸、下方向にバルク動径zを取る。区間AはxがマイナスRからプラスRまで。破線の半円xの2乗たすzの2乗イコールRの2乗がRT面。その内側の淡い半円板に点Pがあり、半円の外側に四角い点Qがある。</desc>
+  <path d="M120 84 A200 200 0 0 0 520 84 L120 84 Z" fill="#dfeef7" stroke="none"/>
+  <path d="M120 84 A200 200 0 0 0 520 84" fill="none" stroke="#215675" stroke-width="3" stroke-dasharray="9 6" data-series-group="boundaries" data-series-label="RT"/>
+  <line x1="58" y1="84" x2="618" y2="84" stroke="#333b45" stroke-width="2"/>
+  <line x1="570" y1="97" x2="570" y2="328" stroke="#333b45" stroke-width="2"/>
+  <path d="M565 318 L570 328 L575 318" fill="none" stroke="#333b45" stroke-width="2"/>
+  <line x1="120" y1="84" x2="520" y2="84" stroke="#17485e" stroke-width="6"/>
+  <circle cx="320" cy="234" r="7" fill="#144c6b"/>
+  <rect x="313" y="317" width="14" height="14" fill="#a14f30" stroke="#69321d" stroke-width="1.5"/>
+  <text x="321" y="58" text-anchor="middle" font-size="19" fill="#202b32">A</text>
+  <text x="106" y="54" text-anchor="middle" font-size="17" fill="#202b32">-R</text>
+  <text x="542" y="116" text-anchor="middle" font-size="17" fill="#202b32">R</text>
+  <text x="623" y="54" font-size="19" fill="#202b32">x</text>
+  <text x="584" y="210" font-size="19" fill="#202b32">z</text>
+  <text x="338" y="226" font-size="19" fill="#144c6b">P</text>
+  <text x="338" y="331" font-size="19" fill="#91472b">Q</text>
+</svg>

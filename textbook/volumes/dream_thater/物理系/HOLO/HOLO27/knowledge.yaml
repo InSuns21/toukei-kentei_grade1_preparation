@@ -1,0 +1,65 @@
+chapter: HOLO27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO26
+  - HOLO25
+  - HOLO8
+  - HOLO6
+  - HOLO2
+forward_references: []
+concepts:
+  - id: holography.ads-rindler-wedge-test
+    name: 純AdS区間のくさび判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純AdS区間のくさび判定）"]
+    requires: [holography.pure-ads-causal-wedge, holography.vacuum-wedge-equality]
+  - id: holography.ads-rindler-chart
+    name: 区間に適合するAdS–Rindler座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区間に適合するAdS–Rindler座標）"]
+    requires: [holography.poincare-metric, holography.ads-rindler-wedge-test]
+  - id: holography.ads-rindler-metric
+    name: AdS–Rindler計量と分岐曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AdS–Rindler計量と分岐曲線）"]
+    requires: [holography.ads-rindler-chart]
+  - id: holography.ads-rindler-mode
+    name: AdS–Rindler分離モード
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（AdS–Rindler分離モード）"]
+    requires: [holography.ads-rindler-metric]
+  - id: holography.ads-rindler-radial
+    name: AdS–Rindler径方程式と地平面指数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AdS–Rindler径方程式と地平面指数）"]
+    requires: [holography.ads-rindler-mode, holography.scalar-mass-dimension]
+  - id: holography.restricted-measurement-matrix
+    name: 制限境界データの測定行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（制限境界データの測定行列）"]
+    requires: [holography.hkll-finite-reconstruction]
+  - id: holography.finite-mode-recoverability
+    name: 有限モードの識別可能性と安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限モードの識別可能性と安定性）"]
+    requires: [holography.restricted-measurement-matrix]
+  - id: holography.subregion-operator-reconstruction
+    name: コード上での部分領域演算子再構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（コード上での部分領域演算子再構成）"]
+    requires: [holography.entanglement-wedge]
+  - id: holography.subregion-indistinguishability
+    name: 部分領域が識別できない状態の障害
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（部分領域が識別できない状態の障害）"]
+    requires: [holography.subregion-operator-reconstruction]
