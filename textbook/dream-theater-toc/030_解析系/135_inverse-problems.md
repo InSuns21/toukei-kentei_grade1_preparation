@@ -8,3 +8,4 @@
 5. [INV5 TSVDとTikhonovは何を抑えるか](textbook/volumes/dream_thater/解析系/INV/INV5/index.md)
 6. [INV6 正則化の収束速度をどう求めるか](textbook/volumes/dream_thater/解析系/INV/INV6/index.md)
 7. [INV7 正則化パラメータをどう選ぶか](textbook/volumes/dream_thater/解析系/INV/INV7/index.md)
+8. [INV8 一般変分正則化の解は存在するか](textbook/volumes/dream_thater/解析系/INV/INV8/index.md)
