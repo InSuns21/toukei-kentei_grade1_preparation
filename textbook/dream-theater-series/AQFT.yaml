@@ -70,7 +70,7 @@ chapters:
     title: "split propertyと緩衝領域"
   - id: AQFT17
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT17
-    status: planned
+    status: completed
     title: "splitの帰結とnuclearityへの入口"
   - id: AQFT18
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT18
