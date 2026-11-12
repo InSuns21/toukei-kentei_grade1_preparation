@@ -8,3 +8,4 @@
 5. [HOLO5 制御された双対性の原型](textbook/volumes/dream_thater/物理系/HOLO/HOLO5/index.md)
 6. [HOLO6 大Nと半古典重力](textbook/volumes/dream_thater/物理系/HOLO/HOLO6/index.md)
 7. [HOLO7 作用の境界値問題](textbook/volumes/dream_thater/物理系/HOLO/HOLO7/index.md)
+8. [HOLO8 スカラー漸近とBF境界](textbook/volumes/dream_thater/物理系/HOLO/HOLO8/index.md)
