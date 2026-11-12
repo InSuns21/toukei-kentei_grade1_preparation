@@ -470,7 +470,7 @@ $a_s(u)=e^{isu^2}\varphi(u)$ と置きます。固定コンパクト台上、$|s
 
 (1) [packet公式](#prop-gmt36-packet-formula)に $\xi=\theta_j+ru$ を代入すると、一次位相は $r(x-x_j+2\theta_jt)u$、二次位相は $tr^2u^2$。$|t|\le R$ なら二次項は有界で、中心線 $x=x_j-2\theta_jt$、幅 $r^{-1}$ を得ます。
 
-(2) capの幅は $r/2$、中心距離は $r$ 以上なので周波数台は交わりません。[空間断面直交命題](#prop-gmt36-slice-orthogonality)から各 $t$ で $\int|\sum_jF_j|^2dx=\sum_j\|f_j\|_2^2=\#J$ です。これは空間全体に関する主張です。
+(2) capの幅は $r/2$、中心距離は $r$ 以上なので周波数台は交わりません。[空間断面でのPlancherel直交性](#prop-gmt36-slice-orthogonality)から各 $t$ で $\int|\sum_jF_j|^2dx=\sum_j\|f_j\|_2^2=\#J$ です。これは空間全体に関する主張です。
 
 (3) 各管は $|x-x_j+2\theta_jt|\le r^{-1}$。二中心の差が $2r^{-1}$ 以下になる時間の長さは高々 $2r^{-1}/\alpha$、かつ観測幅 $2r^{-2}$ 以下。横切片は高々 $2r^{-1}$ なので面積は $Cr^{-2}/(r+\alpha)$ です。
 
