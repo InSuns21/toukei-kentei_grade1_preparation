@@ -114,3 +114,97 @@ $$
 
 これは $Y$ が次の時点で決まる場合の公式です。満期までの全経路に依存する $H$ には、途中の価値を先に後ろから計算してから適用します。
 
+## 3. 割引株価のマルチンゲール性
+
+$Q$ の下で、株価の次期条件付き平均は $S_t\{qu+(1-q)d\}=RS_t$ となります。これは株価が「平均として毎期 $R$ 倍になる」という意味です。預金の確定成長を割り引いて取り除くと、現在値と次期の条件付き平均が等しくなります。この性質をマルチンゲールと呼びます。
+
+<a id="def-u3-03-martingale"></a>
+
+<!-- formal-statement-start -->
+> **定義（離散時間マルチンゲール）**  
+> 有限確率空間 $(\Omega,Q)$ 上の各時点の情報 $\mathcal F_t$ に対し、実数値確率変数列 $(M_t)_{t=0}^N$ が各時点で $\mathcal F_t$-可測、$E_Q[|M_t|]<\infty$ であり、全ての $t<N$ で
+
+$$
+E_Q[M_{t+1}\mid\mathcal F_t]=M_t
+$$
+
+> を満たすとき、$(M_t)$ を $Q$-マルチンゲールという。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-u3-03-martingale -->
+**定義の確認**：上の2期間例で $M_t=S_t/R^t$ と置きます。株価は時点 $t$ の履歴のみで決まり、有限集合上で値も有限です。$U$ を観測した時点1では次期の割引株価の平均は $(144+108)/(2R^2)=126/R^2=120/R=M_1(U)$。$D$ の節点では $(108+81)/(2R^2)=(189/2)/R^2=90/R=M_1(D)$。時点0では $(120+90)/(2R)=105/R=100=M_0$ です。全ての時点・節点で条件を確かめました。
+<!-- definition-example-end -->
+
+<a id="thm-u3-03-stock-martingale"></a>
+
+<!-- formal-statement-start -->
+> **定理（割引株価のマルチンゲール性）**  
+> $N\ge1$、$S_0>0$、$0<d<R<u$、各期・各節点で一定の倍率 $u,d,R$、全枝が可能な多期間二項市場とする。[評価用確率](#def-u3-03-path-measure) $Q$ の下では、
+
+$$
+\widetilde S_t=S_t/R^t,\qquad 0\le t\le N
+$$
+
+> は[マルチンゲール](#def-u3-03-martingale)である。
+<!-- formal-statement-end -->
+
+**証明の見取り図**：時点 $t$ の履歴を固定して次の上・下の株価を求め、[前講のリスク中立確率](../U3-02/index.md#prop-u3-02-risk-neutral-price)が満たす $qu+(1-q)d=R$ を代入します。
+
+<!-- proof-start -->
+### 証明
+
+$S_t$ は最初の $t$ 枝だけで決まるので $\mathcal F_t$-可測であり、有限集合上で有限値だから可積分です。任意の履歴 $h$ で、上・下の次期株価は $uS_t(h)$ と $dS_t(h)$ です。[条件付き平均命題](#prop-u3-03-conditional-average)より
+
+$$
+E_Q[\widetilde S_{t+1}\mid\mathcal F_t](h)
+=\frac{quS_t(h)+(1-q)dS_t(h)}{R^{t+1}}
+$$
+
+$$
+=\frac{S_t(h)}{R^{t+1}}\{qu+(1-q)d\}
+=\frac{S_t(h)}{R^{t+1}}R
+=\widetilde S_t(h).
+$$
+
+[前講の1期間評価公式](../U3-02/index.md#prop-u3-02-risk-neutral-price)で $q=(R-d)/(u-d)$ とした結果から、$qu+(1-q)d=R$ です。任意の $t<N$ と履歴 $h$ で成立するので結論が従います。
+<!-- proof-end -->
+
+ここでのマルチンゲール性は評価用 $Q$ に関する主張です。実確率 $P$ で上枝確率を $p$ とすると、一般に $pu+(1-p)d\ne R$ なので、割引株価が $P$-マルチンゲールになるとは限りません。
+
+## 4. 後退帰納法と条件付き期待値の一致
+
+満期 $N$ の実数値受取額 $H:\Omega\to\mathbb R$ を指定します。$H$ は有限集合上の関数なので可積分です。満期では経路全体が分かり、$H$ は $\mathcal F_N$-可測です。満期値を始点に、2枝の平均を1期間ずつ割り引いて戻ります。
+
+<a id="def-u3-03-backward-value"></a>
+
+<!-- formal-statement-start -->
+> **定義（後退帰納評価）**  
+> $N\ge1$ の多期間二項市場で実数値満期請求権 $H$ を固定する。$V_N(\omega)=H(\omega)$ とし、$t=N-1,\ldots,0$ の各履歴 $h$ に対し
+
+$$
+V_t(h)=\frac{qV_{t+1}(hU)+(1-q)V_{t+1}(hD)}{R}
+$$
+
+> と定める。この列 $(V_t)$ を後退帰納評価と呼び、$V_t$ は時点 $t$ の円建て価値を表す。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-u3-03-backward-value -->
+**定義の確認**：$N=2$、$q=1/2$、$R=21/20$ とし、満期 $UU,UD,DU,DD$ の受取額が $44,8,8,0$ 円なら、時点1で $V_1(U)=(44+8)/(2R)=520/21$ 円、$V_1(D)=(8+0)/(2R)=80/21$ 円。時点0に戻すと $V_0=(520/21+80/21)/(2R)=2000/147$ 円です。最初に $V_2=H$ を指定したので、全ての節点が定義に従っています。
+<!-- definition-example-end -->
+
+<a id="thm-u3-03-backward-conditional"></a>
+
+<!-- formal-statement-start -->
+> **定理（後退帰納と条件付き期待値の一致）**  
+> $N\ge1$、$S_0>0$、$0<d<R<u$、各期一定の $u,d,R$ を持つ多期間二項市場と、その[評価用確率](#def-u3-03-path-measure) $Q$ を考える。任意の実数値満期請求権 $H:\Omega\to\mathbb R$ の[後退帰納評価](#def-u3-03-backward-value)は
+
+$$
+\frac{V_t}{R^t}=E_Q\!\left[\frac{H}{R^N}\,\middle|\,\mathcal F_t\right],
+\qquad t=0,1,\ldots,N.
+$$
+
+> 特に $V_0=R^{-N}E_Q[H]$ であり、列 $(V_t/R^t)$ は $Q$-マルチンゲールである。
+<!-- formal-statement-end -->
+
+**証明の見取り図**：条件付き期待値を履歴ごとに残りの枝で有限和に展開し、その和を次期の上・下の二つへ分割します。帰納法で計算を後ろから戻すと定義の漸化式になります。
+
