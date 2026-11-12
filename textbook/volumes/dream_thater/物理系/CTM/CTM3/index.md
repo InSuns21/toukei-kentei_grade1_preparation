@@ -484,7 +484,7 @@ $F=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}$ に対し、$J,C,E,U,R$ を
 <!-- solution-start -->
 #### 詳細解答
 
-列の内積と行列式を計算すると $F^TF=I_3$、$J=1>0$ である。[Green–Lagrange ひずみの定義](#def-ctm3-green-strain)と[極分解定理](#thm-ctm3-polar)を適用すると
+列の内積と行列式を計算すると $F^TF=I_3$、$J=1>0$ である。[Green–Lagrange ひずみの定義](#def-ctm3-green-strain)に $C=F^TF$ を代入すると、$E=0$ となる。さらに [本章の極分解定理](#thm-ctm3-polar)をこの $F$ に適用し、$U=I_3$、$R=F$ を得る。計算をまとめると
 
 $$
 C=I_3,\qquad E=\frac12(C-I_3)=0,\qquad
