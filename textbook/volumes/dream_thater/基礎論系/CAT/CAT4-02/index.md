@@ -20,12 +20,12 @@
 
 <!-- formal-statement-start -->
 > **定義（形式的テンソル式と語）**  
-> 順序付きの文字列 $A_1,\ldots,A_n$（各文字は $\mathcal C$ の対象を表す）から、文字、単位記号 $I$、二項記号 $\otimes$ を有限回用い、すべての二項演算に括弧を付けたものを**形式的テンソル式**という。式 $T$ の**語** $w(T)$ は、明示的な単位記号だけを削り、残る文字を左から右へ読んだ列とする。式の**評価** $\lVert T\rVert$ は、各記号を $\mathcal C$ の実際の対象・テンソル積として解釈した対象である。
+> 順序付きの文字列 $A_1,\ldots,A_n$（各文字は $\mathcal C$ の対象を表す）から、文字、単位記号 $I$、二項記号 $\otimes$ を有限回用い、すべての二項演算に括弧を付けたものを**形式的テンソル式**という。式 $T$ の**語** $w(T)$ は、明示的な単位記号だけを削り、残る文字を左から右へ読んだ列とする。式の**評価** $\lVert T\rVert$ は、各記号を $\mathcal C$ の実際の対象とモノイダル積として解釈した対象である。
 > また、**構造射**は、結合子 $\alpha$、単位子 $\lambda,\rho$ とその逆、恒等射をテンソルおよび合成で有限回組み合わせた射だけを指す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-02-formal-expression -->
-**定義の確認。** $T=((A\otimes I)\otimes(B\otimes I))$ と $U=A\otimes B$ なら $w(T)=w(U)=(A,B)$ だが、$\lVert T\rVert$ と $\lVert U\rVert$ が同一対象であるとは仮定しない。$V=I\otimes I$ の語は空列である。$A,B$ の順序を交換した $B\otimes A$ の語は $(B,A)$ なので、別の語となる。
+**定義の確認**。 $T=((A\otimes I)\otimes(B\otimes I))$ と $U=A\otimes B$ なら $w(T)=w(U)=(A,B)$ だが、$\lVert T\rVert$ と $\lVert U\rVert$ が同一対象であるとは仮定しない。$V=I\otimes I$ の語は空列である。$A,B$ の順序を交換した $B\otimes A$ の語は $(B,A)$ なので、別の語となる。
 <!-- definition-example-end -->
 
 構造射は圏の任意の射とは違う。特に $A\otimes B\to B\otimes A$ という交換射を新しく許してはいない。
@@ -48,7 +48,7 @@
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-02-reduction -->
-**定義の確認。** $((A\otimes I)\otimes B)$ には、まず $\rho_A\otimes1_B$ で $A\otimes B$ に進む道と、まず $\alpha_{A,I,B}$ で $A\otimes(I\otimes B)$ に進み、次に $1_A\otimes\lambda_B$ を使う道がある。いずれも語は $(A,B)$ のままで、到着点 $A\otimes B$ には三規則をもう適用できない。二道の射が等しいのは、前講の[三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)
+**定義の確認**。 $((A\otimes I)\otimes B)$ には、まず $\rho_A\otimes1_B$ で $A\otimes B$ に進む道と、まず $\alpha_{A,I,B}$ で $A\otimes(I\otimes B)$ に進み、次に $1_A\otimes\lambda_B$ を使う道がある。いずれも語は $(A,B)$ のままで、到着点 $A\otimes B$ には三規則をもう適用できない。二道の射が等しいのは、前講の[三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)
 $$
 (1_A\otimes\lambda_B)\alpha_{A,I,B}=\rho_A\otimes1_B
 $$
@@ -98,7 +98,7 @@ $$
 停止した式に $I$ が他の因子と一緒に残っていれば、どこかで $I\otimes X$ か $X\otimes I$ の規則を使える。したがって、語が空なら式は $I$ 一個であり、語が空でなければ明示的な単位記号はない。さらに、内部の左因子が複合式なら結合子の規則が使える。ゆえに内部の左因子は文字一個であり、括弧はすべて右結合である。これは $N(w(T))$ に一致する。$\square$
 <!-- proof-end -->
 
-**具体例。** $((A\otimes B)\otimes(C\otimes D))$ は一回の結合子で $A\otimes(B\otimes(C\otimes D))$ となる。これに対して $(((A\otimes B)\otimes C)\otimes D)$ は二通りの途中経路を持つ。どちらの終点も同じであることは今示したが、**合成射が等しいこと**は次節の仕事である。
+**具体例。** $((A\otimes B)\otimes(C\otimes D))$ は一回の結合子で $A\otimes(B\otimes(C\otimes D))$ となる。これに対して $(((A\otimes B)\otimes C)\otimes D)$ は二通りの途中経路を持つ。どちらの終点も同じであることは今示したが、**合成射が等しいこと**は次節で証明する。
 
 ## 4. 分岐した二つの書換えが合流する理由
 
@@ -267,7 +267,7 @@ $$
 
 ここでは合流する**対象**だけでなく、合流までの**射の合成**が等しいことを確認した。後者がなければ Mac Lane の定理の証明にはならない。
 
-## 5. Mac Lane の整合性定理
+## 5. 任意の構造射が一意になる
 
 <a id="thm-cat4-02-coherence"></a>
 
@@ -307,7 +307,7 @@ $r$ は同型だから、逆向きの射 $r^{-1}:T\to S$ についても
 $$
 \nu_S r^{-1}=\nu_T
 $$
-が従う。任意のテンソル積の中で適用した構造射も、規則の一手として数えている。
+が従う。任意の二項演算 $\otimes$ の部分式の中で適用した構造射も、規則の一手として数えている。
 
 **(3) 任意の構造射。** 任意の構造射 $f:S\to T$ は、結合子・単位子（またはその逆）を一度に一か所適用する射の有限合成として表せる。二つの構造射のテンソルを含む場合も、[テンソルの交換則](../CAT4-01/index.md#prop-cat4-01-interchange)によって、それぞれの側へ順に作用する射の合成に分解できる。従って (2) を一手ずつ繰り返すと
 $$
