@@ -41,4 +41,4 @@ chapters:
   - { id: GMT33, path: textbook/volumes/dream_thater/解析系/GMT/GMT33, status: completed, title: "平面Córdoba型tube評価" }
   - { id: GMT34, path: textbook/volumes/dream_thater/解析系/GMT/GMT34, status: completed, title: "高次元tube幾何・古典的次元下界" }
   - { id: GMT35, path: textbook/volumes/dream_thater/解析系/GMT/GMT35, status: completed, title: "Kakeya最大作用素から集合の次元を読む" }
-  - { id: GMT36, path: textbook/volumes/dream_thater/解析系/GMT/GMT36, status: planned, title: "Fourier restriction・wave packet・EOM074" }
+  - { id: GMT36, path: textbook/volumes/dream_thater/解析系/GMT/GMT36, status: completed, title: "Fourier restriction・wave packet・EOM074" }

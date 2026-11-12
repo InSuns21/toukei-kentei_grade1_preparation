@@ -1,0 +1,56 @@
+chapter: GMT36
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT35
+  - HA11
+forward_references: []
+concepts:
+  - id: geometric-measure.gmt36-parabolic-extension
+    name: 放物線Fourier拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（放物線Fourier拡張）"]
+    requires: [harmonic.ha11-extension]
+  - id: geometric-measure.gmt36-packet
+    name: 放物線の単一wave packet
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（放物線の単一wave packet）"]
+    requires: [geometric-measure.gmt36-parabolic-extension, harmonic.ha11-cap-tube]
+  - id: geometric-measure.gmt36-packet-formula
+    name: wave packetの厳密式と管への集中
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（wave packetの厳密式と管への集中）"]
+    requires: [geometric-measure.gmt36-packet]
+  - id: geometric-measure.gmt36-slice-orthogonality
+    name: 空間断面でのPlancherel直交性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空間断面でのPlancherel直交性）"]
+    requires: [geometric-measure.gmt36-parabolic-extension, geometric-measure.gmt36-packet]
+  - id: geometric-measure.gmt36-spacetime-tube
+    name: 放物線の時空間tube
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（放物線の時空間tube）"]
+    requires: [geometric-measure.gmt36-packet-formula]
+  - id: geometric-measure.gmt36-two-packets
+    name: 異なる方向の時空間tube交差
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（異なる方向の時空間tube交差）"]
+    requires: [geometric-measure.gmt36-spacetime-tube, geometric-measure.gmt33-two-tubes]
+  - id: geometric-measure.gmt36-weighted-overlap
+    name: 重み付きtube重複度による点ごとの評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重み付きtube重複度による点ごとの評価）"]
+    requires: [geometric-measure.gmt36-packet-formula, geometric-measure.gmt36-slice-orthogonality, geometric-measure.gmt35-kakeya-maximal]
+  - id: geometric-measure.gmt36-parabolic-knapp
+    name: 放物線拡張のKnapp必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（放物線拡張のKnapp必要条件）"]
+    requires: [geometric-measure.gmt36-parabolic-extension, harmonic.ha11-knapp]
