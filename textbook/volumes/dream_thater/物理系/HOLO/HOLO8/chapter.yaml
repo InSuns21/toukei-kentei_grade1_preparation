@@ -1,0 +1,47 @@
+id: HOLO8
+title: "スカラー漸近とBF境界"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO7
+official_scope: []
+learning_objectives:
+  - Euclid AdSスカラー方程式から境界の指数方程式と質量・次元関係を導出できる
+  - BF重根で冪と対数の二解を導き、通常の二冪との違いを説明できる
+  - 動径二次形式の平方完成からBF下限の鋭さを証明できる
+  - Lorentz KG内積の測度を計量から導き、両モードの可積分範囲を判定できる
+  - 二漸近係数の反対称流束を計算し、標準・代替・混合境界条件を比較できる
+  - 非零境界波数での後続係数と共鳴対数の出現条件を検算できる
+  - 質量指数の関係とCFT演算子次元の辞書を、双対性を仮定する部分と区別できる
+definitions:
+  - { id: HOLO8-DEF-01, name: スカラーの境界漸近指数 }
+  - { id: HOLO8-DEF-02, name: BF下限 }
+  - { id: HOLO8-DEF-03, name: 境界近くのKG正規化可能性 }
+  - { id: HOLO8-DEF-04, name: 本講での標準・代替境界選択 }
+theorems:
+  - { id: HOLO8-PROP-01, name: 質量と漸近指数の関係 }
+  - { id: HOLO8-PROP-02, name: 動径平方完成とBF下限の鋭さ }
+  - { id: HOLO8-PROP-03, name: 二モードの境界KG可積分条件 }
+  - { id: HOLO8-PROP-04, name: 二漸近係数の反対称流束 }
+canonical_examples:
+  - d3で質量二乗負2の二指数を直接判定する
+  - d3でBF下限と下限未満の質量を比較する
+  - d3でKG重みを計算し両モードの可積分性を確かめる
+  - d3で標準と代替の境界係数を固定し流束を確認する
+  - BF重根の対数解を微分し参照長を変えて検算する
+  - 非零波数で共鳴時に級数の分母が消える条件を確かめる
+problem_patterns:
+  - HOLO8-MASS-EXPONENTS
+  - HOLO8-LOG-DOUBLE-ROOT
+  - HOLO8-KG-WEIGHT
+  - HOLO8-FLUX-COEFFICIENTS
+  - HOLO8-STANDARD-DIMENSION
+  - HOLO8-HARDY-SQUARE
+  - HOLO8-ENDPOINT-CASES
+  - HOLO8-RESONANCE
+  - HOLO8-LOG-SCALE-FLUX
+  - HOLO8-MULTISTEP-DICTIONARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 6 }

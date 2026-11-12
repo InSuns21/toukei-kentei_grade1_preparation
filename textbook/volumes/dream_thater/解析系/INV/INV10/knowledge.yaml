@@ -1,0 +1,58 @@
+chapter: INV10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV5
+  - INV8
+
+forward_references: []
+
+concepts:
+  - id: inverse.frechet-forward-derivative
+    name: 観測写像のFréchet微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測写像の Fréchet 微分）"]
+    requires: [inverse.forward-map]
+
+  - id: inverse.local-identifiability
+    name: 局所識別可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所識別可能性）"]
+    requires: [inverse.identifiability]
+
+  - id: inverse.local-stability
+    name: 微分の下界による局所二点安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（微分の下界による局所二点安定性）"]
+    requires: [inverse.frechet-forward-derivative, inverse.lower-bound-stability, inverse.local-identifiability]
+
+  - id: inverse.finite-full-rank-identifiability
+    name: 有限次元のフルランク微分と局所識別
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（有限次元のフルランク微分と局所識別）"]
+    requires: [inverse.local-stability]
+
+  - id: inverse.conditional-stability
+    name: 条件付き安定性と安定性の指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付き安定性と安定性の指標）"]
+    requires: [inverse.hadamard-well-posedness]
+
+  - id: inverse.injective-derivative-counterexample
+    name: 単射なFréchet微分だけでは局所識別を保証しない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単射な Fréchet 微分だけでは局所識別を保証しない）"]
+    requires: [inverse.frechet-forward-derivative, inverse.local-identifiability, inverse.local-stability]
+
+  - id: inverse.restricted-holder-stability
+    name: 非線形対角観測の制約集合上でのHölder安定性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非線形対角観測の制約集合上での Hölder 安定性）"]
+    requires: [inverse.conditional-stability, inverse.injective-derivative-counterexample]

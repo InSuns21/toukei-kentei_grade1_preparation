@@ -1,0 +1,60 @@
+chapter: CAT4-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-02
+  - CAT1-05
+  - CAT1-06
+  - CAT1-07
+  - CAT1-08
+  - CAT2-02
+
+concepts:
+  - id: category.tensor-bifunctor
+    name: テンソル双関手
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（テンソル双関手）"]
+    requires: [category.covariant-functor, category.product-category]
+  - id: category.tensor-interchange
+    name: テンソルの交換則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（テンソルの交換則）"]
+    requires: [category.tensor-bifunctor]
+  - id: category.monoidal-category
+    name: モノイダル圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイダル圏）"]
+    requires: [category.tensor-bifunctor, category.natural-isomorphism]
+  - id: category.pentagon-coherence
+    name: 五角形条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイダル圏）"]
+    requires: [category.monoidal-category]
+  - id: category.triangle-coherence
+    name: 三角形条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モノイダル圏）"]
+    requires: [category.monoidal-category]
+  - id: category.cartesian-monoidal
+    name: 有限積からのモノイダル構造
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限積からのモノイダル構造）"]
+    requires: [category.monoidal-category, category.binary-product, category.terminal-object]
+  - id: category.strict-monoidal
+    name: 厳密モノイダル圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（厳密モノイダル圏）"]
+    requires: [category.monoidal-category]
+  - id: category.endofunctor-strict-monoidal
+    name: 自己関手の合成は厳密モノイダル構造を与える
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自己関手の合成は厳密モノイダル構造を与える）"]
+    requires: [category.strict-monoidal, category.functor-category, category.horizontal-composition, category.interchange-law]

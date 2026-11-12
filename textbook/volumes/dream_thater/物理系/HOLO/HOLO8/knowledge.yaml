@@ -1,0 +1,54 @@
+chapter: HOLO8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO7
+concepts:
+  - id: holography.scalar-indicial-exponents
+    name: スカラーの境界漸近指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スカラーの境界漸近指数）"]
+    requires: [holography.cutoff-boundary-variation]
+  - id: holography.scalar-mass-dimension
+    name: 質量と漸近指数の関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（質量と漸近指数の関係）"]
+    requires: [holography.scalar-indicial-exponents]
+  - id: holography.bf-bound
+    name: BF下限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（BF下限）"]
+    requires: [holography.scalar-mass-dimension]
+  - id: holography.bf-radial-quadratic-form
+    name: 動径平方完成とBF下限の鋭さ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（動径平方完成とBF下限の鋭さ）"]
+    requires: [holography.bf-bound]
+  - id: holography.kg-boundary-normalizable
+    name: 境界近くのKG正規化可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界近くのKG正規化可能性）"]
+    requires: [holography.bf-bound]
+  - id: holography.kg-scalar-window
+    name: 二モードの境界KG可積分条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二モードの境界KG可積分条件）"]
+    requires: [holography.kg-boundary-normalizable, holography.scalar-indicial-exponents]
+  - id: holography.scalar-asymptotic-flux
+    name: 二漸近係数の反対称流束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二漸近係数の反対称流束）"]
+    requires: [holography.kg-scalar-window, holography.cutoff-boundary-variation]
+  - id: holography.standard-alternative-quantization
+    name: 本講での標準・代替境界選択
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講での標準・代替境界選択）"]
+    requires: [holography.scalar-asymptotic-flux]

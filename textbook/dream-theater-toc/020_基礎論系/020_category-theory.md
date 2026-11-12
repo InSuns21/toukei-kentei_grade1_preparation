@@ -35,3 +35,4 @@
 32. [CAT3-08 点ごとの右Kan拡張](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-08/index.md)
 33. [CAT3-09 end・coendとKan公式](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-09/index.md)
 34. [CAT3-10 密度定理とKan拡張](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-10/index.md)
+35. [CAT4-01 モノイダル圏](textbook/volumes/dream_thater/基礎論系/CAT/CAT4-01/index.md)
