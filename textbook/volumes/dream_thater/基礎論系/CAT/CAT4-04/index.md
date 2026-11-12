@@ -79,7 +79,7 @@ $$
 と選ぶ。自然性は両辺とも $f\otimes g$、（A）は両辺とも $\alpha_{X,Y,Z}$、（L）は両辺とも $\lambda_X$、（R）は両辺とも $\rho_X$ になる。すべての比較射は同型である。
 
 <!-- definition-example-start: def-cat4-04-lax -->
-**定義の確認。** 恒等関手の例では、比較射の型は $(X\otimes Y)\to(X\otimes Y)$ と $I\to I$。自然性、三つの整合条件を上記のように個別に確かめたので、これは強モノイダル関手である。
+**定義の確認**。 恒等関手の例では、比較射の型は $(X\otimes Y)\to(X\otimes Y)$ と $I\to I$。自然性、三つの整合条件を上記のように個別に確かめたので、これは強モノイダル関手である。
 <!-- definition-example-end -->
 
 ### 2.3 非可逆な例：冪集合関手
@@ -171,7 +171,7 @@ $$
 となる。左単位の元 $(*,a)$ は $u\cdot a$、右単位の元 $(a,*)$ は $a\cdot u$ へ移る。
 
 <!-- definition-example-start: def-cat4-04-monoid -->
-**定義の確認。** 自然数全体 $M=\mathbb N_0$ に加法を用いると、$m(a,b)=a+b$、$e(*)=0$。整数加法の結合律で $(a+b)+c=a+(b+c)$、単位律で $0+a=a$ と $a+0=a$ が各元で成立し、上の三つの射の等式を満たす。
+**定義の確認**。 自然数全体 $M=\mathbb N_0$ に加法を用いると、$m(a,b)=a+b$、$e(*)=0$。整数加法の結合律で $(a+b)+c=a+(b+c)$、単位律で $0+a=a$ と $a+0=a$ が各元で成立し、上の三つの射の等式を満たす。
 <!-- definition-example-end -->
 
 <a id="prop-cat4-04-set-monoids"></a>
@@ -242,7 +242,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-04-monoid-morphism -->
-**定義の確認。** $(\mathbb N_0,+,0)$ から $(\mathbb N_0,+,0)$ への $h(n)=2n$ を考える。$h(a+b)=2a+2b=h(a)+h(b)$ と $h(0)=0$ を各元で検査できるので、上の二つの射等式を満たす。
+**定義の確認**。 $(\mathbb N_0,+,0)$ から $(\mathbb N_0,+,0)$ への $h(n)=2n$ を考える。$h(a+b)=2a+2b=h(a)+h(b)$ と $h(0)=0$ を各元で検査できるので、上の二つの射等式を満たす。
 <!-- definition-example-end -->
 
 <a id="prop-cat4-04-monoid-category"></a>
