@@ -8,9 +8,9 @@
   <line x1="434" y1="84" x2="764" y2="84" stroke="#526174" stroke-width="2"/>
   <path d="M76 84 H146 M246 84 H316" stroke="#0c6665" stroke-width="8" stroke-linecap="round"/>
   <path d="M476 84 H546 M646 84 H716" stroke="#0c6665" stroke-width="8" stroke-linecap="round"/>
-  <path d="M76 84 A35 35 0 0 0 146 84 M246 84 A35 35 0 0 0 316 84" fill="none" stroke="#1765ac" stroke-width="4" data-series-group="rt-candidates" data-series-label="離れた二弧"/>
-  <path d="M476 84 A120 120 0 0 0 716 84" fill="none" stroke="#a35421" stroke-width="4" stroke-dasharray="10 6" data-series-group="rt-candidates" data-series-label="外側と隙間の二弧"/>
-  <path d="M546 84 A50 50 0 0 0 646 84" fill="none" stroke="#a35421" stroke-width="4" stroke-dasharray="10 6"/>
+  <path d="M76 84 C76 103.33 91.67 119 111 119 C130.33 119 146 103.33 146 84 M246 84 C246 103.33 261.67 119 281 119 C300.33 119 316 103.33 316 84" fill="none" stroke="#1765ac" stroke-width="4" data-series-group="rt-candidates" data-series-label="離れた二弧"/>
+  <path d="M476 84 C476 150.27 529.73 204 596 204 C662.27 204 716 150.27 716 84" fill="none" stroke="#a35421" stroke-width="4" stroke-dasharray="10 6" data-series-group="rt-candidates" data-series-label="外側と隙間の二弧"/>
+  <path d="M546 84 C546 111.61 568.39 134 596 134 C623.61 134 646 111.61 646 84" fill="none" stroke="#a35421" stroke-width="4" stroke-dasharray="10 6"/>
   <circle cx="76" cy="84" r="4" fill="#1a2430"/>
   <circle cx="146" cy="84" r="4" fill="#1a2430"/>
   <circle cx="246" cy="84" r="4" fill="#1a2430"/>
