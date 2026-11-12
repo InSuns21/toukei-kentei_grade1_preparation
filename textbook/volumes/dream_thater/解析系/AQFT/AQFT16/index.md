@@ -350,7 +350,15 @@ $M$ をType III因子とする。$M\subset M$ がsplitでないことを示せ�
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $M\subset N\subset M$ とするなら包含の反対称性から $N=M$ です。しかし[VN7のType III分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)によれば $M$ は非零最小射影を持たず、Type I因子にはなれません。従ってsplitではありません。これに対し二つの異なる領域 $O_1\Subset O_2$ では $M(O_1)$ と $M(O_2)$ の間に別の $N$ が存在する余地があります。$M(O_1)$ 自身がType IIIでも、中間因子 $N$ がType Iであることと矛盾しません。$M\subset M$ は零幅を示すだけで、正の緩衝帯についての反例ではありません。
+**詳細解答。** 同じ環の間に $N$ を挟むなら、包含の反対称性によって
+
+$
+M\subset N\subset M\quad\Longrightarrow\quad N=M
+$
+
+です。しかし[VN7のType III分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)によれば $M$ は非零最小射影を持たず、Type I因子にはなれません。従ってこの包含はsplitではありません。
+
+一方、異なる領域 $O_1\Subset O_2$ の局所環の間には別の $N$ が存在する余地があります。内側の環自身がType IIIでも、中間因子がType Iであることと矛盾しません。零幅の反例から、正の緩衝帯についてsplitの失敗は導けません。
 <!-- solution-end -->
 
 <a id="ex-aqft16-b03"></a>
@@ -378,7 +386,22 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** [局所性の継承](../AQFT9/index.md#thm-aqft9-isotony-locality)を $O_2,Q$ に適用すると $M(Q)\subset M(O_2)'$。splitの中間因子を $N$ とすると $M(Q)\subset M(O_2)'\subset N'$、$M(O_1)\subset N$ です。[Type I因子の空間的表示](#thm-aqft16-typei-spatial-form)のユニタリで両者は $A\otimes I$ と $I\otimes C$ の形になります。従って [内外テンソル積表示](#thm-aqft16-split-tensor-inclusion)の証明を $C$ に制限して $M(O_1)\vee M(Q)\simeq M(O_1)\bar\otimes M(Q)$ を得ます。使ったのは局所性による包含であり、$M(Q)=M(O_2)'$ というHaag双対性の等号は不要です。
+**詳細解答。** [局所性の継承](../AQFT9/index.md#thm-aqft9-isotony-locality)を領域 $O_2,Q$ に適用します。splitの中間因子を $N$ とすると
+
+$
+M(Q)\subset M(O_2)'\subset N',
+\qquad M(O_1)\subset N
+$
+
+が得られます。
+
+[Type I因子の空間的表示](#thm-aqft16-typei-spatial-form)のユニタリにより、二つの環はそれぞれ $A\otimes I$ と $I\otimes C$ の形になります。[内外テンソル積表示](#thm-aqft16-split-tensor-inclusion)と同じ弱閉包の計算で
+
+$
+M(O_1)\vee M(Q)\simeq M(O_1)\bar\otimes M(Q)
+$
+
+です。必要だったのは局所性による包含だけであり、外部環を可換子全体に等置するHaag双対性は不要です。
 <!-- solution-end -->
 
 ### Level C：有限模型と連続体の論理を総合する
