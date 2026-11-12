@@ -232,3 +232,303 @@ $$
 <!-- proof-end -->
 
 これで自由Klein–Gordon場に対して三つの局所net条件を**実際に証明**しました。しかし離散模型の共変ユニタリは物理的な正エネルギー表現や真空を保証しません。[AQFT3の真空条件](../AQFT3/index.md#def-aqft3-vacuum)は追加条件です。次節ではなぜ表現の選択が本質的かを確認します。
+
+
+## 5. 規則的表現と場演算子の境界
+
+前節のWeyl元は有界なので積とノルム極限が問題なく扱えます。一方、場演算子を
+$$
+W(tF)=e^{it\Phi(F)}
+$$
+のように考えるには、$t$ を連続的に変えた際の振る舞いが必要です。Weyl関係から $\sigma(F,F)=0$ を用いれば
+$$
+L(tF)L(sF)=L((t+s)F)
+$$
+となるので、各方向 $F$ ごとには一パラメータのユニタリ**群**が得られます。しかし群の法則は連続性を含みません。
+
+<a id="def-aqft6-regular-representation"></a>
+
+<!-- formal-statement-start -->
+> **定義（Weyl CCRの規則的表現）**  
+> $\mathfrak A_{\mathrm W}$ のHilbert空間 $\mathcal H$ 上の単位的 *-表現 $\pi$ が規則的（regular）であるとは、任意の $F\in\mathcal V$ について
+$$
+t\longmapsto\pi(L(tF))
+$$
+> が強連続、すなわち任意の $\xi\in\mathcal H$ に対して $\|\pi(L(tF))\xi-\xi\|\to0$（$t\to0$）となることをいう。
+<!-- formal-statement-end -->
+
+規則的な表現であれば、[QM7のStone定理](../../QM/QM7/index.md#thm-qm7-stone)をこのユニタリ群に適用でき、一意な自己共役作用素 $\Phi_\pi(F)$ が存在して
+$$
+\pi(L(tF))=e^{it\Phi_\pi(F)}
+$$
+と書けます。ただし右辺の $\Phi_\pi(F)$ は一般に**非有界**であり、その定義域はHilbert空間全体とは限りません。異なる $F,G$ に対する場の交換子を $i\sigma(F,G)I$ と微分で取り出すときにも、適切な共通定義域を確保する必要があります。本講は有界なWeyl関係の段階でその問題を回避しています。
+
+<!-- definition-example-start: def-aqft6-regular-representation -->
+### 直接例：二次元のSchrödinger表示は規則的である
+
+二次元実空間 $(q,p)\in\mathbb R^2$ と $\sigma_0((q,p),(q',p'))=qp'-pq'$ を使います。$\mathcal H=L^2(\mathbb R,dx)$ 上に
+$$
+(W_{\mathrm S}(q,p)\psi)(x)=e^{iq(x+p/2)}\psi(x+p)
+$$
+を定義します。位相の絶対値が $1$ で平行移動はLebesgue測度を保つので、$W_{\mathrm S}(q,p)$ は等長です。また $W_{\mathrm S}(-q,-p)$ を代入すれば逆作用素となることが確かめられ、従ってユニタリです。
+
+積をそのまま計算すると
+$$
+\begin{aligned}
+(W_{\mathrm S}(q,p)W_{\mathrm S}(q',p')\psi)(x)
+&=e^{i(q+q')x+iqp/2+iq'p+iq'p'/2}\psi(x+p+p')\\
+&=e^{-i(qp'-pq')/2}
+(W_{\mathrm S}(q+q',p+p')\psi)(x).
+\end{aligned}
+$$
+これは前節のWeyl位相に一致します。固定した $F=(q,p)$ に対し、$\psi\in C_c^\infty(\mathbb R)$ なら
+$$
+(W_{\mathrm S}(tq,tp)\psi)(x)
+=e^{itq(x+tp/2)}\psi(x+tp)\longrightarrow\psi(x)
+$$
+が各 $x$ で成立します。$|t|\le1$ に制限すれば共通コンパクト集合の外で両辺は零となり、差の絶対値は $2\|\psi\|_\infty$ 以下です。優収束定理により $L^2$ ノルムでも収束します。
+
+一般の $\xi\in L^2$ には $\|\xi-\psi\|_2<\varepsilon$ となる $\psi\in C_c^\infty$ を選びます。ユニタリ性から
+$$
+\|W_{\mathrm S}(tF)\xi-\xi\|_2
+\le2\varepsilon+\|W_{\mathrm S}(tF)\psi-\psi\|_2.
+$$
+先に $t\to0$、次に $\varepsilon\to0$ として強連続性を得ます。ここで示したのは**二次元模型の規則性**であり、全Minkowski場の物理的真空表示を作ったわけではありません。
+<!-- definition-example-end -->
+
+<a id="prop-aqft6-nonregular-discrete"></a>
+
+<!-- formal-statement-start -->
+> **命題（第3節の離散表示は非規則的）**  
+> $\mathcal V\ne\{0\}$ に対する第3節の表示 $L$ は、どの非零方向 $F$ に対しても $t\mapsto L(tF)$ が強連続でない。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+$\delta_0$ に作用させれば、零でない $tF$ に対応する基底は $\delta_0$ と直交するので、二つのベクトルの距離は一定です。
+
+<!-- proof-start -->
+### 証明
+
+$F\ne0$ かつ $t\ne0$ のとき $tF\ne0$ です。$\sigma(tF,0)=0$ より
+$$
+L(tF)\delta_0=\delta_{tF},\qquad L(0)\delta_0=\delta_0.
+$$
+正規直交基底の性質から
+$$
+\begin{aligned}
+\|(L(tF)-I)\delta_0\|^2
+&=\|\delta_{tF}-\delta_0\|^2\\
+&=\|\delta_{tF}\|^2+\|\delta_0\|^2
+-2\operatorname{Re}\langle\delta_{tF},\delta_0\rangle\\
+&=1+1-0=2.
+\end{aligned}
+$$
+従って $t\to0$ でもノルムは $\sqrt2$ のままであり、強連続性の定義を満たしません。
+<!-- proof-end -->
+
+**非規則性はWeyl関係の矛盾ではありません。** Weyl関係、状態の正値性、表現の強連続性、真空の正エネルギー性はそれぞれ別の条件です。次講では正値な特性汎関数から適切な状態・表現を選ぶ準備をします。
+
+## 6. 演習：位相・局所可換性・規則性
+
+### Level A：一つずつ定義から検算する
+
+<a id="ex-aqft6-a01"></a>
+#### AQFT6-A01 Weyl位相と逆元
+- Level: A
+
+$\sigma(F,G)=3$ とする。$W(F)W(G)$、$W(G)W(F)$ を $W(F+G)$ の倍数で表し、$W(F)W(-F)$ を求めよ。
+
+<!-- solution-start -->
+**詳細解答**。[Weyl関係](#def-aqft6-weyl-ccr)に $\sigma(F,G)=3$ を代入すると
+$$
+W(F)W(G)=e^{-3i/2}W(F+G).
+$$
+交代性から $\sigma(G,F)=-3$ ですから逆順は
+$$
+W(G)W(F)=e^{3i/2}W(G+F)=e^{3i/2}W(F+G).
+$$
+また $\sigma(F,-F)=-\sigma(F,F)=0$ より $W(F)W(-F)=e^0W(0)=1$ です。ユニタリの逆元は随伴なので $W(F)^*=W(-F)$ と整合します。
+<!-- solution-end -->
+
+<a id="ex-aqft6-a02"></a>
+#### AQFT6-A02 三つの積の位相
+- Level: A
+
+$c(F,G)=e^{-i\sigma(F,G)/2}$ に対し、$c(F,G)c(F+G,H)=c(G,H)c(F,G+H)$ を指数の中身まで展開して証明せよ。
+
+<!-- solution-start -->
+**詳細解答**。左辺の指数は
+$$
+-\frac i2\{\sigma(F,G)+\sigma(F+G,H)\}
+=-\frac i2\{\sigma(F,G)+\sigma(F,H)+\sigma(G,H)\}.
+$$
+右辺の指数は
+$$
+-\frac i2\{\sigma(G,H)+\sigma(F,G+H)\}
+=-\frac i2\{\sigma(G,H)+\sigma(F,G)+\sigma(F,H)\}.
+$$
+両括弧の項は同じで、和の順序だけが違います。従って指数関数も一致し、$(W(F)W(G))W(H)=W(F)(W(G)W(H))$ となります。
+<!-- solution-end -->
+
+<a id="ex-aqft6-a03"></a>
+#### AQFT6-A03 一組の交換性は直交性か
+- Level: A
+
+$\sigma(F,G)=2\pi$ とする。$W(F)$ と $W(G)$ は交換するか。また $W(F/2)$ と $W(G)$ はどうか。
+
+<!-- solution-start -->
+**詳細解答**。[交換子公式](#prop-aqft6-weyl-commutator)から
+$$
+[W(F),W(G)]=-2i\sin(\pi)W(F+G)=0.
+$$
+一方、双線形性から $\sigma(F/2,G)=\pi$ なので
+$$
+[W(F/2),W(G)]=-2i\sin(\pi/2)W(F/2+G)
+=-2iW(F/2+G)\ne0.
+$$
+最後はWeyl元がユニタリで零作用素ではないからです。従って一組が可換でも、シンプレクティック直交とは限りません。
+<!-- solution-end -->
+
+<a id="ex-aqft6-a04"></a>
+#### AQFT6-A04 非規則性を検出する
+- Level: A
+
+$\mathcal V$ の非零元 $F$ を固定する。第3節の模型で $\|(L(tF)-I)\delta_0\|$ を $t=0$ と $t\ne0$ で求め、連続性を判定せよ。
+
+<!-- solution-start -->
+**詳細解答**。$t=0$ なら $L(0)=I$ なのでノルムは零です。$t\ne0$ なら $tF\ne0$ で
+$$
+(L(tF)-I)\delta_0=\delta_{tF}-\delta_0.
+$$
+二つの基底は直交するので、ノルムの二乗は $1+1=2$、ノルムは $\sqrt2$ です。$t\to0$ でも零に収束しないため、[規則性の定義](#def-aqft6-regular-representation)を満たしません。
+<!-- solution-end -->
+
+### Level B：条件と証明の機構を使う
+
+<a id="ex-aqft6-b01"></a>
+#### AQFT6-B01 生成元の可換性から閉包の可換性へ
+- Level: B
+
+$O_1\subset O_2'$ とする。$\mathfrak A_{\mathrm W}(O_j)$ の任意の二つの有限 *-多項式が可換であることを示し、ノルム極限で可換性が保たれる不等式を導け。
+
+<!-- solution-start -->
+**詳細解答**。[AQFT5の局所直交性](../AQFT5/index.md#prop-aqft5-local-orthogonality)から各 $F\in\mathcal V(O_1)$、$G\in\mathcal V(O_2)$ に対して $\sigma(F,G)=0$ です。従って[交換子公式](#prop-aqft6-weyl-commutator)により $[L(F),L(G)]=0$。$-F,-G$ も同じ局所部分空間にあるので、生成元とその随伴すべてが相手側と可換です。分配法則で有限 *-多項式 $A_n,B_n$ も可換です。
+
+$A_n\to A$、$B_n\to B$ をノルム収束する列とすると
+$$
+[A,B]-[A_n,B_n]=[A-A_n,B]+[A_n,B-B_n].
+$$
+従って $\|[X,Y]\|\le2\|X\|\|Y\|$ から
+$$
+\|[A,B]\|\le2\|A-A_n\|\|B\|+2\|A_n\|\|B-B_n\|\to0.
+$$
+$(A_n)$ はノルム収束するので有界です。よって $[A,B]=0$ です。
+<!-- solution-end -->
+
+<a id="ex-aqft6-b02"></a>
+#### AQFT6-B02 局所代表と全域の商
+- Level: B
+
+$f\in\mathcal D(O)$、$\varphi\in\mathcal D$、$f'=f+P\varphi$ とする。$f'$ 自身は $O$ に台を持たないかもしれない。にもかかわらず $L([f'])\in\mathfrak A_{\mathrm W}(O)$ となる理由を説明せよ。
+
+<!-- solution-start -->
+**詳細解答**。[AQFT4の源商](../AQFT4/index.md#def-aqft4-local-quotient)では $P\mathcal D$ を零とするので
+$$
+[f']=[f]+[P\varphi]=[f].
+$$
+従って $L([f'])=L([f])$ です。元の $f\in\mathcal D(O)$ から $[f]\in q(\mathcal D(O))=\mathcal V(O)$ なので、[局所netの定義](#def-aqft6-local-weyl-net)により $L([f])$ は生成元として局所環に属します。局所性の判定は「**局所支持をもつ代表が存在する**」ことであり、すべての代表の台が $O$ に含まれることではありません。
+<!-- solution-end -->
+
+<a id="ex-aqft6-b03"></a>
+#### AQFT6-B03 共変変換と位相保存
+- Level: B
+
+$T_h$ が $\sigma(T_hF,T_hG)=\sigma(F,G)$ を満たす実線形同型とする。$\alpha_h(L(F))=L(T_hF)$ がWeyl積と随伴を保つことを計算せよ。さらに $T_h\mathcal V(O)=\mathcal V(hO)$ が何に必要か述べよ。
+
+<!-- solution-start -->
+**詳細解答**。元のWeyl積の像は
+$$
+\alpha_h(L(F)L(G))
+=e^{-i\sigma(F,G)/2}L(T_h(F+G)).
+$$
+一方、像のWeyl積は
+$$
+L(T_hF)L(T_hG)
+=e^{-i\sigma(T_hF,T_hG)/2}L(T_hF+T_hG).
+$$
+$\sigma$ 保存と線形性で両辺は一致します。また
+$$
+\alpha_h(L(F)^*)=L(T_h(-F))=L(-T_hF)=L(T_hF)^*.
+$$
+$T_h$ が可逆なので生成集合上の逆写像もあり、具体的実装 $U_h$ によってC*ノルムも保たれます。局所部分空間の等式は生成元を $O$ から $hO$ へ**ちょうど**移し、[共変性](../AQFT2/index.md#def-aqft2-covariance)の $\alpha_h(\mathfrak A(O))=\mathfrak A(hO)$ を示すために必要です。
+<!-- solution-end -->
+
+<a id="ex-aqft6-b04"></a>
+#### AQFT6-B04 Schrödinger表示の強連続性
+- Level: B
+
+$L^2(\mathbb R)$ で $(W_{\mathrm S}(q,p)\psi)(x)=e^{iq(x+p/2)}\psi(x+p)$ とする。固定した $F=(q,p)$ に対し、$t\mapsto W_{\mathrm S}(tF)$ の強連続性を、コンパクト支持の滑らかな関数から一般の $L^2$ ベクトルへ拡張して証明せよ。
+
+<!-- solution-start -->
+**詳細解答**。$\psi\in C_c^\infty(\mathbb R)$ に対し
+$$
+W_{\mathrm S}(tF)\psi(x)
+=e^{itq(x+tp/2)}\psi(x+tp)\to\psi(x)
+$$
+です。$|t|\le1$ なら $\psi(x+tp)$ の台は $\operatorname{supp}\psi+[-|p|,|p|]$ 内にあり、差の二乗は共通コンパクト集合の指示関数に $4\|\psi\|_\infty^2$ を掛けた可積分関数で上から抑えられます。優収束定理から
+$$
+\|W_{\mathrm S}(tF)\psi-\psi\|_2\to0.
+$$
+任意の $\xi\in L^2$ に $\|\xi-\psi\|_2<\varepsilon$ を満たす $\psi\in C_c^\infty$ を選べます。ユニタリ性を用いると
+$$
+\|W_{\mathrm S}(tF)\xi-\xi\|_2
+\le2\varepsilon+\|W_{\mathrm S}(tF)\psi-\psi\|_2.
+$$
+先に $t\to0$、次に $\varepsilon\to0$ とすることで強連続性が従います。
+<!-- solution-end -->
+
+### Level C：自由場の構成を統合する
+
+<a id="ex-aqft6-c01"></a>
+#### AQFT6-C01 空間的に分離した二領域のWeyl代数
+- Level: C
+
+空間的に分離した開領域 $O_1,O_2$ と $f_j\in\mathcal D(O_j)$ を取り、$F_j=[f_j]$ とする。(i) $f_j+P\varphi_j$ による代表変更に結果が依存しないこと、(ii) $L(F_1)$ と $L(F_2)$ の可換性、(iii) 両局所C*環全体の相互可換性、(iv) 全域のWeyl環自体が可換だとは言えないことを、一つの議論として証明せよ。
+
+<!-- solution-start -->
+**詳細解答**。(i) $\varphi_j\in\mathcal D$ とすると、商で $[f_j+P\varphi_j]=[f_j]+[P\varphi_j]=[f_j]$ です。従ってラベルと作用素は変わりません。局所代表 $f_j$ が存在するので、変えた代表の台が広がっても $F_j\in\mathcal V(O_j)$ です。
+
+(ii) [AQFT5の直交性](../AQFT5/index.md#prop-aqft5-local-orthogonality)から $\sigma(F_1,F_2)=0$。従って
+$$
+\begin{aligned}
+L(F_1)L(F_2)
+&=e^{-i\sigma(F_1,F_2)/2}L(F_1+F_2)=L(F_1+F_2),\\
+L(F_2)L(F_1)
+&=e^{-i\sigma(F_2,F_1)/2}L(F_1+F_2)=L(F_1+F_2).
+\end{aligned}
+$$
+
+(iii) $\mathcal V(O_j)$ は実線形部分空間なので、生成元の随伴 $L(-F)$ も同じ領域の生成元です。全組の $\sigma=0$ から有限 *-多項式が相互可換となります。ノルム収束する $A_n\to A$、$B_n\to B$ に対して
+$$
+\|[A,B]\|
+\le2\|A-A_n\|\|B\|+2\|A_n\|\|B-B_n\|\to0
+$$
+なので、閉包を取った局所環全体も可換です。
+
+(iv) [AQFT5の非退化性の直接例](../AQFT5/index.md#def-aqft5-causal-symplectic)では、コンパクト初期データ $(a,0)$ と $(0,a)$ の解に対応する $F,G$ を取り
+$$
+\sigma(F,G)=\int_{\mathbb R^3}a(\boldsymbol x)^2\,d^3\boldsymbol x>0
+$$
+となります。$s=\pi/\sigma(F,G)$ とおけば $\sigma(F,sG)=\pi$ です。[交換子公式](#prop-aqft6-weyl-commutator)より
+$$
+[L(F),L(sG)]=-2iL(F+sG)\ne0.
+$$
+ユニタリは零でないため最後の不等号が成立します。ゆえに全域のWeyl環は非可換です。局所性は**離れた領域の代数間**の相互可換性だけを意味します。
+<!-- solution-end -->
+
+## 7. 到達点と次講
+
+古典的な商上の $\sigma$ をWeyl位相へ移し、実際に有界なユニタリを構成できました。局所源の包含はisotonyへ、因果的な直交性はEinstein局所性へ、Poincaréでの形式保存は共変性へ移ります。他方、Weyl関係だけでは規則性も真空も得られないことを、規則的なSchrödinger模型と非規則的な離散模型の比較で確かめました。
+
+次講AQFT7「quasifree状態と二点形式」では、二点形式と正値性の条件を指定してWeyl代数上の状態を構成し、そこから物理的な表現を選ぶ道筋を調べます。
