@@ -51,7 +51,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo11-bulk-green -->
-**定義の直接確認**：まず境界方向をFourier変換した零波数$k=0$の極限で考えます。$d=3$、$M^2L^2=7/4$なら
+**定義の確認**：まず境界方向をFourier変換した零波数$k=0$の極限で考えます。$d=3$、$M^2L^2=7/4$なら
 $\nu_\chi=\sqrt{d^2/4+M^2L^2}=2$です。$\epsilon\to0$の零波数Green核は
 
 $$
@@ -161,7 +161,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo11-exchange-integral -->
-**定義の直接確認**：$12|34$では$X$に外線1・2、$Y$に3・4があります。$d=3$、$\Delta=2$で各核は
+**定義の確認**：$12|34$では$X$に外線1・2、$Y$に3・4があります。$d=3$、$\Delta=2$で各核は
 
 $$
 K_2(X;y_i)=\frac{z^2}{\pi^2(z^2+|x-y_i|^2)^2}.
