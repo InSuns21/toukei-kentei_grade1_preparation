@@ -35,7 +35,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（Minkowski境界の区間依存域）**  
-> $1+1$ 次元Minkowski時空の $A=\{t=0,\ |x|<R\}$、$R>0$ に対し、初期面の端を除く依存域は $D(A)=\{|t|+|x|<R\}$ である。閉包の二つの先端は $q_-=(-R,0)$ と $q_+=(R,0)$ である。
+> 二次元Minkowski時空の、時刻零にある開いた空間区間を考える。$R>0$ のとき、その端を除いた依存域は
+>
+$
+A=\{t=0,\ |x|<R\},\qquad
+D(A)=\{|t|+|x|<R\}
+$
+>
+> であり、閉包の二つの先端は $q_-=(-R,0)$ と $q_+=(R,0)$ である。
 <!-- formal-statement-end -->
 
 **証明の見取り図：** 時刻零に戻した光線の両端がともに区間内にあるかを調べます。
@@ -142,7 +149,19 @@ $R=2$ のとき、$t=1/2$ の断面では $x^2+z^2<(3/2)^2$ となり、時刻�
 
 <!-- formal-statement-start -->
 > **定義（entanglement wedge）**  
-> 漸近AdSの時間向きのある半古典的バルクで、境界の空間的領域 $A$ と、その端にアンカーされ $A$ と相同な選択済みHRT面 $\gamma_A$（量子補正を考える場合には選択済みQES）を固定する。適切なバルク空間的部分Cauchy領域 $\Sigma_A$ が $\partial\Sigma_A=A\cup\gamma_A$ を満たすとする。境界条件を固定して定めた $\Sigma_A$ のバルク依存域を **entanglement wedge（エンタングルメントくさび領域）** $\mathcal E(A)=D_{\rm bulk}(\Sigma_A)$ と呼ぶ。バルクの因果境界の扱いと、量子状態・コード部分空間に対する処方の有効範囲を明示して用いる。
+> 時間向きのある漸近AdS半古典バルクで、境界の空間的領域 $A$ にアンカーされ、それと相同な選択済みHRT面 $\gamma_A$ を固定する。量子補正を含む場合は選択済みQESに置き換える。$A$ と面の間の適切な空間的部分Cauchy領域 $\Sigma_A$ が存在し、次を満たすと仮定する。
+>
+$
+\partial\Sigma_A=A\cup\gamma_A
+$
+>
+> 境界条件を固定したバルク依存域を **entanglement wedge（エンタングルメントくさび領域）** と呼び、次で定義する。
+>
+$
+\mathcal E(A)=D_{\rm bulk}(\Sigma_A).
+$
+>
+> バルクの因果境界と境界データの扱い、量子状態・コード部分空間に対する処方の有効範囲を明示して用いる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo25-entanglement-wedge -->
