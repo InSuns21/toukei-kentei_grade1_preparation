@@ -1,0 +1,45 @@
+id: "AQFT4"
+title: "Klein–GordonのGreen作用素と試験関数の商"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT3
+  - HPDE22
+  - HPDE23
+official_scope: []
+learning_objectives:
+  - 四次元Minkowski計量 (-+++) で実Klein–Gordon作用素と試験関数空間の支持を定め、Pの台不増大性を具体式で検査できる
+  - 遅延・先進Green作用素の入力域、出力域、合成恒等式、因果的支持を区別して説明できる
+  - E=G_ret-G_adv の符号を固定し、核がPのコンパクト支持像であることをMinkowski座標で再計算できる
+  - 時間カットオフから任意の空間コンパクト斉次解に対応するコンパクト源を作り、商から解への全射と単射を証明できる
+  - 全域の商の中の局所部分空間V(O)を構成し、その核がD(O)とP Dの交差であることを証明できる
+  - Poincaré変換による試験関数・Green作用素・局所商の共変性を検算できる
+  - 空間的に分離した二つの局所源の因果伝播子積分が零となることを支持条件から証明できる
+definitions:
+  - { id: AQFT4-DEF-01, name: "実試験関数空間と局所試験関数" }
+  - { id: AQFT4-DEF-02, name: "自由場の局所試験関数商" }
+theorems:
+  - { id: AQFT4-PROP-01, name: "Klein–GordonのGreen合成と支持" }
+  - { id: AQFT4-THM-01, name: "Minkowski自由Klein–Gordon場の源と解の対応" }
+  - { id: AQFT4-PROP-02, name: "局所像と核の正しい商" }
+  - { id: AQFT4-PROP-03, name: "試験関数商のPoincaré共変性" }
+  - { id: AQFT4-PROP-04, name: "空間的に分離した源の伝播子積分は零" }
+canonical_examples:
+  - Minkowski double coneに支持を持つ積型試験関数とPの台不増大性
+  - Pを作用させた非零のコンパクト源が商で零になる例
+  - 非負の局所源と斉次解cos(mt)の積分から非零同値類を見つける例
+  - 空間コンパクトでない一様振動解が全射性の対象外になる反例
+problem_patterns:
+  - AQFT4-KG-LOCAL-SUPPORT
+  - AQFT4-GREEN-TWO-SIDED
+  - AQFT4-CAUSAL-POSITION
+  - AQFT4-QUOTIENT-NONZERO
+  - AQFT4-GREEN-KERNEL
+  - AQFT4-CUTOFF-SURJECTIVITY
+  - AQFT4-LOCAL-KERNEL
+  - AQFT4-POINCARE-QUOTIENT
+  - AQFT4-LOCALITY-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 9, review: 6 }
