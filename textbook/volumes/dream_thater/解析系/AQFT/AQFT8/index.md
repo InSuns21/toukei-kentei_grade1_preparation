@@ -268,7 +268,13 @@ $$
 \mathcal F_s(\mathfrak h)=\bigoplus_{n=0}^\infty\mathfrak h^{\otimes_s n},
 \qquad \Omega=(1,0,0,\ldots)
 $$
-を取ります。QFT4での一粒子空間は測度 $d^3k/(2\pi)^3$ を使いましたが、ここでは $d^3k$ を使います。したがってQFT4の波束 $u_f$ と本講の波束 $K[f]=i(2\pi)^{-3/2}u_f$ の間の係数は、ノルムを保つ測度変換と位相 $i$ を併せたものです。各 $h\in\mathfrak h$ の生成・消滅演算子はQFT4の式を密度によって拡張でき、$\Phi(h)=a(h)+a^\dagger(h)$ は実線形です。$e^{i\Phi(h)}$ はFock空間のユニタリとして定義でき、有限粒子ベクトル上の形式的なBaker–Campbell–Hausdorff計算だけに依存しないよう、次の命題では指数ベクトルで検算します。
+を取ります。[QFT4の一粒子空間](../../../物理系/QFT/QFT4/index.md#def-qft4-fock-space)では測度 $d^3k/(2\pi)^3$ を使いましたが、ここでは $d^3k$ を使います。したがって波束の対応
+$$
+u_f\longmapsto K[f]=i(2\pi)^{-3/2}u_f
+$$
+はノルムを保ちます。係数には測度変換と位相 $i$ の両方が含まれます。
+
+各 $h\in\mathfrak h$ の生成・消滅演算子はQFT4の式を密度によって拡張できます。$\Phi(h)=a(h)+a^\dagger(h)$ は実線形です。$e^{i\Phi(h)}$ はFock空間のユニタリとして定義でき、有限粒子ベクトル上の形式的なBaker–Campbell–Hausdorff計算だけに依存しないよう、次の命題では指数ベクトルで検算します。
 
 <a id="def-aqft8-fock-weyl"></a>
 
@@ -377,7 +383,7 @@ $$
 (Kf)(\boldsymbol k').
 \end{aligned}
 $$
-ゆえに $h=(a,\ell)$ に対する一粒子表現は
+ゆえに、Poincaré群元 $h=(a,\ell)$ に対する一粒子表現は次の式です（$h$ は群元、$v$ は一粒子波束を表します）。
 $$
 (U_1(a,\ell)v)(\boldsymbol k)
 =e^{i(\omega_{\boldsymbol k}a^0-\boldsymbol k\cdot\boldsymbol a)}
@@ -418,7 +424,11 @@ $$
 \widetilde{T_hf}(p)=
 e^{i(p^0a^0-\boldsymbol p\cdot\boldsymbol a)}\widetilde f(\ell^{-1}p)
 $$
-という形になります。並進位相の符号は[AQFT3の規約](../AQFT3/index.md#def-aqft3-spectrum) $U(a)=e^{i(a^0H-\boldsymbol a\cdot\boldsymbol P)}$ と一致します。質量殻測度 $d^3k/(2\omega_k)$ が不変なので、[二点形式の積分表示](#def-aqft8-vacuum-two-point)に代入すれば $\Lambda_{\mathrm{vac}}(T_hF,T_hG)=\Lambda_{\mathrm{vac}}(F,G)$。従って $\mu_{\mathrm{vac}}$ も不変、[AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から $\omega_{\mathrm{vac}}\circ\alpha_h=\omega_{\mathrm{vac}}$ です。さらに $n$ 粒子空間上の $U_1(h)^{\otimes n}$ は生成演算子について
+という形になります。並進位相の符号は[AQFT3の規約](../AQFT3/index.md#def-aqft3-spectrum)における $U(a)=e^{i(a^0H-\boldsymbol a\cdot\boldsymbol P)}$ と一致します。
+
+質量殻測度 $d^3k/(2\omega_k)$ が不変なので、[二点形式の積分表示](#def-aqft8-vacuum-two-point)に代入すれば $\Lambda_{\mathrm{vac}}(T_hF,T_hG)=\Lambda_{\mathrm{vac}}(F,G)$ です。従って $\mu_{\mathrm{vac}}$ も不変であり、[AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から $\omega_{\mathrm{vac}}\circ\alpha_h=\omega_{\mathrm{vac}}$ です。
+
+さらに $n$ 粒子空間上の $U_1(h)^{\otimes n}$ は生成演算子について
 $$
 \Gamma(U_1(h))a^\dagger(v)\Gamma(U_1(h))^*
 =a^\dagger(U_1(h)v)
@@ -498,7 +508,7 @@ $$
 \lim_{t\to0}\frac{W_{\mathcal F}(tF)\Omega-\Omega}{t}
 =i\,a^\dagger(KF)\Omega,
 $$
-二次では二階微分から既知の零粒子成分を除くと $(iKF)^{\otimes2}$ が残ります。一般の $n$ も同じTaylor級数を次数順に用いて帰納します。偏極恒等式で $(KF)^{\otimes n}$ から混合対称テンソルを作り、$K(\mathcal V)$ の複素線形包の稠密性を使えば各 $\mathfrak h^{\otimes_s n}$ に稠密です。零粒子も $\Omega$ 自身があるので巡回性が従います。
+二次では二階微分から既知の零粒子成分を除くと $\sqrt{2}(iKF)^{\otimes2}$ が残ります。一般の $n$ も同じTaylor級数を次数順に用いて帰納します。偏極恒等式で $(KF)^{\otimes n}$ から混合対称テンソルを作り、$K(\mathcal V)$ の複素線形包の稠密性を使えば各 $\mathfrak h^{\otimes_s n}$ に稠密です。零粒子も $\Omega$ 自身があるので巡回性が従います。
 
 このFock三つ組は $\omega_{\mathrm{vac}}$ を実現する巡回表現です。[OA5のGNS巡回表現の一意性](../../OA/OA5/index.md#thm-oa5-gns-uniqueness)を適用すれば、$[A]\mapsto\pi_{\mathcal F}(A)\Omega$ が内積
 $$
