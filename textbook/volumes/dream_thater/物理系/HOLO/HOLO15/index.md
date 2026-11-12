@@ -39,7 +39,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo15-thermal-state -->
-**定義の確認**：熱重みの仕組みを有限次元に切り出し、$H=\operatorname{diag}(0,\varepsilon)$、$\varepsilon>0$ とする二準位模型を考えます。$q=e^{-\beta\varepsilon}\in(0,1)$ とすれば
+**定義の確認**：熱重みの仕組みを有限次元に切り出します。二次元Hilbert空間の正規直交なエネルギー固有基底を $|0\rangle,|1\rangle$ とし、$\varepsilon>0$ を固定します。Hamiltonianの作用は
+
+$$
+H|0\rangle=0,\qquad H|1\rangle=\varepsilon|1\rangle
+$$
+
+です。この基底での行列表現が $H=\operatorname{diag}(0,\varepsilon)$ となり、実固有値から自己共役かつ下に有界（$H\ge0$）と分かります。指数作用素 $e^{-\beta H}$ も同じ基底で対角であり、固有値は $1$ と $q=e^{-\beta\varepsilon}\in(0,1)$ です。有限次元なので跡クラス条件を満たし、
 
 $$
 Z=1+q,\qquad \rho_\beta=\frac1{1+q}
@@ -47,7 +53,9 @@ Z=1+q,\qquad \rho_\beta=\frac1{1+q}
 \operatorname{Tr}\rho_\beta=\frac{1+q}{1+q}=1.
 $$
 
-また $E=\varepsilon q/(1+q)$、$F=-\beta^{-1}\log(1+q)$ です。これはCFTそのもののスペクトルではなく、定義の跡と規格化を直接検査する有限次元例です。境界CFTでは $H$ は $S_L^2$ 上の時間並進を生成し、$\beta$ は上で固定した**境界代表計量の時間長**を指します。
+$\rho_\beta$ の固有値は $1/(1+q)$ と $q/(1+q)$ で、ともに非負です。従ってこの行列は半正定値・跡1という熱状態の条件を満たします。また $E=\varepsilon q/(1+q)$、$F=-\beta^{-1}\log(1+q)$ です。
+
+これはCFTそのもののスペクトルではなく、定義の跡・正値性・規格化を直接検査する有限次元例です。境界CFTでは $H$ は $S_L^2$ 上の時間並進を生成し、$\beta$ は上で固定した**境界代表計量の時間長**を指します。
 <!-- definition-example-end -->
 
 熱的跡からEuclid円を得る理由を確かめます。完全直交系 $\{|n\rangle\}$ を取ると
@@ -292,14 +300,48 @@ F_{\rm CFT}^{\rm(cl)}
 \end{aligned}
 $$
 
-この大枝の熱力学は[Euclidサドルの熱力学微分](../../BHT/BHT14/index.md#def-bht14-saddle-weight)と整合するので、固定 $G,L$ の温度微分から
+ここで $r_l=aT+bT^{-1}+O(T^{-3})$、$a=4\pi L^2/3$、$b=-1/(4\pi)$ と置くと、三乗の展開 $r_l^3=a^3T^3+3a^2bT+O(T^{-1})$ により、次の次数まで
+
+$$
+\Delta F_{\rm cl}(r_l)
+=-\frac{a^3}{4GL^2}T^3
++\left(\frac{a}{4G}-\frac{3a^2b}{4GL^2}\right)T+O(T^{-1}).
+$$
+
+$a,b$ の値を代入すると
+
+$$
+\Delta F_{\rm cl}(r_l)
+=-\frac{16\pi^3L^4}{27G}T^3
++\frac{2\pi L^2}{3G}T+O(T^{-1}).
+$$
+
+と確認できます。大枝の明示式は $TL\gg1$ で $\sqrt{1-3/(4\pi^2L^2T^2)}$ の収束する二項級数に基づくため、固定 $G,L$ のこの高温展開を項別微分できます。[Euclidサドルの熱力学微分](../../BHT/BHT14/index.md#def-bht14-saddle-weight)を用いて
 
 $$
 S=-\frac{\partial F}{\partial T}
-=\frac{16\pi^3L^4}{9G}T^2+O(1).
+=\frac{16\pi^3L^4}{9G}T^2-\frac{2\pi L^2}{3G}+O(T^{-2}).
 $$
 
-一方、面積からも $S_{\rm BH}=\pi r_l^2/G=(16\pi^3L^4/(9G))T^2+O(1)$ で係数が一致します。さらに
+この温度微分は、$r_l=r_l(T)$ という解族に沿った**連鎖律**としても直接確認できます。大枝では $r_l>L/\sqrt3$ なので $dT/dr_l\ne0$ であり、[BHT16の温度式](../../BHT/BHT16/index.md#prop-bht16-ads-state)と[相対自由エネルギー](../../BHT/BHT16/index.md#prop-bht16-ads-action)から
+
+$$
+\frac{d\Delta F_{\rm cl}(r_l(T))}{dT}
+=\frac{(d\Delta F_{\rm cl}/dr_l)}{dT/dr_l}
+=\frac{(1-3r_l^2/L^2)/(4G)}{(3r_l^2/L^2-1)/(4\pi r_l^2)}
+=-\frac{\pi r_l^2}{G}.
+$$
+
+ここで $d/dr_l$ は $G,L$ 固定の解族に沿った微分、$d/dT$ は同じ枝上の温度微分です。$\beta=1/T$ による $d/dT=-\beta^2d/d\beta$ との関係も、この固定条件の下でのみ使います。
+
+一方、面積からも $r_l^2=a^2T^2+2ab+O(T^{-2})$ なので
+
+$$
+S_{\rm BH}=\frac{\pi r_l^2}{G}
+=\frac{16\pi^3L^4}{9G}T^2-\frac{2\pi L^2}{3G}+O(T^{-2})
+$$
+
+となり、先頭項だけでなく定数項まで一致します。さらに
 
 $$
 E=F+TS=
@@ -334,7 +376,15 @@ $L^2/G$ が境界の有効自由度数の役割を担います。ただし、$L^
 | 相転移 | 大きな有効自由度の極限で一次転移型の折れ目を得る | 有限球面・有限自由度の厳密な非解析性 |
 | アンサンブル | 固定 $\beta$、無電荷・無回転の正準分配関数 | 固定エネルギーの微正準系や固定電位の大正準系へ同じ結果を流用する |
 
-反例となる**前提の失敗**を一つ考えます。境界で電荷 $Q$ を固定せず化学ポテンシャル $\mu$ を固定した系なら、熱的跡は $\operatorname{Tr}e^{-\beta(H-\mu Q)}$ です。電荷を持つBHを単に $E-TS$ で比較すると $-\mu Q$ の項を落とします。指数に使う熱力学ポテンシャルは $E-TS-\mu Q$ となり、今回の $\Delta I_E=\beta(E-TS)$ をそのまま使った**作用と跡の対応**が壊れます。この区別の重力側は[BHT17のアンサンブル](../../BHT/BHT17/index.md)を参照してください。
+反例となる**前提の失敗**を一つ考えます。境界で電荷 $Q$ を固定せず化学ポテンシャル $\mu$ を固定した系では、$e^{-\beta(H-\mu Q)}$ が跡クラスである温度域において、熱的跡は
+
+$$
+Z_{\rm gc}(\beta,\mu)=\operatorname{Tr}e^{-\beta(H-\mu Q)}
+$$
+
+となります。電荷を持つBHを単に $E-TS$ で比較すると $-\mu Q$ の項を落とします。指数に使う熱力学ポテンシャルは $E-TS-\mu Q$ となり、今回の $\Delta I_E=\beta(E-TS)$ をそのまま使った**作用と跡の対応**が壊れます。
+
+この区別の重力側は[BHT17のアンサンブル](../../BHT/BHT17/index.md)を参照してください。
 
 本講の方法で分かるのは、適切なAdS/CFT模型において境界の**熱的情報**を重力の**どの古典幾何が優勢か**へ写す条件です。地平線の二側構造や熱場二重状態、個々の微視的状態や蒸発情報の回収まで証明したわけではありません。
 
@@ -516,7 +566,7 @@ $F\propto-T^3$、$S\propto T^2$ が空間2次元の温度次数に合います�
 ### B4. アンサンブルを変えると何が壊れるか
 - Level: B
 
-**問題**：境界に保存電荷演算子 $Q$ があり、$[H,Q]=0$ とする。化学ポテンシャル $\mu$ を固定した熱的跡を書き、固有状態 $(E_n,q_n)$ の重みから対応する熱力学ポテンシャルを説明せよ。正準の $\beta(E-TS)$ をそのまま使えない理由を述べよ。
+**問題**：境界に自己共役な保存電荷演算子 $Q$ があり、$[H,Q]=0$ とする。$H,Q$ には正規直交な同時固有基底があり、指定した $\beta>0,\mu\in\mathbb R$ で $e^{-\beta(H-\mu Q)}$ が跡クラスであると仮定する。化学ポテンシャル $\mu$ を固定した熱的跡を書き、固有状態 $(E_n,q_n)$ の重みから対応する熱力学ポテンシャルを説明せよ。正準の $\beta(E-TS)$ をそのまま使えない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：同時固有基底で $H|n\rangle=E_n|n\rangle$、$Q|n\rangle=q_n|n\rangle$ とすると、化学ポテンシャル固定の分配関数は
@@ -526,7 +576,20 @@ Z_{\rm gc}(\beta,\mu)=\operatorname{Tr}e^{-\beta(H-\mu Q)}
 =\sum_n e^{-\beta(E_n-\mu q_n)}.
 $$
 
-熱力学では $S=\beta(E-\mu\langle Q\rangle-\Omega)$ と整理されるため、大正準ポテンシャルは $\Omega=E-TS-\mu\langle Q\rangle$ です。$-\mu Q$ を落とした $e^{-\beta(E-TS)}$ は最初の熱的跡に対応しないので、同じ作用差から相境界を計算できません。重力側でも固定電位の境界項と許すサドルを再選択する必要があります。
+この跡は正で有限なので $\rho_{\rm gc}=Z_{\rm gc}^{-1}e^{-\beta(H-\mu Q)}$ を規格化できます。$E=\operatorname{Tr}(\rho_{\rm gc}H)$、$\langle Q\rangle=\operatorname{Tr}(\rho_{\rm gc}Q)$ を有限とする温度域では、$\log\rho_{\rm gc}=-\beta(H-\mu Q)-\log Z_{\rm gc}$ より
+
+$$
+S=-\operatorname{Tr}(\rho_{\rm gc}\log\rho_{\rm gc})
+=-\operatorname{Tr}\!\left[\rho_{\rm gc}\{-\beta(H-\mu Q)-\log Z_{\rm gc}\}\right].
+$$
+
+$\operatorname{Tr}\rho_{\rm gc}=1$ なので
+
+$$
+S=\beta(E-\mu\langle Q\rangle)+\log Z_{\rm gc}.
+$$
+
+ここで $\Omega=-\beta^{-1}\log Z_{\rm gc}$ と定めて変形すると、$\Omega=E-TS-\mu\langle Q\rangle$ です。$-\mu Q$ を落とした $e^{-\beta(E-TS)}$ は最初の熱的跡に対応しないので、同じ作用差から相境界を計算できません。重力側でも固定電位の境界項と許すサドルを再選択する必要があります。
 <!-- solution-end -->
 
 <a id="ex-holo15-c1"></a>
