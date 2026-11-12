@@ -33,7 +33,17 @@ $$
 
 ### 2.2 文脈と型付け
 
-「$x$ が型 $A$ の変数である」という仮定を並べた有限列を**文脈** $\Gamma$ と呼ぶ。文脈の変数名は重複させない。$\Gamma\vdash t:A$ は、文脈中の仮定の下で項 $t$ が型 $A$ を持つ、という判定を意味する。ラムダ抽象 $\lambda x:A.t$ では、変数 $x$ は関数の引数として束縛される。束縛変数名だけを変えた式は同じ構文として扱う（$\alpha$ 変換）。
+「$x$ が型 $A$ の変数である」という仮定を並べた有限列を**文脈** $\Gamma$ と呼ぶ。
+
+変数名はあらかじめ固定した可算無限集合から選び、文脈内で重複させない。したがって束縛名を変更するための新しい変数を常に選べる。
+
+$\Gamma\vdash t:A$ は、文脈中の仮定の下で項 $t$ が型 $A$ を持つ、という判定を意味する。
+
+ラムダ抽象 $\lambda x:A.t$ では、変数 $x$ は関数の引数として束縛される。束縛変数名だけを変えた式は同じ構文として扱う（$\alpha$ 変換）。
+
+以下では $*$ を単位型 $1$ の項、$\langle u,v\rangle$ を項 $u,v$ から作る対、$\pi_1p,\pi_2p$ を積型の項 $p$ から第1・第2成分を取り出す項と書く。これらはまず**項を作る構文記号**であって、圏の射としての意味は第4節で与える。
+
+$f\,u$ は関数型の項 $f$ を引数の項 $u$ に適用した項である。
 
 <a id="def-cat4-06-typing"></a>
 
@@ -95,7 +105,9 @@ $$
 \Delta\vdash s_i:A_i\qquad(i=1,\ldots,n).
 $$
 
-> この列を $\sigma:\Delta\Rightarrow\Gamma$ と記す。$\Gamma\vdash t:B$ の自由変数を対応する $s_i$ に同時に置き換え、束縛変数の捕獲を $\alpha$ 変換で避けた項を $t[\sigma]$ とする。結果は次の型を持つ。
+> この列を $\sigma:\Delta\Rightarrow\Gamma$ と記す。$\Gamma\vdash t:B$ の自由変数を対応する $s_i$ に同時に置き換え、束縛変数の捕獲を $\alpha$ 変換で避けた項を $t[\sigma]$ とする。
+>
+> この $\Delta\Rightarrow\Gamma$ は「$\Delta$ の項を用いて $\Gamma$ の変数に代入する」向きを表す記号で、型の構成子 $A\Rightarrow B$ とは異なる。結果は次の型を持つ。
 
 $$
 \Delta\vdash t[\sigma]:B.
@@ -182,14 +194,30 @@ $$
 k=\lambda x:\mathsf o.\lambda y:\mathsf o.x
 $$
 
-は型 $\mathsf o\Rightarrow(\mathsf o\Rightarrow\mathsf o)$ を持つ。内側の文脈は $1\times O\times O$（左から順に括弧を付ける）であり、$x$ の射は $\pi_2\pi_1$、$y$ の射は $\pi_2$ である。$x$ の射をまず $y$ についてカリー化し、さらに $x$ についてカリー化するため、
+は型 $\mathsf o\Rightarrow(\mathsf o\Rightarrow\mathsf o)$ を持つ。
+
+内側の文脈は $1\times O\times O$（左から順に括弧を付ける）であり、$x$ の射は $\pi_2\pi_1$、$y$ の射は $\pi_2$ である。
+
+$x$ の射をまず $y$ についてカリー化し、さらに $x$ についてカリー化する。文脈の要素を $((*,a),b)\in(1\times O)\times O$ と書くと、射影の合成は
+
+$$
+(\pi_2\circ\pi_1)((*,a),b)=\pi_2(*,a)=a.
+$$
+
+この射を内側の変数 $y$ に関して転置すると、$(1\times O)\to O^O$ の射 $h$ となる。評価の等式から
+
+$$
+\operatorname{ev}(h(*,a),b)=h(*,a)(b)=a
+$$
+
+である。さらに $x$ に関して転置すると $1\to(O^O)^O$ を得て、
 
 $$
 \llbracket k\rrbracket(*)(a)(b)=a
 \qquad(a,b\in O).
 $$
 
-例えば $a=1,b=0$ なら結果は $1$。型の翻訳、文脈の射影、二回のカリー化、評価の等式をそれぞれ直接確認できた。
+例えば $a=1,b=0$ なら結果は $1$。射影が自由変数 $x$ の値を取り出し、二回の転置がその値を返す関数を順に作ることを、評価式までたどって確認できた。
 <!-- definition-example-end -->
 
 ### 4.1 すべての型付き項に射が割り当てられる
@@ -288,7 +316,17 @@ $$
 \end{aligned}
 $$
 
-最後の式は $\operatorname{ev}(\Lambda(f)\times1_A)=f$ と積の前合成則を適用して、両辺を評価へ戻し、転置の一意性で比較すれば得られる。全構文の場合を尽くした。
+最後の等号を具体的に確かめる。$g=\llbracket\sigma\rrbracket:D\to G$、$F=\llbracket v\rrbracket:G\times E\to H$（$D=\llbracket\Delta\rrbracket$、$G=\llbracket\Gamma\rrbracket$、$E=\llbracket A\rrbracket$、$H=\llbracket B\rrbracket$）と置く。積の前合成則と評価の等式より
+
+$$
+\begin{aligned}
+\operatorname{ev}((\Lambda(F)g)\times1_E)
+&=\operatorname{ev}(\Lambda(F)\times1_E)(g\times1_E)\\
+&=F(g\times1_E).
+\end{aligned}
+$$
+
+したがって $\Lambda(F)g$ は $F(g\times1_E)$ の転置の定義式を満たす。[転置の一意性](../CAT4-05/index.md#thm-cat4-05-evaluation-curry)から $\Lambda(F(g\times1_E))=\Lambda(F)g$ となる。全構文の場合を尽くした。
 <!-- proof-end -->
 
 ## 6. $\beta\eta$ 則の健全性
@@ -378,13 +416,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
+**対象とHomの集合性。** 型は有限個の構成子から作る有限式なので、対象となる型全体は集合である。変数名の可算集合と有限個の項構成子から作る型付き項も有限式であり、$x:A\vdash t:B$ を満たす項の全体は集合となる。その $\alpha\beta\eta$ 等式による商 $\operatorname{Hom}_{\mathcal S}(A,B)$ も集合である。よって $\mathcal S$ は小さい圏として構成でき、特に局所小である。
+
 **圏の公理。** 型の合う代入を二回実施した結果と、代入項を先に代入してから一回実施した結果は、$\alpha$ 変換を除いて一致する。三つの型付き項を順に合成する場合、その主張は
 
 $$
 v[u/z][t/y]\equiv_\alpha v[u[t/y]/z]
 $$
 
-という代入の結合性である。変数の項なら代入先を追うことで確かめられる。対・射影・適用では帰納法を部分項に適用し、抽象では束縛名を代入項の自由変数から避けて改名してから、内部の項に帰納法を適用する。これで合成の結合律が従う。
+という代入の結合性である。変数の項なら代入先を追うことで確かめられる。対・射影・適用では帰納法を部分項に適用する。抽象の場合も、束縛変数を新鮮な $q:D$ に改名してから代入する。内部項 $r$ に対する帰納法の仮定を使うと
+
+$$
+\begin{aligned}
+((\lambda q:D.r)[u/z])[t/y]
+&\equiv_\alpha \lambda q:D.((r[u/z])[t/y])\\
+&\equiv_\alpha \lambda q:D.r[u[t/y]/z]\\
+&\equiv_\alpha (\lambda q:D.r)[u[t/y]/z]
+\end{aligned}
+$$
+
+となる。$q$ は $u,t$ の自由変数に現れないよう選んだので、各行で捕獲は起きない。これで合成の結合律が従う。
 
 恒等代入は変数の像を変えず、単一変数への代入は元の項を再現するため、左右単位律が成立する。また、等式理論は代入に関する合同律で閉じているから、代表元を取り替えても合成の等式類は変わらない。
 
@@ -624,7 +675,15 @@ v[u/z][t/y]\equiv_\alpha
 v[u[t/y]/z]
 $$
 
-が代入の結合性として成立する。抽象の内部では束縛名を新鮮に改名してから帰納法を適用するので捕獲は起こらない。
+が代入の結合性として成立する。抽象の内部では束縛名 $q$ を $t,u$ の自由変数から避けて選ぶ。すると $r$ を内部項として
+
+$$
+((\lambda q:D.r)[u/z])[t/y]
+\equiv_\alpha\lambda q:D.((r[u/z])[t/y])
+\equiv_\alpha\lambda q:D.r[u[t/y]/z]
+$$
+
+となり、最後は $(\lambda q:D.r)[u[t/y]/z]$ と $\alpha$ 同値である。二行目には内部項 $r$ の帰納法を用いた。
 
 **(2) 終対象と積。** $x:A\vdash *:1$ は常にあり、任意の $x:A\vdash q:1$ は単位型 $\eta$ 則で $q\equiv_{\beta\eta}*$。従って終対象。積 $A\times B$ の射影は $\pi_1z,\pi_2z$。$f:C\to A$ と $g:C\to B$ に対して $\langle f,g\rangle:C\to A\times B$ を作る。射影後が $f,g$ となることは二つの積 $\beta$ 則で分かる。別の $h$ が同じ射影を持つなら
 
