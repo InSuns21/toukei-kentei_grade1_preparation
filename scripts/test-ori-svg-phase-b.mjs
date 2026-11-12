@@ -38,11 +38,13 @@ for(const spec of SPECS){
    assert.match(poster,/<clipPath/);
    assert.match(chapter,new RegExp('assets/ori-v'+spec.id+'-player\\.html'));
    assert.match(chapter,new RegExp('assets/ori-v'+spec.id+'-poster\\.svg'));
-   const fromMath=posterSvg({...stateAt(spec.id,.75,spec.modes[0]),title:spec.title},'ORI-V'+spec.id+' '+spec.title);
-   if(spec.id!=='13')assert.equal(poster,fromMath,'静止図は同じ数理モデルから書き出す');
-   else assert.equal(poster,posterSvg({...stateAt(spec.id,1,spec.modes[0]),title:spec.title},'ORI-V'+spec.id+' '+spec.title));
+   const posterTime=({'02':.5,'05':.5,'06':.5,'07':.5,'13':1})[spec.id]??.75;
+   assert.equal(poster,posterSvg({...stateAt(spec.id,posterTime,spec.modes[0]),title:spec.title},'ORI-V'+spec.id+' '+spec.title),'poster derives from the mathematical model');
  });
 }
+test('ORI-V02: 芳賀折りの三等分を再計算',()=>{
+ close(stateAt('02',.5).values.ratio,1/3,'Haga one third');
+});
 test('ORI-V05 O5 の0/1/2本と接点',()=>{
  assert.equal(stateAt('05',0).values.targets.length,0);
  assert.equal(stateAt('05',1/6).values.targets.length,1);
