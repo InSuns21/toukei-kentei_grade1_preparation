@@ -16,3 +16,4 @@
 13. [AQFT13 巡回性・分離性・局所性](textbook/volumes/dream_thater/解析系/AQFT/AQFT13/index.md)
 14. [AQFT14 Haag双対性・wedge双対性・factor性](textbook/volumes/dream_thater/解析系/AQFT/AQFT14/index.md)
 15. [AQFT15 Type I/II/III因子](textbook/volumes/dream_thater/解析系/AQFT/AQFT15/index.md)
+16. [AQFT16 split propertyと緩衝領域](textbook/volumes/dream_thater/解析系/AQFT/AQFT16/index.md)

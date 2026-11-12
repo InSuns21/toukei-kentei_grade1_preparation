@@ -1,0 +1,47 @@
+id: "AQFT16"
+title: "split propertyと緩衝領域"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT15
+  - AQFT14
+  - AQFT9
+  - AQFT2
+  - AQFT1
+  - VN7
+  - VN2
+learning_objectives:
+  - double coneのO1コンパクト包含O2と緩衝領域の意味を具体座標で判定できる
+  - split inclusionとnetのsplit propertyを区別しType I中間因子を直接例で確認できる
+  - 最小射影からType I因子の空間的表示を内積・全射性・可換子を通して構成できる
+  - split inclusionから内側の環と外側の可換子の空間的テンソル積表示を証明できる
+  - split表示の積ベクトル状態と非零元の非零積を計算できる
+  - 局所性の可換性だけからsplitを導けないことを反例で説明できる
+  - Type IIIの鋭い分解障害と緩衝帯のあるsplit inclusionが矛盾しないと説明できる
+definitions:
+  - { id: AQFT16-DEF-01, name: "split inclusionとnetのsplit property" }
+theorems:
+  - { id: AQFT16-THM-01, name: "Type I因子の空間的表示" }
+  - { id: AQFT16-THM-02, name: "split inclusionの内外テンソル積表示" }
+  - { id: AQFT16-PROP-01, name: "split表示における積ベクトル状態" }
+  - { id: AQFT16-PROP-02, name: "可換性はsplitを含意しない" }
+canonical_examples:
+  - double cone O_rとO_Rのコンパクト包含を4次元座標で検証
+  - 四因子Hilbert空間上の厳密なType I中間因子の例
+  - 最小射影eからKとLを作る内積・中心射影の構成
+  - 積ベクトル状態の有限次元計算
+  - 乗法作用素の極大可換環によるsplit失敗の例
+problem_patterns:
+  - AQFT16-DOUBLE-CONE-BUFFER
+  - AQFT16-TYPE-I-INTERMEDIATE-FACTOR
+  - AQFT16-OUTER-COMMUTANT
+  - AQFT16-PRODUCT-VECTOR
+  - AQFT16-TYPE-I-MINIMAL-PROJECTION
+  - AQFT16-ZERO-WIDTH-TYPE-III
+  - AQFT16-SPATIAL-INDEPENDENCE
+  - AQFT16-LOCALITY-NO-HAAG-DUALITY
+  - AQFT16-SPLIT-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 11, review: 7 }
