@@ -8,3 +8,4 @@
 5. [RBD5 四元数による姿勢表現](textbook/volumes/dream_thater/物理系/RBD/RBD5/index.md)
 6. [RBD6 慣性テンソルの座標変換と具体物体](textbook/volumes/dream_thater/物理系/RBD/RBD6/index.md)
 7. [RBD7 Newton–Euler方程式：外力と基準点](textbook/volumes/dream_thater/物理系/RBD/RBD7/index.md)
+8. [RBD8 無トルク対称剛体と姿勢の再構成](textbook/volumes/dream_thater/物理系/RBD/RBD8/index.md)
