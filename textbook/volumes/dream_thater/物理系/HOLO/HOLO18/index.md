@@ -43,7 +43,7 @@ $$
 **定義から計算への橋渡し。** 境界アンカーを保つ半円は[HOLO3の半円最短測地線定理](../HOLO3/index.md#thm-holo3-semicircle)から得られます。その長さは、曲線上の接ベクトル $(dx,dz)$ を計量 $h$ に代入し $\sqrt{h(\dot\gamma,\dot\gamma)}$ を積分して求めます。定義にある $G_3$ は三次元Newton定数で、面積をエントロピーの無次元量へ換算する係数です。
 
 <!-- definition-example-start: def-holo18-regulated-rt-length -->
-**定義の確認（$a=1,\epsilon=1/2$）。** $x^2+z^2=1$ と $z=1/2$ の交点は $x=\pm\sqrt3/2$。従って $\gamma_{A,\epsilon}$ はこの二点間の半円弧で、$z\ge1/2>0$ に収まり、両端の元のアンカー $x=\pm1,z=0$ と異なります。$\theta\in[\pi/6,5\pi/6]$ により $(x,z)=(\cos\theta,\sin\theta)$ と表すと、誘導線素は $ds=L\,d\theta/\sin\theta$ なので
+**定義の確認**（$a=1,\epsilon=1/2$）。 $x^2+z^2=1$ と $z=1/2$ の交点は $x=\pm\sqrt3/2$。従って $\gamma_{A,\epsilon}$ はこの二点間の半円弧で、$z\ge1/2>0$ に収まり、両端の元のアンカー $x=\pm1,z=0$ と異なります。$\theta\in[\pi/6,5\pi/6]$ により $(x,z)=(\cos\theta,\sin\theta)$ と表すと、誘導線素は $ds=L\,d\theta/\sin\theta$ なので
 
 $$
 D_{A,1/2}
@@ -356,17 +356,17 @@ $$
 <!-- solution-start -->
 **詳細解答。** 境界アンカー半円は $x^2+z^2=1$。$z=1/2$ の交点は $(\pm\sqrt3/2,1/2)$ で、[正則化長の命題](#prop-holo18-regulated-length)から
 
-$
+$$
 D_{\mathrm{anc}}=2L\operatorname{arcosh}2
 =2L\log(2+\sqrt3).
-$
+$$
 
 固定点 $(\pm1,1/2)$ を通る対称半円は $x^2+z^2=1+1/4=5/4$、半径は $\sqrt5/2$。[HOLO3のcutoff比較](../HOLO3/index.md#prop-holo3-cutoff-lengths)より
 
-$
+$$
 D_{\mathrm{fixed}}=2L\operatorname{arsinh}2
 =2L\log(2+\sqrt5).
-$
+$$
 
 $\sqrt5>\sqrt3$ なので後者の方が長い。別の端点問題を解いているため、有限cutoffで等しい必要はない。
 <!-- solution-end -->
