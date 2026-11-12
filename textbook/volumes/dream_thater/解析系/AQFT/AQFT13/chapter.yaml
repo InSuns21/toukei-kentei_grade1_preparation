@@ -1,0 +1,48 @@
+id: "AQFT13"
+title: "巡回性・分離性・局所性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT12
+  - AQFT9
+  - AQFT2
+  - AQFT1
+  - VN2
+official_scope: []
+learning_objectives:
+  - 巡回性と分離性を別々に定義し二次元行列例で成立と失敗を判定できる
+  - 分離的であることと可換子側で巡回的であることの同値を射影の議論まで証明できる
+  - Einstein局所性から局所von Neumann環の因果補集合に関する可換子包含を導ける
+  - 有界double coneの補領域に非空double coneが入ることを座標不等式で証明できる
+  - 補領域の巡回性と局所性から局所分離性を証明できる
+  - Reeh–Schliederの各仮定に局所性を加えて局所巡回分離真空を導ける
+  - 分離性と局所ベクトル状態の忠実性の同値を示せる
+  - 反例により局所性・補領域巡回性の欠落とHaag双対性の等号を区別できる
+definitions:
+  - { id: AQFT13-DEF-01, name: "分離ベクトル" }
+theorems:
+  - { id: AQFT13-THM-01, name: "可換子の巡回性と分離性の同値" }
+  - { id: AQFT13-PROP-01, name: "局所von Neumann環の補領域包含" }
+  - { id: AQFT13-THM-02, name: "空間的補領域の巡回性から局所分離性へ" }
+  - { id: AQFT13-COR-01, name: "Reeh–Schlieder真空の局所巡回・分離性" }
+  - { id: AQFT13-PROP-02, name: "分離ベクトルとベクトル状態の忠実性" }
+canonical_examples:
+  - 二次元行列環・対角環・スカラー環で巡回性と分離性を直接判定
+  - 非空な空間的補double coneをMinkowski座標で構成
+  - 可換な二領域で補領域が非巡回的なテンソル積の反例
+  - 局所性を欠く全作用素定数netの反例
+  - 可換子包含が真でも等号とは限らない二領域の小模型
+problem_patterns:
+  - AQFT13-SEPARATING-MATRIX-KERNEL
+  - AQFT13-DIAGONAL-CYCLIC-SEPARATING
+  - AQFT13-FINITE-COMMUTANT
+  - AQFT13-CAUSAL-COMPLEMENT-COORDINATES
+  - AQFT13-COMMUTANT-PROJECTION-ARGUMENT
+  - AQFT13-NONLOCAL-NET-COUNTEREXAMPLE
+  - AQFT13-NONCYCLIC-COMPLEMENT-COUNTEREXAMPLE
+  - AQFT13-LOCAL-STATE-FAITHFULNESS
+  - AQFT13-REEH-SCHLIEDER-SEPARATING-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 6 }
