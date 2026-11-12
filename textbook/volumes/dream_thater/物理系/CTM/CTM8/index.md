@@ -55,11 +55,11 @@ $P$ は Pa を単位にもつが、$\sigma$ と同じ行列ではない。第 $i
 
 基準側と現在側の標準直交基底をそれぞれ $e_1,e_2,e_3$ で表す。ある時刻の運動を $\chi(X)=(\lambda_1X_1,\lambda_2X_2,\lambda_3X_3)$、$\lambda_i>0$（無次元）とし、現在応力を $\sigma=\operatorname{diag}(p_1,p_2,p_3)$ Pa とする。物質座標で各成分を微分すると
 
-$
+$$
 F=D_X\chi=\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3),\qquad
 F^{-T}=\operatorname{diag}(1/\lambda_1,1/\lambda_2,1/\lambda_3),\qquad
 J=\lambda_1\lambda_2\lambda_3>0.
-$
+$$
 
 $\chi$ は逆写像 $X_i=x_i/\lambda_i$ をもち、$F$ は可逆で向きを保つ。これは[変形勾配の定義](../CTM2/index.md#def-ctm2-deformation-gradient)の条件そのものである。基準法線の各列へ $JF^{-T}$ を掛けると、[Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)による面積倍率が得られる。続けて $P=J\sigma F^{-T}$ を各列で計算すると
 
@@ -71,12 +71,12 @@ $$
 
 例えば $N=e_1$ では $F^{-T}e_1=e_1/\lambda_1$ なので $n=e_1$、$da=J\,dA/\lambda_1=\lambda_2\lambda_3\,dA$。現在側の力 $p_1e_1\,\lambda_2\lambda_3dA$ は基準側の $Pe_1\,dA=\lambda_2\lambda_3p_1e_1\,dA$ と一致する。残る二面も法線をそれぞれ $e_2,e_3$ として計算すると
 
-$
+$$
 \begin{aligned}
 N=e_2:\quad &\sigma n\,da=p_2e_2\,\lambda_1\lambda_3dA=Pe_2\,dA,\\
 N=e_3:\quad &\sigma n\,da=p_3e_3\,\lambda_1\lambda_2dA=Pe_3\,dA.
 \end{aligned}
-$
+$$
 
 どちらも $F^{-T}e_i=e_i/\lambda_i$ から $n=e_i$、$da=J\,dA/\lambda_i$ を求めた。これで定義式の**全列**と面法線の対応を確認できた。
 <!-- definition-example-end -->
