@@ -339,7 +339,7 @@ $$
 1. 右向きを $e_1$ とすれば $q=q_*e_1$。左面の外向き法線は $-e_1$、右面は $+e_1$ だから、
 
    $$
-   (q\cdot n)_{\rm 左}=-q_*,\qquad (q\cdot n)_{\rm 右}=q_*.
+   (q\cdot n)_{\mathrm{left}}=-q_*,\qquad (q\cdot n)_{\mathrm{right}}=q_*.
    $$
 
 2. [熱流束の定義](#def-ctm9-heat-transport)から、両面を通る外向き流率を差し引けば、
