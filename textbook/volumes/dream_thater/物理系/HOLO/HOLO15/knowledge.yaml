@@ -1,0 +1,37 @@
+chapter: HOLO15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO14
+  - BHT16
+concepts:
+  - id: holography.boundary-canonical-thermal-state
+    name: 境界の正準熱状態と自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界の正準熱状態と自由エネルギー）"]
+    requires: [black-hole-thermodynamics.euclidean-saddle-weight]
+  - id: holography.relative-two-saddle-thermal-model
+    name: 相対二鞍点の熱分配模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相対二鞍点の熱分配模型）"]
+    requires: [holography.boundary-canonical-thermal-state, black-hole-thermodynamics.ads-matched-on-shell-action, black-hole-thermodynamics.ads-two-branches]
+  - id: holography.thermal-free-energy-dictionary
+    name: 条件付きの熱的AdS/CFT自由エネルギー辞書
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（条件付きの熱的AdS/CFT自由エネルギー辞書）"]
+    requires: [holography.relative-two-saddle-thermal-model, holography.gkpw-tree-level-dictionary]
+  - id: holography.boundary-hawking-page-phase
+    name: 境界自由エネルギーの先頭Hawking–Page相境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界自由エネルギーの先頭Hawking–Page相境界）"]
+    requires: [holography.thermal-free-energy-dictionary, black-hole-thermodynamics.hawking-page-saddle-transition, black-hole-thermodynamics.hawking-page-latent-heat]
+  - id: holography.high-temperature-ads4-cft3
+    name: 大BHの高温CFT熱力学
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（大BHの高温CFT熱力学）"]
+    requires: [holography.thermal-free-energy-dictionary, black-hole-thermodynamics.schwarzschild-ads-state]

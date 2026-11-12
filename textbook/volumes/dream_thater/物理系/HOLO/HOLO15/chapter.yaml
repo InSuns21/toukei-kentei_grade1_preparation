@@ -1,0 +1,43 @@
+id: HOLO15
+title: "境界の熱状態とAdSブラックホール"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO14
+  - BHT16
+official_scope: []
+learning_objectives:
+  - 境界球面上の正準熱状態とEuclid時間円の関係を跡表示から説明できる
+  - 熱的AdSとSchwarzschild–AdSの境界温度・球面計量の一致条件を点検できる
+  - 相対Euclid作用から二鞍点の指数重みと境界CFT自由エネルギーを条件付きで導ける
+  - 小BHの局所不安定性と大BHの優勢条件を区別できる
+  - Hawking–Page転移の温度とエントロピー・エネルギーの飛びを重力とCFTの両側で検算できる
+  - 大BHの高温極限で球面CFT3のF・S・Eの温度次数を再現できる
+  - 有限体積・有限自由度・アンサンブル・双対性の仮定に由来する限界を説明できる
+definitions:
+  - { id: HOLO15-DEF-01, name: 境界の正準熱状態と自由エネルギー }
+  - { id: HOLO15-DEF-02, name: 相対二鞍点の熱分配模型 }
+theorems:
+  - { id: HOLO15-PROP-01, name: 条件付きの熱的AdS/CFT自由エネルギー辞書 }
+  - { id: HOLO15-PROP-02, name: 境界自由エネルギーの先頭Hawking–Page相境界 }
+  - { id: HOLO15-PROP-03, name: 大BHの高温CFT熱力学 }
+canonical_examples:
+  - 二準位系の熱的跡と密度行列の規格化
+  - T=1/(pi L)における熱的AdSと大小二BHの相対自由エネルギー
+  - TLが大きい領域での境界球面自由エネルギー密度とエントロピー
+  - 固定化学ポテンシャルによるアンサンブル不一致の反例
+problem_patterns:
+  - HOLO15-THERMAL-TRACE
+  - HOLO15-BOUNDARY-MATCHING
+  - HOLO15-SADDLE-WEIGHT
+  - HOLO15-MULTIPLE-RADII
+  - HOLO15-SPHERE-VOLUME
+  - HOLO15-LOG-SUM
+  - HOLO15-LOCAL-VS-GLOBAL
+  - HOLO15-HIGH-T-CFT
+  - HOLO15-ENSEMBLE-MISMATCH
+  - HOLO15-INTEGRATED-SADDLES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 9, review: 7 }
