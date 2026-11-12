@@ -1,0 +1,44 @@
+id: "U3-09"
+title: "Barrier：knock-in / knock-out と監視頻度"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-08]
+official_scope: []
+learning_objectives:
+  - 上側 Barrier call の knock-in/knock-out 受取額を観測日集合と接触判定を明示して定義し、同一終値での到達有無を検算できる
+  - 到達フラグを株価とともに更新し、有限二項木の後退帰納価格と全経路列挙の一致を証明できる
+  - 同一条件の in/out parity を経路単位で証明し、rebate や異なる監視条件での破綻を説明できる
+  - 同一基礎市場の監視日集合を包含関係で増やしたときの価格単調性を証明し、連続監視との違いを説明できる
+  - 時点2で同じ株価96円でも到達フラグが異なれば継続価値が異なる例を計算できる
+  - 節点ごとの株式・預金複製額を両子で確認し、状態数 O(N^2) と全経路列挙 O(N*2^N) を比較できる
+  - 公開ページ内のブラウザ実行から独立した二つの有理数アルゴリズムで監視頻度・価格・parity を再計算できる
+definitions:
+  - { id: U3-09-DEF-01, name: 離散監視 Barrier call：knock-in と knock-out }
+  - { id: U3-09-DEF-02, name: 到達フラグと拡張状態 }
+theorems:
+  - { id: U3-09-THM-01, name: 離散監視 Barrier の後退帰納価格 }
+  - { id: U3-09-PROP-01, name: Barrier の in/out parity }
+  - { id: U3-09-PROP-02, name: 離散監視日追加による価格の単調性 }
+  - { id: U3-09-PROP-03, name: 満期前の同一株価でも Barrier 価値は異なる }
+  - { id: U3-09-PROP-04, name: Barrier の各節点における複製保有量 }
+canonical_examples:
+  - 2期間の UD/DU は終値96円でも120円への到達フラグと in/out 受取額が異なる
+  - 全時点監視の in 1000/49円と out 125/98円を合計すると vanilla 2125/98円
+  - 時点0と満期だけの監視では in 1875/98円と out 125/49円になる
+  - 3期間の時点2の UD/DU は同じ株価96円でも out 価値0円と15円になる
+  - out の時点0複製を株式 -5/56 株と預金 500/49 円で確認する
+problem_patterns:
+  - U3-09-A1
+  - U3-09-A2
+  - U3-09-A3
+  - U3-09-A4
+  - U3-09-A5
+  - U3-09-B1
+  - U3-09-B2
+  - U3-09-B3
+  - U3-09-B4
+  - U3-09-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
