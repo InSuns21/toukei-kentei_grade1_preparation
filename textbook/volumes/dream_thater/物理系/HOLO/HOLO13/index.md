@@ -14,7 +14,9 @@ R_{ab}-\frac12 Rg_{ab}+\Lambda g_{ab}=0,
 \Lambda=-\frac{d(d-1)}{2L^2}
 $$
 
-です。従ってEinstein方程式を縮約すると $R=-d(d+1)/L^2$ です。添字$a,b$はバルク、$i,j$は境界方向です。$\gamma_{ij}$はcutoff面の誘導計量、$n^a$は**バルク領域から外へ向く**単位法線、$K_{ij}=\frac12\mathcal L_n\gamma_{ij}$は第二基本形式、$K=\gamma^{ij}K_{ij}$はそのトレースです。$R[\gamma]$は誘導計量のスカラー曲率です。
+です。従ってEinstein方程式を縮約すると $R=-d(d+1)/L^2$ です。座標$X^a=(z,x^1,\ldots,x^d)$を取り、添字$a,b$はバルク、$i,j$は境界方向とします。繰り返す上下の添字はその範囲で和を取ります。$\delta_{ij}$は境界の直交座標基底での単位行列の成分です。$\sqrt g$と$\sqrt\gamma$はEuclid計量および誘導計量の**行列式の正の平方根**を表します。
+
+$\gamma_{ij}=g(\partial_{x^i},\partial_{x^j})$はcutoff面の誘導計量、$n^a$は**バルク領域から外へ向く**単位法線です。$\partial_n:=n^a\partial_a$は法線方向の微分であり、$\mathcal L_n$は法線ベクトル場に沿うLie微分です。第二基本形式を$K_{ij}=\frac12\mathcal L_n\gamma_{ij}$、そのトレースを$K=\gamma^{ij}K_{ij}$と定めます。$R[\gamma]$は誘導計量のスカラー曲率です。ここでは$K_{ij}$を境界座標基底で表示しているので、$K_{ij}$の各成分は$\gamma_{ij}$の**法線方向の変化**から計算します。
 
 [HOLO3で使ったEuclid AdSの座標](../HOLO3/index.md#def-holo3-euclidean-ads)を参照し、純AdSの局所模型を
 
@@ -47,7 +49,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo13-dirichlet-action -->
-**定義の確認**：純Euclid AdSの$z=\epsilon$面では $\gamma_{ij}=L^2\epsilon^{-2}\delta_{ij}$、$\sqrt\gamma=(L/\epsilon)^d$ です。外向き法線によって
+**定義の確認**：純Euclid AdSの$z=\epsilon$面で接ベクトルを$v=v^i\partial_{x^i}$と書くと、誘導計量の定義から$\gamma(v,v)=g(v,v)=(L^2/\epsilon^2)\delta_{ij}v^iv^j>0$（$v\ne0$）です。従ってこの例の誘導計量は滑らか・非退化です。座標基底における成分行列は$\gamma_{ij}=L^2\epsilon^{-2}\delta_{ij}$であり、対角行列の行列式から$\sqrt\gamma=(L/\epsilon)^d$となります。
+
+外向き法線$n=-(z/L)\partial_z$には接方向成分がないため、この座標表示では$\mathcal L_n\gamma_{ij}=n^z\partial_z\gamma_{ij}$です。よって定義式を各成分に適用すると
 
 $$
 K_{ij}=\frac12 n^z\partial_z\gamma_{ij}
@@ -82,7 +86,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所的なガウス座標を$ds_E^2=ds^2+\gamma_{ij}(s,x)dx^i dx^j$と置き、$n=\partial_s$が考えている境界の外向きとなるように取ります。$\Gamma^s_{ij}=-K_{ij}$、$\Gamma^i_{sj}=K^i{}_j$なので、曲率の成分を縮約すると
+局所的なガウス座標を$ds_E^2=ds^2+\gamma_{ij}(s,x)dx^i dx^j$と置き、$n=\partial_s$が考えている境界の外向きとなるように取ります。ここで$s$は**法線に沿った固有距離**であり、純AdSの紫外面近くでは$\partial_s=-(z/L)\partial_z$です。$s$を動かす間は境界座標$x^i$を固定します。接続係数は$\Gamma^s_{ij}=-K_{ij}$、$\Gamma^i_{sj}=K^i{}_j$、$\Gamma^k_{ij}=\Gamma[\gamma]^k_{ij}$です。
+
+Ricciテンソルの法線・法線成分と接線・接線成分をこれらの係数から計算すると
+
+$$
+R_{ss}=-\partial_sK-K_{ij}K^{ij},
+\qquad
+R_{ij}=R_{ij}[\gamma]-\partial_sK_{ij}-KK_{ij}
++2K_{ik}K^k{}_j.
+$$
+
+逆計量の微分は$\partial_s\gamma^{ij}=-2K^{ij}$なので、$\partial_sK=(\partial_s\gamma^{ij})K_{ij}+\gamma^{ij}\partial_sK_{ij}$から
+
+$$
+\gamma^{ij}\partial_sK_{ij}=\partial_sK+2K_{ij}K^{ij},
+\qquad
+\gamma^{ij}R_{ij}=R[\gamma]-\partial_sK-K^2.
+$$
+
+従って$R[g]=R_{ss}+\gamma^{ij}R_{ij}$および行列式の微分$\partial_s\sqrt\gamma=\frac12\sqrt\gamma\,\gamma^{ij}\partial_s\gamma_{ij}$から
 
 $$
 R[g]=R[\gamma]-K_{ij}K^{ij}-K^2-2\partial_s K,
@@ -186,7 +209,7 @@ I_{\mathrm{ct},0}
 =-\frac12\sqrt\gamma\,\gamma_{ij}\delta\gamma^{ij}.
 $$
 
-このため$\tau^{\mathrm{ct},0}_{ij}=-(d-1)\gamma_{ij}/(8\pi G_{d+1}L)$であり、裸のテンソルと足すと純AdSでは零となります。有限cutoffでの合計は
+この体積密度の変分は[GR10の体積密度変分公式](../../GR/GR10/index.md#prop-gr10-volume-variation)で用いた行列式微分を、$\det\gamma>0$のEuclid誘導計量へ適用したものです。このため$\tau^{\mathrm{ct},0}_{ij}=-(d-1)\gamma_{ij}/(8\pi G_{d+1}L)$であり、裸のテンソルと足すと純AdSでは零となります。有限cutoffでの合計は
 
 $$
 \tau^{(0)}_{ij}
@@ -196,7 +219,16 @@ $$
 
 **重要**：一般の曲がった$d>2$の境界源には、$R[\gamma]$などの反項および偶数次元で対数項が必要になることがあります。この式を全次元・全境界条件で繰り込み済みの最終答えとしません。一般次元で反項とWard恒等式を系統的に作るのはHOLO14です。
 
-有限cutoffで$\gamma_{ij}=(L^2/\epsilon^2)g_{(0)ij}+\cdots$とすると、逆計量の変分は$\delta\gamma^{ij}=(\epsilon^2/L^2)\delta g_{(0)}^{ij}+\cdots$です。これを上の定義の積へ代入すれば、局所反項をすべて足した場合の境界応答は形式的に
+有限cutoffで$\gamma_{ij}=(L^2/\epsilon^2)g_{(0)ij}+\cdots$とすると、先頭の逆計量は$\gamma^{ij}=(\epsilon^2/L^2)g_{(0)}^{ij}+\cdots$です。境界源$g_{(0)}$を変えたときの先頭変分は$\delta\gamma^{ij}=(\epsilon^2/L^2)\delta g_{(0)}^{ij}+\cdots$、体積密度は$\sqrt\gamma=(L/\epsilon)^d\sqrt{g_{(0)}}(1+\cdots)$なので、
+
+$$
+\sqrt\gamma\,\delta\gamma^{ij}
+=\left(\frac L\epsilon\right)^{d-2}
+\sqrt{g_{(0)}}\,\delta g_{(0)}^{ij}
++\text{高次の寄与}
+$$
+
+となります。これがcutoffテンソルから境界テンソルへ移す際の$(L/\epsilon)^{d-2}$の**由来**です。ただし高次の寄与と反項の変分は一般次元では慎重に扱う必要があります。局所反項を足して応答を有限に定義できる条件の下では、境界応答は形式的に
 
 $$
 \langle T_{ij}\rangle
@@ -216,7 +248,7 @@ ds_E^2=\frac{L^2}{z^2}
 [g_{(0)ij}(x)+z^2g_{(2)ij}(x)+O(z^4)]dx^i dx^j\right\}.
 $$
 
-ここで$g_{(2)ij}$は$g_{(0)}$と同じ二つの境界添字を持つ対称テンソルです。近傍展開が許され、純三次元Einstein方程式を満たす状態を扱います。トレースは$\operatorname{tr}_0g_{(2)}=g_{(0)}^{ij}g_{(2)ij}$です。
+ここで$g_{(2)ij}$は$g_{(0)}$と同じ二つの境界添字を持つ対称テンソルです。近傍展開が許され、純三次元Einstein方程式を満たす状態を扱います。添字を上げる操作は**境界源計量$g_{(0)}$を使う**ものとし、$g_{(2)}^i{}_j:=g_{(0)}^{ik}g_{(2)kj}$、$g_{(2)}^{ij}:=g_{(0)}^{ik}g_{(0)}^{j\ell}g_{(2)k\ell}$、$\operatorname{tr}_0g_{(2)}:=g_{(0)}^{ij}g_{(2)ij}$と書きます。これらは座標基底$\partial_{x^i}$での行列積・縮約であり、$g_{(2)}$それ自体を別の計量として扱っているわけではありません。
 
 <a id="prop-holo13-fg-stress"></a>
 
@@ -251,7 +283,7 @@ $$
 \left(g_{(0)}^{ij}-z^2g_{(2)}^{ij}+O(z^4)\right).
 $$
 
-逆行列の二次項は$(g_{(0)}+z^2g_{(2)})(g_{(0)}^{-1}-z^2g_{(0)}^{-1}g_{(2)}g_{(0)}^{-1})=1+O(z^4)$を掛けて確認できます。ここで$g_{(2)}^{ij}=g_{(0)}^{ik}g_{(0)}^{j\ell}g_{(2)k\ell}$です。
+逆行列の二次項は、境界の同じ座標基底において$(g_{(0)}+z^2g_{(2)})(g_{(0)}^{-1}-z^2g_{(0)}^{-1}g_{(2)}g_{(0)}^{-1})=1+O(z^4)$を掛けて確認できます。先に導入した$g_{(2)}^{ij}$は、この積の$g_{(0)}^{-1}g_{(2)}g_{(0)}^{-1}$の$(i,j)$成分です。
 
 法線微分を実行すると
 
@@ -322,15 +354,36 @@ $$
 <!-- proof-start -->
 ### 証明
 
-純Einstein方程式に対する、外向き単位法線によるガウス分解の二つの拘束は
+拘束式を単に引用するのではなく、第1節で求めたガウス座標のRicci成分から確認します。三次元では純Einstein方程式を縮約すると$R_{ab}=-2g_{ab}/L^2$です。したがって法線・法線成分は$R_{ss}=-2/L^2$、接線・接線成分の縮約は$\gamma^{ij}R_{ij}=-4/L^2$となります。第1節の
 
 $$
-R[\gamma]-K^2+K_{ij}K^{ij}=-\frac2{L^2},
+R_{ss}=-\partial_s K-K_{ij}K^{ij},
 \qquad
-\nabla_{\gamma}^i(K_{ij}-K\gamma_{ij})=0
+\gamma^{ij}R_{ij}=R[\gamma]-\partial_sK-K^2
 $$
 
-です。第1式は法線・法線方向、第2式は法線・接線方向の成分です。FG級数と[第3節の$K$の展開](#prop-holo13-fg-stress)から
+から両式を引けば、$\partial_sK$が消えて
+
+$$
+R[\gamma]-K^2+K_{ij}K^{ij}
+=\gamma^{ij}R_{ij}-R_{ss}
+=-\frac2{L^2}
+$$
+
+を得ます。さらにガウス座標の混合成分は、$\Gamma^j_{si}=K^j{}_i$をRicciの定義に代入すると
+
+$$
+\begin{aligned}
+R_{si}
+&=\partial_jK^j{}_i-\partial_iK
++\Gamma[\gamma]^j_{jk}K^k{}_i-\Gamma[\gamma]^k_{ji}K^j{}_k\\
+&=\nabla_{\gamma}^jK_{ij}-\nabla_{\gamma i}K
+\end{aligned}
+$$
+
+です。Einstein方程式の$R_{si}=0$から$\nabla_{\gamma}^i(K_{ij}-K\gamma_{ij})=0$が従います。以上がそれぞれ法線・法線方向と法線・接線方向の**拘束**です。
+
+FG級数と[第3節の$K$の展開](#prop-holo13-fg-stress)から
 
 $$
 R[\gamma]=\frac{z^2}{L^2}R[g_{(0)}]+O(z^4),\quad
@@ -349,14 +402,29 @@ $$
 +\frac{z^2}{L^2}\left(R[g_{(0)}]+2\operatorname{tr}_0g_{(2)}\right)+O(z^4).
 $$
 
-右辺は厳密に$-2/L^2$なので$z^2$の係数が零となり、最初の等式が得られます。運動量拘束は、第3節で求めた$B_{ij}=-L(g_{(2)ij}-g_{(0)ij}\operatorname{tr}_0g_{(2)})+O(z^2)$を使うと、定数倍の計量は接続を変えないことから
+右辺は厳密に$-2/L^2$なので$z^2$の係数が零となり、最初の等式が得られます。運動量拘束では、$\nabla_\gamma^i\gamma_{ij}=0$により体積反項の定数倍を加えても発散は変わりません。第3節の$B_{ij}=-L(g_{(2)ij}-g_{(0)ij}\operatorname{tr}_0g_{(2)})+O(z^2)$を用います。$z$が境界へ近づくと$\gamma_{ij}=(L^2/z^2)(g_{(0)ij}+O(z^2))$なので、$x$方向で一定の共形因子は接続を変えず、
 
 $$
-0=\nabla_{(0)}^i
-\left(g_{(2)ij}-g_{(0)ij}\operatorname{tr}_0g_{(2)}\right)
+\Gamma[\gamma]^k_{ij}=\Gamma[g_{(0)}]^k_{ij}+O(z^2),
+\qquad \gamma^{ij}=\frac{z^2}{L^2}\bigl(g_{(0)}^{ij}+O(z^2)\bigr).
 $$
 
-を与えます。$\nabla_{(0)}g_{(0)}=0$を使って展開すれば命題の第2式です。[境界応力の表示](#prop-holo13-fg-stress)に同じ括弧があるので保存則も従います。$\square$
+したがって縮約に伴う**$z^2/L^2$**も明示すれば
+
+$$
+\nabla_\gamma^iB_{ij}
+=-\frac{z^2}{L}\nabla_{(0)}^i
+\left(g_{(2)ij}-g_{(0)ij}\operatorname{tr}_0g_{(2)}\right)+O(z^4)=0.
+$$
+
+$z>0$で$z^2$を割って境界極限を取ると、求める係数の条件
+
+$$
+\nabla_{(0)}^i
+\left(g_{(2)ij}-g_{(0)ij}\operatorname{tr}_0g_{(2)}\right)=0
+$$
+
+を得ます。$\nabla_{(0)}g_{(0)}=0$を使って展開すれば命題の第2式です。[境界応力の表示](#prop-holo13-fg-stress)に同じ括弧があるので保存則も従います。$\square$
 <!-- proof-end -->
 
 <a id="prop-holo13-brown-henneaux"></a>
@@ -429,7 +497,7 @@ $d\ge2$の誘導計量$\gamma_{ij}$で、$I_{\mathrm{ct},0}=A\int\sqrt\gamma$、
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**：$\gamma_{ik}\gamma^{kj}=\delta_i^j$の変分は$\delta\gamma_{ij}=-\gamma_{ik}\gamma_{j\ell}\delta\gamma^{k\ell}$です。行列式の変分は$\delta\sqrt\gamma=\frac12\sqrt\gamma\,\gamma^{ij}\delta\gamma_{ij}=-\frac12\sqrt\gamma\,\gamma_{ij}\delta\gamma^{ij}$です。したがって
+**詳細解答**：[GR10の逆計量変分公式](../../GR/GR10/index.md#prop-gr10-inverse-identity)と同じく、$\gamma_{ik}\gamma^{kj}=\delta_i^j$の変分は$\delta\gamma_{ij}=-\gamma_{ik}\gamma_{j\ell}\delta\gamma^{k\ell}$です。Euclid計量の行列式の変分は$\delta\sqrt\gamma=\frac12\sqrt\gamma\,\gamma^{ij}\delta\gamma_{ij}=-\frac12\sqrt\gamma\,\gamma_{ij}\delta\gamma^{ij}$です。したがって
 
 $$
 \delta I_{\mathrm{ct},0}
@@ -488,7 +556,7 @@ $g_{(0)}=\mathrm{diag}(1,1)$、$g_{(2)}=\mathrm{diag}(b,-b)$で$b$は実定数�
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**：$\operatorname{tr}_0g_{(2)}=b-b=0$なので、
+**詳細解答**：$\operatorname{tr}_0g_{(2)}=b-b=0$です。[FG応力テンソルの公式](#prop-holo13-fg-stress)に、境界源$g_{(0)}$の逆行列が単位行列であることを用いて代入すると、
 
 $$
 \langle T_{11}\rangle=\frac{Lb}{8\pi G_3},
@@ -504,7 +572,7 @@ $$
 <a id="ex-holo13-b1"></a>
 
 **HOLO13-B1（制約の$z^2$係数）**  
-三次元純Einstein重力のFG展開で$K=2/L-z^2t/L+O(z^4)$、$K_{ij}K^{ij}=2/L^2-2z^2t/L^2+O(z^4)$、$R[\gamma]=z^2R_0/L^2+O(z^4)$とする。$R[\gamma]-K^2+K_{ij}K^{ij}=-2/L^2$から$t$を求めよ。
+三次元純Einstein重力のFG展開で$t:=\operatorname{tr}_0g_{(2)}$、$R_0:=R[g_{(0)}]$と置き、$K=2/L-z^2t/L+O(z^4)$、$K_{ij}K^{ij}=2/L^2-2z^2t/L^2+O(z^4)$、$R[\gamma]=z^2R_0/L^2+O(z^4)$とする。$R[\gamma]-K^2+K_{ij}K^{ij}=-2/L^2$から$t$を求めよ。
 
 - Level: B
 
@@ -558,7 +626,7 @@ $t$の微分が零だからではなく、$g_{(2)}$の発散と**打ち消し合
 <a id="ex-holo13-b3"></a>
 
 **HOLO13-B3（中央電荷の係数と平坦境界の限界）**  
-第3節のFG応力と[第4節の制約](#prop-holo13-ads3-constraints)から重力側のトレース異常を求め、二次元CFTの式$\langle T^i{}_i\rangle=cR_0/(24\pi)$と比較せよ。なぜ$R_0=0$の一つの背景だけでは$c$を定められないか。
+$R_0:=R[g_{(0)}]$と書く。[第3節のFG応力](#prop-holo13-fg-stress)と[第4節の制約](#prop-holo13-ads3-constraints)から重力側のトレース異常を求め、二次元CFTの式$\langle T^i{}_i\rangle=cR_0/(24\pi)$と比較せよ。なぜ$R_0=0$の一つの背景だけでは$c$を定められないか。
 
 - Level: B
 
