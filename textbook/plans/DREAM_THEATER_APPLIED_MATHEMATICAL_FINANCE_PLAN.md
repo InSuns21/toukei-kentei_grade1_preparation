@@ -195,7 +195,7 @@ Black–Scholes の限界を示し、モデルの選択・同定・価格差を�
 6. Alexander J. McNeil, Rüdiger Frey, Paul Embrechts, *Quantitative Risk Management*, revised ed. (Princeton UP, 2015), [出版社目次](https://press.princeton.edu/books/hardcover/9780691166278/quantitative-risk-management)。第44〜58講の VaR、ES、時系列・尾部・依存性・市場リスク・信用リスク。
 7. R. T. Rockafellar, S. Uryasev, “Optimization of Conditional Value-at-Risk” (2000), [Journal of Risk](https://doi.org/10.21314/jor.2000.038)。第57講の ES 最適化。
 8. R. Almgren, N. Chriss, “Optimal Execution of Portfolio Transactions” (2001), [Journal of Risk](https://doi.org/10.21314/jor.2001.041)。第61〜63講の市場インパクト・在庫・執行フロンティア。
-9. Basel Committee, *Minimum capital requirements for market risk* (2019), [BIS公式資料](https://www.bis.org/publications/201901-standards-minimum-capital-requirements-market-risk)。第42・51講の ES の制度上の位置づけを**理論値・規制計算法と混同せず**紹介する場合の一次資料。規制の具体値・適用状況は執筆時に最新版と法域を再確認する。
+9. Basel Committee, *Minimum capital requirements for market risk* (2019), [BIS公式資料](https://www.bis.org/publications/201901-standards-minimum-capital-requirements-market-risk)。第46・55講の ES の制度上の位置づけを**理論値・規制計算法と混同せず**紹介する場合の一次資料。規制の具体値・適用状況は執筆時に最新版と法域を再確認する。
 
 10. Álvaro Cartea, Sebastian Jaimungal, José Penalva, *Algorithmic and High-Frequency Trading* (Cambridge University Press, 2015), [出版社の目次](https://assets.cambridge.org/97811070/91146/frontmatter/9781107091146_frontmatter.pdf)。第59〜68講の連続時間執行、指値／成行の選択、出来高目標・HJB 適用を照合。
 11. Larry Harris, *Trading and Exchanges: Market Microstructure for Practitioners* (Oxford University Press, 2003), [出版社](https://academic.oup.com/book/52292)。第59〜61講の板・注文方式・市場マイクロストラクチャの入口。
@@ -203,7 +203,7 @@ Black–Scholes の限界を示し、モデルの選択・同定・価格差を�
 
 13. Peter E. Kloeden, Eckhard Platen, *Numerical Solution of Stochastic Differential Equations* (Springer, 1992), [出版社目次](https://link.springer.com/book/10.1007/978-3-662-12616-5)。第27〜30講の確率積分の離散化、Itô–Taylor、強・弱近似と高次法。
 14. Desmond J. Higham, “An Algorithmic Introduction to Numerical Simulation of Stochastic Differential Equations” (*SIAM Review*, 2001), [原著](https://doi.org/10.1137/S0036144500378302)。第27〜30講の Itô 数値積分・Euler–Maruyama・Milstein・強弱収束・数値安定性の検証。
-15. Michael B. Giles, “Multilevel Monte Carlo Path Simulation” (*Operations Research*, 2008), [原著](https://doi.org/10.1287/opre.1070.0496) と “Multilevel Monte Carlo Methods” (*Acta Numerica*, 2015), [原著](https://doi.org/10.1017/S096249291500001X)。第31講の多重レベルの耦合、計算量と誤差の検証。
+15. Michael B. Giles, “Multilevel Monte Carlo Path Simulation” (*Operations Research*, 2008), [原著](https://doi.org/10.1287/opre.1070.0496) と “Multilevel Monte Carlo Methods” (*Acta Numerica*, 2015), [原著](https://doi.org/10.1017/S096249291500001X)。第31講の多重レベルの結合、計算量と誤差の検証。
 
 ---
 
