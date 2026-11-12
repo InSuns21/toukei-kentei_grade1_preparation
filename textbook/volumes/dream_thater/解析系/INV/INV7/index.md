@@ -309,7 +309,20 @@ $$
 
 これで部分列を取らずに $\|x_\delta-x^\dagger\|_X=\|u_\delta\|_X\to0$ を示しました。
 
-**第4段階（パラメータが零へ近づく）**。任意の $\beta>0$ を固定します。[残差表示](#prop-inv7-residual-range)を厳密データ $y\ne0$ に用いると $\rho_y(\beta)>0$ です。$z$ を動かしたときの残差を比較します。一般データ $z\in Y$ に対する Tikhonov 解を $x_\beta(z):=(A^*A+\beta I)^{-1}A^*z$ と書きます。第1節の特異系展開より $Ax_\beta(z)-z$ は、$u_j$ 方向の成分を $-\beta/(\sigma_j^2+\beta)$ 倍し、$\ker A^*$ 方向の成分を $-1$ 倍する線形写像です。各倍率の絶対値は $1$ 以下なので、直交性から任意の $z,w\in Y$ について
+**第4段階（パラメータが零へ近づく）**。任意の $\beta>0$ を固定します。[残差表示](#prop-inv7-residual-range)を厳密データ $y\ne0$ に用いると $\rho_y(\beta)>0$ です。$z$ を動かしたときの残差を比較します。$\beta>0$ は固定し、一般データ $z\in Y$ に対する Tikhonov 解を
+
+$$
+x_\beta(z):=(A^*A+\beta I)^{-1}A^*z
+$$
+
+と書きます。第1節の特異系展開に $z$ を代入すると
+
+$$
+Ax_\beta(z)-z
+=-\sum_{j\in J}\frac{\beta}{\sigma_j^2+\beta}\langle z,u_j\rangle_Yu_j-P_\perp z.
+$$
+
+この式は $u_j$ 方向を $-\beta/(\sigma_j^2+\beta)$ 倍し、$\ker A^*$ 方向を $-1$ 倍する線形作用素です。各倍率の絶対値は $1$ 以下なので、直交性から任意の $z,w\in Y$ について
 
 $$
 \|(Ax_\beta(z)-z)-(Ax_\beta(w)-w)\|_Y\le\|z-w\|_Y.
@@ -402,7 +415,13 @@ $$
 <!-- definition-example-start: def-inv7-effective-noise -->
 ### 例：観測が正確でも離散化誤差は残る
 
-**定義の確認**：$X=Y=\mathbb R$、$A=1$、$A_h=1.1$（スカラー倍作用素）、$x^\dagger=2$、$y=2$、$y^\delta=2.1$ とします。実際に $\delta=0.1$、$B=2$ を選べます。また $A_h-A$ は実数 $t$ を $0.1t$ へ写すため、作用素ノルムの定義 $\sup_{|t|=1}|(A_h-A)t|$ から $\eta_h=|1.1-1|=0.1$ です。よって $\varepsilon_h=0.1+0.1\cdot2=0.3$。直接計算すると
+**定義の確認**：$X=Y=\mathbb R$、$A=1$、$A_h=1.1$（スカラー倍作用素）、$x^\dagger=2$、$y=2$、$y^\delta=2.1$ とします。実際に $\delta=0.1$、$B=2$ を選べます。また $A_h-A$ は実数 $t$ を $0.1t$ へ写します。[作用素ノルムの定義](../../F0/F0-02C3/index.md#def-f0-02c3-operator-norm)をこの写像へ適用すると
+
+$$
+\eta_h=\|A_h-A\|=\sup_{|t|\le1}|0.1t|=0.1
+$$
+
+となります。よって $\varepsilon_h=0.1+0.1\cdot2=0.3$。直接計算すると
 
 $$
 |A_hx^\dagger-y^\delta|=|2.2-2.1|=0.1\le0.3,
@@ -607,7 +626,7 @@ $$
 \|(A_h-A)v\|^2=\frac{v_2^2}{100}\le\frac{\|v\|^2}{100}.
 $$
 
-$v=e_2$ で等号になるので作用素ノルムは $\eta_h=1/10$ です。さらに $\|x^\dagger\|=2=B$ です。[有効誤差の定義](#def-inv7-effective-noise)から
+$v=e_2$ で等号になるので、[作用素ノルムの定義](../../F0/F0-02C3/index.md#def-f0-02c3-operator-norm)により $\eta_h=1/10$ です。さらに $\|x^\dagger\|=2=B$ です。[有効誤差の定義](#def-inv7-effective-noise)から
 
 $$
 \varepsilon_h=\frac1{20}+\frac1{10}\cdot2=\frac14.
