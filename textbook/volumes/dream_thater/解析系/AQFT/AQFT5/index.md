@@ -119,7 +119,9 @@ $$
 G_{\mathrm{ret}}f=\chi u,\qquad
 G_{\mathrm{adv}}f=(\chi-1)u,\qquad Ef=u
 $$
-となります。$h$ に対しても $Eh=v$ です。ここでは[Green対の符号公式](../../HPDE/HPDE23/index.md#prop-hpde23-green-pairing)を引用せず、$\chi$ の微分から負号を再確認することもできます。$f=\chi''u+2\chi'\partial_tu$ と $Pv=0$ を使い、時間部分積分（$\chi'$ はコンパクト支持）すると
+となります。$h$ に対しても $Eh=v$ です。ここでは[Green対の符号公式](../../HPDE/HPDE23/index.md#prop-hpde23-green-pairing)を引用せず、カットオフの微分から負号を再確認します。
+
+$f$ に先ほどの表示を使い、$\chi'$ のコンパクト支持により時間部分積分を行うと
 $
 \begin{aligned}
 -\int_M f v\,d^4x
@@ -216,7 +218,7 @@ $$
 
 ### 逆方向にしてはいけない推論
 
-$\sigma([f],[h])=0$ から $\operatorname{supp}f$ と $\operatorname{supp}h$ が空間的に分離するとは結論できません。実際、前節の $[f]\ne0$ を使って $h=f$ とすれば、交代性により $\sigma([f],[f])=0$ ですが支持は完全に重なります。失われているのは**支持の幾何条件**であり、積分が零であるという一つのスカラー条件だけでは幾何的位置は復元できません。
+$\sigma([f],[h])=0$ から $\operatorname{supp}f$ と $\operatorname{supp}h$ が空間的に分離するとは結論できません。実際、前節の $[f]\ne0$ を使って $h=f$ とすれば、交代性により $\sigma([f],[f])=0$ ですが支持は完全に重なります。この例では台に空間的分離を仮定していません。積分が零という一つのスカラー条件から、源の台の位置は復元できません。
 
 ## 4. Poincaré変換は形式を保存するか
 
@@ -384,7 +386,7 @@ $$
 f=\chi''u+2\chi'\partial_tu,\qquad
 h=\chi''v+2\chi'\partial_tv.
 $$
-$\chi',\chi''$ は $[-1,1]$ に支持を持ちます。$a$ の台 $K$ はコンパクトで、[有限伝播](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)から $|t|\le1$ の解の空間台は $K$ の距離 $1$ 以内に入ります。従って $f,h$ は時間・空間ともコンパクト支持の滑らかな実関数です。
+$\chi',\chi''$ は $[-1,1]$ に支持を持ちます。$a$ の台 $K$ はコンパクトで、[Cauchy解の因果的支持条件](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)から $|t|\le1$ の解の空間台は $K$ の距離 $1$ 以内に入ります。従って $f,h$ は時間・空間ともコンパクト支持の滑らかな実関数です。
 
 $\chi u$ は十分過去で零、$(\chi-1)u$ は十分未来で零です。両者への $P$ の作用はそれぞれ $f$ です。支持を指定した[Green両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)から
 $$
@@ -450,7 +452,7 @@ W_1=q(\mathcal D(O_1))\subset q(\mathcal D(O_2))=W_2.
 $$
 次に $v\in W_2^{\perp_\sigma}$ は全ての $w\in W_2$ に対し $\sigma(v,w)=0$ を満たします。$W_1\subset W_2$ なので全ての $w\in W_1$ でも零であり、$v\in W_1^{\perp_\sigma}$ です。従って直交補の包含は逆になります。
 
-$O_3\subset O_2'$ のとき[局所直交命題](#prop-aqft5-local-orthogonality)から $W_3\subset W_2^{\perp_\sigma}$。これと今証明した包含を連結して最後の主張を得ます。
+$O_3\subset O_2'$ を仮定します。[空間的に分離した局所源のシンプレクティック直交性](#prop-aqft5-local-orthogonality)を適用すると $W_3\subset W_2^{\perp_\sigma}$ です。これと今証明した包含を連結して最後の主張を得ます。
 <!-- solution-end -->
 
 <a id="ex-aqft5-b04"></a>
@@ -533,4 +535,4 @@ $$
 
 (A) コンパクト源の商は時空コンパクト解の空間ではなく、**空間コンパクトな斉次解**の空間と同型でした。(B) その上の $\sigma([f],[h])=-\int fEh$ は代表に依存せず、交代かつ非退化でした。(C) 空間的に分離した局所部分空間は互いにシンプレクティック直交でした。(D) 未来向きPoincaré変換は $\sigma$ と局所像の構造を保存し、時間反転は符号を変えました。
 
-これらはすべて**古典的な場の方程式と因果支持**から得られた結論です。AQFT6ではこの同じ $\mathcal V$ と $\sigma$ に対してWeyl CCRを定義し、局所可換性を量子代数の中で証明します。
+これらはすべて**古典的な場の方程式と因果支持**から得られた結論です。AQFT6ではこの同じ $\mathcal V$ と $\sigma$ からWeyl作用素の積の規則を定義し、局所可換性を量子代数の中で証明します。
