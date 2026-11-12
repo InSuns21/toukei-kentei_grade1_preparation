@@ -33,7 +33,7 @@ concepts:
     introduction: formal
     requires: [aqft.entire-translation-analytic-vector]
   - id: aqft.halfplane-boundary-uniqueness
-    name: 上半平面の連続境界値の一意性
+    name: 境界零区間の一意性
     kind: lemma
     introduction: formal
     requires: [complex-analysis.schwarz-reflection-principle, complex-analysis.isolated-zeros-identity-theorem]
