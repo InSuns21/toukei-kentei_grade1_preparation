@@ -67,7 +67,7 @@ $$
 
 <!-- definition-example-end -->
 
-次に、未知量へ観測前から与える分布と、未知量が決まったとき観測値が従う分布を組み合わせます。[確率変数の独立性](../../F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)を使い、未知量と誤差が独立であることを仮定します。
+次に、未知量へ観測前から与える分布と、未知量が決まったとき観測値が従う分布を組み合わせます。[確率変数の独立性](../../F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)を使い、未知量と誤差が独立であることを仮定します。$Y\mid X=x$ は「未知量を候補 $x$ に固定したとき、観測 $Y$ が従う分布」を表します。連続分布では $P(X=x)=0$ ですが、独立な誤差 $E$ の分布を $Ax$ だけ平行移動させる観測モデルが、各 $x$ に対して条件付き分布の版を与えます。
 
 <a id="def-inv15-linear-model"></a>
 
@@ -95,10 +95,21 @@ $$
 
 事前密度は定義から
 
-$$
+$
 p_0(x)=\frac{1}{(2\pi)^{n/2}\sqrt{\det\Gamma_0}}
 \exp\left[-\frac12(x-\mu_0)^T\Gamma_0^{-1}(x-\mu_0)\right].
-$$
+$
+
+この二つを掛ける理由を同時密度から確かめます。$(X,E)$ は独立なので同時密度は $p_0(x)p_E(e)$ です。$(x,e)$ から $(x,y)=(x,Ax+e)$ への変換の Jacobian 行列は
+
+$
+\begin{pmatrix}
+I_n&0\\
+A&I_m
+\end{pmatrix}
+$
+
+で、下三角ブロック行列だから行列式は1です。逆変換 $e=y-Ax$ を代入しても体積倍率は変わらず、$(X,Y)$ の同時密度は $p_0(x)p_E(y-Ax)=p_0(x)p(y\mid x)$ になります。
 
 観測値 $y$ を得ると、未知量の確率分布を条件付き分布として更新できます。積 $p(y\mid x)p_0(x)$ を $x$ について積分すると、$y$ の周辺密度 $p_Y(y)$ になります。積は正で、さらに $p(y\mid x)\le (2\pi)^{-m/2}(\det\Gamma_\varepsilon)^{-1/2}$ と $\int p_0=1$ から有限積分となるので、全ての $y\in\mathbb R^m$ に対して $p_Y(y)>0$ です。
 
@@ -249,7 +260,14 @@ $$
 S=A\Gamma_0A^T+\Gamma_\varepsilon
 $$
 
-を導入します。$S$ は対称で、$u\ne0$ なら $u^TSu=(A^Tu)^T\Gamma_0(A^Tu)+u^T\Gamma_\varepsilon u>0$ なので正定値です。
+を導入します。この行列が観測の分散共分散を表す理由は、$Y-A\mu_0=A(X-\mu_0)+E$ にあります。独立性により $\mathbb E[(X-\mu_0)E^T]=0$ とその転置も0なので、積を展開して期待値を取ると
+
+$
+\mathbb E[(Y-A\mu_0)(Y-A\mu_0)^T]
+=A\Gamma_0A^T+\Gamma_\varepsilon=S.
+$
+
+$S$ は対称で、$u\ne0$ なら $u^TSu=(A^Tu)^T\Gamma_0(A^Tu)+u^T\Gamma_\varepsilon u>0$ なので正定値です。
 
 <a id="prop-inv15-observation-form"></a>
 
