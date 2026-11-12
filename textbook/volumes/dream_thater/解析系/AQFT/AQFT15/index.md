@@ -25,7 +25,7 @@ $$
 
 で定まります。これは[VN7のMurray–von Neumann同値](../../VN/VN7/index.md#def-vn7-murray-von-neumann-equivalence)です。$q\le p$ は像の包含（同値に $pq=qp=q$）を表し、$q\le p$ で $q\sim_M p$ なのに $q\ne p$ となる $p$ は無限、そうした $q$ がなければ[有限射影](../../VN/VN7/index.md#def-vn7-finite-projection)です。非零の真部分射影を持たない射影は[最小射影](../../VN/VN7/index.md#def-vn7-minimal-projection)です。
 
-[VN7のI/II/III型の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)を、その判定順序に並べると次のようになります.
+[VN7のI/II/III型の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)を、その判定順序に並べると次のようになります。
 
 | 因子の型 | 非零最小射影 | 非零有限射影 | 代表的な振る舞い |
 |---|---|---|---|
@@ -45,7 +45,7 @@ $$
 
 は $\operatorname{span}\{e_1,e_2\}$ への直交射影で階数2です。[行列環の射影同値とrankの一致](../../VN/VN7/index.md#thm-vn7-matrix-equivalence-rank)を使うと、$q\le p$、$q\sim_Mp$ なら $q$ の階数も2です。像の包含と次元の一致から $\operatorname{ran}q=\operatorname{ran}p$、従って $q=p$。また $E_{11}$ は非零最小射影なので $M$ はType I$_3$です。
 
-$N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E_{11}$ です。[片側シフトが示す単位射影の無限性](../../VN/VN7/index.md#prop-vn7-shift-infinite-identity)から単位射影は無限です。しかし $E_{11}$ は依然として最小射影なので、$N$ はType I$_\infty$でありType IIIではありません.
+$N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E_{11}$ です。[片側シフトが示す単位射影の無限性](../../VN/VN7/index.md#prop-vn7-shift-infinite-identity)から単位射影は無限です。しかし $E_{11}$ は依然として最小射影なので、$N$ はType I$_\infty$でありType IIIではありません。
 
 ## 2. トレースがある、とは何を要求するか
 
@@ -109,7 +109,7 @@ $$
 半有限性は、全ての $a\ge0$ で $\tau(a)<\infty$ だから、定義中の上限に $b=a$ を採れば一致することから従います。非零 $a$ では忠実性から $\tau(a)>0$ です。
 <!-- definition-example-end -->
 
-ここで「正規」は増大極限を保つ性質であり、「半有限」は有限トレースの正元で下からトレース値を回収する性質です。単に $\tau(I)=+\infty$ であることは半有限性の失敗を意味しません。例えば $B(\ell^2)$ の通常の作用素トレースは $\operatorname{Tr}(I)=+\infty$ ですが、[VN5の標準トレース定理](../../VN/VN5/index.md#thm-vn5-standard-bh-trace)は忠実性・正規性・半有限性を証明しています.
+ここで「正規」は増大極限を保つ性質であり、「半有限」は有限トレースの正元で下からトレース値を回収する性質です。単に $\tau(I)=+\infty$ であることは半有限性の失敗を意味しません。例えば $B(\ell^2)$ の通常の作用素トレースは $\operatorname{Tr}(I)=+\infty$ ですが、[VN5の標準トレース定理](../../VN/VN5/index.md#thm-vn5-standard-bh-trace)は忠実性・正規性・半有限性を証明しています。
 
 ## 3. Type III因子には半有限トレースが存在しない
 
@@ -197,7 +197,7 @@ $$
 M=\{\lambda(h):h\in\Gamma\}''
 $$
 
-と定めます。$\lambda(h)\rho(k)\delta_g=\delta_{hgk^{-1}}=\rho(k)\lambda(h)\delta_g$ なので左右の作用は可換です。右作用の逆元は $\rho(h)\rho(k)=\rho(hk)$ とするために入れました。$T\in M$ に対して $\tau(T)=\langle T\delta_e,\delta_e\rangle$ と置きます.
+と定めます。$\lambda(h)\rho(k)\delta_g=\delta_{hgk^{-1}}=\rho(k)\lambda(h)\delta_g$ なので左右の作用は可換です。右作用の逆元は $\rho(h)\rho(k)=\rho(hk)$ とするために入れました。$T\in M$ に対して $\tau(T)=\langle T\delta_e,\delta_e\rangle$ と置きます。
 
 <a id="prop-aqft15-icc-factor-ii1"></a>
 
@@ -241,7 +241,7 @@ T\delta_g=T\rho(g^{-1})\delta_e
 =\rho(g^{-1})T\delta_e=0
 $$
 
-となります。基底全体で零なので $T=0$、よって忠実です.
+となります。基底全体で零なので $T=0$、よって忠実です。
 
 **(2) 因子性。** $T\in Z(M)$ とし、$\xi=T\delta_e=\sum_g c_g\delta_g$ と書きます。中心性から任意の $h$ について $\lambda(h)T\lambda(h)^*=T$。また $\lambda(h)^*\delta_e=\delta_{h^{-1}}=\rho(h)\delta_e$ なので
 
@@ -454,7 +454,27 @@ $M$ に忠実半有限トレース $\tau$ があり、$p\in M$ は非零射影�
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** 半有限性と忠実性の帰結（第2節）により $0<b\le p$、$\tau(b)<\infty$ となる $b\in M_+$ を取る。$b\ne0$ なので、ある $\varepsilon>0$ で $q=\mathbf1_{[\varepsilon,\infty)}(b)\ne0$ となる。この記号は $b$ のスペクトルのうち $\varepsilon$ 以上を取り出す射影を表す。$b\le p$ なら $b=pbp$ なので $q\le p$。$qH$ 上で $b\ge\varepsilon I$、その直交補では $b\ge0$ だから $\varepsilon q\le b$。従って $\varepsilon\tau(q)\le\tau(b)<\infty$。$\varepsilon>0$ なので $\tau(q)<\infty$。[有限トレース射影命題](#prop-aqft15-finite-trace-projection)の仮定（忠実性と有限トレース）を $q$ が満たし、$q$ は有限射影。$\tau(p)$ が有限である必要はない。
+**詳細解答。** 第2節で示した忠実半有限性の帰結を、非零射影 $p$ に適用します。すると
+
+$$
+0<b\le p,\qquad \tau(b)<\infty
+$$
+
+を満たす正元 $b$ が選べます。$b\ne0$ なので、ある $\varepsilon>0$ に対し $b$ のスペクトルのうち $\varepsilon$ 以上を切り出す射影
+
+$$
+q=\mathbf1_{[\varepsilon,\infty)}(b)\ne0
+$$
+
+が得られます。$b\le p$ より $b=pbp$、従って $q\le p$。さらに $qH$ 上では $b\ge\varepsilon I$、その直交補では $b\ge0$ なので、$b-\varepsilon q\ge0$ です。
+
+トレースの単調性と正斉次性より
+
+$$
+0<\varepsilon\tau(q)\le\tau(b)<\infty.
+$$
+
+従って $\tau(q)<\infty$ です。[有限トレース射影命題](#prop-aqft15-finite-trace-projection)の仮定（忠実性と有限トレース）を満たすため、$q$ は非零有限射影です。最初の $\tau(p)$ が有限である必要はありません。
 <!-- solution-end -->
 
 <a id="ex-aqft15-b02"></a>
