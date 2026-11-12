@@ -496,7 +496,7 @@ $$
 > となるType I中間因子 $N$ が存在する。したがって当該包含はsplitである。
 <!-- formal-statement-end -->
 
-この含意は本章の前節までの計算から**証明されたわけではありません**。適用するには、対象netの共変表現と局所環を確定し、$\Theta_{\beta,O}$ 自体の核表示と必要な**定量的**上界を確かめ、原論文の幾何学的分離条件と照合します。有限箱の $Z_L(\beta)<\infty$ だけでは十分ではありません。
+この含意は本章の前節までの計算から**証明されたわけではありません**。適用するには、対象netの共変表現と局所von Neumann環を確定し、$\Theta_{\beta,O}$ 自体の核表示と必要な**定量的**上界を確かめ、原論文の幾何学的分離条件と照合します。有限箱の $Z_L(\beta)<\infty$ だけでは十分ではありません。
 
 一次文献は D. Buchholz and E. H. Wichmann, [“Causal Independence and the Energy-Level Density of States in Local Quantum Field Theory”](https://doi.org/10.1007/BF01454978), *Communications in Mathematical Physics* **106** (1986), 321–344 です。核性・splitの一般的な作用素環構造と変種には D. Buchholz, C. D'Antoni and R. Longo, [“Nuclear Maps and Modular Structures. II”](https://lqp2.org/node/940), *Communications in Mathematical Physics* **129** (1990), 115–138 も参照します。ここでの条件表示は代表的な核性条件の見取り図であり、論文中の厳密な対象領域・一様性の条件を省略して独立に適用するためのチェックリストではありません。
 
