@@ -1,0 +1,42 @@
+chapter: HOLO11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO10
+concepts:
+  - id: holography.bulk-to-bulk-dirichlet-green
+    name: Dirichletバルク間Green関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichletバルク間Green関数）"]
+    requires: [holography.bulk-to-boundary-kernel]
+  - id: holography.bulk-green-fourier
+    name: バルクGreen関数のFourier表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（バルクGreen関数のFourier表示）"]
+    requires: [holography.bulk-to-bulk-dirichlet-green]
+  - id: holography.scalar-exchange-integral
+    name: スカラー交換Witten積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（スカラー交換Witten積分）"]
+    requires: [holography.bulk-to-bulk-dirichlet-green, holography.bulk-to-boundary-kernel]
+  - id: holography.exchange-tree-fourpoint
+    name: 木レベル4点の交換寄与と対称係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（木レベル4点の交換寄与と対称係数）"]
+    requires: [holography.scalar-exchange-integral, holography.gkpw-tree-level-dictionary]
+  - id: holography.scalar-fourpoint-crossing
+    name: 同一次元スカラー4点の共形形式と交換対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一次元スカラー4点の共形形式と交換対称性）"]
+    requires: [holography.exchange-tree-fourpoint]
+  - id: holography.large-n-fourpoint-orders
+    name: 規格化単一トレース4点の主要次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（規格化単一トレース4点の主要次数）"]
+    requires: [holography.scalar-fourpoint-crossing]
