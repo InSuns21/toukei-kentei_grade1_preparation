@@ -524,7 +524,7 @@ $$
 $S=D_1$、$p=(2,\boldsymbol0)$ とする。$p\in M\setminus S$ か、$p\in S^\perp$ か、$q=(0,\boldsymbol0)$ を使って判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$|2|+|\boldsymbol0|=2>1$ なので $p\notin S$、従って $p\in M\setminus S$ です。一方で $q\in S$ かつ $g(p-q,p-q)=-4$ なので、$p$ は $S$ の全点から空間的という条件を満たしません。ゆえに $p\notin C_{\mathrm{sp}}(S)$、従って $p\notin S^\perp$ です。
+**詳細解答**。$|2|+|\boldsymbol0|=2>1$ なので $p\notin S$、従って $p\in M\setminus S$ です。一方で $q\in S$ かつ $g(p-q,p-q)=-4$ なので、$p$ は $S$ の全点から空間的という条件を満たしません。ゆえに $p\notin C_{\mathrm{sp}}(S)$ であり、[開いた因果補集合の定義](#def-aqft1-causal-complement)から $p\notin S^\perp$ です。
 <!-- solution-end -->
 
 <a id="ex-aqft1-a05"></a>
@@ -535,7 +535,7 @@ $S=D_1$、$p=(2,\boldsymbol0)$ とする。$p\in M\setminus S$ か、$p\in S^\pe
 $0<r<R$ のとき $D_r\subset D_R$ を示せ。また $D_R^\perp\subset D_r^\perp$ を座標不等式から確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$p\in D_r$ なら $|t|+|\boldsymbol x|<r<R$ なので $p\in D_R$ です。補集合については
+**詳細解答**。$p\in D_r$ なら $|t|+|\boldsymbol x|<r<R$ なので $p\in D_R$ です。[double coneの因果補集合の定理](#thm-aqft1-double-cone-complement)を使うと、補集合については
 
 $$
 p\in D_R^\perp
@@ -556,7 +556,7 @@ $$
 $D_R$ に対し $p=(0,(R,0,0))$ が $C_{\mathrm{sp}}(D_R)$ に入るが $D_R^\perp$ には入らないことを、内部点との不等式と近傍の反例の両方から示せ。
 
 <!-- solution-start -->
-**詳細解答**。任意の $q=(s,\boldsymbol y)\in D_R$ では $|s|+|\boldsymbol y|<R$ なので
+**詳細解答**。[標準double coneの座標条件](#def-aqft1-double-cone)から、任意の $q=(s,\boldsymbol y)\in D_R$ について $|s|+|\boldsymbol y|<R$ なので
 
 $$
 |(R,0,0)-\boldsymbol y|\ge R-|\boldsymbol y|>|s|.
