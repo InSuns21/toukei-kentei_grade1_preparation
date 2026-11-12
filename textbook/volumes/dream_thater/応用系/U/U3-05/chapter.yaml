@@ -1,0 +1,42 @@
+id: "U3-05"
+title: "European call/put・先渡・put–call parity"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03, U3-04]
+official_scope: []
+learning_objectives:
+  - 満期・行使価格・通貨・配当規約を明示してEuropean call/putの受取額を各状態で計算できる
+  - 無配当の有限二項市場でcall/putを割引期待値と自己金融複製の双方で価格付けできる
+  - 先渡の受渡価格と契約価値を区別し、公正な受渡価格を導出できる
+  - 同一原資産・同一満期・同一行使価格のput–call parityを経路ごとに証明し検算できる
+  - 既知の現金配当を含む価格関係を複製で導出し、無配当の評価用確率を誤用しない
+  - 無裁定の上下界と行使価格への単調性をpayoffの大小関係から証明できる
+definitions:
+  - { id: U3-05-DEF-01, name: European call と European put }
+  - { id: U3-05-DEF-02, name: 先渡契約と受渡価格 }
+theorems:
+  - { id: U3-05-PROP-01, name: European オプションの二項評価 }
+  - { id: U3-05-PROP-02, name: 先渡契約の無裁定価値 }
+  - { id: U3-05-THM-01, name: 無配当の put–call parity }
+  - { id: U3-05-THM-02, name: 確定現金配当を含む put–call parity }
+  - { id: U3-05-PROP-03, name: European オプションの上下界と行使価格単調性 }
+canonical_examples:
+  - 行使価格100円のcallとputの満期受取額を3状態で対照
+  - 1期間二項モデルのcallとputを分数で評価してparityを照合
+  - 2期間二項モデルのcall/put価格と先渡の純価値を全経路で照合
+  - 1期間の確定現金配当5円で評価用確率が1/3に変わる例
+problem_patterns:
+  - U3-05-A1
+  - U3-05-A2
+  - U3-05-A3
+  - U3-05-A4
+  - U3-05-A5
+  - U3-05-B1
+  - U3-05-B2
+  - U3-05-B3
+  - U3-05-B4
+  - U3-05-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

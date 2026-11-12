@@ -1,0 +1,48 @@
+chapter: U3-05
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03, U3-04]
+forward_references: []
+concepts:
+  - id: finance.european-call-put
+    name: European call と European put
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（European call と European put）"]
+    requires: [finance.two-state-contingent-claim, finance.multiperiod-binomial-market]
+  - id: finance.european-binomial-valuation
+    name: European オプションの二項評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（European オプションの二項評価）"]
+    requires: [finance.european-call-put, finance.backward-conditional-value, finance.binomial-self-financing-replication]
+  - id: finance.forward-contract-delivery-price
+    name: 先渡契約と受渡価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（先渡契約と受渡価格）"]
+    requires: [finance.one-period-binomial-market, finance.attainable-claim]
+  - id: finance.forward-value
+    name: 先渡契約の無裁定価値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（先渡契約の無裁定価値）"]
+    requires: [finance.forward-contract-delivery-price, finance.replication-price-uniqueness]
+  - id: finance.put-call-parity
+    name: 無配当の put–call parity
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無配当の put–call parity）"]
+    requires: [finance.european-binomial-valuation, finance.forward-value]
+  - id: finance.dividend-adjusted-put-call-parity
+    name: 確定現金配当を含む put–call parity
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（確定現金配当を含む put–call parity）"]
+    requires: [finance.put-call-parity, finance.replication-price-uniqueness]
+  - id: finance.european-option-bounds
+    name: European オプションの上下界と行使価格単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（European オプションの上下界と行使価格単調性）"]
+    requires: [finance.european-binomial-valuation, finance.put-call-parity]
