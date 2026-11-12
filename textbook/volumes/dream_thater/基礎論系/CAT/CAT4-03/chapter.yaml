@@ -6,6 +6,7 @@ prerequisites:
   - CAT1-07
   - CAT4-01
   - CAT4-02
+  - LA3E
 official_scope: []
 learning_objectives:
   - 組紐の自然性と二つのhexagonの始域・終域を照合し、式を射の経路として読み解ける
