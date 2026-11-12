@@ -49,6 +49,8 @@ $$
 また $i\otimes i=(-e_1\cdot e_1,0)=(-1,0)$ です。共役は $i^*=-i$、ノルムは $\lVert i\rVert=1$。**積、共役、長さの各条件**を元の定義へ代入して確認しました。回転が非可換であることに対応する積の順序差が、ここですでに現れます。
 <!-- definition-example-end -->
 
+<a id="rbd5-associativity"></a>
+
 積は結合的です。これは未証明の規則として使わず、必要な恒等式を確認しておきます。三つの四元数を $(a,u),(b,v),(c,w)$ としたとき、両方の括り方のスカラー成分の差は
 
 $$
@@ -146,7 +148,7 @@ $$
 \boxed{(0,R(q)x)=q\otimes(0,x)\otimes q^*}
 $$
 
-で定める。これは列ベクトルに作用する能動回転を表す規約であり、右側の回転が先に作用する。
+で定める。ここで $x$ は物体系の列ベクトル、$R(q)x$ は空間系への像を意味する。この写像が実際に向きを保つ回転になることは、以下の例と定理で確かめる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-rbd5-attitude -->
@@ -167,14 +169,33 @@ c(ce_1+se_2)+(ce_1+se_2)\times(-se_3)
 =(c^2-s^2)e_1+2cs\,e_2=e_2
 $$
 
-となります。従って $R(q)e_1=e_2$。同じ積から $R(q)e_2=-e_1$、$R(q)e_3=e_3$ も得られ、行列は
+となります。従って $R(q)e_1=e_2$ です。残りの二本についても、まず Hamilton積の定義に代入すると
 
-$$
+$
+q\otimes(0,e_2)=(0,ce_2-se_1),\qquad
+q\otimes(0,e_3)=(-s,ce_3)
+$
+
+となり、さらに右から $q^*$ を掛ければ
+
+$
+\begin{aligned}
+q\otimes(0,e_2)\otimes q^*
+  &=(0,(c^2-s^2)e_2-2cs\,e_1)=(0,-e_1),\\
+q\otimes(0,e_3)\otimes q^*
+  &=(0,(c^2+s^2)e_3)=(0,e_3)
+\end{aligned}
+$
+
+です。写像は各 $x$ に線形に作用するので、**標準基底の像を順に列へ並べたもの**がその行列表示です（[RBD1 の回転行列の定義と列表示](../RBD1/index.md#def-rbd1-proper-rotation)）。従って
+
+$
 R(q)=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}
-=R_z(\pi/2)
-$$
+=R_z(\pi/2),\qquad
+R(q)^TR(q)=I_3,\qquad \det R(q)=1.
+$
 
-です。第三軸の固定、長さ・向きの保存、$\det R(q)=1$ を具体的に確認しました。
+軸 $e_3$ を固定し、他の二本を右手系の正方向へ四分の一回転させています。列の直交性と行列式の両方を検査したため、定義どおり $R(q)\in SO(3)$ と判定できます。
 <!-- definition-example-end -->
 
 <a id="thm-rbd5-rodrigues"></a>
@@ -255,7 +276,17 @@ $$
 =\lVert x\rVert.
 $$
 
-直前に成分から計算したベクトル等式の各項は $x$ に線形なので、$\lVert R(q)x\rVert=\lVert x\rVert$ をすべての $x$ に適用して $R(q)^TR(q)=I_3$ です。行列式は $\pm1$。任意の単位 $q$ は上記の $q_\alpha$ の形に書けます（$u=0$ なら $\alpha=0$ または $2\pi$）。$t\in[0,1]$ に対し $q_{t\alpha}$ をつなぐと $R(q_{t\alpha})$ は連続で、行列式は常に $\pm1$、始点で $1$ です。したがって行列式は途中で符号を変えず、$\det R(q)=1$ です。
+直前の成分公式は $x$ に線形です。すべての $x,y$ に対してノルム保存を $x+y$ にも使い、
+
+$
+2(R(q)x)\cdot(R(q)y)
+=\lVert R(q)(x+y)\rVert^2-\lVert R(q)x\rVert^2-\lVert R(q)y\rVert^2
+=2x\cdot y
+$
+
+を得ます。$x=e_i,y=e_j$ と取れば三列の内積は $\delta_{ij}$ なので、$R(q)^TR(q)=I_3$ です。従って行列式は $\pm1$ です。
+
+さらに $u\ne0$ なら $n=u/\lVert u\rVert$ は単位軸で、$a^2+\lVert u\rVert^2=1$ から $\cos(\alpha/2)=a$、$\sin(\alpha/2)=\lVert u\rVert$ を満たす $\alpha\in(0,2\pi)$ を選べます。このとき $q=q_\alpha$ です。$u=0$ なら $a=1$ または $-1$ なので、それぞれ $\alpha=0$ または $2\pi$ として $q=q_\alpha$ と書けます。$t\in[0,1]$ に沿った $q_{t\alpha}$ は単位長の連続な経路であり、$R(q_{t\alpha})$ の行列式は常に $\pm1$、始点の $R(q_0)=I_3$ では $1$ です。従って行列式は符号を変えず、$\det R(q)=1$ が示されました。
 <!-- proof-end -->
 
 公式を標準基底 $e_1,e_2,e_3$ に順に作用させて列へ並べると、$u=(u_1,u_2,u_3)$ に対して
@@ -329,7 +360,7 @@ $$
 
 ### 証明の見取り図
 
-[結合則と共役の積の順序](#prop-rbd5-norm-product)を使い、$q\otimes p$ による純虚四元数の挟み込みを、まず $p$、次に $q$ の挟み込みに分けます。
+[第2節で成分から確認した結合則](#rbd5-associativity)と[共役の積の順序](#prop-rbd5-norm-product)を使い、$q\otimes p$ による純虚四元数の挟み込みを、まず $p$、次に $q$ の挟み込みに分けます。
 
 <!-- proof-start -->
 ### 証明
@@ -367,7 +398,7 @@ $$
 =\widehat{\omega_s}R,\qquad \omega_s=R\omega_b
 $$
 
-を導きました。四元数の微分はこの式を再現する必要があります。角速度は三成分ですが、四元数の微分は四成分であり、そのうち長さ方向の増減がゼロになることが要点です。
+を導きました。ここでも上点は時刻 $t$ による常微分で、$\dot q=dq/dt$、$\dot R=dR(q(t))/dt$ です。$R(q)$ を $q$ について偏微分する記号ではありません。物体系の角速度 $\omega_b$ と空間系の角速度 $\omega_s$ は [RBD3 の定義](../RBD3/index.md#def-rbd3-angular-velocity)に従います。四元数の微分は上式を再現する必要があります。角速度は三成分ですが、四元数の微分は四成分であり、そのうち長さ方向の増減がゼロになることが要点です。
 
 <a id="thm-rbd5-attitude-ode"></a>
 
@@ -410,9 +441,9 @@ $$
 \dot q^*=-\frac12(0,\eta)\otimes q^*
 $$
 
-であるため
+です。実際、共役と時間微分は成分ごとに交換できるので、$\dot q^*=(\dot q)^*=\frac12((0,\eta)^*\otimes q^*)$ です。従って
 
-$$
+$
 \begin{aligned}
 \dot X
 &=\frac12q\otimes(0,\eta)\otimes(0,x)\otimes q^*
@@ -719,14 +750,22 @@ $$
 q(t)=(\cos(t/2),e_2\sin(t/2)).
 $$
 
-ノルムの二乗は $cos^2(t/2)+sin^2(t/2)=1$ です。微分して
+ノルムの二乗は $\cos^2(t/2)+\sin^2(t/2)=1$ です。時刻 $t$ で微分して
 
 $$
 \dot q(t)=\left(-\frac12\sin(t/2),\frac12 e_2\cos(t/2)\right),
 \qquad \dot q(0)=(0,e_2/2).
 $$
 
-[姿勢ODE](#thm-rbd5-attitude-ode)の右辺へ $\omega_b=e_2$ を入れると、$\frac12q(t)\otimes(0,e_2)$ はちょうど上式になります。したがって角速度は一定の $e_2$ です。$t=0$ の $R=I_3$ は [RBD4 の Euler角特異姿勢](../RBD4/index.md#prop-rbd4-coordinate-singularity)ですが、四元数の微分は存在し一意に計算できます。Euler角の三つの速度の選び方が一意でないことと、物理的角速度が定まらないことを混同しません。
+[姿勢ODE](#thm-rbd5-attitude-ode)の右辺を、物体系で一定の $\omega_b=e_2$ として計算すると
+
+$
+\frac12q(t)\otimes(0,e_2)
+=\frac12(-\sin(t/2),\,e_2\cos(t/2))
+=\dot q(t)
+$
+
+です。したがって求める物体角速度は $e_2$ です。ここで $\dot q$ は $t$ による導関数、積に現れる $e_2$ は物体系の固定単位軸です。$t=0$ の $R=I_3$ は [RBD4 の Euler角特異姿勢](../RBD4/index.md#prop-rbd4-coordinate-singularity)ですが、四元数の微分は存在し一意に計算できます。Euler角の三つの速度の選び方が一意でないことと、物理的角速度が定まらないことを混同しません。
 <!-- solution-end -->
 
 ### 問題 B5：数値更新の規格化
@@ -763,7 +802,7 @@ $$
 \beta-\Omega h=-\frac{h^3\Omega^3}{12}+O(h^5\Omega^5).
 $$
 
-規格化しても非零の角度誤差が残ることが確かめられます。
+従って $\Omega\ne0$ なら、十分小さい非零の $h$ で規格化後にも角度誤差が残ります。$\Omega=0$ では両増分とも恒等回転で、誤差はゼロです。
 <!-- solution-end -->
 
 ### Level C
@@ -795,7 +834,13 @@ $$
 
 右側の $R_z$ が先に物体の列ベクトルへ作用することに注意します。$R(t)=R_z(\Omega t)R_x(\gamma)$ と取り違えると空間系で角速度を固定した別の運動になります。
 
-**第2問**　行列を微分して、$R_x(\gamma)$ は定数であることを使うと
+**第2問**　[RBD2 のハット記法](../RBD2/index.md#def-rbd2-hat)による $\widehat{e_3}e_1=e_2$、$\widehat{e_3}e_2=-e_1$ を用います。$R_z(\varphi)$ の基底像は $\cos\varphi\,e_1+\sin\varphi\,e_2$、$-\sin\varphi\,e_1+\cos\varphi\,e_2$、$e_3$ なので、これを時刻 $t$ で微分する連鎖律から
+
+$
+\frac{d}{dt}R_z(\Omega t)=\Omega R_z(\Omega t)\widehat{e_3}
+$
+
+です。$R_x(\gamma)$ は $t$ に依存しないため、積の微分と直交性を使うと
 
 $$
 \begin{aligned}
