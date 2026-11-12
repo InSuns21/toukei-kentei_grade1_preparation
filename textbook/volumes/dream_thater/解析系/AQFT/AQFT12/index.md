@@ -75,7 +75,7 @@ $$
 
 全域環を前節の対角行列環 $D\subset B(\mathbb C^2)$ とし、全ての非空領域に $\mathcal M(O)=D$ を割り当て、$U(x)=I_2$ とします。包含単調性は $D\subset D$、Einstein局所性は対角行列同士が可換なので成立します。平行移動共変性は $U(x)DU(-x)=D$ から成立します。
 
-任意の $Q$ と $x$ について $\mathcal M(Q+x)=D$ なので、生成環の二重可換子は $D''=D=\mathcal M$ です。弱加法性の条件を全て直接確認できました。前節の $\Omega$ はこのnetで各局所von Neumann環に巡回的です。
+**定義の確認**。 任意の $Q$ と $x$ について $\mathcal M(Q+x)=D$ なので、生成環の二重可換子は $D''=D=\mathcal M$ です。弱加法性の条件を全て直接確認できました。前節の $\Omega$ はこのnetで各局所von Neumann環に巡回的です。
 <!-- definition-example-end -->
 
 この模型は自由場の代用品ではありません。**条件の論理関係を小さい行列で確認する模型**です。次にその条件と解析性から何が従うかを証明します。
@@ -461,24 +461,24 @@ $$
 
 **(3)** 全並進した $\mathcal M(Q)$ の元を有限個掛け合わせ、その線形結合を取って得られる $*$-代数を $\mathcal B$ とします。(2) から
 
-$
+$$
 \langle\psi,B\Omega\rangle=0
 \qquad(B\in\mathcal B)
-$
+$$
 
 が従います。弱加法性は $\mathcal B''=\mathcal M$ を意味します。[von Neumann の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)を単位的 $*$-代数 $\mathcal B$ に適用すると、任意の $T\in\mathcal M$ を強収束する $\mathcal B$ のネットで近似できます。特に $B_\lambda\Omega\to T\Omega$ なので、
 
-$
+$$
 \langle\psi,T\Omega\rangle
 =\lim_\lambda\langle\psi,B_\lambda\Omega\rangle=0.
-$
+$$
 
 最後に全域巡回性を使います。
 
-$
+$$
 \overline{\mathcal M\Omega}=\mathcal H
 \quad\Longrightarrow\quad\psi=0.
-$
+$$
 
 ゆえに $\mathcal M(O)\Omega$ の直交補は零で、その閉包は $\mathcal H$ です。**弱加法性は強近似の段階、全域巡回性は最後の直交補の段階**で使いました。
 <!-- solution-end -->
