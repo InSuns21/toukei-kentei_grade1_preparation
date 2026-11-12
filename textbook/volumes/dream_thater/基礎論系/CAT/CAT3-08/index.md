@@ -525,7 +525,7 @@ $K:\mathbf2\to\mathbf1$ を唯一の関手、$F=(X\xrightarrow{f}Y)$ とする�
 ### 問題4：余単位の自然性を導く
 
 - Level: A
-- 問題ID: CAT3-08-COUNIt-NATURALITY
+- 問題ID: CAT3-08-COUNIT-NATURALITY
 
 小圏 $\mathcal A,\mathcal B$、関手 $K,F$ と必要な極限を仮定する。$f:a\to a'$ を固定し、$(Ka'\downarrow K)$ で使用する射を一つ作れ。[引き戻しの式](#prop-cat3-08-transport)と錐条件を用いて $Ff\,\varepsilon_a=\varepsilon_{a'}R(Kf)$ を再導出し、型を記せ。
 
