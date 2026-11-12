@@ -27,7 +27,7 @@ chapters:
     title: 四元数による姿勢表現
   - id: RBD6
     path: textbook/volumes/dream_thater/物理系/RBD/RBD6
-    status: planned
+    status: completed
     title: 慣性テンソルの座標変換と具体物体
   - id: RBD7
     path: textbook/volumes/dream_thater/物理系/RBD/RBD7

@@ -6,3 +6,4 @@
 3. [RBD3 角速度と回転系の輸送定理](textbook/volumes/dream_thater/物理系/RBD/RBD3/index.md)
 4. [RBD4 Euler角と姿勢の座標特異性](textbook/volumes/dream_thater/物理系/RBD/RBD4/index.md)
 5. [RBD5 四元数による姿勢表現](textbook/volumes/dream_thater/物理系/RBD/RBD5/index.md)
+6. [RBD6 慣性テンソルの座標変換と具体物体](textbook/volumes/dream_thater/物理系/RBD/RBD6/index.md)
