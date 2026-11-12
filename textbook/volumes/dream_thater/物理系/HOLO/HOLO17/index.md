@@ -49,7 +49,7 @@ $$
 この定義は新しいエントロピー関数を作ったものではありません。既習の二つの量を、**状態・領域・cutoff・対数の底を明示した入力の組**として使う約束です。
 
 <!-- definition-example-start: def-holo17-boundary-data -->
-**定義の確認：切断面をまたぐBell対。** $A=\{a\}$、$A^c=\{b\}$ の各サイトをqubitとし、状態を
+**定義の確認**：切断面をまたぐBell対。 $A=\{a\}$、$A^c=\{b\}$ の各サイトをqubitとし、状態を
 
 $$
 |\Psi\rangle=\frac{|0_a0_b\rangle+|1_a1_b\rangle}{\sqrt2},
