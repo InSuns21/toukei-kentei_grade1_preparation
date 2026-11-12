@@ -1,6 +1,6 @@
 // 13 deterministic ORI visualization models: geometry is computed from formulae.
 export const SPECS=[
- ['02','ORI2','点合わせと正方形', ['default'],'点P=(0,2)をQ=(s,0)へ映す折り線はPQの垂直二等分線。','物理的な折り途中の表示ではない。'],
+ ['02','ORI2','芳賀折りの三等分と辺長比', ['default'],'正方形の右下角P=(2,0)を上辺Q=(u,2)へ映す。折った下辺の像と左辺の交点は高さ2u/(4-u)。','この点合わせの配置例であり、全ての芳賀折りの一般定理の証明ではない。'],
  ['03','ORI3','等分位置と面積帯',['default'],'辺長2の正方形をn帯に分けると面積は各4/n。','折り順の実現可能性は別問題。'],
  ['04','ORI5','放物線の接線包絡',['default'],'焦点(0,1)、準線y=-1、接線y=sx/2-s²/4。','接線族の掃引であり立体折り運動ではない。'],
  ['05','ORI7','O5の折り線候補',['default'],'円x²+y²=4と目標直線y=hの交点が像の候補。','特定のO5座標配置の例。'],
@@ -37,10 +37,13 @@ export function stateAt(id,t,mode='default'){
  const shapes=[],checks=[];const add=(...items)=>shapes.push(...items.filter(Boolean));let values={},readout='';
  const square=p=>polygon(p,[[0,0],[2,0],[2,2],[0,2]],'paper');
  if(id==='02'){
-  const s=.35+1.2*t,P=[0,2],Q=[s,0],M=[s/2,1],n=[s,-2],c=s*s/2-2,R=refl(P,n,c);
-  add(square(0),square(1),line(0,...P,...Q,'target'),segmentNormal(1,n,c),point(0,...P),point(0,...Q),point(1,...R),point(1,...M),label(0,-.2,2.3,'P'),label(0,s,-.2,'Q'));
-  checks.push(metric('像x',R[0],s),metric('像y',R[1],0),metric('中点距離差',norm(P[0]-M[0],P[1]-M[1])-norm(Q[0]-M[0],Q[1]-M[1])));
-  values={s,P,Q,M,R};readout='PからQ=('+s.toFixed(3)+',0)へ鏡映。中点M=('+M[0].toFixed(3)+',1)、鏡映先一致。';
+  const u=.5+t,P=[2,0],Q=[u,2],n=[u-2,2],M=[(u+2)/2,1],c=u*u/2;
+  const O=[0,0],R=refl(P,n,c),R0=refl(O,n,c),y=2*u/(4-u),I=[0,y];
+  add(square(0),square(1),line(0,...P,...Q,'target'),point(0,...P),point(0,...Q),segmentNormal(1,n,c),line(1,...Q,...R0,'target'),point(1,...I),point(1,...M),label(0,2.1,-.2,'P'),label(0,u,2.27,'Q'),label(1,-.36,y,'I'));
+  checks.push(metric('像P x',R[0],Q[0]),metric('像P y',R[1],Q[1]),metric('折った下辺の長さ',norm(Q[0]-R0[0],Q[1]-R0[1]),2),
+    metric('交点の直線条件',(R0[0]-Q[0])*(I[1]-Q[1])-(R0[1]-Q[1])*(I[0]-Q[0])),
+    metric('三等分特殊例',u===1?y/2:1/3,u===1?1/3:1/3));
+  values={u,P,Q,M,R0,I,ratio:y/2};readout='上辺の移動先u='+u.toFixed(3)+'、折られた下辺と左辺の交点I=(0,'+y.toFixed(5)+')。左辺の下からの比='+ (y/2).toFixed(5)+(Math.abs(u-1)<1e-8?' = 1/3。':'。');
  }else if(id==='03'){
   const n=Math.min(8,2+Math.floor(7*t)),w=2/n;add(square(0));
   for(let j=0;j<n;j++)add(polygon(1,[[j*w,0],[(j+1)*w,0],[(j+1)*w,2],[j*w,2]],j%2?'faceAlt':'face'),line(0,j*w,0,j*w,2,'guide'));
