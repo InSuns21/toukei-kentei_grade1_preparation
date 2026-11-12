@@ -1,0 +1,50 @@
+chapter: INV7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV6
+
+forward_references: []
+
+concepts:
+  - id: inverse.tikhonov-residual-range
+    name: Tikhonov残差の値域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Tikhonov残差の値域）"]
+    requires: [inverse.spectral-filter-factors, inverse.compact-singular-expansion]
+
+  - id: inverse.morozov-discrepancy
+    name: Morozovの不一致原理
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Morozovの不一致原理）"]
+    requires: [inverse.tikhonov-minimizer, inverse.tikhonov-residual-range]
+
+  - id: inverse.morozov-existence
+    name: Morozovパラメータの存在・一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Morozovパラメータの存在・一意性）"]
+    requires: [inverse.morozov-discrepancy, inverse.tikhonov-residual-range]
+
+  - id: inverse.morozov-strong-convergence
+    name: Morozov選択の強収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Morozov選択の強収束）"]
+    requires: [inverse.morozov-existence, inverse.pseudoinverse-domain, inverse.tikhonov-minimizer]
+
+  - id: inverse.effective-noise-bound
+    name: 作用素近似に対する有効誤差上界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（作用素近似に対する有効誤差上界）"]
+    requires: [inverse.morozov-discrepancy]
+
+  - id: inverse.discretized-morozov-convergence
+    name: 作用素近似を含む不一致原理の強収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（作用素近似を含む不一致原理の強収束）"]
+    requires: [inverse.effective-noise-bound, inverse.morozov-strong-convergence]
