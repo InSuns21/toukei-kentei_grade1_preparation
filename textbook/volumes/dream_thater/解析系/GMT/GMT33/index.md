@@ -51,11 +51,11 @@ $$
 
 前講の[球面上の弦長による分離](../GMT32/index.md#def-gmt32-separated)との関係を確認します。$\sigma\in\{1,-1\}$ を二つの代表ベクトルの内積が非負となるように選ぶと、$e_\theta\cdot(\sigma e_\phi)=|\cos(\theta-\phi)|=\cos\rho$ です。両ベクトルが単位長なので
 
-$
+$$
 |e_\theta-\sigma e_\phi|^2
 =2-2\cos\rho
 =4\sin^2(\rho/2).
-$
+$$
 
 従って符号反転後の弦長は $2\sin(\rho/2)$ になります。$0\le\rho\le\pi/2$ では
 
