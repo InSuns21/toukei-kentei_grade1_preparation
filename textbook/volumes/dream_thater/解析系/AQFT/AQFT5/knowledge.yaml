@@ -17,7 +17,7 @@ concepts:
     introduction: formal
     requires: [aqft.kg-minkowski-causal-symplectic, aqft.kg-spacelike-pairing, symplectic.orthogonal-complement]
   - id: aqft.kg-poincare-symplectic-covariance
-    name: Poincare共変性とシンプレクティック形式の保存
+    name: Poincaré共変性とシンプレクティック形式の保存
     kind: proposition
     introduction: formal
     requires: [aqft.kg-minkowski-causal-symplectic, aqft.kg-poincare-quotient]
