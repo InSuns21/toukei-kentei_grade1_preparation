@@ -1,0 +1,49 @@
+chapter: HOLO9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO8
+  - QFT48
+concepts:
+  - id: holography.bulk-to-boundary-kernel
+    name: 規格化されたbulk-to-boundary核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（規格化されたbulk-to-boundary核）"]
+    requires: [holography.scalar-mass-dimension]
+  - id: holography.bulk-to-boundary-solution
+    name: 核の方程式と境界規格化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（核の方程式と境界規格化）"]
+    requires: [holography.bulk-to-boundary-kernel]
+  - id: holography.renormalized-scalar-action
+    name: 本模型の繰り込み済みon-shell作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本模型の繰り込み済みon-shell作用）"]
+    requires: [holography.bulk-to-boundary-solution, holography.cutoff-onshell-boundary-action]
+  - id: holography.renormalized-scalar-response
+    name: 繰り込み極限と境界応答
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（繰り込み極限と境界応答）"]
+    requires: [holography.renormalized-scalar-action]
+  - id: holography.gkpw-tree-level-dictionary
+    name: 本講で用いるGKPWの木レベル辞書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講で用いるGKPWの木レベル辞書）"]
+    requires: [holography.renormalized-scalar-response]
+  - id: holography.gkpw-scalar-two-point
+    name: 自由スカラーのGKPW 2点関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自由スカラーのGKPW 2点関数）"]
+    requires: [holography.gkpw-tree-level-dictionary, holography.bulk-to-boundary-solution]
+  - id: holography.gkpw-momentum-response
+    name: 運動量空間の応答
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（運動量空間の応答）"]
+    requires: [holography.gkpw-scalar-two-point]
