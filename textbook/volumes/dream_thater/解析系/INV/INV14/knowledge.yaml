@@ -1,0 +1,79 @@
+chapter: INV14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV12
+  - INV13
+  - FOU4
+forward_references: []
+
+concepts:
+  - id: inverse.radon-limited-angle-data
+    name: 限定角度観測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（限定角度観測と有限方向観測）"]
+    requires: [inverse.radon-transform]
+
+  - id: inverse.radon-finite-view-data
+    name: 有限方向観測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（限定角度観測と有限方向観測）"]
+    requires: [inverse.radon-transform]
+
+  - id: inverse.radon-visible-wedge
+    name: 観測周波数領域と欠測扇形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測周波数領域と欠測扇形）"]
+    requires: [inverse.radon-limited-angle-data, inverse.fourier-slice-theorem]
+
+  - id: inverse.radon-finite-view-kernel
+    name: 有限方向観測の非自明な核
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限方向観測の非自明な核）"]
+    requires: [inverse.radon-finite-view-data, inverse.radon-transform]
+
+  - id: inverse.radon-schwartz-limited-kernel
+    name: 限定角度のSchwartz級における非一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（限定角度の Schwartz 級における非一意性）"]
+    requires: [inverse.radon-visible-wedge, inverse.fourier-slice-theorem]
+
+  - id: inverse.radon-compact-limited-unique
+    name: コンパクト台の限定角度一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト台の限定角度一意性）"]
+    requires: [inverse.radon-limited-angle-data, inverse.fourier-slice-theorem, inverse.radon-fourier2-inversion]
+
+  - id: inverse.radon-limited-instability
+    name: コンパクト台でも限定角度逆問題は極端に不安定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コンパクト台でも限定角度逆問題は極端に不安定）"]
+    requires: [inverse.radon-compact-limited-unique, fourier.fou4-plancherel-core]
+
+  - id: inverse.radon-zero-fill
+    name: 欠測周波数の零埋め再構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（欠測周波数の零埋め再構成）"]
+    requires: [inverse.radon-visible-wedge, fourier.fou4-l2-inversion]
+
+  - id: inverse.radon-zero-fill-error
+    name: 零埋めの誤差は欠測領域のFourierエネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零埋めの誤差は欠測領域の Fourier エネルギー）"]
+    requires: [inverse.radon-zero-fill, fourier.fou4-parseval]
+
+  - id: inverse.radon-detector-samples
+    name: 等間隔検出器標本
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等間隔検出器標本）"]
+    requires: [inverse.radon-transform]
