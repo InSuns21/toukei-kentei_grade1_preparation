@@ -15,7 +15,7 @@ chapters:
   - { id: INV7, path: textbook/volumes/dream_thater/解析系/INV/INV7, status: completed, title: "正則化パラメータをどう選ぶか" }
   - { id: INV8, path: textbook/volumes/dream_thater/解析系/INV/INV8, status: completed, title: "一般変分正則化の解は存在するか" }
   - { id: INV9, path: textbook/volumes/dream_thater/解析系/INV/INV9, status: completed, title: "疎性とTVは何を残すか" }
-  - { id: INV10, path: textbook/volumes/dream_thater/解析系/INV/INV10, status: planned, title: "非線形逆問題を局所的に見分けられるか" }
+  - { id: INV10, path: textbook/volumes/dream_thater/解析系/INV/INV10, status: completed, title: "非線形逆問題を局所的に見分けられるか" }
   - { id: INV11, path: textbook/volumes/dream_thater/解析系/INV/INV11, status: planned, title: "反復正則化をいつ止めるか" }
   - { id: INV12, path: textbook/volumes/dream_thater/解析系/INV/INV12, status: planned, title: "Radon変換は何を測っているか" }
   - { id: INV13, path: textbook/volumes/dream_thater/解析系/INV/INV13, status: planned, title: "投影データからどう反転するか" }

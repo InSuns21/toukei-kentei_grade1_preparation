@@ -1,0 +1,46 @@
+id: "INV10"
+title: "非線形逆問題を局所的に見分けられるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV5
+  - INV8
+official_scope: []
+learning_objectives:
+  - Banach空間のFréchet微分を剰余のノルム評価から確認し非線形forward mapを線形化できる
+  - 一点の局所識別と近傍の二点識別を区別して具体例で判定できる
+  - 微分の一様下界とC1条件から局所二点Lipschitz安定性を証明できる
+  - 有限次元の微分列フルランクから下界定数を構成し局所識別を導ける
+  - 無限次元の単射微分だけでは局所識別が失敗するC1写像の反例を検算できる
+  - 制約集合上の条件付きHölder安定性とノイズ誤差評価を証明できる
+definitions:
+  - { id: INV10-DEF-01, name: 観測写像のFréchet微分 }
+  - { id: INV10-DEF-02, name: 局所識別可能性 }
+  - { id: INV10-DEF-03, name: 条件付き安定性と安定性の指標 }
+theorems:
+  - { id: INV10-THM-01, name: 微分の下界による局所二点安定性 }
+  - { id: INV10-COR-01, name: 有限次元のフルランク微分と局所識別 }
+  - { id: INV10-PROP-01, name: 単射なFréchet微分だけでは局所識別を保証しない }
+  - { id: INV10-PROP-02, name: 非線形対角観測の制約集合上でのHölder安定性 }
+canonical_examples:
+  - 二変数の多項式観測を剰余評価からFréchet微分する直接例
+  - 平方写像の一点識別と二点識別の相違
+  - 微分が恒等行列となる非線形観測の局所Lipschitz安定性
+  - 微分が零でも単射な立方写像と最良Hölder指数
+  - ell2上で微分単射だが局所非識別となる対角非線形観測
+  - 重み付き制約集合で非線形対角観測のHölder安定性を回復する例
+problem_patterns:
+  - INV10-A01
+  - INV10-A02
+  - INV10-A03
+  - INV10-A04
+  - INV10-A05
+  - INV10-B01
+  - INV10-B02
+  - INV10-B03
+  - INV10-B04
+  - INV10-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
