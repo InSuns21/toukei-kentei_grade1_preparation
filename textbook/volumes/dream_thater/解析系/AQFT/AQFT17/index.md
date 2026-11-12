@@ -8,7 +8,7 @@
 
 ## 1. 正規状態を別々に指定するとは
 
-固定されたHilbert空間 $H$ 上の二つの単位的von Neumann環 $M_1,M_2$ を考えます。[VN5の正規状態](../../VN/VN5/index.md#def-vn5-normal-state)は、正かつ単位元を $1$ に送る ultraweak 連続な汎関数です。任意の状態ではなく正規状態に限定するのは、局所環を弱閉包して得た表示と整合する延長を要求したいからです。
+固定されたHilbert空間 $H$ 上の二つの単位的von Neumann環 $M_1,M_2$ を考えます。[VN5の正規状態](../../VN/VN5/index.md#def-vn5-normal-state)は、正かつ単位元を $1$ に送る ultraweak 連続な汎関数です。任意の状態ではなく正規状態に限定するのは、局所可観測量を弱閉包して得た表示と整合する延長を要求したいからです。
 
 [AQFT16の内外テンソル積表示](../AQFT16/index.md#thm-aqft16-split-tensor-inclusion)では $M_1$ と $M_2'$ が、ユニタリ座標変換によってそれぞれ左側 $A\otimes I_L$、右側 $I_K\otimes B$ に入ります。ここで $M_2'$ は[可換子](../../VN/VN2/index.md#def-vn2-commutant)であり、外側の局所代数そのものと必ずしも等しいわけではありません。
 
@@ -76,7 +76,7 @@ $$
 <a id="lem-aqft17-normal-state-lift"></a>
 
 <!-- formal-statement-start -->
-> **準備補題（具体的von Neumann環の正規状態の正の持ち上げ）**  
+> **補題（具体的von Neumann環の正規状態の正の持ち上げ）**  
 > $K$ を複素Hilbert空間、$A\subset B(K)$ を単位元を共有するvon Neumann環とする。$A$ の任意の正規状態 $\varphi$ に対して、正のtrace class作用素 $D\in S_1(K)$ が存在し、
 >
 $$
@@ -110,7 +110,7 @@ $$
 
 ### 証明の見取り図
 
-[AQFT16の空間的テンソル積表示](../AQFT16/index.md#thm-aqft16-split-tensor-inclusion)を使うと、内側と外側は別のHilbert空間上の環になります。指定した正規状態を準備補題で各 $B(K)$、$B(L)$ へ正の密度作用素として持ち上げ、その**テンソル積密度作用素**を作ります。最後に元の $H$ へ戻して制限します。
+[AQFT16の空間的テンソル積表示](../AQFT16/index.md#thm-aqft16-split-tensor-inclusion)を使うと、内側と外側は別のHilbert空間上の環になります。指定した正規状態を準備補題で各 $B(K)$、$B(L)$ へ正の密度作用素として持ち上げ、それらの**テンソル積を全体の密度作用素**として作ります。最後に元の $H$ へ戻して制限します。
 
 <!-- proof-start -->
 ### 証明
@@ -303,7 +303,7 @@ $$
 T_n(x)=\sum_{j=1}^{n}f_j(x)\xi_j
 $$
 
-と置きます。$T_n$ の像は $\operatorname{span}\{\xi_1,\ldots,\xi_n\}$ に含まれるため有限ランクです。$\|x\|_X\le1$ なら、連続汎関数の評価と三角不等式から
+と置きます。$T_n$ の像は $\operatorname{span}\{\xi_1,\ldots,\xi_n\}$ に含まれるため有限ランクです。$\|x\|_X\le1$ なら、各 $j$ の $|f_j(x)|\le\|f_j\|\,\|x\|$ と三角不等式から
 
 $$
 \begin{aligned}
@@ -335,7 +335,7 @@ $$
 > を**エネルギー減衰写像**と呼ぶ。各 $\beta>0$ についてこれが核写像になることを**定性的エネルギー核性**と呼ぶ。splitの十分条件に使うBuchholz–Wichmann型の核性条件では、さらに小さな $\beta$ における $\|\Theta_{\beta,O}\|_1$ の増大に定量的上界を課す。
 <!-- formal-statement-end -->
 
-作用素指数は $H_{\mathrm{en}}\ge0$ により有界で $\|e^{-\beta H_{\mathrm{en}}}\|\le1$、また $\|x\Omega\|\le\|x\|$ なので $\|\Theta_{\beta,O}(x)\|\le\|x\|$。核性はこの**有界性より強い別条件**です。
+作用素指数は $H_{\mathrm{en}}\ge0$ により有界で $\|e^{-\beta H_{\mathrm{en}}}\|\le1$、また $\|x\Omega\|\le\|x\|$ なので $\|\Theta_{\beta,O}(x)\|\le\|x\|$。核性はこの**有界性からは導けない追加条件**です。
 
 <!-- definition-example-start: def-aqft17-energy-nuclearity -->
 ### 定義の確認：二水準のエネルギー減衰
@@ -466,7 +466,7 @@ $$
 <a id="ref-aqft17-nuclearity-split-literature"></a>
 
 <!-- formal-statement-start -->
-> **発展定理（Buchholz–Wichmann型核性からsplitへ：文献結果、ここでは証明しない）**  
+> **定理（Buchholz–Wichmann型核性からsplitへ：発展的文献結果、ここでは証明しない）**  
 > 四次元Minkowski時空上の標準的な局所可観測量netについて、局所性と包含単調性、強連続な時空並進共変性、正エネルギー条件、不変真空を持つ真空表現を仮定する。さらに全ての有界な局所領域に対し、Buchholz–Wichmannのエネルギー核性条件（核写像性に加え、十分な定量的核ノルム上界）および原定理で要請する領域族の正則性を満たすとする。このとき正の緩衝領域を持つ適切なdouble coneの対 $O_1\Subset O_2$ について
 >
 $$
@@ -767,4 +767,4 @@ $$
 
 split包含を**仮定**すると、任意の内側・外側正規状態を、正規な積状態として同時に実現できました。核写像の定義・有限ランク近似・自由スカラーの周期箱計算から、エネルギー減衰が自由度の制御にどう関わるかを学びました。一方、**局所核性の定量的評価とnuclearity⇒splitの一般証明はこの計算の外**にあり、その境界を明示しました。
 
-次講AQFT18では局所環の巡回・分離ベクトルから **Tomita作用素** を定義し、$S_0(x\Omega)=x^*\Omega$ がwell-definedで可閉になる条件を追います。
+次講AQFT18では局所von Neumann環の巡回・分離ベクトルから、演算規則 $S_0(x\Omega)=x^*\Omega$ を定める作用素を考え、$S_0(x\Omega)=x^*\Omega$ がwell-definedで可閉になる条件を追います。
