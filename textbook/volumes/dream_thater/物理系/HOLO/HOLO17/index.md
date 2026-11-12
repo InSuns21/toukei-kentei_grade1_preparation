@@ -284,7 +284,7 @@ $$
 **B1. 相互情報の有限模型。** $A,B$ はBell対、$C$ は独立な純粋qubitとする。$I(A:B)=S(A)+S(B)-S(AB)$ と $I(A:C)$ を求め、全体の純粋性から各領域の純粋性を推論できない理由を述べよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** 全状態は $|\Phi\rangle_{AB}\otimes|0\rangle_C$ で純粋。$A,B$ はそれぞれ $I_2/2$ に縮約され $S(A)=S(B)=\ln2$、$AB$ はBell純粋状態だから $S(AB)=0$。ゆえに $I(A:B)=2\ln2$。一方 $\rho_{AC}=(I_2/2)_A\otimes|0\rangle\langle0|_C$ なので、[テンソル積のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-entropy-additivity)により $S(AC)=\ln2+0=\ln2$、また $S(C)=0$。従って $I(A:C)=\ln2+0-\ln2=0$。全体が純粋でも補領域とのエンタングルメントで一部分は混合する。
+**詳細解答。** 全状態は $|\Phi\rangle_{AB}\otimes|0\rangle_C$ で純粋。$A,B$ はそれぞれ $I_2/2$ に縮約され $S(A)=S(B)=\ln2$、$AB$ はBell純粋状態だから $S(AB)=0$。ゆえに $I(A:B)=2\ln2$。一方 $\rho_{AC}=(I_2/2)_A\otimes|0\rangle\langle0|_C$ なので、[テンソル積のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)により $S(AC)=\ln2+0=\ln2$、また $S(C)=0$。従って $I(A:C)=\ln2+0-\ln2=0$。全体が純粋でも補領域とのエンタングルメントで一部分は混合する。
 <!-- solution-end -->
 
 <a id="ex-holo17-b02"></a>
