@@ -177,14 +177,14 @@ $$
 
 ### 証明の見取り図
 
-直交分解から始め、$v_\perp$ を元の $v$ で表し直します。$\widehat n^2=nn^{\mathsf T}-I_3$ により行列形へ直し、軸に合わせた直交基底で直交性・行列式を検証します。
+軸方向と垂直方向に分けた $v$ を使い、$v_\perp$ を元の $v$ で表し直します。$\widehat n^2=nn^{\mathsf T}-I_3$ により行列形へ直し、軸に合わせた直交基底で直交性・行列式を検証します。
 
 <!-- proof-start -->
 ### 証明
 
-$|v_\perp|^2=|n\times v_\perp|^2$ は $|n|=1$、$n\cdot v_\perp=0$ から従い、$v_\perp\cdot(n\times v_\perp)=0$ です。二次元の回転公式から
+$|v_\perp|^2=|n\times v_\perp|^2$ は $|n|=1$、$n\cdot v_\perp=0$ から従い、$v_\perp\cdot(n\times v_\perp)=0$ です。前節で確かめた平面内の正向きの回転の成分表示を使うと
 
-$$
+$
 \begin{aligned}
 Rv&=n(n\cdot v)+\cos\theta[v-n(n\cdot v)]
 +\sin\theta(n\times v)\\
@@ -320,7 +320,7 @@ $$
 
 ### 証明の見取り図
 
-[Rodrigues公式](#thm-rbd2-rodrigues)から得た二つの行列を両順に掛け、同じベクトル $e_3$ の像を比較します。
+[Rodriguesの回転公式](#thm-rbd2-rodrigues)から得た二つの行列を両順に掛け、同じベクトル $e_3$ の像を比較します。
 
 <!-- proof-start -->
 ### 証明
@@ -418,7 +418,7 @@ $$
 
 ## 8. 回転する物体と座標系の回転を混同しない
 
-ここまでの能動回転は $v\mapsto Rv$ として物理ベクトルを動かしました。一方、動かさない空間ベクトルの成分を、$R$ の三列を新しい基底として測り直す**受動変換**では、空間成分を $v_s$、物体成分を $v_b$ と書いて $v_s=Rv_b$ です。[向きを保つ回転](../RBD1/index.md#def-rbd1-proper-rotation)は $R^{-1}=R^{\mathsf T}$ なので、
+ここまでの能動回転は $v\mapsto Rv$ として物理ベクトルを動かしました。一方、動かさない空間ベクトルの成分を、$R$ の三列を新しい基底として測り直す**受動的な座標成分の読み替え**では、空間成分を $v_s$、物体成分を $v_b$ と書いて $v_s=Rv_b$ です。[向きを保つ回転](../RBD1/index.md#def-rbd1-proper-rotation)は $R^{-1}=R^{\mathsf T}$ なので、
 
 $$
 \boxed{v_b=R^{\mathsf T}v_s}.
@@ -441,7 +441,7 @@ $n=e_3$、$\theta=\pi/2$ の $\widehat n$ と $R(n,\theta)$ を求め、$Rn=n$�
 <!-- solution-start -->
 ### 詳細解答
 
-[反対称行列の定義](#def-rbd2-hat)より
+[ベクトル積の反対称行列](#def-rbd2-hat)の定義より
 
 $$
 \widehat n=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&0\end{pmatrix},\quad
@@ -460,7 +460,7 @@ $$
 
 ### 問題 A2：軸上の点が動かない理由
 
-$|n|=1$、$v=\lambda n$ のとき、任意の $\theta$ で $R(n,\theta)v=v$ をベクトル形Rodrigues公式から示せ。
+$|n|=1$、$v=\lambda n$ のとき、任意の $\theta$ で $R(n,\theta)v=v$ を[Rodriguesの回転公式](#thm-rbd2-rodrigues)のベクトル形から示せ。
 
 - Level: A
 
@@ -620,7 +620,12 @@ $n^{\mathsf T}n=1$ なので $Rn=2n-n=n$。$u\perp n$ なら $n^{\mathsf T}u=0$ 
 
 ### 問題 C1：合成行列を軸角へ戻し、座標変換と比較する
 
-$P=R_yR_x$、$v=(1,0,2)^{\mathsf T}$ とする。 (1) $P$ と $Pv$ を求めよ。(2) 固有値 $1$ の軸と $0<\theta\le\pi$ の角を求め、$P-P^{\mathsf T}$ で軸の向きを確認せよ。(3) Rodrigues公式で $Pv$ を再計算せよ。(4) 動かさない空間ベクトル $w_s=e_3$ の物体基底成分 $w_b$ を求めよ。
+$P=R_yR_x$、$v=(1,0,2)^{\mathsf T}$ とする。次の問いに答えよ。
+
+1. $P$ と $Pv$ を求めよ。
+2. 固有値 $1$ の軸と $0<\theta\le\pi$ の角を求め、$P-P^{\mathsf T}$ で軸の向きを確認せよ。
+3. [Rodriguesの回転公式](#thm-rbd2-rodrigues)で $Pv$ を再計算せよ。
+4. 動かさない空間ベクトル $w_s=e_3$ の物体基底成分 $w_b$ を求めよ。
 
 - Level: C
 
@@ -666,7 +671,7 @@ P^{\mathsf T}e_3=
 =(-1,0,0)^{\mathsf T}.
 $$
 
-確かに $P(-e_1)=e_3$。$Pv$ は能動回転、$P^{\mathsf T}w_s$ は同じベクトルの基底変換なので混同しません。
+確かに $P(-e_1)=e_3$。$Pv$ は能動回転、$P^{\mathsf T}w_s$ は動かさないベクトルの成分を物体基底で読み替えたものなので混同しません。
 <!-- solution-end -->
 
 ## 10. 次に学ぶこと

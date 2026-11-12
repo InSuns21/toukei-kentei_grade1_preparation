@@ -32,7 +32,7 @@ concepts:
   - id: mechanics.rodrigues-formula
     name: Rodriguesの回転公式
     kind: theorem
-    aliases: [Rodrigues rotation formula]
+    aliases: [Rodrigues rotation formula, Rodrigues公式]
     introduction: formal
     introduction_aliases: [定理（Rodriguesの回転公式）]
     requires:
