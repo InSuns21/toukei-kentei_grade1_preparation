@@ -58,7 +58,16 @@ $$
 
 $M_1\subset N\subset M_2$ は各恒等作用素を残りの因子に挿入する包含で、両方とも真の包含です。$K=H_1\otimes H_2$、$L=H_3\otimes H_4$ と再結合すれば $N=B(K)\otimes I_L$ です。[全有界作用素環の因子性](../../VN/VN7/index.md#thm-vn7-bh-factor)をこの表現に適用すると、$N$ の中心は $\mathbb CI_H$ です。
 
-次に単位ベクトル $u\in K$ を取り、$p=|u\rangle\langle u|\otimes I_L\in N$ と置きます。$p$ は周囲の $B(H)$ で階数1とは限りませんが、**$N$ の中では最小射影**です。実際、$0\ne q\in N$ が $q\le p$ を満たす射影なら、$q=q_K\otimes I_L$ で、$\operatorname{Ran}(q_K)\subset\mathbb Cu$ となります。従って $q_K=|u\rangle\langle u|$、$q=p$ です。これは[VN7の最小射影の定義](../../VN/VN7/index.md#def-vn7-minimal-projection)を直接確かめています。中心がスカラーで最小射影を持つため、[VN7の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)より $N$ はType I因子です。従ってこの包含はsplitです。
+次に単位ベクトル $u\in K$ を取り、$p=|u\rangle\langle u|\otimes I_L\in N$ と置きます。$p$ は周囲の $B(H)$ で階数1とは限りませんが、**$N$ の中では最小射影**です。実際、$0\ne q\in N$ が $q\le p$ を満たす射影なら、
+
+$$
+q=q_K\otimes I_L,\qquad
+0\ne q_K\le |u\rangle\langle u|
+$$
+
+です。従って $\operatorname{Ran}(q_K)\subset\mathbb Cu$ となり、$q_K=|u\rangle\langle u|$、$q=p$ です。これは[VN7の最小射影の定義](../../VN/VN7/index.md#def-vn7-minimal-projection)を直接確かめています。
+
+中心がスカラーで最小射影を持つため、[VN7の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)より $N$ はType I因子です。従ってこの包含はsplitです。
 
 これは抽象的な包含の直接例であり、相対論的な局所netの存在証明ではありません。必要なのは、**内側の環そのものがType Iでなくても、間にType Iを挟める**という定義の仕組みです。
 <!-- definition-example-end -->
@@ -167,7 +176,9 @@ $$
 
 [可換子](../../VN/VN2/index.md#def-vn2-commutant)は包含を逆転します。$N\subset M_2$ なら、$M_2'\subset N'$ です。そこで内側 $M_1$ と外側の可換子 $M_2'$ を同時に表示できます。
 
-ここで使う二つの演算を先に定めます。$A\subset B(K)$、$B\subset B(L)$ がvon Neumann環のとき、$A\bar\otimes B$ は、$K\otimes L$ 上の作用素 $a\otimes b$（$a\in A,b\in B$）の有限線形結合の**弱作用素閉包**、すなわち空間的von Neumannテンソル積です。また $M_1\vee M_2'$ は $M_1$ と $M_2'$ が生成する最小のvon Neumann環です。以下の「正規な $*$-同型」は、$*$ と積を保存する全単射で、写像と逆写像が超弱位相について連続であることを意味します。
+ここで使う二つの演算を先に定めます。$A\subset B(K)$、$B\subset B(L)$ がvon Neumann環のとき、$A\bar\otimes B$ は、$K\otimes L$ 上の作用素 $a\otimes b$（$a\in A,b\in B$）の有限線形結合の**弱作用素閉包**、すなわち空間的von Neumannテンソル積です。
+
+また $M_1\vee M_2'$ は $M_1$ と $M_2'$ が生成する最小のvon Neumann環です。以下の「正規な $*$-同型」は、$*$ と積を保存する全単射で、写像と逆写像が超弱位相について連続であることを意味します。
 
 <a id="thm-aqft16-split-tensor-inclusion"></a>
 
@@ -253,7 +264,7 @@ $$
 \end{aligned}
 $$
 
-$\|\Psi\|=\|k\|\|l\|=1$ であり、ベクトル状態は $B(H)$ 上で正規なので、その制限も正規です。$\square$
+$\|\Psi\|=\|k\|\|l\|=1$ です。[AQFT9で用いた階数1密度作用素によるベクトル状態の正規性](../AQFT9/index.md#prop-aqft9-local-normal-state)は $B(H)$ 上の $\Psi$ にも適用でき、その状態を部分環 $M_1\vee M_2'$ に制限しても正規です。$\square$
 <!-- proof-end -->
 
 この結果は**積になる状態が存在する**という主張です。選んだ真空ベクトル $\Omega$ がこの $\Psi$ に一致するとは言っていません。任意に指定した正規局所状態の組を同時に延長する一般論は、次講AQFT17で扱います。
@@ -331,7 +342,16 @@ $O_R=\{(t,\boldsymbol x):|t|+\|\boldsymbol x\|<R\}$ とする。$R=3$、$r=1$ �
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $K=H_1\otimes H_2$、$L=H_3\otimes H_4$ とおけば $N=B(K)\otimes I_L$ です。なぜ可換子が右側だけに作用するかを行列単位で確認します。$K$ の正規直交基底を選び、その行列単位を $E_{ij}$ とすると、任意の $T\in B(K\otimes L)$ は $T=\sum_{i,j}E_{ij}\otimes T_{ij}$（$T_{ij}\in B(L)$）と表せます。$T$ が全ての $E_{kk}\otimes I_L$ と可換なら非対角成分は零であり、さらに $E_{ij}\otimes I_L$ と可換なら各対角成分は同じ $S\in B(L)$ です。従って $T=I_K\otimes S$、すなわち
+**詳細解答。** $K=H_1\otimes H_2$、$L=H_3\otimes H_4$ とおけば $N=B(K)\otimes I_L$ です。なぜ可換子が右側だけに作用するかを行列単位で確認します。
+
+$K$ は6次元なので、正規直交基底を選んで行列単位 $E_{ij}$（$1\le i,j\le6$）を作れます。任意の $T\in B(K\otimes L)$ は、その基底について
+
+$$
+T=\sum_{i,j=1}^{6}E_{ij}\otimes T_{ij},
+\qquad T_{ij}\in B(L)
+$$
+
+と表せます。$T$ が全ての $E_{kk}\otimes I_L$ と可換なら非対角成分は零であり、さらに $E_{ij}\otimes I_L$ と可換なら各対角成分は同じ $S\in B(L)$ です。従って $T=I_K\otimes S$、すなわち
 
 $$
 N'=I_K\otimes B(L),\qquad
@@ -373,7 +393,7 @@ Type I因子 $N\subset B(H)$ の最小射影 $e$ に対し $L=eH$、$K=\overline
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $eNe$ に非スカラーな自己共役元があれば、そのスペクトル射影の一つは $e$ の真の非零部分射影となり最小性に反します。ゆえに $eNe=\mathbb Ce$。$a,b\in N$ に対して $e a^*b e=c_{a,b}e$ と書けます。$\xi,\eta\in eH$ は $e\xi=\xi$、$e\eta=\eta$ を満たすので
+**詳細解答。** $eNe$ に非スカラーな元があれば、実部または虚部は非スカラーな自己共役元です。そのスペクトル射影の一つは $e$ の真の非零部分射影となり最小性に反します。ゆえに $eNe=\mathbb Ce$。$a,b\in N$ に対して $e a^*b e=c_{a,b}e$ と書けます。$\xi,\eta\in eH$ は $e\xi=\xi$、$e\eta=\eta$ を満たすので
 
 $$
 \langle a\xi,b\eta\rangle
