@@ -7,6 +7,7 @@ prerequisites:
   - AQFT7
   - AQFT6
   - QM8
+  - MQ2
   - OA5
   - VN2
   - VN5
@@ -46,4 +47,4 @@ concepts:
     name: 線形源Hamiltonianの平方完成と変位
     kind: proposition
     introduction: formal
-    requires: [aqft.square-summable-shift-fock, aqft.inequivalent-coherent-gns]
+    requires: [aqft.square-summable-shift-fock, aqft.inequivalent-coherent-gns, mathematical-quantum.ground-state]
