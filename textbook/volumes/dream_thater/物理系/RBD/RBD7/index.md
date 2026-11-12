@@ -777,20 +777,20 @@ $$
 +(0,0,aF-bG+T)\cdot(0,0,\Omega)
 $$
 
-で、同じ値になります。純粋な偶力は合力を変えず、仕事率だけを $T\Omega$ 増減します。
+で、同じ値になります。純粋な偶力は合力に寄与せず、$z$ 方向のトルクに $T$、仕事率に $T\Omega$ を加えます。
 <!-- solution-end -->
 
 ## Level C
 
 ### 問題 C1：回転した剛体への推力と移動する機体標識点
 
-三次元剛体の質量を $M>0$、物体系慣性テンソルを $J_b=\operatorname{diag}(I_1,I_2,I_3)$（$I_1,I_2,I_3>0$）とする。ある時刻 $t_0$ に $R=R_z(\pi/2)$、$\omega_b=(0,0,\Omega)$、$\dot c=(V,0,0)$ である。物体固定点 $P$ の重心相対位置は $u_{P,b}=(a,0,0)$ で、空間系の外力 $f_s=(F,0,0)$（$a,F>0$）が $P$ に作用する。他の外力と偶力はない。
+三次元剛体の質量を $M>0$、物体系慣性テンソルを $J_b=\operatorname{diag}(I_x,I_y,I_z)$（$I_x,I_y,I_z>0$）とする。ある時刻 $t_0$ に $R=R_z(\pi/2)$、$\omega_b=(0,0,\Omega)$、$\dot c=(V,0,0)$ である。物体固定点 $P$ の重心相対位置は $u_{P,b}=(a,0,0)$ で、空間系の外力 $f_s=(F,0,0)$（$a,F>0$）が $P$ に作用する。他の外力と偶力はない。
 
 さらに別の物体固定標識点 $O$ を、$c-o=R(d,0,0)$（$d>0$）で指定する。この $O$ は**空間固定ではない**。
 
 1. $P$ の空間位置の腕、$\tau_{C,s}$、$\tau_{C,b}$、$\ddot c$、$\dot\omega_b$ を求めよ。
 2. $P$ の速度と力の仕事率を求め、運動エネルギーの時間微分と照合せよ。
-3. $O$ まわりの外力トルク $\tau_{O,s}$、$O$ の空間加速度 $\ddot o$ を求め、$\dot H_O^{\mathrm{rel}}=\tau_O-M(c-o)\times\ddot o$ の $z$ 成分を検算せよ。$O$ まわりの慣性の $z$ 成分には $I_3+Md^2$ を用いてよい。
+3. $O$ まわりの外力トルク $\tau_{O,s}$、$O$ の空間加速度 $\ddot o$ を求め、$\dot H_O^{\mathrm{rel}}=\tau_O-M(c-o)\times\ddot o$ の $z$ 成分を検算せよ。$O$ まわりの慣性の $z$ 成分には $I_z+Md^2$ を用いてよい。
 
 - Level: C
 
@@ -811,12 +811,12 @@ $$
 =(0,a,0)\times(F,0,0)=(0,0,-aF).
 $$
 
-$z$ 成分は $R$ で変わらないため $\tau_{C,b}=R^{\mathsf T}\tau_{C,s}=(0,0,-aF)$。角速度は物体 $z$ 主軸方向で $J_b\omega_b=(0,0,I_3\Omega)$、従って $\omega_b\times J_b\omega_b=0$。[Newton–Euler方程式](#thm-rbd7-newton-euler)より
+$z$ 成分は $R$ で変わらないため $\tau_{C,b}=R^{\mathsf T}\tau_{C,s}=(0,0,-aF)$。角速度は物体 $z$ 主軸方向で $J_b\omega_b=(0,0,I_z\Omega)$、従って $\omega_b\times J_b\omega_b=0$。[Newton–Euler方程式](#thm-rbd7-newton-euler)より
 
 $$
 \boxed{\ddot c=(F/M,0,0)},\qquad
 \boxed{\dot\omega_b=(0,0,\alpha)},\quad
-\alpha:=-aF/I_3.
+\alpha:=-aF/I_z.
 $$
 
 **2. 作用点速度とエネルギー。** 空間系の角速度は $\omega_s=R\omega_b=(0,0,\Omega)$。したがって[点速度](../RBD3/index.md#prop-rbd3-point-velocity)は
@@ -836,7 +836,7 @@ $$
 です。$K=\frac12M|\dot c|^2+\frac12\omega_b^{\mathsf T}J_b\omega_b$ を微分しても、この瞬間に
 
 $$
-\dot K=M V(F/M)+I_3\Omega\alpha
+\dot K=M V(F/M)+I_z\Omega\alpha
 =FV-aF\Omega.
 $$
 
@@ -866,13 +866,13 @@ $$
 \tau_{O,z}-M(d_s\times\ddot o)_z
 &=-(a+d)F+Md(F/M+d\alpha)\\
 &=-aF+Md^2\alpha\\
-&=(I_3+Md^2)\alpha.
+&=(I_z+Md^2)\alpha.
 \end{aligned}
 $$
 
-最後の等号に $I_3\alpha=-aF$ を使いました。左辺は、$O$ が剛体固定点であるため $H_O^{\mathrm{rel}}=J_{O,s}\omega_s$。ここでは $z$ は $J_{O,s}$ の主軸であり、[平行軸のテンソル公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)により $(J_{O,s})_{zz}=I_3+Md^2$ です。従って微分した $z$ 成分は $(I_3+Md^2)\alpha$ と一致します（$R$ は $z$ 軸回転、$z$ と他軸の慣性積は零）。
+最後の等号に $I_z\alpha=-aF$ を使いました。左辺は、$O$ が剛体固定点であるため $H_O^{\mathrm{rel}}=J_{O,s}\omega_s$。ここでは $z$ は $J_{O,s}$ の主軸であり、[平行軸のテンソル公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)により $(J_{O,s})_{zz}=I_z+Md^2$ です。従って微分した $z$ 成分は $(I_z+Md^2)\alpha$ と一致します（$R$ は $z$ 軸回転、$z$ と他軸の慣性積は零）。
 
-もし $O$ を空間固定と誤認して補正を落とせば、$-(a+d)F=(I_3+Md^2)\alpha$ という一般には偽の関係になります。機体標識点が剛体上に固定されることと、空間に固定されることは異なります。
+もし $O$ を空間固定と誤認して補正を落とせば、$-(a+d)F=(I_z+Md^2)\alpha$ という一般には偽の関係になります。機体標識点が剛体上に固定されることと、空間に固定されることは異なります。
 <!-- solution-end -->
 
 ---
