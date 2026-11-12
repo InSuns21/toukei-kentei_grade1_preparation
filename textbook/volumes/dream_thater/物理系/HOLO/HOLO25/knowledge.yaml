@@ -1,0 +1,56 @@
+chapter: HOLO25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO24
+  - HOLO2
+forward_references: []
+concepts:
+  - id: holography.boundary-causal-diamond
+    name: 境界領域の依存域と因果菱形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界領域の依存域と因果菱形）"]
+    requires: [holography.boundary-conformal-class]
+  - id: holography.boundary-diamond-interval
+    name: Minkowski境界の区間依存域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Minkowski境界の区間依存域）"]
+    requires: [holography.boundary-causal-diamond]
+  - id: holography.causal-wedge
+    name: causal wedge
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（causal wedge）"]
+    requires: [holography.boundary-causal-diamond, holography.poincare-metric]
+  - id: holography.causal-information-surface
+    name: causal information surface
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（causal information surface）"]
+    requires: [holography.causal-wedge]
+  - id: holography.pure-ads-causal-wedge
+    name: 純AdS区間の因果くさび領域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純AdS区間の因果くさび領域）"]
+    requires: [holography.causal-wedge, holography.boundary-diamond-interval]
+  - id: holography.entanglement-wedge
+    name: entanglement wedge
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（entanglement wedge）"]
+    requires: [holography.covariant-hrt-surface, holography.qes-surface, holography.static-rt-homology]
+  - id: holography.vacuum-wedge-equality
+    name: 純AdS真空区間における二つのwedgeの一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純AdS真空区間における二つのwedgeの一致）"]
+    requires: [holography.pure-ads-causal-wedge, holography.entanglement-wedge, holography.ads3-interval-regulated-length]
+  - id: holography.causal-wedge-inclusion
+    name: 古典的causal wedge inclusion
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（古典的causal wedge inclusion：適用条件付き既存結果）"]
+    requires: [holography.causal-wedge, holography.entanglement-wedge, holography.hrt-maximin-conditional]
