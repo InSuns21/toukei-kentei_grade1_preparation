@@ -168,13 +168,13 @@ Black–Scholes の限界を示し、モデルの選択・同定・価格差を�
 
 1. Steven E. Shreve, *Stochastic Calculus for Finance I: The Binomial Asset Pricing Model* (Springer, 2004), [出版社目次](https://link.springer.com/book/10.1007/978-0-387-22527-2)。第01〜11講の二項・状態価格・American・ランダムウォークの導線。
 2. Steven E. Shreve, *Stochastic Calculus for Finance II: Continuous-Time Models* (Springer, 2004), [書誌・目次](https://books.google.co.jp/books?id=O8kD1NwQBsQC)。第12〜25講の Brown 運動・Itô・Black–Scholes・Feynman–Kac・エキゾチック・最適停止を照合。
-3. John C. Hull, *Options, Futures, and Other Derivatives*, （版次は実装時に固定）。商品の定義・実務慣行の確認に併用。
+3. John C. Hull, *Options, Futures, and Other Derivatives*, 11th ed. (Pearson, ©2022), [出版社目次](https://www.pearson.com/en-us/subject-catalog/p/options-futures-and-other-derivatives/P200000005938/9780136939979)。商品の定義・実務慣行の確認に併用。
 4. Paul Glasserman, *Monte Carlo Methods in Financial Engineering* (Springer, 2003), [出版社目次](https://link.springer.com/book/10.1007/978-0-387-21617-1)。第26〜33講とリスク管理の MC・分散減少・LSM・Greeks。
 5. Paolo Brandimarte, *Numerical Methods in Finance and Economics*, 2nd ed. (Wiley, 2006), [出版社目次](https://onlinelibrary.wiley.com/doi/book/10.1002/0470080493)。tree・有限差分・Monte Carlo・最適化の実装／誤差比較。
 6. Alexander J. McNeil, Rüdiger Frey, Paul Embrechts, *Quantitative Risk Management*, revised ed. (Princeton UP, 2015), [出版社目次](https://press.princeton.edu/books/hardcover/9780691166278/quantitative-risk-management)。第40〜54講の VaR、ES、時系列・尾部・依存性・市場リスク・信用リスク。
 7. R. T. Rockafellar, S. Uryasev, “Optimization of Conditional Value-at-Risk” (2000), [Journal of Risk](https://doi.org/10.21314/jor.2000.038)。第53講の ES 最適化。
 8. R. Almgren, N. Chriss, “Optimal Execution of Portfolio Transactions” (2001), [Journal of Risk](https://doi.org/10.21314/jor.2001.041)。第55講の在庫・市場インパクト・執行フロンティア。
-9. Basel Committee, *Minimum capital requirements for market risk* (2019), [BIS](https://www.bis.org/bcbs/publ/d457.htm)。第42・51講の ES の制度上の位置づけを**理論値・規制計算法と混同せず**紹介する場合の一次資料。規制の具体値・適用状況は執筆時に最新版と法域を再確認する。
+9. Basel Committee, *Minimum capital requirements for market risk* (2019), [BIS公式資料](https://www.bis.org/publications/201901-standards-minimum-capital-requirements-market-risk)。第42・51講の ES の制度上の位置づけを**理論値・規制計算法と混同せず**紹介する場合の一次資料。規制の具体値・適用状況は執筆時に最新版と法域を再確認する。
 
 ---
 
