@@ -52,18 +52,24 @@ $$
 
 ### 実際の角度操作
 
-[ZYZ Euler角の操作と特異姿勢の可視化](https://insuns21.github.io/toukei-kentei_grade1_preparation/textbook/volumes/dream_thater/物理系/RBD/RBD4/assets/euler-angles.html)では $\phi,\theta,\psi$ を別々に動かせます。青の実線は空間基底、物体基底はそれぞれ $b_1,b_2,b_3$ と表示し、実際の行列の三列から描画します。$\theta=0$ にしたとき、$\phi$ を増やし同じだけ $\psi$ を減らすと、三本の物体軸が変化しないことを確かめてください。ページ内にはJavaScript無効時にも読める計算例を併記しています。
+[ZYZ Euler角の操作と特異姿勢の可視化](https://insuns21.github.io/toukei-kentei_grade1_preparation/textbook/volumes/dream_thater/物理系/RBD/RBD4/assets/euler-angles.html)では $\phi,\theta,\psi$ を別々に動かせます。灰色の破線は空間基底、物体基底はそれぞれ $b_1,b_2,b_3$ と表示し、実際の行列の三列から描画します。$\theta=0$ にしたとき、$\phi$ を増やし同じだけ $\psi$ を減らすと、三本の物体軸が変化しないことを確かめてください。ページ内にはJavaScript無効時にも読める計算例を併記しています。
 
 ## 3. 姿勢の時間変化と三つの角速度成分
 
-$C^1$ 級の角度関数 $\phi(t),\theta(t),\psi(t)$ を考えます。[RBD3 の角速度定義](../RBD3/index.md#def-rbd3-angular-velocity)によれば $\widehat{\omega_s}=\dot RR^{\mathsf T}$、$\widehat{\omega_b}=R^{\mathsf T}\dot R$ です。計算の中で角度の付いた回転軸を明示しておきます。
+$C^1$ 級の角度関数 $\phi(t),\theta(t),\psi(t)$ を考えます。[RBD3 の空間角速度と物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)によれば $\widehat{\omega_s}=\dot RR^{\mathsf T}$、$\widehat{\omega_b}=R^{\mathsf T}\dot R$ です。計算の中で角度の付いた回転軸を明示しておきます。
 
 <a id="prop-rbd4-angular-velocity"></a>
 
 <!-- formal-statement-start -->
 ### 命題（ZYZ Euler角速度の変換）
 
-$I\subset\mathbb R$ 上で $\phi,\theta,\psi\in C^1(I)$ とし、$R(t)=R_z(\phi(t))R_y(\theta(t))R_z(\psi(t))$ とする。[RBD3 の定義](../RBD3/index.md#def-rbd3-angular-velocity)による空間・物体角速度は
+$I\subset\mathbb R$ 上で $\phi,\theta,\psi\in C^1(I)$ とし、姿勢を
+
+$
+R(t)=R_z(\phi(t))R_y(\theta(t))R_z(\psi(t))
+$
+
+と定める。[RBD3 の定義](../RBD3/index.md#def-rbd3-angular-velocity)による空間・物体角速度は
 
 $$
 \omega_s=
@@ -272,7 +278,27 @@ $$
 <!-- formal-statement-start -->
 ### 命題（ZYZ Euler角の座標特異性）
 
-ZYZ 姿勢写像 $F:\mathbb R^3\to SO(3)$、$F(\phi,\theta,\psi)=R_z(\phi)R_y(\theta)R_z(\psi)$ に対し、$\theta=0$ では角度速度方向 $(1,0,-1)^{\mathsf T}$ が、$\theta=\pi$ では $(1,0,1)^{\mathsf T}$ が姿勢行列の一次変化を生まない。各姿勢 $R$ 自体は常に $R^{\mathsf T}R=I_3$、$\det R=1$ を満たす。
+ZYZ 姿勢写像 $F:\mathbb R^3\to SO(3)$ を次のように定める。
+
+$
+F(\phi,\theta,\psi)=R_z(\phi)R_y(\theta)R_z(\psi).
+$
+
+この写像では、次の角度速度方向へ変化させても姿勢の一次変化はゼロである。
+
+$
+\theta=0:\quad(\dot\phi,\dot\theta,\dot\psi)=(1,0,-1),
+$
+
+$
+\theta=\pi:\quad(\dot\phi,\dot\theta,\dot\psi)=(1,0,1).
+$
+
+一方、各姿勢行列 $R=F(\phi,\theta,\psi)$ 自体は常に次を満たす。
+
+$
+R^{\mathsf T}R=I_3,\qquad\det R=1.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -506,7 +532,7 @@ $$
 
 です。右辺を掛けると $R_z(\pi)R_y(-t)R_z(\pi)=R_y(t)$ であることが、$x,z$ 平面の成分から確認できます。従って $(\pi,-t,\pi)$ が標準範囲の表示です。
 
-角度組は $t=0$ の左右で飛びますが $R(t)=R_y(t)$ 自体は三角関数の滑らかな行列です。$R^{\mathsf T}\dot R=\widehat{e_2}$ より [RBD3 の角速度定義](../RBD3/index.md#def-rbd3-angular-velocity)で $\omega_b=e_2$ が両側で一致します。角度代表の不連続は物理的な不連続ではありません。
+角度組は $t=0$ の左右で飛びますが $R(t)=R_y(t)$ 自体は三角関数の滑らかな行列です。$R^{\mathsf T}\dot R=\widehat{e_2}$ より [RBD3 の空間角速度と物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)で $\omega_b=e_2$ が両側で一致します。角度代表の不連続は物理的な不連続ではありません。
 <!-- solution-end -->
 
 ### Level C
@@ -535,7 +561,7 @@ R(t_*)=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-三列は $e_2,e_3,e_1$ です。それぞれ長さ1、異なる列は内積0なので $R^{\mathsf T}R=I_3$。三列は右手系の巡回置換だから $\det R=+1$ です。
+三列は $e_2,e_3,e_1$ です。それぞれ長さ1、異なる列は内積0なので $R^{\mathsf T}R=I_3$。行列式を第1行第3列の成分 $1$ に沿って展開すると $\det R=(-1)^{1+3}(1\cdot1-0\cdot0)=+1$ です。
 
 **(2)** [角速度変換命題](#prop-rbd4-angular-velocity)で $\sin\theta=1,\cos\theta=0,\sin\psi=1,\cos\psi=0$ を代入すると
 
