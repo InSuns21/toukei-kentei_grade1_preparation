@@ -47,7 +47,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（停止時刻）**  
-> $N$ 期間二項市場の $\Omega=\{U,D\}^N$ と情報族 $(\mathcal F_t)_{t=0}^N$ に対して、$\tau:\Omega\to\{0,\ldots,N\}$ が停止時刻であるとは、全ての $t$ で $\{\tau=t\}\in\mathcal F_t$ が成立することをいう。$t\le\tau\le N$ の停止時刻の集合を $\mathcal T_{t,N}$ と書く。
+> $N$ 期間二項市場の経路集合 $\Omega=\{U,D\}^N$ と情報族 $(\mathcal F_t)$ を考える。写像 $\tau:\Omega\to\{0,\ldots,N\}$ が停止時刻であるとは、各時点 $t$ で次の条件を満たすことをいう。
+
+$
+\{\tau=t\}\in\mathcal F_t\qquad (t=0,1,\ldots,N).
+$
+
+> $t$ 以降 $N$ までの間に行使する停止時刻の集合を $\mathcal T_{t,N}$ と書く。
 <!-- formal-statement-end -->
 
 条件 $\{\tau=t\}\in\mathcal F_t$ は、時点 $t$ に行使するかをその場で判定できることを意味します。$\{\tau\le t\}=\bigcup_{j=0}^t\{\tau=j\}$ も $\mathcal F_t$ に属し、逆向きには $\{\tau=t\}=\{\tau\le t\}\setminus\{\tau\le t-1\}$（$t=0$ ではそのまま）で同値です。
