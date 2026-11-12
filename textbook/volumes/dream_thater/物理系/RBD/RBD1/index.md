@@ -46,6 +46,8 @@ $$
 <!-- definition-example-start: def-rbd1-proper-rotation -->
 ### 例：四分の一回転と鏡映の判別
 
+**定義の確認**
+
 $z$ 軸の正方向から見て反時計回りの $90^\circ$ 回転を
 
 $$
@@ -90,6 +92,8 @@ $$
 
 <!-- definition-example-start: def-rbd1-configuration -->
 ### 例：四つの標識点を一度に移動する
+
+**定義の確認**
 
 基準重心 $X_C=0$ とし、$c=(2,1,3)^{\mathsf T}$、前節の $Q\in SO(3)$ を取ります。標識点 $X_0=0$、$X_1=e_1$、$X_2=e_2$、$X_3=e_3$ について
 
