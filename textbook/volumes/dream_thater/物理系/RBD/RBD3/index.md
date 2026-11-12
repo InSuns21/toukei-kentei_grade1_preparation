@@ -8,7 +8,7 @@
 
 [RBD2 の有限回転](../RBD2/index.md#thm-rbd2-rodrigues)では一時刻の姿勢を扱いました。しかし「回る速さ」は一つの時刻の行列だけでは分かりません。実験室では棒の先端が動き、棒に固定された観測者には同じ先端が静止して見えます。この違いを同じ計算で記述するのが本講の目標です。
 
-時間区間 $I\subset\mathbb R$ 上で $R:I\to SO(3)$ を少なくとも $C^2$ 級とします。時刻 $t$ での物体固定正規直交基底の空間成分を $R$ の三列とし、任意の幾何学的ベクトル $a$ の空間・物体成分をそれぞれ $a_s,a_b$ と書きます。従って
+時間区間 $I\subset\mathbb R$ 上で $R:I\to SO(3)$ を少なくとも $C^2$ 級とします。ここで $SO(3)$ は [RBD1 の正しい回転行列](../RBD1/index.md#def-rbd1-proper-rotation)の集合で、$R^{\mathsf T}R=RR^{\mathsf T}=I_3$、$\det R=1$ を満たします。上点 $\dot{\phantom R}$ は時刻 $t$ による常微分、すなわち $\dot R=dR/dt$ を表し、$R^{\mathsf T}$ の上付き $\mathsf T$ は転置を表します。時刻 $t$ での物体固定正規直交基底の空間成分を $R$ の三列とし、任意の幾何学的ベクトル $a$ の空間・物体成分をそれぞれ $a_s,a_b$ と書きます。従って
 
 $$
 a_s(t)=R(t)a_b(t),\qquad a_b(t)=R(t)^{\mathsf T}a_s(t).
@@ -20,7 +20,7 @@ $$
 \dot R^{\mathsf T}R+R^{\mathsf T}\dot R=0.
 $$
 
-そこで $R^{\mathsf T}\dot R$ と $\dot RR^{\mathsf T}$ は転置を取ると負になる、すなわち反対称行列です。[RBD2 のハット記法](../RBD2/index.md#def-rbd2-hat)により、三次元の反対称行列は一意なベクトルに対応します。
+この式から $(R^{\mathsf T}\dot R)^{\mathsf T}=-R^{\mathsf T}\dot R$ です。また $RR^{\mathsf T}=I_3$ の微分は $\dot RR^{\mathsf T}+R\dot R^{\mathsf T}=0$ であり、$(\dot RR^{\mathsf T})^{\mathsf T}=-\dot RR^{\mathsf T}$ も従います。したがって両者は反対称行列です。[RBD2 のハット記法](../RBD2/index.md#def-rbd2-hat)により、三次元の反対称行列は一意なベクトルに対応します。
 
 <a id="def-rbd3-angular-velocity"></a>
 
@@ -43,7 +43,7 @@ $$
 <!-- definition-example-start: def-rbd3-angular-velocity -->
 ### 直接例：時間とともに角度が変わる円板
 
-$R(t)=R_z(\theta(t))$、$\theta\in C^2(I)$ とします。$c=\cos\theta,s=\sin\theta$ と略記すると
+$R(t)=R_z(\theta(t))$、$\theta\in C^2(I)$ とします。[RBD2 の軸角表示](../RBD2/index.md#def-rbd2-axis-angle)から $R$ は $e_1$ を $\cos\theta\,e_1+\sin\theta\,e_2$、$e_2$ を $-\sin\theta\,e_1+\cos\theta\,e_2$、$e_3$ を $e_3$ に写します。したがって、基底の像を列に並べて次の行列を得ます。三列は正規直交し、$\det R=\cos^2\theta+\sin^2\theta=1$ なので、各時刻の $R\in SO(3)$ と $C^1$ 級という定義の仮定も満たします。$c=\cos\theta,s=\sin\theta$ と略記すると
 
 $$
 R=\begin{pmatrix}c&-s&0\\s&c&0\\0&0&1\end{pmatrix},
@@ -230,7 +230,7 @@ $$
 \boxed{v_s=\dot c_s+R(\dot\rho_b+\omega_b\times\rho_b)}.
 $$
 
-加速度の二階微分では、**成分が変わる効果**と**基底が回る効果**が双方の速度項に現れます。
+加速度の二階微分では、**成分が変わる効果**と**基底が回る効果**が双方の速度項に現れます。特に、回る基底に対する速度 $\dot\rho_b$ と角速度 $\omega_b$ の組合せから生じる横向きの項を **Coriolis加速度**と呼びます。原点の並進、角速度の変化、回転軸へ向かう加速度と区別して計算します。
 
 <a id="thm-rbd3-rotating-acceleration"></a>
 
@@ -329,7 +329,7 @@ $$
 \begin{pmatrix}-\sin\Omega t\\\cos\Omega t\\0\end{pmatrix}
 $$
 
-と同じ結果になります。$\dot s\ne0$ で初めて横向きのCoriolis項が現れます。物体固定点（$\dot s=0$）ならこの項はありません。
+と同じ結果になります。Coriolis項は $2\Omega\dot s\,e_2$ であり、$\Omega\ne0$ かつ $\dot s\ne0$ の場合に横向きの加速度が現れます。物体固定点（$\dot s=0$）ならこの項はありません。
 
 ## 6. 見かけの力を本当の外力と区別する
 
@@ -376,7 +376,17 @@ $$
 この式の $m\ddot\rho_b$ 以外を右辺へ移すだけで得られます。実際の外力は $R^{\mathsf T}F_s$ の一項であり、残りは座標系の選択による量です。
 <!-- proof-end -->
 
-反例になる典型的な誤りは、回転系で静止する粒子を「加速度がないから力もない」と判断することです。$\rho_b$ が一定でも慣性系での加速度は通常 $\omega_s\times(\omega_s\times r_s)$ であり、現実の拘束力がそれを供給する必要があります。
+典型的な誤りは、回転系で静止する粒子を「加速度がないから力もない」と判断することです。$\rho_b$ が一定でも、[加速度の分解定理](#thm-rbd3-rotating-acceleration)から、$r_s:=R\rho_b$ と置けば
+
+$
+\begin{aligned}
+a_s
+&=\ddot c_s+R\bigl(\dot\omega_b\times\rho_b+\omega_b\times(\omega_b\times\rho_b)\bigr)\\
+&=\ddot c_s+\dot\omega_s\times r_s+\omega_s\times(\omega_s\times r_s).
+\end{aligned}
+$
+
+最後の等号では [角速度の空間・物体対応](#prop-rbd3-angular-conjugacy)の $\omega_s=R\omega_b$ と $\dot\omega_s=R\dot\omega_b$、および回転によるベクトル積の保存を使いました。原点が等速運動で $\ddot c_s=0$、角速度ベクトルが一定で $\dot\omega_s=0$ の場合に限り、向心加速度 $\omega_s\times(\omega_s\times r_s)$ だけが残ります。一般には並進加速度や角加速度の項もあり、それらを含む慣性系の加速度に必要な実力を供給しなければなりません。
 
 ---
 
