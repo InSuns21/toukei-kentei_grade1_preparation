@@ -11,10 +11,25 @@
 - [CTM5 の密度と質量保存](../CTM5/index.md#prop-ctm5-density-jacobian)：$\rho(x,t)>0$、$\rho_0(X)=J\rho(\chi(X,t),t)>0$、$J=\det F>0$、$F=D_X\chi$。単位は密度が kg/m$^3$、$F,J$ は無次元。
 - [CTM4 の速度勾配と変形速度](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)：$v(x,t)=\partial_t\chi(X,t)$、$L=\nabla_xv$、$D=(L+L^T)/2$。$D$ の単位は s$^{-1}$。
 - [CTM6 の面力](../CTM6/index.md#def-ctm6-traction)：現在配置の外向き単位法線 $n$ に対し、単位現在面積の力は $\sigma n$。$\sigma$ は Pa = N/m$^2$、$b$ は単位質量当たりの体積力 N/kg。古典的 Cauchy 連続体に対する[角運動量の帰結](../CTM7/index.md#prop-ctm7-angular-stress)から $\sigma=\sigma^T$ とする。
-- $D_tf:=\partial_t f+v\cdot\nabla_x f$ は物質点に沿う時間変化率である。$D_tv$ は物質加速度である。$\operatorname{div}_x$ は現在座標の発散、$\operatorname{Div}_X$ は基準座標の発散。
+- [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を、この章の空間速度 $v$ に対して $D_tf:=\partial_t f+v\cdot\nabla_x f$ と書く。$\partial_t f$ は現在位置 $x$ を固定した微分、$D_tf$ は同じ物質点に沿う変化率で、ベクトル場には成分ごとに作用する。$D_tv$ は物質加速度である。$\operatorname{div}_x$ は現在座標の発散、$\operatorname{Div}_X$ は基準座標の発散。
 - 時間は s、仕事・エネルギーは J = N m、仕事率・熱流率は W = J/s。内積 $A:B=\sum_{i,j}A_{ij}B_{ij}$ を使う。
+- $e_i$（$i=1,2,3$）は $\mathbb R^3$ の固定直交座標の標準基底であり、例えば $e_1=(1,0,0)^T$、$e_2=(0,1,0)^T$。物質ラベルと現在位置の両方をこの座標で成分表示する。
 
 この講でいう**温度** $T(x,t)>0$ は、熱的な状態を表す絶対温度（単位 K）である。温度と内部エネルギーの関係はまだ仮定しない。「温度が高いから必ずある向きへ熱が流れる」とする法則も、後で導入する材料固有の規則である。
+
+ここで空間表示の $D_tf$ と、基準表示の $\partial_t(f\circ\chi)$ の対応を確認する。滑らかなスカラー場 $f(x,t)$ に対し、$X$ を固定し $x=\chi(X,t)$ を動かして[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を使えば、
+
+$$
+\begin{aligned}
+\partial_t(f\circ\chi)(X,t)
+&=(\partial_t f)(\chi(X,t),t)
++\sum_{i=1}^{3}(\partial_{x_i}f)(\chi(X,t),t)\,\partial_t\chi_i(X,t)\\
+&=(\partial_t f+v\cdot\nabla_x f)(\chi(X,t),t)
+=(D_tf)(\chi(X,t),t).
+\end{aligned}
+$$
+
+最後の等式では $v(\chi(X,t),t)=\partial_t\chi(X,t)$ を使った。この対応は $f=e$ の内部エネルギーだけでなく、$f=k$ の運動エネルギーでも成立する。
 
 ## 1. エネルギーを分け、熱の出入りに符号を付ける
 
@@ -236,7 +251,7 @@ $$
 =\left(JF^{-1}(q\circ\chi)\right)\cdot N\,dA.
 $$
 
-このため基準面積当たりの外向き熱流束を $Q=JF^{-1}(q\circ\chi)$（W/m$^2$）と置く。$Q$ は基準法線 $N$ と内積を取る量で、同じ物理的な熱を表す。力の [第一 Piola 応力](../CTM8/index.md#def-ctm8-first-piola) $P=J(\sigma\circ\chi)F^{-T}$ とは行列の掛かる位置が違う。
+このため基準面積当たりの外向き熱流束を $Q=JF^{-1}(q\circ\chi)$（W/m$^2$）と置く。$Q$ は基準法線 $N$ と内積を取る量で、同じ物理的な熱を表す。力の [第一 Piola 応力](../CTM8/index.md#def-ctm8-first-piola) $P=J(\sigma\circ\chi)F^{-T}$ とは行列の掛かる位置が違う。以下、$\dot F=\partial_tF(X,t)$ は物質ラベル $X$ を固定した時間微分であり、[速度勾配と変形勾配の時間変化](../CTM4/index.md#prop-ctm4-velocity-deformation)に対応する。
 
 <a id="prop-ctm9-reference-energy"></a>
 
@@ -353,7 +368,20 @@ $F=\operatorname{diag}(2,3,1)$、$q=(4,5,0)^T$ W/m$^2$ は現在配置で一様�
 <!-- solution-start -->
 #### 詳細解答
 
-$J=2\cdot3\cdot1=6>0$、$F^{-1}=\operatorname{diag}(1/2,1/3,1)$。よって $Q=6(2,5/3,0)^T=(12,10,0)^T$ W/m$^2$。基準法線と内積を取り、$Q\cdot e_1=12$、$Q\cdot e_2=10$。現在面の面積倍率はそれぞれ $3$ と $2$ なので、$4\cdot3=12$、$5\cdot2=10$ と一致する。[Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)の面積倍率を確かめた。
+$J=2\cdot3\cdot1=6>0$、$F^{-1}=\operatorname{diag}(1/2,1/3,1)$ である。現在側の一様な $q$ を基準側に引き戻すと、
+
+$$
+Q=JF^{-1}q
+=6(2,5/3,0)^T=(12,10,0)^T\quad\text{W/m}^2.
+$$
+
+基準面 $N=e_1,e_2$ からの外向き流率密度は、それぞれ $Q\cdot e_1=12$、$Q\cdot e_2=10$ W/m$^2$ である。これが面積での判定と一致する理由も確かめよう。[Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)による現在面の面積倍率は $|JF^{-T}N|$ だから、
+
+$$
+JF^{-T}e_1=3e_1,\qquad JF^{-T}e_2=2e_2.
+$$
+
+したがって現在面での熱流束の法線成分と面積倍率を掛けると、$4\cdot3=12$、$5\cdot2=10$ となる。これは $Q\cdot N$ が表す**単位基準面積当たりの流率**に等しい。
 <!-- solution-end -->
 
 ### Level B
@@ -409,13 +437,21 @@ $\chi(X,t)=R(t)X$、$R(t)\in SO(3)$ は $C^2$ 級、密度は運動に沿って�
 <!-- solution-start -->
 #### 詳細解答
 
-まず $F=R$、$J=\det R=1$、$\dot F=\dot R$ である。$R^TR=I_3$ を時間で微分すると
+まず $F=R$、$J=\det R=1$、$\dot F=\dot R$ である。$R^TR=I_3$ より $X=R^Tx$ である。同じ物質点の速度を現在座標で書き直し、$x$ で微分すると、
 
 $$
-\dot R^TR+R^T\dot R=0.
+v(x,t)=\partial_t\chi(R^Tx,t)=\dot RR^Tx,\qquad
+L=\nabla_xv=\dot RR^T.
 $$
 
-右と左から $R$、$R^T$ を掛けると $(\dot RR^T)^T=-\dot RR^T$。ゆえに $L=\dot RR^T$ は反対称、$D=(L+L^T)/2=0$。[CTM3 の線素長さの判定](../CTM3/index.md#prop-ctm3-length-criterion)とも整合する。$\sigma:D=0$ である。
+次に $RR^T=I_3$ を時間で微分する。この微分は $X$ 固定の $F$ の微分と区別し、$R(t)$ の通常の時間微分として行う。
+
+$$
+\dot RR^T+R\dot R^T=0,\qquad
+L^T=R\dot R^T=-\dot RR^T=-L.
+$$
+
+ゆえに $L$ は反対称、$D=(L+L^T)/2=0$。[CTM3 の線素長さの判定](../CTM3/index.md#prop-ctm3-length-criterion)とも整合する。したがって $\sigma:D=0$ であり、回転だけでは応力による内部仕事率を生まない。
 
 現在熱流束 $q_0$ は空間一定だから $\operatorname{div}_xq_0=0$。基準熱流束は
 
