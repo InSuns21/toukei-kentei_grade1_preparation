@@ -5,6 +5,7 @@ prerequisites:
   - AQFT3
   - HPDE22
   - HPDE23
+  - QFT1
 forward_references: []
 concepts:
   - id: aqft.kg-local-test-functions
@@ -36,7 +37,7 @@ concepts:
     name: 試験関数商のPoincaré共変性
     kind: proposition
     introduction: formal
-    requires: [aqft.kg-local-quotient, aqft.poincare-covariance, hpde.causal-green-uniqueness]
+    requires: [aqft.kg-local-quotient, aqft.poincare-covariance, qft.real-scalar-field, hpde.causal-green-uniqueness]
   - id: aqft.kg-spacelike-pairing
     name: 空間的に分離した源の伝播子積分は零
     kind: proposition
