@@ -23,13 +23,15 @@ $$
 \nabla_E^2\phi=\frac1{L^2}\left[z^2\partial_z^2\phi-(d-1)z\partial_z\phi+z^2\Delta_x\phi\right].
 $$
 
-ここで $\Delta_x=\sum_{i=1}^d\partial_{x_i}^2$ は境界座標 $x=(x_1,\ldots,x_d)$ に作用するLaplace作用素です。境界波数ベクトル $k=(k_1,\ldots,k_d)\in\mathbb R^d$（周期箱では離散波数）を選び、複素Fourierモード $\phi(z,x)=f_k(z)e^{ik\cdot x}$ を考えます。実スカラー場は $k$ と $-k$ の複素共役な成分を組み合わせて表せます。各 $i$ について $\partial_{x_i}^2e^{ik\cdot x}=-k_i^2e^{ik\cdot x}$ なので $\Delta_xe^{ik\cdot x}=-|k|^2e^{ik\cdot x}$ です。以下、$f_k'=df_k/dz$、$f_k''=d^2f_k/dz^2$ とし、方程式を代入・整理すると
+ここで $\Delta_x=\sum_{i=1}^d\partial_{x_i}^2$ は境界座標 $x=(x_1,\ldots,x_d)$ に作用するLaplace作用素です。境界波数ベクトル $k=(k_1,\ldots,k_d)\in\mathbb R^d$（周期箱では離散波数）を選び、複素Fourierモード $\phi(z,x)=f_k(z)e^{ik\cdot x}$ を考えます。ここで $i^2=-1$、$k\cdot x=\sum_{i=1}^dk_ix_i$ です。
+
+実スカラー場は $k$ と $-k$ の複素共役な成分を組み合わせて表せます。各 $i$ について $\partial_{x_i}^2e^{ik\cdot x}=-k_i^2e^{ik\cdot x}$ なので $\Delta_xe^{ik\cdot x}=-|k|^2e^{ik\cdot x}$ です。以下、$f_k'=df_k/dz$、$f_k''=d^2f_k/dz^2$ とし、方程式を代入・整理すると
 
 $$
 z^2 f_k''-(d-1)zf_k'-(|k|^2z^2+m^2L^2)f_k=0. 
 $$
 
-まず $k=0$ なら冪 $f=z^\alpha$ を代入して厳密な解を探せます。$f'=\alpha z^{\alpha-1}$、$f''=\alpha(\alpha-1)z^{\alpha-2}$ なので、左辺は
+まず $k=0$ では $f=f_0$ と略記し、冪 $f(z)=z^\alpha$ を代入して厳密な解を探せます。$f'=\alpha z^{\alpha-1}$、$f''=\alpha(\alpha-1)z^{\alpha-2}$ なので、左辺は
 
 $$
 \{\alpha(\alpha-1)-(d-1)\alpha-m^2L^2\}z^\alpha
@@ -173,14 +175,7 @@ $$
 
 ## 3. 二つのモードはどちらも正規化できるか
 
-BF下限以上でも、二つの解を境界で同じように許せるとは限りません。ここでいう**正規化可能性**は作用の通常の $L^2$ 積分ではなく、Lorentz場の固定時刻のKlein–Gordon（KG）内積について調べます。実スカラーの解を複素化して正周波数成分を扱うとき、二つの解 $\phi_1,\phi_2$ のKG内積を
-
-$$
-(\phi_1,\phi_2)_{\mathrm{KG}}
-=i\int_{\Sigma_t}\sqrt h\,n^\mu\left(\overline{\phi_1}\,\partial_\mu\phi_2-(\partial_\mu\overline{\phi_1})\phi_2\right)d^dy
-$$
-
-とします。$\Sigma_t$ は $t$ を固定した空間断面、$h$ はその誘導計量の行列式、$n^\mu$ は未来向き単位法線、$d^dy=dz\,d^{d-1}\boldsymbol x$ です。内積の保存には境界流束を消す条件が別途必要です。
+BF下限以上でも、二つの解を境界で同じように許せるとは限りません。ここでいう**正規化可能性**は作用の通常の $L^2$ 積分ではなく、Lorentz場の固定時刻のKlein–Gordon（KG）内積について調べます。
 
 時間座標 $t$ を持つLorentz Poincaré計量を
 
@@ -188,7 +183,16 @@ $$
 ds_L^2=\frac{L^2}{z^2}(-dt^2+dz^2+d\boldsymbol x^2)
 $$
 
-とします。$\boldsymbol x$ は $d-1$ 個の空間座標です。$t=\mathrm{const}$ の面の体積密度は $\sqrt h=L^d z^{-d}$、未来向き単位法線は $n^t=z/L$。よってKG内積に現れる密度は $\sqrt h\,n^t=L^{d-1}z^{1-d}$ です。
+とします。$\boldsymbol x$ は $d-1$ 個の空間座標です。
+
+実スカラーの解を複素化して正周波数成分を扱うとき、二つの解 $\phi_1,\phi_2$ のKG内積を
+
+$$
+(\phi_1,\phi_2)_{\mathrm{KG}}
+=i\int_{\Sigma_t}\sqrt h\,n^\mu\left(\overline{\phi_1}\,\partial_\mu\phi_2-(\partial_\mu\overline{\phi_1})\phi_2\right)d^dy
+$$
+
+とします。$\Sigma_t$ は $t$ を固定した空間断面、$h$ はその誘導計量の行列式、$n^\mu$ は未来向き単位法線、$d^dy=dz\,d^{d-1}\boldsymbol x$ です。内積の保存には境界流束を消す条件が別途必要です。$t=\mathrm{const}$ の面の体積密度は $\sqrt h=L^d z^{-d}$、未来向き単位法線は $n^t=z/L$。よってKG内積に現れる密度は $\sqrt h\,n^t=L^{d-1}z^{1-d}$ です。
 
 正周波数 $\omega>0$ の一つの分離モードを $\phi=e^{-i\omega t}f(z)v(\boldsymbol x)$ とし、$v$ の空間ノルムを有限に取ります。同じ正周波数モードをKG内積の両方に入れると、$\overline\phi\,\partial_t\phi-(\partial_t\overline\phi)\phi=(-i\omega-i\omega)|\phi|^2=-2i\omega|\phi|^2$ です。外側の $i$ を掛けて $2\omega|\phi|^2$ となるので、空間方向の有限なノルムを取り除いた径方向部分は正の定数 $2\omega L^{d-1}$ を除き $\int z^{1-d}|f|^2dz$ となります。なぜこの重みが必要なのかは、計量から求めた $\sqrt h\,n^t$ にあり、Euclid体積密度 $z^{-d-1}$ と取り違えません。
 
@@ -464,7 +468,26 @@ $f=z+az^3+\cdots$ を代入すると $z$ の係数は $0-3+3=0$、$z^3$ の係�
 
 $|k|>0$ では $a$ をどう選んでも消せず、冪級数だけの仮定が破れます。
 
-対数の引数を無次元化する $\ell>0$ を選び、$g(z)=z^3\log(z/\ell)$ とすると $g'=z^2(3\log(z/\ell)+1)$、$g''=z(6\log(z/\ell)+5)$。従って $z^2g''-3zg'+3g=2z^3$ であり、$f=z+(|k|^2/2)z^3\log(z/\ell)+b z^3+\cdots$ とすれば $z^3$ 項で $2(|k|^2/2)-|k|^2=0$ となります。$b$ はこの次数では決まりません。
+対数の引数を無次元化する $\ell>0$ を選び、$g(z)=z^3\log(z/\ell)$ と置きます。$z$ で微分すると
+
+$$
+g'=z^2\bigl(3\log(z/\ell)+1\bigr),\qquad
+g''=z\bigl(6\log(z/\ell)+5\bigr)
+$$
+
+なので、径方向方程式のうち波数を含まない作用素に代入して
+
+$$
+z^2g''-3zg'+3g=2z^3
+$$
+
+を得ます。したがって
+
+$$
+f(z)=z+\frac{|k|^2}{2}z^3\log(z/\ell)+bz^3+\cdots
+$$
+
+とすれば、$z^3$ の係数は $2(|k|^2/2)-|k|^2=0$ です。$b$ はこの次数では決まりません。
 
 $k=0$ なら障害 $-|k|^2$ は零で、$z$ と $z^3$ は厳密解です。
 
