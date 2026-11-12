@@ -4,6 +4,10 @@ coverage: complete
 prerequisites:
   - AQFT1
   - OA3
+  - OA5
+  - VN2
+  - QM4
+  - GRP3
 forward_references: []
 concepts:
   - id: aqft.local-cstar-assignment
@@ -22,12 +26,12 @@ concepts:
     name: Einstein局所性
     kind: definition
     introduction: formal
-    requires: [aqft.local-cstar-assignment, aqft.spacelike-separated-regions]
+    requires: [aqft.local-cstar-assignment, aqft.spacelike-separated-regions, quantum.commutator]
   - id: aqft.poincare-net-covariance
     name: Poincaré共変性
     kind: definition
     introduction: formal
-    requires: [aqft.local-cstar-assignment, aqft.poincare-covariance]
+    requires: [aqft.local-cstar-assignment, aqft.poincare-covariance, algebra.group-action]
   - id: aqft.haag-kastler-net
     name: Haag–Kastler型の局所C*-net
     kind: definition
@@ -37,7 +41,7 @@ concepts:
     name: 因果補集合と相対可換子
     kind: proposition
     introduction: formal
-    requires: [aqft.einstein-locality, aqft.causal-complement]
+    requires: [aqft.einstein-locality, aqft.causal-complement, operator-algebra.commutant]
   - id: aqft.commutative-function-net
     name: 可換関数netの三公理
     kind: theorem
