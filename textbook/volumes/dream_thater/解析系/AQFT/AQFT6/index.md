@@ -37,6 +37,8 @@ $$
 
 ## 2. Weylの正準交換関係
 
+[QM8のWeyl関係](../../QM/QM8/index.md#def-qm8-weyl-relations)では、位置と運動量という一組の作用素から有界な指数作用素を作りました。ここではその関係を、無限次元にもなる自由Klein–Gordon場のシンプレクティック商へ拡張します。
+
 二つの自由度を「足す」操作を、そのまま作用素の積へ移すと $\sigma$ が消えてしまいます。足し算に複素位相を付けるのがWeyl関係です。$\sigma$ が実数値だから位相の絶対値は $1$ です。
 
 <a id="def-aqft6-weyl-ccr"></a>
@@ -165,7 +167,7 @@ $$
 \mathfrak A_{\mathrm W}(O)
 =C^*(\{L(F):F\in\mathcal V(O)\})\subset B(\ell^2(\mathcal V))
 $$
-> を対応させる。全域の環は $\mathfrak A_{\mathrm W}=C^*(\{L(F):F\in\mathcal V\})$ である。各局所環は同じ単位元 $I$ を共有し、$\mathfrak A_{\mathrm W}(\varnothing)=\mathbb CI$ とする。
+> を対応させる。全域の環は $\mathfrak A_{\mathrm W}=C^*(\{L(F):F\in\mathcal V\})$ である。各領域のC*代数は同じ単位元 $I$ を共有し、$\mathfrak A_{\mathrm W}(\varnothing)=\mathbb CI$ とする。
 <!-- formal-statement-end -->
 
 局所元は全域の商 $\mathcal V$ の元です。$f'=f+P\varphi$（$\varphi\in\mathcal D$）なら $[f']=[f]$ なので $L([f'])=L([f])$、つまり代表元を変えても作用素は変わりません。$\varphi$ の台が $O$ に含まれない場合、$f'$ 自身の台が外へ拡がっても、**$f$ という局所代表がある**ため $[f']\in\mathcal V(O)$ です。
@@ -177,7 +179,7 @@ $O_r=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<r\}$ と $O_R$（$0<r<R$）を取�
 $$
 [f]\in\mathcal V(O_r)\subset\mathcal V(O_R).
 $$
-従って $L([f])$ は両局所環の生成元です。$-f$ も局所源だから随伴 $L([f])^*=L([-f])$ も入ります。生成された環は和・積・随伴とノルム極限で閉じ、単位元を共有します。空集合では $\mathcal D(\varnothing)=\{0\}$ より $\mathfrak A_{\mathrm W}(\varnothing)=\mathbb CI$ です。
+従って $L([f])$ は両領域のC*代数の生成元です。$-f$ も局所源だから随伴 $L([f])^*=L([-f])$ も入ります。生成された環は和・積・随伴とノルム極限で閉じ、単位元を共有します。空集合では $\mathcal D(\varnothing)=\{0\}$ より $\mathfrak A_{\mathrm W}(\varnothing)=\mathbb CI$ です。
 <!-- definition-example-end -->
 
 <a id="thm-aqft6-haag-kastler"></a>
@@ -244,7 +246,7 @@ $$
 $$
 L(tF)L(sF)=L((t+s)F)
 $$
-となるので、各方向 $F$ ごとには一パラメータのユニタリ**群**が得られます。しかし群の法則は連続性を含みません。
+となるので、各方向 $F$ ごとにはユニタリ作用素の一パラメータ群が得られます。しかし群の法則は連続性を含みません。
 
 <a id="def-aqft6-regular-representation"></a>
 
@@ -437,7 +439,7 @@ $f\in\mathcal D(O)$、$\varphi\in\mathcal D$、$f'=f+P\varphi$ とする。$f'$ 
 $$
 [f']=[f]+[P\varphi]=[f].
 $$
-従って $L([f'])=L([f])$ です。元の $f\in\mathcal D(O)$ から $[f]\in q(\mathcal D(O))=\mathcal V(O)$ なので、[局所netの定義](#def-aqft6-local-weyl-net)により $L([f])$ は生成元として局所環に属します。局所性の判定は「**局所支持をもつ代表が存在する**」ことであり、すべての代表の台が $O$ に含まれることではありません。
+従って $L([f'])=L([f])$ です。元の $f\in\mathcal D(O)$ から $[f]\in q(\mathcal D(O))=\mathcal V(O)$ なので、[自由Klein–Gordon場の局所Weyl C*net](#def-aqft6-local-weyl-net)により $L([f])$ は生成元として領域のC*代数に属します。局所性の判定は「**局所支持をもつ代表が存在する**」ことであり、すべての代表の台が $O$ に含まれることではありません。
 <!-- solution-end -->
 
 <a id="ex-aqft6-b03"></a>
@@ -514,7 +516,7 @@ $$
 \|[A,B]\|
 \le2\|A-A_n\|\|B\|+2\|A_n\|\|B-B_n\|\to0
 $$
-なので、閉包を取った局所環全体も可換です。
+なので、閉包を取った領域のC*代数全体も可換です。
 
 (iv) [AQFT5の非退化性の直接例](../AQFT5/index.md#def-aqft5-causal-symplectic)では、コンパクト初期データ $(a,0)$ と $(0,a)$ の解に対応する $F,G$ を取り
 $$
