@@ -1,5 +1,6 @@
 import { access, readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { runInNewContext } from 'node:vm';
 import { loadDreamTheaterIndex } from './lib/dream-theater-public-catalog.mjs';
 
 const root = process.cwd();
@@ -39,7 +40,7 @@ async function recursiveFiles(baseDir, predicate, relativeDir = '') {
 
 // Markdown link patterns must not be applied inside KaTeX or code spans:
 // expressions such as \Bigr](\varphi_t) are not links.
-function extractLinks(markdown) {
+function outsideCodeAndMath(markdown) {
   const withoutCode = markdown.replace(
     /(?:\x60{3,}[\s\S]*?\x60{3,}|\x60[^\x60\n]*\x60)/g,
     segment => segment.replace(/[^\n]/g, ' '),
@@ -48,6 +49,11 @@ function extractLinks(markdown) {
     /(?<!\\)\$\$[\s\S]*?(?<!\\)\$\$|(?<!\\)\$(?!\$)(?:\\[^\n]|[^\\$\n])+(?<!\\)\$/g,
     segment => segment.replace(/[^\n]/g, ' '),
   );
+  return withoutMath;
+}
+
+function extractLinks(markdown) {
+  const withoutMath = outsideCodeAndMath(markdown);
   // Images resolve relative to their Markdown page and are validated by
   // validate-pages-images.mjs. They are not root-oriented navigation links.
   return [...withoutMath.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)]
@@ -63,7 +69,7 @@ function extractLinks(markdown) {
 function validateStandaloneHtmlRoutes(markdown, sourceLabel, errors) {
   // Docsify ordinarily turns Markdown links into #/ routes, which cannot run
   // a standalone HTML application's module scripts.
-  for (const match of markdown.matchAll(/\]\(([^\s)]+\.html?)(\s+(['"])([^'"]*)\3)?\)/gi)) {
+  for (const match of outsideCodeAndMath(markdown).matchAll(/\]\(([^\s)]+\.html?)(\s+(['"])([^'"]*)\3)?\)/gi)) {
     const href = match[1];
     if (/^(?:https?:)?\/\//i.test(href)) continue;
     const directives = match[4] || '';
@@ -81,6 +87,7 @@ function testExtractLinks() {
     '$$\\left[x\\right](\\varphi_t)$$',
     '\x60[code](not-a-link.md)\x60',
     '[second](textbook/second.md#anchor)',
+    '\x60[fake](textbook/no-player.html)\x60',
     '[player](textbook/ori-v12-player.html \':ignore\')'
   ].join('\n');
   const got = extractLinks(source);
@@ -207,6 +214,33 @@ const [sidebar, indexHtml, homeMarkdown] = await Promise.all([
 ]);
 
 const errors = [];
+
+// Old /#/.../player.html bookmarks must continue to open the real HTML file.
+const redirectScript = indexHtml.match(/<script data-standalone-html-redirect>([\s\S]*?)<\/script>/)?.[1];
+if (!redirectScript) {
+  errors.push('Missing old Docsify standalone-HTML route redirect in Pages shell.');
+} else {
+  const base = 'https://example.github.io/toukei-kentei_grade1_preparation/';
+  const player = 'textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/ORI/ORI22/assets/ori-v12-player.html';
+  const cases = [
+    ['#/' + player, base + player],
+    ['#/textbook/volumes/dream_thater/geometry/ORI/ORI22/index.md', null],
+    ['#/textbook/volumes/../secret.html', null],
+    ['#/textbook/volumes/%2e%2e/secret.html', null],
+  ];
+  for (const [hash, expected] of cases) {
+    let redirected = null;
+    const location = { hash, href: base + hash, replace: url => { redirected = url; } };
+    try {
+      runInNewContext(redirectScript, { location, URL }, { timeout: 1000 });
+      if (redirected !== expected) {
+        errors.push('Standalone HTML redirect mismatch: ' + hash + ' -> ' + redirected);
+      }
+    } catch (error) {
+      errors.push('Standalone HTML redirect failed for ' + hash + ': ' + error.message);
+    }
+  }
+}
 const resolvedSidebarTargets = new Set();
 const duplicateTargets = new Set();
 
