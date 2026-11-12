@@ -111,7 +111,7 @@ $$
 <a id="def-holo23-flm"></a>
 
 <!-- formal-statement-start -->
-> **処方（FLMの一次量子補正：条件付き）**  
+> **定義（FLMの一次量子補正：条件付き処方）**  
 > 半古典重力双対、対象領域の古典RT/HRT面 $\gamma_A^{(0)}$ の存在と適切な選択、バルクの量子状態、cutoffと局所反項の整合、鞍点まわりの摂動展開を仮定する。境界エントロピーの $G_N$ 展開は模式的に
 >
 $$
@@ -182,14 +182,16 @@ $$
 
 左辺に仮定の漸近式を代入して同じ面積 $A_0$ の項を集めます。
 $$
-\begin{aligned}
 \frac{A_0}{4G_{\rm bare}(a)}+S_{\rm bulk}^{(a)}
-&=\frac{A_0}{4G_{\rm bare}(a)}
- +\frac{\alpha A_0}{a^{d-1}}+s_{\rm fin}+o(1)\\
-&=A_0\left(\frac{1}{4G_{\rm bare}(a)}
- +\frac{\alpha}{a^{d-1}}\right)+s_{\rm fin}+o(1)\\
-&=\frac{A_0}{4G_{\rm ren}}+s_{\rm fin}+o(1).
-\end{aligned}
+=\frac{A_0}{4G_{\rm bare}(a)}+\frac{\alpha A_0}{a^{d-1}}+s_{\rm fin}+o(1)
+$
+
+$
+=A_0\left(\frac{1}{4G_{\rm bare}(a)}+\frac{\alpha}{a^{d-1}}\right)+s_{\rm fin}+o(1)
+$
+
+$
+=\frac{A_0}{4G_{\rm ren}}+s_{\rm fin}+o(1)
 $$
 最後の行には定義した繰り込み係数を代入しました。$a\to0$ で有限な $G_{\rm ren}$ と $s_{\rm fin}$ を保つよう裸結合を調整することが前提です。裸の $S_{\rm bulk}^{(a)}$ 単独を極限へ持ち込んだわけではありません。
 <!-- proof-end -->
