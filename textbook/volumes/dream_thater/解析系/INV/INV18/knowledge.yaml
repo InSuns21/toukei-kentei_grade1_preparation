@@ -42,4 +42,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（二観測による二係数の局所安定識別）"]
-    requires: [inverse.pde-adjoint-gradient, inverse.finite-full-rank-identifiability, inverse.pde-observation-derivative]
+    requires: [inverse.finite-full-rank-identifiability, inverse.pde-observation-derivative]
