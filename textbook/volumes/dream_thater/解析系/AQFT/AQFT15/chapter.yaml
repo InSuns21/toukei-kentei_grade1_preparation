@@ -1,0 +1,47 @@
+id: "AQFT15"
+title: "Type I/II/III因子"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT14
+  - AQFT13
+  - AQFT9
+  - VN7
+  - VN5
+  - VN2
+official_scope: []
+learning_objectives:
+  - VN7のMurray–von Neumann射影同値・有限射影・最小射影を使ってType I/II/IIIを判定できる
+  - 忠実・正規・半有限トレースの各条件を区別し有限トレース射影が有限であると証明できる
+  - Type III因子には忠実半有限トレースが存在しないことをスペクトル射影の途中式から証明できる
+  - 有限台置換群の群因子について有限トレース・因子性・最小射影不在を検算しII_1例を説明できる
+  - 周囲のB(H)の密度作用素とType III局所環内部のトレース密度を混同せずに判定できる
+  - Type III局所環がB(K)テンソル単位という鋭いType I分解を持てない理由を最小射影から証明できる
+  - 局所性・因子性・巡回分離性からType III性を無条件に推論しない
+definitions:
+  - { id: AQFT15-DEF-01, name: "忠実・正規・半有限トレース" }
+theorems:
+  - { id: AQFT15-PROP-01, name: "有限トレース射影は有限射影" }
+  - { id: AQFT15-THM-01, name: "Type III因子のトレース障害" }
+  - { id: AQFT15-PROP-02, name: "有限台置換群が作るII_1因子" }
+  - { id: AQFT15-PROP-03, name: "Type III局所環と周囲の階数1密度作用素" }
+  - { id: AQFT15-PROP-04, name: "Type III因子に対するType Iテンソル分解の障害" }
+canonical_examples:
+  - M3(C)のrank判定とB(l2)の片側シフトでType I_n/I_inftyを区別
+  - M2(C)の通常の行列トレースについて忠実性・正規性・半有限性を直接検証
+  - 有限台置換群の左正則表現でII_1因子を構成しtraciality・factor性・最小射影不在を証明
+  - Type III因子のベクトル状態をB(H)の階数1密度作用素で表し内部の射影との違いを検証
+  - Type I空間的テンソル分解がType IIIの射影構造と矛盾することを証明
+problem_patterns:
+  - AQFT15-MATRIX-FINITE-PROJECTION
+  - AQFT15-SHIFT-TYPE-I-INFINITY
+  - AQFT15-FNS-TRACE-MATRIX
+  - AQFT15-TYPE-III-NO-MINIMAL
+  - AQFT15-SEMIFINITE-SPECTRAL-CUTOFF
+  - AQFT15-AMBIENT-DENSITY
+  - AQFT15-ICC-CENTER
+  - AQFT15-LOCAL-TYPE-III-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 6 }
