@@ -1,7 +1,7 @@
 version: 1
 id: CAT
 title: "圏論 I〜IV"
-plan: textbook/plans_progress/DREAM_THEATER_CATEGORY_THEORY_I_IV_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_CATEGORY_THEORY_I_IV_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # CAT I: 12講、CAT II: 12講、CAT III: 10講、CAT IV: 6講。
