@@ -108,7 +108,7 @@ $$
 <a id="def-holo14-power-counterterms"></a>
 
 <!-- formal-statement-start -->
-> **定義（$1<\nu<2$ の最小反項）**  
+> **定義（勾配を含む最小反項）**  
 > 第0節のEuclid自由スカラーで $1<\nu<2$ とする。平坦なcutoff面に
 
 $$
@@ -404,7 +404,7 @@ $$
 +\int\sqrt{g_{(0)}}\,\langle\mathcal O\rangle\,\delta J\,d^dx
 $$
 
-> として応力とスカラー1点関数を定義する。$J$ の共形重みは $a=d-\Delta=d/2-\nu$ とする。
+> として応力とスカラー演算子の源応答を定義する。$J$ の共形重みは $a=d-\Delta=d/2-\nu$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo14-renormalized-responses -->
@@ -630,7 +630,7 @@ $$
 ### C1. 共鳴する自由スカラーを作用から相関まで再計算する
 
 - Level: C
-- 問題: 固定Euclid $AdS_3$ の $ds^2=L^2z^{-2}(dz^2+dx^2+dy^2)$、$d=2$、$\nu=1$（$m^2=0$）、源 $J\in C_c^\infty(\mathbb R^2)$ を考える。赤外減衰解と標準選択を採用し、(1) Fourierモードの境界展開と $H,B_\mu$、(2) 裸on-shell作用の対数発散、(3) 局所反項と有限作用、(4) 繰り込み済み1点・2点関数、(5) $\mu$ 変更とWardのトレース関係の適用条件を導け。
+- 問題: 固定Euclid $AdS_3$ の $ds^2=L^2z^{-2}(dz^2+dx^2+dy^2)$、$d=2$、$\nu=1$（$m^2=0$）、源 $J\in C_c^\infty(\mathbb R^2)$ を考える。赤外減衰解と標準選択を採用する。Fourierモードの境界展開から $H,B_\mu$ を求め、裸on-shell作用の対数発散を計算せよ。その後、局所反項と有限作用、繰り込み済みの1点・2点関数を求め、最後に $\mu$ 変更の効果とWardのトレース関係の適用条件を説明せよ。
 
 <!-- solution-start -->
 **詳細解答**：
