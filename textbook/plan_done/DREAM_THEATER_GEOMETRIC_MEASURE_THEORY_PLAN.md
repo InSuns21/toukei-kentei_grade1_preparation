@@ -37,7 +37,9 @@ GMT33着手日時: 2026-11-12 12:40 JST（二管の帯交差・無向角距離�
 GMT34着手日時: 2026-11-12 13:41 JST（高次元二tube交差・球面殻・bush法・古典的Minkowski次元下界）
 GMT35着手日時: 2026-11-12 16:01 JST（Kakeya最大作用素・平面対数L2評価・多尺度Hausdorff次元含意）
 GMT36着手日時: 2026-11-12 16:29 JST（放物線restriction、単一wave packet、tube交差・重複度、EOM074への読書導線）
-状態: in_progress（GMT1--GMT36 は実装・変更章査読済み。全系列横断監査が未完了のため本PLANは進行中）
+状態: completed（全36講実装・章別数学査読・追跡監査・系列横断の構成点検を完了。必要なPR CI/Pages gateの通過を条件にplan_doneへ移動）
+系列完了点検: 2026-11-12（GMT1--GMT36の36章がseries manifestでcompleted、実ディレクトリ36件・本文36件を確認。全章でformal statement・証明・詳細解答を検出し、重複anchorと章内Markdown anchor参照切れを検出せず。演習の旧章見出し形式と明示anchor形式を区別して確認。）
+追跡監査証跡: GMT1--GMT35の35件の対応する監査PRを個別に照合し、いずれもmerged（第I部 #2694, #2699, #2707, #2720, #2727, #2737, #2742, #2749；第II部 #2757, #2765, #2778, #2782, #2788, #2799, #2805, #2812, #2819, #2832, #2838, #2851；第III部 #2860, #2865, #2874, #2887, #2894, #2904, #2913, #2919, #2932, #2937；第IV部 #2954, #2958, #2965, #2976, #2988）。GMT36は本完了作業の全文監査で補正。第三者による独立査読は実施していない。
 
 ## 0. 中心問いと科目の射程
 
@@ -359,4 +361,4 @@ formal statementでは対象の可測性・次元・有限性、a.e.の参照測
 4. BV compactness/coarea→finite perimeter→reduced boundary→De Giorgi構造→Gauss--Green→等周・周長最小化の証明が閉じる。
 5. Besicovitch構成、tube overlap、Kakeya maximalからの次元含意を計算でき、HA11とEOM074へ正しく接続する。
 6. Preissの一般定理・currents/varifolds・Kakeya最新結果について、**証明済みの本科目範囲と停止線外**を読者が区別できる。
-7. 全講の主要定理・演習/詳細解答・定義順・リンクを査読し、変更に応じたCI/Pages検証を通した後にのみ、PLANをplans_progressからplan_doneへ移す。GMT36の講義実装後も全系列横断監査が残るため、現在はplans_progress/に保持する。
+7. GMT1--GMT35の全件追跡監査のmerged証跡とGMT36の全文監査・補修を照合し、系列manifest・36章本文・formal statement・証明・演習詳細解答・章内参照を横断点検した。章間参照・公開構築の機械ゲートも含めて当該完了PRのCI/Pagesが成功した後に限り、PLANを `textbook/plan_done/` へ移す。外部第三者による独立査読を実施したとは称しない。
