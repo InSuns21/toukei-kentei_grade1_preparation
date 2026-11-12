@@ -1,0 +1,42 @@
+chapter: U3-02
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01]
+forward_references: []
+concepts:
+  - id: finance.one-period-arbitrage
+    name: 1期間市場の裁定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1期間市場の裁定）"]
+    requires: [finance.one-period-binomial-market]
+  - id: finance.state-price
+    name: 状態価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態価格）"]
+    requires: [finance.two-state-replication]
+  - id: finance.state-price-representation
+    name: 状態価格による一意な複製費用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態価格による一意な複製費用）"]
+    requires: [finance.state-price, finance.two-state-replication]
+  - id: finance.one-period-no-arbitrage
+    name: 1期間二項市場の無裁定条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（1期間二項市場の無裁定条件）"]
+    requires: [finance.one-period-arbitrage, finance.state-price-representation]
+  - id: finance.one-period-risk-neutral-probability
+    name: 1期間のリスク中立確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1期間のリスク中立確率）"]
+    requires: [finance.one-period-no-arbitrage]
+  - id: finance.one-period-risk-neutral-pricing
+    name: リスク中立確率の一意性と評価公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（リスク中立確率の一意性と評価公式）"]
+    requires: [finance.one-period-risk-neutral-probability, finance.state-price-representation]
