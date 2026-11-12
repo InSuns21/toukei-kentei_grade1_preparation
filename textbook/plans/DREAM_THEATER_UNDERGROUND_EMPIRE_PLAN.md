@@ -4,7 +4,7 @@
 状態: planned（各応用科目の個別PLANとは別の案内）
 
 - [U2 確率ロボティクス：自己位置推定](DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)
-- [U3 数理ファイナンス：価格付け・最適執行](DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)
+- [U3 数理ファイナンス：価格付け・最適執行](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)
 - [U4 裁定機会：無裁定と統計的裁定](DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)
 - [U6 量子状態推定](DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md)
 
@@ -149,7 +149,7 @@ $$
 3. U2-03 particle filterからSLAM入口
 4. U3-01 1期間二項モデルと複製ポートフォリオ
 5. U3-02 無裁定条件と状態価格
-6. U3-03 多期間二項モデルと割引マルチンゲール（U3は[確定版68講PLAN](DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)に従い、二項モデル→PDE・期待値→数値計算→VaR/ES→最適執行まで展開する。HJB / viscosity の理論正本は最適制御・微分ゲーム計画）
+6. U3-03 多期間二項モデルと割引マルチンゲール（U3は[確定版68講PLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)に従い、二項モデル→PDE・期待値→数値計算→VaR/ES→最適執行まで展開する。HJB / viscosity の理論正本は最適制御・微分ゲーム計画）
 7. U4-01 静的裁定と凸最適化
 8. U4-02 無裁定とマルチンゲール測度
 9. U4-03 統計的裁定・共和分
