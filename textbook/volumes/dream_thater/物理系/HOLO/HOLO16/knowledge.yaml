@@ -1,0 +1,48 @@
+chapter: HOLO16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO15
+concepts:
+  - id: holography.thermofield-double
+    name: 熱場二重状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（熱場二重状態）"]
+    requires: [holography.boundary-canonical-thermal-state]
+  - id: holography.thermofield-partial-trace
+    name: TFDの片側縮約とエントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（TFDの片側縮約とエントロピー）"]
+    requires: [holography.thermofield-double]
+  - id: holography.btz-nonrotating-exterior
+    name: 非回転BTZ外部領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非回転BTZ外部領域）"]
+    requires: [holography.boundary-canonical-thermal-state]
+  - id: holography.btz-thermodynamics
+    name: 非回転BTZの温度と熱力学
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非回転BTZの温度と熱力学）"]
+    requires: [holography.btz-nonrotating-exterior]
+  - id: holography.btz-cft-thermal-match
+    name: 高温CFTとBTZの条件付き一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（高温CFTとBTZの条件付き一致）"]
+    requires: [holography.btz-thermodynamics, holography.brown-henneaux-central-charge]
+  - id: holography.btz-bridge-slice
+    name: 時間対称BTZ断面の橋
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間対称BTZ断面の橋）"]
+    requires: [holography.btz-nonrotating-exterior]
+  - id: holography.tfd-two-sided-correlator
+    name: TFDの二側相関と熱的解析接続
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（TFDの二側相関と熱的解析接続）"]
+    requires: [holography.thermofield-double, holography.thermofield-partial-trace]
