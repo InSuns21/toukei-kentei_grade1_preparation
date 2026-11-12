@@ -1,6 +1,6 @@
 # HOLO9 GKPWと2点関数
 
-[HOLO8の質量と漸近指数の命題](../HOLO8/index.md#prop-holo8-mass-dimension)から、自由スカラーの遅い境界係数が何を指定するかが分かりました。しかし、それだけでは境界の異なる二点 $x,y$ がどの程度相関するかは計算できません。[HOLO7のon-shell作用の境界表示](../HOLO7/index.md#prop-holo7-onshell-boundary)を使うにも、有限cutoffの値と無限遠での源を区別し、紫外発散を除かなければなりません。
+[質量と漸近指数の関係](../HOLO8/index.md#prop-holo8-mass-dimension)から、自由スカラーの遅い境界係数が何を指定するかが分かりました。しかし、それだけでは境界の異なる二点 $x,y$ がどの程度相関するかは計算できません。[HOLO7のon-shell作用の境界表示](../HOLO7/index.md#prop-holo7-onshell-boundary)を使うにも、有限cutoffの値と無限遠での源を区別し、紫外発散を除かなければなりません。
 
 本講の中心問いは「**境界源を指定すると、バルク内部の解を介して境界の2点関数の距離冪がどう生じるか**」です。境界から内部へ値を運ぶ核を構成し、その解を繰り込み済みの作用へ代入し、最後に源で2回微分します。CFTと重力の双対性そのものを数学的に証明するのではなく、**GKPW辞書を仮定した自由場の木レベル計算**を完結させます。
 
@@ -327,7 +327,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[繰り込み作用の変分命題](#prop-holo9-finite-action)と[GKPWの定義](#def-holo9-gkpw)により
+[繰り込み極限と境界応答](#prop-holo9-finite-action)を源方向に適用します。[本講で用いるGKPWの木レベル辞書](#def-holo9-gkpw)によって $W=-S_{\mathrm{ren}}$ とするので、
 
 $$
 \frac{\delta W[J]}{\delta J(x)}
@@ -572,7 +572,20 @@ $S_{\mathrm{ren}}\mapsto S_{\mathrm{ren}}+a\int J^2$ とすると $W\mapsto W-a\
 - 問題: $\phi_\epsilon=\epsilon^{\Delta_-}J+\epsilon^\Delta B[J]+o(\epsilon^\Delta)$ とする。$\epsilon>0$ のまま源に $\delta J$ を加えたとき、何が $\delta\phi_\epsilon$ に現れるか。単に $\phi_\epsilon=J$ と置いた場合、HOLO9の何が失われるか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 線形方程式なので $\delta B=B[\delta J]$ です。従って $\delta\phi_\epsilon=\epsilon^{\Delta_-}\delta J+\epsilon^\Delta B[\delta J]+o(\epsilon^\Delta)$。$z=\epsilon$ での場の値は源だけでなく非局所な応答を含みます。$\phi_\epsilon=J$ とすると主係数の $\epsilon^{\Delta_-}$ を取り違え、さらに $B[\delta J]$ という有限な変分寄与を落とします。その結果、反項が除くべき $\epsilon^{-2\nu}$ の発散次数も、有限な $2\nu B$ の係数も再現できなくなります。有限cutoffのDirichlet値と境界極限の源は[HOLO8の境界選択](../HOLO8/index.md#def-holo8-quantization-choices)の段階から異なる対象です。
+**詳細解答。** 線形方程式なので $\delta B=B[\delta J]$ です。従ってcutoff面の場の変分は
+
+$$
+\delta\phi_\epsilon
+=\epsilon^{\Delta_-}\delta J
++\epsilon^\Delta B[\delta J]
++o(\epsilon^\Delta)
+$$
+
+です。$z=\epsilon$ の場の値は源だけでなく非局所な応答を含みます。
+
+$\phi_\epsilon=J$ とすると、主要項の係数 $\epsilon^{\Delta_-}$ を取り違えます。加えて $B[\delta J]$ の寄与を落とすので、反項が除くべき $\epsilon^{-2\nu}$ の発散次数や、有限な $2\nu B$ の係数を再現できなくなります。
+
+有限cutoffのDirichlet値と境界極限の源は[HOLO8の境界選択](../HOLO8/index.md#def-holo8-quantization-choices)の段階から異なる対象です。
 <!-- solution-end -->
 
 <a id="ex-holo9-c1"></a>
