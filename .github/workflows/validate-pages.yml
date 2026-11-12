@@ -93,6 +93,19 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
 
+      - name: Validate all 15 ORI SVG films in real Chromium (Phase C and D)
+        if: steps.scope.outputs.full == 'true'
+        run: npm run validate:ori-svg-browser
+
+      - name: Upload ORI SVG real-browser keyframe screenshots
+        if: always() && steps.scope.outputs.full == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ori-svg-browser-review
+          path: _ori_svg_render_review/
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Validate ML I/II completed plan inventory and lab routes
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-ml-plan-completion.mjs
