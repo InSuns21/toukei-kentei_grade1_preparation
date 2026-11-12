@@ -228,7 +228,38 @@ $$
 
 ## 4. 極値が時間方向では最大、空間方向では最小になる局所計算
 
-静的な $T=0$ 半円で $X^2+z_0(X)^2=R^2$、$z_0(X)=\sqrt{R^2-X^2}$ とします。理想境界 $X=\pm R$ では $z_0=0$ となり、**半円全体の長さは発散**します。そこで $0<\epsilon<R$ を固定し、$a_\epsilon=\sqrt{R^2-\epsilon^2}$ として長さ $\mathcal L_\epsilon$ を区間 $[-a_\epsilon,a_\epsilon]$ で定義します。両端近くでは零になる滑らかな $f(X)$ を選び、支持が $(-a_\epsilon,a_\epsilon)$ に収まるようにします。$T(X)=\eta f(X)$ とだけ変形すればcutoff端点は動きません。$\eta$ を十分小さくすると、誘導計量は正のままで曲線は空間的です。以下で $z_0'=dz_0/dX$、$f'=df/dX$ は $X$ による導関数、$\mathcal L_\epsilon'(\eta)=d\mathcal L_\epsilon/d\eta$ は $\eta$ による導関数です。変分時には $X,z_0,f,\epsilon$ を固定します。
+静的な $T=0$ 断面の半円を、$R>0$ として次のように表します。
+
+$$
+X^2+z_0(X)^2=R^2,\qquad
+z_0(X)=\sqrt{R^2-X^2}.
+$$
+
+理想境界 $X=\pm R$ では $z_0=0$ となるため、**半円全体の長さは発散**します。そこでcutoff $0<\epsilon<R$ を固定し、
+
+$$
+a_\epsilon=\sqrt{R^2-\epsilon^2}
+$$
+
+と置きます。有限長さ $\mathcal L_\epsilon$ は区間 $[-a_\epsilon,a_\epsilon]$ の部分曲線だけに対して定義します。
+
+滑らかな関数 $f(X)$ は両端近くで零とし、その支持を開区間 $(-a_\epsilon,a_\epsilon)$ に含めます。時間座標だけを $T(X)=\eta f(X)$ と変形すると、cutoff端点は動きません。十分小さな $\eta$ では曲線は空間的なままです。
+
+記号のプライムは、曲線や変形関数については座標 $X$ による導関数を表します。
+
+$$
+z_0'=\frac{dz_0}{dX},\qquad
+f'=\frac{df}{dX}.
+$$
+
+一方、長さのプライムは変形パラメータによる導関数です。
+
+$$
+\mathcal L_\epsilon'(\eta)
+=\frac{d\mathcal L_\epsilon}{d\eta}.
+$$
+
+この変分では $X,z_0,f,\epsilon$ を固定し、$\eta$ だけを動かします。
 
 <a id="prop-holo22-local-saddle"></a>
 
