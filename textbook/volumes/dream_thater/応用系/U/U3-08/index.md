@@ -399,7 +399,7 @@ $$
 # lab-title: Asian call：経路列挙と後退価格の一致
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-08/assets/asian_tree_check.py
 # timeout-ms: 15000
-# lab-preset: 本文の基準例を検算 | 
+# lab-preset: 本文の基準例を検算 |
 ```
 
 ローカルで再実行する場合は、Python 3.10 以上で章のディレクトリから `python3 assets/asian_tree_check.py` を実行します。

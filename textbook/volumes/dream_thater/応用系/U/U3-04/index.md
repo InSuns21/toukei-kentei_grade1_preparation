@@ -439,7 +439,7 @@ $$
 # lab-title: 自己金融複製：価格と残差
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-04/assets/replication.py
 # timeout-ms: 15000
-# lab-preset: 本文の基準例を検算 | 
+# lab-preset: 本文の基準例を検算 |
 ```
 
 自動テストまで手元で実行したい場合は、Python 3.10 以上を利用し、リポジトリのルートから次を実行します。

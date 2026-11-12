@@ -433,7 +433,7 @@ $$
 # lab-title: put–call parity：分数による検算
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-05/assets/parity_check.py
 # timeout-ms: 15000
-# lab-preset: 本文の基準例を検算 | 
+# lab-preset: 本文の基準例を検算 |
 ```
 
 ローカルでも同じ結果を検算したい場合は、Python 3.10 以上を使ってリポジトリルートから実行します。

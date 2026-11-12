@@ -373,7 +373,7 @@ American が European **より必ず厳しく高い**わけではなく、等号
 # lab-title: American put：Snell 包絡と行使判断
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-06/assets/american_binomial.py
 # timeout-ms: 15000
-# lab-preset: 本文の基準例を検算 | 
+# lab-preset: 本文の基準例を検算 |
 ```
 
 [自動テスト](assets/tests/test_american_binomial.py)は別に用意しています。ローカルで検算する場合は、Python 3.10 以上でこの章のディレクトリから次を実行します。

@@ -146,10 +146,12 @@ for (const [chapter, file, expectedOutput] of u3FileLabs) {
   const blocks = [...markdown.matchAll(/```python-file-lab\s*\n([\s\S]*?)\n```/g)];
   assert.equal(blocks.length, 1, `${chapter}: one browser-executable file lab required`);
   const metadata = new Map();
+  let presetCount = 0;
   for (const line of blocks[0][1].split('\n')) {
     const match = line.match(/^#\s*([a-z-]+):\s*(.*?)\s*$/);
     assert.ok(match, `${chapter}: malformed lab metadata: ${line}`);
     if (match[1] === 'lab-preset') {
+      presetCount += 1;
       const separator = match[2].indexOf('|');
       assert.ok(separator > 0 && match[2].slice(0, separator).trim(),
         `${chapter}: preset needs a label`);
@@ -160,6 +162,7 @@ for (const [chapter, file, expectedOutput] of u3FileLabs) {
       metadata.set(match[1], match[2]);
     }
   }
+  assert.equal(presetCount, 1, `${chapter}: exactly one fixed baseline preset required`);
   const id = metadata.get('lab-id');
   assert.equal(id, `${chapter}-BROWSER-CHECK`);
   assert.ok(!seenIds.has(id), `duplicate lab id: ${id}`);

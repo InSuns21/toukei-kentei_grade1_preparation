@@ -226,7 +226,7 @@ $$
 # lab-title: Bermudan の行使日と厳密分数の比較
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-07/assets/bermudan_binomial.py
 # timeout-ms: 15000
-# lab-preset: 本文の基準例を検算 | 
+# lab-preset: 本文の基準例を検算 |
 ```
 
 ## 3. 行使境界を節点から理解する
