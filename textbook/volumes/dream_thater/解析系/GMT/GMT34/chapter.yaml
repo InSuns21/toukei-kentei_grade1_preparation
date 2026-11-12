@@ -1,0 +1,46 @@
+id: GMT34
+title: 高次元tubeの交差とbush法による次元下界
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT33
+official_scope: []
+learning_objectives:
+  - 高次元二tubeの交差体積上界を二次元射影と直交断面の積で証明できる
+  - 球面帽内のδ-分離方向の殻数と逆角度和を計算できる
+  - 高次元で二乗重複度だけでは次元2の下界にとどまる機構を説明できる
+  - bushの定義を具体例で確認し外側の円柱片が有限重複となることを証明できる
+  - 管体積の一次積分とbush体積を組み合わせ古典的な(d+1)/2下界を全計算できる
+  - 全方向線分集合の上下Minkowski次元へ体積下界を移しHausdorff次元と区別できる
+  - hairbrush配置と一点bushの違いを直接例で判定できる
+definitions:
+  - { id: GMT34-DEF-01, name: tubeのbush }
+  - { id: GMT34-DEF-02, name: 一本のtubeに付随するhairbrush }
+theorems:
+  - { id: GMT34-LEM-01, name: 高次元二tubeの交差体積 }
+  - { id: GMT34-LEM-02, name: 高次元方向の逆角度和 }
+  - { id: GMT34-LEM-03, name: bushの外側での体積下界 }
+  - { id: GMT34-THM-01, name: bush法による高次元tube合併体積下界 }
+  - { id: GMT34-COR-01, name: 古典的bush下界 }
+canonical_examples:
+  - 三次元の直交二管を断面積分で検算
+  - 四次元の球面方向殻と角度逆数の寄与を計算
+  - 原点を覆うbushの指示関数と本数を比較
+  - 中心から一定距離離れた円柱片の有限重複
+  - 三次元と四次元の二乗積分法とbush法の指数差
+  - 一本の柄の異なる位置へ交わる二つの毛の配置
+problem_patterns:
+  - GMT34-ORTHOGONAL-TUBE
+  - GMT34-ANGULAR-SHELL
+  - GMT34-BUSH-COUNT
+  - GMT34-CYLINDER-VOLUME
+  - GMT34-EXPONENT-COMPARISON
+  - GMT34-L2-LIMIT
+  - GMT34-SPHERICAL-PACKING
+  - GMT34-HAIRBRUSH-COUNTEREXAMPLE
+  - GMT34-SUBTUBE-CONSTRUCTION
+  - GMT34-BUSH-KAKEYA
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 10, exercises: 8, review: 4 }
