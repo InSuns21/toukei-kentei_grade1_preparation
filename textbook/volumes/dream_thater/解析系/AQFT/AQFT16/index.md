@@ -20,7 +20,7 @@ $$
 M(O_r)\subset M(O_R)\subset B(H).
 $$
 
-外側の領域 $O_R$ と空間的に分離した領域の観測量は、[AQFT9の局所性の継承](../AQFT9/index.md#thm-aqft9-local-isotony-locality)によって $M(O_R)'$ に入ります。従って $M(O_R)'$ は、少なくとも外部観測量の候補を含む可換子です。ただしHaag双対性を仮定しない限り、これを特定の補領域の局所環と同一視しません。
+外側の領域 $O_R$ と空間的に分離した領域の観測量は、[AQFT9の局所性の継承](../AQFT9/index.md#thm-aqft9-isotony-locality)によって $M(O_R)'$ に入ります。従って $M(O_R)'$ は、少なくとも外部観測量の候補を含む可換子です。ただしHaag双対性を仮定しない限り、これを特定の補領域の局所環と同一視しません。
 
 この二重の包含が重要です。いきなり $M(O_r)$ と $M(O_r)'$ を独立部分系にすると、[AQFT15の障害](../AQFT15/index.md#prop-aqft15-typei-tensor-obstruction)が再び現れます。
 
@@ -372,7 +372,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** [局所性の継承](../AQFT9/index.md#thm-aqft9-local-isotony-locality)を $O_2,Q$ に適用すると $M(Q)\subset M(O_2)'$。splitの中間因子を $N$ とすると $M(Q)\subset M(O_2)'\subset N'$、$M(O_1)\subset N$ です。[Type I因子の空間的表示](#thm-aqft16-typei-spatial-form)のユニタリで両者は $A\otimes I$ と $I\otimes C$ の形になります。従って [内外テンソル積表示](#thm-aqft16-split-tensor-inclusion)の証明を $C$ に制限して $M(O_1)\vee M(Q)\simeq M(O_1)\bar\otimes M(Q)$ を得ます。使ったのは局所性による包含であり、$M(Q)=M(O_2)'$ というHaag双対性の等号は不要です。
+**詳細解答。** [局所性の継承](../AQFT9/index.md#thm-aqft9-isotony-locality)を $O_2,Q$ に適用すると $M(Q)\subset M(O_2)'$。splitの中間因子を $N$ とすると $M(Q)\subset M(O_2)'\subset N'$、$M(O_1)\subset N$ です。[Type I因子の空間的表示](#thm-aqft16-typei-spatial-form)のユニタリで両者は $A\otimes I$ と $I\otimes C$ の形になります。従って [内外テンソル積表示](#thm-aqft16-split-tensor-inclusion)の証明を $C$ に制限して $M(O_1)\vee M(Q)\simeq M(O_1)\bar\otimes M(Q)$ を得ます。使ったのは局所性による包含であり、$M(Q)=M(O_2)'$ というHaag双対性の等号は不要です。
 <!-- solution-end -->
 
 ### Level C：有限模型と連続体の論理を総合する
