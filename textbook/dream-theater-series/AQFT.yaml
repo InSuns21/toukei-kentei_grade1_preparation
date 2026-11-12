@@ -22,7 +22,7 @@ chapters:
     title: "Klein–GordonのGreen作用素と試験関数の商"
   - id: AQFT5
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT5
-    status: planned
+    status: completed
     title: "因果伝播子とシンプレクティック形式"
   - id: AQFT6
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT6
