@@ -16,8 +16,8 @@
   <circle cx="220" cy="260" r="7" fill="#0f172a"/>
   <circle cx="400" cy="200" r="7" fill="#0f172a"/>
   <text x="188" y="290" font-size="19" fill="#0f172a">C</text>
-  <text x="408" y="191" font-size="19" fill="#0f172a">P</text>
-  <text x="305" y="256" font-size="19" fill="#205b9f">r_CP</text>
+  <text x="425" y="195" font-size="19" fill="#0f172a">P</text>
+  <text x="300" y="212" font-size="19" fill="#205b9f">r_CP</text>
   <text x="415" y="80" font-size="19" fill="#bd4a34">v_P − v_C</text>
   <circle cx="220" cy="317" r="16" fill="none" stroke="#0f172a" stroke-width="2"/>
   <circle cx="220" cy="317" r="4" fill="#0f172a"/>
