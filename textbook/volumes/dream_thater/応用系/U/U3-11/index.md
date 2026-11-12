@@ -99,7 +99,16 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（横ばい確率を固定した再結合三項木）**  
-> $h=T/N$、$a_h=\sigma\sqrt{3h}$、$u_h=e^{a_h}$、$m_h=1$、$d_h=e^{-a_h}$、$R_h=e^{rh}$ とする。毎期の横ばい確率を $p_0=2/3$ と選び、上昇・下落の確率を
+> $h=T/N$ とし、三つの株価倍率と預金の元利倍率を
+>
+> $
+> \begin{gathered}
+> a_h=\sigma\sqrt{3h},\quad u_h=e^{a_h},\quad
+> m_h=1,\quad d_h=e^{-a_h},\quad R_h=e^{rh}
+> \end{gathered}
+> $
+>
+> と定める。毎期の横ばい確率を $p_0=2/3$ と選び、上昇・下落の確率を
 >
 > $$
 > p_+=\frac{R_h-\frac23-\frac13d_h}{u_h-d_h},
@@ -228,13 +237,27 @@ $$
 > \end{aligned}
 > $$
 >
-> である。ここで $(u_h^{(2)},d_h^{(2)})=(e^{\sigma\sqrt h},e^{-\sigma\sqrt h})$、$(u_h^{(3)},d_h^{(3)})=(e^{\sigma\sqrt{3h}},e^{-\sigma\sqrt{3h}})$。両価格は
+> である。二つの木の上下倍率はそれぞれ
 >
-> $$
-> C_\infty=S_0 e^{(r+\sigma^2)T}
-> $$
+> $
+> \begin{aligned}
+> (u_h^{(2)},d_h^{(2)})&=(e^{\sigma\sqrt h},e^{-\sigma\sqrt h}),\\
+> (u_h^{(3)},d_h^{(3)})&=(e^{\sigma\sqrt{3h}},e^{-\sigma\sqrt{3h}})
+> \end{aligned}
+> $
 >
-> に収束し、固定パラメータについて $|C_N^{(2)}-C_\infty|=O(N^{-1})$ および $|C_N^{(3)}-C_\infty|=O(N^{-1})$ が成立する。
+> である。両価格は次に収束する。
+>
+> $
+> C_\infty=S_0 e^{(r+\sigma^2)T}.
+> $
+>
+> 固定したパラメータについて誤差は次の次数を満たす。
+>
+> $
+> |C_N^{(2)}-C_\infty|=O(N^{-1}),\qquad
+> |C_N^{(3)}-C_\infty|=O(N^{-1}).
+> $
 <!-- formal-statement-end -->
 
 三項木の式では、**横ばい確率 $2/3$ が二乗の評価に残る**ので、二項木の $u+d-R^{-1}$ を形式的に三項へ足してはなりません。以下で正確に導きます。
