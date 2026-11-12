@@ -28,26 +28,26 @@ $$
 
 です。非零の境界源を持つ$\phi$の自由作用を部分積分すると境界項が残るため、ここでは$\langle\phi,A\phi\rangle/2$だけで作用全体を表してはいけません。一方、境界値零の$\chi$については、Dirichlet条件のもとでその自由作用を$\langle\chi,B\chi\rangle/2$と書けます。
 
-境界の源$J\in C_c^\infty(\mathbb R^d)$は$\phi$の遅い漸近モードを固定し、$\chi$は遅いモードを零にします。Euclid解は赤外で正則とします。$g$は摂動結合で、$g^2$まで・バルクの**木レベル**のみを計算し、重力の反作用とループは含めません。三次相互作用だけでポテンシャルの大域的安定性は保証されないため、非摂動的な分配関数の存在を主張しません。
+境界の源$J\in C_c^\infty(\mathbb R^d)$は$\phi$の遅い漸近モードを固定し、$\chi$は遅いモードを零にします。Euclid解は赤外で正則とします。$g$は摂動結合で、$g^2$まで・バルクの**木レベル**のみを計算し、重力の反作用とループは含めません。三次相互作用だけでポテンシャルの大域的安定性は保証されないため、非摂動的なEuclid経路積分の収束を主張しません。
 
 以下のGreen関数と汎関数操作は、まず$z=\epsilon>0$でDirichlet境界条件を課し、有限領域または十分な減衰を持つ試験源について行います。$\epsilon\to0$の分離点相関は、積分が収束し必要な局所反項を指定できる場合に限って解釈します。一致点での分布や一般の繰り込みはHOLO14へ譲ります。
 
 ## 1. 2つの内部点を結ぶ逆演算子
 
-[接触図](../HOLO10/index.md#def-holo10-contact-integral)の核$K_\Delta(X;y)$は「境界点$y$から内部点$X$」への解を作りました。今回は頂点$X$で生じた源を別の内部点$Y$へ運ぶ必要があります。そのため内部場の微分演算子$B$を逆にした**バルク間Green関数**を使います。
+[接触図](../HOLO10/index.md#def-holo10-contact-integral)の核$K_\Delta(X;y)$は「境界点$y$から内部点$X$」への解を作りました。今回は頂点$X$で生じた源を別の内部点$Y$へ運ぶ必要があります。そのため内部場の微分演算子$B$を逆にする二点核をまず構成します。
 
 <a id="def-holo11-bulk-green"></a>
 
 <!-- formal-statement-start -->
 > **定義（Dirichletバルク間Green関数）**  
-> 上記のEuclid AdSの切断領域$z\ge\epsilon$において$M^2>0$とし、境界で零、赤外で適切に減衰する分布$G_{\chi,\epsilon}(X,Y)$が
->
-> $$
-> B_XG_{\chi,\epsilon}(X,Y)=\frac{\delta(z-z')\delta^{(d)}(x-y)}{\sqrt{g(X)}},
-> \qquad G_{\chi,\epsilon}(\epsilon,x;Y)=0
-> $$
->
-> を満たすとき、これをDirichletバルク間Green関数と呼ぶ。$Y=(z',y)$、$B_X=-\nabla_X^2+M^2$であり、右辺は$X$について不変体積$d\mu(X)$で積分すると$Y$で評価するデルタ分布である。
+> 第0節の正質量スカラー場について切断領域で考える。境界値が零で、赤外で減衰する二点分布が次の方程式を満たすとする。
+
+$$
+B_XG_{\chi,\epsilon}(X,Y)=\frac{\delta(z-z')\delta^{(d)}(x-y)}{\sqrt{g(X)}},
+\qquad G_{\chi,\epsilon}(\epsilon,x;Y)=0
+$$
+
+> これをDirichletバルク間Green関数と呼ぶ。ここで$Y$は第2のバルク点であり、$B_X$は第0節の演算子を第1の点に作用させる。右辺は不変体積について積分すれば第2の点で評価するデルタ分布である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo11-bulk-green -->
@@ -84,12 +84,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（バルクGreen関数のFourier表示）**  
 > $d\ge2$、$L>0$、$M^2>0$とし、標準境界条件と赤外正則性を課す。$k=|k|>0$の場合、$\epsilon\to0$におけるFourier核は
->
-> $$
-> g_k(z,z')=\frac{(zz')^{d/2}}{L^{d-1}}\,
-> I_{\nu_\chi}(kz_<)\,K_{\nu_\chi}(kz_>).
-> $$
->
+
+$$
+g_k(z,z')=\frac{(zz')^{d/2}}{L^{d-1}}\,
+I_{\nu_\chi}(kz_<)\,K_{\nu_\chi}(kz_>).
+$$
+
 > $k=0$はこの式の連続極限で定義する。この表示は自由な内部場$\chi$のGreen関数であり、相互作用を含む厳密な量子伝播子とは区別する。
 <!-- formal-statement-end -->
 
@@ -150,13 +150,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（スカラー交換Witten積分）**  
 > 上記の模型の境界から内部への核$K_\Delta(X;y)$と内部Green関数$G_\chi(X,Y)$を用い、互いに異なる4境界点$y_1,\ldots,y_4$を取る。正則化された以下の2重積分が存在するとき、
->
-> $$
-> \mathcal E_{12|34}(y_i)=\int d\mu(X)\int d\mu(Y)\,
-> K_\Delta(X;y_1)K_\Delta(X;y_2)\,
-> G_\chi(X,Y)\,K_\Delta(Y;y_3)K_\Delta(Y;y_4)
-> $$
->
+
+$$
+\mathcal E_{12|34}(y_i)=\int d\mu(X)\int d\mu(Y)\,
+K_\Delta(X;y_1)K_\Delta(X;y_2)\,
+G_\chi(X,Y)\,K_\Delta(Y;y_3)K_\Delta(Y;y_4)
+$$
+
 > を$12|34$チャネルの交換Witten積分と呼ぶ。$13|24$、$14|23$は添字を組み替えて定める。カットオフ除去後の意味付けには収束・反項の条件を別途課す。
 <!-- formal-statement-end -->
 
@@ -174,21 +174,25 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（木レベル4点の交換寄与と対称係数）**  
-> $S_E$を第0節の作用とし、固定境界源$J$、$\chi$の零境界源、赤外正則解、有限cutoffでのDirichlet問題を仮定する。$\phi_0(X)=\int K_\Delta(X;y)J(y)d^dy$とする。$\chi$をその古典方程式で消去した後、木レベルの生成汎関数$W[J]=-S_{\rm on\text{-}shell,ren}[J]$の$O(g^2)$の4次部分は
->
-> $$
-> W^{(4)}_{\mathrm{ex}}[J]
-> =\frac{g^2}{8}\int d\mu(X)d\mu(Y)\,
-> \phi_0(X)^2G_\chi(X,Y)\phi_0(Y)^2 .
-> $$
->
-> よって分離した4点で、上式のcutoff除去が存在する場合、
->
-> $$
-> \langle\mathcal O(y_1)\mathcal O(y_2)\mathcal O(y_3)\mathcal O(y_4)\rangle_{\rm conn,ex}
-> =g^2\bigl(\mathcal E_{12|34}+\mathcal E_{13|24}+\mathcal E_{14|23}\bigr)+O(g^4).
-> $$
->
+> 第0節の作用と固定境界源、内部場の零境界源、赤外正則性および有限cutoffのDirichlet問題を仮定する。自由解と木レベル生成汎関数は次のように定める。
+
+$
+\phi_0(X)=\int K_\Delta(X;y)J(y)\,d^dy,\qquad W[J]=-S_{\rm on\text{-}shell,ren}[J].
+$
+
+$$
+W^{(4)}_{\mathrm{ex}}[J]
+=\frac{g^2}{8}\int d\mu(X)d\mu(Y)\,
+\phi_0(X)^2G_\chi(X,Y)\phi_0(Y)^2 .
+$$
+
+> 内部場を古典方程式で消去すると、源の4次の交換寄与は次の式になる。分離4点でcutoff除去が存在する場合、4回の源微分により
+
+$$
+\langle\mathcal O(y_1)\mathcal O(y_2)\mathcal O(y_3)\mathcal O(y_4)\rangle_{\rm conn,ex}
+=g^2\bigl(\mathcal E_{12|34}+\mathcal E_{13|24}+\mathcal E_{14|23}\bigr)+O(g^4).
+$$
+
 > ここで右辺は**交換図由来の木レベル寄与のみ**であり、追加の局所$\phi^4$相互作用、ループ、背景反作用があれば別の項が加わる。
 <!-- formal-statement-end -->
 
@@ -253,18 +257,18 @@ $$
 <!-- formal-statement-start -->
 > **命題（同一次元スカラー4点の共形形式と交換対称性）**  
 > $d\ge2$のEuclid CFTで、同一のスカラー一次演算子$\mathcal O$のスケーリング次元を$\Delta$とし、相異なる4点での共形共変性を仮定する。完全4点関数は
->
-> $$
-> \langle\mathcal O_1\mathcal O_2\mathcal O_3\mathcal O_4\rangle
-> =\frac{\mathcal G(u,v)}{r_{12}^{2\Delta}r_{34}^{2\Delta}}
-> $$
->
+
+$$
+\langle\mathcal O_1\mathcal O_2\mathcal O_3\mathcal O_4\rangle
+=\frac{\mathcal G(u,v)}{r_{12}^{2\Delta}r_{34}^{2\Delta}}
+$$
+
 > と表せる。点2と3の入れ替えに対して、同一演算子の交換対称性は
->
-> $$
-> \mathcal G(u,v)=u^\Delta\mathcal G(1/u,v/u)
-> $$
->
+
+$$
+\mathcal G(u,v)=u^\Delta\mathcal G(1/u,v/u)
+$$
+
 > を要求する。この式だけでは$\mathcal G$の値は一意に決まらない。
 <!-- formal-statement-end -->
 
@@ -315,21 +319,28 @@ $\Delta=2$で、後の一般化自由場の$\mathcal G_0=1+u^2+(u/v)^2$を代入
 
 <!-- formal-statement-start -->
 > **命題（規格化単一トレース4点の主要次数）**  
-> 大$N$で正規化された同一スカラー単一トレース演算子$\mathcal O$について、分離点の2点を$\langle\mathcal O(y)\mathcal O(0)\rangle=r^{-2\Delta}$に規格化する。連結$n$点が平面図の通常の数え上げで$O(N^{2-n})$を満たすと仮定する。このとき4点の非連結主要項は
->
-> $$
-> \langle\mathcal O_1\mathcal O_2\mathcal O_3\mathcal O_4\rangle_{\rm disc}
-> =\frac1{r_{12}^{2\Delta}r_{34}^{2\Delta}}
-> +\frac1{r_{13}^{2\Delta}r_{24}^{2\Delta}}
-> +\frac1{r_{14}^{2\Delta}r_{23}^{2\Delta}}+O(N^{-2})
-> $$
->
+> 同一の規格化単一トレーススカラーについて、次の2点規格化と平面図の連結次数を仮定する。
+
+$
+\langle\mathcal O(y)\mathcal O(0)\rangle=|y|^{-2\Delta},\qquad
+\langle\mathcal O(y_1)\cdots\mathcal O(y_n)\rangle_{\rm conn}=O(N^{2-n}).
+$
+
+> このとき4点の非連結主要項は
+
+$$
+\langle\mathcal O_1\mathcal O_2\mathcal O_3\mathcal O_4\rangle_{\rm disc}
+=\frac1{r_{12}^{2\Delta}r_{34}^{2\Delta}}
++\frac1{r_{13}^{2\Delta}r_{24}^{2\Delta}}
++\frac1{r_{14}^{2\Delta}r_{23}^{2\Delta}}+O(N^{-2})
+$$
+
 > であり、真の連結4点は$O(N^{-2})$。従って規格化された4点関数の先頭項は
->
-> $$
-> \mathcal G_0(u,v)=1+u^\Delta+(u/v)^\Delta.
-> $$
->
+
+$$
+\mathcal G_0(u,v)=1+u^\Delta+(u/v)^\Delta.
+$$
+
 > バルクの木レベルで規格化された3点頂点が$O(N^{-1})$なら、その2個の積からなる交換図は$O(N^{-2})$である。
 <!-- formal-statement-end -->
 
@@ -340,7 +351,7 @@ $N$次数を数える前に、全4点を2点積と連結4点に分けます。�
 <!-- proof-start -->
 ### 証明
 
-2点の規格化により各ペア積は$O(1)$です。1点期待値を零にした場を用い、4点の累積量の恒等式から
+2点の規格化により各ペア積は$O(1)$です。1点期待値を零にした場を用い、$W[J]=\log Z[J]$から非連結部分を直接導きます。$W=W_2+W_3+W_4+\cdots$と源の次数で分解し、$Z=\exp W$の4次項を展開すると、$W_4+W_2^2/2$だけが残ります。4回微分では$W_4$から連結4点を、$W_2^2/2$から3つの2点積を得るので
 
 $$
 \langle\mathcal O_1\mathcal O_2\mathcal O_3\mathcal O_4\rangle
