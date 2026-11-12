@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 310" data-layout-lint="strict" role="img" aria-labelledby="ctm1-title ctm1-desc">
+<title id="ctm1-title">基準格子と現在配置の対応</title>
+<desc id="ctm1-desc">左に基準時刻の直交格子、右にせん断によって傾いた格子を示す。物質点Aは左の点Aから右の点Aへ、物質点Bは左の点Bから右の点Bへ対応する。中央の右向き矢印は運動写像を示し、点の身元が変わらないことを示す。</desc>
+<defs>
+  <marker id="ctm1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#334155"/></marker>
+</defs>
+<rect x="8" y="8" width="824" height="294" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="114" y="48" font-size="21" font-weight="600" fill="#0f172a">基準配置 Ω₀</text>
+<text x="537" y="48" font-size="21" font-weight="600" fill="#0f172a">現在配置 Ωₜ</text>
+<g stroke="#64748b" stroke-width="1.7" fill="none">
+  <rect x="95" y="84" width="210" height="160"/>
+  <path d="M165 84 V244 M235 84 V244 M95 137 H305 M95 190 H305"/>
+</g>
+<g stroke="#0f766e" stroke-width="2" fill="none" data-series-group="grid-correspondence" data-series-label="current-grid">
+  <path d="M480 84 L690 84 L746 212 L536 212 Z"/>
+  <path d="M550 84 L606 212 M620 84 L676 212 M498.5 126.7 L708.5 126.7 M517.3 169.3 L727.3 169.3"/>
+</g>
+<path d="M338 160 H452" stroke="#334155" stroke-width="2.6" stroke-dasharray="7 5" fill="none" marker-end="url(#ctm1-arrow)"/>
+<text x="366" y="140" font-size="18" fill="#0f172a">χₜ</text>
+<g fill="#1d4ed8" stroke="#ffffff" stroke-width="2.2">
+  <circle cx="145" cy="122" r="7"/><circle cx="538.3" cy="114.4" r="7"/>
+</g>
+<g fill="#b45309" stroke="#ffffff" stroke-width="2.2">
+  <rect x="263" y="202" width="13" height="13" rx="2"/><rect x="679.3" y="177.6" width="13" height="13" rx="2"/>
+</g>
+<g font-family="sans-serif" font-size="18" font-weight="600" fill="#0f172a">
+<text x="113" y="110">X_A</text><text x="246" y="235">X_B</text>
+<text x="552" y="110">x_A(t)</text><text x="694" y="207">x_B(t)</text>
+</g>
+<g font-family="sans-serif" font-size="15" fill="#475569">
+<text x="104" y="275">同じ物質点を固定して追跡</text>
+<text x="525" y="275">場所は変化しても印は同一</text>
+</g>
+</svg>
