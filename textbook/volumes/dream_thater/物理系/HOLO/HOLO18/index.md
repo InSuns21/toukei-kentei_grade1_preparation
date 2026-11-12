@@ -40,7 +40,7 @@ $$
 > 上付き $(0)$ は古典的な面積項を表す。この定義だけでは、境界CFTの縮約密度行列のエントロピーと等しいとは主張しない。
 <!-- formal-statement-end -->
 
-**定義から計算への橋渡し。** 境界アンカー付き半円の選び方は[HOLO3の正則化境界アンカー測地線長の定義](../HOLO3/index.md#def-holo3-regulated-length)と同じです。[HOLO3の有限高さの二端点間の最短性定理](../HOLO3/index.md#thm-holo3-semicircle)は、境界上の点 $(\pm a,0)$ にそのまま適用するものではありません。第2節では、$z=\epsilon$ で残る弧の**実際の端点**にその定理を適用します。長さは、曲線のパラメータ $u$ に対して接ベクトル $\dot\gamma(u)=d\gamma/du$ を計量 $h$ に代入し、$\int\sqrt{h(\dot\gamma,\dot\gamma)}\,du$ で求めます。定義にある $G_3$ は三次元Newton定数で、曲線長から無次元の古典的RT量へ換算する係数です。
+**定義から計算への橋渡し。** 境界アンカー付き半円の選び方は[HOLO3の正則化境界アンカー測地線長の定義](../HOLO3/index.md#def-holo3-regulated-length)と同じです。[対称二端点を結ぶ半円測地線とその最短性](../HOLO3/index.md#thm-holo3-semicircle)は、境界上の点 $(\pm a,0)$ にそのまま適用するものではありません。第2節では、$z=\epsilon$ で残る弧の**実際の端点**にその定理を適用します。長さは、曲線のパラメータ $u$ に対して接ベクトル $\dot\gamma(u)=d\gamma/du$ を計量 $h$ に代入し、$\int\sqrt{h(\dot\gamma,\dot\gamma)}\,du$ で求めます。定義にある $G_3$ は三次元Newton定数で、曲線長から無次元の古典的RT量へ換算する係数です。
 
 <!-- definition-example-start: def-holo18-regulated-rt-length -->
 **定義の確認**（$a=1,\epsilon=1/2$）。 $x^2+z^2=1$ と $z=1/2$ の交点は $x=\pm\sqrt3/2$。従って $\gamma_{A,\epsilon}$ はこの二点間の半円弧で、$z\ge1/2>0$ に収まり、両端の元のアンカー $x=\pm1,z=0$ と異なります。$\theta\in[\pi/6,5\pi/6]$ により $(x,z)=(\cos\theta,\sin\theta)$ と表します。ここで $\dot\gamma=d\gamma/d\theta=(-\sin\theta,\cos\theta)$ だから、接ベクトルを上の正定値計量へ代入すると
@@ -105,7 +105,7 @@ $$
 
 境界アンカーで $z\downarrow0$ としたとき、両枝の横座標は $\pm b$ に近づきます。指定したアンカーが $x=\pm a$ だから $b=a$ と**ここで初めて**確定し、$x^2+z^2=a^2$ を得ます。第一積分だけで示したのは停留曲線の形です。
 
-大域的な最短性を有限長の問題として確認します。切断後の端点は $P_\pm=(\pm x_\epsilon,\epsilon)$、$x_\epsilon=\sqrt{a^2-\epsilon^2}>0$ です。[HOLO3の有限高さの二端点間の最短性定理](../HOLO3/index.md#thm-holo3-semicircle)へ、同定理の半幅を $x_\epsilon$ として代入すると、最短円弧の半径は
+大域的な最短性を有限長の問題として確認します。切断後の端点は $P_\pm=(\pm x_\epsilon,\epsilon)$、$x_\epsilon=\sqrt{a^2-\epsilon^2}>0$ です。[対称二端点を結ぶ半円測地線とその最短性](../HOLO3/index.md#thm-holo3-semicircle)へ、同定理の半幅を $x_\epsilon$ として代入すると、最短円弧の半径は
 
 $$
 R=\sqrt{x_\epsilon^2+\epsilon^2}
@@ -357,7 +357,41 @@ $$
 **A2. 変分の第一積分。** $F=L\sqrt{1+z'^2}/z$、頂点 $(0,a)$ で $z'=0$ として、停留曲線の方程式を導き、$x^2+z^2=a^2$ を得よ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\partial F/\partial z'=Lz'/(z\sqrt{1+z'^2})$ なので $F-z'\partial F/\partial z'=L/[z\sqrt{1+z'^2}]$。$x$ に陽に依存しない第一積分は定数で、頂点を代入すると $L/a$ である。従って $1+z'^2=a^2/z^2$、すなわち $(dx/dz)^2=z^2/(a^2-z^2)$。左右の枝について $dx/dz=\mp z/\sqrt{a^2-z^2}$ を積分し、頂点での定数を合わせれば $x=\pm\sqrt{a^2-z^2}$。$0<\epsilon<a$ で切った端点 $x=\pm\sqrt{a^2-\epsilon^2},z=\epsilon$ に[HOLO3の有限端点の最短性定理](../HOLO3/index.md#thm-holo3-semicircle)を適用すれば、その定理の半径は $R=\sqrt{(a^2-\epsilon^2)+\epsilon^2}=a$。従ってこの切断弧の最短性が従う。
+**詳細解答。** 横座標 $x$ に対する傾き $z'=dz/dx$ を使います。$F=L\sqrt{1+z'^2}/z$ を傾きで偏微分すると
+
+$$
+\frac{\partial F}{\partial z'}
+=\frac{Lz'}{z\sqrt{1+z'^2}},
+\qquad
+F-z'\frac{\partial F}{\partial z'}
+=\frac{L}{z\sqrt{1+z'^2}}.
+$$
+
+$F$ が $x$ に陽に依存しないため、右辺は停留曲線に沿って一定です。与えられた頂点 $(0,a)$ の $z'=0$ を代入すると定数は $L/a$ となり、
+
+$$
+z^2(1+z'^2)=a^2,
+\qquad
+z'^2=\frac{a^2-z^2}{z^2}
+$$
+
+を得ます。頂点以外の $0<z<a$ では $z'\ne0$ なので逆関数微分を使えます。左右の枝について
+
+$$
+\frac{dx}{dz}=\mp\frac{z}{\sqrt{a^2-z^2}},
+\qquad
+x=\pm\sqrt{a^2-z^2}
+$$
+
+と積分し、頂点 $x=0,z=a$ で積分定数を固定します。したがって両枝を合わせると $x^2+z^2=a^2$ です。
+
+最短性は第一積分だけからは従いません。任意の $0<\epsilon<a$ について、切断後の端点を $P_\pm=(\pm\sqrt{a^2-\epsilon^2},\epsilon)$ として[対称二端点を結ぶ半円測地線とその最短性](../HOLO3/index.md#thm-holo3-semicircle)を適用します。同定理の最短円の半径は
+
+$$
+R=\sqrt{(a^2-\epsilon^2)+\epsilon^2}=a
+$$
+
+なので、求めた切断弧が**このcutoff端点間で**最短です。
 <!-- solution-end -->
 
 <a id="ex-holo18-a03"></a>
@@ -431,7 +465,33 @@ $\sqrt5>\sqrt3$ なので後者の方が長い。別の端点問題を解いて�
 **C1. 一つの区間で幾何から境界係数まで。** $t=0$ のPoincaré $AdS_3$、$L,G_3>0$、$\ell=2a$、$0<\epsilon<a$、$\hbar=1$ とする。(i) 長さ汎関数の第一積分から境界アンカー半円を導く。(ii) $\epsilon$ で切った長さを厳密に積分して主対数と最初の補正を得る。(iii) 純Einstein重力・Brown–Henneaux境界条件・静的RT処方を**仮定**して、CFT平面真空区間の係数と比較する。(iv) 有限cutoffでの端点と非普遍定数に関する注意を述べる。
 - Level: C
 <!-- solution-start -->
-**詳細解答。** (i) $h=L^2(dx^2+dz^2)/z^2$ から、$z'=dz/dx$ として $F=L\sqrt{1+z'^2}/z$。$F-z'\partial F/\partial z'=L/[z\sqrt{1+z'^2}]$ は一定で、未知の対称頂点 $(0,b)$ の $z'=0$ を代入すると $L/b$。従って $z'^2=b^2/z^2-1$。頂点以外で $dx/dz=\mp z/\sqrt{b^2-z^2}$ を積分すると $x=\pm\sqrt{b^2-z^2}$ となる。$z\downarrow0$ で境界アンカーの $x=\pm a$ に近づく条件から $b=a$、よって $x^2+z^2=a^2$。$0<\epsilon<a$ の切断弧の端点は $(\pm\sqrt{a^2-\epsilon^2},\epsilon)$ である。ここに[HOLO3の有限端点の最短性定理](../HOLO3/index.md#thm-holo3-semicircle)を適用すると半径 $R=\sqrt{a^2-\epsilon^2+\epsilon^2}=a$ となり、この端点間での最短性も確認できる。
+**詳細解答。** (i) $h=L^2(dx^2+dz^2)/z^2$ を用い、$z'=dz/dx$ と定めます。曲線長の密度 $F=L\sqrt{1+z'^2}/z$ は $x$ に陽に依存しません。対称な頂点の高さを未知数 $b=z(0)>0$ と置き、$z'(0)=0$ を用いて第一積分を計算すると
+
+$$
+F-z'\frac{\partial F}{\partial z'}
+=\frac{L}{z\sqrt{1+z'^2}}
+=\frac{L}{b},
+\qquad
+z'^2=\frac{b^2-z^2}{z^2}.
+$$
+
+頂点以外の $0<z<b$ では $z'\ne0$ なので $dx/dz=1/z'$ として枝ごとに積分できます。
+
+$$
+\frac{dx}{dz}=\mp\frac{z}{\sqrt{b^2-z^2}}
+\quad\Longrightarrow\quad
+x=\pm\sqrt{b^2-z^2}.
+$$
+
+積分定数は頂点 $(0,b)$ で決めています。$z\downarrow0$ で $x\to\pm b$ となるため、境界アンカーが $x=\pm a$ という条件から $b=a$ が従い、$x^2+z^2=a^2$ です。
+
+最短性を確かめるため、切断弧の端点を $P_\pm=(\pm\sqrt{a^2-\epsilon^2},\epsilon)$ とします。ここに[対称二端点を結ぶ半円測地線とその最短性](../HOLO3/index.md#thm-holo3-semicircle)を適用します。定理が与える最短円弧の半径は
+
+$$
+R=\sqrt{a^2-\epsilon^2+\epsilon^2}=a
+$$
+
+となるため、切断後の弧がこの端点間で最短であることも分かります。
 
 (ii) $x=a\cos\theta,z=a\sin\theta$ と置くと線素は $L\,d\theta/\sin\theta$、上下限は $\theta_\epsilon=\arcsin(\epsilon/a)$ と $\pi-\theta_\epsilon$。従って $D=-2L\log\tan(\theta_\epsilon/2)=2L\log[(a+\sqrt{a^2-\epsilon^2})/\epsilon]$。$\sqrt{1-u}=1-u/2+O(u^2)$ に $u=\epsilon^2/a^2$ を代入し、
 
