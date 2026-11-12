@@ -21,7 +21,7 @@ theorems:
   - { id: HOLO12-PROP-01, name: Maxwell作用の第一変分と境界運動量 }
   - { id: HOLO12-PROP-02, name: 径方向ゲージの拘束と横波 }
   - { id: HOLO12-PROP-03, name: 保存流の境界スケーリング次元 }
-  - { id: HOLO12-PROP-04, name: d3の横射影された保存流2点関数 }
+  - { id: HOLO12-PROP-04, name: 三次元境界の横射影された保存流2点関数 }
   - { id: HOLO12-PROP-05, name: 源のゲージ不変性と保存流Ward恒等式 }
 canonical_examples:
   - 局所純ゲージA=dλでF=0と作用密度零を直接計算する
