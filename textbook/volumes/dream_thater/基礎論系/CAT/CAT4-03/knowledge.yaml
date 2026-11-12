@@ -14,6 +14,13 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（組紐モノイダル圏）"]
     requires: [category.monoidal-category, category.natural-isomorphism, category.pentagon-coherence]
+  - id: category.braiding-hexagon
+    name: hexagon条件
+    aliases: ["hexagon 条件", "六角形条件"]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（組紐モノイダル圏）"]
+    requires: [category.braiding, category.monoidal-category]
   - id: category.braided-monoidal
     name: 組紐モノイダル圏
     kind: definition
