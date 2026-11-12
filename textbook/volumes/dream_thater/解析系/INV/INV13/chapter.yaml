@@ -1,0 +1,46 @@
+id: "INV13"
+title: "投影データからどう反転するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV12
+  - FOU4
+official_scope: []
+learning_objectives:
+  - 単純逆投影を定義しGaussianの直接例から逆変換との違いを説明できる
+  - 符号付き極座標のJacobianとFourier slice theoremから正規化定数を含むRadon反転公式を証明できる
+  - ramp filterを定義しFBP公式とGaussianでの係数を導出できる
+  - 周波数切断FBPを定義しGaussianの点ごとのバイアスを求められる
+  - L2 Plancherelによって雑音誤差と切断バイアスの上界を再計算できる
+  - 周波数モーメント仮定とパラメータ選択による誤差速度を説明できる
+  - 高周波に集中した固定ノルム雑音の再構成不安定性を例で示せる
+definitions:
+  - { id: INV13-DEF-01, name: 単純逆投影 }
+  - { id: INV13-DEF-02, name: ramp filter }
+  - { id: INV13-DEF-03, name: 周波数切断FBP }
+theorems:
+  - { id: INV13-THM-01, name: Radonデータの反転積分公式 }
+  - { id: INV13-THM-02, name: フィルタ補正逆投影公式 }
+  - { id: INV13-THM-03, name: 周波数切断FBPの誤差分解 }
+  - { id: INV13-PROP-01, name: 周波数モーメントによるバイアス評価 }
+canonical_examples:
+  - 等方Gaussianの単純逆投影とramp補正の比較
+  - 符号付き極座標の面積要素
+  - Gaussianの周波数切断による原点バイアス
+  - GaussianのL2切断バイアス
+  - 高周波帯域に集中する固定ノルム投影誤差
+problem_patterns:
+  - INV13-A01
+  - INV13-A02
+  - INV13-A03
+  - INV13-A04
+  - INV13-A05
+  - INV13-B01
+  - INV13-B02
+  - INV13-B03
+  - INV13-B04
+  - INV13-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
