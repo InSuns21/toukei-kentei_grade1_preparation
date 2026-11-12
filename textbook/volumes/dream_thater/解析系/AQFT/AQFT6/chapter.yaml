@@ -1,0 +1,47 @@
+id: "AQFT6"
+title: "Weyl CCRと局所C*net"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT5
+  - AQFT2
+  - OA3
+  - QM7
+official_scope: []
+learning_objectives:
+  - AQFT5の実シンプレクティック商と符号からWeyl CCRの位相と逆元を導き、結合律を検算できる
+  - 離散的な商空間上のtwisted translationを構成してユニタリ性とWeyl関係を直接証明できる
+  - Weyl交換子公式を求め、特定の元の可換性と全スケールの可換性の違いを説明できる
+  - 局所源の全域商における像から局所C*netを作り、代表元独立性とisotonyを証明できる
+  - シンプレクティック直交性から局所Weyl元の可換性を導き、ノルム閉包まで拡張できる
+  - Poincaré変換がWeyl位相と局所代数の包含を保つことを作用素の共役で証明できる
+  - 規則的表現の強連続性をStone定理に接続し、Schrödinger模型と非規則的な離散模型を区別できる
+definitions:
+  - { id: AQFT6-DEF-01, name: "Weylの正準交換関係" }
+  - { id: AQFT6-DEF-02, name: "自由Klein–Gordon場の局所Weyl C*net" }
+  - { id: AQFT6-DEF-03, name: "Weyl CCRの規則的表現" }
+theorems:
+  - { id: AQFT6-PROP-01, name: "Weyl関係を満たす有界な模型" }
+  - { id: AQFT6-PROP-02, name: "Weyl交換子の位相判定" }
+  - { id: AQFT6-THM-01, name: "Weyl netの包含単調性・局所性・共変性" }
+  - { id: AQFT6-PROP-03, name: "第3節の離散表示は非規則的" }
+canonical_examples:
+  - 二次元の標準交代形式でのWeyl位相と逆元
+  - ell2(V)のtwisted translationの作用とWeyl積
+  - 入れ子のdouble coneにおける局所商像とC*部分環
+  - Schrödinger表示でのWeyl積と強連続性
+  - 離散模型の基底ベクトルを使った非規則性
+problem_patterns:
+  - AQFT6-WEYL-PHASE-INVERSE
+  - AQFT6-COCYCLE-ASSOCIATIVITY
+  - AQFT6-COMMUTATOR-VS-ORTHOGONALITY
+  - AQFT6-NONREGULAR-DISCRETE
+  - AQFT6-LOCAL-CSTAR-NORM-CLOSURE
+  - AQFT6-LOCAL-QUOTIENT-REPRESENTATIVE
+  - AQFT6-POINCARE-WEYL-COVARIANCE
+  - AQFT6-SCHRODINGER-REGULARITY
+  - AQFT6-KG-LOCAL-NET-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 8, review: 6 }
