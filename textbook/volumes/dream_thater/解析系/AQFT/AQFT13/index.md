@@ -125,7 +125,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p\in O^\perp$、$q\in O$ を任意に取ります。[因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)の定義より $g(p-q,p-q)>0$ です。従って $O^\perp$ と $O$ は空間的に分離しています。[局所von Neumann netの局所性](../AQFT9/index.md#thm-aqft9-isotony-locality)により、全ての $B\in\mathcal M(O^\perp)$、$A\in\mathcal M(O)$ に対し $BA=AB$。これは [可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)そのものなので、$B\in\mathcal M(O)'$ です。ゆえに最初の包含が成立します。
+$p\in O^\perp$、$q\in O$ を任意に取ります。[因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)における「全ての点対が空間的に分離」の条件より $g(p-q,p-q)>0$ です。従って $O^\perp$ と $O$ は空間的に分離しています。[局所von Neumann netの局所性](../AQFT9/index.md#thm-aqft9-isotony-locality)により、全ての $B\in\mathcal M(O^\perp)$、$A\in\mathcal M(O)$ に対し $BA=AB$。これは [可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)そのものなので、$B\in\mathcal M(O)'$ です。ゆえに最初の包含が成立します。
 
 さらに $Q\subset O^\perp$ なら[包含単調性](../AQFT9/index.md#thm-aqft9-isotony-locality)から $\mathcal M(Q)\subset\mathcal M(O^\perp)$ であり、二つの包含を合成すれば結論です。$\square$
 <!-- proof-end -->
@@ -248,7 +248,7 @@ $$
 また $\omega_\Omega(I)=\|\Omega\|^2=1$、$\omega_\Omega(A^*A)=\|A\Omega\|^2\ge0$ なので状態です。[AQFT9のGNSベクトル状態の正規性](../AQFT9/index.md#prop-aqft9-local-normal-state)と同じく、固定ベクトルによる行列要素は弱作用素連続であり、von Neumann環への制限は正規です。$\square$
 <!-- proof-end -->
 
-前節の系から、真空状態はどの非空有界double coneの局所環でも忠実な正規状態になります。しかし周囲の $B(\mathcal H)$ 上で忠実という意味ではありません。たとえば $\mathcal H=\mathbb C^2,\Omega=e_1$ に対して $P_2\in B(\mathcal H)$ は $P_2\ne0$ なのに $\omega_\Omega(P_2^*P_2)=0$ です。**局所環に制限すること**が重要です。
+前節の系から、真空状態はどの非空有界double coneの局所von Neumann環でも忠実な正規状態になります。しかし周囲の $B(\mathcal H)$ 上で忠実という意味ではありません。たとえば $\mathcal H=\mathbb C^2,\Omega=e_1$ に対して $P_2\in B(\mathcal H)$ は $P_2\ne0$ なのに $\omega_\Omega(P_2^*P_2)=0$ です。**この部分環に制限すること**が重要です。
 
 また分離性から得られるのは $\mathcal M(O^\perp)\subset\mathcal M(O)'$ と、真空の性質です。この包含が等号になる **Haag双対性** は別の追加要請です。例えば $\mathcal H=\mathbb C^2$、$D$ を対角環、$\Omega=(1,1)/\sqrt2$ とし、二つの互いに空間的分離した領域に、それぞれ $\mathcal M(O)=\mathbb CI_2$、$\mathcal M(Q)=D$ を割り当てるとします。この二つの環は交換し、$\Omega$ は $D$ に巡回的、$\mathbb CI_2$ に分離的です。しかし
 $$
@@ -415,4 +415,4 @@ $$
 
 巡回性は「作用素を真空に作用させると稠密なベクトルが作れる」、分離性は「真空を零にするその領域の作用素は零」という別の性質です。可換子の巡回性と分離性は同値で、局所netでは因果補領域の巡回性と局所性が分離性を保証します。Reeh–Schlieder定理の全仮定に局所性を加えれば、非空有界double coneで真空は **巡回的かつ分離的** となり、局所ベクトル状態は忠実です。
 
-しかし $\mathcal M(O^\perp)\subset\mathcal M(O)'$ が等号になるか、また中心が自明かは別問題です。次の [AQFT14「Haag双対性・wedge双対性・factor性」](../AQFT14/index.md) では、この差をさらに調べます。
+しかし $\mathcal M(O^\perp)\subset\mathcal M(O)'$ が等号になるか、また中心が自明かは別問題です。次講のAQFT14では、局所代数の双対性と中心の問題をさらに調べます。
