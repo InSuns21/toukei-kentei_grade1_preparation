@@ -38,7 +38,7 @@ $$
 
 第一の不等式は $\boldsymbol p\cdot\boldsymbol y\le|\boldsymbol p||\boldsymbol y|\le p^0|\boldsymbol y|$ を使いました。したがって複素並進の積分は有界作用素として意味を持ちます。
 
-複素数の四組 $z\in\mathbb C^4$ のうち、この減衰が保証される領域を **未来管領域（future tube）** として導入します。
+複素数の四組 $z\in\mathbb C^4$ のうち、この減衰が保証される領域を次に正確に定義します。
 
 <a id="def-aqft11-forward-tube"></a>
 
@@ -289,8 +289,8 @@ $$
 <a id="lem-aqft11-halfplane-unique"></a>
 
 <!-- formal-statement-start -->
-> **補題（上半平面の連続境界値の一意性）**  
-> $g$ は上半平面 $\{\operatorname{Im}z>0\}$ で正則であり、実軸まで連続に延長されるとする。ある非空の実開区間 $I$ 上で $g(t)=0$ ならば、上半平面と実軸上の全点で $g=0$ である。
+> **補題（境界零区間の一意性）**  
+> $g$ は領域 $\{\operatorname{Im}z>0\}$ で正則であり、実軸まで連続に延長されるとする。ある非空の実開区間 $I$ 上で $g(t)=0$ ならば、この領域と実軸上の全点で $g=0$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -308,10 +308,10 @@ $$
 
 を定め、実軸の区間上では両者を $0$ でつなぎます。$g(t)=0\in\mathbb R$ のためこの接続は連続です。上半分と下半分では正則です。実軸を横切る小三角形の周回積分は実軸の上下で分けて積分すると接合辺が相殺され、実軸からの連続性により零になります。[CA7のMoreraの定理](../../CA/CA7/index.md#lem-ca7-morera)により $\widetilde g$ は円板全体で正則です。
 
-円板内部の線分 $D\cap I$ で $\widetilde g$ が零なので[CA3の恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により $D$ 上で零です。従って上半平面の非空開集合で $g=0$。上半平面は連結なので、再び[同じ恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を使って上半平面全体で $g=0$。連続境界値も零です。$\square$
+円板内部の線分 $D\cap I$ で $\widetilde g$ が零なので[CA3の恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により $D$ 上で零です。従って $\{\operatorname{Im}z>0\}$ の非空開集合で $g=0$。この半平面は連結なので、再び[同じ恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を使って $\{\operatorname{Im}z>0\}$ 全体で $g=0$。連続境界値も零です。$\square$
 <!-- proof-end -->
 
-**開区間が必要です。** $g(z)=1+e^{2iz}$ は上半平面で有界正則ですが、実軸では $t=\pi/2$ のような離散点で零になるだけです。一点の境界零から恒等的に零とは言えません。
+**開区間が必要です。** $g(z)=1+e^{2iz}$ は虚部が正の領域で有界正則ですが、実軸では $t=\pi/2$ のような離散点で零になるだけです。一点の境界零から恒等的に零とは言えません。
 
 <a id="thm-aqft11-real-open-unique"></a>
 
@@ -328,7 +328,7 @@ $$
 
 ### 証明の見取り図
 
-未来向き時間的ベクトル $u$ に沿う一次元複素直線では、スペクトル条件から上半平面の有界正則関数になります。局所の零をその直線全体へ伝え、**任意の時空変位が未来時間的ベクトル二つの差**として書けることを使って全域へ広げます。
+未来向き時間的ベクトル $u$ に沿う一次元複素直線では、スペクトル条件から虚部が正の半平面で有界正則関数になります。局所の零をその直線全体へ伝え、**任意の時空変位が未来時間的ベクトル二つの差**として書けることを使って全域へ広げます。
 
 <!-- proof-start -->
 ### 証明
@@ -340,9 +340,9 @@ g_{a,u}(\zeta):=\langle\psi,U(a+\zeta u)\varphi\rangle,
 \qquad \operatorname{Im}\zeta>0
 $$
 
-と置きます。$p\cdot u\ge(u^0-|\boldsymbol u|)p^0\ge0$ なので、スペクトル表示で指数の絶対値は $e^{-(\operatorname{Im}\zeta)p\cdot u}\le1$ です。第2節の管領域正則性と境界連続性から $g_{a,u}$ は上半平面正則・実軸連続です。
+と置きます。$p\cdot u\ge(u^0-|\boldsymbol u|)p^0\ge0$ なので、スペクトル表示で指数の絶対値は $e^{-(\operatorname{Im}\zeta)p\cdot u}\le1$ です。第2節の管領域正則性と境界連続性から $g_{a,u}$ は虚部が正の領域で正則・実軸連続です。
 
-$O$ は開なので、任意の $a\in O$ に対して小さい $|t|$ なら $a+tu\in O$。従って $g_{a,u}(t)=0$ は実軸の開区間で成立し、[上半平面の一意性補題](#lem-aqft11-halfplane-unique)から
+$O$ は開なので、任意の $a\in O$ に対して小さい $|t|$ なら $a+tu\in O$。従って $g_{a,u}(t)=0$ は実軸の開区間で成立し、[境界零区間の一意性](#lem-aqft11-halfplane-unique)から
 
 $$
 f(a+tu)=0\qquad(a\in O,\ t\in\mathbb R)
@@ -395,7 +395,7 @@ F(z_1,\ldots,z_n)
 :=\langle\psi,U(z_1)B_1U(z_2)B_2\cdots U(z_n)B_n\Omega\rangle
 $$
 
-と定めます。[管領域正則延長定理](#thm-aqft11-tube-extension)で各 $U(z_j)$ は作用素ノルム正則・ノルム $1$ 以下です。有界作用素の積は連続な多重線形写像なので、局所冪級数を掛け合わせれば $F$ は各変数に関して、さらに全変数について正則です。積のノルム評価から
+と定めます。[正エネルギー並進の管領域正則延長](#thm-aqft11-tube-extension)で各 $U(z_j)$ は作用素ノルム正則・ノルム $1$ 以下です。有界作用素の積は連続な多重線形写像なので、局所冪級数を掛け合わせれば $F$ は各変数に関して、さらに全変数について正則です。積のノルム評価から
 
 $$
 |F(z_1,\ldots,z_n)|
@@ -476,7 +476,7 @@ $$
 #### AQFT11-A03 境界の零点と零区間
 - Level: A
 
-$g(z)=1+e^{2iz}$ について、上半平面での有界性を示し、実軸で $g(t)=0$ となる点をすべて求めよ。この例はなぜ境界一意性補題に矛盾しないか。
+$g(z)=1+e^{2iz}$ について、虚部が正の領域での有界性を示し、実軸で $g(t)=0$ となる点をすべて求めよ。この例はなぜ境界一意性補題に矛盾しないか。
 
 <!-- solution-start -->
 **詳細解答。** $z=t+is$、$s>0$ とすれば $|e^{2iz}|=e^{-2s}<1$ なので $|g(z)|\le1+e^{-2s}\le2$。実数 $t$ では $e^{2it}=-1$ が必要十分であり、
@@ -554,7 +554,7 @@ $$
 f_{\psi,\varphi}(x)=1-e^{i(2t-x^1)}.
 $$
 
-採用したFourier符号では $\widehat f=(2\pi)^4(\delta_{p_1}-\delta_{p_2})$ で、支持集合は $\{p_1,p_2\}\subset\overline V_+$。$\psi\ne\varphi$ の交差行列要素は負の重みを持てるため正測度とは限りませんが、全変動は有限です。
+採用したFourier符号では $\widehat f=(2\pi)^4(\delta_{p_1}-\delta_{p_2})$ で、支持集合は $\{p_1,p_2\}\subset\overline V_+$。$\psi\ne\varphi$ の交差行列要素は負の重みを取る場合があります。したがって正測度とは限りませんが、全変動は有限です。
 <!-- solution-end -->
 
 <a id="ex-aqft11-b03"></a>
@@ -606,7 +606,7 @@ $$
 F(x_1,x_2)=\langle\psi,U(y_1)AU(y_2)B\Omega\rangle.
 $$
 
-[管領域正則延長定理](#thm-aqft11-tube-extension)により、$z_j\in\mathcal T_+$ で $U(z_j)$ はノルム正則かつ $\|U(z_j)\|\le1$。従って
+[正エネルギー並進の管領域正則延長](#thm-aqft11-tube-extension)により、$z_j\in\mathcal T_+$ で $U(z_j)$ はノルム正則かつ $\|U(z_j)\|\le1$。従って
 
 $$
 \left|\langle\psi,U(z_1)AU(z_2)B\Omega\rangle\right|
