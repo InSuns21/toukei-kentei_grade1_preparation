@@ -8,7 +8,7 @@
 
 今度は順番を逆にします。非負関数 $f$ を空間に置き、**各方向で、その関数を最も多く拾う長さ1の管**を探します。この操作を全方向について制御できれば、特定のKakeya集合に限らず、任意の管配置へ同じ評価を適用できます。その代償が、管の太さ $\delta$ に依存する作用素ノルムの「損失」です。
 
-以下、$d\ge2$、$0<\delta<1/100$ とし、$\mathbb R^d$ の体積を $|E|$、球面 $S^{d-1}$ 上の**全質量1の回転不変測度**を $\sigma$ とします。管は[GMT32の定義](../GMT32/index.md#def-gmt32-tube)と同じく
+以下、$d\ge2$、$0<\delta<1/100$ とし、$\mathbb R^d$ の体積を $|E|$、球面 $S^{d-1}$ では表面積測度を全体で1になるよう正規化し、$\sigma(S^{d-1})=1$ とします。管は[GMT32の定義](../GMT32/index.md#def-gmt32-tube)と同じく
 
 $$
 T_\delta(a,v)=\{x\in\mathbb R^d:\operatorname{dist}(x,\{a+tv:0\le t\le1\})<\delta\},
@@ -32,7 +32,7 @@ $$
 <a id="def-gmt35-kakeya-maximal"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\delta$-Kakeya最大作用素）**  
+> **定義（δ-Kakeya最大作用素）**  
 > $d\ge2$、$0<\delta<1/100$ とする。Lebesgue可測関数 $f:\mathbb R^d\to\mathbb C$ に対し、方向 $v\in S^{d-1}$ での $\delta$-Kakeya最大作用素を
 
 $$
@@ -51,6 +51,8 @@ $$
 $f=\boldsymbol{1}_{T_\delta(0,e_1)}$ とします。管 $T_\delta(0,e_1)$ の平均は1なので $\mathcal K_\delta f(e_1)\ge1$ です。一方 $0\le f\le1$ だから、どんな管の平均も1以下であり、**$\mathcal K_\delta f(e_1)=1$** です。
 
 さらに $c\in\mathbb C$ に対し $\mathcal K_\delta(cf)=|c|\mathcal K_\delta f$、非負関数 $f,g$ に対し $\mathcal K_\delta(f+g)\le\mathcal K_\delta f+\mathcal K_\delta g$ です。いずれも積分の絶対値、三角不等式、上限の順に確認できます。作用素は一般に線形ではなく**劣線形**です。
+
+**定義の確認**：始点に関する上限、管体積での割り算、絶対値、方向ごとの値をすべて実際に計算しました。
 <!-- definition-example-end -->
 
 球面上での関数の大きさには、$\sigma(S^{d-1})=1$ として
@@ -65,7 +67,7 @@ $$
 <a id="def-gmt35-maximal-bound"></a>
 
 <!-- formal-statement-start -->
-> **定義（指数 $(p,q,\beta)$ の一様最大評価）**  
+> **定義（指数(p,q,β)の一様最大評価）**  
 > $d\ge2$、$1\le p,q<\infty$、$\beta\ge0$ とする。$\delta$ に依存しない $C$ が存在し、すべての $0<\delta<1/100$ と $f\in L^p(\mathbb R^d)$ について
 
 $$
@@ -87,6 +89,8 @@ $$
 $$
 
 したがって $\mathcal K_\delta f(v)\le C_d\delta^{-(d-1)/p}\|f\|_p$ であり、球面測度が1なので、**任意の有限な $q$ に対し $\beta=(d-1)/p$ の評価が成立**します。指数、対象空間、$\delta$ に依らない定数を確認できました。ただしこの粗い評価では有用な次元下界はほとんど得られず、角度の異なる管の重なりを利用する必要があります。
+
+**定義の確認**：$p,q$ は有限で $1\le p,q<\infty$、$\beta=(d-1)/p\ge0$ であり、定数は $\delta$ と $f$ に依存せず、指定した全尺度の不等式を満たします。
 <!-- definition-example-end -->
 
 注意：$\delta^{-\varepsilon}$ が**任意の $\varepsilon>0$** に対して許される評価と、$\beta=0$ の評価は異なります。対数損失 $\sqrt{\log(1/\delta)}$ はどの固定した $\varepsilon>0$ に対しても $C_\varepsilon\delta^{-\varepsilon}$ 以下になりますが、一般に $\delta$ に一様な定数ではありません。
@@ -144,7 +148,7 @@ $$
 <a id="lem-gmt35-linearized-tubes"></a>
 
 <!-- formal-statement-start -->
-> **補題（選択した管に対する離散 $L^2$ 評価）**  
+> **補題（選択した管に対する離散L2評価）**  
 > $0<r<1/50$、$N\asymp r^{-1}$ とし、$v_j=(\cos(j\pi/N),\sin(j\pi/N))$ を取る。各 $j$ で任意の始点 $a_j\in\mathbb R^2$ を選び、$T_j=T_r(a_j,v_j)$ とする。このとき、定数は $a_j,r$ に依存せず、
 
 $$
@@ -393,7 +397,7 @@ $$
 
 $0<s<d-p\beta$ とします。$\mathcal H^s(K)=0$ と仮定して矛盾を導きます。任意の小さい $\eta>0$ に対し、$K$ を覆う開球 $B(x_i,r_i)$ で $0<r_i<1/128$ かつ
 
-$
+$$
 \sum_i r_i^s<\eta
 $$
 
@@ -480,7 +484,7 @@ $$
 <a id="cor-gmt35-log-and-epsilon"></a>
 
 <!-- formal-statement-start -->
-> **系（対数損失と任意の $\varepsilon$ 損失）**  
+> **系（対数損失と任意のε損失）**  
 > (i) 平面では全方向の単位線分を含む有界集合 $K\subset\mathbb R^2$ の Hausdorff次元と上下Minkowski次元はすべて2である。  
 > (ii) 一般の $d\ge2$ について、任意の $\varepsilon>0$ ごとに定数 $C_\varepsilon$ が存在し、すべての $0<\delta<1/100$ と $f\in L^d(\mathbb R^d)$ について
 
