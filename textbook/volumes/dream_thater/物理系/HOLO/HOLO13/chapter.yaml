@@ -1,0 +1,44 @@
+id: HOLO13
+title: "バルク重力場と応力テンソル"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO12
+official_scope: []
+learning_objectives:
+  - Einstein–Hilbert作用にGHY境界項が必要な理由を法線微分の変分から説明できる
+  - Euclid AdSの外向き法線と第二基本形式の符号を計算できる
+  - Dirichlet重力作用の第一変分とBrown–York型応力テンソルを導出できる
+  - 境界計量の源微分と裸のcutoff応力・繰り込み後のCFT応力を区別できる
+  - 体積反項で純AdSの発散が相殺することを計算できる
+  - 三次元純Einstein重力のFG級数から有限の境界応力を導ける
+  - FGのEinstein拘束から応力保存と曲率トレース異常を導ける
+  - Brown–Henneaux中央電荷の仮定と正規化を明示し異常係数から再現できる
+definitions:
+  - { id: HOLO13-DEF-01, name: 重力のDirichlet作用とGHY項 }
+  - { id: HOLO13-DEF-02, name: 有限cutoffのBrown–York型テンソル }
+theorems:
+  - { id: HOLO13-PROP-01, name: GHYを含む重力作用のon-shell第一変分 }
+  - { id: HOLO13-PROP-02, name: 三次元純Einstein重力の有限応力テンソル }
+  - { id: HOLO13-PROP-03, name: AdS3のFG制約と応力保存 }
+  - { id: HOLO13-PROP-04, name: 異常係数から得るBrown–Henneaux関係 }
+canonical_examples:
+  - Euclid純AdSの紫外面の法線と外部曲率を成分から計算する
+  - 裸のBrown–Yorkテンソルと体積反項が純AdSで相殺する
+  - 平坦な境界源を固定しながらFG係数で応力が変わる例
+  - 一定曲率の境界源とFG制約から異常を計算する
+problem_patterns:
+  - HOLO13-OUTWARD-NORMAL
+  - HOLO13-METRIC-VARIATION-COUNTERTERM
+  - HOLO13-FG-EXTRINSIC-CURVATURE
+  - HOLO13-STRESS-TRACE
+  - HOLO13-STATE-RESPONSE
+  - HOLO13-RADIAL-CONSTRAINT
+  - HOLO13-STRESS-CONSERVATION
+  - HOLO13-ANOMALY-CENTRAL-CHARGE
+  - HOLO13-NORMAL-SIGN-COUNTEREXAMPLE
+  - HOLO13-CURVED-BOUNDARY-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 8 }
