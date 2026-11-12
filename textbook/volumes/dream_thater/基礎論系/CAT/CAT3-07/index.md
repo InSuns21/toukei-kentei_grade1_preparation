@@ -296,13 +296,17 @@ $$
 
 ## 5. 図式 $F$ 自体が変わったとき
 
-今までは $F$ を固定した。$F\xRightarrow{\sigma}G$ と自然変換が与えられると、同じ添字圏 $(K\downarrow b)$ の各頂点で $\sigma_a:F(a)\to G(a)$ を使える。そこから余極限間の射が得られるはずである。
+今までは一つの $F$ を固定し、その左Kan拡張を $L:\mathcal B\to\mathcal C$ と書いた。ここからは $F,G:\mathcal A\to\mathcal C$ を動かし、各図式の左Kan拡張を $L_F=\operatorname{Lan}_K F$、$L_G=\operatorname{Lan}_K G$ と区別する。
+
+自然変換 $\sigma:F\Rightarrow G$ を余極限間に運ぶ自然変換は $L\sigma:L_F\Rightarrow L_G$ と略記する。これは固定した $F$ に対する関手 $L_F$ の射 $v:b\to b'$ への作用 $L_F(v)$ とは異なる。
+
+両方の余極限を比較するため、同じ添字圏 $(K\downarrow b)$ の各頂点にある $\sigma_a:F(a)\to G(a)$ を使う。
 
 <a id="prop-cat3-07-functoriality"></a>
 
 <!-- formal-statement-start -->
 > **命題（左Kan拡張のFに関する関手性）**
-> 小さい圏 $\mathcal A,\mathcal B$、余完備な局所小圏 $\mathcal C$ と $K:\mathcal A\to\mathcal B$ を取る。任意の自然変換 $\sigma:F\Rightarrow G$ に対して、各 $b$ の次の条件は自然変換 $L\sigma:\operatorname{Lan}_K F\Rightarrow\operatorname{Lan}_K G$ を一意に定める。
+> 小さい圏 $\mathcal A,\mathcal B$、余完備な局所小圏 $\mathcal C$、関手 $K:\mathcal A\to\mathcal B$ と $F,G:\mathcal A\to\mathcal C$ を取る。$L_F=\operatorname{Lan}_K F$、$L_G=\operatorname{Lan}_K G$ と書く。任意の自然変換 $\sigma:F\Rightarrow G$ に対して、各 $b$ の次の条件は自然変換 $L\sigma:L_F\Rightarrow L_G$ を一意に定める。
 
 $$
 (L\sigma)_b\,i^{F,b}_{a,u}
@@ -364,7 +368,7 @@ $$
 \end{aligned}
 $$
 
-なので $L(\tau\sigma)=L\tau\,L\sigma$。従って $L$ は関手である。
+なので $L(\tau\sigma)=L\tau\,L\sigma$。従って対象を $F\mapsto L_F$、射を $\sigma\mapsto L\sigma$ と送る対応は、関手 $\operatorname{Lan}_K$ を定める。
 
 さらに第4節の $\eta_F$ に関して、$b=Ka,u=1_{Ka}$ の構成式は
 
@@ -421,7 +425,9 @@ $$
 
 ### 6.4 充満忠実な関手なら元の値を取り戻す
 
-ある $a\in\mathcal A$ に対して $(K\downarrow Ka)$ の対象 $(a,1_{Ka})$ が**終対象**なら、そこへの唯一の射を使い、余極限は $F(a)$ となる。[充満忠実](../CAT1-09/index.md#def-cat1-09-fully-faithful)な $K$ なら、任意の $u:Ka'\to Ka$ は唯一の $f:a'\to a$ に等しく $Kf=u$ なので、$(a',u)\to(a,1_{Ka})$ が一意にある。
+ある $a\in\mathcal A$ に対して、$(K\downarrow Ka)$ の対象 $(a,1_{Ka})$ が[**終対象**](../CAT1-04/index.md#def-cat1-04-initial-terminal)なら、その対象の値 $F(a)$ が余極限となる。終対象への唯一の射から余錐を作れるためである。
+
+特に $K$ が[充満忠実](../CAT1-09/index.md#def-cat1-09-fully-faithful)なら、任意の $u:Ka'\to Ka$ に対して $Kf=u$ となる $f:a'\to a$ が唯一存在する。従って $(a',u)\to(a,1_{Ka})$ は唯一のcomma圏の射となり、終対象であることが分かる。
 
 <a id="prop-cat3-07-fully-faithful"></a>
 

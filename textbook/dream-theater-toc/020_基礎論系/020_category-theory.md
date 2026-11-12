@@ -32,3 +32,4 @@
 29. [CAT3-05 Beckのモナド性定理](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-05/index.md)
 30. [CAT3-06 Kan拡張の普遍性](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-06/index.md)
 31. [CAT3-07 点ごとの左Kan拡張](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-07/index.md)
+32. [CAT3-08 点ごとの右Kan拡張](textbook/volumes/dream_thater/基礎論系/CAT/CAT3-08/index.md)
