@@ -34,7 +34,7 @@ $$
 
 ## 1. 2つの内部点を結ぶ逆演算子
 
-[接触図](../HOLO10/index.md#def-holo10-contact-integral)の核$K_\Delta(X;y)$は「境界点$y$から内部点$X$」への解を作りました。今回は頂点$X$で生じた源を別の内部点$Y$へ運ぶ必要があります。そのため内部場の微分演算子$B$を逆にする二点核をまず構成します。
+[接触図](../HOLO10/index.md#def-holo10-contact-integral)の核$K_\Delta(X;y)$は「境界点$y$から内部点$X$」への解を作りました。今回は頂点$X$で生じた源を別の内部点$Y$へ運ぶ必要があります。そのため内部場の微分演算子$B$を逆にする二点核をまず構成します。以下、$g_{ab}$はEuclid計量の成分、$\sqrt{\det g_{ab}}$は体積密度を表し、相互作用の結合定数$g$とは区別します。
 
 <a id="def-holo11-bulk-green"></a>
 
@@ -43,7 +43,7 @@ $$
 > 第0節の正質量スカラー場について切断領域で考える。境界値が零で、赤外で減衰する二点分布が次の方程式を満たすとする。
 
 $$
-B_XG_{\chi,\epsilon}(X,Y)=\frac{\delta(z-z')\delta^{(d)}(x-y)}{\sqrt{g(X)}},
+B_XG_{\chi,\epsilon}(X,Y)=\frac{\delta(z-z')\delta^{(d)}(x-y)}{\sqrt{\det g_{ab}(X)}},
 \qquad G_{\chi,\epsilon}(\epsilon,x;Y)=0
 $$
 
@@ -51,25 +51,58 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo11-bulk-green -->
-**定義の確認**：まず境界方向をFourier変換した零波数$k=0$の極限で考えます。$d=3$、$M^2L^2=7/4$なら
-$\nu_\chi=\sqrt{d^2/4+M^2L^2}=2$です。$\epsilon\to0$の零波数Green核は
+**定義の確認**：まず境界方向のFourier零波数（運動量の長さが $k=0$ の成分）で、**方程式・境界値・赤外減衰・デルタ係数**を一つずつ確認します。$d=3$、$M^2L^2=7/4$とすると、上の計量から$z\ne z'$での動径方程式は
 
 $$
-g_0(z,z')=\frac{z_<^{7/2}z_>^{-1/2}}{4L^2},
-\qquad z_<=\min(z,z'),\quad z_>=\max(z,z').
+\left[-\frac{d^2}{dz^2}+\frac2z\frac d{dz}+\frac{7}{4z^2}\right]f(z)=0.
 $$
 
-$z<z'$と$z>z'$で斉次方程式を満たし、$z=0$へ向けて$z^{7/2}$で消えます。$z=z'$の左右の導関数は
+$f(z)=z^\alpha$を代入して$-\alpha(\alpha-1)+2\alpha+7/4=0$、すなわち$\alpha(\alpha-3)=7/4$を得ます。根は$\alpha=7/2,-1/2$です。これは後で用いる$\nu_\chi=\sqrt{d^2/4+M^2L^2}=2$と$\alpha=d/2\pm\nu_\chi$にも一致します。
+
+切断面$z=\epsilon$で消える解と、$z\to\infty$で減衰する解をそれぞれ
 
 $$
-\partial_z g_0(z'-0,z')=\frac{7z'^2}{8L^2},\qquad
-\partial_z g_0(z'+0,z')=-\frac{z'^2}{8L^2},
+f_\epsilon(z)=z^{7/2}-\epsilon^4z^{-1/2},\qquad
+h(z)=z^{-1/2}
 $$
 
-なので跳びは$-z'^2/L^2$です。したがって$-\partial_z^2g_0$のデルタ係数が$+z'^2/L^2$となり、以下の$d=3$の規格化と一致します。**これは境界方向の零波数成分の確認**であって、位置空間全体のデルタ関数をこの一成分だけで示したわけではありません。
+と選びます。実際、$f_\epsilon(\epsilon)=\epsilon^{7/2}-\epsilon^4\epsilon^{-1/2}=0$であり、$h(z)\to0$です。両者は上の斉次方程式の解なので、$z\ne z'$でのGreen方程式も満たします。$z_<=\min(z,z')$、$z_>=\max(z,z')$とし、連続な核を$c f_\epsilon(z_<)h(z_>)$とおきます。$z'$を固定した一階導関数の跳び（右極限から左極限を引く）は
+
+$$
+c\{f_\epsilon(z')h'(z')-f_\epsilon'(z')h(z')\}
+=-4c z'^2.
+$$
+
+定義の方程式を$z'$の両側で積分すると、右辺のFourier零モードは$z'^2\delta(z-z')/L^2$なので、跳びは$-z'^2/L^2$でなければなりません。従って$c=1/(4L^2)$となり、
+
+$$
+g_{0,\epsilon}(z,z')
+=\frac{(z_<^{7/2}-\epsilon^4z_<^{-1/2})z_>^{-1/2}}{4L^2},
+\qquad
+g_0(z,z')=\lim_{\epsilon\to0}g_{0,\epsilon}(z,z')
+=\frac{z_<^{7/2}z_>^{-1/2}}{4L^2}.
+$$
+
+有限$\epsilon$でも、$z=z'$における左右の導関数は
+
+$$
+\partial_z g_{0,\epsilon}(z'-0,z')
+=\frac{7z'^2+\epsilon^4z'^{-2}}{8L^2},\qquad
+\partial_z g_{0,\epsilon}(z'+0,z')
+=\frac{-z'^2+\epsilon^4z'^{-2}}{8L^2}.
+$$
+
+よって跳びは確かに$-z'^2/L^2$で、$-\partial_z^2g_{0,\epsilon}$のデルタ係数が$+z'^2/L^2$となります。**これは境界方向の零波数成分の確認**であって、位置空間全体のデルタ関数をこの一成分だけで示したわけではありません。
 <!-- definition-example-end -->
 
-内部Green関数の係数を曖昧にしないため、境界方向の運動量$k$について方程式を導きます。$G(X,Y)=\int d^dk\,(2\pi)^{-d}e^{ik\cdot(x-y)}g_k(z,z')$とおくと
+内部Green関数の係数を曖昧にしないため、境界方向のFourier運動量$p\in\mathbb R^d$（ベクトル）とその長さ$k=|p|\ge0$（スカラー）を区別します。回転対称性から動径核は$k$にのみ依存するので、
+
+$
+G_\chi(X,Y)=\int_{\mathbb R^d}\frac{d^dp}{(2\pi)^d}\,
+e^{ip\cdot(x-y)}g_{|p|}(z,z')
+$
+
+とおきます。この表示をGreen方程式へ代入すると
 
 $$
 \left[-\partial_z^2+\frac{d-1}{z}\partial_z
@@ -83,7 +116,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（バルクGreen関数のFourier表示）**  
-> $d\ge2$、$L>0$、$M^2>0$とし、標準境界条件と赤外正則性を課す。$k=|k|>0$の場合、$\epsilon\to0$におけるFourier核は
+> $d\ge2$、$L>0$、$M^2>0$とし、標準境界条件と赤外正則性を課す。境界Fourier運動量$p\in\mathbb R^d$の長さ$k=|p|>0$の場合、$\epsilon\to0$におけるFourier核は
 
 $$
 g_k(z,z')=\frac{(zz')^{d/2}}{L^{d-1}}\,
@@ -161,13 +194,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo11-exchange-integral -->
-**定義の確認**：$12|34$では$X$に外線1・2、$Y$に3・4があります。$d=3$、$\Delta=2$で各核は
+**定義の確認**：$12|34$では$X$に外線1・2、$Y$に3・4があります。$d=3$、$\Delta=2$で[HOLO9の規格化された境界―バルク核](../HOLO9/index.md#def-holo9-bulk-boundary)を代入すると、各核は
 
 $$
 K_2(X;y_i)=\frac{z^2}{\pi^2(z^2+|x-y_i|^2)^2}.
 $$
 
-従って**外線4本の係数**は$\pi^{-8}$、内部線は$G_\chi(X,Y)$、測度は両方に$L^4$、すなわち$L^8$です。$13|24$では1・3を$X$に移すだけで、別の4点配置を表します。積分の正規化に$G_\chi$の$L^{-2}$も残るので、全体の$L$次数は$L^6$（$g$の次元は別）です。
+従って**外線4本の係数**は$\pi^{-8}$、内部線は$G_\chi(X,Y)$、測度は両方に$L^4$、すなわち$L^8$です。$13|24$では1・3を$X$に移すだけで、別の4点配置を表します。積分の正規化に[第1節で導いたGreen核](#prop-holo11-green-fourier)の$d=3$での係数$L^{-2}$も残るので、全体の$L$次数は$L^6$（$g$の次元は別）です。
 <!-- definition-example-end -->
 
 <a id="prop-holo11-exchange-tree"></a>
@@ -227,6 +260,15 @@ $$
 
 これを古典解で評価すると最初の平方項は零です。自由作用の$\phi_0$まわりの一次変分は固定源により零で、$\phi-\phi_0=O(g^2)$の作用への影響は$O(g^4)$です。したがって$S_{\rm on\text{-}shell}$の4次部分は$-g^2\langle\phi_0^2,G_\chi\phi_0^2\rangle/8$、$W=-S$なので符号は正となります。
 
+この計数には$G_\chi(X,Y)=G_\chi(Y,X)$を使います。[HOLO7の境界付き第一変分](../HOLO7/index.md#prop-holo7-boundary-variation)と同じ部分積分で、Dirichlet境界値零・赤外減衰を満たす試験関数$f,h$に対して
+
+$
+\langle f,Bh\rangle-\langle Bf,h\rangle
+=\int_{\partial\Omega}\bigl(h\,\partial_n f-f\,\partial_n h\bigr)\,d\Sigma=0
+$
+
+です。従って$B$のDirichlet逆演算子$G_\chi=B^{-1}$は対称で、核の二点交換が許されます。
+
 4つの相異なる形式変数$J_1,\ldots,J_4$を用い、$\phi_0=\sum_i J_iK_i$とすると、$\phi_0(X)^2$で2つの異なる添字を選ぶ順序が2通り、$Y$でも2通りです。2組の頂点割り当ては$\binom42=6$通り。従って$4\cdot6=24$個の項があります。$X\leftrightarrow Y$の対称性により同じチャネルごとに8個ずつ集まるので
 
 $$
@@ -242,7 +284,7 @@ $$
 
 ## 3. なぜ4点は交差比の関数になるか
 
-[HOLO10の3点関数](../HOLO10/index.md#prop-holo10-cft-threepoint)の分離点での距離冪は対称性が定数倍まで固定しました。しかし4点では、同じ一斉拡大に対して不変な**無次元比**が2つ残ります。以下、$r_{ij}=|y_i-y_j|$、境界は$d\ge2$のEuclid空間とします。
+[HOLO10の3点関数](../HOLO10/index.md#prop-holo10-cft-threepoint)の分離点での距離冪は対称性が定数倍まで固定しました。しかし4点では、同じ一斉拡大に対して不変な**無次元比**が2つ残ります。以下、[QFT48の四点共形交差比の定義](../../QFT/QFT48/index.md#def-qft48-conformal-cross-ratios)も参照し、$r_{ij}=|y_i-y_j|$、境界は$d\ge2$のEuclid空間とします。ここでは対称性から二つの比が残る理由も計算し直します。
 
 $$
 u=\frac{r_{12}^2r_{34}^2}{r_{13}^2r_{24}^2},
