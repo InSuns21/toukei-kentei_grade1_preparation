@@ -46,4 +46,4 @@ chapters:
   - { id: CAT4-03, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT4-03, status: completed, title: "組紐・対称モノイダル圏" }
   - { id: CAT4-04, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT4-04, status: completed, title: "モノイダル関手とモノイド対象" }
   - { id: CAT4-05, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT4-05, status: completed, title: "閉モノイダル圏とCartesian closed category" }
-  - { id: CAT4-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT4-06, status: planned, title: "型付きラムダ計算の圏論的意味" }
+  - { id: CAT4-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT4-06, status: completed, title: "型付きラムダ計算の圏論的意味" }
