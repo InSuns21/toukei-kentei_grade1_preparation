@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="350" viewBox="0 0 960 350" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">単純せん断による面の接線と法線の変換</title>
+  <desc id="desc">左は基準配置の面 X1 一定を x2 方向の垂直線として描き、法線 N は右向き。右は x1 が x2 に比例してずれる単純せん断後で、面の断面は右上に傾き、現在法線 n は右下へ向かう。面の奥行き方向 e3 は不変。図は模式図で長さは式から計算する。</desc>
+  <defs>
+    <marker id="arr-axis" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#586875"/></marker>
+    <marker id="arr-n" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#123d7a"/></marker>
+    <marker id="arr-flow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#415c71"/></marker>
+  </defs>
+  <rect x="1" y="1" width="958" height="348" rx="12" fill="#ffffff" stroke="#d5dee5"/>
+  <text x="218" y="42" fill="#202c35" font-size="22" text-anchor="middle" font-family="Noto Serif CJK JP, sans-serif">基準配置</text>
+  <text x="722" y="42" fill="#202c35" font-size="22" text-anchor="middle" font-family="Noto Serif CJK JP, sans-serif">現在配置（せん断後）</text>
+  <text x="480" y="76" font-size="16" text-anchor="middle" fill="#435363" font-family="Noto Serif CJK JP, sans-serif">面の断面：第3方向 e3 は紙面に垂直</text>
+  <g fill="none" stroke="#8b9aa6" stroke-width="2" marker-end="url(#arr-axis)">
+    <path d="M95 303 H389"/><path d="M95 303 V103"/>
+    <path d="M576 303 H878"/><path d="M576 303 V103"/>
+  </g>
+  <g fill="#526371" font-size="18" font-family="Noto Serif CJK JP, sans-serif">
+    <text x="366" y="327">X1</text><text x="40" y="93">X2</text>
+    <text x="856" y="327">x1</text><text x="520" y="93">x2</text>
+  </g>
+  <path d="M217 281 L217 122" stroke="#246a71" stroke-width="8" stroke-linecap="round"/>
+  <path d="M680 281 L779 122" stroke="#246a71" stroke-width="8" stroke-linecap="round"/>
+  <g stroke="#123d7a" stroke-width="4" fill="none" marker-end="url(#arr-n)">
+    <path d="M217 202 H320"/>
+    <path d="M729.5 201.5 L824 260"/>
+  </g>
+  <g fill="#123d7a" font-size="19" font-family="Noto Serif CJK JP, sans-serif">
+    <text x="272" y="183">N = e1</text>
+    <text x="802" y="284">n</text>
+  </g>
+  <g fill="#246a71" font-size="17" font-family="Noto Serif CJK JP, sans-serif">
+    <text x="171" y="107">a = e2</text>
+    <text x="740" y="106">Fa</text>
+  </g>
+  <path d="M422 199 H541" fill="none" stroke="#415c71" stroke-width="3" marker-end="url(#arr-flow)"/>
+  <text x="477" y="159" font-size="20" text-anchor="middle" fill="#415c71" font-family="Noto Serif CJK JP, sans-serif">χ</text>
+  <g fill="#435363" font-size="16" font-family="Noto Serif CJK JP, sans-serif">
+    <text x="209" y="334" text-anchor="middle">面積ベクトル：N dA</text>
+    <text x="733" y="334" text-anchor="middle">面積ベクトル：n da</text>
+  </g>
+</svg>
