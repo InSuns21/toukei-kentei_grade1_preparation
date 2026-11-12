@@ -1,0 +1,46 @@
+id: "INV12"
+title: "Radon変換は何を測っているか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV5
+  - FOU3
+official_scope: []
+learning_objectives:
+  - 正規直交基底と弧長パラメータから平面の直線とRadon変換を定義し直接例を計算できる
+  - Schwartz級によって線積分と積分交換が正当化される理由を説明できる
+  - sinogramの平行移動効果・方向反転対称性・投影総量保存を計算できる
+  - 一次元と二次元のFourier規約を揃え変数変換とJacobianからFourier slice theoremを証明できる
+  - 完全角度データと一次元だけのデータの違いを示し二次元Fourier反転から単射性を証明できる
+  - 異方的GaussianのRadon変換とFourier sliceを平方完成・Gaussian積分で直接照合できる
+definitions:
+  - { id: INV12-DEF-01, name: 本講で用いる急減少関数 }
+  - { id: INV12-DEF-02, name: 平面Radon変換 }
+  - { id: INV12-DEF-03, name: sinogram }
+theorems:
+  - { id: INV12-PROP-01, name: 方向反転対称性と投影の総量 }
+  - { id: INV12-THM-01, name: Fourier slice theorem }
+  - { id: INV12-LEM-01, name: Schwartz級の二次元Fourier反転 }
+  - { id: INV12-THM-02, name: 完全角度Radonデータの単射性 }
+canonical_examples:
+  - 等方Gaussianの線積分と正規化
+  - 円盤の投影と弦の長さ
+  - 平行移動Gaussianのsinogram
+  - Gaussianの一次元・二次元Fourier正規化
+  - 異方Gaussianの角度依存の投影幅
+  - 一方向のRadon変換の非自明核
+problem_patterns:
+  - INV12-A01
+  - INV12-A02
+  - INV12-A03
+  - INV12-A04
+  - INV12-A05
+  - INV12-B01
+  - INV12-B02
+  - INV12-B03
+  - INV12-B04
+  - INV12-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
