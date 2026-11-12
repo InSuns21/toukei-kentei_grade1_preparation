@@ -585,14 +585,43 @@ $F$ は可逆で $J>0$ とする。
 
 (i) [第二 Piola 応力の対称性の命題](#prop-ctm8-symmetry)の逆向きから、$\sigma\ne\sigma^T$ なら $S\ne S^T$。例えば $F=I_3$、$J=1$ なら $S=\sigma$ なので即座に確かめられる。この場合に古典的な角運動量収支まで仮定してはいけない。
 
-(ii) $g(X_2)=1+X_2/\ell>0$ と置けば $F=\operatorname{diag}(g,1,1)$、$J=g$、$K=JF^{-T}=\operatorname{diag}(1,g,g)$。第2行の発散は $\partial_{X_2}g=1/\ell\ne0$ である。もし $F=D_X\chi$ なら、$\partial_{X_2}F_{11}=\partial_{X_1}F_{12}$ が必要だが、左は $1/\ell$、右は $0$ で矛盾する。従って $F$ はこの領域で運動写像の勾配でなく、[Piola 恒等式の成分証明](#identity-ctm8-piola)を適用できない。$J>0$ だけでは足りない。
+(ii) $g(X_2)=1+X_2/\ell>0$ と置く。各行列を直接計算すると
+
+$$
+F=\operatorname{diag}(g,1,1),\qquad
+J=g>0,\qquad
+K=JF^{-T}=\operatorname{diag}(1,g,g).
+$$
+
+第2行の発散は
+
+$$
+\sum_A\partial_{X_A}K_{2A}
+=\partial_{X_1}0+\partial_{X_2}g+\partial_{X_3}0
+=\frac1\ell\ne0.
+$$
+
+もし $F=D_X\chi$ なら、二階混合微分の交換が必要だが、今回の行列では
+
+$$
+\partial_{X_2}F_{11}=\frac1\ell\ne0=\partial_{X_1}F_{12}
+$$
+
+と矛盾する。従って $F$ はこの領域で運動写像の勾配でなく、[Piola 恒等式の成分証明](#identity-ctm8-piola)を適用できない。$J>0$ だけでは足りない。
 <!-- solution-end -->
 
 ## Level C
 
 ### C1. 時間依存せん断と空間的に一様な応力を一つの物体で確かめる
 
-$\Omega_0$ を有界な直方体とし、$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$、$\gamma(0)=0$、$\gamma$ は $C^2$ 級とする。密度は一定の基準密度 $\rho_0>0$、現在応力は $\sigma(x,t)=\begin{pmatrix}0&\tau(t)&0\\\tau(t)&0&0\\0&0&0\end{pmatrix}$ とし、$\tau$ は Pa 単位の $C^1$ 関数である。単位質量当たりの体積力は $b(x,t)=\ddot\gamma(t)x_2e_1$ とする。
+$\Omega_0$ を有界な直方体とし、$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$、$\gamma(0)=0$、$\gamma$ は $C^2$ 級とする。基準密度は一定の $\rho_0>0$ とする。現在応力と単位質量当たりの体積力は
+
+$$
+\sigma(x,t)=\begin{pmatrix}0&\tau(t)&0\\\tau(t)&0&0\\0&0&0\end{pmatrix},\qquad
+b(x,t)=\ddot\gamma(t)x_2e_1
+$$
+
+で与えられる。$\tau$ は Pa 単位の $C^1$ 関数、$b$ の単位は N/kg とする。
 
 $t$ は $\gamma$ とその導関数が有限な範囲を考える。
 
