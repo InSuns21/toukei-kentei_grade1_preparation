@@ -184,6 +184,7 @@ function selfTestStandaloneHtmlLinks() {
   const source = [
     '[Player](assets/ori-v12-player.html)',
     '[Secondary](assets/demo.html "Open demo")',
+    '[Lab](../../../../../../simulation/ml1-04.html)',
     '[Other chapter](../ORI21/index.md#theorem)',
     '![Poster](assets/ori-v12-poster.svg)',
   ].join('\n');
@@ -192,6 +193,7 @@ function selfTestStandaloneHtmlLinks() {
   const prefix = 'textbook/volumes/dream_thater/幾何系/ORI/ORI22/assets/';
   if (!actual.includes(`[Player](${prefix}ori-v12-player.html ':ignore')`)
     || !actual.includes(`[Secondary](${prefix}demo.html 'Open demo :ignore')`)
+    || !actual.includes("[Lab](simulation/ml1-04.html ':ignore')")
     || !actual.includes('[Other chapter](textbook/volumes/dream_thater/幾何系/ORI/ORI21/index.md#theorem)')
     || !actual.includes(`![Poster](${prefix}ori-v12-poster.svg)`)) {
     throw new Error('Standalone HTML must bypass Docsify routing without changing Markdown navigation or SVG assets');
