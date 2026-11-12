@@ -414,7 +414,9 @@ $$
 \le\liminf_{t\to0}\frac{1-e^{-t^2\mu(F,F)/2}}{t^2}
 =\frac12\mu(F,F)<\infty.
 $$
-したがって二次モーメントが有限です。さらに $0\le(1-\cos(t\lambda))/t^2\le\lambda^2/2$ なので[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)で等号が得られます。[QM6の非有界スペクトル積分の定義](../../QM/QM6/index.md#def-qm6-unbounded-spectral-integral)と[二次モーメントのノルム公式](../../QM/QM6/index.md#prop-qm6-unbounded-integral-domain)を適用すると
+したがって二次モーメントが有限です。さらに $0\le(1-\cos(t\lambda))/t^2\le\lambda^2/2$ なので[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)で等号が得られます。生成子を[非有界スペクトル積分](../../QM/QM6/index.md#def-qm6-unbounded-spectral-integral)として表したとき、その定義域はスペクトル測度の二次モーメントで判定します。
+
+先ほどの評価で二次モーメントの有限性が分かったので、[非有界スペクトル積分の定義域とノルム](../../QM/QM6/index.md#prop-qm6-unbounded-integral-domain)を適用すると
 $$
 \Omega_\mu\in D(\Phi_\mu(F)),\qquad
 \|\Phi_\mu(F)\Omega_\mu\|^2
