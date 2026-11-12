@@ -31,6 +31,11 @@ for(const spec of SPECS){
    }
    assert.match(html,/aria-live="polite"/);
    assert.match(html,/静止SVG/);
+   const escaped=spec.formula.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+   assert.ok(html.includes(escaped),'stale formula in player '+spec.id);
+   assert.ok(html.includes('ORI-V'+spec.id+' '+spec.title),'stale player title '+spec.id);
+   assert.ok(html.includes(stateAt(spec.id,0,spec.modes[0]).readout),'stale transcript start '+spec.id);
+   assert.ok(html.includes(stateAt(spec.id,1,spec.modes[0]).readout),'stale transcript end '+spec.id);
    assert.match(html,/type="module"/);
    assert.match(poster,/data-layout-lint="strict"/);
    assert.match(poster,/<title/);

@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ORI-V02 点合わせと正方形</title><link rel="stylesheet" href="../../shared/ori-svg-player.css"></head>
-<body><h1>ORI-V02 点合わせと正方形</h1>
-<p><strong>数理モデル：</strong>点P=(0,2)をQ=(s,0)へ映す折り線はPQの垂直二等分線。</p>
-<p><strong>適用範囲：</strong>物理的な折り途中の表示ではない。 実写の折り作業ではなく、数式で決まる状態をSVGへ描き直しています。</p>
+<title>ORI-V02 芳賀折りの三等分と辺長比</title><link rel="stylesheet" href="../../shared/ori-svg-player.css"></head>
+<body><h1>ORI-V02 芳賀折りの三等分と辺長比</h1>
+<p><strong>数理モデル：</strong>正方形の右下角P=(2,0)を上辺Q=(u,2)へ映す。折った下辺の像と左辺の交点は高さ2u/(4-u)。</p>
+<p><strong>適用範囲：</strong>この点合わせの配置例であり、全ての芳賀折りの一般定理の証明ではない。 実写の折り動作ではなく、数式から幾何状態をSVGで描く教材です。条件の表示工程と物理的な連続折り運動を区別してください。</p>
 <div class="surface">
 <div class="graphic" role="region" tabindex="0" aria-label="必要なら横スクロールで拡大した図を閲覧" style="overflow-x:auto">
 <svg id="ori-b-stage" viewBox="0 0 760 430" style="display:block;width:100%;height:auto;min-width:min(100%,600px)" role="img" aria-labelledby="stage-title stage-desc" xmlns="http://www.w3.org/2000/svg">
-<title id="stage-title">ORI-V02 点合わせと正方形</title><desc id="stage-desc">点P=(0,2)をQ=(s,0)へ映す折り線はPQの垂直二等分線。 物理的な折り途中の表示ではない。</desc><g id="ori-b-frame"></g></svg>
-<noscript><img src="ori-v02-poster.svg" alt="ORI-V02 点合わせと正方形の静止図" style="width:100%;height:auto"></noscript></div>
+<title id="stage-title">ORI-V02 芳賀折りの三等分と辺長比</title><desc id="stage-desc">正方形の右下角P=(2,0)を上辺Q=(u,2)へ映す。折った下辺の像と左辺の交点は高さ2u/(4-u)。 この点合わせの配置例であり、全ての芳賀折りの一般定理の証明ではない。</desc><g id="ori-b-frame"></g></svg>
+<noscript><img src="ori-v02-poster.svg" alt="ORI-V02 芳賀折りの三等分と辺長比の静止図" style="width:100%;height:auto"></noscript></div>
 <div class="controls" role="group" aria-label="工程の再生操作">
 <button type="button" data-player="play" aria-pressed="false">再生</button><button type="button" data-player="reset">初めから</button>
 <button type="button" data-player="previous">前の工程</button><button type="button" data-player="next">次の工程</button>
@@ -23,7 +23,7 @@
 </div>
 <h2>数学的な不変量の数値検査</h2>
 <table><thead><tr><th scope="col">条件</th><th scope="col">残差</th></tr></thead><tbody id="invariants"><tr><td>読込中</td><td>—</td></tr></tbody></table>
-<h2>工程別の文章代替</h2><details><summary>各表示例の5工程と式を開く</summary><h3>基本例</h3><ol><li>工程0（t=0）：PからQ=(0.350,0)へ鏡映。中点M=(0.175,1)、鏡映先一致。</li><li>工程1（t=0.25）：PからQ=(0.650,0)へ鏡映。中点M=(0.325,1)、鏡映先一致。</li><li>工程2（t=0.5）：PからQ=(0.950,0)へ鏡映。中点M=(0.475,1)、鏡映先一致。</li><li>工程3（t=0.75）：PからQ=(1.250,0)へ鏡映。中点M=(0.625,1)、鏡映先一致。</li><li>工程4（t=1）：PからQ=(1.550,0)へ鏡映。中点M=(0.775,1)、鏡映先一致。</li></ol></details>
+<h2>工程別の文章代替</h2><details><summary>各表示例の5工程と式を開く</summary><h3>基本例</h3><ol><li>工程0（t=0）：上辺の移動先u=0.500、折られた下辺と左辺の交点I=(0,0.28571)。左辺の下からの比=0.14286。</li><li>工程1（t=0.25）：上辺の移動先u=0.750、折られた下辺と左辺の交点I=(0,0.46154)。左辺の下からの比=0.23077。</li><li>工程2（t=0.5）：上辺の移動先u=1.000、折られた下辺と左辺の交点I=(0,0.66667)。左辺の下からの比=0.33333 = 1/3。</li><li>工程3（t=0.75）：上辺の移動先u=1.250、折られた下辺と左辺の交点I=(0,0.90909)。左辺の下からの比=0.45455。</li><li>工程4（t=1）：上辺の移動先u=1.500、折られた下辺と左辺の交点I=(0,1.20000)。左辺の下からの比=0.60000。</li></ol></details>
 <p><a href="ori-v02-poster.svg">静止SVGを開く</a>。動画を動かせなくても上の数式と工程説明から検算できます。</p>
 <p class="footnote">自動再生はしません。動きを減らすOS設定では静止終端から開始。モデルの数学的制約と、有限厚み・層の非貫通・連続折り運動は別々に判定してください。</p>
 <p><a href="../index.md">講義 ORI2 の本文に戻る</a></p>
@@ -36,7 +36,7 @@ const tbody=document.getElementById('invariants');
 const choice=document.getElementById('case');
 function render(t){
  const s=stateAt('02',t,choice?.value||'default');
- stage.innerHTML=svgFrame({...s,title:"点合わせと正方形"});
+ stage.innerHTML=svgFrame({...s,title:"芳賀折りの三等分と辺長比"});
  tbody.replaceChildren(...s.checks.map(c=>{
   const tr=document.createElement('tr'),name=document.createElement('td'),r=document.createElement('td');
   name.textContent=c.name;r.textContent=(c.actual-c.expected).toExponential(2);tr.append(name,r);return tr;
