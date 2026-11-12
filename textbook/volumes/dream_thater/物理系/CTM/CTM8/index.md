@@ -655,7 +655,7 @@ $$
 
 $$
 D_{12}=D_{21}=\frac{\dot\gamma}{2},\qquad
-D_{ij}=0\quad ((i,j)\ne(1,2),(2,1)).
+D_{ij}=0\quad ((i,j)\notin\{(1,2),(2,1)\}).
 $$
 
 一方、[Green–Lagrange ひずみ](../CTM3/index.md#def-ctm3-green-strain) $E=(F^TF-I_3)/2$ は物質座標 $X$ を固定して時間微分する。従って $\dot E_{12}=\dot E_{21}=\dot\gamma/2$、$\dot E_{22}=\gamma\dot\gamma$ であり、三つの仕事率は
