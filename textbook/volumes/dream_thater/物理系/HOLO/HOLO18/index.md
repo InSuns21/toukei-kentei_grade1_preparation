@@ -45,12 +45,12 @@ $$
 <!-- definition-example-start: def-holo18-regulated-rt-length -->
 **定義の確認**（$a=1,\epsilon=1/2$）。 $x^2+z^2=1$ と $z=1/2$ の交点は $x=\pm\sqrt3/2$。従って $\gamma_{A,\epsilon}$ はこの二点間の半円弧で、$z\ge1/2>0$ に収まり、両端の元のアンカー $x=\pm1,z=0$ と異なります。$\theta\in[\pi/6,5\pi/6]$ により $(x,z)=(\cos\theta,\sin\theta)$ と表します。ここで $\dot\gamma=d\gamma/d\theta=(-\sin\theta,\cos\theta)$ だから、接ベクトルを上の正定値計量へ代入すると
 
-$
+$$
 h(\dot\gamma,\dot\gamma)
 =\frac{L^2}{\sin^2\theta}
 \bigl((-\sin\theta)^2+\cos^2\theta\bigr)
 =\frac{L^2}{\sin^2\theta}>0
-$
+$$
 
 です。$\theta\in(0,\pi)$ なので線素は $ds=L\,d\theta/\sin\theta$ となり、定義した長さは
 
@@ -79,7 +79,7 @@ D[z]=L\int_{-a}^{a}
 \frac{\sqrt{1+z'(x)^2}}{z(x)}\,dx
 $$
 
-です。積分の端点はまず形式上の境界アンカーとし、長さそのものは $\epsilon$ で切ってから評価します。$F=L\sqrt{1+z'^2}/z$ は $x$ に陽に依存しないので、[HOLO3で確認した変分の第一積分](../HOLO3/index.md#thm-holo3-semicircle)を具体的に書くと
+です。積分の端点はまず形式上の境界アンカーとし、長さそのものは $\epsilon$ で切ってから評価します。対称な停留曲線の頂点を $(0,b)$ と書き、$b=z(0)>0$、$z'(0)=0$ と置きます。$b$ はまだ未知の高さです。$F=L\sqrt{1+z'^2}/z$ は $x$ に陽に依存しないので、[HOLO3で確認した変分の第一積分](../HOLO3/index.md#thm-holo3-semicircle)を具体的に書くと
 
 $$
 F-z'\frac{\partial F}{\partial z'}
@@ -87,7 +87,7 @@ F-z'\frac{\partial F}{\partial z'}
 =\frac{L}{b}.
 $$
 
-頂点の高さはまだ未知なので、まず $b=z(0)>0$ と置き、対称性から $z'(0)=0$ とします。頂点で上の定数を評価すると $L/b$ です。従って
+この等式の最後の定数は、頂点で $z=b,z'=0$ を代入して評価した $L/b$ です。従って
 
 $$
 z^2(1+z'^2)=b^2,
