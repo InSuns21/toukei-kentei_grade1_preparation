@@ -91,16 +91,16 @@ $$
 <!-- formal-statement-start -->
 > **定義（global正規化可能モード）**  
 > 質量零の自由スカラー場を持つ上記の純global $AdS_3$ で、整数 $n\ge0$、$\ell\in\mathbb Z$、$k=|\ell|$ に対して、$h_{n k}(u)=\sum_{j=0}^nc_ju^j$、$c_0=1$、
->
-> $$
-> c_{j+1}=\frac{(j-n)(j+n+k+2)}{(j+1)(j+k+1)}c_j
-> $$
->
+
+$$
+c_{j+1}=\frac{(j-n)(j+n+k+2)}{(j+1)(j+k+1)}c_j
+$$
+
 > と定める。径方向関数 $f_{n\ell}=(\sin\rho)^k(\cos\rho)^2h_{nk}(\sin^2\rho)$、周波数 $\omega_{n\ell}=2+k+2n$ を用いた $e^{-i\omega_{n\ell}t+i\ell\theta}f_{n\ell}(\rho)$ を、本講のglobal正規化可能モードと呼ぶ。正規化は中心側の多項式係数 $c_0=1$ で固定し、Klein–Gordon内積による単位ノルムは要求しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo26-global-normal-mode -->
-**定義の確認。** $n=0,\ell=0$ なら $h_{00}=1$、$f_{00}=\cos^2\rho$、$\omega_{00}=2$ です。中心では $f_{00}(0)=1$ と有限で、境界では $f_{00}/\cos^2\rho=1$ です。径方程式にも、$\tan\rho\,f'_{00}=-2\sin^2\rho$ から $(\tan\rho)^{-1}(\tan\rho f'_{00})'=-4\cos^2\rho$ を得て、$\omega^2f_{00}=4\cos^2\rho$ と打ち消すので確かに解です。
+**定義の確認**。 $n=0,\ell=0$ なら $h_{00}=1$、$f_{00}=\cos^2\rho$、$\omega_{00}=2$ です。中心では $f_{00}(0)=1$ と有限で、境界では $f_{00}/\cos^2\rho=1$ です。径方程式にも、$\tan\rho\,f'_{00}=-2\sin^2\rho$ から $(\tan\rho)^{-1}(\tan\rho f'_{00})'=-4\cos^2\rho$ を得て、$\omega^2f_{00}=4\cos^2\rho$ と打ち消すので確かに解です。
 <!-- definition-example-end -->
 
 <a id="prop-holo26-mode-spectrum"></a>
@@ -108,18 +108,18 @@ $$
 <!-- formal-statement-start -->
 > **命題（正則な多項式モードのスペクトル）**  
 > 前述の質量零・標準Dirichlet境界条件を持つ純global $AdS_3$ について、任意の $n\ge0,\ell\in\mathbb Z$ に対する上のモードは、中心で正則、境界で $O(\cos^2\rho)$ であり、$\Box_g\phi=0$ を満たす。境界係数 $b_{n\ell}$ を
->
-> $$
-> b_{n\ell}:=\lim_{\rho\to\pi/2}
-> \frac{f_{n\ell}(\rho)}{\cos^2\rho}
-> $$
->
+
+$$
+b_{n\ell}:=\lim_{\rho\to\pi/2}
+\frac{f_{n\ell}(\rho)}{\cos^2\rho}
+$$
+
 > と定めると、
->
-> $$
-> \boxed{b_{n\ell}=(-1)^n\frac{(n+1)!}{(k+1)(k+2)\cdots(k+n)}\ne0}
-> $$
->
+
+$$
+\boxed{b_{n\ell}=(-1)^n\frac{(n+1)!}{(k+1)(k+2)\cdots(k+n)}\ne0}
+$$
+
 > である。$n=0$ の空積は $1$ とする。
 <!-- formal-statement-end -->
 
@@ -149,22 +149,37 @@ h_{nk}(1)=\frac{(-n-1)_n}{(k+1)_n}
 =\frac{(-1)^n(n+1)!}{(k+1)_n}.
 $$
 
-分母は正整数の積で零でないため $b_{n\ell}\ne0$ です。この有限和の恒等式も確認します。$S_n(b,c)=\sum_{j=0}^n(-1)^j\binom nj(b)_j/(c)_j$ とすると、二項係数の関係 $\binom nj=\binom{n-1}j+\binom{n-1}{j-1}$ より
+分母は正整数の積で零でないため $b_{n\ell}\ne0$ です。この有限和の恒等式も直接証明します。$n\ge0$ に対して
 
-$
-S_n(b,c)=S_{n-1}(b,c)-\frac bc S_{n-1}(b+1,c+1).
-$
+$$
+S_n(b,c):=\sum_{j=0}^n
+(-1)^j\frac{n!}{j!(n-j)!}\frac{(b)_j}{(c)_j}
+$$
 
-$n=0$ では両辺は $1$。$n-1$ に対する式を仮定すると
+と置きます。係数の基本恒等式は $1\le j\le n-1$ で
 
-$
+$$
+\frac{n!}{j!(n-j)!}
+=\frac{(n-1)!}{j!(n-1-j)!}
++\frac{(n-1)!}{(j-1)!(n-j)!}
+$$
+
+です。右辺を共通分母で通分すると分子は $(n-1)![(n-j)+j]=n!$ となります。$j=0,n$ の端も各一項だけで扱えば、和を分割して
+
+$$
+S_n(b,c)=S_{n-1}(b,c)-\frac bc S_{n-1}(b+1,c+1)
+$$
+
+が得られます。$n=0$ なら $S_0=1=(c-b)_0/(c)_0$ です。$n-1$ に対する式を仮定すると
+
+$$
 S_n(b,c)=\frac{(c-b)_{n-1}}{(c)_{n-1}}
 -\frac bc\frac{(c-b)_{n-1}}{(c+1)_{n-1}}
 =\frac{(c-b)_{n-1}(c+n-1-b)}{(c)_n}
 =\frac{(c-b)_n}{(c)_n}.
-$
+$$
 
-これで数学的帰納法による証明が閉じます。ここでは $c=k+1>0$ で分母は消えず、無限級数の解析接続は不要です。
+これで数学的帰納法が閉じます。ここでは $c=k+1>0$ で分母は消えず、無限級数の解析接続も不要です。
 <!-- proof-end -->
 
 例えば $n=1,\ell=0$ なら漸化式は $c_1=-3$ を与え、
@@ -185,17 +200,17 @@ $-2$ という符号を落とすと、後の再構成でこのモードが逆符
 <!-- formal-statement-start -->
 > **定義（正規化可能な境界データ）**  
 > 純global $AdS_3$ の質量零・源零の有限モード和 $\phi$ について、境界の時刻 $t$ と角 $\theta$ におけるデータを
->
-> $$
-> \mathcal O(t,\theta):=
-> \lim_{\rho\to\pi/2}(\cos\rho)^{-2}\phi(t,\rho,\theta)
-> $$
->
+
+$$
+\mathcal O(t,\theta):=
+\lim_{\rho\to\pi/2}(\cos\rho)^{-2}\phi(t,\rho,\theta)
+$$
+
 > と定める。本講の $\mathcal O$ は境界係数であり、作用素として読む場合には自由場の量子化と辞書の仮定を追加する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo26-extrapolate-data -->
-**定義の確認。** 実場 $\phi=3\cos^2\rho\cos(2t)$ では $\mathcal O=3\cos(2t)$ です。$\rho\to\pi/2$ で $\phi\to0$ でも $(\cos\rho)^{-2}\phi$ は有限な $3\cos(2t)$ に近づきます。時間・角度の関数として存在し、源零の条件も満たすため、この定義の非自明な条件が実際に確認できます。
+**定義の確認**。 実場 $\phi=3\cos^2\rho\cos(2t)$ では $\mathcal O=3\cos(2t)$ です。$\rho\to\pi/2$ で $\phi\to0$ でも $(\cos\rho)^{-2}\phi$ は有限な $3\cos(2t)$ に近づきます。時間・角度の関数として存在し、源零の条件も満たすため、この定義の非自明な条件が実際に確認できます。
 <!-- definition-example-end -->
 
 有限モード和を、複素係数 $a_{n\ell}$ を使って
@@ -224,13 +239,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（境界Fourier係数によるモードの復元）**  
 > 上記の純global $AdS_3$、質量零・源零の有限モード和について、$\omega_{n\ell}=2+|\ell|+2n$、$b_{n\ell}\ne0$ とする。境界データ $\mathcal O$ の係数
->
-> $$
-> \mathcal O_{n\ell}:=\frac1{(2\pi)^2}
-> \int_0^{2\pi}\!dt'\int_0^{2\pi}\!d\theta'\,
-> e^{i\omega_{n\ell}t'-i\ell\theta'}\mathcal O(t',\theta')
-> $$
->
+
+$$
+\mathcal O_{n\ell}:=\frac1{(2\pi)^2}
+\int_0^{2\pi}\!dt'\int_0^{2\pi}\!d\theta'\,
+e^{i\omega_{n\ell}t'-i\ell\theta'}\mathcal O(t',\theta')
+$$
+
 > は $\mathcal O_{n\ell}=b_{n\ell}a_{n\ell}$ となる。したがって $a_{n\ell}=\mathcal O_{n\ell}/b_{n\ell}$ と一意に取り出せる。
 <!-- formal-statement-end -->
 
@@ -260,18 +275,18 @@ $$
 <!-- formal-statement-start -->
 > **定義（global有限モードHKLL型核）**  
 > 上記の質量零・標準Dirichlet条件を持つ純global $AdS_3$、有限集合 $F$ に対して、内部点 $X=(t,\rho,\theta)$ と境界点 $y=(t',\theta')$ の再構成核を
->
-> $$
-> K_F(X;y):=2\sum_{(n,\ell)\in F}
-> \frac{f_{n\ell}(\rho)}{b_{n\ell}}
-> \cos\!\left[\omega_{n\ell}(t-t')-\ell(\theta-\theta')\right]
-> $$
->
+
+$$
+K_F(X;y):=2\sum_{(n,\ell)\in F}
+\frac{f_{n\ell}(\rho)}{b_{n\ell}}
+\cos\!\left[\omega_{n\ell}(t-t')-\ell(\theta-\theta')\right]
+$$
+
 > と定める。これは固定された境界条件とモード選択に依存する実核であり、特定の因果的な支持域を定義に含めない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo26-smearing-kernel -->
-**定義の確認。** $F=\{(0,0)\}$ では $f_{00}=\cos^2\rho$、$b_{00}=1$ なので $K_F=2\cos^2\rho\cos[2(t-t')]$ です。これは実数値の滑らかな核で、$2\pi$ 周期の時間積分が定義できます。境界波形 $\mathcal O(t',\theta')=3\cos2t'$ を入れると、角積分が $2\pi$、時間積分の $\cos[2(t-t')]\cos2t'$ の平均が $\tfrac12\cos2t$ なので、$3\cos^2\rho\cos2t$ を再現します。
+**定義の確認**。 $F=\{(0,0)\}$ では $f_{00}=\cos^2\rho$、$b_{00}=1$ なので $K_F=2\cos^2\rho\cos[2(t-t')]$ です。これは実数値の滑らかな核で、$2\pi$ 周期の時間積分が定義できます。境界波形 $\mathcal O(t',\theta')=3\cos2t'$ を入れると、角積分が $2\pi$、時間積分の $\cos[2(t-t')]\cos2t'$ の平均が $\tfrac12\cos2t$ なので、$3\cos^2\rho\cos2t$ を再現します。
 <!-- definition-example-end -->
 
 <a id="thm-holo26-finite-hkll"></a>
@@ -279,13 +294,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（有限モードでのHKLL型再構成）**  
 > 質量零の純global $AdS_3$、前述の反射型境界条件、有限モード集合 $F$ を固定する。$\phi$ が $F$ の正周波数モードとその複素共役の実線形結合なら、任意の内部点 $X=(t,\rho,\theta)$ で、境界データ $\mathcal O$ から
->
-> $$
-> \boxed{\phi(X)=\frac1{(2\pi)^2}
-> \int_0^{2\pi}\!dt'\int_0^{2\pi}\!d\theta'\,
-> K_F(X;t',\theta')\mathcal O(t',\theta')}
-> $$
->
+
+$$
+\boxed{\phi(X)=\frac1{(2\pi)^2}
+\int_0^{2\pi}\!dt'\int_0^{2\pi}\!d\theta'\,
+K_F(X;t',\theta')\mathcal O(t',\theta')}
+$$
+
 > が厳密に成り立つ。これは**固定背景の自由場の有限モード空間**での等式である。
 <!-- formal-statement-end -->
 
