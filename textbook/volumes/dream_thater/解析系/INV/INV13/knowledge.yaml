@@ -1,0 +1,57 @@
+chapter: INV13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV12
+  - FOU4
+forward_references: []
+
+concepts:
+  - id: inverse.radon-backprojection
+    name: 単純逆投影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単純逆投影）"]
+    requires: [inverse.radon-transform]
+
+  - id: inverse.radon-fbp-inversion
+    name: Radonデータの反転積分公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Radonデータの反転積分公式）"]
+    requires: [inverse.fourier-slice-theorem, inverse.radon-fourier2-inversion]
+
+  - id: inverse.radon-ramp-filter
+    name: ramp filter
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ramp filter）"]
+    requires: [inverse.fourier-slice-theorem]
+
+  - id: inverse.radon-fbp-formula
+    name: フィルタ補正逆投影公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（フィルタ補正逆投影公式）"]
+    requires: [inverse.radon-backprojection, inverse.radon-ramp-filter, inverse.radon-fbp-inversion]
+
+  - id: inverse.radon-cutoff-fbp
+    name: 周波数切断FBP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周波数切断FBP）"]
+    requires: [inverse.radon-fbp-formula]
+
+  - id: inverse.radon-cutoff-error
+    name: 周波数切断FBPの誤差分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周波数切断FBPの誤差分解）"]
+    requires: [inverse.radon-cutoff-fbp, inverse.fourier-slice-theorem]
+
+  - id: inverse.radon-cutoff-bias-rate
+    name: 周波数モーメントによるバイアス評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周波数モーメントによるバイアス評価）"]
+    requires: [inverse.radon-cutoff-error]
