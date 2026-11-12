@@ -44,7 +44,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（PDE 制約付き目的関数）**  
-> $I=(0,1)$、$V=H_0^1(I)$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$ を固定する。各 $a\in\mathcal U\subset L^\infty(I)$ について、$u=S(a)$ を上の弱状態方程式の唯一解とし、
+> $I=(0,1)$、$V=H_0^1(I)$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$ を固定する。各 $a\in\mathcal U\subset L^\infty(I)$ について、$u=S(a)$ を上の弱拡散の弱方程式の唯一解とし、
 
 $$
 j(a)=\frac12\sum_{i=1}^m
@@ -157,9 +157,9 @@ $$
 
 > と定める。$p$ 方向への微分は
 
-$
+$$
 D_p\mathcal L(a,u,p)[v]=\ell_f(v)-B_a(u,v)
-$
+$$
 
 > である。従って全ての $v\in V$ に対する $D_p\mathcal L=0$ は状態の弱方程式に等しい。
 <!-- formal-statement-end -->
@@ -401,13 +401,19 @@ $$
 > **定理（二観測による二係数の局所安定識別）**  
 > $I=(0,1)$、$V=H_0^1(I)$、$f=1$ とする。$|s|+|t|<1/2$ で係数と二つの観測を
 
-$
+$$
 a_{s,t}=1+s+tx,\quad
 O_1(v)=\int_0^1v,\quad
 O_2(v)=\int_0^1(x-\tfrac12)v
-$
+$$
 
-> と定め、$\mathcal G(s,t)=(O_1(S(a_{s,t})),O_2(S(a_{s,t})))$ と置く。すると $\mathcal G$ は $(0,0)$ の近傍で $C^1$ であり、
+> と定める。観測写像は
+
+$$
+\mathcal G(s,t)=(O_1(S(a_{s,t})),O_2(S(a_{s,t})))
+$$
+
+> であり、$(0,0)$ の近傍で $C^1$ である。さらに、
 
 $$
 D\mathcal G(0,0)=
@@ -433,7 +439,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$s,t$ の十分小さい近傍では $a_{s,t}\ge1/2$ であり、[係数から状態への写像の Fréchet 微分](../INV17/index.md#thm-inv17-frechet-state)から $\mathcal G$ は微分可能です。$a,b\ge1/2$ をこの近傍で取り、$u_a=S(a),u_b=S(b)$ とします。二つの状態方程式を引き、$B_a$ を左辺にして試験関数 $u_a-u_b$ を入れると
+$s,t$ の十分小さい近傍では $a_{s,t}\ge1/2$ であり、[係数から状態への写像の Fréchet 微分](../INV17/index.md#thm-inv17-frechet-state)から $\mathcal G$ は微分可能です。$a,b\ge1/2$ をこの近傍で取り、$u_a=S(a),u_b=S(b)$ とします。二つの拡散の弱方程式を引き、$B_a$ を左辺にして試験関数 $u_a-u_b$ を入れると
 
 $$
 \|u_a-u_b\|_V
