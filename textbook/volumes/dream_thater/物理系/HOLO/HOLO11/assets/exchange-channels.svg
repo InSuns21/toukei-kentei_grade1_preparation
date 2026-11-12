@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 290" width="1040" height="290" data-layout-lint="strict" role="img" aria-labelledby="holo11-title holo11-desc">
+<title id="holo11-title">スカラー交換Witten図の3つのチャネル</title>
+<desc id="holo11-desc">左のsチャネルは1と2が左の頂点Xへ、3と4が右の頂点Yへ入る。中央のtチャネルは1と3がXへ、2と4がYへ入る。右のuチャネルは1と4がXへ、2と3がYへ入る。各チャネルで2頂点は破線の内部Green関数Gで結ばれる。図中の上部の境界挿入点の並びは組合せを見せるために並べ直した模式図。</desc>
+<defs>
+  <style>
+    .panel{fill:#f8fbff;stroke:#9aa9b8;stroke-width:1.5}
+    .boundary{stroke:#607a93;stroke-width:2}
+    .external{stroke:#245d80;stroke-width:2.8;fill:none}
+    .internal{stroke:#9a5032;stroke-width:3;stroke-dasharray:8 6}
+    .point{fill:#fff;stroke:#245d80;stroke-width:2}
+    .vertex{fill:#253e50;stroke:#fff;stroke-width:1.2}
+    .caption{font-family:Arial,sans-serif;font-size:16px;fill:#1f3344}
+    .tiny{font-family:Arial,sans-serif;font-size:13px;fill:#273d4e}
+    .heading{font-family:Arial,sans-serif;font-weight:bold;font-size:19px;fill:#1d3551}
+  </style>
+</defs>
+<g data-series-group="channels" data-series-label="s 12|34">
+  <rect class="panel" x="6" y="6" width="328" height="276" rx="9"/>
+  <text class="heading" x="170" y="32" text-anchor="middle">s : 12 | 34</text>
+  <line class="boundary" x1="29" y1="98" x2="311" y2="98"/>
+  <path class="external" d="M 51 98 L 101 192 M 123 98 L 101 192 M 223 98 L 244 192 M 295 98 L 244 192"/>
+  <line class="internal" x1="106" y1="192" x2="239" y2="192"/>
+  <circle class="vertex" cx="101" cy="192" r="6"/><circle class="vertex" cx="244" cy="192" r="6"/>
+  <circle class="point" cx="51" cy="98" r="4"/><circle class="point" cx="123" cy="98" r="4"/><circle class="point" cx="223" cy="98" r="4"/><circle class="point" cx="295" cy="98" r="4"/>
+  <text class="caption" x="51" y="84" text-anchor="middle">1</text><text class="caption" x="123" y="84" text-anchor="middle">2</text><text class="caption" x="223" y="84" text-anchor="middle">3</text><text class="caption" x="295" y="84" text-anchor="middle">4</text>
+  <text class="tiny" x="101" y="222" text-anchor="middle">X</text><text class="tiny" x="244" y="222" text-anchor="middle">Y</text>
+  <text class="tiny" x="172" y="180" text-anchor="middle">G</text>
+  <text class="tiny" x="170" y="258" text-anchor="middle">K K | G | K K</text>
+</g>
+<g data-series-group="channels" data-series-label="t 13|24">
+  <rect class="panel" x="356" y="6" width="328" height="276" rx="9"/>
+  <text class="heading" x="520" y="32" text-anchor="middle">t : 13 | 24</text>
+  <line class="boundary" x1="379" y1="98" x2="661" y2="98"/>
+  <path class="external" d="M 401 98 L 451 192 M 473 98 L 451 192 M 573 98 L 594 192 M 645 98 L 594 192"/>
+  <line class="internal" x1="456" y1="192" x2="589" y2="192"/>
+  <circle class="vertex" cx="451" cy="192" r="6"/><circle class="vertex" cx="594" cy="192" r="6"/>
+  <circle class="point" cx="401" cy="98" r="4"/><circle class="point" cx="473" cy="98" r="4"/><circle class="point" cx="573" cy="98" r="4"/><circle class="point" cx="645" cy="98" r="4"/>
+  <text class="caption" x="401" y="84" text-anchor="middle">1</text><text class="caption" x="473" y="84" text-anchor="middle">3</text><text class="caption" x="573" y="84" text-anchor="middle">2</text><text class="caption" x="645" y="84" text-anchor="middle">4</text>
+  <text class="tiny" x="451" y="222" text-anchor="middle">X</text><text class="tiny" x="594" y="222" text-anchor="middle">Y</text>
+  <text class="tiny" x="522" y="180" text-anchor="middle">G</text>
+  <text class="tiny" x="520" y="258" text-anchor="middle">K K | G | K K</text>
+</g>
+<g data-series-group="channels" data-series-label="u 14|23">
+  <rect class="panel" x="706" y="6" width="328" height="276" rx="9"/>
+  <text class="heading" x="870" y="32" text-anchor="middle">u : 14 | 23</text>
+  <line class="boundary" x1="729" y1="98" x2="1011" y2="98"/>
+  <path class="external" d="M 751 98 L 801 192 M 823 98 L 801 192 M 923 98 L 944 192 M 995 98 L 944 192"/>
+  <line class="internal" x1="806" y1="192" x2="939" y2="192"/>
+  <circle class="vertex" cx="801" cy="192" r="6"/><circle class="vertex" cx="944" cy="192" r="6"/>
+  <circle class="point" cx="751" cy="98" r="4"/><circle class="point" cx="823" cy="98" r="4"/><circle class="point" cx="923" cy="98" r="4"/><circle class="point" cx="995" cy="98" r="4"/>
+  <text class="caption" x="751" y="84" text-anchor="middle">1</text><text class="caption" x="823" y="84" text-anchor="middle">4</text><text class="caption" x="923" y="84" text-anchor="middle">2</text><text class="caption" x="995" y="84" text-anchor="middle">3</text>
+  <text class="tiny" x="801" y="222" text-anchor="middle">X</text><text class="tiny" x="944" y="222" text-anchor="middle">Y</text>
+  <text class="tiny" x="872" y="180" text-anchor="middle">G</text>
+  <text class="tiny" x="870" y="258" text-anchor="middle">K K | G | K K</text>
+</g>
+</svg>

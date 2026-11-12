@@ -16,7 +16,7 @@ chapters:
   - { id: HOLO8, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO8, status: completed, title: "スカラー漸近とBF境界" }
   - { id: HOLO9, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO9, status: completed, title: "GKPWと2点関数" }
   - { id: HOLO10, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO10, status: completed, title: "Witten接触図" }
-  - { id: HOLO11, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO11, status: planned, title: "交換図と4点関数" }
+  - { id: HOLO11, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO11, status: completed, title: "交換図と4点関数" }
   - { id: HOLO12, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO12, status: planned, title: "バルクゲージ場と保存流" }
   - { id: HOLO13, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO13, status: planned, title: "バルク重力場と応力テンソル" }
   - { id: HOLO14, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO14, status: planned, title: "ホログラフィック繰り込み" }
