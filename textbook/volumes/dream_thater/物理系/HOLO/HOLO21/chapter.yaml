@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - HOLO20
   - GEO19
+  - GRP1
 official_scope: []
 learning_objectives:
   - 境界の整数レプリカの分配関数比と重力の正規化作用差を導きn1微分で必要な条件を説明できる
