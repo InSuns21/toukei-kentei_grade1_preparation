@@ -273,7 +273,7 @@ $$
 =\sum_{i=1}^N|T_i|+\sum_{i=1}^N\sum_{j\ne i}|T_i\cap T_j|.
 $$
 
-第一項は $NA_\delta\le(2+\pi)N\delta$ です。$i\ne j$ では分離性から $\rho(\theta_i,\theta_j)\ge\delta>0$ なので、[二管の交差補題](#lem-gmt33-two-tubes)の帯による上界を適用できます。各 $i$ に[逆角度和補題](#lem-gmt33-angular-sum)を代入すると
+第一項は $NA_\delta\le(2+\pi)N\delta$ です。$i\ne j$ では分離性から $\rho(\theta_i,\theta_j)\ge\delta>0$ なので、[二tubeの交差面積](#lem-gmt33-two-tubes)の帯による上界を適用できます。各 $i$ に[逆角度和補題](#lem-gmt33-angular-sum)を代入すると
 
 $$
 \begin{aligned}
@@ -540,7 +540,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-法線の行列式は絶対値 $\sin\alpha$ です。各管を対応する幅 $2\delta$ の帯に含めると、[二管の交差補題](#lem-gmt33-two-tubes)により
+法線の行列式は絶対値 $\sin\alpha$ です。各管を対応する幅 $2\delta$ の帯に含めると、[二tubeの交差面積](#lem-gmt33-two-tubes)により
 
 $$
 |T\cap S|\le\min\left\{2\delta+\pi\delta^2,\frac{4\delta^2}{\sin\alpha}\right\}.
@@ -643,7 +643,7 @@ $$
 \lim_{\delta\downarrow0}\frac{\log|E_\delta|}{\log\delta}=0.
 $$
 
-[前講の近傍体積によるMinkowski次元公式](../GMT32/index.md#lem-gmt32-neighborhood-cover)を使い、上・下とも $2-0=2$ です。一方、Hausdorff次元については下から押さえる情報がありません。例えば有理点の稠密可算集合 $E=\mathbb Q^2\cap[0,1]^2$ は任意の $\delta>0$ で $|E_\delta|\ge1$ なので仮定を満たしますが、可算性から $\dim_{\mathrm H}E=0$ です。従ってこの仮定**だけ**からHausdorff次元2は言えません。
+[前講の被覆数と近傍体積の比較](../GMT32/index.md#lem-gmt32-neighborhood-cover)を使い、上・下とも $2-0=2$ です。一方、Hausdorff次元については下から押さえる情報がありません。例えば有理点の稠密可算集合 $E=\mathbb Q^2\cap[0,1]^2$ は任意の $\delta>0$ で $|E_\delta|\ge1$ なので仮定を満たしますが、可算性から $\dim_{\mathrm H}E=0$ です。従ってこの仮定**だけ**からHausdorff次元2は言えません。
 <!-- solution-end -->
 
 ### Level C：すべてをつなぐ
