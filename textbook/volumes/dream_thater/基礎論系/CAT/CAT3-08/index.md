@@ -8,7 +8,11 @@
 
 この一元集合は偶然の選択ではない。$1$ から $K$ の像 $0$ へ向かう射が**存在しない**ことに対応して、空図式の**極限（終対象）**として現れる。左との違いは、対象の値だけでなく射の向きと比較変換の向きにある。
 
-以後、$\mathcal A,\mathcal B$ は[小さい圏](../CAT1-02/index.md#def-cat1-02-size)、$\mathcal C$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)、$K:\mathcal A\to\mathcal B$ と $F:\mathcal A\to\mathcal C$ は関手とする。$gf$ は $f$ の後に $g$ を合成する記法である。[完備圏](../CAT2-04/index.md#def-cat2-04-complete)であれば以下で必要なすべての小極限が存在するが、実際に必要なのは各 $b$ の添字図式の極限だけである。
+以後、$\mathcal A,\mathcal B$ は[小さい圏](../CAT1-02/index.md#def-cat1-02-size)、$\mathcal C$ は[局所小圏](../CAT1-02/index.md#def-cat1-02-size)とする。
+
+関手は $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$ と書く。合成の $gf$ は $f$ の後に $g$ を適用する記法である。
+
+[完備圏](../CAT2-04/index.md#def-cat2-04-complete)なら以下で必要なすべての小極限が存在する。ただし必要なのは、各 $b$ の添字図式の極限だけである。
 
 ## 2. $b$ から $Ka$ へ向かう射を集める
 
