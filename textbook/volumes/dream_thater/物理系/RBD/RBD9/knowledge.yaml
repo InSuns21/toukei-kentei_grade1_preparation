@@ -1,0 +1,62 @@
+chapter: RBD9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD8
+forward_references: []
+concepts:
+  - id: mechanics.triaxial-principal-axis-spin
+    name: 三軸非対称剛体と主軸回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（三軸非対称剛体と主軸回転）]
+    requires:
+      - mechanics.principal-inertia-degeneracy
+      - mechanics.inertia-tensor-positive-definiteness
+      - mechanics.rigid-body-forced-newton-euler
+  - id: mechanics.principal-spin-linear-stability
+    name: 主軸回転の線形安定性
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（主軸回転の線形安定性）]
+    requires:
+      - mechanics.triaxial-principal-axis-spin
+  - id: mechanics.rigid-body-axis-stability-classification
+    name: 三主軸回転の線形安定性分類
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（三主軸回転の線形安定性分類）]
+    requires:
+      - mechanics.principal-spin-linear-stability
+      - mechanics.rigid-body-forced-newton-euler
+  - id: mechanics.triaxial-euler-invariants
+    name: 三軸自由回転の二保存量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（三軸自由回転の二保存量）]
+    requires:
+      - mechanics.triaxial-principal-axis-spin
+      - mechanics.inertia-tensor-angular-momentum-energy
+  - id: mechanics.extreme-principal-spin-lyapunov-stability
+    name: 両端主軸回転の非線形安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（両端主軸回転の非線形安定性）]
+    requires:
+      - mechanics.triaxial-euler-invariants
+      - mechanics.rigid-body-axis-stability-classification
+  - id: mechanics.rigid-body-separatrix
+    name: 自由剛体の角運動量球面と分離曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（自由剛体の角運動量球面と分離曲線）]
+    requires:
+      - mechanics.triaxial-euler-invariants
+  - id: mechanics.intermediate-axis-nonlinear-instability
+    name: 中間軸回転の非線形不安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（中間軸回転の非線形不安定性）]
+    requires:
+      - mechanics.rigid-body-separatrix
+      - mechanics.rigid-body-axis-stability-classification
