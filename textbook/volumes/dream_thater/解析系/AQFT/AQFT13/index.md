@@ -10,12 +10,12 @@
 
 [AQFT12の巡回ベクトル](../AQFT12/index.md#def-aqft12-cyclic-vector)とは、$\overline{\mathcal N\Omega}=\mathcal H$ を満たすベクトルです。これは **$A\Omega$ として作れるベクトルが多い** という性質です。対して、$A\Omega=0$ を満たす作用素 $A\in\mathcal N$ が零以外にもあるかを調べたいのです。
 
-まず $\mathcal H=\mathbb C^2$、$\Omega=e_1=(1,0)$、$\mathcal N=B(\mathbb C^2)$ を考えます。任意の $v=(v_1,v_2)$ に対し
+まず $\mathcal H=\mathbb C^2$ の標準正規直交基底 $e_1=(1,0)$、$e_2=(0,1)$ を取り、$\Omega=e_1$、$\mathcal N=B(\mathbb C^2)$ とします。この基底では $B(\mathbb C^2)$ の元は任意の $2\times2$ 複素行列で、$e_1$ に作用させると行列の第1列が得られます。従って任意の $v=(v_1,v_2)$ に対し
 $$
 A_v=\begin{pmatrix}v_1&0\\v_2&0\end{pmatrix},
 \qquad A_v\Omega=v
 $$
-なので $\mathcal N\Omega=\mathbb C^2$ です。しかし $P_2=\operatorname{diag}(0,1)$ は $P_2\ne0$ なのに $P_2\Omega=0$ です。この違いを定義にします。
+なので $\mathcal N\Omega=\mathbb C^2$ です。しかし $P_2=\operatorname{diag}(0,1)$ は $e_2$ 方向への直交射影で、$P_2\ne0$ なのに $P_2e_1=0$ です。この違いを定義にします。
 
 <a id="def-aqft13-separating-vector"></a>
 
@@ -101,7 +101,9 @@ $$
 **(2)。** 可換子 $\mathcal N'$ もvon Neumann環であり $(\mathcal N')'=\mathcal N$ です。(1)の同値に $\mathcal N'$ を代入すれば、「$\mathcal N'$ に分離的 $\Leftrightarrow$ $\mathcal N$ に巡回的」となります。$\square$
 <!-- proof-end -->
 
-**例に戻る。** 第1節の対角環は $D'=D$ ですから、両方の性質が成立することと整合します。$\mathcal N=B(\mathbb C^2)$ の可換子は $\mathbb CI_2$ であり、$\Omega=e_1$ はその環に巡回的ではありません。この観点からも元の環への分離性が失敗すると分かります。
+**例に戻る。** 第1節の対角環 $D$ の可換子を行列で確かめます。$T=(t_{ij})$ が $P=\operatorname{diag}(1,0)\in D$ と可換なら、$TP=PT$ の $(1,2)$、$(2,1)$ 成分から $t_{12}=t_{21}=0$。よって $T$ は対角行列で、対角行列同士は可換なので $D'=D$ です。第1節で両方の性質が成立したことと整合します。
+
+一方、$B(\mathbb C^2)$ の全ての元と可換な $T$ は、特に $P$ と可換なので $T=\operatorname{diag}(a,b)$ です。さらに行列単位 $E_{12}=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ と可換なら $TE_{12}=aE_{12}$、$E_{12}T=bE_{12}$ より $a=b$。従って $B(\mathbb C^2)'=\mathbb CI_2$ です。$\Omega=e_1$ はこの可換子環に巡回的ではありません。この観点からも元の環への分離性が失敗すると分かります。
 
 ## 3. 空間的補領域が分離性を運ぶ
 
@@ -141,11 +143,12 @@ $$
 |\boldsymbol x|<R-|t|,\qquad
 |\boldsymbol y|<r-|s|
 $$
-です。[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)から
+です。空間座標の差は $\boldsymbol q-\boldsymbol p=(L,0,0)+\boldsymbol y-\boldsymbol x$ です。この和に[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)を、$\boldsymbol y-\boldsymbol x$ に三角不等式を適用すると
 $$
 \begin{aligned}
 |\boldsymbol q-\boldsymbol p|
-&\ge L-|\boldsymbol x|-|\boldsymbol y|\\
+&\ge L-|\boldsymbol y-\boldsymbol x|\\
+&\ge L-|\boldsymbol y|-|\boldsymbol x|\\
 &> L-R-r+|t|+|s|\\
 &>|t-s|.
 \end{aligned}
@@ -209,7 +212,7 @@ $$
 
 任意の非空有界double cone $O$ を固定します。[Reeh–Schlieder定理](../AQFT12/index.md#thm-aqft12-reeh-schlieder)の仮定が満たされるので、$\overline{\mathcal M(O)\Omega}=\mathcal H$ です。
 
-次に第3節の座標計算により、適当な空間的平行移動と半径を選ぶと、非空有界double cone $Q\subset O^\perp$ が存在します。**同じReeh–Schlieder定理を今度は $Q$ に適用**すると
+次に、[AQFT1の標準double cone](../AQFT1/index.md#def-aqft1-double-cone)の定義に従って $O=a+D_R$（$R>0$、$a$ は時空の並進中心）と書きます。第3節の座標計算を中心 $a$ に平行移動し、$r>0$ と $L>R+r$ を選んで $Q=a+D_r+(0,L,0,0)$ とすれば、非空有界double cone $Q\subset O^\perp$ が得られます。**同じReeh–Schlieder定理を今度は $Q$ に適用**すると
 $$
 \overline{\mathcal M(Q)\Omega}=\mathcal H
 $$
@@ -220,7 +223,7 @@ $$
 
 ## 5. 忠実な局所ベクトル状態と、双対性ではない包含
 
-ベクトル状態で正の演算子 $A^*A$ の期待値を測れば、作用素 $A$ が真空を零に送るかを判定できます。そこで期待値が零なら作用素自体も零だといえる条件を考え、先ほどの分離性と結び付けます。この条件は次の命題内で定義します。
+ベクトル状態で正の演算子 $A^*A$ の期待値を測れば、作用素 $A$ が真空を零に送るかを判定できます。そこで期待値が零なら作用素自体も零だといえる条件を考え、先ほどの分離性と結び付けます。この問いに対応する名前が**状態の忠実性**です。分離性はベクトルを零にする作用素を、忠実性は正の演算子の期待値から見落とされる作用素を問題にします。どの環で作用素を調べるかが重要なので、次の命題でその判定条件と分離性の関係を明示します。
 
 <a id="prop-aqft13-local-state-faithful"></a>
 
@@ -252,7 +255,19 @@ $$
 また $\omega_\Omega(I)=\|\Omega\|^2=1$、$\omega_\Omega(A^*A)=\|A\Omega\|^2\ge0$ なので状態です。[AQFT9のGNSベクトル状態の正規性](../AQFT9/index.md#prop-aqft9-local-normal-state)と同じく、固定ベクトルによる行列要素は弱作用素連続であり、von Neumann環への制限は正規です。$\square$
 <!-- proof-end -->
 
-[真空の局所巡回・分離性の系](#cor-aqft13-vacuum-local-standard)から、真空状態はどの非空有界double coneの局所von Neumann環でも忠実な正規状態になります。しかし周囲の $B(\mathcal H)$ 上で忠実という意味ではありません。たとえば $\mathcal H=\mathbb C^2,\Omega=e_1$ に対して $P_2\in B(\mathcal H)$ は $P_2\ne0$ なのに $\omega_\Omega(P_2^*P_2)=0$ です。**この部分環に制限すること**が重要です。
+### 直接例：同じベクトル状態でも環で判定が変わる
+
+第1節の $\mathcal H=\mathbb C^2$、$\Omega=e_1$ を再び使います。スカラー環 $\mathcal N=\mathbb CI_2$ の任意の元 $A=\lambda I_2$ に対して
+$$
+\omega_\Omega(A^*A)=\|(\lambda I_2)e_1\|^2=|\lambda|^2.
+$$
+期待値が零なら $\lambda=0$、すなわち $A=0$ なので、この環への制限は忠実です。一方、全作用素環 $B(\mathbb C^2)$ には非零射影 $P_2=\operatorname{diag}(0,1)$ があり、
+$$
+\omega_\Omega(P_2^*P_2)=\|P_2e_1\|^2=0
+$$
+ですから忠実ではありません。状態は同じでも、**量化する $A$ の所属先**が異なります。
+
+[真空の局所巡回・分離性の系](#cor-aqft13-vacuum-local-standard)から、真空状態はどの非空有界double coneの局所von Neumann環でも忠実な正規状態になります。ただし、周囲の $B(\mathcal H)$ 上でも忠実という主張ではありません。
 
 また [Einstein局所性](../AQFT2/index.md#def-aqft2-locality)から得られるのは $\mathcal M(O^\perp)\subset\mathcal M(O)'$ という包含です。真空の巡回・分離性を追加しても、この包含が等号になる **Haag双対性** は従いません。
 
