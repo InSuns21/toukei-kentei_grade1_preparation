@@ -273,7 +273,13 @@ $$
 > を定める。ここで $a(h)$ は反線形、$a^\dagger(h)$ は線形であり、$\Omega$ は零粒子ベクトルである。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-aqft8-fock-weyl -->
+### 直接例：零元と非零の一粒子波束
+
+**定義の確認**。$F=0$ では $K0=0$ であることを使います。
+
 直接例として $F=0$ なら $K0=0$、$\Phi(0)=0$ なので $W_{\mathcal F}(0)=I$、$\langle\Omega,W_{\mathcal F}(0)\Omega\rangle=1$ です。より非自明に、上の $(a,0)$ データなら $\|KF\|^2=\int\omega|\widehat a|^2/2$ で、真空期待値は $e^{-\|KF\|^2/2}\in(0,1)$ となります。定義の規格化を $e^{i\Phi/\sqrt2}$ に替えると指数の係数が半分になり、AQFT7と合わなくなるので注意してください。
+<!-- definition-example-end -->
 
 <a id="prop-aqft8-fock-weyl"></a>
 
@@ -328,6 +334,13 @@ $$
 =e^{-\|h\|^2/2}=e^{-\mu_{\mathrm{vac}}(F,F)/2}.
 $$
 [AQFT7の状態の一意性](../AQFT7/index.md#thm-aqft7-quasifree-state)から具体的Weyl C*環の状態と一致します。
+
+なおFockの有限Weyl線形結合が[AQFT6の具体的なC*ノルム](../AQFT6/index.md#prop-aqft6-twisted-translation)で有界であることも必要です。[AQFT7のGaussian Weyl状態構成定理](../AQFT7/index.md#thm-aqft7-quasifree-state)の証明中のFølner平均を**今回のFockユニタリ表示**に適用すると、任意の有限和に対し
+$
+\left\|\sum_jc_jW_{\mathcal F}(F_j)\right\|
+\le\left\|\sum_jc_jL(F_j)\right\| .
+$
+従ってFock表示は具体的Weyl C*環の有界 *-表現へ延長し、上のベクトル状態はそのC*環上で正しく定義されます。
 <!-- proof-end -->
 
 **二点関数の作用素としての意味。** $a(KF)\Omega=0$ かつ $\Phi(KF)\Omega=a^\dagger(KF)\Omega$ だから、真空は各場の定義域に属し
