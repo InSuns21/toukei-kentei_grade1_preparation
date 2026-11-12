@@ -1,0 +1,43 @@
+id: "U3-10"
+title: "Lookback と経路依存状態の圧縮"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-08, U3-09]
+official_scope: []
+learning_objectives:
+  - 離散時点を観測する固定・変動行使価格型 Lookback の最大値・最小値参照受取額を区別し、同じ終値でも異なる受取額を計算できる
+  - 最大値・最小値を保持する拡張状態の二つの子への更新を導き、条件付き期待値と一致する後退価格式を証明できる
+  - 同株価・異極値で満期前の条件付き価値が異なる具体例を有理数で再計算できる
+  - 逆数倍率 ud=1 の指数・最大最小指数表現を導き、一般倍率の状態表現と混同せず O(N^3) 時間上界を証明できる
+  - 履歴依存請求権の株式・預金による節点複製を連立方程式から解き、両枝で一致させられる
+  - 全経路列挙と圧縮後退帰納を独立した厳密有理数実装で照合し、状態数と正しさの関係を説明できる
+definitions:
+  - { id: U3-10-DEF-01, name: 離散監視 Lookback の満期受取額 }
+  - { id: U3-10-DEF-02, name: 極値を保存する拡張状態 }
+  - { id: U3-10-DEF-03, name: 逆数倍率の指数・極値状態 }
+theorems:
+  - { id: U3-10-THM-01, name: Lookback の拡張状態後退帰納と一意価格 }
+  - { id: U3-10-PROP-01, name: Lookback では現在株価だけで条件付き価格が決まらない }
+  - { id: U3-10-PROP-02, name: 正しい状態併合と逆数倍率での計算量上界 }
+  - { id: U3-10-PROP-03, name: Lookback の節点複製 }
+canonical_examples:
+  - 2期間 UD/DU は同じ終値100円でも最大値125円/100円・最小値100円/80円で異なる
+  - 固定行使価格最大値参照 call の2期間価格は582500/35721円で全経路法と後退法が一致する
+  - 3期間の時点2で UD の条件付き価値100/7円と DU の500/63円を区別する
+  - 2期間の時点0複製は株式1165/1701株と預金-1864000/35721円で両子に一致する
+  - 逆数倍率の整数状態(Z,H)の全層状態数上界は O(N^3)
+problem_patterns:
+  - U3-10-A1
+  - U3-10-A2
+  - U3-10-A3
+  - U3-10-A4
+  - U3-10-A5
+  - U3-10-B1
+  - U3-10-B2
+  - U3-10-B3
+  - U3-10-B4
+  - U3-10-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
