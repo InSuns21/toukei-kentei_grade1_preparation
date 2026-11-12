@@ -35,7 +35,7 @@ chapters:
     title: Newton–Euler方程式：外力と基準点
   - id: RBD8
     path: textbook/volumes/dream_thater/物理系/RBD/RBD8
-    status: planned
+    status: completed
     title: 無トルク対称剛体と姿勢の再構成
   - id: RBD9
     path: textbook/volumes/dream_thater/物理系/RBD/RBD9

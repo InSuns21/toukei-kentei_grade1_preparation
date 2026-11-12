@@ -1,0 +1,42 @@
+chapter: RBD8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD7
+forward_references: []
+concepts:
+  - id: mechanics.torque-free-symmetric-rigid-body
+    name: 力学的対称剛体と無トルク回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（力学的対称剛体と無トルク回転）]
+    requires:
+      - mechanics.principal-inertia-degeneracy
+      - mechanics.inertia-tensor-positive-definiteness
+      - mechanics.rigid-body-external-resultant-torque
+  - id: mechanics.symmetric-top-euler-explicit-solution
+    name: 無トルク対称剛体のEuler方程式の明示解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（無トルク対称剛体のEuler方程式の明示解）]
+    requires:
+      - mechanics.torque-free-symmetric-rigid-body
+      - mechanics.rigid-body-forced-newton-euler
+  - id: mechanics.symmetric-top-free-invariants
+    name: 自由回転の角運動量・エネルギーと円錐角
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（自由回転の角運動量・エネルギーと円錐角）]
+    requires:
+      - mechanics.symmetric-top-euler-explicit-solution
+      - mechanics.inertia-tensor-angular-momentum-energy
+      - mechanics.rigid-body-kinetic-energy-decomposition
+  - id: mechanics.symmetric-top-attitude-reconstruction
+    name: 無トルク対称剛体の姿勢の再構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（無トルク対称剛体の姿勢の再構成）]
+    requires:
+      - mechanics.symmetric-top-free-invariants
+      - mechanics.rotation-matrix-exponential
+      - mechanics.angular-velocity-conjugacy

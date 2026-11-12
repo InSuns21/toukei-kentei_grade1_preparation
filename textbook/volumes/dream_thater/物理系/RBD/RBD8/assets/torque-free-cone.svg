@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" data-layout-lint="strict" role="img" aria-labelledby="rbd8-title rbd8-desc">
+  <title id="rbd8-title">無トルク対称剛体の固定角運動量と動く対称軸</title>
+  <desc id="rbd8-desc">I=2、J=3、初期角速度(1,0,1)の例。共通の重心Cから、空間に固定された角運動量L0=(2,0,3)、初期対称軸n(0)=(0,0,1)、初期空間角速度omega_s(0)=(1,0,1)、半歳差後の対称軸n(T)=(12/13,0,5/13)を異なる線種で描く。細い点線の閉曲線はRodrigues公式で計算した対称軸先端の時間軌跡の斜投影。長さの比較は意味せず方向のみ示す。</desc>
+  <defs>
+    <marker id="rbd8-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#26364a"/></marker>
+    <marker id="rbd8-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#1965a3"/></marker>
+    <marker id="rbd8-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#b75c25"/></marker>
+  </defs>
+  <rect x="1" y="1" width="718" height="418" rx="10" fill="#fff" stroke="#d1d9e0"/>
+  <text x="22" y="32" fill="#1f2a39" font-size="18" font-weight="700">空間に固定される L₀ と、歳差する n(t)</text>
+  <text x="22" y="54" fill="#586b7e" font-size="13">I = 2, J = 3, R(0) = 1, ωᵦ(0) = (1,0,1)　｜　斜投影</text>
+  <g stroke="#d5dfe8" stroke-width="1.5" fill="none">
+    <path d="M200 335 L200 80"/>
+    <path d="M200 335 L515 335"/>
+    <path d="M200 335 L140 365" stroke-dasharray="5 5"/>
+  </g>
+  <g fill="#617081" font-size="14">
+    <text x="166" y="92">z</text><text x="527" y="319">x</text>
+    <text x="118" y="385">y</text>
+  </g>
+  <g fill="none">
+    <path d="M200.0 130.0 L197.2 128.6 L194.9 127.6 L192.9 126.8 L191.5 126.3 L190.4 126.0 L189.8 126.1 L189.6 126.4 L189.9 127.1 L190.7 128.0 L191.9 129.2 L193.5 130.7 L195.5 132.4 L198.0 134.4 L200.9 136.6 L204.2 139.1 L207.9 141.8 L212.0 144.8 L216.4 147.9 L221.1 151.3 L226.2 154.8 L231.5 158.5 L237.2 162.3 L243.0 166.3 L249.1 170.3 L255.4 174.5 L261.9 178.8 L268.5 183.1 L275.2 187.4 L282.0 191.8 L288.8 196.2 L295.7 200.6 L302.5 204.9 L309.4 209.2 L316.1 213.4 L322.8 217.6 L329.4 221.6 L335.8 225.5 L342.0 229.3 L348.0 232.9 L353.8 236.3 L359.4 239.6 L364.6 242.6 L369.6 245.5 L374.2 248.1 L378.5 250.5 L382.5 252.6 L386.1 254.5 L389.2 256.2 L392.0 257.5 L394.4 258.6 L396.3 259.4 L397.8 259.9 L398.8 260.1 L399.4 260.1 L399.6 259.7 L399.3 259.1 L398.6 258.2 L397.4 257.0 L395.7 255.5 L393.7 253.8 L391.2 251.8 L388.3 249.5 L385.0 247.0 L381.3 244.3 L377.3 241.4 L372.8 238.2 L368.1 234.9 L363.0 231.4 L357.7 227.7 L352.1 223.9 L346.2 219.9 L340.1 215.8 L333.8 211.6 L327.4 207.4 L320.8 203.1 L314.1 198.7 L307.3 194.3 L300.4 189.9 L293.6 185.6 L286.7 181.2 L279.9 176.9 L273.1 172.7 L266.4 168.6 L259.9 164.6 L253.5 160.6 L247.2 156.9 L241.2 153.3 L235.4 149.8 L229.9 146.6 L224.6 143.5 L219.6 140.7 L215.0 138.0 L210.7 135.6 L206.7 133.5 L203.2 131.6 L200.0 130.0 Z" stroke="#7a8997" stroke-width="2" stroke-dasharray="4 7"/>
+    <path d="M200 335 L314 164" data-series-group="rbd8-vectors" data-series-label="L0" stroke="#26364a" stroke-width="4" marker-end="url(#rbd8-arrow)"/>
+    <path d="M200 335 L200 130" data-series-group="rbd8-vectors" data-series-label="n0" stroke="#1965a3" stroke-width="4.5" marker-end="url(#rbd8-blue)"/>
+    <path d="M200 335 L389 256" data-series-group="rbd8-vectors" data-series-label="nT" stroke="#1965a3" stroke-width="3" stroke-dasharray="10 5" marker-end="url(#rbd8-blue)"/>
+    <path d="M200 335 L345 190" data-series-group="rbd8-vectors" data-series-label="omega" stroke="#b75c25" stroke-width="3.5" stroke-dasharray="3 6" marker-end="url(#rbd8-orange)"/>
+  </g>
+  <circle cx="200" cy="335" r="5" fill="#26364a"/>
+  <g fill="#26364a" font-size="15">
+    <text x="209" y="369">C</text>
+    <text x="329" y="154" font-weight="700">L₀</text>
+    <text x="329" y="172" font-size="12">(2,0,3)</text>
+  </g>
+  <path d="M401 257 L493 247" stroke="#1965a3" fill="none" stroke-width="1.4"/>
+  <g fill="#1965a3" font-size="15">
+    <text x="110" y="123" font-weight="700">n(0)</text>
+    <text x="94" y="141" font-size="12">(0,0,1)</text>
+    <text x="509" y="249" font-weight="700">n(T)</text>
+    <text x="509" y="268" font-size="12">(12/13,0,5/13)</text>
+  </g>
+  <g fill="#b75c25">
+    <path d="M353 193 L393 200" stroke="#b75c25" stroke-width="1.5"/>
+    <text x="401" y="204" font-size="14" font-weight="700">ωₛ(0)</text>
+    <text x="401" y="222" font-size="12">(1,0,1)</text>
+  </g>
+  <g font-size="13" fill="#455569">
+    <text x="20" y="404">実線 L₀：固定　｜　太実線 n(0)、破線 n(T)：動く軸　｜　点線 ωₛ(0)：角速度</text>
+  </g>
+</svg>

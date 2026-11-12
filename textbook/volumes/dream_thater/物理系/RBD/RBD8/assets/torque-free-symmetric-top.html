@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RBD8 無トルク対称剛体：姿勢の解析解</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, "Yu Gothic", sans-serif; color: #1c2c3e; background: #f4f7fa; }
+    * { box-sizing: border-box; }
+    body { max-width: 1100px; margin: 0 auto; padding: 18px; line-height: 1.65; }
+    h1 { font-size: clamp(1.35rem,3.5vw,2rem); line-height: 1.35; margin: 12px 0; }
+    h2 { font-size: 1.12rem; }
+    p { margin: .55em 0; }
+    a { color:#145a9a; }
+    .panel { background:#fff; border:1px solid #ccd6df; border-radius:12px; padding:16px; margin:14px 0; }
+    .layout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(270px,.8fr); gap:12px; }
+    .controls label { display:flex; align-items:center; justify-content:space-between; gap:14px; font-weight:650; }
+    .controls select { display:block; width:100%; padding:9px 10px; margin:8px 0 14px; font:inherit; color:#1c2c3e; background:white; border:1px solid #aebdca; border-radius:6px; }
+    .controls input[type=range] { display:block; width:100%; accent-color:#175e97; margin:8px 0 16px; }
+    .controls output { min-width:5ch; text-align:right; font-variant-numeric:tabular-nums; }
+    .buttons { display:flex; gap:8px; flex-wrap:wrap; }
+    button { background:#155c94; border:2px solid #155c94; border-radius:7px; padding:9px 13px; color:white; font-weight:650; cursor:pointer; }
+    button.secondary { background:white; color:#155c94; }
+    button:focus-visible, input:focus-visible, a:focus-visible { outline:3px solid #dc6d1d; outline-offset:3px; }
+    button:hover { filter:brightness(.93); }
+    svg { width:100%; max-height:470px; display:block; background:#fcfdfe; border-radius:10px; }
+    .legend { display:flex; flex-wrap:wrap; gap:8px 18px; font-size:.9rem; }
+    .legend b { display:inline-block; vertical-align:middle; width:25px; border-top:3px solid; margin-right:5px; }
+    .legend .dash { border-top-style:dashed; }
+    .legend .dot { border-top-style:dotted; }
+    dl { display:grid; grid-template-columns:max-content 1fr; gap:4px 12px; margin:0; }
+    dt { color:#405569; }
+    dd { margin:0; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+    .good { color:#15704a; font-weight:bold; }
+    .bad { color:#a52c2c; font-weight:bold; }
+    .small {font-size:.86rem; color:#415366;}
+    #status { min-height:2em; }
+    @media(max-width:760px) { body{padding:10px} .layout{grid-template-columns:1fr;} .panel{padding:11px} }
+    @media(prefers-reduced-motion:reduce){ *,*::before,*::after{ animation:none!important; transition:none!important; scroll-behavior:auto!important;} }
+  </style>
+</head>
+<body>
+  <a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD8/index">← RBD8 講義に戻る</a>
+  <h1>無トルク対称剛体：姿勢と保存量</h1>
+  <p>物体系初期姿勢 R(0)=I、慣性テンソル diag(I,I,J)、初期角速度 (ρ,0,w)。外トルクは零です。物体軸 n(t) と空間に固定された角運動量 L₀ を区別します。</p>
+  <p class="small">計算式：R(t)=Rot(L₀/|L₀|, |L₀|t/I) Rot(e₃, −(J−I)wt/I)。L₀=0 では R(t)=I。矢印は方向だけを示し、長さの比較ではありません。</p>
+  <div class="layout">
+    <div class="panel">
+      <svg id="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 470" role="img" aria-labelledby="svgt svgdesc">
+        <title id="svgt">慣性系の角運動量、対称軸、角速度と物体基底</title>
+        <desc id="svgdesc">数式による正確な姿勢から時々刻々の方向ベクトルを投影した図。実線は角運動量、太線は対称軸、破線は角速度、薄い軸は物体固定基底。点線は対称軸の歳差円軌道。</desc>
+        <defs>
+          <marker id="arrowBlack" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#273c51"/></marker>
+          <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1666aa"/></marker>
+          <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b8581c"/></marker>
+        </defs>
+        <path d="M330 294 L560 294 M330 294 L330 65 M330 294 L252 329" fill="none" stroke="#d6dfe7" stroke-width="2"/>
+        <g font-size="14" fill="#738396"><text x="569" y="301">xₛ</text><text x="339" y="70">zₛ</text><text x="225" y="345">yₛ</text></g>
+        <path id="orbit" fill="none" stroke="#8d9ba8" stroke-width="2" stroke-dasharray="4 7"/>
+        <g id="basis" fill="none" stroke="#85a5be" stroke-width="2">
+          <line id="axis1" x1="330" y1="294" x2="430" y2="294"/>
+          <line id="axis2" x1="330" y1="294" x2="275" y2="285" stroke-dasharray="3 5"/>
+        </g>
+        <line id="L" x1="330" y1="294" x2="330" y2="110" stroke="#273c51" stroke-width="5" marker-end="url(#arrowBlack)"/>
+        <line id="omega" x1="330" y1="294" x2="440" y2="170" stroke="#b8581c" stroke-width="4" stroke-dasharray="8 5" marker-end="url(#arrowOrange)"/>
+        <line id="n" x1="330" y1="294" x2="330" y2="105" stroke="#1666aa" stroke-width="5" marker-end="url(#arrowBlue)"/>
+        <circle cx="330" cy="294" r="5" fill="#273c51"/>
+        <g font-size="16" font-weight="700"><text id="labelL" fill="#273c51">L₀</text><text id="labeln" fill="#1666aa">n</text><text id="labelomega" fill="#b8581c">ωₛ</text></g>
+        <text x="342" y="318" font-size="14" fill="#45576b">C</text>
+        <text x="22" y="442" font-size="13" fill="#50647a">斜投影：3D方向を一枚の画面に表示（縮尺は比較不可）</text>
+      </svg>
+      <div class="legend" aria-label="線種凡例">
+        <span id="legendL"><b style="border-color:#273c51"></b>L₀ 固定</span>
+        <span id="legendn"><b style="border-color:#1666aa"></b>n(t) 対称軸</span>
+        <span id="legendomega"><b class="dash" style="border-color:#b8581c"></b>ωₛ(t) 角速度</span>
+        <span id="legendorbit"><b class="dot" style="border-color:#8d9ba8"></b>対称軸の軌道</span>
+      </div>
+    </div>
+    <div class="panel controls">
+      <h2>座標系の比較</h2>
+      <label for="frame">表示の基準</label>
+      <select id="frame" aria-label="表示の基準座標系">
+        <option value="space">空間系：角運動量が固定</option>
+        <option value="body">物体系：対称軸が固定</option>
+      </select>
+      <p class="small" id="frameNotes">空間系では L₀ が固定され、対称軸 n(t) が円錐を描きます。</p>
+      <h2>時間操作</h2>
+      <div class="buttons">
+        <button id="play" type="button" aria-pressed="false">▶ 再生</button>
+        <button id="prev" type="button" class="secondary">−0.1 秒</button>
+        <button id="next" type="button" class="secondary">+0.1 秒</button>
+        <button id="reset" type="button" class="secondary">リセット</button>
+      </div>
+      <label for="time">時刻 t <output id="vtime">0.00</output></label>
+      <input type="range" id="time" min="0" max="40" step="0.01" value="0">
+      <label for="speed">再生速度 <output id="vspeed">1.00 倍</output></label>
+      <input type="range" id="speed" min=".25" max="2" step=".25" value="1">
+      <h2>質量分布と初期値</h2>
+      <p class="small">変更すると t=0 へ戻ります。実在する対称剛体の主慣性値の条件 0 &lt; J ≤ 2I を保つように J の上限を調整します。I=J、ρ=0、w=0 も確認できます。</p>
+      <label for="inertiaI">横慣性 I <output id="vI">2.00</output></label>
+      <input type="range" id="inertiaI" min=".5" max="4" step=".25" value="2">
+      <label for="inertiaJ">軸慣性 J <output id="vJ">3.00</output></label>
+      <input type="range" id="inertiaJ" min=".5" max="5" step=".25" value="3">
+      <label for="rho">横角速度 ρ <output id="vrho">1.00</output></label>
+      <input type="range" id="rho" min="0" max="2" step=".25" value="1">
+      <label for="w">軸角速度 w <output id="vw">1.00</output></label>
+      <input type="range" id="w" min="-2" max="2" step=".25" value="1">
+    </div>
+  </div>
+  <div class="panel">
+    <h2>計算値と自動検算</h2>
+    <dl>
+      <dt>物体系回転率 α</dt><dd id="valpha"></dd>
+      <dt>歳差率 ν=|L₀|/I</dt><dd id="vnu"></dd>
+      <dt>軸角 cosθ</dt><dd id="vcostheta"></dd>
+      <dt>初期エネルギー E</dt><dd id="venergy"></dd>
+      <dt>角運動量 L₀</dt><dd id="vL"></dd>
+      <dt>角運動量残差</dt><dd id="vLerr"></dd>
+      <dt>直交性残差</dt><dd id="vRerr"></dd>
+      <dt>エネルギー残差</dt><dd id="vEerr"></dd>
+      <dt>Euler方程式残差</dt><dd id="vODEerr"></dd>
+    </dl>
+    <p id="status" role="status" aria-live="polite"></p>
+    <p class="small">残差は浮動小数点演算の丸め誤差を含みます。上限は各量 10⁻⁹（角運動量は最大値と1の大きい方で正規化）。保存量が不一致なら再生を停止します。</p>
+  </div>
+  <p>講義の式を確認するには <a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD8/index">RBD8本文へ戻る</a>。外部CDNやフォントを使わないため、HTMLと図を保存すれば通信なしでも使えます。</p>
+  <noscript><p>JavaScript無効時はアニメーションしません。<a href="torque-free-cone.svg">軸と角運動量の静止図</a>をご覧ください。</p><img src="torque-free-cone.svg" alt="固定角運動量と移動する対称軸の模式図" width="560"></noscript>
+<script>
+"use strict";
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const vec = (x,y,z) => [x,y,z];
+  const add = (u,v) => u.map((a,i) => a+v[i]);
+  const scale = (u,s) => u.map(a=>a*s);
+  const dot = (u,v) => u.reduce((s,a,i)=>s+a*v[i],0);
+  const cross=(u,v)=>[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];
+  const norm=(u)=>Math.sqrt(dot(u,u));
+  const unit=(u)=>norm(u)>0?scale(u,1/norm(u)):[0,0,0];
+  const rot=(u,angle,v)=>{
+    const c=Math.cos(angle),s=Math.sin(angle);
+    return add(add(scale(v,c),scale(cross(u,v),s)),scale(u,dot(u,v)*(1-c)));
+  };
+  const zrot=(angle,v)=>[Math.cos(angle)*v[0]-Math.sin(angle)*v[1],Math.sin(angle)*v[0]+Math.cos(angle)*v[1],v[2]];
+  const project=(v)=>[330+185*(v[0]+.43*v[1]),294-185*(v[2]-.28*v[1])];
+  const setLine=(id,v,length)=>{
+    const [x,y]=project(scale(unit(v),length));
+    const line=$(id); line.setAttribute("x2",x.toFixed(3));line.setAttribute("y2",y.toFixed(3));
+    return [x,y];
+  };
+  const fmt=(n)=>Number.isFinite(n)?n.toFixed(5):"—";
+  const fmtErr=(n)=>Number.isFinite(n)?n.toExponential(2):"—";
+  const inputs=["inertiaI","inertiaJ","rho","w"];
+  let t=0,playing=false,lastFrame=null;
+  function pause(){playing=false;$("play").textContent="▶ 再生";$("play").setAttribute("aria-pressed","false");lastFrame=null;}
+  function params(){
+    return {I:Number($("inertiaI").value),J:Number($("inertiaJ").value),rho:Number($("rho").value),w:Number($("w").value)};
+  }
+  function draw(){
+    const {I,J,rho,w}=params(),alpha=(J-I)*w/I,L0=[I*rho,0,J*w],ell=norm(L0);
+    const k=unit(L0),nu=ell/I;
+    const rotateBody=(v)=>ell>0?rot(k,nu*t,zrot(-alpha*t,v)):v.slice();
+    const b1=rotateBody([1,0,0]),b2=rotateBody([0,1,0]),n=rotateBody([0,0,1]);
+    const omegaB=[rho*Math.cos(alpha*t),rho*Math.sin(alpha*t),w];
+    const LB=[I*omegaB[0],I*omegaB[1],J*w];
+    const Lnow=rotateBody(LB),omegaS=rotateBody(omegaB);
+    const errorL=norm(add(Lnow,scale(L0,-1)))/Math.max(1,ell);
+    const errorR=Math.max(Math.abs(dot(b1,b1)-1),Math.abs(dot(b2,b2)-1),Math.abs(dot(n,n)-1),Math.abs(dot(b1,b2)),Math.abs(dot(b1,n)),Math.abs(dot(b2,n)),Math.abs(dot(cross(b1,b2),n)-1));
+    const energy=.5*dot(omegaB,LB),energy0=.5*(I*rho*rho+J*w*w),errorE=Math.abs(energy-energy0);
+    const d1=-alpha*rho*Math.sin(alpha*t),d2=alpha*rho*Math.cos(alpha*t);
+    const eulerResidual=Math.max(Math.abs(I*d1+(J-I)*omegaB[1]*w),Math.abs(I*d2+(I-J)*w*omegaB[0]));
+    const threshold=1e-9;
+    const ok=[errorL,errorR,errorE,eulerResidual].every(x=>Number.isFinite(x)&&x<threshold);
+    if(!ok)pause();
+    const textVals={valpha:fmt(alpha),vnu:fmt(nu),vcostheta:ell?fmt(J*w/ell):"未定義（L₀=0）",
+      venergy:fmt(energy0),vL:"("+L0.map(fmt).join(", ")+")",
+      vLerr:fmtErr(errorL),vRerr:fmtErr(errorR),vEerr:fmtErr(errorE),vODEerr:fmtErr(eulerResidual)};
+    Object.keys(textVals).forEach(id=>{$(id).textContent=textVals[id];});
+    $("status").textContent=ok?"保存量・ODE・直交性の検算：正常": "数値異常：再生停止。初期値・実装を確認してください。";
+    $("status").className=ok?"good":"bad";
+    $("vtime").value=t.toFixed(2);
+    $("time").value=t.toFixed(2);
+    $("vspeed").value=Number($("speed").value).toFixed(2)+" 倍";
+    [["I",I],["J",J],["rho",rho],["w",w]].forEach(([name,value])=>{$("v"+name).value=value.toFixed(2);});
+    const bodyView=$("frame").value==="body";
+    const displayedL=bodyView?LB:L0;
+    const displayedN=bodyView?[0,0,1]:n;
+    const displayedOmega=bodyView?omegaB:omegaS;
+    setLine("axis1",bodyView?[1,0,0]:b1,.72);
+    setLine("axis2",bodyView?[0,1,0]:b2,.72);
+    const pL=setLine("L",displayedL,1.15),pn=setLine("n",displayedN,1.1),po=setLine("omega",displayedOmega,1.03);
+    $("L").setAttribute("visibility",ell>0?"visible":"hidden");
+    $("omega").setAttribute("visibility",norm(displayedOmega)>0?"visible":"hidden");
+    $("labelL").textContent=bodyView?"Lᵦ(t)":"L₀";
+    $("labeln").textContent=bodyView?"e₃":"n(t)";
+    $("labelomega").textContent=bodyView?"ωᵦ(t)":"ωₛ(t)";
+    $("labelL").setAttribute("visibility",ell>0?"visible":"hidden");
+    $("labelomega").setAttribute("visibility",norm(displayedOmega)>0?"visible":"hidden");
+    $("legendL").lastChild.textContent=bodyView?"Lᵦ(t) 物体系では回転":"L₀ 固定";
+    $("legendn").lastChild.textContent=bodyView?"e₃ 物体に固定":"n(t) 対称軸";
+    $("legendomega").lastChild.textContent=bodyView?"ωᵦ(t) 角速度":"ωₛ(t) 角速度";
+    $("legendorbit").lastChild.textContent=bodyView?"Lᵦ(t) の軌道":"対称軸の軌道";
+    $("frameNotes").textContent=bodyView?
+      "物体系では e₃ が固定され、Lᵦ(t) の横成分が α の率で回ります。":
+      "空間系では L₀ が固定され、対称軸 n(t) が円錐を描きます。";
+    $("svgdesc").textContent=bodyView?
+      "物体固定の正規直交基底上で、e3と変化する角運動量L_b(t)、角速度omega_b(t)、角運動量先端の軌道を表示します。":
+      "慣性系で固定したL0、動く対称軸n(t)、角速度omega_s(t)、対称軸先端の軌道を表示します。";
+    [["labelL",pL,-27,-6],["labeln",pn,8,-12],["labelomega",po,12,18]].forEach(([id,p,dx,dy])=>{
+      $(id).setAttribute("x",Math.min(615,Math.max(10,p[0]+dx)).toFixed(2));
+      $(id).setAttribute("y",Math.min(415,Math.max(24,p[1]+dy)).toFixed(2));
+    });
+    if(ell>0){
+      let points=[];
+      for(let j=0;j<=100;j++){
+        const theta=2*Math.PI*j/100;
+        const v=bodyView?scale(zrot(theta,[I*rho,0,J*w]),1/ell):rot(k,theta,[0,0,1]);
+        const p=project(scale(v,1.1));
+        points.push((j?"L":"M")+p[0].toFixed(2)+" "+p[1].toFixed(2));
+      }
+      $("orbit").setAttribute("d",points.join(" ")+" Z");
+    } else {$("orbit").setAttribute("d","");}
+    return ok;
+  }
+  function changeModel(){
+    pause();t=0;
+    const I=Number($("inertiaI").value),jSlider=$("inertiaJ");
+    const jmax=Math.min(5,2*I);
+    jSlider.max=String(jmax);
+    if(Number(jSlider.value)>jmax)jSlider.value=String(jmax);
+    draw();
+  }
+  inputs.forEach(id=>$(id).addEventListener("input",changeModel));
+  $("speed").addEventListener("input",draw);
+  $("frame").addEventListener("change",draw);
+  $("time").addEventListener("input",()=>{pause();t=Number($("time").value);draw();});
+  $("prev").addEventListener("click",()=>{pause();t=Math.max(0,t-.1);draw();});
+  $("next").addEventListener("click",()=>{pause();t=Math.min(40,t+.1);draw();});
+  $("reset").addEventListener("click",()=>{pause();t=0;draw();});
+  $("play").addEventListener("click",()=>{
+    if(playing){pause();return;}
+    if(t>=40)t=0;
+    playing=true;$("play").textContent="❚❚ 停止";$("play").setAttribute("aria-pressed","true");
+    lastFrame=null;requestAnimationFrame(frame);
+  });
+  function frame(timestamp){
+    if(!playing)return;
+    if(lastFrame!==null)t=Math.min(40,t+Math.min(.1,(timestamp-lastFrame)/1000)*Number($("speed").value));
+    lastFrame=timestamp;
+    const ok=draw();
+    if(t>=40||!ok){pause();return;}
+    requestAnimationFrame(frame);
+  }
+  if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    $("status").textContent="動きを減らす設定に従い自動再生はしません。再生は手動で開始できます。";
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
