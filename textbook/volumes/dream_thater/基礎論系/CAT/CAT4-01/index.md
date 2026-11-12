@@ -111,10 +111,10 @@ $$
 さらに演算の単位となる対象を $I$ とし、$I\otimes A$ と $A\otimes I$ を $A$ に移す同型をそれぞれ**左単位子** $\lambda_A$ と**右単位子** $\rho_A$ と書く。「単位」といっても等号 $I\otimes A=A$ を要求するわけではない。
 
 ここで「三変数で自然」とは、[積圏](../CAT1-05/index.md#def-cat1-05-product) $\mathcal C\times\mathcal C\times\mathcal C$ から $\mathcal C$ への二つの関手
-$
+$$
 (A,B,C)\longmapsto(A\otimes B)\otimes C,
 \qquad (A,B,C)\longmapsto A\otimes(B\otimes C)
-$
+$$
 の間の[自然同型](../CAT1-07/index.md#def-cat1-07-natural-isomorphism)という意味である。射の三重組 $(f,g,h)$ に対して前者の関手は $(f\otimes g)\otimes h$、後者は $f\otimes(g\otimes h)$ を返す。左右単位子も、$A\mapsto I\otimes A$ および $A\mapsto A\otimes I$ から恒等関手への自然同型として読む。従って対象成分が同型なだけでは足りず、各射との可換性を検査しなければならない。
 
 三対象について一つの結合子を選ぶだけでは、四対象に対する二通りの移し替えが同じになる保証がない。そこで、四対象を組み替える二つの経路の一致を追加で要求する。また、括弧の中の単位対象 $I$ を異なる順番で取り除く二つの経路も一致させる。これらの等式を備える構造を次に定義する。
@@ -180,7 +180,7 @@ $$
 \end{aligned}
 $$
 各写像の逆は $(a,(b,c))\mapsto((a,b),c)$、$a\mapsto(*,a)$、$a\mapsto(a,*)$ である。従ってどれも同型である。[自然性](../CAT1-07/index.md#def-cat1-07-natural-transformation)は $f:A\to A'$、$g:B\to B'$、$h:C\to C'$ を取って、共通の出発点 $((a,b),c)$ から
-$
+$$
 \begin{aligned}
 \alpha_{A',B',C'}((f\times g)\times h)((a,b),c)
  &=\alpha_{A',B',C'}((f(a),g(b)),h(c))\\
@@ -189,7 +189,7 @@ $
  &=(f\times(g\times h))(a,(b,c))\\
  &=(f(a),(g(b),h(c)))
 \end{aligned}
-$
+$$
 と照合して確認できる。両単位子についても、$\lambda_{A'}(1_I\times f)(*,a)=f(a)=f\lambda_A(*,a)$、$\rho_{A'}(f\times1_I)(a,*)=f(a)=f\rho_A(a,*)$ である。
 
 <!-- definition-example-start: def-cat4-01-monoidal -->
@@ -269,19 +269,19 @@ $$
 \alpha_{A,B,C}=\langle q_A,\langle q_B,q_C\rangle\rangle
 $$
 を作る。ここで $\langle u,v\rangle$ は[積への一意な組の射](../CAT2-02/index.md#def-cat2-02-binary-product)であり、いずれの射も出発点は $((A\times B)\times C)$ である。反対向きの射の始域を $Y=A\times(B\times C)$ とし、ここからの三つの反復射影を
-$
+$$
 s_A=p_A:Y\to A,\qquad
 s_B=p_Bp_{B\times C}:Y\to B,\qquad
 s_C=p_Cp_{B\times C}:Y\to C
-$
+$$
 と区別する（各 $p$ は添字の積に応じた射影である）。そこで
-$
+$$
 \beta_{A,B,C}=\langle\langle s_A,s_B\rangle,s_C\rangle:Y\to(A\times B)\times C
-$
+$$
 と置ける。$q_A\beta=s_A$、$q_B\beta=s_B$、$q_C\beta=s_C$ であり、$s_A\alpha=q_A$、$s_B\alpha=q_B$、$s_C\alpha=q_C$ だから
-$
+$$
 q_A\beta\alpha=q_A,\qquad q_B\beta\alpha=q_B,\qquad q_C\beta\alpha=q_C.
-$
+$$
 三射影への合成で射が一意なので $\beta\alpha=1_{(A\times B)\times C}$。逆順でも $s_A\alpha\beta=s_A$、$s_B\alpha\beta=s_B$、$s_C\alpha\beta=s_C$ となり、$\alpha\beta=1_Y$。よって $\alpha$ は同型である。
 
 **(3) 単位子と逆射。** 終対象 $I$ への一意な射を $!_A:A\to I$ とする。左単位子を第二射影 $\lambda_A=p_A:I\times A\to A$、右単位子を第一射影 $\rho_A=p_A:A\times I\to A$ とする。逆射の候補は
@@ -444,7 +444,7 @@ $$
 \to A\otimes(B\otimes(C\otimes D)).
 $$
 右経路の三つの射は次のとおりである。
-$
+$$
 \begin{aligned}
 \alpha_{A,B,C}\otimes1_D:\;&
 (((A\otimes B)\otimes C)\otimes D)
@@ -456,7 +456,7 @@ $
 A\otimes((B\otimes C)\otimes D)
 \to A\otimes(B\otimes(C\otimes D)).
 \end{aligned}
-$
+$$
 各中間の終域が次の射の始域と一致し、二経路は共通の始域・終域を持つため合成を比較できる。
 <!-- solution-end -->
 
