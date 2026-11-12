@@ -42,7 +42,7 @@ chapters:
     title: "GNSから局所von Neumann環へ"
   - id: AQFT10
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT10
-    status: planned
+    status: completed
     title: "無限自由度と非同値表現"
   - id: AQFT11
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT11
