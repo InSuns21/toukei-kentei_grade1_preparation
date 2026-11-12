@@ -116,17 +116,17 @@ $$
 
 差商の極限も確認します。複素増分 $h\ne0$ に対し、指数関数のTaylorの剰余評価から
 
-$
+$$
 \left|\frac{e^{ip^0h}-1}{h}-ip^0\right|
 \le\frac{|h|(p^0)^2}{2}e^{|h|p^0}
-$
+$$
 
 です。上の近傍で $|h|<\delta_0/4$ なら、これに $|e^{ip\cdot z}|\le e^{-\delta_0p^0/2}$ を掛けた上界は
 
-$
+$$
 \frac{|h|}{2}\sup_{r\ge0}r^2e^{-\delta_0r/4}
 \longrightarrow0\qquad(h\to0)
-$
+$$
 
 となります。従ってスペクトル積分の差商は作用素ノルムで収束します。例えば $z^0$ 方向の微分は
 
@@ -214,20 +214,20 @@ $$
 
 Schwartz試験関数 $h\in\mathcal S(\mathbb R^4)$ を取り、$\check h(x):=\int_{\mathbb R^4}e^{-ik\cdot x}h(k)\,d^4k$ と書きます（ここでも $k\cdot x=k^0t-\boldsymbol k\cdot\boldsymbol x$）。$\check h$ は可積分で $\mu_{\psi,\varphi}$ の全変動も有限なので、Fubiniの定理で
 
-$
+$$
 \begin{aligned}
 \langle\widehat f_{\psi,\varphi},h\rangle
 &=\int_{\mathbb R^4}f_{\psi,\varphi}(x)\check h(x)\,d^4x\\
 &=\int_{\overline V_+}\!\left(\int_{\mathbb R^4}e^{ip\cdot x}\check h(x)\,d^4x\right)d\mu_{\psi,\varphi}(p)\\
 &=(2\pi)^4\int_{\overline V_+}h(p)\,d\mu_{\psi,\varphi}(p).
 \end{aligned}
-$
+$$
 
 最後はSchwartz関数のFourier反転公式です。時空の組合せ $p\cdot x$ は時間・空間成分の符号だけが異なるため、変数変換のJacobianの絶対値は $1$ です。任意の $h$ に成立するので
 
-$
+$$
 \widehat f_{\psi,\varphi}=(2\pi)^4\mu_{\psi,\varphi}.
-$
+$$
 
 測度 $\mu_{\psi,\varphi}$ は $E$ の支持外で零なのでFourier支持は $\overline V_+$ に含まれます。$\square$
 <!-- proof-end -->
@@ -250,9 +250,9 @@ $
 
 **定義の確認**。先の二次元模型では、標準正規直交基底 $e_1,e_2$ が四つの生成作用素の共通固有ベクトルであり、対応する共同固有値はそれぞれ $p_1=(0,0,0,0)$、$p_2=(2,1,0,0)$ です。[共同スペクトル表示](../AQFT3/index.md#def-aqft3-spectrum)をこの基底へ適用すると、$U(z)e_j=e^{ip_j\cdot z}e_j$ です。従って任意の $\eta=c_1e_1+c_2e_2$ に対し
 
-$
+$$
 U(z)\eta=c_1e_1+c_2e^{i(2z^0-z^1)}e_2
-$
+$$
 
 となります。係数は各 $z^j$ について指数関数（または定数）であり、有限次元ベクトルの各成分が $\mathbb C^4$ 全体で正則です。この例は、全変数へ延長できるベクトルが実際に存在することを示します。無限次元で任意のベクトルがそうなるとは主張しません。
 <!-- definition-example-end -->
@@ -295,10 +295,10 @@ $$
 
 任意の点 $z$ の周りで複素増分 $h$ を $|h|\le R$ に制限すると、$|p\cdot h|\le Rr$ です。指数の冪級数の絶対値は $e^{Rr}$ 以下で、スペクトル積分の被積分関数は
 
-$
+$$
 e^{(C_y+R)r-\varepsilon r^2}
 \le\exp\!\left(\frac{(C_y+R)^2}{4\varepsilon}\right)
-$
+$$
 
 に抑えられます。有限の $r$ の範囲では指数級数が一様収束し、$r$ が大きい部分ではGaussian減衰がその級数全体を一様に小さくするので、Taylor部分和をスペクトル積分内へ通した極限は作用素ノルムで一様です。従って $z$ の周りの局所冪級数がノルム収束し、得られた延長はHilbert空間値の整関数です。
 
@@ -451,17 +451,17 @@ $$
 
 零集合が非空開なら、ある開直方体 $O_1\times\cdots\times O_n$ が含まれます。他の実変数を固定して $y_j$ だけを動かすと、固定した作用素積を
 
-$
+$$
 C_{j-1}:=U(y_1)B_1\cdots U(y_{j-1})B_{j-1},
 \qquad
 \xi_j:=B_jU(y_{j+1})B_{j+1}\cdots U(y_n)B_n\Omega
-$
+$$
 
 （$j=1$ では $C_0=I$）と置けるので、変数 $y_j$ の関数は
 
-$
+$$
 F=\langle C_{j-1}^*\psi,U(y_j)\xi_j\rangle
-$
+$$
 
 という[実開集合一意性定理](#thm-aqft11-real-open-unique)そのものの形です。固定した $y_k$ は実数値なので $C_{j-1}$ と $\xi_j$ は $y_j$ に依存せず、定理のスペクトル条件も同じ $U$ に成立します。
 
@@ -623,9 +623,9 @@ $$
 
 [境界値のFourier支持命題](#prop-aqft11-spectral-boundary)を、この有限複素測度に適用すると
 
-$
+$$
 \widehat f=(2\pi)^4(\delta_{p_1}-\delta_{p_2})
-$
+$$
 
 となり、Fourier支持は $\{p_1,p_2\}\subset\overline V_+$ に含まれます。
 
@@ -693,16 +693,16 @@ $$
 
 $U(-x_2)\Omega=\Omega$ と $U(-x_1)U(x_2)=U(x_2-x_1)$ を順に使うと
 
-$
+$$
 \alpha_{x_1}(A)\alpha_{x_2}(B)\Omega
 =U(x_1)AU(x_2-x_1)B\Omega
-$
+$$
 
 です。$y_1=x_1$、$y_2=x_2-x_1$ と対応させれば
 
-$
+$$
 F(x_1,x_2)=\langle\psi,U(y_1)AU(y_2)B\Omega\rangle.
-$
+$$
 
 [正エネルギー並進の管領域正則延長](#thm-aqft11-tube-extension)により、$z_j\in\mathcal T_+$ で $U(z_j)$ はノルム正則かつ $\|U(z_j)\|\le1$。従って
 
