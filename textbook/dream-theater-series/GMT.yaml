@@ -40,5 +40,5 @@ chapters:
   - { id: GMT32, path: textbook/volumes/dream_thater/解析系/GMT/GMT32, status: completed, title: "δ-tube・方向分離・次元" }
   - { id: GMT33, path: textbook/volumes/dream_thater/解析系/GMT/GMT33, status: completed, title: "平面Córdoba型tube評価" }
   - { id: GMT34, path: textbook/volumes/dream_thater/解析系/GMT/GMT34, status: completed, title: "高次元tube幾何・古典的次元下界" }
-  - { id: GMT35, path: textbook/volumes/dream_thater/解析系/GMT/GMT35, status: planned, title: "Kakeya maximalと集合版の含意" }
+  - { id: GMT35, path: textbook/volumes/dream_thater/解析系/GMT/GMT35, status: completed, title: "Kakeya最大作用素から集合の次元を読む" }
   - { id: GMT36, path: textbook/volumes/dream_thater/解析系/GMT/GMT36, status: planned, title: "Fourier restriction・wave packet・EOM074" }
