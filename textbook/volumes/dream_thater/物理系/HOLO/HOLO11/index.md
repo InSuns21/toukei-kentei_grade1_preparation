@@ -26,7 +26,7 @@ A=-\nabla^2+m_\phi^2,\quad B=-\nabla^2+M^2,\qquad
 \langle f,h\rangle=\int d\mu\,fh
 $$
 
-です。非零の境界源を持つ$\phi$の自由作用を部分積分すると境界項が残るため、ここでは$\langle\phi,A\phi\rangle/2$だけで作用全体を表してはいけません。一方、境界値零の$\chi$については、Dirichlet条件のもとでその自由作用を$\langle\chi,B\chi\rangle/2$と書けます。
+です。非零の境界源を持つ$\phi$の自由作用を部分積分すると境界項が残るため、ここでは$\langle\phi,A\phi\rangle/2$だけで作用全体を表してはいけません。一方、境界値零の$\chi$については、[HOLO7の有限cutoff Dirichlet条件](../HOLO7/index.md#def-holo7-cutoff-dirichlet)のもとでその自由作用を$\langle\chi,B\chi\rangle/2$と書けます。
 
 境界の源$J\in C_c^\infty(\mathbb R^d)$は$\phi$の遅い漸近モードを固定し、$\chi$は遅いモードを零にします。Euclid解は赤外で正則とします。$g$は摂動結合で、$g^2$まで・バルクの**木レベル**のみを計算し、重力の反作用とループは含めません。三次相互作用だけでポテンシャルの大域的安定性は保証されないため、非摂動的なEuclid経路積分の収束を主張しません。
 
@@ -110,7 +110,21 @@ $$
 =\frac{z^{d-1}}{L^{d-1}}\delta(z-z').
 $$
 
-斉次解は$z^{d/2}I_{\nu_\chi}(kz)$と$z^{d/2}K_{\nu_\chi}(kz)$で、$I$は小さい$z$側、$K$は大きい$z$側の条件に対応します。ここで$I_\nu,K_\nu$は修正Bessel関数、$\nu_\chi=\sqrt{d^2/4+M^2L^2}$です。
+なぜBessel関数が現れるかも方程式から確かめます。$k>0$で$t=kz$、$f(z)=z^{d/2}F(t)$を斉次方程式へ代入すると、
+
+$
+0=z^{d/2-2}
+\left[-t^2F''(t)-tF'(t)
++\left(t^2+\frac{d^2}{4}+M^2L^2\right)F(t)\right].
+$
+
+ここで$F'(t),F''(t)$は**引数$t$による常微分**です。従って$\nu_\chi=\sqrt{d^2/4+M^2L^2}>0$とおけば、$F$は修正Bessel方程式
+
+$
+t^2F''+tF'-(t^2+\nu_\chi^2)F=0
+$
+
+を満たします。その独立な解$I_{\nu_\chi}(t),K_{\nu_\chi}(t)$は、それぞれ$t\to0$で$t^{\nu_\chi}$型、$t\to\infty$で減衰する解です。このため$z^{d/2}I_{\nu_\chi}(kz)$を小さい$z$側、$z^{d/2}K_{\nu_\chi}(kz)$を大きい$z$側に使います。
 
 <a id="prop-holo11-green-fourier"></a>
 
