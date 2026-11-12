@@ -4,7 +4,7 @@ coverage: complete
 prerequisites:
   - HOLO19
 forward_references:
-  - QINF19
+  - quantum.strong-subadditivity
 concepts:
   - id: holography.rt-cut-paste-candidates
     name: RT領域の切断・貼合せ候補
