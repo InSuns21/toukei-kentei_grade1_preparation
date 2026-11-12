@@ -34,7 +34,7 @@ x\xi+t\xi^2=x\theta+t\theta^2
 +r(x+2\theta t)u+tr^2u^2.
 $$
 
-$|u|\le1$ の範囲で積分を考えると、$r|x+2\theta t|\lesssim1$、$r^2|t|\lesssim1$ では位相の変化が小さい。これが **幅 $r^{-1}$・長さ $r^{-2}$** の管を生む理由です。$r=R^{-1/2}$ とすれば、観測長さ $R$ に対して管の幅は $R^{1/2}$ になります。
+$|u|\le1$ の範囲では、定数項を除く位相の絶対値は $r|x+2\theta t|+r^2|t|$ 以下です。両者が $1$ 以下なら位相変動は一様に有界であり、実部による正の下界まで得たい場合は両者を十分小さい $c>0$ 以下に取って位相変動を $2c<\pi/2$ に抑えます。この二つの条件が **幅 $r^{-1}$・長さ $r^{-2}$** の管を生む理由です。$r=R^{-1/2}$ とすれば、観測長さ $R$ に対して管の幅は $R^{1/2}$ になります。
 
 ## 2. capからwave packetを一つ実際に構成する
 
@@ -130,7 +130,7 @@ $$
 
 前の振幅係数 $r^{-1/2}$ とJacobian $r$ の積は $r^{1/2}$ なので、表示式が得られます。
 
-次に $s=r^2t$ と置くと $|t|\le R=r^{-2}$ では $|s|\le1$。$a_s(u)=e^{isu^2}\varphi(u)$ と書けば、$a_s$ は固定コンパクト区間に台を持ち、$\sup_{|s|\le1}\|(1-\partial_u^2)^Na_s\|_1<\infty$ です。境界項は台の滑らかさにより零なので部分積分を $2N$ 回行えて、
+次に $s=r^2t$ と置くと $|t|\le R=r^{-2}$ では $|s|\le1$。以下の $\partial_u$ は **$s$ を固定して $u$ で微分する演算子**で、$\partial_u^2a_s=d^2a_s/du^2$ です。$a_s(u)=e^{isu^2}\varphi(u)$ と書けば、$a_s$ は固定コンパクト区間に台を持ち、$\sup_{|s|\le1}\|(1-\partial_u^2)^Na_s\|_1<\infty$ です。境界項は台の滑らかさにより零なので部分積分を $2N$ 回行えて、
 
 $$
 (1+y^2)^N\Phi(y,s)
@@ -169,7 +169,7 @@ $t$ を固定すると $e^{it\xi^2}$ は絶対値1の乗数です。[FOU3のFour
 <!-- proof-start -->
 ### 証明
 
-$g_t(\xi)=e^{it\xi^2}\sum_j f_j(\xi)$ と置けば、定義から $\sum_jF_j(x,t)=(2\pi)^{-1/2}\int e^{ix\xi}g_t(\xi)d\xi$。[FOU4の$L^2$ Fourier変換の一意な拡張](../../FOU/FOU4/index.md#thm-fou4-l2-extension)で得られるPlancherel等式を、$(2\pi)^{-1/2}$ を付けた単位的反転に適用すると
+$g_t(\xi)=e^{it\xi^2}\sum_j f_j(\xi)$ と置けば、定義から $\sum_jF_j(x,t)=(2\pi)^{-1/2}\int e^{ix\xi}g_t(\xi)d\xi$。ここで [FOU4のFourier変換](../../FOU/FOU4/index.md#thm-fou4-l2-extension)は負の指数で定義されるので、右辺は $(2\pi)^{-1/2}(\mathcal F_2g_t)(-x)$ です。反射 $x\mapsto-x$ は $L^2$ ノルムを変えず、FOU4のPlancherel等式 $\|\mathcal F_2g_t\|_2^2=2\pi\|g_t\|_2^2$ と正規化係数が相殺されるため、
 
 $$
 \int_{\mathbb R}\left|\sum_jF_j(x,t)\right|^2dx
@@ -243,7 +243,15 @@ $$
 最後は $\max(r,\alpha)\ge(r+\alpha)/2$ から従います。$\alpha=0$ の場合も共通部分は一本の管以下で、$|T_1\cap T_2|\le4r^{-3}$ は右辺の形に一致します。座標の一様縮小は2次元面積を $R^{-2}=r^4$ 倍するため、$r^4\cdot Cr^{-2}/(r+\alpha)=Cr^2/(r+\alpha)$。一方、横幅 $2r^{-1}/R=2r$、縦長 $2R/R=2$ です。
 <!-- proof-end -->
 
-この最後の式は[GMT33の二tube交差評価](../GMT33/index.md#lem-gmt33-two-tubes)と同じ尺度を持ちます。ここでは向きが $( -2\theta,1)$ に制限されますが、$\theta\in[-1,1]$ 上では方向角と $\theta$ の差は定数倍で比較できます。つまりcap中心の差が管のなす角に対応します。ただし、今証明したのは**幾何学的な管**の交差であり、振動する波の四乗積分の評価ではありません。
+この最後の式は[GMT33の二tube交差評価](../GMT33/index.md#lem-gmt33-two-tubes)と同じ尺度を持ちます。ここでは方向ベクトルが $v_\theta=(-2\theta,1)$ に制限されます。二方向の角の小さい方を $\rho\in[0,\pi/2]$ とすると、行列式とノルムから
+
+$$
+\sin\rho
+=\frac{|\det(v_{\theta_1},v_{\theta_2})|}{|v_{\theta_1}|\,|v_{\theta_2}|}
+=\frac{2|\theta_1-\theta_2|}{\sqrt{1+4\theta_1^2}\sqrt{1+4\theta_2^2}}.
+$$
+
+$1\le|v_\theta|\le\sqrt5$ と $\sin\rho\le\rho\le(\pi/2)\sin\rho$ を合わせると $\rho\asymp|\theta_1-\theta_2|$ です。これは [GMT33の無向方向角の定義](../GMT33/index.md#def-gmt33-projective-angle)に沿った比較であり、cap中心の差が管のなす角に対応すると分かります。ただし、今証明したのは**幾何学的な管**の交差であり、振動する波の四乗積分の評価ではありません。
 
 ## 5. 直交性と重複度をつなぐ際に必要な一段
 
@@ -479,19 +487,41 @@ $1+y^2\ge(1+|y|)^2/2$ を使えば、要求された減衰上界を得ます。
 <!-- solution-start -->
 #### 詳細解答
 
-各 $f_j$ の周波数台は中心 $\theta_j$ の左右 $r/4$ 内です。中心距離 $r$ なら二台の端点間には少なくとも $r-r/2=r/2>0$ の隙間があります。固定 $t$ で[Plancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を使えば $\int F_1\overline{F_2}\,dx=\int e^{it\xi^2}f_1(\xi)\overline{e^{it\xi^2}f_2(\xi)}\,d\xi=\int f_1\overline{f_2}\,d\xi=0$。位相因子は内積で打ち消されます。
+各 $f_j$ の周波数台は中心 $\theta_j$ の左右 $r/4$ 内です。中心距離 $r$ なら二台の端点間には少なくとも $r-r/2=r/2>0$ の隙間があります。固定した $t$ で $g_j(\xi)=e^{it\xi^2}f_j(\xi)$ と置きます。定義から $F_j(x,t)=(2\pi)^{-1/2}(\mathcal F_2g_j)(-x)$ なので、反射による変数変換と [FOU4のParseval内積等式](../../FOU/FOU4/index.md#thm-fou4-parseval)を、正規化係数 $(2\pi)^{-1/2}$ を二つ持つ内積に適用すると
+
+$$
+\begin{aligned}
+\int_{\mathbb R}F_1(x,t)\overline{F_2(x,t)}\,dx
+&=\frac{1}{2\pi}\langle\mathcal F_2g_1,\mathcal F_2g_2\rangle\\
+&=\int_{\mathbb R}g_1(\xi)\overline{g_2(\xi)}\,d\xi\\
+&=\int_{\mathbb R}f_1(\xi)\overline{f_2(\xi)}\,d\xi=0.
+\end{aligned}
+$$
+
+位相因子 $e^{it\xi^2}$ は内積で打ち消され、最後の積分は周波数台が交わらないため零です。
 <!-- solution-end -->
 
 <a id="ex-gmt36-b03"></a>
 
-**問題 B03：二本のtubeの交差面積。** $R=r^{-2}$、$\theta_1\ne\theta_2$ とする。$|T_R(\theta_1,x_1)\cap T_R(\theta_2,x_2)|\lesssim r^{-2}/(r+|\theta_1-\theta_2|)$ を示し、$\alpha=r$ と $\alpha=1$ の指数を比較せよ。
+**問題 B03：二本のtubeの交差面積。** $R\ge16$、$r=R^{-1/2}$、$\theta_1\ne\theta_2$ とする。$|T_R(\theta_1,x_1)\cap T_R(\theta_2,x_2)|\lesssim r^{-2}/(r+|\theta_1-\theta_2|)$ を示し、$\alpha=r$ と $\alpha=1$ の指数を比較せよ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-中心差は $(x_1-x_2)-2(\theta_1-\theta_2)t$。両切片が交わるにはその絶対値が $2r^{-1}$ 以下であり、$\alpha>0$ なら該当する $t$ の長さは高々 $2r^{-1}/\alpha$。観測窓からは長さ $2r^{-2}$ 以下なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)による断面積分から交差面積は $2r^{-1}$ と時間長の積以下、すなわち $Cr^{-2}/(r+\alpha)$。$\alpha=r$ なら上界 $\asymp r^{-3}$、$\alpha=1$ なら上界 $\asymp r^{-2}$。近い方向ほど長く重なります。
+中心差は $(x_1-x_2)-2(\theta_1-\theta_2)t$。両切片が交わるにはその絶対値が $2r^{-1}$ 以下であり、$\alpha>0$ なら該当する $t$ の長さは高々 $2r^{-1}/\alpha$。観測窓からは長さ $2r^{-2}$ 以下なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)による断面積分で
+
+$$
+\begin{aligned}
+|T_1\cap T_2|
+&\le 2r^{-1}\min(2r^{-2},2r^{-1}/\alpha)\\
+&=4r^{-2}\min(r^{-1},\alpha^{-1})\\
+&\le \frac{8r^{-2}}{r+\alpha}
+\end{aligned}
+$$
+
+を得ます。最後は $\min(r^{-1},\alpha^{-1})=1/\max(r,\alpha)\le2/(r+\alpha)$ を使いました。$\alpha=r$ なら上界 $\asymp r^{-3}$、$\alpha=1$ なら上界 $\asymp r^{-2}$。近い方向ほど長く重なります。
 <!-- solution-end -->
 
 <a id="ex-gmt36-b04"></a>
@@ -526,7 +556,7 @@ $1+y^2\ge(1+|y|)^2/2$ を使えば、要求された減衰上界を得ます。
 
 (2) capの幅は $r/2$、中心距離は $r$ 以上なので周波数台は交わりません。[空間断面でのPlancherel直交性](#prop-gmt36-slice-orthogonality)から各 $t$ で $\int|\sum_jF_j|^2dx=\sum_j\|f_j\|_2^2=\#J$ です。これは空間全体に関する主張です。
 
-(3) 各管は $|x-x_j+2\theta_jt|\le r^{-1}$。二中心の差が $2r^{-1}$ 以下になる時間の長さは高々 $2r^{-1}/\alpha$、かつ観測幅 $2r^{-2}$ 以下。横切片は高々 $2r^{-1}$ なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で横切片長を時間積分すると面積は $Cr^{-2}/(r+\alpha)$ です。
+(3) 異なる二本 $i,j$ を選び、$\alpha=|\theta_i-\theta_j|>0$ と定めます。各管は $|x-x_j+2\theta_jt|\le r^{-1}$。二中心の差が $2r^{-1}$ 以下になる時間の長さは高々 $2r^{-1}/\alpha$、かつ観測幅 $2r^{-2}$ 以下。横切片は高々 $2r^{-1}$ なので、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で横切片長を時間積分すると面積は $Cr^{-2}/(r+\alpha)$ です。
 
 (4) $(x,t)$ の両座標を $R=r^{-2}$ で割ると面積は $R^{-2}=r^4$ 倍され、上界は $Cr^2/(r+\alpha)$。横幅は $2r$、縦長は2となるため[GMT33の二tube交差](../GMT33/index.md#lem-gmt33-two-tubes)と同じ尺度です。ここから任意のrestriction評価までは結論できません。
 <!-- solution-end -->
