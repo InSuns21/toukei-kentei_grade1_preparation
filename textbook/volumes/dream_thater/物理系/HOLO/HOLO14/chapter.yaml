@@ -1,0 +1,44 @@
+id: HOLO14
+title: "ホログラフィック繰り込み"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO13
+official_scope: []
+learning_objectives:
+  - Euclid AdSのスカラー方程式から局所漸近係数と非局所応答を区別できる
+  - 1<nu<2のスカラーで体積反項と勾配反項の係数・符号・発散次数を計算できる
+  - 繰り込み済み作用の源変分から有限な1点関数と分離点2点関数を導ける
+  - nu=1の共鳴対数係数と対数反項を導出できる
+  - 参照スケール・有限局所反項・接触項と非局所相関を区別できる
+  - 計量とスカラー源の第一変分から保存Ward恒等式とトレース関係を導ける
+  - 重力異常の既出結果とスカラーの平坦模型を混同せず適用範囲を説明できる
+definitions:
+  - { id: HOLO14-DEF-01, name: cutoff局所反項と繰り込み作用 }
+  - { id: HOLO14-DEF-02, name: 1<nu<2の最小反項 }
+  - { id: HOLO14-DEF-03, name: 共鳴展開と参照スケール }
+  - { id: HOLO14-DEF-04, name: 繰り込み済み源応答 }
+theorems:
+  - { id: HOLO14-PROP-01, name: 非共鳴スカラーの最初の局所係数 }
+  - { id: HOLO14-PROP-02, name: 有限作用と1点関数 }
+  - { id: HOLO14-PROP-03, name: 非局所2点核と有限反項の影響 }
+  - { id: HOLO14-PROP-04, name: 対数係数と対数反項 }
+  - { id: HOLO14-PROP-05, name: 源付きWard恒等式とトレース関係 }
+canonical_examples:
+  - d=3 nu=3/2の勾配反項が裸作用の発散を相殺する
+  - nu=1の対数係数と参照スケール変更をFourierモードで計算する
+  - 平坦境界のスカラー源変分と曲率を持つAdS3のWeyl異常を区別する
+problem_patterns:
+  - HOLO14-SCALAR-RECURSION
+  - HOLO14-CUTOFF-SCALING
+  - HOLO14-COUNTERTERM-SIGN
+  - HOLO14-RESONANT-LOG
+  - HOLO14-FINITE-ONE-POINT
+  - HOLO14-SCHEME-CONTACT
+  - HOLO14-SOURCE-WARD
+  - HOLO14-TWO-POINT-NONLOCAL
+  - HOLO14-RESONANCE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 8 }
