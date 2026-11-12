@@ -176,7 +176,7 @@ $$
 ここで $\Lambda$ は[指数対象のカリー化](../CAT4-05/index.md#thm-cat4-05-evaluation-curry)であり、$\operatorname{ev}:B^A\times A\to B$ は対応する評価射である。文脈が右へ伸びるたびに右側の変数の射影は $\pi_2$、以前の変数の射影にはさらに $\pi_1$ を前合成する。$1_{\mathcal C}\times A$ と $A$ は通常等号でなく正準同型で結ばれる点にも注意する。
 
 <!-- definition-example-start: def-cat4-06-denotation -->
-**定義の確認（集合の二値型）。** $\mathcal C=\mathbf{Set}$、$O=\{0,1\}$ と置く。閉じた項
+**定義の確認**（集合の二値型）。 $\mathcal C=\mathbf{Set}$、$O=\{0,1\}$ と置く。閉じた項
 
 $$
 k=\lambda x:\mathsf o.\lambda y:\mathsf o.x
