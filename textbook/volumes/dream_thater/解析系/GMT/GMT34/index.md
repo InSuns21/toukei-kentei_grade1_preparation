@@ -583,7 +583,19 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$T_1,T_2$ はそれぞれ柄の中心線上の異なる点を通るので、[一本のtubeに付随するhairbrush](#def-gmt34-hairbrush)から $\mathcal H(T_0)=\{T_1,T_2\}$ です。二つの毛の軸は $x_1$ 座標が $1/2$ 異なる平行直線です。軸間距離は $1/2>2\delta$ なので、半径$\delta$のtubeは交わらず $T_1\cap T_2=\varnothing$。従って両方を含む $\mathcal B(x)$ はどの $x$ にも存在せず、一点での[bushの定義](#def-gmt34-bush)によるまとめ方はできません。
+$T_1,T_2$ はそれぞれ柄の中心線上の異なる点を通ります。従って[一本のtubeに付随するhairbrush](#def-gmt34-hairbrush)から次を得ます。
+
+$$
+\mathcal H(T_0)=\{T_1,T_2\}.
+$$
+
+二つの毛の軸は $x_1$ 座標が $1/2$ 異なる平行直線です。軸間距離は $1/2>2\delta$ なので、半径 $\delta$ のtubeは交わりません。
+
+$$
+T_1\cap T_2=\varnothing.
+$$
+
+従って両方を含む $\mathcal B(x)$ はどの $x$ にも存在せず、一点での[bushの定義](#def-gmt34-bush)によるまとめ方はできません。
 <!-- solution-end -->
 
 <a id="ex-gmt34-b04"></a>
