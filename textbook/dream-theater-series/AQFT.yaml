@@ -26,7 +26,7 @@ chapters:
     title: "因果伝播子とシンプレクティック形式"
   - id: AQFT6
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT6
-    status: planned
+    status: completed
     title: "Weyl CCRと局所C*net"
   - id: AQFT7
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT7
