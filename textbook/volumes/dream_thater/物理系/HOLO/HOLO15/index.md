@@ -304,12 +304,23 @@ $
 \end{aligned}
 $
 
-と確認できます。大枝の明示的な根は $T>T_{\min}$ で滑らかなので、固定 $G,L$ のこの高温展開は項別微分できます。[Euclidサドルの熱力学微分](../../BHT/BHT14/index.md#def-bht14-saddle-weight)を用いて
+と確認できます。大枝の明示式は $TL\gg1$ で $\sqrt{1-3/(4\pi^2L^2T^2)}$ の収束する二項級数に基づくため、固定 $G,L$ のこの高温展開を項別微分できます。[Euclidサドルの熱力学微分](../../BHT/BHT14/index.md#def-bht14-saddle-weight)を用いて
 
 $
 S=-\frac{\partial F}{\partial T}
 =\frac{16\pi^3L^4}{9G}T^2-\frac{2\pi L^2}{3G}+O(T^{-2}).
 $
+
+この温度微分は、$r_l=r_l(T)$ という解族に沿った**連鎖律**としても直接確認できます。大枝では $r_l>L/\sqrt3$ なので $dT/dr_l\ne0$ であり、[温度式と相対自由エネルギー](../../BHT/BHT16/index.md#prop-bht16-ads-state)から
+
+$
+\frac{d\Delta F_{\rm cl}(r_l(T))}{dT}
+=\frac{(d\Delta F_{\rm cl}/dr_l)}{dT/dr_l}
+=\frac{(1-3r_l^2/L^2)/(4G)}{(3r_l^2/L^2-1)/(4\pi r_l^2)}
+=-\frac{\pi r_l^2}{G}.
+$
+
+ここで $d/dr_l$ は $G,L$ 固定の解族に沿った微分、$d/dT$ は同じ枝上の温度微分です。$\beta=1/T$ による $d/dT=-\beta^2d/d\beta$ との関係も、この固定条件の下でのみ使います。
 
 一方、面積からも $r_l^2=a^2T^2+2ab+O(T^{-2})$ なので
 
