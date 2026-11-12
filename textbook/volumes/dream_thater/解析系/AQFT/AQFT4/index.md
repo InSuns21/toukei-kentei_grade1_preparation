@@ -261,7 +261,7 @@ $w_+=\chi u$、$w_-=(\chi-1)u$ とおきます。すると $Pw_+=Pw_-=f_\chi$ �
 
 各々の台は $J(K)$ に含まれます。[HPDE20の過去コンパクト・未来コンパクト条件](../../HPDE/HPDE20/index.md#def-hpde20-support-classes)も、次のように確かめられます。
 
-任意のコンパクト $L$ について、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le\max t(L)$ の有界な時間帯と $J(K)$ に含まれます。これは閉かつ有界だからコンパクトです。$w_-$ にも $J^+(L)$ を使って同様の条件を確認できます。
+任意のコンパクト $L$ について、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le\max t(L)$ の有界な時間帯と $J(K)$ に含まれます。この集合は閉かつ有界です。四次元のEuclid座標に対する[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)を適用すると、コンパクト性が従います。$w_-$ にも $J^+(L)$ を使って同様の条件を確認できます。
 
 ここで[HPDE20の支持条件を指定したGreenの両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)を使うと
 $$
