@@ -34,7 +34,7 @@ chapters:
     title: "quasifree状態と二点形式"
   - id: AQFT8
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT8
-    status: planned
+    status: completed
     title: "Minkowski真空とFock二点関数"
   - id: AQFT9
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT9
