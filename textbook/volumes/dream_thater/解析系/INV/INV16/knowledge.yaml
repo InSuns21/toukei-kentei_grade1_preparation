@@ -1,0 +1,65 @@
+chapter: INV16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV15
+  - F0-00D2C
+  - MT3
+forward_references: []
+
+concepts:
+  - id: inverse.credible-region
+    name: 信用領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（信用領域）"]
+    requires: [inverse.posterior-distribution]
+
+  - id: inverse.gaussian-credible-linear
+    name: 線形観測量のGaussian信用区間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形観測量の Gaussian 信用区間）"]
+    requires: [inverse.credible-region, inverse.gaussian-posterior-formula]
+
+  - id: inverse.frequentist-coverage
+    name: 頻度論的被覆率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（頻度論的被覆率）"]
+    requires: [prob.random-variable]
+
+  - id: inverse.credible-coverage-mismatch
+    name: Gaussian縮小事後の信用区間と被覆率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian 縮小事後の信用区間と被覆率）"]
+    requires: [inverse.gaussian-credible-linear, inverse.frequentist-coverage]
+
+  - id: inverse.gaussian-prior-sensitivity
+    name: 一次元Gaussian更新の事前感度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次元 Gaussian 更新の事前感度）"]
+    requires: [inverse.gaussian-posterior-formula]
+
+  - id: inverse.model-discrepancy
+    name: モデル不一致
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モデル不一致）"]
+    requires: [inverse.linear-gaussian-model]
+
+  - id: inverse.reference-measure-posterior
+    name: 事前測度を基準とする事後分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（事前測度を基準とする事後分布）"]
+    requires: [inverse.posterior-distribution, measure.radon-nikodym-derivative-mt3-recap]
+
+  - id: inverse.function-space-bayes
+    name: 関数空間でのBayes更新の正当化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（関数空間での Bayes 更新の正当化）"]
+    requires: [inverse.reference-measure-posterior, measure.tonelli-theorem]
