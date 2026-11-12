@@ -4,7 +4,11 @@
 
 欲しいのは、**長さや角度の変化だけを測り、回転を除外する量**である。まず $F^TF$ から有限ひずみを作り、次に極分解で回転と伸縮を分ける。最後に、変位の一次微分だけを使う線形近似がどこまで通用するかを計算で確かめよう。
 
-以下、基準配置は開集合 $\Omega_0\subset\mathbb R^3$、時間区間 $I$ は $0\in I$ の開区間、$\chi:\Omega_0\times I\to\mathbb R^3$ は [CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration)の四条件を満たすものとする。$X$ と $x=\chi(X,t)$ の単位は m、時間は s。各 $(X,t)$ で $F=D_X\chi$ と $J=\det F>0$ を用いる。$F$ と、これから定義する各行列および長さ倍率はすべて無次元である。$I_3$ は $3\times3$ 単位行列、上付き $T$ は標準直交基底での転置を表す。
+以下、$\Omega_0\subset\mathbb R^3$ を基準配置の開集合、$0\in I$ を開時間区間とし、[CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration)の四条件を満たす $\chi:\Omega_0\times I\to\mathbb R^3$ を考える。
+
+$X$ と現在位置 $x=\chi(X,t)$ の単位は m、時刻 $t$ の単位は s。[変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient) $F=D_X\chi$ と体積倍率 $J=\det F>0$ は無次元である。
+
+これから導入する行列と長さ倍率も無次元とする。$I_3$ は $3\times3$ 単位行列、上付き $T$ は標準直交基底での転置を表す。
 
 ## 1. 距離の変化から有限ひずみを作る
 
