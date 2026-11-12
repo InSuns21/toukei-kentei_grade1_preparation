@@ -1,0 +1,48 @@
+id: GMT35
+title: Kakeya最大作用素から集合の次元を読む
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT34
+official_scope: []
+learning_objectives:
+  - δ-Kakeya最大作用素の平均による正規化とL^pから球面L^qへの指数損失を直接計算できる
+  - 平面で方向格子への還元と二管交差行列から対数損失付きL2最大評価を証明できる
+  - 一様最大評価から分離tubeの合併体積下界へ進む方向帽の補間を証明できる
+  - 指示関数への代入と近傍体積から上下Minkowski次元下界を符号を含めて導ける
+  - 多尺度球被覆からHausdorff次元下界へ進む級数の収束条件を再構成できる
+  - 対数損失と任意ε損失、endpointおよびmaximalから集合版への含意の向きを区別できる
+definitions:
+  - { id: GMT35-DEF-01, name: δ-Kakeya最大作用素 }
+  - { id: GMT35-DEF-02, name: 指数(p,q,β)の一様最大評価 }
+theorems:
+  - { id: GMT35-LEM-01, name: 方向格子への還元 }
+  - { id: GMT35-LEM-02, name: 選択した管に対する離散L2評価 }
+  - { id: GMT35-THM-01, name: 平面Kakeya最大作用素の対数評価 }
+  - { id: GMT35-THM-02, name: 最大評価からtube合併体積への含意 }
+  - { id: GMT35-COR-01, name: 最大評価から上下Minkowski次元へ }
+  - { id: GMT35-THM-03, name: 全尺度最大評価からHausdorff次元へ }
+  - { id: GMT35-COR-02, name: 対数損失と任意のε損失 }
+canonical_examples:
+  - 単一tubeの指示関数に対する最大平均1とL^pノルム
+  - Hölderによる一般次元の粗いδ損失
+  - 平面の方向格子と調和級数の行列行和
+  - 方向帽の体積とtube包含
+  - 多尺度の拡大球から方向別の最大平均を作る
+  - 可算稠密集合によるMinkowskiとHausdorff次元の非同値
+problem_patterns:
+  - GMT35-TUBE-NORMALIZATION
+  - GMT35-HOLDER-LOSS
+  - GMT35-EXPONENT-TRANSFER
+  - GMT35-LOG-EPSILON
+  - GMT35-MINKOWSKI-SIGN
+  - GMT35-SCHUR-ROW-SUM
+  - GMT35-CAP-THICKENING
+  - GMT35-CRUDE-AND-SHARP
+  - GMT35-MULTISCALE-SUM
+  - GMT35-PLANAR-HAUSDORFF
+  - GMT35-ENDPOINT-LOGIC
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 12, exercises: 9, review: 5 }

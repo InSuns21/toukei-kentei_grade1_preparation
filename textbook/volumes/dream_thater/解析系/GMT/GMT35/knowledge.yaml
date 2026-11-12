@@ -1,0 +1,87 @@
+chapter: GMT35
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT34
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt35-kakeya-maximal
+    name: δ-Kakeya最大作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（δ-Kakeya最大作用素）"]
+    requires:
+      - geometric-measure.gmt32-tube
+
+  - id: geometric-measure.gmt35-uniform-bound
+    name: 指数(p,q,β)の一様最大評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（指数(p,q,β)の一様最大評価）"]
+    requires:
+      - geometric-measure.gmt35-kakeya-maximal
+
+  - id: geometric-measure.gmt35-direction-grid
+    name: 方向格子への還元
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（方向格子への還元）"]
+    requires:
+      - geometric-measure.gmt35-kakeya-maximal
+      - geometric-measure.gmt33-projective-angle
+
+  - id: geometric-measure.gmt35-linearized-tubes
+    name: 選択した管に対する離散L2評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（選択した管に対する離散L2評価）"]
+    requires:
+      - geometric-measure.gmt33-two-tubes
+      - geometric-measure.gmt33-projective-angle
+
+  - id: geometric-measure.gmt35-planar-maximal
+    name: 平面Kakeya最大作用素の対数評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平面Kakeya最大作用素の対数評価）"]
+    requires:
+      - geometric-measure.gmt35-direction-grid
+      - geometric-measure.gmt35-linearized-tubes
+
+  - id: geometric-measure.gmt35-maximal-to-union
+    name: 最大評価からtube合併体積への含意
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最大評価からtube合併体積への含意）"]
+    requires:
+      - geometric-measure.gmt35-uniform-bound
+      - geometric-measure.gmt32-direction-count
+
+  - id: geometric-measure.gmt35-minkowski
+    name: 最大評価から上下Minkowski次元へ
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（最大評価から上下Minkowski次元へ）"]
+    requires:
+      - geometric-measure.gmt35-uniform-bound
+      - geometric-measure.gmt32-neighborhood-cover
+
+  - id: geometric-measure.gmt35-maximal-to-hausdorff
+    name: 全尺度最大評価からHausdorff次元へ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（全尺度最大評価からHausdorff次元へ）"]
+    requires:
+      - geometric-measure.gmt35-uniform-bound
+      - measure.hausdorff-dimension
+
+  - id: geometric-measure.gmt35-log-and-epsilon
+    name: 対数損失と任意のε損失
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（対数損失と任意のε損失）"]
+    requires:
+      - geometric-measure.gmt35-planar-maximal
+      - geometric-measure.gmt35-minkowski
+      - geometric-measure.gmt35-maximal-to-hausdorff
