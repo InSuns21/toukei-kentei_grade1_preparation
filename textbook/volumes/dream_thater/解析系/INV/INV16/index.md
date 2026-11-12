@@ -401,7 +401,7 @@ $$
 \mu^y(H)=\frac1{Z(y)}\int_H e^{-\Phi(u;y)}\,\mu_0(du)=1
 $$
 
-です。$y$ に関する可測性は、非負な可測関数 $(u,y)\mapsto e^{-\Phi(u;y)}$ を $u$ について積分した関数が可測であることから従います。分母 $Z(y)$ は常に正なので比も可測です。
+です。$F$ の可測性と $(z,y)\mapsto\tfrac12(y-z)^T\Sigma^{-1}(y-z)$ の連続性から、$(u,y)\mapsto\Phi(u;y)$ は積空間で可測です。[Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)を非負関数 $1_B(u)e^{-\Phi(u;y)}$ に適用すると、$y\mapsto\int_Be^{-\Phi(u;y)}\,\mu_0(du)$ が可測になります。ここで $\mu_0$ は確率測度ゆえ $\sigma$-有限で、$\mathbb R^m$ の Lebesgue 測度も $\sigma$-有限です。分母 $Z(y)$ は常に正なので比も可測です。
 
 観測条件付き密度を
 
@@ -414,7 +414,7 @@ $$
 
 と置きます。[Gaussian 密度の正規化](../INV15/index.md#def-inv15-gaussian-density)から、各 $u$ に対し $\int_{\mathbb R^m}q(y\mid u)\,dy=1$ です。$\Sigma$ は定数行列なので $p_Y(y)=(2\pi)^{-m/2}(\det\Sigma)^{-1/2}Z(y)>0$ です。
 
-任意の Borel 集合 $B\subset H$、$D\subset\mathbb R^m$ を取ります。被積分関数が非負なので [Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)を使って積分順を交換できます。独立な $E$ の条件付き密度を最初に代入すると
+任意の Borel 集合 $B\subset H$、$D\subset\mathbb R^m$ を取ります。被積分関数 $1_B(u)1_D(y)q(y\mid u)$ は非負かつ可測で、上で確認した二つの測度の $\sigma$-有限性も満たすため、[Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)で積分順を交換できます。独立な $E$ の条件付き密度を最初に代入すると
 
 $$
 \begin{aligned}
@@ -463,7 +463,7 @@ $$
 U=(\xi_1,\xi_2/2,\xi_3/3,\ldots)
 $$
 
-を考えます。非負な部分和 $S_N=\sum_{j=1}^N\xi_j^2/j^2$ は増加し、その期待値は $\sum_{j=1}^N1/j^2\le\sum_{j\ge1}1/j^2<\infty$ です。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $E[\lim_NS_N]=\sum_{j\ge1}1/j^2<\infty$ なので $\sum_{j\ge1}\xi_j^2/j^2<\infty$ が確率1で成立し、$U\in\ell^2$ です。この $U$ の法則を $\mu_0$ とすれば、通常の有限次元密度なしに関数空間上の事前測度を得られます。
+を考えます。以下、期待値は $\mathbb E[\cdot]$ と表し、観測誤差の確率変数 $E$ と区別します。非負な部分和 $S_N=\sum_{j=1}^N\xi_j^2/j^2$ は増加し、その期待値は $\sum_{j=1}^N1/j^2\le\sum_{j\ge1}1/j^2<\infty$ です。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $\mathbb E[\lim_NS_N]=\sum_{j\ge1}1/j^2<\infty$ なので $\sum_{j\ge1}\xi_j^2/j^2<\infty$ が確率1で成立し、$U\in\ell^2$ です。各有限切断 $(\xi_1,\ldots,\xi_N/N,0,\ldots)$ は $\ell^2$ 値可測写像で、確率1の集合上で $U$ にノルム収束します。零測度の例外集合では $U=0$ と定義すれば、$U$ は $\ell^2$ 値可測確率変数になります。この $U$ の法則を $\mu_0$ とすれば、通常の有限次元密度なしに関数空間上の事前測度を得られます。
 
 $F(u)=u_1$、独立な $E\sim N(0,1)$ とすると、観測 $Y=\xi_1+E$ は第1座標だけに依存します。[INV15 の Gaussian 更新](../INV15/index.md#thm-inv15-gaussian-posterior)により、$U_1\mid Y=y\sim N(y/2,1/2)$ です。一方、$j\ge2$ の各座標は $(\xi_1,E)$ と独立なので、観測後も $U_j\sim N(0,1/j^2)$ のままです。さらに後方座標の同時分布も変わりません。これは前講の[独立な未観測成分の命題](../INV15/index.md#prop-inv15-kernel-independent)と同じ仕組みですが、無限次元では確率測度として述べます。
 
@@ -721,15 +721,15 @@ $y=1/2$ なら指数因子は1で、$e_1,e_2,0$ の確率は順に $1/4,1/4,1/2$
 <!-- solution-start -->
 #### 詳細解答
 
-(1) $S_N=\sum_{j=1}^NU_j^2$ は非負で単調増加します。$E[\xi_j^2]=1$ を用いると
+(1) $S_N=\sum_{j=1}^NU_j^2$ は非負で単調増加します。$\mathbb E[\xi_j^2]=1$ を用いると
 
 $$
-E[S_N]=\sum_{j=1}^N\frac{E[\xi_j^2]}{j^2}
+\mathbb E[S_N]=\sum_{j=1}^N\frac{\mathbb E[\xi_j^2]}{j^2}
 =\sum_{j=1}^N\frac1{j^2}
 \le\sum_{j=1}^\infty\frac1{j^2}<\infty.
 $$
 
-[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $E[\sum_{j\ge1}U_j^2]=\sum_{j\ge1}1/j^2<\infty$ です。もし和が無限大になる事象の確率が正なら、その期待値も無限大になるため矛盾です。従って $U\in\ell^2$ が確率1で成立します。
+[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $\mathbb E[\sum_{j\ge1}U_j^2]=\sum_{j\ge1}1/j^2<\infty$ です。もし和が無限大になる事象の確率が正なら、その期待値も無限大になるため矛盾です。従って $U\in\ell^2$ が確率1で成立します。
 
 (2) $U_1=\xi_1\sim N(0,1)$、$E\sim N(0,1)$ は独立なので、[線形 Gaussian 逆問題の事後平均と事後共分散](../INV15/index.md#thm-inv15-gaussian-posterior)により $U_1\mid Y=y\sim N(y/2,1/2)$ です。一方 $U_2=\xi_2/2\sim N(0,1/4)$ で、$\xi_2$ は $(\xi_1,E)$ と独立です。$Y$ は $(\xi_1,E)$ だけの関数なので $U_2$ は $Y$ と独立です。従って $U_2\mid Y=y\sim N(0,1/4)$ のままです。
 <!-- solution-end -->
