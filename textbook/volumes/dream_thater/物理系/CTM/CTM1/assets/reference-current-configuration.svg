@@ -18,14 +18,14 @@
 <path d="M338 160 H452" stroke="#334155" stroke-width="2.6" stroke-dasharray="7 5" fill="none" marker-end="url(#ctm1-arrow)"/>
 <text x="366" y="140" font-size="18" fill="#0f172a">χₜ</text>
 <g fill="#1d4ed8" stroke="#ffffff" stroke-width="2.2">
-  <circle cx="145" cy="122" r="7"/><circle cx="538.3" cy="114.4" r="7"/>
+  <circle cx="145" cy="122" r="7"/><circle cx="543.3" cy="114.4" r="7"/>
 </g>
 <g fill="#b45309" stroke="#ffffff" stroke-width="2.2">
-  <rect x="263" y="202" width="13" height="13" rx="2"/><rect x="679.3" y="177.6" width="13" height="13" rx="2"/>
+  <rect x="263" y="202" width="13" height="13" rx="2"/><rect x="691.6" y="177.1" width="13" height="13" rx="2"/>
 </g>
 <g font-family="sans-serif" font-size="18" font-weight="600" fill="#0f172a">
 <text x="113" y="110">X_A</text><text x="246" y="235">X_B</text>
-<text x="552" y="110">x_A(t)</text><text x="694" y="207">x_B(t)</text>
+<text x="552" y="110">x_A(t)</text><text x="710" y="204">x_B(t)</text>
 </g>
 <g font-family="sans-serif" font-size="15" fill="#475569">
 <text x="104" y="275">同じ物質点を固定して追跡</text>
