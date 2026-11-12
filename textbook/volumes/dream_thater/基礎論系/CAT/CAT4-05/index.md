@@ -121,17 +121,17 @@ $$
 
 次に $v:B\to B'$ から
 
-$
+$$
 [A,v]=\bigl(v\,\operatorname{ev}_{A,B}\bigr)^\sharp:[A,B]\to[A,B']
-$
+$$
 
 と定める。評価の普遍性を二度適用すれば
 
-$
+$$
 \operatorname{ev}_{A,B'}([A,v]\otimes1_A)
 =v\operatorname{ev}_{A,B},\qquad
 (vf)^\sharp=[A,v]f^\sharp.
-$
+$$
 
 恒等射の場合は $[A,1_B]=1_{[A,B]}$、$v':B'\to B''$ を続けた場合は、評価へ戻して比較することで $[A,v'v]=[A,v'][A,v]$ を得る。従って $B\mapsto[A,B]$ は関手 $R_A$ をなし、上式は $B$ に関する自然性を示す。これにより $(-)\otimes A\dashv R_A$ の[二変数自然なHom全単射](../CAT2-08/index.md#def-cat2-08-adjunction)を得る。
 <!-- proof-end -->
@@ -254,26 +254,26 @@ $$
 
 $H=[A\otimes B,C]$、$K=[A,[B,C]]$ と置き、先に構成した自然なHom全単射を $\beta_X:\operatorname{Hom}(X,H)\to\operatorname{Hom}(X,K)$ と書く。恒等射を代入して、次の二射を作る。
 
-$
+$$
 \theta=\beta_H(1_H):H\to K,\qquad
 \psi=\beta_K^{-1}(1_K):K\to H.
-$
+$$
 
 $\beta$ が $X$ に自然だから、任意の $h:X\to H$ と $g:X\to K$ に対して
 
-$
+$$
 \beta_X(h)=\theta h,\qquad
 \beta_X^{-1}(g)=\psi g.
-$
+$$
 
 従って $X=H$ として $h=1_H$ を転置・逆転置すると $\psi\theta=1_H$。また $X=K$ として $g=1_K$ を逆転置・転置すると $\theta\psi=1_K$ となる。よって $\theta$ は同型である。
 
 さらに $u:A'\to A$、$v:B'\to B$、$w:C\to C'$ を取る。$f:X\otimes(A\otimes B)\to C$ から両経路で得る射は、[内部Homの作用](#prop-cat4-05-internal-hom-functor)と結合子の自然性によって、ともに
 
-$
+$$
 w\,f\,(1_X\otimes(u\otimes v)):
 X\otimes(A'\otimes B')\to C'
-$
+$$
 
 を二度転置したものである。一意性により $A,B,C$ に関する自然性も成立する。
 <!-- proof-end -->
