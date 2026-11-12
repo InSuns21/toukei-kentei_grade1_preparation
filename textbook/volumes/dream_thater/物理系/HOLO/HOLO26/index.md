@@ -53,7 +53,7 @@ $$
 +\left(\omega^2-\frac{\ell^2}{\sin^2\rho}\right)f=0.}
 $$
 
-ここでプライムは $\rho$ 微分です。中心 $\rho=0$ では $\sin\rho\sim\rho$ のため、有限エネルギーで正則な解は $|\ell|=k$ とおくと $f\sim\rho^k$ となります。境界 $\rho\to\pi/2$ では、[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)を $d=2,m=0$ に適用すると $\Delta(\Delta-2)=0$ です。標準量子化の正規化可能な枝は $\Delta=2$ で、$f=O(\cos^2\rho)$ を選びます。零冪の枝はここでは源として除外します。
+ここでプライムは $\rho$ 微分です。中心 $\rho=0$ では $\sin\rho\sim\rho$ のため、有限エネルギーで正則な解は $|\ell|=k$ とおくと $f\sim\rho^k$ となります。境界 $\rho\to\pi/2$ では、[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)を $d=2,m=0$ に適用すると $\Delta(\Delta-2)=0$ です。この模型では $\nu=\sqrt{d^2/4+m^2L^2}=1$ です。[HOLO8の境界KG可積分条件](../HOLO8/index.md#prop-holo8-normalizability-window)に照らすと、速い枝 $\Delta=2$ は許容される一方、遅い枝 $\Delta=0$ は境界でKG非可積分です。そこで標準Dirichlet条件として源に当たる零冪の係数を零とし、$f=O(\cos^2\rho)$ を選びます。$0<\nu<1$ の場合だけを扱う代替境界選択の定義を、この $\nu=1$ の場合へ適用しているわけではありません。
 
 ## 2. globalモードの具体式を導く
 
@@ -64,14 +64,61 @@ f(\rho)=u^{k/2}(1-u)h(u)
 =(\sin\rho)^k(\cos\rho)^2h(\sin^2\rho)
 $$
 
-を試みます。最初の因子は中心正則性、二つ目は境界での $\cos^2\rho$ の減衰を担います。連鎖律 $du/d\rho=2\sin\rho\cos\rho$ と $d^2u/d\rho^2=2(1-2u)$ を使い、前節の方程式へ代入して因子 $u^{k/2}(1-u)$ を除くと
+を試みます。最初の因子は中心正則性、二つ目は境界での $\cos^2\rho$ の減衰を担います。ここからは $\rho$ 微分と $u$ 微分を混同しないよう、$F(u):=f(\rho(u))$ と書き、$F_u=dF/du$ とします。連鎖律により
 
-$$
+$
+\frac{du}{d\rho}=2\sin\rho\cos\rho,
+\qquad \frac{d^2u}{d\rho^2}=2(1-2u),
+$
+
+$
+\frac{df}{d\rho}=2\sin\rho\cos\rho\,F_u,
+\qquad
+\frac{d^2f}{d\rho^2}=4u(1-u)F_{uu}+2(1-2u)F_u.
+$
+
+これを第1節の径方程式へ代入すると、$f'/ (\sin\rho\cos\rho)=2F_u$ なので
+
+$
+4u(1-u)F_{uu}+4(1-u)F_u
++\left(\omega^2-\frac{k^2}{u}\right)F=0.
+$
+
+続いて $q(u):=u^{k/2}(1-u)$ と書けば $F=qh$ です。$0<u<1$ では $q\ne0$ であり、積の微分と対数微分から
+
+$
+F_u=q'h+qh',\qquad
+F_{uu}=q''h+2q'h'+qh'',
+$
+
+$
+\frac{q'}q=\frac{k}{2u}-\frac1{1-u},\qquad
+\frac{q''}q=\frac{k(k-2)}{4u^2}-\frac{k}{u(1-u)}.
+$
+
+これらを代入して $4q$ で割ると、$h'$ の係数は
+
+$
+2u(1-u)\frac{q'}q+(1-u)
+=k+1-(k+3)u
+$
+
+となり、$h$ の係数は
+
+$
+u(1-u)\frac{q''}q+(1-u)\frac{q'}q
++\frac{\omega^2}{4}-\frac{k^2}{4u}
+=\frac{\omega^2-(k+2)^2}{4}.
+$
+
+したがって
+
+$
 u(1-u)h''+\{k+1-(k+3)u\}h'
 +\frac{\omega^2-(k+2)^2}{4}h=0.
-$$
+$
 
-この節のプライムは $u$ 微分です。中心で正則な解のうち多項式で閉じるものを求め、$h(u)=\sum_{j=0}^{n}c_ju^j$、$c_0=1$ とします。$u^j$ の係数比較から
+**ここからのプライムは $u$ 微分**（上の $q',h'$ も同じ）です。計算は $0<u<1$ で行いましたが、得られた多項式解は中心と境界へ連続に延長できます。中心で正則な解のうち多項式で閉じるものを求め、$h(u)=\sum_{j=0}^{n}c_ju^j$、$c_0=1$ とします。$u^j$ の係数比較から
 
 $$
 (j+1)(j+k+1)c_{j+1}
@@ -85,6 +132,17 @@ c_{j+1}=\frac{(j-n)(j+n+k+2)}{(j+1)(j+k+1)}c_j
 $$
 
 となり、$n$ で級数が止まります。
+
+ここで「正規化可能」を境界で減衰するという印象だけで判定しません。[HOLO8のKG正規化可能性](../HOLO8/index.md#def-holo8-kg-normalizable)と同様に、固定時刻面のKlein–Gordon内積をこの global 計量で求めます。$t=\text{const}$ 面の誘導面積密度は $\sqrt\gamma=L^2\sin\rho/\cos^2\rho$、未来向き単位法線の時間成分は $n^t=\cos\rho/L$ です。従って $\sqrt\gamma\,n^t=L\tan\rho$。$e^{-i\omega t+i\ell\theta}f(\rho)$ の自身との内積は
+
+$
+(\phi_{\omega\ell},\phi_{\omega\ell})_{\mathrm{KG}}
+=2\omega\int_0^{2\pi}\!d\theta
+\int_0^{\pi/2}\!d\rho\,L\tan\rho\,|f(\rho)|^2
+=4\pi L\omega\int_0^{\pi/2}\tan\rho\,|f(\rho)|^2\,d\rho.
+$
+
+中心では $f\sim\rho^k$ なので被積分関数は $O(\rho^{2k+1})$、境界では $f=O(\cos^2\rho)$ なので $O(\cos^3\rho)$ です。$k\ge0$ なら両端で積分は有限となります。これは全域でのKGノルムが有限であることの直接判定であり、ノルムを $1$ にする規格化とは別です。
 
 <a id="def-holo26-global-normal-mode"></a>
 
@@ -100,7 +158,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo26-global-normal-mode -->
-**定義の確認**。 $n=0,\ell=0$ なら $h_{00}=1$、$f_{00}=\cos^2\rho$、$\omega_{00}=2$ です。中心では $f_{00}(0)=1$ と有限で、境界では $f_{00}/\cos^2\rho=1$ です。径方程式にも、$\tan\rho\,f'_{00}=-2\sin^2\rho$ から $(\tan\rho)^{-1}(\tan\rho f'_{00})'=-4\cos^2\rho$ を得て、$\omega^2f_{00}=4\cos^2\rho$ と打ち消すので確かに解です。
+**定義の確認**。 $n=0,\ell=0$ なら $h_{00}=1$、$f_{00}=\cos^2\rho$、$\omega_{00}=2$ です。中心では $f_{00}(0)=1$ と有限で、境界では $f_{00}/\cos^2\rho=1$ です。さらにKGノルムの径積分は $\int_0^{\pi/2}\tan\rho\cos^4\rho\,d\rho=\int_0^{\pi/2}\sin\rho\cos^3\rho\,d\rho=1/4<\infty$ で、正規化可能性も直接確認できます。径方程式にも、$\tan\rho\,f'_{00}=-2\sin^2\rho$ から $(\tan\rho)^{-1}(\tan\rho f'_{00})'=-4\cos^2\rho$ を得て、$\omega^2f_{00}=4\cos^2\rho$ と打ち消すので確かに解です。
 <!-- definition-example-end -->
 
 <a id="prop-holo26-mode-spectrum"></a>
@@ -128,7 +186,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u\to0$ で $h_{nk}(u)\to1$ だから $f_{n\ell}\sim\rho^k$ となり中心で正則です。$u\to1$ では多項式 $h_{nk}(1)$ が有限で、$f_{n\ell}$ は $(1-u)=\cos^2\rho$ を因子に持ちます。係数漸化式は直前に径方程式から導出したもので、各次数の係数が零になるため波動方程式を満たします。
+$u\to0$ で $h_{nk}(u)\to1$ だから $f_{n\ell}\sim\rho^k$ です。角度まで含めた中心正則性を見るため、中心近くで $x=\sin\rho\cos\theta$、$y=\sin\rho\sin\theta$ と置きます。$u=x^2+y^2$ であり、$\ell\ge0$ の場合は $(\sin\rho)^k e^{i\ell\theta}=(x+iy)^k$、$\ell<0$ の場合は $(x-iy)^k$ です。残りの因子 $(1-x^2-y^2)h_{nk}(x^2+y^2)$ は $x,y$ の多項式なので、角座標が退化する中心でも全モードは滑らかです。$u\to1$ では多項式 $h_{nk}(1)$ が有限で、$f_{n\ell}$ は $(1-u)=\cos^2\rho$ を因子に持ちます。係数漸化式は直前に径方程式から導出したもので、各次数の係数が零になるため波動方程式を満たします。
 
 境界値を計算するには有限多項式をGaussの超幾何多項式
 
@@ -193,7 +251,7 @@ $-2$ という符号を落とすと、後の再構成でこのモードが逆符
 
 ## 3. 境界に何を測れば各モードが分かるか
 
-[正規化可能な境界枝](../HOLO8/index.md#def-holo8-quantization-choices)は境界で場そのものが零になる一方、その先頭の減衰係数は零とは限りません。源が零の解では、この係数を境界の演算子に対応させるのが標準的なextrapolate辞書です。本節ではまず古典的な関数として定義し、量子化については後で条件付きに述べます。
+[HOLO8の境界KG可積分条件](../HOLO8/index.md#prop-holo8-normalizability-window)から選んだ速い $\Delta=2$ の枝は、境界で場そのものが零になる一方、その先頭の減衰係数は零とは限りません。源が零の解では、この係数を境界の演算子に対応させるのが標準的なextrapolate辞書です。本節ではまず古典的な関数として定義し、量子化については後で条件付きに述べます。
 
 <a id="def-holo26-extrapolate-data"></a>
 
@@ -286,7 +344,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo26-smearing-kernel -->
-**定義の確認**。 $F=\{(0,0)\}$ では $f_{00}=\cos^2\rho$、$b_{00}=1$ なので $K_F=2\cos^2\rho\cos[2(t-t')]$ です。これは実数値の滑らかな核で、$2\pi$ 周期の時間積分が定義できます。境界波形 $\mathcal O(t',\theta')=3\cos2t'$ を入れると、角積分が $2\pi$、時間積分の $\cos[2(t-t')]\cos2t'$ の平均が $\tfrac12\cos2t$ なので、$3\cos^2\rho\cos2t$ を再現します。
+**定義の確認**。 $F=\{(0,0)\}$ では $f_{00}=\cos^2\rho$、$b_{00}=1$ なので $K_F=2\cos^2\rho\cos[2(t-t')]$ です。これは実数値の滑らかな核で、$2\pi$ 周期の時間積分が定義できます。境界波形 $\mathcal O(t',\theta')=3\cos2t'$ を入れると、角積分が $2\pi$ になります。時間について積和公式を用いれば
+
+$
+\frac1{2\pi}\int_0^{2\pi}\!\cos[2(t-t')]\cos2t'\,dt'
+=\frac12\cos2t,
+$
+
+となるので、$2\cos^2\rho\cdot3\cdot\tfrac12\cos2t=3\cos^2\rho\cos2t$ を再現します。ここで積分核の係数 $2$ は正負周波数の両方を復元するために必要です。
 <!-- definition-example-end -->
 
 <a id="thm-holo26-finite-hkll"></a>
@@ -361,7 +426,7 @@ $$
 
 と展開します。$\widehat a,\widehat a^\dagger$ はそれぞれ消滅・生成作用素で、交換関係は選んだKlein–Gordon内積によるモード規格化で固定します。本講の $f_{n\ell}$ はその規格化を選んでいないため、上式の $\widehat u_{n\ell}$ との係数は一致するとは限りません。しかし**境界極限と内部展開で同じ規格化**を用いるなら、モードごとの比 $f_{n\ell}/b_{n\ell}$ は変わらず、有限モードでの再構成の代数は演算子にも適用できます。
 
-固定背景・摂動的な大 $N$ のコード部分空間において、適切な単一トレースの境界演算子を $\mathcal O$ に対応させる、という辞書を追加した場合に初めて、上の積分を境界理論によるバルク場の近似表示として読めます。[HOLO6の半古典極限の条件](../HOLO6/index.md#def-holo6-controlled-window)に照らして、相互作用・重力のdressing・有限 $N$ の補正を除外していません。局所バルク場そのものは重力のゲージ不変観測量ではなく、重力結合系での「位置」を固定するには関係的な指定が必要です。
+固定背景・摂動的な大 $N$ のコード部分空間において、適切な単一トレースの境界演算子を $\mathcal O$ に対応させる、という辞書を追加した場合に初めて、上の積分を境界理論によるバルク場の近似表示として読めます。[HOLO6の半古典極限の条件](../HOLO6/index.md#def-holo6-controlled-window)に照らしても、相互作用・重力のdressing・有限 $N$ の補正が消えるとは主張できません。本講の自由場の等式はこれらを評価していません。局所バルク場そのものは重力のゲージ不変観測量ではなく、重力結合系での「位置」を固定するには関係的な指定が必要です。
 
 ### 反例：一時刻の境界値だけでは足りない
 
