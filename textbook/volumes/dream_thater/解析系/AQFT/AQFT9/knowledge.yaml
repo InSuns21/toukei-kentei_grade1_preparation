@@ -1,0 +1,58 @@
+chapter: AQFT9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT8
+  - AQFT6
+  - AQFT3
+  - AQFT2
+  - OA5
+  - VN2
+  - VN5
+forward_references: []
+concepts:
+  - id: aqft.gns-local-von-neumann-net
+    name: 状態に伴う局所von Neumann net
+    kind: definition
+    introduction: formal
+    requires: [operator-algebra.gns-construction, operator-algebra.generated-von-neumann-algebra, aqft.quasilocal-cstar]
+  - id: aqft.gns-local-net-isotony-locality
+    name: 局所von Neumann netの包含単調性と局所性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, aqft.isotony, aqft.einstein-locality, operator-algebra.commutant-wot-closed]
+  - id: aqft.gns-local-normal-state
+    name: 局所von Neumann環へのGNS状態の正規な延長
+    kind: proposition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, operator-algebra.density-state-correspondence]
+  - id: aqft.gns-state-dependent-local
+    name: 二点netの異なるGNS局所von Neumann環
+    kind: proposition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, operator-algebra.gns-null-space]
+  - id: aqft.gns-weak-closure-projection
+    name: 乗法表現の弱閉包に新しい射影が現れる
+    kind: proposition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, operator-algebra.von-neumann-bicommutant-theorem]
+  - id: aqft.gns-nonnormal-representation-extension
+    name: 点評価状態は乗法表現へ正規に延長できない
+    kind: proposition
+    introduction: formal
+    requires: [aqft.gns-weak-closure-projection, operator-algebra.normal-functional, operator-algebra.wot-ultraweak-comparison]
+  - id: aqft.gns-vn-covariance
+    name: 不変状態の局所von Neumann netの共変性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, aqft.invariant-gns-covariance]
+  - id: aqft.fock-local-von-neumann-net
+    name: 真空Fock局所von Neumann環
+    kind: definition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, aqft.kg-weyl-local-net, aqft.minkowski-fock-weyl]
+  - id: aqft.gns-fock-local-von-neumann-equivalence
+    name: 自由場のGNS局所von Neumann環とFock局所von Neumann環の一致
+    kind: theorem
+    introduction: formal
+    requires: [aqft.fock-local-von-neumann-net, aqft.minkowski-fock-gns, aqft.gns-local-net-isotony-locality]
