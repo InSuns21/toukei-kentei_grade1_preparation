@@ -1,12 +1,18 @@
 # HOLO21 重力レプリカ法
 
-[HOLO20の静的RTの強劣加法性](../HOLO20/index.md#thm-holo20-ssa)では、RT公式を**入力**して、面積の切断・貼り合わせから境界エントロピーの性質を確かめました。しかしなぜ面積を $4G_N$ で割るのでしょうか。[HOLO18の区間RT公式](../HOLO18/index.md#thm-holo18-interval-coefficient)も、そこでは重力からの導出ではなく処方でした。本章では、整数枚の境界場理論を貼ったレプリカ経路積分を、対称なEuclid重力鞍点で評価することで、面積項が現れる機構を追います。
+[HOLO20の静的RTの幾何学的不等式](../HOLO20/index.md#thm-holo20-ssa)では、RT公式を**入力**して、面積の切断・貼り合わせから境界エントロピーの性質を確かめました。しかしなぜ面積を $4G_N$ で割るのでしょうか。[HOLO18の区間RT公式](../HOLO18/index.md#thm-holo18-interval-coefficient)も、そこでは重力からの導出ではなく処方でした。本章では、整数枚の境界場理論を貼ったレプリカ経路積分を、対称なEuclid重力鞍点で評価することで、面積項が現れる機構を追います。
 
-議論の出発点は[QFT57の有限cutoffレプリカモーメント](../../QFT/QFT57/index.md#def-qft57-replica-moments)と[HOLO17の正則化境界エントロピーデータ](../HOLO17/index.md#def-holo17-boundary-data)です。**整数レプリカの構成、重力の鞍点近似、$n=1$ 近傍への物理的な解析接続は、別々の仮定**です。以下ではEuclid符号のEinstein–Hilbert作用、$\hbar=1$、$G_N>0$、共通のUV cutoff、自然対数を用います。$N$ はバルク時空の次元ではなく、$d+1$ 次元のAdSにおける境界理論の大$N$パラメータを表し、$G_N$ はその重力Newton定数です。古典重力の $O(G_N^{-1})$ だけを扱い、バルク量子エントロピーの $O(G_N^0)$ はHOLO23へ送ります。
+議論の出発点は[QFT57の有限cutoffレプリカモーメント](../../QFT/QFT57/index.md#def-qft57-replica-moments)と[HOLO17の正則化境界エントロピーデータ](../HOLO17/index.md#def-holo17-boundary-data)です。**整数レプリカの構成、重力の鞍点近似、物理的な解析接続は、別々の仮定**です。
+
+以下ではEuclid符号のEinstein–Hilbert作用、$\hbar=1$、$G_N>0$、共通のUV cutoff、自然対数を用います。$N$ はバルク時空の次元ではなく、境界理論の大$N$ パラメータです。バルクは $d+1$ 次元で、重力Newton定数を $G_N$ と記します。
+
+古典重力の次数は $O(G_N^{-1})$ です。本講ではこの主項だけを扱い、バルク量子エントロピーの $O(G_N^0)$ はHOLO23へ送ります。
 
 ## 1. 境界の整数レプリカを重力へ渡す
 
-境界の有限cutoff領域 $A$ の縮約密度演算子を $\rho_A$ とし、$\operatorname{Tr}\rho_A=1$ とします。整数 $n\ge2$ では $n$ 個のEuclid経路積分を $A$ の切断に沿って巡回的に貼れば、$\operatorname{Tr}\rho_A^n$ を計算する境界多様体 $\mathcal B_n$ が生じます。**これは時空の別々のコピーを貼る操作**であり、境界部分領域 $A$ を物理的な壁で仕切る操作ではありません。[QFT58のレプリカ分配関数](../../QFT/QFT58/index.md#thm-qft58-replica-partition)との違いも確認してください。
+境界の有限cutoff領域 $A$ の縮約密度演算子を $\rho_A$ とし、そのトレースを1に正規化します。整数 $n\ge2$ では $n$ 個のEuclid経路積分を $A$ の切断に沿って巡回的に貼ります。すると $\operatorname{Tr}\rho_A^n$ を計算する境界多様体 $\mathcal B_n$ が生じます。
+
+**これは時空の別々のコピーを貼る操作**であり、境界部分領域 $A$ を物理的な壁で仕切る操作ではありません。[QFT58の整数レプリカの分配関数比](../../QFT/QFT58/index.md#thm-qft58-replica-partition)では、この貼合せとトレースとの対応を扱いました。
 
 正規化前の境界分配関数を $Z[\mathcal B_n]$、元のものを $Z[\mathcal B_1]$ と書きます。重力側では、指定した境界 $\partial M_n=\mathcal B_n$ を持つEuclid鞍点 $M_n$ の繰り込み済み作用 $I_n=I_E[M_n]$ を用います。背景に応じた境界項は[HOLO13のGHYを含むDirichlet作用](../HOLO13/index.md#def-holo13-dirichlet-action)を、局所反項の考え方は[HOLO14の反項の定義](../HOLO14/index.md#def-holo14-local-counterterm)を参照してください。
 
@@ -45,9 +51,9 @@ $$
 
 ## 2. 対称鞍点を商にすると円錐が現れる
 
-整数 $n$ の境界 $\mathcal B_n$ はシートの巡回置換により $\mathbb Z_n$ 対称です。しかし**境界の対称性からバルクの支配的鞍点の対称性は自動では従いません**。ここでは、少なくとも $n=1$ 近傍で追跡する鞍点族 $M_n$ が対称で、整数 $n$ ではその固定点近傍の被覆 $M_n$ が滑らかであると仮定します。
+整数 $n$ の境界 $\mathcal B_n$ は[巡回置換](../../../代数系/GRP/GRP1/index.md#def-grp1-cycle)により $\mathbb Z_n$ 対称です。しかし**境界の対称性からバルクの支配的鞍点の対称性は自動では従いません**。ここでは、少なくとも $n=1$ 近傍で追跡する鞍点族 $M_n$ が対称で、整数 $n$ ではその固定点近傍の被覆 $M_n$ が滑らかであると仮定します。
 
-被覆を巡回群で割った商を $\widehat M_n=M_n/\mathbb Z_n$ と呼びます。固定点集合を $\mathcal C_n$ とします。これは局所的に余次元2で、$n=1$ では面 $\gamma_A=\lim_{n\to1}\mathcal C_n$ になります。固定点の周囲の二次元横断面で、距離 $r$ と角度 $\tau$ を用いると、商の角度周期は $2\pi/n$ です。
+被覆を[巡回群](../../../代数系/GRP/GRP1/index.md#def-grp1-cyclic-group)で割った商を $\widehat M_n=M_n/\mathbb Z_n$ と呼びます。固定点集合を $\mathcal C_n$ とします。これは局所的に余次元2で、$n=1$ では面 $\gamma_A=\lim_{n\to1}\mathcal C_n$ になります。固定点の周囲の二次元横断面で、距離 $r$ と角度 $\tau$ を用いると、商の角度周期は $2\pi/n$ です。
 
 <a id="def-holo21-quotient-cone"></a>
 
@@ -175,14 +181,14 @@ $$
 =(n-1)\frac{\operatorname{Area}(\gamma_A)}{4G_N}.
 $$
 
-滑らかな鞍点のon-shell微分をこの比較計算へ移すための境界・正則性条件を命題で仮定したので、規格化後の差の一次項はこれに等しくなります。$I_1$ は $n$ に依存しないから
+滑らかな鞍点のon-shell微分をこの比較計算へ移すための境界項の整合と鞍点族の滑らかさを命題で仮定したので、規格化後の差の一次項はこれに等しくなります。$I_1$ は $n$ に依存しないから
 
 $$
 \left.\partial_n(I_n-nI_1)\right|_{n=1}
 =\frac{\operatorname{Area}(\gamma_A)}{4G_N}.
 $$
 
-最後に[正規化レプリカ量](#def-holo21-gravity-replica)とその後の微分公式を用いると、表示した古典主項になります。$n=1$ 近傍の解析接続と微分可能性を使ったので、整数 $n=2$ の円錐欠損だけから同じ結論は得られません。
+[正規化された重力レプリカ量](#def-holo21-gravity-replica)を使って $\log R_n=-I_n+nI_1$ を代入します。これを $n=1$ で微分すれば、表示した古典主項になります。$n=1$ 近傍の解析接続と微分可能性を使ったので、整数 $n=2$ の円錐欠損だけから同じ結論は得られません。
 <!-- proof-end -->
 
 ## 4. 固定面はなぜ極値面になるのか
@@ -228,7 +234,7 @@ $$
 (H_1V^1+H_2V^2)
 $$
 
-となります。$n>1$ では $T_n=(n-1)/(4nG_N)>0$ なので、$V^1,V^2$ をそれぞれ任意に選ぶことにより $H_1=H_2=0$。$h_{ij}$ と第二基本形式が $n\to1$ で連続なら、この等式は極限面 $\gamma_A$ にも成立します。面積の第二変分の正符号や、大域最小性はここでは得られません。
+となります。$n>1$ では $T_n=(n-1)/(4nG_N)>0$ なので、$V^1,V^2$ をそれぞれ任意に選ぶことにより $H_1=H_2=0$。$h_{ij}$ と第二基本形式が $n\to1$ で連続なら、この等式は極限面 $\gamma_A$ にも成立します。面をさらに動かしたときの面積変化の符号や、大域最小性はここでは得られません。
 <!-- proof-end -->
 
 静的かつ時間反転対称な背景では、時間対称断面に載るEuclid極値面を静的RT候補へ対応付けられます。どの候補が許されるかには[HOLO19の相同条件](../HOLO19/index.md#def-holo19-homology)、どの候補が勝つかには支配鞍点の選択が必要です。共変Lorentz時空のHRTにおける極値面の選択則はHOLO22で分けて扱います。
@@ -302,7 +308,7 @@ $$
 **A1. 正規化と二次Rényi。** 二準位の縮約状態 $\rho_A=\operatorname{diag}(3/4,1/4)$ に対して $R_1,R_2,S_2$ を求める。さらに $W=5\rho_A$ とした場合、$\operatorname{Tr}W^2/(\operatorname{Tr}W)^2$ を計算せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\operatorname{Tr}\rho_A=3/4+1/4=1$ なので $R_1=1$。$R_2=(3/4)^2+(1/4)^2=(9+1)/16=5/8$、従って[Rényiの定義](../../QFT/QFT57/index.md#def-qft57-replica-moments)から $S_2=\log(5/8)/(1-2)=\log(8/5)$。$W$ の固有値は $15/4,5/4$ で、$\operatorname{Tr}W=5$、$\operatorname{Tr}W^2=(225+25)/16=125/8$。比は $(125/8)/25=5/8$。分母の二乗を忘れるとこの不変性が崩れる。
+**詳細解答。** $\operatorname{Tr}\rho_A=3/4+1/4=1$ なので $R_1=1$。$R_2=(3/4)^2+(1/4)^2=(9+1)/16=5/8$、従って[有限cutoffのレプリカモーメントとRényiエントロピー](../../QFT/QFT57/index.md#def-qft57-replica-moments)から $S_2=\log(5/8)/(1-2)=\log(8/5)$。$W$ の固有値は $15/4,5/4$ で、$\operatorname{Tr}W=5$、$\operatorname{Tr}W^2=(225+25)/16=125/8$。比は $(125/8)/25=5/8$。分母の二乗を忘れるとこの不変性が崩れる。
 <!-- solution-end -->
 
 <a id="ex-holo21-a02"></a>
@@ -359,7 +365,18 @@ $$
 **B3. 整数点の補間反例。** $F(n)=(n-1)K$ と $\widetilde F(n)=F(n)+\eta\sin(\pi n)$、$K,\eta$ は実数とする。すべての正整数 $n$ で両者が一致することと、$n=1$ の微分の差を計算し、この差が物理的に許される重力鞍点を意味しない理由を述べよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $n=k\in\mathbb N$ なら $\sin(\pi k)=0$ なので $\widetilde F(k)=F(k)$。一方 $F'(n)=K$、$\widetilde F'(n)=K+\eta\pi\cos(\pi n)$ だから $F'(1)=K$、$\widetilde F'(1)=K-\eta\pi$。$\eta\ne0$ で差は $-\eta\pi$。これは解析関数として整数点を補間するという条件だけでは微分が固定されないことを示す。[QFT59の条件付き解析接続](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)が要求する正値性・スペクトル構造・境界条件・鞍点選択をこの $\widetilde F$ が満たすとは示していないため、物理的な別解の存在は結論しない。
+**詳細解答。** 正整数 $k$ では $\sin(\pi k)=0$ なので、両関数はすべての整数点で一致します。ところが微分すると
+$
+F'(n)=K,\qquad
+\widetilde F'(n)=K+\eta\pi\cos(\pi n).
+$
+よって $n=1$ での微分差は
+$
+\widetilde F'(1)-F'(1)=\eta\pi\cos\pi=-\eta\pi.
+$
+$\eta\ne0$ なら差は零ではありません。したがって解析関数として整数点を補間するだけでは微分は固定されません。
+
+ただし[QFT59の条件付きvon Neumann普遍係数](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)で要求する正値性・スペクトル構造・境界条件・鞍点選択を、この $\widetilde F$ が満たすとは示していません。物理的な別解の存在は結論できません。
 <!-- solution-end -->
 
 <a id="ex-holo21-b04"></a>
@@ -382,7 +399,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**（1）** [重力レプリカ量の定義](#def-holo21-gravity-replica)より $\operatorname{Tr}\rho_A^n=Z[\mathcal B_n]/Z[\mathcal B_1]^n\simeq e^{-I_n+nI_1}$。したがって $\log R_n\simeq-I_n+nI_1$。$R_1=1$ と物理的な微分可能性を仮定し、
+**（1）** [正規化された重力レプリカ量](#def-holo21-gravity-replica)より $\operatorname{Tr}\rho_A^n=Z[\mathcal B_n]/Z[\mathcal B_1]^n\simeq e^{-I_n+nI_1}$。したがって $\log R_n\simeq-I_n+nI_1$。$R_1=1$ と物理的な微分可能性を仮定し、
 $$
 S^{(0)}=-\partial_n\log R_n|_1
 =\partial_n(I_n-nI_1)|_1
