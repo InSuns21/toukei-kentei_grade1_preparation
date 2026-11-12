@@ -68,7 +68,7 @@ try {
   const msg=JSON.parse(event.data);
   if(msg.method==='Runtime.exceptionThrown')runtimeErrors.push(JSON.stringify(msg.params).slice(0,800));
   const p=pending.get(msg.id);if(!p)return;pending.delete(msg.id);
-  if(msg.error)p.reject(Error(msg.error.message));else p.resolve(msg.result);
+  if(msg.error)p.fail(Error(msg.error.message));else p.ok(msg.result);
  });
  const cdp=(method,params={})=>new Promise((ok,fail)=>{
   const id=++seq;pending.set(id,{ok,fail});ws.send(JSON.stringify({id,method,params}));
