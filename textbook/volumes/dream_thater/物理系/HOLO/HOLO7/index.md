@@ -21,17 +21,17 @@ $z=\epsilon$ は**紫外側のcutoff面**、$z=Z$ は**赤外側の端面**で�
 
 座標基底 $(\partial_z,\partial_{x^1},\ldots,\partial_{x^d})$ に関する計量の成分行列は対角です。添字 $a,b$ は $(z,x^1,\ldots,x^d)$ の $d+1$ 座標を走り、繰り返した上下添字はこの範囲で和を取ります。逆計量 $g_E^{ab}$ は $g_{E,ab}$ の逆行列成分であり、
 
-$
+$$
 g_{E,ab}=\frac{L^2}{z^2}\delta_{ab},\qquad
 g_E^{ab}=\frac{z^2}{L^2}\delta^{ab}
-$
+$$
 
 となります（$\delta_{ab}$ はこの座標順の単位行列の成分です）。体積密度 $\sqrt{g_E}$ は $\sqrt{\det(g_{E,ab})}$ の略記です。$z$ 一定面では $dz=0$ として接方向の座標基底 $(\partial_{x^1},\ldots,\partial_{x^d})$ に計量を制限するため、誘導計量は $\gamma_{ij}=(L^2/z^2)\delta_{ij}$ です。したがって
 
-$
+$$
 \det(g_{E,ab})=\left(\frac{L^2}{z^2}\right)^{d+1},\qquad
 \det(\gamma_{ij})=\left(\frac{L^2}{z^2}\right)^d.
-$
+$$
 
 これらから体積密度・誘導面積密度・法線はそれぞれ
 
@@ -249,9 +249,9 @@ $$
 
 > さらに $\phi_0=\phi$ を満たす滑らかな一パラメータ解族 $\phi_s$ が存在し、赤外側の値 $\phi_s(Z,x)=J_Z(x)$ を固定したまま、紫外側で $\phi_s(\epsilon,x)=J_\epsilon(x)+s\,\delta J_\epsilon(x)$ とする。族に沿ったon-shell作用を $w(s)=S_E[\phi_s]$ と置けば
 
-$
+$$
 w'(0)=\int_{T^d}\pi_\epsilon(x)\,\delta J_\epsilon(x)\,d^dx.
-$
+$$
 
 > ここで $\pi_\epsilon$ は基準解 $\phi_0$ から定義した法線運動量密度である。これは、存在を仮定した解の族に沿う微分である。境界データに対する解が滑らかかつ一意に定まる場合には、$W_\epsilon[J_\epsilon]=S_E[\phi]$ を境界データの汎関数と見なし、上式を $\delta W_\epsilon[J_\epsilon;\delta J_\epsilon]$ と書ける。一般の $m^2<0$ でも境界値だけから解が一意になる、と主張しているわけではない。
 <!-- formal-statement-end -->
@@ -448,10 +448,10 @@ $$
 <!-- solution-start -->
 **詳細解答。** まず $z$ を固定した $T^3$ 上で $\Delta_x\phi=0$ を積分します。周期境界で部分積分すると
 
-$
+$$
 0=\int_{T^3}\phi\Delta_x\phi\,d^3x
 =-\int_{T^3}\sum_{i=1}^3(\partial_i\phi)^2\,d^3x.
-$
+$$
 
 非負な連続関数の積分が零なので各 $\partial_i\phi=0$、すなわち $\phi$ は $x$ に依存しません。このため $\phi_z=\phi'$、$\phi_{zz}=\phi''$ として方程式は $z^2\phi''-2z\phi'=0$。$z>0$ で割ると $(z^{-2}\phi')'=0$ なので $\phi'=Cz^2$、積分して $\phi=A+(C/3)z^3=A+Bz^3$ です。一方 $a+bz$ には $\phi''=0,\phi'=b$ なので左辺は $-2bz$。$z>0$ では $b=0$ のときだけ解です。境界条件を満たす試験場と内部方程式の解は区別されます。
 <!-- solution-end -->
