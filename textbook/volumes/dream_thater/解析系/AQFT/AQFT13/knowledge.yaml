@@ -1,0 +1,41 @@
+chapter: AQFT13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT12
+  - AQFT9
+  - AQFT2
+  - AQFT1
+  - VN2
+forward_references: []
+concepts:
+  - id: aqft.separating-vector
+    name: 分離ベクトル
+    kind: definition
+    introduction: formal
+    requires: [aqft.local-cyclic-vector, operator-algebra.commutant]
+  - id: aqft.commutant-cyclic-separating
+    name: 可換子の巡回性と分離性の同値
+    kind: theorem
+    introduction: formal
+    requires: [aqft.separating-vector, aqft.local-cyclic-vector, operator-algebra.von-neumann-bicommutant-theorem]
+  - id: aqft.causal-complement-vn-inclusion
+    name: 局所von Neumann環の補領域包含
+    kind: proposition
+    introduction: formal
+    requires: [aqft.gns-local-net-isotony-locality, aqft.causal-complement, operator-algebra.commutant]
+  - id: aqft.complement-cyclicity-separating
+    name: 空間的補領域の巡回性から局所分離性へ
+    kind: theorem
+    introduction: formal
+    requires: [aqft.separating-vector, aqft.local-cyclic-vector, aqft.causal-complement-vn-inclusion]
+  - id: aqft.vacuum-local-standard
+    name: Reeh–Schlieder真空の局所巡回・分離性
+    kind: corollary
+    introduction: formal
+    requires: [aqft.reeh-schlieder, aqft.complement-cyclicity-separating, aqft.gns-local-net-isotony-locality]
+  - id: aqft.local-state-faithful
+    name: 分離ベクトルとベクトル状態の忠実性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.separating-vector, aqft.gns-local-normal-state]

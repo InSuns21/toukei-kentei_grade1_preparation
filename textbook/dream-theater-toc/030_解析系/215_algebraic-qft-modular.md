@@ -13,3 +13,4 @@
 10. [AQFT10 無限自由度と非同値表現](textbook/volumes/dream_thater/解析系/AQFT/AQFT10/index.md)
 11. [AQFT11 正エネルギーと解析性](textbook/volumes/dream_thater/解析系/AQFT/AQFT11/index.md)
 12. [AQFT12 Reeh–Schlieder定理](textbook/volumes/dream_thater/解析系/AQFT/AQFT12/index.md)
+13. [AQFT13 巡回性・分離性・局所性](textbook/volumes/dream_thater/解析系/AQFT/AQFT13/index.md)
