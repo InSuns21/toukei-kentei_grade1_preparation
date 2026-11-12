@@ -1,0 +1,63 @@
+chapter: RBD6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD5
+forward_references: []
+concepts:
+  - id: mechanics.inertia-tensor-coordinate-transform
+    name: 慣性テンソルの座標変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（慣性テンソルの座標変換）]
+    requires:
+      - mechanics.rigid-body-inertia-tensor
+      - mechanics.proper-rotation
+      - mechanics.principal-axis
+  - id: mechanics.inertia-tensor-parallel-axis
+    name: 平行軸のテンソル公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平行軸のテンソル公式）]
+    requires:
+      - mechanics.rigid-body-inertia-tensor
+      - mechanics.parallel-axis-theorem
+      - mechanics.center-of-mass
+  - id: mechanics.solid-cylinder-inertia-tensor
+    name: 一様中実直円柱の慣性テンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一様中実直円柱の慣性テンソル）]
+    requires:
+      - mechanics.rigid-body-inertia-tensor
+  - id: mechanics.uniform-disc-inertia-tensor
+    name: 一様薄円板の慣性テンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一様薄円板の慣性テンソル）]
+    requires:
+      - mechanics.rigid-body-inertia-tensor
+      - mechanics.solid-cylinder-inertia-tensor
+  - id: mechanics.rectangular-block-inertia-tensor
+    name: 一様直方体の慣性テンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（一様直方体の慣性テンソル）]
+    requires:
+      - mechanics.rigid-body-inertia-tensor
+  - id: mechanics.inertia-tensor-positive-definiteness
+    name: 慣性テンソルの非負性と正定値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（慣性テンソルの非負性と正定値性）]
+    requires:
+      - mechanics.rigid-body-inertia-tensor
+  - id: mechanics.inertia-energy-ellipsoid
+    name: 回転エネルギーの慣性楕円体
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（回転エネルギーの慣性楕円体）]
+    requires:
+      - mechanics.inertia-tensor-positive-definiteness
+      - mechanics.principal-axis
+      - mechanics.inertia-tensor-angular-momentum-energy
