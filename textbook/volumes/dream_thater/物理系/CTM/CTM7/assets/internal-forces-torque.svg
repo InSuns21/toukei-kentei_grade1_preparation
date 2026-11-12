@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+<title id="title">内部面の作用反作用と合力ゼロの外力対</title>
+<desc id="desc">長方形の物質領域を中央の破線の内部面Sで左右に分割した模式図。内部面で法線n側のtractionと反対側のtractionは同じ作用点から逆向き。上面には右向き、下面には左向きの同じ大きさの合力が作用し、二つの外力は合計ゼロでも回転の効果を持つ。外力の矢印は分布した表面力の合力を表す。</desc>
+<defs>
+<marker id="arrow-solid" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8 Z" fill="#20548a"/></marker>
+<marker id="arrow-open" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#9c452d" stroke-width="1.5"/></marker>
+</defs>
+<rect x="190" y="90" width="390" height="255" fill="#e9f1f7" stroke="#263d50" stroke-width="3"/>
+<path d="M385 90 V345" stroke="#485c6a" stroke-width="3" stroke-dasharray="9 7" fill="none"/>
+<text x="278" y="205" font-size="24" text-anchor="middle" fill="#253c50">U_L</text>
+<text x="490" y="205" font-size="24" text-anchor="middle" fill="#253c50">U_R</text>
+<text x="397" y="77" font-size="22" fill="#334c60">S</text>
+<circle cx="385" cy="260" r="5" fill="#222"/>
+<path d="M385 260 H485" stroke="#20548a" stroke-width="4" marker-end="url(#arrow-solid)" fill="none"/>
+<path d="M385 260 H286" stroke="#9c452d" stroke-width="3" stroke-dasharray="7 4" marker-end="url(#arrow-open)" fill="none"/>
+<text x="433" y="245" font-size="19" text-anchor="middle" fill="#20548a">t(n)</text>
+<text x="333" y="294" font-size="19" text-anchor="middle" fill="#8d3b26">t(-n)</text>
+<path d="M385 308 H443" stroke="#536979" stroke-width="2" marker-end="url(#arrow-solid)" fill="none"/>
+<text x="448" y="328" font-size="19" fill="#3d5466">n</text>
+<circle cx="385" cy="90" r="5" fill="#263d50"/>
+<path d="M385 90 H510" stroke="#20548a" stroke-width="4" marker-end="url(#arrow-solid)" fill="none"/>
+<text x="510" y="65" font-size="22" text-anchor="middle" fill="#20548a">F</text>
+<circle cx="385" cy="345" r="5" fill="#263d50"/>
+<path d="M385 345 H260" stroke="#9c452d" stroke-width="4" stroke-dasharray="9 4" marker-end="url(#arrow-open)" fill="none"/>
+<text x="259" y="377" font-size="22" text-anchor="middle" fill="#8d3b26">-F</text>
+<circle cx="132" cy="300" r="4" fill="#202b34"/>
+<text x="122" y="326" font-size="20" fill="#202b34">o</text>
+</svg>
