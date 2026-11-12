@@ -60,6 +60,8 @@ $K$ は $f$ の代表ではなく $Ef$ から決まるため、$f\mapsto f+P\var
 <!-- definition-example-start: def-aqft8-positive-frequency -->
 ### 直接例：位置データと速度データ
 
+**定義の確認**。実Cauchyデータを二組取って正周波数写像へ代入し、複素内積の虚部を検算します。
+
 実数値の非零 $a\in C_c^\infty(\mathbb R^3)$ を取り、$(q,p)=(a,0)$ と $(0,a)$ の解をそれぞれ $u,v$ とします。[AQFT4の商から解への全射性](../AQFT4/index.md#thm-aqft4-kg-quotient)により、$u=Ef$、$v=Eg$ となる実試験関数 $f,g$ を選べます。定義へデータを入れると
 $$
 K[f]=\sqrt{\omega/2}\,\widehat a,\qquad
@@ -189,6 +191,8 @@ $$
 <!-- definition-example-start: def-aqft8-vacuum-two-point -->
 ### 直接例：非零の二点ノルムと交換子の違い
 
+**定義の確認**。同じ位置データから正の二点対角値を、異なる速度データを加えた組からCCRの虚部を確かめます。
+
 前節の初期データ $(a,0)$ を持つ $F$ について
 $$
 \Lambda_{\mathrm{vac}}(F,F)=\frac12\int d^3k\,
@@ -235,8 +239,12 @@ $$
 \overline{\widetilde f(\omega_k,k)}\widetilde g(\omega_k,k).
 \end{aligned}
 $$
-実試験関数に対し $\overline{\widetilde f(\omega,k)}
-=\int d^4x\,f(x)e^{-i\omega x^0+i\boldsymbol k\cdot\boldsymbol x}$ です。この式と $\widetilde g$ の定義を代入し、分布としてまとめると
+実試験関数に対しFourier変換の複素共役を取ると
+$$
+\overline{\widetilde f(\omega,k)}
+=\int d^4x\,f(x)e^{-i\omega x^0+i\boldsymbol k\cdot\boldsymbol x}
+$$
+です。この式と $\widetilde g$ の定義を代入し、分布としてまとめると
 $$
 \Lambda_{\mathrm{vac}}([f],[g])
 =\int d^4x\,d^4y\,f(x)g(y)
