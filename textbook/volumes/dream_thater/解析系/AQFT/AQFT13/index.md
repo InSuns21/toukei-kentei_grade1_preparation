@@ -144,7 +144,7 @@ $$
 |\boldsymbol y|<r-|s|
 $$
 です。空間座標の差は $\boldsymbol q-\boldsymbol p=(L,0,0)+\boldsymbol y-\boldsymbol x$ です。この和に[逆三角不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-reverse-triangle-inequality)を、$\boldsymbol y-\boldsymbol x$ に三角不等式を適用すると
-$
+$$
 \begin{aligned}
 |\boldsymbol q-\boldsymbol p|
 &\ge L-|\boldsymbol y-\boldsymbol x|\\
@@ -152,7 +152,7 @@ $
 &> L-R-r+|t|+|s|\\
 &>|t-s|.
 \end{aligned}
-$
+$$
 よって $g(q-p,q-p)=|\boldsymbol q-\boldsymbol p|^2-(s-t)^2>0$、すなわち $Q\subset D_R^\perp$ です。このように**有界double coneには必ず非空の空間的補領域を選べる**ことを、外部定理に頼らず座標で確認できました。任意の並進中心のdouble coneにも同じ議論を移せます。
 
 ## 4. 真空はいつ局所分離的か
@@ -258,13 +258,13 @@ $$
 ### 直接例：同じベクトル状態でも環で判定が変わる
 
 第1節の $\mathcal H=\mathbb C^2$、$\Omega=e_1$ を再び使います。スカラー環 $\mathcal N=\mathbb CI_2$ の任意の元 $A=\lambda I_2$ に対して
-$
+$$
 \omega_\Omega(A^*A)=\|(\lambda I_2)e_1\|^2=|\lambda|^2.
-$
+$$
 期待値が零なら $\lambda=0$、すなわち $A=0$ なので、この環への制限は忠実です。一方、全作用素環 $B(\mathbb C^2)$ には非零射影 $P_2=\operatorname{diag}(0,1)$ があり、
-$
+$$
 \omega_\Omega(P_2^*P_2)=\|P_2e_1\|^2=0
-$
+$$
 ですから忠実ではありません。状態は同じでも、**量化する $A$ の所属先**が異なります。
 
 [真空の局所巡回・分離性の系](#cor-aqft13-vacuum-local-standard)から、真空状態はどの非空有界double coneの局所von Neumann環でも忠実な正規状態になります。ただし、周囲の $B(\mathcal H)$ 上でも忠実という主張ではありません。
