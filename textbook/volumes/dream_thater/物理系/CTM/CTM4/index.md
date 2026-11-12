@@ -2,9 +2,19 @@
 
 [CTM3 の有限ひずみ](../CTM3/index.md#def-ctm3-green-strain)は「現在の線素が基準状態からどれほど伸びたか」を測る。一方、流れている水や時々刻々と伸びるゴムでは、**いまこの瞬間に**線素が伸びる速さ、回る速さ、体積が増える速さを知りたい。さらに、観測者が回転しただけで、物体が「変形した」と誤判定してはならない。
 
-本章では、[CTM1 の物質点と空間速度](../CTM1/index.md#def-ctm1-spatial-velocity)、[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)をつなぎ、物質微分、速度勾配、その対称・反対称部分、体積変化率を導く。最後に、観測座標系が時間とともに回転すると何が変わるかを確かめる。
+本章では、[CTM1 の空間表示の速度場](../CTM1/index.md#def-ctm1-spatial-velocity)、[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)をつなぎ、物質点に沿う時間変化率と、隣り合う点の速度差を求める。そこから対称・反対称部分、体積変化率を導き、観測座標系の回転を比較する。
 
-以下、$\Omega_0\subset\mathbb R^3$ は非空開集合、$0\in I\subset\mathbb R$ は開時間区間とする。$\chi:\Omega_0\times I\to\mathbb R^3$ は [CTM1 の運動条件](../CTM1/index.md#def-ctm1-motion-configuration)を満たし、ここではさらに時間と物質座標について $C^2$ 級であると仮定する。各時刻の $\chi_t$ は単射で $J=\det D_X\chi>0$ だから、逆写像を使って $\Omega_t=\chi_t(\Omega_0)$ 上の空間速度 $v(x,t)$ を定められる。$\chi(X,0)=X$ とする。位置は m、時刻は s、速度 $v$ は m/s、速度勾配は s$^{-1}$、$F$ と $J$ は無次元である。$D_X$ は基準座標での微分、$\nabla_x$ は現在座標での微分、$\dot{\ }$ は**同じ $X$ に沿った時間微分**を示す。
+以下、基準領域 $\Omega_0\subset\mathbb R^3$ は非空開集合で、$0$ を含む開区間 $I$ を時間領域とする。[CTM1 の運動条件](../CTM1/index.md#def-ctm1-motion-configuration)を満たす運動写像 $\chi$ は、ここでは物質座標と時間について $C^2$ 級と仮定する。
+
+基準時刻では $\chi(X,0)=X$ とする。時刻 $t$ を固定した写像 $\chi_t$ は単射であり、[変形勾配と体積 Jacobian](../CTM2/index.md#def-ctm2-deformation-gradient)は
+
+$
+F=D_X\chi,\qquad J=\det F>0
+$
+
+を満たす。従って逆写像を使って現在配置 $\Omega_t=\chi_t(\Omega_0)$ 上の空間速度 $v(x,t)$ を定められる。
+
+位置の単位は m、時間は s、速度は m/s、速度勾配の単位は s$^{-1}$、$F,J$ は無次元である。$D_X$ は基準座標による微分、$\nabla_x$ は現在座標による微分、$\dot{\ }$ は**同じ物質ラベル $X$ に沿った時間微分**を示す。
 
 ## 1. 「同じ場所」と「同じ材料」の変化率は違う
 
@@ -19,24 +29,18 @@ $$
 \partial_t\chi_i(X,t).
 $$
 
-[CTM1 の空間速度の定義](../CTM1/index.md#def-ctm1-spatial-velocity)により $\partial_t\chi(X,t)=v(x,t)$ なので、右辺の二項目は $v\cdot\nabla_xq$ である。ここで得た「同じ物質点で見た変化率」を、空間表示だけで計算する演算としてまとめる。
+[空間表示の速度場](../CTM1/index.md#def-ctm1-spatial-velocity)により $\partial_t\chi(X,t)=v(x,t)$ なので、右辺の二項目は $v\cdot\nabla_xq$ である。ここで得た「同じ物質点で見た変化率」を、空間表示だけで計算する演算としてまとめる。
 
-<a id="def-ctm4-material-derivative"></a>
-
-<!-- formal-statement-start -->
-### 定義（物質微分）
-
-$\chi$ が上述の $C^2$ 級の運動写像であり、$q$ が移動する時空間領域 $\{(x,t):t\in I,\ x\in\Omega_t\}$ 上で $C^1$ 級であるとする。スカラー場 $q$ の**物質微分**を、$x=\chi(X,t)$ において
+[VC9 で定義した物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を、ここでは運動写像 $\chi$ の追跡と結び付けて使う。VC9 の速度場 $u$ を本章の $v$ と読み替えれば、$x=\chi(X,t)$ で
 
 $$
-D_tq(x,t):=\partial_tq(x,t)+v(x,t)\cdot\nabla_xq(x,t)
+D_tq(x,t)=\partial_tq(x,t)+v(x,t)\cdot\nabla_xq(x,t)
+=\frac{d}{dt}q(\chi(X,t),t).
 $$
 
-で定める。同じ式を各成分に適用してベクトル場の物質微分も定める。これは物質軌道上での $d[q(\chi(X,t),t)]/dt$ に等しい。
-<!-- formal-statement-end -->
+左辺は空間座標による式、右辺は固定した物質ラベルによる式であり、先ほどの連鎖律が両者の一致を証明した。ベクトル場への作用は成分ごとに計算する。
 
-<!-- definition-example-start: def-ctm4-material-derivative -->
-### **定義の確認**：場所では変わるが、粒子では変わらない標識
+### 例：場所では変わるが、粒子では変わらない標識
 
 定数 $\gamma$ の単位を s$^{-1}$ として、$\Omega_0=\mathbb R^3$ 上で
 
@@ -54,8 +58,6 @@ D_tq=-\gamma x_2+
 $$
 
 実際 $q(\chi(X,t),t)=X_1$ は固定した物質ラベルであり、微分すると $0$ になる。空間一点の変化 $\partial_tq$ を物質微分と取り違えないことが重要だ。
-<!-- definition-example-end -->
-
 ベクトル場 $q=v$ に適用した $D_tv$ は物質点の加速度であり、移流項を含む。ただし力の釣合や質量保存は後の講義で導く。
 
 ## 2. 隣り合う点の速度差を測る
@@ -453,7 +455,7 @@ $$
 
 なので、[体積変化率の公式](#prop-ctm4-volume-rate)も観測者によらず同じ意味を持つ。
 
-**注意：零の $D$ と零の $W$ は別物。** [線素の長さ率の命題](#prop-ctm4-line-rate)から $D=0$ は瞬間的な長さ保存を表すが、$W=0$ は観測系を回せば一般に壊れる。固定した一つの観測系での $W$ は局所速度場の反対称部分を示す有用な量だが、それ単独で客観的な材料応答を定義する根拠にはならない。構成則の客観性は後の講義で改めて調べる。
+**注意：零の $D$ と零の $W$ は別物。** [線素の長さと内積の瞬間変化率](#prop-ctm4-line-rate)から $D=0$ は瞬間的な長さ保存を表すが、$W=0$ は観測系を回せば一般に壊れる。固定した一つの観測系での $W$ は局所速度場の反対称部分を示す有用な量だが、それ単独で客観的な材料応答を定義する根拠にはならない。構成則の客観性は後の講義で改めて調べる。
 
 ## 6. 演習
 
@@ -477,7 +479,7 @@ $$
 \nabla_xq=(2e^{-2at}x_1,0,0).
 $$
 
-[物質微分の定義](#def-ctm4-material-derivative)より
+[物質微分の定義](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)より
 
 $$
 D_tq=-2ae^{-2at}x_1^2
@@ -503,7 +505,7 @@ F=\operatorname{diag}(e^{at},e^{-2at},e^{at}),\quad
 F^{-1}=\operatorname{diag}(e^{-at},e^{2at},e^{-at}).
 $$
 
-$\dot F=\operatorname{diag}(ae^{at},-2ae^{-2at},ae^{at})$ に [速度勾配の公式](#prop-ctm4-velocity-deformation)を適用すると
+$\dot F=\operatorname{diag}(ae^{at},-2ae^{-2at},ae^{at})$ に [速度勾配と変形勾配の時間変化](#prop-ctm4-velocity-deformation)を適用すると
 
 $$
 L=\dot FF^{-1}=\operatorname{diag}(a,-2a,a).
@@ -576,7 +578,7 @@ F=\begin{pmatrix}e^{at}&kt&0\\0&e^{bt}&0\\0&0&1\end{pmatrix},
 F^{-1}=\begin{pmatrix}e^{-at}&-kt e^{-(a+b)t}&0\\0&e^{-bt}&0\\0&0&1\end{pmatrix}.
 $$
 
-$FF^{-1}=I_3$ を掛けて検算する。$\dot F=\begin{pmatrix}ae^{at}&k&0\\0&be^{bt}&0\\0&0&0\end{pmatrix}$ なので、[速度勾配の公式](#prop-ctm4-velocity-deformation)に代入すると
+$FF^{-1}=I_3$ を掛けて検算する。$\dot F=\begin{pmatrix}ae^{at}&k&0\\0&be^{bt}&0\\0&0&0\end{pmatrix}$ なので、[速度勾配と変形勾配の時間変化](#prop-ctm4-velocity-deformation)に代入すると
 
 $$
 L=\dot FF^{-1}
@@ -627,7 +629,7 @@ $$
 \frac12\frac{d}{dt}\|a(t)\|^2=k(1+kt).
 $$
 
-[変形速度テンソルの定義](#def-ctm4-rate-of-deformation-spin)より $D=\begin{pmatrix}0&k/2&0\\k/2&0&0\\0&0&0\end{pmatrix}$。中間積を計算すると
+[変形速度テンソルとスピンテンソル](#def-ctm4-rate-of-deformation-spin)より $D=\begin{pmatrix}0&k/2&0\\k/2&0&0\\0&0&0\end{pmatrix}$。中間積を計算すると
 
 $$
 Da(t)=\begin{pmatrix}k/2\\(k/2)(1+kt)\\0\end{pmatrix},
@@ -637,7 +639,7 @@ $$
 a(t)^TDa(t)=(1+kt)(k/2)+(k/2)(1+kt)=k(1+kt).
 $$
 
-よって [線素の長さ率の命題](#prop-ctm4-line-rate)と一致する。両辺の単位は m$^2$/s と解釈できる（$A$ が長さをもつとき）。$k$ の符号により伸長率の符号も変わる。
+よって [線素の長さと内積の瞬間変化率](#prop-ctm4-line-rate)と一致する。両辺の単位は m$^2$/s と解釈できる（$A$ が長さをもつとき）。$k$ の符号により伸長率の符号も変わる。
 <!-- solution-end -->
 
 ### B4. $D=0$ と $\operatorname{div}v=0$ の逆関係を吟味する
@@ -649,7 +651,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-対角伸長では [速度勾配の公式](#prop-ctm4-velocity-deformation)から
+対角伸長では [速度勾配と変形勾配の時間変化](#prop-ctm4-velocity-deformation)から
 
 $$
 L=D=\operatorname{diag}(a,-a,0),\quad
@@ -742,7 +744,7 @@ $$
 
 **4. 共回転座標。** $y=Q^T(x-c)$ は $x^*=c^*+Px$ の形で、$P=Q^T$、$c^*=-Q^Tc$ と置いた観測者変換である。運動は $y(X,t)=A(t)X$ になり、速度勾配は直接 $L_y=\dot AA^{-1}=B$ となる。
 
-[観測者変換の公式](#prop-ctm4-observer-transform)からも
+[観測者の回転による速度勾配の変換](#prop-ctm4-observer-transform)からも
 
 $$
 L_y=Q^TLQ+\dot Q^TQ.
@@ -764,7 +766,7 @@ Q^T(x-c)=Q^TQA X=AX,
 \qquad [AX]_2=e^{-at}X_2.
 $$
 
-従って $q(\chi(X,t),t)=e^{at}e^{-at}X_2=X_2$。[物質微分の連鎖律](#def-ctm4-material-derivative)は同じ物質点での全時間微分なので、$D_tq=0$。この議論は $\chi$ が可逆で、$q$ が同じ空間軌道上で定義されていることを使う。
+従って $q(\chi(X,t),t)=e^{at}e^{-at}X_2=X_2$。[物質微分の定義](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)は同じ物質点での全時間微分なので、$D_tq=0$。この議論は $\chi$ が可逆で、$q$ が同じ空間軌道上で定義されていることを使う。
 <!-- solution-end -->
 
 ---
