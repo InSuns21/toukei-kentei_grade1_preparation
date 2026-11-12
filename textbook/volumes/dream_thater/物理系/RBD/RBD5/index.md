@@ -286,7 +286,7 @@ $$
 
 ### 証明の見取り図
 
-符号を二回掛ければ消えます。逆方向では、二つの姿勢が一致するときの四元数比が**どの純虚四元数とも交換する**ことから、そのベクトル成分がゼロだと示します。全回転が表せることには [Eulerの回転定理](../RBD2/index.md#thm-rbd2-euler-rotation)を使います。
+符号を二回掛ければ消えます。逆方向では、二つの姿勢が一致するときの四元数比が**どの純虚四元数とも交換する**ことから、そのベクトル成分がゼロだと示します。全回転が表せることには [Eulerの回転定理](../RBD2/index.md#thm-rbd2-euler-axis)を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -302,7 +302,7 @@ $$
 
 です。$r=p^*\otimes q=(c,v)$ とおくと、この両辺のベクトル成分はそれぞれ $cx+x\times v$、$cx+v\times x$ となるので、$v\times x=0$ がすべての $x$ で成り立ちます。$v\ne0$ なら $v$ に直交する非零 $x$ とのベクトル積は非零ですから矛盾します。よって $v=0$。また [ノルムの乗法性](#prop-rbd5-norm-product)から $\lVert r\rVert=1$ なので $r=(1,0)$ または $(-1,0)$、すなわち $q=p$ または $q=-p$ です。
 
-任意の $R\in SO(3)$ は [Eulerの回転定理](../RBD2/index.md#thm-rbd2-euler-rotation)により軸角 $(n,\alpha)$ を持ちます。[単位四元数の回転公式](#thm-rbd5-rodrigues)へその軸角を代入した $q_\alpha$ が $R$ を表します。
+任意の $R\in SO(3)$ は [Eulerの回転定理](../RBD2/index.md#thm-rbd2-euler-axis)により軸角 $(n,\alpha)$ を持ちます。[単位四元数の回転公式](#thm-rbd5-rodrigues)へその軸角を代入した $q_\alpha$ が $R$ を表します。
 <!-- proof-end -->
 
 **符号切替の落とし穴**：固定した単位軸 $n$ に対し $q(t)=(\cos(t/2),n\sin(t/2))$ を考えます。$t=0$ では $q=1$、$t=2\pi$ では $q=-1$ ですが、どちらも $R(q)=I_3$ です。$q(t)$ は途中で連続しています。毎回スカラー成分を非負にする規則は $t=\pi$ の前後で $q$ の符号を突然反転させ、滑らかな運動の四元数表示を不連続にします。**局所的な Euler角の特異点を除いたことは、符号の区別が消えることではありません。**
@@ -352,7 +352,7 @@ q_x\otimes q_y=\left(\frac12,\frac12(e_1+e_2+e_3)\right),
 q_y\otimes q_x=\left(\frac12,\frac12(e_1+e_2-e_3)\right).
 $$
 
-いずれも長さ1ですが、ベクトル部分の第三成分が異なります。[合成命題](#prop-rbd5-composition)と [RBD2 の有限回転の非可換性](../RBD2/index.md#prop-rbd2-noncommutativity)が同じ事実の二つの表示だと分かります。
+いずれも長さ1ですが、ベクトル部分の第三成分が異なります。[合成命題](#prop-rbd5-composition)と [RBD2 の有限回転の非可換性](../RBD2/index.md#prop-rbd2-noncommuting)が同じ事実の二つの表示だと分かります。
 
 ## 6. 物体角速度から姿勢を時間発展させる
 
