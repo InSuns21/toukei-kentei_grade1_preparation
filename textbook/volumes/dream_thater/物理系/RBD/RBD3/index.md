@@ -8,7 +8,9 @@
 
 [RBD2 の有限回転](../RBD2/index.md#thm-rbd2-rodrigues)では一時刻の姿勢を扱いました。しかし「回る速さ」は一つの時刻の行列だけでは分かりません。実験室では棒の先端が動き、棒に固定された観測者には同じ先端が静止して見えます。この違いを同じ計算で記述するのが本講の目標です。
 
-時間区間 $I\subset\mathbb R$ 上で $R:I\to SO(3)$ を少なくとも $C^2$ 級とします。ここで $SO(3)$ は [RBD1 の正しい回転行列](../RBD1/index.md#def-rbd1-proper-rotation)の集合で、$R^{\mathsf T}R=RR^{\mathsf T}=I_3$、$\det R=1$ を満たします。上点 $\dot{\phantom R}$ は時刻 $t$ による常微分、すなわち $\dot R=dR/dt$ を表し、$R^{\mathsf T}$ の上付き $\mathsf T$ は転置を表します。時刻 $t$ での物体固定正規直交基底の空間成分を $R$ の三列とし、任意の幾何学的ベクトル $a$ の空間・物体成分をそれぞれ $a_s,a_b$ と書きます。従って
+時間区間 $I\subset\mathbb R$ 上で $R:I\to SO(3)$ を少なくとも $C^2$ 級とします。ここで $SO(3)$ は [RBD1 の正しい回転行列](../RBD1/index.md#def-rbd1-proper-rotation)の集合で、$R^{\mathsf T}R=RR^{\mathsf T}=I_3$、$\det R=1$ を満たします。上点は時刻 $t$ による常微分を表し、$\dot R=dR/dt$ と書きます。$R^{\mathsf T}$ の上付き $\mathsf T$ は転置を表します。
+
+時刻 $t$ での物体固定正規直交基底の空間成分を $R$ の三列とし、任意の幾何学的ベクトル $a$ の空間・物体成分をそれぞれ $a_s,a_b$ と書きます。従って
 
 $$
 a_s(t)=R(t)a_b(t),\qquad a_b(t)=R(t)^{\mathsf T}a_s(t).
