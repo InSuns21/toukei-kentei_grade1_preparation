@@ -52,6 +52,14 @@ concepts:
     introduction_aliases: [命題（慣性テンソルの非負性と正定値性）]
     requires:
       - mechanics.rigid-body-inertia-tensor
+  - id: mechanics.inertia-principal-moment-triangle
+    name: 主慣性値の三角不等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（主慣性値の三角不等式）]
+    requires:
+      - mechanics.rigid-body-inertia-tensor
+      - mechanics.principal-axis
   - id: mechanics.inertia-energy-ellipsoid
     name: 回転エネルギーの慣性楕円体
     kind: definition
