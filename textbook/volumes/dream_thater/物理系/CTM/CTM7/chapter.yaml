@@ -1,0 +1,37 @@
+id: "CTM7"
+title: "運動量・角運動量保存は応力に何を課すか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM6
+official_scope: []
+learning_objectives:
+  - 物質領域の線形運動量と角運動量を力・トルクの単位、固定基準点、法線の向きとともに定義できる
+  - 面力、体積力、加速度を線形・角運動量の積分収支として書け、独立偶力を除く仮定を説明できる
+  - Reynolds輸送定理、連続の式、テンソル発散定理から rho D_t v=div sigma+rho b を局所化できる
+  - 角運動量の積分式から Levi-Civita 記号による応力対称性を導き、仮定を失った反例を説明できる
+  - 非零の応力を持つ静止物体や非一様な加速度場で両収支と境界tractionを検算できる
+definitions: []
+theorems:
+  - { id: CTM7-PRINCIPLE-01, name: "物質領域の線形運動量・角運動量収支" }
+  - { id: CTM7-THM-01, name: "物質領域の運動量収支と局所運動方程式" }
+  - { id: CTM7-PROP-01, name: "角運動量収支からの応力の対称性" }
+canonical_examples:
+  - 一様並進する塊で線形・角運動量の収支を検算
+  - 静止した応力勾配と体積力の釣合
+  - 定数の対称せん断応力と非対称応力のトルク残差
+  - 非圧縮な対角伸長の運動写像と非一様応力の整合
+problem_patterns:
+  - CTM7-MOMENTUM-UNITS
+  - CTM7-STRESS-DIVERGENCE-INDEX
+  - CTM7-MATERIAL-TRANSPORT-CANCELLATION
+  - CTM7-ANGULAR-EPSILON-INDEX
+  - CTM7-ACCELERATING-STRESS
+  - CTM7-INTERNAL-FACE-TORQUE-CANCEL
+  - CTM7-CONSTANT-SKEW-STRESS-TORQUE
+  - CTM7-STATIC-STRESS-BOUNDARY
+  - CTM7-FINITE-FLOW-MOMENTUM-ANGULAR
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
