@@ -33,7 +33,7 @@ $$
 <!-- definition-example-start: def-rbd9-triaxial-principal-spin -->
 ### 直接例：均質な直方体で条件を確認する
 
-質量 $M=12$、物体主軸に平行な辺の長さを $a=\sqrt{5/2}$、$b=\sqrt{3/2}$、$c=\sqrt{1/2}$ とする（一貫した長さ・質量単位を用いる）。[RBD6の直方体の質量積分](../RBD6/index.md#prop-rbd6-rectangular-box)で、辺に平行な基底における慣性テンソルは対角行列となります。例えば第1軸の慣性モーメントは、体積上の $y^2+z^2$ の積分で
+質量 $M=12$、物体主軸に平行な辺の長さを $a=\sqrt{5/2}$、$b=\sqrt{3/2}$、$c=\sqrt{1/2}$ とする（一貫した長さ・質量単位を用いる）。[RBD6の直方体の質量積分](../RBD6/index.md#prop-rbd6-rectangular-block)で、辺に平行な基底における慣性テンソルは対角行列となります。例えば第1軸の慣性モーメントは、体積上の $y^2+z^2$ の積分で
 
 $$
 I_1=\frac{M}{12}(b^2+c^2)=2.
@@ -59,7 +59,7 @@ I_1\dot\omega_1&=(I_2-I_3)\omega_2\omega_3,\\
 I_2\dot\omega_2&=(I_3-I_1)\omega_3\omega_1,\\
 I_3\dot\omega_3&=(I_1-I_2)\omega_1\omega_2.
 \end{aligned}
-\tag*{}
+
 $$
 
 例えば $\omega_b=\Omega e_2$ では $\omega_1=\omega_3=0$ なので右辺は三式とも零です。他の主軸回転も同じ理由で定常です。これは**三つとも解である**というだけで、傾きに対する安定性を保証しません。
