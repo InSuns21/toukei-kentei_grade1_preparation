@@ -19,7 +19,9 @@ $$
 
 $z=\epsilon$ は**紫外側のcutoff面**、$z=Z$ は**赤外側の端面**です。各面に沿う座標を $x=(x^1,\ldots,x^d)$ とし、$\partial_i=\partial/\partial x^i$、$\Delta_x=\sum_i\partial_i^2$ と書きます。領域の外を向く単位法線は、同じ $z$ 方向でも二つの面で逆を向きます。
 
-計量の行列は対角で、成分の各対角要素は $L^2/z^2$ です。したがって体積密度・誘導面積密度・法線はそれぞれ
+座標基底 $(\partial_z,\partial_{x^1},\ldots,\partial_{x^d})$ に関する計量の成分行列は対角で、$g_{E,zz}=g_{E,ii}=L^2/z^2$、交差成分は零です。添字 $a,b$ は $(z,x^1,\ldots,x^d)$ の $d+1$ 座標を走り、繰り返した上下の添字はこの範囲で和を取ります。$g_E^{ab}$ は成分行列の逆行列で、その対角成分は $z^2/L^2$ です。
+
+体積密度を表す $\sqrt{g_E}$ は $\sqrt{\det(g_{E,ab})}$ の略記です。対角行列なので $\det(g_{E,ab})=(L^2/z^2)^{d+1}$。$z$ 一定面では $dz=0$ として接方向の基底 $(\partial_{x^1},\ldots,\partial_{x^d})$ に計量を制限します。その誘導計量は $\gamma_{ij}=(L^2/z^2)\delta_{ij}$ で、$\det\gamma=(L^2/z^2)^d$ です。よって体積密度・誘導面積密度・法線はそれぞれ
 
 $$
 \sqrt{g_E}=\frac{L^{d+1}}{z^{d+1}},\qquad
@@ -30,6 +32,8 @@ $$
 
 最後の二式は $g_{zz}(n^z)^2=1$ を解き、$\epsilon$ では $z$ が減る方向、$Z$ では増える方向を選んだ結果です。[HOLO2のPoincaré計量](../HOLO2/index.md#prop-holo2-poincare-metric)における $z\downarrow0$ の向きと整合します。
 
+<a id="ref-holo7-cutoff-orientations"></a>
+
 | 場所 | 領域から見た外向き | $\sqrt{\gamma}\,n^z$ |
 | --- | --- | --- |
 | $z=\epsilon$ | 小さい $z$ の側 | $-L^{d-1}\epsilon^{1-d}$ |
@@ -39,7 +43,7 @@ $$
 
 ## 2. 有限領域での作用と許される変分
 
-実数値の場 $\phi\in C^\infty(M_{\epsilon,Z},\mathbb R)$、質量二乗の定数 $m^2\in\mathbb R$ を扱います。ここで $m^2<0$ も式としては許しますが、作用の正定値性・解の一意性は別途判断します。$z=\epsilon$ 上で固定する場の値 $J_\epsilon(x)$ はまだCFTの演算子源と同一視しません。
+実数値の場 $\phi\in C^\infty(M_{\epsilon,Z},\mathbb R)$、質量二乗の定数 $m^2\in\mathbb R$ を扱います。ここで $m^2<0$ も式としては許しますが、作用の正定値性・解の一意性は別途判断します。以後、$\phi_z=\partial_z\phi$、$\phi_{zz}=\partial_z^2\phi$、$\phi_i=\partial_i\phi$、$\phi_{ii}=\partial_i^2\phi$ は各座標による偏微分を表します。$z=\epsilon$ 上で固定する場の値 $J_\epsilon(x)$ はまだCFTの演算子源と同一視しません。
 
 <a id="def-holo7-cutoff-action"></a>
 
@@ -154,14 +158,12 @@ $$
 
 $$
 \delta_\phi S_E
-=\int_{M_{\epsilon,Z}}\sqrt{g_E}\,(-\nabla_E^2\phi+m^2\phi)\chi
+=\int_{M_{\epsilon,Z}}\sqrt{g_E}\,(-\nabla_E^2\phi+m^2\phi)\chi\,dzd^dx
 +\left[\int_{T^d}L^{d-1}z^{1-d}(\partial_z\phi)\chi\,d^dx\right]_{z=\epsilon}^{z=Z}
 $$
 
 を得ます。角括弧は上端の値から下端の値を引く記号です。[第1節の法線](#ref-holo7-cutoff-orientations)の係数を使えば、これが命題の二面の境界積分と一致します。$\chi$ が内部に台を持つときは端面項が零となり、任意の局所試験関数による局所化から $(-\nabla_E^2+m^2)\phi=0$ です。逆にその方程式が成立すれば内部項は零です。さらに[Dirichletデータ](#def-holo7-cutoff-dirichlet)を固定すると $\chi=0$ が両端で成り立つため、境界積分も零となります。$\square$
 <!-- proof-end -->
-
-<a id="ref-holo7-cutoff-orientations"></a>
 
 ### 3.1 端面での符号をもう一度確認
 
@@ -233,14 +235,13 @@ $$
 S_E[\phi]=\frac12\int_{T^d}\left[\phi(\epsilon,x)\pi_\epsilon(x)+\phi(Z,x)\pi_Z(x)\right]d^dx.
 $$
 
-> さらに両端で解の滑らかな一パラメータ族 $\phi_s$ が存在し、赤外側の値 $\phi_s(Z,x)=J_Z(x)$ を固定したまま、紫外側で $\phi_s(\epsilon,x)=J_\epsilon(x)+s\,\delta J_\epsilon(x)$ とする。このとき解上の作用 $W_\epsilon[J_\epsilon]=S_E[\phi_0]$ の第一変分は
+> さらに両端で解の滑らかな一パラメータ族 $\phi_s$ が存在し、赤外側の値 $\phi_s(Z,x)=J_Z(x)$ を固定したまま、紫外側で $\phi_s(\epsilon,x)=J_\epsilon(x)+s\,\delta J_\epsilon(x)$ とする。族に沿ったon-shell作用を $w(s)=S_E[\phi_s]$ と置けば
 
-$$
-\delta W_\epsilon[J_\epsilon;\delta J_\epsilon]
-=\int_{T^d}\pi_\epsilon(x)\,\delta J_\epsilon(x)\,d^dx.
-$$
+$
+w'(0)=\int_{T^d}\pi_\epsilon(x)\,\delta J_\epsilon(x)\,d^dx.
+$
 
-> 後者は、指定された境界値に対する解が存在し、解を滑らかに変化させられる範囲での主張である。
+> これは、存在を仮定した解の族に沿う微分である。境界データに対する解が滑らかかつ一意に定まる場合には、$W_\epsilon[J_\epsilon]=S_E[\phi]$ を境界データの汎関数と見なし、上式を $\delta W_\epsilon[J_\epsilon;\delta J_\epsilon]$ と書ける。一般の $m^2<0$ でも境界値だけから解が一意になる、と主張しているわけではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -263,10 +264,10 @@ $$
 =\int_{T^d}(\phi_\epsilon\pi_\epsilon+\phi_Z\pi_Z)d^dx.
 $$
 
-次に $\chi=\left.\partial_s\phi_s\right|_{s=0}$ とおけば、族の各 $\phi_s$ は内部方程式を満たすので[第一変分公式](#prop-holo7-boundary-variation)の体積項は零です。端面では $\chi(Z,x)=0$、$\chi(\epsilon,x)=\delta J_\epsilon(x)$。よって
+次に、$z,x$ を固定してパラメータ $s$ で微分した $\chi=\left.\partial_s\phi_s\right|_{s=0}$ を取ります。族の各 $\phi_s$ は内部方程式を満たすので[第一変分公式](#prop-holo7-boundary-variation)の体積項は零です。端面では $\chi(Z,x)=0$、$\chi(\epsilon,x)=\delta J_\epsilon(x)$。よって
 
 $$
-\left.\frac{d}{ds}S_E[\phi_s]\right|_{s=0}
+w'(0)=\left.\frac{d}{ds}S_E[\phi_s]\right|_{s=0}
 =\int_{T^d}\pi_\epsilon\,\delta J_\epsilon\,d^dx,
 $$
 
@@ -277,7 +278,7 @@ $$
 
 ## 5. 指定する値と返ってくる値：完全に解ける例
 
-最初の検算模型として $m^2=0$、境界方向に一定の場 $\phi=\phi(z)$ を選びます。これは一般の質量を扱った**境界漸近の定理ではなく**、正確に解ける一例です。第3節の運動方程式で $\Delta_x\phi=0$ とすれば
+最初の検算模型として $m^2=0$、境界方向に一定の場 $\phi=\phi(z)$ を選びます。ここからのプライム $\phi'=d\phi/dz$、$\phi''=d^2\phi/dz^2$ は、$x$ に依存しない関数の $z$ による常微分であり、前節の偏微分 $\phi_z,\phi_{zz}$ と一致します。これは一般の質量を扱った**境界漸近の定理ではなく**、正確に解ける一例です。第3節の運動方程式で $\Delta_x\phi=0$ とすれば
 
 $$
 z^2\phi''-(d-1)z\phi'=0
@@ -433,7 +434,7 @@ $$
 - 問題: $d=3$、$m^2=0$、$\Delta_x\phi=0$ とし、第3節の運動方程式から一般解を求めよ。$\phi(z)=a+bz$ は一般には解でないことも計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** 方程式は $z^2\phi''-2z\phi'=0$。$z>0$ で割ると $(z^{-2}\phi')'=0$ なので $\phi'=Cz^2$、積分して $\phi=A+(C/3)z^3=A+Bz^3$ です。一方 $a+bz$ には $\phi''=0,\phi'=b$ なので左辺は $-2bz$。$z>0$ では $b=0$ のときだけ解です。境界条件を満たす試験場と内部方程式の解は区別されます。
+**詳細解答。** まず $z$ を固定した $T^3$ 上で $\Delta_x\phi=0$ を積分し、周期境界で部分積分すると $0=\int_{T^3}\phi\Delta_x\phi\,d^3x=-\int_{T^3}\sum_i(\partial_i\phi)^2\,d^3x$。非負な連続関数の積分が零なので各 $\partial_i\phi=0$、すなわち $\phi$ は $x$ に依存しません。このため $\phi_z=\phi'$、$\phi_{zz}=\phi''$ として方程式は $z^2\phi''-2z\phi'=0$。$z>0$ で割ると $(z^{-2}\phi')'=0$ なので $\phi'=Cz^2$、積分して $\phi=A+(C/3)z^3=A+Bz^3$ です。一方 $a+bz$ には $\phi''=0,\phi'=b$ なので左辺は $-2bz$。$z>0$ では $b=0$ のときだけ解です。境界条件を満たす試験場と内部方程式の解は区別されます。
 <!-- solution-end -->
 
 <a id="ex-holo7-a4"></a>
