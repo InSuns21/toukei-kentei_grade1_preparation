@@ -1,0 +1,53 @@
+id: "AQFT10"
+title: "無限自由度と非同値表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT9
+  - AQFT8
+  - AQFT7
+  - AQFT6
+  - QM8
+  - OA5
+  - VN2
+  - VN5
+official_scope: []
+learning_objectives:
+  - Stone–von Neumann定理の有限自由度・規則性・既約性の仮定と無限モードへの適用限界を説明できる
+  - 有限支持シンプレクティック空間とWeyl代数の符号・非退化性・有限モード部分環を検算できる
+  - 任意の複素数列から有限モード制限の整合性を使って正の変位状態を構成できる
+  - 変位の二乗可和性からFockユニタリによる実装とGNS同値性を証明できる
+  - 非二乗可和変位に対する有限モード射影列の強収束を稠密なベクトル族で証明できる
+  - 正規状態の射影列への連続性を使ってGNS非同値性を証明できる
+  - 線形源Hamiltonianを平方完成し変位と基底エネルギーの異なる収束条件を計算できる
+  - 可算振動子のモード部分環とMinkowski場の時空局所netの違いを説明できる
+definitions:
+  - { id: AQFT10-DEF-01, name: "有限支持CCR代数と有限モード代数" }
+  - { id: AQFT10-DEF-02, name: "有限支持CCR上の変位状態" }
+theorems:
+  - { id: AQFT10-PROP-01, name: "無限列でも変位状態は存在する" }
+  - { id: AQFT10-PROP-02, name: "二乗可和な変位はFockユニタリで実装できる" }
+  - { id: AQFT10-LEM-01, name: "発散する変位の射影列" }
+  - { id: AQFT10-THM-01, name: "非二乗可和変位状態のGNS非同値性" }
+  - { id: AQFT10-PROP-03, name: "線形源Hamiltonianの平方完成と変位" }
+canonical_examples:
+  - 有限二モードのWeyl位相と交代形式の非退化性
+  - 一モード変位状態の具体的な位相とベクトル状態による正値性
+  - 非二乗可和定数変位のコヒーレントベクトルと射影列
+  - van Hove型の独立振動子外部源による基底状態の平方完成
+  - 収束する指数減衰源と発散する定数源の比較
+problem_patterns:
+  - AQFT10-SYMPLECTIC-NONDEGENERACY
+  - AQFT10-WEYL-PHASE
+  - AQFT10-ONE-MODE-COHERENT-PHASE
+  - AQFT10-SQUARE-SUMMABILITY
+  - AQFT10-SOURCE-COMPLETING-SQUARE
+  - AQFT10-STATE-NORM-CLOSURE
+  - AQFT10-PROJECTION-STRONG-ZERO
+  - AQFT10-ENERGY-VS-DISPLACEMENT
+  - AQFT10-STONE-VON-NEUMANN-SCOPE
+  - AQFT10-VAN-HOVE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 10, review: 7 }
