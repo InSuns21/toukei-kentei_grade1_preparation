@@ -23,9 +23,9 @@ p\sim_M q
 v^*v=p,\quad vv^*=q
 $$
 
-で定まります。これは[VN7のMurray–von Neumann同値](../../VN/VN7/index.md#def-vn7-murray-von-neumann-equivalence)です。$q\le p$ で $q\sim_M p$ なのに $q\ne p$ となる射影 $p$ は無限、そうした $q$ がなければ有限です。非零の真部分射影を持たない射影は最小射影です。
+で定まります。これは[VN7のMurray–von Neumann同値](../../VN/VN7/index.md#def-vn7-murray-von-neumann-equivalence)です。$q\le p$ は像の包含（同値に $pq=qp=q$）を表し、$q\le p$ で $q\sim_M p$ なのに $q\ne p$ となる $p$ は無限、そうした $q$ がなければ[有限射影](../../VN/VN7/index.md#def-vn7-finite-projection)です。非零の真部分射影を持たない射影は[最小射影](../../VN/VN7/index.md#def-vn7-minimal-projection)です。
 
-[VN7のI/II/III型の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)を、その判定順序に並べると次のようになります。
+[VN7のI/II/III型の定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)を、その判定順序に並べると次のようになります.
 
 | 因子の型 | 非零最小射影 | 非零有限射影 | 代表的な振る舞い |
 |---|---|---|---|
@@ -37,15 +37,15 @@ $$
 
 ### 直接例：行列因子と片側シフト
 
-$M=M_3(\mathbb C)$ における $p=E_{11}+E_{22}$ は有限射影です。[行列環の射影同値とrankの一致](../../VN/VN7/index.md#thm-vn7-matrix-equivalence-rank)によって、$q\le p$、$q\sim_Mp$ なら $\operatorname{rank}q=\operatorname{rank}p=2$。包含する二つの2次元部分空間は等しいので $q=p$。一方 $E_{11}$ は最小射影なので $M$ はType I$_3$です。
+$M=M_3(\mathbb C)$ における $p=E_{11}+E_{22}$ は有限射影です。ここで $e_k$ は標準正規直交基底、$E_{ij}e_k=\delta_{jk}e_i$ は行列単位です。従って $p$ は $\operatorname{span}\{e_1,e_2\}$ への直交射影で階数2です。[行列環の射影同値とrankの一致](../../VN/VN7/index.md#thm-vn7-matrix-equivalence-rank)によって、$q\le p$、$q\sim_Mp$ なら $\operatorname{rank}q=\operatorname{rank}p=2$。包含する二つの2次元部分空間は等しいので $q=p$。一方 $E_{11}$ は最小射影なので $M$ はType I$_3$です。
 
-$N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E_{11}$ です。[片側シフトが示す単位射影の無限性](../../VN/VN7/index.md#prop-vn7-shift-infinite-identity)から単位射影は無限です。しかし $E_{11}$ は依然として最小射影なので、$N$ はType I$_\infty$でありType IIIではありません。
+$N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E_{11}$ です。[片側シフトが示す単位射影の無限性](../../VN/VN7/index.md#prop-vn7-shift-infinite-identity)から単位射影は無限です。しかし $E_{11}$ は依然として最小射影なので、$N$ はType I$_\infty$でありType IIIではありません.
 
 ## 2. トレースがある、とは何を要求するか
 
 [VN5の正規状態と密度作用素](../../VN/VN5/index.md#thm-vn5-density-state-correspondence)は $B(H)$ 上での理論です。一般のvon Neumann環 $M$ では、$\operatorname{Tr}_H$ をそのまま使っても、有限値かつ適切なトレースが局所von Neumann環の中にあるとは限りません。
 
-正の元 $M_+=\{a\in M:a\ge0\}$ に対し、値が $+\infty$ となることも許す「重み」を考えます。正の元について加法的・正斉次な関数 $\tau:M_+\to[0,+\infty]$ のうち、$\tau(x^*x)=\tau(xx^*)$ を満たすものがトレースです。普通の有限値の線形トレースをこの枠に含めます。
+[VN5のvon Neumann環上のトレース](../../VN/VN5/index.md#def-vn5-von-neumann-trace)を使います。$M_+=\{a\in M:a\ge0\}$ 上で加法的・非負斉次な写像 $\tau:M_+\to[0,+\infty]$ が、全ての $x\in M$ について $\tau(x^*x)=\tau(xx^*)$ を満たすとき、これをトレースと呼びます。$+\infty$ を許すので、必ずしも有限値の線形汎関数ではありません。
 
 <a id="def-aqft15-nsf-trace"></a>
 
@@ -55,10 +55,16 @@ $N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E
 >
 > 1. **忠実**：$\tau(a)=0$ かつ $a\ge0$ なら $a=0$。
 > 2. **正規**：正の元の増大ネット $a_i\uparrow a$ に対して $\tau(a)=\sup_i\tau(a_i)$。
-> 3. **半有限**：全ての非零 $a\in M_+$ に対し、$0\ne b\in M_+$、$b\le a$、$\tau(b)<+\infty$ を満たす $b$ が存在する。
+> 3. **半有限**：全ての $a\in M_+$ に対し、有限トレースの正元によって下からトレース値を近似できる。すなわち
 >
-> この三条件を全て満たすトレースを**忠実正規半有限トレース**と呼ぶ。ここで増大ネットの上限は作用素の順序で取る。
+>    $$
+>    \tau(a)=\sup\{\tau(b):0\le b\le a,\ \tau(b)<+\infty\}.
+>    $$
+>
+> この三条件を全て満たすトレースを**忠実正規半有限トレース**と呼ぶ。増大ネットの上限は作用素の順序で取る。
 <!-- formal-statement-end -->
+
+この半有限性は[VN5の定義](../../VN/VN5/index.md#def-vn5-von-neumann-trace)と同じです。**忠実かつ半有限**なら、非零の $a\in M_+$ の下に非零の有限トレース正元 $b$ が存在します。実際、忠実性より $\tau(a)>0$。有限なら $b=a$ とすればよく、無限なら上の上限が無限大なので $0<\tau(b)<\infty$ となる $b\le a$ を選べます。第3節で必要なのはこの帰結です。
 
 <!-- definition-example-start: def-aqft15-nsf-trace -->
 ### 直接例：通常の行列トレース
@@ -71,10 +77,25 @@ $$
 \tau(x^*x)=\sum_{i,j=1}^2|x_{ij}|^2=\tau(xx^*)
 $$
 
-でトレース性が成立します。$a\ge0$ で $\tau(a)=0$ なら、固有値は非負で和が零なので全て零、従って $a=0$ で忠実です。有限次元では増大ネットの各行列成分の極限でトレースの極限を取れるため正規です。非零の正作用素 $a$ に対し $b=a$ とすれば $0<\tau(b)<\infty$ で半有限性も成り立ちます。各条件を個別に確かめました。
+でトレース性が成立します。正の行列 $a$ は直交固有基底で $a=U\operatorname{diag}(\lambda_1,\lambda_2)U^*$、$\lambda_k\ge0$ と表せます。トレースは基底のユニタリ変換で不変なので
+
+$$
+\tau(a)=\lambda_1+\lambda_2.
+$$
+
+これが0なら両固有値が0、従って $a=0$ で忠実です。正規性について、正元の増大ネット $a_i\uparrow a$ では、標準基底 $e_k$ の二次形式が上限へ増大します。添字 $i$ は同じ有向集合を動き、有限個の増大ネットの和と上限を交換できるので
+
+$$
+\sup_i\tau(a_i)
+=\sup_i\sum_{k=1}^2\langle e_k,a_i e_k\rangle
+=\sum_{k=1}^2\sup_i\langle e_k,a_i e_k\rangle
+=\tau(a).
+$$
+
+半有限性は、全ての $a\ge0$ で $\tau(a)<\infty$ だから、定義中の上限に $b=a$ を採れば一致することから従います。非零 $a$ では忠実性から $\tau(a)>0$ です。
 <!-- definition-example-end -->
 
-ここで「正規」は極限を保つ性質であり、「半有限」は**どの非零の正の元の下にも、有限トレースの非零の正の元を見つけられる**という性質です。単に $\tau(I)=+\infty$ であることは半有限性の失敗を意味しません。例えば $B(\ell^2)$ の通常の作用素トレースは $\operatorname{Tr}(I)=+\infty$ ですが、有限階数の正作用素を下から探せるので忠実正規半有限です。
+ここで「正規」は増大極限を保つ性質であり、「半有限」は有限トレースの正元で下からトレース値を回収する性質です。単に $\tau(I)=+\infty$ であることは半有限性の失敗を意味しません。例えば $B(\ell^2)$ の通常の作用素トレースは $\operatorname{Tr}(I)=+\infty$ ですが、[VN5の標準トレース定理](../../VN/VN5/index.md#thm-vn5-standard-bh-trace)は忠実性・正規性・半有限性を証明しています.
 
 ## 3. Type III因子には半有限トレースが存在しない
 
@@ -129,7 +150,7 @@ $$
 0\ne b\in M_+,\qquad b\le p,\qquad \tau(b)<\infty
 $$
 
-を得ます。$b\le p$ なら $b=pbp$ です。よって $b$ の正のスペクトル部分への射影は $p$ の下にあります。
+$b\le p$ なら $b=pbp$ です。よって $b$ の正のスペクトル部分への射影は $p$ の下にあります。
 
 $b\ne0$ かつ $b\ge0$ なので、ある $\varepsilon>0$ に対してスペクトル射影
 
@@ -137,7 +158,7 @@ $$
 q=\mathbf 1_{[\varepsilon,\infty)}(b)\in M
 $$
 
-が非零です。スペクトル計算により $b\ge\varepsilon q$、$0<q\le p$ が成り立ちます。トレースの単調性を使うと
+が非零です。これは $b$ のスペクトルのうち $\varepsilon$ 以上の部分への射影を表します。$b=pbp$ より $qH\subset pH$、すなわち $0<q\le p$。また $qH$ 上では $b\ge\varepsilon I$、その直交補では $b\ge0$ なので $b-\varepsilon q\ge0$ です。トレースの正斉次性と単調性から
 
 $$
 0<\varepsilon\tau(q)\le\tau(b)<\infty.
@@ -154,15 +175,15 @@ Type IIは、Type IIIと同じ「最小射影がない」側にありながら�
 
 $\Gamma$ を自然数の有限個だけを動かす置換全体の群とします。これは可算無限群です。任意の非単位置換 $g$ は有限の台を持ち、その台を互いに重ならない場所へ運ぶ置換 $h$ が無限に選べます。従って共役元 $hgh^{-1}$ は無限個あり、**非単位元の共役類は全て無限**です。
 
-$H=\ell^2(\Gamma)$ に正規直交基底 $\delta_g$ を取り、
+$e$ を $\Gamma$ の単位元とします。$H=\ell^2(\Gamma)$ に正規直交基底 $\delta_g$ を取り、$\delta_g$ は群元 $g$ の座標だけが1の関数とします。左・右の平行移動を
 
 $$
 \lambda(h)\delta_g=\delta_{hg},\qquad
 \rho(h)\delta_g=\delta_{gh^{-1}},\qquad
-M=\{\lambda(h):h\in\Gamma\}'' 
+M=\{\lambda(h):h\in\Gamma\}''
 $$
 
-とします。各 $\lambda(h)$ と $\rho(k)$ は可換です。また $\tau(T)=\langle T\delta_e,\delta_e\rangle$ とします。
+と定めます。$\lambda(h)\rho(k)\delta_g=\delta_{hgk^{-1}}=\rho(k)\lambda(h)\delta_g$ なので左右の作用は可換です。右作用の逆元は $\rho(h)\rho(k)=\rho(hk)$ とするために入れました。$T\in M$ に対して $\tau(T)=\langle T\delta_e,\delta_e\rangle$ と置きます.
 
 <a id="prop-aqft15-icc-factor-ii1"></a>
 
@@ -188,16 +209,25 @@ $$
 \end{cases}
 $$
 
-従って $\tau(\lambda(g)\lambda(h))=\mathbf1_{gh=e}=\mathbf1_{hg=e}=\tau(\lambda(h)\lambda(g))$ です。群元の有限線形結合にも双線形性で拡張できます。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によりその *-代数は $M$ に弱作用素位相で稠密です。固定した $A$ について $T\mapsto\tau(AT)$ と $T\mapsto\tau(TA)$ はどちらもベクトル内積で表され弱作用素連続なので、片方ずつ極限を取れば $\tau(AB)=\tau(BA)$ は全ての $A,B\in M$ に拡張されます。
+群の積で $gh=e$ と $hg=e$ は同値なので、
 
-$\tau$ は単位ベクトル $\delta_e$ のベクトル汎関数なので正で正規、$\tau(I)=1$ です。$\tau(T^*T)=0$ なら $T\delta_e=0$。$T\in M$ は全ての $\rho(h)$ と可換し、$\delta_g=\rho(g^{-1})\delta_e$ だから
+$$
+\tau(\lambda(g)\lambda(h))
+=\mathbf1_{gh=e}
+=\mathbf1_{hg=e}
+=\tau(\lambda(h)\lambda(g)).
+$$
+
+ここで $\mathbf1_P$ は命題 $P$ が真なら1、偽なら0を表します。群元の有限線形結合にも双線形性で拡張できます。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によりその $*$-代数は $M$ に弱作用素位相で稠密です。固定した $A$ について $T\mapsto\tau(AT)$ と $T\mapsto\tau(TA)$ はどちらもベクトル内積で表され弱作用素連続なので、片方ずつ極限を取れば $\tau(AB)=\tau(BA)$ は全ての $A,B\in M$ に拡張されます。
+
+$\tau$ は単位ベクトル $\delta_e$ のベクトル汎関数なので正であり、[VN5の正規汎関数](../../VN/VN5/index.md#def-vn5-normal-functional)の条件を満たして正規です。$\tau(I)=1$ です。$\tau(T^*T)=0$ なら $T\delta_e=0$。$T\in M$ は全ての $\rho(h)$ と可換し、$\delta_g=\rho(g^{-1})\delta_e$ だから
 
 $$
 T\delta_g=T\rho(g^{-1})\delta_e
 =\rho(g^{-1})T\delta_e=0
 $$
 
-となります。基底全体で零なので $T=0$、よって忠実です。
+となります。基底全体で零なので $T=0$、よって忠実です.
 
 **(2) 因子性。** $T\in Z(M)$ とし、$\xi=T\delta_e=\sum_g c_g\delta_g$ と書きます。中心性から任意の $h$ について $\lambda(h)T\lambda(h)^*=T$。また $\lambda(h)^*\delta_e=\delta_{h^{-1}}=\rho(h)\delta_e$ なので
 
@@ -208,11 +238,39 @@ $$
 
 従って係数 $c_g$ は共役類ごとに一定です。非単位元の共役類は全て無限なので、$\sum_g|c_g|^2<\infty$ であるためには $c_g=0$（$g\ne e$）でなければなりません。ゆえに $\xi=c_e\delta_e$。$T$ と $\rho$ の可換性により $T\delta_g=c_e\delta_g$ が全ての $g$ で成立し、$T=c_eI$。従って $Z(M)=\mathbb CI$ です。
 
-**(3) 最小射影の不在。** まず有限トレースを持つ因子 $N$ が最小射影 $p\ne0$ を持てば、$N$ は有限次元行列環であることを示します。$\overline{NpH}$ への射影を $z$ とすると、この部分空間は $N$ と $N'$ の双方の作用で不変なので $z\in N\cap N'=Z(N)$。$p\ne0$ ゆえ $z=I$。従って任意の非零射影 $r$ に対して $rNp\ne0$ です（そうでなければ $rNpH=0$ から $rz=0$）。
+**(3) 最小射影の不在。** まず、忠実なトレース $\tau_N$ が $\tau_N(I)<\infty$ を満たす因子 $N\subset B(H)$ に非零最小射影 $p$ があれば、$N$ は有限次元行列環であることを示します。$K=\overline{NpH}$ への直交射影を $z$ と置きます。$N$ は随伴で閉じているので $K$ は $N$ とその随伴で不変です。また $p\in N$ は $N'$ と可換なので、$K$ は $N'$ とその随伴でも不変です。よって $z\in N\cap N'=Z(N)$。$p\ne0$ なので $z\ne0$ であり、因子性から $z=I$。非零射影 $r\in N$ に対して、もし $rNp=0$ なら $rK=0$、従って $rz=0$ となり矛盾します。ゆえに $rXp\ne0$ となる $X\in N$ が選べます。
 
-$rXp\ne0$ の極分解の部分等長作用素 $v\in N$ について $v^*v\le p$、$vv^*\le r$ です。$p$ は最小だから $v^*v=p$、従って $r$ は $p$ と同値な部分射影を含みます。$p_1=p$ に始め、残り $I-\sum_{j=1}^kp_j$ が非零なら、この議論でそれと直交する $p_{k+1}\sim p$ を追加します。忠実有限トレースの下で各 $\tau(p_j)=\tau(p)>0$ なので、$\sum_j\tau(p_j)\le\tau(I)<\infty$ により有限回で残りが零となります。つまり $I=p_1+\cdots+p_n$。
+[VN3のvon Neumann環内の極分解](../../VN/VN3/index.md#thm-vn3-von-neumann-polar)を $rXp\in N$ に適用します。その部分等長作用素 $v\in N$ の初期射影は $p$ 以下、終射影は $r$ 以下です。$rXp\ne0$ だから初期射影は非零であり、$p$ の最小性から
 
-$p_j$ と $p$ を結ぶ部分等長作用素 $v_j$ を用い $e_{ij}=v_iv_j^*$ と置くと、$e_{ij}e_{k\ell}=\delta_{jk}e_{i\ell}$ となります。最小性から $pNp=\mathbb Cp$ です（もし $pNp$ に非スカラー自己共役元があれば、そのスペクトル射影が非自明な部分射影を与える）。各 $p_iNp_j$ は $\mathbb Ce_{ij}$ となるので $N=\operatorname{span}\{e_{ij}\}\cong M_n(\mathbb C)$ です。
+$$
+v^*v=p,\qquad 0\ne vv^*\le r,\qquad vv^*\sim_Np.
+$$
+
+$p_1=p$ に始め、残り $r_k=I-\sum_{j=1}^kp_j$ が非零なら $r=r_k$ に今の操作を使い、$p_{k+1}\le r_k$、$p_{k+1}\sim_Np$ を追加します。射影は互いに直交し、各段階で
+
+$$
+(k+1)\tau_N(p)
+=\tau_N\!\left(\sum_{j=1}^{k+1}p_j\right)
+\le\tau_N(I)<\infty.
+$$
+
+忠実性と $p\ne0$ より $\tau_N(p)>0$ なので、この追加は無限に続かず、有限回で $I=p_1+\cdots+p_n$ になります。
+
+$p$ と $p_j$ を結ぶ部分等長作用素を $v_j$（$v_j^*v_j=p$、$v_jv_j^*=p_j$、$v_1=p$）とし、$e_{ij}=v_iv_j^*$ と置きます。互いに直交する $p_j$ から
+
+$$
+v_j^*v_k=\delta_{jk}p,\qquad
+e_{ij}e_{k\ell}=\delta_{jk}e_{i\ell},\qquad
+e_{ij}^*=e_{ji}
+$$
+
+が従います。最小性から $pNp=\mathbb Cp$ です。なぜなら非スカラーな自己共役元が $pNp$ にあれば、そのスペクトル射影が $0$ と $p$ の間の真部分射影になるからです。任意の $A\in N$ の $(i,j)$-ブロックについて $v_i^*Av_j\in pNp$ なので、ある複素数 $a_{ij}$ を使って
+
+$$
+p_iAp_j=v_i(v_i^*Av_j)v_j^*=a_{ij}e_{ij}
+$$
+
+と書けます。ゆえに $A=\sum_{i,j}a_{ij}e_{ij}$。行列単位の積と随伴の関係から $N\cong M_n(\mathbb C)$ です。
 
 元の $M$ は無限次元です。実際、相異なる群元 $g_1,\ldots,g_k$ に対して
 
@@ -339,7 +397,16 @@ $M=M_2(\mathbb C)$、$\tau(a)=\operatorname{Tr}(a)$ とする。忠実・正規�
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $a\ge0$ の固有値を $\lambda_1,\lambda_2\ge0$ とすれば $\tau(a)=\lambda_1+\lambda_2$。零なら両固有値が零で $a=0$、よって忠実。有限次元の増大ネットは各行列要素（従ってトレース）で上限へ収束するので正規。非零 $a\ge0$ に $b=a$ を選ぶと $0<\tau(b)<\infty$ で半有限。$\tau(I)=1+1=2$。正規性と半有限性は異なる判定である。
+**詳細解答。** $a\ge0$ の固有値を $\lambda_1,\lambda_2\ge0$ とすれば $\tau(a)=\lambda_1+\lambda_2$。零なら両固有値が零で $a=0$、よって忠実。正元の増大ネット $a_i\uparrow a$ について、各標準基底 $e_k$ の二次形式の上限を取ると
+
+$$
+\sup_i\tau(a_i)
+=\sup_i\sum_{k=1}^2\langle e_k,a_ie_k\rangle
+=\sum_{k=1}^2\sup_i\langle e_k,a_ie_k\rangle
+=\tau(a)
+$$
+
+であり、有限個の増大ネットについて上限と和を交換できるため正規。任意の $a\ge0$ は $\tau(a)<\infty$ なので、半有限性の定義の上限に $b=a$ を入れれば等号が成立する。$\tau(I)=1+1=2$。正規性と半有限性は異なる判定である。
 <!-- solution-end -->
 
 <a id="ex-aqft15-a04"></a>
@@ -363,7 +430,7 @@ $M$ に忠実半有限トレース $\tau$ があり、$p\in M$ は非零射影�
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** 半有限性より $0<b\le p$、$\tau(b)<\infty$ となる $b\in M_+$ を取る。$b\ne0$ なので、ある $\varepsilon>0$ で $q=\mathbf1_{[\varepsilon,\infty)}(b)\ne0$ となる。$b\le p$ から $q\le p$、スペクトル計算から $\varepsilon q\le b$。従って $\varepsilon\tau(q)\le\tau(b)<\infty$。$\varepsilon>0$ なので $\tau(q)<\infty$。[有限トレース射影命題](#prop-aqft15-finite-trace-projection)の仮定（忠実性と有限トレース）を $q$ が満たし、$q$ は有限射影。$\tau(p)$ が有限である必要はない。
+**詳細解答。** 半有限性と忠実性の帰結（第2節）により $0<b\le p$、$\tau(b)<\infty$ となる $b\in M_+$ を取る。$b\ne0$ なので、ある $\varepsilon>0$ で $q=\mathbf1_{[\varepsilon,\infty)}(b)\ne0$ となる。この記号は $b$ のスペクトルのうち $\varepsilon$ 以上を取り出す射影を表す。$b\le p$ なら $b=pbp$ なので $q\le p$。$qH$ 上で $b\ge\varepsilon I$、その直交補では $b\ge0$ だから $\varepsilon q\le b$。従って $\varepsilon\tau(q)\le\tau(b)<\infty$。$\varepsilon>0$ なので $\tau(q)<\infty$。[有限トレース射影命題](#prop-aqft15-finite-trace-projection)の仮定（忠実性と有限トレース）を $q$ が満たし、$q$ は有限射影。$\tau(p)$ が有限である必要はない。
 <!-- solution-end -->
 
 <a id="ex-aqft15-b02"></a>
