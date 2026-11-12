@@ -143,14 +143,14 @@ $$
 \left(\frac{dH_C}{dt}\right)_s
 =\sum_i u_i\times f_{i,\mathrm{ext}}
 +\sum_k m_{k,s}=\tau_{C,s}.
-$
+$$
 
 ここで自由偶力の項を加えた理由も確認します。等しく逆向きの二力 $f,-f$ を異なる点 $x_+,x_-$ に加えれば、合力は零ですが、重心まわりの合トルクは
 
-$
+$$
 (x_+-c)\times f+(x_--c)\times(-f)
 =(x_+-x_-)\times f
-$
+$$
 
 となり、基準点 $c$ に依存しません。自由偶力 $m_{k,s}$ はこのような力の偶力モーメントを独立な外部入力として表すので、並進方程式には寄与せず、角運動量収支にだけ加えます。
 
@@ -213,14 +213,14 @@ $$
 
 二つの式を引き算すると、重心の定義 $\sum_i m_i(x_i-c)=0$ から
 
-$
+$$
 \begin{aligned}
 H_O^{\mathrm{in}}-H_O^{\mathrm{rel}}
 &=\sum_i m_i(x_i-o)\times\dot o\\
 &=\left[\sum_i m_i(x_i-c)+M(c-o)\right]\times\dot o\\
 &=M(c-o)\times\dot o
 \end{aligned}
-$
+$$
 
 です。これは行列の変換公式ではなく、**どの速度を角運動量に入れるか**の違いから直接出ます。
 
@@ -325,18 +325,18 @@ $$
 
 [平行軸のテンソル公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)は点 $O$ に関する慣性テンソルの値を与えますが、それだけで $H_O^{\mathrm{in}}=J_O\omega$ とはなりません。$O$ が**剛体に固定された物質点**であれば剛体速度場から $v_i-\dot o=\omega_s\times(x_i-o)$ であり、[慣性テンソルの定義](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)とベクトル三重積を照合します。$r_i=x_i-o$ とすると、
 
-$
+$$
 \begin{aligned}
 H_O^{\mathrm{rel}}
 &=\sum_i m_i r_i\times(\omega_s\times r_i)\\
 &=\sum_i m_i\left(|r_i|^2 I_3-r_i r_i^{\mathsf T}\right)\omega_s\\
 &=J_{O,s}\omega_s.
 \end{aligned}
-$
+$$
 
 中段の行列は、空間系で表示した点 $O$ まわりの慣性テンソルです。つまり、$J_O\omega$ と書けるのは座標を選んだからではなく、**原点が剛体に固定され、各点の相対速度が回転だけで表せる**という条件のためです。
 
-が得られます。ただし $O$ が加速して動くなら、その微分は定理の加速度補正を必ず伴います。$O$ が**空間固定かつ剛体の固定点**である場合に限り、相対速度と慣性速度が一致して
+ただし $O$ が加速して動くなら、その微分は定理の加速度補正を必ず伴います。$O$ が**空間固定かつ剛体の固定点**である場合に限り、相対速度と慣性速度が一致して
 
 $$
 H_O=J_{O,s}\omega_s,\qquad \dot H_O=\tau_{O,s}
