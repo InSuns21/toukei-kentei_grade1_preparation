@@ -67,7 +67,17 @@ D(e_1)D(ie_1)=e^{-i}D((1+i)e_1),\quad
 D(ie_1)D(e_1)=e^{i}D((1+i)e_1).
 $$
 
-これは[Weyl関係](../AQFT6/index.md#def-aqft6-weyl-ccr)の符号を直接検証します。$z=e_1,w=e_2$ では $\sigma(z,w)=0$ なので異なる二モードのユニタリは可換です。$D(e_1),D(ie_1),D(e_2),D(ie_2)$ は $\pi_0(\mathfrak A_2)$ に属し、各座標の任意の実線形結合が含まれます。有限支持の全ての $z$ はいずれかの $\mathfrak A_N$ に入るので、定義の和集合は $\mathfrak A$ を生成します。
+これは[Weyl関係](../AQFT6/index.md#def-aqft6-weyl-ccr)の符号を直接検証します。$z=e_1,w=e_2$ のとき $\sigma(z,w)=0$ なので、異なる二モードのユニタリは可換です。
+
+例えば $D(e_1)$、$D(ie_1)$、$D(e_2)$、$D(ie_2)$ は、いずれも $\pi_0(\mathfrak A_2)$ に属します。任意の実数 $t_1,s_1,t_2,s_2$ に対し、二モードの座標を
+
+$$
+u=(t_1+is_1)e_1+(t_2+is_2)e_2
+$$
+
+と置きます。第3座標以降は零なので、上で定めた $\mathfrak A_2$ の支持条件から $W(u)\in\mathfrak A_2$ です。従って $D(u)=\pi_0(W(u))$ も $\pi_0(\mathfrak A_2)$ に属します。
+
+四つの表示したユニタリの整数冪だけで任意の実係数を生成したわけではありません。有限支持の全ての $z$ はいずれかの $\mathfrak A_N$ に入るので、その和集合のノルム閉包は $\mathfrak A$ です。
 <!-- definition-example-end -->
 
 ## 2. 変位状態を先に有限次元で作る
@@ -175,7 +185,23 @@ $$
 
 ゆえに $\|\Psi_N-\Psi_M\|^2=2(1-e^{-\|\alpha^{(N)}-\alpha^{(M)}\|^2/2})\to0$ です。Fock空間の完備性から $\Psi_N$ は $\Psi=D(\alpha)\Omega$ へノルム収束します。Weyl表示の強連続性によっても同じ結論が得られます。
 
-有限支持Weyl元の期待値は[前命題](#prop-aqft10-shift-existence)の式に一致し、ノルム稠密性から全 $\mathfrak A$ で一致します。さらに $D(\alpha)\pi_0(W(z))D(\alpha)^*$ は単なる位相倍の $\pi_0(W(z))$ なので、$\pi_0(\mathfrak A)\Psi$ の閉線形包は $D(\alpha)\pi_0(\mathfrak A)\Omega$ の閉線形包と同じです。[AQFT8の真空Fock巡回性](../AQFT8/index.md#prop-aqft8-gns-fock)から後者は $\mathcal F$。よって[OA5のGNS一意性](../../OA/OA5/index.md#thm-oa5-gns-uniqueness)が両表現のユニタリ同値を与えます。
+有限支持Weyl元の期待値は[前命題](#prop-aqft10-shift-existence)の式に一致し、ノルム稠密性から全 $\mathfrak A$ で一致します。さらに $D(\alpha)\pi_0(W(z))D(\alpha)^*$ は単なる位相倍の $\pi_0(W(z))$ なので、$\pi_0(\mathfrak A)\Psi$ の閉線形包は $D(\alpha)\pi_0(\mathfrak A)\Omega$ の閉線形包と同じです。
+
+この模型での巡回性も確認します。[AQFT8の指数ベクトルの計算](../AQFT8/index.md#prop-aqft8-fock-weyl)により、有限支持の $z$ に対し
+
+$$
+D(z)\Omega=e^{-\|z\|^2/2}\varepsilon(z)
+$$
+
+です。$\eta\in\mathcal F$ がこれらのベクトルすべてに直交すると仮定します。任意の $m\ge1$ と複素数 $t_1,\ldots,t_m$ について
+
+$$
+\left\langle\eta,\varepsilon\left(\sum_{j=1}^m t_je_j\right)\right\rangle=0
+$$
+
+となります。各 $t_j=0$ での次数別係数を比較すると、$\eta$ の有限支持占有数基底に沿う全成分が零です。その基底はFock空間に全域なので $\eta=0$ です。これで $\Omega$ の $\pi_0(\mathfrak A)$ に対する巡回性が示せました（[AQFT8のFock巡回性](../AQFT8/index.md#prop-aqft8-gns-fock)と同じ機構）。
+
+さらに $D(\alpha)$ による共役でWeyl元が位相倍されるので、$D(\alpha)\Omega$ も巡回です。[OA5のGNS一意性](../../OA/OA5/index.md#thm-oa5-gns-uniqueness)から両表現のユニタリ同値が従います。
 <!-- proof-end -->
 
 ## 3. 変位の総量が無限大なら何が破れるか
@@ -189,7 +215,7 @@ $$
 
 ただし、**重なりが零へ向かうことだけでは非同値性を証明できません**。一つのHilbert空間にも互いにほぼ直交する単位ベクトルの列はあります。ここでは[AQFT9の正規性と表現の区別](../AQFT9/index.md#prop-aqft9-nonnormal-extension)を使い、より強い矛盾を作ります。
 
-[QM8の有限自由度Stone–von Neumann定理](../../QM/QM8/index.md#thm-qm8-stone-von-neumann)および有限個のモードのテンソル積構成から、Fock空間の分解
+最初の $N$ モードと残りのモードの直交分解に対して、指数ベクトルの対応 $\varepsilon(u\oplus v)\mapsto\varepsilon(u)\otimes\varepsilon(v)$ は内積 $e^{\langle u,u'\rangle+\langle v,v'\rangle}$ を保ちます。指数ベクトルの全域性により、これはFock空間のユニタリ同型
 
 $$
 \mathcal F_s(\ell^2)
@@ -197,7 +223,35 @@ $$
 \mathcal F_s(\ell^2(\{N+1,N+2,\ldots\}))
 $$
 
-のもとで $\pi_0(\mathfrak A_N)''=B(\mathcal F_s(\mathbb C^N))\otimes I$ です。各モードのWeyl表示が規則的で既約なので、その可換子がスカラーになることを一モードずつ使えば、この等式を得ます。
+に延長されます。最初の $N$ 座標に支持される $z$ について、[Fock Weyl作用](../AQFT8/index.md#prop-aqft8-fock-weyl)は $D(z)=D_N(z)\otimes I_{>N}$ です。
+
+有限モード表示の既約性は、[既約性の定義](../../QM/QM8/index.md#def-qm8-irreducible-weyl-pair)に立ち返って確かめます。$T\in B(\mathcal F_s(\mathbb C^N))$ が全ての $D_N(z)$ と可換だとします。
+
+特に $T$ は、各 $j\le N$ について $D_N(te_j)$ と $D_N(ite_j)$（$t\in\mathbb R$）の強連続一パラメータ群と可換です。従って自己共役生成子のスペクトル射影とも可換であり、共通定義域上で各 $a_j,a_j^\dagger$ と可換です。よって
+
+$$
+a_jT\Omega_{\le N}=Ta_j\Omega_{\le N}=0
+\qquad(j=1,\ldots,N).
+$$
+
+占有数基底で全ての $a_j$ の共通核は $\mathbb C\Omega_{\le N}$ です。このためある $c\in\mathbb C$ が存在して $T\Omega_{\le N}=c\Omega_{\le N}$ となります。
+
+さらに、可換性から
+
+$$
+TD_N(z)\Omega_{\le N}
+=D_N(z)T\Omega_{\le N}
+=cD_N(z)\Omega_{\le N}.
+$$
+
+これらのコヒーレントベクトルの線形包は指数ベクトルの全域性から稠密です。従って $T=cI$ であり、可換子はスカラーです。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)を適用して
+
+$$
+\pi_0(\mathfrak A_N)''
+=B(\mathcal F_s(\mathbb C^N))\otimes I_{>N}
+$$
+
+を得ます。有限自由度の[Stone–von Neumann定理](../../QM/QM8/index.md#thm-qm8-stone-von-neumann)とも整合しますが、ここでの既約性は以上の計算で確かめました。
 
 最初の $N$ モードを変位した規格化ベクトルを $\Psi_{\alpha,N}=D(\alpha^{(N)})\Omega_{\le N}$ とします。最初の $N$ モードが**正確にそのコヒーレントベクトルにある**ことを検査する射影を
 
@@ -260,14 +314,68 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正規延長 $\varphi$ が $\pi_0(\mathfrak A)''$ 上に存在すると仮定します。$\varphi(\pi_0(A))=\omega_\alpha(A)$（$A\in\mathfrak A$）です。$N$ を一つ固定します。$\varphi$ を $\pi_0(\mathfrak A_N)''=B(\mathcal F_s(\mathbb C^N))\otimes I$ に制限すると正規です。一方、有限モードの $\Psi_{\alpha,N}$ のベクトル状態も正規で、[無限列でも変位状態は存在する命題](#prop-aqft10-shift-existence)より両者は $\pi_0(\mathfrak A_N)$ 上で一致します。
+正規延長 $\varphi$ が $\pi_0(\mathfrak A)''$ 上に存在すると仮定します。延長の条件は
 
-[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によれば、$\pi_0(\mathfrak A_N)$ はその二重可換子の弱作用素位相で稠密です。また一様ノルム有界な近似では[VN4の位相比較](../../VN/VN4/index.md#prop-vn4-wot-ultraweak)によりultraweakにも収束します。従って両**正規**汎関数は二重可換子上でも一致します。とくに
+$$
+\varphi(\pi_0(A))=\omega_\alpha(A)
+\qquad(A\in\mathfrak A)
+$$
+
+です。
+
+$N$ を固定し、$\varphi$ を前節で同定した有限モードの環に制限します。この制限も正規です。[VN5の正規状態と密度作用素の対応](../../VN/VN5/index.md#thm-vn5-density-state-correspondence)により、$\mathcal F_s(\mathbb C^N)$ 上の正のトレース級作用素 $\rho_N$ で表せて、$\operatorname{Tr}\rho_N=1$ です。
+
+[無限列でも変位状態は存在する](#prop-aqft10-shift-existence)から、各 $j\le N$ のWeyl期待値は、コヒーレントベクトル $\Psi_{\alpha,N}$ のものと同じです。
+
+ここで、各モードの位置・運動量演算子を $Q_j=(a_j+a_j^\dagger)/\sqrt2$、$P_j=(a_j-a_j^\dagger)/(i\sqrt2)$ と置きます（微分記号ではなく、それぞれ自己共役作用素です）。$D(it e_j/\sqrt2)=e^{itQ_j}$、$D(-t e_j/\sqrt2)=e^{itP_j}$ なので、実数 $t$ に関するそれぞれの特性関数は
+
+$$
+\begin{aligned}
+\operatorname{Tr}(\rho_N e^{itQ_j})
+ &=\exp\!\left(-t^2/4+i\sqrt2\,t\operatorname{Re}\alpha_j\right),\\
+\operatorname{Tr}(\rho_N e^{itP_j})
+ &=\exp\!\left(-t^2/4+i\sqrt2\,t\operatorname{Im}\alpha_j\right).
+\end{aligned}
+$$
+
+です。これらの中心化したスペクトル分布の特性関数はともに $e^{-t^2/4}$ です。分布を $\mu$ とすれば
+
+$$
+\int\frac{2(1-\cos(tx))}{t^2}\,d\mu(x)
+=\frac{2(1-e^{-t^2/4})}{t^2}\longrightarrow\frac12.
+$$
+
+任意の $t_n\ne0$、$t_n\to0$ を取ります。各 $x$ で非負な被積分関数が $x^2$ に収束するため、[Fatouの補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)を適用すると $\int x^2\,d\mu(x)\le1/2$ です。これで二次モーメントが有限と分かりました。
+
+さらに $2(1-\cos(t_nx))/t_n^2\le x^2$ です。先ほど示した可積分な支配関数 $x^2$ を使い、[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)で極限と積分を交換すると、二次モーメントはちょうど $1/2$ と確定します。従って
+
+$$
+\begin{aligned}
+\operatorname{Tr}\!\left(\rho_N(Q_j-\sqrt2\operatorname{Re}\alpha_j)^2\right)
+&=\frac12,\\
+\operatorname{Tr}\!\left(\rho_N(P_j-\sqrt2\operatorname{Im}\alpha_j)^2\right)
+&=\frac12.
+\end{aligned}
+$$
+
+$[Q_j,P_j]=iI$ を有限粒子上で計算すると
+
+$$
+(a_j-\alpha_j)^\dagger(a_j-\alpha_j)
+=\frac12\!\left[
+(Q_j-\sqrt2\operatorname{Re}\alpha_j)^2+
+(P_j-\sqrt2\operatorname{Im}\alpha_j)^2-I
+\right]
+$$
+
+となり、左辺の $\rho_N$ による期待値は零です。$\rho_N=\sum_kp_k|\eta_k\rangle\langle\eta_k|$（$p_k>0$）とスペクトル分解すると、各 $j\le N$ について $\sum_kp_k\|(a_j-\alpha_j)\eta_k\|^2=0$ です。従って各 $\eta_k$ は全ての $a_j-\alpha_j$ の共通核に属します。占有数基底で $a_j\eta=\alpha_j\eta$ の係数を比較すると、$c_{\boldsymbol n+\boldsymbol e_j}=\alpha_jc_{\boldsymbol n}/\sqrt{n_j+1}$、よって $c_{\boldsymbol n}=c_{\boldsymbol0}\prod_{j=1}^N\alpha_j^{n_j}/\sqrt{n_j!}$ です。共通核はちょうど $\mathbb C\Psi_{\alpha,N}$ なので $\rho_N=|\Psi_{\alpha,N}\rangle\langle\Psi_{\alpha,N}|$。特に
 
 $$
 \varphi(R_N)
-=\langle\Psi_{\alpha,N},R_N\Psi_{\alpha,N}\rangle=1.
+=\operatorname{Tr}\!\left(\rho_N|\Psi_{\alpha,N}\rangle\langle\Psi_{\alpha,N}|\right)=1.
 $$
+
+この導出は、弱作用素稠密性を根拠なく一様有界な近似の存在へ強めることなく、既習の密度作用素表示とWeyl特性関数から射影の期待値を確定しています。
 
 一方、[補題](#lem-aqft10-coherent-projection-limit)から $R_N\downarrow0$ です。[VN5の正規汎関数の定義](../../VN/VN5/index.md#def-vn5-normal-functional)に従い、正規状態は単調な射影列の極限を保つので $\varphi(R_N)\downarrow\varphi(0)=0$ のはずです。これは $\varphi(R_N)=1$ と矛盾します。
 
@@ -518,7 +626,7 @@ $$
 有限モードのFock表現、同じ表現の二つの直和、非二乗可和な $\alpha$ による無限モード変位状態のGNS表現について、[QM8のStone–von Neumann定理](../../QM/QM8/index.md#thm-qm8-stone-von-neumann)をどの範囲に適用できるか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 有限モードFock表現は有限個の正準対を持ち、Weylパラメータに強連続、かつ有限モードの全Weyl演算子が生成する代数の可換子はスカラーなので既約です。よって定理の有限次元版の射程に入ります。二つの直和は規則的でも、一方の直和成分への射影が非自明な可換子に属するため既約ではありません。無限モード変位GNSは各有限部分では規則的既約な表現と同値であっても、全モードを一つにした空間は有限自由度ではありません。したがって定理の前提が外れ、[非同値性定理](#thm-aqft10-inequivalent-gns)と矛盾しません。規則性だけで無限モードの一意性を主張してはいけません。
+**詳細解答。** 有限モードFock表現は有限個の正準対を持ち、Weylパラメータに強連続、かつ有限モードの全Weyl演算子が生成する代数の可換子はスカラーなので既約です。よって定理の有限次元版の射程に入ります。二つの直和は規則的でも、一方の直和成分への射影が非自明な可換子に属するため既約ではありません。無限モード変位状態を $\mathfrak A_N$ に制限し、**その制限状態から改めてGNS表現を作る**と、[無限列でも変位状態は存在する](#prop-aqft10-shift-existence)により有限モードFockの規則的既約表現と同値です。ただし、無限モード全体のGNS表現を単に $\mathfrak A_N$ へ制限した表現が既約という意味ではありません。全モードを一つにした空間は有限自由度ではありません。したがって定理の前提が外れ、[非同値性定理](#thm-aqft10-inequivalent-gns)と矛盾しません。規則性だけで無限モードの一意性を主張してはいけません。
 <!-- solution-end -->
 
 ### Level C：存在・実装・非同値性をまとめる
