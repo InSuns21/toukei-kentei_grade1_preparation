@@ -3,13 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - CTM3
+  - VC9
 concepts:
-  - id: continuum.material-derivative
-    name: 物質微分
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（物質微分）"]
-    requires: [continuum.spatial-velocity]
   - id: continuum.velocity-gradient
     name: 速度勾配
     kind: definition
