@@ -1,0 +1,47 @@
+id: "RBD7"
+title: "Newton–Euler方程式：外力と基準点"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD6
+official_scope: []
+learning_objectives:
+  - 外力の作用点から合力と重心まわりの合トルクを組み立て、純粋偶力を区別できる
+  - 重心条件を用いた質点系の運動量・角運動量収支を導き、外力付きNewton–Euler方程式を証明できる
+  - 回転基底の輸送公式を適用し、空間系と物体系のトルク・角加速度を変換できる
+  - 慣性速度と相対速度による移動基準点の角運動量を区別し、原点速度・加速度補正を導出できる
+  - 固定支点の反力と重力トルクを正しい基準点で計算し、J_O omega の使用条件を判定できる
+  - 力の作用点速度と偶力から仕事率を求め、並進・回転の運動エネルギー収支と照合できる
+  - 姿勢、重心速度、物体角速度、正定値慣性テンソルと力モデルから一階初期値系を構成できる
+  - 偏心推力と移動する剛体標識点の例で外力・仕事率・角運動量補正の整合を検算できる
+definitions:
+  - { id: RBD7-DEF-01, name: "外力系の合力と重心まわりの合トルク" }
+  - { id: RBD7-DEF-02, name: "移動基準点に対する二種類の角運動量" }
+theorems:
+  - { id: RBD7-THM-01, name: "外力付きNewton–Euler方程式" }
+  - { id: RBD7-THM-02, name: "移動基準点の角運動量収支" }
+  - { id: RBD7-PROP-01, name: "剛体外力の仕事率と運動エネルギー収支" }
+  - { id: RBD7-PROP-02, name: "外力付き剛体運動の一階初期値系" }
+canonical_examples:
+  - 偏心力と重心力の合力・トルクの比較
+  - 物体系と空間系における偏心外力の変換
+  - 斜めに移動する基準点の二種類の角運動量
+  - 固定支点における重力トルク・角加速度・反力
+  - 外力の作用点速度と仕事率の比較
+  - 自由剛体の正定値慣性テンソルを使ったODE
+  - 偏心推力と移動する物体固定標識点の運動量収支
+problem_patterns:
+  - RBD7-FORCE-TORQUE-LEVER
+  - RBD7-BODY-SPACE-TORQUE-CONVERSION
+  - RBD7-GYROSCOPIC-TORQUE
+  - RBD7-POINT-POWER
+  - RBD7-MOVING-ORIGIN-INERTIAL-MOMENTUM
+  - RBD7-FIXED-PIVOT-REACTION
+  - RBD7-ACCELERATING-ORIGIN-RELATIVE-MOMENTUM
+  - RBD7-FORCED-EULER-INITIAL-ACCELERATION
+  - RBD7-MULTIPOINT-POWER-COUPLE
+  - RBD7-THRUSTER-MOVING-MARKER-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }
