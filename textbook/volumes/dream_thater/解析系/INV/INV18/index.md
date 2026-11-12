@@ -394,7 +394,7 @@ u(x)=\frac{x(1-x)}2,\qquad
 O_1(u)=\frac1{12},\quad O_2(u)=0.
 $$
 
-座標 $(s,t)$ の単位方向 $(1,0)$、$(0,1)$ は、係数の関数としてそれぞれ $\partial_s a_{s,t}=1$、$\partial_t a_{s,t}=x$ に対応します。[観測写像の微分公式](../INV17/index.md#cor-inv17-observation-derivative)により、Jacobi 行列の第1列は $(O_1(DS(1)[1]),O_2(DS(1)[1]))^\mathsf T$、第2列は $(O_1(DS(1)[x]),O_2(DS(1)[x]))^\mathsf T$ です。ここで[有限次元の Jacobi 行列と列フルランクの対応](../INV10/index.md#cor-inv10-finite-full-rank)を用いており、二つの列が一次独立なら微分は単射です。
+座標 $(s,t)$ の単位方向 $(1,0)$、$(0,1)$ は、係数の関数としてそれぞれ $\partial_s a_{s,t}=1$、$\partial_t a_{s,t}=x$ に対応します。[係数から観測への写像の微分](../INV17/index.md#cor-inv17-observation-derivative)により、Jacobi 行列の第1列は $(O_1(DS(1)[1]),O_2(DS(1)[1]))^\mathsf T$、第2列は $(O_1(DS(1)[x]),O_2(DS(1)[x]))^\mathsf T$ です。ここで[有限次元の Jacobi 行列と列フルランクの対応](../INV10/index.md#cor-inv10-finite-full-rank)を用いており、二つの列が一次独立なら微分は単射です。
 
 $1$ 方向の感度 $w_s=-u$ と、$x$ 方向の感度
 
