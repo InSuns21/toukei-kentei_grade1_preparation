@@ -97,10 +97,10 @@ $$
 
 内部Green関数の係数を曖昧にしないため、境界方向のFourier運動量$p\in\mathbb R^d$（ベクトル）とその長さ$k=|p|\ge0$（スカラー）を区別します。回転対称性から動径核は$k$にのみ依存するので、
 
-$
+$$
 G_\chi(X,Y)=\int_{\mathbb R^d}\frac{d^dp}{(2\pi)^d}\,
 e^{ip\cdot(x-y)}g_{|p|}(z,z')
-$
+$$
 
 とおきます。この表示をGreen方程式へ代入すると
 
@@ -262,10 +262,10 @@ $$
 
 この計数には$G_\chi(X,Y)=G_\chi(Y,X)$を使います。[HOLO7の境界付き第一変分](../HOLO7/index.md#prop-holo7-boundary-variation)と同じ部分積分で、Dirichlet境界値零・赤外減衰を満たす試験関数$f,h$に対して
 
-$
+$$
 \langle f,Bh\rangle-\langle Bf,h\rangle
 =\int_{\partial\Omega}\bigl(h\,\partial_n f-f\,\partial_n h\bigr)\,d\Sigma=0
-$
+$$
 
 です。従って$B$のDirichlet逆演算子$G_\chi=B^{-1}$は対称で、核の二点交換が許されます。
 
