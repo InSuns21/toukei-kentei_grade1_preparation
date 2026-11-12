@@ -1,0 +1,43 @@
+id: "U3-04"
+title: "自己金融戦略・複製可能性・完備性"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03]
+official_scope: []
+learning_objectives:
+  - 取引時点の情報だけで決まる株式・預金保有と自己金融条件を定義し、価値変化式を導出できる
+  - 多期間二項市場で任意の有限経路依存請求権を後退帰納から自己金融で複製できる
+  - 自己金融価値の割引利得公式とマルチンゲール性から複製費用の一意性を証明できる
+  - 二項市場の完備性と三状態市場での複製不能性・評価用確率の非一意性を区別できる
+  - 2期間の各節点で株式・預金の組替え収支と満期4経路の複製誤差を検算できる
+definitions:
+  - { id: U3-04-DEF-01, name: 予測可能な取引戦略と資産価値 }
+  - { id: U3-04-DEF-02, name: 自己金融戦略 }
+  - { id: U3-04-DEF-03, name: 複製可能な請求権 }
+  - { id: U3-04-DEF-04, name: 有限市場の完備性 }
+theorems:
+  - { id: U3-04-PROP-01, name: 自己金融の価値変化式 }
+  - { id: U3-04-THM-01, name: 多期間二項市場の自己金融完全複製 }
+  - { id: U3-04-PROP-02, name: 自己金融価値の割引利得公式 }
+  - { id: U3-04-THM-02, name: 複製費用の一意性と無裁定 }
+  - { id: U3-04-PROP-03, name: 三状態市場での複製不能と評価用確率の非一意性 }
+canonical_examples:
+  - 予測可能な保有量と次の枝の先読みの区別
+  - 株式を売却して預金に組み替える自己金融の直接確認
+  - 三状態の支払ベクトル(1,0,1)の複製不能と複数の評価用確率
+  - 2期間コールの全節点の資金収支と全4経路の複製誤差ゼロ
+problem_patterns:
+  - U3-04-A1
+  - U3-04-A2
+  - U3-04-A3
+  - U3-04-A4
+  - U3-04-A5
+  - U3-04-B1
+  - U3-04-B2
+  - U3-04-B3
+  - U3-04-B4
+  - U3-04-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
