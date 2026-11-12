@@ -395,7 +395,7 @@ $I=2,J=3$、$R_0=I_3$、$\omega_b(0)=(1,0,1)$ とする。$E$、$L_0$、$\ell$�
 <!-- solution-start -->
 ### 詳細解答
 
-[保存量の命題](#prop-rbd8-conserved-quantities)で $a=1,b=0,w=1$ を代入します。
+[エネルギーと角運動量の命題](#prop-rbd8-conserved-quantities)で $a=1,b=0,w=1$ を代入します。
 
 $$
 E=\frac12(2\cdot1+3\cdot1)=\frac52,\qquad
@@ -588,7 +588,7 @@ $$
 \end{aligned}
 $$
 
-回転 $R$ は外積と平行性を保存するので、$\omega_s$ と $L_s$ が平行であることは上の外積が零であることと同値です。$J-I\ne0$ だから $wy=0$ と $wx=0$、すなわち **$w=0$ または $\rho=0$** です。$w\rho\ne0$ なら外積は非零で、空間で $L_s$ が一定でも $\omega_s$ の向きは回ります。
+回転 $R$ はベクトル積と平行性を保存するので、$\omega_s$ と $L_s$ が平行であることは上のベクトル積が零であることと同値です。$J-I\ne0$ だから $wy=0$ と $wx=0$、すなわち **$w=0$ または $\rho=0$** です。$w\rho\ne0$ ならベクトル積は非零で、空間で $L_s$ が一定でも $\omega_s$ の向きは回ります。
 <!-- solution-end -->
 
 ## Level C
@@ -614,7 +614,7 @@ $$
 \omega_b(t)=(\cos(t/2),\sin(t/2),1).
 $$
 
-[保存量の命題](#prop-rbd8-conserved-quantities)へ代入すると
+[エネルギーと角運動量の命題](#prop-rbd8-conserved-quantities)へ代入すると
 
 $$
 E=\frac12(2+3)=\frac52,\quad L_0=(2,0,3),\quad
@@ -665,7 +665,7 @@ R(T)L_b(T)
 \end{aligned}
 $$
 
-最後に $\omega_s(0)=R_0\omega_b(0)=(1,0,1)$、$L_0=(2,0,3)$。外積は
+最後に $\omega_s(0)=R_0\omega_b(0)=(1,0,1)$、$L_0=(2,0,3)$。ベクトル積は
 
 $$
 \omega_s(0)\times L_0=(0,-1,0)\ne0
