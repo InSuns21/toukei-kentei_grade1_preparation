@@ -13,6 +13,7 @@ concepts:
     requires: [holography.poincare-metric]
   - id: holography.cutoff-dirichlet-data
     name: 有限cutoffのDirichletデータ
+    aliases: ["Dirichlet境界条件"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（有限cutoffのDirichletデータ）"]
