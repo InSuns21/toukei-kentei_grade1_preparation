@@ -18,7 +18,7 @@ chapters:
   - { id: HOLO10, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO10, status: completed, title: "Witten接触図" }
   - { id: HOLO11, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO11, status: completed, title: "交換図と4点関数" }
   - { id: HOLO12, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO12, status: completed, title: "バルクゲージ場と保存流" }
-  - { id: HOLO13, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO13, status: planned, title: "バルク重力場と応力テンソル" }
+  - { id: HOLO13, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO13, status: completed, title: "バルク重力場と応力テンソル" }
   - { id: HOLO14, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO14, status: planned, title: "ホログラフィック繰り込み" }
   - { id: HOLO15, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO15, status: planned, title: "境界の熱状態とAdSブラックホール" }
   - { id: HOLO16, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO16, status: planned, title: "BTZ・熱場二重状態" }
