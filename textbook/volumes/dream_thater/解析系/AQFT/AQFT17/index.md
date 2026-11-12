@@ -277,6 +277,8 @@ $$
 <!-- definition-example-start: def-aqft17-nuclear-map -->
 ### 直接例：二つの減衰モード
 
+**定義の確認**：座標評価汎関数のノルムと値域ベクトルのノルムを計算し、核表示の絶対総和が有限になることを確かめます。
+
 $X=\mathbb C^2$ に $\|(z_1,z_2)\|_\infty=\max(|z_1|,|z_2|)$、$Y=\mathbb C^2$ にEuclidノルムを入れます。$\varepsilon_1,\varepsilon_2\ge0$、$\beta>0$ として
 
 $$
@@ -355,10 +357,12 @@ $$
 > を**エネルギー減衰写像**と呼ぶ。各 $\beta>0$ についてこれが核写像になることを**定性的エネルギー核性**と呼ぶ。splitの十分条件に使うBuchholz–Wichmann型の核性条件では、さらに小さな $\beta$ における $\|\Theta_{\beta,O}\|_1$ の増大に定量的上界を課す。
 <!-- formal-statement-end -->
 
-作用素指数は $H_{\mathrm{en}}\ge0$ により有界で $\|e^{-\beta H_{\mathrm{en}}}\|\le1$、また $\|x\Omega\|\le\|x\|$ なので $\|\Theta_{\beta,O}(x)\|\le\|x\|$。核性はこの有界性だけでは保証されない核表示の収束条件です。
+作用素指数は $H_{\mathrm{en}}\ge0$ により有界で $\|e^{-\beta H_{\mathrm{en}}}\|\le1$、また $\|x\Omega\|\le\|x\|$ なので $\|\Theta_{\beta,O}(x)\|\le\|x\|$。核性を示すには、これとは別に核表示とその絶対総和の収束を証明する必要があります。
 
 <!-- definition-example-start: def-aqft17-energy-nuclearity -->
 ### 定義の確認：二水準のエネルギー減衰
+
+**定義の確認**：エネルギー生成子の非負性と真空の規格化を確認し、エネルギー減衰写像を有限項の核表示に分解します。
 
 $H=\mathbb C^2$、$H_{\mathrm{en}}=\operatorname{diag}(0,\varepsilon)$（$\varepsilon>0$）、$\Omega=e_1$ とし、局所代数の代わりに模型の代数 $M=M_2(\mathbb C)$ を使います。$x=(x_{ij})$ なら
 
