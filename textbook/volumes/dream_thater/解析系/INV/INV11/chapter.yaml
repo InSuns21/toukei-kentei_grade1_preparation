@@ -1,0 +1,49 @@
+id: "INV11"
+title: "反復正則化をいつ止めるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV5
+  - INV8
+  - INV10
+official_scope: []
+learning_objectives:
+  - 非線形二乗残差のFréchet微分からLandweberの随伴勾配更新を導出できる
+  - 接線錐条件の全二点評価を直接例と失敗例で検証できる
+  - 雑音と歩幅の条件を明示してLandweber反復の停止前誤差減少と有限停止を証明できる
+  - 無雑音の残差収束と雑音下の停止誤差評価を識別・安定性の仮定とともに区別できる
+  - 小特異値方向にLandweberを過反復した場合の雑音増幅を計算できる
+  - Newton・Gauss–Newton正規方程式と初期点固定の反復的正則化Gauss–Newton型更新を導出できる
+definitions:
+  - { id: INV11-DEF-01, name: 非線形Landweber反復 }
+  - { id: INV11-DEF-02, name: 接線錐条件 }
+  - { id: INV11-DEF-03, name: 不一致原理による反復停止 }
+  - { id: INV11-DEF-04, name: Newton法とGauss–Newton法の局所更新 }
+  - { id: INV11-DEF-05, name: 反復的正則化Gauss–Newton型更新 }
+theorems:
+  - { id: INV11-THM-01, name: 接線錐条件の下での誤差減少と有限停止 }
+  - { id: INV11-PROP-01, name: 雑音なしの残差収束 }
+  - { id: INV11-COR-01, name: 停止残差から復元誤差への変換 }
+canonical_examples:
+  - 一次元非線形観測のLandweber一歩と勾配確認
+  - 一次元二次写像で接線錐条件を全二点検証
+  - ノイズ依存の停止閾値と有限停止上界の数値例
+  - コンパクト対角作用素の小特異値方向への過反復と雑音増幅
+  - NewtonとGauss–Newton方向の一致例
+  - 初期点を固定した正則化Gauss–Newtonの一意解
+problem_patterns:
+  - INV11-A01
+  - INV11-A02
+  - INV11-A03
+  - INV11-A04
+  - INV11-A05
+  - INV11-B01
+  - INV11-B02
+  - INV11-B03
+  - INV11-B04
+  - INV11-B05
+  - INV11-C01
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
