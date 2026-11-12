@@ -429,7 +429,7 @@ $$
 
 応力の発散は $\operatorname{div}\sigma=\rho_*g e_1$、体積力密度は $\rho_*b=-\rho_*g e_1$ である。従って [局所運動量方程式](#thm-ctm7-material-momentum)の右辺はゼロ。また $\sigma^T=\sigma$ だから [角運動量と応力の命題](#prop-ctm7-angular-stress)の結論と整合する。
 
-$x_1=0$ の外向き法線は $-e_1$ だが、その面では $\sigma=0$ なので合力はゼロ。$x_1=L$ の面積は $HK$ であり、[traction の定義](../CTM6/index.md#def-ctm6-traction)により
+$x_1=0$ の外向き法線は $-e_1$ だが、その面では $\sigma=0$ なので合力はゼロ。$x_1=L$ の面積は $HK$ であり、[表面力密度の定義](../CTM6/index.md#def-ctm6-traction)により
 
 $$
 T_{x_1=L}=(\rho_*g L e_1)\,HK=\rho_*gLHK\,e_1\ \mathrm N.
