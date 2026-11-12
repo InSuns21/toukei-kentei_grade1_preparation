@@ -61,7 +61,7 @@
 | THE END OF MATHEMATICS? 5テーマの横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
 | 金融の価格付け・最適執行の応用 | [進行中のU3数理ファイナンスPLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)（U3-01完成・以降計画中。HJB理論は既存の最適制御PLANを参照） |
 | 確率ロボティクス・自己位置推定 | `DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md`（U2） |
-| 無裁定・統計的裁定の応用 | `DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md`（U4） |
+| 無裁定・相対価値・統計的裁定の応用 | [DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md](DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)（U4、全30講の設計確定・未実装。U3のデリバティブ価格付けと役割分担） |
 | 量子状態推定の応用 | `DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md`（U6） |
 | Newton 力学・保存則・振動・中心力・2体問題・剛体 | `DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md` |
 | 一般化座標・Lagrangian・Hamiltonian・Poisson 括弧・Hamilton--Jacobi | `DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md` |
