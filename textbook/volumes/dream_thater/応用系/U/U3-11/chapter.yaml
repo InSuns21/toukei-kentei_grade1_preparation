@@ -1,0 +1,44 @@
+id: "U3-11"
+title: "CRR 木・三項木と収束・計算量"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-08, U3-09, U3-10]
+official_scope: []
+learning_objectives:
+  - 固定満期を N 分割する CRR の u,d,R,q を定義し、正の確率が成立する必要十分条件と最小分割数を導ける
+  - 欧州型請求権の CRR 再結合価格を後退計算し、自己金融複製に基づく一意価格と区別なく接続できる
+  - 横ばい確率を指定した三項木の確率をリスク中立平均条件から解き、正値条件と非完備性を具体例で確認できる
+  - 二項・三項の対数増分の平均と分散を Taylor 展開から計算し、分布収束と混同しない
+  - 二乗受取額の二つの格子評価公式を独立に導出し、収束値と O(N^-1) 誤差を証明できる
+  - 二項・三項の全層節点数と時間 O(N^2)、層保存メモリ O(N) を数え、経路依存の限界を説明できる
+  - Python 後退格子と別経路のモーメント評価を比較し、解析基準値・格子幅・確率境界を検証できる
+definitions:
+  - { id: U3-11-DEF-01, name: CRR の時間刻み付き二項木 }
+  - { id: U3-11-DEF-02, name: 横ばい確率を固定した再結合三項木 }
+theorems:
+  - { id: U3-11-PROP-01, name: CRR 確率の有効条件と再結合 }
+  - { id: U3-11-PROP-02, name: 三項木の正確な有効条件と対数増分 }
+  - { id: U3-11-THM-01, name: 二乗受取額の CRR・三項木評価と一次収束 }
+  - { id: U3-11-PROP-03, name: 満期株価依存の二項木・三項木の計算量 }
+canonical_examples:
+  - CRR の u=6/5 d=5/6 R=1 に対し q=5/11、100円株式の条件付き平均100円
+  - r=0.5 sigma=0.2 T=1 で CRR が正値となる最小分割数は7
+  - 三項の u=2 m=1 d=1/2 R=1 p0=2/3 で p+=1/9 p-=2/9
+  - 横ばいデジタルは別の正の評価用確率により2/3円と1/2円になり複製不能
+  - 二乗受取額の r=0 S0=100 sigma=0.2 T=1 の極限価格は104.0810774192円
+  - N=64 の全層節点数は二項2145、三項4225
+problem_patterns:
+  - U3-11-A1
+  - U3-11-A2
+  - U3-11-A3
+  - U3-11-A4
+  - U3-11-A5
+  - U3-11-B1
+  - U3-11-B2
+  - U3-11-B3
+  - U3-11-B4
+  - U3-11-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
