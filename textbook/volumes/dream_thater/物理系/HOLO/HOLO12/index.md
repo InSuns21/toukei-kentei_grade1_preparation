@@ -113,7 +113,7 @@ $$
 \delta S_E=\frac{1}{g_F^2}\int_M\sqrt{g}\,F^{ab}\nabla_a\delta A_b.
 $$
 
-積の微分$\nabla_a(F^{ab}\delta A_b)$を展開し発散定理を使えば命題の体積項・境界項を得ます。ここで$z=\epsilon$面の誘導計量は$\gamma_{ij}=L^2\epsilon^{-2}\delta_{ij}$、従って$\sqrt{\gamma}=L^d\epsilon^{-d}$です。外向き単位法線は$n^z=-\epsilon/L$、$n_z=g_{zz}n^z=-L/\epsilon$であり、
+積の微分$\nabla_a(F^{ab}\delta A_b)$を展開し、[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)をこの$(d+1)$次元の向き付き有限領域に適用すると、命題の体積項・境界項を得ます。ここで$z=\epsilon$面の誘導計量は$\gamma_{ij}=L^2\epsilon^{-2}\delta_{ij}$、従って$\sqrt{\gamma}=L^d\epsilon^{-d}$です。外向き単位法線は$n^z=-\epsilon/L$、$n_z=g_{zz}n^z=-L/\epsilon$であり、
 
 $$
 \sqrt{\gamma}\,n_zF^{zi}
