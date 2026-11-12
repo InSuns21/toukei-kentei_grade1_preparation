@@ -142,7 +142,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\chi_t$ は $C^1$ で単射、$\det D_X\chi_t=J>0$ である。この仮定の下で [変数変換公式](../../../基礎科目/RA/RA7/index.md#thm-ra7-change-of-variables)により
+まず $\chi_t$ は $C^1$ で単射、$\det D_X\chi_t=J>0$ である。
+
+[変数変換公式](../../../基礎科目/RA/RA7/index.md#thm-ra7-change-of-variables)により
 
 $$
 M_f(t):=\int_{U_t}f(x,t)\,dx
