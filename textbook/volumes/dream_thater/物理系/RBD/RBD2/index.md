@@ -31,7 +31,7 @@ $$
 <!-- definition-example-start: def-rbd2-axis-angle -->
 ### 直接例：$z$ 軸の90度回転
 
-**条件を一つずつ確認**します。$n=e_3=(0,0,1)^{\mathsf T}$ は単位長です。行列
+**定義の確認**：条件を一つずつ確認します。$n=e_3=(0,0,1)^{\mathsf T}$ は単位長です。行列
 
 $$
 Q=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}
@@ -118,7 +118,7 @@ $$
 <!-- definition-example-start: def-rbd2-hat -->
 ### 直接例：$n=e_3$ の場合
 
-成分を代入すると
+**定義の確認**：成分を代入すると
 
 $$
 \widehat{e_3}=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&0\end{pmatrix}.
