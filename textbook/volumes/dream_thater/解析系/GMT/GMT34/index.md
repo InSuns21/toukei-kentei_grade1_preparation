@@ -251,7 +251,11 @@ $$
 \le C\delta.
 $$
 
-したがって、もし $y$ が複数の $B_i$ に属するなら、それらの符号付き方向 $\sigma_i v_i$ は一つの球面上の角帽（半径 $C\delta$）に入ります。正の符号の方向は $e_d$ との内積が $3/4$ 以上、負の符号の方向は $-3/4$ 以下なので、十分小さい$\delta$では同じ小角帽に正負が混在しません。同じ符号の方向は $\delta$-分離です。半径 $\delta/3$ のEuclid球を各方向へ置くと互いに交わらず、それらは半径 $(C+1)\delta$ の球に含まれます。体積を比較すれば、一つの $y$ に対応する $i$ は高々 $C_d$ 個です。
+もし $y$ が複数の $B_i$ に属するなら、それらの符号付き方向 $\sigma_i v_i$ は $(y-x)/|y-x|$ を中心とする半径 $C\delta$ の球面帽に入ります。
+
+正の符号の方向は $e_d$ との内積が $3/4$ 以上、負の符号の方向は $-3/4$ 以下です。十分小さい $\delta$ なら同じ小角帽に正負は混在しません。
+
+同じ符号の方向は $\delta$-分離です。各方向に半径 $\delta/3$ のEuclid球を置くと互いに交わらず、それらは半径 $(C+1)\delta$ の球に含まれます。小球の体積と大球の体積を比較すれば、一つの $y$ に対応する方向は高々 $C_d$ 個です。
 
 従って、各 $y$ について $\sum_{T_i\in\mathcal B(x)}\mathbf1_{B_i}(y)\le C_d$。これを積分すると
 
@@ -309,7 +313,7 @@ $$
 L=m(x)\ge \frac{a_d}{V}
 $$
 
-です。この $x$ を含む $L$ 本はまさしく[定義したbush](#def-gmt34-bush)であり、球面帽内の方向分離を引き継ぎます。[bushの体積補題](#lem-gmt34-bush-packing)を適用すると
+です。この $x$ を含む $L$ 本はまさしく[定義したbush](#def-gmt34-bush)であり、球面帽内の方向分離を引き継ぎます。[bushの外側での体積下界](#lem-gmt34-bush-packing)を適用すると
 
 $$
 V\ge\left|\bigcup_{T_i\in\mathcal B(x)}T_i\right|
@@ -508,7 +512,7 @@ $$
 =\frac{\pi}{512}\delta^2.
 $$
 
-中心軸の区間が元の単位線分内にあり、断面半径 $\delta/8<\delta$ なら各点の線分への距離は $\delta/8$ 未満で、$B\subset T_\delta$ です。これは[bushの体積補題](#lem-gmt34-bush-packing)で使う包含そのものです。
+中心軸の区間が元の単位線分内にあり、断面半径 $\delta/8<\delta$ なら各点の線分への距離は $\delta/8$ 未満で、$B\subset T_\delta$ です。これは[bushの外側での体積下界](#lem-gmt34-bush-packing)で使う包含そのものです。
 <!-- solution-end -->
 
 <a id="ex-gmt34-a05"></a>
@@ -566,7 +570,7 @@ L_y\,\omega_d(\delta/3)^d
 \qquad L_y\le[3(C+1)]^d.
 $$
 
-これが[bushの体積補題](#lem-gmt34-bush-packing)の重複度を一定にする部分です。
+これが[bushの外側での体積下界](#lem-gmt34-bush-packing)の重複度を一定にする部分です。
 <!-- solution-end -->
 
 <a id="ex-gmt34-b03"></a>
@@ -579,7 +583,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$T_1,T_2$ はそれぞれ柄の中心線上の異なる点を通るので、[hairbrushの定義](#def-gmt34-hairbrush)から $\mathcal H(T_0)=\{T_1,T_2\}$ です。二つの毛の軸は $x_1$ 座標が $1/2$ 異なる平行直線です。軸間距離は $1/2>2\delta$ なので、半径$\delta$のtubeは交わらず $T_1\cap T_2=\varnothing$。従って両方を含む $\mathcal B(x)$ はどの $x$ にも存在せず、一点での[bushの定義](#def-gmt34-bush)によるまとめ方はできません。
+$T_1,T_2$ はそれぞれ柄の中心線上の異なる点を通るので、[一本のtubeに付随するhairbrush](#def-gmt34-hairbrush)から $\mathcal H(T_0)=\{T_1,T_2\}$ です。二つの毛の軸は $x_1$ 座標が $1/2$ 異なる平行直線です。軸間距離は $1/2>2\delta$ なので、半径$\delta$のtubeは交わらず $T_1\cap T_2=\varnothing$。従って両方を含む $\mathcal B(x)$ はどの $x$ にも存在せず、一点での[bushの定義](#def-gmt34-bush)によるまとめ方はできません。
 <!-- solution-end -->
 
 <a id="ex-gmt34-b04"></a>
@@ -602,7 +606,11 @@ $t_0\le1/2$ なら $1-t_0\ge1/2$ であり、$t_0+s\le1/2+1/4=3/4<1$。したが
 **C01　任意位置の高次元tubeから次元下界へ**
 
 - Level: C
-- 問題: $d\ge3$、$0<\delta<\delta_d$ とし、固定球面帽内の$\delta$-分離方向を $N\asymp_d\delta^{-(d-1)}$ 個選んで、任意位置に長さ1・半径$\delta$のtube $T_i$ を置く。$U=\bigcup_iT_i$、$V=|U|$、$m=\sum_i\mathbf1_{T_i}$ とする。(1) $\int m\gtrsim_d1$ から $m(x)\gtrsim_d1/V$ の点が存在することを示せ。(2) 各該当tubeの線分上で $x$ に近い点から長い方の端へ円柱片を作り、$V\gtrsim_d\delta^{d-1}m(x)$ を示せ。(3) $V$ の下界を導き、これを有界な全方向線分集合 $K$ の上下Minkowski次元に適用せよ。(4) 同じ結論をHausdorff次元についても導いたと言えるか。
+- 問題: $d\ge3$、$0<\delta<\delta_d$ とし、固定球面帽内の $\delta$-分離方向を $N\asymp_d\delta^{-(d-1)}$ 個選び、任意位置にtube $T_i$ を置く。$U=\bigcup_iT_i$、$V=|U|$、$m=\sum_i\mathbf1_{T_i}$ とする。次を順に示せ。
+  1. $\int m\gtrsim_d1$ から $m(x)\gtrsim_d1/V$ の点が存在する。
+  2. 該当tubeの線分上で $x$ に近い点から長い方の端へ円柱片を作り、$V\gtrsim_d\delta^{d-1}m(x)$ を導く。
+  3. $V$ の下界を求め、有界な全方向線分集合 $K$ の上下Minkowski次元に適用する。
+  4. 同じ結論をHausdorff次元についても証明したと言えるか説明する。
 
 <!-- solution-start -->
 #### 詳細解答
