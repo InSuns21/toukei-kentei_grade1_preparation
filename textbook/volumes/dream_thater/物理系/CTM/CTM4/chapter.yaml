@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - CTM3
+  - VC9
 official_scope: []
 learning_objectives:
   - 同じ物質点を追う物質微分 D_tq=partial_t q+v dot grad q を連鎖律から導き、空間時間微分と区別できる
@@ -12,7 +13,6 @@ learning_objectives:
   - dot J=J tr L=J div v を行列式の一次展開から証明し、体積保存と形状不変の違いを例示できる
   - 時間依存の剛体観測変換から L D W の変換則を導き、D の客観性と W の非客観性を反例で説明できる
 definitions:
-  - { id: CTM4-DEF-01, name: "物質微分" }
   - { id: CTM4-DEF-02, name: "速度勾配" }
   - { id: CTM4-DEF-03, name: "変形速度テンソルとスピンテンソル" }
   - { id: CTM4-DEF-04, name: "観測者の剛体運動と客観性" }
