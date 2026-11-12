@@ -1,0 +1,60 @@
+chapter: HOLO14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO13
+concepts:
+  - id: holography.scalar-cutoff-local-counterterms
+    name: cutoff局所反項と繰り込み作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（cutoff局所反項と繰り込み作用）"]
+    requires: [holography.renormalized-scalar-action, holography.brown-york-cutoff-stress]
+  - id: holography.scalar-local-recursion
+    name: 非共鳴スカラーの最初の局所係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非共鳴スカラーの最初の局所係数）"]
+    requires: [holography.scalar-cutoff-local-counterterms, holography.scalar-mass-dimension]
+  - id: holography.scalar-gradient-counterterms
+    name: 1<nu<2の最小反項
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1<nu<2の最小反項）"]
+    requires: [holography.scalar-local-recursion]
+  - id: holography.scalar-renormalized-one-point
+    name: 有限作用と1点関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限作用と1点関数）"]
+    requires: [holography.scalar-gradient-counterterms, holography.gkpw-tree-level-dictionary]
+  - id: holography.scalar-nonlocal-two-point
+    name: 非局所2点核と有限反項の影響
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非局所2点核と有限反項の影響）"]
+    requires: [holography.scalar-renormalized-one-point, holography.bulk-to-boundary-kernel]
+  - id: holography.scalar-resonant-log-expansion
+    name: 共鳴展開と参照スケール
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共鳴展開と参照スケール）"]
+    requires: [holography.scalar-local-recursion]
+  - id: holography.scalar-log-counterterm
+    name: 対数係数と対数反項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数係数と対数反項）"]
+    requires: [holography.scalar-resonant-log-expansion, holography.scalar-cutoff-local-counterterms]
+  - id: holography.scalar-renormalized-sources
+    name: 繰り込み済み源応答
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（繰り込み済み源応答）"]
+    requires: [holography.scalar-renormalized-one-point, holography.brown-york-cutoff-stress]
+  - id: holography.source-ward-identities
+    name: 源付きWard恒等式とトレース関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（源付きWard恒等式とトレース関係）"]
+    requires: [holography.scalar-renormalized-sources, holography.brown-henneaux-central-charge]
