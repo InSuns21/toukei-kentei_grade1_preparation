@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="280" viewBox="0 0 800 280" role="img" data-layout-lint="strict" aria-labelledby="holo19-title holo19-desc">
+  <title id="holo19-title">二つの区間の相同なRT候補</title>
+  <desc id="holo19-desc">左の図では境界上の二つの区間Aのそれぞれを一本の半円が囲む。右の図では最外側の端点を結ぶ大きな半円と、区間間の隙間を囲む小さな半円が、同じ二つの区間Aに対応する。いずれも端点は四つで、候補の相同条件を満たす。実線と破線で二種類を区別する。</desc>
+  <rect x="0" y="0" width="800" height="280" fill="#ffffff"/>
+  <text x="200" y="32" font-size="19" text-anchor="middle" fill="#16283c">非連結候補</text>
+  <text x="600" y="32" font-size="19" text-anchor="middle" fill="#16283c">連結候補</text>
+  <line x1="36" y1="84" x2="366" y2="84" stroke="#526174" stroke-width="2"/>
+  <line x1="434" y1="84" x2="764" y2="84" stroke="#526174" stroke-width="2"/>
+  <path d="M76 84 H146 M246 84 H316" stroke="#0c6665" stroke-width="8" stroke-linecap="round"/>
+  <path d="M476 84 H546 M646 84 H716" stroke="#0c6665" stroke-width="8" stroke-linecap="round"/>
+  <path d="M76 84 A35 35 0 0 0 146 84 M246 84 A35 35 0 0 0 316 84" fill="none" stroke="#1765ac" stroke-width="4" data-series-group="rt-candidates" data-series-label="離れた二弧"/>
+  <path d="M476 84 A120 120 0 0 0 716 84" fill="none" stroke="#a35421" stroke-width="4" stroke-dasharray="10 6" data-series-group="rt-candidates" data-series-label="外側と隙間の二弧"/>
+  <path d="M546 84 A50 50 0 0 0 646 84" fill="none" stroke="#a35421" stroke-width="4" stroke-dasharray="10 6"/>
+  <circle cx="76" cy="84" r="4" fill="#1a2430"/>
+  <circle cx="146" cy="84" r="4" fill="#1a2430"/>
+  <circle cx="246" cy="84" r="4" fill="#1a2430"/>
+  <circle cx="316" cy="84" r="4" fill="#1a2430"/>
+  <circle cx="476" cy="84" r="4" fill="#1a2430"/>
+  <circle cx="546" cy="84" r="4" fill="#1a2430"/>
+  <circle cx="646" cy="84" r="4" fill="#1a2430"/>
+  <circle cx="716" cy="84" r="4" fill="#1a2430"/>
+  <text x="110" y="70" font-size="17" text-anchor="middle" fill="#0c6665">A</text>
+  <text x="281" y="70" font-size="17" text-anchor="middle" fill="#0c6665">A</text>
+  <text x="511" y="70" font-size="17" text-anchor="middle" fill="#0c6665">A</text>
+  <text x="681" y="70" font-size="17" text-anchor="middle" fill="#0c6665">A</text>
+  <text x="200" y="246" font-size="16" text-anchor="middle" fill="#1765ac">実線：各区間を囲む</text>
+  <text x="600" y="246" font-size="16" text-anchor="middle" fill="#a35421">破線：外側と隙間を囲む</text>
+</svg>

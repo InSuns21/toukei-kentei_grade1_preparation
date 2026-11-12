@@ -1,0 +1,43 @@
+id: HOLO19
+title: "homology条件と面積競合"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO18
+  - HOLO16
+official_scope: []
+learning_objectives:
+  - 静的RTの相同条件をバルク領域の境界として定義し直接例で検証できる
+  - 純AdS二つの区間に対する連結・非連結候補の長さ差と閾値を導出できる
+  - 交差する端点対応が最小にならない理由を説明できる
+  - BTZ外部環状断面で補区間の測地線に地平線を加える相同条件を示せる
+  - BTZ測地線の第一積分とcutoff長を計量から再計算できる
+  - 熱的BTZの二候補切替点を導きcutoffとサドルの適用範囲を区別できる
+definitions:
+  - { id: HOLO19-DEF-01, name: 静的RT面の相同条件 }
+theorems:
+  - { id: HOLO19-PROP-01, name: 二つの区間のRT候補と長さ差 }
+  - { id: HOLO19-PROP-02, name: BTZの二候補と地平線の必要性 }
+  - { id: HOLO19-PROP-03, name: BTZ境界区間の正則化測地線長 }
+  - { id: HOLO19-PROP-04, name: 非回転BTZの古典RT候補の切替 }
+canonical_examples:
+  - 四端点の二区間で領域境界を足す相同条件の直接確認
+  - 等長二区間の距離比と連結相の閾値
+  - BTZ環状断面の補集合と地平線円の境界
+  - BTZ測地線の第一積分とcutoffでの長さ
+  - 熱的円周区間の切替点と全境界の熱エントロピー
+problem_patterns:
+  - HOLO19-HOMOLOGY-BOUNDARY
+  - HOLO19-TWO-INTERVAL-PAIRINGS
+  - HOLO19-CONNECTED-THRESHOLD
+  - HOLO19-BTZ-PARAMETERS
+  - HOLO19-HORIZON-HOMOLOGY
+  - HOLO19-UNCROSSING
+  - HOLO19-MUTUAL-INFORMATION
+  - HOLO19-BTZ-FIRST-INTEGRAL
+  - HOLO19-BTZ-TRANSITION-UNIQUENESS
+  - HOLO19-INTEGRATED-HOMOLOGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 7 }
