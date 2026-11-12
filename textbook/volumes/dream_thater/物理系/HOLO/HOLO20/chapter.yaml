@@ -1,0 +1,43 @@
+id: HOLO20
+title: "RTとエントロピー不等式"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO19
+official_scope: []
+learning_objectives:
+  - RTの相同条件を満たすバルク領域の共通部分と和集合から新しい比較面を構成できる
+  - 四状態の境界片ごとに面積の劣加法性を証明できる
+  - 最小性と比較面を区別して静的古典RTの強劣加法性を証明できる
+  - 純AdS3の隣接三区間でcutoffを消し強劣加法性の差を再計算できる
+  - 劣加法性と相互情報量の古典主項を導出できる
+  - 全境界が純粋なときのAraki–Lieb型下界と熱混合状態との差を説明できる
+  - 時間依存HRTと量子補正へ貼合せ証明を無条件に拡張できない理由を説明できる
+definitions:
+  - { id: HOLO20-DEF-01, name: RT領域の切断・貼合せ候補 }
+theorems:
+  - { id: HOLO20-LEM-01, name: 切断・貼合せの面積劣加法性 }
+  - { id: HOLO20-THM-01, name: 静的古典RTの強劣加法性 }
+  - { id: HOLO20-PROP-01, name: 純AdSの隣接三区間での強劣加法性の余裕 }
+  - { id: HOLO20-PROP-02, name: 静的RTの劣加法性 }
+canonical_examples:
+  - U V Wの境界トレースと共通部分・和集合の直接確認
+  - 00 01 10 11 の六通りの界面計数
+  - 純AdS3真空の三区間におけるcutoff消去と正の差
+  - 二つの離れた区間の相互情報量の古典的零相
+  - 全境界が純粋なときのAraki–Lieb型下界
+problem_patterns:
+  - HOLO20-BOUNDARY-TRACE
+  - HOLO20-INTERFACE-CANCELLATION
+  - HOLO20-SSA-CHECK
+  - HOLO20-VACUUM-NUMERIC
+  - HOLO20-BTZ-HOMOLOGY-CAVEAT
+  - HOLO20-FOUR-STATE-PROOF
+  - HOLO20-ADJACENT-INTERVAL-SSA
+  - HOLO20-PURITY-TRIANGLE
+  - HOLO20-HRT-QUANTUM-LIMIT
+  - HOLO20-INTEGRATED-CUT-PASTE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 7 }
