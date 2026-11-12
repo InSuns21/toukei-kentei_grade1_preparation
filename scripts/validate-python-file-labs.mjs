@@ -134,7 +134,7 @@ for (const chapter of chapterIds) {
 // U3 financial examples use the same published Python files in the browser
 // (python-file-lab) and in the local CLI. Do not duplicate the computation in JS.
 const u3FileLabs = [
-  ['U3-04', 'replication.py', /initial price \\(yen\\):/],
+  ['U3-04', 'replication.py', /initial price \(yen\):/],
   ['U3-05', 'parity_check.py', /ALL EXACT CHECKS PASSED/],
   ['U3-06', 'american_binomial.py', /American=/],
   ['U3-07', 'bermudan_binomial.py', /All exact-arithmetic cross-checks passed/],
@@ -143,11 +143,11 @@ const u3FileLabs = [
 for (const [chapter, file, expectedOutput] of u3FileLabs) {
   const chapterDir = `textbook/volumes/dream_thater/応用系/U/${chapter}`;
   const markdown = await readFile(path.join(root, chapterDir, 'index.md'), 'utf8');
-  const blocks = [...markdown.matchAll(/```python-file-lab\\s*\\n([\\s\\S]*?)\\n```/g)];
+  const blocks = [...markdown.matchAll(/```python-file-lab\s*\n([\s\S]*?)\n```/g)];
   assert.equal(blocks.length, 1, `${chapter}: one browser-executable file lab required`);
   const metadata = new Map();
-  for (const line of blocks[0][1].split('\\n')) {
-    const match = line.match(/^#\\s*([a-z-]+):\\s*(.*?)\\s*$/);
+  for (const line of blocks[0][1].split('\n')) {
+    const match = line.match(/^#\s*([a-z-]+):\s*(.*?)\s*$/);
     assert.ok(match, `${chapter}: malformed lab metadata: ${line}`);
     if (match[1] === 'lab-preset') {
       const separator = match[2].indexOf('|');
