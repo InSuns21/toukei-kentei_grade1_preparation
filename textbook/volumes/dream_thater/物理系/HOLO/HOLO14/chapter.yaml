@@ -15,7 +15,7 @@ learning_objectives:
   - 重力異常の既出結果とスカラーの平坦模型を混同せず適用範囲を説明できる
 definitions:
   - { id: HOLO14-DEF-01, name: cutoff局所反項と繰り込み作用 }
-  - { id: HOLO14-DEF-02, name: 1<nu<2の最小反項 }
+  - { id: HOLO14-DEF-02, name: 勾配を含む最小反項 }
   - { id: HOLO14-DEF-03, name: 共鳴展開と参照スケール }
   - { id: HOLO14-DEF-04, name: 繰り込み済み源応答 }
 theorems:
