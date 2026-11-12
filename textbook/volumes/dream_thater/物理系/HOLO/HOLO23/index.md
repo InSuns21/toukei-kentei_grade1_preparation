@@ -119,11 +119,17 @@ S_{\partial}(A)
 =\frac{A_0}{4G_N}
 +\underbrace{\frac{\delta_g A}{4G_N}
 +S_{\rm bulk}^{(a)}(\Sigma_A)
-+S_{\rm local}^{(1)}(a)}_{\text{$O(G_N^0)$：繰り込みと同じ規約で合わせる}}
++S_{\rm local}^{(1)}(a)}_{\text{1ループ次数：繰り込みと同じ規約}}
 +O(G_N).
 $$
 >
-> $\delta_g A=\operatorname{Area}_{g_{\rm sc}}(\gamma_A^{(0)})-A_0=O(G_N)$ は**同じ古典面の位置を固定した計量反作用による**面積変化である。$S_{\rm local}^{(1)}$ はゲージ場・重力・非極小結合などの局所面項と反項を含み得る。$S_{\rm bulk}^{(a)}$ は[バルク領域エントロピー](#def-holo23-bulk-entropy)であり、単独でcutoffを外せるとは限らない。上式は次数と寄与の整理で、一般背景での無条件な等式の証明ではない。
+> 面の位置を固定して計量を変えるときの面積差を次のように定める。
+
+$
+\delta_g A=\operatorname{Area}_{g_{\rm sc}}(\gamma_A^{(0)})-A_0=O(G_N).
+$
+
+> この差は**同じ古典面の位置を固定した計量反作用による**面積変化である。$S_{\rm local}^{(1)}$ はゲージ場・重力・非極小結合などの局所面項と反項を含み得る。$S_{\rm bulk}^{(a)}$ は[バルク領域エントロピー](#def-holo23-bulk-entropy)であり、単独でcutoffを外せるとは限らない。上式は次数と寄与の整理で、一般背景での無条件な等式の証明ではない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo23-flm -->
