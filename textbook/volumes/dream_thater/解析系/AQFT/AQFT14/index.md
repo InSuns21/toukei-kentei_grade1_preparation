@@ -2,7 +2,16 @@
 
 [AQFT13の局所性からの包含](../AQFT13/index.md#prop-aqft13-causal-complement-commutant)では、空間的に離れた領域の観測量が交換するため、$\mathcal M(O^\perp)\subset\mathcal M(O)'$ が分かりました。しかし可換子 $\mathcal M(O)'$ には、**補領域の観測量からは作れない余分な演算子**が含まれるかもしれません。包含が等号になる条件と、局所von Neumann環を中心で分解できるかという条件は異なります。本講ではこれらを独立に計算し、後の局所von Neumann環の型分類への足場を作ります。
 
-舞台は計量符号 $(-,+,+,+)$ の四次元Minkowski時空です。[AQFT1の因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)を $O^\perp$、[AQFT9の局所von Neumann net](../AQFT9/index.md#def-aqft9-local-vn-net)を $\mathcal M(O)\subset B(\mathcal H)$ と書きます。全ての可換子は同じ $\mathcal H$ 上の $B(\mathcal H)$ 内で取り、局所性と包含単調性を仮定します。ここで $\mathcal H$ は固定した表現のHilbert空間です。必要な場合、開領域 $V$ の代数は $\mathcal M(V)=\bigl(\bigcup_{D\Subset V}\mathcal M(D)\bigr)''$ と定め、$D$ は閉包が $V$ にコンパクトに含まれる有界double coneを走るものとします。この定義は開領域への拡張を新たに選ぶ場合の規約です。もともとのnetが全開領域で定義されている場合、それと一致するには内側からの加法性などの追加仮定が必要であり、無条件には同一視しません。
+舞台は計量符号 $(-,+,+,+)$ の四次元Minkowski時空です。[AQFT1の因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)を $O^\perp$ と書きます。また [AQFT9の局所von Neumann net](../AQFT9/index.md#def-aqft9-local-vn-net) を、固定した表現のHilbert空間 $\mathcal H$ 上の作用素環 $\mathcal M(O)\subset B(\mathcal H)$ として使います。全ての可換子はこの同じHilbert空間で取り、局所性と包含単調性を仮定します。
+
+必要な場合、開領域 $V$ の代数を次の式で拡張します。
+
+$
+\mathcal M(V)
+=\left(\bigcup_{D\Subset V}\mathcal M(D)\right)''.
+$
+
+ここで $D\Subset V$ は、閉包が $V$ にコンパクトに含まれる有界double coneを走る記号です。この式は開領域への拡張を新たに選ぶ場合の規約です。もともとのnetが全開領域で定義されている場合、それと一致するには内側からの加法性などの追加仮定が必要であり、無条件には同一視しません。
 
 ## 1. 局所性の包含とHaag双対性の等号
 
