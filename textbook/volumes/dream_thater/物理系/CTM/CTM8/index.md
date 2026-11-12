@@ -149,16 +149,16 @@ $$
 
 ### 成分で何が相殺しているか：Piola 恒等式
 
-微分の取り違えを防ぐため、発散変換の中間式を成分でも確かめる。$C_{jA}:=JF^{-1}_{Aj}$ と置く。これは [CTM2 の余因子行列](../CTM2/index.md#prop-ctm2-cofactor-inverse)の成分である。$F_{kA}=\partial_{X_A}\chi_k$ の二階混合微分が交換できるとき
+微分の取り違えを防ぐため、発散変換の中間式を成分でも確かめる。$K_{jA}:=JF^{-1}_{Aj}$ と置く。これは [CTM2 の余因子行列](../CTM2/index.md#prop-ctm2-cofactor-inverse)の成分である。$F_{kA}=\partial_{X_A}\chi_k$ の二階混合微分が交換できるとき
 
 $$
-\boxed{\sum_A\partial_{X_A}C_{jA}=0}
+\boxed{\sum_A\partial_{X_A}K_{jA}=0}
 $$
 
 という **Piola 恒等式**が成り立つ。確かめるには [Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon)を用い、
 
 $$
-C_{jA}=\frac12\sum_{k,l,B,C}\varepsilon_{jkl}\varepsilon_{ABC}F_{kB}F_{lC}
+K_{jA}=\frac12\sum_{k,l,B,C}\varepsilon_{jkl}\varepsilon_{ABC}F_{kB}F_{lC}
 $$
 
 と展開する。$X_A$ で微分した第一の積は $\partial_{X_A}F_{kB}=\partial_{X_B}F_{kA}$ によって $A,B$ について対称であるのに、係数 $\varepsilon_{ABC}$ は反対称だから和がゼロになる。第二の積も $\partial_{X_A}F_{lC}=\partial_{X_C}F_{lA}$ によって $A,C$ の対称性と反対称性からゼロになる。従って恒等式が示された。
@@ -175,9 +175,9 @@ $$
 $$
 \begin{aligned}
 \sum_A\partial_{X_A}P_{iA}
-&=\sum_{j,A}\partial_{X_A}\left((\sigma_{ij}\circ\chi)C_{jA}\right)\\
-&=\sum_{j,A,k}C_{jA}F_{kA}(\partial_{x_k}\sigma_{ij})\circ\chi
-+\sum_j(\sigma_{ij}\circ\chi)\sum_A\partial_{X_A}C_{jA}\\
+&=\sum_{j,A}\partial_{X_A}\left((\sigma_{ij}\circ\chi)K_{jA}\right)\\
+&=\sum_{j,A,k}K_{jA}F_{kA}(\partial_{x_k}\sigma_{ij})\circ\chi
++\sum_j(\sigma_{ij}\circ\chi)\sum_A\partial_{X_A}K_{jA}\\
 &=J\sum_{j,k}\delta_{jk}(\partial_{x_k}\sigma_{ij})\circ\chi
 =J\,(\operatorname{div}_x\sigma)_i\circ\chi.
 \end{aligned}
@@ -371,8 +371,6 @@ $\gamma$ が大きくても成立し、小変形近似を使っていない。$\
 - $F$ が特異になれば $F^{-1}$ と $F^{-T}$ が使えない。$J>0$ を失う変形では [Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)をこの形で使えず、応力を基準へ引き戻す論証が壊れる。
 - 仕事率の恒等式はエネルギー保存則そのものではない。熱流束・内部エネルギーを含む収支は次講で扱う。
 
-本講の図・動き候補は基準面と現在面の対応、せん断応力の表示切替である。今回は第1節の三軸伸長の面積・力の検算と第4節の時間依存せん断の三重検算で変換を独立に追えるため、図を追加せず数式と演習で比較する。
-
 ## 6. 演習
 
 各問では $F$ が変形勾配として実現でき $J>0$ である条件を確認すること。時間を指定しない問題は、ある時刻での瞬間的な値を与える。$P=J\sigma F^{-T}$、$S=F^{-1}P$ とし、$P_{iA}$ は現在の力・基準の法線成分である。
@@ -477,7 +475,7 @@ $$
 
 ### B2. Piola 恒等式を二次元せん断で直接検算する
 
-$\chi(X)=(X_1+f(X_2),X_2,X_3)$、$f$ は $C^2$ 級、$f$ と $X_i$ は m とする。$F,J$ と $C=JF^{-T}$ を求め、各行について $\sum_A\partial_{X_A}C_{jA}=0$ を検算せよ。
+$\chi(X)=(X_1+f(X_2),X_2,X_3)$、$f$ は $C^2$ 級、$f$ と $X_i$ は m とする。$F,J$ と $K=JF^{-T}$ を求め、各行について $\sum_A\partial_{X_A}K_{jA}=0$ を検算せよ。
 
 - Level: B
 
@@ -489,7 +487,7 @@ $g(X_2):=f'(X_2)$ は無次元である。微分して
 $$
 F=\begin{pmatrix}1&g&0\\0&1&0\\0&0&1\end{pmatrix},\quad
 J=1,\quad
-F^{-T}=C=\begin{pmatrix}1&0&0\\-g&1&0\\0&0&1\end{pmatrix}.
+F^{-T}=K=\begin{pmatrix}1&0&0\\-g&1&0\\0&0&1\end{pmatrix}.
 $$
 
 第1行の発散は $\partial_{X_1}1+\partial_{X_2}0+\partial_{X_3}0=0$。第2行は
@@ -539,7 +537,7 @@ $F$ は可逆で $J>0$ とする。(i) $\sigma$ が非対称なら $S$ の対称
 
 (i) [第二 Piola 応力の対称性の命題](#prop-ctm8-symmetry)の逆向きから、$\sigma\ne\sigma^T$ なら $S\ne S^T$。例えば $F=I_3$、$J=1$ なら $S=\sigma$ なので即座に確かめられる。この場合に古典的な角運動量収支まで仮定してはいけない。
 
-(ii) $g(X_2)=1+X_2/\ell>0$ と置けば $F=\operatorname{diag}(g,1,1)$、$J=g$、$C=JF^{-T}=\operatorname{diag}(1,g,g)$。第2行の発散は $\partial_{X_2}g=1/\ell\ne0$ である。もし $F=D_X\chi$ なら、$\partial_{X_2}F_{11}=\partial_{X_1}F_{12}$ が必要だが、左は $1/\ell$、右は $0$ で矛盾する。従って $F$ はこの領域で運動写像の勾配でなく、[発散変換の証明](#thm-ctm8-reference-momentum)の Piola 恒等式を適用できない。$J>0$ だけでは足りない。
+(ii) $g(X_2)=1+X_2/\ell>0$ と置けば $F=\operatorname{diag}(g,1,1)$、$J=g$、$K=JF^{-T}=\operatorname{diag}(1,g,g)$。第2行の発散は $\partial_{X_2}g=1/\ell\ne0$ である。もし $F=D_X\chi$ なら、$\partial_{X_2}F_{11}=\partial_{X_1}F_{12}$ が必要だが、左は $1/\ell$、右は $0$ で矛盾する。従って $F$ はこの領域で運動写像の勾配でなく、[発散変換の証明](#thm-ctm8-reference-momentum)の Piola 恒等式を適用できない。$J>0$ だけでは足りない。
 <!-- solution-end -->
 
 ## Level C
