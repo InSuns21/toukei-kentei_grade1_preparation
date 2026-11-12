@@ -90,7 +90,7 @@ $$
 
 ### 証明の見取り図
 
-[物質領域 Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)で時間微分を体積積分へ戻し、連続の式で速度に掛かった余分な項を消す。面積分には [VC7 のテンソル版発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)を $\sigma$ の行ごとに適用する。任意領域で積分がゼロなら連続な被積分関数は各点でゼロとなる。
+[物質領域 Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)で時間微分を体積積分へ戻し、連続の式で速度に掛かった余分な項を消す。面積分には [二階テンソル版 Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)を $\sigma$ の行ごとに適用する。任意領域で積分がゼロなら連続な被積分関数は各点でゼロとなる。
 
 <!-- proof-start -->
 ### 証明
@@ -113,7 +113,7 @@ D_t(\rho v_i)+\rho v_i\operatorname{div}v
 \end{aligned}
 $$
 
-一方、境界の第 $i$ 成分は $\sigma_{ij}n_j$（重複添字 $j$ について和）である。[VC7 のテンソル版発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)において各行 $(\sigma_{i1},\sigma_{i2},\sigma_{i3})$ をベクトル場とすれば
+一方、境界の第 $i$ 成分は $\sigma_{ij}n_j$（重複添字 $j$ について和）である。[二階テンソル版 Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)において各行 $(\sigma_{i1},\sigma_{i2},\sigma_{i3})$ をベクトル場とすれば
 
 $$
 \int_{\partial U_t}\sigma_{ij}n_j\,dS
@@ -179,7 +179,7 @@ $$
 
 ### 証明の見取り図
 
-角運動量密度へ [物質領域 Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)を適用し、$D_tr=v$ と $v\times v=0$ で左辺を $\int r\times\rho a$ にする。右辺に [テンソル版発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)を用いると、$\operatorname{div}\sigma$ に位置を掛けた項のほか、$\varepsilon_{ijk}\sigma_{kj}$ が残る。前節の局所運動量式を差し引けば、残りは応力の反対称成分だけとなる。
+角運動量密度へ [物質領域 Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)を適用し、$D_tr=v$ と $v\times v=0$ で左辺を $\int r\times\rho a$ にする。右辺に [二階テンソル版 Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)を用いると、$\operatorname{div}\sigma$ に位置を掛けた項のほか、$\varepsilon_{ijk}\sigma_{kj}$ が残る。前節の局所運動量式を差し引けば、残りは応力の反対称成分だけとなる。
 
 <!-- proof-start -->
 ### 証明
@@ -204,7 +204,7 @@ $$
 
 第一項は $v\times v=0$、第三項は質量保存で消える。従って角運動量収支の左辺は $\int_{U_t}\varepsilon_{ijk}r_j\rho a_k\,dV$。
 
-右辺の第 $i$ 成分では $N_{i\ell}=\varepsilon_{ijk}r_j\sigma_{k\ell}$ というベクトル場（$i$ を固定し、$\ell$ を走らせる）を作る。[VC7 のテンソル版発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)を行ごとに用い、積の微分を計算する。
+右辺の第 $i$ 成分では $N_{i\ell}=\varepsilon_{ijk}r_j\sigma_{k\ell}$ というベクトル場（$i$ を固定し、$\ell$ を走らせる）を作る。[二階テンソル版 Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)を行ごとに用い、積の微分を計算する。
 
 $$
 \begin{aligned}
@@ -405,7 +405,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-定数行列だから各成分 $\partial_j\sigma_{ij}=0$。[VC7 のテンソル版発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)より合力は $\int_{\partial U}\sigma n\,dS=\int_U\operatorname{div}\sigma\,dV=0$。
+定数行列だから各成分 $\partial_j\sigma_{ij}=0$。[二階テンソル版 Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC7/index.md#thm-vc7-tensor-divergence)より合力は $\int_{\partial U}\sigma n\,dS=\int_U\operatorname{div}\sigma\,dV=0$。
 
 トルク第 $3$ 成分に証明中の積の微分を使うと
 
