@@ -433,7 +433,7 @@ $$
 <!-- definition-example-start: def-inv7-effective-noise -->
 ### 例：観測が正確でも離散化誤差は残る
 
-**定義の確認**：$X=Y=\mathbb R$、$A=1$、$A_h=1.1$（スカラー倍作用素）、$x^\dagger=2$、$y=2$、$y^\delta=2.1$ とします。実際に $\delta=0.1$、$B=2$ を選べます。また $A_h-A$ は実数 $t$ を $0.1t$ へ写します。[作用素ノルムの定義](../../F0/F0-02C3/index.md#def-f0-02c3-operator-norm)をこの写像へ適用すると
+**定義の確認**：$X=Y=\mathbb R$、$A=1$、$A_h=1.1$（スカラー倍作用素）、$x^\dagger=2$、$y=2$、$y^\delta=2.1$ とします。実際に $\delta=0.1$、$B=2$ を選べます。また $A_h-A$ は実数 $t$ を $0.1t$ へ写します。[有界線形写像の作用素ノルム](../../F0/F0-02C3/index.md#def-f0-02c3-operator-norm)をこの写像へ適用すると
 
 $$
 \eta_h=\|A_h-A\|=\sup_{|t|\le1}|0.1t|=0.1
@@ -650,7 +650,7 @@ $$
 \|(A_h-A)v\|^2=\frac{v_2^2}{100}\le\frac{\|v\|^2}{100}.
 $$
 
-$v=e_2$ で等号になるので、[作用素ノルムの定義](../../F0/F0-02C3/index.md#def-f0-02c3-operator-norm)により $\eta_h=1/10$ です。さらに $\|x^\dagger\|=2=B$ です。[有効誤差の定義](#def-inv7-effective-noise)から
+$v=e_2$ で等号になるので、[有界線形写像の作用素ノルム](../../F0/F0-02C3/index.md#def-f0-02c3-operator-norm)により $\eta_h=1/10$ です。さらに $\|x^\dagger\|=2=B$ です。[有効誤差の定義](#def-inv7-effective-noise)から
 
 $$
 \varepsilon_h=\frac1{20}+\frac1{10}\cdot2=\frac14.
