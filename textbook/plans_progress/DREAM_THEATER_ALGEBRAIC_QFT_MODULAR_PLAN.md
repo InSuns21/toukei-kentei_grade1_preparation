@@ -1,8 +1,8 @@
 # DREAM THEATER 代数的量子場理論・モジュラー理論（AQFT系列・全34講）
 
 作成・分冊: 2026-10-11  
-改訂: 2026-11-13（AQFT9のGNS局所von Neumann環を実装）  
-状態: in_progress（AQFT1–9本文・系列manifest・公開を実装。次講AQFT10–34と最終横断監査は未完了）
+改訂: 2026-11-13（AQFT10の無限モード変位状態と非同値表現を実装）  
+状態: in_progress（AQFT1–10本文・系列manifest・公開を実装。次講AQFT11–34と最終横断監査は未完了）
 
 ## 中心問いと出口
 
