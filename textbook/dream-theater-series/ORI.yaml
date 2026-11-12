@@ -1,7 +1,7 @@
 version: 1
 id: ORI
 title: "オリガミクス・数学的折り紙"
-plan: textbook/plans_progress/DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 公開目次・本文・メタデータは completed 章のみ追加する。
