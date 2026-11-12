@@ -58,15 +58,15 @@ $$
 
 両不等式を満たす時刻が存在する条件は $s<R$ です。そこで交差の開領域は
 
-$
+$$
 |t|<R-s,\qquad |t|+s<R
-$
+$$
 
 と同値になります。境界極限 $z\downarrow0$ では $s\to|x|$ となるため、境界の依存域 $D(A)$ を得ます。また時刻 $t=0$ では
 
-$
+$$
 x^2+z^2<R^2.
-$
+$$
 
 [真空RT半円とその領域の依存域の一致](../HOLO25/index.md#prop-holo25-vacuum-wedge-equality)を静的真空に適用すると、エンタングルメントくさびとの一致が得られます。一般の励起状態へは、この一致を延長していません。
 <!-- proof-end -->
@@ -95,30 +95,30 @@ $$
 > **定義（区間に適合するAdS–Rindler座標）**  
 > 半径 $L>0$ の純 Poincaré $AdS_3$ で、境界区間と座標の範囲を次で指定する。
 
-$
+$$
 A=\{(0,x):|x|<R\},\quad R>0,\quad r>1,\quad \tau,\chi\in\mathbb R.
-$
+$$
 
 > 以下の補助量を定める。
 
-$
+$$
 u=\sqrt{r^2-1},\qquad D=r\cosh\chi+u\cosh\tau.
-$
+$$
 
 > 次の変換の像を、その区間の AdS–Rindler 座標表示とする。
 
-$
+$$
 (t,x,z)=
 \left(\frac{Ru\sinh\tau}{D},
 \frac{Rr\sinh\chi}{D},
 \frac R D\right).
-$
+$$
 
 > $r=1$ の有限 $\tau,\chi$ 極限は座標くさびの分岐曲線を表す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo27-rindler-chart -->
-**定義の確認。** $\tau=\chi=0$、$r=5/4$ を代入すると $u=3/4$、$D=2$ なので $(t,x,z)=(0,0,R/2)$ です。前節の不等式では $R/2<R$、従ってこの点はくさび内です。また $D>0$ は $r>1$ と双曲余弦の正値性から従い、$z>0$ です。
+**定義の確認**。 $\tau=\chi=0$、$r=5/4$ を代入すると $u=3/4$、$D=2$ なので $(t,x,z)=(0,0,R/2)$ です。前節の不等式では $R/2<R$、従ってこの点はくさび内です。また $D>0$ は $r>1$ と双曲余弦の正値性から従い、$z>0$ です。
 <!-- definition-example-end -->
 
 <a id="prop-holo27-rindler-metric"></a>
@@ -205,7 +205,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo27-rindler-mode -->
-**定義の確認。** $m=k=\omega=0$ とすると径方程式は $\partial_r[r(r^2-1)F']=0$ です。定数 $F$ は解ですが、境界 $r\to\infty$ で消えないので**源零の正規化可能な枝ではありません**。このように、変数分離できることと指定した境界条件を満たすことは別に確認します。
+**定義の確認**。 $m=k=\omega=0$ とすると径方程式は $\partial_r[r(r^2-1)F']=0$ です。定数 $F$ は解ですが、境界 $r\to\infty$ で消えないので**源零の正規化可能な枝ではありません**。このように、変数分離できることと指定した境界条件を満たすことは別に確認します。
 <!-- definition-example-end -->
 
 <a id="prop-holo27-radial-equation"></a>
@@ -266,7 +266,7 @@ $\alpha^2=-\omega^2/4$ より $\alpha=\pm i\omega/2$ です。$\omega=0$ は重�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo27-restricted-measurement -->
-**定義の確認。** 二つのモードの境界波形が、選んだ二測定でそれぞれ $(1,1)^T$ と $(1,-1)^T$ を与えるなら、第一列・第二列を並べて $M=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ です。$c=(2,1)^T$ に対し $d=(3,1)^T$ となります。これを具体的な AdS の完全なモードスペクトルだと同一視せず、**測定手順の線形代数模型**として使います。
+**定義の確認**。 二つのモードの境界波形が、選んだ二測定でそれぞれ $(1,1)^T$ と $(1,-1)^T$ を与えるなら、第一列・第二列を並べて $M=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ です。$c=(2,1)^T$ に対し $d=(3,1)^T$ となります。これを具体的な AdS の完全なモードスペクトルだと同一視せず、**測定手順の線形代数模型**として使います。
 <!-- definition-example-end -->
 
 <a id="thm-holo27-finite-recovery"></a>
@@ -338,7 +338,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo27-subregion-reconstruction -->
-**定義の確認。** $\mathcal H_{\mathrm{code}}=\mathbb C^2$、$\mathcal H_A=\mathcal H_{\bar A}=\mathbb C^2$ として
+**定義の確認**。 $\mathcal H_{\mathrm{code}}=\mathbb C^2$、$\mathcal H_A=\mathcal H_{\bar A}=\mathbb C^2$ として
 
 $$
 V|0\rangle=|00\rangle,\qquad V|1\rangle=|11\rangle
@@ -404,19 +404,19 @@ $$
 
 補集合の二つの基底状態は直交しています。したがって、交差項の部分トレースは
 
-$
+$$
 \operatorname{Tr}_{\bar A}(|00\rangle\langle11|)
 =|0\rangle\langle1|\langle1|0\rangle=0
-$
+$$
 
 となり、$\rho_A^+=\rho_A^-=I/2$ です。
 
 しかし論理Pauli演算子 $X$ は、基底を入れ替える作用を持ちます。
 
-$
+$$
 X|0\rangle=|1\rangle,\quad X|1\rangle=|0\rangle,\quad
 X|\pm\rangle=\pm|\pm\rangle.
-$
+$$
 
 そのため期待値はそれぞれ $+1$ と $-1$ です。[部分領域が識別できない状態の障害](#thm-holo27-indistinguishability)によれば、$X$ は $A$ に再構成できません。$Z$ の再構成が可能でも $X$ は不可能です。**「一部の論理演算子が局在する」と「全論理代数が局在する」は異なります。**
 
