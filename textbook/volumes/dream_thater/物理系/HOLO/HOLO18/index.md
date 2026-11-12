@@ -384,7 +384,7 @@ $\sqrt5>\sqrt3$ なので後者の方が長い。別の端点問題を解いて�
 **B2. Rényi係数との接続。** 左右の中央電荷が $c$ の二次元CFTの平面真空区間で、既習の整数 $n\ge2$ の普遍係数 $\frac c6(1+1/n)$ を用いる。$n=2$ の係数を求め、物理的な $n\to1$ 接続が成立する場合の係数と比較し、なぜ整数値だけでは後者を確定できないか述べよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** [HOLO17で確認した区間Rényiの係数](../HOLO17/index.md#def-holo17-boundary-data)は $n=2$ で $\frac c6(1+\frac12)=c/4$。同じ式を $n=1$ へ連続的に延長できるときは $\frac c6(1+1)=c/3$。$c/4\ne c/3$ で、二次RényiをそのままRTのvon Neumann量へ代入してはいけない。整数列に一致する関数へ、例えば $\alpha\sin(\pi n)$ を加えても整数点で変化しないが $n=1$ 近傍の導関数は変わるため、整数点の値だけから解析接続や微分は一意に決まらない。[QFT59の条件付きvon Neumann結果](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)の仮定が必要である。
+**詳細解答。** [HOLO17で確認した区間Rényiの係数](../HOLO17/index.md#def-holo17-boundary-data)は $n=2$ で $\frac c6(1+\frac12)=c/4$。同じ式を $n=1$ へ連続的に延長できるときは $\frac c6(1+1)=c/3$。$c/4\ne c/3$ で、二次RényiをそのままRTのvon Neumann量へ代入してはいけない。整数レプリカ値を補間する任意の解析関数へ、例えば $\alpha\sin(\pi n)$ を加えても整数点で変化しないが $n=1$ 近傍の導関数は変わるため、**補間条件だけでは**解析接続の微分は一意に決まらない。ただし有限次元密度行列の全整数モーメントが厳密に既知である場合はスペクトル和の構造から復元できる（[HOLO17の有限次元についての説明](../HOLO17/index.md#def-holo17-boundary-data)）。連続体CFTの経路積分には[QFT59の条件付きvon Neumann結果](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)の仮定が必要である。
 <!-- solution-end -->
 
 <a id="ex-holo18-b03"></a>
