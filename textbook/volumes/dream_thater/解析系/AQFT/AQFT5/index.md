@@ -122,7 +122,7 @@ $$
 となります。$h$ に対しても $Eh=v$ です。ここでは[Green対の符号公式](../../HPDE/HPDE23/index.md#prop-hpde23-green-pairing)を引用せず、カットオフの微分から負号を再確認します。
 
 $f$ に先ほどの表示を使い、$\chi'$ のコンパクト支持により時間部分積分を行うと
-$
+$$
 \begin{aligned}
 -\int_M f v\,d^4x
 &=-\int_M(\chi''uv+2\chi'\partial_tu\,v)\,d^4x\\
@@ -132,7 +132,7 @@ $
 &=\left(\int_{\mathbb R}\chi'(t)\,dt\right)\Omega(u,v)
 =\Omega(u,v).
 \end{aligned}
-$
+$$
 三番目の式では括弧内が時刻に依存しないことを[面独立性](../../HPDE/HPDE23/index.md#thm-hpde23-slice-independence)で使いました。したがって源を具体的に取っても $\sigma([f],[h])=\int a^2>0$ が再現されます。$P(\chi u)$ と $P\chi\cdot u$ は異なる表記であることに注意してください。
 
 ## 3. 局所部分空間とシンプレクティック直交
