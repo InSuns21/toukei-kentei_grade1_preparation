@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="統計検定1級 統計数理・統計応用（理工学）の演習教材" />
   <title>統計検定1級 対策教材</title>
+  <script data-standalone-html-redirect>
+    // Old bookmarked /#/textbook/.../file.html URLs routed through Docsify,
+    // which cannot execute the standalone page's module scripts. Redirect to
+    // the actual Pages file before Docsify starts loading the route.
+    (() => {
+      const route = location.hash.match(/^#\/(textbook\/volumes\/[^?#]+\.html?)$/i)?.[1];
+      if (!route) return;
+      if (route.split('/').some(part => part === '.' || part === '..' || /%2e/i.test(part))) return;
+      location.replace(new URL(route, location.href.split('#')[0]).href);
+    })();
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
   <link rel="stylesheet" href="numerical-lab.css" />
