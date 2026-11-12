@@ -5,7 +5,7 @@
   <line x1="110" y1="306" x2="613" y2="306" stroke="#444" stroke-width="1.8"/>
   <line x1="110" y1="54" x2="110" y2="306" stroke="#444" stroke-width="1.8"/>
   <line x1="110" y1="94" x2="611" y2="94" stroke="#666" stroke-width="1.6" stroke-dasharray="3 6"/>
-  <text x="22" y="32" font-size="18" font-family="sans-serif" fill="#222">株価（円）</text>
+  <text x="22" y="32" font-size="18" font-family="sans-serif" fill="#222">S (JPY)</text>
   <text x="47" y="100" font-size="17" font-family="sans-serif" fill="#333">120</text>
   <text x="47" y="205" font-size="17" font-family="sans-serif" fill="#333">100</text>
   <text x="57" y="288" font-size="17" font-family="sans-serif" fill="#333">80</text>
@@ -24,5 +24,5 @@
   <text x="114" y="332" font-size="17" font-family="sans-serif" fill="#222">0</text>
   <text x="345" y="332" font-size="17" font-family="sans-serif" fill="#222">1</text>
   <text x="565" y="332" font-size="17" font-family="sans-serif" fill="#222">2</text>
-  <text x="627" y="332" font-size="17" font-family="sans-serif" fill="#222">時点 t</text>
+  <text x="627" y="332" font-size="17" font-family="sans-serif" fill="#222">time t</text>
 </svg>
