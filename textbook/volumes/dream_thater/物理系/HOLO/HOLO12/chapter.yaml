@@ -1,0 +1,46 @@
+id: HOLO12
+title: "バルクゲージ場と保存流"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO11
+official_scope: []
+learning_objectives:
+  - Euclid AdSのMaxwell作用とAbelゲージ変換を定義し場の強さの不変性を成分で検算できる
+  - Maxwell作用の第一変分と紫外cutoff面の外向き運動量を導出し法線の符号を説明できる
+  - ベクトル版GKPW辞書の仮定と境界電流の源微分を区別できる
+  - 径方向ゲージの拘束と横波方程式を導き縦成分が純ゲージであることを確認できる
+  - 境界源の1形式としての変換則から保存電流の次元d-1を説明できる
+  - d3の赤外減衰解から横射影された運動量2点関数と分離点の位置空間核を計算できる
+  - 境界源のゲージ不変性からWard恒等式を導き荷電挿入と接触項の例外を識別できる
+  - d4の対数項から裸の境界応答を一般次元へ外挿できない理由を計算できる
+definitions:
+  - { id: HOLO12-DEF-01, name: Euclid AdS上のMaxwell作用とゲージ変換 }
+  - { id: HOLO12-DEF-02, name: 境界の保存電流応答 }
+theorems:
+  - { id: HOLO12-PROP-01, name: Maxwell作用の第一変分と境界運動量 }
+  - { id: HOLO12-PROP-02, name: 径方向ゲージの拘束と横波 }
+  - { id: HOLO12-PROP-03, name: 保存流の境界スケーリング次元 }
+  - { id: HOLO12-PROP-04, name: d3の横射影された保存流2点関数 }
+  - { id: HOLO12-PROP-05, name: 源のゲージ不変性と保存流Ward恒等式 }
+canonical_examples:
+  - 局所純ゲージA=dλでF=0と作用密度零を直接計算する
+  - 一成分の動径場でsqrtγとn_zから境界運動量の負号を求める
+  - kが1軸を向くとき縦成分と横成分の伝播を比較する
+  - d3でGaussian積分と位置微分から電流2点の係数を求める
+  - d4でz二乗logの係数を求め裸応答の発散を示す
+problem_patterns:
+  - HOLO12-PURE-GAUGE
+  - HOLO12-OUTWARD-MOMENTUM
+  - HOLO12-TRANSVERSE-POLARIZATION
+  - HOLO12-PROJECTOR-NUMERIC
+  - HOLO12-CURRENT-DIMENSION
+  - HOLO12-ONSHELL-GENERATOR
+  - HOLO12-WARD-DIVERGENCE
+  - HOLO12-FOURIER-TO-POSITION
+  - HOLO12-LOG-COUNTERTERM
+  - HOLO12-INTEGRATED-CURRENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }
