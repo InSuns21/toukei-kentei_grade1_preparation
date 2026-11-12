@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 290" role="img" data-layout-lint="strict" aria-labelledby="title desc">
+  <title id="title">接触Witten図の3本の外線</title>
+  <desc id="desc">上部の共形境界z=0の互いに異なる3点y1、y2、y3から、AdS内部の単一の頂点X=(z,x)へ3本のbulk-to-boundary線が延びる。頂点は内部全域で積分される。線は軌道ではなく核の接続を表す。</desc>
+  <rect x="1" y="1" width="638" height="288" rx="16" fill="#f8fafc" stroke="#cbd5e1"/>
+  <g stroke="#45566c" stroke-width="3" fill="none">
+    <path d="M60 80 H580" stroke-dasharray="8 6"/>
+  </g>
+  <g stroke="#2563a6" stroke-width="3.5" stroke-linecap="round" fill="none">
+    <path d="M160 88 Q215 169 320 205"/>
+    <path d="M320 88 L320 205"/>
+    <path d="M480 88 Q425 169 320 205"/>
+  </g>
+  <g fill="#ffffff" stroke="#26384b" stroke-width="3">
+    <circle cx="160" cy="80" r="8"/>
+    <circle cx="320" cy="80" r="8"/>
+    <circle cx="480" cy="80" r="8"/>
+  </g>
+  <circle cx="320" cy="205" r="10" fill="#e49b3b" stroke="#26384b" stroke-width="3"/>
+  <g fill="#233348" font-family="Arial, sans-serif" font-size="20">
+    <text x="68" y="53">z = 0</text>
+    <text x="149" y="53">y₁</text>
+    <text x="309" y="53">y₂</text>
+    <text x="469" y="53">y₃</text>
+    <text x="70" y="170">z &gt; 0</text>
+    <text x="340" y="240">X = (z, x)</text>
+  </g>
+</svg>
