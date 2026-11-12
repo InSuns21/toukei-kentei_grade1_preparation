@@ -15,8 +15,8 @@
     <path d="M576 303 H878"/><path d="M576 303 V103"/>
   </g>
   <g fill="#526371" font-size="18" font-family="Noto Serif CJK JP, sans-serif">
-    <text x="366" y="327">X1</text><text x="66" y="105">X2</text>
-    <text x="856" y="327">x1</text><text x="546" y="105">x2</text>
+    <text x="366" y="327">X1</text><text x="40" y="93">X2</text>
+    <text x="856" y="327">x1</text><text x="520" y="93">x2</text>
   </g>
   <path d="M217 281 L217 122" stroke="#246a71" stroke-width="8" stroke-linecap="round"/>
   <path d="M680 281 L779 122" stroke="#246a71" stroke-width="8" stroke-linecap="round"/>
@@ -33,7 +33,7 @@
     <text x="740" y="106">Fa</text>
   </g>
   <path d="M422 199 H541" fill="none" stroke="#415c71" stroke-width="3" marker-end="url(#arr-flow)"/>
-  <text x="477" y="187" font-size="20" text-anchor="middle" fill="#415c71" font-family="Noto Serif CJK JP, sans-serif">χ</text>
+  <text x="477" y="159" font-size="20" text-anchor="middle" fill="#415c71" font-family="Noto Serif CJK JP, sans-serif">χ</text>
   <g fill="#435363" font-size="16" font-family="Noto Serif CJK JP, sans-serif">
     <text x="209" y="334" text-anchor="middle">面積ベクトル：N dA</text>
     <text x="733" y="334" text-anchor="middle">面積ベクトル：n da</text>
