@@ -30,10 +30,10 @@ $$
 
 これらの位相のうち、[VN1の強作用素位相（SOT）](../../VN/VN1/index.md#def-vn1-sot)では、作用素の族 $T_\alpha$ が $T$ に収束するとは、各 $\eta\in\mathcal H_\omega$ に作用させたベクトルがノルム収束することです。
 
-$
+$$
 \|(T_\alpha-T)\eta\|\longrightarrow0
 \qquad(\eta\in\mathcal H_\omega)
-$
+$$
 
 一方、[VN1の弱作用素位相（WOT）](../../VN/VN1/index.md#def-vn1-wot)での収束は、すべてのベクトル対に対して行列係数が収束することです。すなわち、
 
@@ -78,24 +78,24 @@ $$
 
 なぜここで対角行列を使えるのでしょうか。[OA5のGNS商内積](../../OA/OA5/index.md#prop-oa5-quotient-inner-product)をこの状態へ適用すると、零空間がないため商の元を $[(c,d)]$ と書けて、
 
-$
+$$
 \langle[(a,b)],[(c,d)]\rangle_{\rm av}
 =\frac{\overline a c+\overline b d}{2}.
-$
+$$
 
 従って $e_1=\sqrt2[(1,0)]$、$e_2=\sqrt2[(0,1)]$ は正規直交基底です。[GNSの左乗法表現](../../OA/OA5/index.md#prop-oa5-left-multiplication-bounded)は
 
-$
+$$
 \pi_{\rm av}(a,b)[(c,d)]=[(ac,bd)]
-$
+$$
 
 なので、この**基底での**行列が $\operatorname{diag}(a,b)$ となります。さらにGNS巡回ベクトルは単位元の類 $[(1,1)]$ だから、基底座標では
 
-$
+$$
 \mathcal H_{\rm av}\simeq\mathbb C^2,\qquad
 \pi_{\rm av}(a,b)=\operatorname{diag}(a,b),\qquad
 \Omega_{\rm av}=\frac{1}{\sqrt2}(1,1).
-$
+$$
 
 内積による状態の再現と巡回性は
 
@@ -308,10 +308,10 @@ $$
 
 $E=[0,1/2]$ とおきます。指示関数は実数値で $\mathbf1_E^2=\mathbf1_E$ を満たすので、乗法作用素について
 
-$
+$$
 P^*=M_{\overline{\mathbf1_E}}=P,\qquad
 P^2=M_{\mathbf1_E^2}=P
-$
+$$
 
 です。従って $P$ は確かに直交射影です。
 
@@ -350,6 +350,8 @@ $$
 ## 6. C*状態が任意の表現で正規とは限らない
 
 第3節では「状態 $\omega$ の**GNS表現**を用いれば、そのGNSベクトル状態が局所von Neumann環上で正規になる」と示しました。これを「どんな状態でも、**先に指定した別の表現**の弱閉包へ正規に延長できる」と読み替えてはいけません。
+
+ここで使う点評価 $\delta_0(f)=f(0)$ は、$\delta_0(f^*f)=|f(0)|^2\ge0$、$\delta_0(1)=1$ を満たすため、確かに $C([0,1])$ 上の状態です。
 
 <a id="prop-aqft9-nonnormal-extension"></a>
 
@@ -431,7 +433,21 @@ $$
 
 ## 8. 自由Klein–Gordon場では何が弱閉包されるか
 
-抽象構成を[AQFT8のFock真空](../AQFT8/index.md#prop-aqft8-gns-fock)に戻しましょう。$m>0$ とし、$\mathcal V=C_c^\infty(M,\mathbb R)/PC_c^\infty(M,\mathbb R)$、$P=\partial_t^2-\Delta+m^2$ とします。[AQFT6の局所商](../AQFT6/index.md#def-aqft6-local-weyl-net)を $\mathcal V(O)$ と書きます。これは台が $O$ に含まれる実試験関数の同値類が全域商で作る部分空間です。
+抽象構成を[AQFT8のFock真空](../AQFT8/index.md#prop-aqft8-gns-fock)に戻しましょう。$M=\mathbb R^{1+3}$ を四次元Minkowski時空、$m>0$ を質量とします。この節の $P$ は第5節の射影ではなく、時間座標 $t$ と空間座標 $\boldsymbol x$ に作用するKlein–Gordon微分作用素
+
+$$
+P=\frac{\partial^2}{\partial t^2}-\Delta_{\boldsymbol x}+m^2,
+\qquad
+\Delta_{\boldsymbol x}=\sum_{j=1}^3\frac{\partial^2}{\partial x_j^2}
+$$
+
+です。$C_c^\infty(M,\mathbb R)$ は実数値の滑らかなコンパクト支持試験関数の空間であり、その商を
+
+$$
+\mathcal V=C_c^\infty(M,\mathbb R)/PC_c^\infty(M,\mathbb R)
+$$
+
+とします。[AQFT6の局所商](../AQFT6/index.md#def-aqft6-local-weyl-net)を $\mathcal V(O)$ と書きます。これは台が $O$ に含まれる実試験関数の同値類が全域商で作る部分空間です。
 
 真空Fock空間 $\mathcal F$ 上では $F\mapsto W_{\mathcal F}(F)$ がWeyl関係を満たします。$\pi_{\mathcal F}$ はそれを実現するquasilocal C*環の表現です。
 
@@ -453,7 +469,7 @@ $$
 
 **定義の確認**。領域 $O$ の実源商に対し、零元・実数倍・随伴から単位的Weyl生成族を確かめ、さらに空間的に分離した二領域で生成元と二重可換子の可換性を確認します。
 
-$\mathcal V(O)$ は実線形部分空間なので、$0\in\mathcal V(O)$ と $tF\in\mathcal V(O)$（$t\in\mathbb R$）を含みます。[Weyl関係](../AQFT6/index.md#def-aqft6-weyl-ccr)から
+$\mathcal V(O)$ は実線形部分空間なので、$0\in\mathcal V(O)$ と $\lambda F\in\mathcal V(O)$（$\lambda\in\mathbb R$ は実スケール）を含みます。ここでの $\lambda$ は上の時間座標 $t$ とは別の変数です。[Weyl関係](../AQFT6/index.md#def-aqft6-weyl-ccr)から
 
 $$
 W_{\mathcal F}(0)=I,\qquad
@@ -626,9 +642,22 @@ $$
 任意の非空領域に $\mathbb C^2$ を割り当てる可換netについて $\omega_0(a,b)=a$ と $\omega_{\rm av}(a,b)=(a+b)/2$ を選ぶ。GNS零空間、GNS空間の次元、局所二重可換子を比較し、二つの環が同型でない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [OA5のGNS零空間](../../OA/OA5/index.md#def-oa5-gns-null-space)は $\omega(A^*A)=0$ を満たす元全体です。$\omega_0$ では $|a|^2=0$ なので零空間は $\{(0,b)\}$。商は1次元、$\pi_0(a,b)=a$ となり、局所像も二重可換子も $\mathbb C$ です。
+**詳細解答。** [OA5のGNS零空間](../../OA/OA5/index.md#def-oa5-gns-null-space)は $\omega(A^*A)=0$ を満たす元全体です。まず二状態について
 
-$\omega_{\rm av}$ では $(|a|^2+|b|^2)/2=0$ から $a=b=0$ なので零空間は零、GNS空間は2次元。適切な正規直交基底では $\pi_{\rm av}(a,b)=\operatorname{diag}(a,b)$ です。[A02の計算](#ex-aqft9-a02)からその二重可換子は $D\cong\mathbb C^2$ です。
+$$
+\omega_0((a,b)^*(a,b))=|a|^2,\qquad
+\omega_{\rm av}((a,b)^*(a,b))=\frac{|a|^2+|b|^2}{2}
+$$
+
+を計算します。従って零空間はそれぞれ
+
+$$
+N_0=\{(0,b):b\in\mathbb C\},\qquad N_{\rm av}=\{0\}.
+$$
+
+点状態の商は $[(a,b)]\mapsto a$ で1次元と同一視でき、左乗法は $\pi_0(a,b)z=az$ です。よって局所像と二重可換子はいずれも $\mathbb C$ です。
+
+平均状態の商は2次元で、[第1節のGNS商内積と正規直交基底の計算](#def-aqft9-local-vn-net)によって $\pi_{\rm av}(a,b)=\operatorname{diag}(a,b)$ です。[A02の計算](#ex-aqft9-a02)からその二重可換子は $D\cong\mathbb C^2$ です。
 
 $\mathbb C$ と $\mathbb C^2$ は複素ベクトル空間の次元が異なり、単位的 $*$-同型を持ちません。したがって元のnetが同一でも、GNS局所von Neumann環は状態によって変わり得ます。
 <!-- solution-end -->
@@ -668,7 +697,22 @@ $\delta_0(f)=f(0)$ を $C([0,1])$ 上の状態とする。次を示せ。
 <!-- solution-start -->
 **詳細解答。** まず $\delta_0(f^*f)=|f(0)|^2$ なので零空間は $\{f:f(0)=0\}$ です。GNS商は値 $f(0)$ だけで決まり1次元、表現は $\pi_{\delta_0}(f)z=f(0)z$ です。像とその二重可換子は $B(\mathbb C)=\mathbb C$、状態は単位上で1を取る恒等汎関数であり、有限次元のため正規です。
 
-一方、乗法表現で $g_n(t)=\max\{1-nt,0\}$ とすると、$|g_n|\le1$ でほとんど至る所零に収束するため、任意の $\xi$ に対して $\|M_{g_n}\xi\|_2\to0$ です。一様有界なSOT収束から[VN4の位相比較](../../VN/VN4/index.md#prop-vn4-wot-ultraweak)によってultraweak収束も成立します。正規延長 $\varphi$ が存在すれば $\varphi(M_{g_n})\to0$ となるはずですが、$\varphi(M_{g_n})=\delta_0(g_n)=g_n(0)=1$。矛盾です。ここで別表現を**固定したこと**が失敗の理由です。
+一方、乗法表現で $g_n(t)=\max\{1-nt,0\}$ とすると、$|g_n|\le1$ で、$t>0$ では $g_n(t)\to0$ です。任意の $\xi\in L^2([0,1])$ を固定すれば
+
+$$
+\|M_{g_n}\xi\|_2^2
+=\int_0^1|g_n(t)|^2|\xi(t)|^2\,dt\longrightarrow0
+$$
+
+となります。これは被積分関数を可積分な $|\xi|^2$ で支配して[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用したものです。$\|M_{g_n}\|\le1$ なので、一様有界なSOT収束から[VN4の位相比較](../../VN/VN4/index.md#prop-vn4-wot-ultraweak)によりultraweak収束も成立します。しかし正規延長 $\varphi$ が存在すれば
+
+$$
+\varphi(M_{g_n})\longrightarrow\varphi(0)=0,
+\qquad
+\varphi(M_{g_n})=\delta_0(g_n)=g_n(0)=1
+$$
+
+となり矛盾です。ここで別表現を**固定したこと**が失敗の理由です。
 <!-- solution-end -->
 
 <a id="ex-aqft9-b04"></a>
