@@ -40,6 +40,7 @@
 | 最適輸送・Wasserstein幾何・測度上の勾配流 | [完了済みOTR全26講PLAN](../plan_done/DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md)（独立発展科目） |
 | SDE / Markov generator / Feynman--Kac | 完了済み Encore IV（`STO9` / `STO11`） |
 | 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
+| 流体力学（静水・渦・層流・境界層・波・乱流・圧縮性・CFD） | [DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)（FLUID1〜48、設計済み・未実装。CTM5/7/9/10/15〜17の流体力学的な応用。Python数値計算・必要なWebGL表示を各講同時制作） |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
 | 整数論・Diophantine近似・解析的整数論・楕円曲線・モジュラー形式の5科目間の履修ルート | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
 | 円積問題の2科目（古典作図SQC1〜7・Tarski等分解SQC8〜12）の履修ルート | `DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md`（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
