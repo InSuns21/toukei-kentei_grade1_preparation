@@ -308,7 +308,9 @@ $$
 
 を定め、実軸の区間上では両者を $0$ でつなぎます。$g(t)=0\in\mathbb R$ のためこの接続は連続です。上半分と下半分では正則です。実軸を横切る小三角形の周回積分は実軸の上下で分けて積分すると接合辺が相殺され、実軸からの連続性により零になります。[CA7のMoreraの定理](../../CA/CA7/index.md#lem-ca7-morera)により $\widetilde g$ は円板全体で正則です。
 
-円板内部の線分 $D\cap I$ で $\widetilde g$ が零なので[CA3の恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により $D$ 上で零です。従って $\{\operatorname{Im}z>0\}$ の非空開集合で $g=0$。この半平面は連結なので、再び[同じ恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を使って $\{\operatorname{Im}z>0\}$ 全体で $g=0$。連続境界値も零です。$\square$
+円板内部の線分 $D\cap I$ で $\widetilde g$ が零なので、[CA3の恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により円板全体で零です。
+
+従って $g$ は虚部が正の領域の非空開部分で零になります。この半平面は連結なので、再び[同じ恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を適用すると、領域全体で $g=0$ です。実軸上の連続境界値も零になります。$\square$
 <!-- proof-end -->
 
 **開区間が必要です。** $g(z)=1+e^{2iz}$ は虚部が正の領域で有界正則ですが、実軸では $t=\pi/2$ のような離散点で零になるだけです。一点の境界零から恒等的に零とは言えません。
@@ -571,7 +573,15 @@ $$
 f_{\psi,\varphi}(x)=1-e^{i(2t-x^1)}.
 $$
 
-採用したFourier符号では $\widehat f=(2\pi)^4(\delta_{p_1}-\delta_{p_2})$ で、支持集合は $\{p_1,p_2\}\subset\overline V_+$。$\psi\ne\varphi$ の交差行列要素は負の重みを取る場合があります。したがって正測度とは限りませんが、全変動は有限です。
+採用したFourier符号では
+
+$$
+\widehat f=(2\pi)^4(\delta_{p_1}-\delta_{p_2})
+$$
+
+となり、Fourier支持は $\{p_1,p_2\}\subset\overline V_+$ に含まれます。
+
+交差行列要素から作った測度には負の質量 $-1$ が現れます。従って必ずしも非負測度ではありません。一方、その全変動は有限です。
 <!-- solution-end -->
 
 <a id="ex-aqft11-b03"></a>
