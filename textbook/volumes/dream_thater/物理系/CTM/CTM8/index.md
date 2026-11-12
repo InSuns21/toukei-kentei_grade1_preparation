@@ -124,7 +124,7 @@ $$
 +\int_{U_0}\rho_0 b\circ\chi\,dV.
 $$
 
-基準領域で [Gauss の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-divergence)を各行 $P_{iA}$ に適用すると
+基準領域で [Gauss の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を各行 $P_{iA}$ に適用すると
 
 $$
 \int_{\partial U_0}PN\,dA
@@ -133,7 +133,7 @@ $$
 
 任意の $U_0\Subset\Omega_0$ について積分が一致し、被積分関数は連続だから、差が非零の点では符号が変わらない小球を選べることに反する。よって局所式を得る。逆に局所式を $U_0$ 上で積分して発散定理を適用すれば積分収支が戻る。
 
-発散変換については、[現在側の Gauss の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-divergence)と変数変換を組み合わせて
+発散変換については、[現在側の Gauss の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)と変数変換を組み合わせて
 
 $$
 \begin{aligned}
@@ -573,37 +573,16 @@ $$
 
 $S_{12}=S_{21}=\tau$、他の非対角成分はゼロである。$\gamma\tau\ne0$ なら $P$ は非対称だが、[対称性の命題](#prop-ctm8-symmetry)は $S$ に適用される。
 
-(ii) 基準面 $N=e_2$ では
+(ii) $N=e_2$ とすると、上の $F^{-1}$ の転置を先に計算することが大切である。
 
 $$
-JF^{-T}N=(-\gamma,1,0)^T,\quad
-\frac{da}{dA}=\sqrt{1+\gamma^2},\quad
-n=\frac{(-\gamma,1,0)^T}{\sqrt{1+\gamma^2}}.
+F^{-T}=\begin{pmatrix}1&0&0\\-\gamma&1&0\\0&0&1\end{pmatrix},
+\qquad JF^{-T}e_2=e_2.
 $$
 
-従って [Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)を使う現在側の力は
+[CTM2 の Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)から $n=e_2$、$da=dA$。従って現在側で $\sigma n\,da=\tau e_1\,dA$、基準側で $PN\,dA=Pe_2\,dA=\tau e_1\,dA$ と一致する。
 
-$$
-\sigma n\,da
-=\sigma(-\gamma,1,0)^T dA
-=(\tau,-\gamma\tau,0)^T dA.
-$$
-
-基準側では $PN\,dA=(\tau,0,0)^T dA$ となるように見えるが、これは (i) の行列積と整合しない。この違いを解消するには $F^{-T}$ の列を再確認する必要がある。実際 $F^{-T}e_2=(-\gamma,1,0)^T$、$\sigma(-\gamma,1,0)^T=(\tau,-\gamma\tau,0)^T$ なので、(i) の $P$ の第2列は $(\tau,-\gamma\tau,0)^T$ でなければならない。正しい積は
-
-$$
-P=\begin{pmatrix}-\gamma\tau&\tau&0\\\tau&-\gamma\tau&0\\0&0&0\end{pmatrix},
-\quad
-S=\begin{pmatrix}-2\gamma\tau&\tau+\gamma^2\tau&0\\\tau&-\gamma\tau&0\\0&0&0\end{pmatrix}
-$$
-
-とはならない。なぜなら $\sigma F^{-T}$ の右列は $\sigma e_2=(\tau,0,0)^T$ であり、面積変換に使った $F^{-T}e_2$ の計算自体が誤りだからである。正しくは $F^{-T}=\begin{pmatrix}1&0&0\\-\gamma&1&0\\0&0&1\end{pmatrix}$ から
-
-$$
-F^{-T}e_2=e_2,\quad n=e_2,\quad da=dA.
-$$
-
-ゆえに現在側の力は $\sigma e_2\,dA=\tau e_1\,dA$、基準側は $Pe_2\,dA=\tau e_1\,dA$ で一致する。面 $N=e_1$ については $F^{-T}e_1=(1,-\gamma,0)^T$ であり、この面の法線と面積が変わる。
+面積と向きの変化を見たい場合、別の面 $N=e_1$ では $JF^{-T}e_1=(1,-\gamma,0)^T$、$da/dA=\sqrt{1+\gamma^2}$、$n=(1,-\gamma,0)^T/\sqrt{1+\gamma^2}$。その面でも $\sigma n\,da=(-\gamma\tau,\tau,0)^TdA=Pe_1\,dA$ となり、力の一致を確認できる。
 
 (iii) $P$ は空間一様で時刻のみの関数なので $\operatorname{Div}_XP=0$。加速度は
 
