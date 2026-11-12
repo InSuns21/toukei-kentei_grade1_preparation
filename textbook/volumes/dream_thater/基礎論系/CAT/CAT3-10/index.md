@@ -259,7 +259,7 @@ H(t)\theta_Pj^P_{a,x}
 =H(\iota_{a,t_a(x)})\beta_a
 =\theta_QL(t)j^P_{a,x}
 $$
-だから、余極限の一意性により $H(t)\theta_P=\theta_QL(t)$。よって $\theta:L\Rightarrow H$ は自然変換である。
+だから、すべての標準余錐射との合成で両辺は一致する。[余極限の普遍性](../CAT2-05/index.md#def-cat2-05-colimit)による媒介射の一意性から $H(t)\theta_P=\theta_QL(t)$。よって $\theta:L\Rightarrow H$ は自然変換である。
 
 $P=h^a$、$(a,1_a)$ に上式を適用すると、$\iota_{a,1_a}=1_{h^a}$ であり
 $$
