@@ -39,7 +39,7 @@ chapters:
     title: 無トルク対称剛体と姿勢の再構成
   - id: RBD9
     path: textbook/volumes/dream_thater/物理系/RBD/RBD9
-    status: planned
+    status: completed
     title: 非対称剛体・中間軸の不安定性
   - id: RBD10
     path: textbook/volumes/dream_thater/物理系/RBD/RBD10
