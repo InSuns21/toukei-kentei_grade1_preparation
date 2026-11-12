@@ -503,7 +503,7 @@ $$
 
 <a id="ex-gmt36-b03"></a>
 
-**問題 B03：二本のtubeの交差面積。** $R\ge16$、$r=R^{-1/2}$、$\theta_1\ne\theta_2$ とする。$|T_R(\theta_1,x_1)\cap T_R(\theta_2,x_2)|\lesssim r^{-2}/(r+|\theta_1-\theta_2|)$ を示し、$\alpha=r$ と $\alpha=1$ の指数を比較せよ。
+**問題 B03：二本のtubeの交差面積。** $R\ge16$、$r=R^{-1/2}$、$\theta_1,\theta_2\in[-1,1]$、$\theta_1\ne\theta_2$、$\alpha=|\theta_1-\theta_2|$ とする。$|T_R(\theta_1,x_1)\cap T_R(\theta_2,x_2)|\lesssim r^{-2}/(r+|\theta_1-\theta_2|)$ を示し、$\alpha=r$ と $\alpha=1$ の指数を比較せよ。
 
 - Level: B
 
@@ -552,7 +552,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-(1) [packet公式](#prop-gmt36-packet-formula)に $\xi=\theta_j+ru$ を代入すると、一次位相は $r(x-x_j+2\theta_jt)u$、二次位相は $tr^2u^2$。$|t|\le R$ なら二次項は有界で、中心線 $x=x_j-2\theta_jt$、幅 $r^{-1}$ を得ます。
+(1) $F_j=F_{\theta_j,x_j}$ と書きます。[packet公式](#prop-gmt36-packet-formula)の導出と同様に、拡張積分に $\xi=\theta_j+ru$ を代入すると、一次位相は $r(x-x_j+2\theta_jt)u$、二次位相は $tr^2u^2$。$|t|\le R$ なら二次項は有界で、中心線 $x=x_j-2\theta_jt$、幅 $r^{-1}$ を得ます。
 
 (2) capの幅は $r/2$、中心距離は $r$ 以上なので周波数台は交わりません。[空間断面でのPlancherel直交性](#prop-gmt36-slice-orthogonality)から各 $t$ で $\int|\sum_jF_j|^2dx=\sum_j\|f_j\|_2^2=\#J$ です。これは空間全体に関する主張です。
 
