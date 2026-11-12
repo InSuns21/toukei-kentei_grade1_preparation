@@ -37,7 +37,7 @@ $$
 
 ## 2. Weylの正準交換関係
 
-[QM8のWeyl関係](../../QM/QM8/index.md#def-qm8-weyl-relations)では、位置と運動量に対応する**強連続な**ユニタリ群から有界な作用素を作りました。ここでは無限次元にもなる自由Klein–Gordon場の商へ進むため、まず**積と随伴の代数的関係だけ**を課します。QM8で仮定した強連続性は、この関係からは従いません。第5節で「規則性」として改めて判定します。
+[QM8のWeyl関係](../../QM/QM8/index.md#def-qm8-weyl-relations)では、位置と運動量に対応する強連続な1パラメータ群 $U(a),V(b)$（各元はユニタリ作用素）から有界な作用素を作りました。ここでは無限次元にもなる自由Klein–Gordon場の商へ進むため、まず**積と随伴の代数的関係だけ**を課します。QM8で仮定した強連続性は、この関係からは従いません。第5節で「規則性」として改めて判定します。
 
 二つの自由度を「足す」操作を、そのまま作用素の積へ移すと $\sigma$ が消えてしまいます。足し算に複素位相を付けるのがWeyl関係です。$\sigma$ が実数値だから位相の絶対値は $1$ です。ここで[単位的C*環](../../OA/OA3/index.md#def-oa3-cstar-algebra)はノルムと随伴を備えた環、[ユニタリ元](../../OA/OA3/index.md#def-oa3-unitary)は随伴が逆元となる元です。
 
@@ -264,7 +264,7 @@ $$
 $$
 L(tF)L(sF)=L((t+s)F)
 $$
-となるので、各方向 $F$ ごとにはユニタリ作用素の一パラメータ群が得られます。しかし群の法則は連続性を含みません。[QM7の強連続1パラメータユニタリ群](../../QM/QM7/index.md#def-qm7-strongly-continuous-unitary-group)では、群の法則とは別にベクトルごとのノルム連続性を要求しました。ここでHilbert空間 $\mathcal H$ 上の単位的 *-表現とは、[OA3の単位的 *-準同型](../../OA/OA3/index.md#def-oa3-unital-star-hom)と同様に和・積・随伴を保つ写像 $\pi:\mathfrak A_{\mathrm W}\to B(\mathcal H)$ で、$\pi(I)=I_{\mathcal H}$ を満たすものです。
+となるので、各方向 $F$ ごとにはユニタリ作用素の一パラメータ群が得られます。しかし、この積の等式だけでは $t\mapsto L(tF)$ の強連続性は得られません。[QM7の強連続1パラメータユニタリ群](../../QM/QM7/index.md#def-qm7-strongly-continuous-unitary-group)では、群の法則とは別にベクトルごとのノルム連続性を要求しました。ここでHilbert空間 $\mathcal H$ 上の単位的 *-表現とは、[OA3の単位的 *-準同型](../../OA/OA3/index.md#def-oa3-unital-star-hom)と同様に和・積・随伴を保つ写像 $\pi:\mathfrak A_{\mathrm W}\to B(\mathcal H)$ で、$\pi(I)=I_{\mathcal H}$ を満たすものです。
 
 <a id="def-aqft6-regular-representation"></a>
 
