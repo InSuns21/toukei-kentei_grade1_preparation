@@ -14,3 +14,4 @@
 11. [AQFT11 正エネルギーと解析性](textbook/volumes/dream_thater/解析系/AQFT/AQFT11/index.md)
 12. [AQFT12 Reeh–Schlieder定理](textbook/volumes/dream_thater/解析系/AQFT/AQFT12/index.md)
 13. [AQFT13 巡回性・分離性・局所性](textbook/volumes/dream_thater/解析系/AQFT/AQFT13/index.md)
+14. [AQFT14 Haag双対性・wedge双対性・factor性](textbook/volumes/dream_thater/解析系/AQFT/AQFT14/index.md)
