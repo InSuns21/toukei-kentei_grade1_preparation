@@ -1,0 +1,51 @@
+id: "AQFT11"
+title: "正エネルギーと解析性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT3
+  - AQFT9
+  - CA7
+official_scope: []
+learning_objectives:
+  - 前方光円錐と複素未来管領域の関係を指数の減衰評価から導ける
+  - 正エネルギー並進の有界作用素値正則延長と実境界値の強収束をスペクトル積分から証明できる
+  - 行列要素のFourier変換の支持が共同スペクトルに従うことを複素測度の積分から検算できる
+  - Gaussianスペクトル平滑化によって稠密な全複素並進解析的試験ベクトルを構成できる
+  - Schwarzの鏡像原理と恒等定理により境界零区間の一意性を証明できる
+  - 任意の時空変位を未来時間的ベクトルの差に分解し実開集合での零から全域の零を導ける
+  - 有界局所演算子積の増分変数による管領域解析性を構成できる
+  - 時間生成作用素の非負性だけでは未来管領域の有界延長を保証しない反例を説明できる
+  - 次講のReeh–Schlieder定理には正エネルギーに加えて局所代数の生成条件が必要だと説明できる
+definitions:
+  - { id: AQFT11-DEF-01, name: "未来管領域" }
+  - { id: AQFT11-DEF-02, name: "全複素並進に対する解析的試験ベクトル" }
+theorems:
+  - { id: AQFT11-THM-01, name: "正エネルギー並進の管領域正則延長" }
+  - { id: AQFT11-PROP-01, name: "境界値のFourier支持" }
+  - { id: AQFT11-PROP-02, name: "Gaussian平滑化による稠密な解析ベクトル" }
+  - { id: AQFT11-LEM-01, name: "上半平面の連続境界値の一意性" }
+  - { id: AQFT11-THM-02, name: "正エネルギー行列要素の実開集合一意性" }
+  - { id: AQFT11-PROP-03, name: "有限個の有界演算子を挟む管領域解析性と一意性" }
+canonical_examples:
+  - 未来管領域に属する虚部と指数の絶対値の評価
+  - 二準位の正エネルギー共同固有値における複素並進と境界値
+  - 時間エネルギーは零でも空間運動量が無限に増大して有界延長を破る例
+  - Gaussian平滑化による二次元の解析ベクトル近似
+  - 境界の孤立零点は一意性の結論に足りない例
+  - 二つの未来時間的ベクトルの差による任意の並進変位の表現
+  - 有界局所作用素積の増分座標への変換
+problem_patterns:
+  - AQFT11-CONE-EXPONENTIAL
+  - AQFT11-TWO-LEVEL-BOUNDARY
+  - AQFT11-ISOLATED-BOUNDARY-ZEROS
+  - AQFT11-GAUSSIAN-APPROX
+  - AQFT11-TIME-ENERGY-COUNTEREXAMPLE
+  - AQFT11-FOURIER-MEASURE
+  - AQFT11-TIMELIKE-DECOMPOSITION
+  - AQFT11-INCREMENT-COORDINATES
+  - AQFT11-MULTIPOINT-UNIQUENESS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 10, review: 7 }
