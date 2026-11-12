@@ -319,9 +319,9 @@ $$
 > **定理（正エネルギー行列要素の実開集合一意性）**  
 > 第2節のスペクトル条件を満たす $U$ と任意の $\psi,\varphi\in\mathcal H$ に対し、実時空の行列要素を
 >
-$
+$$
 f(x):=\langle\psi,U(x)\varphi\rangle
-$
+$$
 >
 > と置く。非空開集合 $O\subset\mathbb R^4$ 上で $f=0$ なら、全 $\mathbb R^4$ で $f=0$ が成立する。
 <!-- formal-statement-end -->
