@@ -1,0 +1,49 @@
+id: "RBD6"
+title: "慣性テンソルの座標変換と具体物体"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD5
+official_scope: []
+learning_objectives:
+  - 重心を共有する物体系と空間系の慣性テンソルをJ_s=RJ_bR^Tで変換し主慣性値の不変性を証明できる
+  - 原点Oと重心Cのずれによる平行軸のテンソル公式を導きスカラーの平行軸定理へ還元できる
+  - 一様中実直円柱と一様薄円板の質量要素と積分領域を区別して主慣性モーメントを算出できる
+  - 一様直方体の三つの主慣性モーメントと非対角積の消失を体積積分から示せる
+  - 主慣性値の縮退と物体形状の回転対称性の違いを説明できる
+  - Jの半正定値性と正定値性の成立条件を質量分布の軸への集中と結び付けて判定できる
+  - 正定値なJの等回転エネルギー面を慣性楕円体として解釈し半軸長を計算できる
+  - 角運動量と角速度の非平行性および座標・原点を混同した式の誤用を数値例から診断できる
+definitions:
+  - { id: RBD6-DEF-01, name: "回転エネルギーの慣性楕円体" }
+theorems:
+  - { id: RBD6-THM-01, name: "慣性テンソルの座標変換" }
+  - { id: RBD6-THM-02, name: "平行軸のテンソル公式" }
+  - { id: RBD6-PROP-01, name: "一様中実直円柱の慣性テンソル" }
+  - { id: RBD6-PROP-02, name: "一様薄円板の慣性テンソル" }
+  - { id: RBD6-PROP-03, name: "一様直方体の慣性テンソル" }
+  - { id: RBD6-PROP-04, name: "慣性テンソルの非負性と正定値性" }
+canonical_examples:
+  - z軸の四分の一回転および斜め回転で非対角成分を生じること
+  - 原点をx方向に平行移動した場合の補正行列
+  - 中実円柱の円周方向と高さ方向の積分の切り分け
+  - 薄円板の面密度と円柱極限との区別
+  - 3対2対1の直方体の姿勢変更と角運動量非平行性
+  - 直方体の三主軸縮退と立方体が球対称でない反例
+  - 一本の線に質量が集中する場合と薄円板の正定値性の差
+  - 主慣性値2Iと3Iと6Iの慣性楕円体の半軸
+problem_patterns:
+  - RBD6-ROTATION-TENSOR-COORDINATES
+  - RBD6-THIN-PLATE-SURFACE-DENSITY
+  - RBD6-TENSOR-PARALLEL-AXIS
+  - RBD6-CYLINDER-DIMENSION-CHECK
+  - RBD6-ANGULAR-MOMENTUM-NONPARALLEL
+  - RBD6-OFFDIAGONAL-ROTATION
+  - RBD6-RECTANGULAR-INTEGRATION-AND-SHIFT
+  - RBD6-LINE-MASS-SEMIDEFINITE
+  - RBD6-ENERGY-ELLIPSOID-SEMIAXES
+  - RBD6-INTEGRATED-CYLINDER-ROTATION-SHIFT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }
