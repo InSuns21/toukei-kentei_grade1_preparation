@@ -348,7 +348,13 @@ $$
 <1/25.
 \end{aligned}
 $$
-ここで各点対の厳密不等式から上限でも厳密不等式になるとは限りません。正しくは $\delta(O_1)\le1/25<1$ です。他方 $O_2$ は $(0,(1,0,0))$ と $(0,(-1,0,0))$ を含み、その間隔の二乗は $4$ なので $\delta(O_2)\ge4$ です。従って $\mathfrak A_I(O_1)=D\not\subset\mathbb CI_2=\mathfrak A_I(O_2)$ です。
+点対ごとの値は $1/25$ 未満でも、その上限は $1/25$ に等しいことがあります。実際、$0<\varepsilon<1/10$ に対して $p_\varepsilon=(0,(1/10-\varepsilon,0,0))$、$q_\varepsilon=(0,(-1/10+\varepsilon,0,0))$ と選ぶと、両点は $O_1$ に入り、
+$$
+|g(p_\varepsilon-q_\varepsilon,p_\varepsilon-q_\varepsilon)|
+=4(1/10-\varepsilon)^2\longrightarrow 1/25
+\qquad(\varepsilon\downarrow0)
+$$
+です。よって上からの評価と合わせて $\delta(O_1)=1/25<1$ です。他方 $O_2$ は $(0,(1,0,0))$ と $(0,(-1,0,0))$ を含み、その間隔の二乗は $4$ なので $\delta(O_2)\ge4$ です。従って $\mathfrak A_I(O_1)=D\not\subset\mathbb CI_2=\mathfrak A_I(O_2)$ です。
 
 **(II) Einstein局所性だけを破る模型。** すべての非空領域に $\mathfrak A_L(O)=M_2(\mathbb C)$、空集合には $\mathbb CI_2$ を割り当て、$\alpha_F=\mathrm{id}$ とします。isotony と共変性は割当てが領域によらないので満たされます。しかし $O_1=D_{1/10}(0,\boldsymbol0)$ と $O_2=D_{1/10}(0,(1,0,0))$ は[二つのdouble coneの分離定理](../AQFT1/index.md#thm-aqft1-double-cone-separation)で空間的に分離します。双方の代数に属する
 $$
