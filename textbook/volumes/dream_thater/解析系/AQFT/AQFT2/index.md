@@ -63,7 +63,23 @@ $$
 <!-- definition-example-start: def-aqft2-isotony -->
 ### 直接例：二つの観測地点
 
-**定義の確認**。異なる点 $p_1,p_2\in M$ を選び、$\mathfrak B=M_2(\mathbb C)\otimes M_2(\mathbb C)$ とします。$p_1$ だけを含む領域へ $M_2(\mathbb C)\otimes\mathbb CI_2$、両点を含む領域へ $\mathfrak B$ を割り当てます。小さい方に属する $A\otimes I_2$ は大きい方にも属します。点を一つも含まない領域には $\mathbb CI_4$ を割り当てます。これを一般の開集合で厳密に定めるのは第5節です。
+**定義の確認**。異なる点 $p_1,p_2\in M$ を選び、$\mathfrak B=M_2(\mathbb C)\otimes M_2(\mathbb C)$ とします。これは二つの2次元行列因子からなる4次元行列環です。$A\otimes I_2$ は第1因子だけ、$I_2\otimes B$ は第2因子だけに作用し、積は
+$$
+(A\otimes B)(C\otimes D)=(AC)\otimes(BD)
+$$
+で計算します。ここで $I_4=I_2\otimes I_2$ です。
+
+各開集合 $O$ に対して $S(O)=\{j\in\{1,2\}:p_j\in O\}$ を定め、含まれる地点に応じて
+$$
+\mathfrak A(O)=
+\begin{cases}
+\mathbb CI_4,&S(O)=\varnothing,\\
+M_2(\mathbb C)\otimes\mathbb CI_2,&S(O)=\{1\},\\
+\mathbb CI_2\otimes M_2(\mathbb C),&S(O)=\{2\},\\
+\mathfrak B,&S(O)=\{1,2\}
+\end{cases}
+$$
+と割り当てます。四つとも単位元 $I_4$ を共有する有限次元のC*-部分環で、$S(\varnothing)=\varnothing$ も空集合の規約を満たします。任意の $O_1\subset O_2$ について $p_j\in O_1$ なら $p_j\in O_2$ ですから $S(O_1)\subset S(O_2)$ です。上の四通りを比べると、第1因子・第2因子が追加されることはあっても失われず、$\mathbb CI_4$ はどの候補にも含まれます。よって全ての開集合の組について $\mathfrak A(O_1)\subset\mathfrak A(O_2)$ が成立します。第5節ではこの割当ての局所性と共変性も調べます。
 <!-- definition-example-end -->
 
 isotony は「空間的に離れている」ことをまだ使っていません。また $O_1\subset O_2$ から**等号** $\mathfrak A(O_1)=\mathfrak A(O_2)$ を主張してはいません。
@@ -88,7 +104,9 @@ $$
 <!-- definition-example-start: def-aqft2-locality -->
 ### 直接例：別々の行列因子
 
-**定義の確認**。二地点の行列模型で $A=A_1\otimes I_2$、$B=I_2\otimes B_2$ とすると、
+**定義の確認**。第2節の二地点の割当てについて、空間的に分離した開領域 $O_1,O_2$ を任意に選びます。両者に共通の点があれば、その点と自身の計量間隔が0となり、空間的分離の条件 $g(p-q,p-q)>0$ に反します。ゆえに $S(O_1)\cap S(O_2)=\varnothing$ です。
+
+両方の局所代数がスカラー環より大きい場合、地点番号は重ならないので、一方の任意の元を $A=A_1\otimes I_2$、他方の任意の元を $B=I_2\otimes B_2$ と表せます。第2節で説明したテンソル積の積の規則により、
 $$
 AB=(A_1\otimes I_2)(I_2\otimes B_2)=A_1\otimes B_2
 $$
@@ -96,7 +114,7 @@ $$
 $$
 BA=(I_2\otimes B_2)(A_1\otimes I_2)=A_1\otimes B_2
 $$
-ですから $[A,B]=0$ です。ここでは $A_1$ と別の $A'_1$ が非可換でも構いません。**同一地点の量は非可換、離れた地点の量は可換**という区別を表せます。
+ですから $[A,B]=0$ です。片方の局所代数が $\mathbb CI_4$ の場合も、スカラー行列は全ての行列と交換します。従って**任意の空間的に分離した領域と任意の元の組**で局所性を確かめられました。一方、第1因子の $A_1$ と別の $A'_1$ は非可換でも構いません。**同一地点の量は非可換、分離した領域間の量は可換**という区別を表せます。
 <!-- definition-example-end -->
 
 [開いた因果補集合](../AQFT1/index.md#def-aqft1-causal-complement)を使えば、開領域 $O_1\subset O_2^\perp$ のとき Einstein局所性を適用できます。$\mathfrak A(O_2)$ と交換する容器内の元全体を
@@ -321,13 +339,16 @@ D,&O\ne\varnothing,\ \delta(O)<1,\\
 $$
 と置きます。どの局所代数も可換な $D$ の部分環なので Einstein局所性が成立します。[Lorentz変換による計量の不変性](../../../物理系/SREL/SREL2/index.md#thm-srel2-interval-invariance)から $\delta(FO)=\delta(O)$ です。$\alpha_F=\mathrm{id}$ は群作用なので $\alpha_F(\mathfrak A_I(O))=\mathfrak A_I(FO)$ が成立します。
 
-しかし $O_1=D_{1/10}(0,\boldsymbol0)\subset O_2=D_2(0,\boldsymbol0)$ を取ると、$p,q\in O_1$ について $|t_p-t_q|<1/5$、$|\boldsymbol x_p-\boldsymbol x_q|<1/5$ です。よって
+しかし $O_1=D_{1/10}(0,\boldsymbol0)\subset O_2=D_2(0,\boldsymbol0)$ を取ると、$p,q\in O_1$ について $|t_p-t_q|<1/5$、$|\boldsymbol x_p-\boldsymbol x_q|<1/5$ です。非負数 $u,v$ に対して $|u-v|\le\max(u,v)$ なので、
 $$
+\begin{aligned}
 |g(p-q,p-q)|
-=\left||\boldsymbol x_p-\boldsymbol x_q|^2-(t_p-t_q)^2\right|
-<1/25<1,
+&=\left||\boldsymbol x_p-\boldsymbol x_q|^2-(t_p-t_q)^2\right|\\
+&\le\max\{|\boldsymbol x_p-\boldsymbol x_q|^2,(t_p-t_q)^2\}
+<1/25.
+\end{aligned}
 $$
-従って $\delta(O_1)<1$ です。他方 $O_2$ は $(0,(1,0,0))$ と $(0,(-1,0,0))$ を含み、その間隔の二乗は $4$ なので $\delta(O_2)\ge4$ です。従って $\mathfrak A_I(O_1)=D\not\subset\mathbb CI_2=\mathfrak A_I(O_2)$ です。
+ここで各点対の厳密不等式から上限でも厳密不等式になるとは限りません。正しくは $\delta(O_1)\le1/25<1$ です。他方 $O_2$ は $(0,(1,0,0))$ と $(0,(-1,0,0))$ を含み、その間隔の二乗は $4$ なので $\delta(O_2)\ge4$ です。従って $\mathfrak A_I(O_1)=D\not\subset\mathbb CI_2=\mathfrak A_I(O_2)$ です。
 
 **(II) Einstein局所性だけを破る模型。** すべての非空領域に $\mathfrak A_L(O)=M_2(\mathbb C)$、空集合には $\mathbb CI_2$ を割り当て、$\alpha_F=\mathrm{id}$ とします。isotony と共変性は割当てが領域によらないので満たされます。しかし $O_1=D_{1/10}(0,\boldsymbol0)$ と $O_2=D_{1/10}(0,(1,0,0))$ は[二つのdouble coneの分離定理](../AQFT1/index.md#thm-aqft1-double-cone-separation)で空間的に分離します。双方の代数に属する
 $$
@@ -392,7 +413,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-isotony より $\mathfrak A(D_n)\subset\mathfrak A(D_{n+1})$ です。和集合から $A\in\mathfrak A(D_m)$、$B\in\mathfrak A(D_n)$ を取ると、$N=\max(m,n)$ に対し $A,B\in\mathfrak A(D_N)$ です。よって和、積、随伴、スカラー倍は全て同じ $\mathfrak A(D_N)$ に入ります。各段階が単位元を含むので、和集合は単位的*-部分代数です。そのノルム閉包はC*-部分環となります。
+[isotony](#def-aqft2-isotony) より $\mathfrak A(D_n)\subset\mathfrak A(D_{n+1})$ です。和集合から $A\in\mathfrak A(D_m)$、$B\in\mathfrak A(D_n)$ を取ると、$N=\max(m,n)$ に対し $A,B\in\mathfrak A(D_N)$ です。よって和、積、随伴、スカラー倍は全て同じ $\mathfrak A(D_N)$ に入ります。各段階が単位元を含むので、和集合は単位的*-部分代数です。そのノルム閉包はC*-部分環となります。
 
 $F$ は連続アフィン変換なので、有界な $D_n$ の像 $F(D_n)$ も有界です。従ってある整数 $m$ が存在して $F(D_n)\subset D_m$ です。共変性と isotony から
 $$
@@ -426,7 +447,7 @@ $$
 $$
 ZT=\operatorname{diag}(2,-3)=TZ,\qquad [Z,T]=0.
 $$
-全ての行列が交換するのでなく、**対角行列同士だけ**が交換することを区別します。
+対角行列同士は必ず交換しますが、**一般の行列同士が必ず交換するわけではありません**。非対角行列同士にも交換する組はあるので、「対角行列だけが交換する」とは結論できません。
 <!-- solution-end -->
 
 <a id="ex-aqft2-a02"></a>
