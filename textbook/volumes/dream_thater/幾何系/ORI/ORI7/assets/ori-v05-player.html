@@ -37,10 +37,16 @@ const choice=document.getElementById('case');
 function render(t){
  const s=stateAt('05',t,choice?.value||'default');
  stage.innerHTML=svgFrame({...s,title:"O5の折り線候補"});
- tbody.replaceChildren(...s.checks.map(c=>{
+ const rows=s.checks.map(c=>{
   const tr=document.createElement('tr'),name=document.createElement('td'),r=document.createElement('td');
   name.textContent=c.name;r.textContent=(c.actual-c.expected).toExponential(2);tr.append(name,r);return tr;
- }));
+ });
+ if(!rows.length){
+  const tr=document.createElement('tr'),info=document.createElement('td');
+  info.colSpan=2;info.textContent='候補が0本のため、折り線の数値残差はありません。';
+  tr.append(info);rows.push(tr);
+ }
+ tbody.replaceChildren(...rows);
  return {step:s.step,readout:s.readout};
 }
 const player=mountPlayer({render,steps:[0,.25,.5,.75,1],durationMs:9000});

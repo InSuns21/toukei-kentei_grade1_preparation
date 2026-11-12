@@ -131,7 +131,13 @@ try {
   const isB=id!=='01'&&id!=='08';
   if(isB){
    const residuals=await js('[...document.querySelectorAll("#invariants tr")].slice(1).map(r=>Number(r.cells[1].textContent))');
-   assert.ok(residuals.length>0&&residuals.every(x=>Number.isFinite(x)&&Math.abs(x)<1e-6),'model diagnostics '+id);
+   if(id==='05'){
+    assert.ok(await js('document.querySelector("#invariants").textContent.includes("候補が0本")'),'O5 zero-root message');
+    await seek(.5);
+    const values=await js('[...document.querySelectorAll("#invariants tr")].slice(1).map(r=>Number(r.cells[1].textContent))');
+    assert.ok(values.length>0&&values.every(x=>Number.isFinite(x)&&Math.abs(x)<1e-6),'O5 two-root diagnostics');
+    await seek(0);
+   } else assert.ok(residuals.length>0&&residuals.every(x=>Number.isFinite(x)&&Math.abs(x)<1e-6),'model diagnostics '+id);
   }
   const frame0=await capture(id,'00');
   await seek(.5);const frameMid=await capture(id,'50');
