@@ -1,0 +1,49 @@
+id: "INV17"
+title: "PDEの係数から観測までをどう微分するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV8
+  - INV10
+  - GPDE8
+official_scope: []
+learning_objectives:
+  - 外力逆問題と係数逆問題を区別し一様正値なL∞係数の許容集合の開性を検証できる
+  - H_0^1の零境界条件と弱形式を結びLax--Milgramで状態の存在一意性とエネルギー評価を証明できる
+  - 状態から有限個の観測値を作る有界線形観測作用素を構成し境界点観測の限界を説明できる
+  - 係数を摂動した二つの弱方程式から正しい符号と零境界条件の感度方程式を導出できる
+  - 感度の有界線形性と二次剰余評価により状態写像のFréchet微分可能性を証明できる
+  - 観測写像の微分を合成により導き空間依存係数方向の感度を直接計算できる
+  - 外力への線形性と係数への非線形性を比較し微分の核と非線形の識別可能性を区別できる
+  - 状態方程式と観測の統合演習で有限差分と二次剰余上界を独立に照合できる
+definitions:
+  - { id: INV17-DEF-01, name: 一様正値係数の許容集合 }
+  - { id: INV17-DEF-02, name: 状態写像と観測写像 }
+  - { id: INV17-DEF-03, name: 係数感度方程式 }
+theorems:
+  - { id: INV17-THM-01, name: 一様正値係数に対する状態の存在一意性と評価 }
+  - { id: INV17-THM-02, name: 係数から状態への写像のFréchet微分 }
+  - { id: INV17-COR-01, name: 係数から観測への写像の微分 }
+  - { id: INV17-PROP-01, name: 外力から状態への写像は線形 }
+canonical_examples:
+  - 一様係数の弱解と空間平均観測
+  - 一様楕円な係数と零に近づく係数の比較
+  - 定数係数摂動と感度方程式の境界値検算
+  - 空間依存摂動h=xによる弱方程式と観測微分の直接計算
+  - 一次感度が零となる方向h=x-1/2
+  - 定数係数の有限差分と二次剰余
+problem_patterns:
+  - INV17-A01
+  - INV17-A02
+  - INV17-A03
+  - INV17-A04
+  - INV17-A05
+  - INV17-B01
+  - INV17-B02
+  - INV17-B03
+  - INV17-B04
+  - INV17-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.5, exercises: 6.0, review: 2.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
