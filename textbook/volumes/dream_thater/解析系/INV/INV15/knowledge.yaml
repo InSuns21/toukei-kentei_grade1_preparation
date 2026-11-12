@@ -16,6 +16,13 @@ concepts:
     introduction_aliases: ["定義（正定値分散共分散行列をもつ多変量正規分布）"]
     requires: [prob.random-variable, prob.expectation, prob.covariance]
 
+  - id: inverse.prior-distribution
+    name: 事前分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形 Gaussian 逆問題モデル）"]
+    requires: [prob.random-variable]
+
   - id: inverse.linear-gaussian-model
     name: 線形Gaussian逆問題モデル
     kind: definition
@@ -29,6 +36,13 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（事後密度と周辺密度）"]
     requires: [inverse.linear-gaussian-model, stat.likelihood]
+
+  - id: inverse.posterior-distribution
+    name: 事後分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（事後密度と周辺密度）"]
+    requires: [inverse.linear-gaussian-model]
 
   - id: inverse.gaussian-posterior-formula
     name: 線形Gaussian逆問題の事後平均と事後共分散
