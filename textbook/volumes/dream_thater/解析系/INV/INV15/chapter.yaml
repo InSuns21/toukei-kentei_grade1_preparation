@@ -1,0 +1,52 @@
+id: "INV15"
+title: "Gaussian事前分布で何が復元できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV5
+  - F0-00P3
+  - F0-00P6
+  - F0-00P7
+official_scope: []
+learning_objectives:
+  - 有限次元線形Gaussian逆問題の独立性と正定値共分散の仮定を確認し尤度と事後密度を構成できる
+  - 多変量Gaussian密度の定義と正規化・平均・分散共分散行列を直接検証できる
+  - 事前密度と尤度の平方完成から事後平均と事後共分散を再導出できる
+  - 観測行列が階数不足でも事後精度行列が正定値になることを説明できる
+  - 観測側共分散を用いる更新公式と周辺Gaussian分布を行列恒等式から導ける
+  - MAP推定値を加重Tikhonov最小点として導き正規方程式との一致を証明できる
+  - 未観測方向への事前相関の影響と独立時の不変性を区別できる
+  - 線形性・独立性・正定値性を外した場合の公式の適用限界を反例で判定できる
+definitions:
+  - { id: INV15-DEF-01, name: 正定値分散共分散行列をもつ多変量正規分布 }
+  - { id: INV15-DEF-02, name: 線形Gaussian逆問題モデル }
+  - { id: INV15-DEF-03, name: 事後密度と周辺密度 }
+  - { id: INV15-DEF-04, name: MAP推定値 }
+theorems:
+  - { id: INV15-THM-01, name: 線形Gaussian逆問題の事後平均と事後共分散 }
+  - { id: INV15-PROP-01, name: 観測側の事後更新公式 }
+  - { id: INV15-THM-02, name: MAPと加重Tikhonov正則化の一致 }
+  - { id: INV15-PROP-02, name: 独立な未観測成分は更新されない }
+canonical_examples:
+  - 非等方な二変量Gaussian密度の正規化と分散
+  - 一次元モデルでのBayes更新と観測ノイズ重み
+  - 階数不足の観測に対する事後精度の正定値性
+  - 相関する二変数で未観測成分が更新される例
+  - 等方Gaussian priorと通常Tikhonovのパラメータ対応
+  - 二つの独立測定に対する一括更新と逐次更新
+  - 非線形平方観測の非Gaussian事後と非一意MAP
+problem_patterns:
+  - INV15-A01
+  - INV15-A02
+  - INV15-A03
+  - INV15-A04
+  - INV15-A05
+  - INV15-B01
+  - INV15-B02
+  - INV15-B03
+  - INV15-B04
+  - INV15-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
