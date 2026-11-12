@@ -1,6 +1,6 @@
 # HOLO14 ホログラフィック繰り込み
 
-[HOLO9の2点関数](../HOLO9/index.md#prop-holo9-finite-action)は $0<\nu<1$ に限定し、場の二次の局所反項一つで有限な生成汎関数を得ました。[HOLO13の重力変分](../HOLO13/index.md#def-holo13-brown-york)では、純$AdS_3$の体積反項が境界応力の発散を消しました。しかし一般のスカラーでは境界方向に変化する源がさらに発散を生み、指数差が整数になると対数発散が現れます。反項の係数を後から当て推量すると、有限応答と接触項が混同されます。
+[HOLO9の2点関数](../HOLO9/index.md#prop-holo9-finite-action)は $0<\nu<1$ に限定し、場の二次の局所反項一つで有限な生成汎関数を得ました。[HOLO13の重力変分](../HOLO13/index.md#def-holo13-brown-york)では、純$AdS_3$の体積反項が境界応力の発散を消しました。しかし一般のスカラーでは境界方向に変化する源がさらに発散を生み、二つの指数の差が局所展開の偶数次の刻み幅と重なる（$\nu$ が正整数になる）と対数発散が現れます。反項の係数を後から当て推量すると、有限応答と接触項が混同されます。
 
 本講は、**径方向の方程式から発散を次数ごとに求め、cutoff面の局所反項だけで相殺し、有限な1点・2点関数とWard恒等式まで追う**ことを目標にします。初めて現れる導関数反項を $1<\nu<2$ で完全に計算し、共鳴 $\nu=1$ では対数とスケール異常を別途導きます。一般の漸近AdS重力や全次数の共形異常の完全分類は主張しません。
 
@@ -14,7 +14,19 @@ I_\epsilon[\phi]=\frac12\int_{z\ge\epsilon}\sqrt g\,
 (g^{ab}\partial_a\phi\partial_b\phi+m^2\phi^2)\,d^{d+1}X
 $$
 
-を使います。$\phi$ は実スカラーで、源 $J\in C_c^\infty(\mathbb R^d;\mathbb R)$ を固定し、赤外では各非零Fourierモードについて減衰する解を選びます。積分・変分はこの試験関数空間上で行い、運動量表示は分布として解釈します。境界方向の全微分積分は消え、背景重力の量子補正とスカラーの自己相互作用を無視します。質量指数は[HOLO8の命題](../HOLO8/index.md#prop-holo8-mass-dimension)を用いて
+を使います。バルク座標は $X=(z,x^1,\ldots,x^d)$、添字 $a,b$ は全 $d+1$ 方向、$i,j$ は境界の $1,\ldots,d$ 方向を走り、上下で反復した添字は和を表します。$\delta_{ij}$ は境界の直交座標基底での単位行列です。$\partial_z$ は $x$ を固定して $z$ を、$\partial_i=\partial/\partial x^i$ は $z$ を固定して $x^i$ を微分します。[HOLO8の境界Laplace作用素](../HOLO8/index.md#ref-holo8-radial-equation)に合わせ、次を用います。
+
+$$
+\nabla_xJ=(\partial_1J,\ldots,\partial_dJ),\qquad
+\Delta_xJ=\delta^{ij}\partial_i\partial_jJ
+=\sum_{i=1}^d\partial_i^2J .
+$$
+
+cutoff面 $z=\epsilon$ の接ベクトル $v=v^i\partial_i$、$w=w^j\partial_j$ に対して、[HOLO13の誘導計量](../HOLO13/index.md#def-holo13-dirichlet-action)は計量の制限 $\gamma(v,w)=g(v,w)=L^2\epsilon^{-2}\delta_{ij}v^iw^j$ です。よって $\gamma_{ij}=L^2\epsilon^{-2}\delta_{ij}$、$\gamma^{ij}=\epsilon^2L^{-2}\delta^{ij}$ となり、$v\ne0$ なら $\gamma(v,v)>0$ です。この正定値な対角行列の行列式は $(L^2/\epsilon^2)^d$ なので、面積密度は $\sqrt\gamma=(L/\epsilon)^d$ です。
+
+Fourier変換は $\widehat J(k)=\int_{\mathbb R^d}e^{-ik\cdot x}J(x)\,d^dx$、逆変換は $J(x)=\int e^{ik\cdot x}\widehat J(k)\,d^dk/(2\pi)^d$ とします。ここで $k\in\mathbb R^d$、$k\cdot x=\sum_i k_ix^i$、$|k|^2=\sum_i k_i^2$、$i^2=-1$ です。単一モードの振幅を $J_k=\widehat J(k)$ と略記する場合、$\Delta_x(J_ke^{ik\cdot x})=-|k|^2J_ke^{ik\cdot x}$ が成り立ちます。
+
+$\phi$ は実スカラーで、源 $J\in C_c^\infty(\mathbb R^d;\mathbb R)$ を固定し、赤外では各非零Fourierモードについて減衰する解を選びます。積分・変分はこの試験関数空間上で行い、運動量表示は分布として解釈します。境界方向の全微分積分は消え、背景重力の量子補正とスカラーの自己相互作用を無視します。質量指数は[HOLO8の命題](../HOLO8/index.md#prop-holo8-mass-dimension)を用いて
 
 $$
 a=\Delta_-=\frac d2-\nu,\qquad b=\Delta_+=\frac d2+\nu,\qquad
@@ -51,7 +63,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo14-local-counterterm -->
-**定義の確認**：境界計量の体積密度 $\sqrt\gamma=L^d\epsilon^{-d}$ を使うと、$\int\sqrt\gamma\,\phi_\epsilon^2$ と $\int\sqrt\gamma\,\gamma^{ij}\partial_i\phi_\epsilon\partial_j\phi_\epsilon$ はともに面上の場とその接線微分だけで書けます。後者は $\gamma^{ij}=\epsilon^2L^{-2}\delta^{ij}$ を使って計算できます。いずれも $z>\epsilon$ の内部の場の値や、異なる境界点を結ぶ積分核を必要としません。一方 $\int J(x)B[J](x)d^dx$ は一般に非局所なので、反項の定義には該当しません。
+**定義の確認**：第0節で接ベクトルに計量を制限して得た座標成分行列 $\gamma_{ij}$ に対し、$\gamma_{ik}\gamma^{kj}=\delta_i{}^j$ から逆計量が求まり、$\sqrt{\det\gamma_{ij}}=L^d\epsilon^{-d}$ です。この面積密度を使うと、$\int\sqrt\gamma\,\phi_\epsilon^2$ と $\int\sqrt\gamma\,\gamma^{ij}\partial_i\phi_\epsilon\partial_j\phi_\epsilon$ はともに面上の場とその接線微分だけで書けます。後者は $\gamma^{ij}=\epsilon^2L^{-2}\delta^{ij}$ を使って計算できます。いずれも $z>\epsilon$ の内部の場の値や、異なる境界点を結ぶ積分核を必要としません。一方 $\int J(x)B[J](x)d^dx$ は一般に非局所なので、反項の定義には該当しません。
 <!-- definition-example-end -->
 
 <a id="prop-holo14-recursion"></a>
@@ -99,7 +111,14 @@ $$
 です。次の局所係数の冪は $z^{a+4}$、応答の冪は $z^b=z^{a+2\nu}$ であり $2\nu<4$ です。非共鳴であるためここまで対数は必要ありません。赤外正則性から定まる $B[J]$ は次のFourier計算で明示します。$\square$
 <!-- proof-end -->
 
-直接例として $d=3$、$\nu=3/2$、$m^2L^2=0$ を取り、単一Fourier成分 $J_k e^{ik\cdot x}$ を形式的に考えると $a=0$、$F_k=-|k|^2J_k/2$ です。したがって $\phi_k=J_k(1-|k|^2z^2/2)+z^3B_k+\cdots$ となります。Fourier成分そのものはコンパクト台ではありませんが、一般の $J$ はFourier重ね合わせで扱えます。
+直接例として $d=3$、$\nu=3/2$、$m^2L^2=0$ を取り、単一Fourier成分 $J_k e^{ik\cdot x}$ を形式的に考えると $a=0$、$F_k=-|k|^2J_k/2$ です。この場合、$t=|k|z$ として赤外減衰解 $f_k(z)=J_k(1+t)e^{-t}$ を直接確かめられます。実際、$d f_k/dt=-J_kte^{-t}$、$d^2f_k/dt^2=J_k(t-1)e^{-t}$ なので、第0節の径方向方程式 $t^2f_k''-2tf_k'-t^2f_k=0$ を満たします。$e^{-t}=1-t+t^2/2-t^3/6+O(t^4)$ を掛けると
+
+$$
+\phi_k=J_k(1-|k|^2z^2/2+|k|^3z^3/3)+O(z^4),
+\qquad B_k=|k|^3J_k/3 .
+$$
+
+ここで $f_k'$ は $t$ に関する微分ですが、元の $\partial_z f_k=|k|\,d f_k/dt$ とは連鎖律で対応します。Fourier成分そのものはコンパクト台ではありませんが、一般の $J$ はFourier重ね合わせで扱えます。
 
 ## 2. べき発散を相殺し、有限応答を取り出す
 
@@ -241,7 +260,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\widehat J(k)=\int e^{-ik\cdot x}J(x)d^dx$ と定めます。[径方向方程式](../HOLO8/index.md#ref-holo8-radial-equation)の $k$ モードを $f_k=z^{d/2}u(|k|z)$ に変えると、$t=|k|z$ に対して $t^2u''+tu'-(t^2+\nu^2)u=0$ となります。赤外で減衰する解 $K_\nu(t)$ を選び、$t\downarrow0$ における $K_\nu(t)\sim 2^{\nu-1}\Gamma(\nu)t^{-\nu}$ で正規化すると
+第0節で定義したFourier変換で、[径方向方程式](../HOLO8/index.md#ref-holo8-radial-equation)の $k\ne0$ モードを $f_k(z)=z^{d/2}u(t)$、$t=|k|z$ と置きます。$u'$ と $u''$ は **$t$ に関する**一階・二階導関数であり、$z$ 微分は連鎖律により
+
+$$
+zf_k'=z^{d/2}\left(\frac d2u+tu'\right),\qquad
+z^2f_k''=z^{d/2}
+\left[\frac d2\left(\frac d2-1\right)u+dtu'+t^2u''\right]
+$$
+
+です。これを $z^2f_k''-(d-1)zf_k'-(|k|^2z^2+m^2L^2)f_k=0$ に代入し、$\nu^2=d^2/4+m^2L^2$ を用いると、$t^2u''+tu'-(t^2+\nu^2)u=0$ となります。赤外で減衰する解 $K_\nu(t)$ を選び、$t\downarrow0$ における $K_\nu(t)\sim 2^{\nu-1}\Gamma(\nu)t^{-\nu}$ で正規化すると
 
 $$
 \phi_k(z)=\frac{2^{1-\nu}}{\Gamma(\nu)}
@@ -272,7 +299,24 @@ $$
 |r|^{-d-2\nu}\quad(r\ne0)
 $$
 
-を $2\nu L^{d-1}q_\nu$ に掛ければ式が得られます。有限な局所二次反項 $C\int J(-\Delta_x)^nJ$ の二次変分は $k^{2n}$ の多項式、位置空間では $\delta(x-y)$ の有限階微分であり、$x\ne y$ で零です。$\square$
+を $2\nu L^{d-1}q_\nu$ に掛ければ式が得られます。この逆変換公式を $1<\nu<2$ で使う根拠も確認します。[HOLO9のFourier応答命題](../HOLO9/index.md#prop-holo9-momentum)と[分離点の2点核](../HOLO9/index.md#prop-holo9-two-point)から、$\lambda=\nu-1\in(0,1)$ に対し、$r\ne0$ では
+
+$$
+\mathcal F^{-1}(|k|^{2\lambda})(r)
+=\frac{2^{2\lambda}\Gamma(d/2+\lambda)}
+{\pi^{d/2}\Gamma(-\lambda)}|r|^{-d-2\lambda}
+$$
+
+が従います。両辺へ $-\Delta_r$ を作用させると、左辺は $|k|^{2\lambda+2}$ の逆変換です。右辺では $\Delta_r|r|^{-p}=p(p+2-d)|r|^{-p-2}$（$p=d+2\lambda$、$r\ne0$）と $\Gamma(-\lambda)=(-\lambda-1)\Gamma(-\lambda-1)$ より
+
+$$
+-\frac{(d+2\lambda)(2\lambda+2)\,2^{2\lambda}\Gamma(d/2+\lambda)}
+{\pi^{d/2}\Gamma(-\lambda)}
+=\frac{2^{2(\lambda+1)}\Gamma(d/2+\lambda+1)}
+{\pi^{d/2}\Gamma(-\lambda-1)} .
+$$
+
+従って $\nu=\lambda+1$ の表示が得られます。原点での分布の延長は接触項の自由度を持ちますが、$r\ne0$ の式は確定します。有限な局所二次反項 $C\int J(-\Delta_x)^nJ$ の二次変分は $k^{2n}$ の多項式、位置空間では $\delta(x-y)$ の有限階微分であり、$x\ne y$ で零です。$\square$
 <!-- proof-end -->
 
 **適用境界**：$k=0$ の赤外条件、$\nu\in\mathbb Z$ の対数、曲がった境界源、Lorentzの状態と $i\epsilon$ は上の非整数模型の結論に無条件に含まれません。
@@ -513,7 +557,7 @@ $\mu$ を変えた差は $-L^{d-1}|k|^2\log(\mu'/\mu)$ であり、位置空間�
 ### A1. 局所係数の符号を確認する
 
 - Level: A
-- 問題: $d=4,\nu=3/2$ とし、$\Delta_xJ=-\kappa^2J$ のFourier成分を考える。$a,b,m^2L^2$ と $F/J$ を求めよ。
+- 問題: $d=4,\nu=3/2$ とし、$\kappa>0$、$\Delta_xJ=-\kappa^2J$ を満たす非零のFourier成分を考える。$a,b,m^2L^2$ と $F/J$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：$a=2-3/2=1/2$、$b=2+3/2=7/2$、したがって $m^2L^2=a(a-d)=(1/2)(-7/2)=-7/4$ です。[局所係数の命題](#prop-holo14-recursion)に $\Delta_xJ=-\kappa^2J$ を代入して
@@ -570,7 +614,7 @@ $$
 - 問題: $1<\nu<2$ で $\phi=z^a(J+z^2F)+z^bB+o(z^b)$、$F=\Delta_xJ/[4(\nu-1)]$ とする。体積・勾配の反項を加えて有限作用と $\langle\mathcal O\rangle$ を導け。$B$ は実偶Fourier乗数を持つものとする。
 
 <!-- solution-start -->
-**詳細解答**：第2節の境界項から、体積反項を加えた作用は $-\frac12L^{d-1}\int\epsilon^{1-d}\phi_\epsilon(\partial_z-a/\epsilon)\phi_\epsilon$ です。作用素を場に適用すると $2\epsilon^{a+1}F+2\nu\epsilon^{b-1}B$ が残ります。従って $-\epsilon^{2-2\nu}L^{d-1}\int JF-\nu L^{d-1}\int JB+o(1)$ です。勾配反項は $+\epsilon^{2-2\nu}L^{d-1}\int JF+o(1)$、残る作用は $I_{\mathrm{ren}}=-\nu L^{d-1}\int JB$ です。自己随伴性から $\delta\int JB=2\int\delta J\,B$ となるため、$W=-I_{\mathrm{ren}}$ の微分は $2\nu L^{d-1}B$ です。
+**詳細解答**：[第2節の有限作用の命題](#prop-holo14-finite-scalar)の計算を出発点からたどります。体積反項を加えた作用は $-\frac12L^{d-1}\int\epsilon^{1-d}\phi_\epsilon(\partial_z-a/\epsilon)\phi_\epsilon$ です。作用素を場に適用すると $2\epsilon^{a+1}F+2\nu\epsilon^{b-1}B$ が残ります。従って $-\epsilon^{2-2\nu}L^{d-1}\int JF-\nu L^{d-1}\int JB+o(1)$ です。勾配反項は $+\epsilon^{2-2\nu}L^{d-1}\int JF+o(1)$、残る作用は $I_{\mathrm{ren}}=-\nu L^{d-1}\int JB$ です。自己随伴性から $\delta\int JB=2\int\delta J\,B$ となるため、$W=-I_{\mathrm{ren}}$ の微分は $2\nu L^{d-1}B$ です。
 <!-- solution-end -->
 
 <a id="ex-holo14-b2"></a>
@@ -580,7 +624,7 @@ $$
 - 問題: $\nu=1$ で $\mu'=e^t\mu$、$t\in\mathbb R$ とする。$B_{\mu'}$、$I_{\mathrm{ren},\mu'}-I_{\mathrm{ren},\mu}$、2点乗数の差を求め、分離点での帰結を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：同じ場を二通りに書いて対数を比較すると $B_{\mu'}=B_\mu-tH$ です。有限作用 $-L^{d-1}\int JB_\mu-(L^{d-1}/2)\int JH$ を使うと
+**詳細解答**：同じ場を二通りに書いて対数を比較すると $B_{\mu'}=B_\mu-tH$ です。[対数反項の命題](#prop-holo14-log-divergence)で導いた有限作用 $-L^{d-1}\int JB_\mu-(L^{d-1}/2)\int JH$ を使うと
 
 $$
 I_{\mathrm{ren},\mu'}-I_{\mathrm{ren},\mu}
@@ -598,7 +642,7 @@ $W=-I$ なので二階変分は $\Delta G(k)=-tL^{d-1}|k|^2$ です。$|k|^2$ �
 - 問題: 第4節の第一変分と、コンパクト台の境界ベクトル場 $\xi$ を用いて、応力の発散公式を導け。$\partial_jJ=0$ と $\partial_jJ\ne0$ を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**：計量逆変分は $-\nabla^i\xi^j-\nabla^j\xi^i$、源の変分は $\xi^j\partial_jJ$ です。これを代入し、応力の対称性で計量の二項をまとめると $\delta_\xi W=\int\sqrt g(T_{ij}\nabla^i\xi^j+\mathcal O\,\xi^j\partial_jJ)$。第一項を部分積分すると $\int\sqrt g\,\xi^j(-\nabla^iT_{ij}+\mathcal O\partial_jJ)=0$。$\xi$ が任意なので $\nabla^iT_{ij}=\mathcal O\partial_jJ$ です。源が一定なら右辺は零ですが、源が変わる場合に零と決めつけることはできません。
+**詳細解答**：[繰り込み済み源応答の定義](#def-holo14-renormalized-responses)で、計量逆変分は $-\nabla^i\xi^j-\nabla^j\xi^i$、源の変分は $\xi^j\partial_jJ$ です。これを代入し、応力の対称性で計量の二項をまとめると $\delta_\xi W=\int\sqrt g(T_{ij}\nabla^i\xi^j+\mathcal O\,\xi^j\partial_jJ)$。第一項を部分積分すると $\int\sqrt g\,\xi^j(-\nabla^iT_{ij}+\mathcal O\partial_jJ)=0$。$\xi$ が任意なので $\nabla^iT_{ij}=\mathcal O\partial_jJ$ です。源が一定なら右辺は零ですが、源が変わる場合に零と決めつけることはできません。
 <!-- solution-end -->
 
 <a id="ex-holo14-b4"></a>
@@ -608,7 +652,7 @@ $W=-I$ なので二階変分は $\Delta G(k)=-tL^{d-1}|k|^2$ です。$|k|^2$ �
 - 問題: $1<\nu<2$ で $B(k)=2^{-2\nu}\Gamma(-\nu)|k|^{2\nu}J(k)/\Gamma(\nu)$ とする。$2\nu L^{d-1}B(k)$ の逆Fourier変換を $x\ne y$ で求め、有限局所反項の追加では距離冪が変わらない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**：$r=x-y\ne0$ と置き、第2節の分布的Fourier恒等式
+**詳細解答**：$r=x-y\ne0$ と置き、[非局所2点核の命題](#prop-holo14-two-point)で導いた分布的Fourier恒等式
 
 $$
 \mathcal F^{-1}(|k|^{2\nu})(r)
@@ -661,7 +705,7 @@ $$
 I_{\mathrm{ren}}=-L\int JB_\mu-\frac L2\int JH.
 $$
 
-**(4) 応答。** $H$ と $B_\mu$ は実偶Fourier乗数なので自己随伴です。$W=-I_{\mathrm{ren}}$ より
+**(4) 応答。** [繰り込み済み源応答の定義](#def-holo14-renormalized-responses)に従います。$H$ と $B_\mu$ は実偶Fourier乗数なので自己随伴です。$W=-I_{\mathrm{ren}}$ より
 
 $$
 \langle\mathcal O\rangle=L(2B_\mu+H),\qquad
