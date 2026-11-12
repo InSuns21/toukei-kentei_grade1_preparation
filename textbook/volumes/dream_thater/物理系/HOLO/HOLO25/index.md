@@ -128,7 +128,7 @@ $$
 \boxed{\mathcal C(A)=\{(t,x,z):z>0,\ |t|+\sqrt{x^2+z^2}<R\}.}
 $$
 >
-> その二つのnull境界は $t=-R+s$ と $t=R-s$（$s=\sqrt{x^2+z^2}$）、causal information surfaceは $t=0,\ x^2+z^2=R^2,\ z>0$ である。
+> その二つのnull境界は、$s=\sqrt{x^2+z^2}$ として $0<s\le R$ の部分にある $t=-R+s$ と $t=R-s$ であり、causal information surfaceは $t=0,\ x^2+z^2=R^2,\ z>0$ である。$s>R$ まで延長したnull面はくさび領域の境界ではない。
 <!-- formal-statement-end -->
 
 **証明の見取り図：** 菱形内の任意の送信点を考える必要がありますが、三角不等式を使うと、先端からの光円錐が最も外側の到達限界を与えることが分かります。
