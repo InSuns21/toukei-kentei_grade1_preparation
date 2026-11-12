@@ -4,7 +4,7 @@
 
 ところが撮影装置が回転できる範囲は有限であり、撮影角度も離散的です。すると何が一意に分かり、何が分からなくなるのでしょうか。「有限本の方向しかない」「方向が連続的でも角度範囲が狭い」「検出器を離散的に読む」は異なる欠測です。本講では、この三つを分けて、非一意性・一意性・不安定性を直接計算します。
 
-本講では画像を主に複素数値の Schwartz 級関数とし、必要な箇所だけ台がコンパクトな滑らかな関数を使います。実画像の反例が必要なときは実数値に取ります。角度は法線方向を表し、$\theta_\varphi=(\cos\varphi,\sin\varphi)$、$\theta_\varphi^\perp=(-\sin\varphi,\cos\varphi)$、$0\leq\varphi<\pi$ とします。Fourier 変換は
+本講では画像を主に複素数値の [Schwartz 級関数](../INV12/index.md#def-inv12-schwartz)とし、必要な箇所だけ台がコンパクトな滑らかな関数を使います。実画像の反例が必要なときは実数値に取ります。角度は法線方向を表し、$\theta_\varphi=(\cos\varphi,\sin\varphi)$、$\theta_\varphi^\perp=(-\sin\varphi,\cos\varphi)$、$0\leq\varphi<\pi$ とします。Fourier 変換は
 
 $$
 \widehat f(\xi)=\int_{\mathbb R^2}f(x)e^{-ix\cdot\xi}\,dx,\qquad
@@ -57,12 +57,18 @@ $$
 W_I=\{\omega\theta_\varphi:\varphi\in I,\ \omega\in\mathbb R\}
 $$
 
-> とする。周波数平面の $W_I$ の補集合のうち原点を除く開領域を、**欠測扇形**（missing wedge）と呼ぶ。有限方向 $\Phi$ の観測周波数集合は、$\bigcup_{\varphi\in\Phi}\mathbb R\theta_\varphi$ である。
+> とする。**欠測扇形**（missing wedge）は、観測周波数領域の閉包を除いた開集合
+
+$$
+U_I=\mathbb R^2\setminus\overline{W_I}
+$$
+
+> と定める。境界の方向は $W_I$ に含まれない場合があるが、$U_I$ にも含めない。有限方向 $\Phi$ の観測周波数集合は、$\bigcup_{\varphi\in\Phi}\mathbb R\theta_\varphi$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-inv14-visible-wedge -->
 
-**定義の確認**：$I=(0,\pi/3)$ では $(1,0)$ から角度 $\pi/6$ へ向いた周波数は観測され、$(0,2)$ は観測されません。$\omega<0$ も含むので、原点を挟んで反対側の扇形も観測されます。$\Phi=\{0,\pi/2\}$ では二本の座標軸だけが観測周波数集合です。
+**定義の確認**：$I=(0,\pi/3)$ では、$\xi=2\theta_{\pi/6}=(\sqrt3,1)$ は $\varphi=\pi/6\in I$、$\omega=2$ と書けるため $W_I$ に入ります。一方、$\eta=(0,2)$ と $-\eta$ はどちらも $\overline{W_I}$ の外なので $U_I$ に入ります。$\omega<0$ も含むため観測領域も欠測領域も原点を挟む対向方向に現れます。境界方向の $(1,0)$ は $W_I$ にも $U_I$ にも入りません。$\Phi=\{0,\pi/2\}$ では二本の座標軸だけが観測周波数集合です。
 
 <!-- definition-example-end -->
 
@@ -122,7 +128,18 @@ q_j(s\theta_{\varphi_j}+tv_j)\,dt\\
 \end{aligned}
 $$
 
-残るのは $h\neq0$ の確認です。$\widehat g(0)=\int g(x)\,dx>0$ なので、連続性から原点近くで $\widehat g(\xi)\neq0$ です。有限本の直線 $\{\xi:\xi\cdot v_j=0\}$ の和集合は小円板を埋め尽くしません。そこで全ての $\xi\cdot v_j\neq0$ かつ $\widehat g(\xi)\neq0$ である $\xi$ を取れます。部分積分により
+残るのは $h\neq0$ の確認です。$\widehat g(0)=\int g(x)\,dx>0$ なので、連続性から原点近くで $\widehat g(\xi)\neq0$ です。有限本の直線 $\{\xi:\xi\cdot v_j=0\}$ の和集合は小円板を埋め尽くしません。そこで全ての $\xi\cdot v_j\neq0$ かつ $\widehat g(\xi)\neq0$ である $\xi$ を取れます。コンパクト台によって境界項が消えるので、一回の方向微分に対して部分積分すると
+
+$$
+\begin{aligned}
+\widehat{D_{v_j}g}(\xi)
+&=\int_{\mathbb R^2}(v_j\cdot\nabla g(x))e^{-ix\cdot\xi}\,dx\\
+&=-\int_{\mathbb R^2}g(x)(v_j\cdot\nabla e^{-ix\cdot\xi})\,dx\\
+&=i(\xi\cdot v_j)\widehat g(\xi).
+\end{aligned}
+$$
+
+これを各 $j$ について繰り返すと
 
 $$
 \widehat h(\xi)=i^m\prod_{j=1}^m(\xi\cdot v_j)\widehat g(\xi)\neq0.
@@ -180,7 +197,7 @@ $$
 \mathcal F_s(Rh)(\varphi,\omega)=0.
 $$
 
-各 $\varphi$ に対して $s\mapsto Rh(\varphi,s)$ は Schwartz 級なので、一次元 Fourier 反転によって $Rh(\varphi,s)=0$ が全 $s$ で成立します。
+各 $\varphi$ に対して $s\mapsto Rh(\varphi,s)$ は Schwartz 級なので、[FOU3 の一次元 Fourier 反転](../../FOU/FOU3/index.md#thm-fou3-inversion)によって $Rh(\varphi,s)=0$ が全 $s$ で成立します。
 <!-- proof-end -->
 
 この反例は長い距離まで尾を持つ画像です。撮影対象の範囲が厳密に分かっている場合には、結論が変わります。
@@ -276,7 +293,7 @@ $$
 
 $g\in C_c^\infty$ とすれば部分積分を繰り返して、任意の整数 $N\geq1$ に対して $|\widehat g(\zeta)|\leq C_N(1+|\zeta|)^{-N}$ です。また指数を掛けた Fourier 変換は $\widehat h_n(\xi)=\widehat g(\xi-nu)$ となります。
 
-[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-parseval)を角度ごとに適用すると、
+[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [$L^2$ Fourier変換のPlancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)を角度ごとに適用すると、
 
 $$
 \begin{aligned}
@@ -312,6 +329,16 @@ $$
 ## 5. 欠測周波数を0と置く再構成とその誤差
 
 欠測扇形は直接観測できません。最も単純な処置は「得た Fourier 値だけを使い、残りを0と置く」ことです。これを一意性の定理と混同しないため、作用素として定義して誤差を計算します。
+
+ただし、周波数を急に遮断した後の関数は一般に Schwartz 級ではありません。$f\in\mathcal S(\mathbb R^2)$ なら $\widehat f\in L^2(\mathbb R^2)$ であり、観測領域の指示関数を掛けたものも
+
+$$
+\int_{\mathbb R^2}|\mathbf1_{W_I}(\xi)\widehat f(\xi)|^2\,d\xi
+=\int_{W_I}|\widehat f(\xi)|^2\,d\xi
+\leq\int_{\mathbb R^2}|\widehat f(\xi)|^2\,d\xi<\infty
+$$
+
+を満たします。[FOU4 の $L^2$ Fourier 反転](../../FOU/FOU4/index.md#thm-fou4-l2-inversion)を二つの座標に順に適用すれば、この周波数関数に対応する $L^2(\mathbb R^2)$ の元が一意に存在します。以下の $\widehat{Z_I f}$ は、この $L^2$ の意味での Fourier 変換です。
 
 <a id="def-inv14-zero-filling"></a>
 
@@ -354,7 +381,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)と [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-parseval)を二変数に適用し、
+$f$ は Schwartz 級、$Z_I f$ は上で構成した $L^2$ 関数です。[$L^2$ Fourier 変換のPlancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)をまず第1座標、次に第2座標へ適用すると、各座標から $(2\pi)^{-1}$ が現れるため、二乗ノルムの係数は $(2\pi)^{-2}$ です。従って、
 
 $$
 \begin{aligned}
@@ -372,18 +399,30 @@ $$
 
 コンパクト台の画像でも周波数の欠測エネルギーは一般に正です。**一意性の定理は、その値を0に埋めてよいとは主張していません**。実画像の再構成では境界の鋭い遮断が方向に依存した振動や線状の模様を生む場合がありますが、ここでは特定の artifact を分類する一般定理を主張しません。
 
-**線状の模様が生まれる幾何学的理由**：[単純逆投影](../INV13/index.md#def-inv13-backprojection)は、投影値 $g(\varphi,s)$ を直線 $x\cdot\theta_\varphi=s$ 上の全点へ配り直します。例えば中心 $x_0$ の Gaussian $f_a(x)=e^{-a|x-x_0|^2}$ の投影は
+**線状の模様が生まれる幾何学的理由**：[単純逆投影](../INV13/index.md#def-inv13-backprojection)は、投影値 $g(\varphi,s)$ を直線 $x\cdot\theta_\varphi=s$ 上の全点へ配り直します。例えば $a>0$、中心 $x_0$ の Gaussian $f_a(x)=e^{-a|x-x_0|^2}$ を考えます。法線と接線の正規直交座標では
 
 $$
-(Rf_a)(\varphi,s)=\sqrt{\pi/a}\,
-e^{-a(s-x_0\cdot\theta_\varphi)^2}.
+|s\theta_\varphi+t\theta_\varphi^\perp-x_0|^2
+=(s-x_0\cdot\theta_\varphi)^2
++(t-x_0\cdot\theta_\varphi^\perp)^2.
+$$
+
+従って、[Radon変換の定義](../INV12/index.md#def-inv12-radon)に代入して $t$ を積分すると
+
+$$
+\begin{aligned}
+(Rf_a)(\varphi,s)
+&=e^{-a(s-x_0\cdot\theta_\varphi)^2}
+\int_{\mathbb R}e^{-a(t-x_0\cdot\theta_\varphi^\perp)^2}\,dt\\
+&=\sqrt{\pi/a}\,e^{-a(s-x_0\cdot\theta_\varphi)^2}.
+\end{aligned}
 $$
 
 固定角度の逆投影値は、$x\cdot\theta_\varphi=x_0\cdot\theta_\varphi$ を満たす直線全体で最大になります。多数の角度があれば重ね合わせ・フィルタ処理で方向が補われますが、方向が不足すると偏った線状の寄与が目立ちます。これは直接計算した機構の説明であり、どの特異性がどこへ伝播するかの完全な定理ではありません。
 
 ## 6. 角度の有限化と検出器の標本化は別の損失
 
-有限方向 $\Phi$ では、各角度の $s$ をどれほど細かく測っても、定理で作った非零の $h$ が核に残ります。一方、同じ角度で検出器を離散的に読む場合には $s$ 方向の別の情報落ちが起きます。
+有限方向 $\Phi$ では、各角度の $s$ をどれほど細かく測っても、[有限方向観測の非自明な核の定理](#thm-inv14-finite-view-kernel)で作った非零の $h$ が核に残ります。一方、同じ角度で検出器を離散的に読む場合には $s$ 方向の別の情報落ちが起きます。
 
 <a id="def-inv14-detector-sampling"></a>
 
@@ -404,7 +443,23 @@ $$
 
 <!-- definition-example-end -->
 
-この例は一次元の標本化の曖昧さを示すものであり、二つの関数が必ず同じ二次元画像の Radon 投影として同時に実現できる、とは主張していません。周波数を制限した信号の標本化定理を適用する際には、その帯域制限を別途確かめる必要があります。コンパクト台の非零画像に厳密な有限 Fourier 帯域を同時に仮定することもできません（第3節の冪級数による議論から従います）。
+実際、この二つの一次元信号は、**固定した一方向での**二次元 Schwartz 画像の Radon 投影としても実現できます。$\theta=\theta_\varphi$、$v=\theta_\varphi^\perp$ とし、$r=p,q$ に対して
+
+$$
+f_r(x)=\frac1{\sqrt\pi}\,r(x\cdot\theta)\,
+e^{-(x\cdot v)^2}
+$$
+
+と置きます。$\{\theta,v\}$ は正規直交基底、$r$ は Schwartz 級だから $f_r\in\mathcal S(\mathbb R^2)$ です。[Radon 変換の定義](../INV12/index.md#def-inv12-radon)に $x=s\theta+tv$ を代入すると、
+
+$$
+(Rf_r)(\varphi,s)=
+\frac{r(s)}{\sqrt\pi}\int_{\mathbb R}e^{-t^2}\,dt=r(s)
+$$
+
+です。従って同じ角度の検出器格子で全標本が一致する二つの異なる画像が存在します。ただし、**別の全角度でも標本が一致する**とまでは主張しません。
+
+周波数を制限した信号の標本化定理を適用する際には、その帯域制限を別途確かめる必要があります。コンパクト台の非零画像が厳密な有限 Fourier 帯域を同時に持つと仮定すると、その Fourier 変換は帯域の外の開長方形で0となり、[第3節のコンパクト台一意性の証明](#thm-inv14-compact-uniqueness)の二回の冪級数展開によって全平面で0、結局元画像も0となって矛盾します。
 
 半径 $\rho$ の周波数円上で角度を $\Delta\varphi$ だけ離して測ると、隣り合う周波数標本の距離は
 
@@ -619,7 +674,7 @@ $$
 =\frac12(\omega^2+n^2).
 $$
 
-[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-parseval)による誤差評価は
+[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [$L^2$ Fourier変換のPlancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)による誤差評価は
 
 $$
 \begin{aligned}
@@ -701,7 +756,7 @@ $$
 \ge(1-\sqrt3/2)(\omega^2+n^2).
 $$
 
-$\widehat h_n(\xi)=\widehat g(\xi-nu)$ と Schwartz 急減少性を [Fourier slice theorem](../INV12/index.md#thm-inv12-slice)・[Plancherel](../../FOU/FOU4/index.md#thm-fou4-parseval)へ代入すると、各 $N\ge1$ について
+$\widehat h_n(\xi)=\widehat g(\xi-nu)$ と Schwartz 急減少性を [Fourier slice theorem](../INV12/index.md#thm-inv12-slice)・[$L^2$ Plancherel等式](../../FOU/FOU4/index.md#thm-fou4-l2-extension)へ代入すると、各 $N\ge1$ について
 
 $$
 \|M_Ih_n\|_2^2\le C_N n^{1-2N}.
