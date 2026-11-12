@@ -19,3 +19,4 @@
 
 16. [INV16 逆問題の不確実性をどう読むか](textbook/volumes/dream_thater/解析系/INV/INV16/index.md)
 17. [INV17 PDEの係数から観測までをどう微分するか](textbook/volumes/dream_thater/解析系/INV/INV17/index.md)
+18. [INV18 随伴法から感度と識別をどう得るか](textbook/volumes/dream_thater/解析系/INV/INV18/index.md)

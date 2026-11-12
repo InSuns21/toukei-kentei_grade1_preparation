@@ -23,4 +23,4 @@ chapters:
   - { id: INV15, path: textbook/volumes/dream_thater/解析系/INV/INV15, status: completed, title: "Gaussian事前分布で何が復元できるか" }
   - { id: INV16, path: textbook/volumes/dream_thater/解析系/INV/INV16, status: completed, title: "逆問題の不確実性をどう読むか" }
   - { id: INV17, path: textbook/volumes/dream_thater/解析系/INV/INV17, status: completed, title: "PDEの係数から観測までをどう微分するか" }
-  - { id: INV18, path: textbook/volumes/dream_thater/解析系/INV/INV18, status: planned, title: "随伴法から感度と識別をどう得るか" }
+  - { id: INV18, path: textbook/volumes/dream_thater/解析系/INV/INV18, status: completed, title: "随伴法から感度と識別をどう得るか" }
