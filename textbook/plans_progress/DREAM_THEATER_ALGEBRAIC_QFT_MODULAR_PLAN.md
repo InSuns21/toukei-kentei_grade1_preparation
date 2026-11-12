@@ -1,8 +1,8 @@
 # DREAM THEATER 代数的量子場理論・モジュラー理論（AQFT系列・全34講）
 
 作成・分冊: 2026-10-11  
-改訂: 2026-11-12（AQFT6のWeyl CCR・局所C*netを実装）  
-状態: in_progress（AQFT1–6本文・系列manifest・公開を実装。次講AQFT7–34と最終横断監査は未完了）
+改訂: 2026-11-13（AQFT7のquasifree状態・二点形式を実装）  
+状態: in_progress（AQFT1–7本文・系列manifest・公開を実装。次講AQFT8–34と最終横断監査は未完了）
 
 ## 中心問いと出口
 
