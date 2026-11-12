@@ -1,0 +1,80 @@
+chapter: AQFT3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT2
+  - OA5
+  - QM6
+  - QM7
+forward_references: []
+concepts:
+  - id: aqft.state-covariant-transform
+    name: 状態のPoincaré変換
+    kind: definition
+    introduction: formal
+    requires: [operator-algebra.state, aqft.poincare-net-covariance]
+  - id: aqft.invariant-state
+    name: 不変状態
+    kind: definition
+    introduction: formal
+    requires: [aqft.state-covariant-transform]
+  - id: aqft.covariant-cyclic-representation
+    name: 共変巡回表現
+    kind: definition
+    introduction: formal
+    requires: [operator-algebra.unital-star-representation, aqft.poincare-net-covariance]
+  - id: aqft.state-pullback-action
+    name: 状態の引き戻しは状態の群作用を与える
+    kind: proposition
+    introduction: formal
+    requires: [aqft.state-covariant-transform]
+  - id: aqft.invariant-gns-covariance
+    name: 不変状態の共変GNS実装
+    kind: theorem
+    introduction: formal
+    requires: [aqft.invariant-state, aqft.covariant-cyclic-representation, operator-algebra.gns-construction]
+  - id: aqft.gns-strong-continuity
+    name: GNS実装の強連続性判定
+    kind: proposition
+    introduction: formal
+    requires: [aqft.invariant-gns-covariance, quantum.strongly-continuous-unitary-group]
+  - id: aqft.translation-spectrum-condition
+    name: 平行移動のスペクトル条件
+    kind: definition
+    introduction: formal
+    requires: [aqft.gns-strong-continuity, quantum.unbounded-self-adjoint-spectral-theorem]
+  - id: aqft.lorentz-energy-positivity
+    name: Lorentz共変性とエネルギー正値性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.translation-spectrum-condition]
+  - id: aqft.positive-energy-vacuum
+    name: 正エネルギー真空と真空一意性
+    kind: definition
+    introduction: formal
+    requires: [aqft.invariant-state, aqft.translation-spectrum-condition]
+  - id: aqft.zero-momentum-invariants
+    name: 零運動量射影と不変ベクトル
+    kind: proposition
+    introduction: formal
+    requires: [aqft.positive-energy-vacuum]
+  - id: aqft.two-point-vacuum-degeneracy
+    name: 二点可換netの真空非一意性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.zero-momentum-invariants, aqft.haag-kastler-net]
+  - id: aqft.additivity
+    name: 加法性
+    kind: definition
+    introduction: formal
+    requires: [aqft.haag-kastler-net]
+  - id: aqft.time-slice
+    name: time-slice条件
+    kind: definition
+    introduction: formal
+    requires: [aqft.haag-kastler-net]
+  - id: aqft.nonadditive-net
+    name: 基本net公理から加法性とtime-sliceは従わない
+    kind: proposition
+    introduction: formal
+    requires: [aqft.additivity, aqft.time-slice]
