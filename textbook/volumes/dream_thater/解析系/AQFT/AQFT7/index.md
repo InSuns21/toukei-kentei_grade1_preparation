@@ -4,7 +4,7 @@
 $$
 W(F)W(G)=e^{-i\sigma(F,G)/2}W(F+G),\qquad W(F)^*=W(-F)
 $$
-です。しかしこれだけでは、[AQFT3で区別した状態と真空](../AQFT3/index.md#def-aqft3-vacuum)のうち、どの状態を選ぶべきか決まりません。実際、AQFT6の離散表示は規則的ですらありません。
+です。しかしこれだけでは、[AQFT3で区別した状態と真空](../AQFT3/index.md#def-aqft3-vacuum)のうち、どの状態を選ぶべきか決まりません。実際、[AQFT6の離散表示の非規則性](../AQFT6/index.md#prop-aqft6-nonregular-discrete)が既に示されています。
 
 この講では「各 $W(F)$ の期待値をGaussian型の式で指定できるか」を出発点にします。単に指数関数が正であるだけでは不十分です。**非可換なWeyl元の線形結合 $A$ について $\omega(A^*A)\ge0$ が必要**であり、その制約に古典的な交代形式 $\sigma$ が現れます。二点形式から不確定性条件を導き、逆にその条件から状態・規則的GNS表現を構成します。次講でMinkowski真空を選ぶための一般的な準備です。
 
@@ -39,7 +39,7 @@ $$
 <!-- definition-example-start: def-aqft7-covariance -->
 ### 直接例：位置・運動量の二方向
 
-**定義の確認**。$V_0=\mathbb R^2$ の $F=(q,p)$、$G=(q',p')$ に
+**定義の確認**。$V_0=\mathbb R^2$ の $F=(q,p)$、$G=(q',p')$ に（プライムは微分ではなく、第二のベクトルの座標を区別する記号です）
 $$
 \sigma_0(F,G)=qp'-pq',\qquad
 \mu_{a,b}(F,G)=aqq'+bpp'\quad(a,b>0)
@@ -80,14 +80,27 @@ $\mu$ が実対称で $\sigma$ が実交代だから、複素共役で引数が�
 <!-- definition-example-start: def-aqft7-two-point-form -->
 ### 直接例：境界共分散のHermitian行列
 
-**定義の確認**。選んだ基底において二点形式のHermitian性と正値性を固有値から直接調べます。
+**定義の確認**。まず、基底行列がなぜ定義の「すべての有限個の元・複素係数」の判定になるかを確かめます。$e_q=(1,0),e_p=(0,1)$ は $V_0$ の実基底です。$F_j=x_{1j}e_q+x_{2j}e_p$（$x_{\alpha j}\in\mathbb R$）と置き、$w_\alpha=\sum_jz_jx_{\alpha j}$ とすれば、実双線形性から
+$
+\sum_{j,k}\overline{z_j}z_k\Lambda(F_j,F_k)
+=\sum_{\alpha,\beta=1}^2\overline{w_\alpha}w_\beta\Lambda(e_\alpha,e_\beta)
+=w^*[\Lambda]w.
+$
+逆に任意の $w\in\mathbb C^2$ は $F_1=e_q,F_2=e_p,z_1=w_1,z_2=w_2$ で得られます。したがって、この基底でのHermitian行列の半正定値性は、[二点形式の定義](#def-aqft7-two-point-form)の複素正値性と**必要十分**です。
 
-先ほどの $\mu_{a,b}$ を基底 $e_q=(1,0),e_p=(0,1)$ で表示します。$\mu(e_q,e_p)=0$、$\sigma(e_q,e_p)=1$ なので
-$$
+先ほどの $\mu_{a,b}$ について、$\mu(e_q,e_p)=0$、$\sigma(e_q,e_p)=1$ と交代性から
+$
 [\Lambda]_{(e_q,e_p)}
-=\begin{pmatrix}a&i/2\\-i/2&b\end{pmatrix}.
-$$
-任意の $z=(z_1,z_2)^T$ に $z^*[\Lambda]z$ を計算します。$a=b=1/2$ の場合、行列の固有値は $0,1$（跡 $1$、行列式 $0$）なので半正定値です。$a=b=1/4$ の場合は固有値 $-1/4,3/4$ で、負方向が実際に存在します。これは**単なる $\mu$ の正値性と $\Lambda$ の複素正値性が異なる**ことを示しています。
+=\begin{pmatrix}a&i/2\\-i/2&b\end{pmatrix},
+\qquad [\Lambda]^*=[\Lambda].
+$
+$a>0$ なので、任意の $w=(w_1,w_2)^T\in\mathbb C^2$ に対し平方完成すると
+$
+w^*[\Lambda]w
+=a\left|w_1+\frac{i}{2a}w_2\right|^2
++\left(b-\frac{1}{4a}\right)|w_2|^2.
+$
+よって半正定値性は $ab\ge1/4$ と同値です。特に $a=b=c$ なら固有方程式は $(c-\lambda)^2-1/4=0$ で、固有値は $c\pm1/2$。$c=1/2$ では $0,1$、$c=1/4$ では $-1/4,3/4$ です。後者は $w=(1,i)^T$ で $w^*[\Lambda]w=-1/2<0$ と直接反証できます。**単なる $\mu$ の正値性と $\Lambda$ の複素正値性は異なります**。
 <!-- definition-example-end -->
 
 <a id="prop-aqft7-uncertainty-equivalence"></a>
@@ -244,13 +257,23 @@ $$
 \|(W(F)\otimes I)J_N\xi-J_NU(F)\xi\|
 \le\sqrt{\frac{|(S_N+F)\triangle S_N|}{|S_N|}}\|\xi\|\to0.
 $$
-$A=\sum_{F\in K}a_FW(F)$ と表します。$K\subset H$ は有限集合です。上の誤差評価を各 $F\in K$ に適用し、有限和について三角不等式を取ると
-$$
-\|U(A)\xi\|
-=\lim_N\|J_NU(A)\xi\|
-\le\|A\|_{B(\ell^2(\mathcal V))}\|\xi\|.
-$$
-ここで $(W(A)\otimes I)$ と書かず $A\otimes I$ を用い、$\|A\otimes I\|=\|A\|$ を使いました。従って
+$A=\sum_{F\in K}a_FW(F)$ と表します。$K\subset H$ は有限集合であり、$A$ は $\ell^2(\mathcal V)$ 上の有界作用素です。各 $F\in K$ の誤差を三角不等式で足すと
+$
+\begin{aligned}
+&\|(A\otimes I)J_N\xi-J_NU(A)\xi\|\\
+&\quad\le\sum_{F\in K}|a_F|
+\sqrt{\frac{|(S_N+F)\triangle S_N|}{|S_N|}}\,\|\xi\|\longrightarrow0.
+\end{aligned}
+$
+$J_N$ が等長で $\|A\otimes I\|=\|A\|_{B(\ell^2(\mathcal V))}$ であることから
+$
+\begin{aligned}
+\|U(A)\xi\|&=\|J_NU(A)\xi\|\\
+&\le\|(A\otimes I)J_N\xi\|+o(1)\\
+&\le\|A\|_{B(\ell^2(\mathcal V))}\|\xi\|+o(1).
+\end{aligned}
+$
+$N\to\infty$ とすれば $\|U(A)\|\le\|A\|$ です。従って
 $$
 |\omega_0(A)|\le\|U(A)\|\le\|A\|,\qquad A\in\mathfrak A_0.
 $$
@@ -362,29 +385,67 @@ $$
 先に $t\to0$、次に $\|\eta-\xi\|\to0$ とすれば強連続性が従います。任意の $t_0$ への連続性は一パラメータ群の法則で従います。
 <!-- proof-end -->
 
-**場演算子と二点形式の意味。** [QM7のStone定理](../../QM/QM7/index.md#thm-qm7-stone)を強連続な一パラメータ群へ適用すると、各実 $F$ に自己共役生成子 $\Phi_\mu(F)$ があり
-$$
+**場演算子と二点形式の意味。** [QM7のStone定理](../../QM/QM7/index.md#thm-qm7-stone)を強連続な一パラメータ群 $t\mapsto\pi_\mu(W(tF))$ に適用します。ここで $t$ は時空座標ではなく、固定した $F$ を実数倍するパラメータです。$\sigma(F,F)=0$ による一パラメータ群の法則と前命題の強連続性が仮定に当たります。自己共役生成子 $\Phi_\mu(F)$ が存在し
+$
 \pi_\mu(W(tF))=e^{it\Phi_\mu(F)}
-$$
-となります。さらに $\langle\Omega_\mu,e^{it\Phi_\mu(F)}\Omega_\mu\rangle=e^{-t^2\mu(F,F)/2}$ は中心化Gaussian特性関数です。生成子のスペクトル測度の二次モーメントが $\mu(F,F)<\infty$ なので、$\Omega_\mu$ は各 $\Phi_\mu(F)$ の定義域にあり、$\|\Phi_\mu(F)\Omega_\mu\|^2=\mu(F,F)$ です。
+$
+となります。Stone定理の $e^{-itH/\hbar}$ とは $H=-\hbar\Phi_\mu(F)$ と対応します。
 
-二元の期待値もWeyl積から求まります。$F,G\in\mathcal V$ について
-$$
+$\Phi_\mu(F)$ の $\Omega_\mu$ に関するスペクトル確率測度を $\nu_F$ とします。スペクトル変数を $\lambda\in\mathbb R$ とすれば、Gaussian特性関数から
+$
+\int_{\mathbb R}e^{it\lambda}\,d\nu_F(\lambda)
+=\langle\Omega_\mu,e^{it\Phi_\mu(F)}\Omega_\mu\rangle
+=e^{-t^2\mu(F,F)/2}.
+$
+$t\to0$ で、非負関数 $(1-\cos(t\lambda))/t^2$ にFatouの補題を適用すると
+$
+\frac12\int\lambda^2\,d\nu_F
+\le\liminf_{t\to0}\frac{1-e^{-t^2\mu(F,F)/2}}{t^2}
+=\frac12\mu(F,F)<\infty.
+$
+したがって二次モーメントが有限です。さらに $0\le(1-\cos(t\lambda))/t^2\le\lambda^2/2$ なので優収束定理で等号が得られます。自己共役作用素のスペクトル計算での定義域判定より
+$
+\Omega_\mu\in D(\Phi_\mu(F)),\qquad
+\|\Phi_\mu(F)\Omega_\mu\|^2
+=\int\lambda^2\,d\nu_F=\mu(F,F).
+$
+
+次に固定した $F,G$ に独立な実パラメータ $t,s$ をそれぞれ掛けます。$\partial/\partial t$ は $s$ を固定して $t$ を、$\partial/\partial s$ は $t$ を固定して $s$ を微分する記法です。Weyl積と双線形性から
+$
 \begin{aligned}
-\omega_\mu(W(tF)W(sG))
+h(t,s)&:=\omega_\mu(W(tF)W(sG))\\
 &=e^{-its\sigma(F,G)/2}
 e^{-\{t^2\mu(F,F)+2ts\mu(F,G)+s^2\mu(G,G)\}/2},\\
--\left.\frac{\partial^2}{\partial t\,\partial s}
-\omega_\mu(W(tF)W(sG))\right|_{t=s=0}
+-\left.\frac{\partial^2h}{\partial t\,\partial s}\right|_{t=s=0}
 &=\mu(F,G)+\frac i2\sigma(F,G)=\Lambda(F,G).
 \end{aligned}
-$$
-前段で $\Omega_\mu$ が両生成子の定義域にあると分かったため、これは
-$$
+$
+この混合微分を、非有界作用素の積を仮定せず内積として確かめます。$A=\Phi_\mu(F)$、$B=\Phi_\mu(G)$ と置けば
+$
+h(t,s)=\langle e^{-itA}\Omega_\mu,e^{isB}\Omega_\mu\rangle.
+$
+両生成子の定義域に $\Omega_\mu$ が入るので、[QM7の強微分可能性と定義域の定理](../../QM/QM7/index.md#thm-qm7-generator-domain)により
+$
+\frac{(e^{-itA}-I)\Omega_\mu}{t}\longrightarrow-iA\Omega_\mu,\qquad
+\frac{(e^{isB}-I)\Omega_\mu}{s}\longrightarrow iB\Omega_\mu.
+$
+従って $h$ の混合差商を $t,s\to0$ とすると（内積は第一引数が共役線形）
+$
+\begin{aligned}
+&\frac{h(t,s)-h(t,0)-h(0,s)+h(0,0)}{ts}\\
+&\quad=\left\langle
+\frac{(e^{-itA}-I)\Omega_\mu}{t},
+\frac{(e^{isB}-I)\Omega_\mu}{s}\right\rangle\\
+&\quad\longrightarrow\langle-iA\Omega_\mu,iB\Omega_\mu\rangle
+=-\langle A\Omega_\mu,B\Omega_\mu\rangle.
+\end{aligned}
+$
+これを上のGaussian式の混合偏微分と照合して
+$
 \langle\Phi_\mu(F)\Omega_\mu,\Phi_\mu(G)\Omega_\mu\rangle
 =\Lambda(F,G)
-$$
-という**ベクトルの内積**として厳密に意味を持ちます。一般の非有界積 $\Phi_\mu(F)\Phi_\mu(G)$ を全Hilbert空間で定義したとの主張ではありません。$\Lambda(F,G)-\Lambda(G,F)=i\sigma(F,G)$ はCCRの符号と一致します。
+$
+を得ます。一般の非有界積 $\Phi_\mu(F)\Phi_\mu(G)$ が全Hilbert空間で定義されたとは主張していません。$\Lambda(F,G)-\Lambda(G,F)=i\sigma(F,G)$ はCCRの符号と一致します。
 
 ## 5. 何を保証せず、次に何を選ぶか
 
@@ -489,7 +550,7 @@ $$
 \mu(G-\lambda F,G-\lambda F)
 =\mu(G,G)-\frac{\mu(F,G)^2}{\mu(F,F)}.
 $$
-不確定性条件を $(F,G-\lambda F)$ に適用して両辺へ $\mu(F,F)$ を掛ければ要求の式です。$\mu(F,F)=0$ の場合は不確定性条件から $\sigma(F,G)=0$、$\mu$ の半正定値性に対する二次式 $\mu(F+tG,F+tG)\ge0$ より $\mu(F,G)=0$ なので式は零以上です。
+不確定性条件を $(F,G-\lambda F)$ に適用して両辺へ $\mu(F,F)$ を掛ければ要求の式です。$\mu(F,F)=0$ の場合は不確定性条件から $\sigma(F,G)=0$ です。さらに全ての実数 $t$ について $0\le\mu(F+tG,F+tG)=2t\mu(F,G)+t^2\mu(G,G)$ となるので、$t$ の正負をそれぞれ零へ近づければ $\mu(F,G)=0$ です。従ってこの場合も要求の式の両辺は零です。
 <!-- solution-end -->
 
 <a id="ex-aqft7-b02"></a>
