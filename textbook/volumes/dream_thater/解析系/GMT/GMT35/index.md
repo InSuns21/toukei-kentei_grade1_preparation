@@ -89,13 +89,25 @@ $$
 <!-- definition-example-start: def-gmt35-maximal-bound -->
 ### 直接確認：Hölderの不等式から必ず得られる評価
 
-$1\le p<\infty$ とし、$p$ の共役指数を $p'$ とします（$p=1$ では $p'=\infty$）。管 $T=T_\delta(a,v)$ に[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を適用します。$\|\boldsymbol1_T\|_{L^{p'}}=|T|^{1/p'}$（$p'=\infty$ では $|T|^0=1$）だから
+$1\le p<\infty$ とし、$1/p+1/p'=1$ によって $p'$ を定めます（$p=1$ では $p'=\infty$、$1/p'=0$ と約束します）。管 $T=T_\delta(a,v)$ を固定します。
 
-$$
+まず $1<p<\infty$ なら $1<p'<\infty$ であり、[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)の仮定を満たします。$\|\boldsymbol1_T\|_{L^{p'}}=|T|^{1/p'}$ を代入すると
+
+$
 \int_T|f|=\int_{\mathbb R^d}|f|\boldsymbol1_T
 \le\|f\|_{L^p}|T|^{1/p'}
 =\|f\|_{L^p}V_d(\delta)^{1-1/p}.
-$$
+$
+
+一方 $p=1$ は参照したHölderの定理の仮定 $p,p'>1$ の範囲外です。この端点では $0\le\boldsymbol1_T\le1$ から直接
+
+$
+\int_T|f|=\int_{\mathbb R^d}|f|\boldsymbol1_T
+\le\int_{\mathbb R^d}|f|
+=\|f\|_{L^1}
+$
+
+を得ます。これは $1/p'=0$、$|T|^{1/p'}=1$ とした上の評価に一致します。従って、すべての $1\le p<\infty$ で次の管平均の上界へ進めます。
 
 両辺を $V_d(\delta)$ で割ると
 
