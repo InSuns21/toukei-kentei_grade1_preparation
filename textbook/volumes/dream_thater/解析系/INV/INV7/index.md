@@ -276,7 +276,7 @@ $$
 \|x^\dagger-A^*q\|_X<\varepsilon
 $$
 
-とできます。第2段階の $\|Au_\delta\|=\|Ax_\delta-y\|\le(\tau+1)\delta$ と随伴の定義を用いると
+とできます。第2段階で得た $\|Au_\delta\|=\|Ax_\delta-y\|\le(\tau+1)\delta$ を使います。また、内積 $\langle u_\delta,A^*q\rangle_X=\langle Au_\delta,q\rangle_Y$ は随伴の定義から従うため
 
 $$
 \begin{aligned}
