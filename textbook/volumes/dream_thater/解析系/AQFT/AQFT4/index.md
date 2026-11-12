@@ -108,7 +108,9 @@ $$
 
 最初の恒等式と支持包含は、上の作用素が[HPDE18の構成](../../HPDE/HPDE18/index.md#thm-hpde18-green-existence)の仮定を満たすため成立します。後半を直接確かめます。$K=\operatorname{supp}\varphi$ はコンパクトです。$K=\varnothing$ なら $\varphi=0$ で結論は線形性から従います。
 
-$K\ne\varnothing$ では $a<\min_{x\in K}t(x)$ を選びます。$\varphi$ は $t<a+\varepsilon$ の開時間帯で零であり、そこで $\partial_t\varphi=0$ です。一方、$P\varphi\in\mathcal D$ は局所性から分かっています。$\varphi$ は源 $P\varphi$ に対する非斉次Cauchy問題の零初期データ解です。[HPDE16の大域Cauchy一意性](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)と[HPDE18の遅延解の構成](../../HPDE/HPDE18/index.md#def-hpde18-green-operators)により
+$K\ne\varnothing$ では、コンパクト性から $a<\min_{x\in K}t(x)$ を選べます。$\varphi$ はこの時刻より過去で零であり、$\partial_t\varphi$ もそこで零です。
+
+局所性から $P\varphi\in\mathcal D$ です。従って $\varphi$ は源 $P\varphi$ の非斉次Cauchy問題で零初期データを持つ解です。[HPDE16の大域Cauchy一意性](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)と[HPDE18の遅延解の構成](../../HPDE/HPDE18/index.md#def-hpde18-green-operators)により
 $$
 G_{\mathrm{ret}}(P\varphi)=\varphi.
 $$
@@ -233,7 +235,11 @@ t-s_+\ge|\boldsymbol x-\boldsymbol y_+|,
 \qquad
 s_--t\ge|\boldsymbol x-\boldsymbol y_-|
 $$
-です。よって $a\le t\le b$、さらに $|\boldsymbol x|\le R+b-a$ です。$J^\pm(K)$ はMinkowskiのコンパクト集合の因果未来・過去として閉じています。実際、条件を与える $K$ 内の点列から収束部分列を取り、不等式を極限に移せます。従って交差は閉かつ有界でコンパクトです。$\operatorname{supp}v$ はその閉部分集合ゆえコンパクト、$v\in\mathcal D$ となります。$Pv=PG_{\mathrm{ret}}f=f$ なので $f\in P\mathcal D$。以上で核の等式が示されます。これは[HPDE21の核の証明](../../HPDE/HPDE21/index.md#thm-hpde21-kernel-exact)の平坦時空での具体化です。
+です。よって $a\le t\le b$ であり、$|\boldsymbol x|\le R+b-a$ です。
+
+$J^\pm(K)$ はMinkowskiのコンパクト集合の因果未来・過去として閉じています。実際、条件を与える $K$ 内の点列から収束部分列を取り、因果不等式を極限に移せます。従って交差は閉かつ有界でコンパクトです。
+
+$\operatorname{supp}v$ はその閉部分集合だからコンパクトで、$v\in\mathcal D$ となります。$Pv=PG_{\mathrm{ret}}f=f$ より $f\in P\mathcal D$ です。これで核の等式が示されました。[HPDE21の核の証明](../../HPDE/HPDE21/index.md#thm-hpde21-kernel-exact)の平坦時空での具体化です。
 
 **(ii) 全射。** 任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ を取ります。あるコンパクト $K$ があって $\operatorname{supp}u\subseteq J(K)$ です。$a<b$ を取り、滑らかな $\chi:\mathbb R\to[0,1]$ を $t\le a$ で $0$、$t\ge b$ で $1$ とします。$Pu=0$ から積の微分を展開すると
 $$
@@ -251,7 +257,11 @@ $$
 $$
 $K\subset[c,d]\times\overline B_R$ と囲めば、この交差では[AQFT1のMinkowskiの点間因果判定](../AQFT1/index.md#prop-aqft1-point-test)を源点と観測点に適用して $|\boldsymbol x|\le R+\max(|a-c|,|a-d|,|b-c|,|b-d|)$ です。$J(K)$ は閉なので交差は閉かつ有界、したがってコンパクトです。よって $f_\chi\in\mathcal D$。
 
-$w_+=\chi u$、$w_-=(\chi-1)u$ とおくと、$Pw_+=Pw_-=f_\chi$、かつ $w_+$ は $t\le a$ で零、$w_-$ は $t\ge b$ で零です。各々の台は $J(K)$ に含まれるため、[HPDE20の過去コンパクト・未来コンパクト条件](../../HPDE/HPDE20/index.md#def-hpde20-support-classes)も満たします。例えば任意のコンパクト $L$ に対し、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le\max t(L)$ の有界時間帯と $J(K)$ に含まれ、閉かつ有界でコンパクトです。$w_-$ も $J^+(L)$ を使って同様に検算できます。
+$w_+=\chi u$、$w_-=(\chi-1)u$ とおきます。すると $Pw_+=Pw_-=f_\chi$ で、$w_+$ は $t\le a$ で零、$w_-$ は $t\ge b$ で零です。
+
+各々の台は $J(K)$ に含まれます。[HPDE20の過去コンパクト・未来コンパクト条件](../../HPDE/HPDE20/index.md#def-hpde20-support-classes)も、次のように確かめられます。
+
+任意のコンパクト $L$ について、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le\max t(L)$ の有界な時間帯と $J(K)$ に含まれます。これは閉かつ有界だからコンパクトです。$w_-$ にも $J^+(L)$ を使って同様の条件を確認できます。
 
 ここで[HPDE20の支持条件を指定したGreenの両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)を使うと
 $$
@@ -528,11 +538,19 @@ $\rho_F\varphi\in\mathcal D$ なので右辺の第二項は商で零です。従
 <a id="ex-aqft4-c01"></a>
 #### AQFT4-C01 二つの局所領域から自由場の準備空間を作る
 
-$O_1,O_2$ をMinkowski時空の空間的に分離した非空開集合とする。(i) $f\in\mathcal D(O_1)$、$g\in\mathcal D(O_2)$ が与えられたとき、$[f],[g]$ と $Ef,Eg$ が属す空間をすべて書き、因果支持から $\int fEg=0$ を証明せよ。(ii) それぞれの源に $P\varphi$、$P\psi$（$\varphi,\psi\in\mathcal D$）を加えても像 $Ef,Eg$ が変わらないことを示せ。(iii) 任意の空間コンパクト斉次解 $u$ はこの型の**何らかの全域の源**から得られるが、特定の $O_1$ に支持した源から得られるとは限らないことを、定理のどの段階にどの仮定がないか明らかにして説明せよ。
+$O_1,O_2$ をMinkowski時空の空間的に分離した非空開集合とする。次を順に示せ。
+
+1. $f\in\mathcal D(O_1)$、$g\in\mathcal D(O_2)$ が与えられたとき、$[f],[g]$ と $Ef,Eg$ の所属空間を書き、因果支持から $\int fEg=0$ を証明せよ。
+2. 各源に $P\varphi$、$P\psi$（$\varphi,\psi\in\mathcal D$）を加えても像 $Ef,Eg$ が変わらないことを示せ。
+3. 任意の空間コンパクト斉次解 $u$ は**何らかの全域の源**から得られる。それでも特定の $O_1$ に支持した源から得られるとは限らない理由を、全射性の証明に使った仮定から説明せよ。
 - Level: C
 
 <!-- solution-start -->
-**詳細解答**。(i) [局所商の定義](#def-aqft4-local-quotient)により $[f]\in\mathcal V(O_1)\subset\mathcal V$、$[g]\in\mathcal V(O_2)\subset\mathcal V$ です。[Minkowski自由Klein–Gordon場の源と解の対応](#thm-aqft4-kg-quotient)より $Ef,Eg\in\operatorname{Sol}_{\mathrm{sc}}(P)$ です。$Eg$ の台は $J(\operatorname{supp}g)$ に含まれます。$O_1,O_2$ が空間的に分離しているので、$\operatorname{supp}f\subset O_1$ と $J(\operatorname{supp}g)$ は交わりません。よって点ごとに $fEg=0$、$f$ はコンパクト支持なので積分が収束し、$\int_M fEg\,d^4x=0$ です。
+**詳細解答**。（1）[自由場の局所試験関数商](#def-aqft4-local-quotient)より、$[f]\in\mathcal V(O_1)\subset\mathcal V$ かつ $[g]\in\mathcal V(O_2)\subset\mathcal V$ です。
+
+[Minkowski自由Klein–Gordon場の源と解の対応](#thm-aqft4-kg-quotient)より、両方の解 $Ef,Eg$ は $\operatorname{Sol}_{\mathrm{sc}}(P)$ に属します。$Eg$ の台は $J(\operatorname{supp}g)$ に含まれます。
+
+$O_1,O_2$ は空間的に分離しているので、$\operatorname{supp}f$ と $J(\operatorname{supp}g)$ は交わりません。点ごとに $fEg=0$ であり、$f$ はコンパクト支持だから $\int_M fEg\,d^4x=0$ です。
 
 (ii) 任意の $\varphi,\psi\in\mathcal D$ について、[Klein–GordonのGreen合成と支持](#prop-aqft4-green-identities)から $EP\varphi=EP\psi=0$。線形性で
 $$
