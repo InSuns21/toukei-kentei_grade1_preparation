@@ -1,0 +1,54 @@
+chapter: U3-06
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05]
+forward_references: []
+concepts:
+  - id: finance.american-option
+    name: American オプションと時点別行使額
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（American オプションと時点別行使額）"]
+    requires: [finance.european-call-put, finance.multiperiod-binomial-market]
+  - id: finance.discrete-stopping-time
+    name: 停止時刻
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（停止時刻）"]
+    requires: [finance.binomial-information, finance.american-option]
+  - id: finance.discrete-snell-envelope
+    name: 離散 Snell 包絡
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散 Snell 包絡）"]
+    requires: [finance.discrete-stopping-time, finance.binomial-conditional-average]
+  - id: finance.snell-optimal-stopping-value
+    name: Snell 包絡の後退帰納と停止時刻最大化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Snell 包絡の後退帰納と停止時刻最大化）"]
+    requires: [finance.discrete-snell-envelope, finance.backward-conditional-value]
+  - id: finance.first-exercise-optimal-stopping
+    name: 最初の行使節点による最適停止
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最初の行使節点による最適停止）"]
+    requires: [finance.snell-optimal-stopping-value, finance.discrete-stopping-time]
+  - id: finance.snell-minimal-supermartingale
+    name: 割引 Snell 包絡の最小優マルチンゲール性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（割引 Snell 包絡の最小優マルチンゲール性）"]
+    requires: [finance.discrete-snell-envelope, finance.discrete-martingale]
+  - id: finance.american-superhedging-price
+    name: American 価格と最小超複製費用
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（American 価格と最小超複製費用）"]
+    requires: [finance.first-exercise-optimal-stopping, finance.snell-minimal-supermartingale, finance.binomial-self-financing-replication, finance.replication-price-uniqueness]
+  - id: finance.american-european-bound
+    name: European 価格との比較
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（European 価格との比較）"]
+    requires: [finance.snell-optimal-stopping-value, finance.european-binomial-valuation]
