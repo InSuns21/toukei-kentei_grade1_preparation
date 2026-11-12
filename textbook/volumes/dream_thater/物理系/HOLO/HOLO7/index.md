@@ -46,6 +46,8 @@ $$
 
 <a id="ref-holo7-cutoff-orientations"></a>
 
+### 1.1 両端の外向き法線と密度
+
 | 場所 | 領域から見た外向き | $\sqrt{\gamma}\,n^z$ |
 | --- | --- | --- |
 | $z=\epsilon$ | 小さい $z$ の側 | $-L^{d-1}\epsilon^{1-d}$ |
