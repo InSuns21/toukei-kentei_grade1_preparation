@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" role="img" aria-labelledby="rbd1-title rbd1-desc" data-layout-lint="strict">
+  <title id="rbd1-title">基準配置から空間配置への向きの写像</title>
+  <desc id="rbd1-desc">左は重心 X_C を原点とした物体固定基底 e1、e2、e3。右は実験室の重心位置 c から伸びる回転後の基底 R e1、R e2、R e3。例は z 軸周り九十度の回転で、e1 が上へ、e2 が左へ、e3 が斜め上へ写る。重心の並進 c は別の矢印で示す。</desc>
+  <rect width="940" height="420" fill="#ffffff"/>
+  <defs>
+    <marker id="rbd1-a1" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#205b88"/></marker>
+    <marker id="rbd1-a2" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#924836"/></marker>
+    <marker id="rbd1-a3" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#363b40"/></marker>
+  </defs>
+  <g font-family="Noto Sans CJK JP, sans-serif" fill="#1d2831" font-size="20">
+    <text x="44" y="42" font-size="24" font-weight="700">物体固定基底</text>
+    <text x="518" y="42" font-size="24" font-weight="700">空間中の基底</text>
+    <path d="M180 262 L322 262" stroke="#205b88" stroke-width="4" fill="none" marker-end="url(#rbd1-a1)"/>
+    <path d="M180 262 L180 121" stroke="#924836" stroke-width="4" fill="none" stroke-dasharray="10 6" marker-end="url(#rbd1-a2)"/>
+    <path d="M180 262 L245 197" stroke="#363b40" stroke-width="4" fill="none" stroke-dasharray="3 7" marker-end="url(#rbd1-a3)"/>
+    <circle cx="180" cy="262" r="6" fill="#1d2831"/>
+    <text x="334" y="269">e₁</text>
+    <text x="161" y="102">e₂</text>
+    <text x="254" y="189">e₃</text>
+    <text x="125" y="294">X_C</text>
+    <path d="M380 265 L495 265" stroke="#454c54" stroke-width="2.5" fill="none" marker-end="url(#rbd1-a3)"/>
+    <text x="426" y="244" font-size="23" font-weight="600">R</text>
+    <path d="M660 262 L660 121" stroke="#205b88" stroke-width="4" fill="none" marker-end="url(#rbd1-a1)"/>
+    <path d="M660 262 L518 262" stroke="#924836" stroke-width="4" fill="none" stroke-dasharray="10 6" marker-end="url(#rbd1-a2)"/>
+    <path d="M660 262 L725 197" stroke="#363b40" stroke-width="4" fill="none" stroke-dasharray="3 7" marker-end="url(#rbd1-a3)"/>
+    <circle cx="660" cy="262" r="6" fill="#1d2831"/>
+    <text x="647" y="102">R e₁</text>
+    <text x="505" y="291">R e₂</text>
+    <text x="738" y="186">R e₃</text>
+    <text x="675" y="283">c</text>
+    <circle cx="566" cy="360" r="5" fill="#1d2831"/>
+    <path d="M566 360 L650 273" stroke="#206f56" stroke-width="3" fill="none" marker-end="url(#rbd1-a3)"/>
+    <text x="544" y="389">O</text>
+    <text x="587" y="328">c</text>
+  </g>
+</svg>
