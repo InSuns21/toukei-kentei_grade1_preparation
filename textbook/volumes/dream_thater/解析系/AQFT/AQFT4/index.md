@@ -2,7 +2,7 @@
 
 [AQFT2の局所net](../AQFT2/index.md#def-aqft2-haag-kastler)は領域から観測量の代数への割当てを公理として扱い、[AQFT3の状態と真空](../AQFT3/index.md#def-aqft3-vacuum)はその上で期待値とエネルギーを考えました。しかし、まだ「どの量を領域 $O$ の観測量と呼ぶか」を実際の場の方程式から作っていません。
 
-自由な実スカラー場では、滑らかで狭い領域に台を持つ関数 $f$ を使い、場を空間時間にわたって平均した量を後で作ります。ところが、異なる $f$ が同じ物理的な自由度を表すことがあります。**方程式の像を零と見なす商空間**が必要です。本講では、[HPDEで既に証明したGreen作用素の理論](../../HPDE/HPDE22/index.md#thm-hpde22-surjectivity-exact)を四次元Minkowski時空へ具体化し、その商と局所領域への割当てを構成します。
+[QFT1で導入した実スカラー場](../../../物理系/QFT/QFT1/index.md#def-qft1-real-scalar)では、滑らかで狭い領域に台を持つ関数 $f$ を使い、場を空間時間にわたって平均した量を後で作ります。ところが、異なる $f$ が同じ物理的な自由度を表すことがあります。**方程式の像を零と見なす商空間**が必要です。本講では、[HPDEで既に証明したGreen作用素の理論](../../HPDE/HPDE22/index.md#thm-hpde22-surjectivity-exact)を四次元Minkowski時空へ具体化し、その商と局所領域への割当てを構成します。
 
 本講ではまだ非有界な場の演算子を定義しません。次講ではこの実線形空間に交代形式を与え、その後でWeyl作用素へ移ります。
 
@@ -217,7 +217,7 @@ $$
 
 **(i) 写像の作用域と核。** 任意の $f\in\mathcal D$ に対して $PEf=0$ です。さらに $K=\operatorname{supp}f$ がコンパクトだから、[因果的支持](../../HPDE/HPDE18/index.md#thm-hpde18-green-existence)から $\operatorname{supp}Ef\subseteq J(K)$ であり、$Ef\in\operatorname{Sol}_{\mathrm{sc}}(P)$ です。
 
-$\varphi\in\mathcal D$ なら[Greenの両側恒等式](#prop-aqft4-green-identities)から
+$\varphi\in\mathcal D$ なら[Klein–GordonのGreen合成と支持](#prop-aqft4-green-identities)から
 $$
 E(P\varphi)
 =G_{\mathrm{ret}}P\varphi-G_{\mathrm{adv}}P\varphi
@@ -249,11 +249,11 @@ $$
 \operatorname{supp}f_\chi
 \subseteq J(K)\cap([a,b]\times\mathbb R^3).
 $$
-$K\subset[c,d]\times\overline B_R$ と囲めば、この交差では因果不等式から $|\boldsymbol x|\le R+\max(|a-c|,|a-d|,|b-c|,|b-d|)$ です。$J(K)$ は閉なので交差は閉かつ有界、したがってコンパクトです。よって $f_\chi\in\mathcal D$。
+$K\subset[c,d]\times\overline B_R$ と囲めば、この交差では[AQFT1のMinkowskiの点間因果判定](../AQFT1/index.md#prop-aqft1-point-test)を源点と観測点に適用して $|\boldsymbol x|\le R+\max(|a-c|,|a-d|,|b-c|,|b-d|)$ です。$J(K)$ は閉なので交差は閉かつ有界、したがってコンパクトです。よって $f_\chi\in\mathcal D$。
 
 $w_+=\chi u$、$w_-=(\chi-1)u$ とおくと、$Pw_+=Pw_-=f_\chi$、かつ $w_+$ は $t\le a$ で零、$w_-$ は $t\ge b$ で零です。各々の台は $J(K)$ に含まれるため、[HPDE20の過去コンパクト・未来コンパクト条件](../../HPDE/HPDE20/index.md#def-hpde20-support-classes)も満たします。例えば任意のコンパクト $L$ に対し、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le\max t(L)$ の有界時間帯と $J(K)$ に含まれ、閉かつ有界でコンパクトです。$w_-$ も $J^+(L)$ を使って同様に検算できます。
 
-ここで[HPDE20の適切な支持空間でのGreen逆恒等式](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)を使うと
+ここで[HPDE20の支持条件を指定したGreenの両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)を使うと
 $$
 G_{\mathrm{ret}}f_\chi=w_+,\qquad
 G_{\mathrm{adv}}f_\chi=w_-.
@@ -357,7 +357,7 @@ $P\rho_F=\rho_FP$ から $\rho_F(P\mathcal D)=P\mathcal D$。したがって $[f
 
 ## 6. 因果支持から次講の交代形式へ
 
-局所の源が遠く離れた領域にあるとき、伝播子がその相手の源に重なるかどうかは、すでに判断できます。二領域が**空間的に分離**とは、$O_1$ 内の全点と $O_2$ 内の全点の間に因果的な結び付きがないことであり、[AQFT1の定義](../AQFT1/index.md#def-aqft1-separated-regions)を使います。
+局所の源が遠く離れた領域にあるとき、伝播子がその相手の源に重なるかどうかは、すでに判断できます。二領域が**空間的に分離**とは、$O_1$ 内の全点と $O_2$ 内の全点の間に因果的な結び付きがないことであり、[AQFT1の領域の空間的分離の定義](../AQFT1/index.md#def-aqft1-separated-regions)を使います。
 
 <a id="prop-aqft4-spacelike-pairing"></a>
 
@@ -412,7 +412,7 @@ $\varphi\in\mathcal D$ とし、$f=P\varphi$ とおく。$E f$ と $P(Ef)$ を�
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**。局所微分作用素の支持不増大性から $f=P\varphi\in\mathcal D$ です。この作用域確認の後、[Greenの両側恒等式](#prop-aqft4-green-identities)を使えます。
+**詳細解答**。局所微分作用素の支持不増大性から $f=P\varphi\in\mathcal D$ です。この作用域確認の後、[Klein–GordonのGreen合成と支持](#prop-aqft4-green-identities)を使えます。
 $$
 Ef=G_{\mathrm{ret}}P\varphi-G_{\mathrm{adv}}P\varphi
 =\varphi-\varphi=0,\qquad P(Ef)=P0=0.
@@ -532,15 +532,15 @@ $O_1,O_2$ をMinkowski時空の空間的に分離した非空開集合とする�
 - Level: C
 
 <!-- solution-start -->
-**詳細解答**。(i) [局所商の定義](#def-aqft4-local-quotient)により $[f]\in\mathcal V(O_1)\subset\mathcal V$、$[g]\in\mathcal V(O_2)\subset\mathcal V$ です。[源と解の対応定理](#thm-aqft4-kg-quotient)より $Ef,Eg\in\operatorname{Sol}_{\mathrm{sc}}(P)$ です。$Eg$ の台は $J(\operatorname{supp}g)$ に含まれます。$O_1,O_2$ が空間的に分離しているので、$\operatorname{supp}f\subset O_1$ と $J(\operatorname{supp}g)$ は交わりません。よって点ごとに $fEg=0$、$f$ はコンパクト支持なので積分が収束し、$\int_M fEg\,d^4x=0$ です。
+**詳細解答**。(i) [局所商の定義](#def-aqft4-local-quotient)により $[f]\in\mathcal V(O_1)\subset\mathcal V$、$[g]\in\mathcal V(O_2)\subset\mathcal V$ です。[Minkowski自由Klein–Gordon場の源と解の対応](#thm-aqft4-kg-quotient)より $Ef,Eg\in\operatorname{Sol}_{\mathrm{sc}}(P)$ です。$Eg$ の台は $J(\operatorname{supp}g)$ に含まれます。$O_1,O_2$ が空間的に分離しているので、$\operatorname{supp}f\subset O_1$ と $J(\operatorname{supp}g)$ は交わりません。よって点ごとに $fEg=0$、$f$ はコンパクト支持なので積分が収束し、$\int_M fEg\,d^4x=0$ です。
 
-(ii) 任意の $\varphi,\psi\in\mathcal D$ について、[Greenの両側恒等式](#prop-aqft4-green-identities)から $EP\varphi=EP\psi=0$。線形性で
+(ii) 任意の $\varphi,\psi\in\mathcal D$ について、[Klein–GordonのGreen合成と支持](#prop-aqft4-green-identities)から $EP\varphi=EP\psi=0$。線形性で
 $$
 E(f+P\varphi)=Ef,\qquad E(g+P\psi)=Eg.
 $$
 したがって商の代表元を変えても各解は不変です。ただし $\varphi$ が $O_1$ に支持するとは仮定していないので、変更後の $f+P\varphi$ は必ずしも $\mathcal D(O_1)$ に入りません。局所代表元と全域代表元の違いが残ります。
 
-(iii) [全射性の証明](#thm-aqft4-kg-quotient)では任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ に対し、$u$ の全域の因果台と時間カットオフから $f_\chi=P(\chi u)\in\mathcal D$ を作りました。必要なのは台の**時空コンパクト性**であり、$\operatorname{supp}f_\chi\subset O_1$ を保証する空間的・時間的な条件は付けていません。このため全域での全射 $E:\mathcal D\to\operatorname{Sol}_{\mathrm{sc}}(P)$ から、$E:\mathcal D(O_1)\to\operatorname{Sol}_{\mathrm{sc}}(P)$ の全射は推論できません。局所領域の性質を別に検討する必要があります。$\square$
+(iii) [全射性の証明](#thm-aqft4-kg-quotient)では任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ に対し、$u$ の全域の因果台と時間カットオフから $f_\chi=P(\chi u)\in\mathcal D$ を作りました。必要なのは構成源 $f_\chi$ の台が時空全体でコンパクトであることであり、$\operatorname{supp}f_\chi\subset O_1$ を保証する空間的・時間的な条件は付けていません。このため全域での全射 $E:\mathcal D\to\operatorname{Sol}_{\mathrm{sc}}(P)$ から、$E:\mathcal D(O_1)\to\operatorname{Sol}_{\mathrm{sc}}(P)$ の全射は推論できません。局所領域の性質を別に検討する必要があります。$\square$
 <!-- solution-end -->
 
 ## 8. 次講への接続と自力確認
