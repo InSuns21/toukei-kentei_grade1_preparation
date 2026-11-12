@@ -18,7 +18,7 @@ $$
 
 ## 2. ZYZ Euler角を構成して判定する
 
-まず物体の $e_3$ 方向が空間のどこを向くか考えます。$R_z(\psi)e_3=e_3$、$R_y(\theta)e_3=(\sin\theta,0,\cos\theta)^{\mathsf T}$ なので、最後に空間の $z$ 軸のまわりへ $\phi$ だけ回せば、物体の軸の向きは二角 $\phi,\theta$ で決まります。残る $\psi$ はその軸のまわりの向きを区別します。
+[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)で学んだように、姿勢行列 $R$ の第 $j$ 列 $b_j=Re_j$ は、物体に固定された第 $j$ 軸の空間での向きです。まず物体の第三軸 $b_3=Re_3$ がどこを向くか考えます。$R_z(\psi)e_3=e_3$、$R_y(\theta)e_3=(\sin\theta,0,\cos\theta)^{\mathsf T}$ なので、最後に空間の $z$ 軸のまわりへ $\phi$ だけ回せば、物体の軸の向きは二角 $\phi,\theta$ で決まります。残る $\psi$ はその軸のまわりの向きを区別します。
 
 <a id="def-rbd4-zyz-euler"></a>
 
@@ -39,7 +39,19 @@ $\phi$ は歳差角、$\theta$ は章動角、$\psi$ は自転角と呼ぶ。通
 
 **定義の確認**：三つの指定角から回転行列を作り、第三軸の向きと $SO(3)$ の二条件を直接検査します。
 
-$\phi=0,\theta=\pi/2,\psi=0$ なら $R=R_y(\pi/2)$ です。列の像を計算すると $Re_1=-e_3$、$Re_2=e_2$、$Re_3=e_1$。従って物体の第三軸は空間の $e_1$ 方向を向きます。各列は互いに直交し長さ1、行列式は $1$ なので [RBD1 の回転条件](../RBD1/index.md#def-rbd1-proper-rotation)を満たします。三つの角度を選んだだけで鏡映が混入することはありません。
+$\phi=0,\theta=\pi/2,\psi=0$ なら $R=R_y(\pi/2)$ です。上の回転行列へ代入すると
+
+$$
+R=\begin{pmatrix}0&0&1\\0&1&0\\-1&0&0\end{pmatrix}.
+$$
+
+第 $j$ 列が $Re_j$ なので $Re_1=-e_3$、$Re_2=e_2$、$Re_3=e_1$。従って物体の第三軸は空間の $e_1$ 方向を向きます。この三列の内積は $(Re_i)\cdot(Re_j)=\delta_{ij}$ であり、$R^{\mathsf T}R=I_3$ です。また第1行第3列で展開すると
+
+$$
+\det R=1\cdot\det\begin{pmatrix}0&1\\-1&0\end{pmatrix}=1.
+$$
+
+正規直交性と行列式の両方を確認したので、[RBD1 の回転条件](../RBD1/index.md#def-rbd1-proper-rotation)を満たします。三つの角度を選んだだけで鏡映が混入することはありません。
 
 一般の場合にも各因子は $SO(3)$ に属するので $R^{\mathsf T}R=I_3$、$\det R=1$ です。さらに三番目の列を計算すれば
 
@@ -58,7 +70,7 @@ $$
 
 ## 3. 姿勢の時間変化と三つの角速度成分
 
-$C^1$ 級の角度関数 $\phi(t),\theta(t),\psi(t)$ を考えます。[RBD3 の空間角速度と物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)によれば $\widehat{\omega_s}=\dot RR^{\mathsf T}$、$\widehat{\omega_b}=R^{\mathsf T}\dot R$ です。計算の中で角度の付いた回転軸を明示しておきます。
+$C^1$ 級の角度関数 $\phi(t),\theta(t),\psi(t)$ を考えます。上点は時刻 $t$ に関する常微分で、例えば $\dot\phi=d\phi/dt$ です。[RBD3 の空間角速度と物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)によれば $\widehat{\omega_s}=\dot RR^{\mathsf T}$、$\widehat{\omega_b}=R^{\mathsf T}\dot R$ です。計算の中で角度の付いた回転軸を明示しておきます。
 
 <a id="prop-rbd4-angular-velocity"></a>
 
@@ -129,7 +141,7 @@ $$
 
 $Z_\phi e_2=(-\sin\phi,\cos\phi,0)^{\mathsf T}$ と、前節の $Z_\phi Y_\theta e_3$ を代入すれば、空間成分の式が得られます。
 
-同じ積の微分を今度は左から $R^{\mathsf T}$ で挟むと
+同じ積の微分へ今度は左から $R^{\mathsf T}$ を掛けると
 
 $$
 \begin{aligned}
@@ -173,7 +185,7 @@ $R=R_y(\pi/2)$ を掛けて $\omega_b$ が $\omega_s$ に移ることも確か�
 
 ## 4. 角度速度から角速度へ、逆に戻せる条件
 
-前節の物体成分を $\dot q=(\dot\phi,\dot\theta,\dot\psi)^{\mathsf T}$ に関する線形写像として並べると
+Euler角をまとめた列ベクトルを $q(t)=(\phi(t),\theta(t),\psi(t))^{\mathsf T}$ とおき、$\dot q=dq/dt=(\dot\phi,\dot\theta,\dot\psi)^{\mathsf T}$ と書きます。前節の物体角速度の式で、$\dot q$ の三成分に掛かる係数を列に並べると
 
 $$
 \omega_b=T(\theta,\psi)\dot q,\qquad
@@ -267,7 +279,15 @@ $$
 
 $\phi+\psi$ が一定なら三本の物体軸はまったく同じ位置を向きます。例えば $(\phi,\theta,\psi)=(0,0,\pi/3)$ と $(\pi/6,0,\pi/6)$ は同じ姿勢です。
 
-$\theta=\pi$ では $R_y(\pi)R_z(\psi)=R_z(-\psi)R_y(\pi)$ を、双方の行列を掛けて確かめられます。従って
+$\theta=\pi$ では $R_y(\pi)=\operatorname{diag}(-1,1,-1)$ です。この行列と $R_z(\psi)$ の積を左右それぞれの順序で計算すると
+
+$$
+R_y(\pi)R_z(\psi)
+=\begin{pmatrix}-\cos\psi&\sin\psi&0\\\sin\psi&\cos\psi&0\\0&0&-1\end{pmatrix}
+=R_z(-\psi)R_y(\pi).
+$$
+
+従って
 
 $$
 \boxed{R(\phi,\pi,\psi)=R_z(\phi-\psi)R_y(\pi)}.
@@ -452,14 +472,14 @@ $\omega_b=T(\theta,\psi)\dot q$ の $T$ を [角速度命題](#prop-rbd4-angular
 <!-- solution-start -->
 ### 詳細解答
 
-$\dot\phi,\dot\theta,\dot\psi$ の係数を物体角速度の各成分から縦に読み取ります。
+$\dot\phi,\dot\theta,\dot\psi$ の係数を物体角速度の各成分から縦に読み取ります。以下では $s_\theta=\sin\theta$、$c_\theta=\cos\theta$、$s_\psi=\sin\psi$、$c_\psi=\cos\psi$ と略記します。
 
 $$
 T=\begin{pmatrix}-s_\theta c_\psi&s_\psi&0\\
 s_\theta s_\psi&c_\psi&0\\c_\theta&0&1\end{pmatrix}.
 $$
 
-ここで $s_\theta=\sin\theta,c_\theta=\cos\theta$ 等と略記しました。第三列で展開すると
+第三列で展開すると
 
 $$
 \det T=(-s_\theta c_\psi)c_\psi-(s_\psi)(s_\theta s_\psi)
@@ -532,7 +552,15 @@ $$
 R_y(t)=R_z(\pi)R_y(-t)R_z(\pi)
 $$
 
-です。右辺を掛けると $R_z(\pi)R_y(-t)R_z(\pi)=R_y(t)$ であることが、$x,z$ 平面の成分から確認できます。従って $(\pi,-t,\pi)$ が標準範囲の表示です。
+です。実際に三行列を掛け合わせると
+
+$$
+R_z(\pi)R_y(-t)R_z(\pi)
+=\begin{pmatrix}\cos t&0&\sin t\\0&1&0\\-\sin t&0&\cos t\end{pmatrix}
+=R_y(t)
+$$
+
+となります。従って $(\pi,-t,\pi)$ が標準範囲の表示です。
 
 角度組は $t=0$ の左右で飛びますが $R(t)=R_y(t)$ 自体は三角関数の滑らかな行列です。$R^{\mathsf T}\dot R=\widehat{e_2}$ より [RBD3 の空間角速度と物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)で $\omega_b=e_2$ が両側で一致します。角度代表の不連続は物理的な不連続ではありません。
 <!-- solution-end -->
@@ -590,7 +618,7 @@ $$
 
 (2)と一致し、基底を混同していないことが分かります。
 
-**(4)** $\theta=0$ なら $R_z(\phi)R_z(\psi)=R_z(\phi+\psi)$。例えば $(\phi,\theta,\psi)=(0,0,\pi/2)$ と $(\pi/4,0,\pi/4)$ はともに $R_z(\pi/2)$ を与えます。時間変化についても $\dot R$ は $\dot\phi+\dot\psi$ だけで決まり、$(\dot\phi,\dot\psi)\mapsto(\dot\phi+h,\dot\psi-h)$ で同じ角速度です。[特異性命題](#prop-rbd4-coordinate-singularity)の零方向 $(1,0,-1)$ がこの不定性を表し、回転行列 $R$ の正則性は失われません。
+**(4)** $\theta=0$ なら $R_z(\phi)R_z(\psi)=R_z(\phi+\psi)$。例えば $(\phi,\theta,\psi)=(0,0,\pi/2)$ と $(\pi/4,0,\pi/4)$ はともに $R_z(\pi/2)$ を与えます。$\theta=0$ を保つ運動（$\dot\theta=0$）では $R(t)=R_z(\phi(t)+\psi(t))$ なので、$\dot R$ は $\dot\phi+\dot\psi$ だけで決まります。従って $(\dot\phi,\dot\psi)\mapsto(\dot\phi+h,\dot\psi-h)$ で同じ角速度です。$\dot\theta\ne0$ ならその分の回転も生じますが、二つの角度速度のこの不定性は残ります。[特異性命題](#prop-rbd4-coordinate-singularity)の零方向 $(1,0,-1)$ がこの不定性を表し、回転行列 $R$ の正則性は失われません。
 <!-- solution-end -->
 
 ## 8. 次講への接続
