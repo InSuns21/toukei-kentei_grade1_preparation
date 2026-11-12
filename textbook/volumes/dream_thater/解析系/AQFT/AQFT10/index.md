@@ -193,20 +193,20 @@ $$
 
 最初の $N$ モードと残りのモードの直交分解に対して、指数ベクトルの対応 $\varepsilon(u\oplus v)\mapsto\varepsilon(u)\otimes\varepsilon(v)$ は内積 $e^{\langle u,u'\rangle+\langle v,v'\rangle}$ を保ちます。指数ベクトルの全域性により、これはFock空間のユニタリ同型
 
-$
+$$
 \mathcal F_s(\ell^2)
 \cong \mathcal F_s(\mathbb C^N)\otimes
 \mathcal F_s(\ell^2(\{N+1,N+2,\ldots\}))
-$
+$$
 
 に延長されます。最初の $N$ 座標に支持される $z$ について、[Fock Weyl作用](../AQFT8/index.md#prop-aqft8-fock-weyl)は $D(z)=D_N(z)\otimes I_{>N}$ です。
 
 有限モード表示が既約であることも、[既約性の定義](../../QM/QM8/index.md#def-qm8-irreducible-weyl-pair)に立ち返って確かめます。$T\in B(\mathcal F_s(\mathbb C^N))$ がすべての $D_N(z)$ と可換なら、特に $D_N(te_j)$ と $D_N(ite_j)$（$t\in\mathbb R$）の強連続一パラメータ群と可換です。その自己共役生成子との可換性から、共通定義域上で $T$ は各 $a_j,a_j^\dagger$ と可換になります。よって $a_jT\Omega_{\le N}=Ta_j\Omega_{\le N}=0$（すべての $j\le N$）。占有数基底で全 $a_j$ の共通核は $\mathbb C\Omega_{\le N}$ なので $T\Omega_{\le N}=c\Omega_{\le N}$ です。さらに $TD_N(z)\Omega_{\le N}=cD_N(z)\Omega_{\le N}$ であり、これらのコヒーレントベクトルの線形包は指数ベクトルの全域性から稠密です。従って $T=cI$、すなわち可換子はスカラーです。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)を適用して
 
-$
+$$
 \pi_0(\mathfrak A_N)''
 =B(\mathcal F_s(\mathbb C^N))\otimes I_{>N}
-$
+$$
 
 を得ます。有限自由度の[Stone–von Neumann定理](../../QM/QM8/index.md#thm-qm8-stone-von-neumann)とも整合しますが、ここでの既約性は以上の計算で確かめました。
 
@@ -275,49 +275,49 @@ $$
 
 ここで、各モードの位置・運動量演算子を $Q_j=(a_j+a_j^\dagger)/\sqrt2$、$P_j=(a_j-a_j^\dagger)/(i\sqrt2)$ と置きます（微分記号ではなく、それぞれ自己共役作用素です）。$D(it e_j/\sqrt2)=e^{itQ_j}$、$D(-t e_j/\sqrt2)=e^{itP_j}$ なので、実数 $t$ に関するそれぞれの特性関数は
 
-$
+$$
 \begin{aligned}
 \operatorname{Tr}(\rho_N e^{itQ_j})
  &=\exp\!\left(-t^2/4+i\sqrt2\,t\operatorname{Re}\alpha_j\right),\\
 \operatorname{Tr}(\rho_N e^{itP_j})
  &=\exp\!\left(-t^2/4+i\sqrt2\,t\operatorname{Im}\alpha_j\right).
 \end{aligned}
-$
+$$
 
 です。これらの中心化したスペクトル分布の特性関数はともに $e^{-t^2/4}$ です。分布を $\mu$ とすれば
 
-$
+$$
 \int\frac{2(1-\cos(tx))}{t^2}\,d\mu(x)
 =\frac{2(1-e^{-t^2/4})}{t^2}\longrightarrow\frac12.
-$
+$$
 
 非負な被積分関数にFatouの補題を適用すると $\int x^2\,d\mu(x)\le1/2$ であり、二次モーメントが有限と分かります。続いて $2(1-\cos(tx))/t^2\le x^2$ を用いた優収束により等号を得ます。従って
 
-$
+$$
 \begin{aligned}
 \operatorname{Tr}\!\left(\rho_N(Q_j-\sqrt2\operatorname{Re}\alpha_j)^2\right)
 &=\frac12,\\
 \operatorname{Tr}\!\left(\rho_N(P_j-\sqrt2\operatorname{Im}\alpha_j)^2\right)
 &=\frac12.
 \end{aligned}
-$
+$$
 
 $[Q_j,P_j]=iI$ を有限粒子上で計算すると
 
-$
+$$
 (a_j-\alpha_j)^\dagger(a_j-\alpha_j)
 =\frac12\!\left[
 (Q_j-\sqrt2\operatorname{Re}\alpha_j)^2+
 (P_j-\sqrt2\operatorname{Im}\alpha_j)^2-I
 \right]
-$
+$$
 
 となり、左辺の $\rho_N$ による期待値は零です。$\rho_N=\sum_kp_k|\eta_k\rangle\langle\eta_k|$（$p_k>0$）とスペクトル分解すると、各 $j\le N$ について $\sum_kp_k\|(a_j-\alpha_j)\eta_k\|^2=0$ です。従って各 $\eta_k$ は全ての $a_j-\alpha_j$ の共通核に属します。占有数基底で $a_j\eta=\alpha_j\eta$ の係数を比較すると、$c_{\boldsymbol n+\boldsymbol e_j}=\alpha_jc_{\boldsymbol n}/\sqrt{n_j+1}$、よって $c_{\boldsymbol n}=c_{\boldsymbol0}\prod_{j=1}^N\alpha_j^{n_j}/\sqrt{n_j!}$ です。共通核はちょうど $\mathbb C\Psi_{\alpha,N}$ なので $\rho_N=|\Psi_{\alpha,N}\rangle\langle\Psi_{\alpha,N}|$。特に
 
-$
+$$
 \varphi(R_N)
 =\operatorname{Tr}\!\left(\rho_N|\Psi_{\alpha,N}\rangle\langle\Psi_{\alpha,N}|\right)=1.
-$
+$$
 
 この導出は、弱作用素稠密性を根拠なく一様有界な近似の存在へ強めることなく、既習の密度作用素表示とWeyl特性関数から射影の期待値を確定しています。
 
