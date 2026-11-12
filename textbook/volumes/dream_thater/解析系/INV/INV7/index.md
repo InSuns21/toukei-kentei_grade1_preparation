@@ -100,7 +100,25 @@ $$
 です。$b_j\ne0$ が一つでもあれば二乗和は厳密に増加します。$z$ の $Y_0$ 成分が非零であることは、完全特異系によりそのような $j$ があることと同値です。端点の間の $r$ には中間値の定理で存在が、厳密単調性で一意性が従います。$\square$
 <!-- proof-end -->
 
-この命題を手で確かめます。$A=\operatorname{diag}(2,0):\mathbb R^2\to\mathbb R^2$、$z=(4,1)$ とします。$\operatorname{diag}(2,0)$ は標準基底 $e_1=(1,0)$、$e_2=(0,1)$ に関して $A(s,t)=(2s,0)$ を表します。標準内積で $\langle A(s,t),(a,b)\rangle=2sa=\langle(s,t),A(a,b)\rangle$ だから $A^*=A$ です。従って $Ae_1=A^*e_1=2e_1$、$Ae_2=A^*e_2=0$ で、[完全特異系の定義](../INV3/index.md#def-inv3-singular-system)の正の特異値方向は $u_1=v_1=e_1$、$\sigma_1=2$ となり、$\ker A^*=\operatorname{span}\{e_2\}$ です。観測値を $z=4e_1+e_2$ と分けると $b_1=4$、$P_\perp z=e_2$。この二つを上の残差の二乗和へ代入して
+この命題を手で確かめます。$A=\operatorname{diag}(2,0):\mathbb R^2\to\mathbb R^2$、$z=(4,1)$ とします。この対角行列は標準基底を $e_1=(1,0)$、$e_2=(0,1)$ としたとき、次の写像を表します。
+
+$$
+A(s,t)=(2s,0).
+$$
+
+標準内積で随伴の条件を確認すると
+
+$$
+\langle A(s,t),(a,b)\rangle=2sa=\langle(s,t),A(a,b)\rangle
+$$
+
+なので $A^*=A$ です。したがって
+
+$$
+Ae_1=A^*e_1=2e_1,\qquad Ae_2=A^*e_2=0.
+$$
+
+[完全特異系の定義](../INV3/index.md#def-inv3-singular-system)と照合して、正の特異値方向は $u_1=v_1=e_1$、$\sigma_1=2$、また $\ker A^*=\operatorname{span}\{e_2\}$ です。観測値を $z=4e_1+e_2$ と分けると、特異系の係数は $b_1=4$、直交射影は $P_\perp z=e_2$ となります。これらを残差の二乗和へ代入すると
 
 $$
 \rho_z(\alpha)^2
@@ -576,7 +594,13 @@ $A=\operatorname{diag}(2,0)$、$z=(4,1)$ とする。$x_\alpha$ を求め、残�
 <!-- solution-start -->
 #### 詳細解答
 
-$\operatorname{diag}(2,0)$ は $\mathbb R^2$ の標準基底 $e_1,e_2$ で $A(s,t)=(2s,0)$ を表します。標準内積で $\langle A(s,t),(a,b)\rangle=2sa=\langle(s,t),A(a,b)\rangle$ なので $A^*=A$ であり、$A^*A(s,t)=(4s,0)$、$A^*z=(8,0)$ です。よって[正規方程式](../INV5/index.md#thm-inv5-tikhonov-minimizer)は $(\operatorname{diag}(4,0)+\alpha I)x=(8,0)$ となり、
+標準基底で $A(s,t)=(2s,0)$ と表されます。第1節と同じく標準内積で $\langle A(s,t),(a,b)\rangle=2sa=\langle(s,t),A(a,b)\rangle$ なので $A^*=A$ です。従って
+
+$$
+A^*A(s,t)=(4s,0),\qquad A^*z=(8,0).
+$$
+
+これを[正規方程式](../INV5/index.md#thm-inv5-tikhonov-minimizer)に代入すると $(\operatorname{diag}(4,0)+\alpha I)x=(8,0)$ となり、
 
 $$
 x_\alpha=\left(\frac{8}{4+\alpha},0\right),
@@ -676,7 +700,15 @@ $A=\operatorname{diag}(1,0)$、$y=(3,0)$、$y^\delta=(3,1)$、$\delta=1$、$\tau
 <!-- solution-start -->
 #### 詳細解答
 
-$A=\operatorname{diag}(1,0)$ は標準基底で $A(s,t)=(s,0)$ を表し、標準内積で $A^*=A$ です。$Ax=y=(3,0)$ なら第1成分が $3$、第2成分は自由なので、核 $\operatorname{span}\{e_2\}$ に直交する最小ノルム解は $x^\dagger=(3,0)$。$\|y^\delta-y\|=1=\delta$ です。$y^\delta=3e_1+e_2$ の第2方向は $\ker A^*$ に属し、第1方向の特異値は $1$ です。したがって[残差の二乗和](#prop-inv7-residual-range)に $b_1=3$ と $\|P_\perp y^\delta\|=1$ を代入して
+標準基底で $A(s,t)=(s,0)$、その随伴も $A^*=A$ です。$Ax=y=(3,0)$ の解は $(3,t)$（$t\in\mathbb R$）であり、$\ker A=\operatorname{span}\{e_2\}$ に直交するのは $x^\dagger=(3,0)$ だけです。ノイズは $\|y^\delta-y\|=1=\delta$ を満たします。
+
+一方、$Ae_1=A^*e_1=e_1$ と $Ae_2=0$ なので、正の特異値は $1$、観測不能方向は $\ker A^*=\operatorname{span}\{e_2\}$ です。$y^\delta=3e_1+e_2$ に対し
+
+$$
+b_1=3,\qquad P_\perp y^\delta=e_2
+$$
+
+となります。これらを[残差の二乗和](#prop-inv7-residual-range)へ代入して
 
 $$
 \rho_\delta(\alpha)^2
