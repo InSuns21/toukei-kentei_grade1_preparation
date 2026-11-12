@@ -352,7 +352,17 @@ $$
 > 単純型付きラムダ計算の型を対象とし、対象 $A,B$ の間の射を、一変数の判定 $x:A\vdash t:B$ の項の $\alpha\beta\eta$ 等式類とする。恒等射は $x:A\vdash x:A$、射 $[t]:A\to B$ と $[u]:B\to C$ の合成は $u[t/y]$ の等式類と定める。得られる構造を $\mathcal S$ と書く。
 <!-- formal-statement-end -->
 
-**定義の確認**。 $A=\mathsf o$ とすると、$x:A\vdash\langle x,*\rangle:A\times1$ は $\mathcal S$ の射 $A\to A\times1$ を表す。その後に第一射影 $z:A\times1\vdash\pi_1z:A$ を合成すると $\pi_1\langle x,*\rangle\equiv_{\beta\eta}x$ だから、$\mathcal S$ の恒等射に一致する。型と合成先が一致することを確かめて初めて射として扱える。
+<!-- definition-example-start: def-cat4-06-syntactic-category -->
+**定義の確認**。 $A=\mathsf o$ とする。文脈 $x:A$ での項 $\langle x,*\rangle:A\times1$ は、等式類を取ることで $\mathcal S$ の射 $f:A\to A\times1$ を表す。また $z:A\times1\vdash\pi_1z:A$ は射 $g:A\times1\to A$ を表す。したがって合成 $gf:A\to A$ は型が合い、代入規則から
+
+$$
+gf=[(\pi_1z)[\langle x,*\rangle/z]]
+=[\pi_1\langle x,*\rangle]
+=[x]=1_A
+$$
+
+となる。二つ目の等号は構文的な代入、三つ目は積の $\beta$ 則による。これで具体的な射の合成が、定義どおり型を保ち、等式類として計算できることを確かめた。
+<!-- definition-example-end -->
 
 <a id="thm-cat4-06-syntactic-ccc"></a>
 
