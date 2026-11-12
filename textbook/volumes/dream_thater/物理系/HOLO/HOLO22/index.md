@@ -28,7 +28,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-hrt-surface -->
-**定義の確認**（静的な場合）。 Poincaré $AdS_3$ の $t=0$ 断面上で、$R>0$、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$（$z>0$）を取ります。端点は指定された $\partial A$ に一致し、三次元時空内の曲線なので余次元2です。曲線上で $dt=0$ かつ
+**定義の確認**（静的な場合）。 Poincaré $AdS_3$ の座標 $(t,x,z)$ とその計量を、$L>0$、$z>0$ として先に明示します。
+
+$$
+ds^2=\frac{L^2}{z^2}(-dt^2+dx^2+dz^2).
+$$
+
+この時空の $t=0$ 断面で、$R>0$ とし、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$ を取ります。端点は指定された $\partial A$ に一致し、三次元時空内の曲線なので余次元2です。曲線上で $dt=0$ かつ
 
 $$
 ds_\gamma^2=\frac{L^2}{z^2}(dx^2+dz^2)>0
@@ -64,7 +70,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-null-expansion -->
-**定義の確認**（拡大縮小と零条件）。 Minkowskiの $1+2$ 次元時空 $ds^2=-dt^2+dx^2+dy^2$ において、$t=0$ 上の半径 $r$ の円を取ります。未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とすると $g(k,l)=-1$ です。円周 $\ell(r)=2\pi r$ の変化を、各null法線に沿ったパラメータ $\lambda$ で求めます。誘導計量は $h_{\phi\phi}=r^2$ であり、$\theta_{(k)}=h^{ab}\nabla_a k_b$ は $\ell^{-1}d\ell/d\lambda$ に一致します。実際、$dr/d\lambda=\pm1/\sqrt2$ ですから
+**定義の確認**（拡大縮小と零条件）。 $1+2$ 次元Minkowski時空の計量を $ds^2=-dt^2+dx^2+dy^2$ とします。$r>0$ で平面の極座標を $x=r\cos\phi,\ y=r\sin\phi$ と置くと、
+
+$$
+dx=\cos\phi\,dr-r\sin\phi\,d\phi,\qquad
+dy=\sin\phi\,dr+r\cos\phi\,d\phi
+$$
+
+なので交差項が消え、$dx^2+dy^2=dr^2+r^2d\phi^2$ です。ここで $t=0$ 上の半径 $r$ の円を取ります。
+
+未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とします。極座標表示で $g(\partial_t,\partial_t)=-1$、$g(\partial_r,\partial_r)=1$、両方向は直交するため、
+
+$$
+g(k,k)=g(l,l)=\frac{-1+1}{2}=0,\qquad
+g(k,l)=\frac{-1-1}{2}=-1.
+$$
+
+二つの法線は独立です。円のパラメータは $\phi$ であり、$\partial_\phi$ に制限した誘導計量の成分は $h_{\phi\phi}=r^2$。したがって円周は $\ell(r)=2\pi r$ です。
+
+各null法線に沿うパラメータを $\lambda$ とします。膨張率 $\theta$ は誘導計量の面積密度（ここでは線密度）の対数変化率なので、$\theta=(1/\ell)d\ell/d\lambda$ です。実際、$dr/d\lambda=\pm1/\sqrt2$ より
 
 $$
 \frac1\ell\frac{d\ell}{d\lambda}
