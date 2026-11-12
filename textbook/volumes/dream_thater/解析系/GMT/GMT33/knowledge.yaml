@@ -1,0 +1,51 @@
+chapter: GMT33
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT32
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt33-projective-angle
+    name: 無向方向の角距離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（無向方向の角距離）"]
+    requires: []
+
+  - id: geometric-measure.gmt33-two-tubes
+    name: 二tubeの交差面積
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（二tubeの交差面積）"]
+    requires:
+      - geometric-measure.gmt33-projective-angle
+      - geometric-measure.gmt32-tube
+
+  - id: geometric-measure.gmt33-angular-sum
+    name: 分離方向の逆角度和
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（分離方向の逆角度和）"]
+    requires:
+      - geometric-measure.gmt33-projective-angle
+
+  - id: geometric-measure.gmt33-cordoba
+    name: 平面Córdoba型tube評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平面Córdoba型tube評価）"]
+    requires:
+      - geometric-measure.gmt33-two-tubes
+      - geometric-measure.gmt33-angular-sum
+      - geometric-measure.gmt32-tube-volume
+
+  - id: geometric-measure.gmt33-kakeya-minkowski
+    name: 平面Besicovitch集合のfull Minkowski次元
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（平面Besicovitch集合のfull Minkowski次元）"]
+    requires:
+      - geometric-measure.gmt33-cordoba
+      - geometric-measure.gmt32-minkowski
+      - geometric-measure.gmt32-neighborhood-cover
