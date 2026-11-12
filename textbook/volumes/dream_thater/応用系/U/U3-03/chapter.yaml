@@ -2,7 +2,7 @@ id: "U3-03"
 title: "多期間二項モデルと割引マルチンゲール"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-01, U3-02]
+prerequisites: [F0-00A, F0-00P2A, F0-00P3A, U3-01, U3-02]
 official_scope: []
 learning_objectives:
   - 多期間二項市場の全経路と再結合する株価節点を区別し時点別株価を求められる
