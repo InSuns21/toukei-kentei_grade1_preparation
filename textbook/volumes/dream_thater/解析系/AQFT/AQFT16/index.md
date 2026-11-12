@@ -6,7 +6,7 @@
 
 ## 1. 二つの領域を分けて考える
 
-4次元Minkowski時空では計量を $(-,+,+,+)$ とします。$R>0$ に対し、中心が原点のdouble cone
+4次元Minkowski時空では計量を $(-,+,+,+)$ とします。[AQFT1で定義した標準double cone](../AQFT1/index.md#def-aqft1-double-cone)を本講では $D_R$ の代わりに $O_R$ と書き、$R>0$ に対して
 
 $$
 O_R=\{(t,\boldsymbol x)\in\mathbb R^{1+3}:|t|+\|\boldsymbol x\|<R\}
@@ -56,7 +56,9 @@ M_2&=B(H_1\otimes H_2\otimes H_3)\otimes I_4.
 \end{aligned}
 $$
 
-$M_1\subset N\subset M_2$ は各恒等作用素を残りの因子に挿入する包含で、両方とも真の包含です。$N$ の中心がスカラーであることは、[全有界作用素環の因子性](../../VN/VN7/index.md#thm-vn7-bh-factor)から従います。また $B(H_1\otimes H_2)$ に階数1射影があるので、$N$ はType I因子です。従ってこの包含はsplitです。
+$M_1\subset N\subset M_2$ は各恒等作用素を残りの因子に挿入する包含で、両方とも真の包含です。$K=H_1\otimes H_2$、$L=H_3\otimes H_4$ と再結合すれば $N=B(K)\otimes I_L$ です。[全有界作用素環の因子性](../../VN/VN7/index.md#thm-vn7-bh-factor)をこの表現に適用すると、$N$ の中心は $\mathbb CI_H$ です。
+
+次に単位ベクトル $u\in K$ を取り、$p=|u\rangle\langle u|\otimes I_L\in N$ と置きます。$p$ は周囲の $B(H)$ で階数1とは限りませんが、**$N$ の中では最小射影**です。実際、$0\ne q\in N$ が $q\le p$ を満たす射影なら、$q=q_K\otimes I_L$ で、$\operatorname{Ran}(q_K)\subset\mathbb Cu$ となります。従って $q_K=|u\rangle\langle u|$、$q=p$ です。これは[VN7の最小射影の定義](../../VN/VN7/index.md#def-vn7-minimal-projection)を直接確かめています。中心がスカラーで最小射影を持つため、[VN7の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)より $N$ はType I因子です。従ってこの包含はsplitです。
 
 これは抽象的な包含の直接例であり、相対論的な局所netの存在証明ではありません。必要なのは、**内側の環そのものがType Iでなくても、間にType Iを挟める**という定義の仕組みです。
 <!-- definition-example-end -->
@@ -88,7 +90,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 最小射影と内積。** [VN7の因子の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)によって、非零最小射影 $e\in N$ が存在します。$eNe$ は単位元を $e$ とするvon Neumann環です。自己共役元に非自明なスペクトル射影があれば $e$ の真の非零部分射影ができるので、$eNe=\mathbb Ce$ です。
+**(1) 最小射影と内積。** [VN7の因子の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)によって、非零最小射影 $e\in N$ が存在します。$eNe$ は単位元を $e$ とするvon Neumann環です。もし $eNe$ に非スカラー元があれば、その実部または虚部に非スカラーな自己共役元が存在します。そのスペクトル射影の中には $0$ と $e$ のいずれでもないものがあり、$e$ の最小性に反します。従って $eNe=\mathbb Ce$ です。
 
 左イデアル $Ne=\{ae:a\in N\}$ に、$e a^*b e=\langle ae,be\rangle_K e$ で複素内積を定めます。例えば
 
@@ -110,7 +112,18 @@ $$
 
 よって $V_0$ は等長で、$V:K\otimes L\to H$ に延長できます。$V$ の像は $\overline{NeH}$ です。この閉部分空間は $N$ の各元とその随伴で不変です。また $C\in N'$ に対して $C(ae\xi)=ae(C\xi)$ となり、$N'$ でも不変です。その直交射影 $P$ は $N$ と $N'$ の両方と可換なので $P\in N\cap N'=Z(N)$ です。$eH\ne0$ より $P\ne0$、[VN7で定めた因子性](../../VN/VN7/index.md#def-vn7-factor)から $P=I$。従って $V$ は全射でユニタリです。
 
-**(3) 左因子が全有界作用素環となる。** $a\in N$ に対し $V^*aV$ は $K$ の左乗法 $\lambda(a)(be)=abe$ と $L$ の恒等作用素のテンソル積です。$\|\lambda(a)\|\le\|a\|$。$\lambda(e)K$ は $\mathbb Ce$ の1次元空間です。$T\in\lambda(N)'$ なら
+**(3) 左因子が全有界作用素環となる。** $a\in N$ に対し $V^*aV$ は $K$ の左乗法 $\lambda(a)(be)=abe$ と $L$ の恒等作用素のテンソル積です。左乗法が完備化に延長できるのは、$b\in N$ に対して
+
+$$
+\begin{aligned}
+\|\lambda(a)(be)\|_K^2 e
+&=e b^*a^*ab e\\
+&\le\|a\|^2 e b^*b e
+=\|a\|^2\|be\|_K^2e
+\end{aligned}
+$$
+
+だからです。従って $\|\lambda(a)\|\le\|a\|$ であり、$\lambda$ は単位的 $*$-表現になります。$\lambda(e)K$ は $\mathbb Ce$ の1次元空間です。$T\in\lambda(N)'$ なら
 
 $$
 \lambda(e)Te=T\lambda(e)e=Te,
@@ -122,10 +135,15 @@ $$
 T(ae)=T\lambda(a)e=\lambda(a)Te=c\,ae.
 $$
 
-$Ne$ は $K$ で稠密なので $T=cI_K$ です。従って $\lambda(N)'=\mathbb CI_K$。[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)と $V^*NV$ の弱閉性から
+$Ne$ は $K$ で稠密なので $T=cI_K$ です。従って $\lambda(N)'=\mathbb CI_K$。
+
+ここで $\lambda(N)$ 自身が弱作用素閉であることも確認します。$\lambda(a_i)\in\lambda(N)$ が $K$ 上で弱作用素収束して $S$ を極限に持つなら、任意の単純テンソルに関する行列係数を取ることで $\lambda(a_i)\otimes I_L\to S\otimes I_L$ が $K\otimes L$ 上で弱作用素収束します（有界な収束ネットであり、単純テンソルの線形結合は稠密です）。$V^*NV$ はvon Neumann環なので弱作用素閉です。よって $S\otimes I_L\in V^*NV=\lambda(N)\otimes I_L$。$L\ne\{0\}$ だから $S\in\lambda(N)$ です。
+
+従って[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により
 
 $$
-V^*NV=(\lambda(N)\otimes I_L)=B(K)\otimes I_L.
+\lambda(N)=\lambda(N)''=(\mathbb CI_K)'=B(K),
+\qquad V^*NV=B(K)\otimes I_L.
 $$
 
 この等式の可換子を取れば $V^*N'V=I_K\otimes B(L)$。$U=V^*$ と置けば主張を得ます。$\square$
@@ -136,6 +154,8 @@ $$
 ## 4. 外部の可換子とテンソル積包含
 
 [可換子](../../VN/VN2/index.md#def-vn2-commutant)は包含を逆転します。$N\subset M_2$ なら、$M_2'\subset N'$ です。そこで内側 $M_1$ と外側の可換子 $M_2'$ を同時に表示できます。
+
+ここで使う二つの演算を先に定めます。$A\subset B(K)$、$B\subset B(L)$ がvon Neumann環のとき、$A\bar\otimes B$ は、$K\otimes L$ 上の作用素 $a\otimes b$（$a\in A,b\in B$）の有限線形結合の**弱作用素閉包**、すなわち空間的von Neumannテンソル積です。また $M_1\vee M_2'$ は $M_1$ と $M_2'$ が生成する最小のvon Neumann環です。以下の「正規な $*$-同型」は、$*$ と積を保存する全単射で、写像と逆写像が超弱位相について連続であることを意味します。
 
 <a id="thm-aqft16-split-tensor-inclusion"></a>
 
@@ -230,6 +250,8 @@ $\|\Psi\|=\|k\|\|l\|=1$ であり、ベクトル状態は $B(H)$ 上で正規な
 
 [Einstein局所性](../AQFT2/index.md#def-aqft2-locality)は、空間的に分離した観測量が可換であることを要求します。一方splitは、その可換性を**空間的なテンソル座標**で実現する中間因子の存在を要求します。この追加条件は自動的には出ません。
 
+次の例では $[0,1]$ にLebesgue測度を入れ、$L^2([0,1])$ 上の乗法作用素を $(M_fh)(s)=f(s)h(s)$ と定めます。$f\in L^\infty([0,1])$ なら $\|M_fh\|_2\le\|f\|_\infty\|h\|_2$ なので有界です。ここで変数 $s$ は区間 $[0,1]$ の点です。
+
 <a id="prop-aqft16-commutation-not-split"></a>
 
 <!-- formal-statement-start -->
@@ -263,7 +285,7 @@ $$
 \int_E|g|^2\le\|T\|^2|E|
 $$
 
-が全ての可測 $E$ で成立します。$E=\{|g|>\|T\|+\varepsilon\}$ として矛盾を得るので、$g\in L^\infty$、$T=M_g\in D$ です。従って $D'=D$。
+が全ての可測 $E$ で成立します。$E=\{|g|>\|T\|+\varepsilon\}$ として矛盾を得るので、$g\in L^\infty$、$T=M_g\in D$ です。従って $D'=D$。可換子は[弱作用素閉](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)で、$D$ は単位元を持ち随伴に閉じているので、この等式から $D$ がvon Neumann環であることも分かります。
 
 $D\subset N\subset D'=D$ なら $N=D$ しかありません。$D$ は可換で、例えば $M_{\mathbf1_{[0,1/2]}}$ は非スカラーな中心射影です。よって $D$ は因子でなく、Type I**因子**にもなりません。splitではありません。$\square$
 <!-- proof-end -->
@@ -297,7 +319,14 @@ $O_R=\{(t,\boldsymbol x):|t|+\|\boldsymbol x\|<R\}$ とする。$R=3$、$r=1$ �
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $K=H_1\otimes H_2$、$L=H_3\otimes H_4$ とおけば $N=B(K)\otimes I_L$。$N'=I_K\otimes B(L)$ であるため、$N\cap N'=\mathbb CI_H$。また単位ベクトル $u\in K$ に対し $p=|u\rangle\langle u|\otimes I_L$ は $N$ の非零射影です。$q\in N$ で $0\ne q\le p$ なら $q=q_K\otimes I_L$、$0\ne q_K\le|u\rangle\langle u|$。後者の像は1次元なので $q_K=|u\rangle\langle u|$、従って $q=p$。中心がスカラーで最小射影があり、[VN7の分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)でType I因子です。
+**詳細解答。** $K=H_1\otimes H_2$、$L=H_3\otimes H_4$ とおけば $N=B(K)\otimes I_L$ です。なぜ可換子が右側だけに作用するかを行列単位で確認します。$K$ の正規直交基底を選び、その行列単位を $E_{ij}$ とすると、任意の $T\in B(K\otimes L)$ は $T=\sum_{i,j}E_{ij}\otimes T_{ij}$（$T_{ij}\in B(L)$）と表せます。$T$ が全ての $E_{kk}\otimes I_L$ と可換なら非対角成分は零であり、さらに $E_{ij}\otimes I_L$ と可換なら各対角成分は同じ $S\in B(L)$ です。従って $T=I_K\otimes S$、すなわち
+
+$$
+N'=I_K\otimes B(L),\qquad
+N\cap N'=\mathbb CI_H.
+$$
+
+また単位ベクトル $u\in K$ に対し $p=|u\rangle\langle u|\otimes I_L$ は $N$ の非零射影です。$q\in N$ で $0\ne q\le p$ なら $q=q_K\otimes I_L$、$0\ne q_K\le|u\rangle\langle u|$。後者の像は1次元なので $q_K=|u\rangle\langle u|$、従って $q=p$。中心がスカラーで最小射影があり、[VN7の分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)でType I因子です。
 <!-- solution-end -->
 
 <a id="ex-aqft16-a03"></a>
@@ -308,7 +337,7 @@ $O_R=\{(t,\boldsymbol x):|t|+\|\boldsymbol x\|<R\}$ とする。$R=3$、$r=1$ �
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 全行列環の可換子を取ると $M_2'=I_1\otimes I_2\otimes I_3\otimes B(H_4)$ です。一方 $N'=I_1\otimes I_2\otimes B(H_3\otimes H_4)$。前者は $H_3$ に恒等作用する後者の部分環なので $M_2'\subset N'$。これは $N\subset M_2$ の可換子による包含反転と一致します。
+**詳細解答。** [A02の行列単位による可換子計算](#ex-aqft16-a02)を、まず $K=H_1\otimes H_2\otimes H_3$、$L=H_4$ に、次に $K=H_1\otimes H_2$、$L=H_3\otimes H_4$ に適用します。それぞれ $M_2'=I_1\otimes I_2\otimes I_3\otimes B(H_4)$、$N'=I_1\otimes I_2\otimes B(H_3\otimes H_4)$ です。前者は $H_3$ に恒等作用する後者の部分環なので $M_2'\subset N'$。これは $N\subset M_2$ の可換子による包含反転と一致します。
 <!-- solution-end -->
 
 <a id="ex-aqft16-a04"></a>
