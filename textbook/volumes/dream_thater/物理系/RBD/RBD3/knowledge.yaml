@@ -1,0 +1,50 @@
+chapter: RBD3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD2
+forward_references: []
+concepts:
+  - id: mechanics.spatial-body-angular-velocity
+    name: 空間角速度と物体角速度
+    kind: definition
+    aliases: [spatial and body angular velocity]
+    introduction: formal
+    introduction_aliases: [定義（空間角速度と物体角速度）]
+    requires:
+      - mechanics.cross-product-skew-matrix
+      - mechanics.proper-rotation
+  - id: mechanics.angular-velocity-conjugacy
+    name: 角速度の空間・物体対応
+    kind: proposition
+    aliases: [angular velocity frame conjugacy]
+    introduction: formal
+    introduction_aliases: [命題（角速度の空間・物体対応）]
+    requires:
+      - mechanics.spatial-body-angular-velocity
+  - id: mechanics.rigid-point-velocity-field
+    name: 剛体点の速度場
+    kind: proposition
+    aliases: [rigid body point velocity field]
+    introduction: formal
+    introduction_aliases: [命題（剛体点の速度場）]
+    requires:
+      - mechanics.rigid-configuration
+      - mechanics.angular-velocity-conjugacy
+  - id: mechanics.rotating-frame-acceleration-decomposition
+    name: 回転座標における加速度の分解
+    kind: theorem
+    aliases: [rotating frame acceleration decomposition]
+    introduction: formal
+    introduction_aliases: [定理（回転座標における加速度の分解）]
+    requires:
+      - mechanics.angular-velocity-conjugacy
+      - mechanics.rigid-point-velocity-field
+  - id: mechanics.rotating-frame-inertial-forces
+    name: 回転座標の運動方程式
+    kind: proposition
+    aliases: [Newton equation in rotating coordinates]
+    introduction: formal
+    introduction_aliases: [命題（回転座標の運動方程式）]
+    requires:
+      - mechanics.rotating-frame-acceleration-decomposition
