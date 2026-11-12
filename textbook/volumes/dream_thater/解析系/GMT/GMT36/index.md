@@ -260,7 +260,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（重み付きtube重複度による点ごとの評価）**  
-> $R\ge16$、$r=R^{-1/2}$、整数 $N\ge2$ とする。有限集合 $J$ の各 $j$ について $\theta_j\in[-1,1]$、$x_j\in\mathbb R$、$c_j\in\mathbb C$ を取り、$w_j(x,t)=(1+r|x-x_j+2\theta_jt|)^{-N}$、$M_N(x,t)=\sum_{j\in J}w_j(x,t)$ と置く。$|t|\le R$ の各点で
+> $R\ge16$、$r=R^{-1/2}$、整数 $N\ge2$ とする。有限集合 $J$ の各 $j$ について $\theta_j\in[-1,1]$、$x_j\in\mathbb R$、$c_j\in\mathbb C$ を取る。次の非負重みを定義する。
+
+$$
+w_j(x,t)=(1+r|x-x_j+2\theta_jt|)^{-N},
+\qquad M_N(x,t)=\sum_{j\in J}w_j(x,t).
+$$
+
+> $|t|\le R$ の各点で
 
 $$
 \left|\sum_{j\in J}c_jF_{\theta_j,x_j}(x,t)\right|^2
@@ -426,7 +433,13 @@ $R^{1/2}=100$。元の縦方向長さは $2R=20000$、横方向全幅は $2R^{1/
 
 <a id="ex-gmt36-b01"></a>
 
-**問題 B01：非定常位相による横方向減衰。** $\varphi\in C_c^\infty((-1/4,1/4))$、$|s|\le1$ のとき、[packet公式](#prop-gmt36-packet-formula)で定めた $\Phi(y,s)=(2\pi)^{-1/2}\int e^{i(yu+su^2)}\varphi(u)\,du$ が $|\Phi(y,s)|\le C(1+|y|)^{-2}$ を満たすことを示せ。
+**問題 B01：非定常位相による横方向減衰。** $\varphi\in C_c^\infty((-1/4,1/4))$、$|s|\le1$ のとき、[packet公式](#prop-gmt36-packet-formula)で定めた関数
+
+$$
+\Phi(y,s)=(2\pi)^{-1/2}\int e^{i(yu+su^2)}\varphi(u)\,du
+$$
+
+が $|\Phi(y,s)|\le C(1+|y|)^{-2}$ を満たすことを示せ。
 
 - Level: B
 
