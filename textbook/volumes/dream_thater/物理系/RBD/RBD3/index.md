@@ -38,7 +38,7 @@ $$
 で定義する。ハットは $\widehat u v=u\times v$ を意味する。単位は角度をラジアンで測れば $\mathrm{s}^{-1}$ である。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-rbd3-angular-velocity -->
+[RBD2 の軸角表示](../RBD2/index.md#def-rbd2-axis-angle)に従い、以後 $R_z(\gamma):=R(e_3,\gamma)$、$R_x(\gamma):=R(e_1,\gamma)$ と書きます。いずれもそれぞれの座標軸のまわりの右手系の能動回転です。\n\n<!-- definition-example-start: def-rbd3-angular-velocity -->
 ### 直接例：時間とともに角度が変わる円板
 
 $R(t)=R_z(\theta(t))$、$\theta\in C^2(I)$ とします。$c=\cos\theta,s=\sin\theta$ と略記すると
