@@ -23,13 +23,15 @@ $$
 \nabla_E^2\phi=\frac1{L^2}\left[z^2\partial_z^2\phi-(d-1)z\partial_z\phi+z^2\Delta_x\phi\right].
 $$
 
-ここで $\Delta_x=\sum_i\partial_i^2$ は境界方向の通常のLaplace作用素です。波数 $k$ の実Fourier成分 $\phi(z,x)=f_k(z)e^{ik\cdot x}$ を一つ取り出すと、$\Delta_xe^{ik\cdot x}=-|k|^2e^{ik\cdot x}$ により
+ここで $\Delta_x=\sum_{i=1}^d\partial_{x_i}^2$ は境界座標 $x=(x_1,\ldots,x_d)$ に作用するLaplace作用素です。境界波数ベクトル $k=(k_1,\ldots,k_d)\in\mathbb R^d$（周期箱では離散波数）を選び、複素Fourierモード $\phi(z,x)=f_k(z)e^{ik\cdot x}$ を考えます。ここで $i^2=-1$、$k\cdot x=\sum_{i=1}^dk_ix_i$ です。
+
+実スカラー場は $k$ と $-k$ の複素共役な成分を組み合わせて表せます。各 $i$ について $\partial_{x_i}^2e^{ik\cdot x}=-k_i^2e^{ik\cdot x}$ なので $\Delta_xe^{ik\cdot x}=-|k|^2e^{ik\cdot x}$ です。以下、$f_k'=df_k/dz$、$f_k''=d^2f_k/dz^2$ とし、方程式を代入・整理すると
 
 $$
 z^2 f_k''-(d-1)zf_k'-(|k|^2z^2+m^2L^2)f_k=0. 
 $$
 
-ここでプライムは $z$ 微分です。まず $k=0$ なら冪 $f=z^\alpha$ を代入して厳密な解を探せます。$f'=\alpha z^{\alpha-1}$、$f''=\alpha(\alpha-1)z^{\alpha-2}$ なので、左辺は
+まず $k=0$ では $f=f_0$ と略記し、冪 $f(z)=z^\alpha$ を代入して厳密な解を探せます。$f'=\alpha z^{\alpha-1}$、$f''=\alpha(\alpha-1)z^{\alpha-2}$ なので、左辺は
 
 $$
 \{\alpha(\alpha-1)-(d-1)\alpha-m^2L^2\}z^\alpha
@@ -148,7 +150,7 @@ z^{1-d}(f')^2
 =z^{-1}\left(\frac{d^2}{4}u^2+dzuu'+z^2(u')^2\right).
 $$
 
-$u$ はコンパクト台なので $\int_0^\infty duu'\,dz=(d/2)[u^2]_0^\infty=0$。したがって
+$u$ はコンパクト台なので、交差項は $d\int_0^\infty u(z)u'(z)\,dz=(d/2)[u(z)^2]_0^\infty=0$。ここで $u'=du/dz$ であり、$d$ は境界の次元を表す定数です。したがって
 
 $$
 \frac{Q_m[f]}{L^{d-1}}
@@ -181,9 +183,31 @@ $$
 ds_L^2=\frac{L^2}{z^2}(-dt^2+dz^2+d\boldsymbol x^2)
 $$
 
-とします。$\boldsymbol x$ は $d-1$ 個の空間座標です。$t=\mathrm{const}$ の面の体積密度は $\sqrt h=L^d z^{-d}$、未来向き単位法線は $n^t=z/L$。よってKG内積に現れる密度は $\sqrt h\,n^t=L^{d-1}z^{1-d}$ です。
+とします。$\boldsymbol x$ は $d-1$ 個の空間座標です。
 
-正周波数 $\omega>0$ の一つの分離モードを $\phi=e^{-i\omega t}f(z)v(\boldsymbol x)$ とし、$v$ の空間ノルムを有限に取ります。KG内積の径方向部分は正の定数 $2\omega L^{d-1}$ を除き $\int z^{1-d}|f|^2dz$ となります。なぜこの重みが必要なのかは、計量から求めた $\sqrt h\,n^t$ にあり、Euclid体積密度 $z^{-d-1}$ と取り違えません。
+実スカラーの解を複素化して正周波数成分を扱うとき、二つの解 $\phi_1,\phi_2$ のKG内積を
+
+$$
+(\phi_1,\phi_2)_{\mathrm{KG}}
+=i\int_{\Sigma_t}\sqrt h\,n^\mu\left(\overline{\phi_1}\,\partial_\mu\phi_2-(\partial_\mu\overline{\phi_1})\phi_2\right)d^dy
+$$
+
+とします。$\Sigma_t$ は $t$ を固定した空間断面、$h$ はその誘導計量の行列式、$n^\mu$ は未来向き単位法線、$d^dy=dz\,d^{d-1}\boldsymbol x$ です。内積の保存には境界流束を消す条件が別途必要です。$t=\mathrm{const}$ の空間断面では、座標 $y=(z,\boldsymbol x)$ に関する誘導計量は $d$ 行 $d$ 列の対角行列 $h_{ab}=(L^2/z^2)\delta_{ab}$ です。従って、行列式と体積密度は
+
+$$
+\det h=\left(\frac{L^2}{z^2}\right)^d,\qquad
+\sqrt h=\frac{L^d}{z^d}
+$$
+
+となります。また $g_{tt}=-L^2/z^2$ なので、未来向き単位法線の時間成分は $n^t=z/L$ であり、$g_{tt}(n^t)^2=-1$ を確かめられます。よってKG内積に現れる密度は
+
+$$
+\sqrt h\,n^t=L^{d-1}z^{1-d}
+$$
+
+です。
+
+正周波数 $\omega>0$ の一つの分離モードを $\phi=e^{-i\omega t}f(z)v(\boldsymbol x)$ とし、$v$ の空間ノルムを有限に取ります。同じ正周波数モードをKG内積の両方に入れると、$\overline\phi\,\partial_t\phi-(\partial_t\overline\phi)\phi=(-i\omega-i\omega)|\phi|^2=-2i\omega|\phi|^2$ です。外側の $i$ を掛けて $2\omega|\phi|^2$ となるので、空間方向の有限なノルムを取り除いた径方向部分は正の定数 $2\omega L^{d-1}$ を除き $\int z^{1-d}|f|^2dz$ となります。なぜこの重みが必要なのかは、計量から求めた $\sqrt h\,n^t$ にあり、Euclid体積密度 $z^{-d-1}$ と取り違えません。
 
 <a id="def-holo8-kg-normalizable"></a>
 
@@ -301,6 +325,8 @@ $\square$
 
 これを境界条件の選択へ結び付けます。二つのモードがKG可積分なときに限って両者を境界の動的な候補にできますが、実際には**何を固定するか**を指定しなくてはなりません。
 
+以下でいう**有限化された作用**とは、境界cutoffを $z\downarrow0$ へ移すとき、必要なら境界反項（発散を相殺するため元の作用に加える境界上の項）などを追加し、固定する係数に適合する有限な第一変分を持たせた作用です。この章では反項と有限な変分原理の具体的な構成を証明せず、**その存在を仮定して**二つの境界選択を区別します。
+
 <a id="def-holo8-quantization-choices"></a>
 
 <!-- formal-statement-start -->
@@ -323,7 +349,23 @@ $$
 1. 標準側では $A=J$ を固定し、許容変分に $\delta A=0$ を課します。
 2. 代替側では $B=\widetilde J$ を固定し、許容変分に $\delta B=0$ を課します。
 
-どちらも同じ選択に従う二解の反対称流束は [流束命題](#prop-holo8-boundary-flux) により零です。辞書上の候補次元は標準側が $2$、代替側が $1$ です。
+**流束を零とする対象**は区別が必要です。標準側では、固定源 $J$ を保つ二つの許容変分が
+
+$$
+\delta_j f=(\delta_j B)z^2,\qquad \delta_j A=0\quad(j=1,2)
+$$
+
+を満たします。したがって [流束命題](#prop-holo8-boundary-flux) に現れる係数行列式は零です。代替側も、二つの許容変分が $\delta_j B=0$ を満たすので流束は零です。
+
+一方、非零の同じ源 $A_1=A_2=J$ を持つ**元の二解**の流束は
+
+$$
+\mathcal F_z=L^2(A_1B_2-A_2B_1)=L^2J(B_2-B_1)
+$$
+
+です。$B_1\ne B_2$ なら必ずしも零ではありません。元の二解について流束が零となるのは、例えば斉次条件 $A=0$、$B=0$、または共通の実係数による $B=\kappa A$ の場合です。
+
+辞書上の候補次元は標準側が $2$、代替側が $1$ です。
 
 ただし、反項を含む変分原理と赤外条件を省略しており、$J$ を有限cutoffでの場の値と同一視してはいません。
 <!-- definition-example-end -->
@@ -431,9 +473,7 @@ $$
 - 問題: $d=4$ で $m^2L^2=-4,-15/4,-3$ の三つの場合を比較し、$\nu$、零波数解の形、遅いモードのKG可積分性、代替量子化の通常の窓に入るかをそれぞれ判定せよ。
 
 <!-- solution-start -->
-**詳細解答。
-
-** $d^2/4=4$。
+**詳細解答。** $d^2/4=4$。
 
 $m^2L^2=-4$ では $\nu=0$ で $f=z^2(A+B\log(z/\ell))$。
 
@@ -453,15 +493,32 @@ $-3$ なら $\nu=1$、$k=0$ で $f=Az+Bz^3$、遅い側の被積分は $z^{-3+2}
 - 問題: $d=4$、$m^2L^2=-3$、$|k|>0$ で遅い根 $\Delta_-=1$ を使う。$f(z)=z(1+az^2+\cdots)$ という試行がなぜ矛盾するかを式 [径方向方程式](#ref-holo8-radial-equation) から示せ。$k=0$ の場合も比較せよ。
 
 <!-- solution-start -->
-**詳細解答。
-
-** $d=4$、$m^2L^2=-3$ の [径方向方程式](#ref-holo8-radial-equation) は $z^2f''-3zf'-(|k|^2z^2-3)f=0$。
+**詳細解答。** $d=4$、$m^2L^2=-3$ の [径方向方程式](#ref-holo8-radial-equation) は $z^2f''-3zf'-(|k|^2z^2-3)f=0$。
 
 $f=z+az^3+\cdots$ を代入すると $z$ の係数は $0-3+3=0$、$z^3$ の係数は $6a-9a+3a-|k|^2=-|k|^2$。
 
 $|k|>0$ では $a$ をどう選んでも消せず、冪級数だけの仮定が破れます。
 
-$z^3\log z$ のような項は $z^3$ の係数を作れるため、対数補正を検討する必要があります。
+対数の引数を無次元化する $\ell>0$ を選び、$g(z)=z^3\log(z/\ell)$ と置きます。$z$ で微分すると
+
+$$
+g'=z^2\bigl(3\log(z/\ell)+1\bigr),\qquad
+g''=z\bigl(6\log(z/\ell)+5\bigr)
+$$
+
+なので、径方向方程式のうち波数を含まない作用素に代入して
+
+$$
+z^2g''-3zg'+3g=2z^3
+$$
+
+を得ます。したがって
+
+$$
+f(z)=z+\frac{|k|^2}{2}z^3\log(z/\ell)+bz^3+\cdots
+$$
+
+とすれば、$z^3$ の係数は $2(|k|^2/2)-|k|^2=0$ です。$b$ はこの次数では決まりません。
 
 $k=0$ なら障害 $-|k|^2$ は零で、$z$ と $z^3$ は厳密解です。
 
