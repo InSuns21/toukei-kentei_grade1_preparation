@@ -23,7 +23,7 @@ th:first-child{text-align:left} .hint{font-size:.9rem}.special{font-weight:700}
 </style>
 </head>
 <body>
-<p><a href="../../../../../index.html#/textbook/volumes/dream_thater/物理系/RBD/RBD4/index">講義へ戻る（トップURL）</a></p>
+<p><a href="/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD4/index">講義へ戻る（トップURL）</a></p>
 <h1>ZYZ Euler角：姿勢と座標特異性を操作する</h1>
 <p>能動・列ベクトル規約。先に右の回転が作用します。行列は <strong>R = Rz(φ) Ry(θ) Rz(ψ)</strong>。描いた物体軸は行列の各列そのものです。<strong>空間基底</strong>は細い破線、<strong>物体基底</strong>は太い実線で区別しています。</p>
 <main>
@@ -34,17 +34,17 @@ th:first-child{text-align:left} .hint{font-size:.9rem}.special{font-weight:700}
 <desc id="svg-desc">中央の原点から、空間固定基底の三本が破線で、回転行列の三列である物体基底 b1、b2、b3 が太い実線で描かれる。角度操作で向きが変わる。</desc>
 <defs><marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L6,3 L0,6" fill="none" stroke="context-stroke" stroke-width="1.4"/></marker></defs>
 <g id="fixed" stroke="#667582" stroke-width="2" stroke-dasharray="6 5" fill="none">
-<path id="space1" marker-end="url(#arr)"/><path id="space2" marker-end="url(#arr)"/><path id="space3" marker-end="url(#arr)"/>
+<path id="space1" d="M245 210 L351.2 180.5" marker-end="url(#arr)"/><path id="space2" d="M245 210 L280.4 263.1" marker-end="url(#arr)"/><path id="space3" d="M245 210 L245 112.06" marker-end="url(#arr)"/>
 </g>
 <g id="moving" stroke-width="4" fill="none">
-<path id="body1" stroke="#a52b32" marker-end="url(#arr)"/>
-<path id="body2" stroke="#14764f" marker-end="url(#arr)"/>
-<path id="body3" stroke="#164d9b" marker-end="url(#arr)"/>
+<path id="body1" d="M245 210 L245 307.94" stroke="#a52b32" marker-end="url(#arr)"/>
+<path id="body2" d="M245 210 L280.4 263.1" stroke="#14764f" marker-end="url(#arr)"/>
+<path id="body3" d="M245 210 L351.2 180.5" stroke="#164d9b" marker-end="url(#arr)"/>
 </g>
 <circle cx="245" cy="210" r="4" fill="#162536"/>
 <g font-family="system-ui,sans-serif" font-weight="700" font-size="17">
-<text id="label1" fill="#91242a">b1</text><text id="label2" fill="#126343">b2</text><text id="label3" fill="#154686">b3</text>
-<text id="fixedlabel1" fill="#5d6873">x</text><text id="fixedlabel2" fill="#5d6873">y</text><text id="fixedlabel3" fill="#5d6873">z</text>
+<text id="label1" x="252" y="325" fill="#91242a">b1</text><text id="label2" x="299" y="275" fill="#126343">b2</text><text id="label3" x="368" y="177" fill="#154686">b3</text>
+<text id="fixedlabel1" x="366" y="197" fill="#5d6873">x</text><text id="fixedlabel2" x="270" y="281" fill="#5d6873">y</text><text id="fixedlabel3" x="258" y="105" fill="#5d6873">z</text>
 </g>
 </svg>
 <p class="hint">模式投影：長さは三次元の単位軸を一定として描画。透視による見かけの短縮は物体の変形を意味しません。値は下の行列成分が正本です。</p>
