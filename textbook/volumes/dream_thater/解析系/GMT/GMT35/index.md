@@ -4,7 +4,7 @@
 
 ## 1. 管を一本ずつ数える代わりに、どんな関数でも試す
 
-[GMT33の平面Córdoba型tube評価](../GMT33/index.md#thm-gmt33-cordoba)は、方向が分離した管の合併面積を対数の損失まで抑えました。[GMT34のbush法](../GMT34/index.md#thm-gmt34-bush-bound)は高次元で一点に多くの管が集まる配置を数え直しました。どちらも、管が置かれた**後**で重なりを解析する方法でした。
+[GMT33の平面Córdoba型tube評価](../GMT33/index.md#thm-gmt33-cordoba)は、方向が分離した管の合併面積を対数の損失まで抑えました。[GMT34のbush法](../GMT34/index.md#thm-gmt34-bush)は高次元で一点に多くの管が集まる配置を数え直しました。どちらも、管が置かれた**後**で重なりを解析する方法でした。
 
 今度は順番を逆にします。非負関数 $f$ を空間に置き、**各方向で、その関数を最も多く拾う長さ1の管**を探します。この操作を全方向について制御できれば、特定のKakeya集合に限らず、任意の管配置へ同じ評価を適用できます。その代償が、管の太さ $\delta$ に依存する作用素ノルムの「損失」です。
 
@@ -81,7 +81,7 @@ $$
 <!-- definition-example-start: def-gmt35-maximal-bound -->
 ### 直接確認：Hölderの不等式から必ず得られる評価
 
-$1\le p<\infty$ とし、$p$ の共役指数を $p'$ とします（$p=1$ では $p'=\infty$）。管ごとにHölderの不等式を適用すると
+$1\le p<\infty$ とし、$p$ の共役指数を $p'$ とします（$p=1$ では $p'=\infty$）。管ごとに[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を適用すると
 
 $$
 \frac{1}{V_d(\delta)}\int_{T_\delta(a,v)}|f|
@@ -223,7 +223,7 @@ $$
 \le C\sqrt{\log(2/r)}\|f\|_2.
 $$
 
-最後の等式は有限次元内積空間の双対表示、最後の不等式はCauchy--Schwarzの不等式によります。二乗すれば主張です。
+最後の等式は有限次元内積空間の双対表示、最後の不等式は[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)によります。二乗すれば主張です。
 <!-- proof-end -->
 
 <a id="thm-gmt35-planar-maximal"></a>
@@ -247,7 +247,7 @@ $\mathcal K_\delta f=\mathcal K_\delta|f|$ なので非負関数だけを扱い�
 <!-- proof-start -->
 ### 証明
 
-$f\ge0$ とします。各 $\mathcal K_{2\delta}f(v_j)$ は管平均の上限です。任意の $\eta>0$ に対し、各 $j$ で平均が $\mathcal K_{2\delta}f(v_j)-\eta$ 以上になる始点 $a_j$ を選べます。$\mathcal K_{2\delta}f(v_j)$ はHölderの不等式から有限です。[離散 $L^2$ 補題](#lem-gmt35-linearized-tubes)を $r=2\delta$ に適用すると
+$f\ge0$ とします。各 $\mathcal K_{2\delta}f(v_j)$ は管平均の上限です。任意の $\eta>0$ に対し、各 $j$ で平均が $\mathcal K_{2\delta}f(v_j)-\eta$ 以上になる始点 $a_j$ を選べます。$\mathcal K_{2\delta}f(v_j)$ は[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)から有限です。[離散 $L^2$ 補題](#lem-gmt35-linearized-tubes)を $r=2\delta$ に適用すると
 
 $$
 (2\delta)\sum_j
@@ -565,7 +565,7 @@ $f^p=\boldsymbol1_T$ だから $\|f\|_p^p=\int\boldsymbol1_T=V_d(\delta)$、よ�
 
 <a id="ex-gmt35-a02"></a>
 
-**問題 A02：Hölderによる粗い損失。** $d=3$、$p=q=2$ とする。$f\in L^2(\mathbb R^3)$ にHölderの不等式を適用し、$\|\mathcal K_\delta f\|_{L^2(S^2)}\le C\delta^{-1}\|f\|_2$ を示せ。
+**問題 A02：Hölderによる粗い損失。** $d=3$、$p=q=2$ とする。$f\in L^2(\mathbb R^3)$ に[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を適用し、$\|\mathcal K_\delta f\|_{L^2(S^2)}\le C\delta^{-1}\|f\|_2$ を示せ。
 
 - Level: A
 
