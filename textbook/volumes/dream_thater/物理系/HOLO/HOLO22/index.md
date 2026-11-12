@@ -30,9 +30,9 @@ $$
 <!-- definition-example-start: def-holo22-hrt-surface -->
 **定義の確認**（静的な場合）。 Poincaré $AdS_3$ の $t=0$ 断面上で、$R>0$、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$（$z>0$）を取ります。端点は指定された $\partial A$ に一致し、三次元時空内の曲線なので余次元2です。曲線上で $dt=0$ かつ
 
-$
+$$
 ds_\gamma^2=\frac{L^2}{z^2}(dx^2+dz^2)>0
-$
+$$
 
 となるため空間的です。空間方向には[HOLO18の半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)の停留性を使います。一方 $t\mapsto-t$ が等長な時間反転であり、$t=0$ にある曲線の時間法線変位の符号を反転するため、長さの一次係数は零です。こうして独立な二方向とも面積（ここでは長さ）が停留します。半円と境界区間が囲む半円板 $R_A$ は $\partial R_A=A+\gamma\pmod2$ なので、[相同条件](../HOLO19/index.md#def-holo19-homology)も満たします。これは極値**候補**であることの直接確認であり、一般時空の候補選択まで証明したわけではありません。
 <!-- definition-example-end -->
@@ -43,9 +43,9 @@ $
 
 時間的・空間的な法線を使う代わりに、二つの未来向きnull法線 $k^a,l^a$ を使うこともできます。nullとは $g_{ab}k^ak^b=0$ という意味です。二方向を独立にし、$g(k,l)=-1$ に規格化します。第1節の接ベクトル $e_i^a$ と逆誘導計量 $h^{ij}$ から
 
-$
+$$
 h^{ab}=h^{ij}e_i^ae_j^b
-$
+$$
 
 と置きます。これは逆行列を時空全体で取るのではなく、**曲面接方向だけへの射影**として拡張したテンソルです。法線 $k$ に対して $h^{ab}k_b=0$ が成り立ちます。法線方向に面を動かしたとき、誘導計量の一次変化から面積密度の対数変化率を計算するのが次の膨張率です。
 
@@ -66,15 +66,15 @@ $$
 <!-- definition-example-start: def-holo22-null-expansion -->
 **定義の確認**（拡大縮小と零条件）。 Minkowskiの $1+2$ 次元時空 $ds^2=-dt^2+dx^2+dy^2$ において、$t=0$ 上の半径 $r$ の円を取ります。未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とすると $g(k,l)=-1$ です。円周 $\ell(r)=2\pi r$ の変化を、各null法線に沿ったパラメータ $\lambda$ で求めます。誘導計量は $h_{\phi\phi}=r^2$ であり、$\theta_{(k)}=h^{ab}\nabla_a k_b$ は $\ell^{-1}d\ell/d\lambda$ に一致します。実際、$dr/d\lambda=\pm1/\sqrt2$ ですから
 
-$
+$$
 \frac1\ell\frac{d\ell}{d\lambda}
 =\frac{1}{2\pi r}\,2\pi\frac{dr}{d\lambda}
 =\pm\frac1{\sqrt2\,r}.
-$
+$$
 
 > 従って二方向について
 >
-$
+$$
 \theta_{(k)}=\frac{1}{\sqrt2\,r},\qquad
 \theta_{(l)}=-\frac{1}{\sqrt2\,r}.
 $$
@@ -230,11 +230,11 @@ $$
 > **命題（半円曲線の時間法線に沿う局所最大性）**  
 > $L,R>0$、$0<\epsilon<R$ を固定し、$a_\epsilon=\sqrt{R^2-\epsilon^2}$ とする。$f$ を $(-a_\epsilon,a_\epsilon)$ にコンパクト支持を持つ滑らかな非定数関数とする。$X^2+z_0^2=R^2$ を固定して $T=\eta f(X)$ と変形した曲線の、同じcutoff端点間の有限長さは $\eta\to0$ において
 >
-$
+$$
 \mathcal L_\epsilon(\eta)=\mathcal L_\epsilon(0)
 -\frac{L\eta^2}{2R}\int_{-a_\epsilon}^{a_\epsilon}(f'(X))^2\,dX
 +O(\eta^4).
-$
+$$
 >
 > よって一次変分は零、非自明な時間方向の二次変分は負である。一方、$T=0$ 内での半円は空間的な最短測地線であり、HRT面の停留性を時空全体での最小性と呼んではならない。
 <!-- formal-statement-end -->
@@ -395,23 +395,23 @@ $$
 <!-- solution-start -->
 **詳細解答。** $|\Delta t|=5<13=\Delta x$ なので実数のboostを取れます。各量を定義から計算すると
 
-$
+$$
 v=\frac5{13},\qquad
 1-v^2=1-\frac{25}{169}=\frac{144}{169},\qquad
 \Gamma=\frac{13}{12},
-$
+$$
 
-$
+$$
 D=\sqrt{13^2-5^2}=12,\qquad R=\frac D2=6.
-$
+$$
 
 時間差は
 
-$
+$$
 T_2-T_1
 =\Gamma(\Delta t-v\Delta x)
 =\frac{13}{12}\left(5-\frac5{13}\cdot13\right)=0
-$
+$$
 
 です。$D>0$ なのでboost後に同じ $T$ 上の空間的二端点となります。
 <!-- solution-end -->
@@ -422,11 +422,11 @@ $
 <!-- solution-start -->
 **詳細解答。** 与えられたRicciテンソルにnullベクトルを二度縮約すると
 
-$
+$$
 R_{ab}k^ak^b
 =-\frac{2}{L^2}\,g_{ab}k^ak^b
 =-\frac{2}{L^2}\cdot0=0.
-$
+$$
 
 したがって[null曲率条件](#def-holo22-null-curvature) $R_{ab}k^ak^b\ge0$ は等号で成立します。厳密に正である必要はありません。ただし、この不等式だけではmaximin面の存在・安定性を結論できません。
 <!-- solution-end -->
@@ -437,17 +437,17 @@ $
 <!-- solution-start -->
 **詳細解答。** $g(\partial_t,\partial_t)=-1$、$g(\partial_r,\partial_r)=1$、両者は直交するので
 
-$
+$$
 g(k,l)=\frac12(-1-1)=-1.
-$
+$$
 
 円の誘導計量は $h_{\phi\phi}=r^2$、円周は $\ell=2\pi r$ です。[膨張率の定義](#def-holo22-null-expansion)を円周の対数変化率として評価します。$dr/d\lambda=\pm1/\sqrt2$ より、$r=2$ で
 
-$
+$$
 \theta_{(k)}=\frac1\ell\frac{d\ell}{d\lambda}
 =\frac{1}{\sqrt2\,r}=\frac{1}{2\sqrt2},\qquad
 \theta_{(l)}=-\frac{1}{2\sqrt2}.
-$
+$$
 
 両方は零でなく、[二方向の膨張率と平均曲率](#prop-holo22-expansion-equivalence)より極値候補ではありません。
 <!-- solution-end -->
@@ -458,17 +458,17 @@ $
 <!-- solution-start -->
 **詳細解答。** $0<\epsilon=3<R=5$ を確認し、平方根を計算すると
 
-$
+$$
 \sqrt{R^2-\epsilon^2}=\sqrt{25-9}=4.
-$
+$$
 
 [boost半円の命題](#prop-holo22-boosted-geodesic)の**正確式**へ $L=2$ を代入して
 
-$
+$$
 \mathcal L_\epsilon
 =2L\log\frac{R+\sqrt{R^2-\epsilon^2}}{\epsilon}
 =4\log\frac{5+4}{3}=4\log3.
-$
+$$
 
 一方、対数主項だけなら $2L\log(2R/\epsilon)=4\log(10/3)$ となります。$\epsilon/R=3/5$ は十分小さい極限ではないので、主項を正確な長さと呼べません。
 <!-- solution-end -->
@@ -479,17 +479,17 @@ $
 <!-- solution-start -->
 **詳細解答。** 各行で先に最小化し、その結果を断面間で最大化します。
 
-$
+$$
 \min(2,9)=2,\qquad \min(6,4)=4,
 \qquad \max(2,4)=4.
-$
+$$
 
 逆順では先に列ごとに最大化してから最小化するので
 
-$
+$$
 \max(2,6)=6,\qquad \max(9,4)=9,
 \qquad \min(6,9)=6.
-$
+$$
 
 したがって $4\ne6$ です。この表は[maximinの定義](#def-holo22-maximin)の演算順を確認する代数模型であり、幾何学的な存在定理ではありません。
 <!-- solution-end -->
@@ -502,16 +502,16 @@ $
 <!-- solution-start -->
 **詳細解答。** 定義から $v=3/5$、$D=\sqrt{10^2-6^2}=8$、$R=4$、$\Gamma=5/4$ です。$T=0$ の条件と空間座標の変換は順に
 
-$
+$$
 T=\Gamma(t-vx)=0
 \quad\Longrightarrow\quad t=vx=\frac35x,
-$
+$$
 
-$
+$$
 X=\Gamma(x-vt)
 =\Gamma(1-v^2)x
 =\frac{x}{\Gamma}=\frac45x
-$
+$$
 
 となります。これを $X^2+z^2=16$ に代入すると
 
@@ -535,7 +535,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** cutoff $0<\epsilon<R$ を固定し、$f$ の支持を $(-a_\epsilon,a_\epsilon)$ に含めます。$1+(z_0')^2=R^2/z_0^2$ なので、[局所変分命題](#prop-holo22-local-saddle)の出発式は
 
-$
+$$
 \mathcal L_\epsilon(\eta)
 =L\int_{-a_\epsilon}^{a_\epsilon}\frac1{z_0}
 \sqrt{\frac{R^2}{z_0^2}-\eta^2(f')^2}\,dX.
@@ -589,14 +589,14 @@ $$
 
 **（1）** 境界端点のLorentz不変な二乗距離は $D^2=10^2-6^2=64>0$ なので空間的です。$v=\Delta t/\Delta x=3/5$、$1-v^2=16/25$ より $\Gamma=5/4$、$D=8$、$R=4$ と求まります。boostの両端点差を計算すると
 
-$
+$$
 T_2-T_1=\frac54\left(6-\frac35\cdot10\right)=0,
-$
+$$
 
-$
+$$
 X_2-X_1=\frac54\left(10-\frac35\cdot6\right)
 =\frac54\cdot\frac{32}{5}=8.
-$
+$$
 
 よって中点を原点に取って $T=0$、$X^2+z^2=16$ です。
 
@@ -610,10 +610,10 @@ $$
 
 **（3）** $a_\epsilon=\sqrt{16-\epsilon^2}$ とし、$f$ は $(-a_\epsilon,a_\epsilon)$ にコンパクト支持を持つ非定数関数とします。[局所変分命題](#prop-holo22-local-saddle)で $R=4$ を代入すると
 
-$
+$$
 \mathcal L_\epsilon(\eta)-\mathcal L_\epsilon(0)
 =-\frac{L\eta^2}{8}\int_{-a_\epsilon}^{a_\epsilon}(f')^2\,dX+O(\eta^4).
-$
+$$
 
 非定数の $f$ で負です。空間方向の最短性は $T=0$ 断面内の比較であり、時間方向を含めた時空最小ではありません。両方向の一次変分が零というHRT極値性とは矛盾しません。
 
