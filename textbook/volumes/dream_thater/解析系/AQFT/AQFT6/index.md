@@ -256,7 +256,7 @@ $$
 
 ## 5. 規則的表現と場演算子の境界
 
-前節のWeyl元は有界なので積とノルム極限が問題なく扱えます。一方、場演算子を
+前節のWeyl元は有界なので積とノルム極限が問題なく扱えます。ここからの $t\in\mathbb R$ は第1節の時空の時間座標とは異なり、固定した $F$ を実数倍するときのパラメータです。一方、場演算子を
 $$
 W(tF)=e^{it\Phi(F)}
 $$
@@ -264,7 +264,7 @@ $$
 $$
 L(tF)L(sF)=L((t+s)F)
 $$
-となるので、各方向 $F$ ごとにはユニタリ作用素の一パラメータ群が得られます。しかし群の法則は連続性を含みません。[QM7の強連続1パラメータユニタリ群](../../QM/QM7/index.md#def-qm7-strongly-continuous-unitary-group)では、群の法則とは別にベクトルごとのノルム連続性を要求しました。ここでHilbert空間 $\mathcal H$ 上の単位的 *-表現とは、[OA3の単位的 *-準同型](../../OA/OA3/index.md#def-oa3-unital-star-hom)と同様に和・積・随伴を保つ写像 $\pi:\mathfrak A_{\mathrm W}\to B(\mathcal H)$ で、$\pi(I)=I_{\mathcal H}$ を満たすものです。以下の $t$ は $F$ を固定して動かす実数です。
+となるので、各方向 $F$ ごとにはユニタリ作用素の一パラメータ群が得られます。しかし群の法則は連続性を含みません。[QM7の強連続1パラメータユニタリ群](../../QM/QM7/index.md#def-qm7-strongly-continuous-unitary-group)では、群の法則とは別にベクトルごとのノルム連続性を要求しました。ここでHilbert空間 $\mathcal H$ 上の単位的 *-表現とは、[OA3の単位的 *-準同型](../../OA/OA3/index.md#def-oa3-unital-star-hom)と同様に和・積・随伴を保つ写像 $\pi:\mathfrak A_{\mathrm W}\to B(\mathcal H)$ で、$\pi(I)=I_{\mathcal H}$ を満たすものです。
 
 <a id="def-aqft6-regular-representation"></a>
 
@@ -288,7 +288,7 @@ $$
 
 **定義の確認**。有限二次元のWeyl模型について、群の積と随伴の後に、定義が要求する強連続性を直接検算します。
 
-二次元実空間 $(q,p)\in\mathbb R^2$ と $\sigma_0((q,p),(q',p'))=qp'-pq'$ を使います。$\mathcal H=L^2(\mathbb R,dx)$ 上に
+二次元実空間 $(q,p)\in\mathbb R^2$ と $\sigma_0((q,p),(q',p'))=qp'-pq'$ を使います。この例の $x\in\mathbb R$ は一次元の位置座標であり、第1節の時空点とは異なります。$\mathcal H=L^2(\mathbb R,dx)$ 上に
 $$
 (W_{\mathrm S}(q,p)\psi)(x)=e^{iq(x+p/2)}\psi(x+p)
 $$
