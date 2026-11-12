@@ -1,0 +1,49 @@
+chapter: AQFT10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT9
+  - AQFT8
+  - AQFT7
+  - AQFT6
+  - QM8
+  - OA5
+  - VN2
+  - VN5
+forward_references: []
+concepts:
+  - id: aqft.finite-mode-ccr-algebra
+    name: 有限支持CCR代数と有限モード代数
+    kind: definition
+    introduction: formal
+    requires: [aqft.weyl-ccr, aqft.minkowski-fock-weyl]
+  - id: aqft.coherent-shift-state
+    name: 有限支持CCR上の変位状態
+    kind: definition
+    introduction: formal
+    requires: [aqft.finite-mode-ccr-algebra, operator-algebra.state]
+  - id: aqft.coherent-shift-state-existence
+    name: 無限列でも変位状態は存在する
+    kind: proposition
+    introduction: formal
+    requires: [aqft.coherent-shift-state, aqft.minkowski-fock-gaussian]
+  - id: aqft.square-summable-shift-fock
+    name: 二乗可和な変位はFockユニタリで実装できる
+    kind: proposition
+    introduction: formal
+    requires: [aqft.coherent-shift-state-existence, aqft.minkowski-fock-gns, operator-algebra.gns-uniqueness]
+  - id: aqft.coherent-projection-vanishing
+    name: 発散する変位の射影列
+    kind: lemma
+    introduction: formal
+    requires: [aqft.coherent-shift-state, quantum.stone-von-neumann-theorem]
+  - id: aqft.inequivalent-coherent-gns
+    name: 非二乗可和変位状態のGNS非同値性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.coherent-projection-vanishing, aqft.coherent-shift-state-existence, operator-algebra.normal-functional]
+  - id: aqft.van-hove-linear-source-displacement
+    name: 線形源Hamiltonianの平方完成と変位
+    kind: proposition
+    introduction: formal
+    requires: [aqft.square-summable-shift-fock, aqft.inequivalent-coherent-gns]
