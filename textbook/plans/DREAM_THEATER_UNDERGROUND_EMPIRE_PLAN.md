@@ -5,7 +5,7 @@
 
 - [U2 確率ロボティクス：自己位置推定](DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)
 - [U3 数理ファイナンス：価格付け・最適執行](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)
-- [U4 裁定機会：無裁定と統計的裁定](DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)
+- [U4 裁定機会：価格矛盾の検出・相対価値・統計的裁定（全30講）](DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)
 - [U6 量子状態推定](DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md)
 
 応用系列の共通導線は「Mission → 最小モデル → 既習事項の限界 → 必要な数学 → 導出 → 数値検証 → 演習 → 正本へ戻る」。U2はBayes/状態空間、U3はSTO/最適制御、U4は凸最適化/時系列、U6はQM/推定にそれぞれ直接依存し、他のU講義を履修条件としない。[逆問題](DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md)と[情報幾何](../plan_done/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md)の一般論は既存の独立PLANを正本とする。
@@ -40,7 +40,7 @@ DREAM THEATER 本編で整備している測度論・線形代数・Fourier解�
 | --- | --- | --- |
 | ロボットを迷子にしたくない | Bayes・正規分布・状態空間モデル | Kalman filter・EKF・particle filter・SLAM |
 | 不確実な市場を価格付けしたい | 確率過程・期待値・Monte Carlo | Brown運動・Itô解析・SDE・リスク中立評価 |
-| 市場の価格矛盾を見つけたい | 回帰・最適化・時系列 | 凸最適化・マルチンゲール・測度変換・共和分 |
+| 市場の価格矛盾を見つけたい | 回帰・最適化・時系列 | 線形計画の双対・共和分・イベントリスク・バックテスト監査 |
 | 量子状態を観測から推定したい | 二項分布・MLE・Fisher情報量 | 密度作用素・POVM・量子状態推定・量子Fisher情報量 |
 
 共通テンプレートは次の順序とする。
@@ -95,8 +95,9 @@ CT、機械学習、推定などの応用が地下帝国側の記事で必要に
 │   ├─ U3 数理ファイナンス
 │   │   └─ 最適執行（確率制御・HJB は 最適制御・HJB・微分ゲーム計画 を参照）
 │   └─ U4 裁定機会
-│       ├─ 無裁定理論・測度変換
-│       └─ 統計的裁定・共和分
+│       ├─ 気配値の静的無裁定・線形計画双対・実行可能性
+│       ├─ 統計的裁定・共和分・因子残差
+│       └─ 合併等のイベントリスク・標本外検証
 │
 └─ 線形代数 + likelihood / Fisher
     └─ U6 量子統計
@@ -150,9 +151,9 @@ $$
 4. U3-01 1期間二項モデルと複製ポートフォリオ
 5. U3-02 無裁定条件と状態価格
 6. U3-03 多期間二項モデルと割引マルチンゲール（U3は[確定版68講PLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)に従い、二項モデル→PDE・期待値→数値計算→VaR/ES→最適執行まで展開する。HJB / viscosity の理論正本は最適制御・微分ゲーム計画）
-7. U4-01 静的裁定と凸最適化
-8. U4-02 無裁定とマルチンゲール測度
-9. U4-03 統計的裁定・共和分
+7. U4-01 価格表から裁定を判定する
+8. U4-02 有限市場の分離定理と状態価格の双対
+9. U4-03 売値・買値・手数料・空売り制約を入れた裁定探索（U4は[確定版30講PLAN](DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)に従い、静的無裁定→時系列・共和分→イベント・執行→バックテスト検証まで展開。U3の価格付け一般理論を重複させない）
 10. U6-01 qubit測定を二項推定として読む
 11. U6-02 density matrix・tomography
 12. U6-03 quantum Fisher information
