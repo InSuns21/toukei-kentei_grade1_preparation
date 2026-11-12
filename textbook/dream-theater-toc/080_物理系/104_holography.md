@@ -27,3 +27,4 @@
 24. [HOLO24 量子極値曲面QES](textbook/volumes/dream_thater/物理系/HOLO/HOLO24/index.md)
 25. [HOLO25 causal wedgeとentanglement wedge](textbook/volumes/dream_thater/物理系/HOLO/HOLO25/index.md)
 26. [HOLO26 HKLL再構成](textbook/volumes/dream_thater/物理系/HOLO/HOLO26/index.md)
+27. [HOLO27 部分領域再構成](textbook/volumes/dream_thater/物理系/HOLO/HOLO27/index.md)

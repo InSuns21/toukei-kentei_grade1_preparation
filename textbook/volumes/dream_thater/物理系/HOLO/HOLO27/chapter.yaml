@@ -1,0 +1,51 @@
+id: HOLO27
+title: "部分領域再構成"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO26
+  - HOLO25
+  - HOLO8
+  - HOLO6
+  - HOLO2
+official_scope: []
+learning_objectives:
+  - 純AdS3の境界区間の因果菱形とくさび判定式を計算し古典真空のentanglement wedgeとの一致の適用範囲を述べられる
+  - AdS–Rindler座標をPoincare計量から導き分岐曲線と境界区間の極限を検算できる
+  - AdS–Rindler分離モードの径方程式と境界漸近および地平面指数を導出できる
+  - 制限境界データの有限測定行列の階数と特異値により復元可能性と安定性を区別できる
+  - コード部分空間での領域A演算子再構成条件を直接確認できる
+  - 識別不能な縮約状態を用いて特定の論理演算子の領域A復号不能性を証明できる
+  - 幾何のwedgeとHKLL再構成と一般のエンタングルメントくさび復号を同一視しない
+definitions:
+  - { id: HOLO27-DEF-01, name: 区間に適合するAdS–Rindler座標 }
+  - { id: HOLO27-DEF-02, name: AdS–Rindler分離モード }
+  - { id: HOLO27-DEF-03, name: 制限境界データの測定行列 }
+  - { id: HOLO27-DEF-04, name: コード上での部分領域演算子再構成 }
+theorems:
+  - { id: HOLO27-PROP-01, name: 純AdS区間のくさび判定 }
+  - { id: HOLO27-PROP-02, name: AdS–Rindler計量と分岐曲線 }
+  - { id: HOLO27-PROP-03, name: AdS–Rindler径方程式と地平面指数 }
+  - { id: HOLO27-THM-01, name: 有限モードの識別可能性と安定性 }
+  - { id: HOLO27-THM-02, name: 部分領域が識別できない状態の障害 }
+canonical_examples:
+  - t=0半円板と外部点および時間依存点のくさび判定
+  - AdS–Rindler座標の分岐曲線と境界区間の二つの極限
+  - 質量零静的モードでの源零条件の不成立
+  - 二モード測定行列の逆変換と悪条件な極限
+  - 二量子ビット符号でのZの復号とXの不可能性
+problem_patterns:
+  - HOLO27-A01
+  - HOLO27-A02
+  - HOLO27-A03
+  - HOLO27-A04
+  - HOLO27-A05
+  - HOLO27-B01
+  - HOLO27-B02
+  - HOLO27-B03
+  - HOLO27-B04
+  - HOLO27-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 6 }
+past_exam_alignment: []
+integrated_exam_problems: []
