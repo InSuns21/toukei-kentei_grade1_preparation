@@ -10,3 +10,4 @@
 7. [CTM7 運動量・角運動量保存は応力に何を課すか](textbook/volumes/dream_thater/物理系/CTM/CTM7/index.md)
 8. [CTM8 基準配置へ応力を戻すと何が変わるか](textbook/volumes/dream_thater/物理系/CTM/CTM8/index.md)
 9. [CTM9 仕事と熱はエネルギー収支でどう結ばれるか](textbook/volumes/dream_thater/物理系/CTM/CTM9/index.md)
+10. [CTM10 どの構成則が許されるのか：第二法則と客観性](textbook/volumes/dream_thater/物理系/CTM/CTM10/index.md)
