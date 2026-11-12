@@ -90,7 +90,7 @@ $$
 したがって H1 は $A\otimes(B\otimes C)\to(B\otimes C)\otimes A$、H2 は $(A\otimes B)\otimes C\to C\otimes(A\otimes B)$ の等式であり、異なる始域の式を直接比較していない。
 
 <!-- definition-example-start: def-cat4-03-braiding -->
-**定義の確認（集合の直積）。** [有限積からのモノイダル構造](../CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)を $\mathbf{Set}$ に適用する。$I=\{*\}$、$\otimes=\times$ とし、$c_{A,B}(a,b)=(b,a)$ と定める。逆写像は $c_{B,A}$ なので同型である。任意の写像 $f:A\to A'$、$g:B\to B'$ に対して
+**定義の確認**（集合の直積）。 [有限積からのモノイダル構造](../CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)を $\mathbf{Set}$ に適用する。$I=\{*\}$、$\otimes=\times$ とし、$c_{A,B}(a,b)=(b,a)$ と定める。逆写像は $c_{B,A}$ なので同型である。任意の写像 $f:A\to A'$、$g:B\to B'$ に対して
 
 $$
 (g\times f)c_{A,B}(a,b)
@@ -139,7 +139,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-cat4-03-symmetric -->
-**定義の確認（集合の直積）。** 先の $\mathbf{Set}$ の組紐では
+**定義の確認**（集合の直積）。 先の $\mathbf{Set}$ の組紐では
 
 $$
 (a,b)\xmapsto{c_{A,B}}(b,a)
