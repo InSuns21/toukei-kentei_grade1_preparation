@@ -1,0 +1,46 @@
+id: HOLO9
+title: "GKPWと2点関数"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO8
+  - QFT48
+official_scope: []
+learning_objectives:
+  - Euclid AdS自由スカラーのbulk-to-boundary核を方程式と境界規格化から導出できる
+  - 境界源から赤外正則解の非局所応答係数を求め主値積分の収束条件を確認できる
+  - 有限cutoffのon-shell作用の発散を局所反項で相殺し繰り込み極限を計算できる
+  - 繰り込み済み作用の変分を取り2nu倍の境界応答を再導出できる
+  - GKPW辞書の仮定を明示して連結2点関数の距離冪と規格化を算出できる
+  - Fourierで非局所な波数冪を導出し接触項と有限局所反項を区別できる
+  - EuclidとLorentzの時間順序およびi-epsilonの指定を混同せず適用限界を説明できる
+definitions:
+  - { id: HOLO9-DEF-01, name: 規格化されたbulk-to-boundary核 }
+  - { id: HOLO9-DEF-02, name: 本模型の繰り込み済みon-shell作用 }
+  - { id: HOLO9-DEF-03, name: 本講で用いるGKPWの木レベル辞書 }
+theorems:
+  - { id: HOLO9-PROP-01, name: 核の方程式と境界規格化 }
+  - { id: HOLO9-PROP-02, name: 繰り込み極限と境界応答 }
+  - { id: HOLO9-PROP-03, name: 自由スカラーのGKPW 2点関数 }
+  - { id: HOLO9-PROP-04, name: 運動量空間の応答 }
+canonical_examples:
+  - d3で核のGamma規格化と遅い係数の境界極限を確かめる
+  - 離れた点での応答核の距離冪を確かめる
+  - d3で裸作用の主要発散と局所反項が相殺することを検算する
+  - d3でCFT2点の距離冪と作用規格化を計算する
+  - Fourier分布で位置空間と運動量空間の係数を照合する
+problem_patterns:
+  - HOLO9-KERNEL-NORMALIZATION
+  - HOLO9-RADIAL-PDE
+  - HOLO9-CUTOFF-SUBTRACTION
+  - HOLO9-DISTANCE-POWER
+  - HOLO9-CONTACT-TERM
+  - HOLO9-PRINCIPAL-VALUE
+  - HOLO9-FUNCTIONAL-VARIATION
+  - HOLO9-MOMENTUM-ANALYTICITY
+  - HOLO9-SOURCE-VS-CUTOFF
+  - HOLO9-COMPLETE-GKPW-DERIVATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 7 }
