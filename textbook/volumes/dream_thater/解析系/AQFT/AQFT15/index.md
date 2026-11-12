@@ -1,8 +1,8 @@
 # AQFT15 Type I/II/III因子
 
-[AQFT14の因子性](../AQFT14/index.md#prop-aqft14-relative-commutant-and-factor)は、局所環の中心が自明であるという条件でした。しかし中心が自明でも、有限次元行列環と連続体の局所環を同一視できません。例えば行列環では密度行列を使った部分トレースが自然ですが、**局所環がType III因子なら、局所環自身には忠実・正規・半有限トレースが存在しません**。
+[AQFT14の因子性](../AQFT14/index.md#prop-aqft14-relative-commutant-and-factor)は、局所von Neumann環の中心が自明であるという条件でした。しかし中心が自明でも、有限次元行列環と連続体の局所von Neumann環を同一視できません。例えば行列環では密度行列を使った[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)が自然ですが、**局所von Neumann環がType III因子なら、正の元を有限な断片から忠実に測るトレースは存在しません**。
 
-この講義は、[VN7の射影同値と型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)を出発点として、なぜ「周囲のHilbert空間には密度作用素がある」と「局所環にトレース密度がある」が別物なのかを証明します。Type IIIの存在は公理だけから導きません。具体的な自由場の局所Type III$_1$性の適用条件はAQFT28で検討します。
+この講義は、[VN7の射影同値と型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)を出発点として、なぜ「周囲のHilbert空間には密度作用素がある」と「局所von Neumann環にトレース密度がある」が別物なのかを証明します。Type IIIの存在は公理だけから導きません。具体的な自由場の局所Type III$_1$性の適用条件はAQFT28で検討します。
 
 前提となるのは、固定した表現のHilbert空間 $\mathcal H$ 上の[AQFT9の局所von Neumann環](../AQFT9/index.md#def-aqft9-local-vn-net)
 
@@ -39,11 +39,11 @@ $$
 
 $M=M_3(\mathbb C)$ における $p=E_{11}+E_{22}$ は有限射影です。[行列環の射影同値とrankの一致](../../VN/VN7/index.md#thm-vn7-matrix-equivalence-rank)によって、$q\le p$、$q\sim_Mp$ なら $\operatorname{rank}q=\operatorname{rank}p=2$。包含する二つの2次元部分空間は等しいので $q=p$。一方 $E_{11}$ は最小射影なので $M$ はType I$_3$です。
 
-$N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E_{11}$ です。[VN7の片側シフト命題](../../VN/VN7/index.md#prop-vn7-shift-infinite-identity)から単位射影は無限です。しかし $E_{11}$ は依然として最小射影なので、$N$ はType I$_\infty$でありType IIIではありません。
+$N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E_{11}$ です。[片側シフトが示す単位射影の無限性](../../VN/VN7/index.md#prop-vn7-shift-infinite-identity)から単位射影は無限です。しかし $E_{11}$ は依然として最小射影なので、$N$ はType I$_\infty$でありType IIIではありません。
 
 ## 2. トレースがある、とは何を要求するか
 
-[VN5の正規状態と密度作用素](../../VN/VN5/index.md#thm-vn5-density-state-correspondence)は $B(H)$ 上での理論です。一般のvon Neumann環 $M$ では、$\operatorname{Tr}_H$ をそのまま使っても、有限値かつ適切なトレースが局所環の中にあるとは限りません。
+[VN5の正規状態と密度作用素](../../VN/VN5/index.md#thm-vn5-density-state-correspondence)は $B(H)$ 上での理論です。一般のvon Neumann環 $M$ では、$\operatorname{Tr}_H$ をそのまま使っても、有限値かつ適切なトレースが局所von Neumann環の中にあるとは限りません。
 
 正の元 $M_+=\{a\in M:a\ge0\}$ に対し、値が $+\infty$ となることも許す「重み」を考えます。正の元について加法的・正斉次な関数 $\tau:M_+\to[0,+\infty]$ のうち、$\tau(x^*x)=\tau(xx^*)$ を満たすものがトレースです。普通の有限値の線形トレースをこの枠に含めます。
 
@@ -144,7 +144,7 @@ $$
 従って $q$ は非零で有限トレースの射影です。[有限トレース射影の命題](#prop-aqft15-finite-trace-projection)から $q$ は有限射影。しかし[Type IIIの定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)では非零射影は全て無限であり、矛盾します。$\square$
 <!-- proof-end -->
 
-この証明は、Type IIIの局所環が「どの状態も正規でない」「周囲のHilbert空間に密度作用素がない」とは言っていません。また「正規でないトレース」について無条件に何でも排除したわけでもありません。示したのは忠実かつ半有限なトレースの不在です。
+この証明は、Type IIIの局所von Neumann環が「どの状態も正規でない」「周囲のHilbert空間に密度作用素がない」とは言っていません。また「正規でないトレース」について無条件に何でも排除したわけでもありません。示したのは忠実かつ半有限なトレースの不在です。
 
 ## 4. Type IIの実例：有限トレースがあり、最小射影がない
 
@@ -165,7 +165,7 @@ $$
 <a id="prop-aqft15-icc-factor-ii1"></a>
 
 <!-- formal-statement-start -->
-> **命題（有限台置換群が作るII$_1$因子）**  
+> **命題（有限台置換群が作るII₁因子）**  
 > 上記の $\Gamma$ と $M\subset B(\ell^2(\Gamma))$ について、$M$ は無限次元の因子であり、$\tau$ は忠実・正規・有限のトレースで $\tau(I)=1$ を満たす。$M$ に非零最小射影は存在せず、従って $M$ はII$_1$因子である。
 <!-- formal-statement-end -->
 
@@ -186,7 +186,7 @@ $$
 \end{cases}
 $$
 
-従って $\tau(\lambda(g)\lambda(h))=\mathbf1_{gh=e}=\mathbf1_{hg=e}=\tau(\lambda(h)\lambda(g))$ です。群元の有限線形結合にも双線形性で拡張できます。[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によりその *-代数は $M$ に弱作用素位相で稠密です。固定した $A$ について $T\mapsto\tau(AT)$ と $T\mapsto\tau(TA)$ はどちらもベクトル内積で表され弱作用素連続なので、片方ずつ極限を取れば $\tau(AB)=\tau(BA)$ は全ての $A,B\in M$ に拡張されます。
+従って $\tau(\lambda(g)\lambda(h))=\mathbf1_{gh=e}=\mathbf1_{hg=e}=\tau(\lambda(h)\lambda(g))$ です。群元の有限線形結合にも双線形性で拡張できます。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によりその *-代数は $M$ に弱作用素位相で稠密です。固定した $A$ について $T\mapsto\tau(AT)$ と $T\mapsto\tau(TA)$ はどちらもベクトル内積で表され弱作用素連続なので、片方ずつ極限を取れば $\tau(AB)=\tau(BA)$ は全ての $A,B\in M$ に拡張されます。
 
 $\tau$ は単位ベクトル $\delta_e$ のベクトル汎関数なので正で正規、$\tau(I)=1$ です。$\tau(T^*T)=0$ なら $T\delta_e=0$。$T\in M$ は全ての $\rho(h)$ と可換し、$\delta_g=\rho(g^{-1})\delta_e$ だから
 
@@ -212,7 +212,19 @@ $rXp\ne0$ の極分解の部分等長作用素 $v\in N$ について $v^*v\le p$
 
 $p_j$ と $p$ を結ぶ部分等長作用素 $v_j$ を用い $e_{ij}=v_iv_j^*$ と置くと、$e_{ij}e_{k\ell}=\delta_{jk}e_{i\ell}$ となります。最小性から $pNp=\mathbb Cp$ です（もし $pNp$ に非スカラー自己共役元があれば、そのスペクトル射影が非自明な部分射影を与える）。各 $p_iNp_j$ は $\mathbb Ce_{ij}$ となるので $N=\operatorname{span}\{e_{ij}\}\cong M_n(\mathbb C)$ です。
 
-元の $M$ は無限個の相異なる $\lambda(g)$ が線形独立です（$\delta_e$ に作用させれば異なる基底ベクトルになる）。よって無限次元であり、上の結論から最小射影を持ちません。一方 $\tau(I)=1$ かつ忠実なので[有限トレース射影命題](#prop-aqft15-finite-trace-projection)により $I$ は有限射影です。[VN7の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)から $M$ はII$_1$です。$\square$
+元の $M$ は無限次元です。実際、相異なる群元 $g_1,\ldots,g_k$ に対して
+
+$
+\sum_{j=1}^{k}a_j\lambda(g_j)=0
+\ \Longrightarrow\
+\sum_{j=1}^{k}a_j\delta_{g_j}=0
+\ \Longrightarrow\
+a_1=\cdots=a_k=0.
+$
+
+従って無限個の $\lambda(g)$ は線形独立であり、上の結論から $M$ は最小射影を持ちません。
+
+一方 $\tau(I)=1$ で $\tau$ は忠実です。[有限トレース射影は有限射影](#prop-aqft15-finite-trace-projection)を $p=I$ に適用すると $I$ は有限射影。[VN7の型分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)から $M$ はII$_1$です。$\square$
 <!-- proof-end -->
 
 この具体例は、Type IIを「あるらしい型」として済ませないためのものです。有限トレースと最小射影の不在を別々に確かめると、Type IIIとの差が見えます。
@@ -230,7 +242,7 @@ $$
 <a id="prop-aqft15-ambient-density"></a>
 
 <!-- formal-statement-start -->
-> **命題（Type III局所環と周囲の階数1密度作用素）**  
+> **命題（Type III局所von Neumann環と周囲の階数1密度作用素）**  
 > $M\subset B(\mathcal H)$ が単位的Type III因子、$\|\Omega\|=1$ とする。$D=|\Omega\rangle\langle\Omega|$ は周囲の $B(\mathcal H)$ の正のtrace class作用素で $\operatorname{Tr}_{\mathcal H}D=1$ を満たし、$M$ のベクトル状態を上式で表示する。ただし $D\notin M$ であり、この表示から $M$ の忠実正規半有限トレースの存在は導けない。
 <!-- formal-statement-end -->
 
@@ -243,7 +255,15 @@ $$
 
 $D^*=D$、$D^2=D$、$D\ge0$、$\operatorname{Tr}_{\mathcal H}D=1$ は、$\Omega$ を含む正規直交基底に関する行列表示 $\operatorname{diag}(1,0,\ldots)$ から従います。任意の $A\in B(\mathcal H)$ について $\operatorname{Tr}_{\mathcal H}(DA)=\langle\Omega,A\Omega\rangle$ です。
 
-もし $D\in M$ なら、$M$ 内の射影 $0\le q\le D$ は $B(\mathcal H)$ 上でも $\operatorname{ran}q\subset\mathbb C\Omega$ を満たします。従って $q=0$ または $D$ しかなく、$D$ は $M$ の非零最小射影です。これは[Type IIIの定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)と矛盾します。従って $D\notin M$ です。トレース障害は[前節の定理](#thm-aqft15-typeiii-no-nsf-trace)によります。$\square$
+もし $D\in M$ なら、$M$ 内の射影 $q\le D$ の像は周囲の $B(\mathcal H)$ 上でも $\mathbb C\Omega$ の部分空間です。従って
+
+$
+0\le q\le D
+\quad\Longrightarrow\quad
+q=0\ \text{または}\ q=D.
+$
+
+これは $D$ が $M$ の非零最小射影であることを意味し、[Type IIIの定義](../../VN/VN7/index.md#def-vn7-factor-type-classification)と矛盾します。従って $D\notin M$ です。また、[Type III因子のトレース障害](#thm-aqft15-typeiii-no-nsf-trace)により局所von Neumann環内の忠実半有限トレースも存在しません。$\square$
 <!-- proof-end -->
 
 [AQFT13の分離ベクトルによる忠実性](../AQFT13/index.md#prop-aqft13-local-state-faithful)が使える場合、$\Omega$ の制限状態 $\omega|_M$ は忠実です。しかしその場合でさえ $D$ の $B(\mathcal H)$ 上の表現と、$M$ に内在するトレース密度の表現を混同できません。
@@ -273,13 +293,13 @@ $\xi\in\mathcal K$ を単位ベクトルとし、$P_\xi=|\xi\rangle\langle\xi|$ 
 ユニタリ共役は射影の包含と最小性を保存します。仮定の等号が成立すると $M$ にも非零最小射影が存在し、Type IIIの定義に矛盾します。$\square$
 <!-- proof-end -->
 
-「Type IIIの局所環には部分トレースが**一切定義不能**」という表現は強すぎます。Type Iのtensor分解を使った**標準的な局所部分系の密度行列**が無条件には得られない、という意味です。緩衝領域を入れたType I中間因子の可能性は次講AQFT16で扱います。鋭い境界と緩衝領域を混同しないことが重要です。
+「Type IIIの局所von Neumann環には部分トレースが**一切定義不能**」という表現は強すぎます。Type Iのtensor分解を使った**標準的な局所部分系の密度行列**が無条件には得られない、という意味です。緩衝領域を入れたType I中間因子の可能性は次講AQFT16で扱います。鋭い境界と緩衝領域を混同しないことが重要です。
 
 ## 6. 物理的な読み方と論理的な境界
 
 [Haag双対性](../AQFT14/index.md#def-aqft14-haag-duality)、因子性、Reeh–Schlieder性は、いずれも「局所Type III」の定義ではありません。例えば1次元Hilbert空間上のスカラーnet $\mathcal M(O)=\mathbb C$ は局所性・因子性を満たしますがType I$_1$です。**局所性だけでType IIIを結論してはいけません。**
 
-Type IIIが追加の模型・条件の下で証明できたとき、本講から確実に言えるのは次のことです。第一に局所環には忠実正規半有限トレースがありません。第二に、局所環を $B(\mathcal K)\otimes I$ とする鋭いType Iテンソル因子分解はありません。第三に、それでも真空ベクトルがあれば周囲の $B(\mathcal H)$ 上の階数1密度作用素は存在します。**トレース不在と状態不在は違います。**
+Type IIIが追加の模型・条件の下で証明できたとき、本講から確実に言えるのは次のことです。第一に局所von Neumann環には忠実正規半有限トレースがありません。第二に、局所von Neumann環を $B(\mathcal K)\otimes I$ とする鋭いType Iテンソル因子分解はありません。第三に、それでも真空ベクトルがあれば周囲の $B(\mathcal H)$ 上の階数1密度作用素は存在します。**トレース不在と状態不在は違います。**
 
 さらにType IIIをType III$_\lambda$（$\lambda\in[0,1]$）へ細分する理論や、具体的自由場のdouble coneがどの型を持つかの判定は、この射影比較だけでは完結しません。それは後続章の課題です。
 
@@ -366,26 +386,26 @@ $M\subset B(H)$ をType III因子、$\|\Omega\|=1$ とし $D=|\Omega\rangle\lang
 **詳細解答。** $T$ は各 $\lambda(h)$ と可換し、また $M\subset\rho(\Gamma)'$ なので $\rho(h)$ とも可換する。$\lambda(h)T\lambda(h)^*=T$ を $\delta_e$ に作用させると、$\lambda(h)^*\delta_e=\rho(h)\delta_e$ より $\sum_g c_g\delta_{hgh^{-1}}=\sum_g c_g\delta_g$。従って $c_g$ は共役類上で一定。$g\ne e$ の共役類は無限なので、もしそこで係数が非零なら $\sum_g|c_g|^2$ が発散する。よって $T\delta_e=c_e\delta_e$。各 $\delta_g=\rho(g^{-1})\delta_e$ に対し $T\delta_g=\rho(g^{-1})T\delta_e=c_e\delta_g$、従って $T=c_eI$ である。
 <!-- solution-end -->
 
-### Level C：局所環の型と部分系の論理
+### Level C：局所von Neumann環の型と部分系の論理
 
 <a id="ex-aqft15-c01"></a>
 #### AQFT15-C01 「局所状態には密度行列があるから部分トレースできる」の検証
 
-ある局所netの表現で $\mathcal M(O)$ がType III因子であり、正規化ベクトル $\Omega$ が局所環に対して分離的であると仮定する。次の主張を一つずつ証明または反駁せよ。
+ある局所netの表現で $\mathcal M(O)$ がType III因子であり、正規化ベクトル $\Omega$ が局所von Neumann環に対して分離的であると仮定する。次の主張を一つずつ証明または反駁せよ。
 
-1. $\omega(A)=\langle\Omega,A\Omega\rangle$ は局所環上の忠実正規状態である。
+1. $\omega(A)=\langle\Omega,A\Omega\rangle$ は局所von Neumann環上の忠実正規状態である。
 2. 周囲の $B(\mathcal H)$ には $\omega$ の密度作用素が存在する。
-3. その密度作用素は局所環に属し、局所環には忠実正規半有限トレースが存在する。
+3. その密度作用素は局所von Neumann環に属し、局所von Neumann環には忠実正規半有限トレースが存在する。
 4. $\mathcal H\simeq\mathcal H_O\otimes\mathcal H_{O^c}$ と空間的に分解して、$\mathcal M(O)=B(\mathcal H_O)\otimes I$ とできる。
 
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** (1) ベクトル状態は正規である。[AQFT13の分離性と忠実性の命題](../AQFT13/index.md#prop-aqft13-local-state-faithful)を適用する。分離性の仮定により $A\Omega=0$ なら $A=0$。$A\ge0$ で $\omega(A)=0$ なら $\|A^{1/2}\Omega\|^2=0$、ゆえに $A^{1/2}=0$、$A=0$ なので忠実。
+**詳細解答。** (1) ベクトル状態は正規である。[分離ベクトルとベクトル状態の忠実性](../AQFT13/index.md#prop-aqft13-local-state-faithful)を適用する。分離性の仮定により $A\Omega=0$ なら $A=0$。$A\ge0$ で $\omega(A)=0$ なら $\|A^{1/2}\Omega\|^2=0$、ゆえに $A^{1/2}=0$、$A=0$ なので忠実。
 
 (2) $D=|\Omega\rangle\langle\Omega|$ とすれば、$\Omega$ を最初の基底に選んだとき $D=\operatorname{diag}(1,0,\ldots)$。従って $D\ge0$、$\operatorname{Tr}_{\mathcal H}D=1$、さらに任意の $A\in B(\mathcal H)$ について $\operatorname{Tr}_{\mathcal H}(DA)=\langle\Omega,A\Omega\rangle$。これは周囲の環での密度作用素である。
 
-(3) 偽。$D$ がType III局所環に属すると、$D$ はその環内で非零最小射影になる（$q\le D$ の像は $\mathbb C\Omega$ 以下）。非零最小射影は有限だからType IIIの定義に反する。さらに[トレース障害定理](#thm-aqft15-typeiii-no-nsf-trace)から忠実正規半有限トレースは存在しない。外部の $\operatorname{Tr}_{\mathcal H}$ の存在はこの障害を解消しない。
+(3) 偽。$D$ がType III局所von Neumann環に属すると、$D$ はその環内で非零最小射影になる（$q\le D$ の像は $\mathbb C\Omega$ 以下）。非零最小射影は有限だからType IIIの定義に反する。さらに[Type III因子のトレース障害](#thm-aqft15-typeiii-no-nsf-trace)から忠実正規半有限トレースは存在しない。外部の $\operatorname{Tr}_{\mathcal H}$ の存在はこの障害を解消しない。
 
 (4) 偽。仮定されたテンソル分解の右辺は $P_\xi\otimes I$（$\xi\in\mathcal H_O$ は単位ベクトル）という非零最小射影を持つ。ユニタリ同値は最小性を保存するので、左辺のType III因子にも最小射影が必要となり矛盾する。従って局所性だけからの鋭いType I分解や密度行列部分トレースは許されない。ただし緩衝領域のsplit性の可能性を否定してはいない。
 <!-- solution-end -->
