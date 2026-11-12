@@ -20,3 +20,4 @@
 17. [HOLO17 境界領域のエントロピー](textbook/volumes/dream_thater/物理系/HOLO/HOLO17/index.md)
 18. [HOLO18 RT公式の最小模型](textbook/volumes/dream_thater/物理系/HOLO/HOLO18/index.md)
 19. [HOLO19 homology条件と面積競合](textbook/volumes/dream_thater/物理系/HOLO/HOLO19/index.md)
+20. [HOLO20 RTとエントロピー不等式](textbook/volumes/dream_thater/物理系/HOLO/HOLO20/index.md)
