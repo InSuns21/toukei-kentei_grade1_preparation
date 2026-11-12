@@ -31,7 +31,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Bermudan オプションと行使日集合）**  
-> 上記の有限二項市場で、$\mathcal A\subseteq\{0,\ldots,N\}$ が $N\in\mathcal A$ を満たすとする。行使額 $H_t$ を持つ Bermudan オプションは、時点 $\tau\in\mathcal A$ に一度だけ行使して $H_\tau$ 円を受け取る権利である。行使時刻 $\tau$ は[停止時刻](../U3-06/index.md#def-u3-06-stopping)、すなわち各 $\{\tau=t\}$ が $\mathcal F_t$ に属さなければならない。時点 $t$ 以降に許される停止時刻全体を
+> 上記の有限二項市場で、$\mathcal A\subseteq\{0,\ldots,N\}$ が $N\in\mathcal A$ を満たすとする。行使額 $H_t$ を持つ Bermudan オプションは、時点 $\tau\in\mathcal A$ に一度だけ行使して $H_\tau$ 円を受け取る権利である。行使時刻 $\tau$ は [U3-06 で導入した行使時刻の条件](../U3-06/index.md#def-u3-06-stopping)を満たし、各 $\{\tau=t\}$ が $\mathcal F_t$ に属さなければならない。時点 $t$ 以降に許される停止時刻全体を
 >
 > $\mathcal T_{t,N}(\mathcal A)$ と表す。
 <!-- formal-statement-end -->
