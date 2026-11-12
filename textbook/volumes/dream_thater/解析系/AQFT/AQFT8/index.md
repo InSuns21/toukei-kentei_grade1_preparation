@@ -124,7 +124,7 @@ $$
 =\sigma(F,G).
 \end{aligned}
 $$
-特に $\mu_0(F,F)=\|KF\|^2\ge0$ です。複素Hilbert空間のCauchy–Schwarz不等式から
+特に $\mu_0(F,F)=\|KF\|^2\ge0$ です。[複素Hilbert空間のCauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 $$
 |\sigma(F,G)|=2|\operatorname{Im}(KF,KG)|
 \le2\|KF\|\|KG\|
