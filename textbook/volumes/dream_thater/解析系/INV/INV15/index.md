@@ -462,11 +462,9 @@ $$
 $H$ が対称正定値なので右辺の第一項は $x=\mu_y$ でのみ0となり、そこが唯一の最小点です。微分も元の目的関数から確認します。$R=\Gamma_\varepsilon^{-1}$、$P=\Gamma_0^{-1}$ は対称なので、任意の方向 $h\in\mathbb R^n$ に対して
 
 $$
-\begin{aligned}
 J_y(x+th)-J_y(x)
-&=-t(Ah)^TR(y-Ax)+t h^TP(x-\mu_0)\\
-&\quad+\frac{t^2}{2}\bigl((Ah)^TR(Ah)+h^TPh\bigr).
-\end{aligned}
+=t h^T[-A^TR(y-Ax)+P(x-\mu_0)]
++\frac{t^2}{2}\bigl((Ah)^TR(Ah)+h^TPh\bigr).
 $$
 
 $t$ の一次係数は $h^T\nabla J_y(x)$ ですから、任意の $h$ で係数を比較すると
