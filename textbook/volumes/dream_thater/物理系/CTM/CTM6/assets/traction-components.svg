@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-labelledby="ttl desc" data-layout-lint="strict">
+<title id="ttl">面力の直交分解</title>
+<desc id="desc">水平に描いた切断面上の作用点Pから、面に垂直な外向き法線nと法線成分p_n nが上向き、接線成分s_nが面に沿って右向き、合計の面力t(n)が右上に伸びる。破線はベクトル和の平行四辺形を示す。</desc>
+<defs>
+<marker id="arrow-main" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#215d89"/></marker>
+<marker id="arrow-shear" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#aa4a30"/></marker>
+</defs>
+<polygon points="92,230 385,230 478,278 185,278" fill="#dfeaed" stroke="#536b77" stroke-width="2"/>
+<circle cx="252" cy="230" r="4" fill="#253d4b"/>
+<text x="203" y="204" font-size="17" font-family="sans-serif" fill="#253d4b">P</text>
+<g stroke="#215d89" stroke-width="3" fill="none" marker-end="url(#arrow-main)" data-series-group="force-vectors" data-series-label="normal">
+<line x1="252" y1="230" x2="252" y2="80"/>
+</g>
+<g stroke="#aa4a30" stroke-width="3" stroke-dasharray="8 4" fill="none" marker-end="url(#arrow-shear)" data-series-group="force-vectors" data-series-label="shear">
+<line x1="252" y1="230" x2="435" y2="230"/>
+</g>
+<g stroke="#215d89" stroke-width="4" fill="none" marker-end="url(#arrow-main)" data-series-group="force-vectors" data-series-label="resultant">
+<line x1="252" y1="230" x2="435" y2="80"/>
+</g>
+<g stroke="#738993" stroke-width="1.5" stroke-dasharray="4 6" fill="none">
+<line x1="252" y1="80" x2="435" y2="80"/><line x1="435" y1="80" x2="435" y2="230"/>
+</g>
+<g font-size="18" font-family="sans-serif" fill="#243b50">
+<text x="218" y="64">pn n</text>
+<text x="445" y="75">t(n)</text>
+<text x="448" y="218" fill="#9a3829">sn</text>
+<text x="165" y="207">n ↑</text>
+<text x="319" y="308">切断面</text>
+</g>
+<text x="16" y="311" font-size="14" font-family="sans-serif" fill="#344a57">模式図（pn が正の場合）：t(n) = pn n + sn、n·sn = 0</text>
+</svg>

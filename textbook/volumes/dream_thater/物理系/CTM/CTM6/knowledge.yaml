@@ -1,0 +1,37 @@
+chapter: CTM6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM5
+  - LA6
+concepts:
+  - id: continuum.surface-traction
+    name: 表面力密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（表面力密度・traction）"]
+    requires: [continuum.motion-current-configuration, continuum.cofactor-area-vector]
+  - id: continuum.traction-action-reaction
+    name: 反対向きの面の表面力密度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反対向きの面の表面力密度）"]
+    requires: [continuum.surface-traction]
+  - id: continuum.cauchy-stress-theorem
+    name: Cauchy の応力定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Cauchy の応力定理）"]
+    requires: [continuum.traction-action-reaction, continuum.surface-traction]
+  - id: continuum.normal-shear-traction
+    name: 法線応力とせん断表面力密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（法線応力とせん断表面力密度）"]
+    requires: [continuum.cauchy-stress-theorem]
+  - id: continuum.principal-stress
+    name: 対称応力の主応力と主方向
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対称応力の主応力と主方向）"]
+    requires: [continuum.normal-shear-traction]
