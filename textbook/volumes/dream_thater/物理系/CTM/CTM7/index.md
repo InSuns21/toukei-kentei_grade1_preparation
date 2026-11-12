@@ -6,7 +6,7 @@
 
 ## 0. 対象、単位と仮定
 
-[CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration) $\chi(X,t)$ は各時刻で向きを保つ $C^2$ 級の単射とし、変形勾配 $F=D_X\chi$ とその行列式 $J=\det F>0$、現在配置 $\Omega_t=\chi_t(\Omega_0)$ を考える。
+[CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration) $\chi(X,t)$ は各時刻で向きを保つ $C^2$ 級の単射とし、[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient) $F=D_X\chi$ とその行列式 $J=\det F>0$、現在配置 $\Omega_t=\chi_t(\Omega_0)$ を考える。
 
 [CTM5 の密度](../CTM5/index.md#def-ctm5-mass-densities) $\rho(x,t)>0$ は質量保存を満たす。現在位置 $x$ での速度を
 
@@ -14,13 +14,25 @@ $$
 v(x,t)=\partial_t\chi(\chi_t^{-1}(x),t)
 $$
 
-とし、加速度 $a=D_tv=\partial_tv+(v\cdot\nabla)v$ を考える。これは [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を速度成分に適用したものである。
+とする。ここで $\partial_t\chi(X,t)$ は物質座標 $X$ を固定した時間微分、$\partial_t v(x,t)$ は現在座標 $x$ を固定した偏微分である。同じ物質点を追う加速度は [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を速度成分に適用し、連鎖律によって
+
+$
+\begin{aligned}
+a(\chi(X,t),t)
+&=\frac{d}{dt}v(\chi(X,t),t)\\
+&=\partial_t v(\chi(X,t),t)
+  +D_xv(\chi(X,t),t)\,\partial_t\chi(X,t),\\
+ a(x,t)&=D_tv(x,t)=\partial_t v(x,t)+(v(x,t)\cdot\nabla_x)v(x,t)
+\end{aligned}
+$
+
+となる。$d/dt$ は物質点 $X$ を固定した軌道上の全微分、$D_t$ はその全微分を現在座標で表す演算子である。
 
 時刻区間内の任意の有界な物質領域 $U_t=\chi_t(U_0)$ を用いる。$U_0\Subset\Omega_0$ の境界は区分的 $C^1$ とする。密度・速度・体積力は時間と空間について必要な連続微分をもち、応力 $\sigma(x,t)$ は空間 $C^1$ 級、すべての場は扱う領域の閉包近くで有界とする。積分と微分の交換を正当化するための条件である。
 
 - $\rho$ は kg/m$^3$、$v$ は m/s、$a$ と単位質量当たりの体積力 $b$ は m/s$^2$ = N/kg。
 - $\rho b$ は体積当たりの力 N/m$^3$、$\sigma$ は Pa = N/m$^2$、$\operatorname{div}\sigma$ は N/m$^3$。
-- 応力の添字は $\sigma_{ij}$ の第 $i$ が**力**、第 $j$ が**面法線**の成分とする。従って $(\operatorname{div}\sigma)_i=\sum_j\partial_j\sigma_{ij}$。
+- 右手系の直交デカルト基底を $e_1,e_2,e_3$ とし、応力の添字 $\sigma_{ij}$ の第 $i$ は**力**、第 $j$ は**面法線**の成分とする。[CTM6 の Cauchy 応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)で得た線形性により、$n=\sum_j n_j e_j$ なら $t(n)=\sum_jn_jt(e_j)=\sum_{i,j}\sigma_{ij}n_j e_i$ となる。これが応力行列の列を面法線に掛ける理由である。$\partial_j=\partial/\partial x_j$ と書き、$(\operatorname{div}\sigma)_i=\sum_j\partial_j\sigma_{ij}$ とする。後の添字反復では $1,2,3$ の和を表す。
 - $n$ はいつでも**力を受ける物質領域から外へ向く**単位法線である。
 
 さらに、接触作用は面上の**力** $\sigma n$ だけ、遠隔作用は体積当たりの力 $\rho b$ だけと仮定する。境界に独立に与えられる面偶力（単位面積当たりのトルク）や体積偶力（単位体積当たりのトルク）、点・線に集中する力は含めない。内部に独立の回転自由度を持つ物質もここでは扱わない。これらの仮定が特に角運動量収支の結論を制限する。
@@ -161,7 +173,7 @@ $$
 
 図の破線 $S$ は左右の物質領域の共通面であり、同じ点で $t(n)$ と $t(-n)$ が逆向きに働く。上下面の $F,-F$ はそれぞれ分布する表面力の**合力の模式表示**で、点に集中する別種の力ではない。上面と下面の作用位置が違えば、合力の和がゼロでもトルクが残る。図の $n$ は左側領域から右へ向く面法線である。
 
-角運動量収支を式へ戻す前に、記号を整理する。$\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号で、[VC7 の Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon)を使えば $(r\times f)_i=\varepsilon_{ijk}r_jf_k$。繰り返される添字について $1,2,3$ の和を取る。積の微分で $r_j$ を微分した際の $\partial_\ell r_j=\delta_{j\ell}$ が鍵になる。
+角運動量収支を式へ戻す前に、記号を整理する。$\varepsilon_{ijk}$ は $\varepsilon_{123}=1$ の完全反対称記号で、[VC7 の Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon)を使えば $(r\times f)_i=\varepsilon_{ijk}r_jf_k$。繰り返される添字について $1,2,3$ の和を取る。ここで $\delta_{j\ell}$ は $j=\ell$ なら $1$、それ以外なら $0$ の Kronecker のデルタであり、$r_j=x_j-o_j$ の $o_j$ が定数だから $\partial_\ell r_j=\delta_{j\ell}$ となる。この式が積の微分の鍵になる。
 
 <a id="prop-ctm7-angular-stress"></a>
 
@@ -291,14 +303,14 @@ $$
 
 ### A1. 面力・体積力・加速度の単位
 
-体積 $V=0.5\,\mathrm{m^3}$ の物質領域で密度 $\rho=4\,\mathrm{kg/m^3}$ が一様、加速度 $a=3e_1\,\mathrm{m/s^2}$ とする。面力の合力が $2e_1$ N のとき、体積力の合力と単位質量当たりの体積力 $b$ を求めよ。
+体積 $V=0.5\,\mathrm{m^3}$ の物質領域で密度 $\rho=4\,\mathrm{kg/m^3}$ が一様、加速度 $a=3e_1\,\mathrm{m/s^2}$ とする。単位質量当たりの体積力 $b$ も領域内で一様と仮定する。面力の合力が $2e_1$ N のとき、体積力の合力と $b$ を求めよ。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-質量は $M=\rho V=2$ kg、運動量時間変化は $Ma=6e_1$ N。[物質領域の線形運動量・角運動量収支](#principle-ctm7-material-balances)により $6e_1=2e_1+F_b$、よって $F_b=4e_1$ N。一様な $b$ なら $F_b=Mb$ だから $b=2e_1$ N/kg = m/s$^2$。面力 N と $\rho b$ の N/m$^3$ を直接加算してはいけない。
+質量は $M=\rho V=2$ kg、運動量時間変化は $Ma=6e_1$ N。[物質領域の線形運動量・角運動量収支](#principle-ctm7-material-balances)により $6e_1=2e_1+F_b$、よって $F_b=4e_1$ N。仮定した一様な $b$ について $F_b=\int_U\rho b\,dV=Mb$ だから $b=2e_1$ N/kg = m/s$^2$。面力 N と $\rho b$ の N/m$^3$ を直接加算してはいけない。
 <!-- solution-end -->
 
 ### A2. 発散の添字
@@ -427,7 +439,18 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-応力の発散は $\operatorname{div}\sigma=\rho_*g e_1$、体積力密度は $\rho_*b=-\rho_*g e_1$ である。従って [局所運動量方程式](#thm-ctm7-material-momentum)の右辺はゼロ。また $\sigma^T=\sigma$ だから [角運動量と応力の命題](#prop-ctm7-angular-stress)の結論と整合する。
+応力の発散は $\operatorname{div}\sigma=\rho_*g e_1$、体積力密度は $\rho_*b=-\rho_*g e_1$ である。従って [局所運動量方程式](#thm-ctm7-material-momentum)の右辺はゼロ。また $\sigma^T=\sigma$ である。角運動量収支の成立は対称性という必要条件だけで済ませず、[角運動量収支の証明](#prop-ctm7-angular-stress)で得た発散計算を逆に使って確認する。任意の固定点 $o$ に対する $r=x-o$ と外向き法線 $n$ について、
+
+$
+\begin{aligned}
+&\left[\int_{\partial U}r\times(\sigma n)\,dS
++\int_U r\times\rho_* b\,dV\right]_i\\
+&\quad=\int_U\varepsilon_{ijk}r_j\bigl[(\operatorname{div}\sigma)_k+\rho_*b_k\bigr]dV
++\int_U\varepsilon_{ijk}\sigma_{kj}\,dV=0.
+\end{aligned}
+$
+
+第一積分は局所運動量の釣合により、第二積分は $\sigma_{kj}=\sigma_{jk}$ によりゼロである。静止しているため角運動量の時間微分もゼロとなり、任意の物質部分領域で両方の収支が成立する。
 
 $x_1=0$ の外向き法線は $-e_1$ だが、その面では $\sigma=0$ なので合力はゼロ。$x_1=L$ の面積は $HK$ であり、[表面力密度の定義](../CTM6/index.md#def-ctm6-traction)により
 
@@ -492,7 +515,17 @@ $$
 \end{aligned}
 $$
 
-従って $\operatorname{div}\sigma=\rho_0 a$ で、[局所運動量方程式](#thm-ctm7-material-momentum)の三成分を満たす。$\sigma_{12}=\sigma_{21}=s$ かつ他の非対角成分はゼロなので $\sigma^T=\sigma$。角運動量証明の残差 $\varepsilon_{ijk}\sigma_{kj}$ は $i=1,2,3$ のいずれもゼロである。発散と輸送定理を逆にたどれば任意の有界な物質領域で両積分収支が成立する。
+従って $\operatorname{div}\sigma=\rho_0 a$ で、[局所運動量方程式](#thm-ctm7-material-momentum)の三成分を満たす。$\sigma_{12}=\sigma_{21}=s$ かつ他の非対角成分はゼロなので $\sigma^T=\sigma$。角運動量証明の残差 $\varepsilon_{ijk}\sigma_{kj}$ は $i=1,2,3$ のいずれもゼロである。実際、任意の物質部分領域 $U_t$ と固定点 $o$ に対し、[角運動量収支の証明](#prop-ctm7-angular-stress)の積の微分から、角運動量収支の右辺と左辺の差の第 $i$ 成分は
+
+$
+\begin{aligned}
+&\int_{U_t}\varepsilon_{ijk}\left[\sigma_{kj}
++r_j\bigl((\operatorname{div}\sigma)_k+\rho b_k-\rho a_k\bigr)\right]dV\\
+&\quad=\int_{U_t}\varepsilon_{ijk}\sigma_{kj}\,dV=0
+\end{aligned}
+$
+
+となる。最初の等号では Reynolds 輸送定理とテンソル発散定理を用い、次の等号では局所運動量式を代入した。従って線形運動量と角運動量の両積分収支が成立する。
 
 （iii）$\|n\|=1$ を確認し、[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)により
 
