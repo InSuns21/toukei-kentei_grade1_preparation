@@ -1,6 +1,6 @@
 # AQFT8 Minkowski真空とFock二点関数
 
-[AQFT7のquasifree状態](../AQFT7/index.md#def-aqft7-quasifree)では、任意の許容共分散 $\mu$ からGaussian型のWeyl状態を作りました。しかし許容される共分散は多数あり、**どの状態がMinkowski時空の正エネルギー真空なのか**はまだ決まりません。物理的な真空を選ぶには、Klein–Gordon方程式の「正周波数」を用いて $\mu$ を具体化し、その状態のPoincaré不変性とスペクトル条件まで確認する必要があります。
+[AQFT7のquasifree状態](../AQFT7/index.md#def-aqft7-quasifree)では、不確定性条件を満たす実対称双線形形式 $\mu$ からGaussian型のWeyl状態を作りました。しかしこのような形式は多数あり、**どの状態がMinkowski時空の正エネルギー真空なのか**はまだ決まりません。物理的な真空を選ぶには、Klein–Gordon方程式の「正周波数」を用いて $\mu$ を具体化し、その状態のPoincaré不変性とスペクトル条件まで確認する必要があります。
 
 本講では、既習の[QFT4のFock構成](../../../物理系/QFT/QFT4/index.md#def-qft4-fock-space)・[QFT5のWightman二点分布](../../../物理系/QFT/QFT5/index.md#thm-qft5-wightman-positive)と、源商から始めるAQFTを**同じ波束で照合**します。質量はまず $m>0$ とし、計量は $(-,+,+,+)$、$\hbar=c=1$ です。最後に $m=0$ の場合に必要な注意を述べます。真空の選択を一般の局所netの公理にするのではなく、**この自由場模型で構成して証明する**ことが目標です。
 
@@ -359,13 +359,21 @@ $$
 (KT_af)(\boldsymbol k)
 =e^{i(\omega_{\boldsymbol k}a^0-\boldsymbol k\cdot\boldsymbol a)}K[f](\boldsymbol k)
 $$
-を満たします。Lorentz変換 $\ell$ には波束を質量殻上で引き戻し、$d^3k/(2\omega)$ と整合する平方根の重みを付けたユニタリ $U_1(\ell)$ が対応します。したがって全Poincaré群に対して $(KT_hF,KT_hG)=(KF,KG)$ が成立します。
+を満たします。Lorentz変換 $\ell$ には、質量殻上の運動量を $p\mapsto\ell^{-1}p$ と変換して波束へ代入し、$d^3k/(2\omega)$ と整合する平方根の重みを付けたユニタリ $U_1(\ell)$ が対応します。したがって全Poincaré群に対して $(KT_hF,KT_hG)=(KF,KG)$ が成立します。
 
 <a id="thm-aqft8-vacuum-spectrum"></a>
 
 <!-- formal-statement-start -->
 > **定理（Minkowski Fock状態の正エネルギーと真空一意性）**  
-> $m>0$ の実Klein–Gordon源商 $\mathcal V$ のWeyl C*net、$\mu_{\mathrm{vac}}$ から構成した中心化quasifree状態 $\omega_{\mathrm{vac}}$ を考える。この状態は固有時向きPoincaré群に不変である。対応するFock実装 $U_{\mathcal F}(h)=\Gamma(U_1(h))$ は強連続であり、その並進の共同スペクトルは[AQFT3の前方閉光円錐](../AQFT3/index.md#def-aqft3-spectrum) $\overline V_+$ に含まれる。平行移動に不変なFockベクトルは $\mathbb C\Omega$ だけである。
+> $m>0$ の実Klein–Gordon源商 $\mathcal V$ のWeyl C*netと、上記の共分散から得られる中心化quasifree状態 $\omega_{\mathrm{vac}}$ を考える。この状態は固有時向きPoincaré群に不変である。対応するFock実装は
+$$
+U_{\mathcal F}(h)=\Gamma(U_1(h))
+$$
+> であり、強連続である。並進の共同スペクトルは[AQFT3の前方閉光円錐](../AQFT3/index.md#def-aqft3-spectrum)に含まれ、平行移動に不変なFockベクトルは真空の定数倍だけである。すなわち
+$$
+\operatorname{supp}E_{\mathcal F}\subseteq\overline V_+,\qquad
+\{\psi:U_{\mathcal F}(a)\psi=\psi\ (\forall a\in\mathbb R^4)\}=\mathbb C\Omega .
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -424,7 +432,7 @@ $q\in C_c^\infty(\mathbb R^3,\mathbb R)$、$p=0$ に対応する $K(q,0)=\sqrt{\
 $$
 W_{\mathcal F}(F)\Omega=e^{-\|KF\|^2/2}\varepsilon(iKF).
 $$
-有限個の $F_j$ と実数 $t_j$ について $t\mapsto W_{\mathcal F}(tF_j)\Omega$ はFockノルムで解析的で、$t_j=0$ の各階微分は $(KF_j)^{\otimes n}$ と低粒子数成分の線形結合を与えます。差分商で微分を取ると、巡回閉部分空間に $n$ 粒子純成分が入ります。例えば一次では
+有限個の $F_j$ と実数 $t_j$ について $t\mapsto W_{\mathcal F}(tF_j)\Omega$ はFockノルムで解析的で、$t_j=0$ の各階微分は $(KF_j)^{\otimes n}$ と低粒子数成分の線形結合を与えます。微分の定義に沿ってベクトルの差を $t$ で割る極限を取ると、巡回閉部分空間に $n$ 粒子純成分が入ります。例えば一次では
 $$
 \lim_{t\to0}\frac{W_{\mathcal F}(tF)\Omega-\Omega}{t}
 =i\,a^\dagger(KF)\Omega,
@@ -450,7 +458,7 @@ $$
 $$
 なので $K(q,p)$ 自体は $L^2$ に入ります。ただし原点での滑らかさ、低次元での赤外問題、真空状態の拡張を $m>0$ と同じ一行の議論で済ませてはいけません。質量零の同様の構成には、原点を除いた質量殻上での極限と測度零集合の扱いを改めて確認します。
 
-また、$W(x-y)$ は点で有限な関数とは限りません。真空の「二点関数」の正確な意味は、実あるいは複素の試験関数を掛けた**分布としての二点量**です。Gaussian正値性だけでは、Poincaré不変性も正エネルギーも局所環の型も結論できません。
+また、$W(x-y)$ は点で有限な関数とは限りません。真空の「二点関数」の正確な意味は、実あるいは複素の試験関数を掛けた**分布としての二点量**です。Gaussian正値性だけでは、Poincaré不変性も正エネルギーも領域ごとのvon Neumann環の型も結論できません。
 
 ## 6. 演習と詳細解答
 
