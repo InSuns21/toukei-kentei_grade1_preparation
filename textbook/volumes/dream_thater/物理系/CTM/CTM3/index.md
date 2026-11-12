@@ -279,7 +279,15 @@ $$
 
 ## 4. 微小ひずみが近似になる条件
 
-実務では、変位 $u(X,t)=\chi(X,t)-X$ の空間的な変化を使って、線形のひずみを計算することが多い。ここでも時刻 $t$ は固定し、[CTM1 の変位](../CTM1/index.md#def-ctm1-material-displacement-velocity)の写像 $X\mapsto u(X,t)$ を基準座標 $X$ で微分する。その Jacobian 行列を $H=D_Xu$ と書くと、$D_XX=I_3$ だから $F=I_3+H$ である。時間微分ではなく、物質座標による空間微分を扱っている。非線形の $E$ と比べて何を捨てるのかを計算してみよう。
+実務では、[CTM1 の変位](../CTM1/index.md#def-ctm1-material-displacement-velocity)の空間的な変化を使って、線形のひずみを計算することが多い。ここでも時刻 $t$ は固定し、変位写像 $X\mapsto u(X,t)=\chi(X,t)-X$ を基準座標 $X$ で微分する。
+
+この Jacobian 行列を $H=D_Xu$ と書く。[CTM2 の変形勾配の定義](../CTM2/index.md#def-ctm2-deformation-gradient)と $D_XX=I_3$ を用いると
+
+$$
+F=D_X\chi=D_X(X+u)=I_3+D_Xu=I_3+H.
+$$
+
+ここで行っているのは時間微分ではなく、物質座標についての微分である。非線形の $E$ と比べて何を捨てるのかを計算してみよう。
 
 <a id="def-ctm3-infinitesimal-strain"></a>
 
