@@ -1,0 +1,45 @@
+id: "HOLO6"
+title: "大Nと半古典重力"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - HOLO5
+official_scope: []
+learning_objectives:
+  - "'t Hooft極限で固定する量を明示し、固定gYMと区別して計算できる"
+  - 二重線表示の添字縮約を直接数え、リボングラフのNの次数と種数の関係を導出できる
+  - 正規化単一トレース量の大N因子化をGauss模型の具体計算で再現できる
+  - D3-braneのG10とS5体積からG5/L3がpi/(2N2)となることを再導出できる
+  - 弦長補正・五次元重力ループ・弦ループを区別し同時極限を判定できる
+  - 高スピン単一トレースのギャップが必要な理由と大NだけではEinstein重力とならない理由を説明できる
+definitions:
+  - { id: HOLO6-DEF-01, name: "'t Hooftの大N極限" }
+  - { id: HOLO6-DEF-02, name: "二重線表示と添字面" }
+  - { id: HOLO6-DEF-03, name: "高スピン単一トレースのスペクトルギャップ" }
+  - { id: HOLO6-DEF-04, name: "本講の制御された超重力近似領域" }
+theorems:
+  - { id: HOLO6-PROP-01, name: "連結真空リボングラフの大N次数" }
+  - { id: HOLO6-PROP-02, name: "形式的な大N因子化の数え上げ" }
+  - { id: HOLO6-PROP-03, name: "D3-brane模型での五次元重力結合" }
+canonical_examples:
+  - lambdaを固定する列とgYMを固定する列でNを動かし比較する
+  - quartic traceの二つの非交差縮約と一つの交差縮約で自由添字を数える
+  - tr(M2)/Nの平均と分散をWick縮約から計算する
+  - G10からS5の体積を使ってG5の係数を検算する
+  - 高スピン単一トレースのギャップの直接例と非例を比較する
+  - lambda=Nの冪の極限を三つの制御条件で判定する
+problem_patterns:
+  - HOLO6-FIXED-COUPLING
+  - HOLO6-GAUSSIAN-CONTRACTION
+  - HOLO6-RIBBON-GENUS
+  - HOLO6-PARAMETER-ESTIMATE
+  - HOLO6-TRACE-MEAN
+  - HOLO6-WICK-QUARTIC
+  - HOLO6-GAUSSIAN-FACTORIZATION
+  - HOLO6-NEWTON-REDUCTION
+  - HOLO6-DOUBLE-SCALING
+  - HOLO6-SUPERGRAVITY-CRITERIA
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 5 }
