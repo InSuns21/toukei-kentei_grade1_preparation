@@ -185,7 +185,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t=-i\tau$ とおくと、Euclid計量の二次元部分は $f\,d\tau^2+dr^2/f$。$r=r_++x$、$x>0$ が小さいとき、$f(r)=f'(r_+)x+O(x^2)$、$f'(r_+)=2r_+/L^2$ です。新しい半径座標を
+$t=-i\tau$ とおくと、Euclid計量の二次元部分は $f\,d\tau^2+dr^2/f$。ここで $f'(r_+)$ はパラメータ $L,r_+$ を固定して $r$ で微分した $f'(r)=df/dr$ を $r=r_+$ で評価した値で、後で使う解族に沿った $dM/dr_+$ とは異なります。$r=r_++x$、$x>0$ が小さいとき、$f(r)=f'(r_+)x+O(x^2)$、$f'(r_+)=2r_+/L^2$ です。新しい半径座標を
 
 $$
 \rho=2\sqrt{\frac{x}{f'(r_+)}}\,,\qquad
@@ -343,7 +343,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-外部で $dr/d\ell=\sqrt{r^2-r_+^2}/L$。従って
+外部の $r>r_+$ では $f(r)>0$ なので固有距離の定義 $d\ell=dr/\sqrt{f(r)}$ を正当に使え、$\ell$ を増やす向きに $dr/d\ell=\sqrt{r^2-r_+^2}/L$。従って
 
 $$
 \frac{d\ell}{L}=\frac{dr}{\sqrt{r^2-r_+^2}},\qquad
@@ -378,14 +378,14 @@ ds^2=-\frac{4L^2}{(1+UV)^2}\,dU\,dV+
 r_+^2\left(\frac{1-UV}{1+UV}\right)^2d\phi^2
 $$
 
-となります。ここで $dU\,dV$ は対称化した交差項を表します。因果接ベクトル $(\dot U,\dot V,\dot\phi)$ では $ds^2(\dot\gamma,\dot\gamma)\le0$ なので、$1+UV>0$ の領域では
+となります。ここで $dU\,dV$ は対称化した交差項を表します。因果曲線 $\gamma(\lambda)=(U(\lambda),V(\lambda),\phi(\lambda))$ の曲線パラメータ $\lambda$ に関する導関数を $\dot U=dU/d\lambda$、$\dot V=dV/d\lambda$、$\dot\phi=d\phi/d\lambda$ と書きます。因果接ベクトル $\dot\gamma$ では $ds^2(\dot\gamma,\dot\gamma)\le0$ なので、$1+UV>0$ の領域では
 
 $$
 \frac{4L^2}{(1+UV)^2}\dot U\dot V
 \ge r^2\dot\phi^2\ge0.
 $$
 
-従って $\dot U,\dot V$ は同符号（または一方が零）です。右外部の未来向き静的時間並進は、$U<0,V>0$ において $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ を満たします。この未来円錐を連続に延長すると、未来向き因果曲線では $\dot U\ge0,\dot V\ge0$ です。右から左へ行くには $V>0$ から $V<0$ へ減らさなければならず不可能です。従ってTFDの相関や空間橋は、**可通行なワームホールや超光速通信を意味しません**。このKruskal計算はLevel Cでも再構成します。
+従って $\dot U,\dot V$ は同符号（または一方が零）です。右外部の未来向き静的時間並進は、$r$ を固定した $t$ 微分で $U<0,V>0$ において $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ を満たします。この未来円錐を連続に延長すると、未来向き因果曲線では $\dot U\ge0,\dot V\ge0$ です。右から左へ行くには $V>0$ から $V<0$ へ減らさなければならず不可能です。従ってTFDの相関や空間橋は、**可通行なワームホールや超光速通信を意味しません**。このKruskal計算はLevel Cでも再構成します。
 
 ## 5. 両側相関は片側の熱的相関とどう違うか
 
@@ -733,7 +733,7 @@ ds^2=-\frac{4L^2}{(1+UV)^2}\,dU\,dV+
 r_+^2\frac{(1-UV)^2}{(1+UV)^2}d\phi^2.
 $$
 
-(iv) 因果曲線の接ベクトルに計量を適用すれば $4L^2\dot U\dot V/(1+UV)^2\ge r^2\dot\phi^2\ge0$ です。よって $\dot U,\dot V$ は同符号であり、右外部の未来向き時間並進 $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ と同じ未来円錐を選べば $\dot U,\dot V\ge0$ です。右外部で $V>0$ だった点から未来に進むと $V$ は減少しないため、$V<0$ の左外部には到達できません。$t=0$ の橋が空間的に連結でも、因果的には非可通行です。TFDの左右相関から直接の通信可能性は導けません。
+(iv) 曲線パラメータ $\lambda$ による微分を $\dot U=dU/d\lambda$、$\dot V=dV/d\lambda$、$\dot\phi=d\phi/d\lambda$ と置き、因果曲線の接ベクトルに計量を適用すれば $4L^2\dot U\dot V/(1+UV)^2\ge r^2\dot\phi^2\ge0$ です。よって $\dot U,\dot V$ は同符号であり、右外部の未来向き時間並進 $\partial_tU=-\kappa U>0$、$\partial_tV=\kappa V>0$ と同じ未来円錐を選べば $\dot U,\dot V\ge0$ です。右外部で $V>0$ だった点から未来に進むと $V$ は減少しないため、$V<0$ の左外部には到達できません。$t=0$ の橋が空間的に連結でも、因果的には非可通行です。TFDの左右相関から直接の通信可能性は導けません。
 <!-- solution-end -->
 
 ## 8. まとめと次講
