@@ -309,11 +309,11 @@ $$
 
 これで部分列を取らずに $\|x_\delta-x^\dagger\|_X=\|u_\delta\|_X\to0$ を示しました。
 
-**第4段階（パラメータが零へ近づく）**。任意の $\beta>0$ を固定します。[残差表示](#prop-inv7-residual-range)を厳密データ $y\ne0$ に用いると $\rho_y(\beta)>0$ です。$z$ を動かしたときの残差を比較します。第1節の特異系展開より $Ax_\beta(z)-z$ は、$u_j$ 方向の成分を $-\beta/(\sigma_j^2+\beta)$ 倍し、$\ker A^*$ 方向の成分を $-1$ 倍する線形写像です。各倍率の絶対値は $1$ 以下なので、直交性から任意の $z,w\in Y$ について
+**第4段階（パラメータが零へ近づく）**。任意の $\beta>0$ を固定します。[残差表示](#prop-inv7-residual-range)を厳密データ $y\ne0$ に用いると $\rho_y(\beta)>0$ です。$z$ を動かしたときの残差を比較します。一般データ $z\in Y$ に対する Tikhonov 解を $x_\beta(z):=(A^*A+\beta I)^{-1}A^*z$ と書きます。第1節の特異系展開より $Ax_\beta(z)-z$ は、$u_j$ 方向の成分を $-\beta/(\sigma_j^2+\beta)$ 倍し、$\ker A^*$ 方向の成分を $-1$ 倍する線形写像です。各倍率の絶対値は $1$ 以下なので、直交性から任意の $z,w\in Y$ について
 
-$
+$$
 \|(Ax_\beta(z)-z)-(Ax_\beta(w)-w)\|_Y\le\|z-w\|_Y.
-$
+$$
 
 逆三角不等式を $z=y^\delta$、$w=y$ に適用して
 
@@ -557,7 +557,7 @@ $A=\operatorname{diag}(2,0)$、$z=(4,1)$ とする。$x_\alpha$ を求め、残�
 <!-- solution-start -->
 #### 詳細解答
 
-$\operatorname{diag}(2,0)$ は $\mathbb R^2$ の標準基底 $e_1,e_2$ で $A(s,t)=(2s,0)$ を表します。標準内積で $A^*=A$ であり、$A^*A(s,t)=(4s,0)$、$A^*z=(8,0)$ です。よって[正規方程式](../INV5/index.md#thm-inv5-tikhonov-minimizer)は $(\operatorname{diag}(4,0)+\alpha I)x=(8,0)$ となり、
+$\operatorname{diag}(2,0)$ は $\mathbb R^2$ の標準基底 $e_1,e_2$ で $A(s,t)=(2s,0)$ を表します。標準内積で $\langle A(s,t),(a,b)\rangle=2sa=\langle(s,t),A(a,b)\rangle$ なので $A^*=A$ であり、$A^*A(s,t)=(4s,0)$、$A^*z=(8,0)$ です。よって[正規方程式](../INV5/index.md#thm-inv5-tikhonov-minimizer)は $(\operatorname{diag}(4,0)+\alpha I)x=(8,0)$ となり、
 
 $$
 x_\alpha=\left(\frac{8}{4+\alpha},0\right),
@@ -603,9 +603,9 @@ $A=\operatorname{diag}(1,1/2)$、$A_h=\operatorname{diag}(1,3/5)$、$x^\dagger=(
 
 $y=(0,1)$ より $\|y^\delta-y\|=1/20=\delta$ です。$A_h-A=\operatorname{diag}(0,1/10)$ だから、標準 Euclid ノルムで $v=(v_1,v_2)$ に対して
 
-$
+$$
 \|(A_h-A)v\|^2=\frac{v_2^2}{100}\le\frac{\|v\|^2}{100}.
-$
+$$
 
 $v=e_2$ で等号になるので作用素ノルムは $\eta_h=1/10$ です。さらに $\|x^\dagger\|=2=B$ です。[有効誤差の定義](#def-inv7-effective-noise)から
 
