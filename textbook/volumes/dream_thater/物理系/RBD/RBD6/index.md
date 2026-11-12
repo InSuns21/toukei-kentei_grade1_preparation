@@ -2,13 +2,13 @@
 
 <!-- definition-example-audit: strict -->
 
-> **前提**：[MECH8 の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)、[MECH8 の主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)と[主軸の存在](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)、[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)、[RBD3 の空間・物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)を用います。$R$ は**物体固定成分を空間成分へ移す**右手系の能動回転、すなわち $R^{\mathsf T}R=I_3$、$\det R=1$ です。
+> **前提**：[MECH8 の剛体の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)、[MECH8 の主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)と[主軸の存在](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)、[RBD1 の剛体配置](../RBD1/index.md#def-rbd1-configuration)、[RBD3 の空間・物体角速度](../RBD3/index.md#def-rbd3-angular-velocity)を用います。$R$ は**物体固定成分を空間成分へ移す**右手系の能動回転、すなわち $R^{\mathsf T}R=I_3$、$\det R=1$ です。
 
 ## 1. 同じ物体なのに慣性テンソルの数字が変わるのはなぜか
 
 質量が一様な直方体を手で持って向きを変えても、質量や辺の長さは変わりません。しかし、実験室に固定した $x,y,z$ 軸から見た慣性テンソルの行列成分は変わります。一方、物体に描いた軸を使えば、質量分布は常に同じです。
 
-[MECH8 の定義](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)によれば、重心 $C$ からの位置を $u$、質量要素を $dm$ とすると、慣性テンソルは
+[剛体の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)によれば、重心 $C$ からの位置を $u$、質量要素を $dm$ とすると、慣性テンソルは
 
 $$
 J_C=\int\bigl(|u|^2I_3-uu^{\mathsf T}\bigr)\,dm
@@ -49,7 +49,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[慣性テンソルの定義](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)を空間成分に適用すると
+[剛体の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)を空間成分に適用すると
 
 $$
 J_s=\int\left(|u_s|^2I_3-u_su_s^{\mathsf T}\right)\,dm.
@@ -141,7 +141,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u=r-C$ と置けば $r-O=u+d$、[MECH7 の重心の定義](../../MECH/MECH7/index.md#def-mech7-center-of-mass)より $\int u\,dm=0$ です。
+$u=r-C$ と置けば $r-O=u+d$、[重心](../../MECH/MECH7/index.md#def-mech7-center-of-mass)より $\int u\,dm=0$ です。
 
 $$
 |u+d|^2=|u|^2+2u\cdot d+|d|^2
@@ -219,7 +219,7 @@ $J_{zz}$ は軸からの距離二乗 $r^2$ を積分します。$J_{xx}$ は $y^
 <!-- proof-start -->
 ### 証明
 
-[慣性テンソルの定義](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)の $zz$ 成分から
+[剛体の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)の $zz$ 成分から
 
 $$
 \begin{aligned}
@@ -385,7 +385,7 @@ J_s=\frac{M\ell^2}{24}
 \end{pmatrix}.
 $$
 
-空間成分の角速度を $\omega_s=(\Omega,0,0)^{\mathsf T}$（$\Omega\ne0$）とすれば、[MECH8 の角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)から
+空間成分の角速度を $\omega_s=(\Omega,0,0)^{\mathsf T}$（$\Omega\ne0$）とすれば、[剛体の慣性テンソルによる角運動量と回転エネルギー](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)から
 
 $$
 L_s=J_s\omega_s
@@ -398,7 +398,7 @@ $$
 
 主慣性モーメントが等しいことを**縮退**と呼びます。円柱と円板では $I_x=I_y$ なので、$xy$ 平面内のどの単位方向も主軸です。立方体 $a=b=c=\ell$ なら三つとも $M\ell^2/6$ で、任意の方向が主軸になります。ただし**慣性テンソルが等方的だからといって質量分布そのものが球対称とは限りません**（立方体が反例です）。
 
-また、[慣性テンソルの定義](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)から、その二次形式は幾何的に検査できます。
+また、[剛体の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)から、その二次形式は幾何的に検査できます。
 
 <a id="prop-rbd6-positivity"></a>
 
@@ -437,15 +437,53 @@ $J_O$ が正定値でないなら、実対称かつ半正定値なので、あ�
 逆に、質量が $O+\mathbb Rv$（$v\ne0$）上に集中していれば、そこで $v\times u=0$ なので $v^{\mathsf T}J_Ov=0$ となり、正定値ではありません。二方向がともに成立しました。
 <!-- proof-end -->
 
-さらに、実際の質量分布に由来する三つの主慣性値には**三角不等式**があります。主軸を座標軸に取ると
+さらに、実際の質量分布に由来する主慣性値は、正であることだけでなく、**一つが残り二つの和を超えない**という三本の条件も満たします。
+
+<a id="prop-rbd6-inertia-triangle"></a>
+
+<!-- formal-statement-start -->
+### 命題（主慣性値の三角不等式）
+
+有限の正の総質量と有限の二次質量モーメントをもつ三次元質量分布について、任意の一点まわりの慣性テンソルの主慣性値を $I_1,I_2,I_3\ge0$ とする。このとき
 
 $$
+I_1\le I_2+I_3,\qquad
+I_2\le I_3+I_1,\qquad
+I_3\le I_1+I_2
+$$
+
+が成り立つ。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+主軸を座標軸へ取ると、各主慣性値は原点からの二つの座標成分の二乗積分です。そのうち二つを足して残り一つを引けば、二乗積分が二倍残ります。
+
+<!-- proof-start -->
+### 証明
+
+[主軸の存在](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)により、原点まわりの慣性テンソルを対角にする正規直交座標 $(x,y,z)$ を取れます。[剛体の慣性テンソル](../../MECH/MECH8/index.md#def-mech8-inertia-tensor)から
+
+$$
+I_x=\int(y^2+z^2)\,dm,\quad
+I_y=\int(x^2+z^2)\,dm,\quad
+I_z=\int(x^2+y^2)\,dm.
+$$
+
+これらを引き算すると
+
+$$
+\begin{aligned}
 I_x+I_y-I_z
-=\int\bigl[(y^2+z^2)+(x^2+z^2)-(x^2+y^2)\bigr]\,dm
-=2\int z^2\,dm\ge0.
+&=\int\bigl[(y^2+z^2)+(x^2+z^2)-(x^2+y^2)\bigr]\,dm\\
+&=2\int z^2\,dm\ge0.
+\end{aligned}
 $$
 
-他の二つも座標を巡回すれば同様です。したがって、たとえば $\operatorname{diag}(I,2I,4I)$（$I>0$）は正定値行列でも、実在する三次元質量分布の慣性テンソルにはなれません。正定値性だけで物理的な実現可能性を判断しないことが重要です。
+他の二つも座標を巡回すると $I_y+I_z-I_x=2\int x^2\,dm\ge0$、$I_z+I_x-I_y=2\int y^2\,dm\ge0$ です。
+<!-- proof-end -->
+
+この条件により、たとえば $\operatorname{diag}(I,2I,4I)$（$I>0$）は正定値行列でも、実在する三次元質量分布の慣性テンソルにはなれません。正定値性だけで物理的な実現可能性を判断しないことが重要です。
 
 正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)によって直交主軸で二次形式を対角にできます。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
 
@@ -569,7 +607,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$d_0=(d,0,0)^{\mathsf T}$ と書き、[テンソル平行軸公式](#thm-rbd6-parallel-axis-tensor)を使います。
+$d_0=(d,0,0)^{\mathsf T}$ と書き、[平行軸のテンソル公式](#thm-rbd6-parallel-axis-tensor)を使います。
 
 $$
 |d_0|^2I_3-d_0d_0^{\mathsf T}
@@ -741,7 +779,7 @@ $J_C=\operatorname{diag}(3I,4I,5I)$、$I>0$、$E_0>0$ で定義される回転�
 <!-- solution-start -->
 ### 詳細解答
 
-[慣性楕円体の定義](#def-rbd6-inertia-ellipsoid)から
+[回転エネルギーの慣性楕円体](#def-rbd6-inertia-ellipsoid)から
 
 $$
 \frac12(3I\omega_1^2+4I\omega_2^2+5I\omega_3^2)=E_0.
@@ -774,7 +812,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-まず $A:=M(a^2/4+h^2/12)$、$B:=Ma^2/2$ と置きます。$M,a,h>0$ だから $A,B>0$ です。[円柱の積分公式](#prop-rbd6-solid-cylinder)から物体系では
+まず $A:=M(a^2/4+h^2/12)$、$B:=Ma^2/2$ と置きます。$M,a,h>0$ だから $A,B>0$ です。[一様中実直円柱の慣性テンソル](#prop-rbd6-solid-cylinder)から物体系では
 
 $$
 J_b=\operatorname{diag}(A,A,B)
@@ -817,7 +855,7 @@ $$
 
 非対角項は円柱自体の姿勢変更ではなく、$d$ が $x,y$ 両方の成分を持つ**基準点の移動**で生じます。
 
-今回は $O$ が空間固定点で、そのまわりの純回転と明示されているため、[MECH8 の角運動量公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)を $O$ に適用できます。
+今回は $O$ が空間固定点で、そのまわりの純回転と明示されているため、[剛体の慣性テンソルによる角運動量と回転エネルギー](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)を $O$ に適用できます。
 
 $$
 \boxed{
