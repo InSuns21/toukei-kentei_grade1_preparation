@@ -102,7 +102,7 @@ f(s\theta_\varphi+t\theta_\varphi^\perp)
 =e^{-s^2}e^{-t^2}.
 $$
 
-したがって Gaussian 積分 $\int_{\mathbb R}e^{-t^2}dt=\sqrt\pi$ を使い
+したがって [FOU3 の Gaussian Fourier 公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を周波数0で使い、$\int_{\mathbb R}e^{-t^2}dt=\sqrt\pi$ として
 
 $$
 (Rf)(\varphi,s)
@@ -453,7 +453,7 @@ g(\xi_1,x_2)e^{ix_1\xi_1}\,d\xi_1\\
 \end{aligned}
 $$
 
-最後の積分交換はすでに証明した $\widehat f_2\in L^1$ により正当化されます。$\widehat f_2\equiv0$ を代入すれば $f\equiv0$ です。
+最後の積分交換はすでに証明した $\widehat f_2\in L^1$ と [Fubini の定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)により正当化されます。$\widehat f_2\equiv0$ を代入すれば $f\equiv0$ です。
 <!-- proof-end -->
 
 <a id="thm-inv12-injectivity"></a>
@@ -550,9 +550,9 @@ $$
 \end{aligned}
 $$
 
-$u=\sqrt a\,t$ と置くと $dt=du/\sqrt a$ なので
+$u=\sqrt a\,t$ と置くと $dt=du/\sqrt a$ なので、[FOU3 の Gaussian Fourier 公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)の零周波数での値を使って
 
-$$
+$
 \boxed{(Rf)(\varphi,s)=\sqrt{\pi/a}\,e^{-as^2}}.
 $$
 
@@ -726,7 +726,7 @@ $$
 \end{aligned}
 $$
 
-積分交換は $\int|x||f(x)|dx<\infty$ から許されます。
+積分交換は $\int|x||f(x)|dx<\infty$ から [Fubini の定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で許されます。複素数値でも実部と虚部に適用できます。
 
 $f_a$ では $x=u+a$ と置くと、$\int u e^{-|u|^2}du=0$ は奇関数の積分なので
 
@@ -774,7 +774,7 @@ $$
 \end{aligned}
 $$
 
-二次元 Fourier 変換では二変数の積分が分離でき、$f$ は絶対可積分なので Fubini が適用できます。したがって
+二次元 Fourier 変換では二変数の積分が分離でき、$f$ は絶対可積分なので [Fubini の定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)が適用できます。したがって
 
 $$
 \widehat f_2(\xi_1,\xi_2)
@@ -875,7 +875,7 @@ Au^2+2Buv+Cv^2
 +\left(A-\frac{B^2}{C}\right)u^2.
 $$
 
-第1問から $A-B^2/C=4/C$ です。$w=v+(B/C)u$ と変数変換して積分すると
+第1問から $A-B^2/C=4/C$ です。$w=v+(B/C)u$ と変数変換し、[FOU3 の Gaussian Fourier 公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を周波数0で用いて積分すると
 
 $$
 \begin{aligned}
@@ -903,7 +903,7 @@ e^{-i\omega c\cos\varphi}e^{-C\omega^2/16}\\
 \end{aligned}
 $$
 
-一方 $y_1=x_1-c$ と置いて二変数積分を分けると
+一方 $y_1=x_1-c$ と置き、$f\in L^1$ により [Fubini の定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)で二変数積分を分けると
 
 $$
 \widehat f_2(\xi_1,\xi_2)
