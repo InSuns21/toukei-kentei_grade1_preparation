@@ -50,23 +50,23 @@ $$
 <!-- definition-example-start: def-holo16-tfd -->
 **定義の確認**：右側の正規直交基底を $|0\rangle_R,|1\rangle_R$ とし、$\varepsilon>0$ に対して
 
-$
+$$
 H_R|0\rangle_R=0,\qquad H_R|1\rangle_R=\varepsilon|1\rangle_R
-$
+$$
 
 とします。この作用を基底の順 $(|0\rangle_R,|1\rangle_R)$ で表した行列が $H_R=\operatorname{diag}(0,\varepsilon)$ です。固有値が実数なので $H_R$ は自己共役です。
 
 [熱重みの固有基底計算](../HOLO15/index.md#def-holo15-thermal-state)と同じく、$j=0,1$ で
 
-$
+$$
 e^{-\beta H_R}|j\rangle_R=e^{-\beta E_j}|j\rangle_R
-$
+$$
 
 です。左右にこの基底を対応させ、$\beta>0$ と $q=e^{-\beta\varepsilon}\in(0,1)$ を取ります。すると
 
-$
+$$
 Z=e^{-\beta\cdot0}+e^{-\beta\varepsilon}=1+q>0
-$
+$$
 
 は有限です。定義の係数 $e^{-\beta E_j/2}/\sqrt Z$ を各基底対に掛けると
 
@@ -407,10 +407,10 @@ $$
 
 従って $\dot U,\dot V$ は同符号（または一方が零）です。右外部の未来向き静的時間並進について、$r$ を固定した $t$ 微分は $U<0,V>0$ で
 
-$
+$$
 \partial_tU=-\kappa U>0,\qquad
 \partial_tV=\kappa V>0
-$
+$$
 
 を満たします。この未来円錐を連続に延長すると、未来向き因果曲線では $\dot U\ge0,\dot V\ge0$ です。
 
@@ -764,24 +764,24 @@ $$
 
 (iv) 曲線パラメータ $\lambda$ による微分をドットで表し、
 
-$
+$$
 \dot U=\frac{dU}{d\lambda},\qquad
 \dot V=\frac{dV}{d\lambda},\qquad
 \dot\phi=\frac{d\phi}{d\lambda}
-$
+$$
 
 と置きます。因果曲線の接ベクトルに計量を適用すると
 
-$
+$$
 \frac{4L^2}{(1+UV)^2}\dot U\dot V
 \ge r^2\dot\phi^2\ge0
-$
+$$
 
 なので、$\dot U,\dot V$ は同符号です。右外部の未来向き時間並進は
 
-$
+$$
 \partial_tU=-\kappa U>0,\qquad \partial_tV=\kappa V>0
-$
+$$
 
 を満たします。同じ未来円錐を選べば $\dot U,\dot V\ge0$ です。
 
