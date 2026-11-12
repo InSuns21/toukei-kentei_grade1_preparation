@@ -1,0 +1,71 @@
+chapter: RBD5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD4
+forward_references: []
+concepts:
+  - id: mechanics.quaternion-hamilton-product
+    name: 四元数とHamilton積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（四元数と Hamilton積）]
+    requires:
+      - mechanics.cross-product-skew-matrix
+  - id: mechanics.quaternion-norm-multiplication
+    name: 四元数の共役とノルムの乗法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（四元数の共役とノルムの乗法性）]
+    requires:
+      - mechanics.quaternion-hamilton-product
+  - id: mechanics.unit-quaternion-attitude
+    name: 単位四元数による姿勢
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（単位四元数による姿勢）]
+    requires:
+      - mechanics.quaternion-hamilton-product
+      - mechanics.quaternion-norm-multiplication
+      - mechanics.proper-rotation
+  - id: mechanics.quaternion-rodrigues
+    name: 単位四元数の回転公式と軸角表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単位四元数の回転公式と軸角表示）]
+    requires:
+      - mechanics.unit-quaternion-attitude
+      - mechanics.rodrigues-formula
+  - id: mechanics.quaternion-double-cover
+    name: 姿勢表示の二重性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（姿勢表示の二重性）]
+    requires:
+      - mechanics.quaternion-rodrigues
+      - mechanics.euler-rotation-theorem
+  - id: mechanics.quaternion-composition
+    name: Hamilton積と能動回転の合成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Hamilton積と能動回転の合成）]
+    requires:
+      - mechanics.unit-quaternion-attitude
+      - mechanics.quaternion-norm-multiplication
+  - id: mechanics.quaternion-body-ode
+    name: 単位四元数と物体角速度の時間発展
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単位四元数と物体角速度の時間発展）]
+    requires:
+      - mechanics.quaternion-composition
+      - mechanics.spatial-body-angular-velocity
+      - mechanics.angular-velocity-conjugacy
+  - id: mechanics.quaternion-numerical-update
+    name: Euler更新のノルム誤差と一定角速度の厳密更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Euler更新のノルム誤差と一定角速度の厳密更新）]
+    requires:
+      - mechanics.quaternion-body-ode
+      - mechanics.quaternion-norm-multiplication

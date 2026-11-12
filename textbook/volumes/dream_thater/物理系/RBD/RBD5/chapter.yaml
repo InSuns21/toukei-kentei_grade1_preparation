@@ -1,0 +1,49 @@
+id: "RBD5"
+title: "四元数による姿勢表現"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD4
+official_scope: []
+learning_objectives:
+  - Hamilton積・共役・ノルムの乗法性を成分から導出できる
+  - 単位四元数による挟み込み作用がSO(3)の能動回転を与えると示せる
+  - 軸角から四元数を構成しRodrigues公式および回転行列と照合できる
+  - qと負のqが同一姿勢を与え、それ以外の重複がないと証明できる
+  - Hamilton積の順序と有限回転の合成順序を具体例で検算できる
+  - 物体角速度に対する四元数微分方程式を導き単位ノルム保存を検証できる
+  - Euler角の座標特異性と四元数の符号二重性を区別できる
+  - 陽的Euler更新のノルム誤差と一定角速度の厳密更新を比較できる
+definitions:
+  - { id: RBD5-DEF-01, name: "四元数とHamilton積" }
+  - { id: RBD5-DEF-02, name: "単位四元数による姿勢" }
+theorems:
+  - { id: RBD5-PROP-01, name: "四元数の共役とノルムの乗法性" }
+  - { id: RBD5-THM-01, name: "単位四元数の回転公式と軸角表示" }
+  - { id: RBD5-THM-02, name: "姿勢表示の二重性" }
+  - { id: RBD5-PROP-02, name: "Hamilton積と能動回転の合成" }
+  - { id: RBD5-THM-03, name: "単位四元数と物体角速度の時間発展" }
+  - { id: RBD5-PROP-03, name: "Euler更新のノルム誤差と一定角速度の厳密更新" }
+canonical_examples:
+  - Hamilton積のiとjの非可換性とノルムの確認
+  - 単位四元数によるz軸四分の一回転
+  - qと負のqが同一姿勢を表すことと2pi回転の連続経路
+  - x軸とy軸回転の合成順序の違い
+  - Ry(t)でEuler角の極を通る滑らかな四元数更新
+  - 有限刻みのEuler更新とノルム誤差
+problem_patterns:
+  - RBD5-CONJUGATE-INVERSE
+  - RBD5-AXIS-ANGLE-HALF-ANGLE
+  - RBD5-SIGN-DOUBLE-COVER
+  - RBD5-HAMILTON-NONCOMMUTATIVITY
+  - RBD5-QUATERNION-ODE
+  - RBD5-ROTATION-MATRIX-TEST
+  - RBD5-FINITE-ROTATION-COMPOSITION
+  - RBD5-DOUBLE-COVER-PROOF
+  - RBD5-EULER-POLE-CROSSING
+  - RBD5-NORMALIZED-EULER-ERROR
+  - RBD5-ONE-TURN-LIFT-AND-DRIFT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }
