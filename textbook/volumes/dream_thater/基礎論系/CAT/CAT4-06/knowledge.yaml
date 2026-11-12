@@ -1,0 +1,68 @@
+chapter: CAT4-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT2-02
+  - CAT4-05
+
+concepts:
+  - id: category.simple-type
+    name: 単純型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単純型）"]
+    requires: []
+  - id: category.stlc-term
+    name: 単純型付き項と型付け
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単純型付き項と型付け）"]
+    requires: [category.simple-type]
+  - id: category.capture-avoiding-substitution
+    name: 捕獲を避ける同時代入
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（捕獲を避ける同時代入）"]
+    requires: [category.stlc-term]
+  - id: category.beta-eta-equational-theory
+    name: 外延的βη等式理論
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（外延的βη等式理論）"]
+    requires: [category.capture-avoiding-substitution]
+  - id: category.stlc-denotation
+    name: Cartesian閉圏における項の解釈
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cartesian閉圏における項の解釈）"]
+    requires: [category.stlc-term, category.cartesian-closed-category, category.exponential-object]
+  - id: category.stlc-typing-soundness
+    name: 型付けと射の型の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（型付けと射の型の一致）"]
+    requires: [category.stlc-denotation]
+  - id: category.stlc-substitution-lemma
+    name: 置換補題
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（置換補題）"]
+    requires: [category.capture-avoiding-substitution, category.stlc-denotation, category.evaluation-currying]
+  - id: category.stlc-beta-eta-soundness
+    name: βη等式の健全性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（βη等式の健全性）"]
+    requires: [category.stlc-substitution-lemma, category.beta-eta-equational-theory]
+  - id: category.stlc-syntactic-category
+    name: βη構文圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（βη構文圏）"]
+    requires: [category.beta-eta-equational-theory]
+  - id: category.stlc-syntactic-ccc
+    name: 構文圏はCartesian閉圏
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（構文圏はCartesian閉圏）"]
+    requires: [category.stlc-syntactic-category, category.cartesian-closed-category]
