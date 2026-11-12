@@ -1,0 +1,43 @@
+id: HOLO18
+title: "RT公式の最小模型"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO17
+  - HOLO3
+  - HOLO13
+official_scope: []
+learning_objectives:
+  - 静的Poincaré AdS3時間断面と余次元2のRT候補を対象・cutoffを指定して定義できる
+  - 半円測地線の第一積分・最短性と正則化端点の違いを検証できる
+  - 円弧の長さを角度積分から厳密に導き対数主項と有限cutoff誤差を計算できる
+  - RT処方を仮定と明示しBrown–Henneaux関係からc/3係数を再現できる
+  - 同一cutoffの区間長差とcutoff尺度変更による非普遍定数の違いを説明できる
+  - 熱状態と純粋円周真空に平面真空の長さを流用できない理由を判定できる
+definitions:
+  - { id: HOLO18-DEF-01, name: 静的単一区間の正則化RT幾何量 }
+theorems:
+  - { id: HOLO18-PROP-01, name: AdS3区間半円の正則化長 }
+  - { id: HOLO18-THM-01, name: RT仮定の下でのAdS3区間普遍係数 }
+  - { id: HOLO18-PROP-02, name: 同一cutoffの二つの区間長の比較 }
+canonical_examples:
+  - a=1かつepsilon=1/2の半円cutoff端点と正則化長
+  - 変分の第一積分からの半円と角度積分による対数主項
+  - 有限cutoffの境界アンカー曲線と固定端点曲線の違い
+  - L=2 G3=1/4のBrown–Henneaux中央電荷と係数
+  - 二つの区間のエントロピー差とcutoffの尺度変更
+problem_patterns:
+  - HOLO18-SPATIAL-SLICE
+  - HOLO18-FIRST-INTEGRAL
+  - HOLO18-ANGLE-INTEGRAL
+  - HOLO18-CENTRAL-CHARGE
+  - HOLO18-CUTOFF-ENDPOINTS
+  - HOLO18-INTERVAL-DIFFERENCE
+  - HOLO18-RENYI-TO-VON-NEUMANN
+  - HOLO18-REGULATOR-RESCALING
+  - HOLO18-THERMAL-VACUUM-BOUNDARY
+  - HOLO18-INTEGRATED-RT-MINIMAL-MODEL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 7 }

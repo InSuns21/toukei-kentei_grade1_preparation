@@ -30,7 +30,7 @@ chapters:
     title: "Weyl CCRと局所C*net"
   - id: AQFT7
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT7
-    status: planned
+    status: completed
     title: "quasifree状態と二点形式"
   - id: AQFT8
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT8

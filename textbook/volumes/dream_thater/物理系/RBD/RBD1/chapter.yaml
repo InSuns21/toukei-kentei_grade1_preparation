@@ -1,0 +1,42 @@
+id: "RBD1"
+title: "剛体の配置と六自由度"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MECH8
+official_scope: []
+learning_objectives:
+  - 物体固定座標と空間座標を区別し、x=c+R(X-X_C) によって標識点の位置を構成できる
+  - R^T R=I と det R=1 をそれぞれ確かめ、鏡映を回転と誤認しない
+  - 四つのアフィン独立な標識点について距離保存から共通の配置を導き、一意性・連続性の役割を説明できる
+  - 配置の合成順序と逆変換を計算し、並進成分が回転の影響を受けることを示せる
+  - 回転行列の微分から三つの独立成分を求め、並進三自由度との和として六自由度を説明できる
+  - 重心と任意の基準点の違い、共線配置・鏡映で破綻する仮定を特定できる
+definitions:
+  - { id: RBD1-DEF-01, name: "向きを保つ回転" }
+  - { id: RBD1-DEF-02, name: "剛体の配置" }
+theorems:
+  - { id: RBD1-THM-01, name: "距離を保つ三次元剛体運動の表示" }
+  - { id: RBD1-PROP-01, name: "剛体配置の合成と逆変換" }
+  - { id: RBD1-PROP-02, name: "標識された三次元剛体の局所的な六自由度" }
+canonical_examples:
+  - "四分の一回転と鏡映について直交性・行列式を別々に検査する"
+  - "四標識点の同一配置から位置と点間距離を求める"
+  - "四つのアフィン独立な標識点の Gram 行列から姿勢を復元する"
+  - "二つの剛体変換の順序を入れ替え、像が異なることを確認する"
+  - "共線な標識点だけでは回転軸まわりの角度が定まらないことを説明する"
+problem_patterns:
+  - RBD1-PROPER-ROTATION-CHECK
+  - RBD1-REFLECTION-COUNTEREXAMPLE
+  - RBD1-POINT-PLACEMENT
+  - RBD1-PAIRWISE-DISTANCE
+  - RBD1-CENTER-OF-MASS
+  - RBD1-GRAM-ORTHOGONALITY
+  - RBD1-TRANSFORM-COMPOSITION
+  - RBD1-PLANAR-TRIANGLE-FRAME
+  - RBD1-SKEW-TANGENT
+  - RBD1-FOUR-MARKERS-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }

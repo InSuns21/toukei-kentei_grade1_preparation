@@ -1,0 +1,48 @@
+chapter: RBD1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - MECH8
+forward_references: []
+concepts:
+  - id: mechanics.proper-rotation
+    name: 向きを保つ回転
+    kind: definition
+    aliases: [proper rotation, special orthogonal rotation]
+    introduction: formal
+    introduction_aliases: [定義（向きを保つ回転）]
+    requires:
+      - mechanics.rigid-body
+  - id: mechanics.rigid-configuration
+    name: 剛体の配置
+    kind: definition
+    aliases: [rigid-body configuration]
+    introduction: formal
+    introduction_aliases: [定義（剛体の配置）]
+    requires:
+      - mechanics.proper-rotation
+      - mechanics.center-of-mass
+  - id: mechanics.rigid-motion-reconstruction
+    name: 距離を保つ三次元剛体運動の表示
+    kind: theorem
+    aliases: [rigid motion reconstruction from distances]
+    introduction: formal
+    introduction_aliases: [定理（距離を保つ三次元剛体運動の表示）]
+    requires:
+      - mechanics.rigid-configuration
+  - id: mechanics.rigid-motion-composition
+    name: 剛体配置の合成と逆変換
+    kind: proposition
+    aliases: [composition and inverse of rigid motions]
+    introduction: formal
+    introduction_aliases: [命題（剛体配置の合成と逆変換）]
+    requires:
+      - mechanics.rigid-configuration
+  - id: mechanics.rigid-six-degrees-of-freedom
+    name: 標識された三次元剛体の局所的な六自由度
+    kind: proposition
+    aliases: [six degrees of freedom for a labelled rigid body]
+    introduction: formal
+    introduction_aliases: [命題（標識された三次元剛体の局所的な六自由度）]
+    requires:
+      - mechanics.rigid-configuration

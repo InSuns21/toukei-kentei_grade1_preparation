@@ -1,7 +1,7 @@
 # DREAM THEATER 剛体力学コース計画（RBD1〜RBD16・全16講）
 
 作成日: 2026-11-11  
-状態: planned（PLAN の設計のみ。章本文・系列 manifest・公開目次は未実装）
+状態: in progress（RBD1 実装済み。RBD2〜16 と系列最終横断監査は未完了）
 
 ## 0. 中心問い・全16講とする根拠
 
@@ -32,7 +32,7 @@
 - [古典力学 I](../plan_done/DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md)のMECH8が剛体・慣性・Euler方程式の**基本定理の所有者**。RBDは姿勢の表現・具体的外力・時間発展・拘束へ進む。既存の証明を別IDの新定理にしない。
 - [解析力学 I](../plan_done/DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md)のAMECH2が一般の拘束力学の所有者。RBD14は転がりの具体的な仮定・計算の所有者。
 - [幾何学的力学 I](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)のGMECH6（Lie–Poisson）、**GMECH7（Euler剛体・角運動量球面の簡約位相図）**、GMECH8（相対平衡と安定性）は必要箇所で参照。RBD9〜10は姿勢の復元・物理的安定性・Poinsotの幾何を主役とし、一般論を二重に証明しない。GMECHを履修しない読者にも必要な初等計算を本文で再現できるようにする。
-- [連続体力学（CTM1〜22、計画のみ）](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)は**RBDの前提ではない**。CTM2〜4の変形勾配・ひずみ・客観性とCTM5〜8の収支法則への具体的な接続を§5に定める。
+- [連続体力学（CTM1実装済み、CTM2〜22は予定）](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)は**RBDの前提ではない**。CTM2〜4の変形勾配・ひずみ・客観性とCTM5〜8の収支法則への具体的な接続を§5に定める。
 - 高度な剛体多体系、ロボット機構の制御、接触ソルバ、弾塑性接触、一般の非ホロノミック可積分性は別系列へ送る。
 
 予定章ID RBD1〜RBD16 は本新規系列の仮IDとして採用。実装開始時には現在のseries/章/knowledge DAGと衝突監査し、その時点で manifest を初期化する。PLAN設計だけで章・公開目次・manifestを作らない。
