@@ -5,6 +5,10 @@ status: supplementary
 prerequisites:
   - AQFT1
   - OA3
+  - OA5
+  - VN2
+  - QM4
+  - GRP3
 official_scope: []
 learning_objectives:
   - 局所C*-代数の割当てを明示し、isotony・Einstein局所性・Poincaré共変性を量化を含めて定義できる
