@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-hrt-surface -->
-**定義の直接確認（静的な場合）。** Poincaré $AdS_3$ の $t=0$ 断面上で、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$ を取ります。時間反転対称な断面では時間方向の一次変分が零で、空間方向は[HOLO18の半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)です。したがって両方向の変分が零です。半円と境界区間が囲む半円板は[相同条件](../HOLO19/index.md#def-holo19-homology)を満たします。単に「半円らしい」からではなく、アンカー・相同・空間的性質・二方向の停留性をそれぞれ確認しています。
+**定義の確認**（静的な場合）。 Poincaré $AdS_3$ の $t=0$ 断面上で、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$ を取ります。時間反転対称な断面では時間方向の一次変分が零で、空間方向は[HOLO18の半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)です。したがって両方向の変分が零です。半円と境界区間が囲む半円板は[相同条件](../HOLO19/index.md#def-holo19-homology)を満たします。単に「半円らしい」からではなく、アンカー・相同・空間的性質・二方向の停留性をそれぞれ確認しています。
 <!-- definition-example-end -->
 
 注意すべき点は、**時空全体で面積を最小にする**とは言っていないことです。Lorentz符号では時間方向の変形によって空間的曲線の長さが**減る**ことさえあります。静的RTの「ある空間断面上の最小」と、HRTの「時空内での停留」を混同してはいけません。
@@ -52,7 +52,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-null-expansion -->
-**定義の確認（拡大縮小と零条件）。** Minkowskiの $1+2$ 次元時空 $ds^2=-dt^2+dx^2+dy^2$ において、$t=0$ 上の半径 $r$ の円を取ります。未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とすると $g(k,l)=-1$ です。円周は $2\pi r$ ですから、外向きnull方向の半径変化率は $1/\sqrt2$、内向きは $-1/\sqrt2$ となり、
+**定義の確認**（拡大縮小と零条件）。 Minkowskiの $1+2$ 次元時空 $ds^2=-dt^2+dx^2+dy^2$ において、$t=0$ 上の半径 $r$ の円を取ります。未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とすると $g(k,l)=-1$ です。円周は $2\pi r$ ですから、外向きnull方向の半径変化率は $1/\sqrt2$、内向きは $-1/\sqrt2$ となり、
 >
 $$
 \theta_{(k)}=\frac{1}{\sqrt2\,r},\qquad
@@ -269,7 +269,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-maximin -->
-**定義の確認（順序で答えが変わる例）。** 断面ごとに二つの候補曲面がある有限模型を考えます。各行をバルク断面、各列を同じラベルの候補とします。
+**定義の確認**（順序で答えが変わる例）。 断面ごとに二つの候補曲面がある有限模型を考えます。各行をバルク断面、各列を同じラベルの候補とします。
 
 | 断面 | 候補1の面積 | 候補2の面積 |
 | --- | ---: | ---: |
@@ -278,15 +278,15 @@ $$
 
 断面を固定して小さい方を選ぶと、両方の行で値は4です。さらに断面間の大きい方を選ぶmaximinは
 
-$
+$$
 \max\{\min(4,100),\min(100,4)\}=\max\{4,4\}=4.
-$
+$$
 
 反対に各列の最大値を先に求めると、いずれの列も100となり、
 
-$
+$$
 \min\{\max(4,100),\max(100,4)\}=100.
-$
+$$
 
 従って4と100は一致しません。この表はmaximinの演算順序の直接例であり、幾何学的なHRT面の存在証明ではありません。
 <!-- definition-example-end -->
@@ -303,13 +303,13 @@ $
 > **定義（null曲率条件）**  
 > Lorentz時空 $(M,g)$ で、すべてのnull接ベクトル $k^a$ に対してRicci曲率の縮約が非負であるとき、null曲率条件（NCC）が成立するという。
 >
-$
+$$
 R_{ab}k^ak^b\ge0\qquad\text{for all }k\ne0\text{ with }g(k,k)=0.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-null-curvature -->
-**定義の確認（純AdS）。** 定曲率 $AdS_3$ では $R_{ab}=-2L^{-2}g_{ab}$ です。任意のnullベクトルに代入すると $R_{ab}k^ak^b=-2L^{-2}g(k,k)=0$。したがってNCCを等号で満たします。一般にはNCCを満たすことと、全断面でmaximinの極値が達成されることは別の問題です。
+**定義の確認**（純AdS）。 定曲率 $AdS_3$ では $R_{ab}=-2L^{-2}g_{ab}$ です。任意のnullベクトルに代入すると $R_{ab}k^ak^b=-2L^{-2}g(k,k)=0$。したがってNCCを等号で満たします。一般にはNCCを満たすことと、全断面でmaximinの極値が達成されることは別の問題です。
 <!-- definition-example-end -->
 
 この曲率条件はnull測地線束の収束を制御するものです。通常のEinstein方程式
