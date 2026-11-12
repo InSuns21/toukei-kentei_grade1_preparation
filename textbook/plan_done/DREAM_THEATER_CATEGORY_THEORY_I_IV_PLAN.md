@@ -1,7 +1,7 @@
 # DREAM THEATER：圏論 I〜IV（CAT）系列PLAN
 
 設計確定日: 2026-11-10  
-状態: **in progress**（CAT1-01 の本文・章metadata・系列manifestの実装に着手）  
+状態: **completed**（2026-11-12：CAT系列manifestの全40講が `completed`。系列完了に基づくPLAN終端への移動）  
 講義数: **40講に確定**（I：12講、II：12講、III：10講、IV：6講）
 
 ## 1. 中心問い・読者・到達点
@@ -36,7 +36,7 @@
 
 - 新系列IDは**`CAT`**、章IDは**`CAT1-01`〜`CAT1-12`、`CAT2-01`〜`CAT2-12`、`CAT3-01`〜`CAT3-10`、`CAT4-01`〜`CAT4-06`**の40個。既存`CAG`（複素代数幾何）・`CTM`（連続体力学）とは別。章実装前にID衝突を再検査する。
 - 講義の配置候補は`textbook/volumes/dream_thater/基礎論系/CAT/<章ID>/`。初章着手時に公開目次の8分類と実装スクリプトの許容ID形を検証する。目次へのリンク追加は公開可能な章だけを対象とする。
-- 設計確定時は`textbook/plans/`へ置き、系列manifest・本文はまだ作らなかった。CAT1-01着手に伴い`plans_progress/`へ移動し、CAT系列manifestの`plan`をこの実在パスへ合わせた。全40講の完了までは進行中とする。
+- 設計確定時は`textbook/plans/`へ置き、系列manifest・本文はまだ作らなかった。CAT1-01着手に伴い`plans_progress/`へ移動し、CAT系列manifestの`plan`をこの実在パスへ合わせた。CAT系列manifestにおける全40講の `completed` 確認を受け、2026-11-12に `plan_done/` へ移動した。
 - `HM1-01`（ホモロジカル・ミラー対称性PLAN）にも圏論導入の候補があるため、**後続HM実装前に同内容の二重執筆を回避**し、CATで証明された結果のみをstable anchor参照する。CAT終了はFukaya圏や導来圏の証明の完了を意味しない。
 
 ## 4. 講義構成（確定40講）
@@ -122,3 +122,9 @@
 - 内容スコープに応じて`validate:textbook:changed`、`validate:textbook-knowledge:changed`、`validate:dream-theater-concepts:changed`、演習数・formal/proof・公開目次・Pagesリンクを検証する。共有規約・既存knowledgeの変更など全体に波及する場合はfull auditへ昇格する。
 - 40講全ての本文・metadata・詳細解答・必要な公開導線・横断依存監査まで完了して初めて`plan_done/`へ移す。**このPLANのマージは40講の本文執筆完了を意味しない。**
 
+
+## 7. 系列完了時の記録（2026-11-12）
+
+- 系列manifest `textbook/dream-theater-series/CAT.yaml` に含まれる40講（I 12、II 12、III 10、IV 6）のすべてが `completed` であり、未完了の予定講義は0件であることを確認した。
+- ユーザー指定の「系列が完了している場合はPLANをdoneにする」という条件に従い、本計画書を `plans_progress/` から `plan_done/` へ移し、系列manifestの `plan` 参照も同時更新した。
+- 今回の状態変更は、**系列manifest上の講義完了**を根拠とする。40講全体に対する新たな一括の横断依存監査を実施したと主張するものではない。§6の当初の横断監査要求に対する全件実施記録は、本変更では確認していない。
