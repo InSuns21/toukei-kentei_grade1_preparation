@@ -1,0 +1,53 @@
+chapter: CAT3-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-12
+  - CAT2-07
+  - CAT2-11
+  - CAT3-07
+  - CAT3-09
+
+concepts:
+  - id: category.presheaf-elements-category
+    name: 前層の元の圏
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前層の元の圏）"]
+    requires: [category.set-valued-presheaf]
+  - id: category.presheaf-element-cocone
+    name: 元に付随する標準余錐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（元に付随する標準余錐）"]
+    requires: [category.presheaf-elements-category, category.contravariant-yoneda-lemma]
+  - id: category.yoneda-density
+    name: Yonedaの密度定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Yonedaの密度定理）"]
+    requires: [category.presheaf-element-cocone, category.colimit]
+  - id: category.density-coend
+    name: 密度定理のcoend表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（密度定理のcoend表示）"]
+    requires: [category.yoneda-density, category.contravariant-co-yoneda]
+  - id: category.yoneda-kan-density
+    name: 密度定理とYonedaに沿う左Kan拡張
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（密度定理とYonedaに沿う左Kan拡張）"]
+    requires: [category.yoneda-density, category.pointwise-left-kan-universality]
+  - id: category.yoneda-free-extension
+    name: Yonedaに沿う左Kan拡張の計算式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Yonedaに沿う左Kan拡張の計算式）"]
+    requires: [category.yoneda-kan-density, category.pointwise-left-kan-universality]
+  - id: category.density-colimit-determination
+    name: 余極限保存関手の表現可能対象による決定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余極限保存関手の表現可能対象による決定）"]
+    requires: [category.yoneda-density, category.yoneda-free-extension]

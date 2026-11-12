@@ -1,0 +1,48 @@
+id: "CAT3-10"
+title: "密度定理とKan拡張"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-12
+  - CAT2-07
+  - CAT2-11
+  - CAT3-07
+  - CAT3-09
+official_scope: []
+learning_objectives:
+  - 前層の元の圏の対象・射・合成と小ささを定義から検証できる
+  - 元に付随する表現可能前層の標準余錐を自然性・余錐条件とともに構成できる
+  - 密度定理の余極限から前層への評価写像と逆写像を作り、well-defined性と二変数の自然性を証明できる
+  - coend表示の生成関係と反変co-Yoneda公式を実例で計算できる
+  - Yoneda埋め込みに沿う左Kan拡張を元の圏の余極限として構成できる
+  - 余極限保存関手を表現可能対象上の値から復元し、保存仮定の必要性を反例で説明できる
+definitions:
+  - { id: CAT3-10-DEF-01, name: 前層の元の圏 }
+  - { id: CAT3-10-DEF-02, name: 元に付随する標準余錐 }
+theorems:
+  - { id: CAT3-10-THM-01, name: Yonedaの密度定理 }
+  - { id: CAT3-10-PROP-01, name: 密度定理のcoend表示 }
+  - { id: CAT3-10-THM-02, name: 密度定理とYonedaに沿う左Kan拡張 }
+  - { id: CAT3-10-THM-03, name: Yonedaに沿う左Kan拡張の計算式 }
+  - { id: CAT3-10-PROP-02, name: 余極限保存関手の表現可能対象による決定 }
+canonical_examples:
+  - 矢印圏の元の圏と標準余錐
+  - 離散二対象前層の表現可能前層からの余積表示
+  - 二対象矢印圏のcoend商の具体的計算
+  - 離散圏に沿う左Kan拡張の要素表示
+  - 余極限を保存しない直積二乗関手の反例
+problem_patterns:
+  - CAT3-10-ELEMENTS-ARROW
+  - CAT3-10-COCONE-ARROW
+  - CAT3-10-DISCRETE-GENERATORS
+  - CAT3-10-INVERSE-QUOTIENT
+  - CAT3-10-COEND-RELATION
+  - CAT3-10-TRANSFORMATION-ELEMENTS
+  - CAT3-10-LAN-DISCRETE
+  - CAT3-10-REPRESENTABLE-TERMINAL
+  - CAT3-10-FAILURE-COPRODUCT
+  - CAT3-10-COLIMIT-PRESERVING-CLASSIFY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 3 }
