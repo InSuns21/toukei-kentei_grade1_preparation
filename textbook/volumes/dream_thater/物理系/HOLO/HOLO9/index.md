@@ -90,12 +90,12 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u=z^2+|x-y|^2$、$F=z^\Delta u^{-\Delta}$ と書きます。対数微分から
+$q=z^2+|x-y|^2$、$F=z^\Delta q^{-\Delta}$ と書きます。対数微分から
 
 $$
-\frac{\partial_zF}{F}=\frac{\Delta}{z}-\frac{2\Delta z}{u},\qquad
+\frac{\partial_zF}{F}=\frac{\Delta}{z}-\frac{2\Delta z}{q},\qquad
 \frac{\partial_z^2F}{F}=\frac{\Delta(\Delta-1)}{z^2}
--\frac{2\Delta(2\Delta+1)}{u}
+-\frac{2\Delta(2\Delta+1)}{q}
 +\frac{4\Delta(\Delta+1)z^2}{u^2}.
 $$
 
@@ -103,14 +103,14 @@ $$
 
 $$
 \frac{\Delta_xF}{F}
-=-\frac{2d\Delta}{u}+\frac{4\Delta(\Delta+1)|x-y|^2}{u^2}.
+=-\frac{2d\Delta}{q}+\frac{4\Delta(\Delta+1)|x-y|^2}{u^2}.
 $$
 
-[HOLO8の成分表示](../HOLO8/index.md#ref-holo8-radial-equation)での $\nabla_E^2=L^{-2}[z^2\partial_z^2-(d-1)z\partial_z+z^2\Delta_x]$ に代入します。$u^{-2}$ の項を先に合算すると、その寄与は
+[HOLO8の成分表示](../HOLO8/index.md#ref-holo8-radial-equation)での $\nabla_E^2=L^{-2}[z^2\partial_z^2-(d-1)z\partial_z+z^2\Delta_x]$ に代入します。$q^{-2}$ の項を先に合算すると、その寄与は
 
 $
 4\Delta(\Delta+1)\frac{z^2(z^2+|x-y|^2)}{u^2}
-=4\Delta(\Delta+1)\frac{z^2}{u}
+=4\Delta(\Delta+1)\frac{z^2}{q}
 $
 
 です。一方、$z^2/u$ に掛かる残りの係数は、$z^2\partial_z^2F$、$-(d-1)z\partial_zF$、$z^2\Delta_xF$ の順に
@@ -137,7 +137,7 @@ $
 
 従って各 $y$ ごとに方程式を満たします。$J$ のコンパクト台と $z>0$ によって微分を積分の中へ移せるので $\phi_J$ も解です。
 
-次に $y=x+zu$ と変数変換し、$dy=z^ddu$ を使うと
+次に、先ほどのスカラー量 $q$ とは別に、境界方向の無次元ベクトル $u=(y-x)/z\in\mathbb R^d$ を導入します。$z>0$ なので $y=x+zu$ は可逆な変数変換であり、Jacobianは $d^dy=z^d\,d^du$ です。これを使うと
 
 $$
 z^{-\Delta_-}\phi_J(z,x)
@@ -316,15 +316,15 @@ z\partial_zR_z(x)
 \frac{J(x+r)-J(x)}{(z^2+|r|^2)^{\Delta+1}}\,d^dr
 $
 
-を得ます。ここでも一次Taylor項の積分は零です。$|r|<1$ と $|r|\ge1$ に分け、前者で $r=zu$ と置くと
+を得ます。ここでも一次Taylor項の積分は零です。$r$ は境界方向のベクトルなので、極座標の動径を $\rho=|r|$ と書きます。$\rho<1$ と $\rho\ge1$ に分け、前者で $\rho=zv$（$v\ge0$）と置き、球面積係数を定数 $C$ に含めると
 
 $
 \begin{aligned}
 \sup_x|z\partial_zR_z(x)|
 &\le C z^2\int_0^1
-\frac{r^{d+1}}{(z^2+r^2)^{\Delta+1}}\,dr+Cz^2\\
+\frac{\rho^{d+1}}{(z^2+\rho^2)^{\Delta+1}}\,d\rho+Cz^2\\
 &\le C' z^{2-2\nu}
-\int_0^\infty\frac{u^{d+1}}{(1+u^2)^{\Delta+1}}\,du+Cz^2
+\int_0^\infty\frac{v^{d+1}}{(1+v^2)^{\Delta+1}}\,dv+Cz^2
 \longrightarrow0.
 \end{aligned}
 $
@@ -363,7 +363,7 @@ $$
 
 ## 4. GKPW辞書から2点関数を得る
 
-$d\ge3$ では、[QFT48のスカラー一次場の定義](../../QFT/QFT48/index.md#def-qft48-scalar-primary)を使った[HOLO4の境界CFT](../HOLO4/index.md)から、相異なる二点の相関関数が $|x-y|^{-2\Delta}$ に比例することを既習です。ただし両講の定理は $d\ge3$ を仮定しており、**本講で許す $d=2$ へそのまま引用できません**。$d=2$ も含む以下の距離冪は、共形対称性の既習定理を拡張したものとしてではなく、明示するGKPW辞書とバルク核から直接導きます。いずれの次元でも対称性だけでは係数が決まりません。ここでバルク作用の計算結果を境界演算子の生成汎関数と**対応させる仮定**を明示します。
+$d\ge3$ では、[QFT48のスカラー一次場の定義](../../QFT/QFT48/index.md#def-qft48-scalar-primary)と[二点関数の次元選択則](../../QFT/QFT48/index.md#thm-qft48-primary-two-point)をHOLO4でも使い、相異なる二点の相関関数が $|x-y|^{-2\Delta}$ に比例することを既習です。ただし両講の定理は $d\ge3$ を仮定しており、**本講で許す $d=2$ へそのまま引用できません**。$d=2$ も含む以下の距離冪は、共形対称性の既習定理を拡張したものとしてではなく、明示するGKPW辞書とバルク核から直接導きます。いずれの次元でも対称性だけでは係数が決まりません。ここでバルク作用の計算結果を境界演算子の生成汎関数と**対応させる仮定**を明示します。
 
 <a id="def-holo9-gkpw"></a>
 
