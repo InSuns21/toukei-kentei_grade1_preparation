@@ -6,6 +6,7 @@ prerequisites:
   - AQFT3
   - HPDE22
   - HPDE23
+  - QFT1
 official_scope: []
 learning_objectives:
   - 四次元Minkowski計量 (-+++) で実Klein–Gordon作用素と試験関数空間の支持を定め、Pの台不増大性を具体式で検査できる
