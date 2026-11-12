@@ -52,7 +52,28 @@ $$
 \iff |\boldsymbol y-\boldsymbol x|>|s-t|.
 $$
 
-また、[Minkowskiの因果的未来の座標表示](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を $p$ に適用すると、$q\in J^+(p)$ は $s-t\ge|\boldsymbol y-\boldsymbol x|$ に同値です。この結果の核心を確認します。$p$ から $q$ への未来向き区分的 $C^1$ 因果曲線を $\gamma(u)=(t(u),\boldsymbol x(u))$（$0\le u\le1$）と書き、上の点は曲線の媒介変数 $u$ に関する微分 $\dot t=dt/du$、$\dot{\boldsymbol x}=d\boldsymbol x/du$ を表すものとします。計量の $(-+++)$ 符号と未来向き条件から、各滑らかな片で $-\dot t^2+|\dot{\boldsymbol x}|^2\le0$、$\dot t\ge0$ なので $|\dot{\boldsymbol x}|\le\dot t$ です。各片の積分を加えて
+また、[Minkowskiの因果的未来の座標表示](../../../幾何系/LORG/LORG6/index.md#thm-lorg6-minkowski-futures)を $p$ に適用すると、到達条件は次の不等式です。
+
+$$
+q\in J^+(p)\quad\Longleftrightarrow\quad s-t\ge|\boldsymbol y-\boldsymbol x|.
+$$
+
+この結果の核心を確認します。$p$ から $q$ への未来向き区分的 $C^1$ 因果曲線を $\gamma(u)=(t(u),\boldsymbol x(u))$（$0\le u\le1$）と書きます。上の点は、媒介変数 $u$ に関する微分を表し、
+
+$$
+\dot t=\frac{dt}{du},\qquad
+\dot{\boldsymbol x}=\frac{d\boldsymbol x}{du}
+$$
+
+です。計量の $(-+++)$ 符号と未来向き条件から、各滑らかな片で
+
+$$
+-\dot t^2+|\dot{\boldsymbol x}|^2\le0,\qquad
+\dot t\ge0
+\quad\Longrightarrow\quad |\dot{\boldsymbol x}|\le\dot t
+$$
+
+が成り立ちます。各片の積分を加えると、
 
 $$
 |\boldsymbol y-\boldsymbol x|
@@ -385,7 +406,24 @@ $$
 
 ## 6. 座標変換しても因果補集合は保たれる
 
-後の理論では、同じ形の領域を移動・回転・Lorentz変換したものも使います。ここで必要な**Poincaré変換**とは、$\Lambda$ を $g(\Lambda v,\Lambda w)=g(v,w)$ を任意の時空ベクトル $v,w$ に対して満たす可逆なLorentz線形変換、$a\in M$ を平行移動ベクトルとして、$F(p)=\Lambda p+a$ と表す時空の可逆アフィン写像です。[Lorentz不変性](../../../物理系/SREL/SREL2/index.md#thm-srel2-interval-invariance)はboost・空間回転での具体例です。一般の $\Lambda$ についても、$F(p)-F(q)=\Lambda(p-q)$ と定義式から $g(F(p)-F(q),F(p)-F(q))=g(p-q,p-q)$ が成立します。
+後の理論では、領域を移動・回転・Lorentz変換したものも使います。**Poincaré変換**は、時空ベクトルの計量を保存する可逆線形写像 $\Lambda$ と、平行移動ベクトル $a\in M$ を用いた可逆アフィン写像です。すなわち任意の時空ベクトル $v,w$ と点 $p$ に対し
+
+$$
+g(\Lambda v,\Lambda w)=g(v,w),\qquad
+F(p)=\Lambda p+a
+$$
+
+とします。[Lorentz不変性](../../../物理系/SREL/SREL2/index.md#thm-srel2-interval-invariance)はboost・空間回転での具体例です。一般の $\Lambda$ に対しても、平行移動項が点の差で消えることと、上の定義式から
+
+$$
+\begin{aligned}
+g(F(p)-F(q),F(p)-F(q))
+&=g(\Lambda(p-q),\Lambda(p-q))\\
+&=g(p-q,p-q)
+\end{aligned}
+$$
+
+が成り立ちます。
 
 <a id="prop-aqft1-poincare-complement"></a>
 
@@ -465,7 +503,17 @@ $D_3$ の $t=0,1,2,3$ における空間断面を求め、$(2,(1,0,0))$ が領�
 $u=(1,(-2,50,0))$、$v=(1,(2,50,0))$、$w=(2,(2,0,0))$ の右・左wedgeへの所属を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[wedgeの定義](#def-aqft1-wedges)では $x^1$ と $t$ だけを比較します。$u$ は $-x^1=2>|t|=1$ なので左wedge、$v$ は $x^1=2>1$ なので右wedgeです。$w$ は $x^1=|t|=2$ なので**右wedgeの境界上**であり、左wedgeについては $-x^1=-2<|t|=2$ なので外部です。従ってどちらの開wedgeにも属しません。左右両方の境界にあるわけではありません。横方向の50は条件に入っていません。
+**詳細解答**。[wedgeの定義](#def-aqft1-wedges)では、時刻 $t$ と第一空間座標 $x^1$ だけを比較します。各点で条件を計算すると
+
+$$
+\begin{aligned}
+u &: \quad -x^1=2>|t|=1 && (W_L\text{ の内部}),\\
+v &: \quad x^1=2>|t|=1 && (W_R\text{ の内部}),\\
+w &: \quad x^1=2=|t|,\quad -x^1=-2<|t|=2
+\end{aligned}
+$$
+
+です。$w$ は**右wedgeの境界上**で、左wedgeの境界ではなく外部です。従ってどちらの開wedgeにも属しません。横方向の50は所属条件に影響しません。
 <!-- solution-end -->
 
 <a id="ex-aqft1-a04"></a>
@@ -544,7 +592,26 @@ $$
 $S\subset T\subset M$ のとき $T^\perp\subset S^\perp$ を定義から証明せよ。また空間的に分離した開領域 $O_1,O_2$ について $O_1\subset O_2^\perp$ を示す際、開集合性を使う場所を明記せよ。
 
 <!-- solution-start -->
-**詳細解答**。[開いた因果補集合の定義](#def-aqft1-causal-complement)に戻ります。$T$ の全点と空間的な点は、$S$ の全点とも空間的だから $C_{\mathrm{sp}}(T)\subset C_{\mathrm{sp}}(S)$ です。内部を取る操作は包含を保つため $T^\perp\subset S^\perp$ です。続いて、すべての $p\in O_1$ と $q\in O_2$ が空間的なら、量化の順番を固定して $O_1\subset C_{\mathrm{sp}}(O_2)$ が従います。ここで**$O_1$ は開集合**なので、$C_{\mathrm{sp}}(O_2)$ に含まれる開集合の一つであり、その最大の開部分集合 $\operatorname{int}C_{\mathrm{sp}}(O_2)$ に含まれます。これが $O_1\subset O_2^\perp$ です。
+**詳細解答**。[開いた因果補集合の定義](#def-aqft1-causal-complement)に戻ります。$T$ の全点と空間的な点は、$S$ の全点とも空間的です。集合の内部を取る操作も包含を保つので
+
+$$
+C_{\mathrm{sp}}(T)\subset C_{\mathrm{sp}}(S)
+\quad\Longrightarrow\quad T^\perp\subset S^\perp.
+$$
+
+続いて、両領域のすべての点対が空間的なら、全称条件から
+
+$$
+O_1\subset C_{\mathrm{sp}}(O_2)
+$$
+
+となります。**$O_1$ が開集合であること**をここで使います。右辺に含まれる任意の開集合はその内部にも含まれるため、
+
+$$
+O_1\subset\operatorname{int}C_{\mathrm{sp}}(O_2)=O_2^\perp
+$$
+
+です。
 <!-- solution-end -->
 
 <a id="ex-aqft1-b04"></a>
