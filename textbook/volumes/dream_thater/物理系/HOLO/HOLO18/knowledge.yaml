@@ -1,0 +1,32 @@
+chapter: HOLO18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO17
+  - HOLO3
+  - HOLO13
+concepts:
+  - id: holography.static-interval-rt-length
+    name: 静的単一区間の正則化RT幾何量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静的単一区間の正則化RT幾何量）"]
+    requires: [holography.equal-time-semicircle-geodesic, holography.boundary-regulated-entropy-data]
+  - id: holography.ads3-interval-regulated-length
+    name: AdS3区間半円の正則化長
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AdS3区間半円の正則化長）"]
+    requires: [holography.static-interval-rt-length, holography.regulated-boundary-geodesic-length]
+  - id: holography.ads3-rt-interval-coefficient
+    name: RT仮定の下でのAdS3区間普遍係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（RT仮定の下でのAdS3区間普遍係数）"]
+    requires: [holography.ads3-interval-regulated-length, holography.brown-henneaux-central-charge]
+  - id: holography.rt-interval-length-difference
+    name: 同一cutoffの二つの区間長の比較
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一cutoffの二つの区間長の比較）"]
+    requires: [holography.ads3-interval-regulated-length, holography.ads3-rt-interval-coefficient]
