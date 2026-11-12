@@ -8,12 +8,16 @@
 
 本講では、まずその方法を高次元へ移して弱い下界を計算します。次に、**小さな合併体積ならどこかで多数の管が重なる**という事実を逆手に取り、一点近くに集中する管を少し離れた場所で数え直します。これが **bush法** の核心です。最後に、中心の一点ではなく一本の管に多数が集まる **hairbrush配置** を考え、次の改良に必要な幾何を見ます。
 
-以下、$d\ge2$ を固定し、$0<\delta<\delta_d$ を十分小さい数とします。$|x|$ はEuclidノルム、$|E|$ は $d$ 次元Lebesgue測度、$\omega_k$ は $k$ 次元単位球体積（$\omega_0=1$）です。$c_d,C_d$ は $d$ にのみ依存する正定数で、行ごとに変わってよいものとします。管と重複度は[GMT32の定義](../GMT32/index.md#def-gmt32-tube)に従い、
+以下、$d\ge2$ を固定し、$0<\delta<\delta_d$ を十分小さい数とします。$|x|$ はEuclidノルム、$|E|$ は $d$ 次元Lebesgue測度、$\omega_k$ は $k$ 次元単位球体積（$\omega_0=1$）です。$c_d,C_d$ は $d$ にのみ依存する正定数で、行ごとに変わってよいものとします。管・重複度・合併は[GMT32の定義](../GMT32/index.md#def-gmt32-tube)に従い、
 
 $$
-T_\delta(a,v)=\{x:\operatorname{dist}(x,\{a+tv:0\le t\le1\})<\delta\},
-\qquad m(x)=\sum_{j=1}^N\mathbf1_{T_j}(x)
-$$
+T_\delta(a,v)=\{x:\operatorname{dist}(x,\{a+tv:0\le t\le1\})<\delta\}.
+$
+
+$
+m(x)=\sum_{j=1}^N\mathbf1_{T_j}(x),
+\qquad U_\delta=\bigcup_{j=1}^N T_j.
+$
 
 とします。$v\in S^{d-1}$ は単位ベクトルです。以下の方向は、必要に応じて北極 $e_d=(0,\ldots,0,1)$ の周囲の固定した球面帽 $\{v:v\cdot e_d\ge3/4\}$ から選びます。この帽内では互いに正反対を向く二方向は現れません。
 
@@ -119,7 +123,15 @@ $$
 A_k=\{j\ne i:r_k\le|v_j-v_i|<2r_k\}
 $$
 
-を考えます。各 $v_j$ を中心とする半径 $\delta/3$ のEuclid球は互いに交わりません。輪の中心は半径 $2r_k$ の球内にあるため、これらの小球は $S^{d-1}$ の厚さ $\delta/3$ の近傍と $B(v_i,3r_k)$ の共通部分に入ります。その体積は $C_dr_k^{d-1}\delta$ 以下で、小球一つの体積は $c_d\delta^d$ です。よって
+を考えます。各 $v_j$ を中心とする半径 $\delta/3$ のEuclid球は互いに交わりません。輪の中心は半径 $2r_k$ の球内にあるため、これらの小球は $S^{d-1}$ の厚さ $\delta/3$ の近傍と $B(v_i,3r_k)$ の共通部分に入ります。
+
+ここでその共通部分の体積を確かめます。点 $z$ を $z=\rho u$（$u\in S^{d-1}$）と書くと、$|\rho-1|<\delta/3$ かつ
+
+$
+|u-v_i|\le|u-z|+|z-v_i|<\delta/3+3r_k\le4r_k
+$
+
+です。球面上の半径 $4r_k$ の帽は局所座標で $(d-1)$ 次元の広がりが高々 $C_dr_k^{d-1}$ であり、径方向の厚さは $2\delta/3$、体積要素の径方向係数 $\rho^{d-1}$ も一様有界です。従って共通部分の体積は $C_dr_k^{d-1}\delta$ 以下です。一方、小球一つの体積は $c_d\delta^d$ なので、
 
 $$
 \#A_k\le C_d(r_k/\delta)^{d-1}
@@ -180,19 +192,21 @@ $$
 > $d\ge2$、$0<\delta<1$ とする。$x\in\mathbb R^d$ と有限個の長さ1・半径$\delta$のtube $T_1,\ldots,T_N$ に対し、
 
 $$
-\mathcal B(x)=\{T_i:x\in T_i\},
+\mathcal B(x)=\{i\in\{1,\ldots,N\}:x\in T_i\},
 \qquad L(x)=\#\mathcal B(x)
-$$
+$
 
-> をそれぞれ $x$ におけるbushとその本数という。したがって $L(x)=m(x)$ である。
+> と定める。$\mathcal B(x)$ は $x$ におけるbushを構成する**管の番号の集合**、$L(x)$ はその本数であり、実際の管の族は $(T_i)_{i\in\mathcal B(x)}$ である。同じ幾何的なtubeが異なる番号で二度現れても別々に数えるので、常に $L(x)=m(x)$ が成り立つ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gmt34-bush -->
 ### 直接確認：交差する二本と離れた一本
 
-$\mathbb R^3$ で原点中心の水平tube $T_1$ と鉛直tube $T_2$ を取り、第三のtube $T_3$ は原点から距離2以上離して置きます。$0<\delta<1/8$ とすると $0\in T_1\cap T_2$、$0\notin T_3$ なので $\mathcal B(0)=\{T_1,T_2\}$、$L(0)=m(0)=2$ です。原点から距離が1以上の点をとり、三管のどれにも入らなければ $\mathcal B(x)=\varnothing$、$L(x)=0$ です。
+$\mathbb R^3$ で原点中心の水平tube $T_1$ と鉛直tube $T_2$ を取り、第三のtube $T_3$ は原点から距離2以上離して置きます。$0<\delta<1/8$ とすると $0\in T_1\cap T_2$、$0\notin T_3$ なので $\mathcal B(0)=\{1,2\}$、$L(0)=m(0)=2$ です。原点から距離が1以上の点をとり、三管のどれにも入らなければ $\mathcal B(x)=\varnothing$、$L(x)=0$ です。
 
-**定義の確認**：点が各tubeの距離$\delta$未満の領域に入るかを確認した上で集合を列挙し、指示関数の和と本数の一致も計算しました。
+さらに $T_4=T_1$ を別の番号で登録してみます。このとき $\mathcal B(0)=\{1,2,4\}$ で $L(0)=m(0)=3$ です。管そのものの集合 $\{T_1,T_2\}$ では要素が2個しかなく、重複度の定義とは一致しません。番号を数える理由はここにあります。
+
+**定義の確認**：点が各tubeの距離$\delta$未満の領域に入るかを確認し、管番号を列挙して指示関数の和と本数を照合しました。重複した管も異なる番号なら別々に数えることを確かめました。
 <!-- definition-example-end -->
 
 次の補題は、**bushの根元では重なっても、離れた小円柱片は一度に高々定数本しか重ならない**ことを保証します。方向は球面帽内で弦長$\delta$以上離れているものとします。
@@ -204,7 +218,7 @@ $\mathbb R^3$ で原点中心の水平tube $T_1$ と鉛直tube $T_2$ を取り�
 > $d\ge2$ とする。球面帽 $\{v:v\cdot e_d\ge3/4\}$ 内で $|v_i-v_j|\ge\delta$ の単位方向を持つ長さ1・半径$\delta$のtube $T_i$ を有限個選ぶ。$\delta>0$ が十分小さく、ある $x\in\mathbb R^d$ がそのうち $L\ge1$ 本に含まれるとする。このとき、その $L$ 本の合併体積は
 
 $$
-\left|\bigcup_{T_i\in\mathcal B(x)}T_i\right|
+\left|\bigcup_{i\in\mathcal B(x)}T_i\right|
 \ge c_d L\delta^{d-1}.
 $$
 
@@ -257,13 +271,13 @@ $$
 
 同じ符号の方向は $\delta$-分離です。各方向に半径 $\delta/3$ のEuclid球を置くと互いに交わらず、それらは半径 $(C+1)\delta$ の球に含まれます。小球の体積と大球の体積を比較すれば、一つの $y$ に対応する方向は高々 $C_d$ 個です。
 
-従って、各 $y$ について $\sum_{T_i\in\mathcal B(x)}\mathbf1_{B_i}(y)\le C_d$。これを積分すると
+従って、各 $y$ について $\sum_{i\in\mathcal B(x)}\mathbf1_{B_i}(y)\le C_d$。これを積分すると
 
 $$
 L c_d'\delta^{d-1}
-=\sum_{T_i\in\mathcal B(x)}|B_i|
-\le C_d\left|\bigcup_{T_i\in\mathcal B(x)}B_i\right|
-\le C_d\left|\bigcup_{T_i\in\mathcal B(x)}T_i\right|.
+=\sum_{i\in\mathcal B(x)}|B_i|
+\le C_d\left|\bigcup_{i\in\mathcal B(x)}B_i\right|
+\le C_d\left|\bigcup_{i\in\mathcal B(x)}T_i\right|.
 $$
 
 定数を $c_d=c_d'/C_d$ と選べば結論です。$\square$
@@ -271,7 +285,21 @@ $$
 
 ## 5. bush法の古典的下界
 
-方向の確保には[GMT32の分離方向数補題](../GMT32/index.md#lem-gmt32-direction-count)を使います。固定した北極帽内に $\delta$-分離方向を $N\ge c_d\delta^{-(d-1)}$ 個取れます。上からも $N\le C_d\delta^{-(d-1)}$ とできるよう、最大分離集合を選びます。例えば $d=3$ で帽内の二座標に間隔 $C\delta$ の格子を取り、各格子点を $v=(u_1,u_2,\sqrt{1-u_1^2-u_2^2})$ に持ち上げれば、$N\asymp\delta^{-2}$ が具体的に実現します。
+方向の総数の上界には[GMT32の分離方向数補題](../GMT32/index.md#lem-gmt32-direction-count)を使います。一方、**固定した北極帽だけで下界に必要な本数が取れること**は次の座標構成で確かめます。$u=(u_1,\ldots,u_{d-1})$ の各成分を $|u_j|\le(8\sqrt{d-1})^{-1}$ の立方体から選び、
+
+$
+v(u)=\left(u_1,\ldots,u_{d-1},\sqrt{1-|u|^2}\right)
+$
+
+と置きます。$|u|^2\le1/64$ なので $v(u)\cdot e_d\ge\sqrt{63/64}>3/4$、つまり全点が指定した帽内にあります。また
+
+$
+|v(u)-v(u')|^2=|u-u'|^2+
+\left(\sqrt{1-|u|^2}-\sqrt{1-|u'|^2}\right)^2
+\ge|u-u'|^2.
+$
+
+従って立方体内に間隔 $\delta$ の格子を取れば方向は $\delta$-分離し、その個数は $N\ge c_d\delta^{-(d-1)}$ です。全球面での方向数上界も使うと $N\le C_d\delta^{-(d-1)}$ です。例えば $d=3$ では二座標格子から $N\asymp\delta^{-2}$ が実現します。
 
 <a id="thm-gmt34-bush"></a>
 
@@ -316,7 +344,7 @@ $$
 です。この $x$ を含む $L$ 本はまさしく[定義したbush](#def-gmt34-bush)であり、球面帽内の方向分離を引き継ぎます。[bushの外側での体積下界](#lem-gmt34-bush-packing)を適用すると
 
 $$
-V\ge\left|\bigcup_{T_i\in\mathcal B(x)}T_i\right|
+V\ge\left|\bigcup_{i\in\mathcal B(x)}T_i\right|
 \ge b_dL\delta^{d-1}
 \ge\frac{a_db_d}{V}\delta^{d-1}.
 $$
@@ -485,7 +513,7 @@ $r$ の小さい輪が主役になるのではなく、$k$ の大きい輪が支
 <!-- solution-start -->
 #### 詳細解答
 
-[定義](#def-gmt34-bush)により $\mathcal B(x)=\{T_1,T_3,T_4\}$、従って $L(x)=3$ です。指示関数は順に $(1,0,1,1,0)$ なので
+[定義](#def-gmt34-bush)により $\mathcal B(x)=\{1,3,4\}$、従って $L(x)=3$ です。指示関数は順に $(1,0,1,1,0)$ なので
 
 $$
 m(x)=\sum_{i=1}^5\mathbf1_{T_i}(x)=1+0+1+1+0=3=L(x).
