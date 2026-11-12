@@ -1,0 +1,60 @@
+chapter: U3-07
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-06]
+forward_references: []
+concepts:
+  - id: finance.bermudan-option
+    name: Bermudan オプションと行使日集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bermudan オプションと行使日集合）"]
+    requires: [finance.discrete-stopping-time, finance.american-option]
+  - id: finance.bermudan-backward-value
+    name: Bermudan の後退価値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Bermudan の後退価値）"]
+    requires: [finance.bermudan-option, finance.discrete-snell-envelope, finance.binomial-conditional-average]
+  - id: finance.bermudan-stopping-value
+    name: 許された停止時刻と後退価値の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（許された停止時刻と後退価値の一致）"]
+    requires: [finance.bermudan-backward-value, finance.discrete-stopping-time]
+  - id: finance.bermudan-schedule-monotonicity
+    name: 行使機会を増やしたときの価格単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（行使機会を増やしたときの価格単調性）"]
+    requires: [finance.bermudan-stopping-value, finance.european-binomial-valuation]
+  - id: finance.put-exercise-region
+    name: put の早期行使領域と行使境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（put の早期行使領域と行使境界）"]
+    requires: [finance.bermudan-backward-value]
+  - id: finance.put-exercise-threshold
+    name: 無配当二項 put の行使領域は低株価側に連なる
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（無配当二項 put の行使領域は低株価側に連なる）"]
+    requires: [finance.put-exercise-region, finance.binomial-conditional-average]
+  - id: finance.call-no-early-exercise
+    name: 無配当・非負金利の American call は早期行使不要
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無配当・非負金利の American call は早期行使不要）"]
+    requires: [finance.bermudan-stopping-value, finance.european-binomial-valuation, finance.discrete-martingale]
+  - id: finance.one-period-cash-dividend-market
+    name: 1期間の確定現金配当付き二項市場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1期間の確定現金配当付き二項市場）"]
+    requires: [finance.one-period-binomial-market, finance.dividend-adjusted-put-call-parity]
+  - id: finance.dividend-call-early-exercise
+    name: 配当付き call で早期行使が厳密に有利な例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（配当付き call で早期行使が厳密に有利な例）"]
+    requires: [finance.one-period-cash-dividend-market, finance.bermudan-backward-value]

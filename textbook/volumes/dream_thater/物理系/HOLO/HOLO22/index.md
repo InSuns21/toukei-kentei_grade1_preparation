@@ -10,7 +10,7 @@
 
 境界の空間領域 $A$ は、境界のある空間的Cauchy断面上の領域です。その境界 $\partial A$ をバルクの奥で埋める余次元2の**空間的**曲面を考えます。「空間的」とは曲面に制限した計量 $h$ が正定値で、曲面上の長さ・面積が実数として定義できることです。バルクが$d+1$次元なら曲面は$d-1$次元です。
 
-曲面の場所を動かす方向は、局所的に時間的方向と空間的方向の二つです。面積の一次変分を任意のコンパクト支持法線変位 $V$ に対して零にする条件を、平均曲率ベクトル $H^a=0$ と書きます。前章の[固定面の二方向の極値条件](../HOLO21/index.md#prop-holo21-fixed-surface)が、Euclid模型で現れたのと対応しますが、ここではLorentz符号で扱います。
+曲面の場所を動かす法線方向は、局所的に時間的方向と空間的方向の二つです。曲面上の局所座標を $\sigma^i$、接ベクトルを $e_i^a=\partial X^a/\partial\sigma^i$ とすれば、誘導計量は $h_{ij}=g_{ab}e_i^ae_j^b$ です。その逆行列 $h^{ij}$ を用いて二つの法線方向の第二基本形式を縮約すると、面積一次変分を支配する**平均曲率ベクトル** $H^a$ が得られます。$H^a=0$ とは、アンカーを固定した任意のコンパクト支持法線変位 $V$ に対して面積一次変分が零という意味です。前章の[固定面の二方向の極値条件](../HOLO21/index.md#prop-holo21-fixed-surface)ではEuclid模型でこの構造を確認しましたが、ここではLorentz符号の法線を使います。null法線による具体的な判定式は第2節で導きます。
 
 <a id="def-holo22-hrt-surface"></a>
 
@@ -28,14 +28,32 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-hrt-surface -->
-**定義の確認**（静的な場合）。 Poincaré $AdS_3$ の $t=0$ 断面上で、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$ を取ります。時間反転対称な断面では時間方向の一次変分が零で、空間方向は[HOLO18の半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)です。したがって両方向の変分が零です。半円と境界区間が囲む半円板は[相同条件](../HOLO19/index.md#def-holo19-homology)を満たします。単に「半円らしい」からではなく、アンカー・相同・空間的性質・二方向の停留性をそれぞれ確認しています。
+**定義の確認**（静的な場合）。 Poincaré $AdS_3$ の座標 $(t,x,z)$ とその計量を、$L>0$、$z>0$ として先に明示します。
+
+$$
+ds^2=\frac{L^2}{z^2}(-dt^2+dx^2+dz^2).
+$$
+
+この時空の $t=0$ 断面で、$R>0$ とし、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$ を取ります。端点は指定された $\partial A$ に一致し、三次元時空内の曲線なので余次元2です。曲線上で $dt=0$ かつ
+
+$$
+ds_\gamma^2=\frac{L^2}{z^2}(dx^2+dz^2)>0
+$$
+
+となるため空間的です。空間方向には[HOLO18の半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)の停留性を使います。一方 $t\mapsto-t$ が等長な時間反転であり、$t=0$ にある曲線の時間法線変位の符号を反転するため、長さの一次係数は零です。こうして独立な二方向とも面積（ここでは長さ）が停留します。半円と境界区間が囲む半円板 $R_A$ は $\partial R_A=A+\gamma\pmod2$ なので、[相同条件](../HOLO19/index.md#def-holo19-homology)も満たします。これは極値**候補**であることの直接確認であり、一般時空の候補選択まで証明したわけではありません。
 <!-- definition-example-end -->
 
 注意すべき点は、**時空全体で面積を最小にする**とは言っていないことです。Lorentz符号では時間方向の変形によって空間的曲線の長さが**減る**ことさえあります。静的RTの「ある空間断面上の最小」と、HRTの「時空内での停留」を混同してはいけません。
 
 ## 2. 二つのnull方向を使って極値条件を判定する
 
-時間的・空間的な法線を使う代わりに、二つの未来向きnull法線 $k^a,l^a$ を使うこともできます。nullとは $g_{ab}k^ak^b=0$ という意味です。二方向を独立にし、$g(k,l)=-1$ に規格化します。曲面に沿った計量の逆 $h^{ab}$ を曲面接方向へ拡張すると、$k$ 方向へ動かしたときの面積の局所的な対数変化率を計算できます。次にその式を明示します。
+時間的・空間的な法線を使う代わりに、二つの未来向きnull法線 $k^a,l^a$ を使うこともできます。nullとは $g_{ab}k^ak^b=0$ という意味です。二方向を独立にし、$g(k,l)=-1$ に規格化します。第1節の接ベクトル $e_i^a$ と逆誘導計量 $h^{ij}$ から
+
+$$
+h^{ab}=h^{ij}e_i^ae_j^b
+$$
+
+と置きます。これは逆行列を時空全体で取るのではなく、**曲面接方向だけへの射影**として拡張したテンソルです。法線 $k$ に対して $h^{ab}k_b=0$ が成り立ちます。法線方向に面を動かしたとき、誘導計量の一次変化から面積密度の対数変化率を計算するのが次の膨張率です。
 
 <a id="def-holo22-null-expansion"></a>
 
@@ -52,7 +70,33 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-null-expansion -->
-**定義の確認**（拡大縮小と零条件）。 Minkowskiの $1+2$ 次元時空 $ds^2=-dt^2+dx^2+dy^2$ において、$t=0$ 上の半径 $r$ の円を取ります。未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とすると $g(k,l)=-1$ です。円周は $2\pi r$ ですから、外向きnull方向の半径変化率は $1/\sqrt2$、内向きは $-1/\sqrt2$ となり、
+**定義の確認**（拡大縮小と零条件）。 $1+2$ 次元Minkowski時空の計量を $ds^2=-dt^2+dx^2+dy^2$ とします。$r>0$ で平面の極座標を $x=r\cos\phi,\ y=r\sin\phi$ と置くと、
+
+$$
+dx=\cos\phi\,dr-r\sin\phi\,d\phi,\qquad
+dy=\sin\phi\,dr+r\cos\phi\,d\phi
+$$
+
+なので交差項が消え、$dx^2+dy^2=dr^2+r^2d\phi^2$ です。ここで $t=0$ 上の半径 $r$ の円を取ります。
+
+未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とします。極座標表示で $g(\partial_t,\partial_t)=-1$、$g(\partial_r,\partial_r)=1$、両方向は直交するため、
+
+$$
+g(k,k)=g(l,l)=\frac{-1+1}{2}=0,\qquad
+g(k,l)=\frac{-1-1}{2}=-1.
+$$
+
+二つの法線は独立です。円のパラメータは $\phi$ であり、$\partial_\phi$ に制限した誘導計量の成分は $h_{\phi\phi}=r^2$。したがって円周は $\ell(r)=2\pi r$ です。
+
+各null法線に沿うパラメータを $\lambda$ とします。膨張率 $\theta$ は誘導計量の面積密度（ここでは線密度）の対数変化率なので、$\theta=(1/\ell)d\ell/d\lambda$ です。実際、$dr/d\lambda=\pm1/\sqrt2$ より
+
+$$
+\frac1\ell\frac{d\ell}{d\lambda}
+=\frac{1}{2\pi r}\,2\pi\frac{dr}{d\lambda}
+=\pm\frac1{\sqrt2\,r}.
+$$
+
+> 従って二方向について
 >
 $$
 \theta_{(k)}=\frac{1}{\sqrt2\,r},\qquad
@@ -66,7 +110,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二方向の膨張率と平均曲率）**  
-> 滑らかな空間的余次元2曲面の法線平面が独立なnull法線 $k,l$ で張られ、曲面の法線変分が自由に取れるとする。このとき面積がすべてのコンパクト支持法線変分に対して停留することと、$\theta_{(k)}=\theta_{(l)}=0$ は同値である。null法線を $k\mapsto e^f k$, $l\mapsto e^{-f}l$ と再規格化しても、両方が零という条件は変わらない。
+> 滑らかな空間的余次元2曲面の法線平面が独立なnull法線 $k,l$ で張られ、法線変分が自由に取れるとする。すべてのコンパクト支持法線変分について面積が停留することは、次の条件と同値である。
+>
+$$
+\theta_{(k)}=\theta_{(l)}=0.
+$$
+>
+> $\omega$ を曲面上の滑らかな実数値関数とする。null法線を $k\mapsto e^\omega k$, $l\mapsto e^{-\omega}l$ と再規格化しても、両膨張率が零という条件は変わらない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -89,7 +139,7 @@ $q=0$ として $f$ を任意のコンパクト支持関数にします。もし
 
 次に $f=0$ とし、$q$ だけを自由に選びます。$\theta_{(l)}$ にも同じ局所支持関数の議論を適用すると $\theta_{(l)}=0$ です。逆に両者が零なら一次変分の積分は任意の $f,q$ で零となります。
 
-法線再規格化では $\nabla_a(e^f k_b)=e^f(\nabla_a k_b+(\partial_a f)k_b)$。$h^{ab}k_b=0$ なので $\theta_{(e^f k)}=e^f\theta_{(k)}$、同じく $\theta_{(e^{-f}l)}=e^{-f}\theta_{(l)}$。従って零条件は規格化によらず不変です。
+法線再規格化では $\nabla_a(e^\omega k_b)=e^\omega(\nabla_a k_b+(\partial_a\omega)k_b)$。$h^{ab}k_b=0$ なので $\theta_{(e^\omega k)}=e^\omega\theta_{(k)}$、同じく $\theta_{(e^{-\omega}l)}=e^{-\omega}\theta_{(l)}$。従って零条件は規格化によらず不変です。
 <!-- proof-end -->
 
 曲面が$d+1=3$次元バルクの曲線なら、平均曲率ベクトルの消失は測地線方程式と同じです。この同値を、次の時間差がある区間で具体的に確認します。
@@ -119,7 +169,9 @@ T=\Gamma\bigl((t-t_c)-v(x-x_c)\bigr),\qquad
 X=\Gamma\bigl((x-x_c)-v(t-t_c)\bigr)
 $$
 
-です。実際に微分すると $-dT^2+dX^2=-dt^2+dx^2$ となるため、$z$ を変えないこのboostはバルクの等長変換です。二端点は $T=0,\ X=\pm R$ に移ります。
+です。実際に $dT=\Gamma(dt-v\,dx)$、$dX=\Gamma(dx-v\,dt)$ を代入すると、$\Gamma^2(1-v^2)=1$ から $-dT^2+dX^2=-dt^2+dx^2$ です。従って $z$ を変えないこのboostはバルクの等長変換で、二端点は $T=0,\ X=\pm R$ に移ります。
+
+以下の中央電荷 $c_{\rm BH}$ は、純三次元Einstein重力・標準的Brown–Henneaux型境界条件・左右同じ中央電荷の境界CFTを仮定した[Brown–Henneaux関係](../HOLO13/index.md#prop-holo13-brown-henneaux)による $c_{\rm BH}=3L/(2G_3)$（$G_3>0$）です。一般の高階微分重力へ無条件に流用しません。
 
 <a id="prop-holo22-boosted-geodesic"></a>
 
@@ -200,17 +252,58 @@ $$
 
 ## 4. 極値が時間方向では最大、空間方向では最小になる局所計算
 
-静的な $T=0$ 半円で $X^2+z_0(X)^2=R^2$、$z_0(X)=\sqrt{R^2-X^2}$ とします。cutoffより内側の固定区間で、両端を動かさない滑らかな関数 $f(X)$ を取り、$T(X)=\eta f(X)$ とだけ変形します。$\eta$ を十分小さくすれば曲線は空間的なままです。
+静的な $T=0$ 断面の半円を、$R>0$ として次のように表します。
+
+$$
+X^2+z_0(X)^2=R^2,\qquad
+z_0(X)=\sqrt{R^2-X^2}.
+$$
+
+理想境界 $X=\pm R$ では $z_0=0$ となるため、**半円全体の長さは発散**します。そこでcutoff $0<\epsilon<R$ を固定し、
+
+$$
+a_\epsilon=\sqrt{R^2-\epsilon^2}
+$$
+
+と置きます。有限長さ $\mathcal L_\epsilon$ は区間 $[-a_\epsilon,a_\epsilon]$ の部分曲線だけに対して定義します。
+
+滑らかな関数 $f(X)$ は両端近くで零とし、その支持を開区間 $(-a_\epsilon,a_\epsilon)$ に含めます。時間座標だけを $T(X)=\eta f(X)$ と変形すると、cutoff端点は動きません。十分小さな $\eta$ では曲線は空間的なままです。
+
+記号のプライムは、曲線や変形関数については座標 $X$ による導関数を表します。
+
+$$
+z_0'=\frac{dz_0}{dX},\qquad
+f'=\frac{df}{dX}.
+$$
+
+一方、長さのプライムは変形パラメータによる導関数です。
+
+$$
+\mathcal L_\epsilon'(\eta)
+=\frac{d\mathcal L_\epsilon}{d\eta}.
+$$
+
+この変分では $X,z_0,f,\epsilon$ を固定し、$\eta$ だけを動かします。
 
 <a id="prop-holo22-local-saddle"></a>
 
 <!-- formal-statement-start -->
 > **命題（半円曲線の時間法線に沿う局所最大性）**  
-> $R>0$ とし、$f$ を $(-R,R)$ 内にコンパクト支持を持つ滑らかな非定数関数とする。$X^2+z_0^2=R^2$ を固定して $T=\eta f(X)$ と変形した曲線の長さは、$\eta\to0$ において
+> $L,R>0$ を取り、cutoff $0<\epsilon<R$ を固定する。次の値を定める。
 >
 $$
-\mathcal L(\eta)=\mathcal L(0)
--\frac{L\eta^2}{2R}\int_{-R}^{R}(f'(X))^2\,dX
+a_\epsilon=\sqrt{R^2-\epsilon^2}.
+$$
+>
+> $f$ を $(-a_\epsilon,a_\epsilon)$ 内にコンパクト支持を持つ滑らかな非定数関数とする。
+>
+> 半円 $X^2+z_0(X)^2=R^2$ を固定し、時間座標だけを $T(X)=\eta f(X)$ と変形する。
+>
+> 同じcutoff端点間の有限長さは $\eta\to0$ において
+>
+$$
+\mathcal L_\epsilon(\eta)=\mathcal L_\epsilon(0)
+-\frac{L\eta^2}{2R}\int_{-a_\epsilon}^{a_\epsilon}(f'(X))^2\,dX
 +O(\eta^4).
 $$
 >
@@ -227,8 +320,8 @@ Lorentz符号の負項 $-dT^2$ が長さに入ることを、実際の曲線の�
 $z_0'=-X/z_0$ であるから $1+(z_0')^2=R^2/z_0^2$ です。変形後の長さは
 
 $$
-\mathcal L(\eta)
-=L\int_{-R}^{R}\frac1{z_0}
+\mathcal L_\epsilon(\eta)
+=L\int_{-a_\epsilon}^{a_\epsilon}\frac1{z_0}
 \sqrt{1+(z_0')^2-\eta^2(f')^2}\,dX.
 $$
 
@@ -239,9 +332,9 @@ $$
 =\frac{LR}{z_0^2}-\frac{L\eta^2}{2R}(f')^2+O(\eta^4).
 $$
 
-支持の外では差が零なので積分した剰余も $O(\eta^4)$ です。$f$ が非定数かつコンパクト支持なら $\int(f')^2dX>0$。従って時間方向で二次変分は負です。
+$\epsilon$ を固定すれば $z_0\ge\epsilon>0$ であり、$f$ の支持の外では差が零なので積分した剰余も $O(\eta^4)$ です。$f$ が非定数かつコンパクト支持なら $\int_{-a_\epsilon}^{a_\epsilon}(f')^2dX>0$。従って $\mathcal L_\epsilon'(0)=0$ で二次変分は負です。発散する無正則化長の差を取っているのではありません。
 
-他方、$T=0$ 内で空間曲線 $z=z(X)$ の長さ汎関数は $L\int \sqrt{1+(z')^2}\,z^{-1}dX$。Euler–Lagrange式の両辺を半円へ代入すると
+他方、$T=0$ 内での空間曲線 $z=z(X)$ の長さ汎関数は $L\int F(z,z')\,dX$ と書けます。ここで $z'=dz/dX$、$F(z,z')=\sqrt{1+(z')^2}/z$ は定数 $L$ を除いた被積分関数です。Euler–Lagrange式 $d(\partial F/\partial z')/dX=\partial F/\partial z$ に半円を代入すると
 
 $$
 \frac{\partial F}{\partial z}=-\frac R{z_0^3},\qquad
@@ -371,35 +464,105 @@ $$
 **A1. 二端点とboostの範囲。** $\Delta x=13$、$\Delta t=5$、$L>0$ とする。$v,\Gamma,D,R$ を求め、二端点を同じ $T$ に置けることを確認せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $v=5/13$、$1-v^2=1-25/169=144/169$、従って $\Gamma=13/12$。不変長は $D=\sqrt{169-25}=\sqrt{144}=12$、$R=D/2=6$。$T_2-T_1=\Gamma(\Delta t-v\Delta x)=(13/12)(5-5)=0$ です。$|\Delta t|<\Delta x$ が成立するのでboostは実数で空間的端点条件を満たします。
+**詳細解答。** $|\Delta t|=5<13=\Delta x$ なので実数のboostを取れます。各量を定義から計算すると
+
+$$
+v=\frac5{13},\qquad
+1-v^2=1-\frac{25}{169}=\frac{144}{169},\qquad
+\Gamma=\frac{13}{12},
+$$
+
+$$
+D=\sqrt{13^2-5^2}=12,\qquad R=\frac D2=6.
+$$
+
+時間差は
+
+$$
+T_2-T_1
+=\Gamma(\Delta t-v\Delta x)
+=\frac{13}{12}\left(5-\frac5{13}\cdot13\right)=0
+$$
+
+です。$D>0$ なのでboost後に同じ $T$ 上の空間的二端点となります。
 <!-- solution-end -->
 
 <a id="ex-holo22-a02"></a>
 **A2. null曲率の縮約。** $R_{ab}=-2L^{-2}g_{ab}$、$g(k,k)=0$ を持つ $AdS_3$ で $R_{ab}k^ak^b$ を求めよ。これはNCCを満たすか。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $R_{ab}k^ak^b=(-2/L^2)g_{ab}k^ak^b=(-2/L^2)\cdot0=0$。NCCは $R_{ab}k^ak^b\ge0$ なので等号で成立します。厳密に正であることは求められていません。NCCだけからmaximinの存在は結論できません。
+**詳細解答。** 与えられたRicciテンソルにnullベクトルを二度縮約すると
+
+$$
+R_{ab}k^ak^b
+=-\frac{2}{L^2}\,g_{ab}k^ak^b
+=-\frac{2}{L^2}\cdot0=0.
+$$
+
+したがって[null曲率条件](#def-holo22-null-curvature) $R_{ab}k^ak^b\ge0$ は等号で成立します。厳密に正である必要はありません。ただし、この不等式だけではmaximin面の存在・安定性を結論できません。
 <!-- solution-end -->
 
 <a id="ex-holo22-a03"></a>
 **A3. null膨張率。** Minkowski $ds^2=-dt^2+dr^2+r^2d\phi^2$ の $t=0$、$r=2$ の円に対し、$k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とする。規格化 $g(k,l)$ と両膨張率を求め、極値性を判定せよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $g(k,l)=\frac12(g(\partial_t,\partial_t)-g(\partial_r,\partial_r))=(-1-1)/2=-1$。円周は $2\pi r$。null方向の半径変化率は $\pm1/\sqrt2$ なので[膨張率の定義](#def-holo22-null-expansion)から $\theta_{(k)}=1/(\sqrt2r)=1/(2\sqrt2)$、$\theta_{(l)}=-1/(2\sqrt2)$。両方は零でなく、[二方向の膨張率と平均曲率](#prop-holo22-expansion-equivalence)より極値候補ではありません。
+**詳細解答。** $g(\partial_t,\partial_t)=-1$、$g(\partial_r,\partial_r)=1$、両者は直交するので
+
+$$
+g(k,l)=\frac12(-1-1)=-1.
+$$
+
+円の誘導計量は $h_{\phi\phi}=r^2$、円周は $\ell=2\pi r$ です。[膨張率の定義](#def-holo22-null-expansion)を円周の対数変化率として評価します。$dr/d\lambda=\pm1/\sqrt2$ より、$r=2$ で
+
+$$
+\theta_{(k)}=\frac1\ell\frac{d\ell}{d\lambda}
+=\frac{1}{\sqrt2\,r}=\frac{1}{2\sqrt2},\qquad
+\theta_{(l)}=-\frac{1}{2\sqrt2}.
+$$
+
+両方は零でなく、[二方向の膨張率と平均曲率](#prop-holo22-expansion-equivalence)より極値候補ではありません。
 <!-- solution-end -->
 
 <a id="ex-holo22-a04"></a>
 **A4. cutoff長の数値例。** $L=2$、$R=5$、$\epsilon=3$ で半円の正確なcutoff長を求めよ。さらに$\epsilon/R$が小さくないので対数主項だけで代用してよいか述べよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\sqrt{R^2-\epsilon^2}=\sqrt{25-9}=4$。[boost半円の命題](#prop-holo22-boosted-geodesic)の正確式から $\mathcal L_\epsilon=2L\log((R+4)/3)=4\log3$。対数主項だけなら $2L\log(2R/\epsilon)=4\log(10/3)$ で異なります。$\epsilon/R=3/5$ は十分小さいとは言えず、誤差項を無視して正確な値と呼んではいけません。
+**詳細解答。** $0<\epsilon=3<R=5$ を確認し、平方根を計算すると
+
+$$
+\sqrt{R^2-\epsilon^2}=\sqrt{25-9}=4.
+$$
+
+[boost半円の命題](#prop-holo22-boosted-geodesic)の**正確式**へ $L=2$ を代入して
+
+$$
+\mathcal L_\epsilon
+=2L\log\frac{R+\sqrt{R^2-\epsilon^2}}{\epsilon}
+=4\log\frac{5+4}{3}=4\log3.
+$$
+
+一方、対数主項だけなら $2L\log(2R/\epsilon)=4\log(10/3)$ となります。$\epsilon/R=3/5$ は十分小さい極限ではないので、主項を正確な長さと呼べません。
 <!-- solution-end -->
 
 <a id="ex-holo22-a05"></a>
 **A5. maximinの順序。** 二断面の候補面積が $\Sigma_1:(2,9)$、$\Sigma_2:(6,4)$ である。各断面での最小値、maximin値、列ごとに最大化した後のminimax値を求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\Sigma_1$ の最小は $\min(2,9)=2$、$\Sigma_2$ の最小は $\min(6,4)=4$。その最大は $\max(2,4)=4$。逆順は列ごとに $\max(2,6)=6$、$\max(9,4)=9$ を求め、その最小は $\min(6,9)=6$。したがって $4\ne6$。この表は[定義](#def-holo22-maximin)の演算順を確認する代数模型です。
+**詳細解答。** 各行で先に最小化し、その結果を断面間で最大化します。
+
+$$
+\min(2,9)=2,\qquad \min(6,4)=4,
+\qquad \max(2,4)=4.
+$$
+
+逆順では先に列ごとに最大化してから最小化するので
+
+$$
+\max(2,6)=6,\qquad \max(9,4)=9,
+\qquad \min(6,9)=6.
+$$
+
+したがって $4\ne6$ です。この表は[maximinの定義](#def-holo22-maximin)の演算順を確認する代数模型であり、幾何学的な存在定理ではありません。
 <!-- solution-end -->
 
 ### Level B：変分と選択条件を導く
@@ -408,7 +571,20 @@ $$
 **B1. Lorentz boostした曲線を元の座標に戻す。** $\Delta x=10$、$\Delta t=6$、$t_c=x_c=0$ とする。$T=0$、$X^2+z^2=R^2$ を $(t,x,z)$ で表し、曲線が $t=\text{一定}$ でないことと、$z>0$ で空間的であることを検査せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $v=6/10=3/5$、$D=\sqrt{100-36}=8$、$R=4$、$\Gamma=5/4$。$T=\Gamma(t-vx)=0$ より $t=3x/5$。$X=\Gamma(x-vt)=\Gamma x(1-v^2)=x/\Gamma=4x/5$。よって
+**詳細解答。** 定義から $v=3/5$、$D=\sqrt{10^2-6^2}=8$、$R=4$、$\Gamma=5/4$ です。$T=0$ の条件と空間座標の変換は順に
+
+$$
+T=\Gamma(t-vx)=0
+\quad\Longrightarrow\quad t=vx=\frac35x,
+$$
+
+$$
+X=\Gamma(x-vt)
+=\Gamma(1-v^2)x
+=\frac{x}{\Gamma}=\frac45x
+$$
+
+となります。これを $X^2+z^2=16$ に代入すると
 
 $$
 z^2+\frac{16}{25}x^2=16,\qquad t=\frac35x.
@@ -428,14 +604,15 @@ $$
 **B2. 時間変分の符号と停留性。** 半円 $z_0(X)=\sqrt{R^2-X^2}$ を固定し、$T=\eta f(X)$ とする。$f$ は端点近傍で0とする。長さの$\eta$一次項、二次項を計算し、時空最小の誤用を指摘せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $1+(z_0')^2=R^2/z_0^2$ なので、[局所変分命題](#prop-holo22-local-saddle)の出発式は
+**詳細解答。** cutoff $0<\epsilon<R$ を固定し、$f$ の支持を $(-a_\epsilon,a_\epsilon)$ に含めます。$1+(z_0')^2=R^2/z_0^2$ なので、[局所変分命題](#prop-holo22-local-saddle)の出発式は
 
 $$
-\mathcal L(\eta)=L\int \frac1{z_0}
+\mathcal L_\epsilon(\eta)
+=L\int_{-a_\epsilon}^{a_\epsilon}\frac1{z_0}
 \sqrt{\frac{R^2}{z_0^2}-\eta^2(f')^2}\,dX.
 $$
 
-平方根の展開で一次項はなく、二次係数は $-L(2R)^{-1}\int(f')^2dX$。非定数 $f$ ならこの積分は正で、$\mathcal L'(0)=0$、$\mathcal L''(0)=-(L/R)\int(f')^2dX<0$。時間方向へ動かすと長さは減るため、停留面を時空内の大域最小とみなす論法が破綻します。
+$z_0\sqrt{1+(z_0')^2}=R$ を用いた平方根の展開で一次項はなく、二次係数は $-L(2R)^{-1}\int_{-a_\epsilon}^{a_\epsilon}(f')^2\,dX$。非定数 $f$ ならこの積分は正で、$\mathcal L_\epsilon'(0)=0$、$\mathcal L_\epsilon''(0)=-(L/R)\int_{-a_\epsilon}^{a_\epsilon}(f')^2\,dX<0$。時間方向へ動かすと長さは減るため、停留面を時空内の大域最小とみなす論法が破綻します。
 <!-- solution-end -->
 
 <a id="ex-holo22-b03"></a>
@@ -481,7 +658,18 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**（1）** $D^2=(\Delta x)^2-(\Delta t)^2=100-36=64>0$ なので空間的です。$v=3/5$、$\Gamma=5/4$、$D=8$、$R=4$。boostした端点差は $T_2-T_1=\Gamma(6-(3/5)10)=0$、$X_2-X_1=\Gamma(10-(3/5)6)=(5/4)(32/5)=8$。従って中点を原点に取って $T=0$、$X^2+z^2=16$ です。
+**（1）** 境界端点のLorentz不変な二乗距離は $D^2=10^2-6^2=64>0$ なので空間的です。$v=\Delta t/\Delta x=3/5$、$1-v^2=16/25$ より $\Gamma=5/4$、$D=8$、$R=4$ と求まります。boostの両端点差を計算すると
+
+$$
+T_2-T_1=\frac54\left(6-\frac35\cdot10\right)=0,
+$$
+
+$$
+X_2-X_1=\frac54\left(10-\frac35\cdot6\right)
+=\frac54\cdot\frac{32}{5}=8.
+$$
+
+よって中点を原点に取って $T=0$、$X^2+z^2=16$ です。
 
 **（2）** boostは等長変換で、[HOLO18の静的半円](../HOLO18/index.md#prop-holo18-regulated-length)は空間的測地線。時間反転対称な $T=0$ 断面上では時間法線の一次変分も零です。半円板と境界区間で挟まれた領域の境界は、その区間と半円に一致するので[HOLO19の相同条件](../HOLO19/index.md#def-holo19-homology)を満たします。$R=4$ を[本章の長さ命題](#prop-holo22-boosted-geodesic)へ代入すると
 
@@ -491,11 +679,11 @@ $$
 =2L\log\frac8\epsilon+O(L\epsilon^2/64).
 $$
 
-**（3）** [局所変分命題](#prop-holo22-local-saddle)より
+**（3）** $a_\epsilon=\sqrt{16-\epsilon^2}$ とし、$f$ は $(-a_\epsilon,a_\epsilon)$ にコンパクト支持を持つ非定数関数とします。[局所変分命題](#prop-holo22-local-saddle)で $R=4$ を代入すると
 
 $$
-\mathcal L(\eta)-\mathcal L(0)
-=-\frac{L\eta^2}{8}\int_{-4}^{4}(f')^2\,dX+O(\eta^4).
+\mathcal L_\epsilon(\eta)-\mathcal L_\epsilon(0)
+=-\frac{L\eta^2}{8}\int_{-a_\epsilon}^{a_\epsilon}(f')^2\,dX+O(\eta^4).
 $$
 
 非定数の $f$ で負です。空間方向の最短性は $T=0$ 断面内の比較であり、時間方向を含めた時空最小ではありません。両方向の一次変分が零というHRT極値性とは矛盾しません。

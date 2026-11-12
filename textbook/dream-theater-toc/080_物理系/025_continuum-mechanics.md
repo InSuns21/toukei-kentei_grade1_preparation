@@ -6,3 +6,4 @@
 3. [CTM3 有限ひずみと剛体回転をどう区別するか](textbook/volumes/dream_thater/物理系/CTM/CTM3/index.md)
 4. [CTM4 速度勾配と客観性は何を測るか](textbook/volumes/dream_thater/物理系/CTM/CTM4/index.md)
 5. [CTM5 物質領域の質量保存から連続の式へ](textbook/volumes/dream_thater/物理系/CTM/CTM5/index.md)
+6. [CTM6 面に作用する力はなぜ二階テンソルで書けるか](textbook/volumes/dream_thater/物理系/CTM/CTM6/index.md)

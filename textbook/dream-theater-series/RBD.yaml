@@ -23,7 +23,7 @@ chapters:
     title: Euler角と姿勢の座標特異性
   - id: RBD5
     path: textbook/volumes/dream_thater/物理系/RBD/RBD5
-    status: planned
+    status: completed
     title: 四元数による姿勢表現
   - id: RBD6
     path: textbook/volumes/dream_thater/物理系/RBD/RBD6
