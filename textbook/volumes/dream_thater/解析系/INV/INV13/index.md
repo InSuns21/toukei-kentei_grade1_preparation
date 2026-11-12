@@ -38,14 +38,25 @@ $$
 
 <!-- definition-example-start: def-inv13-backprojection -->
 
-**定義の確認**：$g(\varphi,s)=\sqrt{\pi/a}\,e^{-as^2}$（$a>0$）を考えます。各 $x$ について被積分関数は連続かつ $\sqrt{\pi/a}$ 以下なので可積分です。原点 $x=0$ では $x\cdot\theta_\varphi=0$ となり、
+**定義の確認**：$a>0$、$f_a(x)=e^{-a|x|^2}$ の測定データ $g=Rf_a$ を考えます。$\theta_\varphi,\theta_\varphi^\perp$ が正規直交するため、線上の座標表示で $|s\theta_\varphi+t\theta_\varphi^\perp|^2=s^2+t^2$ です。[FOU3 のGaussian Fourier公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を周波数0で使うと
+
+$$
+\begin{aligned}
+g(\varphi,s)
+&=\int_{\mathbb R}e^{-a(s^2+t^2)}\,dt\\
+&=e^{-as^2}\int_{\mathbb R}e^{-at^2}\,dt
+=\sqrt{\pi/a}\,e^{-as^2}.
+\end{aligned}
+$$
+
+各 $x$ について $\varphi\mapsto g(\varphi,x\cdot\theta_\varphi)$ は連続かつ $\sqrt{\pi/a}$ 以下なので可積分です。原点 $x=0$ では $x\cdot\theta_\varphi=0$ となり、
 
 $$
 (Bg)(0)=\int_0^\pi\sqrt{\pi/a}\,d\varphi
 =\pi\sqrt{\pi/a}.
 $$
 
-これは $f_a(x)=e^{-a|x|^2}$ のRadonデータ $g=Rf_a$ に一致します。しかし $f_a(0)=1$ は $a$ に依存しません。従って、全ての $a>0$ に同じ定数を掛けて $BRf_a(0)=f_a(0)$ とすることはできません。
+一方 $f_a(0)=1$ は $a$ に依存しません。従って、全ての $a>0$ に同じ定数を掛けて $BRf_a(0)=f_a(0)$ とすることはできません。
 
 <!-- definition-example-end -->
 
@@ -78,7 +89,7 @@ $$
 
 周波数 $\xi\ne0$ は、$0\le\varphi<\pi$ と符号付き周波数 $\omega\in\mathbb R\setminus\{0\}$ によって、境界の測度零の違いを除き一意に $\xi=\omega\theta_\varphi$ と表せます。$\omega>0$ が上半分の方向、$\omega<0$ がその反対方向を担当します。角度を $[0,2\pi)$ にして同時に $\omega$ の正負も使うと同じ非零周波数を二度ずつ数えてしまいます。
 
-変数変換の微分行列は
+$\xi_1=\omega\cos\varphi$、$\xi_2=\omega\sin\varphi$ をそれぞれ $\omega$ と $\varphi$ で偏微分し、前者を第一列、後者を第二列に置きます。この変数変換の微分行列は
 
 $$
 \frac{\partial(\xi_1,\xi_2)}{\partial(\omega,\varphi)}
@@ -189,10 +200,12 @@ $$
 $$
 g(\varphi,s)=\sqrt{\pi/a}\,e^{-as^2},
 \qquad
-G(\varphi,\omega)=\frac\pi a e^{-\omega^2/(4a)}.
+G(\varphi,\omega)
+=\sqrt{\pi/a}\int_{\mathbb R}e^{-as^2}e^{-i\omega s}\,ds
+=\frac\pi a e^{-\omega^2/(4a)}.
 $$
 
-したがって $|\omega|G$ は絶対可積分で、$s=0$ では
+ここで $G$ の積分には [FOU3 のGaussian Fourier公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)を適用しました。指数減衰により $|\omega|G$ は絶対可積分で、$s=0$ では
 
 $$
 \begin{aligned}
@@ -317,7 +330,7 @@ $$
 =(2\pi)^2\int_{\mathbb R^2}|h(x)|^2\,dx.
 $$
 
-[Schwartz級の関数](../INV12/index.md#def-inv12-schwartz)の $L^2$ 稠密性と一次元 Fourier 変換の連続な $L^2$ 延長により、二次元版も $L^2$ 全体へ延長できます。以下で使う $\|h\|_2^2=(2\pi)^{-2}\|\widehat h_2\|_2^2$ はこの意味です。
+[FOU4 のGaussian Fourier coreの稠密性](../../FOU/FOU4/index.md#thm-fou4-core-density)の証明では、近似元を $h*k_\varepsilon$（$h\in C_c(\mathbb R)$）に選べます。$h$ は有界な台を持ち、Gaussian 核の各階導関数は多項式と Gaussian の積なので、$h*k_\varepsilon$ は [Schwartz級](../INV12/index.md#def-inv12-schwartz)に属します。このことから一変数の Schwartz 級は $L^2$ に稠密です。二変数でも各座標の近似を組み合わせ、一次元 Fourier 変換の連続な $L^2$ 延長を順に適用すれば、二次元版を $L^2$ 全体へ延長できます。以下で使う $\|h\|_2^2=(2\pi)^{-2}\|\widehat h_2\|_2^2$ はこの意味です。
 
 以降、画像のノルムは $\|h\|_{L^2(\mathbb R^2)}$、投影データのノルムは $\|g\|_{L^2([0,\pi)\times\mathbb R)}$ を使います。$f\in\mathcal S(\mathbb R^2)$ に対する正しいデータ $g=Rf$ と、雑音つきデータ $g^\delta$ に
 
@@ -374,7 +387,24 @@ $$
 Q_\Omega g^\delta-f=(Q_\Omega g-f)+Q_\Omega n.
 $$
 
-$Q_\Omega n$ の二次元 Fourier 変換は、$\xi=\omega\theta_\varphi$ と一意に表したとき、$|\omega|\le\Omega$ では $N(\varphi,\omega)$、それ以外で0です（原点は測度零）。従って二次元 Plancherel と Jacobian から
+この主張を $L^2$ データについて確かめます。原点以外の $\xi=\omega\theta_\varphi$（ほとんど至る所で一意）に対し、
+
+$$
+H_\Omega(\xi)=1_{\{|\omega|\le\Omega\}}N(\varphi,\omega)
+$$
+
+と置きます。符号付き極座標の Jacobian から
+
+$$
+\begin{aligned}
+\int_{\mathbb R^2}|H_\Omega(\xi)|^2\,d\xi
+&=\int_0^\pi\int_{-\Omega}^{\Omega}
+|\omega|\,|N(\varphi,\omega)|^2\,d\omega\,d\varphi\\
+&\le\Omega\int_0^\pi\int_{\mathbb R}|N(\varphi,\omega)|^2\,d\omega\,d\varphi<\infty.
+\end{aligned}
+$$
+
+$H_\Omega$ は有限面積の円板に台を持つため Cauchy–Schwarz により $L^1$ にも属します。その二次元逆 Fourier 積分を符号付き極座標に変換したものが $Q_\Omega n$ です。[FOU4 の $L^2$ Fourier反転](../../FOU/FOU4/index.md#thm-fou4-l2-inversion)を二つの座標へ順に適用すれば、$\widehat{Q_\Omega n}_2=H_\Omega$ がほとんど至る所で成り立ちます。従って二次元 Plancherel と Jacobian から
 
 $$
 \begin{aligned}
@@ -707,7 +737,7 @@ $$
 
 $g^\delta=g+n$ とおくと線形性から $Q_\Omega g^\delta-f=(Q_\Omega g-f)+Q_\Omega n$。三角不等式で二項に分けます。
 
-$N=\mathcal F_s n$ とすると、切断像の二次元 Fourier 変換は $|\omega|\le\Omega$ で $N(\varphi,\omega)$ です。二次元 Plancherel と $d\xi=|\omega|d\omega d\varphi$ から
+$N=\mathcal F_s n$ とし、周波数平面上で $H_\Omega(\omega\theta_\varphi)=1_{\{|\omega|\le\Omega\}}N(\varphi,\omega)$ と置きます。$|\omega|\le\Omega$ と一次元 Plancherel から $\|H_\Omega\|_2^2\le2\pi\Omega\|n\|_2^2$ なので、円板に台を持つ $H_\Omega$ は $L^1\cap L^2$ に属します。二次元 Fourier 反転を各座標に適用すれば、$Q_\Omega n$ の二次元 Fourier 変換は $H_\Omega$ です。二次元 Plancherel と $d\xi=|\omega|d\omega d\varphi$ から
 
 $$
 \|Q_\Omega n\|_2^2
@@ -773,7 +803,7 @@ $$
 
 - Level: B
 
-実数値の偶関数 $m_\Omega(\omega)$ が $|m_\Omega|\le1$、$|\omega|>\Omega$ で0を満たすとする。$Q_\Omega$ の積分に現れる $|\omega|G$ を $|\omega|m_\Omega(\omega)G$ に置き換えた再構成 $Q_{m_\Omega}$ を考える。雑音誤差の上界と、真の画像に残るバイアスの二乗を導出せよ。鋭い切断と何が違うか述べよ。
+滑らかな実数値の偶関数 $m_\Omega\in C^\infty(\mathbb R)$ が $|m_\Omega(\omega)|\le1$、$|\omega|>\Omega$ で0を満たすとする。$Q_\Omega$ の積分に現れる $|\omega|G$ を $|\omega|m_\Omega(\omega)G$ に置き換えた再構成 $Q_{m_\Omega}$ を考える。雑音誤差の上界と、真の画像に残るバイアスの二乗を導出せよ。鋭い切断と何が違うか述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -827,7 +857,7 @@ $f(x)=e^{-|x|^2}$、$g=Rf$、$\|g^\delta-g\|_{L^2([0,\pi)\times\mathbb R)}\le0.1
 <!-- solution-start -->
 #### 詳細解答
 
-**1.** [INV12 のGaussian例](../INV12/index.md#thm-inv12-slice)から $g(\varphi,s)=\sqrt\pi e^{-s^2}$ です。一次元 Gaussian Fourier 積分により
+**1.** [INV12-A02 の尺度付きGaussianの計算](../INV12/index.md#ex-inv12-a02)に $a=1$ を代入すると $g(\varphi,s)=\sqrt\pi e^{-s^2}$ です。一次元 Gaussian Fourier 積分により
 
 $$
 G(\varphi,\omega)=\pi e^{-\omega^2/4}.
