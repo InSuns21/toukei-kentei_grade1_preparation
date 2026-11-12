@@ -1,0 +1,43 @@
+id: GMT33
+title: 平面Córdoba型tube評価
+volume: foundations
+status: supplementary
+prerequisites:
+  - GMT32
+official_scope: []
+learning_objectives:
+  - 無向方向の円周角距離を定義し端点をまたぐ近接を判定できる
+  - 二tubeを二帯の交差へ包含し法線行列の行列式から交差面積を求められる
+  - δ-分離方向の逆角度和を非一様配置も含め調和級数で評価できる
+  - 二乗重複度を対角・非対角に分けCórdoba型の対数損失を全項導出できる
+  - Cauchy--Schwarzと一次積分から任意位置のtube合併面積下界を得られる
+  - Besicovitch集合の近傍体積から上下Minkowski次元2を証明できる
+  - 測度零とfull Minkowski次元の両立およびHausdorff次元との論理的差を説明できる
+definitions:
+  - { id: GMT33-DEF-01, name: 無向方向の角距離 }
+theorems:
+  - { id: GMT33-LEM-01, name: 二tubeの交差面積 }
+  - { id: GMT33-LEM-02, name: 分離方向の逆角度和 }
+  - { id: GMT33-THM-01, name: 平面Córdoba型tube評価 }
+  - { id: GMT33-COR-01, name: 平面Besicovitch集合のfull Minkowski次元 }
+canonical_examples:
+  - 角度0とπ-εで端点をまたぐ距離を検算
+  - 原点を中心とする水平管と垂直管の交差正方形
+  - 等間隔無向方向の循環距離と有限調和和
+  - 同じ管を繰り返して方向分離の必要性を検証
+  - 零面積コンパクトBesicovitch集合の近傍面積と上下Minkowski次元
+problem_patterns:
+  - GMT33-PROJECTIVE-ANGLE
+  - GMT33-STRIP-DETERMINANT
+  - GMT33-ORTHOGONAL-CROSSING
+  - GMT33-HARMONIC-SUM
+  - GMT33-DIRECTION-MESH
+  - GMT33-TWO-TUBE-UNION
+  - GMT33-NONUNIFORM-ANGULAR-SUM
+  - GMT33-NON-SEPARATED-COUNTEREXAMPLE
+  - GMT33-LOG-MINKOWSKI
+  - GMT33-CORDOBA-KAKEYA
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+past_exam_alignment: []
+integrated_exam_problems: []
+estimated_hours: { reading: 9, exercises: 7, review: 4 }
