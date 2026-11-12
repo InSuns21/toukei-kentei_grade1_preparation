@@ -5,7 +5,8 @@ prerequisites:
   - INV15
   - F0-00D2C
   - MT3
-forward_references: []
+forward_references:
+  - PDE1 # 次講 INV17 の PDE に関する明示的な予告のみ（本講の論証では使用しない）
 
 concepts:
   - id: inverse.credible-region
