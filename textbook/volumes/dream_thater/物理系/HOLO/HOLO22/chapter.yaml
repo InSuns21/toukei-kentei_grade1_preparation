@@ -1,0 +1,48 @@
+id: HOLO22
+title: "共変HRT面"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO21
+official_scope: []
+learning_objectives:
+  - 古典HRT面のアンカー 相同条件 空間的性質 両法線方向の極値条件を定義し静的RTとの差を説明できる
+  - 二つのnull膨張率を定義し平均曲率の零条件との同値性と法線再規格化不変性を証明できる
+  - Poincare AdS3の時間差を持つ空間的二端点にLorentz boostを適用しHRT曲線と正則化長を導ける
+  - AdS3の時間法線変分の二次係数を計算しHRT極値面が時空全体の面積最小ではないと説明できる
+  - 古典maximinのminとmaxの演算順序を説明し有限候補表で検算できる
+  - Einstein方程式下のNECからNCCを導きmaximin定理の因果的仮定 存在 安定性の限界を列挙できる
+  - 静的RT HRT maximinを区別し一般の時間依存背景や量子補正に無条件に拡張しない理由を述べられる
+definitions:
+  - { id: HOLO22-DEF-01, name: 古典HRT候補とHRT処方 }
+  - { id: HOLO22-DEF-02, name: HRT面の二つのnull膨張率 }
+  - { id: HOLO22-DEF-03, name: 古典maximin構成 }
+  - { id: HOLO22-DEF-04, name: null曲率条件 }
+theorems:
+  - { id: HOLO22-PROP-01, name: 二方向の膨張率と平均曲率 }
+  - { id: HOLO22-PROP-02, name: 時間差を持つ真空区間のHRT曲線 }
+  - { id: HOLO22-PROP-03, name: 半円曲線の時間法線に沿う局所最大性 }
+  - { id: HOLO22-THM-01, name: 古典maximinとHRTの一致（既存の結果を条件付きで使用） }
+canonical_examples:
+  - 静的AdS3半円のアンカー 相同条件 両法線方向の停留
+  - Minkowski時空の円における二つのnull膨張率
+  - 時間差を持つ境界区間のboostによる半円とcutoff長
+  - 曲線の時間法線変分の二次符号と空間断面上の最小性
+  - 二行二列の候補面積表によるmaximinとminimaxの違い
+  - AdS3でのnull曲率条件の直接確認
+  - Einstein方程式のnull縮約によるNECとNCC
+problem_patterns:
+  - HOLO22-BOOST-REGION
+  - HOLO22-NULL-CURVATURE
+  - HOLO22-NULL-EXPANSION
+  - HOLO22-CUTOFF-LENGTH
+  - HOLO22-MAXIMIN-ORDER
+  - HOLO22-BOOSTED-EMBEDDING
+  - HOLO22-LORENTZ-SECOND-VARIATION
+  - HOLO22-NEC-NCC-CONDITIONS
+  - HOLO22-NULL-NORMAL-RESCALING
+  - HOLO22-INTEGRATED-HRT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 7 }

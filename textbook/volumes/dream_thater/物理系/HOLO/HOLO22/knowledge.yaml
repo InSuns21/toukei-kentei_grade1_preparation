@@ -1,0 +1,55 @@
+chapter: HOLO22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO21
+forward_references: []
+concepts:
+  - id: holography.covariant-hrt-surface
+    name: 古典HRT候補とHRT処方
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（古典HRT候補とHRT処方）"]
+    requires: [holography.replica-fixed-surface-extremality, holography.static-rt-homology]
+  - id: holography.hrt-null-expansions
+    name: HRT面の二つのnull膨張率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（HRT面の二つのnull膨張率）"]
+    requires: [holography.covariant-hrt-surface]
+  - id: holography.hrt-expansion-mean-curvature
+    name: 二方向の膨張率と平均曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二方向の膨張率と平均曲率）"]
+    requires: [holography.hrt-null-expansions]
+  - id: holography.boosted-ads3-hrt
+    name: 時間差を持つ真空区間のHRT曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時間差を持つ真空区間のHRT曲線）"]
+    requires: [holography.covariant-hrt-surface, holography.ads3-interval-regulated-length]
+  - id: holography.hrt-local-saddle
+    name: 半円曲線の時間法線に沿う局所最大性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半円曲線の時間法線に沿う局所最大性）"]
+    requires: [holography.boosted-ads3-hrt]
+  - id: holography.hrt-maximin-construction
+    name: 古典maximin構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（古典maximin構成）"]
+    requires: [holography.covariant-hrt-surface, holography.static-rt-homology]
+  - id: holography.hrt-null-curvature-condition
+    name: null曲率条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（null曲率条件）"]
+    requires: [holography.covariant-hrt-surface]
+  - id: holography.hrt-maximin-conditional
+    name: 古典maximinとHRTの一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（古典maximinとHRTの一致：既存の結果を条件付きで使用）"]
+    requires: [holography.hrt-maximin-construction, holography.hrt-null-expansions, holography.hrt-null-curvature-condition]
