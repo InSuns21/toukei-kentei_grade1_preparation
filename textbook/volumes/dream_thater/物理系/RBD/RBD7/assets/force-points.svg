@@ -3,7 +3,7 @@
   <desc id="rbd7-fig-desc">水平な剛体の左側に支点 O、中央に重心 C、右側に外力作用点 P がある。反力 R_O は支点から斜め上、重力 Mg は重心から下、外力 f_P は P から上に描かれている。C から P までの距離を破線の腕 r_CP で示す。反力の方向と三つの矢印長は模式的なもので、力の実際の大小や符号は示さない。</desc>
   <defs>
     <marker id="rbd7-arrow" markerWidth="10" markerHeight="10" refX="8.2" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
-      <path d="M 0 1 L 9 5 L 0 9 Z" fill="context-stroke"/>
+      <path d="M 0 1 L 9 5 L 0 9 Z" fill="#394c60"/>
     </marker>
   </defs>
   <g aria-label="剛体の輪郭">
@@ -16,7 +16,7 @@
     <circle cx="456" cy="180" r="6.5" fill="#223344"/>
   </g>
   <g aria-label="外力矢印">
-    <path data-series-group="forces" data-series-label="支点反力" d="M 205 180 L 117 73" fill="none" stroke="#28796a" stroke-width="3.7" stroke-linecap="round" marker-end="url(#rbd7-arrow)"/>
+    <path data-series-group="forces" data-series-label="支点反力" d="M 205 180 L 117 73" fill="none" stroke="#28796a" stroke-width="3.7" stroke-dasharray="3 7" stroke-linecap="round" marker-end="url(#rbd7-arrow)"/>
     <path data-series-group="forces" data-series-label="偏心外力" d="M 456 180 L 456 61" fill="none" stroke="#205cba" stroke-width="4.2" stroke-linecap="round" marker-end="url(#rbd7-arrow)"/>
     <path data-series-group="forces" data-series-label="重力" d="M 326 180 L 326 278" fill="none" stroke="#b14e4e" stroke-width="3.9" stroke-dasharray="11 6" stroke-linecap="round" marker-end="url(#rbd7-arrow)"/>
   </g>
