@@ -22,7 +22,7 @@ $$
 f(s\theta_\varphi+t\theta_\varphi^\perp)\,dt
 $$
 
-でした。測定する法線角度を一部分に制限したものが限定角度観測です。一方、有限方向観測は角度を有限個に固定します。
+でした。測定する法線角度を連続する一部分に限る場合と、角度を有限個に固定する場合を区別します。以下でそれぞれを定義します。
 
 <a id="def-inv14-angle-data"></a>
 
@@ -172,7 +172,7 @@ h(x)=\frac1{(2\pi)^2}\int_{\mathbb R^2}
 H(\xi)e^{ix\cdot\xi}\,d\xi
 $$
 
-を定義します。$H(-\xi)=H(\xi)$ だから $h$ は実数値です。$H$ と全導関数がコンパクト台を持つことから、上式を $x$ で任意回微分でき、さらに $\xi$ について部分積分すると、全ての多重指数 $a,b$ に対して $x^a\partial_x^b h(x)$ が有界です。従って $h\in\mathcal S$ です。
+を定義します。$H(-\xi)=H(\xi)$ だから $h$ は実数値です。$H$ と全導関数がコンパクト台を持つことから、上式を $x$ で任意回微分でき、さらに $\xi$ について部分積分すると、任意の非負整数 $a_1,a_2,b_1,b_2$ に対して $x_1^{a_1}x_2^{a_2}\partial_{x_1}^{b_1}\partial_{x_2}^{b_2}h(x)$ が有界です。従って $h\in\mathcal S$ です。
 
 [Schwartz 級の二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)により $\widehat h=H\neq0$ なので $h\neq0$。一方、$\varphi\in I$、$\omega\in\mathbb R$ では $H(\omega\theta_\varphi)=0$ だから、[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)より
 
@@ -198,7 +198,7 @@ $$
 
 ### 証明の見取り図
 
-差 $h=f_1-f_2$ の Fourier 変換は観測扇形で0です。コンパクト台により、周波数を任意の直線に沿って動かしたときの Fourier 変換が、その直線の一点の周囲で**無限半径の冪級数**として表せます。扇形の中の小長方形から一座標ずつこの展開を伸ばし、平面全体で0と示します。高度な解析接続の定理は使いません。
+差 $h=f_1-f_2$ の Fourier 変換は観測扇形で0です。コンパクト台により、周波数を任意の直線に沿って動かしたときの Fourier 変換が、その直線の一点の周囲で**無限半径の冪級数**として表せます。扇形の中の小長方形から一座標ずつこの展開を伸ばし、平面全体で0と示します。複素関数論の大きな定理は使いません。
 
 <!-- proof-start -->
 ### 証明
@@ -499,7 +499,7 @@ $\widehat f$ の台が $\mathbb R^2\setminus W_I$ に入る非零 Schwartz 関�
 <!-- solution-start -->
 #### 詳細解答
 
-台の仮定より $\mathbf1_{W_I}\widehat f=0$ なので、[零埋めの定義](#def-inv14-zero-filling)から $Z_If=0$ です。[零埋め誤差の命題](#prop-inv14-zero-filling-error)を使うと
+台の仮定より $\mathbf1_{W_I}\widehat f=0$ なので、[零埋めの定義](#def-inv14-zero-filling)から $Z_If=0$ です。[零埋めの誤差は欠測領域のFourierエネルギー](#prop-inv14-zero-filling-error)を使うと
 
 $$
 \|f-Z_If\|_2^2=\|f\|_2^2
