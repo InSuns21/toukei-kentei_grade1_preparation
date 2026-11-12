@@ -161,7 +161,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\alpha^{(N)}\to\alpha$ は $\ell^2$ ノルム収束です。[AQFT8の指数ベクトル公式](../AQFT8/index.md#prop-aqft8-fock-weyl)から、位相のない互いに直交な座標差に対し
+$\alpha^{(N)}\to\alpha$ は $\ell^2$ ノルム収束です。[Fock Weyl関係と真空特性汎関数](../AQFT8/index.md#prop-aqft8-fock-weyl)から、位相のない互いに直交な座標差に対し
 
 $$
 \langle\Psi_M,\Psi_N\rangle
@@ -233,14 +233,20 @@ $$
 \end{aligned}
 $$
 
-最後の極限は非負項級数の尾部が発散するためです。有限モード励起ベクトルは $\mathcal F_s(\ell^2)$ に稠密です。各 $R_N$ は射影で $\|R_N\|\le1$ なので、任意の $\eta$ とその稠密近似 $\xi$ について $\|R_N\eta\|\le\|\eta-\xi\|+\|R_N\xi\|$。近似誤差を先に任意に小さくすれば、全ての $\eta$ で $R_N\eta\to0$ です。
+最後の極限は非負項級数の尾部が発散するためです。有限モード励起ベクトルは $\mathcal F_s(\ell^2)$ に稠密です。各 $R_N$ は射影で $\|R_N\|\le1$ なので、任意の $\eta$ とその稠密近似 $\xi$ について $\|R_N\eta\|\le\|\eta-\xi\|+\|R_N\xi\|$。近似に伴うノルム差を先に任意に小さくすれば、全ての $\eta$ で $R_N\eta\to0$ です。
 <!-- proof-end -->
 
 <a id="thm-aqft10-inequivalent-gns"></a>
 
 <!-- formal-statement-start -->
 > **定理（非二乗可和変位状態のGNS非同値性）**  
-> 有限支持Weyl C*環 $\mathfrak A$ とその真空Fock表現 $\pi_0$ を上のように固定する。$\sum_j|\alpha_j|^2=\infty$ なら、状態 $\omega_\alpha$ は $\pi_0(\mathfrak A)''$ 上の正規状態には延長できない。特に $\omega_\alpha$ のGNS表現は $\pi_0$ とユニタリ同値ではない。これに対し $\alpha\in\ell^2$ なら[前命題](#prop-aqft10-square-summable)によりユニタリ同値である。
+> 有限支持Weyl C*環 $\mathfrak A$ とその真空Fock表現 $\pi_0$ を上のように固定する。複素数列 $\alpha$ が次の条件を満たすとする。
+
+$$
+\sum_{j\ge1}|\alpha_j|^2=\infty
+$$
+
+> このとき状態 $\omega_\alpha$ は $\pi_0(\mathfrak A)''$ 上の正規状態には延長できない。特に $\omega_\alpha$ のGNS表現は $\pi_0$ とユニタリ同値ではない。これに対し $\alpha\in\ell^2$ なら[二乗可和変位の命題](#prop-aqft10-square-summable)によりユニタリ同値である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -250,9 +256,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-正規延長 $\varphi$ が $\pi_0(\mathfrak A)''$ 上に存在すると仮定します。$\varphi(\pi_0(A))=\omega_\alpha(A)$（$A\in\mathfrak A$）です。$N$ を一つ固定します。$\varphi$ を $\pi_0(\mathfrak A_N)''=B(\mathcal F_s(\mathbb C^N))\otimes I$ に制限すると正規です。一方、有限モードの $\Psi_{\alpha,N}$ のベクトル状態も正規で、[変位状態の存在命題](#prop-aqft10-shift-existence)より両者は $\pi_0(\mathfrak A_N)$ 上で一致します。
+正規延長 $\varphi$ が $\pi_0(\mathfrak A)''$ 上に存在すると仮定します。$\varphi(\pi_0(A))=\omega_\alpha(A)$（$A\in\mathfrak A$）です。$N$ を一つ固定します。$\varphi$ を $\pi_0(\mathfrak A_N)''=B(\mathcal F_s(\mathbb C^N))\otimes I$ に制限すると正規です。一方、有限モードの $\Psi_{\alpha,N}$ のベクトル状態も正規で、[無限列でも変位状態は存在する命題](#prop-aqft10-shift-existence)より両者は $\pi_0(\mathfrak A_N)$ 上で一致します。
 
-[VN2の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によれば、$\pi_0(\mathfrak A_N)$ はその二重可換子の弱作用素位相で稠密です。また一様ノルム有界な近似では[VN4の位相比較](../../VN/VN4/index.md#prop-vn4-wot-ultraweak)によりultraweakにも収束します。従って両**正規**汎関数は二重可換子上でも一致します。とくに
+[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によれば、$\pi_0(\mathfrak A_N)$ はその二重可換子の弱作用素位相で稠密です。また一様ノルム有界な近似では[VN4の位相比較](../../VN/VN4/index.md#prop-vn4-wot-ultraweak)によりultraweakにも収束します。従って両**正規**汎関数は二重可換子上でも一致します。とくに
 
 $$
 \varphi(R_N)
@@ -268,7 +274,7 @@ $$
 
 ## 4. van Hove型の線形源模型に戻す
 
-変位 $\alpha$ は人工的に選んだ数列だけではありません。独立な振動子の位置に線形な外部源を加えると、平方完成によって同じ量が現れます。以下では $\hbar=1$、$\omega_j>0$、$h_j\in\mathbb R$ とし、最初の $N$ モードのHamiltonianを、零点エネルギーを除いて
+変位 $\alpha$ は人工的に選んだ数列だけではありません。独立な振動子の位置に線形な外部源を加えると、平方完成によって同じ量が現れます。以下でいう**基底状態**は、[MQ2の定義](../../../物理系/MQ/MQ2/index.md#def-mq2-ground-state)のとおり、Hamiltonianのスペクトル下端を固有値として実現する規格化ベクトルです。以下では $\hbar=1$、$\omega_j>0$、$h_j\in\mathbb R$ とし、最初の $N$ モードのHamiltonianを、零点エネルギーを除いて
 
 $$
 H_N=\sum_{j=1}^N
@@ -320,12 +326,17 @@ $$
 \end{aligned}
 $$
 
-これを全 $j\le N$ で足して定数を引けば表示式になります。各 $(a_j-\alpha_j)^\dagger(a_j-\alpha_j)$ は非負です。Weyl変位の共役公式 $D(\alpha^{(N)})^*a_jD(\alpha^{(N)})=a_j+\alpha_j$ から
+これを全 $j\le N$ で足して定数を引けば表示式になります。各 $(a_j-\alpha_j)^\dagger(a_j-\alpha_j)$ は非負です。[Fock Weyl関係と真空特性汎関数](../AQFT8/index.md#prop-aqft8-fock-weyl)の証明で用いた指数ベクトル $\varepsilon(v)$ に対して $a_j\varepsilon(v)=v_j\varepsilon(v)$ です。$D(\alpha^{(N)})\Omega=e^{-\|\alpha^{(N)}\|^2/2}\varepsilon(\alpha^{(N)})$ なので
 
-$$
+$
+\begin{aligned}
 (a_j-\alpha_j)D(\alpha^{(N)})\Omega
-=D(\alpha^{(N)})a_j\Omega=0.
-$$
+&=e^{-\|\alpha^{(N)}\|^2/2}
+(a_j-\alpha_j)\varepsilon(\alpha^{(N)})\\
+&=e^{-\|\alpha^{(N)}\|^2/2}
+(\alpha_j-\alpha_j)\varepsilon(\alpha^{(N)})=0.
+\end{aligned}
+$
 
 従ってこのベクトルが下界を達成します。有限 $N$ の全モードの真空の一意性から基底状態は位相を除き一意です。$N\to\infty$ で $\sum_j|\alpha_j|^2=\sum_jh_j^2/(2\omega_j^3)$ が有限なら[二乗可和の命題](#prop-aqft10-square-summable)が適用され、発散なら[非同値性定理](#thm-aqft10-inequivalent-gns)が適用されます。無限和のHamiltonianそのものが自己共役作用素として存在するとは、この計算では主張していません。
 <!-- proof-end -->
@@ -353,7 +364,7 @@ $$
 
 ここでの $\mathfrak A_N$ は**最初の $N$ 個の振動子を選ぶ代数**です。$N$ はMinkowski時空の領域 $O$ ではなく、$\mathfrak A_N$ の包含を[AQFT2のEinstein局所性](../AQFT2/index.md#def-aqft2-locality)や場の空間的分離と同一視してはいけません。一方、Weyl元からC*代数を作り、状態を取り、[AQFT9のGNS局所von Neumann環](../AQFT9/index.md#def-aqft9-local-vn-net)へ進む論理は共通です。
 
-自由Klein–Gordon場では一粒子空間が連続運動量の関数空間になり、正周波数分解と真空が[AQFT8](../AQFT8/index.md#def-aqft8-positive-frequency)で与えられました。異なる場の状態を比較する際には「有限の測定で値が定まるか」と「**同じHilbert空間上の正規状態として表せるか**」を分ける必要があります。非同値表現の存在だけから、局所環のType III性・Reeh–Schlieder性・一般相互作用模型の存在は導けません。
+自由Klein–Gordon場では一粒子空間が連続運動量の関数空間になり、正周波数分解と真空が[AQFT8](../AQFT8/index.md#def-aqft8-positive-frequency)で与えられました。異なる場の状態を比較する際には「有限の測定で値が定まるか」と「**同じHilbert空間上の正規状態として表せるか**」を分ける必要があります。非同値表現の存在だけから、局所von Neumann環のType III性・Reeh–Schlieder性・一般相互作用模型の存在は導けません。
 
 ## 6. 演習と詳細解答
 
@@ -516,7 +527,7 @@ $$
 
 1. $H_N$ の平方完成、基底状態、真空との重なりを求めよ。
 2. $s>1/2$ と $0\le s\le1/2$ に分け、変位状態の存在とFock実装可能性を区別せよ。
-3. 実装不可能な範囲について、単なる重なりの極限ではなく射影列を用いてGNS非同値性を証明せよ。最後に、この模型から局所Type III性が導けない理由も述べよ。
+3. 実装不可能な範囲について、単なる重なりの極限ではなく射影列を用いてGNS非同値性を証明せよ。最後に、この模型から局所von Neumann環のType III性が導けない理由も述べよ。
 
 <!-- solution-start -->
 **詳細解答。** **（1）** $\alpha_j=j^{-s}/\sqrt2$ とおくと、各モードの平方完成から
