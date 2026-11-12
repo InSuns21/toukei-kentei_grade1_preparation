@@ -113,26 +113,31 @@ $$
 
 ### もう一つの独立検算：時間カットオフ
 
-上の直接例に登場した $f,h$ を実際に構成できます。$\chi\in C^\infty(\mathbb R)$ を、十分過去で $0$、十分未来で $1$ とし、$u,v$ はコンパクトな初期データからの斉次解とします。$\chi$ は時刻 $t$ だけの関数なので、プライムは通常の時間微分、$\partial_t$ は空間座標 $\boldsymbol x$ を固定した偏微分です。つまり
-$
+上の直接例に登場した源を、時間カットオフで実際に構成します。時刻だけに依存する滑らかな関数 $\chi$ を、十分過去で零、十分未来で一となるよう選びます。$u,v$ はコンパクトな初期データから得た斉次解です。
+
+ここでプライムは $\chi$ の通常の時間微分、$\partial_tu$ は空間座標を固定した時刻 $t$ による偏微分です。両者の対応は
+$$
 \chi'=\frac{d\chi}{dt},\qquad
 \chi''=\frac{d^2\chi}{dt^2},\qquad
 \partial_tu=\frac{\partial u(t,\boldsymbol x)}{\partial t}
-$
-です。$\Delta(\chi u)=\chi\Delta u$ と積の微分法則から
-$
-\begin{aligned}
-P(\chi u)
-&=\chi''u+2\chi'\partial_tu+\chi\partial_t^2u-\chi\Delta u+m^2\chi u\\
-&=\chi''u+2\chi'\partial_tu+\chi Pu
+$$
+です。$\chi$ が空間座標に依存しないため、積の微分法則を各項に用いると
+$$
+\partial_t^2(\chi u)
+=\chi''u+2\chi'\partial_tu+\chi\partial_t^2u,
+\qquad
+\Delta(\chi u)=\chi\Delta u
+$$
+となります。よって $Pu=0$ を用いて
+$$
+P(\chi u)=\chi''u+2\chi'\partial_tu+\chi Pu
 =\chi''u+2\chi'\partial_tu
-\end{aligned}
-$
-となります。$Pv=0$ も同様に使って
-$
+$$
+を得ます。同様に $Pv=0$ から
+$$
 f=P(\chi u)=\chi''u+2\chi'\partial_tu,\qquad
 h=P(\chi v)=\chi''v+2\chi'\partial_tv
-$
+$$
 と置きます。
 $\chi',\chi''$ は有限時間帯に支持を持ち、Cauchy解の因果的支持条件によりこの帯で $u,v$ の空間台も有界なので $f,h\in\mathcal D$ です。[AQFT4のカットオフ逆写像](../AQFT4/index.md#thm-aqft4-kg-quotient)によって
 $$
