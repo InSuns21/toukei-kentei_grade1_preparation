@@ -1,0 +1,36 @@
+chapter: CTM8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM7
+concepts:
+  - id: continuum.first-piola-kirchhoff-stress
+    name: 第一 Piola–Kirchhoff 応力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第一 Piola–Kirchhoff 応力）"]
+    requires: [continuum.nanson-area-formula, continuum.cauchy-stress-theorem]
+  - id: continuum.reference-momentum-balance
+    name: 基準配置の局所運動量方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基準配置の局所運動量方程式）"]
+    requires: [continuum.first-piola-kirchhoff-stress, continuum.material-momentum-local, continuum.density-jacobian-relation]
+  - id: continuum.second-piola-kirchhoff-stress
+    name: 第二 Piola–Kirchhoff 応力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第二 Piola–Kirchhoff 応力）"]
+    requires: [continuum.first-piola-kirchhoff-stress, continuum.deformation-gradient]
+  - id: continuum.second-piola-symmetry
+    name: 古典的連続体での第二 Piola 応力の対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（古典的連続体での第二 Piola 応力の対称性）"]
+    requires: [continuum.second-piola-kirchhoff-stress, continuum.material-angular-stress-symmetry]
+  - id: continuum.piola-work-conjugacy
+    name: Piola 応力とひずみ速度の仕事共役
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Piola 応力とひずみ速度の仕事共役）"]
+    requires: [continuum.second-piola-symmetry, continuum.green-lagrange-strain, continuum.velocity-deformation-relation, continuum.rate-of-deformation-spin]

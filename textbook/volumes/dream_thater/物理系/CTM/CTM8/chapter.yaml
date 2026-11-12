@@ -1,0 +1,39 @@
+id: "CTM8"
+title: "基準配置へ応力を戻すと何が変わるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM7
+official_scope: []
+learning_objectives:
+  - Nanson の公式から第一 Piola–Kirchhoff 応力 P=J sigma F^{-T} を導出し、基準法線・現在面力の添字と単位を区別できる
+  - 質量密度と応力の引き戻しを用い、基準配置の積分収支から Div_X P+rho_0 b=rho_0 ddot chi と Piola の発散変換を証明できる
+  - 第二 Piola–Kirchhoff 応力 S=F^{-1}P を計算し、Cauchy 応力の対称性と S の対称性の同値、P の非対称性を説明できる
+  - P:dot F=S:dot E=J sigma:D を主要中間式から証明し、せん断と伸長で三表示の仕事率を検算できる
+  - J>0 と F が運動写像の勾配である条件を使い、面積倍率・仕事率倍率・Piola 恒等式が破れる例を特定できる
+definitions:
+  - { id: CTM8-DEF-01, name: "第一 Piola–Kirchhoff 応力" }
+  - { id: CTM8-DEF-02, name: "第二 Piola–Kirchhoff 応力" }
+theorems:
+  - { id: CTM8-THM-01, name: "基準配置の局所運動量方程式" }
+  - { id: CTM8-PROP-01, name: "古典的連続体での第二 Piola 応力の対称性" }
+  - { id: CTM8-THM-02, name: "Piola 応力とひずみ速度の仕事共役" }
+canonical_examples:
+  - 対角伸長の各面で現在面力と基準面力の合力を照合
+  - 非一様な対角応力で現在発散と基準発散を同じ変形に対して照合
+  - 単純せん断と静水圧応力で非対称な P と対称な S を比較
+  - 時間依存の単純せん断で三つの応力仕事率を別々に計算
+problem_patterns:
+  - CTM8-AREA-TRACTION-PULLBACK
+  - CTM8-REFERENCE-FORCE-INDEX
+  - CTM8-SECOND-PIOLA-SYMMETRY
+  - CTM8-GREEN-STRAIN-RATE
+  - CTM8-PIOLA-DIVERGENCE
+  - CTM8-PIOLA-IDENTITY-SHEAR
+  - CTM8-WORK-POWER-STRETCH
+  - CTM8-PIOLA-INTEGRABILITY-COUNTEREXAMPLE
+  - CTM8-SHEAR-MOMENTUM-POWER-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
