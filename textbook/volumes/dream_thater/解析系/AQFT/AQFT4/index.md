@@ -560,7 +560,7 @@ $$
 $$
 |\boldsymbol x|\le R+\max\{|S-c|,|S-d|,|b-c|,|b-d|\}
 $$
-です。この交差は四次元Euclid空間の閉かつ有界な集合なので、[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)によりコンパクトとなり、$w_-$ は未来コンパクトです。このように $w_+$ と $w_-$ の作用域を確かめてから[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
+です。この交差は座標 $(t,\boldsymbol x)\in\mathbb R^4$ で閉かつ有界なので、[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)によりコンパクトとなり、$w_-$ は未来コンパクトです。このように $w_+$ と $w_-$ の作用域を確かめてから[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
 $$
 Ef=w_+-w_-=\chi u-(\chi-1)u=u.
 $$
