@@ -223,7 +223,20 @@ $$
 \end{aligned}
 $$
 
-最後はSchwartz関数のFourier反転公式です。時空の組合せ $p\cdot x$ は時間・空間成分の符号だけが異なるため、変数変換のJacobianの絶対値は $1$ です。任意の $h$ に成立するので
+最後の等号はSchwartz関数のFourier反転です。ここで必要な四次元の反転式は、Gaussianで直接確認できます。$|x|_{\mathrm E}^2=t^2+|\boldsymbol x|^2$ とし、$\rho_\varepsilon(u):=(4\pi\varepsilon)^{-2}e^{-|u|_{\mathrm E}^2/(4\varepsilon)}$ と定めます。各座標でGaussian積分を計算すると
+
+$$
+\begin{aligned}
+&\int_{\mathbb R^4}e^{ip\cdot x-\varepsilon|x|_{\mathrm E}^2}\check h(x)\,d^4x\\
+&\quad=\int_{\mathbb R^4}h(k)
+\left(\int_{\mathbb R^4}e^{i(p-k)\cdot x-\varepsilon|x|_{\mathrm E}^2}\,d^4x\right)d^4k\\
+&\quad=\left(\frac\pi\varepsilon\right)^2
+\int_{\mathbb R^4}h(k)e^{-|p-k|_{\mathrm E}^2/(4\varepsilon)}\,d^4k
+=(2\pi)^4\int_{\mathbb R^4}h(p-u)\rho_\varepsilon(u)\,d^4u.
+\end{aligned}
+$$
+
+$\rho_\varepsilon$ は積分が $1$ の非負Gaussian核で、$\varepsilon\downarrow0$ で最後の積分は $h(p)$ へ収束します（$h$ の一様連続性と、$|u|_{\mathrm E}$ が一定値以上のGaussian質量が零へ向かうことを使います）。左辺は $\check h\in L^1$ なので優収束で $\int e^{ip\cdot x}\check h(x)\,d^4x$ へ収束します。時空の組合せ $p\cdot x$ は空間成分の符号が反転しているだけで、上のGaussian積分の値には影響しません。従って各 $p$ に対し $\int e^{ip\cdot x}\check h(x)\,d^4x=(2\pi)^4h(p)$ が従い、任意の試験関数 $h$ について
 
 $$
 \widehat f_{\psi,\varphi}=(2\pi)^4\mu_{\psi,\varphi}.
@@ -293,7 +306,7 @@ $$
 \le e^{C_y^2/(4\varepsilon)}.
 $$
 
-任意の点 $z$ の周りで複素増分 $h$ を $|h|\le R$ に制限すると、$|p\cdot h|\le Rr$ です。指数の冪級数の絶対値は $e^{Rr}$ 以下で、スペクトル積分の被積分関数は
+任意の点 $z$ の周りで複素増分 $h=(h^0,\boldsymbol h)$ を $|h|_{\mathrm E}:=\sqrt{|h^0|^2+\sum_{j=1}^3|h^j|^2}\le R$ に制限すると、四次元のCauchy–Schwarz評価で $|p\cdot h|\le Rr$ です。指数の冪級数の絶対値は $e^{Rr}$ 以下で、スペクトル積分の被積分関数は
 
 $$
 e^{(C_y+R)r-\varepsilon r^2}
