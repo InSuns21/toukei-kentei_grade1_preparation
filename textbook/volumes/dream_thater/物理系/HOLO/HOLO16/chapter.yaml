@@ -4,6 +4,7 @@ volume: foundations
 status: supplementary
 prerequisites:
   - HOLO15
+  - QINF17
 official_scope: []
 learning_objectives:
   - TFDの規格化と左側部分跡を固有基底で計算し右側の正準熱密度行列を導ける
