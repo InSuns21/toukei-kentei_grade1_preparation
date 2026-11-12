@@ -391,9 +391,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$0<s<d-p\beta$ とします。$\mathcal H^s(K)=0$ と仮定して矛盾を導きます。任意の小さい $\eta>0$ に対し、$K$ を覆う開球 $B(x_i,r_i)$ で $0<r_i<1/100$ かつ
+$0<s<d-p\beta$ とします。$\mathcal H^s(K)=0$ と仮定して矛盾を導きます。任意の小さい $\eta>0$ に対し、$K$ を覆う開球 $B(x_i,r_i)$ で $0<r_i<1/128$ かつ
 
-$$
+$
 \sum_i r_i^s<\eta
 $$
 
@@ -721,7 +721,7 @@ $\eta$ を任意に小さく取れるので矛盾します。$\tau=0$ ではこ�
 
 <a id="ex-gmt35-c01"></a>
 
-**問題 C01：平面最大定理からHausdorff次元2まで。** $0<\delta<1/100$、$\mathbb R^2$ の単位長・半径$\delta$管、正規化弧長測度 $\sigma$ を使う。(1) $\delta$-間隔の無向方向格子に各一本の管を選んだ際、二管交差上界から作用素の離散 $L^2$ ノルムを評価せよ。(2) 最大作用素に関する上限操作を処理せよ。(3) 全方向の単位線分集合 $K$ が有界であるとき、Hausdorff次元が2となる論理を、多尺度被覆が必要な理由とともに示せ。[二管交差補題](../GMT33/index.md#lem-gmt33-two-tubes)と[Hausdorff測度の定義](../GMT32/index.md#thm-gmt32-dimension-comparison)は使用してよい。
+**問題 C01：平面最大定理からHausdorff次元2まで。** $0<\delta<1/100$、$\mathbb R^2$ の単位長・半径$\delta$管、正規化弧長測度 $\sigma$ を使う。(1) $\delta$-間隔の無向方向格子に各一本の管を選んだ際、二管交差上界から作用素の離散 $L^2$ ノルムを評価せよ。(2) 最大作用素に関する上限操作を処理せよ。(3) 全方向の単位線分集合 $K$ が有界であるとき、Hausdorff次元が2となる論理を、多尺度被覆が必要な理由とともに示せ。[二管交差補題](../GMT33/index.md#lem-gmt33-two-tubes)と[Hausdorff次元との比較](../GMT32/index.md#thm-gmt32-dimension-comparison)は使用してよい。
 
 - Level: C
 
