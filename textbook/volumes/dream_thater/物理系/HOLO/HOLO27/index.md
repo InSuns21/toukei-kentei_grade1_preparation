@@ -129,12 +129,12 @@ $$
 $\chi$ 微分を含む組から $-dr^2+r^2d\chi^2$、$\tau$ 微分を含む組から $du^2-u^2d\tau^2$ が生じます。$du/dr=r/u$ なので
 
 $$
--du_{\!r}^0\,dr^2+du^2
+-dr^2+du^2
 =-dr^2+\frac{r^2}{u^2}dr^2
 =\frac{dr^2}{r^2-1}.
 $$
 
-ここで左辺の $-du_{\!r}^0\,dr^2$ は単に $-dr^2$ を表しており、まとめれば $(-1+r^2/u^2)dr^2=dr^2/u^2$ です。従って計量式を得ます。さらに $u\downarrow0$ で $D\to\cosh\chi$、よって $t\to0,x\to R\tanh\chi,z\to R/\cosh\chi$ です。最後に
+つまり $(-1+r^2/u^2)dr^2=dr^2/u^2$ となるので計量式を得ます。さらに $u\downarrow0$ で $D\to\cosh\chi$、よって $t\to0,x\to R\tanh\chi,z\to R/\cosh\chi$ です。最後に
 
 $$
 x^2+z^2=R^2(\tanh^2\chi+\operatorname{sech}^2\chi)=R^2
@@ -168,7 +168,7 @@ $$
 \phi_{\omega k}(\tau,r,\chi)=e^{-i\omega\tau+ik\chi}F_{\omega k}(r)
 $$
 
-> を分離モードと呼ぶ。径関数には次の径方程式を課し、境界で源零の枝を選ぶ。地平面での正則性や量子状態の選択は別の条件であり、分離形だけでは決まらない。
+> を分離モードと呼ぶ。ただし $F_{\omega k}$ は $(-\Box_g+m^2)\phi_{\omega k}=0$ を満たし、境界 $r\to\infty$ で源零の速い減衰枝を選ぶものとする。地平面での正則性や量子状態の選択は別の条件であり、分離形だけでは決まらない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo27-rindler-mode -->
