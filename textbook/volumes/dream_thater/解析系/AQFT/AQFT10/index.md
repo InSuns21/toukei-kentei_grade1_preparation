@@ -58,6 +58,8 @@ $$
 <!-- definition-example-start: def-aqft10-finite-mode-algebra -->
 ### 直接例：最初の二つのモード
 
+**定義の確認**。二モードの座標を使って交代形式・Weyl位相・有限部分環への所属を順に確かめます。
+
 $z=e_1$、$w=ie_1$ とすると $\sigma(z,w)=2$ です。従って
 
 $$
@@ -91,6 +93,8 @@ $$
 
 <!-- definition-example-start: def-aqft10-coherent-shift-state -->
 ### 直接例：一モードの位相と正値性
+
+**定義の確認**。真空からの変位でWeyl期待値の位相と、有限モードでの正値性を直接計算します。
 
 $\alpha_1=c\in\mathbb R$、$\alpha_j=0$（$j>1$）とします。$z=t e_1$（$t\in\mathbb R$）なら位相項が消え、
 
@@ -328,7 +332,7 @@ $$
 
 これを全 $j\le N$ で足して定数を引けば表示式になります。各 $(a_j-\alpha_j)^\dagger(a_j-\alpha_j)$ は非負です。[Fock Weyl関係と真空特性汎関数](../AQFT8/index.md#prop-aqft8-fock-weyl)の証明で用いた指数ベクトル $\varepsilon(v)$ に対して $a_j\varepsilon(v)=v_j\varepsilon(v)$ です。$D(\alpha^{(N)})\Omega=e^{-\|\alpha^{(N)}\|^2/2}\varepsilon(\alpha^{(N)})$ なので
 
-$
+$$
 \begin{aligned}
 (a_j-\alpha_j)D(\alpha^{(N)})\Omega
 &=e^{-\|\alpha^{(N)}\|^2/2}
@@ -336,7 +340,7 @@ $
 &=e^{-\|\alpha^{(N)}\|^2/2}
 (\alpha_j-\alpha_j)\varepsilon(\alpha^{(N)})=0.
 \end{aligned}
-$
+$$
 
 従ってこのベクトルが下界を達成します。有限 $N$ の全モードの真空の一意性から基底状態は位相を除き一意です。$N\to\infty$ で $\sum_j|\alpha_j|^2=\sum_jh_j^2/(2\omega_j^3)$ が有限なら[二乗可和の命題](#prop-aqft10-square-summable)が適用され、発散なら[非同値性定理](#thm-aqft10-inequivalent-gns)が適用されます。無限和のHamiltonianそのものが自己共役作用素として存在するとは、この計算では主張していません。
 <!-- proof-end -->
@@ -496,7 +500,7 @@ $$
 =\frac12\sum_{j\ge1}\frac1{j^3}<\infty.
 $$
 
-従って[D(α)による実装命題](#prop-aqft10-square-summable)により、極限変位状態は真空Fock表現とユニタリ同値です。一方、有限 $N$ での最低エネルギーは
+従って[二乗可和な変位はFockユニタリで実装できる命題](#prop-aqft10-square-summable)により、極限変位状態は真空Fock表現とユニタリ同値です。一方、有限 $N$ での最低エネルギーは
 
 $$
 E_N=-\sum_{j=1}^N\frac{h_j^2}{2\omega_j^2}
