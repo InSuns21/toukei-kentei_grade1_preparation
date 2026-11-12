@@ -1,0 +1,53 @@
+id: "AQFT3"
+title: "状態・共変表現・正エネルギー真空"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT2
+  - OA5
+  - QM6
+  - QM7
+official_scope: []
+learning_objectives:
+  - 状態への自己同型の作用を定義し、正値性・規格化・群作用を証明できる
+  - 不変状態からGNS空間上の共変ユニタリ表現を構成し、不変ベクトルと作用素共変性を計算できる
+  - GNS実装の強連続性に必要な相関関数の条件を、ノルム計算で判定できる
+  - 平行移動の同時スペクトルと前方閉光円錐によるスペクトル条件を区別して記述できる
+  - Lorentz共変性がある場合のHamiltonian正値性と前方光円錐条件の関係を証明できる
+  - 真空の存在・群不変性・正エネルギー・一意性を区別し、零運動量スペクトル射影で一意性を判定できる
+  - 加法性とtime-sliceが基本net公理の帰結でないことを明示的なnetで証明できる
+definitions:
+  - { id: AQFT3-DEF-01, name: "状態のPoincaré変換" }
+  - { id: AQFT3-DEF-02, name: "不変状態" }
+  - { id: AQFT3-DEF-03, name: "共変巡回表現" }
+  - { id: AQFT3-DEF-04, name: "平行移動のスペクトル条件" }
+  - { id: AQFT3-DEF-05, name: "正エネルギー真空と真空一意性" }
+  - { id: AQFT3-DEF-06, name: "加法性" }
+  - { id: AQFT3-DEF-07, name: "time-slice条件" }
+theorems:
+  - { id: AQFT3-PROP-01, name: "状態の引き戻しは状態の群作用を与える" }
+  - { id: AQFT3-THM-01, name: "不変状態の共変GNS実装" }
+  - { id: AQFT3-PROP-02, name: "GNS実装の強連続性判定" }
+  - { id: AQFT3-PROP-03, name: "Lorentz共変性とエネルギー正値性" }
+  - { id: AQFT3-PROP-04, name: "零運動量射影と不変ベクトル" }
+  - { id: AQFT3-PROP-05, name: "二点可換netの真空非一意性" }
+  - { id: AQFT3-PROP-06, name: "基本net公理から加法性とtime-sliceは従わない" }
+canonical_examples:
+  - 行列代数のベクトル状態をユニタリ自己同型で運ぶ例
+  - 二点可換netの混合状態のGNS表現と二重の零運動量固有空間
+  - 時間並進の不変状態でも両符号の周波数を持つ行列動力学
+  - 非局所的な割当てによって加法性とtime-sliceを破るnet
+problem_patterns:
+  - AQFT3-STATE-PULLBACK
+  - AQFT3-STATE-GROUP-ACTION
+  - AQFT3-COMMUTATIVE-GNS
+  - AQFT3-FORWARD-CONE
+  - AQFT3-STRONG-CONTINUITY
+  - AQFT3-NEGATIVE-FREQUENCY
+  - AQFT3-LORENTZ-SPECTRUM
+  - AQFT3-TIME-SLICE-COUNTEREXAMPLE
+  - AQFT3-VACUUM-UNIQUENESS-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 5 }
