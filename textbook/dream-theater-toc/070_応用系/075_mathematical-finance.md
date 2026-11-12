@@ -9,3 +9,4 @@
 6. [U3-06 American オプションと停止時刻](textbook/volumes/dream_thater/応用系/U/U3-06/index.md)
 7. [U3-07 Bermudan・行使境界・配当効果](textbook/volumes/dream_thater/応用系/U/U3-07/index.md)
 8. [U3-08 Asian オプション：算術平均と経路依存の価格付け](textbook/volumes/dream_thater/応用系/U/U3-08/index.md)
+9. [U3-09 Barrier：knock-in / knock-out と監視頻度](textbook/volumes/dream_thater/応用系/U/U3-09/index.md)
