@@ -285,7 +285,20 @@ $$
 N'=I_2\otimes B(\mathbb C^2)\otimes B(\mathbb C^2)
 $$
 
-この等式は先ほどの行列単位による $N'=K$ の計算で、第一因子以外をまとめて一つのHilbert空間とみなして得られます。一方、$D$ の任意の元は $\sum_{i,j=1}^2E_{ij}\otimes I_2\otimes C_{ij}$ と一意に展開できます。$N'$ にも属するには第一因子の全行列と交換する必要があるため、先ほどと同じ係数比較で $C_{12}=C_{21}=0$、$C_{11}=C_{22}$ となります。したがって
+この等式は先ほどの行列単位による可換子の計算で、第一因子以外をまとめて一つのHilbert空間とみなして得られます。一方、$D$ の任意の元は第一因子の標準基底で一意に
+
+$$
+T=\sum_{i,j=1}^2 E_{ij}\otimes I_2\otimes C_{ij},
+\qquad C_{ij}\in B(\mathbb C^2)
+$$
+
+と展開できます。この $T$ が $N'$ にも属するには、第一因子の全行列と交換しなければなりません。§1と同じ行列単位の係数比較から
+
+$$
+C_{12}=C_{21}=0,\qquad C_{11}=C_{22}
+$$
+
+となるため、次を得ます。
 
 $$
 N'\cap D=I_2\otimes I_2\otimes B(\mathbb C^2).
@@ -510,7 +523,26 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** $T\in N'\cap K'$ とは $T$ が $N\cup K$ の全元と可換なことです。[VN2の可換子の弱作用素閉性](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)により、$T$ は $N\cup K$ が生成するvon Neumann環 $(N\cup K)''=N\vee K$ の全元とも可換です。逆に $N,K\subset N\vee K$ なので $(N\vee K)'\subset N'\cap K'$。両包含から等号です。[相対可換子と因子性の命題](#prop-aqft14-relative-commutant-and-factor)の仮定がそろい、$N'\cap K'=B(\mathcal H)'=\mathbb CI$。$Z(N)\subset N'\cap K'$ および $Z(K)\subset N'\cap K'$ より両中心はスカラーだけ、ゆえに両方因子です。
+**詳細解答。** $T\in N'\cap K'$ は、$T$ が $N\cup K$ の全元と可換であることと同値です。[VN2の可換子の弱作用素閉性](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)により、この交換関係は生成されたvon Neumann環にまで保たれます。よって
+
+$$
+\begin{aligned}
+N'\cap K'
+&=(N\cup K)'\\
+&=((N\cup K)'')'\\
+&=(N\vee K)'.
+\end{aligned}
+$$
+
+ここで二行目は可換子を二度取っても可換子自身が変わらないことによります。
+
+さらに $N\vee K=B(\mathcal H)$ と仮定すると、全作用素環の可換子はスカラーだけなので
+
+$$
+N'\cap K'=(N\vee K)'=B(\mathcal H)'=\mathbb CI.
+$$
+
+$N$ と $K$ は互いに可換です。従って、$N$ の中心元は $N'$ に属するだけでなく $K$ とも交換し、$Z(N)\subset N'\cap K'$ です。$K$ に対しても同様です。両中心は単位元を含むからどちらも $\mathbb CI$ に一致します。[因子の定義](../../VN/VN7/index.md#def-vn7-factor)により、$N,K$ はともに因子です。
 <!-- solution-end -->
 
 <a id="ex-aqft14-b04"></a>
@@ -566,7 +598,7 @@ N'=I_2\otimes B(\mathbb C^2)\otimes B(\mathbb C^2),\quad
 N'\cap K'=I_2\otimes I_2\otimes B(\mathbb C^2).
 $$
 
-共同生成環も定義から求めます。$N$ の $A\otimes I_2\otimes I_2$ と $K$ の $I_2\otimes B\otimes I_2$ を掛けると $A\otimes B\otimes I_2$ となります。$A,B$ を行列単位にわたって動かした積は第一・第二因子の全行列のテンソル積を線形に張ります。有限次元なのでその線形空間は弱閉であり、逆に積と和で生成できない第三因子の非スカラー作用素は入りません。従って
+次に $N$ と $K$ が生成する環の具体的な元を構成します。$N$ の $A\otimes I_2\otimes I_2$ と $K$ の $I_2\otimes B\otimes I_2$ を掛けると $A\otimes B\otimes I_2$ となります。$A,B$ を行列単位にわたって動かした積は第一・第二因子の全行列のテンソル積を線形に張ります。有限次元なのでその線形空間は弱閉であり、逆に積と和で生成できない第三因子の非スカラー作用素は入りません。従って
 
 $$
 N\vee K=B(\mathbb C^2)\otimes B(\mathbb C^2)\otimes I_2
