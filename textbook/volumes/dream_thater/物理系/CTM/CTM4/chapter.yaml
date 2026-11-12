@@ -1,0 +1,41 @@
+id: "CTM4"
+title: "速度勾配と客観性は何を測るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM3
+official_scope: []
+learning_objectives:
+  - 同じ物質点を追う物質微分 D_tq=partial_t q+v dot grad q を連鎖律から導き、空間時間微分と区別できる
+  - 速度勾配 L=grad_x v=dot F F^{-1} を微分する変数と正則性・可逆性を明記して導出できる
+  - L の対称部分 D と反対称部分 W を計算し、線素の長さ・内積の瞬間変化率と結び付けられる
+  - dot J=J tr L=J div v を行列式の一次展開から証明し、体積保存と形状不変の違いを例示できる
+  - 時間依存の剛体観測変換から L D W の変換則を導き、D の客観性と W の非客観性を反例で説明できる
+definitions:
+  - { id: CTM4-DEF-01, name: "物質微分" }
+  - { id: CTM4-DEF-02, name: "速度勾配" }
+  - { id: CTM4-DEF-03, name: "変形速度テンソルとスピンテンソル" }
+  - { id: CTM4-DEF-04, name: "観測者の剛体運動と客観性" }
+theorems:
+  - { id: CTM4-PROP-01, name: "速度勾配と変形勾配の時間変化" }
+  - { id: CTM4-PROP-02, name: "線素の長さと内積の瞬間変化率" }
+  - { id: CTM4-PROP-03, name: "体積 Jacobian の時間発展" }
+  - { id: CTM4-PROP-04, name: "観測者の回転による速度勾配の変換" }
+canonical_examples:
+  - せん断する粒子に付いた標識の物質微分がゼロとなる例
+  - 一様伸縮の速度勾配と体積変化率
+  - 単純せん断の D W と斜めの線素の長さ率
+  - 観測座標だけを回すことで W に見かけのスピンが現れる反例
+  - 伸縮・せん断・回転を合成した共回転観測系の比較
+problem_patterns:
+  - CTM4-MATERIAL-DERIVATIVE-TRAJECTORY
+  - CTM4-L-DF-F-INVERSE
+  - CTM4-DW-SHEAR-LINE-RATE
+  - CTM4-J-DIVERGENCE
+  - CTM4-OBJECTIVE-OBSERVER-TRANSFORMATION
+  - CTM4-VOLUME-VS-SHAPE
+  - CTM4-COROTATING-AFFINE-MOTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
