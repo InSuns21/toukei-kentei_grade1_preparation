@@ -1,0 +1,45 @@
+chapter: INV8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV7
+  - VAR9
+  - FA4
+
+forward_references: []
+
+concepts:
+  - id: inverse.variational-objective
+    name: 一般変分正則化目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一般変分正則化目的関数）"]
+    requires: [inverse.tikhonov-quadratic]
+
+  - id: inverse.variational-existence
+    name: 一般変分正則化の最小点の存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一般変分正則化の最小点の存在）"]
+    requires: [inverse.variational-objective, calculus-of-variations.direct-method-existence]
+
+  - id: inverse.variational-stability
+    name: 変分最小点の観測摂動に対する弱部分列安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（変分最小点の観測摂動に対する弱部分列安定性）"]
+    requires: [inverse.variational-existence, calculus-of-variations.direct-weak-lsc]
+
+  - id: inverse.variational-uniqueness
+    name: 厳密凸罰則による変分最小点の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（厳密凸罰則による変分最小点の一意性）"]
+    requires: [inverse.variational-objective, inverse.variational-existence]
+
+  - id: inverse.variational-strong-stability
+    name: 二乗ノルム罰則の強安定性
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（二乗ノルム罰則の強安定性）"]
+    requires: [inverse.variational-stability, inverse.variational-uniqueness]
