@@ -1,0 +1,44 @@
+id: "CTM10"
+title: "どの構成則が許されるのか：第二法則と客観性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM9
+official_scope: []
+learning_objectives:
+  - "エントロピーの積分・局所不等式を定義し、輸送定理と発散定理によって両者の同値性を導ける"
+  - "第一法則と第二法則からClausius–Duhem不等式を符号・単位を確かめて導出できる"
+  - "比自由エネルギーと非負散逸を用い、Fourier熱伝導と等温非散逸弾性の構成則を判定できる"
+  - "等温弾性で任意の正負の変形速度を許す仮定からP=partial_F Psiを導き、仕事共役を検算できる"
+  - "観測者変換に対する客観性と基準方向に関する材料等方性を区別し、異方性模型と非客観的応力模型を反例で判定できる"
+definitions:
+  - { id: CTM10-DEF-01, name: "比 Helmholtz 自由エネルギー" }
+  - { id: CTM10-DEF-02, name: "熱力学的に許容される構成則" }
+  - { id: CTM10-DEF-03, name: "構成則の客観性" }
+  - { id: CTM10-DEF-04, name: "基準配置に関する材料等方性" }
+theorems:
+  - { id: CTM10-PRINCIPLE-01, name: "エントロピー収支不等式・第二法則" }
+  - { id: CTM10-THM-01, name: "エントロピー収支の局所形" }
+  - { id: CTM10-THM-02, name: "Clausius–Duhem 散逸不等式" }
+  - { id: CTM10-PROP-01, name: "Fourier 則と熱散逸の符号" }
+  - { id: CTM10-PROP-02, name: "等温・非散逸の単純弾性構成則" }
+  - { id: CTM10-PROP-03, name: "客観的な変形自由エネルギーの表示" }
+canonical_examples:
+  - "均一加熱のエントロピー等号と空間温度勾配における正の生成"
+  - "Fourier則の熱流束の向きと熱散逸の符号"
+  - "等温一軸伸長における自由エネルギー・Piola応力・Cauchy応力の仕事共役"
+  - "スピンの観測系依存による散逸非負だが非客観的な対称応力則"
+  - "繊維方向がある客観的だが非等方的な自由エネルギー"
+problem_patterns:
+  - CTM10-ENTROPY-FLUX
+  - CTM10-FREE-ENERGY-DIFFERENTIATION
+  - CTM10-SHEAR-DISSIPATION
+  - CTM10-FOURIER-SIGN
+  - CTM10-ELASTIC-POWER
+  - CTM10-NONOBJECTIVE-STRESS
+  - CTM10-ISOTROPY-DIFFERENCE
+  - CTM10-COUPLED-ENTROPY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
