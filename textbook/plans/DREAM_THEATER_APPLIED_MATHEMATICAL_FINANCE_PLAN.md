@@ -1,9 +1,9 @@
 # DREAM THEATER 地下帝国・U3 数理ファイナンス：無裁定価格付け・数値計算・金融リスク・最適執行
 
 作成: 2026-10-11／講義構成確定: 2026-11-12  
-状態: planned（**64講の設計確定。講義本文・視覚教材・公開は未着手**）
+状態: planned（**68講の設計確定。講義本文・視覚教材・公開は未着手**）
 
-> **講義数は全64講で確定する。** 二項モデルから入り、期待値・PDE の価格付けを照合し、木・有限差分・Monte Carlo・Fourier の数値誤差を評価する。American と経路依存商品の両方を扱い、VaR／ES／ストレス・リスク配賦・信用リスクを経て、最適執行へ至る。各講義の本文・必要な視覚教材・数値検証・査読を**同一作業単位**で完成させ、全講完了後の**科目全体の横断監査は1回だけ**実施する。
+> **講義数は全68講で確定する。** 二項モデルから入り、期待値・PDE の価格付けを照合し、木・有限差分・Monte Carlo・Fourier の数値誤差を評価する。American と経路依存商品の両方を扱い、VaR／ES／ストレス・リスク配賦・信用リスクを経て、最適執行へ至る。各講義の本文・必要な視覚教材・数値検証・査読を**同一作業単位**で完成させ、全講完了後の**科目全体の横断監査は1回だけ**実施する。
 
 ## 1. 中心問い・到達水準
 
@@ -27,7 +27,7 @@
 - **PDE・数値解析**：熱方程式、放物型 PDE、差分近似の canonical 結果があれば前提としてリンクする。存在・一意性・Feynman–Kac の適用条件（係数、成長条件、境界、可積分性）を省略しない。既習結果が使えない場合は導入または証明担当を先に確定する。
 - **最適停止・制御**：Snell envelope は U3-06 の有限離散モデルでは直接構成する。一般の DPP／HJB／粘性解／微分ゲームの理論正本は [最適制御・微分ゲーム PLAN](../plan_done/DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md) の**移動先を実装時に確認して**参照する。未実装 PLAN の結果は使わない。
 - **横断ルート**：[地下帝国の横断ルート](DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md)。U4 の裁定機会・統計的裁定とは内容を重複させず、U3 は**デリバティブ無裁定評価とリスク管理**を所有する。
-- **科目ID**：以下の `U3-01`〜`U3-64` は固定設計ID。現時点で U3 系列 manifest／各講 `chapter.yaml`・`knowledge.yaml` は作成せず、最初の本文実装時に実在パスを確認して系列 manifest の `plan` を更新し、PLAN を `plans_progress/` へ**移動**する。新規 `U3` を未着手のまま `completed` にしない。
+- **科目ID**：以下の `U3-01`〜`U3-68` は固定設計ID。現時点で U3 系列 manifest／各講 `chapter.yaml`・`knowledge.yaml` は作成せず、最初の本文実装時に実在パスを確認して系列 manifest の `plan` を更新し、PLAN を `plans_progress/` へ**移動**する。新規 `U3` を未着手のまま `completed` にしない。
 
 ## 3. 各講義の確定シラバスと同時制作資産
 
@@ -79,72 +79,76 @@
 | **U3-24** American オプションの障害問題を解く | 相補条件、射影 SOR または penalty 法と停止基準 | 自由境界と継続価値の格子図 | 二項木・解の不等式・反復残差を照合 |
 | **U3-25** Barrier/Asian の PDE：境界と状態追加 | 吸収境界、連続監視、累積量を含む増次元 PDE | 障壁と拡張状態空間の図 | 可解な特殊例・離散監視との差・誤差表 |
 
-### IV. Monte Carlo による価格付けと統計的誤差（第26〜33講）
+### IV. 確率積分・SDE数値解法と Monte Carlo 価格付け（第26〜37講）
 
-推定精度だけでなくバイアス、離散化誤差、希少事象、実装独立性を検証する。
+**確率積分／SDE の離散化誤差と、Monte Carlo による期待値推定の標本誤差を区別する。** Itô 積分の $L^2$ 近似を起点とし、強・弱収束、数値安定性、高次補正、MLMC、分散減少、経路依存価格付けまで独立に検証する。原則として実行可能な Python ソースと誤差の再現手順を添付。スカラーの滑らかな SDE で得た誤差次数を、多次元非可換ノイズや不連続 payoff に無条件に適用しない。
 
 | 講義 | 学修対象・必ず導く内容 | 静図中心の図案／任意の補助操作 | 講内の数値検証・境界テスト |
 | --- | --- | --- | --- |
-| **U3-26** リスク中立期待値の Monte Carlo 推定 | 独立標本、標準誤差、信頼区間、再現可能な乱数シード | 推定値と信頼区間の推移 | 厳密期待値で被覆率・1/√N を検証 |
-| **U3-27** 経路生成：exact GBM／Euler／Milstein | 強・弱誤差、正値性、監視刻みを区別 | 同一 Brownian increment の経路比較 | 刻みを半分にした収束次数と偏り |
-| **U3-28** 分散減少：対照変量・対称変量 | 不偏性の条件と最適係数、分散の低減 | 標本分散の比較図 | 同一計算予算で推定分散を計測 |
-| **U3-29** 層化抽出・重要度サンプリング | 重み付き推定量、Radon–Nikodym 重み、希少損失と境界事象 | 尾部にサンプルを振る分布図 | 重み平均・有効標本サイズ・誤推定例 |
-| **U3-30** 準 Monte Carlo と次元削減 | 低食い違い点列・乱択 QMC、実効次元と誤差評価 | 擬似乱数と低食い違い点の配置図 | 誤差比較は独立スクランブルで推定 |
-| **U3-31** Brownian bridge・連続障壁の越境補正 | 両端点だけでは見落とす越境事象と条件付き確率 | 両端が障壁内なのに途中で越える経路 | 監視刻み依存と bridge correction の差 |
-| **U3-32** Least-squares Monte Carlo で American を評価 | 後向き条件付き継続価値回帰、基底、look-ahead bias | 行使／継続領域の推移 | 学習・評価経路を分離し二項木で較正 |
-| **U3-33** Monte Carlo Greeks と手法横断ベンチマーク | finite difference, pathwise, likelihood ratio の適用条件 | tree／PDE／MC／解析式の価格誤差とコスト図 | 共通入力の収束表・信頼区間・許容差 |
+| **U3-26** リスク中立期待値の Monte Carlo 推定 | 独立な経路ペイオフ標本の平均、標準誤差・信頼区間、標本誤差と時間離散化バイアスを分離 | 標本数と推定区間の推移図 | 既知の Black–Scholes 価格で被覆率・標準誤差の平方根則を検証 |
+| **U3-27** Itô 確率積分の離散近似と検算 | 適合単純過程の左端和、Itô 等長性、二次変分、右端／中点和との相違と Stratonovich の導入 | 同一 Brown 運動上の左端和・中点和の静図 | $\int_0^T W_t\,dW_t=(W_T^2-T)/2$ の二乗平均誤差・平均0・分散の検証 |
+| **U3-28** 厳密 GBM・Euler–Maruyama・Milstein | SDE の積分形、正規な Brownian increment、scalar Itô–Taylor 補正、正値性の限界 | 同じ Brown 運動下での厳密経路と2種類の数値近似図 | 強誤差・弱誤差の導入、Milstein 補正、刻み・負値の限界 |
+| **U3-29** 強収束・弱収束と誤差予算 | 強誤差は同一 Brown 運動下の標本路差、弱誤差は試験関数の期待値差であることと仮定を示す | 対数–対数の誤差・次数推定図 | 滑らかな係数の GBM で Euler 強次数1/2・弱次数1、scalar Milstein 強次数1を検証 |
+| **U3-30** Itô–Taylor 展開・高次法・安定性 | 反復確率積分の補正、弱高次法・predictor–corrector の適用限界、平均二乗安定性と刻み選択 | 平均二乗安定・発散領域の図 | 線形SDEで安定性と収束費用を測定し非滑らか payoff への次数外挿を避ける |
+| **U3-31** Multilevel Monte Carlo（MLMC） | $E[P_L]=E[P_0]+\sum_{\ell=1}^{L}E[P_\ell-P_{\ell-1}]$ の望遠鏡和、粗細経路の雑音結合と費用配分 | 粗格子と細格子の共通 Brownian increment とレベル別標本数 | 同じ目標 RMSE で標準MCとMLMCのバイアス・分散・計算量を比較 |
+| **U3-32** 分散減少：対称変量・対照変量 | 対称経路、制御変量係数と不偏性の条件、分散低減と計算費用 | 同じ計算量での分散比較図 | 共通乱数を使用し係数推定の過適合に注意 |
+| **U3-33** 層化抽出・重要度サンプリング | 層の重み、尤度比、希少イベントと標本退化、確率分布の変換 | 裾の重みと元分布・提案分布の比較図 | 重み正規化、有効標本サイズ、稀な barrier event の誤差を検証 |
+| **U3-34** 準 Monte Carlo と次元削減 | 低食い違い点列、乱択QMC、Brownian bridge construction、実効次元 | 擬似乱数点と低食い違い点の静図 | 独立スクランブルで推定誤差を比較し次元の影響を測る |
+| **U3-35** Brownian bridge・連続障壁の越境補正 | 離散監視と連続監視、両端点だけでは見落とす障壁越境の条件付き確率 | 両端点は障壁内でも途中で越える経路図 | 監視刻みとbridge correctionの誤差を比較 |
+| **U3-36** Least-squares Monte Carlo で American を評価 | 条件付き継続価値回帰、後退帰納、基底、先読みバイアス、独立評価 | 時刻別の行使・継続領域図 | 学習経路と評価経路を分離し二項木や数値上界下界と照合 |
+| **U3-37** Monte Carlo Greeks と手法横断ベンチマーク | 中心差分・pathwise 微分・尤度比推定の適用条件、非滑らか payoff への注意 | 木・PDE・MC・MLMC・解析式の費用対誤差図 | 共通商品とモデル仮定で収束・許容差・信頼区間と計算時間を比較 |
 
-### V. より現実的な価格モデルと校正（第34〜39講）
+### V. より現実的な価格モデルと校正（第38〜43講）
 
 Black–Scholes の限界を示し、モデルの選択・同定・価格差を定量的に扱う。
 
 | 講義 | 学修対象・必ず導く内容 | 静図中心の図案／任意の補助操作 | 講内の数値検証・境界テスト |
 | --- | --- | --- | --- |
-| **U3-34** Fourier／特性関数による価格付け | 変換可能性・減衰・積分区間・離散化誤差の条件を吟味 | 特性関数の積分と誤差の図 | Black–Scholes を独立実装で再現 |
-| **U3-35** インプライド・ボラティリティと校正 | 単調性、数値根探し、smile/skew と残差 | 価格から vol 曲面への写像図 | 再代入価格と bid/ask の整合 |
-| **U3-36** 局所ボラティリティ・確率ボラティリティ | 係数の状態依存、追加リスク、モデル不完備を整理 | 一定／局所／確率変動の標本路図 | 同一観測価格に対する商品外挿差 |
-| **U3-37** ジャンプ拡散と非完備市場 | Poisson 跳躍、補償項、PIDE・非一意な評価の限界 | ジャンプあり／なしの価格経路図 | 定数 jump 強度の小規模 MC 検算 |
-| **U3-38** 金利曲線・債券・短期金利モデル | 割引因子、zero/forward rates、金利確率化の入口 | イールド・カーブと割引因子の図 | 無裁定な割引関係と債券再評価 |
-| **U3-39** 価格付けモデルの横断較正・検証 | 日数・配当・単位・境界・観測誤差の統一的な再現実験 | 各手法の bias/variance/計算量図 | 既知解・別手法・保守的境界の三重照合 |
+| **U3-38** Fourier／特性関数による価格付け | 変換可能性・減衰・積分区間・離散化誤差の条件を吟味 | 特性関数の積分と誤差の図 | Black–Scholes を独立実装で再現 |
+| **U3-39** インプライド・ボラティリティと校正 | 単調性、数値根探し、smile/skew と残差 | 価格から vol 曲面への写像図 | 再代入価格と bid/ask の整合 |
+| **U3-40** 局所ボラティリティ・確率ボラティリティ | 係数の状態依存、追加リスク、モデル不完備を整理 | 一定／局所／確率変動の標本路図 | 同一観測価格に対する商品外挿差 |
+| **U3-41** ジャンプ拡散と非完備市場 | Poisson 跳躍、補償項、PIDE・非一意な評価の限界 | ジャンプあり／なしの価格経路図 | 定数 jump 強度の小規模 MC 検算 |
+| **U3-42** 金利曲線・債券・短期金利モデル | 割引因子、zero/forward rates、金利確率化の入口 | イールド・カーブと割引因子の図 | 無裁定な割引関係と債券再評価 |
+| **U3-43** 価格付けモデルの横断較正・検証 | 日数・配当・単位・境界・観測誤差の統一的な再現実験 | 各手法の bias/variance/計算量図 | 既知解・別手法・保守的境界の三重照合 |
 
-### VI. 金融リスクの定量評価（第40〜54講）
+### VI. 金融リスクの定量評価（第44〜58講）
 
 **実確率 P に基づく損失予測**と**リスク中立 Q による価格付け**を区別し、尾部・依存性・検証まで完結する。
 
 | 講義 | 学修対象・必ず導く内容 | 静図中心の図案／任意の補助操作 | 講内の数値検証・境界テスト |
 | --- | --- | --- | --- |
-| **U3-40** 損益分布・リスクファクター・P と Q | 保有期間、損失変数、保有量、full revaluation の定義 | 価格評価分布と実損益分布の対照図 | 同じポジションで P と Q の役割を区別 |
-| **U3-41** Value at Risk の定義と限界 | 分位点、信頼水準、離散分布の規約、劣加法性の反例 | 損失分布の VaR 位置図 | 二値損失・正規損失を手計算 |
-| **U3-42** Expected Shortfall の定義と性質 | 分位点積分、原子を含む尾部平均、コヒーレント性 | VaR と ES の裾の塗分け図 | 有限標本のタイ処理と劣加法性を検算 |
-| **U3-43** 正規・t 分布と分散共分散法による VaR/ES | 線形 P&L、正規／厚い尾、分位点・条件付き積分 | 正規/t の尾部重ね描き | 閉形式と数値積分・標本推定を比較 |
-| **U3-44** historical / filtered historical simulation | 順位統計量、重み、窓長、条件付き分散更新の影響 | ローリング VaR/ES の時間図 | 予測時点以降のデータ漏洩を排除 |
-| **U3-45** シナリオ Monte Carlo と full repricing | 複数リスク因子のシミュレーション、非線形商品再評価 | 価格曲面に分布を重ねた図 | デルタ近似と厳密再価格の差を測定 |
-| **U3-46** Delta–Gamma 近似と複雑なポートフォリオ | Taylor 展開、相関・交差項、近似破綻領域 | 線形／二次／真の損益関数図 | ショック幅を変えた誤差推移 |
-| **U3-47** 極値理論：POT・一般化 Pareto 尾部 | 閾値超過、形状母数、閾値診断と推定不確実性 | 閾値と平均超過の図 | 合成分布で VaR/ES の感度解析 |
-| **U3-48** 相関・copula・尾部依存とリスク集約 | 周辺分布と依存構造の分離、分散効果の失敗 | 同じ相関・異なる尾部依存の散布図 | 独立／同時極端損失のポートフォリオ比較 |
-| **U3-49** VaR バックテスト：超過数とクラスタリング | unconditional coverage、independence、検定力 | 超過マークと時系列の図 | 模擬データの過少被覆・独立性を検出 |
-| **U3-50** ES バックテストと予測分布検証 | ES の単純な超過回数検証の限界、VaRとの共同評価 | 予測損失分布と観測尾部の図 | 適切な scoring / tail diagnostics の比較 |
-| **U3-51** ストレステスト・シナリオ・流動性とモデルリスク | 履歴外の構造変化、集中、流動性調整、モデル不確実性 | 通常シナリオとストレス領域の重ね図 | VaR/ES だけでは覆えない損失ケース |
-| **U3-52** 限界・成分リスクとリスク配賦 | Euler 配賦の微分可能性、ES 寄与と非線形効果 | 各資産の ES 寄与棒グラフ | 寄与総和とポートフォリオ ES を照合 |
-| **U3-53** ES（CVaR）最適化とヘッジ | Rockafellar–Uryasev 表現、補助変数による最適化 | 期待収益–ES フロンティア | 有限シナリオ最適化と直接 ES 計算の一致 |
-| **U3-54** 信用・相手先・流動性リスクの入口 | PD/LGD/EAD、離散損失、集中・デフォルト依存と市場 VaR との差 | 少数債務者の損失分布図 | 期待損失と尾部損失を計算して区別 |
+| **U3-44** 損益分布・リスクファクター・P と Q | 保有期間、損失変数、保有量、full revaluation の定義 | 価格評価分布と実損益分布の対照図 | 同じポジションで P と Q の役割を区別 |
+| **U3-45** Value at Risk の定義と限界 | 分位点、信頼水準、離散分布の規約、劣加法性の反例 | 損失分布の VaR 位置図 | 二値損失・正規損失を手計算 |
+| **U3-46** Expected Shortfall の定義と性質 | 分位点積分、原子を含む尾部平均、コヒーレント性 | VaR と ES の裾の塗分け図 | 有限標本のタイ処理と劣加法性を検算 |
+| **U3-47** 正規・t 分布と分散共分散法による VaR/ES | 線形 P&L、正規／厚い尾、分位点・条件付き積分 | 正規/t の尾部重ね描き | 閉形式と数値積分・標本推定を比較 |
+| **U3-48** historical / filtered historical simulation | 順位統計量、重み、窓長、条件付き分散更新の影響 | ローリング VaR/ES の時間図 | 予測時点以降のデータ漏洩を排除 |
+| **U3-49** シナリオ Monte Carlo と full repricing | 複数リスク因子のシミュレーション、非線形商品再評価 | 価格曲面に分布を重ねた図 | デルタ近似と厳密再価格の差を測定 |
+| **U3-50** Delta–Gamma 近似と複雑なポートフォリオ | Taylor 展開、相関・交差項、近似破綻領域 | 線形／二次／真の損益関数図 | ショック幅を変えた誤差推移 |
+| **U3-51** 極値理論：POT・一般化 Pareto 尾部 | 閾値超過、形状母数、閾値診断と推定不確実性 | 閾値と平均超過の図 | 合成分布で VaR/ES の感度解析 |
+| **U3-52** 相関・copula・尾部依存とリスク集約 | 周辺分布と依存構造の分離、分散効果の失敗 | 同じ相関・異なる尾部依存の散布図 | 独立／同時極端損失のポートフォリオ比較 |
+| **U3-53** VaR バックテスト：超過数とクラスタリング | unconditional coverage、independence、検定力 | 超過マークと時系列の図 | 模擬データの過少被覆・独立性を検出 |
+| **U3-54** ES バックテストと予測分布検証 | ES の単純な超過回数検証の限界、VaRとの共同評価 | 予測損失分布と観測尾部の図 | 適切な scoring / tail diagnostics の比較 |
+| **U3-55** ストレステスト・シナリオ・流動性とモデルリスク | 履歴外の構造変化、集中、流動性調整、モデル不確実性 | 通常シナリオとストレス領域の重ね図 | VaR/ES だけでは覆えない損失ケース |
+| **U3-56** 限界・成分リスクとリスク配賦 | Euler 配賦の微分可能性、ES 寄与と非線形効果 | 各資産の ES 寄与棒グラフ | 寄与総和とポートフォリオ ES を照合 |
+| **U3-57** ES（CVaR）最適化とヘッジ | Rockafellar–Uryasev 表現、補助変数による最適化 | 期待収益–ES フロンティア | 有限シナリオ最適化と直接 ES 計算の一致 |
+| **U3-58** 信用・相手先・流動性リスクの入口 | PD/LGD/EAD、離散損失、集中・デフォルト依存と市場 VaR との差 | 少数債務者の損失分布図 | 期待損失と尾部損失を計算して区別 |
 
-### VII. 市場マイクロストラクチャ・最適執行・総合演習（第55〜64講）
+### VII. 市場マイクロストラクチャ・最適執行・総合演習（第59〜68講）
 
 **10講の独立した実装系列**とする。市場構造と発注方式、基準執行アルゴリズム、取引コスト・インパクト、Almgren–Chriss、板の回復・約定不確実性、状態依存の最適制御、複数資産、実証評価まで通す。価格付けから実ポジションの売却・購入へ戻り、投資判断や alpha の予測ではなく**指定注文の執行**を中心に据える。理論正本にある DPP／HJB は再構築せず、金融特有のモデル・目的関数・境界条件・数値解に責任を持つ。
 
 | 講義 | 学修対象・必ず導く内容 | 静図を基本とする図案／任意の補助操作 | 講内の数値検証・境界テスト |
 | --- | --- | --- | --- |
-| **U3-55** 板・注文方式・執行コストの定義 | bid–ask、板の厚み、成行／指値、価格優先・時間優先、約定価格、implementation shortfall の符号と内訳 | 気配値・板・約定とキャッシュフローの対応図 | 在庫・売買代金・手数料・spread cost の会計恒等式 |
-| **U3-56** TWAP／VWAP／POV と基準執行スケジュール | TWAP、出来高加重 VWAP、出来高連動参加率の定義、事前に利用可能な出来高推定と事後の実現出来高を区別 | 売買出来高曲線と累積約定曲線 | 同一親注文・同一市場経路で基準手法のコスト、未執行数量を比較 |
-| **U3-57** 市場インパクトと価格形成 | temporary／permanent impact、拡散リスク、非線形インパクト、較正で混同しやすい約定価格と観測価格の区別 | 注文速度・費用曲線、即時／持続効果の分解図 | 大小注文の実現コスト、impact 係数の単位・符号・極限 |
-| **U3-58** Almgren–Chriss 最適清算の導出 | 在庫方程式、自己金融キャッシュフロー、期待コスト・コスト分散、リスク回避目的から離散最適性方程式と連続極限を導出 | 在庫軌跡とリスク–コスト frontier | 定数係数の解析解と三重対角系の数値解、制約満足性 |
-| **U3-59** 最適執行の数値最適化と感度 | 変動する出来高・流動性、速度上限、参加率、端末在庫制約、凸性と数値安定性 | 制約付き／制約なし在庫軌跡の比較図 | 凸二次計画と参照解、最適性残差・パラメータ感度 |
-| **U3-60** 板の回復・過渡的インパクト | transient impact と resilience の状態変数、回復を含む離散動学、Obizhaeva–Wang 型の経済的解釈 | 発注後の板厚回復と impact 減衰図（時間操作は有用時のみ） | 回復率を変えた最適スケジュールと瞬時／永久 impact 極限 |
-| **U3-61** 指値・成行注文と約定不確実性 | 指値の約定確率、キューとキャンセルの簡約モデル、未約定・在庫リスク、指値／成行の制御と terminal liquidation | 発注・部分約定・取消・在庫の状態遷移図 | Monte Carlo 約定サンプルと小状態DPの期待コストを比較 |
-| **U3-62** 状態依存最適執行と HJB の応用 | 価格シグナル・変動性・流動性を観測する制御、金融固有の価値関数・終端条件・境界条件、DPP/HJB の適用と格子解 | 時刻・在庫・流動性を軸とする政策マップ | 決定的係数の Almgren–Chriss への縮退とベルマン残差 |
-| **U3-63** 複数資産・クロスインパクト・流動性調整リスク | 共分散・クロスインパクト行列の次元、対称性・正定値性などモデル上の条件、L-VaR／流動性調整 ES の位置づけ | 二資産の執行順序と残存リスク寄与図 | 行列条件を破った失敗例、ストレス下での市場リスク・執行コスト合算 |
-| **U3-64** 執行バックテスト・TCA と全科目統合 | transaction cost analysis、arrival price、benchmark の先読み防止、反実仮想の実約定不能性、コストの区間推定、価格付け・VaR/ES と執行の統合 | 市場価格・在庫・約定・累積 shortfall の同期した静図（必要時のみ操作化） | hold-out 市場経路と固定 seed、TWAP/VWAP/AC/適応制御の同条件比較・頑健性 |
+| **U3-59** 板・注文方式・執行コストの定義 | bid–ask、板の厚み、成行／指値、価格優先・時間優先、約定価格、implementation shortfall の符号と内訳 | 気配値・板・約定とキャッシュフローの対応図 | 在庫・売買代金・手数料・spread cost の会計恒等式 |
+| **U3-60** TWAP／VWAP／POV と基準執行スケジュール | TWAP、出来高加重 VWAP、出来高連動参加率の定義、事前に利用可能な出来高推定と事後の実現出来高を区別 | 売買出来高曲線と累積約定曲線 | 同一親注文・同一市場経路で基準手法のコスト、未執行数量を比較 |
+| **U3-61** 市場インパクトと価格形成 | temporary／permanent impact、拡散リスク、非線形インパクト、較正で混同しやすい約定価格と観測価格の区別 | 注文速度・費用曲線、即時／持続効果の分解図 | 大小注文の実現コスト、impact 係数の単位・符号・極限 |
+| **U3-62** Almgren–Chriss 最適清算の導出 | 在庫方程式、自己金融キャッシュフロー、期待コスト・コスト分散、リスク回避目的から離散最適性方程式と連続極限を導出 | 在庫軌跡とリスク–コスト frontier | 定数係数の解析解と三重対角系の数値解、制約満足性 |
+| **U3-63** 最適執行の数値最適化と感度 | 変動する出来高・流動性、速度上限、参加率、端末在庫制約、凸性と数値安定性 | 制約付き／制約なし在庫軌跡の比較図 | 凸二次計画と参照解、最適性残差・パラメータ感度 |
+| **U3-64** 板の回復・過渡的インパクト | transient impact と resilience の状態変数、回復を含む離散動学、Obizhaeva–Wang 型の経済的解釈 | 発注後の板厚回復と impact 減衰図（時間操作は有用時のみ） | 回復率を変えた最適スケジュールと瞬時／永久 impact 極限 |
+| **U3-65** 指値・成行注文と約定不確実性 | 指値の約定確率、キューとキャンセルの簡約モデル、未約定・在庫リスク、指値／成行の制御と terminal liquidation | 発注・部分約定・取消・在庫の状態遷移図 | Monte Carlo 約定サンプルと小状態DPの期待コストを比較 |
+| **U3-66** 状態依存最適執行と HJB の応用 | 価格シグナル・変動性・流動性を観測する制御、金融固有の価値関数・終端条件・境界条件、DPP/HJB の適用と格子解 | 時刻・在庫・流動性を軸とする政策マップ | 決定的係数の Almgren–Chriss への縮退とベルマン残差 |
+| **U3-67** 複数資産・クロスインパクト・流動性調整リスク | 共分散・クロスインパクト行列の次元、対称性・正定値性などモデル上の条件、L-VaR／流動性調整 ES の位置づけ | 二資産の執行順序と残存リスク寄与図 | 行列条件を破った失敗例、ストレス下での市場リスク・執行コスト合算 |
+| **U3-68** 執行バックテスト・TCA と全科目統合 | transaction cost analysis、arrival price、benchmark の先読み防止、反実仮想の実約定不能性、コストの区間推定、価格付け・VaR/ES と執行の統合 | 市場価格・在庫・約定・累積 shortfall の同期した静図（必要時のみ操作化） | hold-out 市場経路と固定 seed、TWAP/VWAP/AC/適応制御の同条件比較・頑健性 |
 
 ## 4. 各講の実装契約：本文・計算・図を同じPRで完成させる
 
@@ -171,13 +175,13 @@ Black–Scholes の限界を示し、モデルの選択・同定・価格差を�
 
 ## 5. 最終の科目全体監査は一度だけ
 
-**講をまたぐ作業は段階的に行い、科目全体の一括監査は全64講の実装が終わった後に1回だけ行う。** 個別PRで必須の数学・図・コード査読を省略して最後へ押し付けない。
+**講をまたぐ作業は段階的に行い、科目全体の一括監査は全68講の実装が終わった後に1回だけ行う。** 個別PRで必須の数学・図・コード査読を省略して最後へ押し付けない。
 
 1. **各講のPR**：本文・必要と判断した図／操作コンテンツ・演習解答・再実行可能な Python 数値ソースとテスト・章メタデータ・公開目次更新を同一PRに入れる。変更区分に応じた chapter gate、`npm run validate:textbook:changed`、`validate:textbook-knowledge:changed`、`validate:dream-theater-concepts:changed`、`validate:dream-theater-exercise-counts`、該当する SVG quality/layout、実ブラウザ表示、公開 link check を実施。常に該当系列 manifest を更新する。**別の完了章の追跡監査は明示依頼時以外しない。**
 2. **講をまたぐ整合を執筆時に記録**：共有する数値ベンチマークの入力規約・oracle と定義担当、$P/Q$、複利・金利・時間の統一を毎講確認。新たな未解決問題だけを小さな TODO として追跡する。**フェーズ末の全科目再読・全件再計算を定例化しない。**
-3. **第64講完成後の唯一の横断監査**：全64講の learning objective 充足、主要定理の canonical owner・依存方向・初出順、章間 stable anchor、商品ごとの PDE／期待値／tree／MC の仮定一致、モデル別数値誤差、リスク $P/Q$ と損失符号、公開目次、採用した図・アニメーションの導線、未解決 TODO、manifests／計画位置を**科目全体について1巡**確認する。統合 Python 数値 benchmark suite を実行し、価格付け・リスク・執行の代表例を独立再計算する。
+3. **第68講完成後の唯一の横断監査**：全68講の learning objective 充足、主要定理の canonical owner・依存方向・初出順、章間 stable anchor、商品ごとの PDE／期待値／tree／MC の仮定一致、モデル別数値誤差、リスク $P/Q$ と損失符号、公開目次、採用した図・アニメーションの導線、未解決 TODO、manifests／計画位置を**科目全体について1巡**確認する。統合 Python 数値 benchmark suite を実行し、価格付け・リスク・執行の代表例を独立再計算する。
 4. **監査で重大欠陥が見つかったとき**：該当講と依存箇所だけを修正・再計算・再表示検証し、横断監査の指摘表で close を確認する。**科目全体の監査を最初から繰り返さない**。ただし全体の結論を無効化する広域欠陥なら必要な範囲を再確認し、未解決のまま完了扱いにしない。
-5. **終了条件**：64/64 completed、全講の独習粒度・実演習・数値検証と採用図の gate、最終の横断監査1件の指摘対応、routing／公開導線・planの移動／manifest一致・CI がすべて成立して初めて `plan_done/` へ移動する。初期設計の確定のみでは `plans/` のまま。
+5. **終了条件**：68/68 completed、全講の独習粒度・実演習・数値検証と採用図の gate、最終の横断監査1件の指摘対応、routing／公開導線・planの移動／manifest一致・CI がすべて成立して初めて `plan_done/` へ移動する。初期設計の確定のみでは `plans/` のまま。
 
 ## 6. 主要参考書・原典（章立ての照合に使用）
 
@@ -186,16 +190,20 @@ Black–Scholes の限界を示し、モデルの選択・同定・価格差を�
 1. Steven E. Shreve, *Stochastic Calculus for Finance I: The Binomial Asset Pricing Model* (Springer, 2004), [出版社目次](https://link.springer.com/book/10.1007/978-0-387-22527-2)。第01〜11講の二項・状態価格・American・ランダムウォークの導線。
 2. Steven E. Shreve, *Stochastic Calculus for Finance II: Continuous-Time Models* (Springer, 2004), [書誌・目次](https://books.google.co.jp/books?id=O8kD1NwQBsQC)。第12〜25講の Brown 運動・Itô・Black–Scholes・Feynman–Kac・エキゾチック・最適停止を照合。
 3. John C. Hull, *Options, Futures, and Other Derivatives*, 11th ed. (Pearson, ©2022), [出版社目次](https://www.pearson.com/en-us/subject-catalog/p/options-futures-and-other-derivatives/P200000005938/9780136939979)。商品の定義・実務慣行の確認に併用。
-4. Paul Glasserman, *Monte Carlo Methods in Financial Engineering* (Springer, 2003), [出版社目次](https://link.springer.com/book/10.1007/978-0-387-21617-1)。第26〜33講とリスク管理の MC・分散減少・LSM・Greeks。
+4. Paul Glasserman, *Monte Carlo Methods in Financial Engineering* (Springer, 2003), [出版社目次](https://link.springer.com/book/10.1007/978-0-387-21617-1)。第26〜37講とリスク管理の確率積分近似・経路生成・分散減少・LSM・Greeks。
 5. Paolo Brandimarte, *Numerical Methods in Finance and Economics*, 2nd ed. (Wiley, 2006), [出版社目次](https://onlinelibrary.wiley.com/doi/book/10.1002/0470080493)。tree・有限差分・Monte Carlo・最適化の実装／誤差比較。
-6. Alexander J. McNeil, Rüdiger Frey, Paul Embrechts, *Quantitative Risk Management*, revised ed. (Princeton UP, 2015), [出版社目次](https://press.princeton.edu/books/hardcover/9780691166278/quantitative-risk-management)。第40〜54講の VaR、ES、時系列・尾部・依存性・市場リスク・信用リスク。
-7. R. T. Rockafellar, S. Uryasev, “Optimization of Conditional Value-at-Risk” (2000), [Journal of Risk](https://doi.org/10.21314/jor.2000.038)。第53講の ES 最適化。
-8. R. Almgren, N. Chriss, “Optimal Execution of Portfolio Transactions” (2001), [Journal of Risk](https://doi.org/10.21314/jor.2001.041)。第57〜59講の市場インパクト・在庫・執行フロンティア。
+6. Alexander J. McNeil, Rüdiger Frey, Paul Embrechts, *Quantitative Risk Management*, revised ed. (Princeton UP, 2015), [出版社目次](https://press.princeton.edu/books/hardcover/9780691166278/quantitative-risk-management)。第44〜58講の VaR、ES、時系列・尾部・依存性・市場リスク・信用リスク。
+7. R. T. Rockafellar, S. Uryasev, “Optimization of Conditional Value-at-Risk” (2000), [Journal of Risk](https://doi.org/10.21314/jor.2000.038)。第57講の ES 最適化。
+8. R. Almgren, N. Chriss, “Optimal Execution of Portfolio Transactions” (2001), [Journal of Risk](https://doi.org/10.21314/jor.2001.041)。第61〜63講の市場インパクト・在庫・執行フロンティア。
 9. Basel Committee, *Minimum capital requirements for market risk* (2019), [BIS公式資料](https://www.bis.org/publications/201901-standards-minimum-capital-requirements-market-risk)。第42・51講の ES の制度上の位置づけを**理論値・規制計算法と混同せず**紹介する場合の一次資料。規制の具体値・適用状況は執筆時に最新版と法域を再確認する。
 
-10. Álvaro Cartea, Sebastian Jaimungal, José Penalva, *Algorithmic and High-Frequency Trading* (Cambridge University Press, 2015), [出版社の目次](https://assets.cambridge.org/97811070/91146/frontmatter/9781107091146_frontmatter.pdf)。第55〜64講の連続時間執行、指値／成行の選択、出来高目標・HJB 適用を照合。
-11. Larry Harris, *Trading and Exchanges: Market Microstructure for Practitioners* (Oxford University Press, 2003), [出版社](https://academic.oup.com/book/52292)。第55〜57講の板・注文方式・市場マイクロストラクチャの入口。
-12. Anna A. Obizhaeva, Jiang Wang, “Optimal Trading Strategy and Supply/Demand Dynamics” (*Journal of Financial Markets*, 2013), [NBER 著者公開稿](https://www.nber.org/papers/w11444)。第60講の板の回復と一時的インパクト。
+10. Álvaro Cartea, Sebastian Jaimungal, José Penalva, *Algorithmic and High-Frequency Trading* (Cambridge University Press, 2015), [出版社の目次](https://assets.cambridge.org/97811070/91146/frontmatter/9781107091146_frontmatter.pdf)。第59〜68講の連続時間執行、指値／成行の選択、出来高目標・HJB 適用を照合。
+11. Larry Harris, *Trading and Exchanges: Market Microstructure for Practitioners* (Oxford University Press, 2003), [出版社](https://academic.oup.com/book/52292)。第59〜61講の板・注文方式・市場マイクロストラクチャの入口。
+12. Anna A. Obizhaeva, Jiang Wang, “Optimal Trading Strategy and Supply/Demand Dynamics” (*Journal of Financial Markets*, 2013), [NBER 著者公開稿](https://www.nber.org/papers/w11444)。第64講の板の回復と一時的インパクト。
+
+13. Peter E. Kloeden, Eckhard Platen, *Numerical Solution of Stochastic Differential Equations* (Springer, 1992), [出版社目次](https://link.springer.com/book/10.1007/978-3-662-12616-5)。第27〜30講の確率積分の離散化、Itô–Taylor、強・弱近似と高次法。
+14. Desmond J. Higham, “An Algorithmic Introduction to Numerical Simulation of Stochastic Differential Equations” (*SIAM Review*, 2001), [原著](https://doi.org/10.1137/S0036144500378302)。第27〜30講の Itô 数値積分・Euler–Maruyama・Milstein・強弱収束・数値安定性の検証。
+15. Michael B. Giles, “Multilevel Monte Carlo Path Simulation” (*Operations Research*, 2008), [原著](https://doi.org/10.1287/opre.1070.0496) と “Multilevel Monte Carlo Methods” (*Acta Numerica*, 2015), [原著](https://doi.org/10.1017/S096249291500001X)。第31講の多重レベルの耦合、計算量と誤差の検証。
 
 ---
 
