@@ -55,6 +55,8 @@ D_P:\int_{\mathcal A}P\longrightarrow\widehat{\mathcal A},
 $$
 を得る。$(h^v)(h^u)=h^{vu}$、$h^{1_a}=1_{h^a}$ なので関手の公理も満たす。
 
+ここで確かめたい[余錐の条件](../CAT2-05/index.md#def-cat2-05-cocone)は、各 $u:(a,x)\to(b,y)$ に対して二つの脚の合成が一致することである。以下では、まず各 $\iota_{a,x}$ が前層間の自然変換であることを確かめ、続いて $\iota_{b,y}h^u=\iota_{a,x}$ を確認する。
+
 <a id="def-cat3-10-canonical-cocone"></a>
 
 <!-- formal-statement-start -->
@@ -295,7 +297,7 @@ $$
 
 ### 証明の見取り図
 
-元の圏 $\int P$ は既に小さい。射影 $\pi:\int P\to\mathcal A$ と $F$ を合成し、$F\pi$ の余極限を取る。普遍性は[点ごとの左Kan拡張の定理](../CAT3-07/index.md#thm-cat3-07-pointwise)にそのまま適用できるが、単位と射の作用を明記する。
+元の圏 $\int P$ は既に小さい。射影 $\pi:\int P\to\mathcal A$ と $F$ を合成し、$F\pi$ の余極限を取る。[点ごとの左Kan拡張の定理](../CAT3-07/index.md#thm-cat3-07-pointwise)の形を使うが、同定先 $\widehat{\mathcal A}$ は一般に大きい圏であり、既習定理の小圏仮定をそのまま適用できない。各 $P$ に対する小さい $\int P$ 上の余極限から関手を作り、単位と普遍性を直接検証する。
 
 <!-- proof-start -->
 ### 証明
@@ -547,7 +549,7 @@ H(X,Y)\cong\left(\coprod_{x\in X}H(h^p)\right)
 \amalg\left(\coprod_{y\in Y}H(h^q)\right)
 \cong(X\times S)\amalg(Y\times T).
 $$
-射 $(u,v)$ に関して左辺の構造写像 $H(h^p)\to H(X,Y)$ は $x$ を $u(x)$ に送り、右辺の表現でも $(x,s)\mapsto(u(x),s)$ となるから同型は自然である。$q$ 成分も同じ計算で $v$ が働く。
+射 $(u,v):(X,Y)\to(X',Y')$ を取る。$x\in X$ に対応する射 $h^p\to(X,Y)$ は、$(u,v)$ と合成すると $u(x)\in X'$ に対応する射になる。従って $H$ が誘導する射は、余積の $x$ 番目の成分にある $s\in S$ を $u(x)$ 番目の成分へ移し、$(x,s)\mapsto(u(x),s)$ と書ける。同様に $q$ 成分では $(y,t)\mapsto(v(y),t)$ となる。右辺の関手の射作用と一致するため、この同型は自然である。
 
 **(2) 自然変換。** $\alpha:H\Rightarrow G$ に対して $f=\alpha_{h^p}:S\to S'$、$g=\alpha_{h^q}:T\to T'$ を取る。自然性を各余積への標準射で使うと、$\alpha_{(X,Y)}$ は
 $$
