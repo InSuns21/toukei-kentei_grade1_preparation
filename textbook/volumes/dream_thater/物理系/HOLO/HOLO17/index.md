@@ -15,7 +15,7 @@ $$
 \mathcal H_{A,\epsilon}=\bigotimes_{x\in A}\mathcal H_x
 $$
 
-と分解できます。$\epsilon>0$ は格子間隔に代表されるUV cutoffです。これは[QFT57の有限格子局所領域](../../QFT/QFT57/index.md#def-qft57-local-lattice)の具体化です。**格子の外縁に物理的な境界条件を置くこと**と、サイトを $A$ と $A^c$ に分けるために**内部に仮想的な切断面を置くこと**は別です。全体が円周上の格子であっても、区間 $A$ には通常二つの切断端点があります。
+と分解できます。$\epsilon>0$ は格子間隔に代表されるUV cutoffです。これは[QFT57の有限格子局所領域](../../QFT/QFT57/index.md#def-qft57-local-lattice)の具体化です。**格子の外縁に物理的な境界条件を置くこと**と、サイトを $A$ と $A^c$ に分けるために**内部に仮想的な切断面を置くこと**は別です。全体が円周上の格子であっても、区間 $A$ には通常二つの切断端点があります。後で用いる二次元CFTの $\epsilon$ は端点付近の短距離cutoffを表し、ここでの格子間隔と数値的に等しいとは仮定しません。異なる正則化を比較するときは、長さ尺度と非普遍定数の対応を別に指定します。
 
 全体の密度演算子を $\rho_{\epsilon}$ とすると、[部分トレースによる縮約](../../QFT/QFT57/index.md#def-qft57-regulated-reduction)で
 
@@ -56,14 +56,25 @@ $$
 \qquad \rho_\epsilon=|\Psi\rangle\langle\Psi|
 $$
 
-とします。左右の交差項を部分トレースすると $\langle0_b|1_b\rangle=0$ なので
+とします。サイト $a$ の正規直交基底を $(|0_a\rangle,|1_a\rangle)$ と選びます。[有限格子の部分トレース](../../QFT/QFT57/index.md#def-qft57-regulated-reduction)をサイト $b$ の基底で展開すると、縮約行列の $(i,j)$ 成分は
 
 $$
+\langle i_a|\rho_{A,\epsilon}|j_a\rangle
+=\sum_{k=0}^{1}\langle i_a k_b|\rho_\epsilon|j_a k_b\rangle
+\qquad(i,j\in\{0,1\}).
+$$
+
+交差項では $\langle0_b|1_b\rangle=0$ なので非対角成分は消え、対角成分はともに $1/2$ です。したがってこの基底で表した行列と演算子は
+
+$$
+[\rho_{A,\epsilon}]_{(|0_a\rangle,|1_a\rangle)}
+=\begin{pmatrix}1/2&0\\0&1/2\end{pmatrix},
+\qquad
 \rho_{A,\epsilon}=\frac12|0_a\rangle\langle0_a|
 +\frac12|1_a\rangle\langle1_a|=\frac{I_2}{2}.
 $$
 
-これは正の行列で、トレースは1です。従って固有値から
+二つの対角成分が非負なので正値、和が1なのでトレース1です。固有値はこの基底の対角成分 $1/2,1/2$ であり、定義のエントロピーとモーメントに代入すると
 
 $$
 S_\epsilon(A)=-2\cdot\frac12\ln\frac12=\ln2,
@@ -141,6 +152,16 @@ F'(1)=
 $$
 
 零固有値は $n>0$ で $0^n=0$ と扱い、微分への寄与も0です。連続体の経路積分では、整数枚のシートの構成はできても、**$n=1$ 近傍の物理的な解析接続とcutoff補正の微分制御**は別途必要です。これは[QFT58の解析接続条件](../../QFT/QFT58/index.md#prop-qft58-conditional-entropy)と[QFT59の条件付き定理](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)が担当する論点です。
+
+**整数点の任意の解析補間と、密度行列に由来するモーメントは違います。** 有限次元密度行列の**全整数**モーメント $M_n=\sum_{j=1}^r p_j^n$ が厳密に既知なら、正の固有値のうち最大のもの $p_*$ とその重複度 $m_*$ は
+
+$$
+p_*=\lim_{n\to\infty}M_n^{1/n},
+\qquad
+m_*=\lim_{n\to\infty}\frac{M_n}{p_*^n}
+$$
+
+で復元できます。実際、$p_*$ より小さい固有値を $q_j$ とすれば $M_n=p_*^n(m_*+\sum_j(q_j/p_*)^n)$ で、和は0へ収束します。$M_n-m_*p_*^n$ に同じ操作を繰り返すと、有限個の正の固有値をすべて復元でき、$S=-\sum_jp_j\ln p_j$ も一意に決まります。これは**有限次元で全整数データを厳密に知り、スペクトル和という構造を課した場合**の話です。整数レプリカ経路積分で与えられた値を、制約のない解析関数に補間するだけでは微分は決まらず、連続体やcutoff極限にこの議論を無条件に移せません。
 
 ## 4. UV cutoffが必要な理由とType IIIの境界
 
@@ -247,35 +268,130 @@ $$
 **A1. Bell対の部分系。** $|\Psi\rangle=(|00\rangle+|11\rangle)/\sqrt2$ を $A,B$ の二qubitに置く。$\rho_A$ を基底表示で計算し、$S(A)$ と $M_2(A)$ を求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** 全密度演算子は $(|00\rangle\langle00|+|00\rangle\langle11|+|11\rangle\langle00|+|11\rangle\langle11|)/2$。$B$ で跡を取ると、交差項は $\langle0|1\rangle_B=0$ のため消える。従って $\rho_A=(|0\rangle\langle0|+|1\rangle\langle1|)/2=\operatorname{diag}(1/2,1/2)$。固有値から $S(A)=-2(1/2)\ln(1/2)=\ln2$、$M_2(A)=2(1/2)^2=1/2$。
+**詳細解答。** [部分トレースの定義](../../QFT/QFT57/index.md#def-qft57-regulated-reduction)を $B$ の基底 $|0\rangle,|1\rangle$ に適用する。まず
+
+$$
+\rho_{AB}=\frac12\bigl(
+|00\rangle\langle00|+|00\rangle\langle11|
++|11\rangle\langle00|+|11\rangle\langle11|
+\bigr).
+$$
+
+$B$ の交差項は $\langle0|1\rangle_B=0$ により消えるので、$A$ の基底 $(|0\rangle,|1\rangle)$ では
+
+$$
+\rho_A=\frac12\bigl(|0\rangle\langle0|+|1\rangle\langle1|\bigr)
+=\operatorname{diag}(1/2,1/2).
+$$
+
+正の固有値は $1/2,1/2$、その和は1である。自然対数による[本章のエントロピーデータ](#def-holo17-boundary-data)へ代入して
+
+$$
+S(A)=-2\cdot\frac12\ln\frac12=\ln2,\qquad
+M_2(A)=2(1/2)^2=\frac12.
+$$
 <!-- solution-end -->
 
 <a id="ex-holo17-a02"></a>
 **A2. 零固有値とRényi。** $\rho=\operatorname{diag}(3/4,1/4,0)$ は密度行列か確かめ、$M_2$、$S_2$、$S$ をnatで求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** 対角成分は非負で和が $3/4+1/4+0=1$、実対角行列だから自己共役。従って密度行列である。$M_2=(3/4)^2+(1/4)^2=9/16+1/16=5/8$、$S_2=-\ln(5/8)=\ln(8/5)$。零固有値の寄与は0なので $S=-(3/4)\ln(3/4)-(1/4)\ln(1/4)$。$0\ln0$ を未定義のまま計算してはいけない。
+**詳細解答。** 与えられた $\rho$ は実対角行列だから自己共役で、対角成分 $3/4,1/4,0$ はすべて非負である。したがって正値であり、
+
+$$
+\operatorname{Tr}\rho=\frac34+\frac14+0=1
+$$
+
+なので密度行列である。[本章のモーメントとエントロピー](#def-holo17-boundary-data)を正の固有値に適用すると
+
+$$
+M_2=\left(\frac34\right)^2+\left(\frac14\right)^2
+=\frac{9+1}{16}=\frac58,\qquad
+S_2=\frac{\ln(5/8)}{1-2}=\ln\frac85,
+$$
+
+$$
+S=-\frac34\ln\frac34-\frac14\ln\frac14.
+$$
+
+零固有値は $0\ln0:=0$ と扱う。$\ln0$ を単独で評価してはならない。
 <!-- solution-end -->
 
 <a id="ex-holo17-a03"></a>
 **A3. 局所演算子の支持。** 三qubit格子の $A=\{1,2\}$ について $Z_1Z_2$ と $Z_1Z_3$ のうち $A$ に支持されるものを判定し、恒等演算子を明記せよ。$Z_j$ は第 $j$ サイトのPauli $Z$ とする。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** $\mathcal H=\mathcal H_1\otimes\mathcal H_2\otimes\mathcal H_3$、$\mathcal H_A=\mathcal H_1\otimes\mathcal H_2$。$Z_1Z_2=(Z\otimes Z)\otimes I_3$ だから $A$ に支持される。$Z_1Z_3=Z\otimes I_2\otimes Z$ は3番サイトにも作用するため、$O_A\otimes I_3$ と書けず支持されない。たとえば3番の $X_3$ と可換でないことでも分かる。
+**詳細解答。** [QFT57の局所作用素の支持条件](../../QFT/QFT57/index.md#def-qft57-local-lattice)では、$A=\{1,2\}$ に支持される演算子は $O_A\otimes I_3$ と表せる。ここで
+
+$$
+\mathcal H=\mathcal H_1\otimes\mathcal H_2\otimes\mathcal H_3,
+\qquad \mathcal H_A=\mathcal H_1\otimes\mathcal H_2.
+$$
+
+$Z_j$ は第 $j$ 因子にのみ $Z=\operatorname{diag}(1,-1)$ を作用させる記法で、ほかの因子には恒等演算子を作用させる。従って
+
+$$
+Z_1Z_2=(Z\otimes Z)\otimes I_3,\qquad
+Z_1Z_3=Z\otimes I_2\otimes Z.
+$$
+
+前者は支持条件を満たし、後者は満たさない。別の確認として、[QFT57の例にあるPauli $X$](../../QFT/QFT57/index.md#def-qft57-local-lattice)を用い $X_3=I_1\otimes I_2\otimes X$ とすれば、$ZX=-XZ$ なので $[Z_1Z_3,X_3]\ne0$ である。$O_A\otimes I_3$ なら全ての $X_3$ と可換なので、これは支持しないことの検算にもなる。
 <!-- solution-end -->
 
 <a id="ex-holo17-a04"></a>
 **A4. TFDと右境界の区間。** $\mathcal H_R=\mathbb C^2_A\otimes\mathbb C^2_B$、$H_R=0$ とする。TFDの規格化係数、$\rho_R$、$\rho_A$ とそれぞれのエントロピーを求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** エネルギーは4準位とも0で $Z=\operatorname{Tr}I_4=4$、各TFD振幅は $1/\sqrt4=1/2$。[TFDの片側縮約とエントロピー](../HOLO16/index.md#prop-holo16-partial-trace)より $\rho_R=I_4/4$。$B$ の直交基底二つを足すと $\rho_A=\operatorname{Tr}_B(I_A\otimes I_B/4)=2I_A/4=I_2/2$。固有値から $S_R=-4(1/4)\ln(1/4)=\ln4$、$S_A=-2(1/2)\ln(1/2)=\ln2$。
+**詳細解答。** 右側の四つの基底 $|ab\rangle_R$（$a,b\in\{0,1\}$）はすべてエネルギー0を持つ。$Z=\operatorname{Tr}e^{-\beta H_R}=\operatorname{Tr}I_4=4$ だから、[熱場二重状態](../HOLO16/index.md#def-holo16-tfd)の定義に代入すると
+
+$$
+|\mathrm{TFD}_\beta\rangle
+=\frac12\sum_{a,b=0}^1|ab\rangle_L\otimes|ab\rangle_R.
+$$
+
+[TFD片側縮約](../HOLO16/index.md#prop-holo16-partial-trace)で左側を消し、次に $B$ の二つの基底でトレースすると
+
+$$
+\rho_R=\frac{I_4}{4}=\frac{I_A\otimes I_B}{4},
+\qquad
+\rho_A=\operatorname{Tr}_B\rho_R
+=\frac{I_A}{4}\operatorname{Tr}I_B=\frac{I_2}{2}.
+$$
+
+$\rho_R$ の固有値は $1/4$ が4個、$\rho_A$ は $1/2$ が2個なので
+
+$$
+S(\rho_R)=-4\cdot\frac14\ln\frac14=\ln4,
+\qquad
+S(\rho_A)=-2\cdot\frac12\ln\frac12=\ln2.
+$$
 <!-- solution-end -->
 
 <a id="ex-holo17-a05"></a>
 **A5. 切断Bell対の個数。** 切断面を横切る独立なBell対が $m=3$ 個あり、他の自由度は領域をまたがない純粋な積状態とする。$\rho_A$ の非零固有値、$M_n$、$S_n$、$S$ を求めよ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** 各Bell対の縮約は $I_2/2$ なので独立性から $\rho_A$ の非零部分は $(I_2/2)^{\otimes3}=I_8/8$。固有値 $1/8$ が8個であり $M_n=8(1/8)^n=8^{1-n}$。従って $S_n=\ln(8^{1-n})/(1-n)=\ln8=3\ln2$、$S=-8(1/8)\ln(1/8)=3\ln2$。領域内部に付いた純粋な積状態の零固有値は寄与しない。
+**詳細解答。** 一対のBell状態を片側で縮約すると $I_2/2$ である。三対が独立なので、[切断Bell対の局所エントロピー定理](../../QFT/QFT57/index.md#thm-qft57-crossing-entropy)を $m=3$ に適用すると、領域をまたがない純粋因子 $|\chi_A\rangle$ を含めて
+
+$$
+\rho_A=\left(\frac{I_2}{2}\right)^{\otimes3}
+\otimes|\chi_A\rangle\langle\chi_A|
+=\frac{I_8}{8}\otimes|\chi_A\rangle\langle\chi_A|.
+$$
+
+非零固有値 $1/8$ が8個あり、その和は1である。したがって
+
+$$
+M_n=8\left(\frac18\right)^n=8^{1-n},
+\qquad
+S_n=\frac{(1-n)\ln8}{1-n}=\ln8,
+$$
+
+$$
+S=-8\cdot\frac18\ln\frac18=3\ln2.
+$$
+
+純粋因子に伴う零固有値の寄与は0とする。
 <!-- solution-end -->
 
 ### Level B：条件・極限・比較量を結ぶ
@@ -284,28 +400,139 @@ $$
 **B1. 相互情報の有限模型。** $A,B$ はBell対、$C$ は独立な純粋qubitとする。$I(A:B)=S(A)+S(B)-S(AB)$ と $I(A:C)$ を求め、全体の純粋性から各領域の純粋性を推論できない理由を述べよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** 全状態は $|\Phi\rangle_{AB}\otimes|0\rangle_C$ で純粋。$A,B$ はそれぞれ $I_2/2$ に縮約され $S(A)=S(B)=\ln2$、$AB$ はBell純粋状態だから $S(AB)=0$。ゆえに $I(A:B)=2\ln2$。一方 $\rho_{AC}=(I_2/2)_A\otimes|0\rangle\langle0|_C$ なので、[テンソル積のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)により $S(AC)=\ln2+0=\ln2$、また $S(C)=0$。従って $I(A:C)=\ln2+0-\ln2=0$。全体が純粋でも補領域とのエンタングルメントで一部分は混合する。
+**詳細解答。** 全状態は $|\Phi\rangle_{AB}\otimes|0\rangle_C$ で純粋である。しかし $AB$ のBell対の片側をトレースすると
+
+$$
+\rho_A=\rho_B=\frac{I_2}{2},\qquad
+S(A)=S(B)=\ln2,\qquad S(AB)=0.
+$$
+
+$I(A:B)=S(A)+S(B)-S(AB)$ に各値を代入すれば
+
+$$
+I(A:B)=S(A)+S(B)-S(AB)=2\ln2.
+$$
+
+一方、$\rho_{AC}=(I_2/2)_A\otimes|0\rangle\langle0|_C$。ここで[テンソル積のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)を用いると
+
+$$
+S(AC)=S(A)+S(C)=\ln2+0=\ln2,
+$$
+
+$$
+I(A:C)=S(A)+S(C)-S(AC)=0.
+$$
+
+全体の純粋性は部分系の純粋性を意味しない。補領域との相関によって $A$ と $B$ はそれぞれ混合するが、独立な $C$ とは相互情報がない。
 <!-- solution-end -->
 
 <a id="ex-holo17-b02"></a>
 **B2. cutoff尺度の再表示。** $S_n(\ell)=K_n\ln(\ell/\epsilon)+k_n$、$K_n=c(1+1/n)/6$ とする。$\epsilon'=a\epsilon$（$a>0$）で同じ物理値を記すための $k_n'$ を求め、二つの長さ $\ell_1,\ell_2$ の差が変わらないことを示せ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $\ln(\ell/\epsilon')=\ln(\ell/\epsilon)-\ln a$ だから、$K_n\ln(\ell/\epsilon')+k_n'=K_n\ln(\ell/\epsilon)+k_n$ を解くと $k_n'=k_n+K_n\ln a$。同じ状態・規約・cutoffを用いる二つの長さの差は、同じ $k_n$ を引いて $S_n(\ell_2)-S_n(\ell_1)=K_n\ln(\ell_2/\ell_1)$。$k_n'$ に置き換えても差は同じ。この主項の議論は長さ依存のcutoff補正が無視できる領域で適用する。
+**詳細解答。** $\epsilon'=a\epsilon$（$a>0$）なので
+
+$$
+\ln\frac{\ell}{\epsilon'}
+=\ln\frac{\ell}{\epsilon}-\ln a.
+$$
+
+同じ物理量を $K_n\ln(\ell/\epsilon')+k_n'$ と記すには、[QFT59のcutoff尺度変更命題](../../QFT/QFT59/index.md#prop-qft59-cutoff-shift)のように
+
+$$
+K_n\left(\ln\frac{\ell}{\epsilon}-\ln a\right)+k_n'
+=K_n\ln\frac{\ell}{\epsilon}+k_n
+\quad\Longrightarrow\quad
+k_n'=k_n+K_n\ln a
+$$
+
+と補償する。同一状態・同一の端点規格化で二つの長さを比べれば
+
+$$
+S_n(\ell_2)-S_n(\ell_1)
+=K_n\left(\ln\frac{\ell_2}{\epsilon}
+-\ln\frac{\ell_1}{\epsilon}\right)
+=K_n\ln\frac{\ell_2}{\ell_1}.
+$$
+
+新しい表示でも $k_n'$ は差で消える。この等式は長さ依存のcutoff補正を無視したスケーリング主項についてのものである。
 <!-- solution-end -->
 
 <a id="ex-holo17-b03"></a>
 **B3. レプリカ微分の適用条件。** 有限次元 $\rho$ の正の固有値を $p_1,\dots,p_r$ とし、$F(t)=\ln\sum_{j=1}^rp_j^t$（$t>0$）とする。$F(1)$ と $F'(1)$ を計算し、$S=\lim_{t\to1}F(t)/(1-t)$ を示せ。なぜ整数 $t\ge2$ の値だけでは一般の場の理論のこの極限が証明されないか説明せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $\sum_jp_j=1$ より $F(1)=\ln1=0$。有限和を項別微分でき、連鎖律より $F'(t)=(\sum_jp_j^t\ln p_j)/(\sum_jp_j^t)$、従って $F'(1)=\sum_jp_j\ln p_j$。$t\to1$ で $F(t)=F(1)+F'(1)(t-1)+o(t-1)$ を分子に代入すると $F(t)/(1-t)=-F'(1)+o(1)=-\sum_jp_j\ln p_j$。零固有値は正の $t$ に対し0で寄与しない。場の理論で整数レプリカの分配関数だけが分かる場合、この**実数 $t$ のスペクトル和**が既に与えられているわけではない。物理的な解析接続と正則化補正の微分可能性が追加の前提である。
+**詳細解答。** 正の固有値は有限個で、$\sum_{j=1}^rp_j=1$ だから $F(1)=\ln1=0$。$p_j>0$ より $d(p_j^t)/dt=p_j^t\ln p_j$ と微分でき、対数の連鎖律から
+
+$$
+F'(t)=\frac{\sum_{j=1}^rp_j^t\ln p_j}
+{\sum_{j=1}^rp_j^t},\qquad
+F'(1)=\sum_{j=1}^rp_j\ln p_j.
+$$
+
+$t=1$ の近傍で
+
+$$
+F(t)=F(1)+F'(1)(t-1)+o(t-1)
+$$
+
+なので
+
+$$
+\lim_{t\to1}\frac{F(t)}{1-t}
+=-F'(1)=-\sum_{j=1}^rp_j\ln p_j=S.
+$$
+
+零固有値は $t>0$ で寄与せず、$\ln0$ を使う必要はない。これは[有限次元レプリカ微分公式](../../QFT/QFT57/index.md#thm-qft57-replica-derivative)を正のスペクトル和から再計算したものである。
+
+一般の場の理論で整数レプリカ分配関数だけが与えられても、この有限スペクトル和の実数 $t$ への拡張が正当化されたことにはならない。物理的な解析接続とcutoff補正の微分制御を別途示す必要がある。
 <!-- solution-end -->
 
 <a id="ex-holo17-b04"></a>
 **B4. 熱区間の二つの尺度。** $S_\beta(\ell)=\frac c3\ln[(\beta/\pi\epsilon)\sinh(\pi\ell/\beta)]+k_1$ の主項で、$\ell/\beta\ll1$ と $\ell/\beta\gg1$ の漸近形を求めよ。真空区間の対数項と熱エントロピーの体積項を区別せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $x=\pi\ell/\beta$ と置く。$x\ll1$ では $\sinh x=x+x^3/6+O(x^5)$、従って $\ln[(\beta/\pi\epsilon)\sinh x]=\ln(\ell/\epsilon)+\ln(1+x^2/6+O(x^4))=\ln(\ell/\epsilon)+x^2/6+O(x^4)$。よって $S_\beta(\ell)=\frac c3\ln(\ell/\epsilon)+k_1+\frac c{18}(\pi\ell/\beta)^2+O((\ell/\beta)^4)$。$x\gg1$ では $\sinh x=(e^x/2)(1-e^{-2x})$ なので $\ln\sinh x=x-\ln2+O(e^{-2x})$。従って $S_\beta(\ell)=\frac{\pi c}{3\beta}\ell+\frac c3\ln[\beta/(2\pi\epsilon)]+k_1+O(e^{-2\pi\ell/\beta})$。前者は真空の対数へ、後者は長さに比例する熱の体積主項へ接続する。
+**詳細解答。** $x=\pi\ell/\beta>0$ と置き、$\epsilon\ll\ell$ のCFTスケーリング領域で主項を計算する。
+
+$x\ll1$ なら $\sinh x=x+x^3/6+O(x^5)$ であり、$\ln(1+u)=u+O(u^2)$ を $u=x^2/6+O(x^4)$ に適用して
+
+$$
+\begin{aligned}
+\ln\left[\frac{\beta}{\pi\epsilon}\sinh x\right]
+&=\ln\frac{\ell}{\epsilon}
++\ln\left(1+\frac{x^2}{6}+O(x^4)\right)\\
+&=\ln\frac{\ell}{\epsilon}+\frac{x^2}{6}+O(x^4).
+\end{aligned}
+$$
+
+ゆえに
+
+$$
+S_\beta(\ell)=\frac c3\ln\frac{\ell}{\epsilon}+k_1
++\frac c{18}\left(\frac{\pi\ell}{\beta}\right)^2
++O\left((\ell/\beta)^4\right).
+$$
+
+$x\gg1$ なら $\sinh x=e^x(1-e^{-2x})/2$ で、$\ln(1-e^{-2x})=O(e^{-2x})$ より
+
+$$
+\begin{aligned}
+\ln\left[\frac{\beta}{\pi\epsilon}\sinh x\right]
+&=x+\ln\frac{\beta}{2\pi\epsilon}
++\ln(1-e^{-2x})\\
+&=x+\ln\frac{\beta}{2\pi\epsilon}+O(e^{-2x}).
+\end{aligned}
+$$
+
+従って
+
+$$
+S_\beta(\ell)=\frac{\pi c}{3\beta}\ell
++\frac c3\ln\frac{\beta}{2\pi\epsilon}+k_1
++O(e^{-2\pi\ell/\beta}).
+$$
+
+短区間では真空の対数が主項、長区間では $\ell$ に比例する熱エントロピー密度の項が主項となる。ここでは元のCFT式に付随するcutoff補正は別途制御されていると仮定して省略した。
 <!-- solution-end -->
 
 ### Level C：境界入力の統合判定
@@ -316,20 +543,53 @@ $$
 - $\ell$ と $2\ell$ の区間の $S_2$ の差を求める。
 - 両区間のvon Neumannエントロピーの差を求める。
 - cutoffを $2\epsilon$ という表示へ変えたとき両差はどうなるか答える。
-- 整数 $n\ge2$ のモーメントを知るだけではvon Neumannエントロピーが一般には決まらないことを、整数で消える解析関数を用いて説明する。
+- 整数レプリカ値に一致する任意の解析補間の $n=1$ 微分は一意でないことを、整数で消える解析関数で示せ。また、有限次元で全整数モーメントが厳密に既知のときと区別せよ。
 - これらの式だけでRT公式が証明されるか判定する。
 
 - Level: C
 <!-- solution-start -->
-**詳細解答。** [QFT59のRényi普遍項](../../QFT/QFT59/index.md#prop-qft59-renyi-interval)から $K_n=c(1+1/n)/6$。$n=2,c=3$ を代入すると $K_2=(3/6)(1+1/2)=3/4$。同じcutoffと同じ端点規約なら $k_2$ は長さ差で消えるので、(1) は $\Delta S_2=(3/4)\ln[(2\ell)/\ell]=(3/4)\ln2$。
+**詳細解答。** ここでは$\epsilon\ll\ell$のスケーリング主項に限り、同じ状態・端点規格化を使う。
 
-(2) は[物理的な $n\to1$ 接続と補正制御](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)を仮定する。係数 $K_1=c(1+1)/6=c/3=1$、よって $\Delta S=\ln2$。単に $n=1$ を整数の式に代入したのではなく、追加仮定を使用した。
+1. [QFT59のRényi普遍項](../../QFT/QFT59/index.md#prop-qft59-renyi-interval)の係数 $K_n=c(1+1/n)/6$ に $c=3,n=2$ を代入すると
 
-(3) 新しい表示 $\epsilon'=2\epsilon$ では $k_n'=k_n+K_n\ln2$ となり、各長さの個別式の非普遍定数は変わるが、同じ規約で差を取れば $\Delta S_2=(3/4)\ln2$ と $\Delta S=\ln2$ は変わらない（スケーリング主項に限る）。
+   $$
+   K_2=\frac36\left(1+\frac12\right)=\frac34,
+   \qquad
+   \Delta S_2=K_2\ln\frac{2\ell}{\ell}=\frac34\ln2.
+   $$
 
-(4) 整数点で得たある解析補間 $F_0(n)$ に対し、任意の実数 $\alpha$ を使い $F_\alpha(n)=F_0(n)+\alpha\sin(\pi n)$ と置ける。正整数では $\sin(\pi n)=0$ なので同じデータだが、$F_\alpha'(1)=F_0'(1)-\pi\alpha$ であり、形式的な $-\partial_nF(1)$ は $\pi\alpha$ だけ変化する。ただし任意の $F_\alpha$ が物理的な密度行列のモーメントを実現するという主張ではなく、**整数データだけでは補間の微分を一意に指定できない**という論理上の反例である。
+2. [物理的な $n\to1$ 接続と補正制御](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)を仮定する。係数は $K_1=c(1+1)/6=c/3=1$ なので
 
-(5) これまで求めたのは境界CFTのエントロピー差だけであり、バルクの測地線・Newton定数・Brown–Henneaux関係・RTを適用できる半古典状態を構成していない。従ってRT公式はまだ証明していない。次講で別途、静的 $AdS_3$ の測地線長を導き、仮定と規格化を照合する必要がある。
+   $$
+   \Delta S=K_1\ln\frac{2\ell}{\ell}=\ln2.
+   $$
+
+   これは整数の式へ無条件に $n=1$ を代入したのではなく、追加の解析接続仮定を使った結論である。
+
+3. $\epsilon'=2\epsilon$ と再表示すれば[cutoff尺度変更命題](../../QFT/QFT59/index.md#prop-qft59-cutoff-shift)から $k_n'=k_n+K_n\ln2$。各長さで同じ定数が加わるため
+
+   $$
+   \Delta S_2=\frac34\ln2,\qquad \Delta S=\ln2
+   $$
+
+   は変わらない。
+
+4. 整数点に一致する任意の解析補間 $F_0(n)$ に、実数 $\alpha$ を用いて
+
+   $$
+   F_\alpha(n)=F_0(n)+\alpha\sin(\pi n)
+   $$
+
+   を加えられる。全整数 $n$ で $\sin(\pi n)=0$ だが、
+
+   $$
+   F_\alpha'(1)=F_0'(1)-\pi\alpha,\qquad
+   -F_\alpha'(1)=-F_0'(1)+\pi\alpha.
+   $$
+
+   よって**解析関数で整数点を補間するという条件だけ**では $n=1$ の微分は一意でない。しかし任意の $F_\alpha$ が密度行列のスペクトル和を実現するわけではない。有限次元で**全整数**の正確なモーメントが密度行列のものだと分かれば、§3で示した最大固有値とその重複度の逐次復元で $S$ は決まる。場のレプリカ幾何では物理的補間と誤差微分の制御が別に要る。
+
+5. ここで算出したのは境界CFTのエントロピー差である。バルク測地線、Newton定数、Brown–Henneaux関係、RTを適用できる半古典状態を構成していないので、これらの式だけでRT公式は証明されない。
 <!-- solution-end -->
 
 ## 8. 次の講義への接続
