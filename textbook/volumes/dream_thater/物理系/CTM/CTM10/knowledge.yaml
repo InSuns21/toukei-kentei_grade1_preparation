@@ -1,0 +1,66 @@
+chapter: CTM10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM9
+concepts:
+  - id: continuum.entropy-inequality
+    name: エントロピー収支不等式・第二法則
+    kind: principle
+    introduction: formal
+    introduction_aliases: ["原理（エントロピー収支不等式・第二法則）"]
+    requires: [continuum.heat-transport, continuum.density-jacobian-relation]
+  - id: continuum.entropy-local
+    name: エントロピー収支の局所形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（エントロピー収支の局所形）"]
+    requires: [continuum.entropy-inequality]
+  - id: continuum.helmholtz-free-energy
+    name: 比 Helmholtz 自由エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（比 Helmholtz 自由エネルギー）"]
+    requires: [continuum.specific-internal-energy, continuum.entropy-inequality]
+  - id: continuum.clausius-duhem
+    name: Clausius–Duhem 散逸不等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Clausius–Duhem 散逸不等式）"]
+    requires: [continuum.internal-energy-balance, continuum.entropy-local, continuum.helmholtz-free-energy]
+  - id: continuum.constitutive-admissibility
+    name: 熱力学的に許容される構成則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（熱力学的に許容される構成則）"]
+    requires: [continuum.clausius-duhem]
+  - id: continuum.fourier-dissipation
+    name: Fourier 則と熱散逸の符号
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fourier 則と熱散逸の符号）"]
+    requires: [continuum.clausius-duhem]
+  - id: continuum.isothermal-elastic-constitutive
+    name: 等温・非散逸の単純弾性構成則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等温・非散逸の単純弾性構成則）"]
+    requires: [continuum.clausius-duhem, continuum.piola-work-conjugacy, continuum.helmholtz-free-energy]
+  - id: continuum.constitutive-objectivity
+    name: 構成則の客観性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（構成則の客観性）"]
+    requires: [continuum.observer-objectivity, continuum.observer-transform-velocity-gradient]
+  - id: continuum.objective-energy-form
+    name: 客観的な変形自由エネルギーの表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（客観的な変形自由エネルギーの表示）"]
+    requires: [continuum.constitutive-objectivity, continuum.helmholtz-free-energy, continuum.right-cauchy-green-tensor]
+  - id: continuum.material-isotropy
+    name: 基準配置に関する材料等方性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基準配置に関する材料等方性）"]
+    requires: [continuum.objective-energy-form]
