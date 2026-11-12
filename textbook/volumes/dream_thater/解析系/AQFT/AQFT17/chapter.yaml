@@ -1,0 +1,49 @@
+id: "AQFT17"
+title: "splitの帰結とnuclearityへの入口"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT16
+  - AQFT9
+  - AQFT3
+  - AQFT8
+  - VN5
+  - VN4
+learning_objectives:
+  - splitのテンソル積表示から任意の正規局所状態の正規積状態延長を構成できる
+  - 正規状態の正のtrace class持ち上げとテンソル積密度作用素の役割を説明できる
+  - 独立な準備が可能なことと既存の真空状態が積状態であることを区別できる
+  - Banach空間からHilbert空間への核写像を核表示の絶対総和で判定できる
+  - 核写像の有限ランク近似からコンパクト性を証明できる
+  - エネルギー減衰写像の有界性とnuclearityの違いを説明できる
+  - 自由スカラー場の周期箱で一粒子トレースとFock分配関数の収束を検算できる
+  - 無限体積でエネルギー乗法作用素がコンパクトでないことを示せる
+  - nuclearityからsplitへの文献定理の追加条件と本講の証明の境界を区別できる
+definitions:
+  - { id: AQFT17-DEF-01, name: "正規積状態延長" }
+  - { id: AQFT17-DEF-02, name: "Banach空間からHilbert空間への核写像" }
+  - { id: AQFT17-DEF-03, name: "Buchholz–Wichmann型のエネルギー核性写像" }
+theorems:
+  - { id: AQFT17-LEM-01, name: "具体的von Neumann環の正規状態の正の持ち上げ（標準補題）" }
+  - { id: AQFT17-THM-01, name: "split包含における任意の正規積状態延長" }
+  - { id: AQFT17-PROP-01, name: "核写像はコンパクトである" }
+canonical_examples:
+  - 二量子ビットの任意の混合密度作用素からの正規積状態
+  - Bell状態と積状態の周辺状態一致・相関の違い
+  - 二水準模型の核表示とエネルギー減衰
+  - 周期箱の自由スカラー場のモード和とFock分配関数
+  - 無限体積の非コンパクトなエネルギー乗法作用素
+problem_patterns:
+  - AQFT17-NORMAL-MIXED-PRODUCT
+  - AQFT17-NUCLEAR-COORDINATES
+  - AQFT17-ENERGY-DECAY
+  - AQFT17-LATTICE-TRACE
+  - AQFT17-FOUR-FACTOR-EXTENSION
+  - AQFT17-ENTANGLEMENT-COMPARISON
+  - AQFT17-FINITE-RANK-TAIL
+  - AQFT17-FOCK-PARTITION
+  - AQFT17-SPLIT-NUCLEARITY-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 12, review: 7 }
