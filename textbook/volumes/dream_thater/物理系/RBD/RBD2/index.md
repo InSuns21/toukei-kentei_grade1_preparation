@@ -18,7 +18,7 @@ v_{\parallel}=n(n\cdot v),\quad
 v_{\perp}=v-n(n\cdot v)
 $$
 
-と分解され、$n\cdot v_\perp=n\cdot v-|n|^2(n\cdot v)=0$ です。$n$ は軸、$\theta$ はその軸から右ねじの方向へ測る角度を表します。
+と分解され、$n\cdot v_\perp=n\cdot v-|n|^2(n\cdot v)=0$ です。$n^\perp:=\{v\in\mathbb R^3:n\cdot v=0\}$ は軸 $n$ に直交する平面を表し、$v_\perp\in n^\perp$ です。$n$ は軸、$\theta$ はその軸から右ねじの方向へ測る角度を表します。
 
 <a id="def-rbd2-axis-angle"></a>
 
@@ -31,13 +31,19 @@ $$
 <!-- definition-example-start: def-rbd2-axis-angle -->
 ### 直接例：$z$ 軸の90度回転
 
-**定義の確認**：条件を一つずつ確認します。$n=e_3=(0,0,1)^{\mathsf T}$ は単位長です。行列
+**定義の確認**：条件を一つずつ確認します。$n=e_3=(0,0,1)^{\mathsf T}$ は単位長です。基底の像を列に並べると行列表示になるという[RBD1 の回転行列の判定法](../RBD1/index.md#def-rbd1-proper-rotation)に従い、$e_1\mapsto e_2$、$e_2\mapsto-e_1$、$e_3\mapsto e_3$ となる線形写像を表す行列を作ります。
 
 $$
 Q=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}
 $$
 
-は $Qe_3=e_3$ なので軸を固定します。$n^\perp$ の正向き基底 $(e_1,e_2)$ において $Qe_1=e_2,\ Qe_2=-e_1$ なので平面上の正向き90度回転です。さらに列が正規直交し $Q^{\mathsf T}Q=I_3$、左上の $2\times2$ 行列式が $1$ なので $\det Q=1$。従って $Q=R(e_3,\pi/2)\in SO(3)$ です。
+は任意の $v=ae_1+be_2+ce_3$ に対し
+
+$$
+Qv=aQe_1+bQe_2+cQe_3=-be_1+ae_2+ce_3
+$$
+
+と作用します。従って $Qe_3=e_3$ なので軸を固定し、$n^\perp=\operatorname{span}\{e_1,e_2\}$ 上では $(a,b)\mapsto(-b,a)$ となるため、正向き90度の平面回転です。さらに列が正規直交し $Q^{\mathsf T}Q=I_3$、左上の $2\times2$ 行列式が $1$ なので $\det Q=1$。従って $Q=R(e_3,\pi/2)\in SO(3)$ です。
 <!-- definition-example-end -->
 
 ## 2. Eulerの回転定理――固定軸は常に存在するか
@@ -90,14 +96,14 @@ A=\begin{pmatrix}a&-b\\b&a\end{pmatrix}
 =\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}.
 $$
 
-すなわち $R=R(n,\theta)$ です。$R\ne I_3$ で固定ベクトルが独立に二本あれば、それらを正規直交化した $u,w$ と、右手系の向きを保つことから $u\times w$ も固定されます。三本の基底すべてを固定するので $R=I_3$ となり矛盾です。ゆえに固定軸は直線として一意。軸を反対に向けると正の回転方向も逆になるため $(n,\theta)$ と $(-n,-\theta)$ が同じ操作です。$R=I_3$ は全方向を固定する例外です。
+すなわち $R=R(n,\theta)$ です。$R\ne I_3$ で独立な固定ベクトルが二本あれば、直交化して単位ベクトル $u,w$ を作れます。$R$ は両者を固定し直交性を保つため、正向き正規直交基底 $(u,w,u\times w)$ で $\operatorname{diag}(1,1,s)$（$s\in\{-1,1\}$）と表示されます。$\det R=1$ から $s=1$ です。従って三本の基底をすべて固定し、$R=I_3$ となり矛盾です。ゆえに固定軸は直線として一意。軸を反対に向けると正の回転方向も逆になるため $(n,\theta)$ と $(-n,-\theta)$ が同じ操作です。$R=I_3$ は全方向を固定する例外です。
 <!-- proof-end -->
 
 ここでいう「固有軸」は単なる図示でなく、一次方程式 $(R-I_3)n=0$ の非零解として計算できます。ただし軸の**向き**と角度の符号を一緒に扱う必要があります。
 
 ## 3. ベクトル積を反対称行列へ変える
 
-軸に垂直な方向を90度回すには $n\times v$ が便利です。これは $v$ に線形なので、行列として計算できます。$n=(n_1,n_2,n_3)^{\mathsf T}$ と書くと、ベクトル積の成分は $(n_2v_3-n_3v_2,\ n_3v_1-n_1v_3,\ n_1v_2-n_2v_1)^{\mathsf T}$ です。
+軸に垂直な方向を90度回すには $n\times v$ が便利です。これは $v$ に線形なので、行列として計算できます。転置すると元の負になる実行列を**反対称行列**と呼び、この条件 $A^{\mathsf T}=-A$ は[RBD1 の六自由度の証明](../RBD1/index.md#prop-rbd1-six-dof)にも現れました。$n=(n_1,n_2,n_3)^{\mathsf T}$ と書くと、ベクトル積の成分は $(n_2v_3-n_3v_2,\ n_3v_1-n_1v_3,\ n_1v_2-n_2v_1)^{\mathsf T}$ です。
 
 <a id="def-rbd2-hat"></a>
 
@@ -133,7 +139,7 @@ $$
 \widehat n^2v=n\times(n\times v)=n(n\cdot v)-v.
 $$
 
-すべての $v$ に成立するので
+ここで $nn^{\mathsf T}v=n(n^{\mathsf T}v)=n(n\cdot v)$ です。すべての $v$ に成立するので
 
 $$
 \boxed{\widehat n^2=nn^{\mathsf T}-I_3},\qquad
@@ -182,7 +188,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$|v_\perp|^2=|n\times v_\perp|^2$ は $|n|=1$、$n\cdot v_\perp=0$ から従い、$v_\perp\cdot(n\times v_\perp)=0$ です。前節で確かめた平面内の正向きの回転の成分表示を使うと
+$|v_\perp|^2=|n\times v_\perp|^2$ は $|n|=1$、$n\cdot v_\perp=0$ から従い、$v_\perp\cdot(n\times v_\perp)=0$ です。第2節の[Eulerの回転定理](#thm-rbd2-euler-axis)の証明で確認した平面内の正向きの回転の成分表示を使うと
 
 $$
 \begin{aligned}
@@ -221,7 +227,7 @@ $R_xe_2=e_3$、$R_xe_3=-e_2$、$R_ye_3=e_1$、$R_ye_1=-e_3$ として軸と向�
 
 ### 行列から角度・軸を取り戻す
 
-軸に垂直な二次元部分の対角成分はどちらも $\cos\theta$ で、軸の成分は $1$ です。また $\widehat n$ は反対称、$\widehat n^2$ は対称です。従って
+軸に垂直な二次元部分の対角成分はどちらも $\cos\theta$ で、軸の成分は $1$ です。ここで跡 $\operatorname{tr}R$ は行列 $R$ の対角成分の和を表します。また $\widehat n$ は反対称、$\widehat n^2$ は対称です。従って
 
 $$
 \boxed{\operatorname{tr}R=1+2\cos\theta},\qquad
@@ -232,13 +238,13 @@ $$
 
 ## 5. なぜ指数関数が回転になるか
 
-行列の指数関数を冪級数
+$3\times3$ 実行列 $A$ の指数関数を冪級数
 
 $$
 \exp(A)=\sum_{k=0}^{\infty}\frac{A^k}{k!}
 $$
 
-で定めます。固定サイズの行列では各成分を有限定数で抑えられるため、この級数は任意の行列で絶対収束します。$\widehat n^3=-\widehat n$ なら高次の冪が二種類にまとまります。
+で定めます。$A$ の各成分の絶対値を $M$ 以下とすると、行列積の定義から $k\ge1$ で $(A^k)$ の各成分の絶対値は $3^{k-1}M^k$ 以下です。$\sum_{k=1}^{\infty}3^{k-1}M^k/k!$ は収束するため、この冪級数は各成分で絶対収束するため、上の定義が意味を持ちます。$\widehat n^3=-\widehat n$ なら高次の冪が二種類にまとまります。
 
 <a id="prop-rbd2-exponential"></a>
 
@@ -288,6 +294,8 @@ $$
 $$
 R(n,\theta)=I_3+\theta\widehat n+\frac{\theta^2}{2}\widehat n^2+O(\theta^3).
 $$
+
+ここで $O(\theta^3)$ は、$\theta\to0$ のとき各行列成分の剰余がある定数倍の $|\theta|^3$ 以下であることを表します。
 
 一次近似 $I_3+\theta\widehat n$ は**厳密には有限回転でない**ことに注意します。なぜなら
 
@@ -357,7 +365,9 @@ $$
 
 ## 7. 微小回転では差が二次になる
 
-二軸の角度を $\varepsilon,\delta$ とし、$K_x=\widehat{e_1}$、$K_y=\widehat{e_2}$ と置きます。指数表示によって
+第4・6節の $R_x,R_y$ は角度 $\pi/2$ の定数行列でした。ここからは角度も表示して $R_x(\alpha):=R(e_1,\alpha)$、$R_y(\beta):=R(e_2,\beta)$ と書きます。従来の行列はそれぞれ $R_x(\pi/2),R_y(\pi/2)$ です。
+
+二軸の角度を $\varepsilon,\delta$ とし、$K_x=\widehat{e_1}$、$K_y=\widehat{e_2}$ と置きます。[回転の指数表示](#prop-rbd2-exponential)の小角展開によって
 
 $$
 R_x(\varepsilon)=I_3+\varepsilon K_x+O(\varepsilon^2),\qquad
@@ -393,21 +403,25 @@ $$
 (I_3+A)(I_3+B)-(I_3+B)(I_3+A)=AB-BA
 $$
 
-です。$A=\varepsilon K_x+O(\varepsilon^2)$、$B=\delta K_y+O(\delta^2)$ を代入して
+です。$A=\varepsilon K_x+\varepsilon^2E_x(\varepsilon)$、$B=\delta K_y+\delta^2E_y(\delta)$ と書きます。$E_x,E_y$ の各成分は角度が $0$ に近い範囲で有界です。積を展開すると
 
 $$
-AB-BA=\varepsilon\delta(K_xK_y-K_yK_x)
-+O(|\varepsilon\delta|(|\varepsilon|+|\delta|)).
+\begin{aligned}
+AB-BA={}&\varepsilon\delta(K_xK_y-K_yK_x)\\
+&+\varepsilon^2\delta(E_xK_y-K_yE_x)\\
+&+\varepsilon\delta^2(K_xE_y-E_yK_x)\\
+&+\varepsilon^2\delta^2(E_xE_y-E_yE_x).
+\end{aligned}
 $$
 
-任意の $v$ に対してベクトル三重積を二回展開すると、
+したがって、後の三項は $\varepsilon,\delta\to0$ で $O(|\varepsilon\delta|(|\varepsilon|+|\delta|))$ です。任意の $v=v_1e_1+v_2e_2+v_3e_3$ に対し、ベクトル三重積を展開すると
 
 $$
 \begin{aligned}
 (K_xK_y-K_yK_x)v
 &=e_1\times(e_2\times v)-e_2\times(e_1\times v)\\
-&=(e_1\times e_2)\times v
-=e_3\times v=\widehat{e_3}v.
+&=v_1e_2-v_2e_1\\
+&=e_3\times v=\widehat{e_3}v.
 \end{aligned}
 $$
 
@@ -424,7 +438,7 @@ $$
 \boxed{v_b=R^{\mathsf T}v_s}.
 $$
 
-例えば $R_z(\pi/2)e_1=e_2$ ですが、動かさない $e_1$ の新しい基底成分は $R_z(\pi/2)^{\mathsf T}e_1=-e_2$。符号が違う理由は、対象となる操作が違うからです。
+例えば $R(e_3,\pi/2)e_1=e_2$ ですが、動かさない $e_1$ の新しい基底成分は $R(e_3,\pi/2)^{\mathsf T}e_1=-e_2$。符号が違う理由は、対象となる操作が違うからです。
 
 ---
 
@@ -574,14 +588,14 @@ $$
 
 ### 問題 B3：微小回転の交換子
 
-$X(t)=\exp(t\widehat{e_1})$、$Y(t)=\exp(t\widehat{e_2})$ について、$X(t)Y(t)-Y(t)X(t)$ の主項を求め、$e_1$ への作用を計算せよ。
+$X(t)=\exp(t\widehat{e_1})$、$Y(t)=\exp(t\widehat{e_2})$ について、$t\to0$ での $X(t)Y(t)-Y(t)X(t)$ の主項を求め、$e_1$ への作用を計算せよ。
 
 - Level: B
 
 <!-- solution-start -->
 ### 詳細解答
 
-$A=X-I_3=t\widehat{e_1}+O(t^2)$、$B=Y-I_3=t\widehat{e_2}+O(t^2)$。同じ一次項を持つので
+[回転の指数表示](#prop-rbd2-exponential)の小角展開から $A=X(t)-I_3=t\widehat{e_1}+O(t^2)$、$B=Y(t)-I_3=t\widehat{e_2}+O(t^2)$ です。$X(t)$ と $Y(t)$ の一次項は異なりますが、両順の積では一次項が共通の $A+B$ となって相殺されるため
 
 $$
 XY-YX=AB-BA=t^2[\widehat{e_1},\widehat{e_2}]+O(t^3).
