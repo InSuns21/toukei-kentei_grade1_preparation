@@ -28,11 +28,11 @@ $$
 > **定義（熱場二重状態）**  
 > $\mathcal H_R$ 上の自己共役Hamiltonian $H_R$ が固有基底 $|n\rangle_R$、固有値 $E_n$ を持ち、$0<Z(\beta)=\sum_n e^{-\beta E_n}<\infty$ とする。これと同型な左側 $\mathcal H_L$ の対応基底を $|n\rangle_L$ と選ぶ。二体系のベクトル
 >
-> $$ 
-> |\mathrm{TFD}_\beta\rangle
-> =Z(\beta)^{-1/2}\sum_n e^{-\beta E_n/2}
-> |n\rangle_L\otimes|n\rangle_R
-> $$
+$$
+|\mathrm{TFD}_\beta\rangle
+=Z(\beta)^{-1/2}\sum_n e^{-\beta E_n/2}
+|n\rangle_L\otimes|n\rangle_R
+$$
 >
 > を、この固有基底の対応についての熱場二重状態（TFD）と呼ぶ。縮退準位の基底選択を変えるときは左側を反線形共役な対応基底として扱えば、同じ純粋状態を表せる。
 <!-- formal-statement-end -->
@@ -61,19 +61,19 @@ $$
 > **命題（TFDの片側縮約とエントロピー）**  
 > 上のTFDが定義されるとき、左側の部分跡を取った右側密度行列は
 >
-> $$
-> \rho_R=\operatorname{Tr}_L|\mathrm{TFD}_\beta\rangle
-> \langle\mathrm{TFD}_\beta|
-> =\frac{e^{-\beta H_R}}{Z(\beta)}.
-> $$
+$$
+\rho_R=\operatorname{Tr}_L|\mathrm{TFD}_\beta\rangle
+\langle\mathrm{TFD}_\beta|
+=\frac{e^{-\beta H_R}}{Z(\beta)}.
+$$
 >
 > 右側のvon Neumannエントロピーが有限であれば
 >
-> $$
-> S(\rho_R)=-\operatorname{Tr}(\rho_R\log\rho_R)
-> =\log Z(\beta)+\beta E_\beta,\quad
-> E_\beta=\operatorname{Tr}(\rho_R H_R).
-> $$
+$$
+S(\rho_R)=-\operatorname{Tr}(\rho_R\log\rho_R)
+=\log Z(\beta)+\beta E_\beta,\quad
+E_\beta=\operatorname{Tr}(\rho_R H_R).
+$$
 >
 > TFD全体の密度行列は階数1の射影なので、そのvon Neumannエントロピーは零である。
 <!-- formal-statement-end -->
@@ -131,10 +131,10 @@ $$
 > **定義（非回転BTZ外部領域）**  
 > $L,G_3,r_+>0$、$\phi\sim\phi+2\pi$ を固定する。$r>r_+$ におけるLorentz計量
 >
-> $$
-> ds^2=-f(r)dt^2+\frac{dr^2}{f(r)}+r^2d\phi^2,
-> \qquad f(r)=\frac{r^2-r_+^2}{L^2}
-> $$
+$$
+ds^2=-f(r)dt^2+\frac{dr^2}{f(r)}+r^2d\phi^2,
+\qquad f(r)=\frac{r^2-r_+^2}{L^2}
+$$
 >
 > を非回転BTZ外部領域と呼び、$f(r_+)=0$ の円を地平線とする。標準の漸近AdSエネルギー規約で質量パラメータを $M=r_+^2/(8G_3L^2)$ とする。
 <!-- formal-statement-end -->
@@ -149,17 +149,17 @@ $$
 > **命題（非回転BTZの温度と熱力学）**  
 > 上記のBTZ外部がEuclid地平線で滑らかな充填を持つとする。地平線での正則性、Einstein重力の地平線エントロピー公式、および標準の漸近AdSエネルギー規格化を用いれば
 >
-> $$
-> \beta=\frac{2\pi L^2}{r_+},\qquad
-> T=\frac{r_+}{2\pi L^2},\qquad
-> S_{\rm BH}=\frac{\pi r_+}{2G_3},
-> $$
+$$
+\beta=\frac{2\pi L^2}{r_+},\qquad
+T=\frac{r_+}{2\pi L^2},\qquad
+S_{\rm BH}=\frac{\pi r_+}{2G_3},
+$$
 >
-> $$
-> M=\frac{r_+^2}{8G_3L^2},\qquad
-> F_{\rm BTZ}=M-TS_{\rm BH}=-M,\qquad
-> dM=T\,dS_{\rm BH}
-> $$
+$$
+M=\frac{r_+^2}{8G_3L^2},\qquad
+F_{\rm BTZ}=M-TS_{\rm BH}=-M,\qquad
+dM=T\,dS_{\rm BH}
+$$
 >
 > が成立する。$F$ はBTZ枝の規約上の値であり、熱的AdSを参照した**相対自由エネルギー**とは区別する。
 <!-- formal-statement-end -->
@@ -232,10 +232,10 @@ $$
 > **命題（高温CFTとBTZの条件付き一致）**  
 > 空間円周 $2\pi L$ のユニタリな二次元CFTで、左右中央電荷が $c_{\rm CFT}=3L/(2G_3)$、適切なモジュラー不変性と低温での真空優勢を仮定する。$\beta/L$ が十分小さく、その近似を重力の半古典極限でも制御できるなら、高温分配関数の先頭は
 >
-> $$
-> \log Z_{\rm CFT}(\beta)\simeq\frac{\pi^2 c_{\rm CFT}L}{3\beta}
-> =\frac{\pi^2L^2}{2G_3\beta}.
-> $$
+$$
+\log Z_{\rm CFT}(\beta)\simeq\frac{\pi^2 c_{\rm CFT}L}{3\beta}
+=\frac{\pi^2L^2}{2G_3\beta}.
+$$
 >
 > その温度微分から得る $E,S,F$ の先頭は $r_+=2\pi L^2/\beta$ と置いた非回転BTZの $M,S_{\rm BH},F_{\rm BTZ}$ に一致する。等号は先頭サドルの比較であり、有限中央電荷での厳密な分配関数の同一性を意味しない。
 <!-- formal-statement-end -->
@@ -296,11 +296,11 @@ BTZの外部座標 $r>r_+$ は境界を一つしか表示しません。最大�
 > **命題（時間対称BTZ断面の橋）**  
 > 非回転BTZの最大拡張における時間対称な二境界断面を考える。外部計量の $t=0$ 誘導計量に対し、符号付き固有距離 $\ell\in\mathbb R$ を地平線で $\ell=0$ となるように取ると
 >
-> $$
-> r(\ell)=r_+\cosh(\ell/L),\qquad
-> ds_{\rm slice}^2=d\ell^2+
-> r_+^2\cosh^2(\ell/L)d\phi^2.
-> $$
+$$
+r(\ell)=r_+\cosh(\ell/L),\qquad
+ds_{\rm slice}^2=d\ell^2+
+r_+^2\cosh^2(\ell/L)d\phi^2.
+$$
 >
 > $\ell\to\pm\infty$ はそれぞれ異なる外部境界へ向かい、$\ell=0$ の最小円周は $2\pi r_+$ である。ただしこの空間的な連結性から、二境界間の未来向き因果曲線が存在するとは結論できない。
 <!-- formal-statement-end -->
@@ -359,18 +359,18 @@ $$
 > **命題（TFDの二側相関と熱的解析接続）**  
 > 有限次元の二体系で $H_L,H_R$ が同一のエネルギー $E_n$ を持ち、$O_R=O=O^\dagger$、$O_L=O^{\mathsf T}$ とする。各側で $O_s(t)=e^{iH_st}O_se^{-iH_st}$ と定めれば
 >
-> $$
-> C_{LR}(t_L,t_R)=
-> \langle\mathrm{TFD}|O_L(t_L)\otimes O_R(t_R)|\mathrm{TFD}\rangle
-> =\frac1Z\sum_{m,n}e^{-\beta(E_m+E_n)/2}
-> e^{i(E_m-E_n)(t_L+t_R)}|O_{mn}|^2.
-> $$
+$$
+C_{LR}(t_L,t_R)=
+\langle\mathrm{TFD}|O_L(t_L)\otimes O_R(t_R)|\mathrm{TFD}\rangle
+=\frac1Z\sum_{m,n}e^{-\beta(E_m+E_n)/2}
+e^{i(E_m-E_n)(t_L+t_R)}|O_{mn}|^2.
+$$
 >
 > さらに $C_{RR}(t)=\operatorname{Tr}[\rho_R O_R(t)O_R(0)]$ とすると
 >
-> $$
-> C_{LR}(t_L,t_R)=C_{RR}(t_L+t_R-i\beta/2).
-> $$
+$$
+C_{LR}(t_L,t_R)=C_{RR}(t_L+t_R-i\beta/2).
+$$
 >
 > 解析接続は有限次元では全複素時刻で定義できるが、一般のQFTでは相関関数の解析領域・演算子の定義域を別途確認する必要がある。
 <!-- formal-statement-end -->
