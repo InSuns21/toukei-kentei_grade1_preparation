@@ -17,10 +17,10 @@ concepts:
     introduction_aliases: ["命題（非共鳴スカラーの最初の局所係数）"]
     requires: [holography.scalar-cutoff-local-counterterms, holography.scalar-mass-dimension]
   - id: holography.scalar-gradient-counterterms
-    name: 1<nu<2の最小反項
+    name: 勾配を含む最小反項
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（1<nu<2の最小反項）"]
+    introduction_aliases: ["定義（勾配を含む最小反項）"]
     requires: [holography.scalar-local-recursion]
   - id: holography.scalar-renormalized-one-point
     name: 有限作用と1点関数
