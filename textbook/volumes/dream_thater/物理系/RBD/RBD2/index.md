@@ -103,7 +103,7 @@ $$
 
 ## 3. ベクトル積を反対称行列へ変える
 
-軸に垂直な方向を90度回すには $n\times v$ が便利です。これは $v$ に線形なので、行列として計算できます。$n=(n_1,n_2,n_3)^{\mathsf T}$ と書くと、ベクトル積の成分は $(n_2v_3-n_3v_2,\ n_3v_1-n_1v_3,\ n_1v_2-n_2v_1)^{\mathsf T}$ です。
+軸に垂直な方向を90度回すには $n\times v$ が便利です。これは $v$ に線形なので、行列として計算できます。転置すると元の負になる実行列を**反対称行列**と呼び、この条件 $A^{\mathsf T}=-A$ は[RBD1 の六自由度の証明](../RBD1/index.md#prop-rbd1-six-dof)にも現れました。$n=(n_1,n_2,n_3)^{\mathsf T}$ と書くと、ベクトル積の成分は $(n_2v_3-n_3v_2,\ n_3v_1-n_1v_3,\ n_1v_2-n_2v_1)^{\mathsf T}$ です。
 
 <a id="def-rbd2-hat"></a>
 
@@ -139,7 +139,7 @@ $$
 \widehat n^2v=n\times(n\times v)=n(n\cdot v)-v.
 $$
 
-すべての $v$ に成立するので
+ここで $nn^{\mathsf T}v=n(n^{\mathsf T}v)=n(n\cdot v)$ です。すべての $v$ に成立するので
 
 $$
 \boxed{\widehat n^2=nn^{\mathsf T}-I_3},\qquad
@@ -227,7 +227,7 @@ $R_xe_2=e_3$、$R_xe_3=-e_2$、$R_ye_3=e_1$、$R_ye_1=-e_3$ として軸と向�
 
 ### 行列から角度・軸を取り戻す
 
-軸に垂直な二次元部分の対角成分はどちらも $\cos\theta$ で、軸の成分は $1$ です。また $\widehat n$ は反対称、$\widehat n^2$ は対称です。従って
+軸に垂直な二次元部分の対角成分はどちらも $\cos\theta$ で、軸の成分は $1$ です。ここで跡 $\operatorname{tr}R$ は行列 $R$ の対角成分の和を表します。また $\widehat n$ は反対称、$\widehat n^2$ は対称です。従って
 
 $$
 \boxed{\operatorname{tr}R=1+2\cos\theta},\qquad
@@ -588,7 +588,7 @@ $$
 
 ### 問題 B3：微小回転の交換子
 
-$X(t)=\exp(t\widehat{e_1})$、$Y(t)=\exp(t\widehat{e_2})$ について、$X(t)Y(t)-Y(t)X(t)$ の主項を求め、$e_1$ への作用を計算せよ。
+$X(t)=\exp(t\widehat{e_1})$、$Y(t)=\exp(t\widehat{e_2})$ について、$t\to0$ での $X(t)Y(t)-Y(t)X(t)$ の主項を求め、$e_1$ への作用を計算せよ。
 
 - Level: B
 
