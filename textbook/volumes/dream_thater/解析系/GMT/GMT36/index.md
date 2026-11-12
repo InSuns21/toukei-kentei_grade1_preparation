@@ -301,7 +301,7 @@ $$
 =C_Nr^{1/2}\sum_j(|c_j|w_j^{1/2})w_j^{1/2}.
 $$
 
-有限和にCauchy–Schwarzを適用すると
+有限集合 $J$ に数え上げ測度を入れて [Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01) の $p=q=2$ の場合（Cauchy–Schwarz）を適用すると
 
 $$
 \left(\sum_j|c_j|w_j\right)^2
@@ -570,7 +570,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[packetの減衰評価](#prop-gmt36-packet-formula)で $|F_j|\le C_Nr^{1/2}w_j$。従って三角不等式とCauchy–Schwarzより
+[packetの減衰評価](#prop-gmt36-packet-formula)で $|F_j|\le C_Nr^{1/2}w_j$。従って三角不等式と、有限集合上での [Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01) の $p=q=2$ の場合（Cauchy–Schwarz）より
 
 $$
 \begin{aligned}
