@@ -116,7 +116,7 @@ $$
 \mathfrak A(O_1)\subset\mathfrak A(O_2)'_{\mathfrak B}
 $$
 >
-> が成り立つ。さらに isotony があれば $\mathfrak A(O_2^\perp)\subset\mathfrak A(O_2)'_{\mathfrak B}$ である。
+> が成り立つ。特に $O_1=O_2^\perp$ と置けば $\mathfrak A(O_2^\perp)\subset\mathfrak A(O_2)'_{\mathfrak B}$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -128,10 +128,10 @@ $$
 
 $O_1\subset O_2^\perp$ とし、$p\in O_1$、$q\in O_2$ を任意に取ります。[因果補集合の定義](../AQFT1/index.md#def-aqft1-causal-complement)より $p\in O_2^\perp\subset C_{\mathrm{sp}}(O_2)$ なので $g(p-q,p-q)>0$ です。したがって二領域は空間的に分離しています。[Einstein局所性](#def-aqft2-locality)から全ての $A\in\mathfrak A(O_1)$、$B\in\mathfrak A(O_2)$ に対し $AB=BA$ です。$A$ の任意性により定義通り相対可換子への包含が従います。
 
-$O_2^\perp$ は開集合なので、最初の主張で $O_1=O_2^\perp$ を取れます。あるいは isotony によって $O_1\subset O_2^\perp$ の任意の小領域から結論を得ても構いません。$\square$
+$O_2^\perp$ は開集合なので、最初の主張で $O_1=O_2^\perp$ を取れば後半も従います。$\square$
 <!-- proof-end -->
 
-最後の包含は実は isotony を仮定せずとも第1文から従います。ここに isotony を添えたのは、一般の小領域から因果補集合全体へ観測量を拡大する見方も確認するためです。この包含から Haag双対性の**等号**を導くことはできません。
+この包含には isotony さえ不要です。局所性から導かれるのは**包含**であり、Haag双対性の**等号**を導くことはできません。
 
 ## 4. 時空を動かしても割当てを保つ：Poincaré共変性
 
