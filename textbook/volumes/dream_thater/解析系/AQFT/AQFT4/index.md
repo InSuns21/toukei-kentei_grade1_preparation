@@ -18,7 +18,15 @@ $$
 P=-\Box_g+m^2
 =\partial_t^2-\sum_{j=1}^{3}\partial_{x^j}^2+m^2.
 $$
-この符号では $Pu=0$ は $\partial_t^2u-\Delta_{\boldsymbol x}u+m^2u=0$ です。$m=0$ も許します。$P$ は実線形で、係数は滑らか、主シンボルは $-g^{ab}\zeta_a\zeta_b$ なので、[HPDE5のnormally hyperbolic条件](../../HPDE/HPDE5/index.md#def-hpde5-normally-hyperbolic)を満たします。
+ここで $\boldsymbol x=(x^1,x^2,x^3)$ とし、空間座標だけに作用するLaplacianを
+$$
+\Delta_{\boldsymbol x}:=\sum_{j=1}^{3}\partial_{x^j}^2
+$$
+と書きます。この符号での斉次方程式は
+$$
+Pu=\partial_t^2u-\Delta_{\boldsymbol x}u+m^2u=0
+$$
+です。$m=0$ も許します。$P$ は実線形で、係数は滑らか、主シンボルは $-g^{ab}\zeta_a\zeta_b$ なので、[HPDE5のnormally hyperbolic条件](../../HPDE/HPDE5/index.md#def-hpde5-normally-hyperbolic)を満たします。
 
 この講義で使う試験関数は、場を領域内で平均する重みとして使う、滑らかでコンパクト支持を持つ実関数です。「コンパクト支持」とは関数が零でない点の閉包が時空のコンパクト集合になることです。滑らかでも無限遠まで非零である平面波は試験関数に含めません。試験関数は重みであり、一般にコンパクト支持ではない場の解そのものとは区別します。開集合 $O\subset M$ の中で観測を局所化するには、台が $O$ の内部に収まる関数を使います。
 
@@ -37,7 +45,7 @@ $$
 <!-- definition-example-start: def-aqft4-test-spaces -->
 ### 直接例：小さな時空領域に閉じ込める
 
-**定義の確認**。$O_R=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<R\}$（$R>0$）を取り、$0<r<R/2$ とします。$h\in C_c^\infty((-r,r),\mathbb R)$、$q\in C_c^\infty(B_r(\boldsymbol0),\mathbb R)$ を非零に選びます。$f(t,\boldsymbol x)=h(t)q(\boldsymbol x)$ は滑らかで、
+**定義の確認**。$O_R=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<R\}$（$R>0$）を取り、$0<r<R/2$ とします。$h\in C_c^\infty((-r,r),\mathbb R)$、$q\in C_c^\infty(B_r(\boldsymbol0),\mathbb R)$ を非零に選びます。ここで $B_r(\boldsymbol0)$ は $\mathbb R^3$ の原点中心・半径 $r$ の開球です。$f(t,\boldsymbol x)=h(t)q(\boldsymbol x)$ は滑らかで、
 $$
 \operatorname{supp}f
 \subset[-r,r]\times\overline B_r(\boldsymbol0)
@@ -146,7 +154,7 @@ $$
 $$
 と書きます。$P\mathcal D$ は線形部分空間ですから、[LA2の商空間の演算](../../../基礎科目/LA/LA2/index.md#def-la2-quotient)によって $[f]+[g]=[f+g]$、$\lambda[f]=[\lambda f]$ です。商は実線形であり、今の段階では内積もC*ノルムも指定していません。
 
-**局所化に必要なのは、全域の商の中に見える部分空間です。** 領域 $O$ 内の源で表せる同値類だけを集めます。
+**局所化に必要なのは、全域の商の中に見える部分空間です。** 領域 $O$ 内の源で表せる同値類だけを集めます。以下の $q$ は第1節の例の空間関数 $q(\boldsymbol x)$ とは異なり、商への写像 $q(f)=[f]$ を意味します。
 
 <a id="def-aqft4-local-quotient"></a>
 
@@ -164,19 +172,21 @@ $$
 
 **定義の確認**。$O_R$ と $0\ne\varphi\in\mathcal D(O_R)$ は第1節の例のとおりです。$f=P\varphi\in\mathcal D(O_R)$ なので、$[f]=[0]$ は $\mathcal V(O_R)$ に含まれます。$f\ne0$ であることは前節で確認したため、**関数としての零と商での零は異なります**。
 
-他方、$O_R$ の小さな積領域に非負で非零の $\eta(t)$、$h(\boldsymbol x)$ を支持させ、$g(t,\boldsymbol x)=\eta(t)h(\boldsymbol x)$ とします。$|mt|<\pi/2$ が $\operatorname{supp}\eta$ 上で成立するよう選びます（$m=0$ なら自動）。滑らかな斉次解 $u(t,\boldsymbol x)=\cos(mt)$ は $Pu=0$ を満たします。もし $g=P\psi$、$\psi\in\mathcal D$ なら、コンパクト支持のため境界項なしで二度部分積分でき、
+他方、$O_R$ の小さな積領域に非負で非零の $\eta(t)$、$h(\boldsymbol x)$ を支持させ、別の試験関数を $f_\star(t,\boldsymbol x)=\eta(t)h(\boldsymbol x)$ とします。$|mt|<\pi/2$ が $\operatorname{supp}\eta$ 上で成立するよう選びます（$m=0$ なら自動）。滑らかな斉次解 $u(t,\boldsymbol x)=\cos(mt)$ は $Pu=0$ を満たします。
+
+以下の $d^4x$ は $dt\,dx^1\,dx^2\,dx^3$ の略記で、この座標では計量成分の行列式が $|\det(g_{\mu\nu})|=1$ なので時空体積密度に一致します。もし $f_\star=P\psi$、$\psi\in\mathcal D$ なら、コンパクト支持のため境界項なしで二度部分積分でき、
 $$
-\int_M g\,u\,d^4x
+\int_M f_\star\,u\,d^4x
 =\int_M(P\psi)u\,d^4x
 =\int_M\psi(Pu)\,d^4x=0
 $$
 となるはずです。しかし
 $$
-\int_M g\,u\,d^4x
+\int_M f_\star\,u\,d^4x
 =\left(\int_{\mathbb R}\eta(t)\cos(mt)\,dt\right)
  \left(\int_{\mathbb R^3}h(\boldsymbol x)\,d^3x\right)>0.
 $$
-矛盾します。よって $[g]\ne[0]$、しかも $[g]\in\mathcal V(O_R)$ です。局所空間が零だけでないことまで、全条件を実際に確認しました。
+矛盾します。よって $[f_\star]\ne[0]$、しかも $[f_\star]\in\mathcal V(O_R)$ です。局所空間が零だけでないことまで、全条件を実際に確認しました。
 <!-- definition-example-end -->
 
 この構成を図で読むと、「コンパクト源 → 方程式の像で割る → 斉次解に対応させる」という二つの写像の役割が見えます。図の矢印が同型となることは次節で証明します。
@@ -241,7 +251,15 @@ $J^\pm(K)$ はMinkowskiのコンパクト集合の因果未来・過去として
 
 $\operatorname{supp}v$ はその閉部分集合だからコンパクトで、$v\in\mathcal D$ となります。$Pv=PG_{\mathrm{ret}}f=f$ より $f\in P\mathcal D$ です。これで核の等式が示されました。[HPDE21の核の証明](../../HPDE/HPDE21/index.md#thm-hpde21-kernel-exact)の平坦時空での具体化です。
 
-**(ii) 全射。** 任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ を取ります。あるコンパクト $K$ があって $\operatorname{supp}u\subseteq J(K)$ です。$a<b$ を取り、滑らかな $\chi:\mathbb R\to[0,1]$ を $t\le a$ で $0$、$t\ge b$ で $1$ とします。$Pu=0$ から積の微分を展開すると
+**(ii) 全射。** 任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ を取ります。あるコンパクト $K$ があって $\operatorname{supp}u\subseteq J(K)$ です。$a<b$ を取り、滑らかな $\chi:\mathbb R\to[0,1]$ を $t\le a$ で $0$、$t\ge b$ で $1$ とします。ここで $\chi'=d\chi/dt$、$\chi''=d^2\chi/dt^2$ は時間変数だけの導関数、$\partial_tu$ は空間座標 $\boldsymbol x$ を固定した偏導関数です。$\chi$ は空間座標に依存しないため、積の微分は
+$$
+\begin{aligned}
+\partial_t(\chi u)&=\chi'u+\chi\partial_tu,\\
+\partial_t^2(\chi u)&=\chi''u+2\chi'\partial_tu+\chi\partial_t^2u,\\
+\Delta_{\boldsymbol x}(\chi u)&=\chi\Delta_{\boldsymbol x}u
+\end{aligned}
+$$
+となります。$Pu=0$ を使うと
 $$
 \begin{aligned}
 f_\chi:=P(\chi u)
@@ -261,7 +279,12 @@ $w_+=\chi u$、$w_-=(\chi-1)u$ とおきます。すると $Pw_+=Pw_-=f_\chi$ �
 
 各々の台は $J(K)$ に含まれます。[HPDE20の過去コンパクト・未来コンパクト条件](../../HPDE/HPDE20/index.md#def-hpde20-support-classes)も、次のように確かめられます。
 
-任意のコンパクト $L$ について、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le\max t(L)$ の有界な時間帯と $J(K)$ に含まれます。この集合は閉かつ有界です。四次元のEuclid座標に対する[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)を適用すると、コンパクト性が従います。$w_-$ にも $J^+(L)$ を使って同様の条件を確認できます。
+任意のコンパクト $L$ を取り、$L=\varnothing$ なら交差は空です。$L\ne\varnothing$ では $T:=\max_{z\in L}t(z)$ と置くと、$\operatorname{supp}w_+\cap J^-(L)$ に属する点は $a\le t\le T$ を満たします。さらに $K\subset[c,d]\times\overline B_R$ であり、$J(K)$ 内の点 $(t,\boldsymbol x)$ は $K$ のある点 $(s,\boldsymbol y)$ と因果的に結ばれるので
+$$
+|\boldsymbol x|\le|\boldsymbol y|+|t-s|
+\le R+\max\{|a-c|,|a-d|,|T-c|,|T-d|\}.
+$$
+この交差は閉集合の共通部分で、時間・空間の両方向に有界です。四次元のEuclid座標に対する[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)を適用すると、コンパクト性が従います。$w_-$ にも $J^+(L)$ を使って同様の条件を確認できます。
 
 ここで[HPDE20の支持条件を指定したGreenの両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)を使うと
 $$
@@ -319,12 +342,12 @@ $$
 &=\mathcal D(O)\cap P\mathcal D.
 \end{aligned}
 $$
-[LA2の線形写像の第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)の適用対象は $q_O$ で、結論は表示した同型です（参照先の名称・anchor を学習者は確認できます）。$O_1\subseteq O_2$ なら $\mathcal D(O_1)\subseteq\mathcal D(O_2)$ なので、その $q$ による像も包含します。空集合では試験関数が零だけだから $\mathcal V(\varnothing)=\{0\}$ です。$\square$
+[LA2の線形写像の第一同型定理](../../../基礎科目/LA/LA2/index.md#thm-la2-first-isomorphism)を実線形写像 $q_O$ に適用すると、$\mathcal D(O)/\ker q_O$ が像 $\mathcal V(O)$ と同型になります。$O_1\subseteq O_2$ なら $\mathcal D(O_1)\subseteq\mathcal D(O_2)$ なので、その $q$ による像も包含します。空集合では試験関数が零だけだから $\mathcal V(\varnothing)=\{0\}$ です。$\square$
 <!-- proof-end -->
 
 特に $P\mathcal D(O)\subseteq\mathcal D(O)\cap P\mathcal D$ までは第1節の支持包含から言えますが、**任意の開集合で等号と置いてよいとは、この命題は言っていません**。局所のCauchy問題を別に検討する必要があります。この注意は、後で領域の代数を作るときにも有効です。
 
-領域をPoincaré変換で動かしても、質量 $m$ が固定された自由場の方程式は変わりません。時間向きを保存しない変換では遅延・先進が入れ替わるので、ここでは正時刻向き群だけを扱います。
+領域をPoincaré変換で動かしても、質量 $m$ が固定された自由場の方程式は変わりません。[AQFT2で用いたPoincaré群](../AQFT2/index.md#def-aqft2-haag-kastler)のうち時間向きと空間向きを保存する $\mathcal P_+^\uparrow$ を使い、変換を $F(x)=\Lambda x+a$（$a\in\mathbb R^{1,3}$ は平行移動、$\Lambda$ はLorentz行列）と書きます。時間向きを保存しない変換では遅延・先進が入れ替わるため、Green作用素との可換性にはこの制限が必要です。
 
 <a id="prop-aqft4-poincare"></a>
 
@@ -347,12 +370,35 @@ Lorentz変換が計量・時間向き・因果関係を保つことから $P$ �
 <!-- proof-start -->
 ### 証明
 
-$F$ は滑らかな可逆アフィン写像で、コンパクト集合をコンパクト集合へ写します。したがって $\rho_F f$ は滑らかかつコンパクト支持で、$\operatorname{supp}(\rho_F f)=F(\operatorname{supp}f)$ です。連鎖律で $\partial_\mu(\rho_Ff)=(\Lambda^{-1})^\nu{}_\mu(\partial_\nu f)\circ F^{-1}$ です。二階微分して
+$F$ は滑らかな可逆アフィン写像で、コンパクト集合をコンパクト集合へ写します。したがって $\rho_F f$ は滑らかかつコンパクト支持で、$\operatorname{supp}(\rho_F f)=F(\operatorname{supp}f)$ です。
+
+計量 $g$ の座標成分を
+$$
+\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1)
+$$
+と書きます。ここで $x^0=t$、添字 $\mu,\nu,\alpha,\beta$ は $0,1,2,3$ を動き、$\partial_\mu$ は座標 $x^\mu$ による偏微分、$\eta^{\mu\nu}$ は計量行列の逆行列の成分を意味します。
+
+$y=F^{-1}(x)=\Lambda^{-1}(x-a)$ と置いて連鎖律を二回用いると、$\Lambda$ の係数が定数なので
+$$
+\begin{aligned}
+\partial_\mu(\rho_Ff)(x)
+&=(\Lambda^{-1})^\alpha{}_\mu(\partial_\alpha f)(y),\\
+\partial_\mu\partial_\nu(\rho_Ff)(x)
+&=(\Lambda^{-1})^\alpha{}_\mu(\Lambda^{-1})^\beta{}_\nu
+  (\partial_\alpha\partial_\beta f)(y).
+\end{aligned}
+$$
+$\Lambda^\mathsf T\eta\Lambda=\eta$ を逆行列に移すと
+$$
+\eta^{\mu\nu}(\Lambda^{-1})^\alpha{}_\mu
+(\Lambda^{-1})^\beta{}_\nu=\eta^{\alpha\beta}
+$$
+です。これを二階微分式へ代入すれば
 $$
 \eta^{\mu\nu}\partial_\mu\partial_\nu(\rho_Ff)
-=\eta^{\alpha\beta}(\partial_\alpha\partial_\beta f)\circ F^{-1}
+=\eta^{\alpha\beta}(\partial_\alpha\partial_\beta f)\circ F^{-1}.
 $$
-を得ます。ここで $\Lambda$ がMinkowski計量 $\eta$ を保つことと、行列係数が定数であることを使いました。零次項 $m^2$ も可換です。ゆえに $P\rho_F=\rho_FP$ です。
+左辺は $\Box_g(\rho_Ff)$ で、零次項 $m^2$ も合成 $f\mapsto f\circ F^{-1}$ と可換なので $P\rho_F=\rho_FP$ です。
 
 $u=G_{\mathrm{ret}}f$ なら $P(\rho_Fu)=\rho_Ff$、さらに $F$ は時間向きと因果関係を保つため
 $$
@@ -412,7 +458,11 @@ $$
 \Delta_{\boldsymbol x}(hq)=h\Delta_{\boldsymbol x}q,\quad
 m^2(hq)=m^2hq.
 $$
-よって $P\varphi=h''q-h\Delta_{\boldsymbol x}q+m^2hq$。滑らかな関数の微分は関数が恒等的に零である開集合で零だから、$\operatorname{supp}h''\subseteq\operatorname{supp}h$、$\operatorname{supp}\Delta q\subseteq\operatorname{supp}q$ です。三項の台は $\operatorname{supp}h\times\operatorname{supp}q\subset[-1,1]\times\overline B_1$ に収まります。右辺はコンパクトで $P\varphi$ の台は閉なので、$P\varphi\in\mathcal D$ です。
+よって
+$$
+P\varphi=h''q-h\Delta_{\boldsymbol x}q+m^2hq.
+$$
+滑らかな関数の微分は関数が恒等的に零である開集合で零だから、$\operatorname{supp}h''\subseteq\operatorname{supp}h$、$\operatorname{supp}\Delta q\subseteq\operatorname{supp}q$ です。三項の台は $\operatorname{supp}h\times\operatorname{supp}q\subset[-1,1]\times\overline B_1$ に収まります。右辺はコンパクトで $P\varphi$ の台は閉なので、$P\varphi\in\mathcal D$ です。
 <!-- solution-end -->
 
 <a id="ex-aqft4-a02"></a>
@@ -427,7 +477,14 @@ $$
 Ef=G_{\mathrm{ret}}P\varphi-G_{\mathrm{adv}}P\varphi
 =\varphi-\varphi=0,\qquad P(Ef)=P0=0.
 $$
-一方、一般の $g\in\mathcal D$ でも $P(Eg)=Pg_{\mathrm{ret}}-Pg_{\mathrm{adv}}=g-g=0$（ここで $g_{\mathrm{ret}}=G_{\mathrm{ret}}g$ 等）です。$E f=0$ という結果だけを $PE=0$ の定義と取り違えず、$GP=\mathrm{id}$ と $PG=\mathrm{id}$ を区別します。
+一方、一般の $g\in\mathcal D$ でも、Green作用素の $PG_{\mathrm{ret}}=PG_{\mathrm{adv}}=\operatorname{id}$ を $g$ に適用して
+$$
+\begin{aligned}
+P(Eg)&=P(G_{\mathrm{ret}}g-G_{\mathrm{adv}}g)\\
+&=PG_{\mathrm{ret}}g-PG_{\mathrm{adv}}g=g-g=0
+\end{aligned}
+$$
+です。$E f=0$ という結果だけを $PE=0$ の定義と取り違えず、$GP=\mathrm{id}$ と $PG=\mathrm{id}$ を区別します。
 <!-- solution-end -->
 
 <a id="ex-aqft4-a03"></a>
@@ -495,7 +552,15 @@ P(\chi u)=\chi''u+2\chi'\partial_tu+\chi Pu
 $$
 $\chi'$ と $\chi''$ は $[a,b]$ の外で零です。$\operatorname{supp}u\subset J(K)$ を満たすコンパクト $K$ を取り、$K\subset[c,d]\times\overline B_R$ と囲めば、$t\in[a,b]$ かつ $(t,\boldsymbol x)\in J(K)$ では $|\boldsymbol x|$ は $R$ と時刻端点の差で上から有界です。$J(K)$ は閉なので、$f$ の台はコンパクトです。したがって $f\in\mathcal D$。
 
-$w_+=\chi u$ と $w_-=(\chi-1)u$ は各々過去と未来で零、$Pw_+=Pw_-=f$ です。各半解の台は $J(K)$ に含まれるので、時間方向で一方が零になることと合わせて、それぞれ過去コンパクト・未来コンパクトです。[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
+$w_+=\chi u$ と $w_-=(\chi-1)u$ は各々過去と未来で零、$Pw_+=Pw_-=f$ です。各半解の台は $J(K)$ に含まれます。任意の非空コンパクト $L$ に対し $T=\max_{z\in L}t(z)$ と置けば、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le T$ にあり、$K\subset[c,d]\times\overline B_R$ と囲んだとき
+$$
+|\boldsymbol x|\le R+\max\{|a-c|,|a-d|,|T-c|,|T-d|\}
+$$
+も満たします。従って交差は閉かつ有界でコンパクトです。$L=\varnothing$ は自明です。$w_-$ についても、$\operatorname{supp}w_-\cap J^+(L)$ の時刻は $S:=\min_{z\in L}t(z)\le t\le b$ に収まり、同じ因果不等式から
+$$
+|\boldsymbol x|\le R+\max\{|S-c|,|S-d|,|b-c|,|b-d|\}
+$$
+です。この交差は座標 $(t,\boldsymbol x)\in\mathbb R^4$ で閉かつ有界なので、[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)によりコンパクトとなり、$w_-$ は未来コンパクトです。このように $w_+$ と $w_-$ の作用域を確かめてから[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
 $$
 Ef=w_+-w_-=\chi u-(\chi-1)u=u.
 $$
@@ -546,19 +611,23 @@ $O_1,O_2$ をMinkowski時空の空間的に分離した非空開集合とする�
 - Level: C
 
 <!-- solution-start -->
-**詳細解答**。（1）[自由場の局所試験関数商](#def-aqft4-local-quotient)より、$[f]\in\mathcal V(O_1)\subset\mathcal V$ かつ $[g]\in\mathcal V(O_2)\subset\mathcal V$ です。
+**詳細解答**。**（1）** [自由場の局所試験関数商](#def-aqft4-local-quotient)より、$[f]\in\mathcal V(O_1)\subset\mathcal V$ かつ $[g]\in\mathcal V(O_2)\subset\mathcal V$ です。
 
 [Minkowski自由Klein–Gordon場の源と解の対応](#thm-aqft4-kg-quotient)より、両方の解 $Ef,Eg$ は $\operatorname{Sol}_{\mathrm{sc}}(P)$ に属します。$Eg$ の台は $J(\operatorname{supp}g)$ に含まれます。
 
 $O_1,O_2$ は空間的に分離しているので、$\operatorname{supp}f$ と $J(\operatorname{supp}g)$ は交わりません。点ごとに $fEg=0$ であり、$f$ はコンパクト支持だから $\int_M fEg\,d^4x=0$ です。
 
-(ii) 任意の $\varphi,\psi\in\mathcal D$ について、[Klein–GordonのGreen合成と支持](#prop-aqft4-green-identities)から $EP\varphi=EP\psi=0$。線形性で
+**（2）** 任意の $\varphi,\psi\in\mathcal D$ について、[Klein–GordonのGreen合成と支持](#prop-aqft4-green-identities)から $EP\varphi=EP\psi=0$。線形性で
 $$
 E(f+P\varphi)=Ef,\qquad E(g+P\psi)=Eg.
 $$
 したがって商の代表元を変えても各解は不変です。ただし $\varphi$ が $O_1$ に支持するとは仮定していないので、変更後の $f+P\varphi$ は必ずしも $\mathcal D(O_1)$ に入りません。局所代表元と全域代表元の違いが残ります。
 
-(iii) [全射性の証明](#thm-aqft4-kg-quotient)では任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ に対し、$u$ の全域の因果台と時間カットオフから $f_\chi=P(\chi u)\in\mathcal D$ を作りました。必要なのは構成源 $f_\chi$ の台が時空全体でコンパクトであることであり、$\operatorname{supp}f_\chi\subset O_1$ を保証する空間的・時間的な条件は付けていません。このため全域での全射 $E:\mathcal D\to\operatorname{Sol}_{\mathrm{sc}}(P)$ から、$E:\mathcal D(O_1)\to\operatorname{Sol}_{\mathrm{sc}}(P)$ の全射は推論できません。局所領域の性質を別に検討する必要があります。$\square$
+**（3）** [全射性の証明](#thm-aqft4-kg-quotient)では任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ に対し、$u$ の全域の因果台と時間カットオフから $f_\chi=P(\chi u)\in\mathcal D$ を作りました。必要なのは構成源 $f_\chi$ の台が時空全体でコンパクトであることであり、$\operatorname{supp}f_\chi\subset O_1$ を保証する空間的・時間的な条件は付けていません。このため全域での全射 $E:\mathcal D\to\operatorname{Sol}_{\mathrm{sc}}(P)$ から、$E:\mathcal D(O_1)\to\operatorname{Sol}_{\mathrm{sc}}(P)$ の全射は推論できません。
+
+実際に局所全射性が失敗する解を作れます。$p=(t_0,\boldsymbol x_0)\in O_2$ を選び、時刻 $t=t_0$ の面で、コンパクト支持の滑らかな初期変位 $u_0$ を $u_0(\boldsymbol x_0)=1$ となるよう選び、初期速度を $u_1=0$ とします。[HPDE16の大域Cauchy問題の存在一意性と因果的支持](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)により、これを初期値とする $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ が存在し、$u(p)=1$ です。
+
+他方、$O_1$ と $O_2$ の空間的分離から、任意の $f\in\mathcal D(O_1)$ に対して $p\notin J(\operatorname{supp}f)$ です。よって因果伝播子の支持条件により $Ef(p)=0$。したがって $u=Ef$ となる局所源 $f\in\mathcal D(O_1)$ は存在しません。$\square$
 <!-- solution-end -->
 
 ## 8. 次講への接続と自力確認
