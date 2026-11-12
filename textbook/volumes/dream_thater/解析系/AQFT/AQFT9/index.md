@@ -20,7 +20,23 @@ $$
 
 となります。内積は第2変数線形とします。**この巡回性は全域 $\mathfrak A$ に対するもの**です。
 
-続いて[VN2の可換子](../../VN/VN2/index.md#def-vn2-commutant)を使います。$S\subset B(\mathcal H_\omega)$ に対して $S'$ は $S$ のすべての元と可換な有界作用素の集合、$S''=(S')'$ は二重可換子です。$*$-閉な単位的代数では、[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により、$S''$ が強作用素位相（SOT）・弱作用素位相（WOT）の閉包と一致します。[VN1の弱作用素位相](../../VN/VN1/index.md#def-vn1-wot)で収束するとは、すべての $\xi,\eta\in\mathcal H_\omega$ に対して行列係数 $\langle\xi,T_\alpha\eta\rangle$ が収束することです。
+続いて[VN2の可換子](../../VN/VN2/index.md#def-vn2-commutant)を使います。有界作用素の集合 $S\subset B(\mathcal H_\omega)$ を取ります。$S'$ は $S$ のすべての元と可換な有界作用素の集合です。さらに、その可換子を取って得る二重可換子は
+
+$
+S''=(S')'
+$
+
+です。単位元を含み随伴で閉じた代数に対しては、[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により、この $S''$ が強作用素位相（SOT）と弱作用素位相（WOT）の閉包に一致します。
+
+[VN1の弱作用素位相](../../VN/VN1/index.md#def-vn1-wot)で $T_\alpha$ が $T$ に収束するとは、すべてのベクトル対について行列係数が収束することです。すなわち、
+
+$
+\langle\xi,T_\alpha\eta\rangle\longrightarrow
+\langle\xi,T\eta\rangle\qquad
+(\xi,\eta\in\mathcal H_\omega)
+$
+
+が成り立ちます。
 
 <a id="def-aqft9-local-vn-net"></a>
 
@@ -130,16 +146,16 @@ $$
 を得ます。
 <!-- proof-end -->
 
-ここで結論は**包含**です。$\mathcal M_\omega(O')=\mathcal M_\omega(O)'$ という等号（Haag双対性）は一般には出ません。また、空間的補集合 $O'$ における局所環を定義するには、その領域が採用した領域族に属するか、含まれる有界領域の環から生成するかも指定する必要があります。
+ここで結論は**包含**です。$\mathcal M_\omega(O')=\mathcal M_\omega(O)'$ という等号（Haag双対性）は一般には出ません。また、空間的補集合 $O'$ における局所von Neumann環を定義するには、その領域が採用した領域族に属するか、含まれる有界領域の環から生成するかも指定する必要があります。
 
-## 3. GNS状態は局所環上で正規になる
+## 3. GNS状態は局所von Neumann環上で正規になる
 
 C*環の状態は最初からWOT連続だとは言えません。そもそも弱作用素位相は**表現した後**に決まります。しかしGNSベクトルを使うと、対応する局所von Neumann環には正規状態が自然にあります。[VN5の正規状態](../../VN/VN5/index.md#def-vn5-normal-state)とは、その環のultraweak位相に連続な正規化正汎関数です。
 
 <a id="prop-aqft9-local-normal-state"></a>
 
 <!-- formal-statement-start -->
-> **命題（局所環へのGNS状態の正規な延長）**  
+> **命題（局所von Neumann環へのGNS状態の正規な延長）**  
 > 前節の仮定の下、各領域 $O$ に対して
 $$
 \widetilde\omega_O(X)
@@ -150,7 +166,7 @@ $$
 $$
 \widetilde\omega_O(\pi_\omega(A))=\omega(A).
 $$
-> ただし $\omega$ が $\mathfrak A$ 上で忠実であること、あるいは $\widetilde\omega_O$ が局所環上で忠実であることは仮定しない。
+> ただし $\omega$ が $\mathfrak A$ 上で忠実であること、あるいは $\widetilde\omega_O$ が局所von Neumann環上で忠実であることは仮定しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -190,14 +206,14 @@ $$
 
 **正規性と忠実性は違います。** 正規性は極限との適合性、忠実性は正作用素 $X\ge0$ に対し $\widetilde\omega_O(X)=0$ なら $X=0$ となることです。例えば $\mathbb C^2$ の対角表示でベクトル $e_1=(1,0)$ を使うと、状態 $X\mapsto\langle e_1,Xe_1\rangle$ は有限次元なので正規ですが、零でない射影 $\operatorname{diag}(0,1)$ を零へ写すため忠実ではありません。なおこのベクトルは対角代数上の巡回ベクトルではありません。**この例は正規性と忠実性の論理的な違いの確認**です。
 
-## 4. 表現依存性：同じC*netでも局所環は変わる
+## 4. 表現依存性：同じC*netでも局所von Neumann環は変わる
 
 前節の「状態を選んでから表現する」という順序は飾りではありません。元のC*netを固定しても、状態を替えると作用するHilbert空間、零に潰れる観測量、さらには局所von Neumann環が変わり得ます。
 
 <a id="prop-aqft9-state-dependent"></a>
 
 <!-- formal-statement-start -->
-> **命題（二点netの異なるGNS局所環）**  
+> **命題（二点netの異なるGNS局所von Neumann環）**  
 > すべての非空領域に同じ可換C*環 $\mathfrak A(O)=\mathbb C^2$ を割り当て、元のquasilocal環も $\mathbb C^2$ とする。二つの状態
 $$
 \omega_0(a,b)=a,\qquad
@@ -294,7 +310,7 @@ $$
 
 ## 6. C*状態が任意の表現で正規とは限らない
 
-第3節では「状態 $\omega$ の**GNS表現**を用いれば、そのGNSベクトル状態が局所環上で正規になる」と示しました。これを「どんな状態でも、**先に指定した別の表現**の弱閉包へ正規に延長できる」と読み替えてはいけません。
+第3節では「状態 $\omega$ の**GNS表現**を用いれば、そのGNSベクトル状態が局所von Neumann環上で正規になる」と示しました。これを「どんな状態でも、**先に指定した別の表現**の弱閉包へ正規に延長できる」と読み替えてはいけません。
 
 <a id="prop-aqft9-nonnormal-extension"></a>
 
@@ -384,7 +400,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（真空Fock局所von Neumann環）**  
-> 上の $m>0$ の実自由Klein–Gordon場とAQFT8のMinkowski Fock真空に対し、各領域 $O$ の真空Fock局所環を
+> 上の $m>0$ の実自由Klein–Gordon場とAQFT8のMinkowski Fock真空に対し、各領域 $O$ の真空Fock局所von Neumann環を
 $$
 \mathcal M_{\rm vac}(O)
 :=\{W_{\mathcal F}(F):F\in\mathcal V(O)\}''
@@ -423,8 +439,8 @@ $$
 <a id="thm-aqft9-fock-gns-local"></a>
 
 <!-- formal-statement-start -->
-> **定理（自由場のGNS局所環とFock局所環の一致）**  
-> $m>0$ のMinkowski真空Weyl状態 $\omega_{\rm vac}$ について、AQFT8で構成したFock表現はそのGNS表現とユニタリ同値である。したがってGNSから作る局所環は各領域 $O$ ごとに上の $\mathcal M_{\rm vac}(O)$ とユニタリ共役で一致する。特にFock局所環は包含単調性とEinstein局所性を満たす。
+> **定理（自由場のGNS局所von Neumann環とFock局所von Neumann環の一致）**  
+> $m>0$ のMinkowski真空Weyl状態 $\omega_{\rm vac}$ について、AQFT8で構成したFock表現はそのGNS表現とユニタリ同値である。したがってGNSから作る局所von Neumann環は各領域 $O$ ごとに上の $\mathcal M_{\rm vac}(O)$ とユニタリ共役で一致する。特にFock局所von Neumann環は包含単調性とEinstein局所性を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -470,7 +486,7 @@ V\mathcal M_{\omega_{\rm vac}}(O)V^*
 \end{aligned}
 $$
 
-最後に、[AQFT6の局所C*netの定理](../AQFT6/index.md#thm-aqft6-haag-kastler)が元のC*netの包含単調性とEinstein局所性を保証します。[局所von Neumann netの包含単調性と局所性](#thm-aqft9-isotony-locality)をそのGNS表現に適用し、ユニタリ $V$ で共役すればFock局所環にも両性質が移ります。
+最後に、[AQFT6の局所C*netの定理](../AQFT6/index.md#thm-aqft6-haag-kastler)が元のC*netの包含単調性とEinstein局所性を保証します。[局所von Neumann netの包含単調性と局所性](#thm-aqft9-isotony-locality)をそのGNS表現に適用し、ユニタリ $V$ で共役すればFock局所von Neumann環にも両性質が移ります。
 <!-- proof-end -->
 
 [AQFT8で示した真空のFock巡回性](../AQFT8/index.md#prop-aqft8-gns-fock)は**全域Weyl代数**についての結論です。$\overline{\mathcal M_{\rm vac}(O)\Omega_{\mathcal F}}=\mathcal F$ や、$X\Omega_{\mathcal F}=0\Rightarrow X=0$ が各局所 $O$ について成立するとは、ここでは結論しません。前者の局所巡回性は後のReeh–Schlieder定理で、後者の分離性は非空な空間的補領域と局所性を組み合わせて検討します。
@@ -573,7 +589,7 @@ $$
 
 $\omega_{\rm av}$ では $(|a|^2+|b|^2)/2=0$ から $a=b=0$ なので零空間は零、GNS空間は2次元。適切な正規直交基底では $\pi_{\rm av}(a,b)=\operatorname{diag}(a,b)$ です。[A02の計算](#ex-aqft9-a02)からその二重可換子は $D\cong\mathbb C^2$ です。
 
-$\mathbb C$ と $\mathbb C^2$ は複素ベクトル空間の次元が異なり、単位的 $*$-同型を持ちません。したがって元のnetが同一でも、GNS局所環は状態によって変わり得ます。
+$\mathbb C$ と $\mathbb C^2$ は複素ベクトル空間の次元が異なり、単位的 $*$-同型を持ちません。したがって元のnetが同一でも、GNS局所von Neumann環は状態によって変わり得ます。
 <!-- solution-end -->
 
 <a id="ex-aqft9-b02"></a>
@@ -605,7 +621,7 @@ $$
 
 $\delta_0(f)=f(0)$ を $C([0,1])$ 上の状態とする。次を示せ。
 
-1. $\delta_0$ のGNS局所環は1次元で、対応する状態は正規である。
+1. $\delta_0$ のGNS局所von Neumann環は1次元で、対応する状態は正規である。
 2. $L^2([0,1])$ の乗法表現では、$\delta_0$ に一致する正規延長は存在しない。
 
 <!-- solution-start -->
@@ -646,7 +662,7 @@ $$
 
 $m>0$ の四次元Minkowski自由Klein–Gordon場について、[AQFT6の局所Weyl C*net](../AQFT6/index.md#def-aqft6-local-weyl-net)と[AQFT8の真空GNS–Fock同値](../AQFT8/index.md#prop-aqft8-gns-fock)を前提として、次を示せ。
 
-1. $\mathcal M_{\rm vac}(O)=\{W_{\mathcal F}(F):F\in\mathcal V(O)\}''$ がGNS局所環とユニタリ同値である。
+1. $\mathcal M_{\rm vac}(O)=\{W_{\mathcal F}(F):F\in\mathcal V(O)\}''$ がGNS局所von Neumann環とユニタリ同値である。
 2. $O_1\subset O_2$ と空間的に分離した $O_1,O_3$ のそれぞれで、包含と可換子包含を示せ。
 3. Fock真空が $\mathcal M_{\rm vac}(O)$ 上の正規状態を与えることを証明し、局所巡回・分離性については何が未証明か述べよ。
 
@@ -688,7 +704,7 @@ $$
 =\operatorname{Tr}(X\rho)
 $$
 
-と書けます。[VN5の正規状態と密度作用素の対応](../../VN/VN5/index.md#thm-vn5-density-state-correspondence)からこの $B(\mathcal F)$ 上の汎関数は正規で、局所環への制限も正規です。
+と書けます。[VN5の正規状態と密度作用素の対応](../../VN/VN5/index.md#thm-vn5-density-state-correspondence)からこの $B(\mathcal F)$ 上の汎関数は正規で、局所von Neumann環への制限も正規です。
 
 ただし[AQFT8の巡回性](../AQFT8/index.md#prop-aqft8-gns-fock)は全域代数の話です。ここから局所 $O$ に対する $\overline{\mathcal M_{\rm vac}(O)\Omega_{\mathcal F}}=\mathcal F$ は導けず、$\mathcal M_{\rm vac}(O)$ の各 $X$ に対する $X\Omega_{\mathcal F}=0\Rightarrow X=0$ も未証明です。前者にはReeh–Schlieder型の解析性議論、後者には局所巡回性と空間的補領域の局所性が必要となります。
 <!-- solution-end -->
