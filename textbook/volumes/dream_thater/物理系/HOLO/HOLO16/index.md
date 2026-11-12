@@ -152,7 +152,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo16-btz -->
-**定義の確認**：$r_+=L$ と取れば $f(r)=r^2/L^2-1$ で、$r>L$ では $f>0$。従って $g_{tt}=-f<0$、$g_{rr}=1/f>0$、$g_{\phi\phi}=r^2>0$ とLorentz符号は $(-,+,+)$ です。$r=L$ で $f=0$、円周は $2\pi L$。大半径で $ds^2$ を $L^2/r^2$ 倍すると、境界方向は $-dt^2+L^2d\phi^2$ となり、第0節の時間規格化と一致します。
+**定義の確認**：$r_+=L$ と取れば $f(r)=r^2/L^2-1$ で、$r>L$ では $f>0$。計量行列は座標基底 $(\partial_t,\partial_r,\partial_\phi)$ で $\operatorname{diag}(-f,1/f,r^2)$ です。これは表示した $dt^2,dr^2,d\phi^2$ の係数を並べたもので、交差成分 $g_{t\phi}=0$ が**非回転**の仮定に対応します。$g_{tt}=-f<0$、$g_{rr}=1/f>0$、$g_{\phi\phi}=r^2>0$ だからLorentz符号は $(-,+,+)$ です。
+
+$r=L$ では $f=0$、$\partial_t$ のノルム $g(\partial_t,\partial_t)=-f$ が零に近づき、$r=\text{const.}$ 面の法線 $dr$ のノルムも $g^{rr}=f\to0$ です。従ってこの円は外部座標の地平線候補であり、座標の発散が実際の特異点でないことは第4節のKruskal表示で確かめます。円周は $\phi$ の周期 $2\pi$ と誘導計量 $L^2d\phi^2$ から $2\pi L$。大半径で $ds^2$ を $L^2/r^2$ 倍すると、境界方向は $-dt^2+L^2d\phi^2$ となり、第0節の時間規格化と一致します。
 <!-- definition-example-end -->
 
 <a id="prop-holo16-btz-thermo"></a>
