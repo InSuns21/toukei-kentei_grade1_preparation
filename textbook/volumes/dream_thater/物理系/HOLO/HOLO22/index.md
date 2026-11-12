@@ -86,7 +86,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二方向の膨張率と平均曲率）**  
-> 滑らかな空間的余次元2曲面の法線平面が独立なnull法線 $k,l$ で張られ、曲面の法線変分が自由に取れるとする。このとき面積がすべてのコンパクト支持法線変分に対して停留することと、$\theta_{(k)}=\theta_{(l)}=0$ は同値である。null法線を $k\mapsto e^f k$, $l\mapsto e^{-f}l$ と再規格化しても、両方が零という条件は変わらない。
+> 滑らかな空間的余次元2曲面の法線平面が独立なnull法線 $k,l$ で張られ、曲面の法線変分が自由に取れるとする。このとき面積がすべてのコンパクト支持法線変分に対して停留することと、$\theta_{(k)}=\theta_{(l)}=0$ は同値である。null法線を $k\mapsto e^\omega k$, $l\mapsto e^{-\omega}l$ と再規格化しても、両方が零という条件は変わらない（$\omega$ は曲面上の滑らかな実数値関数）。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -109,7 +109,7 @@ $q=0$ として $f$ を任意のコンパクト支持関数にします。もし
 
 次に $f=0$ とし、$q$ だけを自由に選びます。$\theta_{(l)}$ にも同じ局所支持関数の議論を適用すると $\theta_{(l)}=0$ です。逆に両者が零なら一次変分の積分は任意の $f,q$ で零となります。
 
-法線再規格化では $\nabla_a(e^f k_b)=e^f(\nabla_a k_b+(\partial_a f)k_b)$。$h^{ab}k_b=0$ なので $\theta_{(e^f k)}=e^f\theta_{(k)}$、同じく $\theta_{(e^{-f}l)}=e^{-f}\theta_{(l)}$。従って零条件は規格化によらず不変です。
+法線再規格化では $\nabla_a(e^\omega k_b)=e^\omega(\nabla_a k_b+(\partial_a\omega)k_b)$。$h^{ab}k_b=0$ なので $\theta_{(e^\omega k)}=e^\omega\theta_{(k)}$、同じく $\theta_{(e^{-\omega}l)}=e^{-\omega}\theta_{(l)}$。従って零条件は規格化によらず不変です。
 <!-- proof-end -->
 
 曲面が$d+1=3$次元バルクの曲線なら、平均曲率ベクトルの消失は測地線方程式と同じです。この同値を、次の時間差がある区間で具体的に確認します。
@@ -222,7 +222,7 @@ $$
 
 ## 4. 極値が時間方向では最大、空間方向では最小になる局所計算
 
-静的な $T=0$ 半円で $X^2+z_0(X)^2=R^2$、$z_0(X)=\sqrt{R^2-X^2}$ とします。理想境界 $X=\pm R$ では $z_0=0$ となり、**半円全体の長さは発散**します。そこで $0<\epsilon<R$ を固定し、$a_\epsilon=\sqrt{R^2-\epsilon^2}$ として長さ $\mathcal L_\epsilon$ を区間 $[-a_\epsilon,a_\epsilon]$ で定義します。両端近くでは零になる滑らかな $f(X)$ を選び、支持が $(-a_\epsilon,a_\epsilon)$ に収まるようにします。$T(X)=\eta f(X)$ とだけ変形すればcutoff端点は動きません。$\eta$ を十分小さくすると、誘導計量は正のままで曲線は空間的です。
+静的な $T=0$ 半円で $X^2+z_0(X)^2=R^2$、$z_0(X)=\sqrt{R^2-X^2}$ とします。理想境界 $X=\pm R$ では $z_0=0$ となり、**半円全体の長さは発散**します。そこで $0<\epsilon<R$ を固定し、$a_\epsilon=\sqrt{R^2-\epsilon^2}$ として長さ $\mathcal L_\epsilon$ を区間 $[-a_\epsilon,a_\epsilon]$ で定義します。両端近くでは零になる滑らかな $f(X)$ を選び、支持が $(-a_\epsilon,a_\epsilon)$ に収まるようにします。$T(X)=\eta f(X)$ とだけ変形すればcutoff端点は動きません。$\eta$ を十分小さくすると、誘導計量は正のままで曲線は空間的です。以下で $z_0'=dz_0/dX$、$f'=df/dX$ は $X$ による導関数、$\mathcal L_\epsilon'(\eta)=d\mathcal L_\epsilon/d\eta$ は $\eta$ による導関数です。変分時には $X,z_0,f,\epsilon$ を固定します。
 
 <a id="prop-holo22-local-saddle"></a>
 
