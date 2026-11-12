@@ -1,0 +1,47 @@
+id: HOLO21
+title: "重力レプリカ法"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO20
+  - GEO19
+  - GRP1
+official_scope: []
+learning_objectives:
+  - 境界の整数レプリカの分配関数比と重力の正規化作用差を導きn1微分で必要な条件を説明できる
+  - 滑らかなレプリカ被覆と固定面を持つ対称商の円錐欠損をn2 n3で直接確認できる
+  - 境界付きGauss–Bonnetから円錐の局在曲率を導きEinstein作用で面積係数と符号を検算できる
+  - 特異比較円錐と滑らかな実際の鞍点を区別し面積導出の正則性と解析接続の仮定を列挙できる
+  - 円錐欠損と張力源の対応を通じて余次元2固定面の二方向の極値条件を導ける
+  - 純AdS3真空の単一区間で半円長とBrown–Henneaux係数を使いc3の主対数を再計算できる
+  - 相同条件 局所極値 鞍点選択 レプリカ対称性の破れ 量子補正の限界を区別できる
+definitions:
+  - { id: HOLO21-DEF-01, name: 正規化された重力レプリカ量 }
+  - { id: HOLO21-DEF-02, name: レプリカ対称商の円錐欠損 }
+theorems:
+  - { id: HOLO21-LEM-01, name: 円錐の局在スカラー曲率 }
+  - { id: HOLO21-PROP-01, name: 対称Euclidレプリカの古典面積項 }
+  - { id: HOLO21-PROP-02, name: レプリカ固定面の局所的極値条件 }
+  - { id: HOLO21-PROP-03, name: 単一区間の重力レプリカ係数の照合 }
+canonical_examples:
+  - 二準位の正規化モーメントと分配関数比
+  - n2 n3の滑らかな被覆と円錐欠損を持つ商
+  - 角度周期を変えた円錐の局在曲率とEinstein作用の符号
+  - 余次元2固定面の二方向への面積変分
+  - 純AdS3単一区間の半円長とBrown–Henneaux係数
+  - 整数レプリカ値に一致する非一意解析補間
+problem_patterns:
+  - HOLO21-NORMALIZED-MOMENT
+  - HOLO21-QUOTIENT-DEFICIT
+  - HOLO21-CONE-SIGN
+  - HOLO21-REPLICA-DERIVATIVE
+  - HOLO21-ADS3-COEFFICIENT
+  - HOLO21-GAUSS-BONNET-AREA
+  - HOLO21-NORMAL-EXTREMALITY
+  - HOLO21-ANALYTIC-CONTINUATION-FAILURE
+  - HOLO21-SADDLE-DOMINANCE
+  - HOLO21-REPLICA-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 13, review: 7 }

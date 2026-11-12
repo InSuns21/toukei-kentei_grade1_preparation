@@ -1,0 +1,45 @@
+chapter: HOLO21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO20
+  - GEO19
+  - GRP1
+forward_references: []
+concepts:
+  - id: holography.gravitational-replica-normalization
+    name: 正規化された重力レプリカ量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化された重力レプリカ量）"]
+    requires: [qft.replica-partition-ratio, holography.boundary-regulated-entropy-data]
+  - id: holography.replica-quotient-conical-deficit
+    name: レプリカ対称商の円錐欠損
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（レプリカ対称商の円錐欠損）"]
+    requires: [holography.gravitational-replica-normalization]
+  - id: holography.conical-localized-curvature
+    name: 円錐の局在スカラー曲率
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（円錐の局在スカラー曲率）"]
+    requires: [holography.replica-quotient-conical-deficit, geometry.gauss-bonnet-boundary-theorem]
+  - id: holography.gravitational-replica-classical-area
+    name: 対称Euclidレプリカの古典面積項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称Euclidレプリカの古典面積項：条件付き）"]
+    requires: [holography.conical-localized-curvature, holography.gravitational-dirichlet-ghy-action]
+  - id: holography.replica-fixed-surface-extremality
+    name: レプリカ固定面の局所的極値条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（レプリカ固定面の局所的極値条件：条件付き）"]
+    requires: [holography.replica-quotient-conical-deficit, holography.gravitational-replica-classical-area]
+  - id: holography.replica-ads3-vacuum-coefficient
+    name: 単一区間の重力レプリカ係数の照合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単一区間の重力レプリカ係数の照合）"]
+    requires: [holography.gravitational-replica-classical-area, holography.ads3-interval-regulated-length, holography.brown-henneaux-central-charge]

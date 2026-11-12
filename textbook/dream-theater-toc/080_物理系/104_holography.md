@@ -21,3 +21,4 @@
 18. [HOLO18 RT公式の最小模型](textbook/volumes/dream_thater/物理系/HOLO/HOLO18/index.md)
 19. [HOLO19 homology条件と面積競合](textbook/volumes/dream_thater/物理系/HOLO/HOLO19/index.md)
 20. [HOLO20 RTとエントロピー不等式](textbook/volumes/dream_thater/物理系/HOLO/HOLO20/index.md)
+21. [HOLO21 重力レプリカ法](textbook/volumes/dream_thater/物理系/HOLO/HOLO21/index.md)
