@@ -1,0 +1,71 @@
+version: 1
+id: RBD
+title: 剛体力学
+plan: textbook/plans_progress/DREAM_THEATER_RIGID_BODY_DYNAMICS_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: RBD1
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD1
+    status: completed
+    title: 剛体の配置と六自由度
+  - id: RBD2
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD2
+    status: planned
+    title: 回転行列・軸角・非可換な有限回転
+  - id: RBD3
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD3
+    status: planned
+    title: 角速度と回転系の輸送定理
+  - id: RBD4
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD4
+    status: planned
+    title: Euler角と姿勢の座標特異性
+  - id: RBD5
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD5
+    status: planned
+    title: 四元数による姿勢表現
+  - id: RBD6
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD6
+    status: planned
+    title: 慣性テンソルの座標変換と具体物体
+  - id: RBD7
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD7
+    status: planned
+    title: Newton–Euler方程式：外力と基準点
+  - id: RBD8
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD8
+    status: planned
+    title: 無トルク対称剛体と姿勢の再構成
+  - id: RBD9
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD9
+    status: planned
+    title: 非対称剛体・中間軸の不安定性
+  - id: RBD10
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD10
+    status: planned
+    title: Poinsotの構成と物体系／空間系の軌跡
+  - id: RBD11
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD11
+    status: planned
+    title: 固定点を持つ重い対称こま
+  - id: RBD12
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD12
+    status: planned
+    title: 定常歳差・章動とジャイロ近似
+  - id: RBD13
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD13
+    status: planned
+    title: 転がりの運動学と瞬間中心
+  - id: RBD14
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD14
+    status: planned
+    title: 非ホロノミック転がりと反力
+  - id: RBD15
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD15
+    status: planned
+    title: 剛体の衝突と接点の衝撃量
+  - id: RBD16
+    path: textbook/volumes/dream_thater/物理系/RBD/RBD16
+    status: planned
+    title: 姿勢の数値積分と保存量の監査
