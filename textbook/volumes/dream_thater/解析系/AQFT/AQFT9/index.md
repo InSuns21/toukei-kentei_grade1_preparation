@@ -22,19 +22,19 @@ $$
 
 続いて[VN2の可換子](../../VN/VN2/index.md#def-vn2-commutant)を使います。有界作用素の集合 $S\subset B(\mathcal H_\omega)$ を取ります。$S'$ は $S$ のすべての元と可換な有界作用素の集合です。さらに、その可換子を取って得る二重可換子は
 
-$
+$$
 S''=(S')'
-$
+$$
 
 です。単位元を含み随伴で閉じた代数に対しては、[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により、この $S''$ が強作用素位相（SOT）と弱作用素位相（WOT）の閉包に一致します。
 
 [VN1の弱作用素位相](../../VN/VN1/index.md#def-vn1-wot)で $T_\alpha$ が $T$ に収束するとは、すべてのベクトル対について行列係数が収束することです。すなわち、
 
-$
+$$
 \langle\xi,T_\alpha\eta\rangle\longrightarrow
 \langle\xi,T\eta\rangle\qquad
 (\xi,\eta\in\mathcal H_\omega)
-$
+$$
 
 が成り立ちます。
 
