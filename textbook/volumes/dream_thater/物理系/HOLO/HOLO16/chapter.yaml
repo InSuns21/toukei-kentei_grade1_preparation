@@ -1,0 +1,45 @@
+id: HOLO16
+title: "BTZ・熱場二重状態"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO15
+official_scope: []
+learning_objectives:
+  - TFDの規格化と左側部分跡を固有基底で計算し右側の正準熱密度行列を導ける
+  - 左右の二側相関と片側熱相関の虚時間シフトを符号・行列要素から検算できる
+  - 非回転BTZの計量と境界円周を読み取りEuclid地平線の正則性から温度を導ける
+  - BTZの質量・地平線エントロピー・自由エネルギーと第一法則を再計算できる
+  - Brown–Henneaux中央電荷・モジュラー不変性の条件下で高温CFTとBTZの熱力学を照合できる
+  - 時間対称BTZ断面の橋の誘導計量を固有距離座標で導出できる
+  - Kruskal延長で二境界間の未来向き因果曲線が存在しないことを示しTFDの限界を区別できる
+definitions:
+  - { id: HOLO16-DEF-01, name: 熱場二重状態 }
+  - { id: HOLO16-DEF-02, name: 非回転BTZ外部領域 }
+theorems:
+  - { id: HOLO16-PROP-01, name: TFDの片側縮約とエントロピー }
+  - { id: HOLO16-PROP-02, name: 非回転BTZの温度と熱力学 }
+  - { id: HOLO16-PROP-03, name: 高温CFTとBTZの条件付き一致 }
+  - { id: HOLO16-PROP-04, name: 時間対称BTZ断面の橋 }
+  - { id: HOLO16-PROP-05, name: TFDの二側相関と熱的解析接続 }
+canonical_examples:
+  - 二準位TFDの規格化と右側密度行列の非対角項の消去
+  - r_+=LのBTZ温度・質量・地平線円周
+  - 固有距離座標でのBTZの最小円周
+  - 二準位模型での両側相関の余弦表示
+  - 熱的AdSとBTZの先頭自由エネルギー交差
+problem_patterns:
+  - HOLO16-TFD-PARTIAL-TRACE
+  - HOLO16-BTZ-EUCLIDEAN-PERIOD
+  - HOLO16-FIRST-LAW
+  - HOLO16-RELATIVE-TIME
+  - HOLO16-PARTIAL-ENTROPY
+  - HOLO16-BRIDGE-DISTANCE
+  - HOLO16-THERMAL-ADS-CROSSING
+  - HOLO16-TWO-SIDED-CORRELATOR
+  - HOLO16-CARDY-THERMODYNAMICS
+  - HOLO16-KRUSKAL-NONTRAVERSABLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 8 }
