@@ -297,7 +297,7 @@ $$
 v^\dagger M^\dagger Mv=\|Mv\|_2^2>0\quad(v\ne0)
 $$
 
-なので $M^\dagger M$ は可逆です。$d=Mc$ の両辺へ $(M^\dagger M)^{-1}M^\dagger$ を掛ければ再構成式を得ます。$M=U\Sigma W^\dagger$ という特異値分解を使えば、左逆は $W\Sigma^+U^\dagger$ であり、その作用素ノルムは $1/\sigma_{\min}$ です。よって
+なので $M^\dagger M$ は可逆です。$d=Mc$ の両辺へ $(M^\dagger M)^{-1}M^\dagger$ を掛ければ再構成式を得ます。$M=U\Sigma W^\dagger$ という[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を使えば、左逆は $W\Sigma^+U^\dagger$ であり、その作用素ノルムは $1/\sigma_{\min}$ です。よって
 
 $$
 \|\delta c\|_2
