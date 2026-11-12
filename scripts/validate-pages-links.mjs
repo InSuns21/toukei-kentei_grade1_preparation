@@ -67,8 +67,8 @@ function validateStandaloneHtmlRoutes(markdown, sourceLabel, errors) {
     const href = match[1];
     if (/^(?:https?:)?\/\//i.test(href)) continue;
     const directives = match[4] || '';
-    if (!href.startsWith('./') || !/(?:^|\s):ignore(?:\s|$)/.test(directives)) {
-      errors.push(`${sourceLabel}: standalone HTML must use a site-root-relative ./ link with Docsify :ignore: ${href}`);
+    if (!href.startsWith('textbook/') || !/(?:^|\s):ignore(?:\s|$)/.test(directives)) {
+      errors.push(`${sourceLabel}: standalone HTML must use a plain site-root-relative link with Docsify :ignore: ${href}`);
     }
   }
 }
@@ -81,10 +81,10 @@ function testExtractLinks() {
     '$$\\left[x\\right](\\varphi_t)$$',
     '\x60[code](not-a-link.md)\x60',
     '[second](textbook/second.md#anchor)',
-    '[player](./textbook/ori-v12-player.html \':ignore\')'
+    '[player](textbook/ori-v12-player.html \':ignore\')'
   ].join('\n');
   const got = extractLinks(source);
-  const expected = ['textbook/example.md', 'textbook/second.md#anchor', './textbook/ori-v12-player.html'];
+  const expected = ['textbook/example.md', 'textbook/second.md#anchor', 'textbook/ori-v12-player.html'];
   const errors = [];
   validateStandaloneHtmlRoutes(source, 'self-test', errors);
   if (errors.length !== 0) throw new Error('standalone HTML link was routed through Docsify: ' + errors.join('; '));
