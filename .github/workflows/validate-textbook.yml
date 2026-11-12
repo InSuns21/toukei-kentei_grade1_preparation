@@ -146,6 +146,9 @@ jobs:
       - name: Verify ORI animated SVG model invariants and fallback assets
         run: npm run test:ori-svg-phase-a
 
+      - name: Verify ORI Phase B thirteen SVG models and fallbacks
+        run: npm run test:ori-svg-phase-b
+
       - name: Fast validate changed textbook dependencies and SVG
         if: github.event_name == 'pull_request' && steps.scope.outputs.full != 'true'
         env:
