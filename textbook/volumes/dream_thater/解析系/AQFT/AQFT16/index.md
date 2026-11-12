@@ -34,15 +34,17 @@ von Neumann環の間に挟まる、中心がスカラーで最小射影を持つ
 > **定義（split inclusionとnetのsplit property）**  
 > $H$ をHilbert空間、$M_1\subset M_2\subset B(H)$ を単位元を共有するvon Neumann環とする。この包含が **split** であるとは、Type I因子 $N\subset B(H)$ が存在して
 >
-> $$
-> M_1\subset N\subset M_2
-> $$
+$$
+M_1\subset N\subset M_2
+$$
 >
 > を満たすことをいう。局所von Neumann net $O\mapsto M(O)$ が指定した領域族で **split property** を満たすとは、全ての $O_1\Subset O_2$ に対して $M(O_1)\subset M(O_2)$ がsplitであることをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft16-split-inclusion -->
 ### 直接例：三段階で因子を挟む
+
+**定義の確認**：以下の包含・中心・最小射影を順に検算し、Type I中間因子の存在を確かめます。
 
 $H=H_1\otimes H_2\otimes H_3\otimes H_4$、$H_1=\mathbb C^2$、$H_2=\mathbb C^3$、$H_3=H_4=\mathbb C^2$ と置き、$I_j$ を $H_j$ の恒等作用素とします。
 
@@ -71,10 +73,10 @@ $M_1\subset N\subset M_2$ は各恒等作用素を残りの因子に挿入する
 > **定理（Type I因子の空間的表示）**  
 > $N\subset B(H)$ を単位的Type I因子、$H\ne\{0\}$ とする。このとき非零Hilbert空間 $K,L$ とユニタリ $U:H\to K\otimes L$ が存在し、
 >
-> $$
-> UNU^*=B(K)\otimes I_L,\qquad
-> UN'U^*=I_K\otimes B(L)
-> $$
+$$
+UNU^*=B(K)\otimes I_L,\qquad
+UN'U^*=I_K\otimes B(L)
+$$
 >
 > を満たす。ここで可換子は $B(H)$ 内で取る。
 <!-- formal-statement-end -->
@@ -141,18 +143,18 @@ $$
 > **定理（split inclusionの内外テンソル積表示）**  
 > $M_1\subset N\subset M_2\subset B(H)$ を単位的von Neumann環の包含とし、$N$ をType I因子とする。するとHilbert空間 $K,L$、ユニタリ $U:H\to K\otimes L$、von Neumann環 $A\subset B(K)$、$B\subset B(L)$ が存在して
 >
-> $$
-> UM_1U^*=A\otimes I_L,\qquad
-> UM_2'U^*=I_K\otimes B
-> $$
+$$
+UM_1U^*=A\otimes I_L,\qquad
+UM_2'U^*=I_K\otimes B
+$$
 >
 > を満たす。さらに乗法写像は、空間的von Neumannテンソル積から結合環への正規な *-同型
 >
-> $$
-> A\ \bar\otimes\ B\ \simeq\ M_1\vee M_2',
-> \quad a\otimes b\longmapsto
-> U^*(a\otimes b)U
-> $$
+$$
+A\ \bar\otimes\ B\ \simeq\ M_1\vee M_2',
+\quad a\otimes b\longmapsto
+U^*(a\otimes b)U
+$$
 >
 > を与える。$M_1\vee M_2'$ は二つの環が生成するvon Neumann環を表す。
 <!-- formal-statement-end -->
@@ -192,11 +194,11 @@ $$
 > **命題（split表示における積ベクトル状態）**  
 > 前定理の仮定の下で、任意の単位ベクトル $k\in K$ と $l\in L$ に対し、$\Psi=U^*(k\otimes l)$ は単位ベクトルであり、全ての $x\in M_1$ と $y\in M_2'$ について
 >
-> $$
-> \langle\Psi,xy\Psi\rangle
-> =\langle\Psi,x\Psi\rangle\,
->  \langle\Psi,y\Psi\rangle
-> $$
+$$
+\langle\Psi,xy\Psi\rangle
+=\langle\Psi,x\Psi\rangle\,
+ \langle\Psi,y\Psi\rangle
+$$
 >
 > が成立する。この状態は $M_1\vee M_2'$ 上で正規である。
 <!-- formal-statement-end -->
@@ -234,9 +236,9 @@ $\|\Psi\|=\|k\|\|l\|=1$ であり、ベクトル状態は $B(H)$ 上で正規な
 > **命題（可換性はsplitを含意しない）**  
 > $H=L^2([0,1])$ とし、$D$ を次の有界関数の乗法作用素環とする。
 >
-$
+$$
 D=\{M_f:f\in L^\infty([0,1])\}\subset B(H).
-$
+$$
 >
 > $D$ は可換なvon Neumann環だが、$D\subset D'$ をsplit inclusionにするType I中間因子は存在しない。
 <!-- formal-statement-end -->
@@ -352,9 +354,9 @@ $M$ をType III因子とする。$M\subset M$ がsplitでないことを示せ�
 <!-- solution-start -->
 **詳細解答。** 同じ環の間に $N$ を挟むなら、包含の反対称性によって
 
-$
+$$
 M\subset N\subset M\quad\Longrightarrow\quad N=M
-$
+$$
 
 です。しかし[VN7のType III分類](../../VN/VN7/index.md#def-vn7-factor-type-classification)によれば $M$ は非零最小射影を持たず、Type I因子にはなれません。従ってこの包含はsplitではありません。
 
@@ -388,18 +390,18 @@ $$
 <!-- solution-start -->
 **詳細解答。** [局所性の継承](../AQFT9/index.md#thm-aqft9-isotony-locality)を領域 $O_2,Q$ に適用します。splitの中間因子を $N$ とすると
 
-$
+$$
 M(Q)\subset M(O_2)'\subset N',
 \qquad M(O_1)\subset N
-$
+$$
 
 が得られます。
 
 [Type I因子の空間的表示](#thm-aqft16-typei-spatial-form)のユニタリにより、二つの環はそれぞれ $A\otimes I$ と $I\otimes C$ の形になります。[内外テンソル積表示](#thm-aqft16-split-tensor-inclusion)と同じ弱閉包の計算で
 
-$
+$$
 M(O_1)\vee M(Q)\simeq M(O_1)\bar\otimes M(Q)
-$
+$$
 
 です。必要だったのは局所性による包含だけであり、外部環を可換子全体に等置するHaag双対性は不要です。
 <!-- solution-end -->
