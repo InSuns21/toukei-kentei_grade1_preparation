@@ -478,7 +478,7 @@ $$
 \le\eta_hM+\tau\varepsilon_h+\delta\longrightarrow0.
 $$
 
-任意の $\varepsilon>0$ を固定します。$x^\dagger\in(\ker A)^\perp=\overline{\mathcal R(A^*)}$ なので、$q\in Y$ を $\|x^\dagger-A^*q\|<\varepsilon$ となるよう選べます。随伴の定義と Cauchy--Schwarz の不等式より
+任意の $\varepsilon>0$ を固定します。$x^\dagger\in(\ker A)^\perp=\overline{\mathcal R(A^*)}$ なので、$q\in Y$ を $\|x^\dagger-A^*q\|<\varepsilon$ となるよう選べます。随伴の定義と[Cauchy--Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 \begin{aligned}
