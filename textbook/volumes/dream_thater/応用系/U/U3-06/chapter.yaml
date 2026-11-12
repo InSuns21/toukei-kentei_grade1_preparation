@@ -1,0 +1,42 @@
+id: "U3-06"
+title: "American オプションと停止時刻"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05]
+official_scope: []
+learning_objectives:
+  - American オプションの時点別即時行使額と行使時刻を定義し、停止時刻と未来を見た不正な選択を区別できる
+  - 有限二項モデルで Snell 包絡を後退帰納により構成し、条件付き継続価値と即時行使額を比較できる
+  - 最初の行使可能節点に到達する停止規則の最適性を帰納法で証明できる
+  - 割引 Snell 包絡の最小優マルチンゲール性と買い手の最適停止・売り手の超複製価格の一致を説明できる
+  - American 価格が European 価格以上であることを証明し、2期間 put の行使木を分数で再計算できる
+  - 独立実装の全停止時刻列挙と後退帰納を照合し、境界条件・同点行使を検証できる
+definitions:
+  - { id: U3-06-DEF-01, name: American オプションと時点別行使額 }
+  - { id: U3-06-DEF-02, name: 停止時刻 }
+  - { id: U3-06-DEF-03, name: 離散 Snell 包絡 }
+theorems:
+  - { id: U3-06-PROP-01, name: Snell 包絡の後退帰納と停止時刻最大化 }
+  - { id: U3-06-THM-01, name: 最初の行使節点による最適停止 }
+  - { id: U3-06-PROP-02, name: 割引 Snell 包絡の最小優マルチンゲール性 }
+  - { id: U3-06-THM-02, name: American 価格と最小超複製費用 }
+  - { id: U3-06-COR-01, name: European 価格との比較 }
+canonical_examples:
+  - 2期間 put で上枝は継続・下枝は早期行使を選び価値1175/147円を得る
+  - 停止規則を全4経路で列挙し先読み規則を排除する
+  - 下枝節点で1株売りと預金を組み合わせ、余剰金を留保して超複製を確認する
+problem_patterns:
+  - U3-06-A1
+  - U3-06-A2
+  - U3-06-A3
+  - U3-06-A4
+  - U3-06-A5
+  - U3-06-B1
+  - U3-06-B2
+  - U3-06-B3
+  - U3-06-B4
+  - U3-06-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
