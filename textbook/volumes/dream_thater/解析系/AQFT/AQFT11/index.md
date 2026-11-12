@@ -57,7 +57,7 @@ $$
 <!-- definition-example-start: def-aqft11-forward-tube -->
 ### 直接例：どの虚部なら指数が抑えられるか
 
-**定義の確認。** $y=(2,(1,0,0))$ は $2>1$ なので $V_+^\circ$ に属し、$x+iy\in\mathcal T_+$ です。$p=(3,(2,0,0))$ は $3\ge2$ なので $\overline V_+$ に属します。この組では
+**定義の確認**。 $y=(2,(1,0,0))$ は $2>1$ なので $V_+^\circ$ に属し、$x+iy\in\mathcal T_+$ です。$p=(3,(2,0,0))$ は $3\ge2$ なので $\overline V_+$ に属します。この組では
 
 $$
 |e^{ip\cdot(x+iy)}|=e^{-3\cdot2+2\cdot1}=e^{-4}<1.
@@ -223,7 +223,7 @@ $$
 <!-- definition-example-start: def-aqft11-entire-vector -->
 ### 直接例：有限個の同時固有ベクトル
 
-**定義の確認。** 先の二次元模型の任意の $\eta=c_1e_1+c_2e_2$ に対し
+**定義の確認**。 先の二次元模型の任意の $\eta=c_1e_1+c_2e_2$ に対し
 
 $$
 U(z)\eta=c_1e_1+c_2e^{i(2z^0-z^1)}e_2
@@ -634,8 +634,16 @@ $$
 3. この結論だけでは真空の局所巡回性を言えない理由を、追加で必要な代数的条件に言及して説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** **(1)** $\alpha_{x_1}(A)\alpha_{x_2}(B)\Omega
-=U(x_1)AU(-x_1)U(x_2)BU(-x_2)\Omega$ です。不変性と群性により
+**詳細解答。** **(1)** 局所作用素の積を平行移動で展開し、最後の並進を真空に作用させます。
+
+$$
+\begin{aligned}
+&\alpha_{x_1}(A)\alpha_{x_2}(B)\Omega\\
+&=U(x_1)AU(-x_1)U(x_2)BU(-x_2)\Omega.
+\end{aligned}
+$$
+
+真空の不変性と群性を用いると次の増分表示になります。
 
 $$
 F(x_1,x_2)=\langle\psi,U(y_1)AU(y_2)B\Omega\rangle.
