@@ -141,7 +141,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各質量要素の位置ベクトルを $r$、同じ正規直交座標系での重心・基準点の位置ベクトルを $C,O$ と書きます。$u=r-C$ と置けば $r-O=u+d$、[重心](../../MECH/MECH7/index.md#def-mech7-center-of-mass)より $\int u\,dm=0$ です。
+各質量要素の位置ベクトルを $r$、重心と基準点の位置ベクトルを同じ正規直交座標系で $C,O$ と書きます。重心からの相対位置 $u=r-C$ と点のずれ $d=C-O$ を用いると
+
+$$
+r-O=(r-C)+(C-O)=u+d.
+$$
+
+さらに、[重心](../../MECH/MECH7/index.md#def-mech7-center-of-mass)の定義から
+
+$$
+\int u\,dm=\int(r-C)\,dm=0
+$$
+
+です。
 
 $$
 |u+d|^2=|u|^2+2u\cdot d+|d|^2
@@ -549,7 +561,19 @@ J_C=\frac{M}{12}\operatorname{diag}(b^2+c^2,\ a^2+c^2,\ a^2+b^2)
 =\operatorname{diag}(2I,3I,4I).
 $$
 
-[主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)の定義によれば、この基底の単位ベクトル $e_i$ に対し $J_Ce_i=I_ie_i$ が成り立ち、三つの固有値は $2I,3I,4I$ です。各固有値が正なので $J_C$ は正定値です。角速度を同じ正規直交基底で $\omega=\omega_1e_1+\omega_2e_2+\omega_3e_3$ と展開すると、直交性から
+[主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)の定義に従い、基底の単位ベクトル $e_1,e_2,e_3$ で各固有値を確認します。
+
+$$
+J_Ce_1=2Ie_1,\qquad J_Ce_2=3Ie_2,\qquad J_Ce_3=4Ie_3.
+$$
+
+三つの主慣性値はすべて正なので $J_C$ は正定値です。同じ正規直交基底で角速度を次のように展開します。
+
+$$
+\omega=\omega_1e_1+\omega_2e_2+\omega_3e_3.
+$$
+
+固有ベクトルの直交性を使うと
 
 $$
 \omega^{\mathsf T}J_C\omega
