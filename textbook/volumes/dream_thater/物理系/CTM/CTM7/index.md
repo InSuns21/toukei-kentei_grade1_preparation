@@ -16,7 +16,7 @@ $$
 
 とする。ここで $\partial_t\chi(X,t)$ は物質座標 $X$ を固定した時間微分、$\partial_t v(x,t)$ は現在座標 $x$ を固定した偏微分である。同じ物質点を追う加速度は [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を速度成分に適用し、連鎖律によって
 
-$
+$$
 \begin{aligned}
 a(\chi(X,t),t)
 &=\frac{d}{dt}v(\chi(X,t),t)\\
@@ -24,7 +24,7 @@ a(\chi(X,t),t)
   +D_xv(\chi(X,t),t)\,\partial_t\chi(X,t),\\
  a(x,t)&=D_tv(x,t)=\partial_t v(x,t)+(v(x,t)\cdot\nabla_x)v(x,t)
 \end{aligned}
-$
+$$
 
 となる。$d/dt$ は物質点 $X$ を固定した軌道上の全微分、$D_t$ はその全微分を現在座標で表す演算子である。
 
@@ -265,7 +265,7 @@ $$
 \sigma=\begin{pmatrix}0&s&0\\s&0&0\\0&0&0\end{pmatrix}
 $$
 
-とする。$\operatorname{div}\sigma=0$、$\sigma=\sigma^T$ だから、任意の物質領域で線形運動量・角運動量収支が成り立つ。実際、平面の外向き法線 $e_2$ に対する表面力は $s e_1$ Pa、法線 $e_1$ の面では $s e_2$ Pa であり、**力はゼロではない**。したがって剛体的に静止しているというだけでは内部応力をゼロと結論できない。
+とする。各行の微分がゼロなので $\operatorname{div}\sigma=0$、また $\sigma=\sigma^T$ である。[局所運動量式](#thm-ctm7-material-momentum)が $0=0$ を満たし、[角運動量収支の証明](#prop-ctm7-angular-stress)の境界トルクと慣性項の差は $\int_{U_t}\varepsilon_{ijk}\sigma_{kj}\,dV=0$ だから、任意の物質領域で二つの収支が成り立つ。実際、平面の外向き法線 $e_2$ に対する表面力は $s e_1$ Pa、法線 $e_1$ の面では $s e_2$ Pa であり、**力はゼロではない**。したがって剛体的に静止しているというだけでは内部応力をゼロと結論できない。
 
 ## 4. 角運動量がないと破れる例
 
@@ -441,14 +441,14 @@ $$
 
 応力の発散は $\operatorname{div}\sigma=\rho_*g e_1$、体積力密度は $\rho_*b=-\rho_*g e_1$ である。従って [局所運動量方程式](#thm-ctm7-material-momentum)の右辺はゼロ。また $\sigma^T=\sigma$ である。角運動量収支の成立は対称性という必要条件だけで済ませず、[角運動量収支の証明](#prop-ctm7-angular-stress)で得た発散計算を逆に使って確認する。任意の固定点 $o$ に対する $r=x-o$ と外向き法線 $n$ について、
 
-$
+$$
 \begin{aligned}
 &\left[\int_{\partial U}r\times(\sigma n)\,dS
 +\int_U r\times\rho_* b\,dV\right]_i\\
 &\quad=\int_U\varepsilon_{ijk}r_j\bigl[(\operatorname{div}\sigma)_k+\rho_*b_k\bigr]dV
 +\int_U\varepsilon_{ijk}\sigma_{kj}\,dV=0.
 \end{aligned}
-$
+$$
 
 第一積分は局所運動量の釣合により、第二積分は $\sigma_{kj}=\sigma_{jk}$ によりゼロである。静止しているため角運動量の時間微分もゼロとなり、任意の物質部分領域で両方の収支が成立する。
 
@@ -482,7 +482,12 @@ s&\rho_0\alpha^2x_2^2/2&0\\
 \end{pmatrix}
 $$
 
-と与えられる。（i）$F,J,\rho,v,a$ を求めよ。（ii）局所線形運動量と角運動量がともに成り立つことを全成分で確認せよ。（iii）法線 $n=(e_1+e_2)/\sqrt2$ を持つ現在配置の面で traction を計算せよ。（iv）$s$ を第2行第1列だけ $-s$ に変えたとき、どの収支が破れるかを示せ。
+と与えられる。次を順に確かめよ。
+
+1. $F,J,\rho,v,a$ を求めよ。
+2. 局所線形運動量と角運動量がともに成り立つことを全成分で確認せよ。
+3. 法線 $n=(e_1+e_2)/\sqrt2$ を持つ現在配置の面で traction を計算せよ。
+4. $s$ を第2行第1列だけ $-s$ に変えたとき、どの収支が破れるかを示せ。
 
 - Level: C
 
@@ -517,13 +522,13 @@ $$
 
 従って $\operatorname{div}\sigma=\rho_0 a$ で、[局所運動量方程式](#thm-ctm7-material-momentum)の三成分を満たす。$\sigma_{12}=\sigma_{21}=s$ かつ他の非対角成分はゼロなので $\sigma^T=\sigma$。角運動量証明の残差 $\varepsilon_{ijk}\sigma_{kj}$ は $i=1,2,3$ のいずれもゼロである。実際、任意の物質部分領域 $U_t$ と固定点 $o$ に対し、[角運動量収支の証明](#prop-ctm7-angular-stress)の積の微分から、角運動量収支の右辺と左辺の差の第 $i$ 成分は
 
-$
+$$
 \begin{aligned}
 &\int_{U_t}\varepsilon_{ijk}\left[\sigma_{kj}
 +r_j\bigl((\operatorname{div}\sigma)_k+\rho b_k-\rho a_k\bigr)\right]dV\\
 &\quad=\int_{U_t}\varepsilon_{ijk}\sigma_{kj}\,dV=0
 \end{aligned}
-$
+$$
 
 となる。最初の等号では Reynolds 輸送定理とテンソル発散定理を用い、次の等号では局所運動量式を代入した。従って線形運動量と角運動量の両積分収支が成立する。
 
