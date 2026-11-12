@@ -1,0 +1,38 @@
+id: "CTM9"
+title: "仕事と熱はエネルギー収支でどう結ばれるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM8
+official_scope: []
+learning_objectives:
+  - "比内部エネルギー、温度、熱流束、比熱供給率の意味と単位を区別し、外向き熱流束の符号から入出熱を判定できる"
+  - "物質領域の全エネルギー第一法則から運動エネルギー収支を差し引き、rho D_t e=sigma:D-div q+rho r を完全な仮定のもとで導ける"
+  - "境界の面力仕事・熱流出・体積熱源を別々に積分し、局所と積分のエネルギー収支を検算できる"
+  - "Q=J F^{-1}(q o chi) と P:dot F=J sigma:D を使い、基準配置の内部エネルギー収支を証明できる"
+  - "第一法則と温度-内部エネルギー・熱流束の構成則を区別し、断熱・流入・流出境界条件の符号を判定できる"
+definitions:
+  - { id: CTM9-DEF-01, name: "比内部エネルギーと全エネルギー" }
+  - { id: CTM9-DEF-02, name: "熱流束と熱供給率" }
+theorems:
+  - { id: CTM9-PRINCIPLE-01, name: "物質領域の全エネルギー収支" }
+  - { id: CTM9-THM-01, name: "運動エネルギーの局所・積分収支" }
+  - { id: CTM9-THM-02, name: "内部エネルギーの局所収支" }
+  - { id: CTM9-PROP-01, name: "基準配置での内部エネルギー収支" }
+canonical_examples:
+  - "熱が定常的に通り抜ける直方体で入出熱が相殺する"
+  - "静止断熱体の比熱模型で温度上昇率を求める"
+  - "基準一軸伸長で応力仕事と熱流束の変換を検算する"
+problem_patterns:
+  - CTM9-HEAT-SIGN-BOUNDARY
+  - CTM9-SYMMETRIC-STRESS-POWER
+  - CTM9-CALORIC-MODEL
+  - CTM9-REFERENCE-HEAT-FLUX
+  - CTM9-SHEAR-ENERGY
+  - CTM9-HEAT-SLAB-GLOBAL
+  - CTM9-RIGID-ROTATION-ENERGY
+  - CTM9-AFFINE-STRETCH-CONSERVATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }

@@ -9,3 +9,4 @@
 6. [CTM6 面に作用する力はなぜ二階テンソルで書けるか](textbook/volumes/dream_thater/物理系/CTM/CTM6/index.md)
 7. [CTM7 運動量・角運動量保存は応力に何を課すか](textbook/volumes/dream_thater/物理系/CTM/CTM7/index.md)
 8. [CTM8 基準配置へ応力を戻すと何が変わるか](textbook/volumes/dream_thater/物理系/CTM/CTM8/index.md)
+9. [CTM9 仕事と熱はエネルギー収支でどう結ばれるか](textbook/volumes/dream_thater/物理系/CTM/CTM9/index.md)
