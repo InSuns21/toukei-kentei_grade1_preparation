@@ -1,0 +1,47 @@
+id: "CAT4-04"
+title: "モノイダル関手とモノイド対象"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT4-01
+  - CAT4-02
+  - LA3E
+official_scope: []
+learning_objectives:
+  - laxモノイダル関手の比較射の向き・自然性・結合および左右単位条件を型付きで検証できる
+  - 強モノイダル関手とlaxモノイダル関手を区別し、冪集合関手の自然性と非可逆性を具体的に証明できる
+  - モノイド対象とその準同型を可換図式によって定義し、集合のモノイドとベクトル空間の結合代数で全条件を確かめられる
+  - モノイド対象と準同型が圏をなすことを合成保存から証明できる
+  - laxモノイダル関手によるモノイド対象と準同型の移送を、自然性・結合・単位条件から再導出できる
+  - 冪集合モノイドの演算と可逆元を具体的に分類できる
+definitions:
+  - { id: CAT4-04-DEF-01, name: laxモノイダル関手 }
+  - { id: CAT4-04-DEF-02, name: 強モノイダル関手 }
+  - { id: CAT4-04-DEF-03, name: モノイド対象 }
+  - { id: CAT4-04-DEF-04, name: モノイド対象の準同型 }
+theorems:
+  - { id: CAT4-04-PROP-01, name: 冪集合関手はlaxだが強とは限らない }
+  - { id: CAT4-04-PROP-02, name: 直積モノイダル圏でのモノイド対象 }
+  - { id: CAT4-04-PROP-03, name: ベクトル空間のモノイド対象 }
+  - { id: CAT4-04-PROP-04, name: モノイド対象と準同型は圏をなす }
+  - { id: CAT4-04-THM-01, name: laxモノイダル関手によるモノイド対象の移送 }
+canonical_examples:
+  - 恒等関手の強モノイダル構造と3整合条件の検算
+  - 冪集合関手のlaxモノイダル構造と斜め二点関係による非強性
+  - 集合の加法モノイドの全公理の元ごとの確認
+  - テンソル積の普遍性を通じた単位的結合代数
+  - 冪集合モノイドの部分集合積と群からの可逆元分類
+problem_patterns:
+  - CAT4-04-A01
+  - CAT4-04-A02
+  - CAT4-04-A03
+  - CAT4-04-A04
+  - CAT4-04-A05
+  - CAT4-04-B01
+  - CAT4-04-B02
+  - CAT4-04-B03
+  - CAT4-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 3 }
