@@ -1,0 +1,47 @@
+id: "INV9"
+title: "疎性とTVは何を残すか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - INV8
+official_scope: []
+learning_objectives:
+  - 有限次元のl1罰則と二乗ノルム罰則の違いを成分の疎性と強制性の両面から説明できる
+  - 劣勾配・劣微分を支持不等式から定義し絶対値とl1の劣微分を導ける
+  - 有限次元l1正則化の必要十分な最適性条件とソフト閾値公式を証明できる
+  - Bregman距離の非負性・非対称性・零でも一致しない例を検証できる
+  - 離散TVの差分作用素と転置を導き最小性証明書から段差保存を証明できる
+  - 離散TVと二乗差分罰則を比較し連続BVへの一般化で必要な仮定を識別できる
+definitions:
+  - { id: INV9-DEF-01, name: 有限次元のl1正則化 }
+  - { id: INV9-DEF-02, name: 劣勾配と劣微分 }
+  - { id: INV9-DEF-03, name: 劣勾配に依存するBregman距離 }
+  - { id: INV9-DEF-04, name: 一次元離散全変動 }
+  - { id: INV9-DEF-05, name: 区間上の点ごとの全変動 }
+theorems:
+  - { id: INV9-PROP-01, name: 絶対値とl1ノルムの劣微分 }
+  - { id: INV9-THM-01, name: 有限次元l1正則化の必要十分な最適性条件 }
+  - { id: INV9-PROP-02, name: 恒等観測のソフト閾値公式 }
+  - { id: INV9-PROP-03, name: Bregman距離の非負性 }
+  - { id: INV9-PROP-04, name: 離散TVの最小性を示す証明書 }
+canonical_examples:
+  - 恒等観測のソフト閾値が観測の小成分を厳密に零にする例
+  - 絶対値の劣微分が零点で区間になる定義確認
+  - Bregman距離が非対称かつ零でも点が一致しない例
+  - 四点段差データに対するTV証明書と二乗差分の比較
+  - 連続区間上の階段関数と代表元依存性の区別
+problem_patterns:
+  - INV9-A01
+  - INV9-A02
+  - INV9-A03
+  - INV9-A04
+  - INV9-A05
+  - INV9-B01
+  - INV9-B02
+  - INV9-B03
+  - INV9-B04
+  - INV9-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 3.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
