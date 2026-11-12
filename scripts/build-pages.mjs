@@ -167,12 +167,13 @@ function orientMarkdownLinks(markdown, siteRelativeFile) {
 
     // Standalone HTML applications (including the ORI animated SVG players)
     // must be opened as actual files, not as Docsify Markdown routes. Under a
-    // Pages project site, "./" resolves against /<repository>/ even when the
-    // displayed chapter URL has a #/... Docsify route.
+    // Pages project site, a plain site-root-relative URL resolves against
+    // /<repository>/ even when the displayed chapter URL has a #/... route.
+    // Do not prefix "./": Docsify re-resolves that against the nested route.
     if (!open.startsWith('!') && /\.html?$/i.test(hrefPath)) {
       const title = titleSuffix.trim().match(/^(['"])(.*?)\1$/)?.[2] || '';
       const ignored = title.includes(':ignore') ? title : [title, ':ignore'].filter(Boolean).join(' ');
-      return `${open}./${resolved}${hrefSuffix} '${ignored}'${close}`;
+      return `${open}${resolved}${hrefSuffix} '${ignored}'${close}`;
     }
 
     return `${open}${resolved}${hrefSuffix}${titleSuffix}${close}`;
@@ -189,8 +190,8 @@ function selfTestStandaloneHtmlLinks() {
   const page = 'textbook/volumes/dream_thater/幾何系/ORI/ORI22/index.md';
   const actual = orientMarkdownLinks(source, page);
   const prefix = 'textbook/volumes/dream_thater/幾何系/ORI/ORI22/assets/';
-  if (!actual.includes(`[Player](./${prefix}ori-v12-player.html ':ignore')`)
-    || !actual.includes(`[Secondary](./${prefix}demo.html 'Open demo :ignore')`)
+  if (!actual.includes(`[Player](${prefix}ori-v12-player.html ':ignore')`)
+    || !actual.includes(`[Secondary](${prefix}demo.html 'Open demo :ignore')`)
     || !actual.includes('[Other chapter](textbook/volumes/dream_thater/幾何系/ORI/ORI21/index.md#theorem)')
     || !actual.includes(`![Poster](${prefix}ori-v12-poster.svg)`)) {
     throw new Error('Standalone HTML must bypass Docsify routing without changing Markdown navigation or SVG assets');
