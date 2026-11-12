@@ -25,7 +25,7 @@ chapters:
   - { id: HOLO17, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO17, status: completed, title: "境界領域のエントロピー" }
   - { id: HOLO18, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO18, status: completed, title: "RT公式の最小模型" }
   - { id: HOLO19, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO19, status: completed, title: "homology条件と面積競合" }
-  - { id: HOLO20, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO20, status: planned, title: "RTとエントロピー不等式" }
+  - { id: HOLO20, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO20, status: completed, title: "RTとエントロピー不等式" }
   - { id: HOLO21, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO21, status: planned, title: "重力レプリカ法" }
   - { id: HOLO22, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO22, status: planned, title: "共変HRT面" }
   - { id: HOLO23, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO23, status: planned, title: "FLM量子補正" }
