@@ -1,0 +1,44 @@
+id: "RBD8"
+title: "無トルク対称剛体と姿勢の再構成"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD7
+official_scope: []
+learning_objectives:
+  - 力学的対称剛体と無トルク条件の違いを慣性テンソルと外力系で判定できる
+  - 対称剛体のEuler方程式を積分し物体系横角速度と回転率の符号を導出できる
+  - 空間の角運動量と回転エネルギーの保存を証明し対称軸との円錐角を計算できる
+  - 任意初期姿勢から固定角運動量軸と体軸の二回転によって姿勢を再構成できる
+  - 再構成した姿勢が初期角速度と運動方程式を満たすことを直接微分して検算できる
+  - 対称軸の歳差率とEuler角の自転率と体軸方向角速度を区別できる
+  - 純粋軸回転や球対称極限と無回転の特異ケースを正しく扱える
+  - 円板型と細長い型の差およびトルクがある場合の適用限界を説明できる
+definitions:
+  - { id: RBD8-DEF-01, name: "力学的対称剛体と無トルク回転" }
+theorems:
+  - { id: RBD8-THM-01, name: "無トルク対称剛体のEuler方程式の明示解" }
+  - { id: RBD8-PROP-01, name: "自由回転の角運動量・エネルギーと円錐角" }
+  - { id: RBD8-THM-02, name: "無トルク対称剛体の姿勢の再構成" }
+canonical_examples:
+  - 一様薄円板による力学的対称剛体の条件確認
+  - 円板型と細長い型の横角速度の回転向き
+  - 固定角運動量と動く対称軸の円錐
+  - I=2 J=3 の初期姿勢と姿勢微分の再現
+  - Euler角の自転率と体軸角速度の違い
+  - 純粋対称軸回転と球対称極限
+problem_patterns:
+  - RBD8-EULER-TRANSVERSE-ROTATION
+  - RBD8-INVARIANTS-CONE-ANGLE
+  - RBD8-EULER-ANGLES-SPIN
+  - RBD8-DISC-ROD-SIGN
+  - RBD8-AXIS-ALIGNED-SINGULARITY
+  - RBD8-ATTITUDE-RECONSTRUCTION
+  - RBD8-CONE-DIFFERENTIAL-PROOF
+  - RBD8-SPHERICAL-LIMIT
+  - RBD8-ANGULAR-MOMENTUM-NONPARALLEL
+  - RBD8-INTEGRATED-INITIAL-POSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 7.0, review: 2.0 }
