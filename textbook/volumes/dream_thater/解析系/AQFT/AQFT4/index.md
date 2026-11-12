@@ -18,7 +18,15 @@ $$
 P=-\Box_g+m^2
 =\partial_t^2-\sum_{j=1}^{3}\partial_{x^j}^2+m^2.
 $$
-ここで $\Delta_{\boldsymbol x}:=\sum_{j=1}^{3}\partial_{x^j}^2$ は空間座標 $\boldsymbol x=(x^1,x^2,x^3)$ だけに作用するLaplacianです。この符号では $Pu=0$ は $\partial_t^2u-\Delta_{\boldsymbol x}u+m^2u=0$ です。$m=0$ も許します。$P$ は実線形で、係数は滑らか、主シンボルは $-g^{ab}\zeta_a\zeta_b$ なので、[HPDE5のnormally hyperbolic条件](../../HPDE/HPDE5/index.md#def-hpde5-normally-hyperbolic)を満たします。
+ここで $\boldsymbol x=(x^1,x^2,x^3)$ とし、空間座標だけに作用するLaplacianを
+$$
+\Delta_{\boldsymbol x}:=\sum_{j=1}^{3}\partial_{x^j}^2
+$$
+と書きます。この符号での斉次方程式は
+$$
+Pu=\partial_t^2u-\Delta_{\boldsymbol x}u+m^2u=0
+$$
+です。$m=0$ も許します。$P$ は実線形で、係数は滑らか、主シンボルは $-g^{ab}\zeta_a\zeta_b$ なので、[HPDE5のnormally hyperbolic条件](../../HPDE/HPDE5/index.md#def-hpde5-normally-hyperbolic)を満たします。
 
 この講義で使う試験関数は、場を領域内で平均する重みとして使う、滑らかでコンパクト支持を持つ実関数です。「コンパクト支持」とは関数が零でない点の閉包が時空のコンパクト集合になることです。滑らかでも無限遠まで非零である平面波は試験関数に含めません。試験関数は重みであり、一般にコンパクト支持ではない場の解そのものとは区別します。開集合 $O\subset M$ の中で観測を局所化するには、台が $O$ の内部に収まる関数を使います。
 
@@ -164,19 +172,21 @@ $$
 
 **定義の確認**。$O_R$ と $0\ne\varphi\in\mathcal D(O_R)$ は第1節の例のとおりです。$f=P\varphi\in\mathcal D(O_R)$ なので、$[f]=[0]$ は $\mathcal V(O_R)$ に含まれます。$f\ne0$ であることは前節で確認したため、**関数としての零と商での零は異なります**。
 
-他方、$O_R$ の小さな積領域に非負で非零の $\eta(t)$、$h(\boldsymbol x)$ を支持させ、$g(t,\boldsymbol x)=\eta(t)h(\boldsymbol x)$ とします。$|mt|<\pi/2$ が $\operatorname{supp}\eta$ 上で成立するよう選びます（$m=0$ なら自動）。滑らかな斉次解 $u(t,\boldsymbol x)=\cos(mt)$ は $Pu=0$ を満たします。以下の $d^4x$ は $dt\,dx^1\,dx^2\,dx^3$ の略記で、この座標では $|\det g|=1$ なので時空体積密度に一致します。もし $g=P\psi$、$\psi\in\mathcal D$ なら、コンパクト支持のため境界項なしで二度部分積分でき、
+他方、$O_R$ の小さな積領域に非負で非零の $\eta(t)$、$h(\boldsymbol x)$ を支持させ、別の試験関数を $f_\star(t,\boldsymbol x)=\eta(t)h(\boldsymbol x)$ とします。$|mt|<\pi/2$ が $\operatorname{supp}\eta$ 上で成立するよう選びます（$m=0$ なら自動）。滑らかな斉次解 $u(t,\boldsymbol x)=\cos(mt)$ は $Pu=0$ を満たします。
+
+以下の $d^4x$ は $dt\,dx^1\,dx^2\,dx^3$ の略記で、この座標では計量成分の行列式が $|\det(g_{\mu\nu})|=1$ なので時空体積密度に一致します。もし $f_\star=P\psi$、$\psi\in\mathcal D$ なら、コンパクト支持のため境界項なしで二度部分積分でき、
 $$
-\int_M g\,u\,d^4x
+\int_M f_\star\,u\,d^4x
 =\int_M(P\psi)u\,d^4x
 =\int_M\psi(Pu)\,d^4x=0
 $$
 となるはずです。しかし
 $$
-\int_M g\,u\,d^4x
+\int_M f_\star\,u\,d^4x
 =\left(\int_{\mathbb R}\eta(t)\cos(mt)\,dt\right)
  \left(\int_{\mathbb R^3}h(\boldsymbol x)\,d^3x\right)>0.
 $$
-矛盾します。よって $[g]\ne[0]$、しかも $[g]\in\mathcal V(O_R)$ です。局所空間が零だけでないことまで、全条件を実際に確認しました。
+矛盾します。よって $[f_\star]\ne[0]$、しかも $[f_\star]\in\mathcal V(O_R)$ です。局所空間が零だけでないことまで、全条件を実際に確認しました。
 <!-- definition-example-end -->
 
 この構成を図で読むと、「コンパクト源 → 方程式の像で割る → 斉次解に対応させる」という二つの写像の役割が見えます。図の矢印が同型となることは次節で証明します。
@@ -362,7 +372,13 @@ Lorentz変換が計量・時間向き・因果関係を保つことから $P$ �
 
 $F$ は滑らかな可逆アフィン写像で、コンパクト集合をコンパクト集合へ写します。したがって $\rho_F f$ は滑らかかつコンパクト支持で、$\operatorname{supp}(\rho_F f)=F(\operatorname{supp}f)$ です。
 
-計量 $g$ の座標成分を $\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1)$ と書き、$x^0=t$、$\mu,\nu,\alpha,\beta\in\{0,1,2,3\}$ とします。$\partial_\mu$ は座標 $x^\mu$ による偏微分で、$\eta^{\mu\nu}$ は逆行列の成分です。$y=F^{-1}(x)=\Lambda^{-1}(x-a)$ と置いて連鎖律を二回用いると、$\Lambda$ の係数が定数なので
+計量 $g$ の座標成分を
+$$
+\eta_{\mu\nu}=\operatorname{diag}(-1,1,1,1)
+$$
+と書きます。ここで $x^0=t$、添字 $\mu,\nu,\alpha,\beta$ は $0,1,2,3$ を動き、$\partial_\mu$ は座標 $x^\mu$ による偏微分、$\eta^{\mu\nu}$ は計量行列の逆行列の成分を意味します。
+
+$y=F^{-1}(x)=\Lambda^{-1}(x-a)$ と置いて連鎖律を二回用いると、$\Lambda$ の係数が定数なので
 $$
 \begin{aligned}
 \partial_\mu(\rho_Ff)(x)
