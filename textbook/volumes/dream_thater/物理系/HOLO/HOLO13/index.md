@@ -1,6 +1,6 @@
 # HOLO13 バルク重力場と応力テンソル
 
-[HOLO12のMaxwell場と保存電流](../HOLO12/index.md#def-holo12-current)では、境界の1形式を源として変分すると電流の応答が得られました。重力の場合、境界理論の何を変えれば応答を測れるでしょうか。距離や角度、ひいてはエネルギーの測定を決めるのは**境界計量**です。その変分に応答する量が応力テンソルです。しかしEinstein–Hilbert作用をただ変分するだけでは、境界計量を固定しても法線微分の変分が残ります。
+[HOLO12のMaxwell場と保存電流](../HOLO12/index.md#def-holo12-current)では、境界の1形式を源として変分すると電流の応答が得られました。重力の場合、境界理論の何を変えれば応答を測れるでしょうか。距離や角度、ひいてはエネルギーの測定を決めるのは**境界計量**です。その変分に応答する量が応力テンソルです。しかし[GR10のEinstein–Hilbert作用](../../GR/GR10/index.md#def-gr10-eh-action)をただ変分するだけでは、境界計量を固定しても法線微分の変分が残ります。
 
 本講はこの障害をGibbons–Hawking–York（GHY）境界項で取り除き、有限cutoff上のBrown–York型テンソルを作ります。純AdSでも裸のテンソルは発散するので、最初の局所反項を使ってその意味を分けます。最後に**三次元の純Einstein重力**のFefferman–Graham展開を実際に計算し、二次元CFTのWeyl異常と照合してBrown–Henneauxの中央電荷へ到達します。一般次元の反項をすべて構成するのは次講HOLO14の課題です。
 
@@ -137,7 +137,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限cutoffのBrown–York型テンソル）**  
-> 第1節のEuclid重力のon-shell作用を境界逆計量$\gamma^{ij}$で変分できるとする。$\delta I_{E,\mathrm D}|_{\mathrm{os}}=\frac12\int\sqrt\gamma\,\tau^{\mathrm{bare}}_{ij}\delta\gamma^{ij}$によって定める対称テンソルを、有限cutoffの裸のBrown–York型テンソルと呼ぶ。この規約では
+> 第1節のEuclid重力のon-shell作用を境界逆計量$\gamma^{ij}$で変分できるとする。次の第一変分の係数で定める対称テンソルを、有限cutoffの裸のBrown–York型テンソルと呼ぶ。
+
+$$
+\delta I_{E,\mathrm D}|_{\mathrm{os}}
+=\frac12\int\sqrt\gamma\,\tau^{\mathrm{bare}}_{ij}\delta\gamma^{ij}.
+$$
+
+> この規約では
 
 $$
 \tau^{\mathrm{bare}}_{ij}
@@ -295,7 +302,7 @@ $$
 <a id="prop-holo13-ads3-constraints"></a>
 
 <!-- formal-statement-start -->
-> **命題（$AdS_3$のFG制約と応力保存）**  
+> **命題（AdS3のFG制約と応力保存）**  
 > 第3節の漸近Euclid $AdS_3$の純Einstein解で境界計量$g_{(0)}$が滑らかかつ非退化であるとする。$\nabla_{(0)}$を$g_{(0)}$のLevi–Civita接続、$R[g_{(0)}]$をそのスカラー曲率とすると、FG係数は
 
 $$
