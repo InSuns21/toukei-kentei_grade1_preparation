@@ -378,13 +378,13 @@ $$
 
 典型的な誤りは、回転系で静止する粒子を「加速度がないから力もない」と判断することです。$\rho_b$ が一定でも、[加速度の分解定理](#thm-rbd3-rotating-acceleration)から、$r_s:=R\rho_b$ と置けば
 
-$
+$$
 \begin{aligned}
 a_s
 &=\ddot c_s+R\bigl(\dot\omega_b\times\rho_b+\omega_b\times(\omega_b\times\rho_b)\bigr)\\
 &=\ddot c_s+\dot\omega_s\times r_s+\omega_s\times(\omega_s\times r_s).
 \end{aligned}
-$
+$$
 
 最後の等号では [角速度の空間・物体対応](#prop-rbd3-angular-conjugacy)の $\omega_s=R\omega_b$ と $\dot\omega_s=R\dot\omega_b$、および回転によるベクトル積の保存を使いました。原点が等速運動で $\ddot c_s=0$、角速度ベクトルが一定で $\dot\omega_s=0$ の場合に限り、向心加速度 $\omega_s\times(\omega_s\times r_s)$ だけが残ります。一般には並進加速度や角加速度の項もあり、それらを含む慣性系の加速度に必要な実力を供給しなければなりません。
 
