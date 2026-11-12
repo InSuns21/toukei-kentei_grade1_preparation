@@ -350,18 +350,18 @@ $$
 
 [標準正規分布の特性関数](../../F0/F0-00P6/index.md#lem-f0-00p6-gaussian-fourier)より、任意の実数 $s$ に対して $\mathbb E[e^{isZ_1}]=e^{-s^2/2}$ です。これを独立な各座標に適用します。最初の指数に現れる線形結合を展開すると
 
-$
+$$
 t^TA\Gamma_0^{1/2}Z
 =\sum_{j=1}^n\bigl[(\Gamma_0^{1/2})^TA^Tt\bigr]_jZ_j
-$
+$$
 
 です。従って各座標の特性関数の積は
 
-$
+$$
 \prod_{j=1}^n
 \exp\left(-\frac12\bigl[(\Gamma_0^{1/2})^TA^Tt\bigr]_j^2\right)
 =\exp\left(-\frac12t^TA\Gamma_0A^Tt\right)
-$
+$$
 
 となり、上の第二行が得られます。右辺は $N(0,S)$ に同じ計算を行った特性関数と一致します。
 
