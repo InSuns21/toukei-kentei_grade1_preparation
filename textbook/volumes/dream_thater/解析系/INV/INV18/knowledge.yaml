@@ -10,12 +10,19 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: inverse.pde-constrained-objective
+    name: PDE制約付き目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PDE 制約付き目的関数）"]
+    requires: [inverse.pde-state-map, inverse.pde-observation-map]
+
   - id: inverse.pde-reduced-objective
     name: 縮約目的関数
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（PDE 制約付き目的関数）"]
-    requires: [inverse.pde-state-map, inverse.pde-observation-map]
+    requires: [inverse.pde-constrained-objective, inverse.pde-observation-map]
 
   - id: inverse.pde-adjoint-state
     name: 随伴状態
