@@ -211,7 +211,7 @@ $$
 
 ### 証明の見取り図
 
-復元値は目的関数の最小点なので、候補として真の解 $x^\dagger$ を代入します。不一致原理の残差 $\tau\delta$ と、真の解の残差 $\delta$ の差が、復元値のノルムを抑えます。そこから弱収束部分列を取り、前向き作用素の残差が消えることと最小ノルム性から極限を確定します。
+復元値は目的関数の最小点なので、候補として真の解 $x^\dagger$ を代入します。不一致原理の残差 $\tau\delta$ と真の解の残差 $\delta$ の差から、復元値のノルムを抑えます。さらに、最小ノルム解を随伴作用素の像で近似すると、復元誤差と真の解の内積が零へ向かいます。最後にノルム二乗の恒等式を使って強収束へ進みます。
 
 <!-- proof-start -->
 ### 証明
@@ -244,41 +244,70 @@ $$
 \le(\tau+1)\delta\longrightarrow0.
 $$
 
-**第3段階（極限の特定）**。$\delta_n\downarrow0$ を任意に取り、$x_{\delta_n}$ を考えます。Hilbert 空間の有界列は弱収束部分列を持つので、ある部分列について $x_{\delta_{n_k}}\rightharpoonup\bar x$ です。有界線形作用素 $A$ は弱収束を弱収束へ写す一方、第2段階では $Ax_{\delta_{n_k}}\to y$ とノルム収束します。この二つを、任意の $v\in Y$ に対する内積で比較します。弱収束から $\langle Ax_{\delta_{n_k}},v\rangle_Y\to\langle A\bar x,v\rangle_Y$、ノルム収束から同じ左辺が $\langle y,v\rangle_Y$ に収束します。従って $\langle A\bar x-y,v\rangle_Y=0$ がすべての $v$ で成り立ち、$v=A\bar x-y$ と置いて $A\bar x=y$ です。
-
-弱収束の定義により $\langle x_{\delta_{n_k}},\bar x\rangle_X\to\|\bar x\|_X^2$ です。また
-
-$
-0\le\|x_{\delta_{n_k}}-\bar x\|_X^2
-=\|x_{\delta_{n_k}}\|_X^2+\|\bar x\|_X^2
--2\langle x_{\delta_{n_k}},\bar x\rangle_X
-$
-
-です。右辺の下極限を取ると $\|\bar x\|_X^2\le\liminf_k\|x_{\delta_{n_k}}\|_X^2$ を得ます。各ノルムは非負なので、平方根と第1段階の上界から
+**第3段階（最小ノルム解への強収束）**。$u_\delta=x_\delta-x^\dagger$、$M=\|x^\dagger\|_X$ とおきます。第1段階のノルム上界から
 
 $$
-\|\bar x\|_X\le\liminf_k\|x_{\delta_{n_k}}\|_X
-\le\|x^\dagger\|_X.
+\|u_\delta\|_X
+\le\|x_\delta\|_X+\|x^\dagger\|_X\le2M.
 $$
 
-$Ax=y$ の解のうち $x^\dagger$ は唯一の最小ノルム解だから $\bar x=x^\dagger$ です。よって
+ここで随伴作用素の像が、最小ノルム解をどこまで近似できるか確認します。随伴の定義より、任意の $k\in X$ について
 
 $$
-\|x^\dagger\|_X
-\le\liminf_k\|x_{\delta_{n_k}}\|_X
-\le\limsup_k\|x_{\delta_{n_k}}\|_X
-\le\|x^\dagger\|_X.
+\begin{aligned}
+k\perp\mathcal R(A^*)
+&\Longleftrightarrow
+\langle k,A^*q\rangle_X=0\quad(\forall q\in Y)\\
+&\Longleftrightarrow
+\langle Ak,q\rangle_Y=0\quad(\forall q\in Y)\\
+&\Longleftrightarrow Ak=0.
+\end{aligned}
 $$
 
-ノルムが収束し、弱収束と合わせて Hilbert 空間の恒等式
+したがって $(\mathcal R(A^*))^\perp=\ker A$ です。[閉部分空間の直交分解](../../F0/F0-02C1A/index.md#thm-f0-02c1a-orthogonal-decomposition)を使うと
 
 $$
-\|x_{\delta_{n_k}}-x^\dagger\|_X^2
-=\|x_{\delta_{n_k}}\|_X^2+\|x^\dagger\|_X^2
--2\langle x_{\delta_{n_k}},x^\dagger\rangle_X
+\overline{\mathcal R(A^*)}=(\ker A)^\perp.
 $$
 
-から強収束を得ます。任意の $\delta_n\downarrow0$ に対して強収束する部分列が得られたので、元の族全体も強収束します。そうでなければ誤差が一定の正数以上となる列を取り、その列に強収束する部分列を見つけて矛盾します。
+[最小ノルム解](../INV4/index.md#def-inv4-pseudoinverse-domain) $x^\dagger$ は $(\ker A)^\perp$ に属するので、どんな $\varepsilon>0$ に対しても $q\in Y$ を選んで
+
+$$
+\|x^\dagger-A^*q\|_X<\varepsilon
+$$
+
+とできます。第2段階の $\|Au_\delta\|=\|Ax_\delta-y\|\le(\tau+1)\delta$ と随伴の定義を用いると
+
+$$
+\begin{aligned}
+|\langle u_\delta,x^\dagger\rangle_X|
+&\le|\langle u_\delta,x^\dagger-A^*q\rangle_X|
++|\langle u_\delta,A^*q\rangle_X|\\
+&\le\|u_\delta\|_X\|x^\dagger-A^*q\|_X
++|\langle Au_\delta,q\rangle_Y|\\
+&\le2M\varepsilon+(\tau+1)\delta\|q\|_Y.
+\end{aligned}
+$$
+
+$\varepsilon$ を固定したまま $\delta\downarrow0$ とし、その後 $\varepsilon\downarrow0$ とすれば
+
+$$
+\langle u_\delta,x^\dagger\rangle_X\longrightarrow0.
+$$
+
+最後に $\|x_\delta\|\le\|x^\dagger\|$ を使い、ノルム二乗を展開します。
+
+$$
+\begin{aligned}
+0\le\|u_\delta\|_X^2
+&=\|x_\delta\|_X^2-\|x^\dagger\|_X^2
+-2\langle u_\delta,x^\dagger\rangle_X\\
+&\le-2\langle u_\delta,x^\dagger\rangle_X
+\longrightarrow0.
+\end{aligned}
+$$
+
+これで部分列を取らずに $\|x_\delta-x^\dagger\|_X=\|u_\delta\|_X\to0$ を示しました。
 
 **第4段階（パラメータが零へ近づく）**。任意の $\beta>0$ を固定します。[残差表示](#prop-inv7-residual-range)を厳密データ $y\ne0$ に用いると $\rho_y(\beta)>0$ です。$\rho_z(\beta)=\|\beta(AA^*+\beta I)^{-1}z\|$ は $z$ に関して $1$-Lipschitz です。これは特異系で残差作用素の各倍率が $[0,1]$ に入ることから従います。従って
 
@@ -442,17 +471,36 @@ $$
 \end{aligned}
 $$
 
-任意の近似列から弱収束部分列を取り、その弱極限が $Ax=y$ を満たすこと、ノルムが $\|x^\dagger\|$ 以下なので最小ノルム解 $x^\dagger$ に一致することを、第3節の定理と**同じ二つの不等式を再度適用して**示します。具体的に部分列 $x_k\rightharpoonup\bar x$ なら $A\bar x=y$ で、
+ここからは第3節の随伴近似を、この近似モデルに改めて適用します。$u_{h,\delta}=x_{h,\delta}-x^\dagger$、$M=\|x^\dagger\|$ とおけば $\|u_{h,\delta}\|\le2M$、さらに上で導いた三項の誤差評価から
 
 $$
-\|\bar x\|
-\le\liminf_k\|x_k\|
-\le\limsup_k\|x_k\|
-\le\|x^\dagger\|
-\le\|\bar x\|.
+\|Au_{h,\delta}\|_Y
+\le\eta_hM+\tau\varepsilon_h+\delta\longrightarrow0.
 $$
 
-等号により $\bar x=x^\dagger$ でノルムも収束します。Hilbert空間のノルム二乗展開で強収束し、収束しない部分列の存在を仮定すれば再び矛盾します。$\square$
+任意の $\varepsilon>0$ を固定します。$x^\dagger\in(\ker A)^\perp=\overline{\mathcal R(A^*)}$ なので、$q\in Y$ を $\|x^\dagger-A^*q\|<\varepsilon$ となるよう選べます。随伴の定義と Cauchy--Schwarz の不等式より
+
+$$
+\begin{aligned}
+|\langle u_{h,\delta},x^\dagger\rangle_X|
+&\le\|u_{h,\delta}\|_X\|x^\dagger-A^*q\|_X
++|\langle Au_{h,\delta},q\rangle_Y|\\
+&\le2M\varepsilon+
+(\eta_hM+\tau\varepsilon_h+\delta)\|q\|_Y.
+\end{aligned}
+$$
+
+$h,\delta$ による誤差が零へ向かってから $\varepsilon\downarrow0$ とすれば $\langle u_{h,\delta},x^\dagger\rangle_X\to0$ です。最後に
+
+$$
+0\le\|u_{h,\delta}\|_X^2
+=\|x_{h,\delta}\|_X^2-\|x^\dagger\|_X^2
+-2\langle u_{h,\delta},x^\dagger\rangle_X
+\le-2\langle u_{h,\delta},x^\dagger\rangle_X\to0
+$$
+
+です。従って $\|x_{h,\delta}-x^\dagger\|_X\to0$ が従います。$\square$
+
 <!-- proof-end -->
 
 有限次元で単に $A_h$ の逆行列が計算できることと、上で証明した**元の方程式 $Ax=y$ の解への収束**とは別の問題です。離散化を細かくすること、ノイズが小さくなること、近似作用素の誤差を保証することがすべて必要です。
@@ -772,7 +820,28 @@ $$
 \end{aligned}
 $$
 
-$\ell^2$ の有界列 $\{x_n\}$ は弱収束部分列を持ちます。どの弱極限 $\bar x$ も $A\bar x=y$ を満たし、$\|\bar x\|\le\sqrt2=\|x^\dagger\|$ です。$A$ は単射なので $\bar x=x^\dagger$。前述のノルム二乗恒等式を $x_n\rightharpoonup\bar x$ に適用すると $\|\bar x\|^2\le\liminf\|x_n\|^2$ です。これと $\|x_n\|\le\sqrt2=\|\bar x\|$ を合わせて $\|x_n\|\to\sqrt2$ が部分列上で成り立ち、内積展開から強収束します。強収束しない部分列を仮定しても同じ議論が適用できるため列全体が強収束します。よって実際に $\|x_n-x^\dagger\|\to0$ を証明できました。
+この対角作用素は自己共役で、$q=e_1+2e_2$ と置けば $A^*q=Aq=e_1+e_2=x^\dagger$ です。$u_n=x_n-x^\dagger$ と置き、随伴の定義を使うと
+
+$$
+|\langle u_n,x^\dagger\rangle|
+=|\langle Au_n,q\rangle|
+\le\|Ax_n-y\|\|q\|
+=\sqrt5\,\|Ax_n-y\|\longrightarrow0.
+$$
+
+先ほどのノルム上界 $\|x_n\|\le\sqrt2=\|x^\dagger\|$ から
+
+$$
+\begin{aligned}
+0\le\|u_n\|^2
+&=\|x_n\|^2-\|x^\dagger\|^2
+-2\langle u_n,x^\dagger\rangle\\
+&\le-2\langle u_n,x^\dagger\rangle\longrightarrow0.
+\end{aligned}
+$$
+
+従って $\|x_n-x^\dagger\|\to0$ です。この例では随伴を使った近似を厳密等式 $x^\dagger=A^*q$ として実行でき、弱収束の一般定理を使わずに結論できます。
+
 <!-- solution-end -->
 
 ---
