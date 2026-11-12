@@ -93,19 +93,19 @@ $1\le p<\infty$ とし、$1/p+1/p'=1$ によって $p'$ を定めます（$p=1$ 
 
 まず $1<p<\infty$ なら $1<p'<\infty$ であり、[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)の仮定を満たします。$\|\boldsymbol1_T\|_{L^{p'}}=|T|^{1/p'}$ を代入すると
 
-$
+$$
 \int_T|f|=\int_{\mathbb R^d}|f|\boldsymbol1_T
 \le\|f\|_{L^p}|T|^{1/p'}
 =\|f\|_{L^p}V_d(\delta)^{1-1/p}.
-$
+$$
 
 一方 $p=1$ は参照したHölderの定理の仮定 $p,p'>1$ の範囲外です。この端点では $0\le\boldsymbol1_T\le1$ から直接
 
-$
+$$
 \int_T|f|=\int_{\mathbb R^d}|f|\boldsymbol1_T
 \le\int_{\mathbb R^d}|f|
 =\|f\|_{L^1}
-$
+$$
 
 を得ます。これは $1/p'=0$、$|T|^{1/p'}=1$ とした上の評価に一致します。従って、すべての $1\le p<\infty$ で次の管平均の上界へ進めます。
 
