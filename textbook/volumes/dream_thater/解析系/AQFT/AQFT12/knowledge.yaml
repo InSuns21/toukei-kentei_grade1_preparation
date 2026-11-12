@@ -1,0 +1,36 @@
+chapter: AQFT12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT11
+  - AQFT9
+  - AQFT3
+  - VN2
+  - OA5
+forward_references: []
+concepts:
+  - id: aqft.local-cyclic-vector
+    name: 作用素環に対する巡回ベクトルと局所巡回性
+    kind: definition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, operator-algebra.gns-construction]
+  - id: aqft.weak-additivity
+    name: 弱加法性
+    kind: definition
+    introduction: formal
+    requires: [aqft.gns-local-von-neumann-net, aqft.gns-vn-covariance, operator-algebra.von-neumann-bicommutant-theorem]
+  - id: aqft.local-zero-propagation
+    name: 局所での直交性の全並進への伝播
+    kind: lemma
+    introduction: formal
+    requires: [aqft.multipoint-tube-uniqueness, aqft.gns-vn-covariance, aqft.gns-local-net-isotony-locality]
+  - id: aqft.reeh-schlieder
+    name: Reeh–Schlieder：弱加法性による局所巡回性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.local-cyclic-vector, aqft.weak-additivity, aqft.local-zero-propagation, aqft.covariant-cyclic-representation]
+  - id: aqft.local-cstar-cyclicity
+    name: 局所C*環の像でも巡回的
+    kind: corollary
+    introduction: formal
+    requires: [aqft.reeh-schlieder, operator-algebra.von-neumann-bicommutant-theorem]

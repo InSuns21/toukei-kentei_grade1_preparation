@@ -50,7 +50,7 @@ chapters:
     title: "正エネルギーと解析性"
   - id: AQFT12
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT12
-    status: planned
+    status: completed
     title: "Reeh–Schlieder定理"
   - id: AQFT13
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT13

@@ -1,0 +1,47 @@
+id: "AQFT12"
+title: "Reeh–Schlieder定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT11
+  - AQFT9
+  - AQFT3
+  - VN2
+  - OA5
+official_scope: []
+learning_objectives:
+  - 全域環の巡回性と局所von Neumann環の巡回性を区別し二次元模型で直接判定できる
+  - 弱加法性を平行移動された局所環の二重可換子として定義し例で確かめられる
+  - 相対コンパクトな小領域の微小並進が大きい領域に収まることを証明できる
+  - 直交ベクトルの零条件を局所作用素の任意個の全並進積へ解析的一意性で延長できる
+  - Reeh–Schlieder定理を正エネルギー・弱加法性・全域巡回性の仮定付きで証明できる
+  - 二重可換子定理の強作用素近似から局所C*環の像の巡回性を導ける
+  - 弱加法性と全域巡回性のそれぞれを欠く反例で失敗機構を説明できる
+  - 局所巡回性と局所分離性の違いを説明できる
+definitions:
+  - { id: AQFT12-DEF-01, name: "作用素環に対する巡回ベクトルと局所巡回性" }
+  - { id: AQFT12-DEF-02, name: "弱加法性" }
+theorems:
+  - { id: AQFT12-LEM-01, name: "局所での直交性の全並進への伝播" }
+  - { id: AQFT12-THM-01, name: "Reeh–Schlieder：弱加法性による局所巡回性" }
+  - { id: AQFT12-COR-01, name: "局所C*環の像でも巡回的" }
+canonical_examples:
+  - 二次元対角環とスカラー環で真空の巡回性が異なる例
+  - 定数可換netの弱加法性の直接判定
+  - nested double coneに対する微小並進の包含評価
+  - 固有時間間隔の閾値で切り替わる非弱加法的な可換net
+  - 全域巡回性を欠く定数netの表現
+problem_patterns:
+  - AQFT12-SMALL-CONE-TRANSLATION
+  - AQFT12-CYCLIC-ORTHOGONAL-COMPLEMENT
+  - AQFT12-WEAK-ADDITIVITY-CONSTANT-NET
+  - AQFT12-PRODUCT-GENERATION
+  - AQFT12-TWO-OPERATOR-INCREMENTS
+  - AQFT12-STRONG-APPROXIMATION
+  - AQFT12-WEAK-ADDITIVITY-COUNTEREXAMPLE
+  - AQFT12-GLOBAL-CYCLICITY-COUNTEREXAMPLE
+  - AQFT12-REEH-SCHLIEDER-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 7 }
