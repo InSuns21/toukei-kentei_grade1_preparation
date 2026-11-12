@@ -26,7 +26,7 @@ $$
 
 が必要である。両辺は $A\otimes B\to B'\otimes A'$ の射になる。
 
-三対象の交換には二種類ある。「左端の $A$ を $B,C$ の両方の右へ動かす」操作と、「右端の $C$ を $A,B$ の両方の左へ動かす」操作である。どちらも全体を一度に交換する道と、隣り合う二つを順に交換する道が一致することを要求する。
+三対象の交換には二種類ある。「左端の $A$ を $B,C$ の両方の右へ動かす」操作と、「右端の $C$ を $A,B$ の両方の左へ動かす」操作である。どちらも全体を一度に交換する道と、隣り合う二つを順に交換する道が一致することを要求する。これらの道を並べた図式が六角形になるため、この二条件を **hexagon（六角形）条件** と呼ぶ。
 
 <a id="def-cat4-03-braiding"></a>
 
@@ -192,6 +192,18 @@ $$
 
 そして第二変数についても同様の二つの関係が成り立つ。この四種類の関係は、写像を純テンソルで定義するときの **well-defined 性** の判定基準になる。
 
+以下で用いる標準の結合子・単位子は、純テンソルに対して
+
+$$
+\begin{aligned}
+\alpha_{U,V,W}((u\otimes v)\otimes w)&=u\otimes(v\otimes w),\\
+\lambda_V(a\otimes v)&=av,\\
+\rho_V(v\otimes a)&=av
+\end{aligned}
+$$
+
+と作用する。ここで $u\in U$、$v\in V$、$w\in W$、$a\in k$ である。これらが商空間上の自然同型となり、モノイダル圏の整合条件を満たすことは定理の証明で検算する。
+
 <a id="thm-cat4-03-tensor"></a>
 
 <!-- formal-statement-start -->
@@ -241,14 +253,38 @@ $$
 
 よって自然性の等式は全テンソル上で成立する。
 
-**(3) 結合子とhexagon。** 標準の結合子は
+**(3) 結合子・単位子とhexagon。** 先に宣言した結合子が商上で定義できることを確かめる。固定した $w\in W$ に対し $(u,v)\mapsto u\otimes(v\otimes w)$ は二重線形であり、[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)から $U\otimes V$ 上の線形写像を定める。さらに $w$ にも線形に依存するため、$(U\otimes V)\otimes W$ 上の線形写像 $\alpha_{U,V,W}$ を誘導する。逆向きにも $u\otimes(v\otimes w)\mapsto(u\otimes v)\otimes w$ を同じ手順で定義でき、両合成が三重純テンソルを固定するから逆射になる。単位子の逆は $v\mapsto1\otimes v$ および $v\mapsto v\otimes1$ である。例えば $a\otimes v=1\otimes av$ なので $\lambda_V^{-1}\lambda_V(a\otimes v)=a\otimes v$ となり、右単位子も同様である。
+
+自然性も確認する。線形写像 $f:U\to U'$、$g:V\to V'$、$h:W\to W'$ について、結合子を先に使っても後に使っても、$((u\otimes v)\otimes w)$ の像は
 
 $$
-\alpha_{U,V,W}((u\otimes v)\otimes w)
-=u\otimes(v\otimes w)
+f(u)\otimes(g(v)\otimes h(w))
 $$
 
-であり、逆は逆の結び直しである。純テンソルについてこの式が各変数で線形なため商上に定義でき、逆写像も同様に作れる。結合子・単位子の自然性、五角形・三角形はそれぞれ四重または三重の純テンソルと $k$ の単位元 $1$ の像をたどれば同じ順序のベクトルになり、生成元の一致から成立する。
+となる。単位子でも $f\lambda_U(a\otimes u)=af(u)=\lambda_{U'}(1_k\otimes f)(a\otimes u)$、$f\rho_U(u\otimes a)=af(u)=\rho_{U'}(f\otimes1_k)(u\otimes a)$ である。生成元での一致により、いずれも自然同型である。
+
+[モノイダル圏の五角形・三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)を具体的に検算する。四重純テンソル $(((u\otimes v)\otimes w)\otimes x)$ に対し、五角形の二つの経路は
+
+$$
+\begin{aligned}
+(((u\otimes v)\otimes w)\otimes x)
+&\longmapsto (u\otimes v)\otimes(w\otimes x)\\
+&\longmapsto u\otimes(v\otimes(w\otimes x)),
+\end{aligned}
+$$
+
+および
+
+$$
+\begin{aligned}
+(((u\otimes v)\otimes w)\otimes x)
+&\longmapsto (u\otimes(v\otimes w))\otimes x\\
+&\longmapsto u\otimes((v\otimes w)\otimes x)\\
+&\longmapsto u\otimes(v\otimes(w\otimes x))
+\end{aligned}
+$$
+
+で一致する。三角形の始域 $((u\otimes a)\otimes v)$ では、一方の経路が $u\otimes(a\otimes v)\mapsto u\otimes(av)$、他方が $(au)\otimes v$ となる。これらはテンソルの双線形性から等しい。四重・三重純テンソルはそれぞれの空間全体を張るので、五角形・三角形は線形写像として成立する。従って宣言した構造はモノイダル圏をなす。
 
 H1 の始域の純テンソル $u\otimes(v\otimes w)$ に、[組紐の定義](#def-cat4-03-braiding)の右経路を実際に適用すると
 
@@ -642,7 +678,7 @@ $$
 
 となる。したがって二変数それぞれについて整数の加法から有理数の乗法への準同型性を持つ。
 
-まず $m=0$ とすると $b(0,n)=b(0,n)^2$。非零なので $b(0,n)=1$。同様に $b(m,0)=1$。$q=b(1,1)$ とおく。第二の等式で $p=1$ を固定し、$m$ を整数で増減させると
+第二のhexagon式で $m=n=0$、$p$ を任意にすると $b(0,p)=b(0,p)^2$ だから、非零性より $b(0,p)=1$。第一の式でも同様に $b(m,0)=1$ を得る。$q=b(1,1)$ とおく。第二の等式で $p=1$ を固定し、$m$ を整数で増減させると
 
 $$
 b(m,1)=q^m
