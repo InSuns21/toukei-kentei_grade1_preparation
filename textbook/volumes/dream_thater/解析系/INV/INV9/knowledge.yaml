@@ -3,36 +3,31 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - INV8
+  - OPT3
 
-forward_references: []
+forward_references:
+  - geometric-measure.gmt21-bv
 
 concepts:
   - id: inverse.l1-regularization
-    name: 有限次元のl1正則化
+    name: 有限次元のℓ¹正則化
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（有限次元のl1正則化）"]
+    introduction_aliases: ["定義（有限次元のℓ¹正則化）"]
     requires: [inverse.variational-objective]
 
-  - id: inverse.subgradient-finite
-    name: 劣勾配と劣微分
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（劣勾配と劣微分）"]
-    requires: [inverse.l1-regularization]
-
   - id: inverse.absolute-l1-subdifferential
-    name: 絶対値とl1ノルムの劣微分
+    name: 絶対値とℓ¹ノルムの劣微分
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（絶対値とl1ノルムの劣微分）"]
-    requires: [inverse.subgradient-finite]
+    introduction_aliases: ["命題（絶対値とℓ¹ノルムの劣微分）"]
+    requires: [convex.subgradient, convex.subdifferential, inverse.l1-regularization]
 
   - id: inverse.l1-optimality
-    name: 有限次元l1正則化の必要十分な最適性条件
+    name: 有限次元ℓ¹正則化の必要十分な最適性条件
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（有限次元l1正則化の必要十分な最適性条件）"]
+    introduction_aliases: ["定理（有限次元ℓ¹正則化の必要十分な最適性条件）"]
     requires: [inverse.l1-regularization, inverse.absolute-l1-subdifferential]
 
   - id: inverse.soft-threshold
@@ -47,7 +42,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（劣勾配に依存するBregman距離）"]
-    requires: [inverse.subgradient-finite]
+    requires: [convex.subgradient]
 
   - id: inverse.bregman-nonnegativity
     name: Bregman距離の非負性
