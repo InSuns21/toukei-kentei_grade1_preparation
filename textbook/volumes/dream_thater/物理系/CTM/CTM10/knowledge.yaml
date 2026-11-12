@@ -9,7 +9,6 @@ concepts:
     kind: principle
     introduction: formal
     introduction_aliases: ["原理（エントロピー収支不等式・第二法則）"]
-    aliases: ["第二法則"]
     requires: [continuum.heat-transport, continuum.density-jacobian-relation]
   - id: continuum.entropy-local
     name: エントロピー収支の局所形
