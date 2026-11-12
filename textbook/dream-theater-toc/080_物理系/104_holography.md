@@ -13,3 +13,4 @@
 10. [HOLO10 Witten接触図](textbook/volumes/dream_thater/物理系/HOLO/HOLO10/index.md)
 11. [HOLO11 交換図と4点関数](textbook/volumes/dream_thater/物理系/HOLO/HOLO11/index.md)
 12. [HOLO12 バルクゲージ場と保存流](textbook/volumes/dream_thater/物理系/HOLO/HOLO12/index.md)
+13. [HOLO13 バルク重力場と応力テンソル](textbook/volumes/dream_thater/物理系/HOLO/HOLO13/index.md)
