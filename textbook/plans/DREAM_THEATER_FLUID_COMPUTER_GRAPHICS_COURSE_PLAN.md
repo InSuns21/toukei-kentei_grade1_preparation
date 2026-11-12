@@ -31,7 +31,7 @@
 ## 2. 前提・canonical ownership・既存共通基盤
 
 - [流体力学FLUID全48講PLAN](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)が流体の物理・一般数値手法の正本。FLUID4/10/27–29/45–48（流跡・渦・浅水・数値法）と直接接続。**FLUIDは現在PLAN設計のみ**なので、存在しない章本文やstable anchorを既習とは扱わない。章の執筆時、実在する直接前提を確認し、未完成の場合はFCG側で必要な入口を自足的に説明するか、対応FLUID完成まで依存する章のcompleted判定を保留する。
-- [連続体力学CTM全22講PLAN](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)は質量・運動量・Newton流体の応力/構成則の正本（特にCTM5–7/15–17）。原理的なNSEの導出を本CGコース内で重複執筆しない。既存のNS系列/NPDE系列は弱解・正則性/一般保存則を所有し、このCG講座には全講一律の必修にしない。
+- [連続体力学CTM全22講PLAN](../plans_progress/DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)は質量・運動量・Newton流体の応力/構成則の正本（特にCTM5–7/15–17）。原理的なNSEの導出を本CGコース内で重複執筆しない。既存のNS系列/NPDE系列は弱解・正則性/一般保存則を所有し、このCG講座には全講一律の必修にしない。
 - 基礎線形代数・ベクトル解析・初等微積分・ODE、JavaScriptの基礎を前提候補とする。描画パイプラインとWebGL2シェーダはFCG2で手順から導入。必要な章別prerequisitesは実装時に実ファイルとknowledge DAGで確定し、学修依存とソフトウェアコード依存を混同しない。
 - [対話型シミュレーション共通基盤PLAN](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のWorker/状態機械/可視化/実験記録の現行実装を、適合する範囲で再利用する。現行リポジトリに pages/simulation/simulation-runtime.mjs とsimulation-worker-host.mjs があるが、実装可能なエンジン登録・protocolの細部は着手PRで再確認。共通基盤のソフトウェア上の不完全状態を、FCG数学・章statusに混入させない。
 - WebGL2を**標準表示**として設計し、Canvas2D/JS計算を検算と未対応端末のfallbackに使う。GPU上の物理更新はGPU精度・浮動小数点拡張・読み戻し・境界条件・許容誤差の検査ができる場合に限定する。WebGPU・three.jsの導入は任意。低性能端末で本来の数値実験を黙って動画に置換しない。

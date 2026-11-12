@@ -1,0 +1,39 @@
+id: "CTM1"
+title: "物質点・配置・運動をどう記述するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00B
+  - RA6A
+  - MECH1
+official_scope: []
+learning_objectives:
+  - 基準配置の物質点ラベルと現在位置の違いを説明できる
+  - 運動写像の正則性・基準時刻・単射性・向き保存を具体例で検査できる
+  - 変位と物質表示の速度を同じ物質点の時間微分として計算できる
+  - 現在位置から逆写像で物質点を復元して空間表示の速度場を構成できる
+  - 時空写像への逆関数定理の適用で速度場の定義域と連続性を証明できる
+  - アフィン運動と伸長・時間依存せん断を組み合わせた運動で両表示を往復して検算できる
+definitions:
+  - { id: CTM1-DEF-01, name: "物質点と基準配置" }
+  - { id: CTM1-DEF-02, name: "運動写像と現在配置" }
+  - { id: CTM1-DEF-03, name: "物質表示の変位と速度" }
+  - { id: CTM1-DEF-04, name: "空間表示の速度場" }
+theorems:
+  - { id: CTM1-PROP-01, name: "空間速度の構成と物質軌道への復元" }
+  - { id: CTM1-PROP-02, name: "アフィン運動の空間速度" }
+canonical_examples:
+  - 基準格子と変形後の格子の対応
+  - 平行移動・一様伸長・せん断の運動写像
+  - 局所正則だが大域的に単射でない写像
+  - アフィン運動の物質速度と空間速度の往復
+problem_patterns:
+  - CTM1-REFERENCE-CONFIGURATION
+  - CTM1-INJECTIVITY-ORIENTATION
+  - CTM1-MATERIAL-SPATIAL-VELOCITY
+  - CTM1-AFFINE-RECONSTRUCTION
+  - CTM1-UNSTEADY-SHEAR
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 1 }

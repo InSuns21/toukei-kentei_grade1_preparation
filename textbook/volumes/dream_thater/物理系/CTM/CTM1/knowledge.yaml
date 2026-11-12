@@ -1,0 +1,44 @@
+chapter: CTM1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - F0-00B
+  - RA6A
+  - MECH1
+concepts:
+  - id: continuum.material-reference-configuration
+    name: 物質点と基準配置
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（物質点と基準配置）"]
+    requires: [mechanics.point-particle-trajectory, topology.open-set]
+  - id: continuum.motion-current-configuration
+    name: 運動写像と現在配置
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動写像と現在配置）"]
+    requires: [continuum.material-reference-configuration, analysis.jacobian-matrix]
+  - id: continuum.material-displacement-velocity
+    name: 物質表示の変位と速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（物質表示の変位と速度）"]
+    requires: [continuum.motion-current-configuration, mechanics.velocity-acceleration]
+  - id: continuum.spatial-velocity
+    name: 空間表示の速度場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（空間表示の速度場）"]
+    requires: [continuum.material-displacement-velocity, analysis.inverse-function-theorem]
+  - id: continuum.spatial-velocity-reconstruction
+    name: 空間速度の構成と物質軌道への復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（空間速度の構成と物質軌道への復元）"]
+    requires: [continuum.spatial-velocity, analysis.inverse-function-theorem]
+  - id: continuum.affine-motion-velocity
+    name: アフィン運動の空間速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィン運動の空間速度）"]
+    requires: [continuum.spatial-velocity, linear.determinant-invertibility-criterion]

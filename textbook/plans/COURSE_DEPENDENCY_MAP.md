@@ -23,7 +23,7 @@
 | ルート | 個別科目PLAN（同一ディレクトリのファイル） | 直接依存の概形 |
 |---|---|---|
 | 力学と対称性 | [SYM1〜8](../plan_done/DREAM_THEATER_SYMPLECTIC_GEOMETRY_I_PLAN.md)、[GMECH1〜8](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md) | AMECH6/7・GEO→SYM、LIE+SYM→GMECH、SYM/AMECH→INT→CELE |
-| 剛体力学と連続体への橋 | [RBD1〜16](../plans_progress/DREAM_THEATER_RIGID_BODY_DYNAMICS_PLAN.md)、[CTM1〜22](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md) | MECH4/7/8・AMECH1/2→RBD1〜16（GMECH6〜8は必要箇所だけ参照）、MECH/VC→CTM1〜22。RBD1/3/7の剛体運動・速度場・収支をCTM2/4へ接続。両者は互いに全講必修としない |
+| 剛体力学と連続体への橋 | [RBD1〜16](../plans_progress/DREAM_THEATER_RIGID_BODY_DYNAMICS_PLAN.md)、[CTM1〜22](../plans_progress/DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md) | MECH4/7/8・AMECH1/2→RBD1〜16（GMECH6〜8は必要箇所だけ参照）、MECH/VC→CTM1〜22。RBD1/3/7の剛体運動・速度場・収支をCTM2/4へ接続。両者は互いに全講必修としない |
 | **流体力学（新規設計）** | [FLUID1〜48](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | CTM5/7/9/10/15〜17の輸送・応力・熱・Newton流体/低ReからFLUID1〜48へ。FLUIDは理想流・渦・粘性・波・乱流・圧縮性・CFDの具体模型。NS1〜8AはNSEの解析、NPDE1〜2は一般保存則の正本。数値実験はPythonと必要に応じWebGL表示（講義同時制作） |
 | **流体CG（新規設計）** | [FCG1〜20](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md) | FLUID4/10/27〜29/45〜48・CTMの直接必要部分 → FCG1〜20。流体の支配方程式の再証明ではなく、粒子/格子の時間更新、GPU表示、水面光学、体積煙・炎、相互作用、GISを一講ごとに実装・検証。共有Worker/UIは別の共通基盤PLANが所有 |
 | 変分法・8の字・舞踏解（追加） | [VAR1〜12](../plan_done/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md)、[CELEV1〜8](../plans_progress/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md) | GPDE3〜5/AMECH→VAR9〜10（存在）・VAR11〜12（臨界点/指数）、CELE2〜3+VAR9〜10→CELEV1〜6→CELEV7〜8。シミュレーションはNewton積分+離散変分探索の2モード |
@@ -45,7 +45,7 @@
 
 ## 仮章ID衝突の解消
 
-- 複素多様体論のCM1〜CM2を維持する。未着手の連続体力学PLAN内のCM1〜CM8は**CTM1〜CTM8**に改名する。公開済み章の改名ではない。
+- 複素多様体論のCM1〜CM2を維持する。連続体力学PLAN内の旧仮ID CM1〜CM8は**CTM1〜CTM8**に改名する。公開済み章の改名ではない。
 - 章IDは計画段階の仮名であり、着手前に実在章・概念DAG・routingとの衝突を再監査する。
 
 ## 分割しなかったもの

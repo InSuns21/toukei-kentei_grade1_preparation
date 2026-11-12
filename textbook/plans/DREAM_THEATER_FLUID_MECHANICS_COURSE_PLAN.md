@@ -34,7 +34,7 @@
 **前提系列（実装着手時に章ID・anchorとchapter.yaml/knowledge.yamlを照合する）**
 
 - 線形代数、微分積分、ベクトル解析、常微分方程式、基礎力学。重力ポテンシャル、Gauss/Stokesの積分定理、円筒座標は利用箇所で実在する既習結果へリンクする。
-- [連続体力学CTM1–22](DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)の**CTM4–7・CTM9–10・CTM15–17が主な直接接続**。CTM5（質量・輸送）、CTM6–7（Cauchy応力・運動量）、CTM9–10（エネルギー・構成則）、CTM15（Newton粘性とNSE導出）、CTM16（Reynolds数・低Re）、CTM17（平行平板Poiseuille）の正本を流体PLANで再執筆しない。FLUID1–7は流体固有の応用と観察、FLUID16以降は異なる境界/近似/物理現象の主要導出を所有する。**CTM18–22（粘弾性・生体材料・成長）は一律必須ではない**。
+- [連続体力学CTM1–22](../plans_progress/DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)の**CTM4–7・CTM9–10・CTM15–17が主な直接接続**。CTM5（質量・輸送）、CTM6–7（Cauchy応力・運動量）、CTM9–10（エネルギー・構成則）、CTM15（Newton粘性とNSE導出）、CTM16（Reynolds数・低Re）、CTM17（平行平板Poiseuille）の正本を流体PLANで再執筆しない。FLUID1–7は流体固有の応用と観察、FLUID16以降は異なる境界/近似/物理現象の主要導出を所有する。**CTM18–22（粘弾性・生体材料・成長）は一律必須ではない**。
 - [NS系列 manifest](../dream-theater-series/NS.yaml)のNS1–8AはLeray射影、Leray–Hopf弱解、2D/3Dの正則性・臨界性、ミレニアム問題の正本。FLUID10・36・47で必要に応じ実在anchorを参照し、これらの関数解析的証明を再掲しない。NS全講を流体初学者の必修にしない。
 - [NPDE系列 manifest](../dream-theater-series/NPDE.yaml)のNPDE1–2は一般保存則・Rankine–Hugoniot・エントロピー解の正本。FLUID30・43・48では**物理的な質量・運動量・エネルギー跳躍と具体計算**を本講義で行い、一般理論は必要箇所でリンクする。
 - 数値ラボのPython実行契約は [NUMERICAL_LAB_AUTHORING_STANDARD.md](../NUMERICAL_LAB_AUTHORING_STANDARD.md) と既存の実行基盤を正本とする。[対話型シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のWorker・パラメータ・実験記録・描画アダプターは可能な範囲で再利用し、流体特有のフラックス・境界条件・時間刻み・残差・安定性判定は**流体側が所有**する。将来のプラットフォーム完成を全ての非対話講義の完成条件にしない。
