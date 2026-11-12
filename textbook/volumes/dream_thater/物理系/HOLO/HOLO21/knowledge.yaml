@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - HOLO20
   - GEO19
+  - GRP1
 forward_references: []
 concepts:
   - id: holography.gravitational-replica-normalization
