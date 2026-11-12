@@ -1,0 +1,60 @@
+chapter: AQFT2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT1
+  - OA3
+forward_references: []
+concepts:
+  - id: aqft.local-cstar-assignment
+    name: 局所C*-代数の割当て
+    kind: definition
+    introduction: formal
+    requires: [operator-algebra.cstar-algebra]
+  - id: aqft.isotony
+    name: isotony
+    kind: definition
+    introduction: formal
+    aliases: [包含単調性]
+    introduction_aliases: ["定義（isotony／包含単調性）"]
+    requires: [aqft.local-cstar-assignment]
+  - id: aqft.einstein-locality
+    name: Einstein局所性
+    kind: definition
+    introduction: formal
+    requires: [aqft.local-cstar-assignment, aqft.spacelike-separated-regions]
+  - id: aqft.poincare-net-covariance
+    name: Poincaré共変性
+    kind: definition
+    introduction: formal
+    requires: [aqft.local-cstar-assignment, aqft.poincare-covariance]
+  - id: aqft.haag-kastler-net
+    name: Haag–Kastler型の局所C*-net
+    kind: definition
+    introduction: formal
+    requires: [aqft.isotony, aqft.einstein-locality, aqft.poincare-net-covariance]
+  - id: aqft.causal-complement-commutation
+    name: 因果補集合と相対可換子
+    kind: proposition
+    introduction: formal
+    requires: [aqft.einstein-locality, aqft.causal-complement]
+  - id: aqft.commutative-function-net
+    name: 可換関数netの三公理
+    kind: theorem
+    introduction: formal
+    requires: [aqft.haag-kastler-net]
+  - id: aqft.two-site-locality
+    name: 二地点模型のisotonyと局所性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.isotony, aqft.einstein-locality]
+  - id: aqft.independent-net-axioms
+    name: 三条件の独立性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.isotony, aqft.einstein-locality, aqft.poincare-net-covariance]
+  - id: aqft.quasilocal-cstar
+    name: quasilocal C*-環の構成
+    kind: proposition
+    introduction: formal
+    requires: [aqft.isotony, aqft.poincare-net-covariance, operator-algebra.cstar-algebra]
