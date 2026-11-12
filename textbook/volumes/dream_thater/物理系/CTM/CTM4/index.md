@@ -8,13 +8,13 @@
 
 基準時刻では $\chi(X,0)=X$ とする。時刻 $t$ を固定した写像 $\chi_t$ は単射であり、[変形勾配と体積 Jacobian](../CTM2/index.md#def-ctm2-deformation-gradient)は
 
-$
+$$
 F=D_X\chi,\qquad J=\det F>0
-$
+$$
 
 を満たす。従って逆写像を使って現在配置 $\Omega_t=\chi_t(\Omega_0)$ 上の空間速度 $v(x,t)$ を定められる。
 
-位置の単位は m、時間は s、速度は m/s、速度勾配の単位は s$^{-1}$、$F,J$ は無次元である。$D_X$ は基準座標による微分、$\nabla_x$ は現在座標による微分、$\dot{\ }$ は**同じ物質ラベル $X$ に沿った時間微分**を示す。
+位置の単位は m、時間は s、速度は m/s、近接点の速度差の変化率は s$^{-1}$、$F,J$ は無次元である。$D_X$ は基準座標による微分、$\nabla_x$ は現在座標による微分、$\dot{\ }$ は**同じ物質ラベル $X$ に沿った時間微分**を示す。
 
 ## 1. 「同じ場所」と「同じ材料」の変化率は違う
 
@@ -68,7 +68,7 @@ $$
 v(x+h,t)-v(x,t)=(\nabla_xv)(x,t)\,h+o(\|h\|)
 $$
 
-と書ける。速度勾配の第 $j$ 列は、$x_j$ 方向へ距離だけずらしたときの速度差を表す。$h$ は現在配置側のベクトルなので、$X$ による微分 $D_Xv$ と混同しない。
+と書ける。この一次係数行列の第 $j$ 列は、$x_j$ 方向へ距離だけずらしたときの速度差を表す。$h$ は現在配置側のベクトルなので、$X$ による微分 $D_Xv$ と混同しない。
 
 <a id="def-ctm4-velocity-gradient"></a>
 
@@ -305,8 +305,14 @@ $$
 \dot J=J\,\operatorname{tr}(F^{-1}\dot F).
 $$
 
-$\operatorname{tr}(AB)=\sum_{ij}A_{ij}B_{ji}
-=\operatorname{tr}(BA)$ よりトレースは巡回できる。したがって
+トレースが巡回できることは、成分を入れ替えて次のように確かめられる。
+
+$$
+\operatorname{tr}(AB)=\sum_{ij}A_{ij}B_{ji}
+=\sum_{ij}B_{ji}A_{ij}=\operatorname{tr}(BA).
+$$
+
+したがって
 
 $$
 \operatorname{tr}(F^{-1}\dot F)
@@ -421,7 +427,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-ctm4-objectivity -->
-### **定義の確認と反例**：材料が静止していても回転座標で $W^*\ne0$
+### **定義の確認**：材料が静止していても回転座標で $W^*\ne0$
 
 $\chi(X,t)=X$、$c=0$ とする。旧座標では $v=0$、$L=D=W=0$。$e_3$ 軸まわりの角度 $\theta(t)=\omega t$、$\omega$ は s$^{-1}$ の定数として
 
