@@ -45,6 +45,8 @@ $$
 <!-- definition-example-start: def-aqft14-haag-duality -->
 ### 直接例：二つの行列因子は補領域を尽くすか
 
+**定義の確認。** 二領域の局所性に相当する交換性と、補領域代数の可換子が元の代数に一致する等号を順に確認します。
+
 最初は空間的に離れた二領域の割当てを取り出した模型です。$\mathcal H=\mathbb C^2\otimes\mathbb C^2$ とし、
 
 $$
@@ -93,6 +95,8 @@ $$
 
 <!-- definition-example-start: def-aqft14-dual-net -->
 ### 直接例：第3因子が双対割当てに入る
+
+**定義の確認。** 因果補領域に対応させた環の可換子を計算し、元の環との包含を判定します。
 
 上の三因子模型で $\mathcal M(O)=N$、$\mathcal M(O^\perp)=K$ とすると、定義に代入して
 
@@ -174,6 +178,8 @@ $$
 <!-- definition-example-start: def-aqft14-wedge-duality -->
 ### 直接例：右wedge・左wedgeの組
 
+**定義の確認。** 右wedgeと左wedgeの因果補関係に対応させ、可換子の等号を両方向について確認します。
+
 二因子模型を右・左wedgeの組に割り当てて $\mathcal M(W_R)=N=B(\mathbb C^2)\otimes I_2$、$\mathcal M(W_L)=K=I_2\otimes B(\mathbb C^2)$ と置くと、先ほど行列単位で確認した $N'=K$ により右wedgeの等号が成り立ちます。逆向きも $K'=N$ なので成り立ちます。
 
 一方、三因子模型の $N,K$ では $N'\ne K$ となり、交換性は成立してもwedge双対性は失敗します。これは二つのwedge代数の条件を抜き出した模型であり、Poincaré共変な全wedge netの例ではありません。
@@ -249,6 +255,8 @@ $$
 
 <!-- definition-example-start: def-aqft14-relative-commutant -->
 ### 直接例：三因子の余剰自由度
+
+**定義の確認。** 元の環と交換し、同時に大きい環に属するという二条件を行列因子ごとに判定します。
 
 三因子模型の $N=B(\mathbb C^2)\otimes I_2\otimes I_2$ と $D=K'=B(\mathbb C^2)\otimes I_2\otimes B(\mathbb C^2)$ では
 
