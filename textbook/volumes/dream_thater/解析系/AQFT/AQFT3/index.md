@@ -146,7 +146,7 @@ $$
 \|\Omega\|^2=\lambda+(1-\lambda)=1,\qquad
 \pi(z_1,z_2)\Omega=(z_1\sqrt\lambda,z_2\sqrt{1-\lambda}).
 $$
-両重みが正なので右辺は $\mathbb C^2$ 全体を動き、$\Omega$ は巡回的です。$U(F)U(H)=I_2=U(FH)$ かつ $U(F)^*=I_2$ なのでユニタリ群表現であり、$U(F)\pi(A)U(F)^*=\pi(A)=\pi(\alpha_F(A))$、$U(F)\Omega=\Omega$ も成立します。この行列表示がGNS構成から生じることは第5節で計算します。
+両重みが正なので右辺は $\mathbb C^2$ 全体を動き、$\Omega$ は巡回的です。$U(F)U(H)=I_2=U(FH)$ かつ $U(F)^*=I_2$ なのでユニタリ群表現であり、$U(F)\pi(A)U(F)^*=\pi(A)=\pi(\alpha_F(A))$、$U(F)\Omega=\Omega$ も成立します。この行列表示が[OA5のGNS構成](../../OA/OA5/index.md#thm-oa5-gns)から生じることは第5節で計算します。
 <!-- definition-example-end -->
 
 <a id="thm-aqft3-covariant-gns"></a>
