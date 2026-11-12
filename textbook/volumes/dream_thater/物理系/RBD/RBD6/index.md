@@ -22,6 +22,8 @@ $$
 
 まず対角の慣性テンソルを空間座標へ移すと、一般には非対角成分が現れます。これは新たな相互作用ではなく、基底を傾けた結果です。
 
+ここでの $SO(3)$ は[RBD1で定義した向きを保つ回転行列の集合](../RBD1/index.md#def-rbd1-proper-rotation)です。回転行列 $R$ は物体成分を空間成分へ移すものとして、式の左右の基底を統一します。
+
 <a id="thm-rbd6-inertia-rotation"></a>
 
 <!-- formal-statement-start -->
@@ -141,7 +143,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u=r-C$ と置けば $r-O=u+d$、[重心](../../MECH/MECH7/index.md#def-mech7-center-of-mass)より $\int u\,dm=0$ です。
+各質量要素の位置ベクトルを $r$、重心と基準点の位置ベクトルを同じ正規直交座標系で $C,O$ と書きます。重心からの相対位置 $u=r-C$ と点のずれ $d=C-O$ を用いると
+
+$$
+r-O=(r-C)+(C-O)=u+d.
+$$
+
+さらに、[重心](../../MECH/MECH7/index.md#def-mech7-center-of-mass)の定義から
+
+$$
+\int u\,dm=\int(r-C)\,dm=0
+$$
+
+です。
 
 $$
 |u+d|^2=|u|^2+2u\cdot d+|d|^2
@@ -185,6 +199,8 @@ $$
 ## 4. まず積分を設定する：一様直円柱と円板
 
 連続物体の計算は、**領域・密度・原点・軸・積分要素**を先に固定します。以下では物体固定の $z$ 軸を対称軸、重心を原点とします。
+
+ここからの $r$ は円柱座標の非負の半径成分（$z$ 軸からの距離）で、第3節の質量要素の位置ベクトル $r$ とは異なります。$\theta$ は $xy$ 平面での偏角です。
 
 半径 $a>0$、高さ $h>0$、全質量 $M>0$ の一様な**中実**直円柱を
 
@@ -513,7 +529,13 @@ $$
 
 この条件により、たとえば $\operatorname{diag}(I,2I,4I)$（$I>0$）は正定値行列でも、実在する三次元質量分布の慣性テンソルにはなれません。正定値性だけで物理的な実現可能性を判断しないことが重要です。
 
-正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)によって直交主軸で二次形式を対角にできます。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
+正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)によって直交主軸で二次形式を対角にできます。[MECH8の回転エネルギー公式](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)を重心まわりの角速度に適用すると
+
+$$
+K_{\mathrm{rot}}=\frac12\omega^{\mathsf T}J_C\omega
+$$
+
+です。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
 
 <a id="def-rbd6-inertia-ellipsoid"></a>
 
@@ -532,7 +554,41 @@ $$
 <!-- definition-example-start: def-rbd6-inertia-ellipsoid -->
 ### 直接例：三つの主軸方向で半径を確認する
 
-**定義の確認**：$J_C=\operatorname{diag}(2I,3I,4I)$、$I>0$ を持つ剛体の主軸基底を取り、$E_0>0$ を固定します（各係数 $2I,3I,6I$ は正）。集合の条件へ代入すると
+**定義の確認**：$I>0$ を慣性モーメントの次元をもつ定数、$M>0$ を総質量とします。次の辺長をもつ一様直方体を考えます。
+
+$$
+a^2=\frac{30I}{M},\qquad
+b^2=\frac{18I}{M},\qquad
+c^2=\frac{6I}{M}.
+$$
+
+[一様直方体の慣性テンソル](#prop-rbd6-rectangular-block)に代入すると、重心を通る三本の辺方向を主軸とする基底では
+
+$$
+J_C=\frac{M}{12}\operatorname{diag}(b^2+c^2,\ a^2+c^2,\ a^2+b^2)
+=\operatorname{diag}(2I,3I,4I).
+$$
+
+[主軸・主慣性モーメント](../../MECH/MECH8/index.md#def-mech8-principal-axis)の定義に従い、基底の単位ベクトル $e_1,e_2,e_3$ で各固有値を確認します。
+
+$$
+J_Ce_1=2Ie_1,\qquad J_Ce_2=3Ie_2,\qquad J_Ce_3=4Ie_3.
+$$
+
+三つの主慣性値はすべて正なので $J_C$ は正定値です。同じ正規直交基底で角速度を次のように展開します。
+
+$$
+\omega=\omega_1e_1+\omega_2e_2+\omega_3e_3.
+$$
+
+固有ベクトルの直交性を使うと
+
+$$
+\omega^{\mathsf T}J_C\omega
+=2I\omega_1^2+3I\omega_2^2+4I\omega_3^2.
+$$
+
+$E_0>0$ を固定し、定義式の等エネルギー条件へ代入すると
 
 $$
 I\omega_1^2+\frac{3I}{2}\omega_2^2+2I\omega_3^2=E_0.
@@ -628,7 +684,7 @@ $$
 
 ### 問題 A3：原点だけをずらす
 
-質量 $M$ の剛体について $J_C=\operatorname{diag}(A,B,C)$ とし、別の基準点 $O$ が $C-O=(d,0,0)^{\mathsf T}$ を満たす（$d\ne0$）。$J_O$ を求めよ。
+質量 $M$ の剛体について $J_C=\operatorname{diag}(I_1,I_2,I_3)$ とし、別の基準点 $O$ が $C-O=(d,0,0)^{\mathsf T}$ を満たす（$d\ne0$）。$J_O$ を求めよ。
 
 - Level: A
 
@@ -645,10 +701,10 @@ $$
 従って
 
 $$
-\boxed{J_O=\operatorname{diag}(A,\ B+Md^2,\ C+Md^2)}.
+\boxed{J_O=\operatorname{diag}(I_1,\ I_2+Md^2,\ I_3+Md^2)}.
 $$
 
-原点を $x$ 方向に移しても、同じ向きの $x$ 軸まわりの値 $A$ は変わりません。
+原点を $x$ 方向に移しても、同じ向きの $x$ 軸まわりの値 $I_1$ は変わりません。
 <!-- solution-end -->
 
 ### 問題 A4：円柱の縦と横

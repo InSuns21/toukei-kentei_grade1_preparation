@@ -33,7 +33,7 @@ canonical_examples:
   - 3対2対1の直方体の姿勢変更と角運動量非平行性
   - 直方体の三主軸縮退と立方体が球対称でない反例
   - 一本の線に質量が集中する場合と薄円板の正定値性の差
-  - 主慣性値2Iと3Iと6Iの慣性楕円体の半軸
+  - 主慣性値2Iと3Iと4Iの慣性楕円体の半軸
 problem_patterns:
   - RBD6-ROTATION-TENSOR-COORDINATES
   - RBD6-THIN-PLATE-SURFACE-DENSITY
