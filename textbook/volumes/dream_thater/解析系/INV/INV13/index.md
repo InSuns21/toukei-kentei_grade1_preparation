@@ -330,7 +330,24 @@ $$
 =(2\pi)^2\int_{\mathbb R^2}|h(x)|^2\,dx.
 $$
 
-[FOU4 のGaussian Fourier coreの稠密性](../../FOU/FOU4/index.md#thm-fou4-core-density)の証明では、近似元を $h*k_\varepsilon$（$h\in C_c(\mathbb R)$）に選べます。$h$ は有界な台を持ち、Gaussian 核の各階導関数は多項式と Gaussian の積なので、$h*k_\varepsilon$ は [Schwartz級](../INV12/index.md#def-inv12-schwartz)に属します。このことから一変数の Schwartz 級は $L^2$ に稠密です。二変数でも各座標の近似を組み合わせ、一次元 Fourier 変換の連続な $L^2$ 延長を順に適用すれば、二次元版を $L^2$ 全体へ延長できます。以下で使う $\|h\|_2^2=(2\pi)^{-2}\|\widehat h_2\|_2^2$ はこの意味です。
+[FOU4 のGaussian Fourier coreの稠密性](../../FOU/FOU4/index.md#thm-fou4-core-density)の証明では、近似元としてコンパクト台の連続関数 $h$ と Gaussian 核 $k_\varepsilon$ の畳み込みを選べます。$h$ の台が有界で、Gaussian 核の各階導関数は多項式と Gaussian の積なので、
+
+$$
+\partial_x^m(h*k_\varepsilon)(x)
+=\int_{\operatorname{supp}h}h(t)\,
+(\partial_x^m k_\varepsilon)(x-t)\,dt
+$$
+
+は $|x|\to\infty$ で任意の多項式より速く減衰します。従ってこの近似元は [Schwartz級](../INV12/index.md#def-inv12-schwartz)に入り、一変数の Schwartz 級は $L^2$ に稠密です。
+
+二変数でも各座標を順に Gaussian 核で近似できます。一次元 Fourier 変換の連続な $L^2$ 延長と Plancherel 等式を両座標へ適用すると、二次元版も $L^2$ 全体へ延長できます。以下では
+
+$$
+\|h\|_{L^2(\mathbb R^2)}^2
+=\frac1{(2\pi)^2}\|\widehat h_2\|_{L^2(\mathbb R^2)}^2
+$$
+
+を使います。
 
 以降、画像のノルムは $\|h\|_{L^2(\mathbb R^2)}$、投影データのノルムは $\|g\|_{L^2([0,\pi)\times\mathbb R)}$ を使います。$f\in\mathcal S(\mathbb R^2)$ に対する正しいデータ $g=Rf$ と、雑音つきデータ $g^\delta$ に
 
@@ -737,7 +754,22 @@ $$
 
 $g^\delta=g+n$ とおくと線形性から $Q_\Omega g^\delta-f=(Q_\Omega g-f)+Q_\Omega n$。三角不等式で二項に分けます。
 
-$N=\mathcal F_s n$ とし、周波数平面上で $H_\Omega(\omega\theta_\varphi)=1_{\{|\omega|\le\Omega\}}N(\varphi,\omega)$ と置きます。$|\omega|\le\Omega$ と一次元 Plancherel から $\|H_\Omega\|_2^2\le2\pi\Omega\|n\|_2^2$ なので、円板に台を持つ $H_\Omega$ は $L^1\cap L^2$ に属します。二次元 Fourier 反転を各座標に適用すれば、$Q_\Omega n$ の二次元 Fourier 変換は $H_\Omega$ です。二次元 Plancherel と $d\xi=|\omega|d\omega d\varphi$ から
+$N=\mathcal F_s n$ とし、ほとんど全ての $\xi=\omega\theta_\varphi$ に対して周波数平面上の関数を
+
+$$
+H_\Omega(\omega\theta_\varphi)
+=1_{\{|\omega|\le\Omega\}}N(\varphi,\omega)
+$$
+
+と置きます。$|\omega|\le\Omega$ と一次元 Plancherel から
+
+$$
+\|H_\Omega\|_{L^2(\mathbb R^2)}^2
+\le\Omega\|N\|_{L^2([0,\pi)\times\mathbb R)}^2
+=2\pi\Omega\|n\|_2^2<\infty.
+$$
+
+$H_\Omega$ は有限面積の円板に台を持つため $L^1$ にも属します。[二次元 Fourier 反転の適用理由](#thm-inv13-cutoff-error)と同じく、一変数の $L^2$ 反転を二つの座標で使えば $Q_\Omega n$ の二次元 Fourier 変換は $H_\Omega$ です。二次元 Plancherel と $d\xi=|\omega|d\omega d\varphi$ から
 
 $$
 \|Q_\Omega n\|_2^2
