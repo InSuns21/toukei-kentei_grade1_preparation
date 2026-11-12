@@ -100,7 +100,7 @@ $$
 です。$b_j\ne0$ が一つでもあれば二乗和は厳密に増加します。$z$ の $Y_0$ 成分が非零であることは、完全特異系によりそのような $j$ があることと同値です。端点の間の $r$ には中間値の定理で存在が、厳密単調性で一意性が従います。$\square$
 <!-- proof-end -->
 
-この命題を手で確かめます。$A=\operatorname{diag}(2,0):\mathbb R^2\to\mathbb R^2$、$z=(4,1)$ の場合、標準基底の第1方向にだけ非零特異値 $2$ があり、第2方向は $\ker A^*$ です。よって
+この命題を手で確かめます。$A=\operatorname{diag}(2,0):\mathbb R^2\to\mathbb R^2$、$z=(4,1)$ とします。$\operatorname{diag}(2,0)$ は標準基底 $e_1=(1,0)$、$e_2=(0,1)$ に関して $A(s,t)=(2s,0)$ を表します。標準内積で $\langle A(s,t),(a,b)\rangle=2sa=\langle(s,t),A(a,b)\rangle$ だから $A^*=A$ です。従って $Ae_1=A^*e_1=2e_1$、$Ae_2=A^*e_2=0$ で、[完全特異系の定義](../INV3/index.md#def-inv3-singular-system)の正の特異値方向は $u_1=v_1=e_1$、$\sigma_1=2$ となり、$\ker A^*=\operatorname{span}\{e_2\}$ です。観測値を $z=4e_1+e_2$ と分けると $b_1=4$、$P_\perp z=e_2$。この二つを上の残差の二乗和へ代入して
 
 $$
 \rho_z(\alpha)^2
@@ -276,7 +276,7 @@ $$
 \|x^\dagger-A^*q\|_X<\varepsilon
 $$
 
-とできます。第2段階で得た $\|Au_\delta\|=\|Ax_\delta-y\|\le(\tau+1)\delta$ を使います。また、内積 $\langle u_\delta,A^*q\rangle_X=\langle Au_\delta,q\rangle_Y$ は随伴の定義から従うため
+とできます。第2段階で得た $\|Au_\delta\|=\|Ax_\delta-y\|\le(\tau+1)\delta$ を使います。また、内積 $\langle u_\delta,A^*q\rangle_X=\langle Au_\delta,q\rangle_Y$ は随伴の定義から従います。ここで[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)も使うと
 
 $$
 \begin{aligned}
@@ -309,7 +309,13 @@ $$
 
 これで部分列を取らずに $\|x_\delta-x^\dagger\|_X=\|u_\delta\|_X\to0$ を示しました。
 
-**第4段階（パラメータが零へ近づく）**。任意の $\beta>0$ を固定します。[残差表示](#prop-inv7-residual-range)を厳密データ $y\ne0$ に用いると $\rho_y(\beta)>0$ です。$\rho_z(\beta)=\|\beta(AA^*+\beta I)^{-1}z\|$ は $z$ に関して $1$-Lipschitz です。これは特異系で残差作用素の各倍率が $[0,1]$ に入ることから従います。従って
+**第4段階（パラメータが零へ近づく）**。任意の $\beta>0$ を固定します。[残差表示](#prop-inv7-residual-range)を厳密データ $y\ne0$ に用いると $\rho_y(\beta)>0$ です。$z$ を動かしたときの残差を比較します。第1節の特異系展開より $Ax_\beta(z)-z$ は、$u_j$ 方向の成分を $-\beta/(\sigma_j^2+\beta)$ 倍し、$\ker A^*$ 方向の成分を $-1$ 倍する線形写像です。各倍率の絶対値は $1$ 以下なので、直交性から任意の $z,w\in Y$ について
+
+$
+\|(Ax_\beta(z)-z)-(Ax_\beta(w)-w)\|_Y\le\|z-w\|_Y.
+$
+
+逆三角不等式を $z=y^\delta$、$w=y$ に適用して
 
 $$
 \rho_{y^\delta}(\beta)\ge\rho_y(\beta)-\delta.
@@ -396,7 +402,7 @@ $$
 <!-- definition-example-start: def-inv7-effective-noise -->
 ### 例：観測が正確でも離散化誤差は残る
 
-**定義の確認**：$X=Y=\mathbb R$、$A=1$、$A_h=1.1$（スカラー倍作用素）、$x^\dagger=2$、$y=2$、$y^\delta=2.1$ とします。実際に $\delta=0.1$、$\eta_h=|1.1-1|=0.1$、$B=2$ を選べます。よって $\varepsilon_h=0.1+0.1\cdot2=0.3$。直接計算すると
+**定義の確認**：$X=Y=\mathbb R$、$A=1$、$A_h=1.1$（スカラー倍作用素）、$x^\dagger=2$、$y=2$、$y^\delta=2.1$ とします。実際に $\delta=0.1$、$B=2$ を選べます。また $A_h-A$ は実数 $t$ を $0.1t$ へ写すため、作用素ノルムの定義 $\sup_{|t|=1}|(A_h-A)t|$ から $\eta_h=|1.1-1|=0.1$ です。よって $\varepsilon_h=0.1+0.1\cdot2=0.3$。直接計算すると
 
 $$
 |A_hx^\dagger-y^\delta|=|2.2-2.1|=0.1\le0.3,
@@ -551,7 +557,7 @@ $A=\operatorname{diag}(2,0)$、$z=(4,1)$ とする。$x_\alpha$ を求め、残�
 <!-- solution-start -->
 #### 詳細解答
 
-正規方程式は $(\operatorname{diag}(4,0)+\alpha I)x=(8,0)$ なので
+$\operatorname{diag}(2,0)$ は $\mathbb R^2$ の標準基底 $e_1,e_2$ で $A(s,t)=(2s,0)$ を表します。標準内積で $A^*=A$ であり、$A^*A(s,t)=(4s,0)$、$A^*z=(8,0)$ です。よって[正規方程式](../INV5/index.md#thm-inv5-tikhonov-minimizer)は $(\operatorname{diag}(4,0)+\alpha I)x=(8,0)$ となり、
 
 $$
 x_\alpha=\left(\frac{8}{4+\alpha},0\right),
@@ -595,7 +601,13 @@ $A=\operatorname{diag}(1,1/2)$、$A_h=\operatorname{diag}(1,3/5)$、$x^\dagger=(
 <!-- solution-start -->
 #### 詳細解答
 
-$y=(0,1)$ より $\|y^\delta-y\|=1/20=\delta$ です。$A_h-A=\operatorname{diag}(0,1/10)$ だから、標準 Euclid ノルムについて作用素ノルムは $\eta_h=1/10$。さらに $\|x^\dagger\|=2=B$ です。[有効誤差の定義](#def-inv7-effective-noise)から
+$y=(0,1)$ より $\|y^\delta-y\|=1/20=\delta$ です。$A_h-A=\operatorname{diag}(0,1/10)$ だから、標準 Euclid ノルムで $v=(v_1,v_2)$ に対して
+
+$
+\|(A_h-A)v\|^2=\frac{v_2^2}{100}\le\frac{\|v\|^2}{100}.
+$
+
+$v=e_2$ で等号になるので作用素ノルムは $\eta_h=1/10$ です。さらに $\|x^\dagger\|=2=B$ です。[有効誤差の定義](#def-inv7-effective-noise)から
 
 $$
 \varepsilon_h=\frac1{20}+\frac1{10}\cdot2=\frac14.
@@ -645,7 +657,7 @@ $A=\operatorname{diag}(1,0)$、$y=(3,0)$、$y^\delta=(3,1)$、$\delta=1$、$\tau
 <!-- solution-start -->
 #### 詳細解答
 
-$y=Ax^\dagger$ を満たす最小ノルム解は $x^\dagger=(3,0)$。$\|y^\delta-y\|=1=\delta$ です。第2方向は $\ker A^*$ に属するので残差二乗は
+$A=\operatorname{diag}(1,0)$ は標準基底で $A(s,t)=(s,0)$ を表し、標準内積で $A^*=A$ です。$Ax=y=(3,0)$ なら第1成分が $3$、第2成分は自由なので、核 $\operatorname{span}\{e_2\}$ に直交する最小ノルム解は $x^\dagger=(3,0)$。$\|y^\delta-y\|=1=\delta$ です。$y^\delta=3e_1+e_2$ の第2方向は $\ker A^*$ に属し、第1方向の特異値は $1$ です。したがって[残差の二乗和](#prop-inv7-residual-range)に $b_1=3$ と $\|P_\perp y^\delta\|=1$ を代入して
 
 $$
 \rho_\delta(\alpha)^2
@@ -746,11 +758,11 @@ $y^\delta$ は $|y^\delta|\le\delta$ を満たします。$x_\alpha^\delta=y^\de
 $$
 \rho_\delta(\alpha)
 =\frac{\alpha}{1+\alpha}|y^\delta|
-<|y^\delta|
+\le|y^\delta|
 \le\delta<\tau\delta.
 $$
 
-従って等式を満たす正の $\alpha$ はありません。真の最小ノルム解は $x^\dagger=0$ なので $\alpha=1$ とすると
+従って等式を満たす正の $\alpha$ はありません。特に $y^\delta=0$ の場合は $\rho_\delta(\alpha)=|y^\delta|=0$ となり、上の最初の不等号は等号です。真の最小ノルム解は $x^\dagger=0$ なので $\alpha=1$ とすると
 
 $$
 |x_1^\delta-x^\dagger|=\frac{|y^\delta|}{2}\le\frac\delta2\longrightarrow0.
@@ -820,7 +832,7 @@ $$
 \end{aligned}
 $$
 
-この対角作用素は自己共役で、$q=e_1+2e_2$ と置けば $A^*q=Aq=e_1+e_2=x^\dagger$ です。$u_n=x_n-x^\dagger$ と置き、随伴の定義を使うと
+この対角作用素は自己共役で、$q=e_1+2e_2$ と置けば $A^*q=Aq=e_1+e_2=x^\dagger$ です。$u_n=x_n-x^\dagger$ と置き、随伴の定義と[Cauchy--Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 |\langle u_n,x^\dagger\rangle|
