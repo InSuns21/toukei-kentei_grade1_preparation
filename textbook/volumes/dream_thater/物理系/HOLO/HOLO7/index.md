@@ -54,10 +54,10 @@ $$
 
 > と定める。$\chi$ を滑らかな実変分方向として、作用の第一変分を
 
-$
+$$
 \delta_\phi S_E[\phi;\chi]
 =\left.\frac{d}{ds}S_E[\phi+s\chi]\right|_{s=0}
-$
+$$
 
 > と定義する。
 <!-- formal-statement-end -->
@@ -111,10 +111,10 @@ $$
 > **命題（Euclidスカラー作用の境界付き第一変分）**  
 > $M_{\epsilon,Z}$、$g_E$、$m^2\in\mathbb R$ を上記のように固定し、$\phi,\chi$ を境界まで滑らかな実スカラー場とする。Euclid側のLaplace作用素を次の座標式で表す。
 
-$
+$$
 \nabla_E^2\phi=\frac{1}{\sqrt{g_E}}\partial_a
 \left(\sqrt{g_E}g_E^{ab}\partial_b\phi\right)
-$
+$$
 
 > このとき、
 
@@ -536,9 +536,9 @@ $$
 - Level: C
 - 問題: $d\ge2$、$L>0$、$0<\epsilon<Z$、$V_T>0$ の有限トーラスで $m^2=0$ とする。境界方向に一定の解にDirichletデータを課す。
 
-$
+$$
 \phi(\epsilon)=J,\qquad \phi(Z)=0.
-$
+$$
 
   次を順に求めよ。
 
