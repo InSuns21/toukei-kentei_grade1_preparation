@@ -11,9 +11,31 @@
 
 ## 0. 対象・前提と単位
 
-[CTM1 の運動](../CTM1/index.md#def-ctm1-motion-configuration)を、向きを保つ $C^2$ 級の運動 $\chi:\Omega_0\times I\to\mathbb R^3$ とし、$F=D_X\chi$ は可逆、$J=\det F>0$ とする。各時刻の $\Omega_t$ で、[CTM5 の質量保存](../CTM5/index.md#prop-ctm5-density-jacobian)を満たす $\rho>0$ を用いる。$\rho_0(X)=J\rho(\chi(X,t),t)>0$ は時間不変である。任意の有界な物質領域 $U_t=\chi_t(U_0)$ の境界は区分的 $C^1$ とし、以下の時間微分・発散・体積積分に必要な滑らかさを仮定する。
+[CTM1 の運動](../CTM1/index.md#def-ctm1-motion-configuration)を、向きを保つ $C^2$ 級の写像 $\chi:\Omega_0\times I\to\mathbb R^3$ とする。変形勾配 $F$ と体積倍率 $J$ には
 
-現在配置で $v$ は速度、[CTM4 の変形速度](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)は $D=(\nabla_xv+\nabla_xv^T)/2$、[CTM7 の角運動量収支](../CTM7/index.md#prop-ctm7-angular-stress)により古典的連続体の Cauchy 応力は $\sigma=\sigma^T$ とする。$e$ は比内部エネルギー（J/kg）、$q$ は外向きを正とする熱流束（W/m$^2$）、$r$ は比熱供給率（W/kg）。すべての式は絶対温度 $T(x,t)>0$（K）でのみ考える。
+$$
+F=D_X\chi,\qquad J=\det F>0
+$$
+
+を課す。$F$ は可逆であり、各時刻の現在配置を $\Omega_t$ と書く。
+
+[CTM5 の質量保存](../CTM5/index.md#prop-ctm5-density-jacobian)を満たす正の密度 $\rho$ を用いる。基準密度は
+
+$$
+\rho_0(X)=J\rho(\chi(X,t),t)>0
+$$
+
+で、時間によらない。任意の有界な物質領域 $U_t=\chi_t(U_0)$ の境界は区分的 $C^1$ とし、時間微分・発散・体積積分に必要な滑らかさを仮定する。
+
+現在配置で速度を $v$ とする。[CTM4 の変形速度](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)は
+
+$$
+D=\frac{\nabla_xv+(\nabla_xv)^T}{2}
+$$
+
+である。[CTM7 の角運動量収支](../CTM7/index.md#prop-ctm7-angular-stress)により、古典的連続体の Cauchy 応力 $\sigma$ は対称とする。
+
+$e$ は比内部エネルギー（J/kg）、$q$ は外向きを正とする熱流束（W/m$^2$）、$r$ は比熱供給率（W/kg）。すべての式は正の絶対温度 $T(x,t)$（K）でのみ考える。
 
 導入する比エントロピー $s$ は J/(kg K)、その生成率の体積密度は W/(m$^3$ K)、自由エネルギー $\psi$ は J/kg とする。$\nabla_xT$ は K/m、熱伝導率 $\kappa$ は W/(m K) である。$D_tf=\partial_tf+v\cdot\nabla_xf$ は物質微分、$A:B=\sum_{i,j}A_{ij}B_{ij}$ は二階テンソルの二重内積である。
 
@@ -718,7 +740,28 @@ $$
 
 ### C1. 熱流と弾性蓄積を含む局所第二法則の一括検算
 
-基準配置の滑らかな一軸運動 $F=\operatorname{diag}(\lambda(t),1,1)$（$\lambda>0$）を考え、$\rho_0>0$、$J=\lambda$、$T(x,t)=T_0+gx_1>0$（$T_0>0$、$g$ 定数）、$\kappa>0$ を与える。自由エネルギーは基準体積当たり $\Psi(F)=a(C-I_3):(C-I_3)/4$（$a>0$）、応力は $P=\partial\Psi/\partial F$、熱流束は $q=-\kappa\nabla_xT$ とする。比エントロピーは $s=0$、比内部エネルギーは $e=\Psi/\rho_0$ とし、熱源 $r$ は第一法則を満たすように選んでよい。
+基準配置の滑らかな一軸運動を考える。基準密度 $\rho_0>0$ を一定とし、伸長倍率 $\lambda(t)>0$、体積倍率 $J=\lambda$ について
+
+$$
+F=\operatorname{diag}(\lambda(t),1,1)
+$$
+
+とする。現在配置の温度と熱流束は、定数 $T_0>0$、$g$ および $\kappa>0$ を用いて
+
+$$
+T(x,t)=T_0+gx_1>0,\qquad q=-\kappa\nabla_xT
+$$
+
+とする。温度が正の領域・時間だけを対象とする。
+
+基準体積当たりの自由エネルギー $\Psi$ と第一 Piola 応力 $P$ の構成則を、定数 $a>0$ および $C=F^TF$ によって
+
+$$
+\Psi(F)=\frac a4(C-I_3):(C-I_3),
+\qquad P=\frac{\partial\Psi}{\partial F}
+$$
+
+とする。比エントロピーは $s=0$、比内部エネルギーは $e=\Psi/\rho_0$ と仮定し、熱源 $r$ は第一法則を満たすように選んでよい。
 
 1. $P_{11},\sigma_{11},D_{11}$ と $\rho D_te$、$\sigma:D$ を計算せよ。
 2. $\operatorname{div}q$ と必要な $r$ を求め、第一法則を検算せよ。
