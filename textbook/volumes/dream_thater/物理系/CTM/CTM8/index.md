@@ -238,7 +238,14 @@ $$
 <!-- definition-example-start: def-ctm8-second-piola -->
 ### **定義の確認**：せん断では $P$ は非対称でも $S$ は対称
 
-基準座標 $X$ で $\chi(X)=(X_1+\gamma X_2,X_2,X_3)$（$\gamma$ は無次元）という単純せん断を考え、$\sigma=pI_3$（$p$ は Pa）とする。成分微分から $F=D_X\chi=\begin{pmatrix}1&\gamma&0\\0&1&0\\0&0&1\end{pmatrix}$、$J=1>0$ となる。逆写像は $X=(x_1-\gamma x_2,x_2,x_3)$ で存在するため、第一・第二 Piola 応力の定義条件を満たす。$F^{-1}$ と $JF^{-T}$ を順に掛ければ
+基準座標 $X$ で $\chi(X)=(X_1+\gamma X_2,X_2,X_3)$（$\gamma$ は無次元）という単純せん断を考え、現在応力を $\sigma=pI_3$（$p$ は Pa）とする。運動写像の成分を物質座標で微分すると
+
+$$
+F=D_X\chi=
+\begin{pmatrix}1&\gamma&0\\0&1&0\\0&0&1\end{pmatrix},\qquad J=1>0.
+$$
+
+逆写像は $X=(x_1-\gamma x_2,x_2,x_3)$ で存在するため、第一・第二 Piola 応力の定義条件を満たす。$F^{-1}$ と $JF^{-T}$ を順に掛ければ
 
 $$
 F^{-1}=\begin{pmatrix}1&-\gamma&0\\0&1&0\\0&0&1\end{pmatrix},
@@ -360,7 +367,20 @@ $$
 
 ### 例：時間依存の単純せん断で三つの仕事率を計算する
 
-$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$ とし、$\gamma(0)=0$、$t$ は s。$\sigma=\begin{pmatrix}0&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix}$ とする（$\tau$ は Pa）。$X$ を固定した時間微分は $\partial_t\chi(X,t)=(\dot\gamma X_2,0,0)$。$x_2=X_2$ なので現在座標の速度は $v(x,t)=(\dot\gamma x_2,0,0)$ となる。また $F=I_3+\gamma e_1e_2^T$、$J=1$、$\dot F_{12}=\partial_tF_{12}|_X=\dot\gamma$ でその他の成分はゼロ。定義から
+$\chi(X,t)=(X_1+\gamma(t)X_2,X_2,X_3)$ とし、$\gamma(0)=0$、$t$ の単位は s とする。現在応力は、$\tau$ を Pa 単位の値として
+
+$$
+\sigma=\begin{pmatrix}0&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix}
+$$
+
+と置く。$X$ を固定した時間微分と、それを現在座標へ移した速度場は
+
+$$
+\partial_t\chi(X,t)|_X=(\dot\gamma X_2,0,0),\qquad
+v(x,t)=(\dot\gamma x_2,0,0)
+$$
+
+である。後者では $x_2=X_2$ を代入した。$F=I_3+\gamma e_1e_2^T$、$J=1$、$\dot F_{12}=\partial_tF_{12}|_X=\dot\gamma$ で、その他の $\dot F$ 成分はゼロ。これらを応力の定義へ代入すると
 
 $$
 P=\begin{pmatrix}-\gamma\tau&\tau&0\\\tau&0&0\\0&0&0\end{pmatrix},
@@ -624,7 +644,21 @@ $$
 
 よって [基準運動量方程式](#thm-ctm8-reference-momentum)の左辺は $0+\rho_0\ddot\gamma X_2e_1$、右辺も $\rho_0\ddot\gamma X_2e_1$ で一致する。
 
-(iv) $X$ 固定の微分は $\partial_t\chi|_X=(\dot\gamma X_2,0,0)$ である。$x_2=X_2$ を代入した現在側速度 $v(x,t)=(\dot\gamma x_2,0,0)$ を、今度は $x$ 固定で微分すると $L_{12}=\partial_{x_2}v_1=\dot\gamma$、従って $D_{12}=D_{21}=\dot\gamma/2$。一方、[Green–Lagrange ひずみ](../CTM3/index.md#def-ctm3-green-strain) $E=(F^TF-I_3)/2$ は物質座標 $X$ を固定して時間微分するので $\dot E_{12}=\dot E_{21}=\dot\gamma/2$、$\dot E_{22}=\gamma\dot\gamma$。従って
+(iv) まず $X$ を固定して運動を時間微分し、$x_2=X_2$ を代入して現在座標で速度を表示する。
+
+$$
+\partial_t\chi(X,t)|_X=(\dot\gamma X_2,0,0),\qquad
+v(x,t)=(\dot\gamma x_2,0,0).
+$$
+
+この速度を今度は $x$ 固定で空間微分すると $L_{12}=\partial_{x_2}v_1=\dot\gamma$、ほかの成分は0だから
+
+$$
+D_{12}=D_{21}=\frac{\dot\gamma}{2},\qquad
+D_{ij}=0\quad ((i,j)\ne(1,2),(2,1)).
+$$
+
+一方、[Green–Lagrange ひずみ](../CTM3/index.md#def-ctm3-green-strain) $E=(F^TF-I_3)/2$ は物質座標 $X$ を固定して時間微分する。従って $\dot E_{12}=\dot E_{21}=\dot\gamma/2$、$\dot E_{22}=\gamma\dot\gamma$ であり、三つの仕事率は
 
 $$
 P:\dot F=P_{12}\dot\gamma=\tau\dot\gamma,
