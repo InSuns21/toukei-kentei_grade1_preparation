@@ -2,12 +2,12 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ORI-V10 層順と循環</title><link rel="stylesheet" href="../../shared/ori-svg-player.css"></head>
 <body><h1>ORI-V10 層順と循環</h1>
-<p><strong>数理モデル：</strong>A>B,B>C,C>Aは循環して不可能。</p>
-<p><strong>適用範囲：</strong>非循環だけでは平坦折りは保証されない。 実写の折り作業ではなく、数式で決まる状態をSVGへ描き直しています。</p>
+<p><strong>数理モデル：</strong>A&gt;B,B&gt;C,C&gt;Aは循環して不可能。</p>
+<p><strong>適用範囲：</strong>非循環だけでは平坦折りは保証されない。 実写の折り動作ではなく、数式から幾何状態をSVGで描く教材です。条件の表示工程と物理的な連続折り運動を区別してください。</p>
 <div class="surface"><label for="case">表示例の選択</label><select id="case" aria-label="異なる条件で比較"><option value="acyclic">循環なし</option><option value="cycle">層順の循環</option></select>
 <div class="graphic" role="region" tabindex="0" aria-label="必要なら横スクロールで拡大した図を閲覧" style="overflow-x:auto">
 <svg id="ori-b-stage" viewBox="0 0 760 430" style="display:block;width:100%;height:auto;min-width:min(100%,600px)" role="img" aria-labelledby="stage-title stage-desc" xmlns="http://www.w3.org/2000/svg">
-<title id="stage-title">ORI-V10 層順と循環</title><desc id="stage-desc">A>B,B>C,C>Aは循環して不可能。 非循環だけでは平坦折りは保証されない。</desc><g id="ori-b-frame"></g></svg>
+<title id="stage-title">ORI-V10 層順と循環</title><desc id="stage-desc">A&gt;B,B&gt;C,C&gt;Aは循環して不可能。 非循環だけでは平坦折りは保証されない。</desc><g id="ori-b-frame"></g></svg>
 <noscript><img src="ori-v10-poster.svg" alt="ORI-V10 層順と循環の静止図" style="width:100%;height:auto"></noscript></div>
 <div class="controls" role="group" aria-label="工程の再生操作">
 <button type="button" data-player="play" aria-pressed="false">再生</button><button type="button" data-player="reset">初めから</button>
@@ -23,8 +23,8 @@
 </div>
 <h2>数学的な不変量の数値検査</h2>
 <table><thead><tr><th scope="col">条件</th><th scope="col">残差</th></tr></thead><tbody id="invariants"><tr><td>読込中</td><td>—</td></tr></tbody></table>
-<h2>工程別の文章代替</h2><details><summary>各表示例の5工程と式を開く</summary><h3>循環なし</h3><ol><li>工程0（t=0）：上→下の制約：A>B。現時点では非循環。必要条件のみ。</li><li>工程1（t=0.25）：上→下の制約：A>B。現時点では非循環。必要条件のみ。</li><li>工程2（t=0.5）：上→下の制約：A>B, B>C。現時点では非循環。必要条件のみ。</li><li>工程3（t=0.75）：上→下の制約：A>B, B>C, A>C。現時点では非循環。必要条件のみ。</li><li>工程4（t=1）：上→下の制約：A>B, B>C, A>C。現時点では非循環。必要条件のみ。</li></ol>
-<h3>循環あり</h3><ol><li>工程0（t=0）：上→下の制約：A>B。現時点では非循環。必要条件のみ。</li><li>工程1（t=0.25）：上→下の制約：A>B。現時点では非循環。必要条件のみ。</li><li>工程2（t=0.5）：上→下の制約：A>B, B>C。現時点では非循環。必要条件のみ。</li><li>工程3（t=0.75）：上→下の制約：A>B, B>C, C>A。循環したため不可能。</li><li>工程4（t=1）：上→下の制約：A>B, B>C, C>A。循環したため不可能。</li></ol></details>
+<h2>工程別の文章代替</h2><details><summary>各表示例の5工程と式を開く</summary><h3>循環なし</h3><ol><li>工程0（t=0）：上→下の制約：A&gt;B。現時点では非循環。必要条件のみ。</li><li>工程1（t=0.25）：上→下の制約：A&gt;B。現時点では非循環。必要条件のみ。</li><li>工程2（t=0.5）：上→下の制約：A&gt;B, B&gt;C。現時点では非循環。必要条件のみ。</li><li>工程3（t=0.75）：上→下の制約：A&gt;B, B&gt;C, A&gt;C。現時点では非循環。必要条件のみ。</li><li>工程4（t=1）：上→下の制約：A&gt;B, B&gt;C, A&gt;C。現時点では非循環。必要条件のみ。</li></ol>
+<h3>循環あり</h3><ol><li>工程0（t=0）：上→下の制約：A&gt;B。現時点では非循環。必要条件のみ。</li><li>工程1（t=0.25）：上→下の制約：A&gt;B。現時点では非循環。必要条件のみ。</li><li>工程2（t=0.5）：上→下の制約：A&gt;B, B&gt;C。現時点では非循環。必要条件のみ。</li><li>工程3（t=0.75）：上→下の制約：A&gt;B, B&gt;C, C&gt;A。循環したため不可能。</li><li>工程4（t=1）：上→下の制約：A&gt;B, B&gt;C, C&gt;A。循環したため不可能。</li></ol></details>
 <p><a href="ori-v10-poster.svg">静止SVGを開く</a>。動画を動かせなくても上の数式と工程説明から検算できます。</p>
 <p class="footnote">自動再生はしません。動きを減らすOS設定では静止終端から開始。モデルの数学的制約と、有限厚み・層の非貫通・連続折り運動は別々に判定してください。</p>
 <p><a href="../index.md">講義 ORI17 の本文に戻る</a></p>

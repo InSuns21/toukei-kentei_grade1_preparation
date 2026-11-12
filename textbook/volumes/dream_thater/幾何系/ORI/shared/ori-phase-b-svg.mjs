@@ -52,7 +52,7 @@ export function svgFrame(state,poster=false){
  return head.join('\n');
 }
 export function posterSvg(state,title){
- const rendered={...state,title};
+ const rendered={...state,title:title.replace(/^ORI-V\d+\s+/, '')};
  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc" data-layout-lint="strict">\n'+
   '<title id="title">'+esc(title)+'</title>\n<desc id="desc">'+esc(state.formula+' '+state.readout+' '+state.limit)+'</desc>\n'+svgFrame(rendered,true)+'\n</svg>\n';
 }

@@ -93,6 +93,39 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
 
+      # Ubuntu's default headless Chrome environment lacks Japanese glyphs;
+      # render artifacts must display the same CJK labels as learners see.
+      - name: Install verified CJK font for ORI SVG screenshot review
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          if ! fc-list : family | grep -q 'Noto Sans CJK JP'; then
+            noto_file="$RUNNER_TEMP/NotoSansCJKjp-Regular.otf"
+            if curl --fail --location --retry 3 --retry-all-errors --connect-timeout 15 \
+              --max-time 240 --silent --show-error --output "$noto_file" \
+              'https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf'; then
+              test "$(git hash-object "$noto_file")" = 'f56224957fb13a81b4c14bac34f2f058a017f9fb'
+              sudo install -Dm644 "$noto_file" /usr/local/share/fonts/opentype/noto/NotoSansCJKjp-Regular.otf
+              fc-cache -f
+            else
+              sudo apt-get update -qq
+              sudo apt-get install -y -qq --no-install-recommends fonts-noto-cjk
+            fi
+          fi
+          fc-list : family | grep -q 'Noto Sans CJK JP'
+
+      - name: Validate all 15 ORI SVG films in real Chromium (Phase C and D)
+        if: steps.scope.outputs.full == 'true'
+        run: npm run validate:ori-svg-browser
+
+      - name: Upload ORI SVG real-browser keyframe screenshots
+        if: always() && steps.scope.outputs.full == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ori-svg-browser-review
+          path: _ori_svg_render_review/
+          if-no-files-found: warn
+          retention-days: 14
+
       - name: Validate ML I/II completed plan inventory and lab routes
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-ml-plan-completion.mjs

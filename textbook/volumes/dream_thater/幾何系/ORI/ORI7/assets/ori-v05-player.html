@@ -3,7 +3,7 @@
 <title>ORI-V05 O5の折り線候補</title><link rel="stylesheet" href="../../shared/ori-svg-player.css"></head>
 <body><h1>ORI-V05 O5の折り線候補</h1>
 <p><strong>数理モデル：</strong>円x²+y²=4と目標直線y=hの交点が像の候補。</p>
-<p><strong>適用範囲：</strong>特定のO5座標配置の例。 実写の折り作業ではなく、数式で決まる状態をSVGへ描き直しています。</p>
+<p><strong>適用範囲：</strong>特定のO5座標配置の例。 実写の折り動作ではなく、数式から幾何状態をSVGで描く教材です。条件の表示工程と物理的な連続折り運動を区別してください。</p>
 <div class="surface">
 <div class="graphic" role="region" tabindex="0" aria-label="必要なら横スクロールで拡大した図を閲覧" style="overflow-x:auto">
 <svg id="ori-b-stage" viewBox="0 0 760 430" style="display:block;width:100%;height:auto;min-width:min(100%,600px)" role="img" aria-labelledby="stage-title stage-desc" xmlns="http://www.w3.org/2000/svg">
@@ -37,10 +37,16 @@ const choice=document.getElementById('case');
 function render(t){
  const s=stateAt('05',t,choice?.value||'default');
  stage.innerHTML=svgFrame({...s,title:"O5の折り線候補"});
- tbody.replaceChildren(...s.checks.map(c=>{
+ const rows=s.checks.map(c=>{
   const tr=document.createElement('tr'),name=document.createElement('td'),r=document.createElement('td');
   name.textContent=c.name;r.textContent=(c.actual-c.expected).toExponential(2);tr.append(name,r);return tr;
- }));
+ });
+ if(!rows.length){
+  const tr=document.createElement('tr'),info=document.createElement('td');
+  info.colSpan=2;info.textContent='候補が0本のため、折り線の数値残差はありません。';
+  tr.append(info);rows.push(tr);
+ }
+ tbody.replaceChildren(...rows);
  return {step:s.step,readout:s.readout};
 }
 const player=mountPlayer({render,steps:[0,.25,.5,.75,1],durationMs:9000});

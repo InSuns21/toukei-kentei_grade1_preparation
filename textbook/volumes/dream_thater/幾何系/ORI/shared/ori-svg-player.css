@@ -25,3 +25,6 @@ th { background: #eaf3f8; }
 @media (max-width: 470px) { :root { font-size: 16px; } .surface { padding: .4rem; } .controls { gap: .4rem; } button { flex: 1 1 auto; } }
 @media (max-width: 470px) { #stage { min-width: 580px; } .v01-scroll { overflow-x: auto; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Preserve SVG annotation legibility at narrow widths or 200% zoom. */
+@media(max-width:760px){ #ori-b-stage{min-width:760px !important;} }

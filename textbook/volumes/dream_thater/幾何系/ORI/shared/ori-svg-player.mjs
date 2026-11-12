@@ -81,5 +81,11 @@ export function mountPlayer({ root = document, render, steps, durationMs = 8000,
     if (document.hidden && running) { stop(); sync(true); }
   });
   sync(true);
+  // A directly opened video also registers the common Pages offline worker.
+  if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+    const sw = new URL('../../../../../../service-worker.js', import.meta.url);
+    navigator.serviceWorker.register(sw.href, {scope: new URL('./', sw).href})
+      .catch(() => { /* Offline unavailable; formulas and static poster still work. */ });
+  }
   return { seek, stop, get time() { return t; }, get playing() { return running; } };
 }
