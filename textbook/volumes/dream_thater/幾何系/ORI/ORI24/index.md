@@ -1,5 +1,9 @@
 # ORI24 Origamizerと多面体表面の実現
 
+**動く図 ORI-V13**：[多面体の面対応を工程表示](assets/ori-v13-player.html)（[静止SVG](assets/ori-v13-poster.svg)）。数学的な条件と適用範囲を図の説明文でも確かめ、以下の本文の式と照合してください。図だけから実物の連続折り運動や一般定理の成立を結論しません。動画を操作しなくても本文の証明・演習は完結します。
+
+![ORI-V13 の数理状態を比較した静止図](assets/ori-v13-poster.svg)
+
 <!-- definition-example-audit: strict -->
 
 [ORI22のtree method](../ORI22/index.md#def-ori22-tree-packing)は目標の枝を長さ付き木へ変え、[ORI23のbox pleating](../ORI23/index.md#def-ori23-grid)は格子上の折り目候補を作りました。しかし、どちらも**与えられた立体の各多角形面を一枚の紙で隙間なく覆う**ことを、それだけで保証しません。完成形が単に同じ「輪郭」に見える場合と、立体の表面が継ぎ目なく覆われている場合も異なります。
