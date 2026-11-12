@@ -6,3 +6,4 @@
 3. [HOLO3 境界のUV/IRと測地線](textbook/volumes/dream_thater/物理系/HOLO/HOLO3/index.md)
 4. [HOLO4 対称性と境界CFT](textbook/volumes/dream_thater/物理系/HOLO/HOLO4/index.md)
 5. [HOLO5 制御された双対性の原型](textbook/volumes/dream_thater/物理系/HOLO/HOLO5/index.md)
+6. [HOLO6 大Nと半古典重力](textbook/volumes/dream_thater/物理系/HOLO/HOLO6/index.md)

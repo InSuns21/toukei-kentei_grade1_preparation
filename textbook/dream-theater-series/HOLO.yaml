@@ -11,7 +11,7 @@ chapters:
   - { id: HOLO3, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO3, status: completed, title: "境界のUV/IRと測地線" }
   - { id: HOLO4, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO4, status: completed, title: "対称性と境界CFT" }
   - { id: HOLO5, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO5, status: completed, title: "制御された双対性の原型" }
-  - { id: HOLO6, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO6, status: planned, title: "大Nと半古典重力" }
+  - { id: HOLO6, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO6, status: completed, title: "大Nと半古典重力" }
   - { id: HOLO7, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO7, status: planned, title: "作用の境界値問題" }
   - { id: HOLO8, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO8, status: planned, title: "スカラー漸近とBF境界" }
   - { id: HOLO9, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO9, status: planned, title: "GKPWと2点関数" }

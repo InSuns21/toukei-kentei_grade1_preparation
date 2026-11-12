@@ -1,0 +1,48 @@
+chapter: HOLO6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO5
+concepts:
+  - id: holography.t-hooft-large-n-limit
+    name: "'t Hooftの大N極限"
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（'t Hooftの大N極限）"]
+    requires: [holography.t-hooft-coupling]
+  - id: holography.double-line-index-faces
+    name: 二重線表示と添字面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二重線表示と添字面）"]
+    requires: [holography.t-hooft-large-n-limit]
+  - id: holography.ribbon-genus-counting
+    name: 連結真空リボングラフの大N次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連結真空リボングラフの大N次数）"]
+    requires: [holography.double-line-index-faces]
+  - id: holography.large-n-factorization-counting
+    name: 形式的な大N因子化の数え上げ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（形式的な大N因子化の数え上げ）"]
+    requires: [holography.ribbon-genus-counting]
+  - id: holography.d3-newton-constant-scaling
+    name: D3-brane模型での五次元重力結合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（D3-brane模型での五次元重力結合）"]
+    requires: [holography.d3-scaled-throat]
+  - id: holography.higher-spin-single-trace-gap
+    name: 高スピン単一トレースのスペクトルギャップ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（高スピン単一トレースのスペクトルギャップ）"]
+    requires: [holography.large-n-factorization-counting]
+  - id: holography.controlled-supergravity-window
+    name: 本講の制御された超重力近似領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講の制御された超重力近似領域）"]
+    requires: [holography.d3-newton-constant-scaling, holography.higher-spin-single-trace-gap]
