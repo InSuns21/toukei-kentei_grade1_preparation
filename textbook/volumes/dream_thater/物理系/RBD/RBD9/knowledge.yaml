@@ -30,10 +30,10 @@ concepts:
       - mechanics.principal-spin-linear-stability
       - mechanics.rigid-body-forced-newton-euler
   - id: mechanics.triaxial-euler-invariants
-    name: 三軸自由回転の二保存量
+    name: 三軸自由回転の二不変量
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（三軸自由回転の二保存量）]
+    introduction_aliases: [命題（三軸自由回転の二不変量）]
     requires:
       - mechanics.triaxial-principal-axis-spin
       - mechanics.inertia-tensor-angular-momentum-energy
