@@ -184,7 +184,7 @@ $$
 
 $|v_\perp|^2=|n\times v_\perp|^2$ は $|n|=1$、$n\cdot v_\perp=0$ から従い、$v_\perp\cdot(n\times v_\perp)=0$ です。前節で確かめた平面内の正向きの回転の成分表示を使うと
 
-$
+$$
 \begin{aligned}
 Rv&=n(n\cdot v)+\cos\theta[v-n(n\cdot v)]
 +\sin\theta(n\times v)\\
