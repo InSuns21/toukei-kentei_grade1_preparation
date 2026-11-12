@@ -5,6 +5,7 @@ prerequisites:
   - CAT1-07
   - CAT4-01
   - CAT4-02
+  - LA3E
 
 concepts:
   - id: category.braiding
@@ -30,7 +31,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（対称性と逆組紐）"]
-    requires: [category.symmetric-monoidal, category.braiding]
+    requires: [category.symmetric-monoidal, category.braiding, linear.tensor-product]
   - id: category.vector-tensor-symmetry
     name: ベクトル空間のテンソル積の対称性
     kind: theorem
