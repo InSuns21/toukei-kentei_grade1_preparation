@@ -9,7 +9,7 @@ export const SPECS=[
  ['09','ORI15','Maekawaの山谷本数差',['valid','invalid'],'作動する4折り目で|山の数−谷の数|=2が必要。','必要条件であり十分条件ではない。'],
  ['10','ORI17','層順と循環',['acyclic','cycle'],'A>B,B>C,C>Aは循環して不可能。','非循環だけでは平坦折りは保証されない。'],
  ['11','ORI20','対称二線分のfold-and-one-cut',['default'],'x=0で右面を折り返すとx=+1はx=−1に重なる。','一般多角形のfold-and-one-cut定理とは区別する。'],
- ['12','ORI22','円パッキングの必要制約',['default'],'半径0.60と0.45の円の中心距離dは1.05以上で非重複。','tree method全構成の実装ではない。'],
+ ['12','ORI22','円パッキングの必要制約',['default'],'半径0.60と0.45の円板は中心距離d≥1.05で内部非交差、d=1.05で接する。','tree method全構成の実装ではない。'],
  ['13','ORI24','立方体展開図の面対応',['default'],'一辺1の単位正方形6枚で立方体表面積6。','Origamizerの一般多面体実現定理ではない。'],
  ['14','ORI25','剛体4価頂点／Miura格子',['vertex','miura'],'4価剛体頂点の隣接折り線内積0を維持。','Miura格子モードは静的格子の説明で運動を主張しない。'],
  ['15','ORI28','円柱の母線と局所等長',['default'],'X(u,v)=(Rcos(u/R),Rsin(u/R),v)はE=G=1,F=0。','円柱の可展性モデルで曲線折り線の実物運動全体ではない。']
@@ -101,10 +101,15 @@ export function stateAt(id,t,mode='default'){
   checks.push(metric('回転半径',Math.hypot(a,b),1),metric('面内単位距離',1,1));
   values={theta,folded:t>=.65,projectedCutX:a};readout='折り角='+(180*theta/Math.PI).toFixed(1)+'°。終端ではx=+1とx=−1が一致。';
  }else if(id==='12'){
-  const r=.6,s=.45,A=[-.65,0],B=[.65+.8*t,0],d=B[0]-A[0],gap=d-r-s;
-  add(ring(0,...A,r,'face'),ring(0,...B,s,'faceAlt'),line(0,...A,...B,'target'),ring(1,...A,r,'face'),ring(1,...B,s,'faceAlt'),line(1,...A,...B,'target'));
+  // Move the centres through the three logically different cases:
+  // overlap (d<r+s), contact (d=r+s), and interior-disjoint (d>r+s).
+  // The exact contact frame is t=1/4 so step-by-step controls land on it.
+  const r=.6,s=.45,d=.65+1.6*t,A=[-.65,0],B=[A[0]+d,0],gap=d-r-s;
+  const kind=gap<-1e-9?'重複（制約違反）':Math.abs(gap)<=1e-9?'一点で接する（等号成立）':'離れている（内部非交差）';
+  add(ring(0,...A,r,'face'),ring(0,...B,s,'faceAlt'),line(0,...A,...B,'target'));
   checks.push(metric('中心距離',norm(A[0]-B[0],A[1]-B[1]),d),metric('半径和',r+s,1.05));
-  values={r,s,A,B,d,gap,nonoverlap:gap>=0};readout='中心距離d='+d.toFixed(3)+'、半径和1.05、余裕d−1.05='+gap.toFixed(3)+'。';
+  values={r,s,A,B,d,gap,nonoverlap:gap>=-1e-9,kind};
+  readout='中心距離d='+d.toFixed(3)+'、半径和1.05、差d−1.05='+gap.toFixed(3)+'。'+kind+'。';
  }else if(id==='13'){
   const sites=[[-1,0],[0,0],[1,0],[2,0],[0,1],[0,-1]],shown=Math.min(6,Math.floor(6*t+1e-9));
   for(let j=0;j<6;j++){const [x,y]=sites[j];add(polygon(0,[[x-.5,y-.5],[x+.5,y-.5],[x+.5,y+.5],[x-.5,y+.5]],j<shown?'face':'paper'),label(0,x-.1,y+.1,j+1));}

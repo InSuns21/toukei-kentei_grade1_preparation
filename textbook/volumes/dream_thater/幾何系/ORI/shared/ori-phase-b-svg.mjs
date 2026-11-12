@@ -30,7 +30,33 @@ function itemMarkup(sh,poster){
  if(sh.type==='label'&&!poster){const a=xy(sh.p,sh.x,sh.y);return '<text x="'+a[0]+'" y="'+a[1]+'" font-family="system-ui,sans-serif" font-size="15" fill="#243c4f">'+esc(sh.value)+'</text>';}
  return '';
 }
+function circlePackingFrame(state) {
+ const {d,gap}=state.values;
+ const ax=200,bx=ax+154*d,y=230,format=x=>x.toFixed(2);
+ const phase=gap<-1e-9?'重複：条件違反':Math.abs(gap)<=1e-9?'接触：等号成立':'非重複：条件成立';
+ return [
+  '<rect x="2" y="2" width="756" height="426" rx="12" fill="#f8fbfd" stroke="#8ca3b3"/>',
+  '<text x="26" y="43" font-size="20" font-weight="700" font-family="system-ui,sans-serif" fill="#243c4f">ORI-V12　中心距離で円板の重なりを判定</text>',
+  '<text x="27" y="78" font-size="17" font-family="system-ui,sans-serif" fill="#243c4f">半径 r₁=0.60（実線）、r₂=0.45（破線）は固定</text>',
+  `<line x1="${ax}" y1="126" x2="${format(bx)}" y2="126" stroke="#475f71" stroke-width="1.8"/>`,
+  `<line x1="${ax}" y1="119" x2="${ax}" y2="133" stroke="#475f71" stroke-width="1.8"/>`,
+  `<line x1="${format(bx)}" y1="119" x2="${format(bx)}" y2="133" stroke="#475f71" stroke-width="1.8"/>`,
+  `<text x="${format((ax+bx)/2)}" y="110" text-anchor="middle" font-size="17" font-family="system-ui,sans-serif" fill="#243c4f">d=${format(d)}</text>`,
+  `<circle cx="${ax}" cy="${y}" r="92.40" fill="#d3e9f4" fill-opacity=".48" stroke="#185b82" stroke-width="3"/>`,
+  `<circle cx="${format(bx)}" cy="${y}" r="69.30" fill="#f7deb6" fill-opacity=".48" stroke="#a35227" stroke-width="3" stroke-dasharray="9 5"/>`,
+  `<line x1="${ax}" y1="${y}" x2="${format(bx)}" y2="${y}" stroke="#496375" stroke-width="1.7" stroke-dasharray="4 5"/>`,
+  `<circle cx="${ax}" cy="${y}" r="5" fill="#173044"/>`,
+  `<circle cx="${format(bx)}" cy="${y}" r="5" fill="#173044"/>`,
+  '<text x="142" y="210" font-size="17" font-family="system-ui,sans-serif" fill="#173044">r₁</text>',
+  `<text x="${format(bx+25)}" y="210" font-size="17" font-family="system-ui,sans-serif" fill="#173044">r₂</text>`,
+  `<text x="${ax-6}" y="347" font-size="17" font-family="system-ui,sans-serif" fill="#243c4f">A</text>`,
+  `<text x="${format(bx-6)}" y="347" font-size="17" font-family="system-ui,sans-serif" fill="#243c4f">B</text>`,
+  `<text x="27" y="395" font-size="17" font-family="system-ui,sans-serif" fill="#243c4f">d−1.05=${format(gap)}</text>`,
+  `<text x="420" y="395" font-size="17" font-weight="700" font-family="system-ui,sans-serif" fill="#243c4f">${phase}</text>`
+ ].join('\n');
+}
 export function svgFrame(state,poster=false){
+ if(state.id==='12')return circlePackingFrame(state);
  const head=[
  '<defs>'+(state.id==='10'?"<marker id=\"ori-b-order-arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"6\" refY=\"3\" orient=\"auto\" markerUnits=\"strokeWidth\"><path d=\"M0 0 L6 3 L0 6\" fill=\"none\" stroke=\"#684e87\" stroke-width=\"1.5\"/></marker>":'')+'<clipPath id="ori-b-left"><rect x="24" y="89" width="332" height="294"/></clipPath><clipPath id="ori-b-right"><rect x="404" y="89" width="332" height="294"/></clipPath></defs>',
  '<rect x="2" y="2" width="756" height="426" rx="12" fill="#f8fbfd" stroke="#8ca3b3"/>',
