@@ -1,0 +1,46 @@
+id: HOLO7
+title: "作用の境界値問題"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO6
+  - QCURV1
+official_scope: []
+learning_objectives:
+  - 有限cutoffのEuclid AdSにおける体積密度・境界面積密度・両端の外向き法線を符号付きで計算できる
+  - 実スカラー作用の境界付き第一変分を部分積分から導出し、Dirichletと自然Neumann条件を区別できる
+  - 内部方程式とon-shell作用の境界表示を導き、境界値の変分が法線応答を返す条件を説明できる
+  - 質量零の動径零モードの二つの積分定数を境界値で決め、正準運動量密度と作用を独立に検算できる
+  - 非負質量二乗のDirichlet一意性と境界応答の対称性・正値性を証明し、負質量での証明の限界を述べられる
+  - 有限cutoffのDirichletデータ、無限遠の源、Lorentz初期データ・状態を混同せず区別できる
+definitions:
+  - { id: HOLO7-DEF-01, name: 有限cutoffのEuclidスカラー作用 }
+  - { id: HOLO7-DEF-02, name: 有限cutoffのDirichletデータ }
+  - { id: HOLO7-DEF-03, name: cutoff面の法線運動量密度 }
+  - { id: HOLO7-DEF-04, name: 有限cutoffの境界応答写像 }
+theorems:
+  - { id: HOLO7-PROP-01, name: Euclidスカラー作用の境界付き第一変分 }
+  - { id: HOLO7-PROP-02, name: on-shell作用の境界表示と境界微分 }
+  - { id: HOLO7-PROP-03, name: 非負質量二乗での一意性・応答の対称性 }
+canonical_examples:
+  - 有限円筒の両端法線と誘導密度を計算する
+  - 定数場の作用と自由変分を直接計算する
+  - 両端Dirichletを保つ変分方向と破る方向を対照する
+  - 質量零の動径零モードを解いて境界応答とon-shell作用を検算する
+  - 差の解のエネルギー積分でDirichletの一意性を示す
+  - Lorentz帯状領域で同じ境界履歴と異なる初期値を比較する
+problem_patterns:
+  - HOLO7-NORMAL-DENSITIES
+  - HOLO7-FLUX-ORIENTATION
+  - HOLO7-RADIAL-ZERO-MODE
+  - HOLO7-TWO-DIRICHLET-VALUES
+  - HOLO7-LORENTZ-INITIAL-STATE
+  - HOLO7-BOUNDARY-VARIATION
+  - HOLO7-DIRICHLET-UNIQUENESS
+  - HOLO7-RESPONSE-SYMMETRY
+  - HOLO7-MOMENTUM-MODES
+  - HOLO7-ONSHELL-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 5 }
