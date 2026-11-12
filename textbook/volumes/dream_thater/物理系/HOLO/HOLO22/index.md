@@ -10,7 +10,7 @@
 
 境界の空間領域 $A$ は、境界のある空間的Cauchy断面上の領域です。その境界 $\partial A$ をバルクの奥で埋める余次元2の**空間的**曲面を考えます。「空間的」とは曲面に制限した計量 $h$ が正定値で、曲面上の長さ・面積が実数として定義できることです。バルクが$d+1$次元なら曲面は$d-1$次元です。
 
-曲面の場所を動かす方向は、局所的に時間的方向と空間的方向の二つです。面積の一次変分を任意のコンパクト支持法線変位 $V$ に対して零にする条件を、平均曲率ベクトル $H^a=0$ と書きます。前章の[固定面の二方向の極値条件](../HOLO21/index.md#prop-holo21-fixed-surface)が、Euclid模型で現れたのと対応しますが、ここではLorentz符号で扱います。
+曲面の場所を動かす法線方向は、局所的に時間的方向と空間的方向の二つです。曲面上の局所座標を $\sigma^i$、接ベクトルを $e_i^a=\partial X^a/\partial\sigma^i$ とすれば、誘導計量は $h_{ij}=g_{ab}e_i^ae_j^b$ です。その逆行列 $h^{ij}$ を用いて二つの法線方向の第二基本形式を縮約すると、面積一次変分を支配する**平均曲率ベクトル** $H^a$ が得られます。$H^a=0$ とは、アンカーを固定した任意のコンパクト支持法線変位 $V$ に対して面積一次変分が零という意味です。前章の[固定面の二方向の極値条件](../HOLO21/index.md#prop-holo21-fixed-surface)ではEuclid模型でこの構造を確認しましたが、ここではLorentz符号の法線を使います。null法線による具体的な判定式は第2節で導きます。
 
 <a id="def-holo22-hrt-surface"></a>
 
@@ -28,14 +28,26 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-hrt-surface -->
-**定義の確認**（静的な場合）。 Poincaré $AdS_3$ の $t=0$ 断面上で、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$ を取ります。時間反転対称な断面では時間方向の一次変分が零で、空間方向は[HOLO18の半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)です。したがって両方向の変分が零です。半円と境界区間が囲む半円板は[相同条件](../HOLO19/index.md#def-holo19-homology)を満たします。単に「半円らしい」からではなく、アンカー・相同・空間的性質・二方向の停留性をそれぞれ確認しています。
+**定義の確認**（静的な場合）。 Poincaré $AdS_3$ の $t=0$ 断面上で、$R>0$、$x=\pm R$ を結ぶ半円 $x^2+z^2=R^2$（$z>0$）を取ります。端点は指定された $\partial A$ に一致し、三次元時空内の曲線なので余次元2です。曲線上で $dt=0$ かつ
+
+$
+ds_\gamma^2=\frac{L^2}{z^2}(dx^2+dz^2)>0
+$
+
+となるため空間的です。空間方向には[HOLO18の半円測地線](../HOLO18/index.md#prop-holo18-regulated-length)の停留性を使います。一方 $t\mapsto-t$ が等長な時間反転であり、$t=0$ にある曲線の時間法線変位の符号を反転するため、長さの一次係数は零です。こうして独立な二方向とも面積（ここでは長さ）が停留します。半円と境界区間が囲む半円板 $R_A$ は $\partial R_A=A+\gamma\pmod2$ なので、[相同条件](../HOLO19/index.md#def-holo19-homology)も満たします。これは極値**候補**であることの直接確認であり、一般時空の候補選択まで証明したわけではありません。
 <!-- definition-example-end -->
 
 注意すべき点は、**時空全体で面積を最小にする**とは言っていないことです。Lorentz符号では時間方向の変形によって空間的曲線の長さが**減る**ことさえあります。静的RTの「ある空間断面上の最小」と、HRTの「時空内での停留」を混同してはいけません。
 
 ## 2. 二つのnull方向を使って極値条件を判定する
 
-時間的・空間的な法線を使う代わりに、二つの未来向きnull法線 $k^a,l^a$ を使うこともできます。nullとは $g_{ab}k^ak^b=0$ という意味です。二方向を独立にし、$g(k,l)=-1$ に規格化します。曲面に沿った計量の逆 $h^{ab}$ を曲面接方向へ拡張すると、$k$ 方向へ動かしたときの面積の局所的な対数変化率を計算できます。次にその式を明示します。
+時間的・空間的な法線を使う代わりに、二つの未来向きnull法線 $k^a,l^a$ を使うこともできます。nullとは $g_{ab}k^ak^b=0$ という意味です。二方向を独立にし、$g(k,l)=-1$ に規格化します。第1節の接ベクトル $e_i^a$ と逆誘導計量 $h^{ij}$ から
+
+$
+h^{ab}=h^{ij}e_i^ae_j^b
+$
+
+と置きます。これは逆行列を時空全体で取るのではなく、**曲面接方向だけへの射影**として拡張したテンソルです。法線 $k$ に対して $h^{ab}k_b=0$ が成り立ちます。法線方向に面を動かしたとき、誘導計量の一次変化から面積密度の対数変化率を計算するのが次の膨張率です。
 
 <a id="def-holo22-null-expansion"></a>
 
@@ -52,9 +64,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo22-null-expansion -->
-**定義の確認**（拡大縮小と零条件）。 Minkowskiの $1+2$ 次元時空 $ds^2=-dt^2+dx^2+dy^2$ において、$t=0$ 上の半径 $r$ の円を取ります。未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とすると $g(k,l)=-1$ です。円周は $2\pi r$ ですから、外向きnull方向の半径変化率は $1/\sqrt2$、内向きは $-1/\sqrt2$ となり、
+**定義の確認**（拡大縮小と零条件）。 Minkowskiの $1+2$ 次元時空 $ds^2=-dt^2+dx^2+dy^2$ において、$t=0$ 上の半径 $r$ の円を取ります。未来向き法線を $k=(\partial_t+\partial_r)/\sqrt2$、$l=(\partial_t-\partial_r)/\sqrt2$ とすると $g(k,l)=-1$ です。円周 $\ell(r)=2\pi r$ の変化を、各null法線に沿ったパラメータ $\lambda$ で求めます。誘導計量は $h_{\phi\phi}=r^2$ であり、$\theta_{(k)}=h^{ab}\nabla_a k_b$ は $\ell^{-1}d\ell/d\lambda$ に一致します。実際、$dr/d\lambda=\pm1/\sqrt2$ ですから
+
+$
+\frac1\ell\frac{d\ell}{d\lambda}
+=\frac{1}{2\pi r}\,2\pi\frac{dr}{d\lambda}
+=\pm\frac1{\sqrt2\,r}.
+$
+
+> 従って二方向について
 >
-$$
+$
 \theta_{(k)}=\frac{1}{\sqrt2\,r},\qquad
 \theta_{(l)}=-\frac{1}{\sqrt2\,r}.
 $$
@@ -119,7 +139,9 @@ T=\Gamma\bigl((t-t_c)-v(x-x_c)\bigr),\qquad
 X=\Gamma\bigl((x-x_c)-v(t-t_c)\bigr)
 $$
 
-です。実際に微分すると $-dT^2+dX^2=-dt^2+dx^2$ となるため、$z$ を変えないこのboostはバルクの等長変換です。二端点は $T=0,\ X=\pm R$ に移ります。
+です。実際に $dT=\Gamma(dt-v\,dx)$、$dX=\Gamma(dx-v\,dt)$ を代入すると、$\Gamma^2(1-v^2)=1$ から $-dT^2+dX^2=-dt^2+dx^2$ です。従って $z$ を変えないこのboostはバルクの等長変換で、二端点は $T=0,\ X=\pm R$ に移ります。
+
+以下の中央電荷 $c_{\rm BH}$ は、純三次元Einstein重力・標準的Brown–Henneaux型境界条件・左右同じ中央電荷の境界CFTを仮定した[Brown–Henneaux関係](../HOLO13/index.md#prop-holo13-brown-henneaux)による $c_{\rm BH}=3L/(2G_3)$（$G_3>0$）です。一般の高階微分重力へ無条件に流用しません。
 
 <a id="prop-holo22-boosted-geodesic"></a>
 
@@ -200,19 +222,19 @@ $$
 
 ## 4. 極値が時間方向では最大、空間方向では最小になる局所計算
 
-静的な $T=0$ 半円で $X^2+z_0(X)^2=R^2$、$z_0(X)=\sqrt{R^2-X^2}$ とします。cutoffより内側の固定区間で、両端を動かさない滑らかな関数 $f(X)$ を取り、$T(X)=\eta f(X)$ とだけ変形します。$\eta$ を十分小さくすれば曲線は空間的なままです。
+静的な $T=0$ 半円で $X^2+z_0(X)^2=R^2$、$z_0(X)=\sqrt{R^2-X^2}$ とします。理想境界 $X=\pm R$ では $z_0=0$ となり、**半円全体の長さは発散**します。そこで $0<\epsilon<R$ を固定し、$a_\epsilon=\sqrt{R^2-\epsilon^2}$ として長さ $\mathcal L_\epsilon$ を区間 $[-a_\epsilon,a_\epsilon]$ で定義します。両端近くでは零になる滑らかな $f(X)$ を選び、支持が $(-a_\epsilon,a_\epsilon)$ に収まるようにします。$T(X)=\eta f(X)$ とだけ変形すればcutoff端点は動きません。$\eta$ を十分小さくすると、誘導計量は正のままで曲線は空間的です。
 
 <a id="prop-holo22-local-saddle"></a>
 
 <!-- formal-statement-start -->
 > **命題（半円曲線の時間法線に沿う局所最大性）**  
-> $R>0$ とし、$f$ を $(-R,R)$ 内にコンパクト支持を持つ滑らかな非定数関数とする。$X^2+z_0^2=R^2$ を固定して $T=\eta f(X)$ と変形した曲線の長さは、$\eta\to0$ において
+> $L,R>0$、$0<\epsilon<R$ を固定し、$a_\epsilon=\sqrt{R^2-\epsilon^2}$ とする。$f$ を $(-a_\epsilon,a_\epsilon)$ にコンパクト支持を持つ滑らかな非定数関数とする。$X^2+z_0^2=R^2$ を固定して $T=\eta f(X)$ と変形した曲線の、同じcutoff端点間の有限長さは $\eta\to0$ において
 >
-$$
-\mathcal L(\eta)=\mathcal L(0)
--\frac{L\eta^2}{2R}\int_{-R}^{R}(f'(X))^2\,dX
+$
+\mathcal L_\epsilon(\eta)=\mathcal L_\epsilon(0)
+-\frac{L\eta^2}{2R}\int_{-a_\epsilon}^{a_\epsilon}(f'(X))^2\,dX
 +O(\eta^4).
-$$
+$
 >
 > よって一次変分は零、非自明な時間方向の二次変分は負である。一方、$T=0$ 内での半円は空間的な最短測地線であり、HRT面の停留性を時空全体での最小性と呼んではならない。
 <!-- formal-statement-end -->
@@ -227,8 +249,8 @@ Lorentz符号の負項 $-dT^2$ が長さに入ることを、実際の曲線の�
 $z_0'=-X/z_0$ であるから $1+(z_0')^2=R^2/z_0^2$ です。変形後の長さは
 
 $$
-\mathcal L(\eta)
-=L\int_{-R}^{R}\frac1{z_0}
+\mathcal L_\epsilon(\eta)
+=L\int_{-a_\epsilon}^{a_\epsilon}\frac1{z_0}
 \sqrt{1+(z_0')^2-\eta^2(f')^2}\,dX.
 $$
 
@@ -239,9 +261,9 @@ $$
 =\frac{LR}{z_0^2}-\frac{L\eta^2}{2R}(f')^2+O(\eta^4).
 $$
 
-支持の外では差が零なので積分した剰余も $O(\eta^4)$ です。$f$ が非定数かつコンパクト支持なら $\int(f')^2dX>0$。従って時間方向で二次変分は負です。
+$\epsilon$ を固定すれば $z_0\ge\epsilon>0$ であり、$f$ の支持の外では差が零なので積分した剰余も $O(\eta^4)$ です。$f$ が非定数かつコンパクト支持なら $\int_{-a_\epsilon}^{a_\epsilon}(f')^2dX>0$。従って $\mathcal L_\epsilon'(0)=0$ で二次変分は負です。発散する無正則化長の差を取っているのではありません。
 
-他方、$T=0$ 内で空間曲線 $z=z(X)$ の長さ汎関数は $L\int \sqrt{1+(z')^2}\,z^{-1}dX$。Euler–Lagrange式の両辺を半円へ代入すると
+他方、$T=0$ 内での空間曲線 $z=z(X)$ の長さ汎関数は $L\int F(z,z')\,dX$ と書けます。ここで $z'=dz/dX$、$F(z,z')=\sqrt{1+(z')^2}/z$ は定数 $L$ を除いた被積分関数です。Euler–Lagrange式 $d(\partial F/\partial z')/dX=\partial F/\partial z$ に半円を代入すると
 
 $$
 \frac{\partial F}{\partial z}=-\frac R{z_0^3},\qquad
@@ -428,14 +450,15 @@ $$
 **B2. 時間変分の符号と停留性。** 半円 $z_0(X)=\sqrt{R^2-X^2}$ を固定し、$T=\eta f(X)$ とする。$f$ は端点近傍で0とする。長さの$\eta$一次項、二次項を計算し、時空最小の誤用を指摘せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** $1+(z_0')^2=R^2/z_0^2$ なので、[局所変分命題](#prop-holo22-local-saddle)の出発式は
+**詳細解答。** cutoff $0<\epsilon<R$ を固定し、$f$ の支持を $(-a_\epsilon,a_\epsilon)$ に含めます。$1+(z_0')^2=R^2/z_0^2$ なので、[局所変分命題](#prop-holo22-local-saddle)の出発式は
 
-$$
-\mathcal L(\eta)=L\int \frac1{z_0}
+$
+\mathcal L_\epsilon(\eta)
+=L\int_{-a_\epsilon}^{a_\epsilon}\frac1{z_0}
 \sqrt{\frac{R^2}{z_0^2}-\eta^2(f')^2}\,dX.
 $$
 
-平方根の展開で一次項はなく、二次係数は $-L(2R)^{-1}\int(f')^2dX$。非定数 $f$ ならこの積分は正で、$\mathcal L'(0)=0$、$\mathcal L''(0)=-(L/R)\int(f')^2dX<0$。時間方向へ動かすと長さは減るため、停留面を時空内の大域最小とみなす論法が破綻します。
+$z_0\sqrt{1+(z_0')^2}=R$ を用いた平方根の展開で一次項はなく、二次係数は $-L(2R)^{-1}\int_{-a_\epsilon}^{a_\epsilon}(f')^2\,dX$。非定数 $f$ ならこの積分は正で、$\mathcal L_\epsilon'(0)=0$、$\mathcal L_\epsilon''(0)=-(L/R)\int_{-a_\epsilon}^{a_\epsilon}(f')^2\,dX<0$。時間方向へ動かすと長さは減るため、停留面を時空内の大域最小とみなす論法が破綻します。
 <!-- solution-end -->
 
 <a id="ex-holo22-b03"></a>
@@ -491,12 +514,12 @@ $$
 =2L\log\frac8\epsilon+O(L\epsilon^2/64).
 $$
 
-**（3）** [局所変分命題](#prop-holo22-local-saddle)より
+**（3）** $a_\epsilon=\sqrt{16-\epsilon^2}$ とし、$f$ は $(-a_\epsilon,a_\epsilon)$ にコンパクト支持を持つ非定数関数とします。[局所変分命題](#prop-holo22-local-saddle)で $R=4$ を代入すると
 
-$$
-\mathcal L(\eta)-\mathcal L(0)
-=-\frac{L\eta^2}{8}\int_{-4}^{4}(f')^2\,dX+O(\eta^4).
-$$
+$
+\mathcal L_\epsilon(\eta)-\mathcal L_\epsilon(0)
+=-\frac{L\eta^2}{8}\int_{-a_\epsilon}^{a_\epsilon}(f')^2\,dX+O(\eta^4).
+$
 
 非定数の $f$ で負です。空間方向の最短性は $T=0$ 断面内の比較であり、時間方向を含めた時空最小ではありません。両方向の一次変分が零というHRT極値性とは矛盾しません。
 
