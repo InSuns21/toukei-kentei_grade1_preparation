@@ -22,7 +22,7 @@ $b$ を固定すると、求めたい $R(b)$ から各 $F(a)$ に**射影**を�
 
 <!-- formal-statement-start -->
 > **定義（右Kan拡張のcomma添字図式）**
-> 小圏 $\mathcal A,\mathcal B$、関手 $K:\mathcal A\to\mathcal B$、$b\in\mathcal B$ を取る。圏 $(b\downarrow K)$ の対象は $(a,u)$（$a\in\mathcal A$、$u:b\to Ka$）である。射 $(a,u)\to(a',u')$ は $\mathcal A$ の射 $f:a\to a'$ で、次を満たすものとする。
+> 小圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$、関手 $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$、$b\in\mathcal B$ を取る。圏 $(b\downarrow K)$ の対象は $(a,u)$（$a\in\mathcal A$、$u:b\to Ka$）である。射 $(a,u)\to(a',u')$ は $\mathcal A$ の射 $f:a\to a'$ で、次を満たすものとする。
 
 $$
 K(f)\,u=u'.
@@ -44,7 +44,7 @@ $$
 K(gf)u=K(g)K(f)u=K(g)u'=u''
 $$
 
-なので合成しても条件が保たれる。射影は $\pi_b(gf)=gf=\pi_b(g)\pi_b(f)$ を満たす。従って対象・射・合成を本当に持つ圏と関手になった。
+なので合成しても条件が保たれる。射影は $\pi_b(1_{(a,u)})=1_a$ と $\pi_b(gf)=gf=\pi_b(g)\pi_b(f)$ を満たす。今回の $D_0=F\pi_0$ は唯一の対象へ $X$、唯一の恒等射へ $1_X$ を送る図式であり、$D_1=F\pi_1$ は空図式になる。従って対象・射・合成を本当に持つ圏と関手、およびその上の図式を確認できた。
 <!-- definition-example-end -->
 
 **小ささの確認。** 添字圏の対象は各 $a$ について $\operatorname{Hom}_{\mathcal B}(b,Ka)$ を集めた集合であり、
@@ -72,7 +72,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（点ごとの右Kan拡張の極限構成）**
-> 小圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$ と関手 $K,F$ を取る。各 $b\in\mathcal B$ で $D_b=F\pi_b$ の極限が存在すると仮定し、その一つを $R(b)$ と選ぶ。各 $(a,u:b\to Ka)$ に対する極限錐の射を $p^b_{a,u}:R(b)\to F(a)$ と書く。すなわち
+> 小圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$ と関手 $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$ を取る。各 $b\in\mathcal B$ で $D_b=F\pi_b$ の極限が存在すると仮定し、その一つを $R(b)$ と選ぶ。各 $(a,u:b\to Ka)$ に対する極限錐の射を $p^b_{a,u}:R(b)\to F(a)$ と書く。すなわち
 
 $$
 R(b)=\underset{(a,u:b\to Ka)\in(b\downarrow K)}
