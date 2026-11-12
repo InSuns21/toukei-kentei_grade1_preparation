@@ -13,6 +13,8 @@ $$
 
 境界座標 $x$ は局所的には $\mathbb R^d$、積分の赤外調整が必要な場合は平坦な周期箱とします。$m^2$ は実数であり、負でも構いません。安定性と正規化可能性を論じる節では、時間方向を一つ持つLorentz Poincaré計量に切り替えることをその場で明記します。
 
+<a id="ref-holo8-radial-equation"></a>
+
 ## 1. 境界へ近づくと二つの冪が現れる
 
 [HOLO7のスカラー方程式](../HOLO7/index.md#prop-holo7-boundary-variation)を上の計量で成分表示します。$g^{zz}=z^2/L^2$、$\sqrt{g}=L^{d+1}z^{-d-1}$ だから
@@ -22,8 +24,6 @@ $$
 $$
 
 ここで $\Delta_x=\sum_i\partial_i^2$ は境界方向の通常のLaplace作用素です。波数 $k$ の実Fourier成分 $\phi(z,x)=f_k(z)e^{ik\cdot x}$ を一つ取り出すと、$\Delta_xe^{ik\cdot x}=-|k|^2e^{ik\cdot x}$ により
-
-<a id="ref-holo8-radial-equation"></a>
 
 $$
 z^2 f_k''-(d-1)zf_k'-(|k|^2z^2+m^2L^2)f_k=0. 
@@ -97,6 +97,8 @@ $$
 
 **境界次元との接続**：[HOLO4の境界拡大縮小](../HOLO4/index.md#def-holo4-induced-boundary-action)と[QFT48のスカラー一次場](../../QFT/QFT48/index.md#def-qft48-scalar-primary)を念頭に、バルクの座標を $(z,x)\mapsto(\lambda z,\lambda x)$ と拡大すると計量は変わりません。境界源が次元 $d-\Delta$ の量として変換するという**双対性の辞書を仮定**した場合、境界近くの源に掛かる冪は $z^{d-\Delta}$ です。標準的選択では遅い指数が $d-\Delta_+=\Delta_-$ なので、演算子次元の候補が $\Delta_+$ となります。これは境界対称性と整合する関係であって、一般のCFTに演算子の存在を保証する定理ではありません。
 
+<a id="ref-holo8-square"></a>
+
 ## 2. BF下限はなぜ負の質量二乗を許すか
 
 平坦空間の自由場では負の質量二乗に不安定性を連想します。しかしAdSには動径方向の幾何学的な勾配コストがあります。その量を**平方完成**で計算して、境界を無視した「$m^2<0$ なら即不安定」という推論を避けます。
@@ -147,8 +149,6 @@ z^{1-d}(f')^2
 $$
 
 $u$ はコンパクト台なので $\int_0^\infty duu'\,dz=(d/2)[u^2]_0^\infty=0$。したがって
-
-<a id="ref-holo8-square"></a>
 
 $$
 \frac{Q_m[f]}{L^{d-1}}
