@@ -4,7 +4,7 @@
 
 局所観測量の強作用素・弱作用素極限も扱いたい。そこで、状態から得たGNS表現を先に固定し、その**像の二重可換子**を取ります。本講の問いは「何を閉包すると局所性が残り、状態はどの意味で連続になり、状態を替えると何が変わるのか」です。
 
-使用する既習結果は、[OA5のGNS構成](../../OA/OA5/index.md#thm-oa5-gns)、[VN2の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)、[VN5の正規状態](../../VN/VN5/index.md#def-vn5-normal-state)です。計量は $(-,+,+,+)$ とし、時空領域の空間的分離は[AQFT1の定義](../AQFT1/index.md#def-aqft1-separated-regions)に従います。この段階ではReeh–Schlieder性、Haag双対性、局所環のType III性は仮定も証明もしません。
+使用する既習結果は、[OA5のGNS構成](../../OA/OA5/index.md#thm-oa5-gns)、[VN2の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)、[VN5の正規状態](../../VN/VN5/index.md#def-vn5-normal-state)です。計量は $(-,+,+,+)$ とし、時空領域の空間的分離は[AQFT1の定義](../AQFT1/index.md#def-aqft1-separated-regions)に従います。この段階ではReeh–Schlieder性、Haag双対性、局所von Neumann環のType III性は仮定も証明もしません。
 
 ## 1. 一つの状態を選んでから弱閉包を取る
 
@@ -20,7 +20,7 @@ $$
 
 となります。内積は第2変数線形とします。**この巡回性は全域 $\mathfrak A$ に対するもの**です。
 
-続いて[VN2の可換子](../../VN/VN2/index.md#def-vn2-commutant)を使います。$S\subset B(\mathcal H_\omega)$ に対して $S'$ は $S$ のすべての元と可換な有界作用素の集合、$S''=(S')'$ は二重可換子です。$*$-閉な単位的代数では、[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により、$S''$ が強作用素位相（SOT）・弱作用素位相（WOT）の閉包と一致します。WOT収束とは、すべての $\xi,\eta\in\mathcal H_\omega$ に対して行列係数 $\langle\xi,T_\alpha\eta\rangle$ が収束することです。
+続いて[VN2の可換子](../../VN/VN2/index.md#def-vn2-commutant)を使います。$S\subset B(\mathcal H_\omega)$ に対して $S'$ は $S$ のすべての元と可換な有界作用素の集合、$S''=(S')'$ は二重可換子です。$*$-閉な単位的代数では、[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により、$S''$ が強作用素位相（SOT）・弱作用素位相（WOT）の閉包と一致します。[VN1の弱作用素位相](../../VN/VN1/index.md#def-vn1-wot)で収束するとは、すべての $\xi,\eta\in\mathcal H_\omega$ に対して行列係数 $\langle\xi,T_\alpha\eta\rangle$ が収束することです。
 
 <a id="def-aqft9-local-vn-net"></a>
 
@@ -113,7 +113,7 @@ $$
 =\pi_\omega(B)\pi_\omega(A).
 $$
 
-$S=\pi_\omega(\mathfrak A(O_1))$、$T=\pi_\omega(\mathfrak A(O_2))$ と書くと $S\subset T'$ です。[VN2の可換子のWOT閉性](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)と二重可換子定理から、$S$ のWOT閉包 $S''$ も $T'$ に入ります：
+$S=\pi_\omega(\mathfrak A(O_1))$、$T=\pi_\omega(\mathfrak A(O_2))$ と書くと $S\subset T'$ です。[可換子のWOT閉性](../../VN/VN2/index.md#prop-vn2-commutant-wot-closed)と[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から、$S$ のWOT閉包 $S''$ も $T'$ に入ります：
 
 $$
 S''\subset T'.
@@ -281,7 +281,7 @@ $$
 \longrightarrow0.
 $$
 
-被積分関数は $|\xi|^2\in L^1$ で上から抑えられ、ほとんど至る所で零へ収束するため、Lebesgueの優収束定理を適用しました。これがSOT収束です。[VN2の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から $P\in\pi(C([0,1]))''$ です。
+被積分関数は $|\xi|^2\in L^1$ で上から抑えられ、ほとんど至る所で零へ収束するため、Lebesgueの優収束定理を適用しました。これがSOT収束です。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から $P\in\pi(C([0,1]))''$ です。
 
 仮に $P=\pi(f)$ となる連続関数 $f$ があれば、$f=1$ が $(0,1/2)$ 上のほとんど至る所、$f=0$ が $(1/2,1)$ 上のほとんど至る所で成立します。連続性からそれぞれの開区間の**全点**で同じ等式が成立します。よって $t\uparrow1/2$ での左極限は1、$t\downarrow1/2$ での右極限は0となり、連続性に矛盾します。
 <!-- proof-end -->
@@ -347,7 +347,7 @@ GNSの共変性を各局所C*環へ適用し、共役で可換子を取る操作
 <!-- proof-start -->
 ### 証明
 
-[AQFT3の共変GNS定理](../AQFT3/index.md#thm-aqft3-covariant-gns)により
+[不変状態の共変GNS実装](../AQFT3/index.md#thm-aqft3-covariant-gns)により
 
 $$
 U_\omega(g)\pi_\omega(A)U_\omega(g)^*
@@ -417,7 +417,7 @@ W_{\mathcal F}(G)W_{\mathcal F}(F)
 =e^{i\sigma(F,G)/2}W_{\mathcal F}(F+G)
 $$
 
-なので一致します。第2節の定理を用いれば、生成したvon Neumann環同士も可換になります。零源・随伴・局所性の全条件を確認しました。
+なので一致します。[局所von Neumann netの包含単調性と局所性](#thm-aqft9-isotony-locality)を用いれば、生成したvon Neumann環同士も可換になります。零源・随伴・局所性の全条件を確認しました。
 <!-- definition-example-end -->
 
 <a id="thm-aqft9-fock-gns-local"></a>
@@ -470,7 +470,7 @@ V\mathcal M_{\omega_{\rm vac}}(O)V^*
 \end{aligned}
 $$
 
-最後に、[AQFT6の局所C*netの定理](../AQFT6/index.md#thm-aqft6-haag-kastler)が元のC*netの包含単調性とEinstein局所性を保証します。第2節の[局所von Neumann netの定理](#thm-aqft9-isotony-locality)をそのGNS表現に適用し、ユニタリ $V$ で共役すればFock局所環にも両性質が移ります。
+最後に、[AQFT6の局所C*netの定理](../AQFT6/index.md#thm-aqft6-haag-kastler)が元のC*netの包含単調性とEinstein局所性を保証します。[局所von Neumann netの包含単調性と局所性](#thm-aqft9-isotony-locality)をそのGNS表現に適用し、ユニタリ $V$ で共役すればFock局所環にも両性質が移ります。
 <!-- proof-end -->
 
 [AQFT8で示した真空のFock巡回性](../AQFT8/index.md#prop-aqft8-gns-fock)は**全域Weyl代数**についての結論です。$\overline{\mathcal M_{\rm vac}(O)\Omega_{\mathcal F}}=\mathcal F$ や、$X\Omega_{\mathcal F}=0\Rightarrow X=0$ が各局所 $O$ について成立するとは、ここでは結論しません。前者の局所巡回性は後のReeh–Schlieder定理で、後者の分離性は非空な空間的補領域と局所性を組み合わせて検討します。
