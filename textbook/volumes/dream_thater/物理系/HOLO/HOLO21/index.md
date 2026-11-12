@@ -36,7 +36,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo21-gravity-replica -->
-**直接例：規格化を落とさない。** 有限二準位で $\rho_A=\operatorname{diag}(3/4,1/4)$ とすると、$R_2=(3/4)^2+(1/4)^2=5/8$ です。未規格化演算子を $W=Z_1\rho_A$ と置くと $\operatorname{Tr}W^2=Z_1^2(5/8)$、従って $\operatorname{Tr}W^2/(\operatorname{Tr}W)^2=5/8$。重力でも $-I_2$ だけを微分せず、分母による $+nI_1$ を残す必要があります。
+**定義の確認**（規格化を落とさない例）。 有限二準位で $\rho_A=\operatorname{diag}(3/4,1/4)$ とすると、$R_2=(3/4)^2+(1/4)^2=5/8$ です。未規格化演算子を $W=Z_1\rho_A$ と置くと $\operatorname{Tr}W^2=Z_1^2(5/8)$、従って $\operatorname{Tr}W^2/(\operatorname{Tr}W)^2=5/8$。重力でも $-I_2$ だけを微分せず、分母による $+nI_1$ を残す必要があります。
 <!-- definition-example-end -->
 
 物理的に適切な $n=1$ 近傍の連続・微分可能な拡張が得られ、規格化 $R_1=1$ と微分・正則化極限の交換を正当化できるなら、[有限次元レプリカ微分公式](../../QFT/QFT57/index.md#thm-qft57-replica-derivative)に対応する重力側の形式は
@@ -69,7 +69,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo21-quotient-cone -->
-**直接例：角度と次元を確認する。** $n=2$ なら商の角度周期は $\pi$、欠損は $\pi$、$n=3$ なら周期 $2\pi/3$、欠損 $4\pi/3$ です。$n=1$ へ戻すと周期 $2\pi$、欠損0です。$d+1$ 次元のバルクではこの横断二次元を除いた $\mathcal C_n$ の次元は $(d+1)-2=d-1$。特に $AdS_3$ では曲線、$AdS_4$ では曲面です。
+**定義の確認**（角度と次元）。 $n=2$ なら商の角度周期は $\pi$、欠損は $\pi$、$n=3$ なら周期 $2\pi/3$、欠損 $4\pi/3$ です。$n=1$ へ戻すと周期 $2\pi$、欠損0です。$d+1$ 次元のバルクではこの横断二次元を除いた $\mathcal C_n$ の次元は $(d+1)-2=d-1$。特に $AdS_3$ では曲線、$AdS_4$ では曲面です。
 <!-- definition-example-end -->
 
 | 見る空間 | 固定点のまわりの局所角 | 正則性 |
@@ -366,14 +366,14 @@ $$
 - Level: B
 <!-- solution-start -->
 **詳細解答。** 正整数 $k$ では $\sin(\pi k)=0$ なので、両関数はすべての整数点で一致します。ところが微分すると
-$
+$$
 F'(n)=K,\qquad
 \widetilde F'(n)=K+\eta\pi\cos(\pi n).
-$
+$$
 よって $n=1$ での微分差は
-$
+$$
 \widetilde F'(1)-F'(1)=\eta\pi\cos\pi=-\eta\pi.
-$
+$$
 $\eta\ne0$ なら差は零ではありません。したがって解析関数として整数点を補間するだけでは微分は固定されません。
 
 ただし[QFT59の条件付きvon Neumann普遍係数](../../QFT/QFT59/index.md#thm-qft59-conditional-von-neumann)で要求する正値性・スペクトル構造・境界条件・鞍点選択を、この $\widetilde F$ が満たすとは示していません。物理的な別解の存在は結論できません。
