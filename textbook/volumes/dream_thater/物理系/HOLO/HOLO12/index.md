@@ -215,10 +215,23 @@ $$
 +z^{3-d}(-k^2A_i+k_i k_jA_j)=0.
 $$
 
-$P_{ij}k_j=0$を使い、左から$P$を作用させれば命題の横波方程式です。一方、$k_j A_j$の$z$微分は拘束によって零なので、縦成分$a_i^L$は一定です。$d=3$なら横波方程式は$A_i^{T\prime\prime}-k^2A_i^T=0$、一般解は$c_ie^{kz}+d_ie^{-kz}$。$z\to\infty$の減衰で$c_i=0$となり、$z=\epsilon$の境界値から$d_ie^{-k\epsilon}=a_i^{T,\epsilon}$が定まります。縦成分は$ik_i\lambda_0$、$z$成分は零なので、対応する$F_{zi}$も$F_{ij}$も零です。$\square$
+$P_{ij}k_j=0$を使い、左から$P$を作用させれば命題の横波方程式です。一方、$k_j\partial_z A_j=0$から$\partial_z(k_jA_j)=0$であり、$k_i$は$z$に依存しないため
+
+$
+\partial_z A_i^L=\frac{k_i}{k^2}\partial_z(k_jA_j)=0.
+$
+
+従って縦成分$a_i^L$は一定です。$d=3$なら横波方程式は$A_i^{T\prime\prime}-k^2A_i^T=0$です。ここでプライムは$z$微分であり、一般解は$c_ie^{kz}+d_ie^{-kz}$。$z\to\infty$の減衰で$c_i=0$となり、$z=\epsilon$の境界値から
+
+$
+d_ie^{-k\epsilon}=a_i^{T,\epsilon},\qquad
+A_i^T(z,k)=a_i^{T,\epsilon}e^{-k(z-\epsilon)}
+$
+
+と決まります。縦成分は$ik_i\lambda_0$、$z$成分は零なので、対応する$F_{zi}$も$F_{ij}$も零です。$\square$
 <!-- proof-end -->
 
-**直接例**：$d=3$、波数ベクトル$k=(k,0,0)$、$k>0$、境界源$a=(a_1,a_2,0)$を取ります。この直交座標基底では$k_i k_j/k^2=\mathrm{diag}(1,0,0)$だから、射影の成分表示は$P=\mathrm{diag}(0,1,1)$です。$A_1=a_1$は縦の純ゲージ、$A_2=a_2e^{-k(z-\epsilon)}$は横の伝播解となります。$F_{z2}=-ka_2e^{-k(z-\epsilon)}$、$F_{12}=ika_2e^{-k(z-\epsilon)}$で、両方が非零のときだけ場の強さに寄与します。
+**直接例**：$d=3$、波数ベクトル$\boldsymbol{k}=(q,0,0)$、$q>0$、境界源$a=(a_1,a_2,0)$を取ります。この直交座標基底では$k_i k_j/q^2=\mathrm{diag}(1,0,0)$だから、射影の成分表示は$P=\mathrm{diag}(0,1,1)$です。$A_1=a_1$は縦の純ゲージ、$A_2=a_2e^{-q(z-\epsilon)}$は横の伝播解となります。$F_{z2}=-qa_2e^{-q(z-\epsilon)}$、$F_{12}=iqa_2e^{-q(z-\epsilon)}$で、両方が非零のときだけ場の強さに寄与します。
 
 ## 4. 源の次元と$d=3$での2点関数
 
@@ -379,7 +392,13 @@ $$
 =-\int d^dx\,\lambda_0(x)\,\partial_i\langle J^i(x)\rangle_a.
 $$
 
-$\lambda_0$は滑らかなコンパクト台の任意関数なので、分布の基本的な一意性により発散は零です。これを$a_j(y)$で微分し、Fourier変換で$\partial_i\mapsto ik_i$とすれば$k_i G_{ij}(k)=0$です。具体的に[本章の2点核](#prop-holo12-two-point)では
+$\lambda_0$は滑らかなコンパクト台の任意関数なので、分布の基本的な一意性により発散は零です。これをさらに$a_j(y)$で汎関数微分すると
+
+$
+\partial_{x^i}\frac{\delta^2W}{\delta a_i(x)\,\delta a_j(y)}=0
+$
+
+が分布として成立します。並進不変な源零の状態で二次微分を$G_{ij}(x-y)$と書き、$x-y$についてFourier変換すると$\partial_{x^i}\mapsto ik_i$なので$k_iG_{ij}(k)=0$です。具体的に[本章の2点核](#prop-holo12-two-point)では
 
 $$
 k_iG_{ij}(k)
@@ -412,7 +431,20 @@ $\lambda(z,x)=z^2x^1$で$A_a=\partial_a\lambda$とする。$A_z,A_1,F_{z1}$を�
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**：$A_z=\partial_z(z^2x^1)=2zx^1$、$A_1=\partial_1(z^2x^1)=z^2$、他の$A_i$は零です。$F_{z1}=\partial_z A_1-\partial_1 A_z=2z-2z=0$です。他の組の$F$も零なので$F_{ab}F^{ab}=0$、作用密度は零です。$A_a$が非零でも純ゲージであることを成分で確認しました。
+**詳細解答**：境界座標$x^1$と深さ$z$の偏微分を順に行うと
+
+$
+A_z=\partial_z(z^2x^1)=2zx^1,\qquad
+A_1=\partial_1(z^2x^1)=z^2
+$
+
+で、他の$A_i$は零です。従って
+
+$
+F_{z1}=\partial_z A_1-\partial_1 A_z=2z-2z=0.
+$
+
+他の組の$F$も零なので$F_{ab}F^{ab}=0$、作用密度は零です。$A_a$が非零でも純ゲージであることを成分で確認しました。
 <!-- solution-end -->
 
 <a id="ex-holo12-a2"></a>
