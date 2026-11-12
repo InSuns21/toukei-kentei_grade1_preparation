@@ -1,6 +1,6 @@
 # INV14 不完全観測で何が見えなくなるか
 
-[INV12 の Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)によれば、直線の投影値を位置変数について Fourier 変換すると、画像の二次元 Fourier 変換の一断面が得られます。[INV13 のフィルタ補正逆投影](../INV13/index.md#thm-inv13-fbp)では、全方向の断面を積分して画像へ戻しました。
+[INV12 の Fourier slice theorem](../INV12/index.md#thm-inv12-slice)によれば、直線の投影値を位置変数について Fourier 変換すると、画像の二次元 Fourier 変換の一断面が得られます。[INV13 のフィルタ補正逆投影](../INV13/index.md#thm-inv13-fbp)では、全方向の断面を積分して画像へ戻しました。
 
 ところが撮影装置が回転できる範囲は有限であり、撮影角度も離散的です。すると何が一意に分かり、何が分からなくなるのでしょうか。「有限本の方向しかない」「方向が連続的でも角度範囲が狭い」「検出器を離散的に読む」は異なる欠測です。本講では、この三つを分けて、非一意性・一意性・不安定性を直接計算します。
 
@@ -39,7 +39,7 @@ $$
 
 <!-- definition-example-end -->
 
-どの周波数を直接観測したかは、[Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)
+どの周波数を直接観測したかは、[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)
 
 $$
 \mathcal F_s(Rf)(\varphi,\omega)=\widehat f(\omega\theta_\varphi)
@@ -174,7 +174,7 @@ $$
 
 を定義します。$H(-\xi)=H(\xi)$ だから $h$ は実数値です。$H$ と全導関数がコンパクト台を持つことから、上式を $x$ で任意回微分でき、さらに $\xi$ について部分積分すると、全ての多重指数 $a,b$ に対して $x^a\partial_x^b h(x)$ が有界です。従って $h\in\mathcal S$ です。
 
-[Schwartz 級の二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier-inversion)により $\widehat h=H\neq0$ なので $h\neq0$。一方、$\varphi\in I$、$\omega\in\mathbb R$ では $H(\omega\theta_\varphi)=0$ だから、[Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)より
+[Schwartz 級の二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)により $\widehat h=H\neq0$ なので $h\neq0$。一方、$\varphi\in I$、$\omega\in\mathbb R$ では $H(\omega\theta_\varphi)=0$ だから、[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)より
 
 $$
 \mathcal F_s(Rh)(\varphi,\omega)=0.
@@ -203,7 +203,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$h=f_1-f_2\in C_c^\infty$ とします。[Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)と観測データの等しさより $\widehat h=0$ が $W_I$ 上で成立します。$I$ が空でない開区間なので、$W_I$ には原点以外の開集合があり、ある実数 $a<b$、$c<d$ について長方形
+$h=f_1-f_2\in C_c^\infty$ とします。[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と観測データの等しさより $\widehat h=0$ が $W_I$ 上で成立します。$I$ が空でない開区間なので、$W_I$ には原点以外の開集合があり、ある実数 $a<b$、$c<d$ について長方形
 
 $$
 Q=(a,b)\times(c,d)\subset W_I
@@ -226,7 +226,7 @@ $$
 
 次に任意の $\xi_1\in\mathbb R$ を固定し、$\eta_0\in(c,d)$ を取り、同じ議論で $e^{-itx_2}$ を展開します。$\widehat h(\xi_1,\eta_0+t)$ は $\eta_0+t\in(c,d)$ で0なので、全ての実数 $t$ で0です。よって $\widehat h(\xi)=0$ が $\mathbb R^2$ 全体で成立します。
 
-最後に [Schwartz 級の二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier-inversion)を適用すれば $h=0$、すなわち $f_1=f_2$ です。
+最後に [Schwartz 級の二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)を適用すれば $h=0$、すなわち $f_1=f_2$ です。
 <!-- proof-end -->
 
 ここで保証されたのは、**無限精度の連続角度データ**からの一意性です。欠測扇形の周波数値を得るには、観測された値から冪級数の係数を推測し、その展開を大きく延ばす必要があります。小さな観測誤差への頑健性は、まだ何も示していません。
@@ -276,7 +276,7 @@ $$
 
 $g\in C_c^\infty$ とすれば部分積分を繰り返して、任意の整数 $N\geq1$ に対して $|\widehat g(\zeta)|\leq C_N(1+|\zeta|)^{-N}$ です。また指数を掛けた Fourier 変換は $\widehat h_n(\xi)=\widehat g(\xi-nu)$ となります。
 
-[Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel)を角度ごとに適用すると、
+[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)を角度ごとに適用すると、
 
 $$
 \begin{aligned}
@@ -354,7 +354,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier-inversion)と [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel)を二変数に適用し、
+[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)と [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)を二変数に適用し、
 
 $$
 \begin{aligned}
@@ -585,7 +585,7 @@ $$
 
 $|x_1|\le R$ なので総和と積分の交換は $e^{R|t|}\int|h|$ による優越から正当化できます。$t$ が十分小さい区間では左辺は0です。よって各係数が0となり、無限半径の冪級数によって任意の $t\in\mathbb R$ で $\widehat h(\xi_0+t,\eta)=0$ です。
 
-これで全 $\xi_1\in\mathbb R$、$\eta\in(c,d)$ に対し $\widehat h(\xi_1,\eta)=0$ と分かりました。今度は $\xi_1$ を固定し、$\eta_0\in(c,d)$ の周りで $e^{-itx_2}$ を同じように展開します。左辺は $t$ の小区間で0なので全 $t$ で0。結果 $\widehat h$ は全平面で0となり、[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier-inversion)から $h=0$ です。コンパクト台は $e^{R|t|}$ によって**全ての $t$ まで展開を延長できる**ところに使いました。
+これで全 $\xi_1\in\mathbb R$、$\eta\in(c,d)$ に対し $\widehat h(\xi_1,\eta)=0$ と分かりました。今度は $\xi_1$ を固定し、$\eta_0\in(c,d)$ の周りで $e^{-itx_2}$ を同じように展開します。左辺は $t$ の小区間で0なので全 $t$ で0。結果 $\widehat h$ は全平面で0となり、[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)から $h=0$ です。コンパクト台は $e^{R|t|}$ によって**全ての $t$ まで展開を延長できる**ところに使いました。
 <!-- solution-end -->
 
 <a id="ex-inv14-b03"></a>
@@ -607,7 +607,7 @@ $$
 =\frac12(\omega^2+n^2).
 $$
 
-[Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel)による誤差評価は
+[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)による誤差評価は
 
 $$
 \begin{aligned}
@@ -667,14 +667,14 @@ $\Phi=\{0,\pi/2\}$、$I=(0,\pi/3)$ とする。以下の問いに答えよ。
 
 **1.** $g(x)=e^{-|x|^2}$ として $h=\partial_{x_1}\partial_{x_2}g=4x_1x_2e^{-|x|^2}$ と置きます。これは非零実数値の Schwartz 関数です。$\varphi=0$ の線 $(s,t)$ では $h=4st e^{-s^2-t^2}$、$\varphi=\pi/2$ の線 $(-t,s)$ では $h=-4st e^{-s^2-t^2}$。いずれも $t$ について奇関数だから積分0です。有限個の方向の核を示したのであり、連続角度 $I$ の核を示したわけではありません。
 
-**2.** $h=f_1-f_2$ とすれば、[Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)により $\widehat h$ は $W_I$ 上で0です。$I$ が開区間なので $W_I$ の内部から長方形 $(a,b)\times(c,d)$ を取れます。$h$ はコンパクト台なので、$\widehat h(\xi_0+t,\eta)$ を
+**2.** $h=f_1-f_2$ とすれば、[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)により $\widehat h$ は $W_I$ 上で0です。$I$ が開区間なので $W_I$ の内部から長方形 $(a,b)\times(c,d)$ を取れます。$h$ はコンパクト台なので、$\widehat h(\xi_0+t,\eta)$ を
 
 $$
 \sum_{k=0}^{\infty}\frac{(-it)^k}{k!}
 \int x_1^k h(x)e^{-i(\xi_0x_1+\eta x_2)}\,dx
 $$
 
-と全ての実数 $t$ に対して展開できます。台上の $|x_1|\le R$ により、係数の絶対値和は $e^{R|t|}\int|h|$ 以下です。小さい $t$ の範囲で0なので係数がすべて0、従って固定した $\eta\in(c,d)$ について全ての $\xi_1$ で0です。続けて $x_2$ に関する同じ展開を行うと $\widehat h$ は全平面で0になります。[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier-inversion)より $h=0$ です。
+と全ての実数 $t$ に対して展開できます。台上の $|x_1|\le R$ により、係数の絶対値和は $e^{R|t|}\int|h|$ 以下です。小さい $t$ の範囲で0なので係数がすべて0、従って固定した $\eta\in(c,d)$ について全ての $\xi_1$ で0です。続けて $x_2$ に関する同じ展開を行うと $\widehat h$ は全平面で0になります。[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)より $h=0$ です。
 
 **3.** 欠測方向 $u=(0,1)$、非零 $g\in C_c^\infty$ を選び、$h_n=e^{inu\cdot x}g$ とします。$0\le\varphi\le\pi/3$ では $|u\cdot\theta_\varphi|=\sin\varphi\le\sqrt3/2<1$。従って
 
@@ -683,7 +683,7 @@ $$
 \ge(1-\sqrt3/2)(\omega^2+n^2).
 $$
 
-$\widehat h_n(\xi)=\widehat g(\xi-nu)$ と Schwartz 急減少性を [Fourier slice theorem](../INV12/index.md#thm-inv12-fourier-slice)・[Plancherel](../../FOU/FOU4/index.md#thm-fou4-plancherel)へ代入すると、各 $N\ge1$ について
+$\widehat h_n(\xi)=\widehat g(\xi-nu)$ と Schwartz 急減少性を [Fourier slice theorem](../INV12/index.md#thm-inv12-slice)・[Plancherel](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)へ代入すると、各 $N\ge1$ について
 
 $$
 \|M_Ih_n\|_2^2\le C_N n^{1-2N}.
@@ -702,4 +702,4 @@ $N=2$ でも右辺は0へ収束します。しかし $\|h_n\|_2=\|g\|_2>0$ で�
 - **連続的な限定角度**：一般の Schwartz 級では欠測扇形に支持された周波数成分が消えます。コンパクト台なら一意ですが、欠測方向の高周波に対して任意に悪い条件になるため、単なる高精度計算では克服できません。
 - **検出器の離散標本**：同じ方向でも位置変数の情報が不足します。標本化間隔を細かくすることと、観測角度の範囲を広げることは異なる対策です。
 
-実際の復元では、[INV13 の周波数切断による正則化](../INV13/index.md#def-inv13-cutoff-fbp)と同じように、どの情報を捨てるか、どの事前仮定を使うか、得た画像にどんな偏りがあるかを併記します。次の INV15 では、この事前仮定を確率分布として明示し、Gaussian 事前分布と観測ノイズから復元値をどのように決めるかを導きます。
+実際の復元では、[INV13 の周波数切断による正則化](../INV13/index.md#def-inv13-cutoff)と同じように、どの情報を捨てるか、どの事前仮定を使うか、得た画像にどんな偏りがあるかを併記します。次の INV15 では、この事前仮定を確率分布として明示し、Gaussian 事前分布と観測ノイズから復元値をどのように決めるかを導きます。
