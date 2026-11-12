@@ -30,6 +30,6 @@
     <circle cx="566" cy="360" r="5" fill="#1d2831"/>
     <path d="M566 360 L656 266" stroke="#206f56" stroke-width="3" fill="none" marker-end="url(#rbd1-a3)"/>
     <text x="544" y="389">O</text>
-    <text x="587" y="328">c</text>
+    <text x="614" y="348">c</text>
   </g>
 </svg>
