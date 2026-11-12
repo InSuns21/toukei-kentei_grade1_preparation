@@ -63,14 +63,26 @@ $$
 +\left(\omega^2-\frac{\ell^2}{\sin^2\rho}\right)f=0.}
 $$
 
-ここでプライムは $\rho$ 微分です。中心 $\rho=0$ では $\sin\rho\sim\rho$ のため、有限エネルギーで正則な解は $|\ell|=k$ とおくと $f\sim\rho^k$ となります。境界 $\rho\to\pi/2$ では、$z=\cos\rho\downarrow0$ として径関数の先頭を $f=z^\Delta$ と試します。$df/d\rho=-\Delta\sin\rho\,z^{\Delta-1}$ をもう一度微分して径方程式の微分項をまとめると
+ここでプライムは $\rho$ 微分です。中心 $\rho=0$ では $\sin\rho\sim\rho$ のため、$|\ell|=k$ とおくと正則な解の径方向の先頭は $f\sim\rho^k$ です。角度を含めた滑らかさは第2節の命題の証明で確認します。
+
+境界では $z=\cos\rho\downarrow0$ と置き、径関数の先頭を $f=z^\Delta$ と試します。このとき
+
+$$
+\frac{df}{d\rho}=-\Delta\sin\rho\,z^{\Delta-1}
+$$
+
+です。もう一度微分して径方程式の微分項をまとめると
 
 $$
 f''+\frac{f'}{\sin\rho\cos\rho}
 =\Delta(\Delta-2)z^{\Delta-2}-\Delta^2z^\Delta.
 $$
 
-$\omega^2f-\ell^2f/\sin^2\rho$ は $O(z^\Delta)$ なので、先頭の係数が消える条件は $\Delta(\Delta-2)=0$ です。これは[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)の $d=2,m=0$ と一致します。Poincaré座標の式を根拠なしにglobal径方程式へ流用したのではなく、ここでも同じ指数方程式が出ることを確かめました。この模型では $\nu=\sqrt{d^2/4+m^2L^2}=1$ です。[HOLO8の境界KG可積分条件](../HOLO8/index.md#prop-holo8-normalizability-window)に照らすと、速い枝 $\Delta=2$ は許容される一方、遅い枝 $\Delta=0$ は境界でKG非可積分です。そこで標準Dirichlet条件として源に当たる零冪の係数を零とし、$f=O(\cos^2\rho)$ を選びます。$0<\nu<1$ の場合だけを扱う代替境界選択の定義を、この $\nu=1$ の場合へ適用しているわけではありません。
+$\omega^2f-\ell^2f/\sin^2\rho$ は $O(z^\Delta)$ なので、先頭の係数が消える条件は $\Delta(\Delta-2)=0$ です。これは[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)の $d=2,m=0$ と一致します。Poincaré座標の式をそのまま global 径方程式へ流用したのではなく、ここでも同じ指数方程式が出ることを確かめました。
+
+この模型では $\nu=\sqrt{d^2/4+m^2L^2}=1$ です。[HOLO8の境界KG可積分条件](../HOLO8/index.md#prop-holo8-normalizability-window)に照らすと、速い枝 $\Delta=2$ は許容される一方、遅い枝 $\Delta=0$ は境界でKG非可積分です。
+
+そこで標準Dirichlet条件として源に当たる零冪の係数を零とし、$f=O(\cos^2\rho)$ を選びます。$0<\nu<1$ の場合だけを扱う代替境界選択を、この $\nu=1$ の場合へ適用しているわけではありません。
 
 ## 2. globalモードの具体式を導く
 
@@ -370,11 +382,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo26-smearing-kernel -->
-**定義の確認**。 $F=\{(0,0)\}$ では $f_{00}=\cos^2\rho$、$b_{00}=1$ なので $K_F=2\cos^2\rho\cos[2(t-t')]$ です。これは実数値の滑らかな核で、$2\pi$ 周期の時間積分が定義できます。境界波形 $\mathcal O(t',\theta')=3\cos2t'$ を入れると、角積分が $2\pi$ になります。時間について積和公式を用いれば
+**定義の確認**。 $F=\{(0,0)\}$ では $f_{00}=\cos^2\rho$、$b_{00}=1$ なので $K_F=2\cos^2\rho\cos[2(t-t')]$ です。これは実数値の滑らかな核で、$2\pi$ 周期の時間積分が定義できます。境界波形 $\mathcal O(t',\theta')=3\cos2t'$ を入れると、角積分が $2\pi$ になります。時間の積では、余弦を複素指数関数で展開して二つずつ掛け合わせれば
+
+$$
+\cos[2(t-t')]\cos2t'
+=\frac12\left[\cos2t+\cos(2t-4t')\right]
+$$
+
+となります。第二項は $t'$ の整数周波数 $4$ の非定数波なので一周期平均が零です。従って
 
 $$
 \frac1{2\pi}\int_0^{2\pi}\!\cos[2(t-t')]\cos2t'\,dt'
-=\frac12\cos2t,
+=\frac12\cos2t.
 $$
 
 となるので、$2\cos^2\rho\cdot3\cdot\tfrac12\cos2t=3\cos^2\rho\cos2t$ を再現します。ここで積分核の係数 $2$ は正負周波数の両方を復元するために必要です。
