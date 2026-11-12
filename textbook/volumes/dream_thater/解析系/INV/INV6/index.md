@@ -64,11 +64,11 @@ $$
 
 $X=Y=\mathbb R^2$、$A=\operatorname{diag}(1,1/2)$、$x^\dagger=(2,2)$、$y=Ax^\dagger=(2,1)$ とします。$A$ は可逆で $y\in\mathcal D(A^\dagger)$、$x^\dagger=A^\dagger y$ です。$\alpha=1/4$、$y^\delta=(2,1+\varepsilon)$ なら $\delta=|\varepsilon|$ と置けて、$\|y^\delta-y\|=\delta$ です。標準基底 $e_1,e_2$ に対し、$s_1=1$、$s_2=1/2$ とすると
 
-$
+$$
 Ae_i=s_i e_i,\qquad A^*e_i=s_i e_i,\qquad
 (A^*A+\alpha I)e_i=(s_i^2+\alpha)e_i
 \quad(i=1,2).
-$
+$$
 
 従って各方向で正則化作用素は $s_i/(s_i^2+\alpha)$ 倍として作用します。これが次の倍率を成分ごとに適用できる理由です。
 
@@ -147,12 +147,12 @@ $\ker A$ 方向の $w_0$ は $T^\nu$ で消えるため、表現する $w$ は�
 
 $A=\operatorname{diag}(1,1/2,0):\mathbb R^3\to\mathbb R^3$ とします。標準基底 $e_1,e_2,e_3$ では $A^*=A$ であり、作用を各列で調べると
 
-$
+$$
 \begin{aligned}
 Ae_1&=e_1,&Ae_2&=\tfrac12e_2,&Ae_3&=0,\\
 Te_1&=e_1,&Te_2&=\tfrac14e_2,&Te_3&=0.
 \end{aligned}
-$
+$$
 
 従って正の固有値 $1,1/4$ に対応する $e_1,e_2$ は[完全特異系](../INV3/index.md#def-inv3-singular-system)の特異方向、$e_3$ は核方向です。つまり $T=A^*A=\operatorname{diag}(1,1/4,0)$ であり、この基底で分数冪の定義を適用すると、
 
@@ -382,11 +382,11 @@ $L$ は $A^*A$ の非負固有値を含む固定区間の上端、例えば $\|A
 
 $A=I:\mathbb R\to\mathbb R$ なら $L=1$ とできます。$\mu=1$ では任意の $\alpha>0$、$0<\lambda\le1$ について
 
-$
+$$
 |r_\alpha^{\mathrm K}(\lambda)|\lambda
 =\frac{\alpha\lambda}{\lambda+\alpha}
 \le\alpha
-$
+$$
 
 なので、$\lambda$ に依存しない $C_1=1$ が使えます。一方、$\mu=2$ の不成立には $\lambda=1$ を試すだけで十分です。このとき残差は $\alpha/(1+\alpha)$ であり、もし $C_2\alpha^2$ で抑えられれば
 
@@ -500,20 +500,20 @@ $$
 
 TSVDでは $\nu>1$ にも同じ計算が成立します。**固定した $A$ と $\tau>0$ に対して**、[TSVDの作用素ノルム評価](../INV5/index.md#thm-inv5-spectral-filters)より、任意の $z_1,z_2\in Y$ で
 
-$
+$$
 \|R_\tau^{\mathrm T}z_1-R_\tau^{\mathrm T}z_2\|_X
 \le\frac1\tau\|z_1-z_2\|_Y
-$
+$$
 
 となり、データに関する復元値は連続です。一方、**閾値 $\tau$ を動かす**と、特異値を横切る瞬間に採用方向が切り替わります。例えば $A=I:\mathbb R\to\mathbb R$、固定データ $z=1$ では
 
-$
+$$
 R_\tau^{\mathrm T}z=
 \begin{cases}
 1,&0<\tau\le1,\\
 0,&\tau>1.
 \end{cases}
-$
+$$
 
 固定データに対する閾値依存は不連続になり得ますが、固定閾値でのデータ依存と混同してはいけません。この「硬い切断」とTikhonovの滑らかな減衰の違いは[前講のフィルタ比較](../INV5/index.md#thm-inv5-spectral-filters)に対応します。
 
