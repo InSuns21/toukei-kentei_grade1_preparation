@@ -10,7 +10,7 @@ $$
 
 代わりに左から右への比較射を用意し、三対象を掛け合わせる順序と単位を扱う順序によらず同じ射になることを要求する。比較射の可逆性は要求しない場合と要求する場合を区別する。この条件を以下で正確に定義すると、後半では「内部に掛け算を持つ対象」を関手で別の圏へ移せる。
 
-本講では射の合成 $gf$ を「先に $f$、次に $g$」の順で読む。$\mathcal C$ のテンソルと単位を $\otimes,I$、$\mathcal D$ のそれらを $\otimes',J$、結合子を $\alpha,\alpha'$、単位子を $\lambda,\rho,\lambda',\rho'$ と書く。圏の小ささは必要としない。
+本講では射の合成 $gf$ を「先に $f$、次に $g$」の順で読む。$\mathcal C$ のテンソルと単位を $\otimes,I$、$\mathcal D$ のそれらを $\otimes',J$、結合子を $\alpha,\alpha'$、単位子を $\lambda,\rho,\lambda',\rho'$ と書く。$FX$ と $Ff$ はそれぞれ $F(X)$ と $F(f)$ の略記であり、$\otimes'$ は $\mathcal D$ におけるテンソルである。圏の小ささは必要としない。
 
 ## 2. モノイダル関手の比較射
 
@@ -92,7 +92,7 @@ $$
 \phi_0(*)=\{*\}\in\mathcal P(1).
 $$
 
-[直積の自然性](../CAT4-01/index.md#thm-cat4-01-cartesian-monoidal)をこの場合に計算すると
+この比較射に[自然性の条件](#def-cat4-04-lax)を適用し、両経路を部分集合上で計算すると
 $$
 (f\times g)[A\times B]=f[A]\times g[B]
 $$
@@ -100,7 +100,7 @@ $$
 $$
 ((A\times B)\times C)\longmapsto A\times(B\times C)
 $$
-という集合の括弧移動で両経路が一致する。（L）は $\{*\}\times A$ が左単位子で $A$ へ移ること、（R）は $A\times\{*\}$ が右単位子で $A$ へ移ることから成立する。
+という集合の括弧移動で両経路が一致する。（L）では $\phi_0(*)=\{*\}$ を先に送り、$\phi_{1,X}(\{*\},A)=\{*\}\times A$ としてから、像の写像 $\mathcal P(\lambda_X)$ により $A$ へ移る。（R）でも $\phi_{X,1}(A,\{*\})=A\times\{*\}$ の $\mathcal P(\rho_X)$ による像が $A$ である。これはそれぞれ $\mathcal P(X)$ の左・右単位子と同じ写像なので、（L）と（R）が成立する。
 
 <a id="prop-cat4-04-powerset"></a>
 
@@ -171,7 +171,7 @@ $$
 となる。左単位の元 $(*,a)$ は $u\cdot a$、右単位の元 $(a,*)$ は $a\cdot u$ へ移る。
 
 <!-- definition-example-start: def-cat4-04-monoid -->
-**定義の確認**。 自然数全体 $M=\mathbb N_0$ に加法を用いると、$m(a,b)=a+b$、$e(*)=0$。整数加法の結合律で $(a+b)+c=a+(b+c)$、単位律で $0+a=a$ と $a+0=a$ が各元で成立し、上の三つの射の等式を満たす。
+**定義の確認**。 非負整数全体 $M=\mathbb N_0$ に加法を用いると、$m(a,b)=a+b$、$e(*)=0$。整数加法の結合律で $(a+b)+c=a+(b+c)$、単位律で $0+a=a$ と $a+0=a$ が各元で成立し、上の三つの射の等式を満たす。
 <!-- definition-example-end -->
 
 <a id="prop-cat4-04-set-monoids"></a>
@@ -193,7 +193,21 @@ $$
 
 ### 3.3 テンソル積では結合代数になる
 
-体 $k$ 上のベクトル空間と線形写像の圏で、[テンソル積の定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)を使う。$k$-双線形写像 $b:V\times V\to V$ は、テンソル積の普遍性によってただ一つの線形写像
+体 $k$ 上のベクトル空間と線形写像の圏で、[テンソル積の定義](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)を使う。ここでモノイダル圏の記号 $\otimes$ は、体 $k$ 上のテンソル積 $\otimes_k$ を表す。
+
+線形写像 $f:V\to V'$ と $g:W\to W'$ のテンソルは、双線形写像 $(v,w)\mapsto f(v)\otimes g(w)$ をテンソル積の普遍性で線形化した射である。従って純テンソル上で
+$$
+(f\otimes_k g)(v\otimes w)=f(v)\otimes g(w)
+$$
+と計算できる。
+
+結合子は純テンソルを
+$$
+((u\otimes v)\otimes w)\longmapsto u\otimes(v\otimes w)
+$$
+へ送る線形同型であり、単位対象は $k$ である。四つの純テンソルに対する五角形の二経路は、いずれも括弧を $u\otimes(v\otimes(w\otimes z))$ に変える。三角形の二経路は、$((u\otimes t)\otimes v)$ をそれぞれ $u\otimes(tv)$ と $(tu)\otimes v$ に送り、テンソル積の釣合い関係によって一致する。ゆえに[モノイダル圏の五角形・三角形条件](../CAT4-01/index.md#def-cat4-01-monoidal)が成り立つ。各テンソル積は純テンソルの線形結合で張られるため、一般のテンソルについても成立する。この性質により、以下の射の等式も純テンソル上で判定できる。
+
+$k$-双線形写像 $b:V\times V\to V$ は、テンソル積の普遍性によってただ一つの線形写像
 $$
 m:V\otimes_k V\to V,\qquad m(v\otimes w)=b(v,w)
 $$
@@ -240,6 +254,8 @@ $$
 
 > を満たすものをいう。
 <!-- formal-statement-end -->
+
+第一の等式は $M\otimes M\to N$、第二の等式は $I\to N$ の射を比較している。積の保存では $M\otimes M\xrightarrow{h\otimes h}N\otimes N\xrightarrow{n}N$ と $M\otimes M\xrightarrow{m}M\xrightarrow{h}N$ を照合する。
 
 <!-- definition-example-start: def-cat4-04-monoid-morphism -->
 **定義の確認**。 $(\mathbb N_0,+,0)$ から $(\mathbb N_0,+,0)$ への $h(n)=2n$ を考える。$h(a+b)=2a+2b=h(a)+h(b)$ と $h(0)=0$ を各元で検査できるので、上の二つの射等式を満たす。
@@ -324,12 +340,13 @@ $$
 元のモノイド対象の結合律は $m(m\otimes1_M)=m(1_M\otimes m)\alpha_{M,M,M}$。これを代入し、[lax関手の結合条件](#def-cat4-04-lax)（A）を用いて
 $$
 \begin{aligned}
+m_F(m_F\otimes'1_{FM})
 &=F(m(1_M\otimes m))\,
  \phi_{M,M\otimes M}
  (1_{FM}\otimes'\phi_{M,M})\alpha'_{FM,FM,FM}\\
 &=Fm\,\phi_{M,M}(1_{FM}\otimes'Fm)
  (1_{FM}\otimes'\phi_{M,M})\alpha'_{FM,FM,FM}\\
-&=m_F(1_{FM}\otimes'm_F)\alpha'_{FM,FM,FM}
+&=m_F(1_{FM}\otimes'm_F)\alpha'_{FM,FM,FM}.
 \end{aligned}
 $$
 を得る。二行目は $\phi$ の自然性を $(1_M,m)$ に適用したもの、最後は[テンソル双関手の合成保存](../CAT4-01/index.md#def-cat4-01-tensor-bifunctor)による。
@@ -351,11 +368,25 @@ m_F(e_F\otimes'1_{FM})
 &=\lambda'_{FM}.
 \end{aligned}
 $$
-第三行目は元の左単位律、第四行目は（L）である。右単位も $(1_M,e)$ の自然性、元の $m(1_M\otimes e)=\rho_M$ と（R）を順に適用して
+第三行目は元の左単位律、第四行目は（L）である。右単位では、自然性を $(1_M,e)$ に適用して
 $$
+\phi_{M,M}(1_{FM}\otimes'Fe)
+=F(1_M\otimes e)\phi_{M,I}
+$$
+を得る。従って、元の右単位律 $m(1_M\otimes e)=\rho_M$ と（R）を順に使うと
+$$
+\begin{aligned}
 m_F(1_{FM}\otimes'e_F)
-=F\rho_M\,\phi_{M,I}(1_{FM}\otimes'\phi_0)=\rho'_{FM}.
+&=Fm\,\phi_{M,M}(1_{FM}\otimes'Fe)
+ (1_{FM}\otimes'\phi_0)\\
+&=Fm\,F(1_M\otimes e)\phi_{M,I}
+ (1_{FM}\otimes'\phi_0)\\
+&=F\rho_M\,\phi_{M,I}
+ (1_{FM}\otimes'\phi_0)\\
+&=\rho'_{FM}.
+\end{aligned}
 $$
+両辺は $FM\otimes'J\to FM$ の射である。
 
 **（3）準同型。** $h:(M,m,e)\to(N,n,d)$ を準同型とする。自然性と $hm=n(h\otimes h)$ から
 $$
@@ -378,8 +409,8 @@ $$
 となる。例えば $\{1,3\}\star\{2,4\}=\{3,5,7\}$。任意の三集合について
 $$
 (A\star B)\star C
-=\{(a+b)+c\}
-=\{a+(b+c)\}
+=\{(a+b)+c\mid a\in A,\ b\in B,\ c\in C\}
+=\{a+(b+c)\mid a\in A,\ b\in B,\ c\in C\}
 =A\star(B\star C)
 $$
 である。左右単位も $\{0\}\star A=A=A\star\{0\}$。比較射は強ではなかったが、モノイド構造は正しく運ばれた。
