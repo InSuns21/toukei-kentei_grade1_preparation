@@ -8,7 +8,13 @@
 
 そこで、一つずつの元に対応する $h^a\to P$ を全て集め、射に沿う重複を貼り合わせる。これが**密度定理**の考え方である。集合を元から組み立てる操作の、圏論版だと考えるとよい。
 
-本講を通じて $\mathcal A$ は**小さい圏**、$\widehat{\mathcal A}=[\mathcal A^{\mathrm{op}},\mathbf{Set}]$ は[集合値前層圏](../CAT1-12/index.md#def-cat1-12-presheaf)、$y:\mathcal A\to\widehat{\mathcal A}$ はYoneda埋め込みとする。$\mathcal A$ が小さいので、各 $P(a)$ も集合であり、必要な余極限は[前層圏で対象ごとに計算](../CAT2-07/index.md#thm-cat2-07-pointwise-colimit)できる。合成 $gf$ は $f$ の後に $g$ を行う。
+本講を通じて $\mathcal A$ は**小さい圏**とする。[集合値前層圏](../CAT1-12/index.md#def-cat1-12-presheaf)を
+$$
+\widehat{\mathcal A}=[\mathcal A^{\mathrm{op}},\mathbf{Set}]
+$$
+と書き、$y:\mathcal A\to\widehat{\mathcal A}$ をYoneda埋め込みとする。
+
+各 $P(a)$ は集合であり、[前層圏の余極限](../CAT2-07/index.md#thm-cat2-07-pointwise-colimit)は対象ごとに計算できる。合成 $gf$ は $f$ の後に $g$ を行う。
 
 ## 2. 前層の元を対象とする圏
 
@@ -485,7 +491,21 @@ $$
 小圏 $\mathcal A$ と $b\in\mathcal A$ に対し $P=h^b$ とする。$\int h^b$ に終対象があることを証明し、任意の $F:\mathcal A\to\mathcal C$ の $\operatorname{Lan}_yF$ について $(\operatorname{Lan}_yF)(h^b)\cong F(b)$ を示せ（必要な余極限の存在を仮定してよい）。
 
 <!-- solution-start -->
-**詳細解答。** 対象 $(a,f)$ は射 $f:a\to b$ のこと。$(b,1_b)$ に向かう射の条件は $h^b(u)(1_b)=1_bu=u=f$ であり、$u=f:a\to b$ が唯一の候補で実際に条件を満たす。従って $(b,1_b)$ は終対象。図式 $F\pi$ の余極限は $F(b)$ である。各 $(a,f)$ からの余錐射を $F(f):F(a)\to F(b)$ とすれば、射 $u:(a,f)\to(a',f')$ について $f'u=f$ なので $F(f')F(u)=F(f)$。任意の余錐 $q_{a,f}:F(a)\to Z$ の媒介射は $q_{b,1_b}:F(b)\to Z$ に強制され、余錐条件から $q_{a,f}=q_{b,1_b}F(f)$。よって一意である。[Yonedaに沿う左Kan拡張の計算式](#thm-cat3-10-free-extension)により結果を得る。この同型はKan拡張の単位が表現可能対象上で同型になることも示す。
+**詳細解答。** $\int h^b$ の対象 $(a,f)$ は射 $f:a\to b$ を表す。$(b,1_b)$ に向かう射 $u$ の条件は
+$$
+h^b(u)(1_b)=1_bu=u=f.
+$$
+従って $u=f:a\to b$ が唯一の候補であり、実際に条件を満たす。よって $(b,1_b)$ は終対象である。
+
+次に図式 $F\pi$ の余極限を直接検証する。各 $(a,f)$ に余錐射 $F(f):F(a)\to F(b)$ を与える。射 $u:(a,f)\to(a',f')$ は $f'u=f$ を満たすため
+$$
+F(f')F(u)=F(f'u)=F(f).
+$$
+任意の余錐 $q_{a,f}:F(a)\to Z$ が与えられたとき、媒介射は $q_{b,1_b}:F(b)\to Z$ に強制される。実際
+$$
+q_{a,f}=q_{b,1_b}F(f)
+$$
+が $(a,f)\to(b,1_b)$ の余錐条件である。この式が存在と一意性を同時に示すので、余極限は $F(b)$。[Yonedaに沿う左Kan拡張の計算式](#thm-cat3-10-free-extension)に代入して $(\operatorname{Lan}_yF)(h^b)\cong F(b)$ を得る。
 <!-- solution-end -->
 
 ### 問題9：保存仮定の失敗
@@ -496,7 +516,15 @@ $$
 $\widehat{\mathcal A}=\mathbf{Set}$ において $H(X)=X\times X$ とする。$X=\{a\}$、$Y=\{b\}$ に対し、余積比較写像 $H(X)\amalg H(Y)\to H(X\amalg Y)$ を具体的に書き、なぜ同型でないか説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 左辺は $(a,a)$ と $(b,b)$ に由来するタグ付き2元集合。右辺は $(a,a),(a,b),(b,a),(b,b)$ の4元集合である。比較射はそれぞれの包含 $X\hookrightarrow X\amalg Y$、$Y\hookrightarrow X\amalg Y$ に $H$ を適用して誘導されるので、二つの左辺の元を $(a,a)$ と $(b,b)$ に写す。$(a,b)$ と $(b,a)$ は像に入らず、全射でない。元の集合を「一元集合の余積」として表した後で $H$ を通すと、異なる元同士から作られる対を失う。これは[余極限保存による決定命題](#prop-cat3-10-determination)の仮定を削除できない理由である。
+**詳細解答。** 左辺 $H(X)\amalg H(Y)$ は、$(a,a)$ と $(b,b)$ に由来するタグ付き2元集合である。一方、右辺は
+$$
+H(X\amalg Y)=\{(a,a),(a,b),(b,a),(b,b)\}
+$$
+という4元集合である。
+
+比較射はそれぞれの包含 $X\hookrightarrow X\amalg Y$ と $Y\hookrightarrow X\amalg Y$ に $H$ を適用して生じる。従って左辺の2元は $(a,a)$ と $(b,b)$ へ送られる。$(a,b)$ と $(b,a)$ は像に含まれず、比較射は全射ではない。
+
+一元集合の余積を作ってから $H$ を通すと、異なる元の組が新しく現れる。これは[余極限保存による決定命題](#prop-cat3-10-determination)から保存性の仮定を削れない理由である。
 <!-- solution-end -->
 
 ### 問題10：余極限保存関手を復元する
@@ -504,7 +532,11 @@ $\widehat{\mathcal A}=\mathbf{Set}$ において $H(X)=X\times X$ とする。$X
 - Level: C
 - 問題ID: CAT3-10-COLIMIT-PRESERVING-CLASSIFY
 
-$\mathcal A$ は二対象 $p,q$ を持つ離散圏とする。$\widehat{\mathcal A}\cong\mathbf{Set}\times\mathbf{Set}$ から $\mathbf{Set}$ への小余極限保存関手 $H$ を考え、$S=H(h^p)$、$T=H(h^q)$ と置く。(1) 任意の $(X,Y)$ で $H(X,Y)\cong(X\times S)\amalg(Y\times T)$ を自然に示せ。(2) $H$ と $G$ の間の自然変換が $S\to S'$、$T\to T'$ の二写像と一対一に対応することを証明せよ。ただし $S'=G(h^p),T'=G(h^q)$ とする。(3) 任意の二集合 $S,T$ からこのような小余極限保存関手を構成し、(1) の仮定の必要性も説明せよ。
+$\mathcal A$ は二対象 $p,q$ を持つ離散圏とする。$\widehat{\mathcal A}\cong\mathbf{Set}\times\mathbf{Set}$ から $\mathbf{Set}$ への小余極限保存関手 $H$ を取る。$S=H(h^p)$、$T=H(h^q)$ と置く。次を示せ。
+
+1. 任意の $(X,Y)$ について、自然な同型 $H(X,Y)\cong(X\times S)\amalg(Y\times T)$ を示せ。
+2. 別の小余極限保存関手 $G$ と $S'=G(h^p)$、$T'=G(h^q)$ を取り、自然変換 $H\Rightarrow G$ が二つの写像 $S\to S'$、$T\to T'$ と一対一に対応することを証明せよ。
+3. 任意の二集合 $S,T$ からこのような小余極限保存関手を構成し、1の保存仮定を外せないことを例で示せ。
 
 <!-- solution-start -->
 **詳細解答。**
@@ -524,7 +556,22 @@ $$
 $$
 を満たす必要があり、余積の普遍性で唯一となる。逆に任意の $f,g$ から上式を定めれば、$(u,v)$ と合成した左辺は $(u(x),f(s))$ と $(v(y),g(t))$、右辺も全く同じになる。したがって自然変換であり、二つの構成は互いに逆である。
 
-**(3) 存在と仮定。** $H_{S,T}(X,Y)=(X\times S)\amalg(Y\times T)$、射上は $(u,v)$ によりラベル $x,y$ だけを送り、$s,t$ は保つと定義する。恒等律・合成律はこの明示式から成立する。小図式の余極限では、元の組 $(x,s)$ に対して同一の $s$ を保ちながら $x$ に関する生成関係だけを課すので、$(-)\times S$ は余極限を保存する。同様に $(-)\times T$ も保存する。二つの結果の余積を取ることは、同じ余錐の二成分を独立に貼ることであるから全体も小余極限を保存する（または $(-)\times S$ が $(-)^S$ の左随伴であることと[左随伴の余極限保存](../CAT2-11/index.md#thm-cat2-11-left-preserves)を用いてよい）。
+**(3) 存在と仮定。** 関手を
+$$
+H_{S,T}(X,Y)=(X\times S)\amalg(Y\times T)
+$$
+で定める。射 $(u,v)$ では $(x,s)\mapsto(u(x),s)$、$(y,t)\mapsto(v(y),t)$ とする。恒等射・合成についてはタグと第二成分を保つので関手律が成立する。
+
+小余極限の保存を証明するため、集合 $Z$ に
+$$
+R(Z)=(Z^S,Z^T)
+$$
+を対応させる。写像 $(X\times S)\amalg(Y\times T)\to Z$ を与えることは、各 $x\in X$ に写像 $S\to Z$ を、各 $y\in Y$ に写像 $T\to Z$ を与えることと同値である。具体的に $f(x,s)$ は $x\mapsto(s\mapsto f(x,s))$ に対応する。従って自然な全単射
+$$
+\operatorname{Hom}_{\mathbf{Set}}(H_{S,T}(X,Y),Z)
+\cong\operatorname{Hom}_{\mathbf{Set}\times\mathbf{Set}}((X,Y),R(Z))
+$$
+が存在する。これは $H_{S,T}\dashv R$ の[随伴のHom条件](../CAT2-08/index.md#def-cat2-08-adjunction)である。ゆえに[左随伴の余極限保存](../CAT2-11/index.md#thm-cat2-11-left-preserves)を適用でき、$H_{S,T}$ は全ての小さい余極限を保存する。
 
 仮定を外したときの反例は $H(X,Y)=X\times X$ と $G(X,Y)=X$。両者は $h^p$ で一元集合、$h^q$ で空集合を値に持つが、$(\{a,b\},\varnothing)$ では4元と2元になり、同型でない。余積から作り直す段階で $H$ は混合対を追加してしまうため、(1) の結論は成立しない。
 <!-- solution-end -->
