@@ -6,7 +6,15 @@
 
 ## 0. 対象、単位と仮定
 
-[CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration) $\chi(X,t)$ は各時刻で向きを保つ $C^2$ 級の単射とし、$F=D_X\chi$、$J=\det F>0$、現在配置 $\Omega_t=\chi_t(\Omega_0)$ を考える。[CTM5 の密度](../CTM5/index.md#def-ctm5-mass-densities) $\rho(x,t)>0$ は質量保存を満たし、$v(x,t)=\partial_t\chi(\chi_t^{-1}(x),t)$、$a=D_tv=\partial_tv+(v\cdot\nabla)v$ とする。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を速度成分に適用したのがこの加速度である。
+[CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration) $\chi(X,t)$ は各時刻で向きを保つ $C^2$ 級の単射とし、変形勾配 $F=D_X\chi$ とその行列式 $J=\det F>0$、現在配置 $\Omega_t=\chi_t(\Omega_0)$ を考える。
+
+[CTM5 の密度](../CTM5/index.md#def-ctm5-mass-densities) $\rho(x,t)>0$ は質量保存を満たす。現在位置 $x$ での速度を
+
+$$
+v(x,t)=\partial_t\chi(\chi_t^{-1}(x),t)
+$$
+
+とし、加速度 $a=D_tv=\partial_tv+(v\cdot\nabla)v$ を考える。これは [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を速度成分に適用したものである。
 
 時刻区間内の任意の有界な物質領域 $U_t=\chi_t(U_0)$ を用いる。$U_0\Subset\Omega_0$ の境界は区分的 $C^1$ とする。密度・速度・体積力は時間と空間について必要な連続微分をもち、応力 $\sigma(x,t)$ は空間 $C^1$ 級、すべての場は扱う領域の閉包近くで有界とする。積分と微分の交換を正当化するための条件である。
 
@@ -19,7 +27,7 @@
 
 ## 1. 物質の塊に働く合力から出発する
 
-小さく区切った物質領域であっても、質量と速度の積を全体に加算すれば運動量が得られる。ここで **線形運動量**は各粒子の $\rho v$ を体積で積分したベクトル、**角運動量**は固定した基準点 $o\in\mathbb R^3$ からの位置 $r=x-o$ と運動量の外積 $r\times\rho v$ を積分したベクトルである。前者の単位は kg m/s、後者は kg m$^2$/s。
+小さく区切った物質領域であっても、質量と速度の積を全体に加算すれば運動量が得られる。ここで **線形運動量**は各粒子の $\rho v$ を体積で積分したベクトル、**角運動量**は固定した基準点 $o\in\mathbb R^3$ からの位置 $r=x-o$ と運動量とのベクトル積 $r\times\rho v$ を積分したベクトルである。前者の単位は kg m/s、後者は kg m$^2$/s。
 
 表面力の合計は [CTM6 の traction](../CTM6/index.md#def-ctm6-traction)と [Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)から $\int_{\partial U_t}\sigma n\,dS$。体積力の合計は $\int_{U_t}\rho b\,dV$ となる。一方、位置 $r$ で働く力 $f$ の**基準点 $o$ まわりのトルク**は $r\times f$。力の単位を N、長さを m とするとトルクの単位は N m である。
 
@@ -89,7 +97,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-第 $i$ 成分の運動量に [Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)を適用すると、
+第 $i$ 成分の運動量に [物質領域の Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)を適用すると、
 
 $$
 \frac{d}{dt}\int_{U_t}\rho v_i\,dV
@@ -147,9 +155,9 @@ $$
 
 ## 3. 力の合計がゼロでも回転させる作用は残る
 
-左右の面に等しく反対向きの力が働けば合力はゼロだが、作用位置が異なれば二つの力が同じ向きの回転を起こす場合がある。そこで固定点 $o$ からの腕 $r=x-o$ と力の外積を取る。面には独立偶力がないため、境界のトルクは**面力の作用位置**から作る $r\times(\sigma n)$ だけである。
+左右の面に等しく反対向きの力が働けば合力はゼロだが、作用位置が異なれば二つの力が同じ向きの回転を起こす場合がある。そこで固定点 $o$ からの腕 $r=x-o$ と力とのベクトル積を取る。面には独立偶力がないため、境界のトルクは**面力の作用位置**から作る $r\times(\sigma n)$ だけである。
 
-特に、隣り合う部分物体の共有面では外向き法線が逆であり、[CTM6 の反作用の命題](../CTM6/index.md#prop-ctm6-action-reaction)により traction が相殺する。両側が同じ位置で作用するので、共有面のトルクも相殺する。これは**内部境界を消す**理由であって、個々の物体内部の応力が対称になる理由ではない。
+特に、隣り合う部分物体の共有面では外向き法線が逆であり、[反対向きの面の表面力密度の命題](../CTM6/index.md#prop-ctm6-action-reaction)により traction が相殺する。両側が同じ位置で作用するので、共有面のトルクも相殺する。これは**内部境界を消す**理由であって、個々の物体内部の応力が対称になる理由ではない。
 
 ![分割した物質領域の内部面で面力が逆向きに相殺し、別の作用位置の表面力合力はトルクを作る模式図](assets/internal-forces-torque.svg)
 
@@ -178,7 +186,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各成分の角運動量密度を $h_i=\varepsilon_{ijk}r_j\rho v_k$ とおく。[Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)から
+各成分の角運動量密度を $h_i=\varepsilon_{ijk}r_j\rho v_k$ とおく。[物質領域の Reynolds 輸送定理](../CTM5/index.md#thm-ctm5-material-reynolds)から
 
 $$
 \frac{d}{dt}\int_{U_t}h_i\,dV
@@ -292,12 +300,12 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-質量は $M=\rho V=2$ kg、運動量時間変化は $Ma=6e_1$ N。[物質領域の線形運動量原理](#principle-ctm7-material-balances)により $6e_1=2e_1+F_b$、よって $F_b=4e_1$ N。一様な $b$ なら $F_b=Mb$ だから $b=2e_1$ N/kg = m/s$^2$。面力 N と $\rho b$ の N/m$^3$ を直接加算してはいけない。
+質量は $M=\rho V=2$ kg、運動量時間変化は $Ma=6e_1$ N。[物質領域の線形運動量・角運動量収支](#principle-ctm7-material-balances)により $6e_1=2e_1+F_b$、よって $F_b=4e_1$ N。一様な $b$ なら $F_b=Mb$ だから $b=2e_1$ N/kg = m/s$^2$。面力 N と $\rho b$ の N/m$^3$ を直接加算してはいけない。
 <!-- solution-end -->
 
 ### A2. 発散の添字
 
-直交座標で $\sigma(x)=\operatorname{diag}(2x_1,3x_2,-x_3)$ Pa とする。ただし $x_i$ は m を単位に測った数値とし、係数の単位は Pa/m とする。$(\operatorname{div}\sigma)_i=\partial_j\sigma_{ij}$ を計算せよ。
+直交座標で $\sigma(x)=\operatorname{diag}(2x_1,3x_2,-x_3)$ Pa とする。ただし $x_i$ は長さの単位 m を持つ位置座標とし、$2,3,-1$ に対応する係数の単位は Pa/m とする。$(\operatorname{div}\sigma)_i=\partial_j\sigma_{ij}$ を計算せよ。
 
 - Level: A
 
@@ -356,7 +364,19 @@ $\sigma=\begin{pmatrix}1&2&0\\2&3&0\\0&0&4\end{pmatrix}$ Pa と $\widehat\sigma=
 <!-- solution-start -->
 #### 詳細解答
 
-[局所運動量方程式](#thm-ctm7-material-momentum)の左辺は $\rho_*a=6e_1$ N/m$^3$、体積力は $\rho_*b=2e_1$ N/m$^3$ である。$\operatorname{div}\sigma=ke_1$ より $6=k+2$、すなわち $k=4$ Pa/m。面 $x_1=L$ で外向き法線が $e_1$ なら [Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)から $t=\sigma e_1=4L e_1$ Pa（$L$ は m 単位の座標値）。反対の法線なら力密度は符号反転する。
+[局所運動量方程式](#thm-ctm7-material-momentum)の左辺は $\rho_*a=6e_1$ N/m$^3$、体積力は $\rho_*b=2e_1$ N/m$^3$ である。応力の発散は $\operatorname{div}\sigma=ke_1$ なので、
+
+$$
+6=k+2,\qquad k=4\ \mathrm{Pa/m}.
+$$
+
+面 $x_1=L$ の外向き法線が $e_1$ なら、[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)から、その面の表面力密度は
+
+$$
+t=\sigma e_1=4L\,e_1\ \mathrm{Pa}.
+$$
+
+ここで $L$ は m 単位の座標値である。反対の法線なら力密度は符号反転する。
 <!-- solution-end -->
 
 ### B2. 内部面で力とトルクを相殺する
@@ -409,7 +429,15 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-$\operatorname{div}\sigma=\rho_*g e_1$、$\rho_*b=-\rho_*g e_1$ なので局所運動量式の右辺はゼロ。また $\sigma^T=\sigma$ だから [角運動量と応力の命題](#prop-ctm7-angular-stress)と整合する。$x_1=0$ の外向き法線は $-e_1$ だが $\sigma=0$ なので合力はゼロ。$x_1=L$ の面積は $HK$ で、traction は $\rho_*g L e_1$ Pa、合力は $\rho_*g LHK\,e_1$ N。体積力の合力は $-\rho_*g LHK\,e_1$ N で相殺する。境界の力をなくしてよいという意味ではなく、物体が**静止できるよう境界面が力を支える**ことを表す。
+応力の発散は $\operatorname{div}\sigma=\rho_*g e_1$、体積力密度は $\rho_*b=-\rho_*g e_1$ である。従って [局所運動量方程式](#thm-ctm7-material-momentum)の右辺はゼロ。また $\sigma^T=\sigma$ だから [角運動量と応力の命題](#prop-ctm7-angular-stress)の結論と整合する。
+
+$x_1=0$ の外向き法線は $-e_1$ だが、その面では $\sigma=0$ なので合力はゼロ。$x_1=L$ の面積は $HK$ であり、[traction の定義](../CTM6/index.md#def-ctm6-traction)により
+
+$$
+T_{x_1=L}=(\rho_*g L e_1)\,HK=\rho_*gLHK\,e_1\ \mathrm N.
+$$
+
+体積力の合力は $-\rho_*g LHK\,e_1$ N で相殺する。境界力をなくしてよいのではなく、物体が**静止できるよう境界面が力を支える**ことを表す。
 <!-- solution-end -->
 
 ## Level C
@@ -468,7 +496,7 @@ $$
 
 従って $\operatorname{div}\sigma=\rho_0 a$ で、[局所運動量方程式](#thm-ctm7-material-momentum)の三成分を満たす。$\sigma_{12}=\sigma_{21}=s$ かつ他の非対角成分はゼロなので $\sigma^T=\sigma$。角運動量証明の残差 $\varepsilon_{ijk}\sigma_{kj}$ は $i=1,2,3$ のいずれもゼロである。発散と輸送定理を逆にたどれば任意の有界な物質領域で両積分収支が成立する。
 
-（iii）$\|n\|=1$ を確認し、[Cauchy 応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)により
+（iii）$\|n\|=1$ を確認し、[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)により
 
 $$
 t(x,n)=\sigma n=\frac1{\sqrt2}
