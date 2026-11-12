@@ -89,7 +89,7 @@ export function stateAt(id,t,mode='default'){
  }else if(id==='10'){
   const edges=mode==='cycle'?[['A','B'],['B','C'],['C','A']]:[['A','B'],['B','C'],['A','C']],nodes={A:[0,1.8],B:[-1.7,-1.3],C:[1.7,-1.3]},count=Math.min(3,1+Math.floor(3*t));
   add(polygon(0,[[-1.9,-1.2],[.8,-1.2],[.8,1.1],[-1.9,1.1]],'paper'),polygon(0,[[-.7,-.6],[2,-.6],[2,1.8],[-.7,1.8]],'face'));
-  for(let j=0;j<count;j++){const [a,b]=edges[j];add(line(1,...nodes[a],...nodes[b],'target'));}
+  for(let j=0;j<count;j++){const [a,b]=edges[j];add(line(1,...nodes[a],...nodes[b],'order'));}
   for(const [a,p] of Object.entries(nodes))add(point(1,...p),label(1,p[0]+.2,p[1]+.12,a));
   values={edges,count,cycle:mode==='cycle'&&count===3};checks.push(metric('総辺数',edges.length,3));
   readout='上→下の制約：'+edges.slice(0,count).map(x=>x.join('>')).join(', ')+'。'+(values.cycle?'循環したため不可能。':'現時点では非循環。必要条件のみ。');

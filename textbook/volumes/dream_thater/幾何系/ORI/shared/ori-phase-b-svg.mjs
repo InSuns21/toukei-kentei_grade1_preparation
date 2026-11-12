@@ -3,11 +3,11 @@ const S=52,X=[190,570],Y=215;
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function xy(p,x,y){return[(X[p]+S*x).toFixed(2),(Y-S*y).toFixed(2)];}
 function itemMarkup(sh,poster){
- const c={guide:'#a2afb9',fold:'#195d83',target:'#ab4f2b',curve:'#814d88',mountain:'#195d83',valley:'#ae512f',face:'#a9dce8',faceAlt:'#f3d5a9',paper:'#eff4f6',point:'#204156'};
+ const c={guide:'#a2afb9',fold:'#195d83',target:'#ab4f2b',curve:'#814d88',mountain:'#195d83',valley:'#ae512f',face:'#a9dce8',faceAlt:'#f3d5a9',paper:'#eff4f6',point:'#204156',order:'#684e87'};
  const kind=sh.style||'guide',stroke=c[kind]||c.guide;
  const dash=kind==='fold'?'9 5':kind==='mountain'?'11 4':kind==='valley'?'2 6':kind==='guide'?'4 6':'';
  const sw=kind==='target'?3:kind==='curve'?2.4:kind==='guide'?1.5:2.2;
- const style='stroke="'+stroke+'" stroke-width="'+sw+'"'+(dash?' stroke-dasharray="'+dash+'"':'');
+ const style='stroke="'+stroke+'" stroke-width="'+sw+'"'+(dash?' stroke-dasharray="'+dash+'"':'')+(kind==='order'?' marker-end="url(#ori-b-order-arrow)"':'');
  if(sh.type==='line'){
   // Clip the actual line geometry to the painted panel, rather than relying on
   // a clipPath alone: SVG lint also measures raw segment coordinates.
@@ -32,7 +32,7 @@ function itemMarkup(sh,poster){
 }
 export function svgFrame(state,poster=false){
  const head=[
- '<defs><clipPath id="ori-b-left"><rect x="24" y="89" width="332" height="294"/></clipPath><clipPath id="ori-b-right"><rect x="404" y="89" width="332" height="294"/></clipPath></defs>',
+ '<defs><marker id="ori-b-order-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#684e87" stroke-width="1.5"/></marker><clipPath id="ori-b-left"><rect x="24" y="89" width="332" height="294"/></clipPath><clipPath id="ori-b-right"><rect x="404" y="89" width="332" height="294"/></clipPath></defs>',
  '<rect x="2" y="2" width="756" height="426" rx="12" fill="#f8fbfd" stroke="#8ca3b3"/>',
  '<rect x="22" y="86" width="336" height="300" rx="8" fill="#fff" stroke="#a8b9c4"/>',
  '<rect x="402" y="86" width="336" height="300" rx="8" fill="#fff" stroke="#a8b9c4"/>',
