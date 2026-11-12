@@ -1,8 +1,8 @@
 # AQFT3 状態・共変表現・正エネルギー真空
 
-[AQFT2のHaag–Kastler型net](../AQFT2/index.md#def-aqft2-haag-kastler)は、観測領域にC*-代数を割り当て、包含・局所性・Poincaré変換を結び付けました。ところが、netだけでは「実験でどんな期待値が出るか」は決まりません。期待値を選ぶ**状態**と、それをHilbert空間上で扱う**表現**が必要です。さらに、時空並進を表すユニタリ作用素のエネルギーが正かどうかは、三つのnet公理からはまだ決まりません。
+[AQFT2のHaag–Kastler型net](../AQFT2/index.md#def-aqft2-haag-kastler)は、観測領域にC*-代数を割り当て、包含・局所性・Poincaré変換を結び付けました。ところが、netだけでは「実験でどんな期待値が出るか」は決まりません。期待値を指定する[正規化した正線形汎関数](../../OA/OA5/index.md#def-oa5-state)と、それをHilbert空間上で扱う**表現**が必要です。さらに、時空並進を表すユニタリ作用素のエネルギーが正かどうかは、三つのnet公理からはまだ決まりません。
 
-本講は「状態を動かす → 不変状態からGNS表現上の対称性を作る → エネルギーのスペクトルを制限する → 真空の一意性を別に判定する」という順に進みます。後の自由場構成では、この追加条件を実際に満たす状態を探します。
+本講は「状態を動かす → 変換しても期待値が変わらない場合にGNS表現上の対称性を作る → エネルギーのスペクトルを制限する → 真空の一意性を別に判定する」という順に進みます。後の自由場構成では、この追加条件を実際に満たす状態を探します。
 
 舞台は $M=\mathbb R^{1,3}$、計量 $(-,+,+,+)$、$c=1$、時間向きは未来です。$G=\mathcal P_+^\uparrow$ は固有時刻向きPoincaré群、$F=(a,\Lambda)$ は $x\mapsto\Lambda x+a$ を表します。$T=\mathbb R^4$ をその平行移動部分群とします。$\mathfrak B$ は[AQFT2のquasilocal C*-環](../AQFT2/index.md#prop-aqft2-quasilocal)として、$F\mapsto\alpha_F$ を単位的*-自己同型の群作用とします。以下、一般の局所netでノルム連続な群作用までは仮定しません。
 
@@ -289,7 +289,17 @@ $\mathcal H=\mathbb C^3$ とし、$H=\operatorname{diag}(0,2,1)$、$P_1=\operato
 
 <!-- formal-statement-start -->
 > **命題（Lorentz共変性とエネルギー正値性）**  
-> $G=\mathcal P_+^\uparrow$ の強連続ユニタリ表現 $U$ があり、平行移動の共同スペクトルを $\Sigma$ とする。$U$ のLorentz部分が平行移動を $U(\Lambda)U(a)U(\Lambda)^*=U(\Lambda a)$ により共変に運ぶとする。このとき、時間並進生成作用素 $H$ が非負であることと、$\Sigma\subset\overline V_+$ とは同値である。
+> $G=\mathcal P_+^\uparrow$ の強連続ユニタリ表現 $U$ があり、平行移動の共同スペクトルを $\Sigma$ とする。Lorentz部分は平行移動を次のように運ぶものとする。
+>
+$
+U(\Lambda)U(a)U(\Lambda)^*=U(\Lambda a).
+$
+>
+> このとき時間並進生成作用素の非負性は、共同スペクトルが前方閉光円錐に入ることと同値である。
+>
+$
+H\ge0\quad\Longleftrightarrow\quad \Sigma\subset\overline V_+.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -389,7 +399,23 @@ $\mathfrak B=\mathbb C^2$、任意の非空開領域 $O\subset M$ に $\mathfrak
 
 <!-- formal-statement-start -->
 > **命題（二点可換netの真空非一意性）**  
-> 上のnetで $0<\lambda<1$ とし、状態 $\omega_\lambda(z_1,z_2)=\lambda z_1+(1-\lambda)z_2$ を取る。そのGNS表現は $\mathcal H=\mathbb C^2$、$\pi(z_1,z_2)=\operatorname{diag}(z_1,z_2)$、$\Omega=(\sqrt\lambda,\sqrt{1-\lambda})$ とユニタリ同値であり、共変実装は $U(F)=I_2$ である。従って正エネルギー真空は存在するが、この表現で真空ベクトルは一意でない。
+> 上の二点可換netで $0<\lambda<1$ とし、次の状態を取る。
+>
+$
+\omega_\lambda(z_1,z_2)=\lambda z_1+(1-\lambda)z_2.
+$
+>
+> この状態のGNS表現は次の組とユニタリ同値である。
+>
+$
+\begin{aligned}
+\mathcal H&=\mathbb C^2,\qquad
+\pi(z_1,z_2)=\operatorname{diag}(z_1,z_2),\\
+\Omega&=(\sqrt\lambda,\sqrt{1-\lambda}),\qquad U(F)=I_2.
+\end{aligned}
+$
+>
+> 従って正エネルギー真空は存在するが、この表現で真空ベクトルは一意でない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -406,7 +432,7 @@ $$
 $$
 写像 $V(z_1,z_2)=(\sqrt\lambda z_1,\sqrt{1-\lambda}z_2)$ は内積を保ち全射です。左乗法 $\pi_\omega(a)[z]=[az]$ は $V$ で共役すると対角行列 $\operatorname{diag}(a_1,a_2)$、$[1]$ は $\Omega$ に移ります。$\Omega$ の両成分は非零なので、対角行列の作用で全空間が生成されます。
 
-$\alpha_F=\mathrm{id}$ から[共変GNS定理](#thm-aqft3-covariant-gns)の実装は $U(F)=I_2$ です。強連続であり、平行移動共同スペクトル測度は $E(\{0\})=I_2$。その支持は $\{0\}\subset\overline V_+$ ですが、$\operatorname{rank}E(\{0\})=2$。よって[零運動量射影の命題](#prop-aqft3-zero-momentum)により真空は一意ではありません。$\square$
+$\alpha_F=\mathrm{id}$ から[共変GNS定理](#thm-aqft3-covariant-gns)の実装は $U(F)=I_2$ です。強連続であり、平行移動共同スペクトル測度は $E(\{0\})=I_2$。その支持は $\{0\}\subset\overline V_+$ ですが、$\operatorname{rank}E(\{0\})=2$。よって[零運動量射影と不変ベクトル](#prop-aqft3-zero-momentum)により真空は一意ではありません。$\square$
 <!-- proof-end -->
 
 ### 5.2 不変な状態でもエネルギーが負になり得る
@@ -463,7 +489,18 @@ $N=\{(t,\boldsymbol x):|t|<1\}$ は $\{t=0\}$ というMinkowskiのCauchy面の�
 
 <!-- formal-statement-start -->
 > **命題（基本net公理から加法性とtime-sliceは従わない）**  
-> $M=\mathbb R^{1,3}$、$\mathfrak B=\mathbb C^2$、$\alpha_F=\mathrm{id}$ として、開集合 $O$ へ $\mathfrak A(M)=\mathbb C^2$、$O\ne M$ なら $\mathfrak A(O)=\mathbb C(1,1)$ を割り当てる。この割当てはisotony・Einstein局所性・Poincaré共変性を満たすが、加法性も上で定めたtime-slice条件も満たさない。
+> Minkowski時空 $M=\mathbb R^{1,3}$ と容器 $\mathfrak B=\mathbb C^2$ を取り、任意の開集合 $O\subset M$ へ次の割当てと自明なPoincaré作用を定める。
+>
+$
+\mathfrak A(O)=
+\begin{cases}
+\mathbb C^2,&O=M,\\
+\mathbb C(1,1),&O\ne M,
+\end{cases}
+\qquad \alpha_F=\mathrm{id}.
+$
+>
+> この割当てはisotony・Einstein局所性・Poincaré共変性を満たすが、加法性も上で定めたtime-slice条件も満たさない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -675,4 +712,4 @@ $$
 
 ## 8. 次講への橋
 
-今回選んだ状態やスペクトル条件は、netの三公理への**追加情報**でした。非可換で無限自由度の物理模型でも正エネルギー真空を実際に作れるかが、次の中心問題です。[AQFT2の局所net](../AQFT2/index.md#def-aqft2-haag-kastler)へ自由Klein–Gordon場を入れるため、次講AQFT4ではGreen作用素と試験関数の商から始めます。特定の自由場の真空二点関数やFock表現は、まだこの章で構成したものではありません。
+今回選んだ状態やスペクトル条件は、netの三公理への**追加情報**でした。非可換で無限自由度の物理模型でも正エネルギー真空を実際に作れるかが、次の中心問題です。[AQFT2の局所net](../AQFT2/index.md#def-aqft2-haag-kastler)へ自由Klein–Gordon場を入れるため、次講AQFT4ではGreen作用素とコンパクト台の滑らかな関数が作る商から始めます。特定の自由場の真空二点関数やFock表現は、まだこの章で構成したものではありません。
