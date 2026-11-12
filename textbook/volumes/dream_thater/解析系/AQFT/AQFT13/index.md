@@ -254,7 +254,7 @@ $$
 
 [真空の局所巡回・分離性の系](#cor-aqft13-vacuum-local-standard)から、真空状態はどの非空有界double coneの局所von Neumann環でも忠実な正規状態になります。しかし周囲の $B(\mathcal H)$ 上で忠実という意味ではありません。たとえば $\mathcal H=\mathbb C^2,\Omega=e_1$ に対して $P_2\in B(\mathcal H)$ は $P_2\ne0$ なのに $\omega_\Omega(P_2^*P_2)=0$ です。**この部分環に制限すること**が重要です。
 
-また分離性から得られるのは $\mathcal M(O^\perp)\subset\mathcal M(O)'$ と、真空の性質です。この包含が等号になる **Haag双対性** は別の追加要請です。例えば $\mathcal H=\mathbb C^2$、$D$ を対角環、$\Omega=(1,1)/\sqrt2$ とし、二つの互いに空間的分離した領域に、それぞれ $\mathcal M(O)=\mathbb CI_2$、$\mathcal M(Q)=D$ を割り当てるとします。この二つの環は交換し、$\Omega$ は $D$ に巡回的、$\mathbb CI_2$ に分離的です。しかし
+また [Einstein局所性](../AQFT2/index.md#def-aqft2-locality)から得られるのは $\mathcal M(O^\perp)\subset\mathcal M(O)'$ という包含です。真空の巡回・分離性を追加しても、この包含が等号になる **Haag双対性** は従いません。例えば $\mathcal H=\mathbb C^2$、$D$ を対角環、$\Omega=(1,1)/\sqrt2$ とし、二つの互いに空間的分離した領域に、それぞれ $\mathcal M(O)=\mathbb CI_2$、$\mathcal M(Q)=D$ を割り当てるとします。この二つの環は交換し、$\Omega$ は $D$ に巡回的、$\mathbb CI_2$ に分離的です。しかし
 $$
 D=\mathcal M(Q)\subsetneq(\mathbb CI_2)'=B(\mathbb C^2).
 $$
