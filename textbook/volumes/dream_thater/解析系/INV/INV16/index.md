@@ -334,7 +334,7 @@ $$
 > で与える。ここで $Z(y)$ は正規化定数である。$\mu^y$ は $\mu_0$ に関して絶対連続であり、事前測度を基準とする密度は $d\mu^y/d\mu_0=Z(y)^{-1}e^{-\Phi(\,\cdot\,;y)}$ である。
 <!-- formal-statement-end -->
 
-「可分」とは、可算個の点からなる稠密部分集合が存在することです。$\ell^2$ はその具体例です。絶対連続とは $\mu_0(B)=0$ なら $\mu^y(B)=0$ となることを指し、$d\mu^y/d\mu_0$ はこの関係の下での Radon--Nikodym 密度の記法です。**ここでの分母は事前測度**であり、存在しない無限次元 Lebesgue 測度ではありません。
+「可分」とは、可算個の点からなる稠密部分集合が存在することです。$\ell^2$ はその具体例です。絶対連続とは $\mu_0(B)=0$ なら $\mu^y(B)=0$ となることを指し、$d\mu^y/d\mu_0$ は[Radon–Nikodym 微分](../../MT/MT3/index.md#def-mt3-rn-density)の記法です。**ここでの分母は事前測度**であり、存在しない無限次元 Lebesgue 測度ではありません。
 
 定義式が本当に有限かつ正で、条件付き確率として機能することを検証しましょう。Gaussian 観測ノイズの正定値性のおかげで、この設定では $F$ の有界性すら必要ありません。ただし $F(u)$ は各 $u\in H$ で有限ベクトルとします。
 
@@ -379,7 +379,7 @@ $$
 
 と置きます。[Gaussian 密度の正規化](../INV15/index.md#def-inv15-gaussian-density)から、各 $u$ に対し $\int_{\mathbb R^m}q(y\mid u)\,dy=1$ です。$\Sigma$ は定数行列なので $p_Y(y)=(2\pi)^{-m/2}(\det\Sigma)^{-1/2}Z(y)>0$ です。
 
-任意の Borel 集合 $B\subset H$、$D\subset\mathbb R^m$ を取ります。被積分関数が非負なので Tonelli の積分交換を使えます。独立な $E$ の条件付き密度を最初に代入すると
+任意の Borel 集合 $B\subset H$、$D\subset\mathbb R^m$ を取ります。被積分関数が非負なので [Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)を使って積分順を交換できます。独立な $E$ の条件付き密度を最初に代入すると
 
 $$
 \begin{aligned}
@@ -428,7 +428,7 @@ $$
 U=(\xi_1,\xi_2/2,\xi_3/3,\ldots)
 $$
 
-を考えます。非負な部分和 $S_N=\sum_{j=1}^N\xi_j^2/j^2$ は増加し、その期待値は $\sum_{j=1}^N1/j^2\le\sum_{j\ge1}1/j^2<\infty$ です。単調収束により $E[\lim_NS_N]=\sum_{j\ge1}1/j^2<\infty$ なので $\sum_{j\ge1}\xi_j^2/j^2<\infty$ が確率1で成立し、$U\in\ell^2$ です。この $U$ の法則を $\mu_0$ とすれば、通常の有限次元密度なしに関数空間上の事前測度を得られます。
+を考えます。非負な部分和 $S_N=\sum_{j=1}^N\xi_j^2/j^2$ は増加し、その期待値は $\sum_{j=1}^N1/j^2\le\sum_{j\ge1}1/j^2<\infty$ です。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $E[\lim_NS_N]=\sum_{j\ge1}1/j^2<\infty$ なので $\sum_{j\ge1}\xi_j^2/j^2<\infty$ が確率1で成立し、$U\in\ell^2$ です。この $U$ の法則を $\mu_0$ とすれば、通常の有限次元密度なしに関数空間上の事前測度を得られます。
 
 $F(u)=u_1$、独立な $E\sim N(0,1)$ とすると、観測 $Y=\xi_1+E$ は第1座標だけに依存します。[INV15 の Gaussian 更新](../INV15/index.md#thm-inv15-gaussian-posterior)により、$U_1\mid Y=y\sim N(y/2,1/2)$ です。一方、$j\ge2$ の各座標は $(\xi_1,E)$ と独立なので、観測後も $U_j\sim N(0,1/j^2)$ のままです。さらに後方座標の同時分布も変わりません。これは前講の[独立な未観測成分の命題](../INV15/index.md#prop-inv15-kernel-independent)と同じ仕組みですが、無限次元では確率測度として述べます。
 
@@ -684,7 +684,7 @@ E[S_N]=\sum_{j=1}^N\frac{E[\xi_j^2]}{j^2}
 \le\sum_{j=1}^\infty\frac1{j^2}<\infty.
 $$
 
-単調収束定理により $E[\sum_{j\ge1}U_j^2]=\sum_{j\ge1}1/j^2<\infty$ です。もし和が無限大になる事象の確率が正なら、その期待値も無限大になるため矛盾です。従って $U\in\ell^2$ が確率1で成立します。
+[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $E[\sum_{j\ge1}U_j^2]=\sum_{j\ge1}1/j^2<\infty$ です。もし和が無限大になる事象の確率が正なら、その期待値も無限大になるため矛盾です。従って $U\in\ell^2$ が確率1で成立します。
 
 (2) $U_1=\xi_1\sim N(0,1)$、$E\sim N(0,1)$ は独立なので、[Gaussian 事後公式](../INV15/index.md#thm-inv15-gaussian-posterior)により $U_1\mid Y=y\sim N(y/2,1/2)$ です。一方 $U_2=\xi_2/2\sim N(0,1/4)$ で、$\xi_2$ は $(\xi_1,E)$ と独立です。$Y$ は $(\xi_1,E)$ だけの関数なので $U_2$ は $Y$ と独立です。従って $U_2\mid Y=y\sim N(0,1/4)$ のままです。
 <!-- solution-end -->
