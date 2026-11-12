@@ -276,7 +276,7 @@ $$
 
 $g\in C_c^\infty$ とすれば部分積分を繰り返して、任意の整数 $N\geq1$ に対して $|\widehat g(\zeta)|\leq C_N(1+|\zeta|)^{-N}$ です。また指数を掛けた Fourier 変換は $\widehat h_n(\xi)=\widehat g(\xi-nu)$ となります。
 
-[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)を角度ごとに適用すると、
+[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-parseval)を角度ごとに適用すると、
 
 $$
 \begin{aligned}
@@ -354,7 +354,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)と [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)を二変数に適用し、
+[二次元 Fourier 反転](../INV12/index.md#lem-inv12-fourier2-inversion)と [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-parseval)を二変数に適用し、
 
 $$
 \begin{aligned}
@@ -607,7 +607,7 @@ $$
 =\frac12(\omega^2+n^2).
 $$
 
-[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)による誤差評価は
+[Fourier slice theorem](../INV12/index.md#thm-inv12-slice)と一次元 [Plancherel の公式](../../FOU/FOU4/index.md#thm-fou4-parseval)による誤差評価は
 
 $$
 \begin{aligned}
@@ -683,7 +683,7 @@ $$
 \ge(1-\sqrt3/2)(\omega^2+n^2).
 $$
 
-$\widehat h_n(\xi)=\widehat g(\xi-nu)$ と Schwartz 急減少性を [Fourier slice theorem](../INV12/index.md#thm-inv12-slice)・[Plancherel](../../FOU/FOU4/index.md#thm-fou4-plancherel-core)へ代入すると、各 $N\ge1$ について
+$\widehat h_n(\xi)=\widehat g(\xi-nu)$ と Schwartz 急減少性を [Fourier slice theorem](../INV12/index.md#thm-inv12-slice)・[Plancherel](../../FOU/FOU4/index.md#thm-fou4-parseval)へ代入すると、各 $N\ge1$ について
 
 $$
 \|M_Ih_n\|_2^2\le C_N n^{1-2N}.
