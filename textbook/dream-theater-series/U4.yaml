@@ -1,0 +1,37 @@
+version: 1
+id: U4
+title: "裁定機会：価格矛盾の検出・相対価値・統計的裁定"
+plan: textbook/plans/DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+# 全30講、設計確定。未執筆のため全章 planned。
+chapters:
+  - { id: U4-01, path: textbook/volumes/dream_thater/応用系/U/U4-01, status: planned, title: "価格表から裁定を判定する" }
+  - { id: U4-02, path: textbook/volumes/dream_thater/応用系/U/U4-02, status: planned, title: "有限市場の分離定理と状態価格の双対" }
+  - { id: U4-03, path: textbook/volumes/dream_thater/応用系/U/U4-03, status: planned, title: "売値・買値・手数料・空売り制約を入れた裁定探索" }
+  - { id: U4-04, path: textbook/volumes/dream_thater/応用系/U/U4-04, status: planned, title: "外国為替の三角裁定と同時刻気配" }
+  - { id: U4-05, path: textbook/volumes/dream_thater/応用系/U/U4-05, status: planned, title: "現物・先渡・先物のcash-and-carry" }
+  - { id: U4-06, path: textbook/volumes/dream_thater/応用系/U/U4-06, status: planned, title: "ETF・指数構成銘柄の価格整合性" }
+  - { id: U4-07, path: textbook/volumes/dream_thater/応用系/U/U4-07, status: planned, title: "行使価格方向のオプション静的裁定" }
+  - { id: U4-08, path: textbook/volumes/dream_thater/応用系/U/U4-08, status: planned, title: "満期方向・ボラティリティ曲面の整合性" }
+  - { id: U4-09, path: textbook/volumes/dream_thater/応用系/U/U4-09, status: planned, title: "気配値の一括監査と最小修正" }
+  - { id: U4-10, path: textbook/volumes/dream_thater/応用系/U/U4-10, status: planned, title: "無裁定と統計的裁定の論理的な距離" }
+  - { id: U4-11, path: textbook/volumes/dream_thater/応用系/U/U4-11, status: planned, title: "価格・対数価格・収益率の定常性を分ける" }
+  - { id: U4-12, path: textbook/volumes/dream_thater/応用系/U/U4-12, status: planned, title: "単位根検定とその限界" }
+  - { id: U4-13, path: textbook/volumes/dream_thater/応用系/U/U4-13, status: planned, title: "2系列の共和分とEngle–Granger法" }
+  - { id: U4-14, path: textbook/volumes/dream_thater/応用系/U/U4-14, status: planned, title: "多変量共和分と誤差修正表現" }
+  - { id: U4-15, path: textbook/volumes/dream_thater/応用系/U/U4-15, status: planned, title: "統計残差を取引可能なspreadに変える" }
+  - { id: U4-16, path: textbook/volumes/dream_thater/応用系/U/U4-16, status: planned, title: "平均回帰の速度・閾値・保有期間" }
+  - { id: U4-17, path: textbook/volumes/dream_thater/応用系/U/U4-17, status: planned, title: "非線形・閾値共和分とレジーム変化" }
+  - { id: U4-18, path: textbook/volumes/dream_thater/応用系/U/U4-18, status: planned, title: "時変ヘッジ比率とKalmanフィルタ" }
+  - { id: U4-19, path: textbook/volumes/dream_thater/応用系/U/U4-19, status: planned, title: "因子中立・PCA・多銘柄残差戦略" }
+  - { id: U4-20, path: textbook/volumes/dream_thater/応用系/U/U4-20, status: planned, title: "合併裁定：deal spreadは無リスクか" }
+  - { id: U4-21, path: textbook/volumes/dream_thater/応用系/U/U4-21, status: planned, title: "市場が示唆する成立確率とイベント時間" }
+  - { id: U4-22, path: textbook/volumes/dream_thater/応用系/U/U4-22, status: planned, title: "売買シグナルを自己金融の保有量に変換" }
+  - { id: U4-23, path: textbook/volumes/dream_thater/応用系/U/U4-23, status: planned, title: "取引費用・借株・資金調達と損益分岐" }
+  - { id: U4-24, path: textbook/volumes/dream_thater/応用系/U/U4-24, status: planned, title: "複数脚の約定不一致・市場アクセス" }
+  - { id: U4-25, path: textbook/volumes/dream_thater/応用系/U/U4-25, status: planned, title: "戦略の組合せとリスク予算" }
+  - { id: U4-26, path: textbook/volumes/dream_thater/応用系/U/U4-26, status: planned, title: "生存者・価格修正・情報時刻の監査" }
+  - { id: U4-27, path: textbook/volumes/dream_thater/応用系/U/U4-27, status: planned, title: "時系列のwalk-forwardと漏洩防止" }
+  - { id: U4-28, path: textbook/volumes/dream_thater/応用系/U/U4-28, status: planned, title: "多重探索・過学習・Sharpeの検証" }
+  - { id: U4-29, path: textbook/volumes/dream_thater/応用系/U/U4-29, status: planned, title: "レジーム変化・テール・流動性のストレス監査" }
+  - { id: U4-30, path: textbook/volumes/dream_thater/応用系/U/U4-30, status: planned, title: "研究の再現と3種の裁定の最終判定" }
