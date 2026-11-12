@@ -12,7 +12,7 @@ $$
 
 固有時刻向きPoincaré群を $G=\mathcal P_+^\uparrow$ と書きます。その元 $F=(a,\Lambda)$ は時空の点を $x\mapsto\Lambda x+a$ と移します。平行移動部分群を $T=\mathbb R^4$ とします。
 
-$\mathfrak B$ は[AQFT2のquasilocal C*-環](../AQFT2/index.md#prop-aqft2-quasilocal)とし、$F\mapsto\alpha_F$ を単位的*-自己同型の群作用とします。一般の局所netでノルム連続な群作用までは仮定しません。
+$\mathfrak B$ は[AQFT2の局所netで用いた共通容器](../AQFT2/index.md#def-aqft2-local-assignment)とし、$F\mapsto\alpha_F$ を単位的*-自己同型の群作用とします。[有界な局所代数から作るquasilocal C*-環](../AQFT2/index.md#prop-aqft2-quasilocal)は $\mathfrak B$ の部分環ですが、本講の反例では両者が一致するとは仮定しません。一般の局所netでノルム連続な群作用までは仮定しません。
 
 ## 1. 状態を時空変換で運ぶ
 
@@ -37,9 +37,9 @@ $$
 
 **定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
-$U=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$\alpha_U(A)=UAU^*$、$v=e_1$ とします。$U^{-1}=U=U^*$ なので、定義から
+ここではPoincaré群全体ではなく、二元群 $\{e,s\}$ による変換の計算を取り出します。$U=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$\alpha_s(A)=UAU^*$、$\alpha_e(A)=A$ とし、$e_1=(1,0)$、$e_2=(0,1)$ とします。$U^2=I_2$ なので $\alpha_s^2=\alpha_e$ となり、これは確かに群作用です。$U^{-1}=U=U^*$ なので、上で定めた状態の変換式から
 $$
-(U\cdot\omega_{e_1})(A)
+(s\cdot\omega_{e_1})(A)
 =\langle e_1,U^*AUe_1\rangle
 =\langle e_2,Ae_2\rangle=\omega_{e_2}(A).
 $$
@@ -141,7 +141,12 @@ $$
 
 **定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
-$\mathfrak B=\mathbb C^2$ に前節の自明な作用を入れ、$0<\lambda<1$ に対するGNS空間を $\mathbb C^2$ と同一視します。$\pi(z_1,z_2)=\operatorname{diag}(z_1,z_2)$、$\Omega=(\sqrt\lambda,\sqrt{1-\lambda})$、$U(F)=I_2$ と置くと、$\pi(\mathfrak B)\Omega$ は両成分を任意に動かせるので巡回的です。$U(F)\pi(A)U(F)^*=\pi(A)=\pi(\alpha_F(A))$、$U(F)\Omega=\Omega$ も直接成立します。GNS表現の構成とこれが一致することは第5節で計算します。
+$\mathfrak B=\mathbb C^2$ に前節の自明な作用を入れ、$0<\lambda<1$ に対するGNS空間を $\mathbb C^2$ と同一視します。$\pi(z_1,z_2)=\operatorname{diag}(z_1,z_2)$、$\Omega=(\sqrt\lambda,\sqrt{1-\lambda})$、$U(F)=I_2$ と置きます。ここで $\pi$ は成分ごとの積と複素共役をそれぞれ行列の積と随伴へ移し、$\pi(1,1)=I_2$ を満たすため、単位的*-表現です。さらに
+$$
+\|\Omega\|^2=\lambda+(1-\lambda)=1,\qquad
+\pi(z_1,z_2)\Omega=(z_1\sqrt\lambda,z_2\sqrt{1-\lambda}).
+$$
+両重みが正なので右辺は $\mathbb C^2$ 全体を動き、$\Omega$ は巡回的です。$U(F)U(H)=I_2=U(FH)$ かつ $U(F)^*=I_2$ なのでユニタリ群表現であり、$U(F)\pi(A)U(F)^*=\pi(A)=\pi(\alpha_F(A))$、$U(F)\Omega=\Omega$ も成立します。この行列表示が[OA5のGNS構成](../../OA/OA5/index.md#thm-oa5-gns)から生じることは第5節で計算します。
 <!-- definition-example-end -->
 
 <a id="thm-aqft3-covariant-gns"></a>
@@ -269,7 +274,12 @@ U(a)=\int_{\mathbb R^4}
 e^{\,i(p^0 t-\boldsymbol p\cdot\boldsymbol x)}\,dE(p),
 \qquad p=(p^0,\boldsymbol p)
 $$
-と記述できます。$E$ の支持（$E$ がゼロでない開集合を集めた領域の閉包）が同時スペクトルです。有限次元の同時対角行列なら、この積分は固有値ごとの有限和です。
+と記述できます。$E$ の支持、すなわち「任意の開近傍 $O$ で $E(O)\ne0$ となる点」の集合
+$$
+\operatorname{supp}E
+=\mathbb R^4\setminus\bigcup\{O\subset\mathbb R^4:\ O\text{ は開集合で }E(O)=0\}
+$$
+が同時スペクトルです。有限次元の同時対角行列なら、この積分は固有値ごとの有限和です。
 
 前方閉光円錐を
 $$
@@ -296,7 +306,12 @@ $$
 
 **定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
-$\mathcal H=\mathbb C^3$ とし、$H=\operatorname{diag}(0,2,1)$、$P_1=\operatorname{diag}(0,1,2)$、$P_2=P_3=0$ とします。全作用素は対角なので $U(a)$ は強連続で、同時スペクトルは $(0,0,0,0)$、$(2,1,0,0)$、$(1,2,0,0)$ です。最初の二つは $p^0\ge|\boldsymbol p|$ を満たしますが、最後は $1<2$ なので外れます。全固有値で $H\ge0$ であってもスペクトル条件は失敗します。これは**平行移動群だけ**の表現例であり、Lorentz群への拡張を主張しません。
+$\mathcal H=\mathbb C^3$ とし、$H=\operatorname{diag}(0,2,1)$、$P_1=\operatorname{diag}(0,1,2)$、$P_2=P_3=0$ とします。これは四つの生成作用素を標準基底 $e_1,e_2,e_3$ で同時に対角表示したものです。例えば
+$$
+U(t,\boldsymbol x)e_2=e^{i(2t-x^1)}e_2,\qquad
+U(t,\boldsymbol x)e_3=e^{i(t-2x^1)}e_3.
+$$
+したがって $e_1,e_2,e_3$ に対応する共同固有値は $(0,0,0,0)$、$(2,1,0,0)$、$(1,2,0,0)$ です。指数関数はパラメータについて連続で、有限次元なので $U(a)$ は強連続です。最初の二つは $p^0\ge|\boldsymbol p|$ を満たしますが、最後は $1<2$ なので外れます。全固有値で $H\ge0$ であってもスペクトル条件は失敗します。これは**平行移動群だけ**の表現例であり、Lorentz群への拡張を主張しません。
 <!-- definition-example-end -->
 
 完全なLorentz共変性まで要求すると事情が変わります。ある観測者にとってエネルギーが非負でも、空間的四元運動量ならboostでエネルギーの符号が反転し得るためです。
@@ -327,13 +342,20 @@ $$
 
 $\Sigma\subset\overline V_+$ なら全スペクトル点で $p^0\ge0$ なので、[スペクトル積分の順序](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)から $H\ge0$ です。
 
-逆に $H\ge0$ とします。このとき $\Sigma\subset\{p^0\ge0\}$ です。Lorentz共変性と共同スペクトル表示から、$\psi$ がスペクトル集合 $B$ に属するなら $U(\Lambda)\psi$ は $\Lambda B$ に属し、$\Sigma$ は各 $\Lambda\in SO^+(1,3)$ で不変です。これは上の指数の恒等式
+逆に $H\ge0$ とします。このとき $\Sigma\subset\{p^0\ge0\}$ です。共同スペクトル測度の変換を途中式から確認します。$b(p,a)=p^0t-\boldsymbol p\cdot\boldsymbol x=-\eta(p,a)$ と書けば、Lorentz変換は $b(\Lambda p,\Lambda a)=b(p,a)$ を保ちます。したがって
 $$
-p^0t-\boldsymbol p\cdot\boldsymbol x
-=(\Lambda p)^0(\Lambda a)^0-
-(\Lambda\boldsymbol p)\cdot(\Lambda\boldsymbol a)
+\begin{aligned}
+U(\Lambda)U(a)U(\Lambda)^*
+&=U(\Lambda a)\\
+&=\int e^{ib(p,\Lambda a)}\,dE(p)\\
+&=\int e^{ib(\Lambda^{-1}p,a)}\,dE(p).
+\end{aligned}
 $$
-（同じベクトルと変位を同時変換）から確認できます。
+一方、左辺は射影値測度 $B\mapsto U(\Lambda)E(B)U(\Lambda)^*$ に関する同じ被積分関数の積分です。平行移動群の共同スペクトル測度の一意性から、任意のBorel集合 $B\subset\mathbb R^4$ について
+$$
+U(\Lambda)E(B)U(\Lambda)^*=E(\Lambda B)
+$$
+を得ます。よって $\psi\in\operatorname{Ran}E(B)$ なら $U(\Lambda)\psi\in\operatorname{Ran}E(\Lambda B)$ であり、ユニタリ共役は射影の非零性を保つため、$\Sigma=\operatorname{supp}E$ はLorentz変換で不変です。
 
 もし $p=(p^0,\boldsymbol p)\in\Sigma$ が $|\boldsymbol p|>p^0\ge0$ を満たすなら、空間回転で $\boldsymbol p=(q,0,0)$、$q>p^0$ とできます。$p^0/q<v<1$ を選び、$x^1$ 方向の速度 $v$ のLorentz boostを作用させると
 $$
@@ -374,7 +396,12 @@ $$
 
 **定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
-前節の $\mathbb C^2$ に自明なPoincaré作用を入れたnetでは、混合状態 $\omega_{1/2}$ のGNS空間は二次元で $U(F)=I$。よってスペクトル条件は成立し $\Omega$ も不変ですが、$\Omega$ に直交する $(1,-1)$ の方向にも不変ベクトルがあります。一方、評価状態 $\omega_1(z_1,z_2)=z_1$ のGNS空間は一次元なので、**その表現の中では**不変ベクトルは $\mathbb C\Omega$ のみです。netそのものに他の状態が存在しないとは言っていません。
+第1・2節で用いた $\mathbb C^2$ に、非空開領域では $\mathfrak A(O)=\mathbb C^2$、空領域では $\mathbb C1$ を割り当て、$\alpha_F=\mathrm{id}$ とします（第5.1節でnet公理を確認します）。混合状態 $\omega_{1/2}$ のGNS空間は二次元で、$U(F)=I_2$ です。平行移動の生成作用素はすべて零なので、共同スペクトルは $\{0\}$、従ってスペクトル条件が成立します。$\Omega=(1,1)/\sqrt2$ は不変ですが、
+$$
+\left\langle(1,-1)/\sqrt2,\Omega\right\rangle=0,\qquad
+U(F)(1,-1)=(1,-1)
+$$
+となり、独立な不変ベクトルもあります。一方、評価状態 $\omega_1(z_1,z_2)=z_1$ では $N_{\omega_1}=\{(0,z_2)\}$ なのでGNS空間は一次元、$U(F)=1$ です。よって**その表現の中では**不変ベクトルは $\mathbb C\Omega$ のみです。netそのものに他の状態が存在しないとは言っていません。
 <!-- definition-example-end -->
 
 <a id="prop-aqft3-zero-momentum"></a>
@@ -418,7 +445,7 @@ $$
 ここに $\Omega$ が属し、かつ不変ベクトルがその一次元の張る空間だけであることは、直交射影が $|\Omega\rangle\langle\Omega|$ と一致することに等しいです。$\square$
 <!-- proof-end -->
 
-真空の存在は $E(\{0\})\ne0$、この表現における真空の一意性は $\operatorname{rank}E(\{0\})=1$。正エネルギー条件は $E$ の**支持領域**への制約なので、$\operatorname{rank}E(\{0\})$ までは決めません。
+一般の平行移動表現では $E(\{0\})\ne0$ は**平行移動不変ベクトルの存在**と同値であり、それだけではPoincaré群全体に不変なベクトルの存在を意味しません。本講の正エネルギー真空状態から作ったGNS表現では $\Omega_\omega$ が既に全 $G$ で不変なので、$E(\{0\})\ne0$ は自動的に成立します。その表現における**平行移動不変な真空ベクトルの一意性**は $\operatorname{rank}E(\{0\})=1$ です。正エネルギー条件は $E$ の支持への制約なので、この階数までは決めません。
 
 ## 5. 二つの小模型で仮定の独立性を確認する
 
@@ -468,17 +495,21 @@ $\alpha_F=\mathrm{id}$ から[共変GNS定理](#thm-aqft3-covariant-gns)の実�
 
 ### 5.2 不変な状態でもエネルギーが負になり得る
 
-次は**時間並進部分群だけ**の代数動力学であり、Poincaré共変な局所netの反例だとは主張しません。$\mathfrak B=M_2(\mathbb C)$ に $D=\operatorname{diag}(0,1)$、$V_t=e^{itD}$、$\alpha_t(A)=V_tAV_t^*$ を置きます。正規化トレース $\tau(A)=\operatorname{Tr}(A)/2$ は $\tau(\alpha_t(A))=\tau(A)$ です。しかしGNS空間の行列単位 $E_{ij}$ に
+次は**時間並進部分群だけ**の代数動力学であり、Poincaré共変な局所netの反例だとは主張しません。$\mathfrak B=M_2(\mathbb C)$ に $D=\operatorname{diag}(0,1)$、$V_t=e^{itD}$、$\alpha_t(A)=V_tAV_t^*$ を置きます。正規化トレース $\tau(A)=\operatorname{Tr}(A)/2$ は $\tau(\alpha_t(A))=\tau(A)$ です。また
 $$
-U_t(E_{ij})=V_tE_{ij}V_t^*
-=e^{it(d_i-d_j)}E_{ij},
+\tau(A^*A)=\tfrac12\sum_{i,j=1}^2|A_{ij}|^2
+$$
+なのでGNS零空間は $\{0\}$ であり、GNSベクトル $[A]$ を行列 $A$ と同一視できます。$E_{ij}$ は $(i,j)$ 成分だけが $1$ の**行列単位**で、共同スペクトル測度 $E$ とは別の記号です。[共変GNS実装](#thm-aqft3-covariant-gns)は $U_t[A]=[V_tAV_t^*]$ となるため、
+$$
+U_t[E_{ij}]=[V_tE_{ij}V_t^*]
+=e^{it(d_i-d_j)}[E_{ij}],
 \qquad(d_1,d_2)=(0,1)
 $$
-として作用します。$E_{12}$ の周波数は $-1$、$E_{21}$ は $+1$、対角成分は $0$。不変性と強連続性だけではエネルギーの非負性は言えません。ここではLorentz共変性がないので第3節の命題には矛盾しません。
+と作用します。$E_{12}$ の周波数は $-1$、$E_{21}$ は $+1$、対角成分は $0$。不変性と強連続性だけではエネルギーの非負性は言えません。ここではLorentz共変性がないので第3節の命題には矛盾しません。
 
 ## 6. 加法性とtime-sliceも別の仮定である
 
-ここまでで選んだ状態とエネルギーをnet公理から切り分けました。空間を細かい領域へ分けたとき、全体の代数がそれらから生成されるかどうかも別問題です。さらに、ある時間帯の観測量から時空全体の観測量を再構成できるかどうかも、局所性だけでは保証されません。
+ここまでで選んだ状態とエネルギーをnet公理から切り分けました。空間を細かい領域へ分けたとき、全体の代数がそれらから生成されるかどうかも別問題です。さらに、ある時間帯の観測量から時空全体の観測量を再構成できるかどうかも、局所性だけでは保証されません。ここで **Cauchy面** とは、未来または過去へこれ以上延長できない任意の因果曲線とちょうど一度交わる面のことです。因果曲線とは、接方向が未来向きまたは過去向きの非空間的方向を向く曲線で、Minkowski座標では $|d\boldsymbol x/dt|\le1$ がその局所的な条件になります。この条件の利用は、後のtime-sliceの直接例で確認します。
 
 <a id="def-aqft3-additivity"></a>
 
@@ -509,7 +540,7 @@ $$
 \mathfrak A(N)=\mathfrak A(M)
 $$
 >
-> となることをいう。ここでCauchy面は、すべての非延長な因果曲線と一度だけ交わる面である。
+> となることをいう。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft3-time-slice -->
@@ -517,7 +548,13 @@ $$
 
 **定義の確認**。以下で、定義に現れる条件を対象と式に即して確かめます。
 
-$N=\{(t,\boldsymbol x):|t|<1\}$ は $\{t=0\}$ というMinkowskiのCauchy面の開近傍です。一定な可換netなら $\mathfrak A(N)=\mathfrak A(M)=\mathbb C^2$ なので、この $N$ で条件を確認できます。同じ理由で任意のCauchy面近傍でも成立します。一般の大域双曲な部分時空に対する強いtime-slice条件は後の構成と区別します。
+$N=\{(t,\boldsymbol x):|t|<1\}$ は $\{t=0\}$ の開近傍です。$\{t=0\}$ がCauchy面であることも確認します。未来向きの因果曲線では $t$ は単調に増加し、二時刻 $t_1<t_2$ の間に
+$$
+|\boldsymbol x(t_2)-\boldsymbol x(t_1)|\le t_2-t_1
+$$
+が成立します。もし延長不能な曲線の時間座標が有限値で途切れれば、この不等式から空間座標にも有限の極限があり、その点から因果曲線を延長できて矛盾します。過去向きも同じです。従って非延長な因果曲線の $t$ は全実数を動き、$t=0$ とちょうど一度交わります。
+
+一定な可換netでは、どの非空開集合にも $\mathbb C^2$ を割り当てるので、$\mathfrak A(N)=\mathfrak A(M)=\mathbb C^2$ です。これは上の $N$ だけでなく任意のCauchy面近傍でも成り立ち、time-sliceが要求する「任意のCauchy面近傍」での等式を満たします。一般の大域双曲な部分時空に対する強いtime-slice条件は後の構成と区別します。
 <!-- definition-example-end -->
 
 <a id="prop-aqft3-additivity-independent"></a>
@@ -740,7 +777,12 @@ E(\{0\})=I_2,\qquad
 $$
 しかし $\operatorname{rank}E(\{0\})=2$ で真空は一意でありません。
 
-(iii) $\lambda=1$ なら $N_{\omega_1}=\{(0,z_2):z_2\in\mathbb C\}$、商空間は第1成分だけの一次元。$\pi_{\omega_1}(z_1,z_2)$ は $z_1$ 倍、$\Omega=1$、$U=1$ なので $E(\{0\})=I_1$ はrank1です。$\lambda=0$ も第2成分を残して同様に一次元となります。
+(iii) $\lambda=1$ なら $N_{\omega_1}=\{(0,z_2):z_2\in\mathbb C\}$、商空間は第1成分だけの一次元。$\pi_{\omega_1}(z_1,z_2)$ は $z_1$ 倍、$\Omega=1$、$U=1$ なので $E(\{0\})=I_1$ はrank1です。$\lambda=0$ では
+$$
+N_{\omega_0}=\{(z_1,0):z_1\in\mathbb C\},\qquad
+[(z_1,z_2)]\longmapsto z_2
+$$
+が商空間の一次元表示を与え、$\pi_{\omega_0}(z_1,z_2)$ は $z_2$ 倍、$\Omega=1$、$U=1$ です。従ってこの場合も $E(\{0\})=I_1$ はrank1です。
 
 (iv) 基本net公理や不変状態の存在から、選んだGNS表現での真空一意性は導けません。(ii)が反例です。一方、(iii)で一意なのは**各GNS表現の中の**不変ベクトルであって、異なる真空状態 $\omega_0,\omega_1$ がnet上に存在しないという結論ではありません。正エネルギーであることと、真空状態そのものがnet上で唯一であることも区別できます。
 <!-- solution-end -->

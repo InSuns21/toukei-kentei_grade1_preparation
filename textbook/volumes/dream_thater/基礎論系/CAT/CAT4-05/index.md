@@ -49,7 +49,7 @@ $$
 f^\sharp(x)(a)=f(x,a)
 $$
 
-を対応させる。逆に $g:X\to B^A$ から $g^\flat(x,a)=g(x)(a)$ を定める。いずれも定義域・値域が合い、$(f^\sharp)^\flat(x,a)=f(x,a)$、$(g^\flat)^\sharp(x)(a)=g(x)(a)$ なので逆写像である。$h:X'\to X$、$k:B\to B'$ に対しては
+を対応させる。逆に $g:X\to B^A$ から $g^\flat(x,a)=g(x)(a)$ を定める。いずれも定義域・値域が合い、$(f^\sharp)^\flat(x,a)=f(x,a)$、$(g^\flat)^\sharp(x)(a)=g(x)(a)$ なので逆写像である。$h:X'\to X$、$k:B\to B'$ を取り、$k_*:B^A\to(B')^A$ を $k_*(q)=k\circ q$ と定める。このとき
 
 $$
 (f\circ(h\times1_A))^\sharp=f^\sharp\circ h,
@@ -57,7 +57,7 @@ $$
 (k\circ f)^\sharp=k_*\circ f^\sharp,
 $$
 
-ただし $k_*:B^A\to(B')^A$ は $k_*(q)=k\circ q$ と定める。各 $x',a$ で両辺を評価すればそれぞれ $f(h(x'),a)$、$k(f(x,a))$ となる。よって二変数の自然性も成立し、右随伴の定義を全て満たす。
+各 $x',a$ で両辺を評価すればそれぞれ $f(h(x'),a)$、$k(f(x,a))$ となる。よって二変数の自然性も成立し、右随伴の定義を全て満たす。
 <!-- definition-example-end -->
 
 ### 2.2 評価射とカリー化の普遍性
@@ -284,7 +284,7 @@ $$
 
 ### 4.1 二項積を用いた評価
 
-[圏論の二項積](../CAT2-02/index.md#def-cat2-02-binary-product)が存在すれば、$X\times A$ は「二つの射の組を作る」普遍性を持つ。さらにそこからの射を $X$ からの射として表示できるなら、$A$ を入力とする関数の空間に似た対象を得る。一般の圏ではそれが実在するかを別途確認しなくてはならない。
+[圏論の二項積](../CAT2-02/index.md#def-cat2-02-binary-product)が存在すれば、$X\times A$ は「二つの射の組を作る」普遍性を持つ。さらにそこからの射を $X$ からの射として表示できるなら、$A$ を入力とする関数の空間に似た対象を得る。一般の圏ではそれが実在するかを別途確認しなくてはならない。このために、**評価射を通じて全ての $X\times A\to B$ を一意に表現する対象**と、その存在条件を次で定める。
 
 <a id="def-cat4-05-exponential"></a>
 
@@ -299,6 +299,8 @@ $$
 > を満たすものである。$E$ を $B^A$ と書き、$\Lambda(f)$ を $f$ の**カリー化**という。
 <!-- formal-statement-end -->
 
+積をテンソルに選んだ場合、前節までの転置 $f^\sharp$ を指数対象については $\Lambda(f)$ と書いている。どちらも同じ普遍性による一意な射であり、$[A,B]=B^A$ と識別すれば $\Lambda(f)=f^\sharp$ である。
+
 **型を分ける。** $\Lambda(f)$ の始域は $X$、終域は $B^A$。評価射の始域は $B^A\times A$ なので、$\Lambda(f)\times1_A$ の始域・終域はそれぞれ $X\times A$、$B^A\times A$ となり、合成できる。積の添字の順を入れ替えてはいけない。
 
 <!-- definition-example-start: def-cat4-05-exponential -->
@@ -312,6 +314,8 @@ $$
 <!-- definition-example-end -->
 
 ### 4.2 有限積と指数対象の組合せ
+
+二項積と終対象だけでは、任意の二対象 $A,B$ に対する指数対象の存在は保証されない。**有限積があり、さらに全ての $A,B$ について指数対象が存在する圏**を、一つの概念として次に定義する。
 
 <a id="def-cat4-05-ccc"></a>
 
@@ -410,6 +414,54 @@ $$
 <!-- proof-start -->
 ### 証明
 
+まず任意次元でもテンソル積が存在することを確認する。[LA3E の基底による存在証明](../../../基礎科目/LA/LA3E/index.md#thm-la3e-tensor-product-existence-basis)は有限次元の場合なので、ここでは基底の有限性を使わない構成を与える。
+
+$X\times A$ の各組 $(x,a)$ を形式記号 $\langle x,a\rangle$ とし、これらの**有限**な $k$ 係数線形結合からなるベクトル空間 $F$ を作る。$N\subset F$ を、任意の $x,x'\in X$、$a,a'\in A$、$c\in k$ に対して次の四種類の式が生成する部分空間とする。
+
+$$
+\begin{aligned}
+&\langle x+x',a\rangle-\langle x,a\rangle-\langle x',a\rangle,\\
+&\langle cx,a\rangle-c\langle x,a\rangle,\\
+&\langle x,a+a'\rangle-\langle x,a\rangle-\langle x,a'\rangle,\\
+&\langle x,ca\rangle-c\langle x,a\rangle.
+\end{aligned}
+$$
+
+商空間 $F/N$ を $X\otimes_k A$ とし、$\langle x,a\rangle$ の剰余類を $x\otimes a$ と書く。上の四関係によって $(x,a)\mapsto x\otimes a$ は各変数で線形である。任意の双線形写像 $b:X\times A\to B$ は $F$ 上の線形写像
+
+$$
+L_b\!\left(\sum_{i=1}^n c_i\langle x_i,a_i\rangle\right)
+=\sum_{i=1}^n c_i b(x_i,a_i)
+$$
+
+を一意に定める。$b$ の双線形性により、四関係の各生成元は $L_b$ で $0$ に写る。したがって
+
+$$
+N\subset\ker L_b.
+$$
+
+よって線形写像 $\widetilde b:F/N\to B$ が一意に誘導され、各組 $(x,a)$ について
+
+$$
+\widetilde b(x\otimes a)
+=L_b(\langle x,a\rangle)=b(x,a)
+$$
+
+を満たす。逆に[純テンソル（単純テンソル）](../../../基礎科目/LA/LA3E/index.md#def-la3e-simple-tensor)は $F/N$ を生成するので、純テンソル上の値を指定した線形写像は一意である。これで[テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)は次元制限なしに成立する。
+
+結合子と左右の単位子は、純テンソル上で
+
+$$
+\begin{aligned}
+\alpha_{X,A,B}((x\otimes a)\otimes b)
+&=x\otimes(a\otimes b),\\
+\lambda_X(c\otimes x)&=cx,\\
+\rho_X(x\otimes c)&=cx
+\end{aligned}
+$$
+
+と指定し、普遍性から線形写像として延長する。逆方向の結合子も同様に構成できる。三重・四重の純テンソル上で両経路が一致することから、構造射の自然性と五角形・三角形条件を確認できる。従って $\mathbf{Vect}_k$ は任意次元でもモノイダル圏になる。
+
 [テンソル積の普遍性](../../../基礎科目/LA/LA3E/index.md#def-la3e-tensor-product)により、$f:X\otimes_k A\to B$ を与えることと、双線形写像 $b_f(x,a)=f(x\otimes a)$ を与えることは同値である。$x$ を固定すると、$a\mapsto b_f(x,a)$ は線形なので $\widehat f(x)\in\operatorname{Hom}_k(A,B)$ を定める。$s,t\in k$ と $x,y\in X$ について
 
 $$
@@ -436,7 +488,7 @@ $$
 
 ### 5.2 二元順序圏：指数対象は含意
 
-$P=\{0\le1\}$ を[順序圏](../CAT1-01/index.md#def-cat1-01-category)として扱う。この圏の終対象は $1$、積は $a\wedge b=\min(a,b)$ である。射は $a\to b$ が $a\le b$ のときに限り一本だけある。
+$P=\{0\le1\}$ を[半順序集合から作る圏](../CAT1-02/index.md#prop-cat1-02-order-category)として扱う。この圏の終対象は $1$、積は $a\wedge b=\min(a,b)$ である。射は $a\to b$ が $a\le b$ のときに限り一本だけある。
 
 <a id="prop-cat4-05-two-poset"></a>
 
@@ -625,7 +677,7 @@ $$
 $A=B=X=\{0,1\}$、$C=\{0,1\}$ とする。$f:X\times(A\times B)\to C$ を $f(x,(a,b))=x+a+b\pmod2$ で定める。$[A\otimes B,C]\cong[A,[B,C]]$ に対応する二段階のカリー化を書き、$x=1$ の像を $a=0,1$ で明示せよ。
 
 <!-- solution-start -->
-**詳細解答。** 集合の直積に対する結合子の逆で $((x,a),b)$ を $(x,(a,b))$ に対応させる。第一段階は
+**詳細解答。** 集合の直積に対する結合子 $\alpha_{X,A,B}$ は $((x,a),b)$ を $(x,(a,b))$ に写す（逆向きではない）。従って $f:X\times(A\times B)\to C$ に前合成するのは $\alpha_{X,A,B}$ である。第一段階は
 
 $$
 g(x,a)(b)=f(x,(a,b))=x+a+b\pmod2.
@@ -648,7 +700,20 @@ $$
 f^\sharp(x)(a)=x_1a_1+2x_2a_2.
 $$
 
-従って $f^\sharp(x)$ を行ベクトルで表せば $(x_1,2x_2)$。任意の $s,t\in\mathbb R$ と $x,y$ に対し
+標準基底 $e_1=(1,0)$、$e_2=(0,1)$ を固定する。任意の線形写像 $q:\mathbb R^2\to\mathbb R$ は $a=a_1e_1+a_2e_2$ に対して
+
+$$
+q(a)=a_1q(e_1)+a_2q(e_2)
+$$
+
+を満たす。したがって基底の上での値が写像を一意に決め、$q$ の行表示は $(q(e_1),q(e_2))$ となる。ここで
+
+$$
+\bigl(f^\sharp(x)(e_1),f^\sharp(x)(e_2)\bigr)
+=(x_1,2x_2).
+$$
+
+これは[線形空間の閉構造](#thm-cat4-05-vector-spaces)で得た転置の座標表示であり、行列の値から閉性を推測しているのではない。任意の $s,t\in\mathbb R$ と $x,y$ に対し
 
 $$
 f^\sharp(sx+ty)=(sx_1+ty_1,\ 2sx_2+2ty_2)

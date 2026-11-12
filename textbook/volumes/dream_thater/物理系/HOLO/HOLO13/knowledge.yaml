@@ -1,0 +1,43 @@
+chapter: HOLO13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO12
+  - GR10
+concepts:
+  - id: holography.gravitational-dirichlet-ghy-action
+    name: 重力のDirichlet作用とGHY項
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重力のDirichlet作用とGHY項）"]
+    requires: [holography.euclidean-ads-half-space, gravity.einstein-hilbert-action]
+  - id: holography.gravity-ghy-boundary-variation
+    name: GHYを含む重力作用のon-shell第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GHYを含む重力作用のon-shell第一変分）"]
+    requires: [holography.gravitational-dirichlet-ghy-action]
+  - id: holography.brown-york-cutoff-stress
+    name: 有限cutoffのBrown–York型テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限cutoffのBrown–York型テンソル）"]
+    requires: [holography.gravity-ghy-boundary-variation, holography.gkpw-tree-level-dictionary]
+  - id: holography.ads3-fg-stress
+    name: 三次元純Einstein重力の有限応力テンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元純Einstein重力の有限応力テンソル）"]
+    requires: [holography.brown-york-cutoff-stress]
+  - id: holography.ads3-fg-constraints
+    name: AdS3のFG制約と応力保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AdS3のFG制約と応力保存）"]
+    requires: [holography.ads3-fg-stress]
+  - id: holography.brown-henneaux-central-charge
+    name: 異常係数から得るBrown–Henneaux関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（異常係数から得るBrown–Henneaux関係）"]
+    requires: [holography.ads3-fg-constraints, holography.ads3-fg-stress]
