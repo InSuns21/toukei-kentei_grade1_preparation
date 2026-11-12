@@ -1,0 +1,42 @@
+id: HOLO23
+title: "FLM量子補正"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO22
+official_scope: []
+learning_objectives:
+  - 古典RT/HRT面と相同なバルク領域を特定しcutoff付き部分トレースからエントロピーを計算できる
+  - 有限次元のRényiモーメントからレプリカ微分を再導出し正規化と解析接続の条件を区別できる
+  - FLMの古典面積 バルク量子エントロピー 計量反作用 局所面項の次数を混同せず整理できる
+  - バルク短距離発散を面積型重力結合の反項で吸収する模型を検算できる
+  - 古典面位置の移動と計量反作用を分けて一次量子補正への影響を評価できる
+  - FLMの仮定 反項 ゲージ拘束 複数候補の制限と次講QESとの違いを説明できる
+definitions:
+  - { id: HOLO23-DEF-01, name: 古典面に対応するバルク領域エントロピー }
+  - { id: HOLO23-DEF-02, name: FLMの一次量子補正：条件付き処方 }
+theorems:
+  - { id: HOLO23-PROP-01, name: 有限次元のレプリカ微分 }
+  - { id: HOLO23-PROP-02, name: 面積型UV発散の反項吸収 }
+  - { id: HOLO23-PROP-03, name: 非退化な古典極値面での変位の次数 }
+canonical_examples:
+  - 二qubit Bell対と積状態の縮約密度行列の直接比較
+  - 正規化レプリカモーメントと解析接続の有限次元検算
+  - 古典面積が等しい二状態のFLM補正
+  - バルクUV発散と面積反項の分数による相殺
+  - 面変位模型の停留点と次数評価および誘導計量変分
+problem_patterns:
+  - HOLO23-A01
+  - HOLO23-A02
+  - HOLO23-A03
+  - HOLO23-A04
+  - HOLO23-A05
+  - HOLO23-B01
+  - HOLO23-B02
+  - HOLO23-B03
+  - HOLO23-B04
+  - HOLO23-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 6 }
+past_exam_alignment: []
+integrated_exam_problems: []

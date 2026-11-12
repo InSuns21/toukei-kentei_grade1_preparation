@@ -1,0 +1,37 @@
+chapter: HOLO23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO22
+forward_references: []
+concepts:
+  - id: holography.flm-bulk-region-entropy
+    name: 古典面に対応するバルク領域エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（古典面に対応するバルク領域エントロピー）"]
+    requires: [holography.covariant-hrt-surface, holography.boundary-regulated-entropy-data]
+  - id: holography.flm-finite-replica-derivative
+    name: 有限次元のレプリカ微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限次元のレプリカ微分）"]
+    requires: [holography.flm-bulk-region-entropy, holography.gravitational-replica-normalization]
+  - id: holography.flm-first-quantum-correction
+    name: FLMの一次量子補正
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（FLMの一次量子補正：条件付き処方）"]
+    requires: [holography.flm-bulk-region-entropy, holography.flm-finite-replica-derivative, holography.covariant-hrt-surface]
+  - id: holography.flm-area-counterterm
+    name: 面積型UV発散の反項吸収
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（面積型UV発散の反項吸収：模型）"]
+    requires: [holography.flm-first-quantum-correction, holography.scalar-cutoff-local-counterterms]
+  - id: holography.flm-perturbative-surface-shift
+    name: 非退化な古典極値面での変位の次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非退化な古典極値面での変位の次数）"]
+    requires: [holography.flm-first-quantum-correction, holography.covariant-hrt-surface]
