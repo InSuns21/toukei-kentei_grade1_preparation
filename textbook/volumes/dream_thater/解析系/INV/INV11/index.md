@@ -26,7 +26,23 @@ $$
 
 を小さくすれば、観測と候補が近づきます。ただし観測が合っても未知量が合うとは限りません。
 
-$h\in X$ に対して $F(x+h)-F(x)=F'(x)h+o(\|h\|_X)$ とおき、Hilbert 空間の内積を展開すると
+$x\in U$ を固定し、$x+h\in U$ となる十分小さい $h\in X$ を動かします。[Fréchet 微分](../INV10/index.md#def-inv10-frechet-forward)の定義から、
+
+$$
+k(h)=F'(x)h+q(h),\qquad \|q(h)\|_Y=o(\|h\|_X)
+$$
+
+と書けます。$F'(x)$ が有界なので $\|k(h)\|_Y=O(\|h\|_X)$ です。従って二乗ノルムを先に展開すると
+
+$$
+\begin{aligned}
+\Phi^\delta(x+h)-\Phi^\delta(x)
+&=\frac12\bigl(\|r^\delta(x)+k(h)\|_Y^2-\|r^\delta(x)\|_Y^2\bigr)\\
+&=\langle r^\delta(x),k(h)\rangle_Y+\frac12\|k(h)\|_Y^2.
+\end{aligned}
+$$
+
+ここで $\langle r^\delta(x),q(h)\rangle_Y=o(\|h\|_X)$、$\|k(h)\|_Y^2=O(\|h\|_X^2)=o(\|h\|_X)$ なので
 
 $$
 \begin{aligned}
@@ -36,7 +52,7 @@ $$
 \end{aligned}
 $$
 
-最後の等式の $F'(x)^*:Y\to X$ は、[Hilbert 空間の随伴作用素](../INV5/index.md#thm-inv5-tikhonov-minimizer)に現れたものと同じく
+最後の等式の $F'(x)^*:Y\to X$ は、[Hilbert 空間の随伴作用素](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)に現れたものと同じく
 
 $$
 \langle F'(x)h,v\rangle_Y=\langle h,F'(x)^*v\rangle_X
@@ -67,7 +83,7 @@ r^\delta(0)=-0.53,\qquad
 x_1^\delta=0-\frac12(1)(-0.53)=0.265.
 $$
 
-二乗残差は $x_0$ では $0.53^2/2$、$x_1$ では $\bigl(0.265+0.265^2/10-0.53\bigr)^2/2$ です。前者より後者が小さいことを計算できます。しかしこの一歩の減少だけでは、すべての反復で真の解へ近づくとは主張できません。
+二乗残差は初期点で $0.53^2/2=0.14045$、更新後では $F(0.265)-0.53=-0.2579775$ より $0.2579775^2/2=0.033276195253125$ です。確かに減少しますが、この一歩の減少だけでは、すべての反復で真の解へ近づくとは主張できません。
 <!-- definition-example-end -->
 
 ## 2. 非線形性をどう測るか：接線錐条件
@@ -254,7 +270,12 @@ $\|x_0^\delta-x^\dagger\|^2-N\omega c_\tau\tau^2\delta^2$
 
 <!-- formal-statement-start -->
 > **命題（雑音なしの残差収束）**  
-> 前定理と同じ $X,Y,F,x^\dagger,r,L,\eta$ を仮定し、$y=F(x^\dagger)$ を正確に与える。$x_0\in B_r(x^\dagger)$ とし、$0<\omega L^2\le1$ で非線形 Landweber 反復を行う。このとき反復は全回で球内にあり、
+> $X,Y$ を実 Hilbert 空間、$x^\dagger\in X$、$r>0$ とする。$F$ は $B_r(x^\dagger)$ を含む開集合上で $C^1$ とする。
+>
+> $F$ は $B_r(x^\dagger)$ 上で定数 $0\le\eta<1/2$ の[接線錐条件](#def-inv11-tangential-cone)を満たす。また、球内の全点で $\|F'(x)\|\le L$（$0<L<\infty$）とする。
+>
+> 真のデータ $y=F(x^\dagger)$ を正確に与え、$x_0\in B_r(x^\dagger)$、$\omega>0$、$\omega L^2\le1$ として[非線形 Landweber 反復](#def-inv11-landweber)を行う。
+> このとき反復は全回で球内にあり、
 
 $$
 \sum_{n=0}^{\infty}\|F(x_n)-y\|_Y^2<\infty,
@@ -272,7 +293,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-前定理の証明の $y^\delta=y$、$\delta=0$ とした内積評価は
+[有限停止定理の証明](#thm-inv11-noisy-descent-stop)で得た内積評価を、ここでは雑音項を含まない場合について計算し直します。前定理そのものは $\delta>0$ を仮定するため、定理の結論に $\delta=0$ を直接代入するのではありません。$d=r_n=F(x_n)-y$ と置くと
 
 $$
 \langle F(x_n)-y,F'(x_n)(x_n-x^\dagger)\rangle
@@ -365,11 +386,34 @@ $$
 
 Landweber 法は微分の随伴を掛けるだけです。線形化された方程式を毎回（近似的に）解く方法もあります。ただし、小さな特異値を含む線形化問題を直接解けば不安定性を再び持ち込みます。
 
+まず、開集合 $U\subset\mathbb R^p$ 上の $C^1$ 写像 $F:U\to\mathbb R^m$ を考えます。現在点 $x_n\in U$ で $r_n=F(x_n)-y^\delta$ と置き、標準基底 $e_1,\ldots,e_p$ に関する導関数 $F'(x_n)$ の行列表現を $J_n$ とします。すなわち $J_n$ の第 $j$ 列は $F'(x_n)e_j$ であり、$h=\sum_{j=1}^p h_je_j$ なら
+
+$$
+F(x_n+h)-y^\delta=r_n+J_nh+o(\|h\|_2),\qquad
+J_nh=\sum_{j=1}^p h_jF'(x_n)e_j.
+$$
+
+このため $J_n$ は単に登場する行列ではなく、**観測を線形化したときの入力変位 $h$ から観測差への写像**です。正方かつ可逆なら線形化残差 $r_n+J_nh$ を零にする方向を選べます。観測数 $m$ と未知量の次元 $p$ が異なる場合は、二乗残差 $\psi_n(h)=\|r_n+J_nh\|_2^2/2$ を最小にする方向を選びます。
+
+方向 $v\in\mathbb R^p$ を固定して実数 $s$ を動かすと、内積の展開により
+
+$$
+\begin{aligned}
+\psi_n(h+sv)-\psi_n(h)
+&=s\langle r_n+J_nh,J_nv\rangle
++\frac{s^2}{2}\|J_nv\|_2^2,\\
+\left.\frac{d}{ds}\psi_n(h+sv)\right|_{s=0}
+&=\langle J_n^\mathsf T(r_n+J_nh),v\rangle.
+\end{aligned}
+$$
+
+ここで $J_n^\mathsf T$ は、実数の標準内積に関する[随伴](../../F0/F0-02C3A/index.md#def-f0-02c3a-hilbert-adjoint)を行列表示した転置です。微分がすべての $v$ で零となる必要十分条件は、$J_n^\mathsf T(r_n+J_nh)=0$、つまり **正規方程式** $(J_n^\mathsf TJ_n)h=-J_n^\mathsf Tr_n$ です。$J_n$ が列フルランクなら $v\ne0$ で $\|J_nv\|_2^2>0$ なので、目的関数は厳密凸でこの方程式の解が一意の最小点になります。この導出を踏まえて、二つの更新を定義します。
+
 <a id="def-inv11-newton-gn"></a>
 
 <!-- formal-statement-start -->
 > **定義（Newton 法と Gauss–Newton 法の局所更新）**  
-> 有限次元で $F:U\subset\mathbb R^p\to\mathbb R^m$ が $C^1$ とし、$r_n=F(x_n)-y^\delta$、$J_n=F'(x_n)\in\mathbb R^{m\times p}$ とする。
+> $U\subset\mathbb R^p$ を開集合とし、$F:U\to\mathbb R^m$ を $C^1$ 写像、$x_n\in U$ とする。$r_n=F(x_n)-y^\delta$、$J_n$ を標準基底で表した $F'(x_n)\in\mathbb R^{m\times p}$ の行列とする。
 >
 > $m=p$ かつ $J_n$ が可逆なら、$J_n h_n=-r_n$ を解いて $x_{n+1}=x_n+h_n$ とするものが **Newton 法**である。
 >
@@ -388,14 +432,7 @@ $$
 **定義の確認**：$F(t)=t^2$、$x_n=1$、$y^\delta=4$ とすれば $r_n=-3$、$J_n=2$ です。Newton 法の式は $2h_n=3$、よって $h_n=3/2$ と $x_{n+1}=5/2$。一次元の Gauss–Newton 正規方程式も $4h_n=6$ となり同じ値です。これは線形化方程式を解くという条件を実際に確認しています。次の点では $F(5/2)=25/4\ne4$ であり、一回で真の非線形方程式を解いたわけではありません。
 <!-- definition-example-end -->
 
-Gauss–Newton の正規方程式は、方向 $v$ での微分
-
-$$
-\left.\frac{d}{dt}\frac12\|r_n+J_n(h+tv)\|_2^2\right|_{t=0}
-=\langle J_n^\mathsf T(r_n+J_nh),v\rangle
-$$
-
-をすべての $v$ について零とすることで出ます。列フルランクなら $v^\mathsf TJ_n^\mathsf TJ_nv=\|J_nv\|^2>0$（$v\ne0$）なので、解は一意です。これにより**なぜ**この行列が出るかも分かります。
+正方行列 $J_n$ が可逆なときは、Newton 方向 $h_n=-J_n^{-1}r_n$ が線形化残差を零にするため、Gauss–Newton 方向とも一致します。これに対し $m>p$ などでは一般に $r_n+J_nh=0$ を解けず、Gauss–Newton 法は先に導いた正規方程式で二乗残差を最小化します。
 
 ノイズ下で線形化の逆を直接使う危険を避けるため、[INV5 の二乗ノルム Tikhonov](../INV5/index.md#thm-inv5-tikhonov-minimizer)を毎回の線形化問題へ組み込みます。ここでは罰則の中心を現在点 $x_n$ ではなく**固定した初期点** $x_0$ に置きます。
 
@@ -403,7 +440,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（反復的正則化 Gauss–Newton 型更新）**  
-> 実 Hilbert 空間 $X,Y$、$C^1$ 写像 $F:U\subset X\to Y$、固定した $x_0\in X$、$\alpha_n>0$ とする。$x_n\in U$ で $A_n=F'(x_n)$ とおき、
+> 実 Hilbert 空間 $X,Y$、開集合 $U\subset X$ 上の $C^1$ 写像 $F:U\to Y$、固定した初期点 $x_0\in U$、$\alpha_n>0$ を与える。各 $x_n\in U$ に対して $A_n=F'(x_n)$ とおき、
 
 $$
 x_{n+1}=\underset{x\in X}{\operatorname{argmin}}\ 
@@ -719,7 +756,7 @@ $$
 
 - Level: C
 
-$X=Y=\mathbb R$、$F(t)=t+t^2/10$、真の解 $t^\dagger=1/2$、$y=F(t^\dagger)$、$\delta=0.01$、$y^\delta=0.53$ とする。$V=[-1,1]$ 内の局所解析を考え、$t_0=0$、$\omega=1/2$、$\tau=6$ とする。
+$X=Y=\mathbb R$、$F(t)=t+t^2/10$、真の解 $t^\dagger=1/2$、$y=F(t^\dagger)$、$\delta=0.01$、$y^\delta=0.53$ とする。$V=[-1,1]$ 内の局所解析を考え、$t_0=0$、$\omega=1/2$、$\tau=6$ とする。ここでは $\delta$ と観測データを固定し、一般の反復記号 $x_n^\delta$ を一次元の $t_n$ と略記する。
 
 (1) 真のデータ、雑音上界、$V$ 上の接線錐定数 $\eta=1/4$ と微分上界 $L=6/5$ を検証せよ。
 

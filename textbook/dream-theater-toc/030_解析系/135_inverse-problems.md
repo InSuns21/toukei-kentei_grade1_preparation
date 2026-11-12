@@ -12,3 +12,4 @@
 9. [INV9 疎性とTVは何を残すか](textbook/volumes/dream_thater/解析系/INV/INV9/index.md)
 10. [INV10 非線形逆問題を局所的に見分けられるか](textbook/volumes/dream_thater/解析系/INV/INV10/index.md)
 11. [INV11 反復正則化をいつ止めるか](textbook/volumes/dream_thater/解析系/INV/INV11/index.md)
+12. [INV12 Radon変換は何を測っているか](textbook/volumes/dream_thater/解析系/INV/INV12/index.md)

@@ -1,0 +1,57 @@
+chapter: INV12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - INV5
+  - FOU3
+forward_references: []
+
+concepts:
+  - id: inverse.radon-schwartz-test-class
+    name: 本講で用いる急減少関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講で用いる急減少関数）"]
+
+  - id: inverse.radon-transform
+    name: 平面Radon変換
+    aliases: [Radon変換, "Radon 変換"]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面Radon変換）"]
+    requires: [inverse.radon-schwartz-test-class]
+
+  - id: inverse.radon-sinogram
+    name: sinogram
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（sinogram）"]
+    requires: [inverse.radon-transform]
+
+  - id: inverse.radon-symmetry-mass
+    name: 方向反転対称性と投影の総量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（方向反転対称性と投影の総量）"]
+    requires: [inverse.radon-transform]
+
+  - id: inverse.fourier-slice-theorem
+    name: Fourier slice theorem
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Fourier slice theorem）"]
+    requires: [inverse.radon-transform, fourier.fou3-fourier-transform]
+
+  - id: inverse.radon-fourier2-inversion
+    name: Schwartz級の二次元Fourier反転
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Schwartz級の二次元Fourier反転）"]
+    requires: [inverse.radon-schwartz-test-class, fourier.fou3-inversion]
+
+  - id: inverse.radon-injectivity
+    name: 完全角度Radonデータの単射性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（完全角度Radonデータの単射性）"]
+    requires: [inverse.fourier-slice-theorem, inverse.radon-fourier2-inversion]

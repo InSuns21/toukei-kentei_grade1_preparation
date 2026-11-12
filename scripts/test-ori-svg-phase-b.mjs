@@ -40,7 +40,15 @@ for(const spec of SPECS){
    assert.match(poster,/data-layout-lint="strict"/);
    assert.match(poster,/<title/);
    assert.match(poster,/<desc/);
-   assert.match(poster,/<clipPath/);
+   if(spec.id==='12'){
+     assert.doesNotMatch(poster,/<clipPath/,'V12 depicts one shared plane without duplicate panels');
+     assert.match(poster,/r="92\.40"/);
+     assert.match(poster,/stroke-dasharray="9 5"/);
+   }else assert.match(poster,/<clipPath/);
+   // The back link must return to Docsify's rendered lecture, never the raw .md.
+   const lecture='../../../../../../../#/textbook/volumes/dream_thater/幾何系/ORI/'+spec.chapter+'/index';
+   assert.ok(html.includes('href="'+lecture+'"')||html.includes('href="'+lecture+'?id='),'Docsify lecture return URL '+spec.id);
+   assert.doesNotMatch(html,/href="\.\.\/index\.md/,'raw Markdown lecture link must not appear');
    assert.match(chapter,new RegExp('assets/ori-v'+spec.id+'-player\\.html'));
    assert.match(chapter,new RegExp('assets/ori-v'+spec.id+'-poster\\.svg'));
    const posterTime=({'02':.5,'05':.5,'06':.5,'07':.5,'13':1})[spec.id]??.75;
@@ -66,6 +74,28 @@ test('ORI-V07 O6から立方根、ORI-V09の必要条件、ORI-V10層順の循�
  assert.equal(stateAt('09',.5,'invalid').values.necessary,false);
  assert.equal(stateAt('10',1,'cycle').values.cycle,true);
  assert.equal(stateAt('10',1,'acyclic').values.cycle,false);
+});
+test('ORI-V12：重複・接触・内部非交差と境界値の検算',()=>{
+  const cases=[
+   {t:0,d:.65,gap:-.4,ok:false,kind:'重複'},
+   {t:.25,d:1.05,gap:0,ok:true,kind:'一点で接する'},
+   {t:.5,d:1.45,gap:.4,ok:true,kind:'離れている'},
+   {t:.75,d:1.85,gap:.8,ok:true,kind:'離れている'},
+   {t:1,d:2.25,gap:1.2,ok:true,kind:'離れている'}
+  ];
+  for(const {t,d,gap,ok,kind} of cases){
+    const state=stateAt('12',t),v=state.values;
+    close(v.r,.6,'V12 first radius');
+    close(v.s,.45,'V12 second radius');
+    close(v.d,d,'V12 distance');
+    close(v.gap,gap,'V12 signed gap');
+    close(Math.hypot(v.B[0]-v.A[0],v.B[1]-v.A[1]),d,'V12 drawn centres');
+    assert.equal(v.nonoverlap,ok,'V12 inequality at t='+t);
+    assert.ok(v.kind.includes(kind),'V12 state label at t='+t);
+    const frame=svgFrame(state);
+    assert.equal((frame.match(/r="92\.40"/g)||[]).length,1,'one left disk, not two repeated panels');
+    assert.equal((frame.match(/r="69\.30"/g)||[]).length,1,'one right disk, not two repeated panels');
+  }
 });
 test('ORI-V11の対称像、ORI-V14の正確な剛体頂点と非運動格子を区別',()=>{
  close(stateAt('11',1).values.projectedCutX,-1,'切断線一致');
