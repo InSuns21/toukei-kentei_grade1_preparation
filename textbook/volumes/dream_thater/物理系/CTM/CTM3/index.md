@@ -237,7 +237,7 @@ $\chi(X,t)=Q(\theta(t))X+c(t)$ として $\theta(0)=0$、$c(0)=0$、$\theta,c$ �
 <!-- formal-statement-start -->
 ### 命題（剛体回転を重ねたときの有限ひずみの不変性）
 
-$F\in\mathbb R^{3\times3}$ が $\det F>0$ を満たし、$Q^TQ=I_3$、$\det Q=1$ とする。$F^\ast=QF$ と置くと、
+$F\in\mathbb R^{3\times3}$ が $\det F>0$ を満たし、$Q^TQ=I_3$、$\det Q=1$ とする。$C=F^TF$、$E=(C-I_3)/2$、$U=C^{1/2}$ とし、$F^\ast=QF$ についても同じ定義で $C^\ast,E^\ast,U^\ast$ を置くと、
 
 $$
 C^\ast=(F^\ast)^TF^\ast=C,\qquad
@@ -320,7 +320,7 @@ $e_2$ 方向の長さの二乗は $1+k^2$ であり、$E_{22}=k^2/2$ はその�
 <!-- formal-statement-start -->
 ### 命題（有限ひずみの厳密な展開と線形化誤差）
 
-$u$ が $C^1$ 級、$F=I_3+D_Xu$、$\det F>0$ とする。$H=D_Xu$、$\varepsilon=(H+H^T)/2$ と置くと
+$u$ が $C^1$ 級、$F=I_3+D_Xu$、$\det F>0$ とする。$H=D_Xu$、$\varepsilon=(H+H^T)/2$、$E=(F^TF-I_3)/2$ と置くと
 
 $$
 E=\varepsilon+\frac12H^TH.
