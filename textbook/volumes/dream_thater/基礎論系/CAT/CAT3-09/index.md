@@ -2,9 +2,9 @@
 
 ## 1. Kan拡張を「射と値の組」から読み直す
 
-[点ごとの左Kan拡張](../CAT3-07/index.md#thm-cat3-07-pointwise)は、$Ka\to b$ を持つ対象を集めた余極限だった。[右Kan拡張](../CAT3-08/index.md#thm-cat3-08-pointwise)は $b\to Ka$ を集めた極限だった。どちらも正しいが、添字の対象に「射 $u$ と値 $x$」を毎回書くのは煩雑である。
+[点ごとの左Kan拡張](../CAT3-07/index.md#thm-cat3-07-pointwise)は、関手 $K:\mathcal A\to\mathcal B$ と対象 $b\in\mathcal B$ に対して、射 $Ka\to b$ を持つ対象を集めた余極限だった。[右Kan拡張](../CAT3-08/index.md#thm-cat3-08-pointwise)は $b\to Ka$ を集めた極限だった。どちらも正しいが、添字の対象に「射 $u$ と値 $x$」を毎回書くのは煩雑である。
 
-例えば $F:\mathcal A\to\mathbf{Set}$ に対し、左Kan拡張の $b$ での元は、まず射 $u:Ka\to b$ と $x\in F(a)$ の組で表せる。ただし $f:a\to a'$ を一段進めた組
+例えば $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathbf{Set}$、$b\in\mathcal B$ を固定する。左Kan拡張の $b$ での元は、まず射 $u:Ka\to b$ と $x\in F(a)$ の組で表せる。射 $f:a\to a'$ と $u':Ka'\to b$ を取ると、$K(f):Ka\to Ka'$ だから、$u'Kf=u'\circ K(f):Ka\to b$ も射になる。このとき次の二つの組
 
 $$
 (u'Kf,x)\quad\text{と}\quad(u',F(f)(x))
@@ -21,6 +21,8 @@ $$
 [自然変換](../CAT1-07/index.md#def-cat1-07-natural-transformation)では二つの関手の同じ対象での成分を、各射に沿って比較した。ここでは一つの関手が $H:\mathcal A^{\mathrm{op}}\times\mathcal A\to\mathcal C$ の形を持つ。$H(a,b)$ は第一変数について反変、第二変数について共変である。
 
 対角上の $H(a,a)$ を各 $a$ で取り出し、共通の対象 $E$ から射を出すとする。射 $f:a\to b$ に関して、$H(a,b)$ へ至る二つの経路が一致することを求める。これは自然変換とは定義域が異なるので、**dinaturality（双自然性）** と呼んで区別する。
+
+具体的に、第二変数へ $f$ を作用させると $H(1_a,f):H(a,a)\to H(a,b)$、第一変数へ反変に作用させると $H(f,1_b):H(b,b)\to H(a,b)$ となる。両方とも終域が $H(a,b)$ だから、$E$ からの二つの合成射を比較できる。たとえば $H(x,y)=\operatorname{Hom}_{\mathcal A}(x,y)$ では、前者は射の**後合成** $g\mapsto fg$、後者は**前合成** $h\mapsto hf$ である。
 
 <a id="def-cat3-09-wedge"></a>
 
@@ -51,7 +53,7 @@ $$
 
 ### 2.2 普遍的なくさび
 
-どのくさびも一つの標準的なくさびを経由して一意に作れるなら、そのくさびにはどんな普遍性が必要だろうか。
+どのくさびも一つの標準的なくさびを経由して一意に作れるなら、そのくさびにはどんな普遍性が必要だろうか。ここでは「各 $a$ の成分を指定した射の族」が先にあり、その族全体を代表する対象を求める。
 
 <a id="def-cat3-09-end"></a>
 
@@ -113,7 +115,7 @@ $$
 H(1_a,f)e_a=H(f,1_b)e_b
 $$
 
-となり、$(e_a)$ はくさびである。逆に任意のくさび $\omega_a:T\to H(a,a)$ を取る。積の普遍性により、全 $a$ で $p_a q=\omega_a$ を満たす唯一の $q:T\to P$ がある。くさび条件から、各 $f$ で
+となり、$(e_a)$ はくさびである。逆に任意のくさび $\omega_a:T\to H(a,a)$ を取る。[小さい積の普遍性](../CAT2-04/index.md#def-cat2-04-small-product)により、全 $a$ で $p_a q=\omega_a$ を満たす唯一の $q:T\to P$ がある。くさび条件から、各 $f$ で
 
 $$
 (d_0)_f q=H(1_a,f)\omega_a
@@ -129,7 +131,7 @@ $\mathcal C$ が[完備圏](../CAT2-04/index.md#def-cat2-04-complete)なら必�
 
 ### 3.1 余くさびと普遍性
 
-今度は各 $H(a,a)$ から共通の対象へ射を出し、$H(b,a)$ から来る二つの成分を同一視する。
+今度は各 $H(a,a)$ から共通の対象へ射を出し、$H(b,a)$ から来る二つの成分を同一視する。射 $f:a\to b$ に対し、第一変数の反変性による $H(f,1_a):H(b,a)\to H(a,a)$ と、第二変数の共変性による $H(1_b,f):H(b,a)\to H(b,b)$ がある。共通の始域 $H(b,a)$ からの二つの経路を比較する点が、くさびの場合との違いである。
 
 <a id="def-cat3-09-coend"></a>
 
@@ -205,7 +207,7 @@ q\operatorname{in}_a H(f,1_a)
 =q\operatorname{in}_b H(1_b,f).
 $$
 
-これは $\iota_aH(f,1_a)=\iota_bH(1_b,f)$ である。任意の余くさび $j_a:H(a,a)\to U$ に対し、余積の普遍性で唯一の $t:T\to U$ があり $t\operatorname{in}_a=j_a$。各 $f$ において
+これは $\iota_aH(f,1_a)=\iota_bH(1_b,f)$ である。任意の余くさび $j_a:H(a,a)\to U$ に対し、[余積の普遍性](../CAT2-05/index.md#def-cat2-05-coproduct)で唯一の $t:T\to U$ があり $t\operatorname{in}_a=j_a$。各 $f$ において
 
 $$
 t s_0|_f=j_a H(f,1_a)
@@ -474,7 +476,7 @@ $$
 
 従って $[u,x]\mapsto i_{a,u}(x)$ は商に降り、写像 $\Phi$ が定まる。逆向きには各余極限の脚で $x\mapsto[u,x]$ と置く。上記生成関係によってこれらは余錐をなし、[余極限の普遍性](../CAT2-05/index.md#def-cat2-05-colimit)から唯一の $\Psi:L(b)\to\int^a\operatorname{Hom}(Ka,b)\times F(a)$ が定まる。$\Psi\Phi([u,x])=[u,x]$、$\Phi\Psi(i_{a,u}(x))=i_{a,u}(x)$ なので互いに逆である。
 
-$v:b\to b'$ に対して $\operatorname{Lan}_K F(v)$ は余積の脚 $i_{a,u}$ を $i_{a,vu}$ へ運ぶ。coend 側も $[u,x]\mapsto[vu,x]$ であり、$\Phi$ と可換である。自然変換 $\alpha:F\Rightarrow G$ の場合は両側とも $x\mapsto\alpha_a(x)$ として定まり、自然性は $\alpha_{a'}F(f)=G(f)\alpha_a$ が生成関係を保つことで確認できる。
+$v:b\to b'$ に対して $\operatorname{Lan}_K F(v)$ は余極限余錐の脚 $i_{a,u}$ を $i_{a,vu}$ へ運ぶ。coend 側も $[u,x]\mapsto[vu,x]$ であり、$\Phi$ と可換である。自然変換 $\alpha:F\Rightarrow G$ の場合は両側とも $x\mapsto\alpha_a(x)$ として定まり、自然性は $\alpha_{a'}F(f)=G(f)\alpha_a$ が生成関係を保つことで確認できる。
 <!-- proof-end -->
 
 ### 5.2 右Kan拡張はend
@@ -524,7 +526,17 @@ $$
 
 逆にこの関係を満たす関数族 $(\phi_a)$ から $q_{a,u}:\{*\}\to F(a)$、$q_{a,u}(*)=\phi_a(u)$ を作ると、これは $(b\downarrow K)$ 上の錐である。[極限の普遍性](../CAT2-01/index.md#def-cat2-01-limit)によって一意の $\{*\}\to R(b)$、すなわち $r\in R(b)$ が得られる。各射影による一意性で二方向の対応は互いに逆になる。
 
-$v:b\to b'$ について [右Kan関手の射への作用](../CAT3-08/index.md#prop-cat3-08-transport)は $p^{b'}_{a,u'}R(v)=p^b_{a,u'v}$ である。従って end 側では $\phi_a(u')\mapsto\phi_a(u'v)$ に一致する。$F\Rightarrow G$ に関しても各値へその成分を後合成するので自然性が従う。
+$v:b\to b'$ について [右Kan関手の射への作用](../CAT3-08/index.md#prop-cat3-08-transport)は $p^{b'}_{a,u'}R(v)=p^b_{a,u'v}$ である。従って end 側では $\phi_a(u')\mapsto\phi_a(u'v)$ に一致する。自然変換 $\alpha:F\Rightarrow G$ に対しては、関数族 $(\phi_a)$ を $\phi'_a(u)=\alpha_a(\phi_a(u))$ へ送る。実際、$f:a\to a'$ について
+
+$$
+G(f)(\phi'_a(u))
+=G(f)\alpha_a(\phi_a(u))
+=\alpha_{a'}F(f)(\phi_a(u))
+=\alpha_{a'}(\phi_{a'}(Kf\,u))
+=\phi'_{a'}(Kf\,u)
+$$
+
+であり、自然変換の自然性から end の整合条件も保存される。この作用は $b$ の射による前合成とも可換である。
 <!-- proof-end -->
 
 **左右の式の対比。**
