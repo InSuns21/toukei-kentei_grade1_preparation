@@ -56,7 +56,19 @@ $$
 s-R<t<R-s.
 $$
 
-両不等式を満たす $t$ が存在するのは $s<R$ であり、この開区間は $|t|<R-s$ と同値なので $|t|+s<R$ です。$z\downarrow0$ とすると $s\to|x|$ から $D(A)$ の式を得ます。$t=0$ では $s<R$、すなわち $x^2+z^2<R^2$ です。さらに[真空RT半円とその領域の依存域の一致](../HOLO25/index.md#prop-holo25-vacuum-wedge-equality)をこの静的真空模型へ適用して最後の結論を得ます。一般の励起状態へはこの一致を延長していません。
+両不等式を満たす時刻が存在する条件は $s<R$ です。そこで交差の開領域は
+
+$
+|t|<R-s,\qquad |t|+s<R
+$
+
+と同値になります。境界極限 $z\downarrow0$ では $s\to|x|$ となるため、境界の依存域 $D(A)$ を得ます。また時刻 $t=0$ では
+
+$
+x^2+z^2<R^2.
+$
+
+[真空RT半円とその領域の依存域の一致](../HOLO25/index.md#prop-holo25-vacuum-wedge-equality)を静的真空に適用すると、エンタングルメントくさびとの一致が得られます。一般の励起状態へは、この一致を延長していません。
 <!-- proof-end -->
 
 ![t=0のAdS断面。境界区間Aの直下の半円板内に点Pがあり、半円の外に点Qがある。破線の半円がRT面である](assets/ads-rindler-section.svg)
@@ -390,7 +402,23 @@ V|\pm\rangle=\frac{|00\rangle\pm|11\rangle}{\sqrt2},\qquad
 \rho_A^\pm=\frac{|0\rangle\langle0|+|1\rangle\langle1|}{2}.
 $$
 
-補集合の $|0\rangle$ と $|1\rangle$ が直交するため、交差項 $|00\rangle\langle11|$ の部分トレースは零です。従って $\rho_A^+=\rho_A^- = I/2$。ところが論理Pauli $X|0\rangle=|1\rangle,\ X|1\rangle=|0\rangle$ は $X|\pm\rangle=\pm|\pm\rangle$ を満たし、期待値は $+1$ と $-1$ です。[部分領域が識別できない状態の障害](#thm-holo27-indistinguishability)により $X$ は $A$ に再構成できません。$Z$ は可能でも $X$ が不可能なので、**「一部の論理演算子が局在する」と「全論理代数が局在する」は異なります**。
+補集合の二つの基底状態は直交しています。したがって、交差項の部分トレースは
+
+$
+\operatorname{Tr}_{\bar A}(|00\rangle\langle11|)
+=|0\rangle\langle1|\langle1|0\rangle=0
+$
+
+となり、$\rho_A^+=\rho_A^-=I/2$ です。
+
+しかし論理Pauli演算子 $X$ は、基底を入れ替える作用を持ちます。
+
+$
+X|0\rangle=|1\rangle,\quad X|1\rangle=|0\rangle,\quad
+X|\pm\rangle=\pm|\pm\rangle.
+$
+
+そのため期待値はそれぞれ $+1$ と $-1$ です。[部分領域が識別できない状態の障害](#thm-holo27-indistinguishability)によれば、$X$ は $A$ に再構成できません。$Z$ の再構成が可能でも $X$ は不可能です。**「一部の論理演算子が局在する」と「全論理代数が局在する」は異なります。**
 
 近似再構成として $\|(O_A\otimes I)V-VO\|_\infty\le\eta$ の場合、規格化状態の期待値誤差は各状態で高々 $\eta$ です。上の二状態について $\rho_A^+=\rho_A^-$ なら $2=|1-(-1)|\le2\eta$ となり、この $X$ を誤差 $\eta<1$ で再構成することもできません。この下限は有限次元模型の演算子ノルムでの結論であって、重力側の $1/N$ 補正の数値見積りではありません。
 
