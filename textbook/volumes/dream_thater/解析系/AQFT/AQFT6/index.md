@@ -79,7 +79,7 @@ c(F,G)c(F+G,H)=c(G,H)c(F,G+H)
 $$
 です。左の指数の括弧内は $\sigma(F,G)+\sigma(F,H)+\sigma(G,H)$、右も $\sigma(G,H)+\sigma(F,G)+\sigma(F,H)$ で一致します。これは双線形性が保証する整合性です。
 
-## 3. 有界作用素による実在性の証明
+## 3. 有界作用素でWeyl関係を実現する
 
 $\mathcal V$ を加法群として**離散的**に扱い、$\mathcal H_{\mathrm d}=\ell^2(\mathcal V)$ を考えます。$\mathcal V$ は非可算でも構いません。元 $H$ の位置だけ $1$ の正規直交基底を $\delta_H$ と記します。各 $F$ はラベルを $F$ だけ移動させる作用素を定めます。
 
