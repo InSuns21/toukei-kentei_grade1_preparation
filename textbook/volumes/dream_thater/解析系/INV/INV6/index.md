@@ -154,7 +154,7 @@ Te_1&=e_1,&Te_2&=\tfrac14e_2,&Te_3&=0.
 \end{aligned}
 $$
 
-従って正の固有値 $1,1/4$ に対応する $e_1,e_2$ は[完全特異系](../INV3/index.md#def-inv3-singular-system)の特異方向、$e_3$ は核方向です。つまり $T=A^*A=\operatorname{diag}(1,1/4,0)$ であり、この基底で分数冪の定義を適用すると、
+従って正の固有値 $1,1/4$ に対応する $e_1,e_2$ は[完全特異系](../INV3/index.md#def-inv3-singular-system)の特異方向、$e_3$ は核方向です。つまり $T=A^*A=\operatorname{diag}(1,1/4,0)$ であり、上で示した $T^\nu w=\sum_j\lambda_j^\nu w_jv_j$ にこの基底と $\nu=1/2$ を代入すると、
 
 $$
 T^{1/2}=\operatorname{diag}(1,1/2,0).
