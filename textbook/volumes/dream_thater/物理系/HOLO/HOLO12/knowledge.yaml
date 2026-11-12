@@ -35,10 +35,10 @@ concepts:
     introduction_aliases: ["命題（保存流の境界スケーリング次元）"]
     requires: [holography.boundary-conserved-current-response, holography.radial-scale-isometry]
   - id: holography.maxwell-current-two-point-d3
-    name: d3の横射影された保存流2点関数
+    name: 三次元境界の横射影された保存流2点関数
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（d=3の横射影された保存流2点関数）"]
+    introduction_aliases: ["命題（三次元境界の横射影された保存流2点関数）"]
     requires: [holography.radial-gauge-transverse-maxwell, holography.boundary-conserved-current-response]
   - id: holography.gauge-ward-conservation
     name: 源のゲージ不変性と保存流Ward恒等式
