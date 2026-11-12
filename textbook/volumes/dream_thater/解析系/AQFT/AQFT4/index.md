@@ -18,7 +18,7 @@ $$
 P=-\Box_g+m^2
 =\partial_t^2-\sum_{j=1}^{3}\partial_{x^j}^2+m^2.
 $$
-この符号では $Pu=0$ は $\partial_t^2u-\Delta_{\boldsymbol x}u+m^2u=0$ です。$m=0$ も許します。$P$ は実線形で、係数は滑らか、主シンボルは $-g^{ab}\zeta_a\zeta_b$ なので、[HPDE5のnormally hyperbolic条件](../../HPDE/HPDE5/index.md#def-hpde5-normally-hyperbolic)を満たします。
+ここで $\Delta_{\boldsymbol x}:=\sum_{j=1}^{3}\partial_{x^j}^2$ は空間座標 $\boldsymbol x=(x^1,x^2,x^3)$ だけに作用するLaplacianです。この符号では $Pu=0$ は $\partial_t^2u-\Delta_{\boldsymbol x}u+m^2u=0$ です。$m=0$ も許します。$P$ は実線形で、係数は滑らか、主シンボルは $-g^{ab}\zeta_a\zeta_b$ なので、[HPDE5のnormally hyperbolic条件](../../HPDE/HPDE5/index.md#def-hpde5-normally-hyperbolic)を満たします。
 
 この講義で使う試験関数は、場を領域内で平均する重みとして使う、滑らかでコンパクト支持を持つ実関数です。「コンパクト支持」とは関数が零でない点の閉包が時空のコンパクト集合になることです。滑らかでも無限遠まで非零である平面波は試験関数に含めません。試験関数は重みであり、一般にコンパクト支持ではない場の解そのものとは区別します。開集合 $O\subset M$ の中で観測を局所化するには、台が $O$ の内部に収まる関数を使います。
 
@@ -37,7 +37,7 @@ $$
 <!-- definition-example-start: def-aqft4-test-spaces -->
 ### 直接例：小さな時空領域に閉じ込める
 
-**定義の確認**。$O_R=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<R\}$（$R>0$）を取り、$0<r<R/2$ とします。$h\in C_c^\infty((-r,r),\mathbb R)$、$q\in C_c^\infty(B_r(\boldsymbol0),\mathbb R)$ を非零に選びます。$f(t,\boldsymbol x)=h(t)q(\boldsymbol x)$ は滑らかで、
+**定義の確認**。$O_R=\{(t,\boldsymbol x):|t|+|\boldsymbol x|<R\}$（$R>0$）を取り、$0<r<R/2$ とします。$h\in C_c^\infty((-r,r),\mathbb R)$、$q\in C_c^\infty(B_r(\boldsymbol0),\mathbb R)$ を非零に選びます。ここで $B_r(\boldsymbol0)$ は $\mathbb R^3$ の原点中心・半径 $r$ の開球です。$f(t,\boldsymbol x)=h(t)q(\boldsymbol x)$ は滑らかで、
 $$
 \operatorname{supp}f
 \subset[-r,r]\times\overline B_r(\boldsymbol0)
@@ -146,7 +146,7 @@ $$
 $$
 と書きます。$P\mathcal D$ は線形部分空間ですから、[LA2の商空間の演算](../../../基礎科目/LA/LA2/index.md#def-la2-quotient)によって $[f]+[g]=[f+g]$、$\lambda[f]=[\lambda f]$ です。商は実線形であり、今の段階では内積もC*ノルムも指定していません。
 
-**局所化に必要なのは、全域の商の中に見える部分空間です。** 領域 $O$ 内の源で表せる同値類だけを集めます。
+**局所化に必要なのは、全域の商の中に見える部分空間です。** 領域 $O$ 内の源で表せる同値類だけを集めます。以下の $q$ は第1節の例の空間関数 $q(\boldsymbol x)$ とは異なり、商への写像 $q(f)=[f]$ を意味します。
 
 <a id="def-aqft4-local-quotient"></a>
 
@@ -164,7 +164,7 @@ $$
 
 **定義の確認**。$O_R$ と $0\ne\varphi\in\mathcal D(O_R)$ は第1節の例のとおりです。$f=P\varphi\in\mathcal D(O_R)$ なので、$[f]=[0]$ は $\mathcal V(O_R)$ に含まれます。$f\ne0$ であることは前節で確認したため、**関数としての零と商での零は異なります**。
 
-他方、$O_R$ の小さな積領域に非負で非零の $\eta(t)$、$h(\boldsymbol x)$ を支持させ、$g(t,\boldsymbol x)=\eta(t)h(\boldsymbol x)$ とします。$|mt|<\pi/2$ が $\operatorname{supp}\eta$ 上で成立するよう選びます（$m=0$ なら自動）。滑らかな斉次解 $u(t,\boldsymbol x)=\cos(mt)$ は $Pu=0$ を満たします。もし $g=P\psi$、$\psi\in\mathcal D$ なら、コンパクト支持のため境界項なしで二度部分積分でき、
+他方、$O_R$ の小さな積領域に非負で非零の $\eta(t)$、$h(\boldsymbol x)$ を支持させ、$g(t,\boldsymbol x)=\eta(t)h(\boldsymbol x)$ とします。$|mt|<\pi/2$ が $\operatorname{supp}\eta$ 上で成立するよう選びます（$m=0$ なら自動）。滑らかな斉次解 $u(t,\boldsymbol x)=\cos(mt)$ は $Pu=0$ を満たします。以下の $d^4x$ は $dt\,dx^1\,dx^2\,dx^3$ の略記で、この座標では $|\det g|=1$ なので時空体積密度に一致します。もし $g=P\psi$、$\psi\in\mathcal D$ なら、コンパクト支持のため境界項なしで二度部分積分でき、
 $$
 \int_M g\,u\,d^4x
 =\int_M(P\psi)u\,d^4x
@@ -540,7 +540,11 @@ $w_+=\chi u$ と $w_-=(\chi-1)u$ は各々過去と未来で零、$Pw_+=Pw_-=f$ 
 $$
 |\boldsymbol x|\le R+\max\{|a-c|,|a-d|,|T-c|,|T-d|\}
 $$
-も満たします。従って交差は閉かつ有界でコンパクトです。$L=\varnothing$ は自明です。同様に $w_-$ は $t\le b$ と $J^+(L)$ を使って未来コンパクトです。このように $w_+$ と $w_-$ の作用域を確かめてから[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
+も満たします。従って交差は閉かつ有界でコンパクトです。$L=\varnothing$ は自明です。$w_-$ についても、$\operatorname{supp}w_-\cap J^+(L)$ の時刻は $S:=\min_{z\in L}t(z)\le t\le b$ に収まり、同じ因果不等式から
+$$
+|\boldsymbol x|\le R+\max\{|S-c|,|S-d|,|b-c|,|b-d|\}
+$$
+です。閉かつ有界だからこちらもコンパクトとなり、$w_-$ は未来コンパクトです。このように $w_+$ と $w_-$ の作用域を確かめてから[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
 $$
 Ef=w_+-w_-=\chi u-(\chi-1)u=u.
 $$
