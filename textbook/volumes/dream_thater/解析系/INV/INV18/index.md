@@ -187,7 +187,20 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（随伴法による縮約目的関数の微分）**  
-> $I=(0,1)$、$V=H_0^1(I)$、$\mathcal U=\{a\in L^\infty(I):\operatorname*{ess\,inf}a>0\}$、$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$（$1\le i\le m$）を固定する。$S(a)\in V$ は $\int_0^1 aS(a)'v'=\int_0^1fv$（全 $v\in V$）の唯一解、$O_i(v)=\int_0^1g_iv$ とし、[縮約目的関数](#def-inv18-objective)を $j(a)=\tfrac12\sum_i(O_i(S(a))-d_i)^2+\tfrac\alpha2\|a-a_0\|_2^2$ とする。このとき $j:\mathcal U\to\mathbb R$ は $L^\infty$ ノルムで Fréchet 微分可能である。$u=S(a)$ と[随伴状態](#def-inv18-adjoint) $p=p(a)$ に対し、任意の $h\in L^\infty(I)$ で
+> $I=(0,1)$、$V=H_0^1(I)$ とし、許容係数集合を
+$$
+\mathcal U=\{a\in L^\infty(I):\operatorname*{ess\,inf}a>0\}
+$$
+> とする。$f\in L^2(I)$、$a_0\in L^2(I)$、$\alpha\ge0$、$m\ge1$、$g_i\in L^2(I)$、$d_i\in\mathbb R$（$1\le i\le m$）を固定する。$S(a)\in V$ は各 $a\in\mathcal U$ に対して
+$$
+\int_0^1aS(a)'v'\,dx=\int_0^1fv\,dx\qquad(v\in V)
+$$
+> を満たす唯一解、$O_i(v)=\int_0^1g_iv\,dx$ とする。[縮約目的関数](#def-inv18-objective)を
+$$
+j(a)=\frac12\sum_{i=1}^m(O_i(S(a))-d_i)^2
++\frac\alpha2\|a-a_0\|_{L^2(I)}^2
+$$
+> と定める。このとき $j:\mathcal U\to\mathbb R$ は $L^\infty$ ノルムで Fréchet 微分可能である。$u=S(a)$ と[随伴状態](#def-inv18-adjoint) $p=p(a)$ に対し、任意の $h\in L^\infty(I)$ で
 
 $$
 Dj(a)[h]
@@ -391,17 +404,19 @@ $$
 
 は[INV17 の感度方程式](../INV17/index.md#def-inv17-sensitivity-equation)から導かれます。$a=1$、$h=x$ の弱形式を整理すると、全 $v\in V$ に対して
 
-$
+$$
 \int_0^1(w_t'+xu')v'\,dx=0
-$
+$$
 
 です。[INV17 の空間依存感度の計算](../INV17/index.md#cor-inv17-observation-derivative)で示した平均零の導関数による判定から、$w_t'+xu'=C$（ほとんど至る所）と分かります。$w_t(1)-w_t(0)=0$ を代入して
 
-$
-0=-\int_0^1x(\tfrac12-x)\,dx+C
-=-\left(\tfrac14-\tfrac13\right)+C,
-\qquad C=-\tfrac1{12}
-$
+$$
+\begin{aligned}
+0&=-\int_0^1x(\tfrac12-x)\,dx+C\\
+&=-\left(\tfrac14-\tfrac13\right)+C,
+\qquad C=-\tfrac1{12}.
+\end{aligned}
+$$
 
 を得ます。従って $w_t'=x^2-x/2-1/12$ を積分し、$w_t(0)=0$ から表示した $w_t$ が得られ、さらに $w_t(1)=0$ も確認できます。観測へ代入して
 
@@ -761,7 +776,7 @@ $$
 j(s,0)=\frac1{288(1+s)^2}+\frac{s^2}2.
 $$
 
-$0<|\varepsilon|\le1/2$ の中心差分では罰則の $\varepsilon^2/2$ が分子で打ち消し合い、
+$0<|\varepsilon|<1/2$ の中心差分では罰則の $\varepsilon^2/2$ が分子で打ち消し合い、
 
 $$
 \frac{j(\varepsilon,0)-j(-\varepsilon,0)}{2\varepsilon}
@@ -778,9 +793,9 @@ $$
 
 を取ります。反射で二つの状態が入れ替わるため、
 
-$
+$$
 O_1(S(a_+))=O_1(S(a_-))
-$
+$$
 
 となります。ここで $a_\pm=1+s_\pm+t_\pm x$ の係数は $(s_\pm,t_\pm)=(\mp\varepsilon/2,\pm\varepsilon)$ であり、$|s_\pm|+|t_\pm|=3|\varepsilon|/2<1/2$ です。したがって**二つとも問題文の許容二パラメータ族に属し**、非線形観測について厳密な非一意性があります。
 
