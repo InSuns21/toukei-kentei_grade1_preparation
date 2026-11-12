@@ -52,6 +52,13 @@ concepts:
     introduction_aliases: [命題（慣性テンソルの非負性と正定値性）]
     requires:
       - mechanics.rigid-body-inertia-tensor
+  - id: mechanics.principal-inertia-degeneracy
+    name: 主慣性値の縮退
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（主慣性値の縮退）]
+    requires:
+      - mechanics.principal-axis
   - id: mechanics.inertia-principal-moment-triangle
     name: 主慣性値の三角不等式
     kind: proposition
