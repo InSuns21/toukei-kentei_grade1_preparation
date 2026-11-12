@@ -12,19 +12,19 @@
 <polygon points="408,263 113,102 330,125" fill="#aacbdc"/>
 </g>
 <g font-family="sans-serif" font-size="16" fill="#233643">
-<text x="135" y="305">O</text><text x="411" y="277">A</text><text x="90" y="92">B</text><text x="334" y="116">C</text>
-<text x="269" y="172">A, n</text>
+<text x="135" y="305">O</text><text x="434" y="285">A</text><text x="90" y="92">B</text><text x="348" y="88">C</text>
+<text x="442" y="135">斜面 A</text>
 <text x="259" y="325">−e3 面</text>
-<text x="115" y="193">−e1 面</text>
-<text x="405" y="180">−e2 面</text>
+<text x="20" y="193">−e1 面</text>
+<text x="441" y="193">−e2 面</text>
 </g>
 <g stroke="#204f7b" stroke-width="3" fill="none" marker-end="url(#arr-solid)" data-series-group="tetra-vectors" data-series-label="outward-normal">
 <line x1="286" y1="167" x2="339" y2="63"/>
 </g>
-<text x="343" y="58" font-size="19" fill="#204f7b" font-family="sans-serif">n</text>
+<text x="374" y="42" font-size="19" fill="#204f7b" font-family="sans-serif">n</text>
 <g stroke="#a04430" stroke-width="3" stroke-dasharray="8 4" fill="none" marker-end="url(#arr-dash)" data-series-group="tetra-vectors" data-series-label="surface-force">
 <line x1="286" y1="167" x2="401" y2="96"/>
 </g>
-<text x="406" y="91" font-size="18" fill="#9a3829" font-family="sans-serif">t(n)</text>
+<text x="442" y="79" font-size="18" fill="#9a3829" font-family="sans-serif">t(n)</text>
 <text x="21" y="350" fill="#304550" font-family="sans-serif" font-size="14">模式図：座標面積 Ai = A |ni|（斜面積 A）</text>
 </svg>
