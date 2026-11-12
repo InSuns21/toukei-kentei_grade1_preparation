@@ -1,0 +1,52 @@
+id: "AQFT2"
+title: "Haag–Kastler net"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT1
+  - OA3
+  - OA5
+  - VN2
+  - QM4
+  - GRP3
+official_scope: []
+learning_objectives:
+  - 局所C*-代数の割当てを明示し、isotony・Einstein局所性・Poincaré共変性を量化を含めて定義できる
+  - 因果補集合と局所代数の交換子を結び付け、相対可換子への包含を証明できる
+  - 関数の台・上限ノルム・自己同型の群作用から共変な可換netを構成できる
+  - 二地点の行列模型で同一地点の非可換性と離れた地点間の可換性を計算できる
+  - 三公理の独立性を同一時空上の具体的割当てと反例で確認できる
+  - 増大する局所代数のノルム閉包によるquasilocal C*-環を構成できる
+  - 正エネルギー・真空・加法性・Haag双対性が三公理の自動的帰結でないことを説明できる
+definitions:
+  - { id: AQFT2-DEF-01, name: "局所C*-代数の割当て" }
+  - { id: AQFT2-DEF-02, name: "isotony／包含単調性" }
+  - { id: AQFT2-DEF-03, name: "Einstein局所性" }
+  - { id: AQFT2-DEF-04, name: "Poincaré共変性" }
+  - { id: AQFT2-DEF-05, name: "Haag–Kastler型の局所C*-net" }
+theorems:
+  - { id: AQFT2-PROP-01, name: "因果補集合と相対可換子" }
+  - { id: AQFT2-THM-01, name: "可換関数netの三公理" }
+  - { id: AQFT2-PROP-02, name: "二地点模型のisotonyと局所性" }
+  - { id: AQFT2-PROP-03, name: "三条件の独立性" }
+  - { id: AQFT2-PROP-04, name: "quasilocal C*-環の構成" }
+canonical_examples:
+  - M2(C)の対角部分環と全行列環の交換子
+  - 台が開領域に含まれる関数からの可換共変net
+  - 二地点の行列因子による非可換な局所模型
+  - Lorentz不変の領域量によるisotony反例
+  - 固定地点の割当てによる共変性反例
+problem_patterns:
+  - AQFT2-COMMUTATOR
+  - AQFT2-ISOTONY-MATRIX
+  - AQFT2-COVARIANCE-SUPPORT
+  - AQFT2-SPACELIKE-COMMUTATOR
+  - AQFT2-INDEPENDENCE-ISOTONY
+  - AQFT2-INDEPENDENCE-COVARIANCE
+  - AQFT2-TENSOR-LOCALITY
+  - AQFT2-NORM-CLOSURE-COMMUTATOR
+  - AQFT2-AXIOMS-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 7, review: 5 }
