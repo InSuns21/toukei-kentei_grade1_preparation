@@ -37,7 +37,13 @@ $$
 
 ### 直接例：行列因子と片側シフト
 
-$M=M_3(\mathbb C)$ における $p=E_{11}+E_{22}$ は有限射影です。ここで $e_k$ は標準正規直交基底、$E_{ij}e_k=\delta_{jk}e_i$ は行列単位です。従って $p$ は $\operatorname{span}\{e_1,e_2\}$ への直交射影で階数2です。[行列環の射影同値とrankの一致](../../VN/VN7/index.md#thm-vn7-matrix-equivalence-rank)によって、$q\le p$、$q\sim_Mp$ なら $\operatorname{rank}q=\operatorname{rank}p=2$。包含する二つの2次元部分空間は等しいので $q=p$。一方 $E_{11}$ は最小射影なので $M$ はType I$_3$です。
+まず $e_k$ を $\mathbb C^3$ の標準正規直交基底とし、$E_{ij}e_k=\delta_{jk}e_i$ で行列単位を定めます。$M=M_3(\mathbb C)$ の
+
+$$
+p=E_{11}+E_{22}
+$$
+
+は $\operatorname{span}\{e_1,e_2\}$ への直交射影で階数2です。[行列環の射影同値とrankの一致](../../VN/VN7/index.md#thm-vn7-matrix-equivalence-rank)を使うと、$q\le p$、$q\sim_Mp$ なら $q$ の階数も2です。像の包含と次元の一致から $\operatorname{ran}q=\operatorname{ran}p$、従って $q=p$。また $E_{11}$ は非零最小射影なので $M$ はType I$_3$です。
 
 $N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E_{11}$ です。[片側シフトが示す単位射影の無限性](../../VN/VN7/index.md#prop-vn7-shift-infinite-identity)から単位射影は無限です。しかし $E_{11}$ は依然として最小射影なので、$N$ はType I$_\infty$でありType IIIではありません.
 
@@ -64,7 +70,15 @@ $N=B(\ell^2(\mathbb N))$ では $Se_k=e_{k+1}$ とすると $S^*S=I$、$SS^*=I-E
 > この三条件を全て満たすトレースを**忠実正規半有限トレース**と呼ぶ。増大ネットの上限は作用素の順序で取る。
 <!-- formal-statement-end -->
 
-この半有限性は[VN5の定義](../../VN/VN5/index.md#def-vn5-von-neumann-trace)と同じです。**忠実かつ半有限**なら、非零の $a\in M_+$ の下に非零の有限トレース正元 $b$ が存在します。実際、忠実性より $\tau(a)>0$。有限なら $b=a$ とすればよく、無限なら上の上限が無限大なので $0<\tau(b)<\infty$ となる $b\le a$ を選べます。第3節で必要なのはこの帰結です。
+この半有限性は[VN5の定義](../../VN/VN5/index.md#def-vn5-von-neumann-trace)と同じです。**忠実かつ半有限**なら、非零の正元 $a$ の下に非零の有限トレース正元 $b$ が存在します。
+
+実際、忠実性より $\tau(a)>0$ です。$\tau(a)<\infty$ なら $b=a$ とすればよく、$\tau(a)=\infty$ なら半有限性の上限が無限大なので
+
+$$
+0<b\le a,\qquad 0<\tau(b)<\infty
+$$
+
+となる $b$ を選べます。第3節で必要なのはこの帰結です。
 
 <!-- definition-example-start: def-aqft15-nsf-trace -->
 ### 直接例：通常の行列トレース
@@ -209,7 +223,7 @@ $$
 \end{cases}
 $$
 
-群の積で $gh=e$ と $hg=e$ は同値なので、
+ここで $\mathbf1_P$ は命題 $P$ が真なら1、偽なら0を表します。群の積では $gh=e$ と $hg=e$ が同値なので、
 
 $$
 \tau(\lambda(g)\lambda(h))
@@ -218,7 +232,7 @@ $$
 =\tau(\lambda(h)\lambda(g)).
 $$
 
-ここで $\mathbf1_P$ は命題 $P$ が真なら1、偽なら0を表します。群元の有限線形結合にも双線形性で拡張できます。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によりその $*$-代数は $M$ に弱作用素位相で稠密です。固定した $A$ について $T\mapsto\tau(AT)$ と $T\mapsto\tau(TA)$ はどちらもベクトル内積で表され弱作用素連続なので、片方ずつ極限を取れば $\tau(AB)=\tau(BA)$ は全ての $A,B\in M$ に拡張されます。
+群元の有限線形結合にも双線形性で拡張できます。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によりその $*$-代数は $M$ に弱作用素位相で稠密です。固定した $A$ について、$T\mapsto\tau(AT)$ と $T\mapsto\tau(TA)$ はともに固定ベクトル同士の内積で表される弱作用素連続な写像です。従って一方ずつ稠密な部分代数から極限を取れば、$\tau(AB)=\tau(BA)$ は全ての $A,B\in M$ に拡張されます。
 
 $\tau$ は単位ベクトル $\delta_e$ のベクトル汎関数なので正であり、[VN5の正規汎関数](../../VN/VN5/index.md#def-vn5-normal-functional)の条件を満たして正規です。$\tau(I)=1$ です。$\tau(T^*T)=0$ なら $T\delta_e=0$。$T\in M$ は全ての $\rho(h)$ と可換し、$\delta_g=\rho(g^{-1})\delta_e$ だから
 
@@ -238,7 +252,17 @@ $$
 
 従って係数 $c_g$ は共役類ごとに一定です。非単位元の共役類は全て無限なので、$\sum_g|c_g|^2<\infty$ であるためには $c_g=0$（$g\ne e$）でなければなりません。ゆえに $\xi=c_e\delta_e$。$T$ と $\rho$ の可換性により $T\delta_g=c_e\delta_g$ が全ての $g$ で成立し、$T=c_eI$。従って $Z(M)=\mathbb CI$ です。
 
-**(3) 最小射影の不在。** まず、忠実なトレース $\tau_N$ が $\tau_N(I)<\infty$ を満たす因子 $N\subset B(H)$ に非零最小射影 $p$ があれば、$N$ は有限次元行列環であることを示します。$K=\overline{NpH}$ への直交射影を $z$ と置きます。$N$ は随伴で閉じているので $K$ は $N$ とその随伴で不変です。また $p\in N$ は $N'$ と可換なので、$K$ は $N'$ とその随伴でも不変です。よって $z\in N\cap N'=Z(N)$。$p\ne0$ なので $z\ne0$ であり、因子性から $z=I$。非零射影 $r\in N$ に対して、もし $rNp=0$ なら $rK=0$、従って $rz=0$ となり矛盾します。ゆえに $rXp\ne0$ となる $X\in N$ が選べます。
+**(3) 最小射影の不在。** まず、忠実なトレース $\tau_N$ が $\tau_N(I)<\infty$ を満たす因子 $N\subset B(H)$ に非零最小射影 $p$ があれば、$N$ は有限次元行列環であることを示します。
+
+$K=\overline{NpH}$ と置き、$K$ への直交射影を $z$ とします。$N$ は随伴で閉じているので $K$ は $N$ とその随伴で不変です。また $p\in N$ は $N'$ と可換なので、$K$ は $N'$ とその随伴でも不変です。従って $z$ は $N$ と $N'$ の双方と可換し、
+
+$$
+z\in N\cap N'=Z(N)
+$$
+
+となります。$p\ne0$ なので $z\ne0$ であり、因子性から $z=I$ です。
+
+任意の非零射影 $r\in N$ に対して、もし $rNp=0$ なら $rK=0$、従って $rz=0$ となり $r=0$ で矛盾します。ゆえに $rXp\ne0$ となる $X\in N$ が選べます。
 
 [VN3のvon Neumann環内の極分解](../../VN/VN3/index.md#thm-vn3-von-neumann-polar)を $rXp\in N$ に適用します。その部分等長作用素 $v\in N$ の初期射影は $p$ 以下、終射影は $r$ 以下です。$rXp\ne0$ だから初期射影は非零であり、$p$ の最小性から
 
