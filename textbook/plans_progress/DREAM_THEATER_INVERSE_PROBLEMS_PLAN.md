@@ -2,7 +2,7 @@
 
 作成日: 2026-10-05  
 講義構成確定: 2026-11-09  
-状態: in_progress（INV1〜INV6 の本文・系列 manifest・公開導線を整備。INV7〜INV18 は未着手）
+状態: in_progress（INV1〜INV7 の本文・系列 manifest・公開導線を整備。INV8〜INV18 は未着手）
 移行元: `DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md` 旧 U1  
 **確定講義数: 全18講（INV1〜INV18）**
 
