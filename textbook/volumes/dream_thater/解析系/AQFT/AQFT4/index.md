@@ -241,7 +241,15 @@ $J^\pm(K)$ はMinkowskiのコンパクト集合の因果未来・過去として
 
 $\operatorname{supp}v$ はその閉部分集合だからコンパクトで、$v\in\mathcal D$ となります。$Pv=PG_{\mathrm{ret}}f=f$ より $f\in P\mathcal D$ です。これで核の等式が示されました。[HPDE21の核の証明](../../HPDE/HPDE21/index.md#thm-hpde21-kernel-exact)の平坦時空での具体化です。
 
-**(ii) 全射。** 任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ を取ります。あるコンパクト $K$ があって $\operatorname{supp}u\subseteq J(K)$ です。$a<b$ を取り、滑らかな $\chi:\mathbb R\to[0,1]$ を $t\le a$ で $0$、$t\ge b$ で $1$ とします。$Pu=0$ から積の微分を展開すると
+**(ii) 全射。** 任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ を取ります。あるコンパクト $K$ があって $\operatorname{supp}u\subseteq J(K)$ です。$a<b$ を取り、滑らかな $\chi:\mathbb R\to[0,1]$ を $t\le a$ で $0$、$t\ge b$ で $1$ とします。ここで $\chi'=d\chi/dt$、$\chi''=d^2\chi/dt^2$ は時間変数だけの導関数、$\partial_tu$ は空間座標 $\boldsymbol x$ を固定した偏導関数です。$\chi$ は空間座標に依存しないため、積の微分は
+$$
+\begin{aligned}
+\partial_t(\chi u)&=\chi'u+\chi\partial_tu,\\
+\partial_t^2(\chi u)&=\chi''u+2\chi'\partial_tu+\chi\partial_t^2u,\\
+\Delta_{\boldsymbol x}(\chi u)&=\chi\Delta_{\boldsymbol x}u
+\end{aligned}
+$$
+となります。$Pu=0$ を使うと
 $$
 \begin{aligned}
 f_\chi:=P(\chi u)
@@ -250,8 +258,6 @@ f_\chi:=P(\chi u)
 &=\chi''u+2\chi'\partial_tu.
 \end{aligned}
 $$
-ここで $\chi'=d\chi/dt$、$\chi''=d^2\chi/dt^2$ は時間変数 $t$ だけの通常の導関数であり、$\partial_tu$ は空間座標 $\boldsymbol x$ を固定した偏導関数です。実際、積の微分を一回行うと $\partial_t(\chi u)=\chi'u+\chi\partial_tu$、もう一回行うと $\partial_t^2(\chi u)=\chi''u+2\chi'\partial_tu+\chi\partial_t^2u$ となります。$\chi$ は空間座標に依存しないので $\Delta_{\boldsymbol x}(\chi u)=\chi\Delta_{\boldsymbol x}u$ です。
-
 $\chi'$、$\chi''$ の支持は $[a,b]$ に含まれるため
 $$
 \operatorname{supp}f_\chi
@@ -263,11 +269,12 @@ $w_+=\chi u$、$w_-=(\chi-1)u$ とおきます。すると $Pw_+=Pw_-=f_\chi$ �
 
 各々の台は $J(K)$ に含まれます。[HPDE20の過去コンパクト・未来コンパクト条件](../../HPDE/HPDE20/index.md#def-hpde20-support-classes)も、次のように確かめられます。
 
-任意のコンパクト $L$ について、$\operatorname{supp}w_+\cap J^-(L)$ に属する点は $a\le t\le T:=\max_{z\in L}t(z)$ を満たします（$L=\varnothing$ なら交差は空です）。$K\subset[c,d]\times\overline B_R$ としたので、$J(K)$ 内の点 $ (t,\boldsymbol x)$ には $K$ の点 $(s,\boldsymbol y)$ があり、$|\boldsymbol x-\boldsymbol y|\le|t-s|$ です。従ってこの時間帯で
+任意のコンパクト $L$ を取り、$L=\varnothing$ なら交差は空です。$L\ne\varnothing$ では $T:=\max_{z\in L}t(z)$ と置くと、$\operatorname{supp}w_+\cap J^-(L)$ に属する点は $a\le t\le T$ を満たします。さらに $K\subset[c,d]\times\overline B_R$ であり、$J(K)$ 内の点 $(t,\boldsymbol x)$ は $K$ のある点 $(s,\boldsymbol y)$ と因果的に結ばれるので
 $$
-|\boldsymbol x|\le R+\max\{|a-c|,|a-d|,|T-c|,|T-d|\}.
+|\boldsymbol x|\le|\boldsymbol y|+|t-s|
+\le R+\max\{|a-c|,|a-d|,|T-c|,|T-d|\}.
 $$
-交差は閉集合の共通部分で、時間・空間の両方向に有界です。四次元のEuclid座標に対する[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)を適用すると、コンパクト性が従います。$w_-$ にも $J^+(L)$ を使って同様の条件を確認できます。
+この交差は閉集合の共通部分で、時間・空間の両方向に有界です。四次元のEuclid座標に対する[Heine–Borelの定理](../../../基礎科目/F0/F0-00C1/index.md#thm-f0-00c1-02)を適用すると、コンパクト性が従います。$w_-$ にも $J^+(L)$ を使って同様の条件を確認できます。
 
 ここで[HPDE20の支持条件を指定したGreenの両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)を使うと
 $$
@@ -529,7 +536,11 @@ P(\chi u)=\chi''u+2\chi'\partial_tu+\chi Pu
 $$
 $\chi'$ と $\chi''$ は $[a,b]$ の外で零です。$\operatorname{supp}u\subset J(K)$ を満たすコンパクト $K$ を取り、$K\subset[c,d]\times\overline B_R$ と囲めば、$t\in[a,b]$ かつ $(t,\boldsymbol x)\in J(K)$ では $|\boldsymbol x|$ は $R$ と時刻端点の差で上から有界です。$J(K)$ は閉なので、$f$ の台はコンパクトです。したがって $f\in\mathcal D$。
 
-$w_+=\chi u$ と $w_-=(\chi-1)u$ は各々過去と未来で零、$Pw_+=Pw_-=f$ です。各半解の台は $J(K)$ に含まれるので、時間方向で一方が零になることと合わせて、それぞれ過去コンパクト・未来コンパクトです。[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
+$w_+=\chi u$ と $w_-=(\chi-1)u$ は各々過去と未来で零、$Pw_+=Pw_-=f$ です。各半解の台は $J(K)$ に含まれます。任意の非空コンパクト $L$ に対し $T=\max_{z\in L}t(z)$ と置けば、$\operatorname{supp}w_+\cap J^-(L)$ は $a\le t\le T$ にあり、$K\subset[c,d]\times\overline B_R$ と囲んだとき
+$$
+|\boldsymbol x|\le R+\max\{|a-c|,|a-d|,|T-c|,|T-d|\}
+$$
+も満たします。従って交差は閉かつ有界でコンパクトです。$L=\varnothing$ は自明です。同様に $w_-$ は $t\le b$ と $J^+(L)$ を使って未来コンパクトです。このように $w_+$ と $w_-$ の作用域を確かめてから[HPDE20のGreen両側逆](../../HPDE/HPDE20/index.md#thm-hpde20-green-two-sided)より $G_{\mathrm{ret}}f=w_+$、$G_{\mathrm{adv}}f=w_-$。従って
 $$
 Ef=w_+-w_-=\chi u-(\chi-1)u=u.
 $$
@@ -592,7 +603,11 @@ E(f+P\varphi)=Ef,\qquad E(g+P\psi)=Eg.
 $$
 したがって商の代表元を変えても各解は不変です。ただし $\varphi$ が $O_1$ に支持するとは仮定していないので、変更後の $f+P\varphi$ は必ずしも $\mathcal D(O_1)$ に入りません。局所代表元と全域代表元の違いが残ります。
 
-**（3）** [全射性の証明](#thm-aqft4-kg-quotient)では任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ に対し、$u$ の全域の因果台と時間カットオフから $f_\chi=P(\chi u)\in\mathcal D$ を作りました。必要なのは構成源 $f_\chi$ の台が時空全体でコンパクトであることであり、$\operatorname{supp}f_\chi\subset O_1$ を保証する空間的・時間的な条件は付けていません。このため全域での全射 $E:\mathcal D\to\operatorname{Sol}_{\mathrm{sc}}(P)$ から、$E:\mathcal D(O_1)\to\operatorname{Sol}_{\mathrm{sc}}(P)$ の全射は推論できません。局所領域の性質を別に検討する必要があります。$\square$
+**（3）** [全射性の証明](#thm-aqft4-kg-quotient)では任意の $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ に対し、$u$ の全域の因果台と時間カットオフから $f_\chi=P(\chi u)\in\mathcal D$ を作りました。必要なのは構成源 $f_\chi$ の台が時空全体でコンパクトであることであり、$\operatorname{supp}f_\chi\subset O_1$ を保証する空間的・時間的な条件は付けていません。このため全域での全射 $E:\mathcal D\to\operatorname{Sol}_{\mathrm{sc}}(P)$ から、$E:\mathcal D(O_1)\to\operatorname{Sol}_{\mathrm{sc}}(P)$ の全射は推論できません。
+
+実際に局所全射性が失敗する解を作れます。$p=(t_0,\boldsymbol x_0)\in O_2$ を選び、時刻 $t=t_0$ の面で、コンパクト支持の滑らかな初期変位 $u_0$ を $u_0(\boldsymbol x_0)=1$ となるよう選び、初期速度を $u_1=0$ とします。[HPDE16の大域Cauchy問題の存在一意性と因果的支持](../../HPDE/HPDE16/index.md#thm-hpde16-global-cauchy)により、これを初期値とする $u\in\operatorname{Sol}_{\mathrm{sc}}(P)$ が存在し、$u(p)=1$ です。
+
+他方、$O_1$ と $O_2$ の空間的分離から、任意の $f\in\mathcal D(O_1)$ に対して $p\notin J(\operatorname{supp}f)$ です。よって因果伝播子の支持条件により $Ef(p)=0$。したがって $u=Ef$ となる局所源 $f\in\mathcal D(O_1)$ は存在しません。$\square$
 <!-- solution-end -->
 
 ## 8. 次講への接続と自力確認
