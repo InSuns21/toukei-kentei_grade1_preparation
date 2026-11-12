@@ -1,0 +1,45 @@
+id: "U3-07"
+title: "Bermudan・行使境界・配当効果"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-02, U3-03, U3-04, U3-05, U3-06]
+official_scope: []
+learning_objectives:
+  - 行使可能日集合と停止時刻を区別し、Bermudan 後退帰納の行使不可日を正しく処理できる
+  - 許された停止時刻の最大価値と後退価値の一致を証明し、行使日集合の包含による価格単調性を示せる
+  - 2期間 put の European・Bermudan・American 価格を分数で計算し、時点別の行使判断を示せる
+  - 無配当 put の行使領域が低株価側にまとまることを1-Lipschitz性で証明できる
+  - 無配当で1期間金利が非負の American call の早期行使不要を割引期待値から導出できる
+  - 1期間確定現金配当付き二項市場の評価用確率を配当込み株式受取額から導き、早期行使が有利な反例を検算できる
+  - 行使日数値実験の後退帰納と独立停止規則列挙を照合し、配当・価格・行使日・境界の条件を明示できる
+definitions:
+  - { id: U3-07-DEF-01, name: Bermudan オプションと行使日集合 }
+  - { id: U3-07-DEF-02, name: Bermudan の後退価値 }
+  - { id: U3-07-DEF-03, name: put の早期行使領域と行使境界 }
+  - { id: U3-07-DEF-04, name: 1期間の確定現金配当付き二項市場 }
+theorems:
+  - { id: U3-07-PROP-01, name: 許された停止時刻と後退価値の一致 }
+  - { id: U3-07-PROP-02, name: 行使機会を増やしたときの価格単調性 }
+  - { id: U3-07-PROP-03, name: 無配当二項 put の行使領域は低株価側に連なる }
+  - { id: U3-07-THM-01, name: 無配当・非負金利の American call は早期行使不要 }
+  - { id: U3-07-PROP-04, name: 配当付き call で早期行使が厳密に有利な例 }
+canonical_examples:
+  - 2期間 put で行使日集合を{2}から{1,2}に増やすと価格が925/147円から1175/147円へ上がる
+  - put の時点1の80円節点では行使・120円節点では継続と表で検証する
+  - 無配当 call は早期行使不要だが配当15円の1期間 call は10円で早期行使する
+  - 後退帰納と4経路列挙および許容停止規則の総当たりを照合する
+problem_patterns:
+  - U3-07-A1
+  - U3-07-A2
+  - U3-07-A3
+  - U3-07-A4
+  - U3-07-A5
+  - U3-07-B1
+  - U3-07-B2
+  - U3-07-B3
+  - U3-07-B4
+  - U3-07-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
