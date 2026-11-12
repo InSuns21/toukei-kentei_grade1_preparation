@@ -113,7 +113,20 @@ $$
 \delta S_E=\frac{1}{g_F^2}\int_M\sqrt{g}\,F^{ab}\nabla_a\delta A_b.
 $$
 
-積の微分$\nabla_a(F^{ab}\delta A_b)$を展開し、[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)をこの$(d+1)$次元の向き付き有限領域に適用すると、命題の体積項・境界項を得ます。ここで$z=\epsilon$面の誘導計量は$\gamma_{ij}=L^2\epsilon^{-2}\delta_{ij}$、従って$\sqrt{\gamma}=L^d\epsilon^{-d}$です。外向き単位法線は$n^z=-\epsilon/L$、$n_z=g_{zz}n^z=-L/\epsilon$であり、
+積の微分$\nabla_a(F^{ab}\delta A_b)$を展開します。[Gauss--Ostrogradskyの発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)の直方体での証明と同じく、ここでは本章の座標箱で微分積分を直接実行します。$V^a=F^{ab}\delta A_b$とおくと、計量密度を含む発散は
+
+$
+\sqrt g\,\nabla_a V^a=\partial_a(\sqrt g\,V^a)
+$
+
+となります。境界方向は周期的または十分に減衰するので$\partial_i$の積分が消え、残りは動径方向の微積分学の基本定理により
+
+$
+\int_M\sqrt g\,\nabla_aV^a\,d^{d+1}X
+=\int d^dx\,[\sqrt g\,V^z]_{z=\epsilon}^{z=Z}.
+$
+
+$z$一定面では$\sqrt\gamma\,n_z=-\sqrt g$（紫外側）または$+\sqrt g$（赤外側）です。従って右辺は$\int_{\partial M}\sqrt\gamma\,n_a V^a$に一致します。この計算により、三次元Euclid空間だけを対象とする引用先の定理を、追加の根拠なしで一般次元の曲がった空間へ適用したことにはなりません。ここで$z=\epsilon$面の誘導計量は$\gamma_{ij}=L^2\epsilon^{-2}\delta_{ij}$、従って$\sqrt{\gamma}=L^d\epsilon^{-d}$です。外向き単位法線は$n^z=-\epsilon/L$、$n_z=g_{zz}n^z=-L/\epsilon$であり、
 
 $$
 \sqrt{\gamma}\,n_zF^{zi}
