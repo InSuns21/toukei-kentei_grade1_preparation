@@ -7,7 +7,7 @@
 </defs>
 <polygon points="92,230 385,230 478,278 185,278" fill="#dfeaed" stroke="#536b77" stroke-width="2"/>
 <circle cx="252" cy="230" r="4" fill="#253d4b"/>
-<text x="238" y="252" font-size="17" font-family="sans-serif" fill="#253d4b">P</text>
+<text x="203" y="204" font-size="17" font-family="sans-serif" fill="#253d4b">P</text>
 <g stroke="#215d89" stroke-width="3" fill="none" marker-end="url(#arrow-main)" data-series-group="force-vectors" data-series-label="normal">
 <line x1="252" y1="230" x2="252" y2="80"/>
 </g>
@@ -25,7 +25,7 @@
 <text x="445" y="75">t(n)</text>
 <text x="448" y="218" fill="#9a3829">sn</text>
 <text x="165" y="207">n ↑</text>
-<text x="319" y="292">切断面</text>
+<text x="319" y="308">切断面</text>
 </g>
 <text x="16" y="311" font-size="14" font-family="sans-serif" fill="#344a57">模式図（pn が正の場合）：t(n) = pn n + sn、n·sn = 0</text>
 </svg>
