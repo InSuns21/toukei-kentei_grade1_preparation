@@ -25,15 +25,15 @@
     <path d="M640 50L460 230L640 410"/>
   </g>
   <g fill="#183444" font-family="DejaVu Sans, Arial, sans-serif" font-size="17">
-    <text x="385" y="196">D_R</text>
+    <text x="380" y="210">D_R</text>
     <text x="128" y="201">D_R⊥</text>
     <text x="553" y="201">D_R⊥</text>
-    <text x="698" y="252" text-anchor="end">x¹</text>
+    <text x="673" y="255" text-anchor="end">x¹</text>
     <text x="373" y="47">t</text>
   </g>
   <g fill="#283f50" font-family="DejaVu Sans, Arial, sans-serif" font-size="14">
-    <text x="471" y="253">R</text>
-    <text x="227" y="253">−R</text>
+    <text x="463" y="273">R</text>
+    <text x="235" y="273">−R</text>
     <text x="338" y="118">b</text>
     <text x="338" y="351">a</text>
     <text x="341" y="247">0</text>
