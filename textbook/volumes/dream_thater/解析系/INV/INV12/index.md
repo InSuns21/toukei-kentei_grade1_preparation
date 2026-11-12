@@ -217,7 +217,7 @@ Q_\varphi=
 \sin\varphi&\cos\varphi
 \end{pmatrix},
 \qquad \det Q_\varphi=\cos^2\varphi+\sin^2\varphi=1.
-$
+$$
 
 $f$ は絶対可積分なので [Fubini の定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を使用できます。参照先の定理は実数値で記述されていますが、ここで許す複素数値 $f$ には実部と虚部にそれぞれ適用します。従って
 
@@ -416,19 +416,19 @@ $$
 
 この評価を得る中間計算を確認します。$x_1$ について $M$ 回部分積分すると、$M\ge1$ かつ $\xi_1\ne0$ では
 
-$
+$$
 |\xi_1|^M|g(\xi_1,x_2)|
 \le\int_{\mathbb R}|\partial_1^M f(x_1,x_2)|\,dx_1.
-$
+$$
 
 任意の $N\ge0$ に対し、Schwartz 級の減衰を $N+2$ 次まで使うと、右辺は
 
-$
+$$
 \int_{\mathbb R}|\partial_1^M f(x_1,x_2)|\,dx_1
 \le C\int_{\mathbb R}
 (1+|x_1|)^{-2}(1+|x_2|)^{-N}\,dx_1
 \le C'(1+|x_2|)^{-N}
-$
+$$
 
 で抑えられます。$M=0$ にも同じ積分評価を使い、$|\xi_1|\le1$ と $|\xi_1|>1$ を合わせると上記の $(1+|\xi_1|)^{-M}$ 評価になります。$x_2$ について偏微分した $f$ に同じ議論を適用すれば、$g$ の $x_2$ 微分にも同様の評価が得られます。
 
@@ -552,7 +552,7 @@ $$
 
 $u=\sqrt a\,t$ と置くと $dt=du/\sqrt a$ なので、[FOU3 の Gaussian Fourier 公式](../../FOU/FOU3/index.md#lem-fou3-gaussian-transform)の零周波数での値を使って
 
-$
+$$
 \boxed{(Rf)(\varphi,s)=\sqrt{\pi/a}\,e^{-as^2}}.
 $$
 
@@ -798,15 +798,15 @@ $\xi=(\omega,0)=\omega\theta_0$ と置けば同じ式になります。
 
 $u$ は点 $x$ を接線方向へ移す変数です。合成関数の連鎖律より、$x$ を固定して $u$ で微分すると
 
-$
+$$
 \frac{d}{du}g(x+u\theta^\perp)\bigg|_{u=0}
 =\nabla g(x)\cdot\theta^\perp,
 \qquad \nabla g(x)=-2x e^{-|x|^2}.
-$
+$$
 
 従って
 
-$
+$$
 h(x)=-2(x\cdot\theta^\perp)e^{-|x|^2}.
 $$
 
@@ -817,11 +817,11 @@ $$
 $$
 h(s\theta+t\theta^\perp)=-2t\,e^{-(s^2+t^2)}
 =\frac{d}{dt}e^{-(s^2+t^2)}.
-$
+$$
 
 ここでは $s$ を固定し、$x=s\theta+t\theta^\perp$ の $t$ を動かしています。$g(x+u\theta^\perp)$ の $u$ 微分を $u=0$ で評価することは、同じ直線上の $t$ 微分と一致します。従って角度 $\varphi$ の Radon 変換は
 
-$
+$$
 (Rh)(\varphi,s)=\int_{-\infty}^\infty\frac{d}{dt}
 e^{-(s^2+t^2)}dt
 =\lim_{T\to\infty}\left[e^{-(s^2+t^2)}\right]_{-T}^T=0.
