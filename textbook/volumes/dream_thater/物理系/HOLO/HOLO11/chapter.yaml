@@ -1,0 +1,43 @@
+id: HOLO11
+title: "交換図と4点関数"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO10
+official_scope: []
+learning_objectives:
+  - 内部Dirichletバルク間Green関数を微分方程式と境界条件から定義できる
+  - Fourier-Bessel表示のデルタ係数と跳び条件を導出できる
+  - 2つのスカラー頂点を持つ交換Witten積分を構成し3チャネルを区別できる
+  - 内部場の平方完成と4回の源微分から符号と対称係数を再現できる
+  - 共形交差比と同一スカラー4点の交差条件を具体計算できる
+  - 大Nでの非連結4点と連結交換4点の次数を正規化条件付きで数えられる
+  - 単一トレース交換と二重トレースOPEを区別し図と共形ブロックの差を説明できる
+definitions:
+  - { id: HOLO11-DEF-01, name: Dirichletバルク間Green関数 }
+  - { id: HOLO11-DEF-02, name: スカラー交換Witten積分 }
+theorems:
+  - { id: HOLO11-PROP-01, name: バルクGreen関数のFourier表示 }
+  - { id: HOLO11-PROP-02, name: 木レベル4点の交換寄与と対称係数 }
+  - { id: HOLO11-PROP-03, name: 同一次元スカラー4点の共形形式と交換対称性 }
+  - { id: HOLO11-PROP-04, name: 規格化単一トレース4点の主要次数 }
+canonical_examples:
+  - d3で零波数Green核の左右微分とデルタ係数を直接照合
+  - d3 Delta2で核4本と2体積測度および内部Green関数のL次元を計算
+  - 4点の具体座標からu,vと一般化自由場のGを計算
+  - 三次相互作用から3チャネルの対称係数を24項数え上げる
+problem_patterns:
+  - HOLO11-GREEN-DELTA
+  - HOLO11-ZERO-MOMENTUM-JUMP
+  - HOLO11-THREE-CHANNELS
+  - HOLO11-CROSS-RATIO
+  - HOLO11-LARGE-N-ORDERS
+  - HOLO11-WRONSKIAN
+  - HOLO11-COMPLETE-SQUARE
+  - HOLO11-FOUR-DERIVATIVES
+  - HOLO11-CROSSING
+  - HOLO11-COMPLETE-EXCHANGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 10, review: 8 }
