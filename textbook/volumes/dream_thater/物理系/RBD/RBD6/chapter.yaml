@@ -16,6 +16,7 @@ learning_objectives:
   - 角運動量と角速度の非平行性および座標・原点を混同した式の誤用を数値例から診断できる
 definitions:
   - { id: RBD6-DEF-01, name: "回転エネルギーの慣性楕円体" }
+  - { id: RBD6-DEF-02, name: "主慣性値の縮退" }
 theorems:
   - { id: RBD6-THM-01, name: "慣性テンソルの座標変換" }
   - { id: RBD6-THM-02, name: "平行軸のテンソル公式" }
