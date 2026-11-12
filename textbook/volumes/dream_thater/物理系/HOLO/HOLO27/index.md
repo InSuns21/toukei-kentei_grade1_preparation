@@ -81,7 +81,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（区間に適合するAdS–Rindler座標）**  
-> 半径 $L>0$ の純 Poincaré $AdS_3$ で、境界区間 $A=\{(0,x):|x|<R\}$、$R>0$ を選ぶ。$r>1$、$\tau,\chi\in\mathbb R$ とし、$u=\sqrt{r^2-1}$、$D=r\cosh\chi+u\cosh\tau$ を置く。次の変換で定まる $(t,x,z)$ を、その区間の AdS–Rindler 座標表示とする。
+> 半径 $L>0$ の純 Poincaré $AdS_3$ で、境界区間と座標の範囲を次で指定する。
+
+$
+A=\{(0,x):|x|<R\},\quad R>0,\quad r>1,\quad \tau,\chi\in\mathbb R.
+$
+
+> 以下の補助量を定める。
+
+$
+u=\sqrt{r^2-1},\qquad D=r\cosh\chi+u\cosh\tau.
+$
+
+> 次の変換の像を、その区間の AdS–Rindler 座標表示とする。
 
 $
 (t,x,z)=
