@@ -4,22 +4,22 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - INV8
+  - OPT3
 official_scope: []
 learning_objectives:
   - 有限次元のl1罰則と二乗ノルム罰則の違いを成分の疎性と強制性の両面から説明できる
   - 劣勾配・劣微分を支持不等式から定義し絶対値とl1の劣微分を導ける
-  - 有限次元l1正則化の必要十分な最適性条件とソフト閾値公式を証明できる
+  - 有限次元ℓ¹正則化の必要十分な最適性条件とソフト閾値公式を証明できる
   - Bregman距離の非負性・非対称性・零でも一致しない例を検証できる
   - 離散TVの差分作用素と転置を導き最小性証明書から段差保存を証明できる
   - 離散TVと二乗差分罰則を比較し連続BVへの一般化で必要な仮定を識別できる
 definitions:
-  - { id: INV9-DEF-01, name: 有限次元のl1正則化 }
-  - { id: INV9-DEF-02, name: 劣勾配と劣微分 }
+  - { id: INV9-DEF-01, name: 有限次元のℓ¹正則化 }
   - { id: INV9-DEF-03, name: 劣勾配に依存するBregman距離 }
   - { id: INV9-DEF-04, name: 一次元離散全変動 }
   - { id: INV9-DEF-05, name: 区間上の点ごとの全変動 }
 theorems:
-  - { id: INV9-PROP-01, name: 絶対値とl1ノルムの劣微分 }
+  - { id: INV9-PROP-01, name: 絶対値とℓ¹ノルムの劣微分 }
   - { id: INV9-THM-01, name: 有限次元l1正則化の必要十分な最適性条件 }
   - { id: INV9-PROP-02, name: 恒等観測のソフト閾値公式 }
   - { id: INV9-PROP-03, name: Bregman距離の非負性 }
