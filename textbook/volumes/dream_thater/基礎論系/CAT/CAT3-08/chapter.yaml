@@ -1,0 +1,48 @@
+id: "CAT3-08"
+title: "点ごとの右Kan拡張"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-09
+  - CAT2-01
+  - CAT2-04
+  - CAT2-10
+  - CAT3-06
+  - CAT3-07
+official_scope: []
+learning_objectives:
+  - comma圏 (b↓K) の対象・射・射影図式を構成し、小ささと極限の存在条件を点検できる
+  - 極限の射影から b の射に沿う R(v) を作り、恒等射・合成保存を証明できる
+  - 余単位 ε を自然変換として構成し、右Kan拡張の全自然変換について存在・一意性を証明できる
+  - F の自然変換に対する Ran の関手性と前合成の右随伴を二変数の自然性で説明できる
+  - 集合値の制限・延長、積、矢印の極限、順序圏の交わり、充満忠実性と非存在例を検証できる
+definitions:
+  - { id: CAT3-08-DEF-01, name: 右Kan拡張のcomma添字図式 }
+  - { id: CAT3-08-DEF-02, name: 点ごとの右Kan拡張の極限構成 }
+theorems:
+  - { id: CAT3-08-PROP-01, name: 添字の引き戻しと右Kan関手 }
+  - { id: CAT3-08-THM-01, name: 点ごとの右Kan拡張の公式と普遍性 }
+  - { id: CAT3-08-PROP-02, name: 右Kan拡張のFに関する関手性 }
+  - { id: CAT3-08-PROP-03, name: 充満忠実な関手に沿う右Kan拡張の余単位 }
+  - { id: CAT3-08-PROP-04, name: 終対象がないため右Kan拡張が存在しない例 }
+canonical_examples:
+  - 矢印圏の始点・終点を選ぶ右Kan延長の具体的な関数
+  - 離散二点から一点への関手に沿う積と関数の組
+  - 一本の矢印を一点へ潰すと始点が極限になる例
+  - 部分集合の順序圏で積が共通部分になる例
+  - 二元以上の有限集合の圏に終対象がなく右Kan拡張が存在しない例
+problem_patterns:
+  - CAT3-08-COMMA-ARROW
+  - CAT3-08-DISCRETE-PRODUCT
+  - CAT3-08-ARROW-COLLAPSE
+  - CAT3-08-COUNIT-NATURALITY
+  - CAT3-08-NONEXISTENCE
+  - CAT3-08-MIXED-ARROW
+  - CAT3-08-FULLY-FAITHFUL
+  - CAT3-08-FUNCTOR-IN-F
+  - CAT3-08-POSET-MEET
+  - CAT3-08-COMPOSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 3 }

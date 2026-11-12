@@ -1,0 +1,54 @@
+chapter: CAT3-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-09
+  - CAT2-01
+  - CAT2-04
+  - CAT2-10
+  - CAT3-06
+  - CAT3-07
+
+concepts:
+  - id: category.right-kan-comma-diagram
+    name: 右Kan拡張のcomma添字図式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右Kan拡張のcomma添字図式）"]
+    requires: [category.comma-category, category.covariant-functor, category.limit]
+  - id: category.pointwise-right-kan-extension
+    name: 点ごとの右Kan拡張の極限構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点ごとの右Kan拡張の極限構成）"]
+    requires: [category.right-kan-comma-diagram, category.complete-category, category.right-kan-extension]
+  - id: category.right-kan-comma-transport
+    name: 添字の引き戻しと右Kan関手
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（添字の引き戻しと右Kan関手）"]
+    requires: [category.pointwise-right-kan-extension, category.limit]
+  - id: category.pointwise-right-kan-universality
+    name: 点ごとの右Kan拡張の公式と普遍性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（点ごとの右Kan拡張の公式と普遍性）"]
+    requires: [category.right-kan-comma-transport, category.right-kan-extension, category.limit]
+  - id: category.pointwise-right-kan-functoriality
+    name: 右Kan拡張のFに関する関手性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（右Kan拡張のFに関する関手性）"]
+    requires: [category.pointwise-right-kan-universality, category.right-kan-adjunction]
+  - id: category.right-kan-fully-faithful-counit
+    name: 充満忠実な関手に沿う右Kan拡張の余単位
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（充満忠実な関手に沿う右Kan拡張の余単位）"]
+    requires: [category.pointwise-right-kan-extension, category.fully-faithful-functor]
+  - id: category.right-kan-terminal-obstruction
+    name: 終対象がないため右Kan拡張が存在しない例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（終対象がないため右Kan拡張が存在しない例）"]
+    requires: [category.right-kan-extension, category.terminal-object]
