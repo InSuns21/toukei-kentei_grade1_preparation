@@ -10,7 +10,7 @@ chapters:
     title: "Minkowskiの領域と因果補集合"
   - id: AQFT2
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT2
-    status: planned
+    status: completed
     title: "Haag–Kastler net"
   - id: AQFT3
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT3
