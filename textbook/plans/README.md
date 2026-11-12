@@ -59,7 +59,7 @@
 | 超局所解析・Hadamard条件 | `../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md`（MICA1完了・以降進行中） |
 | 代数的QFT・モジュラー理論 | [進行中のAQFT全34講PLAN](../plans_progress/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)（AQFT1完了、AQFT2–34は未着手。進捗は系列manifest `textbook/dream-theater-series/AQFT.yaml` を参照） |
 | THE END OF MATHEMATICS? 5テーマの横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
-| 金融の価格付け・最適執行の応用 | `DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md`（U3。HJB理論は既存の最適制御PLANを参照） |
+| 金融の価格付け・最適執行の応用 | [進行中のU3数理ファイナンスPLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)（U3-01完成・以降計画中。HJB理論は既存の最適制御PLANを参照） |
 | 確率ロボティクス・自己位置推定 | `DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md`（U2） |
 | 無裁定・統計的裁定の応用 | `DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md`（U4） |
 | 量子状態推定の応用 | `DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md`（U6） |

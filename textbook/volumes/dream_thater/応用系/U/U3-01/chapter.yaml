@@ -1,0 +1,40 @@
+id: "U3-01"
+title: "2状態の損益からオプションの複製価格を求める"
+volume: "foundations"
+status: supplementary
+prerequisites: []
+official_scope: []
+learning_objectives:
+  - 1期間二項市場の株式・預金・欧州型請求権の二状態受取額を単位と仮定込みで計算できる
+  - 2本の複製方程式から株数と借入・預金額を一意に導出し両状態で検算できる
+  - 同一満期受取額の市場価格が複製費用からずれるときの裁定を具体的に構成できる
+  - 複製公式を後ろ向きの加重評価式に変形し実確率との違いを説明できる
+  - u=dや借入制限でどの構成が壊れるかを特定できる
+definitions:
+  - { id: U3-01-DEF-01, name: 1期間二項市場 }
+  - { id: U3-01-DEF-02, name: 2状態の満期請求権 }
+  - { id: U3-01-DEF-03, name: 複製ポートフォリオ }
+theorems:
+  - { id: U3-01-THM-01, name: 2状態の完全複製 }
+  - { id: U3-01-PROP-01, name: 複製価格との一致 }
+  - { id: U3-01-PROP-02, name: 1期間の後ろ向き評価式 }
+canonical_examples:
+  - 初値100円・上下120円と90円・元利1.05倍でのコール複製と厳密価格200/21円
+  - 同じ満期受取額の割高販売から上・下状態の正の利益を構成
+  - 実確率1/4と評価用の重み1/2の区別
+  - u=dで複製が壊れ借入禁止で実行可能な複製が失われる例
+problem_patterns:
+  - U3-01-A1
+  - U3-01-A2
+  - U3-01-A3
+  - U3-01-A4
+  - U3-01-A5
+  - U3-01-B1
+  - U3-01-B2
+  - U3-01-B3
+  - U3-01-B4
+  - U3-01-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 3.0, review: 0.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

@@ -1,0 +1,42 @@
+chapter: U3-01
+scope: dream-theater
+coverage: complete
+prerequisites: []
+forward_references: []
+concepts:
+  - id: finance.one-period-binomial-market
+    name: 1期間二項市場
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1期間二項市場）"]
+    requires: []
+  - id: finance.two-state-contingent-claim
+    name: 2状態の満期請求権
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（2状態の満期請求権）"]
+    requires: [finance.one-period-binomial-market]
+  - id: finance.one-period-replicating-portfolio
+    name: 複製ポートフォリオ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複製ポートフォリオ）"]
+    requires: [finance.two-state-contingent-claim]
+  - id: finance.two-state-replication
+    name: 2状態の完全複製
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（2状態の完全複製）"]
+    requires: [finance.one-period-replicating-portfolio]
+  - id: finance.one-period-replication-pricing
+    name: 複製価格との一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複製価格との一致）"]
+    requires: [finance.two-state-replication]
+  - id: finance.one-period-backward-pricing
+    name: 1期間の後ろ向き評価式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（1期間の後ろ向き評価式）"]
+    requires: [finance.two-state-replication]

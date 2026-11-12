@@ -1,7 +1,7 @@
 # DREAM THEATER 地下帝国・U3 数理ファイナンス：無裁定価格付け・数値計算・金融リスク・最適執行
 
 作成: 2026-10-11／講義構成確定: 2026-11-12  
-状態: planned（**68講の設計確定。講義本文・視覚教材・公開は未着手**）
+状態: in progress（**U3-01 完了・68講中1講実装。残67講と最終横断監査は未完了**）
 
 > **講義数は全68講で確定する。** 二項モデルから入り、期待値・PDE の価格付けを照合し、木・有限差分・Monte Carlo・Fourier の数値誤差を評価する。American と経路依存商品の両方を扱い、VaR／ES／ストレス・リスク配賦・信用リスクを経て、最適執行へ至る。各講義の本文・必要な視覚教材・数値検証・査読を**同一作業単位**で完成させ、全講完了後の**科目全体の横断監査は1回だけ**実施する。
 
@@ -26,8 +26,8 @@
 - **第12講以降（確率解析は既習正本を使う）**：確率積分の単純過程による構成・[Itô 等長性](../volumes/dream_thater/解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)・[$L^2$ 完備化による構成](../volumes/dream_thater/解析系/STO/STO6/index.md#thm-sto6-l2-construction) は **STO6**、[Itô 公式](../volumes/dream_thater/解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) と [Itô–Stratonovich 変換](../volumes/dream_thater/解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion) は **STO7**、[SDE の強解の存在一意性](../volumes/dream_thater/解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness) は **STO9**、[Girsanov 定理](../volumes/dream_thater/解析系/STO/STO10/index.md#thm-sto10-girsanov) は **STO10**、[Feynman–Kac 定理](../volumes/dream_thater/解析系/STO/STO11/index.md#thm-sto11-feynman-kac) は **STO11** を理論正本とする。**U3 でこれらの定義・一般定理・核心証明を再構築しない。** 金融モデルの係数・満期条件・測度・商品 payoff を具体的に代入する導出と、Python による数値近似・誤差解析は U3 自身の責任範囲とする。各講の実装時に latest GitHub の stable anchor・prerequisite を再照合する。
 - **PDE・数値解析**：熱方程式、放物型 PDE、差分近似の canonical 結果があれば前提としてリンクする。存在・一意性・Feynman–Kac の適用条件（係数、成長条件、境界、可積分性）を省略しない。既習結果が使えない場合は導入または証明担当を先に確定する。
 - **最適停止・制御**：Snell envelope は U3-06 の有限離散モデルでは直接構成する。一般の DPP／HJB／粘性解／微分ゲームの理論正本は [最適制御・微分ゲーム PLAN](../plan_done/DREAM_THEATER_OPTIMAL_CONTROL_DIFFERENTIAL_GAMES_PLAN.md) の**移動先を実装時に確認して**参照する。未実装 PLAN の結果は使わない。
-- **横断ルート**：[地下帝国の横断ルート](DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md)。U4 の裁定機会・統計的裁定とは内容を重複させず、U3 は**デリバティブ無裁定評価とリスク管理**を所有する。
-- **科目ID**：以下の `U3-01`〜`U3-68` は固定設計ID。現時点で U3 系列 manifest／各講 `chapter.yaml`・`knowledge.yaml` は作成せず、最初の本文実装時に実在パスを確認して系列 manifest の `plan` を更新し、PLAN を `plans_progress/` へ**移動**する。新規 `U3` を未着手のまま `completed` にしない。
+- **横断ルート**：[地下帝国の横断ルート](../plans/DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md)。U4 の裁定機会・統計的裁定とは内容を重複させず、U3 は**デリバティブ無裁定評価とリスク管理**を所有する。
+- **科目ID**：以下の `U3-01`〜`U3-68` は固定設計ID。系列 manifest は `textbook/dream-theater-series/U3.yaml` に置き、U3-01 の `chapter.yaml`・`knowledge.yaml`・本文を公開済みとする。残り U3-02〜68 は `planned` のまま、各講実装時に status を更新する。
 
 ## 3. 各講義の確定シラバスと同時制作資産
 
