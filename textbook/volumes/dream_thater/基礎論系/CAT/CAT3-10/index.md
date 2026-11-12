@@ -60,9 +60,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（元に付随する標準余錐）**
 > 上記の $D_P$ に対し、各 $(a,x)$ の射 $\iota_{a,x}:h^a\to P$ を
-> $$
+$$
 > (\iota_{a,x})_c(f)=P(f)(x)\qquad(f:c\to a)
-> $$
+$$
 > と定める。この射の族を標準余錐という。
 <!-- formal-statement-end -->
 
@@ -90,11 +90,11 @@ $$
 <!-- formal-statement-start -->
 > **定理（Yonedaの密度定理）**
 > $\mathcal A$ を小さい圏、$P:\mathcal A^{\mathrm{op}}\to\mathbf{Set}$ を前層とする。$D_P:\int_{\mathcal A}P\to\widehat{\mathcal A}$ は前節の関手、$\iota_{a,x}:h^a\to P$ は標準余錐である。この余錐は余極限余錐であり、自然な同型
-> $$
+$$
 > \kappa_P:\operatorname*{colim}_{(a,x)\in\int_{\mathcal A}P}h^a\xrightarrow{\ \cong\ }P,
 > \qquad
 > \kappa_{P,c}([(a,x),f])=P(f)(x)
-> $$
+$$
 > が存在する。同型は $P$ に関しても自然である。
 <!-- formal-statement-end -->
 
@@ -166,14 +166,14 @@ $$
 <!-- formal-statement-start -->
 > **命題（密度定理のcoend表示）**
 > 小圏 $\mathcal A$ の任意の前層 $P$ と $c\in\mathcal A$ に対し
-> $$
+$$
 > \int^{a\in\mathcal A}P(a)\times\operatorname{Hom}_{\mathcal A}(c,a)
 > \ \cong\ P(c)
-> $$
+$$
 > が $c$ と $P$ に関して自然に成立する。左辺の商関係は、$u:a\to b$、$y\in P(b)$、$f:c\to a$ について
-> $$
+$$
 > [P(u)(y),f]_a=[y,uf]_b
-> $$
+$$
 > で生成される。
 <!-- formal-statement-end -->
 
@@ -206,9 +206,9 @@ $$
 <!-- formal-statement-start -->
 > **定理（密度定理とYonedaに沿う左Kan拡張）**
 > $\mathcal A$ が小さい圏なら、Yoneda埋め込み $y:\mathcal A\to\widehat{\mathcal A}$ に沿う $y$ の点ごとの左Kan拡張が存在し、自然同型
-> $$
+$$
 > \operatorname{Lan}_{y}y\cong1_{\widehat{\mathcal A}}
-> $$
+$$
 > が成り立つ。点 $P$ における同型は[密度定理](#thm-cat3-10-density)の $\kappa_P$ である。
 > また $x\in P(a)$ に対応する自然変換 $\widehat{x}:h^a\to P$ の成分は、$f:c\to a$ に対し
 >
@@ -286,10 +286,10 @@ Kan拡張で延長する関手が $y$ そのものではなく $F:\mathcal A\to\
 <!-- formal-statement-start -->
 > **定理（Yonedaに沿う左Kan拡張の計算式）**
 > $\mathcal A$ を小さい圏、$\mathcal C$ を局所小かつ余完備な圏、$F:\mathcal A\to\mathcal C$ を関手とする。このとき $\operatorname{Lan}_yF:\widehat{\mathcal A}\to\mathcal C$ が存在し、各前層 $P$ において
-> $$
+$$
 > (\operatorname{Lan}_yF)(P)\cong
 > \operatorname*{colim}_{(a,x)\in\int_{\mathcal A}P}F(a).
-> $$
+$$
 > 自然変換 $t:P\to Q$ による作用は $(a,x)\mapsto(a,t_a(x))$ の誘導射で与えられる。
 <!-- formal-statement-end -->
 
@@ -353,9 +353,9 @@ $$
 <!-- formal-statement-start -->
 > **命題（余極限保存関手の表現可能対象による決定）**
 > $\mathcal A$ を小さい圏、$\mathcal C$ を局所小かつ余完備な圏とし、$H:\widehat{\mathcal A}\to\mathcal C$ が小さい余極限を保存するとする。このとき各前層 $P$ について、自然な同型
-> $$
+$$
 > H(P)\cong\operatorname*{colim}_{(a,x)\in\int_{\mathcal A}P}H(h^a)
-> $$
+$$
 > がある。さらに $H$ と別の小余極限保存関手 $G$ の間の自然変換は、$h^a$ 上の成分が与えられれば高々一つであり、$H\simeq\operatorname{Lan}_y(Hy)$ である。
 <!-- formal-statement-end -->
 
