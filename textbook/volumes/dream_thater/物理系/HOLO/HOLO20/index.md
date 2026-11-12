@@ -357,10 +357,10 @@ $$
 <!-- solution-end -->
 
 <a id="ex-holo20-a04"></a>
-**A4. 純AdSの具体値。** 純粋 $AdS_3$ の三区間の長さを $a=b=d=1$ として、強劣加法性の差を $c_{\mathrm{BH}}$ で表せ。$\epsilon$ が消える計算も示せ。
+**A4. 純AdSの具体値。** 純粋 $AdS_3$ の三区間の長さを $a=b=d=1$ として、普遍対数項の強劣加法性の差を $c_{\mathrm{BH}}$ で表せ。$\epsilon$ が消える計算も示せ。
 - Level: A
 <!-- solution-start -->
-**詳細解答。** 四区間の長さは $2,2,1,3$。共通cutoffで $S^{(0)}(\ell)=(c_{\mathrm{BH}}/3)\log(\ell/\epsilon)$ だから、差は $(c_{\mathrm{BH}}/3)[\log(2/\epsilon)+\log(2/\epsilon)-\log(1/\epsilon)-\log(3/\epsilon)]$。$-\log\epsilon$ の係数が $1+1-1-1=0$ なので $(c_{\mathrm{BH}}/3)\log(4/3)>0$。中央電荷は正である。
+**詳細解答。** 四区間の長さは $2,2,1,3$。共通cutoffで[HOLO18の区間係数](../HOLO18/index.md#thm-holo18-interval-coefficient)の普遍対数項 $s_{\log}^{(0)}(\ell)=(c_{\mathrm{BH}}/3)\log(\ell/\epsilon)$ を使うと、差は $(c_{\mathrm{BH}}/3)[\log(2/\epsilon)+\log(2/\epsilon)-\log(1/\epsilon)-\log(3/\epsilon)]$。$-\log\epsilon$ の係数が $1+1-1-1=0$ なので $\Delta_{\mathrm{SSA},\log}^{(0)}=(c_{\mathrm{BH}}/3)\log(4/3)>0$。中央電荷は正であり、これは固定した区間長で $\epsilon\to0$ とする普遍対数項の結論である。
 <!-- solution-end -->
 
 <a id="ex-holo20-a05"></a>
@@ -380,21 +380,22 @@ $$
 <!-- solution-end -->
 
 <a id="ex-holo20-b02"></a>
-**B2. 一般の三区間長。** 純粋 $AdS_3$ の平面境界の隣接三区間の長さを $a,b,d>0$ とする。RT係数から強劣加法性の差を導き、$a\downarrow0$ での極限を求めよ。
+**B2. 一般の三区間長。** 純粋 $AdS_3$ の平面境界の隣接三区間の長さを $a,b,d>0$ とする。RT係数の普遍対数項から強劣加法性の差を導き、$b,d$ 固定で $a\downarrow0$ とする極限を求めよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** 区間 $UV,VW,V,UVW$ の長さはそれぞれ $a+b,b+d,b,a+b+d$。従って[区間RT公式](../HOLO18/index.md#thm-holo18-interval-coefficient)へ代入し、同じcutoffを消して
+**詳細解答。** 区間 $UV,VW,V,UVW$ の長さはそれぞれ $a+b,b+d,b,a+b+d$。従って[区間RT公式](../HOLO18/index.md#thm-holo18-interval-coefficient)の普遍対数項 $s_{\log}^{(0)}$ へ代入し、同じcutoffを消して
 $$
-\Delta=\frac{c_{\mathrm{BH}}}{3}\log\frac{(a+b)(b+d)}{b(a+b+d)}.
+\Delta_{\mathrm{SSA},\log}^{(0)}
+=\frac{c_{\mathrm{BH}}}{3}\log\frac{(a+b)(b+d)}{b(a+b+d)}.
 $$
-分子から分母を引くと $(a+b)(b+d)-b(a+b+d)=ad$。ゆえに $\Delta=(c_{\mathrm{BH}}/3)\log[1+ad/(b(a+b+d))]>0$。$a\downarrow0$ で分子 $ad\to0$、分母は $b(b+d)>0$ へ向かうので $\Delta\to0$。
+分子から分母を引くと $(a+b)(b+d)-b(a+b+d)=ad$。ゆえに $\Delta_{\mathrm{SSA},\log}^{(0)}=(c_{\mathrm{BH}}/3)\log[1+ad/(b(a+b+d))]>0$。$a\downarrow0$ で分子 $ad\to0$、分母は $b(b+d)>0$ へ向かうので $\Delta_{\mathrm{SSA},\log}^{(0)}\to0$。これは有限cutoffの誤差を無条件に捨てた等号ではない。
 <!-- solution-end -->
 
 <a id="ex-holo20-b03"></a>
 **B3. 純粋状態なら下界が出る。** 全境界が純粋状態で、互いに素な $X,Y,C$ が全境界を分割する。RTの劣加法性と $S^{(0)}(Z)=S^{(0)}(Z^c)$ から $|S^{(0)}(X)-S^{(0)}(Y)|\le S^{(0)}(X\cup Y)$ を示し、なぜ熱状態に同じ論証を流用できないか説明せよ。
 - Level: B
 <!-- solution-start -->
-**詳細解答。** 劣加法性を互いに素な $Y,C$ に適用して $S(Y)+S(C)\ge S(Y\cup C)$。全体純粋なら $C^c=X\cup Y$、$(Y\cup C)^c=X$ なので $S(C)=S(X\cup Y)$、$S(Y\cup C)=S(X)$。従って $S(X)-S(Y)\le S(X\cup Y)$。$X$ と $Y$ を交換すれば $S(Y)-S(X)\le S(X\cup Y)$。二つの最大は絶対値なので結論。熱混合状態では一般に $S(C)\ne S(X\cup Y)$ であり、置換に用いた補集合の等式が失われる。BTZでは地平線のエントロピーも無視できない。
+**詳細解答。** 劣加法性を互いに素な $Y,C$ に適用して $S(Y)+S(C)\ge S(Y\cup C)$。全体純粋なら[純粋二部系の縮約エントロピーの一致](../../../応用系/QINF/QINF17/index.md#prop-qinf17-bipartite)を使える。$C^c=X\cup Y$、$(Y\cup C)^c=X$ なので $S(C)=S(X\cup Y)$、$S(Y\cup C)=S(X)$。従って $S(X)-S(Y)\le S(X\cup Y)$。$X$ と $Y$ を交換すれば $S(Y)-S(X)\le S(X\cup Y)$。二つの最大は絶対値なので結論。熱混合状態では一般に $S(C)\ne S(X\cup Y)$ であり、置換に用いた補集合の等式が失われる。BTZでは地平線のエントロピーも無視できない。
 <!-- solution-end -->
 
 <a id="ex-holo20-b04"></a>
@@ -414,14 +415,14 @@ $$
 
 (ii) [面積補題](#lem-holo20-perimeter)により $\operatorname{Length}(\widetilde\gamma_V)+\operatorname{Length}(\widetilde\gamma_{UVW})\le\operatorname{Length}(\gamma_{UV}^{\min})+\operatorname{Length}(\gamma_{VW}^{\min})$。一方、最小性より $\operatorname{Length}(\gamma_V^{\min})\le\operatorname{Length}(\widetilde\gamma_V)$、$\operatorname{Length}(\gamma_{UVW}^{\min})\le\operatorname{Length}(\widetilde\gamma_{UVW})$。合わせ、$4G_3>0$ で割れば $S^{(0)}(V)+S^{(0)}(UVW)\le S^{(0)}(UV)+S^{(0)}(VW)$。
 
-(iii) $a=1,b=2,d=3$、四区間長は $3,5,2,6$。[RT仮定の下でのAdS3区間普遍係数](../HOLO18/index.md#thm-holo18-interval-coefficient)を共通cutoffで用いると
+(iii) $a=1,b=2,d=3$、四区間長は $3,5,2,6$。[RT仮定の下でのAdS3区間普遍係数](../HOLO18/index.md#thm-holo18-interval-coefficient)から得た普遍対数項 $s_{\log}^{(0)}$ を共通cutoffで用いると
 $$
-\Delta_{\mathrm{SSA}}^{(0)}
+\Delta_{\mathrm{SSA},\log}^{(0)}
 =\frac{c_{\mathrm{BH}}}{3}
 \log\frac{3\cdot5}{2\cdot6}
 =\frac{c_{\mathrm{BH}}}{3}\log\frac54>0.
 $$
-分子と分母の差は $15-12=3=ad$ とも確認できる。
+分子と分母の差は $15-12=3=ad$ とも確認できる。有限cutoffでの面積差には $O(c_{\mathrm{BH}}\epsilon^2/b^2)$ の補正が残る。
 
 (iv) (i)(ii) は**共通の静的Riemann断面と面積最小性**に依存する。時間依存HRT面はその条件を自動では満たさない。また $O(G_N^0)$ の量子補正の符号は(iii)の古典長だけからは分からない。よって本問が再現したのは、同一幾何・同一cutoffでの古典RT主項のSSAである。
 <!-- solution-end -->
