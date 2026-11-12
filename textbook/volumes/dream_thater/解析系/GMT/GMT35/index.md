@@ -27,13 +27,13 @@ $$
 
 ## 2. Kakeya最大作用素とその正規化
 
-方向 $v$ を固定し、始点 $a$ を動かすと、同じ方向に平行移動したすべての管を探せます。管内の**積分**ではなく**平均**を取るのは、太さを変えたときの体積倍率を取り除くためです。
+方向 $v$ を固定し、始点 $a$ を動かすと、同じ方向に平行移動したすべての管を探せます。管内の**積分**ではなく**平均**を取るのは、太さを変えたときの体積倍率を取り除くためです。作用素の**定義自体**は任意の管半径 $\delta>0$ で意味を持ちます。一方、後の一様最大評価は $0<\delta<1/100$ に限定します。平面の証明では $2\delta$ の管も使うので、この二つの尺度範囲を区別します。
 
 <a id="def-gmt35-kakeya-maximal"></a>
 
 <!-- formal-statement-start -->
 > **定義（δ-Kakeya最大作用素）**  
-> $d\ge2$、$0<\delta<1/100$ とする。Lebesgue可測関数 $f:\mathbb R^d\to\mathbb C$ に対し、方向 $v\in S^{d-1}$ での $\delta$-Kakeya最大作用素を
+> $d\ge2$、$\delta>0$ とする。Lebesgue可測関数 $f:\mathbb R^d\to\mathbb C$ に対し、方向 $v\in S^{d-1}$ での $\delta$-Kakeya最大作用素を
 
 $$
 \mathcal K_\delta f(v)
@@ -48,9 +48,17 @@ $$
 <!-- definition-example-start: def-gmt35-kakeya-maximal -->
 ### 直接確認：定数倍と一方向の管
 
-$f=\boldsymbol{1}_{T_\delta(0,e_1)}$ とします。管 $T_\delta(0,e_1)$ の平均は1なので $\mathcal K_\delta f(e_1)\ge1$ です。一方 $0\le f\le1$ だから、どんな管の平均も1以下であり、**$\mathcal K_\delta f(e_1)=1$** です。
+$e_1=(1,0,\ldots,0)$ は第1座標方向の単位ベクトルとし、$f=\boldsymbol{1}_{T_\delta(0,e_1)}$ とします。管 $T_\delta(0,e_1)$ の平均は1なので $\mathcal K_\delta f(e_1)\ge1$ です。一方 $0\le f\le1$ だから、どんな管の平均も1以下であり、**$\mathcal K_\delta f(e_1)=1$** です。
 
-さらに $c\in\mathbb C$ に対し $\mathcal K_\delta(cf)=|c|\mathcal K_\delta f$、非負関数 $f,g$ に対し $\mathcal K_\delta(f+g)\le\mathcal K_\delta f+\mathcal K_\delta g$ です。いずれも積分の絶対値、三角不等式、上限の順に確認できます。作用素は一般に線形ではなく**劣線形**です。
+さらに $1\le p<\infty$、$f,g\in L^p(\mathbb R^d)$ と $c\in\mathbb C$ に対し、絶対値の性質 $|cf|=|c||f|$ と $|f+g|\le|f|+|g|$ から
+
+$$
+\mathcal K_\delta(cf)=|c|\mathcal K_\delta f,
+\qquad
+\mathcal K_\delta(f+g)\le\mathcal K_\delta f+\mathcal K_\delta g
+$$
+
+を得ます。後者では $|f+g|\le|f|+|g|$ を各管で積分し、最後に始点 $a$ について上限を取る際、$f$ と $g$ の管平均それぞれの上限で抑えました。作用素は一般に線形ではなく**劣線形**です。
 
 **定義の確認**：始点に関する上限、管体積での割り算、絶対値、方向ごとの値をすべて実際に計算しました。
 <!-- definition-example-end -->
@@ -81,7 +89,15 @@ $$
 <!-- definition-example-start: def-gmt35-maximal-bound -->
 ### 直接確認：Hölderの不等式から必ず得られる評価
 
-$1\le p<\infty$ とし、$p$ の共役指数を $p'$ とします（$p=1$ では $p'=\infty$）。管ごとに[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を適用すると
+$1\le p<\infty$ とし、$p$ の共役指数を $p'$ とします（$p=1$ では $p'=\infty$）。管 $T=T_\delta(a,v)$ に[Hölderの不等式](../../F0/F0-00D2D/index.md#thm-f0-00d2d-01)を適用します。$\|\boldsymbol1_T\|_{L^{p'}}=|T|^{1/p'}$（$p'=\infty$ では $|T|^0=1$）だから
+
+$$
+\int_T|f|=\int_{\mathbb R^d}|f|\boldsymbol1_T
+\le\|f\|_{L^p}|T|^{1/p'}
+=\|f\|_{L^p}V_d(\delta)^{1-1/p}.
+$$
+
+両辺を $V_d(\delta)$ で割ると
 
 $$
 \frac{1}{V_d(\delta)}\int_{T_\delta(a,v)}|f|
@@ -156,7 +172,7 @@ $$
 
 <!-- formal-statement-start -->
 > **補題（選択した管に対する離散L2評価）**  
-> $0<r<1/50$、$N\asymp r^{-1}$ とし、$v_j=(\cos(j\pi/N),\sin(j\pi/N))$ を取る。各 $j$ で任意の始点 $a_j\in\mathbb R^2$ を選び、$T_j=T_r(a_j,v_j)$ とする。このとき、定数は $a_j,r$ に依存せず、
+> $0<r<1/50$、$N\asymp r^{-1}$（比較定数は $r$ によらず固定）とし、$v_j=(\cos(j\pi/N),\sin(j\pi/N))$ を取る。各 $j$ で任意の始点 $a_j\in\mathbb R^2$ を選び、$T_j=T_r(a_j,v_j)$ とする。このとき、定数は $a_j,r$ に依存せず、
 
 $$
 r\sum_{j=0}^{N-1}\left(\frac{1}{V_2(r)}\int_{T_j}f(x)\,dx\right)^2
@@ -173,13 +189,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A:L^2(\mathbb R^2)\to\ell^2_r$ を $(Af)_j=V_2(r)^{-1}\int_{T_j}f$ とします。$\ell^2_r$ の内積は $r\sum_jz_j\overline w_j$ です。双対写像は
+$A:L^2(\mathbb R^2)\to\ell^2_r$ を $(Af)_j=V_2(r)^{-1}\int_{T_j}f$ とします。$\ell^2_r$ の内積は $\langle z,w\rangle_{\ell^2_r}=r\sum_jz_j\overline w_j$ と定めます。管平均を離散空間の内積へ移し、有限和と積分を交換すると
+
+$$
+\begin{aligned}
+\langle Af,z\rangle_{\ell^2_r}
+&=\frac r{V_2(r)}\sum_j\left(\int_{T_j}f(x)\,dx\right)\overline{z_j}\\
+&=\int_{\mathbb R^2}f(x)\,\overline{\left(\frac r{V_2(r)}\sum_jz_j\boldsymbol1_{T_j}(x)\right)}\,dx.
+\end{aligned}
+$$
+
+この計算を使い、$\langle Af,z\rangle_{\ell^2_r}=\langle f,A^*z\rangle_{L^2}$ を満たす写像を $A^*$ と書きます。その具体式は
 
 $$
 A^*z(x)=\frac r{V_2(r)}\sum_{j=0}^{N-1}z_j\boldsymbol{1}_{T_j}(x)
 $$
 
-となるので、展開すると
+です。二乗ノルムの積分で有限和の積を展開し、$\boldsymbol1_{T_i}\boldsymbol1_{T_j}=\boldsymbol1_{T_i\cap T_j}$ を用いると
 
 $$
 \|A^*z\|_2^2
@@ -408,7 +434,7 @@ $$
 \sum_i r_i^s<\eta
 $$
 
-となる可算被覆を選べます。これは $\mathcal H^s(K)=0$ から、被覆半径と被覆和を任意に小さくできることによります。各球を $2^{-(k+1)}<r_i\le2^{-k}$（$k\ge7$）によって群 $I_k$ に分け、$h_k=2^{-k}$ とおきます。$I_k$ の各球を $B(x_i,3h_k)$ に拡大した合併を $U_k$ とします。$H_k=\sum_{i\in I_k}r_i^s$ です。
+となる可算被覆を選べます。これは $\mathcal H^s(K)=0$ から、被覆半径と被覆和を任意に小さくできることによります。各球を $2^{-(k+1)}<r_i\le2^{-k}$（$k\ge7$）によって群 $I_k$ に分け、$h_k=2^{-k}$ とおきます。$I_k$ の各球を $B(x_i,3h_k)$ に拡大した合併を $U_k$ とします。$H_k=\sum_{i\in I_k}r_i^s$ です。各 $i\in I_k$ は $r_i>h_k/2$ を満たすので、$\# I_k\,(h_k/2)^s\le H_k<\eta$ となり、各 $I_k$ は有限です。
 
 $h_k/2<r_i\le h_k$ なので、球体積を一個ずつ足して
 
