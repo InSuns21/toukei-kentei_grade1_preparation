@@ -112,6 +112,7 @@ $$
 $$
 
 近傍まで確かめるため、$p'=(T,\boldsymbol X)$ が $|T|<1/4$ と $|\boldsymbol X-(2,0,0)|<1/4$ を満たすとします。どの $q=(s,\boldsymbol y)\in S$ についても
+
 $$
 \begin{aligned}
 |\boldsymbol X-\boldsymbol y|
@@ -121,6 +122,7 @@ $$
 &>|T|+|s|\ge|T-s|.
 \end{aligned}
 $$
+
 従ってこの開近傍の全点が $C_{\mathrm{sp}}(S)$ に入り、$p\in\operatorname{int}C_{\mathrm{sp}}(S)=S^\perp$ まで示せました。点 $p$ だけで不等式が成り立つことと、近傍を確保することを区別しています。
 <!-- definition-example-end -->
 
