@@ -1,0 +1,62 @@
+chapter: CTM3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM2
+  - LA6
+  - RBD1
+concepts:
+  - id: continuum.right-cauchy-green-tensor
+    name: 右 Cauchy–Green テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右 Cauchy–Green テンソルと Green–Lagrange ひずみ）"]
+    requires: [continuum.deformation-gradient]
+  - id: continuum.green-lagrange-strain
+    name: Green–Lagrange ひずみ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右 Cauchy–Green テンソルと Green–Lagrange ひずみ）"]
+    requires: [continuum.right-cauchy-green-tensor]
+  - id: continuum.finite-strain-length-criterion
+    name: 有限ひずみの長さ判定と零ひずみ条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限ひずみの長さ判定と零ひずみ条件）"]
+    requires: [continuum.green-lagrange-strain, mechanics.proper-rotation]
+  - id: continuum.right-stretch-tensor
+    name: 右伸長テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右伸長テンソルと主伸長）"]
+    requires: [continuum.right-cauchy-green-tensor, linear.psd-square-root]
+  - id: continuum.principal-stretch
+    name: 主伸長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（右伸長テンソルと主伸長）"]
+    requires: [continuum.right-stretch-tensor]
+  - id: continuum.orientation-preserving-polar
+    name: 向きを保つ有限変形の極分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（向きを保つ有限変形の極分解）"]
+    requires: [continuum.right-stretch-tensor, continuum.principal-stretch, linear.polar-decomposition, mechanics.proper-rotation]
+  - id: continuum.superposed-rotation-strain-invariance
+    name: 剛体回転を重ねたときの有限ひずみの不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（剛体回転を重ねたときの有限ひずみの不変性）"]
+    requires: [continuum.orientation-preserving-polar, continuum.green-lagrange-strain]
+  - id: continuum.infinitesimal-strain
+    name: 微小ひずみ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（微小ひずみ）"]
+    requires: [continuum.material-displacement-velocity, continuum.deformation-gradient]
+  - id: continuum.strain-linearization
+    name: 有限ひずみの厳密な展開と線形化誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限ひずみの厳密な展開と線形化誤差）"]
+    requires: [continuum.infinitesimal-strain, continuum.green-lagrange-strain]

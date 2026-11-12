@@ -1,0 +1,42 @@
+id: "CTM3"
+title: "有限ひずみと剛体回転をどう区別するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM2
+  - LA6
+  - RBD1
+official_scope: []
+learning_objectives:
+  - 変形勾配から C=F^TF と Green–Lagrange ひずみ E を定義し、線素の長さ・内積変化を導出できる
+  - E=0 と向きを保つ直交行列であることの同値性を条件付きで証明し、鏡映と剛体回転を区別できる
+  - 正定値平方根から F=RU の一意な極分解を再構成し、主伸長・主方向・主ひずみを計算できる
+  - 重ねた剛体回転に対して C、E、U が不変なことを説明し、単純せん断の極分解を検算できる
+  - E=sym(D_Xu)+(D_Xu)^T(D_Xu)/2 を導き、微小ひずみの適用条件と有限回転での誤判定を示せる
+definitions:
+  - { id: CTM3-DEF-01, name: "右 Cauchy–Green テンソルと Green–Lagrange ひずみ" }
+  - { id: CTM3-DEF-02, name: "右伸長テンソルと主伸長" }
+  - { id: CTM3-DEF-03, name: "微小ひずみ" }
+theorems:
+  - { id: CTM3-PROP-01, name: "有限ひずみの長さ判定と零ひずみ条件" }
+  - { id: CTM3-THM-01, name: "向きを保つ有限変形の極分解" }
+  - { id: CTM3-PROP-02, name: "剛体回転を重ねたときの有限ひずみの不変性" }
+  - { id: CTM3-PROP-03, name: "有限ひずみの厳密な展開と線形化誤差" }
+canonical_examples:
+  - 対角伸長と有限回転の C E U の比較
+  - 回転のみの運動で E=0 の直接確認
+  - 単純せん断の正定値平方根と主伸長の手計算
+  - 90度回転で微小ひずみがゼロにならない反例
+  - 体積保存伸縮と時間依存回転の複合運動
+problem_patterns:
+  - CTM3-GREEN-LAGRANGE-DEFINITION
+  - CTM3-RIGID-ROTATION-ZERO-STRAIN
+  - CTM3-POLAR-PRINCIPAL-STRETCH
+  - CTM3-SUPERPOSED-ROTATION-INVARIANCE
+  - CTM3-INFINITESIMAL-STRAIN-ERROR
+  - CTM3-REFLECTION-COUNTEREXAMPLE
+  - CTM3-AFFINE-MOTION-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 5, review: 2 }
