@@ -1,0 +1,50 @@
+id: HOLO25
+title: "causal wedgeとentanglement wedge"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO24
+  - HOLO2
+official_scope: []
+learning_objectives:
+  - 境界領域の依存域を全因果曲線の条件から定義しMinkowski区間の因果菱形を導出できる
+  - 因果未来と因果過去の共通部分としてcausal wedgeを定義し純AdS球領域の不等式を証明できる
+  - 二つのnull境界の交差としてcausal information surfaceを構成できる
+  - RT/HRT面と相同な領域の依存域としてentanglement wedgeを定義し境界条件の役割を述べられる
+  - 純AdS真空区間のcausal wedgeとentanglement wedgeの一致をnull生成線から検算できる
+  - 一般時空での古典包含に必要な因果性 null曲率 maximin安定性などの条件と証明の引用範囲を説明できる
+  - 包含と等号および領域包含とバルク作用素再構成を混同しない
+  - Lorentz boostした境界区間で両wedgeとHRT面を具体的に変換できる
+definitions:
+  - { id: HOLO25-DEF-01, name: 境界領域の依存域と因果菱形 }
+  - { id: HOLO25-DEF-02, name: causal wedge }
+  - { id: HOLO25-DEF-03, name: causal information surface }
+  - { id: HOLO25-DEF-04, name: entanglement wedge }
+theorems:
+  - { id: HOLO25-PROP-01, name: Minkowski境界の区間依存域 }
+  - { id: HOLO25-PROP-02, name: 純AdS区間の因果くさび領域 }
+  - { id: HOLO25-PROP-03, name: 純AdS真空区間における二つのwedgeの一致 }
+  - { id: HOLO25-THM-01, name: 古典的causal wedge inclusion（適用条件付き既存結果） }
+canonical_examples:
+  - 境界Minkowski区間の因果菱形と全因果曲線による内外判定
+  - 境界先端からのnull信号と純AdS因果くさび
+  - 二枚のnull境界の交差によるcausal information surface
+  - RT半円と相同なバルク初期領域
+  - 半円からのnull生成線による真空wedge一致
+  - 二曲線の比較模型による真の包含と一般的物理実現との差
+  - Lorentz boostによる動く区間とそのwedge
+problem_patterns:
+  - HOLO25-A01
+  - HOLO25-A02
+  - HOLO25-A03
+  - HOLO25-A04
+  - HOLO25-A05
+  - HOLO25-B01
+  - HOLO25-B02
+  - HOLO25-B03
+  - HOLO25-B04
+  - HOLO25-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 6 }
+past_exam_alignment: []
+integrated_exam_problems: []
