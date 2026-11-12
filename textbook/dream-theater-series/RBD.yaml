@@ -15,7 +15,7 @@ chapters:
     title: 回転行列・軸角・非可換な有限回転
   - id: RBD3
     path: textbook/volumes/dream_thater/物理系/RBD/RBD3
-    status: planned
+    status: completed
     title: 角速度と回転系の輸送定理
   - id: RBD4
     path: textbook/volumes/dream_thater/物理系/RBD/RBD4
