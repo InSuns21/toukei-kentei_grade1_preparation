@@ -197,13 +197,19 @@ $$
 $$
 \mathcal L=\frac12\left(\frac{L^2\dot r^2}{r^2-r_+^2}+r^2\dot\phi^2\right)
 $$
-は $\phi$ に陽に依存しないため、Euler–Lagrange方程式から
+は $\phi$ に陽に依存しません。[VAR1の第一変分と境界項](../../../解析系/VAR/VAR1/index.md#prop-var1-first-variation-boundary)を使い、$\phi(s)$ を $\phi(s)+\tau\eta(s)$（$\eta$ は両端で零となる滑らかな変分、$\tau$ は変分パラメータ）へ動かします。固有長規格化 $h(\dot\gamma,\dot\gamma)=1$ の下で、$v=h(\dot\gamma,\dot\gamma)$ と置けば、$\delta\sqrt v=\delta v/2=\delta(v/2)$ です。従って長さの停留条件はこの変分方向について $\int\mathcal L\,ds$ の停留条件と一致し、部分積分により
 $$
-\frac{d}{ds}\frac{\partial\mathcal L}{\partial\dot\phi}
-=\frac{\partial\mathcal L}{\partial\phi}=0,
-\qquad J=\frac{\partial\mathcal L}{\partial\dot\phi}=r^2\dot\phi
+\begin{aligned}
+0=\delta_\eta D
+&=\int r^2\dot\phi\,\dot\eta\,ds\\
+&=-\int\frac{d}{ds}(r^2\dot\phi)\,\eta\,ds
+\end{aligned}
 $$
-が一定です。角度が増加する枝を選ぶと、折返し点 $\dot r=0$ での規格化 $1=r_*^2\dot\phi^2$ より $J=r_*$ です。規格化式を解くと
+となります。$\eta$ は内部で任意に選べるため $d(r^2\dot\phi)/ds=0$ です。そこで保存量を
+$$
+J=\frac{\partial\mathcal L}{\partial\dot\phi}=r^2\dot\phi
+$$
+と書きます。角度が増加する枝を選ぶと、折返し点 $\dot r=0$ での規格化 $1=r_*^2\dot\phi^2$ より $J=r_*$ です。規格化式を解くと
 $$
 \frac{dr}{ds}
 =\frac{\sqrt{(r^2-r_+^2)(r^2-r_*^2)}}{Lr},
