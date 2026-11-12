@@ -437,6 +437,16 @@ $J_O$ が正定値でないなら、実対称かつ半正定値なので、あ�
 逆に、質量が $O+\mathbb Rv$（$v\ne0$）上に集中していれば、そこで $v\times u=0$ なので $v^{\mathsf T}J_Ov=0$ となり、正定値ではありません。二方向がともに成立しました。
 <!-- proof-end -->
 
+さらに、実際の質量分布に由来する三つの主慣性値には**三角不等式**があります。主軸を座標軸に取ると
+
+$
+I_x+I_y-I_z
+=\int\bigl[(y^2+z^2)+(x^2+z^2)-(x^2+y^2)\bigr]\,dm
+=2\int z^2\,dm\ge0.
+$
+
+他の二つも座標を巡回すれば同様です。したがって、たとえば $\operatorname{diag}(I,2I,4I)$（$I>0$）は正定値行列でも、実在する三次元質量分布の慣性テンソルにはなれません。正定値性だけで物理的な実現可能性を判断しないことが重要です。
+
 正定値なら三つの主慣性値はすべて正で、[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)によって直交主軸で二次形式を対角にできます。ここで、**同じ回転エネルギーを与える角速度をすべて並べると、どんな面になるか**を見ます。
 
 <a id="def-rbd6-inertia-ellipsoid"></a>
@@ -456,10 +466,10 @@ $$
 <!-- definition-example-start: def-rbd6-inertia-ellipsoid -->
 ### 直接例：三つの主軸方向で半径を確認する
 
-**定義の確認**：$J_C=\operatorname{diag}(2I,3I,6I)$、$I>0$ を持つ剛体の主軸基底を取り、$E_0>0$ を固定します（各係数 $2I,3I,6I$ は正）。集合の条件へ代入すると
+**定義の確認**：$J_C=\operatorname{diag}(2I,3I,4I)$、$I>0$ を持つ剛体の主軸基底を取り、$E_0>0$ を固定します（各係数 $2I,3I,6I$ は正）。集合の条件へ代入すると
 
 $$
-I\omega_1^2+\frac{3I}{2}\omega_2^2+3I\omega_3^2=E_0.
+I\omega_1^2+\frac{3I}{2}\omega_2^2+2I\omega_3^2=E_0.
 $$
 
 各軸との交点はそれぞれ
@@ -467,10 +477,10 @@ $$
 $$
 \omega_1=\pm\sqrt{\frac{E_0}{I}},\quad
 \omega_2=\pm\sqrt{\frac{2E_0}{3I}},\quad
-\omega_3=\pm\sqrt{\frac{E_0}{3I}}
+\omega_3=\pm\sqrt{\frac{E_0}{2I}}
 $$
 
-です。たとえば第1交点 $(\sqrt{E_0/I},0,0)$ を定義式へ直接代入すると、$\frac12(2I)(E_0/I)=E_0$ です。他の二点もそれぞれ $\frac12(3I)(2E_0/(3I))=E_0$ と $\frac12(6I)(E_0/(3I))=E_0$。正定値なので三軸の半径は有限かつ正で、定義された集合は原点を中心とする楕円体です。
+です。たとえば第1交点 $(\sqrt{E_0/I},0,0)$ を定義式へ直接代入すると、$\frac12(2I)(E_0/I)=E_0$ です。他の二点もそれぞれ $\frac12(3I)(2E_0/(3I))=E_0$ と $\frac12(4I)(E_0/(2I))=E_0$。正定値なので三軸の半径は有限かつ正で、定義された集合は原点を中心とする楕円体です。
 <!-- definition-example-end -->
 
 一般に $J_C=\operatorname{diag}(I_1,I_2,I_3)$、$I_i>0$ なら
@@ -724,7 +734,7 @@ $x$ 方向の角速度に対し $v^{\mathsf T}J_Cv=0$ となり、棒の質量�
 
 ### 問題 B4：慣性楕円体の半軸と等方性
 
-$J_C=\operatorname{diag}(I,2I,4I)$、$I>0$、$E_0>0$ で定義される回転エネルギーの慣性楕円体について半軸長を求めよ。さらに $J_C=I I_3$ のとき集合が球面となることを式で確かめよ。
+$J_C=\operatorname{diag}(3I,4I,5I)$、$I>0$、$E_0>0$ で定義される回転エネルギーの慣性楕円体について半軸長を求めよ。さらに $J_C=I I_3$ のとき集合が球面となることを式で確かめよ。
 
 - Level: B
 
@@ -734,18 +744,18 @@ $J_C=\operatorname{diag}(I,2I,4I)$、$I>0$、$E_0>0$ で定義される回転エ
 [慣性楕円体の定義](#def-rbd6-inertia-ellipsoid)から
 
 $$
-\frac12(I\omega_1^2+2I\omega_2^2+4I\omega_3^2)=E_0.
+\frac12(3I\omega_1^2+4I\omega_2^2+5I\omega_3^2)=E_0.
 $$
 
 両辺を $E_0$ で割ると
 
 $$
-\frac{\omega_1^2}{2E_0/I}+
-\frac{\omega_2^2}{E_0/I}+
-\frac{\omega_3^2}{E_0/(2I)}=1.
+\frac{\omega_1^2}{2E_0/(3I)}+
+\frac{\omega_2^2}{E_0/(2I)}+
+\frac{\omega_3^2}{2E_0/(5I)}=1.
 $$
 
-従って半軸長は順に $\sqrt{2E_0/I},\sqrt{E_0/I},\sqrt{E_0/(2I)}$ です。$J_C=I I_3$ なら $\frac12I|\omega|^2=E_0$、すなわち $|\omega|=\sqrt{2E_0/I}$。全方向で同じ半径の球面になります。
+従って半軸長は順に $\sqrt{2E_0/(3I)},\sqrt{E_0/(2I)},\sqrt{2E_0/(5I)}$ です。$J_C=I I_3$ なら $\frac12I|\omega|^2=E_0$、すなわち $|\omega|=\sqrt{2E_0/I}$。全方向で同じ半径の球面になります。
 <!-- solution-end -->
 
 ## Level C
