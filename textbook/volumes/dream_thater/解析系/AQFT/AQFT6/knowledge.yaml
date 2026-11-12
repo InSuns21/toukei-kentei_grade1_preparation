@@ -5,7 +5,7 @@ prerequisites:
   - AQFT5
   - AQFT2
   - OA3
-  - QM7
+  - QM8
 forward_references: []
 concepts:
   - id: aqft.weyl-ccr
