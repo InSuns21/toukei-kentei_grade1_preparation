@@ -60,7 +60,7 @@ $$
 
 ## 2. 同じ境界を埋める二つの幾何
 
-[AdS正準境界の定義](../../BHT/BHT16/index.md#def-bht16-ads-canonical)により、熱的AdSとSchwarzschild–AdSは同じ $S^1_\beta\times S_L^2$ を境界に持てます。ただし内部は異なります。熱的AdSには地平線がなく、BHでは時間円が地平線で滑らかに縮みます。この違いは境界の局所温度だけでは読み取れません。
+[AdS正準境界と熱的AdS参照サドル](../../BHT/BHT16/index.md#def-bht16-ads-canonical)により、熱的AdSとSchwarzschild–AdSは同じ $S^1_\beta\times S_L^2$ を境界に持てます。ただし内部は異なります。熱的AdSには地平線がなく、BHでは時間円が地平線で滑らかに縮みます。この違いは境界の局所温度だけでは読み取れません。
 
 Schwarzschild–AdSのLorentz計量は
 
@@ -175,13 +175,13 @@ $\log(1+e^{-z})=-z+\log(1+e^{-|z|})$ です。これらを一式にまとめて�
 
 ## 4. 相境界・有限体積・熱力学量の飛び
 
-大BHの温度は $T(r)=(1/r+3r/L^2)/(4\pi)$ です。[BHT16の二分岐定理](../../BHT/BHT16/index.md#thm-bht16-ads-branches)により $T_{\min}=\sqrt3/(2\pi L)$ で大枝が現れます。しかし現れるだけでは重力作用が最小とは限りません。相境界は [BHT16のHawking–Page定理](../../BHT/BHT16/index.md#thm-bht16-hawking-page)が決める $T_{\rm HP}=1/(\pi L)$ です。
+大BHの温度は $T(r)=(1/r+3r/L^2)/(4\pi)$ です。[Schwarzschild–AdSの二分岐と局所符号](../../BHT/BHT16/index.md#thm-bht16-ads-branches)により $T_{\min}=\sqrt3/(2\pi L)$ で大枝が現れます。しかし現れるだけでは重力作用が最小とは限りません。相境界は [BHT16のHawking–Page定理](../../BHT/BHT16/index.md#thm-bht16-hawking-page)が決める $T_{\rm HP}=1/(\pi L)$ です。
 
 <a id="prop-holo15-boundary-phase"></a>
 
 <!-- formal-statement-start -->
 > **命題（境界自由エネルギーの先頭Hawking–Page相境界）**  
-> 第0節の4次元純Einstein重力／3次元境界CFT対応を仮定し、$L^2/G\to\infty$ の先頭古典指数で熱的AdSと大Schwarzschild–AdSを比較する。共通境界 $S^1_\beta\times S_L^2$、固定 $L,G$、無電荷・無回転の場合、優勢サドルは $T<T_{\rm HP}=1/(\pi L)$ で熱的AdS、$T>T_{\rm HP}$ で大BHに切り替わる。$T=T_{\rm HP}$ では両古典作用が等しい。境界の相対エントロピー・相対エネルギーの先頭の差はそれぞれ
+> 第0節の4次元純Einstein重力／3次元境界CFT対応を仮定し、$L^2/G\to\infty$ の先頭古典指数で熱的AdSと大Schwarzschild–AdSを比較する。共通境界 $S^1_\beta\times S_L^2$、固定 $L,G$、無電荷・無回転の場合、優勢サドルは $T<T_{\rm HP}=1/(\pi L)$ で熱的AdS、$T>T_{\rm HP}$ で大BHに切り替わる。$T=T_{\rm HP}$ では両古典作用が等しい。境界のエントロピー差・エネルギー差の先頭の値はそれぞれ
 
 $$
 \Delta S_{\rm CFT}^{\rm(cl)}=\frac{\pi L^2}{G},\qquad
@@ -322,7 +322,9 @@ $L^2/G$ が境界の有効自由度数の役割を担います。ただし、$L^
 
 ## 6. 何を境界の相転移と呼べるか、呼べないか
 
-仮に境界が適切な大$N$ゲージ理論なら、低温で $O(N^0)$、高温で $O(N^2)$ といった先頭自由エネルギーの次数の変化を、閉じ込め／非閉じ込めの熱的指標として読む模型があります。ただし、今回の4次元バルクの係数は $L^2/G$ であり、**あらゆるCFTに色の閉じ込め順序変数があるわけではありません**。[HOLO6の大$N$数え上げ](../HOLO6/index.md#prop-holo6-ribbon-count)は特定の行列模型での次数です。これを一般のAdS$_4$/CFT$_3$へ同じ $N^2$ の式として転記しません。
+適切な大$N$ゲージ理論を境界に持つ特定の模型では、低温で $O(N^0)$、高温で $O(N^2)$ という自由エネルギーの次数変化が、閉じ込め／非閉じ込めの熱的指標になります。
+
+しかし今回の4次元バルクで対応する重力係数は $L^2/G$ です。[HOLO6の大$N$数え上げ](../HOLO6/index.md#prop-holo6-ribbon-count)は特定の行列模型に限られます。一般のAdS$_4$/CFT$_3$の自由エネルギーが必ず $N^2$ に比例するわけではなく、**あらゆるCFTに色の閉じ込め順序変数があるわけでもありません**。
 
 | 判定すること | 本講から言える範囲 | 無条件には言えないこと |
 | --- | --- | --- |
@@ -355,7 +357,7 @@ $$
 =\frac{\varepsilon q}{1+q}.
 $$
 
-直接の平均 $0p_0+\varepsilon p_1$ と等しくなります。$\beta\to\infty$ では $p_0\to1$ で基底状態が優勢です。
+直接の平均 $0p_0+\varepsilon p_1$ と等しくなります。$\beta\to\infty$ では $p_0\to1$ でエネルギーが零の準位が優勢です。
 <!-- solution-end -->
 
 <a id="ex-holo15-a2"></a>
@@ -383,7 +385,7 @@ $$
 **問題**：二つのEuclidサドルの作用を $I_0=0$、$I_1=a$ とする。指数だけの分配関数と相対自由エネルギーを求め、$a>0$ と $a<0$ でどちらが優勢か示せ。
 
 <!-- solution-start -->
-**詳細解答**：[サドルの指数重み](../../BHT/BHT14/index.md#def-bht14-saddle-weight)に従って $Z=e^{-I_0}+e^{-I_1}=1+e^{-a}$ です。[自由エネルギーの定義](#def-holo15-thermal-state)より $F=-\beta^{-1}\log(1+e^{-a})$。$a>0$ なら $e^{-a}<1$ でサドル0が優勢、$a<0$ なら $e^{-a}>1$ でサドル1が優勢です。自由エネルギーを $0+a/\beta$ と加えることは、対数の位置を間違えています。
+**詳細解答**：[サドルの指数重み](../../BHT/BHT14/index.md#def-bht14-saddle-weight)に従って $Z=e^{-I_0}+e^{-I_1}=1+e^{-a}$ です。[境界の正準熱状態と自由エネルギー](#def-holo15-thermal-state)より $F=-\beta^{-1}\log(1+e^{-a})$。$a>0$ なら $e^{-a}<1$ でサドル0が優勢、$a<0$ なら $e^{-a}>1$ でサドル1が優勢です。自由エネルギーを $0+a/\beta$ と加えることは、対数の位置を間違えています。
 <!-- solution-end -->
 
 <a id="ex-holo15-a4"></a>
@@ -532,7 +534,15 @@ $$
 ### C1. 具体温度で境界熱状態と三候補の幾何を統合する
 - Level: C
 
-**問題**：固定境界 $S^1_\beta\times S_L^2$ で $T=13/(8\pi L)$ とする。4次元Schwarzschild–AdSに対し、(1) 二つの正の正則半径、(2) 各BHの熱容量の符号、(3) 熱的AdSを零にした二つの $\Delta F_{\rm cl}$ と優勢サドル、(4) 大枝の $M,S$ と $M-TS$ の一致、(5) 大枝と熱的AdSの先頭相対重みを求めよ。$L^2/G\gg1$ を仮定し、何が厳密なCFT主張でないかも述べよ。
+**問題**：固定境界 $S^1_\beta\times S_L^2$ で $T=13/(8\pi L)$ とする。4次元Schwarzschild–AdSについて、以下を求めよ。
+
+- 二つの正の正則地平線半径
+- 各BHの熱容量の符号
+- 熱的AdSを零にした二つの相対自由エネルギー $\Delta F_{\rm cl}$ と優勢サドル
+- 大枝の質量 $M$、エントロピー $S$ および $M-TS$ の一致
+- 大枝と熱的AdSの先頭相対指数重み
+
+$L^2/G\gg1$ を仮定し、何が厳密なCFT主張でないかも述べよ。
 
 <!-- solution-start -->
 **詳細解答**：
