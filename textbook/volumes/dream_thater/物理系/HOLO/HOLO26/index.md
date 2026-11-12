@@ -66,57 +66,57 @@ $$
 
 を試みます。最初の因子は中心正則性、二つ目は境界での $\cos^2\rho$ の減衰を担います。ここからは $\rho$ 微分と $u$ 微分を混同しないよう、$F(u):=f(\rho(u))$ と書き、$F_u=dF/du$ とします。連鎖律により
 
-$
+$$
 \frac{du}{d\rho}=2\sin\rho\cos\rho,
 \qquad \frac{d^2u}{d\rho^2}=2(1-2u),
-$
+$$
 
-$
+$$
 \frac{df}{d\rho}=2\sin\rho\cos\rho\,F_u,
 \qquad
 \frac{d^2f}{d\rho^2}=4u(1-u)F_{uu}+2(1-2u)F_u.
-$
+$$
 
 これを第1節の径方程式へ代入すると、$f'/ (\sin\rho\cos\rho)=2F_u$ なので
 
-$
+$$
 4u(1-u)F_{uu}+4(1-u)F_u
 +\left(\omega^2-\frac{k^2}{u}\right)F=0.
-$
+$$
 
 続いて $q(u):=u^{k/2}(1-u)$ と書けば $F=qh$ です。$0<u<1$ では $q\ne0$ であり、積の微分と対数微分から
 
-$
+$$
 F_u=q'h+qh',\qquad
 F_{uu}=q''h+2q'h'+qh'',
-$
+$$
 
-$
+$$
 \frac{q'}q=\frac{k}{2u}-\frac1{1-u},\qquad
 \frac{q''}q=\frac{k(k-2)}{4u^2}-\frac{k}{u(1-u)}.
-$
+$$
 
 これらを代入して $4q$ で割ると、$h'$ の係数は
 
-$
+$$
 2u(1-u)\frac{q'}q+(1-u)
 =k+1-(k+3)u
-$
+$$
 
 となり、$h$ の係数は
 
-$
+$$
 u(1-u)\frac{q''}q+(1-u)\frac{q'}q
 +\frac{\omega^2}{4}-\frac{k^2}{4u}
 =\frac{\omega^2-(k+2)^2}{4}.
-$
+$$
 
 したがって
 
-$
+$$
 u(1-u)h''+\{k+1-(k+3)u\}h'
 +\frac{\omega^2-(k+2)^2}{4}h=0.
-$
+$$
 
 **ここからのプライムは $u$ 微分**（上の $q',h'$ も同じ）です。計算は $0<u<1$ で行いましたが、得られた多項式解は中心と境界へ連続に延長できます。中心で正則な解のうち多項式で閉じるものを求め、$h(u)=\sum_{j=0}^{n}c_ju^j$、$c_0=1$ とします。$u^j$ の係数比較から
 
@@ -135,12 +135,12 @@ $$
 
 ここで「正規化可能」を境界で減衰するという印象だけで判定しません。[HOLO8のKG正規化可能性](../HOLO8/index.md#def-holo8-kg-normalizable)と同様に、固定時刻面のKlein–Gordon内積をこの global 計量で求めます。$t=\text{const}$ 面の誘導面積密度は $\sqrt\gamma=L^2\sin\rho/\cos^2\rho$、未来向き単位法線の時間成分は $n^t=\cos\rho/L$ です。従って $\sqrt\gamma\,n^t=L\tan\rho$。$e^{-i\omega t+i\ell\theta}f(\rho)$ の自身との内積は
 
-$
+$$
 (\phi_{\omega\ell},\phi_{\omega\ell})_{\mathrm{KG}}
 =2\omega\int_0^{2\pi}\!d\theta
 \int_0^{\pi/2}\!d\rho\,L\tan\rho\,|f(\rho)|^2
 =4\pi L\omega\int_0^{\pi/2}\tan\rho\,|f(\rho)|^2\,d\rho.
-$
+$$
 
 中心では $f\sim\rho^k$ なので被積分関数は $O(\rho^{2k+1})$、境界では $f=O(\cos^2\rho)$ なので $O(\cos^3\rho)$ です。$k\ge0$ なら両端で積分は有限となります。これは全域でのKGノルムが有限であることの直接判定であり、ノルムを $1$ にする規格化とは別です。
 
@@ -346,10 +346,10 @@ $$
 <!-- definition-example-start: def-holo26-smearing-kernel -->
 **定義の確認**。 $F=\{(0,0)\}$ では $f_{00}=\cos^2\rho$、$b_{00}=1$ なので $K_F=2\cos^2\rho\cos[2(t-t')]$ です。これは実数値の滑らかな核で、$2\pi$ 周期の時間積分が定義できます。境界波形 $\mathcal O(t',\theta')=3\cos2t'$ を入れると、角積分が $2\pi$ になります。時間について積和公式を用いれば
 
-$
+$$
 \frac1{2\pi}\int_0^{2\pi}\!\cos[2(t-t')]\cos2t'\,dt'
 =\frac12\cos2t,
-$
+$$
 
 となるので、$2\cos^2\rho\cdot3\cdot\tfrac12\cos2t=3\cos^2\rho\cos2t$ を再現します。ここで積分核の係数 $2$ は正負周波数の両方を復元するために必要です。
 <!-- definition-example-end -->
