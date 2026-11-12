@@ -22,7 +22,10 @@ $b$ を固定すると、求めたい $R(b)$ から各 $F(a)$ に**射影**を�
 
 <!-- formal-statement-start -->
 > **定義（右Kan拡張のcomma添字図式）**
-> 小圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$、関手 $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$、$b\in\mathcal B$ を取る。圏 $(b\downarrow K)$ の対象は $(a,u)$（$a\in\mathcal A$、$u:b\to Ka$）である。射 $(a,u)\to(a',u')$ は $\mathcal A$ の射 $f:a\to a'$ で、次を満たすものとする。
+> $\mathcal A,\mathcal B$ を小圏、$\mathcal C$ を局所小圏とする。
+> $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$ を関手とし、$b\in\mathcal B$ を取る。
+> 圏 $(b\downarrow K)$ の対象は $(a,u)$（$a\in\mathcal A$、$u:b\to Ka$）である。
+> 射 $(a,u)\to(a',u')$ は $\mathcal A$ の射 $f:a\to a'$ で、次を満たすものとする。
 
 $$
 K(f)\,u=u'.
@@ -72,7 +75,10 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（点ごとの右Kan拡張の極限構成）**
-> 小圏 $\mathcal A,\mathcal B$、局所小圏 $\mathcal C$ と関手 $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$ を取る。各 $b\in\mathcal B$ で $D_b=F\pi_b$ の極限が存在すると仮定し、その一つを $R(b)$ と選ぶ。各 $(a,u:b\to Ka)$ に対する極限錐の射を $p^b_{a,u}:R(b)\to F(a)$ と書く。すなわち
+> $\mathcal A,\mathcal B$ を小圏、$\mathcal C$ を局所小圏とする。
+> $K:\mathcal A\to\mathcal B$、$F:\mathcal A\to\mathcal C$ を関手とする。
+> 各 $b\in\mathcal B$ で $D_b=F\pi_b$ の極限が存在すると仮定し、その一つを $R(b)$ と選ぶ。
+> 各 $(a,u:b\to Ka)$ に対する極限錐の射を $p^b_{a,u}:R(b)\to F(a)$ と書く。すなわち
 
 $$
 R(b)=\underset{(a,u:b\to Ka)\in(b\downarrow K)}
