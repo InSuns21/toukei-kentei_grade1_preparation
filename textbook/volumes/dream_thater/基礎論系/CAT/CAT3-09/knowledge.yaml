@@ -1,0 +1,75 @@
+chapter: CAT3-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CAT1-11
+  - CAT3-07
+  - CAT3-08
+
+concepts:
+  - id: category.wedge-dinaturality
+    name: くさびとdinaturality
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（くさびとdinaturality）"]
+    requires: [category.natural-transformation]
+  - id: category.end
+    name: end
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（end）"]
+    requires: [category.wedge-dinaturality, category.limit]
+  - id: category.end-equalizer
+    name: endの等化子表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（endの等化子表示）"]
+    requires: [category.end, category.equalizer, category.small-product]
+  - id: category.coend
+    name: 余くさびとcoend
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（余くさびとcoend）"]
+    requires: [category.wedge-dinaturality, category.colimit]
+  - id: category.coend-coequalizer
+    name: coendの余等化子表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（coendの余等化子表示）"]
+    requires: [category.coend, category.coequalizer, category.small-coproduct]
+  - id: category.covariant-co-yoneda
+    name: 共変co-Yoneda公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共変co-Yoneda公式）"]
+    requires: [category.coend-coequalizer, category.covariant-hom-functor]
+  - id: category.contravariant-co-yoneda
+    name: 反変co-Yoneda公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（反変co-Yoneda公式）"]
+    requires: [category.coend-coequalizer, category.contravariant-hom-functor]
+  - id: category.natural-transformations-as-end
+    name: 自然変換集合のend表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自然変換集合のend表示）"]
+    requires: [category.end-equalizer, category.natural-transformation]
+  - id: category.end-yoneda
+    name: end形の共変Yoneda公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（end形の共変Yoneda公式）"]
+    requires: [category.natural-transformations-as-end, category.covariant-yoneda-lemma]
+  - id: category.lan-coend
+    name: 集合値左Kan拡張のcoend公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合値左Kan拡張のcoend公式）"]
+    requires: [category.coend-coequalizer, category.pointwise-left-kan-universality]
+  - id: category.ran-end
+    name: 集合値右Kan拡張のend公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（集合値右Kan拡張のend公式）"]
+    requires: [category.end-equalizer, category.pointwise-right-kan-universality]

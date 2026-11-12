@@ -34,3 +34,4 @@
 31. [GMT31 Besicovitch集合：有限段階から極限まで](textbook/volumes/dream_thater/解析系/GMT/GMT31/index.md)
 32. [GMT32 δ-tube・方向分離・次元](textbook/volumes/dream_thater/解析系/GMT/GMT32/index.md)
 33. [GMT33 平面Córdoba型tube評価](textbook/volumes/dream_thater/解析系/GMT/GMT33/index.md)
+34. [GMT34 高次元tubeの交差とbush法による次元下界](textbook/volumes/dream_thater/解析系/GMT/GMT34/index.md)

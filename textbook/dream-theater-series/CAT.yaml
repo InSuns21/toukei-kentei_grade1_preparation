@@ -39,7 +39,7 @@ chapters:
   - { id: CAT3-06, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-06, status: completed, title: "Kan拡張の普遍性" }
   - { id: CAT3-07, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-07, status: completed, title: "点ごとの左Kan拡張" }
   - { id: CAT3-08, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-08, status: completed, title: "点ごとの右Kan拡張" }
-  - { id: CAT3-09, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-09, status: planned, title: "end・coendとKan公式" }
+  - { id: CAT3-09, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-09, status: completed, title: "end・coendとKan公式" }
   - { id: CAT3-10, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT3-10, status: planned, title: "密度定理とKan拡張" }
   - { id: CAT4-01, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT4-01, status: planned, title: "モノイダル圏" }
   - { id: CAT4-02, path: textbook/volumes/dream_thater/基礎論系/CAT/CAT4-02, status: planned, title: "Mac Laneの整合性定理" }

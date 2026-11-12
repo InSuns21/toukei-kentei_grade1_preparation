@@ -1,0 +1,68 @@
+chapter: GMT34
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GMT33
+forward_references: []
+
+concepts:
+  - id: geometric-measure.gmt34-two-tube-intersection
+    name: 高次元二tubeの交差体積
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（高次元二tubeの交差体積）"]
+    requires:
+      - geometric-measure.gmt33-two-tubes
+      - geometric-measure.gmt32-tube-volume
+
+  - id: geometric-measure.gmt34-angular-shell
+    name: 高次元方向の逆角度和
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（高次元方向の逆角度和）"]
+    requires:
+      - geometric-measure.gmt32-separated
+      - geometric-measure.gmt32-direction-count
+
+  - id: geometric-measure.gmt34-bush
+    name: tubeのbush
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（tubeのbush）"]
+    requires:
+      - geometric-measure.gmt32-tube
+
+  - id: geometric-measure.gmt34-bush-packing
+    name: bushの外側での体積下界
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（bushの外側での体積下界）"]
+    requires:
+      - geometric-measure.gmt34-bush
+      - geometric-measure.gmt32-separated
+
+  - id: geometric-measure.gmt34-bush-bound
+    name: bush法による高次元tube合併体積下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（bush法による高次元tube合併体積下界）"]
+    requires:
+      - geometric-measure.gmt34-bush-packing
+      - geometric-measure.gmt32-tube-volume
+
+  - id: geometric-measure.gmt34-kakeya-minkowski
+    name: 古典的bush下界
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（古典的bush下界）"]
+    requires:
+      - geometric-measure.gmt34-bush-bound
+      - geometric-measure.gmt32-neighborhood-cover
+
+  - id: geometric-measure.gmt34-hairbrush
+    name: 一本のtubeに付随するhairbrush
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一本のtubeに付随するhairbrush）"]
+    requires:
+      - geometric-measure.gmt32-tube

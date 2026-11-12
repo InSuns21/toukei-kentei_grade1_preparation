@@ -1,0 +1,50 @@
+id: "CAT3-09"
+title: "end・coendとKan公式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CAT1-11
+  - CAT3-07
+  - CAT3-08
+official_scope: []
+learning_objectives:
+  - H:A^op×A→C のくさび・余くさびのdinaturalityを射の型とともに検査できる
+  - end・coendの普遍性を述べ、積と等化子・余積と余等化子から存在構成を証明できる
+  - 集合値coendの商関係を生成元から計算できる
+  - 共変・反変co-Yoneda公式の双方向の写像と自然性を証明できる
+  - 自然変換のend表示とend形Yoneda公式を定義から導ける
+  - 左Kanのcoend公式と右Kanのend公式を点ごとのcomma圏構成へ接続し、射の作用まで検算できる
+definitions:
+  - { id: CAT3-09-DEF-01, name: くさびとdinaturality }
+  - { id: CAT3-09-DEF-02, name: end }
+  - { id: CAT3-09-DEF-03, name: 余くさびとcoend }
+theorems:
+  - { id: CAT3-09-PROP-01, name: endの等化子表示 }
+  - { id: CAT3-09-PROP-02, name: coendの余等化子表示 }
+  - { id: CAT3-09-THM-01, name: 共変co-Yoneda公式 }
+  - { id: CAT3-09-THM-02, name: 反変co-Yoneda公式 }
+  - { id: CAT3-09-PROP-03, name: 自然変換集合のend表示 }
+  - { id: CAT3-09-THM-03, name: end形の共変Yoneda公式 }
+  - { id: CAT3-09-THM-04, name: 集合値左Kan拡張のcoend公式 }
+  - { id: CAT3-09-THM-05, name: 集合値右Kan拡張のend公式 }
+canonical_examples:
+  - 二対象矢印圏でHomの恒等射族がくさびとなる例
+  - 二対象矢印圏の写像が三元を貼り合わせて一元のcoendを作る例
+  - 共変co-Yonedaの二対象圏での商の計算
+  - 定値一元関手から二対象矢印圏への左右Kan延長
+  - 矢印圏を一点へ潰すとcoendが余極限、endが極限になる例
+problem_patterns:
+  - CAT3-09-WEDGE-HOM
+  - CAT3-09-DISCRETE-ENDS
+  - CAT3-09-QUOTIENT-ARROW
+  - CAT3-09-COYONEDA-INVERSE
+  - CAT3-09-NAT-ARROW
+  - CAT3-09-CONTRA-COUNT
+  - CAT3-09-END-YONEDA-ARROW
+  - CAT3-09-LAN-EXAMPLE
+  - CAT3-09-RAN-EXAMPLE
+  - CAT3-09-KAN-COLLAPSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 3 }
