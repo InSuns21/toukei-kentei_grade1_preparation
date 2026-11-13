@@ -16,15 +16,15 @@ J_b=\operatorname{diag}(I_1,I_2,I_3),\qquad
 L_b(t)=J_b\omega_b(t).
 $$
 
-$R(t)\in SO(3)$ は物体系の成分を空間系に移す能動回転であり、$R(0)=R_0$ とします。[RBD3の角速度と回転の関係](../RBD3/index.md#prop-rbd3-angular-conjugacy)および[RBD7のNewton–Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)から、無トルクでは
+$R(t)\in SO(3)$ は物体系の成分を空間系に移す能動回転であり、$R(0)=R_0$ とします。[RBD3の角速度と回転の関係](../RBD3/index.md#prop-rbd3-angular-conjugacy)および[RBD7のNewton–Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)を使います。ここで $\widehat u$ は $v\mapsto u\times v$ を表す反対称行列、上付きの点 $\dot R,\dot\omega_b$ は時間 $t$ に関する微分です。無トルクでは
 
-$$
+$
 \dot R=R\widehat{\omega}_b,\qquad
 J_b\dot\omega_b+\omega_b\times J_b\omega_b=0,\qquad
 L_s=R L_b=L_0
-$$
+$
 
-です。帽子記号は $\widehat u\,v=u\times v$ を表します。$L_0$ は空間系の時間一定ベクトルです。[RBD9の不変量](../RBD9/index.md#prop-rbd9-free-invariants)を再掲すると
+です。$L_0$ は空間系の時間一定ベクトルです。[RBD9の不変量](../RBD9/index.md#prop-rbd9-free-invariants)を再掲すると
 
 $$
 2E=\omega_b^{\mathsf T}J_b\omega_b
@@ -40,14 +40,23 @@ $$
 
 ## 2. 接触点の候補となる慣性楕円体
 
-エネルギーが同じ角速度を全て集めると、正定値な二次曲面ができます。物体に固定した座標で角速度の端点を描けば、楕円体の上を動きます。この曲面をそのまま空間に持ち出すには、時刻ごとに $R(t)$ を掛ける必要があります。
+[RBD6で定義した回転エネルギーの慣性楕円体](../RBD6/index.md#def-rbd6-inertia-ellipsoid)は、同じ正規直交基底で表した角速度の等エネルギー面です。本講では重心を原点とする物体固定主軸基底を使い、その定義の慣性テンソル $J_C$ を $J_b$、エネルギー値 $E_0$ を保存量 $E$ と書きます。新しく必要なのは楕円体を再定義することではなく、回転する物体固定基底から空間固定基底へその面を移す操作です。
+
+物体系の座標 $u$ に対して空間系の座標は $x=R(t)u$ です。$R^{\mathsf T}R=\mathrm{Id}_3$ だから $u=R(t)^{\mathsf T}x$ となり、
+
+$
+u^{\mathsf T}J_bu
+=x^{\mathsf T}(RJ_bR^{\mathsf T})x
+$
+
+です。この基底変換が空間系での二次形式の行列 $J_s(t)$ を決めます。
 
 <a id="def-rbd10-energy-ellipsoid"></a>
 
 <!-- formal-statement-start -->
 ### 定義（エネルギー楕円体と空間表示）
 
-正定値対称行列 $J_b$ と定数 $E>0$ に対し、物体系の**エネルギー楕円体**を
+正定値対称行列 $J_b$ と定数 $E>0$ に対し、既習の**回転エネルギーの慣性楕円体**を物体系で次の記号で表す。
 
 $$
 \mathcal E_b(E)=\{u\in\mathbb R^3:u^{\mathsf T}J_bu=2E\}
@@ -84,7 +93,7 @@ u^{\mathsf T}J_bu
 =x^{\mathsf T}(RJ_bR^{\mathsf T})x.
 $$
 
-したがって空間系では同じ楕円体が回転するのであって、固定された三本の空間座標軸にいつまでも $2,3,4$ を掛けるわけではありません。
+さらに $x\ne0$ なら、直交行列の可逆性から $R^{\mathsf T}x\ne0$ であり、$x^{\mathsf T}J_sx=(R^{\mathsf T}x)^{\mathsf T}J_b(R^{\mathsf T}x)>0$ です。従って空間表示の $J_s$ も正定値で、同じ楕円体を表します。固定された三本の空間座標軸にいつまでも $2,3,4$ を掛けるわけではありません。
 <!-- definition-example-end -->
 
 エネルギー一定だけでは、楕円体の**どの点**が接触点となるか、どの平面に接するかは分かりません。もう一つの時間不変な量である、空間で固定された角運動量を使います。
@@ -188,7 +197,7 @@ $P_s(0)=(1,1,1)$ は平面上にあり、法線 $(2,3,4)$ は楕円体 $2x_1^2+3
 
 ## 4. 二つの軌跡：polhode と herpolhode
 
-曲面と平面が毎時刻一点で接するなら、接点を時間に沿って追跡できます。ただし**どの座標系で点を記録するか**によって二種類の曲線ができます。
+曲面と平面が毎時刻一点で接するなら、接点を時間に沿って追跡できます。ただし**どの座標系で点を記録するか**によって二種類の曲線ができます。以降、物体系の接点を $P_b(t):=\omega_b(t)$、空間系の接点を $P_s(t):=R(t)P_b(t)$ と書きます。$P_s$ は前節の定理で用いた接点と同じものです。
 
 <a id="def-rbd10-polhode-herpolhode"></a>
 
@@ -465,13 +474,23 @@ $R=\mathrm{Id}_3$、$I=(2,3,4)$、$\omega_b=(1,1,1)$ の瞬間について、接
 
 時刻を固定した物質点の座標は $u=\omega_b=(1,1,1)$。その瞬間速度は [接触運動学の命題](#prop-rbd10-contact-kinematics)により $\dot R\,u=R(\omega_b\times u)=0$ です。
 
-一方、[Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)で
+一方、[Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)の各主軸成分は
 
-$$
+$
+\begin{aligned}
+\dot\omega_1&=\frac{I_2-I_3}{I_1}\omega_2\omega_3,\\
+\dot\omega_2&=\frac{I_3-I_1}{I_2}\omega_3\omega_1,\\
+\dot\omega_3&=\frac{I_1-I_2}{I_3}\omega_1\omega_2
+\end{aligned}
+$
+
+です。ここに $I=(2,3,4)$、$\omega_b=(1,1,1)$ を代入すると
+
+$
 \dot\omega_1=\frac{3-4}{2}=-\frac12,\quad
 \dot\omega_2=\frac{4-2}{3}=\frac23,\quad
 \dot\omega_3=\frac{2-3}{4}=-\frac14.
-$$
+$
 
 したがって $\dot P_s=R\dot\omega_b=(-1/2,2/3,-1/4)\ne0$。法線との内積は $2(-1/2)+3(2/3)+4(-1/4)=-1+2-1=0$ で、平面上の接点が移動していることを確認できます。
 <!-- solution-end -->
@@ -639,7 +658,7 @@ $$
 
 しかし時刻 $t_*$ に接していた物質点の物体系ラベル $u=\omega_b(t_*)$ を固定して微分すると、その瞬間の速度は $R(t_*)(\omega_b(t_*)\times u)=0$ です。
 
-**(4) 初期値。** $J_b=\operatorname{diag}(2,3,4)$、$\omega_b(0)=(1,1,1)$ から $2E=9$、$L_0=(2,3,4)$、$\ell=\sqrt{29}$。従って $\Pi:\,2x_1+3x_2+4x_3=9$ と $P_s(0)=(1,1,1)$ です。Euler方程式の三成分は
+**(4) 初期値。** $J_b=\operatorname{diag}(2,3,4)$、$\omega_b(0)=(1,1,1)$ から $2E=9$、$L_0=(2,3,4)$、$\ell=\sqrt{29}$。従って $\Pi:\,2x_1+3x_2+4x_3=9$ と $P_s(0)=(1,1,1)$ です。[Euler方程式の主軸成分表示](../RBD7/index.md#thm-rbd7-newton-euler) $I_1\dot\omega_1=(I_2-I_3)\omega_2\omega_3$ とその巡回式に $I=(2,3,4)$、$\omega_b=(1,1,1)$ を代入すると
 
 $$
 \dot\omega_b(0)
