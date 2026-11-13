@@ -1,0 +1,48 @@
+chapter: CTM20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM19
+concepts:
+  - id: continuum.active-stress-one-dimensional
+    name: 一次元の能動応力模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次元の能動応力模型）"]
+    requires: [continuum.sls-passive-dissipation]
+  - id: continuum.active-strip-balance
+    name: 能動帯の準静的釣合と境界力
+    kind: theorem
+    introduction: formal
+    requires: [continuum.active-stress-one-dimensional]
+  - id: continuum.active-free-clamped
+    name: 一様能動張力の自由収縮と固定反力
+    kind: proposition
+    introduction: formal
+    requires: [continuum.active-strip-balance]
+  - id: continuum.active-inhomogeneous
+    name: 非一様能動応力と拘束反力
+    kind: proposition
+    introduction: formal
+    requires: [continuum.active-strip-balance]
+  - id: continuum.chemical-energy-reserve
+    name: 化学エネルギー蓄積と消費率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（化学エネルギー蓄積と消費率）"]
+    requires: [continuum.active-stress-one-dimensional]
+  - id: continuum.active-chemical-dissipation
+    name: 化学エネルギーを含めた非負散逸条件
+    kind: theorem
+    introduction: formal
+    requires: [continuum.chemical-energy-reserve, continuum.sls-passive-dissipation]
+  - id: continuum.active-step-contraction
+    name: 粘性を持つ自由帯の活動ステップ応答
+    kind: proposition
+    introduction: formal
+    requires: [continuum.active-strip-balance, continuum.active-stress-one-dimensional]
+  - id: continuum.active-fiber-objectivity
+    name: 繊維に沿う能動応力の対称性・客観性
+    kind: proposition
+    introduction: formal
+    requires: [continuum.active-stress-one-dimensional]
