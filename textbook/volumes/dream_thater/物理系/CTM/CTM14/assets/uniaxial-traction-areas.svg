@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 340" data-layout-lint="strict" role="img" aria-labelledby="ctm14-title ctm14-desc">
+  <title id="ctm14-title">有限一軸伸長での基準面積と現在面積</title>
+  <desc id="ctm14-desc">横方向に二倍伸びる一様変形の二次元投影。左の基準長方形の上面に法線 N が上向きに描かれ、右の伸長した長方形の対応する上面にも法線 n が上向きに描かれる。基準側の上面面積 A0 が現在側では 2A0 に増えるため、同じ力に対して第一Piola応力とCauchy応力の大きさが異なる。</desc>
+  <defs>
+    <marker id="ctm14-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#25334d"/>
+    </marker>
+    <marker id="ctm14-arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#17638c"/>
+    </marker>
+  </defs>
+  <g font-family="sans-serif" font-size="22" fill="#172b42">
+    <text x="78" y="60">基準配置</text>
+    <text x="425" y="60">現在配置</text>
+    <text x="78" y="91" font-size="18">上面積 A₀</text>
+    <text x="425" y="91" font-size="18">上面積 2A₀</text>
+  </g>
+  <g data-series-group="configuration" data-series-label="reference">
+    <rect x="78" y="160" width="180" height="120" rx="2" fill="#e2eff7" stroke="#17638c" stroke-width="3" stroke-dasharray="8 5"/>
+    <line x1="168" y1="160" x2="168" y2="110" stroke="#17638c" stroke-width="3.5" marker-end="url(#ctm14-arrow-blue)"/>
+    <text x="192" y="134" font-family="sans-serif" font-size="20" fill="#17638c">N</text>
+  </g>
+  <g data-series-group="configuration" data-series-label="deformed">
+    <rect x="425" y="160" width="360" height="120" rx="2" fill="#f2f4f6" stroke="#25334d" stroke-width="4"/>
+    <line x1="605" y1="160" x2="605" y2="110" stroke="#25334d" stroke-width="3.5" marker-end="url(#ctm14-arrow)"/>
+    <text x="628" y="134" font-family="sans-serif" font-size="20" fill="#25334d">n</text>
+  </g>
+  <line x1="286" y1="220" x2="395" y2="220" stroke="#25334d" stroke-width="2.5" marker-end="url(#ctm14-arrow)"/>
+  <text x="333" y="206" font-family="sans-serif" font-size="20" fill="#172b42">χ</text>
+  <g font-family="sans-serif" font-size="18" fill="#32445a">
+    <text x="79" y="317">幅 L</text>
+    <text x="426" y="317">幅 2L</text>
+    <text x="710" y="317">s = 2</text>
+  </g>
+</svg>
