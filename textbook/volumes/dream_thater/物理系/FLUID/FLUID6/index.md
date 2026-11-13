@@ -1,6 +1,6 @@
 # FLUID6 Bernoulli積分はどこで成立するか
 
-**前提講座（直接）**：[FLUID5 検査体積と質量収支](../FLUID5/index.md#thm-fluid5-moving-mass)、[FLUID4 流線](../FLUID4/index.md#def-fluid4-streamline)、[CTM7 局所運動量方程式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)
+**前提講座（直接）**：[FLUID5 検査体積と質量収支](../FLUID5/index.md#thm-fluid5-moving-mass)、[CTM7 局所運動量方程式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)。**FLUID5 を通じた既習定義**：[FLUID4 の流線](../FLUID4/index.md#def-fluid4-streamline)
 
 [FLUID5 の運動量収支](../FLUID5/index.md#thm-fluid5-moving-momentum)は検査面を通る力や運動量を計算できた。しかし、管の途中の**二点の圧力と速さ**を知りたいだけなら、検査体積全体の面力を毎回求めるのは遠回りである。「速いところほど圧力が低い」という言い回しが使えるのは、どの流れの、どの二点なのだろうか。
 
@@ -8,7 +8,7 @@
 
 ## 0. 先に決める模型・単位と速度の意味
 
-位置 $x=(x,y,z)$ [m] の開領域 $\Omega\subset\mathbb R^3$ と時間区間 $I$ を考える。速度 $u(x,t)$ [m/s]、密度 $\rho>0$ [kg/m$^3$]、圧力 $p(x,t)$ [Pa] とし、以下の主要な積分では $\rho$ は**空間・時間とも一定の正定数**とする。$u$ は空間 $C^2$ 級かつ時間 $C^1$ 級、$p$ と後述の $\Phi$ は空間 $C^1$ 級とし、必要な式が各点で成立すると仮定する。境界面のある応用ではその近くまで場が連続に延長できるものとする。
+位置 $x=(x,y,z)$ [m] の開領域 $\Omega\subset\mathbb R^3$ と時間区間 $I$ を考える。速度 $u(x,t)$ [m/s]、密度 $\rho>0$ [kg/m$^3$]、圧力 $p(x,t)$ [Pa] とし、以下の主要な積分では $\rho$ は**空間・時間とも一定の正定数**とする。$u$ は空間 $C^2$ 級かつ時間 $C^1$ 級、$p$ と後述の $\Phi$ は空間 $C^1$ 級とし、必要な式が各点で成立すると仮定する。境界面のある応用ではその近くまで場が連続に延長できるものとする。直交座標の各正方向の単位ベクトルを $e_x,e_y,e_z$ と記す。
 
 [CTM7 で使った物質微分](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)は
 
@@ -22,7 +22,7 @@ $$
 
 ### 0.1 どの力を消しているのか
 
-理想流体の「非粘性」は、接触面が流体へ及ぼす Cauchy 応力を**等方圧力** $-pI_3$ だけで表す模型である。ここで $I_3$ は三次元単位行列。粘性せん断応力による散逸・壁面摩擦損失をこの模型に含めない。
+理想流体の「非粘性」は、[Cauchy の応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)で表す接触面の単位面積当たりの力 $t(n)=\sigma n$ が、任意の単位法線 $n$ に対し **$t(n)=-pn$** となる模型である。三次元単位行列 $I_3$ を使えば $(-pI_3)n=-pn$ がすべての $n$ で成立するため、応力テンソルの表現は $\sigma=-pI_3$ となる。つまり力は法線方向だけで、接線方向の粘性せん断力を模型に含めない。
 
 もう一つ、単位質量当たり体積力 $b$ [m/s$^2$] を、位置だけに依存するスカラー場 $\Phi$ [m$^2$/s$^2$] で表す場合を考える。関係式が
 
@@ -81,7 +81,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)に第 $i$ 成分で $\sigma_{ij}=-p\delta_{ij}$ を代入する。$\delta_{ij}$ は Kronecker 記号であり、反復する $j$ は $1,2,3$ の総和を表す。
+[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)に第 $i$ 成分で $\sigma_{ij}=-p\delta_{ij}$ を代入する。$\delta_{ij}$ は $i=j$ なら $1$、それ以外は $0$ の Kronecker 記号である。以下の $\sum_j$ は $j=1,2,3$ についての明示的な和を表す。
 
 $$
 \begin{aligned}
@@ -99,30 +99,43 @@ $\rho>0$ で割り、$i=1,2,3$ を束ねると結論を得る。質量保存に�
 
 ## 2. 速度の二乗と渦度：何が勾配に残るか
 
-速度の空間的な回転を表す**渦度**を $\omega=\nabla\times u$ と書く。ここで $\nabla\times$ は直交座標での回転演算子であり、例えば平面流 $u=(u_x,u_y,0)$ なら $\omega=(0,0,\partial_xu_y-\partial_yu_x)$ である。$\omega=0$ を**渦なし**と呼ぶ（より広い渦度理論は FLUID8 で扱う）。本講ではこの定義で計算できる滑らかな場に限る。
+速度の空間的な回転を表す**渦度**を $\omega=\nabla\times u$ と書く。ここで $\nabla\times$ は直交座標での回転演算子であり、例えば平面流 $u=(u_x,u_y,0)$ なら $\omega=(0,0,\partial_xu_y-\partial_yu_x)$ である。$\omega=0$ を**渦なし**と呼ぶ（より広い渦度理論は FLUID8 で扱う）。成分計算では[VC7 の Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon) $\varepsilon_{ijk}$（添字が $1,2,3$ の偶置換なら $1$、奇置換なら $-1$、重複すれば $0$）を使い、$\omega_k=\sum_{\ell,m}\varepsilon_{k\ell m}\partial_\ell u_m$ と表す。本講ではこの定義で計算できる滑らかな場に限る。
 
-各成分の積の微分則を比べると
+まず移流加速度と速度の二乗の勾配を成分ごとに微分すると
 
-$$
+$
 \left((u\cdot\nabla)u\right)_i
-=\sum_j u_j\partial_ju_i,
-$$
-
-$$
+=\sum_j u_j\partial_ju_i,\qquad
 \partial_i\frac{|u|^2}{2}
-=\sum_j u_j\partial_iu_j,\qquad
+=\sum_j u_j\partial_iu_j.
+$
+
+次に[VC7 の Levi–Civita 記号の縮約公式](../../../幾何系/VC/VC7/index.md#prop-vc7-epsilon-contraction)を使う。$\varepsilon_{ijk}=\varepsilon_{kij}$（循環置換）だから、和を取る添字 $k$ について
+
+$
+\sum_k\varepsilon_{ijk}\varepsilon_{k\ell m}
+=\delta_{i\ell}\delta_{jm}-\delta_{im}\delta_{j\ell}.
+$
+
+従って外積の第 $i$ 成分は
+
+$
+\begin{aligned}
 (u\times\omega)_i
-=\sum_j u_j(\partial_iu_j-\partial_ju_i).
-$$
+&=\sum_{j,k}\varepsilon_{ijk}u_j\omega_k\\
+&=\sum_{j,k,\ell,m}\varepsilon_{ijk}\varepsilon_{k\ell m}u_j\partial_\ell u_m\\
+&=\sum_j u_j(\partial_i u_j-\partial_j u_i).
+\end{aligned}
+$
 
-従って両者の差は正確に移流加速度になる：
+最後の等号では、例えば $\sum_{\ell,m}\delta_{i\ell}\delta_{jm}\partial_\ell u_m=\partial_i u_j$ として Kronecker 記号が成分を選ぶことを使った。速度二乗の勾配からこの外積を引くと $\sum_j u_j\partial_ju_i$ だけが残り、
 
-$$
+$
 \boxed{(u\cdot\nabla)u
-=\nabla\left(\frac{|u|^2}{2}\right)-u\times\omega.}
-$$
+=\nabla\left(\frac{|u|^2}{2}\right)-u\times\omega}
+$
 
-ここで第3式は、$\omega_k=\sum_{\ell,m}\varepsilon_{k\ell m}\partial_\ell u_m$ と $u\times\omega$ の成分を展開して得られる。第2・第3式の差が $\sum_j u_j\partial_ju_i$ になることが核心である。$\omega$ を零と**決めつけず**残すことが、流線上と領域全体の区別につながる。
+を得る。$\omega$ を零と**決めつけず**残すことが、流線上と領域全体の区別につながる。
 
 ### 2.1 三つの量を一つにまとめる
 
@@ -172,7 +185,7 @@ $$
 
 ## 3. 定常なら流線上で一定、渦なしなら領域で一定
 
-定常な速度場では[FLUID4 の流線](../FLUID4/index.md#def-fluid4-streamline)は $\gamma'(s)=u(\gamma(s))$ で与えられる（$s$ は曲線のパラメータ）。$\gamma$ に沿った $B$ の変化は連鎖律で $\frac{d}{ds}B(\gamma(s))=\nabla B(\gamma(s))\cdot\gamma'(s)$ である。速度 $u$ とベクトル $u\times\omega$ は直交するので、渦が存在しても流線に沿う変化は消える。
+定常な速度場では[FLUID4 の流線](../FLUID4/index.md#def-fluid4-streamline)は $\gamma'(s)=u(\gamma(s))$ で与えられる（$s$ は秒の次元を持つ曲線の補助パラメータで、物理時刻 $t$ とは別である）。$\gamma$ に沿った $B$ の変化は連鎖律で $\frac{d}{ds}B(\gamma(s))=\nabla B(\gamma(s))\cdot\gamma'(s)$ である。速度 $u$ とベクトル $u\times\omega$ は直交するので、渦が存在しても流線に沿う変化は消える。
 
 <a id="thm-fluid6-streamline-bernoulli"></a>
 
@@ -382,13 +395,40 @@ $$
 
 ### 5.3 粘性があれば Euler の出発式が変わる
 
-[CTM15 の非圧縮 Newton 流体の運動量式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)では、一定粘度 $\eta>0$ の流れに $\eta\Delta u$ が加わる。従って一定密度の定常流でも
+ここでは後続の粘性流体論を前提にせず、必要な模型を成分で作る。一定の粘性係数 $\eta>0$ [Pa s] と、速度の**対称な変形速度成分**
 
-$$
+$
+D_{ij}=\frac12(\partial_i u_j+\partial_j u_i)
+$
+
+を定める。この $D_{ij}$ は速度勾配の対称部分であり、剛体回転のような反対称部分と区別する。非圧縮な Newton 型模型では、応力が $\sigma_{ij}=-p\delta_{ij}+2\eta D_{ij}$ と表せるものと**追加仮定**する。これは第0節の $\sigma=-pI_3$ とは異なる構成則である。
+
+[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)に入る応力発散を、$\eta$ が空間一定、$u\in C^2$、$\nabla\cdot u=0$ の条件で計算する。偏微分の順序を交換できるので
+
+$
+\begin{aligned}
+\sum_j\partial_j\sigma_{ij}
+&=-\partial_i p+\eta\sum_j
+  (\partial_j\partial_i u_j+\partial_j\partial_j u_i)\\
+&=-\partial_i p+\eta\partial_i(\nabla\cdot u)+\eta\Delta u_i\\
+&=-\partial_i p+\eta\Delta u_i.
+\end{aligned}
+$
+
+ここで $\Delta u_i=\sum_j\partial_j^2u_i$ は速度成分の Laplace 作用素である。$\rho>0$ 一定、$b=-\nabla\Phi$ を仮定して局所運動量式を $\rho$ で割れば
+
+$
+\partial_tu+(u\cdot\nabla)u
+=-\frac1\rho\nabla p-\nabla\Phi+\frac\eta\rho\Delta u.
+$
+
+第2節のベクトル恒等式と [Bernoulli 関数の定義](#def-fluid6-bernoulli-function)を代入すると、**定常の場合に限り**
+
+$
 \nabla B=u\times\omega+\frac{\eta}{\rho}\Delta u
-$$
+$
 
-となり、流線方向には $u\cdot\nabla B=(\eta/\rho)u\cdot\Delta u$ が残る。$\Delta u$ が零でない場合には第3節の証明を移植できない。実管路の摩擦、熱、ポンプなどを含む系を第4節の理想模型と取り違えてはいけない。
+となる。流線方向には $u\cdot\nabla B=(\eta/\rho)u\cdot\Delta u$ が残り、一般には零でない。第3節の証明から消えていたのは、この粘性応力の発散項である。より一般の Newton 流体の構成則は後続の [CTM15](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes) で学ぶが、ここでの計算にはそれを前提としない。実管路の摩擦、熱、ポンプなどを含む系を第4節の理想模型と取り違えてはいけない。
 
 ## 6. 発展：密度が変わる場合は何を積分するか
 
@@ -672,7 +712,7 @@ $\gamma>1$ なので分母は非零、$\rho,\rho_*>0$ なので積分は定義�
 
 (ii) 水平なので $\Delta z=0$、[ノズル命題](#prop-fluid6-nozzle)の前提を明記して $p_2^g-p_1^g=\rho(U_1^2-U_2^2)/2=(1000/2)(4-16)=-6000$ Pa。従って $p_2^g=34$ kPa。基準高度を $z=0$ と置く。[全水頭の定義](#def-fluid6-head)から $H_1^g=40000/(1000\cdot10)+4/20=4+0.2=4.2$ m、$H_2^g=34000/(1000\cdot10)+16/20=3.4+0.8=4.2$ m。管の共通高度が $z=z_0$ なら両辺に $z_0$ を足して一致する。
 
-(iii) (i) は流束の釣合だけで、力学模型を決めない。粘性 Newton 流体なら[CTM15 の運動量方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)に $\eta\Delta u$ が加わり、中心式は $\nabla B=u\times\omega+(\eta/\rho)\Delta u$（定常）となる。これを $u$ と内積しても一般に零ではない。ポンプなどの非保存外力があれば $b=-\nabla\Phi$ の仮定も破れる。そのため (ii) の $-6$ kPa は**理想模型での予測**であって、(i) のデータから無条件に定まる実測値ではない。
+(iii) (i) は流束の釣合だけで、力学模型を決めない。第5.3節で [CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)から導いた一定粘性係数の Newton 型模型では、運動量式に $\eta\Delta u$ が加わり、中心式は $\nabla B=u\times\omega+(\eta/\rho)\Delta u$（定常）となる。これを $u$ と内積しても一般に零ではない。ポンプなどの非保存外力があれば $b=-\nabla\Phi$ の仮定も破れる。そのため (ii) の $-6$ kPa は**理想模型での予測**であって、(i) のデータから無条件に定まる実測値ではない。
 <!-- solution-end -->
 
 ### C2. 保存が成り立つ範囲を完全に分類する
