@@ -1,0 +1,48 @@
+chapter: RBD15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD14
+forward_references: []
+concepts:
+  - id: mechanics.rigid-body-contact-impulse
+    name: 接点の衝撃量と角力積
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（接点の衝撃量と角力積）]
+    requires:
+      - mechanics.rigid-body-external-resultant-torque
+      - mechanics.rigid-point-velocity-field
+  - id: mechanics.normal-coefficient-of-restitution
+    name: 法線反発係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（法線反発係数）]
+    requires:
+      - mechanics.rigid-body-contact-impulse
+      - mechanics.rigid-point-velocity-field
+  - id: mechanics.contact-effective-mass
+    name: 単一法線接点の有効質量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（単一法線接点の有効質量）]
+    requires:
+      - mechanics.rigid-body-contact-impulse
+      - mechanics.rigid-body-forced-newton-euler
+      - mechanics.inertia-tensor-positive-definiteness
+  - id: mechanics.frictionless-impact-impulse-law
+    name: 摩擦なし単一接点の衝撃量と速度更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（摩擦なし単一接点の衝撃量と速度更新）]
+    requires:
+      - mechanics.contact-effective-mass
+      - mechanics.normal-coefficient-of-restitution
+  - id: mechanics.normal-impact-energy-loss
+    name: 法線衝突における運動エネルギー損失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（法線衝突における運動エネルギー損失）]
+    requires:
+      - mechanics.frictionless-impact-impulse-law
+      - mechanics.rigid-body-external-power-balance
