@@ -1,0 +1,59 @@
+chapter: GW1-01
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SYM2
+  - SYM8
+  - CM1-02
+  - CM1-10
+  - AG2-03
+  - KAH1-07
+concepts:
+  - id: gromov-witten.reparametrization-equivalence
+    name: 再パラメータ化による同値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（再パラメータ化による同値）"]
+    requires: [complex-manifolds.manifold-holomorphic-map, complex-manifolds.projective-automorphisms]
+  - id: gromov-witten.image-invariance
+    name: 再パラメータ化で像は変わらない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（再パラメータ化で像は変わらない）"]
+    requires: [gromov-witten.reparametrization-equivalence]
+  - id: gromov-witten.normalized-projective-area
+    name: 射影直線への写像の正規化面積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影直線への写像の正規化面積）"]
+    requires: [kahler.projective-line-fs-area]
+  - id: gromov-witten.power-map-degree-area
+    name: べき写像の正規化面積と逆像数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（べき写像の正規化面積と逆像数）"]
+    requires: [gromov-witten.normalized-projective-area, algebraic-geometry.projective-polynomial-map]
+  - id: gromov-witten.line-incidence-locus
+    name: 点条件を満たす射影直線の集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点条件を満たす射影直線の集合）"]
+    requires: [complex-manifolds.complex-projective-space]
+  - id: gromov-witten.unique-line-through-two-points
+    name: 相異なる二点を通る射影直線は一意
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（相異なる二点を通る射影直線は一意）"]
+    requires: [gromov-witten.line-incidence-locus]
+  - id: gromov-witten.conic-degeneration
+    name: 滑らかな二次曲線から二直線への退化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな二次曲線から二直線への退化）"]
+    requires: [complex-manifolds.complex-projective-space]
+  - id: gromov-witten.three-marked-rigidity
+    name: 射影直線の三標点固定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線の三標点固定）"]
+    requires: [complex-manifolds.projective-automorphisms]

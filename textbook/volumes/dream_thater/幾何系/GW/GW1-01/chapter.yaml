@@ -1,0 +1,47 @@
+id: "GW1-01"
+title: "なぜ曲線を数えるのか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYM2
+  - SYM8
+  - CM1-02
+  - CM1-10
+  - AG2-03
+  - KAH1-07
+official_scope: []
+learning_objectives:
+  - 正則写像・再パラメータ化同値・像を区別し、同値性を具体式で確認できる
+  - 射影直線のべき写像で逆像数とFubini–Study正規化面積を検算できる
+  - 射影平面で二点を通る直線の一意性と点条件の過不足を線形代数で判定できる
+  - 二次曲線の退化で次数・成分・滑らかさがどう変わるかを偏導関数で判定できる
+  - 三標点で自己同型を固定する仕組みを証明し、安定写像が必要な理由を説明できる
+definitions:
+  - { id: GW1-01-DEF-01, name: 再パラメータ化による同値 }
+  - { id: GW1-01-DEF-02, name: 射影直線への写像の正規化面積 }
+  - { id: GW1-01-DEF-03, name: 点条件を満たす射影直線の集合 }
+theorems:
+  - { id: GW1-01-PROP-01, name: 再パラメータ化で像は変わらない }
+  - { id: GW1-01-THM-01, name: べき写像の正規化面積と逆像数 }
+  - { id: GW1-01-THM-02, name: 相異なる二点を通る射影直線は一意 }
+  - { id: GW1-01-PROP-02, name: 滑らかな二次曲線から二直線への退化 }
+  - { id: GW1-01-PROP-03, name: 射影直線の三標点固定 }
+canonical_examples:
+  - 射影直線上の平行移動と再パラメータ化
+  - べき写像の逆像数とFubini–Study面積2πd
+  - 二点条件と三点条件による射影直線の計数
+  - XY=εZ²の退化とJacobian検査
+  - 0・1・∞を固定するMöbius変換
+problem_patterns:
+  - GW1-01-REPARAM
+  - GW1-01-POWER-PREIMAGES
+  - GW1-01-LINE-INCIDENCE
+  - GW1-01-CONIC-DEGENERATION
+  - GW1-01-PULLBACK-AREA
+  - GW1-01-OVERDETERMINED-INCIDENCE
+  - GW1-01-MARKED-AUTOMORPHISM
+  - GW1-01-DEGREE-VERSUS-IMAGE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
