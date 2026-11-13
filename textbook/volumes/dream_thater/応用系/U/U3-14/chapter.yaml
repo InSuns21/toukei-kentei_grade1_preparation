@@ -1,0 +1,41 @@
+id: "U3-14"
+title: "幾何 Brown 運動と対数正規価格分布"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-13, STO9]
+official_scope: []
+learning_objectives:
+  - 幾何 Brown 運動を強解として定義し係数と単位を説明できる
+  - 指数型の候補に Itô 公式を適用して SDE の陽解を構成し大域 Lipschitz 一意性と正値性を示せる
+  - 対数正規価格密度の Jacobian と正規化および分位点を導ける
+  - 対数増分と価格の平均・分散・中央値の違いを計算できる
+  - 実数モーメントと条件付きモーメントを Brown 独立増分から再現できる
+  - CRR 木の Brown 極限と定数係数 GBM の関係および測度の違いを説明できる
+  - Python で解析的な分布特性と有限標本の統計誤差を照合できる
+definitions:
+  - { id: U3-14-DEF-01, name: "幾何 Brown 運動" }
+theorems:
+  - { id: U3-14-THM-01, name: "幾何 Brown 運動の陽解と正値性" }
+  - { id: U3-14-PROP-01, name: "満期株価の対数正規分布" }
+  - { id: U3-14-PROP-02, name: "幾何 Brown 運動の実数モーメント" }
+  - { id: U3-14-PROP-03, name: "対数収益率の独立増分と条件付きモーメント" }
+canonical_examples:
+  - "s0=100,mu=0.08,sigma=0.2,T=1 で対数増分 N(0.06,0.04) と株価平均 108.328707 円を照合する"
+  - "sigma=0 の決定論的境界では連続密度を使えないことを示す"
+  - "2時点の株価共分散と未来の対数増分の独立性を区別する"
+  - "50000 標本を用いて理論モーメントと統計誤差を比較する"
+problem_patterns:
+  - U3-14-A1
+  - U3-14-A2
+  - U3-14-A3
+  - U3-14-A4
+  - U3-14-A5
+  - U3-14-B1
+  - U3-14-B2
+  - U3-14-B3
+  - U3-14-B4
+  - U3-14-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
