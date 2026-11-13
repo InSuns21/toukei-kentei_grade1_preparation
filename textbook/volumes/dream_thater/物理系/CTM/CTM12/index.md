@@ -6,7 +6,7 @@
 
 ## 0. 設定：何が既知で何が未知か
 
-応力のない基準配置 $\Omega\subset\mathbb R^3$ は連結な有界開集合で、境界は区分的に $C^1$ 級とする。面の交線・角は面積零として扱う。位置を $X=(X_1,X_2,X_3)$、未知の変位を $u(X)$（m）とし、**微小変形** $\|\nabla u\|\ll1$ を仮定する。必要な微分のある古典解として、以下では $u\in C^2(\Omega;\mathbb R^3)\cap C^1(\overline\Omega;\mathbb R^3)$ を考え、境界積分に必要な正則性も仮定する。
+応力のない基準配置 $\Omega\subset\mathbb R^3$ は連結な有界開集合で、境界は区分的に $C^1$ 級とする。面の交線・角は面積零として扱う。位置を $X=(X_1,X_2,X_3)$、未知の変位を $u(X)$（m）とし、その空間微分 $D_Xu=\nabla u$（変位勾配）が十分小さい **微小変形** $\|\nabla u\|\ll1$ を仮定する。必要な微分のある古典解として、以下では $u\in C^2(\Omega;\mathbb R^3)\cap C^1(\overline\Omega;\mathbb R^3)$ を考え、境界積分に必要な正則性も仮定する。
 
 [CTM3 で定義した微小ひずみ](../CTM3/index.md#def-ctm3-infinitesimal-strain)と [CTM11 の Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を使う。$e_1,e_2,e_3$ は基準配置の標準直交基底、$u_i=u\cdot e_i$ は変位の第 $i$ 成分とする。$\partial_j$ は基準座標 $X_j$ に関する偏微分 $\partial/\partial X_j$ の略記で、時刻についての微分ではない。変位勾配の第 $j$ 列が $e_j$ 方向への変化であることは
 
@@ -15,7 +15,7 @@ D_Xu\,e_j=\sum_{i=1}^3(\partial_j u_i)e_i,\qquad
 (\nabla u)_{ij}=\partial_j u_i
 $$
 
-から分かる。以下、同じ項で繰り返す成分添字は $1,2,3$ の和を表す。$I_3$ は三次単位行列、$\delta_{ij}$ はその $(i,j)$ 成分（$i=j$ なら $1$、それ以外なら $0$）である。
+から分かる。以下、同じ項で繰り返す成分添字は $1,2,3$ の和を表す。$I_3$ は三次単位行列、$\delta_{ij}$ はその $(i,j)$ 成分（$i=j$ なら $1$、それ以外なら $0$）である。$\lambda,\mu$ は空間的に一定の Lamé 係数（Pa）である。
 
 $$
 \varepsilon_{ij}(u)=\frac12(\partial_j u_i+\partial_i u_j),\qquad
@@ -23,7 +23,7 @@ $$
 +\mu(\partial_j u_i+\partial_i u_j).
 $$
 
-特に添字 $k$ は $1,2,3$ で総和を取る。$\lambda,\mu$ は空間的に**一定**の Lamé 係数（Pa）である。[CTM11 の正定値条件](../CTM11/index.md#prop-ctm11-split)に従い
+特に添字 $k$ は $1,2,3$ で総和を取る。係数が **空間的に一定**であることは後の微分計算で使う。[CTM11 の正定値条件](../CTM11/index.md#prop-ctm11-split)に従い
 
 $$
 \mu>0,\qquad K=\lambda+\frac{2\mu}{3}>0
