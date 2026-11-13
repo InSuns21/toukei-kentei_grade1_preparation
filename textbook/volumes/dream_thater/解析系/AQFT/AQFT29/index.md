@@ -1,6 +1,6 @@
 # AQFT29 相対Tomita作用素
 
-[AQFT18のTomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial)は、一つの巡回分離ベクトル $\Omega$ に対し $A\Omega\mapsto A^*\Omega$ を割り当てました。[AQFT20の標準表現](../AQFT20/index.md#thm-aqft20-modular-formulas)では、忠実な密度行列 $\rho$ のモジュラー作用素を $\Delta_\rho=L_\rho R_{\rho^{-1}}$ と計算しました。しかし二つの状態を比較するとき、どちらの状態の密度を左に、どちらを右の逆数に置くべきでしょうか。
+[AQFT18のTomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial)は、一つの巡回分離ベクトル $\Omega$ に対し $A\Omega\mapsto A^*\Omega$ を割り当てました。[AQFT20の標準表現](../AQFT20/index.md#thm-aqft20-modular-formulas)では、[忠実な密度行列](../AQFT20/index.md#def-aqft20-faithful-density) $\rho$ のモジュラー作用素を $\Delta_\rho=L_\rho R_{\rho^{-1}}$ と計算しました。しかし二つの状態を比較するとき、どちらの状態の密度を左に、どちらを右の逆数に置くべきでしょうか。
 
 本講では **入力を作る状態を $\rho$、出力を作る状態を $\sigma$** と固定します。目標は、一般の標準対での定義と可閉性を証明したうえで、有限次元の作用素を行列から全計算することです。二状態の比較に必要な対数作用素の計算は次講です。
 
@@ -451,7 +451,7 @@ $$
 
 従って $A\rho_0^{1/2}\mapsto A^*\sigma^{1/2}$ は**零入力に二つの出力**を割り当て、初期写像自体が一価ではありません。$\rho_0^{-1}$ が書けないという形式的問題より前に、分離性を失ったことが破綻の原因です。支持射影を使う適切な拡張はAQFT31で扱います。
 
-局所Type III因子では密度行列 $\rho$ や通常のトレースによる行列表示を一般に作れません（[AQFT15のトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)）。その場合でも、標準表現の二つの忠実正規状態を表す巡回分離ベクトル $\xi,\eta$ から第1–3節の $S_{\eta\mid\xi}$ と $\Delta_{\eta\mid\xi}$ を定義できます。**一般の正規状態が必ず指定した任意の表現で巡回分離ベクトルを持つ、と主張しているわけではありません。** 標準形（自然正錐）により忠実状態を表す場合にこの構成を使います。一般の標準形の存在や状態の実現自体はここでは証明しておらず、有限次元の計算をその構成証明の代わりにはしません。
+局所Type III因子では密度行列 $\rho$ や通常のトレースによる行列表示を一般に作れません（[AQFT15のトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)）。その場合でも、標準表現の二つの忠実正規状態を表す巡回分離ベクトル $\xi,\eta$ から第1–3節の $S_{\eta\mid\xi}$ と $\Delta_{\eta\mid\xi}$ を定義できます。**一般の正規状態が必ず指定した任意の表現で巡回分離ベクトルを持つ、と主張しているわけではありません。** 標準表現で巡回分離単位ベクトルが与えられた場合にこの構成を使います。忠実正規状態をベクトルで表す一般的な標準形の理論は別の問題であり、その存在や状態の実現を有限次元の計算で証明したことにはなりません。
 
 ## 7. 演習と詳細解答
 
@@ -470,7 +470,15 @@ S_{\eta\mid\xi}(x_1,x_2)
 =(\sqrt3\,\overline{x_1},\overline{x_2}/\sqrt3).
 $$
 
-$x,y\in\mathbb C^2$ に対し、$\langle Sx,y\rangle=\sqrt3 x_1y_1+x_2y_2/\sqrt3=\langle Sy,x\rangle$ です。[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)により $S^\sharp=S$、従って $\Delta=S^\sharp S=\operatorname{diag}(3,1/3)$ です。いずれも有限次元で全域定義です。
+$x,y\in\mathbb C^2$ に対して
+
+$$
+\langle Sx,y\rangle
+=\sqrt3\,x_1y_1+\frac{x_2y_2}{\sqrt3}
+=\langle Sy,x\rangle
+$$
+
+です。[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)により $S^\sharp=S$、従って $\Delta=S^\sharp S=\operatorname{diag}(3,1/3)$ です。いずれも有限次元で全域定義です。
 
 <a id="ex-aqft29-a02"></a>
 #### AQFT29-A02 正規直交行列単位の係数
@@ -639,7 +647,15 @@ $$
 \end{aligned}
 $$
 
-ゆえに $S^\sharp(Y)=\sigma^{1/2}Y^*\rho^{-1/2}$、これを $SX$ に適用すれば $\Delta(X)=\sigma X\rho^{-1}$ と確かめられます。(iii) $\sigma u_i=s_i u_i$、$\rho v_j=r_j v_j$ で $s_i,r_j>0$ とします。$F_{ij}=|u_i\rangle\langle v_j|$ は正規直交基底で、$\Delta F_{ij}=(s_i/r_j)F_{ij}$。従って $X=\sum_{ij}x_{ij}F_{ij}$ なら
+これより $S^\sharp(Y)=\sigma^{1/2}Y^*\rho^{-1/2}$ です。これを $SX$ に適用すると
+
+$$
+S^\sharp(SX)
+=\sigma^{1/2}(\rho^{-1/2}X^*\sigma^{1/2})^*\rho^{-1/2}
+=\sigma X\rho^{-1}
+$$
+
+となります。(iii) $\sigma u_i=s_i u_i$、$\rho v_j=r_j v_j$ で $s_i,r_j>0$ とします。$F_{ij}=|u_i\rangle\langle v_j|$ は正規直交基底で、$\Delta F_{ij}=(s_i/r_j)F_{ij}$。従って $X=\sum_{ij}x_{ij}F_{ij}$ なら
 
 $$
 \langle X,\Delta X\rangle_2
