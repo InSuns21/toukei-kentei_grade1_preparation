@@ -475,7 +475,7 @@ S(E_{ij})=\sqrt{\lambda_i/\lambda_j}\,E_{ji},
 \Delta E_{ij}=(\lambda_i/\lambda_j)E_{ij}
 $$
 
-となります。有限個の成分を残す行列は $\mathcal H=S_2(K)$ で稠密です。その上で得られた正対角作用素の**最大自己共役拡張**が $\Delta$ です。自己共役性と定義域の特徴付けは[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)を行列単位の列に適用して確かめられます。すなわち
+となります。有限個の成分を残す行列は $\mathcal H=S_2(K)$ で稠密です。さらに $A\in B(K)$ なら $(A\Omega)_{ij}=A_{ij}\sqrt{\lambda_j}$ なので、後述の正対角作用素 $B$ について $B(A\Omega)=\Omega A\in S_2(K)$ が成り立ちます。従って $JB(A\Omega)=(\Omega A)^*=A^*\Omega=S_0(A\Omega)$ であり、$S_0\subset JB$ です。有限行列の線形包は $B$ のグラフノルムで稠密（重み付き二重級数の尾が零へ収束）なので、その上での一致から $S=JB$ が従います。$B^2$ が $\Delta$ です。自己共役性と定義域の特徴付けは[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)を行列単位の列に適用して確かめられます。すなわち
 
 $$
 \begin{aligned}
@@ -710,7 +710,7 @@ $$
 L_{E_{ij}}\Omega=E_{ij}\Omega=\sqrt{\lambda_j}E_{ij}.
 $$
 
-$\lambda_j>0$ なので各 $E_{ij}\in\mathcal M\Omega$ です。有限行列の線形包はHilbert–Schmidtノルムで稠密ですから巡回的です。$A\Omega=0$ なら各 $j$ で $0=A\Omega e_j=\sqrt{\lambda_j}Ae_j$ となり $Ae_j=0$、$A$ の有界性と基底の稠密性から $A=0$。よって分離的です。$\mathcal M$ がvon Neumann環であることは[AQFT18での二重可換子計算](../AQFT18/index.md#thm-aqft18-tomita-closable)の直前で示した左・右乗算の議論に従います。
+$\lambda_j>0$ なので各 $E_{ij}\in\mathcal M\Omega$ です。有限行列の線形包はHilbert–Schmidtノルムで稠密ですから巡回的です。$A\Omega=0$ なら各 $j$ で $0=A\Omega e_j=\sqrt{\lambda_j}Ae_j$ となり $Ae_j=0$、$A$ の有界性と基底の稠密性から $A=0$。よって分離的です。$\mathcal M$ のvon Neumann環性も確認します。すべての右乗算 $R_C(X)=XC$ は $L_A$ と可換です。$T\in\mathcal M''$ なら第1列の部分空間 $\{E_{v1}:v\in K\}$ を保ち、$T(E_{v1})=E_{Dv,1}$ となる有界作用素 $D\in B(K)$ を定めます（$\|Dv\|\le\|T\|\|v\|$）。$E_{ij}=R_{E_{1j}}E_{i1}$ なので、$T$ の右乗算との可換性から $T(E_{ij})=E_{De_i,j}=L_D(E_{ij})$。稠密な行列単位上で一致するので $T=L_D$、すなわち $\mathcal M''=\mathcal M$ です。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)より $\mathcal M$ はvon Neumann環です。
 
 **2. Tomitaの初期作用。** $E_{ij}=A\Omega$ には $A=E_{ij}/\sqrt{\lambda_j}\in B(K)$ を選べます。[初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-preoperator)から
 
@@ -732,7 +732,7 @@ BX&=\sum_{i,j}\sqrt{\lambda_i/\lambda_j}\,x_{ij}E_{ij}.
 \end{aligned}
 $$
 
-これは[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)によって正自己共役です。$JX=X^*$ は全域の反ユニタリであり、$JB(E_{ij})=\sqrt{\lambda_i/\lambda_j}\,E_{ji}=S_0(E_{ij})$。有限行列の線形包は $B$ のグラフノルムで稠密です。実際、有限切断 $X_N=\sum_{i,j\le N}x_{ij}E_{ij}$ に対して
+これは[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)によって正自己共役です。$JX=X^*$ は全域の反ユニタリであり、$JB(E_{ij})=\sqrt{\lambda_i/\lambda_j}\,E_{ji}=S_0(E_{ij})$。ここで任意の $A\in B(K)$ に対し $(A\Omega)_{ij}=A_{ij}\sqrt{\lambda_j}$ なので $B(A\Omega)=\Omega A$、従って $JB(A\Omega)=A^*\Omega=S_0(A\Omega)$。つまり $S_0\subset JB$ です。一方、有限行列の線形包は $B$ のグラフノルムで稠密です。実際、有限切断 $X_N=\sum_{i,j\le N}x_{ij}E_{ij}$ に対して
 
 $$
 \|X-X_N\|_2^2+\|B(X-X_N)\|_2^2
