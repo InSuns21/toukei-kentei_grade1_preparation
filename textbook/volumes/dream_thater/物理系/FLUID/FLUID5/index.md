@@ -461,13 +461,11 @@ $$
 長さと流速は時刻 $t$（単位 s）に応じて
 
 $$
-
 \begin{aligned}
 L(t)&=2\,\mathrm{m}+(0.5\,\mathrm{m/s})t,\\
 U(t)&=3\,\mathrm{m/s}+(1\,\mathrm{m/s^2})t
 \end{aligned}
 \qquad(t\ge0)
-
 $$
 
 と変化する。以下の数値計算で $t$ に秒単位の値を代入するときは、これらをそれぞれ $L(t)=2+0.5t$（m）、$U(t)=3+t$（m/s）と略記する。
