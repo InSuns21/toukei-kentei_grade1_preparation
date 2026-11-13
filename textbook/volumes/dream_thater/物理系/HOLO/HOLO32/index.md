@@ -197,7 +197,16 @@ $$
 -\frac{L^2}{z^2}\left(-\frac{2\pi z}{R}\right)=0.
 $$
 
-残る成分も同じ定義式の偏微分で消えます。面 $\gamma_B$ での流れの規格化は表面重力 $2\pi$ に対応します。この正規化を $2\pi$ でなく $1$ にしてしまうと、境界のモジュラー重みとの係数が一致しません。
+$tt$ と $zz$ 成分は、計量の $z^{-2}$ 依存と $\partial_t\xi^t=-2\pi t/R$、$\partial_z\xi^z=-2\pi t/R$ の項が互いに相殺して零です。例えば
+
+$$
+(\mathcal L_\xi\bar g)_{tt}
+=\xi^z\partial_z(-L^2/z^2)
++2\bar g_{tt}\partial_t\xi^t
+=-\frac{4\pi tL^2}{Rz^2}+\frac{4\pi tL^2}{Rz^2}=0.
+$$
+
+空間方向の $ij$ 成分でも $\partial_i\xi^j=-2\pi t\delta_i^j/R$ と $\xi^z\partial_z\bar g_{ij}$ が相殺します。$ti$ 成分は上記の $tz$ 成分と同じ二項の打ち消し、$zi$ 成分はそれぞれの偏微分が零です。面 $\gamma_B$ での流れの規格化は表面重力 $2\pi$ に対応します。この正規化を $2\pi$ でなく $1$ にしてしまうと、境界のモジュラー重みとの係数が一致しません。
 
 ### 面を動かしても一次では余分な「位置項」はない
 
@@ -234,10 +243,9 @@ $$
 +\eta^c(\partial_c\bar g_{ab})e_A^ae_B^b.
 $$
 
-行列式の微分 $\delta\sqrt q=(\sqrt{\bar q}/2)\bar q^{AB}\delta q_{AB}$ を代入します。後ろ三項を積分したものは、固定背景計量における面の形状変分です。[HOLO24の極値面の停留条件](../HOLO24/index.md#def-holo24-qes)の古典面積部分と同じく、背景が停留面であるため内部の一次変分が零になります。境界で $\eta^a=0$（アンカー固定）なので端点項も零です。したがって初項だけが残り、表示した公式になります。RTの等式はその適用条件を満たす場合にのみ代入します。
+行列式の微分 $\delta\sqrt q=(\sqrt{\bar q}/2)\bar q^{AB}\delta q_{AB}$ を代入します。後ろ三項を積分したものは、固定背景計量における面の形状変分です。[HOLO23の古典極値面の停留性](../HOLO23/index.md#prop-holo23-surface-shift)と同じく、背景が停留面であるため内部の一次変分が零になります。境界で $\eta^a=0$（アンカー固定）なので端点項も零です。したがって初項だけが残り、表示した公式になります。RTの等式はその適用条件を満たす場合にのみ代入します。
 <!-- proof-end -->
 
-<!-- definition-example-start: def-holo32-ads-ball-flow -->
 **面積変分の手計算**。誘導計量を固定座標上で $q_{AB}(\lambda)=(1+2\lambda\alpha)\bar q_{AB}$ と変える仮想的な摂動では $\delta q_{AB}=2\alpha\bar q_{AB}$、$\bar q^{AB}\bar q_{AB}=d-1$ なので
 
 $$
@@ -247,7 +255,6 @@ $$
 $$
 
 これは面積の**運動学的検算**で、任意の $\alpha$ がEinstein方程式を満たすと主張するものではありません。
-<!-- definition-example-end -->
 
 ## 3. 第一法則から「重力の積分拘束」へ
 
@@ -260,7 +267,7 @@ $$
 
 が成立します。ただし左辺の第一項は境界上、第二項はバルクの異なる積分です。この差を同じ断面の積分として比較する道具が、重力の**Noether電荷**です。
 
-作用の微分から体積項（場の方程式に比例）と全微分（境界項）を分ける考え方は、[HOLO13のEinstein–Hilbert作用の境界変分](../HOLO13/index.md#def-holo13-eh-action)と同じです。ここではその変分を微分形式で書きます。体積形式を $\boldsymbol\epsilon$ とし、
+作用の微分から体積項（場の方程式に比例）と全微分（境界項）を分ける考え方は、[HOLO13のEinstein–Hilbert作用の境界変分](../HOLO13/index.md#def-holo13-dirichlet-action)と同じです。ここではその変分を微分形式で書きます。体積形式を $\boldsymbol\epsilon$ とし、
 
 $$
 \boldsymbol L
@@ -436,7 +443,7 @@ $$
 =\frac{\operatorname{Area}(\gamma_B)}{4G_N}
 $$
 
-です。[面の一次停留性](#prop-holo32-area-variation)により、面を動かす寄与は一次で消えます。境界での $\boldsymbol\chi$ と繰り込み応力テンソルの一致には、[HOLO13の境界応力テンソルの変分構成](../HOLO13/index.md#def-holo13-boundary-stress)と固定境界源の条件が使われます。一般の高階微分重力では面積の代わりにWald型汎関数が必要となるので、この係数のまま拡張はできません。
+です。[面の一次停留性](#prop-holo32-area-variation)により、面を動かす寄与は一次で消えます。境界での $\boldsymbol\chi$ と繰り込み応力テンソルの一致には、[HOLO13の境界応力テンソルの変分構成](../HOLO13/index.md#def-holo13-brown-york)と固定境界源の条件が使われます。一般の高階微分重力では面積の代わりにWald型汎関数が必要となるので、この係数のまま拡張はできません。
 
 ## 4. 積分から局所方程式へ：何を追加で示す必要があるか
 
