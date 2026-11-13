@@ -5,6 +5,7 @@ prerequisites:
   - GW1-01
   - SYM8
   - GEO8
+  - GA8
 concepts:
   - id: gromov-witten.nonlinear-cr-operator
     name: 非線形Cauchy–Riemann作用素
@@ -24,18 +25,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（局所Cauchy–Riemann方程式と複素線形性）"]
     requires: [gromov-witten.nonlinear-cr-operator, gromov-witten.j-holomorphic-map]
-  - id: gromov-witten.dirichlet-energy
-    name: 写像のDirichletエネルギー
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（写像のDirichletエネルギー）"]
-    requires: [symplectic.compatible-metric-criterion]
   - id: gromov-witten.energy-identity
     name: 擬正則写像のエネルギー恒等式
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（擬正則写像のエネルギー恒等式）"]
-    requires: [gromov-witten.nonlinear-cr-operator, gromov-witten.dirichlet-energy, symplectic.compatible-metric-criterion]
+    requires: [gromov-witten.nonlinear-cr-operator, geometric-analysis.map-dirichlet-energy, symplectic.compatible-metric-criterion]
   - id: gromov-witten.symplectic-area-homotopy-invariance
     name: 閉曲面からの写像のシンプレクティック面積はホモトピー不変
     kind: proposition
