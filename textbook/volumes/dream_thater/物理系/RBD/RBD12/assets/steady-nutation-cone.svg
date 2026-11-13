@@ -15,10 +15,11 @@
 <path d="M409.2 254.9 l0 54" stroke="#2e4252" stroke-width="2.3" fill="none" marker-end="url(#rbd12-arrow-black)"/>
 <circle cx="305" cy="340" r="4" fill="#2e4252"/>
 <circle cx="409.2" cy="254.9" r="4" fill="#155f97"/>
+<path d="M414 249 L480 219" fill="none" stroke="#526579" stroke-width="1.4" stroke-dasharray="2 4"/>
 <g font-family="sans-serif" font-size="19" fill="#263e52" font-weight="600">
 <text x="316" y="111">z</text>
 <text x="315" y="365">O</text>
-<text x="421.5" y="211.5">C</text>
+<text x="490" y="225">C</text>
 <text x="422.0" y="344.0">Mg</text>
 <text x="178.6" y="356.4">τ</text>
 </g>
