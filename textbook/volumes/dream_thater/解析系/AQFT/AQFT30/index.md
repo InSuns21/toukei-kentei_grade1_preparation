@@ -121,8 +121,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F_{ij}^*F_{k\ell}=|v_j\rangle\langle u_i,u_k\rangle\langle v_\ell|
-=\delta_{ik}|v_j\rangle\langle v_\ell|$ より
+行列積をまず計算します。
+
+$$
+F_{ij}^*F_{k\ell}
+=|v_j\rangle\langle u_i,u_k\rangle\langle v_\ell|
+=\delta_{ik}|v_j\rangle\langle v_\ell|.
+$$
+
+この式のトレースを取ると
 
 $$
 \langle F_{ij},F_{k\ell}\rangle_2
@@ -636,10 +643,10 @@ $$
 
 第4節の次の二状態について問いに答えよ。
 
-$
+$$
 \rho=\operatorname{diag}(3/4,1/4),
 \qquad \sigma=\begin{pmatrix}1/2&-1/6\\-1/6&1/2\end{pmatrix}.
-$
+$$
 
 1. 相対作用素 $\Delta_{\sigma\mid\rho}$ の全固有値と $\rho^{1/2}$ に関する重みを求めよ。
 2. そこから $S_{\mathrm A}(\rho\Vert\sigma)$ を求めよ。
