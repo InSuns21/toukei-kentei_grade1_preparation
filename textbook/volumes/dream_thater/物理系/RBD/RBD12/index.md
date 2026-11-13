@@ -4,9 +4,9 @@
 
 [RBD11の二つの保存運動量とエネルギー](../RBD11/index.md#thm-rbd11-momenta-energy)から、重力を受ける対称こまでも鉛直角運動量 $h$、物体軸角運動量 $k$、全エネルギー $E$ は一定でした。[RBD11の傾きの一変数帰着](../RBD11/index.md#thm-rbd11-reduced-theta)によって、傾き $\theta(t)$ の許容範囲まで決められます。しかし、エネルギーで許される角度が実際に**一定のまま**なのか、**上下に往復**するのかは、まだ区別していません。
 
-本講では、傾きを保ったまま周回する運動と、傾きが振動する運動を初期値と方程式から判定します。最後に、重いこまがすぐ倒れずゆっくり向きを変えるときの $\Omega\simeq Mgl/L_{\mathrm{spin}}$ が、何を捨てた近似なのかまで検算します。
+本講では、傾きを保ったまま周回する運動と、傾きが振動する運動を初期値と方程式から判定します。最後に、重いこまがすぐ倒れずゆっくり向きを変えるときの $\Omega\simeq Mgl/k$（$k$ は物体軸角運動量）が、何を捨てた近似なのかまで検算します。
 
-傾き一定の周回では、軸 $n$ が鉛直 $z$ のまわりに円を描きます。傾きが変わると $\theta_-$ と $\theta_+$ の間を移り、円ではなく**帯状の軌道**になります。次の斜投影図では、内外の楕円は傾きの境界、実線の楕円は一定傾きの基準円です。青実線は支点 $O$ から重心 $C$ への物体軸、重心から下向きの矢印は重力、橙破線は支点まわりの重力トルクの方向です（トルクは O に作用する力ではありません）。模式図の傾き境界は数値例の厳密な転回点を表すものではなく、両者の位置関係を示します。
+傾き一定の周回では、軸 $n$ が鉛直 $z$ のまわりに円を描きます。傾きが二つの境界角の間を往復すると、円ではなく**帯状の軌道**になります。次の斜投影図では、内外の楕円は傾きの境界、実線の楕円は一定傾きの基準円です。青実線は支点 $O$ から重心 $C$ への物体軸、重心から下向きの矢印は重力、橙破線は支点まわりの重力トルクの方向です（トルクは O に作用する力ではありません）。模式図の傾き境界は数値例の厳密な転回点を表すものではなく、両者の位置関係を示します。
 
 ![固定点Oから出る物体軸nが鉛直zのまわりに歳差する円と、章動により傾きが変わる二つの境界円。重心Cでの下向き重力と、支点まわりトルクの接線方向を線種で区別した斜投影図](assets/steady-nutation-cone.svg)
 
@@ -170,7 +170,30 @@ $$
 <!-- formal-statement-start -->
 ### 定義（章動と転回点）
 
-[RBD11の重い対称こま](../RBD11/index.md#def-rbd11-heavy-top)の運動で $0<\theta(t)<\pi$ の範囲において $\theta(t)$ が時間に依存して変化することを**章動**という。特に、ある閉区間 $[\theta_-,\theta_+]\subset(0,\pi)$ 内で $\theta_-\lt\theta_+$ の二つの**転回点**の間を往復するものを往復章動という。転回点とは $\dot\theta=0$ となる点で、[エネルギー式](../RBD11/index.md#thm-rbd11-reduced-theta)から $V(\theta_\pm)=\varepsilon$ を満たす。ただしこの等号だけでは往復を保証せず、区間内部の許容域と加速度の向きも必要である。
+[RBD11の重い対称こま](../RBD11/index.md#def-rbd11-heavy-top)の正則域 $0<\theta(t)<\pi$ の運動で、傾き $\theta(t)$ が時間に依存して変化することを**章動**という。
+
+特に、次を満たす二つの角度を定め、傾きがその区間内で両端に達するたび進む向きを反転する運動を**往復章動**という。
+
+$$
+0<\theta_-<\theta_+<\pi,\qquad
+\theta(t)\in[\theta_-,\theta_+].
+$$
+
+反転が起こるときの傾き $\theta_\pm$ を**転回点**と呼ぶ。反転時刻を $t_\pm$ と書けば、[RBD11の傾きのエネルギー式](../RBD11/index.md#thm-rbd11-reduced-theta)により必ず
+
+$$
+\theta(t_\pm)=\theta_\pm,\qquad
+\dot\theta(t_\pm)=0,\qquad
+V(\theta_\pm)=\varepsilon
+$$
+
+が成り立つ。逆に、傾き速度が零という条件やエネルギーの等号だけでは、反転は保証されない。反転方向は[傾きの二階方程式](../RBD11/index.md#thm-rbd11-reduced-theta)
+
+$$
+I\ddot\theta(t_\pm)=-V'(\theta_\pm)
+$$
+
+から判定する。左端で $V'(\theta_-)<0$、右端で $V'(\theta_+)>0$ なら、それぞれ内側へ加速する。一方、$V'(\theta_\pm)=0$ かつ $\dot\theta=0$ の初期値は正則域で平衡解となり、往復章動の転回点とは区別する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-rbd12-nutation -->
@@ -274,15 +297,36 @@ $$
 \frac{d\theta}{\sqrt{\varepsilon-V(\theta)}}
 $$
 
-に $V(\theta)=V(\theta_0)+V''(\theta_0)(\theta-\theta_0)^2/2+O((\theta-\theta_0)^3)$ を用い、微小振幅で $\eta=A\sin u$ と置き換えると
+の極限を確かめます。$K:=V''(\theta_0)>0$、$V_0:=V(\theta_0)$ とします。$V$ は正則域内で滑らかなので、$\theta_0$ の近傍で
 
 $$
-\frac{T}{2}\longrightarrow
-\sqrt{\frac I{V''(\theta_0)}}\int_{-\pi/2}^{\pi/2}du
-=\frac{\pi}{\nu},
+x=(\theta-\theta_0)\sqrt{\frac{2[V(\theta)-V_0]}{K(\theta-\theta_0)^2}},
+\qquad x(\theta_0):=0
 $$
 
-従って $T\to2\pi/\nu$ です。ここでの安定性は**固定した鉛直・体軸角運動量 $h,k$ の傾きの運動**についての結論で、摩擦や外部駆動を加えた系へはそのまま拡張しません。
+と置けます。Taylor展開 $V(\theta)-V_0=K(\theta-\theta_0)^2/2+O((\theta-\theta_0)^3)$ より、平方根の中身は $1+O(\theta-\theta_0)$ です。したがって $x=(\theta-\theta_0)[1+O(\theta-\theta_0)]$、$dx/d\theta|_{\theta_0}=1$ なので、近傍で逆関数 $\theta=g(x)$ を持ち、$g'(0)=1$ です。この変数では**正確に** $V(\theta)=V_0+Kx^2/2$ となります。
+
+$\varepsilon=V_0+\delta$、$\rho=\sqrt{2\delta/K}$ とすると、左右の転回点は $x=\pm\rho$ です。半周期の積分は
+
+$$
+\begin{aligned}
+\frac T2
+&=\sqrt{\frac I2}\int_{-\rho}^{\rho}
+  \frac{g'(x)\,dx}{\sqrt{\delta-Kx^2/2}}\\
+&=\sqrt{\frac IK}\int_{-\pi/2}^{\pi/2}
+  g'(\rho\sin u)\,du
+\quad (x=\rho\sin u).
+\end{aligned}
+$$
+
+$\delta\downarrow0$ で $\rho\downarrow0$ となり、$g'$ は $0$ の近傍で連続なので $g'(\rho\sin u)\to1$ は積分区間で一様です。従って
+
+$$
+\frac T2\longrightarrow\sqrt{\frac IK}\,\pi
+=\frac{\pi}{\nu},\qquad T\longrightarrow\frac{2\pi}{\nu}.
+$$
+
+これは転回点近くの平方根特異性を無視した形式的な積分ではなく、固定した $h,k$ での滑らかな座標変換による極限です。ここでの安定性は**固定した鉛直・体軸角運動量 $h,k$ の傾きの運動**についての結論で、摩擦や外部駆動を加えた系へはそのまま拡張しません。
 <!-- proof-end -->
 
 ### 直接計算：赤道の定常歳差からの小振動
@@ -310,14 +354,56 @@ $$
 
 ## 4. ジャイロの「ゆっくり倒れない」近似
 
-重力トルクは[RBD11の式](../RBD11/index.md#thm-rbd11-momenta-energy)から $\tau_{O,s}=a\,e_z\times n$ です。大きな体軸角運動量 $k=J\omega_3$ を持ち、横方向の回転が小さければ、角運動量ベクトルを $L_{O,s}\simeq k n$ と近似できます。ゆっくり歳差する $n$ について $\dot n=\Omega(e_z\times n)$ なので
+[RBD11の重力トルク](../RBD11/index.md#thm-rbd11-momenta-energy)は $\tau_{O,s}=a\,e_z\times n$ です。**どの角運動量を省くのか**を、まず定常歳差 $\theta=\theta_0$ の場合に調べます。$n$ は長さ1の物体軸であり、[RBD4の角速度の表示](../RBD4/index.md#prop-rbd4-angular-velocity)から $\dot n=\omega_s\times n$ です。$n\times(\omega_s\times n)=\omega_s-(\omega_s\cdot n)n$ を用いると、軸に垂直な角速度は $n\times\dot n$ になります。$c=\cos\theta_0$ と置けば
 
 $$
-\frac{dL_{O,s}}{dt}\simeq k\Omega(e_z\times n)
-=\tau_{O,s}=a(e_z\times n).
+\dot n=\Omega(e_z\times n),\qquad
+n\times\dot n=\Omega(e_z-c n).
 $$
 
-正則な傾きなら $e_z\times n\ne0$ だから、$k\Omega\simeq a$。ただしこの議論は**定常歳差の遅い枝**を念頭に横慣性による角運動量の寄与を捨てたものです。定常歳差では横角運動量の大きさは $I|\Omega|\sin\theta_0$ なので、$L_{O,s}\simeq kn$ を独立に正当化するには $I|\Omega|\sin\theta_0\ll k$ も確認します。遅い枝で $k^2\gg Ia$ ならこれは従います。重力下のすべての運動に使える厳密式ではありません。
+主慣性値が横方向に $I$、体軸方向に $J$ であることから、支点まわりの角運動量を次の二成分に分けられます。
+
+$$
+\begin{aligned}
+L_{O,s}
+&=I(n\times\dot n)+J\omega_3 n\\
+&=I\Omega(e_z-c n)+kn
+=I\Omega e_z+(k-I\Omega c)n.
+\end{aligned}
+$$
+
+この式を時間微分すると、$k,\Omega,c$ は定常歳差で一定なので
+
+$$
+\frac{dL_{O,s}}{dt}
+=(k-I\Omega c)\Omega(e_z\times n)
+=a(e_z\times n).
+$$
+
+正則な傾きでは $e_z\times n\ne0$ なので、直前のベクトル等式は
+
+$$
+(k-I\Omega c)\Omega=a
+\quad\Longleftrightarrow\quad
+Ic\Omega^2-k\Omega+a=0
+$$
+
+となります。これは[定常歳差の厳密な二次条件](#thm-rbd12-steady-branches)を再現しています。
+
+一方、角運動量の横成分を省略する場合に限り、次の**近似式**となります。
+
+$$
+L_{O,s}\simeq kn,\qquad k\Omega\simeq a.
+$$
+
+ここで省いた横成分は $I\Omega(e_z-cn)$ であり、体軸成分と比較した比は
+
+$$
+\frac{\|I\Omega(e_z-cn)\|}{\|kn\|}
+=\frac{I|\Omega|\sin\theta_0}{k}.
+$$
+
+したがって**ベクトル近似自体**にはこの比が十分小さいことが必要です。遅い枝で $k^2\gg Ia$ なら従います。これは後述の歳差速度の代数的誤差条件とは区別します。特に、赤道で速度の誤差が厳密に零でも横成分が小さいとは限りません。
 
 <a id="prop-rbd12-gyro-approx"></a>
 
@@ -456,14 +542,14 @@ $\sqrt{22}<5$ なので両方正。小さい方が遅い枝です。これは $k
 
 ### 問題 A3：折返しでも静止しない
 
-$I=2,a=3,h=0,k=2$、$\theta(0)=\pi/2,\dot\theta(0)=0$ のとき、$\Omega(0)$ と $\ddot\theta(0)$ を求め、定常歳差か判定せよ。
+$I=2,a=3,h=0,k=2$、$\theta(0)=\pi/2,\dot\theta(0)=0$ のとき、時刻 $t=0$ の歳差速度 $\dot\phi(0)$ と $\ddot\theta(0)$ を求め、定常歳差か判定せよ。
 
 - Level: A
 
 <!-- solution-start -->
 ### 詳細解答
 
-[歳差速度の復元式](../RBD11/index.md#thm-rbd11-reduced-theta)より $\Omega=(h-k\cos\theta)/(I\sin^2\theta)=0$。正則域での傾き方程式を用いると
+[歳差速度の復元式](../RBD11/index.md#thm-rbd11-reduced-theta)より $\dot\phi(0)=\Omega(\theta(0))=(h-k\cos\theta(0))/(I\sin^2\theta(0))=0$。ここで $\Omega(\theta)$ の括弧は**角度**、$\dot\phi(0)$ の括弧は**時刻**の引数です。正則域での傾き方程式を用いると
 
 $$
 I\ddot\theta
@@ -483,7 +569,7 @@ $I=2,a=3,k=3,\theta_0=\pi/2$ の定常歳差から、$\Omega_0$、$\nu$、線形
 <!-- solution-start -->
 ### 詳細解答
 
-$\Omega_0=a/k=1$。[小章動の振動数](#thm-rbd12-small-nutation)は $c=0$、$\sin\theta_0=1$ より
+[定常歳差の赤道条件](#thm-rbd12-steady-branches)より $\Omega_0=a/k=1$。[小章動の振動数](#thm-rbd12-small-nutation)は $c=0$、$\sin\theta_0=1$ より
 
 $$
 \nu^2=(k/I)^2+\Omega_0^2=(3/2)^2+1=\frac{13}{4},\quad
@@ -584,7 +670,7 @@ $$
 D=k^2-4Iac=4-4\cdot2\cdot3\cdot(-1/2)=16.
 $$
 
-二次式 $I c\Omega^2-k\Omega+a=0$ は $-\Omega^2-2\Omega+3=0$ なので
+[定常歳差の二次式](#thm-rbd12-steady-branches) $I c\Omega^2-k\Omega+a=0$ は $-\Omega^2-2\Omega+3=0$ なので
 
 $$
 \Omega=\frac{2\pm4}{-2}\in\{-3,1\}.
@@ -613,13 +699,10 @@ $D<0$ のとき[定常歳差二次方程式](#thm-rbd12-steady-branches)の実�
 
 $I=2,J=1,a=3,k=10,\theta_0=\pi/3$ の遅い定常歳差を考える。以下を順に求めよ。
 
-(1) $\Omega_0,h,\dot\psi_0$ を厳密に求め、元の二次方程式へ代入せよ。
-
-(2) 対応する傾き用エネルギー $\varepsilon_0$ と全エネルギー $E_0$ を求めよ。
-
-(3) $h,k$ は固定し、初期傾きを $\theta_i=\theta_0+\delta$、$\dot\theta(0)=0$ に変える（$0<\delta\ll1$）。初期 $\dot\phi,\dot\psi$、$\varepsilon-\varepsilon_0$ の主要項、初期加速度の符号、微小章動周期を求めよ。
-
-(4) 遅い枝への近似 $\Omega_{\mathrm{gyro}}=a/k$ の差の割合を示せ。
+1. $\Omega_0,h,\dot\psi_0$ を厳密に求め、元の二次方程式へ代入せよ。
+2. 対応する傾き用エネルギー $\varepsilon_0$ と全エネルギー $E_0$ を求めよ。
+3. $h,k$ は固定し、初期傾きを $\theta_i=\theta_0+\delta$、$\dot\theta(0)=0$ に変える（$0<\delta\ll1$）。初期 $\dot\phi,\dot\psi$、$\varepsilon-\varepsilon_0$ の主要項、初期加速度の符号、微小章動周期を求めよ。
+4. 遅い枝への近似 $\Omega_{\mathrm{gyro}}=a/k$ の差の割合を示せ。
 
 - Level: C
 
