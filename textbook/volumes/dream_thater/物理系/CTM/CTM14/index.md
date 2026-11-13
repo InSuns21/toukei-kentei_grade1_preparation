@@ -13,7 +13,14 @@ F=D_X\chi\in GL^+(3),\qquad
 GL^+(3)=\{F\in\mathbb R^{3\times3}:\det F>0\},\qquad J=\det F.
 $$
 
-$X$ と $x$ の単位は m、$F$ と $J$ は無次元である。$I=I_3$ は単位行列、上付き $T$ は転置、$A:B=\sum_{i,A}A_{iA}B_{iA}$ は同じ型の行列の二重内積とする。$F_{iA}$ の添字 $i$ は現在側の力、$A$ は基準側の微小線素を表す。行列微分の勾配は $DW(F)[H]=(\partial_F W):H$ となるよう定める。
+$X$ と $x$ の単位は m、$F$ と $J$ は無次元である。$I=I_3$ は単位行列、上付き $T$ は転置、$U:V=\sum_{i,A}U_{iA}V_{iA}$ は同じ型の行列の二重内積とする。$F_{iA}$ の添字 $i$ は現在側の成分、$A$ は基準側の成分を表す。基準側の標準直交基底を $e_A$ とすると、$F$ の第 $A$ 列は基準線素 $e_A$ の像 $Fe_A$ である。[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain) $C=F^TF$ はこれらの線素の内積を記録し、
+
+$
+C_{AB}=(Fe_A)\cdot(Fe_B)=\sum_i F_{iA}F_{iB},\qquad
+\operatorname{tr}C=\sum_A\|Fe_A\|^2.
+$
+
+行列を動かす方向 $H\in\mathbb R^{3\times3}$ での方向微分を $DW(F)[H]$ と書き、勾配 $\partial_F W$ は $DW(F)[H]=(\partial_F W):H$ を満たす行列として定める。時間依存の $F(t)$ では点記号 $\dot F=dF/dt$ は物質点 $X$ を固定した時間微分である。
 
 [CTM8 の第一 Piola 応力と Nanson の関係](../CTM8/index.md#def-ctm8-first-piola)では、基準の外向き法線 $N$ と面積 $dA$ に対する力は $PN\,dA$、現在の法線 $n$ と面積 $da$ に対する力は $\sigma n\,da$ であり、
 
@@ -62,12 +69,16 @@ W(F(s))=\frac a4(s^2-1)^2,\qquad
 \frac{dW(F(s))}{ds}=a s(s^2-1).
 $$
 
-一方、一般の変分 $\delta F=H$ に対して $\delta(F^TF)=F^TH+H^TF$、対称な $C-I$ の二つの項は同じ内積を与えるから、
+一方、一般の変分 $\delta F=H$（$\delta W=DW(F)[H]$）に対して、積の微分から $\delta C=F^TH+H^TF$ となる。$C-I$ は対称であり、行列内積の転置・積の関係 $(C-I):F^TH=F(C-I):H$ を使うと、
 
-$$
-\delta W=\frac a2(C-I):(F^TH+H^TF)
-=aF(C-I):H.
-$$
+$
+\begin{aligned}
+\delta W
+&=\frac a2(C-I):(F^TH+H^TF)\\
+&=\frac a2\bigl\{F(C-I):H+F(C-I)^T:H\bigr\}\\
+&=aF(C-I):H.
+\end{aligned}
+$
 
 ゆえに定義どおり $P=aF(C-I)$ であり、$F(s)$ の位置では $P_{11}=as(s^2-1)$、他は零。特に $\dot F=\operatorname{diag}(\dot s,0,0)$ なら $P:\dot F=dW/dt$ が成立する。$F(s)$ が正の行列式をもち、エネルギーの全九成分微分が存在し、仕事共役も満たすことを別々に確認した。
 <!-- definition-example-end -->
@@ -76,7 +87,7 @@ $$
 
 ## 2. 剛体回転でも同じエネルギーか
 
-観測者を回すと、変形勾配は左から $QF$ へ変わる（$Q^TQ=I,\det Q=1$）。同じ物理的変形のエネルギーが観測者によらないための条件は、[CTM10 の客観的エネルギーの表示](../CTM10/index.md#prop-ctm10-energy-objectivity)により $W(QF)=W(F)$ であり、$C=F^TF$ の関数として書ける。一方、材料の向きを基準座標で回す操作は**右から** $FH$ を掛け、材料等方性は $W(FH)=W(F)$ と表す（[CTM10 の材料等方性](../CTM10/index.md#def-ctm10-material-isotropy)）。
+回転行列の集合を $SO(3)=\{R\in\mathbb R^{3\times3}:R^TR=I,\ \det R=1\}$ と書く。以下、$Q\in SO(3)$ は現在側の観測者回転、$H\in SO(3)$ は基準側の材料方向の回転を表す。この節の $H$ は前節の任意の変分方向 $H$ とは別の役割である。観測者を回すと、変形勾配は左から $QF$ へ変わる。同じ物理的変形のエネルギーが観測者によらないための条件は、[CTM10 の客観的エネルギーの表示](../CTM10/index.md#prop-ctm10-energy-objectivity)により $W(QF)=W(F)$ であり、$C=F^TF$ の関数として書ける。一方、材料の向きを基準座標で回す操作は**右から** $FH$ を掛け、材料等方性は $W(FH)=W(F)$ と表す（[CTM10 の材料等方性](../CTM10/index.md#def-ctm10-material-isotropy)）。
 
 これらの回転は違う位置に作用する。$C(QF)=F^TQ^TQF=C$、$C(FH)=H^TCH$ である。前者では $C$ 全体が変わらないが、後者では行列が基準側で直交共役される。
 
@@ -141,7 +152,15 @@ $$
 W(I+\gamma e_1e_2^T)=\frac{\mu}{2}\gamma^2\ge0.
 $$
 
-$\gamma=0$ で $W=0$、$W$ は $\gamma$ について微分可能である。次の節で $P$ の全成分を求め、$\partial_\gamma W=P_{12}$ と確認する。
+$\gamma=0$ で $W=0$、$W$ は $\gamma$ について微分可能である。この一変数族では $dF/d\gamma=\partial_\gamma F=e_1e_2^T$（他の変数は固定）なので、超弾性の定義と連鎖律から
+
+$
+\frac{d}{d\gamma}W(F(\gamma))
+=DW(F(\gamma))[\partial_\gamma F]
+=P(F(\gamma)):\partial_\gamma F=P_{12}(F(\gamma)).
+$
+
+左辺は $\mu\gamma$ である。続く定理で $P$ の全成分を求め、右辺と一致することを確認する。
 <!-- definition-example-end -->
 
 計算に使う二つの方向微分を先に導く。任意の行列方向 $H$ に対し $I_1(F)=\sum F_{iA}^2$ より
@@ -150,7 +169,14 @@ $$
 DI_1(F)[H]=2\sum_{i,A}F_{iA}H_{iA}=2F:H.
 $$
 
-また、行列式の微分は $D(\det F)[H]=J\operatorname{tr}(F^{-1}H)$ なので、連鎖律を $J>0$ の $\log$ に適用して
+また $F\in GL^+(3)$ は可逆なので、十分小さい実数 $t$ に対して $F+tH\in GL^+(3)$ である。$A=F^{-1}H$ とすると行列式の乗法性と三列に関する多重線形性から
+
+$
+\det(F+tH)=J\det(I+tA)
+=J\{1+t\operatorname{tr}A+O(t^2)\}.
+$
+
+実際、$t$ の一次項は三列のうち一列だけを $Ae_j$ に取り替えた行列式の和 $A_{11}+A_{22}+A_{33}$ であり、二列以上の置換項は $O(t^2)$ となる。ゆえに $DJ(F)[H]=J\operatorname{tr}(F^{-1}H)$。連鎖律を $J>0$ の $\log$ に適用して
 
 $$
 D(\log J)(F)[H]
@@ -218,7 +244,7 @@ $$
 ゆえに三式を得る。$B,C,C^{-1},I$ は対称なので $\sigma,S$ は対称である。$P$ の非対称例は $F=Q\operatorname{diag}(2,1,1)$ の非自明な回転 $Q$ に対して生じる（後述）。$\square$
 <!-- proof-end -->
 
-この定理は、エネルギーの微分を別の応力へ直接転用してよいという意味ではない。$P:\dot F$ は基準体積当たり、$\sigma:D$ は現在体積当たりの仕事率であり、[CTM8 の仕事共役性](../CTM8/index.md#thm-ctm8-work-conjugacy)から $P:\dot F=J\sigma:D=S:\dot E$ で結ばれる。
+この定理は、エネルギーの微分を別の応力へ直接転用してよいという意味ではない。[CTM4 の速度勾配と変形速度テンソル](../CTM4/index.md#def-ctm4-velocity-gradient)の記法で $L=\dot F F^{-1}$、$D=(L+L^T)/2$ とすれば、$P:\dot F$ は基準体積当たり、$\sigma:D$ は現在体積当たりの仕事率であり、[CTM8 の仕事共役性](../CTM8/index.md#thm-ctm8-work-conjugacy)から $P:\dot F=J\sigma:D=S:\dot E$ で結ばれる。
 
 ## 4. 一様伸長：横方向の力も忘れない
 
