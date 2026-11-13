@@ -6,7 +6,7 @@
 
 ## 0. 模型・法線・符号を固定する
 
-三次元直交座標の鉛直上向きを $e_z$、高さを $z$ とする。重力は単位質量当たり $-ge_z$、$g>0$ とする。
+三次元直交座標を $(x,y,z)$、固定原点から測る位置ベクトルを $r=(x,y,z)$ とする（[FLUID2](../FLUID2/index.md) の $\boldsymbol r$ と同じ位置を表す）。鉛直上向き単位ベクトルを $e_z$、高さを $z$ とし、重力は単位質量当たり $-ge_z$、$g>0$ とする。成分を用いるときは $x_1=x,x_2=y,x_3=z$、$e_1=e_x,e_2=e_y,e_3=e_z$ と書き、$\partial_i p=\partial p/\partial x_i$ は他の空間座標を固定した偏微分である。
 
 外圧を一定の $p_a$ とし、静止した非圧縮液体の密度は、断りのない限り $\rho_f>0$（kg/m$^3$）で一定とする。自由表面を水平面 $z=H$ とし、表面張力・界面曲率圧力差、空気密度、外部支持力は無視する。
 
@@ -50,14 +50,14 @@ $$
 
 ### 証明の見取り図
 
-[静水圧方程式](../FLUID2/index.md#thm-fluid2-hydrostatic-balance)は圧力の勾配を与える。一方、閉曲面の法線を掛けた圧力の面積積分は、発散定理を各座標成分へ適用すれば体積内の圧力勾配の積分に移せる。物体の内部は液体でなくても、同じ圧力式を**計算のために延長**できる。
+[静水圧方程式](../FLUID2/index.md#thm-fluid2-hydrostatic-balance)は圧力の勾配を与える。一方、閉曲面の法線を掛けた圧力の面積積分は、[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を各座標成分へ適用すれば体積内の圧力勾配の積分に移せる。物体の内部は液体でなくても、同じ圧力式を**計算のために延長**できる。
 
 <!-- proof-start -->
 ### 証明
 
 物体の近傍で成立するアフィン関数 $p(x,y,z)=c-\rho_f gz$ を、物体の内部に数学的に延長する。これは物体内部の実際の応力を仮定する操作ではなく、境界上の既知の圧力値を保つ補助関数の選択である。
 
-発散定理を $p e_i$（$i=1,2,3$）に適用すると、$e_i$ が一定なので $\operatorname{div}(p e_i)=\partial_i p$ であり、
+上記の[発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を $p e_i$（$i=1,2,3$）に適用する。$K$ は区分的に滑らかな境界をもつ有限分割可能な領域、延長した $p$ はその閉包近傍で $C^1$ であるため適用できる。$e_i$ が一定なので $\operatorname{div}(p e_i)=\partial_i p$ であり、
 
 $$
 \int_{\partial K}p n_i\,dS
@@ -95,7 +95,7 @@ $$
 
 ## 2. 浮力はどこに作用するか
 
-合力だけが分かっても物体の回転を判定できない。点 $O$ から測った位置ベクトルを $r=x-O$ とし、圧力のトルクを $\tau_B(O)=-\int_{\partial K}r\times (pn)\,dS$ とする。液体で置き換えた体積の幾何学的な中心を、浮力の作用線の代表点として求めたい。
+合力だけが分かっても物体の回転を判定できない。基準点 $O$ の位置ベクトルを $r_O$ とし、物体表面の点の $O$ からの相対位置を $r-r_O$ と書く。圧力のトルクは $\tau_B(O)=-\int_{\partial K}(r-r_O)\times (pn)\,dS$ である。液体で置き換えた体積の幾何学的な中心を、浮力の作用線の代表点として求めたい。
 
 <a id="def-fluid3-center-buoyancy"></a>
 
@@ -108,7 +108,7 @@ $$
 \boxed{r_B=\frac1{V_D}\int_D r\,dV}
 $$
 
-で定まる点 $B$ を**浮心**という。完全水没なら $D=K$、自由表面を貫く物体なら $D=K\cap\{z\le H\}$（浸水領域）とする。重心 $G$ は物体自身の質量分布による中心であり、一般に浮心と一致しない。
+で定まる点 $B$ を**浮心**という。ここで $r$ と $r_B$ はともに第0節で固定した原点からの位置ベクトルであり、基準点 $O$ からの相対位置は $r_B-r_O$ である。完全水没なら $D=K$、自由表面を貫く物体なら $D=K\cap\{z\le H\}$（浸水領域）とする。重心 $G$ は物体自身の質量分布による中心であり、一般に浮心と一致しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid3-center-buoyancy -->
@@ -145,38 +145,39 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$O$ を原点として座標を書き、$r=(r_1,r_2,r_3)$ と置く。トルクの第 $i$ 成分に Levi-Civita 記号 $\varepsilon_{ijk}$ を用いると
+基準点 $O$ からの相対位置を $s=r-r_O=(s_1,s_2,s_3)$ と置く。[VC7 の Levi--Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon) $\varepsilon_{ijk}$ は添字が重複すると零、それ以外では置換の符号を表し、外積の成分は $(a\times b)_i=\sum_{j,k=1}^3\varepsilon_{ijk}a_jb_k$ である。これをトルクの第 $i$ 成分に使うと
 
 $$
 (\tau_B)_i=-\sum_{j,k}\varepsilon_{ijk}
-\int_{\partial K}r_j p n_k\,dS.
+\int_{\partial K}s_j p n_k\,dS.
 $$
 
-発散定理をベクトル場 $r_jp e_k$ に用いると
+[発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)をベクトル場 $s_jp e_k$ に用いると
 
 $$
-\int_{\partial K}r_jp n_k\,dS
-=\int_K\partial_k(r_jp)\,dV
-=\int_K(\delta_{jk}p+r_j\partial_kp)\,dV.
+\int_{\partial K}s_jp n_k\,dS
+=\int_K\partial_k(s_jp)\,dV
+=\int_K(\delta_{jk}p+s_j\partial_kp)\,dV.
 $$
 
-$\sum_{j,k}\varepsilon_{ijk}\delta_{jk}=0$ であるため、対称な $p$ の項は消える。よって
+ここで $\partial_k s_j=\delta_{jk}$ であり、[Kronecker のデルタ](../../../幾何系/VC/VC7/index.md#def-vc7-delta) $\delta_{jk}$ は $j=k$ のとき1、そうでないとき0である。$\varepsilon_{ijk}$ は $j=k$ なら零なので $\sum_{j,k}\varepsilon_{ijk}\delta_{jk}=0$ となり、$p$ の項は消える。よって
 
 $$
 (\tau_B)_i
-=-\sum_{j,k}\varepsilon_{ijk}\int_K r_j\partial_kp\,dV,
+=-\sum_{j,k}\varepsilon_{ijk}\int_K s_j\partial_kp\,dV,
 \qquad
-\tau_B=-\int_K r\times\nabla p\,dV.
+\tau_B=-\int_K s\times\nabla p\,dV.
 $$
 
 $\nabla p=-\rho_f ge_z$ を代入すると
 
 $$
-\tau_B=\rho_f g\left(\int_Kr\,dV\right)\times e_z
-=(Vr_B)\times(\rho_f g e_z).
+\tau_B=\rho_f g\left(\int_K(r-r_O)\,dV\right)\times e_z
+=\rho_f g(Vr_B-Vr_O)\times e_z
+=(r_B-r_O)\times(\rho_f gV e_z).
 $$
 
-ここで $r_B$ は $O$ を原点とする浮心の位置である。一般の位置表記では $r_B-r_O$ となる。$\square$
+第2節の[浮心の定義](#def-fluid3-center-buoyancy)で $\int_Kr\,dV=Vr_B$、また $\int_Kr_O\,dV=Vr_O$ とした。$\square$
 <!-- proof-end -->
 
 ![水没物体の重心Gには下向きの重力、排除液体の浮心Bには上向きの圧力合力が作用する模式図](assets/buoyancy-forces.svg)
@@ -218,7 +219,7 @@ F_B=-\int_{S_w}q n\,dS
 =-\int_D\nabla q\,dV.
 $$
 
-ここで $S_w$ では浸水領域の外法線 $n_D$ は物体外法線 $n$ に一致する。$\nabla q=-\rho_f ge_z$ を代入して $F_B=\rho_f gV_De_z$ を得る。トルクにも前節と同じ計算を $D,q$ へ適用すると $\tau_B(O)=(r_B-r_O)\times F_B$ である。$\square$
+ここで $S_w$ では浸水領域の外法線 $n_D$ は物体外法線 $n$ に一致する。$\nabla q=-\rho_f ge_z$ を代入して $F_B=\rho_f gV_De_z$ を得る。トルクにも[作用線の命題](#prop-fluid3-buoyancy-line)の証明と同じ成分計算を $D,q$ へ適用すると、$\int_D(r-r_O)\,dV=V_D(r_B-r_O)$ だから $\tau_B(O)=(r_B-r_O)\times F_B$ である。$\square$
 <!-- proof-end -->
 
 <a id="prop-fluid3-floating-equilibrium"></a>
@@ -282,7 +283,7 @@ $$
 I_w=\int_{A_w}x^2\,dA
 $$
 
-と置く。$I_w$ の単位は m$^4$、浸水体積 $V_D$ の単位は m$^3$ である。
+と置く。$I_w$ の単位は m$^4$、浸水体積 $V_D$ の単位は m$^3$ である。なぜ二次モーメントが効くかを見ると、水線面の位置 $x$ に増減する薄いくさびの高さは一次で $\theta x$、その体積の横方向一次モーメントは $x(\theta x)\,dA$ である。したがって横方向の浮心変位の一次項は $\theta I_w/V_D$ となる。この幾何学的な計算と物体自体の回転による位置変化を、次の定理で厳密に組み合わせる。ここで $O(\theta^2)$ は $\theta\to0$ で絶対値が定数倍の $\theta^2$ 以下となる剰余を表し、微分・展開の変数は時間ではなく傾斜角 $\theta$ である。
 
 <a id="def-fluid3-metacentric-height"></a>
 
@@ -374,7 +375,7 @@ x_B^{\rm world}-x_G^{\rm world}
 =GM\,\theta+O(\theta^2).
 $$
 
-[自由浮体の釣合](#prop-fluid3-floating-equilibrium)により浮力と重量はどちらも大きさ $mg$。空間で鉛直上向きの浮力の $y$ 軸トルクは $-mg(x_B^{\rm world}-x_G^{\rm world})$ だから表示式となる。$\theta>0$ に対して $\tau_y<0$ なら復元、$\tau_y>0$ なら転倒方向である。$\square$
+[自由浮体の釣合](#prop-fluid3-floating-equilibrium)により浮力と重量はどちらも大きさ $mg$。空間での合トルクは $mg(r_B^{\rm world}-r_G^{\rm world})\times e_z$ であり、その $y$ 成分は $e_y\cdot\{mg(r_B^{\rm world}-r_G^{\rm world})\times e_z\}=-mg(x_B^{\rm world}-x_G^{\rm world})$ だから表示式となる。$\theta>0$ に対して $\tau_y<0$ なら復元、$\tau_y>0$ なら転倒方向である。$\square$
 <!-- proof-end -->
 
 ### 直方体型浮体の安定性を確かめる
