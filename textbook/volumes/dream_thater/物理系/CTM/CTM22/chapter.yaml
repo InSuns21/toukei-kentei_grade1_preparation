@@ -1,0 +1,42 @@
+id: "CTM22"
+title: "組織連続体の最小模型を自力で組み立てる"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM21
+official_scope: []
+learning_objectives:
+  - "一次元の小変形組織帯について未知量・構成則・外部入力・境界条件・初期条件を切り分け、閉じた模型を立てられる"
+  - "成長ひずみ・能動張力・Kelvin–Voigt粘性を区別し、有限成長との近似範囲と応力の符号を説明できる"
+  - "自由端と両端固定の静的境界値問題を、非一様な活動・成長入力でも積分から解ける"
+  - "一様な活動開始後の自由端過渡応答と、固定端の速度依存反力を初期条件から計算できる"
+  - "弾性蓄積・化学消費・粘性散逸を局所式と積分式で照合し、質量源とエネルギー源に必要な追加仮定を説明できる"
+  - "最小模型で予測できる観測量と、大変形・横方向形態・活動生成則など未決定の部分を区別できる"
+definitions:
+  - { id: CTM22-DEF-01, name: "一次元の能動・成長組織模型" }
+theorems:
+  - { id: CTM22-THM-01, name: "非一様組織帯の静的変位と端面反力" }
+  - { id: CTM22-THM-02, name: "一様組織帯の自由端過渡応答と固定反力" }
+  - { id: CTM22-PROP-01, name: "能動・成長・粘性を含む仕事と散逸" }
+canonical_examples:
+  - "成長ひずみと活動張力が全応力で相殺・競合する固定帯と自由帯"
+  - "一様帯で変位と境界反力の向きを単位つきで比較する"
+  - "非一様な活動で端面変位零でも内部変位が非零になる例"
+  - "Kelvin–Voigt時定数を持つ活動ステップ後の短縮"
+  - "化学消費・弾性蓄積・粘性散逸の積算一致"
+  - "軸成長に質量源を結び付けるための一定自然密度仮定"
+problem_patterns:
+  - CTM22-GROWTH-ACTIVE-SIGN
+  - CTM22-END-REACTION
+  - CTM22-BOUNDARY-OVERDETERMINATION
+  - CTM22-MASS-ASSUMPTION
+  - CTM22-RELAXATION-TIME
+  - CTM22-SPATIAL-ACTIVITY
+  - CTM22-STRESS-CANCELLATION
+  - CTM22-FUEL-BALANCE
+  - CTM22-GROWTH-VISCOSITY
+  - CTM22-INTEGRATED-TISSUE-MODEL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
