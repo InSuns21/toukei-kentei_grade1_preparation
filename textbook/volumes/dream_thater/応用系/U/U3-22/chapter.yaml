@@ -2,7 +2,7 @@ id: "U3-22"
 title: "Black–Scholes PDE の格子化・陽解法"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-11, U3-16, U3-17, U3-18, U3-19]
+prerequisites: [NA6, U3-11, U3-16, U3-17, U3-18, U3-19]
 official_scope: []
 learning_objectives:
   - 満期からの残存時間への変換を連鎖律で行い、配当付き Black–Scholes PDE と初期・境界値を確定できる
