@@ -6,6 +6,7 @@ prerequisites:
   - HOLO18
   - HOLO13
   - HOLO23
+  - VC5
 forward_references: []
 concepts:
   - id: holography.vacuum-ball-modular-generator
