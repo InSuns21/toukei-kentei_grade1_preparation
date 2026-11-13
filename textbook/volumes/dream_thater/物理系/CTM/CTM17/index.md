@@ -434,7 +434,7 @@ $$
 =\frac{2\ell G^2h^3}{3\eta}.
 $$
 
-[単位幅流量の公式](#thm-ctm17-flux-and-wall-stress)を用いた $\Delta p\,q=G\ell\cdot2Gh^3/(3\eta)$ と一致し、単位は W/m である。
+[平板 Poiseuille 流の流量・壁面せん断力](#thm-ctm17-flux-and-wall-stress)で得た $q$ を用いると $\Delta p\,q=G\ell\cdot2Gh^3/(3\eta)$ と一致し、単位は W/m である。
 <!-- solution-end -->
 
 ### A5. 微小流路の圧力差
