@@ -1,0 +1,65 @@
+chapter: CTM15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM14
+forward_references:
+  - thermodynamics.equation-of-state
+concepts:
+  - id: continuum.deviatoric-deformation-rate
+    name: 変形速度の偏差部分と体積変化率
+    aliases: [偏差変形速度]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変形速度の偏差部分と体積変化率）"]
+    requires: [continuum.rate-of-deformation-spin]
+  - id: continuum.compressible-newtonian-fluid
+    name: 圧縮性等方 Newton 流体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圧縮性等方 Newton 流体）"]
+    requires: [continuum.deviatoric-deformation-rate, continuum.material-angular-stress-symmetry, continuum.constitutive-objectivity]
+  - id: continuum.newtonian-objectivity
+    name: Newton 粘性応力の客観性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Newton 粘性応力の客観性）"]
+    requires: [continuum.compressible-newtonian-fluid, continuum.observer-transform-velocity-gradient]
+  - id: continuum.newtonian-viscous-dissipation
+    name: Newton 流体の粘性散逸
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Newton 流体の粘性散逸）"]
+    requires: [continuum.compressible-newtonian-fluid, continuum.deviatoric-deformation-rate, continuum.internal-energy-balance]
+  - id: continuum.compressible-newtonian-momentum
+    name: 圧縮性 Newton 流体の運動量方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（圧縮性 Newton 流体の運動量方程式）"]
+    requires: [continuum.compressible-newtonian-fluid, continuum.material-momentum-local, continuum.mass-conservation-equivalence]
+  - id: continuum.incompressible-newtonian-stress
+    name: 非圧縮 Newton 流体の応力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非圧縮 Newton 流体の応力）"]
+    requires: [continuum.compressible-newtonian-fluid, continuum.mass-conservation-equivalence]
+  - id: continuum.incompressible-navier-stokes
+    name: 一定粘性係数の非圧縮 Navier–Stokes 方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一定粘性係数の非圧縮 Navier–Stokes 方程式）"]
+    requires: [continuum.incompressible-newtonian-stress, continuum.material-momentum-local, continuum.mass-conservation-equivalence]
+  - id: continuum.wall-no-slip
+    name: 壁面の無滑り条件
+    aliases: [無滑り条件]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（壁面の無滑り条件）"]
+    requires: []
+  - id: continuum.wall-impermeability
+    name: 壁面の非貫通条件
+    aliases: [非貫通条件]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（壁面の非貫通条件）"]
+    requires: []

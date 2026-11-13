@@ -15,7 +15,14 @@ V:H_{\mathrm{code}}\longrightarrow H_A\otimes H_{\bar A},
 \qquad V^\dagger V=I_{\mathrm{code}}
 $$
 
-です。$A$ を保持して $\bar A$ を失う問題を考えます。$V$ の像に限った作用の等式と、物理空間全体の演算子等式を区別します。行列の対数・相対エントロピーについては[HOLO28のモジュラーHamiltonian](../HOLO28/index.md#def-holo28-modular-hamiltonian)と[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)を使います。
+です。$A$ を保持して $\bar A$ を失う問題を考えます。$V$ の像に限った作用の等式と、物理空間全体の演算子等式を区別します。行列の対数・相対エントロピーについては[HOLO28のモジュラーHamiltonian](../HOLO28/index.md#def-holo28-modular-hamiltonian)と[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)を使います。ただしQINF20は底2の対数を使うので、本講で自然対数を使う値との対応は
+
+$$
+D_{\mathrm{nat}}(\rho\Vert\sigma)
+=(\log 2)D_{\mathrm{bit}}(\rho\Vert\sigma)
+$$
+
+です。台の包含条件は対数の底を変えても同じです。
 
 ## 1. 失われても測りたいものを「代数」で指定する
 
@@ -35,7 +42,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo30-observable-algebra -->
-****定義の確認**。** $H=\mathbb C^2$ で $\mathcal M$ をすべての対角行列とします。二つの対角行列の和・積・随伴は再び対角行列で、$I_2=\operatorname{diag}(1,1)$ も入ります。$T=(t_{ij})$ が $\operatorname{diag}(1,0)$ と可換なら、$t_{12}=t_{21}=0$。したがって $\mathcal M'=\mathcal M$、中心も $\mathcal M$ です。対照的に $\mathcal M=\mathcal B(\mathbb C^2)$ なら、すべての行列と可換な $T$ は $T=\lambda I_2$ のみです（対角射影との可換性で非対角項が消え、$|0\rangle\langle1|$ との可換性で二対角成分が等しくなります）。
+**定義の確認**。 $H=\mathbb C^2$ の標準正規直交基底 $|0\rangle,|1\rangle$ で行列を表し、$\mathcal M$ をすべての対角行列とします。二つの対角行列の和・複素数倍・積・随伴は再び対角行列で、$I_2=\operatorname{diag}(1,1)$ も入ります。可換子の定義は、各 $O\in\mathcal M$ に対し $TO=OT$ を調べることです。特に $P_0=|0\rangle\langle0|=\operatorname{diag}(1,0)\in\mathcal M$ と $T=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ について
+
+$$
+TP_0=\begin{pmatrix}a&0\\c&0\end{pmatrix},
+\qquad
+P_0T=\begin{pmatrix}a&b\\0&0\end{pmatrix}
+$$
+
+なので $b=c=0$ です。逆に任意の対角行列はすべての対角行列と可換であるため、$\mathcal M'=\mathcal M$、中心も $\mathcal M$ です。対照的に $\mathcal M=\mathcal B(\mathbb C^2)$ なら、すべての行列と可換な $T$ は $T=\lambda I_2$ のみです（対角射影との可換性で非対角項が消え、$|0\rangle\langle1|$ との可換性で二対角成分が等しくなります）。
 <!-- definition-example-end -->
 
 中心が大きいとは、**互いに区別できる古典的ラベル**があるということです。一方で中心の非対角方向を自由に操作できるという意味ではありません。
@@ -98,7 +113,31 @@ $$
 T_\alpha=\sum_{i,j}|i\rangle\langle j|_a\otimes T_{ij}
 $$
 
-と展開します。$|k\rangle\langle k|_a\otimes I_b$ との可換性から $T_{ij}=0$（$i\ne j$）。さらに $|i\rangle\langle j|_a\otimes I_b$（$i\ne j$）との可換性は $T_{ii}=T_{jj}$ を与えます。$a_\alpha$ が1次元の場合も同じ結論は直ちに成立します。よって $T_\alpha=I_{a_\alpha}\otimes T_{b_\alpha}$ です。逆向きの可換性はテンソル積の異なる因子が可換であることから従います。
+と展開します。ここで $T_{ij}$ は $H_{b_\alpha}$ 上の作用素で、基底の行列要素を取って
+
+$$
+T_{ij}=(\langle i|_a\otimes I_b)T_\alpha(|j\rangle_a\otimes I_b)
+$$
+
+と定まります。$E_{kk}=|k\rangle\langle k|_a$ と置くと、$E_{kk}\otimes I_b$ との可換性は
+
+$$
+(E_{kk}\otimes I_b)T_\alpha
+=\sum_j|k\rangle\langle j|_a\otimes T_{kj},
+\qquad
+T_\alpha(E_{kk}\otimes I_b)
+=\sum_i|i\rangle\langle k|_a\otimes T_{ik}
+$$
+
+を等置する条件です。異なる行列単位の係数を比べると $T_{ij}=0$（$i\ne j$）。次に $E_{ij}=|i\rangle\langle j|_a$（$i\ne j$）について
+
+$$
+T_\alpha(E_{ij}\otimes I_b)=E_{ij}\otimes T_{ii},
+\qquad
+(E_{ij}\otimes I_b)T_\alpha=E_{ij}\otimes T_{jj}
+$$
+
+なので、可換性は $T_{ii}=T_{jj}$ を与えます。$a_\alpha$ が1次元の場合も同じ結論は直ちに成立します。よって $T_\alpha=I_{a_\alpha}\otimes T_{b_\alpha}$ です。逆向きの可換性はテンソル積の異なる因子が可換であることから従います。
 
 中心の元は同時に $\mathcal M$ に属するので、各ブロックで $O_{a_\alpha}\otimes I_b=I_a\otimes T_b$ です。両辺の $a,b$ の基底行列要素を比較すると、どちらも $z_\alpha I_a\otimes I_b$ でなければなりません。従って中心は $\sum_\alpha z_\alpha P_\alpha$ です。
 <!-- proof-end -->
@@ -115,7 +154,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（領域上の論理代数の完全再構成）**  
-> 有限次元等長写像 $V:H_{\mathrm{code}}\to H_A\otimes H_{\bar A}$ と単位的な $*$-代数 $\mathcal M\subseteq\mathcal B(H_{\mathrm{code}})$ を固定する。単位・和・積・随伴を保つ写像 $\pi_A:\mathcal M\to\mathcal B(H_A)$ が存在し、すべての $O\in\mathcal M$ に対して
+> 有限次元等長写像 $V:H_{\mathrm{code}}\to H_A\otimes H_{\bar A}$ と単位的な $*$-代数 $\mathcal M\subseteq\mathcal B(H_{\mathrm{code}})$ を固定する。単位・和・複素数倍・積・随伴を保つ写像 $\pi_A:\mathcal M\to\mathcal B(H_A)$ が存在し、すべての $O\in\mathcal M$ に対して
 
 $$
 (\pi_A(O)\otimes I_{\bar A})V=VO
@@ -125,7 +164,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo30-algebra-reconstruction -->
-**定義の確認**（恒等埋め込み）。 $H_{\mathrm{code}}=H_a\otimes H_b$、$H_A=H_a$、$H_{\bar A}=H_b$ とし、$V$ を因子の恒等的な並べ替えとします。$\mathcal M=\mathcal B(H_a)\otimes I_b$ とすると $\pi_A(O_a\otimes I_b)=O_a$ です。二つの演算子 $O_a,T_a$ について $\pi_A(OT)=O_aT_a=\pi_A(O)\pi_A(T)$、$\pi_A(O^\dagger)=O_a^\dagger$ であり、任意の $|u\rangle_a|v\rangle_b$ 上で $(O_a\otimes I_b)V=V(O_a\otimes I_b)$ が成立します。一方 $b$ だけを変える作用素は一般にこの代数には含まれません。
+**定義の確認**（恒等埋め込み）。 $H_{\mathrm{code}}=H_a\otimes H_b$、$H_A=H_a$、$H_{\bar A}=H_b$ とし、$V=I_{H_a\otimes H_b}$ を同じ因子順序の恒等埋め込みとします。$\mathcal M=\mathcal B(H_a)\otimes I_b$ とすると $\pi_A(O_a\otimes I_b)=O_a$ です。二つの演算子 $O=O_a\otimes I_b,T=T_a\otimes I_b$ と複素数 $\lambda$ について、$\pi_A(I_{H_{\mathrm{code}}})=I_a$、$\pi_A(O+\lambda T)=O_a+\lambda T_a=\pi_A(O)+\lambda\pi_A(T)$、$\pi_A(OT)=O_aT_a=\pi_A(O)\pi_A(T)$、$\pi_A(O^\dagger)=O_a^\dagger$ です。また任意の $|u\rangle_a|v\rangle_b$ 上で $(O_a\otimes I_b)V=V(O_a\otimes I_b)$ が成立します。一方 $b$ だけを変える作用素は一般にこの代数には含まれません。
 <!-- definition-example-end -->
 
 一般の符号では、保持系 $A$ から**論理状態全体**を復号できる必要はありません。ここで求めるのは $\mathcal M$ の観測統計の回復です。例えば $a$ の状態は回復できても、$b$ の未知の状態まで回復することは要求しません。
@@ -158,7 +197,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（直和コードの相補的代数再構成）**  
-> 上記の有限次元符号 $V$ と第2節の $\mathcal M$ に対し、$\mathcal M$ は $A$ 上で、$\mathcal M'$ は $\bar A$ 上で完全再構成可能である。中心 $\mathcal Z(\mathcal M)$ の各 $P_\alpha$ は両物理領域で再構成できる。一方、$\alpha\ne\beta$ の間の非零の行列ブロック $P_\alpha TP_\beta$ は、$A$ 上にも $\bar A$ 上にも符号上の表現を持たない。
+> 上記の有限次元符号 $V$ と第2節の $\mathcal M$ に対し、$\mathcal M$ は $A$ 上で、$\mathcal M'$ は $\bar A$ 上で完全再構成可能である。中心 $\mathcal Z(\mathcal M)$ の各 $P_\alpha$ は両物理領域で再構成できる。一方、任意の $T\in\mathcal B(H_{\mathrm{code}})$ と異なる $\alpha,\beta$ に対して $P_\alpha TP_\beta\ne0$ なら、作用素 $P_\alpha TP_\beta$ は $A$ 上にも $\bar A$ 上にも符号上の表現を持たない。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** $A$ 上では $O_{a_\alpha}$ をそのまま作用させ、$\bar A$ 上では $T_{b_\alpha}$ をそのまま作用させます。セクターラベルは各物理因子の直和ブロックに刻まれています。非対角のセクター間操作は、反対側のラベルも同時に変える必要があるため、片側の操作では実現できません。
@@ -180,11 +219,11 @@ V(|u\rangle_{a_\alpha}|v\rangle_{b_\alpha})
 =V(O_{a_\alpha}|u\rangle_{a_\alpha}|v\rangle_{b_\alpha})
 $$
 
-が成立します。$\pi_A(I)=I_A$ であり、和・積・随伴の保存は各ブロックの行列演算から従います。線形性で任意のコードベクトルについて再構成条件を得ます。
+が成立します。$\pi_A(I)=I_A$ であり、和・複素数倍・積・随伴の保存は各ブロックの行列演算から従います。線形性で任意のコードベクトルについて再構成条件を得ます。
 
 [第2節の命題](#prop-holo30-center-commutant)で求めた作用素の集合は $\mathcal M'=\bigoplus_\alpha(I_{a_\alpha}\otimes\mathcal B(H_{b_\alpha}))$ です。$\bar A$ 上で $\pi_{\bar A}(T)=\bigoplus_\alpha(T_{b_\alpha}\otimes I_{e_{B,\alpha}})$ とすれば、同じ基底計算で $(I_A\otimes\pi_{\bar A}(T))V=VT$ です。特に $\pi_A(P_\alpha)$ と $\pi_{\bar A}(P_\alpha)$ はそれぞれ物理領域の第 $\alpha$ ブロック射影です。
 
-最後に $\alpha\ne\beta$ で $P_\alpha TP_\beta\ne0$ と仮定します。物理 $A$ の任意の $X_A$ は、$\bar A$ のセクターを変えません。入力が $\beta$ ブロックなら $(X_A\otimes I)V$ は $\bar A$ の $\beta$ ブロックに残ります。他方 $VT$ の $\alpha$ 成分は $\bar A$ の $\alpha$ ブロックにあり、互いに直交します。よって $(X_A\otimes I)V=VT$ は不可能です。$A$ と $\bar A$ を交換しても同じです。
+最後に $\alpha\ne\beta$ かつ $R=P_\alpha TP_\beta\ne0$ とします。$R$ の定義域側は $\beta$ ブロックなので、$R|w_\beta\rangle\ne0$ となる $|w_\beta\rangle\in H_{a_\beta}\otimes H_{b_\beta}$ が存在します。物理 $A$ の任意の $X_A$ に対し、$(X_A\otimes I_{\bar A})V|w_\beta\rangle$ の $\bar A$ 成分は $\beta$ ブロックに残ります。他方 $VR|w_\beta\rangle$ は零でなく、$\bar A$ の $\alpha$ ブロックにあります。両者は異なる直交部分空間に属するため等しくなれず、$(X_A\otimes I_{\bar A})V=VR$ は不可能です。$A$ と $\bar A$ を交換すれば、$\bar A$ 上の表現も同様に否定されます。
 <!-- proof-end -->
 
 **小さい直接例。** 両セクターで $a_\alpha=b_\alpha=\mathbb C^2$ とし、$d_0=1,d_1=2$ とします。論理空間は8次元、物理 $A,\bar A$ はともに $2+4=6$ 次元です。$A$ の物理作用素
@@ -245,13 +284,22 @@ $$
 =\frac{\operatorname{Tr}_{b_\alpha}(P_\alpha\rho P_\alpha)}{p_\alpha}
 $$
 
-と定めます。$p_\alpha=0$ なら $p_\alpha S(\rho_{a_\alpha})=0$ と解釈します。中心射影の確率分布に関するShannonエントロピーを $H(p)=-\sum_\alpha p_\alpha\log p_\alpha$（$0\log0=0$）とし、観測量代数の状態のエントロピーを次式で表します。
+と定めます。$p_\alpha=0$ なら $p_\alpha S(\rho_{a_\alpha})=0$ と解釈します。中心射影の確率分布に関するShannonエントロピーを $H(p)=-\sum_\alpha p_\alpha\log p_\alpha$（$0\log0=0$）とします。なぜ $b_\alpha$ を捨てて $\rho_{a_\alpha}$ を並べればよいかは、任意の $O=\bigoplus_\alpha(O_{a_\alpha}\otimes I_{b_\alpha})\in\mathcal M$ に対する期待値で確かめられます。
+
+$$
+\operatorname{Tr}_{H_{\mathrm{code}}}(\rho O)
+=\sum_\alpha\operatorname{Tr}_{a_\alpha b_\alpha}
+\bigl(P_\alpha\rho P_\alpha(O_{a_\alpha}\otimes I_{b_\alpha})\bigr)
+=\sum_\alpha p_\alpha\operatorname{Tr}_{a_\alpha}(\rho_{a_\alpha}O_{a_\alpha}).
+$$
+
+第1の等号は $O$ がブロック対角であること、第2は部分トレースの定義によります。したがって $\mathcal M$ の全期待値は $p_\alpha\rho_{a_\alpha}$ だけから決まり、表現先を $\bigoplus_\alpha H_{a_\alpha}$ とする密度行列で代数の状態を記述できます。観測量代数の状態のエントロピーを次式で表します。
 
 <a id="def-holo30-algebra-entropy"></a>
 
 <!-- formal-statement-start -->
 > **定義（有限直和代数の状態エントロピー）**  
-> $H_{\mathrm{code}}=\bigoplus_\alpha(H_{a_\alpha}\otimes H_{b_\alpha})$ と $\mathcal M=\bigoplus_\alpha(\mathcal B(H_{a_\alpha})\otimes I_{b_\alpha})$ を固定する。密度行列 $\rho$ の $\mathcal M$ に対する制限状態は $\rho_{\mathcal M}=\bigoplus_\alpha p_\alpha\rho_{a_\alpha}$ で表し、そのエントロピーを
+> $H_{\mathrm{code}}=\bigoplus_\alpha(H_{a_\alpha}\otimes H_{b_\alpha})$ と $\mathcal M=\bigoplus_\alpha(\mathcal B(H_{a_\alpha})\otimes I_{b_\alpha})$ を固定する。密度行列 $\rho$ の $\mathcal M$ に対する制限状態は $H_{\mathcal M}:=\bigoplus_\alpha H_{a_\alpha}$ 上の $\rho_{\mathcal M}=\bigoplus_\alpha p_\alpha\rho_{a_\alpha}$ で表し、そのエントロピーを
 
 $$
 S_{\mathcal M}(\rho)
@@ -263,7 +311,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo30-algebra-entropy -->
-****定義の確認**。** 二セクターで $a_0=a_1=\mathbb C$、$p_0=1/4,p_1=3/4$ とすれば $\rho_{\mathcal M}=\operatorname{diag}(1/4,3/4)$。正半定値、トレース1で、固有値から $S_{\mathcal M}(\rho)=-\frac14\log\frac14-\frac34\log\frac34=H(1/4,3/4)$ です。$b_\alpha$ の状態や二つのセクター間の相対位相は、$\mathcal M$ の期待値に影響せず、このエントロピーにも現れません。
+**定義の確認**。 二セクターで $a_0=a_1=\mathbb C$、$p_0=1/4,p_1=3/4$ とすれば $\rho_{\mathcal M}=\operatorname{diag}(1/4,3/4)$。正半定値、トレース1で、固有値から $S_{\mathcal M}(\rho)=-\frac14\log\frac14-\frac34\log\frac34=H(1/4,3/4)$ です。$b_\alpha$ の状態や二つのセクター間の相対位相は、$\mathcal M$ の期待値に影響せず、このエントロピーにも現れません。
 <!-- definition-example-end -->
 
 <a id="thm-holo30-algebraic-rt"></a>
@@ -297,7 +345,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\rho$ をセクターの直和ブロック $\rho_{\alpha\beta}=P_\alpha\rho P_\beta$ に分解します。$\alpha\ne\beta$ では符号化後の $\bar A$ の両側が直交するセクターに属するため、$\operatorname{Tr}_{\bar A}(V\rho_{\alpha\beta}V^\dagger)=0$。対角ブロックに対しては
+$\rho$ をセクターの直和ブロック $\rho_{\alpha\beta}=P_\alpha\rho P_\beta$ に分解します。$\alpha\ne\beta$ では符号化後の $\bar A$ の両側が直交するセクターに属します。実際、$\bar A$ の正規直交基底 $|k,\gamma\rangle_{\bar A}$ をセクター $\gamma$ ごとに取ると、部分トレースの各項
+
+$$
+(I_A\otimes\langle k,\gamma|)V\rho_{\alpha\beta}V^\dagger
+(I_A\otimes|k,\gamma\rangle)
+$$
+
+は $\gamma=\alpha$ と $\gamma=\beta$ を同時に満たさない限り零です。よって $\operatorname{Tr}_{\bar A}(V\rho_{\alpha\beta}V^\dagger)=0$。対角ブロックでは、補助状態の部分トレース $\operatorname{Tr}_{e_{B,\alpha}}|\Phi_{d_\alpha}\rangle\langle\Phi_{d_\alpha}|=d_\alpha^{-1}\sum_{r=1}^{d_\alpha}|r\rangle\langle r|=I_{d_\alpha}/d_\alpha$ を使うと
 
 $$
 \operatorname{Tr}_{\bar A}(V\rho_{\alpha\alpha}V^\dagger)
@@ -334,8 +389,8 @@ $$
 
 $$
 \log\sigma_A\big|_\alpha
-=\log(q_\alpha\sigma_{a_\alpha})\otimes I_d
--(\log d_\alpha)I
+=\log(q_\alpha\sigma_{a_\alpha})\otimes I_{d_\alpha}
+-(\log d_\alpha)(I_{a_\alpha}\otimes I_{d_\alpha})
 $$
 
 です。これを $D(\rho_A\Vert\sigma_A)=\operatorname{Tr}\rho_A(\log\rho_A-\log\sigma_A)$ に代入すると、二つの $\log d_\alpha$ が相殺され、

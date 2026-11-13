@@ -1,0 +1,44 @@
+id: "U3-15"
+title: "連続時間のリスク中立測度とヘッジ"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-14, STO10, U3-04]
+official_scope: []
+learning_objectives:
+  - ニュメレールと同値マルチンゲール測度を定義し、実確率との役割の違いを説明できる
+  - 定数係数 GBM で Novikov 条件を確認し、Girsanov の密度過程・変換後の Brown 運動を構成できる
+  - Q 下の割引株価が局所でなく真のマルチンゲールとなることを条件付き指数モーメントから証明できる
+  - P と Q の割引期待値の違いを理論式と数値で検証できる
+  - 連続時間の自己金融条件を割引した確率積分に書き換え、必要な可積分条件を示せる
+  - 複製可能な満期請求権のリスク中立評価式を自己金融戦略から導ける
+  - 二乗支払額の動的ヘッジと満期複製を Itô 公式で検算できる
+  - sigma=0 の裁定反例と測度変換・配当・取引制約の適用限界を説明できる
+definitions:
+  - { id: U3-15-DEF-01, name: "ニュメレールと割引価格" }
+  - { id: U3-15-DEF-02, name: "預金基準の同値マルチンゲール測度" }
+  - { id: U3-15-DEF-03, name: "連続時間の自己金融戦略" }
+theorems:
+  - { id: U3-15-THM-01, name: "定数係数 GBM のリスク中立測度の構成" }
+  - { id: U3-15-PROP-01, name: "自己金融条件の割引形" }
+  - { id: U3-15-THM-02, name: "複製可能な満期請求権の価格" }
+  - { id: U3-15-PROP-02, name: "二乗支払額の複製価格と動的ヘッジ" }
+canonical_examples:
+  - "s0=100,mu=0.08,r=0.03,sigma=0.2,T=1 で theta=0.25 と E_Q[S_T/B_T]=100 を確認する"
+  - "P の平均割引株価 100e^0.05 と Q の平均割引株価 100 を比較する"
+  - "H=S_T^2/K で価格・動的ヘッジ・満期複製を再計算する"
+  - "sigma=0,mu!=r の確定裁定を株式と預金の取引で構成する"
+problem_patterns:
+  - U3-15-A1
+  - U3-15-A2
+  - U3-15-A3
+  - U3-15-A4
+  - U3-15-A5
+  - U3-15-B1
+  - U3-15-B2
+  - U3-15-B3
+  - U3-15-B4
+  - U3-15-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
