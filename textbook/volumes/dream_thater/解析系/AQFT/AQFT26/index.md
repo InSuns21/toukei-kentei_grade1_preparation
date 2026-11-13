@@ -65,7 +65,7 @@ $u$ と $v$ はそれぞれ $e^s,e^{-s}$ 倍なので、二回作用させると
 
 ## 2. Rindler座標で「時間」がどこにあるかを見る
 
-右wedgeでは $x^1>|x^0|$ なので $(x^1)^2-(x^0)^2>0$。そこでその正の平方根を $\rho$ とし、boostに沿った時間座標を $\eta$ とします。変換式を先に導けば、座標がどこで定義できるかが明瞭です。
+右wedgeでは $x^1>|x^0|$ なので $(x^1)^2-(x^0)^2>0$。そこでその正の平方根を $\rho$ とし、boostに沿った時間座標を $\eta$ とします。変換式を先に導けば、座標がどこで定義できるかが明瞭です。以下の線素 $ds^2$ は時空の微小間隔を表す慣用記法であり、boostのパラメータ $s$ の微分を意味しません。
 
 <a id="def-aqft26-rindler"></a>
 
@@ -79,13 +79,13 @@ x^1=\rho\cosh\eta,\qquad
 (x^2,x^3)=y
 $$
 >
-> と表示した $(\eta,\rho,y)$ をRindler座標という。$\eta$ がRindler時間、$\rho$ がwedge頂点からの双曲線半径である。
+> と表示した $(\eta,\rho,y)$ をRindler座標という。ここで $y=(y_1,y_2)=(x^2,x^3)$ は横方向の二座標である。$\eta$ がRindler時間、$\rho$ がwedge頂点からの双曲線半径である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft26-rindler -->
 ### 直接例：逆変換・範囲・boostを検査
 
-**定義の確認**。Rindler座標の定義域全体への一対一対応とboost作用を調べます。
+**定義の確認**。Rindler座標の定義域全体への一対一対応とboost作用を調べます。時間・空間の $(0,1)$ 成分を与える二式と、横方向を固定する二式をまとめて座標写像と見なし、その逆写像を求めます。
 
 $(x^1)^2-(x^0)^2=\rho^2$ なので $\rho=\sqrt{(x^1)^2-(x^0)^2}>0$。さらに $x^0/x^1=\tanh\eta$ で、$|x^0/x^1|<1$ より $\eta=\operatorname{artanh}(x^0/x^1)$ が実数として一意に定まります。逆に $\cosh\eta>|\sinh\eta|$ なので任意の $\rho>0,\eta\in\mathbb R$ は $W_R$ の点を与えます。$\Lambda(s)$ の加法公式を代入すれば
 $$
@@ -129,7 +129,7 @@ $$
 \dot X=\bigl(\cosh(\tau/\rho_0),\sinh(\tau/\rho_0),0,0\bigr),\quad
 \ddot X=\rho_0^{-1}\bigl(\sinh(\tau/\rho_0),\cosh(\tau/\rho_0),0,0\bigr).
 $$
-$\eta(\dot X,\dot X)=-1$、$\eta(\ddot X,\ddot X)=\rho_0^{-2}$ であるから、加速度の大きさは $\sqrt{\eta(\ddot X,\ddot X)}=\rho_0^{-1}$ です。
+ここで点は固有時 $\tau$ に関する微分 $\dot X=dX/d\tau$、$\ddot X=d^2X/d\tau^2$ を表します。計量テンソル $\eta(\cdot,\cdot)$ と時間座標 $\eta$ は同じ文字でも別の対象です。$\eta(\dot X,\dot X)=-1$、$\eta(\ddot X,\ddot X)=\rho_0^{-2}$ であるから、加速度の大きさは $\sqrt{\eta(\ddot X,\ddot X)}=\rho_0^{-1}$ です。
 <!-- proof-end -->
 
 **境界の意味。** $\rho=0$ はこの座標表示の範囲外です。時空がそこで曲がるわけではありません。固定加速度の軌道の固有時と、全右wedge共通の無次元rapidityを取り違えないでください。
@@ -144,7 +144,7 @@ e^{-i\omega_{\boldsymbol p}(x^0-y^0)+i\boldsymbol p\cdot(\boldsymbol x-\boldsymb
 $$
 これは実時間では一般に通常の絶対収束積分ではなく分布です。いったん $x^0-y^0$ を $x^0-y^0-i\varepsilon$（$\varepsilon>0$）にずらせば質量殻で $e^{-\varepsilon\omega_{\boldsymbol p}}$ が掛かり収束します。この**負の虚時間**の向きが以下の帯を決めます。
 
-質量殻の縦運動量を $p^1=\mu_\perp\sinh\theta$、$\omega_{\boldsymbol p}=\mu_\perp\cosh\theta$、$\mu_\perp=\sqrt{m^2+|\boldsymbol p_\perp|^2}$ と置くと
+運動量の横成分を $\boldsymbol p_\perp=(p^2,p^3)$ とし、縦運動量を $p^1=\mu_\perp\sinh\theta$、$\omega_{\boldsymbol p}=\mu_\perp\cosh\theta$、$\mu_\perp=\sqrt{m^2+|\boldsymbol p_\perp|^2}$ と置きます。ここで $\theta\in\mathbb R$ は運動量側のrapidityであり、Rindler時間 $\eta$ とは異なる積分変数です。$dp^1=\mu_\perp\cosh\theta\,d\theta$ だから
 $$
 \frac{dp^1}{2\omega_{\boldsymbol p}}=\frac{d\theta}{2},\qquad
 \cosh\theta\,\sinh\eta-\sinh\theta\,\cosh\eta
@@ -187,7 +187,18 @@ $$
 =\frac1{2\sqrt\pi}\int_0^\infty
 u^{-1/2}e^{-bu-a^2/(4u)}\,du
 $$
-は、右辺の変数を $u=v^2$ としたGaussian積分、またはその $a$ 微分から確かめられます。$b=|\boldsymbol p|^2+m^2$ と置き、$a>0$ による可積分性から積分順序を交換すると
+の係数を確かめます。$u=t^2$ と置き、$J(a)=\int_0^\infty e^{-bt^2-a^2/(4t^2)}\,dt$（$a\ge0$）と定めると、右辺の積分は $2J(a)$ です。$a>0$ で微分し、さらに $t=a/(2\sqrt b\,q)$ と置換すると
+$$
+\begin{aligned}
+J'(a)
+&=-\frac a2\int_0^\infty t^{-2}e^{-bt^2-a^2/(4t^2)}\,dt\\
+&=-\sqrt b\int_0^\infty e^{-bq^2-a^2/(4q^2)}\,dq
+=-\sqrt b\,J(a).
+\end{aligned}
+$$
+$J(0)=\sqrt\pi/(2\sqrt b)$ は通常のGaussian積分なので、微分方程式と初期値から $J(a)=\sqrt\pi\,e^{-a\sqrt b}/(2\sqrt b)$。したがって最初の積分表示が得られます。ここで $u,t,q$ はいずれも正の積分変数であり、第1節の光円錐座標 $u=x^1+x^0$ とは無関係です。
+
+次に $b=|\boldsymbol p|^2+m^2$ と置きます。$a>0$ かつ $m>0$ では、絶対値を取っても $e^{-a\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$ の運動量積分が有限です。そこで[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)により積分順序を交換すると
 $$
 \begin{aligned}
 I(a,r)
@@ -244,7 +255,11 @@ $$
 
 **定義の確認**。開帯の内部と境界の区別を、固定した加速軌道で確認します。
 
-$x=(0,\rho,0,0)$、$y=x$ と取ると $D_{x,x}(z)=2\rho^2(1-\cosh z)=-4\rho^2\sinh^2(z/2)$ です。$z=-i\pi$ なら $D=4\rho^2>0$、$z=-i\pi/2$ なら $D=2\rho^2>0$。どちらも平方根の主値枝で正則に定義できます。一方、$z=0$ と $z=-2\pi i$ は $D=0$ で点場の短距離特異性に当たります。**開帯の内部で解析関数として扱えること**と**境界で分布として扱う必要があること**を区別します。
+$x=(0,\rho,0,0)$、$y=x$ と取ると $D_{x,x}(z)=2\rho^2(1-\cosh z)=-4\rho^2\sinh^2(z/2)$ です。$z=-i\pi$ なら $D=4\rho^2>0$、$z=-i\pi/2$ なら $D=2\rho^2>0$。さらに任意の $z=s-iv$（$s\in\mathbb R$、$0<v<2\pi$）について
+$$
+\operatorname{Im}D=2\rho^2\sinh s\sin v.
+$$
+これが零であれば $s=0$ または $v=\pi$ です。前者で $D=2\rho^2(1-\cos v)>0$、後者で $D=2\rho^2(1+\cosh s)>0$。それ以外は虚部が非零です。よってこの直接例でも開帯の**全域**で $D$ は枝切り $(-\infty,0]$ を避け、主値平方根で正則に定義できます。一方、$z=0$ と $z=-2\pi i$ は $D=0$ で点場の短距離特異性に当たります。**開帯の内部で解析関数として扱えること**と**境界で分布として扱う必要があること**を区別します。
 <!-- definition-example-end -->
 
 <a id="thm-aqft26-strip-analyticity"></a>
@@ -345,7 +360,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f,g$ を実とし、$\mathcal G_{f,g}(z)=\int f(x)g(y)\mathcal G_{x,y}(z)\,d^4x\,d^4y$ と置きます。$x,y$ の支持はともに右wedgeのコンパクト部分集合にあり、$\rho_x,\rho_y$ は正の下限を持つので、開帯の任意のコンパクト部分では前定理の核とその $z$ 微分が一様に有界です。従って積分と複素微分を交換でき、$\mathcal G_{f,g}$ は正則です。境界では前定理の分布的収束を使い、$\Lambda(s)$ のJacobianが1であることから
+$f,g$ を実として、二点核を平滑化した関数を
+$$
+\mathcal G_{f,g}(z)=\int f(x)g(y)\mathcal G_{x,y}(z)\,d^4x\,d^4y
+$$
+と置きます。ここで $d^4x\,d^4y$ は各点のMinkowski座標でのLebesgue積分を表します。boost行列の行列式は1であるから、
+$$
+d^4(\Lambda(s)x)=d^4x
+$$
+であり、後で積分変数をboostしても体積要素は変わりません。
+
+$x,y$ の支持はともに右wedgeのコンパクト部分集合にあり、$\rho_x,\rho_y$ は正の下限を持ちます。開帯の任意のコンパクト部分では前定理の核とその $z$ 微分が一様に有界です。従って積分と複素微分を交換でき、$\mathcal G_{f,g}$ は正則です。境界では前定理の分布的収束を使い、$\Lambda(s)$ のJacobianが1であることから
 $$
 \begin{aligned}
 \int f(x)g(y)W_m(\Lambda(s)x,y)\,dx\,dy
@@ -372,7 +397,29 @@ $$
 
 ## 6. 質量ゼロの極限で $2\pi$ をもう一度検算
 
-前節は $m>0$ で議論しましたが、公式の符号を検算するために4次元の**質量ゼロ**自由場の二点核の極限を取ります。$wK_1(w)\to1$（$w\downarrow0$）だから、枝を保ったまま
+前節は $m>0$ で議論しましたが、公式の符号を検算するために4次元の**質量ゼロ**自由場の二点核の極限を取ります。まず補題の $K_1$ の積分表示に $q=w^2/(4u)$ を代入すると、$w>0$ について
+$$
+wK_1(w)=\int_0^\infty e^{-q-w^2/(4q)}\,dq.
+$$
+被積分関数は $0\le e^{-q-w^2/(4q)}\le e^{-q}$ によって支配され、各 $q>0$ で $e^{-q}$ に収束します。[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から実数 $w\downarrow0$ では $wK_1(w)\to1$ です。
+
+複素 $D$ についても、実変数の極限を単に「解析接続」するだけでは不十分なので、同じGaussian公式から確かめます。補題の表示を $a$ で微分して
+$$
+e^{-a\sqrt b}=\frac{a}{2\sqrt\pi}\int_0^\infty u^{-3/2}e^{-bu-a^2/(4u)}\,du
+$$
+を得ます。$b=1+t^2$ と置いて $t\in[0,\infty)$ で積分すると、内側のGaussian積分は $\sqrt\pi/(2\sqrt u)$ なので、$K_1$ の定義表示と比較して
+$$
+K_1(w)=\int_0^\infty e^{-w\sqrt{1+t^2}}\,dt \qquad(w>0)
+$$
+が得られます。右辺は $\operatorname{Re}w>0$ で正則であるため、この表示は同半平面へ延長されます。固定した $D\notin(-\infty,0]$ に対して $c=\sqrt D$（$\operatorname{Re}c>0$）と置けば、$w=mc$ として $v=mt$ の変数変換により
+$$
+\begin{aligned}
+mc\,K_1(mc)
+&=c\int_0^\infty e^{-c\sqrt{m^2+v^2}}\,dv\\
+&\xrightarrow{m\downarrow0}c\int_0^\infty e^{-cv}\,dv=1.
+\end{aligned}
+$$
+絶対値は $|c|e^{-(\operatorname{Re}c)v}$ 以下なので[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。よって複素枝を固定しても極限が成立し、
 $$
 \lim_{m\downarrow0}\frac{m}{4\pi^2\sqrt D}K_1(m\sqrt D)
 =\frac1{4\pi^2D}.
