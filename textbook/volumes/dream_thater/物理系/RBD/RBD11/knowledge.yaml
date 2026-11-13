@@ -16,10 +16,10 @@ concepts:
       - mechanics.zyz-euler-angles
       - mechanics.rigid-body-forced-newton-euler
   - id: mechanics.heavy-top-kinetic-lagrangian
-    name: 固定点対称こまの運動エネルギーとLagrangian
+    name: 固定点対称こまの運動エネルギーと力学的ラグランジアン
     kind: proposition
     introduction: formal
-    introduction_aliases: [命題（固定点対称こまの運動エネルギーとLagrangian）]
+    introduction_aliases: [命題（固定点対称こまの運動エネルギーと力学的ラグランジアン）]
     requires:
       - mechanics.heavy-symmetric-top-fixed-point
       - mechanics.zyz-angular-velocity-map
