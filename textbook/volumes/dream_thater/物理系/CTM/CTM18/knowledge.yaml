@@ -1,0 +1,60 @@
+chapter: CTM18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM17
+concepts:
+  - id: continuum.one-dimensional-spring
+    name: 一次元ばね
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次元ばね・ダッシュポット）"]
+    requires: [continuum.young-modulus]
+  - id: continuum.one-dimensional-dashpot
+    name: 一次元ダッシュポット
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次元ばね・ダッシュポット）"]
+    requires: []
+  - id: continuum.maxwell-series-connection
+    name: Maxwell 模型の直列接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Maxwell の直列接続と Kelvin–Voigt の並列接続）"]
+    requires: [continuum.one-dimensional-spring, continuum.one-dimensional-dashpot]
+  - id: continuum.kelvin-parallel-connection
+    name: Kelvin–Voigt 模型の並列接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Maxwell の直列接続と Kelvin–Voigt の並列接続）"]
+    requires: [continuum.one-dimensional-spring, continuum.one-dimensional-dashpot]
+  - id: continuum.maxwell-viscoelastic-law
+    name: Maxwell 模型の構成方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maxwell 模型の構成方程式）"]
+    requires: [continuum.maxwell-series-connection]
+  - id: continuum.maxwell-step-response
+    name: Maxwell 模型の緩和とクリープ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maxwell 模型の緩和とクリープ）"]
+    requires: [continuum.maxwell-viscoelastic-law]
+  - id: continuum.kelvin-viscoelastic-law
+    name: Kelvin–Voigt 模型の構成方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kelvin–Voigt 模型の構成方程式）"]
+    requires: [continuum.kelvin-parallel-connection]
+  - id: continuum.kelvin-step-response
+    name: Kelvin–Voigt 模型のクリープとひずみステップの限界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kelvin–Voigt 模型のクリープとひずみステップの限界）"]
+    requires: [continuum.kelvin-viscoelastic-law]
+  - id: continuum.passive-viscoelastic-dissipation
+    name: 両模型の受動的なエネルギー分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（両模型の受動的なエネルギー分解）"]
+    requires: [continuum.maxwell-viscoelastic-law, continuum.kelvin-viscoelastic-law, continuum.clausius-duhem]
