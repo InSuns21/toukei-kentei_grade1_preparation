@@ -17,9 +17,9 @@ $$
 
 と置きます。時刻 $kh$ と $(k+1)h$ の間は、両端を直線で結びます。具体的に $0\le k<N$、$kh\le t\le(k+1)h$ では、$k$ は左端の格子番号、$t$ は連続的に動かす時刻として
 
-$
+$$
 W_t^{(N)}=W_{kh}^{(N)}+\frac{t-kh}{h}\sqrt h\,\varepsilon_{k+1}
-$
+$$
 
 とします。$t=T$ でも最後の区間 $k=N-1$ の式を使います。各枝の縦幅 $\sqrt h$ は「年の平方根」を単位とする無次元化した歩行の幅です。
 
@@ -157,12 +157,12 @@ $$
 
 1期の平均は $m_h=0.1(2q_h-1)\approx-0.0049958375$ です。格子点だけでなく補間時刻でも $E_{Q_4}[X_t^{(4)}]=(m_h/h)t$ となります。実際、第2期の中点では独立な同分布符号の期待値を使って
 
-$
+$$
 E_{Q_4}[X_{3/8}^{(4)}]
 =m_h+\tfrac12m_h=\frac{m_h}{h}\frac38,
 \qquad
 Z_{3/8}^{(4)}=0.05-\frac{m_h}{h}\frac38\approx0.0574937562.
-$
+$$
 
 従って $Z_0=0$、さらに全ての $0\le t\le T$ で $E_{Q_4}[Z_t^{(4)}]=0$ です。枝列を1本示すことと枝列全体の独立性を検証することは別で、独立性は $Q_4$ の積による構成から従います。
 <!-- definition-example-end -->
@@ -335,7 +335,7 @@ $$
 - $s,t$ が同じ格子区間にあるときは $\delta=t-s\le h$ とした直前の評価で十分です。
 - 異なる格子区間にあるときは、左端・右端で横切る時間の長さを $\delta_1,\delta_2$、間に完全に入る格子区間の個数を $k$ とします。$0\le\delta_i\le h$ かつ $\delta_1+kh+\delta_2=t-s$ です。端数増分を $P_1,P_2$、完全区間の和を $A$ とすれば
 
-$
+$$
 \begin{aligned}
 E|Z_t^{(N)}-Z_s^{(N)}|^4
 &=E|P_1+A+P_2|^4\\
@@ -344,7 +344,7 @@ E|Z_t^{(N)}-Z_s^{(N)}|^4
 &\le513\sigma^4(\delta_1+kh+\delta_2)^2
 =513\sigma^4|t-s|^2.
 \end{aligned}
-$
+$$
 
 ここで $k=0$ なら $A=0$ とします。最後の不等式は非負数について $\delta_1^2+(kh)^2+\delta_2^2\le(\delta_1+kh+\delta_2)^2$ を用いました。従って両場合を合わせて、$N,s,t$ に依存しない $C=513\sigma^4$ を取れば
 
@@ -354,7 +354,15 @@ $$
 
 となります。特に、端数部分を分けることで $|t-s|<h$ も含まれています。
 
-**(3) 経路分布の収束。** $Z_0^{(N)}=0$ かつ (2) の一様四次増分評価があるので、時間を $t=Tu$ に換えた $[0,1]$ 上の過程に [Kolmogorov型タイトネス判定](../../../解析系/STO/STO3A/index.md#thm-sto3a-kolmogorov-tightness) を適用できます。$Z^{(N)}$ の経路分布は $C([0,T])$ でタイトです。(1) で得た有限次元の法則は [標準 Brown 運動](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion) のものです。ここで [Donsker 定理の証明にある「タイトネスと有限次元分布から経路分布を決める」議論](../../../解析系/STO/STO3A/index.md#thm-sto3a-donsker) を用います。実際、タイトネスから任意の部分列に弱収束部分列が存在し、その極限法則は連続な時刻評価写像によって (1) と同じ有限次元分布を持ちます。連続経路の法則は有理時刻の有限次元分布で一意に定まるので、どの部分列極限も $\sigma B$ の法則です。従って [経路空間上の弱収束](../../../解析系/STO/STO3A/index.md#def-sto3a-function-weak-convergence) の意味で $Z^{(N)}\Longrightarrow\sigma B$ です。この段階は各 $N$ に共通の独立同分布列を要求せず、(1) と (2) の成立を使います。
+**(3) 経路分布の収束。** $Z_0^{(N)}=0$ かつ (2) の一様四次増分評価があるので、時間を $t=Tu$ に換えた $[0,1]$ 上の過程に [Kolmogorov型タイトネス判定](../../../解析系/STO/STO3A/index.md#thm-sto3a-kolmogorov-tightness) を適用できます。したがって $Z^{(N)}$ の経路分布は $C([0,T])$ でタイトです。(1) で得た有限次元の法則は [標準 Brown 運動](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion) のものです。
+
+ここで [Donsker 定理の証明にある「タイトネスと有限次元分布から経路分布を決める」議論](../../../解析系/STO/STO3A/index.md#thm-sto3a-donsker) を用います。タイトネスから任意の部分列に弱収束部分列が存在し、その極限法則は連続な時刻評価写像によって (1) と同じ有限次元分布を持ちます。連続経路の法則は有理時刻の有限次元分布で一意に定まるので、どの部分列極限も $\sigma B$ の法則です。従って [経路空間上の弱収束](../../../解析系/STO/STO3A/index.md#def-sto3a-function-weak-convergence) の意味で
+
+$$
+Z^{(N)}\Longrightarrow\sigma B
+$$
+
+です。この段階は各 $N$ に共通の独立同分布列を要求せず、(1) と (2) の成立を使います。
 
 **(4) 平均部分を戻す。** 線形補間した過程の各時刻で
 
@@ -362,7 +370,15 @@ $$
 X_t^{(N)}=Z_t^{(N)}+\frac{m_h}{h}t.
 $$
 
-[平均の展開](#prop-u3-12-crr-moments) から $\frac{m_h}{h}=r-\sigma^2/2+O(h)$。したがって決定論的な傾きの差は $\sup_{0\le t\le T}|(m_h/h-r+\sigma^2/2)t|\le CT h\to0$ です。固定した連続関数 $g(t)=(r-\sigma^2/2)t$ を加える写像 $f\mapsto f+g$ は一様ノルムで連続です。実際 $\|(f+g)-(\tilde f+g)\|_\infty=\|f-\tilde f\|_\infty$。$g_h(t)=(m_h/h)t$ は $\|g_h-g\|_\infty\to0$ なので、[Donsker の証明でも用いた連続写像による極限移行](../../../解析系/STO/STO3A/index.md#thm-sto3a-donsker) と決定論的な一様誤差の消失により、$X^{(N)}=Z^{(N)}+g_h\Longrightarrow\sigma B+g$ です。固定時刻の評価写像 $f\mapsto f(t)$ は一様ノルムで連続なので、最後の一時刻の正規極限も従います。
+[平均の展開](#prop-u3-12-crr-moments) から $m_h/h=r-\sigma^2/2+O(h)$ です。固定した連続関数 $g(t)=(r-\sigma^2/2)t$ と有限刻みの傾き $g_h(t)=(m_h/h)t$ を区別すると
+
+$$
+\|g_h-g\|_\infty
+=\sup_{0\le t\le T}\left|\left(\frac{m_h}{h}-r+\frac{\sigma^2}{2}\right)t\right|
+\le CTh\longrightarrow0.
+$$
+
+加算写像 $f\mapsto f+g$ は $\|(f+g)-(\tilde f+g)\|_\infty=\|f-\tilde f\|_\infty$ なので連続です。[Donsker の証明でも用いた連続写像による極限移行](../../../解析系/STO/STO3A/index.md#thm-sto3a-donsker) と決定論的な一様誤差の消失により、$X^{(N)}=Z^{(N)}+g_h\Longrightarrow\sigma B+g$ です。固定時刻の評価写像 $f\mapsto f(t)$ は一様ノルムで連続なので、最後の一時刻の正規極限も従います。
 
 <!-- proof-end -->
 
