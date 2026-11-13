@@ -55,16 +55,16 @@ $$
 
 [RBD7の回転方程式](../RBD7/index.md#thm-rbd7-newton-euler)の $J_b\dot\omega_b+\omega_b\times(J_b\omega_b)=0$ に、$J_b\omega_b=(I_1\omega_1,I_2\omega_2,I_3\omega_3)$ を代入します。ベクトル積の三成分は
 
-$
+$$
 \omega_b\times(J_b\omega_b)=
 \bigl((I_3-I_2)\omega_2\omega_3,\,
 (I_1-I_3)\omega_3\omega_1,\,
 (I_2-I_1)\omega_1\omega_2\bigr)
-$
+$$
 
 ですから、Euler方程式は
 
-$
+$$
 \begin{aligned}
 I_1\dot\omega_1&=(I_2-I_3)\omega_2\omega_3,\\
 I_2\dot\omega_2&=(I_3-I_1)\omega_3\omega_1,\\
@@ -293,11 +293,11 @@ $$
 
 $c_3:=\min\{I_1(I_3-I_1),I_2(I_3-I_2)\}>0$ とすれば、全時刻で
 
-$
+$$
 \omega_1(t)^2+\omega_2(t)^2\le\frac{F_3(0)}{c_3},\qquad
 \omega_3(t)^2=
 \frac{\ell(0)^2-I_1^2\omega_1(t)^2-I_2^2\omega_2(t)^2}{I_3^2}
-$
+$$
 
 が成り立ちます。初期値を $\Omega e_3$ に近づければ右辺は一様に $\Omega^2$ へ近づくので、$\Omega^2/2$ より大きく保てます。初期の $\omega_3$ の符号は $\Omega$ と同じであり、連続性から零を通れないため符号も保存されます。従って $\omega_3(t)$ は $\Omega$ に一様に近づき、横成分の評価と合わせて $\omega_b(t)$ は $\Omega e_3$ の任意に小さい近傍にとどまります。
 <!-- proof-end -->
