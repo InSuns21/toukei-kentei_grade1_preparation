@@ -1,8 +1,8 @@
 # DREAM THEATER 代数的量子場理論・モジュラー理論（AQFT系列・全34講）
 
 作成・分冊: 2026-10-11  
-改訂: 2026-11-13（AQFT27の自由スカラー場Bisognano–Wichmannを実装）  
-状態: in_progress（AQFT1–27本文・系列manifest・公開を実装。次講AQFT28、残りAQFT28–34と最終横断監査は未完了）
+改訂: 2026-11-14（AQFT28の局所Type III₁性の適用境界を実装）  
+状態: in_progress（AQFT1–28本文・系列manifest・公開を実装。次講AQFT29、残りAQFT29–34と最終横断監査は未完了）
 
 ## 中心問いと出口
 
