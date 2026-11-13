@@ -1,6 +1,6 @@
 # AQFT21 モジュラーHilbert環の準備補題
 
-[AQFT20の有限次元標準表現](../AQFT20/index.md#thm-aqft20-modular-formulas)では、行列単位を使って左右乗算、$S$、$J$、$\Delta$ をすべて計算できました。しかし無限次元の局所環では、有限次元なら自動的だった**右からの乗算の有界性**や、作用素を何度でも掛けられるという性質が失われます。有限次元の可換子計算を一般定理の証明と取り違えることはできません。
+[AQFT20の有限次元標準表現](../AQFT20/index.md#thm-aqft20-modular-formulas)では、行列単位を使って左右乗算、$S$、$J$、$\Delta$ をすべて計算できました。しかし無限次元のvon Neumann環では、有限次元なら自動的だった**右からの乗算の有界性**や、作用素を何度でも掛けられるという性質が失われます。有限次元の可換子計算を一般定理の証明と取り違えることはできません。
 
 本講では、巡回・分離ベクトルからできる代数的な積と反転を**左Hilbert環**として整理し、さらに非有界なモジュラー作用素に対して使える**スペクトル切断 core**と**Gaussian平滑化による解析ベクトル**を構成します。一般の可換子等号とモジュラー自己同型性は、それぞれ次講以降で証明する別の問題です。
 
@@ -49,13 +49,13 @@ Hilbert環という名の中身は、積だけでなく内積と作用素ノル�
 > **命題（左Hilbert環の基本恒等式と作用）**  
 > 標準対 $(\mathcal M,\Omega)$ から定義した $\mathfrak A_0=\mathcal M\Omega$ について、任意の $A,B,C\in\mathcal M$ に対して次が成り立つ。
 >
-> 1. 積は結合的、反転は反線形で $(xy)^\#=y^\#x^\#$、$(x^\#)^\#=x$。
-> 2. $x=A\Omega$、$y=B\Omega$、$z=C\Omega$ とすれば
+> 積は結合的、反転は反線形で $(xy)^\#=y^\#x^\#$、$(x^\#)^\#=x$。
+> また、$x=A\Omega$、$y=B\Omega$、$z=C\Omega$ に対して、内積恒等式
 $$
 \langle xy,z\rangle=\langle y,x^\#z\rangle.
 $$
-> 3. $x=A\Omega$ による左乗算 $\lambda(x)y=xy$ は $\mathcal H$ 上の有界作用素 $A$ へ一意に延長され、$\|\lambda(x)\|=\|A\|$。
-> 4. 反転 $x\mapsto x^\#$ は可閉で、その閉包は[AQFT18のTomita作用素](../AQFT18/index.md#thm-aqft18-tomita-closable) $S$。従って $\mathfrak A_0$ は $S$ のグラフ core である。
+> が成り立つ。$x=A\Omega$ による左乗算 $\lambda(x)y=xy$ は $\mathcal H$ 上の有界作用素 $A$ へ一意に延長され、$\|\lambda(x)\|=\|A\|$。
+> さらに、反転 $x\mapsto x^\#$ は可閉で、その閉包は[AQFT18のTomita作用素](../AQFT18/index.md#thm-aqft18-tomita-closable) $S$ である。従って $\mathfrak A_0$ は $S$ のグラフ core である。
 <!-- formal-statement-end -->
 
 証明の要点は、**積の有界性は左側の作用素 $A$ の有界性から来る**こと、反転の可閉性は別途必要であることです。「左が有界だから右も有界」とは推論できません。
@@ -119,7 +119,7 @@ $$
 
 ### 証明の見取り図
 
-[可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)では $C'\in\mathcal M'$ はすべての $A\in\mathcal M$ と交換する有界作用素です。従って等式は $\mathcal H$ 全体で成立します。前節で $\lambda(A\Omega)=A$ と同定したので、左作用の可換子も定義により $\mathcal M'$ です。この事実だけでは $J\mathcal M J=\mathcal M'$ はまだ出ません。
+[可換子の定義](../../VN/VN2/index.md#def-vn2-commutant)では $C'\in\mathcal M'$ はすべての $A\in\mathcal M$ と交換する有界作用素です。従って等式は $\mathcal H$ 全体で成立します。[左乗算の有界延長](#prop-aqft21-left-regular)がすべての $A\in\mathcal M$ を尽くすので、それらと交換する有界作用素全体も $\mathcal M'$ です。この事実だけでは $J\mathcal M J=\mathcal M'$ はまだ出ません。
 
 <!-- proof-start -->
 ### 証明
@@ -182,14 +182,14 @@ $$
 H=\log\Delta,\qquad
 U_t=e^{itH}=\Delta^{it}\quad(t\in\mathbb R)
 $$
-を定義できます。$H$ は自己共役で $U_t$ は強連続なユニタリ群です。一般に $H$ は上下とも非有界になり得ます。
+を定義できます。$H$ は自己共役で、$(U_t)_{t\in\mathbb R}$ は強連続な1パラメータ作用素族となり、各 $U_t$ はユニタリです。一般に $H$ は上下とも非有界になり得ます。
 
 複素時間 $z=t+is$ に形式的に $e^{izH}$ と書いても、$s\ne0$ なら $e^{-sH}$ が非有界かもしれず、全ベクトルに作用するわけではありません。そこで複素時間でも計算できるベクトルを別に用意します。
 
 <a id="def-aqft21-entire-vector"></a>
 
 <!-- formal-statement-start -->
-> **定義（$H$ の全解析ベクトルとグラフ core）**  
+> **定義（全解析ベクトルとグラフcore）**  
 > $H$ を複素Hilbert空間 $\mathcal H$ 上の自己共役作用素、$U_t=e^{itH}$ とする。$x\in\mathcal H$ が **全解析ベクトル** であるとは、実変数 $t\mapsto U_tx$ が複素平面全体上のノルム解析的な $\mathcal H$ 値関数 $F_x(z)$ に延長できることをいう。閉作用素 $T$ の定義域内の線形部分空間 $\mathcal D$ が **グラフ core** であるとは、任意の $x\in\operatorname{Dom}T$ を $x_n\in\mathcal D$ により
 $$
 x_n\to x,\qquad Tx_n\to Tx
@@ -210,7 +210,7 @@ $$
 <a id="lem-aqft21-spectral-core"></a>
 
 <!-- formal-statement-start -->
-> **補題（スペクトル切断による共通解析的 core）**  
+> **補題（スペクトル切断による共通解析的core）**  
 > $\Delta$ を核が零の正自己共役作用素、$H=\log\Delta$ とし、$P_n=\boldsymbol{1}_{[-n,n]}(H)$（$n=1,2,\ldots$）をそのスペクトル射影とする。
 >
 > 1. $\mathcal D_{\mathrm{sp}}=\bigcup_{n\ge1}P_n\mathcal H$ は稠密な線形部分空間で、各元は $H$ の全解析ベクトルである。
@@ -497,7 +497,7 @@ $$
 \|T_Vx_j\|_2^2=\frac{p_{j-1}}{p_j}
 =2^{j^2-(j-1)^2}=2^{2j-1}\to\infty.
 $$
-一方 $R_V(X)=XV$ はHilbert–Schmidtノルムの不等式 $\|XV\|_2\leq\|X\|_2\|V\|$ により有界で、$\|V\|=1$ です。$T_V(A\Omega)=AV\Omega$ と $R_V(A\Omega)=A\Omega V$ は一般に異なり、違いを消すには $V\Omega=\Omega V$ のような追加条件が必要です。
+$R_V(X)=XV$ の作用素ノルムを評価します。$\|XV\|_2\leq\|X\|_2\|V\|$ と $\|V\|=1$ を用いると、$\|R_VX\|_2\leq\|X\|_2$ なので有界です。$T_V(A\Omega)=AV\Omega$ と $R_V(A\Omega)=A\Omega V$ は一般に異なり、違いを消すには $V\Omega=\Omega V$ のような追加条件が必要です。
 <!-- solution-end -->
 
 <a id="ex-aqft21-b03"></a>
