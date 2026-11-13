@@ -15,10 +15,10 @@ $$
 
 $X$ と $x$ の単位は m、$F$ と $J$ は無次元である。$I=I_3$ は単位行列、上付き $T$ は転置、$U:V=\sum_{i,A}U_{iA}V_{iA}$ は同じ型の行列の二重内積とする。$F_{iA}$ の添字 $i$ は現在側の成分、$A$ は基準側の成分を表す。基準側の標準直交基底を $e_A$ とすると、$F$ の第 $A$ 列は基準線素 $e_A$ の像 $Fe_A$ である。[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain) $C=F^TF$ はこれらの線素の内積を記録し、
 
-$
+$$
 C_{AB}=(Fe_A)\cdot(Fe_B)=\sum_i F_{iA}F_{iB},\qquad
 \operatorname{tr}C=\sum_A\|Fe_A\|^2.
-$
+$$
 
 行列を動かす方向 $H\in\mathbb R^{3\times3}$ での方向微分を $DW(F)[H]$ と書き、勾配 $\partial_F W$ は $DW(F)[H]=(\partial_F W):H$ を満たす行列として定める。時間依存の $F(t)$ では点記号 $\dot F=dF/dt$ は物質点 $X$ を固定した時間微分である。
 
@@ -71,14 +71,14 @@ $$
 
 一方、一般の変分 $\delta F=H$（$\delta W=DW(F)[H]$）に対して、積の微分から $\delta C=F^TH+H^TF$ となる。$C-I$ は対称であり、行列内積の転置・積の関係 $(C-I):F^TH=F(C-I):H$ を使うと、
 
-$
+$$
 \begin{aligned}
 \delta W
 &=\frac a2(C-I):(F^TH+H^TF)\\
 &=\frac a2\bigl\{F(C-I):H+F(C-I)^T:H\bigr\}\\
 &=aF(C-I):H.
 \end{aligned}
-$
+$$
 
 ゆえに定義どおり $P=aF(C-I)$ であり、$F(s)$ の位置では $P_{11}=as(s^2-1)$、他は零。特に $\dot F=\operatorname{diag}(\dot s,0,0)$ なら $P:\dot F=dW/dt$ が成立する。$F(s)$ が正の行列式をもち、エネルギーの全九成分微分が存在し、仕事共役も満たすことを別々に確認した。
 <!-- definition-example-end -->
@@ -154,11 +154,11 @@ $$
 
 $\gamma=0$ で $W=0$、$W$ は $\gamma$ について微分可能である。この一変数族では $dF/d\gamma=\partial_\gamma F=e_1e_2^T$（他の変数は固定）なので、超弾性の定義と連鎖律から
 
-$
+$$
 \frac{d}{d\gamma}W(F(\gamma))
 =DW(F(\gamma))[\partial_\gamma F]
 =P(F(\gamma)):\partial_\gamma F=P_{12}(F(\gamma)).
-$
+$$
 
 左辺は $\mu\gamma$ である。続く定理で $P$ の全成分を求め、右辺と一致することを確認する。
 <!-- definition-example-end -->
@@ -171,10 +171,10 @@ $$
 
 また $F\in GL^+(3)$ は可逆なので、十分小さい実数 $t$ に対して $F+tH\in GL^+(3)$ である。$A=F^{-1}H$ とすると行列式の乗法性と三列に関する多重線形性から
 
-$
+$$
 \det(F+tH)=J\det(I+tA)
 =J\{1+t\operatorname{tr}A+O(t^2)\}.
-$
+$$
 
 実際、$t$ の一次項は三列のうち一列だけを $Ae_j$ に取り替えた行列式の和 $A_{11}+A_{22}+A_{33}$ であり、二列以上の置換項は $O(t^2)$ となる。ゆえに $DJ(F)[H]=J\operatorname{tr}(F^{-1}H)$。連鎖律を $J>0$ の $\log$ に適用して
 
