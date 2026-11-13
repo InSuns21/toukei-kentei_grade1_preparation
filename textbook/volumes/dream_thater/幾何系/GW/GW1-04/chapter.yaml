@@ -9,6 +9,7 @@ prerequisites:
   - SYM8
   - AG3-08
   - RA6A
+  - TOP6
 official_scope: []
 learning_objectives:
   - Fredholm指数と線形化の全射性を区別し局所解空間の次元を導ける
