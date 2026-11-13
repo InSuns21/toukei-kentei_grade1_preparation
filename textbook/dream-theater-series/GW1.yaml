@@ -32,7 +32,7 @@ chapters:
     title: "Gromov収束とコンパクト性"
   - id: GW1-07
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-07
-    status: planned
+    status: completed
     title: "標点付き球面・交比・安定曲線"
   - id: GW1-08
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-08
