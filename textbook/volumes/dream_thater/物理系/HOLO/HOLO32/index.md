@@ -4,7 +4,7 @@
 
 [HOLO28のエンタングルメント第一法則](../HOLO28/index.md#prop-holo28-first-law)は、参照状態から少し動かしたとき、エントロピーの変化とモジュラーHamiltonianの期待値の変化が一致することを示しました。[HOLO18のRT処方](../HOLO18/index.md#thm-holo18-interval-coefficient)は、特定の半古典的状態の境界エントロピーをバルク極値面の面積へ結びました。
 
-この二つを組み合わせると、**「量子状態の微小な変化を、重力場の方程式に対する条件として読めるか」**という問いが生まれます。ただし一つの球領域の第一法則だけで、Einstein方程式の全成分が直ちに導かれるわけではありません。必要なのは、真空球の局所的なモジュラー流、面積の一次変分、重力のNoether恒等式、**すべての球・Lorentz変換した球**に対する拘束を局所化する議論です。
+この二つを組み合わせると、**「量子状態の微小な変化を、重力場の方程式に対する条件として読めるか」**という問いが生まれます。ただし一つの球領域の第一法則だけで、Einstein方程式の全成分が直ちに導かれるわけではありません。必要なのは、真空球の局所的なモジュラー流、面積の一次変分、重力のNoether恒等式、**すべての球・Lorentz変換した球**に対する拘束を局所化する議論です。境界Lorentz変換はバルクの動径方向 $z$ を混合しないため、残る動径成分には別途Bianchi恒等式と境界条件を使います。
 
 ## 0. 対象と、どの等号を使うのか
 
@@ -210,6 +210,8 @@ $$
 
 ### 面を動かしても一次では余分な「位置項」はない
 
+面上の座標を $\sigma^A$（$A=1,\ldots,d-1$）、埋め込みを $X^a(\sigma)$、座標方向に沿う接ベクトルを $e_A^a=\partial X^a/\partial\sigma^A$ とします。誘導計量 $q_{AB}=g_{ab}e_A^ae_B^b$ は面上の長さと角度を与える正定値の $(d-1)\times(d-1)$ 行列です。したがって面積要素は $\sqrt{\det q}\,d^{d-1}\sigma$ であり、計量を変えたときはまずこの行列式を微分します。
+
 <a id="prop-holo32-area-variation"></a>
 
 <!-- formal-statement-start -->
@@ -243,7 +245,15 @@ $$
 +\eta^c(\partial_c\bar g_{ab})e_A^ae_B^b.
 $$
 
-行列式の微分 $\delta\sqrt q=(\sqrt{\bar q}/2)\bar q^{AB}\delta q_{AB}$ を代入します。後ろ三項を積分したものは、固定背景計量における面の形状変分です。[HOLO23の古典極値面の停留性](../HOLO23/index.md#prop-holo23-surface-shift)と同じく、背景が停留面であるため内部の一次変分が零になります。境界で $\eta^a=0$（アンカー固定）なので端点項も零です。したがって初項だけが残り、表示した公式になります。RTの等式はその適用条件を満たす場合にのみ代入します。
+行列式の微分を、行列として確かめます。$q(\lambda)=\bar q+\lambda\,\delta q+O(\lambda^2)$ なら、$\bar q$ は正定値なので可逆であり、
+
+$$
+\det q(\lambda)
+=\det\bar q\,\det\bigl(I+\lambda\bar q^{-1}\delta q+O(\lambda^2)\bigr)
+=\det\bar q\,\bigl(1+\lambda\operatorname{tr}(\bar q^{-1}\delta q)+O(\lambda^2)\bigr).
+$$
+
+最後の一次係数は、行列式の列ごとの多重線形性から、単位行列の一列だけを差し替えた各項が対角成分の和になることで得られます。平方根を微分すると $\delta\sqrt q=(\sqrt{\bar q}/2)\bar q^{AB}\delta q_{AB}$ です。後ろ三項を積分したものは、固定背景計量における面の形状変分です。[HOLO23の古典極値面の停留性](../HOLO23/index.md#prop-holo23-surface-shift)と同じく、背景が停留面であるため内部の一次変分が零になります。境界で $\eta^a=0$（アンカー固定）なので端点項も零です。したがって初項だけが残り、表示した公式になります。RTの等式はその適用条件を満たす場合にのみ代入します。
 <!-- proof-end -->
 
 **面積変分の手計算**。誘導計量を固定座標上で $q_{AB}(\lambda)=(1+2\lambda\alpha)\bar q_{AB}$ と変える仮想的な摂動では $\delta q_{AB}=2\alpha\bar q_{AB}$、$\bar q^{AB}\bar q_{AB}=d-1$ なので
@@ -470,39 +480,91 @@ $$
 \quad(z^2+r^2<R^2)
 $$
 
-です。この重みの正性は重要ですが、$e_{tt}$ は符号を変え得るため、**一つの積分が零でも被積分関数が零とは限りません**。必要なのは、すべての中心・半径の球の積分拘束から残差を復元する反転です。
+です。この重みの正性は重要ですが、$e_{tt}$ は符号を変え得るため、**一つの積分が零でも被積分関数が零とは限りません**。必要なのは、すべての中心・半径の球の積分拘束から残差の境界方向成分を復元する反転と、残る動径成分を扱うBianchi恒等式・境界条件です。
 
 <a id="prop-holo32-all-balls-linearized-einstein"></a>
 
 <!-- formal-statement-start -->
 > **命題（全真空球の拘束からの局所Einstein方程式：反転仮定付き）**  
-> [積分Einstein拘束](#thm-holo32-integrated-gravity-constraint)の仮定に加え、摂動が滑らかで十分な境界減衰を持ち、各空間的超平面の**すべての中心・半径の球**に対する重み付き半球変換が対象の残差関数のクラスで単射であるとする。さらに境界のLorentz変換で得た全時間的な法線方向について同じ拘束が成立するとする。このとき
+> [積分Einstein拘束](#thm-holo32-integrated-gravity-constraint)の仮定に加え、滑らかな摂動に対して次を仮定する。
+>
+> 1. 境界の全時刻・全Lorentz方向の空間的超平面上で、全中心・全半径の球に対応する積分拘束が成立する。各断面の重み付き半球変換は、そこで現れる残差関数のクラスで単射である。
+> 2. $\bar g$ のPoincaré座標において、$E^a{}_b:=\bar g^{ac}e_{cb}[h]$ と置く。各境界座標 $x^\mu=(t,\mathbf x)$ を固定して $z\to0$ としたとき、次の動径境界条件を満たす。
 
 $$
-e_{ab}[h]=0
+\lim_{z\to0}z^{-(d+1)}E^z{}_\nu(z,x)=0
+\quad(\nu=0,\ldots,d-1),\qquad
+\lim_{z\to0}z^{-d}E^z{}_z(z,x)=0.
 $$
 
-> がバルク領域で成立する。単射性と全方向への拡張は別に必要な幾何学的ステップであり、一つの球で積分が零になっただけで局所方程式は結論できない。
+> このとき、バルクの対象領域で $e_{ab}[h]=0$ が成立する。ここで第2条件は、線形化Bianchi恒等式の動径積分に残る積分定数を消すための追加条件であり、単に「滑らか」と言うだけでは保証されない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-積分拘束の核は半球内の正の重みです。**球の半径と中心をすべて動かす**と、半球変換が残差の時刻成分を識別します。その後、Lorentz変換した時間方向の二次形式がすべて零なら、テンソルの各成分が零になります。
+すべての球と境界Lorentz変換を用いて、まず境界添字だけを持つ残差 $e_{\mu\nu}$ を零とします。**境界Lorentz変換は $z$ 方向を混合しない**ため、この段階で $e_{z\mu}$ と $e_{zz}$ は未決定です。残りは線形化Bianchi恒等式を動径 $z$ に沿って解き、第2条件で積分定数を消します。
 
 <!-- proof-start -->
 ### 証明（単射性を入力した後の部分）
 
-$t=0$ に対応する断面では $\xi_B$ は時間方向なので、[積分拘束](#thm-holo32-integrated-gravity-constraint)は、非零の幾何学的体積因子を含む $e_{tt}$ の重み付き半球積分がすべての $(\mathbf x_0,R)$ で零、という条件になります。仮定した積分変換の単射性から各点で $e_{tt}=0$ を得ます。
+$t=0$ に対応する断面では $\xi_B$ は時間方向なので、[積分拘束](#thm-holo32-integrated-gravity-constraint)は、非零の幾何学的体積因子を含む $e_{tt}$ の重み付き半球積分がすべての $(\mathbf x_0,R)$ で零、という条件になります。仮定した積分変換の単射性から各点で $e_{tt}=0$ を得ます。同じ操作を、境界の時間並進とLorentz変換で得られるすべての時間法線方向に施します。
 
-任意の時間的な単位方向 $u$ を時間法線とするLorentz変換した断面について同じ反転を適用すると、その方向で $e_{ab}u^au^b=0$ です。ある点の局所直交基底を $(e_0,e_1,\ldots,e_d)$ とし、時間的ベクトル $u=e_0+s e_i$（$|s|<1$）を考えます。二次形式は
+境界座標に接する時間的ベクトル $u^\mu$ に対して、各点で $e_{\mu\nu}u^\mu u^\nu=0$ です。$e_{\mu\nu}$ は対称なので、境界方向の局所Lorentz基底 $(e_0,e_1,\ldots,e_{d-1})$ で $u=e_0+s e_i$（$|s|<1$）を代入すれば
 
 $$
-0=e_{ab}u^au^b=e_{00}+2s e_{0i}+s^2e_{ii}.
+0=e_{\mu\nu}u^\mu u^\nu
+=e_{00}+2s e_{0i}+s^2e_{ii}.
 $$
 
-すべての $s$ で零なので、三つの係数 $e_{00},e_{0i},e_{ii}$ は零です。次に $u=e_0+s e_i+t e_j$（$s^2+t^2<1$）を取ると、既に零と分かった項以外は $2st e_{ij}$ だけなので $e_{ij}=0$ です。すべての添字で $e_{ab}=0$ が従います。
+すべての $s$ で零なので $e_{00}=e_{0i}=e_{ii}=0$。異なる境界空間方向 $i,j$ に対して $u=e_0+s e_i+t e_j$（$s^2+t^2<1$）を取ると $2st\,e_{ij}=0$ です。よって **$e_{\mu\nu}=0$** が分かります（境界に空間方向が一つだけなら異なる $i,j$ の確認は不要です）。この議論に $z$ 方向を含めることはできません。
 
-最初の**半球変換の単射性**は一般の滑らかな関数に対して自明ではなく、幾何学的積分変換の理論を用いる箇所です。ここではその一般証明を省略する代わりに、**仮定として明示**しています。実際のAdS/CFTでの反転の条件と証明は [Faulkner–Guica–Hartman–Myers–Van Raamsdonk (2014)](https://arxiv.org/abs/1312.7856) で検討されています。
+次に動径成分を調べます。任意の計量に対する縮約Bianchi恒等式 $\nabla^a(G_{ab}+\Lambda g_{ab})=0$ を、背景が $G_{ab}(\bar g)+\Lambda\bar g_{ab}=0$ を満たす点で微分すると、接続の変分が掛かる背景残差は零なので、
+
+$$
+\bar\nabla^a e_{ab}=0,
+\qquad
+\bar\nabla_a E^a{}_b=0,
+\qquad E^a{}_b=\bar g^{ac}e_{cb}
+$$
+
+を得ます。使う背景接続の係数は
+
+$$
+\bar\Gamma^z_{zz}=-\frac1z,\qquad
+\bar\Gamma^z_{\mu\nu}=\frac{\eta_{\mu\nu}}z,\qquad
+\bar\Gamma^\mu_{z\nu}=-\frac{\delta^\mu_\nu}z,\qquad
+\bar\Gamma^a_{az}=-\frac{d+1}z.
+$$
+
+ここで $\eta_{\mu\nu}$ は境界のMinkowski計量で、$\mu,\nu$ は $0,\ldots,d-1$ を走ります。混合テンソルの発散を
+$\bar\nabla_aE^a{}_b=\partial_aE^a{}_b+\bar\Gamma^a_{ac}E^c{}_b-\bar\Gamma^c_{ab}E^a{}_c$
+と展開し、$E^\mu{}_\nu=0$ と対称性に由来する $E^\mu{}_z=\eta^{\mu\nu}E^z{}_\nu$ を用いると、
+
+$$
+\partial_z E^z{}_\nu-\frac{d+1}{z}E^z{}_\nu=0,
+\qquad
+\partial_z E^z{}_z-\frac d zE^z{}_z+\partial_\mu E^\mu{}_z=0.
+$$
+
+第一式の積分を実行すれば
+
+$$
+\partial_z\bigl(z^{-(d+1)}E^z{}_\nu\bigr)=0
+\quad\Longrightarrow\quad
+E^z{}_\nu=z^{d+1}C_\nu(x).
+$$
+
+第2仮定の最初の境界条件は $C_\nu(x)=0$ を与えるため、$E^\mu{}_z=0$ も従います。第二式は
+
+$$
+\partial_z\bigl(z^{-d}E^z{}_z\bigr)=0
+\quad\Longrightarrow\quad
+E^z{}_z=z^d C_z(x)
+$$
+
+となり、第2の境界条件から $C_z(x)=0$。逆計量は非退化なので、$E^a{}_b=0$ は $e_{ab}=0$ と同値です。
+
+**二つの論理的な入力を分けることが重要です。** 半球変換の単射性は仮定した関数クラスについて使い、動径成分はBianchi恒等式と明示した境界条件で消しました。一般の滑らかな関数に対する単射性も、ここに記した境界条件がすべてのAdS/CFT摂動で自動的に成立することも、本講では証明していません。具体的な漸近条件と物理的許容解の対応は [Faulkner–Guica–Hartman–Myers–Van Raamsdonk (2014)](https://arxiv.org/abs/1312.7856) などの理論で検討されています。
 <!-- proof-end -->
 
 ### 有効な積分を、まず自分の手で求める
@@ -561,7 +623,7 @@ $$
 | 真空球の局所モジュラーHamiltonian | 平坦境界CFT真空の球で成立。任意の形状や一般の励起状態へは移せない |
 | 面積の変分 | 停留面と固定アンカーに対する運動学的公式。任意の面や変動する境界源では端点項が残り得る |
 | エントロピー変分を古典重力の拘束へ接続する条件 | RT・繰り込み辞書・Noether恒等式を必要とする |
-| 局所的線形化Einstein方程式 | 全球・全方向の条件と積分変換の単射性を要する。非線形の全解空間は導いていない |
+| 局所的線形化Einstein方程式 | 全球・境界Lorentz全方向と半球変換の単射性に加え、動径Bianchi積分の境界条件を要する。非線形の全解空間は導いていない |
 | バルク量子物質の影響 | [FLMのバルクエントロピー項](../HOLO23/index.md#def-holo23-flm)を含める必要があり、真空残差 $e_{ab}=0$ のまま一般化できない |
 
 例えば $\rho_B(\lambda)=\rho_{B,0}+\lambda\delta\rho_B+O(\lambda^2)$ において、[相対エントロピーのモジュラー表示](../HOLO28/index.md#prop-holo28-relative-modular)より
@@ -625,7 +687,7 @@ $$
 
 ### 演習 HOLO32-A02：共形時間と球の重み
 
-$R=2$、$r=1$ の境界点に対して $r/R=\tanh(u/2)$ から $\cosh u$ を求め、$dt/d\tau|_0$ とモジュラー流の時刻係数を計算せよ。
+$R=2$、$r=1$ の $\tau=0$ の境界点に対して $r/R=\tanh(u/2)$ から $\cosh u$ を求め、$u$ を固定した偏微分 $\left.\partial t/\partial\tau\right|_{\tau=0,u}$ とモジュラー流の時刻係数を計算せよ。
 
 - Level: A
 
@@ -640,11 +702,11 @@ $$
 よって
 
 $$
-\left.\frac{dt}{d\tau}\right|_0
+\left.\frac{\partial t}{\partial\tau}\right|_{\tau=0,u}
 =\frac1{1+\cosh u}=\frac{3}{8}.
 $$
 
-モジュラー流は $2\pi R\partial_\tau$ ですから、時刻係数は $2\pi R(3/8)=3\pi/2$。直接、$2\pi(R^2-r^2)/(2R)=2\pi(3/4)=3\pi/2$ と一致します。
+この偏微分は $u$（したがって共形座標の空間位置）を固定して行います。$\tau=0$ では $\partial_\tau r=0$ なので、$\partial_\tau$ の $\partial_t$ 成分は今求めた値です。モジュラー流は $2\pi R\partial_\tau$ ですから、時刻係数は $2\pi R(3/8)=3\pi/2$。直接、$2\pi(R^2-r^2)/(2R)=2\pi(3/4)=3\pi/2$ と一致します。
 <!-- solution-end -->
 
 <a id="ex-holo32-a03"></a>
@@ -713,7 +775,7 @@ $$
 =(d-1)\alpha\sqrt{\det\bar q}.
 $$
 
-積分すれば $\delta\operatorname{Area}=(d-1)\alpha\operatorname{Area}(\bar q)$ です。これは行列式の微分のみを使う関係です。$h_{ab}$ が[線形化残差の方程式](#def-holo32-linearized-einstein-residual)を満たすかは別途、共変微分を含む $e_{ab}[h]$ で検査する必要があります。
+積分すれば $\delta\operatorname{Area}=(d-1)\alpha\operatorname{Area}(\gamma_B)$ です。ここで $\operatorname{Area}(\gamma_B)=\int_{\gamma_B}\sqrt{\det\bar q}\,d^{d-1}\sigma$ です。これは行列式の微分のみを使う関係です。$h_{ab}$ が[線形化残差の方程式](#def-holo32-linearized-einstein-residual)を満たすかは別途、共変微分を含む $e_{ab}[h]$ で検査する必要があります。
 <!-- solution-end -->
 
 ### Level B：局所核・相対エントロピー・拘束の論理をつなぐ
@@ -826,7 +888,7 @@ $$
 \end{aligned}
 $$
 
-例えば $s=t=1/4$ は $s^2+t^2<1$ を満たし積 $st\ne0$ なので $e_{ij}=0$ です。すべての成分が消えます。ただしこれを積分拘束から使うには、先に**各法線方向の点ごとの二次形式の零**を積分変換の反転で得ている必要があります。
+例えば $s=t=1/4$ は $s^2+t^2<1$ を満たし積 $st\ne0$ なので $e_{ij}=0$ です。この基底でのすべての成分が消えます。ただし HOLO32 の球の積分拘束から利用できるのは、境界Lorentz方向に沿う成分 $e_{\mu\nu}$ への適用です。**動径 $z$ の成分はこの多項式の議論だけでは消えず**、[局所方程式への命題](#prop-holo32-all-balls-linearized-einstein)のBianchi恒等式と境界条件を別途使います。
 <!-- solution-end -->
 
 <a id="ex-holo32-b04"></a>
@@ -929,12 +991,12 @@ $$
 
 従って $\int_{\Sigma_B}\xi_B^a e_{ab}[h]\boldsymbol\epsilon^{\,b}=0$ です。ここで $\Sigma_B$ は $t=0,z>0,z^2+x^2<R^2$ の半円板です。
 
-**5. 射程。** この球一つの積分が零でも残差の正負の相殺は可能なので $e_{ab}=0$ は結論できません。[全真空球の命題](#prop-holo32-all-balls-linearized-einstein)には中心・半径を動かした族と適切な単射性、Lorentz方向の情報が必要です。また[HOLO23のFLM補正](../HOLO23/index.md#def-holo23-flm)が同次数で寄与すれば $\delta S_B$ にバルク領域のエントロピー変分等が加わります。面積だけを右辺とする手順3をそのまま使えず、物質源つきの線形化方程式には追加の辞書が必要です。
+**5. 射程。** この球一つの積分が零でも残差の正負の相殺は可能なので $e_{ab}=0$ は結論できません。[全真空球の命題](#prop-holo32-all-balls-linearized-einstein)には中心・半径を動かした族と適切な単射性、境界Lorentz方向の情報、さらに動径Bianchi積分の境界条件が必要です。また[HOLO23のFLM補正](../HOLO23/index.md#def-holo23-flm)が同次数で寄与すれば $\delta S_B$ にバルク領域のエントロピー変分等が加わります。面積だけを右辺とする手順3をそのまま使えず、物質源つきの線形化方程式には追加の辞書が必要です。
 <!-- solution-end -->
 
 ## 7. まとめ：第一法則から「線形」重力まで
 
-出発点は[真空球の局所モジュラー生成子](#def-holo32-vacuum-ball-generator)と[第一変分](#prop-holo32-ball-first-variation)です。真空球の幾何が決める重みをバルクのKilling場へ延長し、[RT面の面積変分](#prop-holo32-area-variation)とNoether電荷をつなぐと、[積分Einstein拘束](#thm-holo32-integrated-gravity-constraint)を得ます。さらにすべての球と方向、積分変換の単射性を使ったときだけ、[線形化Einstein方程式](#prop-holo32-all-balls-linearized-einstein)へ進めます。
+出発点は[真空球の局所モジュラー生成子](#def-holo32-vacuum-ball-generator)と[第一変分](#prop-holo32-ball-first-variation)です。真空球の幾何が決める重みをバルクのKilling場へ延長し、[RT面の面積変分](#prop-holo32-area-variation)とNoether電荷をつなぐと、[積分Einstein拘束](#thm-holo32-integrated-gravity-constraint)を得ます。さらにすべての球と境界Lorentz方向、積分変換の単射性、および動径Bianchi積分を固定する境界条件を使ったときだけ、[線形化Einstein方程式](#prop-holo32-all-balls-linearized-einstein)へ進めます。
 
 この導出はAdS/CFTの真空近傍という限定された舞台で、境界の量子情報とバルクの重力応答を結ぶ強い整合性条件を与えます。ただし**一般の非線形重力、任意のCFT、ブラックホール内部、有限 $N$ のすべての状態について成立を証明したわけではありません**。次講HOLO33では、何が計算・導出され、何が物理的に提案され、どこに未解決問題が残るかを横断して整理します。
 
