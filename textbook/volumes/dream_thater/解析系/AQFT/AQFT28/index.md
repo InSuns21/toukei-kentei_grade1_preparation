@@ -302,7 +302,7 @@ $$
 
 [AQFT9の局所von Neumann環の定義](../AQFT9/index.md#def-aqft9-local-vn-net)で、double cone $O$ に対して $\mathcal M(O)$ が定まります。$O\subset W_R$ なら[AQFT2の包含公理](../AQFT2/index.md#def-aqft2-isotony)によって $\mathcal M(O)\subset\mathcal M(W_R)$ ですが、**環の包含から因子型は保存されません**。例えば $B(\mathbb C^2)$ には、中心が2次元で因子でない対角環が含まれます。だから包含だけでは、まず因子であることすら保証できません。
 
-一方、[AQFT16のsplit包含](../AQFT16/index.md#def-aqft16-split-inclusion)は $O_1\Subset O_2$ の間にType I因子 $N$ を挟むという性質です。これは**内側の局所環自身がType I**という意味ではありません。[AQFT17のnuclearityからsplitへの文献定理](../AQFT17/index.md#thm-aqft17-nuclearity-split-literature)も、短距離の型分類と区別する必要があります。
+一方、[AQFT16のsplit包含](../AQFT16/index.md#def-aqft16-split-inclusion)は $O_1\Subset O_2$ の間にType I因子 $N$ を挟むという性質です。これは**内側の局所von Neumann環自身がType I**という意味ではありません。[AQFT17のnuclearityからsplitへの文献定理](../AQFT17/index.md#thm-aqft17-nuclearity-split-literature)も、短距離の型分類と区別する必要があります。
 
 型の細分類と「hyperfinite（超有限）」も別の性質です。hyperfiniteとは有限次元部分 *-環で近似できることをいいます。Type III₁かどうかはこの性質だけでは判定できません。
 
@@ -364,7 +364,7 @@ $$
 >
 > という形を持つ。特に別途 $\mathcal M(O)$ が**因子**と確かめられれば中心は $\mathbb C I$ であり $\mathcal M(O)\simeq R_\infty$ となる。
 >
-> Haag–Narnhofer–Steinの条件は、場の短距離スケールを変えた相関関数が非零のWightman極限を保つという、単なる共変性より強い仮定である。別文献の短距離極限に関する十分条件とは同一視しない。
+> Haag–Narnhofer–Steinの条件は、場の短距離スケールを変えた相関関数が非零のWightman極限を保つという、単なる共変性より強い仮定である。異なる文献の短距離条件を無検証で取り替えてはいけない。
 <!-- formal-statement-end -->
 
 この結果の完全証明にはスケーリング理論、Connes分類、超有限性の深い結果が必要であり、本講では主張しません。出典と射程は、[Yngvasonの総説](https://arxiv.org/abs/math-ph/0411058)、[Fewster–RejznerのAQFT入門](https://arxiv.org/abs/1904.04051)の局所von Neumann環の型の節、およびBuchholz–D’Antoni–Fredenhagenの構造結果に従います。[Saffaryの整理（第4.3節、定理4.27）](https://d-nb.info/977780856/34)にも仮定が列挙されています。たとえば「nuclearity $\Rightarrow$ split」は独立の結論で、**単独で**Type III₁を導くものではありません。
@@ -378,11 +378,11 @@ $$
 | [AQFT27のwedgeのboost等式](../AQFT27/index.md#thm-aqft27-bisognano-wichmann) | 指定した自由場のwedgeのモジュラー群 | 一般netやdouble coneのモジュラー群 |
 | [本講のwedgeスペクトル](#prop-aqft28-wedge-modular-spectrum) | $\operatorname{Sp}(\Delta_{W_R})=[0,\infty)$ | $S(\mathcal M(W_R))=[0,\infty)$ |
 | 一つの忠実状態の $\operatorname{Sp}(\Delta_\varphi)$ が全正半直線 | Connes不変量の上界としての集合包含 | Type III₁判定（Type I反例あり） |
-| [split包含](../AQFT16/index.md#def-aqft16-split-inclusion) | 緩衝領域にType I中間因子がある | 鋭い局所環がType Iであること |
+| [split包含](../AQFT16/index.md#def-aqft16-split-inclusion) | 緩衝領域にType I中間因子がある | 鋭い局所von Neumann環がType Iであること |
 | nuclearityの十分な判定と追加のsplit定理 | 所定のsplit近似・独立性 | 単独でType III₁性 |
 | 局所因子性 + 適切な短距離型判定 + 超有限性 | 文献定理の条件内で局所因子が $R_\infty$ と同型 | net全体が一意になること |
 
-特に、Type III局所環での「エントロピーを密度行列で計算できない」という警告は、[AQFT15のトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)を指します。周囲のFock空間にベクトル密度作用素 $|\Omega\rangle\langle\Omega|$ があることとは矛盾しません。これが次講以降で**相対モジュラー作用素**を使う動機になります。
+特に、Type III局所von Neumann環での「エントロピーを密度行列で計算できない」という警告は、[AQFT15のトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)を指します。周囲のFock空間にベクトル密度作用素 $|\Omega\rangle\langle\Omega|$ があることとは矛盾しません。これが次講以降で**相対モジュラー作用素**を使う動機になります。
 
 ## 6. 演習と詳細解答
 
@@ -422,7 +422,7 @@ $$
 #### AQFT28-A04 自明なnetの型とsplit
 
 - Level: A
-- 問題：$H=\mathbb C$、$\mathcal M(O)=\mathbb CI$、真空 $\Omega=1$、時空変換 $U(g)=I$ としたとき、包含、局所可換性、正エネルギー、splitを判定し、局所環の型を答えよ。
+- 問題：$H=\mathbb C$、$\mathcal M(O)=\mathbb CI$、真空 $\Omega=1$、時空変換 $U(g)=I$ としたとき、包含、局所可換性、正エネルギー、splitを判定し、局所von Neumann環の型を答えよ。
 
 <!-- solution-start -->
 **詳細解答。** $O_1\subset O_2$ のとき $\mathcal M(O_1)=\mathcal M(O_2)=\mathbb CI$ であり、包含公理を満たします。全元がスカラーだから、空間的に分離した領域の環も可換です。
@@ -496,7 +496,7 @@ $$
 #### AQFT28-C01 wedgeの計算から局所型への「誤った証明」を修正する
 
 - Level: C
-- 問題：「[自由実スカラー場のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)から $\operatorname{Sp}(\Delta_{W_R})=[0,\infty)$、ゆえに全double cone局所環がhyperfinite Type III$_1$である」という主張を検討せよ。(i) 正しい部分を証明し、(ii) Type Iの反例で論理の破綻を示し、(iii) double coneの結論に追加すべき性質とその役割を整理せよ。
+- 問題：「[自由実スカラー場のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)から $\operatorname{Sp}(\Delta_{W_R})=[0,\infty)$、ゆえに全double cone局所von Neumann環がhyperfinite Type III$_1$である」という主張を検討せよ。(i) 正しい部分を証明し、(ii) Type Iの反例で論理の破綻を示し、(iii) double coneの結論に追加すべき性質とその役割を整理せよ。
 
 <!-- solution-start -->
 **詳細解答。** **(i)** 指定された $m>0$ の実自由場では[自由実スカラー場のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)が成立します。一粒子boostをrapidity表示にすれば $K_1=i\partial_\theta$、Fourier変換で $-\xi$ の乗算です。従って $\operatorname{Sp}(K_1)=\mathbb R$。Fockの一粒子成分を通して $\operatorname{Sp}(K_F)=\mathbb R$ となり、$\log\Delta_{W_R}=-2\pi K_F$ だから
@@ -518,18 +518,18 @@ $$
 - 問題：あるnetのdouble cone $O$ に対し (i) splitだけ、(ii) 非自明な短距離極限によるType III$_1$の文献判定だけ、(iii) さらに因子性と適切な核性による超有限性、の順に情報が増えるとする。それぞれについて「Type III$_1$」「hyperfinite」「唯一のhyperfinite Type III$_1$因子との同型」のうち何が言えるか。証明した事実と文献依存の部分を区別せよ。
 
 <!-- solution-start -->
-**詳細解答。** **(i)** [splitの定義](../AQFT16/index.md#def-aqft16-split-inclusion)は $\mathcal M(O_1)\subset N\subset\mathcal M(O_2)$ というType I中間因子の存在で、鋭い局所環の型を保証しません。実際に本講の自明netはsplitで局所環がType Iです。**(ii)** 採用したスケーリング極限定理のすべての仮定を点検したうえで型判定が適用できれば、その定理が主張するType III$_1$性は得られます。ただしこれだけでhyperfiniteや因子性が得られるという一般論は使えません。**(iii)** 局所因子性により中心は $\mathbb CI$、核性等から超有限性が別途文献定理で成立し、Type III$_1$の判定も満たすなら、可分前双対のhyperfinite Type III$_1$因子の一意性（深い文献結果）で $\mathcal M(O)\simeq R_\infty$。その同型は局所環の抽象的な同型であってnet全体の一致ではありません。欠けた仮定の代わりにwedgeの一状態のスペクトルを使うことはできません。
+**詳細解答。** **(i)** [splitの定義](../AQFT16/index.md#def-aqft16-split-inclusion)は $\mathcal M(O_1)\subset N\subset\mathcal M(O_2)$ というType I中間因子の存在で、鋭い局所von Neumann環の型を保証しません。実際に本講の自明netはsplitで局所von Neumann環がType Iです。**(ii)** 採用したスケーリング極限定理のすべての仮定を点検したうえで型判定が適用できれば、その定理が主張するType III$_1$性は得られます。ただしこれだけでhyperfiniteや因子性が得られるという一般論は使えません。**(iii)** 局所因子性により中心は $\mathbb CI$、核性等から超有限性が別途文献定理で成立し、Type III$_1$の判定も満たすなら、可分前双対のhyperfinite Type III$_1$因子の一意性（深い文献結果）で $\mathcal M(O)\simeq R_\infty$。その同型は局所von Neumann環の抽象的な同型であってnet全体の一致ではありません。欠けた仮定の代わりにwedgeの一状態のスペクトルを使うことはできません。
 <!-- solution-end -->
 
 ## 7. 次講へ：一つの状態から二状態の比較へ
 
-鋭い局所環がType IIIになり得る以上、局所部分系の密度行列を前提にした部分トレースや密度行列による通常のエントロピーは、そのままでは一般の局所環の内部操作になりません。[Type IIIのトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)がその理由です。
+鋭い局所von Neumann環がType IIIになり得る以上、局所部分系の密度行列を前提にした部分トレースや密度行列による通常のエントロピーは、そのままでは一般の局所von Neumann環の内部操作になりません。[Type IIIのトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)がその理由です。
 
 次のAQFT29では、**二つの忠実な正規状態を比較する相対Tomita作用素**を標準表現から構成します。今回の $\Delta_\varphi$ は一状態のモジュラー作用素でしたが、次には $\Delta_{\sigma\mid\rho}$ の**順序**が重要になります。
 
 ### 参考資料
 
 - [J. Yngvason, *The Role of Type III Factors in Quantum Field Theory*](https://arxiv.org/abs/math-ph/0411058)（2005）：局所因子の型、短距離仮定とhyperfiniteな構造結果の適用境界。
-- [C. J. Fewster・K. Rejzner, *Algebraic Quantum Field Theory — an introduction*](https://arxiv.org/abs/1904.04051)（2019）：局所環の型、split、nuclearityと模型に依存する結論の区別。
+- [C. J. Fewster・K. Rejzner, *Algebraic Quantum Field Theory — an introduction*](https://arxiv.org/abs/1904.04051)（2019）：局所von Neumann環の型、split、nuclearityと模型に依存する結論の区別。
 - [A. Connes, *Une classification des facteurs de type III*](https://doi.org/10.24033/asens.1247)（1973）：$S(M)$ を用いるType III分類の原典。
-- [D. Buchholz・C. D’Antoni・K. Fredenhagen, *The universal structure of local algebras*](https://doi.org/10.1007/BF01211050)（1987）：相空間・短距離条件を伴う局所環構造の文献結果。
+- [D. Buchholz・C. D’Antoni・K. Fredenhagen, *The universal structure of local algebras*](https://doi.org/10.1007/BF01211050)（1987）：相空間・短距離条件を伴う局所von Neumann環構造の文献結果。
