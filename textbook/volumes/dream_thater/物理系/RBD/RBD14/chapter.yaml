@@ -1,0 +1,47 @@
+id: "RBD14"
+title: "非ホロノミック転がりと反力"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD13
+  - RBD7
+  - AMECH2
+  - MECH8
+official_scope: []
+learning_objectives:
+  - 無滑りの接点速度式と直線転がりで積分可能な位置拘束との関係を示せる
+  - 斜面上の円柱と球について並進・回転・法線のNewton–Euler方程式を構成できる
+  - 加速度・静止摩擦力・法線反力を求め摩擦係数による成立限界を判定できる
+  - d'Alembert原理の理想拘束と反力の仮想仕事および実際の仕事率を区別できる
+  - 無滑り時のエネルギー保存と滑り時の散逸率を導ける
+  - 平面上の球の閉路転がりから回転非可換性と非ホロノミック性を説明できる
+  - 静止摩擦限界を超える場合の滑り速度とエネルギー減少を一貫して計算できる
+definitions:
+  - { id: RBD14-DEF-01, name: "転がりの速度拘束と非ホロノミック拘束" }
+theorems:
+  - { id: RBD14-THM-01, name: "直線斜面の無滑り転がりと必要な静止摩擦" }
+  - { id: RBD14-PROP-01, name: "無滑り転がりのエネルギー収支" }
+  - { id: RBD14-PROP-02, name: "滑り接触の散逸率" }
+  - { id: RBD14-PROP-03, name: "平面上の球の閉路転がりによる姿勢変化" }
+canonical_examples:
+  - 直線上の円盤で速度拘束を積分し位置等式を求める例
+  - 斜面上の円柱の重力と二つの接点反力を分ける自由物体図
+  - 中実円柱と中実球の斜面加速度および静止摩擦限界の比較
+  - 理想無滑り反力の仮想仕事と接点での実仕事率が零になる直接検算
+  - 動摩擦に切り替えた瞬間の滑り方向とエネルギー散逸の検算
+  - 正方形経路の四回の回転合成と微小閉路での姿勢差
+problem_patterns:
+  - RBD14-CYLINDER-STATIC-FRICTION
+  - RBD14-SPHERE-INCLINE-REACTION
+  - RBD14-HORIZONTAL-UNFORCED-ROLLING
+  - RBD14-ENERGY-HEIGHT
+  - RBD14-SPHERE-SPIN-FREEDOM
+  - RBD14-KINETIC-SLIP-ONSET
+  - RBD14-IDEAL-VIRTUAL-WORK
+  - RBD14-SQUARE-CLOSED-PATH
+  - RBD14-SLIP-ENERGY-INTEGRATION
+  - RBD14-INTEGRATED-FRICTION-TRANSITION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }
