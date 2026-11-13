@@ -6,7 +6,7 @@ chapter_root: textbook/volumes/dream_thater
 # 全30講の設計確定。最初の講義から順に実装・検証を行う。
 chapters:
   - { id: U4-01, path: textbook/volumes/dream_thater/応用系/U/U4-01, status: completed, title: "価格表から裁定を判定する" }
-  - { id: U4-02, path: textbook/volumes/dream_thater/応用系/U/U4-02, status: planned, title: "有限市場の分離定理と状態価格の双対" }
+  - { id: U4-02, path: textbook/volumes/dream_thater/応用系/U/U4-02, status: completed, title: "有限市場の分離定理と状態価格の双対" }
   - { id: U4-03, path: textbook/volumes/dream_thater/応用系/U/U4-03, status: planned, title: "売値・買値・手数料・空売り制約を入れた裁定探索" }
   - { id: U4-04, path: textbook/volumes/dream_thater/応用系/U/U4-04, status: planned, title: "外国為替の三角裁定と同時刻気配" }
   - { id: U4-05, path: textbook/volumes/dream_thater/応用系/U/U4-05, status: planned, title: "現物・先渡・先物のcash-and-carry" }
