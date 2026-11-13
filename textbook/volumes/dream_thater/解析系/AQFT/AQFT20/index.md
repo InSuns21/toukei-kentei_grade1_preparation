@@ -468,3 +468,327 @@ $$
 **モジュラー作用素が恒等であることと、環が可換であることは違います。**
 
 ## 7. 演習と詳細解答
+
+### Level A：基底と操作
+
+<a id="ex-aqft20-a01"></a>
+#### AQFT20-A01 Hilbert–Schmidt内積
+
+- Level: A
+
+$X=E_{11}+iE_{12}-2E_{22}$ と $\rho=\operatorname{diag}(3/4,1/4)$ を考える。$\|X\|_2^2$、$\|\rho^{1/2}\|_2^2$ を求め、用いた基底の直交性を説明せよ。
+
+<!-- solution-start -->
+**詳細解答。** [Hilbert–Schmidt内積の定義](#def-aqft20-hilbert-schmidt)より
+
+$$
+\langle E_{ij},E_{kl}\rangle_2
+=\operatorname{Tr}(E_{ji}E_{kl})
+=\delta_{ik}\delta_{jl}.
+$$
+
+よって異なる行列単位どうしの交差項は消え、各係数の絶対値二乗を加えて
+
+$$
+\|X\|_2^2=1+|i|^2+|-2|^2=6.
+$$
+
+$\rho^{1/2}=\operatorname{diag}(\sqrt3/2,1/2)$ なので
+
+$$
+\|\rho^{1/2}\|_2^2=\frac34+\frac14=1.
+$$
+
+密度行列の $\operatorname{Tr}\rho=1$ と一致する。
+<!-- solution-end -->
+
+<a id="ex-aqft20-a02"></a>
+#### AQFT20-A02 右乗算の積の順序
+
+- Level: A
+
+$A=E_{12}$、$B=E_{21}$ とする。$R_A R_B$、$R_B R_A$ を求め、任意の $X$ に対して $L_AR_B=R_BL_A$ を確認せよ。
+
+<!-- solution-start -->
+**詳細解答。** [左右乗算の定義](#def-aqft20-hilbert-schmidt)を順番に使い、
+
+$$
+R_A R_B(X)=R_A(XB)=(XB)A=X(BA).
+$$
+
+$BA=E_{21}E_{12}=E_{22}$ なので $R_A R_B=R_{E_{22}}$。逆順は $AB=E_{11}$ なので $R_B R_A=R_{E_{11}}$ である。最後に
+
+$$
+L_AR_B(X)=A(XB)=(AX)B=R_BL_A(X)
+$$
+
+が任意の $X$ に対して成り立つ。右乗算の合成では行列積の順序が逆になる。
+<!-- solution-end -->
+
+<a id="ex-aqft20-a03"></a>
+#### AQFT20-A03 反線形作用素の二回適用
+
+- Level: A
+
+$\rho=\operatorname{diag}(3/4,1/4)$ に対し $S(E_{12})$、$S(E_{21})$、$S^2(E_{12})$ を求めよ。
+
+<!-- solution-start -->
+**詳細解答。** [Tomita作用素の公式](#thm-aqft20-modular-formulas)で $\lambda_1/\lambda_2=3$ を代入すると
+
+$$
+S(E_{12})=\sqrt3 E_{21},\qquad
+S(E_{21})=\frac1{\sqrt3}E_{12}.
+$$
+
+$S$ は反線形だが $\sqrt3$ は実数なので
+
+$$
+S^2(E_{12})=S(\sqrt3 E_{21})
+=\sqrt3\,S(E_{21})=E_{12}.
+$$
+
+複素係数一般でも二度の反線形性で共役が二回掛かり、元に戻る。
+<!-- solution-end -->
+
+<a id="ex-aqft20-a04"></a>
+#### AQFT20-A04 モジュラー作用素の正値性
+
+- Level: A
+
+$\rho=\operatorname{diag}(p,1-p)$、$0<p<1$ とする。$\Delta(E_{11})$、$\Delta(E_{12})$ を求め、$\Delta\Omega=\Omega$ および $\langle X,\Delta X\rangle_2>0$（$X\ne0$）を示せ。
+
+<!-- solution-start -->
+**詳細解答。** $\Omega=\sqrt p E_{11}+\sqrt{1-p}E_{22}$ である。[モジュラー作用素の固有値表示](#thm-aqft20-modular-formulas)より
+
+$$
+\Delta(E_{11})=E_{11},\quad
+\Delta(E_{12})=\frac p{1-p}E_{12},\quad
+\Delta(E_{22})=E_{22}.
+$$
+
+ゆえに線形性から $\Delta\Omega=\Omega$。$X=\sum_{i,j}x_{ij}E_{ij}$ と書くと、正規直交性から
+
+$$
+\langle X,\Delta X\rangle_2
+=\sum_{i,j}\frac{\lambda_i}{\lambda_j}|x_{ij}|^2.
+$$
+
+忠実性で $\lambda_i/\lambda_j>0$ なので、$X\ne0$ なら少なくとも一項が正で全体が正である。
+<!-- solution-end -->
+
+### Level B：導出と仮定を検査する
+
+<a id="ex-aqft20-b01"></a>
+#### AQFT20-B01 反線形随伴の向き
+
+- Level: B
+
+$S(E_{ij})=\sqrt{\lambda_i/\lambda_j}E_{ji}$ から、反線形随伴の内積条件を使い $S^\sharp(E_{ij})$ と $\Delta(E_{ij})$ を導け。一般に $S^\sharp\ne S$ となる例を挙げよ。
+
+<!-- solution-start -->
+**詳細解答。** [反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)は
+
+$$
+\langle Sx,y\rangle_2=\langle S^\sharp y,x\rangle_2.
+$$
+
+$x=E_{ij}$、$y=E_{kl}$ に代入して
+
+$$
+\langle S(E_{ij}),E_{kl}\rangle_2
+=\sqrt{\frac{\lambda_i}{\lambda_j}}\delta_{jk}\delta_{il}.
+$$
+
+これを満たす反線形作用素は
+
+$$
+S^\sharp(E_{kl})=\sqrt{\frac{\lambda_l}{\lambda_k}}E_{lk}.
+$$
+
+続いて両方を作用させれば
+
+$$
+\begin{aligned}
+\Delta(E_{ij})
+&=S^\sharp(\sqrt{\lambda_i/\lambda_j}\,E_{ji})\\
+&=\sqrt{\lambda_i/\lambda_j}
+\sqrt{\lambda_i/\lambda_j}\,E_{ij}
+=\frac{\lambda_i}{\lambda_j}E_{ij}.
+\end{aligned}
+$$
+
+$\lambda_1=3/4,\lambda_2=1/4$ なら $S(E_{12})=\sqrt3E_{21}$ だが $S^\sharp(E_{12})=E_{21}/\sqrt3$ なので一致しない。係数の逆転を無視して $S^\sharp=S$ と置くのは誤りである。
+<!-- solution-end -->
+
+<a id="ex-aqft20-b02"></a>
+#### AQFT20-B02 可換子が右乗算に尽きる理由
+
+- Level: B
+
+$T\in B(H_n)$ がすべての $L_A$ と可換するとする。$T(I)$ を使って $T=R_B$ を証明し、さらに $JL_AJ$ を求めよ。
+
+<!-- solution-start -->
+**詳細解答。** $B=T(I)$ と置く。$X=L_X(I)$ なので可換性を使えば
+
+$$
+T(X)=T(L_XI)=L_XT(I)=XB=R_B(X).
+$$
+
+従って $T$ は右乗算である。逆に $L_AR_B(X)=A(XB)=(AX)B=R_BL_A(X)$ なので右乗算は全て可換子に属する。よって [可換子](../../VN/VN2/index.md#def-vn2-commutant)を尽くす。さらに $J(X)=X^*$ より
+
+$$
+JL_AJ(X)=J(AX^*)=(AX^*)^*=XA^*=R_{A^*}(X).
+$$
+
+従って $J\mathcal MJ=\mathcal M'$。これは [有限模型の定理](#thm-aqft20-commutant)の逆包含と $J$ の作用を再現したものである。
+<!-- solution-end -->
+
+<a id="ex-aqft20-b03"></a>
+#### AQFT20-B03 非対角成分の時間発展
+
+- Level: B
+
+$\rho=\operatorname{diag}(3/4,1/4)$ と $A=E_{12}+E_{21}$ に対し、$\sigma_t(L_A)$ を計算せよ。またこの $A$ について $\operatorname{Tr}(\rho\,\alpha_t(A))=\operatorname{Tr}(\rho A)$ を直接確かめよ。ただし $\sigma_t(L_A)=L_{\alpha_t(A)}$。
+
+<!-- solution-start -->
+**詳細解答。** [有限次元モジュラー流の定理](#thm-aqft20-finite-flow)から $\alpha_t(A)=\rho^{it}A\rho^{-it}$。固有基底で左右の重みを掛けると
+
+$$
+\alpha_t(A)
+=3^{it}E_{12}+3^{-it}E_{21}
+=e^{it\log3}E_{12}+e^{-it\log3}E_{21}.
+$$
+
+従って $\sigma_t(L_A)=L_{\alpha_t(A)}$。$A$ と $\alpha_t(A)$ はいずれも対角成分が零であるため
+
+$$
+\operatorname{Tr}(\rho A)=0,\qquad
+\operatorname{Tr}(\rho\alpha_t(A))=0.
+$$
+
+状態保存をこの例で検算した。ただしこの零トレース計算だけで一般の $A$ の保存則を証明したとは言えず、一般にはトレースの巡回性が必要である。
+<!-- solution-end -->
+
+<a id="ex-aqft20-b04"></a>
+#### AQFT20-B04 非忠実密度による定義の破綻
+
+- Level: B
+
+$\rho_0=\operatorname{diag}(1,0)$、$\Omega_0=\rho_0^{1/2}$ とする。$L(M_2)\Omega_0$ を求め、巡回性・分離性がないことを別々に示せ。さらに $S_0(A\Omega_0)=A^*\Omega_0$ がwell-definedでないことを証明せよ。
+
+<!-- solution-start -->
+**詳細解答。** $A\Omega_0$ は $A$ の第1列だけを保持し、第2列は零にする。よって
+
+$$
+L(M_2)\Omega_0=\operatorname{span}\{E_{11},E_{21}\},
+$$
+
+これは4次元 $H_2$ の真部分空間なので巡回性がない。一方 $E_{12}\ne0$ でも
+
+$$
+E_{12}\Omega_0=E_{12}E_{11}=0
+$$
+
+だから分離性がない。しかし $E_{12}^*=E_{21}$ なので
+
+$$
+E_{12}^*\Omega_0=E_{21}E_{11}=E_{21}\ne0.
+$$
+
+同じ入力 $0=0\Omega_0=E_{12}\Omega_0$ に対し出力が $0$ と $E_{21}$ に分かれ、作用素の規則は一価ではない。[Tomita初期作用素の成立](../AQFT18/index.md#prop-aqft18-initial-properties)に必要な分離性を失ったことが原因である。
+<!-- solution-end -->
+
+### Level C：全体の構成を組み合わせる
+
+<a id="ex-aqft20-c01"></a>
+#### AQFT20-C01 位相反転と固定点
+
+- Level: C
+
+$\rho=\operatorname{diag}(3/4,1/4)$、$t_0=\pi/\log3$、$A=E_{12}+E_{21}$ とする。
+
+1. $\sigma_{t_0}(L_A)=-L_A$ を示せ。
+2. $\sigma_t(L_B)=L_B$ が全ての $t\in\mathbb R$ で成り立つ行列 $B$ をすべて求めよ。
+3. $\rho=I/2$ の場合に $\Delta=I$ となる一方、左乗算環は非可換であることを示せ。
+
+<!-- solution-start -->
+**詳細解答。** 第1問は [モジュラー流の公式](#thm-aqft20-finite-flow)で
+
+$$
+3^{it_0}=\exp(i\pi)=-1,\qquad
+3^{-it_0}=\exp(-i\pi)=-1
+$$
+
+を用いる。よって $\alpha_{t_0}(A)=-E_{12}-E_{21}=-A$、従って $\sigma_{t_0}(L_A)=-L_A$ である。
+
+第2問では $B=(b_{ij})$ と書く。第 $(i,j)$ 成分の変化は $(\lambda_i/\lambda_j)^{it}b_{ij}$。対角成分は常に不変だが、比が3または $1/3$ である非対角成分は全 $t$ にわたって不変なら零でなければならない。逆に任意の対角 $B$ は $\rho$ と可換なので不変。従って答えは全対角行列である。
+
+第3問は [モジュラー作用素の式](#thm-aqft20-modular-formulas)から $\Delta(X)=(I/2)X(2I)=X$。一方、
+
+$$
+L_{E_{12}}L_{E_{21}}=L_{E_{11}},\qquad
+L_{E_{21}}L_{E_{12}}=L_{E_{22}}
+$$
+
+であり、これらは単位行列 $I$ に作用させると $E_{11},E_{22}$ と異なる。従って $\Delta=I$ は非可換性を排除しない。
+<!-- solution-end -->
+
+<a id="ex-aqft20-c02"></a>
+#### AQFT20-C02 固有値比から密度と可換子を復元する
+
+- Level: C
+
+$\rho=\operatorname{diag}(p,1-p)$、$0<p<1$ で $\Delta(E_{12})=4E_{12}$ だとする。
+
+1. $\rho$ を求めよ。
+2. $S(E_{12})$、$S^\sharp(E_{12})$、$J\Delta J(E_{12})$ を計算せよ。
+3. $L(M_2)'$ を求め、$J L_AJ$ が可換子を尽くすことを示せ。
+
+<!-- solution-start -->
+**詳細解答。** [固有値比の公式](#thm-aqft20-modular-formulas)から
+
+$$
+\frac p{1-p}=4
+\quad\Longrightarrow\quad
+p=4(1-p)
+\quad\Longrightarrow\quad
+5p=4,\qquad p=\frac45.
+$$
+
+従って $\rho=\operatorname{diag}(4/5,1/5)$。比が4だから
+
+$$
+S(E_{12})=2E_{21},\qquad
+S^\sharp(E_{12})=\frac12E_{21}.
+$$
+
+さらに $J(E_{12})=E_{21}$、$\Delta(E_{21})=\frac14E_{21}$、$J(E_{21})=E_{12}$ より
+
+$$
+J\Delta J(E_{12})
+=J\Delta(E_{21})
+=J\left(\frac14E_{21}\right)
+=\frac14E_{12}
+=\Delta^{-1}(E_{12}).
+$$
+
+最後に任意の $T\in L(M_2)'$ に対して $B=T(I)$ とおけば
+
+$$
+T(X)=T(L_X I)=L_XT(I)=XB.
+$$
+
+よって $L(M_2)'$ は右乗算全体。逆向きの包含は $A(XB)=(AX)B$ による。$J(X)=X^*$ を順に代入すると
+
+$$
+JL_AJ(X)=J(AX^*)=(AX^*)^*=XA^*=R_{A^*}(X).
+$$
+
+$A^*$ は全行列を走るので $JL(M_2)J=L(M_2)'$ が示された。この計算は一般の無限次元環へそのまま移せるとは限らない。
+<!-- solution-end -->
+
+## 8. 有限次元から先へ
+
+本講の $\rho^{-1}$ は忠実性によって全域定義で、すべての作用素は有界でした。[AQFT19の閉反線形作用素の極分解](../AQFT19/index.md#thm-aqft19-polar)は非有界な場合にも成り立ちますが、そのときは作用素積・逆作用素の定義域を個別に調べる必要があります。
+
+次のAQFT21では、有限次元では気軽に使った左右乗算・可換子・作用素の閉包の計算を、一般のモジュラーHilbert環に移すための解析的coreと補題として組み立てます。AQFT22の一般可換子定理、AQFT23のモジュラー不変性を有限次元の例だけで証明したとはみなしません。
