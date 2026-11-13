@@ -13,6 +13,7 @@ concepts:
     requires: [continuum.flow-reference-scales]
   - id: fluid.buckingham-pi
     name: Buckingham の Π 定理
+    aliases: ["Π 定理"]
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Buckingham の Π 定理：正の量の場合）"]
