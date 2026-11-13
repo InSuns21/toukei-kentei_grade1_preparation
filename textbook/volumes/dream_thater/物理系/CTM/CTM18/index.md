@@ -56,7 +56,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（Maxwell の直列接続と Kelvin–Voigt の並列接続）
 
-模型全体の基準長さ $L_0$ と、上で定めた一般化ひずみを採用する。並列枝の断面積和は $A$ であり、各枝の応力を全断面積 $A$ で換算した寄与として表す（したがって $E,eta_v$ は模型の有効係数）。
+模型全体の基準長さ $L_0$ と、上で定めた一般化ひずみを採用する。並列枝の断面積和は $A$ であり、各枝の応力を全断面積 $A$ で換算した寄与として表す（したがって $E,\eta_v$ は模型の有効係数）。
 
 - **Maxwell 模型（直列）**：各素子に働く応力は等しく $\sigma=\sigma_s=\sigma_d$、全ひずみは $\varepsilon=\varepsilon_s+\varepsilon_d$ とする。
 - **Kelvin–Voigt 模型（並列）**：各素子のひずみは等しく $\varepsilon=\varepsilon_s=\varepsilon_d$、全応力は $\sigma=\sigma_s+\sigma_d$ とする。
@@ -72,7 +72,24 @@ $$
     Kelvin–Voigt：端                     端
                    └ [ダッシュポット η_v] ┘
 
-力と伸びの条件を直接確かめよう。Maxwell 模型で $\sigma=10^4$ Pa、$E=10^6$ Pa、$\dot\varepsilon_d=0.005$ s$^{-1}$、$\eta_v=2\times10^6$ Pa s と置くと、ばね側は $\varepsilon_s=0.01$、ダッシュポット側は $\eta_v\dot\varepsilon_d=10^4$ Pa と**同じ応力**になる。ひずみ速度は $\dot\varepsilon=\dot\varepsilon_s+0.005$ であって、二素子のひずみを同一視しない。Kelvin–Voigt 模型に $\varepsilon=0.01$、$\dot\varepsilon=0.005$ s$^{-1}$ を与えると、二枝が同じひずみと速度を持ち、応力は $10^4+10^4=2\times10^4$ Pa となる。これは荷重の加算を直接確認する例である。
+力と伸びの条件を数値で確かめる。Maxwell 模型に $\sigma=10^4$ Pa、$E=10^6$ Pa、$\eta_v=2\times10^6$ Pa s、$\dot\varepsilon_d=0.005$ s$^{-1}$ を与える。このとき
+
+$
+\varepsilon_s=\frac{10^4}{10^6}=0.01,\qquad
+\sigma_d=(2\times10^6)(0.005)=10^4\ \mathrm{Pa}.
+$
+
+ばねとダッシュポットの応力が一致する。全ひずみ速度は $\dot\varepsilon=\dot\varepsilon_s+0.005$ であり、素子のひずみは同一視しない。
+
+Kelvin–Voigt 模型に $\varepsilon=0.01$、$\dot\varepsilon=0.005$ s$^{-1}$ を与えると、二枝のひずみと速度はそれぞれ等しく、応力は
+
+$
+\sigma_s=E\varepsilon=10^4\ \mathrm{Pa},\qquad
+\sigma_d=\eta_v\dot\varepsilon=10^4\ \mathrm{Pa},\qquad
+\sigma=\sigma_s+\sigma_d=2\times10^4\ \mathrm{Pa}.
+$
+
+これは並列接続の荷重加算を直接確認する例である。
 
 ## 3. Maxwell 模型：一定ひずみでも応力は減る
 
@@ -95,7 +112,7 @@ $$
 
 ### 証明の見取り図
 
-同じ応力が通るため、ばねとダッシュポットのひずみ速度をそれぞれ応力で表して足す。時間微分を取る前の**直列接続条件**が肝心である。
+同じ応力が通るため、ばねとダッシュポットのひずみ速度をそれぞれ応力で表して足す。時間微分を取る前に、**直列では同じ応力が通り、ひずみは加算される**ことを確認するのが肝心である。
 
 <!-- proof-start -->
 ### 証明
@@ -405,7 +422,7 @@ $E=1$ MPa、$\eta_v=2$ MPa s の Kelvin–Voigt 模型へ $\sigma_0=10$ kPa の�
 <!-- solution-start -->
 #### 詳細解答
 
-[並列模型のクリープ定理](#thm-ctm18-kelvin-step)から $\tau=2$ s、$\sigma_0/E=10^4/10^6=0.01$。よって
+[Kelvin–Voigt 模型のクリープとひずみステップの限界](#thm-ctm18-kelvin-step)から $\tau=2$ s、$\sigma_0/E=10^4/10^6=0.01$。よって
 
 $$
 \varepsilon(0+)=0,\qquad
