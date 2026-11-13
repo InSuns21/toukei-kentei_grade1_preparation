@@ -1,0 +1,58 @@
+chapter: RBD11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD10
+  - AMECH4
+forward_references: []
+concepts:
+  - id: mechanics.heavy-symmetric-top-fixed-point
+    name: 固定点を持つ重い対称こま
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（固定点を持つ重い対称こま）]
+    requires:
+      - mechanics.inertia-tensor-parallel-axis
+      - mechanics.zyz-euler-angles
+      - mechanics.rigid-body-forced-newton-euler
+  - id: mechanics.heavy-top-kinetic-lagrangian
+    name: 固定点対称こまの運動エネルギーと力学的ラグランジアン
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（固定点対称こまの運動エネルギーと力学的ラグランジアン）]
+    requires:
+      - mechanics.heavy-symmetric-top-fixed-point
+      - mechanics.zyz-angular-velocity-map
+      - analytical-mechanics.mechanical-lagrangian
+  - id: mechanics.heavy-top-momenta-energy
+    name: 二つの保存運動量と全エネルギー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（二つの保存運動量と全エネルギー）]
+    requires:
+      - mechanics.heavy-top-kinetic-lagrangian
+      - analytical-mechanics.cyclic-momentum-conservation
+      - analytical-mechanics.lagrangian-energy-balance
+  - id: mechanics.heavy-top-effective-potential
+    name: 重い対称こまの有効ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（重い対称こまの有効ポテンシャル）]
+    requires:
+      - mechanics.heavy-top-momenta-energy
+  - id: mechanics.heavy-top-reduced-theta
+    name: 傾きの一変数帰着と許容域
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（傾きの一変数帰着と許容域）]
+    requires:
+      - mechanics.heavy-top-effective-potential
+      - analytical-mechanics.lagrange-equations
+  - id: mechanics.heavy-top-pole-conditions
+    name: 鉛直姿勢への到達に必要な運動量条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（鉛直姿勢への到達に必要な運動量条件）]
+    requires:
+      - mechanics.heavy-top-reduced-theta
+      - mechanics.zyz-coordinate-singularity
