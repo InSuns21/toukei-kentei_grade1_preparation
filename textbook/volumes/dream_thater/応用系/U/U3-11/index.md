@@ -26,13 +26,13 @@ $$
 u_h=e^{\sigma\sqrt h},\qquad d_h=e^{-\sigma\sqrt h},\qquad R_h=e^{rh}
 $$
 >
-> を毎期同一の倍率として用いる。**$d_h<R_h<u_h$ のときだけ**評価用の上昇確率
+> を毎期同一の倍率として用いる。分母 $u_h-d_h>0$ なので、まず上昇・下落の候補値を
 >
-$$
+$
 q_h=\frac{R_h-d_h}{u_h-d_h},\qquad 1-q_h=\frac{u_h-R_h}{u_h-d_h}
-$$
+$
 >
-> を定める。時点 $t=0,\ldots,N$ に上枝が $k$ 本あれば
+> と計算する。**両候補値が厳密に正のときだけ**これらを評価用確率として採用する。時点 $t=0,\ldots,N$ に上枝が $k$ 本あれば
 >
 $$
 S_{t,k}=S_0u_h^kd_h^{\,t-k}=S_0 e^{(2k-t)\sigma\sqrt h},\quad 0\le k\le t.
@@ -116,7 +116,7 @@ a_h=\sigma\sqrt{3h},\quad u_h=e^{a_h},\quad
 m_h=1,\quad d_h=e^{-a_h},\quad R_h=e^{rh}
 $$
 >
-> と定める。毎期の横ばい確率を $p_0=2/3$ と選び、上昇・下落の確率を
+> と定める。毎期の横ばい確率を $p_0=2/3$ と選び、上昇・下落の候補値を
 >
 $$
 p_+=\frac{R_h-\frac23-\frac13d_h}{u_h-d_h},
@@ -369,7 +369,13 @@ A_h^{(2)}&=1+\sigma^2h+\frac1{12}\sigma^4h^2+O(h^3),\\
 A_h^{(3)}&=1+\sigma^2h+\frac14\sigma^4h^2+O(h^3)
 \end{aligned}
 $
-です。$\log(1+z)=z-z^2/2+O(z^3)$ で $z=A_h^{(m)}-1=O(h)$ と置くと、$m=2,3$ について $N\log A_h^{(m)}=N\{\sigma^2h+(c_m-\frac12)\sigma^4h^2+O(h^3)\}$、ただし $c_2=1/12,c_3=1/4$ です。$Nh=T$ から
+です。$\log(1+z)=z-z^2/2+O(z^3)$ で $z=A_h^{(m)}-1=O(h)$ と置き、$c_2=1/12,c_3=1/4$ とすれば
+$
+N\log A_h^{(m)}
+=N\left\{\sigma^2h+\left(c_m-\frac12\right)\sigma^4h^2+O(h^3)\right\}
+\qquad(m=2,3)
+$
+です。$Nh=T$ から
 $
 \begin{aligned}
 \log(C_N^{(2)}/S_0)&=\sigma^2T-\frac5{12}\sigma^4Th+O(h^2),\\
