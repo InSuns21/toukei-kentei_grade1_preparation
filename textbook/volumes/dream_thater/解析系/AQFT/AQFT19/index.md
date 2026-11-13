@@ -105,7 +105,7 @@ $$
 **定義の確認**：共役空間の加法とスカラー倍を明示し、内積の順序交換からノルム保存を検算しました。元の完備空間との等長対応によってHilbert空間の条件まで確かめました。
 <!-- definition-example-end -->
 
-$T$ が反線形なら、$\widetilde T x=\overline{Tx}$ は $\mathcal H$ から $\overline{\mathcal H}$ への**線形**作用素です。実際、
+$T$ が反線形なら、$\operatorname{Dom}\widetilde T=\operatorname{Dom}T$ と置き、$x\in\operatorname{Dom}T$ に対して $\widetilde T x=\overline{Tx}$ と定めると、$\widetilde T:\operatorname{Dom}T\subset\mathcal H\to\overline{\mathcal H}$ は**線形**作用素です。実際、
 
 $$
 \widetilde T(\alpha x)
@@ -114,7 +114,13 @@ $$
 =\alpha\,\overline{Tx}.
 $$
 
-$\|Tx\|=\|\widetilde Tx\|$ でグラフの閉性も変わらず、[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)の内積式から $\widetilde T^*\widetilde T=T^\sharp T$ が従います。後者の等式には**両辺の定義域の一致**も含まれています。
+$\|Tx\|=\|\widetilde Tx\|$ でグラフの閉性も変わりません。随伴を比較するには $x\in\operatorname{Dom}T$、$y\in\operatorname{Dom}T^\sharp$ に対し、[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)と内積の共役対称性から
+$$
+\langle\widetilde Tx,\overline y\rangle_{\overline{\mathcal H}}
+=\langle y,Tx\rangle_{\mathcal H}
+=\langle x,T^\sharp y\rangle_{\mathcal H}
+$$
+を得ます。逆に $\overline y\in\operatorname{Dom}\widetilde T^*$ ならこの等式を逆向きに読んで $y\in\operatorname{Dom}T^\sharp$ と分かるため、$\widetilde T^*\overline y=T^\sharp y$ は定義域ごと成立します。従って $\widetilde T^*\widetilde T=T^\sharp T$ であり、その定義域は $\{x\in\operatorname{Dom}T:Tx\in\operatorname{Dom}T^\sharp\}$ です。
 
 <a id="lem-aqft19-positive-square"></a>
 
@@ -142,7 +148,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$A=\widetilde T:\mathcal H\to\overline{\mathcal H}$ と置きます。$A$ のグラフは閉じているので、$\operatorname{Dom}A$ に
+$A=\widetilde T:\operatorname{Dom}T\subset\mathcal H\to\overline{\mathcal H}$ と置きます。$A$ のグラフは閉じているので、$\operatorname{Dom}A$ に
 
 $$
 \langle x,z\rangle_A
@@ -201,7 +207,7 @@ $$
 
 $I+B$ の全射性から $w=0$ です。ゆえにグラフ直交補空間が零で、稠密性が従います。
 
-一方、非負自己共役 $B$ の[スペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)で射影 $E_B([0,n])$ を使えば、$u\in\operatorname{Dom}B^{1/2}$ に対し $u_n=E_B([0,n])u$ は $\operatorname{Dom}B$ に属し、
+一方、非負自己共役 $B$ の[スペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)で射影 $E_B([0,n])$ を使えば、$u\in\operatorname{Dom}B^{1/2}$ に対し $u_n=E_B([0,n])u$ は $\operatorname{Dom}B$ に属します。以下の $\mu_u$ は $\mu_u(E)=\langle u,E_B(E)u\rangle$（$E$ はBorel集合）で定めるスペクトル測度であり、
 
 $$
 \|u-u_n\|^2+\|B^{1/2}(u-u_n)\|^2
@@ -411,6 +417,8 @@ $$
 
 標準対の単位ベクトル $\Omega=I\Omega$ は、Tomita 初期作用素により $S\Omega=\Omega$ です。さらに[AQFT18の可換子側との随伴包含](../AQFT18/index.md#prop-aqft18-adjoint-pairing)から $F_0\Omega=\Omega$ と $F_0\subset S^\sharp$ なので $S^\sharp\Omega=\Omega$ も得られます。
 
+核が零の正自己共役作用素 $\Delta$ に対し、本節の $\Delta^{it}$（$t\in\mathbb R$）は、$\lambda>0$ で $\lambda^{it}=\exp(it\log\lambda)$ とする関数を[QM6のBorel関数計算](../../QM/QM6/index.md#def-qm6-borel-functional-calculus)に入れた作用素です。$\lambda=0$ における関数値は任意に決めてよく、$\ker\Delta=0$ のため結果は変わりません。
+
 <a id="prop-aqft19-vacuum-fixed"></a>
 
 <!-- formal-statement-start -->
@@ -451,13 +459,15 @@ $\Delta^{it}$ はスペクトル関数 $\lambda\mapsto\lambda^{it}$ から作る
 
 可換な対角環の例では常に $\Delta=I$ でした。変化を可視化するには、$K=\mathbb C^2$ 上のHilbert–Schmidt空間 $\mathcal H=S_2(K)=M_2(\mathbb C)$ を用います。内積は $\langle X,Y\rangle=\operatorname{Tr}(X^*Y)$、$\mathcal M=\{L_A:X\mapsto AX\mid A\in M_2(\mathbb C)\}$ とします。
 
+$\mathbb C^2$ の標準正規直交基底を $e_1,e_2$ とし、行列単位 $E_{ij}=|e_i\rangle\langle e_j|$ は $E_{ij}e_k=\delta_{jk}e_i$ を満たすものとします。この基底では $X=\sum_{i,j}X_{ij}E_{ij}$、$\langle X,Y\rangle=\sum_{i,j}\overline{X_{ij}}Y_{ij}$ です。左乗算は $L_{AB}=L_AL_B$、$L_A^*=L_{A^*}$、$L_I=I_{\mathcal H}$ を満たし、有限次元の単位的 $*$-代数 $\mathcal M$ は弱作用素位相で閉じています。従って $\mathcal M$ はvon Neumann環です。
+
 $\lambda_1,\lambda_2>0$、$\lambda_1+\lambda_2=1$ として
 
 $$
 \Omega=\operatorname{diag}(\sqrt{\lambda_1},\sqrt{\lambda_2}).
 $$
 
-$\Omega$ が可逆なので $A\Omega=0\Rightarrow A=0$、任意の $X$ は $X=(X\Omega^{-1})\Omega$ と書けるため、標準対です。ここで行列単位 $E_{ij}$ を入力とすると、$A\Omega=E_{ij}$ に必要な $A$ は $A=E_{ij}/\sqrt{\lambda_j}$ です。よって**初期作用素の定義そのもの**から
+$\|\Omega\|_2^2=\lambda_1+\lambda_2=1$ です。$\Omega$ が可逆なので $A\Omega=0\Rightarrow A=0$（分離性）、任意の $X$ は $X=(X\Omega^{-1})\Omega$ と書けます（巡回性）。こうして[標準対の両条件](../AQFT18/index.md#def-aqft18-standard-pair)と単位ベクトル・環の条件を確認しました。ここで行列単位 $E_{ij}$ を入力とすると、$E_{ij}\Omega=\sqrt{\lambda_j}E_{ij}$ なので $A\Omega=E_{ij}$ に必要な $A$ は $A=E_{ij}/\sqrt{\lambda_j}$ です。よって[Tomita初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)から
 
 $$
 S(E_{ij})
@@ -466,7 +476,15 @@ S(E_{ij})
 =\sqrt{\frac{\lambda_i}{\lambda_j}}\,E_{ji}.
 $$
 
-$S$ は反線形なので係数 $c_{ij}$ は複素共役になります。行列単位が正規直交基底だから、反線形随伴もここから計算でき、
+$S$ は反線形なので係数 $c_{ij}$ は複素共役になります。行列単位がHilbert–Schmidt空間の正規直交基底であることを使い、反線形随伴も内積から導きます。任意の $a,b$ について
+
+$$
+\langle SE_{ab},E_{ji}\rangle
+=\sqrt{\frac{\lambda_i}{\lambda_j}}\,\delta_{ai}\delta_{bj}
+=\left\langle\sqrt{\frac{\lambda_i}{\lambda_j}}E_{ij},E_{ab}\right\rangle.
+$$
+
+これは $\langle Sx,y\rangle=\langle S^\sharp y,x\rangle$ の定義式なので、
 
 $$
 S^\sharp(E_{ji})
@@ -507,7 +525,7 @@ $$
 
 ## 8. 無限次元では定義域が本当に違う
 
-[AQFT18の無限次元Hilbert–Schmidt標準対](../AQFT18/index.md#thm-aqft18-tomita-closable)で使った $K=\ell^2(\mathbb N)$、$\lambda_n=2^{-n}$、$\Omega=\operatorname{diag}(\sqrt{\lambda_n})$ を考えます。行列単位 $E_{ij}$ に対する第7節と同じ入力の計算は
+[AQFT18の無限次元Hilbert–Schmidt標準対](../AQFT18/index.md#thm-aqft18-tomita-closable)で使った $K=\ell^2(\mathbb N)$、$\lambda_n=2^{-n}$、$\Omega=\operatorname{diag}(\sqrt{\lambda_n})$ を考えます。$e_i$ は $K$ の標準正規直交基底、$E_{ij}=|e_i\rangle\langle e_j|$ は第7節と同じ行列単位で、$X_{ij}=\langle e_i,Xe_j\rangle$ と書きます。行列単位 $E_{ij}$ に対する第7節と同じ入力の計算は
 
 $$
 S(E_{ij})=\sqrt{\lambda_i/\lambda_j}\,E_{ji},
@@ -547,7 +565,15 @@ $$
 \longrightarrow0
 $$
 
-を満たします。有限行列上では $S_0=JB$ であり、その有限行列は $B$ のグラフノルムで稠密です。$J$ が等長なので $JB$ のグラフノルムも同じです。ゆえに閉包を取ると $S=JB$ です。$B^2$ が $\Delta$ となります。
+を満たします。有限行列上では $S_0=JB$ であり、その有限行列は $B$ のグラフノルムで稠密です。$J$ が等長なので $JB$ のグラフノルムも同じです。ゆえに閉包を取ると $S=JB$ です。反ユニタリ随伴 $J^\sharp=J^{-1}$ と $B^*=B$ を内積の定義に適用すると $S^\sharp=BJ^{-1}$（定義域は $\{Y:J^{-1}Y\in\operatorname{Dom}B\}$）です。従って
+
+$$
+\Delta=S^\sharp S=(BJ^{-1})(JB)=B^2,\qquad
+\operatorname{Dom}\Delta
+=\{X\in\operatorname{Dom}B:BX\in\operatorname{Dom}B\}.
+$$
+
+ここで積の等号は各作用素の定義域も追ったもので、無制限に掛け算したわけではありません。
 
 この正対角作用素の定義域を[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)と固有値への関数計算で表すと、すなわち
 
