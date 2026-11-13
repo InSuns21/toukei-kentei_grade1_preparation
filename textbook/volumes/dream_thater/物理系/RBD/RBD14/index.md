@@ -113,7 +113,7 @@ $$
 
 ### 証明の見取り図
 
-並進方程式から摩擦力を消去するため、回転方程式へ無滑り条件の時間微分 $\dot u=a\dot\Omega$ を代入します。法線方向のつり合いを別に用い、最後に必要な摩擦力の大きさを上限と比較します。
+並進方程式から摩擦力を消去するため、回転方程式へ[接点の無滑り](../RBD13/index.md#def-rbd13-no-slip)を表す等式 $u=a\Omega$ の時間微分 $\dot u=a\dot\Omega$ を代入します。法線方向のつり合いを別に用い、最後に必要な摩擦力の大きさを上限と比較します。
 
 <!-- proof-start -->
 ### 証明
@@ -264,7 +264,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-滑り方向の符号を $\sigma=\operatorname{sgn}(w)$ とすれば摩擦力の斜面下向き成分は $-\sigma f_k$、回転軸まわりのモーメントは $-a\sigma f_k e_z$ です。したがって
+滑り方向の符号を $\sigma=\operatorname{sgn}(w)$ とすれば摩擦力の斜面下向き成分は $-\sigma f_k$、回転軸まわりのトルクは $-a\sigma f_k e_z$ です。したがって
 
 $$
 m\dot u=mg\sin\alpha-\sigma f_k,\qquad
