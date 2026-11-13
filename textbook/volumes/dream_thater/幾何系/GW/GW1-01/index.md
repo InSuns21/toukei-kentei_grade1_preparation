@@ -44,17 +44,17 @@ $$
 
 $\phi_a$ に対応する行列 $M_a$ は次のとおりである。
 
-$
+$$
 M_a=\begin{pmatrix}1&a\\0&1\end{pmatrix},
 \qquad \det M_a=1\ne0.
-$
+$$
 
 [射影線形写像の双正則性](../../CM/CM1-10/index.md#thm-cm1-10-projective-automorphisms)をこの可逆行列に適用すると、$\phi_a$ は双正則自己同型で、その逆は $\phi_{-a}$ である。各点での合成と、特定の点の像を計算すると
 
-$
+$$
 f_a=f_0\circ\phi_a,\qquad
 f_a([0:1])=[a:1].
-$
+$$
 
 したがって全ての $f_a$ は同値だが、異なる $a$ では関数として異なる。
 <!-- definition-example-end -->
@@ -368,17 +368,17 @@ $f([s:t])=[s:t]$、$g([s:t])=[s+2t:t]$ とする。再パラメータ化同値�
 <!-- solution-start -->
 **詳細解答**。$\phi([s:t])=[s+2t:t]$ を取る。対応する行列、その行列式および逆行列は
 
-$
+$$
 M=\begin{pmatrix}1&2\\0&1\end{pmatrix},
 \qquad \det M=1,\qquad
 M^{-1}=\begin{pmatrix}1&-2\\0&1\end{pmatrix}.
-$
+$$
 
 [射影線形写像の双正則性とスカラー核](../../CM/CM1-10/index.md#thm-cm1-10-projective-automorphisms)によって $\phi$ は双正則自己同型で、その逆は $\phi^{-1}([s:t])=[s-2t:t]$ である。$g=f\circ\phi$ なので[再パラメータ化同値](#def-gw1-01-reparam)である。しかし点 $[0:1]$ では
 
-$
+$$
 f([0:1])=[0:1],\qquad g([0:1])=[2:1]
-$
+$$
 
 と異なるから、関数 $f,g$ は一致しない。
 <!-- solution-end -->
@@ -442,7 +442,7 @@ $f_2([s:t])=[s^2:t^2]$ と $\omega_{\mathrm{FS}}=i(1+|w|^2)^{-2}dw\wedge d\bar w
 <!-- solution-start -->
 **詳細解答**。$w=z^2$ なので $dw=2z\,dz$、$d\bar w=2\bar z\,d\bar z$。定義域上の2形式を計算すると
 
-$
+$$
 f_2^*\omega_{\mathrm{FS}}
 =\frac{4i|z|^2}{(1+|z|^4)^2}\,dz\wedge d\bar z.
 $$
@@ -537,10 +537,10 @@ $$
 
 **（1）** $f$ は恒等写像、$g$ は次の可逆行列が誘導する双正則自己同型なので、いずれも全射である。
 
-$
+$$
 M=\begin{pmatrix}1&1\\0&1\end{pmatrix},
 \qquad \det M=1.
-$
+$$
 
 $h$ は同次数2で共通射影零点を持たず、[斉次式による射影写像](../../../代数系/AG/AG2-03/index.md#def-ag2-03-projective-polynomial-map)として正則である。標的の有限座標 $w$ へは $z^2=w$ の根を送ればよく、無限遠点は $h([1:0])=[1:0]$ で得られる。よって $h$ も全射であり、三つの像はいずれも $\mathbb{CP}^1$。
 
