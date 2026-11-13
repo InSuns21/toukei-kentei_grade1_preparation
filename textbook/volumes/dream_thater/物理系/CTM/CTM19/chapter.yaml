@@ -1,0 +1,46 @@
+id: "CTM19"
+title: "時間依存の応答と散逸をどう測るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM18
+official_scope: []
+learning_objectives:
+  - "標準線形固体の並列・直列接続から内部応力方程式を導き、蓄積する弾性部分と遅れる粘性部分の役割を説明できる"
+  - "初期条件を明示して指数緩和関数と履歴積分を導き、理想ステップと滑らかな履歴を区別できる"
+  - "応力ステップのクリープ関数を初期跳び・緩和時間・長時間極限まで導ける"
+  - "複素指数の符号規約から貯蔵・損失弾性率、位相差、低高周波極限と損失ピークを導ける"
+  - "単位体積の蓄積・散逸収支と応力ひずみループの面積を独立に計算し、非負散逸と一周期仕事の一致を示せる"
+  - "矩形負荷の除荷後の回復を重ね合わせから求め、受動粘弾性と能動材料の区別へ接続できる"
+definitions:
+  - { id: CTM19-DEF-01, name: "標準線形固体と内部応力" }
+  - { id: CTM19-DEF-02, name: "ひずみステップによる緩和関数" }
+  - { id: CTM19-DEF-03, name: "複素弾性率・貯蔵弾性率・損失弾性率" }
+theorems:
+  - { id: CTM19-THM-01, name: "標準線形固体の緩和関数と履歴積分" }
+  - { id: CTM19-THM-02, name: "標準線形固体の応力ステップ・クリープ" }
+  - { id: CTM19-THM-03, name: "標準線形固体の貯蔵弾性率と損失弾性率" }
+  - { id: CTM19-PROP-01, name: "標準線形固体の蓄積と非負散逸" }
+  - { id: CTM19-THM-04, name: "定常一周期の仕事と損失弾性率" }
+  - { id: CTM19-PROP-02, name: "単一緩和時間模型の損失弾性率のピーク" }
+canonical_examples:
+  - "Maxwell枝の共通応力と並列枝の応力和を数値で検算"
+  - "ひずみステップから指数型の緩和関数と長時間残留応力を計算"
+  - "複素振幅を実数の時間波形へ変換して位相の符号を検算"
+  - "周波数の前後で貯蔵・損失弾性率と周期仕事を比較"
+  - "内部散逸の積分とヒステリシス面積の独立計算"
+problem_patterns:
+  - CTM19-RELAXATION-STEP
+  - CTM19-COMPLEX-MODULUS
+  - CTM19-CYCLE-WORK-UNITS
+  - CTM19-LOSS-PEAK-IDENTIFICATION
+  - CTM19-INTERNAL-ENERGY-DISSIPATION
+  - CTM19-HARMONIC-TIME-SIGNAL
+  - CTM19-STRAIN-PULSE-RELAXATION
+  - CTM19-INTERNAL-DISSIPATION-CHECK
+  - CTM19-FIT-RELAXATION-AND-LOSS
+  - CTM19-STRESS-PULSE-CREEP
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }

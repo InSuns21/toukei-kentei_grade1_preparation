@@ -1,0 +1,72 @@
+chapter: CTM19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM18
+concepts:
+  - id: continuum.standard-linear-solid
+    name: 標準線形固体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準線形固体と内部応力）"]
+    requires: [continuum.maxwell-series-connection]
+  - id: continuum.sls-internal-stress
+    name: 標準線形固体の内部応力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準線形固体と内部応力）"]
+    requires: [continuum.standard-linear-solid]
+  - id: continuum.relaxation-function
+    name: ひずみステップによる緩和関数
+    aliases: [緩和関数]
+    kind: definition
+    introduction: formal
+    requires: [continuum.standard-linear-solid]
+  - id: continuum.sls-history-integral
+    name: 標準線形固体の緩和関数と履歴積分
+    kind: theorem
+    introduction: formal
+    requires: [continuum.sls-internal-stress, continuum.relaxation-function]
+  - id: continuum.sls-creep
+    name: 標準線形固体の応力ステップ・クリープ
+    kind: theorem
+    introduction: formal
+    requires: [continuum.sls-internal-stress, continuum.maxwell-step-response]
+  - id: continuum.complex-modulus
+    name: 複素弾性率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素弾性率・貯蔵弾性率・損失弾性率）"]
+    requires: [continuum.standard-linear-solid]
+  - id: continuum.storage-modulus
+    name: 貯蔵弾性率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素弾性率・貯蔵弾性率・損失弾性率）"]
+    requires: [continuum.complex-modulus]
+  - id: continuum.loss-modulus
+    name: 損失弾性率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素弾性率・貯蔵弾性率・損失弾性率）"]
+    requires: [continuum.complex-modulus]
+  - id: continuum.sls-dynamic-modulus
+    name: 標準線形固体の貯蔵弾性率と損失弾性率
+    kind: theorem
+    introduction: formal
+    requires: [continuum.storage-modulus, continuum.loss-modulus, continuum.sls-internal-stress]
+  - id: continuum.sls-passive-dissipation
+    name: 標準線形固体の蓄積と非負散逸
+    kind: proposition
+    introduction: formal
+    requires: [continuum.sls-internal-stress, continuum.clausius-duhem]
+  - id: continuum.sls-cycle-work
+    name: 定常一周期の仕事と損失弾性率
+    kind: theorem
+    introduction: formal
+    requires: [continuum.sls-dynamic-modulus, continuum.sls-passive-dissipation]
+  - id: continuum.sls-loss-peak
+    name: 単一緩和時間模型の損失弾性率のピーク
+    kind: proposition
+    introduction: formal
+    requires: [continuum.sls-dynamic-modulus, continuum.sls-cycle-work]
