@@ -341,7 +341,7 @@ $$
 <!-- formal-statement-start -->
 > **定理（局所環のhyperfinite Type III₁構造）**  
 > （文献定理。完全証明は本講の範囲外。）  
-> Minkowski時空の真空表現における局所netについて、局所性・共変性・正エネルギーなどの標準的前提に加え、**Buchholz–Wichmannの核性条件**、**Haag–Narnhofer–Steinの短距離スケーリング条件**、および各double cone $O$ の**内側からの連続性**を仮定する。ここで連続性とは、閉包が次の領域の内部に入るdouble coneの増大列 $O_n$ が $O$ を尽くすとき、
+> Minkowski時空の真空表現における局所netについて、局所性・共変性・正エネルギーなどの標準的前提に加え、**Buchholz–Wichmannの核性条件**、**Haag–Narnhofer–Steinの短距離スケーリング条件**、および各double cone $O$ について以下の**領域を内側から近似する等式**を仮定する。ここで等式とは、閉包が次の領域の内部に入るdouble coneの増大列 $O_n$ が $O$ を尽くすとき、
 >
 $$
 \mathcal M(O)=\left(\bigcup_{n\ge1}\mathcal M(O_n)\right)''
@@ -356,10 +356,10 @@ $$
 >
 > という形を持つ。特に別途 $\mathcal M(O)$ が**因子**と確かめられれば中心は $\mathbb C I$ であり $\mathcal M(O)\simeq R_\infty$ となる。
 >
-> Haag–Narnhofer–Steinの条件は、場の短距離スケールを変えた相関関数が非零のWightman極限を保つという、単なる共変性より強い仮定である。別文献のスケーリング極限の十分条件とは同一視しない。
+> Haag–Narnhofer–Steinの条件は、場の短距離スケールを変えた相関関数が非零のWightman極限を保つという、単なる共変性より強い仮定である。別文献の短距離極限に関する十分条件とは同一視しない。
 <!-- formal-statement-end -->
 
-この結果の完全証明にはスケーリング理論、Connes分類、超有限性の深い結果が必要であり、本講では主張しません。出典と射程は、[Yngvasonの総説](https://arxiv.org/abs/math-ph/0411058)、[Fewster–RejznerのAQFT入門](https://arxiv.org/abs/1904.04051)の局所環の型の節、およびBuchholz–D’Antoni–Fredenhagenの構造結果に従います。[Saffaryの整理（第4.3節、定理4.27）](https://d-nb.info/977780856/34)にも仮定が列挙されています。たとえば「nuclearity $\Rightarrow$ split」は独立の結論で、**単独で**Type III₁を導くものではありません。
+この結果の完全証明にはスケーリング理論、Connes分類、超有限性の深い結果が必要であり、本講では主張しません。出典と射程は、[Yngvasonの総説](https://arxiv.org/abs/math-ph/0411058)、[Fewster–RejznerのAQFT入門](https://arxiv.org/abs/1904.04051)の局所von Neumann環の型の節、およびBuchholz–D’Antoni–Fredenhagenの構造結果に従います。[Saffaryの整理（第4.3節、定理4.27）](https://d-nb.info/977780856/34)にも仮定が列挙されています。たとえば「nuclearity $\Rightarrow$ split」は独立の結論で、**単独で**Type III₁を導くものではありません。
 
 「普遍的」とは、**抽象的な一つの局所因子が同型**という意味です。異なる領域の包含 $\mathcal M(O_1)\subset\mathcal M(O_2)$、真空状態、net全体の配置まで同じになるわけではありません。これは、同じ種類の積木を持っていても組み方が異なれば模型が異なるのと同じです。
 
