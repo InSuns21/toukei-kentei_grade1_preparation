@@ -173,7 +173,7 @@ $$
 $I_3:h=\operatorname{tr}h$ を代入すると、右辺は $\{\lambda(\operatorname{tr}\varepsilon)I_3+2\mu\varepsilon\}:h$。任意の対称 $h$ に対する係数を比較して応力表示を得る。逆向きは $\operatorname{tr}(Q\varepsilon Q^T)=\operatorname{tr}\varepsilon$ と、直交行列が Frobenius 内積を保つことから従う。$\square$
 <!-- proof-end -->
 
-時間にも $C^1$ 級の変位経路 $u(X,t)$ を取る。上付きの点は物質点 $X$ を固定した時刻 $t$ による微分を表し、$\dot\varepsilon=\partial_t\varepsilon(X,t)$、$\dot W=\partial_t W(\varepsilon(X,t))$ とする。先の $d/dr$ はひずみの方向変分であり、この $d/dt$ と変数を混同しない。連鎖律により
+変位経路 $u(X,t)$ を取り、空間微分 $\nabla_Xu(X,t)$ が時刻 $t$ に関しても $C^1$ 級であると仮定する。上付きの点は物質点 $X$ を固定した時刻 $t$ による微分を表し、$\dot\varepsilon=\partial_t\varepsilon(X,t)$、$\dot W=\partial_t W(\varepsilon(X,t))$ とする。先の $d/dr$ はひずみの方向変分であり、この $d/dt$ と変数を混同しない。連鎖律により
 
 $
 \dot W=\delta W(\varepsilon)[\dot\varepsilon]
@@ -481,7 +481,24 @@ $u(X)=(\gamma X_2,0,0)$、$|\gamma|\ll1$ に対して $\sigma_{12}$、$W$ を求
 <!-- solution-start -->
 #### 詳細解答
 
-$H_{12}=\gamma$ 以外の $H$ 成分は零なので $\varepsilon_{12}=\varepsilon_{21}=\gamma/2$、$\theta=0$。$\varepsilon:\varepsilon=2(\gamma/2)^2=\gamma^2/2$。よって $\sigma_{12}=2\mu(\gamma/2)=\mu\gamma$、$W=\mu\gamma^2/2$。符号を反転させると応力の符号だけが変わり、エネルギーは二乗で不変である。
+[微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)を使う。$H_{12}=\gamma$ 以外の $H$ 成分は零なので、対称化により $\varepsilon_{12}=\varepsilon_{21}=\gamma/2$、対角成分はすべて零となる。従って
+
+$
+\theta=\operatorname{tr}\varepsilon=0,\qquad
+\varepsilon:\varepsilon
+=\varepsilon_{12}^2+\varepsilon_{21}^2
+=2\left(\frac{\gamma}{2}\right)^2
+=\frac{\gamma^2}{2}.
+$
+
+[Hooke 則](#thm-ctm11-hooke)では $\lambda\theta I_3$ が消えるので
+
+$
+\sigma_{12}=2\mu\varepsilon_{12}=\mu\gamma,\qquad
+W=\mu\,\varepsilon:\varepsilon=\frac{\mu\gamma^2}{2}.
+$
+
+$\gamma$ の符号を反転させると応力の符号だけが変わり、エネルギーは二乗で不変である。
 <!-- solution-end -->
 
 ### A4. 体積弾性率の判定
@@ -590,7 +607,15 @@ $$
 =\operatorname{diag}(20pa/3,14pa/3,2pa/3).
 $$
 
-$W=p(14a^2/3)+(2p/2)(2a)^2=26pa^2/3$。応力との内積は
+同じ[エネルギー分解](#prop-ctm11-split)から
+
+$
+W=p\frac{14a^2}{3}+\frac{2p}{2}(2a)^2
+=\left(\frac{14}{3}+4\right)pa^2
+=\frac{26}{3}pa^2.
+$
+
+応力との内積は
 
 $$
 \sigma:\varepsilon=(20pa/3)(2a)+(14pa/3)a+(2pa/3)(-a)
