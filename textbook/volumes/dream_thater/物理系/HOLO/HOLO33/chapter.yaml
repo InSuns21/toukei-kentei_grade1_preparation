@@ -1,0 +1,45 @@
+id: HOLO33
+title: "何が双対で何が未解決か"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO6
+  - HOLO9
+  - HOLO18
+  - HOLO24
+  - HOLO29
+  - HOLO32
+official_scope: []
+learning_objectives:
+  - AdS/CFTにおける辞書を模型・状態・近似・入力済み仮定の組として整理できる
+  - Euclid AdS3の標準量子化スカラーの質量と分離点2点関数を再検算できる
+  - 静的AdS3真空区間で共通cutoffを保ってRT測地線長とエントロピー差を導ける
+  - RT・HRT・FLM・QESの変分対象・近似次数と繰り込み条件を区別できる
+  - 3-qutrit等長符号の二領域復号を基底変換から構成し復号不能な消失を説明できる
+  - エントロピー第一法則の一次変分と有限変化を区別できる
+  - 具体模型の導出・条件付き辞書・未導出の普遍的主張を反例を用いて分離できる
+definitions:
+  - { id: HOLO33-DEF-01, name: 双対性の主張の条件票 }
+theorems:
+  - { id: HOLO33-PROP-01, name: 分離点相関の比と区間エントロピーの差 }
+canonical_examples:
+  - d=2でDelta=3/2の標準量子化とBF境界およびGKPW 2点関数の係数を確認
+  - AdS3の半円弧の有限cutoff長とRTの区間エントロピー差を計算
+  - 正則化済み一般化エントロピーの一方向の停留位置を評価
+  - 3-qutrit符号の明示的BC復号器とA一領域の秘匿を確認
+  - 二準位密度行列で第一変分の等号と有限差の不一致を計算
+problem_patterns:
+  - HOLO33-A01
+  - HOLO33-A02
+  - HOLO33-A03
+  - HOLO33-A04
+  - HOLO33-A05
+  - HOLO33-B01
+  - HOLO33-B02
+  - HOLO33-B03
+  - HOLO33-B04
+  - HOLO33-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 7, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []
