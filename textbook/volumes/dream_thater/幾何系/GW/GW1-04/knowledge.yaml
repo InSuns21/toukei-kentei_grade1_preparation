@@ -1,0 +1,53 @@
+chapter: GW1-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-03
+  - GW1-02
+  - GW1-01
+  - SYM8
+  - AG3-08
+  - RA6A
+concepts:
+  - id: gromov-witten.regular-map
+    name: 正則な擬正則写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則な擬正則写像）"]
+    requires: [gromov-witten.linearization, gromov-witten.elliptic-fredholm]
+  - id: gromov-witten.somewhere-injective
+    name: 単射な正則点と単純曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単射な正則点と単純曲線）"]
+    requires: [gromov-witten.j-holomorphic-map]
+  - id: gromov-witten.multiple-cover
+    name: 多重被覆
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多重被覆）"]
+    requires: [gromov-witten.j-holomorphic-map]
+  - id: gromov-witten.universal-cr-section
+    name: 普遍Cauchy–Riemann切断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（普遍Cauchy–Riemann切断）"]
+    requires: [gromov-witten.nonlinear-cr-operator]
+  - id: gromov-witten.universal-transversality
+    name: 単純曲線における普遍横断性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単純曲線における普遍横断性）"]
+    requires: [gromov-witten.universal-cr-section, gromov-witten.somewhere-injective, gromov-witten.linearization]
+  - id: gromov-witten.generic-regularity
+    name: 単純曲線に対する一般のJの正則性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単純曲線に対する一般のJの正則性）"]
+    requires: [gromov-witten.universal-transversality, gromov-witten.regular-map]
+  - id: gromov-witten.multicover-obstruction
+    name: 負の法束を持つ球面の多重被覆
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（負の法束を持つ球面の多重被覆）"]
+    requires: [gromov-witten.multiple-cover, gromov-witten.fredholm-index]
