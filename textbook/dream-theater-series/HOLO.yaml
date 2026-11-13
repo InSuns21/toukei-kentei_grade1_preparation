@@ -37,5 +37,5 @@ chapters:
   - { id: HOLO29, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO29, status: completed, title: "消失訂正としてのバルク" }
   - { id: HOLO30, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO30, status: completed, title: "作用素代数量子誤り訂正" }
   - { id: HOLO31, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO31, status: completed, title: "テンソル網・HaPPY模型" }
-  - { id: HOLO32, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO32, status: planned, title: "エンタングルメントと重力の線形応答" }
+  - { id: HOLO32, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO32, status: completed, title: "エンタングルメントと重力の線形応答" }
   - { id: HOLO33, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO33, status: planned, title: "何が双対で何が未解決か" }

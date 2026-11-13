@@ -32,3 +32,4 @@
 29. [HOLO29 消失訂正としてのバルク](textbook/volumes/dream_thater/物理系/HOLO/HOLO29/index.md)
 30. [HOLO30 作用素代数量子誤り訂正](textbook/volumes/dream_thater/物理系/HOLO/HOLO30/index.md)
 31. [HOLO31 テンソル網・HaPPY模型](textbook/volumes/dream_thater/物理系/HOLO/HOLO31/index.md)
+32. [HOLO32 エンタングルメントと重力の線形応答](textbook/volumes/dream_thater/物理系/HOLO/HOLO32/index.md)
