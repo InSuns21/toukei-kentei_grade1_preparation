@@ -15,6 +15,7 @@ learning_objectives:
   - モジュラー対象の構成と後続のTomita可換子定理を混同せず境界を説明できる
 definitions:
   - { id: AQFT19-DEF-01, name: "反ユニタリ作用素" }
+  - { id: AQFT19-DEF-04, name: "共役Hilbert空間" }
   - { id: AQFT19-DEF-02, name: "正部分とモジュラー作用素" }
   - { id: AQFT19-DEF-03, name: "モジュラー共役" }
 theorems:
