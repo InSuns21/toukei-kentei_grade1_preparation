@@ -1,6 +1,6 @@
 # AQFT18 標準対とTomita作用素
 
-[AQFT13の局所巡回・分離性](../AQFT13/index.md#cor-aqft13-vacuum-local-standard)により、適切な仮定を満たす真空 $\Omega$ は、局所von Neumann環 $\mathcal M(O)$ の演算子を作用させて多くのベクトルを作れ、かつその作用から演算子を一意に識別できます。しかし、これだけでは「局所環に自然な時間発展」を与える公式はまだありません。
+[AQFT13の局所巡回・分離性](../AQFT13/index.md#cor-aqft13-vacuum-local-standard)により、適切な仮定を満たす真空 $\Omega$ は、局所von Neumann環 $\mathcal M(O)$ の演算子を作用させて多くのベクトルを作れ、かつその作用から演算子を一意に識別できます。しかし、これだけでは「局所可観測量に自然な時間発展」を与える公式はまだありません。
 
 その最初の候補が、**作用素の随伴をベクトルに移す規則**です。
 
@@ -10,13 +10,13 @@ $$
 
 同じベクトル $A\Omega$ が異なる演算子の作用として書けた場合にも値が一致するでしょうか。また、規則を与えるのは一部のベクトルだけです。極限で得られるベクトルにも矛盾なく延長できるでしょうか。本講は、この二つの問いを**分離性による一意性**と**可換子の巡回性による可閉性**で解決します。
 
-本講では閉じた反線形作用素 $S$ までを構成します。その極分解、モジュラー作用素 $\Delta$ とモジュラー共役 $J$ は次講 AQFT19 の課題です。計量符号 $(-,+,+,+)$ の局所量子場理論にも応用しますが、以下の基本定理には時空・正エネルギー・Type IIIという仮定は不要です。内積 $\langle x,y\rangle$ は**第2変数線形**とします。
+本講ではこの規則を矛盾なく閉包へ延長して $S$ を構成します。その極分解、モジュラー作用素 $\Delta$ とモジュラー共役 $J$ は次講 AQFT19 の課題です。計量符号 $(-,+,+,+)$ の局所量子場理論にも応用しますが、以下の基本定理には時空・正エネルギー・Type IIIという仮定は不要です。内積 $\langle x,y\rangle$ は**第2変数線形**とします。
 
 ## 1. 標準対はどの二つの性質を備えるか
 
 複素Hilbert空間 $\mathcal H$ 上の単位的von Neumann環 $\mathcal M\subset B(\mathcal H)$ とベクトル $\Omega$ を固定します。[巡回ベクトル](../AQFT12/index.md#def-aqft12-cyclic-vector)は $\overline{\mathcal M\Omega}=\mathcal H$ を、[分離ベクトル](../AQFT13/index.md#def-aqft13-separating-vector)は $A\Omega=0$ なら $A=0$ を要求します。
 
-両方を備えた組なら、$A\Omega$ という表示は一意であるうえ、これらのベクトルは全空間で稠密です。この組を標準対と呼びます。「標準」は環だけの属性ではなく、**環と選んだベクトルの組**の属性です。
+両方を備えた組なら、$A\Omega$ という表示は一意であるうえ、これらのベクトルは全空間で稠密です。この組には次の定義で名前を与えます。大事なのは、環だけでなく**環と選んだベクトルの組**の性質だということです。
 
 <a id="def-aqft18-standard-pair"></a>
 
@@ -157,7 +157,7 @@ $$
 
 ## 3. Tomita初期作用素の定義は矛盾しないか
 
-標準対 $(\mathcal M,\Omega)$ では、$A\in\mathcal M$ を使って作ったベクトル $A\Omega$ から $A^*\Omega$ を作ります。これを**Tomita初期作用素**と呼びます。ここで $\mathcal M\Omega$ は線形部分空間ですが、まだ閉じているとは限りません。
+標準対 $(\mathcal M,\Omega)$ では、$A\in\mathcal M$ を使って作ったベクトル $A\Omega$ から $A^*\Omega$ を作ります。次にこの規則を定義します。ここで $\mathcal M\Omega$ は線形部分空間ですが、まだ閉じているとは限りません。
 
 <a id="def-aqft18-tomita-initial"></a>
 
@@ -241,7 +241,7 @@ $$
 
 元の環 $\mathcal M$ だけで $S_0$ のグラフを調べると、可閉性を直接示すのは難しいことがあります。そこで $\mathcal M$ の全ての元と可換な環 $\mathcal M'$ を使います。
 
-[AQFT13の可換子定理](../AQFT13/index.md#thm-aqft13-commutant-cyclic-separating)により、$\Omega$ は $\mathcal M'$ に対しても巡回的かつ分離的です。したがって可換子側にも、随伴を取る同型の初期作用素を定義できます。
+[AQFT13の巡回性と分離性の同値](../AQFT13/index.md#thm-aqft13-commutant-cyclic-separating)により、$\Omega$ は $\mathcal M'$ に対しても巡回的かつ分離的です。したがって可換子側にも、随伴を取る同型の初期作用素を定義できます。
 
 <a id="def-aqft18-commutant-initial"></a>
 
@@ -271,7 +271,7 @@ $$
 
 <a id="ref-aqft18-core-pairing"></a>
 
-ここで二つの作用素を結ぶ**基本対合公式**を計算します。$A\in\mathcal M$、$B\in\mathcal M'$ なら $AB=BA$ です。内積の第2変数線形規約と随伴の定義から
+ここで二つの作用素を結ぶ**基本対合公式**を計算します。$A\in\mathcal M$、$B\in\mathcal M'$ なら $AB=BA$ です。内積の第2変数線形規約を使い、随伴の作用を一つずつ移すと
 
 $$
 \begin{aligned}
@@ -446,7 +446,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$y=B\Omega\in\operatorname{Dom}(F_0)$ を固定すると、任意の $x=A\Omega\in\operatorname{Dom}(S_0)$ に対して[基本対合公式](#ref-aqft18-core-pairing)から
+$y=B\Omega\in\operatorname{Dom}(F_0)$ を固定すると、任意の $x=A\Omega\in\operatorname{Dom}(S_0)$ に対して、第4節で直接検算した[内積の対応](#ref-aqft18-core-pairing)を用いると
 
 $$
 \langle S_0x,y\rangle=\langle F_0y,x\rangle
@@ -495,7 +495,7 @@ T(E_{ij})=R_{E_{1j}}T(E_{i1})
 =E_{Ae_i,j}=L_A(E_{ij}).
 $
 
-行列単位の線形包が稠密だから $T=L_A$、従って $\mathcal M''\subset\mathcal M$。逆の包含は任意の作用素集合で成り立つので $\mathcal M''=\mathcal M$ です。[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によって $\mathcal M$ はvon Neumann環です。
+行列単位の線形包が稠密だから $T=L_A$、従って $\mathcal M''\subset\mathcal M$。逆の包含は任意の作用素集合で成り立つので $\mathcal M''=\mathcal M$ です。[von Neumann の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によって $\mathcal M$ はvon Neumann環です。
 
 対角の正作用素 $\Omega$ を
 
@@ -535,7 +535,21 @@ $$
 
 ### 別の無限次元例：可換な乗算環では閉包を手で書ける
 
-$\mathcal H=L^2([0,1])$、$\mathcal M=L^\infty([0,1])$ の乗算作用素、$\Omega(t)=1$ とします。ここで $\mathcal M$ がvon Neumann環であることは次のように検査できます。全ての乗算と可換な $T\in B(L^2)$ は特に各指示関数 $1_E$ の乗算と可換します。$h=T1$ と置くと、$T1_E=1_Eh$ です。$\|1_Eh\|_2=\|T1_E\|_2\le\|T\|\sqrt{|E|}$ より $|h|\le\|T\|$ ほとんど至る所です（これを超える集合 $E$ が正測度なら不等式に反します）。単関数の稠密性から $Tf=hf$ が全 $L^2$ で成り立ちます。従って $\mathcal M'=\mathcal M$、さらに $\mathcal M''=\mathcal M$ であるため、[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から結論します。$f\in L^\infty$ の作用は $M_f\Omega=f$ です。$M_f\Omega=0$ なら $f=0$ ほとんど至る所で分離的です。任意の $g\in L^2$ を
+$\mathcal H=L^2([0,1])$、$\mathcal M=L^\infty([0,1])$ の[乗算作用素](../../VN/VN6/index.md#def-vn6-multiplication-operator)の環、$\Omega(t)=1$ とします。ここで $\mathcal M$ がvon Neumann環であることは、[VN6の可換子の定理](../../VN/VN6/index.md#thm-vn6-linfty-commutant)にも一致します。復習として、実際の計算を確かめましょう。
+
+全ての乗算作用素と可換な $T\in B(L^2)$ は、特に各可測集合 $E$ の指示関数 $\mathbf1_E$ による乗算と可換します。$h=T1$ と置くと、$T\mathbf1_E=\mathbf1_E h$ です。従って
+
+$
+\|\mathbf1_E h\|_2
+=\|T\mathbf1_E\|_2
+\le\|T\|\sqrt{|E|}.
+$
+
+もし $|h|>\|T\|+\varepsilon$ となる可測集合 $E$ が正測度なら、左辺は $(\|T\|+\varepsilon)\sqrt{|E|}$ より大きくなり矛盾します。ゆえに $|h|\le\|T\|$ ほとんど至る所で、$h\in L^\infty$ です。
+
+単関数について $Tf=hf$ が成り立ち、単関数は $L^2$ に稠密で、$T$ と $M_h$ はともに有界です。従って全 $f\in L^2$ で $Tf=hf$ が成り立ち、$\mathcal M'\subset\mathcal M$ です。乗算同士は可換なので逆の包含も成立し、$\mathcal M'=\mathcal M$ です。[von Neumann の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)より $\mathcal M''=\mathcal M$ で、von Neumann環であることも確かめられました。
+
+次に標準性を判定します。任意の $f\in L^\infty$ に対し $M_f\Omega=f$ です。$M_f\Omega=0$ なら $f=0$ ほとんど至る所なので分離的です。任意の $g\in L^2$ を
 
 $$
 g_n=g\,\mathbf1_{\{|g|\le n\}}
@@ -685,13 +699,13 @@ $$
 =\langle\eta,B^*\zeta\rangle=0.
 $$
 
-従って $K^\perp$ も不変です。よって $P$ は全ての $B\in\mathcal M'$ と可換します。[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から $P\in(\mathcal M')'=\mathcal M$ です。
+従って $K^\perp$ も不変です。よって $P$ は全ての $B\in\mathcal M'$ と可換します。[von Neumann の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から $P\in(\mathcal M')'=\mathcal M$ です。
 
-$I\in\mathcal M'$ より $\Omega\in K$、したがって $(I-P)\Omega=0$。$I-P\in\mathcal M$ と分離性から $I-P=0$ です。従って $P=I$、$K=\mathcal H$ です。これは[AQFT13の可換子定理](../AQFT13/index.md#thm-aqft13-commutant-cyclic-separating)の証明を、可閉性に必要な方向だけ再構成したものです。
+$I\in\mathcal M'$ より $\Omega\in K$、したがって $(I-P)\Omega=0$。$I-P\in\mathcal M$ と分離性から $I-P=0$ です。従って $P=I$、$K=\mathcal H$ です。これは[AQFT13の巡回性と分離性の同値](../AQFT13/index.md#thm-aqft13-commutant-cyclic-separating)の証明を、可閉性に必要な方向だけ再構成したものです。
 <!-- solution-end -->
 
 <a id="ex-aqft18-b02"></a>
-#### AQFT18-B02 対合公式から可閉性へ
+#### AQFT18-B02 可換子の内積から可閉性へ
 
 - Level: B
 
@@ -750,7 +764,7 @@ $S_0$ は非有界です。ただし $\|S_0x_n\|_2=2^{-1/2}$ は一定であり�
 $S_0$ が可閉かつ $S_0(\operatorname{Dom}S_0)=\operatorname{Dom}S_0$、$S_0^2=I$ を満たすとする。$S=\overline{S_0}$ について $\operatorname{Dom}S$ が $S$ で保たれ、$S^2=I$ がその定義域で成立することを示せ。
 
 <!-- solution-start -->
-**詳細解答。** 任意の $x\in\operatorname{Dom}S$ に対し、グラフ閉包の定義から $x_n\in\operatorname{Dom}S_0$ を取り
+**詳細解答。** 任意の $x\in\operatorname{Dom}S$ に対し、[可閉作用素・閉包](#def-aqft18-closable)の収束列による特徴づけから $x_n\in\operatorname{Dom}S_0$ を取り
 
 $$
 x_n\to x,\qquad S_0x_n\to Sx
@@ -832,6 +846,6 @@ $$
 
 ## 10. 到達点と次講
 
-標準対の**分離性**が $A\Omega\mapsto A^*\Omega$ の一意性を、**巡回性**が稠密定義域を与えます。さらに[AQFT13の可換子定理](../AQFT13/index.md#thm-aqft13-commutant-cyclic-separating)を使うことで、可換子側の初期作用素 $F_0$ が稠密な試験ベクトルを提供し、$S_0$ と $F_0$ の可閉性が成立しました。閉包 $S$ と $F$ は反線形・閉・稠密定義で、それぞれ定義域上で二乗が恒等作用素です。
+標準対の**分離性**が $A\Omega\mapsto A^*\Omega$ の一意性を、**巡回性**が稠密定義域を与えます。さらに[AQFT13の巡回性と分離性の同値](../AQFT13/index.md#thm-aqft13-commutant-cyclic-separating)を使うことで、可換子側の初期作用素 $F_0$ が稠密な試験ベクトルを提供し、$S_0$ と $F_0$ の可閉性が成立しました。閉包 $S$ と $F$ は反線形・閉・稠密定義で、それぞれ定義域上で二乗が恒等作用素です。
 
 無限次元Hilbert–Schmidt模型では $S_0$ が非有界にもなるため、単に随伴をベクトルへ移す公式を書いただけでは足りないことも確認しました。次講**AQFT19「反線形極分解とモジュラー対象」**では、閉じた $S$ からどのように $J$ と $\Delta$ を取り出し、その定義域・核・稠密値域を扱うかを学びます。
