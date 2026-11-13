@@ -1,0 +1,43 @@
+id: "U3-12"
+title: "ランダムウォークから Brown 運動への極限"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-11, STO3A, STO5]
+official_scope: []
+learning_objectives:
+  - 時間刻み h の独立対称歩行で枝幅 sqrt(h) が必要になる分散計算を再現できる
+  - 線形補間した歩行と CRR 対数株価過程を定義し、格子値と任意時刻値を区別できる
+  - CRR 評価用確率の正値条件と刻み依存を確認して対数増分の平均・分散を Taylor 展開から導ける
+  - 二次変分の有限格子恒等式と同一連続経路の分割極限との違いを説明できる
+  - 中心化した CRR 対数歩行の有限次元正規極限を特性関数の展開から示せる
+  - 四次増分評価・タイトネスを確認し連続経路空間上の弱収束へ進む論理を再現できる
+  - Brown 運動極限から満期株価の分布極限を導き期待値収束や現実確率との違いを説明できる
+  - Python により有限刻みの厳密モーメント・標本誤差・モデル有効条件を検算できる
+definitions:
+  - { id: U3-12-DEF-01, name: "時間スケール付き対称格子歩行" }
+  - { id: U3-12-DEF-02, name: "CRR 対数価格の線形補間過程" }
+theorems:
+  - { id: U3-12-PROP-01, name: "対称歩行の格子上のモーメントと二乗増分" }
+  - { id: U3-12-PROP-02, name: "CRR 対数増分の平均・分散" }
+  - { id: U3-12-THM-01, name: "CRR 対数価格の Brown 運動極限" }
+  - { id: U3-12-PROP-03, name: "CRR 対数増分の二乗和" }
+canonical_examples:
+  - T=1,N=4 の対称歩行で (+,-,+,+) の線形補間を手計算する
+  - r=0,sigma=0.2,T=1,N=4 の CRR で q=1/(1+exp(0.1)) を検算する
+  - 同じ CRR の満期対数株価について平均 -0.01998334998 と分散 0.03990016643 を確かめる
+  - 四次増分の組合せ計数から経路分布のタイトネスを得る
+problem_patterns:
+  - U3-12-A1
+  - U3-12-A2
+  - U3-12-A3
+  - U3-12-A4
+  - U3-12-A5
+  - U3-12-B1
+  - U3-12-B2
+  - U3-12-B3
+  - U3-12-B4
+  - U3-12-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

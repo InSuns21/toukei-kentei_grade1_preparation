@@ -1,0 +1,43 @@
+chapter: U3-12
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-11, STO3A, STO5]
+forward_references:
+  - stochastic.multidimensional-ito-formula
+concepts:
+  - id: finance.scaled-symmetric-polygonal-walk
+    name: 時間スケール付き対称格子歩行
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間スケール付き対称格子歩行）"]
+    requires: [stochastic.polygonal-random-walk]
+  - id: finance.symmetric-walk-grid-moments
+    name: 対称歩行の格子上のモーメントと二乗増分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称歩行の格子上のモーメントと二乗増分）"]
+    requires: [finance.scaled-symmetric-polygonal-walk]
+  - id: finance.crr-log-polygonal-path
+    name: CRR 対数価格の線形補間過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CRR 対数価格の線形補間過程）"]
+    requires: [finance.crr-time-step-binomial, stochastic.polygonal-random-walk]
+  - id: finance.crr-log-increment-moments
+    name: CRR 対数増分の平均・分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（CRR 対数増分の平均・分散）"]
+    requires: [finance.crr-log-polygonal-path, finance.crr-probability-admissibility]
+  - id: finance.crr-log-brownian-functional-limit
+    name: CRR 対数価格の Brown 運動極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（CRR 対数価格の Brown 運動極限）"]
+    requires: [finance.crr-log-increment-moments, stochastic.kolmogorov-tightness, stochastic.path-space-weak-convergence, stochastic.brownian-motion]
+  - id: finance.crr-log-grid-square-sum
+    name: CRR 対数増分の二乗和
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（CRR 対数増分の二乗和）"]
+    requires: [finance.crr-log-polygonal-path]
