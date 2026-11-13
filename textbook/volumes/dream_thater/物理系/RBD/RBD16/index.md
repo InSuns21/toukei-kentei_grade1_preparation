@@ -8,7 +8,11 @@
 
 ## 1. 運動方程式と監査する量を一つにする
 
-質量が一定で、重心まわりの物体系慣性テンソル $J_b$ が時間一定・対称正定値の剛体を考えます。実数の時間区間 $0\le t\le T$ で、姿勢 $R(t)\in SO(3)$、物体角速度 $\omega_b(t)\in\mathbb R^3$、重心まわりの物体系外トルク $\tau_b(t,R,\omega_b)$ を用います。[RBD1 の向きを保つ回転の定義](../RBD1/index.md#def-rbd1-proper-rotation)により、$SO(3)$ の行列は $R^{\mathsf T}R=I_3$ と $\det R=1$ を同時に満たします。ここでドットは時刻 $t$ による常微分で、$\dot R=dR/dt$ と $\dot\omega_b=d\omega_b/dt$ です。$\widehat v$ は $\widehat v x=v\times x$ を満たす反対称行列で、[RBD3 の定義](../RBD3/index.md#def-rbd3-angular-velocity)に従います。
+質量が一定で、重心まわりの物体系慣性テンソル $J_b$ が時間一定・対称正定値の剛体を考えます。実数の時間区間 $0\le t\le T$ で、姿勢 $R(t)\in SO(3)$、物体角速度 $\omega_b(t)\in\mathbb R^3$、重心まわりの物体系外トルク $\tau_b(t,R,\omega_b)$ を用います。
+
+[RBD1 の向きを保つ回転の定義](../RBD1/index.md#def-rbd1-proper-rotation)により、$SO(3)$ の行列は $R^{\mathsf T}R=I_3$ と $\det R=1$ を同時に満たします。
+
+ここでドットは時刻 $t$ による常微分で、$\dot R=dR/dt$ と $\dot\omega_b=d\omega_b/dt$ です。$\widehat v$ は $\widehat v x=v\times x$ を満たす反対称行列で、[RBD3 の定義](../RBD3/index.md#def-rbd3-angular-velocity)に従います。
 
 [RBD7 の Euler 方程式](../RBD7/index.md#thm-rbd7-newton-euler)と [RBD3 の姿勢微分式](../RBD3/index.md#prop-rbd3-angular-conjugacy)を連結すると、初期値問題は
 
@@ -56,7 +60,15 @@ $$
 <!-- definition-example-start: def-rbd16-diagnostics -->
 ### 直接例：主軸回転の四つの監査量
 
-**定義の確認**：[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)に従い、物体固定の正規直交基底を主軸に選びます。$e_3=(0,0,1)^{\mathsf T}$ は第三主軸の単位ベクトルです。この基底で $J_b=\operatorname{diag}(2,3,4)$、$R_0=I_3$、$\omega_0=e_3$、$\tau_b=0$ とします。行列が対角になるのは主軸基底を選んだからであり、$J_be_3=4e_3$ は第三主軸の固有値条件に対応します。そのため $\omega_0\times(J_b\omega_0)=e_3\times4e_3=0$ です。したがって $\omega_b(t)=e_3$ が Euler 方程式を満たし、$R(t)=R_z(t)$ は [RBD2 の回転行列](../RBD2/index.md#thm-rbd2-rodrigues)です。$R_z(t)e_3=e_3$ なので
+**定義の確認**：[MECH8 の主軸の存在定理](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)に従い、物体固定の正規直交基底を主軸に選びます。$e_3=(0,0,1)^{\mathsf T}$ は第三主軸の単位ベクトルです。
+
+この基底で $J_b=\operatorname{diag}(2,3,4)$、$R_0=I_3$、$\omega_0=e_3$、$\tau_b=0$ とします。
+
+行列が対角になるのは主軸基底を選んだからであり、$J_be_3=4e_3$ は第三主軸の固有値条件に対応します。
+
+そのため $\omega_0\times(J_b\omega_0)=e_3\times4e_3=0$ です。
+
+したがって $\omega_b(t)=e_3$ が Euler 方程式を満たし、$R(t)=R_z(t)$ は [RBD2 の回転行列](../RBD2/index.md#thm-rbd2-rodrigues)です。$R_z(t)e_3=e_3$ なので
 
 $$
 E(t)=\frac12(1)(4)=2,\quad L_s(t)=4e_3,\quad W=0,\quad K_s=0.
