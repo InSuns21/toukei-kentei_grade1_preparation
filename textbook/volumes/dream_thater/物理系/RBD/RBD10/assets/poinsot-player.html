@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RBD10 Poinsot：物体系polhodeと空間系herpolhode</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,"Yu Gothic",sans-serif;color:#192e43;background:#f3f6fb}
+*{box-sizing:border-box}body{max-width:1120px;margin:auto;padding:16px;line-height:1.6}
+h1{font-size:clamp(1.35rem,2.7vw,1.9rem)}h2{font-size:1.13rem;margin:0 0 10px}
+a{color:#095a9b}.panel{background:white;border:1px solid #cbd8e4;border-radius:12px;padding:14px;margin:12px 0}
+.views{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+canvas{display:block;width:100%;height:auto;border-radius:7px;background:#f9fcff}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;align-items:end}
+label{display:block;font-weight:650}select{width:100%;font:inherit;padding:9px}
+.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+button{font:inherit;font-weight:650;cursor:pointer;border:2px solid #146199;color:#fff;background:#146199;padding:9px 12px;border-radius:7px}
+button.alt{color:#146199;background:white}
+:focus-visible{outline:3px solid #df7c15;outline-offset:3px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stats div{background:#f4f8fb;padding:8px;border-radius:6px;overflow-wrap:anywhere}
+dt{font-size:.85rem;color:#4b6073}dd{margin:0;font-variant-numeric:tabular-nums;font-weight:600}
+.help{font-size:.92rem;color:#38516b}#status{font-weight:600;color:#8d2c22}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.87rem}
+.line{display:inline-block;width:22px;border-top:3px solid #145d97;vertical-align:middle;margin-right:5px}
+.line.dash{border-top-style:dashed;border-color:#9a5518}
+@media(max-width:700px){.views,.controls{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}body{padding:10px}}
+</style>
+</head>
+<body>
+<a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD10/index">← RBD10 講義に戻る</a>
+<h1>Poinsotの構成：二つの座標系の接点</h1>
+<p>無トルクの Euler 方程式と姿勢四元数を<strong>一つの連立初期値問題</strong>として積分し、同じ接点を物体固定座標と空間固定座標で描きます。主慣性値は (2, 3, 4) で固定します。表示上の曲線は数値解であり、正しさは下の保存量の誤差で点検してください。</p>
+<div class="views">
+<section class="panel"><h2>polhode：物体系</h2>
+<canvas id="body" width="520" height="450" role="img" aria-label="固定された物体座標のエネルギー楕円体の網目上で進む角速度の端点軌跡">JavaScriptが無効です。講義本文の楕円体と交線の方程式を参照してください。</canvas>
+<p class="help">物体系の角速度 (ω₁, ω₂, ω₃)。薄い網目は <em>2u₁²+3u₂²+4u₃²=2E</em> の楕円体の軸測図。曲線はその表面上の点を追います。</p></section>
+<section class="panel"><h2>herpolhode：空間系</h2>
+<canvas id="space" width="520" height="450" role="img" aria-label="空間に固定した不変平面を正面から見た接点の軌跡">JavaScriptが無効です。講義本文の不変平面を参照してください。</canvas>
+<p class="help">固定平面 L₀·x=2E を真正面から表示。原点 H は空間原点から平面へ下ろした垂線の足です。平面内の目盛りは角速度単位です。</p></section>
+</div>
+<div class="legend"><span><i class="line"></i>接点の履歴</span><span><i class="line dash"></i>現在の接点から固定平面の中心 H への位置</span></div>
+<section class="panel"><div class="controls">
+<div><label for="mode">初期条件</label>
+<select id="mode"><option value="max">最大慣性軸 e₃ の近傍</option><option value="mid">中間軸の分離曲線</option><option value="min">最小慣性軸 e₁ の近傍</option><option value="generic" selected>三軸を励起 (1, 1, 1)</option></select></div>
+<div><label for="dt">積分刻み幅 dt</label><select id="dt"><option value="0.04">0.04</option><option value="0.02" selected>0.02</option><option value="0.01">0.01</option></select></div>
+</div>
+<div class="buttons"><button id="play">再生</button><button id="once" class="alt">1ステップ</button><button id="reset" class="alt">初期化</button><button id="compare" class="alt">刻み幅半減比較</button></div>
+<dl class="stats">
+<div><dt>時刻 t</dt><dd id="time">0.000</dd></div>
+<div><dt>回転エネルギー E</dt><dd id="energy">—</dd></div>
+<div><dt>角運動量の長さ |L|</dt><dd id="ell">—</dd></div>
+<div><dt>相対 E 誤差</dt><dd id="eerr">—</dd></div>
+<div><dt>相対 |L| 誤差</dt><dd id="lerr">—</dd></div>
+<div><dt>空間 Lₛ の相対ずれ</dt><dd id="serr">—</dd></div>
+</dl>
+<p class="help" id="detail" aria-live="polite">右側の曲線の全点は同じ不変平面上です。</p>
+<p class="help" id="comparison" aria-live="polite">刻み幅半減比較では、同じ初期値から dt/2 で同時刻まで再積分します。</p>
+<p id="status" role="status" aria-live="polite"></p></section>
+<section class="panel"><h2>使用する方程式と検算</h2>
+<p>Iᵢω̇ᵢ=(Iⱼ−Iₖ)ωⱼωₖ、q̇=½q⊗(0,ω)。四元数はスカラー先頭・Hamilton積で、角速度は物体系。4次Runge–Kutta法で7成分を同時更新し、更新後の四元数を正規化しています。</p>
+<p>理論値は E=½ΣIᵢωᵢ²、|L|²=Σ(Iᵢωᵢ)²、Lₛ=R(q)Jω。空間平面への投影の誤差は |L₀·Pₛ−2E₀| で点検します。中間軸分離曲線は初期値 L₃=−√2 L₁、|L|=3 として構成します。積分誤差に敏感な付近では刻み幅を縮めて比較してください。</p>
+<p class="help">図の軸測投影・平面正面投影は意図的に異なります。左の曲線を右へ平行移動したものではありません。外力・外トルク・減衰は含みません。</p>
+</section>
+<script>
+"use strict";
+const I=[2,3,4], $=id=>document.getElementById(id), B=$("body"),S=$("space"), bc=B.getContext("2d"),sc=S.getContext("2d");
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const norm=v=>Math.sqrt(dot(v,v));
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const unit=v=>v.map(x=>x/norm(v));
+let x,x0,L0,E0,ell0,initial,dt=.02,t=0,n=0,history=[],playing=false,request=0;
+let k,ea,eb,H,bodyScale,spaceScale;
+function deriv(y){
+ const [a,b,c,w,qx,qy,qz]=y;
+ return [(I[1]-I[2])/I[0]*b*c,(I[2]-I[0])/I[1]*c*a,(I[0]-I[1])/I[2]*a*b,
+ -.5*(qx*a+qy*b+qz*c),
+ .5*(w*a+qy*c-qz*b),
+ .5*(w*b+qz*a-qx*c),
+ .5*(w*c+qx*b-qy*a)];
+}
+function rk4(y,h){
+ const add=(s,v,m)=>s.map((x,i)=>x+m*v[i]);
+ const a=deriv(y),b=deriv(add(y,a,h/2)),c=deriv(add(y,b,h/2)),d=deriv(add(y,c,h));
+ const z=y.map((v,i)=>v+h*(a[i]+2*b[i]+2*c[i]+d[i])/6);
+ const qn=Math.hypot(z[3],z[4],z[5],z[6]);
+ for(let i=3;i<7;i++)z[i]/=qn;
+ return z;
+}
+function rotate(q,v){
+ const [w,x,y,z]=q, t=cross([x,y,z],v).map(a=>2*a), a=cross([x,y,z],t);
+ return v.map((p,i)=>p+w*t[i]+a[i]);
+}
+function LB(y){return [I[0]*y[0],I[1]*y[1],I[2]*y[2]]}
+function energy(y){return .5*(I[0]*y[0]**2+I[1]*y[1]**2+I[2]*y[2]**2)}
+function spaceL(y){return rotate(y.slice(3),LB(y))}
+function point(y){return rotate(y.slice(3),y.slice(0,3))}
+function selectInitial(){
+ if($("mode").value==="max")return [0.19,0.13,1,1,0,0,0];
+ if($("mode").value==="min")return [1,0.17,0.14,1,0,0,0];
+ if($("mode").value==="mid"){
+  const a=0.1,lb=Math.sqrt(9-3*a*a);
+  return [a/2,lb/3,-Math.SQRT2*a/4,1,0,0,0];
+ }
+ return [1,1,1,1,0,0,0];
+}
+function stop(){playing=false;cancelAnimationFrame(request);$("play").textContent="再生"}
+function initialize(){
+ stop();dt=Number($("dt").value);x0=selectInitial();x=x0.slice();E0=energy(x);L0=spaceL(x);ell0=norm(L0);k=unit(L0);
+ const ref=Math.abs(k[2])<.88?[0,0,1]:[0,1,0];
+ ea=unit(cross(ref,k));eb=cross(k,ea);H=L0.map(z=>2*E0*z/(ell0*ell0));
+ bodyScale=137/Math.max(...I.map(v=>Math.sqrt(2*E0/v)));
+ spaceScale=172/Math.max(0.3,Math.sqrt(Math.max(0,2*E0/I[0]-(2*E0/ell0)**2)));
+ n=0;t=0;history=[];$("comparison").textContent="刻み幅半減比較では、同じ初期値から dt/2 で同時刻まで再積分します。";
+ $("status").textContent="";remember();draw();
+}
+function remember(){const p=point(x);history.push({body:x.slice(0,3),plan:[dot(p.map((v,i)=>v-H[i]),ea),dot(p.map((v,i)=>v-H[i]),eb)]});if(history.length>5000)history.shift()}
+function step(){x=rk4(x,dt);n++;t=n*dt;remember()}
+function fmt(z){return Number.isFinite(z)?z.toPrecision(5):"—"}
+function rel(a,b){return Math.abs(a-b)/Math.max(Math.abs(b),1e-12)}
+function left(v){return [260+bodyScale*.72*(v[0]-v[1]),235+bodyScale*(.34*(v[0]+v[1])-.86*v[2])]}
+function right(q){return [260+spaceScale*q[0],225-spaceScale*q[1]]}
+function segment(ctx,a,b,color,width=1,dash=[]){ctx.beginPath();ctx.setLineDash(dash);ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();ctx.setLineDash([])}
+function trace(ctx,pts,project,color,width=3.1){if(pts.length<2)return;ctx.beginPath();ctx.moveTo(...project(pts[0]));for(let i=1;i<pts.length;i++)ctx.lineTo(...project(pts[i]));ctx.lineWidth=width;ctx.strokeStyle=color;ctx.stroke()}
+function dotAt(ctx,p,color){ctx.beginPath();ctx.arc(p[0],p[1],5.5,0,2*Math.PI);ctx.fillStyle=color;ctx.fill();ctx.strokeStyle="#ffffff";ctx.lineWidth=1.5;ctx.stroke()}
+function renderBody(){
+ bc.clearRect(0,0,B.width,B.height);
+ const v=I.map(i=>Math.sqrt(2*E0/i));
+ for(let j=1;j<=5;j++){let phi=Math.PI*j/6,pts=[];for(let z=0;z<=100;z++){let th=2*Math.PI*z/100;pts.push([v[0]*Math.sin(phi)*Math.cos(th),v[1]*Math.sin(phi)*Math.sin(th),v[2]*Math.cos(phi)])}trace(bc,pts,left,"#d8e3ed",.9)}
+ for(let j=0;j<9;j++){const a=2*Math.PI*j/9,pts=[];for(let z=0;z<=100;z++){const ph=Math.PI*z/100;pts.push([v[0]*Math.sin(ph)*Math.cos(a),v[1]*Math.sin(ph)*Math.sin(a),v[2]*Math.cos(ph)])}trace(bc,pts,left,"#dae5ef",.9)}
+ const axes=[[v[0]*1.16,0,0],[0,v[1]*1.16,0],[0,0,v[2]*1.16]];
+ axes.forEach((v,i)=>{segment(bc,left([0,0,0]),left(v),"#8191a1",1.4,[4,4]);let p=left(v);bc.fillStyle="#41566c";bc.font="15px sans-serif";bc.fillText(["ω₁","ω₂","ω₃"][i],p[0]+7,p[1]-7)});
+ trace(bc,history.map(h=>h.body),left,"#125c98");dotAt(bc,left(x.slice(0,3)),"#084b85");
+}
+function renderSpace(){
+ sc.clearRect(0,0,S.width,S.height);
+ for(let i=-3;i<=3;i++){segment(sc,right([i*.5,-1.6]),right([i*.5,1.6]),"#e2eaf1");segment(sc,right([-1.7,i*.5]),right([1.7,i*.5]),"#e2eaf1")}
+ segment(sc,right([-2,0]),right([2,0]),"#a5b5c4",1.4);segment(sc,right([0,-2]),right([0,2]),"#a5b5c4",1.4);
+ const o=right([0,0]);sc.fillStyle="#41566c";sc.font="15px sans-serif";sc.fillText("H",o[0]+9,o[1]-10);dotAt(sc,o,"#424d5c");
+ trace(sc,history.map(h=>h.plan),right,"#125c98");
+ const h=history[history.length-1].plan,p=right(h);
+ segment(sc,o,p,"#a45c23",2.2,[7,5]);dotAt(sc,p,"#125c98");
+ sc.fillStyle="#314a63";sc.fillText("接点 Pₛ",p[0]+12,p[1]-12);
+}
+function draw(){
+ renderBody();renderSpace();
+ $("time").textContent=t.toFixed(3);$("energy").textContent=fmt(energy(x));$("ell").textContent=fmt(norm(LB(x)));
+ $("eerr").textContent=rel(energy(x),E0).toExponential(2);
+ $("lerr").textContent=rel(norm(LB(x)),ell0).toExponential(2);
+ const ds=norm(spaceL(x).map((v,i)=>v-L0[i]))/ell0;
+ $("serr").textContent=ds.toExponential(2);
+ const p=point(x),plane=dot(L0,p)-2*E0;
+ const h=history[history.length-1].plan;
+ $("detail").textContent="不変平面への残差 |L₀·Pₛ−2E₀| = "+Math.abs(plane).toExponential(2)+
+  "、平面内の半径 |Pₛ−H| = "+Math.hypot(...h).toFixed(4)+
+  "。左は物体固定の軸測図、右は固定平面の正面図。";
+ if(!Number.isFinite(ds)||ds>0.02||rel(energy(x),E0)>0.02){stop();$("status").textContent="保存量誤差が2%を超えたため停止しました。dtを減らして再計算してください。"}
+}
+function tick(){if(!playing)return;for(let j=0;j<4;j++)step();draw();if(playing)request=requestAnimationFrame(tick)}
+$("play").addEventListener("click",()=>{if(playing){stop();return}playing=true;$("play").textContent="停止";request=requestAnimationFrame(tick)});
+$("once").addEventListener("click",()=>{stop();step();draw()});
+$("reset").addEventListener("click",initialize);
+$("mode").addEventListener("change",initialize);
+$("dt").addEventListener("change",initialize);
+$("compare").addEventListener("click",()=>{
+ stop();let y=x0.slice();for(let i=0;i<2*n;i++)y=rk4(y,dt/2);
+ const dw=norm(y.slice(0,3).map((v,i)=>v-x[i]));
+ const q1=x.slice(3),q2=y.slice(3),qdiff=Math.min(Math.hypot(...q1.map((v,i)=>v-q2[i])),Math.hypot(...q1.map((v,i)=>v+q2[i])));
+ $("comparison").textContent="t="+t.toFixed(3)+"、刻み幅半減との角速度差="+dw.toExponential(3)+"、四元数差（qと−qを同一視）="+qdiff.toExponential(3)+"。厳密解との差の証明ではありません。";
+});
+document.addEventListener("visibilitychange",()=>{if(document.hidden)stop()});
+initialize();
+</script>
+</body></html>

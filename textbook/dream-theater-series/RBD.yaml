@@ -43,7 +43,7 @@ chapters:
     title: 非対称剛体・中間軸の不安定性
   - id: RBD10
     path: textbook/volumes/dream_thater/物理系/RBD/RBD10
-    status: planned
+    status: completed
     title: Poinsotの構成と物体系／空間系の軌跡
   - id: RBD11
     path: textbook/volumes/dream_thater/物理系/RBD/RBD11

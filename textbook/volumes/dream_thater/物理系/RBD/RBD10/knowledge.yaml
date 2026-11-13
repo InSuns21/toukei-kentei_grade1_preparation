@@ -1,0 +1,47 @@
+chapter: RBD10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD9
+forward_references: []
+concepts:
+  - id: mechanics.rigid-body-energy-ellipsoid
+    name: エネルギー楕円体と空間表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（エネルギー楕円体と空間表示）]
+    requires:
+      - mechanics.triaxial-euler-invariants
+      - mechanics.inertia-tensor-positive-definiteness
+  - id: mechanics.poinsot-invariable-plane
+    name: Poinsotの不変平面と接点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Poinsotの不変平面と接点）]
+    requires:
+      - mechanics.rigid-body-energy-ellipsoid
+      - mechanics.triaxial-euler-invariants
+  - id: mechanics.polhode-herpolhode
+    name: polhodeとherpolhode
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（polhode と herpolhode）]
+    requires:
+      - mechanics.poinsot-invariable-plane
+      - mechanics.rigid-body-separatrix
+  - id: mechanics.poinsot-contact-no-slip
+    name: 接点の運動と無滑り条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（接点の運動と無滑り条件）]
+    requires:
+      - mechanics.polhode-herpolhode
+      - mechanics.rigid-body-forced-newton-euler
+  - id: mechanics.herpolhode-radius
+    name: herpolhodeの半径式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（herpolhode の半径式）]
+    requires:
+      - mechanics.poinsot-invariable-plane
+      - mechanics.polhode-herpolhode

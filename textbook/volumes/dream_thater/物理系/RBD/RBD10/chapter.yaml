@@ -1,0 +1,43 @@
+id: "RBD10"
+title: "Poinsotの構成と物体系／空間系の軌跡"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD9
+official_scope: []
+learning_objectives:
+  - 無トルクのエネルギー楕円体を正定値慣性テンソルから定義し、物体・空間表示を座標変換できる
+  - Poinsotの不変平面の法線、接点、一意性、原点からの距離を保存量から証明できる
+  - polhodeとherpolhodeの座標系の違いと、角運動量球面・分離曲線との対応を説明できる
+  - 接点軌跡の移動速度と接触物質点の瞬間速度を区別し無滑りを示せる
+  - herpolhodeの半径式を導出し、対称剛体で円となる条件と半径を計算できる
+  - 非対称剛体の主軸近傍と分離エネルギーでpolhodeの性質を分類できる
+  - 同一のEuler方程式と姿勢の数理解から物体系・空間系の軌跡を構成し保存量誤差を監査できる
+  - 外トルクや慣性テンソルの非正定値化によって失われる結論を特定できる
+definitions:
+  - { id: RBD10-DEF-01, name: "エネルギー楕円体と空間表示" }
+  - { id: RBD10-DEF-02, name: "polhodeとherpolhode" }
+theorems:
+  - { id: RBD10-THM-01, name: "Poinsotの不変平面と接点" }
+  - { id: RBD10-PROP-01, name: "接点の運動と無滑り条件" }
+  - { id: RBD10-PROP-02, name: "herpolhodeの半径式" }
+canonical_examples:
+  - 正定値慣性値2 3 4のエネルギー楕円体と接平面
+  - 主軸回転のpolhodeとherpolhodeの一点への退化
+  - 対称剛体の二つの円と半径の定量比較
+  - 非対称剛体の分離曲線の物体系への変換
+  - 同期数値プレイヤーでの物体座標と空間座標の照合
+problem_patterns:
+  - RBD10-ENERGY-ELLIPSOID-AXES
+  - RBD10-TANGENT-NORMAL-DISTANCE
+  - RBD10-CONTACT-POINT-VELOCITIES
+  - RBD10-PRINCIPAL-SPIN-POINT
+  - RBD10-HERPOLHODE-RADIUS-IDENTITY
+  - RBD10-ENERGY-RANGE-SEPARATRIX
+  - RBD10-SYMMETRIC-TWO-CIRCLES
+  - RBD10-BODY-SEPARATRIX-TRANSFORM
+  - RBD10-POINSOT-INTEGRATED-PROOF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 7.0, review: 2.5 }
