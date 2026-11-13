@@ -262,7 +262,7 @@ dw-\bigl(\Delta\,dS+\psi\,dB\bigr)
 =\mathcal R[w](t,S_t)\,dt,
 $$
 
-<a id="def-u3-16-self-financing-residual"></a>
+<a id="u3-16-self-financing-residual"></a>
 
 ここで **自己金融残差**を
 
@@ -343,7 +343,7 @@ $$
 逆方向はこの等式を使って $dv=v_s(dS+qSdt)+\psi\,dB$ と戻せます。自己金融と予測可能性は無配当の場合と同じ局所化で検証できます。さらに、[GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)に $p=2m+2$ を代入すれば、配当を含む自己金融価値を割り引いた確率積分の二乗可積分性を確認できます。
 <!-- proof-end -->
 
-配当を含む候補 $f(t,s)$ についても、[無配当の自己金融残差](#def-u3-16-self-financing-residual)と同じく、候補価値の全変化から株式の**配当込み利得**と預金利得を差し引いた単位時間当たりの額を計算します。その残差を
+配当を含む候補 $f(t,s)$ についても、[無配当の自己金融残差](#u3-16-self-financing-residual)と同じく、候補価値の全変化から株式の**配当込み利得**と預金利得を差し引いた単位時間当たりの額を計算します。その残差を
 
 $$
 \mathcal R_q[f](t,s):=f_t+\tfrac12\sigma^2s^2f_{ss}+(r-q)sf_s-rf
@@ -589,7 +589,7 @@ $$
 $w(t,s)=s^2e^{r(T-t)}/K$ を二乗請求権の価格と誤認したとする。$\Delta=w_s,\psi=(w-Sw_s)/B$ の形式的な保有で、$dw-\Delta\,dS-\psi\,dB$ を求めよ。また $K=s_0=100,r=0.03,\sigma=0.20,T=1$ の時刻0で残差を数値化せよ。
 
 <!-- solution-start -->
-**詳細解答**：$w_t=-rw,w_s=2w/s,w_{ss}=2w/s^2$ です。[自己金融残差の定義](#def-u3-16-self-financing-residual)へ代入すると
+**詳細解答**：$w_t=-rw,w_s=2w/s,w_{ss}=2w/s^2$ です。[自己金融残差の定義](#u3-16-self-financing-residual)へ代入すると
 
 $$
 \begin{aligned}
