@@ -62,6 +62,8 @@ $$
 を選べば $A\Omega=(u,v)$ です。よって $\mathcal M\Omega=\mathcal H$ で巡回的です。両条件を**別々に**確かめたので標準対です。
 
 一方 $p=1$ では $\Omega=(1,0)$ となり、非零な $\operatorname{diag}(0,1)$ が $\Omega$ を消します。同時に第2座標を生成できず、標準対ではありません。
+
+**定義の確認**：$0<p<1$ では巡回性と分離性の両方を行列成分で判定しました。$p=1$ ではそれぞれの破綻も具体的に確認できました。
 <!-- definition-example-end -->
 
 [AQFT13の可換子の巡回性と分離性の同値](../AQFT13/index.md#thm-aqft13-commutant-cyclic-separating)を $\mathcal M$ に適用すると、標準対なら $\Omega$ は**可換子 $\mathcal M'$ に対しても巡回・分離的**です。ここで[可換子](../../VN/VN2/index.md#def-vn2-commutant)は同じ $\mathcal H$ 上で取ります。これが後で可閉性を証明する鍵になります。
@@ -101,6 +103,8 @@ $$
 $$
 
 なので $C$ は反線形です。さらに $C^2=I$、$\|Cx\|=\|x\|$ です。しかし $C(ix)=-iCx$ なので、零でない $x$ について複素線形ではありません。
+
+**定義の確認**：任意の係数とベクトルで共役係数が現れ、定義域は複素線形な全空間です。したがって反線形性の全条件を満たします。
 <!-- definition-example-end -->
 
 有限次元の例では全空間に作用していましたが、一般には $T$ をまず稠密な部分空間 $D$ 上にだけ定めます。**グラフ**とは組 $(x,Tx)$ の集合で、$\mathcal H\oplus\mathcal H$ のノルム
@@ -151,6 +155,8 @@ $$
 ### 直接例：全空間の共役作用素
 
 前節の $C$ は全空間 $\mathbb C^2$ に定義され、$\|Cx-Cy\|=\|x-y\|$ を満たします。もし $x_n\to0$ なら $\|Cx_n\|=\|x_n\|\to0$ ですから、判定条件の極限 $y$ は必ず零です。また $x_n\to x$ と $Cx_n\to y$ なら $Cx_n\to Cx$ より $y=Cx$。従ってグラフは既に閉じており、$\overline C=C$ です。
+
+**定義の確認**：零列判定だけでなくグラフの閉性も確かめたため、可閉性と閉包の双方を判定できました。
 <!-- definition-example-end -->
 
 ここで注意したいのは、**可閉性は有界性ではない**ことです。$\|Tx\|\le C\|x\|$ という一様な定数がなくても、$x_n\to0$ かつ $Tx_n\to y$ の場合に $y=0$ とできれば可閉です。後で実際に非有界な例を見ます。
@@ -188,6 +194,8 @@ S_0x=A^*\Omega=(\overline u,\overline v)=Cx.
 $$
 
 従って $\operatorname{Dom}(S_0)=\mathbb C^2$ であり、前節の閉じた反線形作用素 $C$ と一致します。**代表 $A$ の一意性・定義域・反線形性・値**まで具体的に検査できました。
+
+**定義の確認**：標準対の分離性により入力の表示は一意であり、計算した $S_0$ は指定した随伴の規則を全定義域で満たします。
 <!-- definition-example-end -->
 
 <a id="prop-aqft18-initial-properties"></a>
@@ -267,6 +275,8 @@ PT=\begin{pmatrix}t_{11}&t_{12}\\0&0\end{pmatrix}
 $$
 
 より $t_{12}=t_{21}=0$ です。逆に対角行列同士は可換なので $D'=D$。従って $F_0$ は $S_0$ と同じ成分共役 $C$ になり、両者の定義域も $\mathbb C^2$ です。可換子側でのwell-defined性と稠密性もこの例で確認できました。
+
+**定義の確認**：可換子 $D'=D$ を行列で求めたうえで、任意の $B\Omega$ に対し $F_0(B\Omega)=B^*\Omega$ を検証しました。
 <!-- definition-example-end -->
 
 <a id="ref-aqft18-core-pairing"></a>
@@ -422,6 +432,8 @@ $$
 $$
 
 従って $C^\sharp y=Cy$ が全ての $y$ に対して成立し、$C^\sharp=C$ です。反線形随伴の式の**両辺で $x,y$ の順序が入れ替わる**ことを直接確認できました。
+
+**定義の確認**：どの $y\in\mathbb C^2$ についても表現ベクトル $z=Cy$ が存在し、反線形随伴の定義域が全空間であることも分かりました。
 <!-- definition-example-end -->
 
 <a id="prop-aqft18-adjoint-pairing"></a>
@@ -490,10 +502,10 @@ $$
 
 $A\in B(K)$ の**左乗算** $L_A(X)=AX$ は $\mathcal H$ 上の有界作用素で、$\|AX\|_2\le\|A\|\,\|X\|_2$ です。左乗算環を $\mathcal M=\{L_A:A\in B(K)\}$ とします。これは単位的von Neumann環であることも確かめられます。実際、右乗算 $R_B(X)=XB$（$B\in B(K)$）は左乗算と可換し、$\|R_BX\|_2\le\|B\|\,\|X\|_2$ なので $\{R_B\}\subset\mathcal M'$ です。$T\in\mathcal M''$ とすると特に全ての $R_B$ と可換します。$R_{E_{11}}$ は第1列だけを残す射影なので、$T$ は第1列部分空間 $\{E_{v1}:v\in K\}$ を保ちます。そこで $T(E_{v1})=E_{Av,1}$ と置けば、$\|Av\|=\|T(E_{v1})\|_2\le\|T\|\|v\|$ から $A\in B(K)$ です。任意の $i,j$ に対し $E_{ij}=R_{E_{1j}}(E_{i1})$ なので
 
-$
+$$
 T(E_{ij})=R_{E_{1j}}T(E_{i1})
 =E_{Ae_i,j}=L_A(E_{ij}).
-$
+$$
 
 行列単位の線形包が稠密だから $T=L_A$、従って $\mathcal M''\subset\mathcal M$。逆の包含は任意の作用素集合で成り立つので $\mathcal M''=\mathcal M$ です。[von Neumann の二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によって $\mathcal M$ はvon Neumann環です。
 
@@ -539,11 +551,11 @@ $\mathcal H=L^2([0,1])$、$\mathcal M=L^\infty([0,1])$ の[乗算作用素](../.
 
 全ての乗算作用素と可換な $T\in B(L^2)$ は、特に各可測集合 $E$ の指示関数 $\mathbf1_E$ による乗算と可換します。$h=T1$ と置くと、$T\mathbf1_E=\mathbf1_E h$ です。従って
 
-$
+$$
 \|\mathbf1_E h\|_2
 =\|T\mathbf1_E\|_2
 \le\|T\|\sqrt{|E|}.
-$
+$$
 
 もし $|h|>\|T\|+\varepsilon$ となる可測集合 $E$ が正測度なら、左辺は $(\|T\|+\varepsilon)\sqrt{|E|}$ より大きくなり矛盾します。ゆえに $|h|\le\|T\|$ ほとんど至る所で、$h\in L^\infty$ です。
 
