@@ -1,0 +1,44 @@
+id: "AQFT20"
+title: "Hilbert–Schmidt標準表現の全計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT18
+  - AQFT19
+learning_objectives:
+  - Hilbert–Schmidt内積と行列単位の正規直交性・左右乗算の作用を成分から確かめられる
+  - 忠実密度行列の平方根ベクトルが巡回・分離的であることを逆平方根から証明できる
+  - Tomita作用素と反線形随伴を行列単位から導きS^\sharp Sの固有値と正平方根を計算できる
+  - J(X)=X^*が反ユニタリでS=J\Delta^{1/2}を満たすことを検算できる
+  - 左乗算環の可換子を左右の交換だけでなく逆包含まで証明できる
+  - 有限次元モジュラー流の公式と状態保存を導ける
+  - 非忠実密度行列や通常表現では標準性が失敗する理由と一般論の証明境界を説明できる
+definitions:
+  - { id: AQFT20-DEF-01, name: "有限次元Hilbert–Schmidt空間と左右乗算" }
+  - { id: AQFT20-DEF-02, name: "忠実密度行列のHilbert–Schmidt標準表現" }
+  - { id: AQFT20-DEF-03, name: "有限次元のモジュラー時間発展" }
+theorems:
+  - { id: AQFT20-PROP-01, name: "標準性と状態の実現" }
+  - { id: AQFT20-THM-01, name: "Hilbert–Schmidt模型のモジュラー作用素の全計算" }
+  - { id: AQFT20-THM-02, name: "左右乗算の可換子" }
+  - { id: AQFT20-THM-03, name: "有限次元モジュラー流の具体式" }
+canonical_examples:
+  - 忠実な二準位密度に対する巡回性と分離性の直接検算
+  - 行列単位上のS・S^\sharp・J・Deltaと非可換係数の全計算
+  - 左右乗算の可換子と密度行列による位相回転
+  - 非忠実密度でのTomita初期作用素のwell-defined性の破綻
+problem_patterns:
+  - AQFT20-HS-ORTHONORMAL
+  - AQFT20-RIGHT-OPPOSITE-ORDER
+  - AQFT20-ANTILINEAR-INVOLUTION
+  - AQFT20-POSITIVE-MODULAR
+  - AQFT20-ADJOINT-COEFFICIENTS
+  - AQFT20-COMMUTANT-EXHAUSTION
+  - AQFT20-FINITE-MODULAR-FLOW
+  - AQFT20-NONFAITHFUL-FAILURE
+  - AQFT20-MODULAR-FIXED-POINTS
+  - AQFT20-SPECTRAL-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 6 }
