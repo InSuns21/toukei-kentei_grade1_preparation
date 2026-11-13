@@ -6,6 +6,11 @@ prerequisites:
   - AQFT19
 forward_references: []
 concepts:
+  - id: aqft.hs-faithful-density
+    name: 有限次元密度行列と忠実性
+    kind: definition
+    introduction: formal
+    requires: []
   - id: aqft.hs-space-and-multiplications
     name: 有限次元Hilbert–Schmidt空間と左右乗算
     kind: definition
@@ -15,7 +20,7 @@ concepts:
     name: 忠実密度行列のHilbert–Schmidt標準表現
     kind: definition
     introduction: formal
-    requires: [aqft.hs-space-and-multiplications, aqft.standard-pair]
+    requires: [aqft.hs-faithful-density, aqft.hs-space-and-multiplications, aqft.standard-pair]
   - id: aqft.hs-standard-state
     name: 標準性と状態の実現
     kind: proposition
