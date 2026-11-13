@@ -1,0 +1,49 @@
+chapter: GW1-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-01
+  - SYM8
+concepts:
+  - id: gromov-witten.nonlinear-cr-operator
+    name: 非線形Cauchy–Riemann作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非線形Cauchy–Riemann作用素）"]
+    requires: [symplectic.almost-complex-structure]
+  - id: gromov-witten.j-holomorphic-map
+    name: 擬正則写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（擬正則写像）"]
+    requires: [gromov-witten.nonlinear-cr-operator]
+  - id: gromov-witten.local-cr-equivalence
+    name: 局所Cauchy–Riemann方程式と複素線形性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所Cauchy–Riemann方程式と複素線形性）"]
+    requires: [gromov-witten.nonlinear-cr-operator, gromov-witten.j-holomorphic-map]
+  - id: gromov-witten.dirichlet-energy
+    name: 写像のDirichletエネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（写像のDirichletエネルギー）"]
+    requires: [symplectic.compatible-metric-criterion]
+  - id: gromov-witten.energy-identity
+    name: 擬正則写像のエネルギー恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（擬正則写像のエネルギー恒等式）"]
+    requires: [gromov-witten.nonlinear-cr-operator, gromov-witten.dirichlet-energy, symplectic.compatible-metric-criterion]
+  - id: gromov-witten.symplectic-area-homotopy-invariance
+    name: 閉曲面からの写像のシンプレクティック面積はホモトピー不変
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉曲面からの写像のシンプレクティック面積はホモトピー不変）"]
+    requires: [symplectic.symplectic-manifold, geometry.general-stokes-theorem]
+  - id: gromov-witten.energy-area-corollary
+    name: 擬正則写像のエネルギーと面積
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（擬正則写像のエネルギーと面積）"]
+    requires: [gromov-witten.energy-identity, gromov-witten.symplectic-area-homotopy-invariance, gromov-witten.j-holomorphic-map]
