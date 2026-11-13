@@ -1,0 +1,42 @@
+id: "CTM17"
+title: "圧力駆動のStokes流を解く"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM16
+official_scope: []
+learning_objectives:
+  - "定常・完全発達した一方向流の意味と壁面条件を明示し、二回積分から平板Poiseuille流の速度分布と解クラス内の一意性を導ける"
+  - "断面積分で単位幅流量・平均速度・最大速度・流体抵抗を求め、半隙間の三乗則を説明できる"
+  - "Cauchy応力と各壁の流体外向き法線から壁面tractionの向きと大きさを計算し、入口出口圧力との力の釣合を検算できる"
+  - "圧力仕事とNewton流体の内部散逸を別々に積分して一致を証明できる"
+  - "低Reの近似と完全発達流の厳密Navier–Stokes解を区別し、微小流路・滑り・動く壁への適用条件を吟味できる"
+definitions:
+  - { id: CTM17-DEF-01, name: "定常・完全発達した平板一方向流" }
+  - { id: CTM17-DEF-02, name: "体積流量と単位幅流量" }
+theorems:
+  - { id: CTM17-THM-01, name: "平板Poiseuille流の速度と一意性" }
+  - { id: CTM17-THM-02, name: "平板Poiseuille流の流量・壁面せん断力" }
+  - { id: CTM17-THM-03, name: "圧力仕事と粘性散逸の一致" }
+  - { id: CTM17-PROP-01, name: "完全発達平板流はNavier–Stokes式の厳密解" }
+canonical_examples:
+  - "候補放物線で完全発達・非圧縮・壁条件を個別確認"
+  - "定数速度と放物型速度の断面流量比較"
+  - "上下壁の法線・壁が流体へ及ぼすtractionと正味の圧力推進力"
+  - "流量と圧力仕事・散逸の独立積分検算"
+  - "微小流路のReynolds数・圧力差・流量の数値検算"
+problem_patterns:
+  - CTM17-POISEUILLE-ODE
+  - CTM17-FLUX-MEAN-MAX
+  - CTM17-WALL-TRACTION
+  - CTM17-DISSIPATION-POWER
+  - CTM17-MICROCHANNEL-PRESSURE
+  - CTM17-FIXED-FLUX-SCALING
+  - CTM17-SLIP-BOUNDARY
+  - CTM17-BODY-FORCE
+  - CTM17-INCONSISTENT-PRESSURE
+  - CTM17-COUETTE-POISEUILLE-POWER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }

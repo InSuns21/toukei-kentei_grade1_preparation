@@ -21,7 +21,7 @@ chapters:
   - { id: CTM14, path: textbook/volumes/dream_thater/物理系/CTM/CTM14, status: completed, title: "有限ひずみ弾性では応力をどのエネルギーから得るか" }
   - { id: CTM15, path: textbook/volumes/dream_thater/物理系/CTM/CTM15, status: completed, title: "粘性応力からNavier–Stokes方程式へ" }
   - { id: CTM16, path: textbook/volumes/dream_thater/物理系/CTM/CTM16, status: completed, title: "無次元化で粘性と慣性のどちらが効くか" }
-  - { id: CTM17, path: textbook/volumes/dream_thater/物理系/CTM/CTM17, status: planned, title: "圧力駆動のStokes流を解く" }
+  - { id: CTM17, path: textbook/volumes/dream_thater/物理系/CTM/CTM17, status: completed, title: "圧力駆動のStokes流を解く" }
   - { id: CTM18, path: textbook/volumes/dream_thater/物理系/CTM/CTM18, status: planned, title: "ばねとダッシュポットで緩和・クリープを説明できるか" }
   - { id: CTM19, path: textbook/volumes/dream_thater/物理系/CTM/CTM19, status: planned, title: "時間依存の応答と散逸をどう測るか" }
   - { id: CTM20, path: textbook/volumes/dream_thater/物理系/CTM/CTM20, status: planned, title: "内部エネルギーを消費する能動応力をどう記述するか" }
