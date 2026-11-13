@@ -438,7 +438,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo28-jlms-dictionary -->
-**対応の直接確認（物理理論の証明ではない）。** 第3節の固定セクター模型で $\widehat{\operatorname{Area}}/(4G_N)$ の形式上の役に $\log d$、バルクモジュラーHamiltonianに $K_a^\sigma$ を対応させると、[固定セクター定理](#thm-holo28-fixed-sector-jlms)の演算子等式がちょうど上記の構造になります。第4節で $d_\alpha$ を変えれば面積型項が状態依存の期待値を持ちます。この対応は構造の検査であって、$d_\alpha$ から実際のAdS曲面の幾何面積を導出したものではありません。
+**定義の確認**（物理理論の証明ではない）。 第3節の固定セクター模型で $\widehat{\operatorname{Area}}/(4G_N)$ の形式上の役に $\log d$、バルクモジュラーHamiltonianに $K_a^\sigma$ を対応させると、[固定セクター定理](#thm-holo28-fixed-sector-jlms)の演算子等式がちょうど上記の構造になります。第4節で $d_\alpha$ を変えれば面積型項が状態依存の期待値を持ちます。この対応は構造の検査であって、$d_\alpha$ から実際のAdS曲面の幾何面積を導出したものではありません。
 <!-- definition-example-end -->
 
 ここで見落としやすいのは三点です。第一に **$K^\sigma$ は参照状態依存**であり、$\rho$ を変えても比較の途中で $\sigma$ を変えてはいけません。第二に、[FLMの次数整理](../HOLO23/index.md#def-holo23-flm)では $O(G_N^0)$ のバルク量子項・計量反作用・局所面項を揃える必要があります。第三に、境界局所QFTの作用素は一般に有限行列の対数ではありません。本講の有限cutoffでの対数は定義域問題を回避する模型であり、連続体の厳密なモジュラー作用素やType III局所代数についての一般定理の代用ではありません。
