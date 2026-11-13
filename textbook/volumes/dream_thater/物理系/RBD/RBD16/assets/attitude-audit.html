@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RBD16 姿勢数値積分と収支監査</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Yu Gothic","Meiryo",sans-serif;line-height:1.5;color:#172339;background:#f7f9fc}
+*{box-sizing:border-box}
+body{margin:0}
+header,main,footer{max-width:1110px;margin:auto;padding:16px}
+header{padding-top:22px}
+h1{font-size:clamp(1.35rem,3vw,1.85rem);margin:0 0 8px}
+h2{font-size:1.1rem;margin:0 0 12px}
+p{margin:8px 0 12px}
+a{color:#174e95}
+.panel{background:#fff;border:1px solid #d7dfeb;border-radius:12px;padding:16px;min-width:0}
+main{display:grid;gap:15px}
+.controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+label{display:flex;flex-direction:column;gap:5px;font-weight:650;font-size:.93rem}
+select{width:100%;background:#fff;color:#172339;font:inherit;border:1px solid #8798ae;border-radius:7px;padding:9px;min-height:42px}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}
+button{font:inherit;font-weight:650;padding:8px 14px;border-radius:7px;border:1px solid #446189;background:#fff;color:#183453;cursor:pointer;min-height:43px}
+button.primary{background:#153f74;color:#fff}
+button:hover{background:#e6eef9}
+button.primary:hover{background:#214f86}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #da8400;outline-offset:3px}
+.viz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+canvas{display:block;width:100%;height:265px;border-radius:8px;background:#fbfdff;border:1px solid #dce5f1}
+.note,.tiny{font-size:.88rem;color:#46556a}
+dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0}
+dl div{padding:8px;border:1px solid #dce5ed;border-radius:8px;min-width:0}
+dt{color:#4f5c6d;font-size:.85rem}
+dd{font-variant-numeric:tabular-nums;font-family:ui-monospace,Consolas,monospace;font-size:.95rem;margin:4px 0;overflow-wrap:anywhere}
+.status{padding:10px 12px;border:1px solid #cad6e5;border-radius:8px;margin-top:12px}
+.status.fail{border:2px solid #b91c1c;background:#fff8f8}
+legend{padding:0 7px;font-weight:650}
+details{border-top:1px solid #dce5f1;padding-top:12px;margin-top:12px}
+summary{cursor:pointer;font-weight:650}
+ul{margin:5px 0 8px 22px;padding:0}
+@media(max-width:750px){.controls{grid-template-columns:repeat(2,minmax(0,1fr))}.viz{grid-template-columns:1fr}dl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:375px){.controls{grid-template-columns:1fr}dl{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+<h1>RBD16｜姿勢の数値積分と保存量監査</h1>
+<p>実際の剛体 Euler 方程式と姿勢方程式を解きます。画面の回転は計算結果から描画し、保存量と幾何残差の計算は描画とは独立しています。</p>
+<p><a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD16/index">RBD16 の講義へ戻る</a></p>
+</header>
+<main>
+<section class="panel" aria-label="実験設定">
+<h2>設定と操作</h2>
+<div class="controls">
+<label>積分法
+<select id="method">
+<option value="matrix">行列の陽的 Euler（一次）</option>
+<option value="quaternion">四元数正規化 Euler（一次）</option>
+<option value="midpoint" selected>指数中点法（二次）</option>
+</select>
+</label>
+<label>初期条件
+<select id="preset">
+<option value="axis">第3主軸（厳密解あり）</option>
+<option value="symmetric">対称こま（無トルク）</option>
+<option value="intermediate" selected>中間軸近傍（摂動あり）</option>
+</select>
+</label>
+<label>物体系トルク
+<select id="torque">
+<option value="none" selected>無トルク</option>
+<option value="axis">一定トルク (0,0,0.2)</option>
+</select>
+</label>
+<label>刻み幅 h（物理時間）
+<select id="step">
+<option value="0.2">0.2</option>
+<option value="0.1">0.1</option>
+<option value="0.05" selected>0.05</option>
+<option value="0.025">0.025</option>
+<option value="0.01">0.01</option>
+</select>
+</label>
+</div>
+<div class="actions">
+<button id="play" type="button" class="primary">再生</button>
+<button id="once" type="button">1段だけ進める</button>
+<button id="reset" type="button">初期値に戻す</button>
+<button id="compare" type="button">同じ時刻で h/2 と比較</button>
+<label style="flex-direction:row;align-items:center;gap:8px">再生速度
+<select id="speed" style="width:105px"><option value="0.5">0.5倍</option><option value="1" selected>1倍</option><option value="4">4倍</option></select>
+</label>
+</div>
+<div id="status" class="status" role="status" aria-live="polite">初期化しました。再生・1段送りを選択してください。</div>
+<div id="compareResult" class="note" aria-live="polite"></div>
+</section>
+<div class="viz">
+<section class="panel">
+<h2>空間系に投影した物体の主軸</h2>
+<canvas id="attitude" width="480" height="265" role="img" aria-label="物体に固定された3本の主軸が空間座標内で回転する図。軸1は実線、軸2は破線、軸3は点線と記号でも識別する"></canvas>
+<p class="note">淡い灰色＝初期の空間基底、濃い3本＝数値姿勢の物体基底。1＝実線、2＝破線、3＝点線。行列 Euler では軸の長さも不正になる場合があります。</p>
+</section>
+<section class="panel">
+<h2>監査残差の時間変化</h2>
+<canvas id="chart" width="480" height="265" role="img" aria-label="横軸時間、縦軸残差の10を底とする対数。実線は姿勢直交誤差、破線は相対エネルギー収支残差、点線は相対角運動量収支残差"></canvas>
+<p class="note">実線＝直交誤差、破線＝仕事収支残差、点線＝角力積収支残差。縦軸 log10(max(10^-12,残差))、下端は 10^-12。</p>
+</section>
+</div>
+<section class="panel">
+<h2>現在値と収支</h2>
+<dl>
+<div><dt>時刻 t</dt><dd id="t">0</dd></div>
+<div><dt>段数 n</dt><dd id="n">0</dd></div>
+<div><dt>直交誤差 ||RᵀR−I||F</dt><dd id="orth">0</dd></div>
+<div><dt>行列式誤差 |detR−1|</dt><dd id="det">0</dd></div>
+<div><dt>回転エネルギー E</dt><dd id="energy">0</dd></div>
+<div><dt>仕事 W</dt><dd id="work">0</dd></div>
+<div><dt>エネルギー収支 E−E0−W</dt><dd id="balanceE">0</dd></div>
+<div><dt>角力積収支 ||Ls−Ls0−Ks||</dt><dd id="balanceL">0</dd></div>
+<div><dt>空間角運動量 ||Ls||</dt><dd id="L">0</dd></div>
+<div><dt>初期値との差 ||Ls||−||L0||</dt><dd id="Ldrift">0</dd></div>
+<div><dt>物体角速度 ωb</dt><dd id="omega">0</dd></div>
+<div><dt>物体系慣性 Jb</dt><dd id="inertia">0</dd></div>
+</dl>
+<p class="note">警告基準：直交誤差または行列式誤差 0.12、初期値で規格化した仕事・角力積収支のいずれか 0.10、あるいは非有限値で停止。これは教育用の閾値であり普遍的精度保証ではありません。最大時刻は 10。</p>
+<details>
+<summary>式と数値計算の約束</summary>
+<p>Jb ω̇ = τb − ωb × (Jb ωb)、Ṙ = R [ωb]×。行列 Euler は Rn+1 = Rn(I+h[ωn]×)、四元数 Euler は qn+1 = normalize(qn + h/2 qn⊗(0,ωn))、指数中点は Rn+1 = Rn exp(h[ωmid]×)。</p>
+<p>無トルクなら E=ωb・Jbωb/2 と Ls=RJbωb は一定。外トルクなら dE/dt=τb・ωb、dLs/dt=Rτb。W と Ks は各ステップの台形則で積分するため、その離散誤差も収支に入ります。連続時間の厳密保存を、離散時刻の各値に暗黙に仮定していません。</p>
+<p>「h/2 と比較」は現在のシミュレーション時刻を固定し、同じ初期姿勢・初期角速度で半刻みの計算を最初から再実行します。描画速度を変えても刻み幅は変わりません。</p>
+</details>
+<noscript><p>JavaScriptが無効なため実験操作はありません。厳密な一軸回転では R(t)=Rz(t)、E=2、Ls=(0,0,4) が一定です。本文の例と演習で積分法・監査量を学習できます。</p></noscript>
+</section>
+</main>
+<footer><p class="tiny">オフライン動作・外部ライブラリなし。計算は有限の時間刻みで行われ、停止の原因を隠しません。</p></footer>
+<script>
+"use strict";
+(function(){
+const $=id=>document.getElementById(id);
+const method=$("method"),preset=$("preset"),torque=$("torque"),stepSelect=$("step"),speed=$("speed");
+const eye=()=>[1,0,0,0,1,0,0,0,1];
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const norm=a=>Math.hypot(...a);
+const sub=(a,b)=>a.map((x,i)=>x-b[i]);
+const add=(a,b)=>a.map((x,i)=>x+b[i]);
+const scale=(a,c)=>a.map(x=>c*x);
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const mul=(A,B)=>Array.from({length:9},(_,k)=>{let i=Math.floor(k/3),j=k%3;return A[i*3]*B[j]+A[i*3+1]*B[3+j]+A[i*3+2]*B[6+j]});
+const mv=(A,v)=>[dot(A.slice(0,3),v),dot(A.slice(3,6),v),dot(A.slice(6,9),v)];
+const hat=w=>[0,-w[2],w[1],w[2],0,-w[0],-w[1],w[0],0];
+const matScale=(A,h)=>A.map(x=>h*x);
+const matAdd=(A,B)=>A.map((x,i)=>x+B[i]);
+const det=A=>A[0]*(A[4]*A[8]-A[5]*A[7])-A[1]*(A[3]*A[8]-A[5]*A[6])+A[2]*(A[3]*A[7]-A[4]*A[6]);
+function expRot(w,h){
+ const a=norm(w),A=hat(w);if(a<1e-10){return matAdd(matAdd(eye(),matScale(A,h)),matScale(mul(A,A),h*h/2))}
+ const angle=h*a,s=Math.sin(angle)/a,c=(1-Math.cos(angle))/(a*a);
+ return matAdd(matAdd(eye(),matScale(A,s)),matScale(mul(A,A),c));
+}
+function quatProduct(q,p){
+ const u=q.slice(1),v=p.slice(1);
+ return [q[0]*p[0]-dot(u,v),...add(add(scale(v,q[0]),scale(u,p[0])),cross(u,v))];
+}
+function quatMatrix(q){
+ const [a,x,y,z]=q;return [
+ 1-2*(y*y+z*z),2*(x*y-a*z),2*(x*z+a*y),
+ 2*(x*y+a*z),1-2*(x*x+z*z),2*(y*z-a*x),
+ 2*(x*z-a*y),2*(y*z+a*x),1-2*(x*x+y*y)
+ ];
+}
+function init(){
+ const p=preset.value;
+ const J=p==="symmetric"?[2,2,3]:[2,3,4];
+ const w=p==="axis"?[0,0,1]:p==="symmetric"?[0.7,0.2,1]:[0.03,1,0.015];
+ const R=eye(), L=mv(R,J.map((j,i)=>j*w[i]));
+ return {R,w,q:[1,0,0,0],J,t:0,n:0,W:0,K:[0,0,0],E0:dot(w,J.map((j,i)=>j*w[i]))/2,L0:L};
+}
+function torqueB(){return torque.value==="axis"?[0,0,0.2]:[0,0,0]}
+function rhs(s,w){
+ const Jw=s.J.map((j,i)=>j*w[i]), c=cross(w,Jw),tau=torqueB();
+ return s.J.map((j,i)=>(tau[i]-c[i])/j);
+}
+function advance(s,h){
+ const w0=s.w,R0=s.R,tau=torqueB(),f0=rhs(s,w0);
+ let w1,R1,q1=s.q;
+ if(method.value==="midpoint"){
+   const wm=add(w0,scale(f0,h/2));
+   w1=add(w0,scale(rhs(s,wm),h));
+   R1=mul(R0,expRot(wm,h));
+ }else{
+   w1=add(w0,scale(f0,h));
+   if(method.value==="matrix"){R1=mul(R0,matAdd(eye(),matScale(hat(w0),h)))}
+   else{
+     const qdot=quatProduct(s.q,[0,...w0]);
+     const qtilde=s.q.map((x,i)=>x+h*qdot[i]/2);
+     const qlen=Math.hypot(...qtilde);
+     q1=qtilde.map(x=>x/qlen);
+     R1=quatMatrix(q1);
+   }
+ }
+ const W=s.W+h*(dot(tau,w0)+dot(tau,w1))/2;
+ const K=add(s.K,scale(add(mv(R0,tau),mv(R1,tau)),h/2));
+ return {...s,w:w1,R:R1,q:q1,W,K,t:s.t+h,n:s.n+1};
+}
+function diagnostics(s){
+ const R=s.R;
+ const rr=Array.from({length:9},(_,k)=>{
+   const i=Math.floor(k/3),j=k%3;
+   return R[i]*R[j]+R[3+i]*R[3+j]+R[6+i]*R[6+j]-(i===j?1:0)
+ });
+ const orth=Math.hypot(...rr),d=Math.abs(det(R)-1), E=dot(s.w,s.J.map((j,i)=>j*s.w[i]))/2;
+ const L=mv(R,s.J.map((j,i)=>j*s.w[i]));
+ const bE=E-s.E0-s.W,bL=sub(sub(L,s.L0),s.K),rE=Math.abs(bE)/Math.max(1,Math.abs(s.E0)),rL=norm(bL)/Math.max(1,norm(s.L0));
+ return {orth,det:d,E,L,bE,bL:norm(bL),rE,rL};
+}
+let state=init(),history=[],playing=false,last=0,acc=0,alertText="";
+const h=()=>Number(stepSelect.value);
+const fmt=x=>!Number.isFinite(x)?"非有限":Math.abs(x)<1e-12?"0":(Math.abs(x)<0.001||Math.abs(x)>=10000?x.toExponential(3):x.toFixed(6));
+function stopReason(d){
+ const vals=[...state.R,...state.w,d.orth,d.det,d.E,...d.L,d.bE,d.bL];
+ if(vals.some(x=>!Number.isFinite(x)))return "非有限値が発生したため停止";
+ if(d.orth>0.12||d.det>0.12)return "姿勢の直交性／行列式の許容値を超えたため停止";
+ if(d.rE>0.10||d.rL>0.10)return "仕事／角力積の収支残差が許容値を超えたため停止";
+ if(state.t>=10-1e-9)return "最大時刻 10 に到達";
+ return "";
+}
+function record(){
+ const d=diagnostics(state);history.push({t:state.t,orth:d.orth,rE:d.rE,rL:d.rL});
+ const reason=stopReason(d);if(reason){playing=false;alertText=reason}
+ return d;
+}
+function setStatus(){
+ const st=$("status");st.textContent=alertText|| (playing?"計算中：実ODEを刻み幅 h で積分しています":"停止中。再生・一段送り・h/2比較を選択できます");
+ st.className="status"+(alertText&&alertText.includes("ため停止")?" fail":"");
+ $("play").textContent=playing?"一時停止":"再生";
+}
+function reset(){
+ playing=false;state=init();alertText="初期値に戻しました";history=[];record();acc=0;
+ $("compareResult").textContent="";
+ update();setStatus();
+}
+function stepOnce(){
+ if(state.t>=10-1e-9){playing=false;alertText="最大時刻 10 に到達";setStatus();return}
+ state=advance(state,Math.min(h(),10-state.t));alertText="";record();update();setStatus();
+}
+function compareHalf(){
+ const at=state.t>0?state.t:Math.min(2,10);
+ let coarse=init(),fine=init();
+ const nh=Math.max(1,Math.round(at/h())), subh=at/nh;
+ for(let i=0;i<nh;i++)coarse=advance(coarse,subh);
+ for(let i=0;i<2*nh;i++)fine=advance(fine,subh/2);
+ const gap=Math.hypot(...sub(coarse.R,fine.R)),wg=norm(sub(coarse.w,fine.w));
+ const dc=diagnostics(coarse),df=diagnostics(fine);
+ $("compareResult").textContent="同じ初期値・t="+fmt(at)+"：h="+fmt(subh)+" と h/2="+fmt(subh/2)+" の姿勢行列差（Frobenius）="+fmt(gap)+"、角速度差="+fmt(wg)+"。直交誤差="+fmt(dc.orth)+" → "+fmt(df.orth)+"、相対エネルギー収支="+fmt(dc.rE)+" → "+fmt(df.rE)+"。2解の差は厳密解の誤差そのものではありません。";
+}
+function update(){
+ const d=diagnostics(state);
+ const out={t:state.t,n:state.n,orth:d.orth,det:d.det,energy:d.E,work:state.W,balanceE:d.bE,balanceL:d.bL,L:norm(d.L),Ldrift:norm(d.L)-norm(state.L0)};
+ for(const [id,v] of Object.entries(out))$(id).textContent=id==="n"?String(v):fmt(v);
+ $("omega").textContent="("+state.w.map(fmt).join(", ")+")";
+ $("inertia").textContent="("+state.J.join(", ")+")";
+ drawAttitude();drawChart();
+}
+function setupCanvas(id){
+ const canvas=$(id),rect=canvas.getBoundingClientRect(),dpr=Math.min(2,window.devicePixelRatio||1);
+ const w=Math.max(300,rect.width),height=Math.max(180,rect.height);
+ canvas.width=Math.round(w*dpr);canvas.height=Math.round(height*dpr);
+ const c=canvas.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);return {c,w,height};
+}
+function drawAttitude(){
+ const {c,w,height}=setupCanvas("attitude");c.clearRect(0,0,w,height);
+ const cx=w/2,cy=height/2+10,k=Math.min(w/4,height/3);
+ const project=v=>[cx+k*(v[0]+0.43*v[1]),cy-k*(0.83*v[2]+0.27*v[1]-0.20*v[0])];
+ const origin=project([0,0,0]);
+ function arrow(v,color,dash,label,thick){
+   const end=project(v),dx=end[0]-origin[0],dy=end[1]-origin[1],a=Math.atan2(dy,dx);
+   c.save();c.strokeStyle=color;c.fillStyle=color;c.lineWidth=thick;c.setLineDash(dash);
+   c.beginPath();c.moveTo(...origin);c.lineTo(...end);c.stroke();c.setLineDash([]);
+   c.beginPath();c.moveTo(...end);c.lineTo(end[0]-10*Math.cos(a-.43),end[1]-10*Math.sin(a-.43));c.lineTo(end[0]-10*Math.cos(a+.43),end[1]-10*Math.sin(a+.43));c.closePath();c.fill();
+   c.font="bold 14px system-ui";c.fillText(label,end[0]+5,end[1]-5);c.restore();
+ }
+ const axes=[[1,0,0],[0,1,0],[0,0,1]];
+ axes.forEach((v,i)=>arrow(v,"#a7b4c9",[3,6],["x","y","z"][i],1.2));
+ const R=state.R;
+ const colors=["#a82535","#075b93","#336f45"],dash=[[],[8,4],[2,5]];
+ for(let i=0;i<3;i++)arrow([R[i],R[3+i],R[6+i]],colors[i],dash[i],String(i+1),3);
+ c.fillStyle="#172339";c.beginPath();c.arc(...origin,4,0,Math.PI*2);c.fill();
+ c.fillStyle="#3c536e";c.font="12px system-ui";c.fillText("物体基底（列1・2・3）",10,19);
+}
+function drawChart(){
+ const {c,w,height}=setupCanvas("chart");c.clearRect(0,0,w,height);
+ const left=54,top=20,right=w-14,bottom=height-32;
+ c.strokeStyle="#b7c5d8";c.lineWidth=1;
+ for(let y=-12;y<=0;y+=3){const py=top+(0-y)/12*(bottom-top);c.beginPath();c.moveTo(left,py);c.lineTo(right,py);c.stroke();c.fillStyle="#40546b";c.font="11px system-ui";c.fillText("10^"+y,5,py+4)}
+ c.strokeStyle="#64778c";c.beginPath();c.moveTo(left,top);c.lineTo(left,bottom);c.lineTo(right,bottom);c.stroke();
+ c.fillStyle="#40546b";c.fillText("t=0",left,bottom+18);c.fillText("t="+fmt(Math.max(0.1,state.t)),right-62,bottom+18);
+ const show=[["orth","#a82535",[]],["rE","#075b93",[8,4]],["rL","#336f45",[2,5]]];
+ for(const [key,color,dash] of show){
+   c.strokeStyle=color;c.lineWidth=2.2;c.setLineDash(dash);c.beginPath();
+   history.forEach((v,i)=>{
+     const xx=left+(right-left)*v.t/Math.max(0.1,state.t),yy=top+(0-Math.max(-12,Math.log10(Math.max(1e-12,v[key]))))/12*(bottom-top);
+     if(i===0)c.moveTo(xx,yy);else c.lineTo(xx,yy);
+   });c.stroke();
+ }
+ c.setLineDash([]);
+}
+for(const el of [method,preset,torque,stepSelect])el.addEventListener("change",reset);
+$("reset").addEventListener("click",reset);
+$("once").addEventListener("click",()=>{playing=false;stepOnce()});
+$("play").addEventListener("click",()=>{
+ if(state.t>=10-1e-9||stopReason(diagnostics(state)).includes("ため停止"))reset();
+ playing=!playing;alertText="";last=0;acc=0;setStatus();
+});
+$("compare").addEventListener("click",compareHalf);
+window.addEventListener("resize",update);
+function frame(now){
+ if(playing){
+   if(last){acc+=Math.min((now-last)/1000,0.1)*Number(speed.value);let i=0;
+     while(acc+1e-10>=h()&&playing&&i++<150){acc-=h();stepOnce()}
+   }
+   last=now;
+ }else last=0;
+ requestAnimationFrame(frame);
+}
+reset();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
