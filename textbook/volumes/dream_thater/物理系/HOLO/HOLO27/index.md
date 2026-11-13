@@ -382,7 +382,7 @@ $$
 
 **複素行列の安定性を直接証明します。** 測定誤差による最小二乗解の差を $\delta c=(M^\dagger M)^{-1}M^\dagger\delta d$ とし、残差を $e=\delta d-M\delta c$ と置きます。
 
-既習の[最小二乗の正規方程式](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-normal-equations)は実行列についての定理です。ここでは複素行列に対して、上記の左逆の定義から直接
+既習の[最小二乗の正規方程式](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-normal-equations)は実行列についての定理です。ここでは複素行列に対して、直前に定めた $\delta c=(M^\dagger M)^{-1}M^\dagger\delta d$ の両辺へ $M^\dagger M$ を掛け、さらに残差 $e$ の式へ代入することで直接
 
 $$
 M^\dagger M\delta c=M^\dagger\delta d,\qquad
@@ -449,7 +449,7 @@ $$
 =|a\rangle\langle c|\,\langle d|b\rangle
 $$
 
-で定義され、線形性で一般の密度行列へ延長します。$\|X\|_1=\operatorname{Tr}\sqrt{X^\dagger X}$ はトレースノルム、$\|O_A\|_\infty$ は最大特異値（作用素ノルム）です。有限次元なのでどちらも有限です。
+で定義され、線形性で一般の密度行列へ延長します。有限次元の行列 $X$ の 1-ノルムを $\|X\|_1:=\operatorname{Tr}\sqrt{X^\dagger X}$ と定め、$\|O_A\|_\infty$ を最大特異値（作用素ノルム）とします。有限次元なのでどちらも有限です。
 
 <a id="thm-holo27-indistinguishability"></a>
 
