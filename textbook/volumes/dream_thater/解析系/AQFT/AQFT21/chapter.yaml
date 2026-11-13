@@ -1,0 +1,46 @@
+id: "AQFT21"
+title: "モジュラーHilbert環の準備補題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - QM6
+learning_objectives:
+  - 巡回・分離ベクトルから左Hilbert環の積と反転をwell-definedに構成し、内積恒等式と左乗算の有界性を証明できる
+  - 有界な可換子の作用と代数的右乗算を区別し、無限次元の非有界な右乗算を具体計算で示せる
+  - 自己共役log Deltaのスペクトル切断から全解析ベクトルを作り、Deltaの任意の実べきとTomita作用素のグラフcoreを証明できる
+  - Gaussian平滑化のFourier変換、複素時間のノルム評価、グラフノルムでの収束を証明できる
+  - Jによるスペクトルの符号反転を使って対称切断がSと交換することを定義域込みで検算できる
+  - 解析ベクトルと代数内の解析的元を区別し、Tomita可換子定理やモジュラー不変性を先取りしない
+definitions:
+  - { id: AQFT21-DEF-01, name: "標準対から得る左Hilbert環" }
+  - { id: AQFT21-DEF-02, name: "全解析ベクトルとグラフcore" }
+theorems:
+  - { id: AQFT21-PROP-01, name: "左Hilbert環の基本恒等式と作用" }
+  - { id: AQFT21-LEM-01, name: "可換子の作用は有界に交換する" }
+  - { id: AQFT21-PROP-02, name: "代数的右乗算が非有界になる標準対" }
+  - { id: AQFT21-LEM-02, name: "スペクトル切断による共通解析的core" }
+  - { id: AQFT21-LEM-03, name: "Gaussian平滑化と複素時間" }
+  - { id: AQFT21-LEM-04, name: "対称切断とTomita作用素の交換" }
+canonical_examples:
+  - 二準位Hilbert–Schmidt模型での左Hilbert環の積と反転
+  - 超指数減衰する忠実密度での代数的右乗算の発散
+  - 有限スペクトルによる全解析ベクトルの直接確認
+  - 対角非有界作用素のグラフcoreとGaussian平滑化
+problem_patterns:
+  - AQFT21-ALGEBRA-INVOLUTION
+  - AQFT21-INNER-PRODUCT
+  - AQFT21-SPECTRAL-CUTOFF
+  - AQFT21-ENTIRE-VECTOR
+  - AQFT21-GRAPH-CORE
+  - AQFT21-UNBOUNDED-RIGHT
+  - AQFT21-GAUSSIAN-GRAPH
+  - AQFT21-SYMMETRIC-J
+  - AQFT21-TWO-CORES
+  - AQFT21-NO-MODULAR-INVARIANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }

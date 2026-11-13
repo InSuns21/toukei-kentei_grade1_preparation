@@ -1,0 +1,50 @@
+chapter: AQFT21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - QM6
+forward_references: []
+concepts:
+  - id: aqft.left-hilbert-algebra
+    name: 標準対から得る左Hilbert環
+    kind: definition
+    introduction: formal
+    requires: [aqft.standard-pair, aqft.tomita-preoperator]
+  - id: aqft.left-regular-action
+    name: 左Hilbert環の基本恒等式と作用
+    kind: proposition
+    introduction: formal
+    requires: [aqft.left-hilbert-algebra, aqft.tomita-closability]
+  - id: aqft.commutant-bounded-action
+    name: 可換子の作用は有界に交換する
+    kind: lemma
+    introduction: formal
+    requires: [aqft.left-regular-action]
+  - id: aqft.right-multiplier-counterexample
+    name: 代数的右乗算が非有界になる標準対
+    kind: proposition
+    introduction: formal
+    requires: [aqft.left-hilbert-algebra, aqft.hs-space-and-multiplications]
+  - id: aqft.entire-vector-core
+    name: 全解析ベクトルとグラフcore
+    kind: definition
+    introduction: formal
+    requires: [aqft.modular-operator]
+  - id: aqft.spectral-analytic-core
+    name: スペクトル切断による共通解析的core
+    kind: lemma
+    introduction: formal
+    requires: [aqft.entire-vector-core, aqft.antilinear-polar-decomposition]
+  - id: aqft.gaussian-analytic-smoothing
+    name: Gaussian平滑化と複素時間
+    kind: lemma
+    introduction: formal
+    requires: [aqft.entire-vector-core, aqft.spectral-analytic-core]
+  - id: aqft.symmetric-tomita-cutoff
+    name: 対称切断とTomita作用素の交換
+    kind: lemma
+    introduction: formal
+    requires: [aqft.spectral-analytic-core, aqft.modular-reciprocity]
