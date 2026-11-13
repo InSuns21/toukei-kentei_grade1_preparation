@@ -51,7 +51,7 @@ $$
 <!-- definition-example-start: def-ctm16-reference-scales -->
 ### **定義の確認**：単純な速度分布を変換する
 
-長さ $h>0$、上壁速度 $U>0$ の $v=(Uy/h,0,0)$ に $L=h$ を選ぶ。第2座標は $x_2=y$ なので、無次元変数の定義から
+長さ $h>0$、上壁速度 $U>0$ の $v=(Uy/h,0,0)$ に $L=h$ を選ぶ。第2座標は $x_2=y$ なので、[流れの無次元変数](#def-ctm16-reference-scales)の定義から
 
 $$
 X_2=\frac{x_2}{L}=\frac yh,\qquad
