@@ -1,0 +1,41 @@
+id: "CTM12"
+title: "線形弾性の境界値問題をどう立てるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM11
+official_scope: []
+learning_objectives:
+  - "静的運動量釣合とHooke則からNavier–Lamé方程式を各成分の発散を示して導き、成立条件を説明できる"
+  - "DirichletとNeumannの境界条件を区別し、棒と単純せん断板の全表面で変位とtractionを検算できる"
+  - "零ひずみの剛体変位補題を二階偏微分から証明し、純Neumann問題の非一意性と合力・合トルク必要条件を説明できる"
+  - "蓄積エネルギーの第一変分から釣合・自然境界条件を導き、正定値性を使った古典解の一意性を証明できる"
+  - "体積力のある棒を境界条件から解き、許容荷重・単位・小変形条件を検算できる"
+definitions:
+  - { id: CTM12-DEF-01, name: "線形弾性の混合境界値問題" }
+  - { id: CTM12-DEF-02, name: "微小剛体変位" }
+theorems:
+  - { id: CTM12-THM-01, name: "静的Navier–Lamé方程式" }
+  - { id: CTM12-LEM-01, name: "零ひずみの剛体変位性" }
+  - { id: CTM12-PROP-01, name: "純表面力指定の合力・合トルク必要条件" }
+  - { id: CTM12-PROP-02, name: "ポテンシャルエネルギーの第一変分と静的釣合" }
+  - { id: CTM12-THM-02, name: "固定条件を持つ線形弾性問題の一意性" }
+canonical_examples:
+  - "一様引張り棒のPoisson収縮と変位境界の区別"
+  - "せん断板の右左の側面での非零traction"
+  - "純Neumann問題の剛体変位と力・トルクの適合条件"
+  - "体積力のある棒と側面荷重の検算"
+problem_patterns:
+  - CTM12-EQUILIBRIUM-COMPONENTS
+  - CTM12-TRACTION-NORMAL
+  - CTM12-RIGID-KERNEL
+  - CTM12-ENERGY-POSITIVE
+  - CTM12-UNIAXIAL-BOUNDARIES
+  - CTM12-SHEAR-BOUNDARIES
+  - CTM12-BODY-FORCE
+  - CTM12-NEUMANN-COMPATIBILITY
+  - CTM12-COUPLED-LOADS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }

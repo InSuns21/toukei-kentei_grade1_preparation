@@ -12,3 +12,4 @@
 9. [CTM9 仕事と熱はエネルギー収支でどう結ばれるか](textbook/volumes/dream_thater/物理系/CTM/CTM9/index.md)
 10. [CTM10 どの構成則が許されるのか：第二法則と客観性](textbook/volumes/dream_thater/物理系/CTM/CTM10/index.md)
 11. [CTM11 Hooke則と等方線形弾性の独立な定数](textbook/volumes/dream_thater/物理系/CTM/CTM11/index.md)
+12. [CTM12 線形弾性の境界値問題をどう立てるか](textbook/volumes/dream_thater/物理系/CTM/CTM12/index.md)
