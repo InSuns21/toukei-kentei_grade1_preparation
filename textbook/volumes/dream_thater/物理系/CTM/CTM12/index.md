@@ -213,7 +213,14 @@ $$
 u(X)=(\gamma X_2,0,0),\qquad |\gamma|\ll1
 $$
 
-を与える。上面は右へ $\gamma H$ 動く。ここで $e_i\otimes e_j$ はベクトル $v$ を $(e_j\cdot v)e_i$ へ写す行列であり、$e_1\otimes e_2$ は $(1,2)$ 成分だけが $1$ である。$u_1$ の $X_2$ 微分だけが $\gamma$ なので、変位勾配は $\nabla u=\gamma e_1\otimes e_2$。これを [微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)で対称化し、[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)へ代入すると
+を与える。上面は右へ $\gamma H$ 動く。ここで $e_i\otimes e_j$ はベクトル $v$ を $(e_j\cdot v)e_i$ へ写す行列で、$e_1\otimes e_2$ は $(1,2)$ 成分だけが $1$ である。$u_1$ の $X_2$ 微分だけが非零なので
+
+$$
+\partial_2u_1=\gamma,\qquad
+\nabla u=\gamma e_1\otimes e_2
+$$
+
+となる。これを [微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)で対称化し、[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)へ代入すると
 
 $$
 \varepsilon_{12}=\varepsilon_{21}=\frac\gamma2,\quad
@@ -406,7 +413,7 @@ $\varepsilon(v+sh)=\varepsilon(v)+s\varepsilon(h)$ として二次エネルギ�
 <!-- proof-start -->
 ### 証明
 
-$s$ を無次元の変分パラメータとする。二次式の展開から
+二次式を $s$ で微分する。先に宣言した通り $s$ は無次元である。
 
 $$
 \frac{d}{ds}W(\varepsilon(v)+s\varepsilon(h))\bigg|_{s=0}
@@ -541,7 +548,23 @@ $$
 u=(\phi(X_1),0,0)
 $$
 
-を選ぶ。ここで $\phi'=\frac{d\phi}{dX_1}$、$\phi''=\frac{d^2\phi}{dX_1^2}$ とし、微分する変数は一つの座標 $X_1$ である。したがって $\partial_1u_1=\phi'(X_1)$、$\partial_2u_1=\partial_3u_1=0$ で、[微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)から $\varepsilon=\operatorname{diag}(\phi',0,0)$。[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を成分ごとに代入すると $\sigma=\operatorname{diag}((\lambda+2\mu)\phi',\lambda\phi',\lambda\phi')$。ここで $M=\lambda+2\mu=K+4\mu/3>0$（Pa）と置く。発散では $\partial_j\sigma_{ij}$ の $j$ で和を取り、第1成分は $\partial_1\sigma_{11}=M\phi''$、他の二成分は零である。釣合の第一成分は
+を選ぶ。プライムは一つの物質座標 $X_1$ による通常微分を表す。
+
+$$
+\phi'=\frac{d\phi}{dX_1},\qquad
+\phi''=\frac{d^2\phi}{dX_1^2},\qquad
+\partial_1u_1=\phi'(X_1),\quad
+\partial_2u_1=\partial_3u_1=0.
+$$
+
+[微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)で対称化し、[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を成分ごとに代入すると
+
+$$
+\varepsilon=\operatorname{diag}(\phi',0,0),\qquad
+\sigma=\operatorname{diag}((\lambda+2\mu)\phi',\lambda\phi',\lambda\phi').
+$$
+
+$M=\lambda+2\mu=K+4\mu/3>0$（Pa）と置く。発散では $\partial_j\sigma_{ij}$ の $j$ で和を取り、第1成分は $\partial_1\sigma_{11}=M\phi''$、他の二成分は零である。釣合の第一成分は
 
 $$
 M\phi''+q=0.
