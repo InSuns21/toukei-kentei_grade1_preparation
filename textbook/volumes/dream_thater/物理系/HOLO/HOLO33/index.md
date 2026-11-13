@@ -281,7 +281,7 @@ $$
 ### Level A：仮定・係数・限界を確かめる
 
 <a id="ex-holo33-a01"></a>
-### 演習 HOLO33-A01：スカラーの境界次元
+### A1. スカラーの境界次元
 - Level: A
 - 問題: Euclid $AdS_3$ で $d=2,\Delta_+=3/2$ を標準量子化として採用する。$m^2L^2,\nu$、BF境界との大小、$G(3r)/G(r)$ を求めよ。
 
@@ -290,7 +290,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-holo33-a02"></a>
-### 演習 HOLO33-A02：cutoff測地線長
+### A2. cutoff測地線長
 - Level: A
 - 問題: $a>\epsilon>0$ とし、$x=a\cos\theta,z=a\sin\theta$ の $z\ge\epsilon$ の部分について、$D_\epsilon(a)$ を積分し、$D_\epsilon(a)-2L\log(2a/\epsilon)\to0$ を示せ。
 
@@ -307,7 +307,7 @@ $\int d\theta/\sin\theta=\log\tan(\theta/2)$ と半角公式を使いました�
 <!-- solution-end -->
 
 <a id="ex-holo33-a03"></a>
-### 演習 HOLO33-A03：次数と繰り込み
+### A3. 次数と繰り込み
 - Level: A
 - 問題: $L$ と古典面の形を固定し、$G_3\downarrow0$ とする。$A_0=O(1),S_{\mathrm{bulk,ren}}=O(1)$ なら $A_0/(4G_3)$ と量子項の次数は何か。裸の $S_{\mathrm{bulk}}$ を有限と仮定してよいか。
 
@@ -316,7 +316,7 @@ $\int d\theta/\sin\theta=\log\tan(\theta/2)$ と半角公式を使いました�
 <!-- solution-end -->
 
 <a id="ex-holo33-a04"></a>
-### 演習 HOLO33-A04：一次変分と有限差
+### A4. 一次変分と有限差
 - Level: A
 - 問題: $\rho(\lambda)=\operatorname{diag}(1/3+\lambda,2/3-\lambda)$（$|\lambda|<1/3$）、$K_0=-\log\rho(0)$ とする。$S'(0)$、$\langle K_0\rangle'(0)$、$S''(0)$ を求めよ。
 
@@ -332,7 +332,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-holo33-a05"></a>
-### 演習 HOLO33-A05：一領域の秘匿
+### A5. 一領域の秘匿
 - Level: A
 - 問題: $V|j\rangle=3^{-1/2}\sum_{i=0}^2|i,i+j,i+2j\rangle$ で、任意の論理密度行列 $\rho$ について $\operatorname{Tr}_{BC}(V\rho V^\dagger)=I_A/3$ を非対角項も含めて示せ。
 
@@ -351,7 +351,7 @@ $$
 ### Level B：独立な検算をつなぐ
 
 <a id="ex-holo33-b01"></a>
-### 演習 HOLO33-B01：二領域の復号器
+### B1. 二領域の復号器
 - Level: B
 - 問題: A05の符号で $A$ を消失させる。$U_{BC}|b,c\rangle=|c-b,2b-c\rangle$ のユニタリ性を確認し、任意の論理ベクトルを復号せよ。二領域 $BC$ が消失した場合の不可能性も示せ。
 
@@ -368,7 +368,7 @@ $A$ を失った後でも $G$ を捨てれば論理状態を復元でき、線�
 <!-- solution-end -->
 
 <a id="ex-holo33-b02"></a>
-### 演習 HOLO33-B02：2点関数の比とRT差
+### B2. 2点関数の比とRT差
 - Level: B
 - 問題: $d=2,\Delta=3/2$ の2点関数で $r_2=2r_1$ とし、区間半幅は $a_2=3a_1$、cutoffは共通とする。それぞれの相関比と $\epsilon\downarrow0$ の古典RTエントロピー差を計算し、両者が等号でない理由を述べよ。
 
@@ -390,7 +390,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-holo33-b03"></a>
-### 演習 HOLO33-B03：QESの変分順序
+### B3. QESの変分順序
 - Level: B
 - 問題: $S_{\mathrm{gen}}(x)=(A_0+\kappa x^2/2)/(4G_3)+s_0+qx$（$\kappa,G_3>0$）の停留位置と $x=0$ からの値の変化を求めよ。この一方向の計算で全法線方向のQES条件を示せるか。
 
@@ -408,7 +408,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-holo33-b04"></a>
-### 演習 HOLO33-B04：三つの飛躍を反証する
+### B4. 三つの飛躍を反証する
 - Level: B
 - 問題: (i) 大$N$なら全て局所純Einsteinバルクを持つ、(ii) 3-qutritの復号から蒸発ブラックホールの効率的復号が従う、(iii) 真空球の第一法則一つで非線形Einstein方程式が従う、という推論に不足する条件と破綻箇所を述べよ。
 
@@ -419,7 +419,7 @@ $$
 ### Level C：最後の統合問題
 
 <a id="ex-holo33-c01"></a>
-### 演習 HOLO33-C01：辞書・エントロピー・復号を条件付きで統合する
+### C1. 辞書・エントロピー・復号を条件付きで統合する
 - Level: C
 - 問題: 次の四項を実行し、最後に結論の射程を比較せよ。
 
