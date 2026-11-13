@@ -8,7 +8,9 @@
 
 初期長さ $L_0>0$（m）、一定断面積 $A>0$（m$^2$）の細長い棒の軸方向のみを扱う。基準長さに対する伸びを無次元ひずみ $\varepsilon=\Delta L/L_0$、断面に働く軸力 $F$ を応力 $\sigma=F/A$（Pa）とし、引張を正、圧縮を負とする。各素子は小変形・等温・均質で、準静的に釣り合う（慣性を無視する）と仮定する。$t$ の単位は s、$\dot f=df/dt$ は固定された材料点に付随する時間微分である。
 
-ばねの係数 $E>0$（Pa）は一次元弾性率、ダッシュポットの係数 $\eta_v>0$（Pa s）は**この模型の軸方向粘性係数**とする。流体の [CTM15 の粘性係数](../CTM15/index.md#def-ctm15-newtonian-fluid)と次元は同じだが、流体のせん断粘性係数と数値的に同一とは仮定しない。時定数を導入するときは $\tau=\eta_v/E>0$（s）とする。
+ばねの係数 $E>0$（Pa）は一次元弾性率、ダッシュポットの係数 $\eta_v>0$（Pa s）は**この模型の軸方向粘性係数**とする。実材料棒の一軸応力条件では $E$ は [CTM11 の Young 率の定義](../CTM11/index.md#def-ctm11-young-poisson)に対応するが、以下の接続模型では有効弾性率として扱う。
+
+流体の [CTM15 の粘性係数](../CTM15/index.md#def-ctm15-newtonian-fluid)と $\eta_v$ の次元は同じだが、流体のせん断粘性係数と数値的に同一とは仮定しない。時定数を導入するときは $\tau=\eta_v/E>0$（s）とする。
 
 荷重の「ステップ」は数学的理想化である。$t=0$ の左右極限を $f(0-),f(0+)$ と書き、$t>0$ の連続時間の微分方程式と、瞬間的な跳びを**別々に**照合する。理想素子には慣性・破壊・大変形が含まれないため、現実の無限大の負荷速度を忠実に表すと主張しない。
 
@@ -56,6 +58,30 @@ $$
 
 模型全体の基準長さを $L_0$ とし、**各素子に割り当てるひずみ変数は、その素子の伸びを模型全体の $L_0$ で割った一般化ひずみ**として用いる。直列では中間接続点が質量を持たないので力が等しく、伸びは加算される。並列では上下の素子が同じ両端板につながるので伸びが等しく、力が加算される。異なる固有長さの実材料棒を直列につなぐ場合、素子固有の弾性率をそのまま代入せず、$L_0$ に合わせて有効係数を換算する。
 
+力と伸びから接続条件を導く。直列では各素子の軸力を $F_s,F_d$、伸びを $\Delta L_s,\Delta L_d$ とすれば、共通断面積 $A$ に対して
+
+$$
+F_s=F_d=F,\qquad
+\varepsilon=\frac{\Delta L_s+\Delta L_d}{L_0}
+=\varepsilon_s+\varepsilon_d
+$$
+
+である。$F_s/A=F_d/A=F/A$ だから応力も等しい。並列では各枝の断面積を $A_s,A_d>0$（$A_s+A_d=A$）とし、両枝の伸びが等しい一方、軸力が加算されるので
+
+$$
+\varepsilon_s=\varepsilon_d=\frac{\Delta L}{L_0},\qquad
+\sigma=\frac{F_s+F_d}{A}=\frac{F_s}{A}+\frac{F_d}{A}.
+$$
+
+ここで並列枝の $\sigma_s:=F_s/A$、$\sigma_d:=F_d/A$ は**模型全断面積当たりの寄与**であり、実材料枝の応力 $F_s/A_s,F_d/A_d$ とは異なる。実材料枝の係数を $E_s,\eta_d$ とすれば、模型の有効係数は
+
+$$
+E=\frac{A_s}{A}E_s,\qquad
+\eta_v=\frac{A_d}{A}\eta_d
+$$
+
+となる。以下の並列の素子法則はこの有効係数で読む。
+
 <a id="def-ctm18-connections"></a>
 
 <!-- formal-statement-start -->
@@ -87,7 +113,14 @@ $$
 \sigma_d=(2\times10^6)(0.005)=10^4\ \mathrm{Pa}.
 $$
 
-ばねとダッシュポットの応力が一致する。全ひずみ速度は $\dot\varepsilon=\dot\varepsilon_s+0.005$ であり、素子のひずみは同一視しない。
+ばねとダッシュポットの応力が一致する。さらに $t=0+$ で $\varepsilon_d=0$ とし、以後2秒間この応力を一定に保てば、$\dot\varepsilon_s=0$、$\dot\varepsilon_d=0.005$ s$^{-1}$ だから
+
+$$
+\varepsilon_d(2)=\int_0^2 0.005\,dt=0.01,\qquad
+\varepsilon(2)=\varepsilon_s(2)+\varepsilon_d(2)=0.01+0.01=0.02.
+$$
+
+例えば $L_0=1$ m なら二素子の伸びが各0.01 m、模型全体の伸びが0.02 m であり、**直列の伸び加算**も数値で確認できる。
 
 Kelvin–Voigt 模型に $\varepsilon=0.01$、$\dot\varepsilon=0.005$ s$^{-1}$ を与えると、二枝のひずみと速度はそれぞれ等しく、応力は
 
@@ -97,7 +130,19 @@ $$
 \sigma=\sigma_s+\sigma_d=2\times10^4\ \mathrm{Pa}.
 $$
 
-これは並列接続の荷重加算を直接確認する例である。
+これは模型全断面積で換算した応力の加算である。実際、$A=0.01$ m$^2$、$A_s=A_d=0.005$ m$^2$ とすれば、対応する実材料枝の係数は $E_s=2\times10^6$ Pa、$\eta_d=4\times10^6$ Pa s。したがって
+
+$$
+F_s=A_sE_s\varepsilon=100\ \mathrm{N},\qquad
+F_d=A_d\eta_d\dot\varepsilon=100\ \mathrm{N},
+$$
+
+$$
+\frac{F_s+F_d}{A}=\frac{200}{0.01}
+=2\times10^4\ \mathrm{Pa}=\sigma.
+$$
+
+枝それぞれの実応力は $F_s/A_s=F_d/A_d=2\times10^4$ Pa だが、模型全体への応力寄与はそれぞれ $10^4$ Pa であり、**並列の共通ひずみ・荷重加算・有効係数**を混同せず確認できた。
 <!-- definition-example-end -->
 
 ## 3. Maxwell 模型：一定ひずみでも応力は減る
@@ -179,11 +224,12 @@ $$
 ひずみステップでは $\varepsilon_d(0+)=0$ である。これは応力が有限な短時間区間において
 
 $$
-\varepsilon_d(\delta)-\varepsilon_d(0-)
-=\int_{0-}^{\delta}\frac{\sigma(s)}{\eta_v}\,ds\to0
+\varepsilon_d(\delta)-\varepsilon_d(-\delta)
+=\int_{-\delta}^{\delta}\frac{\sigma(s)}{\eta_v}\,ds\to0
+\qquad(\delta\downarrow0)
 $$
 
-となるためである（各小区間で有界な応力を仮定）。よって $\varepsilon_s(0+)=\varepsilon_0$、$\sigma(0+)=E\varepsilon_0$。$t>0$ では $\dot\varepsilon=0$ なので [Maxwell 方程式](#thm-ctm18-maxwell-law)は $\dot\sigma=-\sigma/\tau$。積分因子 $e^{t/\tau}$ を掛けると
+となるためである（$t=0$ の両側の小区間で応力が一様有界なことを使用）。よって $\varepsilon_s(0+)=\varepsilon_0$、$\sigma(0+)=E\varepsilon_0$。$t>0$ では $\dot\varepsilon=0$ なので [Maxwell 方程式](#thm-ctm18-maxwell-law)は $\dot\sigma=-\sigma/\tau$。積分因子 $e^{t/\tau}$ を掛けると
 
 $$
 \frac{d}{dt}\bigl(e^{t/\tau}\sigma(t)\bigr)=0,\qquad
@@ -230,12 +276,14 @@ $$
 並列の力の釣合 $\sigma=\sigma_s+\sigma_d$ にこれを代入して結論を得る。$\square$
 <!-- proof-end -->
 
+応力ステップは**有限な応力値への跳び**だが、ひずみステップは $\varepsilon$ 自体の跳びである。幅 $\delta>0$ の時間でひずみを $\Delta\varepsilon\ne0$ だけ変えるなら、その平均変形速度は $\Delta\varepsilon/\delta$ となる。$\delta\downarrow0$ でも変化量を保つ極限は、時間積分が有限な瞬間的衝撃（デルタ状の寄与）として表され、通常の有界な粘性応力とは異なる。
+
 <a id="thm-ctm18-kelvin-step"></a>
 
 <!-- formal-statement-start -->
 ### 定理（Kelvin–Voigt 模型のクリープとひずみステップの限界）
 
-$t<0$ に $\varepsilon=0,\sigma=0$ とする。$t\ge0$ に有限な一定応力 $\sigma_0$ を負荷すると、$t>0$ のひずみは
+$t<0$ に $\varepsilon=0,\sigma=0$ とする。$t\ge0$ に有限な一定応力 $\sigma_0$ を負荷する。ステップは、応力が近似の幅によらず一様有界な滑らかな入力の極限として定め、ひずみは有限な左右極限を持つとする。このとき $t>0$ のひずみは
 
 $$
 \varepsilon(t)=\frac{\sigma_0}{E}(1-e^{-t/\tau}),
@@ -252,14 +300,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Kelvin–Voigt 方程式](#thm-ctm18-kelvin-law)を $\eta_v$ で割り、
+まず初期値の連続性を確認する。[Kelvin–Voigt 方程式](#thm-ctm18-kelvin-law)を $\eta_v$ で割り、各滑らかな時間区間では
 
 $$
 \dot\varepsilon+\frac{1}{\tau}\varepsilon
-=\frac{\sigma_0}{\eta_v}.
+=\frac{\sigma(t)}{\eta_v},\qquad
+\frac{d}{dt}(e^{t/\tau}\varepsilon)
+=\frac{e^{t/\tau}\sigma(t)}{\eta_v}
 $$
 
-$t>0$ で積分因子を用い、
+である。滑らかな近似応力について $t=0$ をまたぐ区間で積分し、応力の一様有界性を使って極限を取ると
+
+$$
+e^{\delta/\tau}\varepsilon(\delta)
+-e^{-\delta/\tau}\varepsilon(-\delta)
+=\frac{1}{\eta_v}\int_{-\delta}^{\delta}
+e^{s/\tau}\sigma(s)\,ds\longrightarrow0
+\qquad(\delta\downarrow0).
+$$
+
+従って有限な左右極限を持つ解で $\varepsilon(0+)=\varepsilon(0-)=0$ が必要である。$t>0$ では $\sigma(t)=\sigma_0$ なので
 
 $$
 \frac{d}{dt}(e^{t/\tau}\varepsilon)
@@ -274,7 +334,7 @@ e^{t/\tau}\varepsilon(t)
 =\frac{\sigma_0}{E}(e^{t/\tau}-1).
 $$
 
-初期値が零であることも確認する。有界な $\sigma$ に対し、構成式を $\dot\varepsilon=(\sigma-E\varepsilon)/\eta_v$ と書くと、有限時間の有界な解の $\dot\varepsilon$ は有界であり、$\varepsilon$ は連続である。跳び $\Delta\varepsilon$ を幅 $\delta$ で近似すると平均速度は $\Delta\varepsilon/\delta$ となり、$\eta_v\dot\varepsilon$ の大きさは $\delta\to0$ で有界に保てない。$\square$
+さらに $\Delta\varepsilon\ne0$ の跳びを仮定すると左辺の $\varepsilon(0+)-\varepsilon(0-)$ が零にならず、上の有界応力に基づく積分の極限と矛盾する。したがって有限応力のもとでひずみは跳べない。$\square$
 <!-- proof-end -->
 
 一方、滑らかなひずみ入力 $\varepsilon(t)=at$（$t>0$、$a$ は s$^{-1}$）なら
@@ -451,9 +511,9 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-Maxwell は [直列接続](#def-ctm18-connections)で、ばねひずみ $\varepsilon_s=\sigma/E$ は跳べるが、有限応力のもとではダッシュポットの $\varepsilon_d$ は連続である。(i) 応力ステップなら全ひずみは直後に $\sigma_0/E$ だけ跳び、その後 $\sigma_0t/\eta_v$ 増える。(ii) ひずみステップなら応力は直後に $E\varepsilon_0$ へ跳び、以後指数緩和する。
+Maxwell は [直列接続](#def-ctm18-connections)と [ステップ応答定理](#thm-ctm18-maxwell-step)により、ばねひずみ $\varepsilon_s=\sigma/E$ は跳べるが、有限応力のもとではダッシュポットの $\varepsilon_d$ は連続である。(i) 応力ステップなら全ひずみは直後に $\sigma_0/E$ だけ跳び、その後 $\sigma_0t/\eta_v$ 増える。(ii) ひずみステップなら応力は直後に $E\varepsilon_0$ へ跳び、以後指数緩和する。
 
-Kelvin–Voigt は [並列模型の式](#thm-ctm18-kelvin-law)で粘性枝と全ひずみが同じ。(i) 有限応力のステップでは $\varepsilon(0+)=0$、その後 $\sigma_0(1-e^{-t/\tau})/E$。(ii) ひずみステップ $\Delta\varepsilon\ne0$ を課すには $\eta_v\dot\varepsilon$ の衝撃が必要で、有界な応力履歴としては許されない。荷重と変形のどちらを制御したかを入れ替えない。
+Kelvin–Voigt は [並列模型の式](#thm-ctm18-kelvin-law)で粘性枝と全ひずみが同じ。(i) [Kelvin–Voigt 模型のクリープとひずみステップの限界](#thm-ctm18-kelvin-step)より有限応力のステップでは $\varepsilon(0+)=0$、その後 $\sigma_0(1-e^{-t/\tau})/E$。(ii) ひずみステップ $\Delta\varepsilon\ne0$ を課すには $\eta_v\dot\varepsilon$ の衝撃が必要で、有界な応力履歴としては許されない。荷重と変形のどちらを制御したかを入れ替えない。
 <!-- solution-end -->
 
 ### Level B
@@ -480,7 +540,7 @@ $$
 \varepsilon_M(t)=\frac{at}{E}+\frac{at^2}{2\eta_v}.
 $$
 
-Kelvin–Voigt は $\dot\varepsilon+\varepsilon/\tau=at/\eta_v$。積分因子を掛けて
+Kelvin–Voigt は [構成方程式](#thm-ctm18-kelvin-law)から $\dot\varepsilon+\varepsilon/\tau=at/\eta_v$。積分因子を掛けて
 
 $$
 e^{t/\tau}\varepsilon(t)
