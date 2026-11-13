@@ -10,7 +10,7 @@ J(X)=X^*,\qquad
 \Delta(X)=\rho X\rho^{-1}.
 $$
 
-左右乗算の可換子と $\Delta^{it}$ による時間発展まで計算します。すべて**有限次元の結果**であり、一般のTomita可換子定理とモジュラー不変性はAQFT22・23で別途証明する必要があります。内積は一貫して第2変数線形です。
+左乗算と右乗算の交換関係、および $\Delta^{it}$ による時間発展まで計算します。すべて**有限次元の結果**であり、一般のTomita可換子定理とモジュラー不変性はAQFT22・23で別途証明する必要があります。内積は一貫して第2変数線形です。
 
 ## 1. 行列をベクトルとする理由
 
@@ -385,7 +385,7 @@ $$
 \Delta^{it}(X)=\rho^{it}X\rho^{-it},\qquad
 \sigma_t(L_A)=L_{\rho^{it}A\rho^{-it}}
 $$
-> が成り立つ。$\sigma_t$ は $\mathcal M$ の強連続な $*$-自己同型群であり、
+> が成り立つ。各 $\sigma_t$ は $\mathcal M$ の $*$-自己同型で、$\sigma_t\sigma_s=\sigma_{t+s}$ を満たし、各ベクトル上で $t$ に連続である。また、
 $$
 \langle\Omega,\sigma_t(L_A)\Omega\rangle_2
 =\operatorname{Tr}(\rho A)
@@ -479,7 +479,7 @@ $$
 $X=E_{11}+iE_{12}-2E_{22}$ と $\rho=\operatorname{diag}(3/4,1/4)$ を考える。$\|X\|_2^2$、$\|\rho^{1/2}\|_2^2$ を求め、用いた基底の直交性を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [Hilbert–Schmidt内積の定義](#def-aqft20-hilbert-schmidt)より
+**詳細解答。** [有限次元Hilbert–Schmidt空間と左右乗算](#def-aqft20-hilbert-schmidt)より
 
 $$
 \langle E_{ij},E_{kl}\rangle_2
@@ -651,7 +651,7 @@ $$
 $\rho=\operatorname{diag}(3/4,1/4)$ と $A=E_{12}+E_{21}$ に対し、$\sigma_t(L_A)$ を計算せよ。またこの $A$ について $\operatorname{Tr}(\rho\,\alpha_t(A))=\operatorname{Tr}(\rho A)$ を直接確かめよ。ただし $\sigma_t(L_A)=L_{\alpha_t(A)}$。
 
 <!-- solution-start -->
-**詳細解答。** [有限次元モジュラー流の定理](#thm-aqft20-finite-flow)から $\alpha_t(A)=\rho^{it}A\rho^{-it}$。固有基底で左右の重みを掛けると
+**詳細解答。** [有限次元モジュラー流の具体式](#thm-aqft20-finite-flow)から $\alpha_t(A)=\rho^{it}A\rho^{-it}$。固有基底で左右の重みを掛けると
 
 $$
 \alpha_t(A)
