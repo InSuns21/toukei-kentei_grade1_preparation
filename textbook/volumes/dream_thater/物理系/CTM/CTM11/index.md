@@ -70,7 +70,7 @@ $$
 W(Q\varepsilon Q^T)=W(\varepsilon)
 $$
 
-を満たし、$\sigma_{ij}=\partial W/\partial\varepsilon_{ij}$（対称行列上の変分の意味）で応力を定める模型を、等温の**等方線形弾性材料**とする。微小ひずみ $\varepsilon=\varepsilon(u)$ を使い、応力は $\varepsilon$ に線形に依存する。
+を満たし、すべての対称変分 $h$ について $\delta W(\varepsilon)[h]=\sigma:h$ を満たす対称応力 $\sigma$ で材料の応力を定める模型を、等温の**等方線形弾性材料**とする。微小ひずみ $\varepsilon=\varepsilon(u)$ を使い、応力は $\varepsilon$ に線形に依存する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm11-isotropic-linear-elastic -->
