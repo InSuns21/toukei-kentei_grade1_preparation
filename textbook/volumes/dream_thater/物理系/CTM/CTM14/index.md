@@ -2,7 +2,7 @@
 
 [CTM11 の Hooke 則](../CTM11/index.md#thm-ctm11-hooke)は小さい変位勾配なら扱いやすい。しかし、ゴムを長さの二倍まで伸ばしたり、大きくせん断したりすると、変形後の面積・法線も大きく変わる。微小ひずみで作ったエネルギーをそのまま使うと、有限の剛体回転にも偽のひずみを割り当てかねない。
 
-[CTM3 の有限ひずみ](../CTM3/index.md#def-ctm3-green-strain)と[CTM8 の応力の引き戻し](../CTM8/index.md#def-ctm8-first-piola)は、この困難を避けるための運動学と力の表現を用意した。[CTM10 の非散逸弾性則](../CTM10/index.md#prop-ctm10-isothermal-elastic)は、基準体積当たりの自由エネルギーを変形勾配で微分すると第一 Piola–Kirchhoff 応力になることを示した。本講では、**具体的なエネルギーを選んだ後に、どんな応力・面力・線形近似が出るか**を一歩ずつ計算する。
+[CTM3 の有限ひずみ](../CTM3/index.md#def-ctm3-green-strain)と[CTM8 の第一 Piola–Kirchhoff 応力](../CTM8/index.md#def-ctm8-first-piola)は、この困難を避けるための運動学と力の表現を用意した。[CTM10 の非散逸弾性則](../CTM10/index.md#prop-ctm10-isothermal-elastic)は、基準体積当たりの自由エネルギーを変形勾配で微分すると第一 Piola–Kirchhoff 応力になることを示した。本講では、**具体的なエネルギーを選んだ後に、どんな応力・面力・線形近似が出るか**を一歩ずつ計算する。
 
 ## 0. 前提と、どの面積を使うか
 
@@ -53,7 +53,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm14-hyperelastic-energy -->
-### 定義の確認：一方向だけを伸ばす模型
+### **定義の確認**：一方向だけを伸ばす模型
 
 例として $a>0$（Pa）を固定し、$W(F)=a(F^TF-I):(F^TF-I)/4$ とする。これは $GL^+(3)$ で滑らかな関数で、$F(s)=\operatorname{diag}(s,1,1)$（$s>0$）は $J=s>0$ を満たす。微分の意味をまず一変数で確かめると、
 
@@ -96,7 +96,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm14-invariants -->
-### 定義の確認：せん断と回転を判別する
+### **定義の確認**：せん断と回転を判別する
 
 $F=\operatorname{diag}(2,1,1)$ では列の長さの二乗を足して $I_1=4+1+1=6$、行列式 $J=2$ である。任意の $Q,H\in SO(3)$ に対し、$Q^TQ=HH^T=I$ と行列式の積を使うと
 
@@ -133,7 +133,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm14-neohookean -->
-### 定義の確認：せん断は体積を変えない
+### **定義の確認**：せん断は体積を変えない
 
 $\gamma\in\mathbb R$ に対して $F=I+\gamma e_1e_2^T$ は $J=1>0$、$I_1=3+\gamma^2$ を満たす。これを上のエネルギーに代入すると
 
@@ -263,7 +263,7 @@ F^{-T}=\operatorname{diag}(s^{-1},1,1),\qquad
 F-F^{-T}=\operatorname{diag}(s-s^{-1},0,0).
 $$
 
-[neo-Hooke 応力定理](#thm-ctm14-neohookean-stresses)を適用すると $P$ を得る。$PF^T$ の第1対角成分は $sP_{11}$、残りは $P_{22},P_{33}$ なので $J=s$ で割れば $\sigma$ の式になる。仕事率の整合は
+[neo-Hooke 模型の三つの応力](#thm-ctm14-neohookean-stresses)を適用すると $P$ を得る。$PF^T$ の第1対角成分は $sP_{11}$、残りは $P_{22},P_{33}$ なので $J=s$ で割れば $\sigma$ の式になる。仕事率の整合は
 
 $$
 \frac{dW}{ds}=\frac{\mu}{2}(2s-2/s)+\frac{\lambda}{2}(2\log s/s)=P_{11}
@@ -327,7 +327,7 @@ $P_{11}=0$ でも $\sigma_{11}=\mu\gamma^2$ が現れる。$\lambda$ 項は $J=1
 <!-- proof-start -->
 ### 証明
 
-$F-F^{-T}$ は $(1,2)$ と $(2,1)$ 成分だけが $\gamma$ の行列で、$\log J=0$ だから [応力定理](#thm-ctm14-neohookean-stresses)より $P$ を得る。次に
+$F-F^{-T}$ は $(1,2)$ と $(2,1)$ 成分だけが $\gamma$ の行列で、$\log J=0$ だから [neo-Hooke 模型の三つの応力](#thm-ctm14-neohookean-stresses)より $P$ を得る。次に
 
 $$
 \frac1\mu PF^T
@@ -336,7 +336,7 @@ $$
 =\begin{pmatrix}\gamma^2&\gamma&0\\\gamma&0&0\\0&0&0\end{pmatrix}.
 $$
 
-$J=1$ なのでこれが $\sigma/\mu$ となる。$I_1=3+\gamma^2$ を[エネルギー定義](#def-ctm14-neohookean)へ代入すると $W=\mu\gamma^2/2$、$\partial_\gamma W=\mu\gamma=P_{12}$ である。$\square$
+$J=1$ なのでこれが $\sigma/\mu$ となる。$I_1=3+\gamma^2$ を[圧縮可能 neo-Hooke エネルギー](#def-ctm14-neohookean)へ代入すると $W=\mu\gamma^2/2$、$\partial_\gamma W=\mu\gamma=P_{12}$ である。$\square$
 <!-- proof-end -->
 
 垂直応力が現れることは、単に Hooke 則のせん断成分を有限値まで延ばした場合との本質的な相違である。$P_{11}=0$ と $\sigma_{11}\ne0$ は矛盾ではない。両者の第一添字が表す力の方向は同じでも、第二添字が参照する面が異なる。例えば基準面 $N=e_1$ は現在面法線 $n\parallel(1,-\gamma,0)$ へ傾くため、$Pe_1$ と $\sigma e_1$ は対応する同一物質面の力ではない。
@@ -351,7 +351,7 @@ $$
 W(QFH)=W(F).
 $$
 
-左回転で $(QF)^{-T}=QF^{-T}$ なので [応力定理](#thm-ctm14-neohookean-stresses)から
+左回転で $(QF)^{-T}=QF^{-T}$ なので [neo-Hooke 模型の三つの応力](#thm-ctm14-neohookean-stresses)から
 
 $$
 P(QF)=QP(F),\qquad
@@ -440,7 +440,7 @@ $t=0$ 近傍では対角成分が正であり、対数を微分できる。両�
 <!-- solution-start -->
 #### 詳細解答
 
-$Q^TQ=I,\det Q=1$ から $I_1(Q)=\operatorname{tr}I=3$、$J(Q)=1$。したがって $W(Q)=\mu(3-3-0)/2+\lambda(0)^2/2=0$。$Q^{-T}=Q$ を [応力公式](#thm-ctm14-neohookean-stresses)へ入れると
+$Q^TQ=I,\det Q=1$ から $I_1(Q)=\operatorname{tr}I=3$、$J(Q)=1$。したがって $W(Q)=\mu(3-3-0)/2+\lambda(0)^2/2=0$。$Q^{-T}=Q$ を [neo-Hooke 模型の三つの応力](#thm-ctm14-neohookean-stresses)へ入れると
 
 $$
 P(Q)=\mu(Q-Q)+\lambda(\log1)Q=0.
@@ -458,7 +458,7 @@ $F(\gamma)=I+\gamma e_1e_2^T$ に対し $W(\gamma)$ と $dW/d\gamma$ を求め�
 <!-- solution-start -->
 #### 詳細解答
 
-上三角行列の行列式は $J=1$、列二乗和は $I_1=3+\gamma^2$ である。[エネルギー定義](#def-ctm14-neohookean)より $W=\mu\gamma^2/2$ だから $dW/d\gamma=\mu\gamma$。[せん断応力命題](#prop-ctm14-shear)から $P_{12}=\mu\gamma$。他方 $\partial_\gamma F=e_1e_2^T$ は $(1,2)$ 成分だけが $1$ なので
+上三角行列の行列式は $J=1$、列二乗和は $I_1=3+\gamma^2$ である。[圧縮可能 neo-Hooke エネルギー](#def-ctm14-neohookean)より $W=\mu\gamma^2/2$ だから $dW/d\gamma=\mu\gamma$。[neo-Hooke 単純せん断の応力](#prop-ctm14-shear)から $P_{12}=\mu\gamma$。他方 $\partial_\gamma F=e_1e_2^T$ は $(1,2)$ 成分だけが $1$ なので
 
 $$
 P:\partial_\gamma F=\sum_{i,A}P_{iA}(\partial_\gamma F)_{iA}
@@ -477,7 +477,7 @@ $F=\operatorname{diag}(2,1,1)$、$\lambda>0$ に対し基準面 $N=e_2$、面積
 <!-- solution-start -->
 #### 詳細解答
 
-$J=2$、$F^{-T}e_2=e_2$ で、[Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)より $n\,da=2e_2\,dA$。したがってこの面は向きが $e_2$ のままで面積は $2A_0$。 [伸長命題](#prop-ctm14-uniaxial)から $P_{22}=\lambda\log2$、$\sigma_{22}=\lambda\log2/2$。二通りの合力は
+$J=2$、$F^{-T}e_2=e_2$ で、[Nanson の面積変換公式](../CTM2/index.md#thm-ctm2-nanson)より $n\,da=2e_2\,dA$。したがってこの面は向きが $e_2$ のままで面積は $2A_0$。 [伸長命題](#prop-ctm14-uniaxial)から $P_{22}=\lambda\log2$、$\sigma_{22}=\lambda\log2/2$。二通りの合力は
 
 $$
 (Pe_2)A_0=\lambda(\log2)A_0e_2,\qquad
@@ -498,7 +498,7 @@ $F=\operatorname{diag}(s,b,b)$、$s,b>0$ とし、側面の Cauchy 応力が零�
 <!-- solution-start -->
 #### 詳細解答
 
-$J=sb^2>0$、$F^{-T}=\operatorname{diag}(1/s,1/b,1/b)$。[応力公式](#thm-ctm14-neohookean-stresses)から
+$J=sb^2>0$、$F^{-T}=\operatorname{diag}(1/s,1/b,1/b)$。[neo-Hooke 模型の三つの応力](#thm-ctm14-neohookean-stresses)から
 
 $$
 P_{22}=\mu(b-1/b)+\lambda\frac{\log(sb^2)}b,
@@ -530,7 +530,7 @@ $D=\operatorname{diag}(2,1,1)$、$Q=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmat
 <!-- solution-start -->
 #### 詳細解答
 
-$\det Q=1$、$Q^TQ=I$、$\det D=2>0$ から $F\in GL^+(3)$。まず $D^{-T}=\operatorname{diag}(1/2,1,1)$ と [応力公式](#thm-ctm14-neohookean-stresses)により
+$\det Q=1$、$Q^TQ=I$、$\det D=2>0$ から $F\in GL^+(3)$。まず $D^{-T}=\operatorname{diag}(1/2,1,1)$ と [neo-Hooke 模型の三つの応力](#thm-ctm14-neohookean-stresses)により
 
 $$
 P(D)=\operatorname{diag}\left(\frac32\mu+\frac{\lambda\log2}{2},\ \lambda\log2,\ \lambda\log2\right).
@@ -567,7 +567,7 @@ D=\frac12(L+L^T)=\frac{\dot\gamma}{2}
 \begin{pmatrix}0&1&0\\1&0&0\\0&0&0\end{pmatrix}.
 $$
 
-$W=\mu\gamma^2/2$ なので $\dot W=\mu\gamma\dot\gamma$。次に [せん断応力命題](#prop-ctm14-shear)より $P:\dot F=P_{12}\dot\gamma=\mu\gamma\dot\gamma$。$\sigma_{12}=\sigma_{21}=\mu\gamma$、$D_{12}=D_{21}=\dot\gamma/2$ だから
+$W=\mu\gamma^2/2$ なので $\dot W=\mu\gamma\dot\gamma$。次に [neo-Hooke 単純せん断の応力](#prop-ctm14-shear)より $P:\dot F=P_{12}\dot\gamma=\mu\gamma\dot\gamma$。$\sigma_{12}=\sigma_{21}=\mu\gamma$、$D_{12}=D_{21}=\dot\gamma/2$ だから
 
 $$
 J\sigma:D=1\left(
@@ -609,7 +609,7 @@ W(q)=\frac\mu2(q^2+q^{-2}-2),\qquad
 F^{-T}=\operatorname{diag}(q^{-1},q,1).
 $$
 
-[応力公式](#thm-ctm14-neohookean-stresses)より
+[neo-Hooke 模型の三つの応力](#thm-ctm14-neohookean-stresses)より
 
 $$
 \begin{aligned}
@@ -620,7 +620,7 @@ $$
 
 $P$ は基準面積当たり、$\sigma$ は現在面積当たりの応力で、$P_{11}$ と $\sigma_{11}$ を同一視しない。
 
-(ii) [Nanson の公式](../CTM2/index.md#thm-ctm2-nanson)から $n\,da=JF^{-T}N\,dA$。$N=e_1$ なら $n=e_1, da=q^{-1}dA$ だから
+(ii) [Nanson の面積変換公式](../CTM2/index.md#thm-ctm2-nanson)から $n\,da=JF^{-T}N\,dA$。$N=e_1$ なら $n=e_1, da=q^{-1}dA$ だから
 
 $$
 \sigma e_1\,da=\mu(q^2-1)q^{-1}e_1\,dA
