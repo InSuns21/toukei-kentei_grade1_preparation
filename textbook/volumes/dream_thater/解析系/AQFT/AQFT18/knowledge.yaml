@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - AQFT13
+  - VN6
 forward_references: []
 concepts:
   - id: aqft.standard-pair
