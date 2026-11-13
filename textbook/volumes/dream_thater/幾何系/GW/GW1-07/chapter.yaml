@@ -17,7 +17,7 @@ learning_objectives:
 definitions:
   - { id: GW1-07-DEF-01, name: 滑らかな標点付き種数0曲線と同型 }
   - { id: GW1-07-DEF-02, name: 順序付き四標点の交比 }
-  - { id: GW1-07-DEF-03, name: 種数0の安定k標点曲線 }
+  - { id: GW1-07-DEF-03, name: 種数0の安定標点曲線 }
   - { id: GW1-07-DEF-04, name: 忘却と安定化 }
 theorems:
   - { id: GW1-07-THM-01, name: 三点正規化とその一意性 }
