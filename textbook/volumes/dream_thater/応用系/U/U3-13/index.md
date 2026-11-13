@@ -228,7 +228,7 @@ $$
 
 ここへ $b_t=\mu S_t$、$a_t=\sigma^2S_t^2$ を代入します。偏導関数 $v_t,v_s,v_{ss}$ はすべて $(t,S_t)$ で評価すると、$dt$ 係数は
 
-$
+$$
 \begin{aligned}
 F_t+\mu S_tF_s+\frac12\sigma^2S_t^2F_{ss}
 &=e^{-rt}(v_t-rv)
@@ -237,7 +237,7 @@ F_t+\mu S_tF_s+\frac12\sigma^2S_t^2F_{ss}
 &=e^{-rt}\left(v_t+\mu S_tv_s
   +\frac12\sigma^2S_t^2v_{ss}-rv\right).
 \end{aligned}
-$
+$$
 
 同様に $dW_t$ 係数は $\sigma S_tF_s=e^{-rt}\sigma S_tv_s$ です。これで表示式の両係数を確認しました。$dt$ 係数がゼロなら、残るのは予測可能な被積分過程による Brown 確率積分です。停止による局所化の下でこれは局所マルチンゲールですが、真のマルチンゲールになるには可積分性等を別途確かめる必要があります。
 <!-- proof-end -->
@@ -574,7 +574,11 @@ $$
 v(t,s)=\frac{s^2}{S_0}e^{(r+\sigma^2)(T-t)}
 $$
 
-について (i) 偏導関数をすべて計算し、$e^{-rt}v(t,S_t)$ の $dt$ 係数が0であることを示せ。(ii) Brown 運動の独立増分を用い、$E[e^{-rT}H\mid\mathcal F_t]=e^{-rt}v(t,S_t)$ を別に導け。(iii) $t=0$ の値と U3-11 の二乗受取額の木の極限とを比較せよ。
+について次を示せ。
+
+1. 偏導関数をすべて計算し、$e^{-rt}v(t,S_t)$ の $dt$ 係数が0であることを示せ。
+2. Brown 運動の独立増分を用い、$E[e^{-rT}H\mid\mathcal F_t]=e^{-rt}v(t,S_t)$ を別に導け。
+3. $t=0$ の値と U3-11 の二乗受取額の木の極限とを比較せよ。
 
 <!-- solution-start -->
 **詳細解答**：
