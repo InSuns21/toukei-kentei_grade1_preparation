@@ -26,9 +26,9 @@ $$
 
 もう一つ、単位質量当たり体積力 $b$ [m/s$^2$] を、位置だけに依存するスカラー場 $\Phi$ [m$^2$/s$^2$] で表す場合を考える。関係式が
 
-$
+$$
 b=-\nabla\Phi
-$
+$$
 
 となる力を**保存体積力**と呼ぶ。この符号では、重力 $b=-ge_z$（$z$ 上向き、$g>0$）のポテンシャルは $\Phi=gz$ である。
 
@@ -518,22 +518,22 @@ $\Omega=\mathbb R\times(0,2)\times\mathbb R$、$u=(1+y,0,0)$（m/s、$y$ は m �
 
 速度は $x$ に依存せず、鉛直成分も零だから
 
-$
+$$
 \nabla\cdot u=0,\qquad
 (u\cdot\nabla)u=(1+y)\partial_xu=0,\qquad
 \nabla p=0.
-$
+$$
 
 従って[定常 Euler 方程式](#thm-fluid6-euler-equation)を満たす。流線は $y$ が一定の直線である。
 
 [Bernoulli 関数](#def-fluid6-bernoulli-function)を各流線で評価すると、
 
-$
+$$
 \begin{aligned}
 B|_{y=0.5}&=\frac{1.5^2}{2}=1.125,\\
 B|_{y=1.5}&=\frac{2.5^2}{2}=3.125
 \end{aligned}
-$
+$$
 
 となる（単位はいずれも m$^2$/s$^2$）。各流線上では一定だが、二つの値は異なる。さらに $\omega_z=-\partial_yu_x=-1$ s$^{-1}$ であり、[渦なしの系](#cor-fluid6-global-bernoulli)の条件を満たさない。
 <!-- solution-end -->
@@ -605,31 +605,31 @@ $\rho=\rho_0>0$、$u=at\,e_x$、$p=p_0-\rho_0ax$、$\Phi=0$（$a>0,t>0$）につ
 
 (i) 速度場は位置に依存しないから、
 
-$
+$$
 \nabla\cdot u=0,\qquad
 \partial_tu=ae_x,\qquad
 (u\cdot\nabla)u=at\,\partial_x(at e_x)=0.
-$
+$$
 
 他方、圧力と体積力は
 
-$
+$$
 -\frac{\nabla p}{\rho_0}=ae_x,\qquad -\nabla\Phi=0
-$
+$$
 
 である。従って左右とも $ae_x$ となり、[Euler 方程式](#thm-fluid6-euler-equation)と連続の式が成立する。
 
 (ii) [Bernoulli 関数](#def-fluid6-bernoulli-function)は
 
-$
+$$
 B(x,t)=\frac{p_0}{\rho_0}-ax+\frac{a^2t^2}{2}.
-$
+$$
 
 時刻 $t$ を固定した[流線](../FLUID4/index.md#def-fluid4-streamline)を $\gamma(s)=(x_0+at s,y_0,z_0)$ と取る。実際、$\gamma'=at e_x=u$ である。これを代入して曲線パラメータで微分すると
 
-$
+$$
 \frac{d}{ds}B(\gamma(s),t)=(-a)(at)=-a^2t\ne0.
-$
+$$
 
 (iii) 今回は $\partial_tu=ae_x\ne0$ であり、中心式 $\nabla B=u\times\omega-\partial_tu$ の最後の項が残る。非粘性であっても、[定常積分](#thm-fluid6-streamline-bernoulli)に必要な定常仮定を欠いている。
 <!-- solution-end -->
