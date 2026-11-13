@@ -24,6 +24,6 @@ chapters:
   - { id: CTM17, path: textbook/volumes/dream_thater/物理系/CTM/CTM17, status: completed, title: "圧力駆動のStokes流を解く" }
   - { id: CTM18, path: textbook/volumes/dream_thater/物理系/CTM/CTM18, status: completed, title: "ばねとダッシュポットで緩和・クリープを説明できるか" }
   - { id: CTM19, path: textbook/volumes/dream_thater/物理系/CTM/CTM19, status: completed, title: "時間依存の応答と散逸をどう測るか" }
-  - { id: CTM20, path: textbook/volumes/dream_thater/物理系/CTM/CTM20, status: planned, title: "内部エネルギーを消費する能動応力をどう記述するか" }
+  - { id: CTM20, path: textbook/volumes/dream_thater/物理系/CTM/CTM20, status: completed, title: "内部エネルギーを消費する能動応力をどう記述するか" }
   - { id: CTM21, path: textbook/volumes/dream_thater/物理系/CTM/CTM21, status: planned, title: "成長を単なる弾性変形と区別するには" }
   - { id: CTM22, path: textbook/volumes/dream_thater/物理系/CTM/CTM22, status: planned, title: "組織連続体の最小模型を自力で組み立てる" }
