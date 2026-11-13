@@ -25,7 +25,25 @@ $$
 
 です。$\sigma S$ は連続適合ゆえ予測可能であり、[Itô 過程の定義](../../../解析系/STO/STO7/index.md#def-sto7-ito-process) に合致します。ここでいう $\mu$ は、確率測度を指定しないまま「リスク中立ドリフト」と断定した値ではありません。
 
-[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) において $d=m=1$、$b_t=\mu S_t$、拡散係数 $\sigma_t^{11}=\sigma S_t$、したがって $a_t=\sigma^2S_t^2$ と対応させます。$F\in C^{1,2}([0,T]\times(0,\infty))$ の場合、正値領域内で次の式を使います。
+[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) の設定では、株価と Brown 運動はともに1次元なので $d=m=1$ です。Itô 過程のドリフト、拡散係数、二次共分散の係数は順に
+
+$$
+b_t=\mu S_t,\qquad
+\sigma_t^{11}=\sigma S_t,\qquad
+a_t=(\sigma_t^{11})^2=\sigma^2S_t^2
+$$
+
+と対応します。
+
+関数 $F\in C^{1,2}([0,T]\times(0,\infty))$ は、時間 $t$ で1回、株価を表す空間変数 $s$ で2回まで連続微分できることを意味します。偏微分記号を
+
+$$
+F_t=\frac{\partial F}{\partial t},\qquad
+F_s=\frac{\partial F}{\partial s},\qquad
+F_{ss}=\frac{\partial^2F}{\partial s^2}
+$$
+
+と書きます。$F_t$ では $s$ を固定し、$F_s,F_{ss}$ では $t$ を固定します。これらの偏微分と、過程の確率微分 $dF(t,S_t)$ を区別した上で、正値領域内で次の式を使います。
 
 $$
 \boxed{
@@ -61,7 +79,7 @@ dX_t=\left(\mu-\frac{\sigma^2}{2}\right)dt+\sigma\,dW_t.
 $$
 <!-- formal-statement-end -->
 
-見取り図：通常の連鎖律なら $S^{-1}dS$ しか残りません。しかし Brown 運動の二次変分が $dt$ を生むため、$\log$ の二階導関数から $-\sigma^2/2$ が付け加わります。これは U3-12 の [CRR 対数増分の極限](../U3-12/index.md#thm-u3-12-crr-brownian-limit) と一致します。
+見取り図：通常の連鎖律なら $S^{-1}dS$ しか残りません。しかし Brown 運動の二次変分が $dt$ を生むため、$\log$ の二階導関数から $-\sigma^2/2$ が付け加わります。U3-12 の [CRR 対数価格の Brown 運動極限](../U3-12/index.md#thm-u3-12-crr-brownian-limit) は評価用確率の下で対数ドリフトが $r-\sigma^2/2$ になる結果です。したがって、**この章でも $\mu=r$ と置いた場合に限り**係数が一致します。任意の $\mu$ について一致を主張しているわけではありません。
 
 <!-- proof-start -->
 ### 証明
@@ -156,7 +174,7 @@ $$
 \right).
 $$
 
-$D_s>0$ は $\mathcal F_s$-可測です。Brown 運動の独立増分 $W_t-W_s\sim N(0,t-s)$ の指数モーメント
+ここでは $s,t$ は $0\le s\le t\le T$ を満たす二つの**時刻**であり、第1節の空間変数 $s$ とは役割が異なります。$D_s>0$ は $\mathcal F_s$-可測です。Brown 運動の独立増分 $W_t-W_s\sim N(0,t-s)$ について、[Brown 指数マルチンゲールの命題](../../../解析系/STO/STO7/index.md#prop-sto7-brownian-exponential-martingale) と同じ正規指数モーメント計算から
 
 $$
 E\left[e^{\sigma(W_t-W_s)}\right]
@@ -226,7 +244,20 @@ F_s=e^{-rt}v_s,\qquad
 F_{ss}=e^{-rt}v_{ss}.
 $$
 
-ここへ $b_t=\mu S_t$、$a_t=\sigma^2S_t^2$ を代入して項を整理すれば表示式になります。$dt$ 係数がゼロなら、残るのは予測可能な被積分過程による Brown 確率積分です。停止による局所化の下でこれは局所マルチンゲールですが、真のマルチンゲールになるには可積分性等を別途確かめる必要があります。
+ここへ $b_t=\mu S_t$、$a_t=\sigma^2S_t^2$ を代入します。偏導関数 $v_t,v_s,v_{ss}$ はすべて $(t,S_t)$ で評価すると、$dt$ 係数は
+
+$$
+\begin{aligned}
+F_t+\mu S_tF_s+\frac12\sigma^2S_t^2F_{ss}
+&=e^{-rt}(v_t-rv)
+  +\mu S_te^{-rt}v_s
+  +\frac12\sigma^2S_t^2e^{-rt}v_{ss}\\
+&=e^{-rt}\left(v_t+\mu S_tv_s
+  +\frac12\sigma^2S_t^2v_{ss}-rv\right).
+\end{aligned}
+$$
+
+同様に $dW_t$ 係数は $\sigma S_tF_s=e^{-rt}\sigma S_tv_s$ です。これで表示式の両係数を確認しました。$dt$ 係数がゼロなら、残るのは予測可能な被積分過程による Brown 確率積分です。停止による局所化の下でこれは局所マルチンゲールですが、真のマルチンゲールになるには可積分性等を別途確かめる必要があります。
 <!-- proof-end -->
 
 この式に $\mu=r$ を入れて $dt$ 係数をゼロと置いたものが、後で現れる価格方程式の**計算上の形**です。しかし、この章では市場で複製可能か、どの測度を選ぶか、満期の受取額を何にするかをまだ証明していません。方程式だけをもって一意の無裁定価格と呼ぶのは早計です。
@@ -304,7 +335,7 @@ $\mu=r$ の結果は U3-11 で二項木・三項木から導いた [二乗受取
 
 ### Python による再現
 
-標準ライブラリだけで実行できる [検算プログラム](textbook/volumes/dream_thater/応用系/U/U3-13/check_ito.py) を収録しました。固定した乱数種で $W_T=\sqrt T Z$（$Z\sim N(0,1)$）を生成し、次の項目を検算します。
+標準ライブラリだけで実行できる [検算プログラム](check_ito.py) を収録しました。固定した乱数種で $W_T=\sqrt T Z$（$Z\sim N(0,1)$）を生成し、次の項目を検算します。
 
 1. 対数増分の標本平均・分散と理論値。
 2. 割引株価の標本平均と解析的期待値。
@@ -330,14 +361,14 @@ $\mu=r$ の結果は U3-11 で二項木・三項木から導いた [二乗受取
 ### A1：対数の二階項を再現する
 - Level: A
 
-$dS_t=0.07S_tdt+0.30S_tdW_t$、$S_0>0$ とする。$\log S_t$ の $dt$、$dW_t$ 係数を求め、通常の連鎖律による誤答との差を数値で示せ。
+$dS_t=0.07S_tdt+0.30S_tdW_t$、$S_0>0$ とする。無次元の対数変化 $X_t=\log(S_t/S_0)$ の $dt$、$dW_t$ 係数を求め、通常の連鎖律による誤答との差を数値で示せ。
 
 <!-- solution-start -->
-**詳細解答**：$f(s)=\log s$ では $f_s=1/s$、$f_{ss}=-1/s^2$。[対数変換の導出](#prop-u3-13-log-price) の係数を置き直すと、
+**詳細解答**：$f(s)=\log(s/S_0)$（$s>0$）では $f_s=1/s$、$f_{ss}=-1/s^2$ です。[対数変換の導出](#prop-u3-13-log-price) の係数を置き直すと、
 
 $$
 \begin{aligned}
-d\log S_t
+dX_t
 &=\left(\frac{0.07S_t}{S_t}
 +\frac12(0.30S_t)^2\frac{-1}{S_t^2}\right)dt
 +\frac{0.30S_t}{S_t}\,dW_t\\
@@ -419,7 +450,7 @@ $S_t^2/S_0$ の単位は円$^2$/円＝円であり、円$^2$ ではありませ�
 $\sigma=0$、$\mu\in\mathbb R$ とする。対数株価と割引株価の式を出し、二階補正が消える理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：仮定した積分式は $S_t=S_0+\int_0^t\mu S_u\,du$ です。両辺を微分すると $S'_t=\mu S_t$ です。積の微分則で $(e^{-\mu t}S_t)'=e^{-\mu t}(S'_t-\mu S_t)=0$ を得るので、初期値を代入して $S_t=S_0e^{\mu t}>0$ となります。従って
+**詳細解答**：$\sigma=0$ では仮定した積分式が $S_t=S_0+\int_0^t\mu S_u\,du$ となります。$S$ の経路が連続なので右辺は時間 $t$ に関して微分可能です。ここでプライム $S'_t$ は常微分 $dS_t/dt$ を表し、$S'_t=\mu S_t$ です。確率微分の $dS_t$ に $dt$ で形式的に割り算しているのではありません。積の微分則で $(e^{-\mu t}S_t)'=e^{-\mu t}(S'_t-\mu S_t)=0$ を得るので、初期値を代入して $S_t=S_0e^{\mu t}>0$ となります。従って
 
 $$
 \log(S_t/S_0)=\mu t,\qquad
@@ -434,16 +465,16 @@ $$
 ### B1：時間で変わる確定金利
 - Level: B
 
-$r(t)$ を $[0,T]$ 上の連続な確定関数（年$^{-1}$）とし、$A(t)=\exp(-\int_0^t r(u)\,du)$ とする。$D_t=A(t)S_t$ に対して Itô 公式を適用せよ。$\mu=r(t)$ が全時刻で成立するなら $dt$ 係数はどうなるか。
+本問に限り、株価モデルのドリフトを第1節の定数 $\mu$ から連続な確定関数 $\mu(t)$（年$^{-1}$）へ拡張し、$dS_t=\mu(t)S_t\,dt+\sigma S_t\,dW_t$ とする（$\sigma$ は定数、$S$ は引き続き正の連続 Itô 過程）。金利 $r(t)$ も $[0,T]$ 上の連続な確定関数（年$^{-1}$）とし、$A(t)=\exp(-\int_0^t r(u)\,du)$ とする。$D_t=A(t)S_t$ に対して Itô 公式を適用せよ。$\mu(t)=r(t)$ が全時刻で成立するなら $dt$ 係数はどうなるか。
 
 <!-- solution-start -->
-**詳細解答**：微積分の基本定理と合成関数の微分から $A'(t)=-r(t)A(t)$ です。$F(t,s)=A(t)s$ と選べば
+**詳細解答**：微積分の基本定理と合成関数の微分から $A'(t)=dA(t)/dt=-r(t)A(t)$ です。$F(t,s)=A(t)s$ と選べば、$F_t$ は株価を表す変数 $s$ を固定した偏微分なので
 
 $$
 F_t=-r(t)A(t)s,\qquad F_s=A(t),\qquad F_{ss}=0.
 $$
 
-従って、株価のドリフトが時間依存の確定関数 $\mu(t)$ の場合も含めて
+従って、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) を本問の $b_t=\mu(t)S_t$、$a_t=\sigma^2S_t^2$ に適用すると
 
 $$
 \begin{aligned}
@@ -561,7 +592,11 @@ $$
 v(t,s)=\frac{s^2}{S_0}e^{(r+\sigma^2)(T-t)}
 $$
 
-について (i) 偏導関数をすべて計算し、$e^{-rt}v(t,S_t)$ の $dt$ 係数が0であることを示せ。(ii) Brown 運動の独立増分を用い、$E[e^{-rT}H\mid\mathcal F_t]=e^{-rt}v(t,S_t)$ を別に導け。(iii) $t=0$ の値と U3-11 の二乗受取額の木の極限とを比較せよ。
+について次を示せ。
+
+1. 偏導関数をすべて計算し、$e^{-rt}v(t,S_t)$ の $dt$ 係数が0であることを示せ。
+2. Brown 運動の独立増分を用い、$E[e^{-rT}H\mid\mathcal F_t]=e^{-rt}v(t,S_t)$ を別に導け。
+3. $t=0$ の値と U3-11 の二乗受取額の木の極限とを比較せよ。
 
 <!-- solution-start -->
 **詳細解答**：
@@ -591,7 +626,7 @@ $$
 S_T=S_t\exp\{(r-\sigma^2/2)\Delta+\sigma(W_T-W_t)\}.
 $$
 
-これを二乗し、増分の独立性と $N(0,\Delta)$ の正規指数モーメントを使います。
+これを二乗し、増分の独立性と [Brown 指数マルチンゲールの命題](../../../解析系/STO/STO7/index.md#prop-sto7-brownian-exponential-martingale) と同じ $N(0,\Delta)$ の正規指数モーメント計算を使います。
 
 $$
 \begin{aligned}

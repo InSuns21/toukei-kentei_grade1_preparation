@@ -1,0 +1,42 @@
+chapter: CTM14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM13
+concepts:
+  - id: continuum.hyperelastic-reference-energy
+    name: 基準体積エネルギーによる超弾性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基準体積エネルギーによる超弾性）"]
+    requires: [continuum.isothermal-elastic-constitutive, continuum.piola-work-conjugacy]
+  - id: continuum.finite-strain-isotropic-invariants
+    name: 有限変形の二つの等方的不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限変形の二つの等方的不変量）"]
+    requires: [continuum.right-cauchy-green-tensor, continuum.material-isotropy]
+  - id: continuum.compressible-neo-hooke-energy
+    name: 圧縮可能 neo-Hooke エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圧縮可能 neo-Hooke エネルギー）"]
+    requires: [continuum.hyperelastic-reference-energy, continuum.finite-strain-isotropic-invariants]
+  - id: continuum.neo-hooke-stresses
+    name: neo-Hooke 模型の三つの応力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（neo-Hooke 模型の三つの応力）"]
+    requires: [continuum.compressible-neo-hooke-energy, continuum.first-piola-kirchhoff-stress, continuum.second-piola-kirchhoff-stress]
+  - id: continuum.neo-hooke-uniaxial-traction
+    name: 一軸拘束伸長のエネルギーと表面力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一軸拘束伸長のエネルギーと表面力）"]
+    requires: [continuum.neo-hooke-stresses, continuum.nanson-area-formula]
+  - id: continuum.neo-hooke-simple-shear
+    name: neo-Hooke 単純せん断の応力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（neo-Hooke 単純せん断の応力）"]
+    requires: [continuum.neo-hooke-stresses, continuum.piola-work-conjugacy]

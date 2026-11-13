@@ -1,0 +1,41 @@
+id: "CTM14"
+title: "有限ひずみ弾性では応力をどのエネルギーから得るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM13
+official_scope: []
+learning_objectives:
+  - "基準体積当たりのエネルギーと第一Piola応力の仕事共役を区別し、超弾性P=partial_F Wの定義域と仮定を説明できる"
+  - "客観性と材料等方性の左・右回転を区別し、有限変形の不変量を具体的に検算できる"
+  - "圧縮可能neo-Hooke模型を方向微分から導き、P、第二Piola応力、Cauchy応力を算出できる"
+  - "一様伸長の面積・traction・側面境界と単純せん断の垂直応力を検算できる"
+  - "小変形極限のエネルギーと応力が等方Hooke則へ戻ることを二次・一次展開で示せる"
+definitions:
+  - { id: CTM14-DEF-01, name: "基準体積エネルギーによる超弾性" }
+  - { id: CTM14-DEF-02, name: "有限変形の二つの等方的不変量" }
+  - { id: CTM14-DEF-03, name: "圧縮可能 neo-Hooke エネルギー" }
+theorems:
+  - { id: CTM14-THM-01, name: "neo-Hooke 模型の三つの応力" }
+  - { id: CTM14-PROP-01, name: "一軸拘束伸長のエネルギーと表面力" }
+  - { id: CTM14-PROP-02, name: "neo-Hooke 単純せん断の応力" }
+canonical_examples:
+  - "一軸伸長での仕事共役の方向微分"
+  - "左右の剛体回転に対する不変量と応力の変換"
+  - "有限伸長の側面tractionと基準・現在面積の対応"
+  - "単純せん断のPとCauchy垂直応力の差"
+  - "小ひずみ極限でのHooke則と二次エネルギー"
+problem_patterns:
+  - CTM14-LOG-DET-DERIVATIVE
+  - CTM14-ROTATION-OBJECTIVITY
+  - CTM14-SHEAR-POWER
+  - CTM14-FINITE-AREA-TRACTION
+  - CTM14-FREE-LATERAL-STRETCH
+  - CTM14-PIOLA-NONSYMMETRY
+  - CTM14-WORK-CONJUGACY
+  - CTM14-ISOTROPY-COUNTEREXAMPLE
+  - CTM14-VOLUME-PRESERVING-ENERGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }

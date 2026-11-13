@@ -1,0 +1,56 @@
+chapter: HOLO30
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO29
+  - HOLO28
+forward_references: []
+concepts:
+  - id: holography.finite-observable-algebra
+    name: 有限次元の観測量代数と中心
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限次元の観測量代数と中心）"]
+    requires: [holography.erasure-logical-representation]
+  - id: holography.direct-sum-logical-algebra
+    name: 直和セクターの論理代数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（直和セクターの論理代数）"]
+    requires: [holography.finite-observable-algebra, holography.sector-area-operator]
+  - id: holography.center-commutant-finite
+    name: 直和論理代数の中心と可換子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直和論理代数の中心と可換子）"]
+    requires: [holography.direct-sum-logical-algebra]
+  - id: holography.algebra-reconstruction
+    name: 領域上の論理代数の完全再構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（領域上の論理代数の完全再構成）"]
+    requires: [holography.finite-observable-algebra, holography.erasure-logical-representation]
+  - id: holography.complementary-algebra-reconstruction
+    name: 直和コードの相補的代数再構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直和コードの相補的代数再構成）"]
+    requires: [holography.center-commutant-finite, holography.algebra-reconstruction, holography.sector-area-operator]
+  - id: holography.complementary-commutation
+    name: 完全再構成の補領域可換性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全再構成の補領域可換性）"]
+    requires: [holography.algebra-reconstruction]
+  - id: holography.direct-sum-algebra-entropy
+    name: 有限直和代数の状態エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限直和代数の状態エントロピー）"]
+    requires: [holography.direct-sum-logical-algebra, holography.sector-jlms]
+  - id: holography.algebraic-rt-finite
+    name: 有限直和コードの量子RT型恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限直和コードの量子RT型恒等式）"]
+    requires: [holography.direct-sum-algebra-entropy, holography.complementary-algebra-reconstruction, holography.sector-jlms]
