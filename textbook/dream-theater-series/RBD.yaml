@@ -67,5 +67,5 @@ chapters:
     title: 剛体の衝突と接点の衝撃量
   - id: RBD16
     path: textbook/volumes/dream_thater/物理系/RBD/RBD16
-    status: planned
+    status: completed
     title: 姿勢の数値積分と保存量の監査
