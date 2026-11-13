@@ -251,7 +251,7 @@ $$
 =\frac{\pi}{\nu},
 $$
 
-従って $T\to2\pi/\nu$ です。ここでの安定性は**固定した保存量 $h,k$ の傾きの運動**についての結論で、摩擦や外部駆動を加えた系へはそのまま拡張しません。
+従って $T\to2\pi/\nu$ です。ここでの安定性は**固定した鉛直・体軸角運動量 $h,k$ の傾きの運動**についての結論で、摩擦や外部駆動を加えた系へはそのまま拡張しません。
 <!-- proof-end -->
 
 ### 直接計算：赤道の定常歳差からの小振動
@@ -335,14 +335,14 @@ $$
 =\frac{1+\sqrt{1-q}}{2}.
 $$
 
-従って相対誤差は $|1-(1+\sqrt{1-q})/2|=|1-\sqrt{1-q}|/2$。$|q|\ll1$ のとき
+従って厳密値に対する差の割合は $|1-(1+\sqrt{1-q})/2|=|1-\sqrt{1-q}|/2$。$|q|\ll1$ のとき
 
 $$
 \sqrt{1-q}=1-\frac q2+O(q^2),\qquad
 \Omega_{\mathrm{slow}}=\frac ak\left(1+\frac q4+O(q^2)\right).
 $$
 
-よって近似の相対誤差は $|q|/4+O(q^2)$、すなわち概ね $Ia|c|/k^2$ で制御されます。$k\Omega\simeq a$ のベクトル近似の理由もここで定量化されました。
+よって近似値と厳密値の差の割合は $|q|/4+O(q^2)$、すなわち概ね $Ia|c|/k^2$ で制御されます。$k\Omega\simeq a$ のベクトル近似の理由もここで定量化されました。
 <!-- proof-end -->
 
 ### 数値で誤差を測る
@@ -360,7 +360,7 @@ $$
 
 ## 5. 初期条件と運動の見分け方
 
-[定常歳差条件](#thm-rbd12-steady-branches)で傾き $\theta_0$ と根 $\Omega$ を選び、$h=I\Omega\sin^2\theta_0+k\cos\theta_0$、$\dot\theta(0)=0$ とすれば定常歳差です。$h,k$ を固定したまま $\theta(0)$ を少しずらして $\dot\theta(0)=0$ とすれば、[小章動定理](#thm-rbd12-small-nutation)の局所的な井戸の中で往復運動になります。$\varepsilon$ を決めるときは必ず初期角 $\theta_i$ と初期傾き速度 $v_i$ から
+[定常歳差条件](#thm-rbd12-steady-branches)で傾き $\theta_0$ と根 $\Omega$ を選び、$h=I\Omega\sin^2\theta_0+k\cos\theta_0$、$\dot\theta(0)=0$ とすれば定常歳差です。$h,k$ を固定したまま $\theta(0)$ を少しずらして $\dot\theta(0)=0$ とすれば、[正則な定常歳差の小章動と固有振動数](#thm-rbd12-small-nutation)の局所的な井戸の中で往復運動になります。$\varepsilon$ を決めるときは必ず初期角 $\theta_i$ と初期傾き速度 $v_i$ から
 
 $$
 \varepsilon=\frac I2v_i^2+V(\theta_i)
@@ -462,9 +462,9 @@ $$
 従って微小振幅極限の章動周期は $T_\theta=2\pi/\nu=4\pi/\sqrt{13}$、歳差の一周時間は $T_\phi=2\pi/|\Omega_0|=2\pi$。二つは等しくありません。
 <!-- solution-end -->
 
-### 問題 A5：ジャイロ近似の相対誤差
+### 問題 A5：ジャイロ近似のずれの割合
 
-$I=2,a=3,k=10,\cos\theta_0=1/2$ の遅い枝について $q=4Ia\cos\theta_0/k^2$ と近似相対誤差を求めよ。
+$I=2,a=3,k=10,\cos\theta_0=1/2$ の遅い枝について $q=4Ia\cos\theta_0/k^2$ と近似値のずれの割合を求めよ。
 
 - Level: A
 
@@ -484,7 +484,7 @@ $$
 
 ## Level B
 
-### 問題 B1：固定保存量での二階微分
+### 問題 B1：固定した角運動量での二階微分
 
 $I=2,k=3,a=3,\theta_0=\pi/2$ の定常歳差で $h=2$ とする。$\Omega'(\theta_0)$ を求め、そこから $V''(\theta_0)>0$ を示せ。
 
@@ -493,7 +493,7 @@ $I=2,k=3,a=3,\theta_0=\pi/2$ の定常歳差で $h=2$ とする。$\Omega'(\thet
 <!-- solution-start -->
 ### 詳細解答
 
-保存量 $h,k$ を固定して $\Omega(\theta)=(h-k\cos\theta)/(I\sin^2\theta)$ を微分します。[小章動定理の導出式](#thm-rbd12-small-nutation)から
+鉛直・体軸角運動量 $h,k$ を固定して $\Omega(\theta)=(h-k\cos\theta)/(I\sin^2\theta)$ を微分します。[正則な定常歳差の小章動と固有振動数](#thm-rbd12-small-nutation)から
 
 $$
 \Omega'(\theta)=\frac{k-2I\Omega(\theta)\cos\theta}{I\sin\theta}.
@@ -571,14 +571,14 @@ $I,a>0$、$k>0$、正則な定常歳差で $\theta_0$ を固定する。ジャ�
 <!-- solution-start -->
 ### 詳細解答
 
-[遅い歳差のジャイロ近似と誤差](#prop-rbd12-gyro-approx)より $q=4Ia\cos\theta_0/k^2$、相対誤差は $|1-\sqrt{1-q}|/2$。$|q|\ll1$ なら $|q|/4+O(q^2)$ であり、条件は $k^2\gg4Ia|\cos\theta_0|$ です。単に $\dot\psi$ が大きいのでなく、体軸角運動量 $k=J(\dot\psi+\dot\phi\cos\theta_0)$ と横慣性 $I$、重力スケール $a$ を比べる必要があります。
+[遅い歳差のジャイロ近似と誤差](#prop-rbd12-gyro-approx)より $q=4Ia\cos\theta_0/k^2$、差の割合は $|1-\sqrt{1-q}|/2$。$|q|\ll1$ なら $|q|/4+O(q^2)$ であり、条件は $k^2\gg4Ia|\cos\theta_0|$ です。単に $\dot\psi$ が大きいのでなく、体軸角運動量 $k=J(\dot\psi+\dot\phi\cos\theta_0)$ と横慣性 $I$、重力スケール $a$ を比べる必要があります。
 
 $D<0$ のとき[定常歳差二次方程式](#thm-rbd12-steady-branches)の実数解はないので、任意に書いた $a/k$ はその傾きの定常歳差を満たしません。無次元条件 $|q|\ll1$ が成立すれば自動的に $1-q>0$ ですが、条件を外した領域で近似値だけを使って解の存在を結論できません。
 <!-- solution-end -->
 
 ## Level C
 
-### 問題 C1：定常歳差から章動と近似誤差まで復元する
+### 問題 C1：定常歳差から章動と近似のずれまで復元する
 
 $I=2,J=1,a=3,k=10,\theta_0=\pi/3$ の遅い定常歳差を考える。以下を順に求めよ。
 
@@ -588,7 +588,7 @@ $I=2,J=1,a=3,k=10,\theta_0=\pi/3$ の遅い定常歳差を考える。以下を�
 
 (3) $h,k$ は固定し、初期傾きを $\theta_i=\theta_0+\delta$、$\dot\theta(0)=0$ に変える（$0<\delta\ll1$）。初期 $\dot\phi,\dot\psi$、$\varepsilon-\varepsilon_0$ の主要項、初期加速度の符号、微小章動周期を求めよ。
 
-(4) 遅い枝への近似 $\Omega_{\mathrm{gyro}}=a/k$ の相対誤差を示せ。
+(4) 遅い枝への近似 $\Omega_{\mathrm{gyro}}=a/k$ の差の割合を示せ。
 
 - Level: C
 
@@ -649,7 +649,7 @@ $$
 T_\theta\simeq\frac{2\pi}{\sqrt{(5-\Omega_0)^2+3\Omega_0^2/4}}.
 $$
 
-(4) $q=4Iac/k^2=0.12$、$\Omega_{\mathrm{gyro}}=3/10$ です。[相対誤差の公式](#prop-rbd12-gyro-approx)から
+(4) $q=4Iac/k^2=0.12$、$\Omega_{\mathrm{gyro}}=3/10$ です。[遅い歳差のジャイロ近似と誤差](#prop-rbd12-gyro-approx)から
 
 $$
 \frac{|\Omega_0-3/10|}{\Omega_0}
