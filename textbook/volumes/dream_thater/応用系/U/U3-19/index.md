@@ -158,6 +158,8 @@ $$
 > $\Phi$ は[標準正規累積分布関数](../U3-18/index.md#def-u3-18-normal-indices)である。$t=T$、$\sigma=0$ の場合は上の分母に代入せず、支払額または確定株価から扱う。
 <!-- formal-statement-end -->
 
+ここで $C(t,s)$ と $P(t,s)$ はそれぞれ **call と put の円建て価格関数**であり、確率測度 $P$ と価格関数 $P(t,s)$ は別物です。偏導関数 $C_s=\partial C/\partial s$ は時刻 $t$ を固定して株価 $s$ で微分し、$C_t=\partial C/\partial t$ は株価 $s$ と満期 $T$ を固定して時刻 $t$ で微分します。
+
 **証明の見取り図**：行使境界 $Z>-d_2$ と、株価で重み付けした正規積分 $d_1$ を区別します。現金項の割引率は $r$、株価項の配当調整率は $q$ です。
 
 <!-- proof-start -->
@@ -218,18 +220,33 @@ $$
 \quad sA\phi(d_1)=KD\phi(d_2).
 $$
 
-連鎖律で $\partial_s d_1=\partial_s d_2=1/(s\sigma\sqrt{\tau})$ を使うと、二つの密度項が相殺して
+$s$ を動かし $t$ を固定する連鎖律で $\partial_s d_1=\partial_s d_2=1/(s\sigma\sqrt{\tau})$ を使うと、$sA\phi(d_1)=KD\phi(d_2)$ により二つの密度項が相殺して
 
 $$
 C_s=A\Phi(d_1),\qquad
 C_{ss}=\frac{A\phi(d_1)}{s\sigma\sqrt{\tau}}.
 $$
 
-また $\tau=T-t$ に注意して、$\partial_t d_1=-[\,(r-q+\sigma^2/2)\tau-\log(s/K)\,]/(2\sigma\tau^{3/2})$、$\partial_t d_2=\partial_t d_1+\sigma/(2\sqrt{\tau})$ である。これと密度恒等式から
+また $\tau=T-t$ なので、$s,T$ を固定した時間微分は $\partial_t=-\partial_\tau$ と読み替えます。従って
 
 $$
-C_t=q sA\Phi(d_1)-rKD\Phi(d_2)
+\partial_t d_1=-\frac{(r-q+\sigma^2/2)\tau-\log(s/K)}{2\sigma\tau^{3/2}},
+\qquad
+\partial_t d_2=\partial_t d_1+\frac{\sigma}{2\sqrt{\tau}}.
+$$
+
+係数について $\partial_t A=qA$、$\partial_t D=rD$ です。積と合成関数の微分をいったん展開し、密度恒等式を適用すると
+
+$$
+\begin{aligned}
+C_t
+&=qsA\Phi(d_1)-rKD\Phi(d_2)
++sA\phi(d_1)\partial_t d_1-KD\phi(d_2)\partial_t d_2\\
+&=qsA\Phi(d_1)-rKD\Phi(d_2)
++sA\phi(d_1)(\partial_t d_1-\partial_t d_2)\\
+&=qsA\Phi(d_1)-rKD\Phi(d_2)
 -\frac{sA\sigma\phi(d_1)}{2\sqrt{\tau}}.
+\end{aligned}
 $$
 
 従って[連続配当付き BSM 方程式](../U3-16/index.md#prop-u3-16-dividend-pde)の左辺は
@@ -251,14 +268,31 @@ $$
 
 です。これを配当付き PDE に代入すると、$w_t+(r-q)sw_s-rw=0$ が得られます。したがって $P=C-w$ も同じ PDE の解です。
 
-$t\uparrow T$ では $S_T\to s$ となり、連続な支払関数の割引期待値は満期支払額に収束します。デルタについても
+満期極限 $t\uparrow T$ では、$s$ を固定して $\tau=T-t\downarrow0$ とします。[GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)をドリフト $r-q$ に適用すると
+
+$$
+\begin{aligned}
+E_Q[(S_T-s)^2]
+&=E_Q[S_T^2]-2sE_Q[S_T]+s^2\\
+&=s^2\left(e^{[2(r-q)+\sigma^2]\tau}
+-2e^{(r-q)\tau}+1\right)\longrightarrow0.
+\end{aligned}
+$$
+
+従って Cauchy–Schwarz の不等式より $E_Q[|S_T-s|]\to0$ です。call・put の支払関数はいずれも株価について Lipschitz 定数1を持つため、例えば
+
+$$
+|(S_T-K)_+-(s-K)_+|\le|S_T-s|.
+$$
+
+同様の不等式が put にも成り立ち、$e^{-r\tau}\to1$ と併せて、割引期待値がそれぞれ $(s-K)_+$、$(K-s)_+$ へ収束することが分かります。デルタについても
 
 $$
 |C_s|\le A\le1,\qquad
 |P_s|=|C_s-A|\le A\le1
 $$
 
-です。[自己金融複製の構成](../U3-16/index.md#thm-u3-16-bsm-replication)の係数比較を、配当込み利得に合わせて実施します。価格関数を $v$、株数を $\Delta=v_s$、預金単位を $\psi=(v-s\Delta)/B_u$ とすると、Itô 公式と配当付き PDE より
+です。[自己金融複製の構成](../U3-16/index.md#thm-u3-16-bsm-replication)の係数比較を、配当込み利得に合わせて実施します。価格関数を $v$、株数を $\Delta=v_s$、預金単位を $\psi=(v-s\Delta)/B_u$ とすると、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)と[配当付き PDE](../U3-16/index.md#prop-u3-16-dividend-pde)より
 
 $$
 \begin{aligned}
