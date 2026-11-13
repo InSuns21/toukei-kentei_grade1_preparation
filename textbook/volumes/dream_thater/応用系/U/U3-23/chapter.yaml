@@ -2,7 +2,7 @@ id: "U3-23"
 title: "陰解法・Crank–Nicolson 法・Rannacher smoothing"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-22]
+prerequisites: [U3-21, U3-22]
 official_scope: []
 learning_objectives:
   - 陽的三点作用素から後退 Euler と Crank–Nicolson の三重対角系を導き、古い時刻と新しい時刻の境界寄与を区別できる
