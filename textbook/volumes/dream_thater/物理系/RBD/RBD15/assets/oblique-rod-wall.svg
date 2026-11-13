@@ -23,8 +23,8 @@
   <circle cx="245" cy="288" r="8" fill="#fff" stroke="#23476c" stroke-width="3"/>
   <circle cx="355" cy="178" r="7" fill="#a64a35" stroke="#fff" stroke-width="1.5"/>
   <text x="263" y="317" font-size="21" font-family="sans-serif" fill="#1b3147">C</text>
-  <text x="369" y="153" font-size="21" font-family="sans-serif" fill="#1b3147">P</text>
-  <text x="304" y="248" font-size="20" font-family="sans-serif" fill="#1b3147">r</text>
+  <text x="385" y="163" font-size="21" font-family="sans-serif" fill="#1b3147">P</text>
+  <text x="321" y="260" font-size="20" font-family="sans-serif" fill="#1b3147">r</text>
   <line x1="245" y1="288" x2="325" y2="288" stroke="#23476c" stroke-width="3" marker-end="url(#impact-arrow)"/>
   <text x="314" y="315" font-size="18" font-family="sans-serif" fill="#23476c">V</text>
   <line x1="355" y1="178" x2="260" y2="178" stroke="#20664a" stroke-width="4" marker-end="url(#impact-arrow-green)" data-series-group="contact-directions" data-series-label="impulse"/>
