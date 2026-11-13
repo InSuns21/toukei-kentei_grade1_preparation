@@ -496,7 +496,7 @@ $$
 
 $D_u:H^2(E)\to H^1(\Lambda^{0,1}T^*\Sigma\otimes E)$ が**全射**だと仮定する。第2節の局所自明化後の非線形作用素を $\mathcal F:B\to V$（$B=H^2(E)$、$\mathcal F(0)=0$、$d\mathcal F_0=D_u$）と書く。これは無限次元Banach空間の問題なので、[有限次元の陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)をそのまま適用するのではなく、次の局所的な議論が必要である。
 
-[閉曲面Fredholm定理](#thm-gw1-03-fredholm)により $K=\ker D_u$ は有限次元である。$B$ の $H^2$ 内積で $B=K\oplus Y$ と直交分解すると、全射性から $D_u|_Y:Y\to V$ は全単射であり、逆 $A:V\to Y$ は有界である。$k\in K$ を固定して
+前節の[閉曲面上の楕円作用素はFredholm](#thm-gw1-03-fredholm)という結果を適用すると、$K=\ker D_u$ は有限次元である。$B$ の $H^2$ 内積で $B=K\oplus Y$ と直交分解すると、全射性から $D_u|_Y:Y\to V$ は全単射であり、逆 $A:V\to Y$ は有界である。$k\in K$ を固定して
 
 $$
 T_k(y)=y-A\mathcal F(k+y),\qquad y\in Y
