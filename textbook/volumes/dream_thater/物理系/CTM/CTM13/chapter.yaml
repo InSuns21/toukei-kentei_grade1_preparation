@@ -1,0 +1,43 @@
+id: "CTM13"
+title: "弾性体の波はなぜ縦波・横波に分かれるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM12
+official_scope: []
+learning_objectives:
+  - "均質等方線形弾性体の運動量保存とHooke則から動的Navier–Lamé方程式を成分ごとに導ける"
+  - "音響テンソルと偏りの直交分解から縦波・横波の分散関係と二つの波速を必要十分に導き、正定値性を確認できる"
+  - "発散と回転の波動方程式を微分交換から導き、平面波の重ね合わせと単色波の区別を説明できる"
+  - "弾性エネルギーと運動エネルギーの局所保存を導き、進行波の流束・平均と定在波の相違を検算できる"
+  - "初期条件と境界tractionを同時に検証し、無限媒質の縦波速と自由側面棒の近似波速を混同しない"
+definitions:
+  - { id: CTM13-DEF-01, name: "単色平面弾性波" }
+  - { id: CTM13-DEF-02, name: "等方弾性の音響テンソル" }
+  - { id: CTM13-DEF-03, name: "縦波・横波の偏り" }
+  - { id: CTM13-DEF-04, name: "弾性波の全エネルギー密度と流束" }
+theorems:
+  - { id: CTM13-THM-01, name: "動的 Navier–Lamé 方程式" }
+  - { id: CTM13-THM-02, name: "縦波・横波の波速" }
+  - { id: CTM13-PROP-01, name: "発散と回転の伝播方程式" }
+  - { id: CTM13-PROP-02, name: "弾性波の局所エネルギー保存" }
+canonical_examples:
+  - "進行方向と粒子変位の平行・垂直の直接確認"
+  - "音響テンソルの基底計算と二つの固有値"
+  - "波速と周波数・波長の単位検算"
+  - "単色進行横波の応力・エネルギー流束"
+  - "矩形物体の定在横波と全側面のtraction"
+problem_patterns:
+  - CTM13-DYNAMIC-NAVIER-LAME
+  - CTM13-ACOUSTIC-TENSOR
+  - CTM13-POLARIZATION
+  - CTM13-WAVE-SPEED
+  - CTM13-WAVELENGTH
+  - CTM13-ENERGY-POSITIVE
+  - CTM13-DIV-CURL
+  - CTM13-STANDING-WAVE-BOUNDARY
+  - CTM13-MATERIAL-INVERSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 7, review: 3 }
