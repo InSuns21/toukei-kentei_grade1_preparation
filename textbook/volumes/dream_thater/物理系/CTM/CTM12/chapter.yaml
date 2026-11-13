@@ -12,6 +12,7 @@ learning_objectives:
   - "蓄積エネルギーの第一変分から釣合・自然境界条件を導き、正定値性を使った古典解の一意性を証明できる"
   - "体積力のある棒を境界条件から解き、許容荷重・単位・小変形条件を検算できる"
 definitions:
+  - { id: CTM12-DEF-00, name: "Dirichlet 境界条件と Neumann 境界条件" }
   - { id: CTM12-DEF-01, name: "線形弾性の混合境界値問題" }
   - { id: CTM12-DEF-02, name: "微小剛体変位" }
 theorems:

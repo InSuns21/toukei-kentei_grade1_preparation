@@ -35,9 +35,28 @@ $$
 (\operatorname{div}\sigma)_i=\partial_j\sigma_{ij}.
 $$
 
-[CTM6 の Cauchy 応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)から、外向き面の物体に作用する traction は $\sigma n$ であり、変位と独立に与える外部荷重 $\bar t$ に等しい必要がある。
+[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)から、外向き面の物体に作用する traction は $\sigma n$ であり、変位と独立に与える外部荷重 $\bar t$ に等しい必要がある。
 
-**Dirichlet 境界条件**とは $\Gamma_D$ で $u=\bar u$ と指定すること、**Neumann 境界条件**とは $\Gamma_N$ で $\sigma(u)n=\bar t$ と指定することである。固定端は $\bar u=0$、自由表面は $\bar t=0$ に当たる。面力の指定は力の向きを持つベクトル条件であり、「$\sigma=0$」という全成分の指定ではない。
+境界では、変位そのものを指定する方法と、面が受ける外力を指定する方法を区別する。前者は拘束、後者は荷重や自由表面を表す。表面力の指定は力の向きを持つ**ベクトルの指定**であり、応力行列の全成分を零にすることではない。
+
+<a id="def-ctm12-boundary-data"></a>
+
+<!-- formal-statement-start -->
+### 定義（Dirichlet 境界条件と Neumann 境界条件）
+
+変位 $u$ と応力 $\sigma(u)$ を持つ物体の境界で、次の二種類の条件を定める。
+
+- **Dirichlet 境界条件（変位指定）**：$\Gamma_D$ 上で $u=\bar u$ とする。
+- **Neumann 境界条件（表面力指定）**：$\Gamma_N$ 上で $\sigma(u)n=\bar t$ とする。
+
+それぞれ固定面では $\bar u=0$、自由表面では $\bar t=0$ とする。後者は $\sigma=0$ という全行列の指定ではない。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-ctm12-boundary-data -->
+### 定義の確認：同じ棒の左右で異なる量を指定する
+
+直方体の候補 $u(X)=aX_1e_1$（$a$ は小さい無次元定数）で、$\nabla u=\operatorname{diag}(a,0,0)$、$\sigma=\operatorname{diag}((\lambda+2\mu)a,\lambda a,\lambda a)$ を [Hooke 則](../CTM11/index.md#thm-ctm11-hooke)から得る。左面 $X_1=0$ では変位は零なので、$\bar u=0$ の Dirichlet 条件を満たす。一方、右面 $X_1=L$ の外向き法線は $e_1$ であるため、$\sigma e_1=(\lambda+2\mu)ae_1$ と計算でき、この値を $\bar t$ とした Neumann 条件を満たす。この確認は左右二面に限り、四側面の条件までは自動的に保証しない。
+<!-- definition-example-end -->
 
 <a id="def-ctm12-bvp"></a>
 
@@ -274,7 +293,7 @@ $$
 
 ### 証明の見取り図
 
-運動量の局所形を体積積分すると合力が出る。トルクは外積の中へ微分を入れると応力の反対称部分が現れるが、[CTM7 の応力対称性](../CTM7/index.md#prop-ctm7-angular-stress)によってその項が消える。
+運動量の局所形を体積積分すると合力が出る。トルクは三次元ベクトル積の中へ微分を入れると応力の反対称部分が現れるが、[CTM7 の応力対称性](../CTM7/index.md#prop-ctm7-angular-stress)によってその項が消える。
 
 <!-- proof-start -->
 ### 証明
@@ -287,7 +306,7 @@ $$
 =-\int_\Omega f_i\,dV.
 $$
 
-これが合力の式。次に $y=X-X_0$ と置き、Levi-Civita 記号 $\epsilon_{kil}$ を使う。$k$ 番目のトルク成分に対し積の微分を行えば
+これが合力の式。次に $y=X-X_0$ と置き、Levi-Civita 記号 $\epsilon_{kil}$ を使う。この記号は $(k,i,l)$ が $(1,2,3)$ の偶置換なら $+1$、奇置換なら $-1$、添字に重複があれば $0$ と定める。$k$ 番目のトルク成分に対し積の微分を行えば
 
 $$
 \begin{aligned}
@@ -350,7 +369,7 @@ $$
 =\sigma(v):\varepsilon(h).
 $$
 
-荷重は $v$ に依存しないため、それぞれの仕事の微分は $f\cdot h$ と $\bar t\cdot h$。これで表示した第一変分を得る。$\sigma(v)$ は対称なので $\sigma(v):\varepsilon(h)=\sigma_{ij}(v)\partial_jh_i$ である。積の微分を成分で行うと
+荷重は $v$ に依存しないため、それぞれの仕事の微分は $f\cdot h$ と $\bar t\cdot h$。これで表示した変位方向への微分公式を得る。$\sigma(v)$ は対称なので $\sigma(v):\varepsilon(h)=\sigma_{ij}(v)\partial_jh_i$ である。積の微分を成分で行うと
 
 $$
 \partial_j(\sigma_{ij}(v)h_i)
@@ -378,7 +397,15 @@ $$
 <!-- formal-statement-start -->
 ### 定理（固定条件を持つ線形弾性問題の一意性）
 
-$\Omega$ が連結な有界区分的 $C^1$ 領域であり、$\mu>0$、$K=\lambda+2\mu/3>0$ とする。$\Gamma_D$ が少なくとも三つの非共線な境界点を含む開いた面片を持ち、同じ $f,\bar u,\bar t$ を満たす古典解が二つ存在すると仮定する。このとき二つの変位場は一致する。$\Gamma_D=\varnothing$ の場合にも、二つの古典解の差は微小剛体変位に限られる。
+$\Omega$ を連結な有界区分的 $C^1$ 領域とし、材料係数に次の正定値条件を課す。
+
+$
+\mu>0,\qquad K=\lambda+\frac{2\mu}{3}>0.
+$
+
+$\Gamma_D$ が三つの非共線な境界点を含む開いた面片を持ち、同じデータ $f,\bar u,\bar t$ を満たす二つの古典解が存在すると仮定する。このとき二つの変位場は一致する。
+
+$\Gamma_D=\varnothing$ なら、二つの古典解の差は微小剛体変位に限られる。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -408,7 +435,7 @@ $$
 +K(\operatorname{tr}\varepsilon(w))^2\ge0.
 $$
 
-$\mu,K>0$、連続性、および積分が零であることから、$\varepsilon_{\rm dev}(w)=0$ かつ $\operatorname{tr}\varepsilon(w)=0$ が各点で成立し、$\varepsilon(w)=0$。そこで[剛体変位補題](#lem-ctm12-rigidity)から $w(X)=a+BX$、$B^T=-B$。
+$\mu,K>0$、連続性、および積分が零であることから、$\varepsilon_{\rm dev}(w)=0$ かつ $\operatorname{tr}\varepsilon(w)=0$ が各点で成立し、$\varepsilon(w)=0$。そこで[零ひずみの剛体変位性](#lem-ctm12-rigidity)から $w(X)=a+BX$、$B^T=-B$。
 
 $\Gamma_D$ の開いた面片には非共線な三点 $X^{(1)},X^{(2)},X^{(3)}$ が取れる。各点で $w=0$ なので
 

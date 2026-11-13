@@ -4,12 +4,24 @@ coverage: complete
 prerequisites:
   - CTM11
 concepts:
+  - id: continuum.elastic-dirichlet-boundary
+    name: Dirichlet 境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet 境界条件と Neumann 境界条件）"]
+    requires: [continuum.motion-current-configuration]
+  - id: continuum.elastic-neumann-boundary
+    name: Neumann 境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet 境界条件と Neumann 境界条件）"]
+    requires: [continuum.cauchy-stress-theorem]
   - id: continuum.linear-elastic-bvp
     name: 線形弾性の混合境界値問題
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（線形弾性の混合境界値問題）"]
-    requires: [continuum.hooke-isotropic, continuum.material-momentum-local, continuum.cauchy-stress-theorem]
+    requires: [continuum.hooke-isotropic, continuum.material-momentum-local, continuum.elastic-dirichlet-boundary, continuum.elastic-neumann-boundary]
   - id: continuum.static-navier-lame
     name: 静的 Navier–Lamé 方程式
     kind: theorem
