@@ -19,6 +19,7 @@ concepts:
     requires: [fluid.ideal-potential-force-model, continuum.material-momentum-local, fluid.moving-mass-balance]
   - id: fluid.bernoulli-function
     name: 一定密度の Bernoulli 関数
+    aliases: ["Bernoulli 関数"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（一定密度の Bernoulli 関数）"]
