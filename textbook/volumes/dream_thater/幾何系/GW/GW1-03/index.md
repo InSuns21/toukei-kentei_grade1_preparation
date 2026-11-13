@@ -39,7 +39,7 @@ $L^2$ だけでは高周波の微分を検出できないが、$H^1$ は検出�
 
 ここで必要なのは、二次元での **$H^2\hookrightarrow C^0$** という埋め込みである。[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)が直接述べる $H^1\hookrightarrow L^q$（有限 $q$）だけでは連続性は結論できない。二次元の座標円盤内でコンパクト台の滑らかな関数 $\zeta$ を零延長し、Fourier変換とCauchy–Schwarzの不等式を使うと
 
-$
+$$
 \begin{aligned}
 |\zeta(x)|
 &\le C\int_{\mathbb R^2}|\widehat\zeta(\eta)|\,d\eta\\
@@ -47,7 +47,7 @@ $
 \left(\int_{\mathbb R^2}(1+|\eta|^2)^2|\widehat\zeta(\eta)|^2\,d\eta\right)^{1/2}\\
 &\le C'\|\zeta\|_{H^2}.
 \end{aligned}
-$
+$$
 
 第一の積分が有限なのは二次元で半径 $r$ の大きい部分が $r^{-4}\cdot r\,dr$ となるためである。コンパクトな $\Sigma$ を有限個の座標円盤で覆い、分割一と局所枠を使えば切断にも $\|\xi\|_{C^0}\le C\|\xi\|_{H^2}$ が従う。従って $H^2$ の切断は連続な代表を持つ。標的の指数写像で基準写像 $u$ の近くを $v=\exp_u\xi$ と書けば、小さな $\xi\in H^2(u^*TX)$ は $H^2$ 写像の局所座標になる。積・合成のSobolev評価により、滑らかな $J$ のもとで
 
@@ -315,28 +315,28 @@ $$
 
 は同じ楕円シンボルを持つ実Fredholm作用素の連続な道である。ここで指数が連続変形で一定となる理由も確かめる。ある $\tau_0$ の作用素の実核を $K$、閉像を $W$ とし、定義域を $Y\oplus K$、値域を $W\oplus C$ と分解する（$C$ は有限次元の余核の代表空間）。$D_{\tau_0}|_Y:Y\to W$ は有界な同型である。$\tau$ が十分近ければ、$D_\tau$ のブロック表示
 
-$
+$$
 D_\tau=\begin{pmatrix}A_\tau&B_\tau\\C_\tau&E_\tau\end{pmatrix}
 :Y\oplus K\longrightarrow W\oplus C
-$
+$$
 
 の左上 $A_\tau:Y\to W$ も可逆なので、残りの成分を消去した作用素は
 
-$
+$$
 \begin{pmatrix}
 A_\tau & 0\\
 0 & S_\tau
 \end{pmatrix}
 :Y\oplus K\longrightarrow W\oplus C,
 \qquad S_\tau:K\longrightarrow C
-$
+$$
 
 と同値である（$A_\tau:Y\to W$ は可逆）。実際、$D_\tau$ を元の分解でブロック表示したときの右下の有限次元成分は、左上ブロック $A_\tau$ を消去すると $S_\tau=E_\tau-C_\tau A_\tau^{-1}B_\tau$ となる。従って階数・退化の仕方が変わっても
 
-$
+$$
 \operatorname{ind}_{\mathbb R}D_\tau
 =\dim_{\mathbb R}K-\dim_{\mathbb R}C
-$
+$$
 
 で一定である。区間 $[0,1]$ 上の局所的な一定性から全区間で同じ指数となる。複素線形作用素では核・余核が複素ベクトル空間なので、実次元がそれぞれ複素次元の二倍になる。以下では $\operatorname{ind}_{\mathbb C}\bar\partial_E$ を複素次元で計算した核と余核の差と定める。
 
@@ -469,9 +469,9 @@ $D_u:H^2(E)\to H^1(\Lambda^{0,1}T^*\Sigma\otimes E)$ が**全射**だと仮定�
 
 [閉曲面Fredholm定理](#thm-gw1-03-fredholm)により $K=\ker D_u$ は有限次元である。$B$ の $H^2$ 内積で $B=K\oplus Y$ と直交分解すると、全射性から $D_u|_Y:Y\to V$ は全単射であり、逆 $A:V\to Y$ は有界である。$k\in K$ を固定して
 
-$
+$$
 T_k(y)=y-A\mathcal F(k+y),\qquad y\in Y
-$
+$$
 
 と置く。$D_yT_0(0)=I_Y-AD_u|_Y=0$ なので、$k,y$ を十分小さく取ると $\|D_yT_k(y)\|\le q<1$ となる。さらに $\|T_k(0)\|\le(1-q)r$ を満たす小さい $k$ を選べば、$T_k$ は $Y$ の閉球 $\|y\|\le r$ を自分に写す収縮である。反復 $y_{n+1}=T_k(y_n)$ は $\|y_{n+1}-y_n\|\le q^n\|y_1-y_0\|$ から収束し、唯一の固定点 $y(k)$ を持つ。固定点条件は $\mathcal F(k+y(k))=0$ と同値である。$D_y\mathcal F$ が $D_u|_Y$ に近いため、その逆はNeumann級数で得られ、方程式を $k$ で微分して $y(k)$ が滑らかと分かる。従って局所解空間は $k\mapsto k+y(k)$ でパラメータ付けられ、実次元は $\dim_{\mathbb R}K=\operatorname{ind}_{\mathbb R}D_u$ である。
 
