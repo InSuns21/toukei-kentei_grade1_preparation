@@ -6,7 +6,7 @@
 
 ## 0. 配置・符号・射程
 
-三次元の基準領域 $\Omega_0\subset\mathbb R^3$ の物質座標を $X$、時刻 $t$ の実際の位置を $x=\chi(X,t)$ とする。[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)を $F=D_X\chi$、$J=\det F>0$ と書く。$\chi$ は各時刻で向きを保つ $C^2$ 級の一対一の運動であり、密度 $\rho(x,t)>0$ と速度 $v(x,t)$ は必要な微分を持つとする。時間微分の上付き点は**固定した物質点 $X$ での微分**である。基準座標で表した量 $h(X,t)$ では $\dot h=\partial_t h$（$X$ 固定）と書く。一方、現在位置で定義した量 $q(x,t)$ の $\partial_tq$ は **$x$ を固定**する微分であり、同じ物質点を追う微分とは異なる。[CTM4 の物質微分と連鎖律](../CTM4/index.md#def-ctm4-velocity-gradient)に用いた関係を、$x=\chi(X,t)$ で書けば
+三次元の基準領域 $\Omega_0\subset\mathbb R^3$ の物質座標を $X$、時刻 $t$ の実際の位置を $x=\chi(X,t)$ とする。[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)を $F=D_X\chi$、$J=\det F>0$ と書く。$\chi$ は各時刻で向きを保つ $C^2$ 級の一対一の運動であり、密度 $\rho(x,t)>0$ と速度 $v(x,t)$ は必要な微分を持つとする。時間微分の上付き点は**固定した物質点 $X$ での微分**である。基準座標で表した量 $h(X,t)$ では $\dot h=\partial_t h$（$X$ 固定）と書く。一方、現在位置で定義した量 $q(x,t)$ の $\partial_tq$ は **$x$ を固定**する微分であり、同じ物質点を追う微分とは異なる。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)と[CTM4 の連鎖律による照合](../CTM4/index.md#def-ctm4-velocity-gradient)に用いた関係を、$x=\chi(X,t)$ で書けば
 
 $
 \frac{d}{dt}q(\chi(X,t),t)
@@ -686,13 +686,23 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[一定自然密度の質量源](#prop-ctm21-growth-mass)から $J_g=g^3=(1.02)^3=1.061208$。$S_0=3\rho_g g^2\dot g$ なので
+[一定自然密度の質量源](#prop-ctm21-growth-mass)では $J_g=g^3$ である。与えた値を代入すると
 
-$$
-S_0=3(1000)(1.02)^2(0.005)=15.606\ {\rm kg/(m^3\,s)}.
-$$
+$
+J_g=(1.02)^3=1.061208,\qquad
+S_0=3\rho_g g^2\dot g
+=3(1000)(1.02)^2(0.005)=15.606\ {\rm kg/(m^3\,s)}.
+$
 
-自由成長では $J=J_g$、$J_e=1$。よって $\rho=\rho_g/J_e=1000$ kg/m$^3$ だが、$s=S_0/J=15.606/1.061208\approx14.706$ kg/(m$^3$s) である。基準体積と現在体積の一単位当たり供給率が違うことを確かめた。
+自由成長では $J=J_g$、$J_e=1$ だから、現在密度と供給率は
+
+$
+\rho=\frac{\rho_g}{J_e}=1000\ {\rm kg/m^3},\qquad
+s=\frac{S_0}{J}=\frac{15.606}{1.061208}
+\approx14.706\ {\rm kg/(m^3\,s)}.
+$
+
+質量密度は一定でも、基準体積と現在体積の一単位当たり供給率は異なる。
 <!-- solution-end -->
 
 ### A3. 固定した棒の圧縮力
