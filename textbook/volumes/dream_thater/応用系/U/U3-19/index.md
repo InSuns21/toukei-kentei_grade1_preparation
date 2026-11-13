@@ -281,7 +281,7 @@ E_Q[(S_T-s)^2]
 \end{aligned}
 $$
 
-従って Cauchy–Schwarz の不等式より $E_Q[|S_T-s|]\to0$ です。call・put の支払関数はいずれも、株価が $\delta$ 円変わっても支払額の変化が $|\delta|$ 円以下となるため、例えば
+従って [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より $E_Q[|S_T-s|]\to0$ です。call・put の支払関数はいずれも、株価が $\delta$ 円変わっても支払額の変化が $|\delta|$ 円以下となるため、例えば
 
 $$
 |(S_T-K)_+-(s-K)_+|\le|S_T-s|.
