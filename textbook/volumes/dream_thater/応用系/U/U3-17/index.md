@@ -65,10 +65,10 @@ $$
 
 この式は、分岐する標本路を全部列挙せず、満期株価の**分布**だけで途中の価格を計算する道具です。正規分布の積分が有限である理由は $|g|\le C(1+s^m)$ と $E[e^{m\sigma\sqrt{\tau}Z}]<\infty$ にあります。
 
-ここで**生成作用素**とは拡散過程が滑らかな試験関数を瞬間的にどう変化させるかを記述する微分演算子です。[拡散の生成作用素](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)を $b(s)=rs$、拡散係数 $a(s)=\sigma s$ に当てはめると
+ここで**生成作用素**とは拡散過程が滑らかな試験関数を瞬間的にどう変化させるかを記述する微分演算子です。[拡散の生成作用素](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)を $b(s)=rs$、拡散係数 $a(s)=\sigma s$ に当てはめます。$f'(s)=df/ds$、$f''(s)=d^2f/ds^2$ は一変数関数 $f(s)$ の導関数です。一方、二変数の価格関数 $v(t,s)$ の $v_t=\partial v/\partial t$ は株価 $s$ を固定する時間偏微分、$v_s=\partial v/\partial s$ と $v_{ss}=\partial^2v/\partial s^2$ は時刻 $t$ を固定する株価偏微分です。従って
 
 $$
-(\mathcal L^Q f)(s)=rs f_s(s)+\frac{\sigma^2s^2}{2}f_{ss}(s).
+(\mathcal L^Q f)(s)=rs f'(s)+\frac{\sigma^2s^2}{2}f''(s).
 $$
 
 [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)でも $f(u,S_u)$ の $du$ の係数は $f_u+\mathcal L^Qf$ です。したがって期待値の時間変化と PDE をつなぐべき演算子は $\mathcal L^Q-r$ です。$-rv$ は支払額を現在価値へ割り引く項であり、株価の期待成長率 $\mu$ は入りません。
@@ -244,7 +244,7 @@ $$
 
 **空間境界がなぜ不要か**：GBM は任意の有限期間で $S_u>0$ を保ち、$s=0$ に到達しません。[GBM の正値性](../U3-14/index.md#thm-u3-14-explicit-gbm)と上の成長クラスの一意性により、この問題で指定するのは $s>0$ 上の**満期支払との一致**です。$s=0$ に吸収境界値を別に課したり、$s\to\infty$ に任意の固定値を課したりしません。障壁商品では到達する障壁に境界条件が必要になり、別の問題になります。
 
-**壊れる例**：$g(s)=\mathbf 1_{\{s>K\}}$ は $s=K$ で不連続です。上の定理の「$g$ は連続」を失います。期待値積分は $t<T$ で滑らかですが、$s=K$、$\tau\downarrow0$ では
+**壊れる例**：$g(s)=\mathbf 1_{\{s>K\}}$ は $s=K$ で不連続です。上の定理の「$g$ は連続」を失います。$\Phi$ を標準正規累積分布関数とします。期待値積分は $t<T$ で滑らかですが、$s=K$、$\tau\downarrow0$ では
 
 $$
 e^{-r\tau}Q(S_T^{t,K}>K)
@@ -252,7 +252,7 @@ e^{-r\tau}Q(S_T^{t,K}>K)
 \longrightarrow\frac12
 $$
 
-となり、$g(K)=0$ へ連続に接続しません。$\Phi$ は標準正規累積分布関数です。これは PDE が間違いという意味ではなく、**満期端点での連続性**という証明機構が使えなくなった例です。満期の不連続な支払額には別の終端値概念が必要です。
+となり、$g(K)=0$ へ連続に接続しません。これは PDE が間違いという意味ではなく、**満期端点での連続性**という証明機構が使えなくなった例です。満期の不連続な支払額には別の終端値概念が必要です。
 
 また上の存在・一意性が示すのは価格関数についてで、どのような $g$ に対してもヘッジ保有量の全期間の可積分性が自動的に成立するとまでは主張しません。自己金融による複製には[前講の条件](../U3-16/index.md#thm-u3-16-bsm-replication)を別途確認します。
 
@@ -373,7 +373,7 @@ $r=0$ でも $v_t=-c$ だから $v_t+c=0$ です。
 $Q$ 下で $dS_u=rS_u\,du+\sigma S_u\,dW_u^Q$ とする。$f(s)=s^3$ へ生成作用素を適用し、$(\mathcal L^Qf)(s)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[生成作用素の定義と拡散公式](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)でドリフト $b(s)=rs$、拡散係数 $a(s)=\sigma s$ を使います。$f_s=3s^2$、$f_{ss}=6s$ なので
+**詳細解答**：[生成作用素の拡散公式](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)では $b(s)=rs$、拡散係数 $a(s)=\sigma s$ を使います。ただし引用先の命題はコンパクト台を持つ $C^2$ 関数を仮定するため、$f(s)=s^3$ にそのまま定理を当てはめることはできません。ここでの $\mathcal L^Qf$ は、株価を区間 $[1/n,n]$ の外へ出る時刻で停止させ、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から得る $du$ の係数として計算します（$n>\max(s,1/s)$）。停止前には $f'(s)=3s^2$、$f''(s)=6s$ なので
 
 $$
 \mathcal L^Qf=rs(3s^2)+\tfrac12\sigma^2s^2(6s)
@@ -436,7 +436,7 @@ $g(s)=\mathbf1_{\{s>K\}}$、$K>0$ について、上の存在定理のどの仮�
 **詳細解答**：$g$ は有界で多項式成長条件は満たしますが、$s=K$ で不連続です。$S_T^{t,K}>K$ は $a\tau+\sigma\sqrt{\tau}Z>0$ と同値なので
 
 $$
-v(t,K)=e^{-r\tau}P\!\left(Z>-\frac{a\sqrt{\tau}}{\sigma}\right)
+v(t,K)=e^{-r\tau}Q\!\left(Z>-\frac{a\sqrt{\tau}}{\sigma}\right)
 =e^{-r\tau}\Phi(a\sqrt{\tau}/\sigma)
 \longrightarrow\tfrac12,
 \quad a=r-\sigma^2/2.
