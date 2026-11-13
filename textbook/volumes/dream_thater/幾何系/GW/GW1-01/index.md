@@ -114,7 +114,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-01-area -->
-**定義の確認**。恒等写像 $f_1$ では $f_1^*\omega_{\mathrm{FS}}=\omega_{\mathrm{FS}}$ なので、[全体の面積](../../KAH/KAH1-07/index.md#thm-kah1-07-area)を代入して $A(f_1)=2\pi/(2\pi)=1$ となる。定数写像 $c$ は微分が零なので任意の2形式を零へ引き戻し、$A(c)=0$ である。いずれも定義域・標的は滑らかなコンパクト曲面で、積分が意味を持つ。
+**定義の確認**。恒等写像 $f_1$ では $f_1^*\omega_{\mathrm{FS}}=\omega_{\mathrm{FS}}$ なので、[全体の面積](../../KAH/KAH1-07/index.md#thm-kah1-07-area)を代入して $A(f_1)=2\pi/(2\pi)=1$ となる。定数写像 $c$ は各点で微分 $dc=0$ なので、定義域上の2形式として $c^*\omega_{\mathrm{FS}}=0$、従って $A(c)=0$ である。いずれも定義域・標的は滑らかなコンパクト曲面で、積分が意味を持つ。
 <!-- definition-example-end -->
 
 <a id="thm-gw1-01-power-area"></a>
