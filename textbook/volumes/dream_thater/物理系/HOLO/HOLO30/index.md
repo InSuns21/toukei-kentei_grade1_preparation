@@ -197,7 +197,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（直和コードの相補的代数再構成）**  
-> 上記の有限次元符号 $V$ と第2節の $\mathcal M$ に対し、$\mathcal M$ は $A$ 上で、$\mathcal M'$ は $\bar A$ 上で完全再構成可能である。中心 $\mathcal Z(\mathcal M)$ の各 $P_\alpha$ は両物理領域で再構成できる。一方、$\alpha\ne\beta$ の間の非零の行列ブロック $P_\alpha TP_\beta$ は、$A$ 上にも $\bar A$ 上にも符号上の表現を持たない。
+> 上記の有限次元符号 $V$ と第2節の $\mathcal M$ に対し、$\mathcal M$ は $A$ 上で、$\mathcal M'$ は $\bar A$ 上で完全再構成可能である。中心 $\mathcal Z(\mathcal M)$ の各 $P_\alpha$ は両物理領域で再構成できる。一方、任意の $T\in\mathcal B(H_{\mathrm{code}})$ と異なる $\alpha,\beta$ に対して $P_\alpha TP_\beta\ne0$ なら、作用素 $P_\alpha TP_\beta$ は $A$ 上にも $\bar A$ 上にも符号上の表現を持たない。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** $A$ 上では $O_{a_\alpha}$ をそのまま作用させ、$\bar A$ 上では $T_{b_\alpha}$ をそのまま作用させます。セクターラベルは各物理因子の直和ブロックに刻まれています。非対角のセクター間操作は、反対側のラベルも同時に変える必要があるため、片側の操作では実現できません。
@@ -223,7 +223,7 @@ $$
 
 [第2節の命題](#prop-holo30-center-commutant)で求めた作用素の集合は $\mathcal M'=\bigoplus_\alpha(I_{a_\alpha}\otimes\mathcal B(H_{b_\alpha}))$ です。$\bar A$ 上で $\pi_{\bar A}(T)=\bigoplus_\alpha(T_{b_\alpha}\otimes I_{e_{B,\alpha}})$ とすれば、同じ基底計算で $(I_A\otimes\pi_{\bar A}(T))V=VT$ です。特に $\pi_A(P_\alpha)$ と $\pi_{\bar A}(P_\alpha)$ はそれぞれ物理領域の第 $\alpha$ ブロック射影です。
 
-最後に $\alpha\ne\beta$ で $P_\alpha TP_\beta\ne0$ と仮定します。物理 $A$ の任意の $X_A$ は、$\bar A$ のセクターを変えません。入力が $\beta$ ブロックなら $(X_A\otimes I)V$ は $\bar A$ の $\beta$ ブロックに残ります。他方 $VT$ の $\alpha$ 成分は $\bar A$ の $\alpha$ ブロックにあり、互いに直交します。よって $(X_A\otimes I)V=VT$ は不可能です。$A$ と $\bar A$ を交換しても同じです。
+最後に $\alpha\ne\beta$ かつ $R=P_\alpha TP_\beta\ne0$ とします。$R$ の定義域側は $\beta$ ブロックなので、$R|w_\beta\rangle\ne0$ となる $|w_\beta\rangle\in H_{a_\beta}\otimes H_{b_\beta}$ が存在します。物理 $A$ の任意の $X_A$ に対し、$(X_A\otimes I_{\bar A})V|w_\beta\rangle$ の $\bar A$ 成分は $\beta$ ブロックに残ります。他方 $VR|w_\beta\rangle$ は零でなく、$\bar A$ の $\alpha$ ブロックにあります。両者は異なる直交部分空間に属するため等しくなれず、$(X_A\otimes I_{\bar A})V=VR$ は不可能です。$A$ と $\bar A$ を交換すれば、$\bar A$ 上の表現も同様に否定されます。
 <!-- proof-end -->
 
 **小さい直接例。** 両セクターで $a_\alpha=b_\alpha=\mathbb C^2$ とし、$d_0=1,d_1=2$ とします。論理空間は8次元、物理 $A,\bar A$ はともに $2+4=6$ 次元です。$A$ の物理作用素
