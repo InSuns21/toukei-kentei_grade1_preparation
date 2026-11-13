@@ -26,6 +26,7 @@ concepts:
     name: 偏差ひずみ
     kind: definition
     introduction: formal
+    introduction_aliases: ["定義（体積弾性率と偏差ひずみ）"]
     requires: [continuum.infinitesimal-strain]
   - id: continuum.linear-elastic-positive-definite
     name: エネルギーの直交分解と正定値条件
