@@ -380,7 +380,30 @@ $$
 =a(e_z\times n).
 $$
 
-正則な傾きでは $e_z\times n\ne0$ ですから、これは[定常歳差の厳密な二次条件](#thm-rbd12-steady-branches) $I c\Omega^2-k\Omega+a=0$ を再現します。横成分 $I\Omega(e_z-c n)$ を捨てて $L_{O,s}\simeq kn$ としたときに初めて $k\Omega\simeq a$ が出ます。その横成分の大きさは $I|\Omega|\sin\theta_0$ です。ゆえに**ベクトル近似自体**には $I|\Omega|\sin\theta_0\ll k$ が必要で、遅い枝で $k^2\gg Ia$ なら従います。これは後述の歳差速度の代数的誤差条件とは区別し、赤道で速度の誤差が厳密に零でも横成分が小さいとは限らないことに注意します。
+正則な傾きでは $e_z\times n\ne0$ なので、直前のベクトル等式は
+
+$$
+(k-I\Omega c)\Omega=a
+\quad\Longleftrightarrow\quad
+Ic\Omega^2-k\Omega+a=0
+$$
+
+となります。これは[定常歳差の厳密な二次条件](#thm-rbd12-steady-branches)を再現しています。
+
+一方、角運動量の横成分を省略する場合に限り、次の**近似式**となります。
+
+$$
+L_{O,s}\simeq kn,\qquad k\Omega\simeq a.
+$$
+
+ここで省いた横成分は $I\Omega(e_z-cn)$ であり、体軸成分と比較した比は
+
+$$
+\frac{\|I\Omega(e_z-cn)\|}{\|kn\|}
+=\frac{I|\Omega|\sin\theta_0}{k}.
+$$
+
+したがって**ベクトル近似自体**にはこの比が十分小さいことが必要です。遅い枝で $k^2\gg Ia$ なら従います。これは後述の歳差速度の代数的誤差条件とは区別します。特に、赤道で速度の誤差が厳密に零でも横成分が小さいとは限りません。
 
 <a id="prop-rbd12-gyro-approx"></a>
 
