@@ -23,3 +23,4 @@
 20. [AQFT20 Hilbert–Schmidt標準表現の全計算](textbook/volumes/dream_thater/解析系/AQFT/AQFT20/index.md)
 21. [AQFT21 モジュラーHilbert環の準備補題](textbook/volumes/dream_thater/解析系/AQFT/AQFT21/index.md)
 22. [AQFT22 Tomitaの可換子定理](textbook/volumes/dream_thater/解析系/AQFT/AQFT22/index.md)
+23. [AQFT23 Takesakiのモジュラー不変性](textbook/volumes/dream_thater/解析系/AQFT/AQFT23/index.md)

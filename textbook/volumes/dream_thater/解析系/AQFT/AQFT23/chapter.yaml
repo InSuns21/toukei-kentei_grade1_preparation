@@ -1,0 +1,50 @@
+id: "AQFT23"
+title: "Takesakiのモジュラー不変性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT21
+  - AQFT22
+  - QM6
+learning_objectives:
+  - Tomita可換子定理の証明中の全時刻付き包含からモジュラー不変性の両包含を証明できる
+  - JとDeltaの反線形関数計算による符号を正しく処理できる
+  - 一般標準対のモジュラー自己同型群の群性・正規性・強連続性・状態保存を証明できる
+  - Gaussian強作用素平均でvon Neumann環内のノルム全解析的元を構成できる
+  - Gaussian作用素の複素時間ノルム評価と代数内の所属を検証できる
+  - 平滑化した代数元のベクトルがDeltaの正負べきとSの共通グラフcoreになることを証明できる
+  - 無限次元標準表現で強連続と作用素ノルム連続の違いを計算できる
+  - 一般のTomita–Takesaki定理と未証明のKMS・幾何学的流を区別できる
+definitions:
+  - { id: AQFT23-DEF-01, name: "モジュラー自己同型群" }
+  - { id: AQFT23-DEF-02, name: "モジュラー流の全解析的元" }
+theorems:
+  - { id: AQFT23-LEM-01, name: "時刻付き可換子包含からモジュラー包含へ" }
+  - { id: AQFT23-THM-01, name: "Takesakiのモジュラー不変性" }
+  - { id: AQFT23-THM-02, name: "自己同型群の性質と状態保存" }
+  - { id: AQFT23-THM-03, name: "Gaussian平滑化による代数内全解析的元" }
+  - { id: AQFT23-THM-04, name: "代数内解析元による共通グラフcore" }
+  - { id: AQFT23-THM-05, name: "標準対に対するTomita–Takesaki定理" }
+canonical_examples:
+  - 忠実な二準位Hilbert–Schmidt模型のE12とE21のモジュラー位相
+  - 二準位行列単位による全解析的元と固定点の直接検算
+  - 無限次元Hilbert–Schmidt模型のshiftによるノルム不連続の反例
+  - Gaussian核の複素平行移動と正負半べきの共通グラフcore
+problem_patterns:
+  - AQFT23-ANTIUNITARY-SIGN
+  - AQFT23-TWO-INCLUSIONS
+  - AQFT23-HS-PHASES
+  - AQFT23-STATE-INVARIANCE
+  - AQFT23-COMPLEX-GAUSSIAN
+  - AQFT23-SIMULTANEOUS-CORE
+  - AQFT23-NORM-DISCONTINUITY
+  - AQFT23-FIXED-POINTS
+  - AQFT23-ANALYTIC-ELEMENT-VS-VECTOR
+  - AQFT23-COMMUTANT-TIME
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 8 }
