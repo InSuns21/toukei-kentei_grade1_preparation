@@ -37,7 +37,19 @@ $$
 $L^2$ だけでは高周波の微分を検出できないが、$H^1$ は検出する。接続を滑らかな行列値1形式 $A$ だけ替えると $\nabla'\xi=\nabla\xi+A\xi$ となり、コンパクト性から $\|A\xi\|_2\le C\|\xi\|_2$。逆向きも $-A$ で評価でき、$H^1$ ノルムの同値性が見える。
 <!-- definition-example-end -->
 
-[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)を二次元・$k=2$ に適用すると $H^2$ の写像は連続な代表を持つ。標的の指数写像で基準写像 $u$ の近くを $v=\exp_u\xi$ と書けば、小さな $\xi\in H^2(u^*TX)$ は $H^2$ 写像の局所座標になる。積・合成のSobolev評価により、滑らかな $J$ のもとで
+ここで必要なのは、二次元での **$H^2\hookrightarrow C^0$** という埋め込みである。[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)が直接述べる $H^1\hookrightarrow L^q$（有限 $q$）だけでは連続性は結論できない。二次元の座標円盤内でコンパクト台の滑らかな関数 $\zeta$ を零延長し、Fourier変換とCauchy–Schwarzの不等式を使うと
+
+$
+\begin{aligned}
+|\zeta(x)|
+&\le C\int_{\mathbb R^2}|\widehat\zeta(\eta)|\,d\eta\\
+&\le C\left(\int_{\mathbb R^2}(1+|\eta|^2)^{-2}\,d\eta\right)^{1/2}
+\left(\int_{\mathbb R^2}(1+|\eta|^2)^2|\widehat\zeta(\eta)|^2\,d\eta\right)^{1/2}\\
+&\le C'\|\zeta\|_{H^2}.
+\end{aligned}
+$
+
+第一の積分が有限なのは二次元で半径 $r$ の大きい部分が $r^{-4}\cdot r\,dr$ となるためである。コンパクトな $\Sigma$ を有限個の座標円盤で覆い、分割一と局所枠を使えば切断にも $\|\xi\|_{C^0}\le C\|\xi\|_{H^2}$ が従う。従って $H^2$ の切断は連続な代表を持つ。標的の指数写像で基準写像 $u$ の近くを $v=\exp_u\xi$ と書けば、小さな $\xi\in H^2(u^*TX)$ は $H^2$ 写像の局所座標になる。積・合成のSobolev評価により、滑らかな $J$ のもとで
 
 $$
 \bar\partial_J:H^2(\Sigma,X)\longrightarrow
@@ -358,9 +370,9 @@ $$
 
 **(3) 任意の滑らかな線束。** コンパクト向き付き曲面の複素線束は整数の第一Chern数で分類される。
 
-具体的には一点を除いた曲面では $H^2=0$ なので線束を自明化でき、その点の小円盤との境界円上の遷移関数 $S^1\to\mathbb C^\times$ の巻き数が $d=\langle c_1(L),[\Sigma]\rangle$ である。
+具体的には一点を除いた曲面では $H^2=0$ なので線束を自明化でき、その点の小円盤との境界円上の貼り合わせ係数 $S^1\to\mathbb C^\times$ の巻き数で $d=\langle c_1(L),[\Sigma]\rangle$ を計算できる。**どちらの局所枠からどちらへ変換するか**で係数は逆数になり、巻き数の符号も逆になるため、向きを固定する。
 
-$\mathcal O(p)$ は局所遷移関数 $z^{-1}$ を使い、正の複素向きで次数 $+1$ を持つ。従って滑らかな複素束として $L\simeq\mathcal O(dp)$。
+$\mathcal O(p)$ では点 $p$ での正則座標 $z$ に対し、円盤外の枠 $e_{\mathrm{out}}=1$ と円盤内の枠 $e_{\mathrm{in}}=z^{-1}$ を取る。重なりで $e_{\mathrm{out}}=z e_{\mathrm{in}}$ だから、この**外側から内側への枠の係数** $z$ は正の境界円で一回巻き、次数 $+1$ を与える。逆方向の係数 $z^{-1}$ の巻き数は $-1$ であり混同しない。従って滑らかな複素束として $L\simeq\mathcal O(dp)$。
 
 異なる $\bar\partial$ 構造は同じ一階シンボルを持ち、差は零階なので線形補間で指数が変わらない。このため任意の線束で $\operatorname{ind}_{\mathbb C}\bar\partial_L=1-g+d$。
 
@@ -428,7 +440,17 @@ $$
 
 ### 横断性と障害はまだ別の問い
 
-$D_u$ が全射なら[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により（適切な局所座標を固定した）解空間は近傍で滑らかな有限次元多様体となり、実次元は $\dim\ker D_u=\operatorname{ind}_{\mathbb R}D_u$。しかし楕円性・Fredholm性から全射性は従わない。余核が非零なら線形化だけでは局所解空間をその指数次元と判定できない。また、再パラメータ化群の作用、多重被覆の固定点、種数・標点の変形はこの計算の外にある。次講はここから始める。
+$D_u:H^2(E)\to H^1(\Lambda^{0,1}T^*\Sigma\otimes E)$ が**全射**だと仮定する。第2節の局所自明化後の非線形作用素を $\mathcal F:B\to V$（$B=H^2(E)$、$\mathcal F(0)=0$、$d\mathcal F_0=D_u$）と書く。これは無限次元Banach空間の問題なので、[有限次元の陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)をそのまま適用するのではなく、次の局所的な議論が必要である。
+
+[閉曲面Fredholm定理](#thm-gw1-03-fredholm)により $K=\ker D_u$ は有限次元である。$B$ の $H^2$ 内積で $B=K\oplus Y$ と直交分解すると、全射性から $D_u|_Y:Y\to V$ は全単射であり、逆 $A:V\to Y$ は有界である。$k\in K$ を固定して
+
+$
+T_k(y)=y-A\mathcal F(k+y),\qquad y\in Y
+$
+
+と置く。$D_yT_0(0)=I_Y-AD_u|_Y=0$ なので、$k,y$ を十分小さく取ると $\|D_yT_k(y)\|\le q<1$ となる。さらに $\|T_k(0)\|\le(1-q)r$ を満たす小さい $k$ を選べば、$T_k$ は $Y$ の閉球 $\|y\|\le r$ を自分に写す収縮である。反復 $y_{n+1}=T_k(y_n)$ は $\|y_{n+1}-y_n\|\le q^n\|y_1-y_0\|$ から収束し、唯一の固定点 $y(k)$ を持つ。固定点条件は $\mathcal F(k+y(k))=0$ と同値である。$D_y\mathcal F$ が $D_u|_Y$ に近いため、その逆はNeumann級数で得られ、方程式を $k$ で微分して $y(k)$ が滑らかと分かる。従って局所解空間は $k\mapsto k+y(k)$ でパラメータ付けられ、実次元は $\dim_{\mathbb R}K=\operatorname{ind}_{\mathbb R}D_u$ である。
+
+しかし楕円性・Fredholm性から全射性は従わない。余核が非零なら線形化だけでは局所解空間をその指数次元と判定できない。また、再パラメータ化群の作用、多重被覆の固定点、種数・標点の変形はこの計算の外にある。次講はここから始める。
 
 ## 7. 演習：局所公式から指数まで
 
@@ -461,7 +483,7 @@ $X=\mathbb C$、$J=i$、$u(z)=z^2$、$\xi(z)=\bar z$ で $D_u\xi(\partial_s)$ �
 標準 $\mathbb C$ に対し $\eta=3ds+4dt$ で $\sigma=\tfrac12(3+4i)$ の逆写像を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。[この節で定めたシンボル](#def-gw1-03-principal-symbol)から逆の複素数は $\frac2{3+4i}=\frac{2(3-4i)}{3^2+4^2}=\frac{6-8i}{25}$。積は $\tfrac12(3+4i)(6-8i)/25=1$。$|\eta|=5>0$ なので楕円性の条件に一致する。
+**詳細解答**。[この節で定めたシンボル](#def-gw1-03-principal-symbol)から逆の複素数は $\frac2{3+4i}=\frac{2(3-4i)}{3^2+4^2}=\frac{6-8i}{25}$。$(3+4i)(6-8i)=18+32+(24-24)i=50$ なので、積は $\tfrac12\cdot50/25=1$。$|\eta|=5>0$ なので楕円性の条件に一致する。
 <!-- solution-end -->
 
 <a id="ex-gw1-03-a04"></a>
@@ -513,7 +535,7 @@ $\bar\partial_Ju(\partial_s)=\tfrac12(u_s+J(u)u_t)$ を使い、$u_\varepsilon$ 
 Riemann面の正則線束 $L$ と点 $p$ に対し、短完全列 $0\to L\to L(p)\to\mathbb C_p\to0$ から $\chi(L(p))-\chi(L)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$p$ の局所座標 $z$ では $L(p)$ の切断に $z^{-1}$ までの極を許し、もとの正則切断で割った商は $z^{-1}$ の係数一つ、すなわち $\mathbb C_p$ である。
+**詳細解答**。$p$ の局所座標 $z$ と $L$ の局所枠 $e$ を固定すると、$L(p)$ の切断は $z^{-1}f(z)e$ と書ける。$L$ からの像では $f(z)=za(z)$ だから、商で残るのは $f(0)$、すなわち $z^{-1}$ の係数一つであり $\mathbb C_p$ に対応する。
 
 [長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和を取り $\chi(L(p))=\chi(L)+\chi(\mathbb C_p)$。点層では $h^0=1,h^1=0$ なので差は $+1$。
 
