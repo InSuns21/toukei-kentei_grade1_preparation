@@ -44,7 +44,7 @@ $$
 
 と評価します。右辺は必要な境界項・反項を含む繰り込み済み作用です。$\simeq$ は**近似**であり、鞍点一つの計算を厳密な全量子経路積分の等号とはしません。二回の源変分から得る非接触2点関数と、局所反項で変わり得る接触項も区別します。
 
-[HOLO6の大$N$・結合と弦補正の検算](../HOLO6/index.md#prop-holo6-string-parameters)が示すように、大$N$のみで弱曲率の局所Einstein重力が保証されるわけではありません。ループ抑制に加え、弦補正・軽い高スピン励起等を抑える別の条件が必要です。代表的な超対称模型での強い整合性の証拠を、任意の非超対称CFTに対する普遍定理へ拡張してはいけません。
+[HOLO6の大$N$・結合と弦補正の検算](../HOLO6/index.md#def-holo6-controlled-window)が示すように、大$N$のみで弱曲率の局所Einstein重力が保証されるわけではありません。ループ抑制に加え、弦補正・軽い高スピン励起等を抑える別の条件が必要です。代表的な超対称模型での強い整合性の証拠を、任意の非超対称CFTに対する普遍定理へ拡張してはいけません。
 
 | 対応 | ここで確認できる対象 | 追加なしには言えないこと |
 | --- | --- | --- |
@@ -206,7 +206,7 @@ $q,\kappa$ を固定すると移動は $O(G_3)$、最初の値の修正は $O(G_
 
 ## 4. 領域再構成の厳密な有限模型と重力への距離
 
-[HOLO26のHKLL再構成](../HOLO26/index.md#def-holo26-smearing-reconstruction)は指定した自由場・境界条件のモード構成、[HOLO27の部分領域再構成](../HOLO27/index.md#def-holo27-subregion-reconstruction)は符号空間上の演算子同値、[HOLO28のJLMS模型](../HOLO28/index.md#thm-holo28-fixed-sector-jlms)はモジュラー量と相対エントロピーの比較です。いずれも作用する空間・近似次数を落とせません。
+[HOLO26のHKLL再構成](../HOLO26/index.md#def-holo26-smearing-kernel)は指定した自由場・境界条件のモード構成、[HOLO27の部分領域再構成](../HOLO27/index.md#def-holo27-subregion-reconstruction)は符号空間上の演算子同値、[HOLO28のJLMS模型](../HOLO28/index.md#thm-holo28-fixed-sector-jlms)はモジュラー量と相対エントロピーの比較です。いずれも作用する空間・近似次数を落とせません。
 
 [HOLO29の3-qutrit符号](../HOLO29/index.md#thm-holo29-three-representations)を一つ具体的に復号します。$\mathbb Z_3$ の加減算は3を法とし、$L,A,B,C$ はいずれも $\mathbb C^3$ とします。
 
@@ -406,7 +406,7 @@ $$
 - 問題: (i) 大$N$なら全て局所純Einsteinバルクを持つ、(ii) 3-qutritの復号から蒸発ブラックホールの効率的復号が従う、(iii) 真空球の第一法則一つで非線形Einstein方程式が従う、という推論に不足する条件と破綻箇所を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** (i) [HOLO6の近似条件](../HOLO6/index.md#prop-holo6-string-parameters)では大$N$のループ抑制と、強結合・弦補正抑制・スペクトルギャップは独立の条件です。一つだけでは結論できません。(ii) B01の $V$ は有限行列で、蒸発時空・重力の時間発展・計算量を定義しません。復号が存在することさえ、一般時空についてはまだ示していません。(iii) A04では $S''(0)=-9/2$ であり第一法則は一次だけです。[HOLO32の積分拘束](../HOLO32/index.md#thm-holo32-integrated-gravity-constraint)から局所方程式へ進むには全ての球・Lorentz方向と積分変換の単射性等が必要で、一球から全ての方程式は出ません。
+**詳細解答。** (i) [HOLO6の近似条件](../HOLO6/index.md#def-holo6-controlled-window)では大$N$のループ抑制と、強結合・弦補正抑制・スペクトルギャップは独立の条件です。一つだけでは結論できません。(ii) B01の $V$ は有限行列で、蒸発時空・重力の時間発展・計算量を定義しません。復号が存在することさえ、一般時空についてはまだ示していません。(iii) A04では $S''(0)=-9/2$ であり第一法則は一次だけです。[HOLO32の積分拘束](../HOLO32/index.md#thm-holo32-integrated-gravity-constraint)から局所方程式へ進むには全ての球・Lorentz方向と積分変換の単射性等が必要で、一球から全ての方程式は出ません。
 <!-- solution-end -->
 
 ### Level C：最後の統合問題
