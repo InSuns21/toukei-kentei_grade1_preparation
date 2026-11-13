@@ -123,19 +123,19 @@ $$
 
 この変換の像が[くさび判定](#prop-holo27-ads-wedge)の領域に入ることも、座標の条件から確かめられます。$r^2-u^2=1$ より
 
-$
+$$
 (r\cosh\chi)^2-(1+r^2\sinh^2\chi)=u^2>0,
-$
+$$
 
 したがって $r\cosh\chi>\sqrt{1+r^2\sinh^2\chi}$ です。さらに $\cosh\tau>|\sinh\tau|$ と $u>0$ から
 
-$
+$$
 \begin{aligned}
 |t|+\sqrt{x^2+z^2}
 &=\frac{R}{D}\left(u|\sinh\tau|+\sqrt{1+r^2\sinh^2\chi}\right)\\
 &<\frac{R}{D}(u\cosh\tau+r\cosh\chi)=R.
 \end{aligned}
-$
+$$
 
 ここでは $D>0$ を用いています。よって $r>1$ の各座標点は確かに $C(A)$ 内にあります。逆にすべての内部点を表せることは、次の埋め込み座標の計算で確認します。
 
@@ -159,7 +159,7 @@ $$
 
 [HOLO2のPoincaré座標と埋め込みの対応](../HOLO2/index.md#prop-holo2-poincare-metric)を利用します。同命題では AdS 半径 $L$ を尺度にしていますが、ここでは境界区間の半幅 $R$ を尺度に取り、$\tilde t=Lt/R$、$\tilde x=Lx/R$、$\tilde z=Lz/R$ と一斉に拡大・縮小します。$d\tilde t/\tilde z=dt/z$ 等なので、Poincaré計量は変わりません。埋め込み座標 $(U,W,w,V)$ をそれぞれ $L$ で割った $(Y_{-1},Y_0,Y_1,Y_2)$ を次のように定義します。
 
-$
+$$
 Y_{-1}=\frac{R^2+z^2+x^2-t^2}{2Rz},\quad
 Y_0=\frac{R^2-z^2-x^2+t^2}{2Rz},\quad
 Y_1=\frac{x}{z},\quad Y_2=\frac{t}{z}.
@@ -196,17 +196,17 @@ $$
 
 この座標が $C(A)$ 全体を一対一に覆うことも確認しておきます。任意の $(t,x,z)\in C(A)$ で $s=\sqrt{x^2+z^2}$ と置くと、$s+|t|<R$ から
 
-$
+$$
 R^2-s^2+t^2>2R|t|,
 \qquad
 Y_0=\frac{R^2-s^2+t^2}{2Rz}>\frac{|t|}{z}=|Y_2|.
-$
+$$
 
 また $Y_{-1}>0$ で、双曲面制約から
 
-$
+$$
 Y_{-1}^2-Y_1^2=1+Y_0^2-Y_2^2>1.
-$
+$$
 
 従って $u=\sqrt{Y_0^2-Y_2^2}>0$、$r=\sqrt{Y_{-1}^2-Y_1^2}=\sqrt{1+u^2}>1$ と定まり、$\tanh\tau=Y_2/Y_0$、$\tanh\chi=Y_1/Y_{-1}$ によって実数の $\tau,\chi$ が一意に復元されます。これで像が単にくさびの一部であるだけでなく、開領域全体に一致することが確かめられました。
 
@@ -241,9 +241,9 @@ $$
 <!-- definition-example-start: def-holo27-rindler-mode -->
 **定義の確認**。 $m=k=\omega=0$ とすると、$\phi=F(r)$ のため $\partial_\tau\phi=\partial_\chi\phi=0$ で、径方程式は $d[r(r^2-1)F']/dr=0$ です。実際に条件を満たす非零の例は
 
-$
+$$
 F(r)=\log(1-r^{-2})\quad(r>1)
-$
+$$
 
 です。$F'(r)=2/[r(r^2-1)]$ より $r(r^2-1)F'=2$ が定数となり、波動方程式を満たします。さらに $r\to\infty$ で $F(r)=-r^{-2}+O(r^{-4})$ です。$d=2,m=0$ を[HOLO8の質量・漸近指数の関係](../HOLO8/index.md#prop-holo8-mass-dimension)に代入すると $\Delta_+=1+\sqrt{1+0}=2$ なので、速い減衰枝を満たして源は零です。一方、非零定数 $F$ も方程式の解ですが境界で消えず、**源零条件には不適合**です。この正例は $r\downarrow1$ で対数発散するため地平面正則性を要求する別の問題には使えません。分離形・場の方程式・境界条件・地平面条件を区別してください。
 <!-- definition-example-end -->
@@ -341,12 +341,12 @@ $$
 
 **複素行列の安定性を直接証明します。** 測定誤差による最小二乗解の差を $\delta c=(M^\dagger M)^{-1}M^\dagger\delta d$ と置き、残差を $e=\delta d-M\delta c$ とします。正規方程式から $M^\dagger e=0$、したがって内積 $\langle M\delta c,e\rangle=(\delta c)^\dagger M^\dagger e=0$ です。複素内積でも直交分解が成立するため
 
-$
+$$
 \|\delta d\|_2^2
 =\|M\delta c+e\|_2^2
 =\|M\delta c\|_2^2+\|e\|_2^2
 \ge\sigma_{\min}^2\|\delta c\|_2^2.
-$
+$$
 
 ここで $\sigma_{\min}>0$ は $M$ が単射なので単位球面上の連続関数 $v\mapsto\|Mv\|_2$ の最小値が正であることから従い、複素行列の最小特異値と一致します。平方根を取れば要求の誤差評価が得られます。これは既習の[実行列の特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を複素行列へ無条件で適用する代わりに、必要な複素内積の評価をここで閉じた証明です。
 
@@ -394,10 +394,10 @@ $$
 
 領域 $A$ で区別できない二つのコード状態に対して、論理演算子の期待値だけが異なれば、その演算子は $A$ に置けないはずです。これを単なる直感で終わらせず、部分トレースで示します。$|ab\rangle=|a\rangle_A\otimes|b\rangle_{\bar A}$ などと書くと、補集合を消す部分トレースは
 
-$
+$$
 \operatorname{Tr}_{\bar A}(|ab\rangle\langle cd|)
 =|a\rangle\langle c|\,\langle d|b\rangle
-$
+$$
 
 で定義され、線形性で一般の密度行列へ延長します。$\|X\|_1=\operatorname{Tr}\sqrt{X^\dagger X}$ はトレースノルム、$\|O_A\|_\infty$ は最大特異値（作用素ノルム）です。有限次元なのでどちらも有限です。
 
@@ -446,14 +446,14 @@ $$
 
 ここで $X=\rho_A^\psi-\rho_A^\varphi$ は Hermitian です。有限次元で固有値 $\lambda_j\in\mathbb R$ と正規直交固有ベクトル $|e_j\rangle$ を選ぶと、$X=\sum_j\lambda_j|e_j\rangle\langle e_j|$ です。従って
 
-$
+$$
 \begin{aligned}
 |\operatorname{Tr}(O_AX)|
 &=\left|\sum_j\lambda_j\langle e_j|O_A|e_j\rangle\right|\\
 &\le\sum_j|\lambda_j|\,\|O_A\|_\infty
 =\|O_A\|_\infty\,\|X\|_1.
 \end{aligned}
-$
+$$
 
 これは複素行列にも通用し、$X$ が Hermitian であることを使ってトレースノルムを $\sum_j|\lambda_j|$ と評価しました。右辺が零なのに左辺が非零なら、$O_A$ の存在と矛盾します。
 <!-- proof-end -->
