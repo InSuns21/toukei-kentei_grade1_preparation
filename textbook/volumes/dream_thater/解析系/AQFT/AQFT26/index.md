@@ -413,8 +413,11 @@ K_1(w)=\int_0^\infty e^{-w\sqrt{1+t^2}}\,dt \qquad(w>0)
 $$
 が得られます。右辺は $\operatorname{Re}w>0$ で正則であるため、この表示は同半平面へ延長されます。固定した $D\notin(-\infty,0]$ に対して $c=\sqrt D$（$\operatorname{Re}c>0$）と置けば、$w=mc$ として $v=mt$ の変数変換により
 $$
-mc\,K_1(mc)=c\int_0^\infty e^{-c\sqrt{m^2+v^2}}\,dv
-\xrightarrow[m\downarrow0]{}c\int_0^\infty e^{-cv}\,dv=1.
+\begin{aligned}
+mc\,K_1(mc)
+&=c\int_0^\infty e^{-c\sqrt{m^2+v^2}}\,dv\\
+&\xrightarrow{m\downarrow0}c\int_0^\infty e^{-cv}\,dv=1.
+\end{aligned}
 $$
 絶対値は $|c|e^{-(\operatorname{Re}c)v}$ 以下なので[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。よって複素枝を固定しても極限が成立し、
 $$
