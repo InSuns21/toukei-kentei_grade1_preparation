@@ -52,7 +52,16 @@ $$
 \alpha_t(C)=\rho^{it}C\rho^{-it}
 $$
 
-とします。有限次元では $\alpha_t$ がノルム連続なので強作用素連続・正規であり、$\omega$ も正規状態です。さらに $H_0=-\log\rho$ と取ると、$H_0=H_0^*$、$e^{-H_0}=\rho$、$\operatorname{Tr}(e^{-H_0})=1$ です。したがって逆温度1、分配関数1として次のGibbs定理の仮定を満たします。
+とします。有限次元では $\alpha_t$ がノルム連続なので強作用素連続・正規であり、$\omega$ も正規状態です。さらに次のようにHamiltonianを選びます。
+
+$
+H_0=-\log\rho,\qquad
+H_0=H_0^*,\qquad
+e^{-H_0}=\rho,\qquad
+\operatorname{Tr}(e^{-H_0})=1.
+$
+
+したがって逆温度1、分配関数1として次のGibbs定理の仮定を満たします。
 
 任意の $A,B$ について[AQFT24の有限次元KMS定理](../AQFT24/index.md#thm-aqft24-gibbs-kms)が与える
 
@@ -93,7 +102,7 @@ $$
 =e^{-it(2n+1)}e_{n+1}.
 $$
 
-$t_n=\pi/(2n+1)\to0$ ならこの係数は $-1$ です。左乗算作用素のノルム $\|L_T\|=\|T\|$ を用い、基底ベクトル $e_n$ における差のノルム2と上界2を照合すると
+$t_n=\pi/(2n+1)\to0$ ならこの係数は $-1$ です。左乗算作用素には $\|L_T(X)\|_2\le\|T\|\|X\|_2$ が成立します。逆に単位ベクトル $v,w$ に対する階数1作用素 $X=|v\rangle\langle w|$ を取ると $\|X\|_2=1$、$\|L_T(X)\|_2=\|Tv\|$ なので、$v$ を動かして $\|L_T\|=\|T\|$ です。基底ベクトル $e_n$ における差のノルム2と作用素ノルムの上界2を照合すると
 
 $$
 \|\sigma_{t_n}(L_V)-L_V\|
@@ -484,7 +493,13 @@ $$
 #### AQFT25-A02 二準位の上端
 
 - Level: A
-- 問題：$\rho=\operatorname{diag}(3/4,1/4)$、$A=E_{12},B=E_{21}$ とする。[AQFT24の有限次元複素時間延長](../AQFT24/index.md#thm-aqft24-gibbs-kms)に従って、この問題に限り $\sigma_z(C)=\rho^{iz}C\rho^{-iz}$（$z\in\mathbb C$）と置く。$F(z)=\omega(\sigma_z(A)B)$ の $t$ と $t+i$ における値を求め、上端の順序を照合せよ。
+- 問題：$\rho=\operatorname{diag}(3/4,1/4)$、$A=E_{12}$、$B=E_{21}$ とする。[AQFT24の有限次元複素時間延長](../AQFT24/index.md#thm-aqft24-gibbs-kms)に従い、この問題に限り
+
+$
+\sigma_z(C)=\rho^{iz}C\rho^{-iz}\qquad(z\in\mathbb C)
+$
+
+と置く。$F(z)=\omega(\sigma_z(A)B)$ の $t$ と $t+i$ における値を求め、上端の順序を照合せよ。
 
 <!-- solution-start -->
 **詳細解答。** [有限次元モジュラー流](../AQFT20/index.md#thm-aqft20-finite-flow)で $p_1/p_2=3$ より $\sigma_z(E_{12})=3^{iz}E_{12}$。$E_{12}E_{21}=E_{11}$ なので
