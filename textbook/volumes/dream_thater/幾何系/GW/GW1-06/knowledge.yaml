@@ -1,0 +1,53 @@
+chapter: GW1-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-05
+  - GW1-04
+  - GW1-03
+  - GW1-02
+  - GW1-01
+  - SYM8
+concepts:
+  - id: gromov-witten.stable-sphere-tree
+    name: 標点付き球面の木と安定な成分写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標点付き球面の木と安定な成分写像）"]
+    requires: [gromov-witten.j-holomorphic-map]
+  - id: gromov-witten.gromov-convergence
+    name: 標点付き球面写像のGromov収束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標点付き球面写像のGromov収束）"]
+    requires: [gromov-witten.stable-sphere-tree, gromov-witten.bubble-rescaling]
+  - id: gromov-witten.local-action-isoperimetric
+    name: 小ループの局所作用評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（小ループの局所作用評価）"]
+    requires: [gromov-witten.energy-identity]
+  - id: gromov-witten.no-neck-cylinder
+    name: 長い小エネルギー円柱の首評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（長い小エネルギー円柱の首評価）"]
+    requires: [gromov-witten.local-action-isoperimetric, gromov-witten.small-energy-gradient]
+  - id: gromov-witten.neck-exhaustion
+    name: 全ての泡を取り出した後の首の消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全ての泡を取り出した後の首の消失）"]
+    requires: [gromov-witten.no-neck-cylinder, gromov-witten.bubble-extraction, gromov-witten.energy-quantization]
+  - id: gromov-witten.genus-zero-compactness
+    name: 種数0・標点付きのGromovコンパクト性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（種数0・標点付きのGromovコンパクト性）"]
+    requires: [gromov-witten.gromov-convergence, gromov-witten.neck-exhaustion, gromov-witten.removable-puncture]
+  - id: gromov-witten.stable-limit-identification
+    name: 安定極限の同一視と部分列の注意
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（安定極限の同一視と部分列の注意）"]
+    requires: [gromov-witten.stable-sphere-tree, gromov-witten.gromov-convergence]
