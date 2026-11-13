@@ -1,0 +1,44 @@
+id: "GW1-02"
+title: "擬正則方程式とエネルギー恒等式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-01
+  - SYM8
+official_scope: []
+learning_objectives:
+  - Riemann面と適合概複素構造の微分の型から非線形Cauchy–Riemann作用素を定義できる
+  - 局所Cauchy–Riemann方程式と擬正則条件の同値を座標基底上で証明できる
+  - 適合計量の仮定を使いエネルギー恒等式を係数と符号を含めて導ける
+  - 閉曲面でのシンプレクティック面積のホモトピー不変性と等号条件を証明できる
+  - 定数写像・射影直線のべき写像・平坦トーラスの写像で面積と誤差を検算できる
+definitions:
+  - { id: GW1-02-DEF-01, name: 非線形Cauchy–Riemann作用素 }
+  - { id: GW1-02-DEF-02, name: 擬正則写像 }
+  - { id: GW1-02-DEF-03, name: 写像のDirichletエネルギー }
+theorems:
+  - { id: GW1-02-PROP-01, name: 局所Cauchy–Riemann方程式と複素線形性 }
+  - { id: GW1-02-THM-01, name: 擬正則写像のエネルギー恒等式 }
+  - { id: GW1-02-PROP-02, name: 閉曲面からの写像のシンプレクティック面積はホモトピー不変 }
+  - { id: GW1-02-COR-01, name: 擬正則写像のエネルギーと面積 }
+canonical_examples:
+  - 複素平面の二乗写像と局所Cauchy–Riemann方程式
+  - 平坦トーラスの整数行列による適合性とエネルギー
+  - 向きを反転させるトーラス写像の負の面積
+  - 射影直線の次数dのべき写像とFubini–Study面積2πd
+  - 境界付き円盤における面積ホモトピー不変性の失敗
+problem_patterns:
+  - GW1-02-LOCAL-CR
+  - GW1-02-CONSTANT-MAP
+  - GW1-02-TORUS-HOLOMORPHIC
+  - GW1-02-ANTIHOL-MAP
+  - GW1-02-CONFORMAL-INVARIANCE
+  - GW1-02-ENERGY-SQUARE
+  - GW1-02-TORUS-MATRIX
+  - GW1-02-POWER-MAP
+  - GW1-02-BOUNDARY-AREA
+  - GW1-02-INTEGRATED-ENERGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }
