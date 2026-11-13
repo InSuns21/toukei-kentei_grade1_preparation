@@ -764,7 +764,7 @@ $$
 
 $\theta=\pi/3$ では $V_{\mathrm{eff}}=11/6>1=\varepsilon$ で非許容。一方 $\theta=2\pi/3$ では $V_{\mathrm{eff}}=-7/6<1$ なので許容です。初期の $\theta=\pi/2$ から大きい傾きへ向かう初速 $\dot\theta(0)=1>0$ も与えられており、この運動は少なくとも初期時刻直後には $\theta>\pi/2$ へ進みます。
 
-**3. 正則域で角度速度を復元する。** $\theta=2\pi/3$ では $\cos\theta=-1/2,\sin^2\theta=3/4$。[二保存量の逆変換](#thm-rbd11-reduced-theta)から
+**3. 正則域で角度速度を復元する。** $\theta=2\pi/3$ では $\cos\theta=-1/2,\sin^2\theta=3/4$。[保存運動量からの逆変換](#thm-rbd11-reduced-theta)から
 
 $$
 \dot\phi=
