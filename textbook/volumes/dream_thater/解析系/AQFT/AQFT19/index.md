@@ -311,7 +311,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（モジュラー共役）**  
-> 標準対 $(\mathcal M,\Omega)$ に対し、上の[極分解定理](#thm-aqft19-polar)をそのTomita閉包 $S$ に適用して得られる唯一の反ユニタリ作用素 $J$ を**モジュラー共役**と呼ぶ。
+> 標準対 $(\mathcal M,\Omega)$ に対し、上の[閉反線形作用素の極分解](#thm-aqft19-polar)をそのTomita閉包 $S$ に適用して得られる唯一の反ユニタリ作用素 $J$ を**モジュラー共役**と呼ぶ。
 $$
 S=J\Delta^{1/2},
 \quad
@@ -352,19 +352,19 @@ $$
 
 ### 証明の見取り図
 
-対合性によって $S$ は単射・稠密値域です。従って[極分解定理](#thm-aqft19-polar)が使えます。$B=\Delta^{1/2}$ と置いて $S^{-1}$ の極分解を作り、**反ユニタリ部分の一意性**と**正部分の一意性**をそれぞれ比較します。
+対合性によって $S$ は単射・稠密値域です。従って[閉反線形作用素の極分解](#thm-aqft19-polar)が使えます。$B=\Delta^{1/2}$ と置いて $S^{-1}$ の極分解を作り、**反ユニタリ部分の一意性**と**正部分の一意性**をそれぞれ比較します。
 
 <!-- proof-start -->
 ### 証明
 
-[Sの対合性](../AQFT18/index.md#prop-aqft18-closure-involution)から、$S^{-1}$ の定義域は $\operatorname{Ran}S=\operatorname{Dom}S$ で、$S^{-1}=S$ です。また $\ker S=0$、$\overline{\operatorname{Ran}S}=\mathcal H$ なので[極分解定理](#thm-aqft19-polar)から
+[Sの対合性](../AQFT18/index.md#prop-aqft18-closure-involution)から、$S^{-1}$ の定義域は $\operatorname{Ran}S=\operatorname{Dom}S$ で、$S^{-1}=S$ です。また $\ker S=0$、$\overline{\operatorname{Ran}S}=\mathcal H$ なので[閉反線形作用素の極分解](#thm-aqft19-polar)から
 
 $$
 S=JB,\qquad B=\Delta^{1/2},\qquad
 \operatorname{Dom}B=\operatorname{Dom}S
 $$
 
-が得られ、$B$ は正自己共役・単射・稠密値域です。スペクトル定理から $B^{-1}$ は $\operatorname{Ran}B$ 上の正自己共役作用素です。したがって
+が得られ、$B$ は正自己共役・単射・稠密値域です。[QM6のBorel関数計算](../../QM/QM6/index.md#def-qm6-borel-functional-calculus)で $\lambda>0$ に $f(\lambda)=1/\lambda$ を適用すると、$B^{-1}$ は $\operatorname{Ran}B$ 上の正自己共役作用素と分かります。したがって
 
 $$
 S^{-1}=B^{-1}J^{-1}
