@@ -24,7 +24,10 @@ $\mathcal M$ の二つの忠実正規状態を、同じ標準表現の自然正�
 
 <!-- formal-statement-start -->
 > **定義（忠実正規状態のAraki相対エントロピー）**  
-> 単位的von Neumann環 $\mathcal M$ の二つの忠実正規状態 $\rho,\sigma$ を、同じ標準表現の自然正錐にある単位ベクトル $\xi_\rho,\xi_\sigma$ で表す。入力を $\xi_\rho$、出力を $\xi_\sigma$ とする[相対モジュラー作用素](../AQFT29/index.md#def-aqft29-relative-modular)を $\Delta_{\sigma\mid\rho}$ とする。$\xi_\rho$ に関するこの正作用素のスペクトル測度を $\mu_\rho$ とするとき、**Araki相対エントロピー**を
+> 単位的von Neumann環 $\mathcal M$ の二つの忠実正規状態 $\rho,\sigma$ を考える。
+> それらを同じ標準表現の自然正錐にある単位ベクトル $\xi_\rho,\xi_\sigma$ で表す。
+> 入力を $\xi_\rho$、出力を $\xi_\sigma$ とする[相対モジュラー作用素](../AQFT29/index.md#def-aqft29-relative-modular)を $\Delta_{\sigma\mid\rho}$ とする。
+> $\xi_\rho$ に関するこの正作用素のスペクトル測度を $\mu_\rho$ とするとき、**Araki相対エントロピー**を
 >
 $$
 S_{\mathrm A}(\rho\Vert\sigma)
@@ -195,7 +198,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[混合固有基底の補題](#lem-aqft30-mixed-spectrum)より、各 $F_{ij}$ で $\log\Delta$ は $(\log s_i-\log r_j)$ 倍です。他方、
+[相対作用素の混合固有基底とスペクトル重み](#lem-aqft30-mixed-spectrum)より、各 $F_{ij}$ で $\log\Delta$ は $(\log s_i-\log r_j)$ 倍です。他方、
 
 $$
 \begin{aligned}
@@ -326,11 +329,11 @@ S_{\mathrm A}(\rho\Vert\sigma)
 }
 $$
 
-です。**可換でない二状態に、固有値を勝手に同じ順に並べた古典公式を適用してはいけません。** 重みの行列が二つの固有基底の相対位置を保持します。
+です。**可換でない二状態に、固有値を勝手に同じ順に並べた古典的な比の和を適用してはいけません。** 重みの行列が二つの固有基底の相対位置を保持します。
 
 ## 5. 比較の向きと、有限次元の不変性
 
-相対エントロピーの入力順序は反対にできません。[AQFT29の向きの命題](../AQFT29/index.md#prop-aqft29-orientation)によれば、相対作用素の添字を交換すると左右乗算が入れ替わります。エントロピーの期待値を取るベクトルも同時に $\sigma^{1/2}$ へ変わります。両方の変更を忘れないでください。
+相対エントロピーの入力順序は反対にできません。[相対作用素の向きと規格化](../AQFT29/index.md#prop-aqft29-orientation)によれば、相対作用素の添字を交換すると左右乗算が入れ替わります。エントロピーの期待値を取るベクトルも同時に $\sigma^{1/2}$ へ変わります。両方の変更を忘れないでください。
 
 また、系の基底を同時にユニタリで変更しても区別の強さは変わりません。独立な二系の積状態では二つの寄与が足し合わされます。この二つは有限次元還元の式から直接証明できます。
 
@@ -413,7 +416,7 @@ $$
 
 ## 6. 有限次元の証明から言えないこと
 
-[AQFT15のType III環](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)には、この節までの $\operatorname{Tr}\rho(\log\rho-\log\sigma)$ を**局所環の密度行列の公式**としてそのまま置くことはできません。それでも忠実正規状態の標準表現では、[AQFT29の相対作用素](../AQFT29/index.md#def-aqft29-relative-modular)と第1節のスペクトル積分による定義は意味を持ちます。有限次元還元が示したのは両者の整合であり、すべての局所環が有限次元行列へ還元できるという主張ではありません。
+[AQFT15のType III環](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)には、この節までの $\operatorname{Tr}\rho(\log\rho-\log\sigma)$ を**領域に付随する環の密度行列の公式**としてそのまま置くことはできません。それでも忠実正規状態の標準表現では、[AQFT29の相対作用素](../AQFT29/index.md#def-aqft29-relative-modular)と第1節のスペクトル積分による定義は意味を持ちます。有限次元還元が示したのは両者の整合であり、すべての領域代数が有限次元行列へ還元できるという主張ではありません。
 
 また、$\rho$ または $\sigma$ が零固有値を持つと $\rho^{-1}$ や $\log\sigma$ の書き方に注意が必要です。[AQFT29の非忠実入力の反例](../AQFT29/index.md#prop-aqft29-orientation)は、単に逆行列の式が壊れる前に、初期作用素が一価でなくなる場合があることを示します。**支持射影と $+\infty$ の正しい扱いはAQFT31**で学びます。一般の正値性・零となる条件、部分環への制限による単調性の厳密な一般論も、後続講義で証明します。
 
@@ -446,7 +449,7 @@ $$
 
 $\rho=\sigma=\operatorname{diag}(3/4,1/4)$ とする。Hilbert–Schmidt空間上の $\Delta_{\rho\mid\rho}$ の固有値をすべて求め、$S_{\mathrm A}(\rho\Vert\rho)=0$ をスペクトル重みから確かめよ。
 
-**詳細解答。** [AQFT29の行列公式](../AQFT29/index.md#thm-aqft29-matrix-formulas)より $\Delta E_{ij}=(r_i/r_j)E_{ij}$ です。$E_{11},E_{12},E_{21},E_{22}$ の順の固有値は $1,3,1/3,1$ となり、確かに作用素自体は恒等ではありません。一方
+**詳細解答。** [忠実な有限次元二状態の相対Tomita全計算](../AQFT29/index.md#thm-aqft29-matrix-formulas)より $\Delta E_{ij}=(r_i/r_j)E_{ij}$ です。$E_{11},E_{12},E_{21},E_{22}$ の順の固有値は $1,3,1/3,1$ となり、確かに作用素自体は恒等ではありません。一方
 
 $$
 \rho^{1/2}=\frac{\sqrt3}{2}E_{11}+\frac12E_{22}
@@ -631,9 +634,18 @@ $$
 #### AQFT30-C01 同じ非可換二状態の双方向比較
 - Level: C
 
-第4節の $\rho=\operatorname{diag}(3/4,1/4)$、$\sigma=\begin{pmatrix}1/2&-1/6\\-1/6&1/2\end{pmatrix}$ について次を求めよ。(1) 相対作用素 $\Delta_{\sigma\mid\rho}$ の全固有値と $\rho^{1/2}$ に関する重み。(2) そこから求めた $S_{\mathrm A}(\rho\Vert\sigma)$。(3) 添字と入力ベクトルの両方を交換して得られる $S_{\mathrm A}(\sigma\Vert\rho)$。両者が等しいか判定せよ。
+第4節の次の二状態について問いに答えよ。
 
-**詳細解答。** (1) $\rho$ の固有値 $r_1=3/4,r_2=1/4$ と $\sigma$ の固有値 $s_1=2/3,s_2=1/3$ を別々の基底に対応させると、[混合基底補題](#lem-aqft30-mixed-spectrum)から固有値は $8/9,8/3,4/9,4/3$。重みは $\rho^{1/2}$ の展開係数の二乗なので $3/8,1/8,3/8,1/8$ です。
+$
+\rho=\operatorname{diag}(3/4,1/4),
+\qquad \sigma=\begin{pmatrix}1/2&-1/6\\-1/6&1/2\end{pmatrix}.
+$
+
+1. 相対作用素 $\Delta_{\sigma\mid\rho}$ の全固有値と $\rho^{1/2}$ に関する重みを求めよ。
+2. そこから $S_{\mathrm A}(\rho\Vert\sigma)$ を求めよ。
+3. 添字と入力ベクトルの両方を交換した $S_{\mathrm A}(\sigma\Vert\rho)$ を求め、二値が等しいか判定せよ。
+
+**詳細解答。** (1) $\rho$ の固有値 $r_1=3/4,r_2=1/4$ と $\sigma$ の固有値 $s_1=2/3,s_2=1/3$ を別々の基底に対応させると、[相対作用素の混合固有基底とスペクトル重み](#lem-aqft30-mixed-spectrum)から固有値は $8/9,8/3,4/9,4/3$。重みは $\rho^{1/2}$ の展開係数の二乗なので $3/8,1/8,3/8,1/8$ です。
 
 (2) 固有値の対数を各重みで平均すると
 
@@ -695,7 +707,11 @@ $$
 \end{aligned}
 $$
 
-とし、$\rho_{AB}=\rho_A\otimes\rho_B$、$\sigma_{AB}=\sigma_A\otimes\sigma_B$ とする。(1) 忠実性を確認せよ。(2) $S_{\mathrm A}(\rho_{AB}\Vert\sigma_{AB})$ を求めよ。(3) $B$ を部分トレースした後の相対エントロピーと差を計算し、この例で失われる情報量を示せ。
+とし、$\rho_{AB}=\rho_A\otimes\rho_B$、$\sigma_{AB}=\sigma_A\otimes\sigma_B$ とする。
+
+1. 両積状態の忠実性を確認せよ。
+2. $S_{\mathrm A}(\rho_{AB}\Vert\sigma_{AB})$ を求めよ。
+3. $B$ を部分トレースした後の相対エントロピーと差を計算し、この例で失われる情報量を示せ。
 
 **詳細解答。** (1) 各密度行列の固有値は問題文に書いた二つの正数で合計1です。積状態の固有値はそれらの積なので、4個とも正、トレースも $1\cdot1=1$ で、両積状態は忠実です。
 
