@@ -1,0 +1,65 @@
+chapter: U3-23
+scope: dream-theater
+coverage: complete
+prerequisites: [NA7, U3-21, U3-22]
+concepts:
+  - id: finance.bsm-theta-scheme
+    name: θ 時間差分法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（θ 時間差分法）"]
+    requires: [finance.explicit-bsm-three-point, numerical.theta-method]
+  - id: finance.bsm-tridiagonal-residual
+    name: 三重対角方程式と残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三重対角方程式と残差）"]
+    requires: [finance.bsm-theta-scheme]
+  - id: finance.bsm-thomas-elimination
+    name: 三重対角消去の計算手順
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三重対角消去の計算手順）"]
+    requires: [finance.bsm-tridiagonal-residual]
+  - id: finance.bsm-implicit-monotone
+    name: 陰解法の一意可解性・非負性・最大値安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（陰解法の一意可解性・非負性・最大値安定性）"]
+    requires: [finance.bsm-theta-scheme]
+  - id: finance.bsm-cn-positivity
+    name: Crank–Nicolson 法の非負性の十分条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Crank–Nicolson 法の非負性の十分条件）"]
+    requires: [finance.bsm-implicit-monotone]
+  - id: finance.bsm-high-frequency
+    name: 減衰するモードの増幅係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（減衰するモードの増幅係数）"]
+    requires: [finance.bsm-theta-scheme]
+  - id: finance.bsm-rannacher
+    name: 2半刻み Rannacher smoothing
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（2半刻み Rannacher smoothing）"]
+    requires: [finance.bsm-theta-scheme]
+  - id: finance.bsm-rannacher-damping
+    name: 初回モードの Rannacher 減衰
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（初回モードの Rannacher 減衰）"]
+    requires: [finance.bsm-rannacher, finance.bsm-high-frequency]
+  - id: finance.bsm-implicit-consistency
+    name: 滑らかな解の局所打切り誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな解の局所打切り誤差）"]
+    requires: [finance.bsm-theta-scheme, finance.explicit-bsm-truncation]
+  - id: finance.bsm-implicit-error
+    name: 単調性の下での大域誤差の上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単調性の下での大域誤差の上界）"]
+    requires: [finance.bsm-implicit-consistency, finance.bsm-implicit-monotone, finance.bsm-cn-positivity]
