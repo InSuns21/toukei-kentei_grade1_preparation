@@ -199,14 +199,14 @@ $$
 
 まずエネルギーが十分小さい長さ2の円柱に対して、[小エネルギー勾配評価](../GW1-05/index.md#lem-gw1-05-small-energy)を中央の幅1で適用する。有限個の共形座標円盤で幅1の円周を覆えば、各円周像の長さが $\delta$ 未満になる。したがって前の[局所作用評価](#lem-gw1-06-local-action)が適用できる。
 
-$t$ を動かしたループの局所作用は、短いループの張る小円板を連続的に動かして定義する。$\omega$ は閉形式だからStokesの定理と変分公式で作用差は円柱の引戻し面積に一致する。$z=e^{-t+i\theta}$ の向きでは $u_t=-J(u)u_\theta$ なので、$|u_t|=|u_\theta|$、単位長さ当たりのエネルギーは
+$t$ を動かしたループの局所作用は、短いループの張る小円板を連続的に動かして定義する。$\omega$ は閉形式だからStokesの定理と変分公式で作用差は円柱の引戻し面積に一致する。$z=e^{-t+i\theta}$ では定義域の複素構造が $j\partial_t=-\partial_\theta$ を満たす。[擬正則方程式](../GW1-02/index.md#def-gw1-02-j-holomorphic)に代入すると $u_t=J(u)u_\theta$ であり、$|u_t|=|u_\theta|$。従って単位長さ当たりのエネルギーは
 
 $$
 e(t)=\frac12\int_0^{2\pi}(|u_t|^2+|u_\theta|^2)\,d\theta
 =\int_0^{2\pi}|u_\theta|^2\,d\theta.
 $$
 
-作用の向きを選べば $A'(t)=-e(t)$。よって
+$\omega(Ju_\theta,u_\theta)=-|u_\theta|^2$ であるから、局所作用の変分は $A'(t)=\int_{S^1}\omega(u_t,u_\theta)d\theta=-e(t)$。よって
 
 $$
 E(u;[t_1,t_2]\times S^1)
