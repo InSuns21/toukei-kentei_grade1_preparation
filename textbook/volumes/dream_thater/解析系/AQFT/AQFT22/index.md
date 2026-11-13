@@ -82,7 +82,9 @@ $\alpha=(1+\lambda)^{-1}$ と置けば $\alpha+\bar\alpha=1$、$\bar\alpha=\lamb
 $$
 \chi_C(Y)=\varphi(\alpha CY+\bar\alpha YC)
 $$
-と置きます。$Y=Y^*$ で $\chi_C(Y)$ は実数です。自己共役単位球は[弱*コンパクト性](../../VN/VN6/index.md)を持ち、固定した $Y$ への $C\mapsto\chi_C(Y)$ は超弱連続です。従って $\{\chi_C\}$ は自己共役元全体を添字集合とする実数の直積空間でコンパクト・凸です。
+と置きます。$Y=Y^*$ で $\chi_C(Y)$ は実数です。自己共役単位球のコンパクト性をここで確認します。$\|C\|\le1$ ならすべての $x,y\in\mathcal H$ について $|\langle x,Cy\rangle|\le\|x\|\|y\|$ です。行列係数の値域は複素平面の閉円板であり、[FA4の直積コンパクト性定理](../../FA/FA4/index.md#thm-fa4-compact-hausdorff-product)によりそれらの直積はコンパクトです。行列係数の座標ごとの極限は、同じ評価を満たす有界な半双線形形式を定め、Rieszの表現によって一意な $C\in B(\mathcal H)$ に戻ります。したがって $B(\mathcal H)$ の単位球は弱作用素位相でコンパクトです。$\mathcal M$ は弱作用素閉で、自己共役性も行列係数の等式で閉条件となるため、$\mathcal M$ の自己共役単位球もコンパクトです。
+
+固定した $Y$ に対して $\varphi(CY)=\langle\Omega,CY\Omega\rangle$ と $\varphi(YC)=\langle Y^*\Omega,C\Omega\rangle$ は $C$ の行列係数なので、この位相で連続です。従って $\{\chi_C\}$ は自己共役元全体を添字集合とする実数の直積空間でコンパクト・凸です。
 
 もし $\chi$ がこの集合の外なら、有限個の座標へ射影して実有限次元の凸集合を分離することで、ある $Y=Y^*\in\mathcal M$ について
 $$
@@ -264,7 +266,7 @@ $$
 $$
 I(u)=\int_{\mathbb R}\frac{e^{-iut}}{2\cosh(\pi t)}\,dt.
 $$
-$\cosh(\pi z)$ の零点 $z=i/2$ を囲む高さ1の長方形に $e^{-iuz}/(2\cosh\pi z)$ を積分すると、$z=i/2$ の留数は $e^{u/2}/(2\pi i)$。左右の縦辺は $|\operatorname{Im}u|<\pi$ の指数減衰で消え、上辺では $\cosh(\pi(t+i))=-\cosh(\pi t)$ と $e^{-iu(t+i)}=e^ue^{-iut}$ を用います。上下辺の向きを考慮すると
+$\cosh(\pi z)$ の零点 $z=i/2$ を囲む高さ1の長方形に $e^{-iuz}/(2\cosh\pi z)$ を[CA4の留数定理](../../CA/CA4/index.md#thm-ca4-residue)に従って積分すると、$z=i/2$ の留数は $e^{u/2}/(2\pi i)$。左右の縦辺は $|\operatorname{Im}u|<\pi$ の指数減衰で消え、上辺では $\cosh(\pi(t+i))=-\cosh(\pi t)$ と $e^{-iu(t+i)}=e^ue^{-iut}$ を用います。上下辺の向きを考慮すると
 $$
 (1+e^u)I(u)=e^{u/2},\quad
 I(u)=\frac1{2\cosh(u/2)}.
@@ -306,17 +308,18 @@ $$
 $$
 Ja^*J=\int k_\theta(t)\,U_{-t}bU_t\,dt.
 $$
-反ユニタリで挟む際には係数が共役されるので、$B_t=JU_{-t}bU_tJ$ と置けば
-$$
-a^*=\int\overline{k_\theta(t)}\,B_t\,dt. \tag{1}
+反ユニタリで挟む際には係数が共役されます。$B_t=JU_{-t}bU_tJ$ と置くと、**作用素としての式（I）** は
+$
+a^*=\int\overline{k_\theta(t)}\,B_t\,dt.
 $$
 一方 $a\Omega=(\Delta+\lambda)^{-1}b\Omega$ と $S(a\Omega)=a^*\Omega$、[cosh積分](#lem-aqft22-cosh-transform)を関数計算へ適用すると
-$$
+**ベクトルとしての式（II）** は
+$
 a^*\Omega
 =J\Delta^{1/2}(\Delta+\lambda)^{-1}b\Omega
-=\int\overline{k_\theta(t)}\,JU_{-t}b\Omega\,dt. \tag{2}
+=\int\overline{k_\theta(t)}\,JU_{-t}b\Omega\,dt.
 $$
-ここには**作用素 $a^*$ の式** (1) と、**その $\Omega$ への作用の式** (2) の二種類があります。両式を比較すると可換子との交換性が引き出せます。
+ここには**作用素 $a^*$ の式（I）** と、**その $\Omega$ への作用の式（II）** の二種類があります。両式を比較すると可換子との交換性が引き出せます。
 
 ## 5. Tomitaの可換子定理
 
@@ -338,7 +341,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**第一の包含。** $b,d\in\mathcal M'$ を任意に固定します。$a^*\in\mathcal M$ は $d$ と交換するので、(1) を $d\Omega$ に作用させ、(2) の両辺へ $d$ を作用させたものを引きます。$w(t)=2\cosh\pi t$、$\overline{k_\theta(t)}=e^{-\theta t+i\theta/2}/w(t)$ を使い、非零の共通位相を除くと
+**第一の包含。** $b,d\in\mathcal M'$ を任意に固定します。$a^*\in\mathcal M$ は $d$ と交換するので、（I）を $d\Omega$ に作用させ、（II）の両辺へ $d$ を作用させたものを引きます。$w(t)=2\cosh\pi t$、$\overline{k_\theta(t)}=e^{-\theta t+i\theta/2}/w(t)$ を使い、非零の共通位相を除くと
 $$
 \int_{\mathbb R}\frac{e^{-\theta t}}{w(t)}
 \bigl(B_td\Omega-dJU_{-t}b\Omega\bigr)\,dt=0
@@ -389,7 +392,7 @@ $$
 &=[JaJy\Omega,b^*\Omega].
 \end{aligned}
 $$
-ここで $S(a^*c^*\Omega)=(ca)\Omega$、$Jb^*\Omega=b^*? $ という略記は用いていません。正確には $Jb^*J=c^*$ かつ $J\Omega=\Omega$ を使い、$Ja^*Jb^*\Omega=J(a^*c^*\Omega)$ として各行を読んでいます。
+定義域を確認すると、$a^*c^*\Omega\in\mathcal M\Omega\subset\operatorname{Dom}S$ です。$S(a^*c^*\Omega)=ca\Omega$、$c^*=Jb^*J$ および $J\Omega=\Omega$ より、$Ja^*Jb^*\Omega=J(a^*c^*\Omega)\in\operatorname{Dom}F$。また $y^*\Omega\in\operatorname{Dom}S$ なので、上の反線形随伴の移項はすべて定義されています。
 
 $\mathcal M'\Omega$ が稠密だから
 $$
