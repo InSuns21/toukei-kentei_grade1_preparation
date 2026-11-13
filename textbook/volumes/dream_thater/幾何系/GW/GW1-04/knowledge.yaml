@@ -33,6 +33,24 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（普遍Cauchy–Riemann切断）"]
     requires: [gromov-witten.nonlinear-cr-operator]
+  - id: gromov-witten.local-regular-moduli
+    name: 正則な零点の局所解空間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則な零点の局所解空間）"]
+    requires: [gromov-witten.regular-map, gromov-witten.fredholm-index]
+  - id: gromov-witten.universal-linearization
+    name: 普遍線形化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（普遍線形化）"]
+    requires: [gromov-witten.universal-cr-section, gromov-witten.linearization]
+  - id: gromov-witten.fredholm-generic-position
+    name: Fredholm写像の一般位置原理
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（Fredholm写像の一般位置原理）"]
+    requires: [gromov-witten.fredholm-operator]
   - id: gromov-witten.universal-transversality
     name: 単純曲線における普遍横断性
     kind: theorem
@@ -44,7 +62,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（単純曲線に対する一般のJの正則性）"]
-    requires: [gromov-witten.universal-transversality, gromov-witten.regular-map]
+    requires: [gromov-witten.universal-transversality, gromov-witten.regular-map, gromov-witten.fredholm-generic-position]
   - id: gromov-witten.multicover-obstruction
     name: 負の法束を持つ球面の多重被覆
     kind: proposition
