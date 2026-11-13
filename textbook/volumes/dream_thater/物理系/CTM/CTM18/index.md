@@ -74,20 +74,20 @@ $$
 
 力と伸びの条件を数値で確かめる。Maxwell 模型に $\sigma=10^4$ Pa、$E=10^6$ Pa、$\eta_v=2\times10^6$ Pa s、$\dot\varepsilon_d=0.005$ s$^{-1}$ を与える。このとき
 
-$
+$$
 \varepsilon_s=\frac{10^4}{10^6}=0.01,\qquad
 \sigma_d=(2\times10^6)(0.005)=10^4\ \mathrm{Pa}.
-$
+$$
 
 ばねとダッシュポットの応力が一致する。全ひずみ速度は $\dot\varepsilon=\dot\varepsilon_s+0.005$ であり、素子のひずみは同一視しない。
 
 Kelvin–Voigt 模型に $\varepsilon=0.01$、$\dot\varepsilon=0.005$ s$^{-1}$ を与えると、二枝のひずみと速度はそれぞれ等しく、応力は
 
-$
+$$
 \sigma_s=E\varepsilon=10^4\ \mathrm{Pa},\qquad
 \sigma_d=\eta_v\dot\varepsilon=10^4\ \mathrm{Pa},\qquad
 \sigma=\sigma_s+\sigma_d=2\times10^4\ \mathrm{Pa}.
-$
+$$
 
 これは並列接続の荷重加算を直接確認する例である。
 
