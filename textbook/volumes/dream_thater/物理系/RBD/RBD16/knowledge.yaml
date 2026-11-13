@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - RBD15
+  - ODE4
 forward_references: []
 concepts:
   - id: mechanics.rigid-attitude-numerical-diagnostics
