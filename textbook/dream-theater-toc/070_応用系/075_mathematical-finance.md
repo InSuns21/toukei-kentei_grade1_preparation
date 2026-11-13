@@ -13,3 +13,4 @@
 10. [U3-10 Lookback と経路依存状態の圧縮](textbook/volumes/dream_thater/応用系/U/U3-10/index.md)
 11. [U3-11 CRR 木・三項木と収束・計算量](textbook/volumes/dream_thater/応用系/U/U3-11/index.md)
 12. [U3-12 ランダムウォークから Brown 運動への極限](textbook/volumes/dream_thater/応用系/U/U3-12/index.md)
+13. [U3-13 金融モデルへの Itô 公式の適用](textbook/volumes/dream_thater/応用系/U/U3-13/index.md)
