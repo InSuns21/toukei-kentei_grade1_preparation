@@ -373,7 +373,7 @@ v(0,s_0)=\frac{s_0^2}{K}e^{(r+\sigma^2)T}.
 $$
 <!-- formal-statement-end -->
 
-**見取り図**：まず $Q$ の下で [GBM の二次条件付きモーメント](../U3-14/index.md#prop-u3-14-conditional)を計算すると、割引期待値が $v(t,S_t)$ と一致します。しかし、それだけでは複製戦略を作ったことにはなりません。[Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から $d(v/B)$ の雑音係数を取り出し、株式の割引値動きに合わせて**自己金融を別途確認**します。
+**見取り図**：まず $Q$ の下で [GBM の二次条件付きモーメント](../U3-14/index.md#prop-u3-14-conditional)を計算すると、割引期待値が $v(t,S_t)$ と一致します。しかし、それだけでは複製戦略を作ったことにはなりません。[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から $d(v/B)$ の雑音係数を取り出し、株式の割引値動きに合わせて**自己金融を別途確認**します。
 
 <!-- proof-start -->
 ### 証明
@@ -576,7 +576,7 @@ $$
 ### B3：二乗支払額のヘッジ比率の導出
 - Level: B
 
-$H=S_T^2/K$、$K>0$ とし、$v(t,s)=s^2e^{(r+\sigma^2)(T-t)}/K$ を与える。$Q$ の下の Itô 公式から $d(v(t,S_t)/B_t)=\Delta_t\,d(S_t/B_t)$ を示し、$\Delta_t$ と $\psi_t$ を求めよ。
+$H=S_T^2/K$、$K>0$ とし、$v(t,s)=s^2e^{(r+\sigma^2)(T-t)}/K$ を与える。$Q$ の下で [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) を適用し、$d(v(t,S_t)/B_t)=\Delta_t\,d(S_t/B_t)$ を示し、$\Delta_t$ と $\psi_t$ を求めよ。
 
 <!-- solution-start -->
 **詳細解答**：$a=r+\sigma^2$ とおき、[Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)に必要な偏微分を順に計算します。
