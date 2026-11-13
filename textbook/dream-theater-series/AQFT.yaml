@@ -86,7 +86,7 @@ chapters:
     title: "Hilbert–Schmidt標準表現の全計算"
   - id: AQFT21
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT21
-    status: planned
+    status: completed
     title: "モジュラーHilbert環の準備補題"
   - id: AQFT22
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT22
