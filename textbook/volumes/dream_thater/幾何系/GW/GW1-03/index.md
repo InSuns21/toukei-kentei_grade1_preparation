@@ -229,7 +229,11 @@ $$
 
 円盤を縮め $C\varepsilon<1/2$ とすると右辺の勾配項を吸収できる。有限個の座標と分割関数 $\rho_a$ を選び、$D(\rho_a\xi)=\rho_aD\xi+[D,\rho_a]\xi$ を使う。交換子 $[D,\rho_a]$ は零階なので $L^2$ 項に吸収され、$k=1$ の大域評価を得る。
 
-**高階化と弱解。** 局所化した式に弱微分 $\partial^\alpha$（$|\alpha|=k-1$）を作用させると、$[D,\partial^\alpha]$ の各項は係数の導関数と $\xi$ の高々 $k-1$ 階の微分からなる。帰納的に低階ノルムを右辺へまとめると $H^k$ 評価になる。初めから弱微分があることを仮定しない場合は、[GA3の差分商による局所正則性](../../GA/GA3/index.md#thm-ga3-local-regularity)と同じく、コンパクト台切断に差分商を適用して一様評価を取り、弱コンパクト性で微分を得る。この一階版では凍結した行列の可逆シンボルによる上記評価が勾配の制御を担当する。$f$ がすべての $H^{k-1}_{\mathrm{loc}}$ に属するなら帰納的に $\xi$ もすべての $H^k_{\mathrm{loc}}$ に属し、[Sobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)から滑らかとなる。
+**高階化と弱解。** 局所化した式に弱微分 $\partial^\alpha$（$|\alpha|=k-1$）を作用させると、$[D,\partial^\alpha]$ の各項は係数の導関数と $\xi$ の高々 $k-1$ 階の微分からなる。帰納的に低階ノルムを右辺へまとめると $H^k$ 評価になる。
+
+初めから弱微分があることを仮定しない場合は、[GA3の差分商による局所正則性](../../GA/GA3/index.md#thm-ga3-local-regularity)と同じく、コンパクト台切断に差分商を適用して一様評価を取り、弱コンパクト性で微分を得る。この一階版では凍結した行列の可逆シンボルによる上記評価が勾配の制御を担当する。
+
+$f$ がすべての $H^{k-1}_{\mathrm{loc}}$ に属するなら帰納的に $\xi$ もすべての $H^k_{\mathrm{loc}}$ に属し、[Sobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)から滑らかとなる。
 <!-- proof-end -->
 
 この評価では $\|\xi\|_{L^2}$ を消していない。それは $D\xi=0$ の非零解、すなわち核が存在し得るからである。核が有限次元であることを導くには、[Rellichのコンパクト性](../../GA/GA2/index.md#thm-ga2-rellich)を一緒に使う。
@@ -314,13 +318,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 基準となる自明線束。** $H^0(\Sigma,\mathcal O)$ はコンパクト連結Riemann面上の正則関数であり、最大値原理から定数のみ、よって複素次元1である。各Riemann面は複素次元1なので任意のHermite計量の基本2形式 $\omega$ に対し $d\omega=0$（3形式が零）でKählerである。[Dolbeaultの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)と[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)により、$H^1(\Sigma,\mathcal O)$ の次元は $h^{0,1}$ である。複素共役で $h^{1,0}=h^{0,1}$、一方 $b_1=2g=h^{1,0}+h^{0,1}$ だから $h^{0,1}=g$。従って
+**(1) 基準となる自明線束。** $H^0(\Sigma,\mathcal O)$ はコンパクト連結Riemann面上の正則関数であり、最大値原理から定数のみ、よって複素次元1である。
+
+各Riemann面は複素次元1なので任意のHermite計量の基本2形式 $\omega$ に対し $d\omega=0$（3形式が零）でKählerである。
+
+[Dolbeaultの調和代表](../../HOD/HOD1-06/index.md#thm-hod1-06-dolbeault-harmonic)と[Hodge分解](../../HOD/HOD1-06/index.md#thm-hod1-06-hodge-decomposition)により、$H^1(\Sigma,\mathcal O)$ の次元は $h^{0,1}$ である。複素共役で $h^{1,0}=h^{0,1}$、一方 $b_1=2g=h^{1,0}+h^{0,1}$ だから $h^{0,1}=g$。
+
+従って
 
 $$
 \chi(\mathcal O)=h^0-h^1=1-g.
 $$
 
-**(2) 点を一つ増やす。** 点 $p$ の小円盤で正則座標 $z$ を使う。[因子が線束を作る構成](../../../代数系/AG/AG2-07/index.md#def-ag2-07-associated-line-bundle)と同じ局所貼り合わせで、正則線束 $L(p)=L\otimes\mathcal O(p)$ を作る。$p$ の周辺では $L$ の正則枠 $e$ に対し $L(p)$ の局所切断は $z^{-1}f(z)e$ を許す。$L$ の切断 $f(z)e$ を埋め込んだ商は、$f(0)$ という一つの複素数で決まる。よって層の短完全列
+**(2) 点を一つ増やす。** 点 $p$ の小円盤で正則座標 $z$ を使う。[因子が線束を作る構成](../../../代数系/AG/AG2-07/index.md#def-ag2-07-associated-line-bundle)と同じ局所貼り合わせで、正則線束 $L(p)=L\otimes\mathcal O(p)$ を作る。
+
+$p$ の周辺では $L$ の正則枠 $e$ に対し $L(p)$ の局所切断は $z^{-1}f(z)e$ を許す。
+
+$L$ の切断 $f(z)e$ を埋め込んだ商は、$f(0)$ という一つの複素数で決まる。よって層の短完全列
 
 $$
 0\longrightarrow\mathcal O(L)
@@ -336,7 +350,13 @@ $$
 
 逆に点を一つ引けば差は $-1$ となる。有限の符号付き点の和 $D=\sum n_pp$ について帰納的に $\chi(\mathcal O(D))=1-g+\sum n_p$ を得る。ここで複素次元1の局所 $\bar\partial$-Poincaré補題と滑らかな形式の分割一の性質により、Dolbeault複体は正則切断層の非輪状分解である。[局所補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)と[Dolbeaultコホモロジーの定義](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)から、上の $H^q$ を $\bar\partial_L$ の核・余核と同一視できる。
 
-**(3) 任意の滑らかな線束。** コンパクト向き付き曲面の複素線束は整数の第一Chern数で分類される。具体的には一点を除いた曲面では $H^2=0$ なので線束を自明化でき、その点の小円盤との境界円上の遷移関数 $S^1\to\mathbb C^\times$ の巻き数が $d=\langle c_1(L),[\Sigma]\rangle$ である。$\mathcal O(p)$ は局所遷移関数 $z^{-1}$ を使い、正の複素向きで次数 $+1$ を持つ。従って滑らかな複素束として $L\simeq\mathcal O(dp)$。異なる $\bar\partial$ 構造は同じ一階シンボルを持ち、差は零階なので線形補間で指数が変わらない。このため任意の線束で $\operatorname{ind}_{\mathbb C}\bar\partial_L=1-g+d$。
+**(3) 任意の滑らかな線束。** コンパクト向き付き曲面の複素線束は整数の第一Chern数で分類される。
+
+具体的には一点を除いた曲面では $H^2=0$ なので線束を自明化でき、その点の小円盤との境界円上の遷移関数 $S^1\to\mathbb C^\times$ の巻き数が $d=\langle c_1(L),[\Sigma]\rangle$ である。
+
+$\mathcal O(p)$ は局所遷移関数 $z^{-1}$ を使い、正の複素向きで次数 $+1$ を持つ。従って滑らかな複素束として $L\simeq\mathcal O(dp)$。
+
+異なる $\bar\partial$ 構造は同じ一階シンボルを持ち、差は零階なので線形補間で指数が変わらない。このため任意の線束で $\operatorname{ind}_{\mathbb C}\bar\partial_L=1-g+d$。
 
 **(4) 階数 $m$。** $m\ge2$ の複素束は、実二次元の基底上で零でない滑らかな切断を持つ。実際、細胞分割の0・1骨格上で切断を非零に延長でき、2細胞への障害は球面 $S^{2m-1}$ の $\pi_1=0$（$m\ge2$）で消える。Hermite直交補空間で階数を一つ落とし、これを繰り返すと滑らかな複素束として $E\simeq\underline{\mathbb C}^{m-1}\oplus L$ となる。直和上のDolbeault作用素へ零階変形できる。直和の核と余核は各成分の核と余核の直和になるため、指数は各指数の和であり
 
@@ -477,7 +497,7 @@ $\bar\partial_Ju(\partial_s)=\tfrac12(u_s+J(u)u_t)$ を使い、$u_\varepsilon$ 
 閉曲面上の一階楕円型 $D$ の核が無限次元だと仮定し矛盾を導け。
 
 <!-- solution-start -->
-**詳細解答**。[楕円型評価](#thm-gw1-03-elliptic-estimate)は $D\xi=0$ なら $\|\xi\|_{H^1}\le C\|\xi\|_2$ を与える。核が無限次元なら $L^2$ 直交する単位切断 $\xi_n$ を無限個取れる。この $H^1$ の上界に[Rellichの定理](../../GA/GA2/index.md#thm-ga2-rellich)を適用すると $L^2$ 収束部分列があるはずだが、相異なる二項の距離は $\|\xi_n-\xi_k\|_2=\sqrt2$ でありCauchy部分列がない。矛盾するので核は有限次元である。
+**詳細解答**。[楕円型評価](#thm-gw1-03-elliptic-estimate)は $D\xi=0$ なら $\|\xi\|_{H^1}\le C\|\xi\|_2$ を与える。核が無限次元なら $L^2$ 直交する単位切断 $\xi_n$ を無限個取れる。そのような列は $H^1$ 有界である。ここで[GA2のRellich埋め込み](../../GA/GA2/index.md#thm-ga2-rellich)を適用すると $L^2$ 収束部分列があるはずだが、相異なる二項の距離は $\|\xi_n-\xi_k\|_2=\sqrt2$ でありCauchy部分列がない。矛盾するので核は有限次元である。
 <!-- solution-end -->
 
 <a id="ex-gw1-03-b03"></a>
@@ -487,7 +507,11 @@ $\bar\partial_Ju(\partial_s)=\tfrac12(u_s+J(u)u_t)$ を使い、$u_\varepsilon$ 
 Riemann面の正則線束 $L$ と点 $p$ に対し、短完全列 $0\to L\to L(p)\to\mathbb C_p\to0$ から $\chi(L(p))-\chi(L)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$p$ の局所座標 $z$ では $L(p)$ の切断に $z^{-1}$ までの極を許し、もとの正則切断で割った商は $z^{-1}$ の係数一つ、すなわち $\mathbb C_p$ である。[長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和を取り $\chi(L(p))=\chi(L)+\chi(\mathbb C_p)$。点層では $h^0=1,h^1=0$ なので差は $+1$。これは[指数計算](#thm-gw1-03-rr-computation)の次数補正そのものである。
+**詳細解答**。$p$ の局所座標 $z$ では $L(p)$ の切断に $z^{-1}$ までの極を許し、もとの正則切断で割った商は $z^{-1}$ の係数一つ、すなわち $\mathbb C_p$ である。
+
+[長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和を取り $\chi(L(p))=\chi(L)+\chi(\mathbb C_p)$。点層では $h^0=1,h^1=0$ なので差は $+1$。
+
+これは[指数計算](#thm-gw1-03-rr-computation)の次数補正そのものである。
 <!-- solution-end -->
 
 <a id="ex-gw1-03-b04"></a>
@@ -506,7 +530,12 @@ $u:\mathbb{CP}^1\to\mathbb{CP}^1$ が次数2の正則写像のとき、指数、
 #### GW1-03-C01 作用素の楕円性から球面写像の自由度へ
 - Level: C
 
-$\Sigma=\mathbb{CP}^1$、$X=\mathbb{CP}^1$、$u([Z_0:Z_1])=[Z_0^d:Z_1^d]$（$d\ge1$）とする。(1) 標準 $J$ に関する主シンボルと可逆性を示せ。(2) $u^*TX$ の次数と実Fredholm指数を求めよ。(3) 全射性と核の次元を検算せよ。(4) この指数が「像としての曲線の数」を直ちに与えない理由を述べよ。
+$\Sigma=\mathbb{CP}^1$、$X=\mathbb{CP}^1$、$u([Z_0:Z_1])=[Z_0^d:Z_1^d]$（$d\ge1$）とする。次の四点を示せ。
+
+1. 標準 $J$ に関する主シンボルと可逆性
+2. $u^*TX$ の次数と実Fredholm指数
+3. 全射性と核の次元の検算
+4. 指数が「像としての曲線の数」を直ちに与えない理由
 
 <!-- solution-start -->
 **詳細解答**。
