@@ -8,7 +8,7 @@
 
 三次元の応力のない基準配置を開集合 $\Omega_0\subset\mathbb R^3$ とし、変位 $u:\Omega_0\to\mathbb R^3$ は $C^1$ 級とする。変形した位置を $x=X+u(X)$、変形勾配を $F=I_3+\nabla_Xu$ と書く。$X,u,x$ の単位は m、$\nabla_Xu$ と以下のひずみは無次元である。$\|\nabla_Xu\|$ が $1$ より十分小さい範囲で一次の項を残す（どの量を無視するかは式中で示す）。$I_3$ は単位行列、$e_i$ は標準直交基底、$A:B=\sum_{i,j}A_{ij}B_{ij}$、$\operatorname{tr}A=\sum_iA_{ii}$ とする。
 
-[CTM7 の応力対称性](../CTM7/index.md#prop-ctm7-angular-stress)を持つ古典的連続体を対象とする。ここでの $\sigma$ は一次近似での Cauchy 応力（Pa = N/m$^2$）である。弾性エネルギー密度 $W$ と Lamé 係数 $\lambda,\mu$、体積弾性率 $K$、Young率 $E_Y$ の単位も Pa、Poisson比 $\nu$ は無次元とする。Young率の記号 $E_Y$ は[CTM3 の有限ひずみ $E$](../CTM3/index.md#def-ctm3-green-strain)との混同を避けるために用いる。
+[CTM7 の応力対称性](../CTM7/index.md#prop-ctm7-angular-stress)を持つ古典的連続体を対象とする。ここでの $\sigma$ は一次近似での Cauchy 応力（Pa = N/m$^2$）である。弾性エネルギー密度 $W$ と Lamé 係数 $\lambda,\mu$ の単位も Pa である。ほかの材料定数は、それぞれの実験による定義とともに単位を示す。
 
 ## 1. 小さな伸縮と回転をどう分けるか
 
@@ -83,7 +83,7 @@ W(\varepsilon)=\mu\,\varepsilon_{\rm dev}:\varepsilon_{\rm dev}
 +\frac K2\theta^2
 $$
 
-とする。$\varepsilon_{\rm dev}$ は対称、$\operatorname{tr}\varepsilon_{\rm dev}=0$ で、$Q^TQ=I_3$ から $\operatorname{tr}(Q\varepsilon Q^T)=\theta$、$(Q\varepsilon_{\rm dev}Q^T):(Q\varepsilon_{\rm dev}Q^T)=\varepsilon_{\rm dev}:\varepsilon_{\rm dev}$ となる。従ってエネルギーは等方的、二次同次、$W(0)=0$ である。後述する変分により応力はひずみに線形、$\varepsilon\ne0$ なら $W>0$ となる。このように、**定義のすべての条件**を具体式で検査できる。
+とする。$\varepsilon_{\rm dev}$ は対称、$\operatorname{tr}\varepsilon_{\rm dev}=0$ で、$Q^TQ=I_3$ から $\operatorname{tr}(Q\varepsilon Q^T)=\theta$、$(Q\varepsilon_{\rm dev}Q^T):(Q\varepsilon_{\rm dev}Q^T)=\varepsilon_{\rm dev}:\varepsilon_{\rm dev}$ となる。従ってエネルギーは等方的、二次同次、$W(0)=0$ である。後述する変分により応力はひずみに線形、$\varepsilon\ne0$ なら $W>0$ となる。この具体式では二次同次性、材料等方性、応力の線形性と零ひずみでの零応力をそれぞれ確かめられた。
 <!-- definition-example-end -->
 
 なぜ二つの係数で十分なのかを示す。任意の実対称行列は直交行列で対角化できる。基底の一つの符号を変えれば対角化行列は $SO(3)$ に選べる。等方性から、$W$ は三つの実固有値 $d_1,d_2,d_3$ の**対称な二次式**である。主軸を任意に入れ替える置換も、必要なら軸符号を一つ反転して $SO(3)$ の変換として表せる。一般の同次二次式の係数を置換で比較すると、二乗項の係数はすべて同じ、異なる二固有値の積の係数もすべて同じになる。従って $a,b\in\mathbb R$ があって
@@ -474,7 +474,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[逆変換](#thm-ctm11-elastic-constants)の分母は $1+\nu=5/4$、$1-2\nu=1/2$ で正。よって
+[弾性定数の換算定理](#thm-ctm11-elastic-constants)の分母は $1+\nu=5/4$、$1-2\nu=1/2$ で正。よって
 
 $$
 \mu=\frac{120}{2(5/4)}=48\ {\rm GPa},\qquad
