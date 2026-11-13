@@ -37,15 +37,15 @@ $$
 [AQFT20の有限次元模型](../AQFT20/index.md#thm-aqft20-modular-formulas)を用い、$\mathcal H=M_2(\mathbb C)$ にHilbert–Schmidt内積を入れ、$\rho=\operatorname{diag}(p,q)$（$p,q>0$、$p+q=1$）、$\Omega=\rho^{1/2}$、$\mathcal M=\{L_A:X\mapsto AX\}$ とします。$\|\Omega\|_2^2=p+q=1$ です。$\rho^{1/2}$ は可逆だから、$A\Omega=0\Rightarrow A=0$（分離性）。また任意の $X\in M_2$ は $X=(X\rho^{-1/2})\Omega$ と書けるので $\mathcal M\Omega=\mathcal H$（巡回性）。従って[標準対の定義](../AQFT18/index.md#def-aqft18-standard-pair)の両条件を満たします。
 
 この模型のモジュラー共役は $JX=X^*$ です。Hilbert–Schmidt内積 $\langle X,Y\rangle=\operatorname{Tr}(X^*Y)$ に対して $\langle JX,JY\rangle=\overline{\langle X,Y\rangle}$、$J^2=I$ なので $J$ は反ユニタリ対合です。行列単位 $E_{ij}$ では $J(E_{ij})=E_{ji}$、左乗算は $L_A(E_{ij})=\sum_k a_{ki}E_{kj}$ と作用します。この表現に直接 $J$ を作用させると、任意の $A,X\in M_2$ に対して
-$
+$$
 JL_AJ(X)=J(AX^*)=(AX^*)^*=XA^*=R_{A^*}(X).
-$
+$$
 ここで $R_C(X)=XC$ は有界な**右乗算作用素**であり、$A$ の複素共役だけでなく随伴 $A^*$ が現れることに注意してください。
 
 $L_AR_C(X)=AXC=R_CL_A(X)$ なので $\{R_C\}\subset\mathcal M'$。逆に $T\in\mathcal M'$ なら、有限次元では $I\in\mathcal H$ であることを使い
-$
+$$
 T(X)=T(L_XI)=L_XT(I)=XT(I)=R_{T(I)}(X).
-$
+$$
 従って $\{JL_AJ\}=\{R_C\}=\mathcal M'$ で**両包含**が成り立ちます。さらに $J(\alpha A)J=\bar\alpha JAJ$、$JABJ=(JAJ)(JBJ)$、$(JAJ)^*=JA^*J$ で、定義の反線形性・積・随伴の条件も確かめられます。
 <!-- definition-example-end -->
 
@@ -428,10 +428,10 @@ $$
 無限次元の確認例として、Hilbert–Schmidt空間 $\mathsf{HS}(\ell^2)$ 上の左乗算 $\mathcal M=L(B(\ell^2))$ と、忠実で零へ減衰する $\rho$、$\Omega=\rho^{1/2}$ を取ります。このとき $J(X)=X^*$ です。
 
 $JL_AJ=R_{A^*}$ は有界です。$T\in L(B(\ell^2))'$ がなぜ有界右乗算になるかも確かめます。行列単位 $E_{kl}$ に対し、$L_{E_{ij}}E_{kl}=\delta_{jk}E_{il}$ です。$T$ とすべての $L_{E_{ij}}$ の交換性を用いると、$j\ne k$ では $L_{E_{ij}}T(E_{kl})=0$ なので $T(E_{kl})$ の行は第 $k$ 行だけに限られ、$j=k$ では
-$
+$$
 T(E_{il})=L_{E_{ik}}T(E_{kl})
 =\sum_n c_{ln}E_{in}.
-$
+$$
 係数 $c_{ln}$ は $i,k$ に依存しません。$E_{1l}$ の張る閉部分空間に $T$ を制限すると、行ベクトル $(u_l)$ を $(\sum_lu_lc_{ln})_n$ へ送る有界写像になります。従って $(c_{ln})$ はある $C\in B(\ell^2)$ の行列成分で、$\|C\|\le\|T\|$ です。$T(E_{il})=E_{il}C$ がすべての行列単位で成立し、その線形包はHilbert–Schmidt空間に稠密だから $T=R_C$ です。
 
 これに対し[AQFT21で定義した非有界な $T_V$](../AQFT21/index.md#prop-aqft21-right-unbounded)は $R_V$ とは別の操作です。
@@ -448,10 +448,10 @@ $J$ を反ユニタリ対合とし、$A,B\in B(\mathcal H)$、$\alpha\in\mathbb 
 
 <!-- solution-start -->
 **詳細解答。** $J(\alpha A+B)Jx=J(\alpha AJx+BJx)=\bar\alpha JAJx+JBJx$ なので $J(\alpha A+B)J=\bar\alpha JAJ+JBJ$。$J^2=I$ を間に挿入して $(JAJ)(JBJ)=JA(JJ)BJ=JABJ$。反ユニタリ対合について $[Ju,v]=[Jv,u]$ と $[u,Av]=[A^*u,v]$ が成り立つので、$x,y\in\mathcal H$ に対して
-$
+$$
 [JAJx,y]=[Jy,AJx]=[A^*Jy,Jx]=[x,JA^*Jy].
-$
-従って $(JAJ)^*=JA^*J$。従って共役代数は積と随伴を保ちますが複素線形の写像ではありません。
+$$
+よって $(JAJ)^*=JA^*J$。共役代数は積と随伴を保ちますが複素線形の写像ではありません。
 <!-- solution-end -->
 
 <a id="ex-aqft22-a02"></a>
