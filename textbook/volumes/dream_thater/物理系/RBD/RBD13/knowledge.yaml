@@ -1,0 +1,52 @@
+chapter: RBD13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD3
+forward_references: []
+concepts:
+  - id: mechanics.rolling-no-slip-contact
+    name: 無滑り接触
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（無滑り接触）]
+    requires:
+      - mechanics.rigid-point-velocity-field
+  - id: mechanics.rolling-wheel-contact-speed
+    name: 静止床上の円盤の無滑り条件と最上点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（静止床上の円盤の無滑り条件と最上点）]
+    requires:
+      - mechanics.rolling-no-slip-contact
+      - mechanics.rigid-point-velocity-field
+  - id: mechanics.planar-instantaneous-center
+    name: 平面剛体の瞬間回転中心
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（平面剛体の瞬間回転中心）]
+    requires:
+      - mechanics.rigid-point-velocity-field
+  - id: mechanics.planar-instantaneous-center-theorem
+    name: 平面剛体の瞬間回転中心の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（平面剛体の瞬間回転中心の存在と一意性）]
+    requires:
+      - mechanics.planar-instantaneous-center
+  - id: mechanics.rolling-cycloid-marker
+    name: 無滑り円盤の標識点のサイクロイド
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（無滑り円盤の標識点のサイクロイド）]
+    requires:
+      - mechanics.rolling-wheel-contact-speed
+      - mechanics.rigid-configuration
+  - id: mechanics.rolling-sphere-no-slip
+    name: 球の一点無滑り条件と鉛直回転の自由度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（球の一点無滑り条件と鉛直回転の自由度）]
+    requires:
+      - mechanics.rolling-no-slip-contact
+      - mechanics.rigid-point-velocity-field
