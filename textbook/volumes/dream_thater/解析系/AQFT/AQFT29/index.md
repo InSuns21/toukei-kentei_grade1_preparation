@@ -145,7 +145,15 @@ $$
 <!-- definition-example-start: def-aqft29-relative-modular -->
 ### 直接例：二点の対角作用素環では正の対角作用素になる
 
-第1節の $\xi,\eta$ に対して $Sx=(a\overline{x_1},b\overline{x_2})$ と書くと、$a=\sqrt{q/p}$、$b=\sqrt{(1-q)/(1-p)}$ は正実数です。[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)に直接代入すれば $S^\sharp=S$ です。よって
+第1節の $\xi,\eta$ に対して $Sx=(a\overline{x_1},b\overline{x_2})$ と書くと、$a=\sqrt{q/p}$、$b=\sqrt{(1-q)/(1-p)}$ は正実数です。内積は第2変数線形なので、任意の $x,y\in\mathbb C^2$ について
+
+$
+\langle Sx,y\rangle
+=ax_1y_1+bx_2y_2
+=\langle Sy,x\rangle.
+$
+
+したがって[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)から $S^\sharp=S$ です。よって
 
 $$
 \Delta_{\eta\mid\xi}(x_1,x_2)
@@ -244,7 +252,26 @@ $$
 F_{ij}=|u_i\rangle\langle v_j|
 $$
 
-はHilbert–Schmidt空間の正規直交基底です。なぜなら $F_{ij}^*F_{k\ell}=\delta_{ik}|v_j\rangle\langle v_\ell|$ で、トレースを取ると $\delta_{ik}\delta_{j\ell}$ となるからです。また
+は $x\in\mathbb C^n$ を $u_i\langle v_j,x\rangle$ に写す階数1作用素です。ここで $\langle\cdot,\cdot\rangle$ は第2変数線形です。まず
+
+$
+\langle F_{ij},F_{k\ell}\rangle_2
+=\operatorname{Tr}(F_{ij}^*F_{k\ell})
+=\delta_{ik}\delta_{j\ell}
+$
+
+なので互いに正規直交します。さらに $v_j$ は基底なので、任意の行列 $X$ と任意の $x\in\mathbb C^n$ について
+
+$
+\begin{aligned}
+Xx
+&=\sum_j\langle v_j,x\rangle Xv_j\\
+&=\sum_{i,j}\langle u_i,Xv_j\rangle
+u_i\langle v_j,x\rangle.
+\end{aligned}
+$
+
+したがって $X=\sum_{i,j}\langle u_i,Xv_j\rangle F_{ij}$ と展開でき、$F_{ij}$ はHilbert–Schmidt空間の正規直交基底です。この基底で左右乗算を調べると、
 
 $$
 \sigma F_{ij}=s_iF_{ij},\qquad
@@ -382,10 +409,39 @@ $$
 \end{aligned}
 $$
 
-添字の交換式は同じ計算を $\rho$ と $\sigma$ を入れ替えて行えば得られます。例えば第4節の二つの対角密度に対し、$\Delta_{\sigma\mid\rho}(E_{12})=\frac43E_{12}$ ですが、$\Delta_{\rho\mid\sigma}(E_{12})=\frac98E_{12}$ なので等しくありません。
+添字を交換した作用素では入力が $X=A\sigma^{1/2}$ なので $A=X\sigma^{-1/2}$ と復元します。第4節の計算で $\rho$ と $\sigma$ の役割を交換すると
+
+$
+S_{\rho\mid\sigma}(X)=\sigma^{-1/2}X^*\rho^{1/2},
+\qquad
+\Delta_{\rho\mid\sigma}(X)=\rho X\sigma^{-1}
+$
+
+となります。例えば第4節の二つの対角密度に対し、$\Delta_{\sigma\mid\rho}(E_{12})=\frac43E_{12}$ ですが、$\Delta_{\rho\mid\sigma}(E_{12})=\frac98E_{12}$ なので等しくありません。
 <!-- proof-end -->
 
-**逆向きと逆作用素も別物です。** 有限次元では $S_{\rho\mid\sigma}\,S_{\sigma\mid\rho}=I$ ですが、同じ添字の $S_{\sigma\mid\rho}^2=I$ ではありません。また $\Delta_{\rho\mid\sigma}=J\Delta_{\sigma\mid\rho}^{-1}J$ であり、一般に $\Delta_{\rho\mid\sigma}=\Delta_{\sigma\mid\rho}^{-1}$ ではありません。この関係は $J(X)=X^*$ と左右乗算の式に代入して確認できます。
+**逆向きと逆作用素も別物です。** 有限次元では $S_{\rho\mid\sigma}\,S_{\sigma\mid\rho}=I$ ですが、同じ添字の $S_{\sigma\mid\rho}^2=I$ ではありません。実際に任意の $X\in H_n$ へ連続して作用させると、
+
+$
+\begin{aligned}
+S_{\rho\mid\sigma}(S_{\sigma\mid\rho}(X))
+&=\sigma^{-1/2}(\rho^{-1/2}X^*\sigma^{1/2})^*\rho^{1/2}\\
+&=\sigma^{-1/2}\sigma^{1/2}X\rho^{-1/2}\rho^{1/2}=X.
+\end{aligned}
+$
+
+一方、逆の相対モジュラー作用素は、$J(X)=X^*$ を挟んで
+
+$
+\begin{aligned}
+\Delta_{\sigma\mid\rho}^{-1}(X)&=\sigma^{-1}X\rho,\\
+J\Delta_{\sigma\mid\rho}^{-1}J(X)
+&=(\sigma^{-1}X^*\rho)^*
+=\rho X\sigma^{-1}=\Delta_{\rho\mid\sigma}(X)
+\end{aligned}
+$
+
+です。従って $\Delta_{\rho\mid\sigma}=J\Delta_{\sigma\mid\rho}^{-1}J$ であり、一般に $\Delta_{\rho\mid\sigma}=\Delta_{\sigma\mid\rho}^{-1}$ とはなりません。
 
 非忠実な入力密度では別の問題が生じます。$\rho_0=\operatorname{diag}(1,0)$、$\sigma$ を忠実な密度とすると、$A=E_{12}$ に対し $A\rho_0^{1/2}=0$ でありながら、
 
@@ -395,7 +451,7 @@ $$
 
 従って $A\rho_0^{1/2}\mapsto A^*\sigma^{1/2}$ は**零入力に二つの出力**を割り当て、初期写像自体が一価ではありません。$\rho_0^{-1}$ が書けないという形式的問題より前に、分離性を失ったことが破綻の原因です。支持射影を使う適切な拡張はAQFT31で扱います。
 
-局所Type III因子では密度行列 $\rho$ や通常のトレースによる行列表示を一般に作れません（[AQFT15のトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)）。その場合でも、標準表現の二つの忠実正規状態を表す巡回分離ベクトル $\xi,\eta$ から第1–3節の $S_{\eta\mid\xi}$ と $\Delta_{\eta\mid\xi}$ を定義できます。**一般の正規状態が必ず指定した任意の表現で巡回分離ベクトルを持つ、と主張しているわけではありません。** 標準形（自然正錐）により忠実状態を表す場合にこの構成を使います。一般の標準形の存在と状態の実現は既習の作用素環理論を前提とし、その構成証明を有限次元の計算で代用しません。
+局所Type III因子では密度行列 $\rho$ や通常のトレースによる行列表示を一般に作れません（[AQFT15のトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)）。その場合でも、標準表現の二つの忠実正規状態を表す巡回分離ベクトル $\xi,\eta$ から第1–3節の $S_{\eta\mid\xi}$ と $\Delta_{\eta\mid\xi}$ を定義できます。**一般の正規状態が必ず指定した任意の表現で巡回分離ベクトルを持つ、と主張しているわけではありません。** 標準形（自然正錐）により忠実状態を表す場合にこの構成を使います。一般の標準形の存在や状態の実現自体はここでは証明しておらず、有限次元の計算をその構成証明の代わりにはしません。
 
 ## 7. 演習と詳細解答
 
@@ -414,7 +470,7 @@ S_{\eta\mid\xi}(x_1,x_2)
 =(\sqrt3\,\overline{x_1},\overline{x_2}/\sqrt3).
 $$
 
-第2変数線形の内積により $S^\sharp=S$、従って $\Delta=S^\sharp S=\operatorname{diag}(3,1/3)$ です。いずれも有限次元で全域定義です。
+$x,y\in\mathbb C^2$ に対し、$\langle Sx,y\rangle=\sqrt3 x_1y_1+x_2y_2/\sqrt3=\langle Sy,x\rangle$ です。[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)により $S^\sharp=S$、従って $\Delta=S^\sharp S=\operatorname{diag}(3,1/3)$ です。いずれも有限次元で全域定義です。
 
 <a id="ex-aqft29-a02"></a>
 #### AQFT29-A02 正規直交行列単位の係数
@@ -572,7 +628,18 @@ S^\sharp(X)=\sigma^{1/2}X^*\rho^{-1/2},
 \Delta(X)=\sigma X\rho^{-1}.
 $$
 
-随伴の式は内積のトレース循環により $\langle SX,Y\rangle=\langle S^\sharp Y,X\rangle$ を検査して得ます。(iii) $\sigma u_i=s_i u_i$、$\rho v_j=r_j v_j$ で $s_i,r_j>0$ とします。$F_{ij}=|u_i\rangle\langle v_j|$ は正規直交基底で、$\Delta F_{ij}=(s_i/r_j)F_{ij}$。従って $X=\sum_{ij}x_{ij}F_{ij}$ なら
+随伴の式は[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)を直接検算して得ます。実際に
+
+$
+\begin{aligned}
+\langle SX,Y\rangle_2
+&=\operatorname{Tr}(\sigma^{1/2}X\rho^{-1/2}Y)\\
+&=\operatorname{Tr}(X\rho^{-1/2}Y\sigma^{1/2})\\
+&=\langle\sigma^{1/2}Y^*\rho^{-1/2},X\rangle_2.
+\end{aligned}
+$
+
+ゆえに $S^\sharp(Y)=\sigma^{1/2}Y^*\rho^{-1/2}$、これを $SX$ に適用すれば $\Delta(X)=\sigma X\rho^{-1}$ と確かめられます。(iii) $\sigma u_i=s_i u_i$、$\rho v_j=r_j v_j$ で $s_i,r_j>0$ とします。$F_{ij}=|u_i\rangle\langle v_j|$ は正規直交基底で、$\Delta F_{ij}=(s_i/r_j)F_{ij}$。従って $X=\sum_{ij}x_{ij}F_{ij}$ なら
 
 $$
 \langle X,\Delta X\rangle_2
@@ -590,7 +657,7 @@ $$
 
 **詳細解答。** 三つの論点を順に分けて確認します。
 
-(i) $S_0(A\xi)=A^*\eta$ は $\xi$ の分離性で一価、巡回性で稠密定義です。$\mathcal M'\xi$ の稠密性と可換性から可閉性を証明でき、閉包 $S$ について[閉反線形作用素の正二乗](../AQFT19/index.md#lem-aqft19-positive-square)により
+(i) [相対Tomita初期作用素](#def-aqft29-relative-tomita) $S_0(A\xi)=A^*\eta$ は $\xi$ の分離性で一価、巡回性で稠密定義です。$\mathcal M'\xi$ の稠密性と可換性から可閉性を証明でき、閉包 $S$ について[閉反線形作用素の正二乗](../AQFT19/index.md#lem-aqft19-positive-square)により
 
 $$
 \Delta_{\eta\mid\xi}=S^\sharp S
