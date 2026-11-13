@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - FLUID3
   - CTM1
+  - NA6
 official_scope: []
 learning_objectives:
   - "流線で観測時刻を固定し、流跡線で初期粒子を固定し、流脈線で注入口と観測時刻を固定する違いを定義と微分方程式で説明できる"
@@ -19,7 +20,7 @@ definitions:
 theorems:
   - { id: FLUID4-PROP-01, name: "非定常一様速度場の三曲線" }
   - { id: FLUID4-THM-01, name: "定常速度場における三曲線の一致" }
-  - { id: FLUID4-PROP-02, name: "非定常一様場に対する前進Euler法の誤差" }
+  - { id: FLUID4-PROP-02, name: "非定常一様場に対する前進 Euler 法の誤差" }
 canonical_examples:
   - "u=(U,at)の瞬時流線の時刻固定計算"
   - "初期時刻を指定した流跡線の初期値確認"

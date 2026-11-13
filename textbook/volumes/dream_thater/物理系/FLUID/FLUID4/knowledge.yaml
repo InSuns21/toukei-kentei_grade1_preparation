@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - FLUID3
   - CTM1
+  - NA6
 concepts:
   - id: fluid.streamline
     name: 流線
@@ -36,8 +37,8 @@ concepts:
     introduction_aliases: ["定理（定常速度場における三曲線の一致）"]
     requires: [fluid.streamline, fluid.pathline, fluid.fixed-source-streakline]
   - id: fluid.euler-tracking-error
-    name: 非定常一様場に対する前進Euler法の誤差
+    name: 非定常一様場に対する前進 Euler 法の誤差
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（非定常一様場に対する前進Euler法の誤差）"]
+    introduction_aliases: ["命題（非定常一様場に対する前進 Euler 法の誤差）"]
     requires: [fluid.pathline]
