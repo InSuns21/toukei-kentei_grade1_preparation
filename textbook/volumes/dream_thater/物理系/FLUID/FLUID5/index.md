@@ -109,7 +109,7 @@ $$
 =\int_{V(t)}\bigl[\partial_t\rho+\nabla\cdot(\rho w)\bigr]\,dV.
 $$
 
-[Gauss の発散定理を用いた固定検査体積の計算](../../CTM/CTM5/index.md#cor-ctm5-fixed-control-volume)を境界に適用すると
+[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を $\rho w$ に適用すると
 
 $$
 \frac{d}{dt}\int_{V(t)}\rho\,dV
