@@ -1,0 +1,46 @@
+id: "AQFT18"
+title: "標準対とTomita作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT13
+learning_objectives:
+  - 巡回性と分離性を区別して標準対を判定し可換子側の標準性を証明できる
+  - 反線形作用素・グラフ・可閉性を定義し閉包を収束列から構成できる
+  - S_0(A\Omega)=A^*\Omegaのwell-defined性・反線形性・稠密定義性と初期対合性を証明できる
+  - 可換子側のF_0を構成し交換関係から反線形の基本対合公式を導ける
+  - 可換子側の稠密性を使ってS_0とF_0の可閉性を証明できる
+  - Tomita閉包Sの定義域・対合性・稠密な値域と反線形随伴の包含を追える
+  - 二点対角環と無限次元Hilbert–Schmidt模型で標準性とTomita作用素を計算できる
+  - 巡回性・分離性の欠落がどの構成を破るかを反例で判定できる
+definitions:
+  - { id: AQFT18-DEF-01, name: "標準対" }
+  - { id: AQFT18-DEF-02, name: "反線形作用素" }
+  - { id: AQFT18-DEF-03, name: "可閉作用素と閉包" }
+  - { id: AQFT18-DEF-04, name: "Tomita初期作用素" }
+  - { id: AQFT18-DEF-05, name: "可換子側Tomita初期作用素" }
+  - { id: AQFT18-DEF-06, name: "反線形随伴" }
+theorems:
+  - { id: AQFT18-PROP-01, name: "Tomita初期作用素の成立" }
+  - { id: AQFT18-THM-01, name: "Tomita初期作用素の可閉性" }
+  - { id: AQFT18-PROP-02, name: "Tomita閉包の対合性と稠密値域" }
+  - { id: AQFT18-PROP-03, name: "可換子側との反線形随伴包含" }
+canonical_examples:
+  - 二点対角環での標準対と座標共役の全計算
+  - 有限測度空間L2上の乗算環での閉包の構成
+  - Hilbert–Schmidt空間の左乗算表示での無限次元非有界Tomita初期作用素
+  - 全行列環の巡回だが非分離的なベクトルでのwell-defined性の失敗
+problem_patterns:
+  - AQFT18-DIAGONAL-STANDARD
+  - AQFT18-ANTILINEAR-INVERSE
+  - AQFT18-NONSEPARATING-FAILURE
+  - AQFT18-GRAPH-CLOSABILITY
+  - AQFT18-COMMUTANT-DENSITY
+  - AQFT18-PAIRING-AND-CLOSABILITY
+  - AQFT18-HILBERT-SCHMIDT-UNBOUNDED
+  - AQFT18-CLOSURE-INVOLUTION
+  - AQFT18-STANDARD-PAIR-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }
