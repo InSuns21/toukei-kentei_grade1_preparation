@@ -1,6 +1,6 @@
 # AQFT20 Hilbert–Schmidt標準表現の全計算
 
-[AQFT18で作ったTomita作用素](../AQFT18/index.md#def-aqft18-tomita-initial)と[AQFT19の反線形極分解](../AQFT19/index.md#thm-aqft19-polar)から、標準対に $S=J\Delta^{1/2}$ が付随することを学びました。しかし抽象的な式だけでは、$J$ は何を交換し、$\Delta$ は何をどれほど拡大するのかが分かりにくいままです。
+[AQFT18で作ったTomita作用素](../AQFT18/index.md#def-aqft18-tomita-initial)と[AQFT19で示した $S=J\Delta^{1/2}$ の分解](../AQFT19/index.md#thm-aqft19-polar)から、標準対に $S=J\Delta^{1/2}$ が付随することを学びました。しかし抽象的な式だけでは、$J$ は何を交換し、$\Delta$ は何をどれほど拡大するのかが分かりにくいままです。
 
 本講では有限次元の行列全体を一つのHilbert空間にして、**忠実な密度行列 $\rho$ を平方根ベクトル $\Omega=\rho^{1/2}$ で表す**方法を構成します。その上で次の式を、行列単位から直接導きます。
 
