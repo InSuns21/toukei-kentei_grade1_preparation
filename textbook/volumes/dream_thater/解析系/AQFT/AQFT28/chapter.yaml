@@ -1,0 +1,52 @@
+id: "AQFT28"
+title: "局所Type III₁性の適用境界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT9
+  - AQFT14
+  - AQFT15
+  - AQFT16
+  - AQFT17
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT27
+learning_objectives:
+  - 忠実・正規・半有限重みとConnesのS不変量を定義し、単一状態のスペクトルと区別できる
+  - Type III₀・IIIλ・III₁のS不変量による細分類を文献定理として適用できる
+  - Type I無限因子でも一状態のモジュラースペクトルが全正半直線になることを行列単位から証明できる
+  - 自由スカラー場のwedgeのboost生成作用素をrapidityのFourier表示で計算しモジュラースペクトルを導ける
+  - split・nuclearity・短距離型判定・因子性・hyperfinite性の論理的役割を区別できる
+  - double coneのType III₁性とhyperfiniteな普遍構造の文献上の適用条件を説明できる
+definitions:
+  - { id: AQFT28-DEF-01, name: "忠実・正規・半有限な重み" }
+  - { id: AQFT28-DEF-02, name: "ConnesのS不変量" }
+  - { id: AQFT28-DEF-03, name: "hyperfinite von Neumann環" }
+theorems:
+  - { id: AQFT28-PROP-01, name: "単一重みのモジュラースペクトルとConnes不変量の包含" }
+  - { id: AQFT28-PROP-02, name: "Type I無限因子の全モジュラースペクトル反例" }
+  - { id: AQFT28-PROP-03, name: "自由スカラー場のwedgeモジュラースペクトル" }
+  - { id: AQFT28-REF-01, name: "ConnesのType III細分類（文献定理）" }
+  - { id: AQFT28-REF-02, name: "局所環のhyperfinite Type III₁構造（仮定付き文献定理）" }
+canonical_examples:
+  - M2(C)の非トレース状態とトレース状態のモジュラースペクトル
+  - B(l2(N0²))の無理数比の指数重みによる全スペクトル反例
+  - rapidityのFourier乗算作用素とFockの生成作用素
+  - B(l2)の有限次元ブロックによるhyperfiniteの定義確認
+  - 一次元自明netのsplitとType Iの両立
+problem_patterns:
+  - AQFT28-MATRIX-MODULAR-SPECTRUM
+  - AQFT28-WEIGHT-THREE-CONDITIONS
+  - AQFT28-RAPIDITY-FOURIER
+  - AQFT28-TRIVIAL-NET-SPLIT
+  - AQFT28-TYPEI-DENSE-RATIO
+  - AQFT28-CONNES-S-CASES
+  - AQFT28-HYPERFINITE-BLOCKS
+  - AQFT28-WEDGE-DOUBLE-CONE-BOUNDARY
+  - AQFT28-LOCAL-TYPE-III1-SYNTHESIS
+  - AQFT28-CONDITIONAL-UNIVERSAL-FACTOR
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 7 }
