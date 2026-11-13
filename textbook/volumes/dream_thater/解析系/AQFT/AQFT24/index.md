@@ -6,20 +6,28 @@
 
 ## 1. Gibbs模型で何を準備するか
 
-$n\ge1$ とし、$\mathcal A=M_n(\mathbb C)$ に通常の行列積と随伴を入れます。$H=H^*\in\mathcal A$ をエネルギーを表す行列（Hamiltonian）、$\beta>0$ を逆温度とします。[QM6の自己共役作用素のスペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)を有限次元の $H$ に適用し、相異なる実固有値を $E_j$、対応する直交射影を $P_j$ とすると、$H=\sum_j E_jP_j$、$\sum_jP_j=I$ です。各固有空間では $H$ がスカラー $E_j$ として作用するため、指数関数もその固有空間上で $e^{-\beta E_j}$ 倍になります。したがって
+$n\ge1$ とし、$\mathcal A=M_n(\mathbb C)$ に通常の行列積と随伴を入れます。$H=H^*\in\mathcal A$ をエネルギーを表す行列（Hamiltonian）、$\beta>0$ を逆温度とします。
 
-$
+[QM6の自己共役作用素のスペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)を有限次元の $H$ に適用します。相異なる実固有値を $E_j$、対応する直交射影を $P_j$ と置くと、
+
+$$
+H=\sum_j E_jP_j,\qquad \sum_jP_j=I
+$$
+
+です。各固有空間では $H$ がスカラー $E_j$ として作用するため、指数関数もその固有空間上で $e^{-\beta E_j}$ 倍になります。したがって
+
+$$
 e^{-\beta H}=\sum_j e^{-\beta E_j}P_j,\qquad
 Z_\beta=\operatorname{Tr}(e^{-\beta H})
 =\sum_j e^{-\beta E_j}\operatorname{rank}P_j>0.
-$
+$$
 
 各係数 $e^{-\beta E_j}$ は有限の $\beta,E_j$ に対して厳密に正なので、次の行列はすべての非零ベクトル上で正の二次形式を与えます。
 
-$
+$$
 \rho_\beta=Z_\beta^{-1}e^{-\beta H},\qquad
 \operatorname{Tr}\rho_\beta=Z_\beta^{-1}Z_\beta=1.
-$
+$$
 
 このように、固有基底での正の重みは正定値性・忠実性を判定し、その総和はトレースによる正規化を判定します。$\omega_\beta(C)=\operatorname{Tr}(\rho_\beta C)$ は状態です。[AQFT20の忠実密度行列の定義](../AQFT20/index.md#def-aqft20-faithful-density)に照らすと、すべての固有値が正であり、$\rho_\beta^{-1}$ を使えることが重要です。
 
@@ -73,7 +81,11 @@ $$
 
 ## 2. KMS条件：複素時間の帯の両端を比較する
 
-実時間ごとに $*$-自己同型 $\alpha_t$ が作用し、$\alpha_{t+s}=\alpha_t\circ\alpha_s$、$\alpha_0=\operatorname{id}$ を満たす系と、その状態 $\omega$ を考えます。ここでC*力学系の **強連続（各元についてのノルム連続）** とは、各 $A$ について $\|\alpha_t(A)-A\|\to0$（$t\to0$）となることです。これは[AQFT23の一般モジュラー自己同型群](../AQFT23/index.md#def-aqft23-modular-flow)でいう、Hilbert空間の各ベクトルに作用させたときの強作用素連続性とは区別します。有限行列ではこれらの連続性は一致しますが、一般のvon Neumann環ではこのC*版の定義をそのまま適用できるとは限らず、次講で一般の場合を扱います。複素数 $z=t+iy$ に対し $t=\operatorname{Re}z$、$y=\operatorname{Im}z$ と書きます。**帯**とは実部を制限せず虚部だけを $0\le y\le1$ とする領域です。帯の内部で複素微分可能な関数を、その帯で正則と呼びます。
+実時間ごとに $*$-自己同型 $\alpha_t$ が作用し、$\alpha_{t+s}=\alpha_t\circ\alpha_s$、$\alpha_0=\operatorname{id}$ を満たす系と、その状態 $\omega$ を考えます。
+
+ここでC*力学系の **強連続（各元についてのノルム連続）** とは、各 $A$ について $\|\alpha_t(A)-A\|\to0$（$t\to0$）となることです。これは[AQFT23の一般モジュラー自己同型群](../AQFT23/index.md#def-aqft23-modular-flow)でいう、Hilbert空間の各ベクトルに作用させたときの強作用素連続性とは区別します。有限行列ではこれらの連続性は一致します。
+
+一般のvon Neumann環ではこのC*版の定義をそのまま適用できるとは限らず、次講で一般の場合を扱います。複素数 $z=t+iy$ に対し、$t=\operatorname{Re}z$、$y=\operatorname{Im}z$ とします。**帯**とは実部を制限せず虚部だけを $0\le y\le1$ とする領域です。帯の内部で複素微分可能な関数を、その帯で正則と呼びます。
 
 重要な注意は、一般の自己同型 $\alpha_t$ を複素 $z$ にそのまま代入できるとは限らないことです。そこで、KMS条件は「各二元 $A,B$ に対し**相関関数の解析的延長が存在する**」という形で書きます。有限行列なら後で $\alpha_z$ 自体を直接定義できます。
 
@@ -126,19 +138,19 @@ $$
 
 固有基底 $e_1,\ldots,e_n$ を取り、$\rho e_j=p_je_j$（$p_j>0$、$\sum_jp_j=1$）とします。この基底の**行列単位** $E_{ij}$ は、$E_{ij}e_k=\delta_{jk}e_i$ で定まる行列です（$k=j$ の列だけが $e_i$ となる）。それゆえ
 
-$
+$$
 \rho^{iz}E_{ij}\rho^{-iz}e_k
 =\delta_{jk}p_i^{iz}p_j^{-iz}e_i
 =\delta_{jk}e^{iz(\log p_i-\log p_j)}e_i.
-$
+$$
 
 すべての基底ベクトル上で一致することから
 
-$
+$$
 \sigma_z(E_{ij})
 =e^{iz(\log p_i-\log p_j)}E_{ij}
 =\left(\frac{p_i}{p_j}\right)^{iz}E_{ij}.
-$
+$$
 
 この中間式によって、複素時間への延長が各成分の指数関数であり、したがって整関数であることが分かります。
 
@@ -206,12 +218,12 @@ $$
 
 に対し、トレースの巡回性と[Hilbert–Schmidt内積](../AQFT20/index.md#def-aqft20-hilbert-schmidt)の[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から（内積は第2変数線形）
 
-$
+$$
 F_{A,B}(t+iy)=\operatorname{Tr}(XY)
 =\langle X^*,Y\rangle_2,\qquad
 |\operatorname{Tr}(XY)|\le\|X^*\|_2\|Y\|_2
 =\|X\|_2\|Y\|_2
-$
+$$
 
 です。行列成分でノルムを展開すると
 
@@ -246,7 +258,7 @@ $$
 
 $Y$ も成分で確認します。行列成分は $Y_{ij}=p_i^{y/2}B_{ij}p_j^{(1-y)/2}$ なので
 
-$
+$$
 \begin{aligned}
 \|Y\|_2^2
 &=\sum_{i,j}p_i^yp_j^{1-y}|B_{ij}|^2\\
@@ -255,7 +267,7 @@ $
 &\le y\|B\|^2+(1-y)\|B\|^2
 =\|B\|^2.
 \end{aligned}
-$
+$$
 
 従って
 
@@ -375,17 +387,17 @@ $$
 
 [前定理のHilbert–Schmidtノルム評価](#thm-aqft24-gibbs-kms)を適用するため、
 
-$
+$$
 X=\rho^{(1-y)/2}A\rho^{y/2},\qquad
 Y=\rho^{y/2}\tau_s(B)\rho^{(1-y)/2}
-$
+$$
 
 と分けます。すると $G_{A,B}(s+iv)=\operatorname{Tr}(XY)$ です。前定理の成分評価は任意の行列に成り立つため $\|X\|_2\le\|A\|$、$\|Y\|_2\le\|\tau_s(B)\|$。実時間の $\tau_s$ はユニタリ共役なので $\|\tau_s(B)\|=\|B\|$ です。従って
 
-$
+$$
 |G_{A,B}(s+iv)|\le\|X\|_2\|Y\|_2
 \le\|A\|\|B\|
-$
+$$
 
 が帯全体で成立します。これは $F$ の上側帯とは**同じ境界式を異なる順序・異なる時間向きで表したもの**です。
 <!-- proof-end -->
@@ -520,7 +532,7 @@ $$
 
 各行と列の二乗和は $\|C\|^2$ 以下であり、$\|C\|=\|A\|$ です。$Y_{ij}=p_i^{y/2}B_{ij}p_j^{(1-y)/2}$ についても
 
-$
+$$
 \begin{aligned}
 \|Y\|_2^2
 &=\sum_{ij}p_i^yp_j^{1-y}|B_{ij}|^2\\
@@ -528,7 +540,7 @@ $
 +(1-y)\sum_jp_j\sum_i|B_{ij}|^2\\
 &\le\|B\|^2
 \end{aligned}
-$
+$$
 
 なので $\|Y\|_2\le\|B\|$。よって $0\le y\le1$ の全帯で $|F|\le\|A\|\|B\|$。上界に $t$ が入らないので実方向に無限の帯でも有界です。
 <!-- solution-end -->
@@ -591,9 +603,9 @@ $$
 
 他方、$\omega(B\sigma_t(A))=\sum_{ji}p_j b_{ji}(p_i/p_j)^{it}a_{ij}$ で等しいです。最後に $z=t+iy$（$t\in\mathbb R$、$0\le y\le1$）と置きます。$\rho^{iz}=\rho^{it-y}$ から
 
-$
+$$
 F(t+iy)=\operatorname{Tr}(\rho^{1-y}\sigma_t(A)\rho^yB).
-$
+$$
 
 [本文のHilbert–Schmidt評価](#thm-aqft24-gibbs-kms)と加重相加相乗平均 $p_i^{1-y}p_j^y\le(1-y)p_i+yp_j$ によって、任意の $t$、$0\le y\le1$ に対し $|F(t+iy)|\le\|A\|\|B\|$ です。これは両端 $y=0,1$ も含む評価なので、閉帯全体で有界となります。これで[定義の全条件](#def-aqft24-kms)が各 $A,B$ に対し成立しました。
 <!-- solution-end -->
