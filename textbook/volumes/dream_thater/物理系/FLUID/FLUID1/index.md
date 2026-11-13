@@ -40,32 +40,32 @@ $$
 
 空間座標を $s$ とし、$|s|\le L/4$ で、正の定数 $\rho_0,U_0$ を用いて密度と $x$ 方向速度の観測値を
 
-$
+$$
 \rho_{\mathrm{obs}}(s)=\rho_0\left(1+\frac{s}{10L}+0.01\sin\frac{2\pi s}{a}\right),
 \qquad
 u_{\mathrm{obs}}(s)=U_0\left(1+\frac{s}{5L}+0.01\cos\frac{2\pi s}{a}\right)
-$
+$$
 
 とする。微視的な振動の周期は $a$、ゆっくり変わる部分の長さ尺度は $L$ である。この範囲では $\rho_{\mathrm{obs}}>0$ である。中心 $x$ の幅 $h$ の観測窓による平均を、$q=\rho,u$ について
 
-$
+$$
 \overline q_h(x)=\frac1h\int_{x-h/2}^{x+h/2}q_{\mathrm{obs}}(s)\,ds
-$
+$$
 
 と定める（窓が $|s|\le L/4$ に収まる $x$ を選ぶ）。$h=\ell=2\times10^{-6}$ m と $h=\ell/2=10^{-6}$ m は、それぞれ $a$ の $500$ 倍と $250$ 倍である。したがって、窓の端で位相が違っていても、正弦・余弦の積分は整数周期分だけ打ち消し合う。一方、
 
-$
+$$
 \frac1h\int_{x-h/2}^{x+h/2}s\,ds
 =\frac{(x+h/2)^2-(x-h/2)^2}{2h}=x.
-$
+$$
 
 よって両方の幅 $h$ について
 
-$
+$$
 \overline\rho_h(x)=\rho_0\left(1+\frac{x}{10L}\right),
 \qquad
 \overline u_h(x)=U_0\left(1+\frac{x}{5L}\right).
-$
+$$
 
 幅を半分にしても平均密度・平均速度は同じで、巨視的な位置 $x$ による変化は残る。半分の窓でも $a/h=4\times10^{-3}$、$h/L=10^{-3}$ なので尺度分離は維持される。これで**この人工模型については**二つの尺度比と平均量の安定性をともに直接確認できた。実在の流体の局所平衡や構成則を証明したわけではない。例えば $L$ が $10^{-8}$ m に縮むと元の $\ell$ は $L$ より大きくなり、尺度の条件そのものを失う。
 <!-- definition-example-end -->
@@ -222,7 +222,7 @@ $$
 $$
 v(x,y,z,t)=(u(y,t),0,0),\qquad
 u\in C^{1,2}(I\times(0,L))
-$
+$$
 
 とする。ここで $C^{1,2}$ は、時間変数 $t$ について一階まで、空間変数 $y$ について二階までの偏導関数（必要な混合偏導関数も含む）が連続であることを表す。この速度場が[CTM15の一定粘性係数の非圧縮Navier–Stokes方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすなら、
 
@@ -296,10 +296,10 @@ $$
 
 直線状の可動縁の長さが $\ell_b>0$ で、縁を面積が増える方向へ $dx>0$ だけ動かすとき $dA=\ell_b\,dx$ とする。準静的な外力 $F_{\rm ext}$ の仕事を自由エネルギーの増分に等しく置くと、
 
-$
+$$
 F_{\rm ext}\,dx=dF_{\rm surface}=\gamma\ell_b\,dx,
 \qquad F_{\rm ext}=\gamma\ell_b.
-$
+$$
 
 ここで $dx>0$ で割った。これは界面が可動縁を反対方向へ引く力の**大きさ**である。同じ面積増加が**表裏の二界面**で起こる膜では全増分が $2\gamma\ell_b\,dx$ となり、力の大きさは $2\gamma\ell_b$ となる。
 <!-- formal-statement-end -->
@@ -476,23 +476,23 @@ $\mathrm{Re}$ は40倍になっても $\mathrm{Kn}$ は同じ。前者は採用�
 
 [非圧縮Navier–Stokes方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)に指定された速度場を代入する。$u$ は $y,t$ だけの関数なので、発散と移流項は
 
-$
+$$
 \nabla\cdot v=\partial_xu(y,t)=0,\qquad
 (v\cdot\nabla)v=u(y,t)\partial_xv=0.
-$
+$$
 
 さらに空間一定圧力と二階空間微分から
 
-$
+$$
 \nabla p=0,\qquad \Delta v=(\partial_y^2u,0,0).
-$
+$$
 
 よって $x$ 成分は $\rho\,\partial_tu=\eta\,\partial_y^2u$、他の成分は $0=0$ である。$\rho>0$ で割り、[動粘度の定義](#def-fluid1-kinematic-viscosity)を適用すると
 
-$
+$$
 \partial_tu=\frac{\eta}{\rho}\partial_y^2u
 =\nu\,\partial_y^2u.
-$
+$$
 
 [動粘度](#def-fluid1-kinematic-viscosity)は $\nu=10^{-3}/10^3=10^{-6}\ {\rm m^2/s}$。[粘性時間の命題](#prop-fluid1-viscous-diffusion)より
 
