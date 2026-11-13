@@ -509,7 +509,41 @@ S(E_{ij})=\sqrt{\lambda_i/\lambda_j}\,E_{ji},
 \Delta E_{ij}=(\lambda_i/\lambda_j)E_{ij}
 $$
 
-となります。有限個の成分を残す行列は $\mathcal H=S_2(K)$ で稠密です。さらに $A\in B(K)$ なら $(A\Omega)_{ij}=A_{ij}\sqrt{\lambda_j}$ なので、後述の正対角作用素 $B$ について $B(A\Omega)=\Omega A\in S_2(K)$ が成り立ちます。従って $JB(A\Omega)=(\Omega A)^*=A^*\Omega=S_0(A\Omega)$ であり、$S_0\subset JB$ です。有限行列の線形包は $B$ のグラフノルムで稠密（重み付き二重級数の尾が零へ収束）なので、その上での一致から $S=JB$ が従います。$B^2$ が $\Delta$ です。自己共役性と定義域の特徴付けは[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)を行列単位の列に適用して確かめられます。すなわち
+となります。有限行列の線形包は $\mathcal H=S_2(K)$ で稠密です。重みのある正対角作用素 $B$ を行列単位への作用
+
+$$
+BE_{ij}=\sqrt{\frac{\lambda_i}{\lambda_j}}E_{ij}
+$$
+
+と、その重み付き二乗和が有限となる最大定義域で定めます。[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)を行列単位の列に適用すると、$B$ は正自己共役です。
+
+次に $A\in B(K)$ とします。$(A\Omega)_{ij}=A_{ij}\sqrt{\lambda_j}$ だから
+
+$$
+(B(A\Omega))_{ij}
+=\sqrt{\frac{\lambda_i}{\lambda_j}}A_{ij}\sqrt{\lambda_j}
+=\sqrt{\lambda_i}A_{ij}
+=(\Omega A)_{ij}.
+$$
+
+$\Omega A$ はHilbert–Schmidt作用素なので $A\Omega\in\operatorname{Dom}B$ です。従って
+
+$$
+JB(A\Omega)=J(\Omega A)
+=(\Omega A)^*=A^*\Omega=S_0(A\Omega).
+$$
+
+すなわち $S_0\subset JB$ です。さらに $B$ の定義域に属する $X$ の有限切断 $X_N$ は
+
+$$
+\|X-X_N\|_2^2+\|B(X-X_N)\|_2^2
+=\sum_{\max(i,j)>N}\left(1+\frac{\lambda_i}{\lambda_j}\right)|X_{ij}|^2
+\longrightarrow0
+$$
+
+を満たします。有限行列上では $S_0=JB$ であり、その有限行列は $B$ のグラフノルムで稠密です。$J$ が等長なので $JB$ のグラフノルムも同じです。ゆえに閉包を取ると $S=JB$ です。$B^2$ が $\Delta$ となります。
+
+この正対角作用素の定義域を[QM5の最大実対角作用素の定理](../../QM/QM5/index.md#thm-qm5-real-diagonal-self-adjoint)と固有値への関数計算で表すと、すなわち
 
 $$
 \begin{aligned}
@@ -744,7 +778,38 @@ $$
 L_{E_{ij}}\Omega=E_{ij}\Omega=\sqrt{\lambda_j}E_{ij}.
 $$
 
-$\lambda_j>0$ なので各 $E_{ij}\in\mathcal M\Omega$ です。有限行列の線形包はHilbert–Schmidtノルムで稠密ですから巡回的です。$A\Omega=0$ なら各 $j$ で $0=A\Omega e_j=\sqrt{\lambda_j}Ae_j$ となり $Ae_j=0$、$A$ の有界性と基底の稠密性から $A=0$。よって分離的です。$\mathcal M$ のvon Neumann環性も確認します。すべての右乗算 $R_C(X)=XC$ は $L_A$ と可換です。$T\in\mathcal M''$ なら第1列の部分空間 $\{E_{v1}:v\in K\}$ を保ち、$T(E_{v1})=E_{Dv,1}$ となる有界作用素 $D\in B(K)$ を定めます（$\|Dv\|\le\|T\|\|v\|$）。$E_{ij}=R_{E_{1j}}E_{i1}$ なので、$T$ の右乗算との可換性から $T(E_{ij})=E_{De_i,j}=L_D(E_{ij})$。稠密な行列単位上で一致するので $T=L_D$、すなわち $\mathcal M''=\mathcal M$ です。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)より $\mathcal M$ はvon Neumann環です。
+$\lambda_j>0$ なので、すべての行列単位 $E_{ij}$ が $\mathcal M\Omega$ に属します。有限行列の線形包はHilbert–Schmidtノルムで稠密です。よって $\Omega$ は巡回的です。
+
+分離性は作用素を列ごとに確認します。$A\Omega=0$ なら、すべての $j$ について
+
+$$
+0=(A\Omega)e_j=\sqrt{\lambda_j}Ae_j.
+$$
+
+$\lambda_j>0$ から $Ae_j=0$ です。$A$ は有界で、基底の線形包は稠密なので $A=0$。よって $\Omega$ は分離的です。
+
+さらに $\mathcal M$ がvon Neumann環であることを確かめます。任意の $C\in B(K)$ について右乗算 $R_C(X)=XC$ は有界で、結合則から $R_CL_A=L_AR_C$ となります。従って $R_C\in\mathcal M'$ です。
+
+$T\in\mathcal M''$ とします。$R_{E_{11}}$ は第1列を残す射影なので、$T$ はその値域 $\{E_{v1}:v\in K\}$ を保ちます。従って、ある線形作用素 $D:K\to K$ について
+
+$$
+T(E_{v1})=E_{Dv,1},\qquad
+\|Dv\|=\|E_{Dv,1}\|_2
+\le\|T\|\,\|E_{v1}\|_2=\|T\|\,\|v\|
+$$
+
+です。よって $D$ は有界です。
+
+行列単位は $E_{ij}=R_{E_{1j}}E_{i1}$ と書けます。$T$ と右乗算の可換性から
+
+$$
+T(E_{ij})
+=R_{E_{1j}}T(E_{i1})
+=E_{De_i,j}
+=L_D(E_{ij}).
+$$
+
+行列単位の線形包は稠密なので $T=L_D$。従って $\mathcal M''\subset\mathcal M$ です。逆の包含も成り立つので $\mathcal M''=\mathcal M$。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)により $\mathcal M$ はvon Neumann環です。
 
 **2. Tomitaの初期作用。** $E_{ij}=A\Omega$ には $A=E_{ij}/\sqrt{\lambda_j}\in B(K)$ を選べます。[Tomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial)から
 
