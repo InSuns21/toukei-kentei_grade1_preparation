@@ -47,10 +47,10 @@ $\mathcal M=M_2(\mathbb C)$ とし、標準基底 $e_1,e_2$ に関して $\rho e
 
 状態と時間発展を
 
-$
+$$
 \omega(C)=\operatorname{Tr}(\rho C),\qquad
 \alpha_t(C)=\rho^{it}C\rho^{-it}
-$
+$$
 
 とします。有限次元では $\alpha_t$ がノルム連続なので強作用素連続・正規であり、$\omega$ も正規状態です。さらに $H_0=-\log\rho$ と取ると、$H_0=H_0^*$、$e^{-H_0}=\rho$、$\operatorname{Tr}(e^{-H_0})=1$ です。したがって逆温度1、分配関数1として次のGibbs定理の仮定を満たします。
 
@@ -87,18 +87,18 @@ $$
 
 反対に、[AQFT23の無限次元シフト計算](../AQFT23/index.md#thm-aqft23-gaussian-analytic)の設定 $p_n=ce^{-n^2}$、$Ve_n=e_{n+1}$ を使います。密度行列 $\rho e_n=p_ne_n$ の固有基底で $L_V$ のノルム連続性を判定すると、
 
-$
+$$
 \rho^{it}V\rho^{-it}e_n
 =\left(\frac{p_{n+1}}{p_n}\right)^{it}e_{n+1}
 =e^{-it(2n+1)}e_{n+1}.
-$
+$$
 
 $t_n=\pi/(2n+1)\to0$ ならこの係数は $-1$ です。左乗算作用素のノルム $\|L_T\|=\|T\|$ を用い、基底ベクトル $e_n$ における差のノルム2と上界2を照合すると
 
-$
+$$
 \|\sigma_{t_n}(L_V)-L_V\|
 =\|\rho^{it_n}V\rho^{-it_n}-V\|=2
-$
+$$
 
 を得ます。よって $L_V\notin\mathcal M_{\mathrm c}$。**定義の確認**：ノルム差の極限が0になる例と、ならない例を、その判定に用いる作用素ノルムまで追跡しました。
 <!-- definition-example-end -->
@@ -275,13 +275,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（一般モジュラーKMS定理）**  
 > $\mathcal M\subset B(\mathcal H)$ を単位的von Neumann環とし、単位ベクトル $\Omega$ が $\mathcal M$ に対して巡回的かつ分離的であるとする。$S=\overline{S_0}=J\Delta^{1/2}$、$\sigma_t(A)=\Delta^{it}A\Delta^{-it}$、$\omega(A)=\langle\Omega,A\Omega\rangle$ と置く。$H=\log\Delta$ の射影値測度を $P_H$ とし、Borel集合 $E\subset\mathbb R$ に対して
-$
+$$
 \mu_{A,B}(E)=\langle A^*\Omega,P_H(E)B\Omega\rangle
-$
+$$
 > と定める。このとき、すべての $A,B\in\mathcal M$ に対し
-$
+$$
 F_{A,B}(z)=\int_{\mathbb R}e^{-iz\lambda}\,d\mu_{A,B}(\lambda)
-$
+$$
 > は閉帯 $0\le\operatorname{Im}z\le1$ で有界・連続、開帯で正則であり、
 $$
 F_{A,B}(t)=\omega(\sigma_t(A)B),\qquad
@@ -401,11 +401,11 @@ $\mathcal K=\ell^2(\mathbb N)$ の標準正規直交基底を $e_n$ とし、$p_
 
 [Tomita初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)を行列単位に適用すると
 
-$
+$$
 S(E_{ij})
 =\frac{1}{\sqrt{p_j}}E_{ji}\rho^{1/2}
 =\sqrt{\frac{p_i}{p_j}}E_{ji}.
-$
+$$
 
 [AQFT23の無限次元グラフ計算](../AQFT23/index.md#thm-aqft23-gaussian-analytic)では有限行列が $S$ のグラフcoreであることと、反線形随伴 $S^\sharp(E_{ji})=\sqrt{p_i/p_j}E_{ij}$ を示しています。この計算と $\Delta=S^\sharp S$ から、
 
