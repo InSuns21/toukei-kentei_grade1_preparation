@@ -485,7 +485,7 @@ $$
 <a id="prop-holo32-all-balls-linearized-einstein"></a>
 
 <!-- formal-statement-start -->
-> **命題（全真空球の拘束からの局所Einstein方程式：反転・動径境界条件付き）**  
+> **命題（全真空球の拘束からの局所Einstein方程式：反転仮定付き）**  
 > [積分Einstein拘束](#thm-holo32-integrated-gravity-constraint)の仮定に加え、滑らかな摂動に対して次を仮定する。
 >
 > 1. 境界の全時刻・全Lorentz方向の空間的超平面上で、全中心・全半径の球に対応する積分拘束が成立する。各断面の重み付き半球変換は、そこで現れる残差関数のクラスで単射である。
