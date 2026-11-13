@@ -8,6 +8,7 @@ prerequisites:
   - SYM8
   - AG3-08
   - RA6A
+  - TOP6
 concepts:
   - id: gromov-witten.regular-map
     name: 正則な擬正則写像
