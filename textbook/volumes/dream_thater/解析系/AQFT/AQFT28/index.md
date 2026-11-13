@@ -398,11 +398,11 @@ $$
 
 ここで文献上の構造定理の**具体的な仮定**を整理します。相空間の核性はsplitやhyperfiniteな近似へつながり、短距離スケーリング条件はType III細分類に関係します。前者の[Buchholz–Wichmann核性条件](../AQFT17/index.md#thm-aqft17-nuclearity-split-literature)は、エネルギーで減衰させた局所状態の相空間の大きさを制限する条件です。後者の**Haag–Narnhofer–Steinのスケーリング条件**は、単なる時空共変性ではなく、基礎となるWightman場の短距離相関を制御する追加条件です。具体的には、正の単調な規格化関数 $N(\lambda)$ を選び、$n$ 点真空相関関数を
 
-$
+$$
 N(\lambda)^n\,
 \langle\Omega,\phi(\lambda x_1)\cdots\phi(\lambda x_n)\Omega\rangle
 \qquad(\lambda\downarrow0)
-$
+$$
 
 と拡大縮小したとき、非零のWightman場に対応する極限を分布の意味で得ることを要求します（[Saffary, 定義4.25](https://d-nb.info/977780856/34)）。$n$ は相関関数の点数、$\lambda$ は短距離へ向かう正のスケールです。この条件は単なる相関の有限性とも異なり、他のスケーリング極限定理の仮定と無条件に同一視できません。この二つの役割を区別したうえで、以下は**定理の適用条件を列記する発展紹介**として読みます。
 
@@ -486,7 +486,7 @@ $$
 
 左辺の $d/ds$ は作用素族の強微分、右辺の $\partial/\partial\theta$ は座標微分です。$u(s)=e^{isK_1}$ の強微分は $iK_1\psi$ だから $K_1=i\partial_\theta$。形式的に $K_1e^{i\xi\theta}=-\xi e^{i\xi\theta}$ です（平面波は $L^2$ には入らず、厳密なスペクトルは本文の規格化したFourier波束で検証します）。
 
-Fock表現では一粒子生成作用素を持ち上げたものが $K_F$ です。[Bisognano–Wichmannの等式](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)から、同じ実数 $t$ による強連続なユニタリ群を比べて
+Fock表現では一粒子生成作用素を持ち上げたものが $K_F$ です。[Bisognano–Wichmannの等式](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)から、同じ実数 $t$ で表した二つの強連続な作用素族を比べて
 
 $$
 e^{it\log\Delta}=U(-2\pi t)=e^{-2\pi itK_F}
@@ -553,7 +553,7 @@ $$
 
 $n-r$ と $m-s$ は独立に任意の整数を走るため、指数の集合は $\mathbb Z+\sqrt2\mathbb Z$。$\sqrt2$ の無理性からこの加法群は実数全体で稠密であり、指数写像の連続性と $k\to+\infty$ での0への収束より $\operatorname{Sp}(\Delta_\rho)=[0,\infty)$ です。
 
-**(iii)** 対象環 $B(\ell^2(\mathbb N_0^2))$ は階数1射影を持つType I因子です。通常トレースは忠実・正規・半有限な重みで、そのモジュラー作用素は $I$。したがって[Connes不変量の定義](#def-aqft28-connes-s)によれば $S(M)\subset\{1\}$ であり、[半有限因子の分類結果](#thm-aqft28-connes-classification-literature)から $S(M)=\{1\}$ です。一状態の全スペクトルと重み全体の共通部分は一致しません。
+**(iii)** 対象環 $B(\ell^2(\mathbb N_0^2))$ は階数1射影を持つType I因子です。通常トレースは忠実・正規・半有限な重みで、そのモジュラー作用素は $I$。したがって[ConnesのS不変量](#def-aqft28-connes-s)によれば $S(M)\subset\{1\}$ であり、[半有限因子の分類結果](#thm-aqft28-connes-classification-literature)から $S(M)=\{1\}$ です。一状態の全スペクトルと重み全体の共通部分は一致しません。
 <!-- solution-end -->
 
 <a id="ex-aqft28-b02"></a>
