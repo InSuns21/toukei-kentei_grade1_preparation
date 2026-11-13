@@ -1,0 +1,46 @@
+id: "FLUID2"
+title: "静止流体の圧力はどう分布するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID1
+official_scope: []
+learning_objectives:
+  - "CTMの表面力・Newton流体の等方応力・局所運動量収支から静水圧方程式dp/dz=-rho*gを成分計算で導ける"
+  - "一定密度・高さで変わる密度の鉛直積分を行い、圧力基準・ゲージ圧・単位・符号を検算できる"
+  - "水平な圧力勾配が零という条件を用い、水平密度差のある静止模型の不整合を判定できる"
+  - "二層液体とp=c^2*rhoの圧縮性気体柱の圧力を境界条件から導ける"
+  - "連通管の等水位に必要な共通密度・共通外圧・同一高さの圧力連続性を明示し、異なる液体と異なる外圧の計算へ応用できる"
+  - "壁面の正味の水平合力を圧力の面積積分で求め、底圧を全面に掛ける誤りを説明できる"
+definitions:
+  - { id: FLUID2-DEF-01, name: "静止等方圧力状態" }
+  - { id: FLUID2-DEF-02, name: "基準圧力とゲージ圧" }
+theorems:
+  - { id: FLUID2-THM-01, name: "静水圧方程式" }
+  - { id: FLUID2-PROP-01, name: "鉛直柱の静水圧積分" }
+  - { id: FLUID2-COR-01, name: "一定密度の深さと圧力" }
+  - { id: FLUID2-PROP-02, name: "p=c^2*rhoの静止気体柱" }
+  - { id: FLUID2-PROP-03, name: "同種液体の連通管の等水位" }
+canonical_examples:
+  - "上面・下面の外法線と等方圧縮応力の符号"
+  - "静止した薄い液柱の鉛直力の釣合と圧力勾配"
+  - "線形成層密度の深さ積分と表面圧力"
+  - "表面の絶対圧とゲージ圧を別々に計算"
+  - "二層液体の界面圧力の連続性と圧力勾配の跳び"
+  - "一定温度の簡単な気体柱の指数圧力"
+  - "連通管の共通高さでの圧力比較と異なる密度の対照"
+problem_patterns:
+  - FLUID2-TRACTION-PRESSURE-DIRECTION
+  - FLUID2-DEPTH-GAUGE-ABSOLUTE
+  - FLUID2-REFERENCE-PRESSURE
+  - FLUID2-LAYERED-STATIC-PRESSURE
+  - FLUID2-GRADIENT-UNITS
+  - FLUID2-VARIABLE-DENSITY-INTEGRAL
+  - FLUID2-MANOMETER-DIFFERENT-DENSITIES
+  - FLUID2-HORIZONTAL-DENSITY-COMPATIBILITY
+  - FLUID2-VERTICAL-WALL-INTEGRATION
+  - FLUID2-TWO-LAYERS-DIFFERENT-GAS-PRESSURES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }
