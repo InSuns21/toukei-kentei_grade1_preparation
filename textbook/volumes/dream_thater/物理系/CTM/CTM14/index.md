@@ -224,6 +224,13 @@ $$
 
 基準の直方体を、現在位置 $\chi(X)=(sX_1,X_2,X_3)$、$s>0$ へ写す。固定時刻では $F=\operatorname{diag}(s,1,1)$、$J=s$、$B=\operatorname{diag}(s^2,1,1)$ である。$\mu>0,\lambda\ge0$ とする。
 
+次の模式図は $s=2$ の三次元直方体を上から二次元投影したものである。上側の物質面（基準法線 $N=e_2$）は伸長方向 $e_1$ を含むため、面積は二倍になるが、現在法線は $n=e_2$ のままである。**同じ面の合力**を、左側では $PN\,dA$、右側では $\sigma n\,da$ として測ることに注目してほしい。
+
+![一軸伸長でe1方向の長さが2倍となり、基準のe2面の面積A0が現在の2A0に変わる図](assets/uniaxial-traction-areas.svg)
+
+[図を拡大して確認する](assets/uniaxial-traction-areas.svg)
+
+
 <a id="prop-ctm14-uniaxial"></a>
 
 <!-- formal-statement-start -->
@@ -535,7 +542,7 @@ $$
 P(F)=\begin{pmatrix}0&-b&0\\a&0&0\\0&0&b\end{pmatrix}.
 $$
 
-$a-b=\frac32\mu-\lambda\log2/2$ は一般に零でなく、$P^T\ne P$。一方 $D$ の Cauchy 応力は $\sigma(D)=\operatorname{diag}(a,b/2,b/2)$ である。回転して
+$a+b=\frac32\mu+\frac32\lambda\log2>0$ は一般に零でなく、$P^T\ne P$。一方 $D$ の Cauchy 応力は $\sigma(D)=\operatorname{diag}(a,b/2,b/2)$ である。回転して
 
 $$
 \sigma(F)=Q\sigma(D)Q^T=\operatorname{diag}(b/2,a,b/2)
