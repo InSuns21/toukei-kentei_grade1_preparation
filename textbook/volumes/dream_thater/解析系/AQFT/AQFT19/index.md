@@ -543,7 +543,7 @@ $$
 $0<p<1$、$\mathcal M$ を $\mathbb C^2$ 上の対角行列環、$\Omega=(\sqrt p,\sqrt{1-p})$ とする。$S,\Delta,J$ を求め、定義域も答えよ。
 
 <!-- solution-start -->
-**詳細解答。** $A=\operatorname{diag}(a,b)$ のとき $A\Omega=(a\sqrt p,b\sqrt{1-p})$ です。二成分の係数は任意に選べるので $\mathcal M\Omega=\mathbb C^2$。従って[Tomita初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-preoperator)から
+**詳細解答。** $A=\operatorname{diag}(a,b)$ のとき $A\Omega=(a\sqrt p,b\sqrt{1-p})$ です。二成分の係数は任意に選べるので $\mathcal M\Omega=\mathbb C^2$。従って[Tomita初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)から
 
 $$
 S(x_1,x_2)=(\overline{x_1},\overline{x_2})
@@ -712,7 +712,7 @@ $$
 
 $\lambda_j>0$ なので各 $E_{ij}\in\mathcal M\Omega$ です。有限行列の線形包はHilbert–Schmidtノルムで稠密ですから巡回的です。$A\Omega=0$ なら各 $j$ で $0=A\Omega e_j=\sqrt{\lambda_j}Ae_j$ となり $Ae_j=0$、$A$ の有界性と基底の稠密性から $A=0$。よって分離的です。$\mathcal M$ のvon Neumann環性も確認します。すべての右乗算 $R_C(X)=XC$ は $L_A$ と可換です。$T\in\mathcal M''$ なら第1列の部分空間 $\{E_{v1}:v\in K\}$ を保ち、$T(E_{v1})=E_{Dv,1}$ となる有界作用素 $D\in B(K)$ を定めます（$\|Dv\|\le\|T\|\|v\|$）。$E_{ij}=R_{E_{1j}}E_{i1}$ なので、$T$ の右乗算との可換性から $T(E_{ij})=E_{De_i,j}=L_D(E_{ij})$。稠密な行列単位上で一致するので $T=L_D$、すなわち $\mathcal M''=\mathcal M$ です。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)より $\mathcal M$ はvon Neumann環です。
 
-**2. Tomitaの初期作用。** $E_{ij}=A\Omega$ には $A=E_{ij}/\sqrt{\lambda_j}\in B(K)$ を選べます。[初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-preoperator)から
+**2. Tomitaの初期作用。** $E_{ij}=A\Omega$ には $A=E_{ij}/\sqrt{\lambda_j}\in B(K)$ を選べます。[初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)から
 
 $$
 S_0(E_{ij})=A^*\Omega
