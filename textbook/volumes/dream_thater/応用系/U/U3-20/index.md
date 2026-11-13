@@ -14,7 +14,7 @@ $$
 dS_u=(r-q)S_u\,du+\sigma S_u\,dW_u^Q,\qquad S_t=s.
 $$
 
-$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)であり、価格付けのために用います。これは将来の実損益を記述する実確率測度 $P$ とは異なります。[欧州型 call/put](../U3-05/index.md#def-u3-05-european)について、残存期間を明示した価格関数を $C(t,s;K,r,q,\sigma,T)$、$P(t,s;K,r,q,\sigma,T)$ と書きます。ここで $P(t,s;K,r,q,\sigma,T)$ は **put の価格関数**であり、直前の実確率測度 $P$ とは別の対象です。以下では $K,T,q$ を動かさない偏微分が基本で、他の変数を固定したまま一つだけ動かします。
+$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)であり、価格付けのために用います。これは将来の実損益を記述する実確率測度 $P$ とは異なります。[欧州型 call/put](../U3-05/index.md#def-u3-05-european)について、残存期間を明示した価格関数を $C(t,s;K,r,q,\sigma,T)$、$P(t,s;K,r,q,\sigma,T)$ と書きます。この $P(t,s;K,r,q,\sigma,T)$ は put を価格付けする関数であり、直前の実確率測度 $P$ とは別の対象です。以下では $K,T,q$ を動かさない偏微分が基本で、他の変数を固定したまま一つだけ動かします。
 
 [配当付き閉形式](../U3-19/index.md#thm-u3-19-bsm-dividend)と[標準正規密度 $\phi$・累積関数 $\Phi$](../U3-18/index.md#def-u3-18-normal-indices)を再掲して記号を揃えます。
 
@@ -60,17 +60,17 @@ $$
 定義の単位を確認します。オプション1単位の価格が円、$s$ が円/株なら、Delta は株、Gamma は株²/円（株数を無次元の単位数量とみなせば円$^{-1}$）です。Vega は「変動率を年$^{-1/2}$ の単位で1増加させたときの円の微分」、Theta は円/年、Rho は「金利を年$^{-1}$ の単位で1増加させたときの円の微分」です。**Vega と Rho の値は「1%ポイント変化当たり」ではなく、$0.01$ を掛けて初めてその単位の概算**になります。
 
 <!-- definition-example-start: def-u3-20-greeks -->
-**定義の確認（call）**：$s=K=100$ 円、$r=0.05,q=0.02,\sigma=0.20,\tau=1$ 年を取ります。$t<T$、$s,K,\sigma>0$、$q\ge0$ を満たし、第1節の $C$ を5つの変数で偏微分できます。$d_1=0.25,d_2=0.05$、$A=e^{-0.02},D=e^{-0.05}$ です。まず株価方向では、他の引数を固定して $\Phi'(z)=\phi(z)$ と連鎖律を使います。
+**定義の確認**（call）：$s=K=100$ 円、$r=0.05,q=0.02,\sigma=0.20,\tau=1$ 年を取ります。$t<T$、$s,K,\sigma>0$、$q\ge0$ を満たし、第1節の $C$ を5つの変数で偏微分できます。$d_1=0.25,d_2=0.05$、$A=e^{-0.02},D=e^{-0.05}$ です。まず株価方向では、他の引数を固定して $\Phi'(z)=\phi(z)$ と連鎖律を使います。
 
-$
+$$
 C_s=A\Phi(d_1)
 +\frac{sA\phi(d_1)-KD\phi(d_2)}{s\sigma\sqrt\tau}
 =A\Phi(0.25)\approx0.586851.
-$
+$$
 
 中間の密度項が0になる理由は次節の証明で $d_1,d_2$ から導きます。得られた $C_s$ を再び株価で微分し、さらに $\sigma,r$ と時刻 $t$（満期 $T$ を固定）で各々微分すると、同じ点で
 
-$
+$$
 \begin{aligned}
 C_{ss}&=\frac{A\phi(0.25)}{100(0.20)}\approx0.018951,\\
 C_\sigma&=100A\phi(0.25)\approx37.901158,\\
@@ -78,7 +78,7 @@ C_t&=2A\Phi(0.25)-5D\Phi(0.05)-10A\phi(0.25)
 \approx-5.089319,\\
 C_r&=100D\Phi(0.05)\approx49.458109.
 \end{aligned}
-$
+$$
 
 この5つは順に株価一階・二階、変動率、暦時刻、金利による偏微分であり、どれも上の **call** に対する定義の直接例です。計算式の導出・密度項の相殺は第3節で全て確かめます。特に $C_t$ は $C_\tau$ ではなく、その負号を取ったものです。
 
@@ -348,29 +348,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-20-hedge-pnl -->
-**定義の確認（call を実際に売る）**：$t=0,T=1$、$s=K=100$ 円、$r=0.05,q=0.02,\sigma=0.20$、$h=1/252$ 年なら $0<h<T-t$ です。[配当付き価格](../U3-19/index.md#thm-u3-19-bsm-dividend)と[本章の Greeks](#thm-u3-20-bsm-greeks)から、売った call の受取額と保有株数は
+**定義の確認**（call を実際に売る）：$t=0,T=1$、$s=K=100$ 円、$r=0.05,q=0.02,\sigma=0.20$、$h=1/252$ 年なら $0<h<T-t$ です。[配当付き価格](../U3-19/index.md#thm-u3-19-bsm-dividend)と[本章の Greeks](#thm-u3-20-bsm-greeks)から、売った call の受取額と保有株数は
 
-$
+$$
 C_0\approx9.2270055082,\qquad
 \Delta=C_s(0,100)\approx0.5868511461
-$
+$$
 
 です。受け取った代金から株式取得費を払うので預金は
 
-$
+$$
 b=C_0-100\Delta\approx-49.4581091053\quad\text{円（借入）}.
-$
+$$
 
 例えば標準化増分 $Z=0$ の経路では、[GBM の陽解](../U3-14/index.md#thm-u3-14-explicit-gbm)に $r-q-\sigma^2/2=0.01$ を代入して $s'=100e^{0.01h}\approx100.003968333>0$ 円です。翌日の残存期間 $1-h$ 年で再評価すると $C_h\approx9.2091205622$ 円。すると株価差益・借入利息・左端近似配当・売り call の評価損益はそれぞれ
 
-$
+$$
 \begin{aligned}
 \Delta(s'-100)&\approx+0.002328821,\\
 b(e^{0.05h}-1)&\approx-0.009814090,\\
 0.02\Delta(100)h&\approx+0.004657549,\\
 -(C_h-C_0)&\approx+0.017884946.
 \end{aligned}
-$
+$$
 
 4項の和は $\Pi_h\approx+0.015057225$ 円です。株数は1区間中一定、当初純資産は $-C_0+100\Delta+b=0$ で、売り手の損益の符号・借入・近似配当を含め定義の全項を確認しました。これは真の連続配当積分ではなく、定義で指定した左端規約による損益です。
 <!-- definition-example-end -->
@@ -496,26 +496,26 @@ $$
 <!-- solution-start -->
 **詳細解答**：[先渡価値](../U3-19/index.md#thm-u3-19-forward)は $f=se^{-q\tau}-Ke^{-r\tau}$ です。$s$ で一階・二階微分し、$\sigma$ が式に現れないことを使えば
 
-$
+$$
 f_s=e^{-q\tau},\qquad f_{ss}=0,\qquad f_\sigma=0.
-$
+$$
 
 時間については $\tau=T-t$ で $T$ を固定するので、$\partial_t\tau=-1$ です。連鎖律を指数関数の各項に適用すると
 
-$
+$$
 \partial_t e^{-q\tau}=qe^{-q\tau},\qquad
 \partial_t e^{-r\tau}=re^{-r\tau},
-$
+$$
 
-$
+$$
 f_t=qse^{-q\tau}-rKe^{-r\tau}.
-$
+$$
 
 一方、$r$ による偏微分では $t,T,q$ を固定して $\partial_r e^{-r\tau}=-\tau e^{-r\tau}$ だから
 
-$
+$$
 f_r=K\tau e^{-r\tau}.
-$
+$$
 
 Theta は暦時刻の $f_t$ であり、残存年数の $f_\tau$ と符号を取り違えません。
 <!-- solution-end -->
@@ -531,10 +531,10 @@ $0\le q$、$t<T$ の下で、欧州型 call と put のデルタがそれぞれ 
 
 [配当付き欧州型 call/put の Greeks](#thm-u3-20-bsm-greeks)を両契約に適用し、正の $A=e^{-q\tau}$ を掛けると
 
-$
+$$
 0<\Delta_C=A\Phi(d_1)<A,\qquad
 -A<\Delta_P=-A\Phi(-d_1)<0.
-$
+$$
 
 さらに $q\ge0$ と $\tau>0$ より $0<A\le1$ です。
 <!-- solution-end -->
@@ -566,16 +566,16 @@ $s=K=100,r=.05,q=.02,\sigma=.20,\tau=1$ の call で Theta が約 $-5.089319$ �
 <!-- solution-start -->
 **詳細解答**：[Theta の定義](#def-u3-20-greeks)は満期 $T$ と株価 $s$ を固定する $\partial_tC$ です。時刻が $\delta=1/252$ 年進むと、暦時刻による一次変化は
 
-$
+$$
 C(t+\delta,s)-C(t,s)\approx\Theta\delta
 =\frac{-5.089319}{252}\approx-0.020196\ \text{円}.
-$
+$$
 
 一方、残存年数は $\tau-\delta$ に減ります。$\partial_\tau C=-\Theta$ と $\Delta\tau=-\delta$ を両方使うと
 
-$
+$$
 (\partial_\tau C)\Delta\tau=(-\Theta)(-\delta)=\Theta\delta
-$
+$$
 
 となり、同じ符号です。この call の Theta は負ですが、すべてのオプションの Theta が負とは限りません。
 <!-- solution-end -->
@@ -589,24 +589,24 @@ $f(x)=x^3$、$x=2$ で一階中心差分と二階中心差分を任意の $h>0$ 
 <!-- solution-start -->
 **詳細解答**：二項展開により
 
-$
+$$
 (2+h)^3=8+12h+6h^2+h^3,\qquad
 (2-h)^3=8-12h+6h^2-h^3.
-$
+$$
 
 一階中心差分では偶数次が差で消え、
 
-$
+$$
 \frac{(2+h)^3-(2-h)^3}{2h}
 =\frac{24h+2h^3}{2h}=12+h^2.
-$
+$$
 
 $f'(2)=12$ なので誤差は $+h^2$ です。二階中心差分では奇数次が和で消えるから、
 
-$
+$$
 \frac{(2+h)^3-2(2^3)+(2-h)^3}{h^2}
 =\frac{12h^2}{h^2}=12=f''(2).
-$
+$$
 
 二階差分は任意の $h>0$ で厳密に一致します。
 <!-- solution-end -->
@@ -627,13 +627,13 @@ $$
 
 両辺に $s e^{-q\tau}\phi(d_2)>0$ を掛けると
 
-$
+$$
 sA\phi(d_1)=K e^{-r\tau}\phi(d_2)=KD\phi(d_2)
-$
+$$
 
 となります。$d_{1,s}=d_{2,s}=1/(s\sigma\sqrt\tau)$ を、$C=sA\Phi(d_1)-KD\Phi(d_2)$ の積微分へ代入すると
 
-$
+$$
 \begin{aligned}
 C_s&=A\Phi(d_1)
 +\frac{sA\phi(d_1)-KD\phi(d_2)}{s\sigma\sqrt\tau}
@@ -641,7 +641,7 @@ C_s&=A\Phi(d_1)
 C_{ss}&=A\phi(d_1)\frac{1}{s\sigma\sqrt\tau}
 =\frac{A\phi(d_1)}{s\sigma\sqrt\tau}>0.
 \end{aligned}
-$
+$$
 
 分母 $s,\sigma,\sqrt\tau$ と分子 $A,\phi(d_1)$ はすべて正です。従って一階の Delta と二階の Gamma が得られます。
 <!-- solution-end -->
@@ -706,18 +706,18 @@ put は[配当付き parity](../U3-19/index.md#prop-u3-19-parity) $P=C-sA+KD$ �
 <!-- solution-start -->
 **詳細解答**：[配当付き欧州型 call/put の Greeks](#thm-u3-20-bsm-greeks)から、当初の売り call の受取額とデルタ保有株数は
 
-$
+$$
 C_0=9.2270055082\ \text{円},\qquad
 \Delta=0.5868511461\ \text{株}.
-$
+$$
 
 差額を預金へ置くと
 
-$
+$$
 b=C_0-\Delta s
 =9.2270055082-58.6851146135
 =-49.4581091053\ \text{円（借入）}.
-$
+$$
 
 [GBM の陽解](../U3-14/index.md#thm-u3-14-explicit-gbm)で $r-q-\sigma^2/2=0.01$、$h=1/252$ とすると
 
@@ -764,7 +764,7 @@ $$
 
 put は [同じ Greeks の定理](#thm-u3-20-bsm-greeks)により
 
-$
+$$
 \begin{aligned}
 \Delta_P&=-A\Phi(-0.25)\approx-0.393347527,\\
 \Gamma_P&=\Gamma_C,\qquad \mathcal V_P=\mathcal V_C,\\
@@ -772,7 +772,7 @@ $
 \approx-2.293569138,\\
 \rho_P&=-100D\Phi(-0.05)\approx-45.664833345.
 \end{aligned}
-$
+$$
 
 [配当付き parity](../U3-19/index.md#prop-u3-19-parity)を $s,r$ で微分すると
 
