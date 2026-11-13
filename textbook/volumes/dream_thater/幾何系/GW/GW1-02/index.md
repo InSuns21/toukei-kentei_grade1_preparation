@@ -281,7 +281,7 @@ $$
 1=-1+2.
 $$
 
-この写像は $u_t\ne Ju_s$ なので擬正則ではない。「適合性」を外す場合も、$g_J$ の正定値性と上の二乗展開が失われるため、このままのエネルギーの議論は使えない。
+この写像は $u_t\ne Ju_s$ なので擬正則ではない。上の行列式は[2形式の引き戻しの定義](../../GEO/GEO7/index.md#def-geo7-pullback-form)を基底 $\partial_s,\partial_t$ に適用したもので、二列はそれぞれ $u_s,u_t$ を表す。「適合性」を外す場合も、$g_J$ の正定値性と上の二乗展開が失われるため、このままのエネルギーの議論は使えない。
 
 ## 5. 閉じた定義域で面積が変形に依存しない理由
 
@@ -427,7 +427,7 @@ $$
 E(u)=\int_{T^2}\tfrac12(5+5)\,ds\,dt=5.
 $$
 
-引き戻した面積形式は
+[微分形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)を座標基底に適用すると、面積形式は
 
 $$
 u^*(dx\wedge dy)
@@ -445,7 +445,7 @@ $$
 A03と同じ平坦な単位トーラス上で $u([s,t])=[s,-t]$ とする。$E(u)$、$\int u^*\omega$、$\int|\bar\partial_Ju|^2$ を求め、エネルギー恒等式を照合せよ。
 
 <!-- solution-start -->
-**詳細解答**。$u_s=(1,0)$、$u_t=(0,-1)$ より $|du|^2=1+1=2$、したがって $E(u)=1$。引き戻しの係数は $\det\operatorname{diag}(1,-1)=-1$ だから $\int u^*\omega=-1$。
+**詳細解答**。$u_s=(1,0)$、$u_t=(0,-1)$ より $|du|^2=1+1=2$、したがって $E(u)=1$。[2形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)の係数は、二つの微分ベクトルを列とする行列式 $\det\operatorname{diag}(1,-1)=-1$ だから $\int u^*\omega=-1$。
 
 $J(x,y)=(-y,x)$ とすると $\bar\partial_Ju(\partial_s)=\tfrac12((1,0)+(1,0))=(1,0)$、$\bar\partial_Ju(\partial_t)=\tfrac12((0,-1)-(0,1))=(0,-1)$。二乗和は2、積分も2である。よって $E=1=-1+2$。$\bar\partial_Ju\ne0$ なので[擬正則写像のエネルギー恒等式](#thm-gw1-02-energy-identity)の等号条件を満たさない。
 <!-- solution-end -->
@@ -511,7 +511,7 @@ $$
 E(u)=\frac12(a^2+b^2+c^2+d^2)
 $$
 
-となる。面積の引き戻しは行列式に等しく
+となる。[2形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)を $u_s,u_t$ に評価すると、$\omega(u_s,u_t)=ad-bc$ なので
 
 $$
 \int_{T^2}u^*\omega=ad-bc.
@@ -568,7 +568,7 @@ $S\ne0$ の座標 $\zeta=T/S=\xi+i\eta$ と、標的の対応座標では $f_d(\
 閉単位円盤 $D=\{(s,t):s^2+t^2\le1\}$ と $\omega=dx\wedge dy$ を考える。$u_a(s,t)=(as,at)$（$a\ge0$）の面積を計算し、$a$ を連続的に変えても面積が一定とは限らない理由を、Stokesの証明で失われる仮定から説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$du_a(\partial_s)=(a,0)$、$du_a(\partial_t)=(0,a)$ なので $u_a^*\omega=a^2ds\wedge dt$。従って
+**詳細解答**。$du_a(\partial_s)=(a,0)$、$du_a(\partial_t)=(0,a)$ なので、[微分形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)から $u_a^*\omega=a^2ds\wedge dt$。従って
 
 $$
 \int_Du_a^*\omega=a^2\int_Dds\,dt=\pi a^2.
@@ -602,7 +602,7 @@ $$
 
 **（1）** 行列 $A,B$ の各成分は整数だから、$(s,t)$ を整数格子だけ変えても像の座標は整数格子だけ変わる。よって双方とも商上で一価かつ滑らかである。標準複素構造で $u_t=Ju_s$ となる条件は[局所方程式](#prop-gw1-02-local-cr)から、行列の成分を $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と書けば $a=d$、$b=-c$。$B$ は $(a,d)=(2,2)$、$(b,c)=(1,-1)$ だから満たす。$A$ は $a=2,d=1$ なので満たさない。
 
-**（2）** $A$ では $u_s=(2,-1)$、$u_t=(1,1)$。二乗和は $5+2=7$、面積は $\det A=2\cdot1-1\cdot(-1)=3$。従って
+**（2）** $A$ では $u_s=(2,-1)$、$u_t=(1,1)$。二乗和は $5+2=7$、[2形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)による符号付き面積は $\omega(u_s,u_t)=\det A=2\cdot1-1\cdot(-1)=3$。従って
 
 $$
 E(u_A)=\tfrac72,\quad
