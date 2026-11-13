@@ -527,7 +527,16 @@ Theta は暦時刻の $f_t$ であり、残存年数の $f_\tau$ と符号を取
 $0\le q$、$t<T$ の下で、欧州型 call と put のデルタがそれぞれ $0<\Delta_C<A$、$-A<\Delta_P<0$ を満たすことを示せ。
 
 <!-- solution-start -->
-**詳細解答**：[配当付き欧州型 call/put の Greeks](#thm-u3-20-bsm-greeks)を使う前に、$d_1$ が有限実数であることを $s,K,\sigma,\tau>0$ から確認します。標準正規密度は正なので $0<\Phi(d_1)<1$ です。$A=e^{-q\tau}>0$ を掛けると $0<A\Phi(d_1)<A$。put は $\Delta_P=-A\Phi(-d_1)$、$0<\Phi(-d_1)<1$ なので $-A<\Delta_P<0$。$q\ge0$ ならさらに $A\le1$ です。
+**詳細解答**：$s,K,\sigma,\tau>0$ から、正規化指標 $d_1$ は有限実数です。標準正規密度 $\phi$ は全実数で正なので、$0<\Phi(\pm d_1)<1$ が成り立ちます。
+
+[配当付き欧州型 call/put の Greeks](#thm-u3-20-bsm-greeks)を両契約に適用し、正の $A=e^{-q\tau}$ を掛けると
+
+$
+0<\Delta_C=A\Phi(d_1)<A,\qquad
+-A<\Delta_P=-A\Phi(-d_1)<0.
+$
+
+さらに $q\ge0$ と $\tau>0$ より $0<A\le1$ です。
 <!-- solution-end -->
 
 <a id="ex-u3-20-a3"></a>
@@ -555,7 +564,20 @@ $$
 $s=K=100,r=.05,q=.02,\sigma=.20,\tau=1$ の call で Theta が約 $-5.089319$ 円/年である。価格関数で $s$ ほかの引数を固定して1営業日 $\delta=1/252$ 年進めると、時間変化だけの一次予測は何円か。なぜ符号が負か。
 
 <!-- solution-start -->
-**詳細解答**：[Theta の定義](#def-u3-20-greeks)は $\partial_tC$ ですから、時刻が $\delta$ 進むと $C(t+\delta,s)-C(t,s)\approx\Theta\delta$。数値は $-5.089319/252\approx-0.020196$ 円です。$T$ 固定なら残存年数は $\tau-\delta$ に減り、$\partial_\tau C=-\Theta$ のため、$\partial_\tau C$ を使う場合は $\Delta\tau=-\delta$ も掛ける必要があります。この特定の call では Theta が負ですが、一般のすべてのオプションに同じ符号を仮定しません。
+**詳細解答**：[Theta の定義](#def-u3-20-greeks)は満期 $T$ と株価 $s$ を固定する $\partial_tC$ です。時刻が $\delta=1/252$ 年進むと、暦時刻による一次変化は
+
+$
+C(t+\delta,s)-C(t,s)\approx\Theta\delta
+=\frac{-5.089319}{252}\approx-0.020196\ \text{円}.
+$
+
+一方、残存年数は $\tau-\delta$ に減ります。$\partial_\tau C=-\Theta$ と $\Delta\tau=-\delta$ を両方使うと
+
+$
+(\partial_\tau C)\Delta\tau=(-\Theta)(-\delta)=\Theta\delta
+$
+
+となり、同じ符号です。この call の Theta は負ですが、すべてのオプションの Theta が負とは限りません。
 <!-- solution-end -->
 
 <a id="ex-u3-20-a5"></a>
@@ -603,7 +625,25 @@ $$
 =(K/s)e^{-(r-q)\tau}.
 $$
 
-右辺に $s e^{-q\tau}\phi(d_2)$ を掛けると $sA\phi(d_1)=K e^{-r\tau}\phi(d_2)=KD\phi(d_2)$。$d_{1,s}=d_{2,s}=1/(s\sigma\sqrt\tau)$ を価格 $C=sA\Phi(d_1)-KD\Phi(d_2)$ に代入して積微分すると、密度項の差が0になり $\Delta_C=A\Phi(d_1)$。もう一度微分して $\Gamma_C=A\phi(d_1)/(s\sigma\sqrt\tau)>0$ が得られます。正値性には $s,\sigma,\tau,A,\phi(d_1)>0$ を使いました。
+両辺に $s e^{-q\tau}\phi(d_2)>0$ を掛けると
+
+$
+sA\phi(d_1)=K e^{-r\tau}\phi(d_2)=KD\phi(d_2)
+$
+
+となります。$d_{1,s}=d_{2,s}=1/(s\sigma\sqrt\tau)$ を、$C=sA\Phi(d_1)-KD\Phi(d_2)$ の積微分へ代入すると
+
+$
+\begin{aligned}
+C_s&=A\Phi(d_1)
++\frac{sA\phi(d_1)-KD\phi(d_2)}{s\sigma\sqrt\tau}
+=A\Phi(d_1),\\
+C_{ss}&=A\phi(d_1)\frac{1}{s\sigma\sqrt\tau}
+=\frac{A\phi(d_1)}{s\sigma\sqrt\tau}>0.
+\end{aligned}
+$
+
+分母 $s,\sigma,\sqrt\tau$ と分子 $A,\phi(d_1)$ はすべて正です。従って一階の Delta と二階の Gamma が得られます。
 <!-- solution-end -->
 
 <a id="ex-u3-20-b2"></a>
@@ -664,7 +704,22 @@ put は[配当付き parity](../U3-19/index.md#prop-u3-19-parity) $P=C-sA+KD$ �
 基準例で、call を1単位売り、その価格からデルタ株式を買い残りを預金へ置く。日数 $h=1/252$ 年、$Z=0$ と $Z=2$ を別々に実現したときの翌日株価、再評価価格、自己金融損益を計算せよ。配当は $q\Delta s h$ の左端近似とする。
 
 <!-- solution-start -->
-**詳細解答**：[配当付き欧州型 call/put の Greeks](#thm-u3-20-bsm-greeks)から $\Delta=0.5868511461$ 株、$C_0=9.2270055082$ 円です。現金は $b=C_0-\Delta s=9.2270055082-58.6851146135=-49.4581091053$ 円（借入）です。[GBM の陽解](../U3-14/index.md#thm-u3-14-explicit-gbm)で $r-q-\sigma^2/2=.01$、$h=1/252$ とすると
+**詳細解答**：[配当付き欧州型 call/put の Greeks](#thm-u3-20-bsm-greeks)から、当初の売り call の受取額とデルタ保有株数は
+
+$
+C_0=9.2270055082\ \text{円},\qquad
+\Delta=0.5868511461\ \text{株}.
+$
+
+差額を預金へ置くと
+
+$
+b=C_0-\Delta s
+=9.2270055082-58.6851146135
+=-49.4581091053\ \text{円（借入）}.
+$
+
+[GBM の陽解](../U3-14/index.md#thm-u3-14-explicit-gbm)で $r-q-\sigma^2/2=0.01$、$h=1/252$ とすると
 
 $$
 S_h=100\exp\{.01h+.2\sqrt h\,Z\}.
@@ -707,7 +762,19 @@ $$
 \end{aligned}
 $$
 
-put は $\Delta_P=-A\Phi(-.25)\approx-.393347527$、$\Gamma_P=\Gamma_C$、$\mathcal V_P=\mathcal V_C$、$\Theta_P=-.02(100)A\Phi(-.25)+.05(100)D\Phi(-.05)-100A(.2)\phi(.25)/2\approx-2.293569138$、$\rho_P=-100D\Phi(-.05)\approx-45.664833345$ です。[parity](../U3-19/index.md#prop-u3-19-parity)を $s,r$ で微分すると
+put は [同じ Greeks の定理](#thm-u3-20-bsm-greeks)により
+
+$
+\begin{aligned}
+\Delta_P&=-A\Phi(-0.25)\approx-0.393347527,\\
+\Gamma_P&=\Gamma_C,\qquad \mathcal V_P=\mathcal V_C,\\
+\Theta_P&=-2A\Phi(-0.25)+5D\Phi(-0.05)-10A\phi(0.25)
+\approx-2.293569138,\\
+\rho_P&=-100D\Phi(-0.05)\approx-45.664833345.
+\end{aligned}
+$
+
+[配当付き parity](../U3-19/index.md#prop-u3-19-parity)を $s,r$ で微分すると
 
 $$
 \Delta_C-\Delta_P=A\approx.980198673,\qquad
