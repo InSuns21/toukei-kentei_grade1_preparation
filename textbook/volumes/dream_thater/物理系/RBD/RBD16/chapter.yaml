@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - RBD15
+  - ODE4
 official_scope: []
 learning_objectives:
   - 物体系のEuler方程式と姿勢ODEを単一の初期値問題として組み立てられる
