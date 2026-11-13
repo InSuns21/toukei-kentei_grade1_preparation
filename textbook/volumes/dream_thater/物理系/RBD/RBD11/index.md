@@ -282,7 +282,17 @@ R^{\mathsf T}\frac{dL_{O,s}}{dt}
 \end{aligned}
 $$
 
-これは [RBD7の物体系Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)を重心ではなく固定支点 $O$ まわりの角運動量収支へ適用した形です。重力トルク $(le_3)\times(R^{\mathsf T}(-Mg e_z))$ は $e_3$ に直交します。また $J_{O,b}=\operatorname{diag}(I,I,J)$ から第三成分の交差項は $I\omega_1\omega_2-I\omega_2\omega_1=0$。よって $J\dot\omega_3=\tau_{O,b,3}=0$、つまり $k$ は一定です。理想支点の仕事率は零、重力は保存力なのでエネルギーも一定。これらは $R,\omega$ と物理的な力の式であり、Euler角の正則域に依存しません。
+これは [RBD7の物体系Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)を、重心ではなく固定支点 $O$ まわりの角運動量収支へ適用した形です。
+
+重力トルクは物体系で $(le_3)\times(R^{\mathsf T}(-Mg e_z))$ なので、第三成分が零です。また支点慣性が $J_{O,b}=\operatorname{diag}(I,I,J)$ であるため、
+
+$$
+(\omega_b\times J_{O,b}\omega_b)_3
+=I\omega_1\omega_2-I\omega_2\omega_1=0,
+\qquad \tau_{O,b,3}=0.
+$$
+
+したがって $J\dot\omega_3=0$、つまり $k$ は一定です。理想支点の仕事率は零で、重力は保存力なのでエネルギーも一定です。これらは物理的な力と姿勢行列の式であり、Euler角の正則域に依存しません。
 <!-- proof-end -->
 
 ### 直接計算：鉛直軸へ回っても全角運動量は固定されない
