@@ -437,7 +437,7 @@ $$
 $k^2(\lambda+2\mu)=\rho_0\omega^2$ または $k^2\mu=\rho_0\omega^2$ を代入すると、どちらも $j=(\omega/k)e\,n=ce\,n$。周期平均 $\langle\sin^2\theta\rangle=1/2$ から $\langle e\rangle=\rho_0\omega^2a^2/2$ となる。□
 <!-- proof-end -->
 
-体積 $\Omega$ を固定し、境界が滑らかなら発散定理により
+体積 $\Omega$ を固定し、境界が滑らかなら [Gauss–Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)により
 
 $$
 \frac{d}{dt}\int_\Omega e\,dV=-\int_{\partial\Omega}j\cdot n_{\partial\Omega}\,dS
