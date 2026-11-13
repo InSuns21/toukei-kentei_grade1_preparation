@@ -10,6 +10,7 @@ prerequisites:
   - CM2-03
   - CM2-04
   - CM2-05
+  - CM2-10
   - HOD1-06
   - AG2-07
   - AG3-08
@@ -30,9 +31,9 @@ definitions:
 theorems:
   - { id: GW1-03-PROP-01, name: 局所線形化の公式 }
   - { id: GW1-03-THM-01, name: 線形化の楕円性 }
-  - { id: GW1-03-THM-02, name: 一階楕円型評価と正則性 }
-  - { id: GW1-03-THM-03, name: 閉曲面の楕円作用素のFredholm性 }
-  - { id: GW1-03-THM-04, name: Riemann面上のDolbeault指数 }
+  - { id: GW1-03-THM-02, name: 閉曲面上の一階楕円型評価と正則性 }
+  - { id: GW1-03-THM-03, name: 閉曲面上の楕円作用素はFredholm }
+  - { id: GW1-03-THM-04, name: Riemann面上のDolbeault指数の計算 }
   - { id: GW1-03-THM-05, name: 擬正則写像の線形化の実指数 }
 canonical_examples:
   - 平坦トーラスのFourierモードとSobolevノルム

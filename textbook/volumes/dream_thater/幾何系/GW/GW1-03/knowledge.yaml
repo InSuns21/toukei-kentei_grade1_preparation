@@ -9,6 +9,7 @@ prerequisites:
   - CM2-03
   - CM2-04
   - CM2-05
+  - CM2-10
   - HOD1-06
   - AG2-07
   - AG3-08
@@ -43,3 +44,33 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（擬正則写像の線形化の実指数）"]
     requires: [gromov-witten.ellipticity-linearization]
+  - id: gromov-witten.local-linearization-formula
+    name: 局所線形化の公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所線形化の公式）"]
+    requires: [gromov-witten.linearization]
+  - id: gromov-witten.first-order-elliptic-estimate
+    name: 閉曲面上の一階楕円型評価と正則性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉曲面上の一階楕円型評価と正則性）"]
+    requires: [gromov-witten.principal-symbol]
+  - id: gromov-witten.fredholm-operator
+    name: Fredholm作用素と実指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fredholm作用素と実指数）"]
+    requires: [gromov-witten.sobolev-sections]
+  - id: gromov-witten.elliptic-fredholm
+    name: 閉曲面上の楕円作用素はFredholm
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉曲面上の楕円作用素はFredholm）"]
+    requires: [gromov-witten.first-order-elliptic-estimate, gromov-witten.fredholm-operator]
+  - id: gromov-witten.dolbeault-rr-index
+    name: Riemann面上のDolbeault指数の計算
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Riemann面上のDolbeault指数の計算）"]
+    requires: [gromov-witten.elliptic-fredholm]
