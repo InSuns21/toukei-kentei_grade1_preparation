@@ -23,7 +23,7 @@ concepts:
     introduction: formal
     requires: [aqft.gibbs-state, aqft.kms-strip, aqft.hs-finite-flow-formula]
   - id: aqft.physical-time-kms
-    name: 物理時間における逆温度betaの帯
+    name: 物理時間における逆温度βの帯
     kind: theorem
     introduction: formal
     requires: [aqft.finite-gibbs-kms, aqft.gibbs-state]
