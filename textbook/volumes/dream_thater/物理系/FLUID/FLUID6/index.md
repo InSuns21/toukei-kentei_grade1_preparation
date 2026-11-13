@@ -8,7 +8,11 @@
 
 ## 0. 先に決める模型・単位と速度の意味
 
-位置 $x=(x,y,z)$ [m] の開領域 $\Omega\subset\mathbb R^3$ と時間区間 $I$ を考える。速度 $u(x,t)$ [m/s]、密度 $\rho>0$ [kg/m$^3$]、圧力 $p(x,t)$ [Pa] とし、以下の主要な積分では $\rho$ は**空間・時間とも一定の正定数**とする。$u$ は空間 $C^2$ 級かつ時間 $C^1$ 級、$p$ と後述の $\Phi$ は空間 $C^1$ 級とし、必要な式が各点で成立すると仮定する。境界面のある応用ではその近くまで場が連続に延長できるものとする。直交座標の各正方向の単位ベクトルを $e_x,e_y,e_z$ と記す。
+位置 $x=(x,y,z)$ [m] の開領域 $\Omega\subset\mathbb R^3$ と時間区間 $I$ を考える。直交座標の各正方向の単位ベクトルは $e_x,e_y,e_z$ と書く。
+
+流速 $u(x,t)$ [m/s]、密度 $\rho>0$ [kg/m$^3$]、圧力 $p(x,t)$ [Pa] を用いる。以下の主要な積分では、$\rho$ は**空間・時間とも一定の正定数**とする。
+
+$u$ は空間 $C^2$ 級かつ時間 $C^1$ 級、$p$ と後述の $\Phi$ は空間 $C^1$ 級とし、必要な式が各点で成立すると仮定する。境界面のある応用では、その近くまで場が連続に延長できるものとする。
 
 [CTM7 で使った物質微分](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)は
 
@@ -111,7 +115,21 @@ $\rho>0$ で割り、$i=1,2,3$ を束ねると結論を得る。質量保存に�
 
 ## 2. 速度の二乗と渦度：何が勾配に残るか
 
-速度の空間的な回転を表す**渦度**を $\omega=\nabla\times u$ と書く。ここで $\nabla\times$ は直交座標での回転演算子であり、例えば平面流 $u=(u_x,u_y,0)$ なら $\omega=(0,0,\partial_xu_y-\partial_yu_x)$ である。$\omega=0$ を**渦なし**と呼ぶ（より広い渦度理論は FLUID8 で扱う）。成分計算では[VC7 の Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon) $\varepsilon_{ijk}$（添字が $1,2,3$ の偶置換なら $1$、奇置換なら $-1$、重複すれば $0$）を使い、$\omega_k=\sum_{\ell,m}\varepsilon_{k\ell m}\partial_\ell u_m$ と表す。本講ではこの定義で計算できる滑らかな場に限る。
+速度の空間的な回転を表す**渦度**を $\omega=\nabla\times u$ と書く。$\nabla\times$ は直交座標での回転演算子である。例えば平面流 $u=(u_x,u_y,0)$ なら、渦度の鉛直成分は次のとおり。
+
+$$
+\omega=(0,0,\partial_xu_y-\partial_yu_x)
+$$
+
+$\omega=0$ を**渦なし**と呼ぶ（より広い渦度理論は FLUID8 で扱う）。
+
+成分計算には[VC7 の Levi–Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon) $\varepsilon_{ijk}$ を使う。添字が $1,2,3$ の偶置換なら $1$、奇置換なら $-1$、重複すれば $0$ であり、渦度の第 $k$ 成分を
+
+$$
+\omega_k=\sum_{\ell,m}\varepsilon_{k\ell m}\partial_\ell u_m
+$$
+
+と表す。本講では、この定義で計算できる滑らかな速度場に限る。
 
 まず移流加速度と速度の二乗の勾配を成分ごとに微分すると
 
@@ -140,7 +158,7 @@ $$
 \end{aligned}
 $$
 
-最後の等号では、例えば $\sum_{\ell,m}\delta_{i\ell}\delta_{jm}\partial_\ell u_m=\partial_i u_j$ として Kronecker 記号が成分を選ぶことを使った。速度二乗の勾配からこの外積を引くと $\sum_j u_j\partial_ju_i$ だけが残り、
+最後の等号では、例えば $\sum_{\ell,m}\delta_{i\ell}\delta_{jm}\partial_\ell u_m=\partial_i u_j$ として Kronecker 記号が成分を選ぶことを使った。速度二乗の勾配からこのベクトル積を引くと $\sum_j u_j\partial_ju_i$ だけが残り、
 
 $$
 \boxed{(u\cdot\nabla)u
