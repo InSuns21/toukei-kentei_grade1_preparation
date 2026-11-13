@@ -25,7 +25,21 @@ $$
 
 である。ここで $\partial_j=\partial/\partial X_j$ とし、重複添字は $1,2,3$ について和を取る。$I_3$ は単位行列、$a\cdot b$ は内積、$A:B=\sum_{i,j}A_{ij}B_{ij}$ である。$\nabla(\operatorname{div}u)$ は成分 $\partial_i(\sum_j\partial_j u_j)$ のベクトル、$\Delta u$ は各成分に Laplace 作用素を施したベクトルである。
 
-標準直交基底を $e_1,e_2,e_3$ と書く。列ベクトル $p,q\in\mathbb R^3$ に対する $pq^T$ は、任意の $a\in\mathbb R^3$ を $p(q\cdot a)$ に送る $3\times3$ 行列（外積行列）であり、$(pq^T)_{ij}=p_iq_j$ である。時間微分の略記は $u_t=\partial u/\partial t$、$u_{tt}=\partial^2u/\partial t^2$ とし、各成分では $(u_i)_{tt}=u_{i,tt}=\partial_t^2u_i$ と同じ意味で用いる。$X$ を固定して時間で微分する場合と、$t$ を固定して空間微分 $\partial_j$ を行う場合を区別する。演習で使う $w_{X_1}$、$w_{X_1X_1}$、$w_{tt}$ はそれぞれ $\partial_1w$、$\partial_1^2w$、$\partial_t^2w$ を表す。
+標準直交基底を $e_1,e_2,e_3$ と書く。列ベクトル $p,q\in\mathbb R^3$ の積 $pq^T$ は、次の作用を持つ $3\times3$ 行列（テンソル積の行列表示）である。
+
+$$
+(pq^T)a=p(q\cdot a),\qquad (pq^T)_{ij}=p_iq_j.
+$$
+
+時間微分は空間の点 $X$ を固定して行い、次の略記を使う。
+
+$$
+u_t=\frac{\partial u}{\partial t},\qquad
+u_{tt}=\frac{\partial^2u}{\partial t^2},\qquad
+(u_i)_{tt}=u_{i,tt}=\partial_t^2u_i.
+$$
+
+これに対し空間微分 $\partial_j$ は時刻 $t$ を固定する。演習のスカラー関数 $w(X_1,t)$ でも同じ規約を使い、$w_{X_1}=\partial_1w$、$w_{X_1X_1}=\partial_1^2w$、$w_{tt}=\partial_t^2w$ と表す。
 
 この章の波の基本設定では体積力を零とする。局所的な波をまず無限媒質で検討するため、境界条件はない。一方、有限物体を考える節では、[CTM12 の変位・表面力境界条件](../CTM12/index.md#def-ctm12-boundary-data)を時間ごとに与え、初期変位と初期速度を別に指定する。無限媒質の波を任意の有限物体にそのまま当てはめることはしない。
 
