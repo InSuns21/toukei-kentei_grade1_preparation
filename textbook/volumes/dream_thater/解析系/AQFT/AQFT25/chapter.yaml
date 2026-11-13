@@ -1,0 +1,51 @@
+id: "AQFT25"
+title: "一般モジュラーKMS定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT23
+  - AQFT24
+  - QM6
+learning_objectives:
+  - 一般標準対のTomita作用素・反線形極分解とモジュラー自己同型群の役割を説明できる
+  - von Neumann環上のKMS条件とノルム連続なC*力学系のKMS条件を区別できる
+  - モジュラー流のノルム連続部分代数がC*環になることを証明できる
+  - Gaussian解析的元の強*稠密性とノルム連続部分代数内でのノルム稠密性を区別できる
+  - スペクトル測度の重み付き可積分性から閉帯連続性と開帯正則性を導ける
+  - Deltaの半べきの定義域と加重相加相乗平均から帯全体の一様評価を導ける
+  - Jの反ユニタリ性とSの作用から一般KMS上端境界の演算子順序を導ける
+  - 無限次元Hilbert–Schmidt模型でKMS境界と符号を検算できる
+  - -log Deltaと有限次元の-log rhoの作用先・固有値を区別できる
+  - Type III環で成立するKMS性と幾何学的boostの同一視を区別できる
+definitions:
+  - { id: AQFT25-DEF-01, name: "von Neumann環上の上側帯KMS条件" }
+  - { id: AQFT25-DEF-02, name: "モジュラー流のノルム連続部分代数" }
+theorems:
+  - { id: AQFT25-THM-01, name: "解析的元の二つの稠密性" }
+  - { id: AQFT25-LEM-01, name: "半べきの定義域から帯正則性へ" }
+  - { id: AQFT25-THM-02, name: "一般モジュラーKMS定理" }
+  - { id: AQFT25-COR-01, name: "ノルム連続部分環でのC*–KMS条件" }
+canonical_examples:
+  - 忠実な二準位状態でKMSの全境界条件を直接検証
+  - 無限次元シフトでノルム連続性が破れることを検証
+  - 無限次元Hilbert–Schmidt表現のE12とE21で二境界を直接計算
+  - 標準対があるType III環でのKMS性と幾何学的流の違い
+  - 非忠実密度行列でTomita初期作用素のwell-defined性が壊れる例
+problem_patterns:
+  - AQFT25-HALF-POWER-DOMAINS
+  - AQFT25-TWO-LEVEL-ENDPOINT
+  - AQFT25-ANALYTIC-NORM-CONTINUITY
+  - AQFT25-MODULAR-GENERATOR
+  - AQFT25-STRIP-DIFFERENTIATION
+  - AQFT25-ANTIUNITARY-ENDPOINT
+  - AQFT25-TWO-DENSITIES
+  - AQFT25-INFINITE-MATRIX-KMS
+  - AQFT25-GENERAL-SPECTRAL-PROOF
+  - AQFT25-MODULAR-VS-PHYSICAL-TIME
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 7 }
