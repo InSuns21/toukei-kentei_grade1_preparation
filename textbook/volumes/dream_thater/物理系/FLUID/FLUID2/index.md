@@ -128,7 +128,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[静水圧方程式](#thm-fluid2-hydrostatic-balance)を、$[a,b]$ の点 $z_0$ から $z$ まで積分する。[微積分の基本定理](../../../解析系/RA/RA2/index.md)はここでは $p$ が連続微分可能であることにより適用でき、
+[静水圧方程式](#thm-fluid2-hydrostatic-balance)を、$[a,b]$ の点 $z_0$ から $z$ まで積分する。[微積分の基本定理](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)はここでは $p$ が連続微分可能であることにより適用でき、
 
 $$
 p(z)-p(z_0)=\int_{z_0}^{z}p'(s)\,ds
@@ -268,7 +268,7 @@ $$
 \int_{p_0}^{p(z)}\frac{dq}{q}
 =-\frac g{c^2}\int_0^z ds
 \quad\Longrightarrow\quad
-\log p(z)-\log p_0=-\frac{gz}{c^2}.
+\log\!\left(\frac{p(z)}{p_0}\right)=-\frac{gz}{c^2}.
 $$
 
 指数を取って第一式を得る。次に $\rho=p/c^2$ を代入して第二式を得る。$[c^2/g]=(\mathrm{m^2/s^2})/(\mathrm{m/s^2})=\mathrm m$。指数の $gz/c^2$ は無次元である。$\square$
