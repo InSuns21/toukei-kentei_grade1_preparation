@@ -1,0 +1,41 @@
+chapter: U3-18
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-17, U3-11, U3-05]
+concepts:
+  - id: finance.bsm-normal-indices
+    name: Black–Scholes の正規化指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Black–Scholes の正規化指標）"]
+    requires: [finance.risk-neutral-terminal-value, finance.european-call-put]
+  - id: finance.gaussian-tilted-tail
+    name: 指数重み付き正規尾積分
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（指数重み付き正規尾積分）"]
+    requires: [finance.bsm-normal-indices]
+  - id: finance.black-scholes-european-formula
+    name: 無配当 Black–Scholes call/put 価格公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無配当 Black–Scholes call/put 価格公式）"]
+    requires: [finance.gaussian-tilted-tail, finance.bsm-feynman-kac-existence, finance.put-call-parity]
+  - id: finance.bsm-vanilla-delta
+    name: call/put のデルタと密度恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（call/put のデルタと密度恒等式）"]
+    requires: [finance.black-scholes-european-formula, finance.bsm-classical-replication]
+  - id: finance.bsm-vanilla-bounds
+    name: 無配当欧州型オプションの価格範囲
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（無配当欧州型オプションの価格範囲）"]
+    requires: [finance.black-scholes-european-formula, finance.gbm-real-moments]
+  - id: finance.bsm-vanilla-limits
+    name: call/put の代表的な境界極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（call/put の代表的な境界極限）"]
+    requires: [finance.black-scholes-european-formula, finance.put-call-parity]
