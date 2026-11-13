@@ -8,7 +8,9 @@
 
 三次元 Euclid 空間内の時変領域 $\Omega_t$ 上で、[CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration)から得た速度 $v(x,t)$ と密度 $\rho(x,t)>0$ を考える。速度は時間 $C^1$・空間 $C^2$ 級、密度は時間・空間 $C^1$ 級、圧力と粘性係数は必要な空間 $C^1$ 級とし、局所計算する点の近傍で各場は滑らかとする。境界条件を扱うときは平らな壁と連続な速度の境界値を仮定する。
 
-[CTM4 の速度勾配・変形速度テンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)と [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を用いる。直交座標の基底を $e_1,e_2,e_3$ とし、$x=(x_1,x_2,x_3)$ における速度の第 $i$ 成分を $v_i$ と書く。$i,j,k\in\{1,2,3\}$ とし、反復する添字は総和を表す。$\partial_j=\partial/\partial x_j$ は空間偏微分で、$\partial_t$ は**現在位置 $x$ を固定した**時間偏微分である。
+[CTM4 の速度勾配・変形速度テンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)と [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を用いる。直交座標の基底を $e_1,e_2,e_3$ とし、位置 $x=(x_1,x_2,x_3)$ での速度の第 $i$ 成分を $v_i$ と書く。
+
+添字 $i,j,k$ はいずれも $1,2,3$ を走り、反復した添字には総和を取る。$\partial_j=\partial/\partial x_j$ は空間偏微分を意味し、時間偏微分 $\partial_t$ では**現在位置 $x$ を固定する**。
 
 $$
 L_{ij}=\partial_jv_i,\qquad
@@ -129,7 +131,24 @@ $$
 <!-- definition-example-start: def-ctm15-newtonian-fluid -->
 ### **定義の確認**：二枚の板の間を流れる液体
 
-$0\le y\le h$ の流体について $v=(Uy/h,0,0)$、$U$ は m/s、$h>0$ は m、$p=p_0$ とし、$\eta>0$、$\zeta\ge0$ を選ぶ。ここで $y=x_2$ であり、直交基底 $e_1,e_2,e_3$ での速度勾配は $L_{12}=\partial_yv_1=U/h$ 以外が零である。[変形速度の定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)で対称部分を取ると $D_{12}=D_{21}=U/(2h)$、$\theta=0$、$D^\circ=D$ となる。したがって [Newton 構成則](#def-ctm15-newtonian-fluid)の非対角成分は $\sigma_{12}=\sigma_{21}=2\eta D_{12}=\eta U/h$ であり、等方成分は $-p_0I$ なので、
+$0\le y\le h$ の流体について $v=(Uy/h,0,0)$、$U$ は m/s、$h>0$ は m、$p=p_0$ とし、$\eta>0$、$\zeta\ge0$ を選ぶ。ここでは $y=x_2$ とする。
+
+直交基底での速度勾配は第 $(1,2)$ 成分以外が零である。[CTM4 の変形速度の定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)で対称部分を取ると
+
+$$
+L_{12}=\partial_yv_1=\frac Uh,\qquad
+D_{12}=D_{21}=\frac U{2h},\qquad
+\theta=0,\quad D^\circ=D.
+$$
+
+[Newton 構成則](#def-ctm15-newtonian-fluid)に代入すると
+
+$$
+\sigma_{12}=\sigma_{21}=2\eta D_{12}=\frac{\eta U}{h},
+\qquad \zeta\theta I=0.
+$$
+
+したがって等方成分 $-p_0I$ も含めた応力行列は
 
 $$
 \sigma=
@@ -483,7 +502,14 @@ $$
 
 特記がなければ三次元、直交デカルト座標、$\eta>0$ とする。速度・圧力・体積力は問題文の仮定を満たすだけ滑らかである。答えに使用する運動量式、非圧縮条件、境界条件を明記し、応力の成分と単位を確認せよ。
 
-以降、$y=x_2$ だけに依存する関数 $g(y),u(y),\eta(y)$ などのプライム記号 $g'(y),u'(y),\eta'(y)$ は **$y$ による常微分** $d/dy$ を表し、$u''(y)=d^2u/dy^2$ とする。例えば $v=(u(y),0,0)$ なら $\partial_2v_1=u'(y)$、$\partial_2^2v_1=u''(y)$ である。$\partial_t$ は空間位置を固定し、$D_t$ は物質点を追う微分なので、定常流で $\partial_tv=0$ でも移流項 $(v\cdot\nabla)v$ は別に確認する。
+以降、$y=x_2$ だけに依存する関数（$g(y),u(y),\eta(y)$ など）のプライム記号は、**$y$ による常微分**を表す。一般に $f=f(y)$ とすれば
+
+$$
+f'(y)=\frac{df}{dy},\qquad
+f''(y)=\frac{d^2f}{dy^2}.
+$$
+
+例えば $v=(u(y),0,0)$ の場合、$\partial_2v_1=u'(y)$、$\partial_2^2v_1=u''(y)$ と対応する。$\partial_t$ は空間位置を固定し、$D_t$ は物質点を追う微分なので、定常流で $\partial_tv=0$ でも移流項 $(v\cdot\nabla)v$ は別に確認する。
 
 ### Level A
 
