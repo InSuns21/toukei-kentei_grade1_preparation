@@ -76,14 +76,14 @@ $$
 
 **右乗算の合成順序が逆**になる点が重要です。特に $\langle L_AX,Y\rangle_2=\langle X,L_{A^*}Y\rangle_2$ より $L_A^*=L_{A^*}$ です。右乗算ではトレースの巡回性を明示して
 
-$
+$$
 \begin{aligned}
 \langle R_BX,Y\rangle_2
 &=\operatorname{Tr}(B^*X^*Y)\\
 &=\operatorname{Tr}(X^*YB^*)
 =\langle X,R_{B^*}Y\rangle_2
 \end{aligned}
-$
+$$
 
 を得るため、$R_B^*=R_{B^*}$ です。$L_I=I_{H_n}$ が単位元であり、$A\mapsto L_A$ は線形で $L_A(I)=A$ より単射です。したがって $L(M_n(\mathbb C))$ は $B(H_n)$ の有限次元単位的 $*$-部分代数です。有限次元空間 $B(H_n)$ では弱作用素位相が行列成分の通常の位相と一致し、その線形部分空間は閉じています。よって $L(M_n(\mathbb C))$ は単位的von Neumann環です。
 
@@ -119,9 +119,9 @@ $$
 
 [自己共役作用素のスペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)を有限次元の $\rho$ に適用し、その正規直交固有基底を $e_1,\ldots,e_n$、固有値を $\lambda_i$ とします。$v=\sum_i v_i e_i$ と展開すれば
 
-$
+$$
 \langle v,\rho v\rangle=\sum_i\lambda_i|v_i|^2
-$
+$$
 
 です。よって全ての $v$ に対する非負性は $\lambda_i\ge0$ と、零でない全ての $v$ に対する厳密正値性は $\lambda_i>0$ と、それぞれ同値です。後者のとき $\rho^{-1}$ と $\rho^{-1/2}$ が存在し、この固有基底では
 
@@ -216,19 +216,19 @@ $$
 
 有限次元・全域定義なので $S_0$ は閉じており、その閉包と一致します。第2節で選んだ $\rho$ の固有基底では、左乗算は行添字、右乗算は列添字に作用します。$E_{ij}^*=E_{ji}$ と転置されるため、必要な係数は
 
-$
+$$
 \rho^{-1/2}E_{ji}=\frac1{\sqrt{\lambda_j}}E_{ji},
 \qquad
 E_{ji}\rho^{1/2}=\sqrt{\lambda_i}E_{ji}
-$
+$$
 
 です。従って行 $j$ と列 $i$ の係数を順に掛けると
 
-$
+$$
 S(E_{ij})
 =\rho^{-1/2}E_{ji}\rho^{1/2}
 =\sqrt{\frac{\lambda_i}{\lambda_j}}E_{ji}.
-$
+$$
 
 <a id="thm-aqft20-modular-formulas"></a>
 
@@ -275,20 +275,20 @@ $$
 
 正規直交性より、$S^\sharp(E_{kl})$ のうち $E_{lk}$ 以外の基底係数は零です。残る係数を $b_{kl}$ と書いて随伴の定義の右辺を計算すると
 
-$
+$$
 \langle b_{kl}E_{lk},E_{ij}\rangle_2
 =\overline{b_{kl}}\,\delta_{li}\delta_{kj},
 \qquad
 \overline{b_{kl}}=\sqrt{\frac{\lambda_l}{\lambda_k}}.
-$
+$$
 
 固有値比の平方根は正の実数なので $b_{kl}$ も同じ値です。また $S^\sharp$ は反線形であるため、$X=\sum_{k,l}x_{kl}E_{kl}$ には係数を共役して作用します：
 
-$
+$$
 S^\sharp(X)=\sum_{k,l}\overline{x_{kl}}
 \sqrt{\frac{\lambda_l}{\lambda_k}}E_{lk}
 =\rho^{1/2}X^*\rho^{-1/2}.
-$
+$$
 
 この係数の共役を踏まえ、$S^\sharp S$ を基底に作用させると
 
@@ -430,7 +430,7 @@ $$
 
 したがって $\Delta^{it}$ は各基底に絶対値1の数を掛け、全空間のユニタリです。後の定理を使わず、定義の共役作用を $A=E_{12}$、任意の基底 $X=E_{kl}$（$k,l\in\{1,2\}$）に直接適用します。行列単位の積 $E_{12}E_{kl}=\delta_{2k}E_{1l}$ から
 
-$
+$$
 \begin{aligned}
 (\Delta^{it}L_{E_{12}}\Delta^{-it})(E_{kl})
 &=\Delta^{it}\left[
@@ -442,7 +442,7 @@ $
 &=3^{it}\delta_{2k}E_{1l}
 =3^{it}L_{E_{12}}(E_{kl}).
 \end{aligned}
-$
+$$
 
 $\delta_{2k}\ne0$ の項では $k=2$ なので、最後の係数は $(\lambda_1/\lambda_2)^{it}=3^{it}$ です。基底全体で等しいから $\sigma_t(L_{E_{12}})=e^{it\log3}L_{E_{12}}\in\mathcal M$ と分かります。$t=0$ で元に戻り、$t+s$ では位相係数が積になります。
 
