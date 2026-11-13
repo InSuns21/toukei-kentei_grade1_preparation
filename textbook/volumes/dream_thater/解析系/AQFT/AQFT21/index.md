@@ -165,9 +165,9 @@ $$
 が全 $i,j$ で成立し、行列単位の有限線形結合はHilbert–Schmidt空間で稠密ですから巡回的です。
 
 $T_V$ の定義は $\Omega$ の分離性により一価で、$AV$ は有界作用素です。$j\ge2$ と標準基底の任意の $e_k$ に対して
-$
+$$
 E_{1j}Ve_k=E_{1j}e_{k+1}=\delta_{j,k+1}e_1=E_{1,j-1}e_k
-$
+$$
 です。よって $E_{1j}V=E_{1,j-1}$ が従い、
 $$
 \|E_{1j}\Omega\|_2=\sqrt{p_j},\qquad
@@ -319,10 +319,10 @@ g_\varepsilon(\lambda)
 \int_{\mathbb R}e^{-t^2/(4\varepsilon)}e^{it\lambda}\,dt
 $$
 を考えます。$g_\varepsilon(0)=1$ で、$g_\varepsilon'(\lambda)=dg_\varepsilon/d\lambda$ は**スペクトル変数 $\lambda$ に関する微分**、積分中の $d/dt$ は**時間変数 $t$ に関する微分**です。前者と積分の交換は $|t|e^{-t^2/(4\varepsilon)}$ の可積分性により許されます。$t$ についての微分恒等式
-$
+$$
 t e^{-t^2/(4\varepsilon)}
 =-2\varepsilon\,\frac{d}{dt}\bigl(e^{-t^2/(4\varepsilon)}\bigr)
-$
+$$
 を使って $t$ に関して部分積分すると
 $$
 \begin{aligned}
