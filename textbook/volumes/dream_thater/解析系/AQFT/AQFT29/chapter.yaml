@@ -1,0 +1,46 @@
+id: "AQFT29"
+title: "相対Tomita作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT13
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT28
+learning_objectives:
+  - 二つの巡回分離ベクトルから相対Tomita初期作用素を定義し、入力と出力の状態の向きを区別できる
+  - 相対Tomita初期作用素の一価性・反線形性・稠密定義性と可閉性を可換子の稠密性から証明できる
+  - 閉反線形作用素の随伴と積から相対モジュラー作用素を構成し、定義域と非負自己共役性を説明できる
+  - 忠実な有限次元密度行列でS・反線形随伴・Deltaと平方根を全計算できる
+  - 非可換な二つの密度行列で混合固有基底を用い相対モジュラー作用素を対角化できる
+  - 添字の交換・逆作用素・反線形二乗を区別し、正規化を計算できる
+  - 非忠実な入力密度とType III局所環で有限次元表示の適用境界を説明できる
+definitions:
+  - { id: AQFT29-DEF-01, name: "相対Tomita初期作用素" }
+  - { id: AQFT29-DEF-02, name: "相対モジュラー作用素" }
+theorems:
+  - { id: AQFT29-PROP-01, name: "相対Tomita作用素の可閉性" }
+  - { id: AQFT29-THM-01, name: "忠実な有限次元二状態の相対Tomita全計算" }
+  - { id: AQFT29-PROP-02, name: "相対作用素の向きと規格化" }
+canonical_examples:
+  - 可換二点環の異なる巡回分離ベクトルと相対作用素
+  - 対角二準位状態のS・随伴・Deltaの係数検算
+  - 非可換な二つの忠実密度の混合固有基底の対角化
+  - 非忠実な入力密度の零表示による非一価性
+  - Type III環での密度行列表示の適用境界
+problem_patterns:
+  - AQFT29-COMMUTATIVE-RELATIVE
+  - AQFT29-MATRIX-ADJOINT
+  - AQFT29-STATE-NORMALIZATION
+  - AQFT29-NONFAITHFUL-FAILURE
+  - AQFT29-CLOSABILITY
+  - AQFT29-NONCOMMUTING-DIAGONALIZATION
+  - AQFT29-ORIENTATION
+  - AQFT29-INVERSE-ANTILINEAR
+  - AQFT29-GENERAL-TO-MATRIX
+  - AQFT29-TYPEIII-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }
