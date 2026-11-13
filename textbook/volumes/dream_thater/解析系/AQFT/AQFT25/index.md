@@ -227,7 +227,7 @@ $$
 
 となります。ここで $0\le v\le1$ は $\operatorname{Dom}\Delta^{1/2}\subset\operatorname{Dom}\Delta^{v/2}$ も保証します。Cauchy–Schwarzを適用すれば表示された評価が従います。
 
-正則性を確認します。開帯内の $z_0$ で $v_0=\operatorname{Im}z_0$ とし、$0<\delta<\min(v_0,1-v_0)$ を取ります。$v_0-\delta\le v\le v_0+\delta$ では
+正則性を確認します。開帯内の $z_0$ で $v_0=\operatorname{Im}z_0$ とし、$0<\delta<\min(v_0,1-v_0)$ を取ります。$v_0-\delta/2\le v\le v_0+\delta/2$ では
 
 $$
 |\lambda|e^{v\lambda}
