@@ -388,7 +388,37 @@ e^{-\beta H_{\mathrm{en}}}x\Omega
 =(x_{11},e^{-\beta\varepsilon}x_{21})^T.
 $$
 
-ここで $x_{i1}=\langle e_i,xe_1\rangle$（$i=1,2$）は、標準正規直交基底で表した $x\Omega$ の第 $i$ 成分です。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $|x_{i1}|\le\|x\|_{\mathrm{op}}$、また $x=|e_i\rangle\langle e_1|$ では $\|x\|_{\mathrm{op}}=|x_{i1}|=1$ となります。したがって行列要素汎関数 $f_1(x)=x_{11}$、$f_2(x)=x_{21}$ はどちらもノルム $1$ です。$H_{\mathrm{en}}e_1=0$、$H_{\mathrm{en}}e_2=\varepsilon e_2$ より、指数は各基底ベクトルをそれぞれ $1$ 倍、$e^{-\beta\varepsilon}$ 倍するので、$\xi_1=e_1$、$\xi_2=e^{-\beta\varepsilon}e_2$ と取れば上の二成分表示が核表示になり、
+ここで標準正規直交基底 $e_1,e_2$ による $xe_1$ の成分は、$i=1,2$ に対して
+
+$$
+x_{i1}=\langle e_i,xe_1\rangle,
+\qquad xe_1=\sum_{i=1}^2x_{i1}e_i
+$$
+
+です。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から、行列成分汎関数 $f_i(x)=x_{i1}$ は
+
+$$
+|f_i(x)|=|\langle e_i,xe_1\rangle|
+\le\|e_i\|\,\|xe_1\|
+\le\|x\|_{\mathrm{op}}
+$$
+
+を満たします。逆に階数1作用素 $u_i=|e_i\rangle\langle e_1|$ は $\|u_i\|_{\mathrm{op}}=1$、$f_i(u_i)=1$ なので、$\|f_1\|=\|f_2\|=1$ です。
+
+また $H_{\mathrm{en}}e_1=0$、$H_{\mathrm{en}}e_2=\varepsilon e_2$ ですから、各基底ベクトルの指数減衰は
+
+$$
+e^{-\beta H_{\mathrm{en}}}e_i=e^{-\beta E_i}e_i,
+\qquad(E_1,E_2)=(0,\varepsilon)
+$$
+
+となります。よって $\xi_1=e_1$、$\xi_2=e^{-\beta\varepsilon}e_2$ を選べば
+
+$$
+\Theta_{\beta,M}(x)=f_1(x)\xi_1+f_2(x)\xi_2
+$$
+
+という有限項の核表示ができ、
 
 $$
 \|\Theta_{\beta,M}\|_1\le1+e^{-\beta\varepsilon}.
