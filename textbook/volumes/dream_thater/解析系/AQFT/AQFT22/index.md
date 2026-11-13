@@ -136,7 +136,12 @@ $$
 \|A\|\le|\alpha|.
 $$
 
-一般の $B$ は実部と虚部のそれぞれの正負部分（4つの正作用素）の線形結合で表せます。各正部分をそのノルムで正規化して上述の構成を線形結合すれば $A$ の存在と $\|A\|\le C_\theta\|B\|$ を得ます。$\Omega$ が分離的なので $A\Omega$ を決める $A$ は一意です。
+一般の $B\in\mathcal M'$ については $H=(B+B^*)/2$、$K=(B-B^*)/(2i)$ と置けば $B=H+iK$、$H=H_+-H_-$、$K=K_+-K_-$ です。正負部分は[自己共役元の関数計算](../../QM/QM6/index.md#def-qm6-borel-functional-calculus)で定義でき、$0\le H_\pm,K_\pm\le\|B\|I$ です。$B\ne0$ なら4つを $\|B\|$ で割って先ほどの構成を適用し、得た $A$ を同じ係数で線形結合します。$(\Delta+\lambda)^{-1}$ の線形性から $A\Omega=(\Delta+\lambda)^{-1}B\Omega$ となり、
+$$
+\|A\|\le4|\alpha|\|B\|
+=\frac{2\|B\|}{\cos(\theta/2)}.
+$$
+$B=0$ なら $A=0$ と取れます。$\Omega$ が分離的なので $A\Omega$ を決める $A$ は一意です。
 <!-- proof-end -->
 
 上の補題が、「$B\Omega$ を形式的に右から掛ける」を「$A\Omega$ という代数元を実際に作る」へ変換する第一歩です。$\operatorname{Dom}\Delta$ に関する式を使用した場所では、$FS(A\Omega)$ の定義域まで確かめました。
