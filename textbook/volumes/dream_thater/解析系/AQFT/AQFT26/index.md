@@ -365,7 +365,7 @@ $$
 |\omega_{\mathrm{vac}}(\phi(f_s)\phi(g))|
 \le\|\phi(f)\Omega\|\,\|\phi(g)\Omega\|,
 $$
-上端も同じ評価を持ちます。質量 $m>0$、wedge内のコンパクトな支持に対して核は $|\operatorname{Re}z|\to\infty$ で一様に減衰します（$D_{x,y}(z)$ の絶対値は固定支持上で指数的に増大し、$K_1(m\sqrt D)/\sqrt D$ は主値枝の閉部分帯で減衰します）。境界の有限範囲ではWightman分布の平滑化が連続なので、帯の最大値原理を有限長矩形へ適用し、その長さを無限にすれば内部にも同じ上界が及びます。こうして平滑化された二点相関に必要な有界な閉帯延長が得られます。
+上端も同じ評価を持ちます。質量 $m>0$、wedge内のコンパクトな支持に対して核は $|\operatorname{Re}z|\to\infty$ で一様に減衰します（$D_{x,y}(z)$ の絶対値は固定支持上で指数的に増大し、$K_1(m\sqrt D)/\sqrt D$ は主値枝の閉部分帯で減衰します）。境界の有限範囲ではWightman分布の平滑化が連続なので、帯に[最大値原理](../../CA/CA3/index.md#thm-ca3-maximum-modulus)を有限長矩形へ適用し、その長さを無限にすれば内部にも同じ上界が及びます。こうして平滑化された二点相関に必要な有界な閉帯延長が得られます。
 <!-- proof-end -->
 
 **一般KMS定理との関係。** [AQFT25の上側帯KMS定理](../AQFT25/index.md#thm-aqft25-modular-kms)は、すでに分かっているモジュラー流に対して全ての有界演算子の相関を扱います。本講は逆に、自由場の幾何学的boostについて**二点相関の**解析性を直接求めました。Gaussianの高次相関やWeyl作用素、標準実部分空間、作用素の定義域まで進んで初めて、幾何学的流とTomita–Takesakiの流を一致させられます。それが次講の仕事です。
@@ -530,7 +530,7 @@ $$
 
 (iii) $v\downarrow0$ と $v\uparrow2\pi$ で $\sin v$ の符号が逆になり、負の実軸へ近づく向きが反転する。下端では[AQFT8の二点関数](../AQFT8/index.md#thm-aqft8-wightman-match)の順序 $\langle\Omega,\phi(\Lambda(s)x)\phi(y)\Omega\rangle$、上端では逆の $\langle\Omega,\phi(y)\phi(\Lambda(s)x)\Omega\rangle$ が現れる。試験関数で平滑化して分布として境界を取る。
 
-(iv) $z=-2\pi t$ とし $F(t)=\mathcal G_{f,g}(-2\pi t)$ と置く。$\operatorname{Im}t\in(0,1)$ と $\operatorname{Im}z\in(-2\pi,0)$ は同値である。実軸では $\omega(\sigma_t^{\mathrm{geom}}(\phi(f))\phi(g))$、上端 $t+i$ では $\omega(\phi(g)\sigma_t^{\mathrm{geom}}(\phi(f)))$。平滑化により境界は連続で、実軸のベクトル相関はCauchy–Schwarzで有界、解析帯内部の有界性は[二点KMS境界の系](#cor-aqft26-two-point-kms)で示した最大値原理から従う。
+(iv) $z=-2\pi t$ とし $F(t)=\mathcal G_{f,g}(-2\pi t)$ と置く。$\operatorname{Im}t\in(0,1)$ と $\operatorname{Im}z\in(-2\pi,0)$ は同値である。実軸では $\omega(\sigma_t^{\mathrm{geom}}(\phi(f))\phi(g))$、上端 $t+i$ では $\omega(\phi(g)\sigma_t^{\mathrm{geom}}(\phi(f)))$。平滑化により境界は連続で、実軸のベクトル相関はCauchy–Schwarzで有界、解析帯内部の有界性は[二点KMS境界の系](#cor-aqft26-two-point-kms)で利用した[最大値原理](../../CA/CA3/index.md#thm-ca3-maximum-modulus)から従う。
 
 (v) **同定できない。** 今証明したのは自由場の二点関数の幾何学的な解析性である。一般netには自由場の質量殻表示もGaussian状態も存在するとは限らないし、二点相関だけから有界Weyl作用素全体のKMS性やTomita作用素の定義域は定まらない。これらの橋渡しが次講で必要となる。
 <!-- solution-end -->
