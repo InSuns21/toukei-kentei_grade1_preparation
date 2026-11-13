@@ -48,13 +48,13 @@ $$
 <!-- definition-example-start: def-holo29-region-recovery -->
 **定義の確認**（直接例と反例）。$L=A=B=C=\mathbb C^3$ とし、$V|\psi\rangle=|\psi\rangle_A|0\rangle_B|0\rangle_C$ と符号化します。任意の $|\phi\rangle,|\psi\rangle\in L$ について $\langle V\phi|V\psi\rangle=\langle\phi|\psi\rangle$ なので、$V^\dagger V=I_L$ です。
 
-保持領域 $R=\{A\}$ では、補系 $BC$ をトレースすると
+保持領域 $R=\{A\}$ では、入力 $\rho$ を $L\simeq A$ の基底対応で $A$ 上の密度行列 $\rho_A$ と見ます。補系 $BC$ をトレースすると
 
 $$
 \mathcal E_A(\rho)=\operatorname{Tr}_{BC}(\rho_A\otimes|00\rangle\langle00|_{BC})=\rho_A
 $$
 
-となります。$A\simeq L$ という基底対応の下、恒等チャネル $\mathcal D_A$ はCPTPで、すべての $\rho$ に対し $\mathcal D_A\mathcal E_A(\rho)=\rho$ を満たします。
+となります。$A\simeq L$ という基底対応の下、恒等チャネル $\mathcal D_A$ はCPTPで、すべての $\rho$ に対し $\mathcal D_A(\mathcal E_A(\rho))=\rho$ を満たします。
 
 一方、$R=\{B\}$ では $\mathcal E_B(\rho)=|0\rangle\langle0|_B$ が入力に依存しません。異なる $|0\rangle\langle0|_L$ と $|1\rangle\langle1|_L$ を同じ出力から一つの写像で復元できないため、完全回復は不可能です。領域の名前だけで可否は決まらず、**符号化 $V$ と保持領域 $R$ の組**で決まります。
 <!-- definition-example-end -->
