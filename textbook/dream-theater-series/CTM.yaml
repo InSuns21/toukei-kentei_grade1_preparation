@@ -18,7 +18,7 @@ chapters:
   - { id: CTM11, path: textbook/volumes/dream_thater/物理系/CTM/CTM11, status: completed, title: "Hooke則と等方線形弾性の独立な定数" }
   - { id: CTM12, path: textbook/volumes/dream_thater/物理系/CTM/CTM12, status: completed, title: "線形弾性の境界値問題をどう立てるか" }
   - { id: CTM13, path: textbook/volumes/dream_thater/物理系/CTM/CTM13, status: completed, title: "弾性体の波はなぜ縦波・横波に分かれるか" }
-  - { id: CTM14, path: textbook/volumes/dream_thater/物理系/CTM/CTM14, status: planned, title: "有限ひずみ弾性では応力をどのエネルギーから得るか" }
+  - { id: CTM14, path: textbook/volumes/dream_thater/物理系/CTM/CTM14, status: completed, title: "有限ひずみ弾性では応力をどのエネルギーから得るか" }
   - { id: CTM15, path: textbook/volumes/dream_thater/物理系/CTM/CTM15, status: planned, title: "粘性応力からNavier–Stokes方程式へ" }
   - { id: CTM16, path: textbook/volumes/dream_thater/物理系/CTM/CTM16, status: planned, title: "無次元化で粘性と慣性のどちらが効くか" }
   - { id: CTM17, path: textbook/volumes/dream_thater/物理系/CTM/CTM17, status: planned, title: "圧力駆動のStokes流を解く" }
