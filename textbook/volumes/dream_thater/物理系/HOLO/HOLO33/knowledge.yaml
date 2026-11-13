@@ -1,0 +1,27 @@
+chapter: HOLO33
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO6
+  - HOLO9
+  - HOLO18
+  - HOLO24
+  - HOLO29
+  - HOLO32
+forward_references: []
+concepts:
+  - id: holography.claim-scope-record
+    name: 双対性の主張の条件票
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双対性の主張の条件票）"]
+    requires: []
+  - id: holography.two-regulation-insensitive-checks
+    name: 分離点相関の比と区間エントロピーの差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（分離点相関の比と区間エントロピーの差）"]
+    requires:
+      - holography.gkpw-scalar-two-point
+      - holography.ads3-interval-regulated-length
+      - holography.ads3-rt-interval-coefficient
