@@ -1,5 +1,7 @@
 # AQFT26 Rindler wedgeとboostの解析性
 
+<!-- DT-REVIEW: AQFT26 -->
+
 [AQFT25の一般モジュラーKMS定理](../AQFT25/index.md#thm-aqft25-modular-kms)では、巡回・分離的真空に付随するモジュラー流が逆温度1のKMS条件を満たすと分かりました。しかしその流れが**時空のどんな運動に相当するか**は未解決です。本講では、右Rindler wedge内の自由スカラー場について、Lorentz boostを複素数のrapidityへ延長し、二点関数の解析帯の幅がなぜ $2\pi$ になるかを検算します。
 
 計量は $(-,+,+,+)$、$c=\hbar=1$ とし、**最初は質量 $m>0$ の実Klein–Gordon自由場のMinkowski真空**だけを対象にします。点場 $\phi(x)$ は作用素値分布であり、二点関数に点 $x,y$ を書くときは分布核の記法です。実際の演算子は実試験関数 $f\in C_c^\infty(M,\mathbb R)$ で平滑化した $\phi(f)$ を使います。自由場での二点関数の解析性と、wedgeのvon Neumann環のモジュラー流の同定は**別の結論**です。後者を証明するのが次のAQFT27です。
@@ -291,7 +293,7 @@ $$
 $$
 \operatorname{Im}D=2\rho_x\rho_y\,v\sinh A+O(v^3).
 $$
-実の二点間隔 $D(s)$ が負になる場合、二点は時間的に分離し、$A$ の符号は $\Lambda(s)x$ が $y$ より未来か過去かを指定します。これは $\eta$ 一定の断面が空間的で、wedge内の未来向き因果曲線に沿って $\eta$ が増加することから従います（実際、$ds^2=-\rho^2d\eta^2+d\rho^2+dy^2\le0$ なら未来向きには $d\eta>0$）。よって $v\downarrow0$ は、質量殻積分に挿入した $x^0-y^0-i0$ と同じ境界方向です。[AQFT8のWightman核](../AQFT8/index.md#thm-aqft8-wightman-matching)の順序が得られます。
+実の二点間隔 $D(s)$ が負になる場合、二点は時間的に分離し、$A$ の符号は $\Lambda(s)x$ が $y$ より未来か過去かを指定します。これは $\eta$ 一定の断面が空間的で、wedge内の未来向き因果曲線に沿って $\eta$ が増加することから従います（実際、$ds^2=-\rho^2d\eta^2+d\rho^2+dy^2\le0$ なら未来向きには $d\eta>0$）。よって $v\downarrow0$ は、質量殻積分に挿入した $x^0-y^0-i0$ と同じ境界方向です。[AQFT8のWightman核](../AQFT8/index.md#thm-aqft8-wightman-match)の順序が得られます。
 
 他方、$v\uparrow2\pi$ として $v=2\pi-\varepsilon$ と置くと、$\sin v=-\varepsilon+O(\varepsilon^3)$ なので
 $$
@@ -516,7 +518,7 @@ D_{x,y}(z)=\rho_x^2+\rho_y^2+|x_\perp-y_\perp|^2
 $$
 (ii) $z=s-iv$、$A=\eta_x+s-\eta_y$ とし、虚部 $2\rho_x\rho_y\sinh A\sin v$ を得る。$A=0$ なら $D=(\rho_x-\rho_y)^2+R_\perp^2+2\rho_x\rho_y(1-\cos v)>0$、$v=\pi$ なら $D=\rho_x^2+\rho_y^2+R_\perp^2+2\rho_x\rho_y\cosh A>0$。他では虚部が非零。よって主値 $\sqrt D$ と $K_1(m\sqrt D)$ は正則である。
 
-(iii) $v\downarrow0$ と $v\uparrow2\pi$ で $\sin v$ の符号が逆になり、負の実軸へ近づく向きが反転する。下端では[AQFT8の二点関数](../AQFT8/index.md#thm-aqft8-wightman-matching)の順序 $\langle\Omega,\phi(\Lambda(s)x)\phi(y)\Omega\rangle$、上端では逆の $\langle\Omega,\phi(y)\phi(\Lambda(s)x)\Omega\rangle$ が現れる。試験関数で平滑化して分布として境界を取る。
+(iii) $v\downarrow0$ と $v\uparrow2\pi$ で $\sin v$ の符号が逆になり、負の実軸へ近づく向きが反転する。下端では[AQFT8の二点関数](../AQFT8/index.md#thm-aqft8-wightman-match)の順序 $\langle\Omega,\phi(\Lambda(s)x)\phi(y)\Omega\rangle$、上端では逆の $\langle\Omega,\phi(y)\phi(\Lambda(s)x)\Omega\rangle$ が現れる。試験関数で平滑化して分布として境界を取る。
 
 (iv) $z=-2\pi t$ とし $F(t)=\mathcal G_{f,g}(-2\pi t)$ と置く。$\operatorname{Im}t\in(0,1)$ と $\operatorname{Im}z\in(-2\pi,0)$ は同値である。実軸では $\omega(\sigma_t^{\mathrm{geom}}(\phi(f))\phi(g))$、上端 $t+i$ では $\omega(\phi(g)\sigma_t^{\mathrm{geom}}(\phi(f)))$。平滑化により境界は連続で、実軸のベクトル相関はCauchy–Schwarzで有界、解析帯内部の有界性は[二点KMS境界の系](#cor-aqft26-two-point-kms)で示した最大値原理から従う。
 
