@@ -32,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft22-conjugate-algebra -->
-### 直接例：二準位Hilbert–Schmidt模型
+### **定義の確認**：二準位Hilbert–Schmidt模型
 
 [AQFT20の有限次元模型](../AQFT20/index.md#thm-aqft20-modular-formulas)で $\mathcal H=M_2(\mathbb C)$、$\mathcal M=\{L_A:X\mapsto AX\}$、$JX=X^*$ とします。$A,X\in M_2(\mathbb C)$ に対して
 $$
@@ -315,12 +315,12 @@ $$
 Ja^*J=\int k_\theta(t)\,U_{-t}bU_t\,dt.
 $$
 反ユニタリで挟む際には係数が共役されます。$B_t=JU_{-t}bU_tJ$ と置くと、**作用素としての式（I）** は
-$
+$$
 a^*=\int\overline{k_\theta(t)}\,B_t\,dt.
 $$
 一方 $a\Omega=(\Delta+\lambda)^{-1}b\Omega$ と $S(a\Omega)=a^*\Omega$、[cosh積分](#lem-aqft22-cosh-transform)を関数計算へ適用すると
 **ベクトルとしての式（II）** は
-$
+$$
 a^*\Omega
 =J\Delta^{1/2}(\Delta+\lambda)^{-1}b\Omega
 =\int\overline{k_\theta(t)}\,JU_{-t}b\Omega\,dt.
@@ -382,9 +382,9 @@ $$
 B_td_1d_2\Omega=d_1B_td_2\Omega.
 $$
 $\mathcal M'\Omega$ が稠密なので $B_td_1=d_1B_t$ が全空間で成立します。従って $B_t\in(\mathcal M')'=\mathcal M$。特に $t=0$ では
-$
+$$
 J\mathcal M'J\subset\mathcal M.
-$
+$$
 
 **第二の包含。** $a,y\in\mathcal M$、$b\in\mathcal M'$ とし、(3) により $c=JbJ\in\mathcal M$ と置きます。$a^*c^*\Omega\in\operatorname{Dom}S$、$J(a^*c^*\Omega)\in\operatorname{Dom}F$ であり、$y^*\Omega\in\operatorname{Dom}S$ です。[極分解の随伴関係](../AQFT19/index.md#thm-aqft19-modular-relations) $FJ=JS$ と [反線形随伴](../AQFT18/index.md#def-aqft18-antilinear-adjoint)の関係を使うと
 $$
@@ -411,7 +411,7 @@ $$
 第一の包含を $J$ で共役すると $ \mathcal M'\subset J\mathcal M J$。これと第二の包含を合わせて等号を得ます。
 <!-- proof-end -->
 
-**注意。** 上の第一包含では、実は各 $t$ で $JU_{-t}\mathcal M'U_tJ\subset\mathcal M$ まで得ています。これを共役し $\pm t$ と可換子を使うと、モジュラー流が代数を保つという結論にも到達します。ただし自己同型群の連続性と解析的代数元、作用の細部は[AQFT23](../AQFT23/index.md)で整理します（次講の本文完成前には既習結果として援用しません）。
+**注意。** 上の第一包含では、実は各 $t$ で $JU_{-t}\mathcal M'U_tJ\subset\mathcal M$ まで得ています。これを共役し $\pm t$ と可換子を使うと、モジュラー流が代数を保つという結論にも到達します。ただし作用素環内の時間発展の連続性・解析的元・作用の細部は次講AQFT23で整理します（次講の本文完成前には既習結果として援用しません）。
 
 ## 6. 定理の意味と誤用の防止
 
@@ -541,9 +541,9 @@ $$
 
 <!-- solution-start -->
 **詳細解答。** (i) を $J$ で左右から共役すると $J(J\mathcal M'J)J\subset J\mathcal M J$。$J^2=I$ より $\mathcal M'\subset J\mathcal M J$ です。(ii) と合わせて
-$
+$$
 \mathcal M'\subset J\mathcal M J\subset\mathcal M'
-$
+$$
 なので等号を得ます。
 
 (i) はレゾルベント元 $a\in\mathcal M$ の構成と、作用素式（I）・ベクトル式（II）を引き算する段階に依存します。すべての $\theta$ に関するLaplace型積分を零にしてFourier一意性を使い、$JU_{-t}bU_tJ\in\mathcal M$ を導きます。
@@ -572,7 +572,7 @@ $$
 
 ## 8. 次講への接続
 
-得られた等号 $J\mathcal M J=\mathcal M'$ は、実際の時空領域の因果補集合との等号を自動的には意味しません。さらに本証明の積分部は $JU_{-t}\mathcal M'U_tJ\subset\mathcal M$ という強い情報を含んでいます。次講[AQFT23「Takesakiのモジュラー不変性」](../AQFT23/index.md)では、これを $\Delta^{it}$ の自己同型群へ整理し、解析的元を $\mathcal M$ 内で構成して、強連続性と各定義域の適用条件を検証します。
+得られた等号 $J\mathcal M J=\mathcal M'$ は、実際の時空領域の因果補集合との等号を自動的には意味しません。さらに本証明の積分部は $JU_{-t}\mathcal M'U_tJ\subset\mathcal M$ という強い情報を含んでいます。次講AQFT23「Takesakiのモジュラー不変性」では、これを $\Delta^{it}$ による代数の時間発展として整理し、解析的元を $\mathcal M$ 内で構成して、強連続性と各定義域の適用条件を検証します。
 
 ### 参考資料
 
