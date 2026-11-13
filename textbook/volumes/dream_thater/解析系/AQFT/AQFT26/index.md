@@ -1,7 +1,5 @@
 # AQFT26 Rindler wedgeとboostの解析性
 
-<!-- DT-REVIEW: AQFT26 -->
-
 [AQFT25の一般モジュラーKMS定理](../AQFT25/index.md#thm-aqft25-modular-kms)では、巡回・分離的真空に付随するモジュラー流が逆温度1のKMS条件を満たすと分かりました。しかしその流れが**時空のどんな運動に相当するか**は未解決です。本講では、右Rindler wedge内の自由スカラー場について、Lorentz boostを複素数のrapidityへ延長し、二点関数の解析帯の幅がなぜ $2\pi$ になるかを検算します。
 
 計量は $(-,+,+,+)$、$c=\hbar=1$ とし、**最初は質量 $m>0$ の実Klein–Gordon自由場のMinkowski真空**だけを対象にします。点場 $\phi(x)$ は作用素値分布であり、二点関数に点 $x,y$ を書くときは分布核の記法です。実際の演算子は実試験関数 $f\in C_c^\infty(M,\mathbb R)$ で平滑化した $\phi(f)$ を使います。自由場での二点関数の解析性と、wedgeのvon Neumann環のモジュラー流の同定は**別の結論**です。後者を証明するのが次のAQFT27です。
@@ -240,7 +238,7 @@ $$
 <!-- definition-example-start: def-aqft26-boost-strip -->
 ### 直接例：同じ軌道上の二点
 
-$x=(0,\rho,0,0)$、$y=x$ と取ると $D_{x,x}(z)=2\rho^2(1-\cosh z)=-4\rho^2\sinh^2(z/2)$ です。$z=-i\pi$ なら $D=4\rho^2>0$、$z=-i\pi/2$ なら $D=2\rho^2>0$。どちらも平方根の主値枝で正則に定義できます。一方、$z=0$ と $z=-2\pi i$ は $D=0$ で点場の短距離特異性に当たります。**内側の正則性**と**境界での分布的扱い**を区別します。
+$x=(0,\rho,0,0)$、$y=x$ と取ると $D_{x,x}(z)=2\rho^2(1-\cosh z)=-4\rho^2\sinh^2(z/2)$ です。$z=-i\pi$ なら $D=4\rho^2>0$、$z=-i\pi/2$ なら $D=2\rho^2>0$。どちらも平方根の主値枝で正則に定義できます。一方、$z=0$ と $z=-2\pi i$ は $D=0$ で点場の短距離特異性に当たります。**開帯の内部で解析関数として扱えること**と**境界で分布として扱う必要があること**を区別します。
 <!-- definition-example-end -->
 
 <a id="thm-aqft26-strip-analyticity"></a>
