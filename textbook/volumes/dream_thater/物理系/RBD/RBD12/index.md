@@ -75,6 +75,8 @@ $$
 <!-- definition-example-start: def-rbd12-steady-precession -->
 ### 直接例：傾いたまま回り続けるこま
 
+**定義の確認**：正則な傾き、一定の歳差速度、一定の傾き、重い対称こまの運動方程式を、選んだ数値で順に確認します。
+
 $I=2,J=1,a=3,k=3$、$\theta_0=\pi/2$ とします。$\Omega=1$、$h=I\Omega\sin^2\theta_0+k\cos\theta_0=2$ を選ぶと、$\dot\phi=1$、$\dot\psi=k/J=3$、$\dot\theta=0$ です。[RBD11の傾きの二階式](../RBD11/index.md#thm-rbd11-reduced-theta)を速度表示で評価すると
 
 $$
@@ -173,6 +175,8 @@ $$
 
 <!-- definition-example-start: def-rbd12-nutation -->
 ### 直接例：定常歳差から傾きだけを少しずらす
+
+**定義の確認**：傾きが一定という条件を外し、保存する二方向の角運動量は保ったまま、二つの転回点の間を往復する章動を確認します。
 
 前節の $I=2,J=1,a=3,k=10$ と、遅い枝の $\theta_0=\pi/3$ を採用します。対応する鉛直角運動量は $h=5+\frac32(5-\sqrt{22})$ です。
 
