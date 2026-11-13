@@ -31,3 +31,4 @@
 28. [HOLO28 JLMSと相対エントロピー](textbook/volumes/dream_thater/物理系/HOLO/HOLO28/index.md)
 29. [HOLO29 消失訂正としてのバルク](textbook/volumes/dream_thater/物理系/HOLO/HOLO29/index.md)
 30. [HOLO30 作用素代数量子誤り訂正](textbook/volumes/dream_thater/物理系/HOLO/HOLO30/index.md)
+31. [HOLO31 テンソル網・HaPPY模型](textbook/volumes/dream_thater/物理系/HOLO/HOLO31/index.md)

@@ -1,0 +1,50 @@
+chapter: HOLO31
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO30
+  - HOLO29
+forward_references: []
+concepts:
+  - id: holography.four-leg-perfect-tensor
+    name: 四脚の完全テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（四脚の完全テンソル）"]
+    requires: [holography.erasure-logical-representation]
+  - id: holography.four-qutrit-perfect-tensor
+    name: 四qutritの完全テンソル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四qutritの完全テンソル）"]
+    requires: [holography.four-leg-perfect-tensor]
+  - id: holography.two-vertex-tensor-code
+    name: 二頂点のテンソル網符号
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二頂点のテンソル網符号）"]
+    requires: [holography.four-qutrit-perfect-tensor]
+  - id: holography.two-vertex-reconstruction
+    name: 二頂点網の等長性と領域再構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二頂点網の等長性と領域再構成）"]
+    requires: [holography.two-vertex-tensor-code, holography.algebra-reconstruction]
+  - id: holography.greedy-absorption-perfect
+    name: 四脚完全テンソル網のgreedy吸収
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（四脚完全テンソル網のgreedy吸収）"]
+    requires: [holography.four-leg-perfect-tensor, holography.two-vertex-reconstruction]
+  - id: holography.internal-bond-cut
+    name: 内部脚のcut容量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内部脚のcut容量）"]
+    requires: [holography.two-vertex-tensor-code]
+  - id: holography.discrete-rt-two-vertex
+    name: 二頂点網の量子RT型エントロピー恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二頂点網の量子RT型エントロピー恒等式）"]
+    requires: [holography.two-vertex-reconstruction, holography.internal-bond-cut]
