@@ -8,7 +8,15 @@
 
 ## 0. 設定と読み方
 
-すべてのHilbert空間は複素有限次元です。一つのqutritは $Q=\mathbb C^3$、計算基底は $|0\rangle,|1\rangle,|2\rangle$ とし、添字の加減乗算は体 $\mathbb F_3=\{0,1,2\}$ で行います。したがって $2=-1$、$3=0$、$2^{-1}=2$ です。$I_Q$ は $Q$ の恒等作用素、$V^\dagger$ は随伴、$\operatorname{Tr}_E$ は系 $E$ を捨てる部分トレース、$\mathcal B(H)$ は有限次元Hilbert空間 $H$ 上のすべての線形作用素の代数です。von Neumannエントロピーは
+すべてのHilbert空間は複素有限次元です。一つのqutritは $Q=\mathbb C^3$ で、計算基底を $|0\rangle,|1\rangle,|2\rangle$ とします。添字の加減乗算は体 $\mathbb F_3=\{0,1,2\}$ で行い、この体では
+
+$$
+2=-1,\qquad 3=0,\qquad 2^{-1}=2
+$$
+
+です。
+
+$I_Q$ は $Q$ の恒等作用素、$V^\dagger$ は随伴、$\operatorname{Tr}_E$ は系 $E$ を捨てる部分トレースです。$\mathcal B(H)$ は有限次元Hilbert空間 $H$ 上のすべての線形作用素の代数です。von Neumannエントロピーは
 
 $$
 S(\rho)=-\operatorname{Tr}(\rho\log\rho)
@@ -18,7 +26,15 @@ $$
 
 ## 1. 任意の半分から残り半分を決めるテンソル
 
-四つの脚（qutrit因子）を持つ量子状態を、その計算基底で四添字の係数表としても見ます。四脚を $Q_s=Q$（$s=1,2,3,4$）と名付け、脚集合 $X$ に対応する空間を $Q_X=\bigotimes_{s\in X}Q_s$ と書きます。「脚を切り分ける」とは、この四因子を二組 $X,Y$ に分け、係数を $Q_X$ 側の基底添字 $x$ と $Q_Y$ 側の基底添字 $y$ を持つ行列として読むことです。行列の列が直交して等しい長さなら、適切に規格化して $X$ から $Y$ への等長写像になります。この対応を使うため、まず状態の部分トレースで条件を定めます。
+四つの脚（qutrit因子）を持つ量子状態を、計算基底に関する四添字の係数表としても見ます。各脚を $Q_s=Q$（$s=1,2,3,4$）と名付けます。脚集合 $X$ に対応する空間は
+
+$$
+Q_X=\bigotimes_{s\in X}Q_s
+$$
+
+です。
+
+「脚を切り分ける」とは、この四因子を二組の脚集合 $X,Y$ に分け、係数を $Q_X$ 側の基底添字 $x$ と $Q_Y$ 側の基底添字 $y$ を持つ行列として読むことです。行列の列が直交して等しい長さなら、規格化して $X$ から $Y$ への等長写像を得ます。この対応を使うため、まず状態の部分トレースで条件を定めます。
 
 <a id="def-holo31-perfect-tensor"></a>
 
@@ -306,7 +322,22 @@ $$
 第2脚だけを残す場合も、トレースする第1脚の条件 $a+e=a'+e$ が $a=a'$ を与え、$a+2e$ が全値を一巡するため $I_3/3$ です。右側は $b$ を用いて同じ二つの計算を行えます。一脚の縮約がすべての $\rho_{ab}$ で同一なので、例えば異なる二つの論理基底状態を一つの復号器で識別することさえ不可能です。
 <!-- proof-end -->
 
-**二つの物理脚で何が読めるか。** $\omega=e^{2\pi i/3}$ とし、$X|a\rangle=|a+1\rangle$ を巡回シフト、$Z|a\rangle=\omega^a|a\rangle$ を位相作用素とします。ここでの作用素 $X$ は第1節で用いた脚集合 $X$ とは別の記号です。$U|a,e\rangle=|x,y\rangle$ では $x=a+e,y=a+2e$ なので、$a$ を1増やす操作は $x,y$ をともに1増やします。また $a=2x-y$ です。よって左側の作用素は
+**二つの物理脚で何が読めるか。** $\omega=e^{2\pi i/3}$ とします。一脚の巡回シフトと位相作用素をそれぞれ
+
+$$
+X|a\rangle=|a+1\rangle,\qquad
+Z|a\rangle=\omega^a|a\rangle
+$$
+
+で定義します。ここでの作用素 $X$ は、第1節で用いた脚集合 $X$ とは別の記号です。
+
+$U|a,e\rangle=|x,y\rangle$ と書くと
+
+$$
+x=a+e,\qquad y=a+2e,\qquad a=2x-y
+$$
+
+です。したがって論理添字 $a$ を1増やす操作は、両出力添字 $x,y$ をともに1増やします。よって左側の作用素は
 
 $$
 X_a\longleftrightarrow X_{L_1}X_{L_2},
@@ -359,7 +390,18 @@ $$
 =(I_X\otimes W_XO_X^{\mathsf T}W_X^\dagger)|T_3\rangle.
 $$
 
-実際に $O_X=\sum_{u,v}O_{uv}|u\rangle\langle v|$ と展開すると、左辺は $3^{-k/2}\sum_{u,v}O_{uv}|u\rangle_X W_X|v\rangle$ です。右辺も $O_X^{\mathsf T}|u\rangle=\sum_v O_{uv}|v\rangle$ と $W_X^\dagger W_X=I_X$ により同じ和になります。つまり**未取得側 $X$ にあった演算子を、取得済み側 $Y$ へ移す**ことができます。内部脚をまたぐ際も、三次元行列 $B$ について
+実際に係数行列と演算子を展開すると
+
+$$
+O_X=\sum_{u,v}O_{uv}|u\rangle\langle v|,
+\qquad
+(O_X\otimes I_Y)|T_3\rangle
+=3^{-k/2}\sum_{u,v}O_{uv}|u\rangle_X W_X|v\rangle
+$$
+
+となります。右辺も $O_X^{\mathsf T}|u\rangle=\sum_v O_{uv}|v\rangle$ と $W_X^\dagger W_X=I_X$ を代入すれば同じ和です。これで**未取得側 $X$ の演算子を、取得済み側 $Y$ へ移せる**ことが確かめられました。
+
+さらに内部脚をまたぐときは、三次元行列 $B$ について
 
 $$
 (B_{e_L}\otimes I_{e_R})|\Phi_3\rangle
@@ -671,7 +713,17 @@ U_L|a,e\rangle U_R|b,e\rangle
 =\omega^{a-b}V|a,b\rangle.
 $$
 
-つまり $MV=V(Z_a\otimes Z_b^{-1})$。値 $a-b=t$ の射影は $\Pi_t=3^{-1}\sum_{k=0}^2\omega^{-kt}M^k$ とすればよく、$M$ の固有値が $\omega^0,\omega^1,\omega^2$ であることから $\Pi_tV|a,b\rangle=\delta_{a-b,t}V|a,b\rangle$ です。[第3節の一脚秘匿性](#thm-holo31-two-vertex-recovery)により、一脚の縮約はどの論理入力でも $I_3/3$ なので、$a$ や $b$ を単独で推定できません。しかし同じ内部添字 $e$ が両脚に加わる**相関**は二脚の差で消去され、合同測定は論理差を回復します。
+従って $M$ が表現する論理演算子は $Z_a\otimes Z_b^{-1}$ です。$M$ の固有値は三つの三乗根 $\omega^0,\omega^1,\omega^2$ なので、合同差 $a-b=t$ に対応する射影を
+
+$$
+\Pi_t=\frac13\sum_{k=0}^2\omega^{-kt}M^k,
+\qquad
+\Pi_tV|a,b\rangle=\delta_{a-b,t}V|a,b\rangle
+$$
+
+と構成できます。第二式は、第一式へ $M^kV|a,b\rangle=\omega^{k(a-b)}V|a,b\rangle$ を代入し、三乗根の和を求めれば従います。
+
+[第3節の一脚秘匿性](#thm-holo31-two-vertex-recovery)により、一脚の縮約はどの論理入力でも $I_3/3$ です。そのため $a$ や $b$ は一脚から単独では推定できません。一方、両脚に現れる同じ内部添字 $e$ は差を取ると相殺され、この合同測定では論理差を回復できます。
 <!-- solution-end -->
 
 ### Level C：接続・回復・エントロピーを一つにする
