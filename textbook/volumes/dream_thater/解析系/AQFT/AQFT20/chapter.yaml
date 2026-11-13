@@ -14,6 +14,7 @@ learning_objectives:
   - 有限次元モジュラー流の公式と状態保存を導ける
   - 非忠実密度行列や通常表現では標準性が失敗する理由と一般論の証明境界を説明できる
 definitions:
+  - { id: AQFT20-DEF-00, name: "有限次元密度行列と忠実性" }
   - { id: AQFT20-DEF-01, name: "有限次元Hilbert–Schmidt空間と左右乗算" }
   - { id: AQFT20-DEF-02, name: "忠実密度行列のHilbert–Schmidt標準表現" }
   - { id: AQFT20-DEF-03, name: "有限次元のモジュラー時間発展" }
