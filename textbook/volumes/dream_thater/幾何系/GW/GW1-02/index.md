@@ -287,7 +287,29 @@ $$
 
 シンプレクティック形式の閉性 $d\omega=0$ が、局所的なエネルギー計算を曲線類と結び付ける。ここでは「閉じたRiemann面」とは、**コンパクトで境界のない**Riemann面を指す。
 
-曲線類の記法を先に説明する。向き付き閉曲面 $\Sigma$ の基本ホモロジー類を $[\Sigma]\in H_2(\Sigma;\mathbb Z)$ と書き、滑らかな写像 $u$ が誘導する写像 $u_*$ による像 $\beta=u_*[\Sigma]\in H_2(X;\mathbb Z)$ を曲線類と呼ぶ。閉2形式 $\omega$ のde Rhamコホモロジー類を $[\omega]$ と書き、その曲線類との評価 $\langle[\omega],\beta\rangle$ は $\int_\Sigma u^*\omega$ に等しい。これは積分を位相的な類で表す記法であって、次のホモトピー不変性の証明にホモロジー理論は必要ない。実際、$\omega$ を $\omega+d\eta$ に取り替えた場合の積分差は、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から $\int_\Sigma d(u^*\eta)=\int_{\partial\Sigma}u^*\eta=0$ となる。異なる閉2サイクルが同じホモロジー類を表すときも、差が3チェインの境界であることと $d\omega=0$ により同様に評価が一致する。
+曲線類の記法を先に説明する。向き付き閉曲面 $\Sigma$ には、向きと二次元の閉じた形を記録する**基本ホモロジー類** $[\Sigma]$ がある。滑らかな写像 $u$ が誘導するホモロジーの写像を $u_*$ と書き、その像を曲線類と呼ぶ。
+
+$$
+[\Sigma]\in H_2(\Sigma;\mathbb Z),\qquad
+\beta:=u_*[\Sigma]\in H_2(X;\mathbb Z).
+$$
+
+ここで $H_2(-;\mathbb Z)$ は整数係数の2次ホモロジー群である。閉2形式 $\omega$ の**de Rhamコホモロジー類**を $[\omega]$ と書く。曲線類との評価は、面積の積分で与えられる。
+
+$$
+\langle[\omega],\beta\rangle
+=\int_\Sigma u^*\omega.
+$$
+
+この位相的記法を知らなくても、次のホモトピー不変性は積分だけで証明できる。例えば $\omega$ を $\omega+d\eta$ に取り替えても、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+
+$$
+\int_\Sigma u^*(d\eta)
+=\int_\Sigma d(u^*\eta)
+=\int_{\partial\Sigma}u^*\eta=0.
+$$
+
+また、異なる閉2サイクルが同じホモロジー類を表す場合も、両者の差が向き付き3次元鎖（3チェイン）の境界であることと $d\omega=0$ から、同様に評価が一致する。
 
 <a id="prop-gw1-02-homotopy-area"></a>
 
