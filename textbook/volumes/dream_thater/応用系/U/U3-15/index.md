@@ -450,7 +450,18 @@ e^{2aT+4\sigma^2t}.
 \end{aligned}
 $
 
-右辺は $0\le t\le T$ で有限かつ有界なので、非負関数の積分と期待値を交換して $\displaystyle E_Q[\int_0^T\Delta_t^2\sigma^2\widetilde S_t^2\,dt]<\infty$ が分かります。最後に $t=T$ を入れると $v(T,S_T)=S_T^2/K=H$ です。
+右辺は $0\le t\le T$ で有限かつ有界です。非負関数について積分と期待値を交換すると
+
+$
+\begin{aligned}
+E_Q\!\left[\int_0^T\Delta_t^2\sigma^2\widetilde S_t^2\,dt\right]
+&=\frac{4\sigma^2s_0^4}{K^2}e^{2aT}
+\int_0^T e^{4\sigma^2t}\,dt\\
+&<\infty.
+\end{aligned}
+$
+
+したがって自己金融積分は二乗可積分です。最後に $t=T$ を入れると $v(T,S_T)=S_T^2/K=H$ です。
 <!-- proof-end -->
 
 **数値例**：$s_0=K=100$ 円、$r=0.03$、$\sigma=0.20$、$T=1$ 年では
