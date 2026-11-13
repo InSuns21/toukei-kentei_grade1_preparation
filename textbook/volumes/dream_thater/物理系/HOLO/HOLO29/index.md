@@ -328,10 +328,10 @@ $$
 
 正定値の $\sigma=\sum_i s_i|i\rangle\langle i|$（$s_i>0$）を対角化すると、積の固有値は $s_i/3$ なので
 
-$
+$$
 \log(\sigma\otimes I_3/3)
 =(\log\sigma)\otimes I_3-(\log3)I.
-$
+$$
 
 この表示を相対エントロピーのトレースへ代入すると、共通の $-\log3$ が差で消えます。非可逆でも $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ のとき両対数を台へ制限すれば同じ計算です。包含しなければ $I_3/3$ が全台であるため、両側とも同じ台包含違反となり $+\infty$ です。
 <!-- proof-end -->
