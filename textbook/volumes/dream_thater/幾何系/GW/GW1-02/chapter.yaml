@@ -6,6 +6,7 @@ prerequisites:
   - GW1-01
   - SYM8
   - GEO8
+  - GA8
 official_scope: []
 learning_objectives:
   - Riemann面と適合概複素構造の微分の型から非線形Cauchy–Riemann作用素を定義できる
@@ -16,7 +17,6 @@ learning_objectives:
 definitions:
   - { id: GW1-02-DEF-01, name: 非線形Cauchy–Riemann作用素 }
   - { id: GW1-02-DEF-02, name: 擬正則写像 }
-  - { id: GW1-02-DEF-03, name: 写像のDirichletエネルギー }
 theorems:
   - { id: GW1-02-PROP-01, name: 局所Cauchy–Riemann方程式と複素線形性 }
   - { id: GW1-02-THM-01, name: 擬正則写像のエネルギー恒等式 }
