@@ -3,7 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites: [U4-01, F0-00E1]
 # U3-02 is an optional comparison of state pricing, not a required route into U4.
-forward_references: [U3-02]
+forward_references: [finance.state-price]
 concepts:
   - id: finance.finite-market-linear-price-functional
     name: 取引可能なペイオフの線形価格汎関数
