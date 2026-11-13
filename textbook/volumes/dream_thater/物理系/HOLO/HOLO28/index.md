@@ -41,7 +41,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo28-modular-hamiltonian -->
-**定義の直接確認。** $\sigma=\operatorname{diag}(3/4,1/4)$ とすると、固有値は正、トレースは1なので密度行列であり、
+**定義の確認**。 $\sigma=\operatorname{diag}(3/4,1/4)$ とすると、固有値は正、トレースは1なので密度行列であり、
 
 $$
 K_\sigma=\operatorname{diag}\bigl(\log(4/3),\log4\bigr),\qquad
@@ -196,7 +196,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo28-edge-code -->
-**定義の直接確認。** $d=2$、$a,b$ ともqubit、$\psi=|0\rangle_a|1\rangle_b$ を選びます。像は $|0\rangle_a|1\rangle_b(|00\rangle+|11\rangle)_{e_Ae_B}/\sqrt2$ でノルム1、別の $\psi$ との内積も元の内積のままなので $V^\dagger V=I_{\rm code}$。$\bar A$ をトレースすれば
+**定義の確認**。 $d=2$、$a,b$ ともqubit、$\psi=|0\rangle_a|1\rangle_b$ を選びます。像は $|0\rangle_a|1\rangle_b(|00\rangle+|11\rangle)_{e_Ae_B}/\sqrt2$ でノルム1、別の $\psi$ との内積も元の内積のままなので $V^\dagger V=I_{\rm code}$。$\bar A$ をトレースすれば
 
 $$
 \rho_A=|0\rangle\langle0|_a\otimes I_2/2.
@@ -306,7 +306,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo28-sector-area -->
-**定義の直接確認。** 二つのセクターで $d_0=1,d_1=2$ とし、$a_\alpha,b_\alpha$ をともに一次元とします。コード基底 $|0\rangle,|1\rangle$ は直交し、各像も物理空間で異なるセクターにあるため直交します。従って $V^\dagger V=I_2$ です。$\mathcal M$ は対角行列全体で、その射影 $P_0,P_1$ はすべての対角行列と可換し、
+**定義の確認**。 二つのセクターで $d_0=1,d_1=2$ とし、$a_\alpha,b_\alpha$ をともに一次元とします。コード基底 $|0\rangle,|1\rangle$ は直交し、各像も物理空間で異なるセクターにあるため直交します。従って $V^\dagger V=I_2$ です。$\mathcal M$ は対角行列全体で、その射影 $P_0,P_1$ はすべての対角行列と可換し、
 
 $$
 \mathcal L=\operatorname{diag}(0,\log2).
