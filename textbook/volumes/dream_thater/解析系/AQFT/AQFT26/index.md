@@ -65,7 +65,7 @@ $u$ と $v$ はそれぞれ $e^s,e^{-s}$ 倍なので、二回作用させると
 
 ## 2. Rindler座標で「時間」がどこにあるかを見る
 
-右wedgeでは $x^1>|x^0|$ なので $(x^1)^2-(x^0)^2>0$。そこでその正の平方根を $\rho$ とし、boostに沿った時間座標を $\eta$ とします。変換式を先に導けば、座標がどこで定義できるかが明瞭です。
+右wedgeでは $x^1>|x^0|$ なので $(x^1)^2-(x^0)^2>0$。そこでその正の平方根を $\rho$ とし、boostに沿った時間座標を $\eta$ とします。変換式を先に導けば、座標がどこで定義できるかが明瞭です。以下の線素 $ds^2$ は時空の微小間隔を表す慣用記法であり、boostのパラメータ $s$ の微分を意味しません。
 
 <a id="def-aqft26-rindler"></a>
 
@@ -391,7 +391,22 @@ $$
 $$
 wK_1(w)=\int_0^\infty e^{-q-w^2/(4q)}\,dq.
 $$
-被積分関数は $0\le e^{-q-w^2/(4q)}\le e^{-q}$ によって支配され、各 $q>0$ で $e^{-q}$ に収束します。優収束定理から $wK_1(w)\to\int_0^\infty e^{-q}\,dq=1$（$w\downarrow0$）です。複素 $D\notin(-\infty,0]$ を固定した極限も、同じ正則枝上の $K_1(w)\sim1/w$ に解析接続して得られます。したがって
+被積分関数は $0\le e^{-q-w^2/(4q)}\le e^{-q}$ によって支配され、各 $q>0$ で $e^{-q}$ に収束します。優収束定理から実数 $w\downarrow0$ では $wK_1(w)\to1$ です。
+
+複素 $D$ についても、実変数の極限を単に「解析接続」するだけでは不十分なので、同じGaussian公式から確かめます。補題の表示を $a$ で微分して
+$$
+e^{-a\sqrt b}=\frac{a}{2\sqrt\pi}\int_0^\infty u^{-3/2}e^{-bu-a^2/(4u)}\,du
+$$
+を得ます。$b=1+t^2$ と置いて $t\in[0,\infty)$ で積分すると、内側のGaussian積分は $\sqrt\pi/(2\sqrt u)$ なので、$K_1$ の定義表示と比較して
+$$
+K_1(w)=\int_0^\infty e^{-w\sqrt{1+t^2}}\,dt \qquad(w>0)
+$$
+が得られます。右辺は $\operatorname{Re}w>0$ で正則であるため、この表示は同半平面へ延長されます。固定した $D\notin(-\infty,0]$ に対して $c=\sqrt D$（$\operatorname{Re}c>0$）と置けば、$w=mc$ として $v=mt$ の変数変換により
+$$
+mc\,K_1(mc)=c\int_0^\infty e^{-c\sqrt{m^2+v^2}}\,dv
+\xrightarrow[m\downarrow0]{}c\int_0^\infty e^{-cv}\,dv=1.
+$$
+絶対値は $|c|e^{-(\operatorname{Re}c)v}$ 以下なので優収束定理を適用できます。よって複素枝を固定しても極限が成立し、
 $$
 \lim_{m\downarrow0}\frac{m}{4\pi^2\sqrt D}K_1(m\sqrt D)
 =\frac1{4\pi^2D}.
