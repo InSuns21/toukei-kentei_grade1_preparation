@@ -250,7 +250,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathcal G=\operatorname{Dom}B$ をグラフ内積でHilbert空間とします。$e^{itQ}$ は $B$ と可換であり $\mathcal G$ 上でもユニタリです。$D$ のグラフ閉包 $L\subset\mathcal G$ は、$e^{itQ}D=D$ により全ての $e^{itQ}$ とその逆で不変です。さらに $\mathcal G$ 上の一パラメータ群は強連続です。実際、$z\in\mathcal G$ について $\|(e^{itQ}-I)z\|_B^2=\|(e^{itQ}-I)z\|^2+\|(e^{itQ}-I)Bz\|^2\to0$ です。従って $L$ と $L^{\perp_{\mathcal G}}$ はこの群の全作用で不変な還元部分空間であり、スペクトル定理により各 $1_{[-R,R]}(Q)$ でも不変です。
+$\mathcal G=\operatorname{Dom}B$ をグラフ内積でHilbert空間とします。$e^{itQ}$ は $B$ と可換であり $\mathcal G$ 上でもユニタリです。$D$ のグラフ閉包 $L\subset\mathcal G$ は、$e^{itQ}D=D$ により全ての $e^{itQ}$ とその逆で不変です。さらに $\mathcal G$ 上の一パラメータ群は強連続です。実際、$z\in\mathcal G$ について $\|(e^{itQ}-I)z\|_B^2=\|(e^{itQ}-I)z\|^2+\|(e^{itQ}-I)Bz\|^2\to0$ です。従って $L$ と $L^{\perp_{\mathcal G}}$ はこの群の全作用で不変な還元部分空間です。$L$ への直交射影は全ての $e^{itQ}$ と可換なので、この群の生成するvon Neumann環の有界Borel汎関数 $g(Q)$ とも可換です。特に $g=1_{[-R,R]}$ とすれば、$L$ とその直交補は $1_{[-R,R]}(Q)$ でも不変です。
 
 $z\in L^{\perp_{\mathcal G}}$ を取り、$E_R=1_{[-R,R]}(Q)$、$z_R=E_Rz$ と置きます。$z_R\in L^{\perp_{\mathcal G}}$ であり、スペクトルが有界なので $(1+B^2)z_R\in\mathcal H$ です。任意の $d\in D$ について
 
@@ -321,7 +321,7 @@ $$
 jQj=j(-2\pi i\partial_\theta)j=2\pi i\partial_\theta=-Q.
 $$
 
-Fourier変数 $k$ の表示では、これは複素共役が $k$ を $-k$ に移すことに対応します。$j$ は $Q$ の定義域を保つため、スペクトル計算から $j\delta j=\exp(jQj)=\delta^{-1}$ です。$T^*T=\delta$（$j$ は反ユニタリ）なので、反線形極分解の一意性から $j_H=j$、$\delta_H=\delta$ です。
+Fourier変数 $k$ の表示では、これは複素共役が $k$ を $-k$ に移すことに対応します。$j$ は $Q$ の定義域を保つため、スペクトル計算から $j\delta j=\exp(jQj)=\delta^{-1}$ です。$T^*T=\delta$（$j$ は反ユニタリ）なので、[AQFT19の反ユニタリ因子の一意性](../AQFT19/index.md#thm-aqft19-polar)から $j_H=j$、$\delta_H=\delta$ です。
 <!-- proof-end -->
 
 **半周と全周の違い。** $-i\pi$ は $\delta^{1/2}$ を通じて実局所波束の反線形反転へつながり、$-2\pi i$ は二点関数のKMS境界につながります。複素rapidityを実時間のユニタリとして解釈しているわけではありません。
@@ -441,7 +441,7 @@ A_\lambda\Omega\longrightarrow A\Omega,\qquad
 A_\lambda^*\Omega\longrightarrow A^*\Omega
 $$
 
-とできます。$JD^{1/2}(A_\lambda\Omega)=A_\lambda^*\Omega$ と閉性から、$A\Omega\in\operatorname{Dom}JD^{1/2}$ かつ $JD^{1/2}(A\Omega)=A^*\Omega$ です。よって $S_0\subset JD^{1/2}$。一方 $E_0$ が後者のcoreであるため $\overline{S_0}=JD^{1/2}$ です。反線形極分解の一意性から命題の等式が従います。
+とできます。$JD^{1/2}(A_\lambda\Omega)=A_\lambda^*\Omega$ と閉性から、$A\Omega\in\operatorname{Dom}JD^{1/2}$ かつ $JD^{1/2}(A\Omega)=A^*\Omega$ です。よって $S_0\subset JD^{1/2}$。一方 $E_0$ が後者のcoreであるため $\overline{S_0}=JD^{1/2}$ です。[AQFT19の反ユニタリ因子の一意性](../AQFT19/index.md#thm-aqft19-polar)から命題の等式が従います。
 <!-- proof-end -->
 
 ## 5. Bisognano–Wichmannの等式と、その適用範囲
@@ -708,7 +708,7 @@ $$
 =((1+\delta)z_R,d)\quad(d\in D_0)
 $$
 
-から稠密性により $z_R=0$、さらに $R\to\infty$ で $z=0$ とするからです。閉性と $T(h)=h$（$h\in H(W_R)$）から $H\cap iH=\{0\}$、$D_0$ の稠密性から $\overline{H+iH}=\mathfrak h$ です。よって $H$ は標準で、$S_H$ は $T$ のcore $D_0$ 上で一致する二つの閉作用素だから $S_H=T$。反線形極分解により $\delta_H^{it}=u(-2\pi t)$ です。
+から稠密性により $z_R=0$、さらに $R\to\infty$ で $z=0$ とするからです。閉性と $T(h)=h$（$h\in H(W_R)$）から $H\cap iH=\{0\}$、$D_0$ の稠密性から $\overline{H+iH}=\mathfrak h$ です。よって $H$ は標準で、$S_H$ は $T$ のcore $D_0$ 上で一致する二つの閉作用素だから $S_H=T$。[AQFT19の反ユニタリ因子の一意性](../AQFT19/index.md#thm-aqft19-polar)により $\delta_H^{it}=u(-2\pi t)$ です。
 
 **(iv)** $W(h)\Omega=e^{-\|h\|^2/2}\varepsilon(ih)$ と $j\delta^{1/2}h=h$ から $JD^{1/2}W(h)\Omega=W(-h)\Omega$。このWeyl真空ベクトルの線形包はFock空間で稠密・boost不変なので再びcore補題を適用できます。強-* の有界近似でTomita作用をwedgeのvon Neumann環全体へ拡張し、$\Delta_{W_R}^{it}=\Gamma(\delta^{it})=\Gamma(u(-2\pi t))=U(-2\pi t)$ を得ます。二点KMSから直ちに最後の等式を推論したわけではありません。
 <!-- solution-end -->
