@@ -364,6 +364,16 @@ $q=0$ なら第4節へ戻ります。$q=0.01,r=0.03,\sigma=0.20,T=1,s=K=100$ な
 
 [再現用 Python](assets/bsm_pde_check.py) は解析微分による PDE 各項、独立した中心差分近似、配当を入れ忘れたときの残差を比較します。近似では時刻の差分刻みを半分にしたとき残差の減り方を検査でき、解析値との差を区別します。[テスト](assets/tests/test_bsm_pde_check.py)と[実行手順](assets/README.md)を同じ教材に置きます。ここでは確定的な関数を検査するので Monte Carlo の標本誤差はなく、乱数も不要です。途中のヘッジ保有量と残差は上の表で読めるため、新しい図は置きません。
 
+実装正本は上記の Python ファイルです。以下のパネルから公開中の同じソースを読み込み、残差表と差分刻みの収束をブラウザで再計算できます。初回実行時は Pyodide の取得に通信が必要です。通信できない場合は README に記載したローカル実行で代替できます。
+
+```python-file-lab
+# lab-id: U3-16-BSM-PDE-RESIDUAL
+# lab-title: Black–Scholes–Merton PDE と delta hedge の残差検証
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-16/assets/bsm_pde_check.py
+# timeout-ms: 15000
+# lab-preset: 無配当・連続配当・Itô 二階項省略の残差表を比較 |
+```
+
 ## 9. 演習と詳細解答
 
 以下は、特に指定しない限り本講の無配当・$T>0,s_0>0,\sigma>0$ の定数係数市場で、金利・ドリフトは年$^{-1}$、ボラティリティは年$^{-1/2}$、価格は円とします。
