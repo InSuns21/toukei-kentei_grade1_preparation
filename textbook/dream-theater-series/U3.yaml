@@ -17,7 +17,7 @@ chapters:
   - { id: U3-11, path: textbook/volumes/dream_thater/応用系/U/U3-11, status: completed, title: "CRR 木・三項木と収束・計算量" }
   - { id: U3-12, path: textbook/volumes/dream_thater/応用系/U/U3-12, status: completed, title: "ランダムウォークから Brown 運動への極限" }
   - { id: U3-13, path: textbook/volumes/dream_thater/応用系/U/U3-13, status: completed, title: "金融モデルへの Itô 公式の適用" }
-  - { id: U3-14, path: textbook/volumes/dream_thater/応用系/U/U3-14, status: planned, title: "幾何 Brown 運動と対数正規価格分布" }
+  - { id: U3-14, path: textbook/volumes/dream_thater/応用系/U/U3-14, status: completed, title: "幾何 Brown 運動と対数正規価格分布" }
   - { id: U3-15, path: textbook/volumes/dream_thater/応用系/U/U3-15, status: planned, title: "連続時間のリスク中立測度とヘッジ" }
   - { id: U3-16, path: textbook/volumes/dream_thater/応用系/U/U3-16, status: planned, title: "自己金融 delta hedge と Black–Scholes–Merton PDE" }
   - { id: U3-17, path: textbook/volumes/dream_thater/応用系/U/U3-17, status: planned, title: "Feynman–Kac：期待値と PDE の橋" }
