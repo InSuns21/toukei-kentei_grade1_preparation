@@ -72,7 +72,7 @@ $$
 
 瞬間の $\varepsilon(t)$ だけでは内部応力 $q(t)$ は決まらない。方程式を時間積分すると、以前のひずみ速度ほど指数因子で重みが小さくなる。初期状態を明記してから履歴を考えよう。
 
-まず、時刻 $0$ に与えた一定ひずみ $\varepsilon_0$ を保持した場合、時刻 $t>0$ に測る応力を $\varepsilon_0$ で割った量を緩和関数と呼ぶ。すべての材料で同じ式になるとは仮定しない。
+まず、時刻 $0$ に与えた一定ひずみ $\varepsilon_0$ を保持した場合、時刻 $t>0$ に測る応力を $\varepsilon_0$ で割る測定量を作る。すべての材料で同じ式になるとは仮定しない。
 
 <a id="def-ctm19-relaxation"></a>
 
@@ -257,7 +257,7 @@ $$
 <!-- formal-statement-start -->
 ### 定義（複素弾性率・貯蔵弾性率・損失弾性率）
 
-角周波数 $\omega>0$ の十分時間が経った定常周期応答について、$\widehat\varepsilon\ne0$ と $\widehat\sigma$ を複素振幅とし、
+角周波数 $\omega>0$ で入力し、初期値に依存して減衰する過渡成分を除いた、入力と同じ周期を持つ解について、$\widehat\varepsilon\ne0$ と $\widehat\sigma$ を複素振幅とし、
 
 $$
 \varepsilon(t)=\operatorname{Re}(\widehat\varepsilon e^{i\omega t}),\qquad
@@ -355,7 +355,7 @@ $$
 =\varepsilon_a(E'\cos\omega t-E''\sin\omega t).
 $$
 
-$\cos\delta=E'/|E^*|$、$\sin\delta=E''/|E^*|$ とおけば、余弦の加法公式から位相式を得る。$x\to0$ では $x^2/(1+x^2),x/(1+x^2)\to0$。$x\to\infty$ では前者は $1$、後者は $0$。$\square$
+$\cos\delta=E'/|E^*|$、$\sin\delta=E''/|E^*|$ とおく。$\cos(\omega t+\delta)=\cos\omega t\cos\delta-\sin\omega t\sin\delta$ にこれらを代入すると位相式を得る。$x\to0$ では $x^2/(1+x^2),x/(1+x^2)\to0$。$x\to\infty$ では前者は $1$、後者は $0$。$\square$
 <!-- proof-end -->
 
 $E''>0$ なので、実部表示の規約では応力はひずみに対し位相 $\delta$ だけ**先行**する。例えば $E_\infty=2$ MPa、$E_1=3$ MPa、$\tau=2$ s、$\omega=0.5$ rad/s なら $x=1$ で
@@ -615,7 +615,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[損失ピーク命題](#prop-ctm19-loss-peak)より $\omega_p\tau=1$、従って $\tau=1/4=0.25$ s。さらに $E''_{\max}=E_1/2=1.5$ MPa から $E_1=3$ MPa。$\eta=E_1\tau=0.75$ MPa s も得られるが、$E_\infty$ はこの二つの観測だけでは定まらない。
+[単一緩和時間模型の損失弾性率のピーク](#prop-ctm19-loss-peak)より $\omega_p\tau=1$、従って $\tau=1/4=0.25$ s。さらに $E''_{\max}=E_1/2=1.5$ MPa から $E_1=3$ MPa。$\eta=E_1\tau=0.75$ MPa s も得られるが、$E_\infty$ はこの二つの観測だけでは定まらない。
 <!-- solution-end -->
 
 ### A5. エネルギーと散逸の区別
@@ -654,7 +654,7 @@ $E_\infty=1$ MPa、$E_1=4$ MPa、$\tau=0.5$ s、$\omega=4$ rad/s、$\varepsilon_
 <!-- solution-start -->
 #### 詳細解答
 
-$x=\omega\tau=4(0.5)=2$。[動的弾性率の定理](#thm-ctm19-dynamic)から
+$x=\omega\tau=4(0.5)=2$。[標準線形固体の貯蔵弾性率と損失弾性率](#thm-ctm19-dynamic)から
 
 $$
 E'=1+4\frac{2^2}{1+2^2}=4.2\ \mathrm{MPa},
