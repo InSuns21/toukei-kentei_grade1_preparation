@@ -47,7 +47,7 @@ $
 u^*T\mathbb{CP}^1\simeq u^*\mathcal O(2)\simeq\mathcal O(2d).
 $
 
-なぜ線束コホモロジーで**線形化の全射性**を判定できるのかも確かめる。可積分な複素構造の正則写像では、[局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)の一階部分は、正則束 $u^*TX$ のDolbeault作用素 $\bar\partial$ である。局所正則枠を取れば $\bar\partial\xi$ は成分ごとの $\frac12(\partial_s+i\partial_t)\xi$ となる。任意の滑らかな右辺 $f$ に対し、球面の二つの標準アフィンチャートで局所方程式 $\bar\partial a_\nu=f$ を解くと、重なりでの差 $a_0-a_\infty$ は正則な線束切断となる。これがČechの一次コサイクルであり、$H^1(\mathcal O(2d))=0$ なら正則な局所切断を引いて差を消せる。従って局所解は大域的な解に貼り合わさる。局所の $\bar\partial$ 方程式が解けることはCauchy–Green積分による。滑らかな右辺は $H^{k-1}$ で稠密で、[閉像を持つFredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)から滑らかな右辺への全射性はSobolev値域全体への全射性を与える。
+なぜ線束コホモロジーで**線形化の全射性**を判定できるのかも確かめる。可積分な複素構造の正則写像では、局所正則座標で $J=i$ は一定、かつ $\partial_{\bar z}u=0$ なので、[局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)は成分ごとに $(D_{u,J}\xi)(\partial_s)=\frac12(\partial_s+i\partial_t)\xi$ となる。局所正則枠の遷移行列は正則で、この式は座標変換で整合するため、$D_{u,J}$ は正則束 $u^*TX$ のDolbeault作用素 $\bar\partial$ **そのもの**である。任意の滑らかな右辺 $f$ に対し、球面の二つの標準アフィンチャートで局所方程式 $\bar\partial a_\nu=f$ を解くと、重なりでの差 $a_0-a_\infty$ は正則な線束切断となる。これがČechの一次コサイクルであり、$H^1(\mathcal O(2d))=0$ なら正則な局所切断を引いて差を消せる。従って局所解は大域的な解に貼り合わさる。局所の $\bar\partial$ 方程式が解けることはCauchy–Green積分による。滑らかな右辺は $H^{k-1}$ で稠密で、[閉像を持つFredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)から滑らかな右辺への全射性はSobolev値域全体への全射性を与える。
 
 [射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $n=2d\ge0$ に適用すると $H^1(\mathbb{CP}^1,\mathcal O(2d))=0$。したがって $\operatorname{coker}D_{u,J}=0$ であり、**この例は $d\ge2$ で一般の点に複数の逆像があっても正則**である。全射性は写像が一対一かどうかとは独立に判定する。
 <!-- definition-example-end -->
