@@ -1,0 +1,35 @@
+chapter: U3-14
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-13, STO9]
+concepts:
+  - id: finance.geometric-brownian-motion
+    name: 幾何 Brown 運動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（幾何 Brown 運動）"]
+    requires: [stochastic.brownian-sde, stochastic.strong-solution]
+  - id: finance.gbm-explicit-positive
+    name: 幾何 Brown 運動の陽解と正値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（幾何 Brown 運動の陽解と正値性）"]
+    requires: [finance.geometric-brownian-motion, stochastic.ito-process-formula, stochastic.global-lipschitz-sde-existence-uniqueness]
+  - id: finance.gbm-lognormal-price-law
+    name: 満期株価の対数正規分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（満期株価の対数正規分布）"]
+    requires: [finance.gbm-explicit-positive]
+  - id: finance.gbm-real-moments
+    name: 幾何 Brown 運動の実数モーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（幾何 Brown 運動の実数モーメント）"]
+    requires: [finance.gbm-explicit-positive]
+  - id: finance.gbm-conditional-moments
+    name: 対数収益率の独立増分と条件付きモーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数収益率の独立増分と条件付きモーメント）"]
+    requires: [finance.gbm-explicit-positive, finance.gbm-real-moments]
