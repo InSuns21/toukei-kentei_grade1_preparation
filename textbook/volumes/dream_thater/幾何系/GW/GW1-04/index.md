@@ -47,7 +47,25 @@ $$
 u^*T\mathbb{CP}^1\simeq u^*\mathcal O(2)\simeq\mathcal O(2d).
 $$
 
-なぜ線束コホモロジーで**線形化の全射性**を判定できるのかも確かめる。可積分な複素構造の正則写像では、局所正則座標で $J=i$ は一定、かつ $\partial_{\bar z}u=0$ なので、[局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)は成分ごとに $(D_{u,J}\xi)(\partial_s)=\frac12(\partial_s+i\partial_t)\xi$ となる。局所正則枠の遷移行列は正則で、この式は座標変換で整合するため、$D_{u,J}$ は正則束 $u^*TX$ のDolbeault作用素 $\bar\partial$ **そのもの**である。任意の滑らかな右辺 $f$ に対し、球面の二つの標準アフィンチャートで局所方程式 $\bar\partial a_\nu=f$ を解くと、重なりでの差 $a_0-a_\infty$ は正則な線束切断となる。これがČechの一次コサイクルであり、$H^1(\mathcal O(2d))=0$ なら正則な局所切断を引いて差を消せる。従って局所解は大域的な解に貼り合わさる。局所の $\bar\partial$ 方程式が解けることはCauchy–Green積分による。滑らかな右辺は $H^{k-1}$ で稠密で、[閉像を持つFredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)から滑らかな右辺への全射性はSobolev値域全体への全射性を与える。
+なぜ線束コホモロジーで**線形化の全射性**を判定できるのかも確かめる。可積分な複素構造の正則写像では、局所正則座標で $J=i$ は一定で、$\partial_{\bar z}u=0$ が成り立つ。[局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)から各成分について
+
+$$
+(D_{u,J}\xi)(\partial_s)
+=\frac12(\partial_s+i\partial_t)\xi
+$$
+
+を得る。局所正則枠の遷移行列は正則なので、この式は座標変換と整合する。したがって線形化は正則束 $u^*TX$ のDolbeault作用素 $\bar\partial$ **そのもの**である。
+
+滑らかな右辺 $f$ に対しては、球面の二つの標準アフィンチャートで局所の $\bar\partial$ 方程式を解き、重なりで比較する。
+
+$$
+\bar\partial a_\nu=f,\qquad
+\bar\partial(a_0-a_\infty)=0.
+$$
+
+局所解の存在はCauchy–Green積分による。差 $a_0-a_\infty$ は正則な線束切断で、Čechの一次コサイクルとなる。$H^1(\mathcal O(2d))=0$ なら、正則な局所切断を引いてこの差を消せるため、局所解が大域的な解に貼り合わさる。
+
+最後に、滑らかな右辺は $H^{k-1}$ で稠密である。[閉像を持つFredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)と組み合わせると、滑らかな右辺への全射性からSobolev値域全体への全射性が従う。
 
 [射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $n=2d\ge0$ に適用すると $H^1(\mathbb{CP}^1,\mathcal O(2d))=0$。したがって $\operatorname{coker}D_{u,J}=0$ であり、**この例は $d\ge2$ で一般の点に複数の逆像があっても正則**である。全射性は写像が一対一かどうかとは独立に判定する。
 <!-- definition-example-end -->
@@ -150,7 +168,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-04-universal-section -->
-**定義の確認**。$X=\mathbb{CP}^1$ に標準 $J_0$ を取り、$u(z)=z^2$ とする。定義域の局所正則座標を $z=s+it$ とすると、$u_t=i u_s$ より $u_s+J_0u_t=u_s+i(iu_s)=0$ なので $\mathcal F(u,J_0)=0$。次にこの座標円板で $Y=0$、$\xi(s,t)=\bar z=s-it$ と動かす。これは座標表示上の局所切断であり、必要なら注目する点の近くで1となる滑らかな切断関数を掛けて大域的な変分へ延長できる。[前講の局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)の $J_0=i$ 一定の場合から
+**定義の確認**。$X=\mathbb{CP}^1$ に標準 $J_0$ を取り、$u(z)=z^2$ とする。定義域の局所正則座標は $z=s+it$ である。正則性 $u_t=i u_s$ を代入すると
+
+$$
+u_s+J_0u_t=u_s+i(iu_s)=0
+$$
+
+となるので、$\mathcal F(u,J_0)=0$ である。
+
+次にこの座標円板で $Y=0$、$\xi(s,t)=\bar z=s-it$ と動かす。これは局所切断であり、注目する点の近くで1となる滑らかな切断関数を掛ければ、大域的な変分へ延長できる。[前講の局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)で $J_0=i$ を一定とすると
 
 $$
 (D_{u,J_0}\xi)(\partial_s)
@@ -297,7 +323,16 @@ $M$ と $N$ の可分性により第二可算な座標近傍を選んで上の�
 <!-- proof-start -->
 ### 証明
 
-$\mathcal M^*=\{(u,J):\mathcal F(u,J)=0,\ u\text{ は単純},\ u_*[\Sigma]=\beta\}$ とする。単射な正則点 $z$ が一つあれば、$du_z\ne0$ によって $u$ は $z$ の小近傍 $U$ で埋め込みであり、$u(\Sigma\setminus U)$ はコンパクトで $u(z)$ を含まない。$C^1$ に十分近い写像でも局所埋め込み性と像の分離が保たれるので、その点の単射性は残る。従って単純性は、この局所議論に必要な開条件である。[単純曲線における普遍横断性](#thm-gw1-04-universal-surjective)から $\mathcal M^*$ はBanach多様体で、接空間は
+普遍零点のうち単純曲線からなる部分を
+
+$$
+\mathcal M^*=\{(u,J):\mathcal F(u,J)=0,\
+u\text{ は単純},\ u_*[\Sigma]=\beta\}
+$$
+
+とする。単射な正則点 $z$ が一つあれば、$du_z\ne0$ なので $u$ は $z$ の小近傍 $U$ で埋め込みとなる。また $u(\Sigma\setminus U)$ はコンパクトで、$u(z)$ を含まない。
+
+$C^1$ に十分近い写像でも局所埋め込み性と像の分離は保たれる。したがって、その点の単射性が残り、単純性はこの局所議論に必要な開条件である。[単純曲線における普遍横断性](#thm-gw1-04-universal-surjective)から $\mathcal M^*$ はBanach多様体で、接空間は
 
 $$
 T_{(u,J)}\mathcal M^*
@@ -472,7 +507,16 @@ $X=\mathbb{CP}^2$、$\Sigma=\mathbb{CP}^1$、次数1の正則な単純写像に�
 標準複素構造での $u(z)=z^3:\mathbb{CP}^1\to\mathbb{CP}^1$ の引戻し接束、核と余核の実次元を求め、単純性・正則性を別々に判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$T\mathbb{CP}^1\simeq\mathcal O(2)$ で、次数3の写像は $\mathcal O(1)$ を $\mathcal O(3)$ に引き戻すので、接束の引戻しは $\mathcal O(6)$。前述の局所 $\bar\partial$ 解の貼り合わせにより、$H^0$ と $H^1$ がそれぞれ線形化の核と余核を計算する。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $n=6$ に代入すると $h^0=7$、$h^1=0$。従って $\dim_{\mathbb R}\ker D=14$、余核実次元0。全射なので[正則性の定義](#def-gw1-04-regular)を満たす。一方 $z^3$ は次数3の分岐被覆を通るので[多重被覆の定義](#def-gw1-04-multiple-cover)を満たし、単純ではない。正則性と単純性は別の条件である。
+**詳細解答**。[射影直線の接束計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)より $T\mathbb{CP}^1\simeq\mathcal O(2)$ である。次数3の写像は $\mathcal O(1)$ を $\mathcal O(3)$ に引き戻すので、接束の引戻しは $\mathcal O(6)$ となる。
+
+前述の局所 $\bar\partial$ 解の貼り合わせにより、$H^0$ と $H^1$ がそれぞれ線形化の核と余核を計算する。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)の公式に $n=6$ を代入すると
+
+$$
+h^0(\mathcal O(6))=7,\qquad
+h^1(\mathcal O(6))=0.
+$$
+
+従って実核は14次元、実余核は0次元である。全射なので[正則性の定義](#def-gw1-04-regular)を満たす。一方、$z^3$ は次数3の分岐被覆を通るので[多重被覆の定義](#def-gw1-04-multiple-cover)を満たし、単純ではない。正則性と単純性は別の条件である。
 <!-- solution-end -->
 
 <a id="ex-gw1-04-b02"></a>
@@ -492,7 +536,15 @@ Fredholm作用素 $D:B\to C$ と線形作用素 $K:P\to C$ があり $(\xi,Y)\ma
 $X=\operatorname{Tot}(\mathcal O(-1)\oplus\mathcal O(-1))$ の零切断を次数2で被覆する $u_2$ について、束の分裂、核と余核の複素次元、実指数を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。零切断上の接方向は[射影直線の接束計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)から $\mathcal O(2)$、法方向は $\mathcal O(-1)$ が二つ。次数2の引戻しにより $u_2^*TX=\mathcal O(4)\oplus\mathcal O(-2)\oplus\mathcal O(-2)$。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $h^0(\mathcal O(4))=5$、$h^1(\mathcal O(4))=0$、各 $\mathcal O(-2)$ は $h^0=0,h^1=1$。核の複素次元5、余核の複素次元2、実指数は $2(5-2)=6$。余核が正なので非正則である。
+**詳細解答**。零切断上の接方向は[射影直線の接束計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)より $\mathcal O(2)$ で、法方向は $\mathcal O(-1)$ が二つある。次数2の引戻しにより
+
+$$
+u_2^*TX=\mathcal O(4)\oplus\mathcal O(-2)\oplus\mathcal O(-2)
+$$
+
+を得る。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から $h^0(\mathcal O(4))=5$、$h^1(\mathcal O(4))=0$、各 $\mathcal O(-2)$ は $h^0=0$、$h^1=1$ となる。
+
+よって核の複素次元は5、余核の複素次元は2。実指数は $2(5-2)=6$ で、余核が非零だから非正則である。
 <!-- solution-end -->
 
 <a id="ex-gw1-04-b04"></a>
