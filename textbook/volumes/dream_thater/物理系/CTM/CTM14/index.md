@@ -13,7 +13,17 @@ F=D_X\chi\in GL^+(3),\qquad
 GL^+(3)=\{F\in\mathbb R^{3\times3}:\det F>0\},\qquad J=\det F.
 $$
 
-$X$ と $x$ の単位は m、$F$ と $J$ は無次元である。$I=I_3$ は単位行列、上付き $T$ は転置、$U:V=\sum_{i,A}U_{iA}V_{iA}$ は同じ型の行列の二重内積とする。$F_{iA}$ の添字 $i$ は現在側の成分、$A$ は基準側の成分を表す。基準側の標準直交基底を $e_A$ とすると、$F$ の第 $A$ 列は基準線素 $e_A$ の像 $Fe_A$ である。[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain) $C=F^TF$ はこれらの線素の内積を記録し、
+$X$ と $x$ の単位は m、$F$ と $J$ は無次元である。$I=I_3$ は単位行列、上付き $T$ は転置を表す。
+
+同じ型の行列 $U,V$ の二重内積を次のように書く。
+
+$$
+U:V=\sum_{i,A}U_{iA}V_{iA}.
+$$
+
+$F_{iA}$ の添字 $i$ は現在側の成分、$A$ は基準側の成分を表す。基準側の標準直交基底を $e_A$ とすると、$F$ の第 $A$ 列は基準線素 $e_A$ の像 $Fe_A$ である。
+
+[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain) $C=F^TF$ はこれらの線素の内積を記録し、
 
 $$
 C_{AB}=(Fe_A)\cdot(Fe_B)=\sum_i F_{iA}F_{iB},\qquad
@@ -87,7 +97,17 @@ $$
 
 ## 2. 剛体回転でも同じエネルギーか
 
-回転行列の集合を $SO(3)=\{R\in\mathbb R^{3\times3}:R^TR=I,\ \det R=1\}$ と書く。以下、$Q\in SO(3)$ は現在側の観測者回転、$H\in SO(3)$ は基準側の材料方向の回転を表す。この節の $H$ は前節の任意の変分方向 $H$ とは別の役割である。観測者を回すと、変形勾配は左から $QF$ へ変わる。同じ物理的変形のエネルギーが観測者によらないための条件は、[CTM10 の客観的エネルギーの表示](../CTM10/index.md#prop-ctm10-energy-objectivity)により $W(QF)=W(F)$ であり、$C=F^TF$ の関数として書ける。一方、材料の向きを基準座標で回す操作は**右から** $FH$ を掛け、材料等方性は $W(FH)=W(F)$ と表す（[CTM10 の材料等方性](../CTM10/index.md#def-ctm10-material-isotropy)）。
+向きを保つ回転行列の集合を次のように書く。
+
+$$
+SO(3)=\{R\in\mathbb R^{3\times3}:R^TR=I,\ \det R=1\}.
+$$
+
+以下、$Q\in SO(3)$ は現在側の観測者回転、$H\in SO(3)$ は基準側の材料方向の回転を表す。この節の $H$ は前節の任意の変分方向とは別の役割である。
+
+観測者を回すと、変形勾配は左から $QF$ へ変わる。[CTM10 の客観的エネルギーの表示](../CTM10/index.md#prop-ctm10-energy-objectivity)によれば、観測者によらないエネルギーは $W(QF)=W(F)$ を満たし、$C=F^TF$ の関数として書ける。
+
+一方、材料の向きを基準座標で回す操作は**右から** $FH$ を掛ける。[CTM10 の材料等方性](../CTM10/index.md#def-ctm10-material-isotropy)は $W(FH)=W(F)$ と表す。
 
 これらの回転は違う位置に作用する。$C(QF)=F^TQ^TQF=C$、$C(FH)=H^TCH$ である。前者では $C$ 全体が変わらないが、後者では行列が基準側で直交共役される。
 
@@ -244,7 +264,7 @@ $$
 ゆえに三式を得る。$B,C,C^{-1},I$ は対称なので $\sigma,S$ は対称である。$P$ の非対称例は $F=Q\operatorname{diag}(2,1,1)$ の非自明な回転 $Q$ に対して生じる（後述）。$\square$
 <!-- proof-end -->
 
-この定理は、エネルギーの微分を別の応力へ直接転用してよいという意味ではない。[CTM4 の速度勾配と変形勾配の関係](../CTM4/index.md#prop-ctm4-velocity-deformation)から $L=\dot F F^{-1}$、[変形速度テンソルの定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)から $D=(L+L^T)/2$ とすれば、$P:\dot F$ は基準体積当たり、$\sigma:D$ は現在体積当たりの仕事率であり、[CTM8 の仕事共役性](../CTM8/index.md#thm-ctm8-work-conjugacy)から $P:\dot F=J\sigma:D=S:\dot E$ で結ばれる。
+この定理は、エネルギーの微分を別の応力へ直接転用してよいという意味ではない。[CTM4 の速度勾配と変形勾配の関係](../CTM4/index.md#prop-ctm4-velocity-deformation)から $L=\dot F F^{-1}$、[変形速度テンソルとスピンテンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)から $D=(L+L^T)/2$ とすれば、$P:\dot F$ は基準体積当たり、$\sigma:D$ は現在体積当たりの仕事率であり、[CTM8 の仕事共役性](../CTM8/index.md#thm-ctm8-work-conjugacy)から $P:\dot F=J\sigma:D=S:\dot E$ で結ばれる。
 
 ## 4. 一様伸長：横方向の力も忘れない
 
