@@ -55,7 +55,7 @@ chapters:
     title: 定常歳差・章動とジャイロ近似
   - id: RBD13
     path: textbook/volumes/dream_thater/物理系/RBD/RBD13
-    status: planned
+    status: completed
     title: 転がりの運動学と瞬間中心
   - id: RBD14
     path: textbook/volumes/dream_thater/物理系/RBD/RBD14

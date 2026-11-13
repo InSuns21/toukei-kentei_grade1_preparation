@@ -1,0 +1,45 @@
+id: "RBD13"
+title: "転がりの運動学と瞬間中心"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD3
+official_scope: []
+learning_objectives:
+  - 平面剛体の速度場から車輪の接点と最上点の速度を計算できる
+  - 静止床と移動床で無滑りの相対速度条件を区別できる
+  - 角速度が非零の平面剛体の瞬間回転中心を構成し例外を判定できる
+  - 円盤の同じ物質点のサイクロイドと時刻ごとの接点位置の違いを導出できる
+  - 球の三次元無滑り条件をベクトル積で記し法線軸スピンの自由度を説明できる
+  - 接点速度がゼロでも物質点の加速度がゼロとは限らないことを計算で確認できる
+  - 操作図で無滑りと滑りの接点速度および標識点の入替を式と突き合わせられる
+definitions:
+  - { id: RBD13-DEF-01, name: "無滑り接触" }
+  - { id: RBD13-DEF-02, name: "平面剛体の瞬間回転中心" }
+theorems:
+  - { id: RBD13-PROP-01, name: "静止床上の円盤の無滑り条件と最上点" }
+  - { id: RBD13-THM-01, name: "平面剛体の瞬間回転中心の存在と一意性" }
+  - { id: RBD13-PROP-02, name: "無滑り円盤の標識点のサイクロイド" }
+  - { id: RBD13-PROP-03, name: "球の一点無滑り条件と鉛直回転の自由度" }
+canonical_examples:
+  - 半径2の車輪の接点速度と最上点速度
+  - 車輪の滑りにより瞬間中心が床下へ移る例
+  - 円周の標識点のサイクロイドと幾何学的接点の比較
+  - 静止した接点物質点の加速度の計算
+  - 球の無滑り角速度と法線軸回転の自由度
+  - 操作図で円盤の接点と同じ物質点の軌跡を区別
+problem_patterns:
+  - RBD13-CONTACT-SPEED
+  - RBD13-WHEEL-TOP-SPEED
+  - RBD13-SLIDING-DIRECTION
+  - RBD13-INSTANT-CENTER-LOCATION
+  - RBD13-SPHERE-ROLLING-VECTORS
+  - RBD13-CYCLOID-RETURN
+  - RBD13-PURE-TRANSLATION
+  - RBD13-MOVING-BELT
+  - RBD13-MATERIAL-CONTACT-DERIVATIVE
+  - RBD13-PIECEWISE-ROLLING-SLIDING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 6.0, review: 2.0 }

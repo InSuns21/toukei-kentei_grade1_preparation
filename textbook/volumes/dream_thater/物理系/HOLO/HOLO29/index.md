@@ -24,6 +24,8 @@ $$
 
 ここで「消失位置は既知」「消えた内容は未知」を区別します。[QINF28の消失チャネル](../../../応用系/QINF/QINF28/index.md#def-qinf28-erasure)は、消失した系を既知の標識状態に置換します。残る系だけで回復できるかという問題へ帰着します。
 
+以下で $\mathcal B(H)$ は有限次元Hilbert空間 $H$ 上の線形作用素全体を表し、CPTPは「完全正値かつトレース保存」を意味します。完全回復を判定する際は、保持側の縮約を**同じ復号チャネル**へ入力して全論理状態が戻るかを調べます。
+
 <a id="def-holo29-region-recovery"></a>
 
 <!-- formal-statement-start -->
@@ -44,7 +46,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo29-region-recovery -->
-**定義の確認**（直接例と反例）。 $L=A=\mathbb C^3$、$B=C=\mathbb C^3$ として $V|\psi\rangle=|\psi\rangle_A|0\rangle_B|0\rangle_C$ とすれば、$V^\dagger V=I_L$。保持領域 $A$ の縮約は $\mathcal E_A(\rho)=\rho$ なので、恒等チャネルが回復写像です。一方、$B$ だけを保持するとすべての入力が $|0\rangle\langle0|_B$ になり、異なる二つの入力を同じ出力から復元する写像はありません。領域の名前だけで可否は決まらず、**符号化 $V$ と保持領域 $R$ の組**で決まります。
+**定義の確認**（直接例と反例）。$L=A=B=C=\mathbb C^3$ とし、$V|\psi\rangle=|\psi\rangle_A|0\rangle_B|0\rangle_C$ と符号化します。任意の $|\phi\rangle,|\psi\rangle\in L$ について $\langle V\phi|V\psi\rangle=\langle\phi|\psi\rangle$ なので、$V^\dagger V=I_L$ です。
+
+保持領域 $R=\{A\}$ では、入力 $\rho$ を $L\simeq A$ の基底対応で $A$ 上の密度行列 $\rho_A$ と見ます。補系 $BC$ をトレースすると
+
+$$
+\mathcal E_A(\rho)=\operatorname{Tr}_{BC}(\rho_A\otimes|00\rangle\langle00|_{BC})=\rho_A
+$$
+
+となります。$A\simeq L$ という基底対応の下、恒等チャネル $\mathcal D_A$ はCPTPで、すべての $\rho$ に対し $\mathcal D_A(\mathcal E_A(\rho))=\rho$ を満たします。
+
+一方、$R=\{B\}$ では $\mathcal E_B(\rho)=|0\rangle\langle0|_B$ が入力に依存しません。異なる $|0\rangle\langle0|_L$ と $|1\rangle\langle1|_L$ を同じ出力から一つの写像で復元できないため、完全回復は不可能です。領域の名前だけで可否は決まらず、**符号化 $V$ と保持領域 $R$ の組**で決まります。
 <!-- definition-example-end -->
 
 [消失訂正と消失系の状態独立性](../../../応用系/QINF/QINF28/index.md#thm-qinf28-erasure-privacy)によれば、有限次元の等長符号では、$E$ の消失を完全訂正できることと
@@ -142,10 +154,28 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo29-pair-representation -->
-**定義の確認**。 前節の単純な符号 $V|\psi\rangle=|\psi\rangle_A|00\rangle_{BC}$ で、論理 $Z_L|j\rangle=\omega^j|j\rangle$ に対し $Z_A$ は $Z_A V|j\rangle=\omega^jV|j\rangle=VZ_L|j\rangle$ を全3基底で満たします。線形性により任意の論理ベクトルでも成立します。一方 $Z_B$ は符号語上で常に恒等の作用をするので、$Z_L$ の表現ではありません。
+**定義の確認**。前節の単純な符号 $V|\psi\rangle=|\psi\rangle_A|00\rangle_{BC}$ と、論理作用素 $Z_L|j\rangle=\omega^j|j\rangle$ を用います。物理系 $A$ の $Z_A$ は残る $BC$ には作用しないので、全3基底に対し
+
+$$
+(Z_A\otimes I_{BC})V|j\rangle
+=\omega^jV|j\rangle
+=VZ_L|j\rangle
+$$
+
+です。線形性で任意の論理ベクトルにも成立し、定義の作用素等式を満たします。一方、$Z_B$ は $B$ の $|0\rangle$ にしか作用せず、符号語上で恒等になるため、$Z_L$ の表現ではありません。
 <!-- definition-example-end -->
 
-ここで二shareの復号を基底の可逆変換として書きます。保持する2つのラベルから論理ラベル $j$ と補助ラベル $t$ を取り出すため、次を使います。
+ここで二shareの復号を基底の可逆変換として書きます。元の符号語の各項の物理基底ラベルを $(a,b,c)=(i,i+j,i+2j)$ と置くと、保持する2つのラベルから次のように論理添字 $j$ と**失った側のラベル**を計算できます。
+
+$$
+\begin{aligned}
+AB:\quad &j=b-a,\quad c=2b-a,\\
+AC:\quad &j=2(c-a),\quad b=2c-a,\\
+BC:\quad &j=c-b,\quad a=2b-c.
+\end{aligned}
+$$
+
+例えば $AC$ では $c-a=2j$ なので、$\mathbb Z_3$ で $2^{-1}=2$ を掛けて $j=2(c-a)$ と求めます。その値を $b=a+j$ に代入すると $b=2c-a$ です。これにより元の符号語と復号座標が結び付きます。失った側のラベルを補助qutritのラベル $t$ として、保持する2つのラベルから $(j,t)$ を取り出します。
 
 | 保持系 $R$ | 入力ラベル | 論理ラベル $j$ | 補助ラベル $t$ |
 | --- | --- | --- | --- |
@@ -244,12 +274,17 @@ $$
 
 従って $Z_{BC}V=VZ_L$。
 
-**(iv) 全論理演算子。** $X_L^mZ_L^n$（$m,n\in\mathbb Z_3$）の9個は、Hilbert–Schmidt内積で互いに直交します。実際、$m\ne p$ のとき $(X^mZ^n)^\dagger X^pZ^q$ には非自明なシフト $X^{p-m}$ が含まれ、対角要素がすべて零です。$m=p$ のときトレースは位相因子を除いて
+**(iv) 全論理演算子。** 有限行列のHilbert–Schmidt内積を $\langle M,N\rangle_{\rm HS}=\operatorname{Tr}(M^\dagger N)$ と書きます。まず $X_L^mZ_L^n$（$m,n\in\mathbb Z_3$）の9個がこの内積で互いに直交することを確かめます。
+
+$m\ne p$ なら $(X_L^mZ_L^n)^\dagger X_L^pZ_L^q$ は非自明なシフト $X_L^{p-m}$ を含み、対角要素が零なのでトレースも零です。一方、$m=p$ なら $X_L^{-m}X_L^m=I_L$ により、積のトレースは正確に
 
 $$
-\operatorname{Tr} Z^{q-n}
-=\sum_{j=0}^2\omega^{(q-n)j}
+\begin{aligned}
+\operatorname{Tr}\bigl((X_L^mZ_L^n)^\dagger X_L^mZ_L^q\bigr)
+&=\operatorname{Tr}Z_L^{q-n}\\
+&=\sum_{j=0}^2\omega^{(q-n)j}
 =\begin{cases}3&(q=n),\\0&(q\ne n).\end{cases}
+\end{aligned}
 $$
 
 となります。従って3×3複素行列全体の9次元空間の基底です。任意の $O$ を
@@ -333,7 +368,14 @@ $$
 =(\log\sigma)\otimes I_3-(\log3)I.
 $$
 
-この表示を相対エントロピーのトレースへ代入すると、共通の $-\log3$ が差で消えます。非可逆でも $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ のとき両対数を台へ制限すれば同じ計算です。包含しなければ $I_3/3$ が全台であるため、両側とも同じ台包含違反となり $+\infty$ です。
+この表示を相対エントロピーのトレースへ代入すると、共通の $-\log3$ が差で消えます。非可逆な状態の場合も、$I_3/3$ が正定値であることから
+
+$$
+\operatorname{supp}(\rho\otimes I_3/3)
+=\operatorname{supp}\rho\otimes\mathbb C^3
+$$
+
+です。$\sigma$ についても同じなので、積状態の台包含は $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ と同値です。包含される場合は各対数を対応する台へ制限して同じトレース計算を行えます。包含されない場合は両側とも $+\infty$ です。
 <!-- proof-end -->
 
 二領域へ載る演算子の構成と、この状態情報の保存が一致することを模型内で確認しました。ただし、この模型の $\log3$ は**補助qutritとの最大もつれが作る定数**であり、重力の面積を計算した値ではありません。[HOLO28のセクター依存の中心項](../HOLO28/index.md#def-holo28-sector-area)や、[HOLO24の一般化エントロピー](../HOLO24/index.md#def-holo24-generalized-entropy)を一般の重力で同一視するには、幾何・反項・近似次数を別に指定する必要があります。
@@ -530,9 +572,19 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**(1)** 第4節の $X_R,Z_R$ は各二領域に局在し、$X_RV=VX_L,Z_RV=VZ_L$ を満たす。$X_L^mZ_L^n$ の9個が行列空間を張るので、線形結合で任意の $O_L$ に対応する $O_R$ が作れる。状態回復については第3節の $U_R$ が $V|j\rangle$ を $|j\rangle|\Phi_3\rangle$ へ写すため、補助系の廃棄を経て任意の $\rho$ を戻せる。一方、単一領域の縮約は第2節の非対角成分の消滅計算によりすべて $I_3/3$。たとえば異なる $|0\rangle\langle0|,|1\rangle\langle1|$ を区別できず完全復号不能。
+**(1)** [第4節の三領域表現定理](#thm-holo29-three-representations)で構成した $X_R,Z_R$ は各二領域にだけ作用し、
 
-**(2)** 上の $U_R$ から $\mathcal E_R(\rho)$ は $\rho\otimes I_3/3$ とユニタリ同値である。$\sigma$ についても同じ $U_R$ が使える。従って
+$$
+X_RV=VX_L,\qquad Z_RV=VZ_L
+$$
+
+を満たす。$X_L^mZ_L^n$ の9個が全行列空間を張るので、その線形結合から任意の論理作用素 $O_L$ に対応する $O_R$ が作れる。
+
+状態回復については[QINF28の二領域復号定理](../../../応用系/QINF/QINF28/index.md#thm-qinf28-qutrit)のとおり、$U_R$ が $V|j\rangle$ を $|j\rangle|\Phi_3\rangle$ へ写す。$|\Phi_3\rangle$ が $j$ に依存しないため、補助系を捨てて任意の入力 $\rho$ を復元できる。
+
+一方、単一領域の縮約では非対角成分が消え、入力にかかわらず $I_3/3$ となる。例えば $|0\rangle\langle0|$ と $|1\rangle\langle1|$ は同じ出力なので、同一の復号チャネルでは区別できず完全復号は不可能。
+
+**(2)** [二領域の情報保存命題](#prop-holo29-entropy-model)の出発点となる同じ $U_R$ から $\mathcal E_R(\rho)$ は $\rho\otimes I_3/3$ とユニタリ同値である。$\sigma$ についても同じ $U_R$ が使える。従って
 
 $$
 D(\mathcal E_R(\rho)\Vert\mathcal E_R(\sigma))
