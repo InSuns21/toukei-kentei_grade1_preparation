@@ -12,7 +12,6 @@ learning_objectives:
   - "一軸応力と一軸ひずみの違いを説明し、Young率・Poisson比とLamé係数を相互に変換できる"
   - "引張り・せん断・体積変化の実験をエネルギーと応力の両方から照合し、線形近似の限界を説明できる"
 definitions:
-  - { id: CTM11-DEF-01, name: "微小ひずみ" }
   - { id: CTM11-DEF-02, name: "等方線形弾性材料" }
   - { id: CTM11-DEF-03, name: "体積弾性率と偏差ひずみ" }
   - { id: CTM11-DEF-04, name: "Young率とPoisson比" }
