@@ -16,3 +16,4 @@
 13. [U3-13 金融モデルへの Itô 公式の適用](textbook/volumes/dream_thater/応用系/U/U3-13/index.md)
 14. [U3-14 幾何 Brown 運動と対数正規価格分布](textbook/volumes/dream_thater/応用系/U/U3-14/index.md)
 15. [U3-15 連続時間のリスク中立測度とヘッジ](textbook/volumes/dream_thater/応用系/U/U3-15/index.md)
+16. [U3-16 自己金融 delta hedge と Black–Scholes–Merton PDE](textbook/volumes/dream_thater/応用系/U/U3-16/index.md)
