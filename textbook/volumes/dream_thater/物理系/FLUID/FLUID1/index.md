@@ -239,3 +239,59 @@ $$
 <!-- proof-end -->
 
 例えば $\nu=10^{-6}\ {\rm m^2/s}$、$L=2\times10^{-3}$ m なら $T_\nu=(2\times10^{-3})^2/10^{-6}=4$ s。長さを半分にすると代表時間は $1$ s になる。これは粘性がより小さな速度変化をより速くならすという尺度上の意味を持つ。
+
+## 5. 界面の張力は粘性と同じではない
+
+二種類の流体の接する境界を**界面**と呼ぶ。水と空気の境目を広げると、界面の自由エネルギーが増える。界面の面積を増やすための可逆仕事から定める物性が表面張力であり、流速の勾配に対する摩擦抵抗を表す粘性係数とは全く違う。
+
+<a id="def-fluid1-surface-tension"></a>
+
+<!-- formal-statement-start -->
+### 定義（界面の表面張力）
+
+温度・組成を固定した可逆な準静的変化において、**均一・等方で一枚の流体界面**の面積を $dA$ 増やす際の界面自由エネルギー増分が
+
+$$
+dF_{\rm surface}=\gamma\,dA
+$$
+
+で表されるとき、係数 $\gamma\ge0$ を**表面張力**と呼ぶ。単位は
+
+$$
+[\gamma]=\mathrm{J/m^2}=\mathrm{N/m}=\mathrm{kg/s^2}.
+$$
+
+直線状の可動縁の長さが $\ell_b>0$ で、縁を垂直に $dx$ だけ動かして増える面積が $\ell_b\,dx$ なら、その界面が縁を引く力の大きさは $\gamma\ell_b$。同じ面積増加が**表裏の二界面**で起こる膜では力は $2\gamma\ell_b$ となる。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fluid1-surface-tension -->
+### **定義の確認**：一面と二面を数え分ける
+
+$\gamma=0.06$ N/m、可動縁の長さ $\ell_b=0.5$ m とする。単一界面では $dA=\ell_b\,dx$ なので
+
+$$
+\frac{dF_{\rm surface}}{dx}=\gamma\ell_b=0.06\cdot0.5=0.03\ {\rm N}.
+$$
+
+薄膜の表裏に同じ $\gamma$ の界面が二つあるなら、全増加面積は $2\ell_b\,dx$、力は $0.06$ N。二倍の理由は物性が変わるからでなく、増える界面面積が二倍になるからである。
+<!-- definition-example-end -->
+
+$\eta$ は $\mathrm{Pa\,s}$ で、単位面積のせん断力と速度勾配を結び付ける。$\gamma$ は $\mathrm{N/m}$ で、界面面積を増やす仕事や境界線の引張力を結び付ける。どちらも力と関係していても、同じ物性として換算することはできない。曲がった界面での圧力差は後のFLUID26で導く。ここではその式をまだ使わない。
+
+## 6. ブラウザで物性と尺度を検算する
+
+以下のPythonラボは、**入力した物性と代表尺度を代入して計算する検算器**である。分子動力学を解くものでも流体方程式を証明するものでもない。気体については平均自由行程を入力し、液体については微視的相関尺度と巨視尺度の単なる比を出す。液体の比を気体のKnudsen数とは呼ばない。
+
+一つ目のプリセットは例示的な気体とセンチメートル流路、二つ目は同じ気体とマイクロ流路である。二つの間で代表長さだけを変えると $\mathrm{Kn}$ と $\mathrm{Re}$ は異なる向きに変わる。三つ目は液体の例で、連続体としての成立を保証するわけではない。いずれも温度・圧力・界面・壁面の情報を外から補う必要がある。完成したPythonファイルをページ内で実行でき、プリセットの引数は編集して試せる。
+
+```python-file-lab
+# lab-id: FLUID1-MATERIAL-SCALE-FILE
+# lab-title: 流体の尺度分離と粘性の検算
+# lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID1/viscosity_scale_lab.py
+# timeout-ms: 10000
+# lab-preset: 気体・センチメートル流路 | --kind gas --micro-m 7e-8 --length-m 1e-2 --rho 1.2 --eta 1.8e-5 --speed 0.02
+# lab-preset: 気体・マイクロ流路 | --kind gas --micro-m 7e-8 --length-m 1e-6 --rho 1.2 --eta 1.8e-5 --speed 0.02
+# lab-preset: 液体・相関尺度の比較 | --kind liquid --micro-m 1e-9 --length-m 1e-3 --rho 1000 --eta 1e-3 --speed 0.02
+```
+
+結果中の micro_ratio は気体なら $\lambda/L$、液体なら $a/L$ を表す。[動粘度](#def-fluid1-kinematic-viscosity) $\eta/\rho$、[Reynolds数](../../CTM/CTM16/index.md#def-ctm16-reynolds) $\rho UL/\eta$、[粘性時間](#prop-fluid1-viscous-diffusion) $L^2/\nu$ を筆算と比較しよう。入力値が正で有限であることはコードで検査できても、**実験と合うことや採用した境界条件が適切であることは、数値の出力だけでは保証できない**。
