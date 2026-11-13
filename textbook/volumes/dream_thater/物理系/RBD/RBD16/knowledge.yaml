@@ -1,0 +1,56 @@
+chapter: RBD16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD15
+forward_references: []
+concepts:
+  - id: mechanics.rigid-attitude-numerical-diagnostics
+    name: 姿勢と力学の数値監査量
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（姿勢と力学の数値監査量）]
+    requires:
+      - mechanics.rigid-body-forced-newton-euler
+      - mechanics.quaternion-body-ode
+  - id: mechanics.rigid-body-work-impulse-balance
+    name: Euler方程式における仕事と角力積の収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Euler方程式における仕事と角力積の収支）]
+    requires:
+      - mechanics.rigid-attitude-numerical-diagnostics
+      - mechanics.rigid-body-forced-newton-euler
+  - id: mechanics.rigid-euler-orthogonality-loss
+    name: 行列Euler更新の直交性破れ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（行列Euler更新の直交性破れ）]
+    requires:
+      - mechanics.rigid-attitude-numerical-diagnostics
+      - mechanics.angular-velocity-conjugacy
+  - id: mechanics.rigid-attitude-discrete-updates
+    name: 姿勢の三種類の一段更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（姿勢の三種類の一段更新）]
+    requires:
+      - mechanics.quaternion-body-ode
+      - mechanics.rodrigues-formula
+  - id: mechanics.rigid-attitude-geometry-preservation
+    name: 四元数正規化と指数更新の姿勢保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（四元数正規化と指数更新の姿勢保存）]
+    requires:
+      - mechanics.rigid-attitude-discrete-updates
+      - mechanics.quaternion-norm-multiplication
+      - mechanics.quaternion-rodrigues
+  - id: mechanics.rigid-attitude-convergence-order
+    name: 滑らかな軌道での刻み幅収束次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（滑らかな軌道での刻み幅収束次数）]
+    requires:
+      - mechanics.rigid-attitude-discrete-updates
+      - mechanics.rigid-body-work-impulse-balance
