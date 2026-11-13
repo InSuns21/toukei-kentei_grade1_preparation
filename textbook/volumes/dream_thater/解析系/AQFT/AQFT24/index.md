@@ -144,7 +144,7 @@ $$
 
 ### 証明の見取り図
 
-複素時間で虚部を1だけ増すと $\rho^{i(t+i)}=\rho^{it-1}$ です。この負べきがトレース内の最初の $\rho$ と打ち消し合い、残った $\rho$ を巡回させると $A,B$ の順序が反転します。帯全体の一様な有界性には行列のSchattenノルムのHölder不等式を使います。
+複素時間で虚部を1だけ増すと $\rho^{i(t+i)}=\rho^{it-1}$ です。この負べきがトレース内の最初の $\rho$ と打ち消し合い、残った $\rho$ を巡回させると $A,B$ の順序が反転します。帯全体の有界性はHilbert–Schmidt内積のCauchy–Schwarz不等式と加重相加相乗平均不等式から導きます。
 
 <!-- proof-start -->
 ### 証明
@@ -181,24 +181,58 @@ F_{A,B}(t+iy)
 =\operatorname{Tr}\bigl(\rho^{1-y}\sigma_t(A)\rho^y B\bigr).
 $$
 
-$0<y<1$ ではSchattenノルムのHölder不等式を、指数 $p=1/(1-y)$、$q=1/y$（$1/p+1/q=1$）で適用します。$\rho$ は密度行列だから
+この評価を行列成分から証明します。$\rho=\operatorname{diag}(p_1,\dots,p_n)$ の固有基底を取り、$C=\sigma_t(A)$ と置きます。
 
 $$
-\|\rho^{1-y}\|_p
-=(\operatorname{Tr}\rho)^{1/p}=1,\qquad
-\|\rho^y\|_q=(\operatorname{Tr}\rho)^{1/q}=1.
+X=\rho^{(1-y)/2}C\rho^{y/2},\qquad
+Y=\rho^{y/2}B\rho^{(1-y)/2}
 $$
 
-また $\sigma_t$ はユニタリ共役で $\|\sigma_t(A)\|=\|A\|$。したがって
+に対し、トレースの巡回性と[Hilbert–Schmidt内積](../AQFT20/index.md#def-aqft20-hilbert-schmidt)のCauchy–Schwarz不等式から
 
 $$
-|F_{A,B}(t+iy)|
-\le\|\rho^{1-y}\|_p\|\sigma_t(A)\|
-   \|\rho^y\|_q\|B\|
-\le\|A\|\|B\|.
+F_{A,B}(t+iy)=\operatorname{Tr}(XY),\qquad
+|\operatorname{Tr}(XY)|\le\|X\|_2\|Y\|_2
 $$
 
-$y=0,1$ では対応するSchatten指数を $1,\infty$ とする端点のHölder不等式で同じ評価が成り立ちます。これで閉帯上の一様有界性・連続性・内部正則性・二つの境界条件がすべて証明されました。
+です。行列成分でノルムを展開すると
+
+$$
+\|X\|_2^2=\sum_{i,j}p_i^{1-y}p_j^y|C_{ij}|^2.
+$$
+
+$0\le y\le1$ の加重相加相乗平均不等式
+
+$$
+p_i^{1-y}p_j^y\le(1-y)p_i+yp_j
+$$
+
+を使います。各行・列の二乗和は
+
+$$
+\sum_j|C_{ij}|^2=\|C^*e_i\|^2\le\|C\|^2,\quad
+\sum_i|C_{ij}|^2=\|Ce_j\|^2\le\|C\|^2
+$$
+
+なので、$\sum_i p_i=1$ とユニタリ共役による $\|C\|=\|A\|$ から
+
+$$
+\begin{aligned}
+\|X\|_2^2
+&\le(1-y)\sum_i p_i\sum_j|C_{ij}|^2
++y\sum_jp_j\sum_i|C_{ij}|^2\\
+&\le(1-y)\|C\|^2+y\|C\|^2
+=\|A\|^2.
+\end{aligned}
+$$
+
+$Y$ についても同じ計算で $\|Y\|_2\le\|B\|$ です。従って
+
+$$
+|F_{A,B}(t+iy)|\le\|A\|\|B\|.
+$$
+
+この評価は $t$ に依存せず、$y=0,1$ も含みます。これで閉帯上の一様有界性・連続性・内部正則性・二つの境界条件がすべて証明されました。
 <!-- proof-end -->
 
 この定理の本体は**トレース等式のどこに $\rho$ を動かしたか**という計算です。一般のType III環ではこのトレースを持たないため、今の証明をそのまま使えません。ただしKMSの定義自体はトレースを要求していません。
@@ -306,7 +340,7 @@ G_{A,B}(s+iv)
 =\operatorname{Tr}(\rho^{1-y}A\rho^y\tau_s(B)).
 $$
 
-前定理のSchatten Hölder評価を、今度は $A,\tau_s(B)$ の並びに用いれば
+前定理のHilbert–Schmidtノルム評価を、今度は $A,\tau_s(B)$ の並びに用いれば
 
 $$
 |G_{A,B}(s+iv)|\le\|A\|\|B\|
@@ -332,7 +366,7 @@ G_{A,B}(w)=\eta(E_{21}\tau_w(E_{12}))
 =\tfrac12e^{-iw}.
 $$
 
-そこで $G(i\beta)=\frac12e^\beta=\frac32$ ですが、要求される $\eta(E_{12}E_{21})=\frac12$ と異なります。二つの境界値を指定する正則関数を別途作って修正できるか、という疑問には、有限次元で時間相関が有限和の指数関数になることと、境界値の解析的一意性を使えます。特に本章の **具体的に計算した解析接続** がKMS境界値を破ることを確認したので、状態保存のみでは定理の計算が成立しないと分かります。
+そこで $G(i\beta)=\frac12e^\beta=\frac32$ ですが、要求される $\eta(E_{12}E_{21})=\frac12$ と異なります。別の解析関数を選んで上端だけ修正することもできません。実軸上で既知の整関数 $G(w)=\frac12e^{-iw}$ と一致する、閉帯で連続・内部正則な関数があれば、その差は下端で零です。下端の任意の有限区間で差を零としてSchwarz反射すると実軸をまたぐ近傍へ正則に延長できます。零点が実軸に集積するので恒等定理により差は恒等的に零です。上端の値も上の計算に限られ、状態保存だけではKMSは従いません。
 
 ## 7. 演習と詳細解答
 
@@ -424,20 +458,26 @@ $$
 - 問題：有限次元の忠実な密度行列 $\rho$ と $A,B\in M_n(\mathbb C)$ に対し、$F(t+iy)=\operatorname{Tr}(\rho^{1-y}\sigma_t(A)\rho^yB)$ を導き、$0\le y\le1$ に一様な上界を証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\sigma_{t+iy}(A)=\rho^{-y}\sigma_t(A)\rho^y$ なので、最初の $\rho$ と $\rho^{-y}$ を掛けて指定式が出ます。$0<y<1$ で $p=1/(1-y)$、$q=1/y$ を取り、Schatten Hölder不等式を4因子に適用します。
+**詳細解答。** $\sigma_{t+iy}(A)=\rho^{-y}\sigma_t(A)\rho^y$ なので、最初の $\rho$ と $\rho^{-y}$ を掛けて指定式が出ます。$C=\sigma_t(A)$ と置き、
+
+$$
+X=\rho^{(1-y)/2}C\rho^{y/2},\qquad
+Y=\rho^{y/2}B\rho^{(1-y)/2}
+$$
+
+と分解すれば、$\operatorname{Tr}(XY)=F(t+iy)$ です。[Hilbert–Schmidt内積](../AQFT20/index.md#def-aqft20-hilbert-schmidt)のCauchy–Schwarz不等式から $|F|\le\|X\|_2\|Y\|_2$。成分表示と $p_i^{1-y}p_j^y\le(1-y)p_i+yp_j$ を用いて
 
 $$
 \begin{aligned}
-|F(t+iy)|
-&\le\|\rho^{1-y}\|_p\|\sigma_t(A)\|
-  \|\rho^y\|_q\|B\|\\
-&=(\operatorname{Tr}\rho)^{1/p}
-  (\operatorname{Tr}\rho)^{1/q}\|A\|\|B\|\\
-&=\|A\|\|B\|.
+\|X\|_2^2
+&=\sum_{ij}p_i^{1-y}p_j^y|C_{ij}|^2\\
+&\le(1-y)\sum_i p_i\sum_j|C_{ij}|^2
++y\sum_jp_j\sum_i|C_{ij}|^2\\
+&\le(1-y)\|C\|^2+y\|C\|^2=\|A\|^2.
 \end{aligned}
 $$
 
-二行目でユニタリ共役のノルム保存を用いました。$y=0,1$ は $p,q$ の一方を $\infty$ とし、$\|\rho^0\|_\infty=1$、$\|\rho\|_1=1$ で同じ評価です。上界に $t$ が入らないため、実方向に無限に広い帯でも有界です。
+各行と列の二乗和は $\|C\|^2$ 以下であり、$\|C\|=\|A\|$ です。$Y$ も同様に $\|Y\|_2\le\|B\|$。よって $0\le y\le1$ の全帯で $|F|\le\|A\|\|B\|$。上界に $t$ が入らないので実方向に無限の帯でも有界です。
 <!-- solution-end -->
 
 <a id="ex-aqft24-b03"></a>
@@ -496,7 +536,7 @@ F_{A,B}(t+i)
 =\sum_{ij}p_j\left(\frac{p_i}{p_j}\right)^{it}a_{ij}b_{ji}.
 $$
 
-他方、$\omega(B\sigma_t(A))=\sum_{ji}p_j b_{ji}(p_i/p_j)^{it}a_{ij}$ で等しいです。最後に $z=t+iy$ と置き、$p=1/(1-y)$、$q=1/y$ のSchatten Hölder不等式と $\operatorname{Tr}\rho=1$ を使えば $|F(z)|\le\|A\|\|B\|$。端点は $1,\infty$ の指数で同様に評価できます。これで[定義の全条件](#def-aqft24-kms)が各 $A,B$ に対し成立しました。
+他方、$\omega(B\sigma_t(A))=\sum_{ji}p_j b_{ji}(p_i/p_j)^{it}a_{ij}$ で等しいです。最後に $z=t+iy$ と置き、本文の加重相加相乗平均とHilbert–Schmidt Cauchy–Schwarzの評価を適用すれば $|F(z)|\le\|A\|\|B\|$。端点は $1,\infty$ の指数で同様に評価できます。これで[定義の全条件](#def-aqft24-kms)が各 $A,B$ に対し成立しました。
 <!-- solution-end -->
 
 <a id="ex-aqft24-c02"></a>
