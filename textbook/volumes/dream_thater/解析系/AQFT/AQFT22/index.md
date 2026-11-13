@@ -164,7 +164,7 @@ $$
 $$
 \|Tx\|^2=\|\Delta^{1/2}x\|^2+\|\Delta^{-1/2}x\|^2+2\|x\|^2.
 $$
-[AQFT18の可換子側作用素](../AQFT18/index.md#def-aqft18-commutant-initial)から $F(B\Omega)=B^*\Omega$（$B\in\mathcal M'$）であり、[極分解](../AQFT19/index.md#thm-aqft19-polar) $F=J\Delta^{-1/2}$ により
+[AQFT18の可換子側作用素](../AQFT18/index.md#def-aqft18-commutant-initial)から $F(B\Omega)=B^*\Omega$（$B\in\mathcal M'$）であり、[閉反線形作用素の極分解](../AQFT19/index.md#thm-aqft19-polar) $F=J\Delta^{-1/2}$ により
 $$
 \Delta^{-1/2}B\Omega=JB^*\Omega.
 $$
@@ -172,7 +172,7 @@ $\mathcal M'\Omega$ は稠密で $J$ は全射等長だから、右辺の集合�
 $$
 \Delta^{-1/2}B_n\Omega\longrightarrow Tx
 $$
-となるよう選べます。$\lambda=1$ の[レゾルベント補題](#lem-aqft22-resolvent)により
+となるよう選べます。$\lambda=1$ の[有界元を回復するレゾルベント補題](#lem-aqft22-resolvent)により
 $$
 x_n=(1+\Delta)^{-1}B_n\Omega
 =T^{-1}\Delta^{-1/2}B_n\Omega=A_n\Omega
