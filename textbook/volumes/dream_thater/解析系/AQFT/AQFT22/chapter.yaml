@@ -11,6 +11,9 @@ prerequisites:
   - VN2
   - FA4
   - CA4
+  - OPT1
+  - AQFT14
+  - VN7
 learning_objectives:
   - 標準対の共役代数を定義し、有界可換子と代数的右乗算を区別できる
   - 支配された正汎関数の表示からレゾルベントに対応する有界代数元を構成できる
