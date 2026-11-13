@@ -403,7 +403,7 @@ $E<E_{\mathrm{sep}}$ の polhode は最大慣性主軸の周囲、$E>E_{\mathrm{
 
 外トルクが零でなければ [RBD7の角運動量収支](../RBD7/index.md#thm-rbd7-newton-euler)で $\dot L_s=\tau_s$ となり、一般に $L_s$ の方向が固定しません。外力の仕事率が零でないなら $E$ も変わります。したがって接平面の法線 $L_s$ と切片 $2E$ が両方一定という本講の結論は失われます。例えば固定点を持つ重いこまでは重力トルクが働き、次のRBD11では重力トルクの下でも時間一定となる量を改めて導きます。
 
-また、[RBD6の正定値性](../RBD6/index.md#prop-rbd6-positivity)を失い $J_b$ に零固有値があると、$u^{\mathsf T}J_bu=2E$ は有界楕円体にならず、接点の一意性を示した正定値内積の等号条件が使えません。**「楕円体の接面」「固定平面」「滑らない」**は、それぞれ正定値性、無トルクの保存量、$\dot R=R\widehat\omega_b$ から導かれる別の主張です。
+また、[RBD6の正定値性](../RBD6/index.md#prop-rbd6-positivity)を失い $J_b$ に零固有値があると、$u^{\mathsf T}J_bu=2E$ は有界楕円体にならず、接点の一意性を示した正定値内積の等号条件が使えません。**「楕円体の接面」「固定平面」「滑らない」**は、それぞれ正定値性、[無トルクで一定となる二不変量](../RBD9/index.md#prop-rbd9-free-invariants)、$\dot R=R\widehat\omega_b$ から導かれる別の主張です。
 
 ---
 
@@ -594,7 +594,7 @@ $I=(2,3,4)$ なら根号の中は $(1/2-1/3)/(1/3-1/4)=(1/6)/(1/12)=2$。係数�
 
 正定値 $J_b=\operatorname{diag}(I_1,I_2,I_3)$ と無トルクEuler方程式、$R(0)=R_0$、$\dot R=R\widehat\omega_b$ を仮定し、初期角速度 $\omega_b(0)\ne0$ とする。
 
-- **(1) 保存量**：$E$ と $L_0$ が時間一定であることを導け。
+- **(1) 二不変量**：$E$ と $L_0$ が時間一定であることを導け。
 - **(2) 接面**：回転楕円体の接平面と接点を求め、一意性も証明せよ。
 - **(3) 速度**：polhode と herpolhode の定義上の違いを示し、接点の軌跡速度と接触物質点速度を区別せよ。
 - **(4) 数値例**：$I=(2,3,4)$、$\omega_b(0)=(1,1,1)$、$R_0=\mathrm{Id}_3$ の初期値で接平面と接点速度を検算せよ.
@@ -604,7 +604,7 @@ $I=(2,3,4)$ なら根号の中は $(1/2-1/3)/(1/3-1/4)=(1/6)/(1/12)=2$。係数�
 <!-- solution-start -->
 ### 詳細解答
 
-**(1) 保存量。** [RBD7のEuler方程式](../RBD7/index.md#thm-rbd7-newton-euler)の無トルク形は $J_b\dot\omega_b=-\omega_b\times(J_b\omega_b)$ です。$J_b$ が時間一定で対称なので
+**(1) 二不変量。** [RBD7のEuler方程式](../RBD7/index.md#thm-rbd7-newton-euler)の無トルク形は $J_b\dot\omega_b=-\omega_b\times(J_b\omega_b)$ です。$J_b$ が時間一定で対称なので
 
 $$
 \dot E=\omega_b^{\mathsf T}J_b\dot\omega_b
