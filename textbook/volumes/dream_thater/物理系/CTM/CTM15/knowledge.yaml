@@ -51,12 +51,14 @@ concepts:
     requires: [continuum.incompressible-newtonian-stress, continuum.material-momentum-local, continuum.mass-conservation-equivalence]
   - id: continuum.wall-no-slip
     name: 壁面の無滑り条件
+    aliases: [無滑り条件]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（壁面の無滑り条件）"]
     requires: []
   - id: continuum.wall-impermeability
     name: 壁面の非貫通条件
+    aliases: [非貫通条件]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（壁面の非貫通条件）"]
