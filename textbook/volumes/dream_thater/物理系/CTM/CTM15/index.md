@@ -142,10 +142,10 @@ $$
 
 粘性係数 $\eta,\zeta$ が観測者の回転によって不変なスカラー材料量であり、圧力 $p$ も不変であるとする。重ね合わせた剛体運動の回転 $Q(t)\in SO(3)$ に対し、Newton 応力の客観性は次の式で表される。
 
-$
+$$
 \sigma=-pI+2\eta D^\circ+\zeta\theta I,\qquad
 \sigma^*=Q\sigma Q^T.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -394,9 +394,9 @@ $$
 
 流体の速度 $v$ と固体壁の速度 $V_{\mathrm{wall}}$ が接触面 $\Gamma$ で定義できるとき、次の境界条件を**無滑り条件**という。
 
-$
+$$
 \boxed{v|_\Gamma=V_{\mathrm{wall}}.}
-$
+$$
 
 静止壁なら $V_{\mathrm{wall}}=0$ である。これは流体側の速度の法線成分だけでなく、接線成分も一致させる条件である。
 <!-- formal-statement-end -->
@@ -416,9 +416,9 @@ $0\le y\le h$ で $v=(Uy/h,0,0)$、下壁の速度 $0$、上壁の速度 $Ue_1$ 
 
 流体の速度 $v$、固体壁の速度 $V_{\mathrm{wall}}$、接触面 $\Gamma$ の単位法線 $n$ が存在するとき、法線方向の相対速度が零となる次の境界条件を**非貫通条件**という。
 
-$
+$$
 \boxed{(v|_\Gamma-V_{\mathrm{wall}})\cdot n=0.}
-$
+$$
 
 流体と壁の接線方向の相対速度は、この条件だけからは零とならない。
 <!-- formal-statement-end -->
