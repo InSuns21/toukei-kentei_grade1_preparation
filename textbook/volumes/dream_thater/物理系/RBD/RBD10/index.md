@@ -18,11 +18,11 @@ $$
 
 $R(t)\in SO(3)$ は物体系の成分を空間系に移す能動回転であり、$R(0)=R_0$ とします。[RBD3の角速度と回転の関係](../RBD3/index.md#prop-rbd3-angular-conjugacy)および[RBD7のNewton–Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)を使います。ここで $\widehat u$ は $v\mapsto u\times v$ を表す反対称行列、上付きの点 $\dot R,\dot\omega_b$ は時間 $t$ に関する微分です。無トルクでは
 
-$
+$$
 \dot R=R\widehat{\omega}_b,\qquad
 J_b\dot\omega_b+\omega_b\times J_b\omega_b=0,\qquad
 L_s=R L_b=L_0
-$
+$$
 
 です。$L_0$ は空間系の時間一定ベクトルです。[RBD9の不変量](../RBD9/index.md#prop-rbd9-free-invariants)を再掲すると
 
@@ -44,10 +44,10 @@ $$
 
 物体系の座標 $u$ に対して空間系の座標は $x=R(t)u$ です。$R^{\mathsf T}R=\mathrm{Id}_3$ だから $u=R(t)^{\mathsf T}x$ となり、
 
-$
+$$
 u^{\mathsf T}J_bu
 =x^{\mathsf T}(RJ_bR^{\mathsf T})x
-$
+$$
 
 です。この基底変換が空間系での二次形式の行列 $J_s(t)$ を決めます。
 
@@ -476,21 +476,21 @@ $R=\mathrm{Id}_3$、$I=(2,3,4)$、$\omega_b=(1,1,1)$ の瞬間について、接
 
 一方、[Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)の各主軸成分は
 
-$
+$$
 \begin{aligned}
 \dot\omega_1&=\frac{I_2-I_3}{I_1}\omega_2\omega_3,\\
 \dot\omega_2&=\frac{I_3-I_1}{I_2}\omega_3\omega_1,\\
 \dot\omega_3&=\frac{I_1-I_2}{I_3}\omega_1\omega_2
 \end{aligned}
-$
+$$
 
 です。ここに $I=(2,3,4)$、$\omega_b=(1,1,1)$ を代入すると
 
-$
+$$
 \dot\omega_1=\frac{3-4}{2}=-\frac12,\quad
 \dot\omega_2=\frac{4-2}{3}=\frac23,\quad
 \dot\omega_3=\frac{2-3}{4}=-\frac14.
-$
+$$
 
 したがって $\dot P_s=R\dot\omega_b=(-1/2,2/3,-1/4)\ne0$。法線との内積は $2(-1/2)+3(2/3)+4(-1/4)=-1+2-1=0$ で、平面上の接点が移動していることを確認できます。
 <!-- solution-end -->
