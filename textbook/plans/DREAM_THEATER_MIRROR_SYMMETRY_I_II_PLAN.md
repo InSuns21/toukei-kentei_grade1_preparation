@@ -27,7 +27,7 @@
 | [C. Voisin, *Hodge Theory and Complex Algebraic Geometry II*（Cambridge）](https://www.cambridge.org/core/books/hodge-theory-and-complex-algebraic-geometry-ii/47F0D9D694725A426F9CAFDFA830DB11) | Hodge構造の変動・Gauss–Manin・モノドロミーはDEF1/HOD1での正本を確認し、MIR1ではquinticへの具体的適用に集中する。 |
 | [P. Candelas et al., *A Pair of Calabi–Yau Manifolds as an Exactly Soluble Superconformal Theory*（1991）](https://www.staff.science.uu.nl/~beuke106/HypergeometricFunctions/COGP.pdf) | 一パラメータ族・周期・ミラー座標・Yukawa・低次数曲線計数を接続する元の計算経路。物理予測と数学的証明の年代・論理を分ける。 |
 | [A. Givental, *Equivariant Gromov–Witten Invariants*（公開原稿）](https://sumizdat.com/homepage/papers/eqv.pdf) | $I/J$型の母関数とquinticの数値に関係する定理の深さを確認。証明全体を「周期の計算」と呼んで省略しない。 |
-| [J. Walcher, *Mirror Symmetry for the Real Quintic* 関連の公開講義テキスト](https://www.mathi.uni-heidelberg.de/~walcher/assets/documents/mfsdwalcher.pdf) | 普通のquinticの直線2875本をGrassmann多様体上の $\int_{G(2,5)}c_6(\operatorname{Sym}^5 S^\vee)$ で独立検算する古典的手順を参照。実quinticの問題は本PLANの別テーマとして混入させない。 |
+| [J. Walcher, *Open Strings and Extended Mirror Symmetry*（2007、公開講義原稿）](https://www.mathi.uni-heidelberg.de/~walcher/assets/documents/mfsdwalcher.pdf) | 普通のquinticの直線2875本をGrassmann多様体上の $\int_{G(2,5)}c_6(\operatorname{Sym}^5 S^\vee)$ で独立検算する古典的手順を参照。実quinticの問題は本PLANの別テーマとして混入させない。 |
 
 ### 旧24章案から32章案への再編理由
 
