@@ -1,0 +1,43 @@
+chapter: FLUID4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID3
+  - CTM1
+concepts:
+  - id: fluid.streamline
+    name: 流線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（流線）"]
+    requires: [continuum.spatial-velocity]
+  - id: fluid.pathline
+    name: 流跡線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（流跡線）"]
+    requires: [continuum.motion-current-configuration, continuum.spatial-velocity]
+  - id: fluid.fixed-source-streakline
+    name: 固定注入口からの流脈線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定注入口からの流脈線）"]
+    requires: [fluid.pathline]
+  - id: fluid.unsteady-three-curves
+    name: 非定常一様速度場の三曲線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非定常一様速度場の三曲線）"]
+    requires: [fluid.streamline, fluid.pathline, fluid.fixed-source-streakline]
+  - id: fluid.steady-kinematic-coincidence
+    name: 定常速度場における三曲線の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定常速度場における三曲線の一致）"]
+    requires: [fluid.streamline, fluid.pathline, fluid.fixed-source-streakline]
+  - id: fluid.euler-tracking-error
+    name: 非定常一様場に対する前進Euler法の誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非定常一様場に対する前進Euler法の誤差）"]
+    requires: [fluid.pathline]
