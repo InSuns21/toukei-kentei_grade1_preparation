@@ -1,10 +1,10 @@
 # DREAM THEATER カラビ・ヤウ幾何・ミラー対称性 依存ルート
 
 分冊: 2026-10-11  
-状態: planned（ルート台帳のみ、未実装。講義数・着手順を2026-11-08に確定）
+状態: planned（ルート台帳のみ、未実装。2026-11-14にMIR1/2の設計講数を再確定）
 
 
-## 設計確定（2026-11-08）：講義数と到達可能な系列
+## 設計確定（2026-11-08、MIR講数は2026-11-14再改訂）：講義数と到達可能な系列
 
 本書は一つの授業ではなく、代数幾何・複素幾何・解析・曲線計数・圏論を結ぶ**ルート台帳**である。各科目の内容正本は下記の分冊PLAN、既実装の章数・完成statusの正本は各系列manifest。講義数の「確定」は、各科目の**実装設計として章の中心問いを割り当てたこと**を指し、15週や90分等の時間制約で主要証明を削る意味ではない。新たな証明欠損が判明した場合は理由を残して分冊と本表を同期改訂する。
 
@@ -19,11 +19,11 @@
 | YAU1：Calabi予想・Yauの定理 | **14** | planned、分冊の14章を確定 | SYZ1 |
 | DEF1：複素構造の変形・モジュライ | **14** | in_progress、DEF1-01完成・残13章 | MIR1 |
 | GW1：擬正則曲線・Gromov–Witten | **21** | planned、分冊の独立21論証単位を章に確定 | MIR2 |
-| MIR1：周期・Picard–Fuchs | **12** | planned、分冊の12章を確定 | MIR2 |
-| MIR2：GWとミラー曲線計数 | **12** | planned、分冊の12章を確定 | HM1 |
+| MIR1：周期・Picard–Fuchs | **16** | planned、文献照合により16論証単位へ再編（2026-11-14） | MIR2 |
+| MIR2：GWとミラー曲線計数 | **16** | planned、量子微分方程式・I/J関数・局所化・古典的検算を分離（2026-11-14） | HM1 |
 | HM1：ホモロジカル・ミラー | **18** | planned、分冊の18章を確定（Floer/圏論の前提整備は別） | 発展 |
 | SYZ1：特殊Lagrange・双対トーラス | **14** | planned、分冊の14章を確定 | 発展 |
-| **総計** | **221章（既完了120、残101）** | **既完了120章／221章** | ※このルート専用の講義数。他系列の一般基礎講座は含まない |
+| **総計** | **232章（2026-11-08時点の既完了120、当時点残112）** | **13系列の設計講数を合算。進捗の現在値は系列manifestを参照** | ※このルート専用の講義数。他系列の一般基礎講座は含まない |
 
 ### 現時点の着手判定
 
@@ -39,13 +39,15 @@
 
 | 参照文献（出版社・著者・大学の公開ページ） | 採用した設計判断 |
 | --- | --- |
-| [D. Cox / S. Katz, *Mirror Symmetry and Algebraic Geometry*（AMS, 1999）](https://doi.org/10.1090/surv/068) | quintic → トーリック・Hodge/変形 → GW・量子積 → ミラー定理。MIR1とMIR2の境界、GWの独立前提を明瞭化。 |
+| [D. Cox / S. Katz, *Mirror Symmetry and Algebraic Geometry*（AMS, 1999）](https://doi.org/10.1090/surv/068) | quintic・Hodge・モジュライをMIR1へ、GW・量子積・局所化・量子微分方程式・ミラー定理をGW1とMIR2へ分担。MIR1/2は16+16講に再編。 |
 | [K. Hori et al., *Mirror Symmetry*（Clay Mathematics Institute, 2003）](https://www.claymath.org/resource/mirror-symmetry/) | A/B模型、周期、安定写像、圏論的視点を別の道具として紹介し、物理的予想と証明済み数学を混同しない。 |
 | [C. Voisin, *Hodge Theory and Complex Algebraic Geometry I/II*（Cambridge）](https://www.cambridge.org/core/books/hodge-theory-and-complex-algebraic-geometry-ii/47F0D9D694725A426F9CAFDFA830DB11) ／ [D. Huybrechts, *Complex Geometry*（Springer）](https://link.springer.com/book/10.1007/b137952) | DEF1のKodaira–Spencer・KuranishiからGauss–Manin、MIR1の周期とHodge構造の順序。 |
 | [Tosatti / Kong, *Notes on Calabi–Yau Manifolds*](https://cims.nyu.edu/~wk805/files/CY_Manifolds_Notes.pdf) ／ [T. Collins, Complex Monge–Ampère講義](https://people.math.harvard.edu/~tcollins/Math262.html) | YAU1の体積正規化、連続性、$C^0/C^2/C^3$評価と高階正則性を分離して14章に配置。 |
 | [D. McDuff / D. Salamon, *J-holomorphic Curves and Symplectic Topology*（AMS）](https://doi.org/10.1090/coll/052) | GW1を旧13講の目安ではなく、解析・モジュライ・量子積・VFCの境界を持つ21章とする。 |
 | [P. Seidel, *Fukaya Categories and Picard–Lefschetz Theory*（EMS）](https://ems.press/books/zlam/2/contents) ／ [MIT OCW 18.969講義ノート](https://ocw.mit.edu/courses/18-969-topics-in-geometry-mirror-symmetry-spring-2009/pages/lecture-notes/) | HM1の$A_\infty$・Floer・Fukaya・楕円曲線のHMSを18章に、SYZ1の半平坦構成・特異ファイバーを14章に整理。 |
 | [M. Gross / B. Siebert, *From real affine geometry to complex geometry*（Annals, 2011）](https://annals.math.princeton.edu/2011/174-3/p01) | SYZ1では特異アフィン構造・インスタントン補正を滑らかな双対化と区別し、一般成立を既証明と扱わない。 |
+
+**総計の検算**：38+21+16+16+14+14+14+14+21+16+16+18+14 = **232**。旧総計221は、旧内訳を合算すると224となる算術誤記でもあった。既完了120・残112は2026-11-08の履歴値であり、現時点のGW等の進捗を固定するものではない。MIR系列は計画段階のためmanifestの仮作成はしない。
 
 この表の**章数は書籍の章数を借用したものではなく**、各書籍で独立に証明される概念の境界と既存教材のprerequisiteを照合した編集設計である。講義数そのものの「出典」を書籍へ仮託しない。
 
@@ -61,7 +63,7 @@
 - [ヤウの定理](../plan_done/DREAM_THEATER_YAU_CALABI_CONJECTURE_PLAN.md)
 - [複素変形理論](../plan_done/DREAM_THEATER_COMPLEX_DEFORMATION_MODULI_PLAN.md)
 - [ミラー対称性I・II](DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md)
-- [Gromov–Witten](DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md)
+- [Gromov–Witten](../plans_progress/DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md)
 - [ホモロジカルミラー](DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md)
 - [SYZ](DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md)
 
