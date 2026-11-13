@@ -11,6 +11,11 @@ concepts:
     kind: definition
     introduction: formal
     requires: [aqft.antilinear-operator]
+  - id: aqft.conjugate-hilbert-space
+    name: 共役Hilbert空間
+    kind: definition
+    introduction: formal
+    requires: [aqft.antilinear-operator]
   - id: aqft.modular-operator
     name: 正部分とモジュラー作用素
     kind: definition
