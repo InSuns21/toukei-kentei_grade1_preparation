@@ -16,7 +16,7 @@ learning_objectives:
 definitions:
   - { id: AQFT18-DEF-01, name: "標準対" }
   - { id: AQFT18-DEF-02, name: "反線形作用素" }
-  - { id: AQFT18-DEF-03, name: "可閉作用素と閉包" }
+  - { id: AQFT18-DEF-03, name: "可閉作用素・閉包" }
   - { id: AQFT18-DEF-04, name: "Tomita初期作用素" }
   - { id: AQFT18-DEF-05, name: "可換子側Tomita初期作用素" }
   - { id: AQFT18-DEF-06, name: "反線形随伴" }
