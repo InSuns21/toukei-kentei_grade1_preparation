@@ -9,6 +9,12 @@ prerequisites:
   - GW1-01
   - SYM8
 concepts:
+  - id: gromov-witten.rational-degree-area
+    name: 有理写像の次数と面積
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有理写像の次数と面積）"]
+    requires: [gromov-witten.normalized-projective-area, gromov-witten.energy-identity]
   - id: gromov-witten.stable-sphere-tree
     name: 標点付き球面の木と安定な成分写像
     kind: definition
