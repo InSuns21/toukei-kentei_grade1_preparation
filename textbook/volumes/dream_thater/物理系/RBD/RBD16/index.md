@@ -19,7 +19,7 @@ $$
 
 です。$J_b$ の正定値性により逆行列が存在します。初期値 $R(0)=R_0\in SO(3)$ と $\omega_b(0)=\omega_0$ を与えます。局所 Lipschitz 条件を満たすトルクと有界な軌道を仮定すれば、通常の常微分方程式の理論で数値積分する区間上の解を扱えます。無トルクでは $\tau_b=0$ です。
 
-**運動方程式が満たすべき物理的関係**と、**姿勢の表示が満たすべき幾何学的関係**を別の検査量にします。行列の Frobenius ノルム $\lVert A\rVert_F=\sqrt{\sum_{i,j}A_{ij}^2}$ は各成分の平方を足した長さです。時刻 $t$ までにトルクがした仕事を $W(t)$、空間系の角力積を $K_s(t)$ と呼びます。これらは実際の時間積分であって、一般には零ではありません。
+[ODE4 の保存量の定義](../../../解析系/ODE/ODE4/index.md#def-ode4-first-integral)を踏まえ、運動の途中で値を変えない量を保存量と呼びます。ここでは**運動方程式が満たすべき物理的関係**と、**姿勢の表示が満たすべき幾何学的関係**を別の検査量にします。行列の Frobenius ノルム $\lVert A\rVert_F=\sqrt{\sum_{i,j}A_{ij}^2}$ は各成分の平方を足した長さです。時刻 $t$ までにトルクがした仕事を $W(t)$、空間系の角力積を $K_s(t)$ と呼びます。これらは実際の時間積分であって、一般には零ではありません。
 
 <a id="def-rbd16-diagnostics"></a>
 
@@ -56,7 +56,7 @@ $$
 <!-- definition-example-start: def-rbd16-diagnostics -->
 ### 直接例：主軸回転の四つの監査量
 
-**定義の確認**：$J_b=\operatorname{diag}(2,3,4)$、$R_0=I_3$、$\omega_0=e_3$、$\tau_b=0$ とします。$J_b\omega_0=4e_3$ で、そのベクトルと $\omega_0$ の外積は零です。したがって $\omega_b(t)=e_3$ が Euler 方程式を満たし、$R(t)=R_z(t)$ は [RBD2 の回転行列](../RBD2/index.md#thm-rbd2-rodrigues)です。$R_z(t)e_3=e_3$ なので
+**定義の確認**：$J_b=\operatorname{diag}(2,3,4)$、$R_0=I_3$、$\omega_0=e_3$、$\tau_b=0$ とします。$J_b\omega_0=4e_3$ で、そのベクトルと $\omega_0$ のベクトル積は零です。したがって $\omega_b(t)=e_3$ が Euler 方程式を満たし、$R(t)=R_z(t)$ は [RBD2 の回転行列](../RBD2/index.md#thm-rbd2-rodrigues)です。$R_z(t)e_3=e_3$ なので
 
 $$
 E(t)=\frac12(1)(4)=2,\quad L_s(t)=4e_3,\quad W=0,\quad K_s=0.
@@ -126,9 +126,9 @@ $$
 
 空間トルクは $\tau_s=R\tau_b$、空間角速度は $\omega_s=R\omega_b$ です。$R$ が直交行列なので $\tau_s\cdot\omega_s=\tau_b\cdot\omega_b$ となり、仕事率はどちらの座標系で計算しても同じです。**角力積は空間系ベクトルを積分**し、物体系の $\tau_b$ をそのまま時間積分して $L_s$ の変化にしてはいけません。
 
-## 3. 陽的 Euler 法の落とし穴
+## 3. 陽的 Euler 更新の落とし穴
 
-一段の長さを $h>0$、時刻を $t_n=nh$、数値状態を $(R_n,\omega_n)$ と書きます。陽的 Euler 法は右辺をステップの始点で評価して
+一段の長さを $h>0$、時刻を $t_n=nh$、数値状態を $(R_n,\omega_n)$ と書きます。陽的 Euler 更新は右辺をステップの始点で評価して
 
 $$
 f(t,R,\omega)=J_b^{-1}\{\tau_b(t,R,\omega)-\omega\times(J_b\omega)\},
@@ -144,7 +144,7 @@ $$
 <a id="prop-rbd16-euler-orthogonality"></a>
 
 <!-- formal-statement-start -->
-### 命題（行列 Euler 更新の直交性破れ）
+### 命題（行列Euler更新の直交性破れ）
 
 $R_n\in SO(3)$、$\omega_n\in\mathbb R^3$、$h>0$ に対する行列 Euler の一段更新 $R_{n+1}=R_n(I_3+h\widehat{\omega}_n)$ では
 
@@ -213,11 +213,51 @@ $$
 
 前節の初期値問題について $h>0$ とする。以下を区別する。
 
-1. **行列 Euler 更新**：$\omega_{n+1}=\omega_n+hf(t_n,R_n,\omega_n)$ と $R_{n+1}=R_n(I_3+h\widehat{\omega}_n)$。
-2. **正規化四元数 Euler 更新**：$q_n$ は単位四元数で $R(q_n)=R_n$ とする。[RBD5 の微分式](../RBD5/index.md#thm-rbd5-attitude-ode)を用いて $\widetilde q_{n+1}=q_n+\frac h2q_n\otimes(0,\omega_n)$、$q_{n+1}=\widetilde q_{n+1}/\lVert\widetilde q_{n+1}\rVert$ とし、角速度は Euler 更新する。
-3. **指数中点更新**：$\omega_{n+1/2}=\omega_n+\frac h2f(t_n,R_n,\omega_n)$ とし、$\omega_{n+1}=\omega_n+h f(t_n+h/2,R_{n+1/2},\omega_{n+1/2})$、$R_{n+1}=R_n\exp(h\widehat{\omega}_{n+1/2})$ とする。外トルクが姿勢に依存するときの中点姿勢は $R_{n+1/2}=R_n\exp((h/2)\widehat{\omega}_n)$ とする。
+1. **行列 Euler 更新**：角速度と姿勢を
 
-指数は、$a=h\lVert v\rVert$、$v\ne0$ として $\exp(h\widehat v)=I_3+\frac{\sin a}{\lVert v\rVert}\widehat v+\frac{1-\cos a}{\lVert v\rVert^2}\widehat v^2$、$v=0$ では $I_3$ とする。
+$
+\omega_{n+1}=\omega_n+hf(t_n,R_n,\omega_n),\qquad
+R_{n+1}=R_n(I_3+h\widehat{\omega}_n)
+$
+
+と更新する。
+
+2. **正規化四元数 Euler 更新**：$q_n$ を $R(q_n)=R_n$ を満たす単位四元数とする。[RBD5 の単位四元数と物体角速度の時間発展](../RBD5/index.md#thm-rbd5-attitude-ode)に基づき、
+
+$
+\widetilde q_{n+1}=q_n+\frac h2q_n\otimes(0,\omega_n),\qquad
+q_{n+1}=\frac{\widetilde q_{n+1}}{\lVert\widetilde q_{n+1}\rVert}
+$
+
+とし、角速度は上記の Euler 更新と同じ式で計算する。
+
+3. **指数中点更新**：角速度の中点近似と中点姿勢を
+
+$
+\omega_{n+1/2}=\omega_n+\frac h2f(t_n,R_n,\omega_n),\qquad
+R_{n+1/2}=R_n\exp\left(\frac h2\widehat{\omega}_n\right)
+$
+
+で定める。外トルクが姿勢に依存する場合もこの $R_{n+1/2}$ を用い、
+
+$
+\begin{aligned}
+\omega_{n+1}&=\omega_n+h f(t_n+h/2,R_{n+1/2},\omega_{n+1/2}),\\
+R_{n+1}&=R_n\exp\left(h\widehat{\omega}_{n+1/2}\right)
+\end{aligned}
+$
+
+と更新する。
+
+指数は $a=h\lVert v\rVert$ とし、$v\ne0$ について
+
+$
+\exp(h\widehat v)
+=I_3+\frac{\sin a}{\lVert v\rVert}\widehat v
++\frac{1-\cos a}{\lVert v\rVert^2}\widehat v^2
+$
+
+で計算する。$v=0$ では $\exp(h\widehat v)=I_3$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-rbd16-updates -->
@@ -233,7 +273,17 @@ $$
 <!-- formal-statement-start -->
 ### 定理（四元数正規化と指数更新の姿勢保存）
 
-$R_n\in SO(3)$、$\lVert q_n\rVert=1$、$h>0$、有限な $\omega_n,\omega_{n+1/2}$ とする。前節の正規化四元数更新は $\lVert q_{n+1}\rVert=1$ を保ち、その姿勢 $R(q_{n+1})$ は $SO(3)$ に属する。指数更新 $R_{n+1}=R_n\exp(h\widehat{\omega}_{n+1/2})$ も $R_{n+1}\in SO(3)$ を保つ。これは**姿勢幾何の保存**であって、離散エネルギーや離散角運動量の厳密保存を意味しない。
+$R_n\in SO(3)$、$\lVert q_n\rVert=1$、$h>0$ とし、$\omega_n,\omega_{n+1/2}$ は有限な三次元実ベクトルとする。前節の正規化四元数更新と指数更新はそれぞれ
+
+$
+\lVert q_{n+1}\rVert=1,\qquad R(q_{n+1})\in SO(3),
+$
+
+$
+R_{n+1}=R_n\exp(h\widehat{\omega}_{n+1/2})\in SO(3)
+$
+
+を満たす。ただし、これは**姿勢幾何の保存**であり、離散エネルギーや離散角運動量の厳密保存を意味しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -251,7 +301,7 @@ $$
 =1+\frac{h^2}4\lVert\omega_n\rVert^2>0.
 $$
 
-零でないから正規化が定義でき、長さ1となります。[RBD5 の回転公式](../RBD5/index.md#thm-rbd5-rodrigues)により $R(q_{n+1})$ は直交・行列式1です。
+零でないから正規化が定義でき、長さ1となります。[RBD5 の単位四元数の回転公式と軸角表示](../RBD5/index.md#thm-rbd5-rodrigues)により $R(q_{n+1})$ は直交・行列式1です。
 
 指数更新では $\Omega=\widehat{\omega}_{n+1/2}$ は反対称なので、$S(t)=\exp(t\Omega)$ の微分は $\dot S=S\Omega$ です。積の微分より
 
@@ -274,7 +324,7 @@ $S(0)=I_3$ のもとで $S^{\mathsf T}S=I_3$ はこの方程式を満たし、�
 <!-- formal-statement-start -->
 ### 命題（滑らかな軌道での刻み幅収束次数）
 
-有限区間 $[0,T]$ で厳密解が必要な次数まで滑らかであり、$J_b$ は正定値、トルクを含むベクトル場とその必要な導関数が解の近傍で有界・局所 Lipschitz とする。十分小さい一定刻み幅 $h=T/N$ を用い、数値解が同じ有界近傍にとどまるとき、行列 Euler 法および正規化四元数 Euler 法の状態誤差は一般に $O(h)$、指数中点法は $O(h^2)$ である。ここで四元数の誤差は $q$ と $-q$ を同じ姿勢とみなす。軌道依存の定数は $T$ に依存し、任意の長時間で一様とは限らない。
+有限区間 $[0,T]$ で厳密解が必要な次数まで滑らかであり、$J_b$ は正定値、トルクを含む初期値問題の右辺関数とその必要な導関数が解の近傍で有界・局所 Lipschitz とする。十分小さい一定刻み幅 $h=T/N$ を用い、数値解が同じ有界近傍にとどまるとき、行列 Euler 更新および正規化四元数 Euler 更新の状態誤差は一般に $O(h)$、指数中点法は $O(h^2)$ である。ここで四元数の誤差は $q$ と $-q$ を同じ姿勢とみなす。軌道依存の定数は $T$ に依存し、任意の長時間で一様とは限らない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -306,7 +356,7 @@ $$
 +\frac{h^2}{2}\frac d{dt}f(t,R(t),\omega(t))+O(h^3)
 $$
 
-の二次の係数まで一致します。従って指数中点更新の局所誤差は $O(h^3)$。Euler の局所誤差は $O(h^2)$ であり、四元数の正規化係数
+の二次の係数まで一致します。従って指数中点更新の局所誤差は $O(h^3)$。Euler 更新の局所誤差は $O(h^2)$ であり、四元数の正規化係数
 $\{1+h^2\lVert\omega\rVert^2/4\}^{-1/2}=1+O(h^2)$
 はこの次数を変えません。
 
@@ -496,7 +546,7 @@ $$
 R(t+h)=R(t)\{I_3+h\Omega+\tfrac12h^2(\Omega^2+A)\}+O(h^3).
 $$
 
-一方 $\widehat\omega_{1/2}=\Omega+\frac h2A+O(h^2)$ だから、行列指数の級数の定数・一次・二次項は
+一方 $\widehat\omega_{1/2}=\Omega+\frac h2A+O(h^2)$ だから、行列の指数関数 $\exp(X)=I_3+X+X^2/2+O(\lVert X\rVert^3)$ の定数・一次・二次項は
 
 $$
 \exp(h\widehat\omega_{1/2})
@@ -606,7 +656,7 @@ $\epsilon_{\rm orth}=0.0816\sqrt2$、$\epsilon_{\rm det}=0.0816$ となります
 
 **2. 収支だけでは不十分。** $\omega_2=e_3$ だから $E_2=\frac12e_3^{\mathsf T}J_be_3=2=E_0$。また $R_2e_3=e_3$ なので $L_{s,2}=R_2J_be_3=4e_3=L_{s,0}$ です。エネルギーと空間角運動量が完全に一致していても、二つの基底列の長さは $\sqrt{1.0816}\ne1$ です。幾何学的な検査なしでは偽陽性になります。
 
-**3. 姿勢を保つ更新。** 指数中点法では $\omega_{n+1/2}=e_3$ が厳密なので、各段で $\exp(0.2\widehat e_3)=R_z(0.2)$、二段後は積の公式から $R_2=R_z(0.4)$ で厳密です。正規化四元数 Euler は一段の半角に $\arctan(h/2)=\arctan(0.1)$ を持つので、二段の合計角は
+**3. 姿勢を保つ更新。** 指数中点法では $\omega_{n+1/2}=e_3$ が厳密なので、各段で $\exp(0.2\widehat e_3)=R_z(0.2)$、二段後は $z$ 軸回転の加法性 $R_z(0.2)R_z(0.2)=R_z(0.4)$ から $R_2=R_z(0.4)$ で厳密です。正規化四元数 Euler は一段の半角に $\arctan(h/2)=\arctan(0.1)$ を持つので、二段の合計角は
 
 $$
 \theta_{h=0.2}=4\arctan(0.1)\approx0.39867461.
@@ -620,7 +670,7 @@ $$
 \theta_{h=0.1}=8\arctan(0.05)\approx0.399666\ldots.
 $$
 
-角度差は約 $0.000333\ldots$、前の約 $0.001325$ との比は約 $3.98$ です。この**一定軸・一定角速度だけの特例**では $\arctan z=z-z^3/3+O(z^5)$ から一段の角度誤差が $O(h^3)$、全 $T/h$ 段で $O(h^2)$ となります。[一般の収束次数の命題](#prop-rbd16-convergence)は、角速度が変化する場合の正規化四元数 Euler 法には通常一位と主張しており、この特殊な二位と矛盾しません。
+角度差は約 $0.000333\ldots$、前の約 $0.001325$ との比は約 $3.98$ です。この**一定軸・一定角速度だけの特例**では $\arctan z=z-z^3/3+O(z^5)$ から一段の角度誤差が $O(h^3)$、全 $T/h$ 段で $O(h^2)$ となります。[一般の収束次数の命題](#prop-rbd16-convergence)は、角速度が変化する場合の正規化四元数 Euler 更新には通常一位と主張しており、この特殊な二位と矛盾しません。
 
 最後に、もしソフトウェアが直交誤差の停止限界を $0.05$ と定めていれば、行列 Euler の二段後の $\epsilon_{\rm orth}=0.0816\sqrt2\approx0.1154$ は限界超過です。エネルギーだけを確認せず、姿勢・収支の両方を確認して停止します。
 <!-- solution-end -->
