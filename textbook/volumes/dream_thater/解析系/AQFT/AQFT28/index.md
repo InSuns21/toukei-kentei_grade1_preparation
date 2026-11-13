@@ -334,14 +334,20 @@ $$
 
 条件の必要性を最小例でも見ます。$H=\mathbb C$ とし、任意の非空領域 $O$ に $\mathcal M(O)=\mathbb C I$ を割り当てる「自明なnet」は包含と局所可換性を満たします。真空は $1$、時空変換は恒等表示で正エネルギーです。任意の $O_1\Subset O_2$ についてType I因子 $N=\mathbb C I$ を選べるのでsplitでもありますが、この領域のvon Neumann環はType I$_1$です。これは有意な自由場の代わりにはなりませんが、**これらの公理だけからType III₁は出ない**という反例にはなります。
 
-ここで文献上の構造定理の典型的な仮定を整理します。短距離での特定の非自明なスケーリング挙動と、相空間の核性（またはそれが与えるfunnel/split型の近似性）は、それぞれ違う役割を果たします。「スケーリング挙動」とは、局所領域を縮めた際の場・相関・netが**非自明な極限構造**を保つという、単なる共変性より強い条件です。
+ここで文献上の構造定理の**具体的な仮定**を整理します。相空間の核性はsplitやhyperfiniteな近似へつながり、短距離スケーリング条件はType III細分類に関係します。この二つの役割を区別したうえで、以下は**定理の適用条件を列記する発展紹介**として読みます。
 
 <a id="thm-aqft28-local-typeiii1-literature"></a>
 
 <!-- formal-statement-start -->
 > **定理（局所環のhyperfinite Type III₁構造）**  
 > （文献定理。完全証明は本講の範囲外。）  
-> Minkowski真空表現の局所netが、局所可換性・正エネルギー・適切な加法性／内側からの連続性などの標準条件に加えて、**該当する文献定理で指定された相空間核性（funnel/split近似を保証する強さ）**と、**短距離の非自明な漸近的スケール不変性またはそれに代わる所定のスケーリング極限条件**を満たすとする。Buchholz–D’Antoni–FredenhagenおよびFredenhagen等の結果の適用範囲では、double coneの局所環はhyperfinite Type III₁因子 $R_\infty$ とその中心 $Z(\mathcal M(O))$ を用いて
+> Minkowski時空の真空表現における局所netについて、局所性・共変性・正エネルギーなどの標準的前提に加え、**Buchholz–Wichmannの核性条件**、**Haag–Narnhofer–Steinの短距離スケーリング条件**、および各double cone $O$ の**内側からの連続性**を仮定する。ここで連続性とは、閉包が次の領域の内部に入るdouble coneの増大列 $O_n$ が $O$ を尽くすとき、
+>
+$$
+\mathcal M(O)=\left(\bigcup_{n\ge1}\mathcal M(O_n)\right)''
+$$
+>
+> が成り立つことをいう。これらの仮定を備えるBuchholz–D’Antoni–Fredenhagen型の構造定理の適用範囲では、double coneの局所von Neumann環は唯一のhyperfinite Type III₁因子 $R_\infty$ と中心 $Z(\mathcal M(O))$ を用いて
 >
 $$
 \mathcal M(O)\simeq
@@ -350,10 +356,10 @@ $$
 >
 > という形を持つ。特に別途 $\mathcal M(O)$ が**因子**と確かめられれば中心は $\mathbb C I$ であり $\mathcal M(O)\simeq R_\infty$ となる。
 >
-> この文献定理の仮定は互換な一つの簡単な公理系を意味するものではなく、採用する原論文の定理ごとに正確に照合する必要がある。
+> Haag–Narnhofer–Steinの条件は、場の短距離スケールを変えた相関関数が非零のWightman極限を保つという、単なる共変性より強い仮定である。別文献のスケーリング極限の十分条件とは同一視しない。
 <!-- formal-statement-end -->
 
-この結果の完全証明にはスケーリング理論、Connes分類、超有限性の深い結果が必要であり、本講では主張しません。出典と射程は、[Yngvasonの総説](https://arxiv.org/abs/math-ph/0411058)、[Fewster–RejznerのAQFT入門](https://arxiv.org/abs/1904.04051)の局所環の型の節、およびBuchholz–D’Antoni–Fredenhagenの構造結果に従います。たとえば「nuclearity $\Rightarrow$ split」は独立の結論で、**単独で**Type III₁を導くものではありません。
+この結果の完全証明にはスケーリング理論、Connes分類、超有限性の深い結果が必要であり、本講では主張しません。出典と射程は、[Yngvasonの総説](https://arxiv.org/abs/math-ph/0411058)、[Fewster–RejznerのAQFT入門](https://arxiv.org/abs/1904.04051)の局所環の型の節、およびBuchholz–D’Antoni–Fredenhagenの構造結果に従います。[Saffaryの整理（第4.3節、定理4.27）](https://d-nb.info/977780856/34)にも仮定が列挙されています。たとえば「nuclearity $\Rightarrow$ split」は独立の結論で、**単独で**Type III₁を導くものではありません。
 
 「普遍的」とは、**抽象的な一つの局所因子が同型**という意味です。異なる領域の包含 $\mathcal M(O_1)\subset\mathcal M(O_2)$、真空状態、net全体の配置まで同じになるわけではありません。これは、同じ種類の積木を持っていても組み方が異なれば模型が異なるのと同じです。
 
