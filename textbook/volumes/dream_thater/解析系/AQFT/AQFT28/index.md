@@ -30,9 +30,48 @@
 
 **定義の確認**。忠実性・正規性・半有限性を、有限次元と無限次元で順に確かめます。
 
-$M=M_2(\mathbb C)$ で $\tau(x)=\operatorname{Tr}x$ とします。正のHermitian行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすれば $\tau(x)=\lambda_1+\lambda_2$。これが0なら二つとも0なので忠実です。有限次元では行列要素と固有値の極限で増大ネットの正規性が従い、$\tau(x)<\infty$ なので $y=x$ として半有限性も確認できます。
+$M=M_2(\mathbb C)$ で $\tau(x)=\operatorname{Tr}x$ とします。この数値は、選んだ正規直交基底 $(e_1,e_2)$ での対角成分の和 $\sum_{j=1}^2\langle e_j,xe_j\rangle$ です。正のHermitian行列なら $x=U\operatorname{diag}(\lambda_1,\lambda_2)U^*$（$U^*U=I$、$\lambda_j\ge0$）と直交対角化でき、トレースの巡回性から
 
-$M=B(\ell^2(\mathbb N_0))$ で正作用素の通常トレースを $\tau(x)=\sum_{n\ge0}\langle e_n,xe_n\rangle$ とすると $\tau(1)=\infty$ ですが、$0\ne x\ge0$ には $\langle v,xv\rangle>0$ を満たす $v$ が存在し、$x^{1/2}v\ne0$ となる単位ベクトル $v$ を選び、階数1射影 $p=|v\rangle\langle v|$ に対して $y=x^{1/2}px^{1/2}$ と置けば、$0<y\le x$ かつ $y$ は階数1以下の正作用素なので $\tau(y)=\|x^{1/2}v\|^2<\infty$ です。したがって正規・忠実・半有限です。規格化された**正規汎関数**に限定すると、このトレースを候補から落としてしまいます。
+$$
+\tau(x)=\operatorname{Tr}(U\operatorname{diag}(\lambda_1,\lambda_2)U^*)
+=\lambda_1+\lambda_2.
+$$
+
+これが0なら $\lambda_1=\lambda_2=0$、従って $x=0$ で**忠実**です。有界な増大ネット $x_i\uparrow x$ は有限次元ではノルム収束するので、各対角成分の極限を有限和の外へ出せば
+
+$$
+\tau(x)=\sum_{j=1}^{2}\lim_i\langle e_j,x_ie_j\rangle
+=\lim_i\tau(x_i)=\sup_i\tau(x_i).
+$$
+
+これで**正規**です。非零 $x\ge0$ に対して $\tau(x)<\infty$ なので $y=x$ と選べ、**半有限**です。固有値は定義の条件そのものではなく、正の行列のトレースと零作用素を判定するための表示として用いました。
+
+$M=B(\ell^2(\mathbb N_0))$ では正作用素の通常トレースを、固定した正規直交基底 $(e_n)_{n\ge0}$ を用いて
+
+$$
+\tau(x)=\sum_{n\ge0}\langle e_n,xe_n\rangle\in[0,\infty]
+$$
+
+と定めます。各項は非負です。$\tau(x)=0$ なら $\|x^{1/2}e_n\|^2=\langle e_n,xe_n\rangle=0$ が全 $n$ で成り立ち、基底の稠密性から $x^{1/2}=0$、従って $x=0$ です。これで**忠実**です。
+
+有界な増大ネット $x_i\uparrow x$ に対して、各基底ベクトルの期待値は増大して $\langle e_n,xe_n\rangle$ に達します。有限部分和とネットの上限は、いずれも増大族の上限なので順序を交換でき、
+
+$$
+\begin{aligned}
+\tau(x)
+&=\sup_{N}\sum_{n=0}^{N}\sup_i\langle e_n,x_ie_n\rangle\\
+&=\sup_i\sup_{N}\sum_{n=0}^{N}\langle e_n,x_ie_n\rangle
+=\sup_i\tau(x_i).
+\end{aligned}
+$$
+
+従って**正規**です。さらに非零 $x\ge0$ に $\langle v,xv\rangle>0$ を満たす単位ベクトル $v$ を取り、階数1射影 $p=|v\rangle\langle v|$ とします。$0\le p\le I$ なので $y=x^{1/2}px^{1/2}$ は $0<y\le x$、かつ階数1以下の正作用素です。したがって
+
+$$
+\tau(y)=\|x^{1/2}v\|^2<\infty
+$$
+
+となり、**半有限**も確かめられました。一方 $\tau(I)=\sum_{n\ge0}1=\infty$ ですから状態ではありません。規格化された**正規汎関数**に限定すると、このn.s.f.重みを候補から落としてしまいます。
 <!-- definition-example-end -->
 
 重み $\varphi$ からはGNS型のHilbert空間を作れます。$\mathfrak n_\varphi=\{a:\varphi(a^*a)<\infty\}$ 上の写像 $\Lambda_\varphi$ について
@@ -164,7 +203,7 @@ $$
 
 Hilbert–Schmidt空間の行列単位を $E_{(n,m),(r,s)}=|e_{n,m}\rangle\langle e_{r,s}|$ と書きます。[AQFT20の有限次元モジュラー公式](../AQFT20/index.md#thm-aqft20-modular-formulas)を無限次元へ無条件には転用せず、行列単位から直接検証します。
 
-添字 $i=(n,m)$、$j=(r,s)$、$p_i=p_{n,m}$ と略記します。標準ベクトル $\rho^{1/2}$ について
+添字 $i=(n,m)$、$j=(r,s)$、$p_i=p_{n,m}$ と略記します。$\rho^{-1}$ は無限次元で非有界ですが、各固有ベクトル $e_j$ 上では $\rho^{-1}e_j=p_j^{-1}e_j$ と意味が確定します。したがって以下の行列単位上の計算には、$\rho^{-1}$ が全域有界であるという仮定は要りません。標準ベクトル $\rho^{1/2}$ について
 
 $$
 E_{ij}=(p_j^{-1/2}E_{ij})\rho^{1/2}
@@ -240,13 +279,28 @@ L^2(\mathbb R_\theta\times\mathbb R^2_{p_\perp},
 d\theta\,d^2p_\perp)
 $$
 
-へ $\psi=\sqrt{p^0}h$ によりユニタリに写ります。スカラー場のboostはこの表示で $u(s)\psi(\theta,p_\perp)=\psi(\theta-s,p_\perp)$。$u(s)=e^{isK_1}$ と定義すれば
+へ $\psi=\sqrt{p^0}h$ によりユニタリに写ります。実際 $dp^1=p^0d\theta$ なので、この係数は測度のJacobianを相殺します。[boostの定義](../AQFT26/index.md#def-aqft26-boost)で運動量の $(p^0,p^1)$ が変わるとき、$\theta$ は $\theta+s$ に移ります。波動関数へのユニタリ作用は逆変換で引き戻すため、$p_\perp$ を固定して
 
 $$
-K_1=i\partial_\theta
+(u(s)\psi)(\theta,p_\perp)=\psi(\theta-s,p_\perp).
 $$
 
-（Sobolev定義域上の自己共役作用素）です。$\theta$ のFourier変換の下では $K_1$ は $-\xi$ の乗算となります。
+群パラメータ $s$ に関する強微分と、座標 $\theta$ に関する偏微分を区別します。滑らかなベクトル上で
+
+$$
+\left.\frac{d}{ds}u(s)\psi\right|_{s=0}
+=-\partial_\theta\psi=iK_1\psi
+$$
+
+となるので、$u(s)=e^{isK_1}$ の自己共役生成作用素は $K_1=i\partial_\theta$（$\theta$ 方向のSobolev定義域上）です。以下ではFourier変換を
+
+$$
+\widehat\psi(\xi,p_\perp)
+=\frac1{\sqrt{2\pi}}\int_{\mathbb R}
+e^{-i\xi\theta}\psi(\theta,p_\perp)\,d\theta
+$$
+
+と定めます。部分積分により $\widehat{\partial_\theta\psi}=i\xi\widehat\psi$ なので、$K_1$ は $-\xi$ の乗算になります。
 
 任意の $\lambda\in\mathbb R$ と任意の規格化した $g\in C_c^\infty((-1,1))$、$\|g\|_2=1$ および規格化した $h(p_\perp)$ を選び、Fourier側で
 
@@ -342,7 +396,15 @@ $$
 
 条件の必要性を最小例でも見ます。$H=\mathbb C$ とし、任意の非空領域 $O$ に $\mathcal M(O)=\mathbb C I$ を割り当てる「自明なnet」は包含と局所可換性を満たします。真空は $1$、時空変換は恒等表示で正エネルギーです。任意の $O_1\Subset O_2$ についてType I因子 $N=\mathbb C I$ を選べるのでsplitでもありますが、この領域のvon Neumann環はType I$_1$です。これは有意な自由場の代わりにはなりませんが、**これらの公理だけからType III₁は出ない**という反例にはなります。
 
-ここで文献上の構造定理の**具体的な仮定**を整理します。相空間の核性はsplitやhyperfiniteな近似へつながり、短距離スケーリング条件はType III細分類に関係します。この二つの役割を区別したうえで、以下は**定理の適用条件を列記する発展紹介**として読みます。
+ここで文献上の構造定理の**具体的な仮定**を整理します。相空間の核性はsplitやhyperfiniteな近似へつながり、短距離スケーリング条件はType III細分類に関係します。前者の[Buchholz–Wichmann核性条件](../AQFT17/index.md#thm-aqft17-nuclearity-split-literature)は、エネルギーで減衰させた局所状態の相空間の大きさを制限する条件です。後者の**Haag–Narnhofer–Steinのスケーリング条件**は、単なる時空共変性ではなく、基礎となるWightman場の短距離相関を制御する追加条件です。具体的には、正の単調な規格化関数 $N(\lambda)$ を選び、$n$ 点真空相関関数を
+
+$$
+N(\lambda)^n\,
+\langle\Omega,\phi(\lambda x_1)\cdots\phi(\lambda x_n)\Omega\rangle
+\qquad(\lambda\downarrow0)
+$$
+
+と拡大縮小したとき、非零のWightman場に対応する極限を分布の意味で得ることを要求します（[Saffary, 定義4.25](https://d-nb.info/977780856/34)）。$n$ は相関関数の点数、$\lambda$ は短距離へ向かう正のスケールです。この条件は単なる相関の有限性とも異なり、他のスケーリング極限定理の仮定と無条件に同一視できません。この二つの役割を区別したうえで、以下は**定理の適用条件を列記する発展紹介**として読みます。
 
 <a id="thm-aqft28-local-typeiii1-literature"></a>
 
@@ -415,7 +477,23 @@ $$
 - 問題：$u(s)\psi(\theta)=\psi(\theta-s)$、$u(s)=e^{isK_1}$ とする。$K_1$ を求め、Fourier波 $e^{i\xi\theta}$ 上の形式固有値を調べ、$\Delta^{it}=U(-2\pi t)$ から $\log\Delta$ の符号を決めよ。
 
 <!-- solution-start -->
-**詳細解答。** $s=0$ で微分すると $\frac d{ds}u(s)\psi|_{s=0}=-\partial_\theta\psi$。一方 $e^{isK_1}$ の微分は $iK_1\psi$ だから $K_1=i\partial_\theta$。形式的に $K_1e^{i\xi\theta}=-\xi e^{i\xi\theta}$ です（平面波は $L^2$ には入らず、厳密なスペクトルは波束で検証します）。$\Delta^{it}=e^{-2\pi itK_F}$ より $i\log\Delta=-2\pi iK_F$、従って $\log\Delta=-2\pi K_F$。符号を $+2\pi$ に取り替えてはいけません。
+**詳細解答。** $s$ は群パラメータ、$\theta$ はrapidity座標です。$p_\perp$ を固定して $s=0$ で微分すると
+
+$$
+\left.\frac{d}{ds}(u(s)\psi)(\theta,p_\perp)\right|_{s=0}
+=-\frac{\partial\psi}{\partial\theta}(\theta,p_\perp).
+$$
+
+左辺の $d/ds$ は作用素族の強微分、右辺の $\partial/\partial\theta$ は座標微分です。$u(s)=e^{isK_1}$ の強微分は $iK_1\psi$ だから $K_1=i\partial_\theta$。形式的に $K_1e^{i\xi\theta}=-\xi e^{i\xi\theta}$ です（平面波は $L^2$ には入らず、厳密なスペクトルは本文の規格化したFourier波束で検証します）。
+
+Fock表現では一粒子生成作用素を持ち上げたものが $K_F$ です。[Bisognano–Wichmannの等式](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)から、同じ実数 $t$ で表した二つの強連続な作用素族を比べて
+
+$$
+e^{it\log\Delta}=U(-2\pi t)=e^{-2\pi itK_F}
+\quad\Longrightarrow\quad \log\Delta=-2\pi K_F.
+$$
+
+最後の等号はStone生成作用素の一意性によります。$+2\pi$ と符号を取り替えてはいけません。
 <!-- solution-end -->
 
 <a id="ex-aqft28-a04"></a>
@@ -448,12 +526,34 @@ $$
 - 問題：$p_{n,m}=Z^{-1}e^{-(n+\sqrt2m)}$、$n,m\ge0$ を用い、(i) $Z$ の有限性、(ii) 行列単位上の $\Delta_\rho$ の固有値、(iii) 全正半直線のスペクトルがあってもType III₁でない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** **(i)** $\sum_n e^{-n}=1/(1-e^{-1})$、$\sum_m e^{-\sqrt2m}=1/(1-e^{-\sqrt2})$ なので $Z$ はこの二つの積で有限です。正の固有値を持つため $\rho$ は忠実です。**(ii)** [Hilbert–Schmidt標準表現の公式](../AQFT20/index.md#thm-aqft20-modular-formulas)を添字 $(n,m),(r,s)$ に代入し
+**詳細解答。** **(i)** 各項は正であり、二つの幾何級数を別々に足すと
+
+$$
+Z=\left(\sum_{n=0}^\infty e^{-n}\right)
+\left(\sum_{m=0}^\infty e^{-\sqrt2m}\right)
+=\frac1{(1-e^{-1})(1-e^{-\sqrt2})}<\infty.
+$$
+
+従って $\sum_{n,m}p_{n,m}=1$、各 $p_{n,m}>0$ なので $\rho$ は正のトレース級作用素で $\ker\rho=0$ です。
+
+**(ii)** [Type I反例の命題](#prop-aqft28-typei-full-modular-spectrum)の証明に従い、無限次元へ有限次元の式を無条件に延長せず、Hilbert–Schmidt空間の行列単位 $E_{ij}$ 上のTomita作用素を計算します。$i=(n,m)$、$j=(r,s)$ とすれば
+
+$$
+S_0(E_{ij})=\sqrt{\frac{p_i}{p_j}}E_{ji},
+\qquad
+S_0^\sharp(E_{ji})=\sqrt{\frac{p_i}{p_j}}E_{ij}.
+$$
+
+従って $\Delta_\rho=S^\sharp S$ の固有値は
+
 $$
 \frac{p_{n,m}}{p_{r,s}}
 =e^{-[(n-r)+\sqrt2(m-s)]}.
 $$
-各差は整数全体を走ります。$\mathbb Z+\sqrt2\mathbb Z$ は実数に稠密なので、比の閉包は $[0,\infty)$。**(iii)** 対象環 $B(\ell^2(\mathbb N_0^2))$ は階数1射影を持つType I因子で、忠実・正規・半有限の通常トレースを持ちます。このトレースのモジュラー作用素は $I$ であるため、**全ての重みの共通部分**は一つの状態の全スペクトルとは異なります。
+
+$n-r$ と $m-s$ は独立に任意の整数を走るため、指数の集合は $\mathbb Z+\sqrt2\mathbb Z$。$\sqrt2$ の無理性からこの加法群は実数全体で稠密であり、指数写像の連続性と $k\to+\infty$ での0への収束より $\operatorname{Sp}(\Delta_\rho)=[0,\infty)$ です。
+
+**(iii)** 対象環 $B(\ell^2(\mathbb N_0^2))$ は階数1射影を持つType I因子です。通常トレースは忠実・正規・半有限な重みで、そのモジュラー作用素は $I$。したがって[ConnesのS不変量](#def-aqft28-connes-s)によれば $S(M)\subset\{1\}$ であり、[半有限因子の分類結果](#thm-aqft28-connes-classification-literature)から $S(M)=\{1\}$ です。一状態の全スペクトルと重み全体の共通部分は一致しません。
 <!-- solution-end -->
 
 <a id="ex-aqft28-b02"></a>
