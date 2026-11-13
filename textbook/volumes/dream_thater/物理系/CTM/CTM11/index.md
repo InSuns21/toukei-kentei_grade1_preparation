@@ -53,10 +53,10 @@ $$
 
 したがって一次の伸縮は $a^T\varepsilon a$ で測れる。[CTM2 の体積 Jacobian](../CTM2/index.md#def-ctm2-deformation-gradient) $J=\det F$ についても、$F=I_3+H$ の三列を行列式の多重線形性で展開すれば
 
-$
+$$
 \det(I_3+H)=1+\sum_{i=1}^3H_{ii}
 +\sum_{1\le i<j\le3}(H_{ii}H_{jj}-H_{ij}H_{ji})+\det H.
-$
+$$
 
 二次以上の項を捨てると $J=1+\operatorname{tr}H+O(\|H\|^2)$ となる。反対称成分の跡は零なので $\operatorname{tr}H=\operatorname{tr}\varepsilon=\operatorname{div}_Xu$。従って体積の相対変化を一次で測る量は $\operatorname{tr}\varepsilon$ である。
 
@@ -66,10 +66,10 @@ $
 
 等温・一様な材料の単位基準体積当たりのエネルギーを、対称行列 $\varepsilon$ の二次関数で近似する。基準状態で応力が零なので定数・一次の項を除き、$W(0)=0$ とする。「同次二次」とは任意の実数 $c$ に対して $W(c\varepsilon)=c^2W(\varepsilon)$ となる二次式の意味である。対称行列 $h$ の方向への**変分**は
 
-$
+$$
 \delta W(\varepsilon)[h]
 :=\left.\frac{d}{dr}W(\varepsilon+rh)\right|_{r=0}
-$
+$$
 
 と書く。ここで $r$ はひずみを試しに変える無次元の実数で、後で使う物理的な時刻とは異なる。応力 $\sigma$ を $\delta W(\varepsilon)[h]=\sigma:h$ により読む理由は、$h_{ij}$ を少し変えたときの単位体積当たりのエネルギー変化を各応力成分と対応させるためである。
 
@@ -101,24 +101,24 @@ $$
 
 対称変分 $h$ に対し $h_{\rm dev}=h-(\operatorname{tr}h)I_3/3$ と置くと、$\operatorname{tr}\varepsilon_{\rm dev}=0$ から $\varepsilon_{\rm dev}:h_{\rm dev}=\varepsilon_{\rm dev}:h$。よって定義した変分を実際に計算すると
 
-$
+$$
 \begin{aligned}
 \delta W(\varepsilon)[h]
 &=2\mu\,\varepsilon_{\rm dev}:h_{\rm dev}
 +K\theta\,\operatorname{tr}h\\
 &=\bigl(2\mu\varepsilon_{\rm dev}+K\theta I_3\bigr):h.
 \end{aligned}
-$
+$$
 
 従って $\sigma=2\mu\varepsilon_{\rm dev}+K\theta I_3$ は対称で、$\varepsilon$ に線形に依存し、$\varepsilon=0$ では零となる。また $\mu,K>0$ なので $W\ge0$、等号なら $\varepsilon_{\rm dev}=0$ かつ $\theta=0$、すなわち $\varepsilon=0$ である。この例では定義の二次同次性・材料等方性・応力の変分表示と線形性をそれぞれ直接確認できた。
 <!-- definition-example-end -->
 
 なぜ二つの係数で十分なのかを示す。実対称行列は正規直交固有基底 $v_1,v_2,v_3$ を持つので、$\varepsilon v_i=d_iv_i$（$d_i\in\mathbb R$）と書き、基底の符号を一つ調整して $Q=(v_1\ v_2\ v_3)\in SO(3)$ とできる。このとき
 
-$
+$$
 \varepsilon=\sum_{i=1}^3d_iv_iv_i^T
 =Q\operatorname{diag}(d_1,d_2,d_3)Q^T.
-$
+$$
 
 直前の等方性をこの $Q$ に適用すると $W(\varepsilon)=W(\operatorname{diag}(d_1,d_2,d_3))$。さらに主軸の入替えは、必要なら一軸の符号も反転することで $SO(3)$ の共役変換として実現できるため、右辺は $d_1,d_2,d_3$ の**対称な二次式**となる。一般の同次二次式 $\sum_i c_id_i^2+\sum_{i<j}c_{ij}d_id_j$ で $d_1,d_2,d_3$ を入れ替えて係数を比較すれば、すべての $c_i$ が等しく、すべての $c_{ij}$ も等しい。従って $a,b\in\mathbb R$ があって
 
@@ -153,20 +153,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-上の対角化・置換の議論で $W=\lambda(\operatorname{tr}\varepsilon)^2/2+\mu\varepsilon:\varepsilon$ が従う。任意の対称行列 $h$ を取り、$\varepsilon(t)=\varepsilon+th$ と置けば
+上の対角化・置換の議論で $W=\lambda(\operatorname{tr}\varepsilon)^2/2+\mu\varepsilon:\varepsilon$ が従う。任意の対称行列 $h$ を取り、先の方向変分のパラメータ $r$ を使って $\varepsilon(r)=\varepsilon+rh$ と置けば
 
 $$
 \begin{aligned}
-\operatorname{tr}(\varepsilon+th)&=\operatorname{tr}\varepsilon+t\operatorname{tr}h,\\
-(\varepsilon+th):(\varepsilon+th)
-&=\varepsilon:\varepsilon+2t\varepsilon:h+t^2h:h.
+\operatorname{tr}(\varepsilon+rh)&=\operatorname{tr}\varepsilon+r\operatorname{tr}h,\\
+(\varepsilon+rh):(\varepsilon+rh)
+&=\varepsilon:\varepsilon+2r\varepsilon:h+r^2h:h.
 \end{aligned}
 $$
 
-ゆえに $t=0$ における微分は
+ゆえに $r=0$ における微分は
 
 $$
-\frac d{dt}W(\varepsilon+th)\bigg|_{t=0}
+\frac d{dr}W(\varepsilon+rh)\bigg|_{r=0}
 =\lambda(\operatorname{tr}\varepsilon)(\operatorname{tr}h)+2\mu\,\varepsilon:h.
 $$
 
@@ -175,10 +175,10 @@ $I_3:h=\operatorname{tr}h$ を代入すると、右辺は $\{\lambda(\operatorna
 
 変位経路 $u(X,t)$ を取り、空間微分 $\nabla_Xu(X,t)$ が時刻 $t$ に関しても $C^1$ 級であると仮定する。上付きの点は物質点 $X$ を固定した時刻 $t$ による微分を表し、$\dot\varepsilon=\partial_t\varepsilon(X,t)$、$\dot W=\partial_t W(\varepsilon(X,t))$ とする。先の $d/dr$ はひずみの方向変分であり、この $d/dt$ と変数を混同しない。連鎖律により
 
-$
+$$
 \dot W=\delta W(\varepsilon)[\dot\varepsilon]
 =\sigma:\dot\varepsilon.
-$
+$$
 
 この等温・準静的な体積当たりの可逆仕事は[CTM10 の非散逸条件](../CTM10/index.md#prop-ctm10-isothermal-elastic)の**一次近似版**に当たる。有限ひずみの $P=\partial\Psi/\partial F$ と厳密に同じ式だと主張するものではなく、$\nabla u$ の高次項を捨てた近似である。
 
@@ -286,19 +286,19 @@ $$
 
 例えば $\lambda=\mu=p>0$（Pa）、$s>0$ とする。[Hooke 則](#thm-ctm11-hooke)で非対角成分は $\sigma_{ij}=2p\varepsilon_{ij}$（$i\ne j$）だから、一軸応力 $\sigma=\operatorname{diag}(s,0,0)$ では非対角ひずみが零となる。また $\sigma_{22}-\sigma_{33}=2p(\varepsilon_{22}-\varepsilon_{33})=0$ なので、縦ひずみを $l=\varepsilon_{11}$、共通の横ひずみを $q=\varepsilon_{22}=\varepsilon_{33}$ と書ける。跡が $l+2q$ であることを用いると、側面自由条件と軸方向の荷重は
 
-$
+$$
 \begin{aligned}
 0=\sigma_{22}&=p(l+2q)+2pq=p(l+4q),\\
 s=\sigma_{11}&=p(l+2q)+2pl=p(3l+2q).
 \end{aligned}
-$
+$$
 
 第一式から $q=-l/4$、第二式へ代入して $s=(5p/2)l$。従って $l=2s/(5p)$、$q=-s/(10p)$ となり、**定義そのもの**から
 
-$
+$$
 E_Y=\frac{s}{l}=\frac{5p}{2},\qquad
 \nu=-\frac{q}{l}=\frac14
-$
+$$
 
 を得る。対角外の応力も零、側面応力も零と確認でき、後出の逆変換公式を前提にせず定義を判定できた。
 <!-- definition-example-end -->
@@ -483,20 +483,20 @@ $u(X)=(\gamma X_2,0,0)$、$|\gamma|\ll1$ に対して $\sigma_{12}$、$W$ を求
 
 [微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)を使う。$H_{12}=\gamma$ 以外の $H$ 成分は零なので、対称化により $\varepsilon_{12}=\varepsilon_{21}=\gamma/2$、対角成分はすべて零となる。従って
 
-$
+$$
 \theta=\operatorname{tr}\varepsilon=0,\qquad
 \varepsilon:\varepsilon
 =\varepsilon_{12}^2+\varepsilon_{21}^2
 =2\left(\frac{\gamma}{2}\right)^2
 =\frac{\gamma^2}{2}.
-$
+$$
 
 [Hooke 則](#thm-ctm11-hooke)では $\lambda\theta I_3$ が消えるので
 
-$
+$$
 \sigma_{12}=2\mu\varepsilon_{12}=\mu\gamma,\qquad
 W=\mu\,\varepsilon:\varepsilon=\frac{\mu\gamma^2}{2}.
-$
+$$
 
 $\gamma$ の符号を反転させると応力の符号だけが変わり、エネルギーは二乗で不変である。
 <!-- solution-end -->
@@ -609,11 +609,11 @@ $$
 
 同じ[エネルギー分解](#prop-ctm11-split)から
 
-$
+$$
 W=p\frac{14a^2}{3}+\frac{2p}{2}(2a)^2
 =\left(\frac{14}{3}+4\right)pa^2
 =\frac{26}{3}pa^2.
-$
+$$
 
 応力との内積は
 
