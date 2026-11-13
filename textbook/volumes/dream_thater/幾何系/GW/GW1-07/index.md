@@ -69,7 +69,15 @@ $
 
 <!-- formal-statement-start -->
 > **定義（滑らかな標点付き種数0曲線と同型）**  
-> $k\ge3$ とする。滑らかな $k$ 標点付き種数0曲線は、複素球面 $C\simeq\mathbb{CP}^1$ と相異なる番号付き点 $(z_1,\ldots,z_k)$ の組である。二組 $(C;z_i)$、$(C';z'_i)$ が同型であるとは、全ての $i$ で $f(z_i)=z'_i$ を満たす双正則写像 $f:C\to C'$ が存在することをいう。同型類全体を $\mathcal M_{0,k}$ と記す。
+> $k\ge3$ とする。滑らかな $k$ 標点付き種数0曲線は、複素球面 $C\simeq\mathbb{CP}^1$ と相異なる番号付き点の組 $(z_1,\ldots,z_k)$ である。
+>
+> 二組 $(C;z_i)$ と $(C';z'_i)$ が同型であるとは、次の条件を満たす双正則写像 $f:C\to C'$ が存在することである。
+
+$
+f(z_i)=z'_i\qquad(i=1,\ldots,k).
+$
+
+> その同型類全体を $\mathcal M_{0,k}$ と記す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-07-marked-sphere -->
