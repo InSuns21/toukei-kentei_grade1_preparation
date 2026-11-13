@@ -1,0 +1,48 @@
+chapter: RBD12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD11
+forward_references: []
+concepts:
+  - id: mechanics.heavy-top-steady-precession
+    name: 定常歳差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（定常歳差）]
+    requires:
+      - mechanics.heavy-symmetric-top-fixed-point
+      - mechanics.heavy-top-reduced-theta
+  - id: mechanics.heavy-top-steady-branches
+    name: 定常歳差の条件と二つの枝
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（定常歳差の条件と二つの枝）]
+    requires:
+      - mechanics.heavy-top-steady-precession
+      - mechanics.heavy-top-effective-potential
+      - mechanics.heavy-top-momenta-energy
+  - id: mechanics.heavy-top-nutation
+    name: 章動と転回点
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（章動と転回点）]
+    requires:
+      - mechanics.heavy-top-reduced-theta
+      - mechanics.heavy-top-steady-branches
+  - id: mechanics.heavy-top-small-nutation
+    name: 正則な定常歳差の小章動と固有振動数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（正則な定常歳差の小章動と固有振動数）]
+    requires:
+      - mechanics.heavy-top-steady-branches
+      - mechanics.heavy-top-nutation
+  - id: mechanics.heavy-top-gyro-approximation
+    name: 遅い歳差のジャイロ近似と誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（遅い歳差のジャイロ近似と誤差）]
+    requires:
+      - mechanics.heavy-top-steady-branches
+      - mechanics.heavy-top-momenta-energy
