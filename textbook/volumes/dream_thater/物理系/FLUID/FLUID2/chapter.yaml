@@ -19,7 +19,7 @@ theorems:
   - { id: FLUID2-THM-01, name: "静水圧方程式" }
   - { id: FLUID2-PROP-01, name: "鉛直柱の静水圧積分" }
   - { id: FLUID2-COR-01, name: "一定密度の深さと圧力" }
-  - { id: FLUID2-PROP-02, name: "p=c^2*rhoの静止気体柱" }
+  - { id: FLUID2-PROP-02, name: "単純気体柱の指数圧力分布" }
   - { id: FLUID2-PROP-03, name: "同種液体の連通管の等水位" }
 canonical_examples:
   - "上面・下面の外法線と等方圧縮応力の符号"
