@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo30-observable-algebra -->
-**定義の確認。** $H=\mathbb C^2$ の標準正規直交基底 $|0\rangle,|1\rangle$ で行列を表し、$\mathcal M$ をすべての対角行列とします。二つの対角行列の和・複素数倍・積・随伴は再び対角行列で、$I_2=\operatorname{diag}(1,1)$ も入ります。可換子の定義は、各 $O\in\mathcal M$ に対し $TO=OT$ を調べることです。特に $P_0=|0\rangle\langle0|=\operatorname{diag}(1,0)\in\mathcal M$ と $T=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ について
+**定義の確認**。 $H=\mathbb C^2$ の標準正規直交基底 $|0\rangle,|1\rangle$ で行列を表し、$\mathcal M$ をすべての対角行列とします。二つの対角行列の和・複素数倍・積・随伴は再び対角行列で、$I_2=\operatorname{diag}(1,1)$ も入ります。可換子の定義は、各 $O\in\mathcal M$ に対し $TO=OT$ を調べることです。特に $P_0=|0\rangle\langle0|=\operatorname{diag}(1,0)\in\mathcal M$ と $T=\begin{pmatrix}a&b\\c&d\end{pmatrix}$ について
 
 $$
 TP_0=\begin{pmatrix}a&0\\c&0\end{pmatrix},
@@ -311,7 +311,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo30-algebra-entropy -->
-**定義の確認。** 二セクターで $a_0=a_1=\mathbb C$、$p_0=1/4,p_1=3/4$ とすれば $\rho_{\mathcal M}=\operatorname{diag}(1/4,3/4)$。正半定値、トレース1で、固有値から $S_{\mathcal M}(\rho)=-\frac14\log\frac14-\frac34\log\frac34=H(1/4,3/4)$ です。$b_\alpha$ の状態や二つのセクター間の相対位相は、$\mathcal M$ の期待値に影響せず、このエントロピーにも現れません。
+**定義の確認**。 二セクターで $a_0=a_1=\mathbb C$、$p_0=1/4,p_1=3/4$ とすれば $\rho_{\mathcal M}=\operatorname{diag}(1/4,3/4)$。正半定値、トレース1で、固有値から $S_{\mathcal M}(\rho)=-\frac14\log\frac14-\frac34\log\frac34=H(1/4,3/4)$ です。$b_\alpha$ の状態や二つのセクター間の相対位相は、$\mathcal M$ の期待値に影響せず、このエントロピーにも現れません。
 <!-- definition-example-end -->
 
 <a id="thm-holo30-algebraic-rt"></a>
