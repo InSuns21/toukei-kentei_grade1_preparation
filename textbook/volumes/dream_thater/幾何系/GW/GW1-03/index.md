@@ -81,7 +81,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（局所線形化の公式）**  
-> $\Sigma$ の正則座標 $z=s+it$ を取り、$u_s=du(\partial_s)$、$u_t=du(\partial_t)$ とする。上の捩率零接続に関し
+> $\Sigma$ の正則座標 $z=s+it$ を取り、$u_s=du(\partial_s)$、$u_t=du(\partial_t)$、$\nabla_s\xi=\nabla_{\partial_s}\xi$、$\nabla_t\xi=\nabla_{\partial_t}\xi$ とする（最後の二つは引き戻し束 $u^*TX$ の共変微分）。上の捩率零接続に関し
 
 $$
 (D_u\xi)(\partial_s)=\frac12\left(
@@ -129,7 +129,7 @@ $\bar\partial_Ju_\varepsilon(\partial_t)=-J(U)\bar\partial_Ju_\varepsilon(\parti
 **解でない写像との違い**。命題の第1式自体は、任意の滑らかな $u$ で座標成分の変分公式として成立する。しかし一般の $u$ では、反複素線形性の微分に追加項が現れるため、第2式と値域束の同一視には補正が必要である。本講のFredholm線形化は一貫して $\bar\partial_Ju=0$ の解に沿って定めた。
 
 <!-- definition-example-start: def-gw1-03-linearization -->
-**定義の確認**（直接例）。$X=\mathbb C$、$J=i$、標準平坦接続、$u(z)=z^2$ とする。$\nabla J=0$ なので
+**定義の確認**（直接例）。複素座標 $z=s+it$ について、Wirtinger微分を $\partial_{\bar z}:=\tfrac12(\partial_s+i\partial_t)$ と定める。これは $s,t$ を独立な実変数として偏微分する演算子である。$X=\mathbb C$、$J=i$、標準平坦接続、$u(z)=z^2$ とする。$\nabla J=0$ なので
 
 $$
 (D_u\xi)(\partial_s)=\tfrac12(\partial_s\xi+i\partial_t\xi)
