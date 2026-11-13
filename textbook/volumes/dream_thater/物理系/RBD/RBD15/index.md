@@ -191,31 +191,33 @@ $$
 D_{\mathrm{wall}}=\frac1m+(r\times n)\cdot I^{-1}(r\times n)
 $$
 
-となります。<a id="rbd15-planar-wall-impulse"></a>
+となります。
+
+<a id="rbd15-planar-wall-impulse"></a>
 
 平面内の衝突では、腕を $r=(r_x,r_y,0)$、法線を $n=e_x$ とします。角速度の変化が $z$ 軸方向だけに限られる場合（例えば $z$ 軸が慣性主軸で、衝突を平面運動に制限する場合）、その軸まわりの慣性モーメント $I_z>0$ を用いて**三次元の逆行列とは独立に**同じ係数を導けます。
 
 壁から物体への衝撃量を $-Je_x$ とすると、重心の並進運動量と $z$ 軸まわりの角運動量の収支は
 
-$
+$$
 m\Delta v_{C,x}=-J,\qquad
 I_z\Delta\omega_z=(r\times(-Je_x))_z=Jr_y.
-$
+$$
 
 [RBD3の剛体点速度公式](../RBD3/index.md#prop-rbd3-point-velocity)で $v_{P,x}=v_{C,x}-\omega_zr_y$ です。壁の速度が零なら相対法線速度は $u=-v_{P,x}$ なので、
 
-$
+$$
 \begin{aligned}
 u^+-u^-&=-\Delta v_{C,x}+r_y\Delta\omega_z\\
 &=J\left(\frac1m+\frac{r_y^2}{I_z}\right).
 \end{aligned}
-$
+$$
 
 ゆえに平面運動の有効質量係数は
 
-$
+$$
 D_{\mathrm{wall}}=\frac1m+\frac{r_y^2}{I_z}.
-$
+$$
 
 これは「回転のために接点が動きやすくなる」ことを表します。$r_y=0$ の真正面の衝突なら $D_{\mathrm{wall}}=1/m$、$r_y\ne0$ の偏心衝突なら $D_{\mathrm{wall}}>1/m$ です。[RBD6の慣性テンソルの正定値性判定](../RBD6/index.md#prop-rbd6-positivity)によると、質量が一直線上にある理想細棒の三次元慣性テンソルは特異です。その場合も $I_z>0$ を満たす平面運動なら、この**スカラー角運動量収支から導いた式**を使えます。
 
@@ -335,20 +337,20 @@ $m_{\mathrm{eff}}>0$、$0\le e\le1$ なので主張を得ます。□
 
 [MECH8の慣性テンソルと運動エネルギー](../../MECH/MECH8/index.md#thm-mech8-inertia-relations)に従って重心を基準にします。棒の軸に沿う座標を $s\in[-\ell,\ell]$ とすると線密度は $m/(2\ell)$ なので、平面運動で使う $z$ 軸まわりの慣性モーメントは
 
-$
+$$
 I_z=\int_{-\ell}^{\ell}s^2\frac{m}{2\ell}\,ds
 =\frac{m\ell^2}{3}>0.
-$
+$$
 
 理想的な線分状の棒は三次元の慣性テンソルが正定値ではありませんが、この例では $xy$ 平面の並進と $z$ 軸まわりの回転だけを扱います。従って**三次元の逆行列を使うのではなく**、第3節で角運動量収支から導いた平面式を適用します。
 
 端 $P$ への腕は、棒の半長と角度から
 
-$
+$$
 r=\ell(\cos\theta,\sin\theta,0)
 =(\ell/\sqrt2,\ell/\sqrt2,0),\qquad
 r\times n=-(\ell/\sqrt2)e_z.
-$
+$$
 
 [平面運動の有効質量係数の導出](#rbd15-planar-wall-impulse)を用いると、$r_y=\ell/\sqrt2$ だから
 
