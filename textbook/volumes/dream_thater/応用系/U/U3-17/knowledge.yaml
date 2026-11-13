@@ -4,7 +4,7 @@ coverage: complete
 prerequisites: [U3-16, STO11, U3-14]
 concepts:
   - id: finance.risk-neutral-terminal-value
-    name: リスク中立期待値による満期価値関数
+    name: リスク中立評価関数
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（リスク中立期待値による満期価値関数）"]

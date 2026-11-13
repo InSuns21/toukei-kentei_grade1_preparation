@@ -14,7 +14,7 @@ learning_objectives:
   - 定額の途中支払について非斉次 PDE の符号と割引式を導ける
   - P と Q の期待値を区別して平方差 payoff を自己金融複製まで計算できる
 definitions:
-  - { id: U3-17-DEF-01, name: "リスク中立期待値による満期価値関数" }
+  - { id: U3-17-DEF-01, name: "リスク中立評価関数" }
 theorems:
   - { id: U3-17-THM-01, name: "対数正規期待値からの BSM 古典解" }
   - { id: U3-17-PROP-01, name: "多項式成長クラスでの BSM 解の一意性" }
