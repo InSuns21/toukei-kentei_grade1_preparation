@@ -6,7 +6,13 @@
 
 [前講のFredholm定理](../GW1-03/index.md#thm-gw1-03-fredholm)は、固定した閉Riemann面からの擬正則写像 $u$ の線形化 $D_{u,J}$ の核と余核が有限次元であることを示した。[実指数公式](../GW1-03/index.md#thm-gw1-03-index)はその**差**を計算する。しかし差が分かっても、余核が消えるとは限らない。
 
-有限次元の例として $F:\mathbb R^2\to\mathbb R$、$F(a,b)=a^2$ を見る。$(0,0)$ は零点だが $dF_{(0,0)}=0$ であり、核は二次元、余核は一次元で指数は1。一方、実際の零点集合 $\{a=0\}$ は一次元だが、線形化だけから滑らかさを導いたのではない。この偶然の一致を一般には信用できない。**零点で微分が値域へ全射である**ことを、指数とは別に確認する必要がある。
+有限次元の例として $F:\mathbb R^2\to\mathbb R$、$F(a,b)=a^2-b^2$ を見る。$(0,0)$ は零点だが $dF_{(0,0)}=0$ であり、核は二次元、余核は一次元で指数は1。ところが実際の零点集合は
+
+$$
+F^{-1}(0)=\{a=b\}\cup\{a=-b\}
+$$
+
+という二直線の交差で、原点では滑らかな一次元多様体にならない。**零点で微分が値域へ全射である**ことを、指数とは別に確認する必要がある。
 
 本講では $(X^{2m},\omega)$ をコンパクトで境界のないシンプレクティック多様体、$(\Sigma,j)$ をコンパクト・連結・境界なしRiemann面とする。$J$ は $\omega$ に馴らされた滑らかな概複素構造で、$u:\Sigma\to X$ は非定数の滑らかな $J$-正則写像とする。
 
@@ -16,9 +22,9 @@
 
 ## 2. どの空間で横断性を測るか
 
-方程式の値は[非線形Cauchy–Riemann作用素](../GW1-02/index.md#def-gw1-02-cr-operator)によって与えられる。$k\ge2$、$p>2$ を固定し、$W^{k,p}(\Sigma,X)$ の写像空間を使う。二次元で $kp>2$ なので写像は連続であり、指数写像を使って近傍をBanach座標にできる。
+方程式の値は[非線形Cauchy–Riemann作用素](../GW1-02/index.md#def-gw1-02-cr-operator)によって与えられる。[前講で構成したSobolev切断](../GW1-03/index.md#def-gw1-03-sobolev-sections)の枠組みと一致させ、整数 $k\ge3$ を固定して $H^k(\Sigma,X)$ の写像空間を使う。二次元では $H^k\hookrightarrow C^1$（$k\ge3$）なので、写像とその一階微分を連続に評価でき、標的の指数写像で近傍をHilbert（したがってBanach）座標にできる。これは $H^{k-1}\hookrightarrow C^0$ を導くSobolev埋め込みを一階微分へ適用したものである。
 
-標的に沿う束を $E=u^*TX$、値域束を $F=\Lambda^{0,1}_{j,J}T^*\Sigma\otimes E$ と置く。写像方向の接空間を $W^{k,p}(E)$、値域を $W^{k-1,p}(F)$ と識別する。異なる写像の値域束は局所的に接続で自明化する。
+標的に沿う束を $E=u^*TX$、値域束を $F=\Lambda^{0,1}_{j,J}T^*\Sigma\otimes E$ と置く。写像方向の接空間を $H^k(E)$、値域を $H^{k-1}(F)$ と識別する。異なる写像の値域束は局所的に接続で自明化する。この選択なら、後で使う[Fredholm定理](../GW1-03/index.md#thm-gw1-03-fredholm)を空間の指数を変更せず適用できる。
 
 <a id="def-gw1-04-regular"></a>
 
@@ -27,15 +33,41 @@
 > 閉Riemann面 $(\Sigma,j)$ と滑らかな概複素構造 $J$ を固定し、滑らかな $J$-正則写像 $u:\Sigma\to X$ の線形化
 
 $$
-D_{u,J}:W^{k,p}(u^*TX)\longrightarrow
-W^{k-1,p}(\Lambda^{0,1}_{j,J}T^*\Sigma\otimes u^*TX)
+D_{u,J}:H^k(u^*TX)\longrightarrow
+H^{k-1}(\Lambda^{0,1}_{j,J}T^*\Sigma\otimes u^*TX)
 $$
 
 > が全射であるとき、$u$ は**固定した $(j,J)$ に関して正則**であるという。全射性は $\operatorname{coker}D_{u,J}=0$ と同値である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-04-regular -->
-**定義の確認**。標準複素構造の $\mathbb{CP}^1$ から自身への $u(z)=z^d$（$d\ge1$、無限遠点まで延長）を考える。引戻し接束は $u^*T\mathbb{CP}^1\simeq\mathcal O(2d)$。可積分標的での線形化はDolbeault作用素であり、[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $n=2d\ge0$ に適用すると $H^1(\mathbb{CP}^1,\mathcal O(2d))=0$。楕円型正則性によりSobolev余核も零だから、**この例は $d\ge2$ で一般の点に複数の逆像があっても正則**である。全射性は写像が一対一かどうかとは独立に判定する。
+**定義の確認**。標準複素構造の $\mathbb{CP}^1$ から自身への $u(z)=z^d$（$d\ge1$、無限遠点まで延長）を考える。[前講の局所座標による接束計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)から球面の正則接束は $T\mathbb{CP}^1\simeq\mathcal O(2)$ であり、次数 $d$ の写像は $\mathcal O(1)$ を $\mathcal O(d)$ に引き戻す。ゆえに
+
+$$
+u^*T\mathbb{CP}^1\simeq u^*\mathcal O(2)\simeq\mathcal O(2d).
+$$
+
+なぜ線束コホモロジーで**線形化の全射性**を判定できるのかも確かめる。可積分な複素構造の正則写像では、局所正則座標で $J=i$ は一定で、$\partial_{\bar z}u=0$ が成り立つ。[局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)から各成分について
+
+$$
+(D_{u,J}\xi)(\partial_s)
+=\frac12(\partial_s+i\partial_t)\xi
+$$
+
+を得る。局所正則枠の遷移行列は正則なので、この式は座標変換と整合する。したがって線形化は正則束 $u^*TX$ のDolbeault作用素 $\bar\partial$ **そのもの**である。
+
+滑らかな右辺 $f$ に対しては、球面の二つの標準アフィンチャートで局所の $\bar\partial$ 方程式を解き、重なりで比較する。
+
+$$
+\bar\partial a_\nu=f,\qquad
+\bar\partial(a_0-a_\infty)=0.
+$$
+
+局所解の存在はCauchy–Green積分による。差 $a_0-a_\infty$ は正則な線束切断で、Čechの一次コサイクルとなる。$H^1(\mathcal O(2d))=0$ なら、正則な局所切断を引いてこの差を消せるため、局所解が大域的な解に貼り合わさる。
+
+最後に、滑らかな右辺は $H^{k-1}$ で稠密である。[閉像を持つFredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)と組み合わせると、滑らかな右辺への全射性からSobolev値域全体への全射性が従う。
+
+[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $n=2d\ge0$ に適用すると $H^1(\mathbb{CP}^1,\mathcal O(2d))=0$。したがって $\operatorname{coker}D_{u,J}=0$ であり、**この例は $d\ge2$ で一般の点に複数の逆像があっても正則**である。全射性は写像が一対一かどうかとは独立に判定する。
 <!-- definition-example-end -->
 
 ここで「横断性」の対象は、無限次元の写像空間上の切断 $\bar\partial_J$ の**零切断との交わり**である。各零点で線形化が全射なら、その局所解集合に[陰関数定理の発想](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を使える。有限次元版と異なり、Banach版では全射な線形化の核が補空間を持つ必要があるが、[Fredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)から有限次元の核を選び閉補空間へ分解できる。
@@ -61,7 +93,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$B=W^{k,p}(E)$、$C=W^{k-1,p}(F)$ とする。[Fredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)と全射性より $K=\ker D_{u,J}$ は有限次元で、閉補空間 $B'$ を選んで $B=K\oplus B'$ とできる。$D_{u,J}|_{B'}:B'\to C$ は有界な全単射であり、有界逆写像定理で逆は有界。
+$B=H^k(E)$、$C=H^{k-1}(F)$ とする。[Fredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)と全射性より $K=\ker D_{u,J}$ は有限次元で、閉補空間 $B'$ を選んで $B=K\oplus B'$ とできる。$D_{u,J}|_{B'}:B'\to C$ は有界な全単射であり、有界逆写像定理で逆は有界。
 
 指数座標での非線形方程式を $G(a,b)=0$（$a\in K,\ b\in B'$）と書く。$G(0,0)=0$ で、$d_bG(0,0)=D_{u,J}|_{B'}$ は同型である。
 
@@ -96,7 +128,7 @@ $$
 <!-- definition-example-start: def-gw1-04-injective-point -->
 **定義の確認**。$u:\mathbb{CP}^1\to\mathbb{CP}^1$ を恒等写像とする。各有限点で $du=1\ne0$、無限遠点近くでも座標 $w=1/z$ で恒等写像の微分は1。各点の逆像はその点一つだけなので、単射な正則点集合は球面全体で稠密である。
 
-一方 $u(z)=z^d$（$d\ge2$）では、$z\ne0,\infty$ は微分 $dz^{d-1}$ が零でないが、$d$ 個の異なる $d$ 乗根が同じ値を取る。$0,\infty$ では逆像は一つでも微分が零。したがって単射な正則点は**一つもなく**、単純ではない。二条件を片方だけ調べてはならない。
+一方 $u(z)=z^d$（$d\ge2$）では、$z\ne0,\infty$ は局所複素座標 $z$ による導関数 $u'(z)=du/dz=d\,z^{d-1}$ が零でないが、$d$ 個の異なる $d$ 乗根が同じ値を取る。$0,\infty$ では逆像は一つでも微分が零。したがって単射な正則点は**一つもなく**、単純ではない。二条件を片方だけ調べてはならない。
 <!-- definition-example-end -->
 
 <a id="def-gw1-04-multiple-cover"></a>
@@ -107,7 +139,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-04-multiple-cover -->
-**定義の確認**。$\Sigma=\Sigma'=\mathbb{CP}^1$、$\varphi(z)=z^3$、$v(z)=z$ とすれば $u(z)=z^3$。一般の $a\ne0,\infty$ について $\varphi(z)=a$ は三つの相異なる解を持つので次数は3、$\varphi'(z)=3z^2$ は $z=0$ で零、無限遠点でも座標 $w=1/z$ で同じ三次の分岐がある。$v$ は恒等写像で正則。分岐と次数をともに確認した。
+**定義の確認**。$\Sigma=\Sigma'=\mathbb{CP}^1$、$\varphi(z)=z^3$、$v(z)=z$ とすれば $u(z)=z^3$。一般の $a\ne0,\infty$ について $\varphi(z)=a$ は三つの相異なる解を持つので次数は3、$\varphi'(z)=3z^2$ は $z=0$ で零、無限遠点でも定義域と値域の局所座標をともに $w=1/z$ と置けば $w\mapsto w^3$ となり、その微分は原点で零になる。$v$ は恒等写像で正則。分岐と次数をともに確認した。
 <!-- definition-example-end -->
 
 一般の閉曲線で「多重被覆ではない」と「単射な正則点が稠密」が同値になることには、$J$-正則方程式の一意接続、局所的な分岐解析、コンパクトな定義域上の貼り合わせが必要である。**定義の似た形だけで同値と断定しない**。ここでは一般位置定理に必要な単射な正則点の稠密性を明示して用いる。射影直線の正則関数の例では、分岐被覆と単純性を座標で直接判定できる。
@@ -126,7 +158,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（普遍Cauchy–Riemann切断）**  
-> 上の閉曲面 $\Sigma$、シンプレクティック標的 $(X,\omega)$、$k\ge2$、$p>2$、十分大きい整数 $\ell$ を固定する。写像と概複素構造の組 $(u,J)$ に対し、値域束を局所自明化した方程式
+> 上の閉曲面 $\Sigma$、シンプレクティック標的 $(X,\omega)$、$k\ge3$、十分大きい整数 $\ell$ を固定する。写像と概複素構造の組 $(u,J)$ に対し、値域束を局所自明化した方程式
 
 $$
 \mathcal F(u,J)=\bar\partial_Ju
@@ -136,7 +168,23 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-04-universal-section -->
-**定義の確認**。$X=\mathbb{CP}^1$ に標準 $J_0$ を取り、$u(z)=z^2$ とする。各局所正則座標で $u_s+J_0u_t=0$ なので $\mathcal F(u,J_0)=0$。$Y=0$、$\xi=\bar z$ という局所変分では[前講の局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)から $\delta\mathcal F(\xi,0)(\partial_s)=1$、零にはならない。したがって普遍零点と、その任意の接変分を取り違えない。
+**定義の確認**。$X=\mathbb{CP}^1$ に標準 $J_0$ を取り、$u(z)=z^2$ とする。定義域の局所正則座標は $z=s+it$ である。正則性 $u_t=i u_s$ を代入すると
+
+$$
+u_s+J_0u_t=u_s+i(iu_s)=0
+$$
+
+となるので、$\mathcal F(u,J_0)=0$ である。
+
+次にこの座標円板で $Y=0$、$\xi(s,t)=\bar z=s-it$ と動かす。これは局所切断であり、注目する点の近くで1となる滑らかな切断関数を掛ければ、大域的な変分へ延長できる。[前講の局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)で $J_0=i$ を一定とすると
+
+$$
+(D_{u,J_0}\xi)(\partial_s)
+=\tfrac12(\xi_s+i\xi_t)
+=\tfrac12\bigl(1+i(-i)\bigr)=1
+$$
+
+となる。$\mathcal F(u,J_0)=0$ でも、任意の接変分が零点集合に接するわけではない。
 <!-- definition-example-end -->
 
 <a id="prop-gw1-04-universal-linearization"></a>
@@ -208,11 +256,11 @@ $$
 \int_\Sigma\left\langle\eta,\tfrac12Y(u)du\,j\right\rangle=0
 $$
 
-を満たす（体積形式と双対束の計量を固定した）。第1式は弱い意味で $D_{u,J}^*\eta=0$ を表す。[楕円型正則性](../GW1-03/index.md#thm-gw1-03-elliptic-estimate)を随伴へ適用すると $\eta$ は滑らかになる。
+を満たす（体積形式と双対束の計量を固定した）。厳密には最初に得る双対元は $C^*=(H^{k-1})^*$ の分布である。第1式は分布の意味で $D_{u,J}^*\eta=0$ を表す。[楕円型正則性](../GW1-03/index.md#thm-gw1-03-elliptic-estimate)を楕円型随伴に適用すれば $\eta$ は滑らかになり、上の双対作用を通常の積分で表せる。
 
 単純曲線の定義から単射な正則点集合は稠密である。$\eta$ は連続で零ではないから $\eta(z)\ne0$ の開集合があり、そこから単射な正則点 $z$ を取れる。正則座標 $s+it$ の $\partial_s$ で値域を識別し、$v=du_z(\partial_s)\ne0$、$\eta_s=\eta(z)(\partial_s)\ne0$ とする。点 $x=u(z)$ で、$J_x$ と反可換な線形写像 $Y_x$ を $Y_xv$ が任意の指定ベクトル $b$ になるよう選べる。実際、$J$-複素直線 $\operatorname{span}_{\mathbb R}(v,Jv)$ 上で $Y_xv=b$、$Y_x(Jv)=-Jb$ と置き、$J$-不変補空間では零と置けば $Y_xJ+JY_x=0$ である。
 
-$du_z(j\partial_s)=Jv$ なので、普遍線形化の第2項の $\partial_s$ 成分は $\frac12Y_xJv=-\frac12Jb$。$b$ を $\langle\eta_s,-Jb\rangle>0$ となるよう取る。$Y_x$ を近傍へ滑らかに延長し小球 $V$ に台を持たせ、$u^{-1}(V)\subset U$ とする。$\eta$、$du$、$Y$ の連続性から $U$ を縮めて内積を正に保ち、非負の切断関数を掛ければ
+$du_z(j\partial_s)=Jv$ なので、普遍線形化の第2項の $\partial_s$ 成分は $\frac12Y_xJv=-\frac12Jb$。例えば $b=J\eta_s$ と取れば $-Jb=\eta_s$ だから $\langle\eta_s,-Jb\rangle=\|\eta_s\|^2>0$ である。$Y_x$ を $J$-複素局所枠で反可換性を保ちながら近傍へ滑らかに延長し、非負の切断関数を掛けて小球 $V$ に台を持たせる。$u^{-1}(V)\subset U$ とするには、$z$ 以外の点の像が $u(z)$ から離れるというコンパクト性を使う。$V$ をさらに縮めれば、$\eta$、$du$、$Y$ の連続性により $u^{-1}(V)$ で被積分関数は非負、$z$ の近くでは正になる。従って
 
 $$
 \int_\Sigma\left\langle\eta,\tfrac12Y(u)du\,j\right\rangle>0.
@@ -275,7 +323,15 @@ $M$ と $N$ の可分性により第二可算な座標近傍を選んで上の�
 <!-- proof-start -->
 ### 証明
 
-$\mathcal M^*=\{(u,J):\mathcal F(u,J)=0,\ u\text{ は単純},\ u_*[\Sigma]=\beta\}$ とする。単純性はここでの局所議論に適した開条件として扱う。[単純曲線における普遍横断性](#thm-gw1-04-universal-surjective)から $\mathcal M^*$ はBanach多様体で、接空間は
+普遍零点のうち単純曲線からなる部分を
+
+$$
+\mathcal M^*=\{(u,J):\mathcal F(u,J)=0,\ u\text{ は単純},\ u_*[\Sigma]=\beta\}
+$$
+
+とする。単射な正則点 $z$ が一つあれば、$du_z\ne0$ なので $u$ は $z$ の小近傍 $U$ で埋め込みとなる。また $u(\Sigma\setminus U)$ はコンパクトで、$u(z)$ を含まない。
+
+$C^1$ に十分近い写像でも局所埋め込み性と像の分離は保たれる。したがって、その点の単射性が残り、単純性はこの局所議論に必要な開条件である。[単純曲線における普遍横断性](#thm-gw1-04-universal-surjective)から $\mathcal M^*$ はBanach多様体で、接空間は
 
 $$
 T_{(u,J)}\mathcal M^*
@@ -351,7 +407,17 @@ h^1(u_d^*TX)&=0+2\max(d-1,0).
 \end{aligned}
 $$
 
-複素次元を二倍すると核は $4d+2$、余核は $4\max(d-1,0)$ となり、$d\ge1$ について差は $(4d+2)-4(d-1)=6$。あるいは引戻し束の次数は $2d-d-d=0$、複素階数は3、$g=0$ なので[擬正則写像の線形化の実指数公式](../GW1-03/index.md#thm-gw1-03-index)から $2\cdot3+2\cdot0=6$ と独立に検算できる。
+複素次元を二倍すると、核と余核の実次元は
+
+$$
+\begin{aligned}
+\dim_{\mathbb R}\ker D_{u_d}&=2(2d+1)=4d+2,\\
+\dim_{\mathbb R}\operatorname{coker}D_{u_d}
+&=2\{2\max(d-1,0)\}=4\max(d-1,0).
+\end{aligned}
+$$
+
+$d\ge1$ なのでその差は $(4d+2)-4(d-1)=6$。独立の検算として、引戻し束の次数は $2d-d-d=0$、複素階数は3、$g=0$ だから[擬正則写像の線形化の実指数公式](../GW1-03/index.md#thm-gw1-03-index)でも $2\cdot3+2\cdot0=6$ を得る。
 <!-- proof-end -->
 
 零切断への次数 $d$ の正則写像は、共通零点のない次数 $d$ の斉次多項式二本 $(P,Q)$ で表される。各多項式には $d+1$ 個の複素係数があり、組全体の共通スケールを除くと複素次元は $2d+1$ になる。
@@ -440,7 +506,16 @@ $X=\mathbb{CP}^2$、$\Sigma=\mathbb{CP}^1$、次数1の正則な単純写像に�
 標準複素構造での $u(z)=z^3:\mathbb{CP}^1\to\mathbb{CP}^1$ の引戻し接束、核と余核の実次元を求め、単純性・正則性を別々に判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。$T\mathbb{CP}^1\simeq\mathcal O(2)$ で次数3の引戻しは $\mathcal O(6)$。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $n=6$ に代入すると $h^0=7$、$h^1=0$。従って $\dim_{\mathbb R}\ker D=14$、余核実次元0。全射なので[正則性の定義](#def-gw1-04-regular)を満たす。一方 $z^3$ は次数3の分岐被覆を通るので[多重被覆の定義](#def-gw1-04-multiple-cover)を満たし、単純ではない。正則性と単純性は別の条件である。
+**詳細解答**。[射影直線の接束計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)より $T\mathbb{CP}^1\simeq\mathcal O(2)$ である。次数3の写像は $\mathcal O(1)$ を $\mathcal O(3)$ に引き戻すので、接束の引戻しは $\mathcal O(6)$ となる。
+
+前述の局所 $\bar\partial$ 解の貼り合わせにより、$H^0$ と $H^1$ がそれぞれ線形化の核と余核を計算する。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)の公式に $n=6$ を代入すると
+
+$$
+h^0(\mathcal O(6))=7,\qquad
+h^1(\mathcal O(6))=0.
+$$
+
+従って実核は14次元、実余核は0次元である。全射なので[正則性の定義](#def-gw1-04-regular)を満たす。一方、$z^3$ は次数3の分岐被覆を通るので[多重被覆の定義](#def-gw1-04-multiple-cover)を満たし、単純ではない。正則性と単純性は別の条件である。
 <!-- solution-end -->
 
 <a id="ex-gw1-04-b02"></a>
@@ -460,7 +535,15 @@ Fredholm作用素 $D:B\to C$ と線形作用素 $K:P\to C$ があり $(\xi,Y)\ma
 $X=\operatorname{Tot}(\mathcal O(-1)\oplus\mathcal O(-1))$ の零切断を次数2で被覆する $u_2$ について、束の分裂、核と余核の複素次元、実指数を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。零切断上の接方向は $\mathcal O(2)$、法方向は $\mathcal O(-1)$ が二つ。次数2の引戻しにより $u_2^*TX=\mathcal O(4)\oplus\mathcal O(-2)\oplus\mathcal O(-2)$。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $h^0(\mathcal O(4))=5$、$h^1(\mathcal O(4))=0$、各 $\mathcal O(-2)$ は $h^0=0,h^1=1$。核の複素次元5、余核の複素次元2、実指数は $2(5-2)=6$。余核が正なので非正則である。
+**詳細解答**。零切断上の接方向は[射影直線の接束計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)より $\mathcal O(2)$ で、法方向は $\mathcal O(-1)$ が二つある。次数2の引戻しにより
+
+$$
+u_2^*TX=\mathcal O(4)\oplus\mathcal O(-2)\oplus\mathcal O(-2)
+$$
+
+を得る。[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から $h^0(\mathcal O(4))=5$、$h^1(\mathcal O(4))=0$、各 $\mathcal O(-2)$ は $h^0=0$、$h^1=1$ となる。
+
+よって核の複素次元は5、余核の複素次元は2。実指数は $2(5-2)=6$ で、余核が非零だから非正則である。
 <!-- solution-end -->
 
 <a id="ex-gw1-04-b04"></a>
