@@ -8,7 +8,16 @@
 
 応力のない基準配置 $\Omega\subset\mathbb R^3$ は連結な有界開集合で、境界は区分的に $C^1$ 級とする。面の交線・角は面積零として扱う。位置を $X=(X_1,X_2,X_3)$、未知の変位を $u(X)$（m）とし、その空間微分 $D_Xu=\nabla u$（変位勾配）が十分小さい **微小変形** $\|\nabla u\|\ll1$ を仮定する。必要な微分のある古典解として、以下では $u\in C^2(\Omega;\mathbb R^3)\cap C^1(\overline\Omega;\mathbb R^3)$ を考え、境界積分に必要な正則性も仮定する。
 
-[CTM3 で定義した微小ひずみ](../CTM3/index.md#def-ctm3-infinitesimal-strain)と [CTM11 の Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を使う。$e_1,e_2,e_3$ は基準配置の標準直交基底、$u_i=u\cdot e_i$ は変位の第 $i$ 成分とする。$\partial_j$ は基準座標 $X_j$ に関する偏微分 $\partial/\partial X_j$ の略記で、時刻についての微分ではない。変位勾配の第 $j$ 列が $e_j$ 方向への変化であることは
+[CTM3 で定義した微小ひずみ](../CTM3/index.md#def-ctm3-infinitesimal-strain)と [CTM11 の Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を使う。
+
+基準配置の標準直交基底を $e_1,e_2,e_3$ とし、変位の第 $i$ 成分および基準座標 $X_j$ についての偏微分を
+
+$$
+u_i=u\cdot e_i,\qquad
+\partial_j:=\frac{\partial}{\partial X_j}
+$$
+
+と記す。これは空間微分であって時刻についての微分ではない。変位勾配の第 $j$ 列が $e_j$ 方向への変化であることは
 
 $$
 D_Xu\,e_j=\sum_{i=1}^3(\partial_j u_i)e_i,\qquad
