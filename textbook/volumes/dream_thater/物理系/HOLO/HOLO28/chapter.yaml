@@ -1,0 +1,46 @@
+id: HOLO28
+title: "JLMSと相対エントロピー"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO27
+  - QINF20
+official_scope: []
+learning_objectives:
+  - 有限次元モジュラーHamiltonianを台条件付きで定義し相対エントロピーのモジュラー表示を導ける
+  - 正定値参照状態の小摂動でエンタングルメント第一法則と二次の相対エントロピーを検算できる
+  - 固定セクターのBell対符号化で境界モジュラーHamiltonianの面積型項と相対エントロピー等式を証明できる
+  - 直和コードの中心作用素を構成し状態依存の面積型項が相対エントロピーで相殺することを示せる
+  - 半古典JLMSのコード部分空間 QES 繰り込み 定義域 1/N次数に関する適用条件を区別できる
+  - 二状態の相対エントロピーの一致と全演算子の部分領域復号の相違を説明できる
+definitions:
+  - { id: HOLO28-DEF-01, name: 有限次元のモジュラーHamiltonian }
+  - { id: HOLO28-DEF-02, name: 固定面積型の有限次元符号化 }
+  - { id: HOLO28-DEF-03, name: 直和コードの面積型中心作用素 }
+  - { id: HOLO28-DEF-04, name: JLMS関係の条件付き使用規約 }
+theorems:
+  - { id: HOLO28-PROP-01, name: 相対エントロピーのモジュラー表示 }
+  - { id: HOLO28-PROP-02, name: 有限次元のエンタングルメント第一法則 }
+  - { id: HOLO28-THM-01, name: 固定セクターのモジュラー等式と相対エントロピー }
+  - { id: HOLO28-THM-02, name: 直和コードのJLMS型恒等式 }
+canonical_examples:
+  - 正定値qubit参照状態のモジュラーHamiltonianと非可換な比較状態
+  - 二値小摂動のエントロピー一次微分と相対エントロピー二次項
+  - Bell対エッジ因子による面積型エントロピーとモジュラー等式
+  - 二セクター直和での中心面積期待値と相対エントロピーの相殺
+  - 誤った面積項の脱落が生む相対エントロピーの誤差
+problem_patterns:
+  - HOLO28-A01
+  - HOLO28-A02
+  - HOLO28-A03
+  - HOLO28-A04
+  - HOLO28-A05
+  - HOLO28-B01
+  - HOLO28-B02
+  - HOLO28-B03
+  - HOLO28-B04
+  - HOLO28-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 6 }
+past_exam_alignment: []
+integrated_exam_problems: []
