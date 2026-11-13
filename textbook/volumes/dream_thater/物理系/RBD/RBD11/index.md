@@ -629,10 +629,10 @@ $$
 
 第三成分の交差項は
 
-$
+$$
 (\omega_b\times J_{O,b}\omega_b)_3
 =I\omega_1\omega_2-I\omega_2\omega_1=0
-$
+$$
 
 です。また $\tau_{O,b}=(le_3)\times(R^{\mathsf T}(-Mg e_z))$ なので第三成分は零です。ゆえに $J\dot\omega_3=0$、$k=J\omega_3$ は一定です。対して $0<\theta<\pi$ では $|\tau_{O,s}|=Mgl\sin\theta>0$ だから、$\dot L_{O,s}\ne0$ で全ベクトルは一定ではありません。
 <!-- solution-end -->
