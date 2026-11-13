@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 390" role="img" aria-labelledby="fluid3-title fluid3-desc" data-layout-lint="strict">
+  <title id="fluid3-title">水没物体の浮力と重力の作用線</title>
+  <desc id="fluid3-desc">水平な液面の下に水没した物体。排除体積の中心Bから鉛直上向きの実線矢印で浮力が、物体の質量中心Gから下向きの破線矢印で重力が作用する。BとGの水平位置は一致しない模式例であり、モーメントが残る。</desc>
+  <defs>
+    <marker id="fluid3-buoyancy-head" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#17628c"/>
+    </marker>
+    <marker id="fluid3-weight-head" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#9b3f35"/>
+    </marker>
+  </defs>
+  <rect x="60" y="76" width="700" height="274" rx="5" fill="#eef7fb" stroke="#8ab0bf" stroke-width="1.8"/>
+  <path d="M 60 76 H 760" fill="none" stroke="#32799b" stroke-width="3" stroke-dasharray="13 5"/>
+  <ellipse cx="410" cy="218" rx="152" ry="92" fill="#dfd9c4" stroke="#4b524b" stroke-width="2.6"/>
+  <circle cx="370" cy="248" r="5.5" fill="#17628c" stroke="#fff" stroke-width="1.8"/>
+  <circle cx="448" cy="188" r="5.5" fill="#9b3f35" stroke="#fff" stroke-width="1.8"/>
+  <line x1="370" y1="240" x2="370" y2="145" stroke="#17628c" stroke-width="4.6" marker-end="url(#fluid3-buoyancy-head)" data-series-group="fluid3-forces" data-series-label="buoyancy"/>
+  <line x1="448" y1="196" x2="448" y2="290" stroke="#9b3f35" stroke-width="3.8" stroke-dasharray="9 5" marker-end="url(#fluid3-weight-head)" data-series-group="fluid3-forces" data-series-label="weight"/>
+  <text x="340" y="252" font-family="Arial, sans-serif" font-size="22" fill="#154968">B</text>
+  <text x="464" y="184" font-family="Arial, sans-serif" font-size="22" fill="#752c24">G</text>
+  <text x="298" y="141" font-family="Arial, sans-serif" font-size="21" fill="#154968">F_B</text>
+  <text x="476" y="303" font-family="Arial, sans-serif" font-size="21" fill="#752c24">mg</text>
+  <text x="70" y="63" font-family="Arial, sans-serif" font-size="20" fill="#245779">z = H</text>
+</svg>
