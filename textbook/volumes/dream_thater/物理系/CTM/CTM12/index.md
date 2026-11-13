@@ -53,13 +53,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm12-boundary-data -->
-### 定義の確認：同じ棒の左右で異なる量を指定する
+### **定義の確認**：同じ棒の左右で異なる量を指定する
 
 直方体に、小さい無次元定数 $a$ を使って $u(X)=aX_1e_1$ を与える。このとき $\nabla u=\operatorname{diag}(a,0,0)$。これを [Hooke 則](../CTM11/index.md#thm-ctm11-hooke)に代入すると
 
-$
+$$
 \sigma=\operatorname{diag}((\lambda+2\mu)a,\lambda a,\lambda a).
-$
+$$
 
 左面 $X_1=0$ では変位が零なので、$\bar u=0$ の Dirichlet 条件を満たす。
 
@@ -85,7 +85,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm12-bvp -->
-### 定義の直接確認：一様に引く棒の全境界
+### **定義の確認**：一様に引く棒の全境界
 
 $0<X_1<L$、$0<X_2<H$、$0<X_3<T$ の直方体を考える。$E_Y>0$ と $-1<\nu<1/2$ を [CTM11 の弾性定数変換](../CTM11/index.md#thm-ctm11-elastic-constants)で定め、$p$（Pa）を小さい正の引張応力、$a=p/E_Y$（無次元）とする。候補は
 
@@ -231,7 +231,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm12-rigid -->
-### 定義の直接確認：平行移動と軸周り回転
+### **定義の確認**：平行移動と軸周り回転
 
 $r(X)=(c,0,0)+\omega(-X_2,X_1,0)$ とする。ここで $a=(c,0,0)$、$B_{12}=-\omega$、$B_{21}=\omega$ 以外は零なので $B^T=-B$ が全成分で成立する。$\nabla r=B$ で
 
@@ -407,9 +407,9 @@ $$
 
 $\Omega$ を連結な有界区分的 $C^1$ 領域とし、材料係数に次の正定値条件を課す。
 
-$
+$$
 \mu>0,\qquad K=\lambda+\frac{2\mu}{3}>0.
-$
+$$
 
 $\Gamma_D$ が三つの非共線な境界点を含む開いた面片を持ち、同じデータ $f,\bar u,\bar t$ を満たす二つの古典解が存在すると仮定する。このとき二つの変位場は一致する。
 
@@ -603,9 +603,9 @@ $u=(aX_1,-\nu aX_2,-\nu aX_3)$、$a=p/E_Y$ とし、$f=0$、右端と四側面�
 
 [CTM11 の弾性定数変換](../CTM11/index.md#thm-ctm11-elastic-constants)によれば、この一軸応力設定で
 
-$
+$$
 \sigma=\operatorname{diag}(E_Ya,0,0)=\operatorname{diag}(p,0,0).
-$
+$$
 
 応力は一定なので発散零。右面 $n=e_1$ は $pe_1$、左面 $n=-e_1$ の反力は $-pe_1$ である。四側面の $n=\pm e_2,\pm e_3$ については traction が零となる。
 
@@ -647,19 +647,19 @@ $\varepsilon=\operatorname{diag}(\phi',0,0)$、$\sigma=\operatorname{diag}(M\phi
 
 [合力・合トルク必要条件](#prop-ctm12-force-torque)の第一式について、今回の全外力は
 
-$
+$$
 \int_\Omega f\,dV+\int_{\partial\Omega}\bar t\,dS
 =0+pAe_1\ne0.
-$
+$$
 
 $pA>0$ だから合力が零にならず、古典解は存在しない。
 
 別の面で荷重を釣り合わせて必要条件を満たした場合でも、解 $u$ があれば $u+r$ も解になる。微小剛体変位なら $\varepsilon(r)=0$、従って $\sigma(r)=0$ なので
 
-$
+$$
 \operatorname{div}\sigma(u+r)=\operatorname{div}\sigma(u),\qquad
 \sigma(u+r)n=\sigma(u)n.
-$
+$$
 
 Dirichlet 面が無いので追加した剛体変位を拘束できない。なお合力・合トルク必要条件の成立だけで、解の存在が保証されるわけではない。
 <!-- solution-end -->
