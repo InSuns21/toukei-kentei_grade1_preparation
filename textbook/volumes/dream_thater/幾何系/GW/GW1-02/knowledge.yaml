@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - GW1-01
   - SYM8
+  - GEO8
 concepts:
   - id: gromov-witten.nonlinear-cr-operator
     name: 非線形Cauchy–Riemann作用素
