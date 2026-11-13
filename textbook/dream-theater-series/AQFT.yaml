@@ -82,7 +82,7 @@ chapters:
     title: "反線形極分解とモジュラー対象"
   - id: AQFT20
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT20
-    status: planned
+    status: completed
     title: "Hilbert–Schmidt標準表現の全計算"
   - id: AQFT21
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT21
