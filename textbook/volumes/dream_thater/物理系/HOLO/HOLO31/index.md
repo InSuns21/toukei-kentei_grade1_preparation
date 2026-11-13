@@ -599,7 +599,12 @@ $$
 ### 演習 HOLO31-C01：二頂点の情報分配を総合する
 - Level: C
 
-二頂点網 $V$ と論理密度行列 $\rho_{ab}$ を用いる。(1) $V$ が等長で、$a$ の全作用素が $L_1L_2$ 上から再構成できることを示せ。(2) $S(L)=\log3+S(\rho_a)$、$S(R)=\log3+S(\rho_b)$ を導き、$\rho_{ab}=|\Psi\rangle\langle\Psi|$、$|\Psi\rangle=3^{-1/2}\sum_j|j,j\rangle$ のときの値を求めよ。(3) 境界全体を $LR$ とした相互情報量 $I(L:R)=S(L)+S(R)-S(LR)$ を $I(a:b)$ で表せ。(4) 結合 $|\Phi_3\rangle$ を $|00\rangle$ に置き換えたとき、(2) のどの項が消えるか述べよ。
+二頂点網 $V$ と論理密度行列 $\rho_{ab}$ を用い、次を求めよ。
+
+1. $V$ が等長で、$a$ の全作用素が $L_1L_2$ 上から再構成できることを示せ。
+2. $S(L)=\log3+S(\rho_a)$、$S(R)=\log3+S(\rho_b)$ を導き、$\rho_{ab}=|\Psi\rangle\langle\Psi|$、$|\Psi\rangle=3^{-1/2}\sum_j|j,j\rangle$ のときの値を求めよ。
+3. 境界全体を $LR$ とした相互情報量 $I(L:R)=S(L)+S(R)-S(LR)$ を $I(a:b)$ で表せ。
+4. 結合 $|\Phi_3\rangle$ を $|00\rangle$ に置き換えたとき、(2) のどの項が消えるか述べよ。
 
 <!-- solution-start -->
 **詳細解答。**
