@@ -2,7 +2,7 @@
 
 [AQFT24の有限次元Gibbs計算](../AQFT24/index.md#thm-aqft24-gibbs-kms)では、密度行列 $\rho$ をトレースの中で巡回させると、複素時間の上端で演算子の順序が反転しました。しかし局所量子場理論のType III環には、すべての状態を $\operatorname{Tr}(\rho\,\cdot)$ と書く仕組みがありません。何を使えば「熱平衡の時間」を定義できるのでしょうか。
 
-既習の[Tomita作用素](../AQFT18/index.md#def-aqft18-tomita-operator)と[一般のTomita–Takesaki定理](../AQFT23/index.md#thm-aqft23-tomita-takesaki)からは、トレースを使わずにモジュラー流 $\sigma_t$ が得られます。本講では、**スペクトル定理で帯上の相関関数を作り、反線形なTomita関係でその上端の順序を反転**させます。これがType III環にも通用するKMS定理の核心です。
+既習の[Tomita作用素](../AQFT18/index.md#def-aqft18-tomita-initial)と[一般のTomita–Takesaki定理](../AQFT23/index.md#thm-aqft23-tomita-takesaki)からは、トレースを使わずにモジュラー流 $\sigma_t$ が得られます。本講では、**スペクトル定理で帯上の相関関数を作り、反線形なTomita関係でその上端の順序を反転**させます。これがType III環にも通用するKMS定理の核心です。
 
 先に二つの注意があります。第一に、一般のモジュラー群は作用素ノルムでは連続とは限りません。第二に、モジュラー生成子 $-\log\Delta$ は有限次元の密度行列の $-\log\rho$ と同じ作用素ではありません。
 
@@ -16,7 +16,7 @@ S_0(A\Omega)=A^*\Omega
 \quad(A\in\mathcal M)
 $$
 
-と置きます。$S_0$ の閉包を $S=J\Delta^{1/2}$ とするのは[AQFT19の反線形極分解](../AQFT19/index.md#thm-aqft19-polar-decomposition)です。$\Delta$ は核を持たない正の自己共役作用素で、$\Delta\Omega=\Omega$ です。[AQFT23のモジュラー自己同型群](../AQFT23/index.md#def-aqft23-modular-flow)は
+と置きます。$S_0$ の閉包を $S=J\Delta^{1/2}$ とするのは[AQFT19の反線形極分解](../AQFT19/index.md#thm-aqft19-polar)です。$\Delta$ は核を持たない正の自己共役作用素で、$\Delta\Omega=\Omega$ です。[AQFT23のモジュラー自己同型群](../AQFT23/index.md#def-aqft23-modular-flow)は
 
 $$
 \sigma_t(A)=\Delta^{it}A\Delta^{-it},\qquad
@@ -389,7 +389,7 @@ $$
 
 ### 局所Type III環で何が言えるか
 
-局所環 $\mathcal A(O)''$ と、そこで巡回・分離的な真空ベクトル $\Omega$ を仮定します。例えば[AQFT13の巡回性・分離性の議論](../AQFT13/index.md#thm-aqft13-separating)により、適切な領域・局所性・補集合側の巡回性から標準対が得られる場合があります。その**標準対が得られた場合**、環の型にかかわらず本講のKMS定理が成立します。
+局所環 $\mathcal A(O)''$ と、そこで巡回・分離的な真空ベクトル $\Omega$ を仮定します。例えば[AQFT13の巡回性・分離性の議論](../AQFT13/index.md#thm-aqft13-complement-cyclicity-separating)により、適切な領域・局所性・補集合側の巡回性から標準対が得られる場合があります。その**標準対が得られた場合**、環の型にかかわらず本講のKMS定理が成立します。
 
 ただし、$\sigma_t$ が幾何学的なLorentz boostになるかは別問題です。一般の局所環についてそう結論できるわけではありません。自由場の特別なwedgeでこの同一視に必要な解析性を調べるのが次講以降です。
 
@@ -397,7 +397,7 @@ $$
 
 $H=\log\Delta$ は標準表現のHilbert空間 $\mathcal H$ 上の自己共役作用素で、モジュラー流を実装するユニタリは $\Delta^{it}=e^{itH}$ です。物理で $K_{\mathrm{mod}}=-\log\Delta$ をモジュラーHamiltonianと呼ぶ流儀もあり、そのとき $\sigma_t=\operatorname{Ad}e^{-itK_{\mathrm{mod}}}$ になります。
 
-有限次元の[AQFT20のHilbert–Schmidt模型](../AQFT20/index.md#thm-aqft20-modular-objects)では、元のHilbert空間 $\mathbb C^n$ 上の $\rho$ と、Hilbert–Schmidt空間上の $\Delta=L_\rho R_{\rho^{-1}}$ の作用先が違います。行列単位ごとに
+有限次元の[AQFT20のHilbert–Schmidt模型](../AQFT20/index.md#thm-aqft20-modular-formulas)では、元のHilbert空間 $\mathbb C^n$ 上の $\rho$ と、Hilbert–Schmidt空間上の $\Delta=L_\rho R_{\rho^{-1}}$ の作用先が違います。行列単位ごとに
 
 $$
 \begin{aligned}
@@ -428,7 +428,7 @@ $$
 - 問題：一般標準対の $C\in\mathcal M$ について、$C\Omega,C^*\Omega\in\operatorname{Dom}\Delta^{1/2}$ を示し、その二つの半べきのノルムを計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** [Tomita初期作用素](../AQFT18/index.md#prop-aqft18-initial-properties)の定義域は $\mathcal M\Omega$ を含むので、$C\Omega$ と $C^*\Omega$ はともに $\operatorname{Dom}S$ に属します。[反線形極分解](../AQFT19/index.md#thm-aqft19-polar-decomposition)によって $\operatorname{Dom}S=\operatorname{Dom}\Delta^{1/2}$、$S=J\Delta^{1/2}$ です。$J$ の等長性から
+**詳細解答。** [Tomita初期作用素](../AQFT18/index.md#prop-aqft18-initial-properties)の定義域は $\mathcal M\Omega$ を含むので、$C\Omega$ と $C^*\Omega$ はともに $\operatorname{Dom}S$ に属します。[反線形極分解](../AQFT19/index.md#thm-aqft19-polar)によって $\operatorname{Dom}S=\operatorname{Dom}\Delta^{1/2}$、$S=J\Delta^{1/2}$ です。$J$ の等長性から
 
 $$
 \|\Delta^{1/2}C\Omega\|
@@ -484,7 +484,7 @@ $\|\sigma_s(A)\|=\|A\|$ よりノルムは $\|A\|\int|g_\varepsilon(s-h)-g_\vare
 - 問題：$\rho=\operatorname{diag}(3/4,1/4)$ のHilbert–Schmidt表現で、$-\log\Delta$ の $E_{12},E_{21},E_{11}$ への作用を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** [AQFT20のモジュラー作用素](../AQFT20/index.md#thm-aqft20-modular-objects)から $\Delta E_{ij}=(p_i/p_j)E_{ij}$ です。関数計算で $(-\log\Delta)E_{ij}=-\log(p_i/p_j)E_{ij}$。したがって
+**詳細解答。** [AQFT20のモジュラー作用素](../AQFT20/index.md#thm-aqft20-modular-formulas)から $\Delta E_{ij}=(p_i/p_j)E_{ij}$ です。関数計算で $(-\log\Delta)E_{ij}=-\log(p_i/p_j)E_{ij}$。したがって
 
 $$
 (-\log\Delta)E_{12}=-(\log3)E_{12},\quad
@@ -648,7 +648,7 @@ $$
 =\tau_{-\beta t}(A).
 $$
 
-(2) $\rho$ の固有値を $p_i>0$ とする。[AQFT20のHilbert–Schmidt表示](../AQFT20/index.md#thm-aqft20-modular-objects)では $\Delta E_{ij}=(p_i/p_j)E_{ij}$。よって
+(2) $\rho$ の固有値を $p_i>0$ とする。[AQFT20のHilbert–Schmidt表示](../AQFT20/index.md#thm-aqft20-modular-formulas)では $\Delta E_{ij}=(p_i/p_j)E_{ij}$。よって
 
 $$
 (\log\Delta)E_{ij}=(\log p_i-\log p_j)E_{ij}.
@@ -661,7 +661,7 @@ $$
 
 ## 8. 次講へ：熱的時間はいつ幾何学的時間か
 
-この講義で示したことは、**任意の標準対のモジュラー自己同型群が、トレースに依存せず逆温度1の上側帯KMS条件を満たす**という主張です。一方でその時間が具体的な時空対称性に対応するかどうかは未確定です。次の [AQFT26「Rindler wedgeとboostの解析性」](../AQFT26/index.md) では、右wedgeのLorentz boostと複素時間の向き、および $2\pi$ の係数を自由スカラー場で直接検算します。
+この講義で示したことは、**任意の標準対のモジュラー自己同型群が、トレースに依存せず逆温度1の上側帯KMS条件を満たす**という主張です。一方でその時間が具体的な時空対称性に対応するかどうかは未確定です。次の AQFT26「Rindler wedgeとboostの解析性」 では、右wedgeのLorentz boostと複素時間の向き、および $2\pi$ の係数を自由スカラー場で直接検算します。
 
 ### 参考資料
 
