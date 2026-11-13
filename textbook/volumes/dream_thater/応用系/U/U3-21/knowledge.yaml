@@ -1,0 +1,53 @@
+chapter: U3-21
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-06, U3-07, U3-11, U3-13, U3-14, U3-15, U3-16, U3-17, U3-19]
+concepts:
+  - id: finance.continuous-exercise-stopping-time
+    name: 連続時間の行使停止時刻
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続時間の行使停止時刻）"]
+    requires: [finance.discrete-stopping-time, finance.bsm-continuous-dividend]
+  - id: finance.continuous-american-value
+    name: 連続時間 American 価値関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続時間 American 価値関数）"]
+    requires: [finance.continuous-exercise-stopping-time, finance.risk-neutral-terminal-value]
+  - id: finance.bermudan-grid-limit
+    name: Bermudan 格子価格の単調収束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Bermudan 格子価格の単調収束）"]
+    requires: [finance.continuous-american-value, finance.bermudan-stopping-value]
+  - id: finance.continuous-snell-envelope
+    name: 連続時間の割引 Snell 包絡
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続時間の割引 Snell 包絡）"]
+    requires: [finance.continuous-american-value, finance.snell-minimal-supermartingale, finance.bermudan-grid-limit]
+  - id: finance.continuous-american-exercise-region
+    name: 連続時間の継続領域・行使領域と put 行使境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続時間の継続領域・行使領域と put 行使境界）"]
+    requires: [finance.continuous-american-value, finance.put-exercise-region]
+  - id: finance.continuous-put-exercise-shape
+    name: 連続時間 put の低株価側の行使領域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連続時間 put の低株価側の行使領域）"]
+    requires: [finance.continuous-american-exercise-region, finance.continuous-american-value]
+  - id: finance.continuous-call-no-early
+    name: 無配当・非負金利 call の早期行使不要（連続時間）
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（無配当・非負金利 call の早期行使不要）"]
+    requires: [finance.continuous-american-value, finance.risk-neutral-terminal-value, finance.call-no-early-exercise]
+  - id: finance.american-obstacle-condition
+    name: 古典的に滑らかな場所での American 障害条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（古典的に滑らかな場所での American 障害条件）"]
+    requires: [finance.continuous-snell-envelope, finance.continuous-american-exercise-region, finance.bsm-continuous-dividend]
