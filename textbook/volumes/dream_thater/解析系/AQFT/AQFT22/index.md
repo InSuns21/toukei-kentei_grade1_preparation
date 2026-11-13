@@ -376,9 +376,9 @@ $$
 B_td_1d_2\Omega=d_1B_td_2\Omega.
 $$
 $\mathcal M'\Omega$ が稠密なので $B_td_1=d_1B_t$ が全空間で成立します。従って $B_t\in(\mathcal M')'=\mathcal M$。特に $t=0$ では
-$$
-J\mathcal M'J\subset\mathcal M. \tag{3}
-$$
+$
+J\mathcal M'J\subset\mathcal M.
+$
 
 **第二の包含。** $a,y\in\mathcal M$、$b\in\mathcal M'$ とし、(3) により $c=JbJ\in\mathcal M$ と置きます。$a^*c^*\Omega\in\operatorname{Dom}S$、$J(a^*c^*\Omega)\in\operatorname{Dom}F$ であり、$y^*\Omega\in\operatorname{Dom}S$ です。[極分解の随伴関係](../AQFT19/index.md#thm-aqft19-modular-relations) $FJ=JS$ と [反線形随伴](../AQFT18/index.md#def-aqft18-antilinear-adjoint)の関係を使うと
 $$
@@ -400,9 +400,9 @@ yJa\Omega=(JaJ)y\Omega.
 $$
 $\Omega=J\Omega$ を用いると $(JaJ)\Omega=Ja\Omega$ なので、$y=y_1y_2$ の式と $y=y_2$ の式を比べて $y_1(JaJ)y_2\Omega=(JaJ)y_1y_2\Omega$。$\mathcal M\Omega$ の稠密性から $JaJ\in\mathcal M'$。すなわち
 $$
-J\mathcal M J\subset\mathcal M'. \tag{4}
+J\mathcal M J\subset\mathcal M'. 
 $$
-(3) を $J$ で共役すると $ \mathcal M'\subset J\mathcal M J$。これと (4) を合わせて等号を得ます。
+第一の包含を $J$ で共役すると $ \mathcal M'\subset J\mathcal M J$。これと第二の包含を合わせて等号を得ます。
 <!-- proof-end -->
 
 **注意。** 上の第一包含では、実は各 $t$ で $JU_{-t}\mathcal M'U_tJ\subset\mathcal M$ まで得ています。これを共役し $\pm t$ と可換子を使うと、モジュラー流が代数を保つという結論にも到達します。ただし自己同型群の連続性と解析的代数元、作用の細部は[AQFT23](../AQFT23/index.md)で整理します（次講の本文完成前には既習結果として援用しません）。
