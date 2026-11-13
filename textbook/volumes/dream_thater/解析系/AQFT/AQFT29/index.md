@@ -2,7 +2,7 @@
 
 [AQFT18のTomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial)は、一つの巡回分離ベクトル $\Omega$ に対し $A\Omega\mapsto A^*\Omega$ を割り当てました。[AQFT20の標準表現](../AQFT20/index.md#thm-aqft20-modular-formulas)では、忠実な密度行列 $\rho$ のモジュラー作用素を $\Delta_\rho=L_\rho R_{\rho^{-1}}$ と計算しました。しかし二つの状態を比較するとき、どちらの状態の密度を左に、どちらを右の逆数に置くべきでしょうか。
 
-本講では **入力を作る状態を $\rho$、出力を作る状態を $\sigma$** と固定します。目標は、一般の標準対での定義と可閉性を証明したうえで、有限次元の作用素を行列から全計算することです。相対エントロピーの対数を計算するのは次講です。
+本講では **入力を作る状態を $\rho$、出力を作る状態を $\sigma$** と固定します。目標は、一般の標準対での定義と可閉性を証明したうえで、有限次元の作用素を行列から全計算することです。二状態の比較に必要な対数作用素の計算は次講です。
 
 ## 1. 一つのベクトルから二つのベクトルへ
 
@@ -24,7 +24,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft29-relative-tomita -->
-### 直接例：二点の可換環
+### 直接例：二点の対角作用素環
 
 $\mathcal H=\mathbb C^2$、$\mathcal M=\{\operatorname{diag}(a,b):a,b\in\mathbb C\}$ とします。$0<p,q<1$ とし、
 
@@ -143,7 +143,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft29-relative-modular -->
-### 直接例：二点の可換環では正の対角作用素になる
+### 直接例：二点の対角作用素環では正の対角作用素になる
 
 第1節の $\xi,\eta$ に対して $Sx=(a\overline{x_1},b\overline{x_2})$ と書くと、$a=\sqrt{q/p}$、$b=\sqrt{(1-q)/(1-p)}$ は正実数です。[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)に直接代入すれば $S^\sharp=S$ です。よって
 
@@ -153,7 +153,7 @@ $$
 =\left(\frac qp x_1,\frac{1-q}{1-p}x_2\right).
 $$
 
-固有値は両方正で、作用素は全域定義・自己共役・正です。$\Delta^{1/2}=\operatorname{diag}(a,b)$ なので $\|\Delta^{1/2}x\|^2=\|Sx\|^2$ も成分ごとに一致します。ここでは可換環なので $\Delta_{\eta\mid\xi}$ は状態の座標ごとの比を表します。後述する非可換環では**左右乗算**が別々に現れます。
+固有値は両方正で、作用素は全域定義・自己共役・正です。$\Delta^{1/2}=\operatorname{diag}(a,b)$ なので $\|\Delta^{1/2}x\|^2=\|Sx\|^2$ も成分ごとに一致します。ここでは対角作用素だけからなる環なので $\Delta_{\eta\mid\xi}$ は状態の座標ごとの比を表します。後述する行列全体の作用素環では**左右乗算**が別々に現れます。
 
 **定義の確認**：作用素積、定義域、非負性、平方根のノルム等式を具体的に確認しました。
 <!-- definition-example-end -->
@@ -352,6 +352,7 @@ S_{\sigma\mid\rho}\xi=\eta,\quad
 $$
 <!-- formal-statement-end -->
 
+<!-- proof-start -->
 ### 証明
 
 定理の最初の式へ $X=\rho^{1/2}$ を入れると
@@ -484,7 +485,7 @@ $$
 =\begin{pmatrix}0&-1/12\\1/12&0\end{pmatrix}\ne0.
 $$
 
-$\rho$ の固有ベクトルを $e_1,e_2$ として $F_{ij}=|u_i\rangle\langle e_j|$ を作ると、$\langle F_{ij},F_{k\ell}\rangle_2=\delta_{ik}\delta_{j\ell}$ で四個の正規直交基底です。[相対作用素の公式](#thm-aqft29-matrix-formulas)を使い $\Delta F_{ij}=(s_i/r_j)F_{ij}$ と計算すると、$F_{11},F_{12},F_{21},F_{22}$ の順で $8/9,8/3,4/9,4/3$。可換性はこの対角化の条件ではありません。
+$\rho$ の固有ベクトルを $e_1,e_2$ として $F_{ij}=|u_i\rangle\langle e_j|$ を作ると、$\langle F_{ij},F_{k\ell}\rangle_2=\delta_{ik}\delta_{j\ell}$ で四個の正規直交基底です。[忠実な有限次元二状態の相対Tomita全計算](#thm-aqft29-matrix-formulas)を使い $\Delta F_{ij}=(s_i/r_j)F_{ij}$ と計算すると、$F_{11},F_{12},F_{21},F_{22}$ の順で $8/9,8/3,4/9,4/3$。可換性はこの対角化の条件ではありません。
 
 <a id="ex-aqft29-b03"></a>
 #### AQFT29-B03 向きを替えたときの違い
@@ -574,7 +575,19 @@ $$
 
 局所von Neumann因子 $\mathcal M(O)$ がType IIIであり、ある標準表現で二つの忠実正規状態が巡回分離単位ベクトル $\xi,\eta$ によって実現されているとする。(i) 何を定義でき、どの演算の正値性を証明できるか、(ii) 有限次元の密度行列公式をそのまま適用できるか、(iii) $\xi$ の分離性を失うと第2節の証明のどこが壊れるか、論理的に判定せよ。
 
-**詳細解答。** (i) $S_0(A\xi)=A^*\eta$ は $\xi$ の分離性で一価、巡回性で稠密定義です。$\mathcal M'\xi$ の稠密性と可換性から可閉性が得られ、閉包 $S$ について[閉反線形作用素の正二乗](../AQFT19/index.md#lem-aqft19-positive-square)により $\Delta_{\eta\mid\xi}=S^\sharp S$ は非負自己共役です。(ii) Type III因子には忠実正規半有限トレースがなく、一般に部分系密度 $\rho,\sigma$ を $M_n(\mathbb C)$ のように作れないので $L_\sigma R_{\rho^{-1}}$ はそのまま書けません。それは有限次元模型の式であり、一般論で有効なのは初期作用素と閉包の定義です。(iii) $A\xi=0$ から $A=0$ を結論できず、$A\xi$ の表示一意性が壊れます。さらに $\mathcal M'\xi$ の稠密性も一般には導けず、第2節で $y=0$ を結論する箇所も使えません。どちらも「逆密度がない」だけでは表せない、本質的な障害です。
+**詳細解答。** 三つの論点を順に分けて確認します。
+
+(i) $S_0(A\xi)=A^*\eta$ は $\xi$ の分離性で一価、巡回性で稠密定義です。$\mathcal M'\xi$ の稠密性と可換性から可閉性を証明でき、閉包 $S$ について[閉反線形作用素の正二乗](../AQFT19/index.md#lem-aqft19-positive-square)により
+
+$
+\Delta_{\eta\mid\xi}=S^\sharp S
+$
+
+は非負自己共役です。
+
+(ii) Type III因子には忠実正規半有限トレースがありません。従って部分系密度を一般に有限行列 $\rho,\sigma$ で表せず、有限次元の式 $L_\sigma R_{\rho^{-1}}$ はそのまま適用できません。一般論で有効なのは初期作用素と閉包の定義です。
+
+(iii) 分離性を失うと $A\xi=0$ から $A=0$ を結論できず、$A\xi$ の表示一意性が壊れます。さらに $\mathcal M'\xi$ の稠密性も一般には導けず、第2節で $y=0$ を結論する箇所が使えません。「逆密度がない」だけでなく二つの論証機構が失われます。
 
 ---
 
