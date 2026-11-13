@@ -245,7 +245,7 @@ $
 F(r)=\log(1-r^{-2})\quad(r>1)
 $
 
-です。$F'(r)=2/[r(r^2-1)]$ より $r(r^2-1)F'=2$ が定数となり、波動方程式を満たします。さらに $r\to\infty$ で $F(r)=-r^{-2}+O(r^{-4})$ となり、$m=0$ の速い減衰指数 $\Delta_+=2$ を満たして源は零です。一方、非零定数 $F$ も方程式の解ですが境界で消えず、**源零条件には不適合**です。この正例は $r\downarrow1$ で対数発散するため地平面正則性を要求する別の問題には使えません。分離形・場の方程式・境界条件・地平面条件を区別してください。
+です。$F'(r)=2/[r(r^2-1)]$ より $r(r^2-1)F'=2$ が定数となり、波動方程式を満たします。さらに $r\to\infty$ で $F(r)=-r^{-2}+O(r^{-4})$ です。$d=2,m=0$ を[HOLO8の質量・漸近指数の関係](../HOLO8/index.md#prop-holo8-mass-dimension)に代入すると $\Delta_+=1+\sqrt{1+0}=2$ なので、速い減衰枝を満たして源は零です。一方、非零定数 $F$ も方程式の解ですが境界で消えず、**源零条件には不適合**です。この正例は $r\downarrow1$ で対数発散するため地平面正則性を要求する別の問題には使えません。分離形・場の方程式・境界条件・地平面条件を区別してください。
 <!-- definition-example-end -->
 
 <a id="prop-holo27-radial-equation"></a>
@@ -444,7 +444,18 @@ $$
 =\operatorname{Tr}\!\left[O_A(\rho_A^\psi-\rho_A^\varphi)\right].
 $$
 
-有限次元の特異値分解に基づく $|\operatorname{Tr}(BX)|\le\|B\|_\infty\|X\|_1$ を適用すれば不等式が従います。右辺が零なのに左辺が非零なら、$O_A$ の存在と矛盾します。
+ここで $X=\rho_A^\psi-\rho_A^\varphi$ は Hermitian です。有限次元で固有値 $\lambda_j\in\mathbb R$ と正規直交固有ベクトル $|e_j\rangle$ を選ぶと、$X=\sum_j\lambda_j|e_j\rangle\langle e_j|$ です。従って
+
+$
+\begin{aligned}
+|\operatorname{Tr}(O_AX)|
+&=\left|\sum_j\lambda_j\langle e_j|O_A|e_j\rangle\right|\\
+&\le\sum_j|\lambda_j|\,\|O_A\|_\infty
+=\|O_A\|_\infty\,\|X\|_1.
+\end{aligned}
+$
+
+これは複素行列にも通用し、$X$ が Hermitian であることを使ってトレースノルムを $\sum_j|\lambda_j|$ と評価しました。右辺が零なのに左辺が非零なら、$O_A$ の存在と矛盾します。
 <!-- proof-end -->
 
 **失敗例：同じコードの $X$ は再構成できない。** 先ほどの符号化で $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$ を考えると
