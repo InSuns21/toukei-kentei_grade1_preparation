@@ -247,7 +247,7 @@ $$
 \sigma_z(L_{E_{12}})=e^{iz\log3}L_{E_{12}}
 $$
 
-とすべての $z\in\mathbb C$ で置けます。係数は整関数なので作用素ノルム正則であり、実軸では既に計算した流と一致します。$E_{11}$ なら $\sigma_z(L_{E_{11}})=L_{E_{11}}$ です。いずれも $\mathcal M$ に値を持ち、**作用素ノルムで正則・代数内に値を持つ・実軸上で所定の作用に一致する**という条件を満たします。一般の無限次元環の全ての元がこうなるわけではありません。
+とすべての $z\in\mathbb C$ で置けます。係数は整関数なので作用素ノルム正則であり、実軸では既に計算した流と一致します。$E_{11}$ なら $\sigma_z(L_{E_{11}})=L_{E_{11}}$ です。**定義の確認**：いずれも $\mathcal M$ に値を持ち、**作用素ノルムで正則・代数内に値を持つ・実軸上で所定の作用に一致する**という条件を満たします。一般の無限次元環の全ての元がこうなるわけではありません。
 <!-- definition-example-end -->
 
 次の定理は、強連続なだけの作用からノルム解析的な元を作ります。$g_\varepsilon(s)=(\pi\varepsilon)^{-1/2}\exp(-s^2/\varepsilon)$（$\varepsilon>0$）とし、実数 $s$ の強作用素積分で
@@ -465,7 +465,7 @@ J\mathcal M J=\mathcal M',
 \quad(t\in\mathbb R).
 }
 $$
-> 特に $\sigma_t=\operatorname{Ad}\Delta^{it}|_{\mathcal M}$ は正規な強連続 $*$-自己同型群で、$\omega(A)=\langle\Omega,A\Omega\rangle$ を保つ。
+> 特に $\sigma_t=\operatorname{Ad}\Delta^{it}|_{\mathcal M}$ は正規で強連続な $*$-自己同型の1パラメータ群で、$\omega(A)=\langle\Omega,A\Omega\rangle$ を保つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
