@@ -140,7 +140,12 @@ $$
 <!-- formal-statement-start -->
 ### 命題（Newton 粘性応力の客観性）
 
-$\eta,\zeta$ が観測者の回転によって変わらないスカラー材料量であるとする。重ね合わせた剛体運動の回転 $Q(t)\in SO(3)$ に対し、応力 $\sigma=-pI+2\eta D^\circ+\zeta\theta I$ は $\sigma^*=Q\sigma Q^T$ を満たす。ただし $p^*=p$ とする。
+粘性係数 $\eta,\zeta$ が観測者の回転によって不変なスカラー材料量であり、圧力 $p$ も不変であるとする。重ね合わせた剛体運動の回転 $Q(t)\in SO(3)$ に対し、Newton 応力の客観性は次の式で表される。
+
+$
+\sigma=-pI+2\eta D^\circ+\zeta\theta I,\qquad
+\sigma^*=Q\sigma Q^T.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
