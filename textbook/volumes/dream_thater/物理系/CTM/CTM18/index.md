@@ -513,7 +513,7 @@ $$
 
 Maxwell は [直列接続](#def-ctm18-connections)と [ステップ応答定理](#thm-ctm18-maxwell-step)により、ばねひずみ $\varepsilon_s=\sigma/E$ は跳べるが、有限応力のもとではダッシュポットの $\varepsilon_d$ は連続である。(i) 応力ステップなら全ひずみは直後に $\sigma_0/E$ だけ跳び、その後 $\sigma_0t/\eta_v$ 増える。(ii) ひずみステップなら応力は直後に $E\varepsilon_0$ へ跳び、以後指数緩和する。
 
-Kelvin–Voigt は [並列模型の式](#thm-ctm18-kelvin-law)で粘性枝と全ひずみが同じ。(i) [応力ステップのクリープ定理](#thm-ctm18-kelvin-step)より有限応力のステップでは $\varepsilon(0+)=0$、その後 $\sigma_0(1-e^{-t/\tau})/E$。(ii) ひずみステップ $\Delta\varepsilon\ne0$ を課すには $\eta_v\dot\varepsilon$ の衝撃が必要で、有界な応力履歴としては許されない。荷重と変形のどちらを制御したかを入れ替えない。
+Kelvin–Voigt は [並列模型の式](#thm-ctm18-kelvin-law)で粘性枝と全ひずみが同じ。(i) [Kelvin–Voigt 模型のクリープとひずみステップの限界](#thm-ctm18-kelvin-step)より有限応力のステップでは $\varepsilon(0+)=0$、その後 $\sigma_0(1-e^{-t/\tau})/E$。(ii) ひずみステップ $\Delta\varepsilon\ne0$ を課すには $\eta_v\dot\varepsilon$ の衝撃が必要で、有界な応力履歴としては許されない。荷重と変形のどちらを制御したかを入れ替えない。
 <!-- solution-end -->
 
 ### Level B
