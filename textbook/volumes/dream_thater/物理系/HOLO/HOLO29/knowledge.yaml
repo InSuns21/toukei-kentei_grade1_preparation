@@ -1,0 +1,32 @@
+chapter: HOLO29
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO28
+  - QINF28
+forward_references: []
+concepts:
+  - id: holography.erasure-region-recovery
+    name: 境界部分領域の消失回復
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界部分領域の消失回復）"]
+    requires: [quantum.erasure-privacy-criterion, holography.subregion-operator-reconstruction]
+  - id: holography.erasure-logical-representation
+    name: 部分領域上の論理演算子表現
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分領域上の論理演算子表現）"]
+    requires: [holography.erasure-region-recovery, quantum.three-qutrit-threshold]
+  - id: holography.three-qutrit-multiple-representations
+    name: 三つの二領域における同一論理代数の表現
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三つの二領域における同一論理代数の表現）"]
+    requires: [holography.erasure-logical-representation, quantum.three-qutrit-threshold]
+  - id: holography.erasure-relative-entropy-model
+    name: 二領域の情報保存と定数エントロピー項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二領域の情報保存と定数エントロピー項）"]
+    requires: [holography.three-qutrit-multiple-representations, holography.fixed-sector-jlms]
