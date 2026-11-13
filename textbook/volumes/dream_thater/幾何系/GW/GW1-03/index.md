@@ -89,10 +89,12 @@ $$
 
 局所式は次のように書ける。
 
-$
+$$
 2\bar\partial_Ju_\varepsilon(\partial_s)
 =(u_\varepsilon)_s+J(u_\varepsilon)(u_\varepsilon)_t.
-$捩率零により、二変数写像 $U(\varepsilon,s,t)$ の方向微分について
+$$
+
+捩率零により、二変数写像 $U(\varepsilon,s,t)$ の方向微分について
 
 $$
 \nabla_{\partial_\varepsilon}(U_s)
