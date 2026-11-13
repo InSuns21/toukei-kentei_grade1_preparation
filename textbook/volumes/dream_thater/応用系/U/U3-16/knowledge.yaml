@@ -4,7 +4,7 @@ coverage: complete
 prerequisites: [U3-15, STO7, PDE1]
 concepts:
   - id: finance.smooth-terminal-value-function
-    name: 滑らかな満期価値関数とデルタ
+    name: 滑らかな満期価値関数
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（滑らかな満期価値関数とデルタ）", "滑らかな満期価値関数"]
