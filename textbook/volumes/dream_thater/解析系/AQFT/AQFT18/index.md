@@ -578,6 +578,8 @@ $S_0(\lambda e_1)=\overline\lambda e_1$ はこの一次元部分空間上でwell
 <a id="ex-aqft18-a01"></a>
 #### AQFT18-A01 二点の標準対と初期作用素
 
+- Level: A
+
 $\mathcal H=\mathbb C^2$、$D$ を対角行列環とする。$\Omega=(\sqrt{1/4},\sqrt{3/4})$ に対して、巡回性・分離性を個別に示し、$S_0$ を任意の $x=(u,v)$ について求めよ。
 
 <!-- solution-start -->
@@ -605,6 +607,8 @@ $$
 <a id="ex-aqft18-a02"></a>
 #### AQFT18-A02 反線形の符号を落とさない
 
+- Level: A
+
 $\mathcal H=\mathbb C^2$、$C(z_1,z_2)=(\overline z_1,\overline z_2)$ とする。$x=(1,i)$、$\alpha=2+i$ に対して $C(\alpha x)=\overline\alpha Cx$ を成分で確かめ、$C^2x=x$ を計算せよ。
 
 <!-- solution-start -->
@@ -627,6 +631,8 @@ $$
 <a id="ex-aqft18-a03"></a>
 #### AQFT18-A03 分離性の欠落と零ベクトル
 
+- Level: A
+
 $\mathcal H=\mathbb C^2$、$\mathcal M=B(\mathbb C^2)$、$\Omega=e_1$ とする。$E_{12}\Omega$ と $E_{12}^*\Omega$ を求め、$A\Omega\mapsto A^*\Omega$ が写像を定義しない理由を説明せよ。
 
 <!-- solution-start -->
@@ -641,6 +647,8 @@ $$
 
 <a id="ex-aqft18-a04"></a>
 #### AQFT18-A04 可閉性の零列判定
+
+- Level: A
 
 稠密定義反線形作用素 $T$ に対して、列 $x_n\in\operatorname{Dom}(T)$ が $x_n\to x$、$Tx_n\to y$ と $x_n'\to x$、$Tx_n'\to y'$ を満たすとする。可閉性の零列判定から $y=y'$ を証明せよ。
 
@@ -665,6 +673,8 @@ $$
 <a id="ex-aqft18-b01"></a>
 #### AQFT18-B01 可換子側が稠密になる理由
 
+- Level: B
+
 $\mathcal M\subset B(\mathcal H)$ がvon Neumann環で、$\Omega$ が $\mathcal M$ に分離的とする。$K=\overline{\mathcal M'\Omega}$ への直交射影 $P$ を用い、$K=\mathcal H$ を証明せよ。$\Omega$ が $\mathcal M$ に巡回的とは仮定しない。
 
 <!-- solution-start -->
@@ -682,6 +692,8 @@ $I\in\mathcal M'$ より $\Omega\in K$、したがって $(I-P)\Omega=0$。$I-P\
 
 <a id="ex-aqft18-b02"></a>
 #### AQFT18-B02 対合公式から可閉性へ
+
+- Level: B
 
 標準対で $x_n=A_n\Omega\to0$、$A_n^*\Omega\to\eta$ とする。任意の $B\in\mathcal M'$ について基本対合公式を適用し $\eta=0$ を導け。また、どこで巡回性と分離性が使われるか明示せよ。
 
@@ -710,6 +722,8 @@ $$
 <a id="ex-aqft18-b03"></a>
 #### AQFT18-B03 無限次元標準対は非有界になり得る
 
+- Level: B
+
 $K=\ell^2(\mathbb N)$、$\mathcal H=S_2(K)$、$\mathcal M=\{L_A:A\in B(K)\}$、$\Omega=\operatorname{diag}(2^{-j/2})$ とする。行列単位 $E_{ij}$ を用いて標準性を示し、$x_n=E_{1n}\Omega$ について $\|S_0x_n\|_2/\|x_n\|_2$ を求めよ。また、この列が可閉性の反例ではない理由を述べよ。
 
 <!-- solution-start -->
@@ -730,6 +744,8 @@ $S_0$ は非有界です。ただし $\|S_0x_n\|_2=2^{-1/2}$ は一定であり�
 
 <a id="ex-aqft18-b04"></a>
 #### AQFT18-B04 閉包でも対合が残る
+
+- Level: B
 
 $S_0$ が可閉かつ $S_0(\operatorname{Dom}S_0)=\operatorname{Dom}S_0$、$S_0^2=I$ を満たすとする。$S=\overline{S_0}$ について $\operatorname{Dom}S$ が $S$ で保たれ、$S^2=I$ がその定義域で成立することを示せ。
 
@@ -753,6 +769,8 @@ $$
 
 <a id="ex-aqft18-c01"></a>
 #### AQFT18-C01 可換な無限次元模型を完全に構成する
+
+- Level: C
 
 $\mathcal H=L^2([0,1])$、$\mathcal M=\{M_f:f\in L^\infty([0,1])\}$（$M_fg=fg$）、$\Omega=1$ とする。
 
