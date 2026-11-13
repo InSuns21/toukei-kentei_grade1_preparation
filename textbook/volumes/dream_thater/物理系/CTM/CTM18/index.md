@@ -43,7 +43,12 @@ $$
 である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-ctm18-elements -->
+### **定義の確認**：一次元素子の応力・エネルギー・単位
+
 直接例として $\varepsilon_s=0.01$、$E=10^6$ Pa なら $\sigma_s=10^4$ Pa であり、$\psi_s=50$ J/m$^3$。また $\dot\varepsilon_d=0.005$ s$^{-1}$、$\eta_v=2\times10^6$ Pa s なら $\sigma_d=10^4$ Pa、$\mathcal D_d=50$ W/m$^3$ となる。単位も、$\mathrm{Pa}=\mathrm{J/m^3}$ と $\mathrm{Pa/s}=\mathrm{W/m^3}$ で一致する。いずれも $E,\eta_v>0$ の条件を実際に満たす。
+
+<!-- definition-example-end -->
 
 棒全体の伸びと軸力に直すと、ばねは $F=(EA/L_0)\Delta L$、ダッシュポットは $F=(\eta_v A/L_0)\dot{\Delta L}$ となる。したがって係数 $k=EA/L_0$ の単位は N/m、$c=\eta_v A/L_0$ は N s/m である。「ばね定数」と材料の「弾性率」は別の量である。
 
@@ -72,6 +77,9 @@ $$
     Kelvin–Voigt：端                     端
                    └ [ダッシュポット η_v] ┘
 
+<!-- definition-example-start: def-ctm18-connections -->
+### **定義の確認**：直列の共通応力と並列の荷重加算
+
 力と伸びの条件を数値で確かめる。Maxwell 模型に $\sigma=10^4$ Pa、$E=10^6$ Pa、$\eta_v=2\times10^6$ Pa s、$\dot\varepsilon_d=0.005$ s$^{-1}$ を与える。このとき
 
 $$
@@ -90,6 +98,7 @@ $$
 $$
 
 これは並列接続の荷重加算を直接確認する例である。
+<!-- definition-example-end -->
 
 ## 3. Maxwell 模型：一定ひずみでも応力は減る
 
