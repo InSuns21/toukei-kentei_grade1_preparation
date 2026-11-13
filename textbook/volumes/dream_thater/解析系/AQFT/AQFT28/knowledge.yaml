@@ -47,9 +47,9 @@ concepts:
     name: hyperfinite von Neumann環
     kind: definition
     introduction: formal
-    requires: [aqft.local-von-neumann-net]
+    requires: [aqft.gns-local-von-neumann-net]
   - id: aqft.conditional-local-typeiii1
     name: 局所環のhyperfinite Type III₁構造
     kind: theorem
     introduction: formal
-    requires: [aqft.connes-typeiii-classification, aqft.hyperfinite-von-neumann-algebra, aqft.split-inclusion, aqft.energy-nuclearity]
+    requires: [aqft.connes-typeiii-classification, aqft.hyperfinite-von-neumann-algebra, aqft.split-inclusion, aqft.energy-nuclearity-map]
