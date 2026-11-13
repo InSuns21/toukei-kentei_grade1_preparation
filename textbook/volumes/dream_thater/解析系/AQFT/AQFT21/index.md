@@ -28,7 +28,9 @@ $$
 <!-- definition-example-start: def-aqft21-left-hilbert -->
 ### 直接例：二準位の積と反転を確かめる
 
-[AQFT20のHilbert–Schmidt空間](../AQFT20/index.md#def-aqft20-hilbert-schmidt)で $\rho=\operatorname{diag}(3/4,1/4)$、$\Omega=\rho^{1/2}$、$\mathcal M=L(M_2(\mathbb C))$ とします。$\mathfrak A_0=\mathcal H=M_2(\mathbb C)$ ですが、積はHilbert–Schmidt行列の通常の積ではなく、$\Omega$ を挟むことに注意します。
+[AQFT20のHilbert–Schmidt空間と左乗算の定義](../AQFT20/index.md#def-aqft20-hilbert-schmidt)を用い、$\rho=\operatorname{diag}(3/4,1/4)$、$\Omega=\rho^{1/2}$、$\mathcal M=\{L_D:D\in M_2(\mathbb C)\}$ とします。ここで $L_D(X)=DX$ は**行列 $D$ がHilbert–Schmidt空間に作用する作用素**です。この例に限り、$D\Omega$ は $L_D\Omega=D\rho^{1/2}$ の略記とします。$E_{ij}$ は標準基底 $e_1,e_2$ に関する行列単位（$E_{ij}e_k=\delta_{jk}e_i$）です。
+
+$\rho^{1/2}$ は可逆で、任意の $X\in\mathcal H=M_2(\mathbb C)$ を $L_{X\rho^{-1/2}}\Omega=X$ と表せるため、$\mathfrak A_0=\mathcal H$ です。定義の積は $L_A\Omega$ と $L_B\Omega$ に対して $L_AL_B=L_{AB}$ から $L_{AB}\Omega=AB\rho^{1/2}$ となり、Hilbert–Schmidt行列同士の通常の積 $A\rho^{1/2}B\rho^{1/2}$ とは異なります。
 
 $A=E_{12}$、$B=E_{21}$ とすれば、$A\Omega=(1/2)E_{12}$、$B\Omega=(\sqrt3/2)E_{21}$ であり、
 $$
@@ -44,6 +46,8 @@ $$
 ## 2. 左乗算はなぜ有界なのか
 
 Hilbert環という名の中身は、積だけでなく内積と作用素ノルムの整合性です。[可閉な反線形作用素](../AQFT18/index.md#def-aqft18-closable)という概念が、ここでは反転 $x\mapsto x^\#$ に現れます。
+
+この命題で先に使う**グラフ core**とは、閉作用素 $T$ の定義域内の部分空間 $\mathcal D$ であって、全ての $x\in\operatorname{Dom}T$ に対して $x_n\in\mathcal D$ を選び、$x_n\to x$ と $Tx_n\to Tx$ を同時に満たせるものです。つまり $\mathcal D$ の元によって作用素の値まで近似できるという意味であり、第4節で全解析ベクトルとともに整理します。
 
 <a id="prop-aqft21-left-regular"></a>
 
@@ -129,7 +133,7 @@ $$
 $C'\in\mathcal M'$ の定義から $AC'=C'A$ が $B(\mathcal H)$ 内で成り立ちます。従って各 $x\in\mathcal H$ に対し $AC'x=C'Ax$。また $\{\lambda(A\Omega):A\in\mathcal M\}=\mathcal M$ は前命題で示した作用素としての等号です。両辺の可換子を取れば結論が従います。ただし、$\mathfrak A_0$ 内の積について $C'(A\Omega)=(AB)\Omega$ となる $B\in\mathcal M$ が存在するとは、ここでは導いていません。
 <!-- proof-end -->
 
-右乗算の落とし穴は、単に無限次元だから怖い、という注意ではありません。実際にノルムが発散する例を計算します。
+右乗算の落とし穴は、単に無限次元だから怖い、という注意ではありません。実際にノルムが発散する例を計算します。以下では[AQFT18の無限次元Hilbert–Schmidt模型](../AQFT18/index.md#def-aqft18-tomita-initial)と同じく $L_A(X)=AX$ を使い、行列 $A$ と作用素 $L_A\in\mathcal M$ を区別します。行列単位は $E_{ij}e_k=\delta_{jk}e_i$ と作用し、$L_A\Omega=A\Omega$ と略記する箇所は行列としての積を表します。
 
 <a id="prop-aqft21-right-unbounded"></a>
 
@@ -142,7 +146,7 @@ $$
 $$
 > $(\mathcal M,\Omega)$ は標準対だが、片側シフト $Ve_j=e_{j+1}$ による代数的右乗算
 $$
-T_V(A\Omega)=AV\Omega\qquad(A\in B(\mathcal K))
+T_V(L_A\Omega)=L_{AV}\Omega=AV\Omega\qquad(A\in B(\mathcal K))
 $$
 > は $\mathfrak A_0=\mathcal M\Omega$ 上で定義されるものの、$\mathcal H$ 上の有界作用素へは延長できない。
 <!-- formal-statement-end -->
@@ -160,7 +164,7 @@ E_{ij}=\frac1{\sqrt{p_j}}E_{ij}\Omega
 $$
 が全 $i,j$ で成立し、行列単位の有限線形結合はHilbert–Schmidt空間で稠密ですから巡回的です。
 
-$T_V$ の定義は $\Omega$ の分離性により一価で、$AV$ は有界作用素です。$j\ge2$ について $E_{1j}V=E_{1,j-1}$ なので
+$T_V$ の定義は $\Omega$ の分離性により一価で、$AV$ は有界作用素です。$j\ge2$ に対し、$E_{1j}Ve_k=E_{1j}e_{k+1}=\delta_{j,k+1}e_1=E_{1,j-1}e_k$ が全ての $k$ で成り立つため、$E_{1j}V=E_{1,j-1}$ です。従って
 $$
 \|E_{1j}\Omega\|_2=\sqrt{p_j},\qquad
 \|T_V(E_{1j}\Omega)\|_2=\|E_{1,j-1}\Omega\|_2=\sqrt{p_{j-1}}.
@@ -266,7 +270,7 @@ $r=1/2$ の前段の収束と合わせ、$\mathcal D_{\mathrm{sp}}$ は $S$ の�
 
 ## 5. Gaussian平滑化は何を改善するか
 
-スペクトル切断 $P_n$ は便利ですが、パラメータに滑らかに依存する近似も欲しくなります。そこで $U_t$ の軌道をGaussianの重みで平均します。以下は**ベクトルの解析性**に関する結果であり、$\Delta^{it}\mathcal M\Delta^{-it}=\mathcal M$ を先取りしません。
+スペクトル切断 $P_n$ は便利ですが、パラメータに滑らかに依存する近似も欲しくなります。そこで $U_t$ の軌道をGaussianの重みで平均します。以下で使う**Bochner積分**は、Hilbert空間値関数をノルムで近似する階段関数の積分の極限です。固定した $x$ について軌道 $t\mapsto U_tx$ は強連続であり、Gaussian重みとの積のノルムは可積分なので、この積分が存在します。以下は**ベクトルの解析性**に関する結果であり、$\Delta^{it}\mathcal M\Delta^{-it}=\mathcal M$ を先取りしません。
 
 <a id="lem-aqft21-gaussian"></a>
 
@@ -310,7 +314,7 @@ g_\varepsilon(\lambda)
 =\frac1{\sqrt{4\pi\varepsilon}}
 \int_{\mathbb R}e^{-t^2/(4\varepsilon)}e^{it\lambda}\,dt
 $$
-を考えます。$g_\varepsilon(0)=1$ で、微分と積分の交換は $|t|e^{-t^2/(4\varepsilon)}$ の可積分性により許されます。部分積分すると
+を考えます。$g_\varepsilon(0)=1$ で、$g_\varepsilon'(\lambda)=dg_\varepsilon/d\lambda$ は**スペクトル変数 $\lambda$ に関する微分**、積分中の $d/dt$ は**時間変数 $t$ に関する微分**です。前者と積分の交換は $|t|e^{-t^2/(4\varepsilon)}$ の可積分性により許されます。$t e^{-t^2/(4\varepsilon)}=-2\varepsilon\,\frac d{dt}(e^{-t^2/(4\varepsilon)})$ と書いて、$t$ に関して部分積分すると
 $$
 \begin{aligned}
 g_\varepsilon'(\lambda)
@@ -418,7 +422,7 @@ $$
 <a id="ex-aqft21-a02"></a>
 #### AQFT21-A02 内積恒等式の二次元検算
 
-$\mathcal H=M_2(\mathbb C)$、$\Omega=\operatorname{diag}(\sqrt3/2,1/2)$、$A=E_{12}$、$B=E_{21}$、$C=E_{11}$ とする。$\langle AB\Omega,C\Omega\rangle_2$ と $\langle B\Omega,A^*C\Omega\rangle_2$ を別々に求めよ。
+$\mathcal H=M_2(\mathbb C)$、$\mathcal M=\{L_D:D\in M_2(\mathbb C)\}$、$\Omega=\operatorname{diag}(\sqrt3/2,1/2)$、行列 $A=E_{12}$、$B=E_{21}$、$C=E_{11}$ とする。$A\Omega=L_A\Omega$ などと略記し、$\langle AB\Omega,C\Omega\rangle_2$ と $\langle B\Omega,A^*C\Omega\rangle_2$ を別々に求めよ。
 
 - Level: A
 
@@ -486,7 +490,7 @@ $$
 <a id="ex-aqft21-b02"></a>
 #### AQFT21-B02 右乗算が非有界になる比
 
-$\mathcal K=\ell^2(\mathbb N)$、$\rho=\operatorname{diag}(p_j)$、$p_j=c2^{-j^2}$、$\Omega=\rho^{1/2}$、$Ve_j=e_{j+1}$ とする。$T_V(A\Omega)=AV\Omega$ のノルムが有界でないことを $E_{2j}$（$j\ge2$）だけを使って示せ。$R_V(X)=XV$ との違いも述べよ。
+$\mathcal K=\ell^2(\mathbb N)$、$\mathcal H=S_2(\mathcal K)$、$\mathcal M=\{L_A:A\in B(\mathcal K)\}$、$\rho=\operatorname{diag}(p_j)$、$p_j=c2^{-j^2}$（$c>0$ は正規化定数）、$\Omega=\rho^{1/2}$、$Ve_j=e_{j+1}$ とする。$T_V(L_A\Omega)=L_{AV}\Omega=AV\Omega$ のノルムが有界でないことを $E_{2j}$（$j\ge2$）だけを使って示せ。$R_V(X)=XV$ との違いも述べよ。
 
 - Level: B
 
