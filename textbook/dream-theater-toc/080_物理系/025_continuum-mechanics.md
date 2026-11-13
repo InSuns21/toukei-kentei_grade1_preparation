@@ -19,3 +19,4 @@
 16. [CTM16 無次元化で粘性と慣性のどちらが効くか](textbook/volumes/dream_thater/物理系/CTM/CTM16/index.md)
 17. [CTM17 圧力駆動のStokes流を解く](textbook/volumes/dream_thater/物理系/CTM/CTM17/index.md)
 18. [CTM18 ばねとダッシュポットで緩和・クリープを説明できるか](textbook/volumes/dream_thater/物理系/CTM/CTM18/index.md)
+19. [CTM19 時間依存の応答と散逸をどう測るか](textbook/volumes/dream_thater/物理系/CTM/CTM19/index.md)
