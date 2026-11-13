@@ -342,6 +342,12 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-18/assets/black_scholes_check.py
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-18/assets/tests -v
 
+      # U3-20: derivative oracle, PDE identity and fixed-delta one-step hedging.
+      - name: Verify U3-20 Greeks and daily hedge experiment
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-20/assets/greeks_hedge.py
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-20/assets/tests -v
+
       # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding

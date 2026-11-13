@@ -20,3 +20,4 @@
 17. [U3-17 Feynman–Kac：期待値と PDE の橋](textbook/volumes/dream_thater/応用系/U/U3-17/index.md)
 18. [U3-18 Black–Scholes 閉形式と正規積分](textbook/volumes/dream_thater/応用系/U/U3-18/index.md)
 19. [U3-19 配当・金利・先渡価格・割引規約](textbook/volumes/dream_thater/応用系/U/U3-19/index.md)
+20. [U3-20 Greeks とヘッジ誤差](textbook/volumes/dream_thater/応用系/U/U3-20/index.md)

@@ -1,0 +1,43 @@
+id: "U3-20"
+title: "Greeks とヘッジ誤差"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-19, U3-18, U3-16, U3-14]
+official_scope: []
+learning_objectives:
+  - 配当付き欧州型 call/put の Delta・Gamma・Vega・Theta・Rho を、偏微分変数・固定条件・単位から定義できる
+  - 正規密度恒等式を再導出して Delta・Gamma・Vega・Theta・Rho の解析式をすべて証明できる
+  - call/put parity を偏微分して put の Greeks と感応度差を検算できる
+  - 中心差分の二次局所打切り誤差を Taylor 展開から導き、満期折れ目での失敗を説明できる
+  - デルタを固定した short-call の株式・預金・配当の自己金融損益を算定できる
+  - BSM PDE と二変数 Taylor 展開から日次ヘッジ残差の Gamma–Theta 主項を導出できる
+  - 解析 Greeks・中心差分・1日後の再評価を同じ数値例で検算し、近似誤差を区別できる
+  - Q下の価格付けの診断とP下の実リスク・費用を区別できる
+definitions:
+  - { id: U3-20-DEF-01, name: "Delta・Gamma・Vega・Theta・Rho" }
+  - { id: U3-20-DEF-02, name: "1区間固定デルタ・ヘッジ損益" }
+theorems:
+  - { id: U3-20-THM-01, name: "配当付き欧州型 call/put の Greeks" }
+  - { id: U3-20-PROP-01, name: "滑らかな価格に対する中心差分の局所誤差" }
+  - { id: U3-20-THM-02, name: "小区間デルタ・ヘッジ誤差の主項" }
+canonical_examples:
+  - "s=K=100,r=.05,q=.02,sigma=.20,tau=1 の call=9.227005508、Delta=0.586851146、Gamma=0.018950579、Vega=37.901158"
+  - "先渡価値を直接偏微分して Gamma=Vega=0 と Theta・Rho の符号を確認"
+  - "100円近傍の call 閉形式・接線・二次近似を比較"
+  - "1日=1/252年で標準化増分 Z=0,1,2 の再評価 P&L と Gamma–Theta 主項を比較"
+  - "満期の折れ目、sigma=0、非ゼロ配当の左端近似における適用条件"
+problem_patterns:
+  - U3-20-A1
+  - U3-20-A2
+  - U3-20-A3
+  - U3-20-A4
+  - U3-20-A5
+  - U3-20-B1
+  - U3-20-B2
+  - U3-20-B3
+  - U3-20-B4
+  - U3-20-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
