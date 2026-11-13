@@ -4,7 +4,7 @@
 
 [CTM1の物質点](../../CTM/CTM1/index.md#def-ctm1-reference-material)を追うことで、流体の「部分」を区別して運動を記述できる。しかし水や空気は実際には分子で構成され、任意に小さな点で質量密度が滑らかに定義できるわけではない。本講の中心問いは、**微視的な変動を平均しながら巨視的な流れの変化を残せるのは、どのような条件か**である。
 
-[CTM5の密度](../../CTM/CTM5/index.md#def-ctm5-mass-densities)、[CTM15のNewton粘性係数](../../CTM/CTM15/index.md#def-ctm15-newtonian-fluid)、[CTM16のReynolds数](../../CTM/CTM16/index.md#def-ctm16-reynolds)を既知として、連続体近似、Knudsen数、動粘度、表面張力を整理し、どの物理仮定が必要かを実際の計算で確かめる。
+[CTM5の密度](../../CTM/CTM5/index.md#def-ctm5-mass-densities)、[CTM15のNewton粘性係数](../../CTM/CTM15/index.md#def-ctm15-newtonian-fluid)、[CTM16のReynolds数](../../CTM/CTM16/index.md#def-ctm16-reynolds)を既知として、微視的尺度と流路長の比、粘性の物性を密度で規格化した量、界面の性質を順に導入し、どの物理仮定が必要かを実際の計算で確かめる。
 
 ## 1. 三つの長さ：平均するには大きく、変化を残すには小さく
 
@@ -138,7 +138,7 @@ $$
 [\eta]=\mathrm{Pa\,s}=\frac{\mathrm{kg}}{\mathrm{m\,s}}.
 $$
 
-上側の平板の面積を $A$、上下の距離を $h$、上板速度を $U$ とする。速度が $u_x(y)=Uy/h$ という線形分布なら、接線力の大きさは
+上側の平板の面積を $A$、上下の距離を $h$、上板速度を $U$ とする。速度が $u_x(y)=Uy/h$ という一次関数で表せるなら、接線力の大きさは
 
 $$
 F=\eta A\frac Uh,\qquad \eta=\frac{Fh}{AU}.
