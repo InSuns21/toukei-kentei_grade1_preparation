@@ -1,0 +1,29 @@
+chapter: U3-16
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-15, STO7, PDE1]
+concepts:
+  - id: finance.smooth-terminal-value-function
+    name: 滑らかな満期価値関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな満期価値関数とデルタ）", "滑らかな満期価値関数"]
+    requires: [finance.continuous-self-financing, stochastic.ito-process-formula]
+  - id: finance.black-scholes-merton-pde
+    name: 自己金融複製からの Black–Scholes–Merton 方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自己金融複製からの Black–Scholes–Merton 方程式）"]
+    requires: [finance.smooth-terminal-value-function, finance.continuous-self-financing, stochastic.ito-process-formula]
+  - id: finance.bsm-classical-replication
+    name: 古典解からの自己金融複製と一意価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（古典解からの自己金融複製と一意価格）"]
+    requires: [finance.black-scholes-merton-pde, finance.continuous-replication-price, finance.gbm-real-moments]
+  - id: finance.bsm-continuous-dividend
+    name: 一定連続配当率つき BSM 方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一定連続配当率つき BSM 方程式）"]
+    requires: [finance.black-scholes-merton-pde]

@@ -19,7 +19,7 @@ chapters:
   - { id: U3-13, path: textbook/volumes/dream_thater/応用系/U/U3-13, status: completed, title: "金融モデルへの Itô 公式の適用" }
   - { id: U3-14, path: textbook/volumes/dream_thater/応用系/U/U3-14, status: completed, title: "幾何 Brown 運動と対数正規価格分布" }
   - { id: U3-15, path: textbook/volumes/dream_thater/応用系/U/U3-15, status: completed, title: "連続時間のリスク中立測度とヘッジ" }
-  - { id: U3-16, path: textbook/volumes/dream_thater/応用系/U/U3-16, status: planned, title: "自己金融 delta hedge と Black–Scholes–Merton PDE" }
+  - { id: U3-16, path: textbook/volumes/dream_thater/応用系/U/U3-16, status: completed, title: "自己金融 delta hedge と Black–Scholes–Merton PDE" }
   - { id: U3-17, path: textbook/volumes/dream_thater/応用系/U/U3-17, status: planned, title: "Feynman–Kac：期待値と PDE の橋" }
   - { id: U3-18, path: textbook/volumes/dream_thater/応用系/U/U3-18, status: planned, title: "Black–Scholes 閉形式と正規積分" }
   - { id: U3-19, path: textbook/volumes/dream_thater/応用系/U/U3-19, status: planned, title: "配当・金利・先渡価格・割引規約" }
