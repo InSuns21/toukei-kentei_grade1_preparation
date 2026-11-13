@@ -374,7 +374,7 @@ $$
 \end{aligned}
 $$
 
-二つの座標方向で零なので[局所Cauchy–Riemann方程式の命題](#prop-gw1-02-local-cr)により全接ベクトルで $\bar\partial_Ju=0$。従って擬正則である。
+二つの座標方向で零なので[本講の擬正則条件の同値命題](#prop-gw1-02-local-cr)により全接ベクトルで $\bar\partial_Ju=0$。従って擬正則である。
 <!-- solution-end -->
 
 <a id="ex-gw1-02-a02"></a>
