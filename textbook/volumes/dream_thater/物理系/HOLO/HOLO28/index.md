@@ -50,7 +50,14 @@ $$
 
 この対角行列は、qubitの正規直交基底 $|0\rangle,|1\rangle$ で表した $\sigma$ です。各基底ベクトルが $\sigma$ の固有ベクトルなので、行列の対数は固有値 $3/4,1/4$ のそれぞれに $\log$ を作用させて計算できます。正定値性は両固有値が正であることから、密度行列の条件はさらに両固有値の和が1であることから確認できます。
 
-対数を取るために $\sigma$ を対角化したのであって、比較する $\rho$ と可換であることは仮定しません。例えば $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ と置くと、$\rho=|+\rangle\langle+|=\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix}$ は正半定値でトレース1、台は $\sigma$ の全台に含まれます。$\rho$ の非対角成分は零でないため $\rho\sigma\ne\sigma\rho$ ですが、上の $K_\sigma$ で比較できます。
+対数を取るために $\sigma$ を対角化したのであって、比較する $\rho$ と可換であることは仮定しません。例えば $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ と置くと、
+
+$$
+\rho=|+\rangle\langle+|
+=\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix}
+$$
+
+は正半定値でトレース1、台は $\sigma$ の全台に含まれます。$\rho$ の非対角成分は零でなく $\sigma$ の二固有値は異なるため、$\rho\sigma\ne\sigma\rho$ ですが、上の $K_\sigma$ で比較できます。
 <!-- definition-example-end -->
 
 <a id="prop-holo28-relative-modular"></a>
@@ -298,7 +305,16 @@ $$
 (\mathcal H_{a_\alpha}\otimes\mathcal H_{b_\alpha})
 $$
 
-> とし、物理因子を $\mathcal H_A=\bigoplus_\alpha(\mathcal H_{a_\alpha}\otimes\mathcal H_{e_{A,\alpha}})$、$\mathcal H_{\bar A}=\bigoplus_\alpha(\mathcal H_{b_\alpha}\otimes\mathcal H_{e_{B,\alpha}})$ とする。ただし $\dim\mathcal H_{e_{A,\alpha}}=\dim\mathcal H_{e_{B,\alpha}}=d_\alpha$。第3節と同様、各コードブロックの $|\psi_\alpha\rangle$ を $|\psi_\alpha\rangle\otimes|\Phi_{d_\alpha}\rangle$ に写し、物理因子を $A,\bar A$ の順に並べ替える写像 $V$ を定める。異なるブロックの像は直交し、同じブロックではBell対の規格化により内積が保存されるから $V^\dagger V=I_{\rm code}$ である。中心の射影 $P_\alpha$ に対し
+> とし、物理領域 $A$ と補領域 $\bar A$ の因子を
+
+$$
+\begin{aligned}
+\mathcal H_A&=\bigoplus_\alpha(\mathcal H_{a_\alpha}\otimes\mathcal H_{e_{A,\alpha}}),\\
+\mathcal H_{\bar A}&=\bigoplus_\alpha(\mathcal H_{b_\alpha}\otimes\mathcal H_{e_{B,\alpha}})
+\end{aligned}
+$$
+
+> とする。ただし $\dim\mathcal H_{e_{A,\alpha}}=\dim\mathcal H_{e_{B,\alpha}}=d_\alpha$。第3節と同様、各コードブロックの $|\psi_\alpha\rangle$ を $|\psi_\alpha\rangle\otimes|\Phi_{d_\alpha}\rangle$ に写し、物理因子を $A,\bar A$ の順に並べ替える写像 $V$ を定める。異なるブロックの像は直交し、同じブロックではBell対の規格化により内積が保存されるから $V^\dagger V=I_{\rm code}$ である。中心の射影 $P_\alpha$ に対し
 
 $$
 \mathcal L=\sum_\alpha(\log d_\alpha)P_\alpha
