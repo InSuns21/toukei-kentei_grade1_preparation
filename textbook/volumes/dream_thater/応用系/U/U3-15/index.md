@@ -133,11 +133,11 @@ $$
 
 両測度は同値なので、元の SDE が成り立つ経路集合は $Q$ の下でも確率1です。さらに $W_t^Q=W_t^P+\theta t$ であり、有限変動過程 $\theta t$ を分ける確率積分の線形性から
 
-$
+$$
 \int_0^t\sigma S_u\,dW_u^P
 =\int_0^t\sigma S_u\,dW_u^Q
 -\theta\int_0^t\sigma S_u\,du.
-$
+$$
 
 ここで $S$ は有限時間区間で連続なので、各標本路上の局所二乗可積分性があり、上の積分は定義できます。この積分形の等式を微分記法 $dW_t^P=dW_t^Q-\theta\,dt$ で表し、株価 SDE に代入すると
 
@@ -403,11 +403,11 @@ $$
 
 次にこの候補が**実際に**自己金融であるか検証します。価格関数 $v(t,s)$ の第1引数 $t$ は時刻、第2引数 $s>0$ は株価の値です。以下では、$v_t$ は **$s$ を固定して時刻 $t$ で偏微分**したもの、$v_s,v_{ss}$ は **$t$ を固定して株価 $s$ で1回・2回偏微分**したものを表します。
 
-$
+$$
 v_t:=\frac{\partial v}{\partial t},\qquad
 v_s:=\frac{\partial v}{\partial s},\qquad
 v_{ss}:=\frac{\partial^2v}{\partial s^2}.
-$
+$$
 
 これらは時点添字を表す $S_t$ や $\Delta_t$ とは異なります。合成した確率過程 $v(t,S_t)$ の全変化は偏微分 $v_t$ だけでは得られず、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)で $S_t$ の変動と二次変分の補正まで加えます。$a=r+\sigma^2$ と置くと
 
@@ -440,7 +440,7 @@ $$
 
 $\psi_t=(v-\Delta S)/B$ と置いたので恒等的に $V=\Delta S+\psi B=v$ です。前節の [割引自己金融条件](#prop-u3-15-discounted-wealth)の導出を逆にたどると、$dV=\Delta\,dS+\psi\,dB$ が成立します。$\Delta,\psi$ は連続適合で予測可能です。二乗可積分性も具体的に確認します。$Q$ の下で [GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)に $p=4$、ドリフト $r$ を代入すると $E_Q[S_t^4]=s_0^4e^{(4r+6\sigma^2)t}$ です。したがって
 
-$
+$$
 \begin{aligned}
 E_Q[\Delta_t^2\sigma^2\widetilde S_t^2]
 &=\frac{4\sigma^2}{K^2}
@@ -448,18 +448,18 @@ e^{2a(T-t)-2rt}E_Q[S_t^4]\\
 &=\frac{4\sigma^2s_0^4}{K^2}
 e^{2aT+4\sigma^2t}.
 \end{aligned}
-$
+$$
 
 右辺は $0\le t\le T$ で有限かつ有界です。非負関数について積分と期待値を交換すると
 
-$
+$$
 \begin{aligned}
 E_Q\!\left[\int_0^T\Delta_t^2\sigma^2\widetilde S_t^2\,dt\right]
 &=\frac{4\sigma^2s_0^4}{K^2}e^{2aT}
 \int_0^T e^{4\sigma^2t}\,dt\\
 &<\infty.
 \end{aligned}
-$
+$$
 
 したがって自己金融積分は二乗可積分です。最後に $t=T$ を入れると $v(T,S_T)=S_T^2/K=H$ です。
 <!-- proof-end -->
@@ -563,11 +563,11 @@ $\mu=0.09,r=0.03,\sigma=0.20$ とする。$P$ の下で $E_P[\widetilde S_1\mid\
 <!-- solution-start -->
 **詳細解答**：[条件付き平均公式](../U3-14/index.md#prop-u3-14-conditional)に $\mu=0.09$、$u=0,t=1$ を入れると $E_P[S_1\mid\mathcal F_0]=S_0e^{0.09}=s_0e^{0.09}$ です。$\widetilde S_1=e^{-0.03}S_1$ より
 
-$
+$$
 E_P[\widetilde S_1\mid\mathcal F_0]
 =e^{-0.03}s_0e^{0.09}
 =s_0e^{0.06}\ne s_0=\widetilde S_0.
-$
+$$
 
 $s_0>0$ なので差は厳密に正です。従って $P$ のまま割り引く操作だけではマルチンゲールになりません。
 <!-- solution-end -->
