@@ -1,0 +1,43 @@
+chapter: AQFT20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT18
+  - AQFT19
+forward_references: []
+concepts:
+  - id: aqft.hs-space-and-multiplications
+    name: 有限次元Hilbert–Schmidt空間と左右乗算
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: aqft.hs-standard-representation
+    name: 忠実密度行列のHilbert–Schmidt標準表現
+    kind: definition
+    introduction: formal
+    requires: [aqft.hs-space-and-multiplications, aqft.standard-pair]
+  - id: aqft.hs-standard-state
+    name: 標準性と状態の実現
+    kind: proposition
+    introduction: formal
+    requires: [aqft.hs-standard-representation, aqft.standard-pair]
+  - id: aqft.hs-modular-formulas
+    name: Hilbert–Schmidt模型のモジュラー作用素の全計算
+    kind: theorem
+    introduction: formal
+    requires: [aqft.hs-standard-representation, aqft.modular-operator, aqft.modular-conjugation, aqft.antilinear-adjoint]
+  - id: aqft.hs-left-commutant
+    name: 左右乗算の可換子
+    kind: theorem
+    introduction: formal
+    requires: [aqft.hs-space-and-multiplications, aqft.hs-modular-formulas]
+  - id: aqft.hs-finite-flow
+    name: 有限次元のモジュラー時間発展
+    kind: definition
+    introduction: formal
+    requires: [aqft.hs-modular-formulas]
+  - id: aqft.hs-finite-flow-formula
+    name: 有限次元モジュラー流の具体式
+    kind: theorem
+    introduction: formal
+    requires: [aqft.hs-finite-flow, aqft.hs-modular-formulas, aqft.hs-standard-state]
