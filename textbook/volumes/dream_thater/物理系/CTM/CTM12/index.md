@@ -8,7 +8,14 @@
 
 応力のない基準配置 $\Omega\subset\mathbb R^3$ は連結な有界開集合で、境界は区分的に $C^1$ 級とする。面の交線・角は面積零として扱う。位置を $X=(X_1,X_2,X_3)$、未知の変位を $u(X)$（m）とし、**微小変形** $\|\nabla u\|\ll1$ を仮定する。必要な微分のある古典解として、以下では $u\in C^2(\Omega;\mathbb R^3)\cap C^1(\overline\Omega;\mathbb R^3)$ を考え、境界積分に必要な正則性も仮定する。
 
-[CTM3 で定義した微小ひずみ](../CTM3/index.md#def-ctm3-infinitesimal-strain)と [CTM11 の Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を使う。
+[CTM3 で定義した微小ひずみ](../CTM3/index.md#def-ctm3-infinitesimal-strain)と [CTM11 の Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を使う。$e_1,e_2,e_3$ は基準配置の標準直交基底、$u_i=u\cdot e_i$ は変位の第 $i$ 成分とする。$\partial_j$ は基準座標 $X_j$ に関する偏微分 $\partial/\partial X_j$ の略記で、時刻についての微分ではない。変位勾配の第 $j$ 列が $e_j$ 方向への変化であることは
+
+$$
+D_Xu\,e_j=\sum_{i=1}^3(\partial_j u_i)e_i,\qquad
+(\nabla u)_{ij}=\partial_j u_i
+$$
+
+から分かる。以下、同じ項で繰り返す成分添字は $1,2,3$ の和を表す。$I_3$ は三次単位行列、$\delta_{ij}$ はその $(i,j)$ 成分（$i=j$ なら $1$、それ以外なら $0$）である。
 
 $$
 \varepsilon_{ij}(u)=\frac12(\partial_j u_i+\partial_i u_j),\qquad
@@ -16,7 +23,7 @@ $$
 +\mu(\partial_j u_i+\partial_i u_j).
 $$
 
-添字 $k$ は $1,2,3$ で総和を取る。$\lambda,\mu$ は空間的に**一定**の Lamé 係数（Pa）、$\delta_{ij}$ は Kronecker の記号である。[CTM11 の正定値条件](../CTM11/index.md#prop-ctm11-split)に従い
+特に添字 $k$ は $1,2,3$ で総和を取る。$\lambda,\mu$ は空間的に**一定**の Lamé 係数（Pa）である。[CTM11 の正定値条件](../CTM11/index.md#prop-ctm11-split)に従い
 
 $$
 \mu>0,\qquad K=\lambda+\frac{2\mu}{3}>0
@@ -55,7 +62,15 @@ $$
 <!-- definition-example-start: def-ctm12-boundary-data -->
 ### **定義の確認**：同じ棒の左右で異なる量を指定する
 
-直方体に、小さい無次元定数 $a$ を使って $u(X)=aX_1e_1$ を与える。このとき $\nabla u=\operatorname{diag}(a,0,0)$。これを [Hooke 則](../CTM11/index.md#thm-ctm11-hooke)に代入すると
+$L,H,T>0$ とした直方体 $\Omega=(0,L)\times(0,H)\times(0,T)$ に、小さい無次元定数 $a$ を使って $u(X)=aX_1e_1$ を与える。$u_1=aX_1$ の $\partial_1$ 微分だけが $a$ で、他の成分微分は零だから、基準座標の標準基底で
+
+$$
+\nabla u=\operatorname{diag}(a,0,0),\qquad
+\varepsilon(u)=\operatorname{diag}(a,0,0),\qquad
+\operatorname{tr}\varepsilon=a.
+$$
+
+これを [Hooke 則](../CTM11/index.md#thm-ctm11-hooke)の $\sigma=\lambda(\operatorname{tr}\varepsilon)I_3+2\mu\varepsilon$ に代入し、対角成分ごとに足すと
 
 $$
 \sigma=\operatorname{diag}((\lambda+2\mu)a,\lambda a,\lambda a).
@@ -87,13 +102,30 @@ $$
 <!-- definition-example-start: def-ctm12-bvp -->
 ### **定義の確認**：一様に引く棒の全境界
 
-$0<X_1<L$、$0<X_2<H$、$0<X_3<T$ の直方体を考える。$E_Y>0$ と $-1<\nu<1/2$ を [CTM11 の弾性定数変換](../CTM11/index.md#thm-ctm11-elastic-constants)で定め、$p$（Pa）を小さい正の引張応力、$a=p/E_Y$（無次元）とする。候補は
+$0<X_1<L$、$0<X_2<H$、$0<X_3<T$ の直方体を考える。Young 率 $E_Y>0$ と Poisson 比 $-1<\nu<1/2$ を [CTM11 の弾性定数変換](../CTM11/index.md#thm-ctm11-elastic-constants)に従って選び、$p$（Pa）を小さい正の引張応力、$a=p/E_Y$（無次元）とする。候補は
 
 $$
 u(X)=(aX_1,-\nu aX_2,-\nu aX_3).
 $$
 
-$\varepsilon=\operatorname{diag}(a,-\nu a,-\nu a)$ は一定、$\sigma=\operatorname{diag}(p,0,0)$ となるので、$f=0$ とすれば領域内の発散は零。左面 $X_1=0$ に $\Gamma_D$ を置き、そこで実際の $u$ と同じ $\bar u=(0,-\nu aX_2,-\nu aX_3)$ を与える。右面 $X_1=L$ は $n=e_1$ なので $\bar t=pe_1$、その他の四側面は $n=\pm e_2,\pm e_3$ なので $\bar t=0$。定義の三条件を**全て**満たす。
+変位の各成分をそれぞれ $X_1,X_2,X_3$ で微分すると、非零の成分微分は $\partial_1u_1=a$、$\partial_2u_2=\partial_3u_3=-\nu a$ だけである。従って $\varepsilon=\operatorname{diag}(a,-\nu a,-\nu a)$、$\operatorname{tr}\varepsilon=(1-2\nu)a$。先ほどの [弾性定数変換](../CTM11/index.md#thm-ctm11-elastic-constants)で
+
+$$
+2\mu=\frac{E_Y}{1+\nu},\qquad
+\lambda=\frac{E_Y\nu}{(1+\nu)(1-2\nu)}
+$$
+
+と置けば、[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)の各対角成分は
+
+$$
+\begin{aligned}
+\sigma_{11}&=\{\lambda(1-2\nu)+2\mu\}a=E_Ya=p,\\
+\sigma_{22}=\sigma_{33}
+&=\{\lambda(1-2\nu)-2\mu\nu\}a=0.
+\end{aligned}
+$$
+
+従って $\sigma=\operatorname{diag}(p,0,0)$ は一定で、$f=0$ とすれば領域内の発散は零。左面 $X_1=0$ を $\Gamma_D$ とし、実際の $u$ と同じ $\bar u=(0,-\nu aX_2,-\nu aX_3)$ を与える。残る五面を $\Gamma_N$ とすると、右面 $X_1=L$ では $n=e_1$ より $\bar t=\sigma e_1=pe_1$、四側面では $n=\pm e_2,\pm e_3$ より $\bar t=\sigma n=0$。定義の三条件を**全て**満たす。
 
 左面は横方向に自由収縮するよう変位を処方しており、全面を $u=0$ にする通常の完全固定端と同じではない。条件を一箇所変えたら同じ候補解をそのまま使えない。
 <!-- definition-example-end -->
@@ -181,7 +213,7 @@ $$
 u(X)=(\gamma X_2,0,0),\qquad |\gamma|\ll1
 $$
 
-を与える。上面は右へ $\gamma H$ 動く。この変位の行列は $\nabla u=\gamma e_1\otimes e_2$ だから
+を与える。上面は右へ $\gamma H$ 動く。ここで $e_i\otimes e_j$ はベクトル $v$ を $(e_j\cdot v)e_i$ へ写す行列であり、$e_1\otimes e_2$ は $(1,2)$ 成分だけが $1$ である。$u_1$ の $X_2$ 微分だけが $\gamma$ なので、変位勾配は $\nabla u=\gamma e_1\otimes e_2$。これを [微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)で対称化し、[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)へ代入すると
 
 $$
 \varepsilon_{12}=\varepsilon_{21}=\frac\gamma2,\quad
@@ -342,7 +374,13 @@ $$
 -\int_{\Gamma_N}\bar t\cdot v\,dS
 $$
 
-とする（$f,\bar t$ は変位に依存しない死荷重とする）。$\Gamma_D$ 上では $v=\bar u$ を保つため、比較変位 $h$ はそこで零となる。これは数学的には許容変位の差を表す。
+とする（$f,\bar t$ は変位に依存しない死荷重とする）。$\Gamma_D$ 上では $v=\bar u$ を保つため、比較変位 $h$ はそこで零となる。これは数学的には許容変位の差を表す。変分パラメータ $s\in\mathbb R$ を動かし、各空間点 $X$ を固定したまま $v+sh$ を比較するとき、**第一変分**は
+
+$$
+\delta\Pi(v)[h]:=\left.\frac{d}{ds}\Pi(v+sh)\right|_{s=0}
+$$
+
+である。$d/ds$ は変分パラメータの通常の微分で、前節までの $\partial_j=\partial/\partial X_j$ は空間座標の偏微分である。$s$ は無次元とし、$h$ は $v$ と同じ変位の単位（m）を持つ。
 
 <a id="prop-ctm12-energy-variation"></a>
 
@@ -377,7 +415,18 @@ $$
 =\sigma(v):\varepsilon(h).
 $$
 
-荷重は $v$ に依存しないため、それぞれの仕事の微分は $f\cdot h$ と $\bar t\cdot h$。これで表示した変位方向への微分公式を得る。$\sigma(v)$ は対称なので $\sigma(v):\varepsilon(h)=\sigma_{ij}(v)\partial_jh_i$ である。積の微分を成分で行うと
+荷重は $v$ に依存しないため、それぞれの仕事の微分は $f\cdot h$ と $\bar t\cdot h$。これで表示した変位方向への微分公式を得る。$\sigma(v)$ は対称なので、微小ひずみの二項を成分で展開すれば
+
+$$
+\begin{aligned}
+\sigma(v):\varepsilon(h)
+&=\frac12\sigma_{ij}(v)(\partial_jh_i+\partial_ih_j)\\
+&=\frac12(\sigma_{ij}(v)+\sigma_{ji}(v))\partial_jh_i\\
+&=\sigma_{ij}(v)\partial_jh_i.
+\end{aligned}
+$$
+
+二行目では総和のダミー添字 $i,j$ を入れ替えた。積の微分を成分で行うと
 
 $$
 \partial_j(\sigma_{ij}(v)h_i)
@@ -452,7 +501,18 @@ B(X^{(2)}-X^{(1)})=0,\qquad
 B(X^{(3)}-X^{(1)})=0.
 $$
 
-三次元の反対称行列 $B$ は $Bv=\omega\times v$ の形で表せる。独立な二ベクトルを同時に零へ送るには $\omega=0$、ゆえに $B=0$。一つの点の条件から $a=0$ となる。純 Neumann のときは固定面を使わない直前までの議論により $w=a+BX$ だけが残る。$\square$
+三次元の反対称行列は、ある $\omega=(\omega_1,\omega_2,\omega_3)$ を使って
+
+$$
+B=\begin{pmatrix}
+0&-\omega_3&\omega_2\\
+\omega_3&0&-\omega_1\\
+-\omega_2&\omega_1&0
+\end{pmatrix},
+\qquad Bv=\omega\times v
+$$
+
+と表せる。$Bv=0$ なら $\omega$ と $v$ は平行（または $\omega=0$）。独立な二ベクトルを同時に零へ送るには $\omega=0$、ゆえに $B=0$。一つの点の条件から $a=0$ となる。純 Neumann のときは固定面を使わない直前までの議論により $w=a+BX$ だけが残る。$\square$
 <!-- proof-end -->
 
 ここで証明したのは**解があれば一意**という主張で、任意の境界値・領域に古典解が存在するという証明ではない。滑らかでない角の近くでは古典解の正則性が失われることがあり、弱解・存在定理は別の理論を要する。
@@ -481,7 +541,7 @@ $$
 u=(\phi(X_1),0,0)
 $$
 
-を選ぶ。[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)から $\varepsilon=\operatorname{diag}(\phi',0,0)$、$\sigma=\operatorname{diag}((\lambda+2\mu)\phi',\lambda\phi',\lambda\phi')$。ここで $M=\lambda+2\mu=K+4\mu/3>0$（Pa）と置く。釣合の第一成分は
+を選ぶ。ここで $\phi'=\frac{d\phi}{dX_1}$、$\phi''=\frac{d^2\phi}{dX_1^2}$ とし、微分する変数は一つの座標 $X_1$ である。したがって $\partial_1u_1=\phi'(X_1)$、$\partial_2u_1=\partial_3u_1=0$ で、[微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)から $\varepsilon=\operatorname{diag}(\phi',0,0)$。[Hooke 則](../CTM11/index.md#thm-ctm11-hooke)を成分ごとに代入すると $\sigma=\operatorname{diag}((\lambda+2\mu)\phi',\lambda\phi',\lambda\phi')$。ここで $M=\lambda+2\mu=K+4\mu/3>0$（Pa）と置く。発散では $\partial_j\sigma_{ij}$ の $j$ で和を取り、第1成分は $\partial_1\sigma_{11}=M\phi''$、他の二成分は零である。釣合の第一成分は
 
 $$
 M\phi''+q=0.
