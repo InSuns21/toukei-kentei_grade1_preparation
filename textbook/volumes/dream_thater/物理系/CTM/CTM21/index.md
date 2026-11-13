@@ -6,12 +6,14 @@
 
 ## 0. 配置・符号・射程
 
-三次元の基準領域 $\Omega_0\subset\mathbb R^3$ の物質座標を $X$、時刻 $t$ の実際の位置を $x=\chi(X,t)$ とする。[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)を $F=D_X\chi$、$J=\det F>0$ と書く。$\chi$ は各時刻で向きを保つ $C^2$ 級の一対一の運動であり、密度 $\rho(x,t)>0$ と速度 $v(x,t)$ は必要な微分を持つとする。時間微分の上付き点は**固定した物質点 $X$ での微分**である。基準座標で表した量 $h(X,t)$ では $\dot h=\partial_t h$（$X$ 固定）と書く。一方、現在位置で定義した量 $q(x,t)$ の $\partial_tq$ は **$x$ を固定**する微分であり、同じ物質点を追う微分とは異なる。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)と[CTM4 の連鎖律による照合](../CTM4/index.md#def-ctm4-velocity-gradient)に用いた関係を、$x=\chi(X,t)$ で書けば
+三次元の基準領域 $\Omega_0\subset\mathbb R^3$ の物質座標を $X$、時刻 $t$ の実際の位置を $x=\chi(X,t)$ とする。[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)を $F=D_X\chi$、$J=\det F>0$ と書く。$\chi$ は各時刻で向きを保つ $C^2$ 級の一対一の運動であり、密度 $\rho(x,t)>0$ と速度 $v(x,t)$ は必要な微分を持つとする。時間微分の上付き点は**固定した物質点 $X$ での微分**である。基準座標で表した量 $h(X,t)$ では $\dot h=\partial_t h$（$X$ 固定）と書く。
 
-$
+一方、現在位置で定義した量 $q(x,t)$ の $\partial_tq$ は **$x$ を固定**する微分であり、同じ物質点を追う微分とは異なる。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を運動写像で具体化した関係を、$x=\chi(X,t)$ で書けば
+
+$$
 \frac{d}{dt}q(\chi(X,t),t)
 =\bigl(\partial_tq+v\cdot\nabla_xq\bigr)(\chi(X,t),t).
-$
+$$
 
 例えば第1節の $\partial_t[J(X,t)\rho(\chi(X,t),t)]$ は $X$ を固定しており、括弧内の $\rho$ の時間微分だけを $\partial_t\rho$（$x$ 固定）に置き換えてはならない。
 
@@ -262,10 +264,10 @@ $$
 
 [変形勾配が基準線素に作用する意味](../CTM2/index.md#def-ctm2-deformation-gradient)を軸方向の標準基底 $e_1$ に限定する。全変形 $F=\operatorname{diag}(\lambda,1,1)$ と成長変数 $F_g=\operatorname{diag}(g,1,1)$（$\lambda,g>0$）を採用すると、
 
-$
+$$
 Fe_1=\lambda e_1,\qquad F_ge_1=ge_1,\qquad
 F_e=FF_g^{-1}=\operatorname{diag}(\lambda/g,1,1).
-$
+$$
 
 すなわち軸方向の弾性倍率は $\lambda_e=\lambda/g$ であり、他の二方向では $1$ である。また $J_g=\det F_g=g$ だから、基準体積 $dV_0$ に対応する局所自然体積を $g\,dV_0$ と数える。この体積換算を施すために $w_{\mathrm{ref}}=g\,w_e$ とする。一次元の弾性エネルギーを自然体積当たり
 
@@ -688,19 +690,19 @@ $$
 
 [一定自然密度の質量源](#prop-ctm21-growth-mass)では $J_g=g^3$ である。与えた値を代入すると
 
-$
+$$
 J_g=(1.02)^3=1.061208,\qquad
 S_0=3\rho_g g^2\dot g
 =3(1000)(1.02)^2(0.005)=15.606\ {\rm kg/(m^3\,s)}.
-$
+$$
 
 自由成長では $J=J_g$、$J_e=1$ だから、現在密度と供給率は
 
-$
+$$
 \rho=\frac{\rho_g}{J_e}=1000\ {\rm kg/m^3},\qquad
 s=\frac{S_0}{J}=\frac{15.606}{1.061208}
 \approx14.706\ {\rm kg/(m^3\,s)}.
-$
+$$
 
 質量密度は一定でも、基準体積と現在体積の一単位当たり供給率は異なる。
 <!-- solution-end -->
