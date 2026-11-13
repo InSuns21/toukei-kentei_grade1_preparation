@@ -37,7 +37,7 @@ $$
 
 $e$ は比内部エネルギー（J/kg）、$q$ は外向きを正とする熱流束（W/m$^2$）、$r$ は比熱供給率（W/kg）。すべての式は正の絶対温度 $T(x,t)$（K）でのみ考える。
 
-導入する比エントロピー $s$ は J/(kg K)、その生成率の体積密度は W/(m$^3$ K)、自由エネルギー $\psi$ は J/kg とする。$\nabla_xT$ は K/m、熱伝導率 $\kappa$ は W/(m K) である。$D_tf=\partial_tf+v\cdot\nabla_xf$ は物質微分、$A:B=\sum_{i,j}A_{ij}B_{ij}$ は二階テンソルの二重内積である。
+導入する比エントロピー $s$ は J/(kg K)、その生成率の体積密度は W/(m$^3$ K)、自由エネルギー $\psi$ は J/kg とする。$\nabla_xT$ は K/m、熱伝導率 $\kappa$ は W/(m K) である。$D_tf=\partial_tf+v\cdot\nabla_xf$ は物質微分、$A:B=\sum_{i,j}A_{ij}B_{ij}$ は二階テンソルの二重内積である。以下、空間場 $f(x,t)$ の物質点に沿う微分を $\dot f:=\frac{d}{dt}f(\chi(X,t),t)=D_tf(\chi(X,t),t)$ とも書く。特に $\dot T$ は $X$ を固定した温度変化、$\dot F=\partial_tF(X,t)$ は $X$ を固定した変形勾配の時間微分であり、空間点 $x$ を固定する $\partial_t$ と区別する。
 
 ## 1. なぜエネルギー保存だけでは足りないのか
 
@@ -107,10 +107,9 @@ $$
 括弧内がある点で負なら連続性によりその点を含む小球で一様に負となり、その小球を物質領域の現在像として選べば積分が負になる。ゆえに括弧内は各点で非負である。逆向きは局所式を領域上で積分し、上の二つの等式を逆に使う。$\square$
 <!-- proof-end -->
 
-ciple-ctm10-entropy -->
 ### **原理の確認**：一様加熱は生成ゼロでもよい
 
-静止・断熱・応力仕事ゼロ、$\rho=\rho_*>0$ 一定、$r=r_*>0$ 一定とする。材料模型として $e=c(T-T_*)$、$s=c\log(T/T_*)$（$c>0$ J/(kg K)、$T_*>0$）を**別途仮定**する。比内部エネルギーとエントロピーは同じ物理量ではない。第一法則は $c\dot T=r_*$ を与える。これを $s$ の時間微分へ入れると
+静止・断熱・応力仕事ゼロ、$\rho=\rho_*>0$ 一定、$r=r_*>0$ 一定とする。材料模型として $e=c(T-T_*)$、$s=c\log(T/T_*)$（$c>0$ J/(kg K)、$T_*>0$）を**別途仮定**する。比内部エネルギーとエントロピーは同じ物理量ではない。[CTM9 の内部エネルギー局所収支](../CTM9/index.md#thm-ctm9-internal-energy)に $D=0$、$q=0$ を代入すると $\rho_*c\dot T=\rho_*r_*$、したがって $c\dot T=r_*$ を得る。ここで静止しているため $D_tT=\partial_tT=\dot T$ である。これを $s$ の時間微分へ入れると
 
 $$
 \rho_*\dot s=\rho_*c\frac{\dot T}{T}
@@ -368,7 +367,7 @@ $$
 \Psi(F)=\frac a4(C-I_3):(C-I_3)
 $$
 
-を採用する。$C$ は[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain)である。$F= \operatorname{diag}(\lambda,1,1)$、$\lambda>0$ なら $C-I_3=\operatorname{diag}(\lambda^2-1,0,0)$ であり、
+を採用する。$C$ は[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain)である。基準・現在の標準直交基底で一軸伸長 $\chi(X,t)=(\lambda(t)X_1,X_2,X_3)$（$\lambda(t)>0$、$\lambda(0)=1$）を考える。この物質点の運動を $X$ で微分すると $F=D_X\chi=\operatorname{diag}(\lambda,1,1)$、$J=\lambda>0$ となり、[右 Cauchy–Green テンソルの定義](../CTM3/index.md#def-ctm3-green-strain)から $C-I_3=\operatorname{diag}(\lambda^2-1,0,0)$ である。よって
 
 $$
 \Psi(\lambda)=\frac a4(\lambda^2-1)^2,\qquad
@@ -378,8 +377,11 @@ $$
 [等温弾性構成則](#prop-ctm10-isothermal-elastic)で $P_{11}=a\lambda(\lambda^2-1)$、他の $P_{ij}$ はこの変形に沿う仕事率へ寄与しない。実際、一般の $F$ について $\delta C=F^T\delta F+\delta F^TF$ なので
 
 $$
-\delta\Psi=\frac a2(C-I_3):\delta C
-=aF(C-I_3):\delta F,
+\begin{aligned}
+\delta\Psi&=\frac a2(C-I_3):\delta C\\
+&=\frac a2(C-I_3):(F^T\delta F+\delta F^TF)\\
+&=a\bigl[F(C-I_3)\bigr]:\delta F,
+\end{aligned}
 \qquad P=aF(C-I_3),
 $$
 
@@ -487,20 +489,20 @@ $$
 すべての $H$ で成り立つので $\partial\Psi/\partial F=2FA$。$\square$
 <!-- proof-end -->
 
-続いて「客観性」と「材料等方性」を分ける。前者は**空間で観測者を回す**話、後者は**基準物体の材料方向を回す**話である。方向依存の繊維材料でも客観的でなければならないが、等方的である必要はない。
+続いて「客観性」と「材料等方性」を分ける。自由エネルギーを変形勾配から与え、[第4節の等温弾性構成則](#prop-ctm10-isothermal-elastic)のようにその微分から応力を定める材料を、ここでは **超弾性材料** と呼ぶ。前者の客観性は**空間で観測者を回す**話、後者の等方性は**基準物体の材料方向を回す**話である。方向依存の繊維材料でも客観的でなければならないが、等方的である必要はない。
 
 <a id="def-ctm10-material-isotropy"></a>
 
 <!-- formal-statement-start -->
 ### 定義（基準配置に関する材料等方性）
 
-特定の基準配置を固定し、方向を区別する追加の材料内部変数を持たない超弾性材料の自由エネルギー $\Psi(F,T)$ を考える。すべての基準側回転 $H\in SO(3)$ に対し
+特定の基準配置と材料パラメータを固定した超弾性材料の自由エネルギー $\Psi(F,T)$ を考える。材料に繊維方向などの構造データがある場合も、その向きを固定したまま判定する。任意の $F\in GL^+(3)$、$T>0$ と、すべての基準側回転 $H\in SO(3)$ に対し
 
 $$
 \Psi(FH,T)=\Psi(F,T)
 $$
 
-が成立するとき、その材料はその基準配置で **等方的** であるという。この右作用の条件は観測系回転 $F\mapsto QF$ に対する左作用の客観性とは異なる。
+が成立するとき、その材料はその基準配置で **等方的** であるという。ここでは $H$ は $F$ にだけ右から作用し、材料パラメータ（存在するなら繊維方向 $a_0$ など）は変えない。この右作用の条件は観測系回転 $F\mapsto QF$ に対する左作用の客観性とは異なる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm10-material-isotropy -->
