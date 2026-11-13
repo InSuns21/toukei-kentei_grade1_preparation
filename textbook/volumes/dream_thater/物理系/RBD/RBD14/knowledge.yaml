@@ -1,0 +1,53 @@
+chapter: RBD14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - RBD13
+  - RBD7
+  - AMECH2
+  - MECH8
+forward_references: []
+concepts:
+  - id: mechanics.rolling-nonholonomic-constraint
+    name: 転がりの速度拘束と非ホロノミック拘束
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（転がりの速度拘束と非ホロノミック拘束）]
+    requires:
+      - mechanics.rolling-no-slip-contact
+      - analytical-mechanics.generalized-coordinates
+  - id: mechanics.rolling-incline-dynamics
+    name: 直線斜面の無滑り転がりと必要な静止摩擦
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（直線斜面の無滑り転がりと必要な静止摩擦）]
+    requires:
+      - mechanics.rolling-no-slip-contact
+      - mechanics.rigid-body-forced-newton-euler
+      - mechanics.inertia-tensor-angular-momentum-energy
+  - id: mechanics.rolling-constrained-energy
+    name: 無滑り転がりのエネルギー収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（無滑り転がりのエネルギー収支）]
+    requires:
+      - mechanics.rolling-incline-dynamics
+      - analytical-mechanics.ideal-constraint
+  - id: mechanics.rolling-slip-dissipation
+    name: 滑り接触の散逸率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（滑り接触の散逸率）]
+    requires:
+      - mechanics.rolling-incline-dynamics
+      - mechanics.rigid-body-external-power-balance
+  - id: mechanics.rolling-square-holonomy
+    name: 平面上の球の閉路転がりによる姿勢変化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（平面上の球の閉路転がりによる姿勢変化）]
+    requires:
+      - mechanics.rolling-nonholonomic-constraint
+      - mechanics.rolling-sphere-no-slip
+      - mechanics.finite-rotation-noncommutativity
+      - mechanics.small-rotation-commutator
