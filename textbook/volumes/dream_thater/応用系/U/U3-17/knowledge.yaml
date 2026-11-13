@@ -7,7 +7,7 @@ concepts:
     name: リスク中立評価関数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（リスク中立期待値による満期価値関数）"]
+    introduction_aliases: ["定義（リスク中立評価関数）"]
     requires: [finance.continuous-replication-price, finance.gbm-real-moments]
   - id: finance.bsm-feynman-kac-existence
     name: 対数正規期待値からの BSM 古典解
