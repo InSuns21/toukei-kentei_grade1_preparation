@@ -1,0 +1,53 @@
+chapter: U3-24
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-21, U3-23]
+concepts:
+  - id: finance.american-grid-lcp
+    name: American 差分相補問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（American 差分相補問題）"]
+    requires: [finance.american-obstacle-condition, finance.bsm-theta-scheme]
+  - id: finance.american-grid-derivation
+    name: 陰的差分の障害条件への変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（陰的差分の障害条件への変換）"]
+    requires: [finance.american-grid-lcp, finance.bsm-theta-scheme]
+  - id: finance.american-projected-sor
+    name: 射影 SOR 更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影 SOR 更新）"]
+    requires: [finance.american-grid-lcp]
+  - id: finance.american-psor-equilibrium
+    name: 射影 SOR 固定点と相補条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影 SOR 固定点と相補条件）"]
+    requires: [finance.american-projected-sor, finance.american-grid-lcp]
+  - id: finance.american-lcp-residual
+    name: 相補残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相補残差）"]
+    requires: [finance.american-grid-lcp, finance.bsm-tridiagonal-residual]
+  - id: finance.american-projected-map
+    name: 射影固定点写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影固定点写像）"]
+    requires: [finance.american-grid-lcp]
+  - id: finance.american-lcp-unique
+    name: 離散相補問題の一意可解性と残差による誤差上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（離散相補問題の一意可解性と残差による誤差上界）"]
+    requires: [finance.american-projected-map, finance.american-lcp-residual]
+  - id: finance.american-grid-comparison
+    name: 非負係数の下での比較原理
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非負係数の下での比較原理）"]
+    requires: [finance.american-lcp-unique]
