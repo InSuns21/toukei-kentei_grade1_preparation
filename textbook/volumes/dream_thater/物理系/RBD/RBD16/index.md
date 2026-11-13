@@ -362,14 +362,14 @@ $$
 
 これは $R$ の厳密展開と二次まで一致します。角速度についても中点評価がなぜ二次まで正しいか、トルクの時間・姿勢依存を省略せず確かめます。以下、$f$ とその導関数は $(t,R(t),\omega_b(t))$ で評価します。$\partial_t f$ は行列 $R$ と角速度 $\omega$ を固定して時刻だけ微分したもの、$D_Rf[H]$ は行列方向 $H$ に沿う方向微分、$D_\omega f[v]$ は角速度方向 $v$ に沿う方向微分を表します。指数の一次展開と Euler 方程式から、中点の近似は
 
-$
+$$
 R_{n+1/2}=R+\frac h2R\Omega+O(h^2),\qquad
 \omega_{n+1/2}=\omega+\frac h2f+O(h^2)
-$
+$$
 
 です。従って多変数 Taylor 展開をそれぞれの引数に適用すると
 
-$
+$$
 \begin{aligned}
 f(t+h/2,R_{n+1/2},\omega_{n+1/2})
 &=f+\frac h2\partial_t f
@@ -378,13 +378,13 @@ f(t+h/2,R_{n+1/2},\omega_{n+1/2})
 &=\partial_t f+D_Rf[\dot R]+D_\omega f[\dot\omega_b]\\
 &=\partial_t f+D_Rf[R\Omega]+D_\omega f[f].
 \end{aligned}
-$
+$$
 
 つまり中点で評価した $f$ に $h$ を掛けた増分は
 
-$
+$$
 \omega_{n+1}=\omega+hf+\frac{h^2}{2}\frac d{dt}f(t,R(t),\omega_b(t))+O(h^3)
-$
+$$
 
 となり、$\omega(t+h)$ の Taylor 展開の二次項と一致します。$R$ と $\omega$ の両方について、必要な導関数の有界性のもとで一段誤差は $O(h^3)$ です。従って指数中点更新の局所誤差は $O(h^3)$。Euler 更新の局所誤差は $O(h^2)$ であり、四元数の正規化係数
 $\{1+h^2\lVert\omega\rVert^2/4\}^{-1/2}=1+O(h^2)$
