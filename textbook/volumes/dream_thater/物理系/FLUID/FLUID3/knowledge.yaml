@@ -1,0 +1,48 @@
+chapter: FLUID3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID2
+concepts:
+  - id: fluid.archimedes-fully-submerged
+    name: Archimedes の原理：完全水没
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Archimedes の原理：完全水没）"]
+    requires: [fluid.hydrostatic-pressure-balance, fluid.hydrostatic-isotropic-state]
+  - id: fluid.center-of-buoyancy
+    name: 浮心
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（浮心）"]
+    requires: [fluid.archimedes-fully-submerged]
+  - id: fluid.buoyancy-line
+    name: 静水圧合力の作用線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静水圧合力の作用線）"]
+    requires: [fluid.archimedes-fully-submerged, fluid.center-of-buoyancy]
+  - id: fluid.partial-immersion-buoyancy
+    name: 部分浸水した物体の浮力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（部分浸水した物体の浮力）"]
+    requires: [fluid.archimedes-fully-submerged, fluid.center-of-buoyancy]
+  - id: fluid.floating-vertical-balance
+    name: 自由浮体の鉛直釣合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自由浮体の鉛直釣合）"]
+    requires: [fluid.partial-immersion-buoyancy, fluid.buoyancy-line]
+  - id: fluid.transverse-metacentric-height
+    name: 横メタセンタ高さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（横メタセンタ高さ）"]
+    requires: [fluid.center-of-buoyancy, fluid.floating-vertical-balance]
+  - id: fluid.small-heel-restoring-moment
+    name: 小傾斜の復元モーメント
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（小傾斜の復元モーメント）"]
+    requires: [fluid.transverse-metacentric-height, fluid.floating-vertical-balance]
