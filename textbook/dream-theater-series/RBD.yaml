@@ -63,7 +63,7 @@ chapters:
     title: 非ホロノミック転がりと反力
   - id: RBD15
     path: textbook/volumes/dream_thater/物理系/RBD/RBD15
-    status: planned
+    status: completed
     title: 剛体の衝突と接点の衝撃量
   - id: RBD16
     path: textbook/volumes/dream_thater/物理系/RBD/RBD16
