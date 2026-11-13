@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="figure-title figure-desc" data-layout-lint="strict">
   <title id="figure-title">実物と幾何学的に相似な縮小流路</title>
   <desc id="figure-desc">上の実物流路は幅480、高さ100、下の模型流路は幅120、高さ25で、それぞれ同じ矩形の一様縮小である。流速の矢印は方向だけを表す。重力は下向き。</desc>
+  <rect x="0" y="0" width="720" height="380" fill="#fff"/>
   <defs>
     <marker id="fluid7-arrow" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
       <path d="M1 1 L8 4.5 L1 8 Z" fill="#1d4b71"/>
