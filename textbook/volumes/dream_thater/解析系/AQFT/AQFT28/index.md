@@ -396,7 +396,15 @@ $$
 
 条件の必要性を最小例でも見ます。$H=\mathbb C$ とし、任意の非空領域 $O$ に $\mathcal M(O)=\mathbb C I$ を割り当てる「自明なnet」は包含と局所可換性を満たします。真空は $1$、時空変換は恒等表示で正エネルギーです。任意の $O_1\Subset O_2$ についてType I因子 $N=\mathbb C I$ を選べるのでsplitでもありますが、この領域のvon Neumann環はType I$_1$です。これは有意な自由場の代わりにはなりませんが、**これらの公理だけからType III₁は出ない**という反例にはなります。
 
-ここで文献上の構造定理の**具体的な仮定**を整理します。相空間の核性はsplitやhyperfiniteな近似へつながり、短距離スケーリング条件はType III細分類に関係します。この二つの役割を区別したうえで、以下は**定理の適用条件を列記する発展紹介**として読みます。
+ここで文献上の構造定理の**具体的な仮定**を整理します。相空間の核性はsplitやhyperfiniteな近似へつながり、短距離スケーリング条件はType III細分類に関係します。前者の[Buchholz–Wichmann核性条件](../AQFT17/index.md#thm-aqft17-nuclearity-split-literature)は、エネルギーで減衰させた局所状態の相空間の大きさを制限する条件です。後者の**Haag–Narnhofer–Steinのスケーリング条件**は、単なる時空共変性ではなく、基礎となるWightman場の短距離相関を制御する追加条件です。具体的には、正の単調な規格化関数 $N(\lambda)$ を選び、$n$ 点真空相関関数を
+
+$
+N(\lambda)^n\,
+\langle\Omega,\phi(\lambda x_1)\cdots\phi(\lambda x_n)\Omega\rangle
+\qquad(\lambda\downarrow0)
+$
+
+と拡大縮小したとき、非零のWightman場に対応する極限を分布の意味で得ることを要求します（[Saffary, 定義4.25](https://d-nb.info/977780856/34)）。$n$ は相関関数の点数、$\lambda$ は短距離へ向かう正のスケールです。この条件は単なる相関の有限性とも異なり、他のスケーリング極限定理の仮定と無条件に同一視できません。この二つの役割を区別したうえで、以下は**定理の適用条件を列記する発展紹介**として読みます。
 
 <a id="thm-aqft28-local-typeiii1-literature"></a>
 
