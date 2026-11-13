@@ -281,6 +281,8 @@ $$
 
 <a id="ref-aqft18-core-pairing"></a>
 
+### 基本対合の計算
+
 ここで二つの作用素を結ぶ**基本対合公式**を計算します。$A\in\mathcal M$、$B\in\mathcal M'$ なら $AB=BA$ です。内積の第2変数線形規約を使い、随伴の作用を一つずつ移すと
 
 $$
@@ -841,7 +843,7 @@ $$
 =\|g_n-g\|_2\to0.
 $$
 
-よって全 $L^2$ 上の写像 $Sg=\overline g$ は $S_0$ のグラフ閉包に含まれます。一方、$f_n\to f$、$\overline{f_n}\to h$ なら複素共役の等距離性から $\overline{f_n}\to\overline f$ でもあり、極限の一意性から $h=\overline f$。従ってグラフ閉包はちょうど $S$ のグラフです。
+よって全 $L^2$ 上の写像 $Sg=\overline g$ は $S_0$ のグラフ閉包に含まれます。一方、$f_n\to f$、$\overline{f_n}\to h$ なら複素共役の等距離性から $\overline{f_n}\to\overline f$ でもあり、[距離空間における極限の一意性](../../../基礎科目/F0/F0-00B/index.md#prop-f0-00b-01)から $h=\overline f$。従ってグラフ閉包はちょうど $S$ のグラフです。
 
 **3. 反線形随伴と対合。** 内積を $\langle g,h\rangle=\int_0^1\overline g h\,dt$ とすると
 
@@ -851,7 +853,7 @@ $$
 =\langle Sh,g\rangle.
 $$
 
-積 $gh$ の可積分性はCauchy–Schwarz不等式から従います。また
+積 $gh$ の可積分性は[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から従います。また
 
 $$
 S(Sg)=\overline{\overline g}=g
