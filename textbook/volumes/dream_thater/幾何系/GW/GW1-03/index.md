@@ -37,7 +37,7 @@ $$
 $L^2$ だけでは高周波の微分を検出できないが、$H^1$ は検出する。接続を滑らかな行列値1形式 $A$ だけ替えると $\nabla'\xi=\nabla\xi+A\xi$ となり、コンパクト性から $\|A\xi\|_2\le C\|\xi\|_2$。逆向きも $-A$ で評価でき、$H^1$ ノルムの同値性が見える。
 <!-- definition-example-end -->
 
-ここで必要なのは、二次元での **$H^2\hookrightarrow C^0$** という埋め込みである。[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)が直接述べる $H^1\hookrightarrow L^q$（有限 $q$）だけでは連続性は結論できない。二次元の座標円盤内でコンパクト台の滑らかな関数 $\zeta$ を零延長し、Fourier変換とCauchy–Schwarzの不等式を使うと
+ここで必要なのは、二次元での **$H^2\hookrightarrow C^0$** という埋め込みである。[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)が直接述べる $H^1\hookrightarrow L^q$（有限 $q$）だけでは連続性は結論できない。二次元の座標円盤内でコンパクト台の滑らかな関数 $\zeta$ を零延長し、Fourier変換と[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
 
 $$
 \begin{aligned}
@@ -371,7 +371,7 @@ $$
 \longrightarrow0
 $$
 
-となる。$\mathcal O(L)$ は正則切断の層、$\mathcal A^{0,q}(L)$ は滑らかな形式の層である。[局所 $\bar\partial$-Poincaré補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)により局所的に完全であり、$\mathcal A^{0,q}(L)$ は分割一で局所切断を貼り合わせられる非輪状層である。このため[Dolbeaultコホモロジー](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)の定義を通して
+となる。$\mathcal O(L)$ は正則切断の層、$\mathcal A^{0,q}(L)$ は滑らかな形式の層である。[正の反正則次数における $\bar\partial$ の局所可解性](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)により局所的に完全であり、$\mathcal A^{0,q}(L)$ は分割一で局所切断を貼り合わせられる非輪状層である。このため[Dolbeaultコホモロジー](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)の定義を通して
 
 $$
 H^0(\Sigma,\mathcal O(L))\simeq\ker\bar\partial_L,\qquad
