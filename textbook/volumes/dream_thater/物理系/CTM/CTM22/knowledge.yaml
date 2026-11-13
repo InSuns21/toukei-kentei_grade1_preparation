@@ -9,7 +9,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（一次元の能動・成長組織模型）"]
-    requires: [continuum.active-stress-one-dimensional, continuum.multiplicative-growth-split, continuum.kelvin-voigt-law]
+    requires: [continuum.active-stress-one-dimensional, continuum.multiplicative-growth-split, continuum.kelvin-viscoelastic-law]
   - id: continuum.tissue-static-boundary
     name: 非一様組織帯の静的変位と端面反力
     kind: theorem
@@ -19,7 +19,7 @@ concepts:
     name: 一様組織帯の自由端過渡応答と固定反力
     kind: theorem
     introduction: formal
-    requires: [continuum.tissue-one-dimensional-model, continuum.kelvin-voigt-law]
+    requires: [continuum.tissue-one-dimensional-model, continuum.kelvin-viscoelastic-law]
   - id: continuum.tissue-dissipation
     name: 能動・成長・粘性を含む仕事と散逸
     kind: proposition
