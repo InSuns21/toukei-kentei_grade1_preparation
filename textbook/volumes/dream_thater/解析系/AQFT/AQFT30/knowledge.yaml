@@ -1,0 +1,30 @@
+chapter: AQFT30
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT15
+  - AQFT20
+  - AQFT29
+  - QINF20
+forward_references: []
+concepts:
+  - id: aqft.araki-relative-entropy-faithful
+    name: 忠実正規状態のAraki相対エントロピー
+    kind: definition
+    introduction: formal
+    requires: [aqft.relative-modular-operator, aqft.relative-matrix-formulas]
+  - id: aqft.relative-log-mixed-spectrum
+    name: 相対作用素の混合固有基底とスペクトル重み
+    kind: lemma
+    introduction: formal
+    requires: [aqft.relative-matrix-formulas, aqft.araki-relative-entropy-faithful]
+  - id: aqft.araki-finite-dimensional-reduction
+    name: Araki相対エントロピーの忠実有限次元還元
+    kind: theorem
+    introduction: formal
+    requires: [aqft.relative-log-mixed-spectrum, quantum.relative-entropy]
+  - id: aqft.araki-finite-unitary-product
+    name: 有限次元での同時ユニタリ不変性と積状態の加法性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.araki-finite-dimensional-reduction]
