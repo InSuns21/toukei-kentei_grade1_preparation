@@ -1,0 +1,54 @@
+chapter: CTM13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM12
+concepts:
+  - id: continuum.dynamic-navier-lame
+    name: 動的 Navier–Lamé 方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（動的 Navier–Lamé 方程式）"]
+    requires: [continuum.material-momentum-local, continuum.hooke-isotropic]
+  - id: continuum.elastic-plane-wave
+    name: 単色平面弾性波
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単色平面弾性波）"]
+    requires: [continuum.dynamic-navier-lame]
+  - id: continuum.elastic-acoustic-tensor
+    name: 等方弾性の音響テンソル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等方弾性の音響テンソル）"]
+    requires: [continuum.elastic-plane-wave, continuum.hooke-isotropic]
+  - id: continuum.elastic-polarization
+    name: 縦波・横波の偏り
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（縦波・横波の偏り）"]
+    requires: [continuum.elastic-plane-wave, continuum.elastic-acoustic-tensor]
+  - id: continuum.elastic-wave-speeds
+    name: 縦波・横波の波速
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（縦波・横波の波速）"]
+    requires: [continuum.elastic-polarization, continuum.elastic-acoustic-tensor, continuum.linear-elastic-positive-definite]
+  - id: continuum.elastic-div-curl-waves
+    name: 発散と回転の伝播方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（発散と回転の伝播方程式）"]
+    requires: [continuum.dynamic-navier-lame, continuum.elastic-wave-speeds]
+  - id: continuum.elastic-energy-flux
+    name: 弾性波の全エネルギー密度と流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（弾性波の全エネルギー密度と流束）"]
+    requires: [continuum.hooke-isotropic, continuum.dynamic-navier-lame]
+  - id: continuum.elastic-energy-balance
+    name: 弾性波の局所エネルギー保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（弾性波の局所エネルギー保存）"]
+    requires: [continuum.elastic-energy-flux, continuum.elastic-wave-speeds]
