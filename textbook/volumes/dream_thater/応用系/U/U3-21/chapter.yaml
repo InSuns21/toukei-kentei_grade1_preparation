@@ -1,0 +1,45 @@
+id: "U3-21"
+title: "連続時間の American 価格：最適停止"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-06, U3-07, U3-11, U3-13, U3-14, U3-15, U3-16, U3-17, U3-19]
+official_scope: []
+learning_objectives:
+  - 連続時間の停止時刻の情報条件と American call/put の割引最適停止価格を定義し、未来情報を使った規則を排除できる
+  - 同一 GBM 上で Bermudan 行使日格子を細分化した価格の単調収束を停止時刻の丸めと優収束で証明できる
+  - 連続時間の割引 Snell 包絡の最小優マルチンゲール性と最初の接触時刻の最適性を説明できる
+  - put の価値の凸性・非増加性・1-Lipschitz性を証明し、低株価側の行使領域を導ける
+  - 無配当かつ非負金利の American call で早期行使が不要なことを Jensen 不等式と任意停止から証明できる
+  - 継続領域と行使領域を区別し、滑らかな場所での Black–Scholes 変分不等式・満期条件を Itô 公式から導出できる
+  - 2期および多期 CRR put の行使判断を再現し、格子の日程単調性と株価近似による誤差を混同しない
+definitions:
+  - { id: U3-21-DEF-01, name: "連続時間の行使停止時刻" }
+  - { id: U3-21-DEF-02, name: "連続時間 American 価値関数" }
+  - { id: U3-21-DEF-03, name: "連続時間の継続領域・行使領域と put 行使境界" }
+theorems:
+  - { id: U3-21-PROP-01, name: "Bermudan 格子価格の単調収束" }
+  - { id: U3-21-THM-01, name: "連続時間の割引 Snell 包絡" }
+  - { id: U3-21-PROP-02, name: "連続時間 put の低株価側の行使領域" }
+  - { id: U3-21-THM-02, name: "無配当・非負金利 call の早期行使不要" }
+  - { id: U3-21-PROP-03, name: "古典的に滑らかな場所での American 障害条件" }
+canonical_examples:
+  - "K=100,s=1,r=0.05,T-t=1 の put は即時行使99円が European 上界95.122942円を超える"
+  - "株価の初回下方到達時刻で連続時間停止時刻の情報条件を直接確認する"
+  - "CRR N=2 で下枝の put 即時行使13.187655円が継続10.718647円を上回り初期価格5.737654円となる"
+  - "CRR N=25,100,400 の American put 6.146185,6.082354,6.088406 円で N に関する非単調性を確認する"
+  - "行使領域で V=K-s のとき演算子の符号 qs-rK を代入して検査する"
+problem_patterns:
+  - U3-21-A1
+  - U3-21-A2
+  - U3-21-A3
+  - U3-21-A4
+  - U3-21-A5
+  - U3-21-B1
+  - U3-21-B2
+  - U3-21-B3
+  - U3-21-B4
+  - U3-21-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
