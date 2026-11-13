@@ -3,6 +3,7 @@ title: "Rindler wedgeとboostの解析性"
 volume: "foundations"
 status: supplementary
 prerequisites:
+  - CA3
   - AQFT1
   - AQFT8
   - AQFT24
