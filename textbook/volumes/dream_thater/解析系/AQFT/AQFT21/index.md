@@ -133,7 +133,7 @@ $$
 $C'\in\mathcal M'$ の定義から $AC'=C'A$ が $B(\mathcal H)$ 内で成り立ちます。従って各 $x\in\mathcal H$ に対し $AC'x=C'Ax$。また $\{\lambda(A\Omega):A\in\mathcal M\}=\mathcal M$ は前命題で示した作用素としての等号です。両辺の可換子を取れば結論が従います。ただし、$\mathfrak A_0$ 内の積について $C'(A\Omega)=(AB)\Omega$ となる $B\in\mathcal M$ が存在するとは、ここでは導いていません。
 <!-- proof-end -->
 
-右乗算の落とし穴は、単に無限次元だから怖い、という注意ではありません。実際にノルムが発散する例を計算します。以下では[AQFT18の無限次元Hilbert–Schmidt模型](../AQFT18/index.md#def-aqft18-tomita-initial)と同じく $L_A(X)=AX$ を使い、行列 $A$ と作用素 $L_A\in\mathcal M$ を区別します。行列単位は $E_{ij}e_k=\delta_{jk}e_i$ と作用し、$L_A\Omega=A\Omega$ と略記する箇所は行列としての積を表します。
+右乗算の落とし穴は、単に無限次元だから怖い、という注意ではありません。実際にノルムが発散する例を計算します。以下では[AQFT20の左乗算の定義](../AQFT20/index.md#def-aqft20-hilbert-schmidt)を無限次元へ拡張して $L_A(X)=AX$ を使い、行列 $A$ と作用素 $L_A\in\mathcal M$ を区別します。行列単位は $E_{ij}e_k=\delta_{jk}e_i$ と作用し、$L_A\Omega=A\Omega$ と略記する箇所は行列としての積を表します。
 
 <a id="prop-aqft21-right-unbounded"></a>
 
