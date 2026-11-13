@@ -20,6 +20,16 @@ $$
 
 実線形写像 $A:T_p\Sigma\to T_{u(p)}X$ が複素線形であるとは、$A(jv)=J(A(v))$ が任意の接ベクトル $v$ で成り立つことをいう。微分 $du_p$ にこの条件を課したいが、一般の $du_p$ はその条件を満たさない。そこで微分を、複素線形な成分と、それに反する成分とに分ける。
 
+局所座標 $z=s+it$ では、$\partial_s,\partial_t$ は実変数 $s,t$ の座標方向の接ベクトルである。これらの方向への写像の微分を次のように略記する。
+
+$$
+u_s:=du(\partial_s),\qquad u_t:=du(\partial_t).
+$$
+
+標的の座標を取ると、これはそれぞれ偏微分 $\partial u/\partial s$、$\partial u/\partial t$ に当たる。値は $u(s,t)$ における接ベクトルであり、$J(u)$ はその点で作用する $J_{u(s,t)}$ を表す。
+
+また $u^*TX$ は、各 $p\in\Sigma$ に標的の接空間 $T_{u(p)}X$ を対応させた、写像 $u$ に沿う接束である。
+
 <a id="def-gw1-02-cr-operator"></a>
 
 <!-- formal-statement-start -->
@@ -147,7 +157,13 @@ $$
 
 ### 直接例：平坦トーラス上の写像
 
-**定義の確認**。$\Sigma=X=\mathbb R^2/\mathbb Z^2$ を座標 $(s,t)$、$(x,y)$ で表した平坦なトーラスとし、$h=ds^2+dt^2$、$\omega=dx\wedge dy$、$J(\partial_x)=\partial_y$、$J(\partial_y)=-\partial_x$ とする。[適合性の直接判定](../../SYM/SYM8/index.md#def-sym8-compatible)により $g_J=dx^2+dy^2$ となる。写像
+**定義の確認**。$\Sigma=X=\mathbb R^2/\mathbb Z^2$ を座標 $(s,t)$、$(x,y)$ で表した平坦なトーラスとし、$h=ds^2+dt^2$、$\omega=dx\wedge dy$、$J(\partial_x)=\partial_y$、$J(\partial_y)=-\partial_x$ とする。この座標基底で $v=(v_x,v_y)$、$w=(w_x,w_y)$ と書けば、$Jw=(-w_y,w_x)$ だから
+
+$$
+g_J(v,w)=\omega(v,Jw)=v_xw_x+v_yw_y.
+$$
+
+従って $g_J=dx^2+dy^2$ は対称・正定値であり、[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)によってこの $J$ は適合する。写像
 
 $$
 u([s,t])=[2s-t,s+2t]
@@ -160,7 +176,24 @@ $$
 E(u)=\frac12\cdot10\cdot\operatorname{area}(\Sigma)=5.
 $$
 
-基本領域 $[0,1]^2$ の面積は1であり、エネルギーは有限である。
+基本領域 $[0,1]^2$ の面積は1であり、エネルギーは有限である。ここで微分の行列は、$u_s,u_t$ を順に列とする
+
+$$
+Du=\begin{pmatrix}2&-1\\1&2\end{pmatrix}
+$$
+
+である。[2形式の引き戻しの定義](../../GEO/GEO7/index.md#def-geo7-pullback-form)を座標基底に適用すると
+
+$$
+\begin{aligned}
+(u^*\omega)(\partial_s,\partial_t)
+&=\omega(du(\partial_s),du(\partial_t))\\
+&=dx(u_s)\,dy(u_t)-dy(u_s)\,dx(u_t)\\
+&=\det Du=2\cdot2-(-1)\cdot1=5.
+\end{aligned}
+$$
+
+さらに $Ju_s=(-1,2)=u_t$ なので[局所Cauchy–Riemann方程式と複素線形性](#prop-gw1-02-local-cr)により擬正則である。行列式が表すのは線形写像の面積倍率（符号付き）であり、複素線形性の判定そのものは $u_t=Ju_s$ に戻って確認している。
 
 **定義域の計量を取り替えたら？** 二次元で $h'=\rho^2h$（$\rho$ は正の滑らかな関数）とすれば、$h'$ の正規直交基底は $\rho^{-1}e_i$ である。よって $|du|_{h',g_J}^2=\rho^{-2}|du|_{h,g_J}^2$、$d\operatorname{vol}_{h'}=\rho^2d\operatorname{vol}_h$。両者が相殺し、**エネルギーは同じ複素構造に適合する計量の共形倍に依存しない**。以下の恒等式も同様である。
 
@@ -256,11 +289,35 @@ $$
 1=-1+2.
 $$
 
-この写像は $u_t\ne Ju_s$ なので擬正則ではない。「適合性」を外す場合も、$g_J$ の正定値性と上の二乗展開が失われるため、このままのエネルギーの議論は使えない。
+この写像は $u_t\ne Ju_s$ なので擬正則ではない。上の行列式は[2形式の引き戻しの定義](../../GEO/GEO7/index.md#def-geo7-pullback-form)を基底 $\partial_s,\partial_t$ に適用したもので、二列はそれぞれ $u_s,u_t$ を表す。「適合性」を外す場合も、$g_J$ の正定値性と上の二乗展開が失われるため、このままのエネルギーの議論は使えない。
 
 ## 5. 閉じた定義域で面積が変形に依存しない理由
 
 シンプレクティック形式の閉性 $d\omega=0$ が、局所的なエネルギー計算を曲線類と結び付ける。ここでは「閉じたRiemann面」とは、**コンパクトで境界のない**Riemann面を指す。
+
+曲線類の記法を先に説明する。向き付き閉曲面 $\Sigma$ には、向きと二次元の閉じた形を記録する**基本ホモロジー類** $[\Sigma]$ がある。滑らかな写像 $u$ が誘導するホモロジーの写像を $u_*$ と書き、その像を曲線類と呼ぶ。
+
+$$
+[\Sigma]\in H_2(\Sigma;\mathbb Z),\qquad
+\beta:=u_*[\Sigma]\in H_2(X;\mathbb Z).
+$$
+
+ここで $H_2(-;\mathbb Z)$ は整数係数の2次ホモロジー群である。閉2形式 $\omega$ の**de Rhamコホモロジー類**を $[\omega]$ と書く。曲線類との評価は、面積の積分で与えられる。
+
+$$
+\langle[\omega],\beta\rangle
+=\int_\Sigma u^*\omega.
+$$
+
+この位相的記法を知らなくても、次のホモトピー不変性は積分だけで証明できる。例えば $\omega$ を $\omega+d\eta$ に取り替えても、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+
+$$
+\int_\Sigma u^*(d\eta)
+=\int_\Sigma d(u^*\eta)
+=\int_{\partial\Sigma}u^*\eta=0.
+$$
+
+また、異なる閉2サイクルが同じホモロジー類を表す場合も、両者の差が向き付き3次元鎖（3チェイン）の境界であることと $d\omega=0$ から、同様に評価が一致する。
 
 <a id="prop-gw1-02-homotopy-area"></a>
 
@@ -374,7 +431,7 @@ $$
 \end{aligned}
 $$
 
-二つの座標方向で零なので[本講の擬正則条件の同値命題](#prop-gw1-02-local-cr)により全接ベクトルで $\bar\partial_Ju=0$。従って擬正則である。
+二つの座標方向で零なので[局所Cauchy–Riemann方程式と複素線形性](#prop-gw1-02-local-cr)により全接ベクトルで $\bar\partial_Ju=0$。従って擬正則である。
 <!-- solution-end -->
 
 <a id="ex-gw1-02-a02"></a>
@@ -400,7 +457,7 @@ $$
 E(u)=\int_{T^2}\tfrac12(5+5)\,ds\,dt=5.
 $$
 
-引き戻した面積形式は
+[微分形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)を座標基底に適用すると、面積形式は
 
 $$
 u^*(dx\wedge dy)
@@ -418,7 +475,7 @@ $$
 A03と同じ平坦な単位トーラス上で $u([s,t])=[s,-t]$ とする。$E(u)$、$\int u^*\omega$、$\int|\bar\partial_Ju|^2$ を求め、エネルギー恒等式を照合せよ。
 
 <!-- solution-start -->
-**詳細解答**。$u_s=(1,0)$、$u_t=(0,-1)$ より $|du|^2=1+1=2$、したがって $E(u)=1$。引き戻しの係数は $\det\operatorname{diag}(1,-1)=-1$ だから $\int u^*\omega=-1$。
+**詳細解答**。$u_s=(1,0)$、$u_t=(0,-1)$ より $|du|^2=1+1=2$、したがって $E(u)=1$。[2形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)の係数は、二つの微分ベクトルを列とする行列式 $\det\operatorname{diag}(1,-1)=-1$ だから $\int u^*\omega=-1$。
 
 $J(x,y)=(-y,x)$ とすると $\bar\partial_Ju(\partial_s)=\tfrac12((1,0)+(1,0))=(1,0)$、$\bar\partial_Ju(\partial_t)=\tfrac12((0,-1)-(0,1))=(0,-1)$。二乗和は2、積分も2である。よって $E=1=-1+2$。$\bar\partial_Ju\ne0$ なので[擬正則写像のエネルギー恒等式](#thm-gw1-02-energy-identity)の等号条件を満たさない。
 <!-- solution-end -->
@@ -484,13 +541,22 @@ $$
 E(u)=\frac12(a^2+b^2+c^2+d^2)
 $$
 
-となる。面積の引き戻しは行列式に等しく
+となる。[2形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)を $u_s,u_t$ に評価すると、$\omega(u_s,u_t)=ad-bc$ なので
 
 $$
 \int_{T^2}u^*\omega=ad-bc.
 $$
 
-一方、[作用素の定義](#def-gw1-02-cr-operator)から $\bar\partial_Ju(\partial_s)=\tfrac12((a,c)+J(b,d))=\tfrac12(a-d,c+b)$。$\partial_t$ での値は $-J$ を掛けたもので、二つの長さが等しい。従って
+一方、[作用素の定義](#def-gw1-02-cr-operator)から $\bar\partial_Ju(\partial_s)=\tfrac12((a,c)+J(b,d))=\tfrac12(a-d,c+b)$。他方
+
+$$
+\bar\partial_Ju(\partial_t)
+=\tfrac12\bigl((b,d)-J(a,c)\bigr)
+=\tfrac12(b+c,d-a)
+=-J\bar\partial_Ju(\partial_s).
+$$
+
+$J$ は標準Euclid計量について等長なので、二つの長さが等しい。従って
 
 $$
 \int_{T^2}|\bar\partial_Ju|^2
@@ -511,10 +577,16 @@ $$
 #### GW1-02-B03 射影直線の次数とエネルギー
 - Level: B
 
-$X=\Sigma=\mathbb{CP}^1$ に標準複素構造と Fubini–Study形式を入れる。整数 $d\ge1$ に対し $f_d([s:t])=[s^d:t^d]$ が $J$-正則であることを両チャートで示し、$E(f_d)$ と $\int|\bar\partial_J f_d|^2$ を求めよ。
+$X=\Sigma=\mathbb{CP}^1$ に標準複素構造と Fubini–Study形式を入れる。整数 $d\ge1$ に対し $f_d([S:T])=[S^d:T^d]$ が $J$-正則であることを両チャートで示し、$E(f_d)$ と $\int|\bar\partial_J f_d|^2$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$t\ne0$ の座標 $z=s/t$ では $f_d(z)=z^d$、$(f_d)_t=i(f_d)_s$ が成り立つ（ここで添字 $t$ は局所実座標の虚部方向を指す）。$s\ne0$ の座標 $\zeta=t/s$ と、標的の対応座標では写像も $\zeta\mapsto\zeta^d$ であるため、同じ微分関係が成立する。よって[局所方程式](#prop-gw1-02-local-cr)から全域で擬正則である。
+**詳細解答**。$T\ne0$ の座標 $z=S/T=x+iy$ では $f_d(z)=z^d$。実変数 $x,y$ について
+
+$$
+(f_d)_x=d z^{d-1},\qquad (f_d)_y=i d z^{d-1}=J(f_d)(f_d)_x.
+$$
+
+$S\ne0$ の座標 $\zeta=T/S=\xi+i\eta$ と、標的の対応座標では $f_d(\zeta)=\zeta^d$ なので、同様に $(f_d)_\eta=i(f_d)_\xi$ が直接成り立つ。$[S:T]$ の $T$ は斉次座標であって偏微分する実変数ではない。両座標が全点を覆うので、[局所Cauchy–Riemann方程式と複素線形性](#prop-gw1-02-local-cr)から全域で擬正則である。
 
 [べき写像の正規化面積と逆像数](../GW1-01/index.md#thm-gw1-01-power-area)では $\int f_d^*\omega_{\mathrm{FS}}=2\pi d$ と計算した。これを[擬正則写像のエネルギーの系](#cor-gw1-02-energy-area)に適用し、$E(f_d)=2\pi d$。擬正則条件により $\bar\partial_Jf_d=0$ なので二乗ノルムの積分は零である。$d>1$ で枝点があってもこの判定は変わらない。
 <!-- solution-end -->
@@ -526,7 +598,7 @@ $X=\Sigma=\mathbb{CP}^1$ に標準複素構造と Fubini–Study形式を入れ�
 閉単位円盤 $D=\{(s,t):s^2+t^2\le1\}$ と $\omega=dx\wedge dy$ を考える。$u_a(s,t)=(as,at)$（$a\ge0$）の面積を計算し、$a$ を連続的に変えても面積が一定とは限らない理由を、Stokesの証明で失われる仮定から説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$du_a(\partial_s)=(a,0)$、$du_a(\partial_t)=(0,a)$ なので $u_a^*\omega=a^2ds\wedge dt$。従って
+**詳細解答**。$du_a(\partial_s)=(a,0)$、$du_a(\partial_t)=(0,a)$ なので、[微分形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)から $u_a^*\omega=a^2ds\wedge dt$。従って
 
 $$
 \int_Du_a^*\omega=a^2\int_Dds\,dt=\pi a^2.
@@ -560,7 +632,7 @@ $$
 
 **（1）** 行列 $A,B$ の各成分は整数だから、$(s,t)$ を整数格子だけ変えても像の座標は整数格子だけ変わる。よって双方とも商上で一価かつ滑らかである。標準複素構造で $u_t=Ju_s$ となる条件は[局所方程式](#prop-gw1-02-local-cr)から、行列の成分を $\begin{pmatrix}a&b\\c&d\end{pmatrix}$ と書けば $a=d$、$b=-c$。$B$ は $(a,d)=(2,2)$、$(b,c)=(1,-1)$ だから満たす。$A$ は $a=2,d=1$ なので満たさない。
 
-**（2）** $A$ では $u_s=(2,-1)$、$u_t=(1,1)$。二乗和は $5+2=7$、面積は $\det A=2\cdot1-1\cdot(-1)=3$。従って
+**（2）** $A$ では $u_s=(2,-1)$、$u_t=(1,1)$。二乗和は $5+2=7$、[2形式の引き戻し](../../GEO/GEO7/index.md#def-geo7-pullback-form)による符号付き面積は $\omega(u_s,u_t)=\det A=2\cdot1-1\cdot(-1)=3$。従って
 
 $$
 E(u_A)=\tfrac72,\quad
