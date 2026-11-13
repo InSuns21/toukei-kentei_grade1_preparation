@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - AQFT13
+  - VN6
 learning_objectives:
   - 巡回性と分離性を区別して標準対を判定し可換子側の標準性を証明できる
   - 反線形作用素・グラフ・可閉性を定義し閉包を収束列から構成できる
