@@ -1,0 +1,50 @@
+id: HOLO32
+title: "エンタングルメントと重力の線形応答"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO28
+  - HOLO18
+  - HOLO13
+  - HOLO23
+official_scope: []
+learning_objectives:
+  - 正則化された量子状態の第一法則と有限差の違いを行列の微分で示せる
+  - 真空CFT球領域の共形時間を用いて局所モジュラーHamiltonianの2π重みを検算できる
+  - AdS球Killing場の境界値と半球上での消失を座標から検査できる
+  - 固定アンカーの極値面の面積一次変分を誘導計量と停留性から導ける
+  - Einstein方程式の線形化残差とpure gauge摂動の関係を確かめられる
+  - Iyer–Waldの変分恒等式の入力とStokesから重力の積分拘束を導ける
+  - 全球・全Lorentz方向の拘束と半球変換の単射性が局所方程式に必要だと説明できる
+  - 古典RTの射程とバルク物質・量子補正・非線形問題の違いを説明できる
+definitions:
+  - { id: HOLO32-DEF-01, name: 真空球の幾何学的モジュラー生成子 }
+  - { id: HOLO32-DEF-02, name: 真空球に対応するAdSの流れと面 }
+  - { id: HOLO32-DEF-03, name: 真空Einstein方程式の線形化残差 }
+theorems:
+  - { id: HOLO32-PROP-01, name: 真空球のエントロピー第一変分 }
+  - { id: HOLO32-PROP-02, name: 真空球の停留面の一次面積変分 }
+  - { id: HOLO32-THM-01, name: 真空球の第一法則が与える積分Einstein拘束 }
+  - { id: HOLO32-PROP-03, name: 全真空球の拘束からの局所Einstein方程式（反転仮定付き） }
+canonical_examples:
+  - R=2の局所モジュラー重みと双曲時間のJacobianを検算
+  - AdS球Killing場が半球上で零になり境界の2π重みと一致することを検算
+  - 誘導計量の一様変形で面積の行列式微分を検算
+  - pure gauge摂動の線形化残差が零になることを計算
+  - 一様エネルギー密度による球の積分核を一般dとd=2,3で計算
+  - 一球の奇関数による積分相殺で局所方程式への飛躍を反証
+problem_patterns:
+  - HOLO32-A01
+  - HOLO32-A02
+  - HOLO32-A03
+  - HOLO32-A04
+  - HOLO32-A05
+  - HOLO32-B01
+  - HOLO32-B02
+  - HOLO32-B03
+  - HOLO32-B04
+  - HOLO32-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 8, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []
