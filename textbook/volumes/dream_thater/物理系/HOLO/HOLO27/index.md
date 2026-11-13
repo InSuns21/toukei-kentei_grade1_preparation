@@ -380,7 +380,16 @@ $$
 
 なので $M^\dagger M$ は可逆です。$d=Mc$ の両辺へ $(M^\dagger M)^{-1}M^\dagger$ を掛ければ再構成式を得ます。
 
-**複素行列の安定性を直接証明します。** 測定誤差による最小二乗解の差を $\delta c=(M^\dagger M)^{-1}M^\dagger\delta d$ と置き、残差を $e=\delta d-M\delta c$ とします。正規方程式から $M^\dagger e=0$、したがって内積 $\langle M\delta c,e\rangle=(\delta c)^\dagger M^\dagger e=0$ です。複素内積でも直交分解が成立するため
+**複素行列の安定性を直接証明します。** 測定誤差による最小二乗解の差を $\delta c=(M^\dagger M)^{-1}M^\dagger\delta d$ とし、残差を $e=\delta d-M\delta c$ と置きます。
+
+既習の[最小二乗の正規方程式](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-normal-equations)は実行列についての定理です。ここでは複素行列に対して、上記の左逆の定義から直接
+
+$$
+M^\dagger M\delta c=M^\dagger\delta d,\qquad
+M^\dagger e=M^\dagger\delta d-M^\dagger M\delta c=0
+$$
+
+を確認します。したがって複素内積でも $\langle M\delta c,e\rangle=(\delta c)^\dagger M^\dagger e=0$ です。この直交関係を使うと
 
 $$
 \|\delta d\|_2^2
