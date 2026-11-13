@@ -201,7 +201,7 @@ $$
 
 ## 4. 姿勢を回転として保つ更新
 
-行列に微小増分を足す代わりに、毎段の変化自体を正しい回転として構成できます。[RBD5 の単位四元数による姿勢](../RBD5/index.md#def-rbd5-attitude)では $\lVert q\rVert=1$ を保てば $R(q)\in SO(3)$ です。別の方法として、[RBD2 の [RBD2 の Rodrigues 公式](../RBD2/index.md#thm-rbd2-rodrigues)](../RBD2/index.md#thm-rbd2-rodrigues)から反対称行列の指数を計算できます。
+行列に微小増分を足す代わりに、毎段の変化自体を正しい回転として構成できます。[RBD5 の単位四元数による姿勢](../RBD5/index.md#def-rbd5-attitude)では $\lVert q\rVert=1$ を保てば $R(q)\in SO(3)$ です。別の方法として、[RBD2 の Rodrigues 公式](../RBD2/index.md#thm-rbd2-rodrigues)から反対称行列の指数を計算できます。
 
 同じ時刻の $\omega_n$ を使っても、四元数更新には**ノルム修正**が、指数更新には**有限回転そのもの**が現れます。角速度側も高精度にするには、始点の傾きだけでなく中点を用いる工夫が必要です。
 
