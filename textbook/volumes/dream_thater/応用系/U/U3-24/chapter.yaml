@@ -1,0 +1,42 @@
+id: "U3-24"
+title: "American オプションの障害問題を解く"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-21, U3-23]
+official_scope: []
+learning_objectives:
+  - 連続時間の American put 障害条件を残存時間へ変換し、行使と継続で不等式・等式が切り替わる理由を説明できる
+  - 陰的三点差分の境界寄与を含む離散相補問題を導出し、節点ごとの原始・双対・相補条件を判定できる
+  - 射影 SOR の成分更新式を導き、射影の意味、緩和係数と収束保証の区別を説明できる
+  - 非負空間係数の下で離散相補問題の存在・一意性と事後誤差上界を証明できる
+  - American put の株価0・有限上端の境界値、行使領域判定、境界打切りの影響を区別できる
+  - 再現可能な Python 実装で CRR 二項木との価格照合、相補残差、停止誤差、計算量を検査できる
+definitions:
+  - { id: U3-24-DEF-01, name: "American 差分相補問題" }
+  - { id: U3-24-DEF-02, name: "射影 SOR 更新" }
+  - { id: U3-24-DEF-03, name: "相補残差" }
+  - { id: U3-24-DEF-04, name: "射影固定点写像" }
+theorems:
+  - { id: U3-24-PROP-01, name: "陰的差分の障害条件への変換" }
+  - { id: U3-24-PROP-02, name: "射影 SOR 固定点と相補条件" }
+  - { id: U3-24-THM-01, name: "離散相補問題の一意可解性と残差による誤差上界" }
+  - { id: U3-24-PROP-03, name: "非負係数の下での比較原理" }
+canonical_examples:
+  - "2元系 A=[[3/2,-1/4],[-1,3]]、f=(1,0)、g=(1/2,1/2) で継続・行使の両節点を直接確認"
+  - "r=0.05、q=0.02、sigma=0.20 で a_i,c_i>=0 と rK-qs の符号を確認"
+  - "S0=K=100円、T=1年、Smax=300円で PSOR と CRR(800) の価格、相補残差を照合"
+problem_patterns:
+  - U3-24-A1
+  - U3-24-A2
+  - U3-24-A3
+  - U3-24-A4
+  - U3-24-A5
+  - U3-24-B1
+  - U3-24-B2
+  - U3-24-B3
+  - U3-24-B4
+  - U3-24-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
