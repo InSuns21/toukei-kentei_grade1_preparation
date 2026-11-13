@@ -30,3 +30,4 @@
 27. [HOLO27 部分領域再構成](textbook/volumes/dream_thater/物理系/HOLO/HOLO27/index.md)
 28. [HOLO28 JLMSと相対エントロピー](textbook/volumes/dream_thater/物理系/HOLO/HOLO28/index.md)
 29. [HOLO29 消失訂正としてのバルク](textbook/volumes/dream_thater/物理系/HOLO/HOLO29/index.md)
+30. [HOLO30 作用素代数量子誤り訂正](textbook/volumes/dream_thater/物理系/HOLO/HOLO30/index.md)
