@@ -18,7 +18,7 @@
 
 <!-- formal-statement-start -->
 > **定義（写像に沿うSobolev切断）**  
-> コンパクトRiemann面 $\Sigma$ 上の滑らかな実ベクトル束 $E$ に計量と接続を固定する。整数 $k\ge0$ に対し、滑らかな切断のノルム
+> コンパクトRiemann面 $\Sigma$ に滑らかなRiemann計量を、滑らかな実ベクトル束 $E$ に束計量と接続を固定する。前者の体積要素を $d\operatorname{vol}_\Sigma$ と書く。整数 $k\ge0$ に対し、滑らかな切断のノルム
 
 $$
 \|\xi\|_{H^k(E)}^2=\sum_{\ell=0}^k\int_\Sigma|\nabla^\ell\xi|^2\,d\operatorname{vol}_\Sigma
@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-03-sobolev-sections -->
-**定義の確認**。平坦な単位トーラス $T^2=\mathbb R^2/\mathbb Z^2$ 上の自明複素線束で $\xi(s,t)=e^{2\pi i(ns+kt)}$ とする。これは周期的で滑らかな切断であり、$|\xi|=1$、$|\partial_s\xi|^2=(2\pi n)^2$、$|\partial_t\xi|^2=(2\pi k)^2$ なので
+**定義の確認**。標準座標 $(s,t)$ をそれぞれ周期1とした平坦な単位トーラス $T^2=\mathbb R^2/\mathbb Z^2$ 上の自明複素線束で、整数 $n,k$ に対し $\xi(s,t)=e^{2\pi i(ns+kt)}$ とする。これは周期的で滑らかな切断であり、$|\xi|=1$、$|\partial_s\xi|^2=(2\pi n)^2$、$|\partial_t\xi|^2=(2\pi k)^2$ なので
 
 $$
 \|\xi\|_{H^1}^2=1+4\pi^2(n^2+k^2).
@@ -37,7 +37,19 @@ $$
 $L^2$ だけでは高周波の微分を検出できないが、$H^1$ は検出する。接続を滑らかな行列値1形式 $A$ だけ替えると $\nabla'\xi=\nabla\xi+A\xi$ となり、コンパクト性から $\|A\xi\|_2\le C\|\xi\|_2$。逆向きも $-A$ で評価でき、$H^1$ ノルムの同値性が見える。
 <!-- definition-example-end -->
 
-[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)を二次元・$k=2$ に適用すると $H^2$ の写像は連続な代表を持つ。標的の指数写像で基準写像 $u$ の近くを $v=\exp_u\xi$ と書けば、小さな $\xi\in H^2(u^*TX)$ は $H^2$ 写像の局所座標になる。積・合成のSobolev評価により、滑らかな $J$ のもとで
+ここで必要なのは、二次元での **$H^2\hookrightarrow C^0$** という埋め込みである。[GA2のSobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)が直接述べる $H^1\hookrightarrow L^q$（有限 $q$）だけでは連続性は結論できない。二次元の座標円盤内でコンパクト台の滑らかな関数 $\zeta$ を零延長し、Fourier変換と[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使うと
+
+$$
+\begin{aligned}
+|\zeta(x)|
+&\le C\int_{\mathbb R^2}|\widehat\zeta(\eta)|\,d\eta\\
+&\le C\left(\int_{\mathbb R^2}(1+|\eta|^2)^{-2}\,d\eta\right)^{1/2}
+\left(\int_{\mathbb R^2}(1+|\eta|^2)^2|\widehat\zeta(\eta)|^2\,d\eta\right)^{1/2}\\
+&\le C'\|\zeta\|_{H^2}.
+\end{aligned}
+$$
+
+第一の積分が有限なのは二次元で半径 $r$ の大きい部分が $r^{-4}\cdot r\,dr$ となるためである。コンパクトな $\Sigma$ を有限個の座標円盤で覆い、分割一と局所枠を使えば切断にも $\|\xi\|_{C^0}\le C\|\xi\|_{H^2}$ が従う。従って $H^2$ の切断は連続な代表を持つ。標的の指数写像で基準写像 $u$ の近くを $v=\exp_u\xi$ と書けば、小さな $\xi\in H^2(u^*TX)$ は $H^2$ 写像の局所座標になる。積・合成のSobolev評価により、滑らかな $J$ のもとで
 
 $$
 \bar\partial_J:H^2(\Sigma,X)\longrightarrow
@@ -69,7 +81,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（局所線形化の公式）**  
-> $\Sigma$ の正則座標 $z=s+it$ を取り、$u_s=du(\partial_s)$、$u_t=du(\partial_t)$ とする。上の捩率零接続に関し
+> $\Sigma$ の正則座標 $z=s+it$ を取り、$u_s=du(\partial_s)$、$u_t=du(\partial_t)$、$\nabla_s\xi=\nabla_{\partial_s}\xi$、$\nabla_t\xi=\nabla_{\partial_t}\xi$ とする（最後の二つは引き戻し束 $u^*TX$ の共変微分）。上の捩率零接続に関し
 
 $$
 (D_u\xi)(\partial_s)=\frac12\left(
@@ -117,7 +129,7 @@ $\bar\partial_Ju_\varepsilon(\partial_t)=-J(U)\bar\partial_Ju_\varepsilon(\parti
 **解でない写像との違い**。命題の第1式自体は、任意の滑らかな $u$ で座標成分の変分公式として成立する。しかし一般の $u$ では、反複素線形性の微分に追加項が現れるため、第2式と値域束の同一視には補正が必要である。本講のFredholm線形化は一貫して $\bar\partial_Ju=0$ の解に沿って定めた。
 
 <!-- definition-example-start: def-gw1-03-linearization -->
-**定義の確認**（直接例）。$X=\mathbb C$、$J=i$、標準平坦接続、$u(z)=z^2$ とする。$\nabla J=0$ なので
+**定義の確認**（直接例）。複素座標 $z=s+it$ について、Wirtinger微分を $\partial_{\bar z}:=\tfrac12(\partial_s+i\partial_t)$ と定める。これは $s,t$ を独立な実変数として偏微分する演算子である。$X=\mathbb C$、$J=i$、標準平坦接続、$u(z)=z^2$ とする。$\nabla J=0$ なので
 
 $$
 (D_u\xi)(\partial_s)=\tfrac12(\partial_s\xi+i\partial_t\xi)
@@ -202,7 +214,7 @@ $$
 \le C_k\left(\|D\xi\|_{H^{k-1}(F)}+\|\xi\|_{L^2(E)}\right)
 $$
 
-> が成立する。特に $D\xi=f$ が分布の意味で成り立ち、$f$ が滑らかなら $\xi$ も滑らかである。
+> が成立する。特に $\xi\in L^2(E)$ が $D\xi=f$ を分布の意味で満たし、$f$ が滑らかなら $\xi$ も滑らかである。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -237,12 +249,12 @@ $$
 
 **高階化と弱解。** 局所化した式に弱微分 $\partial^\alpha$（$|\alpha|=k-1$）を作用させると、$[D,\partial^\alpha]$ の各項は係数の導関数と $\xi$ の高々 $k-1$ 階の微分からなる。帰納的に低階ノルムを右辺へまとめると $H^k$ 評価になる。
 
-初めから弱微分があることを仮定しない場合は、[GA3の差分商による局所正則性](../../GA/GA3/index.md#thm-ga3-local-regularity)と同じく、コンパクト台切断に差分商を適用して一様評価を取り、弱コンパクト性で微分を得る。この一階版では凍結した行列の可逆シンボルによる上記評価が勾配の制御を担当する。
+初めから $L^2$ の弱解に一階弱微分があることを仮定しない場合は、[GA3の差分商による局所正則性](../../GA/GA3/index.md#thm-ga3-local-regularity)と同じく、コンパクト台切断に差分商を適用して一様評価を取り、弱コンパクト性で微分を得る。この一階版では凍結した行列の可逆シンボルによる上記評価が勾配の制御を担当する。
 
 $f$ がすべての $H^{k-1}_{\mathrm{loc}}$ に属するなら帰納的に $\xi$ もすべての $H^k_{\mathrm{loc}}$ に属し、[Sobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)から滑らかとなる。
 <!-- proof-end -->
 
-この評価では $\|\xi\|_{L^2}$ を消していない。それは $D\xi=0$ の非零解、すなわち核が存在し得るからである。核が有限次元であることを導くには、[Rellichのコンパクト性](../../GA/GA2/index.md#thm-ga2-rellich)を一緒に使う。
+この評価では $\|\xi\|_{L^2}$ を消していない。それは $D\xi=0$ の非零解、すなわち核が存在し得るからである。核が有限次元であることを導くには、[Rellichのコンパクト性](../../GA/GA2/index.md#thm-ga2-rellich)を一緒に使う。GA2の定理は関数について述べられているが、有限個の座標・局所枠で切断の各成分へ適用し、分割一で貼り合わせれば $H^1(E)\hookrightarrow L^2(E)$ にも適用できる。
 
 <a id="def-gw1-03-fredholm"></a>
 
@@ -301,7 +313,33 @@ $$
 D_\tau=(1-\tau)\bar\partial_E+\tau D_u,\qquad 0\le\tau\le1
 $$
 
-は同じ楕円シンボルを持つ実Fredholm作用素の連続な道である。指数はこの道で一定である（核と余核は別々には跳び得る）。複素線形作用素では実指数は複素指数の二倍となる。
+は同じ楕円シンボルを持つ実Fredholm作用素の連続な道である。ここで指数が連続変形で一定となる理由も確かめる。ある $\tau_0$ の作用素の実核を $K$、閉像を $W$ とし、定義域を $Y\oplus K$、値域を $W\oplus C$ と分解する（$C$ は有限次元の余核の代表空間）。$D_{\tau_0}|_Y:Y\to W$ は有界な同型である。$\tau$ が十分近ければ、$D_\tau$ のブロック表示
+
+$$
+D_\tau=\begin{pmatrix}A_\tau&B_\tau\\C_\tau&E_\tau\end{pmatrix}
+:Y\oplus K\longrightarrow W\oplus C
+$$
+
+の左上 $A_\tau:Y\to W$ も可逆なので、残りの成分を消去した作用素は
+
+$$
+\begin{pmatrix}
+A_\tau & 0\\
+0 & S_\tau
+\end{pmatrix}
+:Y\oplus K\longrightarrow W\oplus C,
+\qquad S_\tau:K\longrightarrow C
+$$
+
+と同値である（$A_\tau:Y\to W$ は可逆）。実際、$D_\tau$ を元の分解でブロック表示したときの右下の有限次元成分は、左上ブロック $A_\tau$ を消去すると $S_\tau=E_\tau-C_\tau A_\tau^{-1}B_\tau$ となる。$r_\tau=\operatorname{rank}S_\tau$ と置けば、$\dim\ker S_\tau=\dim K-r_\tau$、$\dim\operatorname{coker}S_\tau=\dim C-r_\tau$ である。従って階数・退化の仕方が変わっても
+
+$$
+\operatorname{ind}_{\mathbb R}D_\tau
+=(\dim K-r_\tau)-(\dim C-r_\tau)
+=\dim_{\mathbb R}K-\dim_{\mathbb R}C
+$$
+
+で一定である。区間 $[0,1]$ 上の局所的な一定性から全区間で同じ指数となる。複素線形作用素では核・余核が複素ベクトル空間なので、実次元がそれぞれ複素次元の二倍になる。以下では $\operatorname{ind}_{\mathbb C}\bar\partial_E$ を複素次元で計算した核と余核の差と定める。
 
 <a id="thm-gw1-03-rr-computation"></a>
 
@@ -323,6 +361,24 @@ $$
 
 <!-- proof-start -->
 ### 証明
+
+**準備：層コホモロジーとDolbeault複体の対応。** 正則線束 $L$ の局所正則枠では、滑らかな $L$ 値 $(0,q)$ 形式の複体は
+
+$$
+0\longrightarrow\mathcal O(L)
+\longrightarrow\mathcal A^{0,0}(L)
+\xrightarrow{\bar\partial_L}\mathcal A^{0,1}(L)
+\longrightarrow0
+$$
+
+となる。$\mathcal O(L)$ は正則切断の層、$\mathcal A^{0,q}(L)$ は滑らかな形式の層である。[正の反正則次数における $\bar\partial$ の局所可解性](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)により局所的に完全であり、$\mathcal A^{0,q}(L)$ は分割一で局所切断を貼り合わせられる非輪状層である。このため[Dolbeaultコホモロジー](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)の定義を通して
+
+$$
+H^0(\Sigma,\mathcal O(L))\simeq\ker\bar\partial_L,\qquad
+H^1(\Sigma,\mathcal O(L))\simeq\operatorname{coker}\bar\partial_L
+$$
+
+と同一視できる。右辺の核・余核は対応するSobolev完備化で取り、[楕円型正則性](#thm-gw1-03-elliptic-estimate)により滑らかな代表で計算してよい。以下では $h^q(L)=\dim_{\mathbb C}H^q(\Sigma,\mathcal O(L))$、$\chi(L)=h^0(L)-h^1(L)$ と書く。
 
 **(1) 基準となる自明線束。** $H^0(\Sigma,\mathcal O)$ はコンパクト連結Riemann面上の正則関数であり、[最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)から定数のみ、よって複素次元1である。
 
@@ -354,13 +410,13 @@ $$
 \chi(L(p))-\chi(L)=1.
 $$
 
-逆に点を一つ引けば差は $-1$ となる。有限の符号付き点の和 $D=\sum n_pp$ について帰納的に $\chi(\mathcal O(D))=1-g+\sum n_p$ を得る。ここで複素次元1の局所 $\bar\partial$-Poincaré補題と滑らかな形式の分割一の性質により、Dolbeault複体は正則切断層の非輪状分解である。[局所補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)と[Dolbeaultコホモロジーの定義](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)から、上の $H^q$ を $\bar\partial_L$ の核・余核と同一視できる。
+逆に点を一つ引けば差は $-1$ となる。有限の符号付き点の和 $D=\sum n_pp$ について帰納的に $\chi(\mathcal O(D))=1-g+\sum n_p$ を得る。上の短完全列は層のEuler標数についての計算だが、証明冒頭のDolbeault複体との同一視により $\chi(L)=\operatorname{ind}_{\mathbb C}\bar\partial_L$ である。従って点を加える際のEuler標数の差 $+1$ は、そのまま複素線形作用素の指数の差 $+1$ を意味する。
 
 **(3) 任意の滑らかな線束。** コンパクト向き付き曲面の複素線束は整数の第一Chern数で分類される。
 
-具体的には一点を除いた曲面では $H^2=0$ なので線束を自明化でき、その点の小円盤との境界円上の遷移関数 $S^1\to\mathbb C^\times$ の巻き数が $d=\langle c_1(L),[\Sigma]\rangle$ である。
+具体的には一点を除いた曲面では $H^2=0$ なので線束を自明化でき、その点の小円盤との境界円上の貼り合わせ係数 $S^1\to\mathbb C^\times$ の巻き数で $d=\langle c_1(L),[\Sigma]\rangle$ を計算できる。**どちらの局所枠からどちらへ変換するか**で係数は逆数になり、巻き数の符号も逆になるため、向きを固定する。
 
-$\mathcal O(p)$ は局所遷移関数 $z^{-1}$ を使い、正の複素向きで次数 $+1$ を持つ。従って滑らかな複素束として $L\simeq\mathcal O(dp)$。
+$\mathcal O(p)$ では点 $p$ での正則座標 $z$ に対し、円盤外の枠 $e_{\mathrm{out}}=1$ と円盤内の枠 $e_{\mathrm{in}}=z^{-1}$ を取る。重なりで $e_{\mathrm{out}}=z e_{\mathrm{in}}$ だから、この**外側から内側への枠の係数** $z$ は正の境界円で一回巻き、次数 $+1$ を与える。逆方向の係数 $z^{-1}$ の巻き数は $-1$ であり混同しない。従って滑らかな複素束として $L\simeq\mathcal O(dp)$。
 
 異なる $\bar\partial$ 構造は同じ一階シンボルを持ち、差は零階なので線形補間で指数が変わらない。このため任意の線束で $\operatorname{ind}_{\mathbb C}\bar\partial_L=1-g+d$。
 
@@ -418,7 +474,17 @@ $$
 
 $u:\mathbb{CP}^1\to X$ が定数なら $E$ は自明な複素階数 $m$ の束、$g=0$、$\beta=0$。従って指数は $2m$。実際 $D_u=\bar\partial$ に零階項はなく、[射影直線のDolbeault群](../../CM/CM2-05/index.md#thm-cm2-05-projective-line-four-groups)から $\ker$ は複素次元 $m$、$\operatorname{coker}=0$ なので $2m$ と一致する。
 
-$X=\mathbb{CP}^1$、$u([Z_0:Z_1])=[Z_0^d:Z_1^d]$（整数 $d\ge1$）を考える。$T\mathbb{CP}^1\simeq\mathcal O(2)$ なので $E\simeq\mathcal O(2d)$。従って $m=1,g=0,c_1(E)[\Sigma]=2d$ を代入して
+<a id="calc-gw1-03-p1-tangent"></a>
+
+**射影直線の接束の座標計算。** $\mathbb{CP}^1$ の二つの標準座標 $z=Z_1/Z_0$、$w=Z_0/Z_1=1/z$ を取る。接束の局所枠 $e_z=\partial_z$、$e_w=\partial_w$ は連鎖律により
+
+$$
+e_z=\frac{dw}{dz}e_w=-w^2e_w
+$$
+
+を満たす。無限遠点 $w=0$ の円盤を内側、$z$ 座標側を外側とすると、貼り合わせ係数 $-w^2$ は巻き数 $2$ を持つ。これは次数2の線束 $\mathcal O(2)$ の遷移係数であり、定数因子 $-1$ は次数を変えない。したがって $T\mathbb{CP}^1\simeq\mathcal O(2)$ と分かる。整数 $d\ge1$ の写像 $u([Z_0:Z_1])=[Z_0^d:Z_1^d]$ では、標的の無限遠座標は $w\mapsto w^d$ だから、引き戻した遷移係数は $-w^{2d}$ となり、$u^*T\mathbb{CP}^1\simeq\mathcal O(2d)$ である。
+
+$X=\mathbb{CP}^1$、この写像 $u$ を考える。上の計算から $E\simeq\mathcal O(2d)$。従って $m=1,g=0,c_1(E)[\Sigma]=2d$ を代入して
 
 $$
 \operatorname{ind}_{\mathbb R}D_u=2+4d.
@@ -428,7 +494,40 @@ $$
 
 ### 横断性と障害はまだ別の問い
 
-$D_u$ が全射なら[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により（適切な局所座標を固定した）解空間は近傍で滑らかな有限次元多様体となり、実次元は $\dim\ker D_u=\operatorname{ind}_{\mathbb R}D_u$。しかし楕円性・Fredholm性から全射性は従わない。余核が非零なら線形化だけでは局所解空間をその指数次元と判定できない。また、再パラメータ化群の作用、多重被覆の固定点、種数・標点の変形はこの計算の外にある。次講はここから始める。
+$D_u:H^2(E)\to H^1(\Lambda^{0,1}T^*\Sigma\otimes E)$ が**全射**だと仮定する。第2節の局所自明化後の非線形作用素を $\mathcal F:B\to V$（$B=H^2(E)$、$\mathcal F(0)=0$、$d\mathcal F_0=D_u$）と書く。これは無限次元Banach空間の問題なので、[有限次元の陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)をそのまま適用するのではなく、次の局所的な議論が必要である。
+
+前節の[閉曲面上の楕円作用素はFredholm](#thm-gw1-03-fredholm)という結果を適用すると、$K=\ker D_u$ は有限次元である。$B$ の $H^2$ 内積で $B=K\oplus Y$ と直交分解すると、全射性から $D_u|_Y:Y\to V$ は全単射であり、逆 $A:V\to Y$ は有界である。$k\in K$ を固定して
+
+$$
+T_k(y)=y-A\mathcal F(k+y),\qquad y\in Y
+$$
+
+と置く。まず $D_yT_0(0)=I_Y-AD_u|_Y=0$ である。$\mathcal F$ の微分は連続なので、$k,y$ を十分小さく取ると、ある定数 $0<q<1$ について次を満たす。
+
+$$
+\|D_yT_k(y)\|\le q.
+$$
+
+半径 $r>0$ を十分小さく固定し、さらに $k$ を縮めて $\|T_k(0)\|\le(1-q)r$ とする。平均値の不等式から、$\|y\|\le r$ のとき
+
+$$
+\|T_k(y)\|
+\le \|T_k(0)\|+q\|y\|
+\le (1-q)r+qr=r.
+$$
+
+従って $T_k$ は $Y$ の閉球を自分に写す収縮である。反復 $y_{n+1}=T_k(y_n)$ において
+
+$$
+\|y_{n+1}-y_n\|
+\le q^n\|y_1-y_0\|
+$$
+
+となる。幾何級数 $\sum_{n=0}^\infty q^n$ が収束するので、反復列はCauchy列となり唯一の固定点 $y(k)$ を持つ。固定点条件は $\mathcal F(k+y(k))=0$ と同値である。
+
+さらに $D_y\mathcal F(k+y(k))|_Y$ は可逆な $D_u|_Y$ に十分近いので、Neumann級数で有界な逆を構成できる。固定点方程式を $k$ について微分すれば $y(k)$ は滑らかである。従って局所解空間は $k\mapsto k+y(k)$ によりパラメータ付けられ、その実次元は $\dim_{\mathbb R}K=\operatorname{ind}_{\mathbb R}D_u$ である。
+
+しかし楕円性・Fredholm性から全射性は従わない。余核が非零なら線形化だけでは局所解空間をその指数次元と判定できない。また、再パラメータ化群の作用、多重被覆の固定点、種数・標点の変形はこの計算の外にある。次講はここから始める。
 
 ## 7. 演習：局所公式から指数まで
 
@@ -461,7 +560,7 @@ $X=\mathbb C$、$J=i$、$u(z)=z^2$、$\xi(z)=\bar z$ で $D_u\xi(\partial_s)$ �
 標準 $\mathbb C$ に対し $\eta=3ds+4dt$ で $\sigma=\tfrac12(3+4i)$ の逆写像を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。[この節で定めたシンボル](#def-gw1-03-principal-symbol)から逆の複素数は $\frac2{3+4i}=\frac{2(3-4i)}{3^2+4^2}=\frac{6-8i}{25}$。積は $\tfrac12(3+4i)(6-8i)/25=1$。$|\eta|=5>0$ なので楕円性の条件に一致する。
+**詳細解答**。[この節で定めたシンボル](#def-gw1-03-principal-symbol)から逆の複素数は $\frac2{3+4i}=\frac{2(3-4i)}{3^2+4^2}=\frac{6-8i}{25}$。$(3+4i)(6-8i)=18+32+(24-24)i=50$ なので、積は $\tfrac12\cdot50/25=1$。$|\eta|=5>0$ なので楕円性の条件に一致する。
 <!-- solution-end -->
 
 <a id="ex-gw1-03-a04"></a>
@@ -513,7 +612,7 @@ $\bar\partial_Ju(\partial_s)=\tfrac12(u_s+J(u)u_t)$ を使い、$u_\varepsilon$ 
 Riemann面の正則線束 $L$ と点 $p$ に対し、短完全列 $0\to L\to L(p)\to\mathbb C_p\to0$ から $\chi(L(p))-\chi(L)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$p$ の局所座標 $z$ では $L(p)$ の切断に $z^{-1}$ までの極を許し、もとの正則切断で割った商は $z^{-1}$ の係数一つ、すなわち $\mathbb C_p$ である。
+**詳細解答**。$p$ の局所座標 $z$ と $L$ の局所枠 $e$ を固定すると、$L(p)$ の切断は $z^{-1}f(z)e$ と書ける。$L$ からの像では $f(z)=za(z)$ だから、商で残るのは $f(0)$、すなわち $z^{-1}$ の係数一つであり $\mathbb C_p$ に対応する。
 
 [長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)の交代次元和を取り $\chi(L(p))=\chi(L)+\chi(\mathbb C_p)$。点層では $h^0=1,h^1=0$ なので差は $+1$。
 
@@ -527,7 +626,7 @@ Riemann面の正則線束 $L$ と点 $p$ に対し、短完全列 $0\to L\to L(p
 $u:\mathbb{CP}^1\to\mathbb{CP}^1$ が次数2の正則写像のとき、指数、核と余核の実次元を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。$E=u^*T\mathbb{CP}^1\simeq\mathcal O(4)$ なので $g=0,m=1,c_1(E)[\Sigma]=4$。[実指数公式](#thm-gw1-03-index)から $2+2\cdot4=10$。標準複素構造に対するDolbeault作用素の核・余核は $H^0(\mathcal O(4))$ と $H^1(\mathcal O(4))$ に対応する。[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)により前者の複素次元は $4+1=5$、後者は零。実次元は核10・余核0、差は10と一致する。
+**詳細解答**。次数2の写像では、[接束の局所座標計算](#calc-gw1-03-p1-tangent)を次数に沿って引き戻して $E=u^*T\mathbb{CP}^1\simeq\mathcal O(4)$ となる（任意の次数2正則写像でも $u^*\mathcal O(1)\simeq\mathcal O(2)$）。よって $g=0,m=1,c_1(E)[\Sigma]=4$。[実指数公式](#thm-gw1-03-index)から $2+2\cdot4=10$。標準複素構造に対するDolbeault作用素の核・余核は $H^0(\mathcal O(4))$ と $H^1(\mathcal O(4))$ に対応する。[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)により前者の複素次元は $4+1=5$、後者は零。実次元は核10・余核0、差は10と一致する。
 <!-- solution-end -->
 
 ### Level C
@@ -548,7 +647,7 @@ $\Sigma=\mathbb{CP}^1$、$X=\mathbb{CP}^1$、$u([Z_0:Z_1])=[Z_0^d:Z_1^d]$（$d\g
 
 (1) [シンボルの定理](#thm-gw1-03-ellipticity)から局所正則座標で $\sigma(\eta)=\tfrac12(\eta_s+J\eta_t)$。$\eta\ne0$ に対し $\sigma(\eta)^{-1}=2(\eta_s-J\eta_t)/(\eta_s^2+\eta_t^2)$ だから可逆である。$u$ の分岐点でも、式は $du$ でなく $J$ と $\eta$ だけに依存しており楕円性は失われない。
 
-(2) $T\mathbb{CP}^1\simeq\mathcal O(2)$、次数 $d$ の引き戻しは $\mathcal O(2d)$ だから $\langle c_1(u^*TX),[\Sigma]\rangle=2d$。[指数定理](#thm-gw1-03-index)に $m=1,g=0$ を入れて $\operatorname{ind}_{\mathbb R}D_u=2+4d$。
+(2) [接束の座標計算](#calc-gw1-03-p1-tangent)では枠の貼り合わせ係数が $-w^2$ であり、$u$ による引き戻しで $-w^{2d}$ となる。従って $T\mathbb{CP}^1\simeq\mathcal O(2)$、$u^*TX\simeq\mathcal O(2d)$ だから $\langle c_1(u^*TX),[\Sigma]\rangle=2d$。[指数定理](#thm-gw1-03-index)に $m=1,g=0$ を入れて $\operatorname{ind}_{\mathbb R}D_u=2+4d$。
 
 (3) 可積分な標準 $J$ で $u$ が正則なので、線形化は $\bar\partial_{\mathcal O(2d)}$。前問と同じ[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $h^0=2d+1$、$h^1=0$。従って余核零すなわち全射であり、核は実次元 $2(2d+1)=4d+2$。指数と一致する。
 
