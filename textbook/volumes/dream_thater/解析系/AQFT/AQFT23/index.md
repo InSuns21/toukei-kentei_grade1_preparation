@@ -133,7 +133,7 @@ $$
 <!-- definition-example-start: def-aqft23-modular-flow -->
 ### 定義の直接確認：忠実な二準位模型
 
-[AQFT20のHilbert–Schmidt標準表現](../AQFT20/index.md#thm-aqft20-modular-formulas)で $\mathcal H=M_2(\mathbb C)$、$\mathcal M=\{L_A:A\in M_2(\mathbb C)\}$、$\Omega=\rho^{1/2}$、$\rho=\operatorname{diag}(3/4,1/4)$ とします。$L_A(X)=AX$、$\Delta(X)=\rho X\rho^{-1}$ です。$\rho$ は正定値なので逆行列が存在し、$\Omega$ は巡回・分離的です。
+[AQFT20のHilbert–Schmidt標準表現](../AQFT20/index.md#thm-aqft20-modular-formulas)で $\mathcal H=M_2(\mathbb C)$、$\mathcal M=\{L_A:A\in M_2(\mathbb C)\}$、$\Omega=\rho^{1/2}$、$\rho=\operatorname{diag}(3/4,1/4)$ とします。$L_A(X)=AX$、$\Delta(X)=\rho X\rho^{-1}$ です。$\rho$ は正定値なので逆行列が存在します。以下では $\Omega$ の巡回性・分離性も定義から確認します。
 
 任意の $X$ に対して、$U_t(X)=\rho^{it}X\rho^{-it}$ より
 
@@ -146,7 +146,18 @@ $$
 \end{aligned}
 $$
 
-従って結果は確かに $\mathcal M$ の元です。積について $\sigma_t(L_A L_B)=\sigma_t(L_A)\sigma_t(L_B)$、随伴について $\sigma_t(L_{A^*})=\sigma_t(L_A)^*$、逆写像について $\sigma_{-t}\sigma_t(L_A)=L_A$ をこの表示から直接検査できます。全ての行列成分が有限和の連続な指数関数なので、強連続性も成立します。$\rho$ の固有値を $p_1,p_2$ とすると
+この行列模型の標準性も定義に戻って確認できます。$\operatorname{Tr}\rho=1$ なので $\|\Omega\|_2=1$。任意の $X\in M_2(\mathbb C)$ に対し $A=X\rho^{-1/2}$ と置けば $L_A\Omega=X$ で巡回的です。逆に $L_A\Omega=A\rho^{1/2}=0$ なら、可逆な $\rho^{1/2}$ を右から除いて $A=0$ となり分離的です。これは[標準対の定義](../AQFT18/index.md#def-aqft18-standard-pair)の二条件を別々に判定したものです。
+
+従って結果は確かに $\mathcal M$ の元です。積について $\sigma_t(L_A L_B)=\sigma_t(L_A)\sigma_t(L_B)$、随伴について $\sigma_t(L_{A^*})=\sigma_t(L_A)^*$、逆写像について $\sigma_{-t}\sigma_t(L_A)=L_A$ をこの表示から直接検査できます。全ての行列成分が有限和の連続な指数関数なので、強連続性も成立します。
+
+ここで $E_{ij}$ は $\rho$ を対角化した正規直交基底 $e_1,e_2$ に対し $E_{ij}e_k=\delta_{jk}e_i$ で定まる行列単位です。$\rho=\sum_i p_iE_{ii}$ と展開すると、左乗算は行添字 $i$、右乗算は列添字 $j$ に作用し、
+
+$$
+\rho^{it}E_{ij}=p_i^{it}E_{ij},\qquad
+E_{ij}\rho^{-it}=p_j^{-it}E_{ij}
+$$
+
+を得ます。$p_1=3/4,p_2=1/4$ として
 
 $$
 \sigma_t(L_{E_{ij}})
@@ -337,7 +348,35 @@ $$
 \sigma_t(L_A)=L_{\rho^{it}A\rho^{-it}}
 $$
 
-です。片側シフト $Ve_n=e_{n+1}$ に対し、
+です。ただし有限次元の式を無条件に代入したのではありません。$\{E_{ij}\}_{i,j\ge1}$ はHilbert–Schmidt空間の正規直交基底で、$p_j>0$ より
+
+$$
+\begin{aligned}
+E_{ij}&=L_{E_{ij}/\sqrt{p_j}}\Omega,\\
+S(E_{ij})
+&=\left(E_{ij}/\sqrt{p_j}\right)^*\rho^{1/2}\\
+&=\frac{1}{\sqrt{p_j}}E_{ji}\rho^{1/2}
+=\sqrt{\frac{p_i}{p_j}}E_{ji}.
+\end{aligned}
+$$
+
+従って $\mathcal M\Omega$ は稠密です。$A\rho^{1/2}=0$ なら各 $e_j$ に作用させて $\sqrt{p_j}Ae_j=0$ となり、$A=0$ だから分離的でもあります。$S_0(A\Omega)=A^*\Omega$ はこの重み付き係数写像です。$X=\sum_{i,j}x_{ij}E_{ij}$ がその閉包 $S$ の定義域に属するとき、グラフノルムは
+
+$$
+\|X\|_2^2+\|SX\|_2^2
+=\sum_{i,j\ge1}\left(1+\frac{p_i}{p_j}\right)|x_{ij}|^2.
+$$
+
+右辺が有限なら添字の有限部分和はグラフノルムでも $X$ に収束するので、有限行列の線形包が $S$ のグラフcoreです。[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)をこの基底に適用すると $S^\sharp(E_{ji})=\sqrt{p_i/p_j}\,E_{ij}$。従って
+
+$$
+\Delta(E_{ij})=S^\sharp S(E_{ij})
+=\frac{p_i}{p_j}E_{ij},
+\qquad
+U_t(E_{ij})=\left(\frac{p_i}{p_j}\right)^{it}E_{ij}.
+$$
+
+ここから有限行列上で $U_tL_AU_{-t}=L_{\rho^{it}A\rho^{-it}}$ を確かめ、両辺が有界作用素であることと有限行列の稠密性から全Hilbert–Schmidt空間へ延長します。片側シフト $Ve_n=e_{n+1}$ に対し、
 
 $$
 \rho^{it}V\rho^{-it}e_n
@@ -418,7 +457,28 @@ e^{izH}A_\varepsilon\Omega
 =\sigma_z(A_\varepsilon)\Omega.
 $$
 
-最後の等号を示すには、任意の $y\in\mathcal H$ を固定して両辺と $y$ の内積を取ります。両辺は全平面でノルム解析的なので、得られる複素数値関数も整関数です。実 $z=t$ では両辺が $U_t A_\varepsilon\Omega$ に一致するため、[CA3の零点の孤立性・恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)を両者の差に適用すると、すべての複素 $z$ で内積が一致します。$y$ は任意なのでベクトルも等しく、全解析性が示されました。
+最後の等号は複素GaussianのFourier積分から直接確かめられます。$z=x+iy$、$u=s-x$ と置き、$g_\varepsilon(u-iy)=g_\varepsilon(u)e^{y^2/\varepsilon}e^{2iyu/\varepsilon}$ と展開します。ここでは[前講のGaussian平滑化と複素時間の補題](../AQFT21/index.md#lem-aqft21-gaussian)で導いたFourier変換を、周波数 $\lambda+2y/\varepsilon$ に適用して
+
+$$
+\begin{aligned}
+\int_{\mathbb R}g_\varepsilon(s-z)e^{is\lambda}\,ds
+&=e^{ix\lambda+y^2/\varepsilon}
+\int_{\mathbb R}g_\varepsilon(u)e^{iu(\lambda+2y/\varepsilon)}\,du\\
+&=e^{ix\lambda+y^2/\varepsilon}
+e^{-\varepsilon(\lambda+2y/\varepsilon)^2/4}\\
+&=e^{iz\lambda-\varepsilon\lambda^2/4}.
+\end{aligned}
+$$
+
+$\sigma_s(A)\Omega=U_sA\Omega$ と $\int|g_\varepsilon(s-z)|\,ds<\infty$ を使えば、強積分とスペクトル積分の交換が正当化され、上の乗数を $H$ に適用して
+
+$$
+\sigma_z(A_\varepsilon)\Omega
+=\int g_\varepsilon(s-z)U_sA\Omega\,ds
+=e^{izH-\varepsilon H^2/4}A\Omega.
+$$
+
+$z$ をコンパクト集合に制限すれば、乗数と全ての $z$ 微分は $\lambda$ に関して一様有界です。従って両辺は複素 $z$ に関してベクトルのノルムで整関数となり、$A_\varepsilon\Omega$ の全解析性も示されました。
 
 グラフcore性を調べます。$x\in\operatorname{Dom}e^{rH}$ を任意に固定します。関数 $e^{-\varepsilon\lambda^2/4}$ は $1$ 以下で点ごとに $1$ へ近づくため、スペクトル測度についての支配収束により
 
@@ -488,7 +548,7 @@ $$
 **演習 A1：反線形性の符号**
 
 - Level: A
-- 問題：標準対の $J\Delta J=\Delta^{-1}$ と $J^2=I$ に対し、$\Delta$ の正のスペクトル値 $r$ の関数計算を使い $J\Delta^{it}J=\Delta^{it}$ を導け。なぜ単純に $(\Delta^{-1})^{it}=\Delta^{-it}$ とは書けないか説明せよ。
+- 問題：標準対の $J\Delta J=\Delta^{-1}$ と $J^2=I$ に対し、$\Delta$ の正のスペクトル値 $r$ の関数計算を使い $J\Delta^{it}J=\Delta^{it}$ を導け。$(\Delta^{-1})^{it}=\Delta^{-it}$ 自体は正しいことを確認し、それでも $J\Delta^{it}J=\Delta^{-it}$ と結論してはならない理由を説明せよ。
 
 <!-- solution-start -->
 **詳細解答。** $J$ は反線形なので $J(\alpha x)=\overline\alpha Jx$。スペクトル関数の係数は共役されます。$f(r)=r^{it}=e^{it\log r}$ に対し、共役による関数は $\overline{f(r^{-1})}=\overline{e^{-it\log r}}=e^{it\log r}$。関数計算のスペクトル積分でも同じ等式が成り立ち、
@@ -497,7 +557,7 @@ $$
 J\Delta^{it}J=\Delta^{it}
 $$
 
-です。$J\Delta J=\Delta^{-1}$ の**指数だけを変えて** $J\Delta^{it}J=\Delta^{-it}$ とすると、反線形性により $i$ も $-i$ になることを落とします。
+です。正作用素の関数計算では $(\Delta^{-1})^{it}=\Delta^{-it}$ は実際に正しい等式です。しかし、$J$ による共役は反線形なので $Jf(\Delta)J=\overline f(\Delta^{-1})$ と**関数値の複素共役も伴います**。$f(r)=r^{it}$ に対して $\overline f(r)=r^{-it}$ であり、$\overline f(\Delta^{-1})=(\Delta^{-1})^{-it}=\Delta^{it}$ です。この複素共役を落とすと誤った符号になります。
 <!-- solution-end -->
 
 <a id="ex-aqft23-a02"></a>
