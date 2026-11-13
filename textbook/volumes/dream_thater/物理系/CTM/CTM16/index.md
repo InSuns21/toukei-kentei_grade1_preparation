@@ -241,10 +241,10 @@ $$
 
 微分と極限を交換してよい理由も確認する。例えば $X$ と $X+he_j$ を結ぶ線分が $\Omega$ に含まれるとき、各成分について
 
-$
+$$
 (V_\varepsilon)_i(X+he_j)-(V_\varepsilon)_i(X)
 =\int_0^h\partial_{X_j}(V_\varepsilon)_i(X+re_j)\,dr.
-$
+$$
 
 線分上の一様収束により右辺の極限を積分の内側へ移せる。極限関数の差も左辺の極限となるので、$h$ による微分から $\partial_{X_j}(V_0)_i$ は偏導関数の極限に一致する。一階偏導関数へ同じ議論を繰り返せば二階も一致する。$\pi_\varepsilon$ の勾配についても同様である。従って二階微分・圧力勾配・体積力の極限を各成分の式へ代入でき、$-\nabla_X\pi_0+\Delta_XV_0+F_0=0$ を得る。一階微分の一致と $\nabla_X\cdot V_\varepsilon=0$ から $\nabla_X\cdot V_0=0$ も従う。$\square$
 <!-- proof-end -->
@@ -311,31 +311,31 @@ $$
 
 $\Delta v=(u''(y),0,0)$、$\nabla p=0$ を[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入する。他の成分は $0=0$ であり、$x$ 成分は
 
-$
+$$
 \eta u''(y)=0\quad\Longrightarrow\quad u''(y)=0\qquad(\eta>0)
-$
+$$
 
 となる。$y$ について二回積分すると、
 
-$
+$$
 u'(y)=C_1,\qquad u(y)=C_1y+C_0.
-$
+$$
 
 境界値を順に代入して $u(0)=C_0=0$、$u(h)=C_1h=U$ を得る。$h>0$ より $C_1=U/h$ と一意に決まるから、指定した解クラス内で解は一意である。
 
 $\partial_jv_i$ のうち非零なのは $\partial_yv_x=u'(y)$ だけである。[CTM4 の変形速度の定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin) $D_{ij}=(\partial_jv_i+\partial_iv_j)/2$ を成分に適用すると、
 
-$
+$$
 D_{12}=D_{21}=\frac{\partial_yv_x+\partial_xv_y}{2}
 =\frac{u'}2=\frac{U}{2h},
-$
+$$
 
 他の成分は零。[CTM15 の非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian) $\sigma=-p_0I+2\eta D$ では $I_{12}=0$ なので、$\sigma_{12}=\sigma_{21}=2\eta D_{12}=\eta U/h$。さらに $D:D=D_{12}^2+D_{21}^2=2(U/2h)^2$ である。[CTM15 の粘性散逸定理](../CTM15/index.md#thm-ctm15-viscous-dissipation)に代入して
 
-$
+$$
 2\eta D:D=2\eta\cdot2\left(\frac{U}{2h}\right)^2
 =\eta\left(\frac{U}{h}\right)^2
-$
+$$
 
 を得る。移流項は**厳密に零**なので、$\mathrm{Re}$ の大小を仮定していない。$\square$
 <!-- proof-end -->
@@ -607,10 +607,10 @@ $$
 
 $y=0,h$ では正弦が零なので壁速度を満たし、$t=0$ では初期値に戻る。時間微分では $a'(t)=-ka(t)$、空間微分では線形部分の二階微分が零であることを使い、
 
-$
+$$
 \partial_tu=-ka(t)\sin(\pi y/h),\qquad
 \nu\partial_y^2u=-\nu\frac{\pi^2}{h^2}a(t)\sin(\pi y/h).
-$
+$$
 
 $k=\nu\pi^2/h^2$ なので両者は一致し、偏微分方程式も直接満たす。
 
