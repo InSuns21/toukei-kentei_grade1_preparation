@@ -1,0 +1,58 @@
+chapter: GW1-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-04
+  - GW1-03
+  - GW1-02
+  - GW1-01
+  - SYM8
+concepts:
+  - id: gromov-witten.energy-concentration
+    name: エネルギー集中点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（エネルギー集中点）"]
+    requires: [gromov-witten.energy-identity]
+  - id: gromov-witten.bubble-rescaling
+    name: 再スケーリングと球面の泡
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（再スケーリングと球面の泡）"]
+    requires: [gromov-witten.energy-concentration, gromov-witten.j-holomorphic-map]
+  - id: gromov-witten.small-energy-gradient
+    name: 小エネルギー勾配評価
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（小エネルギー勾配評価）"]
+    requires: [gromov-witten.ellipticity-linearization, gromov-witten.energy-identity]
+  - id: gromov-witten.finite-concentration-points
+    name: 集中点は有限個
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（集中点は有限個）"]
+    requires: [gromov-witten.small-energy-gradient, gromov-witten.energy-concentration]
+  - id: gromov-witten.removable-puncture
+    name: 有限エネルギーの除去可能特異点
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限エネルギーの除去可能特異点）"]
+    requires: [gromov-witten.small-energy-gradient]
+  - id: gromov-witten.bubble-extraction
+    name: 勾配爆発点からの球面の泡の抽出
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（勾配爆発点からの球面の泡の抽出）"]
+    requires: [gromov-witten.bubble-rescaling, gromov-witten.removable-puncture, gromov-witten.finite-concentration-points]
+  - id: gromov-witten.energy-quantization
+    name: 球面エネルギー量子化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（球面エネルギー量子化）"]
+    requires: [gromov-witten.small-energy-gradient, gromov-witten.energy-area-corollary]
+  - id: gromov-witten.explicit-bubble-splitting
+    name: 射影直線の次数2の泡立ちとエネルギー分裂
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線の次数2の泡立ちとエネルギー分裂）"]
+    requires: [gromov-witten.bubble-rescaling, gromov-witten.energy-area-corollary]

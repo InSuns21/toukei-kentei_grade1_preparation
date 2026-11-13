@@ -1,0 +1,49 @@
+id: "GW1-05"
+title: "泡立ちの機構"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-04
+  - GW1-03
+  - GW1-02
+  - GW1-01
+  - SYM8
+official_scope: []
+learning_objectives:
+  - 射影直線の一次正則写像列で局所面積密度とエネルギー集中を積分できる
+  - 集中点と再スケーリングの定義を用いて縮尺・微分・エネルギーを判定できる
+  - 小エネルギー勾配評価のBochner不等式と最大点拡大の核心を再構成できる
+  - 有限エネルギーの除去可能特異点で等周評価から冪減衰へ至る理由を説明できる
+  - 勾配爆発時に境界距離を重みとする点選択から非定数球面を抽出できる
+  - コンパクトな適合標的で非定数球面のエネルギー量子化を証明できる
+  - 次数2と次数3の有理写像列で基底・泡・付着点とエネルギー分裂を検算できる
+  - 泡の存在と一般の首のエネルギー消失・Gromovコンパクト性を区別できる
+definitions:
+  - { id: GW1-05-DEF-01, name: エネルギー集中点 }
+  - { id: GW1-05-DEF-02, name: 再スケーリングと球面の泡 }
+theorems:
+  - { id: GW1-05-LEM-01, name: 小エネルギー勾配評価 }
+  - { id: GW1-05-COR-01, name: 集中点は有限個 }
+  - { id: GW1-05-THM-01, name: 有限エネルギーの除去可能特異点 }
+  - { id: GW1-05-THM-02, name: 勾配爆発点からの球面の泡の抽出 }
+  - { id: GW1-05-THM-03, name: 球面エネルギー量子化 }
+  - { id: GW1-05-PROP-01, name: 射影直線の次数2の泡立ちとエネルギー分裂 }
+canonical_examples:
+  - 射影直線のu_epsilon(z)=epsilon/zでの2pi集中と再スケーリング
+  - 次数2のz+epsilon/zでの二つの非定数成分と付着点
+  - 次数3のz^2+epsilon/zでの次数・エネルギー分裂
+problem_patterns:
+  - GW1-05-LOCAL-ENERGY
+  - GW1-05-RESCALE-ENERGY
+  - GW1-05-DEGREE-CONSERVATION
+  - GW1-05-GRADIENT-CHART
+  - GW1-05-EPSILON-REGULARITY
+  - GW1-05-MOBIUS-UNSTABLE-CONSTANT
+  - GW1-05-POINT-SELECTION
+  - GW1-05-REMOVABLE-DECAY
+  - GW1-05-NECK-ENERGY-GAP
+  - GW1-05-DEGREE-THREE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 11, review: 6 }
