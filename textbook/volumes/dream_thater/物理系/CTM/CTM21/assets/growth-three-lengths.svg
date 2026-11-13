@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 350" width="880" height="350" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">軸成長で基準長、自然長、固定された現在長を比較</title>
+  <desc id="desc">三行とも左端を揃える。上段の基準棒は長さL0で右端が530、中央の成長した自然棒は倍率g=1.2で右端が590、下段の現在棒は左右の固定具で長さL0に戻され、右端が530である。自然状態は破線、拘束状態は左右の固定具で識別できる。</desc>
+  <rect x="0" y="0" width="880" height="350" fill="#fff"/>
+  <text x="28" y="35" font-size="21" font-family="sans-serif" fill="#182b39">軸方向の成長：g = 1.2 の模式図</text>
+  <text x="28" y="91" font-size="20" font-family="sans-serif" fill="#182b39">基準</text>
+  <rect x="230" y="65" width="300" height="35" rx="3" fill="#e7f2fa" stroke="#314b63" stroke-width="2.5" data-series-group="growth-lengths" data-series-label="基準"/>
+  <circle cx="230" cy="82.5" r="5" fill="#314b63"/>
+  <circle cx="530" cy="82.5" r="5" fill="#314b63"/>
+  <text x="380" y="89" font-size="21" font-family="sans-serif" text-anchor="middle" fill="#182b39">λ = 1</text>
+  <text x="650" y="91" font-size="20" font-family="sans-serif" fill="#182b39">長さ L0</text>
+  <text x="28" y="190" font-size="20" font-family="sans-serif" fill="#182b39">成長した自然状態</text>
+  <rect x="230" y="164" width="360" height="35" rx="3" fill="#fff3e1" stroke="#925a20" stroke-width="2.5" stroke-dasharray="9 5" data-series-group="growth-lengths" data-series-label="成長自然状態"/>
+  <circle cx="230" cy="181.5" r="5" fill="#925a20"/>
+  <circle cx="590" cy="181.5" r="5" fill="#925a20"/>
+  <text x="410" y="188" font-size="21" font-family="sans-serif" text-anchor="middle" fill="#182b39">λe = 1</text>
+  <text x="650" y="190" font-size="20" font-family="sans-serif" fill="#182b39">長さ g L0</text>
+  <text x="28" y="287" font-size="20" font-family="sans-serif" fill="#182b39">現在（両端固定）</text>
+  <rect x="230" y="264" width="300" height="35" rx="3" fill="#eef0f2" stroke="#343a40" stroke-width="2.5" data-series-group="growth-lengths" data-series-label="拘束現在状態"/>
+  <rect x="217" y="246" width="12" height="71" fill="#687780"/>
+  <rect x="531" y="246" width="12" height="71" fill="#687780"/>
+  <text x="380" y="287" font-size="21" font-family="sans-serif" text-anchor="middle" fill="#182b39">λe = 1/g</text>
+  <text x="650" y="287" font-size="20" font-family="sans-serif" fill="#182b39">長さ L0</text>
+  <text x="230" y="337" font-size="17" font-family="sans-serif" fill="#42505b">左端はいずれも同じ位置。下段のみ両端の縦棒が固定具。</text>
+</svg>
