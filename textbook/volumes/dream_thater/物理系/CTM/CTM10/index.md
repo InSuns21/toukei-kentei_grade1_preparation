@@ -37,7 +37,23 @@ $$
 
 $e$ は比内部エネルギー（J/kg）、$q$ は外向きを正とする熱流束（W/m$^2$）、$r$ は比熱供給率（W/kg）。すべての式は正の絶対温度 $T(x,t)$（K）でのみ考える。
 
-導入する比エントロピー $s$ は J/(kg K)、その生成率の体積密度は W/(m$^3$ K)、自由エネルギー $\psi$ は J/kg とする。$\nabla_xT$ は K/m、熱伝導率 $\kappa$ は W/(m K) である。$D_tf=\partial_tf+v\cdot\nabla_xf$ は物質微分、$A:B=\sum_{i,j}A_{ij}B_{ij}$ は二階テンソルの二重内積である。以下、空間場 $f(x,t)$ の物質点に沿う微分を $\dot f:=\frac{d}{dt}f(\chi(X,t),t)=D_tf(\chi(X,t),t)$ とも書く。特に $\dot T$ は $X$ を固定した温度変化、$\dot F=\partial_tF(X,t)$ は $X$ を固定した変形勾配の時間微分であり、空間点 $x$ を固定する $\partial_t$ と区別する。
+導入する比エントロピー $s$ は J/(kg K)、その生成率の体積密度は W/(m$^3$ K)、自由エネルギー $\psi$ は J/kg とする。温度勾配 $\nabla_xT$ は K/m、熱伝導率 $\kappa$ は W/(m K) である。
+
+物質微分と二階テンソルの二重内積はそれぞれ
+
+$
+D_tf=\partial_tf+v\cdot\nabla_xf,\qquad
+A:B=\sum_{i,j}A_{ij}B_{ij}
+$
+
+である。空間場 $f(x,t)$ の物質点に沿う微分は、$X$ を固定して
+
+$
+\dot f(X,t):=\frac{d}{dt}f(\chi(X,t),t)
+=D_tf(\chi(X,t),t)
+$
+
+とも書く。したがって $\dot T$ は物質点に沿った温度変化を表す。一方、$F(X,t)$ のドットは $\dot F(X,t):=\partial_tF(X,t)$ であり、どちらも空間点 $x$ を固定する偏微分 $\partial_t$ とは区別する。
 
 ## 1. なぜエネルギー保存だけでは足りないのか
 
@@ -367,7 +383,22 @@ $$
 \Psi(F)=\frac a4(C-I_3):(C-I_3)
 $$
 
-を採用する。$C$ は[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain)である。基準・現在の標準直交基底で一軸伸長 $\chi(X,t)=(\lambda(t)X_1,X_2,X_3)$（$\lambda(t)>0$、$\lambda(0)=1$）を考える。この物質点の運動を $X$ で微分すると $F=D_X\chi=\operatorname{diag}(\lambda,1,1)$、$J=\lambda>0$ となり、[右 Cauchy–Green テンソルの定義](../CTM3/index.md#def-ctm3-green-strain)から $C-I_3=\operatorname{diag}(\lambda^2-1,0,0)$ である。よって
+を採用する。$C$ は[CTM3 の右 Cauchy–Green テンソル](../CTM3/index.md#def-ctm3-green-strain)である。
+
+基準・現在の標準直交基底で一軸伸長 $\chi(X,t)=(\lambda(t)X_1,X_2,X_3)$ を考え、$\lambda(t)>0$、$\lambda(0)=1$ とする。物質点の運動を $X$ で微分すれば
+
+$
+F=D_X\chi=\operatorname{diag}(\lambda,1,1),
+\qquad J=\lambda>0
+$
+
+となる。従って上記の右 Cauchy–Green テンソルの定義から
+
+$
+C-I_3=\operatorname{diag}(\lambda^2-1,0,0)
+$
+
+である。よって
 
 $$
 \Psi(\lambda)=\frac a4(\lambda^2-1)^2,\qquad
@@ -380,10 +411,15 @@ $$
 \begin{aligned}
 \delta\Psi&=\frac a2(C-I_3):\delta C\\
 &=\frac a2(C-I_3):(F^T\delta F+\delta F^TF)\\
-&=a\bigl[F(C-I_3)\bigr]:\delta F,
+&=a\bigl[F(C-I_3)\bigr]:\delta F.
 \end{aligned}
-\qquad P=aF(C-I_3),
-$$
+$
+
+ここで $C-I_3$ の対称性を使った。任意の $\delta F$ に対する係数を比較すると
+
+$
+P=\frac{\partial\Psi}{\partial F}=aF(C-I_3)
+$
 
 となり、対角伸長では他の $P_{ij}$ は零である。[CTM8 の応力変換](../CTM8/index.md#def-ctm8-first-piola)より $J=\lambda$、$\sigma=J^{-1}PF^T$、したがって $\sigma_{11}=a\lambda(\lambda^2-1)$。一方 $D_{11}=\dot\lambda/\lambda$ なので
 
