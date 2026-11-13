@@ -1,7 +1,7 @@
 # DREAM THEATER 剛体力学コース計画（RBD1〜RBD16・全16講）
 
 作成日: 2026-11-11  
-状態: in progress（RBD1 実装済み。RBD2〜16 と系列最終横断監査は未完了）
+状態: in progress（系列 manifest 上で RBD1〜RBD16 の全16講が completed。§7.2 のシリーズ最終横断監査・採用済み操作教材の実表示/公開導線の確認が未完了であり、plan_done への移動は保留）
 
 ## 0. 中心問い・全16講とする根拠
 
