@@ -23,7 +23,8 @@ learning_objectives:
   - wedge双対性と全有界局所演算子のKMS性を適用条件付きで導ける
   - 一般Wightman場やdouble coneの型への無条件拡張を避けられる
 definitions:
-  - { id: AQFT27-DEF-01, name: "自由場のwedge実部分空間と標準性" }
+  - { id: AQFT27-DEF-01, name: "自由場のwedge実部分空間" }
+  - { id: AQFT27-DEF-04, name: "標準実部分空間" }
   - { id: AQFT27-DEF-02, name: "boostから作る一粒子Tomita候補" }
   - { id: AQFT27-DEF-03, name: "Fock空間上のモジュラー候補" }
 theorems:
