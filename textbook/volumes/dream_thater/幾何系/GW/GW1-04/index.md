@@ -8,9 +8,9 @@
 
 有限次元の例として $F:\mathbb R^2\to\mathbb R$、$F(a,b)=a^2-b^2$ を見る。$(0,0)$ は零点だが $dF_{(0,0)}=0$ であり、核は二次元、余核は一次元で指数は1。ところが実際の零点集合は
 
-$
+$$
 F^{-1}(0)=\{a=b\}\cup\{a=-b\}
-$
+$$
 
 という二直線の交差で、原点では滑らかな一次元多様体にならない。**零点で微分が値域へ全射である**ことを、指数とは別に確認する必要がある。
 
@@ -43,9 +43,9 @@ $$
 <!-- definition-example-start: def-gw1-04-regular -->
 **定義の確認**。標準複素構造の $\mathbb{CP}^1$ から自身への $u(z)=z^d$（$d\ge1$、無限遠点まで延長）を考える。[前講の局所座標による接束計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)から球面の正則接束は $T\mathbb{CP}^1\simeq\mathcal O(2)$ であり、次数 $d$ の写像は $\mathcal O(1)$ を $\mathcal O(d)$ に引き戻す。ゆえに
 
-$
+$$
 u^*T\mathbb{CP}^1\simeq u^*\mathcal O(2)\simeq\mathcal O(2d).
-$
+$$
 
 なぜ線束コホモロジーで**線形化の全射性**を判定できるのかも確かめる。可積分な複素構造の正則写像では、局所正則座標で $J=i$ は一定、かつ $\partial_{\bar z}u=0$ なので、[局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)は成分ごとに $(D_{u,J}\xi)(\partial_s)=\frac12(\partial_s+i\partial_t)\xi$ となる。局所正則枠の遷移行列は正則で、この式は座標変換で整合するため、$D_{u,J}$ は正則束 $u^*TX$ のDolbeault作用素 $\bar\partial$ **そのもの**である。任意の滑らかな右辺 $f$ に対し、球面の二つの標準アフィンチャートで局所方程式 $\bar\partial a_\nu=f$ を解くと、重なりでの差 $a_0-a_\infty$ は正則な線束切断となる。これがČechの一次コサイクルであり、$H^1(\mathcal O(2d))=0$ なら正則な局所切断を引いて差を消せる。従って局所解は大域的な解に貼り合わさる。局所の $\bar\partial$ 方程式が解けることはCauchy–Green積分による。滑らかな右辺は $H^{k-1}$ で稠密で、[閉像を持つFredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)から滑らかな右辺への全射性はSobolev値域全体への全射性を与える。
 
@@ -152,11 +152,11 @@ $$
 <!-- definition-example-start: def-gw1-04-universal-section -->
 **定義の確認**。$X=\mathbb{CP}^1$ に標準 $J_0$ を取り、$u(z)=z^2$ とする。定義域の局所正則座標を $z=s+it$ とすると、$u_t=i u_s$ より $u_s+J_0u_t=u_s+i(iu_s)=0$ なので $\mathcal F(u,J_0)=0$。次にこの座標円板で $Y=0$、$\xi(s,t)=\bar z=s-it$ と動かす。これは座標表示上の局所切断であり、必要なら注目する点の近くで1となる滑らかな切断関数を掛けて大域的な変分へ延長できる。[前講の局所線形化公式](../GW1-03/index.md#prop-gw1-03-local-linearization)の $J_0=i$ 一定の場合から
 
-$
+$$
 (D_{u,J_0}\xi)(\partial_s)
 =\tfrac12(\xi_s+i\xi_t)
 =\tfrac12\bigl(1+i(-i)\bigr)=1
-$
+$$
 
 となる。$\mathcal F(u,J_0)=0$ でも、任意の接変分が零点集合に接するわけではない。
 <!-- definition-example-end -->
@@ -375,13 +375,13 @@ $$
 
 複素次元を二倍すると、核と余核の実次元は
 
-$
+$$
 \begin{aligned}
 \dim_{\mathbb R}\ker D_{u_d}&=2(2d+1)=4d+2,\\
 \dim_{\mathbb R}\operatorname{coker}D_{u_d}
 &=2\{2\max(d-1,0)\}=4\max(d-1,0).
 \end{aligned}
-$
+$$
 
 $d\ge1$ なのでその差は $(4d+2)-4(d-1)=6$。独立の検算として、引戻し束の次数は $2d-d-d=0$、複素階数は3、$g=0$ だから[擬正則写像の線形化の実指数公式](../GW1-03/index.md#thm-gw1-03-index)でも $2\cdot3+2\cdot0=6$ を得る。
 <!-- proof-end -->
