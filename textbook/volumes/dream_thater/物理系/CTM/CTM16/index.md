@@ -309,9 +309,35 @@ $$
 \partial_tv=0.
 $$
 
-$\Delta v=(u''(y),0,0)$、$\nabla p=0$ を[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入すると、$x$ 成分は $\eta u''(y)=0$、他の成分は $0=0$ である。$\eta>0$ だから $u''=0$。一回積分して $u'=C_1$、もう一回積分して $u=C_1y+C_0$。$u(0)=0$ から $C_0=0$、$u(h)=U$ から $C_1=U/h$ と定まる。これが求める解であり、二つの積分定数が一意に決まるので、指定した解クラス内で一意である。
+$\Delta v=(u''(y),0,0)$、$\nabla p=0$ を[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入する。他の成分は $0=0$ であり、$x$ 成分は
 
-[CTM4 の変形速度](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)に従うと $D_{12}=D_{21}=u'/2=U/(2h)$、他の成分は零。[CTM15 の非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian)から $\sigma=-p_0I+2\eta D$、従って $\sigma_{12}=\sigma_{21}=\eta U/h$。[CTM15 の粘性散逸定理](../CTM15/index.md#thm-ctm15-viscous-dissipation)で $2\eta D:D=\eta(U/h)^2$ を得る。計算では移流項が**厳密に零**なので、$\mathrm{Re}$ の大小を仮定していない。$\square$
+$
+\eta u''(y)=0\quad\Longrightarrow\quad u''(y)=0\qquad(\eta>0)
+$
+
+となる。$y$ について二回積分すると、
+
+$
+u'(y)=C_1,\qquad u(y)=C_1y+C_0.
+$
+
+境界値を順に代入して $u(0)=C_0=0$、$u(h)=C_1h=U$ を得る。$h>0$ より $C_1=U/h$ と一意に決まるから、指定した解クラス内で解は一意である。
+
+$\partial_jv_i$ のうち非零なのは $\partial_yv_x=u'(y)$ だけである。[CTM4 の変形速度の定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin) $D_{ij}=(\partial_jv_i+\partial_iv_j)/2$ を成分に適用すると、
+
+$
+D_{12}=D_{21}=\frac{\partial_yv_x+\partial_xv_y}{2}
+=\frac{u'}2=\frac{U}{2h},
+$
+
+他の成分は零。[CTM15 の非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian) $\sigma=-p_0I+2\eta D$ では $I_{12}=0$ なので、$\sigma_{12}=\sigma_{21}=2\eta D_{12}=\eta U/h$。さらに $D:D=D_{12}^2+D_{21}^2=2(U/2h)^2$ である。[CTM15 の粘性散逸定理](../CTM15/index.md#thm-ctm15-viscous-dissipation)に代入して
+
+$
+2\eta D:D=2\eta\cdot2\left(\frac{U}{2h}\right)^2
+=\eta\left(\frac{U}{h}\right)^2
+$
+
+を得る。移流項は**厳密に零**なので、$\mathrm{Re}$ の大小を仮定していない。$\square$
 <!-- proof-end -->
 
 図では矢印の長さが局所速度を表し、先端を結ぶ破線は直線分布を表す。上壁の運動方向・壁間距離・速度勾配の関係を図から確認したうえで、数式と表でも検算する。
@@ -579,7 +605,14 @@ $$
 k=\frac{\eta\pi^2}{\rho h^2}.}
 $$
 
-$y=0,h$ では正弦が零なので壁速度を満たし、$t=0$ では初期値に戻る。式を時間微分・二階空間微分すれば $\partial_tu=\nu u_{yy}$ が直接確認できる。
+$y=0,h$ では正弦が零なので壁速度を満たし、$t=0$ では初期値に戻る。時間微分では $a'(t)=-ka(t)$、空間微分では線形部分の二階微分が零であることを使い、
+
+$
+\partial_tu=-ka(t)\sin(\pi y/h),\qquad
+\nu\partial_y^2u=-\nu\frac{\pi^2}{h^2}a(t)\sin(\pi y/h).
+$
+
+$k=\nu\pi^2/h^2$ なので両者は一致し、偏微分方程式も直接満たす。
 
 **(ii) 時間尺度。** $Y=y/h$、$s=t/T_\nu$、$W=u/U$ とすると
 
