@@ -25,7 +25,7 @@ $$
 
 で与えられ、$\omega\circ\sigma_t=\omega$ です。
 
-[AQFT24の上側帯KMS条件](../AQFT24/index.md#def-aqft24-kms)は、**ノルム連続**なC*力学系で定義されました。一方、一般標準対の $\sigma_t$ についてAQFT23が保証するのは、各ベクトルへの作用の強連続性です。ここでは、同じ帯の境界条件を **von Neumann環の全元** について直接要求する形を用います。以下で「閉帯で連続」は複素数値関数の通常の連続性を意味します。
+[AQFT24の上側帯KMS条件](../AQFT24/index.md#def-aqft24-kms)は、**ノルム連続**なC*力学系で定義されました。一方、一般標準対の $\sigma_t$ についてAQFT23が保証するのは、各ベクトルへの作用の強連続性です。ここでは、同じ帯の境界条件を **von Neumann環の全元** について直接要求する形を用います。以下で「閉帯で連続」は複素数値関数の通常の連続性を意味します。「正規」な状態・自己同型とは、それぞれ超弱位相に関して連続な状態・自己同型を指します。[AQFT23の群と状態保存の定理](../AQFT23/index.md#thm-aqft23-group-state)はモジュラー流とベクトル状態の正規性を保証します。
 
 <a id="def-aqft25-wstar-kms"></a>
 
@@ -40,12 +40,28 @@ $$
 > がすべての $t\in\mathbb R$ で成り立つとき、$\omega$ は $\alpha$ に関して **von Neumann環上のKMS条件** を満たすという。$\alpha$ の作用素ノルム連続性は定義の仮定に含めない。
 <!-- formal-statement-end -->
 
-ここで「正規」とは超弱位相に関する連続性を指し、[AQFT23の群と状態保存の定理](../AQFT23/index.md#thm-aqft23-group-state)によってモジュラー流とベクトル状態はこの枠に入ります。
-
 <!-- definition-example-start: def-aqft25-wstar-kms -->
 ### 直接例：二準位模型で定義の全条件を確認
 
-$\rho=\operatorname{diag}(3/4,1/4)$、$\mathcal M=M_2(\mathbb C)$ とし、$\omega(C)=\operatorname{Tr}(\rho C)$、$\alpha_t(C)=\rho^{it}C\rho^{-it}$ とします。有限次元のため $\alpha_t$ はノルム連続で、したがって強連続・正規です。$\rho>0$ なので $\omega$ は忠実な正規状態です。
+$\mathcal M=M_2(\mathbb C)$ とし、標準基底 $e_1,e_2$ に関して $\rho e_1=\tfrac34e_1$、$\rho e_2=\tfrac14e_2$ と定めます。つまり $\rho=\operatorname{diag}(3/4,1/4)$ であり、固有値はどちらも正、和は1です。よって $\rho$ は忠実で正規化された密度行列です。[AQFT20の忠実密度行列の定義](../AQFT20/index.md#def-aqft20-faithful-density)をこの固有基底で確認できます。
+
+状態と時間発展を
+
+$$
+\omega(C)=\operatorname{Tr}(\rho C),\qquad
+\alpha_t(C)=\rho^{it}C\rho^{-it}
+$$
+
+とします。有限次元では $\alpha_t$ がノルム連続なので強作用素連続・正規であり、$\omega$ も正規状態です。さらに次のようにHamiltonianを選びます。
+
+$$
+H_0=-\log\rho,\qquad
+H_0=H_0^*,\qquad
+e^{-H_0}=\rho,\qquad
+\operatorname{Tr}(e^{-H_0})=1.
+$$
+
+したがって $\beta=1$、$Z_1=\operatorname{Tr}(e^{-H_0})=1$ と取れば、[AQFT24のGibbs状態の定義](../AQFT24/index.md#def-aqft24-gibbs)の仮定を満たし、次のKMS定理を適用できます。
 
 任意の $A,B$ について[AQFT24の有限次元KMS定理](../AQFT24/index.md#thm-aqft24-gibbs-kms)が与える
 
@@ -78,7 +94,22 @@ $$
 
 有限次元Hilbert–Schmidt標準表現では[行列単位のモジュラー位相](../AQFT20/index.md#thm-aqft20-finite-flow)が有限個の指数関数で表され、任意の行列で $\|\sigma_t(A)-A\|\to0$ です。したがって $\mathcal M_{\mathrm c}=\mathcal M$ です。
 
-反対に、[AQFT23の無限次元シフト例](../AQFT23/index.md#thm-aqft23-gaussian-analytic)の直後で計算した $p_n=ce^{-n^2}$ と $Ve_n=e_{n+1}$ を使うと、$t_n=\pi/(2n+1)\to0$ に対して $\|\sigma_{t_n}(L_V)-L_V\|=2$ となります。この $L_V$ は $\mathcal M_{\mathrm c}$ に入りません。**定義の確認**：ノルム差の極限が0になる例と、ならない例を実際に判定しました。
+反対に、[AQFT23の無限次元シフト計算](../AQFT23/index.md#thm-aqft23-gaussian-analytic)の設定 $p_n=ce^{-n^2}$、$Ve_n=e_{n+1}$ を使います。密度行列 $\rho e_n=p_ne_n$ の固有基底で $L_V$ のノルム連続性を判定すると、
+
+$$
+\rho^{it}V\rho^{-it}e_n
+=\left(\frac{p_{n+1}}{p_n}\right)^{it}e_{n+1}
+=e^{-it(2n+1)}e_{n+1}.
+$$
+
+$t_n=\pi/(2n+1)\to0$ ならこの係数は $-1$ です。左乗算作用素には $\|L_T(X)\|_2\le\|T\|\|X\|_2$ が成立します。逆に単位ベクトル $v,w$ に対する階数1作用素 $X=|v\rangle\langle w|$ を取ると $\|X\|_2=1$、$\|L_T(X)\|_2=\|Tv\|$ なので、$v$ を動かして $\|L_T\|=\|T\|$ です。基底ベクトル $e_n$ における差のノルム2と作用素ノルムの上界2を照合すると
+
+$$
+\|\sigma_{t_n}(L_V)-L_V\|
+=\|\rho^{it_n}V\rho^{-it_n}-V\|=2
+$$
+
+を得ます。よって $L_V\notin\mathcal M_{\mathrm c}$。**定義の確認**：ノルム差の極限が0になる例と、ならない例を、その判定に用いる作用素ノルムまで追跡しました。
 <!-- definition-example-end -->
 
 <a id="thm-aqft25-analytic-density"></a>
@@ -252,11 +283,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（一般モジュラーKMS定理）**  
-> $\mathcal M\subset B(\mathcal H)$ を単位的von Neumann環とし、単位ベクトル $\Omega$ が $\mathcal M$ に対して巡回的かつ分離的であるとする。$S=\overline{S_0}=J\Delta^{1/2}$、$\sigma_t(A)=\Delta^{it}A\Delta^{-it}$、$\omega(A)=\langle\Omega,A\Omega\rangle$ と置く。このとき、すべての $A,B\in\mathcal M$ に対し
+> $\mathcal M\subset B(\mathcal H)$ を単位的von Neumann環とし、単位ベクトル $\Omega$ が $\mathcal M$ に対して巡回的かつ分離的であるとする。$S=\overline{S_0}=J\Delta^{1/2}$、$\sigma_t(A)=\Delta^{it}A\Delta^{-it}$、$\omega(A)=\langle\Omega,A\Omega\rangle$ と置く。$H=\log\Delta$ の射影値測度を $P_H$ とし、Borel集合 $E\subset\mathbb R$ に対して
 $$
-F_{A,B}(z)=
-\int_{\mathbb R}e^{-iz\lambda}\,
-d\langle A^*\Omega,P_H(\lambda)B\Omega\rangle
+\mu_{A,B}(E)=\langle A^*\Omega,P_H(E)B\Omega\rangle
+$$
+> と定める。このとき、すべての $A,B\in\mathcal M$ に対し
+$$
+F_{A,B}(z)=\int_{\mathbb R}e^{-iz\lambda}\,d\mu_{A,B}(\lambda)
 $$
 > は閉帯 $0\le\operatorname{Im}z\le1$ で有界・連続、開帯で正則であり、
 $$
@@ -371,7 +404,19 @@ $$
 
 ### 無限次元Hilbert–Schmidt模型でもトレースを前提にしない
 
-$\mathcal K=\ell^2(\mathbb N)$ に $p_n=2^{-n}$（$n\ge1$）、$\rho=\operatorname{diag}(p_n)$ を取り、Hilbert–Schmidt空間上の左乗算環 $\mathcal M=L(B(\mathcal K))$ と $\Omega=\rho^{1/2}$ を考えます。$p_n>0$ なのでこのベクトルは巡回・分離的です（有限行列が稠密であり、$A\rho^{1/2}=0$ なら $A=0$）。[有限次元のモジュラー計算](../AQFT20/index.md#thm-aqft20-finite-flow)と同じ行列単位のグラフ計算により、
+$\mathcal K=\ell^2(\mathbb N)$ の標準正規直交基底を $e_n$ とし、$p_n=2^{-n}$（$n\ge1$）、$\rho e_n=p_ne_n$ を取ります。$\sum_np_n=1$ かつ各 $p_n>0$ なので、$\Omega=\rho^{1/2}$ はHilbert–Schmidt空間内の単位ベクトルです。左乗算環 $\mathcal M=L(B(\mathcal K))$ を考え、[Hilbert–Schmidt標準表現の構成](../AQFT20/index.md#def-aqft20-standard-representation)に従って $L_C(X)=CX$ と書きます。
+
+行列単位は $E_{ij}e_k=\delta_{jk}e_i$ を満たします。$E_{ij}=L_{E_{ij}/\sqrt{p_j}}\Omega$ であり、行列単位の有限線形結合がHilbert–Schmidt空間に稠密なので $\Omega$ は巡回的です。一方、$L_C\Omega=0$ なら各 $j$ について $\sqrt{p_j}Ce_j=0$、従って $C=0$ で分離的です。
+
+[Tomita初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)を行列単位に適用すると
+
+$$
+S(E_{ij})
+=\frac{1}{\sqrt{p_j}}E_{ji}\rho^{1/2}
+=\sqrt{\frac{p_i}{p_j}}E_{ji}.
+$$
+
+[AQFT23の無限次元グラフ計算](../AQFT23/index.md#thm-aqft23-gaussian-analytic)では有限行列が $S$ のグラフcoreであることと、反線形随伴 $S^\sharp(E_{ji})=\sqrt{p_i/p_j}E_{ij}$ を示しています。この計算と $\Delta=S^\sharp S$ から、
 
 $$
 \Delta(E_{ij})=\frac{p_i}{p_j}E_{ij},
@@ -448,7 +493,13 @@ $$
 #### AQFT25-A02 二準位の上端
 
 - Level: A
-- 問題：$\rho=\operatorname{diag}(3/4,1/4)$、$A=E_{12},B=E_{21}$ とする。$F(z)=\omega(\sigma_z(A)B)$ の $t$ と $t+i$ における値を求め、上端の順序を照合せよ。
+- 問題：$\rho=\operatorname{diag}(3/4,1/4)$、$A=E_{12}$、$B=E_{21}$ とする。[AQFT24の有限次元複素時間延長](../AQFT24/index.md#thm-aqft24-gibbs-kms)に従い、この問題に限り
+
+$$
+\sigma_z(C)=\rho^{iz}C\rho^{-iz}\qquad(z\in\mathbb C)
+$$
+
+と置く。$F(z)=\omega(\sigma_z(A)B)$ の $t$ と $t+i$ における値を求め、上端の順序を照合せよ。
 
 <!-- solution-start -->
 **詳細解答。** [有限次元モジュラー流](../AQFT20/index.md#thm-aqft20-finite-flow)で $p_1/p_2=3$ より $\sigma_z(E_{12})=3^{iz}E_{12}$。$E_{12}E_{21}=E_{11}$ なので
@@ -595,7 +646,7 @@ $$
 #### AQFT25-C01 トレースなしのKMS定理を再構成
 
 - Level: C
-- 問題：標準対 $(\mathcal M,\Omega)$ と $A,B\in\mathcal M$ に対し、$x=A^*\Omega,y=B\Omega$ から出発して、$F(z)=\int e^{-iz\lambda}\,d\langle x,P_H(\lambda)y\rangle$ の存在、閉帯一様有界性、二つの境界式を順番に証明せよ。$\Delta$ が有界であると仮定してはならない。
+- 問題：標準対 $(\mathcal M,\Omega)$ と $A,B\in\mathcal M$ に対し、$x=A^*\Omega,y=B\Omega$ と置く。$H=\log\Delta$ の射影値測度 $P_H$ から $\mu(E)=\langle x,P_H(E)y\rangle$（$E$ はBorel集合）を定め、$F(z)=\int e^{-iz\lambda}\,d\mu(\lambda)$ の存在、閉帯一様有界性、二つの境界式を順番に証明せよ。$\Delta$ が有界であると仮定してはならない。
 
 <!-- solution-start -->
 **詳細解答。** [Tomita初期作用素](../AQFT18/index.md#prop-aqft18-initial-properties)の定義で $S(A^*\Omega)=A\Omega$、$S(B\Omega)=B^*\Omega$。よって $x,y\in\operatorname{Dom}\Delta^{1/2}$ で、$\|\Delta^{1/2}x\|\le\|A\|$、$\|\Delta^{1/2}y\|\le\|B\|$。ここが非有界 $\Delta$ を扱うための出発点です。
@@ -639,13 +690,16 @@ $$
 #### AQFT25-C02 二つの時間と二つの作用素空間を区別
 
 - Level: C
-- 問題：$\rho=Z_\beta^{-1}e^{-\beta H_0}>0$ を有限次元密度行列とし、$\tau_s(A)=e^{isH_0}Ae^{-isH_0}$ とする。次の三点を示せ。
-  - モジュラー時間と物理時間の関係。
-  - $\log\Delta$ の $E_{ij}$ に対する固有値。
-  - Type IIIの一般標準対に$\rho$を要求する論法が誤りである理由。
+- 問題：$H_0=H_0^*$ を有限次元Hamiltonian、$\beta>0$ とし、$\rho=Z_\beta^{-1}e^{-\beta H_0}>0$ を密度行列、$\tau_s(A)=e^{isH_0}Ae^{-isH_0}$ を物理時間 $s$ の発展とする。次の三点を示せ。
+
+  1. モジュラー時間 $t$ と物理時間 $s$ の関係。
+  2. $\log\Delta$ の $E_{ij}$ に対する固有値。
+  3. Type IIIの一般標準対に $\rho$ を要求する論法が誤りである理由。
 
 <!-- solution-start -->
-**詳細解答。** (1) $H_0=H_0^*$ と $\rho=Z_\beta^{-1}e^{-\beta H_0}$ から $\log\rho=-\beta H_0-(\log Z_\beta)I$。スカラー項は共役で消えるので[AQFT24の時間対応](../AQFT24/index.md#thm-aqft24-physical-kms)を計算し直すと
+**詳細解答。**
+
+**1. モジュラー時間と物理時間。** $H_0=H_0^*$ と $\rho=Z_\beta^{-1}e^{-\beta H_0}$ から $\log\rho=-\beta H_0-(\log Z_\beta)I$。スカラー項は共役で消えるので[AQFT24の時間対応](../AQFT24/index.md#thm-aqft24-physical-kms)を計算し直すと
 
 $$
 \sigma_t(A)=\rho^{it}A\rho^{-it}
@@ -653,7 +707,7 @@ $$
 =\tau_{-\beta t}(A).
 $$
 
-(2) $\rho$ の固有値を $p_i>0$ とする。[AQFT20のHilbert–Schmidt空間上のモジュラー作用素の全計算](../AQFT20/index.md#thm-aqft20-modular-formulas)では $\Delta E_{ij}=(p_i/p_j)E_{ij}$。よって
+**2. モジュラー生成子の固有値。** $\rho$ の固有値を $p_i>0$ とする。[AQFT20のHilbert–Schmidt空間上のモジュラー作用素の全計算](../AQFT20/index.md#thm-aqft20-modular-formulas)では $\Delta E_{ij}=(p_i/p_j)E_{ij}$。よって
 
 $$
 (\log\Delta)E_{ij}=(\log p_i-\log p_j)E_{ij}.
@@ -661,7 +715,7 @@ $$
 
 元のHilbert空間上の $\log\rho$ が持つ固有値は $\log p_i$ であり、作用空間と添字が違います。
 
-(3) Type III環では有限の忠実正規トレースや局所密度行列を一般には持たないため、$\rho$ に基づく有限次元のトレース証明は直接移せません。しかし**巡回・分離的ベクトルがあるという仮定**の下では $S,J,\Delta$ を構成でき、[一般モジュラーKMS定理](#thm-aqft25-modular-kms)から相関の帯条件が従います。KMSはこの標準対の性質であって、密度行列の存在条件ではありません。
+**3. Type III環との違い。** Type III環では有限の忠実正規トレースや局所密度行列を一般には持たないため、$\rho$ に基づく有限次元のトレース証明は直接移せません。しかし**巡回・分離的ベクトルがあるという仮定**の下では $S,J,\Delta$ を構成でき、[一般モジュラーKMS定理](#thm-aqft25-modular-kms)から相関の帯条件が従います。KMSはこの標準対の性質であって、密度行列の存在条件ではありません。
 <!-- solution-end -->
 
 ## 8. 次講へ：熱的時間はいつ幾何学的時間か
