@@ -513,13 +513,13 @@ $$
 
 であり、$(u,v)$ から $(\varepsilon,\sigma)$ への線形写像は標準基底で次の行列を持つ。その行列式を計算すると
 
-$
+$$
 \det\begin{pmatrix}
 \varepsilon_a&0\\
 E'\varepsilon_a&E''\varepsilon_a
 \end{pmatrix}
 =E''\varepsilon_a^2>0.
-$
+$$
 
 $\varepsilon_a>0$ と $E''>0$ で変換は可逆であり、面積は行列式の絶対値だけ拡大する。したがって単位円の面積 $\pi$ を戻した楕円の面積は $\pi E''\varepsilon_a^2$。向きも、$\theta=0$ で右端点から下向きに進むので $\oint\sigma\,d\varepsilon>0$ と一致する。
 
@@ -573,10 +573,10 @@ $$
 
 固定 $\varepsilon_a$ に対し $x=\omega\tau$ とおく。平均散逸率と、その周波数依存部分の微分は
 
-$
+$$
 \overline{\mathcal D}=\frac{E_1\varepsilon_a^2}{2\tau}\frac{x^2}{1+x^2},\qquad
 \frac{d}{dx}\left(\frac{x^2}{1+x^2}\right)=\frac{2x}{(1+x^2)^2}>0.
-$
+$$
 
 ゆえに平均散逸率は $x>0$ で単調増加し、$\omega\to\infty$ の極限 $E_1\varepsilon_a^2/(2\tau)$ は上限であって有限周波数では達しない。したがって $E''$ のピーク $\omega\tau=1$ は、平均散逸率のピークではない。$\square$
 <!-- proof-end -->
