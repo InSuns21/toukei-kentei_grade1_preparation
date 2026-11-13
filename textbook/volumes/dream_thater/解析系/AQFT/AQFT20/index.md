@@ -2,7 +2,7 @@
 
 [AQFT18で作ったTomita作用素](../AQFT18/index.md#def-aqft18-tomita-initial)と[AQFT19で示した $S=J\Delta^{1/2}$ の分解](../AQFT19/index.md#thm-aqft19-polar)から、標準対に $S=J\Delta^{1/2}$ が付随することを学びました。しかし抽象的な式だけでは、$J$ は何を交換し、$\Delta$ は何をどれほど拡大するのかが分かりにくいままです。
 
-本講では有限次元の行列全体を一つのHilbert空間にして、**忠実な密度行列 $\rho$ を平方根ベクトル $\Omega=\rho^{1/2}$ で表す**方法を構成します。その上で次の式を、行列単位から直接導きます。
+本講では有限次元の行列全体を一つのHilbert空間にして、**忠実な密度行列 $\rho$ を平方根ベクトル $\Omega=\rho^{1/2}$ で表す**方法を構成します。ここで密度行列とは自己共役・正半定値・トレース1の行列、忠実とは全固有値が正で逆平方根を持つことです。条件は第2節で定義して確かめます。その上で次の式を、行列単位から直接導きます。
 
 $$
 S(X)=\rho^{-1/2}X^*\rho^{1/2},\qquad
@@ -74,7 +74,18 @@ L_A R_B&=R_B L_A,\\
 \end{aligned}
 $$
 
-**右乗算の合成順序が逆**になる点が重要です。特に $\langle L_AX,Y\rangle_2=\langle X,L_{A^*}Y\rangle_2$ より $L_A^*=L_{A^*}$ です。右乗算も同様です。$L_I=I_{H_n}$ が単位元であり、$A\mapsto L_A$ は線形で $L_A(I)=A$ より単射です。したがって $L(M_n(\mathbb C))$ は $B(H_n)$ の有限次元単位的 $*$-部分代数です。有限次元空間 $B(H_n)$ では弱作用素位相が行列成分の通常の位相と一致し、その線形部分空間は閉じています。よって $L(M_n(\mathbb C))$ は単位的von Neumann環です。
+**右乗算の合成順序が逆**になる点が重要です。特に $\langle L_AX,Y\rangle_2=\langle X,L_{A^*}Y\rangle_2$ より $L_A^*=L_{A^*}$ です。右乗算ではトレースの巡回性を明示して
+
+$
+\begin{aligned}
+\langle R_BX,Y\rangle_2
+&=\operatorname{Tr}(B^*X^*Y)\\
+&=\operatorname{Tr}(X^*YB^*)
+=\langle X,R_{B^*}Y\rangle_2
+\end{aligned}
+$
+
+を得るため、$R_B^*=R_{B^*}$ です。$L_I=I_{H_n}$ が単位元であり、$A\mapsto L_A$ は線形で $L_A(I)=A$ より単射です。したがって $L(M_n(\mathbb C))$ は $B(H_n)$ の有限次元単位的 $*$-部分代数です。有限次元空間 $B(H_n)$ では弱作用素位相が行列成分の通常の位相と一致し、その線形部分空間は閉じています。よって $L(M_n(\mathbb C))$ は単位的von Neumann環です。
 
 ## 2. 密度行列で標準対を作る
 
@@ -106,7 +117,13 @@ $$
 **定義の確認**：自己共役性、正半定値性、トレース1、厳密正値性を順に検査し、零固有値のある場合に最後の条件だけが失敗する理由も示しました。
 <!-- definition-example-end -->
 
-忠実性を仮定すると有限次元のスペクトル分解で全固有値が正になり、$\rho^{-1}$ と $\rho^{-1/2}$ が存在します。適切な正規直交基底を選べば
+[自己共役作用素のスペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)を有限次元の $\rho$ に適用し、その正規直交固有基底を $e_1,\ldots,e_n$、固有値を $\lambda_i$ とします。$v=\sum_i v_i e_i$ と展開すれば
+
+$
+\langle v,\rho v\rangle=\sum_i\lambda_i|v_i|^2
+$
+
+です。よって全ての $v$ に対する非負性は $\lambda_i\ge0$ と、零でない全ての $v$ に対する厳密正値性は $\lambda_i>0$ と、それぞれ同値です。後者のとき $\rho^{-1}$ と $\rho^{-1/2}$ が存在し、この固有基底では
 
 $$
 \rho=\sum_{i=1}^n\lambda_iE_{ii},\qquad
@@ -197,20 +214,21 @@ S(X)&=(X\rho^{-1/2})^*\rho^{1/2}\\
 \end{aligned}
 $$
 
-有限次元・全域定義なので $S_0$ は閉じており、その閉包と一致します。正規直交基底上で
+有限次元・全域定義なので $S_0$ は閉じており、その閉包と一致します。第2節で選んだ $\rho$ の固有基底では、左乗算は行添字、右乗算は列添字に作用します。$E_{ij}^*=E_{ji}$ と転置されるため、必要な係数は
 
-$$
-\rho^{1/2}E_{ij}=\sqrt{\lambda_i}E_{ij},\qquad
-E_{ij}\rho^{-1/2}=\frac1{\sqrt{\lambda_j}}E_{ij}
-$$
+$
+\rho^{-1/2}E_{ji}=\frac1{\sqrt{\lambda_j}}E_{ji},
+\qquad
+E_{ji}\rho^{1/2}=\sqrt{\lambda_i}E_{ji}
+$
 
-を使うと、$E_{ij}^*=E_{ji}$ であることから
+です。従って行 $j$ と列 $i$ の係数を順に掛けると
 
-$$
-S(E_{ij})=\sqrt{\frac{\lambda_i}{\lambda_j}}E_{ji}.
-$$
-
-添字を逆にしないよう、**転置された行列の行 $j$ と列 $i$ に作用する左右の係数**を順に見てください。
+$
+S(E_{ij})
+=\rho^{-1/2}E_{ji}\rho^{1/2}
+=\sqrt{\frac{\lambda_i}{\lambda_j}}E_{ji}.
+$
 
 <a id="thm-aqft20-modular-formulas"></a>
 
@@ -255,7 +273,24 @@ $$
 \delta_{jk}\delta_{il}.
 $$
 
-よって $S^\sharp(E_{kl})=\sqrt{\lambda_l/\lambda_k}E_{lk}$。一般の行列に戻せば $S^\sharp(X)=\rho^{1/2}X^*\rho^{-1/2}$ です。ここで反線形作用素 $S^\sharp$ の係数は共役されるものの、固有値比の平方根は正の実数ですから
+正規直交性より、$S^\sharp(E_{kl})$ のうち $E_{lk}$ 以外の基底係数は零です。残る係数を $b_{kl}$ と書いて随伴の定義の右辺を計算すると
+
+$
+\langle b_{kl}E_{lk},E_{ij}\rangle_2
+=\overline{b_{kl}}\,\delta_{li}\delta_{kj},
+\qquad
+\overline{b_{kl}}=\sqrt{\frac{\lambda_l}{\lambda_k}}.
+$
+
+固有値比の平方根は正の実数なので $b_{kl}$ も同じ値です。また $S^\sharp$ は反線形であるため、$X=\sum_{k,l}x_{kl}E_{kl}$ には係数を共役して作用します：
+
+$
+S^\sharp(X)=\sum_{k,l}\overline{x_{kl}}
+\sqrt{\frac{\lambda_l}{\lambda_k}}E_{lk}
+=\rho^{1/2}X^*\rho^{-1/2}.
+$
+
+この係数の共役を踏まえ、$S^\sharp S$ を基底に作用させると
 
 $$
 \begin{aligned}
@@ -370,17 +405,17 @@ $A\mapsto A^*$ は全行列の上への写像なので $J\mathcal MJ=\{R_B\}=\ma
 
 ## 5. 有限次元モジュラー時間発展
 
-正定値作用素 $\Delta$ の固有値 $\lambda_i/\lambda_j$ は正なので、実数 $t$ に対し $(\lambda_i/\lambda_j)^{it}=\exp(it\log(\lambda_i/\lambda_j))$ と定めます。$\Delta^{it}$ は各基底を絶対値1の係数で掛けるユニタリ作用素です。
+正定値作用素 $\Delta$ の固有値 $\lambda_i/\lambda_j$ は正なので、実数 $t$ に対し $(\lambda_i/\lambda_j)^{it}=\exp(it\log(\lambda_i/\lambda_j))$ と定めます。$\Delta^{it}$ は各基底を絶対値1の係数で掛けるユニタリ作用素です。ここで $t$ は実数の時間パラメータ、$\Delta^{it}$ はベクトル $X\in H_n$ に作用し、次の $\sigma_t$ は作用素 $L_A\in\mathcal M$ に作用することを区別します。
 
 <a id="def-aqft20-finite-flow"></a>
 
 <!-- formal-statement-start -->
 > **定義（有限次元のモジュラー時間発展）**  
-> 上の忠実な密度行列 $\rho$ の標準対について、実数 $t$ ごとに $\mathcal M$ 上の写像を
+> 上の忠実な密度行列 $\rho$ の標準対について、実数 $t$ ごとに $\mathcal M$ から $B(H_n)$ への写像を
 $$
 \sigma_t(L_A)=\Delta^{it}L_A\Delta^{-it}
 $$
-> で定める。この模型での $\sigma_t$ をモジュラー時間発展と呼ぶ。
+> で定める。この模型での $\sigma_t$ をモジュラー時間発展と呼ぶ。値が再び $\mathcal M$ に属することは、以下で確かめる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft20-finite-flow -->
@@ -393,15 +428,25 @@ $$
 \Delta^{it}(E_{21})=e^{-it\log3}E_{21}.
 $$
 
-したがって $\Delta^{it}$ は各基底に絶対値1の数を掛け、全空間のユニタリです。続く定理の具体式を $A=E_{12}$ に代入すると
+したがって $\Delta^{it}$ は各基底に絶対値1の数を掛け、全空間のユニタリです。後の定理を使わず、定義の共役作用を $A=E_{12}$、任意の基底 $X=E_{kl}$（$k,l\in\{1,2\}$）に直接適用します。行列単位の積 $E_{12}E_{kl}=\delta_{2k}E_{1l}$ から
 
-$$
-\sigma_t(L_{E_{12}})=e^{it\log3}L_{E_{12}}.
-$$
+$
+\begin{aligned}
+(\Delta^{it}L_{E_{12}}\Delta^{-it})(E_{kl})
+&=\Delta^{it}\left[
+\left(\frac{\lambda_k}{\lambda_l}\right)^{-it}
+\delta_{2k}E_{1l}\right]\\
+&=\delta_{2k}
+\left(\frac{\lambda_k}{\lambda_l}\right)^{-it}
+\left(\frac{\lambda_1}{\lambda_l}\right)^{it}E_{1l}\\
+&=3^{it}\delta_{2k}E_{1l}
+=3^{it}L_{E_{12}}(E_{kl}).
+\end{aligned}
+$
 
-これは $\mathcal M$ に属し、$t=0$ で恒等、$t+s$ で係数が積になることも分かります。
+$\delta_{2k}\ne0$ の項では $k=2$ なので、最後の係数は $(\lambda_1/\lambda_2)^{it}=3^{it}$ です。基底全体で等しいから $\sigma_t(L_{E_{12}})=e^{it\log3}L_{E_{12}}\in\mathcal M$ と分かります。$t=0$ で元に戻り、$t+s$ では位相係数が積になります。
 
-**定義の確認**：$\Delta^{it}$ の存在とユニタリ性、共役作用の定義域、左乗算環への戻り方、時間パラメータの加法性を具体的に確認しました。
+**定義の確認**：$\Delta^{it}$ の存在とユニタリ性、共役作用の定義域、**この例での**左乗算環への戻り方と時間パラメータの加法性を定義から確認しました。任意の $A$ についても $\mathcal M$ を保つことは次の定理で証明します。
 <!-- definition-example-end -->
 
 <a id="thm-aqft20-finite-flow"></a>
