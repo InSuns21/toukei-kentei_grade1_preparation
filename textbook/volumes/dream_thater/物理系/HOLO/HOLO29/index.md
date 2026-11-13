@@ -274,12 +274,17 @@ $$
 
 従って $Z_{BC}V=VZ_L$。
 
-**(iv) 全論理演算子。** 有限行列のHilbert–Schmidt内積を $\langle M,N\rangle_{\rm HS}=\operatorname{Tr}(M^\dagger N)$ と書きます。$X_L^mZ_L^n$（$m,n\in\mathbb Z_3$）の9個は、この内積で互いに直交します。実際、$m\ne p$ のとき $(X^mZ^n)^\dagger X^pZ^q$ には非自明なシフト $X^{p-m}$ が含まれ、対角要素がすべて零です。$m=p$ のときトレースは位相因子を除いて
+**(iv) 全論理演算子。** 有限行列のHilbert–Schmidt内積を $\langle M,N\rangle_{\rm HS}=\operatorname{Tr}(M^\dagger N)$ と書きます。まず $X_L^mZ_L^n$（$m,n\in\mathbb Z_3$）の9個がこの内積で互いに直交することを確かめます。
+
+$m\ne p$ なら $(X_L^mZ_L^n)^\dagger X_L^pZ_L^q$ は非自明なシフト $X_L^{p-m}$ を含み、対角要素が零なのでトレースも零です。一方、$m=p$ なら $X_L^{-m}X_L^m=I_L$ により、積のトレースは正確に
 
 $$
-\operatorname{Tr} Z^{q-n}
-=\sum_{j=0}^2\omega^{(q-n)j}
+\begin{aligned}
+\operatorname{Tr}\bigl((X_L^mZ_L^n)^\dagger X_L^mZ_L^q\bigr)
+&=\operatorname{Tr}Z_L^{q-n}\\
+&=\sum_{j=0}^2\omega^{(q-n)j}
 =\begin{cases}3&(q=n),\\0&(q\ne n).\end{cases}
+\end{aligned}
 $$
 
 となります。従って3×3複素行列全体の9次元空間の基底です。任意の $O$ を
@@ -567,7 +572,17 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**(1)** [第4節の三領域表現定理](#thm-holo29-three-representations)で構成した $X_R,Z_R$ は各二領域に局在し、$X_RV=VX_L,Z_RV=VZ_L$ を満たす。$X_L^mZ_L^n$ の9個が行列空間を張るので、線形結合で任意の $O_L$ に対応する $O_R$ が作れる。状態回復については第3節の $U_R$ が $V|j\rangle$ を $|j\rangle|\Phi_3\rangle$ へ写すため、補助系の廃棄を経て任意の $\rho$ を戻せる。一方、単一領域の縮約は第2節の非対角成分の消滅計算によりすべて $I_3/3$。たとえば異なる $|0\rangle\langle0|,|1\rangle\langle1|$ を区別できず完全復号不能。
+**(1)** [第4節の三領域表現定理](#thm-holo29-three-representations)で構成した $X_R,Z_R$ は各二領域にだけ作用し、
+
+$$
+X_RV=VX_L,\qquad Z_RV=VZ_L
+$$
+
+を満たす。$X_L^mZ_L^n$ の9個が全行列空間を張るので、その線形結合から任意の論理作用素 $O_L$ に対応する $O_R$ が作れる。
+
+状態回復については[QINF28の二領域復号定理](../../../応用系/QINF/QINF28/index.md#thm-qinf28-qutrit)のとおり、$U_R$ が $V|j\rangle$ を $|j\rangle|\Phi_3\rangle$ へ写す。$|\Phi_3\rangle$ が $j$ に依存しないため、補助系を捨てて任意の入力 $\rho$ を復元できる。
+
+一方、単一領域の縮約では非対角成分が消え、入力にかかわらず $I_3/3$ となる。例えば $|0\rangle\langle0|$ と $|1\rangle\langle1|$ は同じ出力なので、同一の復号チャネルでは区別できず完全復号は不可能。
 
 **(2)** [二領域の情報保存命題](#prop-holo29-entropy-model)の出発点となる同じ $U_R$ から $\mathcal E_R(\rho)$ は $\rho\otimes I_3/3$ とユニタリ同値である。$\sigma$ についても同じ $U_R$ が使える。従って
 
