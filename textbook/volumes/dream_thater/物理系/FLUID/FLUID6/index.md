@@ -129,7 +129,7 @@ $$
 =\delta_{i\ell}\delta_{jm}-\delta_{im}\delta_{j\ell}.
 $$
 
-従って外積の第 $i$ 成分は
+従って三次元の**ベクトル積** $u\times\omega$ の第 $i$ 成分は
 
 $$
 \begin{aligned}
