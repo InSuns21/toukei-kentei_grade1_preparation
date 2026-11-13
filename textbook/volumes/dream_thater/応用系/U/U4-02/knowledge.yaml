@@ -1,0 +1,54 @@
+chapter: U4-02
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-01]
+forward_references: []
+concepts:
+  - id: finance.finite-market-linear-price-functional
+    name: 取引可能なペイオフの線形価格汎関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（取引可能なペイオフの線形価格汎関数）"]
+    requires: [finance.finite-state-quote-payoff-table]
+  - id: finance.finite-market-price-functional-kernel
+    name: 価格汎関数が定義できる条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（価格汎関数が定義できる条件）"]
+    requires: [finance.finite-market-linear-price-functional]
+  - id: finance.finite-market-positive-state-prices
+    name: 正の状態価格と価格整合証明書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の状態価格と価格整合証明書）"]
+    requires: [finance.finite-state-quote-payoff-table]
+  - id: finance.finite-market-normalized-arbitrage-primal
+    name: 正規化した裁定探索問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化した裁定探索問題）"]
+    requires: [finance.quote-table-arbitrage-certificate]
+  - id: finance.finite-market-primal-feasibility
+    name: 裁定探索の実行可能性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（裁定探索の実行可能性）"]
+    requires: [finance.finite-market-normalized-arbitrage-primal]
+  - id: finance.finite-market-strict-simplex-separation
+    name: 線形部分空間と非負単体の厳密分離
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（線形部分空間と非負単体の厳密分離）"]
+    requires: []
+  - id: finance.finite-market-arbitrage-alternative
+    name: 有限市場の裁定・状態価格の二者択一
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限市場の裁定・状態価格の二者択一）"]
+    requires: [finance.finite-market-positive-state-prices, finance.finite-market-normalized-arbitrage-primal, finance.finite-market-primal-feasibility, finance.finite-market-strict-simplex-separation]
+  - id: finance.finite-market-state-price-uniqueness
+    name: 状態価格の一意性とペイオフの完備性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態価格の一意性とペイオフの完備性）"]
+    requires: [finance.finite-market-positive-state-prices]
