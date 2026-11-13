@@ -1,0 +1,42 @@
+chapter: CTM17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM16
+concepts:
+  - id: continuum.fully-developed-plane-flow
+    name: 定常・完全発達した平板一方向流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定常・完全発達した平板一方向流）"]
+    requires: [continuum.wall-no-slip, continuum.incompressible-navier-stokes]
+  - id: continuum.plane-poiseuille-profile
+    name: 平板 Poiseuille 流の速度と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平板 Poiseuille 流の速度と一意性）"]
+    requires: [continuum.fully-developed-plane-flow, continuum.low-re-stokes-limit]
+  - id: continuum.volume-flow-rate-slit
+    name: 体積流量と単位幅流量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（体積流量と単位幅流量）"]
+    requires: [continuum.fully-developed-plane-flow]
+  - id: continuum.plane-poiseuille-flux-stress
+    name: 平板 Poiseuille 流の流量・壁面せん断力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平板 Poiseuille 流の流量・壁面せん断力）"]
+    requires: [continuum.plane-poiseuille-profile, continuum.volume-flow-rate-slit, continuum.incompressible-newtonian-stress]
+  - id: continuum.plane-poiseuille-pressure-dissipation
+    name: 圧力仕事と粘性散逸の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（圧力仕事と粘性散逸の一致）"]
+    requires: [continuum.plane-poiseuille-flux-stress, continuum.newtonian-viscous-dissipation]
+  - id: continuum.plane-poiseuille-exact-ns
+    name: 完全発達平板流は Navier–Stokes 式の厳密解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全発達平板流は Navier–Stokes 式の厳密解）"]
+    requires: [continuum.plane-poiseuille-profile, continuum.incompressible-navier-stokes]

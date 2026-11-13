@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+<title id="title">平行平板 Poiseuille 流の圧力差、放物線速度分布、壁面せん断 traction</title>
+<desc id="desc">上壁と下壁は静止。左の高い入口圧力から右の低い出口圧力へ流れる。中央に向かうほど右向きの速度矢印が長くなり、先端は放物型の破線に並ぶ。上下壁から流体へ働くせん断 traction は両方とも左向き。流量 q は右向き。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L6 3 L0 6 Z" fill="#1f5678"/></marker><marker id="drag" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L6 3 L0 6 Z" fill="#8a3e37"/></marker></defs>
+<rect x="176" y="102" width="600" height="214" fill="#f4f8fb"/>
+<path d="M176 102 H776 M176 316 H776" stroke="#263746" stroke-width="7" fill="none"/>
+<text x="430" y="76" font-size="19" text-anchor="middle" fill="#263746">y = +h</text>
+<text x="430" y="350" font-size="19" text-anchor="middle" fill="#263746">y = −h</text>
+<path d="M144 207 H179" stroke="#1f5678" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M825 207 H785" stroke="#1f5678" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="55" y="183" font-size="20" fill="#1f5678">p_in</text>
+<text x="795" y="183" font-size="20" fill="#1f5678">p_out</text>
+<path d="M241 104 H241" stroke="none"/>
+<path d="M241 105 L318.4 126.2 L378.6 147.4 L421.6 168.6 L447.4 189.8 L456 211 L447.4 232.2 L421.6 253.4 L378.6 274.6 L318.4 295.8 L241 317" stroke="#1f5678" stroke-width="2.8" stroke-dasharray="8 5" fill="none" data-series-group="velocity" data-series-label="u(y)"/>
+<g stroke="#1f5678" stroke-width="2.7" marker-end="url(#arrow)">
+<path d="M241 126.2 H318.4"/><path d="M241 168.6 H421.6"/><path d="M241 211 H456"/><path d="M241 253.4 H421.6"/><path d="M241 295.8 H318.4"/>
+</g>
+<text x="263" y="243" font-size="18" fill="#1f5678">u(y)</text>
+<path d="M666 113 H589 M666 305 H589" fill="none" stroke="#8a3e37" stroke-width="3.8" marker-end="url(#drag)"/>
+<text x="673" y="140" font-size="17" fill="#8a3e37">t_top</text>
+<text x="673" y="283" font-size="17" fill="#8a3e37">t_bottom</text>
+<path d="M577 211 H720" stroke="#1f5678" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="638" y="192" font-size="22" fill="#1f5678">q</text>
+<path d="M177 384 H768" stroke="#263746" stroke-width="2.3" marker-end="url(#arrow)"/>
+<text x="770" y="391" font-size="20" fill="#263746">x</text>
+</svg>
