@@ -372,17 +372,17 @@ X_{\tau,\sigma}
 =s\exp((r-\sigma^2/2)\tau+\sigma\sqrt{\tau}Z)
 $$
 
-を構成します。$\tau\downarrow0$（$\sigma$ 固定）では $X_{\tau,\sigma}\to s$、$\sigma\downarrow0$（$\tau$ 固定）では $X_{\tau,\sigma}\to se^{r\tau}$ がほとんど確実に成り立ちます。どちらの場合もパラメータを上限のある区間に制限すると $X_{\tau,\sigma}$ は定数倍の $e^{M|Z|}$（有限 $M$）以下で抑えられ、その期待値は有限です。実際、$Z$ の標準正規対称性と指数モーメントから
+を構成します。$\tau\downarrow0$（$\sigma$ 固定）では $X_{\tau,\sigma}\to s$、$\sigma\downarrow0$（$\tau$ 固定）では $X_{\tau,\sigma}\to se^{r\tau}$ がほとんど確実に成り立ちます。どちらの場合もパラメータを上限のある区間に制限すると $X_{\tau,\sigma}$ は定数倍の $e^{M|Z|}$（有限 $M$）以下で抑えられ、その期待値は有限です。実際、[正規尾積分補題](#lem-u3-18-tilted-tail)を上下で足すと $E_Q[e^{aZ}]=e^{a^2/2}$ であり、$Z$ の対称性と合わせて
 
 $$
 E_Q[e^{M|Z|}]\le E_Q[e^{MZ}]+E_Q[e^{-MZ}]=2e^{M^2/2}<\infty.
 $$
 
-call・put の支払関数は連続で、絶対値が $X_{\tau,\sigma}+K$ 以下なので支配収束定理で期待値を交換できます。割引因子も連続ですから（1）と（2）が従います。
+call・put の支払関数は連続で、絶対値が $X_{\tau,\sigma}+K$ 以下なので [Lebesgue の優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)で期待値を交換できます。割引因子も連続ですから（1）と（2）が従います。
 
 （3）の $s\downarrow0$ では、$X_{\tau,\sigma}=sY$、$Y>0$ は $s$ と独立で $E_Q[Y]=e^{r\tau}$ です。$0\le C\le s$ より $C\to0$、[parity](../U3-05/index.md#thm-u3-05-parity)で $P=C-s+Ke^{-r\tau}\to Ke^{-r\tau}$ です。
 
-$s\to\infty$ では put payoff $(K-sY)_+$ が各 $Y>0$ で0に収束し、$K$ 以下なので支配収束定理から $P\to0$。同じ parity から $C-s=P-Ke^{-r\tau}\to -Ke^{-r\tau}$ を得ます。
+$s\to\infty$ では put payoff $(K-sY)_+$ が各 $Y>0$ で0に収束し、$K$ 以下なので同じ[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)から $P\to0$。同じ parity から $C-s=P-Ke^{-r\tau}\to -Ke^{-r\tau}$ を得ます。
 <!-- proof-end -->
 
 **折れ目の注意**：$s=K$、$\tau\downarrow0$ のとき、$d_1,d_2$ はどちらも0へ向かい、$\Phi(d_i)\to1/2$ です。しかし call の価格は $K/2-K/2=0$ へ向かいます。「満期直前の行使確率が約半分」から「満期価値が半額」とはなりません。
