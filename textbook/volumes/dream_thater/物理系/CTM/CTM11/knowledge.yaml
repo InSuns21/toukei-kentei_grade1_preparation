@@ -4,18 +4,12 @@ coverage: complete
 prerequisites:
   - CTM10
 concepts:
-  - id: continuum.small-strain
-    name: 微小ひずみ
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（微小ひずみ）"]
-    requires: [continuum.green-lagrange-strain]
   - id: continuum.isotropic-linear-elastic
     name: 等方線形弾性材料
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（等方線形弾性材料）"]
-    requires: [continuum.small-strain, continuum.material-isotropy, continuum.isothermal-elastic-constitutive]
+    requires: [continuum.infinitesimal-strain, continuum.material-isotropy, continuum.isothermal-elastic-constitutive]
   - id: continuum.hooke-isotropic
     name: 等方 Hooke 則のエネルギー表示
     kind: theorem
@@ -32,7 +26,7 @@ concepts:
     name: 偏差ひずみ
     kind: definition
     introduction: formal
-    requires: [continuum.small-strain]
+    requires: [continuum.infinitesimal-strain]
   - id: continuum.linear-elastic-positive-definite
     name: エネルギーの直交分解と正定値条件
     kind: proposition
@@ -49,6 +43,7 @@ concepts:
     name: Poisson比
     kind: definition
     introduction: formal
+    introduction_aliases: ["定義（Young率と Poisson比）"]
     requires: [continuum.hooke-isotropic]
   - id: continuum.elastic-constants-conversion
     name: Lamé 係数・Young率・Poisson比の関係
