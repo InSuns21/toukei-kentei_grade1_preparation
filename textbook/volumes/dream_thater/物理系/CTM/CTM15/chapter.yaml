@@ -10,11 +10,13 @@ learning_objectives:
   - "せん断・体積粘性係数を区別し、Newton構成則の粘性散逸が非負であることを導出できる"
   - "運動量収支と圧縮性Newton構成則から圧縮性運動量式を導き、体積粘性項と係数勾配を落とさない"
   - "非圧縮条件と空間的密度一定の差を示し、一定粘性・非圧縮Navier–Stokes方程式を成分で導ける"
-  - "無滑り・非貫通・traction境界条件を区別し、平板せん断の方程式・境界値・仕事率を検算できる"
+  - "壁面の無滑り・非貫通条件をそれぞれ定義・判定し、tractionを区別して平板せん断の方程式・境界値・仕事率を検算できる"
 definitions:
   - { id: CTM15-DEF-01, name: "変形速度の偏差部分と体積変化率" }
   - { id: CTM15-DEF-02, name: "圧縮性等方Newton流体" }
   - { id: CTM15-DEF-03, name: "非圧縮Newton流体の応力" }
+  - { id: CTM15-DEF-04, name: "壁面の無滑り条件" }
+  - { id: CTM15-DEF-05, name: "壁面の非貫通条件" }
 theorems:
   - { id: CTM15-PROP-01, name: "Newton粘性応力の客観性" }
   - { id: CTM15-THM-01, name: "Newton流体の粘性散逸" }
