@@ -12,3 +12,4 @@
 9. [RBD9 非対称剛体・中間軸の不安定性](textbook/volumes/dream_thater/物理系/RBD/RBD9/index.md)
 10. [RBD10 Poinsotの構成と物体系／空間系の軌跡](textbook/volumes/dream_thater/物理系/RBD/RBD10/index.md)
 11. [RBD11 固定点を持つ重い対称こま](textbook/volumes/dream_thater/物理系/RBD/RBD11/index.md)
+12. [RBD12 定常歳差・章動とジャイロ近似](textbook/volumes/dream_thater/物理系/RBD/RBD12/index.md)

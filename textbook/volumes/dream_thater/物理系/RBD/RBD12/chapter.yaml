@@ -1,0 +1,43 @@
+id: "RBD12"
+title: "定常歳差・章動とジャイロ近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD11
+official_scope: []
+learning_objectives:
+  - 重い対称こまの保存量h k Eと有効ポテンシャルから歳差速度と傾きの二階ODEを復元できる
+  - 定常歳差の必要十分条件を有効ポテンシャルと初期速度から導出できる
+  - 正則な傾きでの速い歳差と遅い歳差の枝と判別式および向きの条件を判定できる
+  - 固定したh kに対する有効ポテンシャルの二階微分を計算し小章動振動数と転回点を導出できる
+  - ジャイロの遅い歳差近似を条件付きで導き厳密な相対誤差を評価できる
+  - 重力トルク付きODEを積分する図で保存エネルギーと定常歳差および章動の違いを検算できる
+definitions:
+  - { id: RBD12-DEF-01, name: "定常歳差" }
+  - { id: RBD12-DEF-02, name: "章動と転回点" }
+theorems:
+  - { id: RBD12-THM-01, name: "定常歳差の条件と二つの枝" }
+  - { id: RBD12-THM-02, name: "正則な定常歳差の小章動と固有振動数" }
+  - { id: RBD12-PROP-01, name: "遅い歳差のジャイロ近似と誤差" }
+canonical_examples:
+  - 赤道での重力トルクと定常歳差の直接検算
+  - 60度での定常歳差二枝と異なる鉛直角運動量
+  - 初期傾きの微小摂動が往復章動になる具体例
+  - 赤道定常歳差の章動振動数と歳差周期の比較
+  - 初期傾き速度零でも定常歳差ではない反例
+  - ジャイロ近似の無次元誤差の評価
+problem_patterns:
+  - RBD12-EQUATOR-STEADY
+  - RBD12-TWO-PRECESSION-ROOTS
+  - RBD12-TURNING-ACCELERATION
+  - RBD12-NUTATION-FREQUENCY
+  - RBD12-GYRO-RELATIVE-ERROR
+  - RBD12-FIXED-MOMENTA-CURVATURE
+  - RBD12-INITIAL-ENERGY-AMPLITUDE
+  - RBD12-SOUTHERN-PRECESSION-SIGNS
+  - RBD12-GYRO-VALIDITY
+  - RBD12-INTEGRATED-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.5, review: 2.5 }

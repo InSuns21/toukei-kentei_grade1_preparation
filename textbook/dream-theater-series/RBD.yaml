@@ -51,7 +51,7 @@ chapters:
     title: 固定点を持つ重い対称こま
   - id: RBD12
     path: textbook/volumes/dream_thater/物理系/RBD/RBD12
-    status: planned
+    status: completed
     title: 定常歳差・章動とジャイロ近似
   - id: RBD13
     path: textbook/volumes/dream_thater/物理系/RBD/RBD13
