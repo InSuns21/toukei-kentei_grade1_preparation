@@ -2,7 +2,7 @@
 
 [AQFT24の有限次元Gibbs計算](../AQFT24/index.md#thm-aqft24-gibbs-kms)では、密度行列 $\rho$ をトレースの中で巡回させると、複素時間の上端で演算子の順序が反転しました。しかし局所量子場理論のType III環には、すべての状態を $\operatorname{Tr}(\rho\,\cdot)$ と書く仕組みがありません。何を使えば「熱平衡の時間」を定義できるのでしょうか。
 
-既習の[Tomita作用素](../AQFT18/index.md#def-aqft18-tomita-initial)と[一般のTomita–Takesaki定理](../AQFT23/index.md#thm-aqft23-tomita-takesaki)からは、トレースを使わずにモジュラー流 $\sigma_t$ が得られます。本講では、**スペクトル定理で帯上の相関関数を作り、反線形なTomita関係でその上端の順序を反転**させます。これがType III環にも通用するKMS定理の核心です。
+[Tomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial)は、巡回・分離ベクトルから定まります。さらに[標準対に対するTomita–Takesaki定理](../AQFT23/index.md#thm-aqft23-tomita-takesaki)から、トレースを使わずにモジュラー流 $\sigma_t$ が得られます。本講では、**スペクトル定理で帯上の相関関数を作り、反線形なTomita関係でその上端の順序を反転**させます。これがType III環にも通用するKMS定理の核心です。
 
 先に二つの注意があります。第一に、一般のモジュラー群は作用素ノルムでは連続とは限りません。第二に、モジュラー生成子 $-\log\Delta$ は有限次元の密度行列の $-\log\rho$ と同じ作用素ではありません。
 
@@ -30,14 +30,14 @@ $$
 <a id="def-aqft25-wstar-kms"></a>
 
 <!-- formal-statement-start -->
-> **定義（von Neumann環上の上側帯KMS条件）**  
-> $\mathcal M$ を単位的von Neumann環、$(\alpha_t)_{t\in\mathbb R}$ を各元の強作用素連続な正規 $*$-自己同型群、$\omega$ を正規状態とする。任意の $A,B\in\mathcal M$ に対し、閉帯 $0\le\operatorname{Im}z\le1$ で有界・連続、開帯 $0<\operatorname{Im}z<1$ で正則な複素数値関数 $F_{A,B}$ が存在し、
+> **定義（von Neumann環上のKMS条件）**  
+> $\mathcal M$ を単位的von Neumann環、$(\alpha_t)_{t\in\mathbb R}$ を各元について強作用素連続な、正規 $*$-自己同型からなる一パラメータ群、$\omega$ を正規状態とする。任意の $A,B\in\mathcal M$ に対し、閉帯 $0\le\operatorname{Im}z\le1$ で有界・連続、開帯 $0<\operatorname{Im}z<1$ で正則な複素数値関数 $F_{A,B}$ が存在し、
 $$
 F_{A,B}(t)=\omega(\alpha_t(A)B),
 \qquad
 F_{A,B}(t+i)=\omega(B\alpha_t(A))
 $$
-> がすべての $t\in\mathbb R$ で成り立つとき、$\omega$ は $\alpha$ に関して **上側帯KMS条件** を満たすという。$\alpha$ の作用素ノルム連続性は定義の仮定に含めない。
+> がすべての $t\in\mathbb R$ で成り立つとき、$\omega$ は $\alpha$ に関して **KMS条件** を満たすという。$\alpha$ の作用素ノルム連続性は定義の仮定に含めない。
 <!-- formal-statement-end -->
 
 ここで「正規」とは超弱位相に関する連続性を指し、[AQFT23の群と状態保存の定理](../AQFT23/index.md#thm-aqft23-group-state)によってモジュラー流とベクトル状態はこの枠に入ります。
@@ -265,7 +265,7 @@ $$
 $$
 |F_{A,B}(z)|\le\|A\|\|B\|
 $$
-> が成立する。従って $\omega$ は $\sigma$ に関してvon Neumann環上の上側帯KMS条件を満たす。
+> が成立する。従って $\omega$ は $\sigma$ に関してvon Neumann環上のKMS条件を満たす。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -295,7 +295,7 @@ $$
 \end{array}
 $$
 
-[スペクトル帯補題](#lem-aqft25-spectral-strip)により $F_{A,B}$ は閉帯で連続、内部で正則です。さらに $0\le v\le1$、$q>0$ に対する加重相加相乗平均 $q^v\le(1-v)+vq$ をスペクトル関数計算に適用すると
+[半べきの定義域から帯正則性へ](#lem-aqft25-spectral-strip)という補題により $F_{A,B}$ は閉帯で連続、内部で正則です。さらに $0\le v\le1$、$q>0$ に対する加重相加相乗平均 $q^v\le(1-v)+vq$ をスペクトル関数計算に適用すると
 
 $$
 \begin{aligned}
@@ -362,7 +362,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[解析的元の稠密性の定理](#thm-aqft25-analytic-density)により $\mathcal M_{\mathrm c}$ は単位的で $\sigma$ 不変なC*環、群はノルム連続です。$\omega$ の制限は正値性と $\omega(I)=1$ を保ちます。[一般モジュラーKMS定理](#thm-aqft25-modular-kms)の $F_{A,B}$ を $A,B\in\mathcal M_{\mathrm c}$ に限定すれば、有界性・連続性・正則性・上下境界式がそのまま成立します。従ってAQFT24の定義のすべてを満たします。
+[解析的元の二つの稠密性](#thm-aqft25-analytic-density)により $\mathcal M_{\mathrm c}$ は単位的で $\sigma$ 不変なC*環、群はノルム連続です。$\omega$ の制限は正値性と $\omega(I)=1$ を保ちます。[一般モジュラーKMS定理](#thm-aqft25-modular-kms)の $F_{A,B}$ を $A,B\in\mathcal M_{\mathrm c}$ に限定すれば、有界性・連続性・正則性・上下境界式がそのまま成立します。従ってAQFT24の定義のすべてを満たします。
 <!-- proof-end -->
 
 ## 4. 具体模型で帯と符号を再確認する
@@ -389,9 +389,9 @@ $$
 
 ### 局所Type III環で何が言えるか
 
-局所環 $\mathcal A(O)''$ と、そこで巡回・分離的な真空ベクトル $\Omega$ を仮定します。例えば[AQFT13の巡回性・分離性の議論](../AQFT13/index.md#thm-aqft13-complement-cyclicity-separating)により、適切な領域・局所性・補集合側の巡回性から標準対が得られる場合があります。その**標準対が得られた場合**、環の型にかかわらず本講のKMS定理が成立します。
+局所観測量のvon Neumann環 $\mathcal A(O)''$ と、そこで巡回・分離的な真空ベクトル $\Omega$ を仮定します。例えば[AQFT13の巡回性・分離性の議論](../AQFT13/index.md#thm-aqft13-complement-cyclicity-separating)により、適切な領域・局所性・補集合側の巡回性から標準対が得られる場合があります。その**標準対が得られた場合**、環の型にかかわらず本講のKMS定理が成立します。
 
-ただし、$\sigma_t$ が幾何学的なLorentz boostになるかは別問題です。一般の局所環についてそう結論できるわけではありません。自由場の特別なwedgeでこの同一視に必要な解析性を調べるのが次講以降です。
+ただし、$\sigma_t$ が幾何学的なLorentz boostになるかは別問題です。一般の局所観測量環についてそう結論できるわけではありません。自由場の特別なwedgeでこの同一視に必要な解析性を調べるのが次講以降です。
 
 ## 5. $-\log\Delta$ と $-\log\rho$ を同一視しない
 
@@ -474,7 +474,7 @@ $$
 =\int\bigl(g_\varepsilon(s-h)-g_\varepsilon(s)\bigr)\sigma_s(A)\,ds.
 $$
 
-$\|\sigma_s(A)\|=\|A\|$ よりノルムは $\|A\|\int|g_\varepsilon(s-h)-g_\varepsilon(s)|ds$ 以下です。Gaussianの平行移動は $L^1$ 連続なのでこの上界は $h\to0$ で0。従って[ノルム連続部分代数の定義](#def-aqft25-continuous-part)を満たします。$A$ 自体のノルム連続性は仮定しません。
+$\|\sigma_s(A)\|=\|A\|$ よりノルムは $\|A\|\int|g_\varepsilon(s-h)-g_\varepsilon(s)|ds$ 以下です。Gaussianの平行移動は $L^1$ 連続なのでこの上界は $h\to0$ で0。従って[モジュラー流のノルム連続部分代数](#def-aqft25-continuous-part)の定義を満たします。$A$ 自体のノルム連続性は仮定しません。
 <!-- solution-end -->
 
 <a id="ex-aqft25-a04"></a>
@@ -549,7 +549,7 @@ $$
 - 問題：$A\in\mathcal M_{\mathrm c}$ ならGaussian平均 $A_\varepsilon\to A$ がノルム収束することを示せ。また $\mathcal M$ 全体に同じ結論を拡張できない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答。** [ノルム連続部分代数の定義](#def-aqft25-continuous-part)により、任意の $\eta>0$ に対し $|s|<\delta$ なら $\|\sigma_s(A)-A\|<\eta$ とできる。$\int g_\varepsilon(s)\,ds=1$ なので積分を分割して
+**詳細解答。** [モジュラー流のノルム連続部分代数](#def-aqft25-continuous-part)の定義により、任意の $\eta>0$ に対し $|s|<\delta$ なら $\|\sigma_s(A)-A\|<\eta$ とできる。$\int g_\varepsilon(s)\,ds=1$ なので積分を分割して
 
 $$
 \begin{aligned}
@@ -598,7 +598,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** [Tomita初期作用素](../AQFT18/index.md#prop-aqft18-initial-properties)の定義で $S(A^*\Omega)=A\Omega$、$S(B\Omega)=B^*\Omega$。よって $x,y\in\operatorname{Dom}\Delta^{1/2}$ で、$\|\Delta^{1/2}x\|\le\|A\|$、$\|\Delta^{1/2}y\|\le\|B\|$。ここが非有界 $\Delta$ を扱うための出発点です。
 
-[スペクトル帯補題](#lem-aqft25-spectral-strip)の証明で、スペクトル測度 $\mu$ は $\int(1+e^\lambda)d|\mu|<\infty$ を満たします。従って $e^{v\lambda}$（$0\le v\le1$）の支配収束から閉帯連続、開帯内部での局所微分から正則性が従います。また
+[半べきの定義域から帯正則性へ](#lem-aqft25-spectral-strip)という補題の証明で、スペクトル測度 $\mu$ は $\int(1+e^\lambda)d|\mu|<\infty$ を満たします。従って $e^{v\lambda}$（$0\le v\le1$）の支配収束から閉帯連続、開帯内部での局所微分から正則性が従います。また
 
 $$
 \begin{aligned}
@@ -637,7 +637,10 @@ $$
 #### AQFT25-C02 二つの時間と二つの作用素空間を区別
 
 - Level: C
-- 問題：$\rho=Z_\beta^{-1}e^{-\beta H_0}>0$ を有限次元密度行列とし、$\tau_s(A)=e^{isH_0}Ae^{-isH_0}$ とする。(1) モジュラー時間と物理時間の関係、(2) $\log\Delta$ の $E_{ij}$ 固有値、(3) Type IIIの一般標準対に$\rho$を要求する論法が誤りである理由を示せ。
+- 問題：$\rho=Z_\beta^{-1}e^{-\beta H_0}>0$ を有限次元密度行列とし、$\tau_s(A)=e^{isH_0}Ae^{-isH_0}$ とする。次の三点を示せ。
+  - モジュラー時間と物理時間の関係。
+  - $\log\Delta$ の $E_{ij}$ に対する固有値。
+  - Type IIIの一般標準対に$\rho$を要求する論法が誤りである理由。
 
 <!-- solution-start -->
 **詳細解答。** (1) $H_0=H_0^*$ と $\rho=Z_\beta^{-1}e^{-\beta H_0}$ から $\log\rho=-\beta H_0-(\log Z_\beta)I$。スカラー項は共役で消えるので[AQFT24の時間対応](../AQFT24/index.md#thm-aqft24-physical-kms)を計算し直すと
@@ -648,7 +651,7 @@ $$
 =\tau_{-\beta t}(A).
 $$
 
-(2) $\rho$ の固有値を $p_i>0$ とする。[AQFT20のHilbert–Schmidt表示](../AQFT20/index.md#thm-aqft20-modular-formulas)では $\Delta E_{ij}=(p_i/p_j)E_{ij}$。よって
+(2) $\rho$ の固有値を $p_i>0$ とする。[AQFT20のHilbert–Schmidt空間上のモジュラー作用素の全計算](../AQFT20/index.md#thm-aqft20-modular-formulas)では $\Delta E_{ij}=(p_i/p_j)E_{ij}$。よって
 
 $$
 (\log\Delta)E_{ij}=(\log p_i-\log p_j)E_{ij}.
