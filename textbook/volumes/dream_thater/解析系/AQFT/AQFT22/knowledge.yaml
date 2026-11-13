@@ -1,0 +1,43 @@
+chapter: AQFT22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT21
+  - QM6
+  - VN2
+  - VN6
+forward_references: []
+concepts:
+  - id: aqft.tomita-conjugate-algebra
+    name: 反ユニタリ共役で移された代数
+    kind: definition
+    introduction: formal
+    requires: [aqft.standard-pair, aqft.modular-conjugation]
+  - id: aqft.tomita-resolvent-recovery
+    name: 有界元を回復するレゾルベント補題
+    kind: lemma
+    introduction: formal
+    requires: [aqft.tomita-conjugate-algebra, aqft.tomita-closability]
+  - id: aqft.joint-half-power-core
+    name: 両側半べきに対する代数的共通core
+    kind: lemma
+    introduction: formal
+    requires: [aqft.tomita-resolvent-recovery, aqft.spectral-analytic-core]
+  - id: aqft.tomita-pairing
+    name: 可換子と共役作用素の二重半べき恒等式
+    kind: lemma
+    introduction: formal
+    requires: [aqft.joint-half-power-core, aqft.tomita-resolvent-recovery]
+  - id: aqft.tomita-cosh-transform
+    name: cosh核の変換と一意性
+    kind: lemma
+    introduction: formal
+    requires: [aqft.tomita-pairing, aqft.gaussian-analytic-smoothing]
+  - id: aqft.tomita-commutant-theorem
+    name: Tomitaの可換子定理
+    kind: theorem
+    introduction: formal
+    requires: [aqft.tomita-cosh-transform, aqft.tomita-pairing, aqft.tomita-conjugate-algebra]
