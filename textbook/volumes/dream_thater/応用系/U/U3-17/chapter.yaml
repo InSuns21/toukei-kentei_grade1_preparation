@@ -1,0 +1,42 @@
+id: "U3-17"
+title: "Feynman–Kac：期待値と PDE の橋"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-16, STO11, U3-14]
+official_scope: []
+learning_objectives:
+  - リスク中立 GBM の終端支払期待値を正規密度積分に変換し生成作用素の係数・単位を説明できる
+  - 連続かつ多項式成長する payoff から正規畳み込みにより古典解を構成し平滑化・終端連続性を証明できる
+  - 対数座標の熱方程式から BSM PDE を連鎖律で導ける
+  - 多項式成長クラスの解の一意性を局所マルチンゲール・一様可積分性で示せる
+  - 終端条件と非到達空間境界を区別し不連続 payoff とゼロ近傍の成長限界を説明できる
+  - 固定額・株式・二乗及び一般べき乗 payoff を PDE と期待値で独立に照合できる
+  - 定額の途中支払について非斉次 PDE の符号と割引式を導ける
+  - P と Q の期待値を区別して平方差 payoff を自己金融複製まで計算できる
+definitions:
+  - { id: U3-17-DEF-01, name: "リスク中立評価関数" }
+theorems:
+  - { id: U3-17-THM-01, name: "対数正規期待値からの BSM 古典解" }
+  - { id: U3-17-PROP-01, name: "多項式成長クラスでの BSM 解の一意性" }
+  - { id: U3-17-PROP-02, name: "定額連続支払の期待値と非斉次 BSM 方程式" }
+canonical_examples:
+  - "g(s)=K の定義域・成長・有限期待値・終端値を直接確認する"
+  - "g(s)=s と g(s)=s^2/K の Q 下モーメントと PDE を個別に計算する"
+  - "s=K=100 r=0.03 sigma=0.2 T=1 の二乗 payoff を正規積分とモーメントで照合する"
+  - "デジタル payoff は strike で満期連続性を失うことを具体的に示す"
+  - "定額連続支払 c による非斉次 PDE の +c を計算する"
+problem_patterns:
+  - U3-17-A1
+  - U3-17-A2
+  - U3-17-A3
+  - U3-17-A4
+  - U3-17-A5
+  - U3-17-B1
+  - U3-17-B2
+  - U3-17-B3
+  - U3-17-B4
+  - U3-17-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
