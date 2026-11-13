@@ -65,7 +65,7 @@ $$
 
 **定義の確認**。二つの忠実重みのモジュラースペクトルを求め、その共通部分を調べます。
 
-$M_2(\mathbb C)$ をHilbert–Schmidt空間に左乗算で表し、忠実な状態 $\varphi_\rho(a)=\operatorname{Tr}(\rho a)$、$\rho=\operatorname{diag}(2/3,1/3)$ を使います。[AQFT20の標準表現の計算](../AQFT20/index.md#thm-aqft20-modular-formula)から $\Delta_\rho=L_\rho R_{\rho^{-1}}$ です。行列単位 $E_{ij}$ に対して
+$M_2(\mathbb C)$ をHilbert–Schmidt空間に左乗算で表し、忠実な状態 $\varphi_\rho(a)=\operatorname{Tr}(\rho a)$、$\rho=\operatorname{diag}(2/3,1/3)$ を使います。[AQFT20の標準表現の計算](../AQFT20/index.md#thm-aqft20-modular-formulas)から $\Delta_\rho=L_\rho R_{\rho^{-1}}$ です。行列単位 $E_{ij}$ に対して
 
 $$
 \Delta_\rho E_{ij}=\rho E_{ij}\rho^{-1}
@@ -162,7 +162,7 @@ $$
 
 まず二つの幾何級数は収束するため $0<Z<\infty$。各 $p_{n,m}>0$、$\sum p_{n,m}=1$ なので、$\rho$ は正のトレース級作用素、$\ker\rho=\{0\}$ で忠実な正規状態を定めます。
 
-Hilbert–Schmidt空間の行列単位を $E_{(n,m),(r,s)}=|e_{n,m}\rangle\langle e_{r,s}|$ と書きます。[AQFT20のモジュラー作用素公式](../AQFT20/index.md#thm-aqft20-modular-formula)に従い、$L_\rho R_{\rho^{-1}}$ の自然な定義域の核上で
+Hilbert–Schmidt空間の行列単位を $E_{(n,m),(r,s)}=|e_{n,m}\rangle\langle e_{r,s}|$ と書きます。[AQFT20のモジュラー作用素公式](../AQFT20/index.md#thm-aqft20-modular-formulas)に従い、$L_\rho R_{\rho^{-1}}$ の自然な定義域の核上で
 
 $$
 \begin{aligned}
@@ -387,7 +387,7 @@ $$
 - 問題：$\rho=\operatorname{diag}(3/4,1/4)$ に対し $\Delta_\rho(E_{ij})$ とその全スペクトルを求めよ。同じ行列環でトレース状態を使うと何が変わるか。
 
 <!-- solution-start -->
-**詳細解答。** $p_1=3/4,\ p_2=1/4$ とし、[AQFT20の公式](../AQFT20/index.md#thm-aqft20-modular-formula)を $E_{ij}$ に適用すると $\Delta_\rho E_{ij}=(p_i/p_j)E_{ij}$ です。対角の $E_{11},E_{22}$ は固有値1、$E_{12}$ は3、$E_{21}$ は $1/3$。よって $\operatorname{Sp}(\Delta_\rho)=\{1,3,1/3\}$。トレース状態 $\rho_{\rm tr}=I/2$ では全ての比が1で、$\operatorname{Sp}(\Delta_{\rm tr})=\{1\}$。同じ $M_2$ でも一つの状態のスペクトルは変わりますが、定義による $S(M_2)=\{1\}$ は不変です。
+**詳細解答。** $p_1=3/4,\ p_2=1/4$ とし、[AQFT20の公式](../AQFT20/index.md#thm-aqft20-modular-formulas)を $E_{ij}$ に適用すると $\Delta_\rho E_{ij}=(p_i/p_j)E_{ij}$ です。対角の $E_{11},E_{22}$ は固有値1、$E_{12}$ は3、$E_{21}$ は $1/3$。よって $\operatorname{Sp}(\Delta_\rho)=\{1,3,1/3\}$。トレース状態 $\rho_{\rm tr}=I/2$ では全ての比が1で、$\operatorname{Sp}(\Delta_{\rm tr})=\{1\}$。同じ $M_2$ でも一つの状態のスペクトルは変わりますが、定義による $S(M_2)=\{1\}$ は不変です。
 <!-- solution-end -->
 
 <a id="ex-aqft28-a02"></a>
@@ -440,7 +440,7 @@ $$
 - 問題：$p_{n,m}=Z^{-1}e^{-(n+\sqrt2m)}$、$n,m\ge0$ を用い、(i) $Z$ の有限性、(ii) 行列単位上の $\Delta_\rho$ の固有値、(iii) 全正半直線のスペクトルがあってもType III₁でない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** **(i)** $\sum_n e^{-n}=1/(1-e^{-1})$、$\sum_m e^{-\sqrt2m}=1/(1-e^{-\sqrt2})$ なので $Z$ はこの二つの積で有限です。正の固有値を持つため $\rho$ は忠実です。**(ii)** [Hilbert–Schmidt標準表現の公式](../AQFT20/index.md#thm-aqft20-modular-formula)を添字 $(n,m),(r,s)$ に代入し
+**詳細解答。** **(i)** $\sum_n e^{-n}=1/(1-e^{-1})$、$\sum_m e^{-\sqrt2m}=1/(1-e^{-\sqrt2})$ なので $Z$ はこの二つの積で有限です。正の固有値を持つため $\rho$ は忠実です。**(ii)** [Hilbert–Schmidt標準表現の公式](../AQFT20/index.md#thm-aqft20-modular-formulas)を添字 $(n,m),(r,s)$ に代入し
 $$
 \frac{p_{n,m}}{p_{r,s}}
 =e^{-[(n-r)+\sqrt2(m-s)]}.
