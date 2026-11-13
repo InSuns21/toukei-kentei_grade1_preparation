@@ -362,6 +362,24 @@ $$
 <!-- proof-start -->
 ### 証明
 
+**準備：層コホモロジーとDolbeault複体の対応。** 正則線束 $L$ の局所正則枠では、滑らかな $L$ 値 $(0,q)$ 形式の複体は
+
+$$
+0\longrightarrow\mathcal O(L)
+\longrightarrow\mathcal A^{0,0}(L)
+\xrightarrow{\bar\partial_L}\mathcal A^{0,1}(L)
+\longrightarrow0
+$$
+
+となる。$\mathcal O(L)$ は正則切断の層、$\mathcal A^{0,q}(L)$ は滑らかな形式の層である。[局所 $\bar\partial$-Poincaré補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)により局所的に完全であり、$\mathcal A^{0,q}(L)$ は分割一で局所切断を貼り合わせられる非輪状層である。このため[Dolbeaultコホモロジー](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)の定義を通して
+
+$$
+H^0(\Sigma,\mathcal O(L))\simeq\ker\bar\partial_L,\qquad
+H^1(\Sigma,\mathcal O(L))\simeq\operatorname{coker}\bar\partial_L
+$$
+
+と同一視できる。右辺の核・余核は対応するSobolev完備化で取り、[楕円型正則性](#thm-gw1-03-elliptic-estimate)により滑らかな代表で計算してよい。以下では $h^q(L)=\dim_{\mathbb C}H^q(\Sigma,\mathcal O(L))$、$\chi(L)=h^0(L)-h^1(L)$ と書く。
+
 **(1) 基準となる自明線束。** $H^0(\Sigma,\mathcal O)$ はコンパクト連結Riemann面上の正則関数であり、[最大値原理](../../../解析系/CA/CA3/index.md#thm-ca3-maximum-modulus)から定数のみ、よって複素次元1である。
 
 各Riemann面は複素次元1なので任意のHermite計量の基本2形式 $\omega$ に対し $d\omega=0$（3形式が零）でKählerである。
@@ -392,7 +410,7 @@ $$
 \chi(L(p))-\chi(L)=1.
 $$
 
-逆に点を一つ引けば差は $-1$ となる。有限の符号付き点の和 $D=\sum n_pp$ について帰納的に $\chi(\mathcal O(D))=1-g+\sum n_p$ を得る。ここで複素次元1の局所 $\bar\partial$-Poincaré補題と滑らかな形式の分割一の性質により、Dolbeault複体は正則切断層の非輪状分解である。[局所補題](../../CM/CM2-03/index.md#thm-cm2-03-local-dbar-poincare)と[Dolbeaultコホモロジーの定義](../../CM/CM2-04/index.md#def-cm2-04-dolbeault-cohomology)から、上の $H^q$ を $\bar\partial_L$ の核・余核と同一視できる。
+逆に点を一つ引けば差は $-1$ となる。有限の符号付き点の和 $D=\sum n_pp$ について帰納的に $\chi(\mathcal O(D))=1-g+\sum n_p$ を得る。上の短完全列は層のEuler標数についての計算だが、証明冒頭のDolbeault複体との同一視により $\chi(L)=\operatorname{ind}_{\mathbb C}\bar\partial_L$ である。従って点を加える際のEuler標数の差 $+1$ は、そのまま複素線形作用素の指数の差 $+1$ を意味する。
 
 **(3) 任意の滑らかな線束。** コンパクト向き付き曲面の複素線束は整数の第一Chern数で分類される。
 
