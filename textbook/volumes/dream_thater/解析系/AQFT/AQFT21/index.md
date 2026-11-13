@@ -229,7 +229,7 @@ $P_n$ はスペクトル変数 $\lambda$ を区間 $[-n,n]$ に制限します�
 <!-- proof-start -->
 ### 証明
 
-$H$ のスペクトル測度を $E_H$ とし、$x$ に対する有限正測度を $\mu_x(B)=\langle x,E_H(B)x\rangle$ と書きます。[スペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)から
+$H$ のスペクトル測度を $E_H$ とし、$x$ に対する有限正測度を $\mu_x(B)=\langle x,E_H(B)x\rangle$ と書きます。[非有界自己共役作用素のスペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)から
 $$
 \|(I-P_n)x\|^2
 =\int_{|\lambda|>n}d\mu_x(\lambda)\longrightarrow0.
@@ -253,7 +253,7 @@ $$
 $$
 第二の積分が収束するのは、$x\in\operatorname{Dom}e^{rH}$ が $\int e^{2r\lambda}d\mu_x<\infty$ を意味するからです。一方、$P_nx$ はどの $e^{rH}$ に対しても定義域に属します。
 
-最後に[AQFT19の極分解](../AQFT19/index.md#thm-aqft19-polar)を使い、$x\in\operatorname{Dom}S=\operatorname{Dom}\Delta^{1/2}$ とします。$J$ は反ユニタリなので
+最後に[閉反線形作用素の極分解](../AQFT19/index.md#thm-aqft19-polar)を使い、$x\in\operatorname{Dom}S=\operatorname{Dom}\Delta^{1/2}$ とします。$J$ は反ユニタリなので
 $$
 \|S(x-P_nx)\|
 =\|J\Delta^{1/2}(x-P_nx)\|
