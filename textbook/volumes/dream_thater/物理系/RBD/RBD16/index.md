@@ -328,13 +328,13 @@ $S(0)=I_3$ のもとで $S^{\mathsf T}S=I_3$ はこの方程式を満たし、�
 
 同一初期値から十分小さい一定刻み幅 $h=T/N$ で計算し、数値解が同じ有界近傍にとどまるとする。終時刻の姿勢誤差と角速度誤差の和を $e_h(T)$ とすると、
 
-$
+$$
 e_h(T):=\lVert R_N-R(T)\rVert_F+\lVert\omega_N-\omega_b(T)\rVert
 =\begin{cases}
 O(h),&\text{行列 Euler 更新、正規化四元数 Euler 更新},\\
 O(h^2),&\text{指数中点更新}
 \end{cases}
-$
+$$
 
 が一般に成り立つ。四元数法の $R_N$ は $R(q_N)$ とし、$q$ と $-q$ は同一姿勢とみなす。誤差の定数は $T$ に依存し、任意の長時間で一様とは限らない。
 <!-- formal-statement-end -->
