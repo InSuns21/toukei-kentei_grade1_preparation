@@ -85,9 +85,9 @@ $$
 <!-- formal-statement-start -->
 > **定義（有限次元密度行列と忠実性）**  
 > $n\ge1$ とする。行列 $\rho\in M_n(\mathbb C)$ が **密度行列** であるとは、$\rho=\rho^*$、全ての $v\in\mathbb C^n$ に対して $\langle v,\rho v\rangle\ge0$、かつ $\operatorname{Tr}\rho=1$ が成り立つことをいう。さらに
-$
+$$
 \langle v,\rho v\rangle>0\qquad(v\ne0)
-$
+$$
 > が成り立つとき、$\rho$ を **忠実な密度行列** と呼ぶ。有限次元では忠実性は全固有値が正であることと同値である。
 <!-- formal-statement-end -->
 
@@ -96,10 +96,10 @@ $
 
 $0<p<1$ として $\rho_p=\operatorname{diag}(p,1-p)$ を考えます。$\rho_p=\rho_p^*$、$\operatorname{Tr}\rho_p=p+(1-p)=1$ です。また $v=(v_1,v_2)$ なら
 
-$
+$$
 \langle v,\rho_pv\rangle=p|v_1|^2+(1-p)|v_2|^2>0
 \qquad(v\ne0).
-$
+$$
 
 よって正半定値性だけでなく正定値性も満たし、忠実です。これに対して $p=1$ なら $\operatorname{diag}(1,0)$ は正半定値かつトレース1でも、$v=(0,1)\ne0$ について $\langle v,\rho_1v\rangle=0$ で忠実ではありません。この場合、逆行列と逆平方根は存在しません。
 
