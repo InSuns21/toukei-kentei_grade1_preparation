@@ -29,10 +29,10 @@ concepts:
     introduction_aliases: ["命題（交比の不変性と四点配置の分類）"]
     requires: [gromov-witten.cross-ratio, gromov-witten.smooth-marked-sphere]
   - id: gromov-witten.stable-marked-curve
-    name: 種数0の安定k標点曲線
+    name: 種数0の安定標点曲線
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（種数0の安定 $k$ 標点曲線）"]
+    introduction_aliases: ["定義（種数0の安定標点曲線）"]
     requires: [gromov-witten.smooth-marked-sphere]
   - id: gromov-witten.stability-bound
     name: 成分数の上界と自己同型の消失
