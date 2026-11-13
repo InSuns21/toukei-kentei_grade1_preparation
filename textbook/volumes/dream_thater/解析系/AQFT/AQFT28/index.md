@@ -28,6 +28,8 @@
 <!-- definition-example-start: def-aqft28-nsf-weight -->
 ### 直接例：行列トレースと無限次元の通常トレース
 
+**定義の確認**。忠実性・正規性・半有限性を、有限次元と無限次元で順に確かめます。
+
 $M=M_2(\mathbb C)$ で $\tau(x)=\operatorname{Tr}x$ とします。正のHermitian行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすれば $\tau(x)=\lambda_1+\lambda_2$。これが0なら二つとも0なので忠実です。有限次元では行列要素と固有値の極限で増大ネットの正規性が従い、$\tau(x)<\infty$ なので $y=x$ として半有限性も確認できます。
 
 $M=B(\ell^2(\mathbb N_0))$ で正作用素の通常トレースを $\tau(x)=\sum_{n\ge0}\langle e_n,xe_n\rangle$ とすると $\tau(1)=\infty$ ですが、$0\ne x\ge0$ には $\langle v,xv\rangle>0$ を満たす $v$ が存在し、$x^{1/2}v\ne0$ となる単位ベクトル $v$ を選び、階数1射影 $p=|v\rangle\langle v|$ に対して $y=x^{1/2}px^{1/2}$ と置けば、$0<y\le x$ かつ $y$ は階数1以下の正作用素なので $\tau(y)=\|x^{1/2}v\|^2<\infty$ です。したがって正規・忠実・半有限です。規格化された**正規汎関数**に限定すると、このトレースを候補から落としてしまいます。
@@ -50,16 +52,18 @@ $$
 > **定義（ConnesのS不変量）**  
 > $M$ をvon Neumann環とし、その忠実・正規・半有限重み全体を $\mathcal W_{\mathrm{nsf}}(M)$ とする。各重みの標準モジュラー作用素を $\Delta_\varphi$ として
 >
-> $$
-> S(M)=\bigcap_{\varphi\in\mathcal W_{\mathrm{nsf}}(M)}
-> \operatorname{Sp}(\Delta_\varphi)\subset[0,\infty)
-> $$
+$$
+S(M)=\bigcap_{\varphi\in\mathcal W_{\mathrm{nsf}}(M)}
+\operatorname{Sp}(\Delta_\varphi)\subset[0,\infty)
+$$
 >
 > と定める。$\operatorname{Sp}$ は閉作用素の**全スペクトル**（点スペクトルに限定しない）である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft28-connes-s -->
 ### 直接例：$M_2(\mathbb C)$ と重みを変えたときの違い
+
+**定義の確認**。二つの忠実重みのモジュラースペクトルを求め、その共通部分を調べます。
 
 $M_2(\mathbb C)$ をHilbert–Schmidt空間に左乗算で表し、忠実な状態 $\varphi_\rho(a)=\operatorname{Tr}(\rho a)$、$\rho=\operatorname{diag}(2/3,1/3)$ を使います。[AQFT20の標準表現の計算](../AQFT20/index.md#thm-aqft20-modular-formula)から $\Delta_\rho=L_\rho R_{\rho^{-1}}$ です。行列単位 $E_{ij}$ に対して
 
@@ -78,9 +82,9 @@ $$
 > **命題（単一重みのモジュラースペクトルとConnes不変量の包含）**  
 > $M$ をvon Neumann環とし、$\varphi$ をその忠実・正規・半有限重みとする。このとき
 >
-> $$
-> S(M)\subset\operatorname{Sp}(\Delta_\varphi).
-> $$
+$$
+S(M)\subset\operatorname{Sp}(\Delta_\varphi).
+$$
 >
 > 特に $\operatorname{Sp}(\Delta_\varphi)=[0,\infty)$ であっても、逆の包含、従って $S(M)=[0,\infty)$ は一般には従わない。
 <!-- formal-statement-end -->
@@ -104,14 +108,14 @@ $\varphi\in\mathcal W_{\mathrm{nsf}}(M)$ なので、共通部分を作る族の
 > （文献定理。完全証明は本講の範囲外。）  
 > $M$ が因子でType IIIであるとき
 >
-> $$
-> \begin{array}{c|c}
-> \text{型}&S(M)\\ \hline
-> \mathrm{III}_0&\{0,1\}\\
-> \mathrm{III}_\lambda\ (0<\lambda<1)&\{0\}\cup\{\lambda^n:n\in\mathbb Z\}\\
-> \mathrm{III}_1&[0,\infty)
-> \end{array}
-> $$
+$$
+\begin{array}{c|c}
+\text{型}&S(M)\\ \hline
+\mathrm{III}_0&\{0,1\}\\
+\mathrm{III}_\lambda\ (0<\lambda<1)&\{0\}\cup\{\lambda^n:n\in\mathbb Z\}\\
+\mathrm{III}_1&[0,\infty)
+\end{array}
+$$
 >
 > によりType IIIの細分類が定まる。$M$ が半有限因子（Type I/II）なら $S(M)=\{1\}$ である。
 <!-- formal-statement-end -->
@@ -128,23 +132,23 @@ $\varphi\in\mathcal W_{\mathrm{nsf}}(M)$ なので、共通部分を作る族の
 > **命題（Type I無限因子の全モジュラースペクトル反例）**  
 > $H=\ell^2(\mathbb N_0^2)$、$M=B(H)$ とする。正規化定数
 >
-> $$
-> Z=\sum_{n,m\ge0}e^{-(n+\sqrt2m)}
-> =\frac1{(1-e^{-1})(1-e^{-\sqrt2})}
-> $$
+$$
+Z=\sum_{n,m\ge0}e^{-(n+\sqrt2m)}
+=\frac1{(1-e^{-1})(1-e^{-\sqrt2})}
+$$
 >
 > を用いて、$H$ 上の忠実な密度作用素を
 >
-> $$
-> \rho e_{n,m}=p_{n,m}e_{n,m},\qquad
-> p_{n,m}=Z^{-1}e^{-(n+\sqrt2m)}
-> $$
+$$
+\rho e_{n,m}=p_{n,m}e_{n,m},\qquad
+p_{n,m}=Z^{-1}e^{-(n+\sqrt2m)}
+$$
 >
 > と定める。この状態の標準モジュラー作用素は
 >
-> $$
-> \operatorname{Sp}(\Delta_\rho)=[0,\infty)
-> $$
+$$
+\operatorname{Sp}(\Delta_\rho)=[0,\infty)
+$$
 >
 > を満たすが、$M$ はType I$_\infty$因子であり $S(M)=\{1\}$ である。
 <!-- formal-statement-end -->
@@ -197,11 +201,11 @@ $$
 > **命題（自由スカラー場のwedgeモジュラースペクトル）**  
 > 四次元Minkowski時空の $m>0$ の実自由Klein–Gordon場を真空Fock表現に置く。右wedge $W_R$ の真空標準対 $(\mathcal M(W_R),\Omega)$ に対し
 >
-> $$
-> \operatorname{Sp}(\log\Delta_{W_R})=\mathbb R,
-> \qquad
-> \operatorname{Sp}(\Delta_{W_R})=[0,\infty).
-> $$
+$$
+\operatorname{Sp}(\log\Delta_{W_R})=\mathbb R,
+\qquad
+\operatorname{Sp}(\Delta_{W_R})=[0,\infty).
+$$
 >
 > ただし、この二つの等式**だけ**から $\mathcal M(W_R)$ のConnes不変量や任意のdouble coneの型を同定することはできない。
 <!-- formal-statement-end -->
@@ -300,15 +304,17 @@ $$
 > **定義（hyperfinite von Neumann環）**  
 > von Neumann環 $M\subset B(H)$ がhyperfiniteであるとは、有限次元の単位的 *-部分環 $F_1\subset F_2\subset\cdots\subset M$ を選べて、
 >
-> $$
-> M=\left(\bigcup_{n\ge1}F_n\right)''
-> $$
+$$
+M=\left(\bigcup_{n\ge1}F_n\right)''
+$$
 >
 > となることをいう（ここでは可分に作用する場合を扱う）。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft28-hyperfinite -->
 ### 直接例：$B(\ell^2)$ はhyperfiniteだがType IIIではない
+
+**定義の確認**。増大する有限次元 *-部分環が環全体に稠密であることと、因子型を別々に確認します。
 
 $H=\ell^2(\mathbb N_0)$、$P_n$ を最初の $n$ 個の基底への直交射影とし
 
@@ -326,7 +332,7 @@ $$
 が全 $x\in H$ で成立します。従って和集合は強作用素稠密です。しかし $B(H)$ は階数1射影を持つType I$_\infty$因子であり、Type IIIではありません。**近似可能性とConnes細分類は独立の問い**です。
 <!-- definition-example-end -->
 
-条件の必要性を最小例でも見ます。$H=\mathbb C$ とし、任意の非空領域 $O$ に $\mathcal M(O)=\mathbb C I$ を割り当てる「自明なnet」は包含と局所可換性を満たします。真空は $1$、時空変換は恒等表示で正エネルギーです。任意の $O_1\Subset O_2$ についてType I因子 $N=\mathbb C I$ を選べるのでsplitでもありますが、局所環はType I$_1$です。これは有意な自由場の代わりにはなりませんが、**これらの公理だけからType III₁は出ない**という反例にはなります。
+条件の必要性を最小例でも見ます。$H=\mathbb C$ とし、任意の非空領域 $O$ に $\mathcal M(O)=\mathbb C I$ を割り当てる「自明なnet」は包含と局所可換性を満たします。真空は $1$、時空変換は恒等表示で正エネルギーです。任意の $O_1\Subset O_2$ についてType I因子 $N=\mathbb C I$ を選べるのでsplitでもありますが、この領域のvon Neumann環はType I$_1$です。これは有意な自由場の代わりにはなりませんが、**これらの公理だけからType III₁は出ない**という反例にはなります。
 
 ここで文献上の構造定理の典型的な仮定を整理します。短距離での特定の非自明なスケーリング挙動と、相空間の核性（またはそれが与えるfunnel/split型の近似性）は、それぞれ違う役割を果たします。「スケーリング挙動」とは、局所領域を縮めた際の場・相関・netが**非自明な極限構造**を保つという、単なる共変性より強い条件です。
 
@@ -337,10 +343,10 @@ $$
 > （文献定理。完全証明は本講の範囲外。）  
 > Minkowski真空表現の局所netが、局所可換性・正エネルギー・適切な加法性／内側からの連続性などの標準条件に加えて、**該当する文献定理で指定された相空間核性（funnel/split近似を保証する強さ）**と、**短距離の非自明な漸近的スケール不変性またはそれに代わる所定のスケーリング極限条件**を満たすとする。Buchholz–D’Antoni–FredenhagenおよびFredenhagen等の結果の適用範囲では、double coneの局所環はhyperfinite Type III₁因子 $R_\infty$ とその中心 $Z(\mathcal M(O))$ を用いて
 >
-> $$
-> \mathcal M(O)\simeq
-> R_\infty\ \overline\otimes\ Z(\mathcal M(O))
-> $$
+$$
+\mathcal M(O)\simeq
+R_\infty\ \overline\otimes\ Z(\mathcal M(O))
+$$
 >
 > という形を持つ。特に別途 $\mathcal M(O)$ が**因子**と確かめられれば中心は $\mathbb C I$ であり $\mathcal M(O)\simeq R_\infty$ となる。
 >
@@ -385,7 +391,7 @@ $$
 - 問題：$M_2(\mathbb C)$ 上の $\tau(x)=\operatorname{Tr}x$ が忠実・正規・半有限であることを、正のHermitian行列の固有値を使って一つずつ確認せよ。また $B(\ell^2)$ の通常トレースが状態でない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 正のHermitian行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすると $\tau(x)=\lambda_1+\lambda_2$ なので $\tau(x)=0\Rightarrow x=0$。行列の正元の増大ネットは有限次元でノルム収束するため、トレースの連続性で $\tau(\sup x_i)=\sup\tau(x_i)$。全ての正行列に有限トレースがあるので、非零 $x$ に $y=x$ を選べます。$B(\ell^2)$ の通常トレースでは $\operatorname{Tr}I=\sum_{n=0}^\infty 1=\infty$ で、状態の規格化 $\varphi(I)=1$ を満たしません。無限値を認める重みとしては利用できます。
+**詳細解答。** 正のHermitian行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすると $\tau(x)=\lambda_1+\lambda_2$ なので $\tau(x)=0\Rightarrow x=0$。行列の正元の増大ネットは有限次元でノルム収束するため、トレースの連続性で $\tau(\sup x_i)=\sup\tau(x_i)$。全ての正のHermitian行列に有限トレースがあるので、非零 $x$ に $y=x$ を選べます。$B(\ell^2)$ の通常トレースでは $\operatorname{Tr}I=\sum_{n=0}^\infty 1=\infty$ で、状態の規格化 $\varphi(I)=1$ を満たしません。無限値を認める重みとしては利用できます。
 <!-- solution-end -->
 
 <a id="ex-aqft28-a03"></a>
@@ -411,10 +417,10 @@ $$
 
 $O_1\Subset O_2$ について $N=\mathbb CI$ はType I因子で、
 
-$
+$$
 \mathcal M(O_1)=\mathbb CI\subset N\subset
 \mathcal M(O_2)=\mathbb CI
-$
+$$
 
 を満たすためsplitです。しかし $\mathbb CI\simeq B(\mathbb C)$ はType I$_1$ で、Type III₁ではありません。よって、これらの条件だけから局所Type III₁性を導く主張は反例により否定されます。
 <!-- solution-end -->
