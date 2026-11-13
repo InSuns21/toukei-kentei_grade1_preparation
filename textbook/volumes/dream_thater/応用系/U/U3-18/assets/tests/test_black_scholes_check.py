@@ -21,7 +21,9 @@ class BlackScholesTests(unittest.TestCase):
         self.assertAlmostEqual(c, 9.413403383853016, places=10)
         self.assertAlmostEqual(p, 6.457956738703842, places=10)
         self.assertAlmostEqual(c-p, 100-100*math.exp(-.03), places=10)
-        self.assertEqual(mod.indicators(100, 100, .03, .2, 1), (.25, .05))
+        d1, d2 = mod.indicators(100, 100, .03, .2, 1)
+        self.assertAlmostEqual(d1, .25, places=12)
+        self.assertAlmostEqual(d2, .05, places=12)
 
     def test_independent_integrals(self) -> None:
         for s, k, r, sigma, tau in (
