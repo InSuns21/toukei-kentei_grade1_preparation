@@ -291,7 +291,13 @@ $$
 $$
 \operatorname{Im}D=2\rho_x\rho_y\,v\sinh A+O(v^3).
 $$
-実の二点間隔 $D(s)$ が負になる場合、二点は時間的に分離し、$A$ の符号は $\Lambda(s)x$ が $y$ より未来か過去かを指定します。これは $\eta$ 一定の断面が空間的で、wedge内の未来向き因果曲線に沿って $\eta$ が増加することから従います（実際、$ds^2=-\rho^2d\eta^2+d\rho^2+dy^2\le0$ なら未来向きには $d\eta>0$）。よって $v\downarrow0$ は、質量殻積分に挿入した $x^0-y^0-i0$ と同じ境界方向です。[AQFT8のWightman核](../AQFT8/index.md#thm-aqft8-wightman-match)の順序が得られます。
+実の二点間隔 $D(s)$ が負なら二点は時間的に分離しています。ここで $A$ の符号は、boostした点 $\Lambda(s)x$ が $y$ より未来か過去かを指定します。
+
+その理由をRindler計量で確かめます。$\eta$ を一定にした断面は空間的です。wedge内の未来向き因果曲線では
+$
+ds^2=-\rho^2d\eta^2+d\rho^2+dy_1^2+dy_2^2\le0
+$
+かつ時間向きの条件から $d\eta>0$ となります。したがって $v\downarrow0$ からの境界値は、質量殻積分に挿入した負の虚時間 $x^0-y^0-i0$ と同じ方向を選びます。[AQFT8のWightman核](../AQFT8/index.md#thm-aqft8-wightman-match)で用いた場の順序が得られます。
 
 他方、$v\uparrow2\pi$ として $v=2\pi-\varepsilon$ と置くと、$\sin v=-\varepsilon+O(\varepsilon^3)$ なので
 $$
