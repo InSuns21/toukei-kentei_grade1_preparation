@@ -238,15 +238,22 @@ $$
 <!-- proof-start -->
 ### 証明
 
-論理基底上で左右の $U^\dagger$ を適用すると、
+論理基底上で左右の $U^\dagger$ を適用すると、自然な因子順序は $(a,e_L,b,e_R)$ であり、
 
 $$
 (U_L^\dagger\otimes U_R^\dagger)V|a,b\rangle
-=|a\rangle|b\rangle\otimes
-\frac1{\sqrt3}\sum_e|e\rangle_{e_L}|e\rangle_{e_R}.
+=\frac1{\sqrt3}\sum_e
+|a\rangle_a|e\rangle_{e_L}|b\rangle_b|e\rangle_{e_R}.
 $$
 
-右辺の因子の並べ方は $a,e_L,b,e_R$ と読んでも同じです。このとき $|\Phi_3\rangle$ のノルムは1なので、任意の二つの論理基底 $(a,b),(a',b')$ の像について
+第2因子 $e_L$ と第3因子 $b$ を交換するユニタリを $P$ と書けば、
+
+$$
+P(U_L^\dagger\otimes U_R^\dagger)V|a,b\rangle
+=|a,b\rangle_{ab}\otimes|\Phi_3\rangle_{e_Le_R}.
+$$
+
+このように**順序を交換する写像を介して**論理状態とBell対の積へ分解します。$P$ も $U_L,U_R$ もユニタリであり、$|\Phi_3\rangle$ のノルムは1なので、任意の二つの論理基底 $(a,b),(a',b')$ の像について
 
 $$
 \langle Va',b'|Va,b\rangle
@@ -683,7 +690,7 @@ $$
 <!-- solution-start -->
 **詳細解答。**
 
-**(1)** 各基底に $U_L^\dagger\otimes U_R^\dagger$ をかけると $|a,b\rangle\otimes|\Phi_3\rangle$ へ戻ります。$\langle\Phi_3|\Phi_3\rangle=1$ なので
+**(1)** 各基底に $U_L^\dagger\otimes U_R^\dagger$ をかけ、因子順序 $(a,e_L,b,e_R)$ を $(a,b,e_L,e_R)$ へ交換するユニタリ $P$ を続けると、$|a,b\rangle\otimes|\Phi_3\rangle$ へ戻ります。双方とも内積を保ち、$\langle\Phi_3|\Phi_3\rangle=1$ なので
 
 $$
 \langle Va',b'|Va,b\rangle
