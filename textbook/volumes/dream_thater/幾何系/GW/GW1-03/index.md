@@ -331,10 +331,11 @@ A_\tau & 0\\
 \qquad S_\tau:K\longrightarrow C
 $$
 
-と同値である（$A_\tau:Y\to W$ は可逆）。実際、$D_\tau$ を元の分解でブロック表示したときの右下の有限次元成分は、左上ブロック $A_\tau$ を消去すると $S_\tau=E_\tau-C_\tau A_\tau^{-1}B_\tau$ となる。従って階数・退化の仕方が変わっても
+と同値である（$A_\tau:Y\to W$ は可逆）。実際、$D_\tau$ を元の分解でブロック表示したときの右下の有限次元成分は、左上ブロック $A_\tau$ を消去すると $S_\tau=E_\tau-C_\tau A_\tau^{-1}B_\tau$ となる。$r_\tau=\operatorname{rank}S_\tau$ と置けば、$\dim\ker S_\tau=\dim K-r_\tau$、$\dim\operatorname{coker}S_\tau=\dim C-r_\tau$ である。従って階数・退化の仕方が変わっても
 
 $$
 \operatorname{ind}_{\mathbb R}D_\tau
+=(\dim K-r_\tau)-(\dim C-r_\tau)
 =\dim_{\mathbb R}K-\dim_{\mathbb R}C
 $$
 
@@ -455,7 +456,17 @@ $$
 
 $u:\mathbb{CP}^1\to X$ が定数なら $E$ は自明な複素階数 $m$ の束、$g=0$、$\beta=0$。従って指数は $2m$。実際 $D_u=\bar\partial$ に零階項はなく、[射影直線のDolbeault群](../../CM/CM2-05/index.md#thm-cm2-05-projective-line-four-groups)から $\ker$ は複素次元 $m$、$\operatorname{coker}=0$ なので $2m$ と一致する。
 
-$X=\mathbb{CP}^1$、$u([Z_0:Z_1])=[Z_0^d:Z_1^d]$（整数 $d\ge1$）を考える。$T\mathbb{CP}^1\simeq\mathcal O(2)$ なので $E\simeq\mathcal O(2d)$。従って $m=1,g=0,c_1(E)[\Sigma]=2d$ を代入して
+<a id="calc-gw1-03-p1-tangent"></a>
+
+**射影直線の接束の座標計算。** $\mathbb{CP}^1$ の二つの標準座標 $z=Z_1/Z_0$、$w=Z_0/Z_1=1/z$ を取る。接束の局所枠 $e_z=\partial_z$、$e_w=\partial_w$ は連鎖律により
+
+$$
+e_z=\frac{dw}{dz}e_w=-w^2e_w
+$$
+
+を満たす。無限遠点 $w=0$ の円盤を内側、$z$ 座標側を外側とすると、貼り合わせ係数 $-w^2$ は巻き数 $2$ を持つ。これは次数2の線束 $\mathcal O(2)$ の遷移係数であり、定数因子 $-1$ は次数を変えない。したがって $T\mathbb{CP}^1\simeq\mathcal O(2)$ と分かる。整数 $d\ge1$ の写像 $u([Z_0:Z_1])=[Z_0^d:Z_1^d]$ では、標的の無限遠座標は $w\mapsto w^d$ だから、引き戻した遷移係数は $-w^{2d}$ となり、$u^*T\mathbb{CP}^1\simeq\mathcal O(2d)$ である。
+
+$X=\mathbb{CP}^1$、この写像 $u$ を考える。上の計算から $E\simeq\mathcal O(2d)$。従って $m=1,g=0,c_1(E)[\Sigma]=2d$ を代入して
 
 $$
 \operatorname{ind}_{\mathbb R}D_u=2+4d.
@@ -574,7 +585,7 @@ Riemann面の正則線束 $L$ と点 $p$ に対し、短完全列 $0\to L\to L(p
 $u:\mathbb{CP}^1\to\mathbb{CP}^1$ が次数2の正則写像のとき、指数、核と余核の実次元を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。$E=u^*T\mathbb{CP}^1\simeq\mathcal O(4)$ なので $g=0,m=1,c_1(E)[\Sigma]=4$。[実指数公式](#thm-gw1-03-index)から $2+2\cdot4=10$。標準複素構造に対するDolbeault作用素の核・余核は $H^0(\mathcal O(4))$ と $H^1(\mathcal O(4))$ に対応する。[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)により前者の複素次元は $4+1=5$、後者は零。実次元は核10・余核0、差は10と一致する。
+**詳細解答**。次数2の写像では、[接束の局所座標計算](#calc-gw1-03-p1-tangent)を次数に沿って引き戻して $E=u^*T\mathbb{CP}^1\simeq\mathcal O(4)$ となる（任意の次数2正則写像でも $u^*\mathcal O(1)\simeq\mathcal O(2)$）。よって $g=0,m=1,c_1(E)[\Sigma]=4$。[実指数公式](#thm-gw1-03-index)から $2+2\cdot4=10$。標準複素構造に対するDolbeault作用素の核・余核は $H^0(\mathcal O(4))$ と $H^1(\mathcal O(4))$ に対応する。[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)により前者の複素次元は $4+1=5$、後者は零。実次元は核10・余核0、差は10と一致する。
 <!-- solution-end -->
 
 ### Level C
@@ -595,7 +606,7 @@ $\Sigma=\mathbb{CP}^1$、$X=\mathbb{CP}^1$、$u([Z_0:Z_1])=[Z_0^d:Z_1^d]$（$d\g
 
 (1) [シンボルの定理](#thm-gw1-03-ellipticity)から局所正則座標で $\sigma(\eta)=\tfrac12(\eta_s+J\eta_t)$。$\eta\ne0$ に対し $\sigma(\eta)^{-1}=2(\eta_s-J\eta_t)/(\eta_s^2+\eta_t^2)$ だから可逆である。$u$ の分岐点でも、式は $du$ でなく $J$ と $\eta$ だけに依存しており楕円性は失われない。
 
-(2) $T\mathbb{CP}^1\simeq\mathcal O(2)$、次数 $d$ の引き戻しは $\mathcal O(2d)$ だから $\langle c_1(u^*TX),[\Sigma]\rangle=2d$。[指数定理](#thm-gw1-03-index)に $m=1,g=0$ を入れて $\operatorname{ind}_{\mathbb R}D_u=2+4d$。
+(2) [接束の座標計算](#calc-gw1-03-p1-tangent)では枠の貼り合わせ係数が $-w^2$ であり、$u$ による引き戻しで $-w^{2d}$ となる。従って $T\mathbb{CP}^1\simeq\mathcal O(2)$、$u^*TX\simeq\mathcal O(2d)$ だから $\langle c_1(u^*TX),[\Sigma]\rangle=2d$。[指数定理](#thm-gw1-03-index)に $m=1,g=0$ を入れて $\operatorname{ind}_{\mathbb R}D_u=2+4d$。
 
 (3) 可積分な標準 $J$ で $u$ が正則なので、線形化は $\bar\partial_{\mathcal O(2d)}$。前問と同じ[線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $h^0=2d+1$、$h^1=0$。従って余核零すなわち全射であり、核は実次元 $2(2d+1)=4d+2$。指数と一致する。
 
