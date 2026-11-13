@@ -20,7 +20,7 @@ chapters:
     title: "楕円型正則性と線形化"
   - id: GW1-04
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-04
-    status: planned
+    status: completed
     title: "正則性・横断性と多重被覆"
   - id: GW1-05
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-05

@@ -1,0 +1,53 @@
+id: "GW1-04"
+title: "正則性・横断性と多重被覆"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-03
+  - GW1-02
+  - GW1-01
+  - SYM8
+  - AG3-08
+  - RA6A
+  - TOP6
+official_scope: []
+learning_objectives:
+  - Fredholm指数と線形化の全射性を区別し局所解空間の次元を導ける
+  - 単射な正則点・単純曲線・分岐多重被覆の条件を具体例で判定できる
+  - Jの接変分の反可換条件と普遍線形化の符号を導ける
+  - 単純曲線の単射な正則点を使って普遍線形化の余核を消去する証明を再構成できる
+  - Fredholm射影とSard–Smaleの一般位置原理から一般のJの正則性を説明できる
+  - 正の線束と負の法束の被覆例で核・余核・指数と商後の次元を検算できる
+  - 多重被覆には単純曲線の横断性証明がそのまま使えない理由を説明できる
+definitions:
+  - { id: GW1-04-DEF-01, name: 正則な擬正則写像 }
+  - { id: GW1-04-DEF-02, name: 単射な正則点と単純曲線 }
+  - { id: GW1-04-DEF-03, name: 多重被覆 }
+  - { id: GW1-04-DEF-04, name: 普遍Cauchy–Riemann切断 }
+theorems:
+  - { id: GW1-04-PROP-01, name: 正則な零点の局所解空間 }
+  - { id: GW1-04-PROP-02, name: 普遍線形化 }
+  - { id: GW1-04-THM-01, name: 単純曲線における普遍横断性 }
+  - { id: GW1-04-LEM-01, name: Fredholm写像の一般位置原理 }
+  - { id: GW1-04-THM-02, name: 単純曲線に対する一般のJの正則性 }
+  - { id: GW1-04-PROP-03, name: 負の法束を持つ球面の多重被覆 }
+canonical_examples:
+  - 射影直線のzのd乗写像における単射正則点の欠如と余核ゼロ
+  - J変分の反可換線形代数と局所台の選択
+  - 射影直線の負の法束二つの全空間における多重被覆の余核
+  - 射影平面の直線の標点付き期待実次元
+problem_patterns:
+  - GW1-04-INDEX-VS-SURJECTIVITY
+  - GW1-04-INJECTIVE-POINT
+  - GW1-04-J-VARIATION
+  - GW1-04-UNIVERSAL-LINEARIZATION
+  - GW1-04-MARKED-QUOTIENT-DIMENSION
+  - GW1-04-P1-MULTICOVER-REGULAR
+  - GW1-04-PROJECTION-COKERNEL
+  - GW1-04-NEGATIVE-NORMAL-OBSTRUCTION
+  - GW1-04-SARD-SMALE-HYPOTHESES
+  - GW1-04-MULTICOVER-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 12, review: 6 }
