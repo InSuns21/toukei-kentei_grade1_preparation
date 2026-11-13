@@ -59,7 +59,7 @@ chapters:
     title: 転がりの運動学と瞬間中心
   - id: RBD14
     path: textbook/volumes/dream_thater/物理系/RBD/RBD14
-    status: planned
+    status: completed
     title: 非ホロノミック転がりと反力
   - id: RBD15
     path: textbook/volumes/dream_thater/物理系/RBD/RBD15
