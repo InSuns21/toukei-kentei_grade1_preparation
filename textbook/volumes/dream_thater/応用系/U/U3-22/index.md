@@ -8,7 +8,7 @@
 
 金額は円、時間は年とします。満期 $T>0$、株価 $s>0$、利率 $r\ge0$ と連続配当利回り $q\ge0$ は年$^{-1}$、ボラティリティ $\sigma>0$ は年$^{-1/2}$ とします。株価はリスク中立測度 $Q$ の下で $dS_t=(r-q)S_tdt+\sigma S_tdW_t^Q$ に従います。ここで扱う $v(t,s)$ は満期支払額 $g(S_T)$ に対する欧州型価格です。
 
-以下で $v_t=\partial v/\partial t$ は株価 $s$ を固定した時間偏微分、$v_s=\partial v/\partial s$ と $v_{ss}=\partial^2v/\partial s^2$ は時刻 $t$ を固定した株価偏微分です。$u_\tau=\partial u/\partial\tau$ は株価 $s$ を固定し、残存時間 $\tau$ で微分した量を表します。
+以下で $v_t=\partial v/\partial t$ は株価 $s$ を固定した時間偏微分、$v_s=\partial v/\partial s$ と $v_{ss}=\partial^2v/\partial s^2$ は時刻 $t$ を固定した株価偏微分です。
 
 [配当付き BSM 方程式](../U3-16/index.md#prop-u3-16-dividend-pde)では、満期 $v(T,s)=g(s)$ と偏微分方程式
 
@@ -22,7 +22,7 @@ $$
 u(\tau,s)=v(T-\tau,s)
 $$
 
-を使います。固定した $s$ で $t=T-\tau$ の微分は $dt/d\tau=-1$ ですから、連鎖律により
+を使います。ここで $u_\tau=\partial u/\partial\tau$ は株価 $s$ を固定して残存時間 $\tau$ で微分した量です。固定した $s$ で $t=T-\tau$ の微分は $dt/d\tau=-1$ ですから、連鎖律により
 
 $$
 u_\tau(\tau,s)=-v_t(T-\tau,s),\qquad
