@@ -47,8 +47,11 @@ $C$ のペイオフは $(B+X)/2$ と同じで、その価格も $45+30=75$ 円�
 > **定義（取引可能なペイオフの線形価格汎関数）**  
 > $A\in\mathbb R^{m\times n}$、$p\in\mathbb R^n$ とし、任意の実数量の取引が可能とする。$V=\{Ah:h\in\mathbb R^n\}\subset\mathbb R^m$ 上で、$x=Ah$ に対して
 >
-> $\pi(x)=p^\top h$
->
+
+$
+\pi(x)=p^\top h.
+$
+
 > とする対応が、$h$ の選び方によらず一意に定まり、和と実数倍を保つとき、$\pi:V\to\mathbb R$ を**線形価格汎関数**とする。
 <!-- formal-statement-end -->
 
