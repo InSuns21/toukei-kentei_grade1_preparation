@@ -10,7 +10,7 @@ prerequisites:
 learning_objectives:
   - boostのrapidityと右・左wedgeの保存を光円錐座標から検証できる
   - Rindler座標の逆写像と計量を導き、固有時と加速度を求められる
-  - 自由場の質量殻積分をrapiditiy変数とBessel核で表せる
+  - 自由場の質量殻積分をrapidity変数とBessel核で表せる
   - Gaussian subordinationの積分係数を追い、二点核の正規化を導ける
   - 複素boost下の二点間隔Dが開帯内で枝切りを避けることを証明できる
   - 二つの帯境界でi0の符号が反転し場の順序が入れ替わる理由を示せる
