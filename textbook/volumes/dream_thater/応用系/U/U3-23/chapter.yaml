@@ -1,0 +1,43 @@
+id: "U3-23"
+title: "陰解法・Crank–Nicolson 法・Rannacher smoothing"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-22]
+official_scope: []
+learning_objectives:
+  - 陽的三点作用素から後退 Euler と Crank–Nicolson の三重対角系を導き、古い時刻と新しい時刻の境界寄与を区別できる
+  - 非負空間係数の下で陰法の一意可解性・最大値安定性を示し、CN 法の非負性の十分条件とその限界を判定できる
+  - 三重対角消去法の前進・後退式を導出し、連立方程式残差と価格近似誤差を区別できる
+  - 時間増幅係数から CN の高周波振動と2半刻み Rannacher smoothing の減衰を説明できる
+  - 滑らかな解に限定した局所・大域誤差次数を導出し、非滑らかな call payoff に無条件適用しない
+  - Python で三方式の価格・非負性・高周波減衰・線形残差・空間時間刻みの影響を再計算できる
+definitions:
+  - { id: U3-23-DEF-01, name: "θ 時間差分法" }
+  - { id: U3-23-DEF-02, name: "三重対角方程式と残差" }
+  - { id: U3-23-DEF-03, name: "2半刻み Rannacher smoothing" }
+theorems:
+  - { id: U3-23-PROP-01, name: "三重対角消去の計算手順" }
+  - { id: U3-23-THM-01, name: "陰解法の一意可解性・非負性・最大値安定性" }
+  - { id: U3-23-THM-02, name: "Crank–Nicolson 法の非負性の十分条件" }
+  - { id: U3-23-PROP-02, name: "減衰するモードの増幅係数" }
+  - { id: U3-23-PROP-03, name: "初回モードの Rannacher 減衰" }
+  - { id: U3-23-PROP-04, name: "滑らかな解の局所打切り誤差" }
+  - { id: U3-23-THM-03, name: "単調性の下での大域誤差の上界" }
+canonical_examples:
+  - "M=3、r=q=0、sigma=1、k=1/2 の二元三重対角系を手計算"
+  - "lambda=-20、k=0.2 の高周波モードで BE=1/5、CN=-1/3、R=1/9 を比較"
+  - "M=60、N=8,16,32,64,128 で欧州型 call の BE/CN/R の価格と閉形式を照合"
+problem_patterns:
+  - U3-23-A1
+  - U3-23-A2
+  - U3-23-A3
+  - U3-23-A4
+  - U3-23-B1
+  - U3-23-B2
+  - U3-23-B3
+  - U3-23-B4
+  - U3-23-C1
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
