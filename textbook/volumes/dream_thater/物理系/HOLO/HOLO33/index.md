@@ -27,15 +27,15 @@ $$
 > - 極限・近似次数・正則化。
 > - 計算で導いた部分と辞書として仮定した部分。
 >
-$
+$$
 \mathcal R=(\mathcal M,\mathcal S,\mathcal A,\mathcal J).
-$
+$$
 >
 > 異なる条件票の等式は、対象・仮定の対応を追加検証しない限り互いの証明とはならない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo33-claim-scope -->
-**定義の確認。** RT区間の条件票を確認します。模型 $\mathcal M$ は純 $AdS_3$ と真空CFTです。対象 $\mathcal S$ は区間 $[-a,a]$ のエントロピー、近似 $\mathcal A$ は共通cutoffと古典面積次数です。ここで面積項の次数は $O(G_3^{-1})$ です。論証 $\mathcal J$ では測地線長を積分で導き、RTの同定そのものは入力します。
+**定義の確認**。 RT区間の条件票を確認します。模型 $\mathcal M$ は純 $AdS_3$ と真空CFTです。対象 $\mathcal S$ は区間 $[-a,a]$ のエントロピー、近似 $\mathcal A$ は共通cutoffと古典面積次数です。ここで面積項の次数は $O(G_3^{-1})$ です。論証 $\mathcal J$ では測地線長を積分で導き、RTの同定そのものは入力します。
 
 次に3-qutrit消失訂正の条件票を確認します。模型は有限Hilbert空間への等長符号、対象は任意の論理状態と一つの消失領域です。近似は不要で有限次元の厳密な等号を使います。論証では保持した二つのqutritの**計算基底ラベルの置換**によって復号器を構成します。四項を別々に確認したので、後者の等式だけでは前者の重力方程式を証明できない理由も分かります。
 <!-- definition-example-end -->
@@ -130,18 +130,18 @@ $$
 > **命題（分離点相関の比と区間エントロピーの差）**  
 > 前節のEuclid自由スカラーの標準量子化・木レベル・分離点条件のもとで、距離 $r_1,r_2>0$ の相関関数 $G(r)$ を取る。また静的純 $AdS_3$ の半幅 $a_1,a_2>0$ の二つの区間について、同じ $L,G_3$ と共通cutoff $0<\epsilon<\min(a_1,a_2)$ の古典RT量 $S_\epsilon^{(0)}(a)$ を取る。このとき
 >
-> $$
-> \frac{G(r_2)}{G(r_1)}
-> =\left(\frac{r_1}{r_2}\right)^3
-> $$
+$$
+\frac{G(r_2)}{G(r_1)}
+=\left(\frac{r_1}{r_2}\right)^3
+$$
 >
 > と
 >
-> $$
-> \lim_{\epsilon\downarrow0}
-> \left[S_\epsilon^{(0)}(a_2)-S_\epsilon^{(0)}(a_1)\right]
-> =\frac{c_{\mathrm{CFT}}}{3}\log\frac{a_2}{a_1}
-> $$
+$$
+\lim_{\epsilon\downarrow0}
+\left[S_\epsilon^{(0)}(a_2)-S_\epsilon^{(0)}(a_1)\right]
+=\frac{c_{\mathrm{CFT}}}{3}\log\frac{a_2}{a_1}
+$$
 >
 > が成立する。二つの等式はそれぞれの条件下の独立な検算であり、相関関数とエントロピーを同じ観測量とみなすものではない。
 <!-- formal-statement-end -->
@@ -425,9 +425,9 @@ $$
 
 **(a) 相関関数。** Euclid $AdS_3$ のスカラー場で境界次元を $d=2,\Delta_+=3/2$ とする。作用係数1、標準量子化、木レベル、分離点を仮定し、次を求めよ。
 
-$
+$$
 m^2L^2,\qquad G(r),\qquad G(2r)/G(r).
-$
+$$
 
 **(b) 区間エントロピー。** 同じ半径 $L$ の純 $AdS_3$ 真空で、半幅 $a$ と $2a$ の区間の古典RT量の差を、共通cutoffで計算せよ。
 
