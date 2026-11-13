@@ -1,0 +1,51 @@
+chapter: AQFT26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CA3
+  - AQFT1
+  - AQFT8
+  - AQFT24
+  - AQFT25
+forward_references: []
+concepts:
+  - id: aqft.rindler-boost
+    name: 右wedgeを保つLorentz boost
+    kind: definition
+    introduction: formal
+    requires: [aqft.rindler-wedges]
+  - id: aqft.rindler-boost-wedge-invariance
+    name: boostの群法則とwedge保存
+    kind: proposition
+    introduction: formal
+    requires: [aqft.rindler-boost, aqft.rindler-wedges]
+  - id: aqft.rindler-coordinates
+    name: 右wedgeのRindler座標
+    kind: definition
+    introduction: formal
+    requires: [aqft.rindler-boost]
+  - id: aqft.rindler-metric-acceleration
+    name: Rindler計量・固有時・固有加速度
+    kind: proposition
+    introduction: formal
+    requires: [aqft.rindler-coordinates]
+  - id: aqft.massive-bessel-two-point
+    name: 自由場二点核の解析表示
+    kind: lemma
+    introduction: formal
+    requires: [aqft.minkowski-vacuum-two-point]
+  - id: aqft.wedge-complex-boost-strip
+    name: wedge二点関数の複素boost帯
+    kind: definition
+    introduction: formal
+    requires: [aqft.rindler-coordinates, aqft.massive-bessel-two-point]
+  - id: aqft.wedge-two-point-strip-analyticity
+    name: 自由スカラー場のwedge二点核の解析帯
+    kind: theorem
+    introduction: formal
+    requires: [aqft.wedge-complex-boost-strip, aqft.massive-bessel-two-point]
+  - id: aqft.wedge-two-point-boost-kms
+    name: 自由場二点関数のboost–KMS境界
+    kind: corollary
+    introduction: formal
+    requires: [aqft.wedge-two-point-strip-analyticity, aqft.wstar-kms, aqft.minkowski-vacuum-spectrum, complex-analysis.maximum-modulus-principle]

@@ -1,0 +1,51 @@
+id: "AQFT26"
+title: "Rindler wedgeとboostの解析性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CA3
+  - AQFT1
+  - AQFT8
+  - AQFT24
+  - AQFT25
+learning_objectives:
+  - boostのrapidityと右・左wedgeの保存を光円錐座標から検証できる
+  - Rindler座標の逆写像と計量を導き、固有時と加速度を求められる
+  - 自由場の質量殻積分をrapidity変数とBessel核で表せる
+  - Gaussian subordinationの積分係数を追い、二点核の正規化を導ける
+  - 複素boost下の二点間隔Dが開帯内で枝切りを避けることを証明できる
+  - 二つの帯境界でi0の符号が反転し場の順序が入れ替わる理由を示せる
+  - s=-2πtから前講の上側帯KMSの向きへ変換できる
+  - 質量ゼロ軌道の解析核から固有時の幅2π/aを算出できる
+  - 二点KMSとwedgeのモジュラー流同定との論理的な境界を説明できる
+definitions:
+  - { id: AQFT26-DEF-01, name: "右wedgeを保つLorentz boost" }
+  - { id: AQFT26-DEF-02, name: "右wedgeのRindler座標" }
+  - { id: AQFT26-DEF-03, name: "wedge二点関数の複素boost帯" }
+theorems:
+  - { id: AQFT26-PROP-01, name: "boostの群法則とwedge保存" }
+  - { id: AQFT26-PROP-02, name: "Rindler計量・固有時・固有加速度" }
+  - { id: AQFT26-LEM-01, name: "自由場二点核の解析表示" }
+  - { id: AQFT26-THM-01, name: "自由スカラー場のwedge二点核の解析帯" }
+  - { id: AQFT26-COR-01, name: "自由場二点関数のboost–KMS境界" }
+canonical_examples:
+  - boostの光円錐座標での作用と右・左wedgeの保存
+  - 固定ρの世界線でのRindler計量と固有加速度
+  - 複素半周と全周での右・左wedgeと二点関数の境界差
+  - 二点間隔の虚部と枝切りを避ける全ケース
+  - 質量ゼロの同一加速軌道の二点関数
+problem_patterns:
+  - AQFT26-LIGHT-CONE-BOOST
+  - AQFT26-RINDLER-PROPER-TIME
+  - AQFT26-COMPLEX-BOOST-HALF-TURN
+  - AQFT26-MASSLESS-ORBIT-CENTER
+  - AQFT26-MASS-SHELL-RAPIDITY
+  - AQFT26-BRANCH-AVOIDANCE
+  - AQFT26-GAUSSIAN-BESSEL-COEFFICIENT
+  - AQFT26-KMS-ORDER-AND-SIGN
+  - AQFT26-MASSIVE-WEDGE-STRIP-PROOF
+  - AQFT26-PROPER-TIME-KMS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 7 }
