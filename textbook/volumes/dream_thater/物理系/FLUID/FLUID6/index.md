@@ -50,7 +50,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid6-ideal-potential-force -->
-### 定義の確認：水平な一様流
+### **定義の確認**：水平な一様流
 
 $\Omega=\mathbb R^3$、$u=Ue_x$（$U>0$ は定数）、$\rho=\rho_0>0$、$p=p_0$、$\Phi=0$ とする。任意の単位法線 $n$ に対して $\sigma n=(-p_0I_3)n=-p_0n$ だから、接触力に接線成分はない。$\nabla\Phi=0$ より $b=0$。さらに $\nabla\cdot u=0$、$\partial_tu=0$、$(u\cdot\nabla)u=0$、$\nabla p=0$ なので質量保存・運動量式の双方が成立する。$\sigma=-pI_3$ と書けるだけで運動方程式を確かめたことにはならない、という区別にも注意する。
 <!-- definition-example-end -->
@@ -144,7 +144,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid6-bernoulli-function -->
-### 定義の確認：数値と単位を確かめる
+### **定義の確認**：数値と単位を確かめる
 
 水の近似として $\rho=1000$ kg/m$^3$、$p=2.00\times10^5$ Pa、$|u|=4$ m/s、$\Phi=gz=9.8\times3=29.4$ m$^2$/s$^2$ を取る。各項は
 
@@ -289,7 +289,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid6-head -->
-### 定義の確認：三種の水頭を同じ長さで足す
+### **定義の確認**：三種の水頭を同じ長さで足す
 
 $\rho=1000$ kg/m$^3$、$g=10$ m/s$^2$、$p=30000$ Pa、$|u|=4$ m/s、$z=2$ m なら
 
@@ -419,7 +419,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid6-barotropic-enthalpy -->
-### 定義の確認：$P(r)=c^2r$ の模型
+### **定義の確認**：$P(r)=c^2r$ の模型
 
 $c>0$ は一定の速度 [m/s] とし、$P(r)=c^2r$（密度 $r>0$）とすると、$P'(r)=c^2$ である。従って
 
