@@ -159,7 +159,7 @@ $$
 [支点まわりの慣性テンソル](#def-rbd11-heavy-top)から $T=(I/2)(\omega_1^2+\omega_2^2)+(J/2)\omega_3^2$。[Euler角の角速度公式](../RBD4/index.md#prop-rbd4-angular-velocity)へ代入し、上で展開した横成分の交差項相殺と $\omega_3=u$ を用いると表示の $T$ を得ます。重力ポテンシャルは $U=Mgl(e_z\cdot n)$ で、$e_z\cdot n=\cos\theta$。従って $\mathcal L=T-U$ は主張の式です。理想支点反力は支点の速度が零なので仕事をしません。
 <!-- proof-end -->
 
-この式には $\phi$ と $\psi$ が**角度そのものとしては登場せず、時間微分だけが登場**します。この観察が次の二保存量の入口です。
+この式には $\phi$ と $\psi$ が**角度そのものとしては登場せず、時間微分だけが登場**します。この観察が次の二つの運動量保存の入口です。
 
 ## 3. 二つの循環座標と保存運動量
 
@@ -432,14 +432,14 @@ $$
 
 ## 5. 鉛直軸上の $\sin\theta=0$ で何が起きるか
 
-上の逆変換は $\sin^2\theta$ で割っていますが、[RBD4のEuler角の座標特異性](../RBD4/index.md#prop-rbd4-coordinate-singularity)によって $\theta=0,\pi$ では角度の組が重複します。**物体が壊れたり、角速度が必ず無限大になったりするわけではありません。** 極で成立する保存量の関係を、割り算をする前の式から求めます。
+上の逆変換は $\sin^2\theta$ で割っていますが、[RBD4のEuler角の座標特異性](../RBD4/index.md#prop-rbd4-coordinate-singularity)によって $\theta=0,\pi$ では角度の組が重複します。**物体が壊れたり、角速度が必ず無限大になったりするわけではありません。** 極で成立する二つの角運動量成分の関係を、割り算をする前の式から求めます。
 
 <a id="prop-rbd11-pole-conditions"></a>
 
 <!-- formal-statement-start -->
 ### 命題（鉛直姿勢への到達に必要な運動量条件）
 
-[本章の固定点対称こま](#def-rbd11-heavy-top)が有限の角速度を持ち、保存量を $h,k$ とする。物体軸が鉛直上向き $n=e_z$ となる瞬間には $h=k$ が必要であり、鉛直下向き $n=-e_z$ となる瞬間には $h=-k$ が必要である。
+[本章の固定点対称こま](#def-rbd11-heavy-top)が有限の角速度を持ち、二つの一定な角運動量成分を $h,k$ とする。物体軸が鉛直上向き $n=e_z$ となる瞬間には $h=k$ が必要であり、鉛直下向き $n=-e_z$ となる瞬間には $h=-k$ が必要である。
 
 $0<\theta<\pi$ において $h\ne k$ なら $\theta\downarrow0$ で $V_{\mathrm{eff}}(\theta)\to+\infty$、$h\ne-k$ なら $\theta\uparrow\pi$ で $V_{\mathrm{eff}}(\theta)\to+\infty$ となる。例外的に $h=k$ の北極側、$h=-k$ の南極側では、それぞれ有効ポテンシャルが有限極限を持つ。
 <!-- formal-statement-end -->
@@ -487,7 +487,7 @@ $k=h=2$、$I=2$、$Mgl=3$ なら北極へ近づく遠心項は $(k^2/(2I))\tan^2
 もし $\theta=0$ を通過するなら、極で $\phi,\psi$ を別々の滑らかな座標として使うことはできません。[RBD3の姿勢更新](../RBD3/index.md#prop-rbd3-angular-conjugacy) $\dot R=R\widehat\omega_b$ など非特異な姿勢表示へ戻します。極で無理に $\sin^2\theta$ で割った式を評価してはいけません。
 ### 本章の結論を使う際の境界
 
-全角運動量ベクトルが一定なのは外トルクが零のときの[RBD9の自由剛体の保存則](../RBD9/index.md#prop-rbd9-free-invariants)です。重いこまでは **鉛直・体軸の二成分**だけが一定です。また $l=0$ なら重力トルクは消え、重心が支点に一致する別模型へ退化します。理想支点が時間変化する、外部に摩擦トルクがある、重心が対称軸からずれる、といった場合には、循環座標や保存量の仮定を再確認する必要があります。
+全角運動量ベクトルが一定なのは外トルクが零のときの[RBD9の自由剛体の保存則](../RBD9/index.md#prop-rbd9-free-invariants)です。重いこまでは **鉛直・体軸の二成分**だけが一定です。また $l=0$ なら重力トルクは消え、重心が支点に一致する別模型へ退化します。理想支点が時間変化する、外部に摩擦トルクがある、重心が対称軸からずれる、といった場合には、循環座標や二つの角運動量保存の仮定を再確認する必要があります。
 
 ---
 
@@ -545,7 +545,7 @@ $I=2,J=1,Mgl=3$、$\theta=\pi/2$、$\dot\theta=1$、$\dot\phi=3$、$\dot\psi=4$ 
 <!-- solution-start -->
 ### 詳細解答
 
-$\cos(\pi/2)=0$、$\sin^2(\pi/2)=1$ より $u=\dot\psi+\dot\phi\cos\theta=4$ です。[二保存量の定理](#thm-rbd11-momenta-energy)に代入して
+$\cos(\pi/2)=0$、$\sin^2(\pi/2)=1$ より $u=\dot\psi+\dot\phi\cos\theta=4$ です。[二つの角運動量とエネルギーの保存定理](#thm-rbd11-momenta-energy)に代入して
 
 $$
 k=Ju=1\cdot4=4,\qquad
@@ -690,7 +690,7 @@ $h=k=0$、初期傾き $0<\theta_0<\pi$ とし、正則域で運動するとす�
 <!-- solution-start -->
 ### 詳細解答
 
-[二保存量からの逆変換](#thm-rbd11-reduced-theta)の正則域では $I\sin^2\theta>0$ なので
+[二つの保存運動量からの逆変換](#thm-rbd11-reduced-theta)の正則域では $I\sin^2\theta>0$ なので
 
 $$
 \dot\phi=\frac{0-0\cos\theta}{I\sin^2\theta}=0,\qquad
@@ -708,7 +708,7 @@ $\theta=\pi/2$ では $\ddot\theta=Mgl/I>0$、すなわち下向きへ倒れ始�
 
 ## Level C
 
-### 問題 C1：保存量から傾きの可到達域と姿勢速度を復元する
+### 問題 C1：保存する角運動量から傾きの可到達域と姿勢速度を復元する
 
 固定点対称こまの定数を $I=2,J=1,Mgl=3$ とし、正則域での初期条件を
 
@@ -731,7 +731,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**1. 初期値から定数を構成する。** 初期の $\cos\theta=0,\sin^2\theta=1$ と、[保存量の定理](#thm-rbd11-momenta-energy)により
+**1. 初期値から定数を構成する。** 初期の $\cos\theta=0,\sin^2\theta=1$ と、[本章の角運動量・エネルギー保存定理](#thm-rbd11-momenta-energy)により
 
 $$
 u(0)=\dot\psi(0)+\dot\phi(0)\cos\theta(0)=2,
