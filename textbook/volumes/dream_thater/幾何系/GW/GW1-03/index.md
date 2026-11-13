@@ -87,8 +87,12 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所式は $2\bar\partial_Ju_\varepsilon(\partial_s)
-=(u_\varepsilon)_s+J(u_\varepsilon)(u_\varepsilon)_t$ である。捩率零により、二変数写像 $U(\varepsilon,s,t)$ の方向微分について
+局所式は次のように書ける。
+
+$
+2\bar\partial_Ju_\varepsilon(\partial_s)
+=(u_\varepsilon)_s+J(u_\varepsilon)(u_\varepsilon)_t.
+$捩率零により、二変数写像 $U(\varepsilon,s,t)$ の方向微分について
 
 $$
 \nabla_{\partial_\varepsilon}(U_s)
@@ -111,7 +115,7 @@ $\bar\partial_Ju_\varepsilon(\partial_t)=-J(U)\bar\partial_Ju_\varepsilon(\parti
 **解でない写像との違い**。命題の第1式自体は、任意の滑らかな $u$ で座標成分の変分公式として成立する。しかし一般の $u$ では、反複素線形性の微分に追加項が現れるため、第2式と値域束の同一視には補正が必要である。本講のFredholm線形化は一貫して $\bar\partial_Ju=0$ の解に沿って定めた。
 
 <!-- definition-example-start: def-gw1-03-linearization -->
-**定義の直接例**。$X=\mathbb C$、$J=i$、標準平坦接続、$u(z)=z^2$ とする。$\nabla J=0$ なので
+**定義の確認**（直接例）。$X=\mathbb C$、$J=i$、標準平坦接続、$u(z)=z^2$ とする。$\nabla J=0$ なので
 
 $$
 (D_u\xi)(\partial_s)=\tfrac12(\partial_s\xi+i\partial_t\xi)
