@@ -6,7 +6,7 @@ chapter_root: textbook/volumes/dream_thater
 # 本文・章metadata・公開索引は完成した講義だけに追加する。
 chapters:
   - { id: FLUID1, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID1, status: completed, title: "流体を連続体として扱える条件は何か" }
-  - { id: FLUID2, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID2, status: planned, title: "静止流体の圧力はどう分布するか" }
+  - { id: FLUID2, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID2, status: completed, title: "静止流体の圧力はどう分布するか" }
   - { id: FLUID3, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID3, status: planned, title: "浮力と静水安定性をどう計算するか" }
   - { id: FLUID4, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID4, status: planned, title: "流線・流跡線・流脈線はなぜ異なるか" }
   - { id: FLUID5, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID5, status: planned, title: "検査体積を通る流束はどう数えるか" }
