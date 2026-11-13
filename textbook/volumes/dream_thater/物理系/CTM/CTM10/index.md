@@ -41,17 +41,17 @@ $e$ は比内部エネルギー（J/kg）、$q$ は外向きを正とする熱�
 
 物質微分と二階テンソルの二重内積はそれぞれ
 
-$
+$$
 D_tf=\partial_tf+v\cdot\nabla_xf,\qquad
 A:B=\sum_{i,j}A_{ij}B_{ij}
-$
+$$
 
 である。空間場 $f(x,t)$ の物質点に沿う微分は、$X$ を固定して
 
-$
+$$
 \dot f(X,t):=\frac{d}{dt}f(\chi(X,t),t)
 =D_tf(\chi(X,t),t)
-$
+$$
 
 とも書く。したがって $\dot T$ は物質点に沿った温度変化を表す。一方、$F(X,t)$ のドットは $\dot F(X,t):=\partial_tF(X,t)$ であり、どちらも空間点 $x$ を固定する偏微分 $\partial_t$ とは区別する。
 
@@ -125,7 +125,21 @@ $$
 
 ### **原理の確認**：一様加熱は生成ゼロでもよい
 
-静止・断熱・応力仕事ゼロ、$\rho=\rho_*>0$ 一定、$r=r_*>0$ 一定とする。材料模型として $e=c(T-T_*)$、$s=c\log(T/T_*)$（$c>0$ J/(kg K)、$T_*>0$）を**別途仮定**する。比内部エネルギーとエントロピーは同じ物理量ではない。[CTM9 の内部エネルギー局所収支](../CTM9/index.md#thm-ctm9-internal-energy)に $D=0$、$q=0$ を代入すると $\rho_*c\dot T=\rho_*r_*$、したがって $c\dot T=r_*$ を得る。ここで静止しているため $D_tT=\partial_tT=\dot T$ である。これを $s$ の時間微分へ入れると
+静止・断熱・応力仕事ゼロ、$\rho=\rho_*>0$ 一定、$r=r_*>0$ 一定とする。材料模型として
+
+$$
+e=c(T-T_*),\qquad s=c\log(T/T_*)
+$$
+
+を別途仮定する。ここで $c>0$（J/(kg K)）、$T_*>0$ であり、比内部エネルギーとエントロピーは異なる物理量である。
+
+[CTM9 の内部エネルギー局所収支](../CTM9/index.md#thm-ctm9-internal-energy)に $D=0$、$q=0$ を代入すると
+
+$$
+\rho_*cD_tT=\rho_*r_*.
+$$
+
+静止しているため $D_tT=\partial_tT=\dot T$ であり、$\rho_*>0$ で割れば $c\dot T=r_*$ を得る。これを $s$ の時間微分へ入れると
 
 $$
 \rho_*\dot s=\rho_*c\frac{\dot T}{T}
@@ -372,7 +386,20 @@ $$
 
 等温かつ $q=0$ なら [散逸不等式](#thm-ctm10-clausius-duhem)の残る二項はこの差なので第一式が成り立つ。
 
-$A=P-\partial\Psi/\partial F$ と置く。固定した $F$ で任意の行列 $H$ とその反対方向 $-H$ の速度を取れるなら $A:H\ge0$ と $-A:H\ge0$ がともに成り立ち $A:H=0$。特に成分が $i,j$ の位置だけ $1$ で他が $0$ の行列 $E^{ij}$ を選べば $A_{ij}=A:E^{ij}=0$。すべての成分で零だから $P=\partial\Psi/\partial F$。逆向きは代入により $\mathcal D=0$。$\square$
+$A=P-\partial\Psi/\partial F$ と置く。固定した $F$ で任意の行列 $H$ と、その反対方向 $-H$ の変形速度を取れるので
+
+$$
+A:H\ge0,\qquad A:(-H)\ge0
+\quad\Longrightarrow\quad A:H=0
+$$
+
+が任意の $H$ について成立する。成分が $i,j$ の位置だけ $1$ で他が $0$ の行列 $E^{ij}$ を選べば
+
+$$
+A_{ij}=A:E^{ij}=0
+$$
+
+である。すべての成分が零だから $P=\partial\Psi/\partial F$。逆向きは散逸式への代入で $\mathcal D=0$ を得る。$\square$
 <!-- proof-end -->
 
 ### **自由エネルギーから応力を作る例**：一軸伸長
@@ -387,16 +414,16 @@ $$
 
 基準・現在の標準直交基底で一軸伸長 $\chi(X,t)=(\lambda(t)X_1,X_2,X_3)$ を考え、$\lambda(t)>0$、$\lambda(0)=1$ とする。物質点の運動を $X$ で微分すれば
 
-$
+$$
 F=D_X\chi=\operatorname{diag}(\lambda,1,1),
 \qquad J=\lambda>0
-$
+$$
 
 となる。従って上記の右 Cauchy–Green テンソルの定義から
 
-$
+$$
 C-I_3=\operatorname{diag}(\lambda^2-1,0,0)
-$
+$$
 
 である。よって
 
@@ -413,13 +440,13 @@ $$
 &=\frac a2(C-I_3):(F^T\delta F+\delta F^TF)\\
 &=a\bigl[F(C-I_3)\bigr]:\delta F.
 \end{aligned}
-$
+$$
 
 ここで $C-I_3$ の対称性を使った。任意の $\delta F$ に対する係数を比較すると
 
-$
+$$
 P=\frac{\partial\Psi}{\partial F}=aF(C-I_3)
-$
+$$
 
 となり、対角伸長では他の $P_{ij}$ は零である。[CTM8 の応力変換](../CTM8/index.md#def-ctm8-first-piola)より $J=\lambda$、$\sigma=J^{-1}PF^T$、したがって $\sigma_{11}=a\lambda(\lambda^2-1)$。一方 $D_{11}=\dot\lambda/\lambda$ なので
 
