@@ -154,7 +154,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（領域上の論理代数の完全再構成）**  
-> 有限次元等長写像 $V:H_{\mathrm{code}}\to H_A\otimes H_{\bar A}$ と単位的な $*$-代数 $\mathcal M\subseteq\mathcal B(H_{\mathrm{code}})$ を固定する。単位・和・積・随伴を保つ写像 $\pi_A:\mathcal M\to\mathcal B(H_A)$ が存在し、すべての $O\in\mathcal M$ に対して
+> 有限次元等長写像 $V:H_{\mathrm{code}}\to H_A\otimes H_{\bar A}$ と単位的な $*$-代数 $\mathcal M\subseteq\mathcal B(H_{\mathrm{code}})$ を固定する。単位・和・複素数倍・積・随伴を保つ写像 $\pi_A:\mathcal M\to\mathcal B(H_A)$ が存在し、すべての $O\in\mathcal M$ に対して
 
 $$
 (\pi_A(O)\otimes I_{\bar A})V=VO
@@ -164,7 +164,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo30-algebra-reconstruction -->
-**定義の確認**（恒等埋め込み）。 $H_{\mathrm{code}}=H_a\otimes H_b$、$H_A=H_a$、$H_{\bar A}=H_b$ とし、$V=I_{H_a\otimes H_b}$ を同じ因子順序の恒等埋め込みとします。$\mathcal M=\mathcal B(H_a)\otimes I_b$ とすると $\pi_A(O_a\otimes I_b)=O_a$ です。二つの演算子 $O_a,T_a$ について $\pi_A(OT)=O_aT_a=\pi_A(O)\pi_A(T)$、$\pi_A(O^\dagger)=O_a^\dagger$ であり、任意の $|u\rangle_a|v\rangle_b$ 上で $(O_a\otimes I_b)V=V(O_a\otimes I_b)$ が成立します。一方 $b$ だけを変える作用素は一般にこの代数には含まれません。
+**定義の確認**（恒等埋め込み）。 $H_{\mathrm{code}}=H_a\otimes H_b$、$H_A=H_a$、$H_{\bar A}=H_b$ とし、$V=I_{H_a\otimes H_b}$ を同じ因子順序の恒等埋め込みとします。$\mathcal M=\mathcal B(H_a)\otimes I_b$ とすると $\pi_A(O_a\otimes I_b)=O_a$ です。二つの演算子 $O=O_a\otimes I_b,T=T_a\otimes I_b$ と複素数 $\lambda$ について、$\pi_A(I_{H_{\mathrm{code}}})=I_a$、$\pi_A(O+\lambda T)=O_a+\lambda T_a=\pi_A(O)+\lambda\pi_A(T)$、$\pi_A(OT)=O_aT_a=\pi_A(O)\pi_A(T)$、$\pi_A(O^\dagger)=O_a^\dagger$ です。また任意の $|u\rangle_a|v\rangle_b$ 上で $(O_a\otimes I_b)V=V(O_a\otimes I_b)$ が成立します。一方 $b$ だけを変える作用素は一般にこの代数には含まれません。
 <!-- definition-example-end -->
 
 一般の符号では、保持系 $A$ から**論理状態全体**を復号できる必要はありません。ここで求めるのは $\mathcal M$ の観測統計の回復です。例えば $a$ の状態は回復できても、$b$ の未知の状態まで回復することは要求しません。
@@ -219,7 +219,7 @@ V(|u\rangle_{a_\alpha}|v\rangle_{b_\alpha})
 =V(O_{a_\alpha}|u\rangle_{a_\alpha}|v\rangle_{b_\alpha})
 $$
 
-が成立します。$\pi_A(I)=I_A$ であり、和・積・随伴の保存は各ブロックの行列演算から従います。線形性で任意のコードベクトルについて再構成条件を得ます。
+が成立します。$\pi_A(I)=I_A$ であり、和・複素数倍・積・随伴の保存は各ブロックの行列演算から従います。線形性で任意のコードベクトルについて再構成条件を得ます。
 
 [第2節の命題](#prop-holo30-center-commutant)で求めた作用素の集合は $\mathcal M'=\bigoplus_\alpha(I_{a_\alpha}\otimes\mathcal B(H_{b_\alpha}))$ です。$\bar A$ 上で $\pi_{\bar A}(T)=\bigoplus_\alpha(T_{b_\alpha}\otimes I_{e_{B,\alpha}})$ とすれば、同じ基底計算で $(I_A\otimes\pi_{\bar A}(T))V=VT$ です。特に $\pi_A(P_\alpha)$ と $\pi_{\bar A}(P_\alpha)$ はそれぞれ物理領域の第 $\alpha$ ブロック射影です。
 
