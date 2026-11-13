@@ -18,3 +18,4 @@
 15. [CTM15 粘性応力からNavier–Stokes方程式へ](textbook/volumes/dream_thater/物理系/CTM/CTM15/index.md)
 16. [CTM16 無次元化で粘性と慣性のどちらが効くか](textbook/volumes/dream_thater/物理系/CTM/CTM16/index.md)
 17. [CTM17 圧力駆動のStokes流を解く](textbook/volumes/dream_thater/物理系/CTM/CTM17/index.md)
+18. [CTM18 ばねとダッシュポットで緩和・クリープを説明できるか](textbook/volumes/dream_thater/物理系/CTM/CTM18/index.md)

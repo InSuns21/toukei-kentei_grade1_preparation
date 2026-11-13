@@ -1,0 +1,43 @@
+id: "CTM18"
+title: "ばねとダッシュポットで緩和・クリープを説明できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM17
+official_scope: []
+learning_objectives:
+  - "一次元ばね・ダッシュポットの応力ひずみ則と単位、直列・並列の力と変位の接続条件を直接例で確認できる"
+  - "Maxwell模型とKelvin–Voigt模型の構成方程式を素子条件から微分・加算して導ける"
+  - "ひずみステップと応力ステップの緩和・クリープを初期条件、跳びの許容性、長時間極限とともに求められる"
+  - "受動模型の蓄積エネルギーと非負散逸を仕事率から導き、係数の次元と実験的同定を検算できる"
+  - "負荷・除荷を含む履歴を二模型で解き、回復と永久ひずみの違いを説明できる"
+definitions:
+  - { id: CTM18-DEF-01, name: "一次元ばね・ダッシュポット" }
+  - { id: CTM18-DEF-02, name: "Maxwellの直列接続とKelvin–Voigtの並列接続" }
+theorems:
+  - { id: CTM18-THM-01, name: "Maxwell模型の構成方程式" }
+  - { id: CTM18-THM-02, name: "Maxwell模型の緩和とクリープ" }
+  - { id: CTM18-THM-03, name: "Kelvin–Voigt模型の構成方程式" }
+  - { id: CTM18-THM-04, name: "Kelvin–Voigt模型のクリープとひずみステップの限界" }
+  - { id: CTM18-PROP-01, name: "両模型の受動的なエネルギー分解" }
+canonical_examples:
+  - "ばねとダッシュポットの応力・蓄積・散逸と単位の直接検算"
+  - "直列での共通応力と並列での共通ひずみ・応力和の直接確認"
+  - "時定数2秒のMaxwell緩和とKelvin–Voigtクリープの同じ目盛りの比較"
+  - "有限応力と有限ひずみのステップに対する初期跳びと応答の比較"
+  - "滑らかなひずみランプでの仕事・蓄積・非負散逸の独立検算"
+problem_patterns:
+  - CTM18-AXIAL-ELEMENT-UNITS
+  - CTM18-MAXWELL-RATE-SPLIT
+  - CTM18-MAXWELL-RELAXATION
+  - CTM18-KELVIN-CREEP
+  - CTM18-STEP-ADMISSIBILITY
+  - CTM18-STRESS-RAMP
+  - CTM18-STRAIN-RAMP-WORK
+  - CTM18-MAXWELL-RELAXATION-ENERGY
+  - CTM18-IDENTIFY-TIME-CONSTANT
+  - CTM18-LOAD-UNLOAD-PULSE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
