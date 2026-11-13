@@ -122,7 +122,7 @@ chapters:
     title: "相対Tomita作用素"
   - id: AQFT30
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT30
-    status: planned
+    status: completed
     title: "Araki相対エントロピーの有限次元還元"
   - id: AQFT31
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT31
