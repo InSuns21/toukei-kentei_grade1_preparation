@@ -8,7 +8,7 @@
 
 ## 1. 三つの主軸を区別する
 
-[RBD6の主軸と正定値慣性テンソル](../RBD6/index.md#def-rbd6-principal-degeneracy)を用い、重心を通る正向き直交主軸基底 $e_1,e_2,e_3$ を物体へ固定します。$I_i$ はこの基底の第 $i$ 軸の主慣性モーメントです。一般の角速度では角運動量と角速度は平行でない一方、単一の主軸に沿えば平行です。この単純な回転が摂動を比較する基準になります。
+[MECH8の主軸の存在](../../MECH/MECH8/index.md#thm-mech8-principal-axis-existence)と[RBD6の慣性テンソルの正定値性](../RBD6/index.md#prop-rbd6-positivity)を用い、重心を通る正向き直交主軸基底 $e_1,e_2,e_3$ を物体へ固定します。$I_i$ はこの基底の第 $i$ 軸の主慣性モーメントです。一般の角速度では角運動量と角速度は平行でない一方、単一の主軸に沿えば平行です。この単純な回転が摂動を比較する基準になります。
 
 <a id="def-rbd9-triaxial-principal-spin"></a>
 
@@ -97,6 +97,21 @@ $$
 
 を満たすため、任意に小さい $\varepsilon$ でも非有界となり、定義に従い線形不安定です。これは実際の角速度が無限大へ成長するという意味ではありません。非線形運動の角速度は、後に証明するエネルギーと角運動量の一定性によって有界です。
 <!-- definition-example-end -->
+
+横方向の**固有値**とは、いま求めた一次方程式を $u=(x,y)^{\mathsf T}$、$\dot u=A_2u$ と表したときの、係数行列 $A_2$ の固有値です。中間軸について行列と固有値の方程式を実際に書くと、
+
+$$
+A_2=
+\begin{pmatrix}
+0 & \dfrac{I_2-I_3}{I_1}\Omega\\
+\dfrac{I_1-I_2}{I_3}\Omega & 0
+\end{pmatrix},
+\qquad
+\det(\lambda I_2-A_2)
+=\lambda^2-\Omega^2\frac{(I_3-I_2)(I_2-I_1)}{I_1I_3}.
+$$
+
+これは横摂動の二成分を一つの線形写像で表したもので、$I_2$ はここだけ $2$ 次単位行列を表します（主慣性モーメント $I_2$ とは異なります）。$u(t)=e^{\lambda t}v$ を $\dot u=A_2u$ へ代入すると $(A_2-\lambda I_2)v=0$ となり、非零の $v$ を取れる条件が上の行列式の零条件です。中間軸では正の実固有値が指数成長する方向を与えます。両端軸でも横二成分について同じ操作を行い、固有値が純虚数のときは二次方程式から有界な正弦・余弦解を確認します。軸方向の $z$ は $\dot z=0$ なので、別に零固有値を持ちます。
 
 <a id="thm-rbd9-linear-classification"></a>
 
@@ -342,12 +357,15 @@ $0<I_1<I_2<I_3$ の無トルクEuler方程式で、任意の $\Omega\ne0$ に対
 <!-- proof-start -->
 ### 証明
 
-$\Omega>0$ を先に考え、$\ell=I_2\Omega>0$ とします。[本章の二不変量](#prop-rbd9-free-invariants)を $L$ で表すと、Euler方程式は
+$\Omega\ne0$ とし、$s=\operatorname{sgn}(\Omega)\in\{-1,1\}$、$\ell=I_2|\Omega|>0$ と置きます。示すべき中間軸平衡解は角運動量で $L_*=(0,s\ell,0)$ です。[RBD7のEuler方程式](../RBD7/index.md#thm-rbd7-newton-euler)で外トルクを零にし、$L_i=I_i\omega_i$ を代入すると、
 
 $$
-\dot L_1=\left(\frac1{I_3}-\frac1{I_2}\right)L_2L_3,\quad
-\dot L_2=\left(\frac1{I_1}-\frac1{I_3}\right)L_3L_1,\quad
-\dot L_3=\left(\frac1{I_2}-\frac1{I_1}\right)L_1L_2.
+\begin{aligned}
+\dot L_1&=-\left(\frac{L_2}{I_2}L_3-\frac{L_3}{I_3}L_2\right)
+=\left(\frac1{I_3}-\frac1{I_2}\right)L_2L_3,\\
+\dot L_2&=\left(\frac1{I_1}-\frac1{I_3}\right)L_3L_1,\\
+\dot L_3&=\left(\frac1{I_2}-\frac1{I_1}\right)L_1L_2.
+\end{aligned}
 $$
 
 正の定数を
@@ -358,29 +376,51 @@ b=\frac1{I_2}-\frac1{I_3}>0,\qquad
 c=\sqrt{a/b}>0
 $$
 
-と置きます。$E=\ell^2/(2I_2)$ の条件から $aL_1^2-bL_3^2=0$、すなわち $L_3=\pm cL_1$ です。
-
-任意に小さい $\varepsilon>0$ で
+と定めます。[二不変量の命題](#prop-rbd9-free-invariants)を使えば、$2E=\ell^2/I_2$ の条件は
 
 $$
-L(0)=\left(\varepsilon,\sqrt{\ell^2-(1+c^2)\varepsilon^2},-c\varepsilon\right)
+\left(\frac1{I_1}-\frac1{I_2}\right)L_1^2
+-\left(\frac1{I_2}-\frac1{I_3}\right)L_3^2
+=aL_1^2-bL_3^2=0
 $$
 
-を選びます。$(1+c^2)\varepsilon^2<\ell^2$ とします。球面上かつ分離エネルギー上なので、不変量から軌道はその交わりに残ります。$L_1>0,L_2>0,L_3<0$ の近傍では連続性によってこの枝 $L_3=-cL_1$ を外れず、
+となり、分離曲線は $L_3=\pm cL_1$ と球面との交わりです。回転の符号 $s$ に合わせ、$L_3=-scL_1$ という枝を選びます。この枝が実際の非線形運動で保たれることも確認します。$Q_s:=L_3+scL_1$ と置くと、$a=bc^2$ から
 
 $$
-\dot L_1=(-b)L_2(-cL_1)=bcL_2L_1.
+\dot Q_s=-aL_1L_2-sc\,bL_2L_3
+=-sbcL_2Q_s.
 $$
 
-例えば $0<L_1<d$ で $d<\ell/\sqrt{2(1+c^2)}$ としておけば、$L_2=\sqrt{\ell^2-(1+c^2)L_1^2}>\ell/\sqrt2$ です。従ってこの領域にいる限り
+従って $Q_s(0)=0$ なら、連続な $L_2(t)$ を係数とするこの線形方程式を積分して
 
 $$
-\dot L_1\ge\frac{bc\ell}{\sqrt2}L_1>0,
-\qquad
-L_1(t)\ge \varepsilon\exp(bc\ell t/\sqrt2).
+Q_s(t)=Q_s(0)\exp\left(-sbc\int_0^t L_2(v)\,dv\right)=0
 $$
 
-つまり有限時刻で $L_1=d$ に達します。初期値は $\varepsilon\to0$ で $(0,\ell,0)$ に近づくのに、到達時点では定常解からの角運動量空間の距離が少なくとも $d$ です。$L_i=I_i\omega_i$ の可逆な対角変換により、角速度空間でも固定の正の距離だけ離れます。$\Omega<0$ は時間反転と $\omega_b\mapsto-\omega_b$ の対称性、または $L_2$ と $L_3$ の符号を同時調整する同じ構成で示せます。
+です。単に球面とエネルギーが保存されるだけでなく、選んだ枝から移れない理由が分かりました。
+
+$0<d<\ell/\sqrt{2(1+c^2)}$ を一つ固定し、任意の $0<\varepsilon<d$ に対して
+
+$$
+L(0)=\left(\varepsilon,\ s\sqrt{\ell^2-(1+c^2)\varepsilon^2},\ -sc\varepsilon\right)
+$$
+
+を選びます。$|L(0)|^2=\ell^2$、$aL_1(0)^2-bL_3(0)^2=0$ なので、この点は正確に分離曲線上にあり、$\varepsilon\to0$ で $L_*$ に近づきます。$L_1$ が $d$ に達するまでは、球面条件と $Q_s=0$ から
+
+$$
+L_2=s\sqrt{\ell^2-(1+c^2)L_1^2},\qquad
+\dot L_1=-bL_2L_3
+=bc\sqrt{\ell^2-(1+c^2)L_1^2}\,L_1.
+$$
+
+$L_2$ はこの範囲では零を通らないため、初期符号 $s$ を保ちます。$0<L_1<d$ なら平方根は $\ell/\sqrt2$ より大きいので、
+
+$$
+\dot L_1\ge\frac{bc\ell}{\sqrt2}L_1>0,\qquad
+L_1(t)\ge\varepsilon\exp\left(\frac{bc\ell}{\sqrt2}t\right).
+$$
+
+もし $L_1=d$ に到達しないと仮定すれば、右辺は有限時刻 $t=\sqrt2\log(d/\varepsilon)/(bc\ell)$ に $d$ となって矛盾します。到達時の角速度は $\omega_1=d/I_1$ なので、平衡解 $\Omega e_2$ からの距離は少なくとも $d/I_1>0$ です。$d$ は $\varepsilon$ に依存せず、両符号 $s=\pm1$ について任意に近い初期値から固定距離の離脱が生じるため、非線形Lyapunov不安定性が示されました。
 <!-- proof-end -->
 
 **なぜ永遠に指数増大しないのか。** 分離曲線は角運動量球面上にあるため全成分は有界です。定常解から離れた後、軌道は球面上を進み、別の中間軸の定常回転へ近づく枝を持ちます。指数増大は近傍から離れる局所的な仕組みであり、エネルギーの発散ではありません。「反転」は物体に付けた印の向きの変化で、常に正確に180度の反転を一律の周期で繰り返すという法則ではありません。
@@ -393,7 +433,7 @@ $$
 \dot R=R\widehat{\omega}_b,\qquad R(0)=R_0\in SO(3)
 $$
 
-も同時に積分できます。下の独立した操作教材は、$\omega_b$ と単位四元数で表した姿勢を**同一のRunge–Kutta第4次更新**で進め、各段階で正規化します。無トルクの二つの不変量 $E$ と $\ell$ を数値監査し、刻み幅半減の比較も行います。表示中の物体の向きはODEの解から計算し、見た目のための独立した反転アニメーションは用いません。
+も同時に積分できます。下の独立した操作教材は、$\omega_b$ と単位四元数で表した姿勢を**同一のRunge–Kutta第4次更新**で進め、各時間ステップの終わりに四元数を単位長へ正規化します。無トルクの二つの不変量 $E$ と $\ell$ を数値監査し、刻み幅半減の比較も行います。表示中の物体の向きはODEの解から計算し、見た目のための独立した反転アニメーションは用いません。
 
 [三本の主軸と摂動を切り替えるEuler方程式プレイヤー](https://insuns21.github.io/toukei-kentei_grade1_preparation/textbook/volumes/dream_thater/物理系/RBD/RBD9/assets/intermediate-axis-player.html)
 
@@ -420,7 +460,7 @@ $I=(2,3,4)$、$\omega_b=(1,2,3)$ で無トルクとする。三成分の角加�
 <!-- solution-start -->
 ### 詳細解答
 
-[本章のEuler成分式](#thm-rbd9-linear-classification)の導出に戻り、各差を別々に代入します。
+[RBD7のEuler方程式](../RBD7/index.md#thm-rbd7-newton-euler)へ本章の対角慣性テンソルを代入し、各差を別々に代入します。
 
 $$
 \dot\omega_1=\frac{3-4}{2}(2)(3)=-3,\quad
