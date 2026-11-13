@@ -337,7 +337,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\phi(\infty)=\infty$ かつ $\phi$ は全単射だから、有限点 $z\in\mathbb C$ は無限遠点へ写らない。したがって $\phi$ を有限チャートで見ると、$\mathbb C\to\mathbb C$ の整関数である。一方、射影直線全体では有理型関数とみなせるので、[Riemann球面上の有理型関数の分類](../../../解析系/CA/CA8/index.md#thm-ca8-sphere-meromorphic-rational)により $\phi(z)=P(z)/Q(z)$（$P,Q\in\mathbb C[z]$ は互いに素）と表せる。有限点に極がないため、$Q$ は複素根を持たない非零定数である。ゆえに $\phi$ は多項式となる。
+まず $\phi(\infty)=\infty$ かつ $\phi$ は全単射だから、有限点 $z\in\mathbb C$ は無限遠点へ写らない。したがって有限チャートでの $\phi:\mathbb C\to\mathbb C$ は整関数である。
+
+一方、射影直線全体では有理型関数とみなせる。[Riemann球面上の有理型関数の分類](../../../解析系/CA/CA8/index.md#thm-ca8-sphere-meromorphic-rational)を $\phi$ に適用すれば、互いに素な多項式 $P,Q\in\mathbb C[z]$ を用いて
+
+$$
+\phi(z)=\frac{P(z)}{Q(z)}
+$$
+
+と書ける。有限点に極はないので、$Q$ に複素根があれば約分済みの分母の零点が極になって矛盾する。従って $Q$ は非零定数であり、$\phi$ は多項式となる。
 
 逆写像 $\psi=\phi^{-1}$ も双正則で $\psi(\infty)=\infty$ だから、同じ論法で $\psi$ も多項式となる。両者は非定数であり、その次数を $m,n\ge1$ とすれば、最高次係数が零でないため合成の次数は積になる。すなわち
 
