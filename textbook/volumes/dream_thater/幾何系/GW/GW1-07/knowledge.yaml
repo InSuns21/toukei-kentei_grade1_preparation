@@ -1,0 +1,66 @@
+chapter: GW1-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-06
+concepts:
+  - id: gromov-witten.three-point-normalization
+    name: 三点正規化とその一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三点正規化とその一意性）"]
+    requires: []
+  - id: gromov-witten.smooth-marked-sphere
+    name: 滑らかな標点付き種数0曲線と同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかな標点付き種数0曲線と同型）"]
+    requires: [gromov-witten.three-point-normalization]
+  - id: gromov-witten.cross-ratio
+    name: 順序付き四標点の交比
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（順序付き四標点の交比）"]
+    requires: [gromov-witten.three-point-normalization]
+  - id: gromov-witten.cross-ratio-classification
+    name: 交比の不変性と四点配置の分類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（交比の不変性と四点配置の分類）"]
+    requires: [gromov-witten.cross-ratio, gromov-witten.smooth-marked-sphere]
+  - id: gromov-witten.stable-marked-curve
+    name: 種数0の安定k標点曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0の安定 $k$ 標点曲線）"]
+    requires: [gromov-witten.smooth-marked-sphere]
+  - id: gromov-witten.stability-bound
+    name: 成分数の上界と自己同型の消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（成分数の上界と自己同型の消失）"]
+    requires: [gromov-witten.stable-marked-curve, gromov-witten.three-point-normalization]
+  - id: gromov-witten.four-point-compactification
+    name: 四標点の安定コンパクト化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四標点の安定コンパクト化）"]
+    requires: [gromov-witten.cross-ratio-classification, gromov-witten.stability-bound]
+  - id: gromov-witten.forgetful-stabilization
+    name: 忘却と安定化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（忘却と安定化）"]
+    requires: [gromov-witten.stable-marked-curve]
+  - id: gromov-witten.forgetful-stabilization-uniqueness
+    name: 忘却・安定化の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（忘却・安定化の一意性）"]
+    requires: [gromov-witten.forgetful-stabilization, gromov-witten.stability-bound]
+  - id: gromov-witten.stable-curve-local-dimension
+    name: 固定した双対木のパラメータ数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定した双対木のパラメータ数）"]
+    requires: [gromov-witten.stable-marked-curve, gromov-witten.three-point-normalization]
