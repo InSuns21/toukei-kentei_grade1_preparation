@@ -276,16 +276,16 @@ $$
 
 の極限を確かめます。$K:=V''(\theta_0)>0$、$V_0:=V(\theta_0)$ とします。$V$ は正則域内で滑らかなので、$\theta_0$ の近傍で
 
-$
+$$
 x=(\theta-\theta_0)\sqrt{\frac{2[V(\theta)-V_0]}{K(\theta-\theta_0)^2}},
 \qquad x(\theta_0):=0
-$
+$$
 
 と置けます。Taylor展開 $V(\theta)-V_0=K(\theta-\theta_0)^2/2+O((\theta-\theta_0)^3)$ より、平方根の中身は $1+O(\theta-\theta_0)$ です。したがって $x=(\theta-\theta_0)[1+O(\theta-\theta_0)]$、$dx/d\theta|_{\theta_0}=1$ なので、近傍で逆関数 $\theta=g(x)$ を持ち、$g'(0)=1$ です。この変数では**正確に** $V(\theta)=V_0+Kx^2/2$ となります。
 
 $\varepsilon=V_0+\delta$、$\rho=\sqrt{2\delta/K}$ とすると、左右の転回点は $x=\pm\rho$ です。半周期の積分は
 
-$
+$$
 \begin{aligned}
 \frac T2
 &=\sqrt{\frac I2}\int_{-\rho}^{\rho}
@@ -294,14 +294,14 @@ $
   g'(\rho\sin u)\,du
 \quad (x=\rho\sin u).
 \end{aligned}
-$
+$$
 
 $\delta\downarrow0$ で $\rho\downarrow0$ となり、$g'$ は $0$ の近傍で連続なので $g'(\rho\sin u)\to1$ は積分区間で一様です。従って
 
-$
+$$
 \frac T2\longrightarrow\sqrt{\frac IK}\,\pi
 =\frac{\pi}{\nu},\qquad T\longrightarrow\frac{2\pi}{\nu}.
-$
+$$
 
 これは転回点近くの平方根特異性を無視した形式的な積分ではなく、固定した $h,k$ での滑らかな座標変換による極限です。ここでの安定性は**固定した鉛直・体軸角運動量 $h,k$ の傾きの運動**についての結論で、摩擦や外部駆動を加えた系へはそのまま拡張しません。
 <!-- proof-end -->
@@ -333,29 +333,29 @@ $$
 
 [RBD11の重力トルク](../RBD11/index.md#thm-rbd11-momenta-energy)は $\tau_{O,s}=a\,e_z\times n$ です。**どの角運動量を省くのか**を、まず定常歳差 $\theta=\theta_0$ の場合に調べます。$n$ は長さ1の物体軸であり、[RBD4の角速度の表示](../RBD4/index.md#prop-rbd4-angular-velocity)から $\dot n=\omega_s\times n$ です。$n\times(\omega_s\times n)=\omega_s-(\omega_s\cdot n)n$ を用いると、軸に垂直な角速度は $n\times\dot n$ になります。$c=\cos\theta_0$ と置けば
 
-$
+$$
 \dot n=\Omega(e_z\times n),\qquad
 n\times\dot n=\Omega(e_z-c n).
-$
+$$
 
 主慣性値が横方向に $I$、体軸方向に $J$ であることから、支点まわりの角運動量を次の二成分に分けられます。
 
-$
+$$
 \begin{aligned}
 L_{O,s}
 &=I(n\times\dot n)+J\omega_3 n\\
 &=I\Omega(e_z-c n)+kn
 =I\Omega e_z+(k-I\Omega c)n.
 \end{aligned}
-$
+$$
 
 この式を時間微分すると、$k,\Omega,c$ は定常歳差で一定なので
 
-$
+$$
 \frac{dL_{O,s}}{dt}
 =(k-I\Omega c)\Omega(e_z\times n)
 =a(e_z\times n).
-$
+$$
 
 正則な傾きでは $e_z\times n\ne0$ ですから、これは[定常歳差の厳密な二次条件](#thm-rbd12-steady-branches) $I c\Omega^2-k\Omega+a=0$ を再現します。横成分 $I\Omega(e_z-c n)$ を捨てて $L_{O,s}\simeq kn$ としたときに初めて $k\Omega\simeq a$ が出ます。その横成分の大きさは $I|\Omega|\sin\theta_0$ です。ゆえに**ベクトル近似自体**には $I|\Omega|\sin\theta_0\ll k$ が必要で、遅い枝で $k^2\gg Ia$ なら従います。これは後述の歳差速度の代数的誤差条件とは区別し、赤道で速度の誤差が厳密に零でも横成分が小さいとは限らないことに注意します。
 
