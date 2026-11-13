@@ -1,8 +1,8 @@
 # AQFT28 局所Type III₁性の適用境界
 
-[AQFT27の自由スカラー場のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)により、真空の**右wedge**に付随するモジュラー時間はLorentz boostであると分かりました。しかし、その作用素のスペクトルを計算できても、**局所環の型**まで自動的には決まりません。まして、別の領域であるdouble coneの環へ結果を移すには独立の論拠が必要です。
+[自由実スカラー場のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)により、真空の**右wedge**に付随するモジュラー時間はLorentz boostであると分かりました。しかし、その作用素のスペクトルを計算できても、**局所von Neumann環の型**まで自動的には決まりません。まして、別の領域であるdouble coneの環へ結果を移すには独立の論拠が必要です。
 
-本講の問いは「**何のスペクトルを測ればType III₁を判定できるか**」「**局所環の普遍的な形を述べるとき何を仮定するか**」です。以下では「その場で証明する計算」「既習定理の適用」「深い文献定理（本講では証明しない）」を区別します。
+本講の問いは「**何のスペクトルを測ればType III₁を判定できるか**」「**局所von Neumann環の普遍的な形を述べるとき何を仮定するか**」です。以下では「その場で証明する計算」「既習定理の適用」「深い文献定理（本講では証明しない）」を区別します。
 
 計量は $(-,+,+,+)$、$c=\hbar=1$ とします。wedgeの具体計算では質量 $m>0$ の実Klein–Gordon自由場の真空Fock表現を用い、一般局所netの分類はその模型から独立の仮定付きの話として扱います。
 
@@ -28,9 +28,9 @@
 <!-- definition-example-start: def-aqft28-nsf-weight -->
 ### 直接例：行列トレースと無限次元の通常トレース
 
-$M=M_2(\mathbb C)$ で $\tau(x)=\operatorname{Tr}x$ とします。正行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすれば $\tau(x)=\lambda_1+\lambda_2$。これが0なら二つとも0なので忠実です。有限次元では行列要素と固有値の極限で増大ネットの正規性が従い、$\tau(x)<\infty$ なので $y=x$ として半有限性も確認できます。
+$M=M_2(\mathbb C)$ で $\tau(x)=\operatorname{Tr}x$ とします。正のHermitian行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすれば $\tau(x)=\lambda_1+\lambda_2$。これが0なら二つとも0なので忠実です。有限次元では行列要素と固有値の極限で増大ネットの正規性が従い、$\tau(x)<\infty$ なので $y=x$ として半有限性も確認できます。
 
-$M=B(\ell^2(\mathbb N_0))$ で正作用素の通常トレースを $\tau(x)=\sum_{n\ge0}\langle e_n,xe_n\rangle$ とすると $\tau(1)=\infty$ ですが、$0\ne x\ge0$ には $\langle v,xv\rangle>0$ を満たす $v$ が存在し、$x^{1/2}v\ne0$ となる単位ベクトル $v$ を選び、階数1射影 $p=|v\rangle\langle v|$ に対して $y=x^{1/2}px^{1/2}$ と置けば、$0<y\le x$ かつ $y$ は階数1以下の正作用素なので $\tau(y)=\|x^{1/2}v\|^2<\infty$ です。したがって正規・忠実・半有限です。有限な**状態**に限定すると、このトレースを候補から落としてしまいます。
+$M=B(\ell^2(\mathbb N_0))$ で正作用素の通常トレースを $\tau(x)=\sum_{n\ge0}\langle e_n,xe_n\rangle$ とすると $\tau(1)=\infty$ ですが、$0\ne x\ge0$ には $\langle v,xv\rangle>0$ を満たす $v$ が存在し、$x^{1/2}v\ne0$ となる単位ベクトル $v$ を選び、階数1射影 $p=|v\rangle\langle v|$ に対して $y=x^{1/2}px^{1/2}$ と置けば、$0<y\le x$ かつ $y$ は階数1以下の正作用素なので $\tau(y)=\|x^{1/2}v\|^2<\infty$ です。したがって正規・忠実・半有限です。規格化された**正規汎関数**に限定すると、このトレースを候補から落としてしまいます。
 <!-- definition-example-end -->
 
 重み $\varphi$ からはGNS型のHilbert空間を作れます。$\mathfrak n_\varphi=\{a:\varphi(a^*a)<\infty\}$ 上の写像 $\Lambda_\varphi$ について
@@ -47,7 +47,7 @@ $$
 <a id="def-aqft28-connes-s"></a>
 
 <!-- formal-statement-start -->
-> **定義（Connesの $S$ 不変量）**  
+> **定義（ConnesのS不変量）**  
 > $M$ をvon Neumann環とし、その忠実・正規・半有限重み全体を $\mathcal W_{\mathrm{nsf}}(M)$ とする。各重みの標準モジュラー作用素を $\Delta_\varphi$ として
 >
 > $$
@@ -69,13 +69,13 @@ $$
 (p_1,p_2)=(2/3,1/3).
 $$
 
-従って $\operatorname{Sp}(\Delta_\rho)=\{1,2,1/2\}$。一方、忠実なトレース状態 $\varphi_{\rm tr}(a)=\frac12\operatorname{Tr}a$ なら $\Delta_{\rm tr}=I$ なので、$S(M_2)\subset\{1\}$。どの忠実な状態でも $\rho^{1/2}$ は $\Delta_\rho$ の固有値1のベクトルであり、有限次元のn.s.f.重みはすべて忠実な正行列で表せるため $1\in S(M_2)$。よって $S(M_2)=\{1\}$ です。**同じ環の中で、一つのモジュラースペクトルは変わっても $S(M)$ は変わりません**。
+従って $\operatorname{Sp}(\Delta_\rho)=\{1,2,1/2\}$。一方、忠実なトレース状態 $\varphi_{\rm tr}(a)=\frac12\operatorname{Tr}a$ なら $\Delta_{\rm tr}=I$ なので、$S(M_2)\subset\{1\}$。どの忠実な状態でも $\rho^{1/2}$ は $\Delta_\rho$ の固有値1のベクトルであり、有限次元のn.s.f.重みはすべて忠実な正のHermitian行列で表せるため $1\in S(M_2)$。よって $S(M_2)=\{1\}$ です。**同じ環の中で、一つのモジュラースペクトルは変わっても $S(M)$ は変わりません**。
 <!-- definition-example-end -->
 
 <a id="prop-aqft28-spectrum-inclusion"></a>
 
 <!-- formal-statement-start -->
-> **命題（一つの状態のスペクトルから分かるのは包含だけ）**  
+> **命題（単一重みのモジュラースペクトルとConnes不変量の包含）**  
 > $M$ をvon Neumann環とし、$\varphi$ をその忠実・正規・半有限重みとする。このとき
 >
 > $$
@@ -95,12 +95,13 @@ $$
 $\varphi\in\mathcal W_{\mathrm{nsf}}(M)$ なので、共通部分を作る族の中に $\operatorname{Sp}(\Delta_\varphi)$ が現れます。任意の $x\in S(M)$ はすべての族の要素に属し、特に $x\in\operatorname{Sp}(\Delta_\varphi)$。従って包含が従います。逆包含については $x$ が一つの集合に含まれるだけでは、他の集合にも含まれる根拠がないので、論理的に得られません。実際に失敗する例を次に示します。
 <!-- proof-end -->
 
-Connesによる深い分類定理を用いると、**Type III因子**の細分類は次の通りです。これは本講で証明する命題ではなく、以後の適用先を指定するための文献結果です。
+次の文献上の分類結果により、**Type III因子**の細分類は下表の通りです。これは本講で証明する命題ではなく、以後の適用先を指定するための文献結果です。
 
 <a id="thm-aqft28-connes-classification-literature"></a>
 
 <!-- formal-statement-start -->
-> **文献定理（ConnesのType III細分類：証明は本講の範囲外）**  
+> **定理（ConnesのType III細分類）**  
+> （文献定理。完全証明は本講の範囲外。）  
 > $M$ が因子でType IIIであるとき
 >
 > $$
@@ -124,7 +125,7 @@ Connesによる深い分類定理を用いると、**Type III因子**の細分�
 <a id="prop-aqft28-typei-full-modular-spectrum"></a>
 
 <!-- formal-statement-start -->
-> **命題（Type I$_\infty$の全モジュラースペクトル反例）**  
+> **命題（Type I無限因子の全モジュラースペクトル反例）**  
 > $H=\ell^2(\mathbb N_0^2)$、$M=B(H)$ とする。正規化定数
 >
 > $$
@@ -193,7 +194,7 @@ $$
 <a id="prop-aqft28-wedge-modular-spectrum"></a>
 
 <!-- formal-statement-start -->
-> **命題（自由スカラー場のwedgeのモジュラースペクトル）**  
+> **命題（自由スカラー場のwedgeモジュラースペクトル）**  
 > 四次元Minkowski時空の $m>0$ の実自由Klein–Gordon場を真空Fock表現に置く。右wedge $W_R$ の真空標準対 $(\mathcal M(W_R),\Omega)$ に対し
 >
 > $$
@@ -332,7 +333,8 @@ $$
 <a id="thm-aqft28-local-typeiii1-literature"></a>
 
 <!-- formal-statement-start -->
-> **文献定理（局所環の普遍的な形：本講では証明しない）**  
+> **定理（局所環のhyperfinite Type III₁構造）**  
+> （文献定理。完全証明は本講の範囲外。）  
 > Minkowski真空表現の局所netが、局所可換性・正エネルギー・適切な加法性／内側からの連続性などの標準条件に加えて、**該当する文献定理で指定された相空間核性（funnel/split近似を保証する強さ）**と、**短距離の非自明な漸近的スケール不変性またはそれに代わる所定のスケーリング極限条件**を満たすとする。Buchholz–D’Antoni–FredenhagenおよびFredenhagen等の結果の適用範囲では、double coneの局所環はhyperfinite Type III₁因子 $R_\infty$ とその中心 $Z(\mathcal M(O))$ を用いて
 >
 > $$
@@ -383,7 +385,7 @@ $$
 - 問題：$M_2(\mathbb C)$ 上の $\tau(x)=\operatorname{Tr}x$ が忠実・正規・半有限であることを、正行列の固有値を使って一つずつ確認せよ。また $B(\ell^2)$ の通常トレースが状態でない理由を示せ。
 
 <!-- solution-start -->
-**詳細解答。** 正行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすると $\tau(x)=\lambda_1+\lambda_2$ なので $\tau(x)=0\Rightarrow x=0$。行列の正元の増大ネットは有限次元でノルム収束するため、トレースの連続性で $\tau(\sup x_i)=\sup\tau(x_i)$。全ての正行列に有限トレースがあるので、非零 $x$ に $y=x$ を選べます。$B(\ell^2)$ の通常トレースでは $\operatorname{Tr}I=\sum_{n=0}^\infty 1=\infty$ で、状態の規格化 $\varphi(I)=1$ を満たしません。無限値を認める重みとしては利用できます。
+**詳細解答。** 正のHermitian行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすると $\tau(x)=\lambda_1+\lambda_2$ なので $\tau(x)=0\Rightarrow x=0$。行列の正元の増大ネットは有限次元でノルム収束するため、トレースの連続性で $\tau(\sup x_i)=\sup\tau(x_i)$。全ての正行列に有限トレースがあるので、非零 $x$ に $y=x$ を選べます。$B(\ell^2)$ の通常トレースでは $\operatorname{Tr}I=\sum_{n=0}^\infty 1=\infty$ で、状態の規格化 $\varphi(I)=1$ を満たしません。無限値を認める重みとしては利用できます。
 <!-- solution-end -->
 
 <a id="ex-aqft28-a03"></a>
@@ -463,10 +465,10 @@ $$
 #### AQFT28-C01 wedgeの計算から局所型への「誤った証明」を修正する
 
 - Level: C
-- 問題：「自由場のBisognano–Wichmann定理から $\operatorname{Sp}(\Delta_{W_R})=[0,\infty)$、ゆえに全double cone局所環がhyperfinite Type III$_1$である」という主張を検討せよ。(i) 正しい部分を証明し、(ii) Type Iの反例で論理の破綻を示し、(iii) double coneの結論に追加すべき性質とその役割を整理せよ。
+- 問題：「[自由実スカラー場のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)から $\operatorname{Sp}(\Delta_{W_R})=[0,\infty)$、ゆえに全double cone局所環がhyperfinite Type III$_1$である」という主張を検討せよ。(i) 正しい部分を証明し、(ii) Type Iの反例で論理の破綻を示し、(iii) double coneの結論に追加すべき性質とその役割を整理せよ。
 
 <!-- solution-start -->
-**詳細解答。** **(i)** 指定された $m>0$ の実自由場では[AQFT27のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)が成立します。一粒子boostをrapidity表示にすれば $K_1=i\partial_\theta$、Fourier変換で $-\xi$ の乗算です。従って $\operatorname{Sp}(K_1)=\mathbb R$。Fockの一粒子成分を通して $\operatorname{Sp}(K_F)=\mathbb R$ となり、$\log\Delta_{W_R}=-2\pi K_F$ だから
+**詳細解答。** **(i)** 指定された $m>0$ の実自由場では[自由実スカラー場のBisognano–Wichmann定理](../AQFT27/index.md#thm-aqft27-bisognano-wichmann)が成立します。一粒子boostをrapidity表示にすれば $K_1=i\partial_\theta$、Fourier変換で $-\xi$ の乗算です。従って $\operatorname{Sp}(K_1)=\mathbb R$。Fockの一粒子成分を通して $\operatorname{Sp}(K_F)=\mathbb R$ となり、$\log\Delta_{W_R}=-2\pi K_F$ だから
 $$
 \operatorname{Sp}(\Delta_{W_R})
 =\overline{e^{-2\pi\mathbb R}}=[0,\infty).
@@ -490,7 +492,7 @@ $$
 
 ## 7. 次講へ：一つの状態から二状態の比較へ
 
-鋭い局所環がType IIIになり得る以上、局所部分系の密度行列を前提にした部分トレースやvon Neumannエントロピーは、そのままでは一般の局所環の内部操作になりません。[Type IIIのトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)がその理由です。
+鋭い局所環がType IIIになり得る以上、局所部分系の密度行列を前提にした部分トレースや密度行列による通常のエントロピーは、そのままでは一般の局所環の内部操作になりません。[Type IIIのトレース障害](../AQFT15/index.md#thm-aqft15-typeiii-no-nsf-trace)がその理由です。
 
 次のAQFT29では、**二つの忠実な正規状態を比較する相対Tomita作用素**を標準表現から構成します。今回の $\Delta_\varphi$ は一状態のモジュラー作用素でしたが、次には $\Delta_{\sigma\mid\rho}$ の**順序**が重要になります。
 
