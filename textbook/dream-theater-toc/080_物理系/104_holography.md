@@ -28,3 +28,4 @@
 25. [HOLO25 causal wedgeとentanglement wedge](textbook/volumes/dream_thater/物理系/HOLO/HOLO25/index.md)
 26. [HOLO26 HKLL再構成](textbook/volumes/dream_thater/物理系/HOLO/HOLO26/index.md)
 27. [HOLO27 部分領域再構成](textbook/volumes/dream_thater/物理系/HOLO/HOLO27/index.md)
+28. [HOLO28 JLMSと相対エントロピー](textbook/volumes/dream_thater/物理系/HOLO/HOLO28/index.md)

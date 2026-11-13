@@ -1,0 +1,40 @@
+id: "CTM11"
+title: "Hooke則と等方線形弾性の独立な定数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM10
+official_scope: []
+learning_objectives:
+  - "微小ひずみを有限ひずみの一次近似から導き、回転と伸縮を具体例で区別できる"
+  - "材料等方性から二定数の二次弾性エネルギーとHooke則を導出できる"
+  - "体積ひずみと偏差ひずみへ分解し、エネルギー正定値性と係数の条件を必要十分に証明できる"
+  - "一軸応力と一軸ひずみの違いを説明し、Young率・Poisson比とLamé係数を相互に変換できる"
+  - "引張り・せん断・体積変化の実験をエネルギーと応力の両方から照合し、線形近似の限界を説明できる"
+definitions:
+  - { id: CTM11-DEF-02, name: "等方線形弾性材料" }
+  - { id: CTM11-DEF-03, name: "体積弾性率と偏差ひずみ" }
+  - { id: CTM11-DEF-04, name: "Young率とPoisson比" }
+theorems:
+  - { id: CTM11-THM-01, name: "等方Hooke則のエネルギー表示" }
+  - { id: CTM11-PROP-01, name: "エネルギーの直交分解と正定値条件" }
+  - { id: CTM11-THM-02, name: "Lamé係数・Young率・Poisson比の関係" }
+canonical_examples:
+  - "微小剛体回転と伸縮のひずみ対比"
+  - "体積伸びと純せん断におけるKとmuの役割"
+  - "一軸応力の自由側面と拘束側面の比較"
+  - "負のlambdaが正定値性を損なわない例"
+problem_patterns:
+  - CTM11-STRAIN-ROTATION
+  - CTM11-HOOKE-ENERGY
+  - CTM11-PURE-SHEAR
+  - CTM11-BULK-STABILITY
+  - CTM11-UNIAXIAL-STRESS
+  - CTM11-ELASTIC-CONSTANTS
+  - CTM11-POSITIVE-DEFINITE
+  - CTM11-DEVIATORIC-DECOMPOSITION
+  - CTM11-EXPERIMENT-CONSISTENCY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 6, review: 3 }
