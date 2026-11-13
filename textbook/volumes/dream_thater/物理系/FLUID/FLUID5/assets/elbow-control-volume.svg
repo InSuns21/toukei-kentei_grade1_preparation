@@ -14,7 +14,7 @@
   <line x1="120" y1="242" x2="61" y2="242" stroke="#7f3932" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#normal-arrow)" data-series-group="normal" data-series-label="n1"/>
   <line x1="406" y1="90" x2="406" y2="31" stroke="#7f3932" stroke-width="3" marker-end="url(#normal-arrow)" data-series-group="normal" data-series-label="n2"/>
   <g font-family="sans-serif" font-size="20" fill="#1c3240">
-    <text x="195" y="229">u₁</text>
+    <text x="195" y="267">u₁</text>
     <text x="452" y="157">u₂</text>
     <text x="41" y="221">n₁</text>
     <text x="432" y="43">n₂</text>
