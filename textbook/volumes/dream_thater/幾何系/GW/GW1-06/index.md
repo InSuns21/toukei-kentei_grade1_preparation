@@ -203,7 +203,7 @@ $$
 \lambda_x(h)=\int_0^1 t\,\omega_{tx}(x,h)\,dt
 $$
 
-と選べば、$d\lambda=\omega$ は半径方向のホモトピー公式から従い、$|\lambda_x(h)|\le C|x||h|$。従ってStokesの定理とCauchy–Schwarzにより
+と選べば、$d\lambda=\omega$ は半径方向の[ホモトピー公式](../../GEO/GEO9/index.md#thm-geo9-homotopy-formula)から従い、$|\lambda_x(h)|\le C|x||h|$。従ってStokesの定理とCauchy–Schwarzにより
 
 $$
 \begin{aligned}
