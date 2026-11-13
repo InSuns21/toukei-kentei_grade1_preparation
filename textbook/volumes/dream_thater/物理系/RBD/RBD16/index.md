@@ -215,47 +215,47 @@ $$
 
 1. **行列 Euler 更新**：角速度と姿勢を
 
-$
+$$
 \omega_{n+1}=\omega_n+hf(t_n,R_n,\omega_n),\qquad
 R_{n+1}=R_n(I_3+h\widehat{\omega}_n)
-$
+$$
 
 と更新する。
 
 2. **正規化四元数 Euler 更新**：$q_n$ を $R(q_n)=R_n$ を満たす単位四元数とする。[RBD5 の単位四元数と物体角速度の時間発展](../RBD5/index.md#thm-rbd5-attitude-ode)に基づき、
 
-$
+$$
 \widetilde q_{n+1}=q_n+\frac h2q_n\otimes(0,\omega_n),\qquad
 q_{n+1}=\frac{\widetilde q_{n+1}}{\lVert\widetilde q_{n+1}\rVert}
-$
+$$
 
 とし、角速度は上記の Euler 更新と同じ式で計算する。
 
 3. **指数中点更新**：角速度の中点近似と中点姿勢を
 
-$
+$$
 \omega_{n+1/2}=\omega_n+\frac h2f(t_n,R_n,\omega_n),\qquad
 R_{n+1/2}=R_n\exp\left(\frac h2\widehat{\omega}_n\right)
-$
+$$
 
 で定める。外トルクが姿勢に依存する場合もこの $R_{n+1/2}$ を用い、
 
-$
+$$
 \begin{aligned}
 \omega_{n+1}&=\omega_n+h f(t_n+h/2,R_{n+1/2},\omega_{n+1/2}),\\
 R_{n+1}&=R_n\exp\left(h\widehat{\omega}_{n+1/2}\right)
 \end{aligned}
-$
+$$
 
 と更新する。
 
 指数は $a=h\lVert v\rVert$ とし、$v\ne0$ について
 
-$
+$$
 \exp(h\widehat v)
 =I_3+\frac{\sin a}{\lVert v\rVert}\widehat v
 +\frac{1-\cos a}{\lVert v\rVert^2}\widehat v^2
-$
+$$
 
 で計算する。$v=0$ では $\exp(h\widehat v)=I_3$ とする。
 <!-- formal-statement-end -->
@@ -275,13 +275,13 @@ $
 
 $R_n\in SO(3)$、$\lVert q_n\rVert=1$、$h>0$ とし、$\omega_n,\omega_{n+1/2}$ は有限な三次元実ベクトルとする。前節の正規化四元数更新と指数更新はそれぞれ
 
-$
+$$
 \lVert q_{n+1}\rVert=1,\qquad R(q_{n+1})\in SO(3),
-$
+$$
 
-$
+$$
 R_{n+1}=R_n\exp(h\widehat{\omega}_{n+1/2})\in SO(3)
-$
+$$
 
 を満たす。ただし、これは**姿勢幾何の保存**であり、離散エネルギーや離散角運動量の厳密保存を意味しない。
 <!-- formal-statement-end -->
