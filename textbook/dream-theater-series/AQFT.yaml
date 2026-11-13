@@ -90,7 +90,7 @@ chapters:
     title: "モジュラーHilbert環の準備補題"
   - id: AQFT22
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT22
-    status: planned
+    status: completed
     title: "Tomitaの可換子定理"
   - id: AQFT23
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT23
