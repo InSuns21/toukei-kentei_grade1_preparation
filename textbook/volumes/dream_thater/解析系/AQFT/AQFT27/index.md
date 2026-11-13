@@ -63,6 +63,15 @@ $$
 $\mathfrak h=\mathbb C$ に通常の複素内積を入れ、$H=\mathbb R\subset\mathbb C$ とします。$H$ は実線形で閉じており、$H+iH=\{a+ib:a,b\in\mathbb R\}=\mathbb C$ です。また、実数かつ純虚数の数は $0$ だけなので $H\cap iH=\{0\}$。従ってこの $H$ は標準です。対照的に $H=\mathbb C$ を実線形部分空間とみなすと、$H\cap iH=\mathbb C$ となり標準ではありません。
 <!-- definition-example-end -->
 
+標準な閉実部分空間 $H$ には、一粒子の **Tomita作用素** $S_H$ を次のように対応させます。標準性の $H\cap iH=\{0\}$ により、$z=h_1+ih_2$（$h_1,h_2\in H$）という表示は一意です。実際、二通りの表示を引けば $h_1-h'_1=i(h'_2-h_2)\in H\cap iH$ となるからです。そこで
+
+$$
+\operatorname{Dom}S_H=H+iH,\qquad
+S_H(h_1+ih_2)=h_1-ih_2
+$$
+
+と定めます。複素係数 $i$ を掛けると符号が反転する反線形作用素です。標準性の第一条件から定義域は稠密で、閉性は第3節で具体的に確かめます。これは実部分空間上の作用素であり、[von Neumann環のTomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial) $S_0(A\Omega)=A^*\Omega$ とは、まだ同定していません。
+
 試験関数の有限実線形結合も実試験関数なので $K_0(W_R)$ は実線形です。記号 $H(W_R)$ は一粒子空間に属し、[局所von Neumann環](../AQFT9/index.md#def-aqft9-fock-local-vn) $\mathcal M(W_R)$ とは異なります。後者は
 
 $$
@@ -96,7 +105,7 @@ p^1=\mu_\perp\sinh\theta,\quad
 \mu_\perp=\sqrt{m^2+|p_\perp|^2}
 $$
 
-と書きます。$dp^1=\mu_\perp\cosh\theta\,d\theta$ なので、$h(p)\mapsto\psi(\theta,p_\perp)=\sqrt{p^0}\,h(p)$ は $\mathfrak h$ から $L^2(\mathbb R_\theta\times\mathbb R^2_{p_\perp})$ へのユニタリ写像です。[AQFT8の質量殻Fourier式](../AQFT8/index.md#thm-aqft8-wightman-match)に現れる位相 $i$ を残すと
+と書きます。$m>0$ なので $\mu_\perp>0$ であり、$p_\perp$ を固定すると $\theta\mapsto p^1=\mu_\perp\sinh\theta$ は $\mathbb R$ から $\mathbb R$ への微分同相です。Jacobianは $dp^1=\mu_\perp\cosh\theta\,d\theta=p^0d\theta$ です。従って $h(p)\mapsto\psi(\theta,p_\perp)=\sqrt{p^0}\,h(p)$ は $\mathfrak h$ から $L^2(\mathbb R_\theta\times\mathbb R^2_{p_\perp})$ へのユニタリ写像です。[AQFT8の質量殻Fourier式](../AQFT8/index.md#thm-aqft8-wightman-match)に現れる位相 $i$ を残すと
 
 $$
 \psi_f(\theta,p_\perp)=
@@ -139,7 +148,7 @@ $$
 > を**幾何学的Tomita候補**と呼ぶ。ここでの $\delta,j,T$ は、まだ $H(W_R)$ のモジュラー対象と同定していない。
 <!-- formal-statement-end -->
 
-$Q=\log\delta$ とすれば $u(s)=e^{isG}$、$G=i\partial_\theta$ であり、$Q=-2\pi G=-2\pi i\partial_\theta$ です。従って解析可能な波束での $\delta^{1/2}$ は、形式的には $\theta\mapsto\theta-i\pi$ に対応します。この形式的な置換が**真に作用素の定義域を与える**ことを示すのが次の補題です。
+$Q=\log\delta$ とします。$\partial_\theta$ は横運動量 $p_\perp$ を固定して $\theta$ だけを微分します。滑らかで急減少する波束上で、$u(s)\psi(\theta)=\psi(\theta-s)$ を $s=0$ で微分すると $iG\psi=-\partial_\theta\psi$ です。従って $u(s)=e^{isG}$、$G=i\partial_\theta$、$Q=-2\pi G=-2\pi i\partial_\theta$ となり、閉作用素としてはこれらの自己共役生成子の閉包を用います。従って解析可能な波束での $\delta^{1/2}$ は、形式的には $\theta\mapsto\theta-i\pi$ に対応します。この形式的な置換が**真に作用素の定義域を与える**ことを示すのが次の補題です。
 
 <!-- definition-example-start: def-aqft27-geometric-tomita -->
 ### 直接例：符号と反線形性を検査する
@@ -241,7 +250,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathcal G=\operatorname{Dom}B$ をグラフ内積でHilbert空間とします。$e^{itQ}$ は $B$ と可換であり $\mathcal G$ 上でもユニタリです。$D$ のグラフ閉包 $L\subset\mathcal G$ は、$e^{itQ}D=D$ により全ての $e^{itQ}$ とその逆で不変です。従って $L$ と $L^{\perp_{\mathcal G}}$ は $Q$ のスペクトル射影でも不変です。
+$\mathcal G=\operatorname{Dom}B$ をグラフ内積でHilbert空間とします。$e^{itQ}$ は $B$ と可換であり $\mathcal G$ 上でもユニタリです。$D$ のグラフ閉包 $L\subset\mathcal G$ は、$e^{itQ}D=D$ により全ての $e^{itQ}$ とその逆で不変です。さらに $\mathcal G$ 上の一パラメータ群は強連続です。実際、$z\in\mathcal G$ について $\|(e^{itQ}-I)z\|_B^2=\|(e^{itQ}-I)z\|^2+\|(e^{itQ}-I)Bz\|^2\to0$ です。従って $L$ と $L^{\perp_{\mathcal G}}$ はこの群の全作用で不変な還元部分空間であり、スペクトル定理により各 $1_{[-R,R]}(Q)$ でも不変です。
 
 $z\in L^{\perp_{\mathcal G}}$ を取り、$E_R=1_{[-R,R]}(Q)$、$z_R=E_Rz$ と置きます。$z_R\in L^{\perp_{\mathcal G}}$ であり、スペクトルが有界なので $(1+B^2)z_R\in\mathcal H$ です。任意の $d\in D$ について
 
@@ -278,7 +287,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**1. 一粒子稠密性。** $D_0=K_0(W_R)+iK_0(W_R)$ とします。[自由真空のスペクトル条件](../AQFT8/index.md#thm-aqft8-vacuum-spectrum)と自由場の弱加法性の下で、[Reeh–Schlieder：弱加法性による局所巡回性](../AQFT12/index.md#thm-aqft12-reeh-schlieder)は $\overline{\mathcal M(W_R)\Omega}=\mathcal F_s(\mathfrak h)$ を与えます。自由場の弱加法性は、$W_R$ 内の非空double coneを平行移動させると試験関数支持が全時空を覆い、有限個の分割単位から全域Weyl元を生成できることによります。
+**1. 一粒子稠密性。** $D_0=K_0(W_R)+iK_0(W_R)$ とします。非空な有界double cone $O\subset W_R$ を選びます。[自由真空のスペクトル条件](../AQFT8/index.md#thm-aqft8-vacuum-spectrum)と自由場の弱加法性の下で、[Reeh–Schlieder：弱加法性による局所巡回性](../AQFT12/index.md#thm-aqft12-reeh-schlieder)は $\overline{\mathcal M(O)\Omega}=\mathcal F_s(\mathfrak h)$ を与えます。弱加法性は、$O$ の全平行移動が時空を覆い、任意のコンパクト支持の試験関数を有限個の分割単位によってそれらの平行移動上の試験関数へ分け、Weyl関係から全域Weyl元を生成できることによります。包含単調性 $\mathcal M(O)\subset\mathcal M(W_R)$ を使えば $\overline{\mathcal M(W_R)\Omega}=\mathcal F_s(\mathfrak h)$ です。
 
 一粒子への直交射影を $P_1$ とすると、[Weyl真空ベクトルの指数表示](../AQFT8/index.md#prop-aqft8-fock-weyl)から
 
@@ -298,15 +307,21 @@ $\delta^{it}=u(-2\pi t)$ と[不変稠密部分空間の指数作用素core](#le
 
 **3. 標準性と閉作用素の一致。** $T$ は閉作用素なので、$K_0$ をHilbertノルムで閉じた $H(W_R)$ の全ての $h$ について $Th=h$ が成り立ちます。ここで閉性の使用は $(h_n,Th_n)=(h_n,h_n)\to(h,h)$ から分かります。$ih\in H(W_R)$ でもあれば、反線形性により $T(ih)=-ih$、一方 $H(W_R)$ の固定性により $T(ih)=ih$。よって $h=0$ です。
 
-既に $D_0$ が稠密なので $H(W_R)+iH(W_R)$ は稠密です。従って $H(W_R)$ は標準です。標準実部分空間のTomita作用素は
+既に $D_0$ が稠密なので $H(W_R)+iH(W_R)$ は稠密です。従って $H(W_R)$ は標準です。第1節で導入した一粒子Tomita作用素は、今確認した標準な $H(W_R)$ に対して
 
 $$
 S_H(h_1+ih_2)=h_1-ih_2,\qquad h_1,h_2\in H(W_R)
 $$
 
-と定義します。この作用素は閉じています。実際 $z_n=h_{1,n}+ih_{2,n}\to z$、$S_Hz_n\to w$ なら、$h_{1,n}=(z_n+S_Hz_n)/2$ と $ih_{2,n}=(z_n-S_Hz_n)/2$ が収束し、実閉性から極限も $H$ と $iH$ に属します。$T$ は $H$ で恒等かつ反線形なので $S_H\subset T$ です。他方 $D_0$ 上で $S_H=T$ であり、$D_0$ は $T$ のグラフcoreですから $T\subset S_H$。従って両者は一致します。
+となります。この作用素は閉じています。実際 $z_n=h_{1,n}+ih_{2,n}\to z$、$S_Hz_n\to w$ なら、$h_{1,n}=(z_n+S_Hz_n)/2$ と $ih_{2,n}=(z_n-S_Hz_n)/2$ が収束し、実閉性から極限も $H$ と $iH$ に属します。$T$ は $H$ で恒等かつ反線形なので $S_H\subset T$ です。他方 $D_0$ 上で $S_H=T$ であり、$D_0$ は $T$ のグラフcoreですから $T\subset S_H$。従って両者は一致します。
 
-最後に $j\delta j=\delta^{-1}$ は、$j$ の複素共役が $\theta$ のFourier変数 $k$ を $-k$ に変えるため $jQj=-Q$ であることから従います。$T^*T=\delta$（$j$ は反ユニタリ）なので、反線形極分解の一意性から $j_H=j$、$\delta_H=\delta$ です。
+最後に $j\delta j=\delta^{-1}$ も作用素として確認します。滑らかで急減少する波束上で $j\partial_\theta=\partial_\theta j$、$j(i\psi)=-i(j\psi)$ なので
+
+$$
+jQj=j(-2\pi i\partial_\theta)j=2\pi i\partial_\theta=-Q.
+$$
+
+Fourier変数 $k$ の表示では、これは複素共役が $k$ を $-k$ に移すことに対応します。$j$ は $Q$ の定義域を保つため、スペクトル計算から $j\delta j=\exp(jQj)=\delta^{-1}$ です。$T^*T=\delta$（$j$ は反ユニタリ）なので、反線形極分解の一意性から $j_H=j$、$\delta_H=\delta$ です。
 <!-- proof-end -->
 
 **半周と全周の違い。** $-i\pi$ は $\delta^{1/2}$ を通じて実局所波束の反線形反転へつながり、$-2\pi i$ は二点関数のKMS境界につながります。複素rapidityを実時間のユニタリとして解釈しているわけではありません。
@@ -331,7 +346,22 @@ $$
 > と置く。ただし零粒子成分では $D^{it}\Omega=\Omega$、$J(c\Omega)=\overline c\,\Omega$ とする。$D$ はこの強連続ユニタリ一パラメータ作用から得る正の自己共役作用素であり、$T_{\mathcal F}=JD^{1/2}$ はその定義域上の閉反線形作用素とする。
 <!-- formal-statement-end -->
 
-$D$ は一般に有界でなく、$D^{1/2}$ を単に有限粒子空間のどこにでも作用させてよいわけではありません。特に、各 $n$ 粒子成分での半べきの定義域と、そのノルムの平方和の有限性が必要です。
+$D$ は一般に有界ではありません。$n$ 粒子成分での $D^{it}$ は、一粒子の $\delta^{it}=e^{itQ}$ を各テンソル因子に作用させるものです。異なる因子の $Q$ は可換なので、この成分の生成子は
+
+$$
+Q^{(n)}=\sum_{r=1}^n
+I^{\otimes(r-1)}\otimes Q\otimes I^{\otimes(n-r)},
+\qquad D^{1/2}|_n=(\delta^{1/2})^{\otimes_s n}
+$$
+
+です（右辺の非有界テンソル積は代数的テンソル上で定めて閉じます）。従って $(\xi_n)_{n\ge0}$ が $\operatorname{Dom}D^{1/2}$ に入る条件は、各 $\xi_n$ が右辺の作用素の定義域に入り、かつ
+
+$$
+\sum_{n=0}^\infty
+\|(\delta^{1/2})^{\otimes_s n}\xi_n\|^2<\infty
+$$
+
+となることです。零粒子成分では作用素は恒等です。有限粒子の任意のベクトルに半べきを作用させてよいわけではなく、定義域の条件を確認します。
 
 <!-- definition-example-start: def-aqft27-second-quantized-modular -->
 ### 直接例：真空と一粒子・二粒子成分
@@ -481,7 +511,20 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Tomitaの可換子定理](../AQFT22/index.md#thm-aqft22-commutant)より $J_{W_R}\mathcal M(W_R)J_{W_R}=\mathcal M(W_R)'$。本講の $J_{W_R}=\Gamma(j)$ を使います。反射 $r(x^0,x^1,x_\perp)=(-x^0,-x^1,x_\perp)$ は $rW_R=W_L$ を満たします。実試験関数について、Fourier積分を $x\mapsto rx$ と変数変換し、正周波数写像の位相 $i$ を保つと
+[Tomitaの可換子定理](../AQFT22/index.md#thm-aqft22-commutant)より $J_{W_R}\mathcal M(W_R)J_{W_R}=\mathcal M(W_R)'$。本講の $J_{W_R}=\Gamma(j)$ を使います。反射 $r(x^0,x^1,x_\perp)=(-x^0,-x^1,x_\perp)$ は $rW_R=W_L$ を満たします。実試験関数について、$c=1/(\sqrt2(2\pi)^{3/2})$、$p^0=\mu_\perp\cosh\theta$、$p^1=\mu_\perp\sinh\theta$ と略記すると、位相 $i$ を含む第2節のFourier表示から
+
+$$
+\begin{aligned}
+(j\psi_f)(\theta,p_\perp)
+&=-\overline{ic\int f(x)
+ e^{ip^0x^0-ip^1x^1+ip_\perp\cdot x_\perp}\,d^4x}\\
+&=ic\int f(x)e^{-ip^0x^0+ip^1x^1-ip_\perp\cdot x_\perp}\,d^4x\\
+&=ic\int f(ry)e^{ip^0y^0-ip^1y^1-ip_\perp\cdot y_\perp}\,d^4y\\
+&=\psi_{f\circ r}(\theta,p_\perp)
+\end{aligned}
+$$
+
+です。二行目では $f$ が実数値であること、三行目では $x=ry$ と $|\det r|=1$ を使いました。$rW_R=W_L$ なので $f\circ r$ は左wedgeに支持され、$r$ が対合であることから逆包含も成り立ちます。従って
 
 $$
 jK[f]=K[f\circ r],\qquad
@@ -658,7 +701,14 @@ $$
 
 **(ii)** [Reeh–Schlieder：弱加法性による局所巡回性](../AQFT12/index.md#thm-aqft12-reeh-schlieder)と $P_1W(h)\Omega=ie^{-\|h\|^2/2}h$ から $D_0=K_0+iK_0$ が一粒子空間で稠密です。また $\Lambda(s)W_R=W_R$ から $u(s)D_0=D_0$ です。
 
-**(iii)** $Q=\log\delta$、$\delta^{it}=u(-2\pi t)$ とし、[不変稠密部分空間の指数作用素core](#lem-aqft27-invariant-core)を適用すると $D_0$ は $\delta^{1/2}$ のcoreです。閉反線形作用素 $T$ の固定部分空間として $H(W_R)$ は標準になり、$S_H=T$ です。従って $\delta_H^{it}=u(-2\pi t)$。
+**(iii)** $Q=\log\delta$、$\delta^{it}=u(-2\pi t)$ とし、[不変稠密部分空間の指数作用素core](#lem-aqft27-invariant-core)を適用します。なぜグラフcoreとなるかは、グラフ直交補の $z$ を $z_R=1_{[-R,R]}(Q)z$ に切り、
+
+$$
+0=(z_R,d)_{\delta^{1/2}}
+=((1+\delta)z_R,d)\quad(d\in D_0)
+$$
+
+から稠密性により $z_R=0$、さらに $R\to\infty$ で $z=0$ とするからです。閉性と $T(h)=h$（$h\in H(W_R)$）から $H\cap iH=\{0\}$、$D_0$ の稠密性から $\overline{H+iH}=\mathfrak h$ です。よって $H$ は標準で、$S_H$ は $T$ のcore $D_0$ 上で一致する二つの閉作用素だから $S_H=T$。反線形極分解により $\delta_H^{it}=u(-2\pi t)$ です。
 
 **(iv)** $W(h)\Omega=e^{-\|h\|^2/2}\varepsilon(ih)$ と $j\delta^{1/2}h=h$ から $JD^{1/2}W(h)\Omega=W(-h)\Omega$。このWeyl真空ベクトルの線形包はFock空間で稠密・boost不変なので再びcore補題を適用できます。強-* の有界近似でTomita作用をwedgeのvon Neumann環全体へ拡張し、$\Delta_{W_R}^{it}=\Gamma(\delta^{it})=\Gamma(u(-2\pi t))=U(-2\pi t)$ を得ます。二点KMSから直ちに最後の等式を推論したわけではありません。
 <!-- solution-end -->
