@@ -16,9 +16,9 @@ U3-13 では、株価が正の連続 Itô 過程であると**仮定**した上�
 > **定義（幾何 Brown 運動）**  
 > 上の $s_0,\mu,\sigma,W$ を固定する。[Brown SDE](../../../解析系/STO/STO9/index.md#def-sto9-sde)
 >
-> $$
-> S_t=s_0+\int_0^t\mu S_u\,du+\int_0^t\sigma S_u\,dW_u,\qquad 0\le t\le T
-> $$
+$$
+S_t=s_0+\int_0^t\mu S_u\,du+\int_0^t\sigma S_u\,dW_u,\qquad 0\le t\le T
+$$
 >
 > の連続な適合強解 $S$ を、このパラメータの**幾何 Brown 運動**（geometric Brownian motion、GBM）と呼ぶ。微分記法では $dS_t=\mu S_t\,dt+\sigma S_t\,dW_t$ である。
 <!-- formal-statement-end -->
@@ -41,15 +41,15 @@ $$
 > **定理（幾何 Brown 運動の陽解と正値性）**  
 > $T>0,s_0>0,\mu\in\mathbb R,\sigma\ge0$ を定数とし、$(\mathcal F_t)$ に関する標準 Brown 運動 $W$ を与える。次の確率微分方程式
 >
-> $$
-> dS_t=\mu S_t\,dt+\sigma S_t\,dW_t,\qquad S_0=s_0
-> $$
+$$
+dS_t=\mu S_t\,dt+\sigma S_t\,dW_t,\qquad S_0=s_0
+$$
 >
 > は、$[0,T]$ 上で経路ごとに一意な連続適合強解を持ち、その解は
 >
-> $$
-> \boxed{S_t=s_0\exp\left[\left(\mu-\frac{\sigma^2}{2}\right)t+\sigma W_t\right]}
-> $$
+$$
+\boxed{S_t=s_0\exp\left[\left(\mu-\frac{\sigma^2}{2}\right)t+\sigma W_t\right]}
+$$
 >
 > である。特に $P(S_t>0\text{ for every }t\in[0,T])=1$。
 <!-- formal-statement-end -->
@@ -111,22 +111,22 @@ $W_1=0$ の標本では $S_1=100e^{0.06}\approx106.184$ 円です。これは平
 > **命題（満期株価の対数正規分布）**  
 > [幾何 Brown 運動の陽解](#thm-u3-14-explicit-gbm) の条件に加えて $t\in(0,T]$、$\sigma>0$ とする。$m_t=\log s_0+(\mu-\sigma^2/2)t$、$v_t=\sigma^2t>0$ とおくと
 >
-> $$
-> \log S_t\sim N(m_t,v_t).
-> $$
+$$
+\log S_t\sim N(m_t,v_t).
+$$
 >
 > $S_t$ の確率密度関数は
 >
-> $$
-> \boxed{f_{S_t}(x)=\frac{1}{x\sigma\sqrt{2\pi t}}
-> \exp\left[-\frac{(\log x-m_t)^2}{2\sigma^2t}\right]\quad(x>0)}
-> $$
+$$
+\boxed{f_{S_t}(x)=\frac{1}{x\sigma\sqrt{2\pi t}}
+\exp\left[-\frac{(\log x-m_t)^2}{2\sigma^2t}\right]\quad(x>0)}
+$$
 >
 > であり、$x\le0$ では密度を0とする。標準正規分布の累積分布関数を $\Phi$ とすると、$x>0$ に対し
 >
-> $$
-> P(S_t\le x)=\Phi\left(\frac{\log x-m_t}{\sigma\sqrt t}\right).
-> $$
+$$
+P(S_t\le x)=\Phi\left(\frac{\log x-m_t}{\sigma\sqrt t}\right).
+$$
 >
 > $p\in(0,1)$ に対する $p$ 分位点は $s_0\exp((\mu-\sigma^2/2)t+\sigma\sqrt t\,\Phi^{-1}(p))$ である。
 <!-- formal-statement-end -->
@@ -191,16 +191,16 @@ $\sigma=0$ なら $S_t=s_0e^{\mu t}$ に確率1で等しく、**一点に集中�
 > **命題（幾何 Brown 運動の実数モーメント）**  
 > [陽解](#thm-u3-14-explicit-gbm) の条件で、任意の $p\in\mathbb R$ と $t\in[0,T]$ について
 >
-> $$
-> E[S_t^p]=s_0^p\exp\left[\left(p\mu+\frac12p(p-1)\sigma^2\right)t\right]<\infty.
-> $$
+$$
+E[S_t^p]=s_0^p\exp\left[\left(p\mu+\frac12p(p-1)\sigma^2\right)t\right]<\infty.
+$$
 >
 > 特に
 >
-> $$
-> E[S_t]=s_0e^{\mu t},\qquad
-> \operatorname{Var}(S_t)=s_0^2e^{2\mu t}(e^{\sigma^2t}-1).
-> $$
+$$
+E[S_t]=s_0e^{\mu t},\qquad
+\operatorname{Var}(S_t)=s_0^2e^{2\mu t}(e^{\sigma^2t}-1).
+$$
 <!-- formal-statement-end -->
 
 **見取り図**：指数の中の Brown 運動を $p\sigma W_t$ に変えれば、その指数モーメントの二次項が $\tfrac12p^2\sigma^2t$ です。元のドリフト $-\tfrac12p\sigma^2t$ と合わせると $\tfrac12p(p-1)\sigma^2t$ が残ります。
@@ -248,16 +248,16 @@ $T=1$ 年、$s_0=100$ 円、$\mu=0.08$、$\sigma=0.20$ なら、平均は $100e^
 > **命題（対数収益率の独立増分と条件付きモーメント）**  
 > [陽解](#thm-u3-14-explicit-gbm) の条件で $0\le u<t\le T$ とする。このとき
 >
-> $$
-> \log(S_t/S_u)\sim N\left((\mu-\sigma^2/2)(t-u),\sigma^2(t-u)\right)
-> $$
+$$
+\log(S_t/S_u)\sim N\left((\mu-\sigma^2/2)(t-u),\sigma^2(t-u)\right)
+$$
 >
 > であり、$\log(S_t/S_u)$ は $\mathcal F_u$ と独立である。任意の実数 $p$ について
 >
-> $$
-> E[S_t^p\mid\mathcal F_u]
-> =S_u^p\exp\left[\left(p\mu+\frac12p(p-1)\sigma^2\right)(t-u)\right].
-> $$
+$$
+E[S_t^p\mid\mathcal F_u]
+=S_u^p\exp\left[\left(p\mu+\frac12p(p-1)\sigma^2\right)(t-u)\right].
+$$
 >
 > 特に $E[S_t\mid\mathcal F_u]=S_ue^{\mu(t-u)}$。
 <!-- formal-statement-end -->
