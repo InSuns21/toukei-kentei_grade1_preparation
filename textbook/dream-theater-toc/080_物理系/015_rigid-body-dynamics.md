@@ -13,3 +13,4 @@
 10. [RBD10 Poinsotの構成と物体系／空間系の軌跡](textbook/volumes/dream_thater/物理系/RBD/RBD10/index.md)
 11. [RBD11 固定点を持つ重い対称こま](textbook/volumes/dream_thater/物理系/RBD/RBD11/index.md)
 12. [RBD12 定常歳差・章動とジャイロ近似](textbook/volumes/dream_thater/物理系/RBD/RBD12/index.md)
+13. [RBD13 転がりの運動学と瞬間中心](textbook/volumes/dream_thater/物理系/RBD/RBD13/index.md)

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RBD13 | 車輪の接点と物質点</title>
+<style>
+:root{color-scheme:light dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+body{max-width:950px;margin:0 auto;padding:1rem;color:#182736;background:#fff}
+h1{font-size:1.4rem;margin:.5rem 0}h2{font-size:1.1rem}
+p{margin:.5rem 0 1rem}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:.65rem;margin:1rem 0}
+button,select,input{font:inherit}button,select{border:1px solid #456075;background:#f4f8fb;color:#182736;border-radius:.35rem;padding:.45rem .7rem;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,svg:focus-visible{outline:3px solid #995600;outline-offset:2px}
+label{display:inline-flex;align-items:center;gap:.35rem}
+figure{margin:.7rem 0;border:1px solid #a1b0bc;border-radius:.5rem;padding:.45rem;background:#fbfcfe}
+svg{display:block;width:100%;height:auto}svg text{font:19px system-ui,sans-serif;fill:#182736}
+.ground{stroke:#182736;stroke-width:3}.tick{stroke:#718293;stroke-width:1.5}
+.wheel{stroke:#304f6c;stroke-width:4;fill:#e8f2f9}.spoke{stroke:#748ba1;stroke-width:2}
+.marker{fill:#fff;stroke:#ac4a19;stroke-width:4}.contact{fill:#162a39;stroke:white;stroke-width:1.5}
+.trace{fill:none;stroke:#ac4a19;stroke-width:3.2}.arrow-center{stroke:#166581;stroke-width:4}
+.arrow-top{stroke:#7c4a8b;stroke-width:3;stroke-dasharray:9 5}.arrow-contact{stroke:#995600;stroke-width:3;stroke-dasharray:3 5}
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.5rem;margin:.6rem 0}
+.values div{background:#f0f5f8;border:1px solid #d7e3e9;padding:.55rem .7rem;border-radius:.3rem}
+small{display:block;color:#365365}.legend{font-size:.88rem} .legend span{display:inline-block;margin-right:1.1rem}
+.swatch{vertical-align:middle;width:25px;border-top:3px solid #166581;display:inline-block}
+.swatch.top{border-color:#7c4a8b;border-top-style:dashed}.swatch.contact{border-color:#995600;border-top-style:dotted}.swatch.trace{border-color:#ac4a19}
+#time{flex:1;min-width:130px} #readout{font-variant-numeric:tabular-nums}
+@media (max-width:580px){body{padding:.55rem}svg text{font-size:20px}.controls{gap:.4rem}button{padding:.35rem .55rem}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<h1>RBD13：現在の接点と、最初に接していた物質点</h1>
+<p>円盤の半径を1、時計回り角速度を1とします。黒丸 <strong>P</strong> は「その瞬間の最下点」、白抜き丸 <strong>M</strong> は「最初に床へ接していた、同じ物質点」です。<strong>車輪中心を追うカメラ</strong>で描くため、床の目盛りが左へ移動します。橙の実線はMの軌跡（中心を追う画面への投影）です。</p>
+<div class="controls" role="group" aria-label="表示設定">
+<label for="mode">接触条件
+<select id="mode">
+<option value="1">無滑り（v=ωa）</option>
+<option value="1.5">滑り（v=1.5ωa）</option>
+</select></label>
+<label for="speed">再生速度
+<select id="speed"><option value=".5">0.5倍</option><option value="1" selected>1倍</option><option value="2">2倍</option></select></label>
+</div>
+<div class="controls" role="group" aria-label="時間操作">
+<button id="play" type="button" aria-pressed="false">再生</button>
+<button id="back" type="button">一コマ戻す</button>
+<button id="next" type="button">一コマ進む</button>
+<button id="reset" type="button">リセット</button>
+<label for="time">回転角 θ
+<input id="time" type="range" min="0" max="6283" step="1" value="0" aria-label="回転角 θ"></label>
+</div>
+<figure>
+<svg id="diagram" viewBox="0 0 760 355" role="img" tabindex="0" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">転がる円盤の速度、現在の接点P、標識点M</title>
+<desc id="diagram-desc">床は水平。円盤中心を画面の同じ位置に保ち、時間とともに最初の接点Mが円周を移り、現在の接点Pとは異なる位置へ進む。無滑りでは現在の接点の物質点速度は零、滑りでは右向き。</desc>
+<defs><marker id="arrowtip" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="context-stroke"/></marker></defs>
+<g id="ticks"></g>
+<line class="ground" x1="8" y1="274" x2="752" y2="274"></line>
+<path id="trace" class="trace" d=""></path>
+<circle class="wheel" cx="500" cy="208" r="66"></circle>
+<g id="spokes"></g>
+<line id="radiusMarker" x1="500" y1="208" x2="500" y2="274" stroke="#ac4a19" stroke-width="2.5" stroke-dasharray="6 4"></line>
+<circle cx="500" cy="208" r="5" fill="#162a39"></circle>
+<circle id="marker" class="marker" cx="500" cy="274" r="7"></circle>
+<circle id="contact" class="contact" cx="500" cy="274" r="5"></circle>
+<line id="arrowCenter" class="arrow-center" x1="500" y1="208" x2="554" y2="208" marker-end="url(#arrowtip)"></line>
+<line id="arrowTop" class="arrow-top" x1="500" y1="142" x2="608" y2="142" marker-end="url(#arrowtip)"></line>
+<line id="arrowContact" class="arrow-contact" x1="500" y1="274" x2="500" y2="274" marker-end="url(#arrowtip)" visibility="hidden"></line>
+<text x="510" y="197">C</text>
+<text x="474" y="136">T</text>
+<text x="515" y="296">P</text>
+<text id="markerLabel" x="471" y="319">M</text>
+<text x="13" y="300" font-size="15">床</text>
+<text x="18" y="30">右方向：+x</text>
+</svg>
+<figcaption class="legend">
+<span><i class="swatch"></i> 中心の速度</span>
+<span><i class="swatch top"></i> 最上点の速度</span>
+<span><i class="swatch contact"></i> 現在接点の速度（滑る場合）</span>
+<span><i class="swatch trace"></i> Mの軌跡</span>
+</figcaption>
+</figure>
+<div class="values" id="readout" aria-live="polite">
+<div>回転角 <strong id="thetaValue">θ=0.000</strong></div>
+<div>中心速度 <strong id="centerValue">vC=1.000</strong></div>
+<div>接点の速度 <strong id="contactValue">vP=0.000</strong></div>
+<div>最上点の速度 <strong id="topValue">vT=2.000</strong></div>
+<div>瞬間中心の高さ <strong id="centerHeight">yI=0.000</strong></div>
+<div>初期標識点 <strong id="markerValue">M=(0.000, 0.000)</strong></div>
+</div>
+<p id="narration" role="status">MとPが一致しています。無滑りでは接している車輪側物質点が瞬間的に静止します。</p>
+<h2>式での検算</h2>
+<p>無滑りでは v=ωa=1、滑りでは v=1.5ωa=1.5。下点速度は vP=v−ωa、上点速度は vT=v+ωa。中心を原点とする瞬間回転中心の鉛直変位は −v/ω、床からの高さは yI=a−v/ω です。床上の P の位置は世界座標で xP=vθ（ω=1）です。一方、同じ物質点 M の世界座標は xM=vθ−sinθ、yM=1−cosθ。滑りの場合はサイクロイドではありません。</p>
+<p>接点の速度が零でも、Pの床上の位置は前進します。なぜならP(t)は物質点の名前ではなく時刻ごとの接触位置を表すためです。姿勢と速度を区別して読みましょう。</p>
+<p><a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD13/index.md">RBD13の講義本文へ戻る</a></p>
+</main>
+<script>
+(function(){
+"use strict";
+const svg=document.getElementById("diagram"),ns="http://www.w3.org/2000/svg";
+const el=id=>document.getElementById(id);
+let theta=0,ratio=1,playing=false,last=0;
+const CX=500,CY=208,R=66,FLOOR=274,LIMIT=2*Math.PI;
+function make(tag,attrs,parent){
+ const e=document.createElementNS(ns,tag);
+ for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));
+ parent.appendChild(e);return e;
+}
+for(let j=-18;j<=30;j++){
+ const line=make("line",{class:"tick",x1:0,y1:274,x2:0,y2:284},el("ticks"));
+ line.dataset.position=j;
+}
+for(let j=0;j<3;j++){
+ const line=make("line",{class:"spoke",x1:CX,y1:CY,x2:CX+R,y2:CY},el("spokes"));
+ line.dataset.angle=j*2*Math.PI/3;
+}
+function setLine(id,x1,y1,x2,y2,show=true){
+ const node=el(id);
+ node.setAttribute("x1",x1.toFixed(2));node.setAttribute("y1",y1.toFixed(2));
+ node.setAttribute("x2",x2.toFixed(2));node.setAttribute("y2",y2.toFixed(2));
+ node.setAttribute("visibility",show?"visible":"hidden");
+}
+function render(){
+ const centerWorld=ratio*theta;
+ const xM=CX-R*Math.sin(theta),yM=FLOOR-R*(1-Math.cos(theta));
+ for(const tick of el("ticks").children){
+   const x=CX+R*(Number(tick.dataset.position)-centerWorld);
+   tick.setAttribute("x1",x);tick.setAttribute("x2",x);
+ }
+ for(const spoke of el("spokes").children){
+   const angle=Number(spoke.dataset.angle)-theta;
+   spoke.setAttribute("x2",CX+R*Math.cos(angle));
+   spoke.setAttribute("y2",CY-R*Math.sin(angle));
+ }
+ const coords=[];
+ const n=Math.max(2,Math.ceil(theta/0.04));
+ for(let i=0;i<=n;i++){
+   const s=theta*i/n;
+   const x=CX+R*(ratio*s-Math.sin(s)-centerWorld);
+   const y=FLOOR-R*(1-Math.cos(s));
+   coords.push((i?"L":"M")+x.toFixed(2)+" "+y.toFixed(2));
+ }
+ el("trace").setAttribute("d",coords.join(" "));
+ el("marker").setAttribute("cx",xM);
+ el("marker").setAttribute("cy",yM);
+ setLine("radiusMarker",CX,CY,xM,yM);
+ const nearP=Math.hypot(xM-CX,yM-FLOOR)<18,nearT=Math.hypot(xM-CX,yM-(CY-R))<18;
+ const label=el("markerLabel");
+ label.setAttribute("visibility",(nearP||nearT)?"hidden":"visible");
+ label.setAttribute("x",xM-24);label.setAttribute("y",yM-13);
+ const v=ratio,vP=ratio-1,vT=ratio+1;
+ setLine("arrowCenter",CX,CY,CX+54*v,CY);
+ setLine("arrowTop",CX,CY-R,CX+54*vT,CY-R);
+ setLine("arrowContact",CX,FLOOR,CX+54*vP,FLOOR,Math.abs(vP)>0.001);
+ el("thetaValue").textContent="θ="+theta.toFixed(3)+" rad";
+ el("centerValue").textContent="vC="+v.toFixed(3);
+ el("contactValue").textContent="vP="+vP.toFixed(3);
+ el("topValue").textContent="vT="+vT.toFixed(3);
+ el("centerHeight").textContent="yI="+(1-ratio).toFixed(3);
+ el("markerValue").textContent="M=("+ (ratio*theta-Math.sin(theta)).toFixed(3)+", "+(1-Math.cos(theta)).toFixed(3)+")";
+ el("narration").textContent=(nearP?"MとPが同じ位置にあります。":"Mは現在の接点Pと別の位置にあります。")+
+ (ratio===1?" 車輪側の現在接点の瞬間速度は零です。":" 車輪側の現在接点は右向き0.5で滑っています。");
+ el("time").value=String(Math.round(theta*1000));
+}
+function pause(){playing=false;el("play").textContent="再生";el("play").setAttribute("aria-pressed","false");}
+function step(delta){pause();theta=Math.min(LIMIT,Math.max(0,theta+delta));render();}
+function loop(now){
+ if(!playing)return;
+ const dt=Math.min((now-last)/1000,0.1);
+ last=now;theta=Math.min(LIMIT,theta+dt*Number(el("speed").value));
+ render();
+ if(theta>=LIMIT){pause();return;}
+ requestAnimationFrame(loop);
+}
+function play(){
+ if(playing){pause();return;}
+ if(theta>=LIMIT)theta=0;
+ playing=true;last=performance.now();el("play").textContent="一時停止";el("play").setAttribute("aria-pressed","true");
+ requestAnimationFrame(loop);
+}
+el("play").addEventListener("click",play);
+el("back").addEventListener("click",()=>step(-0.15));
+el("next").addEventListener("click",()=>step(0.15));
+el("reset").addEventListener("click",()=>{pause();theta=0;render();});
+el("mode").addEventListener("change",()=>{pause();ratio=Number(el("mode").value);render();});
+el("time").addEventListener("input",()=>{pause();theta=Number(el("time").value)/1000;render();});
+svg.addEventListener("keydown",e=>{
+ if(e.key==="ArrowLeft"){e.preventDefault();step(-0.15);}
+ if(e.key==="ArrowRight"){e.preventDefault();step(0.15);}
+ if(e.key===" "){e.preventDefault();play();}
+});
+document.addEventListener("visibilitychange",()=>{if(document.hidden)pause();});
+render();
+})();
+</script>
+</body>
+</html>
