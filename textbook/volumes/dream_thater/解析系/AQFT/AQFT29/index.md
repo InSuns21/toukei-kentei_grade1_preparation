@@ -363,8 +363,15 @@ S_{\sigma\mid\rho}\xi
 =\eta.
 $$
 
-平方根の式からも $\Delta_{\sigma\mid\rho}^{1/2}\xi
-=\sigma^{1/2}\rho^{1/2}\rho^{-1/2}=\eta$ です。従って
+平方根の式からも
+
+$$
+\Delta_{\sigma\mid\rho}^{1/2}\xi
+=\sigma^{1/2}\rho^{1/2}\rho^{-1/2}
+=\eta
+$$
+
+です。従って
 
 $$
 \begin{aligned}
@@ -476,7 +483,13 @@ $B$ は有界なので最後の極限は零です。[可換子の巡回性](../A
 #### AQFT29-B02 非可換二状態の混合固有基底
 - Level: B
 
-$\rho=\operatorname{diag}(3/4,1/4)$、$\sigma=\begin{psmallmatrix}1/2&-1/6\\-1/6&1/2\end{psmallmatrix}$ とする。双方が忠実な密度行列で非可換なことを確認し、$\Delta_{\sigma\mid\rho}$ の全固有値と正規直交固有基底を求めよ。
+$\rho=\operatorname{diag}(3/4,1/4)$ と
+
+$$
+\sigma=\begin{pmatrix}1/2&-1/6\\-1/6&1/2\end{pmatrix}
+$$
+
+を取る。双方が忠実な密度行列で非可換なことを確認し、$\Delta_{\sigma\mid\rho}$ の全固有値と正規直交固有基底を求めよ。
 
 **詳細解答。** $\rho$ の固有値は $3/4,1/4$。$\sigma$ では $u_1=(1,-1)^{\mathsf T}/\sqrt2$ に固有値 $2/3$、$u_2=(1,1)^{\mathsf T}/\sqrt2$ に $1/3$ が対応します。両方正でトレース1です。積の差は
 
@@ -579,9 +592,9 @@ $$
 
 (i) $S_0(A\xi)=A^*\eta$ は $\xi$ の分離性で一価、巡回性で稠密定義です。$\mathcal M'\xi$ の稠密性と可換性から可閉性を証明でき、閉包 $S$ について[閉反線形作用素の正二乗](../AQFT19/index.md#lem-aqft19-positive-square)により
 
-$
+$$
 \Delta_{\eta\mid\xi}=S^\sharp S
-$
+$$
 
 は非負自己共役です。
 
