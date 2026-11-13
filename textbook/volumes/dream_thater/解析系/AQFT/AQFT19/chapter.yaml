@@ -1,0 +1,41 @@
+id: "AQFT19"
+title: "反線形極分解とモジュラー対象"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT18
+  - QM6
+learning_objectives:
+  - 閉反線形作用素を共役Hilbert空間への線形作用素へ直し、随伴と正作用素を対応させられる
+  - 閉稠密定義反線形作用素SについてS^\sharp Sの正自己共役性をグラフの完備性から証明できる
+  - 正平方根の定義域がDom(S)と一致することを確かめ、S=J\Delta^{1/2}を定義域込みで構成できる
+  - 閉反線形対合Sに対して核と値域を調べ、J^2=IおよびJ\Delta J=\Delta^{-1}を極分解の一意性から証明できる
+  - 二点対角環と非可換な二次元Hilbert–Schmidt模型でJと\Deltaを計算できる
+  - 非有界な\Deltaの定義域と逆作用素の定義域を区別できる
+  - モジュラー対象の構成と後続のTomita可換子定理を混同せず境界を説明できる
+definitions:
+  - { id: AQFT19-DEF-01, name: "反ユニタリ作用素" }
+  - { id: AQFT19-DEF-02, name: "正部分とモジュラー作用素" }
+  - { id: AQFT19-DEF-03, name: "モジュラー共役" }
+theorems:
+  - { id: AQFT19-LEM-01, name: "閉反線形作用素の正二乗" }
+  - { id: AQFT19-THM-01, name: "閉反線形作用素の極分解" }
+  - { id: AQFT19-THM-02, name: "Tomita対合のモジュラー関係" }
+  - { id: AQFT19-PROP-01, name: "標準ベクトルのモジュラー不変性" }
+canonical_examples:
+  - 二点対角環の反ユニタリ共役と恒等モジュラー作用素
+  - 二次元の左乗算Hilbert–Schmidt模型での行列単位の重み比
+  - 無限対角密度を使う非有界モジュラー作用素と逆作用素の定義域
+problem_patterns:
+  - AQFT19-ANTIUNITARY-TEST
+  - AQFT19-POSITIVE-ROOT-DOMAIN
+  - AQFT19-DIAGONAL-MODULAR
+  - AQFT19-MODULAR-INVERSE
+  - AQFT19-POLAR-UNIQUENESS
+  - AQFT19-HS-MATRIX-UNITS
+  - AQFT19-UNBOUNDED-DOMAIN
+  - AQFT19-TOMITA-INVOLUTION-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }
