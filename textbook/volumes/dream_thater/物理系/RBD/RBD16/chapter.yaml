@@ -1,0 +1,47 @@
+id: "RBD16"
+title: "姿勢の数値積分と保存量の監査"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD15
+official_scope: []
+learning_objectives:
+  - 物体系のEuler方程式と姿勢ODEを単一の初期値問題として組み立てられる
+  - 無トルクのエネルギーと空間角運動量の保存、外トルク下の仕事と角力積の収支を証明できる
+  - 数値軌道の直交誤差、行列式誤差、仕事残差、角力積残差を定義し使い分けられる
+  - 行列の陽的Euler更新が直交性と行列式を壊すことを一段の計算で示せる
+  - 単位四元数の正規化更新と指数更新の姿勢保存条件を直接検証できる
+  - Euler法と指数中点法の局所誤差・大域収束次数を仮定付きで導ける
+  - 刻み幅半減試験を初期条件と時刻をそろえて設計し誤差の収束を監査できる
+  - 対称こま・中間軸近傍・外トルク付き運動で監査項目を誤用せず停止判定できる
+  - 計算更新と描画更新を分離し数値的不具合を可視化して判断できる
+definitions:
+  - { id: RBD16-DEF-01, name: "姿勢と力学の数値監査量" }
+  - { id: RBD16-DEF-02, name: "姿勢の三種類の一段更新" }
+theorems:
+  - { id: RBD16-THM-01, name: "Euler方程式における仕事と角力積の収支" }
+  - { id: RBD16-PROP-01, name: "行列Euler更新の直交性破れ" }
+  - { id: RBD16-THM-02, name: "四元数正規化と指数更新の姿勢保存" }
+  - { id: RBD16-PROP-02, name: "滑らかな軌道での刻み幅収束次数" }
+canonical_examples:
+  - 主軸純回転でのエネルギー・空間角運動量の監査
+  - 一段の陽的Euler更新の直交誤差と行列式誤差
+  - 一軸回転の四元数正規化と指数更新の直接計算
+  - 対称こまの無トルク解と刻み幅半減
+  - 中間軸近傍の敏感さと時間区間固定の収束検査
+  - 軸方向外トルクの仕事と空間角力積の収支
+problem_patterns:
+  - RBD16-COUPLED-ODE
+  - RBD16-DIAGNOSTICS
+  - RBD16-EULER-ORTHOGONALITY
+  - RBD16-QUATERNION-NORMALIZATION
+  - RBD16-POWER-TORQUE
+  - RBD16-LIE-EXPONENTIAL
+  - RBD16-MIDPOINT-ORDER
+  - RBD16-TORQUE-BUDGET
+  - RBD16-INTERMEDIATE-AXIS
+  - RBD16-REFINEMENT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }
