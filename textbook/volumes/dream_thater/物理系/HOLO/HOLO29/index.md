@@ -50,9 +50,9 @@ $$
 
 保持領域 $R=\{A\}$ では、補系 $BC$ をトレースすると
 
-$
+$$
 \mathcal E_A(\rho)=\operatorname{Tr}_{BC}(\rho_A\otimes|00\rangle\langle00|_{BC})=\rho_A
-$
+$$
 
 となります。$A\simeq L$ という基底対応の下、恒等チャネル $\mathcal D_A$ はCPTPで、すべての $\rho$ に対し $\mathcal D_A\mathcal E_A(\rho)=\rho$ を満たします。
 
@@ -156,24 +156,24 @@ $$
 <!-- definition-example-start: def-holo29-pair-representation -->
 **定義の確認**。前節の単純な符号 $V|\psi\rangle=|\psi\rangle_A|00\rangle_{BC}$ と、論理作用素 $Z_L|j\rangle=\omega^j|j\rangle$ を用います。物理系 $A$ の $Z_A$ は残る $BC$ には作用しないので、全3基底に対し
 
-$
+$$
 (Z_A\otimes I_{BC})V|j\rangle
 =\omega^jV|j\rangle
 =VZ_L|j\rangle
-$
+$$
 
 です。線形性で任意の論理ベクトルにも成立し、定義の作用素等式を満たします。一方、$Z_B$ は $B$ の $|0\rangle$ にしか作用せず、符号語上で恒等になるため、$Z_L$ の表現ではありません。
 <!-- definition-example-end -->
 
 ここで二shareの復号を基底の可逆変換として書きます。元の符号語の各項の物理基底ラベルを $(a,b,c)=(i,i+j,i+2j)$ と置くと、保持する2つのラベルから次のように論理添字 $j$ と**失った側のラベル**を計算できます。
 
-$
+$$
 \begin{aligned}
 AB:\quad &j=b-a,\quad c=2b-a,\\
 AC:\quad &j=2(c-a),\quad b=2c-a,\\
 BC:\quad &j=c-b,\quad a=2b-c.
 \end{aligned}
-$
+$$
 
 例えば $AC$ では $c-a=2j$ なので、$\mathbb Z_3$ で $2^{-1}=2$ を掛けて $j=2(c-a)$ と求めます。その値を $b=a+j$ に代入すると $b=2c-a$ です。これにより元の符号語と復号座標が結び付きます。失った側のラベルを補助qutritのラベル $t$ として、保持する2つのラベルから $(j,t)$ を取り出します。
 
@@ -365,10 +365,10 @@ $$
 
 この表示を相対エントロピーのトレースへ代入すると、共通の $-\log3$ が差で消えます。非可逆な状態の場合も、$I_3/3$ が正定値であることから
 
-$
+$$
 \operatorname{supp}(\rho\otimes I_3/3)
 =\operatorname{supp}\rho\otimes\mathbb C^3
-$
+$$
 
 です。$\sigma$ についても同じなので、積状態の台包含は $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ と同値です。包含される場合は各対数を対応する台へ制限して同じトレース計算を行えます。包含されない場合は両側とも $+\infty$ です。
 <!-- proof-end -->
