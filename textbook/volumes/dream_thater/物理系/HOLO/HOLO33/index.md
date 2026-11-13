@@ -27,6 +27,8 @@ $$
 > - 極限・近似次数・正則化。
 > - 計算で導いた部分と辞書として仮定した部分。
 >
+> 四成分の記号は順に、$\mathcal M$ が模型、$\mathcal S$ が状態と観測対象、$\mathcal A$ が近似・正則化、$\mathcal J$ が導出済み部分と入力した辞書を表す。
+>
 $$
 \mathcal R=(\mathcal M,\mathcal S,\mathcal A,\mathcal J).
 $$
@@ -64,24 +66,24 @@ $$
 
 ### 2.1 Euclidスカラーの2点関数
 
-Euclid $AdS_3$ 上の実スカラーの作用を $S_\phi=\frac12\int\sqrt g\,[(\nabla\phi)^2+m^2\phi^2]$ と規格化します。$d=2,\nu=1/2,\Delta_+=d/2+\nu=3/2$ とし、**標準量子化**と内部の正則条件を選びます。[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)により
+この小節ではEuclid境界の2点を $u,v\in\mathbb R^2$、その距離を $r=|u-v|$ と書き、Lorentz側で使った空間座標 $x$ と区別します。Euclid $AdS_3$ 上の実スカラーの作用を $S_\phi=\frac12\int\sqrt g\,[(\nabla\phi)^2+m^2\phi^2]$ と規格化します。$d=2,\nu=1/2,\Delta_+=d/2+\nu=3/2$ とし、**標準量子化**と内部の正則条件を選びます。[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)により
 
 $$
 m^2L^2=\Delta(\Delta-d)=\frac32\left(-\frac12\right)
 =-\frac34>-1=-\frac{d^2}{4}.
 $$
 
-BF境界を満たしますが、この質量では代替量子化も選択肢となり得るため、境界条件の指定が重要です。$0<\nu<1$ なので[HOLO9の自由スカラー2点関数命題](../HOLO9/index.md#prop-holo9-two-point)を適用できます。異なるEuclid境界点 $x\ne y$ について
+BF境界を満たしますが、この質量では代替量子化も選択肢となり得るため、境界条件の指定が重要です。$0<\nu<1$ なので[HOLO9の自由スカラー2点関数命題](../HOLO9/index.md#prop-holo9-two-point)を適用できます。異なるEuclid境界点 $u\ne v$ について
 
 $$
 \begin{aligned}
-G(x,y)
+G(u,v)
 &=\frac{(2\Delta-d)L^{d-1}\Gamma(\Delta)}
 {\pi^{d/2}\Gamma(\Delta-d/2)}
-\frac1{|x-y|^{2\Delta}}\\
+\frac1{|u-v|^{2\Delta}}\\
 &=\frac{L\Gamma(3/2)}{\pi\Gamma(1/2)}
-\frac1{|x-y|^3}
-=\frac{L}{2\pi|x-y|^3}.
+\frac1{|u-v|^3}
+=\frac{L}{2\pi|u-v|^3}.
 \end{aligned}
 $$
 
@@ -191,14 +193,14 @@ $$
 | FLM | 古典面上の面積とバルク量子補正 | $O(G_3^0)$、裸のバルクエントロピーだけではない |
 | QES | 繰り込み済み $S_{\mathrm{gen}}$ 全体の極値面と候補比較 | 形状変分・複数候補・状態条件を含む |
 
-**一方向の直接計算。** 許容面のある局所的な法線変位座標 $x$ に沿って、繰り込み済みの和を
+**一方向の直接計算。** 許容面のある局所的な法線変位座標 $x$（Poincaré patchの空間座標とは別の変数）に沿って、繰り込み済みの和を
 
 $$
 S_{\mathrm{gen}}(x)=\frac{A_0+\kappa x^2/2}{4G_3}+s_0+qx,
 \qquad \kappa,G_3>0
 $$
 
-と仮定します。これは実際のAdS状態から導いた曲面族ではなく、変分順序を調べる模型です。$S'_{\mathrm{gen}}(x)=\kappa x/(4G_3)+q$ なので停留位置は $x_*=-4G_3q/\kappa$。値の変化は
+と仮定します。これは実際のAdS状態から導いた曲面族ではなく、変分順序を調べる模型です。ここでプライムは $d/dx$、すなわち変位 $x$ に関する微分です。$S'_{\mathrm{gen}}(x)=\kappa x/(4G_3)+q$ なので停留位置は $x_*=-4G_3q/\kappa$。値の変化は
 
 $$
 \begin{aligned}
@@ -215,7 +217,7 @@ $q,\kappa$ を固定すると移動は $O(G_3)$、最初の値の修正は $O(G_
 
 [HOLO26のHKLL再構成](../HOLO26/index.md#def-holo26-smearing-kernel)は指定した自由場・境界条件のモード構成、[HOLO27の部分領域再構成](../HOLO27/index.md#def-holo27-subregion-reconstruction)は符号空間上の演算子同値、[HOLO28のJLMS模型](../HOLO28/index.md#thm-holo28-fixed-sector-jlms)はモジュラー量と相対エントロピーの比較です。いずれも作用する空間・近似次数を落とせません。
 
-[HOLO29の3-qutrit符号](../HOLO29/index.md#thm-holo29-three-representations)を一つ具体的に復号します。$\mathbb Z_3$ の加減算は3を法とし、$L,A,B,C$ はいずれも $\mathbb C^3$ とします。
+[HOLO29の3-qutrit符号](../HOLO29/index.md#thm-holo29-three-representations)を一つ具体的に復号します。$\mathbb Z_3$ の加減算は3を法とします。論理レジスタ $L$ と物理レジスタ $A,B,C$ のHilbert空間はいずれも $\mathbb C^3$ です。下付きの $L$ は論理レジスタ名であり、AdS半径 $L$ とは別です。
 
 $$
 V|j\rangle_L=\frac1{\sqrt3}\sum_{i=0}^2
@@ -223,9 +225,9 @@ V|j\rangle_L=\frac1{\sqrt3}\sum_{i=0}^2
 \qquad j\in\mathbb Z_3.
 $$
 
-$(i,i+j,i+2j)$ は異なる $(i,j)$ について重複せず、$V^\dagger V=I_L$ です。$A$ が消失し、$BC$ に $(b,c)=(i+j,i+2j)$ が残るとき、引き算で $j=c-b$、代入で $i=2b-c$ と求められます。従って
+異なる $(i,j)$ の三つ組 $(i,i+j,i+2j)$ は相異なる計算基底を指定します。従って固定した $j$ での3項は直交し、異なる $j,k$ の符号語にも共通の基底項がありません。よって $\langle j|V^\dagger V|k\rangle=\delta_{jk}$、すなわち $V^\dagger V=I_L$ です。$A$ が消失し、$BC$ に $(b,c)=(i+j,i+2j)$ が残るとき、引き算で $j=c-b$、代入で $i=2b-c$ と求められます。復号後の第2因子に計算基底ラベル $i$ を保持する補助レジスタ $G\simeq\mathbb C^3$ を導入します。これにより
 
-$$
+$
 U_{BC}|b,c\rangle=|c-b\rangle_L|2b-c\rangle_G
 $$
 
@@ -247,7 +249,7 @@ $A$ を捨てた後も、$G$ をトレースすれば論理状態は完全に残
 
 ## 5. 第一法則は非線形方程式の証明ではない
 
-[HOLO28のエンタングルメント第一法則](../HOLO28/index.md#prop-holo28-first-law)を有限状態で確認します。$|\lambda|<1/3$ として $\rho(\lambda)=\operatorname{diag}(1/3+\lambda,2/3-\lambda)$、$K_0=-\log\rho(0)$ とすると
+[HOLO28のエンタングルメント第一法則](../HOLO28/index.md#prop-holo28-first-law)を有限状態で確認します。$|\lambda|<1/3$ として $\rho(\lambda)=\operatorname{diag}(1/3+\lambda,2/3-\lambda)$、$K_0=-\log\rho(0)$ とします。$S(\rho)=-\operatorname{Tr}(\rho\log\rho)$ はvon Neumannエントロピーで、$K_0$ は $\lambda$ に依存しません。ここでの $d/d\lambda$ とプライムはどちらも $\lambda$ を動かす微分です。すると
 
 $$
 \left.\frac{dS(\rho(\lambda))}{d\lambda}\right|_0
@@ -321,7 +323,7 @@ $\int d\theta/\sin\theta=\log\tan(\theta/2)$ と半角公式を使いました�
 - 問題: $\rho(\lambda)=\operatorname{diag}(1/3+\lambda,2/3-\lambda)$（$|\lambda|<1/3$）、$K_0=-\log\rho(0)$ とする。$S'(0)$、$\langle K_0\rangle'(0)$、$S''(0)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** $p=1/3+\lambda$ と置けば $S=-p\log p-(1-p)\log(1-p)$ です。
+**詳細解答。** $p=1/3+\lambda$ と置けば $S=-p\log p-(1-p)\log(1-p)$ です。以下のプライムは $d/d\lambda$ を意味し、$dp/d\lambda=1$ です。
 
 $$
 S'=-\log p+\log(1-p),\qquad
