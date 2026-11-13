@@ -30,24 +30,24 @@ $$
 > **定義（境界部分領域の消失回復）**  
 > 有限次元の等長写像 $V:L\to A\otimes B\otimes C$ と、物理部分系の部分集合 $R\subseteq\{A,B,C\}$ を固定する。その補集合を $E$ とし、入力密度行列 $\rho$ に対する保持側の縮約を
 >
-> $$
-> \mathcal E_R(\rho)=\operatorname{Tr}_E(V\rho V^\dagger)
-> $$
+$$
+\mathcal E_R(\rho)=\operatorname{Tr}_E(V\rho V^\dagger)
+$$
 >
 > とする。$R$ のみを入力とする一つのCPTP写像 $\mathcal D_R:\mathcal B(\mathcal H_R)\to\mathcal B(L)$ が存在して、任意の論理状態 $\rho$ について
 >
-> $$
-> \mathcal D_R(\mathcal E_R(\rho))=\rho
-> $$
+$$
+\mathcal D_R(\mathcal E_R(\rho))=\rho
+$$
 >
 > となるとき、論理系は領域 $R$ から**完全回復可能**という。復号写像は入力 $\rho$ に依存しない。量子回復は参照系とのもつれも保持することを意味する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo29-region-recovery -->
-**定義の直接例と反例。** $L=A=\mathbb C^3$、$B=C=\mathbb C^3$ として $V|\psi\rangle=|\psi\rangle_A|0\rangle_B|0\rangle_C$ とすれば、$V^\dagger V=I_L$。保持領域 $A$ の縮約は $\mathcal E_A(\rho)=\rho$ なので、恒等チャネルが回復写像です。一方、$B$ だけを保持するとすべての入力が $|0\rangle\langle0|_B$ になり、異なる二つの入力を同じ出力から復元する写像はありません。領域の名前だけで可否は決まらず、**符号化 $V$ と保持領域 $R$ の組**で決まります。
+**定義の確認**（直接例と反例）。 $L=A=\mathbb C^3$、$B=C=\mathbb C^3$ として $V|\psi\rangle=|\psi\rangle_A|0\rangle_B|0\rangle_C$ とすれば、$V^\dagger V=I_L$。保持領域 $A$ の縮約は $\mathcal E_A(\rho)=\rho$ なので、恒等チャネルが回復写像です。一方、$B$ だけを保持するとすべての入力が $|0\rangle\langle0|_B$ になり、異なる二つの入力を同じ出力から復元する写像はありません。領域の名前だけで可否は決まらず、**符号化 $V$ と保持領域 $R$ の組**で決まります。
 <!-- definition-example-end -->
 
-[QINF28の消失訂正と状態独立性の同値定理](../../../応用系/QINF/QINF28/index.md#thm-qinf28-erasure-privacy)によれば、有限次元の等長符号では、$E$ の消失を完全訂正できることと
+[消失訂正と消失系の状態独立性](../../../応用系/QINF/QINF28/index.md#thm-qinf28-erasure-privacy)によれば、有限次元の等長符号では、$E$ の消失を完全訂正できることと
 
 $$
 \operatorname{Tr}_R(V\rho V^\dagger)=\sigma_E
@@ -134,15 +134,15 @@ $$
 > **定義（部分領域上の論理演算子表現）**  
 > 有限次元等長符号 $V:L\to R\otimes E$ に対し、論理作用素 $O\in\mathcal B(L)$ の**領域 $R$ 上の表現**とは、$R$ 上の作用素 $O_R$ で
 >
-> $$
-> (O_R\otimes I_E)V=VO
-> $$
+$$
+(O_R\otimes I_E)V=VO
+$$
 >
 > を満たすものをいう。この式は符号空間上での作用を指定し、符号空間の外における $O_R$ を一意には定めない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo29-pair-representation -->
-**定義の確認。** 前節の単純な符号 $V|\psi\rangle=|\psi\rangle_A|00\rangle_{BC}$ で、論理 $Z_L|j\rangle=\omega^j|j\rangle$ に対し $Z_A$ は $Z_A V|j\rangle=\omega^jV|j\rangle=VZ_L|j\rangle$ を全3基底で満たします。線形性により任意の論理ベクトルでも成立します。一方 $Z_B$ は符号語上で常に恒等の作用をするので、$Z_L$ の表現ではありません。
+**定義の確認**。 前節の単純な符号 $V|\psi\rangle=|\psi\rangle_A|00\rangle_{BC}$ で、論理 $Z_L|j\rangle=\omega^j|j\rangle$ に対し $Z_A$ は $Z_A V|j\rangle=\omega^jV|j\rangle=VZ_L|j\rangle$ を全3基底で満たします。線形性により任意の論理ベクトルでも成立します。一方 $Z_B$ は符号語上で常に恒等の作用をするので、$Z_L$ の表現ではありません。
 <!-- definition-example-end -->
 
 ここで二shareの復号を基底の可逆変換として書きます。保持する2つのラベルから論理ラベル $j$ と補助ラベル $t$ を取り出すため、次を使います。
@@ -176,19 +176,19 @@ $X_L,Z_L$ の境界表現を実際に構成します。$X_R$ は、表の $(j,t)
 > **定理（三つの二領域における同一論理代数の表現）**  
 > 第2節の等長符号 $V:\mathbb C^3\to(\mathbb C^3)^{\otimes3}$ に対し、局所qutritの $X,Z$ を第3節のように定める。次の各組は、物理系の表示において異なる部分系にだけ作用する。
 >
-> $$
-> \begin{aligned}
-> X_{AB}&=X_A X_B^2,&Z_{AB}&=Z_A^2Z_B,\\
-> X_{AC}&=X_A^2 X_C,&Z_{AC}&=Z_AZ_C^2,\\
-> X_{BC}&=X_B X_C^2,&Z_{BC}&=Z_B^2Z_C .
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+X_{AB}&=X_A X_B^2,&Z_{AB}&=Z_A^2Z_B,\\
+X_{AC}&=X_A^2 X_C,&Z_{AC}&=Z_AZ_C^2,\\
+X_{BC}&=X_B X_C^2,&Z_{BC}&=Z_B^2Z_C .
+\end{aligned}
+$$
 >
 > 各 $R=AB,AC,BC$ について
 >
-> $$
-> X_RV=VX_L,\qquad Z_RV=VZ_L.
-> $$
+$$
+X_RV=VX_L,\qquad Z_RV=VZ_L.
+$$
 >
 > 従って任意の $O\in\mathcal B(L)$ は、各領域 $R$ にのみ支持を持つ表現 $O_R$ を持ち、$O_RV=VO$ を満たす。等式は符号空間上でのものとする。
 <!-- formal-statement-end -->
@@ -267,7 +267,7 @@ $$
 と定義します。(i)〜(iii)の等式を積と線形結合へ順に適用すれば $O_RV=VO$。各 $O_R$ は指定した二つの物理区画のみに作用します。
 <!-- proof-end -->
 
-**直接例：同じ測定を違う境界で行う。** 論理状態 $|1\rangle_L$ を符号化した $V|1\rangle$ について、$AB$ の $Z_A^2Z_B$ は $\omega$ を、$AC$ の $Z_AZ_C^2$ も $\omega$ を、$BC$ の $Z_B^2Z_C$ も $\omega$ を固有値として与えます。例えば $V|1\rangle=(|012\rangle+|120\rangle+|201\rangle)/\sqrt3$ の第1項 $|012\rangle$ に $Z_AZ_C^2$ を作用させると位相は $\omega^{0+2\cdot2}=\omega$。他の2項でも $\omega$ です。別の境界領域の**同じ論理作用素**という意味は、符号語に制限したこの等式です。
+**直接例：同じ測定を違う境界で行う。** 論理状態 $|1\rangle_L$ を符号化した $V|1\rangle$ について、$AB$ の $Z_A^2Z_B$ は $\omega$ を、$AC$ の $Z_AZ_C^2$ も $\omega$ を、$BC$ の $Z_B^2Z_C$ も $\omega$ を固有値として与えます。例えば $V|1\rangle=(|012\rangle+|120\rangle+|201\rangle)/\sqrt3$ の第1項 $|012\rangle$ に $Z_AZ_C^2$ を作用させると位相は $\omega^{0+2\cdot2}=\omega$。他の2項でも $\omega$ です。別の境界領域の同じ論理作用素という意味は、符号語に制限したこの等式です。
 
 同じ物理演算子の支持が3組に同時にあるのではありません。**異なる物理演算子が、符号空間に制限すると同じ論理作用をする**のです。
 
@@ -288,16 +288,16 @@ $$
 > **命題（二領域の情報保存と定数エントロピー項）**  
 > 第2節の3-qutrit符号において $R=AB,AC,BC$、$E=R^c$ とする。任意の論理密度行列 $\rho$ について、自然対数のエントロピーは
 >
-> $$
-> S(\mathcal E_R(\rho))=S(\rho)+\log3
-> $$
+$$
+S(\mathcal E_R(\rho))=S(\rho)+\log3
+$$
 >
 > である。任意の二つの論理密度行列 $\rho,\sigma$ について、台包含が成り立つなら
 >
-> $$
-> D(\mathcal E_R(\rho)\Vert\mathcal E_R(\sigma))
-> =D(\rho\Vert\sigma).
-> $$
+$$
+D(\mathcal E_R(\rho)\Vert\mathcal E_R(\sigma))
+=D(\rho\Vert\sigma).
+$$
 >
 > 台包含が成立しなければ、両辺とも $+\infty$ と解釈する。
 <!-- formal-statement-end -->
@@ -326,7 +326,14 @@ D(\rho\otimes I_3/3\Vert\sigma\otimes I_3/3)
 \end{aligned}
 $$
 
-可逆な $\sigma$ ならテンソル積の対数の公式から直ちに成り立ちます。非可逆でも $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ のとき両対数を台へ制限すれば同じ計算です。包含しなければ $I_3/3$ が全台であるため、両側とも同じ台包含違反となり $+\infty$ です。
+正定値の $\sigma=\sum_i s_i|i\rangle\langle i|$（$s_i>0$）を対角化すると、積の固有値は $s_i/3$ なので
+
+$
+\log(\sigma\otimes I_3/3)
+=(\log\sigma)\otimes I_3-(\log3)I.
+$
+
+この表示を相対エントロピーのトレースへ代入すると、共通の $-\log3$ が差で消えます。非可逆でも $\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ のとき両対数を台へ制限すれば同じ計算です。包含しなければ $I_3/3$ が全台であるため、両側とも同じ台包含違反となり $+\infty$ です。
 <!-- proof-end -->
 
 二領域へ載る演算子の構成と、この状態情報の保存が一致することを模型内で確認しました。ただし、この模型の $\log3$ は**補助qutritとの最大もつれが作る定数**であり、重力の面積を計算した値ではありません。[HOLO28のセクター依存の中心項](../HOLO28/index.md#def-holo28-sector-area)や、[HOLO24の一般化エントロピー](../HOLO24/index.md#def-holo24-generalized-entropy)を一般の重力で同一視するには、幾何・反項・近似次数を別に指定する必要があります。
@@ -348,6 +355,7 @@ $$
 
 <a id="ex-holo29-a01"></a>
 ### 演習 HOLO29-A01：等長写像と九つの三桁列
+- Level: A
 
 符号語 $V|0\rangle,V|1\rangle,V|2\rangle$ を列挙し、$V^\dagger V=I_3$ を内積から示せ。
 
@@ -357,6 +365,7 @@ $$
 
 <a id="ex-holo29-a02"></a>
 ### 演習 HOLO29-A02：失われた $C$ の縮約
+- Level: A
 
 $j,k\in\mathbb Z_3$ に対して $\operatorname{Tr}_{AB}(V|j\rangle\langle k|V^\dagger)$ を求めよ。論理重ね合わせ $\frac1{\sqrt2}(|0\rangle+|1\rangle)$ に対する $C$ の状態も求めよ。
 
@@ -374,6 +383,7 @@ $$
 
 <a id="ex-holo29-a03"></a>
 ### 演習 HOLO29-A03：$AB$ の復号座標
+- Level: A
 
 $(a,b)\mapsto(j,t)=(b-a,2b-a)$ の逆変換を求め、9個の基底が一対一に移ることを説明せよ。$\Delta j=1,\Delta t=0$ に対応する $(\Delta a,\Delta b)$ も求めよ。
 
@@ -390,6 +400,7 @@ $$
 
 <a id="ex-holo29-a04"></a>
 ### 演習 HOLO29-A04：位相の三領域表現
+- Level: A
 
 $j=2$ の符号語に $Z_A^2Z_B$、$Z_AZ_C^2$、$Z_B^2Z_C$ をそれぞれ作用させ、いずれも $\omega^2V|2\rangle$ になることを各項の指数から示せ。
 
@@ -407,6 +418,7 @@ $$
 
 <a id="ex-holo29-a05"></a>
 ### 演習 HOLO29-A05：復号不能な集合
+- Level: A
 
 $A$ 一つだけが残るとき、$|0\rangle$ と $|1\rangle$ を区別する完全復号がないことを線形写像の性質から証明せよ。
 
@@ -418,6 +430,7 @@ $A$ 一つだけが残るとき、$|0\rangle$ と $|1\rangle$ を区別する完
 
 <a id="ex-holo29-b01"></a>
 ### 演習 HOLO29-B01：$AC$ に局在する論理 $X$
+- Level: B
 
 $AC$ の復号座標から $(\Delta a,\Delta c)$ を導き、$X_A^2X_C V|j\rangle=V|j+1\rangle$ を一般の $j$ について検算せよ。
 
@@ -433,6 +446,7 @@ $i'=i+2$ と置けば、第2成分は $i'+(j+1)=i+j+3=i+j$、第3成分は $i'+2
 
 <a id="ex-holo29-b02"></a>
 ### 演習 HOLO29-B02：$BC$ の表現とWeyl関係
+- Level: B
 
 $BC$ に局在する $X_{BC}=X_BX_C^2$、$Z_{BC}=Z_B^2Z_C$ が $Z_{BC}X_{BC}V=\omega X_{BC}Z_{BC}V$ を満たすことを、論理基底への作用で示せ。
 
@@ -458,6 +472,7 @@ $$
 
 <a id="ex-holo29-b03"></a>
 ### 演習 HOLO29-B03：入力と参照系を同時に回復
+- Level: B
 
 参照qutrit $Q$ と論理系 $L$ のもつれ状態 $|\Psi\rangle_{LQ}=\sum_{j=0}^2\alpha_j|j\rangle_L|j\rangle_Q$（$\sum_j|\alpha_j|^2=1$）を符号化し、$C$ を失ったとき $U_{AB}$ の後で補助系を捨てると $|\Psi\rangle\langle\Psi|_{LQ}$ が残ることを示せ。
 
@@ -475,6 +490,7 @@ $$
 
 <a id="ex-holo29-b04"></a>
 ### 演習 HOLO29-B04：二領域のエントロピー
+- Level: B
 
 論理状態 $\rho=\operatorname{diag}(1/2,1/2,0)$ と参照状態 $\sigma=I_3/3$ を使い、$R=AB$ の縮約エントロピーと相対エントロピーを求めよ。$\rho$ に零固有値があることが障害になるかも答えよ。
 
@@ -502,6 +518,7 @@ $$
 
 <a id="ex-holo29-c01"></a>
 ### 演習 HOLO29-C01：同じバルク情報をいくつの境界から得られるか
+- Level: C
 
 第2節の3-qutrit符号で、次をすべて示せ。
 
