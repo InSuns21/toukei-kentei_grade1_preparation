@@ -94,7 +94,7 @@ chapters:
     title: "Tomitaの可換子定理"
   - id: AQFT23
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT23
-    status: planned
+    status: completed
     title: "Takesakiのモジュラー不変性"
   - id: AQFT24
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT24
