@@ -35,10 +35,10 @@ concepts:
     introduction_aliases: ["定義（基準圧力とゲージ圧）"]
     requires: [fluid.constant-density-depth-pressure]
   - id: fluid.isothermal-gas-column
-    name: p=c^2*rhoの静止気体柱
+    name: 単純気体柱の指数圧力分布
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（$p=c^2\rho$ の静止気体柱）"]
+    introduction_aliases: ["命題（単純気体柱の指数圧力分布）"]
     requires: [fluid.hydrostatic-pressure-balance]
   - id: fluid.connected-vessel-equal-level
     name: 同種液体の連通管の等水位
