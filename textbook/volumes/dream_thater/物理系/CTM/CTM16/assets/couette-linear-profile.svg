@@ -18,7 +18,7 @@
   <line x1="143" y1="84" x2="493" y2="84" stroke="#21658a" stroke-width="3" marker-end="url(#ctm16arrow)"/>
   <text x="80" y="55" font-size="17" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">y</text>
   <text x="84" y="305" font-size="17" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">0</text>
-  <text x="84" y="79" font-size="17" font-family="Noto Sans CJK JP, sans-serif" text-anchor="end" fill="#222c35">h</text>
+  <text x="60" y="78" font-size="17" font-family="Noto Sans CJK JP, sans-serif" text-anchor="end" fill="#222c35">h</text>
   <text x="324" y="43" font-size="18" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">上壁: U</text>
   <text x="324" y="320" font-size="18" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">下壁: 0</text>
   <text x="555" y="140" font-size="20" font-family="Noto Sans CJK JP, sans-serif" fill="#263b4d">u(y)</text>
