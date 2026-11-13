@@ -20,6 +20,8 @@ $$
 
 実線形写像 $A:T_p\Sigma\to T_{u(p)}X$ が複素線形であるとは、$A(jv)=J(A(v))$ が任意の接ベクトル $v$ で成り立つことをいう。微分 $du_p$ にこの条件を課したいが、一般の $du_p$ はその条件を満たさない。そこで微分を、複素線形な成分と、それに反する成分とに分ける。
 
+局所座標 $z=s+it$ では、$\partial_s,\partial_t$ はそれぞれ実変数 $s,t$ の座標方向の接ベクトルとする。$u_s:=du(\partial_s)$、$u_t:=du(\partial_t)$ はその方向への微分であり、標的の座標を取ったときの $\partial u/\partial s$、$\partial u/\partial t$ に当たる。これらは $u(s,t)$ における接ベクトルで、$J(u)$ はその点の $J_{u(s,t)}$ を表す。また $u^*TX$ は、各 $p\in\Sigma$ に接空間 $T_{u(p)}X$ を対応させた、写像 $u$ に沿う接束である。
+
 <a id="def-gw1-02-cr-operator"></a>
 
 <!-- formal-statement-start -->
@@ -147,7 +149,13 @@ $$
 
 ### 直接例：平坦トーラス上の写像
 
-**定義の確認**。$\Sigma=X=\mathbb R^2/\mathbb Z^2$ を座標 $(s,t)$、$(x,y)$ で表した平坦なトーラスとし、$h=ds^2+dt^2$、$\omega=dx\wedge dy$、$J(\partial_x)=\partial_y$、$J(\partial_y)=-\partial_x$ とする。[適合性の直接判定](../../SYM/SYM8/index.md#def-sym8-compatible)により $g_J=dx^2+dy^2$ となる。写像
+**定義の確認**。$\Sigma=X=\mathbb R^2/\mathbb Z^2$ を座標 $(s,t)$、$(x,y)$ で表した平坦なトーラスとし、$h=ds^2+dt^2$、$\omega=dx\wedge dy$、$J(\partial_x)=\partial_y$、$J(\partial_y)=-\partial_x$ とする。この座標基底で $v=(v_x,v_y)$、$w=(w_x,w_y)$ と書けば、$Jw=(-w_y,w_x)$ だから
+
+$$
+g_J(v,w)=\omega(v,Jw)=v_xw_x+v_yw_y.
+$$
+
+従って $g_J=dx^2+dy^2$ は対称・正定値であり、[適合性と正定値内積の同値](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)によってこの $J$ は適合する。写像
 
 $$
 u([s,t])=[2s-t,s+2t]
@@ -160,7 +168,24 @@ $$
 E(u)=\frac12\cdot10\cdot\operatorname{area}(\Sigma)=5.
 $$
 
-基本領域 $[0,1]^2$ の面積は1であり、エネルギーは有限である。
+基本領域 $[0,1]^2$ の面積は1であり、エネルギーは有限である。ここで微分の行列は、$u_s,u_t$ を順に列とする
+
+$$
+Du=\begin{pmatrix}2&-1\\1&2\end{pmatrix}
+$$
+
+である。[2形式の引き戻しの定義](../../GEO/GEO7/index.md#def-geo7-pullback-form)を座標基底に適用すると
+
+$$
+\begin{aligned}
+(u^*\omega)(\partial_s,\partial_t)
+&=\omega(du(\partial_s),du(\partial_t))\\
+&=dx(u_s)\,dy(u_t)-dy(u_s)\,dx(u_t)\\
+&=\det Du=2\cdot2-(-1)\cdot1=5.
+\end{aligned}
+$$
+
+さらに $Ju_s=(-1,2)=u_t$ なので[局所Cauchy–Riemann方程式](#prop-gw1-02-local-cr)により擬正則である。行列式が表すのは線形写像の面積倍率（符号付き）であり、複素線形性の判定そのものは $u_t=Ju_s$ に戻って確認している。
 
 **定義域の計量を取り替えたら？** 二次元で $h'=\rho^2h$（$\rho$ は正の滑らかな関数）とすれば、$h'$ の正規直交基底は $\rho^{-1}e_i$ である。よって $|du|_{h',g_J}^2=\rho^{-2}|du|_{h,g_J}^2$、$d\operatorname{vol}_{h'}=\rho^2d\operatorname{vol}_h$。両者が相殺し、**エネルギーは同じ複素構造に適合する計量の共形倍に依存しない**。以下の恒等式も同様である。
 
@@ -261,6 +286,8 @@ $$
 ## 5. 閉じた定義域で面積が変形に依存しない理由
 
 シンプレクティック形式の閉性 $d\omega=0$ が、局所的なエネルギー計算を曲線類と結び付ける。ここでは「閉じたRiemann面」とは、**コンパクトで境界のない**Riemann面を指す。
+
+曲線類の記法を先に説明する。向き付き閉曲面 $\Sigma$ の基本ホモロジー類を $[\Sigma]\in H_2(\Sigma;\mathbb Z)$ と書き、滑らかな写像 $u$ が誘導する写像 $u_*$ による像 $\beta=u_*[\Sigma]\in H_2(X;\mathbb Z)$ を曲線類と呼ぶ。閉2形式 $\omega$ のde Rhamコホモロジー類を $[\omega]$ と書き、その曲線類との評価 $\langle[\omega],\beta\rangle$ は $\int_\Sigma u^*\omega$ に等しい。これは積分を位相的な類で表す記法であって、次のホモトピー不変性の証明にホモロジー理論は必要ない。実際、$\omega$ を $\omega+d\eta$ に取り替えた場合の積分差は、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から $\int_\Sigma d(u^*\eta)=\int_{\partial\Sigma}u^*\eta=0$ となる。異なる閉2サイクルが同じホモロジー類を表すときも、差が3チェインの境界であることと $d\omega=0$ により同様に評価が一致する。
 
 <a id="prop-gw1-02-homotopy-area"></a>
 
@@ -490,7 +517,16 @@ $$
 \int_{T^2}u^*\omega=ad-bc.
 $$
 
-一方、[作用素の定義](#def-gw1-02-cr-operator)から $\bar\partial_Ju(\partial_s)=\tfrac12((a,c)+J(b,d))=\tfrac12(a-d,c+b)$。$\partial_t$ での値は $-J$ を掛けたもので、二つの長さが等しい。従って
+一方、[作用素の定義](#def-gw1-02-cr-operator)から $\bar\partial_Ju(\partial_s)=\tfrac12((a,c)+J(b,d))=\tfrac12(a-d,c+b)$。他方
+
+$$
+\bar\partial_Ju(\partial_t)
+=\tfrac12\bigl((b,d)-J(a,c)\bigr)
+=\tfrac12(b+c,d-a)
+=-J\bar\partial_Ju(\partial_s).
+$$
+
+$J$ は標準Euclid計量について等長なので、二つの長さが等しい。従って
 
 $$
 \int_{T^2}|\bar\partial_Ju|^2
@@ -511,10 +547,16 @@ $$
 #### GW1-02-B03 射影直線の次数とエネルギー
 - Level: B
 
-$X=\Sigma=\mathbb{CP}^1$ に標準複素構造と Fubini–Study形式を入れる。整数 $d\ge1$ に対し $f_d([s:t])=[s^d:t^d]$ が $J$-正則であることを両チャートで示し、$E(f_d)$ と $\int|\bar\partial_J f_d|^2$ を求めよ。
+$X=\Sigma=\mathbb{CP}^1$ に標準複素構造と Fubini–Study形式を入れる。整数 $d\ge1$ に対し $f_d([S:T])=[S^d:T^d]$ が $J$-正則であることを両チャートで示し、$E(f_d)$ と $\int|\bar\partial_J f_d|^2$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$t\ne0$ の座標 $z=s/t$ では $f_d(z)=z^d$、$(f_d)_t=i(f_d)_s$ が成り立つ（ここで添字 $t$ は局所実座標の虚部方向を指す）。$s\ne0$ の座標 $\zeta=t/s$ と、標的の対応座標では写像も $\zeta\mapsto\zeta^d$ であるため、同じ微分関係が成立する。よって[局所方程式](#prop-gw1-02-local-cr)から全域で擬正則である。
+**詳細解答**。$T\ne0$ の座標 $z=S/T=x+iy$ では $f_d(z)=z^d$。実変数 $x,y$ について
+
+$$
+(f_d)_x=d z^{d-1},\qquad (f_d)_y=i d z^{d-1}=J(f_d)(f_d)_x.
+$$
+
+$S\ne0$ の座標 $\zeta=T/S=\xi+i\eta$ と、標的の対応座標では $f_d(\zeta)=\zeta^d$ なので、同様に $(f_d)_\eta=i(f_d)_\xi$ が直接成り立つ。$[S:T]$ の $T$ は斉次座標であって偏微分する実変数ではない。両座標が全点を覆うので、[局所Cauchy–Riemann方程式](#prop-gw1-02-local-cr)から全域で擬正則である。
 
 [べき写像の正規化面積と逆像数](../GW1-01/index.md#thm-gw1-01-power-area)では $\int f_d^*\omega_{\mathrm{FS}}=2\pi d$ と計算した。これを[擬正則写像のエネルギーの系](#cor-gw1-02-energy-area)に適用し、$E(f_d)=2\pi d$。擬正則条件により $\bar\partial_Jf_d=0$ なので二乗ノルムの積分は零である。$d>1$ で枝点があってもこの判定は変わらない。
 <!-- solution-end -->
