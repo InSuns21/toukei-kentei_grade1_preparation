@@ -7,3 +7,4 @@
 4. [FLUID4 流線・流跡線・流脈線はなぜ異なるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID4/index.md)
 5. [FLUID5 検査体積を通る流束はどう数えるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID5/index.md)
 6. [FLUID6 Bernoulli積分はどこで成立するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID6/index.md)
+7. [FLUID7 似た流れを同じ模型で表せる条件は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID7/index.md)

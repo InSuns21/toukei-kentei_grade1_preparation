@@ -1,0 +1,68 @@
+chapter: FLUID7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID6
+  - CTM16
+concepts:
+  - id: fluid.dimension-matrix
+    name: 次元行列と無次元積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（次元行列と無次元積）"]
+    requires: [continuum.flow-reference-scales]
+  - id: fluid.buckingham-pi
+    name: Buckingham の Π 定理
+    aliases: ["Π 定理"]
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Buckingham の Π 定理：正の量の場合）"]
+    requires: [fluid.dimension-matrix]
+  - id: fluid.froude-number
+    name: Froude 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Froude 数）"]
+    requires: [fluid.dimension-matrix]
+  - id: fluid.weber-number
+    name: Weber 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Weber 数）"]
+    requires: [fluid.dimension-matrix, fluid.interfacial-tension]
+  - id: fluid.mach-number
+    name: Mach 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Mach 数）"]
+    requires: [fluid.dimension-matrix]
+  - id: fluid.five-independent-pi
+    name: 八変数から得る五つの独立な無次元数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（八変数から得る五つの独立な無次元数）"]
+    requires: [fluid.buckingham-pi, continuum.reynolds-number, continuum.strouhal-number, fluid.froude-number, fluid.weber-number, fluid.mach-number]
+  - id: fluid.dynamic-similarity
+    name: 幾何学的相似と力学的相似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講での幾何学的相似と力学的相似）"]
+    requires: [fluid.five-independent-pi, continuum.flow-reference-scales]
+  - id: fluid.gravity-scaled-ns
+    name: 重力つき非圧縮運動量式の無次元化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重力つき非圧縮運動量式の無次元化）"]
+    requires: [continuum.dimensionless-incompressible-navier-stokes, fluid.froude-number]
+  - id: fluid.model-prototype-pi-ratios
+    name: 模型と実物の五つの無次元数の比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（模型と実物の五つの無次元数の比）"]
+    requires: [fluid.five-independent-pi, fluid.dynamic-similarity]
+  - id: fluid.same-fluid-obstruction
+    name: 同じ流体で縮尺を変えた場合の相似条件の衝突
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（同じ流体で縮尺を変えた場合の相似条件の衝突）"]
+    requires: [fluid.model-prototype-pi-ratios]

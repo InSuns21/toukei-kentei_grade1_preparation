@@ -1,0 +1,51 @@
+id: "FLUID7"
+title: "似た流れを同じ模型で表せる条件は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID6
+  - CTM16
+official_scope: []
+learning_objectives:
+  - "質量・長さ・時間の次元行列を組み立て、階数と零化空間からBuckinghamのΠ定理を証明できる"
+  - "既習のReynolds数・Strouhal数を参照し、Froude数・Weber数・Mach数の定義・単位と尺度比を直接検算できる"
+  - "五つの無次元積の独立性と、物理変数の選択が結果を左右することを説明できる"
+  - "重力つき非圧縮Navier–Stokes式を連鎖律から無次元化し、どの物理模型でどの無次元数が必要か判断できる"
+  - "幾何学的相似と力学的に相似な問題設定・相似な解を区別し、初期境界条件・構成則・一意性の要件を述べられる"
+  - "模型・実物のRe・Fr・We・Ma・Stの比を導き、同流体でのReとFrの両立不能性を証明できる"
+  - "速度・周期・物性の縮尺設計を数値・ブラウザ内Python検算と突き合わせ、モデルの限界を判定できる"
+definitions:
+  - { id: FLUID7-DEF-01, name: "次元行列と無次元積" }
+  - { id: FLUID7-DEF-02, name: "Froude数" }
+  - { id: FLUID7-DEF-03, name: "Weber数" }
+  - { id: FLUID7-DEF-04, name: "Mach数" }
+  - { id: FLUID7-DEF-05, name: "幾何学的相似と力学的相似" }
+theorems:
+  - { id: FLUID7-THM-01, name: "BuckinghamのΠ定理：正の量の場合" }
+  - { id: FLUID7-PROP-01, name: "八変数から得る五つの独立な無次元数" }
+  - { id: FLUID7-PROP-02, name: "重力つき非圧縮運動量式の無次元化" }
+  - { id: FLUID7-PROP-03, name: "模型と実物の五つの無次元数の比" }
+  - { id: FLUID7-COR-01, name: "同じ流体で縮尺を変えた場合の相似条件の衝突" }
+canonical_examples:
+  - "四変数の次元行列・零化空間とReynolds数の直接確認"
+  - "Froude数・Weber数・Mach数の単位と物理尺度の確認"
+  - "上下面の境界条件を持つ相似なCouette流の無次元解"
+  - "重力・粘性・非定常項の無次元係数の対応"
+  - "縮尺十分の一の同流体実験でRe・St一致とFr・We・Ma不一致を計算"
+  - "PythonでRe/Fr/We/Ma一致を切り替え、物性調整時の五つの比を検算"
+problem_patterns:
+  - FLUID7-DIMENSION-MATRIX
+  - FLUID7-FIVE-NUMERIC-GROUPS
+  - FLUID7-RE-MODEL-RATIOS
+  - FLUID7-ST-FREQUENCY
+  - FLUID7-RELEVANT-GROUPS
+  - FLUID7-PI-BASIS
+  - FLUID7-RE-FR-VISCOSITY-DESIGN
+  - FLUID7-RE-ST-FREQUENCY-DESIGN
+  - FLUID7-FORCE-PI-GROUP
+  - FLUID7-SCALE-TANK-INTEGRATED
+  - FLUID7-MATERIAL-REENGINEERING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
