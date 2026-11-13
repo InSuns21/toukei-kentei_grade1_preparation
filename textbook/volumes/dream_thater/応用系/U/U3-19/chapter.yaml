@@ -1,0 +1,44 @@
+id: "U3-19"
+title: "配当・金利・先渡価格・割引規約"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-18, U3-16, U3-05]
+official_scope: []
+learning_objectives:
+  - 連続配当の権利落ち株価と配当再投資、時点間割引係数・保持係数の違いを具体例で説明できる
+  - 配当再投資株数と預金の複製から前払先渡価格、公正受渡価格、既存契約の価値を導ける
+  - リスク中立 GBM のドリフト r-q と正規尾積分から配当付き call/put の閉形式を証明できる
+  - 配当付き put–call parity を満期支払恒等式と閉形式の両方で検算できる
+  - 決定的な時変金利・配当の累積積分と、離散現金配当との違いを説明できる
+  - 日数・単利・定期複利・連続複利の規約が割引指数へ与える影響を検算できる
+  - q=0、sigma=0、q>r、負金利の境界条件で公式の適用可否を判定できる
+definitions:
+  - { id: U3-19-DEF-01, name: "割引係数と配当保持係数" }
+  - { id: U3-19-DEF-02, name: "前払先渡価格" }
+  - { id: U3-19-DEF-03, name: "年換算時間と複利変換" }
+theorems:
+  - { id: U3-19-THM-01, name: "連続配当付き株式の無裁定先渡価格" }
+  - { id: U3-19-THM-02, name: "連続配当付き Black–Scholes call/put 価格" }
+  - { id: U3-19-PROP-01, name: "連続配当付き put–call parity" }
+  - { id: U3-19-PROP-02, name: "決定的な金利・配当曲線での先渡" }
+canonical_examples:
+  - "S=100、r=0.05、q=0.02、T=1 の配当再投資を0.98019867株から構成"
+  - "前払先渡98.01986733円、公正受渡価格103.04545340円、既存先渡価値2.89692488円"
+  - "d1=0.25、d2=0.05、call=9.227005508円、put=6.330080628円とparity"
+  - "r(u)=0.04+0.02u、q(u)=0.02+0.02u の積分と単利・連続複利の変換"
+  - "単発の確定現金配当3円と一定連続配当利回りを混同したときの先渡差"
+problem_patterns:
+  - U3-19-A1
+  - U3-19-A2
+  - U3-19-A3
+  - U3-19-A4
+  - U3-19-A5
+  - U3-19-B1
+  - U3-19-B2
+  - U3-19-B3
+  - U3-19-B4
+  - U3-19-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

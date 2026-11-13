@@ -1,0 +1,47 @@
+chapter: U3-19
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-18, U3-16, U3-05]
+concepts:
+  - id: finance.dividend-discount-retention-factors
+    name: 割引係数と配当保持係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（割引係数と配当保持係数）"]
+    requires: [finance.numeraire-discounted-price, finance.bsm-continuous-dividend]
+  - id: finance.prepaid-forward-price
+    name: 前払先渡価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前払先渡価格）"]
+    requires: [finance.dividend-discount-retention-factors, finance.forward-contract-delivery-price]
+  - id: finance.continuous-dividend-forward
+    name: 連続配当付き株式の無裁定先渡価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続配当付き株式の無裁定先渡価格）"]
+    requires: [finance.prepaid-forward-price, finance.forward-value]
+  - id: finance.continuous-dividend-bsm-formula
+    name: 連続配当付き Black–Scholes call/put 価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（連続配当付き Black–Scholes call/put 価格）"]
+    requires: [finance.black-scholes-european-formula, finance.bsm-continuous-dividend, finance.gaussian-tilted-tail]
+  - id: finance.continuous-dividend-put-call-parity
+    name: 連続配当付き put–call parity
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連続配当付き put–call parity）"]
+    requires: [finance.continuous-dividend-forward, finance.continuous-dividend-bsm-formula]
+  - id: finance.deterministic-carry-forward
+    name: 決定的な金利・配当曲線での先渡
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（決定的な金利・配当曲線での先渡）"]
+    requires: [finance.continuous-dividend-forward]
+  - id: finance.day-count-compounding
+    name: 年換算時間と複利変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（年換算時間と複利変換）"]
+    requires: [finance.dividend-discount-retention-factors]

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" data-layout-lint="strict" role="img" aria-labelledby="forward-fig-title forward-fig-desc">
+<title id="forward-fig-title">配当利回りと公正先渡受渡価格の関係</title>
+<desc id="forward-fig-desc">現在株価100円、連続複利金利5%、満期まで1年を固定。横軸の配当利回りが0%、2%、5%、7%と増えると、公正先渡受渡価格は105.13円、103.05円、100円、98.02円と下がる。配当利回りが金利5%と等しい点で、スポット100円を示す水平破線と交わる。</desc>
+<rect width="760" height="380" fill="#ffffff"/>
+<g stroke="#3d4756" stroke-width="2" fill="none">
+  <path d="M110 110 V312 H660"/>
+</g>
+<g fill="#263545" font-size="16">
+  <text x="42" y="96">F (JPY)</text>
+  <text x="55" y="155">106</text>
+  <text x="55" y="187">104</text>
+  <text x="55" y="219">102</text>
+  <text x="55" y="251">100</text>
+  <text x="55" y="283">98</text>
+  <text x="145" y="340" text-anchor="middle">0%</text>
+  <text x="280" y="340" text-anchor="middle">2%</text>
+  <text x="482" y="340" text-anchor="middle">5%</text>
+  <text x="620" y="340" text-anchor="middle">7%</text>
+  <text x="675" y="341">q</text>
+</g>
+<path d="M110 246 H660" stroke="#97602b" stroke-width="2.6" stroke-dasharray="8 5" fill="none" data-series-group="prices" data-series-label="spot"/>
+<path d="M145 164.0 C205 177.8 240 187.1 280 197.3 S418 229 482 246 S582 269.8 620 277.7" stroke="#205a84" stroke-width="3.8" fill="none" data-series-group="prices" data-series-label="forward"/>
+<g fill="#205a84" stroke="#ffffff" stroke-width="1.5">
+  <circle cx="145" cy="164.0" r="6"/>
+  <circle cx="280" cy="197.3" r="6"/>
+  <circle cx="482" cy="246" r="6"/>
+  <circle cx="620" cy="277.7" r="6"/>
+</g>
+<g fill="#173e5f" font-size="16" text-anchor="middle">
+  <text x="183" y="128">105.13</text>
+  <text x="280" y="168">103.05</text>
+  <text x="482" y="214">100.00</text>
+  <text x="675" y="280">98.02</text>
+</g>
+<g font-size="16" fill="#304255">
+  <path d="M408 72 H444" stroke="#205a84" stroke-width="3.8"/>
+  <text x="457" y="77">F</text>
+  <path d="M520 72 H558" stroke="#97602b" stroke-width="2.6" stroke-dasharray="8 5"/>
+  <text x="568" y="77">S = 100</text>
+</g>
+</svg>
