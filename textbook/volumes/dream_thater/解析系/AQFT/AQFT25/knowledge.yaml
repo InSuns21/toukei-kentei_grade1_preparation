@@ -1,0 +1,42 @@
+chapter: AQFT25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT23
+  - AQFT24
+  - QM6
+forward_references: []
+concepts:
+  - id: aqft.wstar-kms
+    name: von Neumann環上の上側帯KMS条件
+    kind: definition
+    introduction: formal
+    requires: [aqft.kms-strip, aqft.modular-flow]
+  - id: aqft.modular-norm-continuous-part
+    name: モジュラー流のノルム連続部分代数
+    kind: definition
+    introduction: formal
+    requires: [aqft.modular-flow]
+  - id: aqft.modular-analytic-densities
+    name: 解析的元の二つの稠密性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.modular-norm-continuous-part, aqft.modular-gaussian-elements]
+  - id: aqft.modular-spectral-strip
+    name: 半べきの定義域から帯正則性へ
+    kind: lemma
+    introduction: formal
+    requires: [aqft.modular-operator, aqft.standard-pair]
+  - id: aqft.general-modular-kms
+    name: 一般モジュラーKMS定理
+    kind: theorem
+    introduction: formal
+    requires: [aqft.modular-spectral-strip, aqft.wstar-kms, aqft.tomita-takesaki]
+  - id: aqft.modular-cstar-kms
+    name: ノルム連続部分環でのC*–KMS条件
+    kind: corollary
+    introduction: formal
+    requires: [aqft.general-modular-kms, aqft.modular-analytic-densities, aqft.kms-strip]
