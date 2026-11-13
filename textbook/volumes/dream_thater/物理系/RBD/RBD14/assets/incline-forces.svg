@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 390" data-layout-lint="strict" role="img" aria-labelledby="diagram-title diagram-desc">
   <title id="diagram-title">斜面上の円柱または球の自由物体図</title>
   <desc id="diagram-desc">右上へ上る斜面に円形物体が接する。重心Cは接点Pより左上にある。重力mgはCから鉛直下向き、法線反力Nは接点Pから斜面に垂直な左上向き、摩擦力fはPから斜面を上る右上向きに描く。斜面下向きの接線方向e_tは左下、半径aはCとPの距離である。</desc>
+  <rect x="0" y="0" width="740" height="390" fill="#fff" stroke="none"/>
   <defs>
     <marker id="arr-solid" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L8,4 L0,8 Z" fill="#222"/>
