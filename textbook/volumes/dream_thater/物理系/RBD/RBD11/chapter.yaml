@@ -1,0 +1,47 @@
+id: "RBD11"
+title: "固定点を持つ重い対称こま"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD10
+  - AMECH4
+official_scope: []
+learning_objectives:
+  - 支点と重心の違いから平行軸定理で固定点まわりの対称慣性テンソルを構成できる
+  - 重力ポテンシャルと支点まわりトルクの向き・符号を導出できる
+  - ZYZ Euler角の角速度から運動エネルギーとLagrangianを交差項まで展開できる
+  - 循環座標phi psiの保存運動量を計算し鉛直角運動量と体軸角運動量に同定できる
+  - 時間独立性から全エネルギーを証明しEuler角に依存しない保存則を確認できる
+  - 保存量でphi psiの速度を消去し傾きの有効ポテンシャルと許容域を導出できる
+  - 傾きの二階方程式をLagrange方程式から検算し停止点で不正な速度除算を避けられる
+  - thetaが0またはpiでEuler角の座標特異性と物理的な到達条件を区別できる
+definitions:
+  - { id: RBD11-DEF-01, name: "固定点を持つ重い対称こま" }
+  - { id: RBD11-DEF-02, name: "重い対称こまの有効ポテンシャル" }
+theorems:
+  - { id: RBD11-PROP-01, name: "固定点対称こまの運動エネルギーとLagrangian" }
+  - { id: RBD11-THM-01, name: "二つの保存運動量と全エネルギー" }
+  - { id: RBD11-THM-02, name: "傾きの一変数帰着と許容域" }
+  - { id: RBD11-PROP-02, name: "鉛直姿勢への到達に必要な運動量条件" }
+canonical_examples:
+  - 薄円板と質量のない軸の支点まわり慣性を平行軸公式で求める
+  - 鉛直上向き重力ポテンシャルと水平重力トルクの符号
+  - ZYZ角速度の横成分交差項が打ち消し合うこと
+  - 鉛直方向への角運動量射影とphiの共役運動量の一致
+  - hが零でkが非零の有効ポテンシャルにおける許容角の数値比較
+  - 極でのhとkの必要関係と半角極限
+problem_patterns:
+  - RBD11-PIVOT-PARALLEL-AXIS
+  - RBD11-GRAVITY-TORQUE-SIGN
+  - RBD11-CYCLIC-MOMENTA-ENERGY
+  - RBD11-EFFECTIVE-POTENTIAL-EVALUATION
+  - RBD11-POLE-MOMENTUM-COMPATIBILITY
+  - RBD11-NEWTON-EULER-INVARIANTS
+  - RBD11-TURNING-POINT-ACCELERATION
+  - RBD11-POLE-LIMIT-HALF-ANGLE
+  - RBD11-ZERO-SPIN-REDUCTION
+  - RBD11-INTEGRATED-INITIAL-VALUE-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 7.0, review: 2.5 }
