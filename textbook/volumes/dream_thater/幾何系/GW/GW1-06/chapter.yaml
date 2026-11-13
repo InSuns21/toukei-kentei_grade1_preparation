@@ -22,6 +22,7 @@ definitions:
   - { id: GW1-06-DEF-01, name: 標点付き球面の木と安定な成分写像 }
   - { id: GW1-06-DEF-02, name: 標点付き球面写像のGromov収束 }
 theorems:
+  - { id: GW1-06-PROP-00, name: 有理写像の次数と面積 }
   - { id: GW1-06-LEM-01, name: 小ループの局所作用評価 }
   - { id: GW1-06-LEM-02, name: 長い小エネルギー円柱の首評価 }
   - { id: GW1-06-PROP-01, name: 全ての泡を取り出した後の首の消失 }
