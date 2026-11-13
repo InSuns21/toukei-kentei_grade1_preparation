@@ -313,7 +313,14 @@ $$
 D_\tau=(1-\tau)\bar\partial_E+\tau D_u,\qquad 0\le\tau\le1
 $$
 
-は同じ楕円シンボルを持つ実Fredholm作用素の連続な道である。ここで指数が連続変形で一定となる理由も確かめる。ある $\tau_0$ の作用素の実核を $K$、閉像を $W$ とし、定義域を $Y\oplus K$、値域を $W\oplus C$ と分解する（$C$ は有限次元の余核の代表空間）。$D_{\tau_0}|_Y:Y\to W$ は有界な同型である。$\tau$ が十分近ければ、このブロックも可逆なので、残りの成分を消去した作用素は
+は同じ楕円シンボルを持つ実Fredholm作用素の連続な道である。ここで指数が連続変形で一定となる理由も確かめる。ある $\tau_0$ の作用素の実核を $K$、閉像を $W$ とし、定義域を $Y\oplus K$、値域を $W\oplus C$ と分解する（$C$ は有限次元の余核の代表空間）。$D_{\tau_0}|_Y:Y\to W$ は有界な同型である。$\tau$ が十分近ければ、$D_\tau$ のブロック表示
+
+$
+D_\tau=\begin{pmatrix}A_\tau&B_\tau\\C_\tau&E_\tau\end{pmatrix}
+:Y\oplus K\longrightarrow W\oplus C
+$
+
+の左上 $A_\tau:Y\to W$ も可逆なので、残りの成分を消去した作用素は
 
 $
 \begin{pmatrix}
