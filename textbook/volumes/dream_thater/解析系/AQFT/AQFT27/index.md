@@ -250,7 +250,26 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\mathcal G=\operatorname{Dom}B$ をグラフ内積でHilbert空間とします。$e^{itQ}$ は $B$ と可換であり $\mathcal G$ 上でもユニタリです。$D$ のグラフ閉包 $L\subset\mathcal G$ は、$e^{itQ}D=D$ により全ての $e^{itQ}$ とその逆で不変です。さらに $\mathcal G$ 上の一パラメータ群は強連続です。実際、$z\in\mathcal G$ について $\|(e^{itQ}-I)z\|_B^2=\|(e^{itQ}-I)z\|^2+\|(e^{itQ}-I)Bz\|^2\to0$ です。従って $L$ と $L^{\perp_{\mathcal G}}$ はこの群の全作用で不変な還元部分空間です。$L$ への直交射影は全ての $e^{itQ}$ と可換なので、この群の生成するvon Neumann環の有界Borel汎関数 $g(Q)$ とも可換です。特に $g=1_{[-R,R]}$ とすれば、$L$ とその直交補は $1_{[-R,R]}(Q)$ でも不変です。
+$\mathcal G=\operatorname{Dom}B$ をグラフ内積でHilbert空間とします。$e^{itQ}$ は $B$ と可換なので、このグラフ空間上でもユニタリです。$D$ のグラフ閉包を $L$ と置くと、仮定 $e^{itQ}D=D$ により $L$ は群作用と逆作用で不変です。
+
+さらに、この群はグラフノルムでも強連続です。$z\in\mathcal G$ について
+
+$
+\begin{aligned}
+\|(e^{itQ}-I)z\|_B^2
+&=\|(e^{itQ}-I)z\|^2\\
+&\quad+\|(e^{itQ}-I)Bz\|^2
+\longrightarrow0\qquad(t\to0).
+\end{aligned}
+$
+
+従って $L$ とグラフ直交補 $L^{\perp_{\mathcal G}}$ は、このユニタリ群に関して還元部分空間となります。$P_L$ をグラフ空間での $L$ への直交射影とすると
+
+$
+P_Le^{itQ}=e^{itQ}P_L\qquad(t\in\mathbb R)
+$
+
+です。この群が生成するvon Neumann環には、生成子の有界Borel関数 $g(Q)$ が含まれます。従って $P_L$ は全ての $g(Q)$ と可換です。特に $g=1_{[-R,R]}$ とすれば、$L$ とその直交補はスペクトル射影 $1_{[-R,R]}(Q)$ でも不変です。
 
 $z\in L^{\perp_{\mathcal G}}$ を取り、$E_R=1_{[-R,R]}(Q)$、$z_R=E_Rz$ と置きます。$z_R\in L^{\perp_{\mathcal G}}$ であり、スペクトルが有界なので $(1+B^2)z_R\in\mathcal H$ です。任意の $d\in D$ について
 
