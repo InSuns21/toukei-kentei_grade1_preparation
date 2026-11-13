@@ -1,0 +1,48 @@
+chapter: FLUID2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID1
+concepts:
+  - id: fluid.hydrostatic-isotropic-state
+    name: 静止等方圧力状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静止等方圧力状態）"]
+    requires: [continuum.compressible-newtonian-fluid, continuum.cauchy-stress-theorem]
+  - id: fluid.hydrostatic-pressure-balance
+    name: 静水圧方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静水圧方程式）"]
+    requires: [fluid.hydrostatic-isotropic-state, continuum.material-momentum-local]
+  - id: fluid.vertical-hydrostatic-integral
+    name: 鉛直柱の静水圧積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（鉛直柱の静水圧積分）"]
+    requires: [fluid.hydrostatic-pressure-balance]
+  - id: fluid.constant-density-depth-pressure
+    name: 一定密度の深さと圧力
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（一定密度の深さと圧力）"]
+    requires: [fluid.vertical-hydrostatic-integral]
+  - id: fluid.gauge-pressure
+    name: 基準圧力とゲージ圧
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基準圧力とゲージ圧）"]
+    requires: [fluid.constant-density-depth-pressure]
+  - id: fluid.isothermal-gas-column
+    name: p=c^2*rhoの静止気体柱
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（$p=c^2\rho$ の静止気体柱）"]
+    requires: [fluid.hydrostatic-pressure-balance]
+  - id: fluid.connected-vessel-equal-level
+    name: 同種液体の連通管の等水位
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同種液体の連通管の等水位）"]
+    requires: [fluid.constant-density-depth-pressure, fluid.vertical-hydrostatic-integral]
