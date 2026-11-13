@@ -20,3 +20,4 @@
 17. [AQFT17 splitの帰結とnuclearityへの入口](textbook/volumes/dream_thater/解析系/AQFT/AQFT17/index.md)
 18. [AQFT18 標準対とTomita作用素](textbook/volumes/dream_thater/解析系/AQFT/AQFT18/index.md)
 19. [AQFT19 反線形極分解とモジュラー対象](textbook/volumes/dream_thater/解析系/AQFT/AQFT19/index.md)
+20. [AQFT20 Hilbert–Schmidt標準表現の全計算](textbook/volumes/dream_thater/解析系/AQFT/AQFT20/index.md)
