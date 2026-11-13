@@ -1,0 +1,52 @@
+chapter: AQFT23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT21
+  - AQFT22
+  - QM6
+forward_references: []
+concepts:
+  - id: aqft.modular-time-inclusion
+    name: 時刻付き可換子包含からモジュラー包含へ
+    kind: lemma
+    introduction: formal
+    requires: [aqft.tomita-commutant-theorem, aqft.modular-conjugation]
+  - id: aqft.modular-invariance
+    name: Takesakiのモジュラー不変性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.modular-time-inclusion, aqft.tomita-commutant-theorem]
+  - id: aqft.modular-flow
+    name: モジュラー自己同型群
+    kind: definition
+    introduction: formal
+    requires: [aqft.modular-invariance, aqft.modular-operator]
+  - id: aqft.modular-group-state
+    name: 自己同型群の性質と状態保存
+    kind: theorem
+    introduction: formal
+    requires: [aqft.modular-flow, aqft.modular-invariance, aqft.standard-pair]
+  - id: aqft.modular-entire-element
+    name: モジュラー流の全解析的元
+    kind: definition
+    introduction: formal
+    requires: [aqft.modular-flow, aqft.entire-vector-core]
+  - id: aqft.modular-gaussian-elements
+    name: Gaussian平滑化による代数内全解析的元
+    kind: theorem
+    introduction: formal
+    requires: [aqft.modular-entire-element, aqft.modular-group-state, aqft.gaussian-analytic-smoothing]
+  - id: aqft.modular-analytic-core
+    name: 代数内解析元による共通グラフcore
+    kind: theorem
+    introduction: formal
+    requires: [aqft.modular-gaussian-elements, aqft.left-regular-action, aqft.spectral-analytic-core]
+  - id: aqft.tomita-takesaki
+    name: 標準対に対するTomita–Takesaki定理
+    kind: theorem
+    introduction: formal
+    requires: [aqft.tomita-commutant-theorem, aqft.modular-invariance, aqft.modular-group-state]
