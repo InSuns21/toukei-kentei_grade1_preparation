@@ -7,11 +7,11 @@
 </g>
 <g fill="#263545" font-size="16">
   <text x="42" y="96">F (JPY)</text>
-  <text x="78" y="155">106</text>
-  <text x="78" y="187">104</text>
-  <text x="78" y="219">102</text>
-  <text x="78" y="251">100</text>
-  <text x="78" y="283">98</text>
+  <text x="55" y="155">106</text>
+  <text x="55" y="187">104</text>
+  <text x="55" y="219">102</text>
+  <text x="55" y="251">100</text>
+  <text x="55" y="283">98</text>
   <text x="145" y="340" text-anchor="middle">0%</text>
   <text x="280" y="340" text-anchor="middle">2%</text>
   <text x="482" y="340" text-anchor="middle">5%</text>
