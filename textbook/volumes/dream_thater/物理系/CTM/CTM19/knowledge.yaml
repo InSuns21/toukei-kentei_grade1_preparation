@@ -18,6 +18,7 @@ concepts:
     requires: [continuum.standard-linear-solid]
   - id: continuum.relaxation-function
     name: ひずみステップによる緩和関数
+    aliases: [緩和関数]
     kind: definition
     introduction: formal
     requires: [continuum.standard-linear-solid]
