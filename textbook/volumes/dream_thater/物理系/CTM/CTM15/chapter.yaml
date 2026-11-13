@@ -1,0 +1,45 @@
+id: "CTM15"
+title: "粘性応力からNavier–Stokes方程式へ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM14
+official_scope: []
+learning_objectives:
+  - "変形速度の偏差・等方部分を区別し、圧力とNewton粘性応力の仮定・単位・客観性を具体例で検証できる"
+  - "せん断・体積粘性係数を区別し、Newton構成則の粘性散逸が非負であることを導出できる"
+  - "運動量収支と圧縮性Newton構成則から圧縮性運動量式を導き、体積粘性項と係数勾配を落とさない"
+  - "非圧縮条件と空間的密度一定の差を示し、一定粘性・非圧縮Navier–Stokes方程式を成分で導ける"
+  - "壁面の無滑り・非貫通条件をそれぞれ定義・判定し、tractionを区別して平板せん断の方程式・境界値・仕事率を検算できる"
+definitions:
+  - { id: CTM15-DEF-01, name: "変形速度の偏差部分と体積変化率" }
+  - { id: CTM15-DEF-02, name: "圧縮性等方Newton流体" }
+  - { id: CTM15-DEF-03, name: "非圧縮Newton流体の応力" }
+  - { id: CTM15-DEF-04, name: "壁面の無滑り条件" }
+  - { id: CTM15-DEF-05, name: "壁面の非貫通条件" }
+theorems:
+  - { id: CTM15-PROP-01, name: "Newton粘性応力の客観性" }
+  - { id: CTM15-THM-01, name: "Newton流体の粘性散逸" }
+  - { id: CTM15-THM-02, name: "圧縮性Newton流体の運動量方程式" }
+  - { id: CTM15-THM-03, name: "一定粘性係数の非圧縮Navier–Stokes方程式" }
+canonical_examples:
+  - "等方膨張と単純せん断の偏差変形速度"
+  - "平板せん断の応力、traction、無滑り境界と仕事率"
+  - "変動密度を移流する非圧縮流れ"
+  - "剛体回転の粘性応力と向心加速度のための圧力"
+  - "空間変動粘性の平板せん断と散逸"
+problem_patterns:
+  - CTM15-DEVIATORIC-EXPANSION
+  - CTM15-NEWTON-SHEAR-TRACTION
+  - CTM15-ADVECTED-DENSITY
+  - CTM15-VISCOSITY-UNIT-CHECK
+  - CTM15-RIGID-ROTATION
+  - CTM15-VARIABLE-VISCOSITY
+  - CTM15-COUETTE-ENERGY-BALANCE
+  - CTM15-COMPRESSIBLE-BULK-STRESS
+  - CTM15-VARIABLE-DENSITY-EXACT-FLOW
+  - CTM15-NONUNIFORM-COUETTE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }
