@@ -1,0 +1,43 @@
+id: "U3-18"
+title: "Black–Scholes 閉形式と正規積分"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-17, U3-11, U3-05]
+official_scope: []
+learning_objectives:
+  - 無配当のリスク中立 GBM から行使領域の閾値と d1・d2 を単位を含めて導ける
+  - 指数重み付き正規尾積分を平方完成し上側・下側積分を証明できる
+  - 欧州型 call と put の閉形式をそれぞれ期待値積分から導き put–call parity と照合できる
+  - 正規密度恒等式を示しデルタと自己金融複製の株式・預金保有を求められる
+  - 支払額の標本ごとの不等式から価格の上下界を無配当・負金利を含めて証明できる
+  - 満期・ゼロ変動率・株価端点の極限を条件とともに示し分母ゼロへの誤代入を避けられる
+  - 正規積分の数値求積、CRR 二項木、解析式の誤差源を区別して検算できる
+definitions:
+  - { id: U3-18-DEF-01, name: "Black–Scholes の正規化指標" }
+theorems:
+  - { id: U3-18-LEM-01, name: "指数重み付き正規尾積分" }
+  - { id: U3-18-THM-01, name: "無配当 Black–Scholes call/put 価格公式" }
+  - { id: U3-18-PROP-01, name: "call/put のデルタと密度恒等式" }
+  - { id: U3-18-PROP-02, name: "無配当欧州型オプションの価格範囲" }
+  - { id: U3-18-PROP-03, name: "call/put の代表的な境界極限" }
+canonical_examples:
+  - "s=K=100、r=0.03、sigma=0.2、tau=1 で d1=0.25、d2=0.05 を定義から確認"
+  - "平方完成で call/put の正規積分を二つの Phi へ変換"
+  - "call=9.413403384 円、put=6.457956739 円を parity とデルタで照合"
+  - "sigma=0 の確定株価極限と満期の折れ目を区別"
+  - "Simpson 積分と CRR の N=25,100,400 を解析値と独立に照合"
+problem_patterns:
+  - U3-18-A1
+  - U3-18-A2
+  - U3-18-A3
+  - U3-18-A4
+  - U3-18-A5
+  - U3-18-B1
+  - U3-18-B2
+  - U3-18-B3
+  - U3-18-B4
+  - U3-18-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
