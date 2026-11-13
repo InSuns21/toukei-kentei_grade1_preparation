@@ -36,7 +36,38 @@ $$
 \frac\ell L=\frac{2\times10^{-6}}{10^{-3}}=2\times10^{-3}.
 $$
 
-両比は $1$ より十分小さく、少なくとも尺度に関する条件を検査できる。ただし平均量の物理的安定性までは数字だけでは証明されない。$L$ が $10^{-8}$ m に縮むと同じ $\ell$ は $L$ より大きくなり、尺度の条件そのものを失う。
+両比は $1$ より十分小さく、尺度に関する条件を満たす。ただし、長さの比だけでは**平均量の安定性**を確認していない。そこで、平均化が実際に何を残すかを人工的な観測場で検査する。
+
+空間座標を $s$ とし、$|s|\le L/4$ で、正の定数 $\rho_0,U_0$ を用いて密度と $x$ 方向速度の観測値を
+
+$
+\rho_{\mathrm{obs}}(s)=\rho_0\left(1+\frac{s}{10L}+0.01\sin\frac{2\pi s}{a}\right),
+\qquad
+u_{\mathrm{obs}}(s)=U_0\left(1+\frac{s}{5L}+0.01\cos\frac{2\pi s}{a}\right)
+$
+
+とする。微視的な振動の周期は $a$、ゆっくり変わる部分の長さ尺度は $L$ である。この範囲では $\rho_{\mathrm{obs}}>0$ である。中心 $x$ の幅 $h$ の観測窓による平均を、$q=\rho,u$ について
+
+$
+\overline q_h(x)=\frac1h\int_{x-h/2}^{x+h/2}q_{\mathrm{obs}}(s)\,ds
+$
+
+と定める（窓が $|s|\le L/4$ に収まる $x$ を選ぶ）。$h=\ell=2\times10^{-6}$ m と $h=\ell/2=10^{-6}$ m は、それぞれ $a$ の $500$ 倍と $250$ 倍である。したがって、窓の端で位相が違っていても、正弦・余弦の積分は整数周期分だけ打ち消し合う。一方、
+
+$
+\frac1h\int_{x-h/2}^{x+h/2}s\,ds
+=\frac{(x+h/2)^2-(x-h/2)^2}{2h}=x.
+$
+
+よって両方の幅 $h$ について
+
+$
+\overline\rho_h(x)=\rho_0\left(1+\frac{x}{10L}\right),
+\qquad
+\overline u_h(x)=U_0\left(1+\frac{x}{5L}\right).
+$
+
+幅を半分にしても平均密度・平均速度は同じで、巨視的な位置 $x$ による変化は残る。半分の窓でも $a/h=4\times10^{-3}$、$h/L=10^{-3}$ なので尺度分離は維持される。これで**この人工模型については**二つの尺度比と平均量の安定性をともに直接確認できた。実在の流体の局所平衡や構成則を証明したわけではない。例えば $L$ が $10^{-8}$ m に縮むと元の $\ell$ は $L$ より大きくなり、尺度の条件そのものを失う。
 <!-- definition-example-end -->
 
 どのように中間尺度を作ればよいだろう。正の二つの長さの幾何平均を取る方法がある。
@@ -177,7 +208,9 @@ $$
 
 ## 4. なぜ動粘度の単位は長さの二乗毎秒か
 
-単位だけでは、粘性が何をするかは分からない。圧力勾配なし、体積力なしの平行な速度場を考えると、粘性の時間尺度が運動量方程式から直接現れる。
+単位だけでは、粘性が何をするかは分からない。第3節の $u_x(y)$ は $x$ 方向速度を表した。ここでは同じ速度成分が時間にも依存することを明示し、$u(y,t)$ と略記する。$\partial_tu$ は空間座標 $y$ を固定した時間 $t$ による偏微分、$\partial_yu$ と $\partial_y^2u$ は時間 $t$ を固定した $y$ による一階・二階偏微分であり、証明中の $u_t,u_{yy}$ はそれぞれ同じ量の省略表記である。
+
+圧力勾配なし、体積力なしの平行な速度場を考えると、粘性の時間尺度が運動量方程式から直接現れる。
 
 <a id="prop-fluid1-viscous-diffusion"></a>
 
@@ -189,9 +222,9 @@ $$
 $$
 v(x,y,z,t)=(u(y,t),0,0),\qquad
 u\in C^{1,2}(I\times(0,L))
-$$
+$
 
-がNavier–Stokes方程式を満たすなら、
+とする。ここで $C^{1,2}$ は、時間変数 $t$ について一階まで、空間変数 $y$ について二階までの偏導関数（必要な混合偏導関数も含む）が連続であることを表す。この速度場が[CTM15の一定粘性係数の非圧縮Navier–Stokes方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすなら、
 
 $$
 \boxed{\partial_tu=\nu\,\partial_y^2u},\qquad \nu=\frac{\eta}{\rho}.
@@ -242,7 +275,7 @@ $$
 
 ## 5. 界面の張力は粘性と同じではない
 
-二種類の流体の接する境界を**界面**と呼ぶ。水と空気の境目を広げると、界面の自由エネルギーが増える。界面の面積を増やすための可逆仕事から定める物性が表面張力であり、流速の勾配に対する摩擦抵抗を表す粘性係数とは全く違う。
+二種類の流体の接する境界を**界面**と呼ぶ。水と空気の境目を広げる際には仕事が必要である。ここで界面自由エネルギー $F_{\rm surface}$ は、温度・組成などの指定条件を固定して界面を可逆に広げるときの仕事に対応するエネルギー（単位 J）を表す。後で用いる力 $F$（単位 N）とは異なる量である。界面の面積を増やすための仕事から定める物性が表面張力であり、流速の勾配に対する摩擦抵抗を表す粘性係数とは全く違う。
 
 <a id="def-fluid1-surface-tension"></a>
 
@@ -261,7 +294,14 @@ $$
 [\gamma]=\mathrm{J/m^2}=\mathrm{N/m}=\mathrm{kg/s^2}.
 $$
 
-直線状の可動縁の長さが $\ell_b>0$ で、縁を垂直に $dx$ だけ動かして増える面積が $\ell_b\,dx$ なら、その界面が縁を引く力の大きさは $\gamma\ell_b$。同じ面積増加が**表裏の二界面**で起こる膜では力は $2\gamma\ell_b$ となる。
+直線状の可動縁の長さが $\ell_b>0$ で、縁を面積が増える方向へ $dx>0$ だけ動かすとき $dA=\ell_b\,dx$ とする。準静的な外力 $F_{\rm ext}$ の仕事を自由エネルギーの増分に等しく置くと、
+
+$
+F_{\rm ext}\,dx=dF_{\rm surface}=\gamma\ell_b\,dx,
+\qquad F_{\rm ext}=\gamma\ell_b.
+$
+
+ここで $dx>0$ で割った。これは界面が可動縁を反対方向へ引く力の**大きさ**である。同じ面積増加が**表裏の二界面**で起こる膜では全増分が $2\gamma\ell_b\,dx$ となり、力の大きさは $2\gamma\ell_b$ となる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid1-surface-tension -->
@@ -434,7 +474,25 @@ $\mathrm{Re}$ は40倍になっても $\mathrm{Kn}$ は同じ。前者は採用�
 <!-- solution-start -->
 #### 詳細解答
 
-[非圧縮Navier–Stokes方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入すると $\nabla\cdot v=\partial_xu=0$、$(v\cdot\nabla)v=u\partial_xv=0$、$\Delta v=(u_{yy},0,0)$、$\nabla p=0$。従って $\rho u_t=\eta u_{yy}$。$\rho>0$ で割ると $u_t=(\eta/\rho)u_{yy}=\nu u_{yy}$。
+[非圧縮Navier–Stokes方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)に指定された速度場を代入する。$u$ は $y,t$ だけの関数なので、発散と移流項は
+
+$
+\nabla\cdot v=\partial_xu(y,t)=0,\qquad
+(v\cdot\nabla)v=u(y,t)\partial_xv=0.
+$
+
+さらに空間一定圧力と二階空間微分から
+
+$
+\nabla p=0,\qquad \Delta v=(\partial_y^2u,0,0).
+$
+
+よって $x$ 成分は $\rho\,\partial_tu=\eta\,\partial_y^2u$、他の成分は $0=0$ である。$\rho>0$ で割り、[動粘度の定義](#def-fluid1-kinematic-viscosity)を適用すると
+
+$
+\partial_tu=\frac{\eta}{\rho}\partial_y^2u
+=\nu\,\partial_y^2u.
+$
 
 [動粘度](#def-fluid1-kinematic-viscosity)は $\nu=10^{-3}/10^3=10^{-6}\ {\rm m^2/s}$。[粘性時間の命題](#prop-fluid1-viscous-diffusion)より
 
