@@ -10,6 +10,9 @@ prerequisites:
   - VN2
   - FA4
   - CA4
+  - OPT1
+  - AQFT14
+  - VN7
 forward_references: []
 concepts:
   - id: aqft.tomita-conjugate-algebra
