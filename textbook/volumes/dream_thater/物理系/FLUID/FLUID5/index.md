@@ -27,9 +27,9 @@
 
 各時刻の有界領域 $V(t)\subset\mathbb R^3$ とその区分的 $C^1$ 境界 $\partial V(t)$ を考える。基準時刻 $t_0$ の領域 $V_0$ から $V(t)$ への滑らかで向きを保つ可逆写像 $\Psi_t:V_0\to V(t)$（$\Psi_{t_0}$ は恒等写像）があるとする。その位置 $x=\Psi_t(X)$ での領域運動の速度を
 
-$
+$$
 w(x,t)=\partial_t\Psi_t(\Psi_t^{-1}(x))
-$
+$$
 
 と定め、境界にも制限する。ここで $\partial_t\Psi_t(X)$ は基準点 $X$ を固定した偏微分であり、$w$ は体積内部にも定義されている。このとき $V(t)$ を**移動検査体積**、$w\cdot n$ を境界の外向き法線速度と呼ぶ。$w=0$ なら固定検査体積、境界上で $w\cdot n=u\cdot n$ なら物質が境界を通過しない検査体積である。
 <!-- formal-statement-end -->
@@ -39,15 +39,15 @@ $
 
 断面積 $A>0$ の直線管で、左右の検査面を $x=0$ と $x=L(t)$（$L(t)>0$）に取る。基準時刻 $t_0$ の長さを $L_0=L(t_0)>0$ とし、一定の断面 $S$ 上の基準点 $X=(X_1,X_2,X_3)$（$0<X_1<L_0$、$(X_2,X_3)\in S$）を
 
-$
+$$
 \Psi_t(X)=\left(\frac{L(t)}{L_0}X_1,X_2,X_3\right)
-$
+$$
 
 で移す。$\Psi_{t_0}$ は恒等写像であり、$\det D_X\Psi_t=L(t)/L_0>0$ だから逆写像が存在する。$x_1=L(t)X_1/L_0$ と固定ラベル $X_1$ の時間微分を対応させると、
 
-$
+$$
 w(x,t)=\left(\frac{L'(t)}{L(t)}x_1,0,0\right).
-$
+$$
 
 左端 $x_1=0$ の速度は $w=0$、右端 $x_1=L(t)$ は $w=L'(t)e_x$ となる。外向き法線は左で $n=-e_x$、右で $n=e_x$ なので、$w\cdot n$ はそれぞれ $0$ と $L'(t)$ である。側面上の $w$ は面に接する方向を向き、$w\cdot n=0$ である。これで可逆写像、二つの端面速度、側面の非貫通条件を同じ構成から確認した。
 <!-- definition-example-end -->
@@ -124,14 +124,14 @@ $$
 
 第1節の写像 $\Psi_t$ によって $V(t)$ を $V_0$ へ戻す。$J_t=\det D_X\Psi_t>0$ とおくと、[Reynolds 輸送定理の導出](../../CTM/CTM5/index.md#thm-ctm5-material-reynolds)で用いた連鎖律と Jacobian の時間微分を、今回は粒子速度 $u$ でなく領域速度 $w$ に適用できる。実際、$X$ を固定して
 
-$
+$$
 \begin{aligned}
 \frac{d}{dt}\bigl[\rho(\Psi_t(X),t)J_t(X)\bigr]
 &=\bigl[\partial_t\rho+w\cdot\nabla\rho
 +\rho\,\nabla\cdot w\bigr](\Psi_t(X),t)J_t(X)\\
 &=\bigl[\partial_t\rho+\nabla\cdot(\rho w)\bigr](\Psi_t(X),t)J_t(X)
 \end{aligned}
-$
+$$
 
 となる。ここでは $\partial_tJ_t=J_t(\nabla\cdot w)\circ\Psi_t$ を使った。$w$ が体積内部に定義されるのは第1節の領域写像によるもので、最終的な流束には境界での法線成分だけが残る。したがって
 
