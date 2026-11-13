@@ -1,0 +1,35 @@
+chapter: U3-22
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-11, U3-16, U3-17, U3-18, U3-19]
+concepts:
+  - id: finance.explicit-bsm-grid
+    name: 残存時間・株価一様格子と節点値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（残存時間・株価一様格子と節点値）"]
+    requires: [finance.bsm-continuous-dividend, finance.risk-neutral-terminal-value]
+  - id: finance.explicit-bsm-three-point
+    name: 格子上の陽的三点更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子上の陽的三点更新）"]
+    requires: [finance.explicit-bsm-grid]
+  - id: finance.explicit-bsm-truncation
+    name: 陽的更新の局所打切り誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（陽的更新の局所打切り誤差）"]
+    requires: [finance.explicit-bsm-three-point]
+  - id: finance.explicit-bsm-maximum-principle
+    name: 陽的三点更新の非負性と最大値安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（陽的三点更新の非負性と最大値安定性）"]
+    requires: [finance.explicit-bsm-three-point]
+  - id: finance.explicit-bsm-convergence-bound
+    name: 滑らかな解に対する誤差評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな解に対する誤差評価）"]
+    requires: [finance.explicit-bsm-truncation, finance.explicit-bsm-maximum-principle]
