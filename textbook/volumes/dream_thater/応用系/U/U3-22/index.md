@@ -8,6 +8,8 @@
 
 金額は円、時間は年とします。満期 $T>0$、株価 $s>0$、利率 $r\ge0$ と連続配当利回り $q\ge0$ は年$^{-1}$、ボラティリティ $\sigma>0$ は年$^{-1/2}$ とします。株価はリスク中立測度 $Q$ の下で $dS_t=(r-q)S_tdt+\sigma S_tdW_t^Q$ に従います。ここで扱う $v(t,s)$ は満期支払額 $g(S_T)$ に対する欧州型価格です。
 
+以下で $v_t=\partial v/\partial t$ は株価 $s$ を固定した時間偏微分、$v_s=\partial v/\partial s$ と $v_{ss}=\partial^2v/\partial s^2$ は時刻 $t$ を固定した株価偏微分です。
+
 [配当付き BSM 方程式](../U3-16/index.md#prop-u3-16-dividend-pde)では、満期 $v(T,s)=g(s)$ と偏微分方程式
 
 $$
@@ -20,7 +22,7 @@ $$
 u(\tau,s)=v(T-\tau,s)
 $$
 
-を使います。固定した $s$ で $t=T-\tau$ の微分は $dt/d\tau=-1$ ですから、連鎖律により
+を使います。ここで $u_\tau=\partial u/\partial\tau$ は株価 $s$ を固定して残存時間 $\tau$ で微分した量です。固定した $s$ で $t=T-\tau$ の微分は $dt/d\tau=-1$ ですから、連鎖律により
 
 $$
 u_\tau(\tau,s)=-v_t(T-\tau,s),\qquad
@@ -230,6 +232,20 @@ $k>0$ のどの刻みにもこの符号問題が残ります。上の定理の�
 
 非負性と安定性だけでは、元の PDE を正しく近似しているとは言えません。格子に真の滑らかな解を入れたとき、更新式の残差が小さくなることも必要です。これは[NA6 の局所打切り誤差の定義](../../../計算系/NA/NA6/index.md#def-na6-local-error)と同じく、厳密解を一歩の更新に入れて測る残差です。本講では空間差分も含めてその量を具体的に計算します。満期の call/put は $s=K$ で折れ目を持つため、滑らかさを仮定できる範囲を明示します。
 
+ここで使う空間差分記号は、数値値 $U_i^n$ ではなく**厳密解 $u$ を格子点へ代入したもの**です。時点 $n$ と内部節点 $i$ を固定し、
+
+$$
+\delta_su(\tau_n,s_i)
+:=\frac{u(\tau_n,s_i+h)-u(\tau_n,s_i-h)}{2h},
+$$
+
+$$
+\delta_{ss}u(\tau_n,s_i)
+:=\frac{u(\tau_n,s_i+h)-2u(\tau_n,s_i)+u(\tau_n,s_i-h)}{h^2}
+$$
+
+と定めます。$\delta_s$ は株価方向の一階中心差分、$\delta_{ss}$ は同じ変数についての二階中心差分で、両者とも残存時間 $\tau_n$ は固定します。第3節の数値差分式の $U$ を厳密な節点値 $u(\tau_n,s_j)$ に置き換えた式です。
+
 <a id="prop-u3-22-consistency"></a>
 
 <!-- formal-statement-start -->
@@ -267,19 +283,30 @@ u(\tau_n+k,s_i)
 +\frac{k^2}{2}u_{\tau\tau}(\xi,s_i).
 $$
 
-従って時間差分は $u_\tau+O(k)$ です。空間について $s_i\pm h$ の Taylor 展開を4次まで行い、偶数・奇数の項をそれぞれ足し引きすると
+従って時間差分は $u_\tau(\tau_n,s_i)+\frac{k}{2}u_{\tau\tau}(\xi,s_i)$ で、時間誤差は $O(k)$ です。空間については固定した $\tau_n$ で $s_i$ を基点に [Taylor の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)を用いると、$s_i$ と $s_i\pm h$ の間の点 $\eta_\pm$ が存在して
 
 $$
-\frac{u(\tau_n,s_i+h)-u(\tau_n,s_i-h)}{2h}
-=u_s(\tau_n,s_i)+O(h^2),
+\begin{aligned}
+u(\tau_n,s_i\pm h)
+&=u\pm hu_s+\frac{h^2}{2}u_{ss}
+\pm\frac{h^3}{6}u_{sss}
++\frac{h^4}{24}u_{ssss}(\tau_n,\eta_\pm).
+\end{aligned}
 $$
 
+ここで添字のない右辺の $u,u_s,u_{ss},u_{sss}$ はすべて $(\tau_n,s_i)$ で評価しています。二式を引いて $2h$ で割り、また二式を足して $2u$ を引いて $h^2$ で割ると、
+
 $$
-\frac{u(\tau_n,s_i+h)-2u(\tau_n,s_i)+u(\tau_n,s_i-h)}{h^2}
-=u_{ss}(\tau_n,s_i)+O(h^2).
+\begin{aligned}
+\delta_su
+&=u_s+\frac{h^2}{6}u_{sss}
++\frac{h^3}{48}\{u_{ssss}(\tau_n,\eta_+)-u_{ssss}(\tau_n,\eta_-)\},\\
+\delta_{ss}u
+&=u_{ss}+\frac{h^2}{24}\{u_{ssss}(\tau_n,\eta_+)+u_{ssss}(\tau_n,\eta_-)\}.
+\end{aligned}
 $$
 
-最初の余項は $u_{sss}$、後者は $u_{ssss}$ の一様有界性によって制御されます。$s_i\le S_{\max}$ なので $\sigma^2s_i^2/2$ と $(r-q)s_i$ も格子全体で有界です。三つの誤差を残差へ代入すると
+$u_{sss}$ と $u_{ssss}$ の一様有界性から、どちらの空間差分誤差も $O(h^2)$ です。$s_i\le S_{\max}$ なので $\sigma^2s_i^2/2$ と $(r-q)s_i$ も格子全体で有界です。三つの誤差を残差へ代入すると
 
 $$
 \rho_i^n
@@ -385,7 +412,7 @@ $S_{\max}=300$ 円で株価格子数 $M$ を増やすとき、$k$ は前節の�
 $v_t+\tfrac12\sigma^2s^2v_{ss}+(r-q)sv_s-rv=0$、$v(T,s)=g(s)$ から、$u(\tau,s)=v(T-\tau,s)$ の方程式と初期値を導け。
 
 <!-- solution-start -->
-**詳細解答**：$t=T-\tau$ を固定した $s$ に関する連鎖律から $u_\tau=-v_t$、$u_s=v_s$、$u_{ss}=v_{ss}$ です。元の方程式を $v_t=-\tfrac12\sigma^2s^2v_{ss}-(r-q)sv_s+rv$ と解き、両辺に $-1$ を掛けると
+**詳細解答**：株価 $s$ を固定し、$t=T-\tau$ と置いた連鎖律から $u_\tau=-v_t$、$u_s=v_s$、$u_{ss}=v_{ss}$ です。元の方程式を $v_t=-\tfrac12\sigma^2s^2v_{ss}-(r-q)sv_s+rv$ と解き、両辺に $-1$ を掛けると
 
 $$
 u_\tau=\tfrac12\sigma^2s^2u_{ss}+(r-q)su_s-ru.
