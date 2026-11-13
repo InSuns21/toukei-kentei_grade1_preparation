@@ -25,11 +25,27 @@ $$
 
 である。ここで $\partial_j=\partial/\partial X_j$ とし、重複添字は $1,2,3$ について和を取る。$I_3$ は単位行列、$a\cdot b$ は内積、$A:B=\sum_{i,j}A_{ij}B_{ij}$ である。$\nabla(\operatorname{div}u)$ は成分 $\partial_i(\sum_j\partial_j u_j)$ のベクトル、$\Delta u$ は各成分に Laplace 作用素を施したベクトルである。
 
+標準直交基底を $e_1,e_2,e_3$ と書く。列ベクトル $p,q\in\mathbb R^3$ に対し、$pq^T$ は次の成分と作用を持つ $3\times3$ 行列である。
+
+$$
+(pq^T)a=p(q\cdot a),\qquad (pq^T)_{ij}=p_iq_j.
+$$
+
+時間微分は空間の点 $X$ を固定して行い、次の略記を使う。
+
+$$
+u_t=\frac{\partial u}{\partial t},\qquad
+u_{tt}=\frac{\partial^2u}{\partial t^2},\qquad
+(u_i)_{tt}=u_{i,tt}=\partial_t^2u_i.
+$$
+
+これに対し空間微分 $\partial_j$ は時刻 $t$ を固定する。演習のスカラー関数 $w(X_1,t)$ でも同じ規約を使い、$w_{X_1}=\partial_1w$、$w_{X_1X_1}=\partial_1^2w$、$w_{tt}=\partial_t^2w$ と表す。
+
 この章の波の基本設定では体積力を零とする。局所的な波をまず無限媒質で検討するため、境界条件はない。一方、有限物体を考える節では、[CTM12 の変位・表面力境界条件](../CTM12/index.md#def-ctm12-boundary-data)を時間ごとに与え、初期変位と初期速度を別に指定する。無限媒質の波を任意の有限物体にそのまま当てはめることはしない。
 
 ## 1. 静的釣合に慣性を戻す
 
-[CTM7 の局所運動量収支](../CTM7/index.md#thm-ctm7-material-momentum)の加速度項を残す。基準密度が一定で初期状態が静止している小変形近似では、材料粒子の加速度を $u_{tt}$ とし、一次の精度で $\rho_0u_{tt}=\operatorname{div}\sigma$ を得る。力の単位は左右とも N/m$^3$ である。
+[CTM7 の局所運動量収支](../CTM7/index.md#thm-ctm7-material-momentum)の加速度項を残す。基準密度が一定で、基準配置が静止した応力零の状態にある小変形近似では、材料粒子の加速度を $u_{tt}=\partial_t^2u$ とし、一次の精度で $\rho_0u_{tt}=\operatorname{div}\sigma$ を得る。この近似は、波の初期速度 $u_t(X,0)$ を零に制限するものではない。力の単位は左右とも N/m$^3$ である。
 
 成分 $i$ の発散を実際に計算すると
 
@@ -137,7 +153,7 @@ $$
 Q(n)a=\mu a+(\lambda+\mu)n(n\cdot a)
 $$
 
-で定める。標準直交基底での行列は
+で定める。ここで $a=\sum_j a_je_j$ と置けば $n^Ta=\sum_jn_ja_j=n\cdot a$ だから、$(nn^T)a=n(n\cdot a)$ である。従って、この線形写像の標準直交基底での行列は $(Q(n))_{ij}=\mu\delta_{ij}+(\lambda+\mu)n_in_j$、すなわち
 
 $$
 Q(n)=\mu I_3+(\lambda+\mu)nn^T
@@ -266,7 +282,7 @@ $k$（波数）と $K$（体積弾性率）、$\lambda$（Lamé 係数）と $\L
 
 今までは特定の単色波を代入して解いた。一般の滑らかな変位場にも、発散と回転を取れば、どの成分がどの係数で伝わるかを確認できる。
 
-**体積の一次変化**は $\vartheta:=\operatorname{div}u$ で測り、局所的な回転成分は $\zeta:=\operatorname{curl}u$ で測る。[微小ひずみと体積変化の関係](../CTM11/index.md#def-ctm11-isotropic-linear-elastic)を念頭に置く。$\operatorname{curl}u=(\partial_2u_3-\partial_3u_2,\partial_3u_1-\partial_1u_3,\partial_1u_2-\partial_2u_1)$ とここでは成分で定義して用いる。
+**体積の一次変化**は $\vartheta:=\operatorname{div}u$ で測る。[微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)から $\operatorname{tr}\varepsilon(u)=\sum_i\partial_i u_i=\operatorname{div}u$ と確かめられる。局所的な回転成分は $\zeta:=\operatorname{curl}u$ で測る。$\operatorname{curl}u=(\partial_2u_3-\partial_3u_2,\partial_3u_1-\partial_1u_3,\partial_1u_2-\partial_2u_1)$ とここでは成分で定義して用いる。
 
 <a id="prop-ctm13-div-curl"></a>
 
@@ -314,7 +330,20 @@ $$
 \end{aligned}
 $$
 
-第2、第3成分は添字を循環させれば同じ交換計算であり、$\rho_0>0$ で割って結論を得る。有限領域では $\vartheta,\zeta$ だけに対する境界条件はもとの $u$ の境界条件と同じ情報とは限らない。□
+第2、第3成分についても、勾配項の混合偏微分が相殺することを明記すると
+
+$$
+\begin{aligned}
+\rho_0(\zeta_2)_{tt}
+&=\partial_3(\rho_0u_{1,tt})-\partial_1(\rho_0u_{3,tt})
+=\mu\Delta(\partial_3u_1-\partial_1u_3)=\mu\Delta\zeta_2,\\
+\rho_0(\zeta_3)_{tt}
+&=\partial_1(\rho_0u_{2,tt})-\partial_2(\rho_0u_{1,tt})
+=\mu\Delta(\partial_1u_2-\partial_2u_1)=\mu\Delta\zeta_3.
+\end{aligned}
+$$
+
+$\rho_0>0$ で割って結論を得る。有限領域では $\vartheta,\zeta$ だけに対する境界条件はもとの $u$ の境界条件と同じ情報とは限らない。□
 <!-- proof-end -->
 
 同一方向 $n$ の波の初期振幅 $A=A_L+A_T$ を考えるなら、初期速度零の場合の具体的な重ね合わせは
@@ -362,7 +391,24 @@ u_t=a\omega e_2\sin\theta,\quad
 \varepsilon=-\frac{ak}{2}(e_1e_2^T+e_2e_1^T)\sin\theta.
 $$
 
-$\operatorname{tr}\varepsilon=0$ かつ $\varepsilon:\varepsilon=(ak)^2\sin^2\theta/2$ より $W=\mu a^2k^2\sin^2\theta/2$ である。応力は $\sigma=-\mu ak(e_1e_2^T+e_2e_1^T)\sin\theta$ だから $j=-\sigma u_t=\mu a^2k\omega\sin^2\theta\,e_1$。定義の両項が正確に計算され、エネルギーは $e_1$ 方向へ流れる。$\omega=c_Tk$ のときだけ、この候補は運動方程式の解になる。
+$\operatorname{tr}\varepsilon=0$ かつ $\varepsilon:\varepsilon=(ak)^2\sin^2\theta/2$ より、蓄積エネルギーと運動エネルギーはそれぞれ
+
+$$
+W=\frac{\mu a^2k^2}{2}\sin^2\theta,\qquad
+\frac{\rho_0}{2}|u_t|^2=\frac{\rho_0a^2\omega^2}{2}\sin^2\theta.
+$$
+
+従って、定義に戻して全エネルギー密度と流束を計算すると
+
+$$
+\begin{aligned}
+e&=\frac{a^2}{2}(\rho_0\omega^2+\mu k^2)\sin^2\theta,\\
+\sigma&=-\mu ak(e_1e_2^T+e_2e_1^T)\sin\theta,\\
+j&=-\sigma u_t=\mu a^2k\omega\sin^2\theta\,e_1.
+\end{aligned}
+$$
+
+ここでは $e_1e_2^Te_2=e_1$、$e_2e_1^Te_2=0$ を用いた。$\omega=c_Tk$ のときだけ、この候補は運動方程式の解になり、その場合 $\mu k^2=\rho_0\omega^2$ なので $e=\rho_0a^2\omega^2\sin^2\theta$、$j=c_Te\,e_1$ まで確認できる。
 <!-- definition-example-end -->
 
 <a id="prop-ctm13-energy-balance"></a>
@@ -454,7 +500,23 @@ $$
 \sigma=\operatorname{diag}((\lambda+2\mu)\partial_1w,\lambda\partial_1w,\lambda\partial_1w)
 $$
 
-を与える。側面 $n=\pm e_2,\pm e_3$ には $\pm\lambda(\partial_1w)n$ が作用し、一般には自由側面の traction $\sigma n=0$ を満たさない。**細い自由側面の棒**の一次元近似では横収縮を許し Young 率 $E_Y$ による速度 $\sqrt{E_Y/\rho_0}$ が現れるが、これは三次元の平面縦波に追加の棒近似を課した別の模型であり、本章の $c_L$ と同一視しない。
+を与える。側面の外向き法線を $n_{\partial\Omega}=\pm e_2,\pm e_3$ とすると、その traction は $\sigma n_{\partial\Omega}=\lambda(\partial_1w)n_{\partial\Omega}$ であり、一般には自由側面の条件 $\sigma n_{\partial\Omega}=0$ を満たさない。
+
+**細い自由側面の棒**の一次元近似では横収縮を許し、側面の横応力を $\sigma_{22}=\sigma_{33}=0$ と近似する。横ひずみを $\varepsilon_{22}=\varepsilon_{33}=q$、軸ひずみを $\varepsilon_{11}=p$ とおくと、Hooke 則から
+
+$$
+0=\lambda(p+2q)+2\mu q,\qquad
+q=-\frac{\lambda}{2(\lambda+\mu)}p
+$$
+
+となる。正定値条件より $\lambda+\mu=K+\mu/3>0$ なので除算できる。これを軸応力に戻すと
+
+$$
+\sigma_{11}=\lambda(p+2q)+2\mu p
+=\frac{\mu(3\lambda+2\mu)}{\lambda+\mu}p=E_Yp.
+$$
+
+最後の係数は [CTM11 の弾性定数の関係](../CTM11/index.md#thm-ctm11-elastic-constants)に一致する。この棒模型で横方向の慣性・断面内の詳細な変形を無視して軸方向の釣合を取ると、波速 $\sqrt{E_Y/\rho_0}$ が現れる。これは三次元の平面縦波に追加の棒近似を課した**別の模型**であり、本章の $c_L$ と同一視しない。
 
 有限物体の解の実例として、$0<X_1<L$, $0<X_2<H$, $0<X_3<D$ を考え、$k=\pi/L$, $\omega=c_Tk$、$a>0$ を十分小さく取る。横向きの**定在波**を
 
