@@ -460,7 +460,7 @@ E[Z_nS_t]=E[Z_n E[S_t\mid\mathcal F_u]]
 =e^{\mu(t-u)}E[Z_nS_u].
 $$
 
-$S_u,S_t>0$ で、[実数モーメント](#prop-u3-14-moments) から二次モーメントが有限です。Cauchy–Schwarz の不等式により $E[S_uS_t]<\infty$ でもあります。$0\le Z_nS_t\le S_uS_t$、$0\le Z_nS_u\le S_u^2$ なので、[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) を使い $n\to\infty$ とすると
+$S_u,S_t>0$ で、[実数モーメント](#prop-u3-14-moments) から二次モーメントが有限です。[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) により $E[S_uS_t]\le\sqrt{E[S_u^2]E[S_t^2]}<\infty$ でもあります。$0\le Z_nS_t\le S_uS_t$、$0\le Z_nS_u\le S_u^2$ なので、[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) を使い $n\to\infty$ とすると
 
 $$
 E[S_uS_t]=e^{\mu(t-u)}E[S_u^2].
