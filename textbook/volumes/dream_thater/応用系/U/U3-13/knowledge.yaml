@@ -1,0 +1,31 @@
+chapter: U3-13
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-12, STO7]
+forward_references:
+  - stochastic.brownian-sde
+concepts:
+  - id: finance.ito-log-stock-transform
+    name: 正の株価の Itô 対数変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正の株価の Itô 対数変換）"]
+    requires: [stochastic.ito-process-formula]
+  - id: finance.ito-discount-stock-drift
+    name: 割引株価のドリフト
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（割引株価のドリフト）"]
+    requires: [finance.ito-log-stock-transform, stochastic.ito-process-formula]
+  - id: finance.ito-discounted-value-function
+    name: 滑らかな価値関数の割引過程
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな価値関数の割引過程）"]
+    requires: [stochastic.ito-process-formula]
+  - id: finance.ito-stock-power-transform
+    name: 株価のべきと二次受取額
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（株価のべきと二次受取額）"]
+    requires: [finance.ito-log-stock-transform, stochastic.ito-process-formula]

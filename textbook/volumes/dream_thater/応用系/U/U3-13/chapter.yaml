@@ -1,0 +1,40 @@
+id: "U3-13"
+title: "金融モデルへの Itô 公式の適用"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-12, STO7]
+official_scope: []
+learning_objectives:
+  - 正値連続株価モデルと時間依存 Itô 公式の係数・定義域・局所化条件を明示できる
+  - 株価の対数変換を微分して負の二次変分補正を導出できる
+  - 預金で割引した株価のドリフトと拡散係数を計算できる
+  - 定数係数モデルの条件付き正規指数モーメントから真のマルチンゲール性を判定できる
+  - 滑らかな価格関数の割引過程を変換し局所マルチンゲールと価格付けの違いを説明できる
+  - 株価のべき変換と二乗受取額の期待割引額を求め U3-11 の極限と照合できる
+  - Python で対数増分・割引平均の理論値と標本誤差を再現できる
+definitions: []
+theorems:
+  - { id: U3-13-PROP-01, name: "正の株価の Itô 対数変換" }
+  - { id: U3-13-PROP-02, name: "割引株価のドリフト" }
+  - { id: U3-13-PROP-03, name: "滑らかな価値関数の割引過程" }
+  - { id: U3-13-PROP-04, name: "株価のべきと二次受取額" }
+canonical_examples:
+  - "mu=0.08, sigma=0.20 の対数ドリフトが 0.06 になることを検算する"
+  - "S0=100, mu=0.08, r=0.03, sigma=0.20, T=1 の期待割引株価が 105.1271 円になる"
+  - "mu=r の割引株価と割引二乗株価のドリフトを比較する"
+  - "Python による対数増分と割引平均の Monte Carlo 標本誤差の照合"
+problem_patterns:
+  - U3-13-A1
+  - U3-13-A2
+  - U3-13-A3
+  - U3-13-A4
+  - U3-13-A5
+  - U3-13-B1
+  - U3-13-B2
+  - U3-13-B3
+  - U3-13-B4
+  - U3-13-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
