@@ -3,7 +3,7 @@
 <desc id="desc">上壁と下壁は静止。左の高い入口圧力から右の低い出口圧力へ流れる。中央に向かうほど右向きの速度矢印が長くなり、先端は放物型の破線に並ぶ。上下壁から流体へ働くせん断 traction は両方とも左向き。流量 q は右向き。</desc>
 <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L6 3 L0 6 Z" fill="#1f5678"/></marker><marker id="drag" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L6 3 L0 6 Z" fill="#8a3e37"/></marker></defs>
 <rect width="920" height="420" fill="#ffffff"/>
-<rect x=""176" y="102" width="600" height="214" fill="#f4f8fb"/>
+<rect x="176" y="102" width="600" height="214" fill="#f4f8fb"/>
 <path d="M176 102 H776 M176 316 H776" stroke="#263746" stroke-width="7" fill="none"/>
 <text x="430" y="76" font-size="19" text-anchor="middle" fill="#263746">y = +h</text>
 <text x="430" y="350" font-size="19" text-anchor="middle" fill="#263746">y = -h</text>
