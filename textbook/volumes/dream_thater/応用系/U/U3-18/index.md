@@ -15,6 +15,8 @@ S_T=s\exp\left((r-\tfrac12\sigma^2)\tau+\sigma\sqrt{\tau}\,Z\right),
 \qquad Z\sim N(0,1).
 $$
 
+以降、$S_T$ は初期状態 $(t,s)$ から出発する $Q$ 下の満期株価 $S_T^{t,s}$（[前講の評価関数](../U3-17/index.md#def-u3-17-valuation)での記法）の略記です。$E_Q[\cdot]$ もこの初期状態での期待値を表し、$Q(S_T>K\mid S_t=s)$ は同じ初期状態から見た行使確率です。
+
 call が正の支払額を持つのは $S_T>K$ のときだけです。両辺の対数を取り、$\sigma\sqrt{\tau}>0$ で割ると
 
 $$
@@ -55,8 +57,15 @@ $$
 
 標準正規分布の対称性 $\phi(-z)=\phi(z)$ により $\Phi(-x)=1-\Phi(x)$ です。よって上の変換と合わせると
 
+$Z$ は $Q$ 下の標準正規変数であり、$W_T^Q-W_t^Q$ は時刻 $t$ までの情報と独立です。従って、実確率測度 $P$ に切り替えることなく
+
 $$
-Q(S_T>K\mid S_t=s)=P(Z>-d_2)=\Phi(d_2).
+\begin{aligned}
+Q(S_T>K\mid S_t=s)
+&=Q(Z>-d_2\mid S_t=s)\\
+&=\int_{-d_2}^{\infty}\phi(z)\,dz
+=\Phi(d_2).
+\end{aligned}
 $$
 
 ここで $\Phi(d_2)$ は「満期に権利を行使する $Q$ 確率」であり、$\Phi(d_1)$ とは一般に異なります。
@@ -104,7 +113,17 @@ $$
 \end{aligned}
 $$
 
-下側も同じ置換で積分上端が $b-a$ となり、$e^{a^2/2}\Phi(b-a)$ を得ます。$a=0$ の場合は普通の正規尾確率へ戻ります。
+下側積分では $y=z-a$ とすると下端 $-\infty$ は変わらず、上端 $b$ は $b-a$ へ移ります。従って
+
+$$
+\begin{aligned}
+\int_{-\infty}^b e^{az}\phi(z)\,dz
+&=e^{a^2/2}\int_{-\infty}^{b-a}\phi(y)\,dy\\
+&=e^{a^2/2}\Phi(b-a).
+\end{aligned}
+$$
+
+$a=0$ の場合は普通の正規尾確率へ戻ります。
 <!-- proof-end -->
 
 この補題を $a=\sigma\sqrt{\tau}$、$b=-d_2$ として用いると、$a-b=d_1$ です。$S_T$ が掛かる項には $\Phi(d_1)$ が現れ、現金の $K$ が掛かる項には $\Phi(d_2)$ が現れます。
@@ -129,7 +148,7 @@ $$
 \boxed{P(t,s)=Ke^{-r\tau}\Phi(-d_2)-s\Phi(-d_1)}
 $$
 
-> である。いずれも $t<T$ では $C^{1,2}$ 級の BSM PDE の解で、満期では各支払額へ連続に接続する。$P$ と $Q$ の測度は区別し、ここで使う期待値は $Q$ に関するものである。
+> である。いずれも $t<T$ では $C^{1,2}$ 級の BSM PDE の解で、満期では各支払額へ連続に接続する。期待値に使うのはリスク中立測度 $Q$ であり、実確率測度 $P$ とは異なる。なお価格関数 $P(t,s)$ の $P$ は put の略であり、確率測度を表す記号ではない。
 <!-- formal-statement-end -->
 
 **見取り図**：支払額を「株価項 − 行使価格項」に分け、それぞれの積分を確率と指数重み付き確率に変換します。put は下側積分でも直接求め、最後に parity で両者を照合します。
@@ -296,7 +315,14 @@ $$
 C\ge s-Ke^{-r\tau},\qquad 0\le C\le s.
 $$
 
-この二つから call の下界が従います。同様に $(K-x)_+\ge K-x$、$0\le (K-x)_+\le K$ から put の上下界を得ます。負金利 $r<0$ でも $e^{-r\tau}>0$ なので同じ論証が成立します。
+この二つから call の下界が従います。put では各標本 $x=S_T>0$ について $(K-x)_+\ge K-x$ と $0\le(K-x)_+\le K$ をそれぞれ割引期待値に移して
+
+$$
+P\ge Ke^{-r\tau}-e^{-r\tau}E_Q[S_T]=Ke^{-r\tau}-s,
+\qquad 0\le P\le Ke^{-r\tau}
+$$
+
+を得ます。従って $(Ke^{-r\tau}-s)_+\le P\le Ke^{-r\tau}$ です。負金利 $r<0$ でも $e^{-r\tau}>0$ なので同じ論証が成立します。
 <!-- proof-end -->
 
 価格上界は権利行使価格に対する単なる直感ではなく、**各標本での支払額の大小関係**を割引期待値へ移したものです。
@@ -346,7 +372,13 @@ X_{\tau,\sigma}
 =s\exp((r-\sigma^2/2)\tau+\sigma\sqrt{\tau}Z)
 $$
 
-を構成します。$\tau\downarrow0$（$\sigma$ 固定）では $X_{\tau,\sigma}\to s$、$\sigma\downarrow0$（$\tau$ 固定）では $X_{\tau,\sigma}\to se^{r\tau}$ がほとんど確実に成り立ちます。どちらの場合もパラメータを上限のある区間に制限すると $X_{\tau,\sigma}$ は定数倍の $e^{M|Z|}$（有限 $M$）以下で抑えられ、その期待値は有限です。call・put の支払関数は連続で、絶対値が $X_{\tau,\sigma}+K$ 以下なので支配収束定理で期待値を交換できます。割引因子も連続ですから（1）と（2）が従います。
+を構成します。$\tau\downarrow0$（$\sigma$ 固定）では $X_{\tau,\sigma}\to s$、$\sigma\downarrow0$（$\tau$ 固定）では $X_{\tau,\sigma}\to se^{r\tau}$ がほとんど確実に成り立ちます。どちらの場合もパラメータを上限のある区間に制限すると $X_{\tau,\sigma}$ は定数倍の $e^{M|Z|}$（有限 $M$）以下で抑えられ、その期待値は有限です。実際、$Z$ の標準正規対称性と指数モーメントから
+
+$$
+E_Q[e^{M|Z|}]\le E_Q[e^{MZ}]+E_Q[e^{-MZ}]=2e^{M^2/2}<\infty.
+$$
+
+call・put の支払関数は連続で、絶対値が $X_{\tau,\sigma}+K$ 以下なので支配収束定理で期待値を交換できます。割引因子も連続ですから（1）と（2）が従います。
 
 （3）の $s\downarrow0$ では、$X_{\tau,\sigma}=sY$、$Y>0$ は $s$ と独立で $E_Q[Y]=e^{r\tau}$ です。$0\le C\le s$ より $C\to0$、[parity](../U3-05/index.md#thm-u3-05-parity)で $P=C-s+Ke^{-r\tau}\to Ke^{-r\tau}$ です。
 
@@ -388,7 +420,7 @@ CRR の誤差は刻み数に対して必ず単調減少するわけではあり�
 ### U3-18-A1：行使領域の符号
 - Level: A
 
-$S_T=s\exp((r-\sigma^2/2)\tau+\sigma\sqrt{\tau}Z)$ で $Z\sim N(0,1)$ とする。$S_T>K$ を $Z$ の不等式へ変換し、$Q(S_T>K)$ を $\Phi$ で示せ。
+$S_T=s\exp((r-\sigma^2/2)\tau+\sigma\sqrt{\tau}Z)$ で $Z\sim N(0,1)$ とする。$S_T>K$ を $Z$ の不等式へ変換し、初期状態 $S_t=s$ からの確率 $Q(S_T>K\mid S_t=s)$ を $\Phi$ で示せ。
 
 <!-- solution-start -->
 **詳細解答**：$s,K>0$ なので対数は取れます。$S_T>K$ を $\log(S_T/s)>\log(K/s)$ と書いて、
@@ -400,7 +432,7 @@ $$
 $\sigma\sqrt{\tau}>0$ で割ると $Z>[\log(K/s)-(r-\sigma^2/2)\tau]/(\sigma\sqrt{\tau})=-d_2$ です。従って
 
 $$
-Q(S_T>K)=1-\Phi(-d_2)=\Phi(d_2).
+Q(S_T>K\mid S_t=s)=1-\Phi(-d_2)=\Phi(d_2).
 $$
 
 負の閾値を $d_2$ と取り違えないようにします。
