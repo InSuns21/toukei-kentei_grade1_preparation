@@ -19,7 +19,7 @@
   <line x1="430" y1="286" x2="430" y2="242" stroke="#17628c" stroke-width="3.6" marker-end="url(#pressure-head)"/>
   <line x1="478" y1="180" x2="478" y2="223" stroke="#a04438" stroke-width="3.6" marker-end="url(#gravity-head)"/>
   <line x1="666" y1="300" x2="666" y2="92" stroke="#273442" stroke-width="2.7" marker-end="url(#axis-head)"/>
-  <text x="323" y="110" font-family="Arial, sans-serif" font-size="20" fill="#154968">p(z+Δz)A</text>
+  <text x="305" y="137" font-family="Arial, sans-serif" font-size="20" fill="#154968">p(z+Δz)A</text>
   <text x="450" y="310" font-family="Arial, sans-serif" font-size="20" fill="#154968">p(z)A</text>
   <text x="500" y="206" font-family="Arial, sans-serif" font-size="21" fill="#7b3227">mg</text>
   <text x="212" y="168" font-family="Arial, sans-serif" font-size="21" fill="#263846">z+Δz</text>
