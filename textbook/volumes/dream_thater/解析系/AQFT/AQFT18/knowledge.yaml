@@ -1,0 +1,58 @@
+chapter: AQFT18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT13
+  - VN6
+forward_references: []
+concepts:
+  - id: aqft.standard-pair
+    name: 標準対
+    kind: definition
+    introduction: formal
+    requires: [aqft.local-cyclic-vector, aqft.separating-vector]
+  - id: aqft.antilinear-operator
+    name: 反線形作用素
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: aqft.closable-antilinear-operator
+    name: 可閉作用素・閉包
+    kind: definition
+    introduction: formal
+    requires: [aqft.antilinear-operator]
+  - id: aqft.tomita-preoperator
+    name: Tomita初期作用素
+    kind: definition
+    introduction: formal
+    requires: [aqft.standard-pair, aqft.antilinear-operator]
+  - id: aqft.tomita-preoperator-properties
+    name: Tomita初期作用素の成立
+    kind: proposition
+    introduction: formal
+    requires: [aqft.tomita-preoperator, aqft.standard-pair]
+  - id: aqft.commutant-tomita-preoperator
+    name: 可換子側Tomita初期作用素
+    kind: definition
+    introduction: formal
+    requires: [aqft.standard-pair, aqft.commutant-cyclic-separating]
+  - id: aqft.tomita-closability
+    name: Tomita初期作用素の可閉性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.tomita-preoperator, aqft.commutant-tomita-preoperator, aqft.closable-antilinear-operator, aqft.commutant-cyclic-separating]
+  - id: aqft.tomita-closure-involution
+    name: Tomita閉包の対合性と稠密値域
+    kind: proposition
+    introduction: formal
+    requires: [aqft.tomita-closability]
+  - id: aqft.antilinear-adjoint
+    name: 反線形随伴
+    kind: definition
+    introduction: formal
+    requires: [aqft.antilinear-operator]
+  - id: aqft.tomita-adjoint-inclusions
+    name: 可換子側との反線形随伴包含
+    kind: proposition
+    introduction: formal
+    requires: [aqft.antilinear-adjoint, aqft.tomita-closability, aqft.commutant-tomita-preoperator]
