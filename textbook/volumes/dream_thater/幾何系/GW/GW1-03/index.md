@@ -18,7 +18,7 @@
 
 <!-- formal-statement-start -->
 > **定義（写像に沿うSobolev切断）**  
-> コンパクトRiemann面 $\Sigma$ 上の滑らかな実ベクトル束 $E$ に計量と接続を固定する。整数 $k\ge0$ に対し、滑らかな切断のノルム
+> コンパクトRiemann面 $\Sigma$ に滑らかなRiemann計量を、滑らかな実ベクトル束 $E$ に束計量と接続を固定する。前者の体積要素を $d\operatorname{vol}_\Sigma$ と書く。整数 $k\ge0$ に対し、滑らかな切断のノルム
 
 $$
 \|\xi\|_{H^k(E)}^2=\sum_{\ell=0}^k\int_\Sigma|\nabla^\ell\xi|^2\,d\operatorname{vol}_\Sigma
@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-03-sobolev-sections -->
-**定義の確認**。平坦な単位トーラス $T^2=\mathbb R^2/\mathbb Z^2$ 上の自明複素線束で $\xi(s,t)=e^{2\pi i(ns+kt)}$ とする。これは周期的で滑らかな切断であり、$|\xi|=1$、$|\partial_s\xi|^2=(2\pi n)^2$、$|\partial_t\xi|^2=(2\pi k)^2$ なので
+**定義の確認**。標準座標 $(s,t)$ をそれぞれ周期1とした平坦な単位トーラス $T^2=\mathbb R^2/\mathbb Z^2$ 上の自明複素線束で、整数 $n,k$ に対し $\xi(s,t)=e^{2\pi i(ns+kt)}$ とする。これは周期的で滑らかな切断であり、$|\xi|=1$、$|\partial_s\xi|^2=(2\pi n)^2$、$|\partial_t\xi|^2=(2\pi k)^2$ なので
 
 $$
 \|\xi\|_{H^1}^2=1+4\pi^2(n^2+k^2).
@@ -254,7 +254,7 @@ $$
 $f$ がすべての $H^{k-1}_{\mathrm{loc}}$ に属するなら帰納的に $\xi$ もすべての $H^k_{\mathrm{loc}}$ に属し、[Sobolev埋め込み](../../GA/GA2/index.md#thm-ga2-embedding)から滑らかとなる。
 <!-- proof-end -->
 
-この評価では $\|\xi\|_{L^2}$ を消していない。それは $D\xi=0$ の非零解、すなわち核が存在し得るからである。核が有限次元であることを導くには、[Rellichのコンパクト性](../../GA/GA2/index.md#thm-ga2-rellich)を一緒に使う。
+この評価では $\|\xi\|_{L^2}$ を消していない。それは $D\xi=0$ の非零解、すなわち核が存在し得るからである。核が有限次元であることを導くには、[Rellichのコンパクト性](../../GA/GA2/index.md#thm-ga2-rellich)を一緒に使う。GA2の定理は関数について述べられているが、有限個の座標・局所枠で切断の各成分へ適用し、分割一で貼り合わせれば $H^1(E)\hookrightarrow L^2(E)$ にも適用できる。
 
 <a id="def-gw1-03-fredholm"></a>
 
@@ -313,7 +313,25 @@ $$
 D_\tau=(1-\tau)\bar\partial_E+\tau D_u,\qquad 0\le\tau\le1
 $$
 
-は同じ楕円シンボルを持つ実Fredholm作用素の連続な道である。指数はこの道で一定である（核と余核は別々には跳び得る）。複素線形作用素では実指数は複素指数の二倍となる。
+は同じ楕円シンボルを持つ実Fredholm作用素の連続な道である。ここで指数が連続変形で一定となる理由も確かめる。ある $\tau_0$ の作用素の実核を $K$、閉像を $W$ とし、定義域を $Y\oplus K$、値域を $W\oplus C$ と分解する（$C$ は有限次元の余核の代表空間）。$D_{\tau_0}|_Y:Y\to W$ は有界な同型である。$\tau$ が十分近ければ、このブロックも可逆なので、残りの成分を消去した作用素は
+
+$
+\begin{pmatrix}
+A_\tau & 0\\
+0 & S_\tau
+\end{pmatrix}
+:Y\oplus K\longrightarrow W\oplus C,
+\qquad S_\tau:K\longrightarrow C
+$
+
+と同値である（$A_\tau:Y\to W$ は可逆）。従って階数・退化の仕方が変わっても
+
+$
+\operatorname{ind}_{\mathbb R}D_\tau
+=\dim_{\mathbb R}K-\dim_{\mathbb R}C
+$
+
+で一定である。区間 $[0,1]$ 上の局所的な一定性から全区間で同じ指数となる。複素線形作用素では核・余核が複素ベクトル空間なので、実次元がそれぞれ複素次元の二倍になる。以下では $\operatorname{ind}_{\mathbb C}\bar\partial_E$ を複素次元で計算した核と余核の差と定める。
 
 <a id="thm-gw1-03-rr-computation"></a>
 
