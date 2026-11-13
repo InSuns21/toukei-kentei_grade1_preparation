@@ -7,6 +7,7 @@ prerequisites:
   - HOLO18
   - HOLO13
   - HOLO23
+  - VC5
 official_scope: []
 learning_objectives:
   - 正則化された量子状態の第一法則と有限差の違いを行列の微分で示せる
