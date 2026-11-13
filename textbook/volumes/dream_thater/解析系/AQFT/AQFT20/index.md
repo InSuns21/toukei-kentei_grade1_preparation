@@ -78,7 +78,35 @@ $$
 
 ## 2. 密度行列で標準対を作る
 
-**密度行列**とは正半定値でトレース1の行列です。本講ではさらに、全固有値が正であるものを **忠実な密度行列** と呼びます。有限次元ではこれは $\rho$ が正定値で、$\rho^{-1}$ と $\rho^{-1/2}$ が存在することと同値です。適切な正規直交基底で
+標準表現では、ある行列の正の平方根をベクトルにします。しかし固有値が零だと逆平方根が使えません。どの仮定がこの問題を防ぐのか、先に定義します。
+
+<a id="def-aqft20-faithful-density"></a>
+
+<!-- formal-statement-start -->
+> **定義（有限次元密度行列と忠実性）**  
+> $n\ge1$ とする。行列 $\rho\in M_n(\mathbb C)$ が **密度行列** であるとは、$\rho=\rho^*$、全ての $v\in\mathbb C^n$ に対して $\langle v,\rho v\rangle\ge0$、かつ $\operatorname{Tr}\rho=1$ が成り立つことをいう。さらに
+$
+\langle v,\rho v\rangle>0\qquad(v\ne0)
+$
+> が成り立つとき、$\rho$ を **忠実な密度行列** と呼ぶ。有限次元では忠実性は全固有値が正であることと同値である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-aqft20-faithful-density -->
+### 直接例：零固有値を持つ場合と持たない場合
+
+$0<p<1$ として $\rho_p=\operatorname{diag}(p,1-p)$ を考えます。$\rho_p=\rho_p^*$、$\operatorname{Tr}\rho_p=p+(1-p)=1$ です。また $v=(v_1,v_2)$ なら
+
+$
+\langle v,\rho_pv\rangle=p|v_1|^2+(1-p)|v_2|^2>0
+\qquad(v\ne0).
+$
+
+よって正半定値性だけでなく正定値性も満たし、忠実です。これに対して $p=1$ なら $\operatorname{diag}(1,0)$ は正半定値かつトレース1でも、$v=(0,1)\ne0$ について $\langle v,\rho_1v\rangle=0$ で忠実ではありません。この場合、逆行列と逆平方根は存在しません。
+
+**定義の確認**：自己共役性、正半定値性、トレース1、厳密正値性を順に検査し、零固有値のある場合に最後の条件だけが失敗する理由も示しました。
+<!-- definition-example-end -->
+
+忠実性を仮定すると有限次元のスペクトル分解で全固有値が正になり、$\rho^{-1}$ と $\rho^{-1/2}$ が存在します。適切な正規直交基底を選べば
 
 $$
 \rho=\sum_{i=1}^n\lambda_iE_{ii},\qquad
