@@ -34,7 +34,7 @@ $$
 
 **（H2）重心位置**：物体の重心は $O$ から物体第三軸方向の $le_3$ にある。
 
-**（H3）対称慣性**：$O$ まわりの物体系慣性テンソルは、正向き直交主軸基底で
+**（H3）対称慣性**：重心方向に選んだ第三軸 $e_3$ が $O$ まわりの主慣性軸であり、これに直交する $e_1,e_2$ と合わせた正向き直交主軸基底で、$O$ まわりの物体系慣性テンソルは
 
 $$
 \boxed{J_{O,b}=\operatorname{diag}(I,I,J),\qquad I>0,\ J>0}
@@ -62,6 +62,16 @@ $$
 $$
 J_O=\operatorname{diag}\left(\frac{Mr^2}{4}+Ml^2,\frac{Mr^2}{4}+Ml^2,\frac{Mr^2}{2}\right).
 $$
+
+この行列は、円板面内の二軸 $e_1,e_2$ と法線軸 $e_3$ に関する表示です。各列が各基底ベクトルの像を与えるので、
+
+$$
+J_Oe_1=\left(\frac{Mr^2}{4}+Ml^2\right)e_1,\quad
+J_Oe_2=\left(\frac{Mr^2}{4}+Ml^2\right)e_2,\quad
+J_Oe_3=\frac{Mr^2}{2}e_3
+$$
+
+となります。第三軸が主軸であることと、横二軸の主慣性値が等しいことを同じ表示で判定できるのは、[平行軸公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)の補正 $Ml^2\operatorname{diag}(1,1,0)$ がこの基底で対角だからです。
 
 従って $I=M(r^2/4+l^2)>0$、$J=Mr^2/2>0$ で、二つの横成分が等しい条件を確かめました。重心は軸上の $le_3$ にあり、支点を空間固定の理想継手とすれば反力は $O$ で作用します。一様重力だけを加えれば定義の四条件を満たします。例えば $M=2,r=l=1$ なら $I=5/2,J=1$ です。**この $I$ を重心まわりの $1/2$ で置き換えると、傾きの運動方程式が誤ります。**
 <!-- definition-example-end -->
@@ -167,7 +177,7 @@ $$
 
 [AMECH4の循環座標の定義](../../AMECH/AMECH4/index.md#def-amech4-cyclic-coordinate)では、力学的ラグランジアンがある座標自体に依存しないとき、その座標は循環座標になります。本章の $\mathcal L$ は $\phi,\psi$ を含まず $\dot\phi,\dot\psi$ だけに依存するので、**$\phi$ と $\psi$ は循環座標**です。これに対応する[一般化運動量](../../AMECH/AMECH4/index.md#def-amech4-generalized-momentum)を計算します。
 
-まず $u=\dot\psi+\dot\phi\cos\theta$ で $\partial u/\partial\dot\psi=1$、$\partial u/\partial\dot\phi=\cos\theta$ です。そこで
+まず $u=\dot\psi+\dot\phi\cos\theta$ です。一般化運動量の偏微分では、時刻に関する全微分 $d/dt$ と異なり、$\theta$ ともう一方の速度変数を固定します。従って $\partial u/\partial\dot\psi=1$、$\partial u/\partial\dot\phi=\cos\theta$ です。そこで
 
 $$
 \begin{aligned}
@@ -261,7 +271,28 @@ $$
 \frac{dL_{O,s}}{dt}=\tau_{O,s}=-Mgl\,n\times e_z.
 $$
 
-鉛直との内積は $d(e_z\cdot L_{O,s})/dt=0$。また物体第三軸での重力トルク成分は、$(le_3)\times(R^{\mathsf T}(-Mg e_z))$ が $e_3$ に直交するため零です。[RBD7の物体系Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)の固定点版で第三成分を取れば $J\dot\omega_3=\tau_{O,b,3}=0$、つまり $k$ は一定です。理想支点の仕事率は零、重力は保存力なのでエネルギーも一定。これらは $R,\omega$ と物理的な力の式であり、Euler角の正則域に依存しません。
+鉛直との内積は $d(e_z\cdot L_{O,s})/dt=0$。物体第三軸の保存も、固定点の収支から直接確認します。$O$ は動かず、支点まわりの慣性テンソル $J_{O,b}$ は物体座標で一定です。[RBD3の姿勢時間微分公式](../RBD3/index.md#prop-rbd3-angular-conjugacy) $\dot R=R\widehat\omega_b$ と積の微分により
+
+$$
+\begin{aligned}
+L_{O,s}&=R(J_{O,b}\omega_b),\\
+R^{\mathsf T}\frac{dL_{O,s}}{dt}
+&=\omega_b\times(J_{O,b}\omega_b)+J_{O,b}\dot\omega_b
+=\tau_{O,b}.
+\end{aligned}
+$$
+
+これは [RBD7の物体系Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)を、重心ではなく固定支点 $O$ まわりの角運動量収支へ適用した形です。
+
+重力トルクは物体系で $(le_3)\times(R^{\mathsf T}(-Mg e_z))$ なので、第三成分が零です。また支点慣性が $J_{O,b}=\operatorname{diag}(I,I,J)$ であるため、
+
+$$
+(\omega_b\times J_{O,b}\omega_b)_3
+=I\omega_1\omega_2-I\omega_2\omega_1=0,
+\qquad \tau_{O,b,3}=0.
+$$
+
+したがって $J\dot\omega_3=0$、つまり $k$ は一定です。理想支点の仕事率は零で、重力は保存力なのでエネルギーも一定です。これらは物理的な力と姿勢行列の式であり、Euler角の正則域に依存しません。
 <!-- proof-end -->
 
 ### 直接計算：鉛直軸へ回っても全角運動量は固定されない
@@ -340,7 +371,7 @@ V_{\mathrm{eff}}(2\pi/3)
 =\frac13-\frac32=-\frac76.
 $$
 
-元の重力ポテンシャル $3\cos\theta$ だけでは $1/3$ の付加項を見落とします。$\varepsilon=1$ の初期条件なら $\pi/3$ は到達できず、$2\pi/3$ はエネルギー上は許容されます。
+元の重力ポテンシャル $3\cos\theta$ だけでは $1/3$ の付加項を見落とします。$\varepsilon=1$ とした場合、$\pi/3$ は到達できず、$2\pi/3$ はエネルギー上は許容されます。
 <!-- definition-example-end -->
 
 <a id="thm-rbd11-reduced-theta"></a>
@@ -621,11 +652,24 @@ $$
 =-Mgl\,e_z\cdot(n\times e_z)=0.
 $$
 
-次に物体系の角運動量は $L_{O,b}=J_{O,b}\omega_b=(I\omega_1,I\omega_2,J\omega_3)$ です。[RBD7のEuler方程式](../RBD7/index.md#thm-rbd7-newton-euler)を、並進していない固定点まわりの慣性に適用すると
+次に物体系の角運動量は $L_{O,b}=J_{O,b}\omega_b=(I\omega_1,I\omega_2,J\omega_3)$ です。$O$ が固定点なので $L_{O,s}=R L_{O,b}$。[RBD3の角速度と姿勢の関係](../RBD3/index.md#prop-rbd3-angular-conjugacy) $\dot R=R\widehat\omega_b$ を用いて積を微分すると
 
 $$
-J_{O,b}\dot\omega_b+\omega_b\times(J_{O,b}\omega_b)=\tau_{O,b}.
+\begin{aligned}
+R^{\mathsf T}\dot L_{O,s}
+&=R^{\mathsf T}(\dot R L_{O,b}+R\dot L_{O,b})\\
+&=\omega_b\times L_{O,b}+J_{O,b}\dot\omega_b
+=\tau_{O,b}.
+\end{aligned}
 $$
+
+従って [RBD7のEuler方程式](../RBD7/index.md#thm-rbd7-newton-euler)と同じ形の固定支点版
+
+$$
+J_{O,b}\dot\omega_b+\omega_b\times(J_{O,b}\omega_b)=\tau_{O,b}
+$$
+
+を、重心まわりの $J_C$ と混同せず得ます。
 
 第三成分の交差項は
 
@@ -772,7 +816,15 @@ V_{\mathrm{eff}}(\theta)=
 =\frac{\cos^2\theta}{\sin^2\theta}+3\cos\theta.
 $$
 
-$\theta=\pi/3$ では $V_{\mathrm{eff}}=11/6>1=\varepsilon$ で非許容。一方 $\theta=2\pi/3$ では $V_{\mathrm{eff}}=-7/6<1$ なので許容です。初期の $\theta=\pi/2$ から大きい傾きへ向かう初速 $\dot\theta(0)=1>0$ も与えられており、この運動は少なくとも初期時刻直後には $\theta>\pi/2$ へ進みます。
+$\theta=\pi/3$ では $V_{\mathrm{eff}}=11/6>1=\varepsilon$ で非許容。一方 $\theta=2\pi/3$ では $V_{\mathrm{eff}}=-7/6<1$ なので許容です。さらに「$\theta=2\pi/3$ で許容」という一点だけで、初期位置からそこへ達することまでは結論できません。途中の角度も確認します。区間 $\pi/2\le\theta\le2\pi/3$ で $x=-\cos\theta$ と置けば $0\le x\le1/2$ であり、
+
+$$
+V_{\mathrm{eff}}=\frac{x^2}{1-x^2}-3x,\qquad
+\frac{dV_{\mathrm{eff}}}{dx}=\frac{2x}{(1-x^2)^2}-3
+\le\frac{1}{(3/4)^2}-3=-\frac{11}{9}<0.
+$$
+
+従ってこの全区間で $V_{\mathrm{eff}}(\theta)\le V_{\mathrm{eff}}(\pi/2)=0<\varepsilon=1$ です。[傾きの一変数帰着](#thm-rbd11-reduced-theta)より $\dot\theta^2=(2/I)(\varepsilon-V_{\mathrm{eff}})\ge1$ であり、途中に折返し点はありません。初速 $\dot\theta(0)=1>0$ が連続するので $\dot\theta$ の符号は正のまま、実際に $\theta=2\pi/3$ を通過します。
 
 **3. 正則域で角度速度を復元する。** $\theta=2\pi/3$ では $\cos\theta=-1/2,\sin^2\theta=3/4$。[保存運動量からの逆変換](#thm-rbd11-reduced-theta)から
 
