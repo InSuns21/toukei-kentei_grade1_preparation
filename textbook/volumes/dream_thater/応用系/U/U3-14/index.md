@@ -453,12 +453,18 @@ $$
 $0<u<t$ とする。$\operatorname{Cov}(S_u,S_t)$ を $s_0,\mu,\sigma,u,t$ で求めよ。価格二時点が独立とは言えない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[条件付き平均](#prop-u3-14-conditional) は $E[S_t\mid\mathcal F_u]=S_ue^{\mu(t-u)}$。$S_u$ は $\mathcal F_u$ 可測で、二次モーメントは有限だから塔の性質より
+**詳細解答**：[条件付き平均](#prop-u3-14-conditional) は $E[S_t\mid\mathcal F_u]=S_ue^{\mu(t-u)}$。$S_u$ は $\mathcal F_u$ 可測ですが、一般に有界ではありません。[条件付き期待値の既知量の取り出し](../../../解析系/F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties) を適用するため、まず $Z_n=\min(S_u,n)$ と置きます。$Z_n$ は有界・$\mathcal F_u$ 可測なので、[塔の性質](../../../解析系/F0/F0-00P3A/index.md#thm-f0-00p3a-tower) と合わせて
 
-$$
-E[S_uS_t]=E[S_u E[S_t\mid\mathcal F_u]]
-=e^{\mu(t-u)}E[S_u^2].
-$$
+$
+E[Z_nS_t]=E[Z_n E[S_t\mid\mathcal F_u]]
+=e^{\mu(t-u)}E[Z_nS_u].
+$
+
+$S_u,S_t>0$ で、[実数モーメント](#prop-u3-14-moments) から二次モーメントが有限です。$n\to\infty$ として単調収束定理を使うと
+
+$
+E[S_uS_t]=e^{\mu(t-u)}E[S_u^2].
+$
 
 [二次モーメント](#prop-u3-14-moments) を入れて $E[S_uS_t]=s_0^2e^{\mu(t+u)}e^{\sigma^2u}$。一方 $E[S_u]E[S_t]=s_0^2e^{\mu(t+u)}$。従って
 
