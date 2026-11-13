@@ -25,7 +25,7 @@ $$
 
 である。ここで $\partial_j=\partial/\partial X_j$ とし、重複添字は $1,2,3$ について和を取る。$I_3$ は単位行列、$a\cdot b$ は内積、$A:B=\sum_{i,j}A_{ij}B_{ij}$ である。$\nabla(\operatorname{div}u)$ は成分 $\partial_i(\sum_j\partial_j u_j)$ のベクトル、$\Delta u$ は各成分に Laplace 作用素を施したベクトルである。
 
-標準直交基底を $e_1,e_2,e_3$ と書く。列ベクトル $p,q\in\mathbb R^3$ の積 $pq^T$ は、次の作用を持つ $3\times3$ 行列（テンソル積の行列表示）である。
+標準直交基底を $e_1,e_2,e_3$ と書く。列ベクトル $p,q\in\mathbb R^3$ に対し、$pq^T$ は次の成分と作用を持つ $3\times3$ 行列である。
 
 $$
 (pq^T)a=p(q\cdot a),\qquad (pq^T)_{ij}=p_iq_j.
