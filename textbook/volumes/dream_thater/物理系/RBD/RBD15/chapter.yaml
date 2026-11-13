@@ -1,0 +1,44 @@
+id: "RBD15"
+title: "剛体の衝突と接点の衝撃量"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - RBD14
+official_scope: []
+learning_objectives:
+  - 瞬間衝突の短時間積分から並進の衝撃量と重心まわりの角力積を導ける
+  - 二物体の接点法線相対速度を回転成分を含めて定め接近と離反を判定できる
+  - 法線反発係数の定義と片側接触の非負衝撃量の条件を使い分けられる
+  - 正定値の慣性テンソルから単一接点の正の有効質量を導ける
+  - 摩擦なし法線衝撃量から二物体の重心速度と角速度を一貫して更新できる
+  - 平面内の偏心した棒と固定壁の衝突で接点速度とトルク腕を検算できる
+  - 二つの回転可能な剛体の偏心衝突を計算し運動エネルギーの損失式を証明できる
+  - 離反中の非接触、多点接触、摩擦、実物体変形への適用限界を説明できる
+definitions:
+  - { id: RBD15-DEF-01, name: "接点の衝撃量と角力積" }
+  - { id: RBD15-DEF-02, name: "法線反発係数" }
+theorems:
+  - { id: RBD15-THM-01, name: "単一法線接点の有効質量" }
+  - { id: RBD15-THM-02, name: "摩擦なし単一接点の衝撃量と速度更新" }
+  - { id: RBD15-PROP-01, name: "法線衝突における運動エネルギー損失" }
+canonical_examples:
+  - 偏心した接点に与える左向きの力積と正の角力積の直接計算
+  - 接近速度負の場合の法線反発係数の直接検算
+  - 一様棒の斜め端と固定壁の衝突による並進と回転の分配
+  - 二つの移動・回転可能な物体の偏心衝突とエネルギー検算
+  - 離反中の反発公式の誤用と非負衝撃量条件
+problem_patterns:
+  - RBD15-APPROACH-CONTACT-VELOCITY
+  - RBD15-IMPULSE-AND-TORQUE-ARM
+  - RBD15-RESTITUTION-SIGN
+  - RBD15-CENTRAL-IMPACT
+  - RBD15-ROD-WALL-STICKING-NORMAL
+  - RBD15-ROD-WALL-ELASTIC-ENERGY
+  - RBD15-TWO-BODY-EXCENTRIC-IMPACT
+  - RBD15-SEPARATING-BRANCH
+  - RBD15-REDUCED-MASS-LIMIT
+  - RBD15-TWO-BODY-INITIAL-SPIN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 6.0, review: 2.0 }
