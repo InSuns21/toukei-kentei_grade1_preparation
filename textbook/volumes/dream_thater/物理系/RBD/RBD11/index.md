@@ -361,7 +361,7 @@ V_{\mathrm{eff}}(2\pi/3)
 =\frac13-\frac32=-\frac76.
 $$
 
-元の重力ポテンシャル $3\cos\theta$ だけでは $1/3$ の付加項を見落とします。$\varepsilon=1$ の初期条件なら $\pi/3$ は到達できず、$2\pi/3$ はエネルギー上は許容されます。
+元の重力ポテンシャル $3\cos\theta$ だけでは $1/3$ の付加項を見落とします。$\varepsilon=1$ とした場合、$\pi/3$ は到達できず、$2\pi/3$ はエネルギー上は許容されます。
 <!-- definition-example-end -->
 
 <a id="thm-rbd11-reduced-theta"></a>
@@ -806,7 +806,15 @@ V_{\mathrm{eff}}(\theta)=
 =\frac{\cos^2\theta}{\sin^2\theta}+3\cos\theta.
 $$
 
-$\theta=\pi/3$ では $V_{\mathrm{eff}}=11/6>1=\varepsilon$ で非許容。一方 $\theta=2\pi/3$ では $V_{\mathrm{eff}}=-7/6<1$ なので許容です。初期の $\theta=\pi/2$ から大きい傾きへ向かう初速 $\dot\theta(0)=1>0$ も与えられており、この運動は少なくとも初期時刻直後には $\theta>\pi/2$ へ進みます。
+$\theta=\pi/3$ では $V_{\mathrm{eff}}=11/6>1=\varepsilon$ で非許容。一方 $\theta=2\pi/3$ では $V_{\mathrm{eff}}=-7/6<1$ なので許容です。さらに「$\theta=2\pi/3$ で許容」という一点だけで、初期位置からそこへ達することまでは結論できません。途中の角度も確認します。区間 $\pi/2\le\theta\le2\pi/3$ で $x=-\cos\theta$ と置けば $0\le x\le1/2$ であり、
+
+$
+V_{\mathrm{eff}}=\frac{x^2}{1-x^2}-3x,\qquad
+\frac{dV_{\mathrm{eff}}}{dx}=\frac{2x}{(1-x^2)^2}-3
+\le\frac{1}{(3/4)^2}-3=-\frac{11}{9}<0.
+$
+
+従ってこの全区間で $V_{\mathrm{eff}}(\theta)\le V_{\mathrm{eff}}(\pi/2)=0<\varepsilon=1$ です。[傾きの一変数帰着](#thm-rbd11-reduced-theta)より $\dot\theta^2=(2/I)(\varepsilon-V_{\mathrm{eff}})\ge1$ であり、途中に折返し点はありません。初速 $\dot\theta(0)=1>0$ が連続するので $\dot\theta$ の符号は正のまま、実際に $\theta=2\pi/3$ を通過します。
 
 **3. 正則域で角度速度を復元する。** $\theta=2\pi/3$ では $\cos\theta=-1/2,\sin^2\theta=3/4$。[保存運動量からの逆変換](#thm-rbd11-reduced-theta)から
 
