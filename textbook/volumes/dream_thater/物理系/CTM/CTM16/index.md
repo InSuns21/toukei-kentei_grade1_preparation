@@ -51,7 +51,21 @@ $$
 <!-- definition-example-start: def-ctm16-reference-scales -->
 ### **定義の確認**：単純な速度分布を変換する
 
-長さ $h>0$、上壁速度 $U>0$ の $v=(Uy/h,0,0)$ に $L=h$ を選ぶ。$x_2=y$、$X_2=x_2/L=y/h$ であり、定義 $v=UV$ の第1成分を $U>0$ で割ると $V_1=v_1/U=y/h=X_2$、ほかの成分は零となる。したがって $V=(X_2,0,0)$。成分表示の連鎖律 $\partial_yv_1=(U/h)\partial_{X_2}V_1$ により、右辺は $(U/h)\cdot1=U/h$ となり、元の速度の直接微分と一致する。$X_2=0,1$ が元の壁 $y=0,h$ に対応することも確認できる。
+長さ $h>0$、上壁速度 $U>0$ の $v=(Uy/h,0,0)$ に $L=h$ を選ぶ。第2座標は $x_2=y$ なので、無次元変数の定義から
+
+$$
+X_2=\frac{x_2}{L}=\frac yh,\qquad
+V_1=\frac{v_1}{U}=\frac yh=X_2
+$$
+
+となり、他の速度成分は零である。従って $V=(X_2,0,0)$。成分表示の連鎖律を使えば
+
+$$
+\partial_yv_1=\frac{U}{h}\partial_{X_2}V_1
+=\frac{U}{h}\cdot1=\frac{U}{h}
+$$
+
+であり、元の速度の直接微分と一致する。$X_2=0,1$ が元の壁 $y=0,h$ に対応する。
 <!-- definition-example-end -->
 
 ## 2. 慣性と粘性を測る Reynolds 数
@@ -591,7 +605,23 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**(i) 方程式・境界値・初期値。** $v(x,y,z,t)=(u(y,t),0,0)$ なので $\nabla\cdot v=\partial_xu=0$、$(v\cdot\nabla)v=u\partial_xv=0$ である。一方 $\partial_tv=(\partial_tu,0,0)$ は一般に零ではない。[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入し $\rho>0$ で割ると $\partial_tu=\nu\partial_y^2u$（$\nu=\eta/\rho$）。定常部分 $Uy/h$ は二階微分が零なので、残差 $w=u-Uy/h$ を置く。$w$ は両端で零、初期値 $A\sin(\pi y/h)$ を持つ。$\sin(\pi y/h)$ の二階微分は $-(\pi/h)^2\sin(\pi y/h)$ だから、$w=a(t)\sin(\pi y/h)$ と代入すると
+**(i) 方程式・境界値・初期値。** $v(x,y,z,t)=(u(y,t),0,0)$ とする。速度の非零成分が $y,t$ の関数であるため
+
+$$
+\nabla\cdot v=\partial_xu=0,\qquad
+(v\cdot\nabla)v=u\partial_xv=0,\qquad
+\partial_tv=(\partial_tu,0,0)
+$$
+
+であり、時間微分は一般に零ではない。[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入し、$\rho>0$ で割ると
+
+$$
+\partial_tu=\nu\partial_y^2u,\qquad \nu=\frac\eta\rho>0
+$$
+
+となる。定常部分 $Uy/h$ は二階微分が零なので、残差 $w=u-Uy/h$ を置く。$w$ は両端で零、初期値 $A\sin(\pi y/h)$ を持つ。
+
+$\sin(\pi y/h)$ の二階微分は $-(\pi/h)^2\sin(\pi y/h)$ である。そこで $w=a(t)\sin(\pi y/h)$ と代入すると
 
 $$
 a'(t)\sin(\pi y/h)
