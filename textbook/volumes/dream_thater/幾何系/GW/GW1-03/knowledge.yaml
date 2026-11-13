@@ -1,0 +1,45 @@
+chapter: GW1-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-02
+  - GA2
+  - GA3
+  - GA6
+  - CM2-03
+  - CM2-04
+  - CM2-05
+  - HOD1-06
+  - AG2-07
+  - AG3-08
+concepts:
+  - id: gromov-witten.sobolev-sections
+    name: 写像に沿うSobolev切断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（写像に沿うSobolev切断）"]
+    requires: [gromov-witten.j-holomorphic-map]
+  - id: gromov-witten.linearization
+    name: Cauchy–Riemann作用素の線形化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Cauchy–Riemann作用素の線形化）"]
+    requires: [gromov-witten.nonlinear-cr-operator]
+  - id: gromov-witten.principal-symbol
+    name: 主シンボルと楕円性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（主シンボルと楕円性）"]
+    requires: [gromov-witten.linearization]
+  - id: gromov-witten.ellipticity-linearization
+    name: 線形化の楕円性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形化の楕円性）"]
+    requires: [gromov-witten.principal-symbol, gromov-witten.linearization]
+  - id: gromov-witten.fredholm-index
+    name: 擬正則写像の線形化の実指数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（擬正則写像の線形化の実指数）"]
+    requires: [gromov-witten.ellipticity-linearization]

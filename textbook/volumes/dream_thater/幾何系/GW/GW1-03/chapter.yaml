@@ -1,0 +1,57 @@
+id: "GW1-03"
+title: "楕円型正則性と線形化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-02
+  - GA2
+  - GA3
+  - GA6
+  - CM2-03
+  - CM2-04
+  - CM2-05
+  - HOD1-06
+  - AG2-07
+  - AG3-08
+official_scope: []
+learning_objectives:
+  - Sobolev完備化による写像空間と非線形Cauchy–Riemann作用素の定義域・値域を説明できる
+  - 捩率零接続による線形化を導出しJの微分項を落とさずに計算できる
+  - 主シンボルの逆を示して楕円性と局所評価を証明できる
+  - Rellichコンパクト性と楕円型評価からFredholm性を説明できる
+  - 線束の点による短完全列からDolbeault指数を導き実指数の係数を検算できる
+  - 定数写像と射影直線のべき写像について指数・核・余核を計算できる
+  - Fredholm指数と横断性・商・標点を混同しない
+definitions:
+  - { id: GW1-03-DEF-01, name: 写像に沿うSobolev切断 }
+  - { id: GW1-03-DEF-02, name: Cauchy–Riemann作用素の線形化 }
+  - { id: GW1-03-DEF-03, name: 主シンボルと楕円性 }
+  - { id: GW1-03-DEF-04, name: Fredholm作用素と実指数 }
+theorems:
+  - { id: GW1-03-PROP-01, name: 局所線形化の公式 }
+  - { id: GW1-03-THM-01, name: 線形化の楕円性 }
+  - { id: GW1-03-THM-02, name: 一階楕円型評価と正則性 }
+  - { id: GW1-03-THM-03, name: 閉曲面の楕円作用素のFredholm性 }
+  - { id: GW1-03-THM-04, name: Riemann面上のDolbeault指数 }
+  - { id: GW1-03-THM-05, name: 擬正則写像の線形化の実指数 }
+canonical_examples:
+  - 平坦トーラスのFourierモードとSobolevノルム
+  - 複素平面の正則・反正則変分の線形化
+  - 複素数による主シンボルの逆
+  - 定数写像の種数による指数
+  - 射影直線へのべき写像とO(2d)の切断
+problem_patterns:
+  - GW1-03-SOBOLEV-MODE
+  - GW1-03-LINEARIZATION
+  - GW1-03-SYMBOL-INVERSE
+  - GW1-03-FREDHOLM-COUNT
+  - GW1-03-CONSTANT-INDEX
+  - GW1-03-J-VARIATION
+  - GW1-03-RELLICH-KERNEL
+  - GW1-03-DIVISOR-EULER
+  - GW1-03-P1-INDEX
+  - GW1-03-ELLIPTIC-INDEX-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }

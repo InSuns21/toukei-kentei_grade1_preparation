@@ -16,7 +16,7 @@ chapters:
     title: "擬正則方程式とエネルギー恒等式"
   - id: GW1-03
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-03
-    status: planned
+    status: completed
     title: "楕円型正則性と線形化"
   - id: GW1-04
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-04
