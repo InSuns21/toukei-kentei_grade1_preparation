@@ -164,7 +164,7 @@ $$
 
 ## 3. 定常なら流線上で一定、渦なしなら領域で一定
 
-定常な速度場では[FLUID4 の流線](../FLUID4/index.md#def-fluid4-streamline)は $\gamma'(s)=u(\gamma(s))$ で与えられる（$s$ は曲線のパラメータ）。$\gamma$ に沿った $B$ の変化は連鎖律で $\frac{d}{ds}B(\gamma(s))=\nabla B(\gamma(s))\cdot\gamma'(s)$ である。速度 $u$ と外積 $u\times\omega$ は直交するので、渦が存在しても流線に沿う変化は消える。
+定常な速度場では[FLUID4 の流線](../FLUID4/index.md#def-fluid4-streamline)は $\gamma'(s)=u(\gamma(s))$ で与えられる（$s$ は曲線のパラメータ）。$\gamma$ に沿った $B$ の変化は連鎖律で $\frac{d}{ds}B(\gamma(s))=\nabla B(\gamma(s))\cdot\gamma'(s)$ である。速度 $u$ とベクトル $u\times\omega$ は直交するので、渦が存在しても流線に沿う変化は消える。
 
 <a id="thm-fluid6-streamline-bernoulli"></a>
 
@@ -185,7 +185,7 @@ $$
 
 ### 証明の見取り図
 
-[中心式](#def-fluid6-bernoulli-function)で定常項 $\partial_tu$ を消し、流線に沿う連鎖律を使う。**外積と速度の内積が零**という事実が、渦を残したまま流線方向の変化を消す。
+[中心式](#def-fluid6-bernoulli-function)で定常項 $\partial_tu$ を消し、流線に沿う連鎖律を使う。**$(u\times\omega)\cdot u=0$** という直交性が、渦を残したまま流線方向の変化を消す。
 
 <!-- proof-start -->
 ### 証明
@@ -258,7 +258,7 @@ $$
 従って $B$ は $\Omega$ の全点で一つの定数に等しい。この証明は速度ポテンシャルの大域的存在を要求せず、単連結性を仮定する必要もない。
 <!-- proof-end -->
 
-**逆は一般に成り立たない。** 領域全体で $B=C$ でも $\nabla B=u\times\omega=0$ から分かるのは $u$ と $\omega$ の外積が零という条件であり、$\omega=0$ までは導けない。十分条件を必要条件に読み替えてはいけない。
+**逆は一般に成り立たない。** 領域全体で $B=C$ でも $\nabla B=u\times\omega=0$ から分かるのは $u\times\omega=0$ という条件であり、$\omega=0$ までは導けない。十分条件を必要条件に読み替えてはいけない。
 
 ## 4. 重力下の水頭：管の二点へ適用する
 
@@ -564,7 +564,7 @@ $u=(ay,0,0)$（$a$ は s$^{-1}$、$y$ は m）について $(u\cdot\nabla)u$、$
 <!-- solution-start -->
 #### 詳細解答
 
-$u_x=ay$ は $x$ に依存せず、$u_y=u_z=0$ なので $(u\cdot\nabla)u=ay\,\partial_xu=0$。$|u|^2/2=a^2y^2/2$ から $\nabla(|u|^2/2)=(0,a^2y,0)$。回転は $\omega=(0,0,\partial_xu_y-\partial_yu_x)=(0,0,-a)$。外積を成分で計算すると $(ay,0,0)\times(0,0,-a)=(0,a^2y,0)$。従って $\nabla(|u|^2/2)-u\times\omega=(0,a^2y,0)-(0,a^2y,0)=0$。渦ありでも移流加速度を速度二乗の勾配だけで置いてはいけない。
+$u_x=ay$ は $x$ に依存せず、$u_y=u_z=0$ なので $(u\cdot\nabla)u=ay\,\partial_xu=0$。$|u|^2/2=a^2y^2/2$ から $\nabla(|u|^2/2)=(0,a^2y,0)$。回転は $\omega=(0,0,\partial_xu_y-\partial_yu_x)=(0,0,-a)$。$u\times\omega$ を成分で計算すると $(ay,0,0)\times(0,0,-a)=(0,a^2y,0)$。従って $\nabla(|u|^2/2)-u\times\omega=(0,a^2y,0)-(0,a^2y,0)=0$。渦ありでも移流加速度を速度二乗の勾配だけで置いてはいけない。
 <!-- solution-end -->
 
 ### B3. 非定常の反例を自分で検算する
