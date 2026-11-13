@@ -229,54 +229,54 @@ $\sup Z$ を $H_0$ と置くと、条件付き上限の表示から $0\le Y_u\le
 
 $\varepsilon>0$ に対して次を定めます。
 
-$
+$$
 \tau_\varepsilon
 =\inf\{u\in[t,T]:Y_u-Z_u\le\varepsilon\}\wedge T.
-$
+$$
 
 $Y-Z$ は連続かつ適合しているので、これは停止時刻です。$\rho_n$ を、価格の上限に $1/n$ 以内で近づく停止時刻として選びます。
 
-$
+$$
 Y_t-\frac1n
 \le E^Q[Z_{\rho_n}]\le Y_t.
-$
+$$
 
 優マルチンゲールの任意停止と $Y\ge Z$ から
 
-$
+$$
 0\le E^Q[Y_{\rho_n}-Z_{\rho_n}]
 \le Y_t-E^Q[Z_{\rho_n}]\le\frac1n.
-$
+$$
 
 $\rho_n<\tau_\varepsilon$ の事象では $Y_{\rho_n}-Z_{\rho_n}>\varepsilon$ です。したがって
 
-$
+$$
 Q(\rho_n<\tau_\varepsilon)
 \le\frac1{n\varepsilon}\longrightarrow0.
-$
+$$
 
 一方、$\rho_n\ge\tau_\varepsilon$ の事象では、時刻 $\tau_\varepsilon$ から $\rho_n$ までの優マルチンゲールの任意停止により、$Z_{\rho_n}$ の条件付き期待値は $Y_{\tau_\varepsilon}$ 以下です。それ以外の事象は $H_0$ で抑えられます。従って
 
-$
+$$
 E^Q[Z_{\rho_n}]
 \le E^Q[Y_{\tau_\varepsilon}]
  +E^Q[H_0\,1_{\{\rho_n<\tau_\varepsilon\}}].
-$
+$$
 
 右辺第2項は $H_0$ の可積分性と事象の確率が0へ向かうことから消えます。$n\to\infty$ とすると $Y_t\le E^Q[Y_{\tau_\varepsilon}]$、逆向きは優マルチンゲールの任意停止で成立するので、等号です。連続性と満期の $Y_T=Z_T$ により $0\le Y_{\tau_\varepsilon}-Z_{\tau_\varepsilon}\le\varepsilon$ でもあります。ゆえに
 
-$
+$$
 E^Q[Z_{\tau_\varepsilon}]
 \le Y_t=E^Q[Y_{\tau_\varepsilon}]
 \le E^Q[Z_{\tau_\varepsilon}]+\varepsilon.
-$
+$$
 
 $\varepsilon\downarrow0$ では $\tau_\varepsilon\uparrow\tau_*$ です。$Z$ の連続性と可積分上界 $H_0$ による優収束から $E^Q[Z_{\tau_\varepsilon}]\to E^Q[Z_{\tau_*}]$。挟み撃ちによって
 
-$
+$$
 Y_t=E^Q[Z_{\tau_*}]
 =E_{t,s}^Q[e^{-r(\tau_*-t)}g(S_{\tau_*})]
-$
+$$
 
 を得ます。不連続な支払過程など、今示した連続性・可積分性を欠く状況へは、この接触時刻の結論を無条件には拡張できません。
 <!-- proof-end -->
@@ -304,10 +304,10 @@ $$
 <!-- definition-example-start: def-u3-21-regions -->
 **定義の確認**：まず $q=0,r\ge0,\sigma>0,t<T,s=K=100$ の call を取ります。[$Q$ 下の対数正規株価分布](../U3-14/index.md#prop-u3-14-lognormal-law)は $Q(S_T>K)>0$ を満たすので、満期まで待つ停止時刻 $\tau=T$ の割引期待値は厳密に正です。したがって
 
-$
+$$
 V_C(t,100)\ge E_{t,100}^Q[e^{-r(T-t)}(S_T-100)_+]
 >0=g_C(100),
-$
+$$
 
 ゆえに $(t,100)\in\mathcal C_C$ です。これは連続時間の**継続領域の定義条件 $V_g>g$**を直接確認した例です。
 
@@ -481,11 +481,11 @@ $$
 
 長方形内で係数と導関数が有界になるよう局所化してあるので、右辺最後の確率積分は期待値0です。[Snell 包絡の優マルチンゲール性](#thm-u3-21-snell)から左辺の期待値は非正です。$(t_0,s_0)$ は長方形の内点で株価路は連続なので、各標本路について十分小さい $h>0$ では領域から出ず、$\eta_h=t_0+h$ となります。よって
 
-$
+$$
 \frac1h\int_{t_0}^{\eta_h}
  e^{-r(u-t_0)}\mathcal AV_g(u,S_u)\,du
 \longrightarrow \mathcal AV_g(t_0,s_0)
-$
+$$
 
 が標本路ごとに成立します。長方形では被積分関数が有界で、積分区間の長さは $h$ 以下ですから、割った式も一様に有界です。[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)で期待値との極限交換が可能となり、左辺の期待値が非正だったことから $\mathcal AV_g(t_0,s_0)\le0$ と結論できます。
 
