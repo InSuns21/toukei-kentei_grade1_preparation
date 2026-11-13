@@ -379,7 +379,7 @@ $Q$ 下で $dS_u=rS_u\,du+\sigma S_u\,dW_u^Q$ とする。$f(s)=s^3$ へ生成�
 <!-- solution-start -->
 **詳細解答**：[生成作用素の拡散公式](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)におけるドリフトと拡散係数は $b(s)=rs$、$a(s)=\sigma s$ です。
 
-ただし引用先の命題はコンパクト台を持つ $C^2$ 関数を仮定し、$f(s)=s^3$ にはそのまま適用できません。ここでは初期株価 $s$ を含む区間 $[1/n,n]$（$n>\max(s,1/s)$）から出る時刻で株価を停止させ、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)の $du$ 係数として $\mathcal L^Qf$ を計算します。停止前の各株価において
+ただし引用先の命題は、ある有界区間の外で0になる $C^2$ 関数に限って主張されており、$f(s)=s^3$ にはそのまま適用できません。ここでは初期株価 $s$ を含む区間 $[1/n,n]$（$n>\max(s,1/s)$）から出る時刻で株価を停止させ、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)の $du$ 係数として $\mathcal L^Qf$ を計算します。停止前の各株価において
 
 $$
 f'(s)=3s^2,\qquad f''(s)=6s
