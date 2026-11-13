@@ -1,0 +1,42 @@
+id: "U3-16"
+title: "自己金融 delta hedge と Black–Scholes–Merton PDE"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-15, STO7]
+official_scope: []
+learning_objectives:
+  - 滑らかな満期価値関数・delta・終端条件を定義し具体例で判定できる
+  - 実確率 P 下の Itô 公式と連続時間自己金融条件の拡散係数・ドリフトを比較して BSM PDE を導ける
+  - PDE から複製戦略を逆に構成し、成長条件に基づく真の割引マルチンゲール性と一意価格を証明できる
+  - 株式・満期固定額・二乗および三乗支払額の PDE、終端値、delta、預金保有を計算できる
+  - 不正確な候補価格の自己金融残差を外部資金の必要速度として解釈し単位と符号を検算できる
+  - 連続配当率つき市場で配当込み利得から r-q の項を導き具体例を照合できる
+  - 有限差分と解析微分の違いを理解し Python で PDE 残差を検査できる
+  - 古典解の存在・正則性・可積分性、取引制約、sigma=0、経路依存による限界を説明できる
+definitions:
+  - { id: U3-16-DEF-01, name: "滑らかな満期価値関数とデルタ" }
+theorems:
+  - { id: U3-16-THM-01, name: "自己金融複製からの Black–Scholes–Merton 方程式" }
+  - { id: U3-16-THM-02, name: "古典解からの自己金融複製と一意価格" }
+  - { id: U3-16-PROP-01, name: "一定連続配当率つき BSM 方程式" }
+canonical_examples:
+  - "g(s)=s に v=s を使い滑らかな満期価値関数と delta=1 の条件を直接確認する"
+  - "g(s)=K と g(s)=s の PDE が預金・株式の固定保有と一致することを調べる"
+  - "g(s)=s^2/K で r=0.03 sigma=0.2 T=1 s=K=100 の v0=100e^0.07 と delta0=2e^0.07 を検算する"
+  - "w=s^2 e^{r(T-t)}/K の自己金融残差 sigma^2 w が正であることを検算する"
+  - "連続配当率 q=0.01 を入れると二乗支払額の価格が 100e^0.05 に変わることを検算する"
+problem_patterns:
+  - U3-16-A1
+  - U3-16-A2
+  - U3-16-A3
+  - U3-16-A4
+  - U3-16-A5
+  - U3-16-B1
+  - U3-16-B2
+  - U3-16-B3
+  - U3-16-B4
+  - U3-16-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
