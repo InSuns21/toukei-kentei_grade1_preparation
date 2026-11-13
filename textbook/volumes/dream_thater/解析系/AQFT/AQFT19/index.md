@@ -2,7 +2,7 @@
 
 [AQFT18のTomita閉包の対合性](../AQFT18/index.md#prop-aqft18-closure-involution)により、標準対 $(\mathcal M,\Omega)$ から閉じた反線形作用素 $S$ を得ました。しかし $S(A\Omega)=A^*\Omega$ という規則は、長さを保存するとは限りません。大きさの変化と、向き・複素共役を伴う変化を分離したいところです。
 
-本講では前者を**正作用素 $\Delta^{1/2}$**、後者を**反ユニタリ作用素 $J$** として取り出します。特に、$S$ が閉じた対合であることから
+本講では前者を**正作用素 $\Delta^{1/2}$**、後者を**内積を共役して保存する反線形写像 $J$** として取り出します。特に、$S$ が閉じた対合であることから
 
 $$
 S=J\Delta^{1/2},\qquad J^2=I,\qquad
@@ -21,7 +21,7 @@ S_0(A\Omega)=A^*\Omega
 S=\overline{S_0}.
 $$
 
-[AQFT18の可閉性定理](../AQFT18/index.md#thm-aqft18-tomita-closable)から $S$ は稠密定義・閉・反線形です。さらに[対合性命題](../AQFT18/index.md#prop-aqft18-closure-involution)から
+[Tomita初期作用素の可閉性](../AQFT18/index.md#thm-aqft18-tomita-closable)から $S$ は稠密定義・閉・反線形です。さらに[対合性命題](../AQFT18/index.md#prop-aqft18-closure-involution)から
 
 $$
 S\operatorname{Dom}(S)=\operatorname{Dom}(S),\qquad
@@ -70,14 +70,38 @@ $$
 
 を満たす最大の $y$ を定義域に取ります。$T^\sharp T$ は線形ですが、$T$ が非有界なら積の定義域は自動的には全空間になりません。
 
-反線形を普通の線形作用素の定理へ移すため、$\overline{\mathcal H}$ を**共役Hilbert空間**と呼びます。これは元の集合の元 $y$ を $\overline y$ と書き直し、スカラー倍を $\alpha\,\overline y=\overline{\overline\alpha\,y}$、内積を
+反線形を線形作用素の定理へ移すには、スカラー倍で複素共役を付け直したHilbert空間を用意します。元のベクトルと一対一に対応しますが、複素数の掛け方を変えた空間です。内積も同時に調整するので、ノルムと完備性は変わりません。
 
+<a id="def-aqft19-conjugate-hilbert"></a>
+
+<!-- formal-statement-start -->
+> **定義（共役Hilbert空間）**  
+> 複素Hilbert空間 $\mathcal H$ に対し、元 $y\in\mathcal H$ を $\overline y$ と記す別の集合 $\overline{\mathcal H}$ を用意する。この集合の加法とスカラー倍、および内積を
 $$
+\overline y+\overline z=\overline{y+z},\qquad
+\alpha\,\overline y=\overline{\overline\alpha\,y},\qquad
 \langle\overline y,\overline z\rangle_{\overline{\mathcal H}}
 =\langle z,y\rangle_{\mathcal H}
 $$
+> と定める。これを $\mathcal H$ の**共役Hilbert空間**と呼ぶ。対応 $y\mapsto\overline y$ は等長な反線形全単射である。
+<!-- formal-statement-end -->
 
-と定めた複素Hilbert空間です。$T$ が反線形なら、$\widetilde T x=\overline{Tx}$ は $\mathcal H$ から $\overline{\mathcal H}$ への**線形**作用素です。実際、
+<!-- definition-example-start: def-aqft19-conjugate-hilbert -->
+### 直接例：一次元で係数の共役を確認する
+
+$\mathcal H=\mathbb C$ で $\langle z,w\rangle=\overline z w$ とします。$\alpha\in\mathbb C$ と $z\in\mathbb C$ について $\alpha\,\overline z=\overline{\overline\alpha z}$ なので、元の空間からの対応 $c(z)=\overline z$（右辺は共役空間の**元を表す記号**）は $c(\alpha z)=\overline\alpha\,c(z)$ を満たす反線形写像です。内積について
+
+$$
+\langle\overline z,\overline w\rangle_{\overline{\mathcal H}}
+=\langle w,z\rangle_{\mathcal H}
+=\overline w z,\qquad
+\|\overline z\|_{\overline{\mathcal H}}=|z|
+$$
+
+となります。係数・内積・ノルムの三条件を確認できました。完備性は、共役空間のCauchy列が元の空間のCauchy列と同じノルム条件を持つことから従います。
+<!-- definition-example-end -->
+
+$T$ が反線形なら、$\widetilde T x=\overline{Tx}$ は $\mathcal H$ から $\overline{\mathcal H}$ への**線形**作用素です。実際、
 
 $$
 \widetilde T(\alpha x)
@@ -86,7 +110,7 @@ $$
 =\alpha\,\overline{Tx}.
 $$
 
-$\|Tx\|=\|\widetilde Tx\|$ でグラフの閉性も変わらず、随伴の内積公式から $\widetilde T^*\widetilde T=T^\sharp T$ が従います。後者の等式には**両辺の定義域の一致**も含まれています。
+$\|Tx\|=\|\widetilde Tx\|$ でグラフの閉性も変わらず、[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)の内積式から $\widetilde T^*\widetilde T=T^\sharp T$ が従います。後者の等式には**両辺の定義域の一致**も含まれています。
 
 <a id="lem-aqft19-positive-square"></a>
 
@@ -277,7 +301,7 @@ $$
 一意性は $T=VP^{1/2}$ を満たす別の反ユニタリ $V$ が、稠密な $\operatorname{Ran}P^{1/2}$ 上で $V(P^{1/2}x)=Tx=U(P^{1/2}x)$ を満たすことから従います。最後に $\ker P=\ker P^{1/2}=0$ と、自己共役作用素の値域と核の直交補関係から $\overline{\operatorname{Ran}P}=\mathcal H$ です。$\square$
 <!-- proof-end -->
 
-特に Tomita 作用素 $S$ は第1節で単射・稠密値域だと確かめたので、この定理を適用できます。一般の閉反線形作用素に核や非稠密値域があれば、延長されるのは全空間の反ユニタリとは限らず、**反線形部分等長作用素**になります。仮定を落として同じ結論を使ってはいけません。
+特に Tomita 作用素 $S$ は第1節で単射・稠密値域だと確かめたので、この定理を適用できます。一般の閉反線形作用素に核や非稠密値域があれば、延長されるのは全空間の反ユニタリとは限らず、**核の直交補から値域の閉包への反線形等長写像**にとどまり、全空間の全射とは限りません。仮定を落として同じ結論を使ってはいけません。
 
 <a id="def-aqft19-modular-conjugation"></a>
 
@@ -295,7 +319,7 @@ $$
 <!-- definition-example-start: def-aqft19-modular-conjugation -->
 ### 直接例：対角標準対では普通の複素共役
 
-上の二点の例では $\Delta^{1/2}=I$、$S=C$（座標共役）でした。極分解の規則に $x\in\mathbb C^2$ を代入すると $Jx=J(Ix)=Cx$ です。$C$ は反線形、内積を共役して保存し、$C^2=I$ により全射です。**反ユニタリの全条件**と $S=JI$ を確認しました。
+上の二点の例では $\Delta^{1/2}=I$、$S=C$（座標共役）でした。極分解の規則に $x\in\mathbb C^2$ を代入すると $Jx=J(Ix)=Cx$ です。$C$ は反線形、内積を共役して保存し、$C^2=I$ により全射です。**反線形性・全射性・内積を共役して保存する性質**と $S=JI$ を確認しました。
 <!-- definition-example-end -->
 
 ## 5. 対合性からモジュラー関係が生まれる
@@ -395,7 +419,7 @@ $$
 
 ### 証明の見取り図
 
-$S$ と $S^\sharp$ の両方で $\Omega$ が固定されることを、$\Delta=S^\sharp S$ の**定義域条件**に直接代入します。$\Delta^{1/2}$ と $\Delta^{it}$ にはスペクトル関数計算を適用します。
+$S$ と $S^\sharp$ の両方で $\Omega$ が固定されることを、$\Delta=S^\sharp S$ について、$S\Omega$ がさらに $S^\sharp$ の定義域に入ることを確かめて代入します。$\Delta^{1/2}$ と $\Delta^{it}$ にはスペクトル関数計算を適用します。
 
 <!-- proof-start -->
 ### 証明
@@ -415,7 +439,7 @@ $$
 を得ます。$\square$
 <!-- proof-end -->
 
-$\Delta^{it}$ はスペクトル関数 $\lambda\mapsto\lambda^{it}$ から作る全域定義ユニタリ作用素です。$\ker\Delta=0$ なので $\lambda=0$ のスペクトル射影は零です。群法則 $\Delta^{it}\Delta^{is}=\Delta^{i(t+s)}$ は関数の積から従い、強連続性は有界関数の各点連続性とスペクトル測度に対する優収束から従います。**これはHilbert空間上のユニタリ群を作っただけ**で、$\mathcal M$ を保つことまでは証明していません。
+$\Delta^{it}$ はスペクトル関数 $\lambda\mapsto\lambda^{it}$ から作る全域定義ユニタリ作用素です。$\ker\Delta=0$ なので $\lambda=0$ のスペクトル射影は零です。群法則 $\Delta^{it}\Delta^{is}=\Delta^{i(t+s)}$ は関数の積から従い、強連続性は有界関数の各点連続性とスペクトル測度に対する優収束から従います。**これはHilbert空間上で群法則を満たすユニタリ作用素族を作っただけ**で、$\mathcal M$ を保つことまでは証明していません。
 
 ## 7. 非可換な二次元模型で何が変わるか
 
@@ -655,7 +679,7 @@ $$
 <!-- solution-end -->
 
 <a id="ex-aqft19-b04"></a>
-#### AQFT19-B04 反線形共役とモジュラーユニタリ群
+#### AQFT19-B04 反線形共役とモジュラー時間のユニタリ作用素
 
 - Level: B
 
@@ -712,7 +736,7 @@ $$
 
 $\lambda_j>0$ なので各 $E_{ij}\in\mathcal M\Omega$ です。有限行列の線形包はHilbert–Schmidtノルムで稠密ですから巡回的です。$A\Omega=0$ なら各 $j$ で $0=A\Omega e_j=\sqrt{\lambda_j}Ae_j$ となり $Ae_j=0$、$A$ の有界性と基底の稠密性から $A=0$。よって分離的です。$\mathcal M$ のvon Neumann環性も確認します。すべての右乗算 $R_C(X)=XC$ は $L_A$ と可換です。$T\in\mathcal M''$ なら第1列の部分空間 $\{E_{v1}:v\in K\}$ を保ち、$T(E_{v1})=E_{Dv,1}$ となる有界作用素 $D\in B(K)$ を定めます（$\|Dv\|\le\|T\|\|v\|$）。$E_{ij}=R_{E_{1j}}E_{i1}$ なので、$T$ の右乗算との可換性から $T(E_{ij})=E_{De_i,j}=L_D(E_{ij})$。稠密な行列単位上で一致するので $T=L_D$、すなわち $\mathcal M''=\mathcal M$ です。[von Neumannの二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)より $\mathcal M$ はvon Neumann環です。
 
-**2. Tomitaの初期作用。** $E_{ij}=A\Omega$ には $A=E_{ij}/\sqrt{\lambda_j}\in B(K)$ を選べます。[初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)から
+**2. Tomitaの初期作用。** $E_{ij}=A\Omega$ には $A=E_{ij}/\sqrt{\lambda_j}\in B(K)$ を選べます。[Tomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial)から
 
 $$
 S_0(E_{ij})=A^*\Omega
