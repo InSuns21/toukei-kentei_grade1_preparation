@@ -360,7 +360,17 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$f,g$ を実とし、$\mathcal G_{f,g}(z)=\int f(x)g(y)\mathcal G_{x,y}(z)\,d^4x\,d^4y$ と置きます。ここで $d^4x\,d^4y$ は各点のMinkowski座標でのLebesgue積分を表し、boost行列の行列式が1なので $d^4(\Lambda(s)x)=d^4x$ です。$x,y$ の支持はともに右wedgeのコンパクト部分集合にあり、$\rho_x,\rho_y$ は正の下限を持つので、開帯の任意のコンパクト部分では前定理の核とその $z$ 微分が一様に有界です。従って積分と複素微分を交換でき、$\mathcal G_{f,g}$ は正則です。境界では前定理の分布的収束を使い、$\Lambda(s)$ のJacobianが1であることから
+$f,g$ を実として、二点核を平滑化した関数を
+$$
+\mathcal G_{f,g}(z)=\int f(x)g(y)\mathcal G_{x,y}(z)\,d^4x\,d^4y
+$$
+と置きます。ここで $d^4x\,d^4y$ は各点のMinkowski座標でのLebesgue積分を表します。boost行列の行列式は1であるから、
+$$
+d^4(\Lambda(s)x)=d^4x
+$$
+であり、後で積分変数をboostしても体積要素は変わりません。
+
+$x,y$ の支持はともに右wedgeのコンパクト部分集合にあり、$\rho_x,\rho_y$ は正の下限を持ちます。開帯の任意のコンパクト部分では前定理の核とその $z$ 微分が一様に有界です。従って積分と複素微分を交換でき、$\mathcal G_{f,g}$ は正則です。境界では前定理の分布的収束を使い、$\Lambda(s)$ のJacobianが1であることから
 $$
 \begin{aligned}
 \int f(x)g(y)W_m(\Lambda(s)x,y)\,dx\,dy
