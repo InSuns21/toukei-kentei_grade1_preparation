@@ -14,7 +14,11 @@
 
 ## 1. 前提となる模型と角度速度
 
-対象は[RBD11の固定点を持つ重い対称こま](../RBD11/index.md#def-rbd11-heavy-top)です。支点 $O$ は固定、重心は第三物体軸 $n=Re_3$ 上の距離 $l>0$ にあり、重力は鉛直下向きです。支点まわりの主慣性値は $\operatorname{diag}(I,I,J)$、$I,J>0$ で、支点反力にトルクと仕事はありません。$a:=Mgl>0$ と略記します。重心が上向きのとき $\theta=0$、下向きが $\theta=\pi$ です。正則な ZYZ Euler角の領域 $0<\theta<\pi$ のみで除算します。
+対象は[RBD11の固定点を持つ重い対称こま](../RBD11/index.md#def-rbd11-heavy-top)です。支点 $O$ は固定され、重心は第三物体軸 $n=Re_3$ に沿って距離 $l>0$ の位置にあります。重力は鉛直下向きです。
+
+支点まわりの主慣性値は $\operatorname{diag}(I,I,J)$ で $I,J>0$ とします。理想支点の反力は支点にトルクを与えず、仕事もしません。重力トルクの強さに用いる定数を $a:=Mgl>0$ と略記します。
+
+重心が上向きのとき $\theta=0$、下向きなら $\theta=\pi$ です。以下では正則な ZYZ Euler角の領域 $0<\theta<\pi$ でのみ角速度の除算を行います。
 
 [RBD11の保存則](../RBD11/index.md#thm-rbd11-momenta-energy)と[有効ポテンシャル](../RBD11/index.md#def-rbd11-effective-potential)を、次の形で引き継ぎます。
 
@@ -170,7 +174,26 @@ $$
 <!-- definition-example-start: def-rbd12-nutation -->
 ### 直接例：定常歳差から傾きだけを少しずらす
 
-前節の $I=2,J=1,a=3,k=10$、遅い枝の $\theta_0=\pi/3$ と $h=5+\frac32(5-\sqrt{22})$ を固定します。初期値を $\theta(0)=\theta_0+\eta,\ \dot\theta(0)=0$（小さい $\eta>0$）に変え、$\dot\phi(0)=\Omega(\theta_0+\eta)$、$\dot\psi(0)=10-\dot\phi(0)\cos(\theta_0+\eta)$ とします。$h,k$ の条件は依然満たしますが、停留点からずれた場所では一般に $V'\ne0$ であり、$\ddot\theta(0)\ne0$ です。後に証明する $V''(\theta_0)>0$ から、小さい $\eta$ に対して $V'(\theta_0+\eta)>0$、したがって $\ddot\theta(0)<0$。この初期角は外側の転回点となり、近くの反対側の転回点まで進んで戻る往復章動を生みます。**$\dot\theta(0)=0$ でも章動しないとは限らない**、という定義の非自明な部分を確認できます。
+前節の $I=2,J=1,a=3,k=10$ と、遅い枝の $\theta_0=\pi/3$ を採用します。対応する鉛直角運動量は $h=5+\frac32(5-\sqrt{22})$ です。
+
+この $h,k$ を固定したまま初期値を次のように変えます。$\eta>0$ は十分小さい値です。
+
+$$
+\theta(0)=\theta_0+\eta,\qquad \dot\theta(0)=0.
+$$
+
+歳差速度と自転角速度は新しい傾きで評価して
+
+$$
+\dot\phi(0)=\Omega(\theta_0+\eta),\qquad
+\dot\psi(0)=10-\dot\phi(0)\cos(\theta_0+\eta)
+$$
+
+とします。これなら $h,k$ は元の値のままです。
+
+停留点からずれたところでは一般に $V'\ne0$ です。後に証明する $V''(\theta_0)>0$ から、小さい $\eta>0$ に対して $V'(\theta_0+\eta)>0$ となります。したがって $I\ddot\theta(0)=-V'(\theta_0+\eta)<0$。初期角は外側の転回点となり、近くの反対側の転回点まで進んで戻る往復章動が生じます。
+
+**$\dot\theta(0)=0$ でも章動しないとは限らない**、という定義の非自明な部分が確かめられました。
 <!-- definition-example-end -->
 
 <a id="thm-rbd12-small-nutation"></a>
@@ -236,7 +259,11 @@ $$
 
 [RBD11の二階式](../RBD11/index.md#thm-rbd11-reduced-theta)に代入して $I\ddot\eta=-V''(\theta_0)\eta+O(\eta^2)$。一次まで取れば主張の線形方程式です。$\nu^2=V''/I>0$ なので実振動数 $\nu$ を持ちます。
 
-さらに $V'(\theta_0)=0$、$V''(\theta_0)>0$ と連続性から、十分小さい近傍で $V$ は左側で単調減少、右側で単調増加です。$\varepsilon=V(\theta_0)+\delta$（十分小さい $\delta>0$）に対して近傍の左右に各一つ $V(\theta_\pm)=\varepsilon$ の根があり、内部で $V<\varepsilon$ です。[エネルギー式](../RBD11/index.md#thm-rbd11-reduced-theta)はそこで $\dot\theta^2>0$、両端で零を与えます。左端では $V'<0$ なので $\ddot\theta>0$、右端では $V'>0$ なので $\ddot\theta<0$、従って反転して往復します。半周期の積分
+さらに $V'(\theta_0)=0$、$V''(\theta_0)>0$ と連続性から、十分小さい近傍で $V$ は左側では単調減少し、右側では単調増加します。
+
+$\varepsilon=V(\theta_0)+\delta$（十分小さい $\delta>0$）に対して近傍の左右に一つずつ $V(\theta_\pm)=\varepsilon$ の根があり、その間では $V<\varepsilon$ です。[エネルギー式](../RBD11/index.md#thm-rbd11-reduced-theta)は区間内部で $\dot\theta^2>0$、両端で零を与えます。
+
+左端では $V'<0$ より $\ddot\theta>0$、右端では $V'>0$ より $\ddot\theta<0$ なので、両端で反転して往復します。半周期の積分
 
 $$
 \frac{T}{2}=\sqrt{\frac I2}\int_{\theta_-}^{\theta_+}
