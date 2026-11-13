@@ -131,7 +131,15 @@ $$
 
 [STO10 の Girsanov 定理](../../../解析系/STO/STO10/index.md#thm-sto10-girsanov)へ $\theta_u=\theta$ を代入すると、$Z_t$ は $E_P[Z_T\mid\mathcal F_t]$ に一致する真のマルチンゲールで $E_P[Z_T]=1$ です。従って $Q$ は確率測度です。$Z_T>0$ が $P$-ほとんど確実に成り立つため、$Q(A)=0$ なら $P(A)=0$ となり、$Q\sim P$ です。同定した $W^Q=W^P+\theta t$ は $Q$ の下で Brown 運動です。
 
-確率測度が同値なので、$P$ の下で成立する積分形の恒等式は $Q$ の下でも成立します。その恒等式に $dW_t^P=dW_t^Q-\theta\,dt$ を代入すると
+両測度は同値なので、元の SDE が成り立つ経路集合は $Q$ の下でも確率1です。さらに $W_t^Q=W_t^P+\theta t$ であり、有限変動過程 $\theta t$ を分ける確率積分の線形性から
+
+$
+\int_0^t\sigma S_u\,dW_u^P
+=\int_0^t\sigma S_u\,dW_u^Q
+-\theta\int_0^t\sigma S_u\,du.
+$
+
+ここで $S$ は有限時間区間で連続なので、各標本路上の局所二乗可積分性があり、上の積分は定義できます。この積分形の等式を微分記法 $dW_t^P=dW_t^Q-\theta\,dt$ で表し、株価 SDE に代入すると
 
 $$
 \begin{aligned}
@@ -200,9 +208,9 @@ Z_Te^{-rT}S_T
 \right],\\
 E_P[Z_Te^{-rT}S_T]
 &=s_0\exp\left[
-\mu-r-\frac{\sigma^2+\theta^2}{2}
-+\frac{(\sigma-\theta)^2}{2}
-\right]T\\
+\left(\mu-r-\frac{\sigma^2+\theta^2}{2}
++\frac{(\sigma-\theta)^2}{2}\right)T
+\right]\\
 &=s_0\exp[(\mu-r-\sigma\theta)T]=s_0.
 \end{aligned}
 $$
@@ -393,7 +401,15 @@ B_tE_Q[B_T^{-1}H\mid\mathcal F_t]
 =v(t,S_t).
 $$
 
-次にこの候補が**実際に**自己金融であるか検証します。$a=r+\sigma^2$ と置くと
+次にこの候補が**実際に**自己金融であるか検証します。価格関数 $v(t,s)$ の第1引数 $t$ は時刻、第2引数 $s>0$ は株価の値です。以下では、$v_t$ は **$s$ を固定して時刻 $t$ で偏微分**したもの、$v_s,v_{ss}$ は **$t$ を固定して株価 $s$ で1回・2回偏微分**したものを表します。
+
+$
+v_t:=\frac{\partial v}{\partial t},\qquad
+v_s:=\frac{\partial v}{\partial s},\qquad
+v_{ss}:=\frac{\partial^2v}{\partial s^2}.
+$
+
+これらは時点添字を表す $S_t$ や $\Delta_t$ とは異なります。合成した確率過程 $v(t,S_t)$ の全変化は偏微分 $v_t$ だけでは得られず、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)で $S_t$ の変動と二次変分の補正まで加えます。$a=r+\sigma^2$ と置くと
 
 $$
 v_t(t,s)=-av(t,s),\quad
@@ -422,7 +438,19 @@ d(e^{-rt}v(t,S_t))
 =\Delta_t\,d(e^{-rt}S_t).
 $$
 
-$\psi_t=(v-\Delta S)/B$ と置いたので恒等的に $V=\Delta S+\psi B=v$ です。前節の [割引自己金融条件](#prop-u3-15-discounted-wealth)の導出を逆にたどると、$dV=\Delta\,dS+\psi\,dB$ が成立します。$\Delta,\psi$ は連続適合で予測可能です。有限時間上の対数正規株価の全次数のモーメントが有限なので、$\Delta_t^2\sigma^2\widetilde S_t^2$ の期待積分も有限です。最後に $t=T$ を入れると $v(T,S_T)=S_T^2/K=H$ です。
+$\psi_t=(v-\Delta S)/B$ と置いたので恒等的に $V=\Delta S+\psi B=v$ です。前節の [割引自己金融条件](#prop-u3-15-discounted-wealth)の導出を逆にたどると、$dV=\Delta\,dS+\psi\,dB$ が成立します。$\Delta,\psi$ は連続適合で予測可能です。二乗可積分性も具体的に確認します。$Q$ の下で [GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)に $p=4$、ドリフト $r$ を代入すると $E_Q[S_t^4]=s_0^4e^{(4r+6\sigma^2)t}$ です。したがって
+
+$
+\begin{aligned}
+E_Q[\Delta_t^2\sigma^2\widetilde S_t^2]
+&=\frac{4\sigma^2}{K^2}
+e^{2a(T-t)-2rt}E_Q[S_t^4]\\
+&=\frac{4\sigma^2s_0^4}{K^2}
+e^{2aT+4\sigma^2t}.
+\end{aligned}
+$
+
+右辺は $0\le t\le T$ で有限かつ有界なので、非負関数の積分と期待値を交換して $\displaystyle E_Q[\int_0^T\Delta_t^2\sigma^2\widetilde S_t^2\,dt]<\infty$ が分かります。最後に $t=T$ を入れると $v(T,S_T)=S_T^2/K=H$ です。
 <!-- proof-end -->
 
 **数値例**：$s_0=K=100$ 円、$r=0.03$、$\sigma=0.20$、$T=1$ 年では
@@ -522,7 +550,15 @@ $s_0=80,r=0.04,T=2$ のとき、満期支払額 $H=3S_T-10B_T$ を複製する�
 $\mu=0.09,r=0.03,\sigma=0.20$ とする。$P$ の下で $E_P[\widetilde S_1\mid\mathcal F_0]$ を計算し、$\widetilde S$ が $P$-マルチンゲールではないことを示せ。
 
 <!-- solution-start -->
-**詳細解答**：[条件付き平均公式](../U3-14/index.md#prop-u3-14-conditional)に $\mu=0.09$、$u=0,t=1$ を入れると $E_P[S_1]=s_0e^{0.09}$。$\widetilde S_1=e^{-0.03}S_1$ より $E_P[\widetilde S_1]=s_0e^{0.06}\ne s_0=\widetilde S_0$。$s_0>0$ なので差は厳密に正です。従って $P$ のまま割り引く操作だけではマルチンゲールになりません。
+**詳細解答**：[条件付き平均公式](../U3-14/index.md#prop-u3-14-conditional)に $\mu=0.09$、$u=0,t=1$ を入れると $E_P[S_1\mid\mathcal F_0]=S_0e^{0.09}=s_0e^{0.09}$ です。$\widetilde S_1=e^{-0.03}S_1$ より
+
+$
+E_P[\widetilde S_1\mid\mathcal F_0]
+=e^{-0.03}s_0e^{0.09}
+=s_0e^{0.06}\ne s_0=\widetilde S_0.
+$
+
+$s_0>0$ なので差は厳密に正です。従って $P$ のまま割り引く操作だけではマルチンゲールになりません。
 <!-- solution-end -->
 
 <a id="ex-u3-15-b1"></a>
@@ -539,7 +575,7 @@ $$
 を示せ。これを $X=e^{-rT}S_T$ に適用し、何が検証できるか述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[密度過程の定義](../../../解析系/STO/STO10/index.md#def-sto10-density-process)で $Z_t>0$ です。右辺を $Y$ と置き、任意の $A\in\mathcal F_t$ に対して
+**詳細解答**：[密度過程の定義](../../../解析系/STO/STO10/index.md#def-sto10-density-process)は $Z_t=E_P[Z_T\mid\mathcal F_t]$ を与えます。**正値性は密度過程の定義だけからは出ず、本問の仮定 $Z_t>0$ を用いる**ので、右辺の割算ができます。右辺を $Y$ と置き、任意の $A\in\mathcal F_t$ に対して
 
 $$
 \begin{aligned}
