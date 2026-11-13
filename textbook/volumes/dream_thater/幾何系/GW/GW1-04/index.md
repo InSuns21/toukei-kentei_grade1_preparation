@@ -326,8 +326,7 @@ $M$ と $N$ の可分性により第二可算な座標近傍を選んで上の�
 普遍零点のうち単純曲線からなる部分を
 
 $$
-\mathcal M^*=\{(u,J):\mathcal F(u,J)=0,\
-u\text{ は単純},\ u_*[\Sigma]=\beta\}
+\mathcal M^*=\{(u,J):\mathcal F(u,J)=0,\ u\text{ は単純},\ u_*[\Sigma]=\beta\}
 $$
 
 とする。単射な正則点 $z$ が一つあれば、$du_z\ne0$ なので $u$ は $z$ の小近傍 $U$ で埋め込みとなる。また $u(\Sigma\setminus U)$ はコンパクトで、$u(z)$ を含まない。
