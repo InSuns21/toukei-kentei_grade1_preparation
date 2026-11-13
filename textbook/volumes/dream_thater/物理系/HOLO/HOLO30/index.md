@@ -15,7 +15,14 @@ V:H_{\mathrm{code}}\longrightarrow H_A\otimes H_{\bar A},
 \qquad V^\dagger V=I_{\mathrm{code}}
 $$
 
-です。$A$ を保持して $\bar A$ を失う問題を考えます。$V$ の像に限った作用の等式と、物理空間全体の演算子等式を区別します。行列の対数・相対エントロピーについては[HOLO28のモジュラーHamiltonian](../HOLO28/index.md#def-holo28-modular-hamiltonian)と[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)を使います。ただしQINF20の定義は底2の対数を使うため、本講の自然対数による相対エントロピーは $D_{\mathrm{nat}}(\rho\Vert\sigma)=(\log 2)D_{\mathrm{bit}}(\rho\Vert\sigma)$ です。台の包含条件は対数の底を変えても同じです。
+です。$A$ を保持して $\bar A$ を失う問題を考えます。$V$ の像に限った作用の等式と、物理空間全体の演算子等式を区別します。行列の対数・相対エントロピーについては[HOLO28のモジュラーHamiltonian](../HOLO28/index.md#def-holo28-modular-hamiltonian)と[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)を使います。ただしQINF20は底2の対数を使うので、本講で自然対数を使う値との対応は
+
+$
+D_{\mathrm{nat}}(\rho\Vert\sigma)
+=(\log 2)D_{\mathrm{bit}}(\rho\Vert\sigma)
+$
+
+です。台の包含条件は対数の底を変えても同じです。
 
 ## 1. 失われても測りたいものを「代数」で指定する
 
@@ -106,7 +113,13 @@ $$
 T_\alpha=\sum_{i,j}|i\rangle\langle j|_a\otimes T_{ij}
 $$
 
-と展開します。ここで $T_{ij}=(\langle i|_a\otimes I_b)T_\alpha(|j\rangle_a\otimes I_b)$ は $H_{b_\alpha}$ 上の作用素であり、行列の各成分を補因子上の作用素として取り出したものです。$E_{kk}=|k\rangle\langle k|_a$ と置くと、$E_{kk}\otimes I_b$ との可換性は
+と展開します。ここで $T_{ij}$ は $H_{b_\alpha}$ 上の作用素で、基底の行列要素を取って
+
+$
+T_{ij}=(\langle i|_a\otimes I_b)T_\alpha(|j\rangle_a\otimes I_b)
+$
+
+と定まります。$E_{kk}=|k\rangle\langle k|_a$ と置くと、$E_{kk}\otimes I_b$ との可換性は
 
 $
 (E_{kk}\otimes I_b)T_\alpha
