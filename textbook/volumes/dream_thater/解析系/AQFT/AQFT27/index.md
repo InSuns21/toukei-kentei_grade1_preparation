@@ -182,8 +182,18 @@ $$
 <a id="lem-aqft27-invariant-core"></a>
 
 <!-- formal-statement-start -->
-> **補題（ユニタリ群に不変な稠密部分空間は指数作用素のcore）**  
-> $Q$ を複素Hilbert空間上の自己共役作用素、$B=e^{Q/2}$ を正の自己共役作用素とする。複素線形部分空間 $D$ が $\operatorname{Dom}B$ に含まれ、Hilbertノルムで稠密であり、全ての $t\in\mathbb R$ について $e^{itQ}D=D$ を満たすなら、$D$ は $B$ のグラフノルム $\|v\|_B^2=\|v\|^2+\|Bv\|^2$ について稠密である。
+> **補題（不変稠密部分空間の指数作用素core）**  
+> $Q$ を複素Hilbert空間上の自己共役作用素、$B=e^{Q/2}$ を正の自己共役作用素とする。$D\subset\operatorname{Dom}B$ をHilbertノルムで稠密な複素線形部分空間とし、全ての実数 $t$ について
+>
+$$
+e^{itQ}D=D
+$$
+>
+> と仮定する。このとき $D$ は次のグラフノルムについて稠密である。
+
+$$
+\|v\|_B^2=\|v\|^2+\|Bv\|^2.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -230,7 +240,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**1. 一粒子稠密性。** $D_0=K_0(W_R)+iK_0(W_R)$ とします。[自由真空のスペクトル条件](../AQFT8/index.md#thm-aqft8-vacuum-spectrum)と自由場の弱加法性の下で、[Reeh–Schlieder定理](../AQFT12/index.md#thm-aqft12-reeh-schlieder)は $\overline{\mathcal M(W_R)\Omega}=\mathcal F_s(\mathfrak h)$ を与えます。自由場の弱加法性は、$W_R$ 内の非空double coneを平行移動させると試験関数支持が全時空を覆い、有限個の分割単位から全域Weyl元を生成できることによります。
+**1. 一粒子稠密性。** $D_0=K_0(W_R)+iK_0(W_R)$ とします。[自由真空のスペクトル条件](../AQFT8/index.md#thm-aqft8-vacuum-spectrum)と自由場の弱加法性の下で、[Reeh–Schlieder：弱加法性による局所巡回性](../AQFT12/index.md#thm-aqft12-reeh-schlieder)は $\overline{\mathcal M(W_R)\Omega}=\mathcal F_s(\mathfrak h)$ を与えます。自由場の弱加法性は、$W_R$ 内の非空double coneを平行移動させると試験関数支持が全時空を覆い、有限個の分割単位から全域Weyl元を生成できることによります。
 
 一粒子への直交射影を $P_1$ とすると、[Weyl真空ベクトルの指数表示](../AQFT8/index.md#prop-aqft8-fock-weyl)から
 
@@ -238,15 +248,15 @@ $$
 P_1W(h)\Omega=i\,e^{-\|h\|^2/2}h,\qquad h\in K_0(W_R).
 $$
 
-Weyl元の有限線形包が局所環を強く生成するので、その真空作用の線形包は稠密です。一粒子射影を取れば、その像の複素線形包 $D_0$ は $\mathfrak h$ に稠密です。
+Weyl元の有限線形包がwedgeのvon Neumann環を強く生成するので、その真空作用の線形包は稠密です。一粒子射影を取れば、その像の複素線形包 $D_0$ は $\mathfrak h$ に稠密です。
 
-**2. グラフcore。** [半周境界値の補題](#lem-aqft27-strip-boundary)より、$D_0\subset\operatorname{Dom}\delta^{1/2}$ であり、$T$ は $K_0$ で恒等、$iK_0$ で符号反転します。また、[boostのwedge保存](../AQFT26/index.md#prop-aqft26-boost-wedge)により
+**2. グラフcore。** [wedge試験関数の半周境界値](#lem-aqft27-strip-boundary)より、$D_0\subset\operatorname{Dom}\delta^{1/2}$ であり、$T$ は $K_0$ で恒等、$iK_0$ で符号反転します。また、[boostのwedge保存](../AQFT26/index.md#prop-aqft26-boost-wedge)により
 
 $$
 u(s)K_0(W_R)=K_0(W_R),\qquad u(s)D_0=D_0.
 $$
 
-$\delta^{it}=u(-2\pi t)$ と[不変core補題](#lem-aqft27-invariant-core)を適用すると、$D_0$ は $\delta^{1/2}$、従って $T=j\delta^{1/2}$ のグラフcoreです。
+$\delta^{it}=u(-2\pi t)$ と[不変稠密部分空間の指数作用素core](#lem-aqft27-invariant-core)を適用すると、$D_0$ は $\delta^{1/2}$、従って $T=j\delta^{1/2}$ のグラフcoreです。
 
 **3. 標準性と閉作用素の一致。** $T$ は閉作用素なので、$K_0$ をHilbertノルムで閉じた $H(W_R)$ の全ての $h$ について $Th=h$ が成り立ちます。ここで閉性の使用は $(h_n,Th_n)=(h_n,h_n)\to(h,h)$ から分かります。$ih\in H(W_R)$ でもあれば、反線形性により $T(ih)=-ih$、一方 $H(W_R)$ の固定性により $T(ih)=ih$。よって $h=0$ です。
 
@@ -322,7 +332,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず真空が標準ベクトルであることを確かめます。[Reeh–Schlieder定理](../AQFT12/index.md#thm-aqft12-reeh-schlieder)から $\Omega$ は $\mathcal M(W_R)$ に対して巡回的です。左wedgeにも非空の開領域があり、[局所性からの分離性](../AQFT13/index.md#thm-aqft13-complement-cyclicity-separating)から分離的でもあります。従って[AQFT18のTomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial) $S_0(A\Omega)=A^*\Omega$ は良定義で可閉です。
+まず真空が標準ベクトルであることを確かめます。[Reeh–Schlieder：弱加法性による局所巡回性](../AQFT12/index.md#thm-aqft12-reeh-schlieder)から $\Omega$ は $\mathcal M(W_R)$ に対して巡回的です。左wedgeにも非空の開領域があり、[局所性からの分離性](../AQFT13/index.md#thm-aqft13-complement-cyclicity-separating)から分離的でもあります。従って[AQFT18のTomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial) $S_0(A\Omega)=A^*\Omega$ は良定義で可閉です。
 
 $h\in K_0(W_R)$ に対し、[Fock Weyl計算](../AQFT8/index.md#prop-aqft8-fock-weyl)から
 
@@ -352,7 +362,7 @@ $$
 
 $E_0=\operatorname{span}_{\mathbb C}\{W(h)\Omega:h\in K_0(W_R)\}$ と置きます。局所Weyl元が $\mathcal M(W_R)$ を生成し、$\Omega$ が巡回的なので $E_0$ はFock空間で稠密です。また $D^{it}=\Gamma(u(-2\pi t))$ であり、boostが$K_0(W_R)$を保つので $D^{it}E_0=E_0$ です。
 
-[グラフcore補題](#lem-aqft27-invariant-core)を $Q_{\mathcal F}=\log D$ と $E_0$ に適用すると、$E_0$ は $D^{1/2}$、従って $JD^{1/2}$ のグラフcoreとなります。上の計算により、$S_0$ と $JD^{1/2}$ はこのcoreで一致します。
+[不変稠密部分空間の指数作用素core](#lem-aqft27-invariant-core)を $Q_{\mathcal F}=\log D$ と $E_0$ に適用すると、$E_0$ は $D^{1/2}$、従って $JD^{1/2}$ のグラフcoreとなります。上の計算により、$S_0$ と $JD^{1/2}$ はこのcoreで一致します。
 
 最後に一般の $A\in\mathcal M(W_R)$ へ拡張する理由を確認します。Weyl元の有限線形包は単位元を含む *-代数で、Weyl関係により積について閉じています。その二重可換子が $\mathcal M(W_R)$ なので、von Neumann代数の強-* 密度（Kaplanskyの有界近似）により、$\|A_\lambda\|\le\|A\|$ を満たす有限Weyl線形結合のネットを取り
 
@@ -369,7 +379,7 @@ $$
 <a id="thm-aqft27-bisognano-wichmann"></a>
 
 <!-- formal-statement-start -->
-> **定理（自由実スカラー場のBisognano–Wichmann）**  
+> **定理（自由実スカラー場のBisognano–Wichmann定理）**  
 > 四次元Minkowski時空の質量 $m>0$ の実自由Klein–Gordon場を、そのPoincaré不変真空Fock表現に置く。$W_R$ を右wedge、$\mathcal M(W_R)$ を実局所Weyl元の弱閉包、$\Omega$ を真空とする。この標準対のモジュラー群は
 
 $$
@@ -403,7 +413,7 @@ $$
 =U(\Lambda(-2\pi t))A\,U(\Lambda(2\pi t)).
 $$
 
-boostは[右wedgeを保存](../AQFT26/index.md#prop-aqft26-boost-wedge)するため、この作用は実際に $\mathcal M(W_R)$ の自己同型群です。
+boostは[右wedgeを保存](../AQFT26/index.md#prop-aqft26-boost-wedge)するため、各作用は実際に $\mathcal M(W_R)$ の自己同型であり、一パラメータ群をなします。
 <!-- proof-end -->
 
 ### 直接例：固有加速度と熱の係数
@@ -606,9 +616,9 @@ $$
 <!-- solution-start -->
 **詳細解答。** **(i)** $f$ の支持上の $x^1\cosh\theta-x^0\sinh\theta$ が正なので、$\psi_f(\theta-iv)$ は $0<v<\pi$ で減衰し、$L^2$ 境界値を持ちます。$\theta-i\pi$ の代入は、正周波数写像の位相 $i$ を含めて $\delta^{1/2}\psi_f=j\psi_f$ となり $T\psi_f=\psi_f$ を与えます。
 
-**(ii)** [Reeh–Schlieder定理](../AQFT12/index.md#thm-aqft12-reeh-schlieder)と $P_1W(h)\Omega=ie^{-\|h\|^2/2}h$ から $D_0=K_0+iK_0$ が一粒子空間で稠密です。また $\Lambda(s)W_R=W_R$ から $u(s)D_0=D_0$ です。
+**(ii)** [Reeh–Schlieder：弱加法性による局所巡回性](../AQFT12/index.md#thm-aqft12-reeh-schlieder)と $P_1W(h)\Omega=ie^{-\|h\|^2/2}h$ から $D_0=K_0+iK_0$ が一粒子空間で稠密です。また $\Lambda(s)W_R=W_R$ から $u(s)D_0=D_0$ です。
 
-**(iii)** $Q=\log\delta$、$\delta^{it}=u(-2\pi t)$ とし、[グラフcore補題](#lem-aqft27-invariant-core)を適用すると $D_0$ は $\delta^{1/2}$ のcoreです。閉反線形作用素 $T$ の固定部分空間として $H(W_R)$ は標準になり、$S_H=T$ です。従って $\delta_H^{it}=u(-2\pi t)$。
+**(iii)** $Q=\log\delta$、$\delta^{it}=u(-2\pi t)$ とし、[不変稠密部分空間の指数作用素core](#lem-aqft27-invariant-core)を適用すると $D_0$ は $\delta^{1/2}$ のcoreです。閉反線形作用素 $T$ の固定部分空間として $H(W_R)$ は標準になり、$S_H=T$ です。従って $\delta_H^{it}=u(-2\pi t)$。
 
 **(iv)** $W(h)\Omega=e^{-\|h\|^2/2}\varepsilon(ih)$ と $j\delta^{1/2}h=h$ から $JD^{1/2}W(h)\Omega=W(-h)\Omega$。このWeyl真空ベクトルの線形包はFock空間で稠密・boost不変なので再びcore補題を適用できます。強-* の有界近似でTomita作用を局所環全体へ拡張し、$\Delta_{W_R}^{it}=\Gamma(\delta^{it})=\Gamma(u(-2\pi t))=U(-2\pi t)$ を得ます。二点KMSから直ちに最後の等式を推論したわけではありません。
 <!-- solution-end -->
