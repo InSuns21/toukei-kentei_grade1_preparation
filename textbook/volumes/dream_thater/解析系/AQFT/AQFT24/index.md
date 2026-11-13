@@ -144,7 +144,7 @@ $$
 
 ### 証明の見取り図
 
-複素時間で虚部を1だけ増すと $\rho^{i(t+i)}=\rho^{it-1}$ です。この負べきがトレース内の最初の $\rho$ と打ち消し合い、残った $\rho$ を巡回させると $A,B$ の順序が反転します。帯全体での評価は二段階です。まずHilbert–Schmidt内積にCauchy–Schwarzを適用し、次に正数の加重相加相乗平均を使います。
+複素時間で虚部を1だけ増すと $\rho^{i(t+i)}=\rho^{it-1}$ です。この負べきがトレース内の最初の $\rho$ と打ち消し合い、残った $\rho$ を巡回させると $A,B$ の順序が反転します。帯全体での評価は二段階です。まずHilbert–Schmidt内積に[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を適用し、次に正数の加重相加相乗平均を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -188,7 +188,7 @@ X=\rho^{(1-y)/2}C\rho^{y/2},\qquad
 Y=\rho^{y/2}B\rho^{(1-y)/2}
 $$
 
-に対し、トレースの巡回性と[Hilbert–Schmidt内積](../AQFT20/index.md#def-aqft20-hilbert-schmidt)のCauchy–Schwarz不等式から
+に対し、トレースの巡回性と[Hilbert–Schmidt内積](../AQFT20/index.md#def-aqft20-hilbert-schmidt)の[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 F_{A,B}(t+iy)=\operatorname{Tr}(XY),\qquad
@@ -465,7 +465,7 @@ X=\rho^{(1-y)/2}C\rho^{y/2},\qquad
 Y=\rho^{y/2}B\rho^{(1-y)/2}
 $$
 
-と分解すれば、$\operatorname{Tr}(XY)=F(t+iy)$ です。[Hilbert–Schmidt内積](../AQFT20/index.md#def-aqft20-hilbert-schmidt)のCauchy–Schwarz不等式から $|F|\le\|X\|_2\|Y\|_2$。成分表示と $p_i^{1-y}p_j^y\le(1-y)p_i+yp_j$ を用いて
+と分解すれば、$\operatorname{Tr}(XY)=F(t+iy)$ です。[Hilbert–Schmidt内積](../AQFT20/index.md#def-aqft20-hilbert-schmidt)の[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $|F|\le\|X\|_2\|Y\|_2$。成分表示と $p_i^{1-y}p_j^y\le(1-y)p_i+yp_j$ を用いて
 
 $$
 \begin{aligned}
