@@ -24,3 +24,4 @@
 21. [U3-21 連続時間の American 価格：最適停止](textbook/volumes/dream_thater/応用系/U/U3-21/index.md)
 22. [U3-22 Black–Scholes PDE の格子化・陽解法](textbook/volumes/dream_thater/応用系/U/U3-22/index.md)
 23. [U3-23 陰解法・Crank–Nicolson 法・Rannacher smoothing](textbook/volumes/dream_thater/応用系/U/U3-23/index.md)
+24. [U3-24 American オプションの障害問題を解く](textbook/volumes/dream_thater/応用系/U/U3-24/index.md)
