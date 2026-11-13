@@ -87,7 +87,7 @@ x=\frac{Rr\sinh\chi}{D},\qquad
 z=\frac{R}{D}
 $$
 
-と置きます。$r$ は境界へ向かう半径、$\tau$ はくさびに沿った時間、$\chi$ はくさびに沿った空間座標です。$r=1$ は座標範囲の境界で、後に現れる分岐面です。
+と置きます。$r$ は境界へ向かう半径、$\tau$ はくさびに沿った時間、$\chi$ はくさびに沿った空間座標です。$r=1$ は座標範囲の境界で、後に現れる分岐曲線です。以下、$\operatorname{sech}\chi=1/\cosh\chi$ と書きます。
 
 <a id="def-holo27-rindler-chart"></a>
 
@@ -121,6 +121,24 @@ $$
 **定義の確認**。 $\tau=\chi=0$、$r=5/4$ を代入すると $u=3/4$、$D=2$ なので $(t,x,z)=(0,0,R/2)$ です。前節の不等式では $R/2<R$、従ってこの点はくさび内です。また $D>0$ は $r>1$ と双曲余弦の正値性から従い、$z>0$ です。
 <!-- definition-example-end -->
 
+この変換の像が[くさび判定](#prop-holo27-ads-wedge)の領域に入ることも、座標の条件から確かめられます。$r^2-u^2=1$ より
+
+$$
+(r\cosh\chi)^2-(1+r^2\sinh^2\chi)=u^2>0,
+$$
+
+したがって $r\cosh\chi>\sqrt{1+r^2\sinh^2\chi}$ です。さらに $\cosh\tau>|\sinh\tau|$ と $u>0$ から
+
+$$
+\begin{aligned}
+|t|+\sqrt{x^2+z^2}
+&=\frac{R}{D}\left(u|\sinh\tau|+\sqrt{1+r^2\sinh^2\chi}\right)\\
+&<\frac{R}{D}(u\cosh\tau+r\cosh\chi)=R.
+\end{aligned}
+$$
+
+ここでは $D>0$ を用いています。よって $r>1$ の各座標点は確かに $C(A)$ 内にあります。逆にすべての内部点を表せることは、次の埋め込み座標の計算で確認します。
+
 <a id="prop-holo27-rindler-metric"></a>
 
 <!-- formal-statement-start -->
@@ -139,7 +157,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-Poincaré座標で次の無次元量を定義します。
+[HOLO2のPoincaré座標と埋め込みの対応](../HOLO2/index.md#prop-holo2-poincare-metric)を利用します。同命題の埋め込み座標 $(U,W,w,V)$ は AdS 半径 $L$ を尺度としていました。本講では境界区間の半幅 $R$ に合わせ、次の尺度変換を行います。
+
+$$
+\tilde t=\frac{L}{R}t,\qquad
+\tilde x=\frac{L}{R}x,\qquad
+\tilde z=\frac{L}{R}z.
+$$
+
+一斉に拡大・縮小すると $d\tilde t/\tilde z=dt/z$ 等が成立し、Poincaré計量の形は不変です。この変換後の埋め込み座標を $L$ で割り、$(Y_{-1},Y_0,Y_1,Y_2)=(U/L,W/L,w/L,V/L)$ と定義します。
 
 $$
 Y_{-1}=\frac{R^2+z^2+x^2-t^2}{2Rz},\quad
@@ -153,7 +179,7 @@ $$
 Y_{-1}=r\cosh\chi,\qquad Y_0=u\cosh\tau
 $$
 
-となります。これらは $-Y_{-1}^2+Y_0^2+Y_1^2-Y_2^2=-1$ を満たし、Poincaré計量は
+となります。これらは $-Y_{-1}^2+Y_0^2+Y_1^2-Y_2^2=-1$ を満たします。上の尺度変換と[既習の埋め込み誘導計量](../HOLO2/index.md#prop-holo2-poincare-metric)を使うと、Poincaré計量は
 
 $$
 \frac{ds^2}{L^2}=-dY_{-1}^2+dY_0^2+dY_1^2-dY_2^2.
@@ -176,6 +202,22 @@ $$
 であり、$\chi\in\mathbb R$ は半円を両端への極限を除いて覆います。
 <!-- proof-end -->
 
+この座標が $C(A)$ 全体を一対一に覆うことも確認しておきます。任意の $(t,x,z)\in C(A)$ で $s=\sqrt{x^2+z^2}$ と置くと、$s+|t|<R$ から
+
+$$
+R^2-s^2+t^2>2R|t|,
+\qquad
+Y_0=\frac{R^2-s^2+t^2}{2Rz}>\frac{|t|}{z}=|Y_2|.
+$$
+
+また $Y_{-1}>0$ で、双曲面制約から
+
+$$
+Y_{-1}^2-Y_1^2=1+Y_0^2-Y_2^2>1.
+$$
+
+従って $u=\sqrt{Y_0^2-Y_2^2}>0$、$r=\sqrt{Y_{-1}^2-Y_1^2}=\sqrt{1+u^2}>1$ と定まり、$\tanh\tau=Y_2/Y_0$、$\tanh\chi=Y_1/Y_{-1}$ によって実数の $\tau,\chi$ が一意に復元されます。これで像が単にくさびの一部であるだけでなく、開領域全体に一致することが確かめられました。
+
 境界 $r\to\infty$ では $u/r\to1$ なので
 
 $$
@@ -187,7 +229,11 @@ $$
 
 ## 3. 区間へ適合する場のモード
 
-AdS–Rindler計量では $\partial_\tau$ に沿う時間並進があり、$\chi$ 方向は非コンパクトです。したがって global の**離散整数周波数**をそのまま持ち込まず、実数 $\omega,k$ の連続モードを考えます。波動方程式は $(-\Box_g+m^2)\phi=0$ とし、境界では源を零にする速い減衰枝を取ります。
+AdS–Rindler計量では $\partial_\tau$ に沿う時間並進があり、$\chi$ は非コンパクトな空間座標です。global の離散整数周波数を持ち込むのではなく、実数 $\omega,k$ の連続モードを考えます。
+
+$\Box_g$ は計量の波動作用素を表します。方程式 $(-\Box_g+m^2)\phi=0$ を課し、境界では源零の速い減衰枝を選びます。
+
+$\partial_\tau,\partial_\chi,\partial_r$ は他の二座標を固定して微分します。一方、径関数 $F(r)$ は一変数関数なので、$F'(r)=dF/dr=\partial_rF(r)$ と書きます。
 
 $\phi=e^{-i\omega\tau+ik\chi}F_{\omega k}(r)$ と置きます。$\sqrt{|g|}=L^3r$、$g^{\tau\tau}=-[L^2(r^2-1)]^{-1}$、$g^{rr}=(r^2-1)/L^2$、$g^{\chi\chi}=1/(L^2r^2)$ を波動作用素の発散形へ代入すると径方程式を得ます。
 
@@ -205,7 +251,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-holo27-rindler-mode -->
-**定義の確認**。 $m=k=\omega=0$ とすると径方程式は $\partial_r[r(r^2-1)F']=0$ です。定数 $F$ は解ですが、境界 $r\to\infty$ で消えないので**源零の正規化可能な枝ではありません**。このように、変数分離できることと指定した境界条件を満たすことは別に確認します。
+**定義の確認**。 $m=k=\omega=0$ とすると、$\phi=F(r)$ のため $\partial_\tau\phi=\partial_\chi\phi=0$ で、径方程式は $d[r(r^2-1)F']/dr=0$ です。実際に条件を満たす非零の例は
+
+$$
+F(r)=\log(1-r^{-2})\quad(r>1)
+$$
+
+です。直接微分すると
+
+$$
+F'(r)=\frac{2}{r(r^2-1)},\qquad
+\frac{d}{dr}[r(r^2-1)F'(r)]=\frac{d}{dr}2=0.
+$$
+
+従って波動方程式を満たします。また境界では
+
+$$
+F(r)=-r^{-2}+O(r^{-4}),\qquad
+\Delta_+=1+\sqrt{1+m^2L^2}=2\quad(m=0)
+$$
+
+となります。指数式は $d=2,m=0$ を[HOLO8の質量・漸近指数の関係](../HOLO8/index.md#prop-holo8-mass-dimension)へ代入して得たものです。したがって速い減衰枝に属し、境界の源は零です。
+
+対して非零定数 $F$ は方程式の解でも、境界で消えないため源零条件に不適合です。上の正例は $r\downarrow1$ で対数発散するので、地平面正則性を別に要求すると使えません。分離形・場の方程式・境界条件・地平面条件を区別してください。
 <!-- definition-example-end -->
 
 <a id="prop-holo27-radial-equation"></a>
@@ -222,7 +290,7 @@ $$
 > $r\to\infty$ での源零枝は $F=O(r^{-\Delta_+})$、$\Delta_+=1+\sqrt{1+m^2L^2}$。$\omega\ne0$、$r\downarrow1$ で先頭の独立な局所冪は $(r-1)^{\pm i\omega/2}$ である。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 行列式から発散形の各係数を作り、$r\gg1$ と $u=r-1\ll1$ の極限に分けて冪指数を照合します。
+**証明の見取り図。** 計量の成分行列の行列式から発散形の各係数を作り、$r\gg1$ と $\rho=r-1\ll1$ の極限に分けて冪指数を照合します。ここで $\rho$ は地平面までの座標差であり、第2節の $u=\sqrt{r^2-1}$ とは異なります。
 
 <!-- proof-start -->
 ### 証明
@@ -243,10 +311,10 @@ $$
 =\{\Delta(\Delta-2)-m^2L^2\}r^{-\Delta}+o(r^{-\Delta}).
 $$
 
-従って $\Delta(\Delta-2)=m^2L^2$、源零の速い枝 $\Delta_+$ を選びます。これは[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)とも一致します。次に $u=r-1$ で $r^2-1=2u+O(u^2)$、$F=u^\alpha$ とすると径方程式の主要次数は
+従って $\Delta(\Delta-2)=m^2L^2$、源零の速い枝 $\Delta_+$ を選びます。これは[HOLO8の質量・次元関係](../HOLO8/index.md#prop-holo8-mass-dimension)とも一致します。次に $\rho=r-1>0$ と置くと $r^2-1=2\rho+O(\rho^2)$ です。局所冪 $F=\rho^\alpha$ に対して $d/dr=d/d\rho$ なので、径方程式の主要次数は
 
 $$
-2\alpha^2u^{\alpha-1}+\frac{\omega^2}{2}u^{\alpha-1}=0.
+2\alpha^2\rho^{\alpha-1}+\frac{\omega^2}{2}\rho^{\alpha-1}=0.
 $$
 
 $\alpha^2=-\omega^2/4$ より $\alpha=\pm i\omega/2$ です。$\omega=0$ は重根になり対数枝の可能性があるので、この結論から除いています。
@@ -256,7 +324,20 @@ $\alpha^2=-\omega^2/4$ より $\alpha=\pm i\omega/2$ です。$\omega=0$ は重�
 
 ## 4. 有限モードの境界データは何を識別するか
 
-ここで初めて「部分領域上の測定が、どのモード係数を識別できるか」を有限次元で厳密に調べます。境界 $D(A)$ 上で選んだ複素値の観測量 $d_1,\ldots,d_p$ が、許した $q$ 個のモード係数 $c_1,\ldots,c_q$ に線形に依存するとします。窓関数と積分、または離散標本の取り方を先に固定したとき、それぞれのモードが各測定へ与える値を行列 $M$ の列に並べられます。これは一般のAdS–Rindler核が必ず有界であるという主張ではありません。
+ここからは、境界部分領域の有限個の測定がどのモード係数を区別できるかを調べます。境界 $D(A)$ 上で許容した $q$ 個のモードの境界波形を $b_j$ とします。窓関数による積分や離散標本として、$p$ 個の線形観測 $\ell_i$ を先に固定します。
+
+各観測へ第 $j$ モードが与える値を第 $j$ 列に置くと、線形性から
+
+$$
+M_{ij}:=\ell_i(b_j),\qquad
+d_i=\ell_i\!\left(\sum_{j=1}^q c_jb_j\right)
+=\sum_{j=1}^q M_{ij}c_j
+\quad (1\le i\le p).
+$$
+
+ここで $c_j$ はモード係数、$d_i$ は観測値で、いずれも複素数です。以下、$M^\dagger$ は複素共役転置、$\|v\|_2^2=\sum_j|v_j|^2$ は複素Euclidノルムです。
+
+これは固定した有限モード・測定手順の模型です。無限個の AdS–Rindler モードの逆核が必ず有界だとは主張しません。
 
 <a id="def-holo27-restricted-measurement"></a>
 
@@ -279,7 +360,7 @@ $$
 c=(M^\dagger M)^{-1}M^\dagger d
 $$
 
-> が成立する。さらに $M$ の最小特異値を $\sigma_{\min}>0$ とし、観測雑音を $\delta d$ とすると、最小二乗復元の係数誤差は
+> が成立する。さらに最小特異値を $\sigma_{\min}=\min_{\|v\|_2=1}\|Mv\|_2>0$ とし、観測雑音を $\delta d$ とすると、最小二乗復元の係数誤差は
 
 $$
 \|\delta c\|_2\le \frac{\|\delta d\|_2}{\sigma_{\min}}.
@@ -297,13 +378,27 @@ $$
 v^\dagger M^\dagger Mv=\|Mv\|_2^2>0\quad(v\ne0)
 $$
 
-なので $M^\dagger M$ は可逆です。$d=Mc$ の両辺へ $(M^\dagger M)^{-1}M^\dagger$ を掛ければ再構成式を得ます。$M=U\Sigma W^\dagger$ という[特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を使えば、左逆は $W\Sigma^+U^\dagger$ であり、その作用素ノルムは $1/\sigma_{\min}$ です。よって
+なので $M^\dagger M$ は可逆です。$d=Mc$ の両辺へ $(M^\dagger M)^{-1}M^\dagger$ を掛ければ再構成式を得ます。
+
+**複素行列の安定性を直接証明します。** 測定誤差による最小二乗解の差を $\delta c=(M^\dagger M)^{-1}M^\dagger\delta d$ とし、残差を $e=\delta d-M\delta c$ と置きます。
+
+既習の[最小二乗の正規方程式](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-normal-equations)は実行列についての定理です。ここでは複素行列に対して、直前に定めた $\delta c=(M^\dagger M)^{-1}M^\dagger\delta d$ の両辺へ $M^\dagger M$ を掛け、さらに残差 $e$ の式へ代入することで直接
 
 $$
-\|\delta c\|_2
-=\|(M^\dagger M)^{-1}M^\dagger\delta d\|_2
-\le\|\delta d\|_2/\sigma_{\min}.
+M^\dagger M\delta c=M^\dagger\delta d,\qquad
+M^\dagger e=M^\dagger\delta d-M^\dagger M\delta c=0
 $$
+
+を確認します。したがって複素内積でも $\langle M\delta c,e\rangle=(\delta c)^\dagger M^\dagger e=0$ です。この直交関係を使うと
+
+$$
+\|\delta d\|_2^2
+=\|M\delta c+e\|_2^2
+=\|M\delta c\|_2^2+\|e\|_2^2
+\ge\sigma_{\min}^2\|\delta c\|_2^2.
+$$
+
+ここで $\sigma_{\min}>0$ は $M$ が単射なので単位球面上の連続関数 $v\mapsto\|Mv\|_2$ の最小値が正であることから従い、複素行列の最小特異値と一致します。平方根を取れば要求の誤差評価が得られます。これは既習の[実行列の特異値分解](../../../基礎科目/F0/F0-00F2/index.md#thm-f0-00f2-svd)を複素行列へ無条件で適用する代わりに、必要な複素内積の評価をここで閉じた証明です。
 
 行列の列数より測定数が少ない場合 $p<q$ では階数条件を満たせません。
 <!-- proof-end -->
@@ -347,7 +442,14 @@ $$
 とします。二つの像は直交する単位ベクトルなので $V^\dagger V=I$ です。論理 $Z|0\rangle=|0\rangle$、$Z|1\rangle=-|1\rangle$ に対して $Z_A|0\rangle=|0\rangle$、$Z_A|1\rangle=-|1\rangle$ とすると、両基底で $(Z_A\otimes I)V|j\rangle=VZ|j\rangle$。線形性により任意のコード状態で成立し、**$Z$ は $A$ に再構成できます**。
 <!-- definition-example-end -->
 
-領域 $A$ で区別できない二つのコード状態に対して、論理演算子の期待値だけが異なれば、その演算子は $A$ に置けないはずです。これを単なる直感で終わらせず、部分トレースで示します。
+領域 $A$ で区別できない二つのコード状態に対して、論理演算子の期待値だけが異なれば、その演算子は $A$ に置けないはずです。これを単なる直感で終わらせず、部分トレースで示します。$|ab\rangle=|a\rangle_A\otimes|b\rangle_{\bar A}$ などと書くと、補集合を消す部分トレースは
+
+$$
+\operatorname{Tr}_{\bar A}(|ab\rangle\langle cd|)
+=|a\rangle\langle c|\,\langle d|b\rangle
+$$
+
+で定義され、線形性で一般の密度行列へ延長します。有限次元の行列 $X$ の特異値の総和を $\|X\|_1:=\operatorname{Tr}\sqrt{X^\dagger X}$ と書き、$\|O_A\|_\infty$ を最大特異値（作用素ノルム）とします。有限次元なのでどちらも有限です。
 
 <a id="thm-holo27-indistinguishability"></a>
 
@@ -392,7 +494,18 @@ $$
 =\operatorname{Tr}\!\left[O_A(\rho_A^\psi-\rho_A^\varphi)\right].
 $$
 
-有限次元の特異値分解に基づく $|\operatorname{Tr}(BX)|\le\|B\|_\infty\|X\|_1$ を適用すれば不等式が従います。右辺が零なのに左辺が非零なら、$O_A$ の存在と矛盾します。
+ここで $X=\rho_A^\psi-\rho_A^\varphi$ は Hermitian です。有限次元で固有値 $\lambda_j\in\mathbb R$ と正規直交固有ベクトル $|e_j\rangle$ を選ぶと、$X=\sum_j\lambda_j|e_j\rangle\langle e_j|$ です。従って
+
+$$
+\begin{aligned}
+|\operatorname{Tr}(O_AX)|
+&=\left|\sum_j\lambda_j\langle e_j|O_A|e_j\rangle\right|\\
+&\le\sum_j|\lambda_j|\,\|O_A\|_\infty
+=\|O_A\|_\infty\,\|X\|_1.
+\end{aligned}
+$$
+
+これは複素行列にも通用し、$X$ が Hermitian であることを使ってトレースノルムを $\sum_j|\lambda_j|$ と評価しました。右辺が零なのに左辺が非零なら、$O_A$ の存在と矛盾します。
 <!-- proof-end -->
 
 **失敗例：同じコードの $X$ は再構成できない。** 先ほどの符号化で $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$ を考えると
@@ -509,10 +622,10 @@ $$
 ### 演習 HOLO27-A04：地平面での指数
 - Level: A
 
-$\omega\ne0$ とする。$u=r-1\downarrow0$ で $F=u^\alpha$ と置き、径方程式の主要項から $\alpha$ を求めよ。$k$ と $m$ が先頭の指数を変えない理由も説明せよ。
+$\omega\ne0$ とする。$\rho=r-1\downarrow0$ で $F=\rho^\alpha$ と置き、径方程式の主要項から $\alpha$ を求めよ。第2節の $u$ との違いにも注意せよ。$k$ と $m$ が先頭の指数を変えない理由も説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $r(r^2-1)=2u+O(u^2)$、$1/r=1+O(u)$ だから微分項は $2\alpha^2u^{\alpha-1}+O(u^\alpha)$。周波数項は $\omega^2F/(r^2-1)=(\omega^2/2)u^{\alpha-1}+O(u^\alpha)$。一方 $-k^2F/r^2$ と $-m^2L^2F$ はどちらも $O(u^\alpha)$ に留まります。従って $2\alpha^2+\omega^2/2=0$、解は $\alpha=\pm i\omega/2$ です。$\omega=0$ ではこの議論に重根が現れ、別に対数解を検査します。
+**詳細解答。** $r(r^2-1)=2\rho+O(\rho^2)$、$1/r=1+O(\rho)$ で、$d/dr=d/d\rho$ です。微分項は $2\alpha^2\rho^{\alpha-1}+O(\rho^\alpha)$。周波数項は $\omega^2F/(r^2-1)=(\omega^2/2)\rho^{\alpha-1}+O(\rho^\alpha)$。一方 $-k^2F/r^2$ と $-m^2L^2F$ はどちらも $O(\rho^\alpha)$ に留まります。従って $2\alpha^2+\omega^2/2=0$、解は $\alpha=\pm i\omega/2$ です。$\omega=0$ ではこの議論に重根が現れ、別に対数解を検査します。
 <!-- solution-end -->
 
 <a id="ex-holo27-a05"></a>
