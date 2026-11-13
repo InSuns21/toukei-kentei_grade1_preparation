@@ -103,37 +103,37 @@ $\rho>0$ で割り、$i=1,2,3$ を束ねると結論を得る。質量保存に�
 
 まず移流加速度と速度の二乗の勾配を成分ごとに微分すると
 
-$
+$$
 \left((u\cdot\nabla)u\right)_i
 =\sum_j u_j\partial_ju_i,\qquad
 \partial_i\frac{|u|^2}{2}
 =\sum_j u_j\partial_iu_j.
-$
+$$
 
 次に[VC7 の Levi–Civita 記号の縮約公式](../../../幾何系/VC/VC7/index.md#prop-vc7-epsilon-contraction)を使う。$\varepsilon_{ijk}=\varepsilon_{kij}$（循環置換）だから、和を取る添字 $k$ について
 
-$
+$$
 \sum_k\varepsilon_{ijk}\varepsilon_{k\ell m}
 =\delta_{i\ell}\delta_{jm}-\delta_{im}\delta_{j\ell}.
-$
+$$
 
 従って外積の第 $i$ 成分は
 
-$
+$$
 \begin{aligned}
 (u\times\omega)_i
 &=\sum_{j,k}\varepsilon_{ijk}u_j\omega_k\\
 &=\sum_{j,k,\ell,m}\varepsilon_{ijk}\varepsilon_{k\ell m}u_j\partial_\ell u_m\\
 &=\sum_j u_j(\partial_i u_j-\partial_j u_i).
 \end{aligned}
-$
+$$
 
 最後の等号では、例えば $\sum_{\ell,m}\delta_{i\ell}\delta_{jm}\partial_\ell u_m=\partial_i u_j$ として Kronecker 記号が成分を選ぶことを使った。速度二乗の勾配からこの外積を引くと $\sum_j u_j\partial_ju_i$ だけが残り、
 
-$
+$$
 \boxed{(u\cdot\nabla)u
 =\nabla\left(\frac{|u|^2}{2}\right)-u\times\omega}
-$
+$$
 
 を得る。$\omega$ を零と**決めつけず**残すことが、流線上と領域全体の区別につながる。
 
@@ -397,15 +397,15 @@ $$
 
 ここでは後続の粘性流体論を前提にせず、必要な模型を成分で作る。一定の粘性係数 $\eta>0$ [Pa s] と、速度の**対称な変形速度成分**
 
-$
+$$
 D_{ij}=\frac12(\partial_i u_j+\partial_j u_i)
-$
+$$
 
 を定める。この $D_{ij}$ は速度勾配の対称部分であり、剛体回転のような反対称部分と区別する。非圧縮な Newton 型模型では、応力が $\sigma_{ij}=-p\delta_{ij}+2\eta D_{ij}$ と表せるものと**追加仮定**する。これは第0節の $\sigma=-pI_3$ とは異なる構成則である。
 
 [CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)に入る応力発散を、$\eta$ が空間一定、$u\in C^2$、$\nabla\cdot u=0$ の条件で計算する。偏微分の順序を交換できるので
 
-$
+$$
 \begin{aligned}
 \sum_j\partial_j\sigma_{ij}
 &=-\partial_i p+\eta\sum_j
@@ -413,20 +413,20 @@ $
 &=-\partial_i p+\eta\partial_i(\nabla\cdot u)+\eta\Delta u_i\\
 &=-\partial_i p+\eta\Delta u_i.
 \end{aligned}
-$
+$$
 
 ここで $\Delta u_i=\sum_j\partial_j^2u_i$ は速度成分の Laplace 作用素である。$\rho>0$ 一定、$b=-\nabla\Phi$ を仮定して局所運動量式を $\rho$ で割れば
 
-$
+$$
 \partial_tu+(u\cdot\nabla)u
 =-\frac1\rho\nabla p-\nabla\Phi+\frac\eta\rho\Delta u.
-$
+$$
 
 第2節のベクトル恒等式と [Bernoulli 関数の定義](#def-fluid6-bernoulli-function)を代入すると、**定常の場合に限り**
 
-$
+$$
 \nabla B=u\times\omega+\frac{\eta}{\rho}\Delta u
-$
+$$
 
 となる。流線方向には $u\cdot\nabla B=(\eta/\rho)u\cdot\Delta u$ が残り、一般には零でない。第3節の証明から消えていたのは、この粘性応力の発散項である。より一般の Newton 流体の構成則は後続の [CTM15](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes) で学ぶが、ここでの計算にはそれを前提としない。実管路の摩擦、熱、ポンプなどを含む系を第4節の理想模型と取り違えてはいけない。
 
