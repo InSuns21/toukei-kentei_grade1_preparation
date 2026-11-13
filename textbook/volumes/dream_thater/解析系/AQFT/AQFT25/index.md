@@ -37,7 +37,7 @@ F_{A,B}(t)=\omega(\alpha_t(A)B),
 \qquad
 F_{A,B}(t+i)=\omega(B\alpha_t(A))
 $$
-> がすべての $t\in\mathbb R$ で成り立つとき、$\omega$ は $\alpha$ に関して **KMS条件** を満たすという。$\alpha$ の作用素ノルム連続性は定義の仮定に含めない。
+> がすべての $t\in\mathbb R$ で成り立つとき、$\omega$ は $\alpha$ に関して **von Neumann環上のKMS条件** を満たすという。$\alpha$ の作用素ノルム連続性は定義の仮定に含めない。
 <!-- formal-statement-end -->
 
 ここで「正規」とは超弱位相に関する連続性を指し、[AQFT23の群と状態保存の定理](../AQFT23/index.md#thm-aqft23-group-state)によってモジュラー流とベクトル状態はこの枠に入ります。
@@ -85,7 +85,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（解析的元の二つの稠密性）**  
-> 標準対 $(\mathcal M,\Omega)$ に対し $\mathcal M_{\mathrm c}$ は $\sigma_t$ 不変な単位的C*部分環で、$\sigma_t|_{\mathcal M_{\mathrm c}}$ は作用素ノルム連続な自己同型群である。[AQFT23のGaussian平滑化](../AQFT23/index.md#thm-aqft23-gaussian-analytic)で作る全解析的元 $A_\varepsilon$ は $\mathcal M_{\mathrm c}$ に属し、$\mathcal M$ に強作用素・強*作用素位相で稠密である。さらに全解析的元は $\mathcal M_{\mathrm c}$ に**作用素ノルムで**稠密である。
+> 標準対 $(\mathcal M,\Omega)$ に対し $\mathcal M_{\mathrm c}$ は $\sigma_t$ 不変な単位的C*部分環で、$\sigma_t|_{\mathcal M_{\mathrm c}}$ は作用素ノルム連続な $*$-自己同型からなる群である。[AQFT23のGaussian平滑化](../AQFT23/index.md#thm-aqft23-gaussian-analytic)で作る全解析的元 $A_\varepsilon$ は $\mathcal M_{\mathrm c}$ に属し、$\mathcal M$ に強作用素・強*作用素位相で稠密である。さらに全解析的元は $\mathcal M_{\mathrm c}$ に**作用素ノルムで**稠密である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -295,7 +295,7 @@ $$
 \end{array}
 $$
 
-[半べきの定義域から帯正則性へ](#lem-aqft25-spectral-strip)という補題により $F_{A,B}$ は閉帯で連続、内部で正則です。さらに $0\le v\le1$、$q>0$ に対する加重相加相乗平均 $q^v\le(1-v)+vq$ をスペクトル関数計算に適用すると
+[半べきの定義域から帯正則性へ](#lem-aqft25-spectral-strip)の補題を適用します。この補題により $F_{A,B}$ は閉帯で連続、内部で正則です。さらに $0\le v\le1$、$q>0$ に対する加重相加相乗平均 $q^v\le(1-v)+vq$ をスペクトル関数計算に適用すると
 
 $$
 \begin{aligned}
