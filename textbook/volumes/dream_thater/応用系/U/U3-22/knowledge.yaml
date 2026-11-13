@@ -1,7 +1,7 @@
 chapter: U3-22
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-11, U3-16, U3-17, U3-18, U3-19]
+prerequisites: [NA6, U3-11, U3-16, U3-17, U3-18, U3-19]
 concepts:
   - id: finance.explicit-bsm-grid
     name: 残存時間・株価一様格子と節点値
@@ -20,7 +20,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（陽的更新の局所打切り誤差）"]
-    requires: [finance.explicit-bsm-three-point]
+    requires: [finance.explicit-bsm-three-point, numerical.local-truncation-error]
   - id: finance.explicit-bsm-maximum-principle
     name: 陽的三点更新の非負性と最大値安定性
     kind: theorem
@@ -32,4 +32,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（滑らかな解に対する誤差評価）"]
-    requires: [finance.explicit-bsm-truncation, finance.explicit-bsm-maximum-principle]
+    requires: [finance.explicit-bsm-truncation, finance.explicit-bsm-maximum-principle, numerical.global-error]
