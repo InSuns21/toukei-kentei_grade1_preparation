@@ -1,0 +1,71 @@
+chapter: AQFT27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT8
+  - AQFT9
+  - AQFT12
+  - AQFT13
+  - AQFT18
+  - AQFT19
+  - AQFT22
+  - AQFT23
+  - AQFT25
+  - AQFT26
+forward_references: []
+concepts:
+  - id: aqft.wedge-standard-real-subspace
+    name: 自由場のwedge実部分空間
+    kind: definition
+    introduction: formal
+    requires: [aqft.minkowski-positive-frequency-map, aqft.fock-local-von-neumann-net]
+  - id: aqft.standard-real-subspace
+    name: 標準実部分空間
+    kind: definition
+    introduction: formal
+    requires: []
+  - id: aqft.geometric-one-particle-tomita
+    name: boostから作る一粒子Tomita候補
+    kind: definition
+    introduction: formal
+    requires: [aqft.wedge-standard-real-subspace, aqft.rindler-boost]
+  - id: aqft.wedge-half-strip-wavefunction
+    name: wedge試験関数の半周境界値
+    kind: lemma
+    introduction: formal
+    requires: [aqft.geometric-one-particle-tomita]
+  - id: aqft.invariant-exponential-graph-core
+    name: 不変稠密部分空間の指数作用素core
+    kind: lemma
+    introduction: formal
+    requires: []
+  - id: aqft.one-particle-bisognano-wichmann
+    name: 一粒子Bisognano–Wichmann定理
+    kind: theorem
+    introduction: formal
+    requires: [aqft.wedge-standard-real-subspace, aqft.standard-real-subspace, aqft.wedge-half-strip-wavefunction, aqft.invariant-exponential-graph-core, aqft.reeh-schlieder]
+  - id: aqft.fock-second-quantized-modular
+    name: Fock空間上のモジュラー候補
+    kind: definition
+    introduction: formal
+    requires: [aqft.geometric-one-particle-tomita, aqft.minkowski-fock-weyl]
+  - id: aqft.fock-weyl-tomita
+    name: Weyl環のTomita作用素と第二量子化
+    kind: proposition
+    introduction: formal
+    requires: [aqft.one-particle-bisognano-wichmann, aqft.fock-second-quantized-modular, aqft.tomita-preoperator, aqft.invariant-exponential-graph-core]
+  - id: aqft.free-scalar-bisognano-wichmann
+    name: 自由実スカラー場のBisognano–Wichmann定理
+    kind: theorem
+    introduction: formal
+    requires: [aqft.fock-weyl-tomita, aqft.rindler-boost-wedge-invariance, aqft.modular-flow]
+  - id: aqft.free-scalar-wedge-duality
+    name: 自由スカラー場のwedge双対性
+    kind: corollary
+    introduction: formal
+    requires: [aqft.fock-weyl-tomita, aqft.tomita-commutant-theorem]
+  - id: aqft.free-scalar-wedge-kms
+    name: wedge真空のboost–KMS性
+    kind: corollary
+    introduction: formal
+    requires: [aqft.free-scalar-bisognano-wichmann, aqft.general-modular-kms]

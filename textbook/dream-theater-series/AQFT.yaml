@@ -110,7 +110,7 @@ chapters:
     title: "Rindler wedgeとboostの解析性"
   - id: AQFT27
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT27
-    status: planned
+    status: completed
     title: "Bisognano–Wichmann（自由スカラー場）"
   - id: AQFT28
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT28
