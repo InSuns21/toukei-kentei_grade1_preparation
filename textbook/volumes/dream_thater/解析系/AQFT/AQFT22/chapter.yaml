@@ -1,0 +1,51 @@
+id: "AQFT22"
+title: "Tomitaの可換子定理"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT21
+  - QM6
+  - VN2
+  - FA4
+  - CA4
+  - OPT1
+  - AQFT14
+  - VN7
+learning_objectives:
+  - 標準対の共役代数を定義し、有界可換子と代数的右乗算を区別できる
+  - 支配された正汎関数の表示からレゾルベントに対応する有界代数元を構成できる
+  - Deltaの正負半べきに共通な代数的coreをグラフノルムで証明できる
+  - cosh核のFourier変換と積分による有界作用素の逆変換を導出できる
+  - 解析的な一意性からJ M' JがMに含まれることを示せる
+  - 反線形随伴の定義域を追ってJ M JがM'に含まれることを示し両包含を閉じられる
+  - 有限・無限次元で右作用と代数的右乗算の違いを検算できる
+definitions:
+  - { id: AQFT22-DEF-01, name: "反ユニタリ共役で移された代数" }
+theorems:
+  - { id: AQFT22-LEM-01, name: "有界元を回復するレゾルベント補題" }
+  - { id: AQFT22-LEM-02, name: "両側半べきに対する代数的共通core" }
+  - { id: AQFT22-LEM-03, name: "可換子と共役作用素の二重半べき恒等式" }
+  - { id: AQFT22-LEM-04, name: "cosh核の変換と一意性" }
+  - { id: AQFT22-THM-01, name: "Tomitaの可換子定理" }
+canonical_examples:
+  - 二準位Hilbert-Schmidt模型の共役代数と可換子の両包含
+  - 忠実な二準位密度の複素レゾルベントの行列単位計算
+  - 無限次元Hilbert-Schmidt空間における有界右乗算と非有界な代数的右乗算
+problem_patterns:
+  - AQFT22-ANTIUNITARY-ALGEBRA
+  - AQFT22-TWO-INCLUSIONS
+  - AQFT22-RESOLVENT-DOMAIN
+  - AQFT22-MODULAR-IMAGINARY-POWERS
+  - AQFT22-RESOLVENT-MATRIX
+  - AQFT22-COMMON-GRAPH-CORE
+  - AQFT22-COSH-TRANSFORM
+  - AQFT22-FOURIER-UNIQUENESS
+  - AQFT22-COMMUTANT-PROOF
+  - AQFT22-RIGHT-ACTION-COUNTEREXAMPLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 12, review: 9 }
