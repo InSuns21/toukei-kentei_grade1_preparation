@@ -98,7 +98,7 @@ $$
 YJ+JY=0
 $$
 
-が必要である。逆にこの等式を満たす滑らかな束準同型 $Y$ は、$J$ の局所座標を通じて接方向として実現できる。例えば $A=YJ/2$ とすると $J_\varepsilon=(I+\varepsilon A)J(I+\varepsilon A)^{-1}$ は一次微分 $Y$ を持つ（$AJ-JA=Y$）。小さい $\varepsilon$ でtame性も保たれる。
+が必要である。逆にこの等式を満たす滑らかな束準同型 $Y$ は、$J$ の局所座標を通じて接方向として実現できる。例えば $A=-YJ/2$ とすると $J_\varepsilon=(I+\varepsilon A)J(I+\varepsilon A)^{-1}$ は一次微分 $Y$ を持つ（$AJ-JA=Y$）。小さい $\varepsilon$ でtame性も保たれる。
 
 <a id="def-gw1-04-universal-section"></a>
 
