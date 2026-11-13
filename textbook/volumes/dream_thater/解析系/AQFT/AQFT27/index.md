@@ -63,7 +63,7 @@ $$
 $\mathfrak h=\mathbb C$ に通常の複素内積を入れ、$H=\mathbb R\subset\mathbb C$ とします。$H$ は実線形で閉じており、$H+iH=\{a+ib:a,b\in\mathbb R\}=\mathbb C$ です。また、実数かつ純虚数の数は $0$ だけなので $H\cap iH=\{0\}$。従ってこの $H$ は標準です。対照的に $H=\mathbb C$ を実線形部分空間とみなすと、$H\cap iH=\mathbb C$ となり標準ではありません。
 <!-- definition-example-end -->
 
-標準な閉実部分空間 $H$ には、一粒子の **Tomita作用素** $S_H$ を次のように対応させます。標準性の $H\cap iH=\{0\}$ により、$z=h_1+ih_2$（$h_1,h_2\in H$）という表示は一意です。実際、二通りの表示を引けば $h_1-h'_1=i(h'_2-h_2)\in H\cap iH$ となるからです。そこで
+標準な閉実部分空間 $H$ には、定義域と作用を次の式で指定した一粒子の**反線形作用素** $S_H$ を対応させます。標準性の $H\cap iH=\{0\}$ により、$z=h_1+ih_2$（$h_1,h_2\in H$）という表示は一意です。実際、二通りの表示を引けば $h_1-h'_1=i(h'_2-h_2)\in H\cap iH$ となるからです。そこで
 
 $$
 \operatorname{Dom}S_H=H+iH,\qquad
