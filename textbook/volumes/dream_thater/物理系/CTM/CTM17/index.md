@@ -289,7 +289,19 @@ $$
 <!-- formal-statement-start -->
 ### 命題（完全発達平板流は Navier–Stokes 式の厳密解）
 
-一定 $\rho,\eta>0$、$b=0$ の非圧縮 Newton 流体で、$v=(u(y),0,0)$ が時間・$x,z$ に依存せず、$p=p_{\mathrm{in}}-Gx$ とする。$u(y)=G(h^2-y^2)/(2\eta)$ なら、任意の正の $\rho,\eta,h$ および任意の実数 $G$ について、定常 Navier–Stokes 方程式と両壁無滑り条件を**厳密に満たす**。ただし一般の三次元初期境界値問題の安定性・一意性は主張しない。
+一定 $\rho,\eta,h>0$、$b=0$ の非圧縮 Newton 流体で、時間・$x,z$ に依存しない流れと圧力を
+
+$
+v=(u(y),0,0),\qquad p(x)=p_{\mathrm{in}}-Gx,\qquad G\in\mathbb R
+$
+
+とする。このとき
+
+$
+u(y)=\frac{G}{2\eta}(h^2-y^2)
+$
+
+は定常 Navier–Stokes 方程式と両壁無滑り条件を**厳密に満たす**。ただし一般の三次元初期境界値問題の安定性・一意性は主張しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -373,7 +385,7 @@ $u(y)=G(h^2-y^2)/(2\eta)$、$\sigma_{xy}=\eta u'$ とする。上壁と下壁で
 <!-- solution-start -->
 #### 詳細解答
 
-$u'=-Gy/\eta$ だから $\sigma_{xy}=-Gy$。上壁の法線は $n_{\mathrm{top}}=e_y$、下壁は $n_{\mathrm{bottom}}=-e_y$ である。[CTM6の表面力の定義](../CTM6/index.md#def-ctm6-traction)から
+$u'=-Gy/\eta$ だから $\sigma_{xy}=-Gy$。上壁の法線は $n_{\mathrm{top}}=e_y$、下壁は $n_{\mathrm{bottom}}=-e_y$ である。[表面力密度の定義](../CTM6/index.md#def-ctm6-traction)から
 
 $$
 t_{\mathrm{top},x}=\sigma_{xy}(h)=-Gh,\qquad
