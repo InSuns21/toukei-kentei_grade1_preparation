@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RBD12 重い対称こま：定常歳差と章動の数値実験</title>
+<style>
+:root{font-family:system-ui,"Yu Gothic",sans-serif;color:#1e2d3b;background:#f3f6fa;color-scheme:light}
+*{box-sizing:border-box}body{max-width:1160px;margin:auto;padding:14px;line-height:1.6}
+h1{font-size:clamp(1.35rem,3.8vw,2rem);line-height:1.4}h2{font-size:1.1rem}
+a{color:#155a91}.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.9fr);gap:14px}
+.panel{background:white;border:1px solid #cad5df;border-radius:10px;padding:14px;margin:12px 0;min-width:0}
+canvas{display:block;width:100%;height:auto;background:#fbfdff;border:1px solid #dbe4eb;border-radius:7px}
+label{display:block;font-weight:650;margin-top:12px}select,input[type=range]{width:100%;font:inherit;accent-color:#175d90}select{padding:9px;background:#fff;border:1px solid #9aaebe;border-radius:5px}
+button{font:inherit;padding:8px 12px;border:2px solid #175d90;border-radius:7px;background:#175d90;color:white;font-weight:650;cursor:pointer}
+button.secondary{color:#175d90;background:white}
+button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #de6a22;outline-offset:3px}
+.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+details{padding:6px 0}dl{display:grid;grid-template-columns:minmax(110px,1fr) minmax(0,1.15fr);gap:5px 10px}
+dt{color:#42596a}dd{margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.small{font-size:.91rem;color:#3b5265}.warn{color:#9b2626;font-weight:700}.ok{color:#195f42;font-weight:700}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.9rem}
+.legend b{display:inline-block;width:23px;margin-right:4px;vertical-align:middle;border-top:3px solid #175d90}
+.legend .dash{border-top-style:dashed;border-color:#a65d22}.legend .dot{border-top-style:dotted;border-color:#566a80}
+#status{min-height:2.2em}
+@media(max-width:780px){.layout{grid-template-columns:1fr}body{padding:8px}.panel{padding:10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a href="https://insuns21.github.io/toukei-kentei_grade1_preparation/#/textbook/volumes/dream_thater/物理系/RBD/RBD12/index">← RBD12 講義に戻る</a>
+<h1>重い対称こま：定常歳差と章動</h1>
+<p>同一の固定点模型 <strong>I=2, J=1, Mgl=3, k=10, θ₀=60°</strong> で、定常歳差の遅い枝・速い枝、および遅い枝からの傾き摂動を比較します。表示する軌跡は装飾的な補間ではなく、保存量から得た重力トルク付きの方程式を四次Runge–Kutta法で積分したものです。</p>
+<div class="layout">
+<section class="panel">
+<h2>空間系の物体軸 n(t)・重力・トルク（斜投影）</h2>
+<canvas id="scene" width="640" height="425" role="img" aria-label="固定点Oから伸びる物体軸nの空間方向を斜投影した数値軌道。黒線は鉛直、青実線は対称軸、橙破線は重力トルク方向。">空間軸方向の図</canvas>
+<div class="legend" aria-label="線種の凡例"><span><b></b>物体軸 n(t)</span><span><b class="dash"></b>トルクの向き</span><span><b class="dot"></b>基準定常歳差円</span></div>
+<p class="small">太線は O→C の対称軸、点Cから下向きの短い矢印が重力の方向です。支点まわりトルクを O からの破線で**方向のみ**表示し、力が O で作用すると意味しません。円軌道は傾き θ₀ の基準。非定常時の細線は実際に積分した C の履歴です。</p>
+<h2>傾き θ(t)</h2>
+<canvas id="plot" width="640" height="210" role="img" aria-label="横軸が経過時間、縦軸が物体軸と鉛直のなす角θ（度）の時系列グラフ。現在時刻のカーソルを表示。">傾きの時間グラフ</canvas>
+</section>
+<section class="panel">
+<h2>操作</h2>
+<label for="mode">実験条件</label>
+<select id="mode">
+<option value="slow">定常歳差・遅い枝（θ一定）</option>
+<option value="fast">定常歳差・速い枝（θ一定）</option>
+<option value="nutation" selected>小章動（遅い枝の h,k を固定）</option>
+</select>
+<label for="delta">章動時の初期傾き摂動 <output id="outdelta">0.080</output> rad</label>
+<input type="range" id="delta" min="0.02" max="0.16" step="0.01" value="0.08">
+<div class="buttons">
+<button id="play" type="button" aria-pressed="false">▶ 再生</button>
+<button id="previous" type="button" class="secondary">−0.05 s</button>
+<button id="next" type="button" class="secondary">+0.05 s</button>
+<button id="reset" type="button" class="secondary">リセット</button>
+</div>
+<label for="time">時刻 t = <output id="outtime">0.00</output> s</label>
+<input type="range" id="time" min="0" max="20" step="0.005" value="0">
+<label for="speed">再生速度 <output id="outspeed">1.00</output> 倍</label>
+<input type="range" id="speed" min="0.25" max="2" step="0.25" value="1">
+<h2>数値と保存量</h2>
+<dl>
+<dt>定常歳差の根</dt><dd id="root"></dd>
+<dt>h（鉛直）</dt><dd id="hval"></dd>
+<dt>k（物体軸）</dt><dd id="kval"></dd>
+<dt>θ（度）</dt><dd id="theta"></dd>
+<dt>θ̇（rad/s）</dt><dd id="thetadot"></dd>
+<dt>φ̇（rad/s）</dt><dd id="phidot"></dd>
+<dt>ψ̇（rad/s）</dt><dd id="psidot"></dd>
+<dt>全エネルギー E</dt><dd id="energy"></dd>
+<dt>|E(t)−E(0)|</dt><dd id="err"></dd>
+<dt>θの積分範囲</dt><dd id="domain"></dd>
+<dt>刻み幅</dt><dd>Δt = 0.005 s（RK4）</dd>
+</dl>
+<p id="status" role="status" aria-live="polite"></p>
+</section>
+</div>
+<section class="panel">
+<h2>計算式・検算すること</h2>
+<p>θ は極ではなく 0&lt;θ&lt;π、I,J,a&gt;0 として、次の系を同時に積分します。ω₃=k/J、h,k は固定です。</p>
+<pre style="white-space:pre-wrap;overflow-wrap:anywhere">Ω(θ) = (h−k cosθ)/(I sin²θ)
+θ̇ = v
+v̇ = Ω² sinθ cosθ − (k/I) Ω sinθ + (a/I) sinθ
+φ̇ = Ω
+ψ̇ = k/J − Ω cosθ</pre>
+<p>診断量は E = I(v²+Ω² sin²θ)/2 + k²/(2J) + a cosθ。角度の復元では h = IΩ sin²θ+k cosθ と k = J(ψ̇+Ω cosθ) も毎時刻満たします。初期値の角度を変えるとき <strong>h,k を変えない</strong>ことが重要です。</p>
+<p id="check" class="small">積分結果のエネルギー誤差・領域違反を監視します。</p>
+<details>
+<summary>計算と表示について</summary>
+<p>描画は計算済みの時刻配列を参照し、描画フレームの間隔で方程式を積分し直しません。円の投影と重力・トルク矢印の長さは理解のための表示倍率で、トルクの大きさを図上の線分長から読み取らないでください。自動再生しません。停止、スライダー、コマ送りで確認できます。通信・外部ライブラリは不要です。</p>
+<p>誤差許容値は |E(t)−E(0)|&lt;10⁻³（この固定実験のエネルギー尺度）。領域から外れたり、非有限値または誤差超過が発生した場合は計算を停止し、原因を表示します。時間刻みは固定であり精度保証の代わりに保存量を監査しています。</p>
+</details>
+</section>
+<noscript><p class="warn">JavaScriptなしでも講義の厳密式と演習は参照できます。このプレイヤーでの時間変化表示だけが無効です。定常歳差の遅い根は 5−√22、速い根は 5+√22、傾き θ₀=60° です。</p></noscript>
+<script>
+"use strict";
+const I=2,J=1,a=3,k=10,theta0=Math.PI/3,dt=.005,T=20,N=Math.round(T/dt);
+const c0=Math.cos(theta0),D=k*k-4*I*a*c0;
+const slow=(k-Math.sqrt(D))/(2*I*c0),fast=(k+Math.sqrt(D))/(2*I*c0);
+const $=id=>document.getElementById(id);
+const scene=$("scene").getContext("2d"),plot=$("plot").getContext("2d");
+let mode="nutation",t=0,speed=1,playing=false,lastFrame=null,history=[],h=0,E0=0,error=0,firstError=null;
+function f(y){
+ const th=y[0],v=y[1],s=Math.sin(th),c=Math.cos(th);
+ if(!Number.isFinite(th)||Math.abs(s)<.04)throw Error("Euler角の極へ接近したため積分停止");
+ const om=(h-k*c)/(I*s*s);
+ return [v,om*om*s*c-(k/I)*om*s+(a/I)*s,om,k/J-om*c];
+}
+function energy(y){
+ const th=y[0],v=y[1],s=Math.sin(th),c=Math.cos(th);
+ const om=(h-k*c)/(I*s*s);
+ return I*(v*v+om*om*s*s)/2+k*k/(2*J)+a*c;
+}
+function plus(a,b,v){return a.map((x,i)=>x+v*b[i]);}
+function step(y){
+ const k1=f(y),k2=f(plus(y,k1,dt/2)),k3=f(plus(y,k2,dt/2)),k4=f(plus(y,k3,dt));
+ return y.map((x,i)=>x+dt*(k1[i]+2*k2[i]+2*k3[i]+k4[i])/6);
+}
+function stop(){playing=false;lastFrame=null;$("play").textContent="▶ 再生";$("play").setAttribute("aria-pressed","false");}
+function recompute(){
+ stop();mode=$("mode").value;
+ const root=mode==="fast"?fast:slow;
+ const initial=mode==="nutation"?theta0+Number($("delta").value):theta0;
+ h=I*root*Math.sin(theta0)**2+k*Math.cos(theta0);
+ let y=[initial,0,0,0];E0=energy(y);error=0;firstError=null;history=[y];
+ for(let i=1;i<=N;i++){
+  try {
+   y=step(y);
+   if(!y.every(Number.isFinite)||y[0]<=.04||y[0]>=Math.PI-.04)throw Error("正則域を外れました");
+   const e=Math.abs(energy(y)-E0);
+   if(e>error)error=e;
+   if(e>1e-3)throw Error("エネルギー誤差が 10⁻³ を超えました（Δtを小さくする必要があります）");
+   history.push(y);
+  }catch(err){firstError={time:i*dt,message:err.message};break;}
+ }
+ t=0;$("time").max=((history.length-1)*dt).toFixed(3);$("time").value="0";
+ $("root").textContent=(mode==="fast"?"速い枝 ":"遅い枝 ")+root.toFixed(6);
+ $("hval").textContent=h.toFixed(8);$("kval").textContent=k.toFixed(2);
+ $("outdelta").textContent=Number($("delta").value).toFixed(3);
+ draw();
+}
+function current(){
+ const i=Math.max(0,Math.min(history.length-1,Math.round(t/dt)));
+ return history[i];
+}
+function project(x,y,z){return [320+172*(x-.52*y),330-193*z+49*y];}
+function line(ctx,xa,ya,xb,yb,color,width=2,dash=[]){
+ ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(xa,ya);ctx.lineTo(xb,yb);ctx.stroke();ctx.setLineDash([]);
+}
+function arrow(ctx,xa,ya,xb,yb,color,width=3,dash=[]){
+ line(ctx,xa,ya,xb,yb,color,width,dash);
+ const ang=Math.atan2(yb-ya,xb-xa),size=10;
+ ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(xb,yb);
+ ctx.lineTo(xb-size*Math.cos(ang-.48),yb-size*Math.sin(ang-.48));
+ ctx.lineTo(xb-size*Math.cos(ang+.48),yb-size*Math.sin(ang+.48));
+ ctx.closePath();ctx.fill();
+}
+function tip(th,phi){return [Math.sin(th)*Math.cos(phi),Math.sin(th)*Math.sin(phi),Math.cos(th)];}
+function drawScene(){
+ const y=current(),th=y[0],phi=y[2];scene.clearRect(0,0,640,425);
+ const O=project(0,0,0),Z=project(0,0,1.2);
+ arrow(scene,O[0],O[1],Z[0],Z[1],"#304557",2);
+ scene.font="16px sans-serif";scene.fillStyle="#304557";scene.fillText("z",Z[0]+9,Z[1]-5);
+ // The reference orbit is a constant-theta circle in 3D, projected to the page.
+ scene.strokeStyle="#677e92";scene.lineWidth=1.7;scene.setLineDash([3,6]);scene.beginPath();
+ for(let j=0;j<=160;j++){let p=project(...tip(theta0,2*Math.PI*j/160));if(j===0)scene.moveTo(...p);else scene.lineTo(...p);}
+ scene.stroke();scene.setLineDash([]);
+ if(mode==="nutation"){
+  let min=Math.min(...history.map(y=>y[0])),max=Math.max(...history.map(y=>y[0]));
+  for(const angle of [min,max]){
+   scene.strokeStyle="#b4c0cb";scene.lineWidth=1;scene.setLineDash([5,7]);scene.beginPath();
+   for(let j=0;j<=128;j++){let p=project(...tip(angle,2*Math.PI*j/128));if(j===0)scene.moveTo(...p);else scene.lineTo(...p);}
+   scene.stroke();scene.setLineDash([]);
+  }
+ }
+ scene.strokeStyle="#3b8b79";scene.lineWidth=2;scene.beginPath();
+ const limit=Math.min(history.length-1,Math.round(t/dt));
+ for(let i=0;i<=limit;i+=Math.max(1,Math.floor(limit/900))){
+  let p=project(...tip(history[i][0],history[i][2]));
+  if(i===0)scene.moveTo(...p);else scene.lineTo(...p);
+ }
+ if(limit>0){let p=project(...tip(th,phi));scene.lineTo(...p);}
+ scene.stroke();
+ let P=project(...tip(th,phi));
+ arrow(scene,O[0],O[1],P[0],P[1],"#17649a",5);
+ scene.fillStyle="#17649a";scene.beginPath();scene.arc(...P,5,0,Math.PI*2);scene.fill();
+ scene.font="bold 16px sans-serif";scene.fillText("C, n",P[0]+12,P[1]-12);
+ // Gravity force acts at C; the arrow is a direction marker.
+ let G=project(...[Math.sin(th)*Math.cos(phi),Math.sin(th)*Math.sin(phi),Math.cos(th)-.35]);
+ arrow(scene,P[0],P[1],G[0],G[1],"#555f69",2);
+ // Torque is a free vector pointing e_z cross n, drawn from O for direction only.
+ const tx=-Math.sin(th)*Math.sin(phi),ty=Math.sin(th)*Math.cos(phi);
+ let A=project(tx*.65,ty*.65,0);
+ arrow(scene,O[0],O[1],A[0],A[1],"#b16222",3,[8,6]);
+ scene.fillStyle="#95501d";scene.fillText("τ",A[0]+10,A[1]+5);
+ scene.fillStyle="#34495c";scene.fillText("O",O[0]-18,O[1]+18);
+ scene.font="14px sans-serif";scene.fillText("斜投影（矢印の長さは任意の表示倍率）",15,405);
+}
+function drawPlot(){
+ plot.clearRect(0,0,640,210);
+ const xL=55,xR=617,yT=20,yB=170;
+ line(plot,xL,yT,xL,yB,"#556b7c",1.4);line(plot,xL,yB,xR,yB,"#556b7c",1.4);
+ plot.fillStyle="#34495c";plot.font="13px sans-serif";plot.fillText("θ [°]",8,16);plot.fillText("t [s]",590,197);
+ const angles=history.map(x=>x[0]),min=Math.min(...angles),max=Math.max(...angles);
+ const span=Math.max(.04,max-min),center=(min+max)/2,lo=center-span*.65,hi=center+span*.65;
+ const toX=i=>xL+(xR-xL)*i/(N),toY=th=>yB-(th-lo)/(hi-lo)*(yB-yT);
+ plot.fillText((hi*180/Math.PI).toFixed(1),12,yT+5);plot.fillText((lo*180/Math.PI).toFixed(1),12,yB);
+ for(let i=0;i<=4;i++){const xx=xL+(xR-xL)*i/4;line(plot,xx,yT,xx,yB,"#d8e1e8",1,[3,5]);plot.fillText((T*i/4).toFixed(0),xx-5,yB+17);}
+ plot.beginPath();plot.strokeStyle="#17649a";plot.lineWidth=2.4;
+ for(let i=0;i<history.length;i+=2){let x=toX(i),y=toY(history[i][0]);if(i===0)plot.moveTo(x,y);else plot.lineTo(x,y);}
+ plot.stroke();
+ const cursor=xL+(xR-xL)*t/T;line(plot,cursor,yT,cursor,yB,"#b15e22",2,[6,4]);
+}
+function draw(){
+ if(!history.length)return;let y=current(),th=y[0],s=Math.sin(th),c=Math.cos(th),om=(h-k*c)/(I*s*s);
+ $("outtime").textContent=t.toFixed(2);$("time").value=String(t);
+ $("theta").textContent=(th*180/Math.PI).toFixed(4);
+ $("thetadot").textContent=y[1].toFixed(6);
+ $("phidot").textContent=om.toFixed(6);
+ $("psidot").textContent=(k/J-om*c).toFixed(6);
+ $("energy").textContent=energy(y).toFixed(9);
+ $("err").textContent=Math.abs(energy(y)-E0).toExponential(2);
+ const all=history.map(y=>y[0]);$("domain").textContent=(Math.min(...all)*180/Math.PI).toFixed(2)+"° 〜 "+(Math.max(...all)*180/Math.PI).toFixed(2)+"°";
+ $("check").textContent="最大 |E(t)−E(0)| = "+error.toExponential(2)+"（検算閾値 10⁻³）";
+ const status=$("status");
+ if(firstError){status.className="warn";status.textContent="計算停止 t="+firstError.time.toFixed(3)+": "+firstError.message;}
+ else{status.className="ok";status.textContent="正則域・保存エネルギー確認済み（数値精度で）";}
+ drawScene();drawPlot();
+}
+function frame(now){
+ if(!playing)return;
+ if(lastFrame!==null){t=Math.min((history.length-1)*dt,t+(now-lastFrame)/1000*speed);}
+ lastFrame=now;draw();
+ if(t>=(history.length-1)*dt){stop();return;}
+ requestAnimationFrame(frame);
+}
+$("play").addEventListener("click",()=>{
+ if(playing){stop();return;}if(t>=(history.length-1)*dt)t=0;
+ playing=true;$("play").textContent="⏸ 停止";$("play").setAttribute("aria-pressed","true");lastFrame=null;requestAnimationFrame(frame);
+});
+$("previous").addEventListener("click",()=>{stop();t=Math.max(0,t-.05);draw();});
+$("next").addEventListener("click",()=>{stop();t=Math.min((history.length-1)*dt,t+.05);draw();});
+$("reset").addEventListener("click",()=>{stop();t=0;draw();});
+$("time").addEventListener("input",()=>{stop();t=Number($("time").value);draw();});
+$("speed").addEventListener("input",()=>{speed=Number($("speed").value);$("outspeed").textContent=speed.toFixed(2);});
+$("mode").addEventListener("change",recompute);
+$("delta").addEventListener("input",()=>{$("mode").value="nutation";recompute();});
+recompute();
+</script>
+</body>
+</html>
