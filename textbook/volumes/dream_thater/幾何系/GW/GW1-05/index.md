@@ -328,14 +328,34 @@ $$
 
 小さい円周 $\gamma_r(\theta)=v(re^{i\theta})$ は長さが零へ近づくので、一つの凸な正規座標球で張れる。円錐の積分を $a(r)=\int F_r^*\omega$ と書けば、上の評価で $|a(r)|\le C\ell(r)^2\to0$ である。
 
-**局所作用と内側のエネルギーの対応。** 固定した十分小さい $r>0$ の近傍で半径 $s$ を少しだけ変えると、$\gamma_r$、$\gamma_s$、その間の薄い環帯の像は同じ凸な正規座標球に入る。そこで $\omega=d\lambda$ と書けるからStokesの定理より
+**局所作用と内側のエネルギーの対応。** 固定した十分小さい $r>0$ に対して半径 $s$ を十分近く取れば、$\gamma_r$、$\gamma_s$ と、その間の薄い環帯の像は同じ凸な正規座標球に含まれる。この球の上で $\omega=d\lambda$ となる1形式 $\lambda$ を取る。円錐のパラメータ $t\in[0,1]$ と角度 $\theta$ について $F_r^*\lambda=P\,dt+Q\,d\theta$ と書くと、
 
 $$
-a(s)-a(r)=\int_{\{r<|w|<s\}}v^*\omega=A(s)-A(r)
-\qquad (r<s\ \text{が十分近いとき}).
+F_r^*\omega=d(F_r^*\lambda)
+=(\partial_tQ-\partial_\theta P)\,dt\wedge d\theta.
 $$
 
-これは各 $r$ で局所的に成り立ち、$a(r)-A(r)$ は連結した小半径の区間で一定である。$r\downarrow0$ では $a(r)\to0$ と $A(r)\to0$ だから定数は零で、$A(r)=a(r)$ を得る。異なる半径の円錐を無条件に同じ座標球へ置く必要はない。
+$\theta$ 方向の全微分は一周積分すると零になり、円錐の中心 $t=0$ では $\partial_\theta F_r=0$ である。したがって、円錐上の積分を二変数積分の基本定理で計算すれば、円周の線積分との対応は
+
+$$
+a(r)=\int F_r^*\omega
+=\int_0^{2\pi}Q(1,\theta)\,d\theta
+=\int_{\gamma_r}\lambda
+$$
+
+となる。次に環帯を $H(\tau,\theta)=v(\tau e^{i\theta})$、$r\le\tau\le s$ とパラメータ化し、$H^*\lambda=U(\tau,\theta)\,d\tau+V(\tau,\theta)\,d\theta$ とする。同じ計算を環帯で行うと、
+
+$$
+\begin{aligned}
+A(s)-A(r)
+&=\int_r^s\int_0^{2\pi}
+(\partial_\tau V-\partial_\theta U)\,d\theta\,d\tau\\
+&=\int_0^{2\pi}(V(s,\theta)-V(r,\theta))\,d\theta
+=a(s)-a(r).
+\end{aligned}
+$$
+
+この式は隣接する半径 $r<s$ に対して局所的に成立するので、$a(r)-A(r)$ は小半径の連結した区間上で一定である。$r\downarrow0$ で $a(r)\to0$ と $A(r)\to0$ だからその定数は零であり、$A(r)=a(r)$ を得る。異なる半径の円錐が最初から同じ座標球内にあるとは仮定していない。
 
 円周のエネルギーを $A'(r)=\frac12\int_{|w|=r}|dv|^2\,ds$ と書けば、Cauchy–Schwarzにより
 
