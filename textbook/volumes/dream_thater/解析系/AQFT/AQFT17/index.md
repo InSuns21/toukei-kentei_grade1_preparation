@@ -4,7 +4,7 @@
 
 もう一つの問題は、そのような中間因子の**存在を物理的な模型からどう確かめるか**です。局所性は可換性を与えますが、splitを保証しません。自由場のエネルギーの大きい励起を抑えると、局所的に準備できる状態の数を定量的に制御できるという方向から、nuclearity（核性）へ進みます。
 
-本講で完全に示すのは、splitから正規積状態の延長を構成する論証、核写像からコンパクト性を導く論証、そして有限体積自由場のエネルギー減衰の計算です。nuclearityからsplitへの深い一般定理は、成立条件と文献を付して紹介し、ここで証明した定理とは区別します。計量の規約は $(-,+,+,+)$ です。
+本講で完全に示すのは、splitから正規積状態の延長を構成する論証、核写像からコンパクト性を導く論証、そして有限体積自由場のエネルギー減衰の計算です。nuclearityからsplitへの深い一般定理は、成立条件と文献を付して紹介し、ここで証明した定理とは区別します。計量の規約は $(-,+,+,+)$ です。**内積は第2変数線形**とし、$\langle v,av\rangle$ をベクトル状態の期待値として使います。[VN5のベクトル状態の例](../../VN/VN5/index.md#def-vn5-normal-state)にある $\langle av,v\rangle$ は第1変数線形の書き方で、同じ期待値を別の内積規約で表したものです。
 
 ## 1. 正規状態を別々に指定するとは
 
@@ -241,13 +241,21 @@ Type IIIの局所von Neumann環そのものをType I因子に変えるという�
 
 また、単なる可換性だけで積状態延長が存在するとは限りません。[AQFT16の極大可換環の反例](../AQFT16/index.md#prop-aqft16-commutation-not-split)で $P=Q=D$ とし、同じ $D$ に対する異なる正規状態を指定します。
 
-例えば $D$ の射影 $p=M_{\mathbf1_{[0,1/2]}}$ に
+例えば $D$ の射影 $p=M_{\mathbf1_{[0,1/2]}}$ を取ります。$H=L^2([0,1])$ で
 
 $$
-\varphi(p)=1,\qquad \psi(p)=0
+v=\sqrt2\,\mathbf1_{[0,1/2]},\qquad
+w=\sqrt2\,\mathbf1_{(1/2,1]}
 $$
 
-を割り当てます。積の式で一方の変数を単位元に置けば、延長の周辺条件は $\omega(p)=\varphi(p)$ と $\omega(p)=\psi(p)$ を同時に要求します。したがって矛盾し、積延長はありません。
+はともにノルム $1$ です。[VN5のベクトル正規状態](../../VN/VN5/index.md#def-vn5-normal-state)を $D$ に制限して $\varphi(a)=\langle v,av\rangle$、$\psi(a)=\langle w,aw\rangle$ と置けば、$pv=v$、$pw=0$ より
+
+$$
+\varphi(p)=\langle v,pv\rangle=1,\qquad
+\psi(p)=\langle w,pw\rangle=0
+$$
+
+を満たす異なる正規状態が実際に得られます。積の式で一方の変数を単位元に置けば、延長の周辺条件は $\omega(p)=\varphi(p)$ と $\omega(p)=\psi(p)$ を同時に要求します。したがって矛盾し、積延長はありません。
 
 可換性だけでは二つの環の共通部分の状態が整合することすら保証されないのです。
 
@@ -336,7 +344,15 @@ $$
 \end{aligned}
 $$
 
-核性の仮定により右端は $n\to\infty$ で0へ収束するので $\|T-T_n\|_{\mathrm{op}}\to0$。有限ランク写像の単位球像は有限次元有界集合なので相対コンパクトで、コンパクト写像の作用素ノルム極限もコンパクトです。$\square$
+核性の仮定により右端は $n\to\infty$ で0へ収束するので $\|T-T_n\|_{\mathrm{op}}\to0$。有限ランク写像 $T_n$ の単位球像は有限次元有界集合なので相対コンパクトです。ここから極限への移行も確認します。任意の $\varepsilon>0$ に対し $\|T-T_n\|_{\mathrm{op}}<\varepsilon/3$ となる $n$ を選びます。有限次元の $T_n$ の単位球像には有限個の $\varepsilon/3$ 近似点 $y_1,\ldots,y_m\in Y$ が取れます。したがって $\|x\|_X\le1$ なら適切な $k$ について
+
+$$
+\|Tx-y_k\|_Y
+\le\|(T-T_n)x\|_Y+\|T_nx-y_k\|_Y
+<\frac{2\varepsilon}{3}<\varepsilon.
+$$
+
+つまり $T$ の単位球像は全有界です。$Y$ はHilbert空間なので完備であり、その閉包はコンパクトです。従って $T$ はコンパクト写像です。$\square$
 <!-- proof-end -->
 
 核性はコンパクト性より強い制約です。有限ランクで近似できるだけでなく、近似項の大きさを**絶対総和**で支配するからです。
@@ -372,7 +388,37 @@ e^{-\beta H_{\mathrm{en}}}x\Omega
 =(x_{11},e^{-\beta\varepsilon}x_{21})^T.
 $$
 
-行列要素汎関数 $f_1(x)=x_{11}$、$f_2(x)=x_{21}$ はどちらも作用素ノルムに関してノルム $1$ です。標準基底を $\xi_1=e_1$、$\xi_2=e^{-\beta\varepsilon}e_2$ と取れば核表示ができ、
+ここで標準正規直交基底 $e_1,e_2$ による $xe_1$ の成分は、$i=1,2$ に対して
+
+$$
+x_{i1}=\langle e_i,xe_1\rangle,
+\qquad xe_1=\sum_{i=1}^2x_{i1}e_i
+$$
+
+です。[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から、行列成分汎関数 $f_i(x)=x_{i1}$ は
+
+$$
+|f_i(x)|=|\langle e_i,xe_1\rangle|
+\le\|e_i\|\,\|xe_1\|
+\le\|x\|_{\mathrm{op}}
+$$
+
+を満たします。逆に階数1作用素 $u_i=|e_i\rangle\langle e_1|$ は $\|u_i\|_{\mathrm{op}}=1$、$f_i(u_i)=1$ なので、$\|f_1\|=\|f_2\|=1$ です。
+
+また $H_{\mathrm{en}}e_1=0$、$H_{\mathrm{en}}e_2=\varepsilon e_2$ ですから、各基底ベクトルの指数減衰は
+
+$$
+e^{-\beta H_{\mathrm{en}}}e_i=e^{-\beta E_i}e_i,
+\qquad(E_1,E_2)=(0,\varepsilon)
+$$
+
+となります。よって $\xi_1=e_1$、$\xi_2=e^{-\beta\varepsilon}e_2$ を選べば
+
+$$
+\Theta_{\beta,M}(x)=f_1(x)\xi_1+f_2(x)\xi_2
+$$
+
+という有限項の核表示ができ、
 
 $$
 \|\Theta_{\beta,M}\|_1\le1+e^{-\beta\varepsilon}.
@@ -433,7 +479,17 @@ Z_L(\beta):=\operatorname{Tr}(e^{-\beta d\Gamma(h)})
 (1-e^{-\beta\omega_{\boldsymbol n}})^{-1}
 $$
 
-を得ます。無限積が有限値へ収束することも確認します。$0\le x\le e^{-\beta m}<1$ に対し
+を得ます。この無限積への移行を明示します。[AQFT8で用いた対称Fock空間](../AQFT8/index.md#def-aqft8-fock-weyl)では、占有数列 $(r_{\boldsymbol n})$ は非負整数値で、各基底ベクトルについて非零の占有数は有限個です。有限なモード集合 $F\subset\mathbb Z^3$ だけを許した場合、各占有数の和を独立に取ると
+
+$$
+\sum_{(r_{\boldsymbol n})\in\mathbb N_0^F}
+\exp\left(-\beta\sum_{\boldsymbol n\in F}
+r_{\boldsymbol n}\omega_{\boldsymbol n}\right)
+=\prod_{\boldsymbol n\in F}
+\left(\sum_{r=0}^\infty e^{-\beta r\omega_{\boldsymbol n}}\right).
+$$
+
+各項は非負なので、$F$ を増やして全モードを覆うと左辺はFock空間のトレースへ単調に収束し、右辺は表示した無限積になります。無限積が**有限値へ**収束することは、続く評価で別に確認します。$0\le x\le e^{-\beta m}<1$ に対し
 
 $$
 -\log(1-x)=\sum_{r\ge1}\frac{x^r}{r}
