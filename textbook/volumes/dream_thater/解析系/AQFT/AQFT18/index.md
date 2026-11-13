@@ -616,7 +616,7 @@ $$
 g_n=g\,\mathbf1_{\{|g|\le n\}}
 $$
 
-で切断すると $g_n\in L^\infty$ で、$\|g-g_n\|_2^2=\int_{\{|g|>n\}}|g|^2\to0$ です。従って巡回的です。[VN6の乗算作用素の随伴公式](../../VN/VN6/index.md#prop-vn6-multiplication-norm-adjoint)より $M_f^*=M_{\overline f}$ なので、$\Omega=1$ に作用させると $S_0f=\overline f$ です。これは $L^\infty\subset L^2$ に定義され、切断列により
+で切断すると $g_n\in L^\infty$ で、$\|g-g_n\|_2^2=\int_{\{|g|>n\}}|g|^2\to0$ です。従って巡回的です。[乗算作用素のノルム・積・随伴](../../VN/VN6/index.md#prop-vn6-multiplication-norm-adjoint)より $M_f^*=M_{\overline f}$ なので、$\Omega=1$ に作用させると $S_0f=\overline f$ です。これは $L^\infty\subset L^2$ に定義され、切断列により
 
 $$
 g_n\to g,\qquad
@@ -868,7 +868,7 @@ $$
 
 極限は $|g|^2$ の可積分性と尾部の単調減少（または優収束）によります。よって $\overline{\mathcal M\Omega}=L^2$ で巡回的です。
 
-**2. 初期作用素と閉包。** [VN6の乗算作用素の随伴公式](../../VN/VN6/index.md#prop-vn6-multiplication-norm-adjoint)により $M_f^*=M_{\overline f}$ なので
+**2. 初期作用素と閉包。** [乗算作用素のノルム・積・随伴](../../VN/VN6/index.md#prop-vn6-multiplication-norm-adjoint)により $M_f^*=M_{\overline f}$ なので
 
 $$
 \operatorname{Dom}(S_0)=L^\infty([0,1])
