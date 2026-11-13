@@ -264,7 +264,7 @@ $$
 
 まずエネルギーが十分小さい長さ2の円柱に対して、[小エネルギー勾配評価](../GW1-05/index.md#lem-gw1-05-small-energy)を中央の幅1で適用する。有限個の共形座標円盤で幅1の円周を覆えば、各円周像の長さが $\delta$ 未満になる。したがって前の[局所作用評価](#lem-gw1-06-local-action)が適用できる。
 
-$t$ を動かしたループの局所作用を $A(t)=A(u(t,\cdot))$ と書く。$u_t=du(\partial_t)$ と $u_\theta=du(\partial_\theta)$ はそれぞれ $t$ と $\theta$ に関する偏微分で、$A'(t)=dA/dt$ は一変数関数 $A$ の導関数である。隣り合う短いループは共通の小さな正規座標球内で円板を張れるので、[Stokesの定理](../../VC/VC5/index.md#thm-vc5-stokes)により局所作用の差は円柱の引戻し面積に一致し、
+$t$ を動かしたループの局所作用を $A(t)=A(u(t,\cdot))$ と書く。$u_t=du(\partial_t)$ と $u_\theta=du(\partial_\theta)$ はそれぞれ $t$ と $\theta$ に関する偏微分で、$A'(t)=dA/dt$ は一変数関数 $A$ の導関数である。隣り合う短いループは共通の小さな正規座標球内で円板を張れるので、[一般 Stokes の定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)により局所作用の差は円柱の引戻し面積に一致し、
 
 $$
 A'(t)=\int_0^{2\pi}\omega(u_t,u_\theta)\,d\theta
