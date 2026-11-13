@@ -1,0 +1,43 @@
+chapter: AQFT19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT18
+  - QM6
+forward_references: []
+concepts:
+  - id: aqft.antiunitary
+    name: 反ユニタリ作用素
+    kind: definition
+    introduction: formal
+    requires: [aqft.antilinear-operator]
+  - id: aqft.modular-operator
+    name: 正部分とモジュラー作用素
+    kind: definition
+    introduction: formal
+    requires: [aqft.tomita-closability, aqft.antilinear-adjoint]
+  - id: aqft.antilinear-positive-square
+    name: 閉反線形作用素の正二乗
+    kind: lemma
+    introduction: formal
+    requires: [aqft.antilinear-adjoint, aqft.closable-antilinear-operator]
+  - id: aqft.modular-conjugation
+    name: モジュラー共役
+    kind: definition
+    introduction: formal
+    requires: [aqft.antiunitary, aqft.modular-operator]
+  - id: aqft.antilinear-polar-decomposition
+    name: 閉反線形作用素の極分解
+    kind: theorem
+    introduction: formal
+    requires: [aqft.antilinear-positive-square, aqft.antiunitary]
+  - id: aqft.modular-reciprocity
+    name: Tomita対合のモジュラー関係
+    kind: theorem
+    introduction: formal
+    requires: [aqft.antilinear-polar-decomposition, aqft.tomita-closure-involution]
+  - id: aqft.modular-vacuum-fixed
+    name: 標準ベクトルのモジュラー不変性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.modular-reciprocity, aqft.antilinear-adjoint]
