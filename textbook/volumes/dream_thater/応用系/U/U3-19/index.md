@@ -238,28 +238,28 @@ $$
 
 put については、先ほど直接求めた call/put 二式の差を $w=C-P=sA-KD$ と書きます。この関数の偏導関数は
 
-$
+$$
 w_t=qsA-rKD,\qquad w_s=A,\qquad w_{ss}=0
-$
+$$
 
 です。これを配当付き PDE に代入すると、$w_t+(r-q)sw_s-rw=0$ が得られます。したがって $P=C-w$ も同じ PDE の解です。
 
 $t\uparrow T$ では $S_T\to s$ となり、連続な支払関数の割引期待値は満期支払額に収束します。デルタについても
 
-$
+$$
 |C_s|\le A\le1,\qquad
 |P_s|=|C_s-A|\le A\le1
-$
+$$
 
 です。[自己金融複製の構成](../U3-16/index.md#thm-u3-16-bsm-replication)の係数比較を、配当込み利得に合わせて実施します。価格関数を $v$、株数を $\Delta=v_s$、預金単位を $\psi=(v-s\Delta)/B_u$ とすると、Itô 公式と配当付き PDE より
 
-$
+$$
 \begin{aligned}
 dv&=v_s\,dS+\left(v_t+\tfrac12\sigma^2S^2v_{ss}\right)du\\
 &=\Delta\,dS+\left[rv-(r-q)S\Delta\right]du\\
 &=\Delta(dS+qS\,du)+\psi\,dB.
 \end{aligned}
-$
+$$
 
 満期の価格は支払額に一致し、デルタは有界です。株価の対数正規二次モーメントが有限であることは[GBM モーメント命題](../U3-14/index.md#prop-u3-14-moments)から従い、割引した確率積分の二乗可積分性を保証します。ゆえに戦略は自己金融で満期支払を複製し、価格は無裁定価格となります。
 <!-- proof-end -->
