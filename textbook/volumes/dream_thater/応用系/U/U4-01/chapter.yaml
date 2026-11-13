@@ -1,0 +1,41 @@
+id: "U4-01"
+title: "価格表から裁定を判定する"
+volume: "foundations"
+status: supplementary
+prerequisites: []
+official_scope: []
+learning_objectives:
+  - 同時刻・同一通貨・同一満期・同一決済条件で複数商品の価格とペイオフを整理し行列の行列次元と単位を説明できる
+  - 保有数量の初期費用と全状態の満期受取額を計算し厳密な不等式を含む裁定証明書を検算できる
+  - 一物一価が単独商品の比較に限らず同一ペイオフを持つ複数商品ポートフォリオへ及ぶことを証明できる
+  - ペイオフの優越と価格条件がそろったとき実行可能な裁定を構成できる
+  - 初期受取りを確定受取契約へ投じてゼロ費用戦略を作り全状態の利益を検算できる
+  - 二商品比較から無裁定を断定できない理由と決済日・気配・借入等の前提違反を具体的に指摘できる
+definitions:
+  - { id: U4-01-DEF-01, name: 有限状態の価格・ペイオフ表 }
+  - { id: U4-01-DEF-02, name: 価格表の裁定証明書 }
+  - { id: U4-01-DEF-03, name: ペイオフの優越関係 }
+theorems:
+  - { id: U4-01-PROP-01, name: 確定受取契約による初期費用ゼロへの変換 }
+  - { id: U4-01-THM-01, name: 同一ペイオフの価格一致 }
+  - { id: U4-01-THM-02, name: 安くて優越する商品の裁定 }
+canonical_examples:
+  - BとXの半単位によるCの複製と価格差5円の初期受取りを全状態で検算
+  - 確定受取契約で5円を再投資し満期50/9円のゼロ費用裁定を構成
+  - 同一受取額の商品XとX'の価格差5円から一物一価違反を検出
+  - XがDより安く両状態で10円優越し満期110/9円のゼロ費用裁定を構成
+  - 1か月後と2か月後の受取額100円を同じペイオフと誤認する反例
+problem_patterns:
+  - U4-01-A1
+  - U4-01-A2
+  - U4-01-A3
+  - U4-01-A4
+  - U4-01-A5
+  - U4-01-B1
+  - U4-01-B2
+  - U4-01-B3
+  - U4-01-C1
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.0, exercises: 3.0, review: 0.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
