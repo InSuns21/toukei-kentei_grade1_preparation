@@ -1,0 +1,47 @@
+chapter: U3-15
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-14, STO10, U3-04]
+concepts:
+  - id: finance.numeraire-discounted-price
+    name: ニュメレールと割引価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ニュメレールと割引価格）"]
+    requires: [finance.geometric-brownian-motion]
+  - id: finance.equivalent-martingale-measure
+    name: 預金基準の同値マルチンゲール測度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（預金基準の同値マルチンゲール測度）"]
+    requires: [finance.numeraire-discounted-price, measure.equivalent-probability-measures]
+  - id: finance.gbm-risk-neutral-measure
+    name: 定数係数 GBM のリスク中立測度の構成
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定数係数 GBM のリスク中立測度の構成）"]
+    requires: [finance.equivalent-martingale-measure, finance.gbm-conditional-moments, stochastic.girsanov-theorem, stochastic.novikov-condition]
+  - id: finance.continuous-self-financing
+    name: 連続時間の自己金融戦略
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続時間の自己金融戦略）"]
+    requires: [finance.self-financing-strategy, finance.numeraire-discounted-price]
+  - id: finance.continuous-discounted-wealth
+    name: 自己金融条件の割引形
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自己金融条件の割引形）"]
+    requires: [finance.continuous-self-financing, finance.gbm-risk-neutral-measure, stochastic.ito-product-rule]
+  - id: finance.continuous-replication-price
+    name: 複製可能な満期請求権の価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複製可能な満期請求権の価格）"]
+    requires: [finance.continuous-discounted-wealth, finance.equivalent-martingale-measure]
+  - id: finance.quadratic-claim-hedge
+    name: 二乗支払額の複製価格と動的ヘッジ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二乗支払額の複製価格と動的ヘッジ）"]
+    requires: [finance.continuous-replication-price, finance.gbm-conditional-moments, stochastic.ito-process-formula]
