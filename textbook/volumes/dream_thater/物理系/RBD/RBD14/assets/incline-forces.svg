@@ -16,23 +16,29 @@
   <g id="body">
     <circle cx="369" cy="178" r="77" fill="#f6f7f9" stroke="#333" stroke-width="3"/>
     <circle cx="369" cy="178" r="4.5" fill="#222"/>
-    <text x="340" y="170" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">C</text>
+    <text x="389" y="163" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">C</text>
     <circle cx="390" cy="252" r="5" fill="#222"/>
     <text x="408" y="279" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">P</text>
     <path d="M369,178 L390,252" stroke="#555" stroke-width="1.8" stroke-dasharray="5 4" fill="none"/>
-    <text x="401" y="225" font-size="18" font-family="Noto Sans CJK JP, sans-serif" fill="#222">a</text>
+    <text x="471" y="114" font-size="18" font-family="Noto Sans CJK JP, sans-serif" fill="#222">a</text>
   </g>
   <g id="forces">
     <path d="M369,178 L369,256" data-series-group="force-vectors" data-series-label="weight" stroke="#222" stroke-width="3.5" fill="none" marker-end="url(#arr-solid)"/>
-    <text x="319" y="232" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">mg</text>
+    <text x="250" y="171" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">mg</text>
     <path d="M390,252 L344,91" data-series-group="force-vectors" data-series-label="normal" stroke="#222" stroke-width="2.6" fill="none" marker-end="url(#arr-open)"/>
     <text x="315" y="88" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">N</text>
     <path d="M390,252 L525,213" data-series-group="force-vectors" data-series-label="friction" stroke="#222" stroke-width="2.8" stroke-dasharray="9 4" fill="none" marker-end="url(#arr-solid)"/>
-    <text x="531" y="213" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">f</text>
+    <text x="547" y="168" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">f</text>
+  </g>
+  <g id="label-leaders" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="3 3">
+    <path d="M305,185 L355,218"/>
+    <path d="M468,123 L395,208"/>
+    <path d="M548,176 L528,200"/>
+    <path d="M135,274 L152,306"/>
   </g>
   <g id="directions">
     <path d="M227,303 L143,327" stroke="#333" stroke-width="2.3" fill="none" marker-end="url(#arr-open)"/>
-    <text x="119" y="305" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">e_t</text>
+    <text x="101" y="270" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">e_t</text>
     <text x="462" y="300" font-size="16" font-family="Noto Sans CJK JP, sans-serif" fill="#444">静止斜面</text>
   </g>
 </svg>
