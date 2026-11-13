@@ -74,7 +74,7 @@ L_A R_B&=R_B L_A,\\
 \end{aligned}
 $$
 
-**右乗算の合成順序が逆**になる点が重要です。特に $\langle L_AX,Y\rangle_2=\langle X,L_{A^*}Y\rangle_2$ より $L_A^*=L_{A^*}$ です。右乗算も同様です。
+**右乗算の合成順序が逆**になる点が重要です。特に $\langle L_AX,Y\rangle_2=\langle X,L_{A^*}Y\rangle_2$ より $L_A^*=L_{A^*}$ です。右乗算も同様です。$L_I=I_{H_n}$ が単位元であり、$A\mapsto L_A$ は線形で $L_A(I)=A$ より単射です。したがって $L(M_n(\mathbb C))$ は $B(H_n)$ の有限次元単位的 $*$-部分代数です。有限次元空間 $B(H_n)$ では弱作用素位相が行列成分の通常の位相と一致し、その線形部分空間は閉じています。よって $L(M_n(\mathbb C))$ は単位的von Neumann環です。
 
 ## 2. 密度行列で標準対を作る
 
@@ -169,7 +169,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\|\Omega\|_2^2=\operatorname{Tr}\rho=1$。任意の $X\in H_n$ は $A=X\rho^{-1/2}$ によって $A\Omega=X$ と表せるので $\mathcal M\Omega=H_n$。逆に $A\Omega=0$ なら $A\rho^{1/2}=0$ であり、$\rho^{1/2}$ が可逆だから $A=0$。$L_A=0$ なら $L_A(I)=A=0$ でもあり、これは [標準対の分離性](../AQFT18/index.md#def-aqft18-standard-pair)を証明します。
+第1節で確かめた積・随伴に関する閉性と有限次元の弱閉性より、$\mathcal M=L(M_n(\mathbb C))$ は単位的von Neumann環です。$\|\Omega\|_2^2=\operatorname{Tr}\rho=1$。任意の $X\in H_n$ は $A=X\rho^{-1/2}$ によって $A\Omega=X$ と表せるので $\mathcal M\Omega=H_n$。逆に $A\Omega=0$ なら $A\rho^{1/2}=0$ であり、$\rho^{1/2}$ が可逆だから $A=0$。$L_A=0$ なら $L_A(I)=A=0$ でもあり、これは [標準対の分離性](../AQFT18/index.md#def-aqft18-standard-pair)を証明します。
 
 $\Omega^*=\Omega$ に注意して
 
@@ -428,7 +428,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\Delta(E_{ij})=(\lambda_i/\lambda_j)E_{ij}$ に [固有値への関数計算](../AQFT19/index.md#thm-aqft19-polar)を適用すると
+$\Delta(E_{ij})=(\lambda_i/\lambda_j)E_{ij}$ に [QM6のBorel関数計算](../../QM/QM6/index.md#def-qm6-borel-functional-calculus)を適用すると
 
 $$
 \begin{aligned}
