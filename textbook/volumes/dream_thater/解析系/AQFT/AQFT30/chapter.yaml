@@ -1,0 +1,44 @@
+id: "AQFT30"
+title: "Araki相対エントロピーの有限次元還元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT15
+  - AQFT20
+  - AQFT29
+  - QINF20
+learning_objectives:
+  - 忠実正規状態の相対モジュラー作用素からAraki相対エントロピーを定義し、対数のスペクトル積分の意味と適用境界を説明できる
+  - 混合固有基底F_ijとスペクトル重みr_j|<u_i,v_j>|^2を一から導ける
+  - 左右乗算の対数を区別してAraki相対エントロピーの有限次元トレース公式を非可換の場合にも証明できる
+  - 非可換な二準位密度行列で相対作用素のスペクトル表示とトレース表示の値を一致させられる
+  - 相対エントロピーの引数の順序・自然対数と底2の換算を正しく扱える
+  - 有限次元の同時ユニタリ不変性・積状態加法性を固有分解から証明できる
+  - Type III局所環・非忠実状態へ有限次元式を無条件に適用できない理由を指摘できる
+definitions:
+  - { id: AQFT30-DEF-01, name: "忠実正規状態のAraki相対エントロピー" }
+theorems:
+  - { id: AQFT30-LEM-01, name: "相対作用素の混合固有基底とスペクトル重み" }
+  - { id: AQFT30-THM-01, name: "Araki相対エントロピーの忠実有限次元還元" }
+  - { id: AQFT30-PROP-01, name: "有限次元での同時ユニタリ不変性と積状態の加法性" }
+canonical_examples:
+  - 可換二点環の相対作用素と古典相対エントロピー
+  - 非可換な二準位密度の混合固有基底とスペクトル重み
+  - 非可換二状態の対数作用素・トレース二経路の照合
+  - 忠実で同一な状態における作用素スペクトルと期待値の違い
+  - Type IIIおよび非忠実状態での有限次元還元の適用境界
+problem_patterns:
+  - AQFT30-COMMUTATIVE-SPECTRAL
+  - AQFT30-EQUAL-STATE
+  - AQFT30-LOG-BASE
+  - AQFT30-LEFT-RIGHT-LOG
+  - AQFT30-SPECTRAL-WEIGHTS
+  - AQFT30-NONCOMMUTING-MATRIX
+  - AQFT30-UNITARY-INVARIANCE
+  - AQFT30-PRODUCT-ADDITIVITY
+  - AQFT30-BIDIRECTIONAL
+  - AQFT30-PRODUCT-TRACE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }
