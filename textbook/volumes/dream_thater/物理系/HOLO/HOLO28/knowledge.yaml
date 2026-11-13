@@ -1,0 +1,56 @@
+chapter: HOLO28
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO27
+  - QINF20
+forward_references: []
+concepts:
+  - id: holography.modular-hamiltonian-finite
+    name: 有限次元のモジュラーHamiltonian
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限次元のモジュラーHamiltonian）"]
+    requires: [quantum.relative-entropy]
+  - id: holography.relative-modular-identity
+    name: 相対エントロピーのモジュラー表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相対エントロピーのモジュラー表示）"]
+    requires: [holography.modular-hamiltonian-finite, quantum.relative-entropy]
+  - id: holography.entanglement-first-law
+    name: 有限次元のエンタングルメント第一法則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限次元のエンタングルメント第一法則）"]
+    requires: [holography.relative-modular-identity]
+  - id: holography.fixed-area-edge-code
+    name: 固定面積型の有限次元符号化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定面積型の有限次元符号化）"]
+    requires: [holography.subregion-operator-reconstruction]
+  - id: holography.fixed-sector-jlms
+    name: 固定セクターのモジュラー等式と相対エントロピー
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定セクターのモジュラー等式と相対エントロピー）"]
+    requires: [holography.fixed-area-edge-code, holography.relative-modular-identity]
+  - id: holography.sector-area-operator
+    name: 直和コードの面積型中心作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（直和コードの面積型中心作用素）"]
+    requires: [holography.fixed-area-edge-code]
+  - id: holography.sector-jlms
+    name: 直和コードのJLMS型恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（直和コードのJLMS型恒等式）"]
+    requires: [holography.sector-area-operator, holography.fixed-sector-jlms]
+  - id: holography.jlms-conditional-dictionary
+    name: JLMS関係の条件付き使用規約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（JLMS関係の条件付き使用規約）"]
+    requires: [holography.sector-jlms, holography.qes-generalized-entropy, holography.entanglement-wedge, holography.controlled-supergravity-window]

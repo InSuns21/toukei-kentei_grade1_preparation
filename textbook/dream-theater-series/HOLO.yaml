@@ -33,7 +33,7 @@ chapters:
   - { id: HOLO25, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO25, status: completed, title: "causal wedgeとentanglement wedge" }
   - { id: HOLO26, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO26, status: completed, title: "HKLL再構成" }
   - { id: HOLO27, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO27, status: completed, title: "部分領域再構成" }
-  - { id: HOLO28, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO28, status: planned, title: "JLMSと相対エントロピー" }
+  - { id: HOLO28, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO28, status: completed, title: "JLMSと相対エントロピー" }
   - { id: HOLO29, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO29, status: planned, title: "消失訂正としてのバルク" }
   - { id: HOLO30, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO30, status: planned, title: "作用素代数量子誤り訂正" }
   - { id: HOLO31, path: textbook/volumes/dream_thater/物理系/HOLO/HOLO31, status: planned, title: "テンソル網・HaPPY模型" }
