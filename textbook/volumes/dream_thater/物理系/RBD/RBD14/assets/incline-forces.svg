@@ -28,17 +28,15 @@
     <path d="M390,252 L344,91" data-series-group="force-vectors" data-series-label="normal" stroke="#222" stroke-width="2.6" fill="none" marker-end="url(#arr-open)"/>
     <text x="315" y="88" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">N</text>
     <path d="M390,252 L525,213" data-series-group="force-vectors" data-series-label="friction" stroke="#222" stroke-width="2.8" stroke-dasharray="9 4" fill="none" marker-end="url(#arr-solid)"/>
-    <text x="547" y="168" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">f</text>
+    <text x="541" y="184" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">f</text>
   </g>
   <g id="label-leaders" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="3 3">
     <path d="M305,185 L355,218"/>
-    <path d="M468,123 L395,208"/>
-    <path d="M548,176 L528,200"/>
-    <path d="M135,274 L152,306"/>
+    <path d="M457,141 L381,215"/>
   </g>
   <g id="directions">
     <path d="M227,303 L143,327" stroke="#333" stroke-width="2.3" fill="none" marker-end="url(#arr-open)"/>
-    <text x="101" y="270" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">e_t</text>
+    <text x="119" y="292" font-size="19" font-family="Noto Sans CJK JP, sans-serif" fill="#222">e_t</text>
     <text x="462" y="300" font-size="16" font-family="Noto Sans CJK JP, sans-serif" fill="#444">静止斜面</text>
   </g>
 </svg>
