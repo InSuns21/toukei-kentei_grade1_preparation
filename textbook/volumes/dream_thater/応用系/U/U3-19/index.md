@@ -204,39 +204,64 @@ $$
 
 最後に、割引期待値と自己金融複製が整合することを直接確認する。$A=e^{-q\tau}$、$D=e^{-r\tau}$ と書く。$d_1-d_2=\sigma\sqrt{\tau}$、$d_1+d_2=2[\log(s/K)+(r-q)\tau]/(\sigma\sqrt{\tau})$ なので
 
-$
+$$
 \frac{\phi(d_1)}{\phi(d_2)}
 =\exp\left(-\frac{d_1^2-d_2^2}{2}\right)
 =\frac{K}{s}e^{-(r-q)\tau},
 \quad sA\phi(d_1)=KD\phi(d_2).
-$
+$$
 
 連鎖律で $\partial_s d_1=\partial_s d_2=1/(s\sigma\sqrt{\tau})$ を使うと、二つの密度項が相殺して
 
-$
+$$
 C_s=A\Phi(d_1),\qquad
 C_{ss}=\frac{A\phi(d_1)}{s\sigma\sqrt{\tau}}.
-$
+$$
 
 また $\tau=T-t$ に注意して、$\partial_t d_1=-[\,(r-q+\sigma^2/2)\tau-\log(s/K)\,]/(2\sigma\tau^{3/2})$、$\partial_t d_2=\partial_t d_1+\sigma/(2\sqrt{\tau})$ である。これと密度恒等式から
 
-$
+$$
 C_t=q sA\Phi(d_1)-rKD\Phi(d_2)
 -\frac{sA\sigma\phi(d_1)}{2\sqrt{\tau}}.
-$
+$$
 
 従って[連続配当付き BSM 方程式](../U3-16/index.md#prop-u3-16-dividend-pde)の左辺は
 
-$
+$$
 \begin{aligned}
 &C_t+(r-q)sC_s+\tfrac12\sigma^2s^2C_{ss}-rC\\
 &=(q+r-q-r)sA\Phi(d_1)+(-r+r)KD\Phi(d_2)\\
 &\quad-\frac{sA\sigma\phi(d_1)}{2\sqrt{\tau}}
 +\frac{sA\sigma\phi(d_1)}{2\sqrt{\tau}}=0.
 \end{aligned}
+$$
+
+put については、先ほど直接求めた call/put 二式の差を $w=C-P=sA-KD$ と書きます。この関数の偏導関数は
+
+$
+w_t=qsA-rKD,\qquad w_s=A,\qquad w_{ss}=0
 $
 
-put については parity の差額 $w=sA-KD$ に対し $w_t=q sA-rKD$、$w_s=A$、$w_{ss}=0$ を代入すれば、同じ PDE の左辺が0になる。$P=C-w$ なので put も PDE を満たす。$t\uparrow T$ では $S_T\to s$、連続な支払関数の割引期待値は各支払額へ近づく。デルタは $|C_s|\le A$、$|P_s|=|C_s-A|\le A$ と有界であり、[自己金融複製の構成](../U3-16/index.md#thm-u3-16-bsm-replication)の係数比較を配当込み利得 $dS+qS\,dt$ に適用できる。従ってこれらの滑らかな価格関数から $\Delta=v_s$、$\psi=(v-s\Delta)/B_t$ の自己金融複製が得られ、無裁定価格と一致する。
+です。これを配当付き PDE に代入すると、$w_t+(r-q)sw_s-rw=0$ が得られます。したがって $P=C-w$ も同じ PDE の解です。
+
+$t\uparrow T$ では $S_T\to s$ となり、連続な支払関数の割引期待値は満期支払額に収束します。デルタについても
+
+$
+|C_s|\le A\le1,\qquad
+|P_s|=|C_s-A|\le A\le1
+$
+
+です。[自己金融複製の構成](../U3-16/index.md#thm-u3-16-bsm-replication)の係数比較を、配当込み利得に合わせて実施します。価格関数を $v$、株数を $\Delta=v_s$、預金単位を $\psi=(v-s\Delta)/B_u$ とすると、Itô 公式と配当付き PDE より
+
+$
+\begin{aligned}
+dv&=v_s\,dS+\left(v_t+\tfrac12\sigma^2S^2v_{ss}\right)du\\
+&=\Delta\,dS+\left[rv-(r-q)S\Delta\right]du\\
+&=\Delta(dS+qS\,du)+\psi\,dB.
+\end{aligned}
+$
+
+満期の価格は支払額に一致し、デルタは有界です。株価の対数正規二次モーメントが有限であることは[GBM モーメント命題](../U3-14/index.md#prop-u3-14-moments)から従い、割引した確率積分の二乗可積分性を保証します。ゆえに戦略は自己金融で満期支払を複製し、価格は無裁定価格となります。
 <!-- proof-end -->
 
 定理で用いた「株価項は $e^{-q\tau}$、行使価格項は $e^{-r\tau}$」という二つの係数は、**先渡の複製で既に現れたものと同じ**です。
