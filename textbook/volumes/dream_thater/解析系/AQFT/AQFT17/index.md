@@ -241,13 +241,21 @@ Type IIIの局所von Neumann環そのものをType I因子に変えるという�
 
 また、単なる可換性だけで積状態延長が存在するとは限りません。[AQFT16の極大可換環の反例](../AQFT16/index.md#prop-aqft16-commutation-not-split)で $P=Q=D$ とし、同じ $D$ に対する異なる正規状態を指定します。
 
-例えば $D$ の射影 $p=M_{\mathbf1_{[0,1/2]}}$ に
+例えば $D$ の射影 $p=M_{\mathbf1_{[0,1/2]}}$ を取ります。$H=L^2([0,1])$ で
 
-$$
-\varphi(p)=1,\qquad \psi(p)=0
-$$
+$
+v=\sqrt2\,\mathbf1_{[0,1/2]},\qquad
+w=\sqrt2\,\mathbf1_{(1/2,1]}
+$
 
-を割り当てます。積の式で一方の変数を単位元に置けば、延長の周辺条件は $\omega(p)=\varphi(p)$ と $\omega(p)=\psi(p)$ を同時に要求します。したがって矛盾し、積延長はありません。
+はともにノルム $1$ です。[VN5のベクトル正規状態](../../VN/VN5/index.md#def-vn5-normal-state)を $D$ に制限して $\varphi(a)=\langle v,av\rangle$、$\psi(a)=\langle w,aw\rangle$ と置けば、$pv=v$、$pw=0$ より
+
+$
+\varphi(p)=\langle v,pv\rangle=1,\qquad
+\psi(p)=\langle w,pw\rangle=0
+$
+
+を満たす異なる正規状態が実際に得られます。積の式で一方の変数を単位元に置けば、延長の周辺条件は $\omega(p)=\varphi(p)$ と $\omega(p)=\psi(p)$ を同時に要求します。したがって矛盾し、積延長はありません。
 
 可換性だけでは二つの環の共通部分の状態が整合することすら保証されないのです。
 
@@ -336,7 +344,15 @@ $$
 \end{aligned}
 $$
 
-核性の仮定により右端は $n\to\infty$ で0へ収束するので $\|T-T_n\|_{\mathrm{op}}\to0$。有限ランク写像の単位球像は有限次元有界集合なので相対コンパクトで、コンパクト写像の作用素ノルム極限もコンパクトです。$\square$
+核性の仮定により右端は $n\to\infty$ で0へ収束するので $\|T-T_n\|_{\mathrm{op}}\to0$。有限ランク写像 $T_n$ の単位球像は有限次元有界集合なので相対コンパクトです。ここから極限への移行も確認します。任意の $\varepsilon>0$ に対し $\|T-T_n\|_{\mathrm{op}}<\varepsilon/3$ となる $n$ を選びます。有限次元の $T_n$ の単位球像には有限個の $\varepsilon/3$ 近似点 $y_1,\ldots,y_m\in Y$ が取れます。したがって $\|x\|_X\le1$ なら適切な $k$ について
+
+$
+\|Tx-y_k\|_Y
+\le\|(T-T_n)x\|_Y+\|T_nx-y_k\|_Y
+<\frac{2\varepsilon}{3}<\varepsilon.
+$
+
+つまり $T$ の単位球像は全有界です。$Y$ はHilbert空間なので完備であり、その閉包はコンパクトです。従って $T$ はコンパクト写像です。$\square$
 <!-- proof-end -->
 
 核性はコンパクト性より強い制約です。有限ランクで近似できるだけでなく、近似項の大きさを**絶対総和**で支配するからです。
@@ -372,7 +388,7 @@ e^{-\beta H_{\mathrm{en}}}x\Omega
 =(x_{11},e^{-\beta\varepsilon}x_{21})^T.
 $$
 
-行列要素汎関数 $f_1(x)=x_{11}$、$f_2(x)=x_{21}$ はどちらも作用素ノルムに関してノルム $1$ です。標準基底を $\xi_1=e_1$、$\xi_2=e^{-\beta\varepsilon}e_2$ と取れば核表示ができ、
+ここで $x_{i1}=\langle e_i,xe_1\rangle$（$i=1,2$）は、標準正規直交基底で表した $x\Omega$ の第 $i$ 成分です。Cauchy–Schwarzの不等式から $|x_{i1}|\le\|x\|_{\mathrm{op}}$、また $x=|e_i\rangle\langle e_1|$ では $\|x\|_{\mathrm{op}}=|x_{i1}|=1$ となります。したがって行列要素汎関数 $f_1(x)=x_{11}$、$f_2(x)=x_{21}$ はどちらもノルム $1$ です。$H_{\mathrm{en}}e_1=0$、$H_{\mathrm{en}}e_2=\varepsilon e_2$ より、指数は各基底ベクトルをそれぞれ $1$ 倍、$e^{-\beta\varepsilon}$ 倍するので、$\xi_1=e_1$、$\xi_2=e^{-\beta\varepsilon}e_2$ と取れば上の二成分表示が核表示になり、
 
 $$
 \|\Theta_{\beta,M}\|_1\le1+e^{-\beta\varepsilon}.
@@ -433,7 +449,17 @@ Z_L(\beta):=\operatorname{Tr}(e^{-\beta d\Gamma(h)})
 (1-e^{-\beta\omega_{\boldsymbol n}})^{-1}
 $$
 
-を得ます。無限積が有限値へ収束することも確認します。$0\le x\le e^{-\beta m}<1$ に対し
+を得ます。この無限積への移行を明示します。[AQFT8で用いた対称Fock空間](../AQFT8/index.md#def-aqft8-fock-weyl)では、占有数列 $(r_{\boldsymbol n})$ は非負整数値で、各基底ベクトルについて非零の占有数は有限個です。有限なモード集合 $F\subset\mathbb Z^3$ だけを許した場合、各占有数の和を独立に取ると
+
+$
+\sum_{(r_{\boldsymbol n})\in\mathbb N_0^F}
+\exp\left(-\beta\sum_{\boldsymbol n\in F}
+r_{\boldsymbol n}\omega_{\boldsymbol n}\right)
+=\prod_{\boldsymbol n\in F}
+\left(\sum_{r=0}^\infty e^{-\beta r\omega_{\boldsymbol n}}\right).
+$
+
+各項は非負なので、$F$ を増やして全モードを覆うと左辺はFock空間のトレースへ単調に収束し、右辺は表示した無限積になります。無限積が**有限値へ**収束することは、続く評価で別に確認します。$0\le x\le e^{-\beta m}<1$ に対し
 
 $$
 -\log(1-x)=\sum_{r\ge1}\frac{x^r}{r}
