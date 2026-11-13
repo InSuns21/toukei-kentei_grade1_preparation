@@ -1,0 +1,92 @@
+version: 1
+id: GW1
+title: "擬正則曲線・Gromov–Witten理論"
+plan: textbook/plans_progress/DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 公開索引へは完成した章のみ追加する。
+chapters:
+  - id: GW1-01
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-01
+    status: completed
+    title: "なぜ曲線を数えるのか"
+  - id: GW1-02
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-02
+    status: planned
+    title: "bar∂_Jとエネルギー恒等式"
+  - id: GW1-03
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-03
+    status: planned
+    title: "楕円型正則性と線形化"
+  - id: GW1-04
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-04
+    status: planned
+    title: "正則性・横断性と多重被覆"
+  - id: GW1-05
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-05
+    status: planned
+    title: "泡立ちの機構"
+  - id: GW1-06
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-06
+    status: planned
+    title: "Gromov収束とコンパクト性"
+  - id: GW1-07
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-07
+    status: planned
+    title: "標点付き球面・交比・安定曲線"
+  - id: GW1-08
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-08
+    status: planned
+    title: "安定写像とコンパクト化"
+  - id: GW1-09
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-09
+    status: planned
+    title: "凸な射影標的と変形・障害"
+  - id: GW1-10
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-10
+    status: planned
+    title: "モジュライの構成と次元"
+  - id: GW1-11
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-11
+    status: planned
+    title: "評価写像・忘却写像・交叉条件"
+  - id: GW1-12
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-12
+    status: planned
+    title: "境界の分裂と貼り合わせ"
+  - id: GW1-13
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-13
+    status: planned
+    title: "凸標的の種数0GW不変量の定義"
+  - id: GW1-14
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-14
+    status: planned
+    title: "最初の不変量を手で求める"
+  - id: GW1-15
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-15
+    status: planned
+    title: "GWの基本公理と分裂公式"
+  - id: GW1-16
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-16
+    status: planned
+    title: "量子積と結合律（WDVV）"
+  - id: GW1-17
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-17
+    status: planned
+    title: "射影空間の量子コホモロジー"
+  - id: GW1-18
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-18
+    status: planned
+    title: "平面有理曲線の数え上げ"
+  - id: GW1-19
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-19
+    status: planned
+    title: "非凸標的と障害空間"
+  - id: GW1-20
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-20
+    status: planned
+    title: "仮想基本類の設計図と限界"
+  - id: GW1-21
+    path: textbook/volumes/dream_thater/幾何系/GW/GW1-21
+    status: planned
+    title: "解析的方法との比較・展望"
