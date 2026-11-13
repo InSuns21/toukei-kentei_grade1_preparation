@@ -1,0 +1,60 @@
+chapter: CTM12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM11
+concepts:
+  - id: continuum.elastic-dirichlet-boundary
+    name: 線形弾性の Dirichlet 境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet 境界条件と Neumann 境界条件）"]
+    requires: [continuum.motion-current-configuration]
+  - id: continuum.elastic-neumann-boundary
+    name: Neumann 境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dirichlet 境界条件と Neumann 境界条件）"]
+    requires: [continuum.cauchy-stress-theorem]
+  - id: continuum.linear-elastic-bvp
+    name: 線形弾性の混合境界値問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形弾性の混合境界値問題）"]
+    requires: [continuum.hooke-isotropic, continuum.material-momentum-local, continuum.elastic-dirichlet-boundary, continuum.elastic-neumann-boundary]
+  - id: continuum.static-navier-lame
+    name: 静的 Navier–Lamé 方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静的 Navier–Lamé 方程式）"]
+    requires: [continuum.linear-elastic-bvp]
+  - id: continuum.infinitesimal-rigid-motion
+    name: 微小剛体変位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（微小剛体変位）"]
+    requires: [continuum.infinitesimal-strain]
+  - id: continuum.zero-strain-rigidity
+    name: 零ひずみの剛体変位性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（零ひずみの剛体変位性）"]
+    requires: [continuum.infinitesimal-rigid-motion]
+  - id: continuum.neumann-force-torque
+    name: 純表面力指定の合力・合トルク必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純表面力指定の合力・合トルク必要条件）"]
+    requires: [continuum.linear-elastic-bvp, continuum.material-angular-stress-symmetry]
+  - id: continuum.elastic-potential-stationarity
+    name: ポテンシャルエネルギーの第一変分と静的釣合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ポテンシャルエネルギーの第一変分と静的釣合）"]
+    requires: [continuum.linear-elastic-bvp, continuum.hooke-isotropic]
+  - id: continuum.linear-elastic-uniqueness
+    name: 固定条件を持つ線形弾性問題の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定条件を持つ線形弾性問題の一意性）"]
+    requires: [continuum.zero-strain-rigidity, continuum.linear-elastic-positive-definite, continuum.elastic-potential-stationarity]
