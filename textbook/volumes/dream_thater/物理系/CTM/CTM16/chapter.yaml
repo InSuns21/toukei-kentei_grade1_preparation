@@ -1,0 +1,44 @@
+id: "CTM16"
+title: "無次元化で粘性と慣性のどちらが効くか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM15
+official_scope: []
+learning_objectives:
+  - "代表長さ・速度・時間・圧力の正の尺度を明示し、連鎖律で各微分項を無次元化できる"
+  - "Reynolds数とStrouhal数の定義・単位・尺度比を導き、圧力の慣性尺度と粘性尺度を区別できる"
+  - "非圧縮Navier–Stokes式を無次元化して、定常低Reの条件付きStokes極限と非定常項が残る場合を説明できる"
+  - "両壁無滑りの定常Couette流を常微分方程式から解き、Reに依らない厳密解・応力・散逸・壁仕事を検算できる"
+  - "非定常一方向流の粘性時間を同定し、運動エネルギー・壁仕事・散逸の収支を具体解で確認できる"
+definitions:
+  - { id: CTM16-DEF-01, name: "流れの無次元変数" }
+  - { id: CTM16-DEF-02, name: "Reynolds数" }
+  - { id: CTM16-DEF-03, name: "Strouhal数" }
+theorems:
+  - { id: CTM16-THM-01, name: "非圧縮Navier–Stokes方程式の無次元形" }
+  - { id: CTM16-COR-01, name: "粘性尺度による無次元運動量式" }
+  - { id: CTM16-THM-02, name: "条件付き低Reynolds数極限" }
+  - { id: CTM16-THM-03, name: "定常平板Couette流の速度とせん断応力" }
+canonical_examples:
+  - "平板せん断における無次元微分と壁座標"
+  - "微小流路のReynolds数と各項の尺度の直接計算"
+  - "同じReでも時間尺度を変えたStrouhal数の比較"
+  - "低Re・粘性時間で非定常項が残る反例"
+  - "定常Couette流の境界値、traction、壁仕事と散逸"
+  - "非定常Couette流の粘性時間と過渡運動エネルギー収支"
+problem_patterns:
+  - CTM16-REYNOLDS-UNIT-CHECK
+  - CTM16-DERIVATIVE-SCALING
+  - CTM16-PRESSURE-SCALES
+  - CTM16-COUETTE-BOUNDARIES
+  - CTM16-STROUHAL-TIME
+  - CTM16-LOW-RE-UNSTEADY-CHECK
+  - CTM16-MOVING-PLATE-ENERGY
+  - CTM16-MICROCHANNEL-RE
+  - CTM16-UNSTEADY-SHEAR-DIFFUSION
+  - CTM16-TRANSIENT-COUETTE-ENERGY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 3 }

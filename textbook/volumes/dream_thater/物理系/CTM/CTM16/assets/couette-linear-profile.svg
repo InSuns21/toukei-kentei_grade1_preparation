@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" data-layout-lint="strict" role="img" aria-labelledby="ctm16title ctm16desc">
+  <title id="ctm16title">定常 Couette 流の板配置と直線速度分布</title>
+  <desc id="ctm16desc">下壁 y=0 は静止し、上壁 y=h は右向きに速度 U で動く。内部の右向き矢印は上へ行くほど長くなり、矢印先端を結ぶ破線は u(y)/U=y/h の直線を表す。</desc>
+  <defs>
+    <marker id="ctm16arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#21658a"/></marker>
+    <marker id="ctm16axisarrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#303944"/></marker>
+  </defs>
+  <rect width="760" height="340" fill="#ffffff"/>
+  <rect x="126" y="65" width="380" height="18" fill="#c9d3da" stroke="#394b5a" stroke-width="1.5"/>
+  <rect x="126" y="270" width="380" height="18" fill="#c9d3da" stroke="#394b5a" stroke-width="1.5"/>
+  <line x1="88" y1="270" x2="88" y2="84" stroke="#303944" stroke-width="2" marker-end="url(#ctm16axisarrow)"/>
+  <line x1="143" y1="270" x2="493" y2="83" stroke="#6a7784" stroke-width="2.5" stroke-dasharray="6 6"/>
+  <circle cx="143" cy="270" r="4" fill="#303944"/>
+  <line x1="143" y1="235" x2="208" y2="235" stroke="#21658a" stroke-width="3" marker-end="url(#ctm16arrow)"/>
+  <line x1="143" y1="195" x2="283" y2="195" stroke="#21658a" stroke-width="3" marker-end="url(#ctm16arrow)"/>
+  <line x1="143" y1="155" x2="358" y2="155" stroke="#21658a" stroke-width="3" marker-end="url(#ctm16arrow)"/>
+  <line x1="143" y1="115" x2="433" y2="115" stroke="#21658a" stroke-width="3" marker-end="url(#ctm16arrow)"/>
+  <line x1="143" y1="84" x2="493" y2="84" stroke="#21658a" stroke-width="3" marker-end="url(#ctm16arrow)"/>
+  <text x="80" y="55" font-size="17" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">y</text>
+  <text x="84" y="305" font-size="17" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">0</text>
+  <text x="60" y="78" font-size="17" font-family="Noto Sans CJK JP, sans-serif" text-anchor="end" fill="#222c35">h</text>
+  <text x="324" y="43" font-size="18" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">上壁: U</text>
+  <text x="324" y="320" font-size="18" font-family="Noto Sans CJK JP, sans-serif" text-anchor="middle" fill="#222c35">下壁: 0</text>
+  <text x="555" y="140" font-size="20" font-family="Noto Sans CJK JP, sans-serif" fill="#263b4d">u(y)</text>
+  <text x="555" y="170" font-size="18" font-family="Noto Sans CJK JP, sans-serif" fill="#263b4d">u/U = y/h</text>
+  <text x="555" y="205" font-size="16" font-family="Noto Sans CJK JP, sans-serif" fill="#526474">破線: 直線</text>
+</svg>

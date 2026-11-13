@@ -1,0 +1,48 @@
+chapter: CTM16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM15
+concepts:
+  - id: continuum.flow-reference-scales
+    name: 流れの無次元変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（流れの無次元変数）"]
+    requires: [continuum.incompressible-navier-stokes]
+  - id: continuum.reynolds-number
+    name: Reynolds 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Reynolds 数）"]
+    requires: [continuum.flow-reference-scales]
+  - id: continuum.strouhal-number
+    name: Strouhal 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Strouhal 数）"]
+    requires: [continuum.flow-reference-scales]
+  - id: continuum.dimensionless-incompressible-navier-stokes
+    name: 非圧縮 Navier–Stokes 方程式の無次元形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非圧縮 Navier–Stokes 方程式の無次元形）"]
+    requires: [continuum.incompressible-navier-stokes, continuum.flow-reference-scales, continuum.reynolds-number, continuum.strouhal-number]
+  - id: continuum.viscous-scaled-momentum
+    name: 粘性尺度による無次元運動量式
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（粘性尺度による無次元運動量式）"]
+    requires: [continuum.dimensionless-incompressible-navier-stokes]
+  - id: continuum.low-re-stokes-limit
+    name: 条件付き低 Reynolds 数極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（条件付き低 Reynolds 数極限）"]
+    requires: [continuum.viscous-scaled-momentum]
+  - id: continuum.steady-plane-couette
+    name: 定常平板 Couette 流の速度・せん断応力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定常平板 Couette 流の速度・せん断応力）"]
+    requires: [continuum.incompressible-navier-stokes, continuum.wall-no-slip, continuum.newtonian-viscous-dissipation]
