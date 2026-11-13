@@ -58,18 +58,18 @@ $$
 
 力と伸びから接続条件を導く。直列では各素子の軸力を $F_s,F_d$、伸びを $\Delta L_s,\Delta L_d$ とすれば、共通断面積 $A$ に対して
 
-$
+$$
 F_s=F_d=F,\qquad
 \varepsilon=\frac{\Delta L_s+\Delta L_d}{L_0}
 =\varepsilon_s+\varepsilon_d
-$
+$$
 
 である。$F_s/A=F_d/A=F/A$ だから応力も等しい。並列では各枝の断面積を $A_s,A_d>0$（$A_s+A_d=A$）とし、両枝の伸びが等しい一方、軸力が加算されるので
 
-$
+$$
 \varepsilon_s=\varepsilon_d=\frac{\Delta L}{L_0},\qquad
 \sigma=\frac{F_s+F_d}{A}=\frac{F_s}{A}+\frac{F_d}{A}.
-$
+$$
 
 ここで並列枝の $\sigma_s:=F_s/A$、$\sigma_d:=F_d/A$ は**模型全断面積当たりの寄与**であり、実材料枝の応力 $F_s/A_s,F_d/A_d$ とは異なる。例えば実材料枝の係数が $E_s,\eta_d$ なら、模型の有効係数は $E=(A_s/A)E_s$、$\eta_v=(A_d/A)\eta_d$ となる。以下の並列の素子法則はこの有効係数で読む。
 
@@ -106,10 +106,10 @@ $$
 
 ばねとダッシュポットの応力が一致する。さらに $t=0+$ で $\varepsilon_d=0$ とし、以後2秒間この応力を一定に保てば、$\dot\varepsilon_s=0$、$\dot\varepsilon_d=0.005$ s$^{-1}$ だから
 
-$
+$$
 \varepsilon_d(2)=\int_0^2 0.005\,dt=0.01,\qquad
 \varepsilon(2)=\varepsilon_s(2)+\varepsilon_d(2)=0.01+0.01=0.02.
-$
+$$
 
 例えば $L_0=1$ m なら二素子の伸びが各0.01 m、模型全体の伸びが0.02 m であり、**直列の伸び加算**も数値で確認できる。
 
@@ -123,15 +123,15 @@ $$
 
 これは模型全断面積で換算した応力の加算である。実際、$A=0.01$ m$^2$、$A_s=A_d=0.005$ m$^2$ とすれば、対応する実材料枝の係数は $E_s=2\times10^6$ Pa、$\eta_d=4\times10^6$ Pa s。したがって
 
-$
+$$
 F_s=A_sE_s\varepsilon=100\ \mathrm{N},\qquad
 F_d=A_d\eta_d\dot\varepsilon=100\ \mathrm{N},
-$
+$$
 
-$
+$$
 \frac{F_s+F_d}{A}=\frac{200}{0.01}
 =2\times10^4\ \mathrm{Pa}=\sigma.
-$
+$$
 
 枝それぞれの実応力は $F_s/A_s=F_d/A_d=2\times10^4$ Pa だが、模型全体への応力寄与はそれぞれ $10^4$ Pa であり、**並列の共通ひずみ・荷重加算・有効係数**を混同せず確認できた。
 <!-- definition-example-end -->
@@ -293,29 +293,29 @@ $$
 
 まず初期値の連続性を確認する。[Kelvin–Voigt 方程式](#thm-ctm18-kelvin-law)を $\eta_v$ で割り、各滑らかな時間区間では
 
-$
+$$
 \dot\varepsilon+\frac{1}{\tau}\varepsilon
 =\frac{\sigma(t)}{\eta_v},\qquad
 \frac{d}{dt}(e^{t/\tau}\varepsilon)
 =\frac{e^{t/\tau}\sigma(t)}{\eta_v}
-$
+$$
 
 である。有限な応力ステップを、$t=0$ の左右で有界な $\sigma$ として積分すると
 
-$
+$$
 e^{\delta/\tau}\varepsilon(\delta)
 -e^{-\delta/\tau}\varepsilon(-\delta)
 =\frac{1}{\eta_v}\int_{-\delta}^{\delta}
 e^{s/\tau}\sigma(s)\,ds\longrightarrow0
 \qquad(\delta\downarrow0).
-$
+$$
 
 従って有限な左右極限を持つ解で $\varepsilon(0+)=\varepsilon(0-)=0$ が必要である。$t>0$ では $\sigma(t)=\sigma_0$ なので
 
-$
+$$
 \frac{d}{dt}(e^{t/\tau}\varepsilon)
 =\frac{\sigma_0}{\eta_v}e^{t/\tau}.
-$
+$$
 
 $0$ から $t$ まで積分して $\varepsilon(0+)=0$ を代入すると
 
