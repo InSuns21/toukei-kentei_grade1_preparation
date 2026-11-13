@@ -24,12 +24,7 @@ $$
 
 $H^TH$ は $H$ の二次の量なので、小さい $H$ の一次理論では対称部分だけが残る。これが**微小ひずみ**である。
 
-<a id="def-ctm11-small-strain"></a>
-
-<!-- formal-statement-start -->
-### 定義（微小ひずみ）
-
-$u\in C^1(\Omega_0;\mathbb R^3)$ の各点 $X$ で、微小ひずみテンソルを
+[CTM3 の微小ひずみの定義](../CTM3/index.md#def-ctm3-infinitesimal-strain)をここでも使う。すなわち $u\in C^1(\Omega_0;\mathbb R^3)$ に対し
 
 $$
 \boxed{\varepsilon(u)=\frac12\{\nabla_Xu+(\nabla_Xu)^T\}},
@@ -37,10 +32,8 @@ $$
 \varepsilon_{ij}=\frac12(\partial_{X_j}u_i+\partial_{X_i}u_j)
 $$
 
-と定める。これは無次元の実対称 $3\times3$ 行列であり、有限ひずみとの関係は $E=\varepsilon+\tfrac12(\nabla_Xu)^T\nabla_Xu$ である。
-<!-- formal-statement-end -->
+である。これは無次元の実対称 $3\times3$ 行列で、有限ひずみとの関係は $E=\varepsilon+\tfrac12(\nabla_Xu)^T\nabla_Xu$ である。
 
-<!-- definition-example-start: def-ctm11-small-strain -->
 ### 定義の確認：引張りと微小回転
 
 $u(X)=(aX_1,bX_2,0)$ とすると $\nabla_Xu=\operatorname{diag}(a,b,0)$、$\varepsilon=\operatorname{diag}(a,b,0)$ となる。対称性と各成分を定義から直接検査できる。一方 $u(X)=\omega(-X_2,X_1,0)$ では
@@ -51,8 +44,6 @@ $$
 $$
 
 反対称な一次の回転は伸びとして数えない。ただしこの後者を**有限角の厳密な回転**と読み替えてはいけない。$F=I_3+\nabla u$ には $\omega^2$ に比例する有限ひずみが残る。正しい有限回転では $F=Q\in SO(3)$ を使い、[有限ひずみの零条件](../CTM3/index.md#prop-ctm3-length-criterion)によって $E=0$ となる。
-<!-- definition-example-end -->
-
 微小線素 $a$ に対する長さの二乗の差は、上式から
 
 $$
@@ -381,7 +372,7 @@ $u(X)=(aX_1-\omega X_2,\omega X_1+bX_2,0)$（$|a|,|b|,|\omega|\ll1$）の微小�
 <!-- solution-start -->
 #### 詳細解答
 
-[微小ひずみ](#def-ctm11-small-strain)の出発行列は
+[微小ひずみ](../CTM3/index.md#def-ctm3-infinitesimal-strain)の出発行列は
 
 $$
 H=\nabla_Xu=\begin{pmatrix}a&-\omega&0\\\omega&b&0\\0&0&0\end{pmatrix}.
@@ -556,7 +547,7 @@ $$
 
 ### C1. 実験値・二つの負荷・エネルギーの整合性
 
-微小変形する等方弾性体で、単位は Pa とする。試験片を $e_1$ 方向へ引いて一軸応力 $\sigma=\operatorname{diag}(s,0,0)$（$s>0$）を加えたところ、縦ひずみは $4h$、横ひずみは $-h$（$0<h\ll1$）だった。さらに同じ材料の単純せん断試験では工学せん断ひずみ $\gamma=2h$、せん断応力 $\tau=sh/({4h})$ が測定されたとする（最後の表示は $\tau=s/4$ の意味である）。材料の係数はひずみの大きさによらず一定とする。
+微小変形する等方弾性体で、単位は Pa とする。試験片を $e_1$ 方向へ引いて一軸応力 $\sigma=\operatorname{diag}(s,0,0)$（$s>0$）を加えたところ、縦ひずみは $4h$、横ひずみは $-h$（$0<h\ll1$）だった。さらに同じ材料の単純せん断試験では工学せん断ひずみ $\gamma=2h$、せん断応力 $\tau=s/4$ が測定されたとする。材料の係数はひずみの大きさによらず一定とする。
 
 1. 最初の試験から $E_Y$ と $\nu$ を求め、$\lambda,\mu,K$ を $s,h$ で表せ。
 2. その係数から第二試験の予測せん断応力を求め、与えられた値と整合するか判定せよ。
@@ -624,4 +615,4 @@ $$
 
 ## 次への接続
 
-この講義では、応力とひずみを結ぶ材料の法則を定めた。次の CTM12 では[運動量収支](../CTM7/index.md#thm-ctm7-momentum-local)へ $\sigma(\varepsilon(u))$ を代入し、物体の形・境界荷重・固定条件から変位 $u$ を解く。境界で何を指定したかによって、同じ材料でも答えは変わる。
+この講義では、応力とひずみを結ぶ材料の法則を定めた。次の CTM12 では[運動量収支](../CTM7/index.md#thm-ctm7-material-momentum)へ $\sigma(\varepsilon(u))$ を代入し、物体の形・境界荷重・固定条件から変位 $u$ を解く。境界で何を指定したかによって、同じ材料でも答えは変わる。
