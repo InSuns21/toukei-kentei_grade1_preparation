@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm17-fully-developed -->
-### 定義の確認：放物線を候補として試す
+### **定義の確認**：放物線を候補として試す
 
 $A>0$ として $u(y)=A(h^2-y^2)$ を選ぶと、速度は $y$ のみの $C^2$ 関数、時間にも $x,z$ にも依存せず、$u(\pm h)=0$ である。非圧縮性は
 
@@ -150,7 +150,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm17-volume-flux -->
-### 定義の確認：一定速度と放物型速度
+### **定義の確認**：一定速度と放物型速度
 
 $u(y)=U_0$ が全隙間で一定なら、$q=\int_{-h}^hU_0\,dy=2hU_0$、従って $Q=2hwU_0$。速度と断面積を掛ける素朴な公式に戻る。放物型 $u(y)=A(h^2-y^2)$ なら
 
@@ -291,15 +291,15 @@ $$
 
 一定 $\rho,\eta,h>0$、$b=0$ の非圧縮 Newton 流体で、時間・$x,z$ に依存しない流れと圧力を
 
-$
+$$
 v=(u(y),0,0),\qquad p(x)=p_{\mathrm{in}}-Gx,\qquad G\in\mathbb R
-$
+$$
 
 とする。このとき
 
-$
+$$
 u(y)=\frac{G}{2\eta}(h^2-y^2)
-$
+$$
 
 は定常 Navier–Stokes 方程式と両壁無滑り条件を**厳密に満たす**。ただし一般の三次元初期境界値問題の安定性・一意性は主張しない。
 <!-- formal-statement-end -->
