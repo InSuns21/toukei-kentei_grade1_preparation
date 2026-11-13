@@ -9,7 +9,7 @@ S=J\Delta^{1/2},\qquad J^2=I,\qquad
 J\Delta J=\Delta^{-1}
 $$
 
-を、**各式の定義域も含めて**証明します。内積は一貫して第2変数線形です。使用する解析の既習結果は、[QM6の非有界自己共役作用素のスペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)と[QM6のBorel関数計算](../../QM/QM6/index.md#def-qm6-borel-functional-calculus)です。一般の $J\mathcal M J=\mathcal M'$ や $\Delta^{it}\mathcal M\Delta^{-it}=\mathcal M$ は**まだ主張しません**。
+を、**各式の定義域も含めて**証明します。内積は一貫して第2変数線形です。使用する解析の既習結果は、[QM6の非有界自己共役作用素のスペクトル定理](../../QM/QM6/index.md#thm-qm6-unbounded-self-adjoint-spectral)と[QM6のBorel関数計算](../../QM/QM6/index.md#def-qm6-borel-functional-calculus)です。一般の $J\mathcal M J=\mathcal M'$ や、モジュラー時間が $\mathcal M$ を保つという結論は**まだ主張しません**。
 
 ## 1. 出発点：$S$ の何が分かっているか
 
@@ -459,7 +459,23 @@ $\Delta^{it}$ はスペクトル関数 $\lambda\mapsto\lambda^{it}$ から作る
 
 可換な対角環の例では常に $\Delta=I$ でした。変化を可視化するには、$K=\mathbb C^2$ 上のHilbert–Schmidt空間 $\mathcal H=S_2(K)=M_2(\mathbb C)$ を用います。内積は $\langle X,Y\rangle=\operatorname{Tr}(X^*Y)$、$\mathcal M=\{L_A:X\mapsto AX\mid A\in M_2(\mathbb C)\}$ とします。
 
-$\mathbb C^2$ の標準正規直交基底を $e_1,e_2$ とし、行列単位 $E_{ij}=|e_i\rangle\langle e_j|$ は $E_{ij}e_k=\delta_{jk}e_i$ を満たすものとします。この基底では $X=\sum_{i,j}X_{ij}E_{ij}$、$\langle X,Y\rangle=\sum_{i,j}\overline{X_{ij}}Y_{ij}$ です。左乗算は $L_{AB}=L_AL_B$、$L_A^*=L_{A^*}$、$L_I=I_{\mathcal H}$ を満たし、有限次元の単位的 $*$-代数 $\mathcal M$ は弱作用素位相で閉じています。従って $\mathcal M$ はvon Neumann環です。
+$\mathbb C^2$ の標準正規直交基底を $e_1,e_2$ とします。行列単位は $E_{ij}=|e_i\rangle\langle e_j|$ と定めると、$E_{ij}e_k=\delta_{jk}e_i$ です。従って行列成分とHilbert–Schmidt内積は
+
+$$
+X=\sum_{i,j=1}^2X_{ij}E_{ij},\qquad
+\langle X,Y\rangle
+=\sum_{i,j=1}^2\overline{X_{ij}}Y_{ij}
+$$
+
+で表されます。左乗算は $L_{AB}=L_AL_B$ と $L_I=I_{\mathcal H}$ を満たします。また
+
+$$
+\langle L_AX,Y\rangle
+=\operatorname{Tr}(X^*A^*Y)
+=\langle X,L_{A^*}Y\rangle
+$$
+
+なので $L_A^*=L_{A^*}$ です。$\mathcal M$ は有限次元の単位的 $*$-代数であり、弱作用素位相で閉じているため、von Neumann環です。
 
 $\lambda_1,\lambda_2>0$、$\lambda_1+\lambda_2=1$ として
 
@@ -467,7 +483,16 @@ $$
 \Omega=\operatorname{diag}(\sqrt{\lambda_1},\sqrt{\lambda_2}).
 $$
 
-$\|\Omega\|_2^2=\lambda_1+\lambda_2=1$ です。$\Omega$ が可逆なので $A\Omega=0\Rightarrow A=0$（分離性）、任意の $X$ は $X=(X\Omega^{-1})\Omega$ と書けます（巡回性）。こうして[標準対の両条件](../AQFT18/index.md#def-aqft18-standard-pair)と単位ベクトル・環の条件を確認しました。ここで行列単位 $E_{ij}$ を入力とすると、$E_{ij}\Omega=\sqrt{\lambda_j}E_{ij}$ なので $A\Omega=E_{ij}$ に必要な $A$ は $A=E_{ij}/\sqrt{\lambda_j}$ です。よって[Tomita初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)から
+$\|\Omega\|_2^2=\lambda_1+\lambda_2=1$ です。$\Omega$ は可逆なので
+
+$$
+A\Omega=0\Longrightarrow A=0
+\quad\text{（分離性）},\qquad
+X=(X\Omega^{-1})\Omega
+\quad\text{（巡回性）}
+$$
+
+が成立します。こうして[標準対の両条件](../AQFT18/index.md#def-aqft18-standard-pair)と単位ベクトル・環の条件を確認しました。行列単位では $E_{ij}\Omega=\sqrt{\lambda_j}E_{ij}$ です。従って $A\Omega=E_{ij}$ となる $A$ を $E_{ij}/\sqrt{\lambda_j}$ と求め、[Tomita初期作用素の定義](../AQFT18/index.md#def-aqft18-tomita-initial)へ代入すると
 
 $$
 S(E_{ij})
