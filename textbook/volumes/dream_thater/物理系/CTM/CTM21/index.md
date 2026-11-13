@@ -6,7 +6,9 @@
 
 ## 0. 配置・符号・射程
 
-三次元の基準領域 $\Omega_0\subset\mathbb R^3$ の物質座標を $X$、時刻 $t$ の実際の位置を $x=\chi(X,t)$ とする。[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)を $F=D_X\chi$、$J=\det F>0$ と書く。$\chi$ は各時刻で向きを保つ $C^2$ 級の一対一の運動であり、密度 $\rho(x,t)>0$ と速度 $v(x,t)$ は必要な微分を持つとする。時間微分の上付き点は**固定した物質点 $X$ での微分**である。基準座標で表した量 $h(X,t)$ では $\dot h=\partial_t h$（$X$ 固定）と書く。
+三次元の基準領域 $\Omega_0\subset\mathbb R^3$ の物質座標を $X$、時刻 $t$ の実際の位置を $x=\chi(X,t)$ とする。[CTM2 の変形勾配](../CTM2/index.md#def-ctm2-deformation-gradient)を $F=D_X\chi$、$J=\det F>0$ と書く。$\chi$ は各時刻で向きを保つ $C^2$ 級の一対一の運動であり、密度 $\rho(x,t)>0$ と速度 $v(x,t)$ は必要な微分を持つとする。
+
+時間微分の上付き点は**固定した物質点 $X$ での微分**である。基準座標で表した量 $h(X,t)$ では $\dot h=\partial_t h$（$X$ 固定）と書く。
 
 一方、現在位置で定義した量 $q(x,t)$ の $\partial_tq$ は **$x$ を固定**する微分であり、同じ物質点を追う微分とは異なる。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を運動写像で具体化した関係を、$x=\chi(X,t)$ で書けば
 
