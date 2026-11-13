@@ -1,0 +1,50 @@
+chapter: FLUID5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID4
+  - CTM5
+  - CTM7
+concepts:
+  - id: fluid.moving-control-volume
+    name: 移動検査体積と境界速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（移動検査体積と境界速度）"]
+    requires: [continuum.material-reynolds-transport, continuum.reference-current-mass-density]
+  - id: fluid.relative-mass-flux
+    name: 符号付き相対質量流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（符号付き相対質量流束）"]
+    requires: [fluid.moving-control-volume, continuum.fixed-control-mass-balance]
+  - id: fluid.momentum-flux
+    name: 運動量の移流流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動量の移流流束）"]
+    requires: [fluid.relative-mass-flux, continuum.material-linear-angular-balance]
+  - id: fluid.moving-mass-balance
+    name: 移動検査体積の質量収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（移動検査体積の質量収支）"]
+    requires: [fluid.relative-mass-flux, continuum.mass-conservation-equivalence]
+  - id: fluid.moving-momentum-balance
+    name: 移動検査体積の線形運動量収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（移動検査体積の線形運動量収支）"]
+    requires: [fluid.moving-mass-balance, fluid.momentum-flux, continuum.material-momentum-local, continuum.cauchy-stress-theorem]
+  - id: fluid.normal-jet-force
+    name: 直角衝突する対称噴流の板への力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（直角衝突する対称噴流の板への力）"]
+    requires: [fluid.moving-momentum-balance]
+  - id: fluid.elbow-reaction
+    name: 定常90度曲管の流体が管へ及ぼす力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定常90度曲管の流体が管へ及ぼす力）"]
+    requires: [fluid.moving-momentum-balance, fluid.moving-mass-balance]

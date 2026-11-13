@@ -1,0 +1,45 @@
+id: "FLUID5"
+title: "検査体積を通る流束はどう数えるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID4
+  - CTM5
+  - CTM7
+official_scope: []
+learning_objectives:
+  - "固定・移動検査体積と物質領域を区別し、外法線と相対速度から符号付き質量流束を判定できる"
+  - "連続の式と移動領域の積分微分から蓄積率＋正味流出率＝0を導出し、動く境界の例で検算できる"
+  - "局所運動量式を保存形へ変形し、移動面の運動量移流流束ρu((u-w)·n)と応力による面力を区別できる"
+  - "噴流が板を押す力を入口・出口の運動量収支と作用・反作用から導ける"
+  - "曲管の入口・出口の法線、圧力、ベクトル運動量流束を合計し、壁への反力と支持力を区別できる"
+  - "移動出口を持つ加速流の蓄積・質量・運動量・外力を個別に検算できる"
+definitions:
+  - { id: FLUID5-DEF-01, name: "移動検査体積と境界速度" }
+  - { id: FLUID5-DEF-02, name: "符号付き相対質量流束" }
+  - { id: FLUID5-DEF-03, name: "運動量の移流流束" }
+theorems:
+  - { id: FLUID5-THM-01, name: "移動検査体積の質量収支" }
+  - { id: FLUID5-THM-02, name: "移動検査体積の線形運動量収支" }
+  - { id: FLUID5-PROP-01, name: "直角衝突する対称噴流の板への力" }
+  - { id: FLUID5-PROP-02, name: "定常90度曲管の流体が管へ及ぼす力" }
+canonical_examples:
+  - "右端が動く直管の相対流束と質量蓄積"
+  - "90度曲管の入口・出口で運動量流束のベクトル成分を検算"
+  - "対称噴流の板への合力の作用反作用"
+  - "ゲージ圧を含む曲管壁の反力"
+  - "動く出口をもつ加速流の収支と外部作用"
+problem_patterns:
+  - FLUID5-FIXED-SIGNED-FLUX
+  - FLUID5-MOVING-PORT-OVERTAKE
+  - FLUID5-AREA-CONTINUITY
+  - FLUID5-MOMENTUM-ENTRY-SIGN
+  - FLUID5-PRESSURE-TRACTION
+  - FLUID5-STRAIGHT-TUBE-REACTION
+  - FLUID5-JET-SPEED-QUADRATIC
+  - FLUID5-ELBOW-SUPPORT
+  - FLUID5-MOVING-ACCELERATING-CV
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }

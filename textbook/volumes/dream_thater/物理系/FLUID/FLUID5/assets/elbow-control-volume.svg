@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 370" width="640" height="370" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">90度曲管の検査面と外法線</title>
+  <desc id="desc">水平の入口から右向きに流入した流体が上向き出口から流出する曲管。入口の外向き法線n1は左、入口流速u1は右。出口の外向き法線n2と出口流速u2はいずれも上向き。壁は曲管の曲面境界。</desc>
+  <defs>
+    <marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#176180"/></marker>
+    <marker id="normal-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#7f3932"/></marker>
+  </defs>
+  <rect x="0" y="0" width="640" height="370" fill="#ffffff"/>
+  <path d="M 120 207 L 334 207 Q 371 207 371 169 L 371 90 L 441 90 L 441 169 Q 441 277 334 277 L 120 277 Z" fill="#e8f2f6" stroke="#3c5866" stroke-width="3"/>
+  <path d="M 120 207 L 120 277" stroke="#333" stroke-width="3" stroke-dasharray="5 5"/>
+  <path d="M 371 90 L 441 90" stroke="#333" stroke-width="3" stroke-dasharray="5 5"/>
+  <line x1="160" y1="242" x2="248" y2="242" stroke="#176180" stroke-width="4" marker-end="url(#flow-arrow)" data-series-group="velocity" data-series-label="u1"/>
+  <line x1="406" y1="176" x2="406" y2="118" stroke="#176180" stroke-width="4" stroke-dasharray="10 5" marker-end="url(#flow-arrow)" data-series-group="velocity" data-series-label="u2"/>
+  <line x1="120" y1="242" x2="61" y2="242" stroke="#7f3932" stroke-width="3" stroke-dasharray="6 4" marker-end="url(#normal-arrow)" data-series-group="normal" data-series-label="n1"/>
+  <line x1="406" y1="90" x2="406" y2="31" stroke="#7f3932" stroke-width="3" marker-end="url(#normal-arrow)" data-series-group="normal" data-series-label="n2"/>
+  <g font-family="sans-serif" font-size="20" fill="#1c3240">
+    <text x="277" y="247">u₁</text>
+    <text x="452" y="157">u₂</text>
+    <text x="41" y="221">n₁</text>
+    <text x="432" y="43">n₂</text>
+    <text x="98" y="315">Σ₁</text>
+    <text x="452" y="99">Σ₂</text>
+  </g>
+</svg>
