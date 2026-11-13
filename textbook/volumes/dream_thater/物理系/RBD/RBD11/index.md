@@ -4,7 +4,7 @@
 
 [RBD10のPoinsotの不変平面](../RBD10/index.md#thm-rbd10-invariable-plane)は、外トルクが零なら空間角運動量全体が一定という性質を用いました。支点を固定したこまには重力が働くので、この平面は一般には固定されません。それでも**鉛直まわりの角運動量と、物体対称軸まわりの角運動量**は保存します。二つを使えば、傾きだけの一変数の運動へ帰着できます。
 
-この講では「固定点まわりの慣性を使う理由」「二つの保存量の物理的意味」「Euler角が壊れる極で何が残るか」を一つずつ確かめます。定常歳差や小振幅の章動の分類は次のRBD12で扱い、ここではその入力となる**厳密な傾きの式と許容域**を導きます。
+この講では「固定点まわりの慣性を使う理由」「鉛直・物体軸の二方向で角運動量が保存する理由」「Euler角が壊れる極で何が残るか」を一つずつ確かめます。定常歳差や小振幅の章動の分類は次のRBD12で扱い、ここではその入力となる**厳密な傾きの式と許容域**を導きます。
 
 ## 1. こまの支点・重心・物体軸を決める
 
@@ -132,9 +132,9 @@ $$
 <a id="prop-rbd11-kinetic-lagrangian"></a>
 
 <!-- formal-statement-start -->
-### 命題（固定点対称こまの運動エネルギーとLagrangian）
+### 命題（固定点対称こまの運動エネルギーと力学的ラグランジアン）
 
-[本章の定義](#def-rbd11-heavy-top)を満たし、$0<\theta<\pi$ で $C^2$ 級のZYZ Euler角 $(\phi,\theta,\psi)$ を用いると、運動エネルギー $T$ とLagrangian $\mathcal L=T-U$ は
+[本章の定義](#def-rbd11-heavy-top)を満たし、$0<\theta<\pi$ で $C^2$ 級のZYZ Euler角 $(\phi,\theta,\psi)$ を用いると、運動エネルギー $T$ と力学的ラグランジアン $\mathcal L=T-U$ は
 
 $$
 \boxed{T=\frac I2(\dot\theta^2+\dot\phi^2\sin^2\theta)
@@ -151,7 +151,7 @@ $$
 
 ### 証明の見取り図
 
-支点まわりの主慣性値 $I,I,J$ を使い、横角速度の二乗と対称軸成分の二乗に分けます。位置エネルギーは $C$ の高さだけから決まります。
+支点まわりの主慣性値 $I,I,J$ を使い、横角速度の二乗と対称軸成分の二乗に分けます。重力ポテンシャルは $C$ の高さだけから決まります。
 
 <!-- proof-start -->
 ### 証明
@@ -163,7 +163,7 @@ $$
 
 ## 3. 二つの循環座標と保存運動量
 
-[AMECH4の循環座標の定義](../../AMECH/AMECH4/index.md#def-amech4-cyclic-coordinate)では、Lagrangian がある座標自体に依存しないとき、その座標は循環座標になります。本章の $\mathcal L$ は $\phi,\psi$ を含まず $\dot\phi,\dot\psi$ だけに依存するので、**$\phi$ と $\psi$ は循環座標**です。これに対応する[一般化運動量](../../AMECH/AMECH4/index.md#def-amech4-generalized-momentum)を計算します。
+[AMECH4の循環座標の定義](../../AMECH/AMECH4/index.md#def-amech4-cyclic-coordinate)では、力学的ラグランジアンがある座標自体に依存しないとき、その座標は循環座標になります。本章の $\mathcal L$ は $\phi,\psi$ を含まず $\dot\phi,\dot\psi$ だけに依存するので、**$\phi$ と $\psi$ は循環座標**です。これに対応する[一般化運動量](../../AMECH/AMECH4/index.md#def-amech4-generalized-momentum)を計算します。
 
 まず $u=\dot\psi+\dot\phi\cos\theta$ で $\partial u/\partial\dot\psi=1$、$\partial u/\partial\dot\phi=\cos\theta$ です。そこで
 
@@ -200,7 +200,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（二つの保存運動量と全エネルギー）
 
-[本章の固定点対称こま](#def-rbd11-heavy-top)が理想支点で滑らかに運動し、$0<\theta<\pi$ では[本章のLagrangian](#prop-rbd11-kinetic-lagrangian)に対するEuler–Lagrange方程式を満たすとする。このとき定数 $h,k,E\in\mathbb R$ が存在して
+[本章の固定点対称こま](#def-rbd11-heavy-top)が理想支点で滑らかに運動し、$0<\theta<\pi$ では[本章の力学的ラグランジアン](#prop-rbd11-kinetic-lagrangian)に対するEuler–Lagrange方程式を満たすとする。このとき定数 $h,k,E\in\mathbb R$ が存在して
 
 $$
 \boxed{
@@ -226,7 +226,7 @@ $$
 
 ### 証明の見取り図
 
-座標からは[循環座標の保存定理](../../AMECH/AMECH4/index.md#thm-amech4-cyclic-momentum)と[時間に陽に依存しないLagrangianのエネルギー収支](../../AMECH/AMECH4/index.md#prop-amech4-energy-balance)を用います。さらにトルクの向きを空間・物体で調べれば、角度座標が重複する極でも保存が破れない理由が分かります。
+座標からは[循環座標の保存定理](../../AMECH/AMECH4/index.md#thm-amech4-cyclic-momentum)と[時間に陽に依存しない力学的ラグランジアンのエネルギー収支](../../AMECH/AMECH4/index.md#prop-amech4-energy-balance)を用います。さらにトルクの向きを空間・物体で調べれば、角度座標が重複する極でも保存が破れない理由が分かります。
 
 <!-- proof-start -->
 ### 証明
@@ -387,7 +387,7 @@ $$
 
 です。[定義](#def-rbd11-effective-potential)により第一式が得られます。$I>0$ なので両辺を $2/I$ 倍し第二式を得ます。左辺 $\dot\theta^2\ge0$ なので $\varepsilon-V_{\mathrm{eff}}\ge0$ が必要です。等号なら $\dot\theta^2=0$、従って $\dot\theta=0$ です。
 
-二階の式も検証します。[本章のLagrangian](#prop-rbd11-kinetic-lagrangian)について $\partial\mathcal L/\partial\dot\theta=I\dot\theta$、また $u=\dot\psi+\dot\phi\cos\theta$ の $\theta$ 微分は $-\dot\phi\sin\theta$ です。従って
+二階の式も検証します。[本章の力学的ラグランジアン](#prop-rbd11-kinetic-lagrangian)について $\partial\mathcal L/\partial\dot\theta=I\dot\theta$、また $u=\dot\psi+\dot\phi\cos\theta$ の $\theta$ 微分は $-\dot\phi\sin\theta$ です。従って
 
 $$
 \frac{\partial\mathcal L}{\partial\theta}
@@ -596,7 +596,7 @@ $h=2,k=2$ のとき北極と南極のどちらが有限な有効ポテンシャ�
 
 ### 問題 B1：角運動量の成分を力学から導く
 
-固定点 $O$ にある重い対称こまについて、$h=e_z\cdot L_{O,s}$ が保存し $k=e_3\cdot L_{O,b}$ が保存することを、Lagrangianの循環座標という語を使わず、支点まわりの角運動量収支から証明せよ。全ベクトルはなぜ一般に保存しないか。
+固定点 $O$ にある重い対称こまについて、$h=e_z\cdot L_{O,s}$ が保存し $k=e_3\cdot L_{O,b}$ が保存することを、力学的ラグランジアンの循環座標という語を使わず、支点まわりの角運動量収支から証明せよ。全ベクトルはなぜ一般に保存しないか。
 
 - Level: B
 
