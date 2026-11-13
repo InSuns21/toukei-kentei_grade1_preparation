@@ -55,15 +55,15 @@ $$
 
 [RBD11の重い対称こま](../RBD11/index.md#def-rbd11-heavy-top)の滑らかな解について、ある時間区間で定数 $\theta_0\in(0,\pi)$、$\phi_0,\Omega\in\mathbb R$ が存在し、次を満たすとき、その運動を**定常歳差**という。
 
-$
+$$
 \theta(t)=\theta_0,\qquad \phi(t)=\phi_0+\Omega t.
-$
+$$
 
 このとき $k$ も一定なので自転角速度は
 
-$
+$$
 \dot\psi=\frac{k}{J}-\Omega\cos\theta_0
-$
+$$
 
 と一定である。$\Omega=0$ も定義の上では許すが、$a>0$ の本模型の正則域では実現しない。
 <!-- formal-statement-end -->
