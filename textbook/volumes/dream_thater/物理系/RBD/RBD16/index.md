@@ -251,7 +251,7 @@ $$
 =1+\frac{h^2}4\lVert\omega_n\rVert^2>0.
 $$
 
-零でないから正規化が定義でき、長さ1となります。[RBD5 の回転公式](../RBD5/index.md#thm-rbd5-quaternion-rotation)により $R(q_{n+1})$ は直交・行列式1です。
+零でないから正規化が定義でき、長さ1となります。[RBD5 の回転公式](../RBD5/index.md#thm-rbd5-rodrigues)により $R(q_{n+1})$ は直交・行列式1です。
 
 指数更新では $\Omega=\widehat{\omega}_{n+1/2}$ は反対称なので、$S(t)=\exp(t\Omega)$ の微分は $\dot S=S\Omega$ です。積の微分より
 
@@ -321,7 +321,7 @@ $$
 
 **試験手順**：固定した $T$ で $h,\ h/2,\ h/4$ の3本を、**同じ物理的初期値**から積分します。姿勢が回転行列である法同士の比較では $\lVert R_h(T)-R_{\mathrm{ref}}(T)\rVert_F$ を使い、参照解を十分細かい $h/16$ などで求めます。四元数は $\min(\lVert q_h-q_{\rm ref}\rVert,\lVert q_h+q_{\rm ref}\rVert)$ を使い、符号の二重性を誤差として数えません。行列 Euler の結果が $SO(3)$ を離れる場合も、行列差は定義できますが、回転角の公式をそのまま使ってはいけません。
 
-中間軸近くでは [RBD9 の不安定性](../RBD9/index.md#thm-rbd9-intermediate-axis-instability)によって小さな初期偏差が速く増大します。そのため長時間の軌道が大きく違うことを、直ちに「積分器が壊れた」とも「保存量が保証するから正しい」とも判定できません。比較区間を固定し、刻み幅を半減して診断量と軌道の両方を確かめます。
+中間軸近くでは [RBD9 の不安定性](../RBD9/index.md#thm-rbd9-intermediate-nonlinear-instability)によって小さな初期偏差が速く増大します。そのため長時間の軌道が大きく違うことを、直ちに「積分器が壊れた」とも「保存量が保証するから正しい」とも判定できません。比較区間を固定し、刻み幅を半減して診断量と軌道の両方を確かめます。
 
 ## 6. 保存量を誤った停止条件にしない
 
@@ -550,7 +550,7 @@ $J_b=\operatorname{diag}(2,3,4)$、無トルクで中間軸まわりの回転 $\
 <!-- solution-start -->
 ### 詳細解答
 
-[問題 A1](#def-rbd16-diagnostics)で用いた成分式を $\tau_b=0$ にして、$xz$ といった摂動の二次項を除きます。すると
+問題 A1 で導いた成分式を $\tau_b=0$ にして、$xz$ といった摂動の二次項を除きます。すると
 
 $$
 \dot x=-\frac12\Omega z,\qquad
@@ -565,7 +565,7 @@ $$
 =\frac{\Omega^2}{8}x.
 $$
 
-一般解は $x=Ae^{|\Omega|t/\sqrt8}+Be^{-|\Omega|t/\sqrt8}$ で、非零の増大成分があり得ます。[RBD9 の中間軸不安定性](../RBD9/index.md#thm-rbd9-intermediate-axis-instability)と一致します。数値解の初期誤差・刻み誤差も増幅されるので、長い時間の見た目の一致だけを要求せず、**同じ最終時刻を定めて** $h,h/2,h/4$ の収束と収支残差を監査します。
+一般解は $x=Ae^{|\Omega|t/\sqrt8}+Be^{-|\Omega|t/\sqrt8}$ で、非零の増大成分があり得ます。[RBD9 の中間軸不安定性](../RBD9/index.md#thm-rbd9-intermediate-nonlinear-instability)と一致します。数値解の初期誤差・刻み誤差も増幅されるので、長い時間の見た目の一致だけを要求せず、**同じ最終時刻を定めて** $h,h/2,h/4$ の収束と収支残差を監査します。
 <!-- solution-end -->
 
 ## Level C
