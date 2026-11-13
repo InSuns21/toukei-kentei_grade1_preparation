@@ -18,3 +18,4 @@
 15. [AQFT15 Type I/II/III因子](textbook/volumes/dream_thater/解析系/AQFT/AQFT15/index.md)
 16. [AQFT16 split propertyと緩衝領域](textbook/volumes/dream_thater/解析系/AQFT/AQFT16/index.md)
 17. [AQFT17 splitの帰結とnuclearityへの入口](textbook/volumes/dream_thater/解析系/AQFT/AQFT17/index.md)
+18. [AQFT18 標準対とTomita作用素](textbook/volumes/dream_thater/解析系/AQFT/AQFT18/index.md)
