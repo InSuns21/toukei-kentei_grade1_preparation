@@ -28,6 +28,8 @@ $$
 <!-- definition-example-start: def-aqft26-boost -->
 ### 直接例：光円錐座標で全条件を確認
 
+**定義の確認**。光円錐座標で計量とwedgeの条件を計算します。
+
 $u=x^1+x^0,\ v=x^1-x^0$ と置くと、定義式を加減して
 $$
 u'=e^s u,\qquad v'=e^{-s}v.
@@ -82,6 +84,8 @@ $$
 
 <!-- definition-example-start: def-aqft26-rindler -->
 ### 直接例：逆変換・範囲・boostを検査
+
+**定義の確認**。Rindler座標の定義域全体への一対一対応とboost作用を調べます。
 
 $(x^1)^2-(x^0)^2=\rho^2$ なので $\rho=\sqrt{(x^1)^2-(x^0)^2}>0$。さらに $x^0/x^1=\tanh\eta$ で、$|x^0/x^1|<1$ より $\eta=\operatorname{artanh}(x^0/x^1)$ が実数として一意に定まります。逆に $\cosh\eta>|\sinh\eta|$ なので任意の $\rho>0,\eta\in\mathbb R$ は $W_R$ の点を与えます。$\Lambda(s)$ の加法公式を代入すれば
 $$
@@ -238,6 +242,8 @@ $$
 <!-- definition-example-start: def-aqft26-boost-strip -->
 ### 直接例：同じ軌道上の二点
 
+**定義の確認**。開帯の内部と境界の区別を、固定した加速軌道で確認します。
+
 $x=(0,\rho,0,0)$、$y=x$ と取ると $D_{x,x}(z)=2\rho^2(1-\cosh z)=-4\rho^2\sinh^2(z/2)$ です。$z=-i\pi$ なら $D=4\rho^2>0$、$z=-i\pi/2$ なら $D=2\rho^2>0$。どちらも平方根の主値枝で正則に定義できます。一方、$z=0$ と $z=-2\pi i$ は $D=0$ で点場の短距離特異性に当たります。**開帯の内部で解析関数として扱えること**と**境界で分布として扱う必要があること**を区別します。
 <!-- definition-example-end -->
 
@@ -294,9 +300,9 @@ $$
 実の二点間隔 $D(s)$ が負なら二点は時間的に分離しています。ここで $A$ の符号は、boostした点 $\Lambda(s)x$ が $y$ より未来か過去かを指定します。
 
 その理由をRindler計量で確かめます。$\eta$ を一定にした断面は空間的です。wedge内の未来向き因果曲線では
-$
+$$
 ds^2=-\rho^2d\eta^2+d\rho^2+dy_1^2+dy_2^2\le0
-$
+$$
 かつ時間向きの条件から $d\eta>0$ となります。したがって $v\downarrow0$ からの境界値は、質量殻積分に挿入した負の虚時間 $x^0-y^0-i0$ と同じ方向を選びます。[AQFT8のWightman核](../AQFT8/index.md#thm-aqft8-wightman-match)で用いた場の順序が得られます。
 
 他方、$v\uparrow2\pi$ として $v=2\pi-\varepsilon$ と置くと、$\sin v=-\varepsilon+O(\varepsilon^3)$ なので
