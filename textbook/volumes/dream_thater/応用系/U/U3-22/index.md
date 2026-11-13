@@ -283,7 +283,7 @@ u(\tau_n+k,s_i)
 +\frac{k^2}{2}u_{\tau\tau}(\xi,s_i).
 $$
 
-従って時間差分は $u_\tau(\tau_n,s_i)+\frac{k}{2}u_{\tau\tau}(\xi,s_i)$ で、時間誤差は $O(k)$ です。空間については固定した $\tau_n$ で $s_i$ を基点に Taylor の定理を用いると、$s_i$ と $s_i\pm h$ の間の点 $\eta_\pm$ が存在して
+従って時間差分は $u_\tau(\tau_n,s_i)+\frac{k}{2}u_{\tau\tau}(\xi,s_i)$ で、時間誤差は $O(k)$ です。空間については固定した $\tau_n$ で $s_i$ を基点に [Taylor の定理](../../../基礎科目/RA/RA3/index.md#thm-ra3-taylor)を用いると、$s_i$ と $s_i\pm h$ の間の点 $\eta_\pm$ が存在して
 
 $$
 \begin{aligned}
