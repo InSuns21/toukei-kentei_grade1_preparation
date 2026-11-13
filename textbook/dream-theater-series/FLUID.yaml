@@ -1,0 +1,55 @@
+version: 1
+id: FLUID
+title: "流体力学"
+plan: textbook/plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+# 本文・章metadata・公開索引は完成した講義だけに追加する。
+chapters:
+  - { id: FLUID1, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID1, status: completed, title: "流体を連続体として扱える条件は何か" }
+  - { id: FLUID2, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID2, status: planned, title: "静止流体の圧力はどう分布するか" }
+  - { id: FLUID3, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID3, status: planned, title: "浮力と静水安定性をどう計算するか" }
+  - { id: FLUID4, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID4, status: planned, title: "流線・流跡線・流脈線はなぜ異なるか" }
+  - { id: FLUID5, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID5, status: planned, title: "検査体積を通る流束はどう数えるか" }
+  - { id: FLUID6, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID6, status: planned, title: "Bernoulli積分はどこで成立するか" }
+  - { id: FLUID7, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID7, status: planned, title: "似た流れを同じ模型で表せる条件は何か" }
+  - { id: FLUID8, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID8, status: planned, title: "理想流体で渦度は何から生まれるか" }
+  - { id: FLUID9, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID9, status: planned, title: "循環はいつ保存されるか" }
+  - { id: FLUID10, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID10, status: planned, title: "渦は移流・伸長・拡散でどう変わるか" }
+  - { id: FLUID11, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID11, status: planned, title: "流れ関数と速度ポテンシャルはいつ存在するか" }
+  - { id: FLUID12, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID12, status: planned, title: "単純なポテンシャル流を重ね合わせられるか" }
+  - { id: FLUID13, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID13, status: planned, title: "複素ポテンシャルと等角写像は何に効くか" }
+  - { id: FLUID14, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID14, status: planned, title: "理想流で揚力と抗力はどう異なるか" }
+  - { id: FLUID15, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID15, status: planned, title: "三次元ポテンシャル流と付加質量は何を予測するか" }
+  - { id: FLUID16, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID16, status: planned, title: "管路・円筒間の定常層流をどう解くか" }
+  - { id: FLUID17, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID17, status: planned, title: "壁が急に動くと運動量はどう広がるか" }
+  - { id: FLUID18, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID18, status: planned, title: "遅い球周りの流れにかかる抵抗は何か" }
+  - { id: FLUID19, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID19, status: planned, title: "Stokes流はなぜ時間逆転に似た性質をもつか" }
+  - { id: FLUID20, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID20, status: planned, title: "薄い流れで潤滑方程式が現れるのはなぜか" }
+  - { id: FLUID21, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID21, status: planned, title: "高Reの壁近傍だけ粘性が残る理由は何か" }
+  - { id: FLUID22, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID22, status: planned, title: "平板境界層の自己相似解はどう出るか" }
+  - { id: FLUID23, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID23, status: planned, title: "境界層を積分すると抗力を評価できるか" }
+  - { id: FLUID24, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID24, status: planned, title: "圧力勾配はどのように境界層を剥離させるか" }
+  - { id: FLUID25, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID25, status: planned, title: "物体の抗力と後流の渦をどう結ぶか" }
+  - { id: FLUID26, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID26, status: planned, title: "曲がった界面の圧力差は何で決まるか" }
+  - { id: FLUID27, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID27, status: planned, title: "水面波の伝播速度は波長でなぜ変わるか" }
+  - { id: FLUID28, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID28, status: planned, title: "群速度はエネルギーの輸送とどう関係するか" }
+  - { id: FLUID29, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID29, status: planned, title: "浅水近似はどの保存則を残すか" }
+  - { id: FLUID30, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID30, status: planned, title: "段波と跳水の上下流をどうつなぐか" }
+  - { id: FLUID31, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID31, status: planned, title: "密度成層内ではどんな波が生まれるか" }
+  - { id: FLUID32, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID32, status: planned, title: "地球回転で地衡流が成立する条件は何か" }
+  - { id: FLUID33, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID33, status: planned, title: "Rossby波は回転成層流のどこから出るか" }
+  - { id: FLUID34, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID34, status: planned, title: "せん断流はいつ界面を不安定にするか" }
+  - { id: FLUID35, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID35, status: planned, title: "重い流体が上にあると何が起きるか" }
+  - { id: FLUID36, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID36, status: planned, title: "平行剪断流の擾乱はなぜ増幅するか" }
+  - { id: FLUID37, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID37, status: planned, title: "乱流をどんな統計量で定義するか" }
+  - { id: FLUID38, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID38, status: planned, title: "Reynolds応力はなぜ閉じないか" }
+  - { id: FLUID39, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID39, status: planned, title: "乱流のエネルギーは尺度間をどう移るか" }
+  - { id: FLUID40, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID40, status: planned, title: "壁乱流の速度分布をどう整理するか" }
+  - { id: FLUID41, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID41, status: planned, title: "圧縮性流れでは質量・運動量・エネルギーをどう閉じるか" }
+  - { id: FLUID42, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID42, status: planned, title: "ノズルで音速に達する条件は何か" }
+  - { id: FLUID43, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID43, status: planned, title: "衝撃波を跨ぐと何が不連続になるか" }
+  - { id: FLUID44, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID44, status: planned, title: "斜めの衝撃波と膨張波をどう区別するか" }
+  - { id: FLUID45, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID45, status: planned, title: "数値計算で保存則を壊さない方法は何か" }
+  - { id: FLUID46, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID46, status: planned, title: "格子を細かくすれば必ず正しくなるか" }
+  - { id: FLUID47, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID47, status: planned, title: "非圧縮流れを圧力と速度に分けて解けるか" }
+  - { id: FLUID48, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID48, status: planned, title: "衝撃波を含む圧縮性流れを数値的に追えるか" }

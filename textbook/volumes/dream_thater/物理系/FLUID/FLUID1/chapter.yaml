@@ -1,0 +1,40 @@
+id: "FLUID1"
+title: "流体を連続体として扱える条件は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM16
+official_scope: []
+learning_objectives:
+  - "微視的尺度、平均化長さ、流れの代表長さの役割を分け、連続体近似の必要な尺度分離を判定できる"
+  - "気体のKnudsen数を定義し、数値と適用範囲を吟味してReynolds数とは独立と説明できる"
+  - "密度・動粘度・動的粘性係数・表面張力の操作的意味とSI基本単位を導ける"
+  - "平行せん断の構成則と運動量方程式から粘性拡散の時間尺度を導出できる"
+  - "模型で用いる物性値、観測条件、界面・壁条件の相違を検算し数値実験の限界を説明できる"
+definitions:
+  - { id: FLUID1-DEF-01, name: "連続体近似の尺度分離" }
+  - { id: FLUID1-DEF-02, name: "気体のKnudsen数" }
+  - { id: FLUID1-DEF-03, name: "動粘度" }
+  - { id: FLUID1-DEF-04, name: "界面の表面張力" }
+theorems:
+  - { id: FLUID1-PROP-01, name: "幾何平均による粗視化長さの構成" }
+  - { id: FLUID1-PROP-02, name: "平行せん断の粘性拡散方程式と時間尺度" }
+canonical_examples:
+  - "平均化のための三つの長さと気体のKnudsen数の計算"
+  - "同じ気体の二種類の流路における連続体適用範囲の比較"
+  - "一定速度勾配から粘性係数を測り動粘度へ換算する"
+  - "単一界面と二面の薄膜における表面張力の力の比較"
+  - "粘性拡散時間の単位と具体数値"
+problem_patterns:
+  - FLUID1-SCALE-SEPARATION
+  - FLUID1-KNUDSEN-REGIME
+  - FLUID1-VISCOSITY-UNITS
+  - FLUID1-INTERFACIAL-FORCE
+  - FLUID1-CONTINUUM-RE-INDEPENDENCE
+  - FLUID1-SHEAR-MEASUREMENT
+  - FLUID1-DIFFUSION-TIMESCALE
+  - FLUID1-INTEGRATED-MODEL-CHECK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }
