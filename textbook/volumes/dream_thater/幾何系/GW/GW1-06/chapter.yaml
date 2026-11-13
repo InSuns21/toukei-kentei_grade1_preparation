@@ -1,0 +1,48 @@
+id: "GW1-06"
+title: "Gromov収束とコンパクト性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-05
+  - GW1-04
+  - GW1-03
+  - GW1-02
+  - GW1-01
+  - SYM8
+official_scope: []
+learning_objectives:
+  - 球面の木・節点・特殊点・定数成分の安定性を例で検証できる
+  - 成分別Möbius座標とその相対変換からGromov収束を判定できる
+  - 短いループの局所作用評価をStokesとCauchy–Schwarzから導ける
+  - 対数円柱上の首評価と指数減衰の微分不等式を再構成できる
+  - エネルギー量子化と首の消失を結んで種数0コンパクト性の論証を追える
+  - 安定極限の同一視と部分列収束・全列収束の違いを説明できる
+  - 二点で泡立つ次数3の有理写像を計算しエネルギーの欠損がないことを証明できる
+definitions:
+  - { id: GW1-06-DEF-01, name: 標点付き球面の木と安定な成分写像 }
+  - { id: GW1-06-DEF-02, name: 標点付き球面写像のGromov収束 }
+theorems:
+  - { id: GW1-06-LEM-01, name: 小ループの局所作用評価 }
+  - { id: GW1-06-LEM-02, name: 長い小エネルギー円柱の首評価 }
+  - { id: GW1-06-PROP-01, name: 全ての泡を取り出した後の首の消失 }
+  - { id: GW1-06-THM-01, name: 種数0・標点付きのGromovコンパクト性 }
+  - { id: GW1-06-PROP-02, name: 安定極限の同一視と部分列の注意 }
+canonical_examples:
+  - 次数2のz+epsilon/zの二成分Gromov収束
+  - 次数3のz+epsilon/z+epsilon/(z-1)の二点泡立ち
+  - 標点を固定した次数1写像の交互列による全列非収束
+problem_patterns:
+  - GW1-06-STABLE-TREE
+  - GW1-06-RELATIVE-MOBIUS
+  - GW1-06-LOG-CYLINDER
+  - GW1-06-ENERGY-QUANTIZATION
+  - GW1-06-NECK-ODE
+  - GW1-06-ENERGY-DEFECT
+  - GW1-06-CONSTANT-STABILITY
+  - GW1-06-SUBSEQUENCE
+  - GW1-06-NODE-MATCHING
+  - GW1-06-TWO-BUBBLE-RATIONAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 15, exercises: 12, review: 7 }
