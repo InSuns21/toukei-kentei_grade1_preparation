@@ -2,6 +2,7 @@ chapter: AQFT26
 scope: dream-theater
 coverage: complete
 prerequisites:
+  - CA3
   - AQFT1
   - AQFT8
   - AQFT24
@@ -47,4 +48,4 @@ concepts:
     name: 自由場二点関数のboost–KMS境界
     kind: corollary
     introduction: formal
-    requires: [aqft.wedge-two-point-strip-analyticity, aqft.wstar-kms, aqft.minkowski-vacuum-spectrum]
+    requires: [aqft.wedge-two-point-strip-analyticity, aqft.wstar-kms, aqft.minkowski-vacuum-spectrum, complex-analysis.maximum-modulus-principle]
