@@ -354,7 +354,7 @@ $$
 \boldsymbol J_\xi=d\boldsymbol Q_\xi+\boldsymbol C_\xi
 $$
 
-とします。$\boldsymbol C_\xi$ は場の方程式に比例する拘束項です。この電荷分解は、局所的な微分同相不変Lagrangianについて成り立つIyer–Wald構成の入力です。さらに
+とします。$\boldsymbol C_\xi$ は場の方程式に比例する拘束項です。この電荷分解は、局所的な微分同相不変の重力作用について成り立つIyer–Wald構成の入力です。さらに
 
 $$
 \boldsymbol\chi_\xi
