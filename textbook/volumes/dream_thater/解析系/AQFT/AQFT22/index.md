@@ -34,11 +34,42 @@ $$
 <!-- definition-example-start: def-aqft22-conjugate-algebra -->
 ### **定義の確認**：二準位Hilbert–Schmidt模型
 
-[AQFT20の有限次元模型](../AQFT20/index.md#thm-aqft20-modular-formulas)で $\mathcal H=M_2(\mathbb C)$、$\mathcal M=\{L_A:X\mapsto AX\}$、$JX=X^*$ とします。$A,X\in M_2(\mathbb C)$ に対して
+[AQFT20の有限次元模型](../AQFT20/index.md#thm-aqft20-modular-formulas)を用います。$\mathcal H=M_2(\mathbb C)$ にHilbert–Schmidt内積を入れ、$p,q>0$、$p+q=1$ を取って
 $$
-JL_AJ(X)=(AX^*)^*=XA^*=R_{A^*}(X).
+\rho=\operatorname{diag}(p,q),\qquad
+\Omega=\rho^{1/2},\qquad
+\mathcal M=\{L_A:X\mapsto AX\mid A\in M_2(\mathbb C)\}
 $$
-従って $\{JL_AJ:A\in M_2\}=\{R_B:B\in M_2\}$ です。実際 $L_AR_B(X)=AXB=R_BL_A(X)$ なので $\{R_B\}\subset\mathcal M'$。逆に $T\in\mathcal M'$ なら $T(X)=T(L_XI)=L_XT(I)=XT(I)$ であり、$T=R_{T(I)}$。**両包含**が成立します。$J(\alpha A)J=\bar\alpha JAJ$、$JABJ=(JAJ)(JBJ)$、$(JAJ)^*=JA^*J$ も直接確認できます。
+と置きます。$\|\Omega\|_2^2=p+q=1$ です。
+
+$\rho^{1/2}$ は可逆だから、$A\Omega=0$ なら $A=0$（分離性）。また任意の $X\in\mathcal H$ は
+$$
+X=(X\rho^{-1/2})\Omega
+$$
+と書け、$X\rho^{-1/2}\in M_2$ だから $\mathcal M\Omega=\mathcal H$（巡回性）。従って[標準対の定義](../AQFT18/index.md#def-aqft18-standard-pair)の両条件を満たします。
+
+この模型のモジュラー共役は $JX=X^*$ です。Hilbert–Schmidt内積に関して
+$$
+\langle X,Y\rangle=\operatorname{Tr}(X^*Y),\qquad
+\langle JX,JY\rangle=\overline{\langle X,Y\rangle},\qquad J^2=I
+$$
+なので $J$ は反ユニタリ対合です。行列単位 $E_{ij}$ に対し $J(E_{ij})=E_{ji}$ です。また $L_A(E_{ij})=\sum_k a_{ki}E_{kj}$ なので、この左乗算に $J$ を前後から作用させると、任意の $A,X\in M_2$ について
+$$
+JL_AJ(X)=J(AX^*)=(AX^*)^*=XA^*=R_{A^*}(X).
+$$
+ここで $R_C(X)=XC$ は、行列 $C$ を右から掛ける有界作用です。$J$ による共役の結果、単なる成分の複素共役ではなく随伴 $A^*$ が現れます。
+
+$L_AR_C(X)=AXC=R_CL_A(X)$ なので $\{R_C\}\subset\mathcal M'$。逆に $T\in\mathcal M'$ なら、有限次元では $I\in\mathcal H$ であることを使い
+$$
+T(X)=T(L_XI)=L_XT(I)=XT(I)=R_{T(I)}(X).
+$$
+従って $\{JL_AJ\}=\{R_C\}=\mathcal M'$ で**両包含**が成り立ちます。定義にある複素係数の共役・積の順序・随伴についても
+$$
+J(\alpha A)J=\bar\alpha JAJ,\qquad
+J(AB)J=(JAJ)(JBJ),\qquad
+(JAJ)^*=JA^*J
+$$
+が成り立ち、それぞれの条件を確かめられます。
 <!-- definition-example-end -->
 
 無限次元では $I$ というHilbert–Schmidtベクトルが存在するとは限りません。ここから先の一般証明では $T(I)$ の代わりとなる有界元を構成します。
@@ -128,7 +159,12 @@ $$
 \|A\|\le|\alpha|.
 $$
 
-一般の $B$ は実部と虚部のそれぞれの正負部分（4つの正作用素）の線形結合で表せます。各正部分をそのノルムで正規化して上述の構成を線形結合すれば $A$ の存在と $\|A\|\le C_\theta\|B\|$ を得ます。$\Omega$ が分離的なので $A\Omega$ を決める $A$ は一意です。
+一般の $B\in\mathcal M'$ については $H=(B+B^*)/2$、$K=(B-B^*)/(2i)$ と置けば $B=H+iK$、$H=H_+-H_-$、$K=K_+-K_-$ です。正負部分は[自己共役元の関数計算](../../QM/QM6/index.md#def-qm6-borel-functional-calculus)で定義でき、$0\le H_\pm,K_\pm\le\|B\|I$ です。$B\ne0$ なら4つを $\|B\|$ で割って先ほどの構成を適用し、得た $A$ を同じ係数で線形結合します。$(\Delta+\lambda)^{-1}$ の線形性から $A\Omega=(\Delta+\lambda)^{-1}B\Omega$ となり、
+$$
+\|A\|\le4|\alpha|\|B\|
+=\frac{2\|B\|}{\cos(\theta/2)}.
+$$
+$B=0$ なら $A=0$ と取れます。$\Omega$ が分離的なので $A\Omega$ を決める $A$ は一意です。
 <!-- proof-end -->
 
 上の補題が、「$B\Omega$ を形式的に右から掛ける」を「$A\Omega$ という代数元を実際に作る」へ変換する第一歩です。$\operatorname{Dom}\Delta$ に関する式を使用した場所では、$FS(A\Omega)$ の定義域まで確かめました。
@@ -303,11 +339,16 @@ $$
 $$
 なので各ブロックが一致します。一般の有界 $\Delta_n$ は区間 $[1/n,n]$ 上で階段関数により作用素ノルム近似でき、指数関数・平方根・積分の収束は $|k_\theta|$ を支配関数として示せます。
 
-一意性は $Z$ が $\Delta_nZ+\lambda Z\Delta_n=0$ を満たすとき、$c=e^{-i\theta/2}$ として
+一意性も導関数を実際に計算して確認します。$Z$ が $\Delta_nZ+\lambda Z\Delta_n=0$ を満たすとし、$c=e^{-i\theta/2}$、$s\ge0$ を実数の補助パラメータと置きます。$\Delta_n$ は有界なので指数作用素を作用素ノルムで微分でき、積の微分法則と指数作用素が $\Delta_n$ と可換であることから
 $$
-\frac d{ds}\left(e^{-cs\Delta_n}Ze^{-c\lambda s\Delta_n}\right)=0
+\begin{aligned}
+\frac d{ds}\left(e^{-cs\Delta_n}Ze^{-c\lambda s\Delta_n}\right)
+&=-c\,e^{-cs\Delta_n}\Delta_nZe^{-c\lambda s\Delta_n}
+-c\lambda\,e^{-cs\Delta_n}Z\Delta_ne^{-c\lambda s\Delta_n}\\
+&=-c\,e^{-cs\Delta_n}(\Delta_nZ+\lambda Z\Delta_n)e^{-c\lambda s\Delta_n}=0.
+\end{aligned}
 $$
-である一方、$\operatorname{Re}c=\operatorname{Re}(c\lambda)=\cos(\theta/2)>0$ により $s\to\infty$ で両指数が零に収束することから従います。$E_nYE_n\to Y$ は強収束で、半べきも $\mathcal D$ 上でグラフ収束するので、切断を外せます。
+従って括弧内は $s$ に依らず $Z$ に等しい。一方 $\operatorname{Re}c=\operatorname{Re}(c\lambda)=\cos(\theta/2)>0$ と $\Delta_n\ge n^{-1}I$ より、両指数のノルムは $e^{-s\cos(\theta/2)/n}$ 以下で $s\to\infty$ に零へ収束します。ゆえに $Z=0$ です。$E_nYE_n\to Y$ は強収束で、半べきも $\mathcal D$ 上でグラフ収束するので、切断を外せます。
 <!-- proof-end -->
 
 以上の二補題から、$b\in\mathcal M'$ と対応する $a$ に対し
@@ -419,7 +460,12 @@ $$
 
 無限次元の確認例として、Hilbert–Schmidt空間 $\mathsf{HS}(\ell^2)$ 上の左乗算 $\mathcal M=L(B(\ell^2))$ と、忠実で零へ減衰する $\rho$、$\Omega=\rho^{1/2}$ を取ります。このとき $J(X)=X^*$ です。
 
-$JL_AJ=R_{A^*}$ は有界です。$T\in L(B(\ell^2))'$ がランク1左乗算と交換する式を行列単位に当てれば、$T$ は右からの一つの有界作用素に一致します。
+$JL_AJ=R_{A^*}$ は有界です。$T\in L(B(\ell^2))'$ がなぜ有界右乗算になるかも確かめます。標準基底 $e_j$ に対し $E_{kl}e_j=\delta_{lj}e_k$ と定めた行列単位を用いると、$L_{E_{ij}}E_{kl}=\delta_{jk}E_{il}$ です。$T$ とすべての $L_{E_{ij}}$ の交換性を用いると、$j\ne k$ では $L_{E_{ij}}T(E_{kl})=0$ なので $T(E_{kl})$ の行は第 $k$ 行だけに限られ、$j=k$ では
+$$
+T(E_{il})=L_{E_{ik}}T(E_{kl})
+=\sum_n c_{ln}E_{in}.
+$$
+係数 $c_{ln}$ は $i,k$ に依存しません。$E_{1l}$ の張る閉部分空間に $T$ を制限すると、行ベクトル $(u_l)$ を $(\sum_lu_lc_{ln})_n$ へ送る有界写像になります。従って $(c_{ln})$ はある $C\in B(\ell^2)$ の行列成分で、$\|C\|\le\|T\|$ です。$T(E_{il})=E_{il}C$ がすべての行列単位で成立し、その線形包はHilbert–Schmidt空間に稠密だから $T=R_C$ です。
 
 これに対し[AQFT21で定義した非有界な $T_V$](../AQFT21/index.md#prop-aqft21-right-unbounded)は $R_V$ とは別の操作です。
 
@@ -434,7 +480,11 @@ $J$ を反ユニタリ対合とし、$A,B\in B(\mathcal H)$、$\alpha\in\mathbb 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $J(\alpha A+B)Jx=J(\alpha AJx+BJx)=\bar\alpha JAJx+JBJx$ なので $J(\alpha A+B)J=\bar\alpha JAJ+JBJ$。$J^2=I$ を間に挿入して $(JAJ)(JBJ)=JA(JJ)BJ=JABJ$。反ユニタリ性から $[JAJx,y]=[Jx,A^*Jy]$ と移項できるため $(JAJ)^*=JA^*J$。従って共役代数は積と随伴を保ちますが複素線形の写像ではありません。
+**詳細解答。** $J(\alpha A+B)Jx=J(\alpha AJx+BJx)=\bar\alpha JAJx+JBJx$ なので $J(\alpha A+B)J=\bar\alpha JAJ+JBJ$。$J^2=I$ を間に挿入して $(JAJ)(JBJ)=JA(JJ)BJ=JABJ$。反ユニタリ対合について $[Ju,v]=[Jv,u]$ と $[u,Av]=[A^*u,v]$ が成り立つので、$x,y\in\mathcal H$ に対して
+$$
+[JAJx,y]=[Jy,AJx]=[A^*Jy,Jx]=[x,JA^*Jy].
+$$
+よって $(JAJ)^*=JA^*J$。共役代数は積と随伴を保ちますが複素線形の写像ではありません。
 <!-- solution-end -->
 
 <a id="ex-aqft22-a02"></a>
