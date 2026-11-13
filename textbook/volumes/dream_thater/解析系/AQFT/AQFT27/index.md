@@ -2,7 +2,20 @@
 
 [AQFT26の二点関数の解析帯](../AQFT26/index.md#thm-aqft26-strip-analyticity)では、右wedgeを保つboostの複素rapidityに幅 $2\pi$ の帯が現れました。しかし、**二点関数がKMS型の境界値を持つ**ことと、**wedgeの有界可観測量全体のモジュラー群がboostである**ことは別問題です。ここでは、点場の形式的な解析接続を、閉じた一粒子作用素の等式へ持ち上げ、さらにFock空間の有界Weyl作用素を使って後者まで証明します。
 
-計量は $(-,+,+,+)$、$c=\hbar=1$ とし、$m>0$ の**実・中性Klein–Gordon自由場のMinkowski真空Fock表現**に限ります。右wedgeは $W_R=\{x^1>|x^0|\}$、boost $\Lambda(s)$ は $(x^0,x^1)$ に行列 $\left(\begin{smallmatrix}\cosh s&\sinh s\\\sinh s&\cosh s\end{smallmatrix}\right)$ を作用させます（[wedgeの定義](../AQFT1/index.md#def-aqft1-wedges)、[boostの定義](../AQFT26/index.md#def-aqft26-boost)）。$U(s)$ はこのboostの真空表現、$\Omega$ は真空とします。**到達目標**は
+計量は $(-,+,+,+)$、$c=\hbar=1$ とし、$m>0$ の**実・中性Klein–Gordon自由場のMinkowski真空Fock表現**に限ります。
+
+[右wedgeの定義](../AQFT1/index.md#def-aqft1-wedges)と[boostの定義](../AQFT26/index.md#def-aqft26-boost)を採用します。具体的には
+
+$
+W_R=\{x:x^1>|x^0|\},\qquad
+\Lambda(s)|_{01}=
+\begin{pmatrix}
+\cosh s&\sinh s\\
+\sinh s&\cosh s
+\end{pmatrix}
+$
+
+です。$U(s)$ はこのboostの真空表現、$\Omega$ は真空とします。**到達目標**は
 
 $$
 \boxed{\Delta_{W_R}^{it}=U(-2\pi t),\qquad
@@ -18,16 +31,35 @@ $$
 <a id="def-aqft27-wedge-standard-subspace"></a>
 
 <!-- formal-statement-start -->
-> **定義（自由場のwedge実部分空間と標準性）**  
+> **定義（自由場のwedge実部分空間）**  
 > $\mathfrak h=L^2(\mathbb R^3,d^3p)$ に第2変数線形の内積を入れ、$m>0$ とする。実試験関数からなる集合とその実線形閉包を
 
-$$
+$
 K_0(W_R)=\{K[f]:f\in C_c^\infty(W_R,\mathbb R)\},
 \qquad H(W_R)=\overline{K_0(W_R)}^{\,\mathbb R}
-$$
+$
 
-> と定める。複素Hilbert空間の閉じた実線形部分空間 $H$ を**標準実部分空間**というのは、$H+iH$ が複素Hilbert空間で稠密であり、$H\cap iH=\{0\}$ であるときである。
+> と定める。
 <!-- formal-statement-end -->
+
+この実部分空間がどれだけ大きいか、そして虚数倍との重なりがあるかを分けて判定したいので、次の定義を用います。
+
+<a id="def-aqft27-standard-real-subspace"></a>
+
+<!-- formal-statement-start -->
+> **定義（標準実部分空間）**  
+> 複素Hilbert空間 $\mathfrak h$ の閉じた実線形部分空間 $H$ を**標準**というのは、次の二条件を満たす場合である。
+
+$
+\overline{H+iH}=\mathfrak h,\qquad H\cap iH=\{0\}.
+$
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-aqft27-standard-real-subspace -->
+### 直接例：複素平面の実軸
+
+$\mathfrak h=\mathbb C$ に通常の複素内積を入れ、$H=\mathbb R\subset\mathbb C$ とします。$H$ は実線形で閉じており、$H+iH=\{a+ib:a,b\in\mathbb R\}=\mathbb C$ です。また、実数かつ純虚数の数は $0$ だけなので $H\cap iH=\{0\}$。従ってこの $H$ は標準です。対照的に $H=\mathbb C$ を実線形部分空間とみなすと、$H\cap iH=\mathbb C$ となり標準ではありません。
+<!-- definition-example-end -->
 
 試験関数の有限実線形結合も実試験関数なので $K_0(W_R)$ は実線形です。記号 $H(W_R)$ は一粒子空間に属し、[局所von Neumann環](../AQFT9/index.md#def-aqft9-fock-local-vn) $\mathcal M(W_R)$ とは異なります。後者は
 
@@ -216,7 +248,7 @@ $$
 最後の等式では $z_R\in\operatorname{Dom}B^2$ と $B$ の自己共役性を使いました。$D$ は元のHilbert空間で稠密なので $(1+B^2)z_R=0$。$1+B^2$ は下から $1$ で抑えられるから $z_R=0$ です。$R\to\infty$ で $E_Rz\to z$ がグラフノルムでも成り立ち、$z=0$。よって $L^{\perp_{\mathcal G}}=0$、すなわち $L=\mathcal G$ です。
 <!-- proof-end -->
 
-この補題で大事なのは「Hilbertノルムで稠密」だけでは不十分で、**同じユニタリ群に不変**という条件を使った点です。
+この補題で大事なのは「Hilbertノルムで稠密」だけでは不十分で、**同じ強連続ユニタリ一パラメータ作用に不変**という条件を使った点です。
 
 <a id="thm-aqft27-one-particle-bw"></a>
 
@@ -275,7 +307,7 @@ $$
 
 ## 4. 一粒子の等式を有界Weyl環のTomita作用素へ運ぶ
 
-一粒子での一致だけでは、まだ局所環のモジュラー流を証明したことになりません。次に、各粒子数成分へ作用素を運び、**Weyl真空ベクトル上のTomita作用**と一致させます。
+一粒子での一致だけでは、まだwedgeのvon Neumann環のモジュラー流を証明したことになりません。次に、各粒子数成分へ作用素を運び、**Weyl真空ベクトル上のTomita作用**と一致させます。
 
 <a id="def-aqft27-second-quantized-modular"></a>
 
