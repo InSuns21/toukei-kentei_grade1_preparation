@@ -147,11 +147,11 @@ $$
 
 第1節の $\xi,\eta$ に対して $Sx=(a\overline{x_1},b\overline{x_2})$ と書くと、$a=\sqrt{q/p}$、$b=\sqrt{(1-q)/(1-p)}$ は正実数です。内積は第2変数線形なので、任意の $x,y\in\mathbb C^2$ について
 
-$
+$$
 \langle Sx,y\rangle
 =ax_1y_1+bx_2y_2
 =\langle Sy,x\rangle.
-$
+$$
 
 したがって[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)から $S^\sharp=S$ です。よって
 
@@ -254,22 +254,22 @@ $$
 
 は $x\in\mathbb C^n$ を $u_i\langle v_j,x\rangle$ に写す階数1作用素です。ここで $\langle\cdot,\cdot\rangle$ は第2変数線形です。まず
 
-$
+$$
 \langle F_{ij},F_{k\ell}\rangle_2
 =\operatorname{Tr}(F_{ij}^*F_{k\ell})
 =\delta_{ik}\delta_{j\ell}
-$
+$$
 
 なので互いに正規直交します。さらに $v_j$ は基底なので、任意の行列 $X$ と任意の $x\in\mathbb C^n$ について
 
-$
+$$
 \begin{aligned}
 Xx
 &=\sum_j\langle v_j,x\rangle Xv_j\\
 &=\sum_{i,j}\langle u_i,Xv_j\rangle
 u_i\langle v_j,x\rangle.
 \end{aligned}
-$
+$$
 
 したがって $X=\sum_{i,j}\langle u_i,Xv_j\rangle F_{ij}$ と展開でき、$F_{ij}$ はHilbert–Schmidt空間の正規直交基底です。この基底で左右乗算を調べると、
 
@@ -411,35 +411,35 @@ $$
 
 添字を交換した作用素では入力が $X=A\sigma^{1/2}$ なので $A=X\sigma^{-1/2}$ と復元します。第4節の計算で $\rho$ と $\sigma$ の役割を交換すると
 
-$
+$$
 S_{\rho\mid\sigma}(X)=\sigma^{-1/2}X^*\rho^{1/2},
 \qquad
 \Delta_{\rho\mid\sigma}(X)=\rho X\sigma^{-1}
-$
+$$
 
 となります。例えば第4節の二つの対角密度に対し、$\Delta_{\sigma\mid\rho}(E_{12})=\frac43E_{12}$ ですが、$\Delta_{\rho\mid\sigma}(E_{12})=\frac98E_{12}$ なので等しくありません。
 <!-- proof-end -->
 
 **逆向きと逆作用素も別物です。** 有限次元では $S_{\rho\mid\sigma}\,S_{\sigma\mid\rho}=I$ ですが、同じ添字の $S_{\sigma\mid\rho}^2=I$ ではありません。実際に任意の $X\in H_n$ へ連続して作用させると、
 
-$
+$$
 \begin{aligned}
 S_{\rho\mid\sigma}(S_{\sigma\mid\rho}(X))
 &=\sigma^{-1/2}(\rho^{-1/2}X^*\sigma^{1/2})^*\rho^{1/2}\\
 &=\sigma^{-1/2}\sigma^{1/2}X\rho^{-1/2}\rho^{1/2}=X.
 \end{aligned}
-$
+$$
 
 一方、逆の相対モジュラー作用素は、$J(X)=X^*$ を挟んで
 
-$
+$$
 \begin{aligned}
 \Delta_{\sigma\mid\rho}^{-1}(X)&=\sigma^{-1}X\rho,\\
 J\Delta_{\sigma\mid\rho}^{-1}J(X)
 &=(\sigma^{-1}X^*\rho)^*
 =\rho X\sigma^{-1}=\Delta_{\rho\mid\sigma}(X)
 \end{aligned}
-$
+$$
 
 です。従って $\Delta_{\rho\mid\sigma}=J\Delta_{\sigma\mid\rho}^{-1}J$ であり、一般に $\Delta_{\rho\mid\sigma}=\Delta_{\sigma\mid\rho}^{-1}$ とはなりません。
 
@@ -630,14 +630,14 @@ $$
 
 随伴の式は[反線形随伴の定義](../AQFT18/index.md#def-aqft18-antilinear-adjoint)を直接検算して得ます。実際に
 
-$
+$$
 \begin{aligned}
 \langle SX,Y\rangle_2
 &=\operatorname{Tr}(\sigma^{1/2}X\rho^{-1/2}Y)\\
 &=\operatorname{Tr}(X\rho^{-1/2}Y\sigma^{1/2})\\
 &=\langle\sigma^{1/2}Y^*\rho^{-1/2},X\rangle_2.
 \end{aligned}
-$
+$$
 
 ゆえに $S^\sharp(Y)=\sigma^{1/2}Y^*\rho^{-1/2}$、これを $SX$ に適用すれば $\Delta(X)=\sigma X\rho^{-1}$ と確かめられます。(iii) $\sigma u_i=s_i u_i$、$\rho v_j=r_j v_j$ で $s_i,r_j>0$ とします。$F_{ij}=|u_i\rangle\langle v_j|$ は正規直交基底で、$\Delta F_{ij}=(s_i/r_j)F_{ij}$。従って $X=\sum_{ij}x_{ij}F_{ij}$ なら
 
