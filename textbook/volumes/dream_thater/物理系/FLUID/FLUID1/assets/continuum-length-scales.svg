@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 258" width="720" height="258" data-layout-lint="strict" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">連続体近似を支える三つの長さ</title>
+  <desc id="diagram-desc">微視的長さa、中間の平均化長さell、巨視的長さLを、短い線、より長い破線の矩形、さらに長い太い帯で示す。長さの順序のみを表す模式図であり実測の縮尺ではない。</desc>
+  <rect x="2" y="2" width="716" height="254" rx="12" fill="#f8fafc" stroke="#cbd5e1" />
+  <g fill="#1e293b" font-family="Arial, sans-serif" font-size="22">
+    <text x="48" y="67">a</text>
+    <text x="48" y="135">ℓ</text>
+    <text x="48" y="204">L</text>
+  </g>
+  <g data-series-group="scales" data-series-label="micro" stroke="#0369a1" stroke-width="5" stroke-linecap="round">
+    <line x1="126" y1="60" x2="168" y2="60" />
+  </g>
+  <g data-series-group="scales" data-series-label="meso" fill="#e0f2fe" stroke="#0e7490" stroke-width="3" stroke-dasharray="10 6">
+    <rect x="126" y="114" width="226" height="32" rx="6" />
+  </g>
+  <g data-series-group="scales" data-series-label="macro" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2">
+    <rect x="126" y="180" width="525" height="32" rx="6" />
+  </g>
+  <g stroke="#64748b" stroke-width="1.5" stroke-dasharray="3 6">
+    <line x1="126" y1="28" x2="126" y2="228" />
+  </g>
+</svg>

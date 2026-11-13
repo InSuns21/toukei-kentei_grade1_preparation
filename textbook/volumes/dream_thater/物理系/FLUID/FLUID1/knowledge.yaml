@@ -1,0 +1,43 @@
+chapter: FLUID1
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM16
+concepts:
+  - id: fluid.continuum-scale-separation
+    name: 連続体近似の尺度分離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続体近似の尺度分離）"]
+    requires: [continuum.material-reference-configuration]
+  - id: fluid.gas-knudsen-number
+    name: 気体の Knudsen 数
+    aliases: [Knudsen 数]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（気体の Knudsen 数）"]
+    requires: [fluid.continuum-scale-separation]
+  - id: fluid.kinematic-viscosity
+    name: 動粘度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（動粘度）"]
+    requires: [continuum.reference-current-mass-density, continuum.compressible-newtonian-fluid]
+  - id: fluid.interfacial-tension
+    name: 界面の表面張力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（界面の表面張力）"]
+    requires: [fluid.continuum-scale-separation]
+  - id: fluid.geometric-coarse-graining-window
+    name: 幾何平均による粗視化長さの構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（幾何平均による粗視化長さの構成）"]
+    requires: [fluid.continuum-scale-separation]
+  - id: fluid.parallel-shear-viscous-diffusion
+    name: 平行せん断の粘性拡散方程式と時間尺度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平行せん断の粘性拡散方程式と時間尺度）"]
+    requires: [fluid.kinematic-viscosity, continuum.incompressible-navier-stokes]

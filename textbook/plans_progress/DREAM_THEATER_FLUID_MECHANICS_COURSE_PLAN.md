@@ -1,7 +1,7 @@
 # DREAM THEATER 流体力学コース計画（FLUID1〜FLUID48・全48講確定）
 
 作成日・設計確定日: 2026-11-12  
-状態: planned（PLAN設計のみ。本文・系列manifest・公開目次・ラボ実装には未着手）  
+状態: in_progress（FLUID1実装・検証、FLUID2〜48は未着手）  
 対象: 学部後半〜大学院初年の流体力学を、既存の連続体力学・解析系教材から自力で追える講座
 
 ## 0. 中心問いと講数の確定
@@ -39,7 +39,7 @@
 - [NPDE系列 manifest](../dream-theater-series/NPDE.yaml)のNPDE1–2は一般保存則・Rankine–Hugoniot・エントロピー解の正本。FLUID30・43・48では**物理的な質量・運動量・エネルギー跳躍と具体計算**を本講義で行い、一般理論は必要箇所でリンクする。
 - **数値実験の読者向け実行環境はブラウザを第一導線**とする。[NUMERICAL_LAB_AUTHORING_STANDARD.md](../NUMERICAL_LAB_AUTHORING_STANDARD.md) 第9節の `python-file-lab` と既存の `pages/numerical-lab-runtime.js` / Pyodide Worker をまず再利用し、**講義内のボタンから公開した同一 `.py` を実行**させる。演習として計算の核心を穴埋めする場合は同規約の `python-lab` / `python-solution` / `python-test` を使い、完成済みファイルの再現実験と混同しない。Pythonソース・検算テストは正本として保持し、同じ数値アルゴリズムをブラウザ用JavaScriptに複製しない。[対話型シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のWorker・パラメータ・実験記録・描画アダプターは適合する場合に再利用する。流体特有のフラックス・境界条件・時間刻み・残差・安定性判定は**流体側が所有**する。将来のプラットフォーム完成を全ての非対話講義の完成条件にしない。
 
-**依存の開始条件**：2026-11-12時点でCTMはPLAN設計のみ。FLUIDの章実装は、それぞれの直接前提が実在して本文・anchorを辿れることを確認したうえで開始する。未実装CTMの節を存在済みとしてリンクしない。FLUIDの計画を採択しただけでCTM/NS/NPDEのcompletedを変更しない。前提未完成でも図・数値実験の設計作業を進めてよいが、数学的に依存する本文を完成扱いしない。
+**依存の開始条件**：設計時点ではCTMの本文が未完成だったが、2026-11-13時点でCTM1–17の本文・manifest completed を確認済み。FLUIDの章実装は、それぞれの直接前提が実在して本文・anchorを辿れることを確認したうえで開始する。未実装CTMの節を存在済みとしてリンクしない。FLUIDの計画を採択しただけでCTM/NS/NPDEのcompletedを変更しない。前提未完成でも図・数値実験の設計作業を進めてよいが、数学的に依存する本文を完成扱いしない。
 
 **記号**：流速 $u$（必要ならベクトル $\boldsymbol u$）、密度 $\rho$、圧力 $p$、粘性係数 $\eta$ [Pa·s]（dynamic viscosity）、動粘度 $\nu=\eta/\rho$ [m²/s]（kinematic viscosity）、表面張力 $\gamma$ [N/m]。CTMの $\eta$ と整合させ、動粘度を粘性係数と呼ばない。保存式の外法線 $n$、重力 $g>0$ の方向、渦度 $\omega=\nabla\times u$、時間と座標・無次元化の基準を初出で宣言。圧縮性流では熱力学温度・エントロピーとEOSの定義域を明示する。数値モデルでも質量・運動量・全エネルギーの各単位と境界流束の符号を揃える。
 
@@ -158,6 +158,6 @@ FLUID1–48の各講ですでに全件の数学・演習・表示・数値査読
 - **NS**：NSEの弱解・正則性・ミレニアム問題は既存NS1–8A。FLUIDは具体的物理流れ・現象と検証可能な模型を所有する。
 - **NPDE**：一般双曲保存則のentropy solution理論はNPDE1–2。FLUIDは流体の跳躍条件と物理/数値適用を所有する。
 - **高級CFD**：非構造格子一般、有限要素法の関数解析、乱流LES/DNS大規模実装、複雑な界面追跡、三次元GPU汎用ソルバーは別計画・研究ルート。FLUID45–48は小さくても**正しく検算できる実装**に限定する。
-- **流体CG・リアルタイム表示**：[独立したFCG1〜20のPLAN](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)が、格子/粒子のGPU可視化、自由表面、反射・屈折、体積煙・火、性能/アクセシビリティ、GIS地形との統合を所有する。流体支配方程式と一般CFDはFLUIDが正本であり、FCGの講義・コードをFLUID1〜48に追加して講数や最終監査の単位を混同しない。
+- **流体CG・リアルタイム表示**：[独立したFCG1〜20のPLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)が、格子/粒子のGPU可視化、自由表面、反射・屈折、体積煙・火、性能/アクセシビリティ、GIS地形との統合を所有する。流体支配方程式と一般CFDはFLUIDが正本であり、FCGの講義・コードをFLUID1〜48に追加して講数や最終監査の単位を混同しない。
 
 **実装推奨順**：CTMの必要な正本を完成→FLUID1から系列順に各講の図/必要な動き/Pythonを同時執筆・局所査読→FLUID48完成後に第5.2節の最終横断監査を一度だけ実施。公開文献に基づくPLANの設計であり、講義48本やWebGL実装が既に完成したという意味ではない。
