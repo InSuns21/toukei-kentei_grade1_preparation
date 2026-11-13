@@ -799,7 +799,7 @@ $$
 
 - Level: B
 
-$K=\ell^2(\mathbb N)$、$\mathcal H=S_2(K)$、$\mathcal M=\{L_A:A\in B(K)\}$、$\Omega=\operatorname{diag}(2^{-j/2})$ とする。行列単位 $E_{ij}$ を用いて標準性を示し、$x_n=E_{1n}\Omega$ について $\|S_0x_n\|_2/\|x_n\|_2$ を求めよ。また、この列が可閉性の反例ではない理由を述べよ。
+$K=\ell^2(\mathbb N)$、$\mathcal H=S_2(K)$、$\mathcal M=\{L_A:A\in B(K)\}$、$\Omega=\operatorname{diag}(2^{-j/2})$ とする。行列単位 $E_{ij}$ を用いて標準性を示し、$x_n=E_{1n}\Omega=L_{E_{1n}}\Omega$ について $\|S_0x_n\|_2/\|x_n\|_2$ を求めよ。また、この列が可閉性の反例ではない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答。** $\|\Omega\|_2^2=\sum_{j=1}^\infty2^{-j}=1$ です。$L_{E_{ij}}\Omega=2^{-j/2}E_{ij}$ なので、全行列単位の線形包は $\mathcal M\Omega$ に含まれます。有限成分切断がHilbert–Schmidtノルムで収束するため巡回的です。
