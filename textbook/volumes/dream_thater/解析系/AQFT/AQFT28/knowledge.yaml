@@ -1,0 +1,55 @@
+chapter: AQFT28
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT9
+  - AQFT14
+  - AQFT15
+  - AQFT16
+  - AQFT17
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT27
+forward_references: []
+concepts:
+  - id: aqft.nsf-weight
+    name: 忠実・正規・半有限な重み
+    kind: definition
+    introduction: formal
+    requires: [aqft.faithful-normal-semifinite-trace]
+  - id: aqft.connes-s-invariant
+    name: ConnesのS不変量
+    kind: definition
+    introduction: formal
+    requires: [aqft.nsf-weight, aqft.modular-operator]
+  - id: aqft.single-weight-spectrum-inclusion
+    name: 単一重みのモジュラースペクトルとConnes不変量の包含
+    kind: proposition
+    introduction: formal
+    requires: [aqft.connes-s-invariant]
+  - id: aqft.connes-typeiii-classification
+    name: ConnesのType III細分類
+    kind: theorem
+    introduction: formal
+    requires: [aqft.connes-s-invariant, operator-algebra.factor-type-classification]
+  - id: aqft.typei-full-modular-spectrum
+    name: Type I無限因子の全モジュラースペクトル反例
+    kind: proposition
+    introduction: formal
+    requires: [aqft.connes-s-invariant, aqft.single-weight-spectrum-inclusion]
+  - id: aqft.free-scalar-wedge-modular-spectrum
+    name: 自由スカラー場のwedgeモジュラースペクトル
+    kind: proposition
+    introduction: formal
+    requires: [aqft.free-scalar-bisognano-wichmann, aqft.single-weight-spectrum-inclusion]
+  - id: aqft.hyperfinite-von-neumann-algebra
+    name: hyperfinite von Neumann環
+    kind: definition
+    introduction: formal
+    requires: [aqft.local-von-neumann-net]
+  - id: aqft.conditional-local-typeiii1
+    name: 局所環のhyperfinite Type III₁構造
+    kind: theorem
+    introduction: formal
+    requires: [aqft.connes-typeiii-classification, aqft.hyperfinite-von-neumann-algebra, aqft.split-inclusion, aqft.energy-nuclearity]
