@@ -1,14 +1,16 @@
 chapter: U4-02
 scope: dream-theater
 coverage: complete
-prerequisites: [U4-01]
-forward_references: []
+prerequisites: [U4-01, F0-00E1]
+# U3-02 is an optional comparison of state pricing, not a required route into U4.
+forward_references: [U3-02]
 concepts:
   - id: finance.finite-market-linear-price-functional
     name: 取引可能なペイオフの線形価格汎関数
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（取引可能なペイオフの線形価格汎関数）"]
+    aliases: ["線形価格汎関数"]
     requires: [finance.finite-state-quote-payoff-table]
   - id: finance.finite-market-price-functional-kernel
     name: 価格汎関数が定義できる条件
@@ -45,6 +47,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（有限市場の裁定・状態価格の二者択一）"]
+    aliases: ["有限市場の二者択一定理"]
     requires: [finance.finite-market-positive-state-prices, finance.finite-market-normalized-arbitrage-primal, finance.finite-market-primal-feasibility, finance.finite-market-strict-simplex-separation]
   - id: finance.finite-market-state-price-uniqueness
     name: 状態価格の一意性とペイオフの完備性
