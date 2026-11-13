@@ -438,7 +438,21 @@ d(e^{-rt}v(t,S_t))
 =\Delta_t\,d(e^{-rt}S_t).
 $$
 
-$\psi_t=(v-\Delta S)/B$ と置いたので恒等的に $V=\Delta S+\psi B=v$ です。前節の [割引自己金融条件](#prop-u3-15-discounted-wealth)の導出を逆にたどると、$dV=\Delta\,dS+\psi\,dB$ が成立します。$\Delta,\psi$ は連続適合で予測可能です。二乗可積分性も具体的に確認します。$Q$ の下で [GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)に $p=4$、ドリフト $r$ を代入すると $E_Q[S_t^4]=s_0^4e^{(4r+6\sigma^2)t}$ です。したがって
+保有量を $\psi_t=(v(t,S_t)-\Delta_tS_t)/B_t$ と定めたため、ポートフォリオの価値は
+
+$$
+V_t=\Delta_tS_t+\psi_tB_t=v(t,S_t)
+$$
+
+です。[割引自己金融条件](#prop-u3-15-discounted-wealth)の導出を逆にたどれば、$dV_t=\Delta_t\,dS_t+\psi_t\,dB_t$ が成り立ちます。保有量 $\Delta,\psi$ は連続適合で予測可能です。
+
+最後に二乗可積分性も検証します。$Q$ の下で [GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)に $p=4$、ドリフト $r$ を代入すると
+
+$$
+E_Q[S_t^4]=s_0^4e^{(4r+6\sigma^2)t}
+$$
+
+です。したがって
 
 $$
 \begin{aligned}
