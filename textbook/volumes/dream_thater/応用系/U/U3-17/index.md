@@ -226,7 +226,7 @@ $$
 \sigma\sup_{t\le v\le T}|W_v^Q-W_t^Q|\right)
 $$
 
-が成り立ちます（$W_v^Q-W_t^Q$ は時刻 $t$ からの Brown 増分です）。Brown 運動の最大値の反射原理から右辺はどの有限な正のべきについても有限期待値を持ちます。従って、任意の $p>1$ について
+が成り立ちます（$W_v^Q-W_t^Q$ は時刻 $t$ からの Brown 増分です）。[Brown 運動の反射原理](../../../解析系/STO/STO4/index.md#thm-sto4-reflection-principle)から最大値の尾確率が正規分布の尾で抑えられ、右辺はどの有限な正のべきについても有限期待値を持ちます。従って、任意の $p>1$ について
 
 $$
 E_Q\!\left[\sup_{t\le u\le T}
