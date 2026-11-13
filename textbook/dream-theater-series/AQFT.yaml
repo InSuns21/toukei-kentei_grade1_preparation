@@ -74,7 +74,7 @@ chapters:
     title: "splitの帰結とnuclearityへの入口"
   - id: AQFT18
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT18
-    status: planned
+    status: completed
     title: "標準対とTomita作用素"
   - id: AQFT19
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT19
