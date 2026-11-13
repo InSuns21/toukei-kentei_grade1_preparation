@@ -1,0 +1,39 @@
+id: "U3-22"
+title: "Black–Scholes PDE の格子化・陽解法"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-11, U3-16, U3-17, U3-18, U3-19]
+official_scope: []
+learning_objectives:
+  - 満期からの残存時間への変換を連鎖律で行い、配当付き Black–Scholes PDE と初期・境界値を確定できる
+  - 一様株価格子上の中心差分と前進時間差分を導出し、三点の係数と単位を検算できる
+  - 非負係数条件・時間刻み条件から単調性、非負性、最大値安定性を証明し、条件を外した失敗例を説明できる
+  - 滑らかな解に対する局所打切り誤差と、境界誤差を含む大域誤差の評価を再構成できる
+  - Python で刻み縮小・安定／発散・有限上端境界を検証し、閉形式の価格と誤差を照合できる
+definitions:
+  - { id: U3-22-DEF-01, name: "残存時間・株価一様格子と節点値" }
+  - { id: U3-22-DEF-02, name: "格子上の陽的三点更新" }
+theorems:
+  - { id: U3-22-PROP-01, name: "陽的更新の局所打切り誤差" }
+  - { id: U3-22-THM-01, name: "陽的三点更新の非負性と最大値安定性" }
+  - { id: U3-22-THM-02, name: "滑らかな解に対する誤差評価" }
+canonical_examples:
+  - "r=0.05,q=0.02,sigma=0.20 の格子 M=60 における三点係数と非負性を確認"
+  - "Smax=300円、M=30,60,120 の call 初期価格 9.00283417,9.17286013,9.21355575円"
+  - "M=60,N=24 の陽解法で負価格・巨大値と高周波誤差増幅を確認"
+  - "格子幅5円・N=250に固定し Smax=120,130,160,300円の境界打切り効果を比較"
+problem_patterns:
+  - U3-22-A1
+  - U3-22-A2
+  - U3-22-A3
+  - U3-22-A4
+  - U3-22-A5
+  - U3-22-B1
+  - U3-22-B2
+  - U3-22-B3
+  - U3-22-B4
+  - U3-22-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
