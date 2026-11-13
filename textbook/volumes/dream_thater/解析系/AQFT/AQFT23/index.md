@@ -284,7 +284,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $x\in\mathcal H$ について $s\mapsto\sigma_s(A)x$ は連続で、ノルムは高々 $\|A\|\|x\|$。よって強積分は有界作用素を定め、$\|A_\varepsilon\|\le\|A\|$ です。積分を有界区間のRiemann和で近似し、尾部を $\int_{|s|>R}g_\varepsilon(s)\,ds$ で抑えます。各和は $\mathcal M$ に属し、$\mathcal M$ は強作用素閉なので $A_\varepsilon\in\mathcal M$ です。
+任意の $x\in\mathcal H$ について $s\mapsto\sigma_s(A)x$ は連続で、ノルムは高々 $\|A\|\|x\|$。よって強積分は有界作用素を定め、$\|A_\varepsilon\|\le\|A\|$ です。積分を有界区間のRiemann和で近似し、尾部を $\int_{|s|>R}g_\varepsilon(s)\,ds$ で抑えます。各和は $\mathcal M$ に属し、von Neumann環 $\mathcal M$ の強作用素位相での閉性により $A_\varepsilon\in\mathcal M$ です。
 
 複素 $z=x+iy$ について
 
