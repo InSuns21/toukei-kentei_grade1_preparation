@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">二頂点の四脚完全テンソル網</title>
+  <desc id="desc">左の頂点U_Lと右の頂点U_Rが一本の内部脚で結ばれ、その脚に最大エンタングル対Phi3を置く。左頂点には上から論理aが入り下へ境界L1,L2が出る。右頂点には論理bが入り境界R1,R2が出る。中央の破線は左右を隔てるcutで、内部脚一本を横切る。</desc>
+  <rect width="760" height="320" rx="10" fill="#fcfcfd"/>
+  <g fill="none" stroke="#24344a" stroke-width="3" stroke-linecap="round">
+    <path d="M251 79 V118"/>
+    <path d="M509 79 V118"/>
+    <path d="M218 200 V259"/>
+    <path d="M287 200 V259"/>
+    <path d="M473 200 V259"/>
+    <path d="M544 200 V259"/>
+  </g>
+  <line x1="323" y1="159" x2="437" y2="159" stroke="#126a78" stroke-width="4" stroke-linecap="round"/>
+  <g fill="#f0f7fb" stroke="#315b7e" stroke-width="2.5">
+    <rect x="178" y="118" width="145" height="82" rx="12"/>
+    <rect x="437" y="118" width="145" height="82" rx="12"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#1b2d3a" font-size="23" text-anchor="middle">
+    <text x="251" y="168">U_L</text>
+    <text x="509" y="168">U_R</text>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#24344a" font-size="19" text-anchor="middle">
+    <text x="251" y="66">a</text>
+    <text x="509" y="66">b</text>
+    <text x="218" y="284">L1</text>
+    <text x="287" y="284">L2</text>
+    <text x="473" y="284">R1</text>
+    <text x="544" y="284">R2</text>
+  </g>
+  <text x="380" y="132" font-family="Arial, sans-serif" font-size="18" fill="#126a78" text-anchor="middle">Φ3</text>
+  <line x1="380" y1="148" x2="380" y2="228" stroke="#9b4d16" stroke-width="2.5" stroke-dasharray="5 7"/>
+  <text x="404" y="244" font-family="Arial, sans-serif" font-size="17" fill="#7b3811">cut</text>
+</svg>
