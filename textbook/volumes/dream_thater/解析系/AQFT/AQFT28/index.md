@@ -288,7 +288,7 @@ $$
 
 ## 4. double coneの型はどこで別の問題になるか
 
-[AQFT9の局所環の定義](../AQFT9/index.md#def-aqft9-local-vn-net)で、double cone $O$ に対して $\mathcal M(O)$ が定まります。$O\subset W_R$ なら[AQFT2の包含公理](../AQFT2/index.md#def-aqft2-isotony)によって $\mathcal M(O)\subset\mathcal M(W_R)$ ですが、**環の包含から因子型は保存されません**。例えば $B(\mathbb C^2)$ には、中心が2次元で因子でない対角環が含まれます。だから包含だけでは、まず因子であることすら保証できません。
+[AQFT9の局所von Neumann環の定義](../AQFT9/index.md#def-aqft9-local-vn-net)で、double cone $O$ に対して $\mathcal M(O)$ が定まります。$O\subset W_R$ なら[AQFT2の包含公理](../AQFT2/index.md#def-aqft2-isotony)によって $\mathcal M(O)\subset\mathcal M(W_R)$ ですが、**環の包含から因子型は保存されません**。例えば $B(\mathbb C^2)$ には、中心が2次元で因子でない対角環が含まれます。だから包含だけでは、まず因子であることすら保証できません。
 
 一方、[AQFT16のsplit包含](../AQFT16/index.md#def-aqft16-split-inclusion)は $O_1\Subset O_2$ の間にType I因子 $N$ を挟むという性質です。これは**内側の局所環自身がType I**という意味ではありません。[AQFT17のnuclearityからsplitへの文献定理](../AQFT17/index.md#thm-aqft17-nuclearity-split-literature)も、短距離の型分類と区別する必要があります。
 
@@ -382,7 +382,7 @@ $$
 #### AQFT28-A02 n.s.f.重みの三条件
 
 - Level: A
-- 問題：$M_2(\mathbb C)$ 上の $\tau(x)=\operatorname{Tr}x$ が忠実・正規・半有限であることを、正行列の固有値を使って一つずつ確認せよ。また $B(\ell^2)$ の通常トレースが状態でない理由を示せ。
+- 問題：$M_2(\mathbb C)$ 上の $\tau(x)=\operatorname{Tr}x$ が忠実・正規・半有限であることを、正のHermitian行列の固有値を使って一つずつ確認せよ。また $B(\ell^2)$ の通常トレースが状態でない理由を示せ。
 
 <!-- solution-start -->
 **詳細解答。** 正のHermitian行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすると $\tau(x)=\lambda_1+\lambda_2$ なので $\tau(x)=0\Rightarrow x=0$。行列の正元の増大ネットは有限次元でノルム収束するため、トレースの連続性で $\tau(\sup x_i)=\sup\tau(x_i)$。全ての正行列に有限トレースがあるので、非零 $x$ に $y=x$ を選べます。$B(\ell^2)$ の通常トレースでは $\operatorname{Tr}I=\sum_{n=0}^\infty 1=\infty$ で、状態の規格化 $\varphi(I)=1$ を満たしません。無限値を認める重みとしては利用できます。
@@ -405,7 +405,18 @@ $$
 - 問題：$H=\mathbb C$、$\mathcal M(O)=\mathbb CI$、真空 $\Omega=1$、時空変換 $U(g)=I$ としたとき、包含、局所可換性、正エネルギー、splitを判定し、局所環の型を答えよ。
 
 <!-- solution-start -->
-**詳細解答。** $O_1\subset O_2$ のとき $\mathcal M(O_1)=\mathcal M(O_2)$ で包含を満たします。全ての元はスカラーなので空間的に分離した領域間でも可換です。並進生成作用素は0なのでエネルギースペクトルは $\{0\}$、将来光円錐に入ります。$O_1\Subset O_2$ ではType I因子 $N=\mathbb CI$ 自身が $\mathcal M(O_1)\subset N\subset\mathcal M(O_2)$ を満たします。しかし $\mathbb CI\simeq B(\mathbb C)$ はType I$_1$でありType III₁ではありません。従って列挙した仮定だけで局所Type III₁性を証明する試みは破綻します。
+**詳細解答。** $O_1\subset O_2$ のとき $\mathcal M(O_1)=\mathcal M(O_2)=\mathbb CI$ であり、包含公理を満たします。全元がスカラーだから、空間的に分離した領域の環も可換です。
+
+並進表現は $U(a)=I$ です。よって生成作用素は0、その同時スペクトルは $\{0\}$ であり、閉じた将来光円錐に含まれるので正エネルギー条件を満たします。
+
+$O_1\Subset O_2$ について $N=\mathbb CI$ はType I因子で、
+
+$
+\mathcal M(O_1)=\mathbb CI\subset N\subset
+\mathcal M(O_2)=\mathbb CI
+$
+
+を満たすためsplitです。しかし $\mathbb CI\simeq B(\mathbb C)$ はType I$_1$ で、Type III₁ではありません。よって、これらの条件だけから局所Type III₁性を導く主張は反例により否定されます。
 <!-- solution-end -->
 
 ### Level B：一つの状態と環全体を区別する
