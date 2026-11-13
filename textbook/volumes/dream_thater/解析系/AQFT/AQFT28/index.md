@@ -30,7 +30,7 @@
 
 $M=M_2(\mathbb C)$ で $\tau(x)=\operatorname{Tr}x$ とします。正行列 $x$ の固有値を $\lambda_1,\lambda_2\ge0$ とすれば $\tau(x)=\lambda_1+\lambda_2$。これが0なら二つとも0なので忠実です。有限次元では行列要素と固有値の極限で増大ネットの正規性が従い、$\tau(x)<\infty$ なので $y=x$ として半有限性も確認できます。
 
-$M=B(\ell^2(\mathbb N_0))$ で正作用素の通常トレースを $\tau(x)=\sum_{n\ge0}\langle e_n,xe_n\rangle$ とすると $\tau(1)=\infty$ ですが、$0\ne x\ge0$ には $\langle v,xv\rangle>0$ を満たす $v$ が存在し、$x$ の適切なスペクトル切断を有限次元へ圧縮して有限トレースの非零正元を得られます。したがって正規・忠実・半有限です。有限な**状態**に限定すると、このトレースを候補から落としてしまいます。
+$M=B(\ell^2(\mathbb N_0))$ で正作用素の通常トレースを $\tau(x)=\sum_{n\ge0}\langle e_n,xe_n\rangle$ とすると $\tau(1)=\infty$ ですが、$0\ne x\ge0$ には $\langle v,xv\rangle>0$ を満たす $v$ が存在し、$x^{1/2}v\ne0$ となる単位ベクトル $v$ を選び、階数1射影 $p=|v\rangle\langle v|$ に対して $y=x^{1/2}px^{1/2}$ と置けば、$0<y\le x$ かつ $y$ は階数1以下の正作用素なので $\tau(y)=\|x^{1/2}v\|^2<\infty$ です。したがって正規・忠実・半有限です。有限な**状態**に限定すると、このトレースを候補から落としてしまいます。
 <!-- definition-example-end -->
 
 重み $\varphi$ からはGNS型のHilbert空間を作れます。$\mathfrak n_\varphi=\{a:\varphi(a^*a)<\infty\}$ 上の写像 $\Lambda_\varphi$ について
