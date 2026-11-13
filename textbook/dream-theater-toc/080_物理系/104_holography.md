@@ -33,3 +33,4 @@
 30. [HOLO30 作用素代数量子誤り訂正](textbook/volumes/dream_thater/物理系/HOLO/HOLO30/index.md)
 31. [HOLO31 テンソル網・HaPPY模型](textbook/volumes/dream_thater/物理系/HOLO/HOLO31/index.md)
 32. [HOLO32 エンタングルメントと重力の線形応答](textbook/volumes/dream_thater/物理系/HOLO/HOLO32/index.md)
+33. [HOLO33 何が双対で何が未解決か](textbook/volumes/dream_thater/物理系/HOLO/HOLO33/index.md)
