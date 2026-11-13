@@ -49,6 +49,8 @@ $$
 <!-- definition-example-start: def-rbd11-heavy-top -->
 ### 直接例：細い質量なしの軸で支えられた均質円板
 
+**定義の確認**：固定点、軸上の重心、二つの等しい正の横主慣性値、支点反力と一様重力だけという四条件を、円板と連結軸の構成から調べます。
+
 半径 $r>0$、質量 $M>0$ の一様薄円板の中心を $C$ とし、その法線方向に質量のない剛直な長さ $l>0$ の軸を延ばして先端を理想的に支点 $O$ とします。円板の質量だけを考えます。[RBD6の一様薄円板の慣性テンソル](../RBD6/index.md#prop-rbd6-uniform-disc)では、中心まわりに
 
 $$
@@ -313,6 +315,8 @@ $$
 
 <!-- definition-example-start: def-rbd11-effective-potential -->
 ### 直接例：同じ傾きでも鉛直運動量で許容性が変わる
+
+**定義の確認**：$I,J>0$ と実数 $h,k$ を指定し、定義域 $0<\theta<\pi$ の三点で式の分母が正であることを確認してから評価します。
 
 $I=2,J=1,Mgl=3,h=0,k=2$ とします。ここでは $I,J>0$、$0<\theta<\pi$、$h,k$ は実数で、定義の条件を満たします。$\theta=\pi/2$ なら
 
@@ -623,8 +627,14 @@ $$
 J_{O,b}\dot\omega_b+\omega_b\times(J_{O,b}\omega_b)=\tau_{O,b}.
 $$
 
-第三成分について $(\omega_b\times J_{O,b}\omega_b)_3
-=I\omega_1\omega_2-I\omega_2\omega_1=0$。また $\tau_{O,b}=(le_3)\times(R^{\mathsf T}(-Mg e_z))$ なので第三成分は零です。ゆえに $J\dot\omega_3=0$、$k=J\omega_3$ は一定です。対して $0<\theta<\pi$ では $|\tau_{O,s}|=Mgl\sin\theta>0$ だから、$\dot L_{O,s}\ne0$ で全ベクトルは一定ではありません。
+第三成分の交差項は
+
+$
+(\omega_b\times J_{O,b}\omega_b)_3
+=I\omega_1\omega_2-I\omega_2\omega_1=0
+$
+
+です。また $\tau_{O,b}=(le_3)\times(R^{\mathsf T}(-Mg e_z))$ なので第三成分は零です。ゆえに $J\dot\omega_3=0$、$k=J\omega_3$ は一定です。対して $0<\theta<\pi$ では $|\tau_{O,s}|=Mgl\sin\theta>0$ だから、$\dot L_{O,s}\ne0$ で全ベクトルは一定ではありません。
 <!-- solution-end -->
 
 ### 問題 B2：零の傾き速度は静止とは限らない
