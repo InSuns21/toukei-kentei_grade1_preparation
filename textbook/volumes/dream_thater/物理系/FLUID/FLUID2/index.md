@@ -8,7 +8,7 @@
 
 ## 0. 座標、単位と静止流体のモデル
 
-空間は三次元の直交デカルト座標 $(x,y,z)$ とし、**$z$ は上向き**、鉛直上向き単位ベクトルは $e_z$、重力加速度の大きさは $g>0$（m/s$^2$）、単位質量当たりの重力は $b=-ge_z$ とする。密度 $\rho>0$ の単位は kg/m$^3$、圧力 $p$ は Pa = N/m$^2$、単位質量当たりの体積力 $b$ は N/kg、単位体積当たりの重力 $\rho b$ は N/m$^3$ である。
+空間は三次元の直交デカルト座標 $(x,y,z)$ とし、位置ベクトルは $\boldsymbol r=(x,y,z)$ と表す。**$z$ は上向き**、鉛直上向き単位ベクトルは $e_z$、重力加速度の大きさは $g>0$（m/s$^2$）、単位質量当たりの重力は $b=-ge_z$ とする。密度 $\rho>0$ の単位は kg/m$^3$、圧力 $p$ は Pa = N/m$^2$、単位質量当たりの体積力 $b$ は N/kg、単位体積当たりの重力 $\rho b$ は N/m$^3$ である。
 
 [Cauchy の応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)によれば、単位外法線 $n$ を向く小面に周囲から作用する表面力密度は $\sigma n$ である。[CTM15 の圧縮性 Newton 流体の構成則](../../CTM/CTM15/index.md#def-ctm15-newtonian-fluid)では、速度場が $v=0$ なら変形速度 $D=0$ かつ体積変化率 $\theta=0$ なので、せん断・体積粘性の応力は消え、$\sigma=-pI_3$ となる。ここで $I_3$ は三次元単位行列である。この等方応力を**静止流体のモデル仮定**として使う。静止している固体や降伏応力のある物質へ無条件に適用するものではない。
 
@@ -20,7 +20,8 @@
 開領域 $\Omega\subset\mathbb R^3$ 上の流体で、速度 $v=0$、密度 $\rho:\Omega\to(0,\infty)$、圧力 $p:\Omega\to\mathbb R$ が与えられ、Cauchy 応力が
 
 $$
-\sigma(x)=-p(x)I_3,\qquad t(x,n)=-p(x)n\quad (|n|=1)
+\sigma(\boldsymbol r)=-p(\boldsymbol r)I_3,\qquad
+t(\boldsymbol r,n)=-p(\boldsymbol r)n\quad (|n|=1)
 $$
 
 を満たす状態を、本講では**静止等方圧力状態**という。以降の平衡計算では $\rho,p\in C^1(\Omega)$ を仮定する。$p>0$ なら表面力は外法線と逆向き（圧縮方向）である。この定義だけで重力との釣合が成立するとは限らない。
@@ -29,7 +30,17 @@ $$
 <!-- definition-example-start: def-fluid2-static-isotropic-state -->
 ### **定義の確認**：同じ圧力でも面の向きで力が変わる
 
-一点で $p=2.0\times10^5$ Pa、$v=0$ として $\sigma=-pI_3$ を指定する。水平上面の外法線 $n=e_z$ では $t=-2.0\times10^5e_z$ Pa、下面 $n=-e_z$ では $t=+2.0\times10^5e_z$ Pa、右側面 $n=e_x$ では $t=-2.0\times10^5e_x$ Pa となる。三面とも $t=-pn$ を満たし、接線成分は零である。速度零・等方応力という定義の条件は満たすが、これだけでは $\nabla p=\rho b$ という平衡条件は確認できていない。
+例えば開領域 $\Omega=(0,1)^3$ 上の全点 $\boldsymbol r$ で、$v(\boldsymbol r)=0$、$\rho(\boldsymbol r)=1000\ \mathrm{kg/m^3}>0$、$p(\boldsymbol r)=p_0=2.0\times10^5\ \mathrm{Pa}$、$\sigma(\boldsymbol r)=-p_0I_3$ と指定する。これらは定数場なので $\rho,p\in C^1(\Omega)$ でもある。
+
+なぜ単位行列で面力を判定できるのか。[Cauchy の応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)によって面の外法線 $n=(n_1,n_2,n_3)$ に対する表面力密度は $\sigma n$ であり、直交基底で行列の各成分は $\sigma_{ij}=-p_0\delta_{ij}$ である。したがって、任意の単位法線 $|n|=1$ に対して
+
+$$
+t_i(\boldsymbol r,n)=\sum_{j=1}^3\sigma_{ij}n_j
+=-p_0\sum_{j=1}^3\delta_{ij}n_j=-p_0n_i
+\qquad(i=1,2,3).
+$$
+
+特に水平上面の $n=e_z$ では $t=-2.0\times10^5e_z$ Pa、下面の $n=-e_z$ では $t=+2.0\times10^5e_z$ Pa、右側面の $n=e_x$ では $t=-2.0\times10^5e_x$ Pa である。任意の向きで $t=-p_0n$ が成り立ち、接線成分も零なので、定義の速度零・密度正・等方応力の各条件を確認した。ただし一定圧力なら $\nabla p=0$ だから、$g>0$ の重力下では $\rho b=-\rho ge_z\ne0$ と釣り合わない。**定義を満たすことと静水圧の平衡条件を満たすことは別**である。
 <!-- definition-example-end -->
 
 小さな流体要素を切り出すと、上面を押す下向きの力は約 $p(z+\Delta z)A$、下面を押す上向きの力は約 $p(z)A$、重力は下向き $\rho g A\Delta z$ である。下図の矢印はそれぞれの面に働く力の**方向**を示す。上向きの $z$ と重力の向きを逆にしないことが重要である。
@@ -99,7 +110,7 @@ $A\Delta z$ で割ると $[p(z+\Delta z)-p(z)]/\Delta z\simeq-\rho g$。極限 $
 
 ## 2. 深さで積分する：密度はどこで効くか
 
-重力が一定でも密度が一定とは限らない。温度や組成により密度が高さとともに変わる流体でも、[静水圧方程式](#thm-fluid2-hydrostatic-balance)の第3成分を積分できる。ただし一本の鉛直区間が流体領域内に収まることを明示する。
+重力が一定でも密度が一定とは限らない。温度や組成により密度が高さとともに変わる流体でも、[静水圧方程式](#thm-fluid2-hydrostatic-balance)の第3成分を積分できる。ただし一本の鉛直区間が流体領域内に収まることを明示する。以降、水平座標 $(x,y)$ を固定した鉛直線上では、三変数の場 $p(x,y,z),\rho(x,y,z)$ を高さだけの関数 $p(z),\rho(z)$ と略記する。
 
 <a id="prop-fluid2-integral-profile"></a>
 
@@ -142,7 +153,15 @@ $$
 
 ### 具体例：線形に増える密度
 
-水面を $z=0$ とし、下向き深さを $h=-z\ge0$ と書く。密度を $\rho(h)=\rho_0(1+\alpha h)$、$\rho_0>0$、$\alpha\ge0$（単位 m$^{-1}$）と仮定する。深さの微分は $dp/dh=\rho(h)g$ だから
+水面を $z=0$ とし、下向き深さを $h=-z\ge0$ と書く。水平位置 $(x_0,y_0)$ を固定すると $z=-h$ なので、連鎖律と [静水圧方程式](#thm-fluid2-hydrostatic-balance)により
+
+$$
+\frac{d}{dh}p(x_0,y_0,-h)
+=-\frac{\partial p}{\partial z}(x_0,y_0,-h)
+=\rho(x_0,y_0,-h)g.
+$$
+
+以下では深さを引数とする $p(h),\rho(h)$ はそれぞれ左辺の $p(x_0,y_0,-h)$ と $\rho(x_0,y_0,-h)$ の略記とする。密度を $\rho(h)=\rho_0(1+\alpha h)$、$\rho_0>0$、$\alpha\ge0$（単位 m$^{-1}$）と仮定する。深さの微分は $dp/dh=\rho(h)g$ だから
 
 $$
 p(h)-p(0)=g\int_0^h\rho_0(1+\alpha s)\,ds
@@ -194,10 +213,10 @@ $$
 <!-- formal-statement-start -->
 ### 定義（基準圧力とゲージ圧）
 
-圧力場 $p(x)$ と一定の基準圧力 $p_{\mathrm{ref}}$（いずれも Pa）が与えられたとき、
+圧力場 $p(\boldsymbol r)$ と一定の基準圧力 $p_{\mathrm{ref}}$（いずれも Pa）が与えられたとき、
 
 $$
-p_{\mathrm{gauge}}(x)=p(x)-p_{\mathrm{ref}}
+p_{\mathrm{gauge}}(\boldsymbol r)=p(\boldsymbol r)-p_{\mathrm{ref}}
 $$
 
 を基準 $p_{\mathrm{ref}}$ に対する**ゲージ圧**という。$p$ を絶対圧、$p_{\mathrm{ref}}=p_{\mathrm{atm}}$ をその場所の大気圧に選んだ場合のゲージ圧は、自由表面で零になる。ゲージ圧は負でもよく、絶対圧そのものではない。
@@ -262,14 +281,23 @@ $$
 \frac{dp}{dz}=-\frac g{c^2}p.
 $$
 
-$p>0$ なので $p$ で割れる。$z=0$ から $z$ まで積分すると
+静止等方圧力状態では $\rho>0$、また $c^2>0$ なので $p=c^2\rho>0$ であり、全区間で $p$ による除算と $\log p$ が許される。$s$ を積分変数とすると、連鎖律から
 
 $$
-\int_{p_0}^{p(z)}\frac{dq}{q}
-=-\frac g{c^2}\int_0^z ds
-\quad\Longrightarrow\quad
-\log\!\left(\frac{p(z)}{p_0}\right)=-\frac{gz}{c^2}.
+\frac{d}{ds}\log p(s)=\frac{p'(s)}{p(s)}
+=-\frac{g}{c^2}.
 $$
+
+したがって $s=0$ から $z$ まで積分し、$p(0)=p_0$ を代入すると
+
+$$
+\int_0^z\frac{p'(s)}{p(s)}\,ds
+=\log p(z)-\log p_0
+=-\frac g{c^2}\int_0^z ds
+=-\frac{gz}{c^2}.
+$$
+
+ここで左辺は $q=p(s)$ と置換した $\int_{p_0}^{p(z)}dq/q$ に等しい。したがって $\log(p(z)/p_0)=-gz/c^2$ である。
 
 指数を取って第一式を得る。次に $\rho=p/c^2$ を代入して第二式を得る。$[c^2/g]=(\mathrm{m^2/s^2})/(\mathrm{m/s^2})=\mathrm m$。指数の $gz/c^2$ は無次元である。$\square$
 <!-- proof-end -->

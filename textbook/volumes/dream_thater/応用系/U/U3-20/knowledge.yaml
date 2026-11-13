@@ -1,0 +1,35 @@
+chapter: U3-20
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-19, U3-18, U3-16, U3-14]
+concepts:
+  - id: finance.bsm-greeks-definition
+    name: Delta・Gamma・Vega・Theta・Rho
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Delta・Gamma・Vega・Theta・Rho）"]
+    requires: [finance.continuous-dividend-bsm-formula, finance.bsm-vanilla-delta]
+  - id: finance.bsm-greeks-dividend
+    name: 配当付き欧州型 call/put の Greeks
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（配当付き欧州型 call/put の Greeks）"]
+    requires: [finance.bsm-greeks-definition, finance.continuous-dividend-put-call-parity]
+  - id: finance.greeks-central-difference-error
+    name: 滑らかな価格に対する中心差分の局所誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな価格に対する中心差分の局所誤差）"]
+    requires: [finance.bsm-greeks-definition]
+  - id: finance.fixed-delta-hedge-pnl
+    name: 1区間固定デルタ・ヘッジ損益
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1区間固定デルタ・ヘッジ損益）"]
+    requires: [finance.bsm-greeks-dividend, finance.bsm-classical-replication]
+  - id: finance.bsm-discrete-hedge-error
+    name: 小区間デルタ・ヘッジ誤差の主項
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（小区間デルタ・ヘッジ誤差の主項）"]
+    requires: [finance.fixed-delta-hedge-pnl, finance.bsm-continuous-dividend, finance.gbm-real-moments]

@@ -1,0 +1,41 @@
+id: "FLUID3"
+title: "浮力と静水安定性をどう計算するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID2
+official_scope: []
+learning_objectives:
+  - "物体外法線と静水圧の圧力面積分からArchimedesの原理を導き、外圧・深さ・体積と符号を区別できる"
+  - "浮心を排除体積の積分で求め、圧力の合モーメントの作用線と質量重心を区別できる"
+  - "自由表面を貫く物体の正味浮力と鉛直釣合から吃水を計算し、支持力・異なる液体密度の場合の限界を説明できる"
+  - "小傾斜時の浸水くさびの一次モーメントから水線面二次モーメントとメタセンタ高さの式を導ける"
+  - "小傾斜の復元トルクの符号を具体数値で判定し、静的安定と動的安定・有限角度を区別できる"
+definitions:
+  - { id: FLUID3-DEF-01, name: "浮心" }
+  - { id: FLUID3-DEF-02, name: "横メタセンタ高さ" }
+theorems:
+  - { id: FLUID3-THM-01, name: "Archimedes の原理：完全水没" }
+  - { id: FLUID3-PROP-01, name: "静水圧合力の作用線" }
+  - { id: FLUID3-PROP-02, name: "部分浸水した物体の浮力" }
+  - { id: FLUID3-PROP-03, name: "自由浮体の鉛直釣合" }
+  - { id: FLUID3-THM-02, name: "小傾斜の復元トルク" }
+canonical_examples:
+  - "完全水没角柱の上下圧力差と排除体積から独立に浮力を検算"
+  - "直方体の排除液体積の体積積分で浮心を検算"
+  - "均質柱の密度比から吃水・乾舷を計算"
+  - "長方形水線面の断面二次モーメントを積分で導出"
+  - "直立浮体の小傾斜の復元性と重心上昇による不安定化"
+problem_patterns:
+  - FLUID3-HYDROSTATIC-SURFACE-FORCE
+  - FLUID3-APPARENT-WEIGHT-TETHER
+  - FLUID3-FREE-FLOAT-DRAFT
+  - FLUID3-CENTER-OF-BUOYANCY
+  - FLUID3-LAYERED-FLUID-BUOYANCY
+  - FLUID3-METACENTRIC-INTEGRAL
+  - FLUID3-WIDTH-THRESHOLD
+  - FLUID3-FLOAT-STABILITY-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 6, review: 2 }
