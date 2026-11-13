@@ -549,7 +549,7 @@ $I=2,J=1,Mgl=3$、$\theta=\pi/2$、$\dot\theta=1$、$\dot\phi=3$、$\dot\psi=4$ 
 <!-- solution-start -->
 ### 詳細解答
 
-$\cos(\pi/2)=0$、$\sin^2(\pi/2)=1$ より $u=\dot\psi+\dot\phi\cos\theta=4$ です。[二つの角運動量とエネルギーの保存定理](#thm-rbd11-momenta-energy)に代入して
+$\cos(\pi/2)=0$、$\sin^2(\pi/2)=1$ より $u=\dot\psi+\dot\phi\cos\theta=4$ です。[二つの保存運動量と全エネルギー](#thm-rbd11-momenta-energy)に代入して
 
 $$
 k=Ju=1\cdot4=4,\qquad
@@ -741,7 +741,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**1. 初期値から定数を構成する。** 初期の $\cos\theta=0,\sin^2\theta=1$ と、[本章の角運動量・エネルギー保存定理](#thm-rbd11-momenta-energy)により
+**1. 初期値から定数を構成する。** 初期の $\cos\theta=0,\sin^2\theta=1$ と、[二つの保存運動量と全エネルギー](#thm-rbd11-momenta-energy)により
 
 $$
 u(0)=\dot\psi(0)+\dot\phi(0)\cos\theta(0)=2,
