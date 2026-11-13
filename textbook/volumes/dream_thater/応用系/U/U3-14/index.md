@@ -54,7 +54,7 @@ $$
 > である。特に $P(S_t>0\text{ for every }t\in[0,T])=1$。
 <!-- formal-statement-end -->
 
-**見取り図**：$a=\mu-\sigma^2/2$ とおいて $F(t,x)=s_0e^{at+\sigma x}$ に Itô 公式を使います。$F_t$ が $aF$ を、Brown 運動の二次変分が $\sigma^2F/2$ を生み、両方を足すとちょうど $\mu F$ になります。解が複数ないことは、既習の大域 Lipschitz SDE 定理に係数を代入して確かめます。
+**見取り図**：$a=\mu-\sigma^2/2$ とおいて $F(t,x)=s_0e^{at+\sigma x}$ に [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) を使います。$F_t$ が $aF$ を、Brown 運動の二次変分が $\sigma^2F/2$ を生み、両方を足すとちょうど $\mu F$ になります。解が複数ないことは、[大域 Lipschitz SDE の強解の存在・経路ごとの一意性定理](../../../解析系/STO/STO9/index.md#thm-sto9-global-existence-uniqueness) に係数を代入して確かめます。
 
 <!-- proof-start -->
 ### 証明
@@ -364,7 +364,7 @@ $s_0=120$、$\mu=0.05$、$\sigma=0.30$、$T=1$ のとき $\log(S_1/s_0)$ の平�
 ### A2：正値性と拡散項の確認
 - Level: A
 
-$Y_t=50e^{0.01t+0.2W_t}$ とおく。Itô 公式から $dY_t$ を求め、どの時刻でも $Y_t>0$ となる理由を述べよ。
+$Y_t=50e^{0.01t+0.2W_t}$ とおく。[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) から $dY_t$ を求め、どの時刻でも $Y_t>0$ となる理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：$F(t,x)=50e^{0.01t+0.2x}$ とおくと、$F_t=0.01F$、$F_x=0.2F$、$F_{xx}=0.04F$ です。[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) に $X_t=W_t$ を代入して
