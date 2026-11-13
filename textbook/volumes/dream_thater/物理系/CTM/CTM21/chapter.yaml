@@ -1,0 +1,52 @@
+id: "CTM21"
+title: "成長を単なる弾性変形と区別するには"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM20
+official_scope: []
+learning_objectives:
+  - "物質領域の質量源を含む積分収支を物質・空間の局所式へ導き、密度と体積倍率の違いを説明できる"
+  - "乗法的成長分解F=FeFgを追加の構成仮定として導入し、弾性・成長倍率と観測者回転を検算できる"
+  - "一定自然密度の仮定の下で、三次元等方成長の質量源と現在密度を導出できる"
+  - "成長体積当たりエネルギーから基準体積エネルギーと第一Piola応力を方向微分で導ける"
+  - "一次元の自由成長・両端固定・非一様成長の変位、応力、境界力を符号と単位込みで解ける"
+  - "結合した二層の残留応力と、三次元の非整合成長場を別の機構として判定できる"
+  - "成長による弾性蓄積率を計算し、物質供給と化学エネルギーの未規定部分を区別できる"
+definitions:
+  - { id: CTM21-DEF-01, name: "物質領域の質量源" }
+  - { id: CTM21-DEF-02, name: "乗法的成長分解" }
+  - { id: CTM21-DEF-03, name: "成長体積を介する弾性エネルギー" }
+theorems:
+  - { id: CTM21-THM-01, name: "質量源を含む物質・空間局所収支" }
+  - { id: CTM21-PROP-01, name: "成長分解の体積倍率と観測者回転" }
+  - { id: CTM21-PROP-02, name: "一定自然密度の成長則と質量源" }
+  - { id: CTM21-THM-02, name: "成長エネルギーの第一 Piola–Kirchhoff 応力" }
+  - { id: CTM21-PROP-03, name: "軸成長棒の自由伸長と拘束反力" }
+  - { id: CTM21-PROP-04, name: "一次元の非一様成長は自由なら無応力にできる" }
+  - { id: CTM21-PROP-05, name: "結合した二層の自己平衡応力" }
+  - { id: CTM21-PROP-06, name: "積分できない三次元成長場" }
+  - { id: CTM21-PROP-07, name: "一次元成長に伴う蓄積率" }
+canonical_examples:
+  - "固定体積へ加える質量から基準・現在の供給率を照合する"
+  - "三次元等方成長と軸のみの成長でJgの違いを行列式で確かめる"
+  - "自然長と固定長で弾性倍率・境界反力の符号を直接検算する"
+  - "空間的に異なる成長を一自由棒なら無応力化できる反例"
+  - "並列結合棒で張力と圧縮が釣り合う残留応力を検算する"
+  - "成長場の混合偏微分の矛盾から非整合を検出する"
+  - "固定棒の弾性蓄積と供給機構の必要性を算出する"
+problem_patterns:
+  - CTM21-GROWTH-MATRIX
+  - CTM21-ISOTROPIC-MASS-SOURCE
+  - CTM21-CONSTRAINED-REACTION
+  - CTM21-FREE-INHOMOGENEOUS
+  - CTM21-GROWTH-ENERGY
+  - CTM21-CLAMPED-DENSITY
+  - CTM21-DOUBLE-LAYER-RESIDUAL
+  - CTM21-INCOMPATIBLE-GROWTH
+  - CTM21-ACTIVE-VS-GROWTH-SIGN
+  - CTM21-COUPLED-MASS-WORK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 4 }

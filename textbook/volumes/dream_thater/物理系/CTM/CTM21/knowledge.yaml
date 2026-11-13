@@ -1,0 +1,69 @@
+chapter: CTM21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM20
+concepts:
+  - id: continuum.growth-mass-source
+    name: 物質領域の質量源
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（物質領域の質量源）"]
+    requires: [continuum.reference-current-mass-density, continuum.material-reynolds-transport]
+  - id: continuum.growth-source-balance
+    name: 質量源を含む物質・空間局所収支
+    kind: theorem
+    introduction: formal
+    requires: [continuum.growth-mass-source, continuum.material-reynolds-transport, continuum.jacobian-rate]
+  - id: continuum.multiplicative-growth-split
+    name: 乗法的成長分解
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（乗法的成長分解）"]
+    requires: [continuum.deformation-gradient, continuum.hyperelastic-reference-energy]
+  - id: continuum.growth-volume-objectivity
+    name: 成長分解の体積倍率と観測者回転
+    kind: proposition
+    introduction: formal
+    requires: [continuum.multiplicative-growth-split, continuum.observer-objectivity]
+  - id: continuum.growth-natural-density
+    name: 一定自然密度の成長則と質量源
+    kind: proposition
+    introduction: formal
+    requires: [continuum.growth-source-balance, continuum.growth-volume-objectivity]
+  - id: continuum.growth-reference-energy
+    name: 成長体積を介する弾性エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（成長体積を介する弾性エネルギー）"]
+    requires: [continuum.multiplicative-growth-split, continuum.hyperelastic-reference-energy]
+  - id: continuum.growth-piola-stress
+    name: 成長エネルギーの第一 Piola–Kirchhoff 応力
+    kind: theorem
+    introduction: formal
+    requires: [continuum.growth-reference-energy, continuum.first-piola-kirchhoff-stress]
+  - id: continuum.growth-free-clamped
+    name: 軸成長棒の自由伸長と拘束反力
+    kind: proposition
+    introduction: formal
+    requires: [continuum.growth-piola-stress, continuum.elastic-dirichlet-boundary]
+  - id: continuum.growth-heterogeneous-free
+    name: 一次元の非一様成長は自由なら無応力にできる
+    kind: proposition
+    introduction: formal
+    requires: [continuum.growth-free-clamped]
+  - id: continuum.growth-parallel-residual
+    name: 結合した二層の自己平衡応力
+    kind: proposition
+    introduction: formal
+    requires: [continuum.growth-free-clamped]
+  - id: continuum.growth-incompatibility
+    name: 積分できない三次元成長場
+    kind: proposition
+    introduction: formal
+    requires: [continuum.multiplicative-growth-split]
+  - id: continuum.growth-power-storage
+    name: 一次元成長に伴う蓄積率
+    kind: proposition
+    introduction: formal
+    requires: [continuum.growth-reference-energy, continuum.growth-free-clamped, continuum.active-chemical-dissipation]
