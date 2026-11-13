@@ -311,11 +311,16 @@ $$
 $$
 なので各ブロックが一致します。一般の有界 $\Delta_n$ は区間 $[1/n,n]$ 上で階段関数により作用素ノルム近似でき、指数関数・平方根・積分の収束は $|k_\theta|$ を支配関数として示せます。
 
-一意性は $Z$ が $\Delta_nZ+\lambda Z\Delta_n=0$ を満たすとき、$c=e^{-i\theta/2}$ として
+一意性も導関数を実際に計算して確認します。$Z$ が $\Delta_nZ+\lambda Z\Delta_n=0$ を満たすとし、$c=e^{-i\theta/2}$、$s\ge0$ を実数の補助パラメータと置きます。$\Delta_n$ は有界なので指数作用素を作用素ノルムで微分でき、積の微分法則と指数作用素が $\Delta_n$ と可換であることから
 $$
-\frac d{ds}\left(e^{-cs\Delta_n}Ze^{-c\lambda s\Delta_n}\right)=0
+\begin{aligned}
+\frac d{ds}\left(e^{-cs\Delta_n}Ze^{-c\lambda s\Delta_n}\right)
+&=-c\,e^{-cs\Delta_n}\Delta_nZe^{-c\lambda s\Delta_n}
+-c\lambda\,e^{-cs\Delta_n}Z\Delta_ne^{-c\lambda s\Delta_n}\\
+&=-c\,e^{-cs\Delta_n}(\Delta_nZ+\lambda Z\Delta_n)e^{-c\lambda s\Delta_n}=0.
+\end{aligned}
 $$
-である一方、$\operatorname{Re}c=\operatorname{Re}(c\lambda)=\cos(\theta/2)>0$ により $s\to\infty$ で両指数が零に収束することから従います。$E_nYE_n\to Y$ は強収束で、半べきも $\mathcal D$ 上でグラフ収束するので、切断を外せます。
+従って括弧内は $s$ に依らず $Z$ に等しい。一方 $\operatorname{Re}c=\operatorname{Re}(c\lambda)=\cos(\theta/2)>0$ と $\Delta_n\ge n^{-1}I$ より、両指数のノルムは $e^{-s\cos(\theta/2)/n}$ 以下で $s\to\infty$ に零へ収束します。ゆえに $Z=0$ です。$E_nYE_n\to Y$ は強収束で、半べきも $\mathcal D$ 上でグラフ収束するので、切断を外せます。
 <!-- proof-end -->
 
 以上の二補題から、$b\in\mathcal M'$ と対応する $a$ に対し
@@ -427,7 +432,7 @@ $$
 
 無限次元の確認例として、Hilbert–Schmidt空間 $\mathsf{HS}(\ell^2)$ 上の左乗算 $\mathcal M=L(B(\ell^2))$ と、忠実で零へ減衰する $\rho$、$\Omega=\rho^{1/2}$ を取ります。このとき $J(X)=X^*$ です。
 
-$JL_AJ=R_{A^*}$ は有界です。$T\in L(B(\ell^2))'$ がなぜ有界右乗算になるかも確かめます。行列単位 $E_{kl}$ に対し、$L_{E_{ij}}E_{kl}=\delta_{jk}E_{il}$ です。$T$ とすべての $L_{E_{ij}}$ の交換性を用いると、$j\ne k$ では $L_{E_{ij}}T(E_{kl})=0$ なので $T(E_{kl})$ の行は第 $k$ 行だけに限られ、$j=k$ では
+$JL_AJ=R_{A^*}$ は有界です。$T\in L(B(\ell^2))'$ がなぜ有界右乗算になるかも確かめます。標準基底 $e_j$ に対し $E_{kl}e_j=\delta_{lj}e_k$ と定めた行列単位を用いると、$L_{E_{ij}}E_{kl}=\delta_{jk}E_{il}$ です。$T$ とすべての $L_{E_{ij}}$ の交換性を用いると、$j\ne k$ では $L_{E_{ij}}T(E_{kl})=0$ なので $T(E_{kl})$ の行は第 $k$ 行だけに限られ、$j=k$ では
 $$
 T(E_{il})=L_{E_{ik}}T(E_{kl})
 =\sum_n c_{ln}E_{in}.
