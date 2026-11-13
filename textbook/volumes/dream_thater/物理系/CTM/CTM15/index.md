@@ -8,7 +8,7 @@
 
 三次元 Euclid 空間内の時変領域 $\Omega_t$ 上で、[CTM1 の運動写像](../CTM1/index.md#def-ctm1-motion-configuration)から得た速度 $v(x,t)$ と密度 $\rho(x,t)>0$ を考える。速度は時間 $C^1$・空間 $C^2$ 級、密度は時間・空間 $C^1$ 級、圧力と粘性係数は必要な空間 $C^1$ 級とし、局所計算する点の近傍で各場は滑らかとする。境界条件を扱うときは平らな壁と連続な速度の境界値を仮定する。
 
-[CTM4 の速度勾配・変形速度テンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)と [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を用いる。
+[CTM4 の速度勾配・変形速度テンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)と [VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を用いる。直交座標の基底を $e_1,e_2,e_3$ とし、$x=(x_1,x_2,x_3)$ における速度の第 $i$ 成分を $v_i$ と書く。$i,j,k\in\{1,2,3\}$ とし、反復する添字は総和を表す。$\partial_j=\partial/\partial x_j$ は空間偏微分で、$\partial_t$ は**現在位置 $x$ を固定した**時間偏微分である。
 
 $$
 L_{ij}=\partial_jv_i,\qquad
@@ -17,7 +17,15 @@ D=\frac{L+L^T}{2},\qquad
 D_tv=\partial_tv+(v\cdot\nabla)v.
 $$
 
-$\partial_j=\partial/\partial x_j$、添字 $i,j,k\in\{1,2,3\}$ は直交座標成分で、反復添字は和とする。$I=I_3$、$A:B=\sum_{i,j}A_{ij}B_{ij}$、$|A|^2=A:A$ とする。$\Delta v$ は **成分ごとの Laplace 演算子**、すなわち $(\Delta v)_i=\sum_j\partial_j^2v_i$ を意味する。
+$D_t$ は粒子を追って測る物質微分であり、$\partial_t$ とは一般に異なる。固定した物質ラベル $X$ について $x=\chi(X,t)$ と置けば、$\dot\chi(X,t)=v(\chi(X,t),t)$ と連鎖律から
+
+$$
+\frac{d}{dt}v(\chi(X,t),t)
+=\bigl(\partial_tv+v_j\partial_jv\bigr)(\chi(X,t),t)
+=D_tv(\chi(X,t),t).
+$$
+
+$I=I_3$、$A:B=\sum_{i,j}A_{ij}B_{ij}$、$|A|^2=A:A$ とする。また、後で用いる Kronecker の記号は $\delta_{ij}=1$（$i=j$）、$\delta_{ij}=0$（$i\ne j$）とする。$\Delta v$ は **成分ごとの Laplace 演算子**、すなわち $(\Delta v)_i=\sum_j\partial_j^2v_i$ を意味する。
 
 - $x$: m、$t$: s、$v$: m/s、$D,\theta$: s$^{-1}$、$\rho$: kg/m$^3$。
 - $\sigma$, 圧力 $p$, 偏差応力 $\tau$: Pa = N/m$^2$。動粘性係数ではなく**粘性係数** $\eta$: Pa s、体積粘性係数 $\zeta$: Pa s。
@@ -75,7 +83,7 @@ $$
 <!-- definition-example-start: def-ctm15-deviatoric-rate -->
 ### **定義の確認**：等方膨張と平面せん断
 
-$v=(a x_1,a x_2,a x_3)$（$a$ は s$^{-1}$）では $L=D=aI$、$\theta=3a$ なので $D^\circ=aI-(3a/3)I=0$。一様に体積を増やす運動は、偏差変形を作らない。一方 $v=(\gamma x_2,0,0)$ では
+$v=(a x_1,a x_2,a x_3)$（$a$ は s$^{-1}$）では $L=D=aI$、$\theta=3a$ なので $D^\circ=aI-(3a/3)I=0$。一様に体積を増やす運動は、偏差変形を作らない。一方 $v=(\gamma x_2,0,0)$（$\gamma$ の単位は s$^{-1}$）では、$L_{12}=\partial_2v_1=\gamma$ 以外の速度勾配成分が零なので、その対称部分 $D=(L+L^T)/2$ は
 
 $$
 D=\frac{\gamma}{2}
@@ -121,7 +129,7 @@ $$
 <!-- definition-example-start: def-ctm15-newtonian-fluid -->
 ### **定義の確認**：二枚の板の間を流れる液体
 
-$0\le y\le h$ の流体について $v=(Uy/h,0,0)$、$U$ は m/s、$h>0$ は m、$p=p_0$ とする。前節のせん断の例で $\gamma=U/h$ と置けば $\theta=0$ だから、
+$0\le y\le h$ の流体について $v=(Uy/h,0,0)$、$U$ は m/s、$h>0$ は m、$p=p_0$ とし、$\eta>0$、$\zeta\ge0$ を選ぶ。ここで $y=x_2$ であり、直交基底 $e_1,e_2,e_3$ での速度勾配は $L_{12}=\partial_yv_1=U/h$ 以外が零である。[変形速度の定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)で対称部分を取ると $D_{12}=D_{21}=U/(2h)$、$\theta=0$、$D^\circ=D$ となる。したがって [Newton 構成則](#def-ctm15-newtonian-fluid)の非対角成分は $\sigma_{12}=\sigma_{21}=2\eta D_{12}=\eta U/h$ であり、等方成分は $-p_0I$ なので、
 
 $$
 \sigma=
@@ -371,7 +379,16 @@ $$
 \end{aligned}
 $$
 
-従って第一式が得られる。非圧縮と質量保存から $D_t\rho=0$。初期密度 $\rho_*$ が全物質点で同一なら、各物質軌道について常微分方程式 $d\rho(\chi(X,t),t)/dt=0$ を積分して $\rho(\chi(X,t),t)=\rho_*$、空間全体でも一定となる。最後に $\rho_*>0$ で割れば第二式が得られる。$\square$
+従って第一式が得られる。非圧縮と質量保存から $D_t\rho=0$。初期密度 $\rho_*$ が全物質点で同一なら、物質ラベル $X$ を固定して $x=\chi(X,t)$ に沿って連鎖律を適用する。
+
+$$
+\frac{d}{dt}\rho(\chi(X,t),t)
+=\partial_t\rho(\chi(X,t),t)
++\dot\chi(X,t)\cdot\nabla_x\rho(\chi(X,t),t)
+=D_t\rho(\chi(X,t),t)=0.
+$$
+
+初期時刻から積分して $\rho(\chi(X,t),t)=\rho_*$ を得る。運動写像の像である現在領域全体で密度は一定であり、最後に $\rho_*>0$ で割れば第二式が得られる。$\square$
 <!-- proof-end -->
 
 この式は、流体の**運動量収支**と**構成則**の合成である。解の存在・滑らかさをここで保証したわけではない。また非圧縮でも $\eta=\eta(x,t)$ なら
@@ -466,6 +483,8 @@ $$
 
 特記がなければ三次元、直交デカルト座標、$\eta>0$ とする。速度・圧力・体積力は問題文の仮定を満たすだけ滑らかである。答えに使用する運動量式、非圧縮条件、境界条件を明記し、応力の成分と単位を確認せよ。
 
+以降、$y=x_2$ だけに依存する関数 $g(y),u(y),\eta(y)$ などのプライム記号 $g'(y),u'(y),\eta'(y)$ は **$y$ による常微分** $d/dy$ を表し、$u''(y)=d^2u/dy^2$ とする。例えば $v=(u(y),0,0)$ なら $\partial_2v_1=u'(y)$、$\partial_2^2v_1=u''(y)$ である。$\partial_t$ は空間位置を固定し、$D_t$ は物質点を追う微分なので、定常流で $\partial_tv=0$ でも移流項 $(v\cdot\nabla)v$ は別に確認する。
+
 ### Level A
 
 ### A1. 単純せん断の応力と traction
@@ -477,14 +496,19 @@ $v=(a x_2,0,0)$、$a$ は s$^{-1}$ の定数、$p=p_0$、$\eta$ 一定とする�
 <!-- solution-start -->
 #### 詳細解答
 
-$L_{12}=\partial_2v_1=a$ 以外の $L$ 成分は零なので
+$L_{12}=\partial_2v_1=a$ 以外の $L$ 成分は零なので、[変形速度の定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)を用いて
 
 $$
-D_{12}=D_{21}=a/2,\quad \theta=0,\quad
+D_{12}=D_{21}=a/2,\qquad \theta=0.
+$$
+
+このため [非圧縮 Newton 応力](#def-ctm15-incompressible-newtonian)は
+
+$$
 \sigma=\begin{pmatrix}-p_0&\eta a&0\\\eta a&-p_0&0\\0&0&-p_0\end{pmatrix}.
 $$
 
-[非圧縮 Newton 応力](#def-ctm15-incompressible-newtonian)を用いた。$t(e_2)=\sigma e_2=(\eta a,-p_0,0)^T$。$D:D=2(a/2)^2=a^2/2$ なので [粘性散逸定理](#thm-ctm15-viscous-dissipation)から $\tau:D=2\eta(a^2/2)=\eta a^2$（W/m$^3$）である。
+[CTM6 の traction](../CTM6/index.md#def-ctm6-traction)より、$t(e_2)=\sigma e_2=(\eta a,-p_0,0)^T$。$D:D=2(a/2)^2=a^2/2$ なので [粘性散逸定理](#thm-ctm15-viscous-dissipation)から $\tau:D=2\eta(a^2/2)=\eta a^2$（W/m$^3$）である。
 <!-- solution-end -->
 
 ### A2. 等方膨張ではどちらの粘性が働くか
@@ -608,7 +632,7 @@ $0<y<h$ の非圧縮 Newton 流体で $\rho,\eta$ 一定、$b=0$、$p=p_0$、$v=
 
 $\operatorname{div}v=0$、$\partial_tv=0$、$(v\cdot\nabla)v=u(y)\partial_1v=0$、$\Delta v=(u''(y),0,0)$。よって [非圧縮 Navier–Stokes 式](#thm-ctm15-incompressible-navier-stokes)の第1成分は $\eta u''=0$。積分して $u(y)=Ay+B$、壁条件から $B=0$、$A=U/h$。従って $u=Uy/h$ である。
 
-$D_{12}=D_{21}=U/(2h)$ より上側の外向き法線 $e_2$ に働く流体への接線 traction は $\sigma_{12}=\eta U/h$。上壁の流体への仕事率は $(\eta U/h)U$（W/m$^2$）。一方 [粘性散逸](#thm-ctm15-viscous-dissipation)を高さで積分すると
+$D_{12}=D_{21}=U/(2h)$ より、[CTM6 の traction](../CTM6/index.md#def-ctm6-traction)で上側の流体領域の外向き法線を $e_2$ とすると、$t(e_2)=\sigma e_2$ の接線成分は $\sigma_{12}=\eta U/h$ である。上壁の流体への仕事率は $(\eta U/h)U$（W/m$^2$）。一方 [粘性散逸](#thm-ctm15-viscous-dissipation)を高さで積分すると
 
 $$
 \int_0^h2\eta D:D\,dy
@@ -714,7 +738,7 @@ $$
 =T[u(h)-u(0)]=TU.
 $$
 
-上壁の速度が $Ue_1$ で、そこに働く接線 traction が $Te_1$ だから供給仕事率も $TU$（W/m$^2$）。$T$ と $U$ は同符号なので $TU\ge0$。
+上壁の速度が $Ue_1$ で、[CTM6 の traction](../CTM6/index.md#def-ctm6-traction)の接線成分が $Te_1$ だから、壁から流体への供給仕事率も $TU$（W/m$^2$）。$T$ と $U$ は同符号なので $TU\ge0$。
 
 最後に $\log(1+z)/z\to1$（$z\to0$）を用いると、
 
