@@ -376,7 +376,7 @@ $$
 
 ### 証明の見取り図
 
-エネルギー中の歳差速度を $h,k$ で消去し、残る非負の運動エネルギーから許容不等式を得ます。二階の式は、単にエネルギー式を $\dot\theta$ で割るのではなく、Euler–Lagrange方程式を使って静止点でも正当化します。
+エネルギー中の歳差速度を $h,k$ で消去し、残る非負の運動エネルギーから許容不等式を得ます。二階の式は、単にエネルギー式を $\dot\theta$ で割るのではなく、[Lagrange方程式](../../AMECH/AMECH2/index.md#thm-amech2-lagrange-equations)を使って静止点でも正当化します。
 
 <!-- proof-start -->
 ### 証明
@@ -399,7 +399,7 @@ $$
 -Ju\dot\phi\sin\theta+Mgl\sin\theta.
 $$
 
-[AMECH2のLagrange方程式](../../AMECH/AMECH2/index.md#thm-amech2-lagrange-conservative)より
+[AMECH2のLagrange方程式](../../AMECH/AMECH2/index.md#thm-amech2-lagrange-equations)より
 
 $$
 I\ddot\theta=I\dot\phi^2\sin\theta\cos\theta
