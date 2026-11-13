@@ -61,7 +61,7 @@ e^{-H_0}=\rho,\qquad
 \operatorname{Tr}(e^{-H_0})=1.
 $$
 
-したがって逆温度1、分配関数1として次のGibbs定理の仮定を満たします。
+したがって $\beta=1$、$Z_1=\operatorname{Tr}(e^{-H_0})=1$ と取れば、[AQFT24のGibbs状態の定義](../AQFT24/index.md#def-aqft24-gibbs)の仮定を満たし、次のKMS定理を適用できます。
 
 任意の $A,B$ について[AQFT24の有限次元KMS定理](../AQFT24/index.md#thm-aqft24-gibbs-kms)が与える
 
