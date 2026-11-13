@@ -25,3 +25,4 @@
 22. [AQFT22 Tomitaの可換子定理](textbook/volumes/dream_thater/解析系/AQFT/AQFT22/index.md)
 23. [AQFT23 Takesakiのモジュラー不変性](textbook/volumes/dream_thater/解析系/AQFT/AQFT23/index.md)
 24. [AQFT24 Gibbs状態とKMSの帯解析](textbook/volumes/dream_thater/解析系/AQFT/AQFT24/index.md)
+25. [AQFT25 一般モジュラーKMS定理](textbook/volumes/dream_thater/解析系/AQFT/AQFT25/index.md)
