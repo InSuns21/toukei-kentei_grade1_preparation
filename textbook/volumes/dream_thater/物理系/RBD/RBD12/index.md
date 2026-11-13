@@ -170,7 +170,30 @@ $$
 <!-- formal-statement-start -->
 ### 定義（章動と転回点）
 
-[RBD11の重い対称こま](../RBD11/index.md#def-rbd11-heavy-top)の運動で $0<\theta(t)<\pi$ の範囲において $\theta(t)$ が時間に依存して変化することを**章動**という。特に、二つの角度 $\theta_-<\theta_+$ を端点とする閉区間 $[\theta_-,\theta_+]\subset(0,\pi)$ 内で、傾きが進む向きを両端で反転させて往復するものを**往復章動**という。この反転が生じる傾き $\theta_\pm$ を**転回点**と呼ぶ。転回時には $\dot\theta=0$ であり、[傾きのエネルギー式](../RBD11/index.md#thm-rbd11-reduced-theta)から $V(\theta_\pm)=\varepsilon$ が必要である。しかし $\dot\theta=0$ や $V(\theta)=\varepsilon$ だけでは反転は保証されない。例えば $V'(\theta_\pm)\ne0$ なら $I\ddot\theta=-V'(\theta_\pm)$ の符号で反転方向を判定できるが、$V'=0$ の平衡解は転回点と混同しない。
+[RBD11の重い対称こま](../RBD11/index.md#def-rbd11-heavy-top)の正則域 $0<\theta(t)<\pi$ の運動で、傾き $\theta(t)$ が時間に依存して変化することを**章動**という。
+
+特に、次を満たす二つの角度を定め、傾きがその区間内で両端に達するたび進む向きを反転する運動を**往復章動**という。
+
+$$
+0<\theta_-<\theta_+<\pi,\qquad
+\theta(t)\in[\theta_-,\theta_+].
+$$
+
+反転が起こるときの傾き $\theta_\pm$ を**転回点**と呼ぶ。反転時刻を $t_\pm$ と書けば、[RBD11の傾きのエネルギー式](../RBD11/index.md#thm-rbd11-reduced-theta)により必ず
+
+$$
+\theta(t_\pm)=\theta_\pm,\qquad
+\dot\theta(t_\pm)=0,\qquad
+V(\theta_\pm)=\varepsilon
+$$
+
+が成り立つ。逆に、傾き速度が零という条件やエネルギーの等号だけでは、反転は保証されない。反転方向は[傾きの二階方程式](../RBD11/index.md#thm-rbd11-reduced-theta)
+
+$$
+I\ddot\theta(t_\pm)=-V'(\theta_\pm)
+$$
+
+から判定する。左端で $V'(\theta_-)<0$、右端で $V'(\theta_+)>0$ なら、それぞれ内側へ加速する。一方、$V'(\theta_\pm)=0$ かつ $\dot\theta=0$ の初期値は正則域で平衡解となり、往復章動の転回点とは区別する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-rbd12-nutation -->
