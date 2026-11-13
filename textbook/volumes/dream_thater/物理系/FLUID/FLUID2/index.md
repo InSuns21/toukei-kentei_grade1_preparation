@@ -34,11 +34,11 @@ $$
 
 なぜ単位行列で面力を判定できるのか。[Cauchy の応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)によって面の外法線 $n=(n_1,n_2,n_3)$ に対する表面力密度は $\sigma n$ であり、直交基底で行列の各成分は $\sigma_{ij}=-p_0\delta_{ij}$ である。したがって、任意の単位法線 $|n|=1$ に対して
 
-$
+$$
 t_i(\boldsymbol r,n)=\sum_{j=1}^3\sigma_{ij}n_j
 =-p_0\sum_{j=1}^3\delta_{ij}n_j=-p_0n_i
 \qquad(i=1,2,3).
-$
+$$
 
 特に水平上面の $n=e_z$ では $t=-2.0\times10^5e_z$ Pa、下面の $n=-e_z$ では $t=+2.0\times10^5e_z$ Pa、右側面の $n=e_x$ では $t=-2.0\times10^5e_x$ Pa である。任意の向きで $t=-p_0n$ が成り立ち、接線成分も零なので、定義の速度零・密度正・等方応力の各条件を確認した。ただし一定圧力なら $\nabla p=0$ だから、$g>0$ の重力下では $\rho b=-\rho ge_z\ne0$ と釣り合わない。**定義を満たすことと静水圧の平衡条件を満たすことは別**である。
 <!-- definition-example-end -->
@@ -155,11 +155,11 @@ $$
 
 水面を $z=0$ とし、下向き深さを $h=-z\ge0$ と書く。水平位置 $(x_0,y_0)$ を固定すると $z=-h$ なので、連鎖律と [静水圧方程式](#thm-fluid2-hydrostatic-balance)により
 
-$
+$$
 \frac{d}{dh}p(x_0,y_0,-h)
 =-\frac{\partial p}{\partial z}(x_0,y_0,-h)
 =\rho(x_0,y_0,-h)g.
-$
+$$
 
 以下では深さを引数とする $p(h),\rho(h)$ はそれぞれ左辺の $p(x_0,y_0,-h)$ と $\rho(x_0,y_0,-h)$ の略記とする。密度を $\rho(h)=\rho_0(1+\alpha h)$、$\rho_0>0$、$\alpha\ge0$（単位 m$^{-1}$）と仮定する。深さの微分は $dp/dh=\rho(h)g$ だから
 
@@ -283,19 +283,19 @@ $$
 
 静止等方圧力状態では $\rho>0$、また $c^2>0$ なので $p=c^2\rho>0$ であり、全区間で $p$ による除算と $\log p$ が許される。$s$ を積分変数とすると、連鎖律から
 
-$
+$$
 \frac{d}{ds}\log p(s)=\frac{p'(s)}{p(s)}
 =-\frac{g}{c^2}.
-$
+$$
 
 したがって $s=0$ から $z$ まで積分し、$p(0)=p_0$ を代入すると
 
-$
+$$
 \int_0^z\frac{p'(s)}{p(s)}\,ds
 =\log p(z)-\log p_0
 =-\frac g{c^2}\int_0^z ds
 =-\frac{gz}{c^2}.
-$
+$$
 
 ここで左辺は $q=p(s)$ と置換した $\int_{p_0}^{p(z)}dq/q$ に等しい。したがって $\log(p(z)/p_0)=-gz/c^2$ である。
 
