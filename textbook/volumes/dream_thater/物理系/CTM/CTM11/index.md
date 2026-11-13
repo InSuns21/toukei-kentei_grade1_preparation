@@ -34,7 +34,7 @@ $$
 
 である。これは無次元の実対称 $3\times3$ 行列で、有限ひずみとの関係は $E=\varepsilon+\tfrac12(\nabla_Xu)^T\nabla_Xu$ である。
 
-### 定義の確認：引張りと微小回転
+### **定義の確認**：引張りと微小回転
 
 $u(X)=(aX_1,bX_2,0)$ とすると $\nabla_Xu=\operatorname{diag}(a,b,0)$、$\varepsilon=\operatorname{diag}(a,b,0)$ となる。対称性と各成分を定義から直接検査できる。一方 $u(X)=\omega(-X_2,X_1,0)$ では
 
@@ -74,7 +74,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm11-isotropic-linear-elastic -->
-### 定義の確認：回しても変わらない二次エネルギー
+### **定義の確認**：回しても変わらない二次エネルギー
 
 $\mu>0,K>0$ を Pa 単位の定数とし、$\theta=\operatorname{tr}\varepsilon$、$\varepsilon_{\rm dev}=\varepsilon-\theta I_3/3$ と置いて
 
@@ -168,7 +168,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm11-bulk-modulus -->
-### 定義の確認：体積伸びと純せん断
+### **定義の確認**：体積伸びと純せん断
 
 $\varepsilon=\alpha I_3$（$\alpha$ は小さい無次元定数）なら $\theta=3\alpha$、$\varepsilon_{\rm dev}=0$。Hooke 則は $\sigma=(3\lambda+2\mu)\alpha I_3=K\theta I_3$、エネルギーは $W=K\theta^2/2$ となる。逆に $\varepsilon_{12}=\varepsilon_{21}=\gamma/2$ だけが非零なら $\theta=0$、$\varepsilon_{\rm dev}=\varepsilon$、$W=\mu\gamma^2/2$、$\sigma_{12}=\mu\gamma$。それぞれ係数 $K$ と $\mu$ の役割を直接確認した。
 <!-- definition-example-end -->
@@ -241,7 +241,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm11-young-poisson -->
-### 定義の確認：側面が自由な棒
+### **定義の確認**：側面が自由な棒
 
 例えば $\lambda=\mu=p>0$（Pa）なら $3\lambda+2\mu=5p$。後述の逆 Hooke 則により $s>0$ に対し $\varepsilon_{11}=2s/(5p)$、$\varepsilon_{22}=\varepsilon_{33}=-s/(10p)$ であり、$E_Y=5p/2$、$\nu=1/4$。このひずみを応力則に戻せば跡は $s/(5p)$ なので $\sigma_{11}=p(s/(5p))+2p(2s/(5p))=s$、$\sigma_{22}=p(s/(5p))+2p(-s/(10p))=0$。側面零応力も含めて定義を直接検査した。
 <!-- definition-example-end -->
