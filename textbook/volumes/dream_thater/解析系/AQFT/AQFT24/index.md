@@ -65,7 +65,7 @@ $$
 
 ## 2. KMS条件：複素時間の帯の両端を比較する
 
-実時間の一パラメータ自己同型群 $\alpha_t$ と状態 $\omega$ を考えます。複素数 $z=t+iy$ に対し $t=\operatorname{Re}z$、$y=\operatorname{Im}z$ と書きます。**帯**とは実部を制限せず虚部だけを $0\le y\le1$ とする領域です。帯の内部で複素微分可能な関数を、その帯で正則と呼びます。
+実時間ごとに $*$-自己同型 $\alpha_t$ が作用し、$\alpha_{t+s}=\alpha_t\circ\alpha_s$、$\alpha_0=\operatorname{id}$ を満たす系と、その状態 $\omega$ を考えます。ここで強連続とは、各 $A$ について $\|\alpha_t(A)-A\|\to0$（$t\to0$）となることです。複素数 $z=t+iy$ に対し $t=\operatorname{Re}z$、$y=\operatorname{Im}z$ と書きます。**帯**とは実部を制限せず虚部だけを $0\le y\le1$ とする領域です。帯の内部で複素微分可能な関数を、その帯で正則と呼びます。
 
 重要な注意は、一般の自己同型 $\alpha_t$ を複素 $z$ にそのまま代入できるとは限らないことです。そこで、KMS条件は「各二元 $A,B$ に対し**相関関数の解析的延長が存在する**」という形で書きます。有限行列なら後で $\alpha_z$ 自体を直接定義できます。
 
@@ -73,7 +73,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（逆温度1の上側帯KMS条件）**  
-> 単位的C*環 $\mathcal A$ の強連続な一パラメータ $*$-自己同型群 $\alpha_t$ と状態 $\omega$ に対し、任意の $A,B\in\mathcal A$ に、閉帯 $0\le\operatorname{Im}z\le1$ 上で有界・連続、開帯 $0<\operatorname{Im}z<1$ 上で正則な複素数値関数 $F_{A,B}$ が存在し、
+> 単位的C*環 $\mathcal A$ の強連続な一パラメータ $*$-自己同型作用 $\alpha_t$（$\alpha_{t+s}=\alpha_t\circ\alpha_s$、$\alpha_0=\operatorname{id}$）と状態 $\omega$ に対し、任意の $A,B\in\mathcal A$ に、閉帯 $0\le\operatorname{Im}z\le1$ 上で有界・連続、開帯 $0<\operatorname{Im}z<1$ 上で正則な複素数値関数 $F_{A,B}$ が存在し、
 $$
 F_{A,B}(t)=\omega(\alpha_t(A)B),
 $$
@@ -559,6 +559,6 @@ $$
 
 ## 8. 次講への橋
 
-有限次元では正の $\rho$ の逆とトレースの巡回性がKMS境界条件の証明を一行ずつ支えました。一般の[AQFT23のモジュラー自己同型群](../AQFT23/index.md#def-aqft23-modular-flow)は、通常の密度行列やトレースを仮定せずに存在します。次の AQFT25 では、その一般群について複素帯の解析的元を用いKMS境界を構成します。有限行列で証明したことと一般の定理でこれから証明すべきことを混同しないでください。
+有限次元では正の $\rho$ の逆とトレースの巡回性がKMS境界条件の証明を一行ずつ支えました。一般の[AQFT23のモジュラー時間発展](../AQFT23/index.md#def-aqft23-modular-flow)は、通常の密度行列やトレースを仮定せずに存在します。次の AQFT25 では、その一般群について複素帯の解析的元を用いKMS境界を構成します。有限行列で証明したことと一般の定理でこれから証明すべきことを混同しないでください。
 
 参考：O. Bratteli and D. W. Robinson, *Operator Algebras and Quantum Statistical Mechanics II*（KMS条件）；S. J. Summers, [Tomita–Takesaki Modular Theory](https://arxiv.org/abs/math-ph/0511034)（モジュラー群と熱的性質）。
