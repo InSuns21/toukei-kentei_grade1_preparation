@@ -1,0 +1,29 @@
+chapter: U3-17
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-16, STO11, U3-14]
+concepts:
+  - id: finance.risk-neutral-terminal-value
+    name: リスク中立期待値による満期価値関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（リスク中立期待値による満期価値関数）"]
+    requires: [finance.continuous-replication-price, finance.gbm-real-moments]
+  - id: finance.bsm-feynman-kac-existence
+    name: 対数正規期待値からの BSM 古典解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対数正規期待値からの BSM 古典解）"]
+    requires: [finance.risk-neutral-terminal-value, finance.black-scholes-merton-pde, stochastic.feynman-kac-verification]
+  - id: finance.bsm-polynomial-uniqueness
+    name: 多項式成長クラスでの BSM 解の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多項式成長クラスでの BSM 解の一意性）"]
+    requires: [finance.bsm-feynman-kac-existence, finance.gbm-real-moments]
+  - id: finance.bsm-running-cashflow
+    name: 定額連続支払の期待値と非斉次 BSM 方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定額連続支払の期待値と非斉次 BSM 方程式）"]
+    requires: [finance.risk-neutral-terminal-value, stochastic.feynman-kac-verification]
