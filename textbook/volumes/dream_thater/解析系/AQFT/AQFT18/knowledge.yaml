@@ -16,7 +16,7 @@ concepts:
     introduction: formal
     requires: []
   - id: aqft.closable-antilinear-operator
-    name: 可閉作用素と閉包
+    name: 可閉作用素・閉包
     kind: definition
     introduction: formal
     requires: [aqft.antilinear-operator]
