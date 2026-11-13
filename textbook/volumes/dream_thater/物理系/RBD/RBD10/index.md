@@ -538,7 +538,7 @@ $I=(2,3,4)$、$\omega_b=(0,0,2)$、$R_0=\mathrm{Id}_3$。二つの軌跡と不�
 <!-- solution-start -->
 ### 詳細解答
 
-第三主軸まわりの回転では、[主軸定常回転](../RBD9/index.md#def-rbd9-triaxial-principal-spin)から $\dot\omega_b=0$ です。保存量は
+第三主軸まわりの回転では、[主軸定常回転](../RBD9/index.md#def-rbd9-triaxial-principal-spin)から $\dot\omega_b=0$ です。回転エネルギーと空間角運動量は
 
 $$
 2E=4\cdot2^2=16,\qquad L_0=(0,0,8)
