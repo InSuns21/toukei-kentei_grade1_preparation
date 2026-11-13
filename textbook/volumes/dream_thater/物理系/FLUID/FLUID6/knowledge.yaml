@@ -1,0 +1,62 @@
+chapter: FLUID6
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID5
+  - CTM7
+concepts:
+  - id: fluid.ideal-potential-force-model
+    name: 非粘性・保存体積力の模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非粘性・保存体積力の模型）"]
+    requires: [continuum.material-momentum-local, continuum.cauchy-stress-theorem]
+  - id: fluid.euler-constant-density
+    name: 一定密度・非粘性流体の Euler 運動方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一定密度・非粘性流体の Euler 運動方程式）"]
+    requires: [fluid.ideal-potential-force-model, continuum.material-momentum-local, fluid.moving-mass-balance]
+  - id: fluid.bernoulli-function
+    name: 一定密度の Bernoulli 関数
+    aliases: ["Bernoulli 関数"]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一定密度の Bernoulli 関数）"]
+    requires: [fluid.ideal-potential-force-model]
+  - id: fluid.bernoulli-streamline
+    name: 定常 Bernoulli 積分：一つの流線上
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定常 Bernoulli 積分：一つの流線上）"]
+    requires: [fluid.euler-constant-density, fluid.bernoulli-function, fluid.streamline]
+  - id: fluid.bernoulli-global
+    name: 渦なし定常流の領域全体の Bernoulli 定数
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（渦なし定常流の領域全体の Bernoulli 定数）"]
+    requires: [fluid.bernoulli-streamline]
+  - id: fluid.head-components
+    name: 圧力・速度・位置水頭と全水頭
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圧力・速度・位置水頭と全水頭）"]
+    requires: [fluid.bernoulli-function, fluid.hydrostatic-pressure-balance]
+  - id: fluid.nozzle-pressure-difference
+    name: 水平な損失なしノズルの圧力差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（水平な損失なしノズルの圧力差）"]
+    requires: [fluid.bernoulli-streamline, fluid.moving-mass-balance]
+  - id: fluid.barotropic-pressure-potential
+    name: 順圧の圧力ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（順圧の圧力ポテンシャル）"]
+    requires: [fluid.euler-constant-density]
+  - id: fluid.barotropic-bernoulli
+    name: 順圧流の流線上 Bernoulli 積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（順圧流の流線上 Bernoulli 積分）"]
+    requires: [fluid.barotropic-pressure-potential, fluid.bernoulli-streamline]

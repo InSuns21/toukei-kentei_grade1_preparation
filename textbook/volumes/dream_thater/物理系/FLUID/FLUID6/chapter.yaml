@@ -1,0 +1,49 @@
+id: "FLUID6"
+title: "Bernoulli積分はどこで成立するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID5
+  - CTM7
+official_scope: []
+learning_objectives:
+  - "CTM7の局所運動量式を非粘性・保存体積力のモデルに適用してEuler方程式を成分から導出できる"
+  - "移流加速度のベクトル恒等式を成分で検算し、Bernoulli関数の流線上微分が消える理由を証明できる"
+  - "渦なし・領域連結の場合だけ全域の共通定数が得られる十分条件を証明し、せん断流の反例で区別できる"
+  - "圧力・速度・位置水頭の次元を統一し、同一流線上のノズルで質量流量と静圧差を求められる"
+  - "時間変化・渦度・粘性のどの仮定を失うとどの式が残るかを反例で説明できる"
+  - "順圧流体では圧力ポテンシャルを積分し、一定密度のp/rhoと混同せずBernoulli積分を導ける"
+definitions:
+  - { id: FLUID6-DEF-01, name: "非粘性・保存体積力の模型" }
+  - { id: FLUID6-DEF-02, name: "一定密度のBernoulli関数" }
+  - { id: FLUID6-DEF-03, name: "圧力・速度・位置水頭と全水頭" }
+  - { id: FLUID6-DEF-04, name: "順圧の圧力ポテンシャル" }
+theorems:
+  - { id: FLUID6-THM-01, name: "一定密度・非粘性流体のEuler運動方程式" }
+  - { id: FLUID6-THM-02, name: "定常Bernoulli積分：一つの流線上" }
+  - { id: FLUID6-COR-01, name: "渦なし定常流の領域全体のBernoulli定数" }
+  - { id: FLUID6-PROP-01, name: "水平な損失なしノズルの圧力差" }
+  - { id: FLUID6-PROP-02, name: "順圧流の流線上Bernoulli積分" }
+canonical_examples:
+  - "一様水平流で理想流体の応力・体積力・運動方程式を直接確認"
+  - "Bernoulli関数と水頭の数値・単位換算"
+  - "定常せん断流の流線別定数と渦度による横方向勾配"
+  - "水平ノズルの流量・速度・圧力差"
+  - "非定常一様加速流で流線上の積分が破れる反例"
+  - "順圧圧力ポテンシャルの積分と微分の検算"
+problem_patterns:
+  - FLUID6-EULER-FORCE-UNIT
+  - FLUID6-HEAD-UNIT-CONVERSION
+  - FLUID6-SHEAR-DIFFERENT-STREAMLINES
+  - FLUID6-MASS-NOZZLE-ONLY
+  - FLUID6-GAUGE-REFERENCE
+  - FLUID6-HEIGHT-VELOCITY-PRESSURE
+  - FLUID6-VECTOR-IDENTITY-SHEAR
+  - FLUID6-UNSTEADY-FAILURE
+  - FLUID6-BAROTROPIC-POLYTROPE
+  - FLUID6-NOZZLE-ASSUMPTION-INTEGRATED
+  - FLUID6-GLOBAL-VS-STREAMLINE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 3 }
