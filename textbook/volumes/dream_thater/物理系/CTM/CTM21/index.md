@@ -109,6 +109,8 @@ $J>0$ であり $\chi$ が現在領域を覆うので、$J(s\circ\chi)$ と等�
 
 [CTM14 の超弾性模型](../CTM14/index.md#def-ctm14-hyperelastic-energy)は $F$ に対してエネルギーを与えた。しかし、自然長が変わると、「$F=I$ なら応力なし」という判断はできない。そこで各物質点の**局所的に応力を除いたときの形状・体積倍率**を、内部状態として別に指定する。これは一般に一つの実在する「中間の物体」を構成する主張ではない。
 
+以降、[CTM14 で使った記法](../CTM14/index.md#def-ctm14-hyperelastic-energy)と同じく、$GL^+(3)=\{A\in\mathbb R^{3\times3}:\det A>0\}$ と書く。正の行列式は向きの保持に加えて $A^{-1}$ の存在も保証する。
+
 <a id="def-ctm21-growth-split"></a>
 
 <!-- formal-statement-start -->
@@ -155,7 +157,7 @@ $$
 J=J_eJ_g
 $$
 
-となる。また、空間側の観測者回転 $Q(t)\in SO(3)$ に対し、成長内部変数が物質側に属して変化しないことを仮定する。このとき
+となる。また、[CTM4 の観測者回転](../CTM4/index.md#prop-ctm4-observer-transform) $Q(t)\in SO(3)$（$Q^TQ=I,\ \det Q=1$）に対し、成長内部変数が物質側に属して変化しないことを仮定する。このとき
 
 $$
 F_g^*=F_g,\qquad F^*=QF,\qquad F_e^*=QF_e
