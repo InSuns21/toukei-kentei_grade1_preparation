@@ -305,6 +305,12 @@ $\Delta v=(u''(y),0,0)$、$\nabla p=0$ を[CTM15 の非圧縮運動量式](../CT
 [CTM4 の変形速度](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)に従うと $D_{12}=D_{21}=u'/2=U/(2h)$、他の成分は零。[CTM15 の非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian)から $\sigma=-p_0I+2\eta D$、従って $\sigma_{12}=\sigma_{21}=\eta U/h$。[CTM15 の粘性散逸定理](../CTM15/index.md#thm-ctm15-viscous-dissipation)で $2\eta D:D=\eta(U/h)^2$ を得る。計算では移流項が**厳密に零**なので、$\mathrm{Re}$ の大小を仮定していない。$\square$
 <!-- proof-end -->
 
+図では矢印の長さが局所速度を表し、先端を結ぶ破線は直線分布を表す。上壁の運動方向・壁間距離・速度勾配の関係を図から確認したうえで、数式と表でも検算する。
+
+![下壁は静止し上壁が右へ速度 U で動く。板間の速度は上に行くほど増え、無次元速度 u/U は高さ y/h に比例する](assets/couette-linear-profile.svg)
+
+[図を拡大して表示](assets/couette-linear-profile.svg)
+
 位置と速度の対応を、まず数値を入れずに確認する。$Y=y/h$、$V_x=u/U$ なら
 
 | 壁からの位置 $Y$ | $0$（下壁） | $1/4$ | $1/2$ | $3/4$ | $1$（上壁） |
@@ -501,7 +507,7 @@ $$
 \quad\Longleftrightarrow\quad
 L\le\frac{0.05\eta}{\rho U}
 =\frac{0.05\times10^{-3}}{10^3(2\times10^{-3})}
-=2.5\times10^{-5}\ {\rm m}.
+=2.5\times10^{-5}\ \mathrm m.
 $$
 
 上限は $25\,\mu$m。これは移流慣性/粘性の尺度比に関する制約にすぎない。非定常項には $\mathrm{Re}\,\mathrm{St}=\rho L^2/(\eta T)$ が掛かるから、$T\gg\rho L^2/\eta$ か、実際に定常という追加情報がなければ非定常項を落とせない。
@@ -550,7 +556,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**(i) 方程式・境界値・初期値。** [B4 と同じ一方向の計算](#thm-ctm16-couette-profile)から移流項は零で、方程式は $\partial_tu=\nu\partial_y^2u$（$\nu=\eta/\rho$）。定常部分 $Uy/h$ は二階微分が零なので、残差 $w=u-Uy/h$ を置く。$w$ は両端で零、初期値 $A\sin(\pi y/h)$ を持つ。$\sin(\pi y/h)$ の二階微分は $-(\pi/h)^2\sin(\pi y/h)$ だから、$w=a(t)\sin(\pi y/h)$ と代入すると
+**(i) 方程式・境界値・初期値。** [Couette 流の一方向の計算](#thm-ctm16-couette-profile)から移流項は零で、方程式は $\partial_tu=\nu\partial_y^2u$（$\nu=\eta/\rho$）。定常部分 $Uy/h$ は二階微分が零なので、残差 $w=u-Uy/h$ を置く。$w$ は両端で零、初期値 $A\sin(\pi y/h)$ を持つ。$\sin(\pi y/h)$ の二階微分は $-(\pi/h)^2\sin(\pi y/h)$ だから、$w=a(t)\sin(\pi y/h)$ と代入すると
 
 $$
 a'(t)\sin(\pi y/h)
