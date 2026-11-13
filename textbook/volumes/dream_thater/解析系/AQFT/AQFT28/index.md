@@ -162,7 +162,15 @@ $$
 
 まず二つの幾何級数は収束するため $0<Z<\infty$。各 $p_{n,m}>0$、$\sum p_{n,m}=1$ なので、$\rho$ は正のトレース級作用素、$\ker\rho=\{0\}$ で忠実な正規状態を定めます。
 
-Hilbert–Schmidt空間の行列単位を $E_{(n,m),(r,s)}=|e_{n,m}\rangle\langle e_{r,s}|$ と書きます。[AQFT20のモジュラー作用素公式](../AQFT20/index.md#thm-aqft20-modular-formulas)に従い、$L_\rho R_{\rho^{-1}}$ の自然な定義域の核上で
+Hilbert–Schmidt空間の行列単位を $E_{(n,m),(r,s)}=|e_{n,m}\rangle\langle e_{r,s}|$ と書きます。[AQFT20の有限次元モジュラー公式](../AQFT20/index.md#thm-aqft20-modular-formulas)を無限次元へ無条件には転用せず、行列単位から直接検証します。
+
+添字 $i=(n,m)$、$j=(r,s)$、$p_i=p_{n,m}$ と略記します。標準ベクトル $\rho^{1/2}$ について
+
+$$
+E_{ij}=(p_j^{-1/2}E_{ij})\rho^{1/2}
+$$
+
+なので、Tomita作用素の定義により $S_0(E_{ij})=p_j^{-1/2}E_{ji}\rho^{1/2}=\sqrt{p_i/p_j}\,E_{ji}$ です。行列単位はHilbert–Schmidt内積の正規直交基底なので、反線形随伴の定義から $S_0^*(E_{ji})=\sqrt{p_i/p_j}\,E_{ij}$ が成立します。従って有限行列単位の線形包上で $\Delta_\rho=S^*S$ が対角作用し、各 $E_{ij}$ の固有値は $p_i/p_j$ です。すなわち、正作用素 $L_\rho R_{\rho^{-1}}$ の自然な定義域の核上で
 
 $$
 \begin{aligned}
