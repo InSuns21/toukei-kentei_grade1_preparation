@@ -402,7 +402,15 @@ $$
 
 $S$ は $S_0$ のグラフ閉包であるため、この収束対は $Sx\in\operatorname{Dom}(S)$、$S(Sx)=x$ を意味します。よって $S^2x=x$ で、$S$ は定義域から自分自身への全単射です。全射性は任意の $x$ が $S(Sx)$ として得られることから従います。
 
-$F_0^2=I$ に同じ議論を適用すると $F^2=I$ も成立します。両作用素の定義域は[可閉性の定理](#thm-aqft18-tomita-closable)から稠密なので、値域も稠密です。$\square$
+可換子側についても、任意の $B\in\mathcal M'$ に対して $B^*\in\mathcal M'$ であり、
+
+$$
+F_0(F_0(B\Omega))
+=F_0(B^*\Omega)
+=(B^*)^*\Omega=B\Omega.
+$$
+
+従って $F_0^2=I$ です。先ほどと同じグラフの座標交換を $F_0$ に適用して $F^2=I$ も得ます。両作用素の定義域は[可閉性の定理](#thm-aqft18-tomita-closable)から稠密なので、値域も稠密です。$\square$
 <!-- proof-end -->
 
 ## 6. 反線形随伴が可換子側を結ぶ
@@ -421,6 +429,18 @@ $$
 $$
 > が成り立つことをいう。このとき $T^\sharp y=z$ と定義する。$T^\sharp$ 自身も反線形である。
 <!-- formal-statement-end -->
+
+最後の反線形性も定義式から確かめられます。$y_1,y_2\in\operatorname{Dom}(T^\sharp)$、$z_j=T^\sharp y_j$、$\alpha,\beta\in\mathbb C$ とすると、任意の $x\in D$ に対して
+
+$$
+\begin{aligned}
+\langle Tx,\alpha y_1+\beta y_2\rangle
+&=\alpha\langle z_1,x\rangle+\beta\langle z_2,x\rangle\\
+&=\langle\overline\alpha z_1+\overline\beta z_2,x\rangle.
+\end{aligned}
+$$
+
+よって $\alpha y_1+\beta y_2$ も随伴の定義域に属し、$T^\sharp(\alpha y_1+\beta y_2)=\overline\alpha T^\sharp y_1+\overline\beta T^\sharp y_2$ です。ここでは**内積の第1変数が共役線形**であることを使いました。
 
 <!-- definition-example-start: def-aqft18-antilinear-adjoint -->
 ### 直接例：座標共役は自分自身が反線形随伴
@@ -483,7 +503,7 @@ $$
 \langle Sx,y\rangle=\langle Fy,x\rangle
 $$
 
-となります。これは $y\in\operatorname{Dom}(S^\sharp)$ と $S^\sharp y=Fy$ を意味するので $F\subset S^\sharp$ です。同様に $S\subset F^\sharp$ が従います。$\square$
+となります。これは $y\in\operatorname{Dom}(S^\sharp)$ と $S^\sharp y=Fy$ を意味するので $F\subset S^\sharp$ です。さらにこの等式を $\langle Fy,x\rangle=\langle Sx,y\rangle$ と読めば、任意の $y\in\operatorname{Dom}(F)$ に対し $x\in\operatorname{Dom}(F^\sharp)$、$F^\sharp x=Sx$ です。従って $S\subset F^\sharp$ も成立します。$\square$
 <!-- proof-end -->
 
 ここまでに**可閉性・閉包・対合性・随伴の包含**が得られました。$S^\sharp=F$ などの等号、閉反線形作用素の極分解、$J$ と $\Delta$ に関する一般定理は次講以降で、それぞれの追加論証とともに扱います。
@@ -502,9 +522,30 @@ $$
 
 を満たす作用素全体で、行列単位 $E_{ij}=|e_i\rangle\langle e_j|$ が正規直交基底です。有限個の成分だけを残す切断は二重級数の尾を零にするので、有限行列の線形結合は $\mathcal H$ で稠密です。
 
-$A\in B(K)$ の**左乗算** $L_A(X)=AX$ は $\mathcal H$ 上の有界作用素で、$\|AX\|_2\le\|A\|\,\|X\|_2$ です。左乗算環を $\mathcal M=\{L_A:A\in B(K)\}$ とします。これが単位的von Neumann環であることを、行列単位から確かめます。
+$A\in B(K)$ の**左乗算** $L_A(X)=AX$ を考えます。行列成分の二乗和は $\|X\|_2^2=\sum_j\|Xe_j\|^2$ とも書けるため、
 
-右乗算を $R_B(X)=XB$（$B\in B(K)$）と書くと、$\|R_BX\|_2\le\|B\|\,\|X\|_2$ であり、右乗算と左乗算は結合則により交換します。従って全ての $R_B$ は $\mathcal M'$ に属します。
+$$
+\|AX\|_2^2
+=\sum_j\|AXe_j\|^2
+\le\|A\|^2\sum_j\|Xe_j\|^2
+=\|A\|^2\|X\|_2^2.
+$$
+
+従って $L_A$ は $\mathcal H$ 上の有界作用素です。左乗算環を $\mathcal M=\{L_A:A\in B(K)\}$ とします。これが単位的von Neumann環であることを、行列単位から確かめます。
+
+右乗算を $R_B(X)=XB$（$B\in B(K)$）と書きます。ここでは右から掛けるため、$\|AX\|_2$ の証明をそのまま使わず、$\|X^*\|_2^2=\sum_i\|X^*e_i\|^2=\|X\|_2^2$ と $(XB)^*=B^*X^*$ により
+
+$$
+\begin{aligned}
+\|XB\|_2^2
+&=\|(XB)^*\|_2^2
+=\sum_i\|B^*X^*e_i\|^2\\
+&\le\|B\|^2\sum_i\|X^*e_i\|^2
+=\|B\|^2\|X\|_2^2
+\end{aligned}
+$$
+
+を得ます。従って右乗算も有界です。$L_AR_B(X)=AXB=R_BL_A(X)$ が結合則から成り立つので、全ての $R_B$ は $\mathcal M'$ に属します。
 
 $T\in\mathcal M''$ とすると、$T$ は特に全ての右乗算と可換します。$R_{E_{11}}$ は第1列を残す射影なので、$T$ はその値域を保ちます。任意の $v\in K$ に対して $E_{v1}=|v\rangle\langle e_1|$ と書けば、第1列部分空間は $\{E_{v1}:v\in K\}$ です。ゆえに $T(E_{v1})=E_{Av,1}$ となる線形写像 $A:K\to K$ が存在します。
 
@@ -575,7 +616,7 @@ $$
 g_n=g\,\mathbf1_{\{|g|\le n\}}
 $$
 
-で切断すると $g_n\in L^\infty$ で、$\|g-g_n\|_2^2=\int_{\{|g|>n\}}|g|^2\to0$ です。従って巡回的です。$S_0f=\overline f$ が $L^\infty\subset L^2$ に定義され、切断列により
+で切断すると $g_n\in L^\infty$ で、$\|g-g_n\|_2^2=\int_{\{|g|>n\}}|g|^2\to0$ です。従って巡回的です。[VN6の乗算作用素の随伴公式](../../VN/VN6/index.md#prop-vn6-multiplication-norm-adjoint)より $M_f^*=M_{\overline f}$ なので、$\Omega=1$ に作用させると $S_0f=\overline f$ です。これは $L^\infty\subset L^2$ に定義され、切断列により
 
 $$
 g_n\to g,\qquad
@@ -816,7 +857,7 @@ $\mathcal H=L^2([0,1])$、$\mathcal M=\{M_f:f\in L^\infty([0,1])\}$（$M_fg=fg$�
 <!-- solution-start -->
 **詳細解答。**
 
-**1. 標準性。** $\Omega=1$ のノルムは $\int_0^1 1\,dt=1$ です。$M_f\Omega=f$ であり、$M_f\Omega=0$ なら $f=0$ ほとんど至る所で、乗算作用素は零です。よって分離的です。
+**1. 標準性。** 有限測度空間 $[0,1]$ の乗算環 $\mathcal M$ は[VN6の可換子定理](../../VN/VN6/index.md#thm-vn6-linfty-commutant)により単位的von Neumann環です。$\Omega=1$ のノルムは $\int_0^1 1\,dt=1$ です。$M_f\Omega=f$ であり、$M_f\Omega=0$ なら $f=0$ ほとんど至る所で、乗算作用素は零です。よって分離的です。
 
 任意の $g\in L^2$ に対して $g_n=g\,\mathbf1_{\{|g|\le n\}}$ と置くと $g_n\in L^\infty$ で、
 
@@ -827,7 +868,7 @@ $$
 
 極限は $|g|^2$ の可積分性と尾部の単調減少（または優収束）によります。よって $\overline{\mathcal M\Omega}=L^2$ で巡回的です。
 
-**2. 初期作用素と閉包。** $M_f^*=M_{\overline f}$ なので
+**2. 初期作用素と閉包。** [VN6の乗算作用素の随伴公式](../../VN/VN6/index.md#prop-vn6-multiplication-norm-adjoint)により $M_f^*=M_{\overline f}$ なので
 
 $$
 \operatorname{Dom}(S_0)=L^\infty([0,1])
