@@ -202,7 +202,41 @@ P&=e^{-r\tau}E_Q[(K-S_T)_+]\\
 \end{aligned}
 $$
 
-これらは $t<T$ で滑らかであり、[配当付き BSM 方程式](../U3-16/index.md#prop-u3-16-dividend-pde)に従う。具体的には式中の正規密度を微分すると $se^{-q\tau}\phi(d_1)=Ke^{-r\tau}\phi(d_2)$ が成立するため、$C_s=e^{-q\tau}\Phi(d_1)$ となる。満期では $S_T\to s$ かつ連続な支払関数に移る。連続取引の完備市場ではこの満期支払額の複製価格が一意なので、上の割引期待値が無裁定価格である。
+最後に、割引期待値と自己金融複製が整合することを直接確認する。$A=e^{-q\tau}$、$D=e^{-r\tau}$ と書く。$d_1-d_2=\sigma\sqrt{\tau}$、$d_1+d_2=2[\log(s/K)+(r-q)\tau]/(\sigma\sqrt{\tau})$ なので
+
+$
+\frac{\phi(d_1)}{\phi(d_2)}
+=\exp\left(-\frac{d_1^2-d_2^2}{2}\right)
+=\frac{K}{s}e^{-(r-q)\tau},
+\quad sA\phi(d_1)=KD\phi(d_2).
+$
+
+連鎖律で $\partial_s d_1=\partial_s d_2=1/(s\sigma\sqrt{\tau})$ を使うと、二つの密度項が相殺して
+
+$
+C_s=A\Phi(d_1),\qquad
+C_{ss}=\frac{A\phi(d_1)}{s\sigma\sqrt{\tau}}.
+$
+
+また $\tau=T-t$ に注意して、$\partial_t d_1=-[\,(r-q+\sigma^2/2)\tau-\log(s/K)\,]/(2\sigma\tau^{3/2})$、$\partial_t d_2=\partial_t d_1+\sigma/(2\sqrt{\tau})$ である。これと密度恒等式から
+
+$
+C_t=q sA\Phi(d_1)-rKD\Phi(d_2)
+-\frac{sA\sigma\phi(d_1)}{2\sqrt{\tau}}.
+$
+
+従って[連続配当付き BSM 方程式](../U3-16/index.md#prop-u3-16-dividend-pde)の左辺は
+
+$
+\begin{aligned}
+&C_t+(r-q)sC_s+\tfrac12\sigma^2s^2C_{ss}-rC\\
+&=(q+r-q-r)sA\Phi(d_1)+(-r+r)KD\Phi(d_2)\\
+&\quad-\frac{sA\sigma\phi(d_1)}{2\sqrt{\tau}}
++\frac{sA\sigma\phi(d_1)}{2\sqrt{\tau}}=0.
+\end{aligned}
+$
+
+put については parity の差額 $w=sA-KD$ に対し $w_t=q sA-rKD$、$w_s=A$、$w_{ss}=0$ を代入すれば、同じ PDE の左辺が0になる。$P=C-w$ なので put も PDE を満たす。$t\uparrow T$ では $S_T\to s$、連続な支払関数の割引期待値は各支払額へ近づく。デルタは $|C_s|\le A$、$|P_s|=|C_s-A|\le A$ と有界であり、[自己金融複製の構成](../U3-16/index.md#thm-u3-16-bsm-replication)の係数比較を配当込み利得 $dS+qS\,dt$ に適用できる。従ってこれらの滑らかな価格関数から $\Delta=v_s$、$\psi=(v-s\Delta)/B_t$ の自己金融複製が得られ、無裁定価格と一致する。
 <!-- proof-end -->
 
 定理で用いた「株価項は $e^{-q\tau}$、行使価格項は $e^{-r\tau}$」という二つの係数は、**先渡の複製で既に現れたものと同じ**です。
@@ -483,7 +517,7 @@ $$
 $s=100$ 円、$r=0.05$、$T=1$ 年で、半年後に**1株につき確定3円**の現金配当が支払われる。金利は連続複利で一定とする。配当を受け取る権利と満期株式の引渡しを分離したとき、先渡の受渡価格を求めよ。また $q=0.03$ を連続配当率として代入してよいか判定せよ。
 
 <!-- solution-start -->
-**詳細解答**：配当を受け取る権利の時点0現在価値は $3e^{-0.05\cdot0.5}=3e^{-0.025}\approx2.92592986$ 円。満期に株式1株だけを受け取る前払価格は $100-3e^{-0.025}\approx97.07407014$ 円です。これを1年後の受渡価格へ進めれば
+**詳細解答**：配当を受け取る権利の時点0現在価値は $3e^{-0.05\cdot0.5}=3e^{-0.025}\approx2.92592974$ 円。満期に株式1株だけを受け取る前払価格は $100-3e^{-0.025}\approx97.07407026$ 円です。これを1年後の受渡価格へ進めれば
 
 $$
 F=(100-3e^{-0.025})e^{0.05}
