@@ -1,7 +1,7 @@
 version: 1
 id: HOLO
 title: "ホログラフィー I：AdS/CFTと量子誤り訂正"
-plan: textbook/plans_progress/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 進捗は先頭から連続する completed と次の planned から導出する。
