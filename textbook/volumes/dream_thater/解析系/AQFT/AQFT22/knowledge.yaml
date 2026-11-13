@@ -8,7 +8,8 @@ prerequisites:
   - AQFT21
   - QM6
   - VN2
-  - VN6
+  - FA4
+  - CA4
 forward_references: []
 concepts:
   - id: aqft.tomita-conjugate-algebra
