@@ -65,11 +65,11 @@ $$
 
 この行列は、円板面内の二軸 $e_1,e_2$ と法線軸 $e_3$ に関する表示です。各列が各基底ベクトルの像を与えるので、
 
-$
+$$
 J_Oe_1=\left(\frac{Mr^2}{4}+Ml^2\right)e_1,\quad
 J_Oe_2=\left(\frac{Mr^2}{4}+Ml^2\right)e_2,\quad
 J_Oe_3=\frac{Mr^2}{2}e_3
-$
+$$
 
 となります。第三軸が主軸であることと、横二軸の主慣性値が等しいことを同じ表示で判定できるのは、[平行軸公式](../RBD6/index.md#thm-rbd6-parallel-axis-tensor)の補正 $Ml^2\operatorname{diag}(1,1,0)$ がこの基底で対角だからです。
 
@@ -273,14 +273,14 @@ $$
 
 鉛直との内積は $d(e_z\cdot L_{O,s})/dt=0$。物体第三軸の保存も、固定点の収支から直接確認します。$O$ は動かず、支点まわりの慣性テンソル $J_{O,b}$ は物体座標で一定です。[RBD3の姿勢時間微分公式](../RBD3/index.md#prop-rbd3-angular-conjugacy) $\dot R=R\widehat\omega_b$ と積の微分により
 
-$
+$$
 \begin{aligned}
 L_{O,s}&=R(J_{O,b}\omega_b),\\
 R^{\mathsf T}\frac{dL_{O,s}}{dt}
 &=\omega_b\times(J_{O,b}\omega_b)+J_{O,b}\dot\omega_b
 =\tau_{O,b}.
 \end{aligned}
-$
+$$
 
 これは [RBD7の物体系Euler方程式](../RBD7/index.md#thm-rbd7-newton-euler)を重心ではなく固定支点 $O$ まわりの角運動量収支へ適用した形です。重力トルク $(le_3)\times(R^{\mathsf T}(-Mg e_z))$ は $e_3$ に直交します。また $J_{O,b}=\operatorname{diag}(I,I,J)$ から第三成分の交差項は $I\omega_1\omega_2-I\omega_2\omega_1=0$。よって $J\dot\omega_3=\tau_{O,b,3}=0$、つまり $k$ は一定です。理想支点の仕事率は零、重力は保存力なのでエネルギーも一定。これらは $R,\omega$ と物理的な力の式であり、Euler角の正則域に依存しません。
 <!-- proof-end -->
@@ -644,20 +644,20 @@ $$
 
 次に物体系の角運動量は $L_{O,b}=J_{O,b}\omega_b=(I\omega_1,I\omega_2,J\omega_3)$ です。$O$ が固定点なので $L_{O,s}=R L_{O,b}$。[RBD3の角速度と姿勢の関係](../RBD3/index.md#prop-rbd3-angular-conjugacy) $\dot R=R\widehat\omega_b$ を用いて積を微分すると
 
-$
+$$
 \begin{aligned}
 R^{\mathsf T}\dot L_{O,s}
 &=R^{\mathsf T}(\dot R L_{O,b}+R\dot L_{O,b})\\
 &=\omega_b\times L_{O,b}+J_{O,b}\dot\omega_b
 =\tau_{O,b}.
 \end{aligned}
-$
+$$
 
 従って [RBD7のEuler方程式](../RBD7/index.md#thm-rbd7-newton-euler)と同じ形の固定支点版
 
-$
+$$
 J_{O,b}\dot\omega_b+\omega_b\times(J_{O,b}\omega_b)=\tau_{O,b}
-$
+$$
 
 を、重心まわりの $J_C$ と混同せず得ます。
 
@@ -808,11 +808,11 @@ $$
 
 $\theta=\pi/3$ では $V_{\mathrm{eff}}=11/6>1=\varepsilon$ で非許容。一方 $\theta=2\pi/3$ では $V_{\mathrm{eff}}=-7/6<1$ なので許容です。さらに「$\theta=2\pi/3$ で許容」という一点だけで、初期位置からそこへ達することまでは結論できません。途中の角度も確認します。区間 $\pi/2\le\theta\le2\pi/3$ で $x=-\cos\theta$ と置けば $0\le x\le1/2$ であり、
 
-$
+$$
 V_{\mathrm{eff}}=\frac{x^2}{1-x^2}-3x,\qquad
 \frac{dV_{\mathrm{eff}}}{dx}=\frac{2x}{(1-x^2)^2}-3
 \le\frac{1}{(3/4)^2}-3=-\frac{11}{9}<0.
-$
+$$
 
 従ってこの全区間で $V_{\mathrm{eff}}(\theta)\le V_{\mathrm{eff}}(\pi/2)=0<\varepsilon=1$ です。[傾きの一変数帰着](#thm-rbd11-reduced-theta)より $\dot\theta^2=(2/I)(\varepsilon-V_{\mathrm{eff}})\ge1$ であり、途中に折返し点はありません。初速 $\dot\theta(0)=1>0$ が連続するので $\dot\theta$ の符号は正のまま、実際に $\theta=2\pi/3$ を通過します。
 
