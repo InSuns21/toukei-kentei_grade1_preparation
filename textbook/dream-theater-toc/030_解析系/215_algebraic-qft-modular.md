@@ -27,3 +27,4 @@
 24. [AQFT24 Gibbs状態とKMSの帯解析](textbook/volumes/dream_thater/解析系/AQFT/AQFT24/index.md)
 25. [AQFT25 一般モジュラーKMS定理](textbook/volumes/dream_thater/解析系/AQFT/AQFT25/index.md)
 26. [AQFT26 Rindler wedgeとboostの解析性](textbook/volumes/dream_thater/解析系/AQFT/AQFT26/index.md)
+27. [AQFT27 Bisognano–Wichmann（自由スカラー場）](textbook/volumes/dream_thater/解析系/AQFT/AQFT27/index.md)
