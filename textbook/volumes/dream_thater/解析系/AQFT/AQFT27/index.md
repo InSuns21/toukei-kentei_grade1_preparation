@@ -6,14 +6,14 @@
 
 [右wedgeの定義](../AQFT1/index.md#def-aqft1-wedges)と[boostの定義](../AQFT26/index.md#def-aqft26-boost)を採用します。具体的には
 
-$
+$$
 W_R=\{x:x^1>|x^0|\},\qquad
 \Lambda(s)|_{01}=
 \begin{pmatrix}
 \cosh s&\sinh s\\
 \sinh s&\cosh s
 \end{pmatrix}
-$
+$$
 
 です。$U(s)$ はこのboostの真空表現、$\Omega$ は真空とします。**到達目標**は
 
@@ -34,10 +34,10 @@ $$
 > **定義（自由場のwedge実部分空間）**  
 > $\mathfrak h=L^2(\mathbb R^3,d^3p)$ に第2変数線形の内積を入れ、$m>0$ とする。実試験関数からなる集合とその実線形閉包を
 
-$
+$$
 K_0(W_R)=\{K[f]:f\in C_c^\infty(W_R,\mathbb R)\},
 \qquad H(W_R)=\overline{K_0(W_R)}^{\,\mathbb R}
-$
+$$
 
 > と定める。
 <!-- formal-statement-end -->
@@ -50,13 +50,15 @@ $
 > **定義（標準実部分空間）**  
 > 複素Hilbert空間 $\mathfrak h$ の閉じた実線形部分空間 $H$ を**標準**というのは、次の二条件を満たす場合である。
 
-$
+$$
 \overline{H+iH}=\mathfrak h,\qquad H\cap iH=\{0\}.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-aqft27-standard-real-subspace -->
 ### 直接例：複素平面の実軸
+
+**定義の確認**。標準性の二条件と閉じた実線形性を実際に確かめます。
 
 $\mathfrak h=\mathbb C$ に通常の複素内積を入れ、$H=\mathbb R\subset\mathbb C$ とします。$H$ は実線形で閉じており、$H+iH=\{a+ib:a,b\in\mathbb R\}=\mathbb C$ です。また、実数かつ純虚数の数は $0$ だけなので $H\cap iH=\{0\}$。従ってこの $H$ は標準です。対照的に $H=\mathbb C$ を実線形部分空間とみなすと、$H\cap iH=\mathbb C$ となり標準ではありません。
 <!-- definition-example-end -->
@@ -72,6 +74,8 @@ $$
 
 <!-- definition-example-start: def-aqft27-wedge-standard-subspace -->
 ### 直接例：非零の実波束とその虚数倍
+
+**定義の確認**。実試験関数の像が一粒子空間の実部分空間に入ることを非零の例で確かめます。
 
 $0<a<b$ とし、非負の実滑らかな関数 $f$ を点 $(x^0,x^1,x_\perp)=(0,a,0)$ の十分小さい近傍に支持させます。その近傍を $W_R$ に含め、$f$ を非零とし、$|x^0|$ を十分小さく選べば
 
@@ -139,6 +143,8 @@ $Q=\log\delta$ とすれば $u(s)=e^{isG}$、$G=i\partial_\theta$ であり、$Q
 
 <!-- definition-example-start: def-aqft27-geometric-tomita -->
 ### 直接例：符号と反線形性を検査する
+
+**定義の確認**。候補 $j$ が反ユニタリの共役操作であることと、実際の波束上の符号を検査します。
 
 $\psi(\theta,p_\perp)=e^{-\theta^2-|p_\perp|^2}$ とすると $j\psi=-\psi$、$j(i\psi)=i\psi$ です。すなわち $j$ は線形でなく $j(i\psi)=-ij\psi$ を満たします。また $j^2=1$ で、横運動量の反転は二回で元へ戻ります。$j$ が負号を持つ理由は、波束 $K[f]$ に**位相 $i$** が含まれるためです。この負号を消すと、wedgeに支持された実 $f$ の波束で $T\psi_f=\psi_f$ が成立しなくなります。
 <!-- definition-example-end -->
@@ -329,6 +335,8 @@ $D$ は一般に有界でなく、$D^{1/2}$ を単に有限粒子空間のどこ
 
 <!-- definition-example-start: def-aqft27-second-quantized-modular -->
 ### 直接例：真空と一粒子・二粒子成分
+
+**定義の確認**。第二量子化の各粒子数成分と半べきの定義域条件を具体的に確かめます。
 
 $h\in K_0(W_R)$ を取ると $h\in\operatorname{Dom}\delta^{1/2}$ で、$\delta^{1/2}h=jh$ です。従って
 
