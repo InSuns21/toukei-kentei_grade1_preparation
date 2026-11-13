@@ -1,0 +1,36 @@
+chapter: AQFT29
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT13
+  - AQFT18
+  - AQFT19
+  - AQFT20
+  - AQFT28
+forward_references: []
+concepts:
+  - id: aqft.relative-tomita-initial
+    name: 相対Tomita初期作用素
+    kind: definition
+    introduction: formal
+    requires: [aqft.standard-pair, aqft.tomita-initial-operator]
+  - id: aqft.relative-tomita-closable
+    name: 相対Tomita作用素の可閉性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.relative-tomita-initial, aqft.tomita-closable]
+  - id: aqft.relative-modular-operator
+    name: 相対モジュラー作用素
+    kind: definition
+    introduction: formal
+    requires: [aqft.relative-tomita-closable, aqft.antilinear-adjoint, aqft.modular-operator]
+  - id: aqft.relative-matrix-formulas
+    name: 忠実な有限次元二状態の相対Tomita全計算
+    kind: theorem
+    introduction: formal
+    requires: [aqft.relative-modular-operator, aqft.hs-modular-formulas]
+  - id: aqft.relative-orientation-normalization
+    name: 相対作用素の向きと規格化
+    kind: proposition
+    introduction: formal
+    requires: [aqft.relative-matrix-formulas]
