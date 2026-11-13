@@ -1,0 +1,42 @@
+id: HOLO29
+title: "消失訂正としてのバルク"
+volume: foundations
+status: supplementary
+prerequisites:
+  - HOLO28
+  - QINF28
+official_scope: []
+learning_objectives:
+  - コード部分空間と境界部分領域の消失回復をCPTP復号として定義し補領域の状態独立性と結び付けられる
+  - 3-qutrit符号で一shareの完全秘匿と二shareの完全回復を非対角成分まで検算できる
+  - AB AC BCの各二shareで論理XとZの具体的表現を計算し論理作用素全体の部分領域表現を構成できる
+  - 復号の補助系が論理状態に依存しないことを用いて参照系との量子相関の保存を示せる
+  - 二領域のエントロピーに現れる定数項と相対エントロピーの一致を台条件付きで導出できる
+  - 複製禁止との整合性および有限符号と重力のentanglement wedge再構成の間の追加仮定を説明できる
+definitions:
+  - { id: HOLO29-DEF-01, name: 境界部分領域の消失回復 }
+  - { id: HOLO29-DEF-02, name: 部分領域上の論理演算子表現 }
+theorems:
+  - { id: HOLO29-THM-01, name: 三つの二領域における同一論理代数の表現 }
+  - { id: HOLO29-PROP-01, name: 二領域の情報保存と定数エントロピー項 }
+canonical_examples:
+  - 3-qutrit符号の9個の基底列と一shareの縮約
+  - 二shareの復号座標から論理XとZの三組の局所表現を構成
+  - 三領域で同じ論理Z固有値を与える具体例
+  - 二shareの混合状態のエントロピーと相対エントロピー
+  - 一shareの復号不能性と重なり合う認可集合の複製禁止
+problem_patterns:
+  - HOLO29-A01
+  - HOLO29-A02
+  - HOLO29-A03
+  - HOLO29-A04
+  - HOLO29-A05
+  - HOLO29-B01
+  - HOLO29-B02
+  - HOLO29-B03
+  - HOLO29-B04
+  - HOLO29-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 5 }
+past_exam_alignment: []
+integrated_exam_problems: []
