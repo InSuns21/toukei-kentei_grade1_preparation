@@ -98,7 +98,7 @@ chapters:
     title: "Takesakiのモジュラー不変性"
   - id: AQFT24
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT24
-    status: planned
+    status: completed
     title: "Gibbs状態とKMSの帯解析"
   - id: AQFT25
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT25
