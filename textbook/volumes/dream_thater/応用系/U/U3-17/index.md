@@ -65,7 +65,11 @@ $$
 
 この式は、分岐する標本路を全部列挙せず、満期株価の**分布**だけで途中の価格を計算する道具です。正規分布の積分が有限である理由は $|g|\le C(1+s^m)$ と $E[e^{m\sigma\sqrt{\tau}Z}]<\infty$ にあります。
 
-ここで**生成作用素**とは拡散過程が滑らかな試験関数を瞬間的にどう変化させるかを記述する微分演算子です。[拡散の生成作用素](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)を $b(s)=rs$、拡散係数 $a(s)=\sigma s$ に当てはめます。$f'(s)=df/ds$、$f''(s)=d^2f/ds^2$ は一変数関数 $f(s)$ の導関数です。一方、二変数の価格関数 $v(t,s)$ の $v_t=\partial v/\partial t$ は株価 $s$ を固定する時間偏微分、$v_s=\partial v/\partial s$ と $v_{ss}=\partial^2v/\partial s^2$ は時刻 $t$ を固定する株価偏微分です。従って
+ここで**生成作用素**とは拡散過程が滑らかな試験関数を瞬間的にどう変化させるかを記述する微分演算子です。[拡散の生成作用素](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)を $b(s)=rs$、拡散係数 $a(s)=\sigma s$ に当てはめます。
+
+一変数関数 $f(s)$ では、$f'(s)=df/ds$ と $f''(s)=d^2f/ds^2$ は株価方向の一階・二階導関数です。二変数の価格関数 $v(t,s)$ では、$v_t$ は株価を固定して時刻で偏微分し、$v_s,v_{ss}$ は時刻を固定して株価で一階・二階偏微分します。
+
+したがって
 
 $$
 (\mathcal L^Q f)(s)=rs f'(s)+\frac{\sigma^2s^2}{2}f''(s).
@@ -373,7 +377,15 @@ $r=0$ でも $v_t=-c$ だから $v_t+c=0$ です。
 $Q$ 下で $dS_u=rS_u\,du+\sigma S_u\,dW_u^Q$ とする。$f(s)=s^3$ へ生成作用素を適用し、$(\mathcal L^Qf)(s)$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[生成作用素の拡散公式](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)では $b(s)=rs$、拡散係数 $a(s)=\sigma s$ を使います。ただし引用先の命題はコンパクト台を持つ $C^2$ 関数を仮定するため、$f(s)=s^3$ にそのまま定理を当てはめることはできません。ここでの $\mathcal L^Qf$ は、株価を区間 $[1/n,n]$ の外へ出る時刻で停止させ、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から得る $du$ の係数として計算します（$n>\max(s,1/s)$）。停止前には $f'(s)=3s^2$、$f''(s)=6s$ なので
+**詳細解答**：[生成作用素の拡散公式](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)におけるドリフトと拡散係数は $b(s)=rs$、$a(s)=\sigma s$ です。
+
+ただし引用先の命題はコンパクト台を持つ $C^2$ 関数を仮定し、$f(s)=s^3$ にはそのまま適用できません。ここでは初期株価 $s$ を含む区間 $[1/n,n]$（$n>\max(s,1/s)$）から出る時刻で株価を停止させ、[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)の $du$ 係数として $\mathcal L^Qf$ を計算します。停止前の各株価において
+
+$
+f'(s)=3s^2,\qquad f''(s)=6s
+$
+
+なので
 
 $$
 \mathcal L^Qf=rs(3s^2)+\tfrac12\sigma^2s^2(6s)
