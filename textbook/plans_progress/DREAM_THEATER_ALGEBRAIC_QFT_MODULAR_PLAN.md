@@ -1,8 +1,8 @@
 # DREAM THEATER 代数的量子場理論・モジュラー理論（AQFT系列・全34講）
 
 作成・分冊: 2026-10-11  
-改訂: 2026-11-13（AQFT23のモジュラー不変性・解析的coreを実装）  
-状態: in_progress（AQFT1–23本文・系列manifest・公開を実装。次講AQFT24、残りAQFT24–34と最終横断監査は未完了）
+改訂: 2026-11-13（AQFT24のGibbs状態・KMS帯解析を実装）  
+状態: in_progress（AQFT1–24本文・系列manifest・公開を実装。次講AQFT25、残りAQFT25–34と最終横断監査は未完了）
 
 ## 中心問いと出口
 

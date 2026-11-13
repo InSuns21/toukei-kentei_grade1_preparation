@@ -1,0 +1,44 @@
+id: "AQFT24"
+title: "Gibbs状態とKMSの帯解析"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT20
+  - AQFT23
+  - QM6
+learning_objectives:
+  - 有限次元Gibbs密度行列を構成して正値性・正規化・忠実性を直接検証できる
+  - 複素時間の上側帯KMS条件を境界順序・正則性・有界性を含めて説明できる
+  - 行列単位の成分からGibbs二点相関の整関数を導出できる
+  - トレースの巡回性と負べきの打消しにより上端境界値を証明できる
+  - Hilbert–Schmidt Cauchy–Schwarzと加重相加相乗平均から帯全体の一様有界性を証明できる
+  - 物理時間tau_sとモジュラー時間sigma_tの符号とbeta倍率を区別できる
+  - 物理時間のKMS上側帯で時間発展させる演算子の位置を追える
+  - 状態の実時間不変性とKMS条件の違いを二準位模型で判定できる
+  - 有限行列のトレース証明と一般のType III環で必要な議論を区別できる
+definitions:
+  - { id: AQFT24-DEF-01, name: "有限次元Gibbs状態" }
+  - { id: AQFT24-DEF-02, name: "逆温度1の上側帯KMS条件" }
+theorems:
+  - { id: AQFT24-THM-01, name: "有限次元Gibbs状態のモジュラーKMS条件" }
+  - { id: AQFT24-THM-02, name: "物理時間における逆温度βの帯" }
+canonical_examples:
+  - Hが二準位対角行列のGibbs密度の忠実性と正規化
+  - 可換な恒等流の帯KMS条件の直接確認
+  - rhoがdiag(3/4,1/4)の場合の行列単位の上下境界
+  - モジュラー時間と物理時間の向きの変換
+  - 対角密度による状態保存と非Gibbsの区別
+problem_patterns:
+  - AQFT24-GIBBS-DENSITY
+  - AQFT24-IMAGINARY-TIME-SIGN
+  - AQFT24-MATRIX-BOUNDARY
+  - AQFT24-ABELIAN-KMS
+  - AQFT24-STRIP-HOLDER-BOUND
+  - AQFT24-PHYSICAL-TIME-CONVERSION
+  - AQFT24-INVARIANCE-NOT-KMS
+  - AQFT24-MATRIX-UNIVERSAL-BOUNDARY
+  - AQFT24-TWO-KMS-CONVENTIONS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 6 }
