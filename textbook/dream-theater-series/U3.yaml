@@ -22,7 +22,7 @@ chapters:
   - { id: U3-16, path: textbook/volumes/dream_thater/応用系/U/U3-16, status: completed, title: "自己金融 delta hedge と Black–Scholes–Merton PDE" }
   - { id: U3-17, path: textbook/volumes/dream_thater/応用系/U/U3-17, status: completed, title: "Feynman–Kac：期待値と PDE の橋" }
   - { id: U3-18, path: textbook/volumes/dream_thater/応用系/U/U3-18, status: completed, title: "Black–Scholes 閉形式と正規積分" }
-  - { id: U3-19, path: textbook/volumes/dream_thater/応用系/U/U3-19, status: planned, title: "配当・金利・先渡価格・割引規約" }
+  - { id: U3-19, path: textbook/volumes/dream_thater/応用系/U/U3-19, status: completed, title: "配当・金利・先渡価格・割引規約" }
   - { id: U3-20, path: textbook/volumes/dream_thater/応用系/U/U3-20, status: planned, title: "Greeks とヘッジ誤差" }
   - { id: U3-21, path: textbook/volumes/dream_thater/応用系/U/U3-21, status: planned, title: "連続時間の American 価格：最適停止" }
   - { id: U3-22, path: textbook/volumes/dream_thater/応用系/U/U3-22, status: planned, title: "Black–Scholes PDE の格子化・陽解法" }
