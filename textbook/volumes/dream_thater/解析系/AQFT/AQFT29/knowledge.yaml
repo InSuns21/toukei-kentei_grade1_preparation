@@ -13,12 +13,12 @@ concepts:
     name: 相対Tomita初期作用素
     kind: definition
     introduction: formal
-    requires: [aqft.standard-pair, aqft.tomita-initial-operator]
+    requires: [aqft.standard-pair, aqft.tomita-preoperator]
   - id: aqft.relative-tomita-closable
     name: 相対Tomita作用素の可閉性
     kind: proposition
     introduction: formal
-    requires: [aqft.relative-tomita-initial, aqft.tomita-closable]
+    requires: [aqft.relative-tomita-initial, aqft.tomita-closability, aqft.commutant-cyclic-separating]
   - id: aqft.relative-modular-operator
     name: 相対モジュラー作用素
     kind: definition
