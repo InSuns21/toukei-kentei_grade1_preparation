@@ -1,0 +1,42 @@
+chapter: U4-01
+scope: dream-theater
+coverage: complete
+prerequisites: []
+forward_references: []
+concepts:
+  - id: finance.finite-state-quote-payoff-table
+    name: 有限状態の価格・ペイオフ表
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の価格・ペイオフ表）"]
+    requires: []
+  - id: finance.quote-table-arbitrage-certificate
+    name: 価格表の裁定証明書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（価格表の裁定証明書）"]
+    requires: [finance.finite-state-quote-payoff-table]
+  - id: finance.quote-table-zero-cost-conversion
+    name: 確定受取契約による初期費用ゼロへの変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（確定受取契約による初期費用ゼロへの変換）"]
+    requires: [finance.quote-table-arbitrage-certificate]
+  - id: finance.quote-table-law-one-price
+    name: 同一ペイオフの価格一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（同一ペイオフの価格一致）"]
+    requires: [finance.quote-table-arbitrage-certificate]
+  - id: finance.payoff-componentwise-dominance
+    name: ペイオフの優越関係
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ペイオフの優越関係）"]
+    requires: [finance.finite-state-quote-payoff-table]
+  - id: finance.quote-table-dominance-arbitrage
+    name: 安くて優越する商品の裁定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（安くて優越する商品の裁定）"]
+    requires: [finance.quote-table-arbitrage-certificate, finance.payoff-componentwise-dominance]
