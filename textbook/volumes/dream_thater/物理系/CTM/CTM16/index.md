@@ -51,7 +51,21 @@ $$
 <!-- definition-example-start: def-ctm16-reference-scales -->
 ### **定義の確認**：単純な速度分布を変換する
 
-長さ $h>0$、上壁速度 $U>0$ の $v=(Uy/h,0,0)$ に $L=h$、$X_2=y/h$ を選ぶと $V=(X_2,0,0)$ となる。物理的な勾配は $\partial_yv_1=U/h$、無次元勾配は $\partial_{X_2}V_1=1$。両者は上の連鎖律の式で一致する。$X_2=0,1$ が元の壁 $y=0,h$ に対応することも確認できる。
+長さ $h>0$、上壁速度 $U>0$ の $v=(Uy/h,0,0)$ に $L=h$ を選ぶ。第2座標は $x_2=y$ なので、[流れの無次元変数](#def-ctm16-reference-scales)の定義から
+
+$$
+X_2=\frac{x_2}{L}=\frac yh,\qquad
+V_1=\frac{v_1}{U}=\frac yh=X_2
+$$
+
+となり、他の速度成分は零である。従って $V=(X_2,0,0)$。成分表示の連鎖律を使えば
+
+$$
+\partial_yv_1=\frac{U}{h}\partial_{X_2}V_1
+=\frac{U}{h}\cdot1=\frac{U}{h}
+$$
+
+であり、元の速度の直接微分と一致する。$X_2=0,1$ が元の壁 $y=0,h$ に対応する。
 <!-- definition-example-end -->
 
 ## 2. 慣性と粘性を測る Reynolds 数
@@ -127,7 +141,7 @@ $L=10^{-3}$ m、$U=10^{-2}$ m/s とする。移流時間は $L/U=0.1$ s。$T=0.1
 <!-- formal-statement-start -->
 ### 定理（非圧縮 Navier–Stokes 方程式の無次元形）
 
-$\rho,\eta>0$ は一定、$\nabla_x\cdot v=0$、$v,p,b$ は第0節の正則性を満たすとする。[無次元変数](#def-ctm16-reference-scales)の $L,U,T,P>0$ で変数を変え、無次元体積力を $B=(L/U^2)b$ と置く。このとき
+$\rho,\eta>0$ は一定で、$v,p,b$ は第0節の正則性を満たし、[CTM15 の非圧縮 Navier–Stokes 方程式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)（$\nabla_x\cdot v=0$ を含む）を満たすとする。[無次元変数](#def-ctm16-reference-scales)の $L,U,T,P>0$ で変数を変え、無次元体積力を $B=(L/U^2)b$ と置く。このとき
 
 $$
 \boxed{
@@ -180,7 +194,7 @@ $$
 <!-- formal-statement-start -->
 ### 系（粘性尺度による無次元運動量式）
 
-一定 $\rho,\eta>0$ の非圧縮 Newton 流体について、第0節の正則性および長さ $L>0$、速度 $U>0$、時間 $T>0$ を仮定する。圧力を $P_{\mathrm v}=\eta U/L$ で、体積力を $\eta U/L^2$ で測ったとき、
+一定 $\rho,\eta>0$ の非圧縮 Newton 流体について、第0節の正則性、[CTM15 の非圧縮 Navier–Stokes 方程式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)および長さ $L>0$、速度 $U>0$、時間 $T>0$ を仮定する。[無次元変数](#def-ctm16-reference-scales)の $V$ を使い、圧力を $P_{\mathrm v}=\eta U/L$ で、体積力を $\eta U/L^2$ で測ったとき、
 
 $$
 \boxed{
@@ -198,14 +212,16 @@ $$
 
 ## 5. 定常低 Reynolds 数から Stokes 方程式へ
 
-まず**定常**（$\partial_sV=0$）とする。さらに速度勾配が代表尺度に照らして有限であり、移流項が大きく膨れ上がらなければ、粘性尺度の式で $\mathrm{Re}(V\cdot\nabla_X)V$ は小さくなる。得られる極限方程式は、圧力・粘性・体積力の釣合である。
+まず**定常**（$\partial_sV=0$）とする。さらに速度勾配が代表尺度に照らして有限であり、移流項が大きく膨れ上がらなければ、[粘性尺度の運動量式](#cor-ctm16-viscous-scaled-equation)で $\mathrm{Re}(V\cdot\nabla_X)V$ は小さくなる。得られる極限方程式は、圧力・粘性・体積力の釣合である。
+
+ただし、**関数が収束することと、その微分が極限関数の微分に一致することは別問題**である。以下では、領域の内部に収まる任意のコンパクト集合（閉かつ有界な集合）上で、関数と必要な階数までの偏導関数がそれぞれ**一様に収束**することを仮定する。この条件で初めて微分と極限を交換できる。圧力そのものも定数差を適宜揃えて収束させる。
 
 <a id="thm-ctm16-low-re-stokes"></a>
 
 <!-- formal-statement-start -->
 ### 定理（条件付き低 Reynolds 数極限）
 
-固定した無次元領域で、$\mathrm{Re}=\varepsilon>0$ の定常非圧縮解 $(V_\varepsilon,\pi_\varepsilon)$ が
+固定した開いた無次元領域 $\Omega\subset\mathbb R^3$ で、$\mathrm{Re}=\varepsilon>0$ の定常非圧縮解 $(V_\varepsilon,\pi_\varepsilon)$（$V_\varepsilon\in C^2(\Omega)$、$\pi_\varepsilon\in C^1(\Omega)$）が
 
 $$
 \varepsilon(V_\varepsilon\cdot\nabla_X)V_\varepsilon
@@ -213,7 +229,7 @@ $$
 \nabla_X\cdot V_\varepsilon=0
 $$
 
-を満たすとする。$\varepsilon\downarrow0$ に対して $V_\varepsilon$、その一階・二階空間微分、$\nabla_X\pi_\varepsilon$、$F_\varepsilon$ が考える領域内でそれぞれ収束し、$V_\varepsilon$ と $\nabla_XV_\varepsilon$ が一様有界であるなら、極限 $(V_0,\pi_0)$ は**定常 Stokes 方程式**
+を満たすとする。$\varepsilon\downarrow0$ に対し、$V_\varepsilon$ とその一階・二階空間偏導関数、$\pi_\varepsilon$ とその一階偏導関数、および $F_\varepsilon$ が、$\Omega$ 内の任意のコンパクト集合上でそれぞれ一様に収束すると仮定する。さらに $V_\varepsilon$ と $\nabla_XV_\varepsilon$ が $\varepsilon$ によらず領域内で一様有界であるとする。このとき、$V_0\in C^2(\Omega)$、$\pi_0\in C^1(\Omega)$ であり、極限 $(V_0,\pi_0)$ は**定常 Stokes 方程式**
 
 $$
 \boxed{-\nabla_X\pi_0+\Delta_XV_0+F_0=0,\qquad \nabla_X\cdot V_0=0}
@@ -237,7 +253,14 @@ $$
 \le 3\varepsilon M_0M_1\longrightarrow0.
 $$
 
-仮定した二階空間微分と圧力勾配、体積力の収束を各成分の式へ代入すれば $-\nabla_X\pi_0+\Delta_XV_0+F_0=0$ となる。一階微分の収束と $\nabla_X\cdot V_\varepsilon=0$ から $\nabla_X\cdot V_0=0$ も従う。$\square$
+微分と極限を交換してよい理由も確認する。例えば $X$ と $X+he_j$ を結ぶ線分が $\Omega$ に含まれるとき、各成分について
+
+$$
+(V_\varepsilon)_i(X+he_j)-(V_\varepsilon)_i(X)
+=\int_0^h\partial_{X_j}(V_\varepsilon)_i(X+re_j)\,dr.
+$$
+
+線分上の一様収束により右辺の極限を積分の内側へ移せる。極限関数の差も左辺の極限となるので、$h$ による微分から $\partial_{X_j}(V_0)_i$ は偏導関数の極限に一致する。一階偏導関数へ同じ議論を繰り返せば二階も一致する。$\pi_\varepsilon$ の勾配についても同様である。従って二階微分・圧力勾配・体積力の極限を各成分の式へ代入でき、$-\nabla_X\pi_0+\Delta_XV_0+F_0=0$ を得る。一階微分の一致と $\nabla_X\cdot V_\varepsilon=0$ から $\nabla_X\cdot V_0=0$ も従う。$\square$
 <!-- proof-end -->
 
 物理単位へ戻すと、一定密度・粘性、定常・非圧縮の仮定のもとで、Stokes 方程式は
@@ -267,7 +290,7 @@ $$
 
 ## 6. 平行平板 Couette 流を境界条件から解く
 
-厚さ $h>0$ の流体が、下壁 $y=0$ と上壁 $y=h$ の間にある。下壁は静止し、上壁は $x$ 方向に一定速度 $U>0$ で動く。側方へ十分長い平行平板を理想化し、圧力勾配・体積力がなく、流れは時間に依存せず $x$ 方向速度だけが $y$ に依存すると仮定する。
+厚さ $h>0$ の流体が、下壁 $y=0$ と上壁 $y=h$ の間にある。下壁は静止し、上壁は $x$ 方向に一定速度 $U>0$ で動く。側方へ十分長い平行平板を理想化し、圧力勾配・体積力がなく、流れは時間に依存せず $x$ 方向速度だけが $y$ に依存すると仮定する。この節の $u'(y)=du/dy$、$u''(y)=d^2u/dy^2$ は $y$ に関する**常微分**である。第8節の $u(y,t)$ では時間と空間を別々に微分するので、$\partial_tu$、$\partial_y^2u$ と書き分ける。
 
 [CTM15 の無滑り条件](../CTM15/index.md#def-ctm15-no-slip)を両壁へ課すので、速度を「なんとなく直線」と置くのではなく、微分方程式と二つの境界値から直線が決まる。
 
@@ -300,9 +323,35 @@ $$
 \partial_tv=0.
 $$
 
-$\Delta v=(u''(y),0,0)$、$\nabla p=0$ を[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入すると、$x$ 成分は $\eta u''(y)=0$、他の成分は $0=0$ である。$\eta>0$ だから $u''=0$。一回積分して $u'=C_1$、もう一回積分して $u=C_1y+C_0$。$u(0)=0$ から $C_0=0$、$u(h)=U$ から $C_1=U/h$ と定まる。これが求める解であり、二つの積分定数が一意に決まるので、指定した解クラス内で一意である。
+$\Delta v=(u''(y),0,0)$、$\nabla p=0$ を[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入する。他の成分は $0=0$ であり、$x$ 成分は
 
-[CTM4 の変形速度](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)に従うと $D_{12}=D_{21}=u'/2=U/(2h)$、他の成分は零。[CTM15 の非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian)から $\sigma=-p_0I+2\eta D$、従って $\sigma_{12}=\sigma_{21}=\eta U/h$。[CTM15 の粘性散逸定理](../CTM15/index.md#thm-ctm15-viscous-dissipation)で $2\eta D:D=\eta(U/h)^2$ を得る。計算では移流項が**厳密に零**なので、$\mathrm{Re}$ の大小を仮定していない。$\square$
+$$
+\eta u''(y)=0\quad\Longrightarrow\quad u''(y)=0\qquad(\eta>0)
+$$
+
+となる。$y$ について二回積分すると、
+
+$$
+u'(y)=C_1,\qquad u(y)=C_1y+C_0.
+$$
+
+境界値を順に代入して $u(0)=C_0=0$、$u(h)=C_1h=U$ を得る。$h>0$ より $C_1=U/h$ と一意に決まるから、指定した解クラス内で解は一意である。
+
+$\partial_jv_i$ のうち非零なのは $\partial_yv_x=u'(y)$ だけである。[CTM4 の変形速度の定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin) $D_{ij}=(\partial_jv_i+\partial_iv_j)/2$ を成分に適用すると、
+
+$$
+D_{12}=D_{21}=\frac{\partial_yv_x+\partial_xv_y}{2}
+=\frac{u'}2=\frac{U}{2h},
+$$
+
+他の成分は零。[CTM15 の非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian) $\sigma=-p_0I+2\eta D$ では $I_{12}=0$ なので、$\sigma_{12}=\sigma_{21}=2\eta D_{12}=\eta U/h$。さらに $D:D=D_{12}^2+D_{21}^2=2(U/2h)^2$ である。[CTM15 の粘性散逸定理](../CTM15/index.md#thm-ctm15-viscous-dissipation)に代入して
+
+$$
+2\eta D:D=2\eta\cdot2\left(\frac{U}{2h}\right)^2
+=\eta\left(\frac{U}{h}\right)^2
+$$
+
+を得る。移流項は**厳密に零**なので、$\mathrm{Re}$ の大小を仮定していない。$\square$
 <!-- proof-end -->
 
 図では矢印の長さが局所速度を表し、先端を結ぶ破線は直線分布を表す。上壁の運動方向・壁間距離・速度勾配の関係を図から確認したうえで、数式と表でも検算する。
@@ -556,21 +605,44 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**(i) 方程式・境界値・初期値。** [Couette 流の一方向の計算](#thm-ctm16-couette-profile)から移流項は零で、方程式は $\partial_tu=\nu\partial_y^2u$（$\nu=\eta/\rho$）。定常部分 $Uy/h$ は二階微分が零なので、残差 $w=u-Uy/h$ を置く。$w$ は両端で零、初期値 $A\sin(\pi y/h)$ を持つ。$\sin(\pi y/h)$ の二階微分は $-(\pi/h)^2\sin(\pi y/h)$ だから、$w=a(t)\sin(\pi y/h)$ と代入すると
+**(i) 方程式・境界値・初期値。** $v(x,y,z,t)=(u(y,t),0,0)$ とする。速度の非零成分が $y,t$ の関数であるため
+
+$$
+\nabla\cdot v=\partial_xu=0,\qquad
+(v\cdot\nabla)v=u\partial_xv=0,\qquad
+\partial_tv=(\partial_tu,0,0)
+$$
+
+であり、時間微分は一般に零ではない。[CTM15 の非圧縮運動量式](../CTM15/index.md#thm-ctm15-incompressible-navier-stokes)へ代入し、$\rho>0$ で割ると
+
+$$
+\partial_tu=\nu\partial_y^2u,\qquad \nu=\frac\eta\rho>0
+$$
+
+となる。定常部分 $Uy/h$ は二階微分が零なので、残差 $w=u-Uy/h$ を置く。$w$ は両端で零、初期値 $A\sin(\pi y/h)$ を持つ。
+
+$\sin(\pi y/h)$ の二階微分は $-(\pi/h)^2\sin(\pi y/h)$ である。そこで $w=a(t)\sin(\pi y/h)$ と代入すると
 
 $$
 a'(t)\sin(\pi y/h)
 =-\nu\frac{\pi^2}{h^2}a(t)\sin(\pi y/h).
 $$
 
-$\sin$ が零でない点で係数を比較し、連続性で全域へ延ばす。$a'(t)=-ka(t)$、$k=\nu\pi^2/h^2>0$、$a(0)=A$ を解いて $a(t)=Ae^{-kt}$。従って
+$\sin$ が零でない点で係数を比較し、連続性で全域へ延ばす。ここで $a'(t)=da/dt$ は時間 $t$ に関する常微分（第6節の $u'=du/dy$ とは微分変数が異なる）である。$a'(t)=-ka(t)$、$k=\nu\pi^2/h^2>0$、$a(0)=A$ を解いて $a(t)=Ae^{-kt}$。従って
 
 $$
 \boxed{u(y,t)=\frac{Uy}{h}+Ae^{-kt}\sin(\pi y/h),\qquad
 k=\frac{\eta\pi^2}{\rho h^2}.}
 $$
 
-$y=0,h$ では正弦が零なので壁速度を満たし、$t=0$ では初期値に戻る。式を時間微分・二階空間微分すれば $\partial_tu=\nu u_{yy}$ が直接確認できる。
+$y=0,h$ では正弦が零なので壁速度を満たし、$t=0$ では初期値に戻る。時間微分では $a'(t)=-ka(t)$、空間微分では線形部分の二階微分が零であることを使い、
+
+$$
+\partial_tu=-ka(t)\sin(\pi y/h),\qquad
+\nu\partial_y^2u=-\nu\frac{\pi^2}{h^2}a(t)\sin(\pi y/h).
+$$
+
+$k=\nu\pi^2/h^2$ なので両者は一致し、偏微分方程式も直接満たす。
 
 **(ii) 時間尺度。** $Y=y/h$、$s=t/T_\nu$、$W=u/U$ とすると
 
