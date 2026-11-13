@@ -269,6 +269,8 @@ $$
 より $t_{12}=t_{21}=0$ です。逆に対角行列同士は可換なので $D'=D$。従って $F_0$ は $S_0$ と同じ成分共役 $C$ になり、両者の定義域も $\mathbb C^2$ です。可換子側でのwell-defined性と稠密性もこの例で確認できました。
 <!-- definition-example-end -->
 
+<a id="ref-aqft18-core-pairing"></a>
+
 ここで二つの作用素を結ぶ**基本対合公式**を計算します。$A\in\mathcal M$、$B\in\mathcal M'$ なら $AB=BA$ です。内積の第2変数線形規約と随伴の定義から
 
 $$
@@ -395,7 +397,7 @@ $F_0^2=I$ に同じ議論を適用すると $F^2=I$ も成立します。両作�
 
 次講の極分解では、作用素の随伴と積が必要になります。線形作用素の随伴と取り違えないよう、反線形の場合の式をここで固定します。
 
-稠密定義反線形作用素 $T$ と任意の $y\in\mathcal H$ に対し、$x\mapsto\langle Tx,y\rangle$ は $x$ の**線形**汎関数です。これが $\|x\|$ に関して有界なら、Rieszの表現により $\langle z,x\rangle$ の形に一意に書けます。この $z$ を $T^\sharp y$ と定義します。
+稠密定義反線形作用素 $T$ と任意の $y\in\mathcal H$ に対し、$x\mapsto\langle Tx,y\rangle$ は $x$ の**線形**汎関数です。この汎関数を $\langle z,x\rangle$ の形で表せる $y$ だけを随伴の定義域に入れます。稠密性により、そのような $z$ は存在すれば一意です。この $z$ を $T^\sharp y$ と定義します。
 
 <a id="def-aqft18-antilinear-adjoint"></a>
 
@@ -444,7 +446,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$y=B\Omega\in\operatorname{Dom}(F_0)$ を固定すると、任意の $x=A\Omega\in\operatorname{Dom}(S_0)$ に対して[基本対合公式](#def-aqft18-commutant-initial)から
+$y=B\Omega\in\operatorname{Dom}(F_0)$ を固定すると、任意の $x=A\Omega\in\operatorname{Dom}(S_0)$ に対して[基本対合公式](#ref-aqft18-core-pairing)から
 
 $$
 \langle S_0x,y\rangle=\langle F_0y,x\rangle
@@ -486,7 +488,14 @@ $$
 
 を満たす作用素全体で、行列単位 $E_{ij}=|e_i\rangle\langle e_j|$ が正規直交基底です。有限個の成分だけを残す切断は二重級数の尾を零にするので、有限行列の線形結合は $\mathcal H$ で稠密です。
 
-$A\in B(K)$ の**左乗算** $L_A(X)=AX$ は $\mathcal H$ 上の有界作用素で、$\|AX\|_2\le\|A\|\,\|X\|_2$ です。左乗算環を $\mathcal M=\{L_A:A\in B(K)\}$ とします。これは単位的von Neumann環です（標準的な左正則表示であり、有限ランク行列単位から可換子を調べても確かめられます）。
+$A\in B(K)$ の**左乗算** $L_A(X)=AX$ は $\mathcal H$ 上の有界作用素で、$\|AX\|_2\le\|A\|\,\|X\|_2$ です。左乗算環を $\mathcal M=\{L_A:A\in B(K)\}$ とします。これは単位的von Neumann環であることも確かめられます。実際、右乗算 $R_B(X)=XB$（$B\in B(K)$）は左乗算と可換し、$\|R_BX\|_2\le\|B\|\,\|X\|_2$ なので $\{R_B\}\subset\mathcal M'$ です。$T\in\mathcal M''$ とすると特に全ての $R_B$ と可換します。$R_{E_{11}}$ は第1列だけを残す射影なので、$T$ は第1列部分空間 $\{E_{v1}:v\in K\}$ を保ちます。そこで $T(E_{v1})=E_{Av,1}$ と置けば、$\|Av\|=\|T(E_{v1})\|_2\le\|T\|\|v\|$ から $A\in B(K)$ です。任意の $i,j$ に対し $E_{ij}=R_{E_{1j}}(E_{i1})$ なので
+
+$
+T(E_{ij})=R_{E_{1j}}T(E_{i1})
+=E_{Ae_i,j}=L_A(E_{ij}).
+$
+
+行列単位の線形包が稠密だから $T=L_A$、従って $\mathcal M''\subset\mathcal M$。逆の包含は任意の作用素集合で成り立つので $\mathcal M''=\mathcal M$ です。[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)によって $\mathcal M$ はvon Neumann環です。
 
 対角の正作用素 $\Omega$ を
 
@@ -526,7 +535,7 @@ $$
 
 ### 別の無限次元例：可換な乗算環では閉包を手で書ける
 
-$\mathcal H=L^2([0,1])$、$\mathcal M=L^\infty([0,1])$ の乗算作用素、$\Omega(t)=1$ とします。$f\in L^\infty$ の作用は $M_f\Omega=f$ です。$M_f\Omega=0$ なら $f=0$ ほとんど至る所で分離的です。任意の $g\in L^2$ を
+$\mathcal H=L^2([0,1])$、$\mathcal M=L^\infty([0,1])$ の乗算作用素、$\Omega(t)=1$ とします。ここで $\mathcal M$ がvon Neumann環であることは次のように検査できます。全ての乗算と可換な $T\in B(L^2)$ は特に各指示関数 $1_E$ の乗算と可換します。$h=T1$ と置くと、$T1_E=1_Eh$ です。$\|1_Eh\|_2=\|T1_E\|_2\le\|T\|\sqrt{|E|}$ より $|h|\le\|T\|$ ほとんど至る所です（これを超える集合 $E$ が正測度なら不等式に反します）。単関数の稠密性から $Tf=hf$ が全 $L^2$ で成り立ちます。従って $\mathcal M'=\mathcal M$、さらに $\mathcal M''=\mathcal M$ であるため、[二重可換子定理](../../VN/VN2/index.md#thm-vn2-bicommutant)から結論します。$f\in L^\infty$ の作用は $M_f\Omega=f$ です。$M_f\Omega=0$ なら $f=0$ ほとんど至る所で分離的です。任意の $g\in L^2$ を
 
 $$
 g_n=g\,\mathbf1_{\{|g|\le n\}}
