@@ -5,6 +5,7 @@
     <marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#176180"/></marker>
     <marker id="normal-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#7f3932"/></marker>
   </defs>
+  <rect x="0" y="0" width="640" height="370" fill="#ffffff"/>
   <path d="M 120 207 L 334 207 Q 371 207 371 169 L 371 90 L 441 90 L 441 169 Q 441 277 334 277 L 120 277 Z" fill="#e8f2f6" stroke="#3c5866" stroke-width="3"/>
   <path d="M 120 207 L 120 277" stroke="#333" stroke-width="3" stroke-dasharray="5 5"/>
   <path d="M 371 90 L 441 90" stroke="#333" stroke-width="3" stroke-dasharray="5 5"/>
