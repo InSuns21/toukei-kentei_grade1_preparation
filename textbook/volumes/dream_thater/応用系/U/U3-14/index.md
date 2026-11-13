@@ -75,9 +75,9 @@ $$
 
 候補を $Y_t=F(t,W_t)$、$F(t,x)=s_0\exp(at+\sigma x)$、$a=\mu-\sigma^2/2$ と定めます。$F$ は $[0,T]\times\mathbb R$ 上 $C^{1,2}$ で、$\mathcal F_t$ に適合する連続な $Y$ を与えます。ここで添字 $F_t,F_x,F_{xx}$ はそれぞれ $\partial F/\partial t$、$\partial F/\partial x$、$\partial^2F/\partial x^2$ の略記です。$F_t$ は空間変数 $x$ を固定した時間偏微分、$F_x,F_{xx}$ は時刻 $t$ を固定した空間偏微分であり、情報の $\mathcal F_t$ とは別の記号です。実際に指数の中身 $at+\sigma x$ を微分すると
 
-$
+$$
 F_t=aF,\qquad F_x=\sigma F,\qquad F_{xx}=\sigma^2F
-$
+$$
 
 となります。[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) を、状態過程 $X_t=W_t$ の $b_t=0$、拡散係数1、二次変分密度1として適用すると、
 
@@ -455,16 +455,16 @@ $0<u<t$ とする。$\operatorname{Cov}(S_u,S_t)$ を $s_0,\mu,\sigma,u,t$ で�
 <!-- solution-start -->
 **詳細解答**：[条件付き平均](#prop-u3-14-conditional) は $E[S_t\mid\mathcal F_u]=S_ue^{\mu(t-u)}$。$S_u$ は $\mathcal F_u$ 可測ですが、一般に有界ではありません。[条件付き期待値の既知量の取り出し](../../../解析系/F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties) を適用するため、まず $Z_n=\min(S_u,n)$ と置きます。$Z_n$ は有界・$\mathcal F_u$ 可測なので、[塔の性質](../../../解析系/F0/F0-00P3A/index.md#thm-f0-00p3a-tower) と合わせて
 
-$
+$$
 E[Z_nS_t]=E[Z_n E[S_t\mid\mathcal F_u]]
 =e^{\mu(t-u)}E[Z_nS_u].
-$
+$$
 
 $S_u,S_t>0$ で、[実数モーメント](#prop-u3-14-moments) から二次モーメントが有限です。Cauchy–Schwarz の不等式により $E[S_uS_t]<\infty$ でもあります。$0\le Z_nS_t\le S_uS_t$、$0\le Z_nS_u\le S_u^2$ なので、[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01) を使い $n\to\infty$ とすると
 
-$
+$$
 E[S_uS_t]=e^{\mu(t-u)}E[S_u^2].
-$
+$$
 
 [二次モーメント](#prop-u3-14-moments) を入れて $E[S_uS_t]=s_0^2e^{\mu(t+u)}e^{\sigma^2u}$。一方 $E[S_u]E[S_t]=s_0^2e^{\mu(t+u)}$。従って
 
@@ -511,19 +511,19 @@ $S$ の対数増分が区間 $[0,1]$ と $[1,2]$ でそれぞれ独立な正規�
 
 分散だけでなく**平均も**合わせるには、例えば区間ごとに確定的なドリフトと変動率を
 
-$
+$$
 (\mu(t),\sigma(t))=
 \begin{cases}
 (0.03,0.2),&0\le t<1,\\
 (0.055,0.3),&1\le t\le2
 \end{cases}
-$
+$$
 
 と取ります。なぜ二つのドリフトも必要かというと、[対数株価の Itô 変換](../U3-13/index.md#prop-u3-13-log-price) から、各定数係数区間 $[a,b]$ では
 
-$
+$$
 \log(S_b/S_a)=\left(\mu-\frac{\sigma^2}{2}\right)(b-a)+\sigma(W_b-W_a)
-$
+$$
 
 となるためです。第1区間は $0.03-0.2^2/2=0.01$、分散 $0.2^2=0.04$。第2区間は $0.055-0.3^2/2=0.01$、分散 $0.3^2=0.09$ です。[Brown 運動の独立増分](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion) により両区間の対数増分は独立です。このように**係数の時間一定性**を外せば指定分布を実現できますが、単一の定数係数 GBM にはなりません。
 <!-- solution-end -->
