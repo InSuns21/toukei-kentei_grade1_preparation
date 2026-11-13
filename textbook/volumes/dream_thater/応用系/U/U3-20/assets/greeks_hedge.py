@@ -36,7 +36,7 @@ def greeks(s: float, k: float, r: float, q: float, sigma: float, tau: float):
     d1,d2 = indices(s,k,r,q,sigma,tau)
     a,b = math.exp(-q*tau),math.exp(-r*tau)
     common = s*a*phi(d1)
-    gamma = common/(s*sigma*math.sqrt(tau))
+    gamma = common/(s*s*sigma*math.sqrt(tau))
     vega = common*math.sqrt(tau)
     theta_common = -common*sigma/(2*math.sqrt(tau))
     call = dict(delta=a*Phi(d1),gamma=gamma,vega=vega,
