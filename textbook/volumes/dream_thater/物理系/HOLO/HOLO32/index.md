@@ -401,12 +401,28 @@ $$
 
 ### 証明の見取り図
 
-境界の積分と半球の積分を、同じ $\boldsymbol\chi$ で表します。Stokesの定理で差を体積へ移し、Noether恒等式を代入します。後半で点ごとの方程式へ進むには別の議論が必要です。
+境界の積分と半球の積分を、同じ $\boldsymbol\chi$ で表します。[VC5のKelvin–Stokes の定理](../../../幾何系/VC/VC5/index.md#thm-vc5-stokes)に現れる「境界上の積分＝内部の微分の積分」という構造を高次元の微分形式に拡張して差を体積へ移し、Noether恒等式を代入します。後半で点ごとの方程式へ進むには別の議論が必要です。
 
 <!-- proof-start -->
 ### 証明
 
-cutoff付き $\Sigma_B$ でStokesの定理を適用します。境界の向きを球側が正になるよう選ぶと
+cutoff付き $\Sigma_B$ に一般次元の Stokes 公式を適用します。[VC5のKelvin–Stokes の定理](../../../幾何系/VC/VC5/index.md#thm-vc5-stokes)そのものは三次元の曲面に関する結果です。ここで必要な一般次元版では、局所座標 $x^1,\ldots,x^d$ 上の $(d-1)$-形式を
+
+$$
+\boldsymbol\chi
+=\sum_{k=1}^{d}(-1)^{k-1}\chi_k\,
+dx^1\wedge\cdots\wedge\widehat{dx^k}\wedge\cdots\wedge dx^d
+$$
+
+と書けば、外微分は
+
+$$
+d\boldsymbol\chi
+=\left(\sum_{k=1}^{d}\partial_k\chi_k\right)
+dx^1\wedge\cdots\wedge dx^d
+$$
+
+となります。各座標小領域で基本定理を積分し、接合する内部境界の寄与が向きの反転で相殺するのが高次元版の機構です。本講ではこの積分公式を、cutoff後の区分的滑らかな領域と十分滑らかな $\boldsymbol\chi$ に対して入力します。境界の向きを球側が正になるよう選ぶと
 
 $$
 \int_{\partial\Sigma_B}\boldsymbol\chi_{\xi_B}
@@ -822,7 +838,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答**。[積分拘束の定理](#thm-holo32-integrated-gravity-constraint)の仮定の下で、境界球の積分は $\delta\langle K_{B,0}\rangle$、半球の積分は $\delta\operatorname{Area}/(4G_N)=\delta S_B$ です。Stokesの定理とNoether恒等式を続けて用いると
+**詳細解答**。[積分拘束の定理](#thm-holo32-integrated-gravity-constraint)の仮定の下で、境界球の積分は $\delta\langle K_{B,0}\rangle$、半球の積分は $\delta\operatorname{Area}/(4G_N)=\delta S_B$ です。[VC5のStokes の定理](../../../幾何系/VC/VC5/index.md#thm-vc5-stokes)を高次元の微分形式に拡張した積分公式とNoether恒等式を続けて用いると
 
 $$
 \begin{aligned}
@@ -902,7 +918,7 @@ $$
 
 です。これは実際の計量摂動 $h$ を解かずに、RTを**入力して**得た必要条件です。計量の一次変分によりこの長さが実現されるかは別問題です。
 
-**4. Noether拘束。** [積分拘束の定理](#thm-holo32-integrated-gravity-constraint)の辞書とStokesの定理から
+**4. Noether拘束。** [積分拘束の定理](#thm-holo32-integrated-gravity-constraint)の辞書と[VC5のStokes の定理](../../../幾何系/VC/VC5/index.md#thm-vc5-stokes)の高次元版から
 
 $$
 0=\delta\langle K_{B,0}\rangle
