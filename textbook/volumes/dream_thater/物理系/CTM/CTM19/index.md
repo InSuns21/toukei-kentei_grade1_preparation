@@ -42,31 +42,48 @@ $$
 を満たす。$q$ の単位は Pa である。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-ctm19-sls -->
-### **定義の確認**：並列応力と直列ひずみを同時に確かめる
-
-$E_\infty=2$ MPa、$E_1=3$ MPa、$\eta=6$ MPa s、$\varepsilon=0.01$、$q=3$ kPa、$\dot\varepsilon=0.002$ s$^{-1}$ を考える。すべての係数は正、$\tau=2$ s である。Maxwell 枝のばねひずみは $q/E_1=0.001$、ダッシュポットひずみは $0.01-0.001=0.009$ で、和は確かに $0.01$。その瞬間のダッシュポット速度は $q/\eta=0.0005$ s$^{-1}$ なので、枝のばね速度は $0.002-0.0005=0.0015$ s$^{-1}$。ゆえに
-
-$$
-\dot q=E_1(0.0015)=4500\ \mathrm{Pa/s},\qquad
-E_1\dot\varepsilon-\frac q\tau=6000-1500=4500\ \mathrm{Pa/s}.
-$$
-
-枝の式の両辺が一致する。また全応力は $E_\infty\varepsilon+q=20+3=23$ kPa と、並列の応力和になる。
-<!-- definition-example-end -->
-
 ### 枝の微分方程式はどこから来たか
 
-直列のばねひずみは $q/E_1$、ダッシュポットのひずみ速度は $q/\eta$。[Maxwell の速度加算](../CTM18/index.md#thm-ctm18-maxwell-law)に、枝応力を $\sigma\mapsto q$、枝弾性率を $E\mapsto E_1$、枝全ひずみを $\varepsilon$ と対応させると
+まず、[一次元ばね・ダッシュポットの素子則](../CTM18/index.md#def-ctm18-elements)により、直列枝のばねひずみは $\varepsilon_s=q/E_1$、ダッシュポットのひずみ速度は $\dot\varepsilon_d=q/\eta$ である。直列接続では $\varepsilon=\varepsilon_s+\varepsilon_d$ なので、時間微分すると $\dot\varepsilon=\dot\varepsilon_s+\dot\varepsilon_d$ になる。[Maxwell の速度加算](../CTM18/index.md#thm-ctm18-maxwell-law)に、枝応力を $\sigma\mapsto q$、枝弾性率を $E\mapsto E_1$、枝全ひずみを $\varepsilon$ と対応させると
 
-$$
+$
 \dot\varepsilon=\frac{\dot q}{E_1}+\frac q\eta,
 \quad
 E_1\dot\varepsilon=\dot q+\frac{E_1}{\eta}q
 =\dot q+\frac q\tau.
-$$
+$
 
 この一階方程式が**直列枝の記憶**を表し、並列ばねが**長時間の残留剛性**を保証する。
+
+<!-- definition-example-start: def-ctm19-sls -->
+### **定義の確認**：並列応力と直列ひずみを同時に確かめる
+
+$E_\infty=2$ MPa、$E_1=3$ MPa、$\eta=6$ MPa s、$\varepsilon=0.01$、$q=3$ kPa、$\dot\varepsilon=0.002$ s$^{-1}$ を考える。すべての係数は正で、$\tau=2$ s となる。
+
+直列枝の共通応力からばねひずみ $\varepsilon_s=q/E_1$ を計算し、並列枝に課されたひずみ $\varepsilon$ を直列接続の和に分ける。
+
+$
+\varepsilon_s=\frac{3000}{3\times10^6}=0.001,\qquad
+\varepsilon_d=0.01-0.001=0.009,\qquad
+\varepsilon_s+\varepsilon_d=0.01.
+$
+
+次にダッシュポットの関係式と直列枝の速度加算を用いる。
+
+$
+\dot\varepsilon_d=\frac q\eta=0.0005\ \mathrm{s^{-1}},\qquad
+\dot\varepsilon_s=0.002-0.0005=0.0015\ \mathrm{s^{-1}}.
+$
+
+このばねひずみ速度を $\dot q=E_1\dot\varepsilon_s$ へ戻すと
+
+$
+\dot q=E_1(0.0015)=4500\ \mathrm{Pa/s},\qquad
+E_1\dot\varepsilon-\frac q\tau=6000-1500=4500\ \mathrm{Pa/s}.
+$
+
+枝の式の両辺が一致する。また全応力は $E_\infty\varepsilon+q=20+3=23$ kPa と、並列の応力和になる。
+<!-- definition-example-end -->
 
 ## 2. 過去のひずみを現在の応力へ結ぶ
 
@@ -87,6 +104,14 @@ $$
 
 と定める。瞬間の右極限を $G(0+)$ と書く。$G$ の単位は Pa である。
 <!-- formal-statement-end -->
+
+理想ステップでの初期応力を、[Maxwell 模型のステップ応答](../CTM18/index.md#thm-ctm18-maxwell-step)と同じ接続条件から求める。有限応力の近似負荷を考えると、ダッシュポットひずみの跳びは、幅 $2h$ の区間に対して
+
+$
+\Delta\varepsilon_d=\lim_{h\downarrow0}\int_{-h}^{h}\frac{q(t)}{\eta}\,dt=0
+$
+
+となる（$q$ がこの区間で一様有界であることを使用）。したがって全ひずみの跳び $\varepsilon_0$ は直列枝のばねが受け持ち、$q(0+)=E_1\varepsilon_0$ となる。この初期値を保持区間の一階方程式へ入れて、次の比を確かめる。
 
 <!-- definition-example-start: def-ctm19-relaxation -->
 ### **定義の確認**：一定ひずみ試験で何を割るのか
@@ -270,7 +295,7 @@ $$
 E^*(\omega)=E'(\omega)+iE''(\omega)
 $$
 
-と記す。三者の単位は Pa である。$E''$ の符号は上記の $e^{+i\omega t}$ の規約に従う。
+と記す。三者の単位は Pa である。$E'$ と $E''$ のプライム記号は周波数や時間に関する導関数ではなく、実部と虚部を区別する名称である。$E''$ の符号は上記の $e^{+i\omega t}$ の規約に従う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-ctm19-modulus -->
@@ -326,7 +351,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[内部応力方程式](#def-ctm19-sls)の定常周期解を $q(t)=\operatorname{Re}(\widehat q e^{i\omega t})$ と仮定する。複素振幅に対し、$\dot q\mapsto i\omega\widehat q$ と $\dot\varepsilon\mapsto i\omega\widehat\varepsilon$ を代入すると
+[内部応力方程式](#def-ctm19-sls)の定常周期解を $q(t)=\operatorname{Re}(\widehat q e^{i\omega t})$ と仮定する。複素振幅 $\widehat f$ は時間に依存しない定数なので、時間 $t$ で微分する連鎖律から
+
+$
+\frac{d}{dt}(\widehat f e^{i\omega t})=i\omega\widehat f e^{i\omega t}
+$
+
+を得る。実部を取る操作と時間微分は交換できるため、$\dot q\mapsto i\omega\widehat q$ と $\dot\varepsilon\mapsto i\omega\widehat\varepsilon$ を代入すると
 
 $$
 \left(i\omega+\frac1\tau\right)\widehat q
@@ -473,7 +504,21 @@ $$
 +\frac{\varepsilon^2}{\varepsilon_a^2}=1
 $$
 
-となり、$E''>0$ のとき閉曲線は楕円である。変数変換 $u=\varepsilon/\varepsilon_a$、$v=(\sigma-E'\varepsilon)/(E''\varepsilon_a)$ の行列式の絶対値は $1/(\varepsilon_a^2E'')$ なので、単位円の面積 $\pi$ を戻した楕円の幾何学的面積は $\pi E''\varepsilon_a^2$。向きも、$\theta=0$ で右端点から下向きに進むので $\oint\sigma\,d\varepsilon>0$ と一致する。
+となり、$E''>0$ のとき閉曲線は楕円である。変数変換 $u=\varepsilon/\varepsilon_a$、$v=(\sigma-E'\varepsilon)/(E''\varepsilon_a)$ は、上の楕円方程式を $u^2+v^2=1$ に変える。逆変換は
+
+$
+\varepsilon=\varepsilon_a u,\qquad
+\sigma=\varepsilon_a(E'u+E''v)
+$
+
+であり、$(u,v)$ から $(\varepsilon,\sigma)$ への線形写像の行列と行列式は
+
+$
+\begin{pmatrix}\varepsilon_a&0\\E'\varepsilon_a&E''\varepsilon_a\end{pmatrix},\qquad
+\det=E''\varepsilon_a^2>0.
+$
+
+$\varepsilon_a>0$ と $E''>0$ で変換は可逆であり、面積は行列式の絶対値だけ拡大する。したがって単位円の面積 $\pi$ を戻した楕円の面積は $\pi E''\varepsilon_a^2$。向きも、$\theta=0$ で右端点から下向きに進むので $\oint\sigma\,d\varepsilon>0$ と一致する。
 
 最後に、[$\psi$ と $\mathcal D$ の分解](#prop-ctm19-energy)を $t_0$ から $t_0+T$ まで積分する。定常周期解では $\varepsilon,q$ がともに周期 $T$ を持ち、$\Delta\psi=0$。よって
 
@@ -497,7 +542,7 @@ $E''>0$ なので実際に正。$\square$
 <!-- formal-statement-start -->
 ### 命題（単一緩和時間模型の損失弾性率のピーク）
 
-$E_1,\tau>0$ と $\omega>0$ を固定可能な標準線形固体では、損失弾性率 $E''(\omega)$ は $\omega\tau=1$ において唯一の最大値 $E_1/2$ を取る。これは固定ひずみ振幅の**一周期損失**のピークであって、固定振幅の**平均散逸率**が最大となる周波数を意味しない。
+$E_\infty,E_1,\eta>0$ を固定した標準線形固体で、$\tau=\eta/E_1$ とし、角周波数 $\omega$ を $(0,\infty)$ 上で動かす。このとき損失弾性率 $E''(\omega)$ は $\omega\tau=1$ において唯一の最大値 $E_1/2$ を取る。これは固定ひずみ振幅の**一周期損失**のピークであって、固定振幅の**平均散逸率**が最大となる周波数を意味しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -523,7 +568,7 @@ $$
 \frac{\omega\tau}{1+\omega^2\tau^2}.
 $$
 
-固定 $\varepsilon_a$ で $\omega\to\infty$ とすると、この量は $E_1\varepsilon_a^2/(2\tau)$ へ近づき、$\omega\tau=1$ での値を上回る。よって両者の最大周波数は同一ではない。$\square$
+固定 $\varepsilon_a$ に対し $x=\omega\tau$ とおけば、平均散逸率は $E_1\varepsilon_a^2\,x^2/[2\tau(1+x^2)]$ である。$d\{x^2/(1+x^2)\}/dx=2x/(1+x^2)^2>0$ だから、平均散逸率は $x>0$ で単調増加し、$\omega\to\infty$ の極限 $E_1\varepsilon_a^2/(2\tau)$ は上限であって有限周波数では達しない。したがって $E''$ のピーク $\omega\tau=1$ は、平均散逸率のピークではない。$\square$
 <!-- proof-end -->
 
 例えば $E_\infty=2$ MPa、$E_1=3$ MPa、$\tau=2$ s を固定すると次の比較になる（角周波数は $\omega=x/\tau$）。
