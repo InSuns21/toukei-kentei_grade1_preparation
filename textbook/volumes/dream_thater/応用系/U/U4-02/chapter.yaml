@@ -2,7 +2,7 @@ id: "U4-02"
 title: "有限市場の分離定理と状態価格の双対"
 volume: "foundations"
 status: supplementary
-prerequisites: [U4-01]
+prerequisites: [U4-01, F0-00E1]
 official_scope: []
 learning_objectives:
   - 有限状態市場の保有数量、時点0の価格と時点1の受取額を行列の次元・符号・単位とともに設定できる
