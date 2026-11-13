@@ -85,7 +85,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（解析的元の二つの稠密性）**  
-> 標準対 $(\mathcal M,\Omega)$ に対し $\mathcal M_{\mathrm c}$ は $\sigma_t$ 不変な単位的C*部分環で、$\sigma_t|_{\mathcal M_{\mathrm c}}$ は作用素ノルム連続な $*$-自己同型からなる群である。[AQFT23のGaussian平滑化](../AQFT23/index.md#thm-aqft23-gaussian-analytic)で作る全解析的元 $A_\varepsilon$ は $\mathcal M_{\mathrm c}$ に属し、$\mathcal M$ に強作用素・強*作用素位相で稠密である。さらに全解析的元は $\mathcal M_{\mathrm c}$ に**作用素ノルムで**稠密である。
+> 標準対 $(\mathcal M,\Omega)$ のモジュラー流に対するノルム連続部分代数 $\mathcal M_{\mathrm c}$ は、流で不変な単位的C*部分環である。制限された流は、その上で作用素ノルム連続な $*$-自己同型の一パラメータ群をなす。
+>
+> [AQFT23のGaussian平滑化](../AQFT23/index.md#thm-aqft23-gaussian-analytic)で作った全解析的元 $A_\varepsilon$ は $\mathcal M_{\mathrm c}$ に属する。これらは元の環 $\mathcal M$ に強*作用素位相で稠密であり、$\mathcal M_{\mathrm c}$ に作用素ノルムで稠密である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
