@@ -130,29 +130,23 @@ $$
 
 写像 $u$ の「エネルギー」は、定義域の二つの互いに直交する単位方向に沿った微分の長さの二乗を足した量で測る。定義域には、$j$ と両立するRiemann計量 $h$ を選ぶ。すなわち $h(jv,jw)=h(v,w)$ とする。局所的に $h=\lambda(s,t)^2(ds^2+dt^2)$ と表せ、$\lambda>0$ である。標的には既述の $g_J$ を用いる。
 
-<a id="def-gw1-02-energy"></a>
-
-<!-- formal-statement-start -->
-> **定義（写像のDirichletエネルギー）**  
-> $(\Sigma,j,h)$ を $h(jv,jw)=h(v,w)$ を満たす向き付きRiemann面、$(X,\omega,J)$ を $J$ が $\omega$ に適合するシンプレクティック多様体とする。滑らかな写像 $u:\Sigma\to X$ に対し、$h$-正規直交基底 $e_1,e_2$ によって
+[GA8で導入した写像のDirichletエネルギー](../../GA/GA8/index.md#def-ga8-map-energy)は、Riemann多様体間の写像の微分を正規直交基底で二乗し、係数 $\tfrac12$ を付けて積分する量である。この定義を本講の $(\Sigma,h)$ と $(X,g_J)$ に適用する。$h$-正規直交基底 $e_1,e_2$ に対し
 
 $$
 |du|_{h,g_J}^2
 =g_J(du(e_1),du(e_1))+g_J(du(e_2),du(e_2))
 $$
 
-> と定める。$\Sigma$ がコンパクトなら、そのDirichletエネルギーを
+と書けば、コンパクトな $\Sigma$ に対するエネルギーは
 
 $$
 E(u)=\frac12\int_\Sigma|du|_{h,g_J}^2\,d\operatorname{vol}_h
 $$
 
-> と定める。$|du|^2$ は基底の選択によらない。
-<!-- formal-statement-end -->
+である。[GA8の正規直交基底の交換計算](../../GA/GA8/index.md#def-ga8-map-energy)により、$|du|^2$ と $E(u)$ は基底の選択に依存しない。同じ方式で $|\bar\partial_Ju|^2$ も定める。後者は、各点で $\bar\partial_Ju:T_p\Sigma\to T_{u(p)}X$ が実線形なので、正規直交基底上で二乗ノルムを足せばよい。
 
-正規直交基底を別の基底へ変える実行列は直交行列である。上の二乗和は、$du$ の成分行列の二乗和、すなわちHilbert–Schmidtノルムなので、直交行列を掛けても変わらない。同じ方法で $|\bar\partial_Ju|^2$ も定める。
+### 直接例：平坦トーラス上の写像
 
-<!-- definition-example-start: def-gw1-02-energy -->
 **定義の確認**。$\Sigma=X=\mathbb R^2/\mathbb Z^2$ を座標 $(s,t)$、$(x,y)$ で表した平坦なトーラスとし、$h=ds^2+dt^2$、$\omega=dx\wedge dy$、$J(\partial_x)=\partial_y$、$J(\partial_y)=-\partial_x$ とする。[適合性の直接判定](../../SYM/SYM8/index.md#def-sym8-compatible)により $g_J=dx^2+dy^2$ となる。写像
 
 $$
@@ -167,13 +161,12 @@ E(u)=\frac12\cdot10\cdot\operatorname{area}(\Sigma)=5.
 $$
 
 基本領域 $[0,1]^2$ の面積は1であり、エネルギーは有限である。
-<!-- definition-example-end -->
 
 **定義域の計量を取り替えたら？** 二次元で $h'=\rho^2h$（$\rho$ は正の滑らかな関数）とすれば、$h'$ の正規直交基底は $\rho^{-1}e_i$ である。よって $|du|_{h',g_J}^2=\rho^{-2}|du|_{h,g_J}^2$、$d\operatorname{vol}_{h'}=\rho^2d\operatorname{vol}_h$。両者が相殺し、**エネルギーは同じ複素構造に適合する計量の共形倍に依存しない**。以下の恒等式も同様である。
 
 ## 4. エネルギーとシンプレクティック面積の差
 
-まず各点で、向き付き $h$-正規直交基底を $e,je$ と取る。この基底が存在するのは $j$ が $h$ に関して等長で、$j^2=-I$ だからである。$a=du(e)$、$b=du(je)$ と置くと、点ごとのエネルギー密度は $\tfrac12(|a|_{g_J}^2+|b|_{g_J}^2)$、引き戻した2形式の係数は $(u^*\omega)(e,je)=\omega(a,b)$ となる。
+まず各点で、向き付き $h$-正規直交基底を $e,je$ と取る。この基底が存在するのは $j$ が $h$ に関して等長で、$j^2=-I$ だからである。$a=du(e)$、$b=du(je)$ と置くと、点ごとのエネルギー密度は $\tfrac12(|a|_{g_J}^2+|b|_{g_J}^2)$、2形式 $u^*\omega$ の係数は $(u^*\omega)(e,je)=\omega(a,b)$ となる。
 
 <a id="thm-gw1-02-energy-identity"></a>
 
@@ -203,7 +196,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-点 $p\in\Sigma$ を固定し、前述の正規直交基底 $e,je$ と $a=du(e)$、$b=du(je)$ を使う。[Cauchy–Riemann作用素の定義](#def-gw1-02-cr-operator)から
+点 $p\in\Sigma$ を固定し、前述の正規直交基底 $e,je$ と $a=du(e)$、$b=du(je)$ を使う。[非線形Cauchy–Riemann作用素](#def-gw1-02-cr-operator)から
 
 $$
 (\bar\partial_Ju)(e)=\tfrac12(a+Jb),\qquad
@@ -326,12 +319,12 @@ $$
 
 ### 証明の見取り図
 
-擬正則条件を[エネルギー恒等式](#thm-gw1-02-energy-identity)へ代入する。零エネルギーなら微分が全点で零となり、連結性から写像が定数と分かる。
+擬正則条件を[擬正則写像のエネルギー恒等式](#thm-gw1-02-energy-identity)へ代入する。零エネルギーなら微分が全点で零となり、連結性から写像が定数と分かる。
 
 <!-- proof-start -->
 ### 証明
 
-[擬正則写像の定義](#def-gw1-02-j-holomorphic)から $\bar\partial_Ju=0$ なので、[エネルギー恒等式](#thm-gw1-02-energy-identity)の誤差項が零となり $E(u)=\int_\Sigma u^*\omega$。面積の類による表示は[ホモトピー不変性の命題](#prop-gw1-02-homotopy-area)の末尾に示した評価式である。
+[擬正則写像の定義](#def-gw1-02-j-holomorphic)から $\bar\partial_Ju=0$ なので、[擬正則写像のエネルギー恒等式](#thm-gw1-02-energy-identity)の誤差項が零となり $E(u)=\int_\Sigma u^*\omega$。面積の類による表示は[ホモトピー不変性の命題](#prop-gw1-02-homotopy-area)の末尾に示した評価式である。
 
 $g_J$ は正定値なので $|du|^2\ge0$。従って $E(u)\ge0$。$E(u)=0$ なら、非負連続関数 $|du|^2$ の積分が零だから $du=0$ が全点で成り立つ。各座標近傍では曲線に沿って微分すると値が一定で、$u$ は局所定数写像である。連結な $\Sigma$ 上では局所定数写像は定数となる。逆に定数なら $du=0$ なので $E(u)=0$。
 <!-- proof-end -->
@@ -391,7 +384,7 @@ $$
 閉Riemann面 $(\Sigma,j,h)$ から適合構造を持つ $(X,\omega,J)$ への定数写像 $u(p)=x_0$ について、$\bar\partial_Ju$、$E(u)$、$\int_\Sigma u^*\omega$ を定義から計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。どの点でも $du_p:T_p\Sigma\to T_{x_0}X$ は零写像である。従って[作用素の定義](#def-gw1-02-cr-operator)の二項はともに零で $\bar\partial_Ju=0$。[エネルギーの定義](#def-gw1-02-energy)では $|du|^2=0$ なので $E(u)=0$。2形式の引き戻しも $u^*\omega(v,w)=\omega(du(v),du(w))=0$ であり、積分は零。すべての項が $0=0+0$ と一致する。
+**詳細解答**。どの点でも $du_p:T_p\Sigma\to T_{x_0}X$ は零写像である。従って[作用素の定義](#def-gw1-02-cr-operator)の二項はともに零で $\bar\partial_Ju=0$。[写像のDirichletエネルギーの定義](../../GA/GA8/index.md#def-ga8-map-energy)では $|du|^2=0$ なので $E(u)=0$。2形式の引き戻しも $u^*\omega(v,w)=\omega(du(v),du(w))=0$ であり、積分は零。すべての項が $0=0+0$ と一致する。
 <!-- solution-end -->
 
 <a id="ex-gw1-02-a03"></a>
@@ -427,7 +420,7 @@ A03と同じ平坦な単位トーラス上で $u([s,t])=[s,-t]$ とする。$E(u
 <!-- solution-start -->
 **詳細解答**。$u_s=(1,0)$、$u_t=(0,-1)$ より $|du|^2=1+1=2$、したがって $E(u)=1$。引き戻しの係数は $\det\operatorname{diag}(1,-1)=-1$ だから $\int u^*\omega=-1$。
 
-$J(x,y)=(-y,x)$ とすると $\bar\partial_Ju(\partial_s)=\tfrac12((1,0)+(1,0))=(1,0)$、$\bar\partial_Ju(\partial_t)=\tfrac12((0,-1)-(0,1))=(0,-1)$。二乗和は2、積分も2である。よって $E=1=-1+2$。$\bar\partial_Ju\ne0$ なので[エネルギー恒等式](#thm-gw1-02-energy-identity)の等号条件を満たさない。
+$J(x,y)=(-y,x)$ とすると $\bar\partial_Ju(\partial_s)=\tfrac12((1,0)+(1,0))=(1,0)$、$\bar\partial_Ju(\partial_t)=\tfrac12((0,-1)-(0,1))=(0,-1)$。二乗和は2、積分も2である。よって $E=1=-1+2$。$\bar\partial_Ju\ne0$ なので[擬正則写像のエネルギー恒等式](#thm-gw1-02-energy-identity)の等号条件を満たさない。
 <!-- solution-end -->
 
 <a id="ex-gw1-02-a05"></a>
@@ -475,7 +468,7 @@ $$
 \end{aligned}
 $$
 
-第一項は $\tfrac12|du|^2$、第二項は $(u^*\omega)(\partial_s,\partial_t)$ なので、$|\bar\partial_Ju|^2=\tfrac12|du|^2-\omega(u_s,u_t)$。面積形式 $ds\wedge dt$ を掛ければ[エネルギー恒等式](#thm-gw1-02-energy-identity)の点ごとの形が得られる。
+第一項は $\tfrac12|du|^2$、第二項は $(u^*\omega)(\partial_s,\partial_t)$ なので、$|\bar\partial_Ju|^2=\tfrac12|du|^2-\omega(u_s,u_t)$。面積形式 $ds\wedge dt$ を掛ければ[擬正則写像のエネルギー恒等式](#thm-gw1-02-energy-identity)の点ごとの形が得られる。
 <!-- solution-end -->
 
 <a id="ex-gw1-02-b02"></a>
@@ -587,7 +580,7 @@ E(u_B)=5,\quad
 =\tfrac12\{(2-2)^2+(1-1)^2\}=0.
 $$
 
-**（3）** [閉曲面上の面積のホモトピー不変性](#prop-gw1-02-homotopy-area)により $u_A$ と滑らかにホモトピー同値な写像 $v$ では $\int v^*\omega=3$ である。[エネルギー恒等式](#thm-gw1-02-energy-identity)から $E(v)=3+\int|\bar\partial_Jv|^2\ge3$。従って **$E(v)<3$ は不可能** である。ただし下界 $3$ を達成するには $\bar\partial_Jv=0$ が必要であり、不等式そのものはそのような写像の存在を保証しない。今回の $u_A$ は誤差項が $\tfrac12$ であるから、少なくとも $u_A$ 自身は下界を達成していない。
+**（3）** [閉曲面上の面積のホモトピー不変性](#prop-gw1-02-homotopy-area)により $u_A$ と滑らかにホモトピー同値な写像 $v$ では $\int v^*\omega=3$ である。[擬正則写像のエネルギー恒等式](#thm-gw1-02-energy-identity)から $E(v)=3+\int|\bar\partial_Jv|^2\ge3$。従って **$E(v)<3$ は不可能** である。ただし下界 $3$ を達成するには $\bar\partial_Jv=0$ が必要であり、不等式そのものはそのような写像の存在を保証しない。今回の $u_A$ は誤差項が $\tfrac12$ であるから、少なくとも $u_A$ 自身は下界を達成していない。
 
 **（4）** $u_A$ は面積3で正だが、（1）のとおり $u_t\ne Ju_s$ であり、誤差項は $\tfrac12>0$ である。正の面積だけでは擬正則性を保証しない。一方、$u_B$ は等号を満たす。
 <!-- solution-end -->
