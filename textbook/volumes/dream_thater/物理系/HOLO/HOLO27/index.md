@@ -449,7 +449,7 @@ $$
 =|a\rangle\langle c|\,\langle d|b\rangle
 $$
 
-で定義され、線形性で一般の密度行列へ延長します。有限次元の行列 $X$ の 1-ノルムを $\|X\|_1:=\operatorname{Tr}\sqrt{X^\dagger X}$ と定め、$\|O_A\|_\infty$ を最大特異値（作用素ノルム）とします。有限次元なのでどちらも有限です。
+で定義され、線形性で一般の密度行列へ延長します。有限次元の行列 $X$ の特異値の総和を $\|X\|_1:=\operatorname{Tr}\sqrt{X^\dagger X}$ と書き、$\|O_A\|_\infty$ を最大特異値（作用素ノルム）とします。有限次元なのでどちらも有限です。
 
 <a id="thm-holo27-indistinguishability"></a>
 
