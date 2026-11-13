@@ -12,8 +12,8 @@
   <g font-family="sans-serif" font-size="22" fill="#172b42">
     <text x="78" y="60">基準配置</text>
     <text x="425" y="60">現在配置</text>
-    <text x="78" y="91" font-size="18">上面積 A₀</text>
-    <text x="425" y="91" font-size="18">上面積 2A₀</text>
+    <text x="78" y="91" font-size="18">上面積 A0</text>
+    <text x="425" y="91" font-size="18">上面積 2A0</text>
   </g>
   <g data-series-group="configuration" data-series-label="reference">
     <rect x="78" y="160" width="180" height="120" rx="2" fill="#e2eff7" stroke="#17638c" stroke-width="3" stroke-dasharray="8 5"/>
