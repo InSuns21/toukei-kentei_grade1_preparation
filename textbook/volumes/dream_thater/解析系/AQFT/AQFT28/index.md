@@ -170,7 +170,7 @@ $$
 E_{ij}=(p_j^{-1/2}E_{ij})\rho^{1/2}
 $$
 
-なので、Tomita作用素の定義により $S_0(E_{ij})=p_j^{-1/2}E_{ji}\rho^{1/2}=\sqrt{p_i/p_j}\,E_{ji}$ です。行列単位はHilbert–Schmidt内積の正規直交基底なので、反線形随伴の定義から $S_0^*(E_{ji})=\sqrt{p_i/p_j}\,E_{ij}$ が成立します。従って有限行列単位の線形包上で $\Delta_\rho=S^*S$ が対角作用し、各 $E_{ij}$ の固有値は $p_i/p_j$ です。すなわち、正作用素 $L_\rho R_{\rho^{-1}}$ の自然な定義域の核上で
+なので、[Tomita初期作用素](../AQFT18/index.md#def-aqft18-tomita-initial)の定義式 $S_0(a\Omega)=a^*\Omega$ により $S_0(E_{ij})=p_j^{-1/2}E_{ji}\rho^{1/2}=\sqrt{p_i/p_j}\,E_{ji}$ です。行列単位はHilbert–Schmidt内積の正規直交基底なので、反線形随伴の定義から $S_0^*(E_{ji})=\sqrt{p_i/p_j}\,E_{ij}$ が成立します。従って有限行列単位の線形包上で $\Delta_\rho=S^*S$ が対角作用し、各 $E_{ij}$ の固有値は $p_i/p_j$ です。すなわち、正作用素 $L_\rho R_{\rho^{-1}}$ の自然な定義域の核上で
 
 $$
 \begin{aligned}
