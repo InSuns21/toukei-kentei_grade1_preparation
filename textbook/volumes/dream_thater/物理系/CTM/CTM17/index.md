@@ -19,7 +19,14 @@ $$
 \sigma=-pI+2\eta D.
 $$
 
-ここで $D=(\nabla v+(\nabla v)^T)/2$、$\sigma$ は Cauchy 応力、壁に対する外向き単位法線を $n$ とすると [traction](../CTM6/index.md#def-ctm6-traction) は $\sigma n$ である。「**壁が流体へ及ぼす力**」を計算する際は、**流体領域の外向き法線**を用いる。
+ここで $D=(\nabla v+(\nabla v)^T)/2$ は既習の[変形速度テンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)、$\sigma$ は Cauchy 応力である。直交座標基底 $(e_x,e_y,e_z)$ における[速度勾配](../CTM4/index.md#def-ctm4-velocity-gradient)は、次のように各成分を位置座標で微分した行列である。
+
+$$
+(\nabla v)_{ij}=\frac{\partial v_i}{\partial x_j},\qquad
+D_{xy}=\frac12(\partial_yv_x+\partial_xv_y).
+$$
+
+[traction（表面力密度）](../CTM6/index.md#def-ctm6-traction) が $\sigma n$ で表されるのは、[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)による。「**壁が流体へ及ぼす力**」を計算する際は、**流体領域の外向き法線**を用いる。
 
 量の単位は $[h]=[x]=\mathrm m$、$[v]=\mathrm{m/s}$、$[p]=\mathrm{Pa}$、$[\eta]=\mathrm{Pa\,s}$、体積流量 $[Q]=\mathrm{m^3/s}$ とする。圧力差は $\Delta p>0$ を入口圧力から出口圧力を引いた値として使う。端面を切り取って力・仕事を数えるときには、入口と出口が同じ速度分布を持つ、十分長い完全発達流の一区間を取る。入口直後の発達領域や有限幅流路の側壁はこの模型に含めない。
 
@@ -40,6 +47,8 @@ $$
 
 と表せる流れをいう。静止壁の[無滑り条件](../CTM15/index.md#def-ctm15-no-slip)を採用するときは、さらに $u(-h)=u(h)=0$ を課す。圧力はこの定義だけでは決めず、運動量式から求める。
 <!-- formal-statement-end -->
+
+以下、$u'(y)=du/dy$、$u''(y)=d^2u/dy^2$ は高さ $y$ に関する常微分とする。一方、$\partial_t v$ は空間位置 $(x,y,z)$ を固定した時間偏微分、$\partial_x v$ は他の座標と時刻を固定した偏微分である。これらが零になるのは**速度場に課した**定常・完全発達の仮定によるのであって、圧力が $x$ に依存しないという意味ではない。後で圧力が $p=p(x)$ と分かれば、$\partial_xp=dp/dx$ と書ける。
 
 <!-- definition-example-start: def-ctm17-fully-developed -->
 ### **定義の確認**：放物線を候補として試す
@@ -152,7 +161,7 @@ $$
 <!-- definition-example-start: def-ctm17-volume-flux -->
 ### **定義の確認**：一定速度と放物型速度
 
-$u(y)=U_0$ が全隙間で一定なら、$q=\int_{-h}^hU_0\,dy=2hU_0$、従って $Q=2hwU_0$。速度と断面積を掛ける素朴な公式に戻る。放物型 $u(y)=A(h^2-y^2)$ なら
+まず無滑り条件を課さない比較用の流れとして $u(y)=U_0$ が全隙間で一定なら、$q=\int_{-h}^hU_0\,dy=2hU_0$、従って $Q=2hwU_0$。速度と断面積を掛ける素朴な公式に戻る。放物型 $u(y)=A(h^2-y^2)$ なら
 
 $$
 q=A\left[h^2y-\frac{y^3}{3}\right]_{-h}^{h}
@@ -180,7 +189,7 @@ $$
 
 ### 証明の見取り図
 
-流量は $u(y)$ を高さ方向に積分する。壁の力は速度の符号から推測せず、[Cauchy の traction](../CTM6/index.md#def-ctm6-traction)へ法線を代入して求める。
+流量は $u(y)$ を高さ方向に積分する。壁の力は速度の符号から推測せず、[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)の $t=\sigma n$ に法線を代入して求める。
 
 <!-- proof-start -->
 ### 証明
@@ -195,13 +204,20 @@ $$
 
 断面高さは $2h$ だから $\bar u=q/(2h)=Gh^2/(3\eta)$。$u'(y)=-Gy/\eta$ は中央で零、$u''=-G/\eta<0$ だから最大は $y=0$ にあり、$u_{\max}=Gh^2/(2\eta)$。二式の比は $3/2$。
 
-[非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian)の非対角成分は $2\eta D_{xy}$。ここでは $D_{xy}=D_{yx}=u'(y)/2$ なので
+[非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian)の非対角成分は $2\eta D_{xy}$。直交基底で $v_x=u(y)$、$v_y=0$ なので、第0節で確認した成分表示を適用すると
 
 $$
-\sigma_{xy}(y)=\eta u'(y)=-Gy.
+D_{xy}=\frac12(\partial_yv_x+\partial_xv_y)
+=\frac12(u'(y)+0)=\frac{u'(y)}2,\qquad D_{yx}=D_{xy}.
 $$
 
-上壁の流体外向き法線は $+e_y$ で、$(\sigma n)_x=\sigma_{xy}(h)=-Gh$。下壁では $n=-e_y$ なので $(\sigma n)_x=-\sigma_{xy}(-h)=-Gh$。両壁とも流れに逆らう方向である。$\square$
+従って
+
+$$
+\sigma_{xy}(y)=2\eta D_{xy}=\eta u'(y)=-Gy.
+$$
+
+上壁の流体外向き法線は $+e_y$ で、[traction の表示](../CTM6/index.md#thm-ctm6-cauchy-stress)から $(\sigma n)_x=\sigma_{xy}(h)=-Gh$。下壁では $n=-e_y$ なので $(\sigma n)_x=-\sigma_{xy}(-h)=-Gh$。両壁とも流れに逆らう方向である。$\square$
 <!-- proof-end -->
 
 圧力は壁に垂直な方向の応力にも含まれるが、**壁の水平せん断 traction**は $-Gh$ である。断面幅 $w$、長さ $\ell$ の仮想的な区間では、圧力が押す正味の $x$ 方向の力は $(p_{\mathrm{in}}-p_{\mathrm{out}})2hw=2Gh\ell w$。上下壁の抵抗は合わせて $(-Gh)(2\ell w)=-2Gh\ell w$ で、和が零となる。
@@ -289,7 +305,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（完全発達平板流は Navier–Stokes 式の厳密解）
 
-一定 $\rho,\eta,h>0$、$b=0$ の非圧縮 Newton 流体で、時間・$x,z$ に依存しない流れと圧力を
+一定 $\rho,\eta,h>0$、$b=0$ の非圧縮 Newton 流体で、**速度場は時間・$x,z$ に依存せず、圧力は時間・$y,z$ に依存しない**ものとして、それぞれ
 
 $$
 v=(u(y),0,0),\qquad p(x)=p_{\mathrm{in}}-Gx,\qquad G\in\mathbb R
@@ -385,7 +401,7 @@ $u(y)=G(h^2-y^2)/(2\eta)$、$\sigma_{xy}=\eta u'$ とする。上壁と下壁で
 <!-- solution-start -->
 #### 詳細解答
 
-$u'=-Gy/\eta$ だから $\sigma_{xy}=-Gy$。上壁の法線は $n_{\mathrm{top}}=e_y$、下壁は $n_{\mathrm{bottom}}=-e_y$ である。[表面力密度の定義](../CTM6/index.md#def-ctm6-traction)から
+$u'=-Gy/\eta$ だから $\sigma_{xy}=-Gy$。上壁の法線は $n_{\mathrm{top}}=e_y$、下壁は $n_{\mathrm{bottom}}=-e_y$ である。[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)の $t=\sigma n$ から
 
 $$
 t_{\mathrm{top},x}=\sigma_{xy}(h)=-Gh,\qquad
@@ -418,7 +434,7 @@ $$
 =\frac{2\ell G^2h^3}{3\eta}.
 $$
 
-$\Delta p\,q=G\ell\cdot2Gh^3/(3\eta)$ と一致し、単位は W/m である。
+[平板 Poiseuille 流の流量・壁面せん断力](#thm-ctm17-flux-and-wall-stress)で得た $q$ を用いると $\Delta p\,q=G\ell\cdot2Gh^3/(3\eta)$ と一致し、単位は W/m である。
 <!-- solution-end -->
 
 ### A5. 微小流路の圧力差
@@ -587,7 +603,7 @@ t_{\mathrm{top},x}=\eta u'(h)=\frac{\eta U}{2h}-Gh,\qquad
 t_{\mathrm{bottom},x}=-\eta u'(-h)=-\frac{\eta U}{2h}-Gh.
 $$
 
-**第2問。** 上壁の接触速度は $U$ だから、上壁が流体にする単位面積当たり仕事率は $Ut_{\mathrm{top},x}=\eta U^2/(2h)-GUh$。下壁は静止して仕事率零。長さ $\ell$ の単位幅で上壁仕事は $\ell(\eta U^2/(2h)-GUh)$、圧力仕事は $\Delta p\,q=G\ell(Uh+2Gh^3/(3\eta))$。足すと
+**第2問。** 上壁の接触速度は $U$ だから、上壁が流体にする単位面積当たり仕事率は $Ut_{\mathrm{top},x}=\eta U^2/(2h)-GUh$。下壁は静止して仕事率零。長さ $\ell$ の単位幅で上壁仕事は $\ell(\eta U^2/(2h)-GUh)$、圧力仕事は $\Delta p\,q=G\ell(Uh+2Gh^3/(3\eta))$。足した全投入仕事率を $P_{\mathrm{in}}$ とおくと
 
 $$
 P_{\mathrm{in}}=\ell\left(\frac{\eta U^2}{2h}-GUh\right)
@@ -602,7 +618,7 @@ $$
 =\frac{\eta U^2}{4h^2}-\frac{UG}{h}y+\frac{G^2}{\eta}y^2.
 $$
 
-$y$ の奇関数の項は対称区間で積分すると零となる。ゆえに
+$y$ の奇関数の項は対称区間で積分すると零となる。区間の総内部散逸率を $P_{\mathrm{diss}}$ とおけば
 
 $$
 P_{\mathrm{diss}}
