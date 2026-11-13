@@ -2,8 +2,6 @@ chapter: U3-14
 scope: dream-theater
 coverage: complete
 prerequisites: [U3-13, STO9]
-forward_references:
-  - finance.risk-neutral-measure
 concepts:
   - id: finance.geometric-brownian-motion
     name: 幾何 Brown 運動
