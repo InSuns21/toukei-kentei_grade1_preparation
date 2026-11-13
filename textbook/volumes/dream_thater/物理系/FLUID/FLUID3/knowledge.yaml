@@ -6,6 +6,7 @@ prerequisites:
 concepts:
   - id: fluid.archimedes-fully-submerged
     name: Archimedes の原理：完全水没
+    aliases: ["Archimedes の原理"]
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Archimedes の原理：完全水没）"]
@@ -41,8 +42,8 @@ concepts:
     introduction_aliases: ["定義（横メタセンタ高さ）"]
     requires: [fluid.center-of-buoyancy, fluid.floating-vertical-balance]
   - id: fluid.small-heel-restoring-moment
-    name: 小傾斜の復元モーメント
+    name: 小傾斜の復元トルク
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（小傾斜の復元モーメント）"]
+    introduction_aliases: ["定理（小傾斜の復元トルク）"]
     requires: [fluid.transverse-metacentric-height, fluid.floating-vertical-balance]
