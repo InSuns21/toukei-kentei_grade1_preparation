@@ -1,0 +1,52 @@
+chapter: HOLO32
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - HOLO28
+  - HOLO18
+  - HOLO13
+  - HOLO23
+forward_references: []
+concepts:
+  - id: holography.vacuum-ball-modular-generator
+    name: 真空球の幾何学的モジュラー生成子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（真空球の幾何学的モジュラー生成子）"]
+    requires: [holography.modular-hamiltonian-finite]
+  - id: holography.vacuum-ball-first-variation
+    name: 真空球のエントロピー第一変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（真空球のエントロピー第一変分）"]
+    requires: [holography.vacuum-ball-modular-generator, holography.entanglement-first-law]
+  - id: holography.ads-ball-killing-flow
+    name: 真空球に対応するAdSの流れと面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（真空球に対応するAdSの流れと面）"]
+    requires: [holography.vacuum-ball-modular-generator]
+  - id: holography.rt-ball-area-variation
+    name: 真空球の停留面の一次面積変分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（真空球の停留面の一次面積変分）"]
+    requires: [holography.ads-ball-killing-flow]
+  - id: holography.linearized-einstein-residual
+    name: 真空Einstein方程式の線形化残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（真空Einstein方程式の線形化残差）"]
+    requires: []
+  - id: holography.integrated-einstein-constraint
+    name: 真空球の第一法則が与える積分Einstein拘束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（真空球の第一法則が与える積分Einstein拘束：条件付き）"]
+    requires: [holography.vacuum-ball-first-variation, holography.ads-ball-killing-flow, holography.rt-ball-area-variation, holography.linearized-einstein-residual]
+  - id: holography.all-balls-einstein
+    name: 全真空球の拘束からの局所Einstein方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全真空球の拘束からの局所Einstein方程式：反転仮定付き）"]
+    requires: [holography.integrated-einstein-constraint, holography.linearized-einstein-residual]
