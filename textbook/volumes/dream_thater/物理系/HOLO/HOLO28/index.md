@@ -48,7 +48,16 @@ K_\sigma=\operatorname{diag}\bigl(\log(4/3),\log4\bigr),\qquad
 e^{-K_\sigma}=\sigma.
 $$
 
-対数を取るために対角化したのであって、任意の $\rho$ と $\sigma$ が可換であることを仮定したわけではありません。例えば $\rho=|+\rangle\langle+|$ も $\sigma$ の全台に含まれるため、この $K_\sigma$ で比較できます。
+この対角行列は、qubitの正規直交基底 $|0\rangle,|1\rangle$ で表した $\sigma$ です。各基底ベクトルが $\sigma$ の固有ベクトルなので、行列の対数は固有値 $3/4,1/4$ のそれぞれに $\log$ を作用させて計算できます。正定値性は両固有値が正であることから、密度行列の条件はさらに両固有値の和が1であることから確認できます。
+
+対数を取るために $\sigma$ を対角化したのであって、比較する $\rho$ と可換であることは仮定しません。例えば $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ と置くと、
+
+$$
+\rho=|+\rangle\langle+|
+=\frac12\begin{pmatrix}1&1\\1&1\end{pmatrix}
+$$
+
+は正半定値でトレース1、台は $\sigma$ の全台に含まれます。$\rho$ の非対角成分は零でなく $\sigma$ の二固有値は異なるため、$\rho\sigma\ne\sigma\rho$ ですが、上の $K_\sigma$ で比較できます。
 <!-- definition-example-end -->
 
 <a id="prop-holo28-relative-modular"></a>
@@ -62,14 +71,14 @@ D(\rho\Vert\sigma)=
 \operatorname{Tr}(\rho K_\sigma)-S(\rho)
 $$
 
-> が成立する。また $\Delta X:=X(\rho)-X(\sigma)$ と書けば
+> が成立する。また状態に依存する量 $F$ の差を $\Delta F:=F(\rho)-F(\sigma)$ と書けば
 
 $$
 D(\rho\Vert\sigma)=
 \Delta\langle K_\sigma\rangle-\Delta S.
 $$
 
-> $\sigma$ が非可逆の場合も、$\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ の下で同じ式を台へ制限して解釈する。
+> ここで $\Delta\langle K_\sigma\rangle=\operatorname{Tr}[(\rho-\sigma)K_\sigma]$、$\Delta S=S(\rho)-S(\sigma)$ であり、$\rho$ を変えても $K_\sigma$ は参照状態 $\sigma$ に固定する。$\sigma$ が非可逆の場合も、$\operatorname{supp}\rho\subseteq\operatorname{supp}\sigma$ の下で同じ式を台へ制限して解釈する。
 <!-- formal-statement-end -->
 
 **証明の見取り図。** 定義に含まれる二つのトレースへ $K_\sigma=-\log\sigma$ と $S(\rho)=-\operatorname{Tr}\rho\log\rho$ を代入します。参照状態自身について $D(\sigma\Vert\sigma)=0$ を引くことが第二式の要点です。
@@ -106,7 +115,7 @@ $$
 
 ## 2. 小摂動の第一法則：どこまでが微分の等式か
 
-$\sigma>0$ を固定し、$\rho(t)=\sigma+tX$ とします。$X=X^\dagger$、$\operatorname{Tr}X=0$ とし、$|t|$ を十分小さくして $\rho(t)>0$ を保証します。対数の微分を行列の可換性に依存させないため、最初は $\sigma$ の固有基底で考えます。
+$\sigma>0$ を固定し、$\rho(t)=\sigma+tX$ とします。$X=X^\dagger$、$\operatorname{Tr}X=0$ とし、$|t|$ を十分小さくして $\rho(t)>0$ を保証します。以後 $S'(0)$ は $t$ で微分した $\left.\frac{d}{dt}S(\rho(t))\right|_{t=0}$ の略記です。$\langle K_\sigma\rangle_{\rho(t)}=\operatorname{Tr}(\rho(t)K_\sigma)$ では参照 $\sigma$ を固定し、変化させるのは $\rho(t)$ だけです。対数の微分を行列の可換性に依存させないため、最初は $\sigma$ の固有基底で考えます。
 
 <a id="prop-holo28-first-law"></a>
 
@@ -276,14 +285,14 @@ $$
 
 実際の半古典重力では、面積を常に同じ数とみなすより、幾何に対応する異なるセクター間で変わり得ると考える必要があります。そこで添字 $\alpha$ でラベル付けされた互いに直交するコード空間を直和にし、各セクターに異なる $d_\alpha$ を割り当てます。
 
-ここで**直和代数の中心**という語を先に説明します。セクターごとに作用する観測量の集合
+ここで**直和代数の中心**という語を先に説明します。$\mathcal B(\mathcal H)$ は有限次元空間 $\mathcal H$ 上のすべての線形作用素の集合、$\bigoplus_\alpha$ はセクター間を混ぜないブロック対角作用素を表します。セクターごとに作用する観測量の集合
 
 $$
 \mathcal M=\bigoplus_\alpha
 \bigl(\mathcal B(\mathcal H_{a_\alpha})\otimes I_{b_\alpha}\bigr)
 $$
 
-では、セクターラベルを識別する射影 $P_\alpha$ がすべての $\mathcal M$ の元と可換です。そのような可換な作用素全体が中心です。以下では量子誤り訂正一般の代数定理を仮定せず、このブロック行列だけを計算します。
+では、$P_\alpha$ を第 $\alpha$ ブロックでは恒等作用素、その他のブロックでは零となる射影とします。$P_\alpha P_\beta=\delta_{\alpha\beta}P_\alpha$ かつ $\sum_\alpha P_\alpha=I_{\rm code}$ です。$P_\alpha$ はすべての $\mathcal M$ の元と可換で、このように代数の全元と可換な代数内の作用素が**中心**に属します。以下では量子誤り訂正一般の代数定理を仮定せず、このブロック行列だけを計算します。
 
 <a id="def-holo28-sector-area"></a>
 
@@ -296,7 +305,16 @@ $$
 (\mathcal H_{a_\alpha}\otimes\mathcal H_{b_\alpha})
 $$
 
-> から、互いに直交する物理領域 $A$、$\bar A$ の $\alpha$ ブロックへ、各 $|\Phi_{d_\alpha}\rangle$ を付けて等長に符号化する。中心の射影 $P_\alpha$ に対し
+> とし、物理領域 $A$ と補領域 $\bar A$ の因子を
+
+$$
+\begin{aligned}
+\mathcal H_A&=\bigoplus_\alpha(\mathcal H_{a_\alpha}\otimes\mathcal H_{e_{A,\alpha}}),\\
+\mathcal H_{\bar A}&=\bigoplus_\alpha(\mathcal H_{b_\alpha}\otimes\mathcal H_{e_{B,\alpha}})
+\end{aligned}
+$$
+
+> とする。ただし $\dim\mathcal H_{e_{A,\alpha}}=\dim\mathcal H_{e_{B,\alpha}}=d_\alpha$。第3節と同様、各コードブロックの $|\psi_\alpha\rangle$ を $|\psi_\alpha\rangle\otimes|\Phi_{d_\alpha}\rangle$ に写し、物理因子を $A,\bar A$ の順に並べ替える写像 $V$ を定める。異なるブロックの像は直交し、同じブロックではBell対の規格化により内積が保存されるから $V^\dagger V=I_{\rm code}$ である。中心の射影 $P_\alpha$ に対し
 
 $$
 \mathcal L=\sum_\alpha(\log d_\alpha)P_\alpha
@@ -315,7 +333,9 @@ $$
 $|1\rangle$ セクターだけが切断Bell対を一つ持ちます。
 <!-- definition-example-end -->
 
-以下でセクターの古典確率を $p_\alpha=\operatorname{Tr}(P_\alpha\rho)$ とし、$p_\alpha>0$ なら規格化した $a_\alpha$ の状態を $\rho_{a_\alpha}$ と書きます。セクター間の非対角成分は $\bar A$ をトレースすると消え、物理 $A$ の縮約はブロック対角になります。$A$ に対応するバルク代数の状態も、行列として $\rho_{\mathcal M}=\bigoplus_\alpha p_\alpha\rho_{a_\alpha}$ で表します。これが一般の「バルクHilbert空間の単一因子」ではなく、直和代数の制限状態である点が重要です。
+以下でセクターの古典確率を $p_\alpha=\operatorname{Tr}(P_\alpha\rho)$ とし、$p_\alpha>0$ なら規格化した $a_\alpha$ の状態を $\rho_{a_\alpha}$ と書きます。$p_\alpha=0$ のときは、そのブロック状態 $p_\alpha\rho_{a_\alpha}$ を零行列と定め、$p_\alpha S(\rho_{a_\alpha})=0$ と解釈します。参照状態の確率を $q_\alpha=\operatorname{Tr}(P_\alpha\sigma)$ とし、同様に $\sigma_{a_\alpha}$ を表します。
+
+異なるセクターの物理 $\bar A$ ブロックは直交するので、$\alpha\ne\beta$ の項を部分トレースすると、その $\bar A$ 側の内積は零になります。従ってセクター間の非対角成分は消え、物理 $A$ の縮約はブロック対角になります。$A$ に対応するバルク代数の状態も、行列として $\rho_{\mathcal M}=\bigoplus_\alpha p_\alpha\rho_{a_\alpha}$ で表します。これは一般の「バルクHilbert空間の単一因子」ではなく、直和代数の制限状態です。
 
 <a id="thm-holo28-sector-jlms"></a>
 
