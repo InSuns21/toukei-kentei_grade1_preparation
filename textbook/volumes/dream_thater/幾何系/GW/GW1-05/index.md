@@ -6,15 +6,15 @@
 
 [擬正則写像のエネルギーと面積の一致](../GW1-02/index.md#cor-gw1-02-energy-area)から、閉曲面の同じ曲線類を表す $J$-正則写像には一定のエネルギーがある。しかし、この式が抑えるのは微分の **二乗積分** であり、微分の各点での最大値ではない。前講では[単純曲線の横断性](../GW1-04/index.md#thm-gw1-04-universal-surjective)を調べたが、横断的な解の列でも、微分が小さな円盤へ集中して極限から消えてしまうことがある。
 
-この章では、滑らかな閉Riemann面 $(\Sigma,j)$ と、コンパクトで境界のないシンプレクティック多様体 $(X,\omega)$、滑らかな $\omega$-適合概複素構造 $J$ を固定する。写像は滑らかで、常に $J$-正則とする。
+この章では、滑らかな閉Riemann面 $(\Sigma,j)$ と、コンパクトで境界のないシンプレクティック多様体 $(X,\omega)$、滑らかな $\omega$-適合概複素構造 $J$（[SYM8での多様体上の定義](../../SYM/SYM8/index.md#def-sym8-almost-complex)）を固定する。写像は滑らかで、常に $J$-正則とする。
 
-微分のノルムと距離には、適合計量を使う。その定義式は
+微分のノルムと距離には、[適合性から得られる正定値計量](../../SYM/SYM8/index.md#thm-sym8-compatible-metric)を各接空間で使う。その定義式は
 
 $$
 g_J(v,w)=\omega(v,Jw)
 $$
 
-である。局所座標 $z=s+it$ では、前講と同じ[擬正則方程式](../GW1-02/index.md#def-gw1-02-j-holomorphic)を次の形で用いる。
+である。局所座標 $z=s+it$ では $u_s=\partial u/\partial s$、$u_t=\partial u/\partial t$ と書き、前講と同じ[擬正則方程式](../GW1-02/index.md#def-gw1-02-j-holomorphic)を次の形で用いる。
 
 $$
 u_t=J(u)u_s.
@@ -44,6 +44,48 @@ $$
 
 と規格化する。このとき全体の面積は $2\pi$ である。これは極座標で $2\int_0^{2\pi}\int_0^\infty r(1+r^2)^{-2}\,dr\,d\theta=2\pi$ と計算できる。
 
+<a id="calc-gw1-05-rational-area"></a>
+
+**一般の有理写像でも次数が面積を決める理由。** 以下の次数2・3の例では、べき写像に限らない正則有理写像の面積を計算する。まず、[射影写像の定義](../../../代数系/AG/AG2-03/index.md#def-ag2-03-projective-polynomial-map)を使う。共通射影零点を持たない同次数の斉次多項式の組によって、射影直線から射影直線への写像は
+
+$$
+f([Z:W])=[P(Z,W):Q(Z,W)],\qquad \deg P=\deg Q=d\ge1
+$$
+
+と表せる。ここで両多項式の共通零点がないことは、写像が定義域全体で定義される条件である。
+
+次に、標的の正則値を一つ固定して、その逆像を数える。標的の点に同次座標を選べば、逆像の条件は
+
+$$
+[a:b]\in\mathbb{CP}^1,\qquad bP(Z,W)-aQ(Z,W)=0
+$$
+
+である。非定数であることから右の斉次多項式は恒等的に零にはならず、次数はちょうど $d$ である。
+
+有限チャートで $p(z)=P(z,1)$、$q(z)=Q(z,1)$ とおく。商の微分は
+
+$$
+f'(z)=\frac{p'(z)q(z)-p(z)q'(z)}{q(z)^2}
+$$
+
+となる。非定数写像では分子は恒等的に零でなく、導関数が零となる定義域の点は有限個であり、それらの点の標的への像も有限個である。これらの例外値を除いた標的点では、上の次数 $d$ の斉次方程式の根はすべて単純であり、射影直線上にちょうど $d$ 個の逆像を持つ。無限遠の根も数え落とさない。
+
+各正則な逆像の近くでは、複素座標表示 $w=f(z)$ が局所正則微分同相を与える。このとき、複素導関数 $f'(z)=df/dz$ に対する実Jacobianは
+
+$$
+\det_{\mathbb R}Df(z)=|f'(z)|^2>0
+$$
+
+である。従って正則値の近傍で局所逆写像ごとに向きを保つ変数変換を行える。上で述べた例外値の集合とその逆像は有限なので面積積分への寄与はなく、各正則値の逆像がちょうど $d$ 点であることから、
+
+$$
+\int_{\mathbb{CP}^1}f^*\omega_{\mathrm{FS}}
+=d\int_{\mathbb{CP}^1}\omega_{\mathrm{FS}}
+=2\pi d.
+$$
+
+つまり、この式はべき写像だけの公式ではなく、**共通零点がなく、非定数で正則な次数 $d$ の射影直線自己写像**に対して成り立つ。[擬正則写像のエネルギー・面積の一致](../GW1-02/index.md#cor-gw1-02-energy-area)と組み合わせると $E(f)=2\pi d$ となる。以後、具体的な多項式の組については共通零点と次数を確認してから適用する。
+
 $\varepsilon>0$ とし、球面から球面への正則な一次写像
 
 $$
@@ -52,7 +94,7 @@ $$
 
 を考える。$z=0$ は標的の $w=\infty$ の座標で滑らか、$z=\infty$ では値が0である。$z\ne0$ を固定すると $u_\varepsilon(z)\to0$ だが、$z=0$ では常に $u_\varepsilon(0)=\infty$ なので、球面全体での一様収束は成立しない。
 
-正則写像のエネルギー密度はシンプレクティック面積密度に等しい。[エネルギー恒等式](../GW1-02/index.md#thm-gw1-02-energy-identity)を $w=\varepsilon/z$ に適用し、$dw/dz=-\varepsilon/z^2$ を代入すると
+正則写像のエネルギー密度はシンプレクティック面積密度に等しい。[エネルギー恒等式](../GW1-02/index.md#thm-gw1-02-energy-identity)を $w=\varepsilon/z$ に適用する。ここで $u_\varepsilon'(z)=dw/dz=-\varepsilon/z^2$ のプライムは複素座標 $z$ による導関数を表す。これを代入すると
 
 $$
 \frac12|du_\varepsilon|^2\,ds\,dt
@@ -84,7 +126,7 @@ $$
 
 であり、$\varepsilon$ に依存しない。$\zeta=\infty$ を加えると、非定数の球面写像が見つかった。元の球面で消えたエネルギー $2\pi$ が、拡大後には次数1の球面全体の面積になっている。
 
-ただし、この例は**真に二つの安定した非定数成分が生じた例ではない**。元の写像は各 $\varepsilon$ でMöbius変換であり、定義域の再パラメータ化を許すと一つの非定数成分で表せる。固定座標での集中と、安定写像の境界成分を区別することが重要である。
+ただし、この例は**真に二つの安定した非定数成分が生じた例ではない**。元の写像は各 $\varepsilon$ で[射影線形写像に由来するMöbius変換](../../CM/CM1-10/index.md#thm-cm1-10-projective-automorphisms)であり、定義域の再パラメータ化を許すと一つの非定数成分で表せる。固定座標での集中と、安定写像の境界成分を区別することが重要である。
 
 ## 3. 集中点と拡大写像を定義する
 
@@ -105,7 +147,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-05-concentration -->
-**定義の確認**。先ほどの $u_{\varepsilon_n}$（$\varepsilon_n\to0$）では、各 $r>0$ について内側の極限は $2\pi$ なので $p=0$ は集中点である。一方 $p\ne0$ に閉円盤を選び、その円盤が0を含まないようにすると密度は一様に0へ収束する。従って $p\ne0$ は集中点ではない。定義の二重極限は、この二つを区別する。
+**定義の確認**。先ほどの $u_{\varepsilon_n}$（$\varepsilon_n\to0$）では、各 $r>0$ について内側の極限は $2\pi$ なので $p=0$ は集中点である。一方 $p\ne0$ に閉円盤を選び、その円盤が0を含まないようにすると密度は一様に0へ収束する。無限遠点 $p=\infty$ の近傍でも、座標 $\xi=1/z$ で $u_{\varepsilon_n}=\varepsilon_n\xi$ となり同じ結論である。従って $p\ne0$ は集中点ではない。定義の二重極限は、この二つを区別する。
 <!-- definition-example-end -->
 
 どの程度まで拡大するかは微分の大きさで決める。局所座標 $z$ で $z_n\to p$ を選び、$R_n=|du_n(z_n)|\to\infty$ なら縮尺 $\rho_n=R_n^{-1}$ を取りたい。このとき中心での拡大写像の微分が1になる。
@@ -120,7 +162,7 @@ $$
 v_n(\zeta)=u_n(z_n+\rho_n\zeta)
 $$
 
-> とする。任意のコンパクト集合上で $v_n$ が滑らかに非定数 $J$-正則写像 $v:\mathbb C\to X$ へ収束し、$E(v;\mathbb C)<\infty$ なら、除去可能特異点の定理によって $v$ に $\infty$ の値を加えて得る $J$-正則球面を、抽出された球面の泡という。
+> とする。任意のコンパクト集合上で $v_n$ が滑らかに非定数 $J$-正則写像 $v:\mathbb C\to X$ へ収束し、$E(v;\mathbb C)<\infty$ なら、[後の第5節で証明する除去可能特異点定理](#thm-gw1-05-removal)によって $v$ に $\infty$ の値を加えて得る $J$-正則球面を、抽出された球面の泡という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-05-rescaling -->
@@ -159,7 +201,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-局所座標で $u_t=J(u)u_s$ を $s,t$ について微分すると
+局所座標で $u_t=J(u)u_s$ を $s,t$ について微分する。ここで $u_{st}=\partial_s\partial_tu$、$dJ(u)\,u_s$ は $u_s$ 方向への $J$ の微分、$\Delta=\partial_s^2+\partial_t^2$ は定義域の平面Laplacianである。連鎖律から
 
 $$
 \begin{aligned}
@@ -188,7 +230,15 @@ $$
 M=\max_{\overline B_1}(1-|z|)^2e(z)
 $$
 
-が大きいなら、最大点 $a$ の $\delta=(1-|a|)/2$ 以内では $e\le4e(a)$ となる。$\lambda=\sqrt{e(a)}$ で $\zeta=\lambda(z-a)$ と拡大し、$q(\zeta)=e(a+\zeta/\lambda)/\lambda^2$ とすると $q(0)=1$、$0\le q\le4$、かつ固定半径の円盤で $\Delta q\ge-C_2$ となる。非負関数に対する円盤の平均値評価を使えば、十分小さい固定半径 $s$ で
+が大きいなら、最大点 $a$ の $\delta=(1-|a|)/2$ 以内では $1-|z|\ge(1-|a|)/2$ だから、最大性により $e(z)\le4e(a)$ となる。$\lambda=\sqrt{e(a)}$ で $\zeta=\lambda(z-a)$ と拡大し、$q(\zeta)=e(a+\zeta/\lambda)/\lambda^2$ とすると $q(0)=1$、$0\le q\le4$ である。$M$ が大きいと $\lambda\delta$ も大きくなるので固定半径の拡大円盤を取れる。$\zeta$ に関するLaplacianでは、
+
+$$
+\Delta_\zeta q
+=\lambda^{-4}(\Delta_z e)(a+\zeta/\lambda)
+\ge-C_1\left(\lambda^{-2}q+q^2\right)\ge-C_2.
+$$
+
+最後の不等式は $q\le4$ と、十分大きい $\lambda$ を使った。非負関数に対する円盤の平均値評価を使えば、十分小さい固定半径 $s$ で
 
 $$
 1=q(0)\le C_3s^{-2}\int_{B_s}q+C_2s^2
@@ -276,7 +326,36 @@ $$
 \left|\int F^*\omega\right|\le C\ell(r)\int|\gamma'|\,d\theta=C\ell(r)^2.
 $$
 
-十分小さい半径の円周はこのような正規座標球に含まれ、有限エネルギーの穿孔写像については内側へ縮む円周の作用が0へ収束する。実際、$\int_0^1A'(r)\,dr<\infty$ より $r_jA'(r_j)\to0$ となる列 $r_j\downarrow0$ を選べ、その円周像の作用の絶対値は $C r_jA'(r_j)$ 以下である。$\omega$ が閉形式なので円周間の作用差は環帯の面積に等しく、$r_j\to0$ とすると、各小半径 $r$ で $A(r)$ はその円周の局所作用に一致する。
+小さい円周 $\gamma_r(\theta)=v(re^{i\theta})$ は長さが零へ近づくので、一つの凸な正規座標球で張れる。円錐の積分を $a(r)=\int F_r^*\omega$ と書けば、上の評価で $|a(r)|\le C\ell(r)^2\to0$ である。
+
+**局所作用と内側のエネルギーの対応。** 固定した十分小さい $r>0$ に対して半径 $s$ を十分近く取れば、$\gamma_r$、$\gamma_s$ と、その間の薄い環帯の像は同じ凸な正規座標球に含まれる。この球の上で $\omega=d\lambda$ となる1形式 $\lambda$ を取る。円錐のパラメータ $t\in[0,1]$ と角度 $\theta$ について $F_r^*\lambda=P\,dt+Q\,d\theta$ と書くと、
+
+$$
+F_r^*\omega=d(F_r^*\lambda)
+=(\partial_tQ-\partial_\theta P)\,dt\wedge d\theta.
+$$
+
+$\theta$ 方向の全微分は一周積分すると零になり、円錐の中心 $t=0$ では $\partial_\theta F_r=0$ である。したがって、円錐上の積分を二変数積分の基本定理で計算すれば、円周の線積分との対応は
+
+$$
+a(r)=\int F_r^*\omega
+=\int_0^{2\pi}Q(1,\theta)\,d\theta
+=\int_{\gamma_r}\lambda
+$$
+
+となる。次に環帯を $H(\tau,\theta)=v(\tau e^{i\theta})$、$r\le\tau\le s$ とパラメータ化し、$H^*\lambda=U(\tau,\theta)\,d\tau+V(\tau,\theta)\,d\theta$ とする。同じ計算を環帯で行うと、
+
+$$
+\begin{aligned}
+A(s)-A(r)
+&=\int_r^s\int_0^{2\pi}
+(\partial_\tau V-\partial_\theta U)\,d\theta\,d\tau\\
+&=\int_0^{2\pi}(V(s,\theta)-V(r,\theta))\,d\theta
+=a(s)-a(r).
+\end{aligned}
+$$
+
+この式は隣接する半径 $r<s$ に対して局所的に成立するので、$a(r)-A(r)$ は小半径の連結した区間上で一定である。$r\downarrow0$ で $a(r)\to0$ と $A(r)\to0$ だからその定数は零であり、$A(r)=a(r)$ を得る。異なる半径の円錐が最初から同じ座標球内にあるとは仮定していない。
 
 円周のエネルギーを $A'(r)=\frac12\int_{|w|=r}|dv|^2\,ds$ と書けば、Cauchy–Schwarzにより
 
@@ -325,13 +404,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$p$ の周囲の比較的小さい閉円盤 $D$ を取り、必要なら中心を $p$ に近づける部分列を選ぶ。勾配が非有界となる小円盤上で
+点選択で中心が確かに $p$ へ近づくことを先に保証する。$p$ を中心とする座標円盤 $D_k=B_{r_k}(p)$ を $r_k\downarrow0$ で取り、その内側 $D'_k=B_{r_k/2}(p)$ を考える。仮定により、添字 $n_k$ を単調増加かつ十分大きく選んで $\sup_{D'_k}|du_{n_k}|>2k/r_k$ とできる。以下はこの対角部分列を再び $u_n$ と書き、対応する円盤と半径も $D_n$、$D'_n$、$r_n$ と書き直す。各 $D_n$ 上で
 
 $$
-f_n(z)=\operatorname{dist}(z,\partial D)|du_n(z)|
+f_n(z)=\operatorname{dist}(z,\partial D_n)|du_n(z)|
 $$
 
-を最大化する $z_n$ を取る。内部の勾配爆発を含むよう円盤を固定すると最大値 $M_n=f_n(z_n)\to\infty$ である。$R_n=|du_n(z_n)|$、$\rho_n=R_n^{-1}$、$d_n=\operatorname{dist}(z_n,\partial D)$ と置けば
+を最大化する $z_n$ を取る。$D'_n$ では境界距離が $r_n/2$ 以上なので、最大値 $M_n=f_n(z_n)>n\to\infty$ となる。しかも $z_n\in D_n$ だから $z_n\to p$ である。$R_n=|du_n(z_n)|$、$\rho_n=R_n^{-1}$、$d_n=\operatorname{dist}(z_n,\partial D_n)$ と置けば $R_n\ge M_n/r_n\to\infty$、従って $\rho_n\to0$ であり、
 
 $$
 \frac{d_n}{\rho_n}=d_nR_n=M_n\to\infty.
@@ -355,7 +434,7 @@ $$
 
 $L\uparrow\infty$ として $E(v;\mathbb C)\le E_0$ を得る。[有限エネルギーの除去可能特異点定理](#thm-gw1-05-removal)を $\zeta=\infty$ の反転座標へ適用すると、$v$ は球面上へ延長される。
 
-特異点が複数あるときは、[集中点の有限性](#cor-gw1-05-finite-points)により特定の $p$ の小円盤を他の特異点から分けられる。上の点選択を半径が縮む円盤で対角化すれば $z_n\to p$ を満たす。これが「泡の存在」を導く局所的な論証である。
+特異点が複数ある場合でも、[集中点の有限性](#cor-gw1-05-finite-points)により各集中点を局所的に扱える。上の対角的な点選択では初めから $z_n\in B_{r_n}(p)$ としたため、中心が別の集中点へ逸れることはない。これが「泡の存在」を導く局所的な論証である。
 <!-- proof-end -->
 
 この定理は**一つの非定数球面の出現**を示す。元の写像の「残り」と泡をつなぐ節点条件、別の縮尺で現れる追加の泡、残留する環帯のエネルギーが0になることは、これだけではまだ証明されていない。
@@ -400,7 +479,7 @@ $$
 [適合計量によるエネルギー恒等式](../GW1-02/index.md#cor-gw1-02-energy-area)によって $dv=0$、すなわち $v$ は定数となる。これに矛盾しないための小ささの閾値を $\hbar$ とすれば主張が従う。
 <!-- proof-end -->
 
-例えば上の標準 $\mathbb{CP}^1$ を標的とする正則球面では、非定数正則写像の次数は正整数 $d$ で、エネルギーは $2\pi d$ である。この特定の標的では $\hbar=2\pi$ を取れる。一般の標的で同じ数値を使ってよいわけではない。
+例えば上の標準 $\mathbb{CP}^1$ を標的とする正則球面では、非定数正則写像の次数は正整数 $d$ で、エネルギーは $2\pi d$ である。[上で確かめた有理写像の次数と面積の対応](#calc-gw1-05-rational-area)によって、この特定の標的では $\hbar=2\pi$ を取れる。一般の標的で同じ数値を使ってよいわけではない。
 
 ## 8. 二つの非定数成分が現れる実例とエネルギー分裂
 
@@ -411,7 +490,7 @@ f_\varepsilon(z)=z+\frac{\varepsilon}{z}
 =\frac{z^2+\varepsilon}{z}
 $$
 
-を $\mathbb{CP}^1$ から自身への正則写像とする。分子と分母には共通因子がないので、これは次数2であり、総エネルギーは $4\pi$ である。$z\ne0$ を固定すると $f_\varepsilon(z)\to f_0(z)=z$、すなわち次数1の基底写像が残る。一方、$z=\varepsilon\zeta$ と拡大すると
+を $\mathbb{CP}^1$ から自身への正則写像とする。分子と分母には共通因子がないので、これは次数2であり、[有理写像の次数と面積の対応](#calc-gw1-05-rational-area)から総エネルギーは $4\pi$ である。$z\ne0$ を固定すると $f_\varepsilon(z)\to f_0(z)=z$、すなわち次数1の基底写像が残る。一方、$z=\varepsilon\zeta$ と拡大すると
 
 $$
 f_\varepsilon(\varepsilon\zeta)
@@ -446,7 +525,7 @@ $$
 [Z:W]\longmapsto[Z^2+\varepsilon W^2:ZW]
 $$
 
-と書けば分かる。$Z,W$ が同時に0でないとき、分子と分母は同時に0にならない（$\varepsilon>0$）。よって次数は2で、[射影直線の次数と面積](../GW1-01/index.md#thm-gw1-01-power-area)から $E(f_\varepsilon)=4\pi$。
+と書けば分かる。$Z,W$ が同時に0でないとき、分子と分母は同時に0にならない（$\varepsilon>0$）。よって次数は2で、[§2で示した面積の変数変換](#calc-gw1-05-rational-area)から $E(f_\varepsilon)=4\pi$。
 
 任意の $\delta>0$ について外側 $\{|z|\ge\delta\}$ で $f_\varepsilon\to f_0$ は滑らかであり、
 
@@ -499,7 +578,7 @@ $R=\varepsilon$ では $\pi$、固定 $R>0$ では $\varepsilon\to0$ で $2\pi$�
 #### GW1-05-A02 再スケーリングでの微分とエネルギー
 - Level: A
 
-$u:B_{2r}\to X$、$v(\zeta)=u(z_0+\rho\zeta)$（$\rho>0$）について、$dv$ と $E(v;B_L)$ を元の写像で表せ。
+$u:B_{2r}\to X$、$z_0\in B_{2r}$、$\rho,L>0$ とし、$B_{\rho L}(z_0)\subset B_{2r}$ と仮定する。$v(\zeta)=u(z_0+\rho\zeta)$ について、$dv$ と $E(v;B_L)$ を元の写像で表せ。
 
 <!-- solution-start -->
 **詳細解答**。連鎖律で $dv_\zeta=\rho\,du_{z_0+\rho\zeta}$。従って二乗ノルムは $\rho^2$ 倍である。変数変換 $z=z_0+\rho\zeta$ による面積要素は $ds\,dt=\rho^2d\xi\,d\eta$ なので
@@ -519,7 +598,7 @@ $$
 $f_\varepsilon(z)=(z^2+\varepsilon)/z$（$\varepsilon>0$）の次数と総エネルギーを求め、$z\ne0$ での極限の次数と比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。斉次表示は $[Z^2+\varepsilon W^2:ZW]$。分子と分母に共通零点はなく斉次次数2だから次数2である。[次数と面積](../GW1-01/index.md#thm-gw1-01-power-area)より総エネルギー $4\pi$。$z\ne0$ では $f_\varepsilon(z)\to z$ なので極限の次数は1、エネルギーは $2\pi$。差の $2\pi$ を、固定領域での極限だけから消えたと判断してはいけない。
+**詳細解答**。斉次表示は $[Z^2+\varepsilon W^2:ZW]$。分子と分母に共通零点はなく斉次次数2だから次数2である。[§2で示した面積の変数変換](#calc-gw1-05-rational-area)より総エネルギー $4\pi$。$z\ne0$ では $f_\varepsilon(z)\to z$ なので極限の次数は1、エネルギーは $2\pi$。差の $2\pi$ を、固定領域での極限だけから消えたと判断してはいけない。
 <!-- solution-end -->
 
 <a id="ex-gw1-05-a04"></a>
@@ -536,7 +615,7 @@ $u_\varepsilon(z)=\varepsilon/z$ の $z=0$ における勾配を、標的の有�
 #### GW1-05-A05 小エネルギー評価の対偶
 - Level: A
 
-ある $p$ と固定した $r>0$ について $E(u_n;B_{2r}(p))<\epsilon_0/2$ が全ての十分大きな $n$ で成り立つとする。$B_r(p)$ 内で勾配爆発があり得るか。理由を示せ。
+ある局所正則座標の点 $p$ と固定した $0<r\le r_0$ について、$B_{2r}(p)$ がこの座標域に含まれ、$E(u_n;B_{2r}(p))<\epsilon_0/2$ が全ての十分大きな $n$ で成り立つとする。$B_r(p)$ 内で勾配爆発があり得るか。理由を示せ。
 
 <!-- solution-start -->
 **詳細解答**。[小エネルギー勾配評価](#lem-gw1-05-small-energy)の仮定を満たすので
@@ -567,7 +646,7 @@ $$
 
 基底の付着点 $z=0$ と泡側の $\zeta=\infty$ では像がともに0なので、値の接続条件は満たす。
 
-しかし各 $u_\varepsilon$ は次数1のMöbius変換であり、上の座標変換を施すと、全ての $\varepsilon$ について同じ非定数写像 $1/\zeta$ が残る。基底の定数球面は標点を持たず節点が一つだけなので、定数成分としての安定性を満たさず、保持されない。
+しかし各 $u_\varepsilon$ は[射影線形なMöbius変換](../../CM/CM1-10/index.md#thm-cm1-10-projective-automorphisms)であり、上の座標変換を施すと、全ての $\varepsilon$ について同じ非定数写像 $1/\zeta$ が残る。基底の定数球面は標点を持たず節点が一つだけなので、定数成分としての安定性を満たさず、保持されない。
 
 従って固定座標での集中から、モジュライ空間に必ず二つの成分を持つ境界点が現れると結論してはいけない。
 <!-- solution-end -->
@@ -641,7 +720,7 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-**（1）** 斉次座標では $[Z^3+\varepsilon W^3:ZW^2]$ である。$Z=0$ なら分子は $\varepsilon W^3\ne0$、$W=0$ なら分子は $Z^3\ne0$。よって共通零点がなく次数3である。[次数と面積](../GW1-01/index.md#thm-gw1-01-power-area)から $E(h_\varepsilon)=3\cdot2\pi=6\pi$。
+**（1）** 斉次座標では $[Z^3+\varepsilon W^3:ZW^2]$ である。$Z=0$ なら分子は $\varepsilon W^3\ne0$、$W=0$ なら分子は $Z^3\ne0$。よって共通零点がなく次数3である。[§2で示した面積の変数変換](#calc-gw1-05-rational-area)から $E(h_\varepsilon)=3\cdot2\pi=6\pi$。
 
 **（2）** $z\ne0$ では $h_\varepsilon(z)\to h_0(z)=z^2$ で、球面写像として次数2、エネルギー $4\pi$。拡大すると
 
