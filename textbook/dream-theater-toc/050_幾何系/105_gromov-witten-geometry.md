@@ -7,3 +7,4 @@
 4. [GW1-04 正則性・横断性と多重被覆](textbook/volumes/dream_thater/幾何系/GW/GW1-04/index.md)
 5. [GW1-05 泡立ちの機構](textbook/volumes/dream_thater/幾何系/GW/GW1-05/index.md)
 6. [GW1-06 Gromov収束とコンパクト性](textbook/volumes/dream_thater/幾何系/GW/GW1-06/index.md)
+7. [GW1-07 標点付き球面・交比・安定曲線](textbook/volumes/dream_thater/幾何系/GW/GW1-07/index.md)

@@ -1,0 +1,47 @@
+id: "GW1-07"
+title: "標点付き球面・交比・安定曲線"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-06
+official_scope: []
+learning_objectives:
+  - 三つの相異なる標点がMöbius座標を一意に固定することを明示式と逆写像から証明できる
+  - 交比の分数線形変換不変性と四標点配置の分類を証明し標点の順序を識別できる
+  - 節点局所モデルと特殊点から安定種数0曲線を定義し具体的な木で全条件を確認できる
+  - 安定性から成分数の上界と番号付き曲線の自己同型消失を導ける
+  - 四標点の三つの境界分割を計算しxy=qの平滑化座標を導ける
+  - 忘却写像で現れる二特殊点成分の収縮と一意性を説明できる
+  - 固定した双対木の標点配置と節点平滑化の複素パラメータ数を計算できる
+  - 異なる縮尺で衝突する五標点を三成分の安定曲線へ分解し忘却後の交比と照合できる
+definitions:
+  - { id: GW1-07-DEF-01, name: 滑らかな標点付き種数0曲線と同型 }
+  - { id: GW1-07-DEF-02, name: 順序付き四標点の交比 }
+  - { id: GW1-07-DEF-03, name: 種数0の安定標点曲線 }
+  - { id: GW1-07-DEF-04, name: 忘却と安定化 }
+theorems:
+  - { id: GW1-07-THM-01, name: 三点正規化とその一意性 }
+  - { id: GW1-07-PROP-01, name: 交比の不変性と四点配置の分類 }
+  - { id: GW1-07-PROP-02, name: 成分数の上界と自己同型の消失 }
+  - { id: GW1-07-THM-02, name: 四標点の安定コンパクト化 }
+  - { id: GW1-07-PROP-03, name: 忘却・安定化の一意性 }
+  - { id: GW1-07-PROP-04, name: 固定した双対木のパラメータ数 }
+canonical_examples:
+  - 正規化(2,3,無限遠,5)の交比3
+  - tが0,1,無限遠へ退化する四標点の三境界
+  - 五標点の二段階泡立ちと三成分安定曲線
+problem_patterns:
+  - GW1-07-NORMALIZATION
+  - GW1-07-ORDERED-CROSS-RATIO
+  - GW1-07-STABLE-CHAIN
+  - GW1-07-INFINITY-BOUNDARY
+  - GW1-07-THREE-MARKS
+  - GW1-07-BOUNDARY-CLASSIFICATION
+  - GW1-07-FORGETFUL-CONTRACTION
+  - GW1-07-PLUMBING-COORDINATES
+  - GW1-07-DIMENSION
+  - GW1-07-NESTED-SCALES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 5 }
