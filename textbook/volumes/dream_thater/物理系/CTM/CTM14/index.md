@@ -244,7 +244,7 @@ $$
 ゆえに三式を得る。$B,C,C^{-1},I$ は対称なので $\sigma,S$ は対称である。$P$ の非対称例は $F=Q\operatorname{diag}(2,1,1)$ の非自明な回転 $Q$ に対して生じる（後述）。$\square$
 <!-- proof-end -->
 
-この定理は、エネルギーの微分を別の応力へ直接転用してよいという意味ではない。[CTM4 の速度勾配と変形速度テンソル](../CTM4/index.md#def-ctm4-velocity-gradient)の記法で $L=\dot F F^{-1}$、$D=(L+L^T)/2$ とすれば、$P:\dot F$ は基準体積当たり、$\sigma:D$ は現在体積当たりの仕事率であり、[CTM8 の仕事共役性](../CTM8/index.md#thm-ctm8-work-conjugacy)から $P:\dot F=J\sigma:D=S:\dot E$ で結ばれる。
+この定理は、エネルギーの微分を別の応力へ直接転用してよいという意味ではない。[CTM4 の速度勾配と変形勾配の関係](../CTM4/index.md#prop-ctm4-velocity-deformation)から $L=\dot F F^{-1}$、[変形速度テンソルの定義](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)から $D=(L+L^T)/2$ とすれば、$P:\dot F$ は基準体積当たり、$\sigma:D$ は現在体積当たりの仕事率であり、[CTM8 の仕事共役性](../CTM8/index.md#thm-ctm8-work-conjugacy)から $P:\dot F=J\sigma:D=S:\dot E$ で結ばれる。
 
 ## 4. 一様伸長：横方向の力も忘れない
 
