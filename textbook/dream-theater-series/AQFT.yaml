@@ -102,7 +102,7 @@ chapters:
     title: "Gibbs状態とKMSの帯解析"
   - id: AQFT25
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT25
-    status: planned
+    status: completed
     title: "一般モジュラーKMS定理"
   - id: AQFT26
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT26
