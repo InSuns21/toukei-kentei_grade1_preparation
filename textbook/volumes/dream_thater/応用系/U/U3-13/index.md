@@ -25,7 +25,25 @@ $$
 
 です。$\sigma S$ は連続適合ゆえ予測可能であり、[Itô 過程の定義](../../../解析系/STO/STO7/index.md#def-sto7-ito-process) に合致します。ここでいう $\mu$ は、確率測度を指定しないまま「リスク中立ドリフト」と断定した値ではありません。
 
-[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) において $d=m=1$、$b_t=\mu S_t$、拡散係数 $\sigma_t^{11}=\sigma S_t$、したがって $a_t=\sigma^2S_t^2$ と対応させます。$F\in C^{1,2}([0,T]\times(0,\infty))$ は時間 $t$ で1回、株価を表す空間変数 $s$ で2回まで連続微分できることを意味します。$F_t=\partial F/\partial t$ は $s$ を固定した時間偏微分、$F_s=\partial F/\partial s$ と $F_{ss}=\partial^2F/\partial s^2$ は $t$ を固定した空間偏微分です。これらは $F(t,S_t)$ の確率微分 $dF(t,S_t)$ とは異なります。正値領域内で次の式を使います。
+[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula) の設定では、株価と Brown 運動はともに1次元なので $d=m=1$ です。Itô 過程のドリフト、拡散係数、二次共分散の係数は順に
+
+$$
+b_t=\mu S_t,\qquad
+\sigma_t^{11}=\sigma S_t,\qquad
+a_t=(\sigma_t^{11})^2=\sigma^2S_t^2
+$$
+
+と対応します。
+
+関数 $F\in C^{1,2}([0,T]\times(0,\infty))$ は、時間 $t$ で1回、株価を表す空間変数 $s$ で2回まで連続微分できることを意味します。偏微分記号を
+
+$$
+F_t=\frac{\partial F}{\partial t},\qquad
+F_s=\frac{\partial F}{\partial s},\qquad
+F_{ss}=\frac{\partial^2F}{\partial s^2}
+$$
+
+と書きます。$F_t$ では $s$ を固定し、$F_s,F_{ss}$ では $t$ を固定します。これらの偏微分と、過程の確率微分 $dF(t,S_t)$ を区別した上で、正値領域内で次の式を使います。
 
 $$
 \boxed{
