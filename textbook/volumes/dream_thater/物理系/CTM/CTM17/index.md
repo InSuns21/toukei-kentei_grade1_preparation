@@ -591,7 +591,7 @@ $$
 
 **第2問。** 上壁の接触速度は $U$ だから、上壁が流体にする単位面積当たり仕事率は $Ut_{\mathrm{top},x}=\eta U^2/(2h)-GUh$。下壁は静止して仕事率零。長さ $\ell$ の単位幅で上壁仕事は $\ell(\eta U^2/(2h)-GUh)$、圧力仕事は $\Delta p\,q=G\ell(Uh+2Gh^3/(3\eta))$。足した全投入仕事率を $P_{\mathrm{in}}$ とおくと
 
-$
+$$
 P_{\mathrm{in}}=\ell\left(\frac{\eta U^2}{2h}-GUh\right)
 +G\ell\left(Uh+\frac{2Gh^3}{3\eta}\right)
 =\ell\left(\frac{\eta U^2}{2h}+\frac{2G^2h^3}{3\eta}\right).
@@ -606,7 +606,7 @@ $$
 
 $y$ の奇関数の項は対称区間で積分すると零となる。区間の総内部散逸率を $P_{\mathrm{diss}}$ とおけば
 
-$
+$$
 P_{\mathrm{diss}}
 =\ell\int_{-h}^h\eta(u')^2\,dy
 =\ell\left(\frac{\eta U^2}{2h}+\frac{2G^2h^3}{3\eta}\right)
