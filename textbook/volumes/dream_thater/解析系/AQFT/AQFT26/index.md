@@ -198,7 +198,7 @@ J'(a)
 $$
 $J(0)=\sqrt\pi/(2\sqrt b)$ は通常のGaussian積分なので、微分方程式と初期値から $J(a)=\sqrt\pi\,e^{-a\sqrt b}/(2\sqrt b)$。したがって最初の積分表示が得られます。ここで $u,t,q$ はいずれも正の積分変数であり、第1節の光円錐座標 $u=x^1+x^0$ とは無関係です。
 
-次に $b=|\boldsymbol p|^2+m^2$ と置きます。$a>0$ かつ $m>0$ では、絶対値を取っても $e^{-a\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$ の運動量積分が有限です。そこでFubiniの定理により積分順序を交換すると
+次に $b=|\boldsymbol p|^2+m^2$ と置きます。$a>0$ かつ $m>0$ では、絶対値を取っても $e^{-a\omega_{\boldsymbol p}}/(2\omega_{\boldsymbol p})$ の運動量積分が有限です。そこで[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)により積分順序を交換すると
 $$
 \begin{aligned}
 I(a,r)
@@ -401,7 +401,7 @@ $$
 $$
 wK_1(w)=\int_0^\infty e^{-q-w^2/(4q)}\,dq.
 $$
-被積分関数は $0\le e^{-q-w^2/(4q)}\le e^{-q}$ によって支配され、各 $q>0$ で $e^{-q}$ に収束します。優収束定理から実数 $w\downarrow0$ では $wK_1(w)\to1$ です。
+被積分関数は $0\le e^{-q-w^2/(4q)}\le e^{-q}$ によって支配され、各 $q>0$ で $e^{-q}$ に収束します。[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)から実数 $w\downarrow0$ では $wK_1(w)\to1$ です。
 
 複素 $D$ についても、実変数の極限を単に「解析接続」するだけでは不十分なので、同じGaussian公式から確かめます。補題の表示を $a$ で微分して
 $$
@@ -416,7 +416,7 @@ $$
 mc\,K_1(mc)=c\int_0^\infty e^{-c\sqrt{m^2+v^2}}\,dv
 \xrightarrow[m\downarrow0]{}c\int_0^\infty e^{-cv}\,dv=1.
 $$
-絶対値は $|c|e^{-(\operatorname{Re}c)v}$ 以下なので優収束定理を適用できます。よって複素枝を固定しても極限が成立し、
+絶対値は $|c|e^{-(\operatorname{Re}c)v}$ 以下なので[Lebesgueの優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用できます。よって複素枝を固定しても極限が成立し、
 $$
 \lim_{m\downarrow0}\frac{m}{4\pi^2\sqrt D}K_1(m\sqrt D)
 =\frac1{4\pi^2D}.
