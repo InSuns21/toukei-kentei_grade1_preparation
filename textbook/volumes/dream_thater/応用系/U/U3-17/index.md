@@ -223,10 +223,10 @@ $$
 $$
 \sup_{t\le u\le T}S_u
 \le s\exp\left(|r-\sigma^2/2|T+
-\sigma\sup_{0\le v\le T}|W_v^Q-W_0^Q|\right)
+\sigma\sup_{t\le v\le T}|W_v^Q-W_t^Q|\right)
 $$
 
-が成り立ちます（時間を $t$ に移した Brown 増分でも同様です）。Brown 運動の最大値の反射原理から右辺はどの有限な正のべきについても有限期待値を持ちます。従って、任意の $p>1$ について
+が成り立ちます（$W_v^Q-W_t^Q$ は時刻 $t$ からの Brown 増分です）。Brown 運動の最大値の反射原理から右辺はどの有限な正のべきについても有限期待値を持ちます。従って、任意の $p>1$ について
 
 $$
 E_Q\!\left[\sup_{t\le u\le T}
