@@ -2,7 +2,7 @@
 
 [AQFT21の左Hilbert環](../AQFT21/index.md#def-aqft21-left-hilbert)では、左乗算は有界でも、同じベクトル代数の**代数的な右乗算**は非有界となり得ることを学びました。このため、行列の随伴に似た反ユニタリ $J$ を得ても、ただちに $J\mathcal M J=\mathcal M'$ とは言えません。
 
-今回の中心問題は、巡回・分離ベクトル $\Omega$ と閉Tomita作用素 $S=J\Delta^{1/2}$ の**解析的な情報**から、どのように有界作用素環の可換子を復元するか、です。右乗算の形式的操作を有界と決めつけず、レゾルベント、共通グラフ core、積分変換をつないで両包含を証明します。モジュラー流の自己同型群としての性質は次講で改めて扱います。
+今回の中心問題は、巡回・分離ベクトル $\Omega$ と閉Tomita作用素 $S=J\Delta^{1/2}$ の**解析的な情報**から、どのように有界作用素環の可換子を復元するか、です。右乗算の形式的操作を有界と決めつけず、レゾルベント、共通グラフ core、積分変換をつないで両包含を証明します。モジュラー流が代数を保つことの詳しい意味は次講で改めて扱います。
 
 内積は従来どおり**第2変数線形**です。以下の長い可換子証明では、作用素を左側から書きやすくするため、補助的に
 $$
@@ -82,7 +82,13 @@ $\alpha=(1+\lambda)^{-1}$ と置けば $\alpha+\bar\alpha=1$、$\bar\alpha=\lamb
 $$
 \chi_C(Y)=\varphi(\alpha CY+\bar\alpha YC)
 $$
-と置きます。$Y=Y^*$ で $\chi_C(Y)$ は実数です。自己共役単位球のコンパクト性をここで確認します。$\|C\|\le1$ ならすべての $x,y\in\mathcal H$ について $|\langle x,Cy\rangle|\le\|x\|\|y\|$ です。行列係数の値域は複素平面の閉円板であり、[FA4の直積コンパクト性定理](../../FA/FA4/index.md#thm-fa4-compact-hausdorff-product)によりそれらの直積はコンパクトです。行列係数の座標ごとの極限は、同じ評価を満たす有界な半双線形形式を定め、Rieszの表現によって一意な $C\in B(\mathcal H)$ に戻ります。したがって $B(\mathcal H)$ の単位球は弱作用素位相でコンパクトです。$\mathcal M$ は弱作用素閉で、自己共役性も行列係数の等式で閉条件となるため、$\mathcal M$ の自己共役単位球もコンパクトです。
+と置きます。$Y=Y^*$ で $\chi_C(Y)$ は実数です。自己共役単位球のコンパクト性をここで確認します。
+
+$\|C\|\le1$ なら $x,y\in\mathcal H$ について $|\langle x,Cy\rangle|\le\|x\|\|y\|$。各行列係数の値域は閉円板なので、[コンパクト Hausdorff 空間族の積コンパクト性](../../FA/FA4/index.md#thm-fa4-compact-hausdorff-product)によりその直積はコンパクトです。
+
+座標ごとの極限は同じ評価を満たす有界な半双線形形式を定め、Rieszの表現から一意な $C\in B(\mathcal H)$ に戻ります。ゆえに $B(\mathcal H)$ の単位球は弱作用素位相でコンパクトです。
+
+$\mathcal M$ は弱作用素閉で、自己共役性も行列係数に関する閉条件です。従って $\mathcal M$ の自己共役単位球もコンパクトです。
 
 固定した $Y$ に対して $\varphi(CY)=\langle\Omega,CY\Omega\rangle$ と $\varphi(YC)=\langle Y^*\Omega,C\Omega\rangle$ は $C$ の行列係数なので、この位相で連続です。従って $\{\chi_C\}$ は自己共役元全体を添字集合とする実数の直積空間でコンパクト・凸です。
 
@@ -353,7 +359,7 @@ G_\eta(z)=\int_{\mathbb R}
 \frac{e^{-zt}}{w(t)}[v(t),\eta]\,dt
 \quad(|\operatorname{Re}z|<\pi)
 $$
-は、$e^{-(z-z_0)t}$ を冪級数展開し $e^{r|t|}/w(t)$ で項別積分を正当化すれば正則です。実軸上の値は先の等式により零なので、正則関数の一致定理により帯全体で零。$z=is$ とすれば
+は、$e^{-(z-z_0)t}$ を冪級数展開し $e^{r|t|}/w(t)$ で項別積分を正当化すれば正則です。実軸上の値は先の等式により零なので、[零点の孤立性・恒等定理](../../CA/CA3/index.md#thm-ca3-isolated-zeros-identity)により帯全体で零。$z=is$ とすれば
 $$
 \int_{\mathbb R}e^{-ist}\frac{[v(t),\eta]}{w(t)}\,dt=0
 \quad(s\in\mathbb R).
@@ -411,7 +417,11 @@ $$
 
 この定理は、$J$ が右側の有界な作用をすべて作り出すという主張です。$A\Omega\mapsto AB\Omega$ のような**代数的右乗算の有界性**を言うものではありません。先に見た[AQFT21の反例](../AQFT21/index.md#prop-aqft21-right-unbounded)と矛盾しません。また、局所代数を考える場合、$\mathcal M(O)'$ は**全Hilbert空間での可換子**であり、因果補集合側の局所代数 $\mathcal M(O')$ と同じだとは限りません。[Haag双対性の条件](../AQFT14/index.md)を別に確認する必要があります。
 
-無限次元の確認例として、Hilbert–Schmidt空間 $\mathsf{HS}(\ell^2)$ 上の左乗算 $\mathcal M=L(B(\ell^2))$、忠実で零へ減衰する $\rho$ と $\Omega=\rho^{1/2}$ を取ると、$J(X)=X^*$ です。$JL_AJ=R_{A^*}$ は有界で、$T\in L(B(\ell^2))'$ が全てのランク1左乗算と交換することを行列単位に当てると $T$ の各列・行の作用が右からの一つの有界作用素に一致します。これに対し[AQFT21で定義した非有界な $T_V$](../AQFT21/index.md#prop-aqft21-right-unbounded)は $R_V$ とは別です。
+無限次元の確認例として、Hilbert–Schmidt空間 $\mathsf{HS}(\ell^2)$ 上の左乗算 $\mathcal M=L(B(\ell^2))$ と、忠実で零へ減衰する $\rho$、$\Omega=\rho^{1/2}$ を取ります。このとき $J(X)=X^*$ です。
+
+$JL_AJ=R_{A^*}$ は有界です。$T\in L(B(\ell^2))'$ がランク1左乗算と交換する式を行列単位に当てれば、$T$ は右からの一つの有界作用素に一致します。
+
+これに対し[AQFT21で定義した非有界な $T_V$](../AQFT21/index.md#prop-aqft21-right-unbounded)は $R_V$ とは別の操作です。
 
 ## 7. 演習と詳細解答
 
@@ -530,7 +540,15 @@ $$
 - Level: C
 
 <!-- solution-start -->
-**詳細解答。** (i) を $J$ で左右から共役すると $J(J\mathcal M'J)J\subset J\mathcal M J$。$J^2=I$ より $\mathcal M'\subset J\mathcal M J$ です。(ii) と合わせて $\mathcal M'\subset J\mathcal M J\subset\mathcal M'$、従って等号です。(i) はレゾルベント元 $a\in\mathcal M$ を構成し、積分表示 (1) と (2) の差のLaplace型積分を全 $\theta$ で消し、Fourier一意性から $JU_{-t}bU_tJ\in\mathcal M$ とする部分に依存します。(ii) は (i) が保証する $c=JbJ\in\mathcal M$ を使った随伴の内積計算に依存します。一般の定理を証明する際、有限次元の右乗算表示は使っていません。
+**詳細解答。** (i) を $J$ で左右から共役すると $J(J\mathcal M'J)J\subset J\mathcal M J$。$J^2=I$ より $\mathcal M'\subset J\mathcal M J$ です。(ii) と合わせて
+$
+\mathcal M'\subset J\mathcal M J\subset\mathcal M'
+$
+なので等号を得ます。
+
+(i) はレゾルベント元 $a\in\mathcal M$ の構成と、作用素式（I）・ベクトル式（II）を引き算する段階に依存します。すべての $\theta$ に関するLaplace型積分を零にしてFourier一意性を使い、$JU_{-t}bU_tJ\in\mathcal M$ を導きます。
+
+(ii) は (i) が保証する $c=JbJ\in\mathcal M$ を使い、随伴の内積計算と $\mathcal M\Omega$ の稠密性から導きます。有限次元模型の右乗算表示は一般の証明には用いていません。
 <!-- solution-end -->
 
 <a id="ex-aqft22-c02"></a>
