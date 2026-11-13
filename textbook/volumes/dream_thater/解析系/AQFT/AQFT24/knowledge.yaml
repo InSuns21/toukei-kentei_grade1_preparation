@@ -1,0 +1,29 @@
+chapter: AQFT24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT20
+  - AQFT23
+  - QM6
+forward_references: []
+concepts:
+  - id: aqft.gibbs-state
+    name: 有限次元Gibbs状態
+    kind: definition
+    introduction: formal
+    requires: [aqft.hs-faithful-density]
+  - id: aqft.kms-strip
+    name: 逆温度1の上側帯KMS条件
+    kind: definition
+    introduction: formal
+    requires: [aqft.modular-flow]
+  - id: aqft.finite-gibbs-kms
+    name: 有限次元Gibbs状態のモジュラーKMS条件
+    kind: theorem
+    introduction: formal
+    requires: [aqft.gibbs-state, aqft.kms-strip, aqft.hs-finite-flow-formula]
+  - id: aqft.physical-time-kms
+    name: 物理時間における逆温度betaの帯
+    kind: theorem
+    introduction: formal
+    requires: [aqft.finite-gibbs-kms, aqft.gibbs-state]
