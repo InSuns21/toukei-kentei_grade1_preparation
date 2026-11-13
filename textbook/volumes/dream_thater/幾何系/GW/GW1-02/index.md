@@ -20,7 +20,15 @@ $$
 
 実線形写像 $A:T_p\Sigma\to T_{u(p)}X$ が複素線形であるとは、$A(jv)=J(A(v))$ が任意の接ベクトル $v$ で成り立つことをいう。微分 $du_p$ にこの条件を課したいが、一般の $du_p$ はその条件を満たさない。そこで微分を、複素線形な成分と、それに反する成分とに分ける。
 
-局所座標 $z=s+it$ では、$\partial_s,\partial_t$ はそれぞれ実変数 $s,t$ の座標方向の接ベクトルとする。$u_s:=du(\partial_s)$、$u_t:=du(\partial_t)$ はその方向への微分であり、標的の座標を取ったときの $\partial u/\partial s$、$\partial u/\partial t$ に当たる。これらは $u(s,t)$ における接ベクトルで、$J(u)$ はその点の $J_{u(s,t)}$ を表す。また $u^*TX$ は、各 $p\in\Sigma$ に接空間 $T_{u(p)}X$ を対応させた、写像 $u$ に沿う接束である。
+局所座標 $z=s+it$ では、$\partial_s,\partial_t$ は実変数 $s,t$ の座標方向の接ベクトルである。これらの方向への写像の微分を次のように略記する。
+
+$$
+u_s:=du(\partial_s),\qquad u_t:=du(\partial_t).
+$$
+
+標的の座標を取ると、これはそれぞれ偏微分 $\partial u/\partial s$、$\partial u/\partial t$ に当たる。値は $u(s,t)$ における接ベクトルであり、$J(u)$ はその点で作用する $J_{u(s,t)}$ を表す。
+
+また $u^*TX$ は、各 $p\in\Sigma$ に標的の接空間 $T_{u(p)}X$ を対応させた、写像 $u$ に沿う接束である。
 
 <a id="def-gw1-02-cr-operator"></a>
 
