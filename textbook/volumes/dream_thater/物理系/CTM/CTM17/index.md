@@ -19,7 +19,14 @@ $$
 \sigma=-pI+2\eta D.
 $$
 
-ここで $D=(\nabla v+(\nabla v)^T)/2$ は既習の[変形速度テンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)、$\sigma$ は Cauchy 応力である。直交座標基底 $(e_x,e_y,e_z)$ における[速度勾配](../CTM4/index.md#def-ctm4-velocity-gradient)の $(i,j)$ 成分は $\partial_{x_j}v_i$ であり、$D_{xy}=(\partial_yv_x+\partial_xv_y)/2$ と読む。[traction（表面力密度）](../CTM6/index.md#def-ctm6-traction) が $\sigma n$ で表されるのは、[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)による。「**壁が流体へ及ぼす力**」を計算する際は、**流体領域の外向き法線**を用いる。
+ここで $D=(\nabla v+(\nabla v)^T)/2$ は既習の[変形速度テンソル](../CTM4/index.md#def-ctm4-rate-of-deformation-spin)、$\sigma$ は Cauchy 応力である。直交座標基底 $(e_x,e_y,e_z)$ における[速度勾配](../CTM4/index.md#def-ctm4-velocity-gradient)は、次のように各成分を位置座標で微分した行列である。
+
+$$
+(\nabla v)_{ij}=\frac{\partial v_i}{\partial x_j},\qquad
+D_{xy}=\frac12(\partial_yv_x+\partial_xv_y).
+$$
+
+[traction（表面力密度）](../CTM6/index.md#def-ctm6-traction) が $\sigma n$ で表されるのは、[Cauchy の応力定理](../CTM6/index.md#thm-ctm6-cauchy-stress)による。「**壁が流体へ及ぼす力**」を計算する際は、**流体領域の外向き法線**を用いる。
 
 量の単位は $[h]=[x]=\mathrm m$、$[v]=\mathrm{m/s}$、$[p]=\mathrm{Pa}$、$[\eta]=\mathrm{Pa\,s}$、体積流量 $[Q]=\mathrm{m^3/s}$ とする。圧力差は $\Delta p>0$ を入口圧力から出口圧力を引いた値として使う。端面を切り取って力・仕事を数えるときには、入口と出口が同じ速度分布を持つ、十分長い完全発達流の一区間を取る。入口直後の発達領域や有限幅流路の側壁はこの模型に含めない。
 
@@ -197,10 +204,17 @@ $$
 
 断面高さは $2h$ だから $\bar u=q/(2h)=Gh^2/(3\eta)$。$u'(y)=-Gy/\eta$ は中央で零、$u''=-G/\eta<0$ だから最大は $y=0$ にあり、$u_{\max}=Gh^2/(2\eta)$。二式の比は $3/2$。
 
-[非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian)の非対角成分は $2\eta D_{xy}$。直交基底で $v_x=u(y)$、$v_y=0$ だから、$D_{xy}=(\partial_yv_x+\partial_xv_y)/2=(u'(y)+0)/2$、対称性から $D_{yx}=D_{xy}$ である。従って
+[非圧縮 Newton 応力](../CTM15/index.md#def-ctm15-incompressible-newtonian)の非対角成分は $2\eta D_{xy}$。直交基底で $v_x=u(y)$、$v_y=0$ なので、第0節で確認した成分表示を適用すると
 
 $$
-\sigma_{xy}(y)=\eta u'(y)=-Gy.
+D_{xy}=\frac12(\partial_yv_x+\partial_xv_y)
+=\frac12(u'(y)+0)=\frac{u'(y)}2,\qquad D_{yx}=D_{xy}.
+$$
+
+従って
+
+$$
+\sigma_{xy}(y)=2\eta D_{xy}=\eta u'(y)=-Gy.
 $$
 
 上壁の流体外向き法線は $+e_y$ で、[traction の表示](../CTM6/index.md#thm-ctm6-cauchy-stress)から $(\sigma n)_x=\sigma_{xy}(h)=-Gh$。下壁では $n=-e_y$ なので $(\sigma n)_x=-\sigma_{xy}(-h)=-Gh$。両壁とも流れに逆らう方向である。$\square$
