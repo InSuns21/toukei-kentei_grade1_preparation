@@ -2,9 +2,6 @@
 <title id="forward-fig-title">配当利回りと公正先渡受渡価格の関係</title>
 <desc id="forward-fig-desc">現在株価100円、連続複利金利5%、満期まで1年を固定。横軸の配当利回りが0%、2%、5%、7%と増えると、公正先渡受渡価格は105.13円、103.05円、100円、98.02円と下がる。配当利回りが金利5%と等しい点で、スポット100円を示す水平破線と交わる。</desc>
 <rect width="760" height="380" fill="#ffffff"/>
-<g stroke="#dedede" stroke-width="1">
-  <path d="M110 150 H660 M110 182 H660 M110 214 H660 M110 246 H660 M110 278 H660"/>
-</g>
 <g stroke="#3d4756" stroke-width="2" fill="none">
   <path d="M110 110 V312 H660"/>
 </g>
@@ -30,10 +27,10 @@
   <circle cx="620" cy="277.7" r="6"/>
 </g>
 <g fill="#173e5f" font-size="16" text-anchor="middle">
-  <text x="145" y="139">105.13</text>
-  <text x="280" y="173">103.05</text>
-  <text x="482" y="223">100.00</text>
-  <text x="620" y="301">98.02</text>
+  <text x="183" y="128">105.13</text>
+  <text x="280" y="168">103.05</text>
+  <text x="482" y="214">100.00</text>
+  <text x="675" y="280">98.02</text>
 </g>
 <g font-size="16" fill="#304255">
   <path d="M408 72 H444" stroke="#205a84" stroke-width="3.8"/>
