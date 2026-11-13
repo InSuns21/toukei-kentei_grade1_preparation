@@ -16,6 +16,7 @@ forward_references: []
 concepts:
   - id: aqft.wedge-standard-real-subspace
     name: 自由場のwedge実部分空間と標準性
+    introduction_aliases: [標準実部分空間]
     kind: definition
     introduction: formal
     requires: [aqft.minkowski-positive-frequency-map, aqft.fock-local-von-neumann-net]
