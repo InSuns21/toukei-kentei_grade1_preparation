@@ -10,15 +10,15 @@
 
 微分のノルムと距離には、適合計量を使う。その定義式は
 
-$
+$$
 g_J(v,w)=\omega(v,Jw)
-$
+$$
 
 である。局所座標 $z=s+it$ では、前講と同じ[擬正則方程式](../GW1-02/index.md#def-gw1-02-j-holomorphic)を次の形で用いる。
 
-$
+$$
 u_t=J(u)u_s.
-$
+$$
 
 二次元では共形計量の選び方にエネルギーが依存しないので、円盤上はユークリッド計量で計算する。
 
@@ -218,20 +218,20 @@ $$
 
 コンパクトな $\Sigma$ 上のエネルギー密度を非負測度として考える。
 
-$
+$$
 \mu_n=\tfrac12|du_n|^2d\operatorname{vol}_\Sigma,
 \qquad
 \mu_n(\Sigma)\le E_0.
-$
+$$
 
 有界な測度の弱コンパクト性により、部分列で $\mu_n\rightharpoonup\mu$ とできる。$\mu(\{p\})\ge\epsilon_0$ の点は、全質量が $E_0$ 以下であるから高々 $E_0/\epsilon_0$ 個である。
 
 それ以外の点 $p$ については、十分小さい $r>0$ を選んで $\mu(\overline{B_{2r}(p)})<\epsilon_0$ とできる。閉集合に対する弱収束の上半連続評価から、十分大きな $n$ で
 
-$
+$$
 E(u_n;B_{2r}(p))
 \le\mu_n(\overline{B_{2r}(p)})<\epsilon_0
-$
+$$
 
 となる。よって[小エネルギー勾配評価](#lem-gw1-05-small-energy)から $B_r(p)$ での微分が一様有界である。
 
@@ -560,10 +560,10 @@ $u_\varepsilon(z)=\varepsilon/z$ の基底極限と泡を求め、再パラメ�
 <!-- solution-start -->
 **詳細解答**。固定した $z\ne0$ では基底極限は定数0となる。拡大座標では
 
-$
+$$
 z=\varepsilon\zeta,\qquad
 v_\varepsilon(\zeta)=u_\varepsilon(\varepsilon\zeta)=\frac1\zeta.
-$
+$$
 
 基底の付着点 $z=0$ と泡側の $\zeta=\infty$ では像がともに0なので、値の接続条件は満たす。
 
