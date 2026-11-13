@@ -29,3 +29,4 @@
 26. [AQFT26 Rindler wedgeとboostの解析性](textbook/volumes/dream_thater/解析系/AQFT/AQFT26/index.md)
 27. [AQFT27 Bisognano–Wichmann（自由スカラー場）](textbook/volumes/dream_thater/解析系/AQFT/AQFT27/index.md)
 28. [AQFT28 局所Type III₁性の適用境界](textbook/volumes/dream_thater/解析系/AQFT/AQFT28/index.md)
+29. [AQFT29 相対Tomita作用素](textbook/volumes/dream_thater/解析系/AQFT/AQFT29/index.md)
