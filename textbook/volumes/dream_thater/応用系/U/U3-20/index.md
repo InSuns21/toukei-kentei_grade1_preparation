@@ -14,7 +14,7 @@ $$
 dS_u=(r-q)S_u\,du+\sigma S_u\,dW_u^Q,\qquad S_t=s.
 $$
 
-$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)であり、価格付けのために用います。一方、、将来の実損益を予測する測度 $P$ とは区別します。[欧州型 call/put](../U3-05/index.md#def-u3-05-european)について、残存期間を明示した価格関数を $C(t,s;K,r,q,\sigma,T)$、$P(t,s;K,r,q,\sigma,T)$ と書きます。以下では $K,T,q$ を動かさない偏微分が基本で、他の変数を固定したまま一つだけ動かします。
+$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)であり、価格付けのために用います。これは将来の実損益を記述する実確率測度 $P$ とは異なります。[欧州型 call/put](../U3-05/index.md#def-u3-05-european)について、残存期間を明示した価格関数を $C(t,s;K,r,q,\sigma,T)$、$P(t,s;K,r,q,\sigma,T)$ と書きます。以下では $K,T,q$ を動かさない偏微分が基本で、他の変数を固定したまま一つだけ動かします。
 
 [配当付き閉形式](../U3-19/index.md#thm-u3-19-bsm-dividend)と[標準正規密度 $\phi$・累積関数 $\Phi$](../U3-18/index.md#def-u3-18-normal-indices)を再掲して記号を揃えます。
 
