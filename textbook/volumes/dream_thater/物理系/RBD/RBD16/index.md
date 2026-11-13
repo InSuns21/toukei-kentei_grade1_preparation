@@ -178,8 +178,7 @@ R_{n+1}^{\mathsf T}R_{n+1}
 \end{aligned}
 $$
 
-任意の $x$ に $A^2x=\omega_n\times(\omega_n\times x)
-=\omega_n(\omega_n\cdot x)-\lVert\omega_n\rVert^2x$ を適用すると第一式です。$\omega_n\ne0$ で単位ベクトル $u=\omega_n/\lVert\omega_n\rVert$ とその垂直な直交二方向を基底に取ると、$A$ は $u$ 方向で零、直交平面で
+任意の $x$ に $A^2x=\omega_n\times(\omega_n\times x)=\omega_n(\omega_n\cdot x)-\lVert\omega_n\rVert^2x$ を適用すると第一式です。$\omega_n\ne0$ で単位ベクトル $u=\omega_n/\lVert\omega_n\rVert$ とその垂直な直交二方向を基底に取ると、$A$ は $u$ 方向で零、直交平面で
 
 $$
 \begin{pmatrix}0&-\lVert\omega_n\rVert\\
@@ -263,7 +262,7 @@ $$
 <!-- definition-example-start: def-rbd16-updates -->
 ### 直接例：同じ $z$ 軸回転を一段進める
 
-**各更新条件を検算**します。$R_0=I_3$、$q_0=(1,0)$、$\omega_0=e_3$、$h=0.2$、$J_b=\operatorname{diag}(2,3,4)$、$\tau_b=0$ とします。Euler 方程式の右辺は $\omega_0\times J_b\omega_0=0$ だから、始点と中点で角速度は $e_3$ のままです。
+**定義の確認**：三種類の更新条件をそれぞれ計算します。$R_0=I_3$、$q_0=(1,0)$、$\omega_0=e_3$、$h=0.2$、$J_b=\operatorname{diag}(2,3,4)$、$\tau_b=0$ とします。Euler 方程式の右辺は $\omega_0\times J_b\omega_0=0$ だから、始点と中点で角速度は $e_3$ のままです。
 
 行列 Euler は $I_3+0.2\widehat e_3$ で、直交性を失います。四元数 Euler の未正規化値は $(1,0.1e_3)$、ノルム二乗は $1.01$、従って $q_1=(1,0.1e_3)/\sqrt{1.01}$ は長さ1です。指数中点法は Rodrigues 公式により $R_1=R_z(0.2)$ となり、正しい回転です。四元数の回転角は $2\arctan(0.1)$ で $0.2$ よりわずかに小さく、**単位ノルムだけでは位相誤差が消えない**と分かります。
 <!-- definition-example-end -->
