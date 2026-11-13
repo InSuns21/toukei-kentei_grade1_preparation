@@ -322,7 +322,7 @@ D^{it}=\Gamma(\delta^{it})
 J=\Gamma(j)=\bigoplus_{n=0}^\infty j^{\otimes_s n}
 $$
 
-> と置く。ただし零粒子成分では $D^{it}\Omega=\Omega$、$J(c\Omega)=\overline c\,\Omega$ とする。$D$ はこのユニタリ群から得る正の自己共役作用素であり、$T_{\mathcal F}=JD^{1/2}$ はその定義域上の閉反線形作用素とする。
+> と置く。ただし零粒子成分では $D^{it}\Omega=\Omega$、$J(c\Omega)=\overline c\,\Omega$ とする。$D$ はこの強連続ユニタリ一パラメータ作用から得る正の自己共役作用素であり、$T_{\mathcal F}=JD^{1/2}$ はその定義域上の閉反線形作用素とする。
 <!-- formal-statement-end -->
 
 $D$ は一般に有界でなく、$D^{1/2}$ を単に有限粒子空間のどこにでも作用させてよいわけではありません。特に、各 $n$ 粒子成分での半べきの定義域と、そのノルムの平方和の有限性が必要です。
@@ -652,11 +652,11 @@ $$
 
 **(iii)** $Q=\log\delta$、$\delta^{it}=u(-2\pi t)$ とし、[不変稠密部分空間の指数作用素core](#lem-aqft27-invariant-core)を適用すると $D_0$ は $\delta^{1/2}$ のcoreです。閉反線形作用素 $T$ の固定部分空間として $H(W_R)$ は標準になり、$S_H=T$ です。従って $\delta_H^{it}=u(-2\pi t)$。
 
-**(iv)** $W(h)\Omega=e^{-\|h\|^2/2}\varepsilon(ih)$ と $j\delta^{1/2}h=h$ から $JD^{1/2}W(h)\Omega=W(-h)\Omega$。このWeyl真空ベクトルの線形包はFock空間で稠密・boost不変なので再びcore補題を適用できます。強-* の有界近似でTomita作用を局所環全体へ拡張し、$\Delta_{W_R}^{it}=\Gamma(\delta^{it})=\Gamma(u(-2\pi t))=U(-2\pi t)$ を得ます。二点KMSから直ちに最後の等式を推論したわけではありません。
+**(iv)** $W(h)\Omega=e^{-\|h\|^2/2}\varepsilon(ih)$ と $j\delta^{1/2}h=h$ から $JD^{1/2}W(h)\Omega=W(-h)\Omega$。このWeyl真空ベクトルの線形包はFock空間で稠密・boost不変なので再びcore補題を適用できます。強-* の有界近似でTomita作用をwedgeのvon Neumann環全体へ拡張し、$\Delta_{W_R}^{it}=\Gamma(\delta^{it})=\Gamma(u(-2\pi t))=U(-2\pi t)$ を得ます。二点KMSから直ちに最後の等式を推論したわけではありません。
 <!-- solution-end -->
 
 <a id="ex-aqft27-c02"></a>
-#### AQFT27-C02 幾何学的KMSと一般局所環への誤った拡張
+#### AQFT27-C02 幾何学的KMSと一般局所von Neumann環への誤った拡張
 
 - Level: C
 - 問題：本講の定理に対し、(i) $\rho_0=2$ のRindler軌道の固有加速度と固有時のKMS逆温度、(ii) bounded wedge可観測量に対するKMS境界、(iii) 一般のdouble coneのType III$_1$性が従うか、をそれぞれ判定し、理由を示せ。
@@ -669,7 +669,7 @@ $$
 **(iii)** 従いません。本講で得たのは特定の自由場の**wedge環**のモジュラー群と双対性です。double coneはboostで不変でなく、そのモジュラー流が同じboostだとはいえません。Type III$_1$性には別の型判定と仮定が必要であり、wedgeでの結果だけではその証明に使った機構が欠けています。
 <!-- solution-end -->
 
-## 7. 次講へ：wedgeから局所環の型をどこまで知れるか
+## 7. 次講へ：wedgeから局所von Neumann環の型をどこまで知れるか
 
 本講で証明したのは、自由スカラー場のwedgeでは**モジュラー時間が幾何学的boostに一致する**という厳密な等式です。次のAQFT28「局所Type III$_1$性の適用境界」では、wedgeの計算から分かることと、より小さな局所領域の型を決めるのに別途必要な仮定を区別します。
 
