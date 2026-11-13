@@ -1,0 +1,58 @@
+chapter: CTM11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM10
+concepts:
+  - id: continuum.small-strain
+    name: 微小ひずみ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（微小ひずみ）"]
+    requires: [continuum.green-lagrange-strain]
+  - id: continuum.isotropic-linear-elastic
+    name: 等方線形弾性材料
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等方線形弾性材料）"]
+    requires: [continuum.small-strain, continuum.material-isotropy, continuum.isothermal-elastic-constitutive]
+  - id: continuum.hooke-isotropic
+    name: 等方 Hooke 則のエネルギー表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（等方 Hooke 則のエネルギー表示）"]
+    requires: [continuum.isotropic-linear-elastic]
+  - id: continuum.bulk-modulus
+    name: 体積弾性率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（体積弾性率と偏差ひずみ）"]
+    requires: [continuum.hooke-isotropic]
+  - id: continuum.deviatoric-strain
+    name: 偏差ひずみ
+    kind: definition
+    introduction: formal
+    requires: [continuum.small-strain]
+  - id: continuum.linear-elastic-positive-definite
+    name: エネルギーの直交分解と正定値条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（エネルギーの直交分解と正定値条件）"]
+    requires: [continuum.bulk-modulus, continuum.deviatoric-strain, continuum.hooke-isotropic]
+  - id: continuum.young-modulus
+    name: Young率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Young率と Poisson比）"]
+    requires: [continuum.hooke-isotropic]
+  - id: continuum.poisson-ratio
+    name: Poisson比
+    kind: definition
+    introduction: formal
+    requires: [continuum.hooke-isotropic]
+  - id: continuum.elastic-constants-conversion
+    name: Lamé 係数・Young率・Poisson比の関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lamé 係数・Young率・Poisson比の関係）"]
+    requires: [continuum.young-modulus, continuum.poisson-ratio, continuum.linear-elastic-positive-definite]
