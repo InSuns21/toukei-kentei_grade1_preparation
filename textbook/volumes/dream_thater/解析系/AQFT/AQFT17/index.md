@@ -243,17 +243,17 @@ Type IIIの局所von Neumann環そのものをType I因子に変えるという�
 
 例えば $D$ の射影 $p=M_{\mathbf1_{[0,1/2]}}$ を取ります。$H=L^2([0,1])$ で
 
-$
+$$
 v=\sqrt2\,\mathbf1_{[0,1/2]},\qquad
 w=\sqrt2\,\mathbf1_{(1/2,1]}
-$
+$$
 
 はともにノルム $1$ です。[VN5のベクトル正規状態](../../VN/VN5/index.md#def-vn5-normal-state)を $D$ に制限して $\varphi(a)=\langle v,av\rangle$、$\psi(a)=\langle w,aw\rangle$ と置けば、$pv=v$、$pw=0$ より
 
-$
+$$
 \varphi(p)=\langle v,pv\rangle=1,\qquad
 \psi(p)=\langle w,pw\rangle=0
-$
+$$
 
 を満たす異なる正規状態が実際に得られます。積の式で一方の変数を単位元に置けば、延長の周辺条件は $\omega(p)=\varphi(p)$ と $\omega(p)=\psi(p)$ を同時に要求します。したがって矛盾し、積延長はありません。
 
@@ -346,11 +346,11 @@ $$
 
 核性の仮定により右端は $n\to\infty$ で0へ収束するので $\|T-T_n\|_{\mathrm{op}}\to0$。有限ランク写像 $T_n$ の単位球像は有限次元有界集合なので相対コンパクトです。ここから極限への移行も確認します。任意の $\varepsilon>0$ に対し $\|T-T_n\|_{\mathrm{op}}<\varepsilon/3$ となる $n$ を選びます。有限次元の $T_n$ の単位球像には有限個の $\varepsilon/3$ 近似点 $y_1,\ldots,y_m\in Y$ が取れます。したがって $\|x\|_X\le1$ なら適切な $k$ について
 
-$
+$$
 \|Tx-y_k\|_Y
 \le\|(T-T_n)x\|_Y+\|T_nx-y_k\|_Y
 <\frac{2\varepsilon}{3}<\varepsilon.
-$
+$$
 
 つまり $T$ の単位球像は全有界です。$Y$ はHilbert空間なので完備であり、その閉包はコンパクトです。従って $T$ はコンパクト写像です。$\square$
 <!-- proof-end -->
@@ -451,13 +451,13 @@ $$
 
 を得ます。この無限積への移行を明示します。[AQFT8で用いた対称Fock空間](../AQFT8/index.md#def-aqft8-fock-weyl)では、占有数列 $(r_{\boldsymbol n})$ は非負整数値で、各基底ベクトルについて非零の占有数は有限個です。有限なモード集合 $F\subset\mathbb Z^3$ だけを許した場合、各占有数の和を独立に取ると
 
-$
+$$
 \sum_{(r_{\boldsymbol n})\in\mathbb N_0^F}
 \exp\left(-\beta\sum_{\boldsymbol n\in F}
 r_{\boldsymbol n}\omega_{\boldsymbol n}\right)
 =\prod_{\boldsymbol n\in F}
 \left(\sum_{r=0}^\infty e^{-\beta r\omega_{\boldsymbol n}}\right).
-$
+$$
 
 各項は非負なので、$F$ を増やして全モードを覆うと左辺はFock空間のトレースへ単調に収束し、右辺は表示した無限積になります。無限積が**有限値へ**収束することは、続く評価で別に確認します。$0\le x\le e^{-\beta m}<1$ に対し
 
