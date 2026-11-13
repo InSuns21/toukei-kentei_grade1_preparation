@@ -54,12 +54,12 @@ $$
 
 とします。有限次元では $\alpha_t$ がノルム連続なので強作用素連続・正規であり、$\omega$ も正規状態です。さらに次のようにHamiltonianを選びます。
 
-$
+$$
 H_0=-\log\rho,\qquad
 H_0=H_0^*,\qquad
 e^{-H_0}=\rho,\qquad
 \operatorname{Tr}(e^{-H_0})=1.
-$
+$$
 
 したがって逆温度1、分配関数1として次のGibbs定理の仮定を満たします。
 
@@ -495,9 +495,9 @@ $$
 - Level: A
 - 問題：$\rho=\operatorname{diag}(3/4,1/4)$、$A=E_{12}$、$B=E_{21}$ とする。[AQFT24の有限次元複素時間延長](../AQFT24/index.md#thm-aqft24-gibbs-kms)に従い、この問題に限り
 
-$
+$$
 \sigma_z(C)=\rho^{iz}C\rho^{-iz}\qquad(z\in\mathbb C)
-$
+$$
 
 と置く。$F(z)=\omega(\sigma_z(A)B)$ の $t$ と $t+i$ における値を求め、上端の順序を照合せよ。
 
