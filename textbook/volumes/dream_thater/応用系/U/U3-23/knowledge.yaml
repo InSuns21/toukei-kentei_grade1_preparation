@@ -1,14 +1,14 @@
 chapter: U3-23
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-21, U3-22]
+prerequisites: [NA7, U3-21, U3-22]
 concepts:
   - id: finance.bsm-theta-scheme
     name: θ 時間差分法
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（θ 時間差分法）"]
-    requires: [finance.explicit-bsm-three-point]
+    requires: [finance.explicit-bsm-three-point, numerical.theta-method]
   - id: finance.bsm-tridiagonal-residual
     name: 三重対角方程式と残差
     kind: definition
