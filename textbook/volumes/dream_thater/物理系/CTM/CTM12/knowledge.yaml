@@ -5,7 +5,7 @@ prerequisites:
   - CTM11
 concepts:
   - id: continuum.elastic-dirichlet-boundary
-    name: Dirichlet 境界条件
+    name: 線形弾性の Dirichlet 境界条件
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Dirichlet 境界条件と Neumann 境界条件）"]

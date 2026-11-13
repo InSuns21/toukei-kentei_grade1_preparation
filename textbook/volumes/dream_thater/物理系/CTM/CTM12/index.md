@@ -55,7 +55,15 @@ $$
 <!-- definition-example-start: def-ctm12-boundary-data -->
 ### 定義の確認：同じ棒の左右で異なる量を指定する
 
-直方体の候補 $u(X)=aX_1e_1$（$a$ は小さい無次元定数）で、$\nabla u=\operatorname{diag}(a,0,0)$、$\sigma=\operatorname{diag}((\lambda+2\mu)a,\lambda a,\lambda a)$ を [Hooke 則](../CTM11/index.md#thm-ctm11-hooke)から得る。左面 $X_1=0$ では変位は零なので、$\bar u=0$ の Dirichlet 条件を満たす。一方、右面 $X_1=L$ の外向き法線は $e_1$ であるため、$\sigma e_1=(\lambda+2\mu)ae_1$ と計算でき、この値を $\bar t$ とした Neumann 条件を満たす。この確認は左右二面に限り、四側面の条件までは自動的に保証しない。
+直方体に、小さい無次元定数 $a$ を使って $u(X)=aX_1e_1$ を与える。このとき $\nabla u=\operatorname{diag}(a,0,0)$。これを [Hooke 則](../CTM11/index.md#thm-ctm11-hooke)に代入すると
+
+$
+\sigma=\operatorname{diag}((\lambda+2\mu)a,\lambda a,\lambda a).
+$
+
+左面 $X_1=0$ では変位が零なので、$\bar u=0$ の Dirichlet 条件を満たす。
+
+右面 $X_1=L$ は法線 $e_1$ を持ち、$\sigma e_1=(\lambda+2\mu)ae_1$ となる。この値を $\bar t$ とした Neumann 条件を満たす。左右二面の確認であり、四側面の条件までは自動的に保証しない。
 <!-- definition-example-end -->
 
 <a id="def-ctm12-bvp"></a>
@@ -593,7 +601,15 @@ $u=(aX_1,-\nu aX_2,-\nu aX_3)$、$a=p/E_Y$ とし、$f=0$、右端と四側面�
 <!-- solution-start -->
 #### 詳細解答
 
-[CTM11 の弾性定数変換](../CTM11/index.md#thm-ctm11-elastic-constants)によれば、この一軸応力設定で $\sigma=\operatorname{diag}(E_Ya,0,0)=\operatorname{diag}(p,0,0)$。一定なので発散零。右面 $n=e_1$ は $pe_1$、左面 $n=-e_1$ の反力は $-pe_1$、四側面の $n=\pm e_2,\pm e_3$ は零。左面では $X_1=0$ なので $\bar u=(0,-\nu aX_2,-\nu aX_3)$。$\nu a\ne0$ で $X_2$ または $X_3$ が非零なら、この面の横変位は零でない。従って左面を全面 $u=0$ へ変更した問題に、同じ候補を代入してはならない。
+[CTM11 の弾性定数変換](../CTM11/index.md#thm-ctm11-elastic-constants)によれば、この一軸応力設定で
+
+$
+\sigma=\operatorname{diag}(E_Ya,0,0)=\operatorname{diag}(p,0,0).
+$
+
+応力は一定なので発散零。右面 $n=e_1$ は $pe_1$、左面 $n=-e_1$ の反力は $-pe_1$ である。四側面の $n=\pm e_2,\pm e_3$ については traction が零となる。
+
+左面では $X_1=0$ なので $\bar u=(0,-\nu aX_2,-\nu aX_3)$。$\nu a\ne0$ で横座標が非零なら、この面の横変位は零でない。従って左面を全面 $u=0$ へ変更した問題に、同じ候補を代入してはならない。
 <!-- solution-end -->
 
 ### B2. せん断板の側面を自由にできるか
@@ -629,7 +645,23 @@ $\varepsilon=\operatorname{diag}(\phi',0,0)$、$\sigma=\operatorname{diag}(M\phi
 <!-- solution-start -->
 #### 詳細解答
 
-[合力・合トルク必要条件](#prop-ctm12-force-torque)の第一式は $\int_{\partial\Omega}\bar t\,dS=pAe_1$。$f=0$ で $pA>0$ だから零にならず、古典解は存在しない。別の面で荷重を釣り合わせて必要条件を満たしたとしても、解 $u$ があれば $u+r$ も解となる。実際 $\varepsilon(r)=0$ により $\sigma(r)=0$、$\operatorname{div}\sigma(u+r)=\operatorname{div}\sigma(u)$、$(\sigma(u+r))n=\sigma(u)n$ だからである。これは変位を固定する Dirichlet 面が無いことに起因する。合力・合トルク条件が成立することだけで解の存在を保証したわけではない。
+[合力・合トルク必要条件](#prop-ctm12-force-torque)の第一式について、今回の全外力は
+
+$
+\int_\Omega f\,dV+\int_{\partial\Omega}\bar t\,dS
+=0+pAe_1\ne0.
+$
+
+$pA>0$ だから合力が零にならず、古典解は存在しない。
+
+別の面で荷重を釣り合わせて必要条件を満たした場合でも、解 $u$ があれば $u+r$ も解になる。微小剛体変位なら $\varepsilon(r)=0$、従って $\sigma(r)=0$ なので
+
+$
+\operatorname{div}\sigma(u+r)=\operatorname{div}\sigma(u),\qquad
+\sigma(u+r)n=\sigma(u)n.
+$
+
+Dirichlet 面が無いので追加した剛体変位を拘束できない。なお合力・合トルク必要条件の成立だけで、解の存在が保証されるわけではない。
 <!-- solution-end -->
 
 ### Level C
