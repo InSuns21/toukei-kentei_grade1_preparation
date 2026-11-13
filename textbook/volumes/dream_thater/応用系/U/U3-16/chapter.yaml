@@ -2,7 +2,7 @@ id: "U3-16"
 title: "自己金融 delta hedge と Black–Scholes–Merton PDE"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-15, STO7]
+prerequisites: [U3-15, STO7, PDE1]
 official_scope: []
 learning_objectives:
   - 滑らかな満期価値関数・delta・終端条件を定義し具体例で判定できる
