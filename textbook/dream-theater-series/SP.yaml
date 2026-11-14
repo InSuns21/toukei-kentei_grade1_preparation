@@ -5,10 +5,10 @@ plan: textbook/plans_progress/DREAM_THEATER_STOCHASTIC_PROCESSES_COURSE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 # この系列の講義番号 SP1 は既存の正本章 STO1 へ対応する。
 # canonical な章IDは STO1 のままとし、URL・stable anchor・knowledge concept を二重登録しない。
-# SP2 以降は実装時に既存 STO の移管・再利用範囲を再確認する。
+# SP2 は既存 STO2A の正本に対応する。SP3・SP4 は同じ演習を二重計上せず、独立の学習成果を実装時に確定する。
 chapters:
   - { id: STO1, path: textbook/volumes/dream_thater/解析系/STO/STO1, status: completed, title: "確率過程・標本路・情報と停止時刻" } # SP1
-  - { id: SP2, path: textbook/volumes/dream_thater/解析系/SP/SP2, status: planned, title: "Markov 性・遷移確率・強 Markov 性" }
+  - { id: STO2A, path: textbook/volumes/dream_thater/解析系/STO/STO2A, status: completed, title: "Markov 性・遷移確率・強 Markov 性" } # SP2
   - { id: SP3, path: textbook/volumes/dream_thater/解析系/SP/SP3, status: planned, title: "通信クラス・再帰と過渡・Green 核" }
   - { id: SP4, path: textbook/volumes/dream_thater/解析系/SP/SP4, status: planned, title: "正再帰・零再帰・不変測度・詳細釣合い" }
   - { id: SP5, path: textbook/volumes/dream_thater/解析系/SP/SP5, status: planned, title: "有限 Markov 連鎖の収束・周期性・結合" }
