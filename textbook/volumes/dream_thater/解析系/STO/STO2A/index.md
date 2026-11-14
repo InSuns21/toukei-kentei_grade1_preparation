@@ -33,6 +33,8 @@ $X_0,\ldots,X_n$ 全体に依存しても構いません。しかし、現在状
 
 そこで「時刻 $n$ までの履歴を知った後でも、次状態の確率は現在状態だけから決まる」という条件を課します。これにより一段の遷移則を反復して多段階の確率を計算し、後で帰還や訪問回数を解析できるようになります。
 
+ここでいう確率過程と標本路は [STO1 の定義](../STO1/index.md#def-sto1-stochastic-process)、自然なフィルトレーションは [STO1 の定義](../STO1/index.md#def-sto1-adapted-natural-filtration) に従います。条件付き確率は指示関数の [条件付き期待値](../../F0/F0-00P3A/index.md#def-f0-00p3a-conditional-expectation) として解釈します。
+
 <a id="def-sto2a-markov"></a>
 
 <!-- formal-statement-start -->
@@ -67,7 +69,7 @@ $$
 
 右辺が「過去全部」ではなく現在状態 $X_n$ だけに依存するのが Markov 性です。
 
-初期状態 $X_0=i$ のもとでの確率・期待値を $P_i,E_i$ と書きます。
+各 $i\in S$ について、$X_0=i$ から始める連鎖の法則と期待値を $P_i,E_i$ と書きます。これは単なる $P(X_0=i)$ による条件付けではなく、初期状態を $i$ に固定した法則です。
 
 $n$ 段階遷移確率を
 
@@ -75,9 +77,13 @@ $$
 p^{(n)}(i,j)=P_i(X_n=j)
 $$
 
-とします。通常教材の Chapman--Kolmogorov は可算状態でも同じく
+とし、$p^{(0)}(i,j)=1_{\{i=j\}}$ と約束します。$p^{(n)}(i,j)$ は「$i$ から出発して $n$ 回遷移した後に $j$ にいる確率」であり、[有限状態での多段階遷移](../../../../05_engineering/E2_01_markov連鎖/index.md#def-e2-01-n-step-transition) を可算状態へ拡張した記法です。
 
-$$
+中間状態 $X_m=k$ で分け、Markov 性を反復すると、可算状態でも Chapman–Kolmogorov の式
+
+<a id="eq-sto2a-chapman-kolmogorov"></a>
+
+$
 p^{(m+n)}(i,j)
 =
 \sum_{k\in S}
@@ -209,7 +215,7 @@ P(X_{m+r}=k\mid\mathcal F_m)
 p^{(r)}(X_m,k)
 $$
 
-が成り立つと仮定します。tower property と一段 Markov 性を、時刻 $m+r$ に適用すると
+が成り立つと仮定します。[tower property](../../F0/F0-00P3A/index.md#thm-f0-00p3a-tower) と一段 Markov 性を時刻 $m+r$ に適用し、可算和について非負項の条件付き期待値を項別に取ると
 
 $$
 \begin{aligned}
@@ -233,7 +239,7 @@ p^{(r+1)}(X_m,j).
 \end{aligned}
 $$
 
-最後の等号は Chapman--Kolmogorov です。従って帰納的に、任意の $r\ge0$ で
+最後の等号は [Chapman–Kolmogorov の式](#eq-sto2a-chapman-kolmogorov) です。従って帰納的に、任意の $r\ge0$ で
 
 $$
 P(X_{m+r}=j\mid\mathcal F_m)
@@ -286,6 +292,28 @@ $$
 
 この定理が「帰ってくるたびに、現在状態から同じ確率法則でやり直せる」ことを保証します。
 
+以後は「いつか帰る」という有限時刻に限らない事象にも使います。その根拠を確認しておきます。固定した $1\le r_1<\cdots<r_\ell$ と $j_1,\ldots,j_\ell\in S$ に対し、上の証明を $\{\tau=m\}$ ごとに繰り返し、一段ずつ条件付ければ、$\{\tau<\infty\}$ 上で
+
+$
+\begin{aligned}
+&P(X_{\tau+r_1}=j_1,\ldots,X_{\tau+r_\ell}=j_\ell\mid\mathcal F_\tau)\\
+&\quad=p^{(r_1)}(X_\tau,j_1)
+\prod_{h=2}^{\ell}p^{(r_h-r_{h-1})}(j_{h-1},j_h).
+\end{aligned}
+$
+
+特に $\{\exists\,1\le s\le N:X_{\tau+s}=i\}$ は有限個の時刻の状態だけで判定できる事象です。$X_\tau=i$ の上で、その条件付き確率は $P_i(T_i^+\le N)$ に等しくなります。$N\uparrow\infty$ について事象が増加するので、条件付き期待値の単調収束により
+
+$
+P(\exists\,s\ge1:X_{\tau+s}=i\mid\mathcal F_\tau)
+=
+\lim_{N\to\infty}P_i(T_i^+\le N)
+=
+f_i
+$
+
+が $\{\tau<\infty,X_\tau=i\}$ 上で成り立ちます。ここでは後で定義する $f_i$ を「$i$ から再び $i$ へ帰る確率」の略記として先取りしています。
+
 ---
 
 ## 4. 再帰と過渡
@@ -334,9 +362,22 @@ $$
 <!-- proof-start -->
 ### 証明
 
-最初の正の帰還時刻を $\tau_1=T_i^+$ とし、帰還後の次の帰還時刻を順に $\tau_2,\tau_3,\ldots$ とします。
+最初の正の帰還時刻を $\tau_1=T_i^+$ とし、$\tau_m<\infty$ のとき
 
-$\tau_m<\infty$ の上で $X_{\tau_m}=i$ です。強 Markov 性から
+$
+\tau_{m+1}=\inf\{n>\tau_m:X_n=i\}
+$
+
+と定めます（$\tau_m=\infty$ なら以後も $\infty$）。これらも停止時刻です。実際、$\{\tau_{m+1}\le n\}$ は
+
+$
+\bigcup_{t=0}^{n-1}
+\left(\{\tau_m=t\}\cap\bigcup_{s=t+1}^{n}\{X_s=i\}\right)
+$
+
+と書け、右辺の各事象は $\mathcal F_n$ に属します。
+
+$\tau_m<\infty$ の上で $X_{\tau_m}=i$ です。[強 Markov 性とその将来事象への拡張](#thm-sto2a-strong-markov) から
 
 $$
 P_i(\tau_{m+1}<\infty\mid\mathcal F_{\tau_m})
@@ -481,7 +522,7 @@ $$
 
 $m\ge1$ とします。$N_i\ge m$ は、時刻0の訪問を含めて $m-1$ 回以上正に帰還することです。
 
-帰還時刻を $\tau_1,\tau_2,\ldots$ とします。$r\ge1$ について、$\tau_r<\infty$ の上では $X_{\tau_r}=i$ なので、強 Markov 性から
+帰還時刻を [第4節と同様の停止時刻](#prop-sto2a-infinite-returns) $\tau_1,\tau_2,\ldots$ とします。$r\ge1$ について、$\tau_r<\infty$ の上では $X_{\tau_r}=i$ なので、[強 Markov 性](#thm-sto2a-strong-markov) と第3節末の将来事象への拡張から
 
 $$
 P_i(\tau_{r+1}<\infty\mid\mathcal F_{\tau_r})
@@ -518,7 +559,7 @@ $$
 P_i(N_i\ge m)=f_i^{m-1}.
 $$
 
-非負整数値変数の tail-sum formula より
+各標本路で $N_i=\sum_{m=1}^{\infty}1_{\{N_i\ge m\}}$ が成り立ちます（$N_i=\infty$ でも両辺は $\infty$）。非負項の[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)より
 
 $$
 E_i[N_i]
@@ -596,11 +637,14 @@ $$
 
 なので
 
-$$
-\sum_{m=0}^{\infty}p^{(m)}(i,i)=\infty.
-$$
+$
+\sum_{m=0}^{\infty}p^{(m)}(i,i)
+\ge p^{(a)}(i,j)p^{(b)}(j,i)
+\sum_{n=0}^{\infty}p^{(n)}(j,j)
+=\infty.
+$
 
-従って $i$ も再帰的です。$i,j$ を入れ替えて逆向きも同様です。
+従って [Green 核判定](#thm-sto2a-recurrence-green) により $i$ も再帰的です。$i,j$ を入れ替えて逆向きも同様です。
 <!-- proof-end -->
 
 ---
@@ -660,6 +704,14 @@ E_i\left[
 $$
 
 とします。
+
+ここで $P=(p(j,k))_{j,k\in S}$ は遷移確率を並べた行列（可算無限の場合も含む）を表します。非負の列 $\nu=(\nu_j)$ に対して $\nu P$ は通常の行ベクトルと行列の積を成分ごとに拡張した記法で、
+
+$
+(\nu P)_k=\sum_{j\in S}\nu_jp(j,k)
+$
+
+と定めます。すべて非負項なので、この和は $\infty$ を許して意味を持ちます。不変性とは各 $k$ で $(\nu P)_k=\nu_k$ となることです。
 
 <a id="thm-sto2a-cycle-invariant"></a>
 
@@ -787,12 +839,13 @@ $$
 
 添字を一つずらすと
 
-$$
+$
+\sum_j\nu_jp(j,k)
 =
 E_i\left[
 \sum_{n=1}^{\tau}1_{\{X_n=k\}}
 \right].
-$$
+$
 
 一方
 
@@ -908,7 +961,9 @@ $$
 
 ## 11. 例：$\mathbb Z$ 上の単純対称 random walk は再帰的
 
-$$
+$X_0=0$ とし、$\xi_1,\xi_2,\ldots$ は互いに独立で、各 $\xi_n$ が同じ二点分布を持つとします。増分 $\xi_{n+1}=X_{n+1}-X_n$ を使って
+
+$
 X_{n+1}=X_n+\xi_{n+1},
 \qquad
 P(\xi_n=1)=P(\xi_n=-1)=\frac12
@@ -956,13 +1011,13 @@ G(0,0)
 \infty.
 $$
 
-Green 判定により0は再帰的です。平行移動対称性から全状態が再帰的です。
+[Green 核判定](#thm-sto2a-recurrence-green) により0は再帰的です。任意の $i\in\mathbb Z$ から始めても $X_n-i$ は同じ独立増分を持つので $p^{(n)}(i,i)=p^{(n)}(0,0)$ となり、全状態が再帰的です。
 
 ---
 
 ## 12. しかし単純対称 random walk は正再帰ではない
 
-もし正再帰なら前節の cycle occupation theorem から不変確率分布が存在します。
+もし状態0が正再帰なら、[帰還 cycle の occupation measure の定理](#thm-sto2a-cycle-invariant) から不変確率分布が存在します。
 
 ところが不変方程式は
 
@@ -1017,8 +1072,8 @@ p(n,n-1)=q,
 \qquad
 p+q=1,
 \qquad
-p<q
-$$
+0<p<q<1
+$
 
 とします。
 
@@ -1051,9 +1106,52 @@ $$
 \qquad(n\ge1).
 $$
 
-$p/q<1$ なので総和は有限です。正規化して確率分布にでき、detailed balance から不変分布になります。
+$p/q<1$ なので、幾何級数を足すと
 
-原点から遠ざかる drift より、原点へ戻る drift が強いときには定常確率が作れる、という具体例です。
+$
+\sum_{n=0}^{\infty}\pi_n
+=
+\pi_0\left(1+\frac1q\frac1{1-p/q}\right)
+=
+\pi_0\frac{2q}{q-p}.
+$
+
+従って $\pi_0=(q-p)/(2q)$、$\pi_n=(\pi_0/q)(p/q)^{n-1}$（$n\ge1$）とすれば確率分布になります。隣接状態間の等式に加え、遷移のない状態対は両辺0なので全ての対で detailed balance が成り立ち、[不変性の命題](#prop-sto2a-detailed-balance) が適用できます。
+
+この連鎖が実際に**正再帰的**であることも、不変分布の存在を逆向きに使わず直接確かめます。状態 $x\ge1$ から出発し、$\sigma=\inf\{n\ge0:X_n=0\}$ とします。$k<\sigma$ では $X_k\ge1$ なので、次の一歩の条件付き平均増分は $p-q=-(q-p)$ です。停止した過程の増分を足すと
+
+$
+\begin{aligned}
+E_x[X_{N\wedge\sigma}]
+&=x+(p-q)\sum_{k=0}^{N-1}P_x(k<\sigma)\\
+&=x-(q-p)E_x[N\wedge\sigma]\ge0.
+\end{aligned}
+$
+
+従って $E_x[N\wedge\sigma]\le x/(q-p)$ です。$N\uparrow\infty$ の[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)から
+
+$
+E_x[\sigma]\le\frac{x}{q-p}<\infty.
+$
+
+特に0からは必ず1へ進むので $E_0[T_0^+]\le1+1/(q-p)<\infty$ で、0は正再帰的です。$0<p$ だから任意の状態 $j$ から上下の各近隣へ正の確率で進み、全状態が通信します。さらに $j\ge1$ について、$j+1$ から $j$ への平均到達時間は上と同じ停止増分の計算で $1/(q-p)$ 以下です。一方 $j-1$ 以下からは、高々 $j$ 歩の間に必ず上向きに進んで $j$ に達する確率が少なくとも $p^j>0$ です。各 $j$ 歩ごとに未到達確率を条件付けて繰り返すと
+
+$
+P_{j-1}(T_{\{j\}}>mj)\le(1-p^j)^m,
+\qquad
+E_{j-1}[T_{\{j\}}]\le \frac{j}{p^j}<\infty.
+$
+
+従って最初の一歩で場合分けして
+
+$
+E_j[T_j^+]
+=
+1+pE_{j+1}[T_{\{j\}}]+qE_{j-1}[T_{\{j\}}]
+<\infty.
+$
+
+よって全状態が正再帰的です。原点へ向かう平均増分 $p-q<0$ が帰還時間を有限に抑える仕組みです。
 
 ---
 
@@ -1087,24 +1185,19 @@ P_i(X_2=j)
 P_i(X_1=k,X_2=j).
 $$
 
-条件付き確率で
+$\{X_1=k\}\in\mathcal F_1$ なので、[条件付き期待値の既知量を外へ出す性質](../../F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties) と Markov 性から、零確率の状態でも条件付き確率を割り算で定義せずに
 
-$$
-=
-\sum_k
-P_i(X_1=k)
-P_i(X_2=j\mid X_1=k).
-$$
+$
+\begin{aligned}
+P_i(X_1=k,X_2=j)
+&=E_i[1_{\{X_1=k\}}1_{\{X_2=j\}}]\\
+&=E_i[1_{\{X_1=k\}}p(X_1,j)]\\
+&=p(k,j)P_i(X_1=k)\\
+&=p(k,j)p(i,k)
+\end{aligned}
+$
 
-時間一様 Markov 性より
-
-$$
-P_i(X_1=k)=p(i,k),
-$$
-
-$$
-P_i(X_2=j\mid X_1=k)=p(k,j).
-$$
+が得られます。
 
 従って
 
@@ -1192,7 +1285,7 @@ $$
 
 - Level: A
 
-$\pi_i p(i,j)=\pi_jp(j,i)$ が全ての $i,j$ で成り立つとき、$\pi$ が不変分布であることを示せ。
+$\pi=(\pi_i)_{i\in S}$ を確率分布（$\pi_i\ge0$, $\sum_i\pi_i=1$）とする。$\pi_i p(i,j)=\pi_jp(j,i)$ が全ての $i,j$ で成り立つとき、$\pi$ が不変確率分布であることを示せ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -1251,21 +1344,27 @@ $$
 
 時刻0の訪問を第1回と数えます。$N_i\ge2$ は正の帰還が一回起こる事象なので確率は $f_i$ です。
 
-第1帰還時刻 $\tau_1$ で強 Markov 性を使うと、帰還後にもう一度帰還する条件付き確率も $f_i$ です。従って
+第1帰還時刻 $\tau_1$ で[強 Markov 性](#thm-sto2a-strong-markov)を使い、第3節末で示した将来事象への拡張を適用すると、$\{\tau_1<\infty\}$ 上で帰還後にもう一度帰還する条件付き確率は $f_i$ です。従って
 
-$$
-P_i(N_i\ge3)=f_i^2.
-$$
+$
+\begin{aligned}
+P_i(N_i\ge3)
+&=E_i[1_{\{\tau_1<\infty\}}P_i(\tau_2<\infty\mid\mathcal F_{\tau_1})]\\
+&=f_i P_i(\tau_1<\infty)=f_i^2.
+\end{aligned}
+$
 
-同じ議論を繰り返し
+帰還時刻 $\tau_r$ について同じ条件付き計算を繰り返せば
 
-$$
+$
+P_i(\tau_{r+1}<\infty)=f_iP_i(\tau_r<\infty)=f_i^{r+1},
+\qquad
 P_i(N_i\ge m)=f_i^{m-1}.
-$$
+$
 
-tail-sum formula から
+$N_i=\sum_{m\ge1}1_{\{N_i\ge m\}}$ と[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)から
 
-$$
+$
 E_i[N_i]
 =
 \sum_{m=1}^{\infty}P_i(N_i\ge m)
@@ -1373,20 +1472,26 @@ $$
 
 Markov 性から
 
-$$
+$
 p(X_n,k)
 =
 E_i[1_{\{X_{n+1}=k\}}\mid\mathcal F_n].
-$$
+$
 
-従って
+ただし $1_{\{n<\tau\}}$ は $\mathcal F_n$ 可測なので、これを掛けた条件付き期待値の等式が成り立ちます。非負項について [Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)で和と期待値を交換すると
 
-$$
+$
+\begin{aligned}
 \sum_j\nu_jp(j,k)
-=
-E_i\left[
+&=\sum_{n=0}^{\infty}
+E_i[1_{\{n<\tau\}}p(X_n,k)]\\
+&=\sum_{n=0}^{\infty}
+E_i[1_{\{n<\tau\}}1_{\{X_{n+1}=k\}}]\\
+&=E_i\left[
 \sum_{n=1}^{\tau}1_{\{X_n=k\}}
 \right].
+\end{aligned}
+$
 $$
 
 一方
@@ -1436,9 +1541,9 @@ $$
 
 **(B)** $\mathbb N_0$ 上で $p(0,1)=1$、$n\ge1$ では
 
-$$
-p(n,n+1)=p,\qquad p(n,n-1)=q,\qquad p<q,\quad p+q=1.
-$$
+$
+p(n,n+1)=p,\qquad p(n,n-1)=q,\qquad 0<p<q<1,\quad p+q=1.
+$
 
 1. (A) が再帰的であることを Green 核から示せ。
 2. (A) に不変確率分布が存在しないことを不変方程式から示せ。
@@ -1531,7 +1636,22 @@ $$
 
    と正規化でき、上の式で全 $\pi_n$ が決まります。detailed balance を満たすので不変です。
 
-5. (A) は「必ず戻る」ので再帰ですが、戻る時間の平均は無限です。(B) は原点向き drift があり、正規化可能な不変確率が存在します。irreducible なこの Markov 連鎖 では帰還 cycle の平均長が有限となる正再帰の側にあります。
+5. (A) は「必ず戻る」ので再帰ですが、戻る時間の平均は無限です。(B) は $q-p>0$ のため、$x\ge1$ から0への到達時刻 $\sigma$ に対して、本文第13節の停止増分の計算により
+
+   $
+   0\le E_x[X_{N\wedge\sigma}]
+   =x-(q-p)E_x[N\wedge\sigma],
+   \qquad
+   E_x[\sigma]\le\frac{x}{q-p}.
+   $
+
+   従って
+
+   $
+   E_0[T_0^+]\le1+\frac1{q-p}<\infty.
+   $
+
+   $0<p$ により全状態が通信し、任意の $j\ge1$ についても本文第13節の上向き経路の正確率の評価と下向きドリフトの評価から $E_j[T_j^+]<\infty$ です。よって (B) は全状態が正再帰的です。不変分布が存在するという事実**だけ**を使って逆向きの含意を無証明で主張したのではありません。
 
 したがって **recurrent / transient** と **positive / null recurrent** は別の判定段階です。
 <!-- solution-end -->
