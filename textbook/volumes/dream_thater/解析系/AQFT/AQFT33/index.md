@@ -161,7 +161,7 @@ $$
 \rho(B)=\rho(A),\qquad
 \rho(B^*B)=\rho(A^*A),\qquad
 BB^*=ApA^*.
-$
+$$
 
 第2式は $\rho(B^*B)=\|Ap\xi_\rho\|^2=\|A\xi_\rho\|^2=\rho(A^*A)$ と展開して確かめられます。ここで $p\xi_\rho=\xi_\rho$ を用いました。
 
@@ -389,9 +389,9 @@ $$
 
 $X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$P_\pm=(I\pm X)/2$ と置きます。$X^2=I$ より $P_\pm$ は直交射影で、$P_++P_-=I$、$\sigma=(3/4)P_++(1/4)P_-$ です。従ってスペクトル関数計算によって
 
-$
+$$
 \log\sigma=\log(3/4)P_++\log(1/4)P_-
-$
+$$
 
 となります。$(P_\pm)_{11}=(P_\pm)_{22}=1/2$ なので、$\log\sigma$ の対角成分はどちらも $\tfrac12(\log(3/4)+\log(1/4))$ です。[AQFT30の有限次元還元](../AQFT30/index.md#thm-aqft30-finite-reduction)から
 
@@ -606,7 +606,7 @@ $$
 
 各 $s>0$ で $R(s)-1/(1+s)$ 自体は**非負**です。実際、変分式で $A=I/(1+s)$ を試すと、両状態の規格化から
 
-$
+$$
 \begin{aligned}
 R(s)&\ge 2\operatorname{Re}\rho\!\left(\frac{I}{1+s}\right)
 -\sigma\!\left(\frac{I}{(1+s)^2}\right)
@@ -614,7 +614,7 @@ R(s)&\ge 2\operatorname{Re}\rho\!\left(\frac{I}{1+s}\right)
 &=\frac{2}{1+s}-\frac{1+s}{(1+s)^2}
 =\frac1{1+s}.
 \end{aligned}
-$
+$$
 
 ただし、[対数積分補題](#lem-aqft33-log-resolvent)の**スペクトル積分核** $h_s(a)$ は $a\le1$ で非負、$a>1$ で負です。$R(s)-1/(1+s)$ の非負性だけでは、$s$ と $a$ の積分順序を無条件に交換できません。後者の絶対積分を一次モーメントで抑えてから積分順序を交換する必要があります。
 <!-- solution-end -->
