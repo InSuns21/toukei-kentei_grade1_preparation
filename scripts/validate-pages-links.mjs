@@ -66,15 +66,15 @@ function extractLinks(markdown) {
     });
 }
 
-function validateStandaloneHtmlRoutes(markdown, sourceLabel, errors) {
-  // Docsify ordinarily turns Markdown links into #/ routes, which cannot run
-  // a standalone HTML application's module scripts.
-  for (const match of outsideCodeAndMath(markdown).matchAll(/\]\(([^\s)]+\.html?)(\s+(['"])([^'"]*)\3)?\)/gi)) {
+function validateStandaloneFileRoutes(markdown, sourceLabel, errors) {
+  // Docsify ordinarily turns Markdown links into #/ routes, which cannot open
+  // standalone HTML applications or show the raw Python source files.
+  for (const match of outsideCodeAndMath(markdown).matchAll(/\]\(([^\s)]+\.(?:html?|py))(\s+(['"])([^'"]*)\3)?\)/gi)) {
     const href = match[1];
     if (/^(?:https?:)?\/\//i.test(href)) continue;
     const directives = match[4] || '';
     if (/^(?:\.{1,2}\/|\/)/.test(href) || !/(?:^|\s):ignore(?:\s|$)/.test(directives)) {
-      errors.push(`${sourceLabel}: standalone HTML must use a plain site-root-relative link with Docsify :ignore: ${href}`);
+      errors.push(`${sourceLabel}: standalone HTML/Python source must use a plain site-root-relative link with Docsify :ignore: ${href}`);
     }
   }
 }
@@ -88,17 +88,23 @@ function testExtractLinks() {
     '\x60[code](not-a-link.md)\x60',
     '[second](textbook/second.md#anchor)',
     '\x60[fake](textbook/no-player.html)\x60',
-    '[player](textbook/ori-v12-player.html \':ignore\')'
+    '[player](textbook/ori-v12-player.html \':ignore\')',
+    '[python](textbook/volumes/dream_thater/物理系/FLUID/FLUID11/contour_check.py \':ignore\')'
   ].join('\n');
   const got = extractLinks(source);
-  const expected = ['textbook/example.md', 'textbook/second.md#anchor', 'textbook/ori-v12-player.html'];
+  const expected = ['textbook/example.md', 'textbook/second.md#anchor', 'textbook/ori-v12-player.html',
+    'textbook/volumes/dream_thater/物理系/FLUID/FLUID11/contour_check.py'];
   const errors = [];
-  validateStandaloneHtmlRoutes(source, 'self-test', errors);
+  validateStandaloneFileRoutes(source, 'self-test', errors);
   if (errors.length !== 0) throw new Error('standalone HTML link was routed through Docsify: ' + errors.join('; '));
-  validateStandaloneHtmlRoutes('[lab](simulation/ml1-04.html \':ignore\')', 'self-test', errors);
+  validateStandaloneFileRoutes('[lab](simulation/ml1-04.html \':ignore\')', 'self-test', errors);
   if (errors.length !== 0) throw new Error('site-root simulation links should be valid');
-  validateStandaloneHtmlRoutes('[broken](textbook/ori-v12-player.html)', 'self-test', errors);
+  validateStandaloneFileRoutes('[broken](textbook/ori-v12-player.html)', 'self-test', errors);
   if (errors.length !== 1) throw new Error('missing :ignore must be rejected for standalone HTML');
+  const pyErrors = [];
+  validateStandaloneFileRoutes('[bad](textbook/volumes/dream_thater/物理系/FLUID/FLUID11/contour_check.py)', 'self-test', pyErrors);
+  if (pyErrors.length !== 1) throw new Error('missing :ignore must be rejected for published Python source links');
+
 
   if (JSON.stringify(got) !== JSON.stringify(expected)) {
     throw new Error('math/code-aware link extraction regression: ' + JSON.stringify(got));
@@ -217,15 +223,17 @@ const [sidebar, indexHtml, homeMarkdown] = await Promise.all([
 
 const errors = [];
 
-// Old /#/.../player.html bookmarks must continue to open the real HTML file.
+// Old /#/.../player.html and /source.py bookmarks must open real files.
 const redirectScript = indexHtml.match(/<script data-standalone-html-redirect>([\s\S]*?)<\/script>/)?.[1];
 if (!redirectScript) {
   errors.push('Missing old Docsify standalone-HTML route redirect in Pages shell.');
 } else {
   const base = 'https://example.github.io/toukei-kentei_grade1_preparation/';
   const player = 'textbook/volumes/dream_thater/%E5%B9%BE%E4%BD%95%E7%B3%BB/ORI/ORI22/assets/ori-v12-player.html';
+  const python = 'textbook/volumes/dream_thater/%E7%89%A9%E7%90%86%E7%B3%BB/FLUID/FLUID11/contour_check.py';
   const cases = [
     ['#/' + player, base + player],
+    ['#/' + python, base + python],
     ['#/textbook/volumes/dream_thater/geometry/ORI/ORI22/index.md', null],
     ['#/textbook/volumes/../secret.html', null],
     ['#/textbook/volumes/%2e%2e/secret.html', null],
@@ -398,7 +406,7 @@ for (const relative of textbookVolumeFiles) {
   const filePath = path.join(textbookDir, 'volumes', ...relative.split('/'));
   const markdown = await readFile(filePath, 'utf8');
   const siteRelative = `textbook/volumes/${relative}`;
-  validateStandaloneHtmlRoutes(markdown, siteRelative, errors);
+  validateStandaloneFileRoutes(markdown, siteRelative, errors);
   textbookLinkCount += await validateRootOrientedLinks(markdown, siteRelative, errors);
 
   if (relative.endsWith('/index.md')) {

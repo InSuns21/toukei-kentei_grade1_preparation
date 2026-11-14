@@ -1,0 +1,45 @@
+id: "U4-15"
+title: "統計残差を取引可能なspreadに変える"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-14, U4-13, U4-11, U4-10]
+official_scope: []
+learning_objectives:
+  - 価格水準残差から売買株数と初期現金勘定を特定し自己金融損益を証明できる
+  - 回帰切片と売買可能な株式・現金を区別できる
+  - 価格比率の定常性と水準差の定常性が別である反例を示せる
+  - 対数価格残差から局所ヘッジ数量を導き一次近似の誤差を評価できる
+  - ドル中立と市場ベータ中立の方程式を導出し同時成立条件を判定できる
+  - 推定時刻・発注時刻・約定時刻の差を自己金融損益に反映できる
+  - 共和分が成立しても実行可能性と無リスク利益が従わない理由を説明できる
+definitions:
+  - { id: U4-15-DEF-01, name: "水準残差と株数spread" }
+  - { id: U4-15-DEF-02, name: "価格比率と水準spreadの区別" }
+  - { id: U4-15-DEF-03, name: "対数価格残差と局所ヘッジ数量" }
+  - { id: U4-15-DEF-04, name: "ドル中立と市場ベータ中立" }
+theorems:
+  - { id: U4-15-PROP-01, name: "固定数量spreadの自己金融損益" }
+  - { id: U4-15-PROP-02, name: "対数残差と固定株数損益の一次近似" }
+  - { id: U4-15-PROP-03, name: "2銘柄での二種類の中立性の両立条件" }
+canonical_examples:
+  - 回帰切片と2銘柄の固定数量・現金・損益の直接照合
+  - 価格比率は二次定常でも価格水準差が非定常の反例
+  - 対数残差の局所ヘッジ数量と二次誤差
+  - 同じ対数関係を満たすが固定株数価格差が変わる例
+  - ドル中立と市場ベータ中立が両立しない数値例
+  - 約定時点と残差計測時点のずれを含む複数脚取引
+problem_patterns:
+  - U4-15-A1
+  - U4-15-A2
+  - U4-15-A3
+  - U4-15-A4
+  - U4-15-A5
+  - U4-15-B1
+  - U4-15-B2
+  - U4-15-B3
+  - U4-15-B4
+  - U4-15-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

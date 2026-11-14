@@ -21,7 +21,7 @@ def relative_error(actual, expected):
     return abs(actual - expected) / max(abs(expected), 1e-15)
 
 
-def pipe(n):
+def pipe(n, plot=False):
     radius, length, eta, pressure_drop = 0.002, 1.0, 0.001, 100.0
     G = pressure_drop / length
     velocity = lambda r: G * (radius**2 - r**2) / (4 * eta)
@@ -56,8 +56,22 @@ def pipe(n):
     assert abs(pressure_force + wall_force) < 1e-9
     assert relative_error(dissip_integral, pressure_power) < 1e-9
 
+    if plot:
+        import matplotlib.pyplot as plt
+        radii = [radius * i / 100 for i in range(101)]
+        figure, axes = plt.subplots(figsize=(7, 4))
+        axes.plot([1000 * r for r in radii], [velocity(r) for r in radii],
+                  color="#1d4ed8", linewidth=2, label="axial velocity")
+        axes.scatter([0, 1000 * radius], [velocity(0), velocity(radius)],
+                     marker="o", color="black", zorder=4, label="centre / wall")
+        axes.set(xlabel="radius r (mm)", ylabel="velocity w (m/s)",
+                 title="Pipe Poiseuille velocity profile")
+        axes.legend()
+        axes.grid(alpha=0.2)
+        figure.tight_layout()
 
-def couette(n):
+
+def couette(n, plot=False):
     a, b, length, eta = 0.01, 0.02, 1.0, 0.1
     omega_i, omega_o = 10.0, 0.0
     A = (b**2 * omega_o - a**2 * omega_i) / (b**2 - a**2)
@@ -89,16 +103,32 @@ def couette(n):
     assert relative_error(torque_o, -expected_torque) < 1e-6
     assert relative_error(dissip_integral, power) < 1e-6
 
+    if plot:
+        import matplotlib.pyplot as plt
+        radii = [a + (b - a) * i / 100 for i in range(101)]
+        figure, axes = plt.subplots(figsize=(7, 4))
+        axes.plot([1000 * r for r in radii], [velocity(r) for r in radii],
+                  color="#1d4ed8", linewidth=2, label="azimuthal velocity")
+        axes.scatter([1000 * a, 1000 * b], [a * omega_i, b * omega_o],
+                     marker="o", color="black", zorder=4, label="wall speeds")
+        axes.set(xlabel="radius r (mm)", ylabel="velocity v_theta (m/s)",
+                 title="Concentric-cylinder Couette velocity profile")
+        axes.legend()
+        axes.grid(alpha=0.2)
+        figure.tight_layout()
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--case", choices=["pipe", "couette", "both"], default="both")
     parser.add_argument("--n", type=int, default=512)
+    parser.add_argument("--plot", action="store_true",
+                        help="draw velocity profiles; requires matplotlib")
     args = parser.parse_args()
     if args.case in ("pipe", "both"):
-        pipe(args.n)
+        pipe(args.n, plot=args.plot)
     if args.case in ("couette", "both"):
-        couette(args.n)
+        couette(args.n, plot=args.plot)
 
 
 if __name__ == "__main__":

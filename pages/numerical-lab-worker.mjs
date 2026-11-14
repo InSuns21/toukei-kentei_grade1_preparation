@@ -85,6 +85,7 @@ async function runJob(message) {
   const jobId = String(message.jobId || "");
   let code = String(message.code || "");
   const tests = String(message.tests || "");
+  let fileSources = "";
 
   post("runtime-loading", { jobId, version: PYODIDE_VERSION });
 
@@ -107,6 +108,9 @@ async function runJob(message) {
       const destination = `${FILE_LAB_ROOT}/${file.path}`;
       pyodide.FS.mkdirTree(destination.slice(0, destination.lastIndexOf("/")));
       pyodide.FS.writeFile(destination, file.content);
+      // The wrapper below imports only runpy/sys. Discover Pyodide packages
+      // from the actual published .py sources before executing them.
+      fileSources += "\n" + file.content;
     }
     const scriptPath = `${FILE_LAB_ROOT}/${script}`;
     code = `import runpy, sys\n` +
@@ -116,7 +120,7 @@ async function runJob(message) {
       `    runpy.run_path(${JSON.stringify(scriptPath)}, run_name="__main__")\n` +
       `finally:\n    sys.argv = _toukei_original_argv\n    sys.path[:] = _toukei_original_path`;
   }
-  await pyodide.loadPackagesFromImports(`${code}\n${tests}`);
+  await pyodide.loadPackagesFromImports(`${code}\n${tests}\n${fileSources}`);
 
   post("run-started", { jobId, version: PYODIDE_VERSION });
 

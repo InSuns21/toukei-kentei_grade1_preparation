@@ -1,0 +1,48 @@
+chapter: U4-15
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-14, U4-13, U4-11, U4-10]
+forward_references: []
+concepts:
+  - id: finance.arb-level-share-spread
+    name: 水準残差と株数spread
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（水準残差と株数spread）"]
+    requires: [finance.arb-two-series-cointegration]
+  - id: finance.arb-fixed-spread-wealth
+    name: 固定数量spreadの自己金融損益
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定数量spreadの自己金融損益）"]
+    requires: [finance.arb-level-share-spread]
+  - id: finance.arb-price-ratio-level-distinction
+    name: 価格比率と水準spreadの区別
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（価格比率と水準spreadの区別）"]
+    requires: [finance.arb-level-share-spread]
+  - id: finance.arb-log-local-hedge
+    name: 対数価格残差と局所ヘッジ数量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対数価格残差と局所ヘッジ数量）"]
+    requires: [finance.arb-two-series-cointegration]
+  - id: finance.arb-log-hedge-remainder
+    name: 対数残差と固定株数損益の一次近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数残差と固定株数損益の一次近似）"]
+    requires: [finance.arb-log-local-hedge, finance.arb-fixed-spread-wealth]
+  - id: finance.arb-dollar-beta-neutrality
+    name: ドル中立と市場ベータ中立
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ドル中立と市場ベータ中立）"]
+    requires: [finance.arb-level-share-spread]
+  - id: finance.arb-two-asset-neutrality
+    name: 2銘柄での二種類の中立性の両立条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（2銘柄での二種類の中立性の両立条件）"]
+    requires: [finance.arb-dollar-beta-neutrality]

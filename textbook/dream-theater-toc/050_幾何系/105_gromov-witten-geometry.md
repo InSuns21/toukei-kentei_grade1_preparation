@@ -21,3 +21,4 @@
 18. [GW1-18 平面有理曲線の数え上げ](textbook/volumes/dream_thater/幾何系/GW/GW1-18/index.md)
 19. [GW1-19 非凸標的と障害空間](textbook/volumes/dream_thater/幾何系/GW/GW1-19/index.md)
 20. [GW1-20 仮想基本類の設計図と限界](textbook/volumes/dream_thater/幾何系/GW/GW1-20/index.md)
+21. [GW1-21 解析的方法との比較・展望](textbook/volumes/dream_thater/幾何系/GW/GW1-21/index.md)

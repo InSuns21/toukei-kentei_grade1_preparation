@@ -6,11 +6,11 @@
   <meta name="description" content="統計検定1級 統計数理・統計応用（理工学）の演習教材" />
   <title>統計検定1級 対策教材</title>
   <script data-standalone-html-redirect>
-    // Old bookmarked /#/textbook/.../file.html URLs routed through Docsify,
-    // which cannot execute the standalone page's module scripts. Redirect to
-    // the actual Pages file before Docsify starts loading the route.
+    // Old bookmarked /#/textbook/.../file.html or /file.py URLs routed through
+    // Docsify, which cannot render standalone HTML or Python source files.
+    // Redirect to the published file before Docsify starts loading the route.
     (() => {
-      const route = location.hash.match(/^#\/(textbook\/volumes\/[^?#]+\.html?)$/i)?.[1];
+      const route = location.hash.match(/^#\/(textbook\/volumes\/[^?#]+\.(?:html?|py))$/i)?.[1];
       if (!route) return;
       if (route.split('/').some(part => part === '.' || part === '..' || /%2e/i.test(part))) return;
       location.replace(new URL(route, location.href.split('#')[0]).href);

@@ -214,6 +214,73 @@ const fluidOutput = execFileSync('python3', [await validatedFile(fluidScript)], 
 assert.match(fluidOutput, /n=\s*400\b.*integral=0\.66666.*added_mass=2\.094/);
 
 
+// FLUID numerical labs must remain runnable from their single published source,
+// with an explicit browser preset; visualization complements the existing checks.
+const fluidBase = 'textbook/volumes/dream_thater/物理系/FLUID';
+const fluidLabNumbers = [1, 7, 8, 10, 11, 15, 16, 17, 18, 20];
+const fluidLabSources = new Map();
+for (const number of fluidLabNumbers) {
+  const id = 'FLUID' + number;
+  const relative = fluidBase + '/' + id;
+  const markdown = await readFile(path.join(root, relative, 'index.md'), 'utf8');
+  const blocks = [...markdown.matchAll(/(?:`{3}|~{3})python-file-lab\s*\n([\s\S]*?)\n(?:`{3}|~{3})/g)];
+  assert.equal(blocks.length, 1, id + ': exactly one runnable file lab required');
+  const fields = new Map();
+  const presets = [];
+  for (const line of blocks[0][1].split('\n')) {
+    const match = line.match(/^#\s*([a-z-]+):\s*(.*?)\s*$/);
+    assert.ok(match, id + ': unsupported metadata line: ' + line);
+    if (match[1] === 'lab-preset') presets.push(match[2]);
+    else if (match[1] === 'lab-dependency') await validatedFile(match[2]);
+    else {
+      assert.ok(!fields.has(match[1]), id + ': duplicated ' + match[1]);
+      fields.set(match[1], match[2]);
+    }
+  }
+  assert.ok(fields.get('lab-id') && !seenIds.has(fields.get('lab-id')));
+  seenIds.add(fields.get('lab-id'));
+  assert.ok(fields.get('lab-title'));
+  assert.ok(Number(fields.get('timeout-ms')) >= 250 &&
+    Number(fields.get('timeout-ms')) <= 60000);
+  assert.ok(presets.length > 0, id + ': missing browser preset');
+  const script = fields.get('lab-file');
+  assert.ok(script?.startsWith(relative + '/') && script.endsWith('.py'));
+  await validatedFile(script);
+  fluidLabSources.set(id, script);
+  for (const preset of presets) {
+    const separator = preset.indexOf('|');
+    assert.ok(separator > 0 && preset.slice(0, separator).trim());
+    const args = parseArguments(preset.slice(separator + 1).trim());
+    if (id === 'FLUID11' || id === 'FLUID16') {
+      assert.ok(args.includes('--plot'), id + ': browser preset must render the visual comparison');
+    }
+  }
+}
+
+function runFluid(id, args) {
+  const script = path.join(root, fluidLabSources.get(id));
+  return execFileSync('python3', [script, ...args], {
+    cwd: root, encoding: 'utf8', timeout: 30000,
+    env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
+  });
+}
+for (const step of ['0.2', '0.1']) {
+  const output = runFluid('FLUID11', ['--a', '1', '--step', step]);
+  assert.match(output, /max_div=\s*[0-9.eE+-]+/);
+  assert.match(output, /max_cr=\s*[0-9.eE+-]+/);
+  assert.match(output, /potential_segments\s+level=/);
+  assert.match(output, /stream_segments\s+level=/);
+}
+const vortexPlot = JSON.parse(runFluid('FLUID10', ['--t', '1']));
+const vortexSeries = vortexPlot.plots?.[0]?.series;
+assert.equal(vortexSeries?.length, 2, 'FLUID10: initial/current vortex profiles');
+assert.ok(vortexSeries.every(s => s.points.length === 101 &&
+  s.points.every(p => p.length === 2 && p.every(Number.isFinite))));
+assert.ok(vortexSeries[0].points[0][1] < vortexSeries[1].points[0][1],
+  'FLUID10: diffusion reduces peak vorticity');
+assert.match(runFluid('FLUID16', ['--case', 'pipe', '--n', '512']), /Q quadrature/);
+assert.match(runFluid('FLUID16', ['--case', 'couette', '--n', '512']), /Torque analytic/);
+
 const runtime = await readFile(path.join(root, 'pages/numerical-lab-runtime.js'), 'utf8');
 const worker = await readFile(path.join(root, 'pages/numerical-lab-worker.mjs'), 'utf8');
 assert.match(runtime, /python-file-lab/);
@@ -222,5 +289,7 @@ assert.match(runtime, /function setFileVisuals/);
 assert.match(runtime, /function appendSeriesPlot/);
 assert.match(worker, /runpy\.run_path/);
 assert.match(worker, /FILE_LAB_ROOT/);
+assert.match(worker, /fileSources \+= "\\n" \+ file\.content/);
+assert.match(worker, /loadPackagesFromImports.*fileSources/);
 
 console.log(`Python file labs: ${chapterIds.length} MFL + ${u3FileLabs.length} U3 chapters, ${presetsChecked} MFL presets passed`);

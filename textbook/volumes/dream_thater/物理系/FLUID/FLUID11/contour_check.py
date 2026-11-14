@@ -66,10 +66,59 @@ def derivatives(a, x, y, h):
     return abs(div), abs(curl), cr
 
 
+
+def draw_contours(a, step):
+    """Plot numerical potential/stream contours; browser captures open figures.
+
+    This plot is a visualization of the same phi/psi functions used by the
+    standard-library quadrature and finite-difference checks, not a solver.
+    """
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+
+    n = round(4.0 / step)
+    coordinates = np.linspace(-2.0, 2.0, n + 1)
+    xx, yy = np.meshgrid(coordinates, coordinates)
+    levels = a * np.array((-1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5))
+
+    figure, axes = plt.subplots(figsize=(7.2, 6.0))
+    axes.contour(xx, yy, phi(a, xx, yy), levels=levels,
+                 colors="#2563eb", linestyles="dashed", linewidths=1.3)
+    axes.contour(xx, yy, psi(a, xx, yy), levels=levels,
+                 colors="#b45309", linestyles="solid", linewidths=1.3)
+
+    # Use a sparse vector field to show that velocity follows psi contours.
+    arrows = np.linspace(-1.6, 1.6, 7)
+    axx, ayy = np.meshgrid(arrows, arrows)
+    ux, uy = field(a, axx, ayy)
+    axes.quiver(axx, ayy, ux, uy, color="#374151", alpha=0.65,
+                angles="xy", scale_units="xy", scale=6.5 * a, width=0.004)
+    axes.scatter([0], [0], color="black", s=25, zorder=5)
+
+    axes.legend(handles=[
+        Line2D([0], [0], color="#2563eb", linestyle="--",
+               label="potential phi = constant"),
+        Line2D([0], [0], color="#b45309", linestyle="-",
+               label="stream function psi = constant"),
+        Line2D([0], [0], color="#374151", marker=">",
+               linestyle="None", label="velocity direction"),
+    ], loc="upper right", fontsize=8)
+    axes.set(xlabel="x", ylabel="y", title="Stagnation-point flow: a = " + str(a))
+    axes.set_aspect("equal", adjustable="box")
+    axes.set_xlim(-2, 2)
+    axes.set_ylim(-2, 2)
+    axes.grid(alpha=0.15)
+    figure.tight_layout()
+    # Do not call pyplot.show(): the Pyodide worker captures open figures.
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--a", type=float, default=1.0)
     parser.add_argument("--step", type=float, default=0.2)
+    parser.add_argument("--plot", action="store_true",
+                        help="also draw stream/potential contours (needs numpy and matplotlib)")
     args = parser.parse_args()
     if not math.isfinite(args.a) or args.a <= 0 or not 0.02 <= args.step <= 0.5:
         parser.error("a must be finite and positive; step must be in [0.02, 0.5]")
@@ -85,6 +134,8 @@ def main():
             count, samples = contour_segments(fn, level, args.a, h)
             print(label + "_segments", "level=", level, "count=", count)
             print("sample_intersections", samples[:2])
+    if args.plot:
+        draw_contours(args.a, args.step)
 
 
 if __name__ == "__main__":

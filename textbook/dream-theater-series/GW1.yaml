@@ -88,5 +88,5 @@ chapters:
     title: "仮想基本類の設計図と限界"
   - id: GW1-21
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-21
-    status: planned
+    status: completed
     title: "解析的方法との比較・展望"

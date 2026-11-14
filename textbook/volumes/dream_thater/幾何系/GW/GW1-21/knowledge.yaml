@@ -1,0 +1,39 @@
+chapter: GW1-21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-20
+  - GW1-19
+  - GW1-13
+  - GW1-11
+  - GW1-14
+  - GW1-17
+  - GW1-08
+  - GW1-06
+  - GW1-04
+  - GW1-03
+concepts:
+  - id: gromov-witten.analytic-finite-dimensional-reduction
+    name: 局所有限次元縮約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所有限次元縮約）"]
+    requires: [gromov-witten.fredholm-operator, gromov-witten.local-reduced-deformation]
+  - id: gromov-witten.lyapunov-schmidt-local-reduction
+    name: Fredholm零点の局所有限次元縮約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fredholm零点の局所有限次元縮約）"]
+    requires: [gromov-witten.analytic-finite-dimensional-reduction]
+  - id: gromov-witten.complex-local-zero-count
+    name: 単項式の局所的な解析計数と代数的長さ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単項式の局所的な解析計数と代数的長さ）"]
+    requires: [gromov-witten.section-localized-cycle, gromov-witten.lyapunov-schmidt-local-reduction]
+  - id: gromov-witten.pseudocycle
+    name: 擬サイクル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（擬サイクル）"]
+    requires: [gromov-witten.genus-zero-compactness]
