@@ -1,0 +1,49 @@
+id: "U4-16"
+title: "平均回帰の速度・閾値・保有期間"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-15, U4-11, U4-12, STO6, STO7, ODE1]
+official_scope: []
+learning_objectives:
+  - AR(1) の条件付き平均・予測分散と定常分散を独立ショックの和から導出できる
+  - 条件付き平均偏差の半減期と初回到達時刻の違いを説明し係数感度を検算できる
+  - OU過程を積分因子で解き厳密なAR(1)遷移・定常分布・半減期へ換算できる
+  - Euler近似による偽の発散と厳密遷移の差を判定できる
+  - 標準化残差から建玉方向・閾値・期限付き退出を定義し実現損益へ変換できる
+  - 固定保有の期待粗利益・純利益・予測分散・費用損益分岐を導出できる
+  - 限界期待利益と期間費用から整数の固定保有期間を比較できる
+  - 停止時刻の期待利益を固定期間の公式で代用しない理由を説明できる
+  - 推定係数・約定時刻・ランダムウォーク対照による結論の反転を検証できる
+definitions:
+  - { id: U4-16-DEF-01, name: "平均回帰する AR(1) 残差モデル" }
+  - { id: U4-16-DEF-02, name: "条件付き平均偏差の半減期" }
+  - { id: U4-16-DEF-03, name: "Ornstein–Uhlenbeck 過程" }
+  - { id: U4-16-DEF-04, name: "閾値エントリーと期限付き退出規則" }
+theorems:
+  - { id: U4-16-PROP-01, name: "AR(1) の条件付き予測と予測分散" }
+  - { id: U4-16-PROP-02, name: "OU の厳密な遷移式と AR(1) 対応" }
+  - { id: U4-16-PROP-03, name: "固定期間の期待純損益とリスク" }
+  - { id: U4-16-PROP-04, name: "1期延長の限界期待利益" }
+canonical_examples:
+  - 正係数 AR(1) の二次定常解と予測平均・分散
+  - 半減期の実数時刻と整数時刻の違い
+  - OU の日次厳密離散化とEuler近似の不安定
+  - 標準化閾値・戻り閾値・期限退出の実際の経路
+  - 固定保有の条件付き期待値・分散・費用損益分岐
+  - 推定係数の感度とランダムウォーク対照
+  - 推定時点と約定時点の残差・自己金融現金勘定の区別
+problem_patterns:
+  - U4-16-A1
+  - U4-16-A2
+  - U4-16-A3
+  - U4-16-A4
+  - U4-16-A5
+  - U4-16-B1
+  - U4-16-B2
+  - U4-16-B3
+  - U4-16-B4
+  - U4-16-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
