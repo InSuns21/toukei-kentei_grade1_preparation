@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" width="860" height="320" role="img" aria-labelledby="diagram-title diagram-desc" data-layout-lint="strict">
+  <title id="diagram-title">円管 Poiseuille 流と同心円筒 Couette 流の幾何</title>
+  <desc id="diagram-desc">左は円管の軸から壁までの半径 r に対する軸方向速度 w の放物線状分布を示す。右は中心を共有する二円筒の断面で、内壁が円周方向に回転し、壁間の流体を引きずる配置を示す。別の物理模型なので左右に分けている。</desc>
+  <defs>
+    <marker id="axis-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#303841"/>
+    </marker>
+    <marker id="flow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#1b709d"/>
+    </marker>
+  </defs>
+  <g>
+    <line x1="90" y1="258" x2="372" y2="258" stroke="#303841" stroke-width="2" marker-end="url(#axis-head)"/>
+    <line x1="90" y1="258" x2="90" y2="56" stroke="#303841" stroke-width="2" marker-end="url(#axis-head)"/>
+    <polyline points="90,78 157.5,89.25 225,123 292.5,179.25 360,258" fill="none" stroke="#1b709d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="360" y1="258" x2="360" y2="238" stroke="#596670" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="73" y="44" text-anchor="end" fill="#27343e" font-size="20">w</text>
+    <text x="392" y="264" fill="#27343e" font-size="20">r</text>
+    <text x="87" y="290" text-anchor="middle" fill="#27343e" font-size="18">0</text>
+    <text x="360" y="290" text-anchor="middle" fill="#27343e" font-size="18">R</text>
+  </g>
+  <g>
+    <circle cx="658" cy="155" r="106" fill="#eef4f6" stroke="#385766" stroke-width="2.5"/>
+    <circle cx="658" cy="155" r="56" fill="#fff" stroke="#385766" stroke-width="3"/>
+    <path d="M673 100 A56 56 0 0 0 616 116" fill="none" stroke="#1b709d" stroke-width="4" marker-end="url(#flow-head)"/>
+    <line x1="658" y1="155" x2="714" y2="155" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <line x1="658" y1="155" x2="764" y2="155" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <circle cx="658" cy="155" r="3" fill="#25343d"/>
+    <text x="683" y="177" fill="#27343e" font-size="19">a</text>
+    <text x="749" y="176" fill="#27343e" font-size="19">b</text>
+    <text x="582" y="81" fill="#1b709d" font-size="19">Ωᵢ</text>
+  </g>
+</svg>
