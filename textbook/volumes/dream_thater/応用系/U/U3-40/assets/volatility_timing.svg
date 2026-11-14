@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">Early and late price fluctuations with identical terminal distribution</title>
+  <desc id="desc">Four equally likely price paths from 100 to 80 or 120. Solid C paths change by the middle date then stay flat; dashed D paths stay at 100 until the middle date then change. Both models have the same terminal distribution.</desc>
+  <rect x="0" y="0" width="760" height="360" fill="#ffffff"/>
+  <g stroke="#d4dce5" stroke-width="1" stroke-dasharray="3 5">
+    <path d="M110 100H660 M110 170H660 M110 240H660"/>
+  </g>
+  <g stroke="#424c57" stroke-width="2" fill="none">
+    <path d="M110 65V266H670"/>
+  </g>
+  <g fill="#2b3641" font-size="16" font-family="Arial, sans-serif">
+    <text x="26" y="52">S (JPY)</text>
+    <text x="62" y="105">120</text>
+    <text x="62" y="175">100</text>
+    <text x="70" y="245">80</text>
+    <text x="105" y="288">0</text>
+    <text x="347" y="288">T/2</text>
+    <text x="598" y="288">T</text>
+    <text x="641" y="288">time</text>
+  </g>
+  <g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 170 L360 100 L610 100" stroke="#2463a0" data-series-group="vol-timing" data-series-label="C-early"/>
+    <path d="M120 170 L360 240 L610 240" stroke="#2463a0" data-series-group="vol-timing" data-series-label="C-early"/>
+  </g>
+  <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 7">
+    <path d="M120 170 L360 170 L610 100" stroke="#b3531b" data-series-group="vol-timing" data-series-label="D-late"/>
+    <path d="M120 170 L360 170 L610 240" stroke="#b3531b" data-series-group="vol-timing" data-series-label="D-late"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="16" fill="#24303c">
+    <path d="M128 322h48" fill="none" stroke="#2463a0" stroke-width="4"/>
+    <text x="186" y="328">C: early (solid)</text>
+    <path d="M418 322h48" fill="none" stroke="#b3531b" stroke-width="3" stroke-dasharray="12 7"/>
+    <text x="476" y="328">D: late (dashed)</text>
+  </g>
+</svg>

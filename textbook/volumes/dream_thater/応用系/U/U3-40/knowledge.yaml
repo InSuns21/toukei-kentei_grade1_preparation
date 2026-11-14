@@ -1,0 +1,53 @@
+chapter: U3-40
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-25, U3-26, U3-39, STO9]
+concepts:
+  - id: finance.local-volatility-model
+    name: 局所ボラティリティモデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所ボラティリティモデル）"]
+    requires: [stochastic.brownian-sde, finance.continuous-dividend-bsm-formula]
+  - id: finance.local-vol-discounted-gain
+    name: 局所変動率と割引総収益
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所変動率と割引総収益）"]
+    requires: [finance.local-volatility-model, stochastic.ito-process-formula]
+  - id: finance.local-vol-price-pde
+    name: 局所変動率の価格 PDE と delta hedge
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所変動率の価格 PDE と delta hedge）"]
+    requires: [finance.local-volatility-model, stochastic.ito-process-formula]
+  - id: finance.dupire-local-variance
+    name: 滑らかな call 曲面と局所分散の関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな call 曲面と局所分散の関係）"]
+    requires: [finance.local-volatility-model, finance.iv-call-strike-noarbitrage]
+  - id: finance.stochastic-volatility-independent-factor
+    name: 独立因子を持つ確率ボラティリティモデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立因子を持つ確率ボラティリティモデル）"]
+    requires: [stochastic.vector-brownian-motion, stochastic.brownian-sde]
+  - id: finance.random-integrated-variance-mixture
+    name: ランダムな積分分散と条件付き対数正規性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ランダムな積分分散と条件付き対数正規性）"]
+    requires: [finance.stochastic-volatility-independent-factor, stochastic.ito-process-formula]
+  - id: finance.two-factor-stochastic-vol-pde
+    name: 二因子モデルの評価 PDE
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二因子モデルの評価 PDE）"]
+    requires: [finance.stochastic-volatility-independent-factor, stochastic.multidimensional-ito-formula]
+  - id: finance.stochastic-vol-incompleteness
+    name: 独立ボラティリティ因子による非完備性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立ボラティリティ因子による非完備性）"]
+    requires: [finance.stochastic-volatility-independent-factor, finance.random-integrated-variance-mixture]
