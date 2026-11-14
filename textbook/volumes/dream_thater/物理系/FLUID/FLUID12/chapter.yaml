@@ -1,0 +1,46 @@
+id: "FLUID12"
+title: "単純なポテンシャル流を重ね合わせられるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID11
+  - FLUID6
+official_scope: []
+learning_objectives:
+  - "調和ポテンシャルの線形結合が非圧縮・無渦の速度場となることを証明し、圧力を単純加算できない理由を説明できる"
+  - "一様流と点湧出・点吸込のポテンシャルと流れ関数を作り、円周流束・循環および一価性を判定できる"
+  - "湧出・吸込対の極限から二重湧出を導き、速度・流れ関数・正味流束を計算できる"
+  - "円柱外部で非貫通条件から二重湧出の係数を求め、流線・無限遠条件・よどみ点を確認できる"
+  - "定常・非粘性・無渦・一定密度の条件下で全域Bernoulli積分を適用し、円柱周りの圧力係数を導ける"
+  - "点特異性、無滑り条件との違い、仮想的な分離流線の限界を説明できる"
+definitions:
+  - { id: FLUID12-DEF-01, name: "平面の点湧出・点吸込" }
+  - { id: FLUID12-DEF-02, name: "x軸向き二重湧出" }
+  - { id: FLUID12-DEF-03, name: "圧力係数" }
+theorems:
+  - { id: FLUID12-PROP-01, name: "ポテンシャル流の重ね合わせ" }
+  - { id: FLUID12-PROP-02, name: "点湧出の流束と大域的流れ関数の障害" }
+  - { id: FLUID12-PROP-03, name: "二点の湧出・吸込から二重湧出への極限" }
+  - { id: FLUID12-THM-01, name: "円柱まわりの循環なしポテンシャル流" }
+  - { id: FLUID12-PROP-04, name: "円柱まわりの速度と圧力係数" }
+canonical_examples:
+  - "斜め一様流の両スカラーポテンシャル"
+  - "点湧出の半径一定の全流束と非一価な流れ関数"
+  - "湧出吸込対の微分商極限と二重湧出の正味流束"
+  - "円柱表面の非貫通と上下の接線速度、前後のよどみ点"
+  - "遠方基準圧力からの表面圧力係数と無滑り条件との違い"
+  - "一様流と点湧出が作る上側分離流線の下流高さ"
+problem_patterns:
+  - FLUID12-UNIFORM-OBLIQUE
+  - FLUID12-SOURCE-FLUX
+  - FLUID12-DOUBLET-STREAM
+  - FLUID12-CYLINDER-SURFACE
+  - FLUID12-SOURCE-STAGNATION
+  - FLUID12-CYLINDER-NO-PENETRATION
+  - FLUID12-PRESSURE-RADIAL
+  - FLUID12-RANKINE-HALF-BODY
+  - FLUID12-CYLINDER-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
