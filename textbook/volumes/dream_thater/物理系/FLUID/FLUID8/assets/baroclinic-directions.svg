@@ -15,9 +15,9 @@
   <line x1="215" y1="202" x2="215" y2="87" stroke="#945322" stroke-width="3" stroke-dasharray="9 5" data-series-group="gradients" data-series-label="pressure" marker-end="url(#fluid8-arrow-open)"/>
   <circle cx="215" cy="224" r="15" fill="white" stroke="#2c353b" stroke-width="2.5"/>
   <circle cx="215" cy="224" r="4.4" fill="#2c353b"/>
-  <text x="438" y="253" font-size="22" font-family="sans-serif" fill="#1d567e">∇ρ</text>
-  <text x="238" y="82" font-size="22" font-family="sans-serif" fill="#945322">∇p</text>
+  <text x="438" y="253" font-size="22" font-family="sans-serif" fill="#1d567e">grad rho</text>
+  <text x="238" y="82" font-size="22" font-family="sans-serif" fill="#945322">grad p</text>
   <text x="93" y="246" font-size="19" font-family="sans-serif" fill="#2c353b">+z</text>
-  <text x="89" y="271" font-size="17" font-family="sans-serif" fill="#2c353b">⊙</text>
-  <text x="278" y="289" font-size="17" font-family="sans-serif" fill="#303d47">∇ρ × ∇p</text>
+  <text x="89" y="271" font-size="17" font-family="sans-serif" fill="#2c353b">toward viewer</text>
+  <text x="278" y="289" font-size="17" font-family="sans-serif" fill="#303d47">grad rho x grad p</text>
 </svg>
