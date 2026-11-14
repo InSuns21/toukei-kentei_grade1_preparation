@@ -26,7 +26,7 @@ $$
 
 $$
 D_tu=-\frac1\rho\nabla p-\nabla\Phi
-\tag{*}
+
 $$
 
 となる。ただし単位質量当たりの外力は $b=-\nabla\Phi$、$\Phi\in C^2(\Omega)$ とし、時間依存しても各時刻の空間勾配で表せるものとする。$\rho>0$ だから除算できる。この模型に粘性、非保存体積力、衝撃波面は入れない。後の FLUID10 で粘性の寄与を加える。
@@ -128,7 +128,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（非粘性圧縮性流体の渦度方程式）
 
-$\Omega\subset\mathbb R^3$ は開集合、$I$ は時間区間とする。$\rho>0$、$u,p,\Phi$ は第0節の正則性を持ち、質量保存および Euler 方程式 $(*)$ を各点で満たすとする。$\omega=\nabla\times u$ とおけば
+$\Omega\subset\mathbb R^3$ は開集合、$I$ は時間区間とする。$\rho>0$、$u,p,\Phi$ は第0節の正則性を持ち、質量保存および Euler 方程式 を各点で満たすとする。$\omega=\nabla\times u$ とおけば
 
 $$
 \boxed{
@@ -168,7 +168,7 @@ $$
 =\nabla\left(\frac{|u|^2}{2}\right)-u\times\omega.
 $$
 
-これを Euler 方程式 $(*)$ へ代入して勾配項を左へ移す：
+これを Euler 方程式 へ代入して勾配項を左へ移す：
 
 $$
 \partial_tu
