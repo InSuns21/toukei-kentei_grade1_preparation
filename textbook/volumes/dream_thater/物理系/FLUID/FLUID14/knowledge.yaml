@@ -1,0 +1,44 @@
+chapter: FLUID14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID13
+  - FLUID9
+  - FLUID6
+concepts:
+  - id: fluid.lift-drag
+    name: 単位スパン当たりの抗力・揚力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単位スパン当たりの抗力・揚力）"]
+    requires: [fluid.ideal-potential-force-model]
+  - id: fluid.circulating-cylinder
+    name: 循環のある円柱流と表面接線速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（循環のある円柱流と表面接線速度）"]
+    requires: [fluid.complex-velocity-formula, fluid.material-loop-circulation, fluid.cylinder-potential-flow]
+  - id: fluid.cylinder-lift
+    name: 循環円柱のKutta–Joukowski揚力と零抗力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（循環円柱の Kutta–Joukowski 揚力と零抗力）"]
+    requires: [fluid.circulating-cylinder, fluid.lift-drag, fluid.bernoulli-global]
+  - id: fluid.blasius-force
+    name: Blasiusの力公式と一般断面のKutta–Joukowski関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Blasius の力公式と一般断面の Kutta–Joukowski 関係）"]
+    requires: [fluid.lift-drag, fluid.bernoulli-global, fluid.complex-velocity-formula]
+  - id: fluid.kutta-condition
+    name: 尖った後縁のKutta条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（尖った後縁の Kutta 条件）"]
+    requires: [fluid.joukowski-cusp, fluid.joukowski-velocity-transform]
+  - id: fluid.kutta-circulation
+    name: Joukowski尖点で選ばれる循環
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Joukowski 尖点で選ばれる循環）"]
+    requires: [fluid.kutta-condition, fluid.joukowski-cusp, fluid.circulating-cylinder, fluid.blasius-force]
