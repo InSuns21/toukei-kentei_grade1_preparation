@@ -12,7 +12,7 @@ $$
 f_\varepsilon(z)=z+\frac{\varepsilon}{z},\qquad \varepsilon>0
 $$
 
-では、$z$ は元の球面のアフィン座標（$z=Z/W$）、$\zeta=z/\varepsilon$ は $z=0$ の近くを拡大して見る別の球面座標である。元の $z\ne0$ を固定すれば $f_\varepsilon(z)\to z$、一方 $\zeta\ne\infty$ を固定して $z=\varepsilon\zeta$ と代入すれば
+では、$[Z:W]$ を元の球面 $\mathbb{CP}^1$ の斉次座標とし、$W\ne0$ では $z=Z/W$ と置く。$\zeta=z/\varepsilon$ は $z=0$ の近くを拡大して見る別の球面座標である。元の $z\ne0$ を固定すれば $f_\varepsilon(z)\to z$、一方 $\zeta\ne\infty$ を固定して $z=\varepsilon\zeta$ と代入すれば
 
 $
 f_\varepsilon(\varepsilon\zeta)=\varepsilon\zeta+\frac1\zeta\longrightarrow\frac1\zeta
@@ -34,7 +34,14 @@ $
 
 成分を $C_v\simeq\mathbb{CP}^1$、その写像を $u_v:C_v\to X$ と書く。節点が成分 $v,w$ の点 $q_{v,e},q_{w,e}$ をつなぐなら、写像が節点で連続であるためには $u_v(q_{v,e})=u_w(q_{w,e})$ を要する。成分上の標点と節点の枝を合わせた相異なる点の数を $s_v$（特殊点数）とする。
 
-各 $C_v$ には複素向きを入れ、その二次元基本類 $[C_v]\in H_2(C_v;\mathbb Z)$ を $u_v$ で標的へ送ったものを $\beta_v=(u_v)_*[C_v]\in H_2(X;\mathbb Z)$ と書く。写像で二次元サイクルを押し出す操作が $(u_v)_*$ である。例えば $X=\mathbb{CP}^1$ なら $H_2(X;\mathbb Z)$ は $[\mathbb{CP}^1]$ で生成され、次数 $d_v$ の正則写像について $\beta_v=d_v[\mathbb{CP}^1]$ となる（[有理写像の次数と面積](../GW1-06/index.md#prop-gw1-06-rational-area)を参照）。その和 $\beta=\sum_v\beta_v$ が**総曲線類**である。節点は二次元の面積を持たず、独立の球面成分でもないので、クラスを二度足さない。
+各 $C_v$ には複素向きを入れ、その二次元基本類 $[C_v]\in H_2(C_v;\mathbb Z)$ を $u_v$ で標的へ送ったものを $\beta_v=(u_v)_*[C_v]\in H_2(X;\mathbb Z)$ と書く。写像で二次元サイクルを押し出す操作が $(u_v)_*$ である。例えば $X=\mathbb{CP}^1$ なら $H_2(X;\mathbb Z)$ は $[\mathbb{CP}^1]$ で生成される。$\beta_v=n_v[\mathbb{CP}^1]$ と書き、面積を $\int_X\omega=2\pi$ に規格化すれば、次数 $d_v$ の正則写像には[有理写像の次数と面積](../GW1-06/index.md#prop-gw1-06-rational-area)から
+
+$
+2\pi n_v=\langle[\omega],\beta_v\rangle
+=\int_{C_v}u_v^*\omega=2\pi d_v,
+$
+
+ゆえに $n_v=d_v$、すなわち $\beta_v=d_v[\mathbb{CP}^1]$ となる。これは面積と次数を結ぶ先行結果を、基本類の押し出しの係数判定に使ったものである。その和 $\beta=\sum_v\beta_v$ が**総曲線類**である。節点は二次元の面積を持たず、独立の球面成分でもないので、クラスを二度足さない。
 
 <a id="def-gw1-08-stable-map"></a>
 
