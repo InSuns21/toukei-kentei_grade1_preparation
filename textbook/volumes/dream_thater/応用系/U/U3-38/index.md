@@ -19,7 +19,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（対数満期価格の特性関数と複素延長）**  
-> 実確率変数 $X$ に対し、実数 $u$ で $\varphi_X(u)=E_Q[e^{iuX}]$ とする。複素数 $z=u-ib$（$u\in\mathbb R,b\ge0$）について $E_Q[e^{bX}]<\infty$ が成り立つ場合、同じ期待値 $\varphi_X(z)=E_Q[e^{izX}]$ を定義する。ここで $i^2=-1$ である。
+> 実確率変数 $X$ に対し、実数 $u$ と虚数単位 $i^2=-1$ で、特性関数を
+
+$
+\varphi_X(u)=E_Q[e^{iuX}]
+$
+
+> と定める。複素引数 $z=u-ib$（$u\in\mathbb R,b\ge0$）に対して指数モーメント $E_Q[e^{bX}]<\infty$ が成り立つなら、同じ期待値を
+
+$
+\varphi_X(z)=E_Q[e^{izX}]
+$
+
+> により定義する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-38-characteristic -->
@@ -122,7 +134,7 @@ $$
 
 ## 3. 価格を周波数積分で表す
 
-変換の符号規約に注意します。既習の[FOU3 の Fourier変換](../../../解析系/FOU/FOU3/index.md#def-fou3-fourier-transform)は $e^{-iuk}$ を使いますが、ここでは計算の便宜から **正符号の変換** $\Psi_\alpha(u)=\int_{\mathbb R}e^{iuk}c_\alpha(k)\,dk$ を用います。これは FOU3 の変換の $-u$ に相当し、反転時には $e^{-iuk}$ を使います。
+変換の符号規約に注意します。既習の[FOU3 の Fourier変換](../../../解析系/FOU/FOU3/index.md#def-fou3-fourier-transform)は $e^{-iuk}$ を使いますが、ここでは計算の便宜から 指数に $+iuk$ を用いて $\Psi_\alpha(u)=\int_{\mathbb R}e^{iuk}c_\alpha(k)\,dk$ と置きます。これは FOU3 の Fourier 変換の周波数を $-u$ と置いたもので、反転時には $e^{-iuk}$ を使います。
 
 <a id="prop-u3-38-payoff-transform"></a>
 
@@ -203,7 +215,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$b=\alpha+1$、$M=E_Q[e^{bX}]<\infty$ とします。特性関数の定義と三角不等式から
+$b=\alpha+1$、$M=E_Q[e^{bX}]<\infty$ とします。[対数満期価格の特性関数の定義](#def-u3-38-characteristic)に三角不等式を適用すると
 
 $$
 |\varphi_X(u-ib)|
@@ -632,7 +644,7 @@ m=\log100+(0.05-0.02-0.02)\cdot1=\log100+0.01,\quad
 v=0.20^2\cdot1=0.04,\quad b=1.5+1=2.5.
 $$
 
-[GBM 特性関数命題](#prop-u3-38-gbm-phi)より
+[GBM の対数価格の複素特性関数](#prop-u3-38-gbm-phi)より
 
 $$
 \varphi_X(u-2.5i)
