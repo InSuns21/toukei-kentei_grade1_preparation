@@ -18,3 +18,4 @@
 15. [FLUID15 三次元ポテンシャル流と付加質量は何を予測するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID15/index.md)
 16. [FLUID16 管路・円筒間の定常層流をどう解くか](textbook/volumes/dream_thater/物理系/FLUID/FLUID16/index.md)
 17. [FLUID17 壁が急に動くと運動量はどう広がるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID17/index.md)
+18. [FLUID18 遅い球周りの流れにかかる抵抗は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID18/index.md)
