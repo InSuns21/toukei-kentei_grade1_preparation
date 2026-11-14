@@ -1,7 +1,7 @@
 version: 1
 id: AQFT
 title: "代数的量子場理論・モジュラー理論"
-plan: textbook/plans_progress/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - id: AQFT1
