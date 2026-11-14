@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360" role="img" aria-labelledby="chartTitle chartDesc" data-layout-lint="strict">
+  <title id="chartTitle">同じ4096回の支払評価での推定分散の比較</title>
+  <desc id="chartDesc">通常のMonte Carloは0.04861円二乗、対称変量法は0.02698円二乗、解析的に最適な対照変量法は0.00820円二乗。対照変量の係数学習費用は含めない。</desc>
+  <defs>
+    <pattern id="anti-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="9" height="9" fill="#f3e1cb"/>
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#97612b" stroke-width="3"/>
+    </pattern>
+    <pattern id="control-dots" width="11" height="11" patternUnits="userSpaceOnUse">
+      <rect width="11" height="11" fill="#d5e8de"/>
+      <circle cx="5.5" cy="5.5" r="2.6" fill="#275f4d"/>
+    </pattern>
+  </defs>
+  <text x="40" y="28" font-family="sans-serif" font-size="19" fill="#1e2730">Variance (JPY²)</text>
+  <g stroke="#c9d0d6" stroke-width="1" stroke-dasharray="4 4">
+    <line x1="106" y1="143.3" x2="705" y2="143.3"/>
+    <line x1="106" y1="226.7" x2="705" y2="226.7"/>
+  </g>
+  <g font-family="sans-serif" font-size="15" fill="#2c343b" text-anchor="end">
+    <text x="94" y="65">0.06</text>
+    <text x="94" y="148">0.04</text>
+    <text x="94" y="231">0.02</text>
+    <text x="94" y="315">0.00</text>
+  </g>
+  <line x1="106" y1="310" x2="705" y2="310" stroke="#2c343b" stroke-width="2"/>
+  <rect x="157" y="107.45" width="112" height="202.55" fill="#34699a" stroke="#244a6a" stroke-width="2" data-series-group="method" data-series-label="plain"/>
+  <rect x="339" y="197.56" width="112" height="112.44" fill="url(#anti-hatch)" stroke="#875522" stroke-width="3" stroke-dasharray="8 3" data-series-group="method" data-series-label="anti"/>
+  <rect x="521" y="275.83" width="112" height="34.17" fill="url(#control-dots)" stroke="#245d49" stroke-width="3" stroke-dasharray="2 5" data-series-group="method" data-series-label="control"/>
+  <g font-family="sans-serif" font-size="17" text-anchor="middle" fill="#1b262e">
+    <text x="213" y="78">0.04861</text>
+    <text x="395" y="185">0.02698</text>
+    <text x="577" y="263">0.00820</text>
+  </g>
+  <g font-family="sans-serif" font-size="18" text-anchor="middle" fill="#1b262e">
+    <text x="213" y="342">Plain MC</text>
+    <text x="395" y="342">Antithetic</text>
+    <text x="577" y="342">Control</text>
+  </g>
+</svg>
