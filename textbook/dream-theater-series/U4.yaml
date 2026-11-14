@@ -14,7 +14,7 @@ chapters:
   - { id: U4-07, path: textbook/volumes/dream_thater/応用系/U/U4-07, status: completed, title: "行使価格方向のオプション静的裁定" }
   - { id: U4-08, path: textbook/volumes/dream_thater/応用系/U/U4-08, status: completed, title: "満期方向・ボラティリティ曲面の整合性" }
   - { id: U4-09, path: textbook/volumes/dream_thater/応用系/U/U4-09, status: completed, title: "気配値の一括監査と最小修正" }
-  - { id: U4-10, path: textbook/volumes/dream_thater/応用系/U/U4-10, status: planned, title: "無裁定と統計的裁定の論理的な距離" }
+  - { id: U4-10, path: textbook/volumes/dream_thater/応用系/U/U4-10, status: completed, title: "無裁定と統計的裁定の論理的な距離" }
   - { id: U4-11, path: textbook/volumes/dream_thater/応用系/U/U4-11, status: planned, title: "価格・対数価格・収益率の定常性を分ける" }
   - { id: U4-12, path: textbook/volumes/dream_thater/応用系/U/U4-12, status: planned, title: "単位根検定とその限界" }
   - { id: U4-13, path: textbook/volumes/dream_thater/応用系/U/U4-13, status: planned, title: "2系列の共和分とEngle–Granger法" }
