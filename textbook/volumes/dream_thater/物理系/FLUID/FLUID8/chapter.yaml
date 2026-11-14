@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - FLUID6
+  - VC9
 official_scope: []
 learning_objectives:
   - "curl の定義からせん断流・剛体回転の渦度を符号・単位を含めて計算できる"
@@ -14,7 +15,7 @@ learning_objectives:
   - "圧縮性での omega/rho の発展と三次元渦伸長を検算し、保存外力・滑らかさの限界を述べられる"
   - "ブラウザで中央差分の誤差と生成方向の反転を確認し、数値検算と流体解の時間発展を区別できる"
 definitions:
-  - { id: FLUID8-DEF-01, name: "渦度" }
+  - { id: FLUID8-DEF-01, name: "渦度の三次元座標表示：再掲" }
   - { id: FLUID8-DEF-02, name: "傾圧性の渦度生成項" }
   - { id: FLUID8-DEF-03, name: "本講での順圧条件" }
 theorems:
