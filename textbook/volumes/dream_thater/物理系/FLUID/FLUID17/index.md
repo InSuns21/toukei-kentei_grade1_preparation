@@ -52,7 +52,7 @@ $$
 **定義の確認**：$q$ は無次元の積分変数である。Gauss 積分 $\int_{-\infty}^\infty e^{-q^2}dq=\sqrt{\pi}$ を使うと、$\operatorname{erfc}(0)=1$。また $e^{-q^2}>0$ なので正で、下端が大きくなるほど値は狭義単調に減少し、$s\to\infty$ で $0$ に近づく。Gauss 積分はその二乗を平面上の極座標積分に直すと $\pi$ となることから確認できる。
 
 <!-- definition-example-start: def-fluid17-erfc -->
-**積分による直接確認**：$\operatorname{erfc}(0)=\frac2{\sqrt\pi}\int_0^\infty e^{-q^2}dq=1$。例えば $s=1$ では積分区間 $[1,\infty)$ が $[0,\infty)$ より真に短いので $0<\operatorname{erfc}(1)<1$ となる。
+**定義の確認**：$\operatorname{erfc}(0)=\frac2{\sqrt\pi}\int_0^\infty e^{-q^2}dq=1$。例えば $s=1$ では積分区間 $[1,\infty)$ が $[0,\infty)$ より真に短いので $0<\operatorname{erfc}(1)<1$ となる。
 <!-- definition-example-end -->
 
 <a id="thm-fluid17-first-profile"></a>
@@ -61,9 +61,9 @@ $$
 > **定理（Stokes 第一問題の相似拡散解）**  
 > $\rho,\eta,U>0$ は一定、$\nu=\eta/\rho$ とする。[Stokes 第一問題](#def-fluid17-first-problem)の有界で遠方で一様に零へ減衰する解は、$y\ge0,\ t>0$ で
 >
-> $$
-> u(y,t)=U\,\operatorname{erfc}\!\left(\frac{y}{2\sqrt{\nu t}}\right).
-> $$
+$$
+u(y,t)=U\,\operatorname{erfc}\!\left(\frac{y}{2\sqrt{\nu t}}\right).
+$$
 >
 > この解は初期・壁・遠方条件を満たし、次の形をとる相似解のクラスで一意である。
 
@@ -152,11 +152,11 @@ $$
 > **定理（第一問題の壁面せん断力と運動量収支）**  
 > 一定 $\rho,\eta,U>0$ の[第一問題の解](#thm-fluid17-first-profile)について、$t>0$ の壁が流体へ加える $+x$ 方向の力密度 $f(t)$ と、単位壁面積当たりの流体の $x$ 方向運動量 $M(t)$ は
 >
-> $$
-> f(t)=-\eta u_y(0+,t)=\frac{\eta U}{\sqrt{\pi\nu t}},
-> \qquad
-> M(t)=\rho\int_0^\infty u(y,t)\,dy=\frac{2\rho U\sqrt{\nu t}}{\sqrt\pi}.
-> $$
+$$
+f(t)=-\eta u_y(0+,t)=\frac{\eta U}{\sqrt{\pi\nu t}},
+\qquad
+M(t)=\rho\int_0^\infty u(y,t)\,dy=\frac{2\rho U\sqrt{\nu t}}{\sqrt\pi}.
+$$
 >
 > $dM/dt=f(t)$ である。$f(t)$ は $t\downarrow0$ で発散するが、有限時間に与える力積 $\int_0^t f(s)\,ds=M(t)$ は有限である。
 <!-- formal-statement-end -->
@@ -229,10 +229,10 @@ $$
 > **定理（Stokes 第二問題の振動境界層）**  
 > 一定 $\rho,\eta>0$、$\nu=\eta/\rho$、振幅 $U>0$、角振動数 $\omega>0$ とする。[第二問題の単一周波数周期応答](#def-fluid17-second-problem)は一意で、
 >
-> $$
-> \delta=\sqrt{\frac{2\nu}{\omega}},\qquad
-> u(y,t)=Ue^{-y/\delta}\cos\!\left(\omega t-\frac{y}{\delta}\right).
-> $$
+$$
+\delta=\sqrt{\frac{2\nu}{\omega}},\qquad
+u(y,t)=Ue^{-y/\delta}\cos\!\left(\omega t-\frac{y}{\delta}\right).
+$$
 >
 > $\delta$ は振幅が壁の $1/e$ になる距離（振動浸透深さ）であり、位相遅れは $y/\delta$ [rad] である。
 <!-- formal-statement-end -->
@@ -270,17 +270,17 @@ $$
 > **命題（振動壁のせん断力と一周期平均の散逸）**  
 > [第二問題の周期解](#thm-fluid17-second-profile)において、壁が流体へ加える $x$ 方向の力密度は
 >
-> $$
-> f(t)=\frac{\eta U}{\delta}\{\cos(\omega t)-\sin(\omega t)\}.
-> $$
+$$
+f(t)=\frac{\eta U}{\delta}\{\cos(\omega t)-\sin(\omega t)\}.
+$$
 >
 > 一周期平均を $\langle h\rangle=T^{-1}\int_{t_0}^{t_0+T}h(t)\,dt$ とすれば、壁の供給仕事率と流体の粘性散逸率（いずれも単位壁面積当たり）は
 >
-> $$
-> \langle f(t)U\cos(\omega t)\rangle
-> =\left\langle\int_0^\infty\eta u_y(y,t)^2\,dy\right\rangle
-> =\frac{\eta U^2}{2\delta}>0.
-> $$
+$$
+\langle f(t)U\cos(\omega t)\rangle
+=\left\langle\int_0^\infty\eta u_y(y,t)^2\,dy\right\rangle
+=\frac{\eta U^2}{2\delta}>0.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -314,8 +314,15 @@ $$
 =\frac{U^2e^{-2y/\delta}}{\delta^2}.
 $$
 
-従って $\int_0^\infty\eta\langle u_y^2\rangle\,dy
-=(\eta U^2/\delta^2)(\delta/2)=\eta U^2/(2\delta)$。積分と周期平均は被積分関数が非負で可積分なので交換できる。
+従って
+
+$$
+\int_0^\infty\eta\langle u_y^2\rangle\,dy
+=\frac{\eta U^2}{\delta^2}\cdot\frac{\delta}{2}
+=\frac{\eta U^2}{2\delta}.
+$$
+
+積分と周期平均は被積分関数が非負で可積分なので交換できる。
 <!-- proof-end -->
 
 **成立条件を取り違えない**：もし「$t=0$ まで静止、$t=0$ から振動開始」という別問題に上の周期解をそのまま代入すると、$u(y,0)=Ue^{-y/\delta}\cos(y/\delta)$ は $y>0$ で一般に零でなく、初期条件に反する。正しい始動解には過渡成分が必要で、時間が経つにつれて周期成分が支配的になるという説明は、ここで証明した「周期クラスの一意性」とは異なる主張である。
