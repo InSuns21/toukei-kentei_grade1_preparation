@@ -28,7 +28,10 @@ $$
 > $P_t$ は通貨／株、$\Delta P_t$ は通貨／株、$r_t,R_t$ は無次元である。$P_t>0$ は対数を使うための条件である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-u4-11-price-transforms -->
 **定義の確認**：100円から110円への変化は $\Delta P_t=10$ 円、$R_t=0.1$、$r_t=\log(1.1)\approx0.09531$ です。100円から90円なら単純収益率は $-0.1$ ですが対数収益率は $\log(0.9)\approx-0.10536$ で、符号は同じでも数値は違います。$P_{t-1}=0$ なら $R_t,r_t$ は定義できません。
+
+<!-- definition-example-end -->
 
 価格の表示単位をすべて一定の $c>0$ 倍したとき、$P'_t=cP_t$ と置くと、対数価格は $X'_t=X_t+\log c$、一方で
 
@@ -122,7 +125,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（時点共通の変換で保たれる強定常性）**  
-> $(Y_t)_{t\in\mathbb Z}$ が強定常で、$g:\mathbb R\to\mathbb R$ が Borel 可測関数なら、$(g(Y_t))_{t\in\mathbb Z}$ も強定常である。さらに $E[g(Y_0)^2]<\infty$ なら、変換後の過程は弱定常でもある。
+> $(Y_t)_{t\in\mathbb Z}$ が強定常で、$g:\mathbb R\to\mathbb R$ が連続関数なら、$(g(Y_t))_{t\in\mathbb Z}$ も強定常である。さらに $E[g(Y_0)^2]<\infty$ なら、変換後の過程は弱定常でもある。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -132,7 +135,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-任意の $k,t_1,\ldots,t_k,h$ を取ります。強定常性により二つの $k$ 次元確率ベクトルは同分布です。それぞれに可測写像
+任意の $k,t_1,\ldots,t_k,h$ を取ります。強定常性により二つの $k$ 次元確率ベクトルは同分布です。それぞれに連続写像
 
 $$
 G(y_1,\ldots,y_k)=(g(y_1),\ldots,g(y_k))
