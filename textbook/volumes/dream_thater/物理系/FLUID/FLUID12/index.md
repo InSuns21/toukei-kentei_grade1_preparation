@@ -78,7 +78,7 @@ $$
 =\partial_x\partial_y\phi-\partial_y\partial_x\phi=0
 $$
 
-である（$\phi\in C^2$ なので混合偏微分が交換できる）。また $u_{j,x}=\partial_y\psi_j,\ u_{j,y}=-\partial_x\psi_j$ を線形結合すると $u_x=\partial_y\psi,\ u_y=-\partial_x\psi$。よって主張が従う。
+である（$\phi\in C^2$ なので混合偏微分が交換できる）。また $j=1,2$ について、$u_{j,x},u_{j,y}$ は $u_j=\nabla\phi_j$ のそれぞれ $x,y$ 方向の**速度成分**を表す（偏微分ではない）。$u_{j,x}=\partial_y\psi_j,\ u_{j,y}=-\partial_x\psi_j$ を線形結合すると $u_x=\partial_y\psi,\ u_y=-\partial_x\psi$。よって主張が従う。
 <!-- proof-end -->
 
 **直接確認**：$\phi_1=Ux$ と $\phi_2=Vy$（$U,V$ は m/s）なら $u_1=(U,0)$、$u_2=(0,V)$ であり、$\phi=\phi_1+\phi_2$ は $u=(U,V)$ を与える。$\psi_1=Uy,\ \psi_2=-Vx$ も足せる。一方、$|u|^2=U^2+V^2$ であり、速度の和の二乗は一般には交差項 $2u_1\cdot u_2$ を含む。
@@ -190,7 +190,7 @@ $$
 
 ## 3. 点湧出と点吸込を近づけて二重湧出を作る
 
-点湧出と点吸込を近づけると、正味の流束を零に保ったまま流れの方向性を作れる。これを **二重湧出（doublet）** と呼ぶ。有限距離を隔てた二点ではなく、距離を零へ送ると同時に強さを増やす極限である。
+点湧出と点吸込を近づけると、正味の流束を零に保ったまま流れの方向性を作れる。これを **二重湧出（doublet）** と呼ぶ。有限距離を隔てた二点ではなく、距離を零へ送ると同時に強さを増やす極限である。以下の $\phi_D,u_D,\psi_D$ の添字 $D$ は doublet の略で、領域を表す $D$ とは区別する。
 
 原点を挟んで $(-h,0)$ に強さ $Q_h>0$ の湧出、$(h,0)$ に強さ $-Q_h$ の吸込を置く（$h>0$）。ポテンシャルの和は、両方の特異点を除いて
 
@@ -219,7 +219,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid12-doublet -->
-**定義の確認**：定義にある $u_D=\nabla\phi_D$ を判定するには、$r^2=x^2+y^2$ を用いて $\phi_D=\mu x/r^2$ の $x,y$ 偏微分をそれぞれ求める。$r>0$ で商の微分則から
+**定義の確認**：$u_{D,x},u_{D,y}$ は速度 $u_D$ の $x,y$ 成分を表し、$u_D$ の偏微分ではない。定義にある $u_D=\nabla\phi_D$ を判定するには、$r^2=x^2+y^2$ を用いて $\phi_D=\mu x/r^2$ の $x,y$ 偏微分をそれぞれ求める。$r>0$ で商の微分則から
 
 $$
 \partial_x\frac{x}{r^2}=\frac{r^2-2x^2}{r^4}
@@ -394,7 +394,9 @@ $r\to\infty$ のとき $u_r\to U\cos\theta$、$u_\theta\to-U\sin\theta$、すな
 
 ## 5. 圧力はなぜ速度と同じように重ね合わせられないか
 
-ここからは流れが、一定密度 $\rho$、非粘性、定常、水平面で一定体積力ポテンシャルの [FLUID6 の Euler 方程式](../FLUID6/index.md#thm-fluid6-euler-equation) を満たすと仮定する。$\nabla\times u=0$ なので、[FLUID6 の全域 Bernoulli 定数](../FLUID6/index.md#cor-fluid6-global-bernoulli)を連結な外部領域 $\Omega_a$ に適用できる。遠方に $u\to(U,0)$、$p\to p_\infty$ という基準を与えると
+ここからは流れが、一定密度 $\rho$、非粘性、定常、水平面で一定体積力ポテンシャルの [FLUID6 の Euler 方程式](../FLUID6/index.md#thm-fluid6-euler-equation) を満たすと仮定する。
+
+[FLUID6 の全域 Bernoulli 定数](../FLUID6/index.md#cor-fluid6-global-bernoulli)は三次元の連結開領域で述べられている。ここでは $\Omega_a\times(-1,1)\subset\mathbb R^3$ 上に、平面速度を $(u_x(x,y),u_y(x,y),0)$、圧力を $p(x,y)$ として $z$ に依存させずに延長する。$\Omega_a$ は連結であり、速度は $r>a$ で滑らか、延長した場の渦度も零で、Euler 方程式と一定密度・定常性・保存体積力の仮定を満たす。よって三次元の系を適用してから水平面に制限できる。遠方に $u\to(U,0)$、$p\to p_\infty$ という基準を与えると
 
 $$
 p+\frac12\rho|u|^2=p_\infty+\frac12\rho U^2.
@@ -739,7 +741,7 @@ $$
 
 と置く。$\psi_\theta/r=(U-A/r^2)\cos\theta=u_r$、$-\psi_r=-(U+A/r^2)\sin\theta=u_\theta$ なので流れ関数である。$\psi$ は $r>a$ の全域で一価、$\psi(a,\theta)=0$。$r\to\infty$ で $u_r\to U\cos\theta,\ u_\theta\to-U\sin\theta$ だから直交座標では $(U,0)$ へ近づく。
 
-**3.** 壁面では $u_r=0,\ u_\theta=-2U\sin\theta$。よどみ点は $\sin\theta=0$ の $\theta=0,\pi$（速度を壁へ連続に延長した点）。壁面の速さは $|u|=2U|\sin\theta|$。定常・非粘性・無渦・一定密度で領域が連結なので[FLUID6 の全域 Bernoulli 定数](../FLUID6/index.md#cor-fluid6-global-bernoulli)を適用できる。
+**3.** 壁面では $u_r=0,\ u_\theta=-2U\sin\theta$。よどみ点は $\sin\theta=0$ の $\theta=0,\pi$（速度を壁へ連続に延長した点）。壁面の速さは $|u|=2U|\sin\theta|$。定常・非粘性・無渦・一定密度で、連結な外部領域の平面流を $z$ に依存しない三次元場へ滑らかに延長すれば、[FLUID6 の全域 Bernoulli 定数](../FLUID6/index.md#cor-fluid6-global-bernoulli)を適用できる。
 
 $$
 p+\frac12\rho|u|^2
