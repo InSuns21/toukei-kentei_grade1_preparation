@@ -316,13 +316,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\beta$ の列が独立なら、$\beta^\top R_{1t}$ を説明変数とする行列の正規方程式は
+$\beta$ の列が独立なら、$\beta^\top R_{1t}$ を説明変数として現在の残差を最小二乗回帰します。[水準回帰の正規方程式](../U4-13/index.md#def-u4-13-eg-regression)と同じく、残差と説明変数との積和を零にするため、
 
 $$
-\widehat\alpha(\beta)\,\beta^\top S_{11}\beta=S_{01}\beta
+\begin{aligned}
+0&=\frac1T\sum_t
+(R_{0t}-\widehat\alpha(\beta)\beta^\top R_{1t})
+(\beta^\top R_{1t})^\top\\
+&=S_{01}\beta-\widehat\alpha(\beta)\beta^\top S_{11}\beta
+\end{aligned}
 $$
 
-です。$\beta^\top S_{11}\beta$ は可逆なので
+となります。よって正規方程式は $\widehat\alpha(\beta)\beta^\top S_{11}\beta=S_{01}\beta$ です。$\beta^\top S_{11}\beta$ は可逆なので
 
 $$
 \widehat\alpha(\beta)=S_{01}\beta(\beta^\top S_{11}\beta)^{-1}.
@@ -388,7 +393,15 @@ $$
 b^\top(S_{11}-S_{10}S_{00}^{-1}S_{01})b>0.
 $$
 
-したがって $I_k-M=S_{11}^{-1/2}(S_{11}-S_{10}S_{00}^{-1}S_{01})S_{11}^{-1/2}\succ0$ であり、すべての固有値は $0\le\lambda_i<1$ です。
+したがって
+
+$$
+I_k-M
+=S_{11}^{-1/2}(S_{11}-S_{10}S_{00}^{-1}S_{01})S_{11}^{-1/2}
+\succ0
+$$
+
+であり、すべての固有値は $0\le\lambda_i<1$ です。
 
 $V^\top MV$ の固有値を $\theta_1\ge\cdots\ge\theta_r$ とします。$M$ と $V^\top MV$ は実対称なので、[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により正規直交固有基底を取れます。
 
@@ -407,14 +420,29 @@ $$
 
 $V$ の列を最大 $r$ 個の固有値の正規直交固有ベクトルに選ぶと等号となり、結論を得ます。$r=0$ では長期回帰項がなく $\widehat\Omega_0=S_{00}$ です。
 
-最後に $Mv=\lambda v$ で $w=S_{11}^{-1/2}v$ と置き、左から $S_{11}^{1/2}$ を掛けると $S_{10}S_{00}^{-1}S_{01}w=\lambda S_{11}w$ が得られ、一般化固有値表示になります。上位 $r$ 個の正規直交固有ベクトル $v_1,\ldots,v_r$ を列にした $Q_r$ に対し、$\widehat\beta=S_{11}^{-1/2}Q_r$ を選べば $\widehat\beta^\top S_{11}\widehat\beta=I_r$ です。これが縮約尤度を最大にする長期係数空間の一つの基底です。
+最後に $Mv=\lambda v$ で $w=S_{11}^{-1/2}v$ と置き、左から $S_{11}^{1/2}$ を掛けると $S_{10}S_{00}^{-1}S_{01}w=\lambda S_{11}w$ が得られ、一般化固有値表示になります。上位 $r$ 個の正規直交固有ベクトル $v_1,\ldots,v_r$ を列にした $Q_r$ に対し、
+
+$$
+\widehat\beta=S_{11}^{-1/2}Q_r,\qquad
+\widehat\beta^\top S_{11}\widehat\beta=I_r
+$$
+
+と選べます。これが縮約尤度を最大にする長期係数空間の一つの基底です。
 <!-- proof-end -->
 
 固有値は**残差化した水準と階差の結び付き**を表す量で、利益確率でも無裁定性の確率でもありません。
 
 ### トレース統計量と最大固有値統計量
 
-先ほどの残差共分散の行列式から、ランク候補ごとの最大化した対数尤度の差を取ります。この差に2を掛けた統計量を使います。
+先ほどの[縮約ランク尤度の命題](#prop-u4-14-johansen-eigen)から、ランクを $j$ 以下に制限して最大化した対数尤度は、共通定数を除いて次になります。
+
+$$
+\widehat\ell_j=-\frac T2\left\{
+\log\det S_{00}+\sum_{i=1}^{j}\log(1-\lambda_i)
+\right\}.
+$$
+
+従ってランク $r$ 以下と無制約の差は $2(\widehat\ell_k-\widehat\ell_r)$、隣り合う二つのランクの差は $2(\widehat\ell_{r+1}-\widehat\ell_r)$ です。これが以下の二種類の統計量を与えます。
 
 <a id="def-u4-14-johansen-tests"></a>
 
