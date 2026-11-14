@@ -27,3 +27,4 @@
 24. [U3-24 American オプションの障害問題を解く](textbook/volumes/dream_thater/応用系/U/U3-24/index.md)
 25. [U3-25 Barrier/Asian の PDE：境界と状態追加](textbook/volumes/dream_thater/応用系/U/U3-25/index.md)
 26. [U3-26 リスク中立期待値の Monte Carlo 推定](textbook/volumes/dream_thater/応用系/U/U3-26/index.md)
+27. [U3-27 Itô 積分の数値近似と誤差の実測](textbook/volumes/dream_thater/応用系/U/U3-27/index.md)
