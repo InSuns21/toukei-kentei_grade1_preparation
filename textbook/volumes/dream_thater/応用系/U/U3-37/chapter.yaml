@@ -1,0 +1,46 @@
+id: "U3-37"
+title: "Monte Carlo Greeks と手法横断ベンチマーク"
+volume: "foundations"
+status: supplementary
+prerequisites: [F0-00P7, U3-11, U3-20, U3-26, U3-28, U3-31]
+official_scope: []
+learning_objectives:
+  - 共通乱数の中心差分 Delta の不偏推定対象と O(h^2) バイアスを導出できる
+  - 共通乱数と独立乱数の差分分散を比較し計算量と丸め誤差を判断できる
+  - GBM の pathwise Delta と Vega を微分と期待値の交換条件から証明できる
+  - デジタル支払で経路微分が失敗する機構と解析 Delta を再現できる
+  - 対数正規密度の Delta と Vega スコアを導出し尤度比の不偏性を証明できる
+  - 標本分散・差分バイアス・格子バイアスと二乗平均誤差を区別できる
+  - 同一 BSM 条件下で解析式・CRR・PDE・MC・Euler MLMC の計算費用と価格誤差を比較できる
+  - Python 標準ライブラリによる固定シード実験を実行し妥当性と限界を説明できる
+definitions:
+  - { id: U3-37-DEF-01, name: "共通乱数中心差分 Delta 推定量" }
+  - { id: U3-37-DEF-02, name: "欧州型 call の経路微分推定量" }
+  - { id: U3-37-DEF-03, name: "対数正規密度のスコアと尤度比 Greeks" }
+  - { id: U3-37-DEF-04, name: "手法横断ベンチマークの誤差と費用" }
+theorems:
+  - { id: U3-37-PROP-01, name: "中心差分のバイアスと共通乱数の分散" }
+  - { id: U3-37-PROP-02, name: "call の経路微分 Delta・Vega の不偏性" }
+  - { id: U3-37-PROP-03, name: "GBM の尤度比 Delta・Vega とデジタル感応度" }
+  - { id: U3-37-PROP-04, name: "数値 Greeks の二乗平均誤差予算" }
+canonical_examples:
+  - "s=K=100,r=.05,q=.02,sigma=.2,T=1のcall、Delta、Vega"
+  - "共通乱数中心差分における同じ標準正規値での二価格比較"
+  - "デジタルcallのpathwise推定が0となる反例と正の真のDelta"
+  - "尤度比スコアを標準正規Zで明示する微分計算"
+  - "固定シードPythonで解析・CRR・PDE・厳密MC・Euler MLMCを比較"
+problem_patterns:
+  - U3-37-A1
+  - U3-37-A2
+  - U3-37-A3
+  - U3-37-A4
+  - U3-37-A5
+  - U3-37-B1
+  - U3-37-B2
+  - U3-37-B3
+  - U3-37-B4
+  - U3-37-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

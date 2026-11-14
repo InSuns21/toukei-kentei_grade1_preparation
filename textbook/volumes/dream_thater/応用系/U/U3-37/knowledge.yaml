@@ -1,0 +1,53 @@
+chapter: U3-37
+scope: dream-theater
+coverage: complete
+prerequisites: [F0-00P7, U3-11, U3-20, U3-26, U3-28, U3-31]
+concepts:
+  - id: finance.mc-greeks-crn-delta
+    name: 共通乱数中心差分 Delta 推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共通乱数中心差分 Delta 推定量）"]
+    requires: [finance.bsm-greeks-definition, finance.risk-neutral-mc-discounted-sample]
+  - id: finance.mc-greeks-fd-error
+    name: 中心差分のバイアスと共通乱数の分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中心差分のバイアスと共通乱数の分散）"]
+    requires: [finance.mc-greeks-crn-delta, finance.greeks-central-difference-error]
+  - id: finance.mc-greeks-pathwise
+    name: 欧州型 call の経路微分推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（欧州型 call の経路微分推定量）"]
+    requires: [finance.gbm-explicit-positive, finance.bsm-greeks-definition]
+  - id: finance.mc-greeks-pathwise-unbiased
+    name: call の経路微分 Delta・Vega の不偏性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（call の経路微分 Delta・Vega の不偏性）"]
+    requires: [finance.mc-greeks-pathwise]
+  - id: finance.mc-greeks-likelihood-score
+    name: 対数正規密度のスコアと尤度比 Greeks
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対数正規密度のスコアと尤度比 Greeks）"]
+    requires: [finance.gbm-explicit-positive, finance.bsm-greeks-definition, stat.score-function]
+  - id: finance.mc-greeks-likelihood-unbiased
+    name: GBM の尤度比 Delta・Vega とデジタル感応度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GBM の尤度比 Delta・Vega とデジタル感応度）"]
+    requires: [finance.mc-greeks-likelihood-score]
+  - id: finance.mc-cross-method-benchmark
+    name: 手法横断ベンチマークの誤差と費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（手法横断ベンチマークの誤差と費用）"]
+    requires: [finance.mc-greeks-crn-delta, finance.mlmc-coupled-estimator]
+  - id: finance.mc-greeks-mse-budget
+    name: 数値 Greeks の二乗平均誤差予算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（数値 Greeks の二乗平均誤差予算）"]
+    requires: [finance.mc-greeks-fd-error, finance.mc-greeks-pathwise-unbiased, finance.mc-greeks-likelihood-unbiased]
