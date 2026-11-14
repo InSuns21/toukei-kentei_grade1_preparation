@@ -1,0 +1,136 @@
+version: 1
+id: MIR
+title: "ミラー対称性 I・II"
+plan: textbook/plans_progress/DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 通算第1講をMIR1-01とし、MIR1-16の次がMIR2-01。完成章のみ目次へ登録する。
+chapters:
+  - id: MIR1-01
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-01
+    status: completed
+    title: "A模型とB模型の問い"
+  - id: MIR1-02
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-02
+    status: planned
+    title: "Hodge数交換は何を主張するか"
+  - id: MIR1-03
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-03
+    status: planned
+    title: "quinticのHodge数とミラー構成の目標"
+  - id: MIR1-04
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-04
+    status: planned
+    title: "Greene–Plesser型の群作用と商"
+  - id: MIR1-05
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-05
+    status: planned
+    title: "特異点・crepant解消・鏡像のHodge数"
+  - id: MIR1-06
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-06
+    status: planned
+    title: "Dwork型一パラメータ族と判別式"
+  - id: MIR1-07
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-07
+    status: planned
+    title: "留数で作る正則3形式"
+  - id: MIR1-08
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-08
+    status: planned
+    title: "Gauss–Manin接続・Hodge構造の変動"
+  - id: MIR1-09
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-09
+    status: planned
+    title: "Griffiths–Dworkの極次数低減"
+  - id: MIR1-10
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-10
+    status: planned
+    title: "quinticのPicard–Fuchs作用素"
+  - id: MIR1-11
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-11
+    status: planned
+    title: "正則周期と超幾何級数"
+  - id: MIR1-12
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-12
+    status: planned
+    title: "Frobenius法と対数周期"
+  - id: MIR1-13
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-13
+    status: planned
+    title: "大複素構造極限と最大単冪モノドロミー"
+  - id: MIR1-14
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-14
+    status: planned
+    title: "conifold・orbifold点と積分構造"
+  - id: MIR1-15
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-15
+    status: planned
+    title: "ミラー写像の構成と逆級数"
+  - id: MIR1-16
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-16
+    status: planned
+    title: "B側Yukawa結合と周期の統合"
+  - id: MIR2-01
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-01
+    status: planned
+    title: "複素化KählerパラメータとA側の幾何"
+  - id: MIR2-02
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-02
+    status: planned
+    title: "quinticのGW不変量と仮想次元"
+  - id: MIR2-03
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-03
+    status: planned
+    title: "因子公理と三点関数"
+  - id: MIR2-04
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-04
+    status: planned
+    title: "小量子積・Novikov環・大きい量子積との差"
+  - id: MIR2-05
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-05
+    status: planned
+    title: "種数0ポテンシャルとA側Yukawa結合"
+  - id: MIR2-06
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-06
+    status: planned
+    title: "量子接続と量子微分方程式"
+  - id: MIR2-07
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-07
+    status: planned
+    title: "B側Yukawaの座標変換と規格化"
+  - id: MIR2-08
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-08
+    status: planned
+    title: "特殊幾何とprepotential"
+  - id: MIR2-09
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-09
+    status: planned
+    title: "GWのJ関数とdescendant"
+  - id: MIR2-10
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-10
+    status: planned
+    title: "超幾何I関数とquinticの係数"
+  - id: MIR2-11
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-11
+    status: planned
+    title: "トーラス局所化と固定グラフ"
+  - id: MIR2-12
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-12
+    status: planned
+    title: "quinticミラー定理の正確な主張"
+  - id: MIR2-13
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-13
+    status: planned
+    title: "鏡像座標でのYukawa級数"
+  - id: MIR2-14
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-14
+    status: planned
+    title: "多重被覆と整数型数値"
+  - id: MIR2-15
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-15
+    status: planned
+    title: "2875本の直線を独立に数える"
+  - id: MIR2-16
+    path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-16
+    status: planned
+    title: "低次数の照合と論理の総決算"

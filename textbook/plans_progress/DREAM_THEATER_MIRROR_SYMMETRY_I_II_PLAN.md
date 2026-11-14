@@ -2,7 +2,7 @@
 
 分冊: 2026-10-11  
 設計改訂: 2026-11-14（標準教科書・公開講義テキストと再照合）  
-状態: planned（**MIR1＝16章、MIR2＝16章、全32章に設計確定**。講義本文・系列manifestは未着手）
+状態: in progress（**MIR1＝16章、MIR2＝16章、全32章に設計確定**。2026-11-15にMIR1-01を実装開始）
 
 ## 中心問い・到達目標
 
@@ -41,7 +41,7 @@
 - **MIR2**：MIR1の周期・ミラー写像と、[GW1](../plans_progress/DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md) の種数0GW・因子公理・量子積を直接前提とする。**MIR1とGW1の双方が完成した後に着手**する。
 - GW1は凸な射影標的の種数0計数と量子積を中心にし、**非凸quinticの仮想基本類の一般構成および局所化・量子微分方程式・ミラー定理を完了済みとはしない**。MIR2では、非凸標的に必要な仮想類・仮想局所化・quinticミラー定理の精確な外部数学的入力を表示し、それらを使って何を計算・証明できたかを区別する。
 - Greene–Plesser型の商とcrepant解消、積分周期格子の選択、一般の局所化・ミラー定理の全構成は、個別の採用条件・証明責務・未証明範囲を明記する。一般の「ミラー対称性の定理」がすべてのCalabi–Yauで使えると書かない。
-- [HM1](DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md) と [SYZ1](DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md) は別系列。$A_\infty$圏、Fukaya圏、特殊Lagrangeファイバーの構成をMIR1/2へ逆輸入しない。
+- [HM1](../plans/DREAM_THEATER_HOMOLOGICAL_MIRROR_SYMMETRY_PLAN.md) と [SYZ1](../plans/DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md) は別系列。$A_\infty$圏、Fukaya圏、特殊Lagrangeファイバーの構成をMIR1/2へ逆輸入しない。
 
 ## MIR1：quinticミラー族・周期・Picard–Fuchs・ミラー座標（確定16章）
 
@@ -104,4 +104,4 @@
 - $z$はB側族のパラメータ、$q$は鏡像写像後の形式的な平坦座標、$d$はA側曲線の次数である。対数分枝、導関数の変数、複素次元・実次元、符号、初項、解析接続と収束を混同しない。数式の同一性は正規化を明示した式で比較する。
 - 各実装章に原則Level A **4題以上**、B **3題以上**、C **1題以上**と全問詳細解答。数合わせで止めず、主要learning objective・反例・接続が不足すれば追加する。主要定理は本文または到達可能な正本で核心証明を閉じ、意図的な外部定理は名称・仮定・用途・証明の所属を示す。
 - 変更章自身に [DREAM THEATER執筆・査読規約](../DREAM_THEATER_AUTHORING_STANDARD.md) の区分C（全件再計算・別観点での再読）を適用する。別の完了章の追跡監査は章ID明示の依頼時のみ。CI greenや講数到達だけで完成扱いしない。
-- **今回の作業は設計改訂のみ**で、講義本文・章メタデータ・系列manifest・公開目次を作らない。PLANは **textbook/plans/** に置いたままにする。将来の実装着手時にはID・必要prerequisite・stable anchor・系列manifestを実在ファイルと照合し、PLAN状態遷移と参照更新を同じ作業単位で行う。
+- **2026-11-14の設計改訂**は講義本文・系列manifestを作らない設計作業だった。2026-11-15のMIR1-01実装着手時に直接prerequisiteとstable anchorを確認し、PLANを **textbook/plans_progress/** へ移動して系列manifest・公開導線と同期した。残りの講義と全体完成ゲートは引き続き未完了である。
