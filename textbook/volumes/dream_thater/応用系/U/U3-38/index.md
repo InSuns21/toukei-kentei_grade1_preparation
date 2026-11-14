@@ -6,7 +6,7 @@
 
 ## 1. 市場設定と特性関数
 
-現在を時点0、満期を $T>0$ 年とします。$S_0=s>0$ 円、行使価格 $K>0$ 円、連続複利の無リスク金利 $r$ 年$^{-1}$、連続配当利回り $q$ 年$^{-1}$、年率変動率 $\sigma>0$ 年$^{-1/2}$ は定数とします。$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)です。対数満期価格 $X=\log S_T$ は、[GBM の対数変換](../U3-14/index.md)から
+現在を時点0、満期を $T>0$ 年とします。$S_0=s>0$ 円、行使価格 $K>0$ 円、連続複利の無リスク金利 $r$ 年$^{-1}$、連続配当利回り $q$ 年$^{-1}$、年率変動率 $\sigma>0$ 年$^{-1/2}$ は定数とします。$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)です。対数満期価格 $X=\log S_T$ は、[GBM の明示解](../U3-14/index.md#thm-u3-14-explicit-gbm)から
 
 $$
 X=m+\sqrt v\,Z,\quad Z\sim N(0,1)\ (Q\text{ の下}),\qquad
@@ -54,7 +54,26 @@ e^{-x^2/2+ax}\,dx
 \int_{\mathbb R}e^{-(x-a)^2/2}\,dx=e^{a^2/2}.
 $$
 
-複素数 $w=b+it$ について、$e^{wx}$ の絶対値は $e^{bx}$ です。$b$ の任意の有界区間で正規密度と $e^{bx}$ の積は可積分な共通上界を持ち、導関数についても $|x|^n e^{bx}$ が同様に支配されます。従って $E[e^{wZ}]$ は複素平面全体で正則です。実軸で $e^{w^2/2}$ と一致するので正則関数の一致定理より複素 $w$ でも等しくなります（または、正規密度の Fourier 積分を既習の[Gaussian Fourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)で評価してもよい）。$w=iz\sqrt v$ を代入して
+複素数 $w$ に対して $F(w)=E[e^{wZ}]$ と置きます。$w$ がコンパクト集合に動いても $|e^{wx-x^2/2}|\le e^{B|x|-x^2/2}$ という共通の可積分上界を取れます。$x$ 倍した導関数にも同じ種類の上界があるので、積分の中を複素微分でき、
+
+$
+F'(w)=\frac1{\sqrt{2\pi}}\int_{\mathbb R}x e^{wx-x^2/2}\,dx
+$
+
+です。一方、$x$ に関する導関数を積分すると、端点では Gaussian の減衰により境界項は消えて
+
+$
+0=\int_{\mathbb R}\frac d{dx}e^{wx-x^2/2}\,dx
+=\int_{\mathbb R}(w-x)e^{wx-x^2/2}\,dx.
+$
+
+従って $F'(w)=wF(w)$ です。積の微分から
+
+$
+\frac d{dw}\bigl(e^{-w^2/2}F(w)\bigr)=0
+$
+
+が得られ、$F(0)=1$ より $F(w)=e^{w^2/2}$ です。これは[Gaussian Fourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)とも整合します。$w=iz\sqrt v$ を代入して
 
 $$
 E[e^{izX}]=e^{izm}E[e^{iz\sqrt v Z}]
@@ -68,7 +87,7 @@ $$
 
 ## 2. なぜ減衰が必要なのか
 
-$k=\log K\in\mathbb R$、$D=e^{-rT}$ と置くと[リスク中立価格](../U3-17/index.md#thm-u3-17-feynman-kac-bsm)は
+$k=\log K\in\mathbb R$、$D=e^{-rT}$ と置くと[リスク中立評価の定義](../U3-17/index.md#def-u3-17-valuation)は
 
 $$
 C(e^k)=D E_Q[(e^X-e^k)_+].
