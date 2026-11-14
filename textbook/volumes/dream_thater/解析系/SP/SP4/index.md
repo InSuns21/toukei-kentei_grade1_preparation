@@ -8,15 +8,15 @@
 
 状態空間 $S$ は有限または可算、$P=(p(i,j))$ は時間一様な遷移行列とします。[正の帰還時刻](../../STO/STO2A/index.md#def-sto2a-hitting-return)は、初めて出発状態 $i$ へ正の時刻に戻る時刻です。
 
-$
+$$
 T_i^+=\inf\{n\ge1:X_n=i\}
-$
+$$
 
 戻らなければ $\infty$ と約束します。[正再帰と零再帰の定義](../../STO/STO2A/index.md#def-sto2a-positive-null-recurrence)は帰還確率が $1$ である状態を、帰還時間の平均で区別します。
 
-$
+$$
 m_i=E_i[T_i^+].
-$
+$$
 
 正再帰は $m_i<\infty$、零再帰は $m_i=\infty$ の場合です。
 
