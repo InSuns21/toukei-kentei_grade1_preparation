@@ -123,7 +123,7 @@ $$
 > を満たす連続時間過程を OU 過程という。$\kappa(\mu-R_u)$ は現在値が平均より高いと負、低いと正となる復帰成分で、$\eta\,dB_u$ は予測不能な増分である。
 <!-- formal-statement-end -->
 
-ブラウン運動の独立な増分と[確率積分の構成](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)、および[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-time-dependent-ito)を使うと、線形方程式を解けます。新しい確率積分の一般理論をここで再構築するのでなく、積分因子を掛けた後の各段階を確認します。
+ブラウン運動の独立な増分と[確率積分の構成](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)、および[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を使うと、線形方程式を解けます。新しい確率積分の一般理論をここで再構築するのでなく、積分因子を掛けた後の各段階を確認します。
 
 <a id="prop-u4-16-ou-discretization"></a>
 
@@ -166,7 +166,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$Z_u=R_u-\mu$ は $dZ_u=-\kappa Z_u\,du+\eta\,dB_u$ を満たします。時間だけの滑らかな関数と掛け合わせたときの[Itô の積の公式](../../../解析系/STO/STO7/index.md#cor-sto7-product-formula)を使います。$e^{\kappa u}$ は有限変動なので二次共変分の補正は0です。よって
+$Z_u=R_u-\mu$ は $dZ_u=-\kappa Z_u\,du+\eta\,dB_u$ を満たします。時間だけの滑らかな関数と掛け合わせたときの[Itô の積の公式](../../../解析系/STO/STO7/index.md#cor-sto7-product-rule)を使います。$e^{\kappa u}$ は有限変動なので二次共変分の補正は0です。よって
 $$
 \begin{aligned}
 d(e^{\kappa u}Z_u)
