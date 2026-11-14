@@ -6,7 +6,15 @@
 
 ## 0. 模型・記号・適用範囲
 
-右手系直交座標をもつ開集合 $\mathcal D\subset\mathbb R^3$ と時間区間 $I$ を考える。流速 $u=(u_1,u_2,u_3)$ [m/s]、圧力 $p$ [Pa]、一定密度 $\rho_0>0$ [kg/m$^3$]、**空間・時間にわたり一定の**動的粘性係数 $\eta>0$ [Pa s] を仮定する。動粘度は $\nu=\eta/\rho_0>0$ [m$^2$/s] とする。[CTM15 の非圧縮 Newton 流体の応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)でこの二つの粘度は区別されている。
+右手系直交座標をもつ開集合 $\mathcal D\subset\mathbb R^3$ と時間区間 $I$ を考える。流速 $u=(u_1,u_2,u_3)$ [m/s] と圧力 $p$ [Pa] はこの領域の場とする。
+
+密度 $\rho_0>0$ [kg/m$^3$] と動的粘性係数 $\eta>0$ [Pa s] は、ともに**空間・時間にわたり一定**とする。[CTM15 の非圧縮 Newton 流体の応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)と同じ区別により、動粘度を
+
+$
+\nu=\frac{\eta}{\rho_0}>0\qquad[\mathrm{m}^2/\mathrm s]
+$
+
+と定める。
 
 $u$ は空間で $C^3$ 級・時間で $C^1$ 級、必要な空間・時間の混合導関数は連続とし、$p$ と外力ポテンシャル $\Phi$ は空間 $C^2$ 級とする。以下では滑らかな古典解が与えられていると仮定し、存在・一意性をここから導くものではない。[CTM15 の一定粘性非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)で体積力を $-\nabla\Phi$ とすると
 
@@ -86,7 +94,7 @@ $\omega=\nabla\times u$ から $\nabla\cdot\omega=0$、非圧縮性から $\nabl
 
 式の四つの部分を混同しないようにしよう。$\partial_t\omega$ は固定した点での時間変化、$(u\cdot\nabla)\omega$ は流れによる運搬、$(\omega\cdot\nabla)u$ は渦度方向に沿う速度の変化、$\nu\Delta\omega$ は渦度の空間的な凹凸を均す作用である。各項の単位は s$^{-2}$。とくに $\nu\Delta\omega$ は $\mathrm{m}^2/\mathrm{s}\times\mathrm{s}^{-1}/\mathrm{m}^2$ となる。
 
-**適用条件の落とし穴**：粘度が空間で変わる場合、curl の外へ $\nu$ を出せない。また密度が一定でない場合、$-\nabla p/\rho$ の curl は[FLUID8 の傾圧生成項](../FLUID8/index.md#def-fluid8-baroclinic-source)を生む。上の簡潔な式を、可変密度・可変粘度や衝撃波のある流れへそのまま適用してはいけない。
+**適用条件の落とし穴**：粘度が空間で変わる場合、curl の外へ $\nu$ を出せない。また密度が一定でない場合、$-\nabla p/\rho$ の curl は[FLUID8 の傾圧生成項](../FLUID8/index.md#def-fluid8-baroclinic-source)を生む。上の簡潔な式を、可変密度・可変粘度の模型や、速度・圧力が不連続な流れへそのまま適用してはいけない。
 
 ## 2. 二次元では伸長がなくても拡散は残る
 
@@ -480,7 +488,7 @@ $$
 # lab-preset: 格子を半分に | --gamma 6.283185307179586 --a0 1 --nu 0.25 --t 1 --r 1 --h 0.05 --n 400
 ```
 
-出力の total_circulation は平面全域の解析値 $\Gamma$、disk_circulation_exact は有限円板の正確な値、disk_circulation_trapezoid は同じ円板の台形積分である。数値誤差と円板外へ残した尾部は別の量であり、**後者を格子を細かくして消したと見なしてはいけない**。また解析的 $\partial_t\zeta_G$ と中央差分 $\nu\Delta_{2,h}\zeta_G$ の差は通常 $O(h^2)$ で小さくなるが、これは偏微分方程式の全解に対する数値安定性を保証しない。中心付近でも値を検算できるよう、Cartesian 格子の4近傍差分を用いている。
+出力の total_circulation は平面全域の解析値 $\Gamma$、disk_circulation_exact は有限円板の正確な値、disk_circulation_trapezoid は同じ円板の台形積分である。数値誤差と円板外へ残した尾部は別の量であり、**後者を格子を細かくして消したと見なしてはいけない**。また厳密式を微分した $\partial_t\zeta_G$ と中央差分 $\nu\Delta_{2,h}\zeta_G$ の差は通常 $O(h^2)$ で小さくなるが、これは偏微分方程式の全解に対する数値安定性を保証しない。中心付近でも値を検算できるよう、Cartesian 格子の4近傍差分を用いている。
 
 ## 7. 演習
 
@@ -628,7 +636,7 @@ $$
 +\nu\int_{\partial D}\nabla_2\zeta\cdot n\,ds.
 $$
 
-[CTM15 の壁面無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ から第一積分は零だが、第二積分は一般に零とはならない。保存を結論するにはさらに拡散流束の積分が零である必要がある。壊れた論証は「移流流束が零なら境界の全流束が零」という誤った一歩である。
+[CTM15 の壁面無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ から第一積分は零だが、第二積分は一般に零とはならない。$d(\int_D\zeta\,dA)/dt=0$ と結論するには、さらに拡散流束の積分が零である必要がある。壊れた論証は「移流流束が零なら境界の全流束が零」という誤った一歩である。
 <!-- solution-end -->
 
 ### Level C
