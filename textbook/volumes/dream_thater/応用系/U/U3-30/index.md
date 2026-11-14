@@ -57,12 +57,12 @@ I_{10}=\frac{hZ}{2}-\sqrt{\frac{h^3}{12}}\,U.
 $$
 <!-- formal-statement-end -->
 
-**見取り図**：二次・三次の反復積分は [Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)で $Z$ の多項式へ戻ります。混合積分は時間についての部分積分で和が $hZ$ となりますが、差には格子点の増分から見えない Brown 運動の揺れが残ります。
+**見取り図**：二次・三次の反復積分は [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)で $Z$ の多項式へ戻ります。混合積分は時間についての部分積分で和が $hZ$ となりますが、差には格子点の増分から見えない Brown 運動の揺れが残ります。
 
 <!-- proof-start -->
 ### 証明
 
-$B_s=W_{t+s}-W_t$（$0\le s\le h$）とします。既習の [Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $f(x)=x^2$ に適用すると $d(B_s^2)=2B_s\,dB_s+ds$。初期値 $B_0=0$ なので
+$B_s=W_{t+s}-W_t$（$0\le s\le h$）とします。既習の [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $f(x)=x^2$ に適用すると $d(B_s^2)=2B_s\,dB_s+ds$。初期値 $B_0=0$ なので
 
 $$
 \int_0^h B_s\,dB_s
@@ -83,7 +83,7 @@ I_{111}
 =\frac{B_h^3-3hB_h}{6}.
 $$
 
-積の [Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $(s,B_s)$ に用いると、$s$ は有限変動なので交差変動は0であり、$d(sB_s)=s\,dB_s+B_s\,ds$。$0$ から $h$ まで積分すると $I_{01}+I_{10}=hB_h=hZ$ となります。
+積の [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を $(s,B_s)$ に用いると、$s$ は有限変動なので交差変動は0であり、$d(sB_s)=s\,dB_s+B_s\,ds$。$0$ から $h$ まで積分すると $I_{01}+I_{10}=hB_h=hZ$ となります。
 
 最後に $I_{01}=\int_0^h s\,dB_s$ と $Z=\int_0^h1\,dB_s$ は共同正規で、[Itô 等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)と確定的積分の内積から
 
@@ -155,12 +155,12 @@ X_{t+h}={}&x+a(x)h+b(x)Z
 $$
 <!-- formal-statement-end -->
 
-**見取り図**：$a(X_s)$ と $b(X_s)$ にそれぞれ [Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を適用して時間積分と確率積分を一段ずつ代入します。$a$ は最後に $ds$、$b$ は最後に $dW$ で積分されるため、混合積分の添字が異なります。
+**見取り図**：$a(X_s)$ と $b(X_s)$ にそれぞれ [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を適用して時間積分と確率積分を一段ずつ代入します。$a$ は最後に $ds$、$b$ は最後に $dW$ で積分されるため、混合積分の添字が異なります。
 
 <!-- proof-start -->
 ### 証明
 
-[Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から、$f=a,b$ のいずれについても
+[時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)から、$f=a,b$ のいずれについても
 
 $$
 f(X_s)=f(x)+\int_t^s(L_0f)(X_u)\,du
@@ -169,7 +169,7 @@ $$
 
 これを $X_{t+h}=x+\int_t^{t+h}a(X_s)ds+\int_t^{t+h}b(X_s)dW_s$ に代入します。$a(x),b(x)$ の項は $a(x)h+b(x)Z$、$L_1a(x)$ を凍結した項は $\int_t^{t+h}\int_t^s L_1a(x)\,dW_u\,ds=(L_1a)(x)I_{10}$ です。$b$ の積分では $L_0b(x)$ が $I_{01}$ を、$L_1b(x)$ が $I_{11}$ を伴います。
 
-残った $L_1b(X_u)-L_1b(x)$ に再び Itô 公式を用いると、その確率微分の定数部分は $(L_1L_1b)(x)\,dW_v$ で、外側まで合わせて $I_{111}$ を生みます。
+残った $L_1b(X_u)-L_1b(x)$ に再び [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を用いると、その確率微分の定数部分は $(L_1L_1b)(x)\,dW_v$ で、外側まで合わせて $I_{111}$ を生みます。
 
 ここで省略された積分は、重みが少なくとも $2$ の積分です。$C_b^5$ の有界係数・有界導関数の下で $E|X_{t+s}-x|^2=O(s)$ が成立し、確率積分の [Itô 等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)、通常積分の Cauchy–Schwarz、反復積分の条件付き直交性を順に用いると、残差の条件付き二乗平均平方根を $Ch^2$ で抑えられます。これは**一刻みの局所評価**であり、一般 SDE の大域的な強 $3/2$ 次収束を、安定性の条件を調べずに主張したものではありません。
 <!-- proof-end -->
@@ -310,7 +310,7 @@ E[(Y_m^{(p)})^2]-E[S_T^2]
 =-s_0^2\left\{e^{\sigma^2T}-v_p(u)^m\right\}=O(h^p).
 $$
 
-これはこの特定の $\varphi$ に対する弱 $p$ 次であって、すべての滑らかな支払やデジタル支払に対する一般命題ではありません。一般の弱2次近似を目指す場合は、期待値についての [Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を再び用いると、十分滑らかな $f$ に対して
+これはこの特定の $\varphi$ に対する弱 $p$ 次であって、すべての滑らかな支払やデジタル支払に対する一般命題ではありません。一般の弱2次近似を目指す場合は、期待値についての [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を再び用いると、十分滑らかな $f$ に対して
 
 $$
 E[f(X_{t+h})\mid X_t=x]
