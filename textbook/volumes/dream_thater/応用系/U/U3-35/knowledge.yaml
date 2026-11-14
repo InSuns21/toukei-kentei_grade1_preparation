@@ -1,0 +1,47 @@
+chapter: U3-35
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-09, U3-14, U3-26, U3-29, U3-34]
+concepts:
+  - id: finance.continuous-upper-barrier
+    name: 連続監視上方ノックアウトと格子監視
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続監視上方ノックアウトと格子監視）"]
+    requires: [finance.barrier-discrete-contract, finance.gbm-explicit-positive]
+  - id: finance.log-price-conditioned-bridge
+    name: 対数株価の条件付き Brownian bridge
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対数株価の条件付き Brownian bridge）"]
+    requires: [finance.bridge-qmc-finite-dimensional-law, finance.gbm-explicit-positive]
+  - id: finance.bridge-upper-barrier-hit-probability
+    name: Brownian bridge の上側障壁越境確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Brownian bridge の上側障壁越境確率）"]
+    requires: [finance.log-price-conditioned-bridge]
+  - id: finance.bridge-survival-weighted-estimator
+    name: 連続上方ノックアウトの橋補正推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続上方ノックアウトの橋補正推定量）"]
+    requires: [finance.bridge-upper-barrier-hit-probability, finance.risk-neutral-mc-discounted-sample]
+  - id: finance.bridge-barrier-unbiasedness
+    name: 橋重みの条件付き期待値と不偏性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（橋重みの条件付き期待値と不偏性）"]
+    requires: [finance.bridge-survival-weighted-estimator]
+  - id: finance.bridge-barrier-variance-reduction
+    name: 橋補正の条件付き平均による分散減少
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（橋補正の条件付き平均による分散減少）"]
+    requires: [finance.bridge-barrier-unbiasedness]
+  - id: finance.bridge-reflection-digital-price
+    name: 対数 drift が0の上側生存デジタルの解析解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数 drift が0の上側生存デジタルの解析解）"]
+    requires: [finance.bridge-upper-barrier-hit-probability, finance.bridge-barrier-unbiasedness]
