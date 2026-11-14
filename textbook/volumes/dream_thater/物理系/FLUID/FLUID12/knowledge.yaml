@@ -1,0 +1,55 @@
+chapter: FLUID12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID11
+  - FLUID6
+concepts:
+  - id: fluid.potential-superposition
+    name: ポテンシャル流の重ね合わせ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ポテンシャル流の重ね合わせ）"]
+    requires: [fluid.velocity-potential, vector-calculus.incompressible-flow]
+  - id: fluid.point-source
+    name: 平面の点湧出・点吸込
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面の点湧出・点吸込）"]
+    requires: [fluid.velocity-potential]
+  - id: fluid.point-source-flux
+    name: 点湧出の流束と大域的流れ関数の障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（点湧出の流束と大域的流れ関数の障害）"]
+    requires: [fluid.point-source, fluid.closed-loop-flux, fluid.global-potential-stream-criterion]
+  - id: fluid.doublet
+    name: x軸向き二重湧出
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（x軸向き二重湧出）"]
+    requires: [fluid.point-source, fluid.velocity-potential]
+  - id: fluid.doublet-limit
+    name: 二点の湧出・吸込から二重湧出への極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二点の湧出・吸込から二重湧出への極限）"]
+    requires: [fluid.doublet, fluid.point-source]
+  - id: fluid.cylinder-potential-flow
+    name: 円柱まわりの循環なしポテンシャル流
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（円柱まわりの循環なしポテンシャル流）"]
+    requires: [fluid.potential-superposition, fluid.doublet, vector-calculus.stream-function]
+  - id: fluid.pressure-coefficient
+    name: 圧力係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圧力係数）"]
+    requires: [fluid.bernoulli-function]
+  - id: fluid.cylinder-pressure
+    name: 円柱まわりの速度と圧力係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円柱まわりの速度と圧力係数）"]
+    requires: [fluid.cylinder-potential-flow, fluid.pressure-coefficient, fluid.bernoulli-global]
