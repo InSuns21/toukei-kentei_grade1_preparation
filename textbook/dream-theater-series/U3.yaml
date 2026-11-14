@@ -32,7 +32,7 @@ chapters:
   - { id: U3-26, path: textbook/volumes/dream_thater/応用系/U/U3-26, status: completed, title: "リスク中立期待値の Monte Carlo 推定" }
   - { id: U3-27, path: textbook/volumes/dream_thater/応用系/U/U3-27, status: completed, title: "Itô 積分の数値近似と誤差の実測" }
   - { id: U3-28, path: textbook/volumes/dream_thater/応用系/U/U3-28, status: completed, title: "厳密 GBM・Euler–Maruyama・Milstein" }
-  - { id: U3-29, path: textbook/volumes/dream_thater/応用系/U/U3-29, status: planned, title: "強収束・弱収束と誤差予算" }
+  - { id: U3-29, path: textbook/volumes/dream_thater/応用系/U/U3-29, status: completed, title: "強収束・弱収束と誤差予算" }
   - { id: U3-30, path: textbook/volumes/dream_thater/応用系/U/U3-30, status: planned, title: "Itô–Taylor 展開・高次法・安定性" }
   - { id: U3-31, path: textbook/volumes/dream_thater/応用系/U/U3-31, status: planned, title: "Multilevel Monte Carlo（MLMC）" }
   - { id: U3-32, path: textbook/volumes/dream_thater/応用系/U/U3-32, status: planned, title: "分散減少：対称変量・対照変量" }
