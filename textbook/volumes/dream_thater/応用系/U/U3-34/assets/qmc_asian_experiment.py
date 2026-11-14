@@ -70,7 +70,7 @@ def sample_normals(n: int, method: int, rep: int) -> np.ndarray:
     )
     if method == 0:  # iid pseudo-random normal coordinates
         return rng.standard_normal((n, M))
-    # Each call has a fresh, independent Owen-style scramble.
+    # Each call has a separate LMS+shift scramble (SciPy Sobol).
     generator = qmc.Sobol(
         d=M, scramble=True, seed=int(rng.integers(0, 2**32 - 1))
     )
