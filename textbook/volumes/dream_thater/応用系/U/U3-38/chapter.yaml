@@ -1,0 +1,46 @@
+id: "U3-38"
+title: "Fourier／特性関数による価格付け"
+volume: "foundations"
+status: supplementary
+prerequisites: [FOU3, U3-14, U3-19, U3-26]
+official_scope: []
+learning_objectives:
+  - GBM の対数価格の複素特性関数と指数モーメントを導出できる
+  - 減衰した対数行使価格の定義と絶対可積分性を直接例で確認できる
+  - Fubini を使い減衰 call の変換分母を導出できる
+  - FOU3 の Fourier反転定理を適用して正周波数価格積分を証明できる
+  - 指数モーメント仮定と計算可能な alpha の範囲を判定できる
+  - 一般の 1/U 尾部評価と正規モデルの Gaussian 尾部評価を証明できる
+  - 複合台形則の 1/12 誤差係数を導出し打切りと求積誤差を分離できる
+  - Python 標準ライブラリで配当付き Black–Scholes 閉形式と Fourier 価格を独立検算できる
+definitions:
+  - { id: U3-38-DEF-01, name: "対数満期価格の特性関数と複素延長" }
+  - { id: U3-38-DEF-02, name: "減衰した対数行使価格 call" }
+  - { id: U3-38-DEF-03, name: "有限区間の複合台形価格" }
+theorems:
+  - { id: U3-38-PROP-01, name: "GBM の対数価格の複素特性関数" }
+  - { id: U3-38-PROP-02, name: "減衰 call の Fourier 変換" }
+  - { id: U3-38-THM-01, name: "特性関数からの欧州型 call 価格公式" }
+  - { id: U3-38-PROP-03, name: "Fourier 積分の打切り誤差" }
+  - { id: U3-38-PROP-04, name: "台形価格の誤差分離" }
+canonical_examples:
+  - "確定価格 X=log100 で減衰 call が L1 になる積分"
+  - "BSM s=K=100,r=.05,q=.02,sigma=.2,T=1 の call=9.227005508154 円"
+  - "alpha=1.5 と上限 U=10,20,30,40 での Fourier 価格誤差"
+  - "重尾分布で call は有限だが alpha=1 の指数モーメントが無限大となる例"
+  - "固定 U での台形誤差と固定 N での打切り誤差の区別"
+problem_patterns:
+  - U3-38-A1
+  - U3-38-A2
+  - U3-38-A3
+  - U3-38-A4
+  - U3-38-A5
+  - U3-38-B1
+  - U3-38-B2
+  - U3-38-B3
+  - U3-38-B4
+  - U3-38-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
