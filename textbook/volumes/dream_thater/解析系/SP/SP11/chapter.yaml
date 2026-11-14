@@ -1,0 +1,45 @@
+id: "SP11"
+title: "Poisson の重ね合わせ・間引き・印付き到着"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP10
+official_scope: []
+learning_objectives:
+  - 独立なPoisson到着流の和が率の和のPoisson過程となることを件数分布・独立増分・単位跳躍から証明できる
+  - 元の流どうしが独立でない場合に重ね合わせが失敗する反例を構成できる
+  - 独立な有限印付き到着を定義し条件を直接例で検証できる
+  - Poisson件数を条件にした多項分布から印別の独立Poisson過程を導ける
+  - 独立Poisson流の合成時に出身印が率の比の独立同分布となることを指数時計の競争から導ける
+  - 有限印の複合Poisson過程の特性関数・平均・分散を条件付き期待値から計算できる
+  - 総件数固定の条件付き依存と無条件の印別独立性を区別できる
+  - 到着に共通の印を付けると独立間引きが失敗する機構を計算で説明できる
+definitions:
+  - { id: SP11-DEF-01, name: "独立な印付き到着" }
+  - { id: SP11-DEF-02, name: "有限印を持つ複合 Poisson 過程" }
+theorems:
+  - { id: SP11-THM-01, name: "独立 Poisson 過程の重ね合わせ" }
+  - { id: SP11-THM-02, name: "独立間引きと多種類分割" }
+  - { id: SP11-PROP-01, name: "重ね合わせた到着の出身印" }
+  - { id: SP11-PROP-02, name: "有限印の複合 Poisson 過程の分布とモーメント" }
+canonical_examples:
+  - "独立な率2と率3の到着流の重ね合わせ"
+  - "率6の到着流の三種類への独立印付け"
+  - "総件数を固定したときの保存・廃棄件数の負の依存"
+  - "複合Poisson過程の跳躍損失と分散"
+  - "共通Bernoulli印・交互印付けによる独立間引きの失敗"
+problem_patterns:
+  - SP11-SUPERPOSITION-COUNT
+  - SP11-INDEPENDENT-THINNING-JOINT
+  - SP11-MULTICLASS-MARKS
+  - SP11-FIRST-RETAINED-ARRIVAL
+  - SP11-CONDITIONAL-BINOMIAL
+  - SP11-JOINT-PGF-FACTOR
+  - SP11-EXPONENTIAL-RACE
+  - SP11-SHARED-MARK-COUNTEREXAMPLE
+  - SP11-COMPOUND-MOMENTS
+  - SP11-MERGED-STREAM-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }
