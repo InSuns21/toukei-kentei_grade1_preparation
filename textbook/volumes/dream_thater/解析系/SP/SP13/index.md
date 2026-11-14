@@ -130,11 +130,11 @@ $t=0$ では $P_0=I$、全ての $t\ge0$ で各行和が $1$、$t\to\infty$ で�
 <!-- formal-statement-start -->
 > **定義（CTMC の定常分布）**  
 > 有限状態 CTMC の遷移行列を $(P_t)_{t\ge0}$ とする。確率行ベクトル $\pi=(\pi_i)_{i\in S}$、すなわち $\pi_i\ge0$ かつ $\sum_i\pi_i=1$ が、全ての $t\ge0$ で
->
-> $$
-> \pi P_t=\pi
-> $$
->
+
+$$
+\pi P_t=\pi
+$$
+
 > を満たすとき、$\pi$ を **CTMC の定常分布**（不変確率分布）と呼ぶ。
 <!-- formal-statement-end -->
 
@@ -145,11 +145,11 @@ $t=0$ では $P_0=I$、全ての $t\ge0$ で各行和が $1$、$t\to\infty$ で�
 <!-- formal-statement-start -->
 > **定理（有限 CTMC の定常分布の判定）**  
 > 空でない有限集合 $S$ 上の Q 行列 $Q$ を持つ CTMC の遷移行列を $P_t=e^{tQ}$ とする。確率行ベクトル $\pi$ が定常分布であることと
->
-> $$
-> \boxed{\pi Q=0}
-> $$
->
+
+$$
+\boxed{\pi Q=0}
+$$
+
 > は同値である。
 <!-- formal-statement-end -->
 
@@ -206,11 +206,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（CTMC の詳細釣合い）**  
 > 有限状態 Q 行列 $Q=(q_{ij})$ と確率行ベクトル $\pi$ について、すべての $i,j\in S$ に対し
->
-> $$
-> \boxed{\pi_iq_{ij}=\pi_jq_{ji}}
-> $$
->
+
+$$
+\boxed{\pi_iq_{ij}=\pi_jq_{ji}}
+$$
+
 > が成り立つとき、$(\pi,Q)$ は **CTMC の詳細釣合い** を満たすという。$i=j$ の式は自動的に成り立つ。
 <!-- formal-statement-end -->
 
@@ -348,11 +348,11 @@ $Q=0$ の二状態 CTMC なら $P_t=I$ で、どの初期分布も定常です�
 <!-- formal-statement-start -->
 > **定理（有限既約 CTMC の収束）**  
 > 空でない有限集合 $S$ 上の Q 行列 $Q$ について、任意の $i,j\in S$ に $i$ から $j$ への正の遷移率を持つ有限経路が存在するとする。このとき一意の定常確率分布 $\pi$ が存在し、$\pi_i>0$（全 $i$）である。また任意の初期分布 $\mu$ に対し
->
-> $$
-> \lim_{t\to\infty}\mu P_t=\pi
-> $$
->
+
+$$
+\lim_{t\to\infty}\mu P_t=\pi
+$$
+
 > が成分ごとに成立する。
 <!-- formal-statement-end -->
 
