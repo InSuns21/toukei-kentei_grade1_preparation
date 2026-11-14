@@ -1,0 +1,49 @@
+chapter: FLUID8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID6
+  - VC9
+concepts:
+  - id: fluid.vorticity-coordinate-review
+    name: 渦度の三次元座標表示：再掲
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（渦度の三次元座標表示：再掲）"]
+    requires: [vector-calculus.vorticity]
+  - id: fluid.baroclinic-source
+    name: 傾圧性の渦度生成項
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（傾圧性の渦度生成項）"]
+    requires: [vector-calculus.vorticity]
+  - id: fluid.vorticity-euler-transport
+    name: 非粘性圧縮性流体の渦度方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非粘性圧縮性流体の渦度方程式）"]
+    requires: [fluid.baroclinic-source, fluid.moving-mass-balance, continuum.material-momentum-local]
+  - id: fluid.barotropic-vorticity-condition
+    name: 本講での順圧条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講での順圧条件）"]
+    requires: [fluid.barotropic-pressure-potential]
+  - id: fluid.no-baroclinic-source
+    name: 一定密度または順圧の流れでの傾圧項消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一定密度または順圧の流れでの傾圧項消失）"]
+    requires: [fluid.barotropic-vorticity-condition, fluid.vorticity-euler-transport]
+  - id: fluid.2d-vorticity-transport
+    name: 二次元一定密度 Euler 流の渦度輸送
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次元一定密度 Euler 流の渦度輸送）"]
+    requires: [fluid.no-baroclinic-source, vector-calculus.vorticity]
+  - id: fluid.specific-vorticity
+    name: 単位密度当たりの渦度の発展
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単位密度当たりの渦度の発展）"]
+    requires: [fluid.vorticity-euler-transport, fluid.moving-mass-balance]
