@@ -90,7 +90,21 @@ $$
 \qquad C=-\frac2{\sqrt\pi}.
 $$
 
-ゆえに $F(\xi)=1-\frac2{\sqrt\pi}\int_0^\xi e^{-q^2}dq=\operatorname{erfc}(\xi)$。$\operatorname{erfc}'(\xi)=-2e^{-\xi^2}/\sqrt{\pi}$、$\operatorname{erfc}''(\xi)=4\xi e^{-\xi^2}/\sqrt{\pi}$ を代入すると元の拡散方程式も直接満たす。固定した $y>0$ に対し $t\downarrow0$ なら $\xi\to\infty$、$u\to0$。$y=0,t>0$ では $\xi=0$、$u=U$。さらに任意の $T>0$ について $0<t\le T$ なら $\xi\ge y/(2\sqrt{\nu T})$ だから、遠方減衰は時間区間で一様である。
+以上で得た関数とその導関数は
+
+$$
+F(\xi)=1-\frac2{\sqrt\pi}\int_0^\xi e^{-q^2}dq
+=\operatorname{erfc}(\xi).
+$$
+
+$$
+F'(\xi)=-\frac{2e^{-\xi^2}}{\sqrt\pi},
+\qquad F''(\xi)=\frac{4\xi e^{-\xi^2}}{\sqrt\pi}.
+$$
+
+従って $F''+2\xi F'=0$ が成立し、元の拡散方程式を直接満たす。固定した $y>0$ に対し $t\downarrow0$ なら $\xi\to\infty$ なので $u\to0$。壁 $y=0$、$t>0$ では $\xi=0$ より $u=U$。
+
+さらに任意の $T>0$ に対して $0<t\le T$ なら $\xi\ge y/(2\sqrt{\nu T})$ だから、遠方減衰はこの有界時間区間で一様である。
 
 一意性は二解の差 $w$ を用いた次の内部最大点の符号比較によって直接示せる。実際、$0<t\le T$ の有限長長方形 $0\le y\le L$ 上で、差の初期面・左壁面は零、右壁面 $y=L$ の絶対値は $L\to\infty$ で一様に零へ近づく。内部の正の最大を排除するため $w-\varepsilon t$ を考えると、正の内部最大では時間微分が非負、空間二階微分は非正である一方、$(\partial_t-\nu\partial_{yy})(w-\varepsilon t)=-\varepsilon<0$ となり矛盾する。負の最小も $-w$ で同様。右壁の誤差と $\varepsilon T$ を零へ送れば $w=0$ となる。角点の不一致は $t=0$ の壁値を要求しないことで扱う。
 <!-- proof-end -->
