@@ -1,7 +1,7 @@
 chapter: U4-14
 scope: dream-theater
 coverage: complete
-prerequisites: [U4-13]
+prerequisites: [U4-13, F0-00F, LA3B, F0-00F1, F0-00P7]
 forward_references: []
 concepts:
   - id: finance.arb-multivariate-cointegration-space
