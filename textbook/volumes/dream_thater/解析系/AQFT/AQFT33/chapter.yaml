@@ -1,0 +1,49 @@
+id: "AQFT33"
+title: "部分環制限と相対エントロピーの単調性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT29
+  - AQFT30
+  - AQFT31
+  - AQFT32
+  - AQFT2
+  - AQFT9
+learning_objectives:
+  - 正規状態の部分環への制限を定義し、局所観測量による識別力の違いを具体例で検証できる
+  - 支持付き相対Tomita作用素の二次形式から非負自己共役作用素の逆作用素変分表示を証明できる
+  - 非忠実な入力の支持射影A->Apを用いて代数上の変分表示を証明できる
+  - 部分環での試験作用素の包含から相対逆作用素期待値の比較を証明できる
+  - 対数の逆作用素積分表示の正負部分を分け、零スペクトルと無限値を含む極限を正当化できる
+  - 任意の正規状態と単位的von Neumann部分環に対するAraki相対エントロピーの単調性を証明できる
+  - 非可換二準位・非忠実純粋状態・Type III局所環での適用条件と誤用を区別できる
+definitions:
+  - { id: AQFT33-DEF-01, name: "正規状態の部分環への制限" }
+theorems:
+  - { id: AQFT33-LEM-01, name: "非負自己共役作用素の逆作用素の変分表示" }
+  - { id: AQFT33-LEM-02, name: "相対逆作用素の代数上の変分表示" }
+  - { id: AQFT33-PROP-01, name: "部分環包含による相対逆作用素期待値の順序" }
+  - { id: AQFT33-LEM-03, name: "相対エントロピーの逆作用素積分表示" }
+  - { id: AQFT33-THM-01, name: "部分環への制限に関するAraki相対エントロピーの単調性" }
+canonical_examples:
+  - 異なる二準位状態の対角観測量に対する制限が一致する例
+  - 純粋状態の全環と対角部分環で支持が異なる例
+  - 非忠実状態の支持射影による試験作用素の置換
+  - 非可換二準位密度行列での相対エントロピーの減少
+  - 直交支持で無限大が有限に落ちる例
+  - 局所Type III環包含における正規状態の制限
+problem_patterns:
+  - AQFT33-COMMUTATIVE-RESOLVENT
+  - AQFT33-SUPPORT-OPTIMIZER
+  - AQFT33-NONCOMMUTING-RESTRICTION
+  - AQFT33-INFINITE-TO-FINITE
+  - AQFT33-UNBOUNDED-VARIATIONAL
+  - AQFT33-ORTHOGONAL-RESOLVENT
+  - AQFT33-LOG-SIGNED-INTEGRAL
+  - AQFT33-RESOLVENT-INCLUSION
+  - AQFT33-GENERAL-MONOTONICITY
+  - AQFT33-LOCAL-NET-APPLICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }

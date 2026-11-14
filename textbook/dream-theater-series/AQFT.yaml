@@ -134,7 +134,7 @@ chapters:
     title: "相対エントロピーの正値性"
   - id: AQFT33
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT33
-    status: planned
+    status: completed
     title: "部分環制限と単調性"
   - id: AQFT34
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT34
