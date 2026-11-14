@@ -10,7 +10,7 @@ $\mathcal D\subset\mathbb R^3$ を開集合、$I=[t_0,t_1]$ を時間区間と�
 
 [FLUID4 の流跡線](../FLUID4/index.md#def-fluid4-pathline)は、初期時刻 $t_0$ の各点 $a$ から $dX/dt=u(X,t)$、$X(t_0)=a$ を解く。この解が時刻 $t$ に返す位置を $F_t(a)$ と書く。ここで下付きの $t$ は**時刻 $t$ の写像**を表し、微分を表さない。同じ方程式を初期閉曲線の**全点**へ同時に適用するのが本講の出発点である。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を $D_t=\partial_t+u\cdot\nabla$ と書く。$\partial_tu$ は位置 $x$ を固定して微分し、$\partial_tX$ は粒子ラベル $s$ を固定して微分する。$\nabla$ は時刻を固定した空間微分で、後の $d\Gamma/dt$ は**動く輪全体の循環**の時間微分である。
 
-[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で、[FLUID6 の非粘性模型](../FLUID6/index.md#def-fluid6-ideal-potential-force)のように法線 $n$ に働く面力を $-pn$ とすると、応力は $\sigma=-pI_3$（$I_3$ は三次元単位行列）となる。成分で $(\nabla\cdot\sigma)_i=\sum_{j=1}^3\partial_j(-p\delta_{ij})=-\partial_i p$ だから、体積力を $-\nabla\Phi$ とした Euler 方程式は
+[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で、[FLUID6 の非粘性模型](../FLUID6/index.md#def-fluid6-ideal-potential-force)のように法線 $n$ に働く面力を $-pn$ とすると、応力は $\sigma=-pI_3$（$I_3$ は三次元単位行列）となる。成分で $\delta_{ij}$ を $i=j$ なら $1$、それ以外は $0$ とする Kronecker 記号とすれば、$(\nabla\cdot\sigma)_i=\sum_{j=1}^3\partial_j(-p\delta_{ij})=-\partial_i p$ だから、体積力を $-\nabla\Phi$ とした Euler 方程式は
 
 $$
 D_tu=-\frac1\rho\nabla p-\nabla\Phi.
@@ -59,7 +59,7 @@ $
 
 <a id="def-fluid9-material-circulation"></a>
 
-速度の輪に沿った**接線成分**を足すと、進行方向に沿う回り込みを測れる。逆向きに一周すれば値の符号は反転する。
+速度の輪に沿った**接線成分**を足すと、進行方向に沿う回り込みを測れる。線素 $d\ell=\partial_sX(s,t)\,ds$ は、時刻 $t$ を固定しパラメータ $s$ を増やしたときの微小変位である。逆向きに一周すれば値の符号は反転する。
 
 <!-- formal-statement-start -->
 ### 定義（物質閉曲線の循環）
