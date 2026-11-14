@@ -1,53 +1,29 @@
 chapter: U3-26
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-14, U3-15, U3-17, U3-18, U3-19, U3-25]
+prerequisites: [MC1, U3-14, U3-15, U3-17, U3-18, U3-19, U3-25]
 concepts:
-  - id: finance.monte-carlo-discounted-payoff
-    name: 独立な割引支払額による Monte Carlo 推定量
+  - id: finance.risk-neutral-mc-discounted-sample
+    name: リスク中立割引支払標本と価格の標本平均
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（独立な割引支払額による Monte Carlo 推定量）"]
-    requires: [finance.risk-neutral-terminal-value, finance.gbm-explicit-positive]
-  - id: finance.monte-carlo-unbiased-variance
-    name: 独立標本平均の不偏性・分散
+    introduction_aliases: ["定義（リスク中立割引支払標本と価格の標本平均）"]
+    requires: [finance.risk-neutral-terminal-value, finance.gbm-explicit-positive, numerical.monte-carlo-estimator]
+  - id: finance.discounted-payoff-finite-sample-unbiased-variance
+    name: 割引支払額の標本分散の有限標本不偏性
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（独立標本平均の不偏性・分散）"]
-    requires: [finance.monte-carlo-discounted-payoff]
-  - id: finance.monte-carlo-sample-standard-error
-    name: 不偏標本分散・推定標準誤差
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（不偏標本分散・推定標準誤差）"]
-    requires: [finance.monte-carlo-discounted-payoff]
-  - id: finance.monte-carlo-unbiased-sample-variance
-    name: 標本分散が不偏となる理由
+    introduction_aliases: ["命題（割引支払額の標本分散の有限標本不偏性）"]
+    requires: [finance.risk-neutral-mc-discounted-sample, numerical.monte-carlo-rmse, numerical.monte-carlo-standard-error]
+  - id: finance.gbm-call-asymptotic-price-interval
+    name: GBM 欧州 call の漸近95%価格区間
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（標本分散が不偏となる理由）"]
-    requires: [finance.monte-carlo-unbiased-variance, finance.monte-carlo-sample-standard-error]
-  - id: finance.monte-carlo-asymptotic-confidence
-    name: 標本標準誤差による漸近95%信頼区間
-    kind: proposition
-    introduction: formal
-    introduction_aliases: ["命題（標本標準誤差による漸近95%信頼区間）"]
-    requires: [finance.monte-carlo-unbiased-variance, finance.monte-carlo-unbiased-sample-variance]
-  - id: finance.monte-carlo-time-discretization-bias
-    name: 時間離散化バイアス
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（時間離散化バイアス）"]
-    requires: [finance.monte-carlo-discounted-payoff, finance.asian-integral-state]
-  - id: finance.monte-carlo-bias-variance-mse
-    name: 標本分散と時間バイアスの平均二乗誤差分解
-    kind: proposition
-    introduction: formal
-    introduction_aliases: ["命題（標本分散と時間バイアスの平均二乗誤差分解）"]
-    requires: [finance.monte-carlo-time-discretization-bias, finance.monte-carlo-unbiased-variance]
+    introduction_aliases: ["命題（GBM 欧州 call の漸近95%価格区間）"]
+    requires: [finance.risk-neutral-mc-discounted-sample, numerical.monte-carlo-clt, numerical.monte-carlo-standard-error-consistency, finance.gbm-real-moments]
   - id: finance.asian-right-grid-mean-bias
-    name: 非配当 K=0 Asian の右端平均バイアス
+    name: K=0 Asian の右端平均バイアス
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（非配当 K=0 Asian の右端平均バイアス）"]
-    requires: [finance.monte-carlo-time-discretization-bias, finance.asian-integral-state, finance.gbm-conditional-moments]
+    introduction_aliases: ["命題（K=0 Asian の右端平均バイアス）"]
+    requires: [finance.asian-integral-state, finance.gbm-conditional-moments, numerical.monte-carlo-bias-variance-decomposition]
