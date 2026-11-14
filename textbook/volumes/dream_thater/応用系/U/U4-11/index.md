@@ -213,15 +213,14 @@ P\!\left(\max_{1\le i\le k}|S_{t_i,N}-S_{t_i}|>\delta\right)
 E[(S_{t_i,N}-S_{t_i})^2]\longrightarrow0.
 $$
 
-したがって[確率収束の定義](../../../解析系/F0/F0-00P4/index.md#def-f0-00p4-probability-convergence)から、どの有限次元ベクトルも確率収束します。具体的に上式左辺の事象を $A_N$ とし、各成分の閾値を $x_1,\ldots,x_k$ とします。$\delta$ より大きい誤差が出ない場合は、極限値と有限和の大小関係は $\delta$ だけずらした閾値で挟めるので
+したがって[確率収束の定義](../../../解析系/F0/F0-00P4/index.md#def-f0-00p4-probability-convergence)から、どの有限次元ベクトルも確率収束します。具体的に上式左辺の事象を $A_N$ とし、各成分の閾値を $x_1,\ldots,x_k$ とします。$Q_N=P(S_{t_i,N}\le x_i\ \forall i=1,\ldots,k)$ と置きます。$\delta$ より大きい誤差が出ない場合は、極限値と有限和の大小関係は $\delta$ だけずらした閾値で挟めるので
 
 $$
-P(S_{t_i}\le x_i-\delta\ \text{（全 }i\text{）})-P(A_N)
-\le P(S_{t_i,N}\le x_i\ \text{（全 }i\text{）})
+P(S_{t_i}\le x_i-\delta\ \forall i=1,\ldots,k)-P(A_N)\le Q_N,
 $$
 
 $$
-\le P(S_{t_i}\le x_i+\delta\ \text{（全 }i\text{）})+P(A_N)
+Q_N\le P(S_{t_i}\le x_i+\delta\ \forall i=1,\ldots,k)+P(A_N)
 $$
 
 です。平行移動前後の有限和ベクトルはすべての $N$ で同分布なので、この不等式を両方に適用します。$N\to\infty$ で $P(A_N)\to0$ とし、閾値を動かしても同時確率が連続な点で $\delta\downarrow0$ とすれば、極限の同時確率も一致します。この一致する閾値から各有限次元の分布が決まるので、$S_t$ も $Y_t$ も強定常です。上で有限の二次モーメントを確認したので[狭義定常性から二次定常性への定理](../../../解析系/TSA/TSA1/index.md#thm-tsa1-strict-implies-second-order)が適用できます。
