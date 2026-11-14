@@ -23,10 +23,10 @@
     <circle cx="658" cy="155" r="106" fill="#eef4f6" stroke="#385766" stroke-width="2.5"/>
     <circle cx="658" cy="155" r="56" fill="#fff" stroke="#385766" stroke-width="3"/>
     <path d="M673 100 C654 94 630 101 616 116" fill="none" stroke="#1b709d" stroke-width="4" marker-end="url(#flow-head)"/>
-    <line x1="658" y1="155" x2="704" y2="123" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <line x1="658" y1="155" x2="714" y2="155" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
     <line x1="658" y1="155" x2="750" y2="208" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
     <circle cx="658" cy="155" r="3" fill="#25343d"/>
-    <text x="722" y="97" fill="#27343e" font-size="19">a</text>
+    <text x="728" y="164" fill="#27343e" font-size="19">a</text>
     <text x="785" y="251" fill="#27343e" font-size="19">b</text>
     <text x="552" y="35" fill="#1b709d" font-size="19">Ωᵢ</text>
   </g>
