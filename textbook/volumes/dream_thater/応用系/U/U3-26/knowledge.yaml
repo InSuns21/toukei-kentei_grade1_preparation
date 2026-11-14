@@ -22,8 +22,8 @@ concepts:
     introduction_aliases: ["命題（GBM 欧州 call の漸近95%価格区間）"]
     requires: [finance.risk-neutral-mc-discounted-sample, numerical.monte-carlo-clt, numerical.monte-carlo-standard-error-consistency, finance.gbm-real-moments]
   - id: finance.asian-right-grid-mean-bias
-    name: K=0 Asian の右端平均バイアス
+    name: 零行使価格 Asian の右端平均バイアス
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（K=0 Asian の右端平均バイアス）"]
+    introduction_aliases: ["命題（零行使価格 Asian の右端平均バイアス）"]
     requires: [finance.asian-integral-state, finance.gbm-conditional-moments, numerical.monte-carlo-bias-variance-decomposition]
