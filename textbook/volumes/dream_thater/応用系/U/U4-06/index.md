@@ -73,13 +73,13 @@ $$
 <!-- definition-example-start: def-u4-06-creation-basket -->
 **定義の確認**：銘柄順を（A、B）とし、次の条件を指定します。
 
-$
+$$
 M=10\in\mathbb N,\qquad q^c=q^r=(2,3)\in\mathbb Z_{\ge0}^2.
-$
+$$
 
-$
+$$
 c_c=c_r=40\in\mathbb R,\qquad f_c=2\ge0,\quad f_r=3\ge0.
-$
+$$
 
 各ベクトルの第1・第2成分はA株・B株の受渡株数なので、定義の非負整数条件を成分ごとに確認でき、$M$ はETF口数です。設定の参加者はA2株・B3株・40円・手続費用2円を支払い、ETF10口を得ます。交換の参加者はETF10口と手続費用3円を渡し、A2株・B3株・40円を得ます。**40円はETF1口の価格ではなく10口に対応する現金**です。ここでの対称バスケットは計算を分かりやすくする仮定であり、実際の指定条件は毎回確認します。
 <!-- definition-example-end -->
@@ -336,9 +336,9 @@ ETF10口の設定にA2株、B3株が必要で、ETFのbidと各銘柄askで売�
 <!-- solution-start -->
 **詳細解答**：[整数単位と板容量の命題](#prop-u4-06-capacity)に沿って数量を照合します。数量制約はA株 $2n\le7$、B株 $3n\le5$、ETF $10n\le19$、受付 $n\le4$ です。
 
-$
+$$
 n_{\max}=\min\{\lfloor7/2\rfloor,\lfloor5/3\rfloor,\lfloor19/10\rfloor,4\}=1.
-$
+$$
 
 $n=1$ の利益は $8-10=-2$ 円なので発注せず $n=0$ を選んだ利益0円が最良です。
 
