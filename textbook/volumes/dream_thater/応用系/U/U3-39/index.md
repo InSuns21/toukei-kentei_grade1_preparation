@@ -312,7 +312,19 @@ $V_{\min}>0$ で割れば結論です。
 
 <!-- formal-statement-start -->
 > **定義（IV の行使価格断面）**  
-> $s,\tau>0$、$r\in\mathbb R$、$q\ge0$ と満期を固定し、観測対象の行使価格を有限集合 $\mathcal K=\{K_1,\ldots,K_m\}\subset(0,\infty)$ とする。各 $K\in\mathcal K$ の call 観測価格 $c(K)$ が正の IV を持つとき、$\mathcal K$ 上の写像 $K\mapsto\sigma_{\rm IV}(K,\tau)$ を、その満期の IV 行使価格断面という。離散気配の定義では $c(K)$ の点間の値や連続・微分可能性は要求しない。
+> $s,\tau>0$、$r\in\mathbb R$、$q\ge0$ と満期を固定する。観測対象の行使価格を次の有限集合とする。
+
+$$
+\mathcal K=\{K_1,\ldots,K_m\}\subset(0,\infty).
+$$
+
+> 各 $K\in\mathcal K$ の call 観測価格 $c(K)$ が正の IV を持つとする。このとき写像
+
+$$
+\mathcal K\ni K\longmapsto\sigma_{\rm IV}(K,\tau)
+$$
+
+> をその満期の IV 行使価格断面という。離散気配では $c(K)$ の点間の値や連続・微分可能性は要求しない。
 <!-- formal-statement-end -->
 
 <a id="def-u3-39-smile-skew"></a>
@@ -421,7 +433,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（価格残差目的関数の導関数）**  
-> 前の定義で $C_{{\rm BS},i}(\sigma)=C_{\rm BS}(s,K_i,r_i,q_i,\tau_i;\sigma)$ とおき、$s,K_i,r_i,q_i,\tau_i$ を固定する。[Vega の定義](../U3-20/index.md#def-u3-20-greeks)に従い、元の多変数価格に対する偏微分は、この一変数関数の通常の微分と一致する。
+> 前の定義で契約 $i$ の $s,K_i,r_i,q_i,\tau_i$ を固定し、価格を一変数関数として書き直す。
+
+$$
+C_{{\rm BS},i}(\sigma)
+=C_{\rm BS}(s,K_i,r_i,q_i,\tau_i;\sigma).
+$$
+
+> [Vega の定義](../U3-20/index.md#def-u3-20-greeks)によれば、元の多変数価格の偏微分は、この一変数関数の通常の微分と一致する。
 
 $$
 V_i(\sigma)=\frac{d C_{{\rm BS},i}(\sigma)}{d\sigma}
