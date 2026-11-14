@@ -6,7 +6,11 @@
 
 ## 1. 周期とは何か
 
-$S$ を空でない有限状態空間、$P=(p(i,j))$ を行確率行列、$p^{(n)}(i,j)$ を $n$ 歩遷移確率とします。行 $i$・列 $j$ の成分 $p(i,j)$ は $i$ から $j$ への一歩遷移確率であり、初期分布を行ベクトル $\mu$ で表すと $n$ 歩後の分布は $\mu P^n$ です。$p^{(0)}(i,j)=\boldsymbol{1}_{\{i=j\}}$ です。これらは [Markov 連鎖の定義](../../STO/STO2A/index.md#def-sto2a-markov)と [Chapman–Kolmogorov の式](../../STO/STO2A/index.md#eq-sto2a-chapman-kolmogorov)から計算できます。
+$S$ を空でない有限状態空間、$P=(p(i,j))$ を行確率行列とします。行 $i$・列 $j$ の成分 $p(i,j)$ は、状態 $i$ から状態 $j$ へ一歩で移る確率です。
+
+$n$ 歩遷移確率を $p^{(n)}(i,j)$ と書きます。行ベクトルとして表した初期分布 $\mu$ に対し、$n$ 歩後の分布は $\mu P^n$ であり、$p^{(0)}(i,j)=\boldsymbol{1}_{\{i=j\}}$ です。
+
+これらは [Markov 連鎖の定義](../../STO/STO2A/index.md#def-sto2a-markov)と [Chapman–Kolmogorov の式](../../STO/STO2A/index.md#eq-sto2a-chapman-kolmogorov)から計算できます。
 
 帰還できる時刻が偶数に限られる状態は、奇数時刻にはその状態へ戻れません。帰還可能な正の時刻の最大公約数で、その繰り返し方を表します。
 
@@ -227,7 +231,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$R_o$ の帰還長を $a_1,a_2,\ldots$ と順に取り、$g_k=\gcd(a_1,\ldots,a_k)$ とします。$g_{k+1}$ は $g_k$ を割る正整数なので、$g_k$ はやがて一定値 $g$ になります。$g$ はすべての $a_k$ を割り、逆に全 $a_k$ の共通約数は各 $g_k$ を割るため、$g=\gcd R_o=1$ です。従って有限個の $a_1,\ldots,a_\ell\in R_o$ で $\gcd(a_1,\ldots,a_\ell)=1$ と選べます。$a=a_1$ とします。
+$R_o$ が空でないので、帰還長 $a_1\in R_o$ を取れます。帰還経路を繰り返せば任意の正整数 $k$ に対して $ka_1\in R_o$ であり、帰還長の集合は無限です。その元を $a_1,a_2,\ldots$ と順に取り、有限個までの最大公約数を
+
+$$
+g_k=\gcd(a_1,\ldots,a_k)
+$$
+
+とします。$g_{k+1}$ は $g_k$ を割る正整数なので、$g_k$ はやがて一定値 $g$ になります。この $g$ はすべての帰還長を割り、逆に全帰還長の共通約数は各 $g_k$ を割るため、$g=\gcd R_o=1$ です。
+
+従って有限個の $a_1,\ldots,a_\ell\in R_o$ で $\gcd(a_1,\ldots,a_\ell)=1$ と選べます。$a=a_1$ とします。
 
 各帰還長 $a_k$ を $a$ で割った余り（法 $a$ の剰余）で比較し、それらの非負整数係数の和で作れる剰余全体を $H$ とします。ここで $x\pmod a$ は $x$ を $a$ で割った余りを表します。
 
@@ -706,7 +718,13 @@ $$
 
 を満たします。[既約可算連鎖の正再帰性と不変確率分布](../SP4/index.md#thm-sp4-positive-recurrence-characterization)から一意です。
 
-**第2問。** $C$ の行 $i$・列 $j$ は、$i$ から時計回りに一歩で $j$ へ移る確率です。行列積 $(C^2)_{ij}=\sum_k C_{ik}C_{kj}$ は二歩後の遷移確率を表し、[Chapman–Kolmogorov の式](../../STO/STO2A/index.md#eq-sto2a-chapman-kolmogorov)と一致します。$IC=CI=C$、$C^3=I$ だから、積を一項ずつ展開すると
+**第2問。** $C$ の行 $i$・列 $j$ は、$i$ から時計回りに一歩で $j$ へ移る確率です。[Chapman–Kolmogorov の式](../../STO/STO2A/index.md#eq-sto2a-chapman-kolmogorov)による二歩後の確率は、行列積の成分
+
+$$
+(C^2)_{ij}=\sum_{k=0}^2 C_{ik}C_{kj}
+$$
+
+と一致します。$IC=CI=C$、$C^3=I$ だから、積を一項ずつ展開すると
 
 $$
 P_s^2=(sI+(1-s)C)^2
