@@ -16,7 +16,6 @@ theorems:
   - { id: MIR1-01-DEF-01, name: "本講で比較するA側とB側の入力" }
   - { id: MIR1-01-PROP-01, name: "複素化Kähler座標の指数と整数シフト" }
   - { id: MIR1-01-PROP-02, name: "滑らかなquinticの二種類の一次方向" }
-  - { id: MIR1-01-PROP-03, name: "Hodge数交換を仮定したEuler標数" }
 canonical_examples:
   - Fermat型五次の一パラメータ変形とJacobian商での非自明性
   - 超平面類HからbH+ivHを作りA側の入力条件を検査

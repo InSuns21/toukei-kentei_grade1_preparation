@@ -21,9 +21,3 @@ concepts:
     introduction: formal
     introduction_aliases: ["命題（滑らかなquinticの二種類の一次方向）"]
     requires: [cyg.quintic-all-first-order, cyg.quintic-kahler-ray, cyg.quintic-low-hodge]
-  - id: mirror.euler-under-hodge-exchange
-    name: Hodge数交換を仮定したEuler標数
-    kind: proposition
-    introduction: formal
-    introduction_aliases: ["命題（Hodge数交換を仮定したEuler標数）"]
-    requires: [mirror.quintic-two-directions]

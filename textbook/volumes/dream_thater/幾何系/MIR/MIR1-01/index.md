@@ -143,7 +143,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-滑らかな五次超曲面は複素三次元のコンパクトKähler多様体であり、[随伴公式と滑らかさ](../../CYG/CYG1-08/index.md#prop-cyg1-08-smooth-canonical)から $K_X\simeq\mathcal O_X$。よって[正則体積形式による同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-first-order-hodge)の条件を満たし、
+滑らかな五次超曲面は複素三次元のコンパクトKähler多様体であり、[滑らかな超曲面の随伴公式](../../CYG/CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)へ $d=5,m=4$ を代入して $K_X\simeq\mathcal O_X$。よって[正則体積形式による同型](../../CYG/CYG1-12/index.md#thm-cyg1-12-first-order-hodge)の条件を満たし、
 
 $$
 H^1(X,T_X)\simeq H^{2,1}(X)
@@ -163,41 +163,14 @@ $$
 
 となることである。ここで $Y$ の存在と二等式の実現は**仮定・予測**であり、前の二命題からの結論ではない。
 
-<a id="prop-mir1-01-euler-if-swap"></a>
-
-<!-- formal-statement-start -->
-> **命題（Hodge数交換を仮定したEuler標数）**
->
-> $X,Y$ を連結・滑らか・コンパクトな複素三次元Kähler多様体とし、双方で $K\simeq\mathcal O$、$h^{1,0}=h^{2,0}=0$ とする。さらに $h^{1,1}(Y)=h^{2,1}(X)$、$h^{2,1}(Y)=h^{1,1}(X)$ を仮定する。このとき
+この交換条件が成立し、$X,Y$ がともに連結・滑らか・コンパクトな複素三次元Kähler多様体、$K\simeq\mathcal O$、$h^{1,0}=h^{2,0}=0$ を満たすなら、既習の[Hodge数交換がEuler標数へ与える帰結](../../CYG/CYG1-14/index.md#prop-cyg1-14-mirror-euler)をそのまま適用できる。同命題の $X,Y$ に本講の $X,Y$ を対応させ、$a=h^{1,1}(X)$、$b=h^{2,1}(X)$ と置くと
 
 $$
-\chi_{\mathrm{top}}(Y)=-\chi_{\mathrm{top}}(X).
+\chi_{\mathrm{top}}(X)=2(a-b),\qquad
+\chi_{\mathrm{top}}(Y)=2(b-a)=-\chi_{\mathrm{top}}(X).
 $$
 
-> 特に $X$ が滑らかなquinticなら $\chi_{\mathrm{top}}(X)=-200$、$\chi_{\mathrm{top}}(Y)=200$ であり、$Y$ のHodge数の組は $(h^{1,1},h^{2,1})=(101,1)$ となる。
-<!-- formal-statement-end -->
-
-### 証明の見取り図
-
-[三次元のEuler標数公式](../../CYG/CYG1-14/index.md#prop-cyg1-14-euler-hodge)を双方に使い、交換で差の符号が反転することを代入で確認する。
-
-<!-- proof-start -->
-### 証明
-
-仮定によって $X,Y$ は[三次元のEuler標数公式](../../CYG/CYG1-14/index.md#prop-cyg1-14-euler-hodge)の全条件を満たす。$a=h^{1,1}(X)$、$b=h^{2,1}(X)$ と置くと
-
-$$
-\chi_{\mathrm{top}}(X)=2(a-b).
-$$
-
-交換仮定から $h^{1,1}(Y)=b$、$h^{2,1}(Y)=a$。従って
-
-$$
-\chi_{\mathrm{top}}(Y)=2(b-a)=-2(a-b)=-\chi_{\mathrm{top}}(X).
-$$
-
-滑らかなquinticでは[Hodge数計算](../../CYG/CYG1-08/index.md#prop-cyg1-08-hodge-diamond)から $(a,b)=(1,101)$ なので、$2(1-101)=-200$、$2(101-1)=200$。$\square$
-<!-- proof-end -->
+quinticでは $a=1$、$b=101$ を代入して $\chi_{\mathrm{top}}(X)=-200$、$\chi_{\mathrm{top}}(Y)=200$ と**条件付きで**計算する。$Y$ のHodge数は $(101,1)$ と予測されるが、数値の計算は存在の証明ではない。ここで既習の命題を使うのは、同じ証明を別名の定理として作り直す必要がないからである。
 
 **何をまだ証明していないか。** Hodge数は変形空間の一次元数を与えるが、周期の解析接続・正則3形式の規格化・曲線計数の全係数は決めない。Hodge数交換を満たすというだけで、二つの多様体の観測量が一致する「ミラー対応」を証明したことにはならない。また物理学におけるA/B模型の対応から、全Calabi–Yauに適用できる単一の数学的定理を直ちに導くこともできない。
 
