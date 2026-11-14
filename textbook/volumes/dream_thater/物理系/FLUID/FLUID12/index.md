@@ -18,7 +18,14 @@ u_r=\partial_r\phi,\quad u_\theta=\frac1r\partial_\theta\phi,\qquad
 u_r=\frac1r\partial_\theta\psi,\quad u_\theta=-\partial_r\psi.
 $$
 
-最後の二式は $\psi_x=-u_y,\ \psi_y=u_x$ を $x=r\cos\theta,\ y=r\sin\theta$ で連鎖律により変換したものである。例えば
+極座標での偏微分は、$x=r\cos\theta,\ y=r\sin\theta$ を使い、$r$ で微分するときは $\theta$ を、$\theta$ で微分するときは $r$ を固定する。$\partial_r(x,y)=e_r,\ \partial_\theta(x,y)=re_\theta$ なので、連鎖律から
+
+$$
+\partial_r\phi=\nabla\phi\cdot e_r=u_r,\qquad
+\partial_\theta\phi=\nabla\phi\cdot(re_\theta)=ru_\theta.
+$$
+
+最後の二式も、$\psi_x=-u_y,\ \psi_y=u_x$ を同じ座標変換で微分したものである。例えば
 
 $$
 \frac{\partial\psi}{\partial\theta}
@@ -28,7 +35,7 @@ $$
 
 残りの式も $\partial_r\psi=\psi_x\cos\theta+\psi_y\sin\theta=-u_\theta$ で確かめられる。
 
-[非圧縮条件](../../../幾何系/VC/VC9/index.md#def-vc9-incompressible) $\nabla\cdot u=0$ と[無渦条件](../../../幾何系/VC/VC9/index.md#def-vc9-vorticity) $\nabla\times u=0$ をともに課すと、$\nabla\cdot\nabla\phi=\Delta\phi=0$ となる。ここで $\Delta=\partial_x^2+\partial_y^2$ を平面 Laplace 作用素とする。この $Deltaphi=0$ を満たすかどうかを、以下の具体例ごとに微分で確認する。原点で発散する関数は、原点を除いた領域でだけこの模型を満たす。
+[非圧縮条件](../../../幾何系/VC/VC9/index.md#def-vc9-incompressible) $\nabla\cdot u=0$ と[無渦条件](../../../幾何系/VC/VC9/index.md#def-vc9-vorticity) $\nabla\times u=0$ をともに課すと、$\nabla\cdot\nabla\phi=\Delta\phi=0$ となる。ここで $\Delta=\partial_x^2+\partial_y^2$ を平面 Laplace 作用素とする。この $\Delta\phi=0$ を満たすかどうかを、以下の具体例ごとに微分で確認する。原点で発散する関数は、原点を除いた領域でだけこの模型を満たす。
 
 最後の圧力計算では、密度 $\rho>0$ [kg/m$^3$] が一定、粘性なし、定常、水平面内、体積力のポテンシャルが一定という模型を追加する。圧力 $p$ は Pa、遠方一様流の速さ $U>0$ と圧力 $p_\infty$ を指定する。重力がある場合も同一高さで比較する。
 
@@ -95,6 +102,16 @@ $\nabla\phi_U=(U,0)$、$(\psi_{U,y},-\psi_{U,x})=(U,0)$ を直接確認できる
 
 原点からすべての方向へ等しく流体が出てくる理想化を考える。半径 $R$ の円を毎秒横切る**単位奥行き当たりの体積流量**を $Q$ [m$^2$/s] とする。$Q>0$ は湧出、$Q<0$ は吸込である。これは原点に特異点を持つ平面模型であり、原点に有限な速度を持つ流体場を主張していない。
 
+この速度は円周上で半径方向を向き、その大きさ $u_r(R)$ は角度によらないとする。[閉曲線の速度流束の定義](../FLUID11/index.md#def-fluid11-loop-flux)で円周上の外向き法線 $n=e_r$ と $ds=R\,d\theta$ を代入すれば
+
+$$
+Q=\int_0^{2\pi}u_r(R)R\,d\theta
+=2\pi R\,u_r(R),\qquad
+u_r(r)=\frac{Q}{2\pi r},\quad u_\theta=0.
+$$
+
+速度ポテンシャルは $u_r=\partial_r\phi$、$u_\theta=r^{-1}\partial_\theta\phi$ を満たすので、$r>0$ で半径方向に積分すると $\phi=(Q/(2\pi))\log(r/r_0)$ を得る。$r_0>0$ は対数の中身を無次元にする基準長であり、加法定数を固定するために選ぶ。
+
 <a id="def-fluid12-point-source"></a>
 
 <!-- formal-statement-start -->
@@ -119,11 +136,11 @@ $$
 <!-- formal-statement-start -->
 ### 命題（点湧出の流束と大域的流れ関数の障害）
 
-$D=\mathbb R^2\setminus\{0\}$、$Q\in\mathbb R$ とし、上の点湧出・吸込速度 $u_Q=(Q/(2\pi r))e_r$ を考える。この場は $D$ 上で発散・渦度とも零である。反時計回りの任意の原点中心円 $C_R$（$R>0$）について
+$D=\mathbb R^2\setminus\{0\}$、$Q\in\mathbb R$ とし、上の点湧出・吸込速度 $u_Q=(Q/(2\pi r))e_r$ を考える。この場は $D$ 上で発散・渦度とも零である。反時計回りの任意の原点中心円 $C_R$（$R>0$）について、円周に沿う向き付きの**ベクトル**変位を $\mathrm d\boldsymbol{\ell}$ と書けば
 
 $$
 \oint_{C_R}u_Q\cdot n\,ds=Q,\qquad
-\oint_{C_R}u_Q\cdot dr=0.
+\oint_{C_R}u_Q\cdot\mathrm d\boldsymbol{\ell}=0.
 $$
 
 局所的な流れ関数は $\psi_Q=(Q/(2\pi))\theta$ と書けるが、$Q\ne0$ なら $D$ 全域で一価な流れ関数はない。
@@ -151,7 +168,7 @@ $$
 =\int_0^{2\pi}\frac{Q}{2\pi R}R\,d\theta=Q.
 $$
 
-一方 $dr=Re_\theta\,d\theta$ で $u_Q\cdot e_\theta=0$ だから循環は零。角度を連続に選んだ小領域で $\psi_Q=(Q/(2\pi))\theta$ とすると $(1/r)\psi_{\theta}=u_r,\ -\psi_r=u_\theta=0$ である。$Q\ne0$ のとき $\theta$ を $2\pi$ 増やすと $\psi_Q$ は $Q$ 変わり、[FLUID11 の大域判定定理](../FLUID11/index.md#thm-fluid11-global-period)とも一致する。
+一方、円周上の位置ベクトルを $\boldsymbol{\ell}(\theta)=(R\cos\theta,R\sin\theta)$ と置くと、$\theta$ を変数として $\mathrm d\boldsymbol{\ell}=(\mathrm d\boldsymbol{\ell}/\mathrm d\theta)\,\mathrm d\theta=Re_\theta\,\mathrm d\theta$ である。$u_Q\cdot e_\theta=0$ だから循環は零。角度を連続に選んだ小領域で $\psi_Q=(Q/(2\pi))\theta$ とすると $(1/r)\psi_{\theta}=u_r,\ -\psi_r=u_\theta=0$ である。$Q\ne0$ のとき $\theta$ を $2\pi$ 増やすと $\psi_Q$ は $Q$ 変わり、[FLUID11 の大域判定定理](../FLUID11/index.md#thm-fluid11-global-period)とも一致する。
 <!-- proof-end -->
 
 ここでの「湧出」は、領域 $D$ の**外にある原点**を通して流体を供給する数学的な境界条件である。$r=0$ を含めて「発散零だから流体は生まれていない」と推論するのは誤りである。基準長 $r_0$ は $\phi_Q$ の加法定数を変えるだけで速度・流束を変えない。
@@ -187,11 +204,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid12-doublet -->
-**定義の確認**：$x\ne0,\ y=0$ 上では $\phi_D=\mu/x$、したがって $u_{D,x}=-\mu/x^2$、$u_{D,y}=0$。直交座標での完全な計算は
+**定義の確認**：定義にある $u_D=\nabla\phi_D$ を判定するには、$r^2=x^2+y^2$ を用いて $\phi_D=\mu x/r^2$ の $x,y$ 偏微分をそれぞれ求める。$r>0$ で商の微分則から
+
+$$
+\partial_x\frac{x}{r^2}=\frac{r^2-2x^2}{r^4}
+=\frac{y^2-x^2}{r^4},\qquad
+\partial_y\frac{x}{r^2}=-\frac{2xy}{r^4}.
+$$
+
+よって直交座標での速度は
 
 $$
 u_D=\left(\frac{\mu(y^2-x^2)}{r^4},-\frac{2\mu xy}{r^4}\right).
 $$
+
+特に $x\ne0,\ y=0$ 上では $\phi_D=\mu/x$、$u_{D,x}=-\mu/x^2$、$u_{D,y}=0$。また分母 $r^4$ は定義域 $D$ 上で零にならず、$\phi_D$ と $u_D$ はその全域で滑らかである。調和性は次の命題の証明で確認する。
 
 特に $(x,y)=(a,0)$（$a>0$）で $u_D=(-\mu/a^2,0)$ となる。両軸に沿う速度が同一符号とは限らない点に注意する。
 <!-- definition-example-end -->
@@ -254,14 +281,22 @@ u_{D,r}=-\frac{\mu\cos\theta}{r^2},\qquad
 u_{D,\theta}=-\frac{\mu\sin\theta}{r^2}.
 $$
 
-一方、[流れ関数の定義](../../../幾何系/VC/VC9/index.md#def-vc9-stream-function)から
+一方、[流れ関数の定義](../../../幾何系/VC/VC9/index.md#def-vc9-stream-function)は $\partial_\theta\psi_D=ru_{D,r}$ と $-\partial_r\psi_D=u_{D,\theta}$ に対応する。まず $r$ を固定して $\theta$ で積分すると
+
+$$
+\partial_\theta\psi_D=-\frac{\mu\cos\theta}{r}
+\quad\Longrightarrow\quad
+\psi_D=-\frac{\mu\sin\theta}{r}+f(r).
+$$
+
+この式を $r$ で微分して $-\partial_r\psi_D=-\mu\sin\theta/r^2-f'(r)$ とすると、先に求めた $u_{D,\theta}=-\mu\sin\theta/r^2$ に一致するためには $f'(r)=0$ が必要である。加法定数を零に選び、
 
 $$
 \psi_D=-\frac{\mu\sin\theta}{r}
 =-\frac{\mu y}{r^2}
 $$
 
-と置くと $(1/r)\psi_{D,\theta}=u_{D,r}$、$-\psi_{D,r}=u_{D,\theta}$。$\psi_D$ は原点以外で一価であり、原点中心の円を貫く総流束は $\int_0^{2\pi}u_{D,r}r\,d\theta=0$ となる。**湧出と吸込の正味流束が打ち消された**ことが、点湧出との本質的な違いである。
+を得る。したがって $(1/r)\psi_{D,\theta}=u_{D,r}$、$-\psi_{D,r}=u_{D,\theta}$ がともに成立する。$\psi_D$ は原点以外で一価であり、原点中心の円を貫く総流束は $\int_0^{2\pi}u_{D,r}r\,d\theta=0$ となる。**湧出と吸込の正味流束が打ち消された**ことが、点湧出との本質的な違いである。
 
 ## 4. 一様流と二重湧出から円柱まわりを作る
 
@@ -515,7 +550,7 @@ $$
 -\psi_x=-\frac{2\mu xy}{r^4}=u_y.
 $$
 
-したがって両成分について流れ関数の定義を満たす。原点は定義域外である。
+したがって両成分について[流れ関数の定義](../../../幾何系/VC/VC9/index.md#def-vc9-stream-function)を満たす。原点は定義域外である。
 <!-- solution-end -->
 
 ### A4. 円柱表面の速度と圧力
@@ -527,7 +562,7 @@ $U=2\,\mathrm{m/s}$、$\rho=1000\,\mathrm{kg/m^3}$ の循環なし円柱ポテ�
 <!-- solution-start -->
 #### 詳細解答
 
-[円柱速度](#thm-fluid12-cylinder)の表面値は $u_r=0,\ u_\theta=-2U\sin\theta$ である。$\theta=\pi$ では $\sin\pi=0$ より $|u|=0$。動圧は $\rho U^2/2=1000\cdot4/2=2000\,\mathrm{Pa}$ だから Bernoulli より $p-p_\infty=2000\,\mathrm{Pa}$。
+[円柱速度](#thm-fluid12-cylinder)の表面値は $u_r=0,\ u_\theta=-2U\sin\theta$ である。$\theta=\pi$ では $\sin\pi=0$ より $|u|=0$。動圧は $\rho U^2/2=1000\cdot4/2=2000\,\mathrm{Pa}$ だから[全域 Bernoulli 定数](../FLUID6/index.md#cor-fluid6-global-bernoulli)より $p-p_\infty=2000\,\mathrm{Pa}$。
 
 $\theta=\pi/2$ では $u_\theta=-4\,\mathrm{m/s}$、速さは $4\,\mathrm{m/s}$。よって
 
