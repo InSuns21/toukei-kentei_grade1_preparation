@@ -1,6 +1,9 @@
 chapter: FLUID11
 scope: dream-theater
 coverage: complete
+# 平面での閉曲線縮約条件を本文で明示し、一般の位相幾何は予告のみ。
+forward_references:
+  - topology.simply-connected
 prerequisites:
   - FLUID10
   - VC9
