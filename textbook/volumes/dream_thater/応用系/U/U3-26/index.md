@@ -199,7 +199,25 @@ $$
 T_n=\frac{\sqrt n(\widehat V_n-V_0)/\nu}{s_n/\nu}
 $$
 
-です。中心極限定理と $s_n/\nu\xrightarrow{P}1$ による Slutsky の定理を適用でき、分母0の例外事象は確率 $p_0^n\to0$ なので $T_n\xrightarrow{d}N(0,1)$ を得ます。$s_n>0$ なら $|T_n|\le1.96$ と $V_0\in I_n$ は同値であり、
+です。これを引用だけで済ませず、比の極限を確かめます。$Z_n=\sqrt n(\widehat V_n-V_0)/\nu$、$R_n=s_n/\nu$ と置くと、$Z_n\xrightarrow{d}N(0,1)$ なので $Z_n$ は確率的に有界であり、$R_n\xrightarrow{P}1$ です。$0<\varepsilon<1$、$M>0$ とし、$|Z_n|\le M$、$|R_n-1|\le\varepsilon$ の事象上で
+
+$$
+\left|\frac{Z_n}{R_n}-Z_n\right|
+=|Z_n|\frac{|1-R_n|}{R_n}
+\le\frac{M\varepsilon}{1-\varepsilon}.
+$$
+
+正規極限から大きな $M$ の外側の確率を小さくでき、$R_n$ が1から $\varepsilon$ 以上離れる確率も0へ収束します。$s_n=0$ の確率も $p_0^n\to0$ なので、以上から $T_n-Z_n\xrightarrow{P}0$ です。任意の $x\in\mathbb R$ と $\delta>0$ で分布関数を
+
+$$
+\begin{aligned}
+\Pr(Z_n\le x-\delta)-\Pr(|T_n-Z_n|>\delta)
+&\le\Pr(T_n\le x)\\
+&\le\Pr(Z_n\le x+\delta)+\Pr(|T_n-Z_n|>\delta)
+\end{aligned}
+$$
+
+と挟み、$n\to\infty$ の後に $\delta\downarrow0$ とすれば、正規分布関数の連続性から $T_n\xrightarrow{d}N(0,1)$ が従います。$s_n>0$ なら $|T_n|\le1.96$ と $V_0\in I_n$ は同値であり、
 
 $$
 \left|\Pr(V_0\in I_n)-\Pr(|T_n|\le1.96)\right|
