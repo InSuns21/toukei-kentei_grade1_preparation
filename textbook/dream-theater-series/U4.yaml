@@ -18,7 +18,7 @@ chapters:
   - { id: U4-11, path: textbook/volumes/dream_thater/応用系/U/U4-11, status: completed, title: "価格・対数価格・収益率の定常性を分ける" }
   - { id: U4-12, path: textbook/volumes/dream_thater/応用系/U/U4-12, status: completed, title: "単位根検定とその限界" }
   - { id: U4-13, path: textbook/volumes/dream_thater/応用系/U/U4-13, status: completed, title: "2系列の共和分とEngle–Granger法" }
-  - { id: U4-14, path: textbook/volumes/dream_thater/応用系/U/U4-14, status: planned, title: "多変量共和分と誤差修正表現" }
+  - { id: U4-14, path: textbook/volumes/dream_thater/応用系/U/U4-14, status: completed, title: "多変量共和分と誤差修正表現" }
   - { id: U4-15, path: textbook/volumes/dream_thater/応用系/U/U4-15, status: planned, title: "統計残差を取引可能なspreadに変える" }
   - { id: U4-16, path: textbook/volumes/dream_thater/応用系/U/U4-16, status: planned, title: "平均回帰の速度・閾値・保有期間" }
   - { id: U4-17, path: textbook/volumes/dream_thater/応用系/U/U4-17, status: planned, title: "非線形・閾値共和分とレジーム変化" }
