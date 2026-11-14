@@ -39,6 +39,6 @@
   <text x="492" y="18" text-anchor="middle" font-size="16" fill="#222" font-family="Arial, sans-serif">Regular 4x4 grid</text>
   <text x="142" y="254" text-anchor="middle" font-size="14" fill="#222" font-family="Arial, sans-serif">u1</text>
   <text x="492" y="254" text-anchor="middle" font-size="14" fill="#222" font-family="Arial, sans-serif">u1</text>
-  <text x="26" y="139" text-anchor="middle" font-size="14" fill="#222" font-family="Arial, sans-serif">u2</text>
-  <text x="376" y="139" text-anchor="middle" font-size="14" fill="#222" font-family="Arial, sans-serif">u2</text>
+  <text x="14" y="139" text-anchor="middle" font-size="14" fill="#222" font-family="Arial, sans-serif">u2</text>
+  <text x="364" y="139" text-anchor="middle" font-size="14" fill="#222" font-family="Arial, sans-serif">u2</text>
 </svg>
