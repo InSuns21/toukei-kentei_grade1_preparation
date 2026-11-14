@@ -39,7 +39,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-09-deformation-obstruction -->
-**定義の確認**。定数写像 $u:\mathbb P^1\to X$、$u(z)=x$ なら $E\simeq\mathcal O^{\oplus m}$。既習の[射影直線上の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から $H^0(\mathcal O)=\mathbb C$、$H^1(\mathcal O)=0$。したがって $H^0(E)=T_xX$（複素次元 $m$）、$H^1(E)=0$ であり、一次変形は値 $x$ を標的内で動かすことに対応する。例えば局所座標で $x=(x^1,\ldots,x^m)$ とし、$x(t)=x+t v$ とすると導関数 $v$ は定義域全体で一定の切断になる。
+**定義の確認**。定数写像 $u:\mathbb P^1\to X$ の値を $x$ とする。引き戻し接束は $E\simeq\mathcal O^{\oplus m}$ である。[射影直線上の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から
+
+$
+H^0(\mathbb P^1,E)\simeq T_xX,\qquad
+H^1(\mathbb P^1,E)=0.
+$
+
+従って一次変形は、標的における定数値 $x$ の動きである。局所座標で $x=(x^1,\ldots,x^m)$ とし、$x(t)=x+tv$ と置くと、$t=0$ での導関数 $v$ は定義域全体で一定の正則切断になる。
 <!-- definition-example-end -->
 
 <a id="prop-gw1-09-first-order"></a>
@@ -473,7 +480,21 @@ $$
 $\mathbb P^1$ 上の $\mathcal O(3)$ と $\mathcal O(-2)$ について $h^0,h^1$ をそれぞれ求め、どちらが大域生成されるか判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)より、$h^0(\mathcal O(d))=\max(d+1,0)$、$h^1(\mathcal O(d))=\max(-d-1,0)$。$d=3$ を入れると $(h^0,h^1)=(4,0)$、$d=-2$ なら $(0,1)$。$\mathcal O(3)$ は $Z^3,W^3$ が各点で少なくとも一方非零であり、各繊維の任意値を張るので[大域生成の定義](#def-gw1-09-globally-generated)を満たす。$\mathcal O(-2)$ は大域切断が零しかないのに各繊維は非零だから満たさない。
+**詳細解答**。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)では、整数 $d$ に対する次元公式は
+
+$
+h^0(\mathcal O(d))=\max(d+1,0),\qquad
+h^1(\mathcal O(d))=\max(-d-1,0).
+$
+
+これへ $d=3$ と $d=-2$ を順に代入すると
+
+$
+(h^0(\mathcal O(3)),h^1(\mathcal O(3)))=(4,0),\qquad
+(h^0(\mathcal O(-2)),h^1(\mathcal O(-2)))=(0,1).
+$
+
+$\mathcal O(3)$ の大域切断 $Z^3,W^3$ は、射影直線の各点で少なくとも一方が非零である。その値をスカラー倍すれば繊維の任意の値が得られ、[大域生成の定義](#def-gw1-09-globally-generated)を満たす。対して $\mathcal O(-2)$ の大域切断は零しかないのに繊維は一次元なので、大域生成されない。
 <!-- solution-end -->
 
 <a id="ex-gw1-09-a02"></a>
@@ -493,7 +514,21 @@ $\mathbb P^1\to\mathbb P^4$ の定数正則写像 $u$ について $h^0(u^*T\mat
 次数2の正則写像 $u:\mathbb P^1\to\mathbb P^2$ について、接Euler列の引き戻しを書き、$h^0(u^*T\mathbb P^2)$ と $h^1$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)を引き戻すと $0\to\mathcal O\to\mathcal O(2)^{\oplus3}\to E\to0$。$H^1(\mathcal O)=H^1(\mathcal O(2))=0$ だから[長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)で $H^1(E)=0$。$H^0$ では $1$ 次元の $H^0(\mathcal O)$ を $3\cdot3=9$ 次元から引き、$h^0(E)=8$ を得る。[射影空間の定理](#thm-gw1-09-projective-convex)の $(n+1)(d+1)-1=3\cdot3-1=8$ とも一致する。
+**詳細解答**。[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)を次数2の写像で引き戻すと
+
+$
+0\to\mathcal O\to\mathcal O(2)^{\oplus3}\to E\to0
+$
+
+を得る。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)により、左二束の一次コホモロジーは零である。[長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)を使えば
+
+$
+H^1(E)=0,\qquad
+h^0(E)=3h^0(\mathcal O(2))-h^0(\mathcal O)
+=3\cdot3-1=8.
+$
+
+これは[射影空間の凸性と変形次元](#thm-gw1-09-projective-convex)の公式へ $n=2,d=2$ を代入した値とも一致する。
 <!-- solution-end -->
 
 <a id="ex-gw1-09-a04"></a>
@@ -555,7 +590,22 @@ $\mathbb P^1\to\mathbb P^1$ の次数3写像に、相異なる二つの標点を
 $\mathbb P^3$ への次数2写像に三つの相異なる標点を付け、写像と標点の組の自己同型が有限とする。$h^0$、$h^1$、商の局所次元を二通りの式で計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。[射影空間の定理](#thm-gw1-09-projective-convex)で $n=3,d=2$ とすると $h^0=4\cdot3-1=11$、$h^1=0$。三つの標点の自由度を足して、球面の座標変換の三次元を引くと $11+3-3=11$。他方、$\mathbb P^3$ の $c_1(T\mathbb P^3)=(3+1)H$ は[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から従うので $c_1\cdot\beta=4\cdot2=8$。ゆえに[局所次元公式](#prop-gw1-09-smooth-map-locus)は $3-3+8+3=11$。両者が一致する。
+**詳細解答**。[射影空間の凸性と変形次元](#thm-gw1-09-projective-convex)に $n=3,d=2$ を代入すると
+
+$
+h^0(E)=4\cdot3-1=11,\qquad h^1(E)=0.
+$
+
+三標点の自由度を加え、再パラメータ化群の三次元を差し引くと商の局所次元は $11+3-3=11$。
+
+一方、[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から $\mathbb P^3$ の第一Chern類は $c_1(T\mathbb P^3)=4H$ となる。次数2なのでその曲線類との対は $4\cdot2=8$。[局所次元の命題](#prop-gw1-09-smooth-map-locus)へ代入すれば
+
+$
+m-3+c_1(T\mathbb P^3)\cdot\beta+k
+=3-3+8+3=11,
+$
+
+となり、二通りの計算が一致する。
 <!-- solution-end -->
 
 ### Level C
