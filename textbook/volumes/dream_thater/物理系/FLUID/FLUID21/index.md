@@ -425,7 +425,7 @@ $$
 
 この候補場では
 
-$
+$$
 u_{xx}=\frac{Ue^{-\zeta}}{4x^2}\zeta(3-\zeta),
 \qquad
 u_{yy}=-\frac{Ue^{-\zeta}}{d(x)^2}.
