@@ -29,7 +29,13 @@ $$
 **定義の確認**。$Y=\mathbb A^1$、$V=Y\times\mathbb C$ では $n=r=1$ なので $v=0$。$s=x$ と $s=x^2$ はともに期待次元0だが、後者には長さ2の零点がある。$s\equiv0$ なら $Z=Y$ は実際に1次元であり、それでも $v=0$ と数える。この定義は「現実の次元を必ず返す公式」ではない。
 <!-- definition-example-end -->
 
-各零点 $z\in Z$ で接空間と障害の候補を求めるには、局所方程式の一次部分を見る。
+各零点 $z\in Z$ で接空間と障害の候補を求めるには、局所方程式の一次部分を見る。ここで **Zariski接空間** は、双対数環 $\mathbb C[\varepsilon]/(\varepsilon^2)$ 上の一次変形 $z+\varepsilon a$（$a\in T_zY$）のうち、零点方程式を満たす方向全体として捉える。局所座標 $x_1,\ldots,x_n$ と束の局所枠で $s=(f_1,\ldots,f_r)$ と表示すると、切断の微分 $ds_z:T_zY\to V_z$ は Jacobian 行列
+
+$
+J_s(z)=\left(\frac{\partial f_i}{\partial x_j}(z)\right)_{\substack{1\le i\le r\\1\le j\le n}}
+$
+
+が表す線形写像であり、$ds_z(a)$ の第 $i$ 成分は $\sum_j(\partial f_i/\partial x_j)(z)a_j$ となる。零点では $f_i(z)=0$ なので、束の枠を取り替えたときに現れる枠の微分項も消え、核・余核の意味は表示の選択によらない。ここで余核 $\operatorname{coker}ds_z=V_z/\operatorname{im}ds_z$ は、一次変形で打ち消せない値域方向を表す。
 
 <a id="prop-gw1-20-zero-tangent-obstruction"></a>
 
@@ -61,7 +67,7 @@ f_i(z+\varepsilon a)
 =\varepsilon(ds_z(a))_i.
 $$
 
-従って、すべての $f_i$ が零となる一次変形の条件は $ds_z(a)=0$ であり、接空間は核である。方程式の右辺を一次だけ $\varepsilon b$ ずらした変形で必要となる条件は $ds_z(a)=-b$。解があるための必要十分条件は、$b$ の $\operatorname{coker}ds_z=V_z/\operatorname{im}ds_z$ での類が零となることなので、余核を一次障害の候補と読める。ただしこれだけで高次障害のすべてを分類したわけではない。
+従って、すべての $f_i$ が零となる一次変形の条件は $ds_z(a)=0$ であり、接空間は核である。切断を $s_\varepsilon=s+\varepsilon b$（$b\in V_z$ は局所枠による一次の摂動）へ変えて零点条件 $s_\varepsilon(z+\varepsilon a)=0$ を課すと、$\varepsilon(ds_z(a)+b)=0$ から $ds_z(a)=-b$ が必要になる。解があるための必要十分条件は、$b$ の $\operatorname{coker}ds_z=V_z/\operatorname{im}ds_z$ での類が零となることなので、余核を一次障害の候補と読める。ただしこれだけで高次障害のすべてを分類したわけではない。
 
 $ds_z$ の階数を $\rho$ とすると、像の次元を $\rho$ と置いて核と余核をそれぞれ数えると
 
@@ -161,7 +167,16 @@ $$
 
 がある。実際、右辺の次数 $q$ の任意の元は $f_{i_1}\cdots f_{i_q}$ の $\mathcal O_Z$ 線形結合で表せる。相対スペクトルは全射を閉埋め込みへ反転するから、左辺から定まる束の全空間 $V|_Z$ に正規錐が閉埋め込まれる。
 
-$s$ の成分が正則列なら、[正規束と接完全列](../../../代数系/AG/AG2-10/index.md#thm-ag2-10-normal-tangent)で用いた正則埋め込みの局所的性質により、上の次数付き代数は $\operatorname{Sym}(I/I^2)$ となり、$I/I^2\simeq V^\vee|_Z$ だから正規錐は正規束 $V|_Z$ である。最後に $s=0$ なら $I=0$ で正の次数の部分が消え、$\operatorname{Spec}_Z\mathcal O_Z=Z$ が束の零切断として入る。
+$s$ の成分 $f_1,\ldots,f_r$ が正則列なら、各 $f_i$ はそれ以前の $f_1,\ldots,f_{i-1}$ で割った環で零因子でない。これにより、局所環 $R=\mathcal O_{Y,z}$ では $I/I^2$ の $f_i$ の類が自由基底となり、各 $q\ge0$ で
+
+$
+\operatorname{Sym}^q_{R/I}(I/I^2)
+\xrightarrow{\ \simeq\ }I^q/I^{q+1},\qquad
+\overline{f}_{i_1}\cdots\overline{f}_{i_q}
+\longmapsto f_{i_1}\cdots f_{i_q}\bmod I^{q+1}
+$
+
+が成り立つ。次数1は生成元の関係を正則性で調べ、次数 $q$ では一つの $f_i$ を取り出して同じ議論を繰り返す。例えば $r=1$ なら、$af^q\in(f^{q+1})$ から $f$ の非零因子性により $a\in(f)$ が従い、各次数の独立性を直接確認できる。一般の $r$ についても正則列の逐次的な非零因子性を用いた帰納法が対応する。従って $\operatorname{gr}_I(R)\simeq\operatorname{Sym}_{R/I}(I/I^2)$ であり、$I/I^2\simeq V^\vee|_Z$ だから正規錐は正規束 $V|_Z$ である。[超曲面の正規束と接完全列](../../../代数系/AG/AG2-10/index.md#thm-ag2-10-normal-tangent)は、$r=1$ かつ滑らかな超曲面での対応する既習例であり、一般の正則列の場合をその定理だけから推論しているわけではない。最後に $s=0$ なら $I=0$ で正の次数の部分が消え、$\operatorname{Spec}_Z\mathcal O_Z=Z$ が束の零切断として入る。
 <!-- proof-end -->
 
 この命題の意味は、零点が**横断的であれば束の全部を使う正規束**、方程式が恒等的に消える場合は**束の零切断**となることだ。錐がどこにあるかで「過剰に残った方向」を区別できる。
@@ -334,7 +349,7 @@ $$
 
 ## 6. 安定写像へ戻して期待次元を検算する
 
-滑らかな複素射影多様体 $X$ の複素次元を $m$、曲線類を $\beta$、種数を $g$、標点数を $k$ とする。[安定写像の定義](../GW1-08/index.md#def-gw1-08-stable-map)に沿って、標点付き安定写像のモジュライを $M=\overline{\mathcal M}_{g,k}(X,\beta)$ と書く。安定写像を動かす際は、写像だけでなく定義域の節点・標点も動く。
+滑らかな複素射影多様体 $X$ の複素次元を $m$、曲線類を $\beta$、種数を $g$、標点数を $k$ とする。[種数0の安定写像の定義](../GW1-08/index.md#def-gw1-08-stable-map)では、節点・標点・成分ごとの正則写像と有限自己同型を確認した。ここでは、種数 $g$ の標点付き節点曲線へ同様の安定性条件を一般化して得るモジュライを $M=\overline{\mathcal M}_{g,k}(X,\beta)$ と書く。ただし、この高種数モジュライの構成・固有性は本講で証明しない。安定写像を動かす際は、写像だけでなく定義域の節点・標点も動く。
 
 滑らかな定義域 $C$ と写像 $f:C\to X$ を固定した場合、写像方向の一次変形と障害は[固定定義域の変形・障害](../GW1-09/index.md#def-gw1-09-deformation-obstruction)の $H^0(C,f^*TX)$ と $H^1(C,f^*TX)$ である。
 
@@ -468,7 +483,7 @@ $Y=\mathbb A^1$ 上の自明線束の切断 $s=x^3$ を考える。次を求め�
 $Y=\mathbb P^1\times\mathbb P^1$、$V=p_1^*\mathcal O(1)\oplus p_2^*\mathcal O(1)$ とする。$p_i$ は射影、$\sigma$ は第1因子上でただ1点 $a$ に単純零点を持つ $\mathcal O(1)$ の非零切断とし、$s=(p_1^*\sigma,0)$ とする。零点 $Z$、実次元と期待次元、零点で余る線束、期待次元サイクルの次数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。第一成分の零点条件は $p_1(y)=a$ だから $Z=\{a\}\times\mathbb P^1\simeq\mathbb P^1$、実際の複素次元は1。$n=r=2$ なので期待次元は0。第一成分は $Z$ の法方向で横断的に消え、第二成分は恒等的に零である。[正規錐の埋め込み](#prop-gw1-20-cone-in-bundle)で錐は第一成分の正規線束として $V|_Z$ に入り、商の余剰線束は $p_2^*\mathcal O(1)|_Z\simeq\mathcal O_{\mathbb P^1}(1)$。零切断との精密交叉を第一成分と残る第二成分に順に適用すると
+**詳細解答**。点 $(y_1,y_2)\in Y$ について第一成分の零点条件は $p_1(y_1,y_2)=y_1=a$ だから $Z=\{a\}\times\mathbb P^1\simeq\mathbb P^1$、実際の複素次元は1。$n=r=2$ なので期待次元は0。第一成分は $Z$ の法方向で横断的に消え、第二成分は恒等的に零である。[正規錐の埋め込み](#prop-gw1-20-cone-in-bundle)で錐は第一成分の正規線束として $V|_Z$ に入り、商の余剰線束は $p_2^*\mathcal O(1)|_Z\simeq\mathcal O_{\mathbb P^1}(1)$。零切断との精密交叉を第一成分と残る第二成分に順に適用すると
 
 $$
 [Z]^{\mathrm{sec}}
