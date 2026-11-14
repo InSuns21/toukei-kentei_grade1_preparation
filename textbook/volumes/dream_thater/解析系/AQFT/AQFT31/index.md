@@ -31,10 +31,10 @@ $$
 $\rho=\sum_{j:r_j>0}r_j|v_j\rangle\langle v_j|$ と書き、任意の直交射影 $q$ を取ります。
 $1-q$ も直交射影なので $\langle v_j,(1-q)v_j\rangle=\|(1-q)v_j\|^2$ です。従って
 
-$
+$$
 \operatorname{Tr}\rho(1-q)
 =\sum_{j:r_j>0}r_j\|(1-q)v_j\|^2.
-$
+$$
 
 右辺は非負項の和です。ゆえに $\operatorname{Tr}\rho(1-q)=0$ となるのは、
 すべての $r_j>0$ に対して $qv_j=v_j$ となるとき、かつそのときに限ります。
@@ -53,10 +53,10 @@ $$
 $p^2=p=p^*$ であり、$\operatorname{Tr}\rho(1-p)=0$ です。さらに任意の射影 $q$ が
 $\operatorname{Tr}\rho(1-q)=0$ を満たすなら、上の固有基底による判定から
 
-$
+$$
 0=\frac23\|(1-q)e_1\|^2+\frac13\|(1-q)e_2\|^2
 \quad\Longrightarrow\quad qe_1=e_1,\ qe_2=e_2.
-$
+$$
 
 従って $q\ge p$ です。$p$ より小さい射影だけでなく、$p$ と比較不能な射影も含めて
 最小性を確認しました。$p\ne I_3$ だから、この状態は忠実ではありません。
@@ -74,13 +74,13 @@ $\langle X,Y\rangle_\omega=\omega(X^*Y)$ に
 を適用して得られます（零長さの元があっても商空間で適用できます）。
 射影 $p$ が $\omega(p)=0$ を満たすなら、
 
-$
+$$
 \begin{aligned}
 |\omega(pA)|^2&\le\omega(p)\omega(A^*A)=0,\\
 |\omega(Ap)|^2&\le\omega(AA^*)\omega(p)=0
 \qquad(A\in\mathcal M).
 \end{aligned}
-$
+$$
 
 有限個のこのような射影 $p_1,\ldots,p_k$ に対し、
 $a=p_1+\cdots+p_k$ と置くと $\omega(a)=0$ です。
@@ -97,10 +97,10 @@ $s(\omega)=1-e$ が条件を満たす最小射影です。
 $s(\omega)=1$ です。逆に $s(\omega)=1$ で、正元 $a$ が
 $\omega(a)=0$ を満たすなら、各 $n\ge1$ に対して
 
-$
+$$
 0\le 1_{[1/n,\infty)}(a)\le na,\qquad
 \omega(1_{[1/n,\infty)}(a))=0.
-$
+$$
 
 $s(\omega)=1$ のもとでは零射影は0だけです。
 従ってすべての正のスペクトル射影が0で、$a=0$ です。
@@ -161,7 +161,7 @@ $$
 p\mathcal H=\overline{\mathcal M'\xi_\rho},
 \qquad
 q\mathcal H=\overline{\mathcal M\xi_\rho}.
-$
+$$
 
 この射影表示は単なる記号の置換ではありません。
 $P$ を $\overline{\mathcal M'\xi_\rho}$ への直交射影とすると、
@@ -232,10 +232,10 @@ $qY=YE_{11}$ は第1列、$(1-q)Y=YE_{22}$ は第2列です。
 従って $Y=A E_{11}+\zeta$（$A E_{11}=YE_{11}$、$\zeta=YE_{22}$）と
 定義域の形に一意に分解でき、出力は
 
-$
+$$
 pA^*E_{11}=E_{11}A^*E_{11}
 =\overline{A_{11}}E_{11}=\overline{Y_{11}}E_{11}.
-$
+$$
 
 よって $S(Y)=\overline{Y_{11}}E_{11}$ です。定義域は行列空間全体で稠密、
 写像は反線形かつ有界であり、零入力の一価性もこの中間式で確認できます。
@@ -480,11 +480,11 @@ $\log\lambda\le\lambda$（$\lambda>0$）であるため、対数の正の部分�
 $\mu_\rho((0,\infty))=\|\xi_\rho\|^2=1$ です。
 各 $\lambda>0$ で $\log\lambda\le\lambda-1$ を積分すれば
 
-$
+$$
 S_{\mathrm A}(\rho\Vert\sigma)
 \ge 1-\int_{(0,\infty)}\lambda\,d\mu_\rho(\lambda)
 =1-\sigma(s(\rho))\ge0.
-$
+$$
 
 支持が含まれない場合は定義により $+\infty$ です。
 これで値が負にはならないことも確認できました。等号の場合を含む
