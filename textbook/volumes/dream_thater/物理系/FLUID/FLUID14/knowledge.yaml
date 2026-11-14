@@ -5,6 +5,7 @@ prerequisites:
   - FLUID13
   - FLUID9
   - FLUID6
+  - CA4
 concepts:
   - id: fluid.lift-drag
     name: 単位スパン当たりの抗力・揚力
@@ -29,7 +30,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Blasius の力公式と一般断面の Kutta–Joukowski 関係）"]
-    requires: [fluid.lift-drag, fluid.bernoulli-global, fluid.complex-velocity-formula]
+    requires: [fluid.lift-drag, fluid.bernoulli-global, fluid.complex-velocity-formula, complex-analysis.multiply-connected-boundary-cancellation, complex-analysis.laurent-expansion]
   - id: fluid.kutta-condition
     name: 尖った後縁のKutta条件
     aliases: ["Kutta 条件"]
