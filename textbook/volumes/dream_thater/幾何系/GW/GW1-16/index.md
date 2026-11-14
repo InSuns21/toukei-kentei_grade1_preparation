@@ -288,8 +288,8 @@ $(u*v)*w$ の係数を別の類 $\nu$ とペアにすると、積を一回展開
 
 $$
 (\alpha*\lambda)*\mu
-=\sum_{B_1,B_2}\sum_{a,b}
-Q^{B_1+B_2}
+=\sum_{B_1}\sum_{a,b}
+Q^{B_1}
 \langle\alpha,\lambda,\phi_a\rangle_{B_1}
 \eta^{ab}\,(\phi_b*\mu).
 $$
@@ -302,7 +302,7 @@ $$
 \langle\alpha,\lambda,\phi_a\rangle_{B_1}
 \eta^{ab}
 \langle\phi_b,\mu,\nu\rangle_{B_2}.
-\tag{*}
+
 $$
 
 同じ操作を右括弧へ行うと
@@ -313,7 +313,7 @@ $$
 \langle\lambda,\mu,\phi_a\rangle_{B_1}
 \eta^{ab}
 \langle\alpha,\phi_b,\nu\rangle_{B_2}.
-\tag{**}
+
 $$
 
 右辺 $(**)$ で $B_1,B_2$ と $a,b$ を同時に入れ替える。$\eta^{ab}=\eta^{ba}$ は偶数部分の交叉行列の対称性による。さらに[偶数挿入の対称性](../GW1-15/index.md#prop-gw1-15-symmetry)で三点の順序を変えると
