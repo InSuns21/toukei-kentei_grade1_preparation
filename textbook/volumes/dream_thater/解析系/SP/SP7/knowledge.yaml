@@ -1,0 +1,41 @@
+chapter: SP7
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+  - SP6
+forward_references: []
+concepts:
+  - id: stochastic.martingale-difference-sequence
+    name: マルチンゲール差分列
+    kind: definition
+    aliases: [martingale difference sequence]
+    introduction: formal
+    introduction_aliases: ["定義（マルチンゲール差分列）"]
+    requires:
+      - stochastic.discrete-martingale
+  - id: stochastic.martingale-difference-criterion
+    name: マルチンゲール差分による判定
+    kind: proposition
+    aliases: [martingale difference criterion]
+    introduction: formal
+    introduction_aliases: ["命題（マルチンゲール差分による判定）"]
+    requires:
+      - stochastic.martingale-difference-sequence
+  - id: stochastic.martingale-square-compensation
+    name: 条件付き二乗平均による補正
+    kind: proposition
+    aliases: [conditional square compensation of martingale]
+    introduction: formal
+    introduction_aliases: ["命題（条件付き二乗平均による補正）"]
+    requires:
+      - stochastic.martingale-difference-criterion
+  - id: stochastic.predictable-transform-isometry
+    name: 予測可能変換の二乗平均恒等式
+    kind: theorem
+    aliases: [predictable transform L2 isometry]
+    introduction: formal
+    introduction_aliases: ["定理（予測可能変換の二乗平均恒等式）"]
+    requires:
+      - stochastic.martingale-difference-criterion
+      - stochastic.predictable-transform
