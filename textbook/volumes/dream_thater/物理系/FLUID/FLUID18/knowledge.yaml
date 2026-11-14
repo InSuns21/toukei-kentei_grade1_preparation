@@ -1,0 +1,49 @@
+chapter: FLUID18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID17
+  - FLUID15
+concepts:
+  - id: fluid.sphere-radius-reynolds
+    name: 半径基準 Reynolds 数と低 Reynolds 数の領域
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半径基準 Reynolds 数と低 Reynolds 数の領域）"]
+    requires: [continuum.reynolds-number]
+  - id: fluid.stokes-sphere-bvp
+    name: 静止球の定常 Stokes 境界値問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静止球の定常 Stokes 境界値問題）"]
+    requires: [continuum.incompressible-navier-stokes, continuum.wall-no-slip]
+  - id: fluid.stokes-sphere-velocity
+    name: 静止球周りの定常 Stokes 速度場
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静止球周りの定常 Stokes 速度場）"]
+    requires: [fluid.stokes-sphere-bvp]
+  - id: fluid.stokes-sphere-pressure
+    name: 球周りの圧力場
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球周りの圧力場）"]
+    requires: [fluid.stokes-sphere-velocity]
+  - id: fluid.stokes-sphere-drag-parts
+    name: 球に働く圧力抵抗・粘性抵抗
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（球に働く圧力抵抗・粘性抵抗）"]
+    requires: [fluid.stokes-sphere-pressure, continuum.incompressible-newtonian-stress]
+  - id: fluid.stokes-sphere-drag
+    name: Stokes の球抵抗則と圧力・せん断寄与
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Stokes の球抵抗則と圧力・せん断寄与）"]
+    requires: [fluid.stokes-sphere-drag-parts, fluid.stokes-sphere-velocity]
+  - id: fluid.stokes-sphere-drag-coefficient
+    name: Stokes 領域の抗力係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Stokes 領域の抗力係数）"]
+    requires: [fluid.stokes-sphere-drag, fluid.sphere-radius-reynolds]
