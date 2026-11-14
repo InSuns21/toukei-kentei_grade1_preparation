@@ -8,7 +8,7 @@
 
 [密度行列と忠実性](../AQFT20/index.md#def-aqft20-faithful-density)によれば、有限次元では正半定値でトレース1の行列が密度行列で、忠実性は零固有値がないことです。非忠実でも、非零固有値に対応する部分空間は残ります。その部分を切り出す直交射影を使います。
 
-一般の単位的von Neumann環 $\mathcal M$ で「射影」とは $p=p^*=p^2$ を満たす元です。正規状態 $\omega$ について、$\omega(1-p)=0$ となる射影のうち最小のものが存在します。これを $s(\omega)$ と記します。有限行列で最初に計算し、一般環での存在はその後に確認します。
+一般の単位的von Neumann環 $\mathcal M$ で「射影」とは $p=p^*=p^2$ を満たす元です。[VN5で導入した正規状態](../../VN/VN5/index.md#def-vn5-normal-state) $\omega$ について、$\omega(1-p)=0$ となる射影のうち最小のものが存在します。これを $s(\omega)$ と記します。有限行列で最初に計算し、一般環での存在はその後に確認します。
 
 <a id="def-aqft31-support"></a>
 
@@ -27,6 +27,20 @@ s(\rho)=\sum_{j:r_j>0}|v_j\rangle\langle v_j|.
 $$
 <!-- formal-statement-end -->
 
+定義の「最小」を行列で判定する理由を先に確認します。有限次元の密度行列を固有基底で
+$\rho=\sum_{j:r_j>0}r_j|v_j\rangle\langle v_j|$ と書き、任意の直交射影 $q$ を取ります。
+$1-q$ も直交射影なので $\langle v_j,(1-q)v_j\rangle=\|(1-q)v_j\|^2$ です。従って
+
+$$
+\operatorname{Tr}\rho(1-q)
+=\sum_{j:r_j>0}r_j\|(1-q)v_j\|^2.
+$$
+
+右辺は非負項の和です。ゆえに $\operatorname{Tr}\rho(1-q)=0$ となるのは、
+すべての $r_j>0$ に対して $qv_j=v_j$ となるとき、かつそのときに限ります。
+つまり、そのような $q$ は $\rho$ の正固有空間全体を含み、
+$s(\rho)=\sum_{j:r_j>0}|v_j\rangle\langle v_j|$ が条件を満たす**最小**の射影です。
+
 <!-- definition-example-start: def-aqft31-support -->
 ### 直接例：零固有値を含む三準位状態
 
@@ -36,24 +50,62 @@ $$
 p=s(\rho)=\operatorname{diag}(1,1,0).
 $$
 
-$p^2=p=p^*$、$\operatorname{Tr}\rho(1-p)=0$ です。さらに $\rho$ の正固有値は $2/3,1/3$ なので、この二次元像の非零部分を落とした射影 $q<p$ では $\operatorname{Tr}\rho(1-q)>0$ になります。従って最小性まで確認できました。$p\ne I_3$ だから、この状態は忠実ではありません。
+$p^2=p=p^*$ であり、$\operatorname{Tr}\rho(1-p)=0$ です。さらに任意の射影 $q$ が
+$\operatorname{Tr}\rho(1-q)=0$ を満たすなら、上の固有基底による判定から
+
+$$
+0=\frac23\|(1-q)e_1\|^2+\frac13\|(1-q)e_2\|^2
+\quad\Longrightarrow\quad qe_1=e_1,\ qe_2=e_2.
+$$
+
+従って $q\ge p$ です。$p$ より小さい射影だけでなく、$p$ と比較不能な射影も含めて
+最小性を確認しました。$p\ne I_3$ だから、この状態は忠実ではありません。
 
 **定義の確認**：射影の自己共役性・冪等性、状態が補空間に重みを置かないこと、最小性、忠実性の不成立を個別に判定しました。
 <!-- definition-example-end -->
 
-有限次元の最小性を一般の基底で確かめるには、$\operatorname{Tr}\rho(1-q)=\sum_jr_j\|(1-q)v_j\|^2$ を用います。各項が非負なので、和が零なら $r_j>0$ のすべての $v_j$ を $q$ が固定します。ゆえに $q\ge s(\rho)$ です。
+この判定は対角行列に限りません。任意の有限次元密度行列の正規直交固有基底で同じ式が成り立つため、基底の選び方によらず支持射影を特定できます。
 
 一般の正規状態についても、支持射影の存在を確かめます。$\omega(p)=0$ を満たす射影の族の上限を $e$ とします。有限個の零射影の上限も零射影になることが鍵です。
 
-実際、$\omega(p)=0$ なら[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から次の等式が従います。
+実際、正値汎関数のCauchy–Schwarz不等式は、
+$\langle X,Y\rangle_\omega=\omega(X^*Y)$ に
+[内積のCauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)
+を適用して得られます（零長さの元があっても商空間で適用できます）。
+射影 $p$ が $\omega(p)=0$ を満たすなら、
 
 $$
-\omega(pA)=\omega(Ap)=0\qquad(A\in\mathcal M).
+\begin{aligned}
+|\omega(pA)|^2&\le\omega(p)\omega(A^*A)=0,\\
+|\omega(Ap)|^2&\le\omega(AA^*)\omega(p)=0
+\qquad(A\in\mathcal M).
+\end{aligned}
 $$
 
-したがって、$p$ の像上で状態は零です。有限個の零射影の像を線形に合わせても状態は零であり、その閉包に対応する射影も正規性から零です。この有限上限を増やしていけば、再び正規性により $\omega(e)=0$ となります。ゆえに $e$ は零射影の最大元で、$s(\omega)=1-e$ が求める最小射影です。
+有限個のこのような射影 $p_1,\ldots,p_k$ に対し、
+$a=p_1+\cdots+p_k$ と置くと $\omega(a)=0$ です。
 
-忠実性との関係も確認します。$\omega$ が忠実なら零射影は0だけなので $s(\omega)=1$ です。逆に $s(\omega)=1$ で、正元 $a$ が $\omega(a)=0$ を満たすとします。正のスペクトル射影 $1_{[1/n,\infty)}(a)$ はすべて零なので $a=0$ です。
+$a$ の正のスペクトル射影 $e_n=1_{[1/n,\infty)}(a)$ は
+$0\le e_n\le na$ を満たすので、$0\le\omega(e_n)\le n\omega(a)=0$ です。
+$e_n$ は $n\to\infty$ で $a$ の像への射影、すなわち
+$p_1\vee\cdots\vee p_k$ に強収束します。$\omega$ の正規性より
+$\omega(p_1\vee\cdots\vee p_k)=0$ です。
+
+さらに有限部分族の上限を増加させた射影ネットにも正規性を適用すると
+$\omega(e)=0$ となります。従って $e$ は零射影の最大元で、
+$s(\omega)=1-e$ が条件を満たす最小射影です。
+
+忠実性との関係も確認します。$\omega$ が忠実なら零射影は0だけなので
+$s(\omega)=1$ です。逆に $s(\omega)=1$ で、正元 $a$ が
+$\omega(a)=0$ を満たすなら、各 $n\ge1$ に対して
+
+$$
+0\le 1_{[1/n,\infty)}(a)\le na,\qquad
+\omega(1_{[1/n,\infty)}(a))=0.
+$$
+
+$s(\omega)=1$ のもとでは零射影は0だけです。
+従ってすべての正のスペクトル射影が0で、$a=0$ です。
 
 ## 2. 支持の包含は何を意味するか
 
@@ -101,8 +153,15 @@ A\rho^{1/2}=0,\qquad A^*\sigma^{1/2}=|e_2\rangle\langle e_1|\ne0.
 $$
 
 **同じ零入力に非零の出力が付く**ため、このままでは作用素ですらありません。
+以後 $\mathbb C^2$ の標準基底を $e_1,e_2$ とし、
+$E_{ij}=|e_i\rangle\langle e_j|$ を行列単位と書きます。
+例えば $E_{ij}E_{k\ell}=\delta_{jk}E_{i\ell}$ です。
 
-一般の標準形 $(\mathcal M,\mathcal H,J,\mathcal P)$ の自然正錐 $\mathcal P$ で、状態 $\rho,\sigma$ を単位ベクトル $\xi_\rho,\xi_\sigma$ で表します。ここで自然正錐は既習の[AQFT30での状態代表](../AQFT30/index.md#def-aqft30-araki-relative-entropy)と同じ設定です。ベクトル状態の $\mathcal M$ に関する支持を $p=s_{\mathcal M}(\xi_\rho)=s(\rho)$、可換子 $\mathcal M'$ に関する支持を $q=s_{\mathcal M'}(\xi_\rho)$ と記します。具体的には
+一般の標準形 $(\mathcal M,\mathcal H,J,\mathcal P)$ の自然正錐 $\mathcal P$ で、状態 $\rho,\sigma$ を単位ベクトル $\xi_\rho,\xi_\sigma$ で表します。
+
+ここで自然正錐は既習の[AQFT30での状態代表](../AQFT30/index.md#def-aqft30-araki-relative-entropy)と同じ設定です。
+
+ベクトル状態の $\mathcal M$ に関する支持を $p=s_{\mathcal M}(\xi_\rho)=s(\rho)$、可換子 $\mathcal M'$ に関する支持を $q=s_{\mathcal M'}(\xi_\rho)$ と記します。具体的には
 
 $$
 p\mathcal H=\overline{\mathcal M'\xi_\rho},
@@ -110,7 +169,24 @@ p\mathcal H=\overline{\mathcal M'\xi_\rho},
 q\mathcal H=\overline{\mathcal M\xi_\rho}.
 $$
 
-$p\in\mathcal M$、$q\in\mathcal M'$ であるため両者は可換ですが、一般に同じ射影ではありません。$\mathcal M\xi_\rho$ は $q\mathcal H$ に稠密であり、その直交補空間を定義域に足して全 $\mathcal H$ 上で稠密にします。
+この射影表示は単なる記号の置換ではありません。
+$P$ を $\overline{\mathcal M'\xi_\rho}$ への直交射影とすると、
+この閉部分空間は $\mathcal M'$ とその随伴で不変なので $P\in\mathcal M$ です。
+$P\xi_\rho=\xi_\rho$ より $\rho(1-P)=\|(1-P)\xi_\rho\|^2=0$ です。
+
+逆に $e\in\mathcal M$ が $\rho(1-e)=0$ を満たすなら
+$e\xi_\rho=\xi_\rho$ であり、任意の $B\in\mathcal M'$ に対して
+$eB\xi_\rho=Be\xi_\rho=B\xi_\rho$ です。
+
+ゆえに $e\ge P$、すなわち[支持射影の最小性](#def-aqft31-support)から $P=p$ です。
+同様の議論を $\mathcal M'$ に適用すると、もう一方の射影は $q$ となります。
+
+$p\in\mathcal M$、$q\in\mathcal M'$ であるため両者は可換ですが、一般に同じ射影ではありません。
+$\mathcal M\xi_\rho$ は $q\mathcal H$ に稠密であり、その直交補空間を定義域に足して全 $\mathcal H$ 上で稠密にします。
+
+反線形作用素の随伴は、[AQFT29の相対モジュラー作用素の定義](../AQFT29/index.md#def-aqft29-relative-modular)
+と同じく $S^\sharp$ と書きます。これは反線形作用素に対する随伴であり、
+以下の $S^\sharp S$ は線形な非負作用素です。
 
 <a id="def-aqft31-relative-tomita-supported"></a>
 
@@ -133,7 +209,7 @@ $$
 > この作用素の閉包を $S_{\sigma\mid\rho}$ とし、**支持付き相対モジュラー作用素**を非負自己共役作用素
 >
 $$
-\Delta_{\sigma\mid\rho}=S_{\sigma\mid\rho}^*S_{\sigma\mid\rho}
+\Delta_{\sigma\mid\rho}=S_{\sigma\mid\rho}^\sharp S_{\sigma\mid\rho}
 $$
 >
 > と定める。添字の入力側は $\rho$、出力側は $\sigma$ である。
@@ -142,7 +218,15 @@ $$
 <!-- definition-example-start: def-aqft31-relative-tomita-supported -->
 ### 直接例：零入力の矛盾を支持射影が消す
 
-上の二準位の純粋状態では、Hilbert–Schmidt表現で $p=L_{|e_1\rangle\langle e_1|}$、$q=R_{|e_1\rangle\langle e_1|}$ です。零入力を作る $A=|e_1\rangle\langle e_2|$ に対して
+上の二準位の純粋状態では、Hilbert–Schmidt空間に左から作用する環が
+$\mathcal M=L_{M_2(\mathbb C)}$、可換子が右乗算環です。
+ここで $L_A(Y)=AY$、$R_B(Y)=YB$（$A,B,Y\in M_2(\mathbb C)$）は
+それぞれ行列空間上の左・右乗算作用素です。
+このため状態の二つの支持は
+$p=L_{E_{11}}$、$q=R_{E_{11}}$ となり、任意の行列 $Y$ に
+$pY=E_{11}Y$、$qY=YE_{11}$ と作用します。
+これらは**行列そのものの同一の支持射影ではなく、行列空間に作用する別の射影**です。
+零入力を作る $A=|e_1\rangle\langle e_2|$ に対して
 
 $$
 pA^*\sigma^{1/2}
@@ -151,7 +235,18 @@ $$
 
 これにより異なる $A$ の零表示が同じ出力0になります。$D_0$ は行列の第1列と第2列の直和で全Hilbert–Schmidt空間です。後で示す通り、$\Delta_{\rho\mid\rho}$ は $E_{11}$ 上で1、それ以外で0です。零固有値があることと、入力ベクトル $E_{11}$ にその零固有値の重みがあることは別です。
 
-**定義の確認**：この模型では任意の行列 $Y=(Y_{ij})$ に対し、$S(Y)=\overline{Y_{11}}E_{11}$ となります。定義域は行列空間全体で稠密、写像は反線形かつ有界であり、零入力の一価性も上式で確認できます。
+**定義の確認**：任意の行列 $Y=(Y_{ij})$ について、
+$qY=YE_{11}$ は第1列、$(1-q)Y=YE_{22}$ は第2列です。
+従って $Y=A E_{11}+\zeta$（$A E_{11}=YE_{11}$、$\zeta=YE_{22}$）と
+定義域の形に一意に分解でき、出力は
+
+$$
+pA^*E_{11}=E_{11}A^*E_{11}
+=\overline{A_{11}}E_{11}=\overline{Y_{11}}E_{11}.
+$$
+
+よって $S(Y)=\overline{Y_{11}}E_{11}$ です。定義域は行列空間全体で稠密、
+写像は反線形かつ有界であり、零入力の一価性もこの中間式で確認できます。
 <!-- definition-example-end -->
 
 <a id="prop-aqft31-supported-closable"></a>
@@ -181,7 +276,7 @@ $$
 \end{aligned}
 $$
 
-$\mathcal M'\xi_\rho$ は $p\mathcal H$ に稠密なので $w=0$ です。従って零列判定より可閉です。稠密定義で閉じた反線形作用素 $S$ の $S^*S$ が非負自己共役となる点は、[AQFT29の相対モジュラー作用素の構成](../AQFT29/index.md#def-aqft29-relative-modular)と同じです。
+$\mathcal M'\xi_\rho$ は $p\mathcal H$ に稠密なので $w=0$ です。従って零列判定より可閉です。稠密定義で閉じた反線形作用素 $S$ の $S^\sharp S$ が非負自己共役となる点は、[AQFT29の相対モジュラー作用素の構成](../AQFT29/index.md#def-aqft29-relative-modular)と同じです。
 <!-- proof-end -->
 
 ## 4. 有限行列では疑似逆が現れる
@@ -251,7 +346,7 @@ $$
 
 ### 証明の見取り図
 
-入力ベクトルは右から $p$ を掛けた行列空間に属します。まずこの部分空間で $S_0$ のノルム二乗を計算し、$\Delta=S^*S$ の二次形式と比較します。次に[AQFT30の混合固有基底](../AQFT30/index.md#lem-aqft30-mixed-spectrum)の考え方を零固有値まで拡げます。
+入力ベクトルは右から $p$ を掛けた行列空間に属します。まずこの部分空間で $S_0$ のノルム二乗を計算し、$\Delta=S^\sharp S$ の二次形式と比較します。次に[AQFT30の混合固有基底](../AQFT30/index.md#lem-aqft30-mixed-spectrum)の考え方を零固有値まで拡げます。
 
 <!-- proof-start -->
 ### 証明
@@ -378,7 +473,7 @@ $$
 
 ここでは零固有値への重みはありません。無限値の原因は、**正固有値が0へ近づくときの対数の負の部分が積分可能でない**ことです。従って一般環での支持包含は、零点の質量を排除する条件であって、有限性を保証しません。
 
-定義が $-\infty$ を作らないことも確かめます。$\xi_\rho$ は $S_0$ の定義域に入り、$S_0(\xi_\rho)=s(\rho)\xi_\sigma$ です。よってスペクトル定理と $\Delta=S^*S$ より
+定義が $-\infty$ を作らないことも確かめます。$\xi_\rho$ は $S_0$ の定義域に入り、$S_0(\xi_\rho)=s(\rho)\xi_\sigma$ です。よってスペクトル定理と $\Delta=S^\sharp S$ より
 
 $$
 \int_{[0,\infty)}\lambda\,d\mu_\rho(\lambda)
@@ -387,7 +482,21 @@ $$
 =\sigma(s(\rho))\le1.
 $$
 
-$\log\lambda\le\lambda$（$\lambda>0$）であるため、対数の正の部分の積分は有限です。負の部分だけが発散し得るので、先頭の負号を含めた値は有限実数または $+\infty$ に限られます。一般の非負性・零条件の証明はAQFT32で扱います。
+$\log\lambda\le\lambda$（$\lambda>0$）であるため、対数の正の部分の積分は有限です。
+負の部分だけが発散し得るので、先頭の負号を含めた値は有限実数または $+\infty$ に限られます。
+さらに支持包含がある場合には $\mu_\rho(\{0\})=0$、
+$\mu_\rho((0,\infty))=\|\xi_\rho\|^2=1$ です。
+各 $\lambda>0$ で $\log\lambda\le\lambda-1$ を積分すれば
+
+$$
+S_{\mathrm A}(\rho\Vert\sigma)
+\ge 1-\int_{(0,\infty)}\lambda\,d\mu_\rho(\lambda)
+=1-\sigma(s(\rho))\ge0.
+$$
+
+支持が含まれない場合は定義により $+\infty$ です。
+これで値が負にはならないことも確認できました。等号の場合を含む
+一般の正値性の詳しい構造はAQFT32で扱います。
 
 さらに作用素の対数を直接適用せず、$\varepsilon\in(0,1]$ に対して零以下の部分を切った関数 $f_\varepsilon(\lambda)=\log(\max\{\lambda,\varepsilon\})$ を用いると
 
@@ -400,7 +509,9 @@ $$
 
 これは一般環にも使える**スペクトル切断による極限**です。$-\log(\max\{\lambda,\varepsilon\})$ は、$\varepsilon$ が減ると点ごとに増大します。
 
-さらに $0<\varepsilon\le1$ では $\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ です。この非負関数列に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用し、有限な $\int\lambda\,d\mu_\rho$ を最後に引けば、上の極限を得ます。
+厳密には $\varepsilon_n=1/n$（$n\ge1$）を選びます。$g_n(\lambda)=\lambda-\log(\max\{\lambda,1/n\})$ は各 $\lambda\ge0$ で非負かつ $n$ に関して単調増大です。
+
+そこで[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を $g_n$ に適用し、有限な $\int\lambda\,d\mu_\rho$ を差し引くと、まず $\varepsilon_n$ に沿う切断極限を得ます。切断値は $\varepsilon$ の減少とともに単調増大するため、この列が得た極限と一般の $\varepsilon\downarrow0$ の極限は一致します。
 
 零の質量があれば $\log\varepsilon$ の寄与が $-\infty$ へ向かい、相対エントロピーは $+\infty$ です。これは**状態そのものを混合して忠実化する極限とは別**の操作です。
 
@@ -714,7 +825,9 @@ $$
 \int\lambda\,d\mu_\rho=\|S\xi_\rho\|^2=\sigma(s(\rho))\le1.
 $$
 
-$g_\varepsilon(\lambda)=\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ は $\varepsilon\downarrow0$ で単調増大します。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $\int g_\varepsilon\,d\mu_\rho$ は有限または $+\infty$ に収束し、そこから有限の $\int\lambda\,d\mu_\rho$ を引けば切断極限を得ます。
+$g_\varepsilon(\lambda)=\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ は $\varepsilon\downarrow0$ で単調増大します。$\varepsilon_n=1/n$ と置くと $g_{1/n}$ は非負可測関数の増大**列**なので、[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用できます。
+
+$\int g_{1/n}\,d\mu_\rho$ の極限（有限または $+\infty$）から有限の $\int\lambda\,d\mu_\rho$ を引き、さらに切断値の単調性を用いると、任意の $\varepsilon\downarrow0$ に対する同じ極限が得られます。
 
 （a）$\rho=E_{11}$、$\sigma=I_2/2$ なら入力のスペクトル測度は $\lambda=1/2$ に1だけあるので、$0<\varepsilon<1/2$ で切断値は常に $\log2$ です。
 
