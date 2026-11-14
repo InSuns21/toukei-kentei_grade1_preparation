@@ -17,3 +17,4 @@
 14. [U4-14 多変量共和分と誤差修正表現](textbook/volumes/dream_thater/応用系/U/U4-14/index.md)
 15. [U4-15 統計残差を取引可能なspreadに変える](textbook/volumes/dream_thater/応用系/U/U4-15/index.md)
 16. [U4-16 平均回帰の速度・閾値・保有期間](textbook/volumes/dream_thater/応用系/U/U4-16/index.md)
+17. [U4-17 非線形・閾値共和分とレジーム変化](textbook/volumes/dream_thater/応用系/U/U4-17/index.md)
