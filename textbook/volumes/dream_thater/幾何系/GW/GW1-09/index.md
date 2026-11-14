@@ -448,14 +448,19 @@ $$
 0\to\mathcal O(2)\to u^*TX\to\mathcal O(-2)\to0
 $$
 
-を得る。拡張が分裂する障害は
+を得る。この射影束では分裂を微分から直接作れる。束の射影を $\pi:X\to B$ とすると、$u:C\simeq B\hookrightarrow X$ はその切断なので $\pi\circ u=\operatorname{id}_B$ である。従って $C\simeq B$ の接空間を同一視すると
 
 $$
-\operatorname{Ext}^1(\mathcal O(-2),\mathcal O(2))
-\simeq H^1(\mathbb P^1,\mathcal O(4))
+d\pi\circ du=\operatorname{id}_{TC}.
 $$
 
-にあり、[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から零である。実際には基底方向と繊維方向の微分が、切断に沿ってこの分裂を与える。従って表示した直和が成立する。
+任意の $\xi\in (u^*TX)_b$ は
+
+$$
+\xi=du(d\pi\,\xi)+\bigl(\xi-du(d\pi\,\xi)\bigr)
+$$
+
+と一意に分かれる。第一項は $du(T_bC)$ に、第二項は $\ker(d\pi)_b$ に属するので、接方向と繊維方向は正則な直和をなす。後者は先ほどグラフ座標で求めた法束 $N_{C/X}\simeq\mathcal O(-2)$ に一致する。従って $u^*TX\simeq\mathcal O(2)\oplus\mathcal O(-2)$ である。
 
 同じ[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $2,-2$ に代入して
 
