@@ -43,7 +43,9 @@ $$
 > **定義（2系列の共和分と正規化係数）**  
 > 二つの実数値系列 $X_t,Y_t$ がともに $I(1)$ であり、零ベクトルでない定数ベクトル $(c_Y,c_X)\in\mathbb R^2$ に対して $c_YY_t+c_XX_t$ が $I(0)$ となるとき、$(X,Y)$ は**共和分する**という。定数を加えても定常性は変わらないため、差の水準を表す $\alpha\in\mathbb R$ を許す。
 >
-> 両系列が $I(1)$ なので、共和分ベクトルで $c_Y=0$ なら $c_XX_t$ が $I(0)$ となって矛盾する。したがって必ず $c_Y\ne0$ である。元の結合を $c_Y$ で割って $c_Y=1$ と正規化し、$c_X/c_Y=-\beta$ と置き、
+> 両系列が $I(1)$ なので、共和分ベクトルで $c_Y=0$ なら $c_XX_t$ が $I(0)$ となって矛盾する。したがって必ず $c_Y\ne0$ である。
+>
+> 元の結合を $c_Y$ で割って $c_Y=1$ と正規化し、$c_X/c_Y=-\beta$ と置き、
 >
 $$
 U_t=Y_t-\alpha-\beta X_t
@@ -95,7 +97,16 @@ $$
 \operatorname{Var}(Y_t)=b^2t\sigma^2+\operatorname{Var}(W_t).
 $$
 >
-> $a,b$ が非零なのでいずれも時点により分散が増え、二次定常ではありません。一回階差は $\Delta X_t=a\varepsilon_t+\Delta V_t$、$\Delta Y_t=b\varepsilon_t+\Delta W_t$ です。$(V,W)$ の同時二次定常性から $(\Delta V,\Delta W)$ も同時二次定常です。$S$ と $(V,W)$ は独立なので、$\varepsilon_t$ とこれらの階差との交差共分散は全時差で0です。よって $(\varepsilon_t,\Delta V_t,\Delta W_t)$ は同時二次定常で、定数係数の線形結合である $\Delta X,\Delta Y$ も二次定常です。分散の発散と合わせ、両者は $I(1)$ です。
+> $a,b$ が非零なので水準の分散は時点とともに増え、二次定常ではありません。一回階差は
+>
+$$
+\Delta X_t=a\varepsilon_t+\Delta V_t,\qquad
+\Delta Y_t=b\varepsilon_t+\Delta W_t.
+$$
+>
+> $(V,W)$ の同時二次定常性から $(\Delta V,\Delta W)$ も同時二次定常です。$S$ と $(V,W)$ は独立なので、$\varepsilon_t$ とこれらの階差との交差共分散は全時差で0です。
+>
+> よって $(\varepsilon_t,\Delta V_t,\Delta W_t)$ は同時二次定常で、定数係数の線形結合である $\Delta X,\Delta Y$ も二次定常です。分散の発散と合わせ、両者は $I(1)$ です。
 >
 > 任意の定数 $\beta$ に対して
 >
@@ -289,7 +300,15 @@ $$
 +v_t
 $$
 >
-> と書ける。左片側検定の帰無仮説 $H_0$ は**共和分なし**、対立仮説 $H_1$ は**共和分あり**とする。$\gamma$ の最小二乗推定値を $\widehat\gamma$、その回帰の推定標準誤差を $\widehat{\operatorname{SE}}(\widehat\gamma)$ として $\tau_{\mathrm{res}}=\widehat\gamma/\widehat{\operatorname{SE}}(\widehat\gamma)$ を検定統計量とする。ただし棄却判断には、**第1段階で係数を推定したこと、切片の有無、$I(1)$ 説明系列の数に対応する Engle–Granger 用の帰無分布・臨界値**を使用し、単一系列の通常の DF/ADF 用臨界値を流用しない。
+> と書ける。左片側検定の帰無仮説 $H_0$ は**共和分なし**、対立仮説 $H_1$ は**共和分あり**とする。
+>
+> $\gamma$ の最小二乗推定値を $\widehat\gamma$、その推定標準誤差を $\widehat{\operatorname{SE}}(\widehat\gamma)$ として、検定統計量を
+>
+$$
+\tau_{\mathrm{res}}=\frac{\widehat\gamma}{\widehat{\operatorname{SE}}(\widehat\gamma)}
+$$
+>
+> と定める。ただし棄却判断には、**第1段階で係数を推定したこと、切片の有無、$I(1)$ 説明系列の数に対応する Engle–Granger 用の帰無分布・臨界値**を使用し、単一系列の通常の DF/ADF 用臨界値を流用しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u4-13-engle-granger -->
@@ -366,7 +385,9 @@ $$
 R(r)=W_Y(r)-A-BW_X(r)
 $$
 >
-> の形になります。この仕組みを明示するため、ここでは二つのショックをそれぞれ分散 $\sigma_\varepsilon^2,\sigma_\zeta^2>0$ の正規分布とします。時点 $t$ の規格化水準を $X_t/(\sigma_\varepsilon\sqrt n)$、$Y_t/(\sigma_\zeta\sqrt n)$ とすれば、その極限は独立な標準ブラウン運動 $W_X,W_Y$ です。規格化した残差は
+> の形になります。この仕組みを明示するため、ここでは二つのショックをそれぞれ分散 $\sigma_\varepsilon^2,\sigma_\zeta^2>0$ の正規分布とします。
+>
+> 時点 $t$ の規格化水準を $X_t/(\sigma_\varepsilon\sqrt n)$、$Y_t/(\sigma_\zeta\sqrt n)$ とすれば、その極限は独立な標準ブラウン運動 $W_X,W_Y$ です。規格化した残差は
 >
 $$
 \frac{\widehat u_t}{\sigma_\zeta\sqrt n}
@@ -376,7 +397,9 @@ $$
 \frac{X_t}{\sigma_\varepsilon\sqrt n}.
 $$
 >
-> したがって、極限での $A$ は規格化切片、$B$ は規格化傾きに対応します。$A,B$ は $W_Y$ を $1$ と $W_X$ の張る空間へ区間 $[0,1]$ 上の二乗積分で射影する係数で、[第1段階の正規方程式](#def-u4-13-eg-regression)を積分に置き換えて導けます。$\bar W_X=\int_0^1W_X(r)\,dr$、$\bar W_Y=\int_0^1W_Y(r)\,dr$ と置き、
+> したがって、極限での $A$ は規格化切片、$B$ は規格化傾きに対応します。$A,B$ は $W_Y$ を $1$ と $W_X$ の張る空間へ区間 $[0,1]$ 上の二乗積分で射影する係数です。
+>
+> この係数は[第1段階の正規方程式](#def-u4-13-eg-regression)を積分に置き換えて導けます。$\bar W_X=\int_0^1W_X(r)\,dr$、$\bar W_Y=\int_0^1W_Y(r)\,dr$ と置き、
 >
 $$
 Q(A,B)=\int_0^1\{W_Y(r)-A-BW_X(r)\}^2\,dr.
