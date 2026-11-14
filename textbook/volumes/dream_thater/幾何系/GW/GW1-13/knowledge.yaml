@@ -1,0 +1,40 @@
+chapter: GW1-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-12
+  - GW1-11
+  - GW1-10
+  - GW1-09
+  - GW1-08
+concepts:
+  - id: gromov-witten.convex-primary-invariant
+    name: 凸標的の種数0・一次GW不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（凸標的の種数0・一次GW不変量）"]
+    requires: [gromov-witten.evaluation-insertion, gromov-witten.convex-moduli-dimension, gromov-witten.stable-map-stack]
+  - id: gromov-witten.primary-degree-constraint
+    name: GW不変量の次数必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GW不変量の次数必要条件）"]
+    requires: [gromov-witten.convex-primary-invariant, gromov-witten.insertion-degree-condition]
+  - id: gromov-witten.primary-zero-degree
+    name: 次数0の一次不変量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（次数0の一次不変量）"]
+    requires: [gromov-witten.convex-primary-invariant, gromov-witten.zero-degree-product]
+  - id: gromov-witten.primary-enumerative-count
+    name: 横断的な孤立交叉とGW不変量の一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（横断的な孤立交叉とGW不変量の一致）"]
+    requires: [gromov-witten.convex-primary-invariant, gromov-witten.evaluation-insertion, gromov-witten.stable-map-stack]
+  - id: gromov-witten.primary-deformation-invariance
+    name: 凸な射影族での種数0・一次GW不変量の変形不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（凸な射影族での種数0・一次GW不変量の変形不変性）"]
+    requires: [gromov-witten.convex-primary-invariant, gromov-witten.convex-nodal-vanishing, gromov-witten.genus-zero-moduli-existence]
