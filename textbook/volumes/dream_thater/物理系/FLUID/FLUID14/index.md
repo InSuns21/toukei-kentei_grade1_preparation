@@ -34,7 +34,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid14-lift-drag -->
-**定義の確認**：半径 $a$ の円では $n=(\cos\theta,\sin\theta)$、$ds=a\,d\theta$。一定圧力 $p_0$ だけなら
+**定義の確認**：半径 $a$ の円周を $\gamma(\theta)=(a\cos\theta,a\sin\theta)$（$0\le\theta\le2\pi$）と媒介する。$\gamma'(\theta)=a(-\sin\theta,\cos\theta)$ は反時計回りの接線方向で、$|\gamma'(\theta)|=a$ だから $ds=a\,d\theta$。この接線を時計回りに $90^\circ$ 回した物体の外向き単位法線が $n=(\cos\theta,\sin\theta)$ である。一定圧力 $p_0$ だけなら
 
 $$
 (F_x,F_y)=-ap_0\left(\int_0^{2\pi}\cos\theta\,d\theta,\
@@ -198,7 +198,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（Blasius の力公式と一般断面の Kutta–Joukowski 関係）
 
-滑らかな単純閉曲線で囲まれた有界な物体断面 $B\subset\mathbb C$ を考え、その外側に定常・非圧縮・一定密度 $\rho>0$・非粘性・無渦の流れを考える。境界上で速度は有限で接線方向、複素速度 $q=u_x-iu_y$ は境界まで連続、外部で正則とする。物体外部に渦源・湧出などの特異点は置かない。境界は物体を反時計回りに回る向きに積分する。
+有限個の角点・尖点を許す区分的 $C^1$ 単純閉曲線で囲まれた有界な物体断面 $B\subset\mathbb C$ を考え、その外側に定常・非圧縮・一定密度 $\rho>0$・非粘性・無渦の流れを考える。境界の滑らかな部分で速度は接線方向、複素速度 $q=u_x-iu_y$ は境界まで連続（したがって尖点でも有界）で、外部で正則とする。物体外部に渦源・湧出などの特異点は置かない。境界は物体を反時計回りに回る向きに積分する。
 
 このとき圧力合力は
 
@@ -229,7 +229,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-物体境界の正の向きを反時計回りとする。このとき外向き単位法線の複素表示 $n_x+in_y$ は $-it$ であり、共役は $n_x-in_y=i\overline t$。従って
+物体境界の正の向きを反時計回りとする。弧長 $s$ に関する単位接線 $t=dz/ds$ が存在する各滑らかな境界弧では、外向き単位法線の複素表示 $n_x+in_y$ は $-it$ であり、共役は $n_x-in_y=i\overline t$ である。有限個の角点・尖点では接線を使わず、弧ごとの積分を加える。従って
 
 $$
 F_x-iF_y
@@ -255,7 +255,9 @@ F_x-iF_y
 =\frac{i\rho}{2}\oint q^2\,dz.
 $$
 
-これで第一式が示された。次に十分大きい円 $C_R=\{|z|=R\}$ を反時計回りにとる。$q^2$ は $B$ と $C_R$ の間で正則なので、領域外周と内周の向きを合わせた Cauchy の積分定理から $\oint_{\partial B}q^2dz=\oint_{C_R}q^2dz$。与えられた遠方展開を二乗すると
+これで第一式が示された。区分的 $C^1$ 境界でも、滑らかな弧上の等式を足せば同じ式になる。角点・尖点を小さな弧長 $\varepsilon$ の近傍で避けると、$q$ が境界まで連続で有界なため、除いた弧の積分の絶対値は高々 $\sup|q|^2\varepsilon$ で零へ収束する。
+
+次に十分大きい円 $C_R=\{|z|=R\}$ を反時計回りにとる。$q^2$ は $B$ と $C_R$ の間で正則である。境界を流体側から滑らかな閉曲線で近似して[CA4 の多重連結領域の境界相殺](../../../解析系/CA/CA4/index.md#lem-ca4-multiply-connected-boundary)を適用し、$q^2$ の境界連続性と区分的 $C^1$ 性で境界積分の極限を取ると $\oint_{\partial B}q^2dz=\oint_{C_R}q^2dz$ となる。与えられた遠方展開を二乗すると
 
 $$
 q(z)^2=U^2-\frac{iU\Gamma}{\pi z}+O(z^{-2}).
@@ -277,9 +279,28 @@ $$
 実部・虚部を比較して $F_x=0$ と $F_y=-\rho U\Gamma$ を得る。
 <!-- proof-end -->
 
-**遠方展開の意味**：一般の外部正則速度は $q(z)=U+b_1/z+b_2/z^2+\cdots$ と Laurent 展開できる。$b_1$ の実部は正味の湧出流量に対応する。物体の非貫通条件と流体内に湧出がないことにより大円の正味流量は零だから $\operatorname{Re}b_1=0$。一方、大円での循環は $\oint(u_xdx+u_ydy)=\operatorname{Re}\oint q\,dz=\operatorname{Re}(2\pi i b_1)=\Gamma$ であり、$b_1=-i\Gamma/(2\pi)$ が確定する。したがって表示した遠方展開は勝手な形状仮定ではなく、湧出ゼロ・循環 $\Gamma$ の外部流から生じる。
+**遠方展開の意味**：[CA4 の Laurent 展開定理](../../../解析系/CA/CA4/index.md#thm-ca4-laurent)を十分大きい円の外側の環状領域に適用する。無限遠の極限が $U$ なので
 
-**どの抗力が零か**：この定理が消すのは「滑らかな形状に、剥離も後流もない定常非粘性・無渦の二次元モデルでの圧力抗力」である。物体表面に粘性剪断が働く現実流れ、境界層剥離で後流に運動量欠損ができる流れ、三次元翼の誘導抗力、非定常流・圧縮性の圧力跳躍を含む流れには、この証明を適用できない。実在流の抗力が零になるという予測ではない。具体的な粘性抵抗と後流は FLUID16 以降で扱う。
+$$
+q(z)=U+\frac{b_1}{z}+\frac{b_2}{z^2}+\cdots
+$$
+
+と展開できる。大円を反時計回りに進むと、線素 $dz=dx+i\,dy$ に対して
+
+$$
+q\,dz=(u_x\,dx+u_y\,dy)+i(u_x\,dy-u_y\,dx)
+$$
+
+となる。実部は接線方向の循環、虚部は大円の外向き法線 $(dy,-dx)/ds$ との内積で定まる正味流量である。$\oint q\,dz=2\pi i b_1$ を実部と虚部に分けて
+
+$$
+\Gamma=-2\pi\operatorname{Im}b_1,\qquad
+Q=2\pi\operatorname{Re}b_1
+$$
+
+を得る。物体の非貫通条件と流体内に湧出がないことから $Q=0$。従って $\operatorname{Re}b_1=0$、$b_1=-i\Gamma/(2\pi)$ となる。表示した遠方展開は勝手な形状仮定ではなく、湧出ゼロ・循環 $\Gamma$ の外部流から生じる。
+
+**どの抗力が零か**：この定理が消すのは「滑らかな形状、または尖点でも速度が有界な区分的に滑らかな形状に、剥離も後流もない定常非粘性・無渦の二次元モデルでの圧力抗力」である。物体表面に粘性剪断が働く現実流れ、境界層剥離で後流に運動量欠損ができる流れ、三次元翼の誘導抗力、非定常流・圧縮性の圧力跳躍を含む流れには、この証明を適用できない。実在流の抗力が零になるという予測ではない。具体的な粘性抵抗と後流は FLUID16 以降で扱う。
 
 ## 4. 尖った後縁は循環をどう選ぶか
 
@@ -298,7 +319,7 @@ $$
 J_c(z)=z+\frac{c^2}{z},\qquad J_c'(c)=0
 $$
 
-が成立する。元の流れの複素ポテンシャルの局所枝を $F$ とし、$F'$ が $c$ の近傍で正則とする。写像後の複素速度は、流体の内部で
+が成立する。元の $z$ 平面での複素ポテンシャルの局所枝を $F$ とし、$F'(z)=dF/dz$ が $c$ の近傍で正則とする。写像先の変数は $w=J_c(z)$ であり、$\widetilde q(w)=d\widetilde F/dw$ は **$w$ について** 微分した速度である。[FLUID13 の局所逆写像と連鎖律](../FLUID13/index.md#prop-fluid13-map-and-velocity)により、$J_c'(z)\ne0$ の流体内部で
 
 $$
 \widetilde q(J_c(z))=\frac{F'(z)}{J_c'(z)}
@@ -308,7 +329,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid14-kutta-condition -->
-**定義の確認**：$\alpha=0$、循環なしの[FLUID13 の偏心円の複素ポテンシャル](../FLUID13/index.md#prop-fluid13-cusp)では $F'(c)=0$。$J_c'(z)=(z-c)(z+c)/z^2$ と、$F'(z)=U(z-c)(z+c+2d)/(z+d)^2$ を約分してから $z\to c$ とすると、$\widetilde q\to Uc/(c+d)$ と有限になる。**一位の零点同士**を相殺したからであり、単に両方零へ近づくというだけでは結論できない。
+**定義の確認**：$d>0$、$R=c+d$、$\alpha=0$、循環なしの[FLUID13 の偏心円の複素ポテンシャル](../FLUID13/index.md#prop-fluid13-cusp)では $F'(c)=0$。$z$ について微分すると
+
+$$
+J_c'(z)=\frac{(z-c)(z+c)}{z^2},\qquad
+F'(z)=\frac{U(z-c)(z+c+2d)}{(z+d)^2}.
+$$
+
+$z\ne c$ の流体側で約分してから、写像先の速度の極限を計算する：
+
+$$
+\begin{aligned}
+\widetilde q(J_c(z))
+&=\frac{F'(z)}{J_c'(z)}
+=U\frac{z^2(z+c+2d)}{(z+d)^2(z+c)},\\
+\lim_{z\to c}\widetilde q(J_c(z))
+&=U\frac{c^2\cdot 2(c+d)}{(c+d)^2\cdot2c}
+=\frac{Uc}{c+d}.
+\end{aligned}
+$$
+
+**一位の零点同士**が相殺されたからであり、単に分子・分母がともに零へ近づくというだけでは結論できない。
 <!-- definition-example-end -->
 
 <a id="prop-fluid14-kutta-selected"></a>
@@ -367,7 +408,31 @@ $$
 
 [定義](#def-fluid14-kutta-condition)の有限速度条件は $F'(c)=0$ と同値であるから、$2U\sin\alpha+\Gamma/(2\pi R)=0$ を解いて $\Gamma=-4\pi R U\sin\alpha$ と決まる。逆にこの $\Gamma$ なら $F'(c)=0$ である。$F'$ は $c$ の近傍で正則で $J_c'(z)$ は一位零点だから、$F'/J_c'$ は有限極限を持つ。
 
-遠方速度は $q\to Ue^{-i\alpha}$、すなわち $(U\cos\alpha,U\sin\alpha)$。座標を $\alpha$ だけ回し、流れに沿う軸を取り直すと、[一般断面の揚力定理](#thm-fluid14-blasius)は流れに左垂直な単位ベクトル $(-\sin\alpha,\cos\alpha)$ 方向の力 $-\rho U\Gamma$ を与える。$\alpha>0$ の小角では $\Gamma<0$ より、流れの左側へ正の揚力を生む。
+有限極限の値も確認できる。$F'(c)=J_c'(c)=0$ なので、$z$ に関する[CA3 の正則関数の Taylor 展開](../../../解析系/CA/CA3/index.md#thm-ca3-taylor)と $J_c''(c)=2/c$ から
+
+$$
+\begin{aligned}
+F''(c)&=\frac{2Ue^{i\alpha}}{R}+\frac{i\Gamma_{\rm K}}{2\pi R^2}
+=\frac{2U\cos\alpha}{R},\\
+\lim_{z\to c}\frac{F'(z)}{J_c'(z)}
+&=\frac{F''(c)}{J_c''(c)}=\frac{Uc\cos\alpha}{R}.
+\end{aligned}
+$$
+
+最後に揚力の向きを確認する。遠方で $w=z+O(z^{-1})$、$J_c'(z)=1+O(z^{-2})$、$1/(z+d)=1/z+O(z^{-2})$ だから、写像先で
+
+$$
+\widetilde q(w)=Ue^{-i\alpha}-\frac{i\Gamma}{2\pi w}+O(w^{-2}).
+$$
+
+[Kutta 条件](#def-fluid14-kutta-condition)により後縁速度が有界なので、[Blasius の力公式と一般断面の Kutta–Joukowski 関係](#thm-fluid14-blasius)の圧力力公式を尖点へ適用できる。$\widetilde q^2$ の $1/w$ 係数は $-iU\Gamma e^{-i\alpha}/\pi$ であり、反時計回りの大円で積分すると
+
+$$
+F_x-iF_y=\frac{i\rho}{2}\left(2\pi i\cdot\frac{-iU\Gamma e^{-i\alpha}}{\pi}\right)
+=i\rho U\Gamma e^{-i\alpha}.
+$$
+
+従って $F_x=\rho U\Gamma\sin\alpha$、$F_y=-\rho U\Gamma\cos\alpha$。流れ方向 $(\cos\alpha,\sin\alpha)$ への力は零、左垂直 $(-\sin\alpha,\cos\alpha)$ 方向は $-\rho U\Gamma$ である。$\alpha>0$ の小角では $\Gamma_{\rm K}<0$ より、流れの左側へ正の揚力を生む。
 <!-- proof-end -->
 
 **尖点の条件は物理法則の代わりではない**：速度の有界性は、円からの写像で後縁の圧力発散を避けるための数理条件である。実在翼の出発時には粘性と後縁からの渦放出が循環の形成に関わる。さらに有限長、失速や剥離、レイノルズ数への依存まで Kutta 条件だけで保証することはできない。$\sin\alpha$ が大きい場合でも式を形式的に適用できることと、現実の翼にその値が妥当することは別である。
@@ -529,7 +594,21 @@ F'(c)=-i\left(2U\cdot\frac12+\frac{-2\pi RU}{2\pi R}\right)
 =-i(U-U)=0.
 $$
 
-$\Gamma=0$ なら $F'(c)=-iU\ne0$、一方 $J_c'(c)=0$ だから $F'/J_c'$ は発散する。$\Gamma_{\rm K}$ の場合は $F'$ に少なくとも一位の零点ができ、$J_c'$ との商は有限になる。無限大になるのは圧力を求める前の速度であり、失われた条件は Kutta 条件である。
+$\Gamma=0$ なら $F'(c)=-iU\ne0$、一方 $J_c'(c)=0$ だから $F'/J_c'$ は発散する。$\Gamma_{\rm K}$ の場合は $F'$ に少なくとも一位の零点ができる。実際に上の導関数をもう一度 $z$ で微分すると
+
+$$
+F''(c)=\frac{2U\cos(\pi/6)}{R}=\frac{\sqrt3 U}{R},
+\qquad J_c''(c)=\frac2c
+$$
+
+なので、写像先で
+
+$$
+\lim_{z\to c}\widetilde q(J_c(z))
+=\frac{F''(c)}{J_c''(c)}=\frac{\sqrt3 Uc}{2R}
+$$
+
+と有限になる。$\Gamma=0$ で無限大になるのは圧力を求める前の速度であり、失われた条件は Kutta 条件である。
 <!-- solution-end -->
 
 ### Level C
