@@ -1,0 +1,45 @@
+id: "GW1-17"
+title: "射影空間の量子コホモロジー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-16
+  - GW1-15
+  - GW1-14
+  - GW1-13
+  - GW1-10
+  - GW1-09
+official_scope: []
+learning_objectives:
+  - 射影直線と射影平面の三点モジュライ次元とNovikov変数の次数を確認できる
+  - Poincaré双対基底と三点GW不変量から量子積の構造定数を復元できる
+  - 射影直線の次数1点計数からh*h=qを次数0・高次数の消滅とともに証明できる
+  - 射影平面の二点と直線条件の一次計数からH*H=H^2とH*H^2=qとH^2*H^2=qHを導ける
+  - 射影直線・射影平面の小量子環の商環表示を正規形と自由加群の基底から証明できる
+  - 多項式係数とq進完備化、q=0の古典極限とq=1の特殊化の違いを説明できる
+  - 三点不変量の消滅と高次数写像の不存在を混同せず、特殊位置の非横断性を説明できる
+definitions: []
+theorems:
+  - { id: GW1-17-THM-01, name: 射影直線の小量子コホモロジー環 }
+  - { id: GW1-17-THM-02, name: 射影平面の量子積表 }
+  - { id: GW1-17-THM-03, name: 射影直線・射影平面の小量子環の表示と古典極限 }
+canonical_examples:
+  - 射影直線の双対基底とh*h=q
+  - 射影平面の三種の量子積とH*H*H=q
+  - モニック多項式によるq進係数の正規形と古典極限
+  - 次数2写像の存在と三点GW補正消滅の区別
+problem_patterns:
+  - GW1-17-NOVIKOV-DEGREE
+  - GW1-17-P1-DUAL-BASIS
+  - GW1-17-P2-DEGREE-FILTER
+  - GW1-17-P2-ASSOCIATIVITY
+  - GW1-17-MONOMIAL-REDUCTION
+  - GW1-17-LINE-INCIDENCE-COUNT
+  - GW1-17-COMPLETION-NORMAL-FORM
+  - GW1-17-HIGH-DEGREE-VANISHING
+  - GW1-17-FORMAL-BILINEARITY
+  - GW1-17-RECONSTRUCT-RINGS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 6 }

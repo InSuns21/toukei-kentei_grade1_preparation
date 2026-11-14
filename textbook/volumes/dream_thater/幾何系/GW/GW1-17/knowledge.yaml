@@ -1,0 +1,29 @@
+chapter: GW1-17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-16
+  - GW1-15
+  - GW1-14
+  - GW1-13
+  - GW1-10
+  - GW1-09
+concepts:
+  - id: gromov-witten.p1-small-quantum-ring
+    name: 射影直線の小量子コホモロジー環
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の小量子コホモロジー環）"]
+    requires: [gromov-witten.even-small-quantum-product, gromov-witten.p1-degree-one-point-count, gromov-witten.primary-degree-constraint]
+  - id: gromov-witten.p2-small-quantum-products
+    name: 射影平面の量子積表
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影平面の量子積表）"]
+    requires: [gromov-witten.even-small-quantum-product, gromov-witten.p2-marked-line-count, gromov-witten.primary-degree-constraint]
+  - id: gromov-witten.p1-p2-small-quantum-presentations
+    name: 射影直線・射影平面の小量子環の表示と古典極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線・射影平面の小量子環の表示と古典極限）"]
+    requires: [gromov-witten.p1-small-quantum-ring, gromov-witten.p2-small-quantum-products, gromov-witten.even-small-quantum-associativity]
