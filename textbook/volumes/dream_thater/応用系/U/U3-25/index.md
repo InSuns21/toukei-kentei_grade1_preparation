@@ -102,7 +102,7 @@ V(t,s)=E^Q_{t,s}\!\left[
 \right].
 $$
 
-この恒等式は有界な古典解の一意性も与えます。期待値から PDE を導く方向では、$0<\Delta<T-t$、$h_\Delta=\min\{H_B,t+\Delta\}$ とします。[Brown 運動の強マルコフ性](../../../解析系/STO/STO4/index.md#thm-sto4-brownian-strong-markov)を用いた停止時点の条件付き価格表現と、[割引価値関数の微分公式](../U3-13/index.md#prop-u3-13-discounted-function)から
+この恒等式は有界な古典解の一意性も与えます。期待値から PDE を導く方向では、$0<\Delta<T-t$、$h_\Delta=\min\{H_B,t+\Delta\}$ とします。[Brown 運動の強マルコフ性](../../../解析系/STO/STO4/index.md#thm-sto4-brownian-strong-markov)を用いた停止時点の条件付き価格表現と、[滑らかな価値関数の割引過程](../U3-13/index.md#prop-u3-13-discounted-function)で導いた微分計算から
 
 $$
 V(t,s)=E^Q_{t,s}[e^{-r(h_\Delta-t)}V(h_\Delta,S_{h_\Delta})],
