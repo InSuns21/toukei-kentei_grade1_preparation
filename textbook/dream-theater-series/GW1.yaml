@@ -1,7 +1,7 @@
 version: 1
 id: GW1
 title: "擬正則曲線・Gromov–Witten理論"
-plan: textbook/plans_progress/DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_GROMOV_WITTEN_GEOMETRY_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 公開索引へは完成した章のみ追加する。

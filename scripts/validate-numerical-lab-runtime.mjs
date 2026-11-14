@@ -68,6 +68,8 @@ assert.match(runtime, /navigator\.serviceWorker\.ready/);
 assert.match(runtime, /highlightPython/);
 assert.match(runtime, /python-solution/);
 assert.match(runtime, /numerical-lab-tab/);
+assert.match(runtime, /function buildExperimentPanel/);
+assert.match(runtime, /lab-param/);
 
 assert.match(indexHtml, /numerical-lab\.css/);
 assert.match(indexHtml, /numerical-lab-runtime\.js/);
@@ -138,7 +140,7 @@ function parseLabs(chapter, markdown) {
     const timeoutText = source.match(/^\s*#\s*timeout-ms:\s*(\d+)$/m)?.[1];
     const mode = source.match(/^\s*#\s*lab-mode:\s*([^\n]+)$/m)?.[1]?.trim().toLowerCase() || 'free';
 
-    assert.ok(['free', 'exercise'].includes(mode), `${id || chapter}: unsupported # lab-mode: ${mode}`);
+    assert.ok(['free', 'exercise', 'experiment'].includes(mode), `${id || chapter}: unsupported # lab-mode: ${mode}`);
     assert.ok(id, `${chapter}: every python-lab block must declare # lab-id:`);
     assert.ok(!globalLabIds.has(id), `duplicate lab-id: ${id} in ${chapter} and ${globalLabIds.get(id)}`);
     globalLabIds.set(id, chapter);
@@ -154,6 +156,29 @@ function parseLabs(chapter, markdown) {
     if (solution) {
       pairedSolutionCount += 1;
       compilePython(solution, `${id}:python-solution`);
+    }
+
+    const paramLines = [...source.matchAll(/^#\s*lab-param:\s*(.+)$/gm)];
+    if (mode === 'experiment') {
+      assert.ok(!solution, `${id}: experiment mode must not have python-solution`);
+      assert.doesNotMatch(source, /___/, `${id}: experiment mode must be complete Python`);
+      assert.ok(paramLines.length >= 1 && paramLines.length <= 8,
+        `${id}: experiment mode needs 1–8 numeric parameter controls`);
+      const seen = new Set();
+      for (const match of paramLines) {
+        const parts = match[1].split('|').map(part => part.trim());
+        assert.equal(parts.length, 6, `${id}: lab-param must have 6 fields`);
+        assert.match(parts[0], /^[a-zA-Z_][a-zA-Z0-9_]*$/);
+        assert.ok(!seen.has(parts[0]) && parts[1], `${id}: unique parameter name and label required`);
+        seen.add(parts[0]);
+        const numbers = parts.slice(2).map(Number);
+        assert.ok(numbers.every(Number.isFinite));
+        const [initial, min, max, step] = numbers;
+        assert.ok(step > 0 && min <= initial && initial <= max,
+          `${id}: initial/min/max/step mismatch`);
+      }
+    } else {
+      assert.equal(paramLines.length, 0, `${id}: only experiment labs accept lab-param`);
     }
 
     if (mode === 'exercise') {
@@ -201,9 +226,15 @@ for (const chapter of chapterDirs) {
   } else {
     assert.ok(labs.length >= 1, `${chapter} must provide at least one executable numerical experiment`);
     assert.ok(
-      labs.every((lab) => lab.mode === 'exercise' && lab.hasSolution),
-      `${chapter}: every theory-linked NUMLAB1–NUMLAB5 experiment must use exercise mode with python-solution`,
+      labs.every((lab) => ['exercise', 'experiment'].includes(lab.mode) &&
+        (lab.mode === 'experiment' || lab.hasSolution)),
+      `${chapter}: each theory-linked experiment needs an executable experiment or exercise mode`,
     );
+    if (chapter === 'NUMLAB1') {
+      assert.ok(labs.some((lab) => lab.id === 'NUMLAB1-NA1-CANCELLATION' &&
+        lab.mode === 'experiment' && !lab.hasSolution),
+        'NUMLAB1: cancellation pilot must run without code blanks or a solution code block');
+    }
   }
 }
 
@@ -272,6 +303,7 @@ for (const [chapter, labs] of pageLabs) {
 
 const totalLabs = [...pageLabs.values()].reduce((sum, labs) => sum + labs.length, 0);
 const exerciseLabs = [...pageLabs.entries()].filter(([chapter]) => /^NUMLAB[1-5]$/.test(chapter)).flatMap(([, labs]) => labs).filter((lab) => lab.mode === 'exercise').length;
+const experimentLabs = [...pageLabs.entries()].filter(([chapter]) => /^NUMLAB[1-5]$/.test(chapter)).flatMap(([, labs]) => labs).filter((lab) => lab.mode === 'experiment').length;
 console.log(
-  `Numerical lab runtime validated: Pyodide 314.0.7, ${chapterDirs.length} executable page(s), ${totalLabs} lab(s), ${exerciseLabs} exercise lab(s), ${linkRegistry.links.length} theory/lab link(s).`,
+  `Numerical lab runtime validated: Pyodide 314.0.7, ${chapterDirs.length} executable page(s), ${totalLabs} lab(s), ${exerciseLabs} code-fill lab(s), ${experimentLabs} parameter experiment(s), ${linkRegistry.links.length} theory/lab link(s).`,
 );

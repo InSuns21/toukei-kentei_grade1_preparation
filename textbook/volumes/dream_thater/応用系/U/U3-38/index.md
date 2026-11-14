@@ -8,14 +8,14 @@
 
 現在を時点0、満期を $T>0$ 年とし、$S_0=s>0$ 円、行使価格 $K>0$ 円とします。無リスク金利 $r$ と連続配当利回り $q$ はともに年率です。
 
-年率変動率 $\sigma>0$（年$^{-1/2}$）も定数とします。$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)です。[GBM の明示解](../U3-14/index.md#thm-u3-14-explicit-gbm)による対数満期価格 $X=\log S_T$ は
+年率変動率 $\sigma>0$（年$^{-1/2}$）も定数とします。$Q$ は[リスク中立測度](../U3-15/index.md#thm-u3-15-risk-neutral-measure)です。配当付き株価の $Q$ 下でのドリフトは、[配当付き BSM の市場設定](../U3-16/index.md#prop-u3-16-dividend-pde)により $r-q$ です。これを[GBM の明示解](../U3-14/index.md#thm-u3-14-explicit-gbm)のドリフト係数へ代入した対数満期価格 $X=\log S_T$ は
 
 $$
 X=m+\sqrt v\,Z,\quad Z\sim N(0,1)\ (Q\text{ の下}),\qquad
 m=\log s+(r-q-\sigma^2/2)T,\quad v=\sigma^2T>0
 $$
 
-を満たします。$S_T$ の単位を円で固定したうえで、$\log S_T$ は「円を価格の基準単位として数値化した値」の対数と解釈します。指数関数 $e^{iuX}$ の期待値を使うと、価格の分布を一つの関数として保持できます。これを**特性関数**といい、後で指数モーメントが存在する場合には複素数の引数まで拡張します。
+を満たします。$S_T$ の単位を円で固定したうえで、$\log S_T$ は「円を価格の基準単位として数値化した値」の対数と解釈します。指数関数 $e^{iuX}$ の期待値を使うと、価格の分布を一つの関数として保持できます。これを**特性関数**といい、指数モーメントが存在する複素引数へも拡張します。複素引数の虚部によって必要な指数モーメントの符号が変わるため、定義できる範囲はモデルごとに確認します。
 
 <a id="def-u3-38-characteristic"></a>
 
@@ -27,17 +27,17 @@ $$
 \varphi_X(u)=E_Q[e^{iuX}]
 $$
 
-> と定める。複素引数 $z=u-ib$（$u\in\mathbb R,b\ge0$）に対して指数モーメント $E_Q[e^{bX}]<\infty$ が成り立つなら、同じ期待値を
+> と定める。複素引数 $z=u+it$（$u,t\in\mathbb R$）について、絶対値 $|e^{izX}|=e^{-tX}$ に対応する指数モーメント $E_Q[e^{-tX}]<\infty$ が存在するとき、
 
 $$
 \varphi_X(z)=E_Q[e^{izX}]
 $$
 
-> により定義する。
+> と拡張する。特に価格公式で使う $z=u-ib$（$b\ge0$）では $t=-b$ なので、必要な条件は $E_Q[e^{bX}]<\infty$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-38-characteristic -->
-**定義の確認**：$X=x_0$ が定数なら $e^{izX}=e^{izx_0}$ は絶対可積分であり $\varphi_X(z)=e^{izx_0}$ です。特に $\varphi_X(0)=1$、実数 $u$ では $|\varphi_X(u)|=1$ です。正規分布の $X$ では任意の $b\ge0$ に対し $E_Q[e^{bX}]=e^{bm+b^2v/2}<\infty$ ですから、必要な複素引数がすべて使えます。
+**定義の確認**：$X=x_0$ が定数なら $e^{izX}=e^{izx_0}$ は絶対可積分であり $\varphi_X(z)=e^{izx_0}$ です。特に $\varphi_X(0)=1$、実数 $u$ では $|\varphi_X(u)|=1$ です。正規分布 $X\sim N(m,v)$（$v>0$）なら任意の実数 $a$ に対し $E_Q[e^{aX}]=e^{am+a^2v/2}<\infty$ です。従って $a=-t$ と置けば、実部・虚部が任意の複素引数 $z=u+it$ で定義条件を満たします。
 <!-- definition-example-end -->
 
 <a id="prop-u3-38-gbm-phi"></a>
@@ -94,7 +94,7 @@ E[e^{izX}]=e^{izm}E[e^{iz\sqrt v Z}]
 =e^{izm-vz^2/2}.
 $$
 
-です。また $z=u-ib$ なら絶対値が $e^{bX}$ となり、正規分布の指数モーメントで期待値は存在します。
+です。一般に $z=u+it$ なら $|e^{izX}|=e^{-tX}$ です。正規分布では実数 $-t$ の指数モーメント $e^{-tm+t^2v/2}$ が有限なので、証明中の $F(iz\sqrt v)$ と $\varphi_X(z)$ は全ての $z\in\mathbb C$ で定義されています。
 <!-- proof-end -->
 
 ここまでの式は特性関数だけであり、まだオプション価格ではありません。次に strike を動かして支払額の変換を作ります。
@@ -189,7 +189,7 @@ $$
 
 $E_Q[e^{(\alpha+1+iu)X}]=\varphi_X(u-i(\alpha+1))$ を代入すると主張の変換公式です。
 
-連続性も確認します。$k_n\to k$ として支払額 $(e^X-e^{k_n})_+\to(e^X-e^k)_+$ は各標本で連続です。$k_n$ を有界区間に制限すれば支払額は $e^X+e^{\sup k_n}$ 以下、これは $E[e^X]<\infty$ によって可積分です。[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)と $e^{\alpha k_n}\to e^{\alpha k}$ から $c_\alpha(k_n)\to c_\alpha(k)$ です。
+連続性も確認します。$k_n\to k$ として支払額 $(e^X-e^{k_n})_+\to(e^X-e^k)_+$ は各標本で連続です。$k_n$ を有界区間に制限すれば支払額は $e^X+e^{\sup k_n}$ 以下、これは $e^X\le1+e^{(\alpha+1)X}$（$\alpha>0$）と指数モーメントの仮定から $E_Q[e^X]<\infty$ となるので可積分です。[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)と $e^{\alpha k_n}\to e^{\alpha k}$ から $c_\alpha(k_n)\to c_\alpha(k)$ です。
 <!-- proof-end -->
 
 <a id="thm-u3-38-fourier-price"></a>

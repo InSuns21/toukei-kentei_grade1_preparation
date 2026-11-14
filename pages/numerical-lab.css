@@ -97,6 +97,16 @@
   background: #fff;
   font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
+.numerical-experiment-source {
+  border-top: 1px solid #d8dee4;
+  padding: 0.65rem 0.85rem;
+}
+.numerical-experiment-source summary {
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.numerical-experiment-source .numerical-lab-solution-code { margin-top: 0.55rem !important; }
 .numerical-file-source { font-size: 0.86rem; }
 .numerical-file-plot { margin: 0; min-width: 0; border: 1px solid #e2e8f0; border-radius: 6px; }
 .numerical-file-plot figcaption { padding: 0.35rem 0.6rem; font-size: 0.9rem; font-weight: 600; }
