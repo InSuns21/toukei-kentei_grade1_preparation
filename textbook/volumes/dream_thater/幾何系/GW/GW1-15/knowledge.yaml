@@ -1,0 +1,33 @@
+chapter: GW1-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-14
+  - GW1-13
+  - GW1-12
+  - GW1-11
+concepts:
+  - id: gromov-witten.primary-graded-symmetry
+    name: 一次GW不変量の次数付き対称性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次GW不変量の次数付き対称性）"]
+    requires: [gromov-witten.convex-primary-invariant, gromov-witten.evaluation-map]
+  - id: gromov-witten.primary-fundamental-class-axiom
+    name: 基本類公理・単位類挿入
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（基本類公理・単位類挿入）"]
+    requires: [gromov-witten.convex-primary-invariant, gromov-witten.stable-map-moduli-forgetful-morphism, gromov-witten.evaluation-forgetful-compatibility]
+  - id: gromov-witten.primary-divisor-axiom
+    name: 因子公理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（因子公理）"]
+    requires: [gromov-witten.convex-primary-invariant, gromov-witten.stable-map-moduli-forgetful-morphism, gromov-witten.evaluation-forgetful-compatibility]
+  - id: gromov-witten.primary-four-point-boundary-sum
+    name: 四標点相関の境界和公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四標点相関の境界和公式）"]
+    requires: [gromov-witten.convex-boundary-splitting-formula, gromov-witten.four-point-boundary-splitting, gromov-witten.convex-primary-invariant]
