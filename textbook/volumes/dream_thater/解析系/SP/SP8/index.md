@@ -4,9 +4,18 @@
 
 本章では、先行する [STO1 の停止時刻](../../STO/STO1/index.md#def-sto1-stopping-time)・[停止過程](../../STO/STO1/index.md#def-sto1-stopped-process)・[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)、[STO2 の停止定理](../../STO/STO2/index.md#thm-sto2-stopped-martingale)・[有界任意抽出](../../STO/STO2/index.md#thm-sto2-bounded-optional-sampling)・[Doob 分解](../../STO/STO2/index.md#thm-sto2-doob-decomposition)を土台とします。主要定理を単に再掲するのではなく、差分を用いてその証明を再構成し、停止と分解の相互作用を導きます。
 
-以下、$(\Omega,\mathcal F,P)$ は確率空間、$(\mathcal F_n)_{n\ge0}$ はフィルトレーションとし、実数値過程は特記しない限りこの情報に適合するとします。等式・不等式は概確実に解釈し、$\tau$ の値には $\infty$ も許します。$\Delta X_k:=X_k-X_{k-1}$ ($k\ge1$) は第 $k$ 回の増分、$n\wedge\tau:=\min(n,\tau)$ は二つの時刻の小さい方を表します。$\boldsymbol{1}_B$ は事象 $B$ が起これば $1$、そうでなければ $0$ を取る指示関数です。
+以下、$(\Omega,\mathcal F,P)$ は確率空間、$(\mathcal F_n)_{n\ge0}$ はフィルトレーションとし、実数値過程は特記しない限りこの情報に適合するとします。等式・不等式は概確実に解釈し、$\tau$ の値には $\infty$ も許します。
 
-コイントス・ランダムウォークの具体例では、断りがなければ独立な $\xi_1,\xi_2,\ldots$ の履歴から作る[自然なフィルトレーション](../../STO/STO1/index.md#def-sto1-adapted-natural-filtration) $\mathcal F_0=\{\varnothing,\Omega\}$、$\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)$（$n\ge1$）を用います。これにより $\xi_k$ は $\mathcal F_{k-1}$ と独立で、可積分なら $E[\xi_k\mid\mathcal F_{k-1}]=E[\xi_k]$ です。コイン同士の独立性だけでは、未来の情報を含む別のフィルトレーションに関してこの等式を主張できません。
+$\Delta X_k:=X_k-X_{k-1}$（$k\ge1$）は第 $k$ 回の増分、$n\wedge\tau:=\min(n,\tau)$ は二つの時刻の小さい方を表します。事象 $B$ の指示関数 $\boldsymbol{1}_B$ は、$B$ が起これば $1$、そうでなければ $0$ を取ります。
+
+コイントス・ランダムウォークの具体例では、断りがなければ独立なコイン列 $\xi_1,\xi_2,\ldots$ の履歴から作る[自然なフィルトレーション](../../STO/STO1/index.md#def-sto1-adapted-natural-filtration)を用います。具体的には
+
+$$
+\mathcal F_0=\{\varnothing,\Omega\},\qquad
+\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)\quad(n\ge1)
+$$
+
+です。$\xi_k$ はこの $\mathcal F_{k-1}$ と独立なので、可積分なら $E[\xi_k\mid\mathcal F_{k-1}]=E[\xi_k]$ です。コイン同士の独立性だけでは、未来の情報を含む別のフィルトレーションについてこの等式を主張できません。
 
 ## 1. 先に止めるか、結果を見てから止めるか
 
@@ -344,7 +353,7 @@ A01 の $\tau$ について、$B=\{\xi_1=1\}$ が $\mathcal F_\tau$ に属する
 <!-- solution-start -->
 ### 詳細解答
 
-[停止時刻までの情報の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)では、任意の $n$ で $D\cap\{\tau\le n\}\in\mathcal F_n$ が必要です。$B$ は $n=0$ では空集合、$n=1$ で $B$、$n\ge2$ でも $B$ となり、各時刻で可測です。ゆえに $B\in\mathcal F_\tau$ です。
+[停止時刻までの $\sigma$ 代数の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)では、任意の $n$ で $D\cap\{\tau\le n\}\in\mathcal F_n$ が必要です。$B$ は $n=0$ では空集合、$n=1$ で $B$、$n\ge2$ でも $B$ となり、各時刻で可測です。ゆえに $B\in\mathcal F_\tau$ です。
 
 $C$ に対して $n=1$ を調べると $C\cap\{\tau\le1\}=\{\xi_2=1,\xi_1=1\}$ となります。$\mathcal F_1=\sigma(\xi_1)$ は第1回の符号だけを区別するので、$\xi_1=1$ の二つの標本を分けるこの事象は $\mathcal F_1$ に入りません。従って $C\notin\mathcal F_\tau$ です。
 <!-- solution-end -->
@@ -440,7 +449,7 @@ $$
 
 $\sigma$ は第1回の結果だけで $1$ または $2$ と決まり、$\{\sigma\le1\}=\{\xi_1=1\}\in\mathcal F_1$、$\{\sigma\le2\}=\Omega$ です。$\tau=3$ は定数停止時刻です。$0\le\sigma\le\tau\le3$ なので[有界任意抽出](../../STO/STO2/index.md#thm-sto2-bounded-optional-sampling)を適用できますが、ここでは計算します。
 
-なぜ停止時刻ごとに固定時刻の条件付き平均で計算できるのでしょうか。[停止時刻までの情報の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)から、任意の $B\in\mathcal F_\sigma$ と $j=1,2$ について
+なぜ停止時刻ごとに固定時刻の条件付き平均で計算できるのでしょうか。[停止時刻までの $\sigma$ 代数の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)から、任意の $B\in\mathcal F_\sigma$ と $j=1,2$ について
 
 $$
 B\cap\{\sigma=j\}
@@ -502,7 +511,20 @@ $$
 #### SP8-C01 有限区間の破産確率と平均吸収時間
 - Level: C
 
-$N\ge2$、$1\le i\le N-1$ とし、独立な公平 $\pm1$ コイン $\xi_k$ と自然なフィルトレーションの下で、歩行 $S_0=i$、$S_n=i+\sum_{k=1}^n\xi_k$ を考える。初期位置が $i$ の場合の確率と期待値を $P_i,E_i$ と書く（ここでは $S_0=i$ を固定した $P,E$ と同じ）。$\tau=\inf\{n\ge0:S_n\in\{0,N\}\}$、$Z_n=S_{n\wedge\tau}$ とする。[SP6 の吸収時刻の幾何級数型評価](../SP6/index.md#lem-sp6-geometric-tail)により $\tau<\infty$ a.s. かつ $E[\tau]<\infty$ としてよい（ただし下記の極限交換では理由を示す）。
+整数 $N\ge2$ と $1\le i\le N-1$ を固定する。独立な公平 $\pm1$ コイン $\xi_k$ とその自然なフィルトレーションの下で、歩行を
+
+$$
+S_0=i,\qquad S_n=i+\sum_{k=1}^n\xi_k\quad(n\ge1)
+$$
+
+と定める。初期位置 $i$ の場合の確率を $P_i$、期待値を $E_i$ と記す（ここでは $S_0=i$ を固定した $P,E$ と同じ）。境界到達時刻と停止過程を
+
+$$
+\tau=\inf\{n\ge0:S_n\in\{0,N\}\},\qquad
+Z_n=S_{n\wedge\tau}
+$$
+
+と置く。上下に同確率で動くので、[SP6 の吸収時刻の幾何級数型評価](../SP6/index.md#lem-sp6-geometric-tail)に $p=q=1/2$ を代入でき、$\tau<\infty$ a.s. かつ $E_i[\tau]<\infty$ としてよい（ただし下記の極限交換では理由を示す）。
 
 1. $Z$ が有界マルチンゲールであることを差分から証明せよ。
 2. $P_i(S_\tau=N)=i/N$ を、有界時刻 $\tau\wedge n$ から出発して導け。
