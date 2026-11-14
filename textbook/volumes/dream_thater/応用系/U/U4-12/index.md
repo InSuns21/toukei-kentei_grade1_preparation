@@ -14,7 +14,20 @@
 
 <!-- formal-statement-start -->
 > **定義（AR(1) の単位根と局所単位根）**  
-> $X_t=\rho X_{t-1}+\varepsilon_t$（$t=1,\ldots,n$）を考える。$X_0$ は有限な定数、$\varepsilon_t$ は独立同分布で $E[\varepsilon_t]=0$、$\operatorname{Var}(\varepsilon_t)=\sigma^2\in(0,\infty)$ とする。係数 $\rho=1$ のモデルを本講では**単位根モデル**、$|\rho|<1$ のモデルを**安定な AR(1)** とする。標本長 $n$ ごとに $\rho_n=1+c/n$（固定 $c<0$）とするモデルを**局所単位根モデル**という。
+> 時点 $t=1,\ldots,n$ の AR(1) モデルを考える。
+
+$$
+X_t=\rho X_{t-1}+\varepsilon_t.
+$$
+
+> $X_0$ は有限な定数、$\varepsilon_t$ は独立同分布で、そのモーメントは次を満たす。
+
+$$
+E[\varepsilon_t]=0,\qquad
+\operatorname{Var}(\varepsilon_t)=\sigma^2\in(0,\infty).
+$$
+
+> 係数 $\rho=1$ のモデルを本講では**単位根モデル**、$|\rho|<1$ のモデルを**安定な AR(1)** とする。標本長 $n$ ごとに $\rho_n=1+c/n$（固定 $c<0$）とするモデルを**局所単位根モデル**という。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u4-12-unit-root -->
@@ -83,7 +96,7 @@ $$
 -\phi_2\Delta X_{t-1}+\varepsilon_t.
 $$
 
-> 従って、1階差を使う ADF 回帰では $\gamma=\phi_1+\phi_2-1$、$\psi_1=-\phi_2$ である。ただし $\gamma=0$ だけで他の特性根の位置や誤差の条件まで確定するわけではない。
+> 従って、1階差を使う ADF 回帰では $\gamma=\phi_1+\phi_2-1$、$\psi_1=-\phi_2$ である。ただし $\gamma=0$ だけでは差分側の自己回帰の安定性や誤差の条件まで確定するわけではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -114,13 +127,26 @@ $$
 
 通常の回帰の t 検定は、説明変数と誤差に適切な条件があり、分母となる情報量と分子の確率変動が通常の速度で増えるときの議論です。単位根帰無の下では、説明変数 $X_{t-1}$ 自体が過去の誤差を累積し、規模が標本長とともに増えます。ここでは最も簡単な仕様について、通常の t 分布が現れない仕組みを計算します。
 
-以下の定理では、[ブラウン運動の定義](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion)を使います。すなわち $W(0)=0$、連続標本路、独立な増分を持ち、$W(t)-W(s)$ が平均0・分散 $t-s$ の正規分布に従う過程です。これは単に記号として持ち込むのでなく、帰無仮説下の累積誤差の極限を表します。
+以下の定理では、[ブラウン運動](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion)の定義を使います。すなわち $W(0)=0$、連続標本路、独立な増分を持ち、$W(t)-W(s)$ が平均0・分散 $t-s$ の正規分布に従う過程です。これは単に記号として持ち込むのでなく、帰無仮説下の累積誤差の極限を表します。
 
 <a id="thm-u4-12-df-limit"></a>
 
 <!-- formal-statement-start -->
 > **定理（ドリフトなし DF 統計量の非標準極限）**  
-> $X_0=0$、$X_t=X_{t-1}+\varepsilon_t$（$t=1,\ldots,n$）、$\varepsilon_t$ は独立同分布の $N(0,\sigma^2)$、$\sigma^2>0$ とする。定数・トレンド・追加ラグなしの回帰 $\Delta X_t=\gamma X_{t-1}+u_t$ から、残差平方和を自由度 $n-1$ で割った $\widehat\sigma^2$ と $\tau_n=\widehat\gamma\sqrt{\sum_{t=1}^nX_{t-1}^2}/\widehat\sigma$ を作る。このとき、標準ブラウン運動 $W$ に対し
+> 初期値 $X_0=0$ とし、$t=1,\ldots,n$ について以下のモデルを考える。$\varepsilon_t$ は独立同分布の $N(0,\sigma^2)$ に従い、$\sigma^2>0$ とする。
+
+$$
+X_t=X_{t-1}+\varepsilon_t.
+$$
+
+> 定数・トレンド・追加ラグなしの回帰を考え、残差平方和を自由度 $n-1$ で割った値を $\widehat\sigma^2$ とする。
+
+$$
+\Delta X_t=\gamma X_{t-1}+u_t,\qquad
+\tau_n=\frac{\widehat\gamma\sqrt{\sum_{t=1}^n X_{t-1}^2}}{\widehat\sigma}.
+$$
+
+> このとき、標準ブラウン運動 $W$ に対し
 
 $$
 n\widehat\gamma
@@ -135,7 +161,7 @@ $$
 {2\sqrt{\int_0^1W(r)^2\,dr}}.
 $$
 
-> 記号 $\Rightarrow$ は分布収束である。右辺は通常の正規分布や Student の t 分布ではなく、**この回帰仕様に固有の Dickey–Fuller 分布**である。分母の積分はほとんど確実に正である。
+> 記号 $\Rightarrow$ は[分布収束](../../../解析系/F0/F0-00P6/index.md#def-f0-00p6-distribution-convergence)である。右辺は通常の正規分布や Student の t 分布ではなく、**この回帰仕様に固有の Dickey–Fuller 分布**である。分母の積分はほとんど確実に正である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -182,7 +208,30 @@ $$
 \ \Rightarrow\ \int_0^1W(r)^2\,dr.
 $$
 
-同じ同時分布の表現から $X_n^2/(\sigma^2n)\Rightarrow W(1)^2$ です。また独立同分布の二乗の大数の法則により
+同じ同時分布の表現から $X_n^2/(\sigma^2n)\Rightarrow W(1)^2$ です。さらに正規誤差の二乗和については、直接モーメントを計算できます。正規分布の四次モーメントは $E[\varepsilon_t^4]=3\sigma^4$ なので
+
+$$
+E[\varepsilon_t^2]=\sigma^2,\qquad
+\operatorname{Var}(\varepsilon_t^2)
+=E[\varepsilon_t^4]-(E[\varepsilon_t^2])^2
+=2\sigma^4.
+$$
+
+独立性から、二乗の標本平均について
+
+$$
+E\left[\frac1{n\sigma^2}\sum_{t=1}^n\varepsilon_t^2\right]=1,\qquad
+\operatorname{Var}\left(\frac1{n\sigma^2}\sum_{t=1}^n\varepsilon_t^2\right)=\frac2n.
+$$
+
+従って任意の $\delta>0$ について、Chebyshev の不等式を使えば
+
+$$
+P\left(\left|\frac1{n\sigma^2}\sum_{t=1}^n\varepsilon_t^2-1\right|>\delta\right)
+\le\frac{2}{n\delta^2}\longrightarrow0.
+$$
+
+したがって
 
 $$
 \frac1{n\sigma^2}\sum_{t=1}^n\varepsilon_t^2
