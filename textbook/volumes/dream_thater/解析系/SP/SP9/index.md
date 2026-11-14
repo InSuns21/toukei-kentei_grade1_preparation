@@ -356,7 +356,7 @@ $$
 
 左辺が非負なので $v_n=E[M_n^2]$ は単調非減少です。仮定から $v_n\uparrow v<\infty$ となるので、$m\ge n$ に対して $0\le E[(M_m-M_n)^2]\le v-v_n\to0$。従って $(M_n)$ は $L^2$ の Cauchy 列であり、$L^2$ の完備性よりある $Y\in L^2$ へ $L^2$ 収束します。
 
-一方 $E|M_n|\le\sqrt{E[M_n^2]}$ なので $\sup_nE[M_n^+]<\infty$。[STO2 の劣マルチンゲール概収束定理](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)から、ある $X\in L^1$ へ概収束します。$L^2$ 収束は確率収束を意味し、確率極限の一意性から $X=Y$ a.s. です。これを $M_\infty$ とします。
+一方 $E|M_n|\le\sqrt{E[M_n^2]}$ なので $\sup_nE[M_n^+]<\infty$。[劣マルチンゲールの概収束](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)から、ある $X\in L^1$ へ概収束します。$L^2$ 収束は確率収束を意味し、確率極限の一意性から $X=Y$ a.s. です。これを $M_\infty$ とします。
 
 また Cauchy–Schwarz から $E|M_n-M_\infty|\le\sqrt{E[(M_n-M_\infty)^2]}\to0$。二乗平均有界性から上で確かめた UI と [UI マルチンゲール収束定理](../../STO/STO2/index.md#thm-sto2-ui-martingale-convergence)を適用すれば、$M_n=E[M_\infty\mid\mathcal F_n]$ が得られます。
 <!-- proof-end -->
@@ -550,7 +550,7 @@ $$
 で、以降は過程が一定なのでマルチンゲールです。$|M_n|\le1$ だから $K\ge1$ では全時刻の UI 尾部が $0$ です。$n\ge2$ で $M_n=Z$ なので $M_n\to Z$ は各標本路で成立し、$E|M_n-Z|=0$（$n\ge2$）です。終端表示 $M_n=E[Z\mid\mathcal F_n]$ も直接成立します。
 <!-- solution-end -->
 
-## 8. 演習 Level C：停止と二乗平均収束を一つの計算へ
+## 8. 演習 Level C：停止と $L^2$ 収束を一つの計算へ
 
 #### SP9-C01 有限区間で止めた歩行の極限と最大値
 
