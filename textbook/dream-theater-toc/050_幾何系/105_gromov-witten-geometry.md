@@ -14,3 +14,4 @@
 11. [GW1-11 評価写像・忘却写像・交叉条件](textbook/volumes/dream_thater/幾何系/GW/GW1-11/index.md)
 12. [GW1-12 境界の分裂と貼り合わせ](textbook/volumes/dream_thater/幾何系/GW/GW1-12/index.md)
 13. [GW1-13 凸標的の種数0GW不変量の定義](textbook/volumes/dream_thater/幾何系/GW/GW1-13/index.md)
+14. [GW1-14 最初の不変量を手で求める](textbook/volumes/dream_thater/幾何系/GW/GW1-14/index.md)
