@@ -342,7 +342,7 @@ $$
 \le P(D_k)\le(1-\alpha)^k.
 $$
 
-$n=mk+r$、$0\le r<m$ と書けば、[全変動距離の遷移縮小](#prop-sp5-tv-contraction)を $r$ 回適用して
+$n=mk+r$、$0\le r<m$ と書けば、[全変動距離の和表示と縮小](#prop-sp5-tv-contraction)を $r$ 回適用して
 
 $$
 \begin{aligned}
@@ -469,7 +469,7 @@ $S=\{0,1\}$、$p(0,1)=p(1,0)=1$ とする。各状態の周期、不変確率分
 
 $P^2=I$ より帰還可能な正の時刻は $2,4,6,\ldots$。両状態の周期は $2$ です。不変方程式 $\pi P=\pi$ は $\pi_0=\pi_1$、正規化は $\pi_0+\pi_1=1$ なので $\pi=(1/2,1/2)$。
 
-偶数時刻は $\delta_0P^{2k}=(1,0)$、奇数時刻は $\delta_0P^{2k+1}=(0,1)$ です。[全変動距離の和表示](#prop-sp5-tv-contraction)からどちらの場合も
+偶数時刻は $\delta_0P^{2k}=(1,0)$、奇数時刻は $\delta_0P^{2k+1}=(0,1)$ です。[全変動距離の和表示と縮小](#prop-sp5-tv-contraction)からどちらの場合も
 
 $$
 \|\delta_0P^n-\pi\|_{\mathrm{TV}}
@@ -490,7 +490,7 @@ $S=\{0,1,2\}$、$\mu=(1/2,1/4,1/4)$、$\nu=(1/4,1/2,1/4)$ とする。両分布�
 <!-- solution-start -->
 ### 詳細解答
 
-[全変動距離の和表示](#prop-sp5-tv-contraction)によって
+[全変動距離の和表示と縮小](#prop-sp5-tv-contraction)によって
 
 $$
 \|\mu-\nu\|_{\mathrm{TV}}
@@ -639,7 +639,7 @@ $$
 \pi_1-(1-a-b)^n(\mu_0-\pi_0)\right).
 $$
 
-[全変動距離の和表示](#prop-sp5-tv-contraction)より
+[全変動距離の和表示と縮小](#prop-sp5-tv-contraction)より
 
 $$
 \|\mu P^n-\pi\|_{\mathrm{TV}}
