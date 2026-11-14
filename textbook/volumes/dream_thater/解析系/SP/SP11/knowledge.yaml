@@ -3,7 +3,8 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SP10
-forward_references: []
+forward_references:
+  - stochastic.compound-poisson-process
 concepts:
   - id: stochastic.poisson-superposition
     name: 独立 Poisson 過程の重ね合わせ
