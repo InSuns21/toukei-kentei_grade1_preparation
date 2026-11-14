@@ -1,0 +1,35 @@
+chapter: U3-27
+scope: dream-theater
+coverage: complete
+prerequisites: [STO6, STO7, U3-26]
+concepts:
+  - id: finance.ito-left-coupled-error
+    name: 適合左端和と同一路の積分誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（適合左端和と同一路の積分誤差）"]
+    requires: [stochastic.stochastic-integral-l2, stochastic.simple-predictable-integrand]
+  - id: finance.brownian-left-sum-exact-mse
+    name: Brown 運動の適合左端和の厳密二乗平均誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Brown 運動の適合左端和の厳密二乗平均誤差）"]
+    requires: [finance.ito-left-coupled-error, stochastic.ito-isometry-simple]
+  - id: finance.endpoint-and-time-midpoint-sums
+    name: 両端対称和と時刻中点和
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（両端対称和と時刻中点和）"]
+    requires: [finance.ito-left-coupled-error, stochastic.stratonovich-integral]
+  - id: finance.time-midpoint-stratonovich-mse
+    name: 中点の選び方と Stratonovich 目標への誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中点の選び方と Stratonovich 目標への誤差）"]
+    requires: [finance.endpoint-and-time-midpoint-sums, stochastic.ito-stratonovich-basic-conversion]
+  - id: finance.coupled-ito-squared-error-mc
+    name: 同一路二乗誤差の Monte Carlo 実測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同一路二乗誤差の Monte Carlo 実測）"]
+    requires: [finance.ito-left-coupled-error, numerical.monte-carlo-estimator]
