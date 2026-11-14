@@ -460,14 +460,15 @@ Vega は中央で $37.90115751$ 円/（変動率1単位）なので、線形近�
 
 ### 同じ計算を再現する
 
-[数値検算プログラム](assets/implied_volatility.py)は Python 3 の標準ライブラリだけで実行できます。二分法の逆算、再代入、bid/mid/ask の区間、3 strike の必要条件、定数変動率最小二乗校正、価格範囲外の入力拒否を**同じ数式・同じデータ**で確かめます。数値は仮想気配です。
+[数値検算プログラム](assets/implied_volatility.py)は Python 3 の標準ライブラリだけで実行できます。二分法の逆算、再代入、bid/mid/ask の区間、3 strike の必要条件、定数変動率最小二乗校正、価格範囲外の入力拒否を**同じ数式・同じデータ**で確かめます。数値は仮想気配です。実行前に、bid/ask 半幅を0.04円から0.10円へ拡大すると、逆算 IV の許容区間はどれだけ拡がるかを予測してください。プリセットを切り替えて、bid・ask の IV と中央価格の再代入誤差を比較します。中央価格と3 strike の最小二乗校正は固定するので、動いた量と動かない量を区別できます。
 
 ~~~python-file-lab
 # lab-id: U3-39-IV-CALIBRATION
 # lab-title: IV・bid/ask・校正残差の再代入検算
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-39/assets/implied_volatility.py
 # timeout-ms: 15000
-# lab-preset: 3つの行使価格の逆算・気配区間・価格残差を検算 |
+# lab-preset: 基準気配（半幅0.04円） | --spread 0.04
+# lab-preset: 拡大気配（半幅0.10円） | --spread 0.10
 ~~~
 
 ローカル実行例：
