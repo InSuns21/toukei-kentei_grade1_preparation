@@ -101,6 +101,22 @@ $$
 
 $\mathbb P^1$ 上で $H^1$ が消える写像が一つあることと、全ての球面写像で消えることは異なる。後者を標的自身の条件にする。
 
+以下の例で使う**写像の次数**も先に定める。正則写像 $u:\mathbb P^1\to\mathbb P^n$ の次数 $d$ は、引き戻し線束の次の関係を満たす整数である。
+
+$$
+u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d).
+$$
+
+斉次座標による $\mathcal O(1)$ の大域切断は共通零点を持たない。その引き戻しにも非零の大域切断がある。一方、[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)によれば、負の整数 $d$ では $H^0(\mathcal O(d))=0$ となる。従って正則写像では $d\ge0$ である。
+
+さらに線束のテンソル冪を引き戻すと
+
+$$
+u^*\mathcal O_{\mathbb P^n}(k)\simeq\mathcal O_{\mathbb P^1}(kd)
+$$
+
+が成立する。これにより接束を線束として計算した結果を、写像を引き戻したときの $H^1$ 判定へ結び付けられる。
+
 <a id="def-gw1-09-convex"></a>
 
 <!-- formal-statement-start -->
@@ -111,11 +127,19 @@ $$
 H^1(\mathbb P^1,u^*TX)=0
 $$
 
-> が成立するとき、$X$ を種数0の意味で**凸**（convex）という。この条件は $X$ が通常のベクトル空間で二点を結ぶ線分をすべて含むという意味の凸性であるという意味ではない。
+> が成立するとき、$X$ を種数0の意味で**凸**（convex）という。これは、通常のベクトル空間で二点を結ぶ線分をすべて含むという意味の凸性とは異なる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-09-convex -->
-**定義の確認**。$X=\mathbb P^1$ に対し、接束は $\mathcal O(2)$ である。次数 $d\ge0$ の任意の正則写像 $u:\mathbb P^1\to\mathbb P^1$ は $u^*\mathcal O(2)\simeq\mathcal O(2d)$ を満たす。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $2d\ge0\ge-1$ を代入すれば $H^1(\mathcal O(2d))=0$。定数写像の $d=0$ も含めて**任意の**写像で確認したので、$\mathbb P^1$ は凸である。
+**定義の確認**。$X=\mathbb P^1$ に対し、[射影直線の接束の座標計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)から $T\mathbb P^1\simeq\mathcal O(2)$ である。
+
+任意の正則写像 $u:\mathbb P^1\to\mathbb P^1$ の次数を $d\ge0$ とする。先に示したテンソル冪の引き戻し則から
+
+$$
+u^*T\mathbb P^1\simeq u^*\mathcal O(2)\simeq\mathcal O(2d)
+$$
+
+である。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)に $2d\ge0\ge-1$ を代入すると $H^1(\mathcal O(2d))=0$。定数写像の $d=0$ も含めて**任意の**写像で確認したので、$\mathbb P^1$ は凸である。
 <!-- definition-example-end -->
 
 定義から高種数の曲線 $C$ について $H^1(C,u^*TX)=0$ を導くことはできない。例えば凸な標的 $X=\mathbb P^1$ への定数写像を種数1の曲線 $C$ から取ると、$u^*TX\simeq\mathcal O_C$ であり、$H^1(C,\mathcal O_C)$ は一次元である。凸性は**定義域の種数を指定した条件**である。
@@ -192,7 +216,7 @@ $$
 \longrightarrow T\mathbb P^n\longrightarrow0.
 $$
 
-次数 $d$ の正則写像 $u:\mathbb P^1\to\mathbb P^n$ とは、$u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d)$ が成立する写像である。非定数なら $d\ge1$、定数なら $d=0$。写像が点に値を持ち、引き戻した列が完全である理由は、接Euler列が**ベクトル束の短完全列**だからである。局所的には行列の核・像を取るだけなので、引き戻しても各点で完全性を保つ。
+前節で定めた次数 $d$ について、非定数の正則写像なら $d\ge1$、定数写像なら $d=0$ である。写像が点に値を持ち、引き戻した列が完全である理由は、接Euler列が**ベクトル束の短完全列**だからである。局所的には行列の核・像を取るだけなので、引き戻しても各点で完全性を保つ。以下では $h^q(C,E)=\dim_{\mathbb C}H^q(C,E)$（$q=0,1$）と書く。
 
 <a id="thm-gw1-09-projective-convex"></a>
 
@@ -205,7 +229,7 @@ H^1(\mathbb P^1,E)=0,\qquad
 h^0(\mathbb P^1,E)=(n+1)(d+1)-1.
 $$
 
-> さらに $E$ は大域生成され、したがって $\mathbb P^n$ は凸である。ここで $h^q=\dim_{\mathbb C}H^q$ である。
+> さらに $E$ は大域生成され、したがって $\mathbb P^n$ は凸である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -322,7 +346,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-可積分な複素構造では固定定義域の線形化は $\bar\partial_E$ であり、その余核は前述の対応から $H^1(\mathbb P^1,E)$。凸性により零だから線形化は全射となる。[楕円型正則性・Fredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)と同講で説明したBanach空間上の局所陰関数定理の適用により、近くの解空間は核を接空間とする滑らかな有限次元複素空間になる。複素構造の可積分性により局所方程式は複素正則であり、複素次元は $h^0(E)$ である。
+可積分な複素構造では固定定義域の線形化は $\bar\partial_E$ であり、その余核は前述の対応から $H^1(\mathbb P^1,E)$。[凸性の定義](#def-gw1-09-convex)により零だから線形化は全射となる。[楕円型正則性・Fredholm性](../GW1-03/index.md#thm-gw1-03-fredholm)と同講で説明したBanach空間上の局所陰関数定理の適用により、近くの解空間は核を接空間とする滑らかな有限次元複素空間になる。複素構造の可積分性により局所方程式は複素正則であり、複素次元は $h^0(E)$ である。
 
 [Dolbeault指数公式](../GW1-03/index.md#thm-gw1-03-rr-computation)を $g=0$、階数 $m$、$E=u^*TX$ に代入すると
 
@@ -347,7 +371,7 @@ $$
 
 ## 7. 節点付きの木では、値を一致させる式が増える
 
-種数0の[安定写像の定義](../GW1-08/index.md#def-gw1-08-stable-map)で、定義域 $C$ の成分を $C_v\simeq\mathbb P^1$、節点を $q_e$、成分の写像を $u_v$ と書く。$E=u^*TX$ と $E_v=u_v^*TX$ は各成分で一致するが、切断は節点の両枝で同じ値を取らなければならない。これが節点での**節点での値一致を切断に課した条件**である。
+種数0の[安定写像の定義](../GW1-08/index.md#def-gw1-08-stable-map)で、定義域 $C$ の成分を $C_v\simeq\mathbb P^1$、節点を $q_e$、成分の写像を $u_v$ と書く。$E=u^*TX$ と $E_v=u_v^*TX$ は各成分で一致するが、切断は節点の両枝で同じ値を取らなければならない。これが**節点での値一致を切断に課した条件**である。
 
 <a id="prop-gw1-09-nodal-matching"></a>
 
@@ -430,7 +454,7 @@ $$
 
 ### 証明の見取り図
 
-射影束の繊維内にある直線の動きは「選んだ線から商への線形写像」である。これで法束を計算し、接完全列が分裂することを一次コホモロジーで確かめる。
+射影束の繊維内にある直線の動きは「選んだ線から商への線形写像」である。これで法束を計算し、基底への射影と切断を微分して接完全列の分裂を具体的に作る。
 
 <!-- proof-start -->
 ### 証明
@@ -448,14 +472,19 @@ $$
 0\to\mathcal O(2)\to u^*TX\to\mathcal O(-2)\to0
 $$
 
-を得る。拡張が分裂する障害は
+を得る。この射影束では分裂を微分から直接作れる。束の射影を $\pi:X\to B$ とすると、$u:C\simeq B\hookrightarrow X$ はその切断なので $\pi\circ u=\operatorname{id}_B$ である。従って $C\simeq B$ の接空間を同一視すると
 
 $$
-\operatorname{Ext}^1(\mathcal O(-2),\mathcal O(2))
-\simeq H^1(\mathbb P^1,\mathcal O(4))
+d\pi\circ du=\operatorname{id}_{TC}.
 $$
 
-にあり、[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から零である。実際には基底方向と繊維方向の微分が、切断に沿ってこの分裂を与える。従って表示した直和が成立する。
+任意の $\xi\in (u^*TX)_b$ は
+
+$$
+\xi=du(d\pi\,\xi)+\bigl(\xi-du(d\pi\,\xi)\bigr)
+$$
+
+と一意に分かれる。第一項は $du(T_bC)$ に、第二項は $\ker(d\pi)_b$ に属するので、接方向と繊維方向は正則な直和をなす。後者は先ほどグラフ座標で求めた法束 $N_{C/X}\simeq\mathcal O(-2)$ に一致する。従って $u^*TX\simeq\mathcal O(2)\oplus\mathcal O(-2)$ である。
 
 同じ[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を $2,-2$ に代入して
 
@@ -580,7 +609,30 @@ $\mathbb P^1\to\mathbb P^1$ の次数3写像に、相異なる二つの標点を
 滑らかな射影曲面内の正則な有理曲線 $C\simeq\mathbb P^1$ が $N_{C/X}\simeq\mathcal O(-2)$ を満たすとする。接完全列が分裂する理由、$h^0,h^1$、一次の法方向の自由度を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[正規束接完全列](../../../代数系/AG/AG2-10/index.md#thm-ag2-10-normal-tangent)は $0\to\mathcal O(2)\to TX|_C\to\mathcal O(-2)\to0$。この拡張類は $H^1(\mathcal O(2)\otimes\mathcal O(2))=H^1(\mathcal O(4))=0$ に属するので分裂する。[線束公式](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から $h^0(TX|_C)=3+0=3$、$h^1(TX|_C)=0+1=1$。法方向の一次変分は $H^0(N_{C/X})=H^0(\mathcal O(-2))=0$。従って曲線の像は法方向に一次的には動けないが、非零の障害空間を持つ。凸性を満たさないことはこの一つの写像で十分に示せる。
+**詳細解答**。[正規束接完全列](../../../代数系/AG/AG2-10/index.md#thm-ag2-10-normal-tangent)は
+
+$$
+0\to\mathcal O(2)\xrightarrow{\iota}TX|_C\to\mathcal O(-2)\to0.
+$$
+
+一般の曲線には前節の射影束の射影 $\pi$ はないので、ここでは局所の右逆を貼り合わせる。$C\simeq\mathbb P^1$ の標準アフィン被覆 $\{U_i\}$ 上では、局所自由束の全射には正則な右逆 $s_i:\mathcal O(-2)|_{U_i}\to TX|_{U_i}$ がある。重なりで $s_j-s_i$ は $\mathcal O(2)$ に値を取るため、その差は
+
+$$
+\alpha_{ij}\in\Gamma(U_i\cap U_j,
+\mathcal Hom(\mathcal O(-2),\mathcal O(2)))
+=\Gamma(U_i\cap U_j,\mathcal O(4))
+$$
+
+である。三重重なりでは $\alpha_{ij}+\alpha_{jk}+\alpha_{ki}=0$ となる。いま標準アフィン被覆を使っているので、[Čech比較定理](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-cech-comparison)の仮定を満たし、この余輪から層コホモロジー類を計算できる。
+
+[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)によれば $H^1(\mathbb P^1,\mathcal O(4))=0$ である。従って $\alpha_{ij}=b_j-b_i$ と書ける。$s_i$ を $s_i-\iota\circ b_i$ に直すと差は零になり、大域的な右逆が得られる。よって
+
+$$
+TX|_C\simeq\mathcal O(2)\oplus\mathcal O(-2),\qquad
+(h^0,h^1)=(3+0,0+1)=(3,1).
+$$
+
+法方向の一次変分は $H^0(N_{C/X})=H^0(\mathcal O(-2))=0$。従って曲線の像は法方向に一次的には動けないが、非零の障害空間を持つ。[凸性の定義](#def-gw1-09-convex)を満たさないことはこの一つの写像で十分に示せる。
 <!-- solution-end -->
 
 <a id="ex-gw1-09-b04"></a>
@@ -598,7 +650,21 @@ $$
 
 三標点の自由度を加え、再パラメータ化群の三次元を差し引くと商の局所次元は $11+3-3=11$。
 
-一方、[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から $\mathbb P^3$ の第一Chern類は $c_1(T\mathbb P^3)=4H$ となる。次数2なのでその曲線類との対は $4\cdot2=8$。[局所次元の命題](#prop-gw1-09-smooth-map-locus)へ代入すれば
+一方、[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の短完全列で行列式を取る。$H=c_1(\mathcal O(1))$ を超平面類と書くと、
+
+$$
+\det(T\mathbb P^3)\simeq\mathcal O(1)^{\otimes4}=\mathcal O(4),
+\qquad c_1(T\mathbb P^3)=4H.
+$$
+
+次数2という仮定は $\langle H,\beta\rangle=2$ を意味するため、
+
+$$
+\langle c_1(T\mathbb P^3),\beta\rangle
+=4\langle H,\beta\rangle=4\cdot2=8.
+$$
+
+[局所次元の命題](#prop-gw1-09-smooth-map-locus)へ代入すれば
 
 $$
 m-3+c_1(T\mathbb P^3)\cdot\beta+k
