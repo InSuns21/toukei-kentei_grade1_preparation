@@ -31,9 +31,9 @@ $$
 
 各零点 $z\in Z$ で接空間と障害の候補を求めるには、局所方程式の一次部分を見る。ここで **Zariski接空間** は、双対数環 $\mathbb C[\varepsilon]/(\varepsilon^2)$ 上の一次変形 $z+\varepsilon a$（$a\in T_zY$）のうち、零点方程式を満たす方向全体として捉える。局所座標 $x_1,\ldots,x_n$ と束の局所枠で $s=(f_1,\ldots,f_r)$ と表示すると、切断の微分 $ds_z:T_zY\to V_z$ は Jacobian 行列
 
-$
+$$
 J_s(z)=\left(\frac{\partial f_i}{\partial x_j}(z)\right)_{\substack{1\le i\le r\\1\le j\le n}}
-$
+$$
 
 が表す線形写像であり、$ds_z(a)$ の第 $i$ 成分は $\sum_j(\partial f_i/\partial x_j)(z)a_j$ となる。零点では $f_i(z)=0$ なので、束の枠を取り替えたときに現れる枠の微分項も消え、核・余核の意味は表示の選択によらない。ここで余核 $\operatorname{coker}ds_z=V_z/\operatorname{im}ds_z$ は、一次変形で打ち消せない値域方向を表す。
 
@@ -169,12 +169,12 @@ $$
 
 $s$ の成分 $f_1,\ldots,f_r$ が正則列なら、各 $f_i$ はそれ以前の $f_1,\ldots,f_{i-1}$ で割った環で零因子でない。これにより、局所環 $R=\mathcal O_{Y,z}$ では $I/I^2$ の $f_i$ の類が自由基底となり、各 $q\ge0$ で
 
-$
+$$
 \operatorname{Sym}^q_{R/I}(I/I^2)
 \xrightarrow{\ \simeq\ }I^q/I^{q+1},\qquad
 \overline{f}_{i_1}\cdots\overline{f}_{i_q}
 \longmapsto f_{i_1}\cdots f_{i_q}\bmod I^{q+1}
-$
+$$
 
 が成り立つ。次数1は生成元の関係を正則性で調べ、次数 $q$ では一つの $f_i$ を取り出して同じ議論を繰り返す。例えば $r=1$ なら、$af^q\in(f^{q+1})$ から $f$ の非零因子性により $a\in(f)$ が従い、各次数の独立性を直接確認できる。一般の $r$ についても正則列の逐次的な非零因子性を用いた帰納法が対応する。従って $\operatorname{gr}_I(R)\simeq\operatorname{Sym}_{R/I}(I/I^2)$ であり、$I/I^2\simeq V^\vee|_Z$ だから正規錐は正規束 $V|_Z$ である。[超曲面の正規束と接完全列](../../../代数系/AG/AG2-10/index.md#thm-ag2-10-normal-tangent)は、$r=1$ かつ滑らかな超曲面での対応する既習例であり、一般の正則列の場合をその定理だけから推論しているわけではない。最後に $s=0$ なら $I=0$ で正の次数の部分が消え、$\operatorname{Spec}_Z\mathcal O_Z=Z$ が束の零切断として入る。
 <!-- proof-end -->
