@@ -181,6 +181,39 @@ for (const [chapter, file, expectedOutput] of u3FileLabs) {
   assert.match(output, expectedOutput, `${chapter}: Python source smoke output changed`);
 }
 
+
+// FLUID15 is an argument-free file lab; validate the browser metadata as well
+// as the standalone Python calculation to prevent a non-rendering lab.
+const fluidChapter = 'textbook/volumes/dream_thater/物理系/FLUID/FLUID15';
+const fluidScript = fluidChapter + '/sphere_check.py';
+const fluidMarkdown = await readFile(path.join(root, fluidChapter, 'index.md'), 'utf8');
+const fluidBlocks = [...fluidMarkdown.matchAll(new RegExp('```python-file-lab\\s*\\n([\\s\\S]*?)\\n```', 'g'))];
+assert.equal(fluidBlocks.length, 1, 'FLUID15: exactly one browser-executable file lab required');
+const fluidMetadata = new Map();
+const fluidPresets = [];
+for (const line of fluidBlocks[0][1].split('\n')) {
+  const match = line.match(/^#\s*([a-z-]+):\s*(.*?)\s*$/);
+  assert.ok(match, 'FLUID15: malformed lab metadata: ' + line);
+  if (match[1] === 'lab-preset') fluidPresets.push(match[2]);
+  else fluidMetadata.set(match[1], match[2]);
+}
+assert.equal(fluidMetadata.get('lab-id'), 'FLUID15-SPHERE-CHECK');
+assert.ok(fluidMetadata.get('lab-title'));
+assert.equal(fluidMetadata.get('lab-file'), fluidScript);
+assert.ok(Number(fluidMetadata.get('timeout-ms')) >= 250 &&
+  Number(fluidMetadata.get('timeout-ms')) <= 60000);
+assert.equal(fluidPresets.length, 1, 'FLUID15: browser runtime requires a preset');
+const fluidSeparator = fluidPresets[0].indexOf('|');
+assert.ok(fluidSeparator > 0 && fluidPresets[0].slice(0, fluidSeparator).trim(),
+  'FLUID15: preset must have a label and | argument separator');
+assert.deepEqual(parseArguments(fluidPresets[0].slice(fluidSeparator + 1).trim()), []);
+const fluidOutput = execFileSync('python3', [await validatedFile(fluidScript)], {
+  cwd: root, encoding: 'utf8', timeout: 30000,
+  env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
+});
+assert.match(fluidOutput, /n=\s*400\b.*integral=0\.66666.*added_mass=2\.094/);
+
+
 const runtime = await readFile(path.join(root, 'pages/numerical-lab-runtime.js'), 'utf8');
 const worker = await readFile(path.join(root, 'pages/numerical-lab-worker.mjs'), 'utf8');
 assert.match(runtime, /python-file-lab/);

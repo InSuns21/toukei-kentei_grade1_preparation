@@ -582,8 +582,11 @@ $$
 # lab-id: FLUID15-SPHERE-CHECK
 # lab-title: 球面積分と付加質量の数値検算
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID15/sphere_check.py
+# lab-preset: 標準の数値検算 |
 # timeout-ms: 10000
 ```
+
+この検算は引数を指定せずに実行できる。実行欄の「このページで実行」を押すと、刻み数を変えた結果が順に表示される。
 
 出力の `integral` は次の角度積分の近似値で、`error` は解析値 $2/3$ との差である。
 
