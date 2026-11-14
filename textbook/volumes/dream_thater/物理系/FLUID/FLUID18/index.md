@@ -161,7 +161,7 @@ g&=f+\frac r2f'
 \end{aligned}
 $$
 
-$r=a$ では $f=1-3/2+1/2=0$、$g=1-3/4-1/4=0$。$r\to\infty$ では $f,g\to1$ なので一様流に近づく。発散式は $g=f+rf'/2$ により零であり、回転を取った Stokes 方程式は上の常微分方程式で保証される。残る圧力勾配との適合性は[次の圧力定理](#prop-fluid18-pressure)で直接検算する。
+$r=a$ では $f=1-3/2+1/2=0$、$g=1-3/4-1/4=0$。$r\to\infty$ では $f,g\to1$ なので一様流に近づく。発散式は $g=f+rf'/2$ により零であり、回転を取った Stokes 方程式は上の常微分方程式で保証される。残る圧力勾配との適合性は[次の圧力命題](#prop-fluid18-pressure)で直接検算する。
 
 一意性を確かめる。二解の差を $w$、圧力差を $q$ とすると、$-\nabla q+\eta\Delta w=0$、$\nabla\cdot w=0$、球面 $w=0$、無限遠 $w\to0$ である。[Newton 応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)の差 $\tau=-qI+2\eta D(w)$、$D(w)=(\nabla w+\nabla w^{\mathsf T})/2$ を使い、球と半径 $R$ の大球の間で積分すると
 
@@ -222,11 +222,11 @@ $
 
 $
 \frac1r\partial_\theta p
-=\frac{3\eta Ua}{2r^3}\sin\theta+\frac{C'(\theta)}r
+=\frac{3\eta Ua}{2r^3}\sin\theta+\frac1r\frac{dC}{d\theta}
 =\frac{3\eta Ua}{2r^3}\sin\theta
 $
 
-より $C'(\theta)=0$。さらに無限遠で $p\to p_\infty$ なので $C=p_\infty$ を得る。
+より $dC/d\theta=0$。さらに無限遠で $p\to p_\infty$ なので $C=p_\infty$ を得る。
 
 <a id="prop-fluid18-pressure"></a>
 
