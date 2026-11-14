@@ -101,6 +101,14 @@ $$
 
 $\mathbb P^1$ 上で $H^1$ が消える写像が一つあることと、全ての球面写像で消えることは異なる。後者を標的自身の条件にする。
 
+以下の例で使う**写像の次数**も先に定める。正則写像 $u:\mathbb P^1\to\mathbb P^n$ の次数 $d$ は、引き戻し線束が $u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d)$ となる整数である。正則写像について $d\ge0$ であり、線束のテンソル冪を引き戻すと
+
+$$
+u^*\mathcal O_{\mathbb P^n}(k)\simeq\mathcal O_{\mathbb P^1}(kd)
+$$
+
+が成立する。これにより接束を線束として計算した結果を、写像を引き戻したときの $H^1$ 判定へ結び付けられる。
+
 <a id="def-gw1-09-convex"></a>
 
 <!-- formal-statement-start -->
@@ -115,7 +123,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-09-convex -->
-**定義の確認**。$X=\mathbb P^1$ に対し、接束は $\mathcal O(2)$ である。次数 $d\ge0$ の任意の正則写像 $u:\mathbb P^1\to\mathbb P^1$ は $u^*\mathcal O(2)\simeq\mathcal O(2d)$ を満たす。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $2d\ge0\ge-1$ を代入すれば $H^1(\mathcal O(2d))=0$。定数写像の $d=0$ も含めて**任意の**写像で確認したので、$\mathbb P^1$ は凸である。
+**定義の確認**。$X=\mathbb P^1$ に対し、[射影直線の接束の座標計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)から $T\mathbb P^1\simeq\mathcal O(2)$ である。次数 $d\ge0$ の任意の正則写像 $u:\mathbb P^1\to\mathbb P^1$ は $u^*\mathcal O(2)\simeq\mathcal O(2d)$ を満たす。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $2d\ge0\ge-1$ を代入すれば $H^1(\mathcal O(2d))=0$。定数写像の $d=0$ も含めて**任意の**写像で確認したので、$\mathbb P^1$ は凸である。
 <!-- definition-example-end -->
 
 定義から高種数の曲線 $C$ について $H^1(C,u^*TX)=0$ を導くことはできない。例えば凸な標的 $X=\mathbb P^1$ への定数写像を種数1の曲線 $C$ から取ると、$u^*TX\simeq\mathcal O_C$ であり、$H^1(C,\mathcal O_C)$ は一次元である。凸性は**定義域の種数を指定した条件**である。
@@ -192,7 +200,7 @@ $$
 \longrightarrow T\mathbb P^n\longrightarrow0.
 $$
 
-次数 $d$ の正則写像 $u:\mathbb P^1\to\mathbb P^n$ とは、$u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d)$ が成立する写像である。非定数なら $d\ge1$、定数なら $d=0$。写像が点に値を持ち、引き戻した列が完全である理由は、接Euler列が**ベクトル束の短完全列**だからである。局所的には行列の核・像を取るだけなので、引き戻しても各点で完全性を保つ。以下では $h^q(C,E)=\dim_{\mathbb C}H^q(C,E)$（$q=0,1$）と書く。
+前節で定めた次数 $d$ について、非定数の正則写像なら $d\ge1$、定数写像なら $d=0$ である。写像が点に値を持ち、引き戻した列が完全である理由は、接Euler列が**ベクトル束の短完全列**だからである。局所的には行列の核・像を取るだけなので、引き戻しても各点で完全性を保つ。以下では $h^q(C,E)=\dim_{\mathbb C}H^q(C,E)$（$q=0,1$）と書く。
 
 <a id="thm-gw1-09-projective-convex"></a>
 
