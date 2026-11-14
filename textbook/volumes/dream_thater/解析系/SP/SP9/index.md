@@ -4,7 +4,25 @@
 
 [STO2 の最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)・[上向き横断不等式](../../STO/STO2/index.md#thm-sto2-upcrossing)・[概収束定理](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)・[一様可積分マルチンゲール収束定理](../../STO/STO2/index.md#thm-sto2-ui-martingale-convergence)は既習です。本章ではこれらの正本を参照しながら、停止時刻・取引戦略・極限交換の中間計算を再構成し、二乗平均に関する帰結を導きます。
 
-以下、$(\Omega,\mathcal F,P)$ は確率空間、$(\mathcal F_n)_{n\ge0}$ はフィルトレーション、過程は実数値・適合、$X_n$ は各 $n$ で可積分とします。$x^+=\max(x,0)$、$x^-=\max(-x,0)$、$X^*_n=\max_{0\le k\le n}|X_k|$ と書きます。「概確実」は確率 $1$ の意味です。独立公平コイン $\xi_1,\xi_2,\ldots$ を使う例・演習では、[自然フィルトレーション](../../STO/STO1/index.md#def-sto1-adapted-natural-filtration)として、別途断らない限り $\mathcal F_0=\{\varnothing,\Omega\}$、$\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)$ とします。コイン同士が独立であるだけでなく、$\xi_{n+1}$ が $\mathcal F_n$ と独立になることを、マルチンゲール性の判定で用います。
+以下、$(\Omega,\mathcal F,P)$ を確率空間、$(\mathcal F_n)_{n\ge0}$ をフィルトレーションとします。扱う過程は実数値・適合で、$X_n$ は各 $n$ で可積分とします。
+
+実数の正部分・負部分、有限時間までの最大絶対値を次のように書きます。
+
+$$
+x^+=\max(x,0),\qquad x^-=\max(-x,0),\qquad
+X_n^*=\max_{0\le k\le n}|X_k|.
+$$
+
+「概確実」は確率 $1$ の意味です。
+
+独立公平コイン $\xi_1,\xi_2,\ldots$ を使う例・演習では、別途断らない限り、[自然フィルトレーション](../../STO/STO1/index.md#def-sto1-adapted-natural-filtration)を次で指定します。
+
+$$
+\mathcal F_0=\{\varnothing,\Omega\},\qquad
+\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)\quad(n\ge1).
+$$
+
+コイン同士の独立性から、$\xi_{n+1}$ は $\mathcal F_n$ と独立です。マルチンゲール性の判定ではこの条件付き平均の根拠を用います。
 
 ## 1. 最終値から途中の最大値をどう抑えるか
 
@@ -26,7 +44,7 @@ $$
 \tau=\inf\{k\ge0:X_k\ge\lambda\},\qquad \sigma=\tau\wedge n
 $$
 
-とします。$\{\tau\le m\}=\bigcup_{k=0}^m\{X_k\ge\lambda\}\in\mathcal F_m$ なので $\tau$ は停止時刻です。また[停止時刻までの情報 $\mathcal F_\sigma$](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)の定義から $A\in\mathcal F_\sigma$ です。実際、$m<n$ なら $A\cap\{\sigma\le m\}=\{\tau\le m\}\in\mathcal F_m$、$m\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_m$ です。
+とします。$\{\tau\le m\}=\bigcup_{k=0}^m\{X_k\ge\lambda\}\in\mathcal F_m$ なので $\tau$ は停止時刻です。また[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)を使って $A\in\mathcal F_\sigma$ を確かめます。実際、$m<n$ なら $A\cap\{\sigma\le m\}=\{\tau\le m\}\in\mathcal F_m$、$m\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_m$ です。
 
 [有界任意抽出定理](../../STO/STO2/index.md#thm-sto2-bounded-optional-sampling)を $\sigma\le n$ に使うと、条件付き不等式
 
@@ -63,7 +81,18 @@ $$
 
 ## 2. 二乗平均があれば最大値の二乗平均も抑えられる
 
-最大値の *確率* を抑えた後、**最大値の二乗期待値**まで評価したいことがあります。二乗可積分マルチンゲールとは、マルチンゲール $M$ で各 $E[M_n^2]<\infty$ であるものです。ここで $L^2$ は $E[Z^2]<\infty$ を満たす確率変数の空間を指し、$M_n\to M_\infty$ が $L^2$ で成り立つとは $E[(M_n-M_\infty)^2]\to0$ を意味します。たとえば公平な独立 $\pm1$ コインの和 $S_n$ は、[SP7 の二乗平均計算](../SP7/index.md#prop-sp7-square-compensation)から $E[S_n^2]=n$ を満たします。
+最大値の *確率* を抑えた後、**最大値の二乗期待値**まで評価したいことがあります。二乗可積分マルチンゲールとは、各時刻の二乗期待値が有限なマルチンゲール $M$ です。
+
+ここで $L^2$ は二乗可積分な確率変数の空間です。収束記号も次の意味で使います。
+
+$$
+L^2(P)=\{Z:E[Z^2]<\infty\},\qquad
+M_n\to M_\infty\ \text{in }L^2
+\ \Longleftrightarrow\
+E[(M_n-M_\infty)^2]\to0.
+$$
+
+たとえば公平な独立 $\pm1$ コインの和 $S_n$ は、[SP7 の二乗平均計算](../SP7/index.md#prop-sp7-square-compensation)から $E[S_n^2]=n$ を満たします。
 
 次は [Doob 最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)から導く、二乗平均版です。
 
