@@ -8,7 +8,7 @@
 
 確率空間 $(\Omega,\mathcal F,P)$ 上で $W_0=0$ の標準 Brown 運動 $(W_t)_{0\le t\le T}$、その自然な情報の流れ $(\mathcal F_t)$、終端時刻 $T>0$ を固定します。格子は $m\ge1$ 等分、$h=T/m$、$t_j=jh$（$j=0,\ldots,m$）とし、$\Delta_jW=W_{t_{j+1}}-W_{t_j}$ と置きます。各 $\Delta_jW$ は互いに独立で $N(0,h)$ に従います。**第2引数は分散**です。
 
-積分の係数を時刻 $t_j$ で決めるには、その時刻までに観測できる値だけを使う必要があります。例えば $W_{t_j}$ は $\mathcal F_{t_j}$ から決まりますが、未来の $W_{t_{j+1}}$ は通常そうではありません。[単純予測可能被積分過程](../../../解析系/STO/STO6/index.md#def-sto6-simple-integrand)に対応させて、左端値を区間 $(t_j,t_{j+1}]$ 全体の係数にします。
+積分の係数を時刻 $t_j$ で決めるには、その時刻までに観測できる値だけを使う必要があります。例えば $W_{t_j}$ は $\mathcal F_{t_j}$ から決まりますが、未来の $W_{t_{j+1}}$ は通常そうではありません。[単純予測可能被積分過程](../../../解析系/STO/STO6/index.md#def-sto6-simple-predictable)に対応させて、左端値を区間 $(t_j,t_{j+1}]$ 全体の係数にします。
 
 <a id="def-u3-27-left-coupled"></a>
 <!-- formal-statement-start -->
@@ -503,7 +503,7 @@ E[(R_m-I)^2]=T^2+E[(L_m-I)^2]
 =T^2+\frac{T^2}{2m}\to T^2.
 $$
 
-また $R_m=I+T-(L_m-I)$ より二乗平均で $I+T$ へ収束する。右端値 $W_{t_{j+1}}$ は $\mathcal F_{t_j}$ 可測でないため、[STO6 の単純予測可能被積分過程](../../../解析系/STO/STO6/index.md#def-sto6-simple-integrand)の条件に違反し、Itô 和の構成を使えない。
+また $R_m=I+T-(L_m-I)$ より二乗平均で $I+T$ へ収束する。右端値 $W_{t_{j+1}}$ は $\mathcal F_{t_j}$ 可測でないため、[STO6 の単純予測可能被積分過程](../../../解析系/STO/STO6/index.md#def-sto6-simple-predictable)の条件に違反し、Itô 和の構成を使えない。
 <!-- solution-end -->
 
 <a id="ex-u3-27-b4"></a>
