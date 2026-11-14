@@ -97,6 +97,53 @@
   background: #fff;
   font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
+/* File labs use the same tab style as numerical programming exercises. */
+.numerical-file-source-label {
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: #c9d1d9;
+  background: #0d1117;
+  overflow-wrap: anywhere;
+}
+.numerical-file-lab .numerical-lab-tab-panel > .numerical-lab-solution-code {
+  min-height: 12rem;
+}
+.numerical-python-source-dialog {
+  width: min(94vw, 960px);
+  max-width: 960px;
+  max-height: 88vh;
+  padding: 0;
+  border: 1px solid #6e7681;
+  border-radius: 8px;
+  background: #0d1117;
+  color: #e6edf3;
+  overflow: hidden;
+}
+.numerical-python-source-dialog::backdrop { background: rgba(0, 0, 0, 0.65); }
+.numerical-python-source-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.7rem 0.85rem;
+  color: #e6edf3;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+}
+.numerical-python-source-header strong { min-width: 0; overflow-wrap: anywhere; font-size: 0.87rem; }
+.numerical-python-source-header button {
+  border: 1px solid #8b949e;
+  border-radius: 5px;
+  background: #21262d;
+  color: #e6edf3;
+  padding: 0.32rem 0.75rem;
+  cursor: pointer;
+}
+.numerical-python-source-dialog .numerical-lab-solution-code {
+  max-height: calc(88vh - 65px);
+  min-height: 6rem;
+}
 .numerical-file-source { font-size: 0.86rem; }
 .numerical-file-plot { margin: 0; min-width: 0; border: 1px solid #e2e8f0; border-radius: 6px; }
 .numerical-file-plot figcaption { padding: 0.35rem 0.6rem; font-size: 0.9rem; font-weight: 600; }
