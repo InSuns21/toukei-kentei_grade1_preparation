@@ -10,9 +10,9 @@
 
 密度 $\rho_0>0$ [kg/m$^3$] と動的粘性係数 $\eta>0$ [Pa s] は、ともに**空間・時間にわたり一定**とする。[CTM15 の非圧縮 Newton 流体の応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)と同じ区別により、動粘度を
 
-$
+$$
 \nu=\frac{\eta}{\rho_0}>0\qquad[\mathrm{m}^2/\mathrm s]
-$
+$$
 
 と定める。
 
@@ -636,7 +636,7 @@ $$
 +\nu\int_{\partial D}\nabla_2\zeta\cdot n\,ds.
 $$
 
-[CTM15 の壁面無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ から第一積分は零だが、第二積分は一般に零とはならない。$d(\int_D\zeta\,dA)/dt=0$ と結論するには、さらに拡散流束の積分が零である必要がある。壊れた論証は「移流流束が零なら境界の全流束が零」という誤った一歩である。
+[CTM15 の壁面無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ から第1の境界積分は零だが、第2の境界積分は一般に零とはならない。$d(\int_D\zeta\,dA)/dt=0$ と結論するには、さらに拡散流束の積分が零である必要がある。壊れた論証は「移流流束が零なら境界の全流束が零」という誤った一歩である。
 <!-- solution-end -->
 
 ### Level C
