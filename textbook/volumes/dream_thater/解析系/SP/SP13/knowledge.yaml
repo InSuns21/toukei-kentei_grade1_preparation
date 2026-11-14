@@ -12,7 +12,7 @@ concepts:
   - id: stochastic.ctmc-stationary-distribution
     name: CTMC の定常分布
     kind: definition
-    aliases: ["stationary distribution of a finite CTMC", "定常分布"]
+    aliases: ["stationary distribution of a finite CTMC"]
     introduction: formal
     introduction_aliases: ["定義（CTMC の定常分布）"]
     requires:
