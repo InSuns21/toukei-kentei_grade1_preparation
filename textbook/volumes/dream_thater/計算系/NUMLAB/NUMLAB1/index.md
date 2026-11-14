@@ -22,12 +22,12 @@ Python / NumPy の読み方は PYNUM1、ブラウザ実行・時間制限・自�
 
 ## 0. 実験の共通規約
 
-各理論対応ラボは、原則として **穴埋め → 模範解答 → 自動判定** の演習形式で実行します。完成コードを読むだけでなく、理論上の核心式を自分でコードへ翻訳してください。
+各理論対応ラボでは、**理論の予測 → 条件を変えた数値実験 → 出力・誤差の比較 → 考察**を中心に学びます。NA1 の実験では完成済みコードを実行し、指数の最大値と刻みを入力で変えられます。既存の一部実験には移行前のコード穴埋め形式が残っていますが、Python の構文暗記を計算系の必須学習目標とはしません。
 
 各ラボでは次を守ります。
 
 1. 理論章の stable anchor を先に示す。
-2. 実行コードは `python-lab`、自動判定は直後の `python-test` に置く。
+2. 実行コードは `python-lab`、数値上の性質の自動判定は直後の `python-test` に置く。穴埋め不要の実験では入力欄で数値パラメータを変更する。
 3. 誤差や残差は浮動小数点型で保持する。
 4. 数値比較には問題に応じた許容誤差を置く。
 5. 図だけで結論を出さず、数値表または自動判定も併用する。
@@ -50,40 +50,23 @@ $$
 
 ですが、大きな $x$ では左辺が「近い数どうしの差」になります。
 
-**穴埋め課題：** 安定な有理化式と相対差の定義をコードへ落としてください。
+**実験前の予測：** $x$ の指数を大きくすると、直接差を計算した値と有理化した値はどう変わるでしょうか。相対差が大きくなるのはどちらの式の評価に起因するか、実行前に予測してください。
+
+「最大の指数」「指数の刻み」を変えて実行し、同じ数学的な量の二つの評価式を数値表とグラフで比較します。**コードの穴埋めは不要です。**
 
 ```python-lab
 # lab-id: NUMLAB1-NA1-CANCELLATION
 # lab-title: 桁落ちを安定な同値式と比較
-# lab-mode: exercise
+# lab-mode: experiment
 # timeout-ms: 5000
+# lab-param: max_power | 最大の指数 (10の何乗まで) | 16 | 8 | 16 | 1
+# lab-param: power_step | 指数の刻み | 4 | 1 | 4 | 1
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-x = np.array([1e4, 1e8, 1e12, 1e16], dtype=float)
-
-unstable = np.sqrt(x + 1.0) - np.sqrt(x)
-# ヒント: 桁落ちを避けるため、差を直接引かない代数的に同値な式へ直す。
-stable = ___
-# ヒント: 不安定な計算結果が安定な基準値からどれだけずれたかを相対量で測る。
-relative_gap = ___
-
-for xi, u, s, g in zip(x, unstable, stable, relative_gap):
-    print(f"x={xi:.0e}  direct={u:.17e}  stable={s:.17e}  relative gap={g:.3e}")
-
-fig, ax = plt.subplots()
-ax.loglog(x, relative_gap, marker="o")
-ax.set_xlabel("x")
-ax.set_ylabel("relative discrepancy")
-ax.grid(True)
-```
-
-```python-solution
-import numpy as np
-import matplotlib.pyplot as plt
-
-x = np.array([1e4, 1e8, 1e12, 1e16], dtype=float)
+exponents = np.arange(4, int(max_power) + 1, int(power_step))
+x = 10.0 ** exponents.astype(float)
 
 unstable = np.sqrt(x + 1.0) - np.sqrt(x)
 stable = 1.0 / (np.sqrt(x + 1.0) + np.sqrt(x))
@@ -93,20 +76,23 @@ for xi, u, s, g in zip(x, unstable, stable, relative_gap):
     print(f"x={xi:.0e}  direct={u:.17e}  stable={s:.17e}  relative gap={g:.3e}")
 
 fig, ax = plt.subplots()
-ax.loglog(x, relative_gap, marker="o")
-ax.set_xlabel("x")
+ax.plot(exponents, relative_gap, marker="o")
+ax.set_xlabel("exponent p in x = 10^p")
 ax.set_ylabel("relative discrepancy")
+ax.set_ylim(bottom=0)
 ax.grid(True)
 ```
 
 ```python-test
-assert np.isfinite(stable).all()
-assert np.all(stable > 0.0)
-assert relative_gap[-1] > 0.5
-assert relative_gap[-1] > relative_gap[0]
+assert x.size >= 2
+assert np.all(np.diff(x) > 0)
+assert np.all(np.isfinite(stable)) and np.all(stable > 0)
+assert np.all(np.isfinite(relative_gap))
+assert np.allclose(stable * (np.sqrt(x + 1.0) + np.sqrt(x)), 1.0)
+assert np.allclose(relative_gap, np.abs(unstable - stable) / stable)
 ```
 
-大きな $x$ で直接差を取る式だけが壊れるなら、問題そのものではなく式の評価方法に原因があると読めます。
+**結果の読み方：** $x=10^{16}$ 付近では倍精度浮動小数点数で $x+1$ が $x$ と同じ値に丸められ、直接差は $0$ になり得ます。一方、有理化した式は正の有限値を返します。したがって、相対差が増える原因は数学的な恒等式ではなく直接差の数値評価です。指数を小さくした場合にも同じ傾向が見えるか確かめてください。この自動判定は**プログラミング能力の採点ではなく、計算結果の構造確認**です。
 
 ---
 
