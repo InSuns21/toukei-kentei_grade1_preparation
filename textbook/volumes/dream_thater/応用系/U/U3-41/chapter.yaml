@@ -1,0 +1,47 @@
+id: "U3-41"
+title: "ジャンプ拡散と非完備市場"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-04, U3-15, U3-26, U3-40]
+official_scope: []
+learning_objectives:
+  - Poisson 過程の強度・独立増分・短時間での0回と1回の確率を計算できる
+  - Brown 運動と独立な印付き Poisson ジャンプを持つ正の株価を明示式と積分形で記述できる
+  - 倍率の平均から補償ドリフトを導出し、配当を含む割引総収益のマルチンゲール性を証明できる
+  - ジャンプの有無で短時間期待値を分解し、非局所価格項を持つ PIDE を導ける
+  - 独立な Brown リスクとジャンプリスクによる有界請求権の非複製を二次共変動で証明できる
+  - Brown 密度と Poisson 尤度比から複数の同値マルチンゲール測度を構成できる
+  - 対数正規ジャンプ条件付き分布から欧州 call の Poisson 混合式と非負打切り境界を証明できる
+  - 厳密終端標本で Monte Carlo 推定し、混合式・標準誤差・マルチンゲール条件を比較できる
+  - 有限3状態モデルで複製不能性と評価用確率の非一意性を直接検証できる
+definitions:
+  - { id: U3-41-DEF-01, name: "Poisson ジャンプ回数過程" }
+  - { id: U3-41-DEF-02, name: "独立印付き Poisson ジャンプ拡散モデル" }
+theorems:
+  - { id: U3-41-PROP-01, name: "Poisson 補償と割引総収益" }
+  - { id: U3-41-PROP-02, name: "ジャンプ拡散の価格 PIDE" }
+  - { id: U3-41-THM-01, name: "Brown リスクとジャンプリスクが共存する市場の非完備性" }
+  - { id: U3-41-PROP-03, name: "非一意な同値マルチンゲール測度" }
+  - { id: U3-41-PROP-04, name: "対数正規ジャンプ倍率による call の Poisson 混合" }
+canonical_examples:
+  - "lambda=0.4 の1年間のPoisson回数の確率0回e^-0.4、1回0.4e^-0.4"
+  - "E[Y]=1.5、lambda=0.2 なら連続ドリフトの補償は-0.1年^-1"
+  - "株価sの支払はPIDEの補償項とジャンプ項が相殺し価格se^-q(T-t)"
+  - "非複製デジタルH=1_{N_T=0}の条件付き期待過程とBrown共変動"
+  - "3状態80/100/140の正確な平均株価100と非一意な上昇状態価格p+"
+  - "対数正規ジャンプ付きcallのPoisson混合と標本平均・標準誤差"
+problem_patterns:
+  - U3-41-A1
+  - U3-41-A2
+  - U3-41-A3
+  - U3-41-A4
+  - U3-41-A5
+  - U3-41-B1
+  - U3-41-B2
+  - U3-41-B3
+  - U3-41-B4
+  - U3-41-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
