@@ -65,7 +65,17 @@ $$
 > u(y,t)=U\,\operatorname{erfc}\!\left(\frac{y}{2\sqrt{\nu t}}\right).
 > $$
 >
-> この解は初期・壁・遠方の条件を満たす。さらに $u=UF(y/(2\sqrt{\nu t}))$ の形で、$F\in C^2([0,\infty))$、$F(0)=1$、$F(\infty)=0$ を満たす相似解のクラスで一意である（角点 $(0,0)$ の連続性は要求しない）。
+> この解は初期・壁・遠方条件を満たし、次の形をとる相似解のクラスで一意である。
+
+$$
+u(y,t)=UF(\xi),\qquad \xi=\frac{y}{2\sqrt{\nu t}},
+$$
+
+$$
+F(0)=1,\qquad \lim_{\xi\to\infty}F(\xi)=0.
+$$
+
+> ここで $F$ は $[0,\infty)$ 上の $C^2$ 級関数とする。角点 $(0,0)$ の連続性は要求しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
