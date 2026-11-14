@@ -15,7 +15,9 @@ u_x=\phi_x=\psi_y,\qquad
 u_y=\phi_y=-\psi_x
 $$
 
-である。$\phi,\psi$ はどちらも [m$^2$/s]。複素微分、正則性と導関数の演算法則は [CA1 の正則関数の定義](../../../解析系/CA/CA1/index.md#def-ca1-holomorphic)および[複素微分法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)を使用する。以下では速度の二成分を $u_x-iu_y$ と一つの複素数に組み合わせる（$u_x+iu_y$ ではない）。$phi_x=\partial\phi/\partial x$ は $y$ を固定した偏微分を表す一方、$F'(z)$ は複素変数 $z$ に関する微分である。両者がどう結び付くかは第1節の命題で証明する。
+である。$\phi,\psi$ はどちらも [m$^2$/s]。複素微分、正則性と導関数の演算法則は [CA1 の正則関数の定義](../../../解析系/CA/CA1/index.md#def-ca1-holomorphic)および[複素微分法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)を使用する。以下では速度の二成分を $u_x-iu_y$ と一つの複素数に組み合わせる（$u_x+iu_y$ ではない）。
+
+$\phi_x=\partial\phi/\partial x$ は $y$ を固定した偏微分を表す一方、$F'(z)$ は複素変数 $z$ に関する微分である。両者がどう結び付くかは第1節の命題で証明する。
 
 ## 1. 二つのポテンシャルから複素速度を読む
 
@@ -113,7 +115,7 @@ $$
 J_c(z):=z+\frac{c^2}{z}
 $$
 
-を**Joukowski写像**という。この写像 $J_c$ の導関数 $J_c'(z_0)$ が零となる点 $z_0$ を、**Joukowski写像の臨界点**という。$J'(z_0)\ne0$ の点を、この章では局所的な等角点として扱う。
+を**Joukowski写像**という。この写像 $J_c$ の導関数 $J_c'(z_0)$ が零となる点 $z_0$ を、**Joukowski写像の臨界点**という。$J_c'(z_0)\ne0$ の点を、この章では局所的な等角点として扱う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid13-joukowski -->
@@ -261,7 +263,9 @@ $$
 
 より $(z_n)$ は有界なので、部分列を選んで $z_n\to z_*$、$|z_*|\ge a$ とできる。もし $|z_*|=a$ なら連続性から $w_*=J_c(z_*)$ は楕円周上にあり、$w_*\in E$ に矛盾する。よって $|z_*|>a$、$w_*=J_c(z_*)$ である。像は $E$ の中で閉でもある。非空かつ連結な $E$ の開閉部分集合なので $J_c(D_a)=E$ と結論できる。
 
-[円柱流の複素ポテンシャル](#prop-fluid13-complex-velocity)は $D_a$ 全体で一価、境界上で $\operatorname{Im}F(ae^{i\theta})=0$ である。ゆえに $\operatorname{Im}\widetilde F=0$ が楕円の境界全体で成り立つ。[流れ関数の等高線が流線となる関係](../FLUID11/index.md#prop-fluid11-cr-harmonic)より境界へ接する流れである。速度は[変換公式](#prop-fluid13-map-and-velocity)に $F'(z)=U(1-a^2/z^2)$ を代入した式となる。$|z|\to\infty$ で分子と分母はともに1に近づくので $\widetilde q\to U$。
+[円柱流の複素ポテンシャル](#prop-fluid13-complex-velocity)は $D_a$ 全体で一価、境界上で $\operatorname{Im}F(ae^{i\theta})=0$ である。ゆえに $\operatorname{Im}\widetilde F=0$ が楕円の境界全体で成り立つ。
+
+[流れ関数の等高線が流線となる関係](../FLUID11/index.md#prop-fluid11-cr-harmonic)より境界へ接する流れである。速度は[変換公式](#prop-fluid13-map-and-velocity)に $F'(z)=U(1-a^2/z^2)$ を代入した式となる。$|z|\to\infty$ で分子と分母はともに1に近づくので $\widetilde q\to U$。
 <!-- proof-end -->
 
 **直接計算**：$a=2c$ とすれば、半長軸 $A=5c/2$、半短軸 $B=3c/2$ である。$A^2-B^2=(25-9)c^2/4=4c^2$。たとえば円周の上端 $z=ia$ の写像は $w=iB$。流線の接線速度は変わるが、流線という**境界条件そのもの**は写像後も保たれる。
@@ -554,7 +558,9 @@ $$
 |\widetilde q(iB)|=\frac{2U}{5/4}=\frac85U.
 $$
 
-写像前のよどみ点 $z=\pm a$ は $F'(\pm a)=0$ であり、写像微分は $1-c^2/a^2=3/4\ne0$。したがって像 $w=\pm(a+c^2/a)=\pm5c/2$ がよどみ点となる。写像後の楕円外部で速度場を高さに依存しない三次元場へ延長すると、第3節で確認したとおり、連結性・滑らかさ・無渦性が成り立つ。問題の定常・一定密度・非粘性 Euler 方程式と水平面の一定体積力ポテンシャルを合わせて[全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)を適用する。[圧力係数の定義](../FLUID12/index.md#def-fluid12-pressure-coefficient)で
+写像前のよどみ点 $z=\pm a$ は $F'(\pm a)=0$ であり、写像微分は $1-c^2/a^2=3/4\ne0$。したがって像 $w=\pm(a+c^2/a)=\pm5c/2$ がよどみ点となる。
+
+写像後の楕円外部で速度場を高さに依存しない三次元場へ延長すると、第3節で確認したとおり、連結性・滑らかさ・無渦性が成り立つ。問題の定常・一定密度・非粘性 Euler 方程式と水平面の一定体積力ポテンシャルを合わせて[全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)を適用する。[圧力係数の定義](../FLUID12/index.md#def-fluid12-pressure-coefficient)で
 
 $$
 C_p(iB)=1-\frac{|\widetilde q(iB)|^2}{U^2}
