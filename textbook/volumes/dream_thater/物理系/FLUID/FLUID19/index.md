@@ -1,6 +1,6 @@
 # FLUID19 Stokes流はなぜ時間逆転に似た性質をもつか
 
-[FLUID18 の球抵抗](../FLUID18/index.md#thm-fluid18-stokes-drag)は速度に比例した。速度を反対向きにすると抗力も反対向きになる。この単純な事実を、形が異なる物体・複数の壁・内部の形状変化にまで拡張すると、**一度も流れを解かずに、異なる実験の仕事が等しいと分かる**。それが Lorentz 相反定理である。
+[FLUID18 の球抵抗](../FLUID18/index.md#thm-fluid18-stokes-drag)は速度に比例した。速度を反対向きにすると抗力も反対向きになる。この単純な事実を、形が異なる物体・複数の壁・内部の形状変化にまで拡張すると、**一度も流れを解かずに、異なる実験の仕事が等しいと分かる**。それが、今回証明する**二つの流れの相反関係**である。
 
 しかし「時間を逆にすれば粘性まで消える」という意味ではない。[FLUID17 の非定常 Stokes 第一問題](../FLUID17/index.md#thm-fluid17-first-profile)には時間微分が残り、速度を巻き戻しても同じ初期値問題にはならない。今回は**毎瞬間、慣性も記憶も捨てられる低 Reynolds 数の Stokes 模型**だけを扱う。相反定理の導出、散逸との両立、往復運動で泳げない理由までを一続きに追う。
 
@@ -185,7 +185,7 @@ $$
 =\frac{AUfh}{2}.
 $$
 
-従って[相反定理](#thm-fluid19-lorentz-reciprocity)の左辺は零、右辺は $-AUfh/2+AUfh/2=0$。体積力の項を落とした「境界仕事だけの相反性」はこの例で偽になる。
+従って[Lorentz相反定理](#thm-fluid19-lorentz-reciprocity)の左辺は零、右辺は $-AUfh/2+AUfh/2=0$。体積力の項を落とした「境界仕事だけの相反性」はこの例で偽になる。
 
 ## 2. 何を逆にすると元へ戻るのか
 
@@ -278,7 +278,7 @@ $$
 \mathcal V=(V_1,\Omega_1,\ldots,V_N,\Omega_N)^{\mathsf T}\in\mathbb R^{6N}
 $$
 
-> とし、流体力・トルクと釣り合う外部の一般化力を
+> とし、流体力・トルクと釣り合う外部の力とトルクをまとめたベクトルを
 
 $$
 \mathcal G=(-F_1^{\rm fluid},-T_1^{\rm fluid},\ldots,
@@ -314,7 +314,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-二つの一般化速度 $\mathcal V^{(1)},\mathcal V^{(2)}$ に対する Stokes 解を取る。無限遠で交差仕事零、体積力零だから[相反定理](#thm-fluid19-lorentz-reciprocity)により流体境界で
+二つの一般化速度 $\mathcal V^{(1)},\mathcal V^{(2)}$ に対する Stokes 解を取る。無限遠で交差仕事零、体積力零だから[Lorentz相反定理](#thm-fluid19-lorentz-reciprocity)により流体境界で
 
 $$
 \int_{\partial\Omega}u^{(1)}\cdot\sigma^{(2)}n\,dS
@@ -441,7 +441,7 @@ $$
 
 ## 5. 演習
 
-以下で $u^{(k)},p^{(k)},\sigma^{(k)},f^{(k)}$ は特に断らない限り同じ定数 $\eta>0$ の滑らかな非圧縮瞬時 Stokes 解を表す。[相反定理](#thm-fluid19-lorentz-reciprocity)の法線は流体の外向きとする。各問で境界条件と符号を明示せよ。
+以下で $u^{(k)},p^{(k)},\sigma^{(k)},f^{(k)}$ は特に断らない限り同じ定数 $\eta>0$ の滑らかな非圧縮瞬時 Stokes 解を表す。[Lorentz相反定理](#thm-fluid19-lorentz-reciprocity)の法線は流体の外向きとする。各問で境界条件と符号を明示せよ。
 
 ### Level A
 
@@ -598,7 +598,7 @@ $$
 =AfU\frac{h^2}{2h}=\frac{AUfh}{2}.
 $$
 
-もう一方の $\int_\Omega u^{(1)}\cdot f^{(2)}dV=0$。[相反式](#thm-fluid19-lorentz-reciprocity)の左辺 $0+0$ と右辺 $-AUfh/2+AUfh/2=0$ は一致する。体積力の補正を消すと $0=-AUfh/2$ となり、$AUfh\ne0$ に矛盾する。
+もう一方の $\int_\Omega u^{(1)}\cdot f^{(2)}dV=0$。[Lorentz相反定理](#thm-fluid19-lorentz-reciprocity)の左辺 $0+0$ と右辺 $-AUfh/2+AUfh/2=0$ は一致する。体積力の補正を消すと $0=-AUfh/2$ となり、$AUfh\ne0$ に矛盾する。
 <!-- solution-end -->
 
 ### B4. 形状速度の速さに依存しない往復
@@ -643,7 +643,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 抵抗の対称性。** 物体 $i$ の流体側法線は物体から流体へ向く $n_i$ の負、$n=-n_i$。境界速度 $u^{(k)}=V_i^{(k)}+\Omega_i^{(k)}\times(x-X_i)$ を[相反定理](#thm-fluid19-lorentz-reciprocity)の左側へ代入すると
+**1. 抵抗の対称性。** 物体 $i$ の流体側法線は物体から流体へ向く $n_i$ の負、$n=-n_i$。境界速度 $u^{(k)}=V_i^{(k)}+\Omega_i^{(k)}\times(x-X_i)$ を[Lorentz相反定理](#thm-fluid19-lorentz-reciprocity)の左側へ代入すると
 
 $$
 \int_{\partial\Omega}u^{(1)}\cdot\sigma^{(2)}n\,dS
