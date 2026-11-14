@@ -13,7 +13,7 @@ learning_objectives:
   - 1期と2期の条件付き予測を区別し分岐越えによる非線形期待値誤差を反例で示せる
   - 閾値探索による標本内平方和改善と標本外予測改善を区別できる
   - 帰無仮説下の閾値非識別性と検定較正・情報時刻を説明できる
-  - 構造変化による平均シフトの合成系列を作り定常TARと見分ける条件を述べられる
+  - 構造変化による平均シフトと平均回帰係数消失の合成系列を作り定常TARと区別できる
   - 費用・約定不一致・標本外評価を含む統計的裁定の採否手順を構築できる
 definitions:
   - { id: U4-17-DEF-01, name: "連続な2レジーム閾値自己回帰" }
@@ -44,8 +44,9 @@ problem_patterns:
   - U4-17-B2
   - U4-17-B3
   - U4-17-B4
+  - U4-17-B5
   - U4-17-C1
-exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
 estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.0 }
 past_exam_alignment: []
 integrated_exam_problems: []
