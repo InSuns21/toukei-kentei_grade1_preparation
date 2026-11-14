@@ -67,7 +67,7 @@ N=n,\qquad
 \sigma_{\rm MC}^{\,2}=\nu^2:=\operatorname{Var}_Q(X_i).
 $$
 
-ここで $\sigma_{\rm MC}$ は個々の割引支払額の標準偏差であり、金融モデルのボラティリティ $\sigma$ とは別の量です。$E[X_i^2]<\infty$ なら、$X_i$ は互いに独立で同じ分布に従うので、[MC1 の命題](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)の仮定を満たし、直ちに
+ここで $\sigma_{\rm MC}$ は個々の割引支払額の標準偏差であり、金融モデルのボラティリティ $\sigma$ とは別の量です。$E[X_i^2]<\infty$ なら、$X_i$ は互いに独立で同じ分布に従うので、[Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)の仮定を満たし、直ちに
 
 $$
 E^Q[\widehat V_n]=V_0,\qquad
@@ -77,7 +77,7 @@ $$
 
 を得ます。金融の価格推定量でも、標本数を4倍にして初めて**理論的な**標準誤差を半分にできます。$n=1$ のとき価格の標本平均自体は定義できますが、観測値から標本分散を推定するには $n\ge2$ が必要です。
 
-標本分散と標本標準誤差の定義も[MC1 の標準誤差の定義](../../../計算系/MC/MC1/index.md#def-mc1-standard-error)を使います。標準誤差（Standard Error; SE）を金融の記号で書き直すと、
+標本分散と標本標準誤差の定義も[Monte Carlo 標準誤差](../../../計算系/MC/MC1/index.md#def-mc1-standard-error)を使います。標準誤差（Standard Error; SE）を金融の記号で書き直すと、
 
 $$
 s_n^2=\frac1{n-1}\sum_{i=1}^n(X_i-\widehat V_n)^2,
@@ -122,7 +122,7 @@ $$
 \end{aligned}
 $$
 
-最後の等号は $\sum_i(X_i-V_0)=n(\widehat V_n-V_0)$ によります。両辺に $E^Q$ を取り、独立な支払額について既に確認した[MC1 の標本平均の分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)を使うと、
+最後の等号は $\sum_i(X_i-V_0)=n(\widehat V_n-V_0)$ によります。両辺に $E^Q$ を取り、独立な支払額について既に確認した[Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)を使うと、
 
 $$
 E^Q\!\left[\sum_{i=1}^n(X_i-\widehat V_n)^2\right]
@@ -135,9 +135,9 @@ $$
 
 ## 3. 「95%」の意味と有効な条件
 
-欧州 call の支払額は $G(s)=(s-K)_+$ です。行使しない標本では $X_i=0$ となり、分布は正規分布とは限りません。一方で $X_i^2\le e^{-2rT}S_T^2$ なので、[GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)を使えば有限分散を直接確認できます。$s,K,\sigma,T>0$ なら、行使する経路としない経路はいずれも正の確率を持つため、この分散は厳密に正です。
+欧州 call の支払額は $G(s)=(s-K)_+$ です。行使しない標本では $X_i=0$ となり、分布は滑らかな密度を持つ分布とは限りません。一方で $X_i^2\le e^{-2rT}S_T^2$ なので、[GBM の実数モーメント](../U3-14/index.md#prop-u3-14-moments)を使えば有限分散を直接確認できます。$s,K,\sigma,T>0$ なら、行使する経路としない経路はいずれも正の確率を持つため、この分散は厳密に正です。
 
-[MC1 の Monte Carlo 中心極限定理](../../../計算系/MC/MC1/index.md#thm-mc1-clt)と[標本分散・標準誤差の一致性定理](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)を同じ割引 payoff へ適用すれば、真の分散を未知の $s_n^2$ に置き換えた区間の漸近被覆率を評価できます。正規近似は有限標本に対する厳密な保証ではありません。
+[Monte Carlo 中心極限定理](../../../計算系/MC/MC1/index.md#thm-mc1-clt)と[標本分散・標準誤差の一致性定理](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)を同じ割引 payoff へ適用すれば、真の分散を未知の $s_n^2$ に置き換えた区間の漸近被覆率を評価できます。正規近似は有限標本に対する厳密な保証ではありません。
 
 <a id="prop-u3-26-clt-interval"></a>
 <!-- formal-statement-start -->
@@ -165,15 +165,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$S_T^{(i)}=s\exp((r-q-\sigma^2/2)T+\sigma\sqrt T\,Z_i)$ は共通の式で独立な $Z_i\sim N(0,1)$ から発生するため、$X_i$ も互いに独立で同じ分布に従います。[GBM の二次モーメント](../U3-14/index.md#prop-u3-14-moments)は有限なので、$0\le X_i\le e^{-rT}S_T^{(i)}$ から $E^Q[X_i^2]<\infty$ です。正規分布の正の密度と $s,K,\sigma,T>0$ により、$X_i=0$ と $X_i>0$ の両事象の確率が正で、$\nu^2>0$ です。
+$S_T^{(i)}=s\exp((r-q-\sigma^2/2)T+\sigma\sqrt T\,Z_i)$ は共通の式で独立な $Z_i\sim N(0,1)$ から発生するため、$X_i$ も互いに独立で同じ分布に従います。[GBM の二次モーメント](../U3-14/index.md#prop-u3-14-moments)は有限なので、$0\le X_i\le e^{-rT}S_T^{(i)}$ から $E^Q[X_i^2]<\infty$ です。標準正規変数が実数の任意の開区間に正の確率を割り当てることと $s,K,\sigma,T>0$ により、$X_i=0$ と $X_i>0$ の両事象の確率が正で、$\nu^2>0$ です。
 
-このとき $Y_i=X_i$、$N=n$ として[MC1 の中心極限定理](../../../計算系/MC/MC1/index.md#thm-mc1-clt)を適用し、
+このとき $Y_i=X_i$、$N=n$ として[Monte Carlo 中心極限定理](../../../計算系/MC/MC1/index.md#thm-mc1-clt)を適用し、
 
 $$
 \frac{\sqrt n(\widehat V_n-V_0)}{\nu}\xrightarrow{d}N(0,1).
 $$
 
-また[MC1 の標本分散・標準誤差の一致性定理](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)から $s_n/\nu\xrightarrow{P}1$ です。従って分母の比で割った
+また[標本分散と標準誤差推定の一致性](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)から $s_n/\nu\xrightarrow{P}1$ です。従って分母の比で割った
 
 $$
 \frac{\widehat V_n-V_0}{s_n/\sqrt n}
@@ -225,7 +225,7 @@ $$
 b_h=\mu_h-\mu=E[X_h]-E[X].
 $$
 
-**$n$（標本数）と $h$（時間分割）を別々に変える**ことが誤差分析の出発点です。[MC1 のバイアスと標本誤差の二乗平均誤差分解](../../../計算系/MC/MC1/index.md#prop-mc1-bias-variance-decomposition)へ、近似した一経路の支払額 $Y_i=X_h^{(i)}$、目標 $\mu=E[X]$、近似平均 $\mu_h=E[X_h]$ を代入します。互いに独立で同じ分布の $X_h^{(i)}$ が有限分散 $\nu_h^2$ を持てば、
+**$n$（標本数）と $h$（時間分割）を別々に変える**ことが誤差分析の出発点です。[バイアスと標本誤差の二乗平均誤差分解](../../../計算系/MC/MC1/index.md#prop-mc1-bias-variance-decomposition)へ、近似した一経路の支払額 $Y_i=X_h^{(i)}$、目標 $\mu=E[X]$、近似平均 $\mu_h=E[X_h]$ を代入します。互いに独立で同じ分布の $X_h^{(i)}$ が有限分散 $\nu_h^2$ を持てば、
 
 $$
 \widehat\mu_{n,h}=\frac1n\sum_{i=1}^nX_h^{(i)},\qquad
@@ -263,11 +263,11 @@ V_m=e^{-rT}E^Q[A_m]
 =\frac{se^{-rT}}m\sum_{j=1}^m e^{(r-q)jT/m}.
 $$
 
-$S_{jh}$ の分布は厳密に生成できるので、この差は SDE の Euler 近似誤差ではなく、**時間積分を右端の観測和に置き換えた差**です。もし離散観測 Asian を最初から契約したなら $V_m$ こそその契約の真値であり、商品仕様の違いと数値近似の違いを混同してはいけません。
+$S_{jh}$ の分布は厳密に生成できるので、この差は SDE の Euler 法で経路を時間分割する際の誤差ではなく、**時間積分を右端の観測和に置き換えた差**です。もし離散観測 Asian を最初から契約したなら $V_m$ こそその契約の真値であり、商品仕様の違いと数値近似の違いを混同してはいけません。
 
 <a id="prop-u3-26-asian-bias"></a>
 <!-- formal-statement-start -->
-> **命題（$K=0$ Asian の右端平均バイアス）**  
+> **命題（零行使価格 Asian の右端平均バイアス）**  
 > 定数係数のリスク中立 GBM で $s,T,\sigma>0$、$r,q\in\mathbb R$ とする。連続平均価格 $V_{\rm cont}$ と $m$ 個の右端平均価格 $V_m$ は上記の式を満たす。$r-q>0$ なら $V_m>V_{\rm cont}$、$r-q<0$ なら $V_m<V_{\rm cont}$、$r=q$ なら両者は等しい。いずれの場合も $V_m\to V_{\rm cont}$ であり、誤差は $O(m^{-1})$ で抑えられる。
 <!-- formal-statement-end -->
 
