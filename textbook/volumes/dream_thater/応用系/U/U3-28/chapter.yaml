@@ -1,0 +1,44 @@
+id: "U3-28"
+title: "厳密 GBM・Euler–Maruyama・Milstein"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-14, U3-27]
+official_scope: []
+learning_objectives:
+  - 同一 Brown 運動の正規増分と既習 GBM 陽解から厳密格子経路を更新できる
+  - SDE の積分表示の左端近似から Euler–Maruyama 更新を導ける
+  - Itô 公式で反復確率積分を計算し、Milstein の二次変動補正を導ける
+  - 係数の微分と Brown 増分の分散の違いを確認できる
+  - 厳密解の正値性と EM・Milstein の有限刻み負値条件を比較できる
+  - 正規指数モーメントから有限刻み終端強 MSE と価格平均の弱偏りを導ける
+  - 時間離散化誤差と経路数による標本誤差を分けて Python で検証できる
+definitions:
+  - { id: U3-28-DEF-01, name: "同一路での GBM 厳密格子経路" }
+  - { id: U3-28-DEF-02, name: "GBM の Euler–Maruyama 更新" }
+  - { id: U3-28-DEF-03, name: "GBM のスカラー Milstein 更新" }
+  - { id: U3-28-DEF-04, name: "同一路 GBM の終端強・弱誤差" }
+theorems:
+  - { id: U3-28-PROP-01, name: "GBM の厳密一刻み乗数" }
+  - { id: U3-28-PROP-02, name: "反復 Itô 積分の二次変動補正" }
+  - { id: U3-28-PROP-03, name: "離散更新における正値性の限界" }
+  - { id: U3-28-PROP-04, name: "GBM の有限刻み強 MSE と平均偏り" }
+canonical_examples:
+  - "S0=100, mu=0.08, sigma=0.20, T=1, m=2, DeltaW=(0.3,-0.1) を同じ3経路で更新"
+  - "Milstein補正の ((DeltaW)^2-h) の導出と条件付き平均ゼロ"
+  - "mu=0, sigma=2, h=1, DeltaW=-0.5 では厳密解は正、EMは0、Milsteinは負"
+  - "m=4,16,64 の強RMSEを解析式と固定seed実験で別々に比較"
+problem_patterns:
+  - U3-28-A1
+  - U3-28-A2
+  - U3-28-A3
+  - U3-28-A4
+  - U3-28-A5
+  - U3-28-B1
+  - U3-28-B2
+  - U3-28-B3
+  - U3-28-B4
+  - U3-28-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

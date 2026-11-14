@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" width="720" height="430" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+<title id="title">GBM終端価格の強誤差と刻み数</title>
+<desc id="desc">同一Brown運動を用いた厳密GBMに対する理論RMSE。横軸は分割数4,8,16,32,64。縦軸は円単位の対数目盛。Euler–Maruyamaは実線と丸印で1.625から0.392へ、Milsteinは破線と四角印で0.472から0.030へ下がる。</desc>
+<rect width="720" height="430" fill="#fff"/>
+<g font-family="sans-serif" font-size="16" fill="#17283e">
+<text x="110" y="29">終端 RMSE（円、対数目盛）</text>
+<text x="352" y="411" text-anchor="middle">時間分割数 m</text>
+</g>
+<g stroke="#d9e2e9" stroke-width="1">
+<path d="M100 90 H620 M100 168.3 H620 M100 259.1 H620 M100 350 H620"/>
+</g>
+<path d="M100 85 V350 H620" fill="none" stroke="#26394e" stroke-width="2"/>
+<g font-family="sans-serif" fill="#1d3348" font-size="15" text-anchor="end">
+<text x="88" y="95">2</text>
+<text x="88" y="173">0.5</text>
+<text x="88" y="264">0.1</text>
+<text x="88" y="355">0.02</text>
+</g>
+<g font-family="sans-serif" fill="#1d3348" font-size="15" text-anchor="middle">
+<text x="110" y="376">4</text><text x="230" y="376">8</text>
+<text x="350" y="376">16</text><text x="470" y="376">32</text>
+<text x="590" y="376">64</text>
+</g>
+<path d="M110 101.7 L230 122.3 L350 142.5 L470 162.3 L590 182.0" fill="none" stroke="#1769a6" stroke-width="3.5" data-series-group="gbm-rmse" data-series-label="Euler–Maruyama"/>
+<g fill="#1769a6"><circle cx="110" cy="101.7" r="4"/><circle cx="230" cy="122.3" r="4"/><circle cx="350" cy="142.5" r="4"/><circle cx="470" cy="162.3" r="4"/><circle cx="590" cy="182" r="4"/></g>
+<path d="M110 171.5 L230 209.9 L350 248.7 L470 287.6 L590 326.7" fill="none" stroke="#a04428" stroke-width="3" stroke-dasharray="9 6" data-series-group="gbm-rmse" data-series-label="Milstein"/>
+<g fill="#a04428"><rect x="106" y="167.5" width="8" height="8"/><rect x="226" y="205.9" width="8" height="8"/><rect x="346" y="244.7" width="8" height="8"/><rect x="466" y="283.6" width="8" height="8"/><rect x="586" y="322.7" width="8" height="8"/></g>
+<path d="M435 39 H480" stroke="#1769a6" stroke-width="3.5"/>
+<circle cx="459" cy="39" r="4" fill="#1769a6"/>
+<text x="487" y="44" font-family="sans-serif" font-size="15" fill="#17283e">Euler</text>
+<path d="M565 39 H608" stroke="#a04428" stroke-width="3" stroke-dasharray="9 6"/>
+<rect x="583" y="35" width="8" height="8" fill="#a04428"/>
+<text x="615" y="44" font-family="sans-serif" font-size="15" fill="#17283e">Milstein</text>
+</svg>
