@@ -358,11 +358,11 @@ $$
 
 一方 $E|M_n|\le\sqrt{E[M_n^2]}$ なので $\sup_nE[M_n^+]<\infty$。[劣マルチンゲールの概収束](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)から、ある $X\in L^1$ へ概収束します。概収束と $L^2$ 収束はいずれも確率収束を含みます。任意の $\varepsilon>0$ に対し、三角不等式と和集合の確率評価から
 
-$
+$$
 P(|X-Y|>2\varepsilon)
 \le P(|X-M_n|>\varepsilon)+P(|M_n-Y|>\varepsilon)
 \longrightarrow0.
-$
+$$
 
 したがって $P(|X-Y|>2\varepsilon)=0$ です。$\varepsilon=1/k$（$k\ge1$）として可算和を取れば $P(X\ne Y)=0$、すなわち $X=Y$ a.s. です。これを $M_\infty$ とします。
 
