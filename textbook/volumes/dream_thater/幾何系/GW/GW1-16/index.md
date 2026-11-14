@@ -63,7 +63,7 @@ Q^{\beta_1}Q^{\beta_2}=Q^{\beta_1+\beta_2},
 \qquad Q^0=1
 $$
 
-で表す。この記号は、まだ特定の数値を代入するものではない。
+で表す。この記号は、まだ特定の数値を代入するものではない。 単一変数の[形式冪級数の定義](../../../計算系/COMB/COMB9/index.md#def-comb9-formal-series)と[係数ごとの積の定義](../../../計算系/COMB/COMB9/index.md#def-comb9-cauchy-product)を、ここでは曲線類を添字とする多変数的な記録へ拡張する。
 
 無限個の曲線類が現れても係数を正しく比較できるよう、射影的な $X$ 上の固定した豊富類 $\omega\in H^2(X;\mathbb R)$ により、曲線類の面積 $A(\beta)=\langle[\omega],\beta\rangle$ を測る。非零の有効曲線類には $A(\beta)>0$ が成り立つ。
 
