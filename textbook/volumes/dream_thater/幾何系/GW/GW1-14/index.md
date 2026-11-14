@@ -89,19 +89,19 @@ $$
 
 この成分が像の射影直線への同型になる理由も確かめておく。[次数1写像の係数行列による表示](../GW1-10/index.md#prop-gw1-10-lines)と同じく、定義域の同次座標を $[s:t]$ とすると、次数1写像の成分は一次斉次式であり、
 
-$
+$$
 M=\begin{pmatrix}a_0&b_0\\ \vdots&\vdots\\ a_n&b_n\end{pmatrix},
 \qquad
 f([s:t])=[a_0s+b_0t:\cdots:a_ns+b_nt]
-$
+$$
 
 と書ける。係数行列 $M$ に非零の核ベクトルがあれば、その定義域点で全成分が零となって写像は定義できない。正則写像なら $\ker M=\{0\}$、よって $\operatorname{rank}M=2$ である。従って
 
-$
+$$
 M:\mathbb C^2\xrightarrow{\simeq}\operatorname{im}M,
 \qquad
 \mathbb P^1\xrightarrow{\simeq}\mathbb P(\operatorname{im}M)
-$
+$$
 
 となる。右側は像の射影直線であり、これで同型性が導かれた。
 
@@ -263,10 +263,10 @@ $k>2$ とし、$p,q$ を固定して $L=\overline{pq}$ と置く。残りの標�
 
 この最後の条件が本当に独立であることを確かめる。$L$ の交点 $r_j$ 近傍で局所座標 $t_j$ を取り、直線 $R_j$ の線形方程式 $\ell_j=0$ を $L$ へ制限する（交点が無限遠なら別のアフィンチャートを使う）。$R_j\ne L$ で交点は一つなので、定数 $A_j,B_j$ を使って
 
-$
+$$
 \ell_j|_L(t_j)=A_j+B_jt_j,\qquad
 \frac{\partial(\ell_j|_L)}{\partial t_j}=B_j\ne0
-$
+$$
 
 と書ける。ここでの偏微分は $p,q$ と他の標点の座標 $t_i$（$i\ne j$）を固定し、第 $j$ 標点の位置だけを動かす微分である。従って追加条件の Jacobian は残る $k-2$ 個の標点方向で非零対角成分を持ち、最初の二点評価の4方向と独立になる。従って条件全体の法方向微分の階数は
 
