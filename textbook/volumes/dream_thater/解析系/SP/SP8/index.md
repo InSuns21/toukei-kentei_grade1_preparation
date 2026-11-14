@@ -23,7 +23,7 @@ $$
 $$
 M_{n\wedge\tau}
 =M_0+\sum_{k=1}^n 1_{\{\tau\ge k\}}D_k.
-\tag{stop-increment}
+
 $$
 
 この式の意味を、$\tau<k$ なら第 $k$ 回の賭けを行わず、$\tau\ge k$ ならその回の損益 $D_k$ を加える、と読んでください。式は各標本路で成り立つ有限和で、無限時刻 $\tau=\infty$ でも問題ありません。第 $k$ 項の係数は $\mathcal F_{k-1}$ 可測かつ $0$ または $1$ です。
@@ -472,7 +472,7 @@ $$
 #### SP8-C01 有限区間の破産確率と平均吸収時間
 - Level: C
 
-$N\ge2$、$1\le i\le N-1$ とし、独立な公平 $\pm1$ コイン $\xi_k$ の歩行 $S_0=i$、$S_n=i+\sum_{k=1}^n\xi_k$ を考える。$\tau=\inf\{n\ge0:S_n\in\{0,N\}\}$、$Z_n=S_{n\wedge\tau}$ とする。[SP6 の吸収時刻の幾何級数型評価](../SP6/index.md#lem-sp6-absorption-tail)により $\tau<\infty$ a.s. かつ $E[\tau]<\infty$ としてよい（ただし下記の極限交換では理由を示す）。
+$N\ge2$、$1\le i\le N-1$ とし、独立な公平 $\pm1$ コイン $\xi_k$ の歩行 $S_0=i$、$S_n=i+\sum_{k=1}^n\xi_k$ を考える。$\tau=\inf\{n\ge0:S_n\in\{0,N\}\}$、$Z_n=S_{n\wedge\tau}$ とする。[SP6 の吸収時刻の幾何級数型評価](../SP6/index.md#lem-sp6-geometric-tail)により $\tau<\infty$ a.s. かつ $E[\tau]<\infty$ としてよい（ただし下記の極限交換では理由を示す）。
 
 1. $Z$ が有界マルチンゲールであることを差分から証明せよ。
 2. $P_i(S_\tau=N)=i/N$ を、有界時刻 $\tau\wedge n$ から出発して導け。
@@ -518,7 +518,7 @@ $$
 E_i[S_{\tau\wedge n}^2]-E_i[\tau\wedge n]=i^2.
 $$
 
-左辺の第1項は $0\le S_{\tau\wedge n}^2\le N^2$ により有界収束、第2項は $0\le\tau\wedge n\uparrow\tau$ により単調収束を適用します。[SP6 の吸収時刻評価](../SP6/index.md#lem-sp6-absorption-tail)により $E_i[\tau]<\infty$ です。従って
+左辺の第1項は $0\le S_{\tau\wedge n}^2\le N^2$ により有界収束、第2項は $0\le\tau\wedge n\uparrow\tau$ により単調収束を適用します。[SP6 の吸収時刻評価](../SP6/index.md#lem-sp6-geometric-tail)により $E_i[\tau]<\infty$ です。従って
 
 $$
 E_i[S_\tau^2]-E_i[\tau]=i^2.
