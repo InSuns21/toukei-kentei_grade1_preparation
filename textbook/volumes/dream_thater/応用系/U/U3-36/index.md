@@ -311,7 +311,7 @@ $$
 =\frac{\operatorname{Var}(X_1\mid\mathcal T)}M
 $$
 
-を得ます。訓練を固定したとき、[非先読み性](#prop-u3-36-adapted-policy)から $\widehat\tau$ は格子上の許された行使規則です。ここで[有限二項木での停止時刻最大化](../U3-07/index.md#prop-u3-07-stopping-value)をGBMへ無条件に適用するのではなく、本章の有限行使日について同じ後退帰納を確認します。
+を得ます。訓練を固定したとき、[非先読み性](#prop-u3-36-adapted-policy)から $\widehat\tau$ は格子上の許された行使規則です。ここで[有限二項木の Bermudan 最適行使命題](../U3-07/index.md#prop-u3-07-stopping-value)をGBMへ無条件に適用するのではなく、本章の有限行使日について同じ後退帰納を確認します。
 
 満期 $t_m$ で任意の規則の受取額は $h(S_T)=V_m(S_T)$ です。時刻 $t_{j+1}$ 以降の任意の停止規則の条件付き価値が $V_{j+1}(S_{t_{j+1}})$ 以下と仮定します。時刻 $t_j$ で行使する場合の価値は $h(S_{t_j})$、継続する場合の価値は、塔の性質と帰納仮定から
 
@@ -327,7 +327,7 @@ $$
 さらに有限格子上の可行な行使規則は連続時間で許される行使規則の一部なので、[連続時間 American 価値関数](../U3-21/index.md#def-u3-21-american-value)から $V_0^{(m)}\le V_0^{\rm A}$ です。
 <!-- proof-end -->
 
-独立評価の標本分散を $s_X^2=(M-1)^{-1}\sum_i(X_i-\widehat L_M)^2$ とすれば、方策固定の条件付き標準誤差は $s_X/\sqrt M$ です。訓練を固定した後の $X_i$ が独立同分布かつ $0<\operatorname{Var}(X_i\mid\mathcal T)<\infty$ であれば、[一般の Monte Carlo 中心極限定理](../../../計算系/MC/MC1/index.md#thm-mc1-clt)と[標本標準誤差の一致性](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)を適用できます。このとき大標本では $\widehat L_M\pm1.96s_X/\sqrt M$ が**学習済み方策の価値**に対する近似区間となります。**最適 Bermudan 価格の両側信頼区間ではありません**。標本平均は偶然に真の最適価格を上回ることもあり、各実現値が厳密な下界になるとは言いません。
+独立評価の標本分散を $s_X^2=(M-1)^{-1}\sum_i(X_i-\widehat L_M)^2$ とすれば、方策固定の条件付き標準誤差は $s_X/\sqrt M$ です。訓練を固定した後の $X_i$ が互いに独立で同じ条件付き分布に従い、かつ $0<\operatorname{Var}(X_i\mid\mathcal T)<\infty$ であれば、[一般の Monte Carlo 中心極限定理](../../../計算系/MC/MC1/index.md#thm-mc1-clt)と[標本標準誤差の一致性](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)を適用できます。このとき大標本では $\widehat L_M\pm1.96s_X/\sqrt M$ が**学習済み方策の価値**に対する近似区間となります。**最適 Bermudan 価格の両側信頼区間ではありません**。標本平均は偶然に真の最適価格を上回ることもあり、各実現値が厳密な下界になるとは言いません。
 
 逆に、未来を全て見てから最も大きい割引支払額を選んだ
 
