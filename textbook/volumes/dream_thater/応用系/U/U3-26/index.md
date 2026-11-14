@@ -31,15 +31,15 @@ $$
 > **定義（独立な割引支払額による Monte Carlo 推定量）**  
 > 共通のリスク中立測度 $Q$ に従い、$S_T$ と同じ分布を持つ**独立同分布**の標本 $S_T^{(1)},\ldots,S_T^{(n)}$（$n\ge2$）を取る。各標本について
 >
-> $$
+$
 > X_i=e^{-rT}G(S_T^{(i)})
-> $$
+$
 >
 > と置く。価格 $V_0=E^Q[X_1]$ の Monte Carlo 推定量を次で定める。
 >
-> $$
+$
 > \widehat V_n=\overline X_n=\frac1n\sum_{i=1}^{n}X_i.
-> $$
+$
 <!-- formal-statement-end -->
 
 **直接例**：無配当 European call では $G(s)=(s-K)_+=\max(s-K,0)$ 円です。$s=K=100$ 円、$r=0.03$ 年$^{-1}$、$\sigma=0.2$ 年$^{-1/2}$、$T=1$ 年なら $q=0$、$Z=-1,0,1$ に対し、上式から満期株価 $100e^{-0.19},100e^{0.01},100e^{0.21}$ 円、割引支払額は
@@ -61,11 +61,11 @@ $$
 > **命題（独立標本平均の不偏性・分散）**  
 > $X_1,\ldots,X_n$ が独立同分布で $E[X_i]=V_0$、$\operatorname{Var}(X_i)=\nu^2<\infty$ ならば、次が成り立つ。
 >
-> $$
+$
 > E[\widehat V_n]=V_0,\qquad
 > \operatorname{Var}(\widehat V_n)=\frac{\nu^2}{n},\qquad
 > E[(\widehat V_n-V_0)^2]=\frac{\nu^2}{n}.
-> $$
+$
 <!-- formal-statement-end -->
 
 一回の支払額の標準偏差が $\nu$ 円なら、平均の標準偏差は $\nu/\sqrt n$ 円です。標本数を4倍にして初めて標準誤差を半分にできます。
@@ -115,11 +115,11 @@ $$
 > **定義（不偏標本分散・推定標準誤差）**  
 > $n\ge2$ の観測値 $X_i$ に対し、次を定める。
 >
-> $$
+$
 > s_n^2=\frac1{n-1}\sum_{i=1}^{n}(X_i-\overline X_n)^2,
 > \qquad
 > \widehat{\mathrm{SE}}_n=\sqrt{\frac{s_n^2}{n}}.
-> $$
+$
 >
 > $s_n$ は個々の支払額の標本標準偏差、$\widehat{\mathrm{SE}}_n$ は平均価格の推定標準誤差であり、単位はいずれも円である。
 <!-- formal-statement-end -->
@@ -173,17 +173,17 @@ $n-1$ で割れば結論です。なお $E[s_n^2]=\nu^2$ であっても、一�
 > **命題（標本標準誤差による漸近95%信頼区間）**  
 > $X_i$ は独立同分布で、$E[X_i]=V_0$、$0<\nu^2=\operatorname{Var}(X_i)<\infty$ とする。$s_n>0$ のとき
 >
-> $$
+$
 > I_n=[\,\widehat V_n-1.96\,\widehat{\mathrm{SE}}_n,\quad
 > \widehat V_n+1.96\,\widehat{\mathrm{SE}}_n\,]
-> $$
+$
 >
 > と定める。このとき
 >
-> $$
+$
 > \lim_{n\to\infty}\Pr(V_0\in I_n)
 > =\Pr(|Z|\le1.96)\simeq0.9500,\qquad Z\sim N(0,1).
-> $$
+$
 >
 > 特定の有限 $n$ に対する厳密な95%保証ではない。
 <!-- formal-statement-end -->
@@ -262,9 +262,9 @@ $$
 > **定義（時間離散化バイアス）**  
 > 可積分な割引 payoff $X$ と、その刻み幅 $h>0$ による近似 $X_h$ に対して、価格の時間離散化バイアスを
 >
-> $$
+$
 > b_h=E[X_h]-E[X]=\mu_h-\mu
-> $$
+$
 >
 > と定義する。$X_h^{(1)},\ldots,X_h^{(n)}$ を互いに独立な同分布の近似標本とし、$\widehat\mu_{n,h}=n^{-1}\sum_iX_h^{(i)}$ と書く。
 <!-- formal-statement-end -->
@@ -274,10 +274,10 @@ $$
 > **命題（標本分散と時間バイアスの平均二乗誤差分解）**  
 > $E[X_h^2]<\infty$ の下で、互いに独立な近似標本の分散を $\nu_h^2=\operatorname{Var}(X_h)$ とする。そのとき真の価格 $\mu=E[X]$ に対し
 >
-> $$
+$
 > E[(\widehat\mu_{n,h}-\mu)^2]
 > =\frac{\nu_h^2}{n}+b_h^2.
-> $$
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
