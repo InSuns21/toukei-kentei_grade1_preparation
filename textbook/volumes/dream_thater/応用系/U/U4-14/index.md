@@ -51,7 +51,7 @@ $$
 =t(b_1+b_2+2b_3)^2+b_2^2+b_3^2.
 $$
 
-これは $b_1+b_2+2b_3=0$ のとき、そしてそのときに限り時点に依らず一定です。その場合の結合は独立同分布列の定数倍の和で、二次定常です。従って
+これは $b_1+b_2+2b_3=0$ のとき、そしてそのときに限り時点に依らず一定です。その場合の $b^\top x_t$ は独立同分布列の定数倍の和で、二次定常です。従って
 
 $$
 \mathcal C=\operatorname{span}\left\{
@@ -71,15 +71,15 @@ $k$ 系列に、$q$ 本の累積ショック $s_t$ が係数行列 $B$ を通し
 > **命題（共通確率トレンドと共和分ランク）**  
 > $1\le q<k$ とし、$q$ 次元の累積ショック $s_t$ を次で定める。
 
-$
+$$
 s_0=0,\qquad s_t=\sum_{j=1}^t\varepsilon_j.
-$
+$$
 
 > $\varepsilon_j$ は独立同分布で平均0、正定値共分散 $\Sigma$ を持つ。$u_t\in\mathbb R^k$ は二次定常なベクトル過程でショック列全体と独立とする。$B\in\mathbb R^{k\times q}$ は列ランク $q$ で各行が非零とし、
 
-$
+$$
 x_t=Bs_t+u_t
-$
+$$
 
 > と置く。このとき各成分は $I(1)$、共和分空間は $\ker B^\top$、ランクは $k-q$ である。
 <!-- formal-statement-end -->
@@ -327,12 +327,12 @@ $$
 
 [尤度関数](../../../解析系/F0/F0-00P7/index.md#def-f0-00p7-likelihood)の対数を取ると、正規誤差の対数尤度は $\Omega$ に依存する部分が次になります。
 
-$
+$$
 \ell(\Omega,\beta)
 =-\frac T2\left\{\log\det\Omega+
 \operatorname{tr}\!\left[\Omega^{-1}\widehat\Omega(\beta)\right]\right\}
 +\mathrm{const}.
-$
+$$
 
 $\Omega\succ0$ についての最大点は $\Omega=\widehat\Omega(\beta)$ です。このときトレース項は $k$ となるので、最大化後の対数尤度は定数を除き $-T\log\det\widehat\Omega(\beta)/2$ です。従って行列式を最小にします。
 
@@ -348,9 +348,9 @@ $V^\top MV$ の固有値を $\theta_1\ge\cdots\ge\theta_r$ とします。$M$ �
 
 $i\le r$ を固定します。$V^\top MV$ の上位 $i$ 個の固有ベクトルの張る $i$ 次元空間を $L_i\subset\mathbb R^r$、$M$ の第 $i$ から第 $k$ までの固有ベクトルの張る $(k-i+1)$ 次元空間を $W_i\subset\mathbb R^k$ とします。$V^\top V=I_r$ なので $\dim(VL_i)=i$ です。両空間の次元の和は $k+1$ ですから $VL_i$ と $W_i$ は非零に交わります。交わりから長さ1の $z=Vw$ を取れば、$w\in L_i$ も長さ1であり、
 
-$
+$$
 \theta_i\le w^\top(V^\top MV)w=z^\top Mz\le\lambda_i
-$
+$$
 
 です。左の不等号は上位 $i$ 固有空間に属すること、右は第 $i$ 以下の固有空間に属することから従います。よって $\theta_i\le\lambda_i$ です。ゆえに
 
@@ -485,7 +485,7 @@ $u_{t-1}=\beta^\top x_{t-1}>0$ なら調整は $\alpha u_{t-1}=(-u_{t-1}/5,2u_{t
 <!-- solution-end -->
 
 <a id="ex-u4-14-a4"></a>
-### 演習 U4-14-A4：ランク2の基底変換
+### 演習 U4-14-A4：ランク2の係数ベクトルの組み替え
 
 - Level: A
 
