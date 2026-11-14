@@ -68,7 +68,7 @@ chapters:
     title: "GWの基本公理と分裂公式"
   - id: GW1-16
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-16
-    status: planned
+    status: completed
     title: "量子積と結合律（WDVV）"
   - id: GW1-17
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-17
