@@ -299,7 +299,7 @@ $$
 \widehat B=\frac1n\sum_{i=1}^n(Y_m^{(i)}-X_m^{(i)})
 $$
 
-でそれぞれ強 MSE と弱誤差の標本推定ができます。[MC1 の標本平均分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)により、二乗値の標本標準偏差を $\sqrt n$ で割ると $\widehat q$ の推定標準誤差になります。$n$ を増やしても本来の離散化誤差は減りません。
+でそれぞれ強平均二乗誤差（Mean Squared Error; MSE）と弱誤差の標本推定ができます。[Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)により、二乗値の標本標準偏差を $\sqrt n$ で割ると $\widehat q$ の推定標準誤差になります。$n$ を増やしても本来の離散化誤差は減りません。
 <!-- definition-example-end -->
 
 ### 5.1 乱数実験とは独立の理論 MSE を作る
@@ -419,7 +419,7 @@ $s_0=100,\mu=0.08,\sigma=0.20,T=1$ を用い、命題の有限刻み式だけで
 
 一つの経路の処理順は、① $m$ 個の独立な $N(0,h)$ 増分を一度だけ生成、②厳密 $X_j$、EM $E_j$、Milstein $M_j$ の**三つをその増分で順番に更新**、③ $Y_m-X_m$ とその二乗を保存、④独立な経路を $n$ 本生成して標本平均を取る、です。
 
-$n$ 本の誤差二乗を $V_i=(Y_m^{(i)}-X_m^{(i)})^2$、平均を $\bar V$ とすると、[MC1 の標本平均分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)により
+$n$ 本の誤差二乗を $V_i=(Y_m^{(i)}-X_m^{(i)})^2$、平均を $\bar V$ とすると、[Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)により
 
 $$
 \widehat{\operatorname{SE}}(\bar V)
@@ -463,7 +463,7 @@ $s_0=100,\mu=0.08,\sigma=0.2,T=1,m=2$ で、最初の増分が $0.3$ とする�
 $h=0.25,\sigma=0.4$、左端の値 $x=100$、一増分 $\Delta W=-0.1$ とする。Milstein 補正の金額を求めよ。また補正の条件付き平均を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[反復 Itô 積分の命題](#prop-u3-28-ito-correction)より補正は $\frac12\sigma^2x((\Delta W)^2-h)$。$\sigma^2=0.16$、$(\Delta W)^2-h=0.01-0.25=-0.24$ なので $\frac12(0.16)(100)(-0.24)=8(-0.24)=-1.92$ 円。増分が $N(0,h)$ だから左端の情報の下で $E[(\Delta W)^2]=h$、従って $E[\frac12\sigma^2x((\Delta W)^2-h)\mid\mathcal F_t]=0$ である。$-\!h$ を省くと $0.5\sigma^2xh=2$ 円の正の条件付き平均が余分に生まれる。
+**詳細解答**：[反復 Itô 積分の二次変動補正](#prop-u3-28-ito-correction)より補正は $\frac12\sigma^2x((\Delta W)^2-h)$。$\sigma^2=0.16$、$(\Delta W)^2-h=0.01-0.25=-0.24$ なので $\frac12(0.16)(100)(-0.24)=8(-0.24)=-1.92$ 円。増分が $N(0,h)$ だから左端の情報の下で $E[(\Delta W)^2]=h$、従って $E[\frac12\sigma^2x((\Delta W)^2-h)\mid\mathcal F_t]=0$ である。$-\!h$ を省くと $0.5\sigma^2xh=2$ 円の正の条件付き平均が余分に生まれる。
 <!-- solution-end -->
 
 <a id="ex-u3-28-a3"></a>
@@ -541,7 +541,21 @@ $\Delta W$ と $(\Delta W)^2-h$ はともに平均0なので、一刻みの両�
 $Y_m$ を EM または Milstein とする。$m=32$ を固定し $n=1024$ 本から4096本へ増やす実験と、$n$ を固定して $m$ を増やす実験を設計し、各実験で何を期待でき何を保証できないか述べよ。
 
 <!-- solution-start -->
-**詳細解答**：各経路 $i$ に $m$ 個の独立な $N(0,T/m)$ 増分を与え、同一路で $Y_m^{(i)}$ と $X_m^{(i)}$ を作る。二乗差を $V_i$、符号付き差を $D_i$ とすると、[MC1 の平均の分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)で $\operatorname{Var}(\bar V)=\operatorname{Var}(V_1)/n$、$\operatorname{Var}(\bar D)=\operatorname{Var}(D_1)/n$。$m=32$ を固定し $n$ を4倍にすると、**どちらの標本平均の推定標準誤差も理論上約半分**になるが、真の離散化 MSE も弱誤差も不変である。逆に $n$ を固定し $m$ を増やすと、対象となる真の誤差は [有限刻みの命題](#prop-u3-28-finite-mse)で変わり得る。ただし有限標本の実測値や単一経路誤差が毎回単調減少する保証はない。異なる $m$ も経路単位で厳密に比較したいなら細格子増分を足し合わせて粗格子増分を作り、共通 Brown 運動を維持する。
+**詳細解答**：各経路 $i$ に $m$ 個の独立な $N(0,T/m)$ 増分を与え、同一路で $Y_m^{(i)}$ と $X_m^{(i)}$ を作る。二乗差を $V_i$、符号付き差を $D_i$ とする。
+
+[Monte Carlo 推定量の不偏性・分散・二乗平均平方根誤差](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)を独立同分布な $V_i,D_i$ に適用すると、
+
+$
+\operatorname{Var}(\bar V)=\frac{\operatorname{Var}(V_1)}n,
+\qquad
+\operatorname{Var}(\bar D)=\frac{\operatorname{Var}(D_1)}n
+$
+
+である。$m=32$ を固定し $n$ を4倍にすると、どちらの標本平均の推定標準誤差も理論上約半分になる。ただし**真の離散化 MSE も弱誤差も不変**である。
+
+逆に $n$ を固定し $m$ を増やすと、対象となる真の誤差は [GBM の有限刻み強 MSE と平均偏り](#prop-u3-28-finite-mse)で変わり得る。ただし、有限標本の実測値や単一経路誤差が毎回単調減少する保証はない。
+
+異なる $m$ も経路単位で比較する場合は、細格子増分を足し合わせて粗格子増分を作り、共通の Brown 運動を維持する。
 <!-- solution-end -->
 
 <a id="ex-u3-28-c1"></a>
