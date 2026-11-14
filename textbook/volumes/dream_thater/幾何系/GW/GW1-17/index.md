@@ -30,7 +30,7 @@ $$
 \longrightarrow T\mathbb P^n\longrightarrow0
 $$
 
-であり、行列式を取って $\det(T\mathbb P^n)\simeq\mathcal O(n+1)$、従って $c_1(T\mathbb P^n)=(n+1)x$ を得る。Novikov 変数の実次数は $2\langle c_1(T\mathbb P^n),d\ell\rangle$ で測るから、
+であり、行列式を取って $\det(T\mathbb P^n)\simeq\mathcal O(n+1)$、従って $c_1(T\mathbb P^n)=(n+1)x$ を得る。曲線類 $d\ell$ に対応する $q^d$ の実次数は $2\langle c_1(T\mathbb P^n),d\ell\rangle$ で測る。特に $q=q^1$ の次数から、
 
 $$
 \deg q=2(n+1)\langle x,\ell\rangle=2(n+1),\qquad
