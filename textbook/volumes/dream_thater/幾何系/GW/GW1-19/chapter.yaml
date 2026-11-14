@@ -1,0 +1,50 @@
+id: "GW1-19"
+title: "非凸標的と障害空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-18
+  - GW1-13
+  - GW1-10
+  - GW1-09
+  - GW1-08
+  - GW1-04
+  - GW1-03
+  - AG3-08
+  - AG2-10
+official_scope: []
+learning_objectives:
+  - 固定定義域のH0・H1と再パラメータ化商を区別し局所障害写像の核と余核による縮約を説明できる
+  - 射影束X_nの負の切断の法束と接束の直和分解を導出し次数dの被覆に引き戻せる
+  - H0・H1とRiemann–Rochの二通りで非凸標的の指数由来の期待次元を検算できる
+  - 斉次多項式で数えた多重被覆族の実際の次元と期待次元の差nd-1を導出できる
+  - 障害空間の非零と実際の変形阻害・モジュライ特異性を区別できる
+  - 非凸標的では通常の基本類が期待次元の類を自動的に与えないことを具体例で説明できる
+definitions:
+  - { id: GW1-19-DEF-01, name: 滑らかな球面写像の局所障害写像 }
+theorems:
+  - { id: GW1-19-PROP-01, name: 非定数球面写像の局所変形と障害 }
+  - { id: GW1-19-PROP-02, name: 負の切断を覆う写像の変形・障害次元 }
+  - { id: GW1-19-THM-01, name: 非凸標的における実際の自由度と期待次元の差 }
+  - { id: GW1-19-PROP-03, name: 非凸標的で通常基本類だけでは期待次元を表せない }
+canonical_examples:
+  - xy=0と恒等的零の局所障害写像の比較
+  - Hirzebruch曲面X_2の負の切断とH1が一次元となる包含
+  - X_1の負の切断の二重被覆で実次元2・期待次元1
+  - X_2の負の切断の二重被覆で実次元2・期待次元マイナス1
+  - 一標点付き二重被覆で評価像が負の切断に拘束される例
+problem_patterns:
+  - GW1-19-LINE-BUNDLE-COHOMOLOGY
+  - GW1-19-NEGATIVE-SECTION
+  - GW1-19-COVER-PARAMETERS
+  - GW1-19-UNOBSTRUCTED-EDGE
+  - GW1-19-LOCAL-ZERO-MODELS
+  - GW1-19-POSITIVE-EXPECTED-EXCESS
+  - GW1-19-TRIPLE-COVER-RR
+  - GW1-19-MARKED-EXCESS
+  - GW1-19-OBSTRUCTION-VERSUS-SINGULARITY
+  - GW1-19-POINT-INSERTION-IN-NEGATIVE-SECTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 5 }

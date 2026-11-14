@@ -19,3 +19,4 @@
 16. [GW1-16 量子積と結合律（WDVV）](textbook/volumes/dream_thater/幾何系/GW/GW1-16/index.md)
 17. [GW1-17 射影空間の量子コホモロジー](textbook/volumes/dream_thater/幾何系/GW/GW1-17/index.md)
 18. [GW1-18 平面有理曲線の数え上げ](textbook/volumes/dream_thater/幾何系/GW/GW1-18/index.md)
+19. [GW1-19 非凸標的と障害空間](textbook/volumes/dream_thater/幾何系/GW/GW1-19/index.md)
