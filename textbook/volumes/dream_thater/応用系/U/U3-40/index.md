@@ -84,14 +84,15 @@ $$
 dM_t=M_ta(t,S_t)\,dW_t,\qquad M_0=1.
 $$
 
-先に得た指数表示より、$M$ は $\int_0^t a(u,S_u)dW_u$ の確率指数です。$|a|\le A$ なら、任意の $T<\infty$ に対して
+先に得た指数表示より $M$ は正の連続局所マルチンゲールです。$|a|\le A$ とし、$\tau_n=\inf\{t:M_t\ge n\}\wedge T$ で停止すると、[Itô 等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)により
 
-$$
-E_Q\left[\exp\left(\frac12\int_0^T a(u,S_u)^2du\right)\right]
-\le e^{A^2T/2}<\infty.
-$$
+$
+E_Q[M_{t\wedge\tau_n}^2]
+=1+E_Q\left[\int_0^{t\wedge\tau_n}M_u^2a(u,S_u)^2du\right]
+\le1+A^2\int_0^tE_Q[M_{u\wedge\tau_n}^2]du.
+$
 
-この有界性の下で確率指数は真のマルチンゲールです（[STO7 の指数マルチンゲール](../../../解析系/STO/STO7/index.md#prop-sto7-brownian-exponential-martingale)の標準的な有界被積分過程への適用）。$E_Q[M_t]=M_0=1$ を戻せば期待値公式です。
+[積分形 Gronwall 補題](../../../解析系/STO/STO9/index.md#lem-sto9-gronwall)から $E_Q[M_{t\wedge\tau_n}^2]\le e^{A^2T}$ です。停止した $M$ は期待値1のマルチンゲールで、停止時刻を外す極限でもこの一様 $L^2$ 上界により一様可積分性が保たれます。従って $E_Q[M_t]=1$、同じ議論を条件付き期待値に適用して $M$ は真のマルチンゲールです。$S_t=s_0e^{(r-q)t}M_t$ から期待値公式が従います。
 <!-- proof-end -->
 
 ## 2. 局所変動率の価格付けと価格曲面
@@ -126,28 +127,16 @@ $$
 
 株式を $\Delta$ 単位、預金を価値 $v-\Delta S$ 円だけ持つと、配当を受け取る自己金融の増分は
 
-$$
-dv=\Delta(dS+qS\,dt)+r(v-\Delta S)\,dt
-=\{r v-q\Delta S\}dt+\Delta aS\,dW.
-$$
+$
+\begin{aligned}
+dv&=\Delta(dS+qS\,dt)+r(v-\Delta S)\,dt\\
+&=\{(r-q)\Delta S+q\Delta S+rv-r\Delta S\}dt
++\Delta aS\,dW\\
+&=rv\,dt+\Delta aS\,dW.
+\end{aligned}
+$
 
-まず $dW$ 係数を比較します。$aS>0$ なので $\Delta=v_s$ が必要です。続いて $dt$ 係数を比較すると
-
-$$
-v_t+(r-q)Sv_s+\frac12a^2S^2v_{ss}
-=rv-qSv_s.
-$$
-
-左辺の $(r-q)Sv_s$ と右辺の $-qSv_s$ を整理する際の二重配当計上を避けるため、上の自己金融式の $dt$ を直接再評価します。実際には
-
-$$
-\Delta(dS+qSdt)+r(v-\Delta S)dt
-=\{r v-r\Delta S+(r-q)\Delta S+q\Delta S\}dt
-+\Delta aS dW
-=rv\,dt+\Delta aS\,dW.
-$$
-
-従って正しい比較式は
+まず $dW$ 係数を比較します。$aS>0$ なので $\Delta=v_s$ が必要です。次に $dt$ 係数を比較すると
 
 $$
 v_t+(r-q)Sv_s+\frac12a^2S^2v_{ss}=rv,
