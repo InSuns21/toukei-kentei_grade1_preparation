@@ -20,7 +20,7 @@ $$
 
 $V$ の斉次基底を $\phi_0,\ldots,\phi_r$ とする。[節点一致を表す対角類](../GW1-12/index.md#def-gw1-12-diagonal-matching)では、左右の節点に入れる類を Poincaré 双対基底で組にした。同じ組を積の係数にも使う。
 
-積分による Poincaré ペアリング $B(u,v)=\int_Xu\smile v$ は、[先講で対角類を双対基底に展開したときのペアリング](../GW1-12/index.md#def-gw1-12-diagonal-matching)である。斉次基底 $\{\phi_a\}$ でこの双線形形式を行列表示したものが $\eta_{ab}=B(\phi_a,\phi_b)$ である。$X$ は滑らかな向き付けられたコンパクト多様体なので Poincaré 双対性が成立し、偶数部分同士の交叉行列 $\eta$ は非退化となる。そこで逆行列を $\eta^{ab}$ で表し、
+積分による Poincaré ペアリング $\langle u,v\rangle_X=\int_Xu\smile v$ は、[GW1-12で対角類を双対基底に展開したときのペアリング](../GW1-12/index.md#def-gw1-12-diagonal-matching)である。斉次基底 $\{\phi_a\}$ でこの双線形形式を行列表示したものが $\eta_{ab}=\langle\phi_a,\phi_b\rangle_X$ である。$X$ は滑らかな向き付けられたコンパクト多様体なので Poincaré 双対性が成立し、偶数部分同士の交叉行列 $\eta$ は非退化となる。そこで逆行列を $\eta^{ab}$ で表し、
 
 $
 \eta_{ab}=\int_X\phi_a\smile\phi_b,
@@ -304,13 +304,13 @@ $14|23$ については四標点の番号 $3,4$ を交換して同じ議論を�
 
 ## 6. WDVV から結合律を、添字を省略せず導く
 
-Poincaré ペアリングを $\Lambda_X$-双線形に
+第2節で導入した $\langle u,v\rangle_X$ を $\Lambda_X$-双線形に延長し、以後は $(u,v)$ と略記する。すなわち $u,v\in V$ では
 
-$$
+$
 (u,v)=\int_Xu\smile v
-$$
+$
 
-と延長する。値域は $\Lambda_X$ であり、$\Lambda_X$ を足した量子積では曲線類ごとの係数を比較する。
+とし、Novikov 係数には $\bigl(Q^{\beta_1}u,Q^{\beta_2}v\bigr)=Q^{\beta_1+\beta_2}(u,v)$ と拡張する。値域は $\Lambda_X$ であり、量子積の等式は曲線類ごとの係数を比較する。
 
 <a id="thm-gw1-16-associativity"></a>
 
