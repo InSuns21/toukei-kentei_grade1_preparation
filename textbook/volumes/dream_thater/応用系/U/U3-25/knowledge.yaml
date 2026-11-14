@@ -1,0 +1,59 @@
+chapter: U3-25
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-08, U3-09, U3-13, U3-14, U3-16, U3-17, U3-22, U3-23]
+concepts:
+  - id: finance.continuous-barrier-absorbing
+    name: 連続監視 down-and-out と吸収境界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続監視 down-and-out と吸収境界）"]
+    requires: [finance.barrier-discrete-contract, finance.risk-neutral-terminal-value]
+  - id: finance.barrier-killed-pde
+    name: 吸収境界付き Barrier 価格 PDE
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（吸収境界付き Barrier 価格 PDE）"]
+    requires: [finance.continuous-barrier-absorbing, finance.bsm-continuous-dividend]
+  - id: finance.barrier-monitoring-order-continuous
+    name: 監視集合の包含と価格の順序
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（監視集合の包含と価格の順序）"]
+    requires: [finance.continuous-barrier-absorbing, finance.barrier-monitoring-monotonicity]
+  - id: finance.barrier-reflection-digital
+    name: 対数ドリフト0の障壁デジタル厳密価格
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数ドリフト0の障壁デジタル厳密価格）"]
+    requires: [finance.continuous-barrier-absorbing]
+  - id: finance.asian-integral-state
+    name: 連続算術平均 Asian と累積積分状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続算術平均 Asian と累積積分状態）"]
+    requires: [finance.asian-augmented-state, finance.risk-neutral-terminal-value]
+  - id: finance.asian-augmented-pde
+    name: Asian の増次元 Black–Scholes PDE
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Asian の増次元 Black–Scholes PDE）"]
+    requires: [finance.asian-integral-state, finance.bsm-continuous-dividend]
+  - id: finance.asian-affine-check
+    name: Asian 線形領域の厳密価格
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Asian 線形領域の厳密価格）"]
+    requires: [finance.asian-augmented-pde]
+  - id: finance.asian-forward-upwind
+    name: Asian の右向き累積量差分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Asian の右向き累積量差分）"]
+    requires: [finance.asian-augmented-pde, finance.explicit-bsm-three-point]
+  - id: finance.asian-scheme-positivity
+    name: Asian 陽的更新の非負性と刻み条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Asian 陽的更新の非負性と刻み条件）"]
+    requires: [finance.asian-forward-upwind]
