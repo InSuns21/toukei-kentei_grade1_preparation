@@ -624,7 +624,7 @@ $$
 
 三標点の自由度を加え、再パラメータ化群の三次元を差し引くと商の局所次元は $11+3-3=11$。
 
-一方、[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から $\mathbb P^3$ の第一Chern類は $c_1(T\mathbb P^3)=4H$ となる。次数2なのでその曲線類との対は $4\cdot2=8$。[局所次元の命題](#prop-gw1-09-smooth-map-locus)へ代入すれば
+一方、[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の短完全列で行列式を取ると、$\det(T\mathbb P^3)\simeq\mathcal O(1)^{\otimes4}=\mathcal O(4)$ となる。$H=c_1(\mathcal O(1))$ と書けば $c_1(T\mathbb P^3)=4H$。次数2という仮定は $\langle H,\beta\rangle=2$ を意味するから、$\langle c_1(T\mathbb P^3),\beta\rangle=4\cdot2=8$。[局所次元の命題](#prop-gw1-09-smooth-map-locus)へ代入すれば
 
 $$
 m-3+c_1(T\mathbb P^3)\cdot\beta+k
