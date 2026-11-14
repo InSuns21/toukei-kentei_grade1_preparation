@@ -1,0 +1,55 @@
+chapter: GW1-20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-19
+  - GW1-13
+  - GW1-10
+  - GW1-09
+  - GW1-08
+  - GW1-03
+  - AG3-08
+  - AG2-10
+concepts:
+  - id: gromov-witten.section-zero-expected-dimension
+    name: 切断の零点問題の期待次元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（切断の零点問題の期待次元）"]
+    requires: [gromov-witten.ordinary-class-dimension-mismatch]
+  - id: gromov-witten.section-zero-tangent-obstruction
+    name: 零点模型の接方向と一次障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零点模型の接方向と一次障害）"]
+    requires: [gromov-witten.section-zero-expected-dimension, gromov-witten.local-reduced-deformation]
+  - id: gromov-witten.normal-cone-closed-immersion
+    name: 閉部分スキームの正規錐
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閉部分スキームの正規錐）"]
+    requires: [gromov-witten.section-zero-expected-dimension]
+  - id: gromov-witten.section-cone-embedding
+    name: 切断の正規錐を値域の束へ埋め込む
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（切断の正規錐を値域の束へ埋め込む）"]
+    requires: [gromov-witten.normal-cone-closed-immersion, algebraic-geometry.hypersurface-normal-tangent]
+  - id: gromov-witten.section-localized-cycle
+    name: 零点模型の局所化された期待次元サイクル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零点模型の局所化された期待次元サイクル）"]
+    requires: [gromov-witten.section-cone-embedding]
+  - id: gromov-witten.perfect-obstruction-theory
+    name: 完全障害理論
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（完全障害理論）"]
+    requires: [gromov-witten.section-zero-tangent-obstruction, gromov-witten.section-cone-embedding]
+  - id: gromov-witten.section-perfect-obstruction-theory
+    name: ベクトル束の零点が持つ完全障害理論
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ベクトル束の零点が持つ完全障害理論）"]
+    requires: [gromov-witten.perfect-obstruction-theory, gromov-witten.section-zero-tangent-obstruction]

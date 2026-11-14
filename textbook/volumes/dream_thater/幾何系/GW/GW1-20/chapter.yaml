@@ -1,0 +1,51 @@
+id: "GW1-20"
+title: "仮想基本類の設計図と限界"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-19
+  - GW1-13
+  - GW1-10
+  - GW1-09
+  - GW1-08
+  - GW1-03
+  - AG3-08
+  - AG2-10
+official_scope: []
+learning_objectives:
+  - 有限次元零点スキームの一次接空間と障害候補の次元差から期待次元を計算できる
+  - イデアルの次数付き代数から正規錐を作り切断の値域の束への埋め込みを説明できる
+  - 正則な零点と過剰な零点で局所化された期待次元サイクルを計算できる
+  - 完全障害理論の二項複体・余接複体への射・コホモロジー条件を述べ零点模型で確認できる
+  - Behrend–Fantechiの内在的正規錐から仮想基本類への入力・出力と未証明の範囲を区別できる
+  - 安定写像のH0・H1と定義域変形から期待次元を検算し非凸例の実次元との差を説明できる
+definitions:
+  - { id: GW1-20-DEF-01, name: 切断の零点問題の期待次元 }
+  - { id: GW1-20-DEF-02, name: 閉部分スキームの正規錐 }
+  - { id: GW1-20-DEF-03, name: 零点模型の局所化された期待次元サイクル }
+  - { id: GW1-20-DEF-04, name: 完全障害理論 }
+theorems:
+  - { id: GW1-20-PROP-01, name: 零点模型の接方向と一次障害 }
+  - { id: GW1-20-PROP-02, name: 切断の正規錐を値域の束へ埋め込む }
+  - { id: GW1-20-PROP-03, name: ベクトル束の零点が持つ完全障害理論 }
+canonical_examples:
+  - xとx二乗での零点スキームの長さと一次接空間の違い
+  - xyが定める交差する二直線の特異点
+  - 射影直線上のO(1)の恒等的零切断の局所化されたChern類
+  - P1掛けるP1で片方の方程式が恒等的に零になる過剰交叉
+  - 負の切断の二重被覆と仮想次元の差
+problem_patterns:
+  - GW1-20-TRANSVERSE-ZERO
+  - GW1-20-DOUBLE-ZERO
+  - GW1-20-CROSSING-ZERO
+  - GW1-20-ZERO-SECTION
+  - GW1-20-PERFECT-COMPLEX-RANK
+  - GW1-20-TRIPLE-ZERO
+  - GW1-20-EXCESS-BUNDLE
+  - GW1-20-NEGATIVE-SECTION
+  - GW1-20-SAME-LOCUS-DIFFERENT-THEORY
+  - GW1-20-INTEGRATED-VIRTUAL-CYCLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 5 }
