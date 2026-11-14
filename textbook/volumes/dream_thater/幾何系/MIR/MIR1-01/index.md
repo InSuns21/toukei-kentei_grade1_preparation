@@ -32,7 +32,7 @@ $$
 
 $F_0$ のJacobianイデアルは $(z_0^4,\ldots,z_4^4)$ である。積単項式はどの $z_i^4$ でも割れないので、[一次変形の商空間](../../CYG/CYG1-13/index.md#def-cyg1-13-polynomial-direction)では非零となる。つまりこれは単に座標を取り替えただけの一次変化ではない。ただし、この**一方向**を見つけても、全101方向を記述したことにはならない。
 
-B側で後に観測する量の典型が**周期積分**である。$X_\psi$ が滑らかな範囲で、[留数による正則3形式の定義](../../DEF/DEF1-14/index.md#def-def1-14-residue-volume)から $\Omega_\psi$ を取り、局所的に平行移動した実三次元の閉じたサイクル $\Gamma_\psi$ に対して
+B側で後に観測する量の典型が**周期積分**である。$X_\psi$ が滑らかな範囲で、[quinticの留数体積形式](../../DEF/DEF1-14/index.md#def-def1-14-residue-volume)から $\Omega_\psi$ を取り、局所的に平行移動した実三次元の閉じたサイクル $\Gamma_\psi$ に対して
 
 $$
 \Pi_\Gamma(\psi)=\int_{\Gamma_\psi}\Omega_\psi
@@ -44,7 +44,7 @@ $$
 
 複素構造を固定した $X$ で、$[\omega]\in H^{1,1}(X;\mathbb R)$ をKähler形式の類、$[B]\in H^2(X;\mathbb R)$ を実二次コホモロジー類とする。$B$ は物理学でB場と呼ばれる二形式のコホモロジー類であり、ここでのB**側**の名称とは別物である。
 
-[複素化Kählerパラメータの既習定義](../../CYG/CYG1-13/index.md#def-cyg1-13-complexified-kahler)を使い、$[B]+i[\omega]$ を一つの複素類としてまとめる。これを幾何的なA側の入力として、後に曲線類に沿う重みを考える。
+[複素化Kählerパラメータ](../../CYG/CYG1-13/index.md#def-cyg1-13-complexified-kahler)を使い、$[B]+i[\omega]$ を一つの複素類としてまとめる。これを幾何的なA側の入力として、後に曲線類に沿う重みを考える。
 
 <a id="def-mir1-01-a-b-input"></a>
 
@@ -61,10 +61,10 @@ $$
 <!-- definition-example-start: def-mir1-01-a-b-input -->
 **定義の確認**（Fermat五次）。 $X=X_0$ を上節の滑らかなFermat五次とし、$H=c_1(\mathcal O_X(1))$ とする。[quinticのKähler錐の命題](../../CYG/CYG1-13/index.md#prop-cyg1-13-kahler-ray)により、$v>0$ なら $vH$ はKähler類である。$b\in\mathbb R$ を選び、$[B]=bH$、$[\omega]=vH$ とすれば、両者は実二次コホモロジー類であり、後者は正値条件を満たすからA側の入力になる。
 
-B側には、前節の滑らかな $X_\psi$（$\psi$ は0の近傍）と、[既習の留数構成](../../DEF/DEF1-14/index.md#def-def1-14-residue-volume)で得る $\Omega_\psi$ を選べる。ここで $\psi$ を変えているとき、先ほどの $b,v$ を同時に変えるとは指定していない。さらに周期を数値として求めるには三サイクルの選択が要る。従って定義の**それぞれの入力条件**を満たすが、両者の観測量が等しいことはまだ示していない。
+B側には、前節の滑らかな $X_\psi$（$\psi$ は0の近傍）と、[既習の留数構成](../../DEF/DEF1-14/index.md#def-def1-14-residue-volume)で得る $\Omega_\psi$ を選べる。ここで $\psi$ を変えているとき、先ほどの $b,v$ を同時に変えるとは指定していない。さらに周期を数値として求めるには三サイクルの選択が要る。従って定義にあるA側とB側の指定を個別に満たすが、両者の観測量が等しいことはまだ示していない。
 <!-- definition-example-end -->
 
-quinticについては超平面類 $H$ が整数係数の二次類であり、[Kähler錐の命題](../../CYG/CYG1-13/index.md#prop-cyg1-13-kahler-ray)により複素化方向を
+quinticについては超平面類 $H$ が整数係数の二次類であり、[quinticのKähler錐は正半直線](../../CYG/CYG1-13/index.md#prop-cyg1-13-kahler-ray)により複素化方向を
 
 $$
 [B+i\omega]=(b+iv)H,\qquad t=b+iv,\qquad b\in\mathbb R,\ v>0
@@ -85,7 +85,7 @@ q=e^{-2\pi v}e^{2\pi ib},\qquad
 e^{2\pi i(t+m)}=q.
 $$
 
-> 逆に $t,t'$ が複素上半平面に属し、$e^{2\pi it}=e^{2\pi it'}$ なら $t-t'\in\mathbb Z$ である。
+> 逆に $t=b+iv$、$t'=b'+iv'$（$b,b'\in\mathbb R$、$v,v'>0$）として、$e^{2\pi it}=e^{2\pi it'}$ なら $t-t'\in\mathbb Z$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -113,7 +113,7 @@ $$
 q=e^{-\!2\pi}e^{\pi i/2}=i e^{-2\pi}.
 $$
 
-$t+\!1=\frac54+i$ でも同じ $q$ になる。一方 $v=0$ なら $|q|=1$ となり、上半平面・Kähler正値性の仮定を満たさない。**$q$ を定義できること**と**それが正のKähler類を表すこと**は区別する。
+$t+\!1=\frac54+i$ でも同じ $q$ になる。一方 $v=0$ なら $|q|=1$ となり、虚部が正という条件・Kähler正値性の仮定を満たさない。**$q$ を定義できること**と**それが正のKähler類を表すこと**は区別する。
 
 後続では次数 $d$ の曲線類に対する重み $q^d$ を使うが、種数0 Gromov–Witten不変量や量子積をこの指数式だけから定義したことにはならない。A側の観測量には曲線の数え上げを補正する理論が必要で、その精確な定理をMIR2で扱う。
 
