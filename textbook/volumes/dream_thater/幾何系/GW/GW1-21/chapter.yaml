@@ -1,0 +1,50 @@
+id: "GW1-21"
+title: "解析的方法との比較・展望"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-20
+  - GW1-19
+  - GW1-13
+  - GW1-11
+  - GW1-14
+  - GW1-17
+  - GW1-08
+  - GW1-06
+  - GW1-04
+  - GW1-03
+official_scope: []
+learning_objectives:
+  - Fredholm作用素の核・余核分解からBanach空間の局所有限次元縮約を作り零点集合との対応を証明できる
+  - 複素多項式零点のスキーム的長さと解析的符号付き零点数を手計算し比較の成立範囲を限定できる
+  - 擬サイクルの逃避極限集合と余次元条件を直接例で検証できる
+  - 横断的擬サイクル・Kuranishi・polyfold・代数的完全障害理論の入力と残る大域的構成を区別できる
+  - 安定写像の実Fredholm指数と複素期待次元を照合し一致だけでは比較定理にならないことを説明できる
+  - GW1で証明済みの範囲と高種数・descendant・ミラー定理・Floer理論に必要な追加仕事を整理できる
+definitions:
+  - { id: GW1-21-DEF-01, name: 局所有限次元縮約 }
+  - { id: GW1-21-DEF-02, name: 擬サイクル }
+theorems:
+  - { id: GW1-21-PROP-01, name: Fredholm零点の局所有限次元縮約 }
+  - { id: GW1-21-PROP-02, name: 単項式の局所的な解析計数と代数的長さ }
+canonical_examples:
+  - F(x,y)=(x,y二乗)のBanach線形化と縮約
+  - 複素零点zのd乗の商環の長さと摂動後の局所符号
+  - 穿孔球面の包含写像の擬サイクル判定
+  - 射影平面の安定写像に対する実・複素仮想次元の比較
+  - Kuranishi・polyfold・完全障害理論の大域化責務の境界
+problem_patterns:
+  - GW1-21-REDUCTION-CUBIC
+  - GW1-21-COMPLEX-MULTIPLICITY
+  - GW1-21-PSEUDOCYCLE-TWO-PUNCTURES
+  - GW1-21-INDEX-REAL-COMPLEX
+  - GW1-21-STACK-WEIGHT
+  - GW1-21-NONLINEAR-REDUCTION
+  - GW1-21-EULER-SECTION-COUNT
+  - GW1-21-POINT-CONSTRAINT-DIMENSION
+  - GW1-21-PSEUDOCYCLE-FAILURE
+  - GW1-21-FULL-COMPARISON-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
