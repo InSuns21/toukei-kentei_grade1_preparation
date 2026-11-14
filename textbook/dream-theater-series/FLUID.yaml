@@ -12,7 +12,7 @@ chapters:
   - { id: FLUID5, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID5, status: completed, title: "検査体積を通る流束はどう数えるか" }
   - { id: FLUID6, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID6, status: completed, title: "Bernoulli積分はどこで成立するか" }
   - { id: FLUID7, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID7, status: completed, title: "似た流れを同じ模型で表せる条件は何か" }
-  - { id: FLUID8, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID8, status: planned, title: "理想流体で渦度は何から生まれるか" }
+  - { id: FLUID8, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID8, status: completed, title: "理想流体で渦度は何から生まれるか" }
   - { id: FLUID9, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID9, status: planned, title: "循環はいつ保存されるか" }
   - { id: FLUID10, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID10, status: planned, title: "渦は移流・伸長・拡散でどう変わるか" }
   - { id: FLUID11, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID11, status: planned, title: "流れ関数と速度ポテンシャルはいつ存在するか" }
