@@ -186,13 +186,40 @@ $\mathcal M'\xi_\rho$ は $p\mathcal H$ に稠密なので $w=0$ です。従っ
 
 ## 4. 有限行列では疑似逆が現れる
 
-有限次元の $\rho$ に対し、零固有値には逆数を割り当てず、正固有値だけを逆数にする行列
+有限次元の正半定値行列では、零固有値に通常の逆数を与えられません。そこで正固有値の方向だけに逆数を与え、零空間上では0にする演算を定義します。これは有限次元のスペクトル分解に基づくもので、もとの行列の逆行列とは区別します。
+
+<a id="def-aqft31-pseudoinverse"></a>
+
+<!-- formal-statement-start -->
+> **定義（正半定値行列のMoore–Penrose疑似逆）**  
+> $n\ge1$ とし、正半定値行列 $\rho\in M_n(\mathbb C)$ の固有分解を $\rho=\sum_jr_j|v_j\rangle\langle v_j|$（$r_j\ge0$）とする。**Moore–Penrose疑似逆**を次の行列で定義する。
 
 $$
-\rho^+=\sum_{j:r_j>0}r_j^{-1}|v_j\rangle\langle v_j|
+\rho^+=\sum_{j:r_j>0}r_j^{-1}|v_j\rangle\langle v_j|.
 $$
 
-を**Moore–Penrose疑似逆**と呼びます。これは $\rho^+\rho=\rho\rho^+=s(\rho)$ を満たします。$\rho^{-1}$ と異なり、$\rho^+$ は支持の直交補で0です。ここから [AQFT29の忠実な左右乗算公式](../AQFT29/index.md#thm-aqft29-matrix-formulas)の非忠実版を直接計算できます。
+> このとき $\rho^+\rho=\rho\rho^+=s(\rho)$ が成り立つ。特に $\rho$ が忠実な場合は $\rho^+=\rho^{-1}$ である。
+<!-- formal-statement-end -->
+
+式を固有ベクトル $v_j$ に作用させると、$r_j>0$ では $\rho^+\rho v_j=v_j$、$r_j=0$ では $\rho^+\rho v_j=0$ です。[支持射影の定義](#def-aqft31-support)が選ぶ方向と一致するため $\rho^+\rho=s(\rho)$、同様に $\rho\rho^+=s(\rho)$ が従います。
+
+<!-- definition-example-start: def-aqft31-pseudoinverse -->
+### 直接例：三準位の零固有値を除いた逆数
+
+$\rho=\operatorname{diag}(2/3,1/3,0)$ は非負で、標準基底が固有基底です。定義に従い正固有値のみ逆数にすると
+
+$$
+\rho^+=\operatorname{diag}(3/2,3,0),
+\qquad
+\rho^+\rho=\rho\rho^+=\operatorname{diag}(1,1,0).
+$$
+
+最後の行列は[第1節で求めた支持射影](#def-aqft31-support)です。$\rho^+$ は零固有値方向を0へ写し、非零固有値の二つの方向をそれぞれ $3/2,3$ 倍します。
+
+**定義の確認**：固有値の非負性、正固有値のみの逆数、零空間での消滅、両側からの積が支持射影になることを具体的に確認しました。
+<!-- definition-example-end -->
+
+この疑似逆から、[AQFT29の忠実な左右乗算公式](../AQFT29/index.md#thm-aqft29-matrix-formulas)に対応する非忠実版を直接計算します。
 
 <a id="thm-aqft31-finite-modular"></a>
 
