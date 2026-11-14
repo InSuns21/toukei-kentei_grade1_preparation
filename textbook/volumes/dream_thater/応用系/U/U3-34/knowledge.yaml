@@ -1,0 +1,65 @@
+chapter: U3-34
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-14, U3-26, U3-29, U3-33]
+concepts:
+  - id: finance.qmc-pricing-integral
+    name: 金融価格の準 Monte Carlo 積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（金融価格の準 Monte Carlo 積分）"]
+    requires: [finance.risk-neutral-mc-discounted-sample]
+  - id: finance.qmc-star-discrepancy
+    name: 一変数の星食い違い度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一変数の星食い違い度）"]
+    requires: [finance.qmc-pricing-integral]
+  - id: finance.qmc-integration-discrepancy-bound
+    name: 一変数の QMC 積分誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一変数の QMC 積分誤差）"]
+    requires: [finance.qmc-star-discrepancy]
+  - id: finance.randomized-qmc-pricing
+    name: 独立乱択配置による価格推定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立乱択配置による価格推定）"]
+    requires: [finance.qmc-pricing-integral]
+  - id: finance.randomized-qmc-replicate-se
+    name: 独立乱択QMCの不偏性と反復標準誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立乱択QMCの不偏性と反復標準誤差）"]
+    requires: [finance.randomized-qmc-pricing, numerical.monte-carlo-standard-error]
+  - id: finance.bridge-qmc-coordinate-construction
+    name: Brownian bridge による観測時点の正規座標生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Brownian bridge による観測時点の正規座標生成）"]
+    requires: [finance.qmc-pricing-integral, finance.gbm-coupled-terminal-errors]
+  - id: finance.bridge-qmc-finite-dimensional-law
+    name: 橋生成が Brown 運動の有限次元分布を保つ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（橋生成が Brown 運動の有限次元分布を保つ）"]
+    requires: [finance.bridge-qmc-coordinate-construction]
+  - id: finance.qmc-first-coordinate-ratio
+    name: 第一座標の分散寄与率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第一座標の分散寄与率）"]
+    requires: [finance.bridge-qmc-finite-dimensional-law]
+  - id: finance.qmc-stock-coordinate-ratio
+    name: 割引満期株式の第一座標寄与率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（割引満期株式の第一座標寄与率）"]
+    requires: [finance.qmc-first-coordinate-ratio, finance.gbm-real-moments]
+  - id: finance.rqmc-discretization-error-budget
+    name: 乱択QMCの分散と監視仕様の偏り
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（乱択QMCの分散と監視仕様の偏り）"]
+    requires: [finance.randomized-qmc-replicate-se, finance.discretization-mc-mse-decomposition]
