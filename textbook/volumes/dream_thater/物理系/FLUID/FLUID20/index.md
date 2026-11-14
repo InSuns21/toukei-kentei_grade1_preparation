@@ -24,9 +24,9 @@
 > **定義（運動学的境界条件）**  
 > 滑らかな上壁 $z=h(x,t)>0$ の物質点が水平速度 $\dot x=U_1(x,t)$、鉛直速度 $\dot z=w_{\rm wall}(x,t)$ で動くとき、その点が常に壁面に留まるための関係を
 
-$
+$$
 \boxed{w_{\rm wall}(x,t)=\partial_t h(x,t)+U_1(x,t)\partial_x h(x,t)}
-$
+$$
 
 > と呼ぶ。無滑りかつ非貫通のとき、流体の上壁での鉛直速度 $w(x,h(x,t),t)$ は $w_{\rm wall}$ と一致する。
 <!-- formal-statement-end -->
@@ -277,9 +277,9 @@ $$
 >
 > 圧力は内部で正であり、唯一の最大点 $x_*$ は次の膜厚を満たす。
 >
-$
+$$
 h(x_*)=\frac{2h_{\rm in}h_{\rm out}}{h_{\rm in}+h_{\rm out}}.
-$
+$$
 >
 > 特に $h_{\rm in}=2H$、$h_{\rm out}=H$ なら
 >
