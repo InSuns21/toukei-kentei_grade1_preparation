@@ -1,0 +1,49 @@
+chapter: U4-10
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-09, F0-00P3]
+forward_references: []
+concepts:
+  - id: finance.stat-arb-zero-funded-statewise-gain
+    name: 全状態裁定と一期間純損益
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全状態裁定と一期間純損益）"]
+    requires: [finance.quote-table-arbitrage-certificate, finance.finite-market-arbitrage-alternative]
+  - id: finance.stat-arb-performance-measures
+    name: 勝率・期待純損益・純損益の Sharpe 比
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（勝率・期待純損益・純損益の Sharpe 比）"]
+    requires: [finance.stat-arb-zero-funded-statewise-gain, finance.finite-market-positive-state-prices]
+  - id: finance.stat-arb-winrate-threshold
+    name: 二状態取引の期待利益の閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二状態取引の期待利益の閾値）"]
+    requires: [finance.stat-arb-performance-measures]
+  - id: finance.stat-arb-positive-mean-no-arbitrage
+    name: 無裁定と正の現実期待利益の両立
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（無裁定と正の現実期待利益の両立）"]
+    requires: [finance.stat-arb-zero-funded-statewise-gain, finance.finite-market-arbitrage-alternative, finance.stat-arb-performance-measures]
+  - id: finance.stat-arb-prespecified-hypothesis
+    name: 事前固定した統計的利益仮説と反証条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（事前固定した統計的利益仮説と反証条件）"]
+    requires: [finance.stat-arb-performance-measures]
+  - id: finance.stat-arb-iid-validation-sample
+    name: 独立同分布の検証標本
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立同分布の検証標本）"]
+    aliases: ["独立同分布"]
+    requires: [prob.independent-random-variables, prob.random-variable]
+  - id: finance.stat-arb-prespecified-mean-test
+    name: 固定した戦略に対する有界損益の片側判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定した戦略に対する有界損益の片側判定）"]
+    requires: [finance.stat-arb-prespecified-hypothesis, finance.stat-arb-iid-validation-sample]
