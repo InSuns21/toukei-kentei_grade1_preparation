@@ -606,7 +606,31 @@ $r=q=0,\sigma=0.2,i=2,s_i=100,h_a=5,k=0.01$ の更新について、$U_{i-1,j},U
 $S_0=100,B=80,\sigma=0.2,r=0.02,q=0,T=1$、$G\equiv1$ 円の設定で、$z=\log(100/80)/0.2$ とする。(i) 連続監視価格、(ii) 満期のみ監視価格、(iii) 価格差の式を[反射原理](../../../解析系/STO/STO4/index.md#thm-sto4-reflection-principle)から導き、数値を小数第6位まで求めよ。
 
 <!-- solution-start -->
-**詳細解答**：対数 drift は $r-q-\sigma^2/2=0.02-0.02=0$。$X_t=z\sigma+\sigma W_t$ と書けば満期に正である確率は $\Phi(z)$。[反射原理](../../../解析系/STO/STO4/index.md#thm-sto4-reflection-principle)より途中で0へ到達してから満期に正となる確率は $\Phi(-z)=1-\Phi(z)$。連続生存は $\Phi(z)-\Phi(-z)=2\Phi(z)-1$。従って (i) $e^{-0.02}(2\Phi(z)-1)\approx0.720894$ 円。(ii) $e^{-0.02}\Phi(z)\approx0.850546$ 円。(iii) 差は $e^{-0.02}\{1-\Phi(z)\}\approx0.129652$ 円。途中の越境を観測しないことが差の原因であり、有限差分誤差とは異なる。
+**詳細解答**：対数株価のドリフトを先に確かめる。
+
+$$
+r-q-\frac{\sigma^2}{2}=0.02-0.02=0,
+\qquad X_t=z\sigma+\sigma W_t^Q.
+$$
+
+従って満期に正である確率は $\Phi(z)$。[反射原理](../../../解析系/STO/STO4/index.md#thm-sto4-reflection-principle)より、途中で0へ到達して満期に正となる確率は $\Phi(-z)=1-\Phi(z)$。連続生存の確率は
+
+$$
+\Phi(z)-\Phi(-z)=2\Phi(z)-1.
+$$
+
+割引率は $e^{-0.02}$ なので、求める価格と差は
+
+$$
+\begin{aligned}
+V_{\rm cont}&=e^{-0.02}(2\Phi(z)-1)\approx0.720894\ \mathrm{JPY},\\
+V_{\{T\}}&=e^{-0.02}\Phi(z)\approx0.850546\ \mathrm{JPY},\\
+V_{\{T\}}-V_{\rm cont}
+&=e^{-0.02}\{1-\Phi(z)\}\approx0.129652\ \mathrm{JPY}.
+\end{aligned}
+$$
+
+途中の越境を観測しないことが差の原因であり、有限差分誤差とは異なる。
 <!-- solution-end -->
 
 <a id="ex-u3-25-b3"></a>
