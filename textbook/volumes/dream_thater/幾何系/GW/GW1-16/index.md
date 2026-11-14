@@ -138,7 +138,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（古典極限・単位元・次数）**  
-> $X$ を上記の滑らかな連結複素射影凸多様体とする。偶数の斉次類 $\alpha,\lambda\in H^{\mathrm{even}}(X;\mathbb Q)$ について、小量子積の $Q^0$ 係数は $\alpha\smile\lambda$ である。また $1*\alpha=\alpha*1=\alpha$ であり、$\deg Q^\beta=2c_1(TX)\cdot\beta$ とすると、各非零項の総次数は $\deg\alpha+\deg\lambda$ に等しい。
+> $X$ を上記の滑らかな連結複素射影凸多様体とし、$\alpha,\lambda$ を偶数次数の斉次コホモロジー類とする。小量子積の次数0成分と単位元は
+
+$
+(\alpha*\lambda)_0=\alpha\smile\lambda,
+\qquad 1*\alpha=\alpha*1=\alpha
+$
+
+> を満たす。また Novikov 変数に Chern 次数を与えると、任意の非零項 $Q^\beta\phi^a$ について
+
+$
+\deg(Q^\beta\phi^a)=\deg\alpha+\deg\lambda
+$
+
+> が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
