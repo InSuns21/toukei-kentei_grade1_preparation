@@ -249,7 +249,15 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ドリフトなし GBM の三次 Hermite 更新）**  
-> 整数 $m\ge1$、$h=T/m$、格子時刻 $t_j=jh$（$j=0,\ldots,m$）と、独立な $Z_j=\Delta_jW:=W_{t_{j+1}}-W_{t_j}\sim N(0,h)$（$0\le j<m$）を用い、$H_0=s_0$ として
+> 整数 $m\ge1$、$h=T/m$ とする。時刻格子と互いに独立な Brown 増分を
+
+$$
+t_j=jh\quad(0\le j\le m),\qquad
+Z_j=\Delta_jW:=W_{t_{j+1}}-W_{t_j}\sim N(0,h)
+\quad(0\le j<m)
+$$
+
+> と定め、$H_0=s_0$ として
 
 $$
 H_{j+1}=H_j\left[
