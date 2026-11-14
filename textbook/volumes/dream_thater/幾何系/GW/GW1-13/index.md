@@ -192,31 +192,31 @@ $$
 
 点 $u\in Z$ のエタール局所表示を $[U/G]$ とし、$G$ を有限群、$\widetilde u\in U$ を $u$ の代表点とする。[凸標的での滑らかさ](../GW1-10/index.md#thm-gw1-10-smooth-dimension)により $T_{\widetilde u}U$ の複素次元は $D$ である。各条件 $Z_i$ の法空間を
 
-$
+$$
 N_i:=T_{\operatorname{ev}_i(\widetilde u)}X/
 T_{\operatorname{ev}_i(\widetilde u)}Z_i
-$
+$$
 
 と置く。$N_i$ の複素次元は $r_i$ である。積評価の微分のあとに法空間への商写像 $q$ を施すと、
 
-$
+$$
 A:=q\circ d\operatorname{ev}_{\widetilde u}:
 T_{\widetilde u}U\longrightarrow\bigoplus_{i=1}^kN_i
-$
+$$
 
 を得る。横断性の接空間条件
 
-$
+$$
 d\operatorname{ev}_{\widetilde u}(T_{\widetilde u}U)
 +T_{\operatorname{ev}(\widetilde u)}(Z_1\times\cdots\times Z_k)
 =T_{\operatorname{ev}(\widetilde u)}X^k
-$
+$$
 
 は、商を取るとちょうど $A$ の全射性に等しい。仮定 $\sum_i r_i=D$ より両側は同じ複素次元なので $A$ は同型である。従って複素陰関数定理により逆像は局所的に次元 $D-\sum_i r_i=0$ の滑らかな交叉となる。固有な零次元 DM スタックには有限個の幾何学的点しかない。
 
 ここで行列式は、任意に選んだ両側の**複素基底**で $A$ を表した正方行列の行列式である。$A=(a_{ij})$ とすると、同じ写像を実基底で表した行列は
 
-$
+$$
 A_{\mathbb R}=
 \begin{pmatrix}
 \operatorname{Re}A&-\operatorname{Im}A\\
@@ -225,7 +225,7 @@ A_{\mathbb R}=
 \qquad
 \det_{\mathbb R}A_{\mathbb R}
 =|\det_{\mathbb C}A|^2>0.
-$
+$$
 
 したがって複素向きに対する局所交叉符号は $+1$、横断的な一点の交叉重複度は1である。
 
@@ -290,19 +290,19 @@ $$
 
 は各ファイバー上で通常の評価写像へ制限される。次数 $\sum_i d_i$ が $2D$ でなければ全ファイバーの積分は定義により零なので、以下は $\sum_i d_i=2D$ とする。$\alpha_{i,b}$ が平行であることと、滑らかで固有な族の局所的なコホモロジーの自明化により、可縮な $V$ 上では各 $\alpha_{i,b}$ を一つの類 $\widetilde\alpha_i\in H^{d_i}(\mathcal X|_V;\mathbb Q)$ の各ファイバーへの制限として実現できる。そこで
 
-$
+$$
 \Theta:=\operatorname{ev}_1^*\widetilde\alpha_1
 \smile\cdots\smile\operatorname{ev}_k^*\widetilde\alpha_k
 \in H^{2D}(\mathcal M_V;\mathbb Q)
-$
+$$
 
 と置く。$p:\mathcal M_V\to V$ は滑らかで固有であり、各ファイバーは複素次元 $D$ の有向 DM スタックである。したがって有理基本類による**ファイバー積分** $p_!$ を定められ、その値は
 
-$
+$$
 p_!(\Theta)\in H^0(V;\mathbb Q),\qquad
 (p_!\Theta)(b)=
 \int_{[M_{k,\beta_b}]}\Theta|_{M_{k,\beta_b}}
-$
+$$
 
 となる。$H^0(V;\mathbb Q)$ の類は連結な $V$ 上で一定なので、特に
 
