@@ -1,0 +1,50 @@
+id: "U4-18"
+title: "時変ヘッジ比率とKalmanフィルタ"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-17, U4-15]
+official_scope: []
+learning_objectives:
+  - 切片と傾きを潜在状態とする線形Gaussian状態方程式・観測方程式を次元と雑音の仮定付きで設定できる
+  - 観測前状態の平均・共分散と革新分散を独立性から導出できる
+  - 同時Gaussianの共分散射影からKalmanゲイン・条件付き平均・Joseph共分散式を証明できる
+  - 状態雑音と観測雑音の役割・尺度・識別困難性を数値で比較できる
+  - 状態変動ゼロの静的回帰が事前付き最小二乗となることを平方完成で証明できる
+  - フィルタと固定区間スムーザの情報集合を区別し将来観測の混入を検出できる
+  - 時変ヘッジ保有の現金・自己金融損益を導き更新後残差差とのずれを検算できる
+  - 情報時点・費用・モデル選択を統制して静的回帰と動的推定を標本外比較できる
+definitions:
+  - { id: U4-18-DEF-01, name: "時変ヘッジ係数の線形Gaussian状態空間モデル" }
+  - { id: U4-18-DEF-02, name: "観測前の革新と革新分散" }
+  - { id: U4-18-DEF-03, name: "Kalmanフィルタ推定値とゲイン" }
+  - { id: U4-18-DEF-04, name: "フィルタ推定と固定区間スムーザ推定の情報集合" }
+  - { id: U4-18-DEF-05, name: "時刻整合した時変ヘッジ保有" }
+theorems:
+  - { id: U4-18-PROP-01, name: "ランダムウォーク状態の1期予測と革新分散" }
+  - { id: U4-18-PROP-02, name: "KalmanフィルタのGaussian更新式" }
+  - { id: U4-18-PROP-03, name: "状態変動なしの更新と正則化付き最小二乗" }
+  - { id: U4-18-PROP-04, name: "時変係数残差の変化と自己金融損益の差" }
+canonical_examples:
+  - 切片と傾きの観測行列・雑音の単位と半正定値条件
+  - Gaussian条件付き共分散射影によるKalmanゲインとJoseph形式
+  - 2期の状態変動・革新・ゲイン・事後分散の手計算
+  - Qゼロの事前正則化付き静的回帰と通常最小二乗の違い
+  - 後日の観測で過去の係数が変わるスムーザ先読み反例
+  - 時変係数の再均衡と残差差・自己金融損益の不一致
+  - 約定時刻の先読みと費用控除後の損益の統合監査
+problem_patterns:
+  - U4-18-A1
+  - U4-18-A2
+  - U4-18-A3
+  - U4-18-A4
+  - U4-18-A5
+  - U4-18-B1
+  - U4-18-B2
+  - U4-18-B3
+  - U4-18-B4
+  - U4-18-B5
+  - U4-18-C1
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
