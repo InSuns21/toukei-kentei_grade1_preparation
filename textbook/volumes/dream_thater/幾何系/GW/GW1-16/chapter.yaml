@@ -10,6 +10,7 @@ prerequisites:
   - GW1-11
   - GW1-10
   - GW1-09
+  - COMB9
 official_scope: []
 learning_objectives:
   - Poincaré交叉行列と双対基底により三点相関の係数からコホモロジー類を復元できる
