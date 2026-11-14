@@ -16,3 +16,4 @@
 13. [GW1-13 凸標的の種数0GW不変量の定義](textbook/volumes/dream_thater/幾何系/GW/GW1-13/index.md)
 14. [GW1-14 最初の不変量を手で求める](textbook/volumes/dream_thater/幾何系/GW/GW1-14/index.md)
 15. [GW1-15 GWの基本公理と分裂公式](textbook/volumes/dream_thater/幾何系/GW/GW1-15/index.md)
+16. [GW1-16 量子積と結合律（WDVV）](textbook/volumes/dream_thater/幾何系/GW/GW1-16/index.md)
