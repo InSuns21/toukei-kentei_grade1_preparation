@@ -49,6 +49,9 @@ def simulate(case, n):
 
     if case == "first":
         values = [0.0] * (n + 1)
+        # The fluid interior is initially at rest. At t=0+ the wall already
+        # moves, so the first interior update must use the jumped wall value.
+        values[0] = U
         expected = exact_first
     else:
         values = [exact_second(j * dy, 0.0) for j in range(n + 1)]
