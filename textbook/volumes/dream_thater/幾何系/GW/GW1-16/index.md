@@ -92,7 +92,11 @@ $$
 
 **なぜ積が定義できるか**。固定した $E$ より小さな面積の非零係数の項は、各因子で有限個である。$A(\beta_i)\ge0$ だから、積の面積 $E$ 以下の係数に寄与する組は、両因子の面積 $E$ 以下の項の組に限られる。したがって係数の畳み込みは有限和であり、積も同じ有限性条件を満たす。
 
-**例**。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$。また $c_1(T\mathbb P^1)=2h$ なので $\deg q=4$ である。$\mathbb P^2$ の直線類を $\ell$、$q=Q^\ell$ とすれば $\deg q=2\langle3H,\ell\rangle=6$。同じ字 $q$ でも次数は標的によって異なる。
+<!-- definition-example-start: def-gw1-16-novikov -->
+**定義の確認（射影直線）**。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$ となる。面積を $a=A([\mathbb P^1])>0$ と置くと、$A(d[\mathbb P^1])=da$ である。したがって任意の $E>0$ に対して $da\le E$ の整数 $d\ge0$ は $0\le d\le E/a$ の有限個しかない。形式冪級数 $\sum_{d\ge0}c_dq^d$ は定義の有限性条件を満たす。
+
+さらに二つの形式冪級数の積で $q^n$ の係数は $\sum_{i=0}^nc_id_{n-i}$ という有限和なので積は定義され、$\deg q^n=4n$ も加法的である。実際、$c_1(T\mathbb P^1)=2h$ だから $\deg q=2\langle2h,[\mathbb P^1]\rangle=4$。$\mathbb P^2$ の直線類を $\ell$、$q=Q^\ell$ とすれば同様に $\deg q=2\langle3H,\ell\rangle=6$。同じ字 $q$ でも次数は標的によって異なる。
+<!-- definition-example-end -->
 
 ## 4. 三点不変量による小量子積
 
@@ -113,6 +117,24 @@ $$
 
 > で定め、$\Lambda_X$-双線形に $V\otimes_{\mathbb Q}\Lambda_X$ 全体へ拡張する。これを偶数部分の小量子コホモロジー積という。
 <!-- formal-statement-end -->
+
+<!-- definition-example-start: def-gw1-16-small-quantum-product -->
+**定義の確認（射影直線の単位類と点類）**。$X=\mathbb P^1$、$V=\mathbb Q\{1,h\}$ とし、双対基底は $\phi^0=h,\phi^1=1$ とする。[次数0の三点不変量](../GW1-13/index.md#prop-gw1-13-zero-degree)により
+
+$$
+\langle1,h,1\rangle_0=1,\qquad
+\langle1,h,h\rangle_0=0.
+$$
+
+よって定義の $\beta=0$ の係数は $1\cdot h+0\cdot1=h$ である。一方、任意の正次数 $d\ge1$ では、[基本類公理](../GW1-15/index.md#thm-gw1-15-fundamental-class)が三標点の単位挿入に適用でき、
+
+$$
+\langle1,h,1\rangle_d
+=\langle1,h,h\rangle_d=0.
+$$
+
+従って $1*h=h$。次数0の三標点と正次数の三標点はともに安定で、基底の二成分・全曲線次数の寄与を確認した。$h*h$ の非零な正次数補正は次の直接計算で調べる。
+<!-- definition-example-end -->
 
 固定した面積上限までの級数は有限であり、係数は $V$ に属するので式は well-defined である。また各 $\beta$ の係数は、任意の $\nu\in V$ に対して
 
