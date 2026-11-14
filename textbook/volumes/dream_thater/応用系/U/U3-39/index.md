@@ -418,6 +418,26 @@ Vega は中央で $37.90115751$ 円/（変動率1単位）なので、線形近�
 
 検算を再現するときは (1) 入力価格が開区間にあるか、(2) 各解が正か、(3) **同じ契約条件**へ解を再代入した価格残差、(4) 二分法の最終区間幅、(5) bid/ask の幅と比較した数値誤差、を記録します。市場データを使う場合は市場の気配精度とモデルの数値誤差を区別します。U3-38 の Fourier 近似価格を使用するなら、積分打切り・求積誤差も逆算価格の誤差へ入ります。
 
+### 同じ計算を再現する
+
+[数値検算プログラム](assets/implied_volatility.py)は Python 3 の標準ライブラリだけで実行できます。二分法の逆算、再代入、bid/mid/ask の区間、3 strike の必要条件、定数変動率最小二乗校正、価格範囲外の入力拒否を**同じ数式・同じデータ**で確かめます。数値は仮想気配です。
+
+~~~python-file-lab
+# lab-id: U3-39-IV-CALIBRATION
+# lab-title: IV・bid/ask・校正残差の再代入検算
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-39/assets/implied_volatility.py
+# timeout-ms: 15000
+# lab-preset: 3つの行使価格の逆算・気配区間・価格残差を検算 |
+~~~
+
+ローカル実行例：
+
+~~~bash
+python textbook/volumes/dream_thater/応用系/U/U3-39/assets/implied_volatility.py
+~~~
+
+検算値の数表を中心に扱うため、数値実験用のグラフは必須にしません。価格と IV の列、strike ごとの価格残差を照合し、単位・桁・符号の違いを確認してください。
+
 ## 6. 演習と詳細解答
 
 ### Level A：定義・境界・単位を確認する
