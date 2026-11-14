@@ -18,7 +18,7 @@ definitions:
   - { id: U3-36-DEF-03, name: "学習済み LSM 行使方策" }
 theorems:
   - { id: U3-36-PROP-01, name: "最小二乗の正規方程式と条件付き射影" }
-  - { id: U3-36-PROP-02, name: "独立経路上の LSM 方策は停止時刻" }
+  - { id: U3-36-PROP-02, name: "独立経路上の LSM 方策の非先読み性" }
   - { id: U3-36-PROP-03, name: "独立評価の条件付き不偏性と価格下界" }
 canonical_examples:
   - "2期間二項 put: 時刻1上枝は継続・下枝は行使、American 1175/147円とEuropean 925/147円"

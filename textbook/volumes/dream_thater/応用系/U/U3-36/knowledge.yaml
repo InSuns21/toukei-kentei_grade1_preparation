@@ -28,10 +28,10 @@ concepts:
     introduction_aliases: ["定義（学習済み LSM 行使方策）"]
     requires: [finance.lsm-regression-continuation, finance.discrete-stopping-time]
   - id: finance.lsm-policy-stopping-time
-    name: 独立経路上の LSM 方策は停止時刻
+    name: 独立経路上の LSM 方策の非先読み性
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（独立経路上の LSM 方策は停止時刻）"]
+    introduction_aliases: ["命題（独立経路上の LSM 方策の非先読み性）"]
     requires: [finance.lsm-learned-stopping-policy, finance.discrete-stopping-time]
   - id: finance.lsm-holdout-lower-bound
     name: 独立評価の条件付き不偏性と価格下界
