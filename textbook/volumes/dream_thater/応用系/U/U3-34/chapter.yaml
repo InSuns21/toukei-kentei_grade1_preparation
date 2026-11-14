@@ -1,0 +1,48 @@
+id: "U3-34"
+title: "準 Monte Carlo と次元削減"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-14, U3-26, U3-29, U3-33]
+official_scope: []
+learning_objectives:
+  - リスク中立GBMの離散観測価格を単位立方体上の一様積分へ変換しQMCで近似できる
+  - 一次元星食い違い度を直接計算し滑らかな関数の積分誤差上界を証明できる
+  - 乱択QMCの周辺一様性と配置間独立性を区別して不偏性・反復標準誤差を導ける
+  - Brownian bridgeによる終端先行の有限経路生成と条件付き平均・分散を導出できる
+  - 橋生成と前進生成のBrown運動共分散が一致することを計算で検証できる
+  - 第一座標の分散寄与率をGBM割引満期株式で厳密計算し実効次元と物理次元を区別できる
+  - 同費用の独立MC・前進スクランブルSobol・橋スクランブルSobolを反復実験できる
+  - RQMCの推定分散と監視時点・契約仕様の離散化差を別々に評価できる
+definitions:
+  - { id: U3-34-DEF-01, name: "金融価格の準 Monte Carlo 積分" }
+  - { id: U3-34-DEF-02, name: "一変数の星食い違い度" }
+  - { id: U3-34-DEF-03, name: "独立乱択配置による価格推定" }
+  - { id: U3-34-DEF-04, name: "Brownian bridge による観測時点の正規座標生成" }
+  - { id: U3-34-DEF-05, name: "第一座標の分散寄与率" }
+theorems:
+  - { id: U3-34-PROP-01, name: "一変数の QMC 積分誤差" }
+  - { id: U3-34-PROP-02, name: "独立乱択QMCの不偏性と反復標準誤差" }
+  - { id: U3-34-PROP-03, name: "橋生成が Brown 運動の有限次元分布を保つ" }
+  - { id: U3-34-PROP-04, name: "割引満期株式の第一座標寄与率" }
+  - { id: U3-34-PROP-05, name: "乱択QMCの分散と監視仕様の偏り" }
+canonical_examples:
+  - "4中点での星食い違い度 1/8 と u^2 の積分誤差 -1/192"
+  - "独立周期シフトによる RQMC と反復間SE"
+  - "T=1の四分割橋の分散と共分散"
+  - "割引満期株式の第一座標寄与率：前進約0.24626と橋1"
+  - "8時点の算術平均Asian callの独立スクランブルSobol数値実験"
+problem_patterns:
+  - U3-34-A1
+  - U3-34-A2
+  - U3-34-A3
+  - U3-34-A4
+  - U3-34-A5
+  - U3-34-B1
+  - U3-34-B2
+  - U3-34-B3
+  - U3-34-B4
+  - U3-34-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
