@@ -140,31 +140,31 @@ $$
 
 **(1) 定数 drift を除く。** $Y_u=X_{a+u}-x_0=\mu u+\sigma B_u$ とし、$B$ を区間の Brown 運動とします。$0\le u\le h$ に対して、終点の増分を引いた残差
 
-$
+$$
 R_u=B_u-\frac{u}{h}B_h
-$
+$$
 
 を考えます。$\operatorname{Cov}(B_u,B_h)=u$、$\operatorname{Var}(B_h)=h$ なので
 
-$
+$$
 \operatorname{Cov}(R_u,B_h)=u-\frac{u}{h}h=0.
-$
+$$
 
 有限個の時刻で $(R_u,B_h)$ は同時正規ですから、残差過程 $R$ は終点 $B_h$ と独立です。また
 
-$
+$$
 Y_u=\frac{u}{h}Y_h+\sigma R_u
-$
+$$
 
 であり、$Y_h=z=x_1-x_0$ を固定したときの平均は $uz/h$ です。$0\le u,v\le h$ について、残差の共分散を展開すると
 
-$
+$$
 \begin{aligned}
 \operatorname{Cov}(R_u,R_v)
 &=\min(u,v)-\frac{v}{h}u-\frac{u}{h}v+\frac{uv}{h^2}h\\
 &=\min(u,v)-\frac{uv}{h}.
 \end{aligned}
-$
+$$
 
 従って条件付き共分散は $\sigma^2(\min(u,v)-uv/h)$ です。drift $0$ の $\sigma B$ を終点 $z$ に条件付けても、同じ独立残差表示になります。両者は Gaussian 過程で連続版を持つため、条件付き経路法則も一致します。よって以後は drift $0$ の場合だけ示せばよいです。
 
@@ -294,26 +294,26 @@ $$
 
 です。この条件付き独立性を増分から確かめます。各区間 $j$ で $0\le u\le h_j$ とし、
 
-$
+$$
 \Delta W_j=W_{t_{j+1}}-W_{t_j},
 \qquad
 R^{(j)}_u=W_{t_j+u}-W_{t_j}-\frac{u}{h_j}\Delta W_j
-$
+$$
 
 と置きます。Brown 運動の独立増分と共分散から
 
-$
+$$
 \operatorname{Cov}(R^{(j)}_u,\Delta W_j)
 =u-\frac{u}{h_j}h_j=0.
-$
+$$
 
 同じ区間内では同時正規性により、残差過程 $R^{(j)}$ は $\Delta W_j$ と独立です。異なる区間の Brown 運動増分全体は独立なので、$R^{(j)}$ 同士も独立で、すべての格子増分 $(\Delta W_0,\ldots,\Delta W_{m-1})$ と独立です。実際、
 
-$
+$$
 X_{t_j+u}
 =\left(1-\frac{u}{h_j}\right)X_{t_j}
 +\frac{u}{h_j}X_{t_{j+1}}+\sigma R^{(j)}_u
-$
+$$
 
 となり、定数 drift は端点の線形補間に吸収されています。従って、全格子点を条件としても各区間の残差は独立に残り、区間内で障壁に触れない事象 $A_j$ の条件付き確率は、その区間の二端点だけで決まります。よって
 
