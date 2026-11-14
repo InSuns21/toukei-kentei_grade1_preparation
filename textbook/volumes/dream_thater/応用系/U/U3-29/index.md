@@ -6,7 +6,17 @@
 
 ## 1. 何を近似するかで「収束」の意味が違う
 
-固定した満期 $T>0$（年）、確率空間 $(\Omega,\mathcal F,P)$、標準 Brown 運動 $W$ を考えます。[STO9 の確率微分方程式](../../../解析系/STO/STO9/index.md#def-sto9-sde)の[強解](../../../解析系/STO/STO9/index.md#def-sto9-strong-solution)を $S_t$、分割数 $m\ge1$・刻み $h=T/m$ の数値終端値を $Y_m$ とします。**強誤差を論じるときは $Y_m$ と $S_T$ を同じ $W$ で構成**します。$E$ は確率測度 $P$ に関する期待値です。
+満期 $T>0$（年）を固定し、確率空間 $(\Omega,\mathcal F,P)$ 上の標準 Brown 運動 $W$ を考えます。この運動に関する[確率微分方程式](../../../解析系/STO/STO9/index.md#def-sto9-sde)の[強解](../../../解析系/STO/STO9/index.md#def-sto9-strong-solution)を $S_t$ とします。
+
+時間分割数を正整数 $m\ge1$ として、刻み幅（年）を
+
+$$
+h=\frac{T}{m}
+$$
+
+と定めます。数値終端値を $Y_m$ とします。**強誤差では $Y_m$ と厳密終端値 $S_T$ を同じ Brown 運動 $W$ から構成**します。
+
+以下の $E$ は確率測度 $P$ に関する期待値です。
 
 「標本路の終端値が近い」と「価格を与える期待値が近い」は別です。前者は同じ乱数を共有して差を取り、後者は商品支払を表す関数 $\varphi$ を通して平均を比較します。価格付けの場合だけ、$P$ を適切なリスク中立測度 $Q$ に置き換えて割引支払額を使います。
 
@@ -43,7 +53,15 @@ $$
 です（数値の単位は円）。一方 $\varphi(s)=s$ に対する**符号付き**弱誤差は両方式とも $-0.085491$ 円です。$e_2$ は同一経路差の二乗を期待値化した**非負の量**で、$b_\varphi$ は各方式の期待値を引き算した**符号を持つ量**です。これらは有限の二次モーメントを持つため、定義の可積分条件も満たします。単一の経路上で誤差が小さくても、期待値としての強誤差を証明したことにはなりません。また、ここで計算したのは $m=4$ の誤差であって収束**次数**ではありません。強次数は第2節の $h\downarrow0$ における展開、弱次数は第3節の期待値差の展開で別々に確かめます。
 <!-- definition-example-end -->
 
-強 $L^2$ の評価から弱誤差をいくらかは抑えられます。しかし弱次数が強次数より良いこともあり得ます。ここで使う **Lipschitz 条件**とは、試験関数の出力の差が入力の差の一定倍 $L\ge0$ 以下、すなわち $|\varphi(x)-\varphi(y)|\le L|x-y|$（任意の実数 $x,y$）となる条件です。特に $\varphi(s)=s$ は $L=1$ で満たします。
+強 $L^2$ の評価から弱誤差をいくらかは抑えられます。しかし弱次数が強次数より良いこともあり得ます。
+
+ここで使う **Lipschitz 条件**とは、試験関数の出力の差が入力の差の一定倍 $L\ge0$ 以下になる条件です。すなわち、任意の実数 $x,y$ に対して
+
+$$
+|\varphi(x)-\varphi(y)|\le L|x-y|
+$$
+
+が成り立ちます。例えば $\varphi(s)=s$ は $L=1$ で満たします。
 
 <a id="prop-u3-29-strong-to-lipschitz"></a>
 <!-- formal-statement-start -->
@@ -354,7 +372,9 @@ $s_0=100$ 円、$\mu=0.08$、$\sigma=0.20$、$T=1$ 年での**厳密有限刻み
 
 ## 5. 離散化バイアスと標本誤差に予算を割り振る
 
-期待値評価では、強誤差と異なり、数値解 $Y_m$ から作る支払額 $Z_h=\varphi(Y_m)$ の独立標本 $Z_h^{(1)},\ldots,Z_h^{(n)}$ を平均し、真の期待値 $V=E[\varphi(S_T)]$ を推定します。リスク中立価格なら $P$ を $Q$ にし、$Z_h$ に割引因子を含めます。ここで**同一路結合は強誤差を測るため**、**経路間の独立は Monte Carlo 平均の分散を下げるため**に必要であり、別の条件です。[U3-26 の価格付け Monte Carlo](../U3-26/index.md#def-u3-26-mc-estimator)を参照してください。
+期待値評価では、数値終端値 $Y_m$ から作る支払額 $Z_h=\varphi(Y_m)$ の独立標本を平均し、真の期待値 $V=E[\varphi(S_T)]$ を推定します。独立標本を $Z_h^{(1)},\ldots,Z_h^{(n)}$ と書きます。
+
+リスク中立価格なら確率測度 $P$ を $Q$ に替え、$Z_h$ に割引因子を含めます。**同一路結合は強誤差を測るため**、**経路間の独立は Monte Carlo 平均の分散を下げるため**に必要です。この二つは別の条件です。[U3-26 の価格付け Monte Carlo](../U3-26/index.md#def-u3-26-mc-estimator)を参照してください。
 
 誤差の二つの要因をはっきり分けるため、$b_h=E[Z_h]-V$ を離散化バイアス、$v_h=\operatorname{Var}(Z_h)<\infty$ を一経路の分散とします。
 
@@ -367,7 +387,9 @@ $$
 \widehat V_{m,n}=\frac1n\sum_{i=1}^n Z_h^{(i)}
 $$
 >
-> と定める。真の値 $V$ と近似平均のずれ $b_h=E[Z_h]-V$ を**離散化バイアス**、一経路の分散 $v_h=\operatorname{Var}(Z_h)$ から生じる $v_h/n$ を**標本分散項**と呼び、これらを別々に抑える目標を**誤差予算**と呼ぶ。二乗バイアス $b_h^2$ と標本分散項の和が実際の平均二乗誤差に等しいことは、後の命題で示す。
+> と定める。真の値 $V$ と近似平均の差 $b_h=E[Z_h]-V$ を**離散化バイアス**と呼ぶ。一経路の分散を $v_h=\operatorname{Var}(Z_h)$ とすると、$v_h/n$ が**標本分散項**である。
+>
+> 二乗バイアス $b_h^2$ と標本分散項を別々に抑える目標を**誤差予算**と呼ぶ。この二項の和が実際の平均二乗誤差に等しいことは、後の命題で示す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-29-error-budget -->
@@ -571,7 +593,28 @@ $\log(1+h)=h-h^2/2+O(h^3)$ なので $(1+h)^{1/h}=e\{1-h/2+O(h^2)\}$、したが
 各独立経路の費用が $O(m)$、$|b_h|\le C h^p$、$\operatorname{Var}(Z_h)\le V_{\max}$ であるとする。RMSE 目標 $\varepsilon$ に対して、二乗バイアスと分散を半分ずつにする $m,n$ の下限と費用指数を導け。$p=1$ と $p=1/2$ を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**：[二項分解](#prop-u3-29-mc-decomposition)で $E[(\widehat V-V)^2]\le C^2(T/m)^{2p}+V_{\max}/n$ です。各項を $\varepsilon^2/2$ 以下にするなら $C(T/m)^p\le\varepsilon/\sqrt2$ より $m\ge T(\sqrt2 C/\varepsilon)^{1/p}$、$V_{\max}/n\le\varepsilon^2/2$ より $n\ge2V_{\max}/\varepsilon^2$ です。整数へ切り上げて $m=O(\varepsilon^{-1/p}),n=O(\varepsilon^{-2})$ とすると費用 $O(nm)=O(\varepsilon^{-2-1/p})$。$p=1$ は $O(\varepsilon^{-3})$、$p=1/2$ は $O(\varepsilon^{-4})$ です。ただし既知の誤差**上限**を利用した設計であり、未知定数を実測推定しただけなら厳密保証ではありません。
+**詳細解答**：[二項分解](#prop-u3-29-mc-decomposition)へバイアスと分散の上限を代入すると
+
+$$
+E[(\widehat V-V)^2]\le C^2(T/m)^{2p}+\frac{V_{\max}}n.
+$$
+
+各項を $\varepsilon^2/2$ 以下にする条件を解きます。
+
+$$
+\begin{aligned}
+C(T/m)^p\le\frac{\varepsilon}{\sqrt2}
+&\quad\Longleftrightarrow\quad
+m\ge T\left(\frac{\sqrt2 C}{\varepsilon}\right)^{1/p},\\
+\frac{V_{\max}}{n}\le\frac{\varepsilon^2}{2}
+&\quad\Longleftrightarrow\quad
+n\ge\frac{2V_{\max}}{\varepsilon^2}.
+\end{aligned}
+$$
+
+整数へ切り上げると、$m=O(\varepsilon^{-1/p})$、$n=O(\varepsilon^{-2})$ となります。一経路の費用が $O(m)$ なので、全費用は $O(nm)=O(\varepsilon^{-2-1/p})$ です。
+
+$p=1$ なら $O(\varepsilon^{-3})$、$p=1/2$ なら $O(\varepsilon^{-4})$ です。ただし既知の誤差**上限**に基づく設計であり、未知定数を実測推定しただけなら厳密保証ではありません。
 <!-- solution-end -->
 
 <a id="ex-u3-29-b4"></a>
@@ -633,7 +676,7 @@ $$
 
 図と表は有限刻みでの近似傾きであり、正確な極限次数の証明は (1) の一刻みモーメントと第2節の展開にあります。
 
-**(4)** $\widehat V$ の対象は $Z_h^{(i)}=\varphi(Y_m^{(i)})$、目標は $V=E\varphi(S_T)$ です。独立同分布標本について $E\widehat V=E Z_h$、$\operatorname{Var}(\widehat V)=\operatorname{Var}(Z_h)/n$。$b_h=E Z_h-V$ と書き、$E[(\widehat V-V)^2]$ の二乗の括弧内で $\widehat V-E Z_h+b_h$ を展開すると交差項が0なので
+**(4)** $\widehat V$ の対象は $Z_h^{(i)}=\varphi(Y_m^{(i)})$、目標は $V=E\varphi(S_T)$ です。独立同分布標本について $E\widehat V=E Z_h$、$\operatorname{Var}(\widehat V)=\operatorname{Var}(Z_h)/n$。$b_h=E Z_h-V$ と書き、$E[(\widehat V-V)^2]$ の括弧内を $\widehat V-E Z_h+b_h$ に置き換えて二乗を展開すると、平均0の項との交差項が消えるので
 
 $$
 E[(\widehat V-V)^2]=b_h^2+\operatorname{Var}(Z_h)/n.
