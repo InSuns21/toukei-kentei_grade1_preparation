@@ -1,0 +1,47 @@
+chapter: U3-41
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-04, U3-15, U3-26, U3-40]
+concepts:
+  - id: finance.poisson-jump-counts
+    name: Poisson ジャンプ回数過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson ジャンプ回数過程）"]
+    requires: []
+  - id: finance.independent-marked-jump-diffusion
+    name: 独立印付き Poisson ジャンプ拡散モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立印付き Poisson ジャンプ拡散モデル）"]
+    requires: [finance.poisson-jump-counts, stochastic.brownian-sde]
+  - id: finance.jump-compensated-gain
+    name: Poisson 補償と割引総収益
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poisson 補償と割引総収益）"]
+    requires: [finance.independent-marked-jump-diffusion, finance.continuous-dividend-bsm-formula]
+  - id: finance.jump-diffusion-pide
+    name: ジャンプ拡散の価格 PIDE
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ジャンプ拡散の価格 PIDE）"]
+    requires: [finance.independent-marked-jump-diffusion, stochastic.ito-process-formula, finance.risk-neutral-terminal-value]
+  - id: finance.jump-diffusion-incompleteness
+    name: Brown リスクとジャンプリスクが共存する市場の非完備性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Brown リスクとジャンプリスクが共存する市場の非完備性）"]
+    requires: [finance.jump-compensated-gain, finance.market-completeness]
+  - id: finance.jump-diffusion-emm-nonuniqueness
+    name: 非一意な同値マルチンゲール測度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非一意な同値マルチンゲール測度）"]
+    requires: [finance.jump-compensated-gain, finance.jump-diffusion-incompleteness, stochastic.girsanov-theorem]
+  - id: finance.merton-poisson-mixture
+    name: 対数正規ジャンプ倍率による call の Poisson 混合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数正規ジャンプ倍率による call の Poisson 混合）"]
+    requires: [finance.independent-marked-jump-diffusion, finance.continuous-dividend-bsm-formula]

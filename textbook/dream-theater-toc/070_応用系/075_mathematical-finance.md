@@ -42,3 +42,4 @@
 38. [U3-38 Fourier／特性関数による価格付け](textbook/volumes/dream_thater/応用系/U/U3-38/index.md)
 39. [U3-39 インプライド・ボラティリティと校正](textbook/volumes/dream_thater/応用系/U/U3-39/index.md)
 40. [U3-40 局所ボラティリティ・確率ボラティリティ](textbook/volumes/dream_thater/応用系/U/U3-40/index.md)
+41. [U3-41 ジャンプ拡散と非完備市場](textbook/volumes/dream_thater/応用系/U/U3-41/index.md)
