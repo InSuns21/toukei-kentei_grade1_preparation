@@ -25,7 +25,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（忘却射と残る評価写像の可換性）"]
-    requires: [gromov-witten.evaluation-map, gromov-witten.stable-map-forgetful-stabilization]
+    requires: [gromov-witten.evaluation-map, gromov-witten.stable-map-moduli-forgetful-morphism]
   - id: gromov-witten.evaluation-insertion
     name: 評価挿入と交叉類
     kind: definition
