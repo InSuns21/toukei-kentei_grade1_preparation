@@ -101,7 +101,7 @@ $$
 
 $\mathbb P^1$ 上で $H^1$ が消える写像が一つあることと、全ての球面写像で消えることは異なる。後者を標的自身の条件にする。
 
-以下の例で使う**写像の次数**も先に定める。正則写像 $u:\mathbb P^1\to\mathbb P^n$ の次数 $d$ は、引き戻し線束が $u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d)$ となる整数である。正則写像について $d\ge0$ であり、線束のテンソル冪を引き戻すと
+以下の例で使う**写像の次数**も先に定める。正則写像 $u:\mathbb P^1\to\mathbb P^n$ の次数 $d$ は、引き戻し線束が $u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d)$ となる整数である。斉次座標による $\mathcal O(1)$ の大域切断は共通零点を持たない。その引き戻しにも非零の大域切断があるので、[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $d<0$ のとき $H^0(\mathcal O(d))=0$ となることと照合すると、正則写像では $d\ge0$ と分かる。線束のテンソル冪を引き戻すと
 
 $$
 u^*\mathcal O_{\mathbb P^n}(k)\simeq\mathcal O_{\mathbb P^1}(kd)
