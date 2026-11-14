@@ -1,0 +1,42 @@
+chapter: U4-04
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-03]
+forward_references: []
+concepts:
+  - id: finance.fx-directed-conversion-rate
+    name: 実行可能な有向換算率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（実行可能な有向換算率）"]
+    requires: [finance.bid-ask-executable-gain]
+  - id: finance.fx-cycle-conversion-product
+    name: 閉路換算積と閉路裁定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閉路換算積と閉路裁定）"]
+    requires: [finance.fx-directed-conversion-rate]
+  - id: finance.fx-log-cycle-equivalence
+    name: 換算積と対数閉路の同値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（換算積と対数閉路の同値）"]
+    requires: [finance.fx-cycle-conversion-product]
+  - id: finance.fx-value-certificate
+    name: 通貨評価係数による整合証明書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（通貨評価係数による整合証明書）"]
+    requires: [finance.fx-directed-conversion-rate]
+  - id: finance.fx-cycle-certificate-duality
+    name: 収益的な閉路と整合証明書の二者択一
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（収益的な閉路と整合証明書の二者択一）"]
+    requires: [finance.fx-log-cycle-equivalence, finance.fx-value-certificate]
+  - id: finance.fx-cycle-capacity-bound
+    name: 閉路の各脚の容量上限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉路の各脚の容量上限）"]
+    requires: [finance.fx-cycle-conversion-product]
