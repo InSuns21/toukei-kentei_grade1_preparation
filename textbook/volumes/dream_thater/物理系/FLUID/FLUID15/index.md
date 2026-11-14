@@ -42,7 +42,7 @@ $$
 直接例として、球が静止していれば $V=0$ だから $\partial_r\phi(a,\theta)=0$ が必要である。球が $V e_z$ で動く場合、北極 $\theta=0$ では $\partial_r\phi=V$、赤道 $\theta=\pi/2$ では $\partial_r\phi=0$、南極 $\theta=\pi$ では $\partial_r\phi=-V$ となる。赤道で半径方向の速度が零でも、接線方向に流れがあってよいことに注意する。
 
 <!-- definition-example-start: def-fluid15-no-penetration -->
-**定義の確認（一様に運ばれる流体）**：球速度を $V=ve_z$（$v$ は一定）、流速を $u(x)=ve_z$ とする。球面の任意の点で
+**定義の確認**（一様に運ばれる流体）：球速度を $V=ve_z$（$v$ は一定）、流速を $u(x)=ve_z$ とする。球面の任意の点で
 
 $$
 (u-V)\cdot n=(ve_z-ve_z)\cdot n=0
@@ -382,7 +382,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-fluid15-added-mass -->
-**定義の確認（付加質量の数値・符号・単位）**：例えば水の密度を $\rho=1000\ \mathrm{kg/m^3}$、半径を $a=0.10\ \mathrm m$ とすると、排除した水の質量は $(4\pi/3)\rho a^3\approx4.189$ kg。したがって
+**定義の確認**（付加質量の数値・符号・単位）：例えば水の密度を $\rho=1000\ \mathrm{kg/m^3}$、半径を $a=0.10\ \mathrm m$ とすると、排除した水の質量は $(4\pi/3)\rho a^3\approx4.189$ kg。したがって
 
 $$
 m_{\mathrm a}=\frac{2\pi}{3}(1000)(0.10)^3\approx2.094\ \mathrm{kg}>0.
@@ -521,7 +521,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-fluid15-added-mass-matrix -->
-**定義の確認（球の行列を直接計算）**：半径 $a$ の球に対し $\psi_j=-a^3y_j/(2r^3)$ と置く。[調和性](#prop-fluid15-harmonic-modes)により外部領域で $\Delta\psi_j=0$、[並進球のポテンシャル](#thm-fluid15-moving-sphere)に $V=e_j$ を代入すると球面で $\partial_n\psi_j=n_j$、無限遠では $\psi_j=O(r^{-2})\to0$、$\nabla\psi_j=O(r^{-3})$ で平方可積分である。球面で $\psi_j=-an_j/2$ だから
+**定義の確認**（球の行列を直接計算）：半径 $a$ の球に対し $\psi_j=-a^3y_j/(2r^3)$ と置く。[調和性](#prop-fluid15-harmonic-modes)により外部領域で $\Delta\psi_j=0$、[並進球のポテンシャル](#thm-fluid15-moving-sphere)に $V=e_j$ を代入すると球面で $\partial_n\psi_j=n_j$、無限遠では $\psi_j=O(r^{-2})\to0$、$\nabla\psi_j=O(r^{-3})$ で平方可積分である。球面で $\psi_j=-an_j/2$ だから
 
 $$
 M_{ij}=-\rho\int_{r=a}\psi_j n_i\,dS
