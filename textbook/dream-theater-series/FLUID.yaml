@@ -17,7 +17,7 @@ chapters:
   - { id: FLUID10, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID10, status: completed, title: "渦は移流・伸長・拡散でどう変わるか" }
   - { id: FLUID11, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID11, status: completed, title: "流れ関数と速度ポテンシャルはいつ存在するか" }
   - { id: FLUID12, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID12, status: completed, title: "単純なポテンシャル流を重ね合わせられるか" }
-  - { id: FLUID13, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID13, status: planned, title: "複素ポテンシャルと等角写像は何に効くか" }
+  - { id: FLUID13, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID13, status: completed, title: "複素ポテンシャルと等角写像は何に効くか" }
   - { id: FLUID14, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID14, status: planned, title: "理想流で揚力と抗力はどう異なるか" }
   - { id: FLUID15, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID15, status: planned, title: "三次元ポテンシャル流と付加質量は何を予測するか" }
   - { id: FLUID16, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID16, status: planned, title: "管路・円筒間の定常層流をどう解くか" }

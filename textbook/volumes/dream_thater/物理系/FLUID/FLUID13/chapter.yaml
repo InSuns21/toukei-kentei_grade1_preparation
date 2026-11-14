@@ -1,0 +1,45 @@
+id: "FLUID13"
+title: "複素ポテンシャルと等角写像は何に効くか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID12
+  - FLUID11
+  - CA1
+official_scope: []
+learning_objectives:
+  - "複素ポテンシャルの定義からF'=u_x-iu_yをCauchy–Riemann関係で導ける"
+  - "Joukowski写像の臨界点・分岐値と局所速度変換F'/J'の適用範囲を導ける"
+  - "a>cの円柱外部と楕円外部の単射性、境界形状、非貫通条件を証明できる"
+  - "写像された楕円上の速度を計算し、Bernoulli圧力で写像前後の速度を混同しない"
+  - "偏心円の尖点生成、写像微分の零点と有限速度条件を主要中間式から検算できる"
+  - "尖点の有限速度とKutta条件・実在の翼の揚力を区別できる"
+definitions:
+  - { id: FLUID13-DEF-01, name: "複素ポテンシャルと複素速度" }
+  - { id: FLUID13-DEF-02, name: "Joukowski写像と臨界点" }
+theorems:
+  - { id: FLUID13-PROP-01, name: "複素ポテンシャルの微分と実速度" }
+  - { id: FLUID13-PROP-02, name: "Joukowski写像の局所可逆性と複素速度変換" }
+  - { id: FLUID13-THM-01, name: "円柱外部から楕円外部へのJoukowski写像" }
+  - { id: FLUID13-PROP-03, name: "翼型状境界の尖点と有限速度条件" }
+canonical_examples:
+  - "一様流F=Uzの定義確認と速度の複素共役符号"
+  - "円柱のF=U(z+a^2/z)と表面流線"
+  - "J_c(2c)とJ_c'(2c)の非退化確認"
+  - "a=2cでの楕円軸、上端速度と圧力係数"
+  - "偏心円の尖点と複素速度の0/0の極限"
+  - "迎角の変更で尖点速度が発散する非例"
+problem_patterns:
+  - FLUID13-COMPLEX-SIGN
+  - FLUID13-CYLINDER-COMPLEX-VELOCITY
+  - FLUID13-CRITICAL-POINT
+  - FLUID13-ELLIPSE-AXES
+  - FLUID13-JOUKOWSKI-UNIVALENCE
+  - FLUID13-ELLIPSE-PRESSURE
+  - FLUID13-CUSP-FINITE-SPEED
+  - FLUID13-PERIODS
+  - FLUID13-CUSP-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
