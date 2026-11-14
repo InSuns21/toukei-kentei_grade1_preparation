@@ -5,10 +5,10 @@ prerequisites:
   - GW1-07
 concepts:
   - id: gromov-witten.stable-map
-    name: 種数0の標点付き安定J-正則写像
+    name: 種数0の標点付き安定写像
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（種数0の標点付き安定 $J$-正則写像）"]
+    introduction_aliases: ["定義（種数0の標点付き安定写像）"]
     requires: [gromov-witten.stable-sphere-tree, gromov-witten.stable-marked-curve]
   - id: gromov-witten.stable-map-isomorphism
     name: 安定写像の同型と自己同型
