@@ -46,7 +46,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-13-primary-invariant -->
-**定義の確認**。$X=\mathbb P^1$、$\beta=0$、$k=3$ とし、$h\in H^2(\mathbb P^1;\mathbb Q)$ を一点の Poincaré 双対、$\int_{\mathbb P^1}h=1$ とする。[次数0の積表示](../GW1-10/index.md#prop-gw1-10-zero-degree)より
+**定義の確認**。[射影空間の凸性定理](../GW1-09/index.md#thm-gw1-09-projective-convex)により $X=\mathbb P^1$ は凸である。有効曲線類 $\beta=0$ と三標点 $k=3$ は定義の安定範囲に入る。$h\in H^2(\mathbb P^1;\mathbb Q)$ を一点の Poincaré 双対、$\int_{\mathbb P^1}h=1$ とする。[次数0の積表示](../GW1-10/index.md#prop-gw1-10-zero-degree)より
 
 $$
 M_{3,0}\simeq X\times\overline{\mathcal M}_{0,3}
@@ -73,7 +73,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（GW不変量の次数必要条件）**  
-> 上の定義の安定な組 $(X,\beta,k)$ を固定し、各 $\alpha_i$ が実次数 $d_i$ の斉次コホモロジー類なら、次の等式が満たされない限り、種数0・一次GW不変量は零である。
+> $X$ を複素次元 $m$ の滑らかな凸複素射影多様体、$\beta$ を有効曲線類、$k\ge0$ を標点数とし、$\beta\ne0$ または $\beta=0,\ k\ge3$ と仮定する。各 $\alpha_i\in H^{d_i}(X;\mathbb Q)$ が実次数 $d_i$ の斉次コホモロジー類なら、次の等式が満たされない限り、種数0・一次GW不変量は零である。
 
 $$
 \sum_{i=1}^k d_i
@@ -173,7 +173,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（横断的な孤立交叉とGW不変量の一致）**  
-> $X$ を滑らかな凸複素射影多様体とし、$(\beta,k)$ は上記の安定範囲に属するとする。$\alpha_i=\operatorname{PD}[Z_i]$ を滑らかな複素閉部分多様体 $Z_i\subset X$ の類とする。積評価写像 $\operatorname{ev}:M_{k,\beta}\to X^k$ が $Z_1\times\cdots\times Z_k$ に横断的で、$\sum_i\operatorname{codim}_{\mathbb C}Z_i=D(k,\beta)$ と仮定する。このとき交叉スタック $Z$ は有限個の孤立点からなり、
+> $X$ を複素次元 $m$ の滑らかな凸複素射影多様体、$\beta\in H_2(X;\mathbb Z)$ を有効曲線類、$k\ge0$ を標点数とする。$\beta\ne0$ または $\beta=0,\ k\ge3$ と仮定する。$\alpha_i=\operatorname{PD}[Z_i]$ を滑らかな複素閉部分多様体 $Z_i\subset X$ の類とする。積評価写像 $\operatorname{ev}:M_{k,\beta}\to X^k$ が $Z_1\times\cdots\times Z_k$ に横断的で、$\sum_i\operatorname{codim}_{\mathbb C}Z_i=m-3+\langle c_1(TX),\beta\rangle+k=D(k,\beta)$ と仮定する。このとき交叉スタック $Z$ は有限個の孤立点からなり、
 
 $$
 \left\langle\alpha_1,\ldots,\alpha_k\right\rangle_{0,\beta}^{X}
@@ -190,17 +190,44 @@ $$
 <!-- proof-start -->
 ### 証明
 
-点 $u\in Z$ のエタール局所表示を $[U/G]$ とし、$G$ を有限個の自己同型からなる群とする。[凸標的での滑らかさ](../GW1-10/index.md#thm-gw1-10-smooth-dimension)により $U$ の複素次元は $D$ である。積評価の横断性とは、$u$ の代表点において
+点 $u\in Z$ のエタール局所表示を $[U/G]$ とし、$G$ を有限群、$\widetilde u\in U$ を $u$ の代表点とする。[凸標的での滑らかさ](../GW1-10/index.md#thm-gw1-10-smooth-dimension)により $T_{\widetilde u}U$ の複素次元は $D$ である。各条件 $Z_i$ の法空間を
 
-$$
-d\operatorname{ev}(T_uU)+
-T_{\operatorname{ev}(u)}(Z_1\times\cdots\times Z_k)
-=T_{\operatorname{ev}(u)}X^k
-$$
+$
+N_i:=T_{\operatorname{ev}_i(\widetilde u)}X/
+T_{\operatorname{ev}_i(\widetilde u)}Z_i
+$
 
-となることである。複素線形の法方向の階数は $\sum_i r_i=D$ なので、逆像は局所的に複素次元 $D-D=0$ の滑らかな交叉となる。零次元で固有な DM スタックは有限個の幾何学的点を持つ。
+と置く。$N_i$ の複素次元は $r_i$ である。積評価の微分のあとに法空間への商写像 $q$ を施すと、
 
-横断的な複素交叉では法線方向の複素行列の実行列式は、複素行列式の絶対値二乗であり正である。従って局所交叉重複度は1で、負符号を生じない。
+$
+A:=q\circ d\operatorname{ev}_{\widetilde u}:
+T_{\widetilde u}U\longrightarrow\bigoplus_{i=1}^kN_i
+$
+
+を得る。横断性の接空間条件
+
+$
+d\operatorname{ev}_{\widetilde u}(T_{\widetilde u}U)
++T_{\operatorname{ev}(\widetilde u)}(Z_1\times\cdots\times Z_k)
+=T_{\operatorname{ev}(\widetilde u)}X^k
+$
+
+は、商を取るとちょうど $A$ の全射性に等しい。仮定 $\sum_i r_i=D$ より両側は同じ複素次元なので $A$ は同型である。従って複素陰関数定理により逆像は局所的に次元 $D-\sum_i r_i=0$ の滑らかな交叉となる。固有な零次元 DM スタックには有限個の幾何学的点しかない。
+
+ここで行列式は、任意に選んだ両側の**複素基底**で $A$ を表した正方行列の行列式である。$A=(a_{ij})$ とすると、同じ写像を実基底で表した行列は
+
+$
+A_{\mathbb R}=
+\begin{pmatrix}
+\operatorname{Re}A&-\operatorname{Im}A\\
+\operatorname{Im}A&\operatorname{Re}A
+\end{pmatrix},
+\qquad
+\det_{\mathbb R}A_{\mathbb R}
+=|\det_{\mathbb C}A|^2>0.
+$
+
+したがって複素向きに対する局所交叉符号は $+1$、横断的な一点の交叉重複度は1である。
 
 局所チャート $[U/G]$ 上のスタック基本類で一点を積分すると、有限の対称性に対応する分母 $|G|$ が現れる。これを各同型類に足せば
 
@@ -215,7 +242,7 @@ $$
 
 **数え上げの対象**。この定理はまず「標点を持つ安定**写像**の同型類」を数える。標点を消した像の曲線の本数と一致するには、各像がただ一つの指定された安定写像を生み、多重被覆や余分な定数成分・重複するパラメータ化がないことも別途確認する必要がある。
 
-**点が重なった反例**。$\mathbb P^2$ の二標点・次数1で $Z_1=Z_2=\{p\}$ とすると、一つの非定数成分上の二標点は互いに異なるため同じ像を持てないが、両標点を持つ定数泡と、それにつながる次数1成分を使えば条件を満たせる。この境界では $p$ を通る直線の選択が一次元残る。$D(2,1)=4$、二点類の複素余次元和も4だが、交叉は零次元で横断的ではない。積分を「境界上の無限個の直線の数」として読んではならない。[境界の局所平滑化](../GW1-12/index.md#prop-gw1-12-gluing-local)の存在は、固定した二条件の横断性を自動的には保証しない。
+**点が重なった反例**。$\mathbb P^2$ の二標点・次数1で $Z_1=Z_2=\{p\}$ とすると、次数1の非定数成分上では写像が直線への埋め込みなので、相異なる二標点は同じ像を持てない。しかし、両標点を持つ定数泡と、それにつながる次数1成分を使えば条件を満たせる。この境界では $p$ を通る直線の選択が一次元残る。$D(2,1)=4$、二点類の複素余次元和も4だが、交叉は零次元で横断的ではない。積分を「境界上の無限個の直線の数」として読んではならない。[境界の局所平滑化](../GW1-12/index.md#prop-gw1-12-gluing-local)の存在は、固定した二条件の横断性を自動的には保証しない。
 
 ## 6. 曲線の変形で値が変わらないためには
 
@@ -227,7 +254,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（凸な射影族での種数0・一次GW不変量の変形不変性）**  
-> 上記の滑らかで固有な射影族 $\pi:\mathcal X\to B$ において各ファイバー $X_b$ は凸とする。$\beta_b$ は平行に運べる有効な曲線類、$\alpha_{i,b}$ は平行に運べる有理コホモロジー類とし、$k$ と各実次数 $d_i$ を固定する。各 $b$ で $(\beta_b,k)$ が安定な範囲に属するなら
+> $B$ を連結な滑らかな複素多様体、$\pi:\mathcal X\to B$ を滑らかで固有な射影族とし、各ファイバー $X_b$ は滑らかな凸射影多様体とする。$\beta_b\in H_2(X_b;\mathbb Z)$ は $R_2\pi_*\mathbb Z$ の平行切断として運べる有効曲線類、$\alpha_{i,b}\in H^{d_i}(X_b;\mathbb Q)$ は $R^{d_i}\pi_*\mathbb Q$ の平行切断とし、$k\ge0$ と各実次数 $d_i$ を固定する。各 $b$ で $\beta_b\ne0$ または $\beta_b=0,\ k\ge3$ と仮定する。このとき
 
 $$
 b\longmapsto
@@ -261,7 +288,23 @@ $$
 \operatorname{ev}_i:\mathcal M_V\longrightarrow\mathcal X|_V
 $$
 
-は各ファイバー上で通常の評価写像へ制限される。$\alpha_{i,b}$ は平行であるから、小さくした可縮な $V$ でこれらを表すコホモロジー類を $\mathcal X|_V$ 上へ取れる。引き戻しとカップ積で得られる相対挿入類 $\Theta$ の、滑らかな固有ファイバー基本類への評価は局所自明化の下で一定である。すなわち
+は各ファイバー上で通常の評価写像へ制限される。次数 $\sum_i d_i$ が $2D$ でなければ全ファイバーの積分は定義により零なので、以下は $\sum_i d_i=2D$ とする。$\alpha_{i,b}$ が平行であることと、滑らかで固有な族の局所的なコホモロジーの自明化により、可縮な $V$ 上では各 $\alpha_{i,b}$ を一つの類 $\widetilde\alpha_i\in H^{d_i}(\mathcal X|_V;\mathbb Q)$ の各ファイバーへの制限として実現できる。そこで
+
+$
+\Theta:=\operatorname{ev}_1^*\widetilde\alpha_1
+\smile\cdots\smile\operatorname{ev}_k^*\widetilde\alpha_k
+\in H^{2D}(\mathcal M_V;\mathbb Q)
+$
+
+と置く。$p:\mathcal M_V\to V$ は滑らかで固有であり、各ファイバーは複素次元 $D$ の有向 DM スタックである。したがって有理基本類による**ファイバー積分** $p_!$ を定められ、その値は
+
+$
+p_!(\Theta)\in H^0(V;\mathbb Q),\qquad
+(p_!\Theta)(b)=
+\int_{[M_{k,\beta_b}]}\Theta|_{M_{k,\beta_b}}
+$
+
+となる。$H^0(V;\mathbb Q)$ の類は連結な $V$ 上で一定なので、特に
 
 $$
 \int_{[M_{k,\beta_b}]}\Theta|_{M_{k,\beta_b}}
