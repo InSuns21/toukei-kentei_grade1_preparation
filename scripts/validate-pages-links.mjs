@@ -439,8 +439,11 @@ for (const chapterPath of dreamManifest.sections.flatMap((section) => section.pa
   }
 }
 
+// Markdown support notes inside an assets/ directory are auxiliary resources,
+// not stand-alone chapter pages. Their links were validated above, but they
+// should not be required in the reader-facing chapter navigation.
 const expectedTextbookPages = textbookVolumeFiles
-  .filter((relative) => !relative.endsWith('/index.md'))
+  .filter((relative) => !relative.endsWith('/index.md') && !relative.split('/').includes('assets'))
   .map((relative) => `textbook/volumes/${relative}`);
 for (const expected of expectedTextbookPages) {
   if (!textbookNavigationTargets.has(expected)) {
