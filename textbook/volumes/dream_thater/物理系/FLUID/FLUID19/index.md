@@ -15,7 +15,13 @@ D(u)=\frac{\nabla u+(\nabla u)^{\mathsf T}}2,\qquad
 \sigma=-pI+2\eta D(u)
 $$
 
-とする。ここで $x=(x_1,x_2,x_3)$、$\partial_j=\partial/\partial x_j$ は他の空間座標を固定した偏微分、$(\nabla u)_{ij}=\partial_j u_i$、$D$ は $3\times3$ の対称行列である。以下で行列の二重縮約 $M:N=\sum_{i,j=1}^3M_{ij}N_{ij}$ を用いる。[定常 Stokes 方程式](../FLUID18/index.md#def-fluid18-stokes-sphere)の体積力零の場合を拡げ、単位体積当たりの既知の力 $f$（単位 $\mathrm{N/m^3}$）を認める：
+とする。ここで $x=(x_1,x_2,x_3)$、$\partial_j=\partial/\partial x_j$ は他の空間座標を固定した偏微分、$(\nabla u)_{ij}=\partial_j u_i$、$D$ は $3\times3$ の対称行列である。二つの行列 $M,N$ の二重縮約を
+
+$$
+M:N=\sum_{i,j=1}^3M_{ij}N_{ij}
+$$
+
+と書く。[定常 Stokes 方程式](../FLUID18/index.md#def-fluid18-stokes-sphere)の体積力零の場合を拡げ、単位体積当たりの既知の力 $f$（単位 $\mathrm{N/m^3}$）を認める：
 
 $$
 \nabla\cdot\sigma+f=0,\qquad \nabla\cdot u=0,\qquad
@@ -268,7 +274,23 @@ $$
 
 内面の流体法線は $n=-n_i$ である。よって流体側の境界仕事は $\int_{S_i}u\cdot\sigma n=-V_i\cdot F_i^{\rm fluid}-\Omega_i\cdot T_i^{\rm fluid}$ となる。外力で剛体速度を維持するにはこれらと逆の力が必要である。
 
-**なぜ行列で表せるのか。** 配置を固定し、並進3成分と回転3成分を物体ごとに並べた $6N$ 個の速度成分を取る。第 $j$ 成分だけを単位量動かす境界速度に対応する Stokes 解を $(u^{[j]},p^{[j]})$、必要な外力・トルクの各成分を $\mathcal G^{[j]}$ と書く。方程式と境界速度は線形なので、速度成分が $\mathcal V_j$ の一般の駆動は、圧力の加法定数を除き $u=\sum_j\mathcal V_j u^{[j]}$、$\mathcal G=\sum_j\mathcal V_j\mathcal G^{[j]}$ となる。したがって $R_{ij}=(\mathcal G^{[j]})_i$ と置けば $\mathcal G_i=\sum_jR_{ij}\mathcal V_j$ である。各成分の単位は、その並進・回転の成分に合わせて読む。
+**なぜ行列で表せるのか。** 配置を固定し、並進3成分と回転3成分を物体ごとに並べた $6N$ 個の速度成分を取る。第 $j$ 成分だけを単位量動かす境界速度に対応する Stokes 解を $(u^{[j]},p^{[j]})$、必要な外力・トルクの各成分を $\mathcal G^{[j]}$ と書く。
+
+方程式と境界速度は線形なので、一般化速度の第 $j$ 成分が $\mathcal V_j$ の駆動では、圧力の加法定数を除いて
+
+$$
+u=\sum_{j=1}^{6N}\mathcal V_j u^{[j]},\qquad
+\mathcal G=\sum_{j=1}^{6N}\mathcal V_j\mathcal G^{[j]}
+$$
+
+となる。したがって、第 $j$ 駆動に対応する一般化外力を第 $j$ 列として並べれば
+
+$$
+R_{ij}=(\mathcal G^{[j]})_i,\qquad
+\mathcal G_i=\sum_{j=1}^{6N}R_{ij}\mathcal V_j
+$$
+
+を得る。各成分の単位は、その並進・回転の成分に合わせて読む。
 
 <a id="def-fluid19-resistance-matrix"></a>
 
@@ -291,7 +313,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid19-resistance-matrix -->
-**定義の確認**：半径 $a$ の球を速度 $V$ で並進させ、遠方流体を静止させる。[FLUID18 の固定球の抵抗則](../FLUID18/index.md#thm-fluid18-stokes-drag)では、固定球に遠方速度 $-V$ を与えたときの流体力は $-6\pi\eta aV$ である。速度場に一様な $V$ を加える座標系の変更では速度勾配・応力が変わらないため、動く球に対しても $F^{\rm fluid}=-6\pi\eta aV$、必要な外力は $+6\pi\eta aV$ となる。球の等方性から $e_x,e_y,e_z$ の各単位並進で必要な外力は対応方向だけに $6\pi\eta a$ ずつ生じる。従ってこれら3列を並べた並進・並進ブロックは $R_{tt}=6\pi\eta aI_3$。$[6\pi\eta aV]=\mathrm N$ で、正の係数を持ち、速度が零なら外力も零となる。球の回転成分の値まで、この並進実験から決まると主張しない。
+**定義の確認**：半径 $a$ の球を速度 $V$ で並進させ、遠方流体を静止させる。[FLUID18 の固定球の抵抗則](../FLUID18/index.md#thm-fluid18-stokes-drag)では、固定球に遠方速度 $-V$ を与えたときの流体力は $-6\pi\eta aV$ である。速度場に一様な $V$ を加える座標系の変更では速度勾配・応力が変わらないため、動く球に対しても
+
+$$
+F^{\rm fluid}=-6\pi\eta aV,\qquad
+G=-F^{\rm fluid}=6\pi\eta aV
+$$
+
+となる。球の等方性から、$e_x,e_y,e_z$ の各単位並進で必要な外力は対応方向だけに $6\pi\eta a$ ずつ生じる。従ってこれら3列を並べた並進・並進ブロックは
+
+$$
+R_{tt}=6\pi\eta aI_3
+$$
+
+となる。$[6\pi\eta aV]=\mathrm N$ で、正の係数を持ち、速度が零なら外力も零となる。球の回転成分の値まで、この並進実験から決まると主張しない。
 <!-- definition-example-end -->
 
 <a id="thm-fluid19-resistance-symmetry"></a>
