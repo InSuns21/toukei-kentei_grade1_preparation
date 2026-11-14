@@ -87,7 +87,7 @@ $$
 
 ### 証明の見取り図
 
-$Z_k=|M_k|$ は非負劣マルチンゲールです。最大不等式の証明を少し精密化し、到達事象 $A_\lambda=\{\max Z_k\ge\lambda\}$ 上の終端値だけを使って $\lambda P(A_\lambda)\le E[Z_n1_{A_\lambda}]$ とします。この両辺を水準 $\lambda$ について積分し、Cauchy–Schwarz の不等式を使います。
+$Z_k=|M_k|$ は非負劣マルチンゲールです。最大不等式の証明を少し精密化し、到達事象 $A_\lambda=\{\max Z_k\ge\lambda\}$ 上の終端値だけを使って $\lambda P(A_\lambda)\le E[Z_n1_{A_\lambda}]$ とします。この両辺を水準 $\lambda$ について積分し、[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を使います。
 
 <!-- proof-start -->
 ### 証明
@@ -117,7 +117,7 @@ E[(Z^*)^2]
 \end{aligned}
 $$
 
-Cauchy–Schwarz の不等式から
+[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から
 
 $$
 E[(Z^*)^2]\le
@@ -224,7 +224,7 @@ $$
 
 ### 横断の有界期待値から収束までを再構成する
 
-任意の有理数 $a<b$ について、$U_n[a,b]$ は非減少なので $U_\infty[a,b]=\lim_nU_n[a,b]$ が存在します（$\infty$ も許す）。前節の不等式に $E[X_n^+]\le C$ を代入して、単調収束定理を使うと
+任意の有理数 $a<b$ について、$U_n[a,b]$ は非減少なので $U_\infty[a,b]=\lim_nU_n[a,b]$ が存在します（$\infty$ も許す）。前節の不等式に $E[X_n^+]\le C$ を代入して、[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を使うと
 
 $$
 E[U_\infty[a,b]]
@@ -344,7 +344,7 @@ E[M_mM_n]
 =E[M_n^2].
 $$
 
-積は Cauchy–Schwarz により可積分です。よって平方展開から
+積は [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により可積分です。よって平方展開から
 
 $$
 \begin{aligned}
@@ -356,9 +356,17 @@ $$
 
 左辺が非負なので $v_n=E[M_n^2]$ は単調非減少です。仮定から $v_n\uparrow v<\infty$ となるので、$m\ge n$ に対して $0\le E[(M_m-M_n)^2]\le v-v_n\to0$。従って $(M_n)$ は $L^2$ の Cauchy 列であり、$L^2$ の完備性よりある $Y\in L^2$ へ $L^2$ 収束します。
 
-一方 $E|M_n|\le\sqrt{E[M_n^2]}$ なので $\sup_nE[M_n^+]<\infty$。[劣マルチンゲールの概収束](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)から、ある $X\in L^1$ へ概収束します。$L^2$ 収束は確率収束を意味し、確率極限の一意性から $X=Y$ a.s. です。これを $M_\infty$ とします。
+一方 $E|M_n|\le\sqrt{E[M_n^2]}$ なので $\sup_nE[M_n^+]<\infty$。[劣マルチンゲールの概収束](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)から、ある $X\in L^1$ へ概収束します。概収束と $L^2$ 収束はいずれも確率収束を含みます。任意の $\varepsilon>0$ に対し、三角不等式と和集合の確率評価から
 
-また Cauchy–Schwarz から $E|M_n-M_\infty|\le\sqrt{E[(M_n-M_\infty)^2]}\to0$。二乗平均有界性から上で確かめた UI と [UI マルチンゲール収束定理](../../STO/STO2/index.md#thm-sto2-ui-martingale-convergence)を適用すれば、$M_n=E[M_\infty\mid\mathcal F_n]$ が得られます。
+$
+P(|X-Y|>2\varepsilon)
+\le P(|X-M_n|>\varepsilon)+P(|M_n-Y|>\varepsilon)
+\longrightarrow0.
+$
+
+したがって $P(|X-Y|>2\varepsilon)=0$ です。$\varepsilon=1/k$（$k\ge1$）として可算和を取れば $P(X\ne Y)=0$、すなわち $X=Y$ a.s. です。これを $M_\infty$ とします。
+
+また [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $E|M_n-M_\infty|\le\sqrt{E[(M_n-M_\infty)^2]}\to0$。二乗平均有界性から上で確かめた UI と [UI マルチンゲール収束定理](../../STO/STO2/index.md#thm-sto2-ui-martingale-convergence)を適用すれば、$M_n=E[M_\infty\mid\mathcal F_n]$ が得られます。
 <!-- proof-end -->
 
 ## 6. 演習 Level A：到達・横断・尾部を自分で数える
@@ -596,7 +604,7 @@ $$
 E[n\wedge\tau]=E[M_n^2].
 $$
 
-$n\to\infty$ で、左辺には $n\wedge\tau\uparrow\tau$ に対する単調収束定理、右辺には $0\le M_n^2\le d^2$ と $M_n\to S_\tau$ に対する有界収束定理を使います。よって
+$n\to\infty$ で、左辺には $n\wedge\tau\uparrow\tau$ に対する[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)、右辺には $0\le M_n^2\le d^2$ と $M_n\to S_\tau$ に対する有界収束定理を使います。よって
 
 $$
 E[\tau]=E[S_\tau^2]
@@ -621,7 +629,7 @@ $$
 ## 9. この講義のまとめ
 
 - [Doob 最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)は、最大値の事象を最初の到達時刻の事象へ置き換え、[有界任意抽出](../../STO/STO2/index.md#thm-sto2-bounded-optional-sampling)で終端値へつなぎます。
-- [最大値の二乗平均評価](#prop-sp9-l2-maximal)は、到達水準についての積分と Cauchy–Schwarz から得ます。
+- [最大値の二乗平均評価](#prop-sp9-l2-maximal)は、到達水準についての積分と [Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から得ます。
 - [上向き横断不等式](../../STO/STO2/index.md#thm-sto2-upcrossing)では、正部分の過程を売買する予測可能変換が横断回数を数えます。
 - [劣マルチンゲールの概収束](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)は「すべての有理区間の無限横断を排除 → 有限の極限」の順です。
 - 概収束だけでは期待値を極限へ渡せません。[UI](../../F0/F0-00P4A/index.md#def-f0-00p4a-ui)があれば $L^1$ 収束し、[二乗平均有界性](#prop-sp9-l2-convergence)があればさらに $L^2$ 収束します。
