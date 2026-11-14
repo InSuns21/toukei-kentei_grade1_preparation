@@ -1,0 +1,49 @@
+id: "U3-39"
+title: "インプライド・ボラティリティと校正"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-19, U3-20, U3-38]
+official_scope: []
+learning_objectives:
+  - 配当付き Black–Scholes call/put の変動率ゼロ・無限大極限を条件別に導ける
+  - Vega の正値性と中間値の定理から IV の存在・一意性の必要十分条件を証明できる
+  - 正の IV を bracket 付き二分法で求め誤差上界と Newton 法の失敗機構を説明できる
+  - bid/ask の価格区間と整合する変動率集合を求め端点を慎重に扱える
+  - Vega の逆数で価格残差と IV 残差の条件依存性を解析できる
+  - strike ごとの IV smile/skew と call 価格の単調性・凸性の必要条件を照合できる
+  - 複数 strike の定数変動率校正の重み付き残差目的関数を定義し導関数を導出できる
+  - 同じ入力条件への再代入価格と bid/ask 幅を比較し複数 quote の適合性を評価できる
+definitions:
+  - { id: U3-39-DEF-01, name: "欧州型オプションのインプライド・ボラティリティ" }
+  - { id: U3-39-DEF-02, name: "bid/ask と両立する変動率集合" }
+  - { id: U3-39-DEF-03, name: "IV の行使価格断面" }
+  - { id: U3-39-DEF-04, name: "価格残差による定数変動率校正" }
+theorems:
+  - { id: U3-39-PROP-01, name: "配当付き call/put の変動率境界" }
+  - { id: U3-39-THM-01, name: "IV の存在と一意性" }
+  - { id: U3-39-PROP-02, name: "IV の二分法と誤差保証" }
+  - { id: U3-39-PROP-03, name: "内点気配の IV 区間" }
+  - { id: U3-39-PROP-04, name: "IV の局所感度" }
+  - { id: U3-39-PROP-05, name: "同一満期 call の行使価格制約" }
+  - { id: U3-39-PROP-06, name: "価格残差目的関数の導関数" }
+canonical_examples:
+  - "s=K=100,r=.05,q=.02,tau=1,sigma=.20 の call=9.227005508154 円"
+  - "bid/mid/ask ±0.04 円から IV 0.1989445881, 0.20, 0.2010553423"
+  - "K=90,100,110 で IV=.23,.20,.22 の smile と strike 凸性の確認"
+  - "定数 sigma=.20 と最小二乗 sigma 約 .214810 の価格残差と気配不一致"
+  - "下限価格以下の ask で IV と整合する集合が空になる反例"
+problem_patterns:
+  - U3-39-A1
+  - U3-39-A2
+  - U3-39-A3
+  - U3-39-A4
+  - U3-39-A5
+  - U3-39-B1
+  - U3-39-B2
+  - U3-39-B3
+  - U3-39-B4
+  - U3-39-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
