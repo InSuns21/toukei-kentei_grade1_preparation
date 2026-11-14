@@ -73,7 +73,7 @@ $$
 =\frac{v+\gamma}{2}.
 $$
 
-対間は独立なので平均の分散は $(v+\gamma)/(2n)$ です。[MC3 の単調関数の負の共分散命題](../../../計算系/MC/MC3/index.md#prop-mc3-antithetic-monotone)へ、$h(u)=D(Ae^{b\Phi^{-1}(u)}-K)_+$（$0<u<1$）を代入します。$\Phi^{-1}$ も $x\mapsto(x-K)_+$ も単調非減少、$h(1-u)=X(-\Phi^{-1}(u))$ です。$U\sim\operatorname{Unif}(0,1)$ と $Z=\Phi^{-1}(U)$ は同分布の標準正規なので、同命題の仮定を満たし $\gamma\le0$ を得ます。[MC1 の独立平均の分散](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance)は $2n$ 標本で $v/(2n)$ です。最後に $\operatorname{Var}(H_i)\ge0$ から $\gamma\ge-v$、従って $0\le1+\gamma/v\le1$ が出ます。
+対間は独立なので平均の分散は $(v+\gamma)/(2n)$ です。[MC3 の単調関数の負の共分散命題](../../../計算系/MC/MC3/index.md#prop-mc3-antithetic-monotone)へ、$h(u)=D(Ae^{b\Phi^{-1}(u)}-K)_+$（$0<u<1$）を代入します。$\Phi^{-1}$ も $x\mapsto(x-K)_+$ も単調非減少、$h(1-u)=X(-\Phi^{-1}(u))$ です。$U\sim\operatorname{Unif}(0,1)$ と $Z=\Phi^{-1}(U)$ は同分布の標準正規なので、同命題の仮定を満たし $\gamma\le0$ を得ます。[MC1 の独立平均の分散](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)は $2n$ 標本で $v/(2n)$ です。最後に $\operatorname{Var}(H_i)\ge0$ から $\gamma\ge-v$、従って $0\le1+\gamma/v\le1$ が出ます。
 <!-- proof-end -->
 
 この符号保証は支払額が $Z$ に単調な場合です。例えば $X(Z)=Z^2$ は $X(Z)=X(-Z)$ なので $\gamma=v>0$。同じ2回の関数評価費用なら対称化は**独立 MC の2倍の分散**になってしまいます。株価経路が複数時点・複数 Brown 次元に依存し、各座標で支払関数が単調とは限らない商品では、機械的に「必ず減る」とは言えません。
@@ -693,7 +693,7 @@ E[(\widehat V_h-V)^2]
 +\{E[X_h]-V\}^2.
 $$
 
-分散減少で小さくできるのは第1項です。Euler 法に起因する弱バイアス $E[X_h]-V$ は独立に検算が必要です。したがって「分散が小さいから真値への RMSE も小さい」と、格子を異なる方式間で比較せずに結論してはいけません。
+推定量が $E[\widehat V_h]=E[X_h]$ を満たす場合の式です。分散減少で小さくできるのは第1項です。Euler 法に起因する弱バイアス $E[X_h]-V$ は独立に検算が必要です。したがって「分散が小さいから真値への RMSE も小さい」と、格子を異なる方式間で比較せずに結論してはいけません。
 <!-- solution-end -->
 
 ---
