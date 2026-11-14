@@ -84,7 +84,7 @@ chapters:
     title: "非凸標的と障害空間"
   - id: GW1-20
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-20
-    status: planned
+    status: completed
     title: "仮想基本類の設計図と限界"
   - id: GW1-21
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-21
