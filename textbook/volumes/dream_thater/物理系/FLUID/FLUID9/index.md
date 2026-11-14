@@ -6,11 +6,37 @@
 
 ## 0. 模型・記号と前提
 
-$\Omega\subset\mathbb R^3$ を開集合、$I=[t_0,t_1]$ を時間区間とする。流れは $u(x,t)$ [m/s]、密度 $\rho(x,t)>0$ [kg/m$^3$]、圧力 $p(x,t)$ [Pa] とし、時間微分と空間微分が以下の連鎖律と線積分の微分を許すよう、$u$ は空間 $C^2$ 級・時間 $C^1$ 級、$\rho,p$ は空間 $C^1$ 級かつ必要な時間連続性をもつとする。外力のポテンシャル $\Phi$ [m$^2$/s$^2$] は空間 $C^1$ 級とし、$\nabla\Phi$ が連続とする。曲線全体の流跡は $\Omega$ の中に留まる。
+$\mathcal D\subset\mathbb R^3$ を開集合、$I=[t_0,t_1]$ を時間区間とする。場の引数の $x\in\mathcal D$ は三次元の位置を表す。成分を $(x,y,z)$ と並べる場合の $x$ は第1座標である。
 
-[FLUID4 の流跡線](../FLUID4/index.md#def-fluid4-pathline)は、各初期点 $a$ に対して $\partial_tX(a,t)=u(X(a,t),t)$ を解く。同じ方程式を初期閉曲線の**全点**へ同時に適用するのが本講の出発点である。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を $D_t=\partial_t+u\cdot\nabla$ と書く。
+速度場を $u(x,t)$ [m/s]、密度場を $\rho(x,t)>0$ [kg/m$^3$]、圧力場を $p(x,t)$ [Pa] と書く。
 
-[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で応力を $-pI_3$、外力を $-\nabla\Phi$ と選んだ非粘性流体の Euler 方程式は
+以下の連鎖律と線積分の微分を許すよう、$u$ は空間 $C^2$ 級・時間 $C^1$ 級とする。$\rho,p$ は空間 $C^1$ 級かつ必要な時間連続性をもつとする。
+
+外力のポテンシャル $\Phi(x,t)$ [m$^2$/s$^2$] は各時刻に空間 $C^1$ 級で、$\nabla\Phi$ は連続とする。曲線全体の流跡は $\mathcal D$ の中に留まる。
+
+[FLUID4 の流跡線](../FLUID4/index.md#def-fluid4-pathline)は、初期時刻 $t_0$ の各点 $a$ から出発し、次の初期値問題を解く。
+
+$$
+\frac{dX}{dt}=u(X,t),\qquad X(t_0)=a.
+$$
+
+この解が時刻 $t$ に返す位置を $F_t(a)$ と書く。下付きの $t$ は**その時刻の写像**を表し、微分を表さない。同じ初期値問題を初期閉曲線の**全点**へ適用するのが本講の出発点である。
+
+[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を $D_t=\partial_t+u\cdot\nabla$ と書く。$\partial_tu$ は位置を固定して微分するが、$\partial_tX$ は粒子ラベルを固定して微分する。
+
+また、$\nabla$ は時刻を固定した空間微分であり、後の $d\Gamma/dt$ は**動く輪全体の循環**の時間微分を表す。
+
+[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で、[FLUID6 の非粘性模型](../FLUID6/index.md#def-fluid6-ideal-potential-force)と同じく法線 $n$ に働く面力を $-pn$ とする。この条件の応力表示は $\sigma=-pI_3$ であり、$I_3$ は三次元単位行列である。
+
+$\delta_{ij}$ を $i=j$ なら $1$、そうでなければ $0$ とする Kronecker 記号とする。応力の発散は成分ごとに
+
+$$
+(\nabla\cdot\sigma)_i
+=\sum_{j=1}^3\partial_j(-p\delta_{ij})
+=-\partial_i p
+$$
+
+となる。従って、体積力を $-\nabla\Phi$ とした Euler 方程式は
 
 $$
 D_tu=-\frac1\rho\nabla p-\nabla\Phi.
@@ -20,14 +46,14 @@ $$
 
 ## 1. 輪のどの部分を追うのか
 
-瞬間ごとの任意の曲線ではなく、**初期に輪を作っていた同じ流体粒子**を追い続けたい。初期曲線の向きは始点と終点を同一視するパラメータ $s$ の増加方向で固定し、時刻が変わっても反転させない。
+瞬間ごとの任意の曲線ではなく、**初期に輪を作っていた同じ流体粒子**を追い続けたい。初期曲線の向きは始点と終点を同一視するパラメータ $s$ の増加方向で固定し、時刻が変わっても反転させない。[CTM1 の運動写像](../../CTM/CTM1/index.md#def-ctm1-motion-configuration)と同様に、異なる粒子が重ならず滑らかに元の位置へ戻せる対応を、逆写像も $C^1$ 級である**微分同相**として扱う。
 
 <a id="def-fluid9-material-loop"></a>
 
 <!-- formal-statement-start -->
 ### 定義（物質閉曲線）
 
-$X_0:[0,1]\to\Omega$ を $X_0(0)=X_0(1)$ の区分的 $C^1$ 級の向き付き閉曲線とする。$u$ の流れ写像 $F_t$ が $X_0$ 上で存在し一意で、各時刻に $C^1$ 級の微分同相として定まるとする。各粒子を流れに従わせた曲線
+$X_0:[0,1]\to\mathcal D$ を $X_0(0)=X_0(1)$ の区分的 $C^1$ 級の向き付き閉曲線とする。$u$ の流れ写像 $F_t$ が $X_0([0,1])$ を含む開近傍上で存在し一意で、各時刻にその開近傍から像への $C^1$ 級微分同相であり、$F_{t_0}(a)=a$ とする。各粒子を流れに従わせた曲線
 
 $$
 X(s,t)=F_t(X_0(s)),\qquad
@@ -40,18 +66,26 @@ $$
 <!-- definition-example-start: def-fluid9-material-loop -->
 ### **定義の確認**：せん断流が円や長方形を傾ける
 
-二次元の定常場 $u(x,y)=(ay,0)$（$a$ の単位は s$^{-1}$）を考える。粒子 $X_0(s)=(x_0(s),y_0(s))$ から始めると
+二次元の定常場 $u(x,y)=(ay,0)$（$a$ の単位は s$^{-1}$）を考える。三次元模型ではこれを $u=(ay,0,0)$ として $z$ を固定すればよい。粒子 $X_0(s)=(x_0(s),y_0(s))$ から始めると
 
 $$
 X(s,t)=(x_0(s)+a(t-t_0)y_0(s),\ y_0(s)).
 $$
 
-確かに $\partial_tX=(ay_0,0)=u(X,t)$、かつ $X(0,t)=X(1,t)$ で閉じる。空間微分の行列式は $1$ なので輪はつぶれず、向きも保存される。初期の長方形は平行四辺形へ変形する。単に時刻 $t$ に選び直した長方形を積分することとは異なる。
+確かに $\partial_tX=(ay_0,0)=u(X,t)$、かつ初期曲線が閉じていれば $X(0,t)=X(1,t)$ で閉じる。次に**なぜ微分同相と向きを判定できるか**を確かめる。$\tau=t-t_0$ を固定すると、流れ写像とその空間微分（初期位置を変えたときの一次変化）は
+
+$$
+F_t(x_0,y_0)=(x_0+a\tau y_0,y_0),\qquad
+DF_t=\begin{pmatrix}1&a\tau\\0&1\end{pmatrix},\qquad
+\det DF_t=1>0.
+$$
+
+これは初期座標の標準基底による表示である。さらに $(x,y)$ から初期位置への逆対応を**実際に**解くと $F_t^{-1}(x,y)=(x-a\tau y,y)$ で、これも $C^1$ 級である。従って任意の点を一意に戻せる微分同相であり、行列式の正符号から向きも保存される（行列式の正値だけでは一般に大域的単射性まではいえない）。初期の長方形は平行四辺形へ変形する。単に時刻 $t$ に選び直した長方形を積分することとは異なる。
 <!-- definition-example-end -->
 
 <a id="def-fluid9-material-circulation"></a>
 
-速度の輪に沿った**接線成分**を足すと、進行方向に沿う回り込みを測れる。逆向きに一周すれば値の符号は反転する。
+速度の輪に沿った**接線成分**を足すと、進行方向に沿う回り込みを測れる。線素 $d\ell=\partial_sX(s,t)\,ds$ は、時刻 $t$ を固定しパラメータ $s$ を増やしたときの微小変位である。逆向きに一周すれば値の符号は反転する。
 
 <!-- formal-statement-start -->
 ### 定義（物質閉曲線の循環）
@@ -69,14 +103,27 @@ $$
 <!-- definition-example-start: def-fluid9-material-circulation -->
 ### **定義の確認**：剛体回転する円の符号と単位
 
-一定の角速度 $\Omega$ [s$^{-1}$] で $u=(-\Omega y,\Omega x,0)$ とする。半径 $R$ の円を反時計回り（$+z$ 側から見て）にたどると、$X(\theta,t)=R(\cos(\theta+\Omega t),\sin(\theta+\Omega t),0)$ であり、
+一定の角速度 $\Omega$ [s$^{-1}$] で $u=(-\Omega y,\Omega x,0)$ とする。ここでの $\Omega$ は角速度であり、第0節の空間領域 $\mathcal D$ とは別の量である。半径 $R$ の円を反時計回り（$+z$ 側から見て）にたどる。先の $s\in[0,1]$ から角度 $\theta=2\pi s\in[0,2\pi]$ に変数を替え、初期時刻を $t_0$ とすると
 
 $$
-\partial_\theta X=R(-\sin(\theta+\Omega t),\cos(\theta+\Omega t),0),
-\quad u(X,t)=\Omega\partial_\theta X.
+X(\theta,t)=R(\cos(\theta+\Omega(t-t_0)),\sin(\theta+\Omega(t-t_0)),0).
 $$
 
-よって $\Gamma=\int_0^{2\pi}\Omega R^2\,d\theta=2\pi\Omega R^2$。$R^2\Omega$ の単位は m$^2$/s である。時計回りなら $-2\pi\Omega R^2$ となる。$\Omega>0$ で正の循環を得る規約を以後固定する。
+$\partial_tX=\Omega\partial_\theta X=u(X,t)$ であり、$\theta=0,2\pi$ の位置は一致する。流れ写像は平面の回転で、逆写像は角度 $-\Omega(t-t_0)$ の回転だから物質閉曲線の条件を満たす。また
+
+$$
+\partial_\theta X=R(-\sin(\theta+\Omega(t-t_0)),\cos(\theta+\Omega(t-t_0)),0),
+\qquad u(X,t)=\Omega\partial_\theta X.
+$$
+
+$d\ell=\partial_\theta X\,d\theta$ と置いて積分すると
+
+$$
+\Gamma(t)=\int_0^{2\pi}u(X,t)\cdot\partial_\theta X\,d\theta
+=\int_0^{2\pi}\Omega R^2\,d\theta=2\pi\Omega R^2.
+$$
+
+$R^2\Omega$ の単位は m$^2$/s である。時計回りなら $-2\pi\Omega R^2$ となる。$\Omega>0$ なら反時計回りを正とする規約を以後固定する。
 <!-- definition-example-end -->
 
 ## 2. 変形する輪の線積分を微分する
@@ -152,7 +199,7 @@ $$
 
 ## 3. Kelvin の循環定理：どの力が積分で消えるか
 
-[Euler の運動方程式](../FLUID8/index.md#thm-fluid8-vorticity-equation)で加速度を置き換えると、圧力と外力が輪に沿って仕事をする。外力 $-\nabla\Phi$ は勾配なので閉曲線で積分すると消える。圧力項も勾配へ直せるには、追加の条件が必要である。
+第0節の[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)から得た Euler 方程式で加速度を置き換えると、圧力と外力が輪に沿って仕事をする。外力 $-\nabla\Phi$ は勾配なので閉曲線で積分すると消える。圧力項も勾配へ直せるには、追加の条件が必要である。
 
 [FLUID8 の順圧条件](../FLUID8/index.md#def-fluid8-barotropic)は、同じ $C^1$ 級関数 $P$ で $p=P(\rho)$ と書けることだった。そこで[FLUID6 の順圧の圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)に従い、密度の値域を含む正の区間で
 
@@ -169,13 +216,13 @@ $$
 <!-- formal-statement-start -->
 ### 定理（Kelvin の循環定理）
 
-開集合 $\Omega\subset\mathbb R^3$ 内の時間区間 $I$ で、$\rho>0$ の滑らかな古典的 Euler 流 $(\rho,u,p)$ が
+開集合 $\mathcal D\subset\mathbb R^3$ 内の時間区間 $I$ で、$\rho>0$ の滑らかな古典的 Euler 流 $(\rho,u,p)$ が
 
 $$
 D_tu=-\frac{\nabla p}{\rho}-\nabla\Phi
 $$
 
-を満たすとする。$\Phi$ は一価の滑らかなポテンシャル、$p=P(\rho)$ は時間・場所を通じて共通の $C^1$ 級順圧関係とし、$P'(r)/r$ が密度の正の値域を含む区間で積分可能とする。$C(t)$ は $I$ 中ずっと $\Omega$ 内にある向き付き物質閉曲線とする。このとき
+を満たすとする。$\Phi$ は一価の滑らかなポテンシャル、$p=P(\rho)$ は時間・場所を通じて共通の $C^1$ 級順圧関係とし、$P'(r)/r$ が密度の正の値域を含む区間で積分可能とする。$C(t)$ は $I$ 中ずっと $\mathcal D$ 内にある向き付き物質閉曲線とする。このとき
 
 $$
 \boxed{\Gamma(t)=\Gamma(t_0)\quad(t\in I).}
@@ -236,7 +283,7 @@ $$
 \frac{d\Gamma}{dt}=-\oint_{C(t)}\frac{\nabla p}{\rho}\cdot d\ell.
 $$
 
-さらに各時刻に $C(t)$ を境界とする滑らかな向き付き曲面 $\Sigma(t)\subset\Omega$ があり、曲線・面の向きが整合し、$p,\rho$ が空間 $C^2$ 級なら
+さらに各時刻に $C(t)$ を境界とする滑らかな向き付き曲面 $\Sigma(t)\subset\mathcal D$ があり、曲線・面の向きが整合し、$p,\rho$ が空間 $C^2$ 級なら
 
 $$
 \boxed{\frac{d\Gamma}{dt}
@@ -264,7 +311,7 @@ $$
 \end{aligned}
 $$
 
-$C(t)=\partial\Sigma(t)$ で向きが整合しているので、[循環・渦度を結ぶ Stokes の関係](../../../幾何系/VC/VC9/index.md#cor-vc9-circulation-vorticity)を加速度の圧力部分へ適用すれば第2式を得る。この式では**面の時間微分をもう一度取ってはいない**。曲線の移動は第2節の微分で既に取り込まれている。
+$p$ が空間 $C^2$ 級なので、$\nabla\times\nabla p=0$ には混合偏微分の交換が使える。$C(t)=\partial\Sigma(t)$ で向きが整合しているので、[循環・渦度を結ぶ Stokes の関係](../../../幾何系/VC/VC9/index.md#cor-vc9-circulation-vorticity)を加速度の圧力部分へ適用すれば第2式を得る。この式では**面の時間微分をもう一度取ってはいない**。曲線の移動は第2節の微分で既に取り込まれている。
 <!-- proof-end -->
 
 $\omega=\nabla\times u$ と書けば、[VC9 の循環・渦度の関係](../../../幾何系/VC/VC9/index.md#cor-vc9-circulation-vorticity)から各時刻で
@@ -399,7 +446,7 @@ $\rho>0$、$p=K\rho^3$（$K>0$）とする。$\nabla p/\rho$ が勾配になる�
 <!-- solution-start -->
 #### 詳細解答
 
-[順圧圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)の積分の integrand は $P'(r)/r=3Kr^2/r=3Kr$ なので
+[順圧圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)の積分の被積分関数は $P'(r)/r=3Kr^2/r=3Kr$ なので
 
 $$
 h(\rho)=\int_{\rho_*}^{\rho}3Kr\,dr
@@ -480,7 +527,7 @@ $$
 
 ### B3. 非順圧場の二つの独立な計算
 
-$0\le x\le L$、$0\le y\le H$ の CCW 長方形で、$\rho=\rho_0(1+ax)$、$p=p_0+by$、$\rho_0,a,b>0$ とする。外力が保存力である滑らかな Euler 流の初期状態として、圧力線積分と傾圧項面積分の双方で $d\Gamma/dt$ を計算せよ。$b<0$ に変えるとどうなるか。
+$0\le x\le L$、$0\le y\le H$ の CCW 長方形で、$\rho=\rho_0(1+ax)$、$p=p_0+by$、$\rho_0,a,b>0$ とする。外力が保存力である滑らかな Euler 流の初期状態として、圧力線積分と傾圧項面積分の双方で $d\Gamma/dt$ を計算せよ。最後に $b$ だけを負の定数に変更すると符号はどうなるか。
 
 - Level: B
 
