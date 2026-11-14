@@ -1,0 +1,34 @@
+chapter: AQFT32
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT29
+  - AQFT30
+  - AQFT31
+forward_references: []
+concepts:
+  - id: aqft.log-tangent-equality
+    name: 対数の接線不等式と等号
+    kind: lemma
+    introduction: formal
+    requires: [aqft.araki-relative-entropy-nonfaithful]
+  - id: aqft.relative-spectral-first-moment
+    name: 相対スペクトル測度の一次モーメント
+    kind: lemma
+    introduction: formal
+    requires: [aqft.supported-relative-tomita, aqft.normal-state-support]
+  - id: aqft.araki-relative-entropy-positivity
+    name: 正規状態のAraki相対エントロピーの正値性・零条件
+    kind: theorem
+    introduction: formal
+    requires: [aqft.log-tangent-equality, aqft.relative-spectral-first-moment, aqft.araki-relative-entropy-nonfaithful, aqft.supported-relative-tomita]
+  - id: aqft.positive-operator-convex
+    name: 正の作用素上の作用素凸関数
+    kind: definition
+    introduction: formal
+    requires: [aqft.araki-relative-entropy-positivity]
+  - id: aqft.negative-log-operator-convex
+    name: 負の対数の作用素凸性
+    kind: lemma
+    introduction: formal
+    requires: [aqft.positive-operator-convex]

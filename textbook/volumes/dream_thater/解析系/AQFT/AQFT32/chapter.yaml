@@ -1,0 +1,45 @@
+id: "AQFT32"
+title: "相対エントロピーの正値性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT29
+  - AQFT30
+  - AQFT31
+learning_objectives:
+  - 対数の接線不等式と唯一の等号点を導出し、相対スペクトル測度への適用条件を述べられる
+  - 正規状態の支持付き相対Tomita作用素から一次モーメントがsigma(s(rho))以下1となることを証明できる
+  - 一般von Neumann環でAraki相対エントロピーが非負であることをスペクトル積分から証明できる
+  - 相対エントロピー零からスペクトル測度の集中と反線形随伴を用いて状態の一致を証明できる
+  - 状態が一致する場合は非忠実でも相対スペクトルが入力上1となり零値を与えることを証明できる
+  - 有界正定値作用素について負の対数の作用素凸性を逆作用素の変分表示と積分表示から証明できる
+  - 非可換有限行列・支持欠落・可換無限系の値域と一般単調性への未証明の境界を区別できる
+definitions:
+  - { id: AQFT32-DEF-01, name: "正の作用素上の作用素凸関数" }
+theorems:
+  - { id: AQFT32-LEM-01, name: "対数の接線不等式と等号" }
+  - { id: AQFT32-LEM-02, name: "相対スペクトル測度の一次モーメント" }
+  - { id: AQFT32-THM-01, name: "正規状態のAraki相対エントロピーの正値性・零条件" }
+  - { id: AQFT32-LEM-03, name: "負の対数の作用素凸性" }
+canonical_examples:
+  - 忠実な二点模型のスペクトル重みと正の値
+  - 非忠実な純粋状態の一次モーメントが1/2となる例
+  - 等しい純粋状態でも相対作用素が恒等でない例
+  - 二次対角行列の作用素凸性の定義確認
+  - 三準位での接線分解の直接計算
+  - 非可換な二準位状態の相対スペクトルと忠実化発散
+problem_patterns:
+  - AQFT32-LOG-TANGENCY
+  - AQFT32-CLASSICAL-TWO-POINT
+  - AQFT32-MOMENT-NONFAITHFUL
+  - AQFT32-EQUAL-PURE
+  - AQFT32-GENERAL-FIRST-MOMENT
+  - AQFT32-ZERO-CRITERION-GENERAL
+  - AQFT32-NONCOMMUTING-GAP
+  - AQFT32-OPERATOR-CONVEXITY
+  - AQFT32-THREE-LEVEL-SPECTRAL-GAP
+  - AQFT32-REGULARIZATION-DIVERGENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 9, review: 7 }

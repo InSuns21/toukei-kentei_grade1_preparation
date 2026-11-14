@@ -130,7 +130,7 @@ chapters:
     title: "非忠実状態・支持射影・無限値"
   - id: AQFT32
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT32
-    status: planned
+    status: completed
     title: "相対エントロピーの正値性"
   - id: AQFT33
     path: textbook/volumes/dream_thater/解析系/AQFT/AQFT33
