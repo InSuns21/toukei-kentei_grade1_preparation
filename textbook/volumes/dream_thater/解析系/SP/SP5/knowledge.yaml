@@ -1,0 +1,105 @@
+chapter: SP5
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP4
+forward_references: []
+concepts:
+  - id: stochastic.markov-chain-period
+    name: Markov 連鎖の周期
+    kind: definition
+    aliases: [Markov chain period, Markov chain periodicity]
+    introduction: formal
+    introduction_aliases: ["定義（Markov 連鎖の周期）"]
+    requires:
+      - stochastic.discrete-markov-chain
+      - stochastic.communication-classes
+  - id: stochastic.markov-period-class
+    name: 周期は通信クラスで共通
+    kind: proposition
+    aliases: [period constant on communication classes]
+    introduction: formal
+    introduction_aliases: ["命題（周期は通信クラスで共通）"]
+    requires:
+      - stochastic.markov-chain-period
+      - stochastic.communication-classes
+  - id: stochastic.finite-total-variation
+    name: 有限集合上の全変動距離
+    kind: definition
+    aliases: [finite-state total variation distance]
+    introduction: formal
+    introduction_aliases: ["定義（有限集合上の全変動距離）"]
+    requires:
+      - stochastic.discrete-markov-chain
+  - id: stochastic.tv-contraction
+    name: 全変動距離の和表示と縮小
+    kind: proposition
+    aliases: [total variation contraction]
+    introduction: formal
+    introduction_aliases: ["命題（全変動距離の和表示と縮小）"]
+    requires:
+      - stochastic.finite-total-variation
+  - id: stochastic.markov-coupling
+    name: 結合
+    kind: definition
+    aliases: [coupling of probability distributions]
+    introduction: formal
+    introduction_aliases: ["定義（結合）"]
+    requires:
+      - stochastic.finite-total-variation
+  - id: stochastic.coupling-inequality
+    name: 結合不等式
+    kind: lemma
+    aliases: [coupling inequality]
+    introduction: formal
+    introduction_aliases: ["補題（結合不等式）"]
+    requires:
+      - stochastic.markov-coupling
+      - stochastic.finite-total-variation
+  - id: stochastic.aperiodic-large-returns
+    name: 十分長い非周期帰還時刻
+    kind: lemma
+    aliases: [eventual return-time positivity]
+    introduction: formal
+    introduction_aliases: ["補題（十分長い非周期帰還時刻）"]
+    requires:
+      - stochastic.markov-chain-period
+  - id: stochastic.finite-aperiodic-positivity
+    name: 有限既約非周期連鎖の一様な正値性
+    kind: theorem
+    aliases: [primitive finite irreducible transition matrix]
+    introduction: formal
+    introduction_aliases: ["定理（有限既約非周期連鎖の一様な正値性）"]
+    requires:
+      - stochastic.aperiodic-large-returns
+      - stochastic.markov-period-class
+  - id: stochastic.finite-chain-convergence
+    name: 有限既約非周期 Markov 連鎖の収束
+    kind: theorem
+    aliases: [finite-state ergodic convergence theorem]
+    introduction: formal
+    introduction_aliases: ["定理（有限既約非周期 Markov 連鎖の収束）"]
+    requires:
+      - stochastic.finite-aperiodic-positivity
+      - stochastic.coupling-inequality
+      - stochastic.tv-contraction
+      - stochastic.positive-recurrence-stationary-equivalence
+  - id: stochastic.periodic-convergence-obstruction
+    name: 周期的既約連鎖の非収束
+    kind: proposition
+    aliases: [periodic-chain nonconvergence]
+    introduction: formal
+    introduction_aliases: ["命題（周期的既約連鎖の非収束）"]
+    requires:
+      - stochastic.markov-chain-period
+      - stochastic.finite-total-variation
+      - stochastic.finite-irreducible-positive-recurrence
+  - id: stochastic.finite-markov-mixing-time
+    name: 有限 Markov 連鎖の混合時間
+    kind: definition
+    aliases: [finite-chain mixing time]
+    introduction: formal
+    introduction_aliases: ["定義（有限 Markov 連鎖の混合時間）"]
+    requires:
+      - stochastic.finite-chain-convergence
+      - stochastic.finite-total-variation
