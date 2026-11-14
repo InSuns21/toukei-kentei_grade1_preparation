@@ -114,7 +114,7 @@ $$
 =\sum_{i=0}^k c_i d_{k-i}.
 $$
 
-よって積は定義される。次数の加法性も確認する。[射影空間の接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から
+よって積は定義される。次に、曲線類を足して掛けた際に次数も足し合わされることを確認する。[射影空間の接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から
 
 $$
 \det(T\mathbb P^n)\simeq\mathcal O(n+1),
