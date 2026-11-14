@@ -46,7 +46,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-13-primary-invariant -->
-**定義の確認**。[射影空間の凸性定理](../GW1-09/index.md#thm-gw1-09-projective-convex)により $X=\mathbb P^1$ は凸である。有効曲線類 $\beta=0$ と三標点 $k=3$ は定義の安定範囲に入る。$h\in H^2(\mathbb P^1;\mathbb Q)$ を一点の Poincaré 双対、$\int_{\mathbb P^1}h=1$ とする。[次数0の積表示](../GW1-10/index.md#prop-gw1-10-zero-degree)より
+**定義の確認**。[射影空間の凸性と変形次元](../GW1-09/index.md#thm-gw1-09-projective-convex)により $X=\mathbb P^1$ は凸である。有効曲線類 $\beta=0$ と三標点 $k=3$ は定義の安定範囲に入る。$h\in H^2(\mathbb P^1;\mathbb Q)$ を一点の Poincaré 双対、$\int_{\mathbb P^1}h=1$ とする。[次数0の積表示](../GW1-10/index.md#prop-gw1-10-zero-degree)より
 
 $$
 M_{3,0}\simeq X\times\overline{\mathcal M}_{0,3}
@@ -173,7 +173,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（横断的な孤立交叉とGW不変量の一致）**  
-> $X$ を複素次元 $m$ の滑らかな凸複素射影多様体、$\beta\in H_2(X;\mathbb Z)$ を有効曲線類、$k\ge0$ を標点数とする。$\beta\ne0$ または $\beta=0,\ k\ge3$ と仮定する。$\alpha_i=\operatorname{PD}[Z_i]$ を滑らかな複素閉部分多様体 $Z_i\subset X$ の類とする。積評価写像 $\operatorname{ev}:M_{k,\beta}\to X^k$ が $Z_1\times\cdots\times Z_k$ に横断的で、$\sum_i\operatorname{codim}_{\mathbb C}Z_i=m-3+\langle c_1(TX),\beta\rangle+k=D(k,\beta)$ と仮定する。このとき交叉スタック $Z$ は有限個の孤立点からなり、
+> $X$ を複素次元 $m$ の滑らかな凸複素射影多様体、$\beta\in H_2(X;\mathbb Z)$ を有効曲線類、$k\ge0$ を標点数とする。$\beta\ne0$ または $\beta=0,\ k\ge3$ と仮定する。$\alpha_i=\operatorname{PD}[Z_i]$ を滑らかな複素閉部分多様体 $Z_i\subset X$ の類とする。積評価写像 $\operatorname{ev}:M_{k,\beta}\to X^k$ が $Z_1\times\cdots\times Z_k$ に横断的であり、余次元の和が
+
+$$
+\sum_i\operatorname{codim}_{\mathbb C}Z_i
+=m-3+\langle c_1(TX),\beta\rangle+k=D(k,\beta)
+$$
+
+> を満たすと仮定する。このとき交叉スタック $Z$ は有限個の孤立点からなり、
 
 $$
 \left\langle\alpha_1,\ldots,\alpha_k\right\rangle_{0,\beta}^{X}
@@ -229,7 +236,7 @@ $$
 
 したがって複素向きに対する局所交叉符号は $+1$、横断的な一点の交叉重複度は1である。
 
-局所チャート $[U/G]$ 上のスタック基本類で一点を積分すると、有限の対称性に対応する分母 $|G|$ が現れる。これを各同型類に足せば
+交叉点 $u$ を代表する $\widetilde u$ の安定化部分群 $G_{\widetilde u}\subset G$ は、その安定写像の自己同型群に対応する。[モジュライ・スタックの局所商](../GW1-10/index.md#def-gw1-10-stack)に沿ってこの一点を積分すると、寄与は $1/|G_{\widetilde u}|$ となる。これを各同型類に足せば
 
 $$
 \int_{[M_{k,\beta}]}
