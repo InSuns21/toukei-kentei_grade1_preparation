@@ -1,0 +1,48 @@
+id: "GW1-14"
+title: "最初の不変量を手で求める"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-13
+  - GW1-11
+  - GW1-10
+  - GW1-09
+  - GW1-08
+official_scope: []
+learning_objectives:
+  - 射影直線・射影平面の次数0三点GW不変量をコホモロジー積から計算できる
+  - Euler完全列からの第一Chern類を使い複素期待次元と挿入次数を照合できる
+  - 総次数1の安定写像で定数成分が標点像の衝突を必要とすることを証明できる
+  - 射影直線の次数1の全標点点挿入不変量を横断的な点条件から計算できる
+  - 射影平面の二点条件から唯一の直線と評価射の局所同型を構成できる
+  - 射影平面の二点条件と追加の直線条件について横断性と自己同型を確認し値1を導ける
+  - 射影平面の同一点二条件で定数泡の一次元族を構成し単純点数との違いを説明できる
+  - 次数不一致による零と安定性の不成立による定義域外を区別できる
+definitions: []
+theorems:
+  - { id: GW1-14-LEM-01, name: 次数1写像での定数成分と標点の衝突 }
+  - { id: GW1-14-THM-01, name: 射影直線の次数1・点挿入の計数 }
+  - { id: GW1-14-THM-02, name: 射影平面の二点と直線条件による次数1計数 }
+canonical_examples:
+  - 射影直線の定数写像による三点関数と四標点の消滅
+  - 射影平面の次数0三点積と古典的交叉
+  - 射影直線の次数1写像の全点挿入
+  - 射影直線の次数2以上の純点挿入消滅
+  - 射影平面の二点を通る直線の同次座標計算
+  - 射影平面の二点と追加直線条件の横断的交叉
+  - 射影平面の二つの同一点挿入に対する定数泡の一次元族
+problem_patterns:
+  - GW1-14-DIMENSION-INSERTIONS
+  - GW1-14-CONSTANT-P1
+  - GW1-14-CONSTANT-P2
+  - GW1-14-DEGREE-ONE-P1
+  - GW1-14-P2-LINE-EQUATION
+  - GW1-14-HIGHER-DEGREE-VANISHING
+  - GW1-14-DISTINCT-P1-EVALUATIONS
+  - GW1-14-P2-TWO-POINT-ONE-LINE
+  - GW1-14-COINCIDENT-P2-BOUNDARY
+  - GW1-14-INTEGRATED-COMPUTATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }
