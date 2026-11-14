@@ -132,9 +132,9 @@ $$
 
 を得ます。最後に $\lambda>0$ に対して $\lambda^2 1_{\{Z^*\ge\lambda\}}\le(Z^*)^2$ なので、[Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を非負変数 $(Z^*)^2$ と閾値 $\lambda^2$ に適用して
 
-$
+$$
 \lambda^2P(Z^*\ge\lambda)\le E[(Z^*)^2]\le4E[M_n^2]
-$
+$$
 
 を得ます。これが確率の評価です。
 <!-- proof-end -->
@@ -604,14 +604,13 @@ E[S_k^2-S_{k-1}^2\mid\mathcal F_{k-1}]
 =E[2S_{k-1}\xi_k+\xi_k^2\mid\mathcal F_{k-1}]=1.
 $$
 
-この条件付き増分の計算により $S_n^2-n$ はマルチンゲールで、$S_n^2=(S_n^2-n)+n$ は Doob 分解です。[SP8 の停止と Doob 分解の整合](../SP8/index.md#prop-sp8-doob-stop)をこの分解と停止時刻 $\tau$ に適用すると
+この条件付き増分の計算により、$N_j:=S_j^2-j$（$j\ge0$）はマルチンゲールです。したがって $S_j^2=N_j+j$ が Doob 分解です。[SP8 の停止と Doob 分解の整合](../SP8/index.md#prop-sp8-doob-stop)をこの分解と停止時刻 $\tau$ に適用すると
 
-$
-M_n^2=S_{n\wedge\tau}^2
-=(S^2-\operatorname{id})_{n\wedge\tau}+(n\wedge\tau)
-$
+$$
+M_n^2=S_{n\wedge\tau}^2=N_{n\wedge\tau}+(n\wedge\tau)
+$$
 
-を得ます。ここで $(S^2-\operatorname{id})_j=S_j^2-j$（$j\ge0$）と書き、停止した第一項はマルチンゲールです。したがって $M_n^2-(n\wedge\tau)$ はマルチンゲールで、初期値は $0$ なので
+を得ます。停止過程 $(N_{n\wedge\tau})_{n\ge0}$ はマルチンゲールなので、$M_n^2-(n\wedge\tau)$ もマルチンゲールです。初期値は $0$ なので
 
 $$
 E[n\wedge\tau]=E[M_n^2].
