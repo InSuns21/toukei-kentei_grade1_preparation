@@ -101,7 +101,15 @@ $$
 
 $\mathbb P^1$ 上で $H^1$ が消える写像が一つあることと、全ての球面写像で消えることは異なる。後者を標的自身の条件にする。
 
-以下の例で使う**写像の次数**も先に定める。正則写像 $u:\mathbb P^1\to\mathbb P^n$ の次数 $d$ は、引き戻し線束が $u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d)$ となる整数である。斉次座標による $\mathcal O(1)$ の大域切断は共通零点を持たない。その引き戻しにも非零の大域切断があるので、[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $d<0$ のとき $H^0(\mathcal O(d))=0$ となることと照合すると、正則写像では $d\ge0$ と分かる。線束のテンソル冪を引き戻すと
+以下の例で使う**写像の次数**も先に定める。正則写像 $u:\mathbb P^1\to\mathbb P^n$ の次数 $d$ は、引き戻し線束の次の関係を満たす整数である。
+
+$$
+u^*\mathcal O_{\mathbb P^n}(1)\simeq\mathcal O_{\mathbb P^1}(d).
+$$
+
+斉次座標による $\mathcal O(1)$ の大域切断は共通零点を持たない。その引き戻しにも非零の大域切断がある。一方、[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)によれば、負の整数 $d$ では $H^0(\mathcal O(d))=0$ となる。従って正則写像では $d\ge0$ である。
+
+さらに線束のテンソル冪を引き戻すと
 
 $$
 u^*\mathcal O_{\mathbb P^n}(k)\simeq\mathcal O_{\mathbb P^1}(kd)
@@ -123,7 +131,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-09-convex -->
-**定義の確認**。$X=\mathbb P^1$ に対し、[射影直線の接束の座標計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)から $T\mathbb P^1\simeq\mathcal O(2)$ である。次数 $d\ge0$ の任意の正則写像 $u:\mathbb P^1\to\mathbb P^1$ は $u^*\mathcal O(2)\simeq\mathcal O(2d)$ を満たす。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $2d\ge0\ge-1$ を代入すれば $H^1(\mathcal O(2d))=0$。定数写像の $d=0$ も含めて**任意の**写像で確認したので、$\mathbb P^1$ は凸である。
+**定義の確認**。$X=\mathbb P^1$ に対し、[射影直線の接束の座標計算](../GW1-03/index.md#calc-gw1-03-p1-tangent)から $T\mathbb P^1\simeq\mathcal O(2)$ である。
+
+任意の正則写像 $u:\mathbb P^1\to\mathbb P^1$ の次数を $d\ge0$ とする。先に示したテンソル冪の引き戻し則から
+
+$$
+u^*T\mathbb P^1\simeq u^*\mathcal O(2)\simeq\mathcal O(2d)
+$$
+
+である。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)に $2d\ge0\ge-1$ を代入すると $H^1(\mathcal O(2d))=0$。定数写像の $d=0$ も含めて**任意の**写像で確認したので、$\mathbb P^1$ は凸である。
 <!-- definition-example-end -->
 
 定義から高種数の曲線 $C$ について $H^1(C,u^*TX)=0$ を導くことはできない。例えば凸な標的 $X=\mathbb P^1$ への定数写像を種数1の曲線 $C$ から取ると、$u^*TX\simeq\mathcal O_C$ であり、$H^1(C,\mathcal O_C)$ は一次元である。凸性は**定義域の種数を指定した条件**である。
@@ -607,7 +623,9 @@ $$
 =\Gamma(U_i\cap U_j,\mathcal O(4))
 $$
 
-である。三重重なりでは $\alpha_{ij}+\alpha_{jk}+\alpha_{ki}=0$。従って[Čech比較定理](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-cech-comparison)と[線束コホモロジーの公式](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から $H^1(\mathbb P^1,\mathcal O(4))=0$ であり、$\alpha_{ij}=b_j-b_i$ と書ける。$s_i$ を $s_i-\iota\circ b_i$ に直すと差は零になり、大域的な右逆が得られる。よって
+である。三重重なりでは $\alpha_{ij}+\alpha_{jk}+\alpha_{ki}=0$ となる。いま標準アフィン被覆を使っているので、[Čech比較定理](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-cech-comparison)の仮定を満たし、この余輪から層コホモロジー類を計算できる。
+
+[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)によれば $H^1(\mathbb P^1,\mathcal O(4))=0$ である。従って $\alpha_{ij}=b_j-b_i$ と書ける。$s_i$ を $s_i-\iota\circ b_i$ に直すと差は零になり、大域的な右逆が得られる。よって
 
 $$
 TX|_C\simeq\mathcal O(2)\oplus\mathcal O(-2),\qquad
