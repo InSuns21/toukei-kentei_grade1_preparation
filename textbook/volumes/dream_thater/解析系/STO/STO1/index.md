@@ -621,11 +621,11 @@ $$
 
 時刻の Borel 集合 $B\subseteq[0,T]$ と、時刻 $T$ に判定可能な事象 $A\in\mathcal F_T$ の長方形 $B\times A$ を考えます。これらをすべて含む最小の $\sigma$ 代数を **積 $\sigma$ 代数** といい、
 
-$
+$$
 \mathcal B([0,T])\otimes\mathcal F_T
 =
 \sigma\bigl(\{B\times A:B\in\mathcal B([0,T]),\ A\in\mathcal F_T\}\bigr)
-$
+$$
 
 と表します。左辺の二つの因子は、それぞれ時刻側と標本側の情報を表します。以下では長方形の可測性から始めて、この積 $\sigma$ 代数に関する可測性を確かめます。
 
@@ -634,7 +634,7 @@ $
 <!-- formal-statement-start -->
 > **定義（発展的可測過程）**  
 > $E$ を可測空間とし、フィルトレーション $(\mathcal F_t)$ に対する過程 $X:[0,\infty)\times\Omega\to E$ を考える。  
-> 任意の $T>0$ について制限
+> 任意の $T\ge0$ について制限
 >
 $$
 (t,\omega)\longmapsto X_t(\omega),
@@ -657,7 +657,7 @@ $$
 [0,T]\times\Omega
 $$
 
-上で、時間の Borel 情報と $\mathcal F_T$ の情報だけを使って $X$ を読めます。
+上で、時間の Borel 情報と $\mathcal F_T$ の情報だけを使って $X$ を読めます。特に $T=0$ も条件に含めます。このとき $[0,0]\times\Omega$ の積可測性は $X_0$ の $\mathcal F_0$ 可測性を意味します。$T>0$ だけにすると、右連続でないフィルトレーションで時刻 0 の適合性を取り落とすからです。
 
 <!-- definition-example-start: def-sto1-progressive -->
 ### 直接例：有限個の時刻で値が切り替わる適合過程
@@ -687,7 +687,7 @@ $$
 Z_k(\omega)\,1_{[t_k,t_{k+1})\cap[0,U]}(t)
 $$
 
-は $\mathcal B([0,U])\otimes\mathcal F_U$ 可測です。最後の区間 $[t_m,\infty)\cap[0,U]$ でも同様に確かめられます。有限和を取れば $X$ の $[0,U]$ 上の制限が積可測であり、$U$ は任意なので **発展的可測性** も成立します。
+は $\mathcal B([0,U])\otimes\mathcal F_U$ 可測です。最後の区間 $[t_m,\infty)\cap[0,U]$ でも同様に確かめられます。有限和を取れば $X$ の $[0,U]$ 上の制限が積可測です。$U=0$ では $X_0=Z_0$ が $\mathcal F_0$ 可測なので、同様に積可測です。$U\ge0$ は任意なので **発展的可測性** も成立します。
 
 後の右連続適合過程の定理では**区間の右端値**を用いる近似も登場しますが、その近似自体の適合性は主張しません。右端値は極限で右連続性を使うための補助です。
 <!-- definition-example-end -->
@@ -849,7 +849,7 @@ $$
 
 可測です。
 
-$T>0$ は任意だったので $X$ は progressively measurable です。
+また $T=0$ の場合には $[0,0]\times\Omega$ 上で $X_0$ が $\mathcal F_0$ 可測であることを適合性から確認できます。従って任意の $T\ge0$ で必要な積可測性が成立し、$X$ は progressively measurable です。
 <!-- proof-end -->
 
 この定理で使った仮定の役割は明確です。
@@ -1019,7 +1019,7 @@ $$
 
 したがって $\mathcal P$ 可測な実数値過程 $H$ の $[0,T]\times\Omega$ 制限は積可測です。
 
-$T$ は任意なので $H$ は progressively measurable です。
+$T=0$ でも $\mathcal P$ の生成集合を $\{0\}\times\Omega$ に制限すれば $\{0\}\times A$（$A\in\mathcal F_0$）だけが残るので、$H_0$ は $\mathcal F_0$ 可測です。従って全ての $T\ge0$ で条件を満たし、$H$ は progressively measurable です。
 <!-- proof-end -->
 
 離散時間ではこの定義は
@@ -1039,7 +1039,7 @@ $$
 
 「最初に表が出た時刻」「過程がある水準へ初めて到達した時刻」のように、停止する時刻そのものをランダムにしたい場面があります。ただし、その停止規則が未来を見て決められるなら、マルチンゲールの公平性を保ったまま停止するという議論はできません。
 
-必要なのは、時刻 $t$ に来た時点で「もう停止したか」を現在までの情報だけで判定できることです。この条件を事象 $\{\tau\le t\}$ の可測性で表します。
+必要なのは、時刻 $t$ に来た時点で「もう停止したか」を現在までの情報だけで判定できることです。この条件を事象 $\{\tau\le t\}$ の可測性で表します。ここで $\tau:\Omega\to[0,\infty]$ は、停止しない場合も表せるよう $\infty$ を値に認めた可測なランダム時刻です（任意の有限 $t$ で $\{\tau\le t\}\in\mathcal F$）。通常の実数値確率変数から値域を拡張したものであり、以下ではさらに各 $\mathcal F_t$ での可測性を要求します。
 
 <a id="def-sto1-stopping-time"></a>
 
@@ -1888,21 +1888,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（発展的可測過程の停止時刻評価）**  
 > $X=(X_t)_{t\ge0}$ を実数値発展的可測過程、$\tau$ を停止時刻とする。  
-> $\tau<\infty$ のとき
+> $\tau=\infty$ の場合にも意味が定まるよう、
 >
 $$
-X_\tau(\omega)
+Y(\omega)
 =
-X_{\tau(\omega)}(\omega)
+\begin{cases}
+X_{\tau(\omega)}(\omega),&\tau(\omega)<\infty,\\
+0,&\tau(\omega)=\infty
+\end{cases}
 $$
 >
-> と定める。すると
->
-$$
-X_\tau 1_{\{\tau<\infty\}}
-$$
->
-> は $\mathcal F_\tau$ 可測である。  
+> と定める。この $Y$ は $\mathcal F_\tau$ 可測である。以下、$Y$ を $X_\tau 1_{\{\tau<\infty\}}$ と略記するが、未定義の $X_\infty$ に 0 を掛ける意味ではない。  
 > 特に各 $t\ge0$ について
 >
 $$
@@ -1960,7 +1957,7 @@ $$
 (\rho(\omega),\omega)
 $$
 
-を考えます。
+を考えます。添字 $t$ はここで固定した上限時刻を表し、微分記号ではありません。
 
 長方形 $B\times A$、$B\in\mathcal B([0,t])$、$A\in\mathcal F_t$ に対して
 
@@ -2007,9 +2004,12 @@ $$
 次に
 
 $$
-Y
+Y(\omega)
 =
-X_\tau 1_{\{\tau<\infty\}}
+\begin{cases}
+X_{\tau(\omega)}(\omega),&\tau(\omega)<\infty,\\
+0,&\tau(\omega)=\infty
+\end{cases}
 $$
 
 の $\mathcal F_\tau$ 可測性を示します。
@@ -2059,7 +2059,7 @@ $0\in B$ の場合は
 $$
 \{Y\in B\}
 =
-\{Y\notin B^c\}^c
+\{Y\in B^c\}^c
 $$
 
 を使います。$0\notin B^c$ なので上の議論を $B^c$ に適用でき、$\mathcal F_\tau$ は sigma-field だから補集合も $\mathcal F_\tau$ に属します。
@@ -2607,7 +2607,7 @@ $$
 
 可測です。
 
-$T$ は任意だったため $X$ は発展的可測です。
+さらに $T=0$ では $X_0$ が $\mathcal F_0$ 可測（適合性）です。従って全ての $T\ge0$ に対して積可測であり、$X$ は発展的可測です。
 
 右連続性は
 
@@ -2895,7 +2895,7 @@ $$
 
 は $\mathcal F_t$ 可測です。
 
-最後に $B$ を Borel set とします。$0\notin B$ なら
+最後に $Y=X_\tau1_{\{\tau<\infty\}}$ を、$\tau<\infty$ では $Y(\omega)=X_{\tau(\omega)}(\omega)$、$\tau=\infty$ では $Y(\omega)=0$ と**場合分けして**定義します。$X_\infty$ は使いません。$B$ を Borel 集合とします。$0\notin B$ なら
 
 $$
 \{X_\tau1_{\{\tau<\infty\}}\in B\}
