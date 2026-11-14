@@ -300,7 +300,7 @@ $$
 
 モデルをリスク中立測度のもとで考えます。以下の $dS_t=\cdots$ は [GBM の定義にある確率積分方程式](../U3-14/index.md#def-u3-14-gbm)の微分略記です。$t$ は時間（年）、$dt$ は時間積分、$dW_t$ は同じ時間変数 $t$ の Brown 運動に関する Itô 積分を指定し、$dW_t/dt$ という通常の導関数を仮定しません。
 
-$
+$$
 dS_t=rS_t\,dt+\sigma S_t\,dW_t,\quad
 S_0=s_0>0,\quad r>0,\ \sigma>0,\quad T>0
 $$
