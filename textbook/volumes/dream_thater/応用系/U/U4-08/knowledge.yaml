@@ -1,0 +1,48 @@
+chapter: U4-08
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-07]
+forward_references: []
+concepts:
+  - id: finance.option-forward-normalized-call
+    name: フォワード規格化コール価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フォワード規格化コール価格）"]
+    requires: [finance.option-call-strike-grid, finance.spot-forward-executable-bounds]
+  - id: finance.option-calendar-mean-preserving-tree
+    name: 満期間をつなぐ規格化価格木
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（満期間をつなぐ規格化価格木）"]
+    requires: [finance.option-forward-normalized-call]
+  - id: finance.option-calendar-normalized-monotonicity
+    name: 平均保存的価格木における満期方向の必要条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平均保存的価格木における満期方向の必要条件）"]
+    requires: [finance.option-calendar-mean-preserving-tree]
+  - id: finance.option-implied-total-variance
+    name: インプライド総分散とボラティリティ曲面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（インプライド総分散とボラティリティ曲面）"]
+    requires: [finance.option-forward-normalized-call]
+  - id: finance.option-calendar-total-variance-monotonicity
+    name: 総分散表示の満期方向必要条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（総分散表示の満期方向必要条件）"]
+    requires: [finance.option-implied-total-variance, finance.option-calendar-normalized-monotonicity]
+  - id: finance.option-calendar-quote-interval
+    name: 規格化気配区間と満期間の価格選択可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（規格化気配区間と満期間の価格選択可能性）"]
+    requires: [finance.option-forward-normalized-call, finance.bid-ask-executable-gain]
+  - id: finance.option-calendar-interval-feasibility
+    name: 二満期の気配区間の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二満期の気配区間の必要条件）"]
+    requires: [finance.option-calendar-quote-interval, finance.option-calendar-normalized-monotonicity]
