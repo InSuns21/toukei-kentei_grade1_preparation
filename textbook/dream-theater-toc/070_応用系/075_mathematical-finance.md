@@ -34,3 +34,4 @@
 30. [U3-30 Itô–Taylor 展開・高次法・安定性](textbook/volumes/dream_thater/応用系/U/U3-30/index.md)
 31. [U3-31 Multilevel Monte Carlo（MLMC）](textbook/volumes/dream_thater/応用系/U/U3-31/index.md)
 32. [U3-32 分散減少：対称変量・対照変量](textbook/volumes/dream_thater/応用系/U/U3-32/index.md)
+33. [U3-33 層化抽出・重要度サンプリング](textbook/volumes/dream_thater/応用系/U/U3-33/index.md)
