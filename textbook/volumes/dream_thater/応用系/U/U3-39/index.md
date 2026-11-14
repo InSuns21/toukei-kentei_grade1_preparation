@@ -164,21 +164,21 @@ $$
 
 初期区間に根が含まれるのは [IV の存在と一意性](#thm-u3-39-unique-iv)と単調性からです。ある段階で根が区間内にあると仮定します。
 
-$
+$$
 \ell_n\le\sigma_{\rm IV}\le u_n.
-$
+$$
 
 中点のモデル価格が $c$ 未満なら、単調性より
 
-$
+$$
 m_n<\sigma_{\rm IV}
-$
+$$
 
 だから根は右半分に残ります。中点価格が $c$ 以上なら
 
-$
+$$
 \sigma_{\rm IV}\le m_n
-$
+$$
 
 なので根は左半分に残ります。区間幅が毎回半分になることを帰納的に用いれば第一式が成立します。
 
@@ -398,21 +398,21 @@ $$
 > **命題（価格残差目的関数の導関数）**  
 > 前の定義で、各契約の Black–Scholes 価格が正の変動率で微分可能とする。契約 $i$ の Vega は正であり、次で表す。
 
-$
+$$
 V_i(\sigma)=\frac{\partial C_{{\rm BS},i}(\sigma)}{\partial\sigma}>0.
-$
+$$
 
 > このとき、重み付き二乗価格残差の微分は
 
-$
+$$
 J'(\sigma)=2\sum_{i=1}^m w_iR_i(\sigma)V_i(\sigma).
-$
+$$
 
 > 内点の[局所最小点](../../OPT/OPT1/index.md#def-opt1-local-global-minimizer)では次の必要条件が成立する。
 
-$
+$$
 \sum_{i=1}^m w_iR_i(\sigma)V_i(\sigma)=0.
-$
+$$
 
 > ただしこの条件のみでは大域最小性や一意性は保証されない。
 <!-- formal-statement-end -->
@@ -551,9 +551,9 @@ $A,B>0$、$\tau>0$ とする。$a=\log(A/B)$ の正・負・零を区別して c
 <!-- solution-start -->
 **詳細解答**：$v=\sigma\sqrt\tau$ を導入すると、二つの正規化指標は
 
-$
+$$
 d_1=\frac av+\frac v2,\qquad d_2=\frac av-\frac v2
-$
+$$
 
 です。$v\downarrow0$ の場合を $a$ の符号で分けます。
 
