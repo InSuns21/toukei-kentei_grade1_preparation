@@ -1,0 +1,45 @@
+id: "U3-32"
+title: "分散減少：対称変量・対照変量"
+volume: "foundations"
+status: supplementary
+prerequisites: [MC3, U3-26, U3-31]
+official_scope: []
+learning_objectives:
+  - リスク中立GBMの正規乱数を正負に共有して対称経路を生成し、対内・対間の独立性と不偏性を区別できる
+  - 同じ支払評価回数で対称変量と独立Monte Carloの分散を比較し、単調性の限界を説明できる
+  - 零行使価格の割引株式について対称変量の共分散と厳密な分散比を計算できる
+  - 割引満期株価の既知平均を制御変量にして最適係数と相関による分散低減を導出できる
+  - callの切断正規モーメントから二次モーメント・交差モーメント・最適係数を再計算できる
+  - 独立パイロット係数の不偏性と過剰分散を証明し、同一標本回帰の反例を説明できる
+  - 共通乱数・評価回数・パイロット費用・離散化バイアスを分けて比較実験を再現できる
+definitions:
+  - { id: U3-32-DEF-01, name: "GBM の対称経路と対称変量価格推定量" }
+  - { id: U3-32-DEF-02, name: "割引満期株価を使う対照変量価格推定量" }
+  - { id: U3-32-DEF-03, name: "独立パイロット対照変量推定量" }
+theorems:
+  - { id: U3-32-PROP-01, name: "call の対称変量推定量と計算予算" }
+  - { id: U3-32-PROP-02, name: "零行使価格の対称変量分散比" }
+  - { id: U3-32-PROP-03, name: "株式対照変量の最適係数と分散" }
+  - { id: U3-32-PROP-04, name: "GBM call と割引株式の二次モーメント" }
+  - { id: U3-32-PROP-05, name: "独立パイロット係数の不偏性と過剰分散" }
+canonical_examples:
+  - "s=K=100, r=0.03, q=0, sigma=0.2, T=1 の欧州call"
+  - "正負の同一正規乱数による割引支払額の共分散"
+  - "割引満期株式を対照変量とした解析的最適係数"
+  - "同一標本回帰で生じる有限標本バイアスの反例"
+  - "600回独立反復・固定seedでの同費用分散比較"
+problem_patterns:
+  - U3-32-A1
+  - U3-32-A2
+  - U3-32-A3
+  - U3-32-A4
+  - U3-32-A5
+  - U3-32-B1
+  - U3-32-B2
+  - U3-32-B3
+  - U3-32-B4
+  - U3-32-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
