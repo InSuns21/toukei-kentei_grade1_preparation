@@ -1,7 +1,7 @@
 chapter: U3-31
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-30, U3-29, U3-26]
+prerequisites: [U3-29]
 concepts:
   - id: finance.mlmc-coupled-estimator
     name: 粗細結合差分と MLMC 推定量
