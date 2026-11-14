@@ -1,6 +1,6 @@
 # AQFT33 部分環制限と相対エントロピーの単調性
 
-[AQFT32の正値性定理](../AQFT32/index.md#thm-aqft32-positivity-rigidity)は、同じ環の二状態を区別する量が非負であると教えます。ところが、実験者が観測できる代数を小さくしたら、二状態の区別はどう変わるのでしょう。密度行列の部分トレースはType III局所環には一般に存在しません。必要なのは「行列を消去する」操作ではなく、**状態を部分環に制限する**操作です。
+[AQFT32の正値性定理](../AQFT32/index.md#thm-aqft32-positivity-rigidity)は、同じ環の二状態を区別する量が非負であると教えます。ところが、実験者が観測できる代数を小さくしたら、二状態の区別はどう変わるのでしょう。密度行列の部分トレースはType IIIの局所von Neumann環には一般に存在しません。必要なのは「行列を消去する」操作ではなく、**状態を部分環に制限する**操作です。
 
 本講では、相対モジュラー作用素の逆作用素の変分表示を、一般の正規状態について最初から証明します。この方法なら、状態が非忠実である場合も、相対エントロピーが無限大である場合も、有限次元への還元なしに扱えます。内積は先行講と同じく第2変数線形、対数は自然対数です。
 
@@ -95,7 +95,7 @@ $$
 さらに括弧内の式は形式ノルム $\|Bx\|$ に関して連続です。実際 $|\langle v,x-y\rangle|\le\|v\|\|x-y\|\le\|v\|\|B^{-1}\|\|B(x-y)\|$ です。形式の芯から $x$ を近似すれば上限は変わりません。
 <!-- proof-end -->
 
-この補題を相対モジュラー作用素へ代入します。$s(\rho)$ を $p$ と書くと、[AQFT31の定義](../AQFT31/index.md#def-aqft31-relative-tomita-supported)により初期定義域上で
+この補題を相対モジュラー作用素へ代入します。$s(\rho)$ を $p$ と書くと、[支持付き相対Tomita作用素の定義](../AQFT31/index.md#def-aqft31-relative-tomita-supported)により初期定義域上で
 
 $$
 S(A\xi_\rho+\zeta)=pA^*\xi_\sigma,
@@ -301,7 +301,7 @@ $$
 \int_0^\infty |h_s(a)|\,ds=\log a\le a
 $$
 
-であり、[一次モーメント補題](../AQFT32/index.md#lem-aqft32-first-moment)から
+であり、[相対スペクトル測度の一次モーメント](../AQFT32/index.md#lem-aqft32-first-moment)から
 
 $$
 \int_{(1,\infty)}a\,d\mu_\rho(a)
@@ -338,7 +338,7 @@ S_{\mathrm A}^{\mathcal N}
 \le S_{\mathrm A}^{\mathcal M}(\rho\Vert\sigma)
 $$
 
-> が $[0,+\infty]$ の順序で成立する。両状態の忠実性、両環の型、有限次元性、条件付き期待値の存在は仮定しない。
+> が $[0,+\infty]$ の順序で成立する。両状態の忠実性、両環の型、有限次元性、部分環上への正規な射影写像の存在は仮定しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -372,7 +372,7 @@ $$
 両辺の定義と極限の正当化には有限次元性も忠実性も使いませんでした。特に右辺が $+\infty$ の場合も不等式は成立します。
 <!-- proof-end -->
 
-この結果は、任意の単位元を保つ包含で成立します。条件付き期待値や部分トレースがなくても、状態の制限だけで情報の単調性を表現できます。一方、等号の特徴付けには追加構造が必要で、本講の不等式だけから回復写像が存在すると結論してはいけません。
+この結果は、任意の単位元を保つ包含で成立します。特別な正規射影写像や部分トレースがなくても、状態の制限だけで情報の単調性を表現できます。一方、等号の特徴付けには追加構造が必要で、本講の不等式だけから回復写像が存在すると結論してはいけません。
 
 ### 非可換な二準位で不等式を手計算する
 
@@ -402,7 +402,7 @@ $$
 
 ### 無限値が有限値になる例
 
-$\rho=|e_1\rangle\langle e_1|$、$\sigma=|+\rangle\langle+|$、$|+\rangle=(e_1+e_2)/\sqrt2$ とします。$\mathcal M=M_2(\mathbb C)$ では $\rho$ の支持は $\sigma$ の支持に含まれないため、[AQFT31の定義](../AQFT31/index.md#def-aqft31-relative-entropy-extended)による値は $+\infty$ です。しかし対角環 $\mathcal N$ への制限は $(1,0)$ と $(1/2,1/2)$ なので
+$\rho=|e_1\rangle\langle e_1|$、$\sigma=|+\rangle\langle+|$、$|+\rangle=(e_1+e_2)/\sqrt2$ とします。$\mathcal M=M_2(\mathbb C)$ では $\rho$ の支持は $\sigma$ の支持に含まれないため、[非忠実正規状態へのAraki相対エントロピーの拡張](../AQFT31/index.md#def-aqft31-relative-entropy-extended)による値は $+\infty$ です。しかし対角環 $\mathcal N$ への制限は $(1,0)$ と $(1/2,1/2)$ なので
 
 $$
 S_{\mathrm A}^{\mathcal N}=\log2
@@ -427,7 +427,7 @@ S_{\mathrm A}^{\mathcal M(O_1)}
 \le S_{\mathrm A}^{\mathcal M(O_2)}(\rho\Vert\sigma)
 $$
 
-を与えます。局所環がType IIIであっても構いません。ただし**異なる表現に属する二状態を無条件に同じ環の正規状態と扱うこと**はできません。ここでは共通の環とその正規状態を最初から指定しています。
+を与えます。局所von Neumann環がType IIIであっても構いません。ただし**異なる表現に属する二状態を無条件に同じ環の正規状態と扱うこと**はできません。ここでは共通の環とその正規状態を最初から指定しています。
 
 ## 7. 演習と詳細解答
 
@@ -502,7 +502,7 @@ $[\rho,\sigma]$ の $(1,2)$ 成分は $(3/4-1/4)(1/4)=1/8$、$(2,1)$ 成分は $
 $\rho=E_{11}$、$\sigma=|+\rangle\langle+|$ を $M_2(\mathbb C)$ 上に取る。$|+\rangle=(e_1+e_2)/\sqrt2$。全環と対角環での相対エントロピーがそれぞれ $+\infty$ と $\log2$ になることを確認せよ。
 
 <!-- solution-start -->
-**詳細解答。** $s_{\mathcal M}(\rho)=E_{11}$、$s_{\mathcal M}(\sigma)=|+\rangle\langle+|$ であり、$e_1$ は $\operatorname{span}\{|+\rangle\}$ に入らないので支持包含が破れます。[AQFT31の拡張定義](../AQFT31/index.md#def-aqft31-relative-entropy-extended)から全環の値は無限です。対角環では $\rho|_{\mathcal N}=(1,0)$、$\sigma|_{\mathcal N}=(1/2,1/2)$。支持包含が成立し、唯一の正入力成分の比は $(1/2)/1=1/2$ なので $S_{\mathcal N}=-\log(1/2)=\log2$ です。
+**詳細解答。** $s_{\mathcal M}(\rho)=E_{11}$、$s_{\mathcal M}(\sigma)=|+\rangle\langle+|$ であり、$e_1$ は $\operatorname{span}\{|+\rangle\}$ に入らないので支持包含が破れます。[非忠実正規状態へのAraki相対エントロピーの拡張](../AQFT31/index.md#def-aqft31-relative-entropy-extended)から全環の値は無限です。対角環では $\rho|_{\mathcal N}=(1,0)$、$\sigma|_{\mathcal N}=(1/2,1/2)$。支持包含が成立し、唯一の正入力成分の比は $(1/2)/1=1/2$ なので $S_{\mathcal N}=-\log(1/2)=\log2$ です。
 <!-- solution-end -->
 
 ### Level B：核心補題の再導出
@@ -629,7 +629,7 @@ $$
 #### AQFT33-C02 局所Type III環・同一の制限・情報の不可逆消失
 - Level: C
 
-共通の表現にある局所netの領域 $O_1\subset O_2$ について、局所環 $\mathcal M(O_1)\subset\mathcal M(O_2)$ を仮定する。大きい環の正規状態 $\rho,\sigma$ が小さい環では一致するが、大きい環では異なるとする。相対エントロピーの二つの値を比較せよ。局所環がType IIIであることと、等号の回復写像の主張について注意点を述べよ。
+共通の表現にある局所netの領域 $O_1\subset O_2$ について、局所von Neumann環 $\mathcal M(O_1)\subset\mathcal M(O_2)$ を仮定する。大きい環の正規状態 $\rho,\sigma$ が小さい環では一致するが、大きい環では異なるとする。相対エントロピーの二つの値を比較せよ。局所von Neumann環がType IIIであることと、等号の回復写像の主張について注意点を述べよ。
 
 <!-- solution-start -->
 **詳細解答。** 小さい環では $\rho|_{\mathcal M(O_1)}=\sigma|_{\mathcal M(O_1)}$ なので、[AQFT32の零条件](../AQFT32/index.md#thm-aqft32-positivity-rigidity)から相対エントロピーは0です。大きい環では $\rho\ne\sigma$ なので同じ零条件から値は厳密に正、または $+\infty$ です。[本講の単調性](#thm-aqft33-monotonicity)により
