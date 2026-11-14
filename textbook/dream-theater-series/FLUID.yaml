@@ -15,7 +15,7 @@ chapters:
   - { id: FLUID8, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID8, status: completed, title: "理想流体で渦度は何から生まれるか" }
   - { id: FLUID9, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID9, status: completed, title: "循環はいつ保存されるか" }
   - { id: FLUID10, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID10, status: completed, title: "渦は移流・伸長・拡散でどう変わるか" }
-  - { id: FLUID11, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID11, status: planned, title: "流れ関数と速度ポテンシャルはいつ存在するか" }
+  - { id: FLUID11, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID11, status: completed, title: "流れ関数と速度ポテンシャルはいつ存在するか" }
   - { id: FLUID12, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID12, status: planned, title: "単純なポテンシャル流を重ね合わせられるか" }
   - { id: FLUID13, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID13, status: planned, title: "複素ポテンシャルと等角写像は何に効くか" }
   - { id: FLUID14, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID14, status: planned, title: "理想流で揚力と抗力はどう異なるか" }

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="600" height="340" role="img" aria-labelledby="fluid11title fluid11desc" data-layout-lint="strict">
+<title id="fluid11title">一様流の流れ関数線と速度ポテンシャル線</title>
+<desc id="fluid11desc">右向きの一様な速度。水平な実線は一定の流れ関数、鉛直な破線は一定の速度ポテンシャル。二つは直交する。</desc>
+<rect x="30" y="28" width="540" height="276" rx="8" fill="#f9fbfc" stroke="#b6c5cf" stroke-width="1.5"/>
+<g stroke="#267b97" stroke-width="2.2" fill="none" data-series-group="contour" data-series-label="stream-function">
+<path d="M60 80 H540 M60 140 H540 M60 200 H540 M60 260 H540"/>
+</g>
+<g stroke="#9a5d21" stroke-width="2" stroke-dasharray="8 6" fill="none" data-series-group="contour" data-series-label="velocity-potential">
+<path d="M115 52 V282 M215 52 V282 M315 52 V282 M415 52 V282 M515 52 V282"/>
+</g>
+<g stroke="#173e56" stroke-width="3" fill="none" stroke-linecap="round">
+<path d="M232 171 H302"/>
+<path d="M288 163 L302 171 L288 179"/>
+</g>
+</svg>

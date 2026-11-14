@@ -1,0 +1,44 @@
+id: "FLUID11"
+title: "流れ関数と速度ポテンシャルはいつ存在するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID10
+  - VC9
+  - VC2
+official_scope: []
+learning_objectives:
+  - "二次元非圧縮場の流れ関数を長方形上で積分構成し、速度との符号を確かめられる"
+  - "無渦条件から局所速度ポテンシャルを構成し、非圧縮性と無渦性を区別できる"
+  - "閉曲線の循環と流束から大域的存在の必要十分条件を証明し、単連結の役割を説明できる"
+  - "穴あき平面の周回流・放射流で発散、渦度、循環、流束、局所・大域関数を検算できる"
+  - "流れ関数と速度ポテンシャルの Cauchy–Riemann 関係、調和性、等高線直交性を導ける"
+  - "ブラウザ Python で等高線の離散表現と微分残差を区別して確認できる"
+definitions:
+  - { id: FLUID11-DEF-01, name: "速度ポテンシャル" }
+  - { id: FLUID11-DEF-02, name: "閉曲線の速度流束" }
+theorems:
+  - { id: FLUID11-PROP-01, name: "平面非圧縮場の局所流れ関数" }
+  - { id: FLUID11-PROP-02, name: "無渦場の局所速度ポテンシャル" }
+  - { id: FLUID11-THM-01, name: "速度ポテンシャル・流れ関数の大域的存在判定" }
+  - { id: FLUID11-PROP-03, name: "流れ関数と速度ポテンシャルの関係" }
+canonical_examples:
+  - "一様流の流れ関数と速度ポテンシャル"
+  - "剛体回転の流れ関数と局所ポテンシャル不存在"
+  - "穴あき平面の周回流と放射流の対比"
+  - "よどみ点流の調和性・Cauchy–Riemann 関係・直交等高線"
+  - "ブラウザ Python での等高線サンプルと中央差分検算"
+problem_patterns:
+  - FLUID11-STREAM-DIVERGENCE
+  - FLUID11-UNIFORM-POTENTIAL
+  - FLUID11-LOOP-CIRCULATION-FLUX
+  - FLUID11-POTENTIAL-UNIQUENESS
+  - FLUID11-VORTEX-OBSTRUCTION
+  - FLUID11-SOURCE-OBSTRUCTION
+  - FLUID11-CR-STAGNATION
+  - FLUID11-NONSIMPLY-CONNECTED
+  - FLUID11-COMBINED-FLOW
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 3 }
