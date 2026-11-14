@@ -292,7 +292,7 @@ $$
 
 $\rho,\eta$ は全Hilbert空間上のベクトル状態の制限だから正規です。[局所包含の継承](../AQFT9/index.md#thm-aqft9-isotony-locality)により $\mathcal N=\mathcal M(O_1)\subset\mathcal M=\mathcal M(O_2)$ であり、[本章の局所不可視性](#prop-aqft34-local-invisibility)から $\rho|_{\mathcal N}=\eta|_{\mathcal N}$ です。[相対エントロピーの零条件](../AQFT32/index.md#thm-aqft32-positivity-rigidity)をこの**小さい環 $\mathcal N$** に適用して $S_{\mathrm A}^{\mathcal N}=0$ を得ます。
 
-次に仮定した $F$ と[局所Weyl励起状態の位相公式](#def-aqft34-weyl-excitation)から $\rho(W(F))\ne\eta(W(F))$ です。従って $\rho\ne\eta$ は**大きい環 $\mathcal M$** 上の主張です。再び[AQFT32の零条件](../AQFT32/index.md#thm-aqft32-positivity-rigidity)より $S_{\mathrm A}^{\mathcal M}>0$（$+\infty$ を含む）です。
+次に $F$ を命題の仮定で選んだ元とします。[局所Weyl励起状態](#def-aqft34-weyl-excitation)の直接例で導いた位相式に $\sigma(H,F)\notin2\pi\mathbb Z$ を代入すると、$\rho(W(F))\ne\eta(W(F))$ です。従って $\rho\ne\eta$ は**大きい環 $\mathcal M$** 上の主張です。再び[AQFT32の零条件](../AQFT32/index.md#thm-aqft32-positivity-rigidity)より $S_{\mathrm A}^{\mathcal M}>0$（$+\infty$ を含む）です。
 
 最後に、二状態が同一環 $\mathcal M$ 上で正規であり、$\mathcal N\subset\mathcal M$ は単位元を共有することを確認したので、[一般のAraki単調性](../AQFT33/index.md#thm-aqft33-monotonicity)を適用できます。これは $0\le S_{\mathrm A}^{\mathcal M}$ と一致します。どの段階にも有限次元の密度行列や局所部分トレースは使っていません。
 <!-- proof-end -->
