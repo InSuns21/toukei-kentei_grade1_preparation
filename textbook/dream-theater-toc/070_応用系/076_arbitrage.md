@@ -11,3 +11,4 @@
 8. [U4-08 満期方向・ボラティリティ曲面の整合性](textbook/volumes/dream_thater/応用系/U/U4-08/index.md)
 9. [U4-09 気配値の一括監査と最小修正](textbook/volumes/dream_thater/応用系/U/U4-09/index.md)
 10. [U4-10 無裁定と統計的裁定の論理的な距離](textbook/volumes/dream_thater/応用系/U/U4-10/index.md)
+11. [U4-11 価格・対数価格・収益率の定常性を分ける](textbook/volumes/dream_thater/応用系/U/U4-11/index.md)

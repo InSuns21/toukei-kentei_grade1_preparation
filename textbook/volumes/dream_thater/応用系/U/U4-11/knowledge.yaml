@@ -1,0 +1,48 @@
+chapter: U4-11
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-10, TSA1, STO1, F0-00P4]
+forward_references: []
+concepts:
+  - id: finance.arb-price-return-transforms
+    name: 価格・対数価格・収益率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（価格・対数価格・収益率）"]
+    requires: []
+  - id: finance.arb-stationary-transformation
+    name: 時点共通の変換で保たれる強定常性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時点共通の変換で保たれる強定常性）"]
+    requires: [timeseries.strict-implies-second-order]
+  - id: finance.arb-difference-deterministic-trend
+    name: 階差と決定論的線形トレンド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（階差と決定論的線形トレンド）"]
+    requires: [timeseries.second-order-stationarity]
+  - id: finance.arb-ar1-stationary-solution
+    name: 安定な AR(1) の定常解と自己相関
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（安定な AR(1) の定常解と自己相関）"]
+    requires: [timeseries.second-order-stationarity, timeseries.strict-implies-second-order]
+  - id: finance.arb-random-walk-level-difference
+    name: ランダムウォークの非定常水準と定常階差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ランダムウォークの非定常水準と定常階差）"]
+    requires: [finance.arb-difference-deterministic-trend, timeseries.second-order-stationarity]
+  - id: finance.arb-sample-acf
+    name: 標本自己相関
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本自己相関）"]
+    requires: [timeseries.autocovariance-function]
+  - id: finance.arb-trend-sample-acf
+    name: 線形トレンドの標本自己相関
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形トレンドの標本自己相関）"]
+    requires: [finance.arb-sample-acf]
