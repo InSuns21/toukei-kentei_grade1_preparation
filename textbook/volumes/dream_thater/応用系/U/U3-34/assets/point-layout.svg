@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="340" viewBox="0 0 640 340" role="img" aria-labelledby="qmc-title qmc-desc" data-layout-lint="strict">
+  <title id="qmc-title">二次元単位正方形の16点配置の比較</title>
+  <desc id="qmc-desc">左は点が下側に集まった配置の例、右は各セルの中央に1点ある4行4列の均等配置。どちらも16点だが被覆の仕方が違う。</desc>
+  <rect x="42" y="66" width="200" height="200" fill="#f8fbfd" stroke="#334155" stroke-width="2"/>
+  <rect x="392" y="66" width="200" height="200" fill="#fffbf5" stroke="#334155" stroke-width="2"/>
+  <circle cx="58.00" cy="242.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="66.00" cy="226.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="78.00" cy="248.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="90.00" cy="236.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="104.00" cy="240.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="66.00" cy="202.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="98.00" cy="208.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="114.00" cy="222.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="120.00" cy="188.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="146.00" cy="224.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="152.00" cy="194.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="176.00" cy="210.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="164.00" cy="150.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="198.00" cy="144.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="208.00" cy="116.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <circle cx="224.00" cy="100.00" r="5" fill="#2a6475" stroke="#173843" stroke-width="1.4"/>
+  <rect x="412.00" y="236.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="412.00" y="186.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="412.00" y="136.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="412.00" y="86.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="462.00" y="236.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="462.00" y="186.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="462.00" y="136.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="462.00" y="86.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="512.00" y="236.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="512.00" y="186.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="512.00" y="136.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="512.00" y="86.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="562.00" y="236.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="562.00" y="186.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="562.00" y="136.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <rect x="562.00" y="86.00" width="10" height="10" fill="#c77734" stroke="#663b14" stroke-width="1.5"/>
+  <text x="142" y="35" text-anchor="middle" font-size="22" fill="#222" font-family="Arial, sans-serif">Clustered 16 points</text>
+  <text x="492" y="35" text-anchor="middle" font-size="22" fill="#222" font-family="Arial, sans-serif">Regular 4x4 grid</text>
+  <text x="142" y="312" text-anchor="middle" font-size="22" fill="#222" font-family="Arial, sans-serif">u1</text>
+  <text x="492" y="312" text-anchor="middle" font-size="22" fill="#222" font-family="Arial, sans-serif">u1</text>
+  <text x="14" y="175" text-anchor="middle" font-size="22" fill="#222" font-family="Arial, sans-serif">u2</text>
+  <text x="364" y="175" text-anchor="middle" font-size="22" fill="#222" font-family="Arial, sans-serif">u2</text>
+</svg>
