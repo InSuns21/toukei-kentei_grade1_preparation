@@ -1,0 +1,43 @@
+id: "U3-27"
+title: "Itô 積分の数値近似と誤差の実測"
+volume: "foundations"
+status: supplementary
+prerequisites: [STO6, STO7, U3-26]
+official_scope: []
+learning_objectives:
+  - Brown 運動の独立増分を同一路に結合し、適合左端和を数値生成できる
+  - STO6 の確率積分の構成・等長性を使用し、左端近似の二乗平均収束を条件付きで説明できる
+  - Brown 運動を被積分過程とする場合の厳密積分、二次変動による誤差恒等式を導ける
+  - 左端和の二乗平均誤差 T²/(2m) と二乗平均平方根誤差 T/sqrt(2m) を再計算できる
+  - 両端算術平均和と実時刻中点和の違い、および STO7 の Itô–Stratonovich 換算を確認できる
+  - 真の時刻中点和の Stratonovich 目標への二乗平均誤差 T²/(4m) を導出できる
+  - 時間刻み m と独立標本数 n を別々に変え、離散化誤差と誤差推定の標本誤差を区別できる
+  - 近似した同一 Brown 運動を基準に検査し、浮動小数点の桁落ちを離散化誤差と区別できる
+definitions:
+  - { id: U3-27-DEF-01, name: "適合左端和と同一路の積分誤差" }
+  - { id: U3-27-DEF-02, name: "両端対称和と時刻中点和" }
+  - { id: U3-27-DEF-03, name: "同一路二乗誤差の Monte Carlo 実測" }
+theorems:
+  - { id: U3-27-PROP-01, name: "Brown 運動の適合左端和の厳密二乗平均誤差" }
+  - { id: U3-27-PROP-02, name: "中点の選び方と Stratonovich 目標への誤差" }
+canonical_examples:
+  - "T=1,m=2, Delta W=(0.3,-0.1) の適合左端和 -0.03 と厳密 Itô 値 -0.48"
+  - "T=1,m=4,16,64,256 の左端理論RMSEと実時刻中点の理論RMSE"
+  - "半刻み Brown 運動増分を共有する左端和と時刻中点和の Python 実測"
+  - "m=32 固定、n=256,1024,4096 による実測二乗平均誤差の推定精度"
+  - "巨大な定数を加えた被積分過程の桁落ち例"
+problem_patterns:
+  - U3-27-A1
+  - U3-27-A2
+  - U3-27-A3
+  - U3-27-A4
+  - U3-27-A5
+  - U3-27-B1
+  - U3-27-B2
+  - U3-27-B3
+  - U3-27-B4
+  - U3-27-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
