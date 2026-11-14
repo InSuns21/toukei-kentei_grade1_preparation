@@ -403,7 +403,7 @@ $n\ge2$ とし、$X=\mathbb P^n$ への次数1の種数0二標点付き安定写
 <!-- solution-start -->
 **詳細解答**。
 
-**(1) 次数。** [射影空間の接Euler列](../GW1-09/index.md#thm-gw1-09-projective-convex)から $c_1(T\mathbb P^n)=(n+1)H$。直線類 $\beta$ に対して $H\cdot\beta=1$ なので
+**(1) 次数。** [射影空間の接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)から $c_1(T\mathbb P^n)=(n+1)H$。直線類 $\beta$ に対して $H\cdot\beta=1$ なので
 
 $$
 D=n-3+(n+1)+2=2n.
