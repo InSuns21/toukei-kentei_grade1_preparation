@@ -467,7 +467,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各 $L_i>0$ なので $\sum_iL_i^2\le(\sum_iL_i)^2$ からESSは1以上です。一方、Cauchy–Schwarzの不等式 $\left(\sum_iL_i\right)^2\le N\sum_iL_i^2$ からESSは $N$ 以下です。
+各 $L_i>0$ なので $\sum_iL_i^2\le(\sum_iL_i)^2$ からESSは1以上です。一方、[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) $\left(\sum_iL_i\right)^2\le N\sum_iL_i^2$ からESSは $N$ 以下です。
 
 正規シフトの一次モーメントは、密度比の定義から $E_g[L]=\int\phi(y)dy=1$ です。二次モーメントは前命題の平方完成を全実数にわたり積分して
 
