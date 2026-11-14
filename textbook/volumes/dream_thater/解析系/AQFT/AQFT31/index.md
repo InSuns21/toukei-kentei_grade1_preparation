@@ -45,7 +45,7 @@ $p^2=p=p^*$、$\operatorname{Tr}\rho(1-p)=0$ です。さらに $\rho$ の正固
 
 一般の正規状態についても、支持射影の存在を確かめます。$\omega(p)=0$ を満たす射影の族の上限を $e$ とします。有限個の零射影の上限も零射影になることが鍵です。
 
-実際、$\omega(p)=0$ ならCauchy–Schwarz不等式から次の等式が従います。
+実際、$\omega(p)=0$ なら[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から次の等式が従います。
 
 $$
 \omega(pA)=\omega(Ap)=0\qquad(A\in\mathcal M).
@@ -398,7 +398,7 @@ S_{\mathrm A}(\rho\Vert\sigma)
 f_\varepsilon(\lambda)\,d\mu_\rho(\lambda)\right].
 $$
 
-これは一般環にも使える**スペクトル切断による極限**です。証明は次の通りです。$-\log(\max\{\lambda,\varepsilon\})$ は $\varepsilon$ が減ると点ごとに増大します。また $\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$（$0<\varepsilon\le1$）なので、この非負関数列に単調収束定理を適用し、有限な $\int\lambda\,d\mu_\rho$ を最後に引きます。零の質量があれば $\log\varepsilon$ の項が $-\infty$ へ向かい、結果は $+\infty$ です。**状態そのものを混合して忠実化する極限とは別**の操作です。
+これは一般環にも使える**スペクトル切断による極限**です。証明は次の通りです。$-\log(\max\{\lambda,\varepsilon\})$ は $\varepsilon$ が減ると点ごとに増大します。また $\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$（$0<\varepsilon\le1$）なので、この非負関数列に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用し、有限な $\int\lambda\,d\mu_\rho$ を最後に引きます。零の質量があれば $\log\varepsilon$ の項が $-\infty$ へ向かい、結果は $+\infty$ です。**状態そのものを混合して忠実化する極限とは別**の操作です。
 
 ## 6. 有限次元の拡張公式と忠実化極限
 
@@ -710,7 +710,7 @@ $$
 \int\lambda\,d\mu_\rho=\|S\xi_\rho\|^2=\sigma(s(\rho))\le1.
 $$
 
-$g_\varepsilon(\lambda)=\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ は $\varepsilon\downarrow0$ で単調増大します。単調収束定理により $\int g_\varepsilon\,d\mu_\rho$ は有限または $+\infty$ に収束し、そこから有限の $\int\lambda\,d\mu_\rho$ を引けば切断極限を得ます。
+$g_\varepsilon(\lambda)=\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ は $\varepsilon\downarrow0$ で単調増大します。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $\int g_\varepsilon\,d\mu_\rho$ は有限または $+\infty$ に収束し、そこから有限の $\int\lambda\,d\mu_\rho$ を引けば切断極限を得ます。
 
 （a）$\rho=E_{11}$、$\sigma=I_2/2$ なら入力のスペクトル測度は $\lambda=1/2$ に1だけあるので、$0<\varepsilon<1/2$ で切断値は常に $\log2$ です。
 
