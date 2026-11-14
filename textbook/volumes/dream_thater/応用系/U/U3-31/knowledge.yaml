@@ -1,0 +1,41 @@
+chapter: U3-31
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-29]
+concepts:
+  - id: finance.mlmc-coupled-estimator
+    name: 粗細結合差分と MLMC 推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粗細結合差分と MLMC 推定量）"]
+    requires: [finance.gbm-coupled-terminal-errors, numerical.monte-carlo-estimator]
+  - id: finance.mlmc-unbiased-variance
+    name: 望遠和推定量の不偏性・分散・二乗平均誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（望遠和推定量の不偏性・分散・二乗平均誤差）"]
+    requires: [finance.mlmc-coupled-estimator, finance.discretization-mc-mse-decomposition]
+  - id: finance.mlmc-error-cost-budget
+    name: MLMC の誤差予算と更新費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（MLMC の誤差予算と更新費用）"]
+    requires: [finance.mlmc-unbiased-variance]
+  - id: finance.mlmc-optimal-allocation
+    name: 費用最小化のレベル別配分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（費用最小化のレベル別配分）"]
+    requires: [finance.mlmc-error-cost-budget]
+  - id: finance.mlmc-cost-complexity
+    name: バイアス・レベル分散・費用からの MLMC 計算量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（バイアス・レベル分散・費用からの MLMC 計算量）"]
+    requires: [finance.mlmc-optimal-allocation]
+  - id: finance.mlmc-gbm-coupled-moments
+    name: GBM Euler 結合の有限刻み二次モーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GBM Euler 結合の有限刻み二次モーメント）"]
+    requires: [finance.mlmc-coupled-estimator, finance.gbm-strong-orders]

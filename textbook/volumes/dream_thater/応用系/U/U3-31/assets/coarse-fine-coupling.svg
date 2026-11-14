@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="230" viewBox="0 0 720 230" role="img" aria-labelledby="title description" data-layout-lint="strict">
+  <rect x="0" y="0" width="720" height="230" fill="#ffffff" data-layout-ignore="text-overlap: opaque background for dark mode contrast"/>
+  <title id="title">同一 Brown 運動による粗細増分の結合</title>
+  <desc id="description">上段の細格子には4本の増分、下段の粗格子には2本の増分がある。粗格子の各増分は、対応する連続した細格子2増分の和である。端点と中間の共有時刻が垂直破線で結ばれる。</desc>
+  <text x="12" y="81" font-family="sans-serif" font-size="16" fill="#1e293b">fine</text>
+  <text x="12" y="171" font-family="sans-serif" font-size="16" fill="#1e293b">coarse</text>
+  <g stroke="#2563a0" stroke-width="3" fill="none">
+    <path d="M90 85 H610"/>
+  </g>
+  <g stroke="#8a4e18" stroke-width="4" stroke-dasharray="12 6" fill="none">
+    <path d="M90 175 H610"/>
+  </g>
+  <g stroke="#a0a0a0" stroke-width="1.5" stroke-dasharray="4 7">
+    <path d="M90 101 V159"/><path d="M350 101 V159"/><path d="M610 101 V159"/>
+  </g>
+  <g fill="#ffffff" stroke="#2563a0" stroke-width="2.5">
+    <circle cx="90" cy="85" r="7"/><circle cx="220" cy="85" r="7"/><circle cx="350" cy="85" r="7"/><circle cx="480" cy="85" r="7"/><circle cx="610" cy="85" r="7"/>
+  </g>
+  <g fill="#ffffff" stroke="#8a4e18" stroke-width="2.5">
+    <circle cx="90" cy="175" r="7"/><circle cx="350" cy="175" r="7"/><circle cx="610" cy="175" r="7"/>
+  </g>
+  <g font-family="sans-serif" font-size="16" text-anchor="middle" fill="#17243a">
+    <text x="155" y="56">Z1</text><text x="285" y="56">Z2</text><text x="415" y="56">Z3</text><text x="545" y="56">Z4</text>
+    <text x="220" y="148">Z1 + Z2</text><text x="480" y="148">Z3 + Z4</text>
+    <text x="90" y="210">0</text><text x="350" y="210">T/2</text><text x="610" y="210">T</text>
+  </g>
+</svg>

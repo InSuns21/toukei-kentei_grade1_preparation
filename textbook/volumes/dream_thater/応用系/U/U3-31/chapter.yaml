@@ -1,0 +1,42 @@
+id: "U3-31"
+title: "Multilevel Monte Carlo（MLMC）"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-29]
+official_scope: []
+learning_objectives:
+  - 粗格子と細格子を同じ Brown 増分で結合し、差分の期待値が望遠和になることを証明できる
+  - レベル間・レベル内の独立性を区別し、MLMC 推定量の不偏性・分散・RMSE を導出できる
+  - Cauchy–Schwarz の等号条件からレベル別最適標本数と整数丸めの保証を再現できる
+  - バイアス次数 alpha、分散減衰 beta、単位費用 gamma と MLMC の計算量の条件を証明できる
+  - GBM の Euler–Maruyama 法で粗細積の二次モーメントから有限刻みのレベル分散を検算できる
+  - 同じ目標 RMSE で標準 MC と MLMC を、解析的バイアス・分散・更新回数と独立標本実験で比較できる
+  - 非結合経路や非滑らかな支払での理論次数の誤用を説明できる
+definitions:
+  - { id: U3-31-DEF-01, name: "粗細結合差分と MLMC 推定量" }
+  - { id: U3-31-DEF-02, name: "MLMC の誤差予算と更新費用" }
+theorems:
+  - { id: U3-31-PROP-01, name: "望遠和推定量の不偏性・分散・二乗平均誤差" }
+  - { id: U3-31-PROP-02, name: "費用最小化のレベル別配分" }
+  - { id: U3-31-PROP-03, name: "バイアス・レベル分散・費用からの MLMC 計算量" }
+  - { id: U3-31-PROP-04, name: "GBM Euler 結合の有限刻み二次モーメント" }
+canonical_examples:
+  - "2つの細増分の和を粗増分として使う Brown 運動結合"
+  - "V0=9,V1=1,C0=1,C1=8 の最適標本数比"
+  - "GBM で細経路・粗経路・相互積の期待値を独立に計算する"
+  - "固定 seed の Python で目標 RMSE と費用を標準 MC と比較"
+problem_patterns:
+  - U3-31-A1
+  - U3-31-A2
+  - U3-31-A3
+  - U3-31-A4
+  - U3-31-A5
+  - U3-31-B1
+  - U3-31-B2
+  - U3-31-B3
+  - U3-31-B4
+  - U3-31-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
