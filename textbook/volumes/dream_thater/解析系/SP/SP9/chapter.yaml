@@ -1,0 +1,40 @@
+id: "SP9"
+title: "最大不等式・上向き横断・マルチンゲール収束"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2
+  - SP8
+  - SP7
+official_scope: []
+learning_objectives:
+  - 初到達停止時刻からDoob最大不等式を停止時刻の情報まで確認して再導出できる
+  - 二乗可積分マルチンゲールの有限時間最大値のL2評価を導ける
+  - 上向き横断回数を具体的標本路で数え、予測可能売買から不等式を証明できる
+  - 横断回数の一様期待値評価から劣マルチンゲールの有限な概収束を導ける
+  - 一様可積分性とL1有界性の違いを稀な巨大値の反例で説明できる
+  - 一様可積分マルチンゲールのL1収束と終端条件付き期待値表示を証明できる
+  - L2有界マルチンゲールの直交恒等式からL2収束を導ける
+definitions: []
+theorems:
+  - { id: SP9-PROP-01, name: "有限時間の最大値の二乗平均評価" }
+  - { id: SP9-PROP-02, name: "二乗平均有界なマルチンゲールの収束" }
+canonical_examples:
+  - "二回公平コインの最大絶対値の分布"
+  - "一本の標本路の上向き横断三回"
+  - "稀な全勝事象で平均が消えない非UIマルチンゲール"
+  - "減衰コイン和のL2収束と停止歩行の期待時間"
+problem_patterns:
+  - SP9-MAXIMAL-COIN
+  - SP9-UPCROSSING-PATH
+  - SP9-NON-UI-TAIL
+  - SP9-L2-MAXIMAL-RANDOM-WALK
+  - SP9-L2-IMPLIES-UI
+  - SP9-L2-COIN-SERIES
+  - SP9-DETERMINISTIC-UPCROSSING
+  - SP9-TERMINAL-CONDITIONAL-EXPECTATION
+  - SP9-STOPPED-L2-CONVERGENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.0, review: 2.0 }

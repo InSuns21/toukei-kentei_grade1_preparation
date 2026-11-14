@@ -1,0 +1,26 @@
+chapter: SP9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+  - SP8
+  - SP7
+forward_references: []
+concepts:
+  - id: stochastic.martingale-l2-maximal
+    name: 有限時間の最大値の二乗平均評価
+    kind: proposition
+    aliases: [discrete martingale L2 maximal bound]
+    introduction: formal
+    introduction_aliases: ["命題（有限時間の最大値の二乗平均評価）"]
+    requires:
+      - stochastic.doob-maximal-inequality
+  - id: stochastic.martingale-l2-bounded-convergence
+    name: 二乗平均有界なマルチンゲールの収束
+    kind: proposition
+    aliases: [L2 bounded martingale convergence]
+    introduction: formal
+    introduction_aliases: ["命題（二乗平均有界なマルチンゲールの収束）"]
+    requires:
+      - stochastic.submartingale-as-convergence
+      - stochastic.ui-martingale-convergence
