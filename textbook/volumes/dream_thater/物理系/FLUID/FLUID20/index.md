@@ -6,17 +6,28 @@
 
 ## 0. 薄膜とは、何と何が小さいことか
 
-水平な下壁 $z=0$ と上壁 $z=h(x,t)>0$ の間に、一定密度 $\rho>0$、一定動的粘性係数 $\eta>0$ の非圧縮 Newton 流体がある。$x$ は壁に平行な座標、$z$ は下壁から測る高さであり、幅方向 $y$ には何も変化しない**二次元模型**を扱う。速度を $v=(u(x,z,t),w(x,z,t))$ とし、$u$ が $x$ 方向、$w$ が $z$ 方向の成分である。
+水平な下壁 $z=0$ と上壁 $z=h(x,t)>0$ の間に、一定密度 $\rho>0$、一定動的粘性係数 $\eta>0$ の[非圧縮 Newton 流体](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)がある。
+
+壁に平行な座標を $x$、下壁から測る高さを $z$ とする。幅方向 $y$ には何も変化しない**二次元模型**を扱う。
+
+速度を $v=(u(x,z,t),w(x,z,t))$ と書く。$u$ は水平の $x$ 方向成分、$w$ は鉛直の $z$ 方向成分である。
 
 上壁の水平速度を $U_1$、下壁を $U_0$ と書き、壁に流体が追随する[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip)を課す。上下の壁は滑らかで、上壁の傾斜は小さいとする。壁の位置が時刻で変わるときは、**壁の形の変化と壁上の粒子の速度を区別**する必要がある。たとえば上壁の粒子が水平方向に動いても、斜面に沿うなら垂直速度は零とは限らない。
 
 ![固定された収束くさびの上壁と、右向きに動く下壁。入口の隙間が出口より広く、xが右向きであることを示す模式図](assets/thin-film-wedge.svg)
 
-この図では、$h_{\rm in}>h_{\rm out}>0$、上壁は静止し $U_1=0$、下壁は右へ $U_0=U>0$ で動く。後の第4節で入口・出口の圧力を同じにしても、途中に正の圧力が生じることを示す。
+この図では、$h_{\rm in}>h_{\rm out}>0$、上壁は静止し $U_1=0$、下壁は右へ $U_0=U>0$ で動く。後の第3節で入口・出口の圧力を同じにしても、途中に正の圧力が生じることを示す。
 
 代表的な水平長さを $L$、膜厚を $H$、水平速さを $U>0$ とする。膜厚を $H$ で割った無次元関数 $\bar h$ が正の定数から上下に有界で、$x/L$ による一階・二階微分も有界と仮定する。したがって壁の傾斜は $O(H/L)$ である。$O(\cdot)$ は、細長比を零へ近づけたときに、その量を定数倍で抑えられるという意味で使う。
 
-壁の場所が時間とともに変わる場合、流体が壁をすり抜けないためには、壁面の粒子と流体の法線方向の速度が一致しなければならない。上壁の高さを関数 $z=h(x,t)$ で表し、その上での水平方向の壁速度を $U_1$ とすると、壁に沿う粒子の位置 $(x(t),z(t))$ は $z(t)=h(x(t),t)$ を満たす。この微分関係を、壁を通して流体が出入りしない条件として以下で定式化する。
+壁の場所が時間とともに変わる場合、流体が壁をすり抜けないためには、壁面の粒子と流体の法線方向の速度が一致しなければならない。上壁の高さを関数 $z=h(x,t)$ で表し、その上での水平方向の壁速度を $U_1$ とすると、壁に沿う粒子の位置 $(x(t),z(t))$ は $z(t)=h(x(t),t)$ を満たす。このとき、物質点を追う時間微分 $\dot x=dx/dt$、$\dot z=dz/dt$ と、$x$ または $t$ を固定して形状を微分する $\partial_t h$、$\partial_x h$ を区別する。連鎖律を適用すると
+
+$$
+\dot z=\frac{d}{dt}h(x(t),t)
+=\partial_t h(x(t),t)+\dot x\,\partial_x h(x(t),t).
+$$
+
+この関係を壁面の非貫通条件として以下で定式化する。以下では $h_t=\partial_t h$、$h_x=\partial_x h$ とも書く。
 
 <a id="def-fluid20-wall-kinematics"></a>
 
@@ -32,8 +43,10 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid20-wall-kinematics -->
-**定義の確認**：固定形状の斜めの壁 $h(x,t)=H+\alpha x$（$H+\alpha x>0$）で、壁の物質点が接線方向に進み水平方向速度を $U_1$ とすると、$\partial_t h=0$、$\partial_x h=\alpha$ なので $w_{\rm wall}=\alpha U_1$。実際に $x(t)=x_0+U_1t$、$z(t)=H+\alpha(x_0+U_1t)$ と置けば $z(t)=h(x(t),t)$ かつ $\dot z=\alpha U_1$ であり、壁面から離れない。$w_{\rm wall}=0$ と誤って置くと、$\alpha U_1\ne0$ のとき物質点は壁の直線上から外れる。
+**定義の確認**：固定形状の斜めの壁 $h(x,t)=H+\alpha x$（$H+\alpha x>0$）で、壁の物質点が接線方向に進み一定の水平方向速度を $U_1$ とすると、$\partial_t h=0$、$\partial_x h=\alpha$ なので $w_{\rm wall}=\alpha U_1$。実際に $x(t)=x_0+U_1t$、$z(t)=H+\alpha(x_0+U_1t)$ と置けば $z(t)=h(x(t),t)$ かつ $\dot z=\alpha U_1$ であり、壁面から離れない。$w_{\rm wall}=0$ と誤って置くと、$\alpha U_1\ne0$ のとき物質点は壁の直線上から外れる。
 <!-- definition-example-end -->
+
+上で導いた壁面条件に加え、次は「薄い」という仮定を微分方程式の項別比較へ使える形にまとめる。記号 $u\sim U$ は水平速度の代表的な大きさが $U$ 程度という尺度の指定であり、厳密な等号や極限比1を意味しない。$tU/L$ は時刻 $t$ を時間尺度 $L/U$ で無次元化した量である。
 
 <a id="def-fluid20-thin-film"></a>
 
@@ -54,7 +67,7 @@ $$
 
 ### Navier–Stokes の各項を別々に比べる
 
-[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)から、体積力を無視するこの二次元流れでは
+以下、$u_t=\partial_tu$、$u_x=\partial_xu$、$w_z=\partial_zw$ のように、添字 $x,z,t$ は他の変数を固定した偏微分を表す。[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)から、体積力を無視するこの二次元流れでは
 
 $$
 \begin{aligned}
@@ -64,7 +77,7 @@ u_x+w_z&=0.
 \end{aligned}
 $$
 
-添字 $x,z,t$ はその変数についての偏微分である。非圧縮式の $u_x\sim U/L$ と $w_z\sim(\varepsilon U)/H=U/L$ が同じ次数なので、薄膜内の垂直速度は水平速度より小さい。
+非圧縮式の $u_x\sim U/L$ と $w_z\sim(\varepsilon U)/H=U/L$ が同じ次数なので、薄膜内の垂直速度は水平速度より小さい。
 
 無次元座標を $X=x/L$、$Z=z/H$、$T=tU/L$、無次元速度を $\bar u=u/U$、$\bar w=w/(\varepsilon U)$ とし、圧力尺度を
 
@@ -119,7 +132,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid20-width-flux -->
-**定義の確認**：一様厚さ $h=H$ の板で下壁 $U_0=U$、上壁 $U_1=0$、圧力勾配零なら線形速度 $u=U(1-z/H)$ が[Couette 解](../../CTM/CTM16/index.md#thm-ctm16-couette-profile)になる。$u(0)=U$、$u(H)=0$、$u_{zz}=0$ を直接確認できる。定義へ代入すると
+**定義の確認**：厚さが一様な $h=H$ の膜で、下壁が $U_0=U$、上壁が $U_1=0$、圧力勾配が零の場合を考える。
+
+主導方程式 $u_{zz}=0$ の解は $z$ の一次式である。上下の境界条件を代入すると
+
+$$
+u(0)=U,\qquad u(H)=0
+\quad\Longrightarrow\quad u(z)=U\left(1-\frac zH\right).
+$$
+
+座標を $y=H-z$ と反転すると $u=Uy/H$ となる。これは[Couette 解](../../CTM/CTM16/index.md#thm-ctm16-couette-profile)の固定壁と移動壁を上下反転した表示である。上の一次式を微分しても $u_{zz}=0$ なので、運動方程式と両壁条件を確かに満たす。
+
+次に[流量の定義](#def-fluid20-width-flux)へ代入すると
 
 $$
 q=\int_0^H U(1-z/H)\,dz
@@ -291,7 +315,7 @@ $$
 
 ### 証明の見取り図
 
-定常保存則から $q$ は定数。流量公式を $p_x$ について解き、$p(L)-p(0)=0$ となるよう $q$ を選ぶ。くさびの $h$ は一次関数なので、$dx=dh/\alpha$ の置換積分で必要な $h^{-2},h^{-3}$ が計算できる。最大圧力は $p_x=0$ から探す。
+定常保存則から $q$ は定数。流量公式を $p_x$ について解き、$p(L)-p(0)=0$ となるよう $q$ を選ぶ。くさびの $h$ は $dh/dx=\alpha\ne0$ を満たす単調な一次関数なので、$r=h(x)$ と置く一対一の変数変換で $dx=dr/\alpha$ として $h^{-2},h^{-3}$ を積分できる。最大圧力は $p_x=0$ から探す。
 
 <!-- proof-start -->
 ### 証明
@@ -303,7 +327,7 @@ p_x=\frac{12\eta}{h^3}\left(\frac{Uh}{2}-q\right)
 =12\eta\left(\frac U{2h^2}-\frac q{h^3}\right).
 $$
 
-両端の圧力差が零だから、$\int_0^L p_x\,dx=0$ である。$\alpha\ne0$ と $dh=\alpha\,dx$ を使い、
+両端の圧力差が零だから、$\int_0^L p_x\,dx=0$ である。$r=h(x)=h_{\rm in}+\alpha x$ と置けば $dr/dx=\alpha\ne0$ なので、置換積分では $dx=dr/\alpha$ とし、積分端点は $h_{\rm in},h_{\rm out}$ に変わる。したがって
 
 $$
 \begin{aligned}
@@ -352,7 +376,7 @@ $$
 
 ## 4. 動かないくさびがなくても圧力は生じる：押しつぶし膜
 
-二枚の平行板を近づける場合は水平の壁速度が零でも、液体が左右へ追い出される。上板の垂直運動が[運動学的境界条件](#def-fluid20-thin-film)の $h_t$ に現れ、圧力を作る。
+二枚の平行板を近づける場合は水平の壁速度が零でも、液体が左右へ追い出される。上板の垂直運動が[運動学的境界条件](#def-fluid20-wall-kinematics)の $h_t$ に現れ、圧力を作る。
 
 <a id="prop-fluid20-squeeze"></a>
 
@@ -440,14 +464,27 @@ $\mu\mathrm m=10^{-6}\,\mathrm m$。プリセットを切り替え、$H$、$\eta
 
 ### A1. 捨てた項の倍率
 
-$L=20\,\mathrm{mm}$、$H=0.1\,\mathrm{mm}$、$\mathrm{Re}_L=40$ の薄膜を考える。$\varepsilon$、水平粘性に対する縦粘性の係数比、水平慣性に対する縦粘性の係数比を求めよ。
+$L=20\,\mathrm{mm}$、$H=0.1\,\mathrm{mm}$、$\mathrm{Re}_L=40$ の薄膜を考える。$\varepsilon$、鉛直方向の速度勾配による粘性項 $u_{ZZ}$ に対する水平方向の粘性項 $u_{XX}$ の係数比、および同じ $u_{ZZ}$ に対する水平運動の慣性項の係数比を求めよ。
 
 - Level: A
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\varepsilon=H/L=(0.1)/(20)=0.005$。無次元 $x$ 運動方程式の $u_{XX}$ の係数は $\varepsilon^2=2.5\times10^{-5}$、慣性項の係数は $\mathrm{Re}_L\varepsilon^2=40(2.5\times10^{-5})=10^{-3}$。基準とする $u_{ZZ}$ の係数は1なので、両者はそれぞれ $2.5\times10^{-5}$、$10^{-3}$ 倍である。$\mathrm{Re}_L=40$ だけを見て潤滑近似を否定してはならない。
+薄膜比は長さの単位を揃えて
+
+$$
+\varepsilon=\frac{H}{L}=\frac{0.1\,\mathrm{mm}}{20\,\mathrm{mm}}=0.005.
+$$
+
+無次元水平運動方程式で $u_{ZZ}$ の係数は1であり、$u_{XX}$ と慣性項の係数はそれぞれ
+
+$$
+\varepsilon^2=(0.005)^2=2.5\times10^{-5},\qquad
+\mathrm{Re}_L\varepsilon^2=40(2.5\times10^{-5})=10^{-3}.
+$$
+
+よって求める二つの係数比は順に $2.5\times10^{-5}$、$10^{-3}$ である。$\mathrm{Re}_L=40$ だけを見て潤滑近似を否定してはならない。
 <!-- solution-end -->
 
 ### A2. 壁速度を両方変えたときの流量
@@ -521,7 +558,31 @@ $\eta$ の単位を Pa s、$U,V$ の単位を m/s、$h,L$ の単位を m とす�
 <!-- solution-start -->
 #### 詳細解答
 
-$p_x$ は Pa/m だから $[h^3p_x/\eta]=\mathrm{m^3(Pa/m)/(Pa\,s)}=\mathrm{m^2/s}$、単位幅流量である。$[\eta VL^3/H^3]=(\mathrm{Pa\,s})(\mathrm{m/s})=\mathrm{Pa\,m}=\mathrm{N/m}$、押しつぶし膜の単位奥行き荷重である。$[\eta UL/H^2]=(\mathrm{Pa\,s})(\mathrm{m/s})\mathrm m/\mathrm{m^2}=\mathrm{Pa}$、潤滑の圧力尺度である。最後の二つを同じ「圧力」と呼ぶのは単位の取り違えである。
+圧力勾配 $p_x$ の単位は $\mathrm{Pa/m}$ なので、
+
+$$
+\left[\frac{h^3p_x}{\eta}\right]
+=\frac{\mathrm{m^3(Pa/m)}}{\mathrm{Pa\,s}}
+=\mathrm{m^2/s}.
+$$
+
+これは単位幅流量の単位である。次に $L^3/H^3$ は無次元だから、
+
+$$
+\left[\frac{\eta VL^3}{H^3}\right]
+=(\mathrm{Pa\,s})(\mathrm{m/s})
+=\mathrm{Pa\,m}=\mathrm{N/m}.
+$$
+
+これは押しつぶし膜の単位奥行き幅当たりの荷重である。一方、
+
+$$
+\left[\frac{\eta UL}{H^2}\right]
+=\frac{(\mathrm{Pa\,s})(\mathrm{m/s})\,\mathrm m}{\mathrm{m^2}}
+=\mathrm{Pa}.
+$$
+
+これは潤滑圧力の尺度である。荷重 $\mathrm{N/m}$ と圧力 $\mathrm{Pa}$ を同一視しない。
 <!-- solution-end -->
 
 ### Level B
@@ -580,14 +641,14 @@ $$
 
 ### B3. 最大圧力の位置は膜厚で表すと分かる
 
-$h_{\rm in}=3H$、$h_{\rm out}=H$、$U_0=U>0$、$U_1=0$ のくさびで、内部最大圧力を与える位置 $x_*$ を求めよ。$x_*$ では圧力勾配が零であることを $q$ から直接確認せよ。
+B1 と同じ線形くさび $h(x)=3H-2Hx/L$（$0\le x\le L$）、$U_0=U>0$、$U_1=0$、$p(0)=p(L)=0$ で、内部最大圧力を与える位置 $x_*$ を求めよ。$x_*$ では圧力勾配が零であることを $q$ から直接確認せよ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-[B1 の流量](#prop-fluid20-wedge)と同じ公式に $h_{\rm in}=3H$、$h_{\rm out}=H$ を入れると $q=3UH/4$。$p_x=12\eta h^{-3}(Uh/2-q)$ なので $p_x=0$ は $h_*=2q/U=3H/2$ と同値。膜厚 $h(x)=3H-2Hx/L$ から
+[くさびの流量公式](#prop-fluid20-wedge)に $h_{\rm in}=3H$、$h_{\rm out}=H$ を入れると $q=3UH/4$。$p_x=12\eta h^{-3}(Uh/2-q)$ なので $p_x=0$ は $h_*=2q/U=3H/2$ と同値。膜厚 $h(x)=3H-2Hx/L$ から
 
 $$
 3H-\frac{2H}{L}x_*=\frac{3H}{2}
@@ -599,14 +660,26 @@ $$
 
 ### B4. 発散くさびの「負圧」の意味
 
-定常くさびで $0<h_{\rm in}<h_{\rm out}$、$U_0=U>0$、$U_1=0$、両端のゲージ圧を零とする。膜厚が増えるときの $q$、$p_x$ の符号、内部のゲージ圧の符号を導き、それを液体が実際に常に維持できると断定してはいけない理由を述べよ。
+線形に広がる定常くさび $h(x)=h_{\rm in}+(h_{\rm out}-h_{\rm in})x/L$（$0\le x\le L$、$0<h_{\rm in}<h_{\rm out}$）、$U_0=U>0$、$U_1=0$、両端のゲージ圧を零とする。膜厚が増えるときの $q$、$p_x$ の符号、内部のゲージ圧の符号を導き、それを液体が実際に常に維持できると断定してはいけない理由を述べよ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-両端圧力が零で定常なら B1 と同じ積分計算が使え、
+[収束くさびの命題](#prop-fluid20-wedge)は $h_{\rm in}>h_{\rm out}$ を仮定するため、ここには直接適用できない。そこで $\alpha=(h_{\rm out}-h_{\rm in})/L>0$ と置き、[流量公式](#thm-fluid20-flux)の $p_x=12\eta(U/(2h^2)-q/h^3)$ と両端の圧力差零を直接使う。$r=h(x)$ は $dr/dx=\alpha>0$ を満たすので、
+
+$$
+\begin{aligned}
+0&=\int_0^L p_x\,dx
+=\frac{12\eta}{\alpha}\left[
+\frac U2\left(\frac1{h_{\rm in}}-\frac1{h_{\rm out}}\right)
+-\frac q2\left(\frac1{h_{\rm in}^2}-\frac1{h_{\rm out}^2}\right)
+\right].
+\end{aligned}
+$$
+
+括弧を零と置き、$h_{\rm out}\ne h_{\rm in}$ で割って $q$ を解くと
 
 $$
 q=\frac{Uh_{\rm in}h_{\rm out}}{h_{\rm in}+h_{\rm out}}>0,\qquad
