@@ -58,31 +58,31 @@ $$
 <!-- definition-example-start: def-u4-02-price-functional -->
 **定義の確認**：上の表の第1・2列を、それぞれ $B,X$ を1単位持つときの受取額ベクトル $a_B=(100,100)^\top$、$a_X=(120,40)^\top$ と書きます。目標の受取額 $z=(u,d)^\top$ を $B$ の数量 $b$、$X$ の数量 $\xi$ で作る条件は、行列の各行を状態 $U,D$ に対応させると
 
-$
+$$
 z=ba_B+\xi a_X
 \quad\Longleftrightarrow\quad
 100b+120\xi=u,\qquad100b+40\xi=d.
-$
+$$
 
 2式の差から $80\xi=u-d$、これを下状態の式へ代入すると $100b=d-(u-d)/2$ です。従って
 
-$
+$$
 \xi=\frac{u-d}{80},\qquad b=\frac{3d-u}{200}.
-$
+$$
 
 $80\ne0$ なので $b,\xi$ は一意です。次に元の3商品保有量を $h=(h_B,h_X,h_C)^\top$ とします。第3列の受取額は $(a_B+a_X)/2$ ですから
 
-$
+$$
 Ah=\left(h_B+\frac{h_C}{2}\right)a_B
 +\left(h_X+\frac{h_C}{2}\right)a_X,
 \qquad b=h_B+\frac{h_C}{2},\quad\xi=h_X+\frac{h_C}{2}.
-$
+$$
 
 しかも $C$ の価格は $75=(90+60)/2$ なので
 
-$
+$$
 p^\top h=90h_B+60h_X+75h_C=90b+60\xi.
-$
+$$
 
 つまり同じ受取額 $z$ を作るどの $h$ も、唯一の組 $(b,\xi)$ を通じて**同じ費用**を持ち、$\pi(z)$ は表示によらず定まります。さらに $z_1=Ah,z_2=Ak$ と実数 $a,c$ に対し、$A(ah+ck)=az_1+cz_2$ と $p^\top(ah+ck)=ap^\top h+cp^\top k$ が成立するので、定義の**和・実数倍を保つ条件**も満たします。
 <!-- definition-example-end -->
@@ -538,10 +538,10 @@ $h_X>0$ なら負になり裁定ではありません。$h_X=0$ なら初期費�
 
 2状態3商品の価格ベクトル $p$ とペイオフ行列 $A$ を次のように定める（単位は円）。
 
-$
+$$
 p=\begin{pmatrix}90\\60\\75\end{pmatrix},\qquad
 A=\begin{pmatrix}100&120&110\\100&40&70\end{pmatrix}.
-$
+$$
 
 全商品は共通時点で任意の実数量を取引できる。$A^\top q=p$ を解き、全成分の符号と第3商品価格を検算せよ。
 
