@@ -20,6 +20,15 @@ $\mathcal M$ の二つの忠実正規状態を、同じ標準表現の自然正�
 
 非負自己共役作用素 $\Delta_{\sigma\mid\rho}$ の対数はスペクトル定理で定めます。無限次元では対数が非有界になりうるので、単純にすべてのベクトルへ $\log\Delta$ を適用できるわけではありません。以下の内積は、適切な対数の**スペクトル積分**として読むことにします。
 
+具体的には、相対作用素のスペクトル射影を $E_\Delta(B)$（$B$ は正の実数のBorel集合）と書き、入力ベクトル $\xi_\rho$ がその射影に持つ重みを
+
+$$
+\mu_\rho(B):=\langle\xi_\rho,E_\Delta(B)\xi_\rho\rangle
+=\|E_\Delta(B)\xi_\rho\|^2
+$$
+
+と置きます。忠実な状態について相対作用素に核はなく、$\|\xi_\rho\|=1$ なので $\mu_\rho((0,\infty))=1$ です。有限次元ではこれは、各固有方向に射影したベクトルの係数の絶対値二乗を足したものです。**定義の積分が固有値と重みの和になる根拠**を、次の二点例で確認します。
+
 <a id="def-aqft30-araki-relative-entropy"></a>
 
 <!-- formal-statement-start -->
@@ -45,7 +54,7 @@ $$
 > と通常の内積で書ける。$\log$ は自然対数である。
 <!-- formal-statement-end -->
 
-ここで $\mu_\rho(B)=\langle\xi_\rho,E_\Delta(B)\xi_\rho\rangle$ はスペクトル射影 $E_\Delta$ から作る確率測度です。$\|\xi_\rho\|=1$ だから全質量は1です。さらに $S_{\sigma\mid\rho}\xi_\rho=\xi_\sigma$ と $\Delta=S^\sharp S$ から
+この定義が発散の符号を取り違えないことも確認します。[相対Tomita初期作用素の定義](../AQFT29/index.md#def-aqft29-relative-tomita)では $S_{\sigma\mid\rho}\xi_\rho=\xi_\sigma$ です。また[相対モジュラー作用素の定義](../AQFT29/index.md#def-aqft29-relative-modular)の $\Delta=S^\sharp S$ から
 
 $$
 \int_{(0,\infty)}\lambda\,d\mu_\rho(\lambda)
@@ -58,12 +67,47 @@ $$
 <!-- definition-example-start: def-aqft30-araki-relative-entropy -->
 ### 直接例：可換な二点環で定義を確かめる
 
-$\mathcal M=\{\operatorname{diag}(a,b):a,b\in\mathbb C\}$ を $\mathbb C^2$ 上で考え、$0<p,q<1$ とします。$\xi_\rho=(\sqrt p,\sqrt{1-p})$、$\xi_\sigma=(\sqrt q,\sqrt{1-q})$ はどちらもノルム1で、両成分が非零なので巡回的かつ分離的です。[AQFT29の対角作用素の計算](../AQFT29/index.md#def-aqft29-relative-modular)を、入力 $p$・出力 $q$ に適用すると
+$\mathcal M=\{\operatorname{diag}(a,b):a,b\in\mathbb C\}$ を $\mathbb C^2$ 上に作用させ、$0<p,q<1$ とします。状態を
+
+$$
+\rho(\operatorname{diag}(a,b))=pa+(1-p)b,\qquad
+\sigma(\operatorname{diag}(a,b))=qa+(1-q)b
+$$
+
+と定めます。係数は正で和が1なので、両者は忠実な正規状態です。代表ベクトル $\xi_\rho=(\sqrt p,\sqrt{1-p})$、$\xi_\sigma=(\sqrt q,\sqrt{1-q})$ は
+
+$$
+\|\xi_\rho\|^2=p+(1-p)=1,\qquad
+\langle\xi_\rho,A\xi_\rho\rangle=\rho(A)
+$$
+
+を満たし、$\sigma$ 側も同様です。さらに $A=\operatorname{diag}(a,b)$ に対し
+
+$$
+A\xi_\rho=(a\sqrt p,b\sqrt{1-p})
+$$
+
+です。任意の $x=(x_1,x_2)\in\mathbb C^2$ は $a=x_1/\sqrt p$, $b=x_2/\sqrt{1-p}$ と選べば $A\xi_\rho=x$ と表せるため**巡回的**です。$A\xi_\rho=0$ なら $a=b=0$ なので**分離的**でもあります。$q$ 側も同じ理由で二条件を満たします。
+
+では、なぜ相対作用素を対角行列で判定できるのでしょうか。[相対Tomita作用素の定義](../AQFT29/index.md#def-aqft29-relative-tomita)に $x=A\xi_\rho$ を代入すると
+
+$$
+\begin{aligned}
+S_{\sigma\mid\rho}(x_1,x_2)
+&=A^*\xi_\sigma\\
+&=\left(\sqrt{\frac qp}\,\overline{x_1},
+\sqrt{\frac{1-q}{1-p}}\,\overline{x_2}\right).
+\end{aligned}
+$$
+
+この反線形写像の係数は実数かつ正なので、反線形随伴 $S^\sharp$ も同じ形です。[相対モジュラー作用素 $\Delta=S^\sharp S$](../AQFT29/index.md#def-aqft29-relative-modular) を合成すれば
 
 $$
 \Delta_{\sigma\mid\rho}
 =\operatorname{diag}\left(\frac qp,\frac{1-q}{1-p}\right).
 $$
+
+標準基底 $e_1,e_2$ がこの対角作用素の固有方向であり、$\xi_\rho=\sqrt p\,e_1+\sqrt{1-p}\,e_2$ です。したがって射影のノルム二乗から重みは $p,1-p$ となります。固有値が一致する場合は同じ固有値への重みを合算します。
 
 両固有値が正なので対数を取れます。$\xi_\rho$ の固有方向への重みは $p,1-p$ ですから、定義のスペクトル積分を実際に計算すると
 
@@ -82,7 +126,7 @@ $$
 
 $\rho$ と $\sigma$ が非可換なら、$\log(\sigma\rho^{-1})$ を密度行列の対数として扱うのは誤りです。そもそも比較する作用素は $X\mapsto\sigma X\rho^{-1}$ であって、$\sigma\rho^{-1}$ を左から掛ける作用素ではありません。
 
-[Hilbert–Schmidt空間と左右乗算](../AQFT20/index.md#def-aqft20-hilbert-schmidt)の内積を $\langle X,Y\rangle_2=\operatorname{Tr}(X^*Y)$ とします。$\rho,\sigma\in M_n(\mathbb C)$ を正定値・トレース1とし、それぞれの正規直交固有基底を別々に選びます。
+[Hilbert–Schmidt空間と左右乗算](../AQFT20/index.md#def-aqft20-hilbert-schmidt)では、$M_n(\mathbb C)$ の行列 $X$ をベクトルとみなし、内積を $\langle X,Y\rangle_2=\operatorname{Tr}(X^*Y)$、左右乗算を $L_A(X)=AX$、$R_B(X)=XB$（$A,B\in M_n(\mathbb C)$）と定めます。$\rho,\sigma\in M_n(\mathbb C)$ を正定値・トレース1とし、それぞれの正規直交固有基底を別々に選びます。
 
 $$
 \rho v_j=r_jv_j,\qquad
@@ -435,9 +479,23 @@ $$
 #### AQFT30-A01 二点の対数平均
 - Level: A
 
-$\rho=\operatorname{diag}(3/4,1/4)$、$\sigma=I_2/2$ とする。相対作用素の固有値と入力状態の重みを求め、自然対数の $S_{\mathrm A}(\rho\Vert\sigma)$ を計算せよ。
+$\rho=\operatorname{diag}(3/4,1/4)$、$\sigma=I_2/2$ とする。Hilbert–Schmidt空間 $H_2=M_2(\mathbb C)$ 上の相対作用素の**全固有値（重複度を含む）**と、入力ベクトル $\rho^{1/2}$ に関する各固有方向の重みを求め、自然対数の $S_{\mathrm A}(\rho\Vert\sigma)$ を計算せよ。
 
-**詳細解答。** [混合固有基底の補題](#lem-aqft30-mixed-spectrum)の可換な場合なので、$\rho^{1/2}$ に重なる対角方向だけでよいです。対応する固有値は $(1/2)/(3/4)=2/3$ と $(1/2)/(1/4)=2$、重みは $3/4,1/4$ です。従って
+**詳細解答。** [混合固有基底の補題](#lem-aqft30-mixed-spectrum)を用います。$\rho$ の固有基底を $e_1,e_2$ とすると、$\sigma=I_2/2$ は同じ基底で対角化できます。行列単位 $E_{ij}=|e_i\rangle\langle e_j|$ に対し
+
+$$
+\Delta_{\sigma\mid\rho}(E_{ij})
+=\frac{1/2}{r_j}E_{ij},\qquad
+r_1=\frac34,\quad r_2=\frac14.
+$$
+
+したがって $E_{11},E_{21},E_{12},E_{22}$ の順に固有値は $2/3,2/3,2,2$ です。一方、入力ベクトルは
+
+$$
+\rho^{1/2}=\frac{\sqrt3}{2}E_{11}+\frac12E_{22}
+$$
+
+なので、同じ順の重みは $3/4,0,0,1/4$ です。**固有値は4方向に存在しますが、対数の期待値に寄与するのは2方向だけ**です。従って
 
 $$
 \begin{aligned}
@@ -747,7 +805,19 @@ S_{\mathrm A}(\rho_{AB}\Vert\sigma_{AB})
 =\frac34\log3-\frac23\log2.
 $$
 
-(3) 部分トレースの定義から、$\operatorname{Tr}_B(\rho_A\otimes\rho_B)=\rho_A\operatorname{Tr}\rho_B=\rho_A$、同様に $\operatorname{Tr}_B\sigma_{AB}=\sigma_A$。従って残る値は $\frac34\log3-\log2$、差は
+(3) [部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を $B$ の正規直交基底 $(f_j)$ で用いると、任意の積行列に対して
+
+$$
+\begin{aligned}
+\operatorname{Tr}_B(X\otimes Y)
+&=\sum_j(I_A\otimes\langle f_j|)(X\otimes Y)
+(I_A\otimes|f_j\rangle)\\
+&=X\sum_j\langle f_j,Yf_j\rangle
+=X\operatorname{Tr}Y.
+\end{aligned}
+$$
+
+両方の $B$ 側の密度行列のトレースは1なので、$\operatorname{Tr}_B\rho_{AB}=\rho_A$、$\operatorname{Tr}_B\sigma_{AB}=\sigma_A$ です。従って残る値は $\frac34\log3-\log2$、差は
 
 $$
 S_{\mathrm A}(\rho_{AB}\Vert\sigma_{AB})
