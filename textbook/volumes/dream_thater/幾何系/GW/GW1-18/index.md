@@ -30,7 +30,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-18-plane-count -->
-**定義の確認**（二点を通る直線）。$d=1$ を代入すると $k=3\cdot1-1=2$。一般の相異なる二点を $p_1,p_2$ とし、点挿入 $P$ をそれぞれの点のPoincaré双対類として選ぶ。まず[凸標的の次元公式](../GW1-10/index.md#thm-gw1-10-smooth-dimension)により
+**定義の確認**（二点を通る直線）。$d=1$ を代入すると $k=3\cdot1-1=2$。一般の相異なる二点を $p_1,p_2$ とし、点挿入 $P$ をそれぞれの点のPoincaré双対類として選ぶ。[凸標的の種数0モジュライの滑らかさと次元](../GW1-10/index.md#thm-gw1-10-smooth-dimension)を次数1・二標点の場合に適用すると
 
 $$
 D(1,2)=2-3+3+2=4,
