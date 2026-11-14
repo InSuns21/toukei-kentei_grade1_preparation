@@ -1,0 +1,46 @@
+id: "FLUID10"
+title: "渦は移流・伸長・拡散でどう変わるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID9
+  - CTM15
+official_scope: []
+learning_objectives:
+  - "一定密度・一定粘性の Navier–Stokes 方程式から渦度輸送式を curl の交換・伸長項の符号を含め導ける"
+  - "二次元の伸長消失と粘性渦度移流拡散を証明し、厳密な時間減衰せん断流で判定できる"
+  - "符号付き総渦度の可積分性と境界の移流・拡散流束の仮定を区別して保存を証明できる"
+  - "Gaussian 渦の速度・渦度・圧力を照合し、渦度輸送式と Navier–Stokes を別々に検算できる"
+  - "中心値・拡散幅・固定円板内渦度・無限平面の総渦度を計算し、その違いを説明できる"
+  - "三次元伸長・回転流の厳密解で圧力・発散・渦伸長・粘性拡散を検算できる"
+  - "ブラウザ Python の円板積分誤差・有限差分残差・円板外の尾部を区別して評価できる"
+definitions:
+  - { id: FLUID10-DEF-01, name: "平面の総渦度" }
+  - { id: FLUID10-DEF-02, name: "Gaussian 渦の初期値と拡散幅" }
+theorems:
+  - { id: FLUID10-THM-01, name: "一定密度・一定粘度の渦度輸送方程式" }
+  - { id: FLUID10-PROP-01, name: "二次元非圧縮流の渦度移流拡散式" }
+  - { id: FLUID10-PROP-02, name: "流束が消える場合の総渦度保存" }
+  - { id: FLUID10-THM-02, name: "Gaussian 渦の Navier–Stokes 厳密解" }
+  - { id: FLUID10-PROP-03, name: "三次元伸長・回転流の厳密解" }
+canonical_examples:
+  - "周期的せん断場の厳密粘性減衰と二次元伸長消失"
+  - "正負Gaussian山による符号付き総渦度の相殺"
+  - "Gaussian渦の中心低下と拡散幅増大、固定円板と全平面の積分差"
+  - "円周方向速度と半径方向圧力からNavier–Stokesを検算"
+  - "三次元線形伸長・回転場の圧力と渦度の指数増幅"
+  - "ブラウザPythonによる台形積分・Cartesian差分の独立検算"
+problem_patterns:
+  - FLUID10-UNITS
+  - FLUID10-2D-STRETCHING
+  - FLUID10-GAUSSIAN-WIDTH
+  - FLUID10-TOTAL-VORTICITY
+  - FLUID10-SHEAR-DECAY
+  - FLUID10-3D-STRETCHING
+  - FLUID10-GAUSSIAN-PDE
+  - FLUID10-WALL-FLUX
+  - FLUID10-INTEGRATED-GAUSSIAN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

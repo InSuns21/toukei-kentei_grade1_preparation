@@ -10,3 +10,4 @@
 7. [FLUID7 似た流れを同じ模型で表せる条件は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID7/index.md)
 8. [FLUID8 理想流体で渦度は何から生まれるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID8/index.md)
 9. [FLUID9 循環はいつ保存されるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID9/index.md)
+10. [FLUID10 渦は移流・伸長・拡散でどう変わるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID10/index.md)

@@ -1,0 +1,49 @@
+chapter: FLUID10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID9
+  - CTM15
+concepts:
+  - id: fluid.viscous-vorticity-transport
+    name: 一定密度・一定粘度の渦度輸送方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一定密度・一定粘度の渦度輸送方程式）"]
+    requires: [fluid.vorticity-euler-transport, continuum.incompressible-navier-stokes]
+  - id: fluid.planar-vorticity-diffusion
+    name: 二次元非圧縮流の渦度移流拡散式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次元非圧縮流の渦度移流拡散式）"]
+    requires: [fluid.viscous-vorticity-transport, fluid.2d-vorticity-transport]
+  - id: fluid.total-planar-vorticity
+    name: 平面の総渦度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面の総渦度）"]
+    requires: [vector-calculus.vorticity]
+  - id: fluid.total-vorticity-flux-conservation
+    name: 流束が消える場合の総渦度保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（流束が消える場合の総渦度保存）"]
+    requires: [fluid.planar-vorticity-diffusion, fluid.total-planar-vorticity]
+  - id: fluid.gaussian-vortex
+    name: Gaussian 渦の初期値と拡散幅
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian 渦の初期値と拡散幅）"]
+    requires: [fluid.total-planar-vorticity, fluid.planar-vorticity-diffusion]
+  - id: fluid.gaussian-vortex-solution
+    name: Gaussian 渦の Navier–Stokes 厳密解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Gaussian 渦の Navier–Stokes 厳密解）"]
+    requires: [fluid.gaussian-vortex, fluid.planar-vorticity-diffusion, continuum.incompressible-navier-stokes]
+  - id: fluid.three-dimensional-stretching-solution
+    name: 三次元伸長・回転流の厳密解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元伸長・回転流の厳密解）"]
+    requires: [fluid.viscous-vorticity-transport, continuum.incompressible-navier-stokes]
