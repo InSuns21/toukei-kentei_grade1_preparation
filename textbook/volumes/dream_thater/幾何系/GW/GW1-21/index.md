@@ -24,21 +24,21 @@ $$
 > **定義（局所有限次元縮約）**  
 > 実Banach空間 $B,E$ の間の $C^2$ 写像 $F:U\to E$ が $F(0)=0$ を満たし、$D=dF_0$ がFredholmであるとする。上記の直和分解の下で、$k\in K$ に対し $B_1$ 方向の方程式
 >
-> $$
-> PF(k+b)=0
-> $$
+$$
+PF(k+b)=0
+$$
 >
 > を満たす $b=\phi(k)\in B_1$ を局所的に選び、残る有限次元方程式を
 >
-> $$
-> \kappa(k)=RF(k+\phi(k))\in E_1
-> $$
+$$
+\kappa(k)=RF(k+\phi(k))\in E_1
+$$
 >
 > と表したものを、$F=0$ の **局所有限次元縮約** という。$K,E_1$ と分解は選択に依存する。一般の解集合の同一性を主張するには、$\phi$ の存在と一意性を別途示す必要がある。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-21-reduction -->
-**定義の直接例**。$B=E=\mathbb R^2$、$F(x,y)=(x,y^2)$ とする。原点で $D(a,b)=(a,0)$ なので $K=\{(0,y)\}$、$B_1=\{(x,0)\}$、$\operatorname{im}D=\{(x,0)\}$、$E_1=\{(0,z)\}$ と取る。射影は $P(u,v)=(u,0)$、$R(u,v)=(0,v)$ であり、$PF(x,y)=(x,0)=0$ の唯一の解は $x=0$。従って $\phi(y)=0$、$\kappa(y)=y^2$ である。元の方程式 $x=0,y^2=0$ と縮約方程式 $y^2=0$ は、零点集合として局所的に同じである。$\dim_{\mathbb R}K-\dim_{\mathbb R}E_1=1-1=0$ も直接確認できた。
+**定義の確認**。$B=E=\mathbb R^2$、$F(x,y)=(x,y^2)$ とする。原点で $D(a,b)=(a,0)$ なので $K=\{(0,y)\}$、$B_1=\{(x,0)\}$、$\operatorname{im}D=\{(x,0)\}$、$E_1=\{(0,z)\}$ と取る。射影は $P(u,v)=(u,0)$、$R(u,v)=(0,v)$ であり、$PF(x,y)=(x,0)=0$ の唯一の解は $x=0$。従って $\phi(y)=0$、$\kappa(y)=y^2$ である。元の方程式 $x=0,y^2=0$ と縮約方程式 $y^2=0$ は、零点集合として局所的に同じである。$\dim_{\mathbb R}K-\dim_{\mathbb R}E_1=1-1=0$ も直接確認できた。
 <!-- definition-example-end -->
 
 ここで「一部の方程式を解く」という手順が本当に機能することを示す。これは一般のKuranishi構造の存在定理そのものではなく、**単一のFredholm零点の近く**での命題である。
@@ -51,23 +51,23 @@ $$
 > 核 $K$ と閉補空間 $B_1$、像と閉補空間 $E_1$ による上述の直和分解、射影 $P,R$ を固定する。
 > このとき $K$ の原点近傍で唯一の $C^2$ 写像 $\phi:K\to B_1$ が存在し、次の条件を満たす。
 >
-> $$
-> \phi(0)=0,\qquad d\phi_0=0,\qquad PF(k+\phi(k))=0.
-> $$
+$$
+\phi(0)=0,\qquad d\phi_0=0,\qquad PF(k+\phi(k))=0.
+$$
 >
 > さらに、十分小さい原点近傍で
 >
-> $$
-> F^{-1}(0)=\{k+\phi(k):\kappa(k)=0\},\qquad
-> \kappa(k)=RF(k+\phi(k))
-> $$
+$$
+F^{-1}(0)=\{k+\phi(k):\kappa(k)=0\},\qquad
+\kappa(k)=RF(k+\phi(k))
+$$
 >
 > が成り立ち、$\kappa(0)=0$、$d\kappa_0=0$ である。また
 >
-> $$
-> \dim_{\mathbb R}K-\dim_{\mathbb R}E_1
-> =\operatorname{ind}_{\mathbb R}D.
-> $$
+$$
+\dim_{\mathbb R}K-\dim_{\mathbb R}E_1
+=\operatorname{ind}_{\mathbb R}D.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -184,7 +184,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-21-pseudocycle -->
-**定義の直接例**。$M=S^2\setminus\{p\}$ とし、球面 $Y=S^2$ への包含 $f$ を考える。$M$ は境界なしの向き付き実2次元多様体で、像の閉包は $S^2$ そのものだからコンパクトである。
+**定義の確認**。$M=S^2\setminus\{p\}$ とし、球面 $Y=S^2$ への包含 $f$ を考える。$M$ は境界なしの向き付き実2次元多様体で、像の閉包は $S^2$ そのものだからコンパクトである。
 
 コンパクト集合 $K\subset M$ を避ける点列の球面内での極限は、除去点 $p$ だけに限られる。逆に $p$ に近づく点列は、どのコンパクト $K\subset M$ からも最終的に外れる。従って
 
