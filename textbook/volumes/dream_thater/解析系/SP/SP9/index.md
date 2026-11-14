@@ -4,11 +4,11 @@
 
 [STO2 の最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)・[上向き横断不等式](../../STO/STO2/index.md#thm-sto2-upcrossing)・[概収束定理](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)・[一様可積分マルチンゲール収束定理](../../STO/STO2/index.md#thm-sto2-ui-martingale-convergence)は既習です。本章ではこれらの正本を参照しながら、停止時刻・取引戦略・極限交換の中間計算を再構成し、二乗平均に関する帰結を導きます。
 
-以下、$(\Omega,\mathcal F,P)$ は確率空間、$(\mathcal F_n)_{n\ge0}$ はフィルトレーション、過程は実数値・適合、$X_n$ は各 $n$ で可積分とします。$x^+=\max(x,0)$、$x^-=\max(-x,0)$、$X^*_n=\max_{0\le k\le n}|X_k|$ と書きます。「概確実」は確率 $1$ の意味です。独立公平コイン $\xi_1,\xi_2,\ldots$ を使う例・演習では、別途断らない限り $\mathcal F_0=\{\varnothing,\Omega\}$、$\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)$ とします。コイン同士が独立であるだけでなく、$\xi_{n+1}$ が $\mathcal F_n$ と独立になることを、マルチンゲール性の判定で用います。
+以下、$(\Omega,\mathcal F,P)$ は確率空間、$(\mathcal F_n)_{n\ge0}$ はフィルトレーション、過程は実数値・適合、$X_n$ は各 $n$ で可積分とします。$x^+=\max(x,0)$、$x^-=\max(-x,0)$、$X^*_n=\max_{0\le k\le n}|X_k|$ と書きます。「概確実」は確率 $1$ の意味です。独立公平コイン $\xi_1,\xi_2,\ldots$ を使う例・演習では、[自然フィルトレーション](../../STO/STO1/index.md#def-sto1-adapted-natural-filtration)として、別途断らない限り $\mathcal F_0=\{\varnothing,\Omega\}$、$\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)$ とします。コイン同士が独立であるだけでなく、$\xi_{n+1}$ が $\mathcal F_n$ と独立になることを、マルチンゲール性の判定で用います。
 
 ## 1. 最終値から途中の最大値をどう抑えるか
 
-劣マルチンゲールの時刻 $n$ の平均は増加しますが、単純に各 $k$ へ [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を当てると $n+1$ 個の上界を足すことになります。一方、最大値が初めて水準 $\lambda$ を超えた瞬間に止めれば、途中の事象を一つにまとめられます。
+[劣マルチンゲール](../../STO/STO2/index.md#def-sto2-martingale)の時刻 $n$ の平均は増加しますが、単純に各 $k$ へ [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を当てると $n+1$ 個の上界を足すことになります。一方、最大値が初めて水準 $\lambda$ を超えた瞬間に止めれば、途中の事象を一つにまとめられます。
 
 [Doob 最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)の結論は、劣マルチンゲール $X_0,\ldots,X_n$ と $\lambda>0$ について
 
@@ -26,7 +26,7 @@ $$
 \tau=\inf\{k\ge0:X_k\ge\lambda\},\qquad \sigma=\tau\wedge n
 $$
 
-とします。$\{\tau\le m\}=\bigcup_{k=0}^m\{X_k\ge\lambda\}\in\mathcal F_m$ なので $\tau$ は停止時刻です。また $A\in\mathcal F_\sigma$ です。実際、$m<n$ なら $A\cap\{\sigma\le m\}=\{\tau\le m\}\in\mathcal F_m$、$m\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_m$ です。
+とします。$\{\tau\le m\}=\bigcup_{k=0}^m\{X_k\ge\lambda\}\in\mathcal F_m$ なので $\tau$ は停止時刻です。また[停止時刻までの情報 $\mathcal F_\sigma$](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)の定義から $A\in\mathcal F_\sigma$ です。実際、$m<n$ なら $A\cap\{\sigma\le m\}=\{\tau\le m\}\in\mathcal F_m$、$m\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_m$ です。
 
 [有界任意抽出定理](../../STO/STO2/index.md#thm-sto2-bounded-optional-sampling)を $\sigma\le n$ に使うと、条件付き不等式
 
