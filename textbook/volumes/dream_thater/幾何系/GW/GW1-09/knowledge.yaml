@@ -1,0 +1,71 @@
+chapter: GW1-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-08
+  - GW1-03
+  - CM2-07
+  - AG2-09
+  - AG2-10
+  - AG3-08
+concepts:
+  - id: gromov-witten.fixed-domain-deformation-obstruction
+    name: 固定定義域の変形空間と障害空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定定義域の変形空間と障害空間）"]
+    requires: [complex-manifolds.holomorphic-vector-bundle, algebraic-geometry.sheaf-cohomology]
+  - id: gromov-witten.first-order-obstruction
+    name: 一次変形と貼り合わせ障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次変形と貼り合わせ障害）"]
+    requires: [gromov-witten.fixed-domain-deformation-obstruction, algebraic-geometry.connecting-cech]
+  - id: gromov-witten.convex-projective-target
+    name: 種数0に関する凸な射影標的
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0に関する凸な射影標的）"]
+    requires: [gromov-witten.fixed-domain-deformation-obstruction]
+  - id: gromov-witten.global-generation-on-curves
+    name: 正則ベクトル束の大域生成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則ベクトル束の大域生成）"]
+    requires: [complex-manifolds.holomorphic-vector-section]
+  - id: gromov-witten.global-generation-h1-vanishing
+    name: 大域生成から球面上のH1消滅
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（大域生成から球面上のH1消滅）"]
+    requires: [gromov-witten.global-generation-on-curves, algebraic-geometry.sheaf-cohomology-les, algebraic-geometry.p1-sheaf-cohomology]
+  - id: gromov-witten.projective-space-convex
+    name: 射影空間の凸性と変形次元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影空間の凸性と変形次元）"]
+    requires: [gromov-witten.convex-projective-target, algebraic-geometry.projective-tangent-euler, algebraic-geometry.p1-sheaf-cohomology]
+  - id: gromov-witten.grassmann-convex
+    name: Grassmann多様体の接束と凸性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Grassmann多様体の接束と凸性）"]
+    requires: [gromov-witten.global-generation-h1-vanishing, gromov-witten.convex-projective-target]
+  - id: gromov-witten.smooth-map-local-dimension
+    name: 凸標的への滑らかな球面写像の局所自由度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（凸標的への滑らかな球面写像の局所自由度）"]
+    requires: [gromov-witten.convex-projective-target, gromov-witten.dolbeault-rr-index, gromov-witten.linearization]
+  - id: gromov-witten.nodal-matching-h1
+    name: 種数0の節点付き写像の切断と障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（種数0の節点付き写像の切断と障害）"]
+    requires: [gromov-witten.stable-map, gromov-witten.global-generation-h1-vanishing]
+  - id: gromov-witten.negative-normal-nonconvex
+    name: 負の正規束を持つ射影標的は凸でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（負の正規束を持つ射影標的は凸でない）"]
+    requires: [gromov-witten.convex-projective-target, algebraic-geometry.hypersurface-normal-tangent, algebraic-geometry.p1-sheaf-cohomology]
