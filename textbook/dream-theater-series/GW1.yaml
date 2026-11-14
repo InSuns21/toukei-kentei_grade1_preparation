@@ -64,7 +64,7 @@ chapters:
     title: "最初の不変量を手で求める"
   - id: GW1-15
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-15
-    status: planned
+    status: completed
     title: "GWの基本公理と分裂公式"
   - id: GW1-16
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-16
