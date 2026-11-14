@@ -1,0 +1,47 @@
+id: "AQFT31"
+title: "非忠実状態・支持射影・無限値"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT20
+  - AQFT29
+  - AQFT30
+learning_objectives:
+  - 正規状態の支持射影を定義し、有限行列で最小性と忠実性を直接検査できる
+  - 支持の包含とTr rho(1-s(sigma))=0の同値性を証明できる
+  - 非忠実な入力で素朴な相対Tomita作用素が一価でない反例を示し、支持付き作用素の可閉性を証明できる
+  - 有限次元の相対モジュラー作用素を疑似逆から求め、零固有値の入力重みを検算できる
+  - Araki相対エントロピーの非忠実正規状態への拡張で支持条件とスペクトル切断の極限を区別できる
+  - 非可換な非忠実密度行列でも有限次元公式を導き、無限値の発散機構を説明できる
+  - 有限次元の忠実化極限を支持包含の有無で分けて証明でき、一般環への適用境界を説明できる
+definitions:
+  - { id: AQFT31-DEF-01, name: "正規状態の支持射影" }
+  - { id: AQFT31-DEF-02, name: "支持付き相対Tomita作用素" }
+  - { id: AQFT31-DEF-03, name: "非忠実正規状態へのAraki相対エントロピーの拡張" }
+theorems:
+  - { id: AQFT31-PROP-01, name: "有限次元における支持包含の判定" }
+  - { id: AQFT31-PROP-02, name: "修正作用素の一価性・稠密性・可閉性" }
+  - { id: AQFT31-THM-01, name: "非忠実有限行列の相対モジュラー作用素" }
+  - { id: AQFT31-THM-02, name: "非忠実有限次元のトレース公式と発散条件" }
+  - { id: AQFT31-PROP-03, name: "有限次元における忠実化極限" }
+canonical_examples:
+  - 三準位の非忠実な密度行列と最小支持射影
+  - 純粋状態の零入力による相対Tomita写像の非一価性と修正
+  - 支持包含がある純粋状態対忠実混合状態の有限値
+  - 直交する純粋状態の零固有値重みと無限値
+  - 非可換な純粋状態と混合状態の相対モジュラースペクトル
+problem_patterns:
+  - AQFT31-SUPPORT-THREE-LEVEL
+  - AQFT31-ZERO-INPUT-REPAIR
+  - AQFT31-FINITE-SINGULAR-MODULAR
+  - AQFT31-ORTHOGONAL-SUPPORT
+  - AQFT31-NONCOMMUTING-PURE-MIXED
+  - AQFT31-NONFAITHFUL-FINITE
+  - AQFT31-CLOSABILITY-RECONSTRUCTION
+  - AQFT31-NONCOMMUTING-DIVERGENCE
+  - AQFT31-ARGUMENT-ORDER
+  - AQFT31-SPECTRAL-VS-STATE-REGULARIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 10, review: 7 }
