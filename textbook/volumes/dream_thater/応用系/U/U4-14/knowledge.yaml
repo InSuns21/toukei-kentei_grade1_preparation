@@ -1,0 +1,48 @@
+chapter: U4-14
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-13]
+forward_references: []
+concepts:
+  - id: finance.arb-multivariate-cointegration-space
+    name: 多変量共和分空間と共和分ランク
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多変量共和分空間と共和分ランク）"]
+    requires: [finance.arb-integrated-orders, finance.arb-two-series-cointegration]
+  - id: finance.arb-common-trend-rank
+    name: 共通確率トレンドと共和分ランク
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共通確率トレンドと共和分ランク）"]
+    requires: [finance.arb-multivariate-cointegration-space, finance.arb-common-trend-cancel]
+  - id: finance.arb-vecm
+    name: 誤差修正表現 VECM
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（誤差修正表現 VECM）"]
+    requires: [finance.arb-multivariate-cointegration-space]
+  - id: finance.arb-var-vecm-identity
+    name: VAR(p) の誤差修正表現
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（VAR(p) の誤差修正表現）"]
+    requires: [finance.arb-vecm]
+  - id: finance.arb-rank-factorization
+    name: ランク分解と基底変換の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ランク分解と基底変換の不変性）"]
+    requires: [finance.arb-vecm]
+  - id: finance.arb-johansen-eigen
+    name: Gaussian VECM の縮約ランク尤度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian VECM の縮約ランク尤度）"]
+    requires: [finance.arb-rank-factorization, finance.arb-vecm]
+  - id: finance.arb-johansen-tests
+    name: Johansenのランク検定統計量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Johansenのランク検定統計量）"]
+    requires: [finance.arb-johansen-eigen, finance.arb-adf-test]
