@@ -17,6 +17,7 @@ learning_objectives:
 definitions:
   - { id: AQFT31-DEF-01, name: "正規状態の支持射影" }
   - { id: AQFT31-DEF-02, name: "支持付き相対Tomita作用素" }
+  - { id: AQFT31-DEF-04, name: "正半定値行列のMoore–Penrose疑似逆" }
   - { id: AQFT31-DEF-03, name: "非忠実正規状態へのAraki相対エントロピーの拡張" }
 theorems:
   - { id: AQFT31-PROP-01, name: "有限次元における支持包含の判定" }
