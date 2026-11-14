@@ -1,0 +1,37 @@
+id: "MIR1-03"
+title: "quinticのHodge数とミラー構成の目標"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-02
+  - CYG1-13
+learning_objectives:
+  - 滑らかなquinticのh11=1、h21=101をCYGの既習証明へ接続しEuler標数・b3を検算できる
+  - Hodge数交換から候補側の(101,1)、b3=4、Euler標数200を必要条件として計算できる
+  - 数値の交換とミラー多様体の存在・周期や曲線計数の一致を論理的に区別できる
+  - Fermat型一パラメータ族の非零Jacobian商方向と全101方向の違いを説明できる
+  - 滑らかなquintic同士の変形ではHodge数交換が起きないことを検算できる
+  - 群商・特異点解消・周期という後続の検査が別々に必要な理由を説明できる
+theorems:
+  - { id: MIR1-03-PROP-01, name: "滑らかなquinticのHodge数・Betti数の数値署名" }
+  - { id: MIR1-03-DEF-01, name: "Calabi–Yau型三次元の数値的ミラー目標" }
+  - { id: MIR1-03-PROP-02, name: "quinticのミラー候補に課される必要条件" }
+  - { id: MIR1-03-PROP-03, name: "Fermat型一パラメータ族が与える一つの非自明な方向" }
+canonical_examples:
+  - 既習の弱Lefschetz・Chern数から1・101・204・-200の役割を照合
+  - quinticへの数値的ミラー目標(101,1,4,200)の直接代入
+  - Fermat型のP=z0z1z2z3z4がJacobian商で非零となる指数判定
+  - psi=0とpsi=1/2の滑らかな二つのquinticはHodge数交換しない
+problem_patterns:
+  - MIR1-03-QUINTIC-EULER-HODGE
+  - MIR1-03-CHERN-SIGN
+  - MIR1-03-GENERAL-NUMERICAL-TARGET
+  - MIR1-03-DISTINCT-B3
+  - MIR1-03-JACOBIAN-ONE-DIRECTION
+  - MIR1-03-DEFORMATION-NOT-MIRROR
+  - MIR1-03-CANDIDATE-BETTI
+  - MIR1-03-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 7, review: 4 }

@@ -1,14 +1,16 @@
 # FLUID21 高Reの壁近傍だけ粘性が残る理由は何か
 
-[FLUID20 の潤滑近似](../FLUID20/index.md#def-fluid20-thin-film)では、薄い隙間で粘性が優勢になる条件を調べた。今回は一見逆の状況である。物体の大きさで測る Reynolds 数が非常に大きくても、静止壁の表面では速度が零になる。外側の流れを粘性のない Euler 流として近似すると、壁上で接線速度が零という条件を一般には満たせない。
+[FLUID20 の潤滑近似](../FLUID20/index.md#def-fluid20-thin-film)では、薄い隙間で粘性が優勢になる条件を調べた。今回は一見逆の状況である。物体の大きさで測る Reynolds 数が非常に大きくても、静止壁の表面では速度が零になる。外側の流れを[粘性のない Euler 流](../FLUID6/index.md#thm-fluid6-euler-equation)として近似すると、壁上で接線速度が零という条件を一般には満たせない。
 
 この不一致を壁のすぐ上の**薄い境界層**で解消する。外側では粘性を捨て、壁の近くでは速度の厚さ方向の急な変化に粘性が残る。今回は、その釣合いをもとの Navier–Stokes 方程式から導き、近似の使える範囲を明らかにする。次の FLUID22 で、得られた式の特別な解を実際に求める。
 
 ## 0. 問題の設定：高Reなのに壁では速度が零
 
-平板に沿う座標を $x$、壁から流体側へ向かう座標を $y$ とする。壁は $y=0$ に固定され、流体は $y>0$ を流れる。密度 $\rho>0$ と動的粘性係数 $\mu>0$ が一定の非圧縮 Newton 流体を考え、動粘性係数を $\nu=\mu/\rho$ と置く。速度 $(u(x,y),v(x,y))$ の $u$ は壁に平行、$v$ は壁に垂直な成分である。
+平板に沿う座標を $x$、壁から流体側へ向かう座標を $y$ とする。壁は $y=0$ に固定され、流体は $y>0$ を流れる。密度 $\rho>0$ と動的粘性係数 $\mu>0$ が一定の[非圧縮 Newton 流体](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)を考え、動粘性係数を $\nu=\mu/\rho$ と置く。速度 $(u(x,y),v(x,y))$ の $u$ は壁に平行、$v$ は壁に垂直な成分である。
 
 ここでは定常・二次元・滑らかな流れ、体積力なし、壁面は[無滑り・非貫通](../../CTM/CTM15/index.md#def-ctm15-no-slip)を仮定する。外部流の代表速さを $U>0$、物体に沿う代表長さを $L>0$ とする。壁上の速度は $u(x,0)=v(x,0)=0$ だが、壁から十分遠いところでは外部流の接線速度 $U_e(x)>0$ へ近づく。
+
+以下、下付き添字は**他方の座標を固定した偏微分**を表す。例えば $u_x=\partial u/\partial x$ は $y$ を固定し、$u_{yy}=\partial^2u/\partial y^2$ は $x$ を固定して微分する。一方、$x$ だけの関数 $f(x)$ のプライムは $f'(x)=df/dx$ という、$x$ についての**通常の微分**を表す。例えば外部量について $U_e'(x)=dU_e/dx$、$p_e'(x)=dp_e/dx$ である。
 
 ![平板に沿う外部流の矢印と、下流へ薄く広がる境界層の模式図。壁からの高さy、距離x、境界層厚さδの関係を示す](assets/high-re-boundary-layer.svg)
 
@@ -23,6 +25,16 @@ $$
 $$
 
 となる。$\mathrm{Re}_L\gg1$ なら、$L$ 程度の長さで変わる速度の粘性項は慣性項の $O(\mathrm{Re}_L^{-1})$ である。しかし壁からの距離まで $L$ だと決めてしまうと、無滑り条件と外部速度の間の急な変化を見失う。そこで厚さ $\delta\ll L$ を別に導入する。
+
+壁上の非貫通条件 $v(x,0)=0$ と[連続の式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を用いる。接線速度が距離 $L$ で $U$ 程度変化すれば
+
+$$
+|u_x|_{\rm scale}\sim\frac UL,\qquad
+u_x+v_y=0,\qquad
+|v_y|_{\rm scale}\sim\frac UL.
+$$
+
+厚さ $\delta$ にわたる積分から、垂直速度の尺度は $|v|_{\rm scale}\sim\delta U/L$ となる。非貫通条件と連続の式からこの尺度を選ぶのであって、独立の仮定ではない。
 
 <a id="def-fluid21-inner-scaling"></a>
 
@@ -73,7 +85,24 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid21-matching -->
-**定義の確認**：正の長さ $d$ を固定し、$u_0(Y)=U_e(1-e^{-Y})$ とすれば、$u_0(0)=0$、$u_0(Y)\to U_e$。$v(x,0)=0$ も別途満たす必要がある。この式は条件を満たす速度の**候補形**であり、運動量方程式まで解いたという意味ではない。$d$ を境界層厚さに選び $Y=y/d$ と解釈しても、$d$ 自体の係数はこの境界条件だけでは決まらない。
+**定義の確認**：一定の外部接線速度 $U_e>0$ と長さ $d>0$ を選び、$\delta=d$、$Y=y/d$ とする。物理変数での候補場と、その内側表示は
+
+$$
+u(x,y)=U_e(1-e^{-y/d}),\qquad
+v(x,y)=0,\qquad
+u_0(x,Y)=U_e(1-e^{-Y})
+$$
+
+である。壁条件と外縁条件をそれぞれ計算すると
+
+$$
+u(x,0)=v(x,0)=0,\qquad
+\lim_{Y\to\infty}u_0(x,Y)=U_e.
+$$
+
+また $u$ は $x$ に依存せず、$v$ は恒等的に零なので、連続の式は $u_x+v_y=0$ となる。これで**壁条件・接線速度接続・質量保存**を個別に判定できた。
+
+ただし $\nu u_{yy}\ne0$ だから、圧力勾配零の Prandtl 運動量方程式の解ではない。厚さ $d$ の係数も上記の境界条件だけでは決まらない。
 <!-- definition-example-end -->
 
 ## 2. どの粘性項だけが生き残るか
@@ -156,13 +185,13 @@ $$
 
 ### Prandtl 境界層方程式
 
-外側の滑らかな Euler 流の壁に沿う速度を $U_e(x)$、圧力を $p_e(x)$ とする。外部流は壁を貫通せず、先頭次数で接線方向の Euler の式
+外側の滑らかな Euler 流の壁に沿う速度を $U_e(x)$、圧力を $p_e(x)$ とする。[既習の Euler 運動方程式](../FLUID6/index.md#thm-fluid6-euler-equation)を固定平板 $y=0$ の接線方向へ適用する。外部速度を $(u_e,v_e)$ とすれば壁上では $u_e(x,0)=U_e(x)$、$v_e(x,0)=0$ であるため、$u_e(u_e)_x+v_e(u_e)_y=U_e\,dU_e/dx$ となり、先頭次数で
 
 $$
 U_e(x)\frac{dU_e}{dx}=-\frac1\rho\frac{dp_e}{dx}
 $$
 
-を満たすと仮定する。外部速度が壁上で零である必要はない。内側では前の命題により $p_y$ を先頭次数で無視できるので、圧力の先頭項を $p_e(x)$ と結び付ける。
+を満たすと仮定する。外部速度が壁上で零である必要はない。内側では前の命題により $p_y$ を先頭次数で無視できる。ただし**厚さ方向に一定という事実だけでは圧力の値を確定できない**。内外が同じ流体の重なり領域で圧力も整合することを条件に加え、その先頭項を外部圧力 $p_e(x)$ と結び付ける。
 
 <a id="thm-fluid21-prandtl"></a>
 
@@ -176,9 +205,9 @@ $$
 \qquad \rho,\mu,U,L>0
 $$
 
-> と定める。滑らかな定常二次元非圧縮 Newton 流体が固定平板 $y=0$ の上を流れ、[内側尺度](#def-fluid21-inner-scaling)と[整合条件](#def-fluid21-matching)を満たすとする。外部速度 $U_e(x)>0$ と圧力 $p_e(x)$ は滑らかで、外部 Euler の接線式を満たす。
+> と定める。滑らかな定常二次元非圧縮 Newton 流体が固定平板 $y=0$ の上を流れ、[内側尺度](#def-fluid21-inner-scaling)と[整合条件](#def-fluid21-matching)を満たすとする。外部速度 $U_e(x)>0$ と圧力 $p_e(x)$ は滑らかで、外部 Euler の接線式を満たす。さらに内側圧力の先頭項は重なり領域で $p_e(x)$ に接続すると仮定する。
 
-> $\varepsilon=\mathrm{Re}_L^{-1/2}\to0$ で内側解の先頭次数を取ると、運動方程式と条件は
+> 各流れでは $\rho,\mu,U,L$ は一定とするが、その値を変えて $\mathrm{Re}_L\to\infty$ とする流れの族を考える。$\varepsilon=\mathrm{Re}_L^{-1/2}\to0$ で、無次元速度・圧力の先頭項 $a_0,b_0,q_0$ が存在し、$a=a_0+o(1)$、$b=b_0+o(1)$、$q=q_0+o(1)$ と、方程式に現れる階数までの偏導関数についても先頭項を取れると仮定する。そのとき先頭次数の運動方程式と条件は
 
 $$
 \boxed{u_x+v_y=0,}
@@ -212,7 +241,16 @@ $$
 a_0(a_0)_X+b_0(a_0)_Y=-(q_0)_X+(a_0)_{YY}.
 $$
 
-同じ命題で $(q_0)_Y=0$ を得たから、$q_0=q_e(X)$ である。外部圧力との接続により $q_e=(p_e-p_{\rm ref})/(\rho U^2)$。元の変数へ戻すと
+[項の次数の命題](#prop-fluid21-term-orders)と先頭項の極限操作から $(q_0)_Y=0$ を得たから、$q_0$ は $Y$ に依存せず $q_0=q_e(X)$ と書ける。ここで仮定した**重なり領域での圧力接続**により $q_e(X)=\{p_e(LX)-p_{\rm ref}\}/(\rho U^2)$ と決まる。その導関数は $(q_e)_X=L p_e'(LX)/(\rho U^2)$ である。さらに $u=Ua_0$、$v=\varepsilon Ub_0$ に対して
+
+$$
+u_x=\frac UL(a_0)_X,\quad
+v u_y=\frac{U^2}{L}b_0(a_0)_Y,\quad
+\nu u_{yy}=\frac{\nu U}{\varepsilon^2L^2}(a_0)_{YY}
+=\frac{U^2}{L}(a_0)_{YY}
+$$
+
+となるから、無次元水平式へ $U^2/L$ を掛けて元の変数に戻すと
 
 $$
 u u_x+v u_y=-\frac{p_e'(x)}\rho+\nu u_{yy}.
@@ -233,7 +271,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（外部流の圧力と加速）**  
-> 定常・密度一定の滑らかな外側 Euler 流が、滑らかな固定壁に沿って接線速度 $U_e(x)>0$ を持ち、壁での法線速度が零、体積力がないとする。壁に沿う Euler 方程式により
+> 定常・密度一定の滑らかな外側 Euler 流が、直線状の固定平板 $y=0$ に沿って接線速度 $U_e(x)>0$ を持ち、壁での法線速度が零、体積力がないとする。$x$ は平板に沿う距離とする。壁に沿う Euler 方程式により
 
 $$
 \boxed{p_e(x)+\frac{\rho}{2}U_e(x)^2=C}
@@ -249,7 +287,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-外側では粘性の寄与を先頭次数で捨て、壁上で $v_e=0$、かつ壁が直線なので、接線方向には $U_eU_e'=-p_e'/\rho$ となる。両辺に $\rho$ を掛けて
+外側では粘性の寄与を先頭次数で捨てる。[Euler 運動方程式](../FLUID6/index.md#thm-fluid6-euler-equation)の接線成分を壁上で評価すると、$v_e(x,0)=0$ と $(u_e)_x(x,0)=U_e'(x)$ から $U_eU_e'=-p_e'/\rho$ となる。両辺に $\rho$ を掛けて
 
 $$
 p_e'+\rho U_eU_e'
@@ -290,7 +328,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid21-local-re -->
-**定義の確認**：$U=1$ m/s、$\nu=10^{-5}$ m$^2$/s、$L=1$ m なら $\mathrm{Re}_L=10^5$。$x=0.01$ m では $\mathrm{Re}_x=10^3$、$x=1$ m では $\mathrm{Re}_x=10^5$。この二地点に同じ相対厚さ $\delta/x$ を使うことはできない。
+**定義の確認**：$U=1$ m/s、$\nu=10^{-5}$ m$^2$/s、$L=1$ m なら $\mathrm{Re}_L=10^5$。$x=0.01$ m では $\mathrm{Re}_x=10^3$、$x=1$ m では $\mathrm{Re}_x=10^5$。実際、定義式の比 $\mathrm{Re}_x/\mathrm{Re}_L=x/L$ は順に $0.01$ と $1$ であり、位置による Reynolds 数の差を直接確認できた。相対厚さ $\delta(x)/x$ の相違は次の命題で、この定義と運動量の釣合いから導く。
 <!-- definition-example-end -->
 
 <a id="prop-fluid21-thickness"></a>
@@ -352,7 +390,7 @@ $\delta(x)$ は下流へ増えるが、相対厚さ $\delta(x)/x$ は減る。$x
 
 <!-- formal-statement-start -->
 > **命題（境界層における壁面せん断）**  
-> [Prandtl 境界層の尺度](#thm-fluid21-prandtl)と滑らかな固定壁の無滑り条件の下で、壁面の接線粘性応力は先頭次数で
+> [Prandtl 境界層の尺度](#thm-fluid21-prandtl)と滑らかな直線状固定壁の無滑り条件の下で、壁面の接線粘性応力は、先頭次数の速度場を用いて
 
 $$
 \boxed{\tau_w(x)=\mu\,u_y(x,0)}
@@ -381,7 +419,23 @@ $$
 =\varepsilon^2=\mathrm{Re}_L^{-1}.
 $$
 
-無次元微分が有界で先頭項が非零なら $v_x$ を先頭次数で無視でき、$\sigma_{xy}(x,0)\simeq\mu u_y(x,0)$ となる。局所摩擦係数は動圧 $\rho U_e^2/2$ で割った無次元量として定義した。$\tau_w$ の物理単位は $\mu\,u_y=(\mathrm{Pa\,s})\mathrm{s}^{-1}=\mathrm{Pa}$ である。
+この比は、境界層の内部で $v_x$ が高次の補正であることを示す。**壁上ではさらに強い事実**が使える。固定された直線壁に沿って非貫通条件がすべての $x$ で成り立ち、速度が滑らかなので、
+
+$$
+v(x,0)=0,\qquad
+v_x(x,0)=\frac{d}{dx}[v(x,0)]=0
+$$
+
+である。したがって元の Newton 応力についても
+
+$$
+\sigma_{xy}(x,0)=\mu\{u_y(x,0)+v_x(x,0)\}
+=\mu u_y(x,0)
+$$
+
+は厳密な壁上の恒等式となる。ただし境界層の近似速度で評価した壁応力の**数値**は、元の Navier–Stokes 解の先頭次数近似である。
+
+局所摩擦係数は動圧 $\rho U_e^2/2$ で割った無次元量として定義した。せん断応力の単位は $\mu u_y=(\mathrm{Pa\,s})\mathrm{s}^{-1}=\mathrm{Pa}$ である。
 <!-- proof-end -->
 
 **直接例**：係数が未定な厚さ $d>0$ に対して、壁で零・外側で $U$ に近づく候補分布
@@ -390,7 +444,15 @@ $$
 u(y)=U\left(1-e^{-y/d}\right)
 $$
 
-なら $u_y(0)=U/d$、従って $\tau_w=\mu U/d$、$C_f=2\nu/(Ud)$ である。この分布は境界条件と壁面応力の**計算例**であって、Prandtl 方程式の解だという主張ではない。実際の係数は FLUID22 で運動量方程式を解いて初めて得られる。
+なら壁面での微分と摩擦係数は
+
+$$
+u_y(0)=\frac Ud,\qquad
+\tau_w=\frac{\mu U}{d},\qquad
+C_f=\frac{2\nu}{Ud}
+$$
+
+となる。この分布は境界条件と壁面応力の**計算例**であって、Prandtl 方程式の解だという主張ではない。実際の係数は FLUID22 で運動量方程式を解いて初めて得られる。
 
 ## 5. 連続の式まで満たす候補場で尺度を検算する
 
@@ -402,11 +464,11 @@ d(x)=\sqrt{\frac{\nu x}{U}},\qquad
 u(x,y)=U(1-e^{-\zeta}).
 $$
 
-$d'(x)=d(x)/(2x)$ なので、$y$ を固定して微分すると
+$d'(x)=d(x)/(2x)$ なので、$y$ を固定した連鎖律から
 
 $$
-\zeta_x=-\frac{\zeta}{2x},\qquad
-u_x=-\frac{U}{2x}\zeta e^{-\zeta}.
+\zeta_x=-\frac{y}{d(x)^2}d'(x)=-\frac{\zeta}{2x},\qquad
+u_x=Ue^{-\zeta}\zeta_x=-\frac{U}{2x}\zeta e^{-\zeta}.
 $$
 
 連続の式 $v_y=-u_x$ を $v(x,0)=0$ とともに積分すれば
@@ -425,12 +487,21 @@ $$
 
 ### 候補場の二階導関数と粘性比
 
-この候補場では
+この候補場の二階導関数も、$y$ を固定して $\zeta_x=-\zeta/(2x)$ を用いれば
 
 $$
-u_{xx}=\frac{Ue^{-\zeta}}{4x^2}\zeta(3-\zeta),
-\qquad
-u_{yy}=-\frac{Ue^{-\zeta}}{d(x)^2}.
+\begin{aligned}
+u_{xx}
+&=-\frac U2\frac{\partial}{\partial x}
+\left(\frac{\zeta e^{-\zeta}}x\right)\\
+&=-\frac U2\left[
+-\frac{\zeta e^{-\zeta}}{x^2}
++\frac{e^{-\zeta}(1-\zeta)}x\left(-\frac{\zeta}{2x}\right)\right]\\
+&=\frac{Ue^{-\zeta}}{4x^2}\zeta(3-\zeta),\\
+u_{yy}
+&=\frac{\partial}{\partial y}\left(\frac U{d(x)}e^{-\zeta}\right)
+=-\frac{Ue^{-\zeta}}{d(x)^2}.
+\end{aligned}
 $$
 
 例えば $y=d(x)$、すなわち $\zeta=1$ では
@@ -485,7 +556,17 @@ $\mathrm{Re}_L=10^6$、$\delta/L=10^{-3}$ のとき、水平運動量式の $u_{
 <!-- solution-start -->
 #### 詳細解答
 
-[項の次数の命題](#prop-fluid21-term-orders)で $\varepsilon=10^{-3}$、$\mathrm{Re}_L^{-1}=10^{-6}=\varepsilon^2$。水平式は $\varepsilon^2a_{XX}+a_{YY}$ なので係数は $10^{-6}$ と $1$。垂直式は $\varepsilon^4 b_{XX}+\varepsilon^2 b_{YY}$ なので係数は $10^{-12}$ と $10^{-6}$。垂直運動量の慣性項も $10^{-6}$ を掛けているので、先頭次数では $q_Y=0$。水平運動量で $u_{yy}$ を捨てるのは誤りである。
+[項の次数の命題](#prop-fluid21-term-orders)に $\varepsilon=10^{-3}$、$\mathrm{Re}_L^{-1}=10^{-6}=\varepsilon^2$ を代入する。慣性・圧力を基準にした二方向の粘性係数は
+
+$$
+\begin{array}{c|cc}
+ & \text{流れ方向の二階微分} & \text{壁法線方向の二階微分}\\ \hline
+\text{水平運動量} & \varepsilon^2=10^{-6} & 1\\
+\text{垂直運動量} & \varepsilon^4=10^{-12} & \varepsilon^2=10^{-6}
+\end{array}
+$$
+
+垂直運動量の慣性項全体にも $\varepsilon^2=10^{-6}$ が掛かるため、先頭次数では $q_Y=0$。一方、水平運動量の $u_{yy}$ は係数が $1$ で残る。
 <!-- solution-end -->
 
 ### A2. 垂直速度の規模
@@ -497,7 +578,15 @@ $u_x$ の規模が $U/L$、壁からの高さ $y$ が $\delta$、$v(x,0)=0$ の�
 <!-- solution-start -->
 #### 詳細解答
 
-$u_x+v_y=0$ を $y=0$ から $\delta$ まで積分すると $v(x,\delta)=-\int_0^\delta u_x(x,s)ds$。よって規模は $U\delta/L$。与えられた値を代入して $2\times0.002=0.004$ m/s となる。符号は $u_x$ の分布が分からないので決められない。
+[連続の式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes) $u_x+v_y=0$ を $y=0$ から $\delta$ まで積分し、壁条件 $v(x,0)=0$ を用いると
+
+$$
+v(x,\delta)-v(x,0)
+=-\int_0^\delta u_x(x,s)\,ds,\qquad
+|v|_{\rm scale}\sim\frac{U\delta}{L}.
+$$
+
+従って垂直速度の尺度は $2\times0.002=0.004$ m/s。符号は $u_x$ の分布が分からないので決められない。
 <!-- solution-end -->
 
 ### A3. 外側の加速と圧力
@@ -666,7 +755,17 @@ $\varepsilon=H/L=0.01$ とする。二つの流れで $\mathrm{Re}_L=100$ と $\
 <!-- solution-start -->
 #### 詳細解答
 
-$\varepsilon^2=10^{-4}$。$\mathrm{Re}_L=100$ なら積は $0.01\ll1$、$\mathrm{Re}_L=10^6$ なら積は $100\gg1$。
+$\varepsilon^2=10^{-4}$ なので、二つのケースで
+
+$$
+\mathrm{Re}_L\varepsilon^2
+=\begin{cases}
+100\times10^{-4}=0.01\ll1,\\
+10^6\times10^{-4}=100\gg1
+\end{cases}
+$$
+
+となる。
 
 [FLUID20 の薄膜尺度](../FLUID20/index.md#def-fluid20-thin-film)では前者は慣性が小さい潤滑近似の候補だが、長い緩やかな隙間と適切な壁条件がさらに必要。後者では $\nu U/H^2$ は $U^2/L$ より小さく、$H$ を境界層厚さとみなしても[Prandtl の釣合い](#prop-fluid21-term-orders)に合わない。外側速度や実際の速度勾配から別途厚さを定める必要がある。$H/L$ の値だけで両者を選べない。
 <!-- solution-end -->

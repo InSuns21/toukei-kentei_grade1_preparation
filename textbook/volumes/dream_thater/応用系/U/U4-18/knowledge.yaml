@@ -1,0 +1,60 @@
+chapter: U4-18
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-17, U4-15]
+forward_references: []
+concepts:
+  - id: finance.arb-time-varying-state-space
+    name: 時変ヘッジ係数の線形Gaussian状態空間モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時変ヘッジ係数の線形Gaussian状態空間モデル）"]
+    requires: [finance.arb-level-share-spread]
+  - id: finance.arb-kalman-innovation
+    name: 観測前の革新と革新分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測前の革新と革新分散）"]
+    requires: [finance.arb-time-varying-state-space]
+  - id: finance.arb-kalman-prediction
+    name: ランダムウォーク状態の1期予測と革新分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ランダムウォーク状態の1期予測と革新分散）"]
+    requires: [finance.arb-kalman-innovation]
+  - id: finance.arb-kalman-filter
+    name: Kalmanフィルタ推定値とゲイン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kalmanフィルタ推定値とゲイン）"]
+    requires: [finance.arb-kalman-prediction]
+  - id: finance.arb-kalman-update
+    name: KalmanフィルタのGaussian更新式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（KalmanフィルタのGaussian更新式）"]
+    requires: [finance.arb-kalman-filter]
+  - id: finance.arb-kalman-static-limit
+    name: 状態変動なしの更新と正則化付き最小二乗
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態変動なしの更新と正則化付き最小二乗）"]
+    requires: [finance.arb-kalman-update]
+  - id: finance.arb-kalman-smoother-information
+    name: フィルタ推定と固定区間スムーザ推定の情報集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フィルタ推定と固定区間スムーザ推定の情報集合）"]
+    requires: [finance.arb-kalman-filter]
+  - id: finance.arb-time-varying-hedge-holding
+    name: 時刻整合した時変ヘッジ保有
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時刻整合した時変ヘッジ保有）"]
+    requires: [finance.arb-kalman-smoother-information, finance.arb-fixed-spread-wealth]
+  - id: finance.arb-time-varying-pnl-identity
+    name: 時変係数残差の変化と自己金融損益の差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時変係数残差の変化と自己金融損益の差）"]
+    requires: [finance.arb-time-varying-hedge-holding]
