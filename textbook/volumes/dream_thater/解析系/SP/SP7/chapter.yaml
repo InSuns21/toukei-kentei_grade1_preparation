@@ -1,0 +1,38 @@
+id: "SP7"
+title: "マルチンゲール・条件付き期待値・予測可能変換"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2
+  - SP6
+official_scope: []
+learning_objectives:
+  - マルチンゲール・劣／優マルチンゲールを条件付き期待値から区別できる
+  - マルチンゲール差分の可測性・可積分性・条件付き平均を確認し累積過程を判定できる
+  - 平均一定だけではマルチンゲールにならない反例を説明できる
+  - 公平・偏向ランダムウォークの中心化と二乗補正を導ける
+  - 予測可能変換の情報制約を検証し未来情報を使う戦略との違いを示せる
+  - 二乗可積分マルチンゲールの条件付き二乗補正と二乗平均恒等式を証明できる
+  - 適応的な賭け戦略の損益平均・二乗平均と同時分布を計算できる
+definitions:
+  - { id: SP7-DEF-01, name: "マルチンゲール差分列" }
+theorems:
+  - { id: SP7-PROP-01, name: "マルチンゲール差分による判定" }
+  - { id: SP7-PROP-02, name: "条件付き二乗平均による補正" }
+  - { id: SP7-THM-01, name: "予測可能変換の二乗平均恒等式" }
+canonical_examples:
+  - "二段階コイントスの差分と適合性"
+  - "平均が一定でもマルチンゲールでない過程"
+  - "偏りのある歩行の中心化と平方補正"
+  - "前回の符号を使う賭けと未来情報を使う賭け"
+problem_patterns:
+  - SP7-MARTINGALE-DIFFERENCE-1
+  - SP7-CONDITIONAL-MEAN-1
+  - SP7-SQUARE-COMPENSATION-1
+  - SP7-PREDICTABLE-BET-1
+  - SP7-PREDICTABLE-ISOMETRY-1
+  - SP7-ADAPTIVE-COIN-BIJECTION-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
