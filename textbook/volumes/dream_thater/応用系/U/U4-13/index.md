@@ -179,7 +179,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（独立誤差モデルでの水準回帰の推定速度）**  
-> $X_0=0$、$X_t=\sum_{s=1}^t\varepsilon_s$、$Y_t=\alpha_0+\beta_0X_t+U_t$、$t=1,\ldots,n$ とする。$\varepsilon_t$ は独立同分布、平均0、分散 $\sigma_\varepsilon^2>0$、$U_t$ も独立同分布、平均0、分散 $\sigma_U^2\in(0,\infty)$ で、両列は互いに独立とする。切片付き最小二乗推定量が定義される標本では、標本長が大きくなると
+> $X_0=0$、$X_t=\sum_{s=1}^t\varepsilon_s$、$Y_t=\alpha_0+\beta_0X_t+U_t$、$t=1,\ldots,n$ とする。$\varepsilon_t$ は独立同分布の正規変数 $N(0,\sigma_\varepsilon^2)$（$\sigma_\varepsilon^2>0$）であり、$U_t$ も独立同分布、平均0、分散 $\sigma_U^2\in(0,\infty)$ で、両列は互いに独立とする。切片付き最小二乗推定量が定義される標本では、標本長が大きくなると
 >
 $$
 \widehat\beta-\beta_0=O_p(n^{-1}),\qquad
@@ -216,13 +216,32 @@ E[(\widehat\beta-\beta_0)^2\mid X_1,\ldots,X_n]
 =\frac{\sigma_U^2}{D_n}.
 $$
 >
-> [単位根回帰に用いたブラウン運動へのスケーリング](../U4-12/index.md#thm-u4-12-df-limit)と同じ独立同分布の部分和に対する不変原理を、今度は水準の**中心化平方和**に適用します。標準[ブラウン運動](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion) $W$ について
+> ここでショックを正規分布に限定した理由を確かめます。標準[ブラウン運動](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion) $W$ の独立増分について、各 $n$ で $\sigma_\varepsilon\sqrt n\{W(t/n)-W((t-1)/n)\}$ は平均0、分散 $\sigma_\varepsilon^2$ の独立な正規変数です。よって $X$ の規格化水準ベクトルと格子点のブラウン運動は、同じ同時分布を持ちます。
+>
+$$
+\left(\frac{X_1}{\sigma_\varepsilon\sqrt n},
+\ldots,\frac{X_n}{\sigma_\varepsilon\sqrt n}\right)
+\ \stackrel{d}{=}\
+\left(W(1/n),\ldots,W(1)\right).
+$$
+>
+> これを中心化平方和 $D_n$ に代入すると、$D_n/n^2$ は次の格子上の式と同じ分布になります。
+>
+$$
+\frac{\sigma_\varepsilon^2}{n}
+\sum_{t=1}^n
+\left(W(t/n)-\frac1n\sum_{k=1}^nW(k/n)\right)^2.
+$$
+>
+> $W$ の標本路は $[0,1]$ 上連続なので、Riemann 和は標本路ごとに積分へ収束します。このため、[前講の単位根回帰の非標準極限](../U4-12/index.md#thm-u4-12-df-limit)と同様に、
 >
 $$
 \frac{D_n}{n^2}\ \Rightarrow\
 \sigma_\varepsilon^2\int_0^1
 \left(W(r)-\int_0^1W(s)\,ds\right)^2\,dr=:D_\infty.
 $$
+>
+> この正規増分による構成は、一般の有限分散ショックに関する極限定理を無条件に仮定したものではありません。
 >
 > 右辺はほとんど確実に正です。なぜなら積分が0なら連続な $W$ は区間内で定数ですが、$W(0)=0$ かつ $W(1)$ は非退化正規分布だからです。任意の $\delta>0$ に対して小さい $c>0$ を選べば、大きい $n$ で $P(D_n<cn^2)<\delta$ とできます。条件付き Chebyshev の不等式を $D_n\ge cn^2$ 上で用いると、
 >
