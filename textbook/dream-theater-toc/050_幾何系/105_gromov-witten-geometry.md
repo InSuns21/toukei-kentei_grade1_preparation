@@ -10,3 +10,4 @@
 7. [GW1-07 標点付き球面・交比・安定曲線](textbook/volumes/dream_thater/幾何系/GW/GW1-07/index.md)
 8. [GW1-08 安定写像とコンパクト化](textbook/volumes/dream_thater/幾何系/GW/GW1-08/index.md)
 9. [GW1-09 凸な射影標的と変形・障害](textbook/volumes/dream_thater/幾何系/GW/GW1-09/index.md)
+10. [GW1-10 モジュライの構成と次元](textbook/volumes/dream_thater/幾何系/GW/GW1-10/index.md)

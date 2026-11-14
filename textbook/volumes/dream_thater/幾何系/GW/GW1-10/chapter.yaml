@@ -1,0 +1,57 @@
+id: "GW1-10"
+title: "モジュライの構成と次元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-09
+  - GW1-08
+  - GW1-07
+  - GW1-03
+  - AG3-08
+  - AG2-09
+official_scope: []
+learning_objectives:
+  - 安定写像の家族と同型を定義しスタックと粗モジュライを自己同型の例で区別できる
+  - 二重被覆の直像分解から凸性が球面の評価全射を与えることを証明できる
+  - 木の正規化完全列と評価写像の全射を使って節点曲線のH1消滅を導ける
+  - 安定性から一様に正な埋め込み束Lを構成しその次数・切断数を計算できる
+  - Hilbertパラメータと座標変更群からモジュライの構成と固有性の証明工程を説明できる
+  - 凸性を使う滑らかさと凸性なしでも成立する存在・固有性を区別できる
+  - 各成分の変形・特殊点・座標変更・節点値一致・平滑化を数えて複素次元公式を導ける
+  - 節点の個数と境界の余次元および正規交叉モデルの関係を導ける
+  - 次数0の積表示と射影平面への次数1写像のモジュライを直接計算できる
+definitions:
+  - { id: GW1-10-DEF-01, name: 種数0安定写像の家族 }
+  - { id: GW1-10-DEF-02, name: 安定写像のモジュライ・スタックと粗モジュライ }
+theorems:
+  - { id: GW1-10-LEM-01, name: 凸性からの評価全射 }
+  - { id: GW1-10-PROP-01, name: 凸標的への種数0節点写像の障害消滅 }
+  - { id: GW1-10-PROP-02, name: 安定性が与える一様な埋め込み次数 }
+  - { id: GW1-10-THM-01, name: 種数0安定写像の代数的モジュライ }
+  - { id: GW1-10-THM-02, name: 凸標的の種数0モジュライの滑らかさと次元 }
+  - { id: GW1-10-PROP-03, name: 次数0モジュライの積表示 }
+  - { id: GW1-10-PROP-04, name: 射影平面への無標点次数1安定写像 }
+  - { id: GW1-10-PROP-05, name: 凸標的の節点数と境界の余次元 }
+canonical_examples:
+  - 三標点付き定数写像の家族と底の引き戻し
+  - zの2乗写像に残る二位数自己同型
+  - 二重被覆の偶奇分解と評価写像の全射
+  - 正次数の成分ごとに三乗した埋め込み束
+  - 定数写像のXと安定標点曲線の直積
+  - 射影平面への次数1写像と双対射影平面
+  - 射影直線の次数2の二成分境界と平滑化
+problem_patterns:
+  - GW1-10-ZERO-DEGREE-EXCEPTION
+  - GW1-10-EVALUATION-TRACE-COVER
+  - GW1-10-UNIFORM-POLARIZATION
+  - GW1-10-PROJECTIVE-DIMENSION
+  - GW1-10-STACK-INERTIA
+  - GW1-10-STRATUM-DIMENSION
+  - GW1-10-TWO-LINES-BOUNDARY
+  - GW1-10-CONTRACT-UNSTABLE-TWIG
+  - GW1-10-CONVEX-VERSUS-PROPER
+  - GW1-10-THREE-COMPONENT-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 13, exercises: 12, review: 6 }
