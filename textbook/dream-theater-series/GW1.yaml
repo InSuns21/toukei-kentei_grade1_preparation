@@ -48,7 +48,7 @@ chapters:
     title: "モジュライの構成と次元"
   - id: GW1-11
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-11
-    status: planned
+    status: completed
     title: "評価写像・忘却写像・交叉条件"
   - id: GW1-12
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-12
