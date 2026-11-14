@@ -1,0 +1,60 @@
+chapter: GW1-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-07
+concepts:
+  - id: gromov-witten.stable-map
+    name: 種数0の標点付き安定J-正則写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0の標点付き安定 $J$-正則写像）"]
+    requires: [gromov-witten.stable-sphere-tree, gromov-witten.stable-marked-curve]
+  - id: gromov-witten.stable-map-isomorphism
+    name: 安定写像の同型と自己同型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（安定写像の同型と自己同型）"]
+    requires: [gromov-witten.stable-map, gromov-witten.three-point-normalization]
+  - id: gromov-witten.stable-map-finite-automorphisms
+    name: 種数0の安定性と有限自己同型
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（種数0の安定性と有限自己同型）"]
+    requires: [gromov-witten.stable-map-isomorphism, gromov-witten.three-point-normalization]
+  - id: gromov-witten.stable-map-degree-splitting
+    name: 次数・面積の成分加法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（次数・面積の成分加法性）"]
+    requires: [gromov-witten.stable-map, gromov-witten.energy-identity]
+  - id: gromov-witten.stable-map-zero-class
+    name: 総曲線類0の種数0安定写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（総曲線類0の種数0安定写像）"]
+    requires: [gromov-witten.stable-map-degree-splitting, gromov-witten.stable-marked-curve]
+  - id: gromov-witten.stable-map-constant-bound
+    name: 定数成分数の組合せ上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数成分数の組合せ上界）"]
+    requires: [gromov-witten.stable-map, gromov-witten.energy-quantization]
+  - id: gromov-witten.stable-map-moduli-set
+    name: 種数0安定写像のモジュライ集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0安定写像のモジュライ集合）"]
+    requires: [gromov-witten.stable-map-isomorphism]
+  - id: gromov-witten.stable-map-limits
+    name: 滑らかな種数0写像列の安定極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな種数0写像列の安定極限）"]
+    requires: [gromov-witten.genus-zero-compactness, gromov-witten.stable-map-degree-splitting, gromov-witten.stable-map-constant-bound]
+  - id: gromov-witten.stable-map-forgetful
+    name: 安定写像の標点忘却と安定化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（安定写像の標点忘却と安定化）"]
+    requires: [gromov-witten.stable-map, gromov-witten.forgetful-stabilization]
