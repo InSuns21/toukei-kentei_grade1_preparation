@@ -1,0 +1,47 @@
+id: "GW1-08"
+title: "安定写像とコンパクト化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-07
+official_scope: []
+learning_objectives:
+  - 種数0安定写像の節点像一致・総曲線類・定数成分の三特殊点条件を一つずつ検証できる
+  - 安定標点曲線と安定写像の安定性を区別し非定数一節点成分を正しく残せる
+  - 写像を保存する同型・自己同型を定義し有限性の必要十分条件を証明できる
+  - 面積とホモロジーの加法性を区別し次数0で三標点以上が必要なことを示せる
+  - 定数成分数の組合せ上界をエネルギー量子化と結び付けられる
+  - 安定写像のモジュライ集合と滑らかな部分集合の違いを説明できる
+  - Gromovコンパクト性から安定極限が得られる方向と平滑化の逆方向を区別できる
+  - 標点忘却の際に定数二特殊点成分だけを収縮して総曲線類を保てる
+definitions:
+  - { id: GW1-08-DEF-01, name: 種数0の標点付き安定J-正則写像 }
+  - { id: GW1-08-DEF-02, name: 安定写像の同型と自己同型 }
+  - { id: GW1-08-DEF-03, name: 種数0安定写像のモジュライ集合 }
+theorems:
+  - { id: GW1-08-THM-01, name: 種数0の安定性と有限自己同型 }
+  - { id: GW1-08-PROP-01, name: 次数・面積の成分加法性 }
+  - { id: GW1-08-PROP-02, name: 総曲線類0の種数0安定写像 }
+  - { id: GW1-08-PROP-03, name: 定数成分数の組合せ上界 }
+  - { id: GW1-08-THM-02, name: 滑らかな種数0写像列の安定極限 }
+  - { id: GW1-08-PROP-04, name: 安定写像の標点忘却と安定化 }
+canonical_examples:
+  - 非定数二成分のz+epsilon/zの安定極限と次数分裂
+  - 二標点付き定数葉と非定数次数1成分の組
+  - zの2乗写像の二位数自己同型と標点による消失
+  - 総曲線類0の標点不足例外
+problem_patterns:
+  - GW1-08-STABILITY-COMPONENTS
+  - GW1-08-AUTOMORPHISMS
+  - GW1-08-ZERO-CLASS
+  - GW1-08-UNSTABLE-BRIDGE
+  - GW1-08-FORGETFUL-CONTRACTION
+  - GW1-08-ENERGY-COMPONENT-BOUND
+  - GW1-08-MARKED-AUTOMORPHISM
+  - GW1-08-STABLE-VERSUS-CURVE
+  - GW1-08-AREA-ZERO
+  - GW1-08-RATIONAL-BUBBLING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 6 }
