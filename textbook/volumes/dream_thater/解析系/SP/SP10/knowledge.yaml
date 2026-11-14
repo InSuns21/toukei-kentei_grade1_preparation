@@ -1,0 +1,33 @@
+chapter: SP10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+forward_references: []
+concepts:
+  - id: stochastic.simple-counting-process
+    name: 単純計数過程
+    kind: definition
+    aliases: ["simple counting process"]
+    introduction: formal
+    introduction_aliases: ["定義（単純計数過程）"]
+    requires:
+      - stochastic.stochastic-process
+
+  - id: stochastic.exponential-waiting-poisson-construction
+    name: 指数待ち時間からの Poisson 過程構成
+    kind: theorem
+    aliases: ["Poisson construction from exponential interarrivals"]
+    introduction: formal
+    introduction_aliases: ["定理（指数待ち時間からの Poisson 過程構成）"]
+    requires:
+      - stochastic.simple-counting-process
+
+  - id: stochastic.conditional-poisson-arrival-times
+    name: 到着回数を固定したときの到着時刻
+    kind: proposition
+    aliases: ["conditional Poisson arrival-time order statistics"]
+    introduction: formal
+    introduction_aliases: ["命題（到着回数を固定したときの到着時刻）"]
+    requires:
+      - stochastic.exponential-waiting-poisson-construction
