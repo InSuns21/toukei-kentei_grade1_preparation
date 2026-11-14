@@ -140,7 +140,6 @@ $$
 > と定める。
 <!-- formal-statement-end -->
 
-
 この式がどこから来たかも確かめます。二乗和 $Q(a,b)=\sum(y_t-a-bx_t)^2$ を $a,b$ で微分すると
 >
 $$
@@ -173,7 +172,6 @@ $$
 >
 > よって $\widehat\beta=2$、$\widehat\alpha=4/3$、残差は $(-1/3,\,2/3,\,-1/3)$ です。残差の和が0、$x$ と残差の積和も0になりますが、この3点から定常性は判定できません。
 <!-- definition-example-end -->
-
 
 適切な共和分モデルでは、定常誤差を伴う水準回帰の傾きが通常の定常回帰より速く真値へ近づくことがあります。ここでは強い一般定理を暗記せず、独立な誤差という限定モデルで証明します。
 
@@ -368,7 +366,17 @@ $$
 R(r)=W_Y(r)-A-BW_X(r)
 $$
 >
-> の形になります。$W_X,W_Y$ はそれぞれの部分和を標準偏差と $\sqrt n$ で規格化した極限に対応する独立な標準ブラウン運動です。$A,B$ は $W_Y$ を $1$ と $W_X$ の張る空間へ区間 $[0,1]$ 上の二乗積分で射影する係数で、[第1段階の正規方程式](#def-u4-13-eg-regression)を積分に置き換えて導けます。$\bar W_X=\int_0^1W_X(r)\,dr$、$\bar W_Y=\int_0^1W_Y(r)\,dr$ と置き、
+> の形になります。この仕組みを明示するため、ここでは二つのショックをそれぞれ分散 $\sigma_\varepsilon^2,\sigma_\zeta^2>0$ の正規分布とします。時点 $t$ の規格化水準を $X_t/(\sigma_\varepsilon\sqrt n)$、$Y_t/(\sigma_\zeta\sqrt n)$ とすれば、その極限は独立な標準ブラウン運動 $W_X,W_Y$ です。規格化した残差は
+>
+$
+\frac{\widehat u_t}{\sigma_\zeta\sqrt n}
+=\frac{Y_t}{\sigma_\zeta\sqrt n}
+-\frac{\widehat\alpha}{\sigma_\zeta\sqrt n}
+-\frac{\sigma_\varepsilon\widehat\beta}{\sigma_\zeta}
+ \frac{X_t}{\sigma_\varepsilon\sqrt n}.
+$
+>
+> したがって、極限での $A$ は規格化切片、$B$ は規格化傾きに対応します。$A,B$ は $W_Y$ を $1$ と $W_X$ の張る空間へ区間 $[0,1]$ 上の二乗積分で射影する係数で、[第1段階の正規方程式](#def-u4-13-eg-regression)を積分に置き換えて導けます。$\bar W_X=\int_0^1W_X(r)\,dr$、$\bar W_Y=\int_0^1W_Y(r)\,dr$ と置き、
 >
 $$
 Q(A,B)=\int_0^1\{W_Y(r)-A-BW_X(r)\}^2\,dr.
