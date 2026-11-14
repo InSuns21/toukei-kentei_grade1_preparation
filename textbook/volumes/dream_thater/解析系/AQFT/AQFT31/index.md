@@ -368,7 +368,7 @@ r_j|\langle u_i,v_j\rangle|^2\log s_i\\
 \end{aligned}
 $$
 
-$s(\rho)\le s(\sigma)$ により、最後の内側の和は $\|s(\sigma)v_j\|^2=1$ です。第1項は $\log\sigma$ の正固有値だけから作る作用素のトレースなので、主張を得ます。支持が含まれない場合は[零重みの公式](#thm-aqft31-finite-modular)により $\mu_\rho(\{0\})>0$ で、定義通り $+\infty$ です。
+$s(\rho)\le s(\sigma)$ により、最後の内側の和は $\|s(\sigma)v_j\|^2=1$ です。第1項は $\log\sigma$ の正固有値だけから作る作用素のトレースなので、主張を得ます。支持が含まれない場合は[非忠実有限行列の相対モジュラー作用素](#thm-aqft31-finite-modular)により $\mu_\rho(\{0\})>0$ で、定義通り $+\infty$ です。
 <!-- proof-end -->
 
 次に、$\varepsilon>0$ を用いて $\rho_\varepsilon=(1-\varepsilon)\rho+\varepsilon I_n/n$、$\sigma_\varepsilon=(1-\varepsilon)\sigma+\varepsilon I_n/n$ とすると、双方は忠実で[AQFT30の還元定理](../AQFT30/index.md#thm-aqft30-finite-reduction)を適用できます。
@@ -402,7 +402,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\rho$ の固有値を $r_j$、$\sigma$ の固有値を $s_i$ とし、互いに異なってよい固有基底 $v_j,u_i$ を選びます。$r_j^\varepsilon=(1-\varepsilon)r_j+\varepsilon/n$、$s_i^\varepsilon=(1-\varepsilon)s_i+\varepsilon/n$ と記せば、[忠実有限次元のトレース公式](../AQFT30/index.md#thm-aqft30-finite-reduction)より
+$\rho$ の固有値を $r_j$、$\sigma$ の固有値を $s_i$ とし、互いに異なってよい固有基底 $v_j,u_i$ を選びます。$r_j^\varepsilon=(1-\varepsilon)r_j+\varepsilon/n$、$s_i^\varepsilon=(1-\varepsilon)s_i+\varepsilon/n$ と記せば、[Araki相対エントロピーの忠実有限次元還元](../AQFT30/index.md#thm-aqft30-finite-reduction)より
 
 $$
 \begin{aligned}
@@ -422,7 +422,7 @@ c_i^\varepsilon
 c_i=\langle u_i,\rho u_i\rangle
 $$
 
-と書きます。この場合 $\log s_i^\varepsilon=\log(\varepsilon/n)$ です。[支持包含の判定](#prop-aqft31-support-criterion)より、包含成立時はすべての $s_i=0$ に対して $c_i=0$ だから、係数付き項は $(\varepsilon/n)\log(\varepsilon/n)\to0$ です。ゆえに極限は[非忠実トレース公式](#thm-aqft31-nonfaithful-reduction)に一致します。
+と書きます。この場合 $\log s_i^\varepsilon=\log(\varepsilon/n)$ です。[支持包含の判定](#prop-aqft31-support-criterion)より、包含成立時はすべての $s_i=0$ に対して $c_i=0$ だから、係数付き項は $(\varepsilon/n)\log(\varepsilon/n)\to0$ です。ゆえに極限は[非忠実有限次元のトレース公式と発散条件](#thm-aqft31-nonfaithful-reduction)に一致します。
 
 包含不成立時は $\sum_{i:s_i=0}c_i=\operatorname{Tr}\rho(1-s(\sigma))>0$ です。零固有値方向の項は
 
@@ -506,7 +506,7 @@ $\rho=\operatorname{diag}(1,0)$、$\sigma=I_2/2$ に対し、$\Delta_{\sigma\mid
 $\rho=\operatorname{diag}(1,0)$、$\sigma=\operatorname{diag}(0,1)$ に対して $\mu_\rho(\{0\})$ を求め、スペクトル切断の式で $+\infty$ を示せ。
 
 <!-- solution-start -->
-**詳細解答。** $s(\sigma)=E_{22}$ なので $1-s(\sigma)=E_{11}$、従って[零重みの公式](#thm-aqft31-finite-modular)で $\mu_\rho(\{0\})=\operatorname{Tr}(E_{11}E_{11})=1$ です。入力のスペクトル測度は零点のみにあるため、
+**詳細解答。** $s(\sigma)=E_{22}$ なので $1-s(\sigma)=E_{11}$、従って[非忠実有限行列の相対モジュラー作用素](#thm-aqft31-finite-modular)で $\mu_\rho(\{0\})=\operatorname{Tr}(E_{11}E_{11})=1$ です。入力のスペクトル測度は零点のみにあるため、
 
 $$
 -\int\log(\max\{\lambda,\varepsilon\})\,d\mu_\rho
@@ -541,7 +541,7 @@ $$
 $\rho=\operatorname{diag}(2/3,1/3,0)$、$\sigma=\operatorname{diag}(1/2,1/4,1/4)$ とする。支持の包含を確かめ、非忠実公式で相対エントロピーを求めよ。$\rho$ の零固有値に係る項をどのように扱ったかも説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** $s(\rho)=\operatorname{diag}(1,1,0)$、$s(\sigma)=I_3$ ですから包含成立です。共通固有基底では $r_j>0$ の $j=1,2$ だけが入力重みを持つので、[非忠実トレース公式](#thm-aqft31-nonfaithful-reduction)より
+**詳細解答。** $s(\rho)=\operatorname{diag}(1,1,0)$、$s(\sigma)=I_3$ ですから包含成立です。共通固有基底では $r_j>0$ の $j=1,2$ だけが入力重みを持つので、[非忠実有限次元のトレース公式と発散条件](#thm-aqft31-nonfaithful-reduction)より
 
 $$
 \begin{aligned}
