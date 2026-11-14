@@ -1,7 +1,7 @@
 chapter: U3-39
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-19, U3-20, U3-38]
+prerequisites: [U3-19, U3-20, U3-38, OPT1]
 concepts:
   - id: finance.implied-volatility
     name: 欧州型オプションのインプライド・ボラティリティ
