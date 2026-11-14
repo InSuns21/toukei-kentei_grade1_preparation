@@ -263,7 +263,14 @@ $$
 D_{rr}(a,\theta)=U\cos\theta\left(\frac{3a}{2a^2}-\frac{3a^3}{2a^4}\right)=0.
 $$
 
-従って**この解では**法線粘性応力が消え、$\sigma e_r=-pe_r+\sigma_{r\theta}e_\theta$ となる（$\sigma_{r\theta}=2\eta D_{r\theta}$）。これは任意の Newton 流体で法線粘性応力が零という意味ではない。$e_r\cdot e_z=\cos\theta$、$e_\theta\cdot e_z=-\sin\theta$ に注意する。
+接線応力を球座標の速度成分から求める根拠も確かめる。球の正規直交基底は $\partial_r e_\theta=0$、$\partial_\theta e_r=e_\theta$、$\partial_\theta e_\theta=-e_r$ を満たす。半径方向の単位長さの微分は $\partial_r$、極角方向の単位長さの微分は $r^{-1}\partial_\theta$ なので、対称勾配の両成分を足すと
+
+$$
+2D_{r\theta}=\partial_rv_\theta+\frac1r(\partial_\theta v_r-v_\theta),\qquad
+\sigma_{r\theta}=2\eta D_{r\theta}.
+$$
+
+となる。球面の無滑り $v_r(a,\theta)=v_\theta(a,\theta)=0$ は全ての $\theta$ で成り立ち、$\partial_\theta v_r(a,\theta)=0$ でもある。従って**この解では**法線粘性応力が消え、$\sigma e_r=-pe_r+\sigma_{r\theta}e_\theta$、$\sigma_{r\theta}(a,\theta)=\eta\partial_r v_\theta(a,\theta)$ となる。これは任意の Newton 流体で法線粘性応力が零という意味ではない。$e_r\cdot e_z=\cos\theta$、$e_\theta\cdot e_z=-\sin\theta$ に注意する。
 
 <a id="def-fluid18-drag-parts"></a>
 
