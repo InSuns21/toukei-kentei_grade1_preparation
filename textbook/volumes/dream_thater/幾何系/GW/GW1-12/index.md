@@ -29,7 +29,9 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-12-admissible-splitting -->
-**定義の確認**。$S=\{1,2,3,4\}$、$A=\{1,2\}$、$B=\{3,4\}$、$\beta_1=0$、$\beta_2$ を次数1の類とする。定数側は標点 $1,2,*$ の三特殊点を持つため安定で、非定数側も安定である。一方 $A=\{1\}$ として $\beta_1=0$ にすると定数側には $1,*$ しかなく、二特殊点の球面は正の次元の自己同型を持つ。これを独立した安定写像因子とする分裂は許容されない。
+**定義の確認**。$X=\mathbb P^1$、$S=\{1,2,3,4\}$ とし、$A=\{1,2\}$、$B=\{3,4\}$、$\beta_1=0$、$\beta_2=1$ とする。曲線類は $0+1=1$ で、各側の標点集合は節点用の $*$ を加えて $\{1,2,*\}$ と $\{3,4,*\}$ となる。左の定数写像は三特殊点を持つので安定であり、右には次数1の同型写像が存在して安定である。したがって両因子は実際に非空で、許容分裂である。
+
+一方 $A=\{1\}$、$B=\{2,3,4\}$、$\beta_1=0$ とすると、左には $1,*$ の二特殊点しかない。その球面の自己同型には二点を固定する $z\mapsto az$（$a\in\mathbb C^\times$）が残るため安定ではない。右の次数1因子が非空でも、この分裂は許容されない。
 <!-- definition-example-end -->
 
 二つの順序付きデータ $(A,\beta_1;B,\beta_2)$ を交換すると、節点付き写像の**同じ幾何学的境界**を記述することがある。境界を後で数えるときは、この順序と枝の交換を区別する。
@@ -226,10 +228,42 @@ $$
 = h\boxtimes1+1\boxtimes h.
 $$
 
-例えば $\Delta$ と $X\times\{q\}$ の交点は $(q,q)$ の一つで横断的なので $\int_{X\times X}[\Delta]\smile(1\boxtimes h)=1$。実際、上式の右辺では $(1\boxtimes h)^2=0$、残る $(h\boxtimes1)(1\boxtimes h)$ の積分が1である。節点値を一致させる条件の複素余次元も $m=1$ と確かめられた。
+まず第3節の次数 $1+1$ の例では、両因子の評価写像を節点像 $p,q\in\mathbb P^1$ で同定すると、ともに恒等写像である。したがって直積上の積評価は $(p,q)\mapsto(p,q)$ であり、対角の逆像はちょうど $p=q$ を満たすファイバー積 $F$ になる。その Poincaré 双対は定義どおり
+
+$$
+(\operatorname{ev}_*^A,\operatorname{ev}_*^B)^*[\Delta_X]
+=[\Delta_{\mathbb P^1}]=h\boxtimes1+1\boxtimes h.
+$$
+
+独立の交叉数でも確かめる。$\Delta$ と $X\times\{q\}$ の交点は $(q,q)$ の一つで横断的なので
+
+$$
+\int_{X\times X}[\Delta]\smile(1\boxtimes h)
+=\int_{X\times X}(h\boxtimes1)(1\boxtimes h)=1.
+$$
+
+ここで $(1\boxtimes h)^2=0$、$\int_Xh=1$ を使った。逆の因子と交わらせても1となる。対角の複素余次元は $m=1$ で、ファイバー積の次元が直積より1小さいこととも一致する。
 <!-- definition-example-end -->
 
-偶数次数のコホモロジーだけを使う場合、$H^{\mathrm{even}}(X;\mathbb Q)$ の同次基底 $e_a$ と Poincaré pairing $\int_X e_a\smile e^b=\delta_a^b$ を満たす双対基底 $e^a$ を選ぶと、交叉積分へ寄与する対角類の偶数・偶数成分は
+偶数次数のコホモロジーを計算するため、$X$ 上の積分による Poincaré pairing を
+
+$$
+\langle u,v\rangle_X:=\int_Xu\smile v
+$$
+
+と書く。$H^{\mathrm{even}}(X;\mathbb Q)$ の同次基底 $e_a$ に対し、$\langle e_a,e^b\rangle_X=\delta_a^b$ となる双対基底 $e^a$ を選ぶ。この基底が節点一致の判定へ使える理由は、[Poincaré 双対類による交叉の解釈](../GW1-11/index.md#def-gw1-11-insertion)を直積へ適用すると、対角の交叉が $X$ 上での交叉へ戻るからである。実際、偶数次数の $u,v$ に対して
+
+$$
+\begin{aligned}
+\int_{X\times X}[\Delta_X]\smile(u\boxtimes v)
+&=\int_Xu\smile v,\\
+\int_{X\times X}\left(\sum_a e_a\boxtimes e^a\right)\smile(u\boxtimes v)
+&=\sum_a\langle e_a,u\rangle_X\langle e^a,v\rangle_X
+=\langle u,v\rangle_X.
+\end{aligned}
+$$
+
+第二式の末尾は双対基底による $u$ の展開から従う。したがって偶数・偶数成分は
 
 $$
 [\Delta_X]_{\mathrm{even,even}}=\sum_a e_a\boxtimes e^a.
@@ -237,7 +271,13 @@ $$
 
 奇数次数の類まで含めた一般式には graded（Koszul）符号が必要である。本講の明示的な**基底展開の分裂公式は全挿入を偶数次数とする**。対角の幾何学的な引き戻しそのものは奇数次数も含めて成り立つ。
 
-**例：$\mathbb P^2$**。$H$ を超平面類とすると $1,H,H^2$ の双対は $H^2,H,1$ であり、
+**例：$\mathbb P^2$**。$H$ を超平面類とすると $H^3=0$、$\int_{\mathbb P^2}H^2=1$ である。実次数の和が4となる組だけ pairing が非零なので、基底 $1,H,H^2$ に対し
+
+$$
+\langle1,H^2\rangle=\langle H,H\rangle=\langle H^2,1\rangle=1
+$$
+
+であり、これ以外の基底の組の pairing は零。従って双対基底は順に $H^2,H,1$ となる。これを直前の式に代入すれば
 
 $$
 [\Delta_{\mathbb P^2}]=1\boxtimes H^2+H\boxtimes H+H^2\boxtimes1 .
@@ -247,7 +287,16 @@ $$
 
 ## 7. 境界の積分を二つの因子へ分裂させる
 
-[GW1-11で定義した評価挿入の積分](../GW1-11/index.md#prop-gw1-11-degree-rule)を使う。二因子の評価挿入は、貼り合わせ後の元の標点の挿入と一致する。節点一致は対角類による交叉と等しいので、積分を二つの因子へ分離できる。
+[GW1-11の評価挿入と積分](../GW1-11/index.md#prop-gw1-11-degree-rule)を使う。記法を確認すると、安定な $r$ 標点・曲線類 $\gamma$ の因子に対し
+
+$$
+I_{0,\gamma}(\eta_1,\ldots,\eta_r)
+:=\int_{[M_{r,\gamma}]}\prod_{j=1}^r\operatorname{ev}_j^*\eta_j
+$$
+
+である。$r$ はこの因子の標点数で、節点用の $*$ も一標点として数える。以下の分裂公式では、各因子の挿入列の最後に節点挿入 $e_a$ または $e^a$ を置く。次数が基本類の実次元に届かない項は零とする。
+
+二因子の評価挿入は、貼り合わせ後の元の標点の挿入と一致する。節点一致は対角類による交叉と等しいので、積分を二つの因子へ分離できる。
 
 一節点境界の像を $D_{A,\beta_1\mid B,\beta_2}$ と呼ぶ。ただし同じ境界を交換した表記で二重に足さない。$(A,\beta_1;B,\beta_2)$ の交換がこのデータを保つ**無標点・同曲線類の対称な場合**は、順序付き貼り合わせ射の一般次数を $\delta=2$ とする。それ以外（特にラベル付き標点が少なくとも一つある場合）は $\delta=1$ である。ここで次数はスタックの有理基本類の pushforward の係数を意味し、粗空間での見かけの点数とは異なる。
 
@@ -311,7 +360,7 @@ $$
 
 ## 8. 四標点の境界を比べる準備
 
-$k=4$ なら、正次数写像の定義域も含めて、標的への写像を忘れて定義域を安定化する射
+$k=4$ なら、正次数写像の定義域も含めて、標的への写像を忘れて、[安定化の定義](../GW1-07/index.md#def-gw1-07-stabilization)に従い特殊点が足りない成分を収縮する射
 
 $$
 \mathrm{st}:M_{4,\beta}\longrightarrow\overline{\mathcal M}_{0,4}\simeq\mathbb P^1
