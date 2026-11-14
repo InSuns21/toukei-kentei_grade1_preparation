@@ -1011,6 +1011,26 @@
       settings.appendChild(label);
       inputs.set(param.name, input);
     }
+    for (const input of inputs.values()) {
+      input.addEventListener("input", () => {
+        const values = {};
+        let valid = true;
+        for (const param of lab.params) {
+          const field = inputs.get(param.name);
+          const value = Number(field.value);
+          if (!field.value.trim() || !field.checkValidity() ||
+            !Number.isFinite(value) || value < param.min || value > param.max) {
+            valid = false;
+            break;
+          }
+          values[param.name] = value;
+        }
+        if (valid) saveProgress(lab, JSON.stringify(values), false);
+        setStatus(panel, "条件を変更・未実行", "");
+        setOutput(panel, "条件を変更しました。再実行して結果を確認してください。", false);
+        setFigures(panel, []);
+      });
+    }
 
     const controls = document.createElement("div");
     controls.className = "numerical-lab-controls";
