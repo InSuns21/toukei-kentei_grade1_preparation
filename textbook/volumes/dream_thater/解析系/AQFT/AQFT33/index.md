@@ -42,7 +42,7 @@ $$
 <!-- definition-example-start: def-aqft33-restriction -->
 ### 直接例：二準位の対角観測量
 
-上の $\rho,\sigma$ に対し、$A=\operatorname{diag}(a,b)$ のみを評価すると二状態とも $(a+b)/2$ です。$A=I$ で値は1、$A\ge0$ なら $a,b\ge0$ なので値は非負です。$\mathcal N$ は有限次元ゆえ制限は正規です。他方、$B=\begin{pmatrix}0&1\\1&0\end{pmatrix}\in\mathcal M$ では $\rho(B)=1/2$、$\sigma(B)=-1/2$ となり、制限前の状態は異なります。定義の対象・正値性・規格化・差の消失を直接確認しました。
+上の $\rho,\sigma$ に対し、$A=\operatorname{diag}(a,b)$ のみを評価すると二状態とも $(a+b)/2$ です。$A=I$ で値は1、$A\ge0$ なら $a,b\ge0$ なので値は非負です。$\mathcal N$ は有限次元ゆえ制限は正規です。他方、$B=\begin{pmatrix}0&1\\1&0\end{pmatrix}\in\mathcal M$ では $\rho(B)=1/2$、$\sigma(B)=-1/2$ となり、制限前の状態は異なります。**定義の確認**：対象、正値性、規格化、制限による識別差の消失を直接確認しました。
 <!-- definition-example-end -->
 
 ここで注意すべきは、$\mathcal N$ の支持射影 $s_{\mathcal N}(\rho|_{\mathcal N})$ と $\mathcal M$ の支持射影 $s_{\mathcal M}(\rho)$ を無条件に同一視できないことです。たとえば $\rho=|+\rangle\langle+|$、$|+\rangle=(e_1+e_2)/\sqrt2$ なら、$\mathcal M$ での支持は階数1ですが、対角環へ制限した状態は $(1/2,1/2)$ で忠実、支持は単位元です。[AQFT31の支持射影](../AQFT31/index.md#def-aqft31-support)を、必ずその状態が作用する環ごとに使います。
@@ -617,16 +617,16 @@ $B=Ap$ は $\rho(B)=\rho(A)$、$\rho(B^*B)=\rho(A^*A)$、$\sigma(BB^*)=\sigma(Ap
 
 $\mathcal N$ でも、その環自身の支持を使って同じ議論を繰り返します。両環の上限は共通の試験関数 $F_s(A)$ を、それぞれ $\mathcal N$ と $\mathcal M$ で最大化したものなので、
 
-$
+$$
 R_{\mathcal N}(s)\le R_{\mathcal M}(s).
-$
+$$
 
 各環の入力スペクトル測度 $\mu$ の一次モーメントは[相対スペクトル測度の一次モーメント補題](../AQFT32/index.md#lem-aqft32-first-moment)により1以下です。従って、対数積分の負部分は
 
-$
+$$
 \int_{(1,\infty)}\log a\,d\mu(a)
 \le\int_{(1,\infty)}a\,d\mu(a)\le1
-$
+$$
 
 で有限になります。正部分は無限でもよく、非負関数のTonelliの定理を用いて扱います。[逆作用素積分表示](#lem-aqft33-log-resolvent)で両辺から共通の $1/(1+s)$ を引き、上の可積分性を確認して積分すれば
 
