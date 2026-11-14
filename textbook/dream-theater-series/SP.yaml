@@ -16,7 +16,7 @@ chapters:
   - { id: SP7, path: textbook/volumes/dream_thater/解析系/SP/SP7, status: completed, title: "マルチンゲール・条件付き期待値・予測可能変換" }
   - { id: SP8, path: textbook/volumes/dream_thater/解析系/SP/SP8, status: completed, title: "停止と任意抽出・Doob 分解" }
   - { id: SP9, path: textbook/volumes/dream_thater/解析系/SP/SP9, status: completed, title: "最大不等式・上向き横断・マルチンゲール収束" }
-  - { id: SP10, path: textbook/volumes/dream_thater/解析系/SP/SP10, status: planned, title: "計数過程・Poisson 過程・指数待ち時間" }
+  - { id: SP10, path: textbook/volumes/dream_thater/解析系/SP/SP10, status: completed, title: "計数過程・Poisson 過程・指数待ち時間" }
   - { id: SP11, path: textbook/volumes/dream_thater/解析系/SP/SP11, status: planned, title: "Poisson の重ね合わせ・間引き・印付き到着" }
   - { id: SP12, path: textbook/volumes/dream_thater/解析系/SP/SP12, status: planned, title: "CTMC の Q 行列・跳躍連鎖・滞在時間" }
   - { id: SP13, path: textbook/volumes/dream_thater/解析系/SP/SP13, status: planned, title: "CTMC の Kolmogorov 方程式・定常性・可逆性" }
