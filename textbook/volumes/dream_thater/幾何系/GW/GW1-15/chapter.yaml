@@ -1,0 +1,45 @@
+id: "GW1-15"
+title: "GWの基本公理と分裂公式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-14
+  - GW1-13
+  - GW1-12
+  - GW1-11
+official_scope: []
+learning_objectives:
+  - 斉次挿入の次数付き対称性を標点の置換とカップ積の符号から証明できる
+  - 基本類公理を忘却射と相対次元から導き次数0の不安定例外を区別できる
+  - 因子公理を普遍曲線のファイバー積分から導出し曲線次数と対応づけられる
+  - 単位類と因子類の挿入が異なる理由を実次数から説明できる
+  - 許容分裂の安定条件と節点一致の対角類から境界積分を分解できる
+  - 四標点境界の同値性から偶数挿入の相関の和の恒等式を導出できる
+  - 射影直線と射影平面で境界積分と一次GW不変量を区別し具体的な係数を検算できる
+definitions: []
+theorems:
+  - { id: GW1-15-PROP-01, name: 一次GW不変量の次数付き対称性 }
+  - { id: GW1-15-THM-01, name: 基本類公理・単位類挿入 }
+  - { id: GW1-15-THM-02, name: 因子公理 }
+  - { id: GW1-15-PROP-02, name: 四標点相関の境界和公式 }
+canonical_examples:
+  - 射影直線の次数0三標点の基本類公理例外
+  - 射影直線の次数1で単位類を追加すると値が0になる例
+  - 射影平面の次数1で二点と因子条件を課す例
+  - 射影直線の四標点次数0で境界積分が1かつ一次不変量が0となる例
+  - 射影平面の次数1で四標点の二境界和がともに1となる例
+problem_patterns:
+  - GW1-15-DIMENSION-ZERO-CLASS
+  - GW1-15-GRADED-PERMUTATION
+  - GW1-15-FUNDAMENTAL-CLASS
+  - GW1-15-DIVISOR-DEGREE
+  - GW1-15-STABLE-SPLITTING
+  - GW1-15-FORGETFUL-PUSHFORWARD
+  - GW1-15-FOUR-MARKED-ZERO-CLASS
+  - GW1-15-BOUNDARY-DIMENSION
+  - GW1-15-UNSTABLE-DIVISOR-EXCEPTION
+  - GW1-15-INTEGRATED-FOUR-POINT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }
