@@ -4,6 +4,7 @@ Python 3 standard library only; values are hypothetical, not live quotes.
 """
 from __future__ import annotations
 
+import argparse
 from math import erfc, exp, log, sqrt
 
 
@@ -93,6 +94,12 @@ def fit_single_vol(s: float, r: float, q: float, tau: float,
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Black–Scholes IV and quote calibration")
+    parser.add_argument("--spread", type=float, default=0.04,
+                        help="bid/ask half-spread in JPY per option")
+    args = parser.parse_args()
+    if not (0 < args.spread <= 0.2):
+        parser.error("--spread must be between 0 and 0.2 JPY")
     s, r, q, tau = 100.0, 0.05, 0.02, 1.0
     strikes = [90.0, 100.0, 110.0]
     vols = [0.23, 0.20, 0.22]
@@ -109,8 +116,8 @@ def main() -> None:
         assert abs(err) < 1e-9
 
     mid = observations[1]
-    print("\nATM bid/mid/ask / IV / repricing error (JPY)")
-    for label, price in [("bid", mid-0.04), ("mid", mid), ("ask", mid+0.04)]:
+    print(f"\nATM bid/mid/ask (half-spread={args.spread:.2f} JPY) / IV / repricing error (JPY)")
+    for label, price in [("bid", mid-args.spread), ("mid", mid), ("ask", mid+args.spread)]:
         iv, low, high = implied_vol(price, s, 100.0, r, q, tau)
         err = call(s, 100.0, r, q, tau, iv)-price
         print(f"{label:4s} {price:16.12f} {iv:13.10f} {err:+.3e}")
