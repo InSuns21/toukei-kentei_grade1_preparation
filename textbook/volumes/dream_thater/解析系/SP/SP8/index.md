@@ -80,7 +80,7 @@ M_\tau-M_\sigma
 =\sum_{k=1}^{N}\boldsymbol{1}_{\{\sigma<k\le\tau\}}\Delta M_k.
 $$
 
-$\mathcal F_\sigma$ は、停止時刻 $\sigma$ までに知ることのできる事象の集合です。[停止時刻までの $\sigma$ 代数の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)に従って、任意の $B\in\mathcal F_\sigma$ について $B\cap\{\sigma\le k-1\}\in\mathcal F_{k-1}$ です。また $\{\tau\ge k\}\in\mathcal F_{k-1}$ なので
+$\mathcal F_\sigma$ は、停止時刻 $\sigma$ までに知ることのできる事象の集合です。[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)に従って、任意の $B\in\mathcal F_\sigma$ について $B\cap\{\sigma\le k-1\}\in\mathcal F_{k-1}$ です。また $\{\tau\ge k\}\in\mathcal F_{k-1}$ なので
 
 $$
 C_k=B\cap\{\sigma<k\le\tau\}\in\mathcal F_{k-1}.
@@ -353,7 +353,7 @@ A01 の $\tau$ について、$B=\{\xi_1=1\}$ が $\mathcal F_\tau$ に属する
 <!-- solution-start -->
 ### 詳細解答
 
-[停止時刻までの $\sigma$ 代数の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)では、任意の $n$ で $D\cap\{\tau\le n\}\in\mathcal F_n$ が必要です。$B$ は $n=0$ では空集合、$n=1$ で $B$、$n\ge2$ でも $B$ となり、各時刻で可測です。ゆえに $B\in\mathcal F_\tau$ です。
+[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)では、任意の $n$ で $D\cap\{\tau\le n\}\in\mathcal F_n$ が必要です。$B$ は $n=0$ では空集合、$n=1$ で $B$、$n\ge2$ でも $B$ となり、各時刻で可測です。ゆえに $B\in\mathcal F_\tau$ です。
 
 $C$ に対して $n=1$ を調べると $C\cap\{\tau\le1\}=\{\xi_2=1,\xi_1=1\}$ となります。$\mathcal F_1=\sigma(\xi_1)$ は第1回の符号だけを区別するので、$\xi_1=1$ の二つの標本を分けるこの事象は $\mathcal F_1$ に入りません。従って $C\notin\mathcal F_\tau$ です。
 <!-- solution-end -->
@@ -449,7 +449,7 @@ $$
 
 $\sigma$ は第1回の結果だけで $1$ または $2$ と決まり、$\{\sigma\le1\}=\{\xi_1=1\}\in\mathcal F_1$、$\{\sigma\le2\}=\Omega$ です。$\tau=3$ は定数停止時刻です。$0\le\sigma\le\tau\le3$ なので[有界任意抽出](../../STO/STO2/index.md#thm-sto2-bounded-optional-sampling)を適用できますが、ここでは計算します。
 
-なぜ停止時刻ごとに固定時刻の条件付き平均で計算できるのでしょうか。[停止時刻までの $\sigma$ 代数の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)から、任意の $B\in\mathcal F_\sigma$ と $j=1,2$ について
+なぜ停止時刻ごとに固定時刻の条件付き平均で計算できるのでしょうか。[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)から、任意の $B\in\mathcal F_\sigma$ と $j=1,2$ について
 
 $$
 B\cap\{\sigma=j\}
