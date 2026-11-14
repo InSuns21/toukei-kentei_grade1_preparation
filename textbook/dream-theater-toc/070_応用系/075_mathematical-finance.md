@@ -40,3 +40,4 @@
 36. [U3-36 Least-squares Monte Carlo で American を評価](textbook/volumes/dream_thater/応用系/U/U3-36/index.md)
 37. [U3-37 Monte Carlo Greeks と手法横断ベンチマーク](textbook/volumes/dream_thater/応用系/U/U3-37/index.md)
 38. [U3-38 Fourier／特性関数による価格付け](textbook/volumes/dream_thater/応用系/U/U3-38/index.md)
+39. [U3-39 インプライド・ボラティリティと校正](textbook/volumes/dream_thater/応用系/U/U3-39/index.md)

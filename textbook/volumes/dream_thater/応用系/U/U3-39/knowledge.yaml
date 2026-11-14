@@ -1,0 +1,77 @@
+chapter: U3-39
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-19, U3-20, U3-38, OPT1]
+concepts:
+  - id: finance.implied-volatility
+    name: 欧州型オプションのインプライド・ボラティリティ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（欧州型オプションのインプライド・ボラティリティ）"]
+    requires: [finance.continuous-dividend-bsm-formula]
+  - id: finance.iv-volatility-price-limits
+    name: 配当付き call/put の変動率境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（配当付き call/put の変動率境界）"]
+    requires: [finance.continuous-dividend-bsm-formula, finance.continuous-dividend-put-call-parity]
+  - id: finance.iv-existence-uniqueness
+    name: IV の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（IV の存在と一意性）"]
+    requires: [finance.iv-volatility-price-limits, finance.bsm-greeks-dividend, finance.implied-volatility]
+  - id: finance.iv-bracket-bisection
+    name: IV の二分法と誤差保証
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（IV の二分法と誤差保証）"]
+    requires: [finance.iv-existence-uniqueness]
+  - id: finance.iv-bidask-feasible-set
+    name: bid/ask と両立する変動率集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（bid/ask と両立する変動率集合）"]
+    requires: [finance.implied-volatility]
+  - id: finance.iv-bidask-interval
+    name: 内点気配の IV 区間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（内点気配の IV 区間）"]
+    requires: [finance.iv-bidask-feasible-set, finance.iv-existence-uniqueness]
+  - id: finance.iv-vega-sensitivity
+    name: IV の局所感度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（IV の局所感度）"]
+    requires: [finance.iv-existence-uniqueness, finance.bsm-greeks-dividend]
+  - id: finance.iv-strike-slice
+    name: IV の行使価格断面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（IV の行使価格断面）"]
+    requires: [finance.implied-volatility]
+  - id: finance.implied-volatility-smile-skew
+    name: ボラティリティ・スマイルとスキュー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ボラティリティ・スマイルとスキュー）"]
+    requires: [finance.iv-strike-slice]
+  - id: finance.iv-call-strike-noarbitrage
+    name: 同一満期 call の行使価格制約
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一満期 call の行使価格制約）"]
+    requires: [finance.iv-strike-slice, finance.continuous-dividend-bsm-formula]
+  - id: finance.iv-constant-vol-calibration
+    name: 価格残差による定数変動率校正
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（価格残差による定数変動率校正）"]
+    requires: [finance.iv-strike-slice, finance.continuous-dividend-bsm-formula]
+  - id: finance.iv-calibration-gradient
+    name: 価格残差目的関数の導関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（価格残差目的関数の導関数）"]
+    requires: [finance.iv-constant-vol-calibration, finance.bsm-greeks-dividend]
