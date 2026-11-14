@@ -165,12 +165,12 @@ function orientMarkdownLinks(markdown, siteRelativeFile) {
       throw new Error(`${siteRelativeFile}: link escapes the generated site: ${trimmed}`);
     }
 
-    // Standalone HTML applications (including the ORI animated SVG players)
-    // must be opened as actual files, not as Docsify Markdown routes. Under a
+    // Standalone HTML applications and Python source files must be opened as
+    // real published files, not as Docsify Markdown routes. Under a
     // Pages project site, a plain site-root-relative URL resolves against
     // /<repository>/ even when the displayed chapter URL has a #/... route.
     // Do not prefix "./": Docsify re-resolves that against the nested route.
-    if (!open.startsWith('!') && /\.html?$/i.test(hrefPath)) {
+    if (!open.startsWith('!') && /\.(?:html?|py)$/i.test(hrefPath)) {
       const title = titleSuffix.trim().match(/^(['"])(.*?)\1$/)?.[2] || '';
       const ignored = title.includes(':ignore') ? title : [title, ':ignore'].filter(Boolean).join(' ');
       return `${open}${resolved}${hrefSuffix} '${ignored}'${close}`;
@@ -186,6 +186,7 @@ function selfTestStandaloneHtmlLinks() {
     '[Secondary](assets/demo.html "Open demo")',
     '[Lab](../../../../../../simulation/ml1-04.html)',
     '[Other chapter](../ORI21/index.md#theorem)',
+    '[Python source](../../../../../../textbook/volumes/dream_thater/物理系/FLUID/FLUID11/contour_check.py)',
     '![Poster](assets/ori-v12-poster.svg)',
   ].join('\n');
   const page = 'textbook/volumes/dream_thater/幾何系/ORI/ORI22/index.md';
@@ -195,8 +196,9 @@ function selfTestStandaloneHtmlLinks() {
     || !actual.includes(`[Secondary](${prefix}demo.html 'Open demo :ignore')`)
     || !actual.includes("[Lab](simulation/ml1-04.html ':ignore')")
     || !actual.includes('[Other chapter](textbook/volumes/dream_thater/幾何系/ORI/ORI21/index.md#theorem)')
+    || !actual.includes('[Python source](textbook/volumes/dream_thater/物理系/FLUID/FLUID11/contour_check.py \':ignore\')')
     || !actual.includes(`![Poster](${prefix}ori-v12-poster.svg)`)) {
-    throw new Error('Standalone HTML must bypass Docsify routing without changing Markdown navigation or SVG assets');
+    throw new Error('Standalone HTML/Python files must bypass Docsify routing without changing Markdown navigation or SVG assets');
   }
 }
 selfTestStandaloneHtmlLinks();
