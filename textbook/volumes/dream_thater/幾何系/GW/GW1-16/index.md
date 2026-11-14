@@ -319,8 +319,8 @@ $$
 右括弧の展開式で $B_1,B_2$ と $a,b$ を同時に入れ替える。$\eta^{ab}=\eta^{ba}$ は偶数部分の交叉行列の対称性による。さらに[偶数挿入の対称性](../GW1-15/index.md#prop-gw1-15-symmetry)で三点の順序を変えると
 
 $$
-(**)=
-\sum_{B_1+B_2=B}\sum_{a,b}
+\bigl(\alpha*(\lambda*\mu),\nu\bigr)_B
+=\sum_{B_1+B_2=B}\sum_{a,b}
 \langle\alpha,\nu,\phi_a\rangle_{B_1}
 \eta^{ab}
 \langle\phi_b,\lambda,\mu\rangle_{B_2}.
