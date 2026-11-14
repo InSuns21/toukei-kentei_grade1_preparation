@@ -14,3 +14,4 @@
 11. [FLUID11 流れ関数と速度ポテンシャルはいつ存在するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID11/index.md)
 12. [FLUID12 単純なポテンシャル流を重ね合わせられるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID12/index.md)
 13. [FLUID13 複素ポテンシャルと等角写像は何に効くか](textbook/volumes/dream_thater/物理系/FLUID/FLUID13/index.md)
+14. [FLUID14 理想流で揚力と抗力はどう異なるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID14/index.md)
