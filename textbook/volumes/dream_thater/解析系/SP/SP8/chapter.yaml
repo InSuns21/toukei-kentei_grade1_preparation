@@ -1,0 +1,39 @@
+id: "SP8"
+title: "停止と任意抽出・Doob 分解"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2
+  - SP6
+  - SP7
+official_scope: []
+learning_objectives:
+  - 停止時刻・停止時刻までの情報と未来依存の時刻を区別できる
+  - 停止増分を予測可能な指示関数の和で表し停止定理を再導出できる
+  - 有界任意抽出の停止時刻sigma代数に関する条件付き結論を差分から証明できる
+  - 非有界停止で期待値保存が破れる倍賭けの尾部を検算できる
+  - Doob分解の存在と一意性を条件付き平均増分から再構成できる
+  - Doob分解と停止の整合性を証明できる
+  - 有界停止時の予測可能増加公式を導き二乗歩行と破産問題へ適用できる
+definitions: []
+theorems:
+  - { id: SP8-PROP-01, name: "Doob 分解と停止の整合" }
+  - { id: SP8-PROP-02, name: "有界停止時刻の予測可能増加公式" }
+canonical_examples:
+  - "二回のコイントスで停止時刻・停止時刻までの情報・条件付き任意抽出を検算"
+  - "倍賭けの非有界停止で有限停止との期待値の差を計算"
+  - "二乗ランダムウォークのDoob補償と停止の整合"
+  - "有限区間破産問題を停止と補償から再導出"
+problem_patterns:
+  - SP8-STOPPING-TIME-CHECK
+  - SP8-STOPPED-DIFFERENCE
+  - SP8-STOPPING-SIGMA-FIELD
+  - SP8-CONDITIONAL-SAMPLING
+  - SP8-DOOB-COMPENSATION
+  - SP8-STOPPED-DOOB
+  - SP8-UNBOUNDED-STOPPING-COUNTEREXAMPLE
+  - SP8-RUIN-MARTINGALE-APPLICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.5, review: 1.5 }

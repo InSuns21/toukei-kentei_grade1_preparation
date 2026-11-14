@@ -1,0 +1,27 @@
+chapter: SP8
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2
+  - SP6
+  - SP7
+forward_references: []
+concepts:
+  - id: stochastic.stopped-doob-decomposition
+    name: Doob分解と停止の整合
+    kind: proposition
+    aliases: [Doob decomposition under stopping]
+    introduction: formal
+    introduction_aliases: ["命題（Doob 分解と停止の整合）"]
+    requires:
+      - stochastic.doob-decomposition
+      - stochastic.stopped-martingale
+  - id: stochastic.bounded-stopped-predictable-drift
+    name: 有界停止時刻の予測可能増加公式
+    kind: proposition
+    aliases: [bounded stopped predictable drift identity]
+    introduction: formal
+    introduction_aliases: ["命題（有界停止時刻の予測可能増加公式）"]
+    requires:
+      - stochastic.stopped-doob-decomposition
+      - stochastic.bounded-optional-sampling

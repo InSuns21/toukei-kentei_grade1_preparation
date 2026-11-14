@@ -23,7 +23,18 @@ E[S_{n+1}\mid\mathcal F_n]
 =S_n+E[\xi_{n+1}\mid\mathcal F_n]=S_n.
 $$
 
-これが公平なランダムウォークです。同じ計算で $E[S_{n+1}^2\mid\mathcal F_n]=S_n^2+1$ が分かるので、二乗過程は劣マルチンゲール、$S_n^2-n$ はマルチンゲールです。
+これが公平なランダムウォークです。二乗では $S_{n+1}=S_n+\xi_{n+1}$ を展開して
+
+$$
+\begin{aligned}
+E[S_{n+1}^2\mid\mathcal F_n]
+&=S_n^2+2S_nE[\xi_{n+1}\mid\mathcal F_n]
+  +E[\xi_{n+1}^2\mid\mathcal F_n]\\
+&=S_n^2+1
+\end{aligned}
+$$
+
+となります。$S_n^2$ は劣マルチンゲールで、毎回の増加分 $1$ を引いた $S_n^2-n$ はマルチンゲールです。
 
 ### 反例：平均が一定でも公平とは限らない
 
@@ -171,7 +182,22 @@ M_n^2-M_{n-1}^2
 =2M_{n-1}D_n+D_n^2.
 $$
 
-$M_{n-1}$ が $\mathcal F_{n-1}$ 可測で $E[D_n\mid\mathcal F_{n-1}]=0$ なので、可積分な積に対する条件付き期待値の引き出しを使うと
+$M_{n-1}$ は $\mathcal F_{n-1}$ 可測ですが、有界とは限りません。[条件付き期待値の基本性質](../../F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties)の「既知量の取り出し」は有界な係数について述べられているので、ここでは二乗可積分性を使って拡張します。$Y=M_{n-1}$ とし、$R>0$ に対して $Y^{(R)}=\max(-R,\min(Y,R))$ と切断します。$Y^{(R)}$ は有界な $\mathcal F_{n-1}$ 可測変数だから
+
+$$
+E[Y^{(R)}D_n\mid\mathcal F_{n-1}]
+=Y^{(R)}E[D_n\mid\mathcal F_{n-1}]=0.
+$$
+
+また $Y^{(R)}\to Y$ は $L^2$ で成立し、[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により
+
+$$
+E[|(Y^{(R)}-Y)D_n|]
+\le \bigl(E[(Y^{(R)}-Y)^2]\bigr)^{1/2}
+     \bigl(E[D_n^2]\bigr)^{1/2}\longrightarrow0.
+$$
+
+条件付き期待値の $L^1$ 縮小性で極限を通すと $E[YD_n\mid\mathcal F_{n-1}]=0$ です。したがって二乗差の条件付き平均は
 
 $$
 \begin{aligned}
@@ -193,7 +219,13 @@ E[D_k^2]=E[(\xi_k-\mu)^2]
 =1-\mu^2=4pq.
 $$
 
-よって $(S_n-n\mu)^2-4pqn$ もマルチンゲールです。ここでは各差分が独立であるため $V_n$ は定数ですが、一般にはそうなりません。
+各 $D_k=\xi_k-\mu$ は過去の $\mathcal F_{k-1}$ と独立なので、補正に必要なのは無条件平均だけでなく
+
+$$
+E[D_k^2\mid\mathcal F_{k-1}]=E[D_k^2]=4pq
+$$
+
+という条件付き二乗平均の等式です。ゆえに $V_n=4pqn$ となり、[条件付き二乗平均による補正](#prop-sp7-square-compensation)から $(S_n-n\mu)^2-4pqn$ もマルチンゲールです。一般に差分の条件付き二乗平均は履歴に依存し、$V_n$ はランダムになります。
 
 ## 4. 予測可能変換：情報を見てから賭け金を決めない
 
@@ -262,15 +294,24 @@ $G_n^2$ を展開すると対角項と異時刻の積が出ます。異時刻の
 <!-- proof-start -->
 ### 証明
 
-$H_k$ は有界、$D_k\in L^2$ なので $H_kD_k\in L^2$ です。有限和 $G_n$ も二乗可積分です。$i<j$ とすると、$H_iD_i$ は $\mathcal F_i\subseteq\mathcal F_{j-1}$ 可測、$H_j$ は $\mathcal F_{j-1}$ 可測です。積は可積分であり、
+$H_k$ は有界、$D_k\in L^2$ なので $H_kD_k\in L^2$ です。有限和 $G_n$ も二乗可積分です。$i<j$ とすると、$H_iD_i$ は $\mathcal F_i\subseteq\mathcal F_{j-1}$ 可測、$H_j$ は $\mathcal F_{j-1}$ 可測です。よって $Z=(H_iD_i)H_j$ は $\mathcal F_{j-1}$ 可測で二乗可積分、$ZD_j$ は Cauchy–Schwarz により可積分です。
+
+前節と同じく $Z^{(R)}=\max(-R,\min(Z,R))$ を用いると、[条件付き期待値の基本性質](../../F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties)の有界な係数の引き出しにより
 
 $$
-\begin{aligned}
-E[(H_iD_i)(H_jD_j)]
-&=E[(H_iD_i)H_jE[D_j\mid\mathcal F_{j-1}]]\\
-&=0.
-\end{aligned}
+E[Z^{(R)}D_j]
+=E[Z^{(R)}E[D_j\mid\mathcal F_{j-1}]]=0.
 $$
+
+$Z^{(R)}\to Z$ は $L^2$ であり、
+
+$$
+|E[(Z-Z^{(R)})D_j]|
+\le \bigl(E[(Z-Z^{(R)})^2]\bigr)^{1/2}
+    \bigl(E[D_j^2]\bigr)^{1/2}\longrightarrow0.
+$$
+
+ゆえに $E[(H_iD_i)(H_jD_j)]=E[ZD_j]=0$ です。
 
 ここでは $D_j$ が[マルチンゲール差分列](#def-sp7-martingale-difference)であることを用いました。よって
 
@@ -387,7 +428,7 @@ $$
 #### SP7-A04 賭け方の情報制約
 - Level: A
 
-公平独立コインに対し $H_k=1_{\{S_{k-1}\ge0\}}$ と $K_k=1_{\{\xi_k=1\}}$ を考える。どちらが予測可能か判定し、$E[K_k\xi_k\mid\mathcal F_{k-1}]$ を求めよ。
+公平独立コインに対し $H_k=\boldsymbol{1}_{\{S_{k-1}\ge0\}}$ と $K_k=\boldsymbol{1}_{\{\xi_k=1\}}$ を考える。どちらが予測可能か判定し、$E[K_k\xi_k\mid\mathcal F_{k-1}]$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -395,7 +436,7 @@ $$
 $S_{k-1}$ は $\mathcal F_{k-1}$ 可測なので $H_k$ は予測可能です。一方、$K_k$ は時刻 $k$ の未知のコインに依存します。もし $\mathcal F_{k-1}$ 可測なら $E[K_k\mid\mathcal F_{k-1}]=K_k$ ですが、独立性から左辺は常に $1/2$ です。$K_k$ は $0$ または $1$ なので矛盾し、予測可能ではありません。
 
 $$
-K_k\xi_k=1_{\{\xi_k=1\}},\qquad
+K_k\xi_k=\boldsymbol{1}_{\{\xi_k=1\}},\qquad
 E[K_k\xi_k\mid\mathcal F_{k-1}]=\frac12.
 $$
 
@@ -424,7 +465,7 @@ $\xi_1$ は $\pm1$ のみを取るので両者は一致しません。従って�
 #### SP7-B01 選択参加戦略の二乗平均
 - Level: B
 
-公平ランダムウォークに対し $H_1=1$、$H_k=1_{\{S_{k-1}\ge0\}}$ ($k\ge2$) とし、$G_3=\sum_{k=1}^3H_k\xi_k$ とする。予測可能性と $E[G_3]$ を確認し、$E[G_3^2]$ を求めよ。計算には各時刻の参加確率を使ってよい。
+公平ランダムウォークに対し $H_1=1$、$H_k=\boldsymbol{1}_{\{S_{k-1}\ge0\}}$ ($k\ge2$) とし、$G_3=\sum_{k=1}^3H_k\xi_k$ とする。予測可能性と $E[G_3]$ を確認し、$E[G_3^2]$ を求めよ。計算には各時刻の参加確率を使ってよい。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -456,7 +497,7 @@ $$
 #### SP7-B02 条件付き期待値からマルチンゲールを作る
 - Level: B
 
-公平独立コイン $\xi_1,\xi_2$ に対し $Z=1_{\{\xi_1=1,\xi_2=1\}}$ とする。$\mathcal F_0$ は自明、$\mathcal F_1=\sigma(\xi_1)$、$\mathcal F_2=\sigma(\xi_1,\xi_2)$ として、$M_k=E[Z\mid\mathcal F_k]$ ($k=0,1,2$) を全て求め、その差分の条件付き平均がゼロになることを直接確かめよ。
+公平独立コイン $\xi_1,\xi_2$ に対し $Z=\boldsymbol{1}_{\{\xi_1=1,\xi_2=1\}}$ とする。$\mathcal F_0$ は自明、$\mathcal F_1=\sigma(\xi_1)$、$\mathcal F_2=\sigma(\xi_1,\xi_2)$ として、$M_k=E[Z\mid\mathcal F_k]$ ($k=0,1,2$) を全て求め、その差分の条件付き平均がゼロになることを直接確かめよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -464,7 +505,7 @@ $$
 二回とも表になる確率は $1/4$ なので $M_0=1/4$ です。一回目が裏なら $Z=0$、表なら二回目の表の確率が $1/2$ なので
 
 $$
-M_1=\frac12\,1_{\{\xi_1=1\}},\qquad
+M_1=\frac12\,\boldsymbol{1}_{\{\xi_1=1\}},\qquad
 M_2=Z.
 $$
 
@@ -473,15 +514,15 @@ $$
 二回目の差分は
 
 $$
-D_2=1_{\{\xi_1=1\}}
-\left(1_{\{\xi_2=1\}}-\frac12\right).
+D_2=\boldsymbol{1}_{\{\xi_1=1\}}
+\left(\boldsymbol{1}_{\{\xi_2=1\}}-\frac12\right).
 $$
 
 $\xi_2$ は $\mathcal F_1$ と独立なので、
 
 $$
 E[D_2\mid\mathcal F_1]
-=1_{\{\xi_1=1\}}\left(\frac12-\frac12\right)=0.
+=\boldsymbol{1}_{\{\xi_1=1\}}\left(\frac12-\frac12\right)=0.
 $$
 
 可測性・可積分性は有界な指示関数の和と積から従います。[差分による判定](#prop-sp7-difference-representation)で $M$ はマルチンゲールです。この結果は条件付き期待値の[反復期待値の法則](../../F0/F0-00P3A/index.md#thm-f0-00p3a-tower)でも確認できます。
@@ -564,7 +605,7 @@ $$
 
 $\eta_k$ は有界で $\mathcal F_k$ 可測ですから、[差分による判定](#prop-sp7-difference-representation)で $G$ はマルチンゲールです。
 
-**2. 一次・二次モーメント。** $G_0=0$ とマルチンゲール性から $E[G_n]=0$ です。また[二乗平均恒等式](#thm-sp7-predictable-isometry)を $D_k=\xi_k$ に適用し、$H_k^2=\xi_k^2=1$（$H_1^2=1$）を用いると
+**2. 一次・二次モーメント。** $G_0=0$ とマルチンゲール性から $E[G_n]=0$ です。また[二乗平均恒等式](#thm-sp7-predictable-isometry)を $D_k=\xi_k$ に適用し、$H_1^2=1$、$k\ge2$ では $H_k^2=\xi_{k-1}^2=1$、また全 $k$ で $\xi_k^2=1$ を用いると
 
 $$
 E[G_n^2]=\sum_{k=1}^nE[H_k^2\xi_k^2]
@@ -585,7 +626,7 @@ $$
 \xi_k=\prod_{j=1}^ke_j
 $$
 
-とすればよいです。実際 $\xi_{k-1}\xi_k=(\prod_{j=1}^{k-1}e_j)^2e_k=e_k$ です。この復元は一意なので、$\xi$ の $2^n$ 個の符号列と $\eta$ の $2^n$ 個の符号列は一対一です。元の各符号列の確率は独立性から $2^{-n}$、従って
+とすればよいです。実際 $\xi_{k-1}\xi_k=(\prod_{j=1}^{k-1}e_j)^2e_k=e_k$ です。この復元は一意なので、$\xi$ の $2^n$ 個の符号列と $\eta$ の $2^n$ 個の符号列は一対一です。元の各符号列の確率は独立性から $2^{-n}$ です。従って変換後の符号列もすべて確率 $2^{-n}$ であり、各座標を固定した符号にする符号列は $2^{n-1}$ 個だから $P(\eta_k=e_k)=1/2$ です。よって
 
 $$
 P(\eta_1=e_1,\ldots,\eta_n=e_n)=2^{-n}
