@@ -1,0 +1,46 @@
+id: "FLUID16"
+title: "管路・円筒間の定常層流をどう解くか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM17
+  - FLUID7
+official_scope: []
+learning_objectives:
+  - "円管一方向流の対流項が厳密に零になる理由と円筒ラプラシアンを導ける"
+  - "軸の正則性と無滑り条件から Hagen–Poiseuille の放物線分布を一意に導ける"
+  - "円管の面積積分・壁面せん断力・圧力合力・粘性散逸を符号と単位付きで検算できる"
+  - "同心円筒の曲率を含む角方向方程式と径方向の向心加速度を区別して解ける"
+  - "回転する円筒の二つの壁条件から Couette 速度分布と径方向圧力を導ける"
+  - "円筒壁の traction とトルクの法線符号を追い、両壁の仕事率と散逸を照合できる"
+  - "厳密な定常解の存在と流れの実験的な安定性・入口効果を区別できる"
+definitions:
+  - { id: FLUID16-DEF-01, name: "定常・完全発達した円管一方向流" }
+  - { id: FLUID16-DEF-02, name: "同心円筒 Couette 流の解クラス" }
+theorems:
+  - { id: FLUID16-THM-01, name: "円管 Hagen–Poiseuille 流と解クラス内の一意性" }
+  - { id: FLUID16-THM-02, name: "円管流の流量・平均速度・壁のせん断力" }
+  - { id: FLUID16-PROP-01, name: "円管の圧力仕事と粘性散逸" }
+  - { id: FLUID16-THM-03, name: "同心円筒 Couette 流の速度と径方向圧力" }
+  - { id: FLUID16-PROP-02, name: "同心円筒の圧力分布" }
+  - { id: FLUID16-THM-04, name: "同心円筒 Couette 流のせん断応力・トルク・散逸" }
+canonical_examples:
+  - "円管中心の対数項を正則性で除外する"
+  - "半径2mmの管で圧力差100Paから流量・速度・壁面応力を照合"
+  - "剛体回転ではせん断が零でも径方向圧力差が生じる"
+  - "内壁回転・外壁固定の速度係数と境界速度の単位検算"
+  - "円筒間の二壁トルクを反対符号で積分する"
+problem_patterns:
+  - FLUID16-PIPE-AXIS-REGULARITY
+  - FLUID16-PIPE-FLUX-R4
+  - FLUID16-PIPE-WALL-TRACTION
+  - FLUID16-PIPE-ENERGY
+  - FLUID16-CYLINDER-BOUNDARY
+  - FLUID16-CYLINDER-RADIAL-PRESSURE
+  - FLUID16-CYLINDER-TORQUE
+  - FLUID16-CYLINDER-DISSIPATION
+  - FLUID16-COMPARATIVE-POWER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

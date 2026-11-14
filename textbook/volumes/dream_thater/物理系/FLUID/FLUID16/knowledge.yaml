@@ -1,0 +1,55 @@
+chapter: FLUID16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM17
+  - FLUID7
+concepts:
+  - id: fluid.fully-developed-pipe
+    name: 定常・完全発達した円管一方向流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定常・完全発達した円管一方向流）"]
+    requires: [continuum.fully-developed-plane-flow, continuum.wall-no-slip]
+  - id: fluid.pipe-poiseuille-profile
+    name: 円管 Hagen–Poiseuille 流と解クラス内の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（円管 Hagen–Poiseuille 流と解クラス内の一意性）"]
+    requires: [fluid.fully-developed-pipe, continuum.incompressible-navier-stokes]
+  - id: fluid.pipe-flux-shear
+    name: 円管流の流量・平均速度・壁のせん断力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（円管流の流量・平均速度・壁のせん断力）"]
+    requires: [fluid.pipe-poiseuille-profile, continuum.volume-flow-rate-slit, continuum.incompressible-newtonian-stress]
+  - id: fluid.pipe-dissipation
+    name: 円管の圧力仕事と粘性散逸
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円管の圧力仕事と粘性散逸）"]
+    requires: [fluid.pipe-flux-shear, continuum.newtonian-viscous-dissipation]
+  - id: fluid.concentric-couette
+    name: 同心円筒 Couette 流の解クラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同心円筒 Couette 流の解クラス）"]
+    requires: [continuum.wall-no-slip, continuum.incompressible-navier-stokes]
+  - id: fluid.cylindrical-couette-profile
+    name: 同心円筒 Couette 流の速度と径方向圧力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（同心円筒 Couette 流の速度と径方向圧力）"]
+    requires: [fluid.concentric-couette, continuum.incompressible-navier-stokes]
+  - id: fluid.cylindrical-couette-pressure
+    name: 同心円筒の圧力分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同心円筒の圧力分布）"]
+    requires: [fluid.cylindrical-couette-profile]
+  - id: fluid.cylindrical-couette-torque
+    name: 同心円筒 Couette 流のせん断応力・トルク・散逸
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（同心円筒 Couette 流のせん断応力・トルク・散逸）"]
+    requires: [fluid.cylindrical-couette-profile, continuum.incompressible-newtonian-stress, continuum.newtonian-viscous-dissipation]
