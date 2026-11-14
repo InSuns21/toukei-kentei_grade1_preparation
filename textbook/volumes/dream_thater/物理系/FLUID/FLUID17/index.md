@@ -8,7 +8,7 @@
 
 壁を $y=0$、流体を半空間 $y>0$ に置く。$x$ は壁に平行、$y$ は流体内部へ向かう距離、$t$ は時間である。流体は密度 $\rho>0$ [kg/m³]、動的粘性係数 $\eta>0$ [Pa s] が一定の非圧縮 Newton 流体とし、体積力と圧力勾配は零とする。動粘度 $\nu=\eta/\rho>0$ の単位は m²/s である。
 
-既習の[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を、空間 $C^2$・時間 $C^1$ の一方向速度 $v=(u(y,t),0,0)$ に適用する。$\nabla\cdot v=\partial_xu=0$、$(v\cdot\nabla)v=u\partial_xv=0$、$\Delta v=(u_{yy},0,0)$ なので
+既習の[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を、空間 $C^2$・時間 $C^1$ の一方向速度 $v=(u(y,t),0,0)$ に適用する。下付き添字 $u_t=\partial u/\partial t$ は **$y$ を固定した時間偏微分**、$u_{yy}=\partial^2u/\partial y^2$ は **$t$ を固定した距離方向の二階偏微分**を表す。$\nabla\cdot v=\partial_xu=0$、$(v\cdot\nabla)v=u\partial_xv=0$、$\Delta v=(u_{yy},0,0)$ なので
 
 $$
 \rho\,u_t=\eta\,u_{yy},\qquad
@@ -21,7 +21,7 @@ $$
 
 ## 1. Stokes 第一問題：停止していた壁が突然動く
 
-流体は $t=0$ の直前まで静止している。時刻 $0$ から壁が $+x$ 方向に一定速度 $U>0$ で動く。この設定では壁面と初期面の交点 $(y,t)=(0,0)$ でデータが不連続であり、そこで滑らかな解を要求しない。
+流体は $t=0$ の直前まで静止している。時刻 $0$ から壁が $+x$ 方向に一定速度 $U>0$ で動く。この設定では壁面と初期面の交点 $(y,t)=(0,0)$ でデータが不連続であり、そこで滑らかな解を要求しない。以下の $C^{2,1}$ は内部で $y$ について二階まで、$t$ について一階まで連続な偏導関数を持つことを表す。
 
 <a id="def-fluid17-first-problem"></a>
 
@@ -33,7 +33,15 @@ $$
 **条件を確かめる候補**として $u(y,t)=U F(y/\sqrt{\nu t})$ を考える。$F(0)=1$、$F(s)\to0$（$s\to\infty$）なら壁と遠方を満たす。任意の固定 $y>0$ で $t\downarrow0$ とすると引数は無限大になるので初期条件も満たす。ただし、これだけでは拡散方程式を満たすか未検証である。
 
 <!-- definition-example-start: def-fluid17-first-problem -->
-**定義の確認**：例えば $F(s)=e^{-s}$ は三つのデータ条件を満たすが、$u_t=\nu u_{yy}$ に代入すると一般には一致しない。**境界条件への適合と微分方程式の解であることは別**である。
+**定義の確認**：例えば $F(s)=e^{-s}$、$s=y/\sqrt{\nu t}$ とおくと、$F(0)=1$、$F(s)\to0$（$s\to\infty$）なので、壁条件・遠方条件と、固定した $y>0$ での静止初期条件を満たす。しかし $s_t=-s/(2t)$、$s_y=1/\sqrt{\nu t}$ から
+
+$
+u_t=\frac{Us e^{-s}}{2t},\qquad
+\nu u_{yy}=\frac{Ue^{-s}}{t},\qquad
+u_t-\nu u_{yy}=\frac{Ue^{-s}}{t}\left(\frac{s}{2}-1\right).
+$
+
+この残差は例えば $y=\sqrt{\nu t}$（$s=1$）で非零となる。**境界条件への適合と微分方程式の解であることは別**であり、方程式にも代入して判定する必要がある。
 <!-- definition-example-end -->
 
 速度の形を決めるには、時間と距離を一つにまとめる**相似変数** $\xi=y/(2\sqrt{\nu t})$ を使う。正規化した Gauss 関数 $e^{-q^2}$ の「右側に残る面積」を表す道具を準備する。
@@ -49,7 +57,16 @@ $$
 $$
 <!-- formal-statement-end -->
 
-**定義の確認**：$q$ は無次元の積分変数である。Gauss 積分 $\int_{-\infty}^\infty e^{-q^2}dq=\sqrt{\pi}$ を使うと、$\operatorname{erfc}(0)=1$。また $e^{-q^2}>0$ なので正で、下端が大きくなるほど値は狭義単調に減少し、$s\to\infty$ で $0$ に近づく。Gauss 積分はその二乗を平面上の極座標積分に直すと $\pi$ となることから確認できる。
+ここで $q$ は無次元の積分変数である。正規化に使う Gauss 積分は、$I=\int_{-\infty}^\infty e^{-q^2}\,dq>0$ と置き、二重積分を極座標 $(r,\vartheta)$ に変換すれば
+
+$
+I^2=\int_{\mathbb R^2}e^{-(q^2+z^2)}\,dq\,dz
+=\int_0^{2\pi}\!\int_0^\infty e^{-r^2}r\,dr\,d\vartheta
+=2\pi\cdot\frac12=\pi,
+\qquad I=\sqrt\pi
+$
+
+と確認できる。このため $\operatorname{erfc}(0)=1$。また $e^{-q^2}>0$ なので値は正で、積分下端 $s$ が大きくなるほど狭義単調に減少し、$s\to\infty$ で $0$ に近づく。
 
 <!-- definition-example-start: def-fluid17-erfc -->
 **定義の確認**：$\operatorname{erfc}(0)=\frac2{\sqrt\pi}\int_0^\infty e^{-q^2}dq=1$。例えば $s=1$ では積分区間 $[1,\infty)$ が $[0,\infty)$ より真に短いので $0<\operatorname{erfc}(1)<1$ となる。
@@ -59,7 +76,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Stokes 第一問題の相似拡散解）**  
-> $\rho,\eta,U>0$ は一定、$\nu=\eta/\rho$ とする。[Stokes 第一問題](#def-fluid17-first-problem)の有界で遠方で一様に零へ減衰する解は、$y\ge0,\ t>0$ で
+> $\rho,\eta,U>0$ は一定、$\nu=\eta/\rho$ とする。[Stokes 第一問題](#def-fluid17-first-problem)には、[相補誤差関数](#def-fluid17-erfc)で与えられる次の有界な解が存在する（$y\ge0,\ t>0$）。
 >
 $$
 u(y,t)=U\,\operatorname{erfc}\!\left(\frac{y}{2\sqrt{\nu t}}\right).
@@ -85,7 +102,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\xi=y/(2\sqrt{\nu t})$、$u=UF(\xi)$ とおく。$t>0$ では $\xi_y=1/(2\sqrt{\nu t})$、$\xi_t=-\xi/(2t)$ だから、連鎖律により
+$\xi=y/(2\sqrt{\nu t})$、$u=UF(\xi)$ とおく。ここで $F'(\xi)$、$F''(\xi)$ は一変数 $\xi$ に関する一階・二階の**常微分**であり、$u_t$、$u_{yy}$ は先に定めた偏微分である。$t>0$ では、$y$ を固定して $\xi_t=-\xi/(2t)$、$t$ を固定して $\xi_y=1/(2\sqrt{\nu t})$ だから、連鎖律により
 
 $$
 u_t=-\frac{U\xi}{2t}F'(\xi),\qquad
@@ -176,7 +193,7 @@ $$
 
 [Newton 応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)は $\sigma_{xy}=\eta u_y$ で、壁での外向き法線は $n=-e_y$。従って $f=-\eta u_y(0+,t)=\eta U/\sqrt{\pi\nu t}>0$。壁が受ける力は逆向きである。
 
-運動量積分の置換 $y=2\sqrt{\nu t}\,\xi$ では $dy=2\sqrt{\nu t}\,d\xi$。さらに非負 integrand に対して積分順序を交換し、
+運動量積分の置換 $y=2\sqrt{\nu t}\,\xi$ では $dy=2\sqrt{\nu t}\,d\xi$。さらに非負の被積分関数に対して積分順序を交換し、
 
 $$
 \begin{aligned}
@@ -198,6 +215,8 @@ $$
 
 $a>0$ と $\phi$ が一定の $e^{-ay}\cos(\omega t-\phi y)$ は、距離とともに振幅が減り、位相も変わる。その減衰と位相の係数が拡散方程式によって決まる。
 
+そこで複素数 $i^2=-1$ と $e^{i\omega t}=\cos(\omega t)+i\sin(\omega t)$ を使い、$A(y)e^{i\omega t}$ の**実部** $\operatorname{Re}$ を物理的な速度とする。$A(y)$ は距離ごとの複素振幅で、$|A(y)|$ が振幅、複素数の偏角が時間振動の位相を表す。$A'(y),A''(y)$ は $y$ に関する常微分、$u_t$ は $y$ を固定した時間偏微分であり、両者を区別する。
+
 <a id="def-fluid17-second-problem"></a>
 
 <!-- formal-statement-start -->
@@ -209,7 +228,7 @@ u_t=\nu u_{yy},\qquad u(0,t)=U\cos(\omega t),
 \qquad\lim_{y\to\infty}u(y,t)=0.
 $$
 
-> その周期を $T=2\pi/\omega$ とする。$A(0)=U$ で遠方で零に減衰する複素振幅 $A$ を用いて、次の形で表せる速度を単一周波数の周期応答という。
+> その周期を $T=2\pi/\omega$ とする。$[0,\infty)$ 上で連続、内部で $C^2$ 級の複素振幅 $A:[0,\infty)\to\mathbb C$ を用い、次の形で表せる速度を単一周波数の周期応答という。
 
 $$
 u(y,t)=\operatorname{Re}\{A(y)e^{i\omega t}\},\qquad
@@ -220,7 +239,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid17-second-problem -->
-**定義の確認**：$A(y)=Ue^{-\lambda y}$（$\operatorname{Re}\lambda>0$）なら、$A(0)=U$ と遠方減衰を満たし、$u=\operatorname{Re}(Ae^{i\omega t})$ は実数・周期 $T$ の速度である。ただし $\lambda$ はまだ拡散方程式の条件から決める必要がある。
+**定義の確認**：$A(y)=Ue^{-\lambda y}$ として、まず壁条件 $A(0)=U$ と遠方減衰から $\operatorname{Re}\lambda>0$ を要求する。方程式も確かめるため
+
+$
+\delta=\sqrt{\frac{2\nu}{\omega}}>0,\qquad
+\lambda=\frac{1+i}{\delta},\qquad
+A''(y)=\lambda^2A(y)=\frac{i\omega}{\nu}A(y)
+$
+
+を選ぶ。$A$ は内部で二階微分可能で、$\operatorname{Re}\lambda=1/\delta>0$ より $A(y)\to0$。さらに
+
+$
+\partial_t(Ae^{i\omega t})=i\omega Ae^{i\omega t}
+=\nu\,\partial_y^2(Ae^{i\omega t})
+$
+
+の実部を取れば $u_t=\nu u_{yy}$。$u(0,t)=U\cos(\omega t)$、$u(y,t+T)=u(y,t)$ も成り立つ。指数形を採用する理由は、$y$ 微分で $\lambda^2$ が現れ、拡散方程式を**複素数の二次方程式**で判定できるからである。初期静止は要求していない。
 <!-- definition-example-end -->
 
 <a id="thm-fluid17-second-profile"></a>
@@ -244,7 +278,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u(y,t)=\operatorname{Re}\{A(y)e^{i\omega t}\}$ とおく。時間微分と距離の二階微分の実部は、各 $y$ で $\operatorname{Re}\{(i\omega A-\nu A'')e^{i\omega t}\}=0$ を満たす。これは全ての $t$ で成立するので、振幅の実部と虚部を変えて評価すれば $i\omega A=\nu A''$ である。
+$u(y,t)=\operatorname{Re}\{A(y)e^{i\omega t}\}$ とおく。$y$ を固定した時間微分と $t$ を固定した距離の二階微分から、各 $y>0$ で $B(y)=i\omega A(y)-\nu A''(y)$ と置けば
+
+$
+0=\operatorname{Re}\{B(y)e^{i\omega t}\}\qquad(t\in\mathbb R)
+$
+
+となる。$t=0$ では $\operatorname{Re}B=0$、$t=\pi/(2\omega)$ では $\operatorname{Re}(iB)=-\operatorname{Im}B=0$。$\omega>0$ より両方の時刻を選べるので $B=0$、すなわち $i\omega A=\nu A''$ である。
 
 $\lambda^2=i\omega/\nu$ の二つの平方根は $\pm(1+i)\sqrt{\omega/(2\nu)}$。$\delta=\sqrt{2\nu/\omega}$ とおくと $\lambda=(1+i)/\delta$ を正の実部を持つ根として選べる。一般解は
 
@@ -338,7 +378,7 @@ $$
 
 $r\le1/2$ なら更新式は非負係数 $(r,1-2r,r)$ の重み付き平均となり、少なくとも最大値が増大しない。$r>1/2$ ではこの単調性を失い、振動格子モードの増幅率 $1-4r$ の絶対値が $1$ を超え得る（交互符号列に代入して検算できる）。したがって以下では $r\le0.45$ を採用する。
 
-[数値検算用 Python ソース](stokes_diffusion_check.py)は上の更新則を使い、**別途導いた解析解**を各格子点で評価して最大速度誤差を比較する。第一問題は $t=0$ の静止場から始め、外側は十分遠い固定壁近似 $u(L,t)=0$ とする。第二問題は最初から厳密式で与えた周期場 $u(y,0)$ を初期条件として与え、切断端 $y=L$ では既知の周期解を境界値として与える。これは初期静止の第二問題を計算したという意味ではない。
+[数値検算用 Python ソース](stokes_diffusion_check.py)は上の更新則を使い、**別途導いた解析解**を各格子点で評価して最大速度誤差を比較する。第一問題は内部 $y>0$ の静止場を初期化するが、角点 $(0,0)$ は不連続なので、最初の格子更新に入る前に壁格子点だけ $u(0,0+)=U$ とする。外側は十分遠い固定壁近似 $u(L,t)=0$ とする。第二問題は最初から厳密式で与えた周期場 $u(y,0)$ を初期条件として与え、切断端 $y=L$ では既知の周期解を境界値として与える。これは初期静止の第二問題を計算したという意味ではない。
 
 - 共通：$\nu=10^{-6}\,\mathrm{m^2/s}$、$U=0.020\,\mathrm{m/s}$、計算時刻 1 s、等間隔格子、刻みは安定条件を満たすように決定する。
 - 第一問題：$L=12\,\mathrm{mm}$、$u(0,t)=U$、$u(L,t)=0$。$L/(2\sqrt{\nu t})=6$ なので終時刻で切断端の厳密解は非常に小さい。
@@ -390,7 +430,20 @@ $u=U\operatorname{erfc}(y/(2\sqrt{\nu t}))$ の $u_y,u_t$ を計算し、$y>0$ �
 <!-- solution-start -->
 #### 詳細解答
 
-$\xi=y/(2\sqrt{\nu t})$ とすると、$\xi_y=1/(2\sqrt{\nu t})$、$\xi_t=-\xi/(2t)$。$\operatorname{erfc}'(\xi)=-2e^{-\xi^2}/\sqrt\pi$ より $u_y=-Ue^{-\xi^2}/\sqrt{\pi\nu t}$、$u_t=U\xi e^{-\xi^2}/(\sqrt\pi t)$。$y>0$ を固定し $t\downarrow0$ とすれば $\xi\to\infty$ なので $u\to0$。$y=0,t>0$ なら $\xi=0$ で $u=U$。$(0,0)$ には両方を同時に連続延長できない。
+$\xi=y/(2\sqrt{\nu t})$ とおく。$t$ を固定した $y$ 微分と $y$ を固定した $t$ 微分では
+
+$
+\xi_y=\frac1{2\sqrt{\nu t}},\qquad \xi_t=-\frac{\xi}{2t}.
+$
+
+[相補誤差関数](#def-fluid17-erfc)の積分を下端で微分すると $\operatorname{erfc}'(\xi)=-2e^{-\xi^2}/\sqrt\pi$。連鎖律をそれぞれ適用して
+
+$
+u_y=-\frac{Ue^{-\xi^2}}{\sqrt{\pi\nu t}},\qquad
+u_t=\frac{U\xi e^{-\xi^2}}{\sqrt\pi\,t}
+$
+
+を得る。$y>0$ を固定し $t\downarrow0$ とすれば $\xi\to\infty$ なので $u\to0$。$y=0,t>0$ なら $\xi=0$ で $u=U$。$(0,0)$ には両方を同時に連続延長できない。
 <!-- solution-end -->
 
 ### A3. 閾値厚さと次元
@@ -440,7 +493,21 @@ $u(y,t)=UF(\xi)$、$\xi=y/(2\sqrt{\nu t})$ と置いて常微分方程式を導�
 <!-- solution-start -->
 #### 詳細解答
 
-$\xi_t=-\xi/(2t)$、$\xi_y=(2\sqrt{\nu t})^{-1}$ より $u_t=-U\xi F'/(2t)$、$u_{yy}=UF''/(4\nu t)$。$u_t=\nu u_{yy}$ は $F''+2\xi F'=0$ と同値。$(e^{\xi^2}F')'=0$ より $F'=Ce^{-\xi^2}$、$F=1+C\int_0^\xi e^{-q^2}dq$。$F(\infty)=0$、$\int_0^\infty e^{-q^2}dq=\sqrt\pi/2$ から $C=-2/\sqrt\pi$。従って $F=\operatorname{erfc}(\xi)$。$F'(\xi)<0$ なので壁から単調に減少する。
+$\xi_t=-\xi/(2t)$、$\xi_y=(2\sqrt{\nu t})^{-1}$。ここで $F',F''$ は $\xi$ で微分する。連鎖律で $u_t=-U\xi F'/(2t)$、$u_{yy}=UF''/(4\nu t)$ だから
+
+$
+-\frac{U\xi}{2t}F'=\frac{U}{4t}F'',\qquad
+F''+2\xi F'=0
+$
+
+となる（$U,t>0$ で割った）。積の微分則から $(e^{\xi^2}F')'=e^{\xi^2}(F''+2\xi F')=0$、従って $F'=Ce^{-\xi^2}$。$F(0)=1$ で積分定数を決めると
+
+$
+F(\xi)=1+C\int_0^\xi e^{-q^2}\,dq,\qquad
+0=F(\infty)=1+\frac{C\sqrt\pi}{2}.
+$
+
+よって $C=-2/\sqrt\pi$、[相補誤差関数](#def-fluid17-erfc)の定義により $F=\operatorname{erfc}(\xi)$。$F'(\xi)<0$ なので壁から単調に減少する。
 <!-- solution-end -->
 
 ### B2. 壁の力積と全運動量
@@ -530,7 +597,14 @@ $$
 
 第二問題では $f_2(t)=(\eta U/\delta)(\cos\omega t-\sin\omega t)$。直交する二つの正弦波の合成振幅は $F_2=\sqrt2\,\eta U/\delta=\eta U\sqrt{\omega/\nu}$。従って $f_1(t_*)/F_2=\sqrt{2/\pi}$。第二問題の振幅を $\eta U/\delta$ と誤って答えると係数 $\sqrt2$ を落とす。
 
-**(3)** [振動壁のせん断力と一周期平均の散逸](#prop-fluid17-second-work)から $\langle P_2\rangle=\eta U^2/(2\delta)=\eta U^2\sqrt{\omega/(2\nu)}/2$。第一問題の速度は $\operatorname{erfc}(y/(2\sqrt{\nu t_*}))$ の単調な正の形、第二問題では $e^{-y/\delta}\cos(\omega t-y/\delta)$ で符号が位置と時刻に依存する。第一問題は静止初期値と一定壁速度、第二問題は既存の周期場と振動壁速度であり、同じ一つの距離尺度は同じ初期値問題を指定しない。第一問題の $f_1(t_*)U$ は瞬間の正の仕事、第二問題は一周期平均の仕事なので、比較する時間平均操作も異なる。
+**(3)** 第二問題の瞬間仕事率を $P_2(t)=f_2(t)\,U\cos(\omega t)$ と定める。[振動壁のせん断力と一周期平均の散逸](#prop-fluid17-second-work)を $\delta=\sqrt{2\nu/\omega}$ に適用すると
+
+$
+\langle P_2\rangle=\frac{\eta U^2}{2\delta}
+=\frac{\eta U^2}{2}\sqrt{\frac{\omega}{2\nu}}.
+$
+
+第一問題の速度は $\operatorname{erfc}(y/(2\sqrt{\nu t_*}))$ の単調な正の形、第二問題では $e^{-y/\delta}\cos(\omega t-y/\delta)$ で符号が位置と時刻に依存する。第一問題は静止初期値と一定壁速度、第二問題は既存の周期場と振動壁速度であり、同じ一つの距離尺度は同じ初期値問題を指定しない。第一問題の $f_1(t_*)U$ は瞬間の正の仕事、第二問題は一周期平均の仕事なので、比較する時間平均操作も異なる。
 <!-- solution-end -->
 
 ## 7. 学習のまとめ
