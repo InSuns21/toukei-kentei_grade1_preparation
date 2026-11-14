@@ -669,4 +669,4 @@ $$
 
 次のAQFT32では、これらの定義から一般の正値性と、値が0になる条件を証明します。
 
-**文献上の境界**：本講で引用した一般の核射影公式と非忠実正規汎関数の拡張の原典は H. Araki, [*Relative Entropy for States of von Neumann Algebras II*, Publ. RIMS **13** (1977), 173–192](https://www.wall.org/~aron/lectures/partII.pdf) です。一般の $2\times2$ 還元の完全証明および任意の状態混合による忠実化極限の一般公式は本講の既証明結果に含めません。
+**文献上の境界**：本講で引用した一般の核射影公式と非忠実正規汎関数の拡張の原典は H. Araki, [*Relative Entropy for States of von Neumann Algebras II*, Publ. RIMS **13** (1977), 173–192](https://doi.org/10.2977/prims/1195190105) です。一般の $2\times2$ 還元の完全証明および任意の状態混合による忠実化極限の一般公式は本講の既証明結果に含めません。
