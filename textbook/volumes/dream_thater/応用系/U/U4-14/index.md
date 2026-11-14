@@ -22,7 +22,7 @@ $$
 x_{2,t}-x_{1,t}=\eta_t,\qquad x_{3,t}-2x_{1,t}=\zeta_t
 $$
 
-はそれぞれ $I(0)$。係数 $(-1,1,0)^\top,(-2,0,1)^\top$ は線形独立です。**共和分空間**とは、これらのように定常な線形結合を与える係数全体を指します。その次元を**共和分ランク**と呼びます。
+はそれぞれ $I(0)$。係数 $(-1,1,0)^\top,(-2,0,1)^\top$ は線形独立です。定常な線形結合を作る係数全体は線形部分空間をなします。独立な関係を何本作れるかを、その空間の次元で数えるため、次のように定義します。
 
 <a id="def-u4-14-cointegration-space"></a>
 
@@ -69,7 +69,19 @@ $k$ 系列に、$q$ 本の累積ショック $s_t$ が係数行列 $B$ を通し
 
 <!-- formal-statement-start -->
 > **命題（共通確率トレンドと共和分ランク）**  
-> $1\le q<k$、$s_t=\sum_{j=1}^t\varepsilon_j\in\mathbb R^q$、$s_0=0$ とする。$\varepsilon_j$ は平均0・正定値共分散 $\Sigma$ の独立同分布列とする。$u_t$ は二次定常な $k$ 次元ベクトル過程で、ショック列全体と独立とする。$B\in\mathbb R^{k\times q}$ は列ランク $q$ で、すべての行が非零とする。$x_t=Bs_t+u_t$ と置けば、各成分は $I(1)$ であり、共和分空間は $\ker B^\top$、ランクは $k-q$ である。
+> $1\le q<k$ とし、$q$ 次元の累積ショック $s_t$ を次で定める。
+
+$
+s_0=0,\qquad s_t=\sum_{j=1}^t\varepsilon_j.
+$
+
+> $\varepsilon_j$ は独立同分布で平均0、正定値共分散 $\Sigma$ を持つ。$u_t\in\mathbb R^k$ は二次定常なベクトル過程でショック列全体と独立とする。$B\in\mathbb R^{k\times q}$ は列ランク $q$ で各行が非零とし、
+
+$
+x_t=Bs_t+u_t
+$
+
+> と置く。このとき各成分は $I(1)$、共和分空間は $\ker B^\top$、ランクは $k-q$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -91,7 +103,7 @@ $\Sigma\succ0$ なので $B^\top b\ne0$ なら第1項は正の係数で発散し
 
 各行 $e_i^\top B$ は非零なので、同じ計算で $x_{i,t}$ の水準分散は発散します。一方 $\Delta x_t=B\varepsilon_t+\Delta u_t$ は二次定常なベクトル過程です。よって各成分は $I(1)$ です。
 
-列ランクが $q$ なので $B^\top$ の像の次元は $q$ であり、線形写像の次元公式から
+列ランクが $q$ なので $B^\top$ の像の次元は $q$ です。[階数・退化次数の定理](../../../基礎科目/F0/F0-00F/index.md#thm-f0-00f-01)を線形写像 $B^\top:\mathbb R^k\to\mathbb R^q$ に適用すると
 
 $$
 \dim\ker B^\top=k-\operatorname{rank}(B^\top)=k-q
@@ -248,7 +260,7 @@ $$
 \Omega=\begin{pmatrix}1&1&2\\1&2&2\\2&2&5\end{pmatrix}
 $$
 
-です。独立で分散1のショックから可逆な行列 $\begin{pmatrix}1&0&0\\1&1&0\\2&0&1\end{pmatrix}$ によって得られ、行列式が1なので $\Omega$ は正定値です。$\alpha\beta^\top x_{t-1}=(0,-\eta_{t-1},-\zeta_{t-1})^\top$ が長期偏差への調整を担います。
+です。独立で分散1のショックから可逆な行列 $\begin{pmatrix}1&0&0\\1&1&0\\2&0&1\end{pmatrix}$ によって得られ、その[行列式](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant)は1です。従って $\Omega$ は正定値です。$\alpha\beta^\top x_{t-1}=(0,-\eta_{t-1},-\zeta_{t-1})^\top$ が長期偏差への調整を担います。
 
 ## 3. Johansen法が計算する固有値の意味
 
@@ -313,7 +325,16 @@ $$
 (\beta^\top S_{11}\beta)^{-1}\beta^\top S_{10}.
 $$
 
-正規密度の対数尤度は、$\Omega$ について最大化すると定数を除いて $-T\log\det\widehat\Omega(\beta)/2$ です。よって行列式を最小にします。
+[尤度関数](../../../解析系/F0/F0-00P7/index.md#def-f0-00p7-likelihood)の対数を取ると、正規誤差の対数尤度は $\Omega$ に依存する部分が次になります。
+
+$
+\ell(\Omega,\beta)
+=-\frac T2\left\{\log\det\Omega+
+\operatorname{tr}\!\left[\Omega^{-1}\widehat\Omega(\beta)\right]\right\}
++\mathrm{const}.
+$
+
+$\Omega\succ0$ についての最大点は $\Omega=\widehat\Omega(\beta)$ です。このときトレース項は $k$ となるので、最大化後の対数尤度は定数を除き $-T\log\det\widehat\Omega(\beta)/2$ です。従って行列式を最小にします。
 
 $V=S_{11}^{1/2}\beta(\beta^\top S_{11}\beta)^{-1/2}$ と置くと $V^\top V=I_r$ です。$\det(I-AB)=\det(I-BA)$ を用いれば
 
@@ -323,7 +344,15 @@ $$
 
 を得ます。$M$ は対称半正定値で、ブロック標本共分散の正定値性により $I_k-M$ も正定値です。従って $0\le\lambda_i<1$ です。
 
-$V^\top MV$ の固有値を $\theta_1\ge\cdots\ge\theta_r$ とします。対称行列を直交対角化したときの最小最大原理によれば、$i$ 次元部分空間を $\operatorname{im}(V)$ 内だけから選ぶ場合の最大最小値は、$\mathbb R^k$ 全体から選ぶ場合を超えません。従って $\theta_i\le\lambda_i$ です。ゆえに
+$V^\top MV$ の固有値を $\theta_1\ge\cdots\ge\theta_r$ とします。$M$ と $V^\top MV$ は実対称なので、[実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)により正規直交固有基底を取れます。
+
+$i\le r$ を固定します。$V^\top MV$ の上位 $i$ 個の固有ベクトルの張る $i$ 次元空間を $L_i\subset\mathbb R^r$、$M$ の第 $i$ から第 $k$ までの固有ベクトルの張る $(k-i+1)$ 次元空間を $W_i\subset\mathbb R^k$ とします。$V^\top V=I_r$ なので $\dim(VL_i)=i$ です。両空間の次元の和は $k+1$ ですから $VL_i$ と $W_i$ は非零に交わります。交わりから長さ1の $z=Vw$ を取れば、$w\in L_i$ も長さ1であり、
+
+$
+\theta_i\le w^\top(V^\top MV)w=z^\top Mz\le\lambda_i
+$
+
+です。左の不等号は上位 $i$ 固有空間に属すること、右は第 $i$ 以下の固有空間に属することから従います。よって $\theta_i\le\lambda_i$ です。ゆえに
 
 $$
 \det(I_r-V^\top MV)=\prod_{i=1}^r(1-\theta_i)
@@ -381,7 +410,7 @@ $$
 
 ## 4. 正規化と識別は別の問い
 
-[基底変換の命題](#prop-u4-14-rank-factorization)から、$\beta$ を $\beta H$ に変更しても $\Pi$ は同じです。**正規化**は基準の取り方を固定する操作です。例えば $\beta$ の選んだ $r$ 行の $r\times r$ 部分行列が可逆なら、その部分が $I_r$ になるように右から逆行列を掛けます。部分行列が特異なら、その行の組では正規化できません。
+[ランク分解の不変性](#prop-u4-14-rank-factorization)から、$\beta$ を $\beta H$ に変更しても $\Pi$ は同じです。**正規化**は基準の取り方を固定する操作です。例えば $\beta$ の選んだ $r$ 行の $r\times r$ 部分行列が可逆なら、その部分が $I_r$ になるように右から逆行列を掛けます。部分行列が特異なら、その行の組では正規化できません。
 
 一方、**識別**とは特定の長期関係を価格理論・制度的制約などと対応付けるため、別の根拠をもって係数の零制約や比率制約を課すことです。長期関係の空間が推定できただけで、どの基底が唯一の経済的関係かは決まりません。$\alpha$ のある行が零であることも、何を対象パラメータとするかを定めず「絶対的な外生性」を証明するものではありません。
 
