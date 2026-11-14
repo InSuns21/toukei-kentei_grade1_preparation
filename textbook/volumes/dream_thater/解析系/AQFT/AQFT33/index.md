@@ -293,7 +293,7 @@ h_s(a)=\frac1{a+s}-\frac1{1+s}
 =\frac{1-a}{(a+s)(1+s)}
 $$
 
-と置きます。$0\le a\le1$ では $h_s(a)\ge0$、$a>1$ では $h_s(a)<0$ です。前者はTonelliの定理で $s$ と $a$ の積分を交換でき、$a=0$ に質量がある場合には $+\infty$ を与えます。
+と置きます。$0\le a\le1$ では $h_s(a)\ge0$、$a>1$ では $h_s(a)<0$ です。前者は[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)で $s$ と $a$ の積分を交換でき、$a=0$ に質量がある場合には $+\infty$ を与えます。
 
 後者については、固定した $a>1$ で
 
@@ -570,7 +570,7 @@ $$
 \end{aligned}
 $$
 
-従ってTonelliの定理から二重積分は $\int_{a>1}\log a\,d\mu\le\int a\,d\mu\le1$ です。$a=0$ なら $h_s(0)=1/s-1/(1+s)$ で正、原点側の積分が発散します。負部分は有限なので、正の発散と打ち消し合う不定形にはなりません。
+従って[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)から二重積分は $\int_{a>1}\log a\,d\mu\le\int a\,d\mu\le1$ です。$a=0$ なら $h_s(0)=1/s-1/(1+s)$ で正、原点側の積分が発散します。負部分は有限なので、正の発散と打ち消し合う不定形にはなりません。
 <!-- solution-end -->
 
 <a id="ex-aqft33-b04"></a>
@@ -628,7 +628,7 @@ $$
 \le\int_{(1,\infty)}a\,d\mu(a)\le1
 $$
 
-で有限になります。正部分は無限でもよく、非負関数のTonelliの定理を用いて扱います。[逆作用素積分表示](#lem-aqft33-log-resolvent)で両辺から共通の $1/(1+s)$ を引き、上の可積分性を確認して積分すれば
+で有限になります。正部分は無限でもよく、非負関数の[Tonelliの定理](../../F0/F0-00D2C/index.md#thm-tonelli)を用いて扱います。[逆作用素積分表示](#lem-aqft33-log-resolvent)で両辺から共通の $1/(1+s)$ を引き、上の可積分性を確認して積分すれば
 
 $$
 S_{\mathrm A}^{\mathcal N}(\rho|_{\mathcal N}\Vert\sigma|_{\mathcal N})
