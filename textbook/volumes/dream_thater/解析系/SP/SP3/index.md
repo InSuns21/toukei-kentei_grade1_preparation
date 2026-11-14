@@ -332,9 +332,6 @@ $$
 よって $(1-F(z))U(z)=1$、すなわち $U(z)=1/(1-F(z))$ です。
 <!-- proof-end -->
 
-<!-- definition-example-start: def-sp3-closed-class -->
-<!-- definition-example-end -->
-
 ### 確認例：一回の自己ループから逃げる連鎖
 
 $S=\{a,b\}$、$p(a,a)=\alpha$、$p(a,b)=1-\alpha$、$p(b,b)=1$ とし、$0\le\alpha<1$ とします。$a$ への正の帰還は時刻 $1$ に自己ループを踏む場合だけなので
