@@ -1,0 +1,49 @@
+chapter: AQFT31
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT20
+  - AQFT29
+  - AQFT30
+forward_references: []
+concepts:
+  - id: aqft.normal-state-support
+    name: 正規状態の支持射影
+    kind: definition
+    introduction: formal
+    requires: [aqft.hs-modular-formulas]
+  - id: aqft.support-inclusion-criterion
+    name: 有限次元における支持包含の判定
+    kind: proposition
+    introduction: formal
+    requires: [aqft.normal-state-support]
+  - id: aqft.supported-relative-tomita
+    name: 支持付き相対Tomita作用素
+    kind: definition
+    introduction: formal
+    requires: [aqft.relative-tomita-initial, aqft.normal-state-support]
+  - id: aqft.supported-tomita-closability
+    name: 修正作用素の一価性・稠密性・可閉性
+    kind: proposition
+    introduction: formal
+    requires: [aqft.supported-relative-tomita, aqft.relative-tomita-closable]
+  - id: aqft.nonfaithful-finite-modular
+    name: 非忠実有限行列の相対モジュラー作用素
+    kind: theorem
+    introduction: formal
+    requires: [aqft.supported-tomita-closability, aqft.relative-log-mixed-spectrum]
+  - id: aqft.araki-relative-entropy-nonfaithful
+    name: 非忠実正規状態へのAraki相対エントロピーの拡張
+    kind: definition
+    introduction: formal
+    requires: [aqft.supported-relative-tomita, aqft.araki-relative-entropy-faithful, aqft.normal-state-support]
+  - id: aqft.araki-nonfaithful-finite-reduction
+    name: 非忠実有限次元のトレース公式と発散条件
+    kind: theorem
+    introduction: formal
+    requires: [aqft.araki-relative-entropy-nonfaithful, aqft.support-inclusion-criterion, aqft.nonfaithful-finite-modular]
+  - id: aqft.araki-finite-regularization
+    name: 有限次元における忠実化極限
+    kind: proposition
+    introduction: formal
+    requires: [aqft.araki-nonfaithful-finite-reduction, aqft.araki-finite-dimensional-reduction]
