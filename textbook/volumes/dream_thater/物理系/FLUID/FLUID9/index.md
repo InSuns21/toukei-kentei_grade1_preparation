@@ -6,11 +6,37 @@
 
 ## 0. 模型・記号と前提
 
-$\mathcal D\subset\mathbb R^3$ を開集合、$I=[t_0,t_1]$ を時間区間とする。以下、場の引数の $x\in\mathcal D$ は三次元の位置を表し、$(x,y,z)$ と成分を並べたときの $x$ は第1座標を表す。流れは $u(x,t)$ [m/s]、密度 $\rho(x,t)>0$ [kg/m$^3$]、圧力 $p(x,t)$ [Pa] とし、時間微分と空間微分が以下の連鎖律と線積分の微分を許すよう、$u$ は空間 $C^2$ 級・時間 $C^1$ 級、$\rho,p$ は空間 $C^1$ 級かつ必要な時間連続性をもつとする。外力のポテンシャル $\Phi(x,t)$ [m$^2$/s$^2$] は各時刻に空間 $C^1$ 級で、$\nabla\Phi$ が連続とする。曲線全体の流跡は $\mathcal D$ の中に留まる。
+$\mathcal D\subset\mathbb R^3$ を開集合、$I=[t_0,t_1]$ を時間区間とする。場の引数の $x\in\mathcal D$ は三次元の位置を表す。成分を $(x,y,z)$ と並べる場合の $x$ は第1座標である。
 
-[FLUID4 の流跡線](../FLUID4/index.md#def-fluid4-pathline)は、初期時刻 $t_0$ の各点 $a$ から $dX/dt=u(X,t)$、$X(t_0)=a$ を解く。この解が時刻 $t$ に返す位置を $F_t(a)$ と書く。ここで下付きの $t$ は**時刻 $t$ の写像**を表し、微分を表さない。同じ方程式を初期閉曲線の**全点**へ同時に適用するのが本講の出発点である。[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を $D_t=\partial_t+u\cdot\nabla$ と書く。$\partial_tu$ は位置 $x$ を固定して微分し、$\partial_tX$ は粒子ラベル $s$ を固定して微分する。$\nabla$ は時刻を固定した空間微分で、後の $d\Gamma/dt$ は**動く輪全体の循環**の時間微分である。
+速度場を $u(x,t)$ [m/s]、密度場を $\rho(x,t)>0$ [kg/m$^3$]、圧力場を $p(x,t)$ [Pa] と書く。
 
-[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で、[FLUID6 の非粘性模型](../FLUID6/index.md#def-fluid6-ideal-potential-force)のように法線 $n$ に働く面力を $-pn$ とすると、応力は $\sigma=-pI_3$（$I_3$ は三次元単位行列）となる。成分で $\delta_{ij}$ を $i=j$ なら $1$、それ以外は $0$ とする Kronecker 記号とすれば、$(\nabla\cdot\sigma)_i=\sum_{j=1}^3\partial_j(-p\delta_{ij})=-\partial_i p$ だから、体積力を $-\nabla\Phi$ とした Euler 方程式は
+以下の連鎖律と線積分の微分を許すよう、$u$ は空間 $C^2$ 級・時間 $C^1$ 級とする。$\rho,p$ は空間 $C^1$ 級かつ必要な時間連続性をもつとする。
+
+外力のポテンシャル $\Phi(x,t)$ [m$^2$/s$^2$] は各時刻に空間 $C^1$ 級で、$\nabla\Phi$ は連続とする。曲線全体の流跡は $\mathcal D$ の中に留まる。
+
+[FLUID4 の流跡線](../FLUID4/index.md#def-fluid4-pathline)は、初期時刻 $t_0$ の各点 $a$ から出発し、次の初期値問題を解く。
+
+$$
+\frac{dX}{dt}=u(X,t),\qquad X(t_0)=a.
+$$
+
+この解が時刻 $t$ に返す位置を $F_t(a)$ と書く。下付きの $t$ は**その時刻の写像**を表し、微分を表さない。同じ初期値問題を初期閉曲線の**全点**へ適用するのが本講の出発点である。
+
+[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)を $D_t=\partial_t+u\cdot\nabla$ と書く。$\partial_tu$ は位置を固定して微分するが、$\partial_tX$ は粒子ラベルを固定して微分する。
+
+また、$\nabla$ は時刻を固定した空間微分であり、後の $d\Gamma/dt$ は**動く輪全体の循環**の時間微分を表す。
+
+[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で、[FLUID6 の非粘性模型](../FLUID6/index.md#def-fluid6-ideal-potential-force)と同じく法線 $n$ に働く面力を $-pn$ とする。この条件の応力表示は $\sigma=-pI_3$ であり、$I_3$ は三次元単位行列である。
+
+$\delta_{ij}$ を $i=j$ なら $1$、そうでなければ $0$ とする Kronecker 記号とする。応力の発散は成分ごとに
+
+$$
+(\nabla\cdot\sigma)_i
+=\sum_{j=1}^3\partial_j(-p\delta_{ij})
+=-\partial_i p
+$$
+
+となる。従って、体積力を $-\nabla\Phi$ とした Euler 方程式は
 
 $$
 D_tu=-\frac1\rho\nabla p-\nabla\Phi.
