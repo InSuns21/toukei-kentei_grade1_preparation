@@ -1,0 +1,58 @@
+chapter: SP13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP12
+  - SP5
+  - STO13
+forward_references: []
+concepts:
+  - id: stochastic.ctmc-stationary-distribution
+    name: CTMC の定常分布
+    kind: definition
+    aliases: ["stationary distribution of a finite CTMC"]
+    introduction: formal
+    introduction_aliases: ["定義（CTMC の定常分布）"]
+    requires:
+      - stochastic.ctmc-kolmogorov-equations
+
+  - id: stochastic.ctmc-stationarity-criterion
+    name: 有限 CTMC の定常分布の判定
+    kind: theorem
+    aliases: ["finite CTMC stationary distribution criterion"]
+    introduction: formal
+    introduction_aliases: ["定理（有限 CTMC の定常分布の判定）"]
+    requires:
+      - stochastic.ctmc-stationary-distribution
+      - stochastic.ctmc-kolmogorov-equations
+
+  - id: stochastic.ctmc-detailed-balance
+    name: CTMC の詳細釣合い
+    kind: definition
+    aliases: ["continuous-time detailed balance"]
+    introduction: formal
+    introduction_aliases: ["定義（CTMC の詳細釣合い）"]
+    requires:
+      - stochastic.ctmc-q-matrix
+      - stochastic.ctmc-stationary-distribution
+
+  - id: stochastic.ctmc-reversibility-equivalence
+    name: 詳細釣合いと CTMC の可逆性
+    kind: theorem
+    aliases: ["finite CTMC time-reversibility equivalence"]
+    introduction: formal
+    introduction_aliases: ["定理（詳細釣合いと CTMC の可逆性）"]
+    requires:
+      - stochastic.ctmc-detailed-balance
+      - stochastic.ctmc-stationarity-criterion
+
+  - id: stochastic.ctmc-irreducible-convergence
+    name: 有限既約 CTMC の収束
+    kind: theorem
+    aliases: ["finite irreducible CTMC convergence"]
+    introduction: formal
+    introduction_aliases: ["定理（有限既約 CTMC の収束）"]
+    requires:
+      - stochastic.ctmc-stationarity-criterion
+      - stochastic.ctmc-uniformization
+      - stochastic.finite-chain-convergence
