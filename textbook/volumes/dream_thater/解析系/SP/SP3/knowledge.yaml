@@ -6,11 +6,11 @@ prerequisites:
 forward_references: []
 concepts:
   - id: stochastic.communication-classes
-    name: 到達可能性・通信クラス・既約性
+    name: 通信クラス
     kind: definition
-    aliases: [通信クラス, 既約Markov連鎖, communicating class]
+    aliases: [communicating class, communication class]
     introduction: formal
-    introduction_aliases: ["定義（到達可能性・通信クラス・既約性）"]
+    introduction_aliases: ["定義（到達可能性・通信クラス・既約性）", "到達可能性", "既約性"]
     requires:
       - stochastic.discrete-markov-chain
   - id: stochastic.closed-communication-class
