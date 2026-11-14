@@ -34,9 +34,16 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（事前固定した統計的利益仮説と反証条件）"]
     requires: [finance.stat-arb-performance-measures]
+  - id: finance.stat-arb-iid-validation-sample
+    name: 独立同分布の検証標本
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立同分布の検証標本）"]
+    aliases: ["独立同分布"]
+    requires: [prob.independent-random-variables, prob.random-variable]
   - id: finance.stat-arb-prespecified-mean-test
     name: 固定した戦略に対する有界損益の片側判定
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（固定した戦略に対する有界損益の片側判定）"]
-    requires: [finance.stat-arb-prespecified-hypothesis]
+    requires: [finance.stat-arb-prespecified-hypothesis, finance.stat-arb-iid-validation-sample]
