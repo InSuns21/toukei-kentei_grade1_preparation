@@ -30,3 +30,5 @@
 27. [U3-27 Itô 積分の数値近似と誤差の実測](textbook/volumes/dream_thater/応用系/U/U3-27/index.md)
 28. [U3-28 厳密 GBM・Euler–Maruyama・Milstein](textbook/volumes/dream_thater/応用系/U/U3-28/index.md)
 29. [U3-29 強収束・弱収束と誤差予算](textbook/volumes/dream_thater/応用系/U/U3-29/index.md)
+
+30. [U3-30 Itô–Taylor 展開・高次法・安定性](textbook/volumes/dream_thater/応用系/U/U3-30/index.md)

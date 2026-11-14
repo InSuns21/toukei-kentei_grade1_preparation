@@ -1,0 +1,59 @@
+chapter: U3-30
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-29, STO7]
+concepts:
+  - id: finance.ito-taylor-iterated-integrals
+    name: 重み付き反復 Itô 積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き反復 Itô 積分）"]
+    requires: [stochastic.ito-process-formula]
+  - id: finance.ito-taylor-hermite-integrals
+    name: 反復積分の Hermite 表示と混合積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反復積分の Hermite 表示と混合積分）"]
+    requires: [finance.ito-taylor-iterated-integrals, stochastic.ito-process-formula]
+  - id: finance.ito-taylor-operators
+    name: Itô–Taylor の微分作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Itô–Taylor の微分作用素）"]
+    requires: [stochastic.ito-process-formula]
+  - id: finance.ito-taylor-scalar-order15
+    name: スカラー Itô–Taylor の重み3/2までの項
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（スカラー Itô–Taylor の重み3/2までの項）"]
+    requires: [finance.ito-taylor-iterated-integrals, finance.ito-taylor-operators, stochastic.ito-process-formula]
+  - id: finance.gbm-cubic-hermite
+    name: ドリフトなし GBM の三次 Hermite 更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ドリフトなし GBM の三次 Hermite 更新）"]
+    requires: [finance.ito-taylor-hermite-integrals, finance.gbm-scalar-milstein]
+  - id: finance.gbm-cubic-strong-order
+    name: 三次 Hermite 法の有限刻み強 MSE と正確な次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次 Hermite 法の有限刻み強 MSE と正確な次数）"]
+    requires: [finance.gbm-cubic-hermite, finance.sde-terminal-strong-weak-errors]
+  - id: finance.ito-heun-mean-inconsistency
+    name: Itô 方程式への無補正 Heun 更新は平均が一致しない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Itô 方程式への無補正 Heun 更新は平均が一致しない）"]
+    requires: [finance.gbm-explicit-positive]
+  - id: finance.mean-square-asymptotic-stability
+    name: 平均二乗漸近安定性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均二乗漸近安定性）"]
+    requires: [finance.gbm-explicit-positive]
+  - id: finance.linear-sde-ms-regions
+    name: 線形 SDE の厳密解・EM・Milstein の平均二乗安定領域
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形 SDE の厳密解・EM・Milstein の平均二乗安定領域）"]
+    requires: [finance.mean-square-asymptotic-stability, finance.gbm-scalar-milstein]
