@@ -321,7 +321,7 @@ S_{t_j}=s\exp\left\{(r-q-\sigma^2/2)t_j
 +\sigma\sqrt{T/m}\sum_{i=1}^jZ_i\right\}.
 $$
 
-シフト係数 $\lambda$ は満期の標準正規変量に対して指定します。提案分布では $Y_i\sim N(\lambda/\sqrt m,1)$ を各時刻で独立に生成します。満期までの対数価格の乱数項は $\sigma\sqrt{T/m}\sum_iY_i$ になり、元より上方向へ動きやすくなります。
+シフト係数 $\lambda$ は満期の標準正規変量に対して指定します。提案分布では $Y_i\sim N(\lambda/\sqrt m,1)$ を各時刻で独立に生成します。この一増分の提案密度を $g_{\lambda,m}(y)=\phi(y-\lambda/\sqrt m)$ と記し、一経路の同時密度は $g_{\lambda,m}^{\otimes m}$ とします。満期までの対数価格の乱数項は $\sigma\sqrt{T/m}\sum_iY_i$ になり、元より上方向へ動きやすくなります。
 
 <a id="def-u3-33-discrete-barrier"></a>
 
@@ -358,12 +358,12 @@ $$
 > 前定義で $m,N$ は有限正整数、$\lambda\in\mathbb R$、$H>s$ とする。各提案増分の密度 $\phi(y-\lambda/\sqrt m)$ は任意の実数 $y$ で0より大きく、$W_m$ は二乗可積分である。元のリスク中立モデルで定義した $V_m=DQ(E_m)$ に対して、
 
 $$
-E_{g_\lambda^{\otimes m}}[\widehat V_{m,N}]=V_m,
+E_{g_{\lambda,m}^{\otimes m}}[\widehat V_{m,N}]=V_m,
 $$
 
 $$
-\operatorname{Var}_{g_\lambda^{\otimes m}}(\widehat V_{m,N})
-=\frac{D^2}{N}\left(E_{g_\lambda^{\otimes m}}[\boldsymbol1_{E_m}L_m^2]-Q(E_m)^2\right).
+\operatorname{Var}_{g_{\lambda,m}^{\otimes m}}(\widehat V_{m,N})
+=\frac{D^2}{N}\left(E_{g_{\lambda,m}^{\otimes m}}[\boldsymbol1_{E_m}L_m^2]-Q(E_m)^2\right).
 $$
 <!-- formal-statement-end -->
 
@@ -383,7 +383,7 @@ $$
 したがって $Q$ 下の正規増分で評価した事象指示関数の積分は
 
 $$
-E_{g_\lambda^{\otimes m}}[\boldsymbol1_{E_m}L_m]
+E_{g_{\lambda,m}^{\otimes m}}[\boldsymbol1_{E_m}L_m]
 =\int_{\mathbb R^m}\boldsymbol1_{E_m(y)}
 \prod_{i=1}^m\phi(y_i)\,dy
 =Q(E_m).
@@ -392,8 +392,8 @@ $$
 不偏性は経路間独立性から従います。さらに $0\le\boldsymbol1_{E_m}\le1$ より
 
 $$
-E_{g_\lambda^{\otimes m}}[\boldsymbol1_{E_m}L_m^2]
-\le E_{g_\lambda^{\otimes m}}[L_m^2]
+E_{g_{\lambda,m}^{\otimes m}}[\boldsymbol1_{E_m}L_m^2]
+\le E_{g_{\lambda,m}^{\otimes m}}[L_m^2]
 =\prod_{i=1}^m E_{N(\delta,1)}[e^{-2\delta Y_i+\delta^2}].
 $$
 
