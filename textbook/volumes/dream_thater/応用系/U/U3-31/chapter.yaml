@@ -2,7 +2,7 @@ id: "U3-31"
 title: "Multilevel Monte Carlo（MLMC）"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-30, U3-29, U3-26]
+prerequisites: [U3-29]
 official_scope: []
 learning_objectives:
   - 粗格子と細格子を同じ Brown 増分で結合し、差分の期待値が望遠和になることを証明できる
