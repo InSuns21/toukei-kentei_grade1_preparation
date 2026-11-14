@@ -41,10 +41,10 @@ $$
 <!-- definition-example-start: def-gw1-09-deformation-obstruction -->
 **定義の確認**。定数写像 $u:\mathbb P^1\to X$ の値を $x$ とする。引き戻し接束は $E\simeq\mathcal O^{\oplus m}$ である。[射影直線上の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から
 
-$
+$$
 H^0(\mathbb P^1,E)\simeq T_xX,\qquad
 H^1(\mathbb P^1,E)=0.
-$
+$$
 
 従って一次変形は、標的における定数値 $x$ の動きである。局所座標で $x=(x^1,\ldots,x^m)$ とし、$x(t)=x+tv$ と置くと、$t=0$ での導関数 $v$ は定義域全体で一定の正則切断になる。
 <!-- definition-example-end -->
@@ -55,15 +55,15 @@ $
 > **命題（一次変形と貼り合わせ障害）**  
 > $C$ を滑らかなコンパクト複素曲線、$X$ を滑らかな複素多様体、$u:C\to X$ を正則写像とする。$E=u^*TX$ と置く。定義域を固定した一次正則変形は、次の空間と自然に一対一に対応する。
 
-$
+$$
 H^0(C,E).
-$
+$$
 
 > さらに、$t$ の次数 $r$ まで与えた局所的な正則形式変形を次数 $r+1$ へ延長し貼り合わせる際、障害類は次の空間に入る。
 
-$
+$$
 H^1(C,E).
-$
+$$
 
 > 特にこの一次コホモロジーが零なら、各次数で貼り合わせ障害は消える。
 <!-- formal-statement-end -->
@@ -482,17 +482,17 @@ $\mathbb P^1$ 上の $\mathcal O(3)$ と $\mathcal O(-2)$ について $h^0,h^1$
 <!-- solution-start -->
 **詳細解答**。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)では、整数 $d$ に対する次元公式は
 
-$
+$$
 h^0(\mathcal O(d))=\max(d+1,0),\qquad
 h^1(\mathcal O(d))=\max(-d-1,0).
-$
+$$
 
 これへ $d=3$ と $d=-2$ を順に代入すると
 
-$
+$$
 (h^0(\mathcal O(3)),h^1(\mathcal O(3)))=(4,0),\qquad
 (h^0(\mathcal O(-2)),h^1(\mathcal O(-2)))=(0,1).
-$
+$$
 
 $\mathcal O(3)$ の大域切断 $Z^3,W^3$ は、射影直線の各点で少なくとも一方が非零である。その値をスカラー倍すれば繊維の任意の値が得られ、[大域生成の定義](#def-gw1-09-globally-generated)を満たす。対して $\mathcal O(-2)$ の大域切断は零しかないのに繊維は一次元なので、大域生成されない。
 <!-- solution-end -->
@@ -516,17 +516,17 @@ $\mathbb P^1\to\mathbb P^4$ の定数正則写像 $u$ について $h^0(u^*T\mat
 <!-- solution-start -->
 **詳細解答**。[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)を次数2の写像で引き戻すと
 
-$
+$$
 0\to\mathcal O\to\mathcal O(2)^{\oplus3}\to E\to0
-$
+$$
 
 を得る。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)により、左二束の一次コホモロジーは零である。[長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)を使えば
 
-$
+$$
 H^1(E)=0,\qquad
 h^0(E)=3h^0(\mathcal O(2))-h^0(\mathcal O)
 =3\cdot3-1=8.
-$
+$$
 
 これは[射影空間の凸性と変形次元](#thm-gw1-09-projective-convex)の公式へ $n=2,d=2$ を代入した値とも一致する。
 <!-- solution-end -->
@@ -592,18 +592,18 @@ $\mathbb P^3$ への次数2写像に三つの相異なる標点を付け、写�
 <!-- solution-start -->
 **詳細解答**。[射影空間の凸性と変形次元](#thm-gw1-09-projective-convex)に $n=3,d=2$ を代入すると
 
-$
+$$
 h^0(E)=4\cdot3-1=11,\qquad h^1(E)=0.
-$
+$$
 
 三標点の自由度を加え、再パラメータ化群の三次元を差し引くと商の局所次元は $11+3-3=11$。
 
 一方、[接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から $\mathbb P^3$ の第一Chern類は $c_1(T\mathbb P^3)=4H$ となる。次数2なのでその曲線類との対は $4\cdot2=8$。[局所次元の命題](#prop-gw1-09-smooth-map-locus)へ代入すれば
 
-$
+$$
 m-3+c_1(T\mathbb P^3)\cdot\beta+k
 =3-3+8+3=11,
-$
+$$
 
 となり、二通りの計算が一致する。
 <!-- solution-end -->
