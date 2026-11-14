@@ -6,7 +6,11 @@
 
 ## 1. 方程式と同じ乱数を使う三本の経路
 
-時間 $t\in[0,T]$ は年単位、$T>0$、初期株価 $s_0>0$ 円、定数 $\mu\in\mathbb R$（年$^{-1}$）、$\sigma\ge0$（年$^{-1/2}$）を固定します。確率空間 $(\Omega,\mathcal F,P)$ 上の情報の流れ $(\mathcal F_t)_{0\le t\le T}$ と、それに関する [標準 Brown 運動](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion) $W$ を与えます。$\mathcal F_t$ は時刻 $t$ までの情報を表し、$W$ の未来増分は $\mathcal F_t$ と独立です。この節の $P$ は増分を生成する確率測度であり、無裁定価格を計算するなら別途リスク中立測度 $Q$ の下で $\mu=r-q$ を指定する必要があります。**数値近似の検証とリスク中立価格付けは別の問い**です。
+時間 $t\in[0,T]$ は年単位、$T>0$、初期株価 $s_0>0$ 円、定数 $\mu\in\mathbb R$（年$^{-1}$）、$\sigma\ge0$（年$^{-1/2}$）を固定します。
+
+確率空間 $(\Omega,\mathcal F,P)$ 上の情報の流れ $(\mathcal F_t)_{0\le t\le T}$ と、それに関する [標準 Brown 運動](../../../解析系/STO/STO4/index.md#def-sto4-brownian-motion) $W$ を与えます。$\mathcal F_t$ は時刻 $t$ までの情報を表し、$W$ の未来増分は $\mathcal F_t$ と独立です。
+
+この節の $P$ は増分を生成する確率測度であり、無裁定価格を計算するなら別途リスク中立測度 $Q$ の下で $\mu=r-q$ を指定する必要があります。**数値近似の検証とリスク中立価格付けは別の問い**です。
 
 [STO9 の SDE 積分表示](../../../解析系/STO/STO9/index.md#def-sto9-sde)に基づくモデルは
 
@@ -92,7 +96,9 @@ S_{t_{j+1}}-S_{t_j}
 \int_{t_j}^{t_{j+1}}\sigma S_u\,dW_u
 $$
 
-です。右辺の $S_u$ は、時刻 $t_j$ ではまだ分かりません。そこで両積分の係数を既知の左端値 $E_j$ へ置き換えます。ここで左端値は時刻 $t_j$ の情報 $\mathcal F_{t_j}$ だけで決まる必要があります。[STO6 の単純予測可能被積分過程](../../../解析系/STO/STO6/index.md#def-sto6-simple-predictable)はこれに加えて係数の**有界性**も要求します。今回の $E_j$ は一般に有界でないので、その定義をそのまま適用せず、二乗可積分性を確かめてから [Itô 積分の $L^2$ 完備化](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)を使用します。
+です。右辺の $S_u$ は、時刻 $t_j$ ではまだ分かりません。そこで両積分の係数を既知の左端値 $E_j$ へ置き換えます。この左端値は時刻 $t_j$ の情報 $\mathcal F_{t_j}$ だけで決まる必要があります。
+
+ただし、[STO6 の単純予測可能被積分過程](../../../解析系/STO/STO6/index.md#def-sto6-simple-predictable)は係数の**有界性**も要求します。今回の $E_j$ は一般に有界でないので、その定義をそのまま適用せず、二乗可積分性を確かめてから [Itô 積分の $L^2$ 完備化](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)を使用します。
 
 <a id="def-u3-28-euler"></a>
 <!-- formal-statement-start -->
@@ -109,26 +115,26 @@ $$
 
 **左端積分をこの更新に使える理由**：$E_0=s_0$ は確定値です。$E_j$ が $\mathcal F_{t_j}$ 可測かつ二乗可積分なら、$\Delta_jW$ は $\mathcal F_{t_j}$ と独立な $N(0,h)$ なので、更新式を二乗して条件付き平均を取ると
 
-$
+$$
 \begin{aligned}
 E[E_{j+1}^2\mid\mathcal F_{t_j}]
 &=E_j^2 E[(1+\mu h+\sigma\Delta_jW)^2]\\
 &=E_j^2\{(1+\mu h)^2+\sigma^2h\}.
 \end{aligned}
-$
+$$
 
 したがって帰納法により $E_j$ は各 $j$ で $\mathcal F_{t_j}$ 可測で、
 
-$
+$$
 E[E_j^2]=s_0^2\{(1+\mu h)^2+\sigma^2h\}^j<\infty.
-$
+$$
 
 実際、区間 $(t_j,t_{j+1}]$ 上で一定の係数 $\sigma E_j$ は
 
-$
+$$
 E\int_{t_j}^{t_{j+1}}|\sigma E_j|^2\,du
 =\sigma^2hE[E_j^2]<\infty
-$
+$$
 
 を満たします。$E_j$ を有界に切り詰めれば STO6 の単純予測可能係数になり、二乗平均で元の係数へ戻せます。[Itô 積分の $L^2$ 構成](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)によって区間積分は $\sigma E_j\Delta_jW$ となります。よって、左端の係数で作った更新は単なる形式的な「$dW$ の掛け算」ではありません。
 
@@ -195,7 +201,7 @@ $B_0=0$ を代入し移項して主張を得ます。また $W_{t+h}-W_t\sim N(0
 
 実際、拡散係数を区間の左端で展開して確率積分へ代入すると、更新式を得るための局所近似は
 
-$
+$$
 \begin{aligned}
 \int_{t_j}^{t_{j+1}}g(S_u)\,dW_u
 &\approx g(S_{t_j})\Delta_jW\\
@@ -204,7 +210,7 @@ $
 &=g(S_{t_j})\Delta_jW
 +\frac12g'(S_{t_j})g(S_{t_j})\{(\Delta_jW)^2-h\}
 \end{aligned}
-$
+$$
 
 となります。最後の等号は直前の [反復 Itô 積分の命題](#prop-u3-28-ito-correction)による**正確な**変形です。一方、最初の近似では高次の残りを省いており、その誤差評価は後続の講義で扱います。
 
