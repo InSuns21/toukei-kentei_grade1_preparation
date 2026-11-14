@@ -1,0 +1,42 @@
+chapter: GW1-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-15
+  - GW1-14
+  - GW1-13
+  - GW1-12
+  - GW1-11
+  - GW1-10
+  - GW1-09
+concepts:
+  - id: gromov-witten.novikov-completion
+    name: 有効曲線類の Novikov 完備化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有効曲線類の Novikov 完備化）"]
+    requires: [gromov-witten.convex-primary-invariant]
+  - id: gromov-witten.even-small-quantum-product
+    name: 偶数コホモロジーの小量子積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（偶数コホモロジーの小量子積）"]
+    requires: [gromov-witten.novikov-completion, gromov-witten.convex-primary-invariant, gromov-witten.node-diagonal-class]
+  - id: gromov-witten.quantum-classical-unit-grading
+    name: 古典極限・単位元・次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（古典極限・単位元・次数）"]
+    requires: [gromov-witten.even-small-quantum-product, gromov-witten.primary-fundamental-class-axiom, gromov-witten.primary-zero-degree, gromov-witten.primary-degree-constraint]
+  - id: gromov-witten.even-wdvv
+    name: 偶数挿入の WDVV 方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（偶数挿入の WDVV 方程式）"]
+    requires: [gromov-witten.primary-four-point-boundary-sum, gromov-witten.convex-boundary-splitting-formula, gromov-witten.node-diagonal-class]
+  - id: gromov-witten.even-small-quantum-associativity
+    name: 偶数部分の小量子積の結合律
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（偶数部分の小量子積の結合律）"]
+    requires: [gromov-witten.even-wdvv, gromov-witten.even-small-quantum-product, gromov-witten.quantum-classical-unit-grading]
