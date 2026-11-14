@@ -22,7 +22,7 @@
     <circle cx="335" cy="155" r="4" fill="#222"/>
   </g>
   <g aria-label="反時計回りの正の循環" fill="none" stroke="#75552b" stroke-width="3.5" stroke-dasharray="12 6">
-    <path d="M448 155 A113 113 0 0 0 335 42"/>
+    <path d="M448 155 C448 92.6 397.4 42 335 42"/>
   </g>
   <path d="M335 42 L355 33 L355 51 Z" fill="#75552b"/>
   <text x="472" y="78" font-size="22" fill="#66451c" font-family="sans-serif">Γ &gt; 0</text>
@@ -35,6 +35,6 @@
     <path d="M604 246 H662" marker-end="url(#flow-head)"/>
     <path d="M604 246 V192" marker-end="url(#flow-head)"/>
   </g>
-  <text x="665" y="252" font-size="17" fill="#444" font-family="sans-serif">x</text>
-  <text x="596" y="182" font-size="17" fill="#444" font-family="sans-serif">y</text>
+  <text x="690" y="270" font-size="17" fill="#444" font-family="sans-serif">x</text>
+  <text x="570" y="160" font-size="17" fill="#444" font-family="sans-serif">y</text>
 </svg>
