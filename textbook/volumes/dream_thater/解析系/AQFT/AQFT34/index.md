@@ -13,7 +13,7 @@
 
 ## 1. 商空間から局所観測量を取り出す
 
-実試験関数空間を $\mathcal D=C_c^\infty(\mathbb R^{1,3},\mathbb R)$、Klein–Gordon作用素を
+時空座標を $x=(t,\boldsymbol x)$、$\boldsymbol x=(x^1,x^2,x^3)$ とします。$\partial_t$ は空間座標を固定した時間 $t$ の偏微分、$\Delta_{\boldsymbol x}=\sum_{j=1}^3\partial^2/\partial(x^j)^2$ は空間Laplacianです。実試験関数空間を $\mathcal D=C_c^\infty(\mathbb R^{1,3},\mathbb R)$、Klein–Gordon作用素を
 
 $$
 P=\partial_t^2-\Delta_{\boldsymbol x}+m^2,
@@ -21,7 +21,7 @@ P=\partial_t^2-\Delta_{\boldsymbol x}+m^2,
 \mathcal V=\mathcal D/P\mathcal D
 $$
 
-とします。$E=G_{\mathrm{ret}}-G_{\mathrm{adv}}$ の順序を採ると、[因果伝播子からのシンプレクティック形式](../AQFT5/index.md#def-aqft5-causal-symplectic)は
+とします。$P\mathcal D=\{Pf:f\in\mathcal D\}$ は $\mathcal D$ の部分空間で、商元 $[f]$ は $f$ と $f+Pk$（$k\in\mathcal D$）を同一視したものです。$E=G_{\mathrm{ret}}-G_{\mathrm{adv}}$ の順序を採ると、[因果伝播子からのシンプレクティック形式](../AQFT5/index.md#def-aqft5-causal-symplectic)は
 
 $$
 \sigma([f],[g])=-\int_{\mathbb R^{1,3}}f(x)(Eg)(x)\,d^4x
@@ -72,7 +72,7 @@ $$
 
 ## 2. 一つのWeylユニタリで二状態を作る
 
-真空と別の状態を比べるには、新しいHilbert空間を導入する必要はありません。実試験関数の商元 $H\in\mathcal V$ を選び、そのWeylユニタリで真空ベクトルを動かします。空間的に分離した領域では励起の影響が消えますが、他の観測量では位相として検出できます。
+真空と別の状態を比べるには、新しいHilbert空間を導入する必要はありません。領域 $O$ に支持を持つ実源の商元 $H$ からユニタリ $W(H)$ を作り、真空ベクトルを $W(H)\Omega$ へ動かして得る期待値を**局所Weyl励起状態**と呼びます。「局所領域への制限」は、この期待値をその領域の観測量だけに作用させることです（[局所正規状態の扱い](../AQFT9/index.md#prop-aqft9-local-normal-state)）。空間的に分離した領域では励起の影響が消えますが、他の観測量では位相として検出できます。
 
 <a id="def-aqft34-weyl-excitation"></a>
 
@@ -98,7 +98,7 @@ $$
 \omega_H(A^*A)=\|AU_H\Omega\|^2\ge0.
 $$
 
-ベクトル状態なので正規であり、局所von Neumann環へ制限しても正規です。さらに任意の $F\in\mathcal V$ に対し、Weyl積を順番に展開すると
+有界な正作用素の増大網 $A_\alpha\uparrow A$ は強作用素位相でも $A$ に収束するので、$\langle U_H\Omega,A_\alpha U_H\Omega\rangle\uparrow\langle U_H\Omega,A U_H\Omega\rangle$ です。従って状態は正規であり、同じ単位元を持つ局所von Neumann環への制限でもこの性質は保たれます（[局所正規状態の扱い](../AQFT9/index.md#prop-aqft9-local-normal-state)）。さらに任意の $F\in\mathcal V$ に対し、Weyl積を順番に展開すると
 
 $$
 \begin{aligned}
@@ -200,7 +200,7 @@ $$
 U(\Lambda(-2\pi t))A U(\Lambda(2\pi t))
 $$
 
-で、真空制限はこのモジュラー時間の逆温度1のKMS状態です。ここで $\Delta_{W_R,\Omega}$ は真空ベクトルについてのモジュラー作用素、$U$ はboostのユニタリ表現です。**rapidityは $-2\pi t$** であって $+2\pi t$ ではありません。
+で、真空制限はこのモジュラー時間の逆温度1のKMS状態です。ここで $\Delta_{W_R,\Omega}$ は真空ベクトルについてのモジュラー作用素で、1節の空間Laplacian $\Delta_{\boldsymbol x}$ とは別の演算子です。$U$ はboostのユニタリ表現です。**rapidityは $-2\pi t$** であって $+2\pi t$ ではありません。
 
 励起したベクトルが同じ環に対して標準なら、モジュラー作用素の関係も直接求められます。ただし、得られるのは一般に真空のboost流そのものではありません。
 
@@ -305,7 +305,36 @@ $$
 \eta=\begin{pmatrix}1/2&1/4\\1/4&1/2\end{pmatrix}
 $$
 
-とします。$\eta$ の固有値は $3/4,1/4$、両状態は正定値・トレース1です。[有限次元へのAraki式の還元](../AQFT30/index.md#thm-aqft30-finite-reduction)を用いれば
+とします。$\rho$ の固有値は対角成分 $3/4,1/4$ です。$\eta$ の正規直交固有ベクトルを $u_\pm=(1,\pm1)^{\mathsf T}/\sqrt2$ とすると
+
+$$
+\eta u_+=\frac34u_+,\qquad \eta u_-=\frac14u_-,
+\qquad P_\pm=u_\pm u_\pm^*
+$$
+
+です。両状態は正定値・トレース1です。固有射影 $P_\pm$ による関数計算から
+
+$$
+\log\eta=\log(3/4)P_++\log(1/4)P_-,
+\qquad
+(\log\eta)_{11}=(\log\eta)_{22}
+=\frac12\bigl(\log(3/4)+\log(1/4)\bigr)
+$$
+
+を得ます。$\rho$ は標準基底で対角なので
+
+$$
+\begin{aligned}
+\operatorname{Tr}(\rho\log\rho)
+&=\frac34\log\frac34+\frac14\log\frac14
+=\frac34\log3-\log4,\\
+\operatorname{Tr}(\rho\log\eta)
+&=\frac34(\log\eta)_{11}+\frac14(\log\eta)_{22}
+=\frac12\log3-\log4.
+\end{aligned}
+$$
+
+これで[有限次元へのAraki式の還元](../AQFT30/index.md#thm-aqft30-finite-reduction)の正定値・トレース1の適用条件と行列計算を結び付けられ、差を取れば
 
 $$
 S_{\mathrm A}^{\mathcal M}(\rho\Vert\eta)
@@ -463,7 +492,7 @@ $V$ による内部自己同型が $\sigma_t^\Omega$ と可換でなければ同
 $\rho=\operatorname{diag}(3/4,1/4)$、$\eta=\begin{pmatrix}1/2&1/4\\1/4&1/2\end{pmatrix}$ を $M_2(\mathbb C)$ 上の状態とする。対角部分環への制限を考え、両環の相対エントロピーと差を対数の式で求め、単調性を検算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\rho$ の固有値は $3/4,1/4$、$\eta$ の固有値も $3/4,1/4$ です。$\eta$ の対角を同じ値へ保つユニタリ対角化から
+**詳細解答。** $\rho$ は対角行列なので固有値は $3/4,1/4$ です。$\eta$ は $u_\pm=(1,\pm1)^{\mathsf T}/\sqrt2$ に対して $\eta u_\pm=(1/2\pm1/4)u_\pm$ を満たします。$u_+^*u_-=0$、$\|u_\pm\|=1$ だから、$P_\pm=u_\pm u_\pm^*$ は直交固有射影で、$\log\eta=\log(3/4)P_++\log(1/4)P_-$ です。これを標準基底で表すと
 
 $$
 \log\eta=\frac12
