@@ -381,19 +381,26 @@ $$
 <!-- definition-example-start: def-u3-32-pilot-control -->
 **定義の確認**：独立な乱数列で先に $m=256$ 組を作り、標本共分散・標本分散から $\widehat\beta$ を求めます。続いて新しい乱数列で $N=3840$ 組を発生させ、そこで初めて価格平均を計算すれば、合計4096組のデータが使われ、推定係数は評価用の標本対と独立です。$c_0=100$ 円を解析値として引きます。この call では、二次モーメント条件まで直接確認できます。$C'_j=D S'_{T,j}$ と書けば $X'_j=(C'_j-DK)_+$ です。関数 $f(u)=(u-DK)_+$ は単調非減少で、任意の $u,v$ について $|f(u)-f(v)|\le|u-v|$ を満たします（$1$-Lipschitz 性）。従って任意の $i,j$ について
 
-$
+$$
 0\le (C'_i-C'_j)(X'_i-X'_j)\le(C'_i-C'_j)^2.
-$
+$$
 
-標本平均を $\overline C',\overline X'$ と書きます。中心化積は $\sum_j(C'_j-\overline C')(X'_j-\overline X')=m^{-1}\sum_{i<j}(C'_i-C'_j)(X'_i-X'_j)$ で、$X'$ を $C'$ に置き換えた恒等式も成り立ちます。この両式を標本回帰傾きへ代入すると
+標本平均を $\overline C',\overline X'$ と書きます。中心化積には次の恒等式があります。
 
-$
+$$
+\sum_{j=1}^m(C'_j-\overline C')(X'_j-\overline X')
+=\frac1m\sum_{i<j}(C'_i-C'_j)(X'_i-X'_j).
+$$
+
+$X'$ を $C'$ に置き換えた恒等式も同様に成り立ちます。この両式を標本回帰傾きへ代入すると
+
+$$
 \widehat\beta
 =\frac{\sum_{j=1}^m(C'_j-\overline C')(X'_j-\overline X')}
 {\sum_{j=1}^m(C'_j-\overline C')^2}
 =\frac{\sum_{i<j}(C'_i-C'_j)(X'_i-X'_j)}
 {\sum_{i<j}(C'_i-C'_j)^2}.
-$
+$$
 
 $C'_j$ は連続な対数正規分布の独立標本で、$m=256\ge2$ なら分母はほぼ確実に正です。従って $0\le\widehat\beta\le1$ がほぼ確実に成り立ち、$E[\widehat\beta^2]\le1<\infty$ を確認できました。評価用の $Z_i$ はパイロットの $Z'_j$ と独立なので、これで定義の独立性と有限二次モーメントの両方を満たします。実装では数値的な退化を検出するため、分母の下限も検査します。一般の支払関数には $1$-Lipschitz 性がないので、同じ係数の有界性を無条件に仮定してはいけません。
 <!-- definition-example-end -->
