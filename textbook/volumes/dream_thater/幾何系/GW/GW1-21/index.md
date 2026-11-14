@@ -22,7 +22,14 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（局所有限次元縮約）**  
-> 実Banach空間 $B,E$ の間の $C^2$ 写像 $F:U\to E$ が $F(0)=0$ を満たし、$D=dF_0$ がFredholmであるとする。上記の直和分解の下で、$k\in K$ に対し $B_1$ 方向の方程式
+> 実Banach空間 $B,E$、$0$ の開近傍 $U\subset B$ 上の $C^2$ 写像 $F:U\to E$ を考える。$F(0)=0$、$D=dF_0$ がFredholmであるとする。
+> $K=\ker D$、補空間 $B_1,E_1$ を選び、次の連続直和を固定する。
+>
+$$
+B=K\oplus B_1,\qquad E=\operatorname{im}D\oplus E_1.
+$$
+>
+> $P:E\to\operatorname{im}D$ を射影、$R=1-P$ とする。$k\in K$ に対し $B_1$ 方向の方程式
 >
 $$
 PF(k+b)=0
@@ -48,7 +55,8 @@ $$
 <!-- formal-statement-start -->
 > **命題（Fredholm零点の局所有限次元縮約）**  
 > $B,E$ を実Banach空間とし、$0$ の開近傍 $U\subset B$ 上に $C^2$ 写像 $F:U\to E$ があるとする。$F(0)=0$ で、線形化 $D=dF_0$ はFredholmであるとする。
-> 核 $K$ と閉補空間 $B_1$、像と閉補空間 $E_1$ による上述の直和分解、射影 $P,R$ を固定する。
+> $K=\ker D$ とし、連続直和 $B=K\oplus B_1$ と $E=\operatorname{im}D\oplus E_1$ を選ぶ。
+> $P:E\to\operatorname{im}D$ はその射影、$R=1-P$ は補射影とする。
 > このとき $K$ の原点近傍で唯一の $C^2$ 写像 $\phi:K\to B_1$ が存在し、次の条件を満たす。
 >
 $$
