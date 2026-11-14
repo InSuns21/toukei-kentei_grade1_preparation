@@ -1,0 +1,48 @@
+chapter: U4-13
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-12, TSA1, STO4, F0-00P6]
+forward_references: []
+concepts:
+  - id: finance.arb-integrated-orders
+    name: 0階和分と1階和分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（0階和分と1階和分）"]
+    requires: [timeseries.second-order-stationarity, finance.arb-random-walk-level-difference]
+  - id: finance.arb-two-series-cointegration
+    name: 2系列の共和分と正規化係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（2系列の共和分と正規化係数）"]
+    requires: [finance.arb-integrated-orders]
+  - id: finance.arb-common-trend-cancel
+    name: 共通確率トレンドの消去と係数の一意性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共通確率トレンドの消去と係数の一意性）"]
+    requires: [finance.arb-two-series-cointegration, finance.arb-random-walk-level-difference]
+  - id: finance.arb-eg-first-stage
+    name: Engle–Granger法の第1段階：水準回帰
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Engle–Granger法の第1段階：水準回帰）"]
+    requires: [finance.arb-two-series-cointegration]
+  - id: finance.arb-eg-superconsistency
+    name: 独立誤差モデルでの水準回帰の推定速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立誤差モデルでの水準回帰の推定速度）"]
+    requires: [finance.arb-eg-first-stage, finance.arb-df-nonstandard-limit]
+  - id: finance.arb-engle-granger-test
+    name: Engle–Grangerの残差ベース共和分検定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Engle–Grangerの残差ベース共和分検定）"]
+    requires: [finance.arb-eg-first-stage, finance.arb-adf-test]
+  - id: finance.arb-spurious-level-regression
+    name: 独立なランダムウォークの見せかけの回帰
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立なランダムウォークの見せかけの回帰）"]
+    requires: [finance.arb-two-series-cointegration, finance.arb-eg-first-stage]
