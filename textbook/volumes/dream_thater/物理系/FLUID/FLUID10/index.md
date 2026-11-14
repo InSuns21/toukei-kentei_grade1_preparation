@@ -188,11 +188,11 @@ $$
 $$
 
 各項の絶対値の面積分は、極座標 $x=r\cos\theta,\ y=r\sin\theta$ と置き、$s=r^2/b$（$r\,dr=b\,ds/2$）に変数変換すると
-$
+$$
 \int_{\mathbb R^2}Ae^{-(x^2+y^2)/b}\,dx\,dy
 =2\pi A\int_0^\infty re^{-r^2/b}\,dr
 =\pi Ab<\infty.
-$
+$$
 第二項も $x'=x-d$ への平行移動（Jacobian は $1$）で同じ積分をもち、三角不等式から $|\zeta|$ の積分は高々 $2\pi Ab$ だから絶対可積分である。よって $Q=A\pi b-A\pi b=0$。渦度が各点で零ではなくても総渦度は零になる。これは**渦度分布の例**であり、特定の Navier–Stokes 時間解と主張してはいない。
 <!-- definition-example-end -->
 
@@ -249,7 +249,7 @@ $$
 
 中心からの距離 $r=\sqrt{x^2+y^2}$ のみで渦度が変わる場合、中心を回る流速 $u_\theta$ を考えられる。$r>0$ の円上では $e_\theta=(-y/r,x/r)$ が反時計回りの単位接線である。速度を $u=u_\theta(r,t)e_\theta$ と置く。[VC9 の渦度の定義](../../../幾何系/VC/VC9/index.md#def-vc9-vorticity)は、直交座標で $\zeta=\partial_xu_2-\partial_yu_1$ である。$\partial_xr=x/r,\ \partial_yr=y/r$ を用いて $u_1=-u_\theta y/r$、$u_2=u_\theta x/r$ を微分すると
 
-$
+$$
 \begin{aligned}
 \partial_xu_2
 &=\frac{x^2}{r^2}\partial_ru_\theta
@@ -258,14 +258,14 @@ $
 &=-\frac{y^2}{r^2}\partial_ru_\theta
  -u_\theta\left(\frac1r-\frac{y^2}{r^3}\right).
 \end{aligned}
-$
+$$
 
 両式の差を取り $x^2+y^2=r^2$ を代入すれば
 
-$
+$$
 \zeta=\partial_ru_\theta+\frac{u_\theta}{r}
 =\frac1r\partial_r(ru_\theta).
-$
+$$
 
 つまり、渦度が指定されたとき、原点で連続な円周速度は $\partial_r(ru_\theta)=r\zeta$ を $0$ から積分して復元できる。$r=0$ は滑らかな極限で扱う。
 
@@ -285,9 +285,9 @@ $$
 
 と置く。**Gaussian 渦**は、この渦度と、原点で連続な円周方向速度 $u=u_\theta e_\theta$ で構成する場とする。前の渦度と速度の関係から、その速度は $r>0$ で
 
-$
+$$
 u_\theta(r,t)=\frac1r\int_0^r s\zeta_G(s,t)\,ds,\qquad u_\theta(0,t)=0
-$
+$$
 
 と定まる。積分は $\partial_r(ru_\theta)=r\zeta_G$ を解いたものであり、原点での連続性が積分定数（$C/r$ の特異項）を除く。拡散幅（長さ）は $\ell(t)=\sqrt{a(t)}$ [m] とする。
 <!-- formal-statement-end -->
@@ -297,10 +297,10 @@ $
 
 $a_0=1$ m$^2$、$\nu=1/4$ m$^2$/s、$\Gamma=2\pi$ m$^2$/s とする。$t=0$ なら $a=1$ m$^2$、中心渦度は $2$ s$^{-1}$、幅は $1$ m。$t=1$ s なら $a=2$ m$^2$、中心渦度は $1$ s$^{-1}$、幅は $\sqrt2$ m になる。いずれも $a>0$ なので渦度は全点で滑らか。さらに $t=0,\ r=1$ m で上の積分を使い、$v=s^2/a$ と置くと
 
-$
+$$
 u_\theta(1,0)=\frac{2\pi}{\pi}\int_0^1se^{-s^2}\,ds
 =1-e^{-1}\quad[\mathrm{m}/\mathrm{s}].
-$
+$$
 
 また $r\to0$ で $\int_0^r s\zeta_G(s,t)\,ds=\zeta_G(0,t)r^2/2+O(r^4)$ だから $u_\theta=O(r)$ で連続に延びる。これで定義の「指定した渦度・原点で正則な円周速度」を実際に確かめた。総渦度が本当に $\Gamma$ になることと、速度が方程式を満たすことは次の定理で個別に確かめる。
 <!-- definition-example-end -->
@@ -387,14 +387,14 @@ $$
 
 直前の関係 $\zeta_G=\partial_ru_\theta+u_\theta/r$ を微分して
 
-$
+$$
 \partial_r\zeta_G
 =\partial_r^2u_\theta+\frac1r\partial_ru_\theta-\frac{u_\theta}{r^2}
-$
+$$
 
 を得る。これがベクトル Laplace 演算子の接線方向成分であることも確認する。$q=r^2$、$u=(-yf(q,t),xf(q,t))$ と書いたので、$f_q=\partial f/\partial q$、$f_{qq}=\partial^2f/\partial q^2$ とすれば $\partial_xf=2xf_q,\ \partial_yf=2yf_q$ である。直交座標で各成分を二階微分すると
 
-$
+$$
 \begin{aligned}
 \Delta(-yf)&=-y(8f_q+4qf_{qq}),\\
 \Delta(xf)&=x(8f_q+4qf_{qq}),\\
@@ -402,16 +402,16 @@ $
         =2f+2qf_q,\\
 \partial_r\zeta_G&=r(8f_q+4qf_{qq}).
 \end{aligned}
-$
+$$
 
 従って $\Delta u=\partial_r\zeta_G\,e_\theta$ で半径方向の粘性成分は零である。また $u\cdot\nabla q=2xu_1+2yu_2=0$ だから、$f$ は流れに沿って変わらず、
 
-$
+$$
 (u\cdot\nabla)u=f(u\cdot\nabla)(-y,x)
 =f(-u_2,u_1)
 =-f^2(x,y)=-\frac{u_\theta^2}{r}e_r,
 \qquad e_r=(x/r,y/r).
-$
+$$
 
 時間微分は $\partial_tu=(\partial_tu_\theta)e_\theta$ である。以上と $\partial_tu_\theta=\nu\partial_r\zeta_G$ から Navier–Stokes の**接線方向**の式が成り立つ。半径方向では圧力勾配で向心加速度を釣り合わせればよい。定義した圧力は
 
@@ -725,12 +725,12 @@ $$
 
 **3.** 第4節の[Gaussian 渦の圧力](#thm-fluid10-gaussian-vortex)について $\partial_rp=\rho_0u_\theta^2/r\ge0$。半径外側ほど圧力が高く、内向き圧力力が向心加速度を支える。全渦度 $\int_{\mathbb R^2}\zeta_G\,dA=\Gamma$ については、$u\cdot e_r=0$ で移流流束が零であり、半径 $R$ の境界の拡散流束も
 
-$
+$$
 \int_{\partial B_R}\nabla\zeta_G\cdot n\,ds
 =2\pi R\,\partial_r\zeta_G(R,t)
 =-\frac{4\pi R^2}{a(t)}\zeta_G(R,t)
 \xrightarrow[R\to\infty]{}0
-$
+$$
 
 となる。したがって[総渦度保存命題](#prop-fluid10-total-vorticity-conservation)の境界条件を満たし、$Q=\Gamma$ は粘性があっても一定である。有限円板の $Q_R$ は外側への拡散で減少し得る。
 
