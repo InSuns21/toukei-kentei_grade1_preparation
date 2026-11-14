@@ -5,10 +5,10 @@ prerequisites: [U4-12, TSA1, STO4, F0-00P6]
 forward_references: []
 concepts:
   - id: finance.arb-integrated-orders
-    name: I(0) と I(1)
+    name: 0階和分と1階和分
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（$I(0)$ と $I(1)$）"]
+    introduction_aliases: ["定義（0階和分と1階和分）"]
     requires: [timeseries.second-order-stationarity, finance.arb-random-walk-level-difference]
   - id: finance.arb-two-series-cointegration
     name: 2系列の共和分と正規化係数
