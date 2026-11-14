@@ -51,9 +51,9 @@ $$
 
 始点・終点がともに $S_0=S_1=100$ 円でも、途中で $S_{1/2}=130$ 円となる連続経路では、初到達時刻が満期以前なので
 
-$
+$$
 \tau_H\le\frac12,\qquad G_{\rm cont}=0\ \text{円}.
-$
+$$
 
 一方、格子点では両方とも120円未満ですから、$G_1=1$ 円です。途中も常に120円未満の経路なら両受取額は1円になります。定義の判定は**「ある監視時刻で上回ったか」ではなく「期間内で一度でも到達したか」**です。これらは可能な経路形状の説明であり、確率を代入した例ではありません。
 <!-- definition-example-end -->
@@ -305,8 +305,14 @@ $$
 Y_{\rm exact}=e^{-rT}g(S_T)\boldsymbol1_{\{\tau_H>T\}}
 $$
 
-> とすれば、$\operatorname{Var}_Q(Y_{\rm BB})\le
-\operatorname{Var}_Q(Y_{\rm exact})$ であり、
+> とすれば、以下の分散不等式が成り立つ。
+
+$$
+\operatorname{Var}_Q(Y_{\rm BB})
+\le\operatorname{Var}_Q(Y_{\rm exact})
+$$
+
+> さらに、
 
 $$
 \operatorname{Var}_Q(Y_{\rm exact})
