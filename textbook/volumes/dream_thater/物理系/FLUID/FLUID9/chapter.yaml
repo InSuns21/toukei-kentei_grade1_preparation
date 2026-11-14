@@ -1,0 +1,44 @@
+id: "FLUID9"
+title: "循環はいつ保存されるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID8
+  - FLUID4
+  - VC9
+official_scope: []
+learning_objectives:
+  - "物質閉曲線と循環を、流れ写像・向き・単位を含めて定義し、せん断流・剛体回転で直接確認できる"
+  - "移動曲線の線素まで微分し、閉曲線端点の打消しから dGamma/dt=integral D_tu・dl を証明できる"
+  - "非粘性・順圧・保存力・滑らかさの条件を区別して Kelvin の循環定理を自力で証明できる"
+  - "順圧圧力ポテンシャル h'(rho)=P'(rho)/rho と p/rho の違いを説明できる"
+  - "非順圧における循環生成を圧力線積分・傾圧項面積分の両方から符号付きで検算できる"
+  - "渦度成分と物質面の渦度流束を区別し、保存が破れる力学的機構を説明できる"
+  - "滑らかな Euler 解としての整合と、固定輪・物質輪の違いを具体例で判定できる"
+definitions:
+  - { id: FLUID9-DEF-01, name: "物質閉曲線" }
+  - { id: FLUID9-DEF-02, name: "物質閉曲線の循環" }
+theorems:
+  - { id: FLUID9-THM-01, name: "物質閉曲線の循環の時間微分" }
+  - { id: FLUID9-THM-02, name: "Kelvin の循環定理" }
+  - { id: FLUID9-PROP-01, name: "非順圧での循環生成と渦度流束" }
+canonical_examples:
+  - "定常せん断流の厳密な流れ写像と変形する四辺の循環"
+  - "剛体回転の円周循環と Euler 圧力場の検算"
+  - "p=K rho^2 と p=K rho^3 の順圧ポテンシャル"
+  - "横向き密度・圧力勾配の初期循環生成を線積分と面積分で比較"
+  - "非保存外力が作る円周循環の初期変化率"
+problem_patterns:
+  - FLUID9-CIRCLE-ORIENTATION
+  - FLUID9-MATERIAL-LOOP
+  - FLUID9-PRESSURE-POTENTIAL
+  - FLUID9-CONSERVATIVE-FORCE
+  - FLUID9-MOVING-LINE-ELEMENT
+  - FLUID9-SHEAR-LOOP
+  - FLUID9-BAROCLINIC-INTEGRALS
+  - FLUID9-FIXED-VS-MOVING
+  - FLUID9-KELVIN-FAILURE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 3 }

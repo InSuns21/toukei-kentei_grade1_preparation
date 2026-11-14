@@ -6,9 +6,9 @@
 
 ## 0. 模型と使える微分
 
-空間の開集合 $\Omega\subset\mathbb R^3$ と時間区間 $I$ を取り、右手系直交座標 $(x,y,z)$ を用いる。速度 $u=(u_x,u_y,u_z)$ [m/s]、密度 $\rho$ [kg/m$^3$]、圧力 $p$ [Pa] を $(x,t)\in\Omega\times I$ の場とする。ここでは $\rho>0$ とし、$\rho,p$ は空間で少なくとも $C^2$ 級、$u$ は空間で $C^2$ 級・時間で $C^1$ 級とする。必要な混合微分は連続とする。
+空間の開集合 $\mathcal D\subset\mathbb R^3$ と時間区間 $I$ を取り、右手系直交座標 $(x,y,z)$ を用いる。空間点全体は $\boldsymbol x=(x,y,z)\in\mathcal D$ と書き、以下の $x,y,z$ は個々の座標を表す。速度 $u=(u_x,u_y,u_z)$ [m/s]、密度 $\rho$ [kg/m$^3$]、圧力 $p$ [Pa] は $(\boldsymbol x,t)\in\mathcal D\times I$ の場とする。$\rho>0$ とし、$\rho,p$ は空間で少なくとも $C^2$ 級、$u$ は空間で $C^2$ 級・時間で $C^1$ 級、$\rho$ は時間で $C^1$ 級とする。必要な混合微分は連続とする。
 
-一定密度の場合だけに限定しないので、[FLUID5 の質量保存則](../FLUID5/index.md#thm-fluid5-moving-mass)を
+[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative) $D_tf=\partial_t f+(u\cdot\nabla)f$ は、速度 $u$ とともに動く物質点に沿った $f$ の時間変化を表す。ここで $\partial_t$ は空間点 $\boldsymbol x$ を固定した微分、$\nabla$ は時刻 $t$ を固定した空間微分であり、ベクトル場には成分ごとに作用させる。一定密度の場合だけに限定しないので、[FLUID5 の質量保存則](../FLUID5/index.md#thm-fluid5-moving-mass)を
 
 $$
 \partial_t\rho+\nabla\cdot(\rho u)=0
@@ -16,20 +16,19 @@ $$
 D_t\rho=-\rho\,\nabla\cdot u
 $$
 
-と書く。ここで $D_t=\partial_t+u\cdot\nabla$ は物質微分であり、$\nabla\cdot u$ は速度の発散である。右辺への変形では積の微分を用いた：
+と書く。$\nabla\cdot u$ は速度の発散である。右辺への変形では積の微分を用いた：
 
 $$
 \nabla\cdot(\rho u)=u\cdot\nabla\rho+\rho\nabla\cdot u.
 $$
 
-[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で応力を $\sigma=-pI_3$ とすると、密度が変化しても、**非粘性の古典解**では
+[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)で応力を $\sigma=-pI_3$ とする。$I_3$ は右手系直交基底に関する $3\times3$ 単位行列で、応力成分は $\sigma_{ij}=-p\delta_{ij}$（$\delta_{ij}$ は $i=j$ のとき $1$、それ以外 $0$）となる。よって $(\nabla\cdot\sigma)_i=\sum_{j=1}^3\partial_j(-p\delta_{ij})=-\partial_i p$ である。このため密度が変化しても、**非粘性の古典解**では
 
 $$
 D_tu=-\frac1\rho\nabla p-\nabla\Phi
-
 $$
 
-となる。ただし単位質量当たりの外力は $b=-\nabla\Phi$、$\Phi\in C^2(\Omega)$ とし、時間依存しても各時刻の空間勾配で表せるものとする。$\rho>0$ だから除算できる。この模型に粘性、非保存体積力、不連続面を含む流れは入れない。後の FLUID10 で粘性の寄与を加える。
+となる。ただし [CTM7 の体積力](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)を本講では $f_{\mathrm{ext}}=-\nabla\Phi$ と書き、各 $t\in I$ に対して $\Phi(\cdot,t)\in C^2(\mathcal D)$ とする。$\nabla\Phi$ は時刻を固定した空間勾配なので、$\Phi$ が時間に依存してもよい。$\rho>0$ だから除算できる。この模型に粘性、非保存体積力、不連続面を含む流れは入れない。後の FLUID10 で粘性の寄与を加える。
 
 ## 1. 速度の回転を測る
 
@@ -57,7 +56,7 @@ $$
 <!-- definition-example-start: def-fluid8-vorticity -->
 ### **定義の確認**：回転とせん断を成分で区別する
 
-$\Omega=\mathbb R^3$ で、定数 $a$ [s$^{-1}$] に対し $u=(ay,0,0)$ とする。各成分は滑らかで、$\partial_xu_y=0$、$\partial_yu_x=a$、残りの関連微分は零。従って
+$\mathcal D=\mathbb R^3$ で、定数 $a$ [s$^{-1}$] に対し $u=(ay,0,0)$ とする。各成分は滑らかで、$\partial_xu_y=0$、$\partial_yu_x=a$、残りの関連微分は零。従って
 
 $$
 \omega=(0,0,-a),\qquad
@@ -67,7 +66,7 @@ $$
 $x$ 方向へ流れる速度が $y$ とともに増えると、渦度は**負の $z$ 方向**になる。流線は水平な直線でも渦度は零とは限らない。また $a$ の単位が s$^{-1}$ なので、各 curl 成分の単位も一致する。
 <!-- definition-example-end -->
 
-対照的に剛体回転 $u=(-\Omega y,\Omega x,0)$ では
+対照的に、角速度を定数 $\Omega$ [s$^{-1}$] とする剛体回転 $u=(-\Omega y,\Omega x,0)$ では
 
 $$
 \omega_z=\partial_x(\Omega x)-\partial_y(-\Omega y)
@@ -128,7 +127,7 @@ $$
 <!-- formal-statement-start -->
 ### 定理（非粘性圧縮性流体の渦度方程式）
 
-$\Omega\subset\mathbb R^3$ は開集合、$I$ は時間区間とする。$\rho>0$、$u,p,\Phi$ は第0節の正則性を持ち、質量保存および Euler 方程式 を各点で満たすとする。$\omega=\nabla\times u$ とおけば
+$\mathcal D\subset\mathbb R^3$ は開集合、$I$ は時間区間とする。$\rho>0$、$u,p,\Phi$ は第0節の正則性を持ち、質量保存および Euler 方程式 を各点で満たすとする。$\omega=\nabla\times u$ とおけば
 
 $$
 \boxed{
@@ -139,7 +138,7 @@ D_t\omega
 }
 $$
 
-が $\Omega\times I$ で成立する。右辺第1項は渦の伸長・傾斜、第2項は体積膨張・圧縮の寄与、第3項は傾圧性の生成項である。$\Phi$ の保存力項は寄与しない。
+が $\mathcal D\times I$ で成立する。右辺第1項は渦の伸長・傾斜、第2項は体積膨張・圧縮の寄与、第3項は傾圧性の生成項である。$\Phi$ の保存力項は寄与しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -149,7 +148,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$u=(u_1,u_2,u_3)$、$\omega=\nabla\times u$ とする。右手系の Levi-Civita 記号の積を用いれば
+$(u_1,u_2,u_3)=(u_x,u_y,u_z)$、$\omega=\nabla\times u$ とし、添字 $i,j,k,\ell,m$ は $1,2,3$ を動くものとする。[VC7 の Levi-Civita 記号](../../../幾何系/VC/VC7/index.md#def-vc7-epsilon) $\varepsilon_{ijk}$ は $(i,j,k)$ が $(1,2,3)$ の偶置換なら $+1$、奇置換なら $-1$、重複する添字があれば $0$ である。第0節の Kronecker 記号を使うと縮約公式は
+
+$$
+\sum_{k=1}^3\varepsilon_{ijk}\varepsilon_{k\ell m}
+=\delta_{i\ell}\delta_{jm}-\delta_{im}\delta_{j\ell}.
+$$
+
+したがって、$u\times\omega$ の第 $i$ 成分は
 
 $$
 \begin{aligned}
@@ -195,7 +201,20 @@ $$
 \end{aligned}
 $$
 
-一方、ベクトル積の curl を成分微分で展開すると
+一方、ベクトル積の curl も同じ縮約公式と[RA3 の積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)から得られる。第 $i$ 成分を先に計算すると
+
+$$
+\begin{aligned}
+[\nabla\times(u\times\omega)]_i
+&=\sum_{j,k,\ell,m}\varepsilon_{ijk}\varepsilon_{k\ell m}
+  \partial_j(u_\ell\omega_m)\\
+&=\sum_j\partial_j(u_i\omega_j)-\sum_j\partial_j(u_j\omega_i)\\
+&=\sum_j\bigl((\partial_j u_i)\omega_j+u_i\partial_j\omega_j
+-(\partial_j u_j)\omega_i-u_j\partial_j\omega_i\bigr).
+\end{aligned}
+$$
+
+成分を束ねれば
 
 $$
 \begin{aligned}
@@ -222,7 +241,7 @@ $$
 
 ## 4. 密度が一定なら何が消え、順圧なら何が消えるか
 
-圧力の等値面と密度の等値面が一致する状況を、圧力が密度だけの関数で書けるという**局所的な構成関係**で表す。これが順圧の条件であり、[FLUID6 の順圧圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)の条件とも対応する。
+密度が変わっても、圧力勾配が密度勾配と平行になる十分な条件を、圧力が密度だけの関数で書けるという**構成関係**で表す。両勾配のどちらかが零でも傾圧項は消えるので、等値面が常に一対一に一致する必要はない。これが順圧の条件であり、[FLUID6 の順圧圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)の条件とも対応する。
 
 <a id="def-fluid8-barotropic"></a>
 
@@ -232,7 +251,7 @@ $$
 $\rho>0$、$p$ が $C^1$ 級の場で、$\rho$ の値域を含む開区間 $J\subset(0,\infty)$ 上の $C^1$ 関数 $P:J\to\mathbb R$ が存在し、
 
 $$
-p(x,t)=P(\rho(x,t))
+p(\boldsymbol x,t)=P(\rho(\boldsymbol x,t))
 $$
 
 が考える領域・時刻で成り立つとき、**順圧**であるという。$P$ は場所・時刻によって変えない。
@@ -351,7 +370,7 @@ $$
 
 ## 6. 非平行な勾配からの生成を瞬間的に直接計算する
 
-第2節と同じ密度・圧力を $t=0$ の初期場とし、初速度を $u(x,0)=0$ とする。$p_0$ は考える有界領域で圧力が正になるように選んでもよい。$\rho_0>0$ と $1+ax>0$ を保ち、非粘性・保存体積力 $\Phi=0$ の**滑らかな解が初期時刻の近傍に存在する場合**だけを論じる。たとえば圧縮性の熱力学モデルでは、非一様な温度・エントロピーと整合する初期値として与える必要があり、ここで全時間の解を構成したと主張しない。
+第2節と同じ密度・圧力を $t=0$ の初期場とし、初速度を $u(\boldsymbol x,0)=0$ とする。$p_0$ は考える有界領域で圧力が正になるように選んでもよい。$\rho_0>0$ と $1+ax>0$ を保ち、非粘性・保存体積力 $\Phi=0$ の**滑らかな解が初期時刻の近傍に存在する場合**だけを論じる。たとえば圧縮性の熱力学モデルでは、非一様な温度・エントロピーと整合する初期値として与える必要があり、ここで全時間の解を構成したと主張しない。
 
 初速度が零だから初期渦度も零で、初期時刻の移流・伸長・膨張項はすべて零。Euler 方程式から初期加速度は
 
@@ -442,7 +461,7 @@ $$
 これが主張である。順圧条件を代入すれば最後のベクトル積は零になる。
 <!-- proof-end -->
 
-**仮定を外すと**どうなるか。非保存外力 $b$ を用いれば第3節の式に $\nabla\times b$ が増える。粘性応力を加えれば応力発散の curl が増える。不連続な波面のように滑らかさが破れる場では上記の古典的な微分をそのまま行えない。したがって「理想流体の渦度生成は傾圧項だけ」と言えるのは、**ここで固定した非粘性・保存力・滑らかな模型に限る**。
+**仮定を外すと**どうなるか。非保存外力 $f_{\mathrm{ext}}$ を用いれば第3節の式に $\nabla\times f_{\mathrm{ext}}$ が増える。粘性応力を加えれば応力発散の curl が増える。不連続な波面のように滑らかさが破れる場では上記の古典的な微分をそのまま行えない。したがって「理想流体の渦度生成は傾圧項だけ」と言えるのは、**ここで固定した非粘性・保存力・滑らかな模型に限る**。
 
 次講 FLUID9 では、点ごとの渦度ではなく、流れとともに動く**閉曲線に沿う循環**がどの仮定で保存されるかを調べる。
 
@@ -529,14 +548,14 @@ $$
 
 ### B1. 初期加速度の curl と生成項の一致
 
-$\rho(x,0)=3(1+0.1x)$、$p(x,y,0)=p_0-9y$、$u(x,0)=0$、$\Phi=0$ とする。$1+0.1x>0$ で滑らかな Euler 解が存在すると仮定する。$\partial_tu(x,0)$ を求め、その curl と傾圧項をそれぞれ計算して一致を示せ。
+$\rho(\boldsymbol x,0)=3(1+0.1x)$、$p(\boldsymbol x,0)=p_0-9y$、$u(\boldsymbol x,0)=0$、$\Phi=0$ とする。$1+0.1x>0$ で滑らかな Euler 解が存在すると仮定する。$\partial_tu(\boldsymbol x,0)$ を求め、その curl と傾圧項をそれぞれ計算して一致を示せ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-初期速度が零なので $(u\cdot\nabla)u=0$、[Euler の式](../FLUID6/index.md#thm-fluid6-euler-equation)と同じ非粘性運動量式から
+初期速度が零なので $(u\cdot\nabla)u=0$。[CTM7 の局所運動量式](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)へ $\sigma=-pI_3$ と $f_{\mathrm{ext}}=0$ を代入した第0節の**変密度でも成り立つ**非粘性運動量式から
 
 $$
 \left.\partial_tu\right|_0
@@ -633,7 +652,7 @@ $$
 \qquad \omega_x=\omega_y=0.
 $$
 
-$\omega$ は空間に依存せず、$\Omega'=k\Omega$ なので
+$\omega$ は空間に依存せず、$\Omega'(t)=d\Omega(t)/dt=k\Omega(t)$（プライムは時間 $t$ に関する導関数）なので
 
 $$
 D_t\omega=\partial_t\omega=(0,0,2k\Omega).
@@ -656,7 +675,7 @@ p=p_0+\frac{\rho_0}{2}
 \left[(\Omega(t)^2-k^2/4)r^2-k^2z^2\right]
 $$
 
-と選べば $-\nabla p/\rho_0=D_tu$。各時刻の有界な領域なら $p_0$ を十分大きくして圧力を正にできる。これは既存渦度の**伸長による増幅**であり、傾圧的な新規生成ではない。
+と選べば $-\nabla p/\rho_0=D_tu$。有界な空間領域と有限時間区間に限れば、$p_0$ を十分大きくしてその全域で圧力を正にできる。これは既存渦度の**伸長による増幅**であり、傾圧的な新規生成ではない。
 <!-- solution-end -->
 
 ### Level C
@@ -667,7 +686,7 @@ $$
 
 1. 空間一定密度で $\nabla p\ne0$ の非圧縮理想流。
 2. 密度が空間変化する順圧理想流。
-3. $t=0$ で $u=0$、$\rho=\rho_0(1+ax)>0$、$p=p_0+by$（$ab\ne0$）の非順圧初期場。
+3. $t=0$ で $u=0$、$\rho=\rho_0(1+ax)$、$p=p_0+by$（$\rho_0>0$、$1+ax>0$ の領域、$ab\ne0$）の非順圧初期場。
 
 各場合で傾圧項を計算し、他の項と区別したうえで、**初期渦度が零から生成され得るのはどの場合か**を論じよ。また保存体積力の仮定を外すと結論がどう変わるか示せ。
 
@@ -685,8 +704,31 @@ $$
 
 である。
 
-1. $\rho=\rho_0>0$ では $\nabla\rho=0$ なので $S_{\mathrm{baro}}=0$。さらに質量保存から $\nabla\cdot u=0$。従って $D_t\omega=(\omega\cdot\nabla)u$。$\nabla p$ の大きさだけでは渦は生成されない。すでにある渦度は伸長され得るが、零初期値からは（古典的な滑らかな流れの存在区間に限り）渦度の輸送・伸長に関する同次線形 ODE の解の一意性により零のままである。
-2. $p=P(\rho)$ では連鎖律 $\nabla p=P'(\rho)\nabla\rho$ により $S_{\mathrm{baro}}=0$。密度変化があるので $\nabla\cdot u$ は一般には零と断定できないが、右辺の残り二項は $\omega$ に比例する。従って零初期渦度は同じく零のままである。圧力一定・密度一定を仮定したわけではない。
+まず、傾圧項が零のときに、滑らかな流れが零初期渦度を保つ理由を調べる。流跡 $X(t)$ に沿う各成分は
+
+$$
+\frac{d}{dt}\omega_i(X(t),t)
+=\sum_{j=1}^3\omega_j(X(t),t)\partial_j u_i(X(t),t)
+-\bigl(\nabla\cdot u\bigr)(X(t),t)\omega_i(X(t),t)
+$$
+
+を満たす。$v_i(t)=\omega_i(X(t),t)$ とすれば同次線形 ODE である。滑らかな流跡の任意の有限部分区間で係数は有界だから、各右辺の係数の絶対値の行和を抑える定数 $M>0$ を選べる。初期値 $v_i(t_0)=0$ と時間幅 $\delta>0$ に対し、
+
+$$
+V=\sup_{t_0\le s\le t_0+\delta}\max_{i=1,2,3}|v_i(s)|
+$$
+
+とおけば、方程式を積分して
+
+$$
+|v_i(t)|\le\int_{t_0}^t M\max_j|v_j(s)|\,ds\le M\delta V,
+\qquad V\le M\delta V
+$$
+
+を得る。$M\delta<1$ の短い区間では $V=0$ であり、これを繰り返せば流跡が滑らかに存在する限り零のままである。この議論は膨張項がある場合にも使える。
+
+1. $\rho=\rho_0>0$ では $\nabla\rho=0$ なので $S_{\mathrm{baro}}=0$。さらに質量保存から $\nabla\cdot u=0$。従って $D_t\omega=(\omega\cdot\nabla)u$。$\nabla p$ の大きさだけでは渦は生成されない。すでにある渦度は伸長され得るが、零初期値からは上の同次線形輸送により零のままである。
+2. [順圧条件](#def-fluid8-barotropic) $p=P(\rho)$ では連鎖律 $\nabla p=P'(\rho)\nabla\rho$ により $S_{\mathrm{baro}}=0$。密度変化があるので $\nabla\cdot u$ は一般には零と断定できないが、右辺の残り二項は $\omega$ に比例する。従って零初期渦度は同じく零のままである。圧力一定・密度一定を仮定したわけではない。
 3. $\nabla\rho=(\rho_0a,0,0)$、$\nabla p=(0,b,0)$ だから
 
 $$
@@ -694,9 +736,9 @@ S_{\mathrm{baro}}=
 \left(0,0,\frac{ab}{\rho_0(1+ax)^2}\right)\ne0.
 $$
 
-初期速度が零なので $\omega(x,0)=0$、従って他の二項は初期時刻で零。よって $\partial_t\omega_z(x,0)=ab/[\rho_0(1+ax)^2]$。滑らかな局所解があれば $t=0$ からの短時間で渦度が生成される。符号は $ab$ の符号と一致する。第6節の初期加速度の curl による独立計算でも同じ結論を得る。
+初期速度が零なので $\omega(\boldsymbol x,0)=0$、従って他の二項は初期時刻で零。よって $\partial_t\omega_z(\boldsymbol x,0)=ab/[\rho_0(1+ax)^2]$。滑らかな局所解があれば $t=0$ からの短時間で渦度が生成される。符号は $ab$ の符号と一致する。第6節の初期加速度の curl による独立計算でも同じ結論を得る。
 
-最後に保存体積力 $b=-\nabla\Phi$ を、一般の滑らかな単位質量当たりの外力 $b_{\mathrm{ext}}$ に替えれば、curl の計算から追加項 $\nabla\times b_{\mathrm{ext}}$ が現れる。これが非零なら一定密度・順圧でも渦度が生成され得る。したがって結論は流体の非粘性だけではなく、外力と正則性の仮定に依存する。
+最後に保存外力 $f_{\mathrm{ext}}=-\nabla\Phi$ の仮定を外し、一般の滑らかな単位質量当たりの外力 $f_{\mathrm{ext}}$ を許せば、curl の計算から追加項 $\nabla\times f_{\mathrm{ext}}$ が現れる。これが非零なら一定密度・順圧でも渦度が生成され得る。したがって結論は流体の非粘性だけではなく、外力と正則性の仮定に依存する。
 <!-- solution-end -->
 
 ## 9. 自己点検
