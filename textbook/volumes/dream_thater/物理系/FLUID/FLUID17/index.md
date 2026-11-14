@@ -2,7 +2,7 @@
 
 [FLUID16 の円管流・円筒 Couette 流](../FLUID16/index.md#thm-fluid16-couette-profile)では、時間が十分経過した定常速度分布を求めた。しかし**壁を突然動かした直後**、遠い流体まで同時に動くわけではない。壁で生まれた速度勾配が粘性を通して内部へ伝わる。その時間と距離を、厳密な非定常解から求めよう。
 
-本講の二つの問いは異なる。**Stokes 第一問題**は静止流体を時刻 $0$ に突然駆動する初期値問題、**Stokes 第二問題**は壁を正弦振動させたときの周期応答を求める問題である。第二問題の周期解は、流体が時刻 $0$ まで静止していたことを意味しない。
+本講の二つの問いは異なる。一つは静止流体を時刻 $0$ に突然駆動する初期値問題、もう一つは壁を正弦振動させたときの周期応答の問題である。後者の周期解は、流体が時刻 $0$ まで静止していたことを意味しない。
 
 ## 0. 平面壁の上の一方向流：なぜ熱の拡散と同じ式になるか
 
@@ -36,13 +36,24 @@ $$
 **定義の確認**：例えば $F(s)=e^{-s}$ は三つのデータ条件を満たすが、$u_t=\nu u_{yy}$ に代入すると一般には一致しない。**境界条件への適合と微分方程式の解であることは別**である。
 <!-- definition-example-end -->
 
-速度の形を決めるには、時間と距離を一つにまとめる**相似変数** $\xi=y/(2\sqrt{\nu t})$ を使う。正規化した Gauss 積分の尾部
+速度の形を決めるには、時間と距離を一つにまとめる**相似変数** $\xi=y/(2\sqrt{\nu t})$ を使う。正規化した Gauss 関数 $e^{-q^2}$ の「右側に残る面積」を表す道具を準備する。
+
+<a id="def-fluid17-erfc"></a>
+
+<!-- formal-statement-start -->
+> **定義（相補誤差関数）**  
+> 無次元の実数 $s\ge0$ に対して、相補誤差関数 $\operatorname{erfc}:[0,\infty)\to(0,1]$ を次で定義する。
 
 $$
-\operatorname{erfc}(s)=\frac{2}{\sqrt{\pi}}\int_s^\infty e^{-q^2}\,dq\qquad(s\ge0)
+\operatorname{erfc}(s)=\frac{2}{\sqrt{\pi}}\int_s^\infty e^{-q^2}\,dq.
 $$
+<!-- formal-statement-end -->
 
-を**相補誤差関数**という。積分での $q$ は無次元の積分変数であり、$\operatorname{erfc}(0)=1$、無限遠で $0$ に近づく。前者には $\int_{-\infty}^\infty e^{-q^2}dq=\sqrt{\pi}$ を用いる。これは積分の二乗を平面の極座標積分に変換して $\pi$ を得ることで確かめられる。
+**定義の確認**：$q$ は無次元の積分変数である。Gauss 積分 $\int_{-\infty}^\infty e^{-q^2}dq=\sqrt{\pi}$ を使うと、$\operatorname{erfc}(0)=1$。また $e^{-q^2}>0$ なので正で、下端が大きくなるほど値は狭義単調に減少し、$s\to\infty$ で $0$ に近づく。Gauss 積分はその二乗を平面上の極座標積分に直すと $\pi$ となることから確認できる。
+
+<!-- definition-example-start: def-fluid17-erfc -->
+**積分による直接確認**：$\operatorname{erfc}(0)=\frac2{\sqrt\pi}\int_0^\infty e^{-q^2}dq=1$。例えば $s=1$ では積分区間 $[1,\infty)$ が $[0,\infty)$ より真に短いので $0<\operatorname{erfc}(1)<1$ となる。
+<!-- definition-example-end -->
 
 <a id="thm-fluid17-first-profile"></a>
 
@@ -81,7 +92,7 @@ $$
 
 ゆえに $F(\xi)=1-\frac2{\sqrt\pi}\int_0^\xi e^{-q^2}dq=\operatorname{erfc}(\xi)$。$\operatorname{erfc}'(\xi)=-2e^{-\xi^2}/\sqrt{\pi}$、$\operatorname{erfc}''(\xi)=4\xi e^{-\xi^2}/\sqrt{\pi}$ を代入すると元の拡散方程式も直接満たす。固定した $y>0$ に対し $t\downarrow0$ なら $\xi\to\infty$、$u\to0$。$y=0,t>0$ では $\xi=0$、$u=U$。さらに任意の $T>0$ について $0<t\le T$ なら $\xi\ge y/(2\sqrt{\nu T})$ だから、遠方減衰は時間区間で一様である。
 
-一意性は二解の差 $w$ に対する拡散方程式の最大値原理から従う。実際、$0<t\le T$ の有限長長方形 $0\le y\le L$ 上で、差の初期面・左壁面は零、右壁面 $y=L$ の絶対値は $L\to\infty$ で一様に零へ近づく。内部の正の最大を排除するため $w-\varepsilon t$ を考えると、正の内部最大では時間微分が非負、空間二階微分は非正である一方、$(\partial_t-\nu\partial_{yy})(w-\varepsilon t)=-\varepsilon<0$ となり矛盾する。負の最小も $-w$ で同様。右壁の誤差と $\varepsilon T$ を零へ送れば $w=0$ となる。角点の不一致は $t=0$ の壁値を要求しないことで扱う。
+一意性は二解の差 $w$ を用いた次の内部最大点の符号比較によって直接示せる。実際、$0<t\le T$ の有限長長方形 $0\le y\le L$ 上で、差の初期面・左壁面は零、右壁面 $y=L$ の絶対値は $L\to\infty$ で一様に零へ近づく。内部の正の最大を排除するため $w-\varepsilon t$ を考えると、正の内部最大では時間微分が非負、空間二階微分は非正である一方、$(\partial_t-\nu\partial_{yy})(w-\varepsilon t)=-\varepsilon<0$ となり矛盾する。負の最小も $-w$ で同様。右壁の誤差と $\varepsilon T$ を零へ送れば $w=0$ となる。角点の不一致は $t=0$ の壁値を要求しないことで扱う。
 <!-- proof-end -->
 
 **具体的な読み方**：$t=1\,\mathrm{s}$、$\nu=10^{-6}\,\mathrm{m^2/s}$、$U=0.020\,\mathrm{m/s}$ とすると、$y=2.0\,\mathrm{mm}$ で $\xi=1$ だから $u/U=\operatorname{erfc}(1)\approx0.1573$、すなわち $u\approx3.15\,\mathrm{mm/s}$。壁速度に「すぐ全層が追従する」わけではない。
@@ -94,11 +105,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（第一問題の速度閾値厚さ）**  
-> [第一問題の相似解](#thm-fluid17-first-profile)と $0<\alpha<1$ に対し、$u(\delta_\alpha(t),t)=\alpha U$ を満たす唯一の距離 $\delta_\alpha(t)>0$ を速度閾値厚さという。$\operatorname{erfc}$ が $[0,\infty)$ 上で狭義単調減少するため逆関数 $\operatorname{erfc}^{-1}:(0,1]\to[0,\infty)$ が存在し、
->
-> $$
-> \delta_\alpha(t)=2\operatorname{erfc}^{-1}(\alpha)\sqrt{\nu t}\qquad(t>0).
-> $$
+> [第一問題の相似解](#thm-fluid17-first-profile)と定数 $0<\alpha<1$ に対し、壁速度の $\alpha$ 倍になる唯一の距離 $\delta_\alpha(t)>0$ を速度閾値厚さという。定義条件は次の式である。
+
+$$
+u(\delta_\alpha(t),t)=\alpha U.
+$$
+
+> $\operatorname{erfc}$ は狭義単調減少するため、逆関数 $\operatorname{erfc}^{-1}:(0,1]\to[0,\infty)$ が存在する。従って
+
+$$
+\delta_\alpha(t)=2\operatorname{erfc}^{-1}(\alpha)\sqrt{\nu t}\qquad(t>0).
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid17-penetration-thickness -->
@@ -161,7 +178,21 @@ $a>0$ と $\phi$ が一定の $e^{-ay}\cos(\omega t-\phi y)$ は、距離とと�
 
 <!-- formal-statement-start -->
 > **定義（Stokes 第二問題の周期応答）**  
-> $\nu,U,\omega>0$ とし、$y>0,\ t\in\mathbb R$ において $u_t=\nu u_{yy}$、壁で $u(0,t)=U\cos(\omega t)$、遠方で $u(y,t)\to0$ を満たす実速度を考える。特に周期 $T=2\pi/\omega$ をもち、$u(y,t)=\operatorname{Re}\{A(y)e^{i\omega t}\}$ の形で $A(0)=U$、$A(y)\to0$ の複素振幅 $A$ を持つ解を、単一周波数の周期応答という。ここでは静止初期条件を課さない。
+> $\nu,U,\omega>0$ とする。$y>0,\ t\in\mathbb R$ で実速度 $u$ は次の方程式、壁条件、遠方条件を満たす。
+
+$$
+u_t=\nu u_{yy},\qquad u(0,t)=U\cos(\omega t),
+\qquad\lim_{y\to\infty}u(y,t)=0.
+$$
+
+> その周期を $T=2\pi/\omega$ とする。$A(0)=U$ で遠方で零に減衰する複素振幅 $A$ を用いて、次の形で表せる速度を単一周波数の周期応答という。
+
+$$
+u(y,t)=\operatorname{Re}\{A(y)e^{i\omega t}\},\qquad
+A(0)=U,\quad \lim_{y\to\infty}A(y)=0.
+$$
+
+> 静止初期条件は課さない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid17-second-problem -->
@@ -265,7 +296,7 @@ $$
 
 **成立条件を取り違えない**：もし「$t=0$ まで静止、$t=0$ から振動開始」という別問題に上の周期解をそのまま代入すると、$u(y,0)=Ue^{-y/\delta}\cos(y/\delta)$ は $y>0$ で一般に零でなく、初期条件に反する。正しい始動解には過渡成分が必要で、時間が経つにつれて周期成分が支配的になるという説明は、ここで証明した「周期クラスの一意性」とは異なる主張である。
 
-## 4. 解析解を数値拡散で検算する
+## 4. 解析解を差分近似で検算する
 
 二つの解はいずれも同じ $u_t=\nu u_{yy}$ に従う。格子点 $y_j=j\Delta y$、時刻 $t_n=n\Delta t$ で中心差分と前進 Euler 時間離散を使えば
 
@@ -285,15 +316,15 @@ $r\le1/2$ なら更新式は非負係数 $(r,1-2r,r)$ の重み付き平均と�
 
 下の実行欄では公開された同一ファイルをブラウザ内 Python で実行できる。実行環境の初回読込みには通信が必要で、実行できない環境でも上の解析式と数値例を追える。
 
-~~~python-file-lab
+```python-file-lab
 # lab-id: FLUID17-STOKES-DIFFUSION
-# lab-title: Stokes 第一・第二問題の格子収束と壁面応力
+# lab-title: Stokes 第一・第二問題の誤差減少と壁面応力
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID17/stokes_diffusion_check.py
 # timeout-ms: 30000
 # lab-preset: 第一問題・壁の突然の始動 | --case first --n 120
 # lab-preset: 第二問題・周期境界層 | --case second --n 160
 # lab-preset: 両問題と格子細分化 | --case both --n 180
-~~~
+```
 
 ## 5. 二つの長さ尺度をどう比べるか
 
@@ -468,7 +499,7 @@ $$
 
 第二問題では $f_2(t)=(\eta U/\delta)(\cos\omega t-\sin\omega t)$。直交する二つの正弦波の合成振幅は $F_2=\sqrt2\,\eta U/\delta=\eta U\sqrt{\omega/\nu}$。従って $f_1(t_*)/F_2=\sqrt{2/\pi}$。第二問題の振幅を $\eta U/\delta$ と誤って答えると係数 $\sqrt2$ を落とす。
 
-**(3)** [周期平均仕事公式](#prop-fluid17-second-work)から $\langle P_2\rangle=\eta U^2/(2\delta)=\eta U^2\sqrt{\omega/(2\nu)}/2$。第一問題の速度は $\operatorname{erfc}(y/(2\sqrt{\nu t_*}))$ の単調な正の形、第二問題では $e^{-y/\delta}\cos(\omega t-y/\delta)$ で符号が位置と時刻に依存する。第一問題は静止初期値と一定壁速度、第二問題は既存の周期場と振動壁速度であり、同じ一つの距離尺度は同じ初期値問題を指定しない。第一問題の $f_1(t_*)U$ は瞬間の正の仕事、第二問題は一周期平均の仕事なので、比較する時間平均操作も異なる。
+**(3)** [振動壁のせん断力と一周期平均の散逸](#prop-fluid17-second-work)から $\langle P_2\rangle=\eta U^2/(2\delta)=\eta U^2\sqrt{\omega/(2\nu)}/2$。第一問題の速度は $\operatorname{erfc}(y/(2\sqrt{\nu t_*}))$ の単調な正の形、第二問題では $e^{-y/\delta}\cos(\omega t-y/\delta)$ で符号が位置と時刻に依存する。第一問題は静止初期値と一定壁速度、第二問題は既存の周期場と振動壁速度であり、同じ一つの距離尺度は同じ初期値問題を指定しない。第一問題の $f_1(t_*)U$ は瞬間の正の仕事、第二問題は一周期平均の仕事なので、比較する時間平均操作も異なる。
 <!-- solution-end -->
 
 ## 7. 学習のまとめ

@@ -15,6 +15,7 @@ learning_objectives:
   - "前進Euler差分の安定条件・格子細分化・解析解との誤差をブラウザ内Pythonで検証する"
 definitions:
   - { id: FLUID17-DEF-01, name: "Stokes 第一問題" }
+  - { id: FLUID17-DEF-04, name: "相補誤差関数" }
   - { id: FLUID17-DEF-02, name: "第一問題の速度閾値厚さ" }
   - { id: FLUID17-DEF-03, name: "Stokes 第二問題の周期応答" }
 theorems:

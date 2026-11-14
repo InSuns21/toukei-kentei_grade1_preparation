@@ -11,12 +11,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（Stokes 第一問題）"]
     requires: [continuum.wall-no-slip, continuum.incompressible-navier-stokes]
+  - id: fluid.complementary-error-function
+    name: 相補誤差関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相補誤差関数）"]
+    requires: []
   - id: fluid.stokes-first-profile
     name: Stokes 第一問題の相似拡散解
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（Stokes 第一問題の相似拡散解）"]
-    requires: [fluid.stokes-first-problem]
+    requires: [fluid.stokes-first-problem, fluid.complementary-error-function]
   - id: fluid.stokes-penetration-thickness
     name: 第一問題の速度閾値厚さ
     kind: definition
