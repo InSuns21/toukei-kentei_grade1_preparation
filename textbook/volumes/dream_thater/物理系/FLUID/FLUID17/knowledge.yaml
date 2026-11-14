@@ -1,0 +1,49 @@
+chapter: FLUID17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID16
+  - CTM15
+concepts:
+  - id: fluid.stokes-first-problem
+    name: Stokes 第一問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Stokes 第一問題）"]
+    requires: [continuum.wall-no-slip, continuum.incompressible-navier-stokes]
+  - id: fluid.stokes-first-profile
+    name: Stokes 第一問題の相似拡散解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Stokes 第一問題の相似拡散解）"]
+    requires: [fluid.stokes-first-problem]
+  - id: fluid.stokes-penetration-thickness
+    name: 第一問題の速度閾値厚さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（第一問題の速度閾値厚さ）"]
+    requires: [fluid.stokes-first-profile]
+  - id: fluid.stokes-first-momentum
+    name: 第一問題の壁面せん断力と運動量収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（第一問題の壁面せん断力と運動量収支）"]
+    requires: [fluid.stokes-first-profile, continuum.incompressible-newtonian-stress]
+  - id: fluid.stokes-second-problem
+    name: Stokes 第二問題の周期応答
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Stokes 第二問題の周期応答）"]
+    requires: [continuum.wall-no-slip, continuum.incompressible-navier-stokes]
+  - id: fluid.stokes-second-profile
+    name: Stokes 第二問題の振動境界層
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Stokes 第二問題の振動境界層）"]
+    requires: [fluid.stokes-second-problem]
+  - id: fluid.stokes-second-work
+    name: 振動壁のせん断力と一周期平均の散逸
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（振動壁のせん断力と一周期平均の散逸）"]
+    requires: [fluid.stokes-second-profile, continuum.newtonian-viscous-dissipation]
