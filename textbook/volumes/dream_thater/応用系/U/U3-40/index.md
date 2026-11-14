@@ -72,7 +72,7 @@ S_t=s_0\exp\left\{\int_0^t
 +\int_0^t a(u,S_u)\,dW_u\right\}>0.
 $$
 
-これは積分内に未知の $S$ が残る**恒等式**であり、定数変動率のような閉形式の解ではありません。厳密には $\tau_\varepsilon=\inf\{t:S_t\le\varepsilon\}$ まで $\log S$ に Itô 公式を使います。$\varepsilon\downarrow0$ でも右辺の有界な時間積分と連続な Itô 積分は各有限区間で有限値を持つので、有限時刻に $S_t=0$ なら左辺が $-\infty$ となることに矛盾します。こうして正値性を確かめてから停止を外します。
+これは積分内に未知の $S$ が残る**恒等式**であり、定数変動率のような閉形式の解ではありません。厳密には $\tau_\varepsilon=\inf\{t:S_t\le\varepsilon\}$ まで $\log S$ に[多次元 Itô 公式の一次元の場合](../../../解析系/STO/STO7/index.md#thm-sto7-multidimensional-ito)を使います。$\varepsilon\downarrow0$ でも右辺の有界な時間積分と連続な Itô 積分は各有限区間で有限値を持つので、有限時刻に $S_t=0$ なら左辺が $-\infty$ となることに矛盾します。こうして正値性を確かめてから停止を外します。
 
 <a id="prop-u3-40-discounted-gain"></a>
 
