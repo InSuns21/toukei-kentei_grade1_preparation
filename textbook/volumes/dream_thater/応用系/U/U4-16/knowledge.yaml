@@ -1,0 +1,54 @@
+chapter: U4-16
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-15, U4-11, U4-12, STO6, STO7]
+forward_references: []
+concepts:
+  - id: finance.arb-mean-reverting-ar1
+    name: 平均回帰する AR(1) 残差モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均回帰する AR(1) 残差モデル）"]
+    requires: [finance.arb-ar1-stationary-solution, finance.arb-level-share-spread]
+  - id: finance.arb-ar1-forecast
+    name: AR(1) の条件付き予測と予測分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AR(1) の条件付き予測と予測分散）"]
+    requires: [finance.arb-mean-reverting-ar1]
+  - id: finance.arb-conditional-half-life
+    name: 条件付き平均偏差の半減期
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付き平均偏差の半減期）"]
+    requires: [finance.arb-ar1-forecast]
+  - id: finance.arb-ou-process
+    name: Ornstein–Uhlenbeck 過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Ornstein–Uhlenbeck 過程）"]
+    requires: [stochastic.ito-process, stochastic.stochastic-integral-l2]
+  - id: finance.arb-ou-exact-transition
+    name: OU の厳密な遷移式と AR(1) 対応
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（OU の厳密な遷移式と AR(1) 対応）"]
+    requires: [finance.arb-ou-process, finance.arb-ar1-forecast, stochastic.ito-product-rule, stochastic.deterministic-brownian-integral-gaussian]
+  - id: finance.arb-threshold-exit-rule
+    name: 閾値エントリーと期限付き退出規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閾値エントリーと期限付き退出規則）"]
+    requires: [finance.arb-conditional-half-life, finance.arb-fixed-spread-wealth]
+  - id: finance.arb-fixed-horizon-profit
+    name: 固定期間の期待純損益とリスク
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定期間の期待純損益とリスク）"]
+    requires: [finance.arb-ar1-forecast, finance.arb-fixed-spread-wealth]
+  - id: finance.arb-horizon-increment
+    name: 1期延長の限界期待利益
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（1期延長の限界期待利益）"]
+    requires: [finance.arb-fixed-horizon-profit]
