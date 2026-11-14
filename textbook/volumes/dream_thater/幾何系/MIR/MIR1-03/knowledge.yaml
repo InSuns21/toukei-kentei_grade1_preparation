@@ -1,0 +1,29 @@
+chapter: MIR1-03
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-02, CYG1-13]
+concepts:
+  - id: mirror.quintic-numeric-signature
+    name: 滑らかなquinticのHodge数・Betti数の数値署名
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかなquinticのHodge数・Betti数の数値署名）"]
+    requires: [cyg.quintic-hodge-diamond, mirror.threefold-hodge-matrix]
+  - id: mirror.numeric-target
+    name: Calabi–Yau型三次元の数値的ミラー目標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Calabi–Yau型三次元の数値的ミラー目標）"]
+    requires: [mirror.hodge-number-swap, mirror.threefold-hodge-matrix]
+  - id: mirror.quintic-target-necessary
+    name: quinticのミラー候補に課される必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticのミラー候補に課される必要条件）"]
+    requires: [mirror.numeric-target, mirror.quintic-numeric-signature]
+  - id: mirror.fermat-one-parameter-direction
+    name: Fermat型一パラメータ族が与える一つの非自明な方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fermat型一パラメータ族が与える一つの非自明な方向）"]
+    requires: [cyg.fermat-jacobian-quotient, cyg.quintic-all-first-order, mirror.quintic-numeric-signature]
