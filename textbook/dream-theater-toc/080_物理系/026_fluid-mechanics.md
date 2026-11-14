@@ -21,3 +21,4 @@
 18. [FLUID18 遅い球周りの流れにかかる抵抗は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID18/index.md)
 19. [FLUID19 Stokes流はなぜ時間逆転に似た性質をもつか](textbook/volumes/dream_thater/物理系/FLUID/FLUID19/index.md)
 20. [FLUID20 薄い流れで潤滑方程式が現れるのはなぜか](textbook/volumes/dream_thater/物理系/FLUID/FLUID20/index.md)
+21. [FLUID21 高Reの壁近傍だけ粘性が残る理由は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID21/index.md)

@@ -1,0 +1,45 @@
+id: "FLUID21"
+title: "高Reの壁近傍だけ粘性が残る理由は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID20
+official_scope: []
+learning_objectives:
+  - "高Re外部流と固定壁の無滑り条件が衝突する理由、接線速度のmatchingを説明する"
+  - "連続の式からvの尺度を導き、水平・垂直Navier–Stokes各項の次数を検算する"
+  - "Prandtlの定常二次元境界層方程式と境界条件を外部Euler流との圧力接続まで導出する"
+  - "局所Reynolds数とδ(x)/xの平方根則を導出し、前縁・剥離・乱流への適用限界を判定する"
+  - "Newton粘性応力から壁面せん断と摩擦係数を導き、尺度と解の係数を区別する"
+  - "Pythonで厚さ・局所Re・微分比・連続条件の数値検算を再現する"
+definitions:
+  - { id: FLUID21-DEF-01, name: "高Re境界層の内側尺度" }
+  - { id: FLUID21-DEF-02, name: "付着した境界層の接線速度接続" }
+  - { id: FLUID21-DEF-03, name: "平板の局所Reynolds数" }
+theorems:
+  - { id: FLUID21-PROP-01, name: "境界層尺度での項の次数" }
+  - { id: FLUID21-THM-01, name: "定常二次元Prandtl境界層方程式" }
+  - { id: FLUID21-PROP-02, name: "外部流の圧力と加速" }
+  - { id: FLUID21-PROP-03, name: "零圧力勾配・付着層流の厚さ尺度" }
+  - { id: FLUID21-PROP-04, name: "境界層における壁面せん断" }
+canonical_examples:
+  - "Re_L=10^4でδ/L=0.01なら垂直速度尺度は水平の0.01倍"
+  - "Re_L=10^6で水平u_xx粘性は10^-6だがu_yy粘性は先頭次数"
+  - "加速する外部速度U_e=U_0(1+ax/L)で圧力勾配が負"
+  - "指数型の速度候補から連続条件と壁面せん断を直接検算"
+  - "局所Re_xとδ(x)/xにより前縁が近似の例外となる"
+problem_patterns:
+  - FLUID21-PRANDTL-SCALING
+  - FLUID21-NORMAL-VELOCITY
+  - FLUID21-EXTERNAL-PRESSURE
+  - FLUID21-LOCAL-REYNOLDS
+  - FLUID21-WALL-SHEAR
+  - FLUID21-TERM-BALANCE
+  - FLUID21-CONTINUITY-FIELD
+  - FLUID21-VISCOUS-RATIO
+  - FLUID21-LUBRICATION-CONTRAST
+  - FLUID21-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 4 }

@@ -1,0 +1,54 @@
+chapter: FLUID21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID20
+concepts:
+  - id: fluid.boundary-layer-inner-scaling
+    name: 高Re境界層の内側尺度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（高Re境界層の内側尺度）"]
+    requires: [continuum.reynolds-number, continuum.incompressible-navier-stokes, continuum.wall-no-slip]
+  - id: fluid.boundary-layer-matching
+    name: 付着した境界層の接線速度接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（付着した境界層の接線速度接続）"]
+    requires: [fluid.boundary-layer-inner-scaling, continuum.wall-no-slip]
+  - id: fluid.boundary-layer-term-orders
+    name: 境界層尺度での項の次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界層尺度での項の次数）"]
+    requires: [fluid.boundary-layer-inner-scaling, continuum.incompressible-navier-stokes]
+  - id: fluid.prandtl-steady-boundary-layer
+    name: 定常二次元Prandtl境界層方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定常二次元 Prandtl 境界層方程式：形式的先頭次数）"]
+    requires: [fluid.boundary-layer-term-orders, fluid.boundary-layer-matching, continuum.incompressible-navier-stokes]
+  - id: fluid.boundary-layer-edge-pressure
+    name: 外部流の圧力と加速
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（外部流の圧力と加速）"]
+    requires: [fluid.prandtl-steady-boundary-layer]
+  - id: fluid.boundary-layer-local-re
+    name: 平板の局所 Reynolds 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平板の局所 Reynolds 数）"]
+    requires: [continuum.reynolds-number]
+  - id: fluid.boundary-layer-thickness
+    name: 零圧力勾配・付着層流の厚さ尺度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零圧力勾配・付着層流の厚さ尺度）"]
+    requires: [fluid.boundary-layer-local-re, fluid.boundary-layer-term-orders]
+  - id: fluid.boundary-layer-wall-shear
+    name: 境界層における壁面せん断
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界層における壁面せん断）"]
+    requires: [fluid.prandtl-steady-boundary-layer, continuum.incompressible-newtonian-stress]

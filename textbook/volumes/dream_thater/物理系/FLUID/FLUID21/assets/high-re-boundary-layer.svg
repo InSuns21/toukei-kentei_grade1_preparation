@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380" viewBox="0 0 900 380" data-layout-lint="strict" role="img" aria-labelledby="fluid21-title fluid21-desc">
+  <title id="fluid21-title">外部流と平板境界層の模式図</title>
+  <desc id="fluid21-desc">静止壁 y=0 に沿って x が右向きに増える。壁面付近の速度変化域は下流へ向かって薄く広がり、境界層の外では流れが右向き。垂直方向の厚さ δ(x) は壁から破線の外縁まで測る。</desc>
+  <defs>
+    <marker id="axis-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#253446"/>
+    </marker>
+    <marker id="flow-arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="#136b8b"/>
+    </marker>
+    <marker id="delta-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0 L7 3.5 L0 7 Z" fill="#a34a21"/>
+    </marker>
+  </defs>
+  <path d="M112 286 C185 214 430 180 778 162 L778 286 Z" fill="#dceff5"/>
+  <rect x="81" y="287" width="715" height="39" fill="#e8e8e8" stroke="#697582" stroke-width="1.5"/>
+  <path d="M112 286 C185 214 430 180 778 162" fill="none" stroke="#176588" stroke-width="3" stroke-dasharray="10 7"/>
+  <line x1="81" y1="286" x2="830" y2="286" stroke="#253446" stroke-width="2.5" marker-end="url(#axis-arrow)"/>
+  <line x1="81" y1="286" x2="81" y2="44" stroke="#253446" stroke-width="2.5" marker-end="url(#axis-arrow)"/>
+  <g stroke="#136b8b" stroke-width="3" marker-end="url(#flow-arrow)">
+    <line x1="177" y1="100" x2="277" y2="100"/>
+    <line x1="367" y1="100" x2="467" y2="100"/>
+    <line x1="558" y1="100" x2="658" y2="100"/>
+  </g>
+  <line x1="686" y1="280" x2="686" y2="169" stroke="#a34a21" stroke-width="2.5" stroke-dasharray="4 4" marker-end="url(#delta-arrow)"/>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#253446">
+    <text x="844" y="300">x</text>
+    <text x="42" y="31">y</text>
+    <text x="100" y="357">y = 0</text>
+    <text x="700" y="234" fill="#853e17">δ(x)</text>
+    <text x="675" y="76" fill="#136b8b">Uₑ</text>
+  </g>
+</svg>
