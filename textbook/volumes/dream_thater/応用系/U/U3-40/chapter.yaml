@@ -1,0 +1,46 @@
+id: "U3-40"
+title: "局所ボラティリティ・確率ボラティリティ"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-25, U3-26, U3-39, STO9]
+official_scope: []
+learning_objectives:
+  - 時刻と株価の決定論的関数である局所ボラティリティを定義し、正値性・係数の正則性・真のマルチンゲール条件を確かめられる
+  - 連続配当を含む自己金融条件から局所変動率の価格PDEとデルタ保有数量を導出できる
+  - 滑らかな行使価格・満期 call 曲面の密度表現から Dupire の局所分散公式を仮定付きで証明できる
+  - 独立な確率ボラティリティ因子のOU解・瞬間分散・積分分散を計算できる
+  - 二因子価格PDEを多次元Itô公式から導き、二つのノイズの独立性を確認できる
+  - 株式と預金のみでは複製できない因子請求権を構成し、非完備性の論拠を説明できる
+  - 同じ観測vanilla価格を与えても他strikeが異なる有限モデルを全列挙できる
+  - 同じ終端分布でもAsian価格が違う有限モデルを全列挙し、外挿の限界を説明できる
+definitions:
+  - { id: U3-40-DEF-01, name: "局所ボラティリティモデル" }
+  - { id: U3-40-DEF-02, name: "独立因子を持つ確率ボラティリティモデル" }
+theorems:
+  - { id: U3-40-PROP-01, name: "局所変動率と割引総収益" }
+  - { id: U3-40-PROP-02, name: "局所変動率の価格PDEとdelta hedge" }
+  - { id: U3-40-THM-01, name: "滑らかなcall曲面と局所分散の関係" }
+  - { id: U3-40-PROP-03, name: "ランダムな積分分散と条件付き対数正規性" }
+  - { id: U3-40-PROP-04, name: "二因子モデルの評価PDE" }
+  - { id: U3-40-PROP-05, name: "独立ボラティリティ因子による非完備性" }
+canonical_examples:
+  - "局所a(t,s)=0.2[1+0.5min{(s/100-1)^2,1}]、株価100円なら0.2、200円なら0.3"
+  - "滑らかなcall曲面のC_T=2、C_KK=0.01、K=100、r=q=0から局所分散0.04を再計算"
+  - "OU因子kappa=1、xi=0.4、T=1の分散0.08(1-e^-2)"
+  - "同じATM call 10円：固定20%幅の二状態と10%/30%混合の四状態、K=120 callは0円と2.5円"
+  - "同じ80/120円の終端分布：前半変動・後半変動のAsian平均callは5円と0円"
+problem_patterns:
+  - U3-40-A1
+  - U3-40-A2
+  - U3-40-A3
+  - U3-40-A4
+  - U3-40-A5
+  - U3-40-B1
+  - U3-40-B2
+  - U3-40-B3
+  - U3-40-B4
+  - U3-40-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
