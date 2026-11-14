@@ -288,7 +288,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid18-drag-parts -->
-**定義の確認（圧力）**：仮に一定圧力 $p=p_\infty$ だけが球全体に作用するなら、定義の圧力積分は
+**定義の確認**（圧力）：仮に一定圧力 $p=p_\infty$ だけが球全体に作用するなら、定義の圧力積分は
 
 $$
 F_p=-2\pi a^2p_\infty\int_0^\pi\cos\theta\sin\theta\,d\theta=0.
@@ -296,7 +296,7 @@ $$
 
 球面では法線が場所ごとに異なるため、圧力が正でも合力は零になり得る。求める抗力には**圧力の角度依存**が必要である。
 
-**定義の確認（接線）**：赤道 $\theta=\pi/2$ では、[速度場](#thm-fluid18-stokes-sphere-velocity)の $v_\theta=-Ug(r)\sin\theta$ を半径で微分する。上に導いた無滑り壁での接線応力式から
+**定義の確認**（接線）：赤道 $\theta=\pi/2$ では、[速度場](#thm-fluid18-stokes-sphere-velocity)の $v_\theta=-Ug(r)\sin\theta$ を半径で微分する。上に導いた無滑り壁での接線応力式から
 
 $$
 \partial_rv_\theta(a,\pi/2)=-\frac{3U}{2a},\qquad
