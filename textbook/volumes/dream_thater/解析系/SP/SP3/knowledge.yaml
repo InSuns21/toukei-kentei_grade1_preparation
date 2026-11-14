@@ -1,0 +1,84 @@
+chapter: SP3
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO2A
+forward_references: []
+concepts:
+  - id: stochastic.communication-classes
+    name: 到達可能性・通信クラス・既約性
+    kind: definition
+    aliases: [通信クラス, 既約Markov連鎖, communicating class]
+    introduction: formal
+    introduction_aliases: ["定義（到達可能性・通信クラス・既約性）"]
+    requires:
+      - stochastic.discrete-markov-chain
+  - id: stochastic.closed-communication-class
+    name: 閉じた通信クラス
+    kind: definition
+    aliases: [閉じた通信クラス, closed communicating class]
+    introduction: formal
+    introduction_aliases: ["定義（閉じた通信クラス）"]
+    requires:
+      - stochastic.communication-classes
+  - id: stochastic.communication-equivalence
+    name: 通信は同値関係
+    kind: proposition
+    aliases: [通信は同値関係]
+    introduction: formal
+    introduction_aliases: ["命題（通信は同値関係）"]
+    requires:
+      - stochastic.communication-classes
+  - id: stochastic.recurrent-class-closed
+    name: 再帰的な通信クラスは閉じている
+    kind: theorem
+    aliases: [再帰的な通信クラスは閉じている]
+    introduction: formal
+    introduction_aliases: ["定理（再帰的な通信クラスは閉じている）"]
+    requires:
+      - stochastic.markov-recurrence
+      - stochastic.closed-communication-class
+  - id: stochastic.finite-closed-class-recurrent
+    name: 有限で閉じた通信クラスは再帰的
+    kind: theorem
+    aliases: [有限で閉じた通信クラスは再帰的]
+    introduction: formal
+    introduction_aliases: ["定理（有限で閉じた通信クラスは再帰的）"]
+    requires:
+      - stochastic.closed-communication-class
+      - stochastic.markov-recurrence
+  - id: stochastic.recurrent-hits-reachable
+    name: 再帰状態から到達可能な状態への到達確率
+    kind: proposition
+    aliases: [再帰状態から到達可能な状態への到達確率]
+    introduction: formal
+    introduction_aliases: ["命題（再帰状態から到達可能な状態への到達確率）"]
+    requires:
+      - stochastic.markov-recurrence
+      - stochastic.discrete-strong-markov
+  - id: stochastic.green-first-hit-factorization
+    name: 初到達によるGreen核の分解
+    kind: theorem
+    aliases: [初到達によるGreen核の分解]
+    introduction: formal
+    introduction_aliases: ["定理（初到達による Green 核の分解）"]
+    requires:
+      - stochastic.markov-green-kernel
+      - stochastic.recurrence-green-criterion
+  - id: stochastic.first-return-generating-function
+    name: 初帰還分解と生成関数
+    kind: theorem
+    aliases: [初帰還分解と生成関数]
+    introduction: formal
+    introduction_aliases: ["定理（初帰還分解と生成関数）"]
+    requires:
+      - stochastic.discrete-strong-markov
+      - stochastic.markov-hitting-return-time
+  - id: stochastic.biased-walk-recurrence
+    name: 整数上の最近接ランダムウォークの再帰分類
+    kind: theorem
+    aliases: [整数上の最近接ランダムウォークの再帰分類]
+    introduction: formal
+    introduction_aliases: ["定理（整数上の最近接ランダムウォークの再帰分類）"]
+    requires:
+      - stochastic.recurrence-green-criterion
