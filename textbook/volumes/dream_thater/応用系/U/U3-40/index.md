@@ -322,7 +322,7 @@ $$
 =\frac{\xi^2}{2\kappa}(1-e^{-2\kappa t}).
 $$
 
-株価へ[Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を用いると
+株価へ[多次元 Itô 公式の一次元の場合](../../../解析系/STO/STO7/index.md#thm-sto7-multidimensional-ito)を用いると
 
 $$
 \log(S_T/s_0)=(r-q)T-\frac12A_T
