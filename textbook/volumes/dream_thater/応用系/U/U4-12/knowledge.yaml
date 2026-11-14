@@ -1,7 +1,7 @@
 chapter: U4-12
 scope: dream-theater
 coverage: complete
-prerequisites: [U4-11, TSA1, STO4, F0-00P4]
+prerequisites: [U4-11, TSA1, STO4, F0-00P4, F0-00P6]
 forward_references: []
 concepts:
   - id: finance.arb-unit-root
