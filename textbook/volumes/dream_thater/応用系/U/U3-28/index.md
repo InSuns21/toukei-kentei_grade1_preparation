@@ -137,7 +137,7 @@ $$
 
 です。ここで $g'$ は**状態変数 $x$ に関する導関数**です。時間変数ではありません。この式は、$S_u-S_{t_j}$ の雑音側の一次近似 $g(S_{t_j})(W_u-W_{t_j})$ を $g$ の Taylor 展開へ代入したものです。ドリフトや二次以上の残りは消えたのではなく、ここでは更新公式の導出のため切り離しています。
 
-局所雑音が生む追加項を正確に計算するには、[STO7 の Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を使います。
+局所雑音が生む追加項を正確に計算するには、[Itô 過程版の時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を使います。
 
 <a id="prop-u3-28-ito-correction"></a>
 <!-- formal-statement-start -->
