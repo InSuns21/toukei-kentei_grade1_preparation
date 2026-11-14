@@ -25,3 +25,4 @@
 22. [U3-22 Black–Scholes PDE の格子化・陽解法](textbook/volumes/dream_thater/応用系/U/U3-22/index.md)
 23. [U3-23 陰解法・Crank–Nicolson 法・Rannacher smoothing](textbook/volumes/dream_thater/応用系/U/U3-23/index.md)
 24. [U3-24 American オプションの障害問題を解く](textbook/volumes/dream_thater/応用系/U/U3-24/index.md)
+25. [U3-25 Barrier/Asian の PDE：境界と状態追加](textbook/volumes/dream_thater/応用系/U/U3-25/index.md)

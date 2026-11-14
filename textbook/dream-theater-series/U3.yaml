@@ -28,7 +28,7 @@ chapters:
   - { id: U3-22, path: textbook/volumes/dream_thater/応用系/U/U3-22, status: completed, title: "Black–Scholes PDE の格子化・陽解法" }
   - { id: U3-23, path: textbook/volumes/dream_thater/応用系/U/U3-23, status: completed, title: "陰解法・Crank–Nicolson 法・Rannacher smoothing" }
   - { id: U3-24, path: textbook/volumes/dream_thater/応用系/U/U3-24, status: completed, title: "American オプションの障害問題を解く" }
-  - { id: U3-25, path: textbook/volumes/dream_thater/応用系/U/U3-25, status: planned, title: "Barrier/Asian の PDE：境界と状態追加" }
+  - { id: U3-25, path: textbook/volumes/dream_thater/応用系/U/U3-25, status: completed, title: "Barrier/Asian の PDE：境界と状態追加" }
   - { id: U3-26, path: textbook/volumes/dream_thater/応用系/U/U3-26, status: planned, title: "リスク中立期待値の Monte Carlo 推定" }
   - { id: U3-27, path: textbook/volumes/dream_thater/応用系/U/U3-27, status: planned, title: "Itô 積分の数値近似と誤差の実測" }
   - { id: U3-28, path: textbook/volumes/dream_thater/応用系/U/U3-28, status: planned, title: "厳密 GBM・Euler–Maruyama・Milstein" }
