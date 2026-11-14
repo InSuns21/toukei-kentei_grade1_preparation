@@ -1,0 +1,50 @@
+id: "U4-13"
+title: "2系列の共和分とEngle–Granger法"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-12, TSA1, STO4, F0-00P6]
+official_scope: []
+learning_objectives:
+  - I(0)とI(1)を二次定常性と階差から判定しモデル上の条件を説明できる
+  - 共和分のベクトル・正規化係数・切片の役割を区別できる
+  - 共通確率トレンドの係数が一意となる条件を分散計算から証明できる
+  - 切片付き水準回帰の最小二乗係数と残差直交条件を導出できる
+  - 独立誤差モデルでの共和分回帰推定量の収束速度を条件付き分散から証明できる
+  - Engle–Granger検定の第1段階・第2段階・帰無仮説・ラグ数を記述できる
+  - 推定残差の検定分布が単一系列のADF検定と異なる理由を説明できる
+  - 独立ランダムウォークの見せかけの回帰を反例として構成できる
+  - 決定論的項・サンプル外係数変化・再推定による情報漏洩を点検できる
+  - 共和分の統計的根拠と取引可能性・無裁定利益を区別できる
+definitions:
+  - { id: U4-13-DEF-01, name: "I(0) と I(1)" }
+  - { id: U4-13-DEF-02, name: "2系列の共和分と正規化係数" }
+  - { id: U4-13-DEF-03, name: "Engle–Granger法の第1段階：水準回帰" }
+  - { id: U4-13-DEF-04, name: "Engle–Grangerの残差ベース共和分検定" }
+theorems:
+  - { id: U4-13-PROP-01, name: "共通確率トレンドの消去と係数の一意性" }
+  - { id: U4-13-PROP-02, name: "独立誤差モデルでの水準回帰の推定速度" }
+  - { id: U4-13-PROP-03, name: "独立なランダムウォークの見せかけの回帰" }
+canonical_examples:
+  - ランダムウォーク水準と一回階差の分散・共分散
+  - 共通トレンドを持つ二系列の共和分係数2の直接確認
+  - 共通トレンドの消去条件と一意性の証明
+  - 切片付き最小二乗回帰の三点標本と直交条件
+  - 独立誤差モデルの推定速度と条件付きChebyshev不等式
+  - 共和分なしの独立ランダムウォークの回帰
+  - 残差ベース検定の専用帰無分布の射影説明
+  - 固定シードの共通トレンド・独立水準・構造変化の標本外比較
+problem_patterns:
+  - U4-13-A1
+  - U4-13-A2
+  - U4-13-A3
+  - U4-13-A4
+  - U4-13-A5
+  - U4-13-B1
+  - U4-13-B2
+  - U4-13-B3
+  - U4-13-B4
+  - U4-13-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
