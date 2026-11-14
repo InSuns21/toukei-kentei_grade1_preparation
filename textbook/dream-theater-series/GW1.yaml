@@ -56,7 +56,7 @@ chapters:
     title: "境界の分裂と貼り合わせ"
   - id: GW1-13
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-13
-    status: planned
+    status: completed
     title: "凸標的の種数0GW不変量の定義"
   - id: GW1-14
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-14
