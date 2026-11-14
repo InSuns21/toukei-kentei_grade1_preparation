@@ -318,7 +318,7 @@ u_\theta(r,t)=\frac{\Gamma}{2\pi r}
 u(x,y,t)=u_\theta(r,t)(-y/r,x/r),
 $$
 
-$r=0$ では $u=0$ と連続的に延長する。この速度と、任意の時刻関数 $p_\infty(t)$ に対する
+$r=0$ では $u=0$ と連続的に延長する。この速度と、任意の滑らかな時刻関数 $p_\infty(t)$ に対する
 
 $$
 p(r,t)=p_\infty(t)-\rho_0\int_r^\infty
@@ -419,7 +419,15 @@ $$
 \partial_rp=\rho_0\frac{u_\theta^2}{r}
 $$
 
-を満たす。これは $-u_\theta^2/r=-\partial_rp/\rho_0$ と等しい。積分は無限遠で $u_\theta=O(r^{-1})$ より収束し、原点では $u_\theta=O(r)$ より被積分関数 $O(r)$ だから有限である。よって原点への連続延長も含め運動量式を満たす。
+を満たす。これは $-u_\theta^2/r=-\partial_rp/\rho_0$ と等しい。積分は無限遠で $u_\theta=O(r^{-1})$ より収束し、原点では $u_\theta=O(r)$ より被積分関数 $O(r)$ だから有限である。さらに $u_\theta=r f(r^2,t)$ により、$r\ge0$ で
+
+$$
+p(r,t)-p(0,t)
+=\rho_0\int_0^r s f(s^2,t)^2\,ds
+=\frac{\rho_0}{2}\int_0^{r^2}f(q,t)^2\,dq.
+$$
+
+$f$ は $q=0$ を含めて滑らかなので $p$ も $(x,y)$ について滑らかに延びる。従って原点を含めて運動量式が成立する。
 
 最後に極座標で $dA=r\,dr\,d\theta$ とし、$s=r^2/a$（$r\,dr=a\,ds/2$）と置くと
 
