@@ -122,7 +122,7 @@ $$
 
 $0<t_1<\cdots<t_n$ と正数 $h_1,\ldots,h_n$ を、区間 $(t_i,t_i+h_i]$ が互いに重ならないように取ります。各 $T_i$ が対応する区間に入るには、$t_n$ 以前に第 $1$ から第 $n-1$ 区間ではちょうど一件ずつ到着し、それ以外では到着せず、最後の区間には少なくとも一件到着することが必要十分です。独立増分により、この事象の確率は**厳密に**
 
-$
+$$
 \begin{aligned}
 &e^{-\lambda(t_n-\sum_{i=1}^{n-1}h_i)}
 \prod_{i=1}^{n-1}(e^{-\lambda h_i}\lambda h_i)
@@ -130,7 +130,7 @@ $
 &=e^{-\lambda t_n}\lambda^{n-1}
 \left(\prod_{i=1}^{n-1}h_i\right)(1-e^{-\lambda h_n}).
 \end{aligned}
-$
+$$
 
 $n=1$ でも空積を $1$ とすれば同じ式です。これを $h_1\cdots h_n$ で割り、各幅を零へ送ると、$(1-e^{-\lambda h_n})/h_n\to\lambda$ です。従って順序付き到着時刻の同時密度は
 
@@ -336,7 +336,7 @@ E[M_t\mid\mathcal F_s^N]
 \end{aligned}
 $$
 
-最後の等式に使ったのは**自然な情報全体からの増分の独立性**です。$N_s$ という一変数だけとの独立性では、$\mathcal F_s^N$ についての条件付き等式を保証できません。連続時間版のマルチンゲール条件は [STO13 の補償 Poisson マルチンゲール](../../STO/STO13/index.md#prop-sto13-compensated-poisson-martingale)と同じ内容であり、別の定理として重複登録しません。
+最後の等式に使ったのは**自然な情報全体からの増分の独立性**です。実際、任意の $0\le u_1<\cdots<u_m\le s$ について、$N_{u_i}$ は $(0,u_1],(u_1,u_2],\ldots,(u_{m-1},u_m]$ の増分の和です。これらと $(s,t]$ は互いに重ならないので、独立増分の条件から $N_t-N_s$ はベクトル $(N_{u_1},\ldots,N_{u_m})$ と独立です。この性質を有限個の時刻で判定できる事象から、それらが生成する $\mathcal F_s^N$ 全体へ拡張します。$N_s$ 一変数だけとの独立性では、$\mathcal F_s^N$ についての条件付き等式を保証できません。連続時間版のマルチンゲール条件は [STO13 の補償 Poisson マルチンゲール](../../STO/STO13/index.md#prop-sto13-compensated-poisson-martingale)と同じ内容であり、別の定理として重複登録しません。
 
 $N_t-\lambda t$ は「平均 $\lambda t$ を引いた公平な揺らぎ」です。[STO13 の補償過程の定義](../../STO/STO13/index.md#def-sto13-compensator)では、この決定論的な平均蓄積項が補償過程の最も基本的な例になります。
 
