@@ -59,7 +59,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir1-01-a-b-input -->
-**定義の確認（Fermat五次）。** $X=X_0$ を上節の滑らかなFermat五次とし、$H=c_1(\mathcal O_X(1))$ とする。[quinticのKähler錐の命題](../../CYG/CYG1-13/index.md#prop-cyg1-13-kahler-ray)により、$v>0$ なら $vH$ はKähler類である。$b\in\mathbb R$ を選び、$[B]=bH$、$[\omega]=vH$ とすれば、両者は実二次コホモロジー類であり、後者は正値条件を満たすからA側の入力になる。
+**定義の確認**（Fermat五次）。 $X=X_0$ を上節の滑らかなFermat五次とし、$H=c_1(\mathcal O_X(1))$ とする。[quinticのKähler錐の命題](../../CYG/CYG1-13/index.md#prop-cyg1-13-kahler-ray)により、$v>0$ なら $vH$ はKähler類である。$b\in\mathbb R$ を選び、$[B]=bH$、$[\omega]=vH$ とすれば、両者は実二次コホモロジー類であり、後者は正値条件を満たすからA側の入力になる。
 
 B側には、前節の滑らかな $X_\psi$（$\psi$ は0の近傍）と、[既習の留数構成](../../DEF/DEF1-14/index.md#def-def1-14-residue-volume)で得る $\Omega_\psi$ を選べる。ここで $\psi$ を変えているとき、先ほどの $b,v$ を同時に変えるとは指定していない。さらに周期を数値として求めるには三サイクルの選択が要る。従って定義の**それぞれの入力条件**を満たすが、両者の観測量が等しいことはまだ示していない。
 <!-- definition-example-end -->
