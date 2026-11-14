@@ -76,7 +76,7 @@ chapters:
     title: "射影空間の量子コホモロジー"
   - id: GW1-18
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-18
-    status: planned
+    status: completed
     title: "平面有理曲線の数え上げ"
   - id: GW1-19
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-19
