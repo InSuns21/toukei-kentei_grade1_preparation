@@ -32,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-10-stable-family -->
-**直接例**。$k=3,\beta=0$ とし、任意の射 $x:S\to X$ を取る。$\mathcal C=\mathbb P^1\times S$、標点 $0,1,\infty$ の三つの定数切断、$f(z,s)=x(s)$ とする。射 $\pi$ は平坦・固有、各繊維は滑らかな球面、標点は相異なり、全成分が定数でも特殊点が三つある。総曲線類は0で、三点を固定する球面自己同型は恒等だけである。基底 $S'\to S$ への引き戻しも $x|_{S'}$ で同じ条件を満たす。
+**定義の確認**。$k=3,\beta=0$ とし、任意の射 $x:S\to X$ を取る。$\mathcal C=\mathbb P^1\times S$、標点 $0,1,\infty$ の三つの定数切断、$f(z,s)=x(s)$ とする。射 $\pi$ は平坦・固有、各繊維は滑らかな球面、標点は相異なり、全成分が定数でも特殊点が三つある。総曲線類は0で、三点を固定する球面自己同型は恒等だけである。基底 $S'\to S$ への引き戻しも $x|_{S'}$ で同じ条件を満たす。
 <!-- definition-example-end -->
 
 <a id="def-gw1-10-stack"></a>
@@ -43,7 +43,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-10-stack -->
-**直接例**。$X=\mathbb P^1,k=0,\beta=2[\mathbb P^1]$ とする。$u(z)=z^2$ は非定数で安定であり、[自己同型の定義](../GW1-08/index.md#def-gw1-08-isomorphism)によれば $\phi(z)=-z$ が $u\circ\phi=u$ を満たす。実際、$u\circ\phi=u$ を満たす Möbius 変換は $z^2$ の二つの一般繊維を保つため $\phi=\pm z$ であり、自己同型は恒等と $z\mapsto-z$ の2個。粗空間ではこの同型類は一つの点、スタックではその点に $\mathbb Z/2\mathbb Z$ の対称性が残る。
+**定義の確認**。$X=\mathbb P^1,k=0,\beta=2[\mathbb P^1]$ とする。$u(z)=z^2$ は非定数で安定であり、[自己同型の定義](../GW1-08/index.md#def-gw1-08-isomorphism)によれば $\phi(z)=-z$ が $u\circ\phi=u$ を満たす。実際、$u\circ\phi=u$ を満たす Möbius 変換は $z^2$ の二つの一般繊維を保つため $\phi=\pm z$ であり、自己同型は恒等と $z\mapsto-z$ の2個。粗空間ではこの同型類は一つの点、スタックではその点に $\mathbb Z/2\mathbb Z$ の対称性が残る。
 <!-- definition-example-end -->
 
 この違いは後に有理係数の基本類や自己同型重みを扱うときに効く。**粗空間が滑らか**である必要はなく、スタック側で滑らかな局所チャートと有限群作用があればよい。
