@@ -24,7 +24,18 @@ $$
 \qquad \nabla\cdot u=0.}
 $$
 
-$\nabla$ は空間微分、$\Delta=\partial_1^2+\partial_2^2+\partial_3^2$ は各速度成分に作用する Laplace 演算子、$D_t=\partial_t+u\cdot\nabla$ は[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)である。壁面では別途境界条件が必要になる。とくに**非圧縮**だけでなく**密度一定**を仮定しているので、変密度の圧力項や可変粘度の勾配項はここでは扱わない。
+ここで $x_1=x,\ x_2=y,\ x_3=z$ とし、$\partial_i=\partial/\partial x_i$ と書く。$\partial_t$ は位置を固定した時間偏微分、$\nabla=(\partial_x,\partial_y,\partial_z)$ は時刻を固定した空間微分である。
+
+速度・渦度の各成分に作用する Laplace 演算子と、速度に沿う方向微分は
+
+$$
+\Delta=\sum_{i=1}^3\partial_i^2,\qquad
+u\cdot\nabla=\sum_{i=1}^3u_i\partial_i
+$$
+
+である。したがって[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)は $D_t=\partial_t+u\cdot\nabla$ と書ける。粒子の流跡 $X(t)$ に沿う $D_tf$ は全微分 $d f(X(t),t)/dt$ に対応するが、位置を固定した $\partial_tf$ とは一般に異なる。
+
+壁面では別途境界条件が必要になる。とくに**非圧縮**だけでなく**密度一定**を仮定しているので、変密度の圧力項や可変粘度の勾配項はここでは扱わない。
 
 [VC9 の渦度](../../../幾何系/VC/VC9/index.md#def-vc9-vorticity)を $\omega=\nabla\times u$ と書く。例えば $\omega_3=\partial_1u_2-\partial_2u_1$ であり、単位は s$^{-1}$。右手系なので反時計回りの平面循環は正の $\omega_3$ に対応する。
 
@@ -69,7 +80,7 @@ $$
 +\nu\nabla\times(\Delta u).
 $$
 
-添字 $i,j,k\in\{1,2,3\}$ と Levi-Civita 記号 $\varepsilon_{ijk}$ を用いる。$u\in C^3$ だから各三階空間微分を交換でき、$\nu$ は定数なので
+添字 $i,j,k,\ell\in\{1,2,3\}$ と Levi-Civita 記号 $\varepsilon_{ijk}$ を用いる。$\varepsilon_{123}=1$、添字を2個交換すれば符号が逆、添字が重なれば零であり、以下の $\sum$ は表示した添字の $1,2,3$ にわたる和である。$u\in C^3$ だから各三階空間微分を交換でき、$\nu$ は定数なので
 
 $$
 \begin{aligned}
@@ -130,7 +141,7 @@ $$
 =\zeta\partial_zu=0.
 $$
 
-さらに $\Delta\omega=(0,0,\partial_x^2\zeta+\partial_y^2\zeta)$。これらを[渦度輸送定理](#thm-fluid10-vorticity-transport)へ代入し、第三成分を取れば表示式が得られる。[FLUID4 の流跡線](../FLUID4/index.md#def-fluid4-pathline) $X(t)$ で $\dot X=u(X,t)$ を満たすものに沿う連鎖律は
+さらに $\Delta\omega=(0,0,\partial_x^2\zeta+\partial_y^2\zeta)$。ここで $\Delta_2=\partial_x^2+\partial_y^2$ を平面 Laplace 演算子と定める。これらを[渦度輸送定理](#thm-fluid10-vorticity-transport)へ代入し、第三成分を取れば表示式が得られる。[FLUID4 の流跡線](../FLUID4/index.md#def-fluid4-pathline) $X(t)=(X_1(t),X_2(t))$ で $\dot X=u(X,t)$ を満たすものに沿う連鎖律は
 
 $$
 \frac{d}{dt}\zeta(X(t),t)
@@ -138,7 +149,7 @@ $$
 =\nu\Delta_2\zeta(X,t),
 $$
 
-ここで $\Delta_2=\partial_x^2+\partial_y^2$ と置いた。右辺は一般には零ではない。
+ここで点 $X=X(t)$ における空間偏微分を評価しており、$\dot X_i=dX_i/dt=u_i(X(t),t)$ である。左辺の全微分と右辺の偏微分の違いは、この連鎖律による。右辺は一般には零ではない。
 <!-- proof-end -->
 
 **直接例：時間とともに弱まる平面せん断流**。$U_0\in\mathbb R$ [m/s]、$k>0$ [m$^{-1}$] を定数として
@@ -187,7 +198,13 @@ $$
 -A e^{-((x-d)^2+y^2)/b}.
 $$
 
-両項は絶対可積分であり、$\int_{\mathbb R^2}e^{-(x^2+y^2)/b}\,dx\,dy=\pi b$。第二項も変数 $x'=x-d$ への平行移動で積分が同じなので $Q=A\pi b-A\pi b=0$。渦度が各点で零ではなくても総渦度は零になる。これは**渦度分布の例**であり、特定の Navier–Stokes 時間解と主張してはいない。
+各項の絶対値の面積分は、極座標 $x=r\cos\theta,\ y=r\sin\theta$ と置き、$s=r^2/b$（$r\,dr=b\,ds/2$）に変数変換すると
+$$
+\int_{\mathbb R^2}Ae^{-(x^2+y^2)/b}\,dx\,dy
+=2\pi A\int_0^\infty re^{-r^2/b}\,dr
+=\pi Ab<\infty.
+$$
+第二項も $x'=x-d$ への平行移動（Jacobian は $1$）で同じ積分をもち、三角不等式から $|\zeta|$ の積分は高々 $2\pi Ab$ だから絶対可積分である。よって $Q=A\pi b-A\pi b=0$。渦度が各点で零ではなくても総渦度は零になる。これは**渦度分布の例**であり、特定の Navier–Stokes 時間解と主張してはいない。
 <!-- definition-example-end -->
 
 <a id="prop-fluid10-total-vorticity-conservation"></a>
@@ -237,19 +254,37 @@ $$
 時間 $t_0$ から $t$ まで積分し、定理の仮定により $R\to\infty$ と時間積分の交換を行う。右辺両項が零に収束し、左辺は絶対可積分性で $Q(t)-Q(t_0)$ へ収束するので結論を得る。
 <!-- proof-end -->
 
-**境界の注意**：固体壁の[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ は移流流束を消すが、一般には $\nabla\zeta\cdot n=0$ を意味しない。したがって壁のある流れで総渦度の保存を主張するには、渦度の拡散流束を別途検査する必要がある。粘性の存在だけで「全渦度が必ず失われる」とも言えない。
+**境界の注意**：[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ は移流流束を消すが、一般には壁の各点で $\nabla\zeta\cdot n=0$ を意味しない。ただし**有界な固定領域 $D$ の全境界**で $u=0$ なら、[VC9 の渦度と循環の関係](../../../幾何系/VC/VC9/index.md#cor-vc9-circulation-vorticity)から各時刻に
+
+$$
+\int_D\zeta\,dA=\oint_{\partial D}u\cdot d\ell=0
+$$
+
+であり、総渦度は必ず零のまま保存される。従ってこの場合、積分した**正味の**渦度拡散流束も零になるが、法線勾配が壁の各点で零である必要はない。壁の一部分だけに無滑り条件を課す場合や、非貫通条件 $u\cdot n=0$ だけの場合には、この循環による結論は使えず、拡散流束の積分を検査する必要がある。
 
 ## 4. Gaussian渦：中心は弱まり、全量は変わらない
 
-中心からの距離 $r=\sqrt{x^2+y^2}$ のみで渦度が変わる場合、中心を回る流速 $u_\theta$ を考えられる。$r>0$ の円上では $e_\theta=(-y/r,x/r)$ が反時計回りの単位接線である。速度を $u=u_\theta(r,t)e_\theta$ と置き、[VC9 の渦度の定義](../../../幾何系/VC/VC9/index.md#def-vc9-vorticity)へ $u_1=-u_\theta y/r$、$u_2=u_\theta x/r$ を代入すると、積の微分から
+中心からの距離 $r=\sqrt{x^2+y^2}$ のみで渦度が変わる場合、中心を回る流速 $u_\theta$ を考えられる。$r>0$ の円上では $e_\theta=(-y/r,x/r)$ が反時計回りの単位接線である。速度を $u=u_\theta(r,t)e_\theta$ と置く。[VC9 の渦度の定義](../../../幾何系/VC/VC9/index.md#def-vc9-vorticity)は、直交座標で $\zeta=\partial_xu_2-\partial_yu_1$ である。$\partial_xr=x/r,\ \partial_yr=y/r$ を用いて $u_1=-u_\theta y/r$、$u_2=u_\theta x/r$ を微分すると
 
 $$
-\zeta=\partial_x(u_\theta x/r)-\partial_y(-u_\theta y/r)
-=\partial_r u_\theta+\frac{u_\theta}{r}
+\begin{aligned}
+\partial_xu_2
+&=\frac{x^2}{r^2}\partial_ru_\theta
+ +u_\theta\left(\frac1r-\frac{x^2}{r^3}\right),\\
+\partial_yu_1
+&=-\frac{y^2}{r^2}\partial_ru_\theta
+ -u_\theta\left(\frac1r-\frac{y^2}{r^3}\right).
+\end{aligned}
+$$
+
+両式の差を取り $x^2+y^2=r^2$ を代入すれば
+
+$$
+\zeta=\partial_ru_\theta+\frac{u_\theta}{r}
 =\frac1r\partial_r(ru_\theta).
 $$
 
-この式は円周上の流速と内部の渦度を結ぶもので、行列式や図から突然得た公式ではない。$r=0$ は滑らかな極限で扱う。
+つまり、渦度が指定されたとき、原点で連続な円周速度は $\partial_r(ru_\theta)=r\zeta$ を $0$ から積分して復元できる。$r=0$ は滑らかな極限で扱う。
 
 <a id="def-fluid10-gaussian-vortex"></a>
 
@@ -265,13 +300,26 @@ a(t)=a_0+4\nu t,\qquad
 \zeta_G(r,t)=\frac{\Gamma}{\pi a(t)}\exp\left(-\frac{r^2}{a(t)}\right)
 $$
 
-と置く。**Gaussian 渦**は、この渦度と、それを生む中心周りの円周方向速度で構成する場とする。拡散幅（長さ）は $\ell(t)=\sqrt{a(t)}$ [m] とする。
+と置く。**Gaussian 渦**は、この渦度と、原点で連続な円周方向速度 $u=u_\theta e_\theta$ で構成する場とする。前の渦度と速度の関係から、その速度は $r>0$ で
+
+$$
+u_\theta(r,t)=\frac1r\int_0^r s\zeta_G(s,t)\,ds,\qquad u_\theta(0,t)=0
+$$
+
+と定まる。積分は $\partial_r(ru_\theta)=r\zeta_G$ を解いたものであり、原点での連続性が積分定数（$C/r$ の特異項）を除く。拡散幅（長さ）は $\ell(t)=\sqrt{a(t)}$ [m] とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid10-gaussian-vortex -->
 ### **定義の確認**：中心値と幅の両方を読む
 
-$a_0=1$ m$^2$、$\nu=1/4$ m$^2$/s、$\Gamma=2\pi$ m$^2$/s とする。$t=0$ なら $a=1$ m$^2$、中心渦度は $2$ s$^{-1}$、幅は $1$ m。$t=1$ s なら $a=2$ m$^2$、中心渦度は $1$ s$^{-1}$、幅は $\sqrt2$ m になる。いずれも $a>0$ なので渦度は全点で滑らか。総渦度が本当に $\Gamma$ になることと、速度が方程式を満たすことは次の定理で個別に確かめる。
+$a_0=1$ m$^2$、$\nu=1/4$ m$^2$/s、$\Gamma=2\pi$ m$^2$/s とする。$t=0$ なら $a=1$ m$^2$、中心渦度は $2$ s$^{-1}$、幅は $1$ m。$t=1$ s なら $a=2$ m$^2$、中心渦度は $1$ s$^{-1}$、幅は $\sqrt2$ m になる。いずれも $a>0$ なので渦度は全点で滑らか。さらに $t=0,\ r=1$ m で上の積分を使い、$v=s^2/a$ と置くと
+
+$$
+u_\theta(1,0)=\frac{2\pi}{\pi}\int_0^1se^{-s^2}\,ds
+=1-e^{-1}\quad[\mathrm{m}/\mathrm{s}].
+$$
+
+また $r\to0$ で $\int_0^r s\zeta_G(s,t)\,ds=\zeta_G(0,t)r^2/2+O(r^4)$ だから $u_\theta=O(r)$ で連続に延びる。これで定義の「指定した渦度・原点で正則な円周速度」を実際に確かめた。総渦度が本当に $\Gamma$ になることと、速度が方程式を満たすことは次の定理で個別に確かめる。
 <!-- definition-example-end -->
 
 <a id="thm-fluid10-gaussian-vortex"></a>
@@ -287,7 +335,7 @@ u_\theta(r,t)=\frac{\Gamma}{2\pi r}
 u(x,y,t)=u_\theta(r,t)(-y/r,x/r),
 $$
 
-$r=0$ では $u=0$ と連続的に延長する。この速度と、任意の時刻関数 $p_\infty(t)$ に対する
+$r=0$ では $u=0$ と連続的に延長する。この速度と、任意の滑らかな時刻関数 $p_\infty(t)$ に対する
 
 $$
 p(r,t)=p_\infty(t)-\rho_0\int_r^\infty
@@ -361,13 +409,42 @@ $$
 =\partial_r^2u_\theta+\frac1r\partial_ru_\theta-\frac{u_\theta}{r^2}
 $$
 
-を得る。右辺は接線方向のベクトル Laplace 演算子の成分であり、速度の座標成分を微分しても同じ式が得られる。したがって Navier–Stokes の**接線方向**の式が成り立つ。一方、円運動の移流加速度の半径成分は $-u_\theta^2/r$、接線成分は零である。粘性項の半径成分は零であり、定義した圧力は
+を得る。これがベクトル Laplace 演算子の接線方向成分であることも確認する。$q=r^2$、$u=(-yf(q,t),xf(q,t))$ と書いたので、$f_q=\partial f/\partial q$、$f_{qq}=\partial^2f/\partial q^2$ とすれば $\partial_xf=2xf_q,\ \partial_yf=2yf_q$ である。直交座標で各成分を二階微分すると
+
+$$
+\begin{aligned}
+\Delta(-yf)&=-y(8f_q+4qf_{qq}),\\
+\Delta(xf)&=x(8f_q+4qf_{qq}),\\
+\zeta_G&=\partial_x(xf)-\partial_y(-yf)
+        =2f+2qf_q,\\
+\partial_r\zeta_G&=r(8f_q+4qf_{qq}).
+\end{aligned}
+$$
+
+従って $\Delta u=\partial_r\zeta_G\,e_\theta$ で半径方向の粘性成分は零である。また $u\cdot\nabla q=2xu_1+2yu_2=0$ だから、$f$ は流れに沿って変わらず、
+
+$$
+(u\cdot\nabla)u=f(u\cdot\nabla)(-y,x)
+=f(-u_2,u_1)
+=-f^2(x,y)=-\frac{u_\theta^2}{r}e_r,
+\qquad e_r=(x/r,y/r).
+$$
+
+時間微分は $\partial_tu=(\partial_tu_\theta)e_\theta$ である。以上と $\partial_tu_\theta=\nu\partial_r\zeta_G$ から Navier–Stokes の**接線方向**の式が成り立つ。半径方向では圧力勾配で向心加速度を釣り合わせればよい。定義した圧力は
 
 $$
 \partial_rp=\rho_0\frac{u_\theta^2}{r}
 $$
 
-を満たす。これは $-u_\theta^2/r=-\partial_rp/\rho_0$ と等しい。積分は無限遠で $u_\theta=O(r^{-1})$ より収束し、原点では $u_\theta=O(r)$ より被積分関数 $O(r)$ だから有限である。よって原点への連続延長も含め運動量式を満たす。
+を満たす。これは $-u_\theta^2/r=-\partial_rp/\rho_0$ と等しい。積分は無限遠で $u_\theta=O(r^{-1})$ より収束し、原点では $u_\theta=O(r)$ より被積分関数 $O(r)$ だから有限である。さらに $u_\theta=r f(r^2,t)$ により、$r\ge0$ で
+
+$$
+p(r,t)-p(0,t)
+=\rho_0\int_0^r s f(s^2,t)^2\,ds
+=\frac{\rho_0}{2}\int_0^{r^2}f(q,t)^2\,dq.
+$$
+
+$f$ は $q=0$ を含めて滑らかなので $p$ も $(x,y)$ について滑らかに延びる。従って原点を含めて運動量式が成立する。
 
 最後に極座標で $dA=r\,dr\,d\theta$ とし、$s=r^2/a$（$r\,dr=a\,ds/2$）と置くと
 
@@ -390,7 +467,19 @@ Q_R(t)=\int_{r\le R}\zeta_G\,dA
 =\Gamma\left(1-e^{-R^2/a(t)}\right).
 $$
 
-**同じ固定半径 $R$ の内側**では $a$ が増えると $Q_R$ は小さくなる。それでも無限平面全体の $Q=\Gamma$ は一定であり、渦度が境界から外へ拡散しているので矛盾しない。[FLUID9 の Kelvin の定理](../FLUID9/index.md#thm-fluid9-kelvin)を粘性渦へ直接適用するのも誤りである。こちらの総量保存は境界流束が消えることから得た別の結論だ。
+**同じ固定半径 $R>0$ の内側**では $a$ が増えると $1-e^{-R^2/a}$ は減少する。従って $\Gamma>0$ なら $Q_R$ は減少し、$\Gamma<0$ なら零へ向かって増加するが、どちらも絶対値 $|Q_R|$ は減少する。全平面の総渦度は $\Gamma$ のままであり、固定円板の境界を越える拡散と矛盾しない。
+
+[FLUID9 の Kelvin の定理](../FLUID9/index.md#thm-fluid9-kelvin)をこの粘性渦へ直接適用するのは誤りである。こちらの総量保存は、無限遠で境界流束が消えることから得た別の結論である。
+
+なお $\Gamma\ne0$ なら無限遠で $u_\theta(r,t)\sim\Gamma/(2\pi r)$ となる。速度は零へ近づいても円周積分 $2\pi r u_\theta$ は $\Gamma$ に近づくため、全境界が無滑りの有界容器とは同一視できない。さらに平面全体の運動エネルギー積分は
+
+$$
+\int^\infty u_\theta(r,t)^2\,r\,dr
+\sim\frac{\Gamma^2}{4\pi^2}\int^\infty\frac{dr}{r}
+=\infty
+$$
+
+となり、この全平面解は有限エネルギーの局在流ではない。
 
 ## 5. 三次元の伸長は本当に渦を強めるか
 
@@ -434,7 +523,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-速度勾配とそのトレースは
+[CTM4 の速度勾配](../../CTM/CTM4/index.md#def-ctm4-velocity-gradient)の定義に従い、固定した直交基底で $A_{ij}=\partial u_i/\partial x_j$ と表す。この行列の対角成分の和が発散である。速度勾配とそのトレースは
 
 $$
 \nabla u=
@@ -446,7 +535,7 @@ $$
 \nabla\cdot u=-\alpha/2-\alpha/2+\alpha=0.
 $$
 
-空間一次の速度なので $\Delta u=0$。$A(t)=\nabla u$ と書けば $u=A(t)(x,y,z)^\mathsf T$、加速度は $(A'+A^2)(x,y,z)^\mathsf T$ である。$A'$ の上左 $2\times2$ 部分は $\alpha\Omega\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$A^2$ の同部分は
+空間一次の速度なので $\Delta u=0$。$A(t)=\nabla u$、$X=(x,y,z)^\mathsf T$ と書けば $u=A(t)X$ である。$A'=dA/dt$ は各行列成分の時間微分であり、位置 $X$ を固定した $\partial_tu=A'X$ と、空間微分から得る $(u\cdot\nabla)u=A(A X)=A^2X$ を足して加速度 $(A'+A^2)X$ を得る。$A'$ の上左 $2\times2$ 部分は $\alpha\Omega\begin{pmatrix}0&-1\\1&0\end{pmatrix}$、$A^2$ の同部分は
 
 $$
 \left(\frac{\alpha^2}{4}-\Omega^2\right)I_2
@@ -621,7 +710,7 @@ $r=0$ でも両辺は滑らかな関数の極限で一致し、$\partial_t\zeta_
 
 ### B4. 壁で何を失うか
 
-滑らかな平面領域 $D$ に対し、二次元輸送式を面積分して $d(\int_D\zeta)/dt$ の境界流束式を示せ。$u=0$ を課した固体壁で総渦度が必ず保存されるか判定せよ。
+有界で滑らかな境界をもつ固定平面領域 $D$ に対し、二次元輸送式を面積分して $d(\int_D\zeta)/dt$ の境界流束式を示せ。**全境界**で無滑り条件 $u=0$ を課したとき、総渦度の値と正味の拡散流束を求めよ。各境界点で $\nabla\zeta\cdot n=0$ と言えるかも判定し、壁の一部分だけが無滑りの場合との違いを述べよ。
 
 - Level: B
 
@@ -636,7 +725,14 @@ $$
 +\nu\int_{\partial D}\nabla_2\zeta\cdot n\,ds.
 $$
 
-[CTM15 の壁面無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ から第1の境界積分は零だが、第2の境界積分は一般に零とはならない。$d(\int_D\zeta\,dA)/dt=0$ と結論するには、さらに拡散流束の積分が零である必要がある。壊れた論証は「移流流束が零なら境界の全流束が零」という誤った一歩である。
+[CTM15 の壁面無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ が**全境界**で成立するなら、第1の積分は零である。それだけでは第2の積分を零とは断定できないが、ここではさらに[VC9 の渦度と循環の関係](../../../幾何系/VC/VC9/index.md#cor-vc9-circulation-vorticity)を適用できる。境界が滑らかで $u$ も滑らかだから
+
+$$
+Q_D(t)=\int_D(\partial_xu_2-\partial_yu_1)\,dA
+=\oint_{\partial D}(u_1\,dx+u_2\,dy)=0
+$$
+
+が**各時刻**に成立する。従って $dQ_D/dt=0$ であり、前の流束式と $\nu>0$ から $\int_{\partial D}\nabla_2\zeta\cdot n\,ds=0$ とも分かる。これは法線勾配の**境界積分**の結論であり、各点の $\nabla_2\zeta\cdot n=0$ を意味しない。壁の一部分にしか $u=0$ を課さない場合は $\oint_{\partial D}u\cdot d\ell=0$ を導けないので、正味の渦度拡散流束を別途調べなければ保存を断定できない。
 <!-- solution-end -->
 
 ### Level C
@@ -671,7 +767,16 @@ $$
 
 [FLUID9 の循環の定義](../FLUID9/index.md#def-fluid9-material-circulation)に従い反時計回りの円を一周すると、接線速度は円周上で一定なので $\oint u\cdot d\ell=2\pi R u_\theta=2\pi(1-e^{-1/2})$ m$^2$/s。第1問の $Q_1(1)$ と一致する。ただしこの固定円を物質閉曲線とみなす必要はない。
 
-**3.** 第4節の[Gaussian 渦の圧力](#thm-fluid10-gaussian-vortex)について $\partial_rp=\rho_0u_\theta^2/r\ge0$。半径外側ほど圧力が高く、内向き圧力力が向心加速度を支える。全渦度 $\int_{\mathbb R^2}\zeta_G\,dA=\Gamma$ は、移流が接線方向で境界を横切らず、無限遠の拡散流束も Gaussian 減衰で零になるため[総渦度保存命題](#prop-fluid10-total-vorticity-conservation)とも一致する。有限円板の $Q_R$ は外側への拡散で減少し得る。
+**3.** 第4節の[Gaussian 渦の圧力](#thm-fluid10-gaussian-vortex)について $\partial_rp=\rho_0u_\theta^2/r\ge0$。半径外側ほど圧力が高く、内向き圧力力が向心加速度を支える。全渦度 $\int_{\mathbb R^2}\zeta_G\,dA=\Gamma$ については、$u\cdot e_r=0$ で移流流束が零であり、半径 $R$ の境界の拡散流束も
+
+$$
+\int_{\partial B_R}\nabla\zeta_G\cdot n\,ds
+=2\pi R\,\partial_r\zeta_G(R,t)
+=-\frac{4\pi R^2}{a(t)}\zeta_G(R,t)
+\xrightarrow[R\to\infty]{}0
+$$
+
+となる。したがって[総渦度保存命題](#prop-fluid10-total-vorticity-conservation)の境界条件を満たし、$Q=\Gamma$ は粘性があっても一定である。有限円板の $Q_R$ は外側への拡散で減少し得る。
 
 **4.** [三次元伸長模型](#prop-fluid10-stretching-solution)では $\omega=(0,0,2\Omega_0e^{\alpha t})$、$\Delta\omega=0$ である。それでも $(\omega\cdot\nabla)u=\alpha\omega$ だから $\alpha>0$ なら渦度が増加する。二次元 Gaussian 渦で伸長項が零だったという条件を三次元へ移せない。またこの模型は無限遠で増大するので、有限エネルギー流体全般についての結論でもない。
 <!-- solution-end -->
