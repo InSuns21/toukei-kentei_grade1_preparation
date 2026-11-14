@@ -106,7 +106,7 @@ $$
 <!-- definition-example-start: def-gw1-16-novikov -->
 **定義の確認**（射影直線）。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$ となる。面積を $a=A([\mathbb P^1])>0$ と置くと、$A(d[\mathbb P^1])=da$ である。したがって任意の $E>0$ に対して $da\le E$ の整数 $d\ge0$ は $0\le d\le E/a$ の有限個しかない。形式冪級数 $\sum_{d\ge0}c_dq^d$ は定義の有限性条件を満たす。
 
-さらに二つの形式冪級数の積で $q^n$ の係数は $\sum_{i=0}^nc_id_{n-i}$ という有限和なので積は定義され、$\deg q^n=4n$ も加法的である。実際、[射影空間の第一 Chern 類](../GW1-09/index.md#thm-gw1-09-projective-convex)を $n=1$ に適用すると $c_1(T\mathbb P^1)=2h$ だから $\deg q=2\langle2h,[\mathbb P^1]\rangle=4$。$\mathbb P^2$ の直線類を $\ell$、$q=Q^\ell$ とすれば同様に $\deg q=2\langle3H,\ell\rangle=6$。同じ字 $q$ でも次数は標的によって異なる。
+さらに二つの形式冪級数の積で $q^n$ の係数は $\sum_{i=0}^nc_id_{n-i}$ という有限和なので積は定義され、$\deg q^n=4n$ も加法的である。実際、[射影空間の接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)から $\det(T\mathbb P^n)\simeq\mathcal O(n+1)$、従って $c_1(T\mathbb P^n)=(n+1)H$ である。$n=1$ では $H=h$ なので $\deg q=2\langle2h,[\mathbb P^1]\rangle=4$。$\mathbb P^2$ の直線類を $\ell$、$q=Q^\ell$ とすれば $n=2$ より $\deg q=2\langle3H,\ell\rangle=6$。同じ字 $q$ でも次数は標的によって異なる。
 <!-- definition-example-end -->
 
 ## 4. 三点不変量による小量子積
@@ -453,7 +453,7 @@ $v$ の係数を試験類 $1,h$ と組ませると $\int v\smile1=2$、$\int v\s
 $\mathbb P^1$ の $q=Q^{[\mathbb P^1]}$ と $\mathbb P^2$ の $q=Q^\ell$ について、$\deg q$ と $\deg(q^2)$ をそれぞれ求めよ。どちらも実コホモロジー次数で答えよ。
 
 <!-- solution-start -->
-**詳細解答**。[射影空間の第一 Chern 類](../GW1-09/index.md#thm-gw1-09-projective-convex)は $c_1(T\mathbb P^n)=(n+1)H$ で、直線類との交叉数は1。従って定義の $\deg Q^\beta=2c_1(TX)\cdot\beta$ により、$\mathbb P^1$ は $\deg q=2\cdot2=4$ と $\deg q^2=8$、$\mathbb P^2$ は $\deg q=2\cdot3=6$ と $\deg q^2=12$。$q$ を普通の次数0の数として扱わない。
+**詳細解答**。[接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式を取ると $\det(T\mathbb P^n)\simeq\mathcal O(n+1)$ であり、$c_1(T\mathbb P^n)=(n+1)H$ となる。直線類との交叉数は $\langle H,\ell\rangle=1$ である。従って[Novikov 次数の定義](#def-gw1-16-novikov)による $\deg Q^\beta=2c_1(TX)\cdot\beta$ により、$\mathbb P^1$ は $\deg q=2\cdot2=4$ と $\deg q^2=8$、$\mathbb P^2$ は $\deg q=2\cdot3=6$ と $\deg q^2=12$。$q$ を普通の次数0の数として扱わない。
 <!-- solution-end -->
 
 <a id="ex-gw1-16-a03"></a>
