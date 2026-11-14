@@ -346,7 +346,7 @@ $\delta(x)$ は下流へ増えるが、相対厚さ $\delta(x)/x$ は減る。$x
 
 ### 壁面に残るせん断力
 
-速度の壁法線方向の勾配が大きいなら、粘性応力は壁で消えない。[非圧縮 Newton 流体の応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian-stress)の接線成分は $\sigma_{xy}=\mu(u_y+v_x)$ である。
+速度の壁法線方向の勾配が大きいなら、粘性応力は壁で消えない。[非圧縮 Newton 流体の応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)の接線成分は $\sigma_{xy}=\mu(u_y+v_x)$ である。
 
 <a id="prop-fluid21-wall-shear"></a>
 
@@ -422,6 +422,8 @@ $$
 実際に $v_y=(U/(2x))\zeta e^{-\zeta}=-u_x$ である。さらに $u(x,0)=v(x,0)=0$、$u(x,y)\to U$、$v(x,y)\to Ud(x)/(2x)$ が確かめられる。**外側の法線速度を内側の極限で零と置かない**理由が、この構成例で目に見える。
 
 <a id="ref-fluid21-trial-derivatives"></a>
+
+### 候補場の二階導関数と粘性比
 
 この候補場では
 
