@@ -14,9 +14,7 @@
 
 <!-- formal-statement-start -->
 > **定理（独立 Poisson 過程の重ね合わせ）**  
-> 同一確率空間上で $N^{(1)},\ldots,N^{(r)}$ を互いに独立な Poisson 過程とし、各率を $\lambda_j>0$（$j=1,\ldots,r$、$r\ge2$）とする。このとき
->
-> 合成過程を
+> 同一確率空間上で $N^{(1)},\ldots,N^{(r)}$ を互いに独立な Poisson 過程とし、各率を $\lambda_j>0$（$j=1,\ldots,r$、$r\ge2$）とする。合成過程を次で定める。
 
 $$
 N_t=\sum_{j=1}^rN_t^{(j)}
@@ -84,9 +82,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（独立な印付き到着）**  
-> 率 $\lambda>0$ の Poisson 過程 $N$ の到着時刻を $T_1<T_2<\cdots$ とする。有限の印集合 $K=\{1,\ldots,r\}$（$r\ge2$）と確率 $q_1,\ldots,q_r\ge0$（$\sum_{j=1}^r q_j=1$）を固定する。$K$ 値確率変数 $J_1,J_2,\ldots$ が互いに独立同分布であり、
->
-> 次の印の確率を満たし、
+> 率 $\lambda>0$ の Poisson 過程 $N$ の到着時刻を $T_1<T_2<\cdots$ とする。有限の印集合 $K=\{1,\ldots,r\}$（$r\ge2$）と確率 $q_1,\ldots,q_r\ge0$（$\sum_{j=1}^r q_j=1$）を固定する。$K$ 値確率変数 $J_1,J_2,\ldots$ が互いに独立同分布であり、印の確率が次を満たすとする。
 
 $$
 P(J_n=j)=q_j\qquad(n\ge1,\ j\in K)
@@ -119,9 +115,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（独立間引きと多種類分割）**  
-> 率 $\lambda>0$ の Poisson 過程 $N$ に、[独立な印付き到着](#def-sp11-independent-marking)として有限印集合 $K=\{1,\ldots,r\}$、印確率 $q_1,\ldots,q_r$ を与える。このとき種類別の計数過程 $N^{[1]},\ldots,N^{[r]}$ は**互いに独立**であり、$N^{[j]}$ は率 $\lambda q_j$ の Poisson 過程である（$q_j=0$ の場合は恒等的に $0$ の退化過程とする）。任意の $0\le s<t$ について、$N_t-N_s=n$ という条件の下では種類別の件数は多項分布
->
-> に従う。すなわち
+> 率 $\lambda>0$ の Poisson 過程 $N$ に、[独立な印付き到着](#def-sp11-independent-marking)として有限印集合 $K=\{1,\ldots,r\}$、印確率 $q_1,\ldots,q_r$ を与える。このとき種類別の計数過程 $N^{[1]},\ldots,N^{[r]}$ は**互いに独立**であり、$N^{[j]}$ は率 $\lambda q_j$ の Poisson 過程である（$q_j=0$ の場合は恒等的に $0$ の退化過程とする）。任意の $0\le s<t$ について、$N_t-N_s=n$ という条件の下では種類別の件数は多項分布に従い、その確率は
 
 $$
 P\left(N^{[j]}_t-N^{[j]}_s=k_j\ (1\le j\le r)\mid N_t-N_s=n\right)
@@ -179,15 +173,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（重ね合わせた到着の出身印）**  
-> $r\ge2$ 個の互いに独立な Poisson 過程 $N^{(j)}$ の率を $\lambda_j>0$ とし、$\Lambda=\sum_j\lambda_j$ とする。重ね合わせた過程 $N=\sum_jN^{(j)}$ の第 $n$ 到着時刻を $T_n$、その到着が属する流の番号を $J_n$ とする。このとき $J_1,J_2,\ldots$ は確率
->
-> 次の確率を持つ独立同分布の印であり、
+> $r\ge2$ 個の互いに独立な Poisson 過程 $N^{(j)}$ の率を $\lambda_j>0$ とし、$\Lambda=\sum_j\lambda_j$ とする。重ね合わせた過程 $N=\sum_jN^{(j)}$ の第 $n$ 到着時刻を $T_n$、その到着が属する流の番号を $J_n$ とする。このとき $J_1,J_2,\ldots$ は独立同分布で、印の確率は
 
 $$
 P(J_n=j)=\frac{\lambda_j}{\Lambda}\qquad(n\ge1,\ 1\le j\le r).
 $$
 
-> 印の列全体は重ね合わせた計数過程 $N$ と独立である。、印の列全体は重ね合わせた計数過程 $N$ と独立である。
+> また、印の列全体は重ね合わせた計数過程 $N$ と独立である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -240,15 +232,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限印を持つ複合 Poisson 過程）**  
-> 率 $\lambda>0$ の Poisson 過程 $N$ と、それと独立で互いに独立同分布な実数値印 $Y_1,Y_2,\ldots$ を取る。印の取り得る値は有限集合 $\{a_1,\ldots,a_r\}\subset\mathbb R$、$P(Y_n=a_j)=q_j$、$\sum_jq_j=1$ とする。このとき
->
-> 次で定める過程 $X$ を
+> 率 $\lambda>0$ の Poisson 過程 $N$ と、それと独立で互いに独立同分布な実数値印 $Y_1,Y_2,\ldots$ を取る。印の取り得る値は有限集合 $\{a_1,\ldots,a_r\}\subset\mathbb R$、$P(Y_n=a_j)=q_j$、$\sum_jq_j=1$ とする。このとき、次で定める過程 $X$ を考える。
 
 $$
 X_t=\sum_{n=1}^{N_t}Y_n,\qquad X_0=0
 $$
 
-> 、有限印を持つ複合 Poisson 過程という。空和は $0$ とする。
+> この $X$ を有限印を持つ複合 Poisson 過程という。空和は $0$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sp11-compound-poisson -->
@@ -261,9 +251,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（有限印の複合 Poisson 過程の分布とモーメント）**  
-> 上の[有限印を持つ複合 Poisson 過程](#def-sp11-compound-poisson)について $m_1=E[Y_1]=\sum_jq_ja_j$、$m_2=E[Y_1^2]=\sum_jq_ja_j^2$ と置く。各 $t\ge0$、実数 $u$ に対して
->
-> 次の特性関数と平均・分散を持つ。
+> 上の[有限印を持つ複合 Poisson 過程](#def-sp11-compound-poisson)について $m_1=E[Y_1]=\sum_jq_ja_j$、$m_2=E[Y_1^2]=\sum_jq_ja_j^2$ と置く。各 $t\ge0$、実数 $u$ に対して、次の特性関数と平均・分散を持つ。
 
 $$
 E[e^{iuX_t}]=\exp\left\{\lambda t\left(\sum_j q_j e^{iua_j}-1\right)\right\}.
