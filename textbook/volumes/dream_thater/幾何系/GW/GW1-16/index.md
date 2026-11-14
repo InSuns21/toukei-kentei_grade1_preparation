@@ -262,7 +262,9 @@ $$
 \langle\mu,\nu,\phi_b\rangle_{B_2}.
 $$
 
-標点の番号により左右は区別されるので余分な $1/2$ を掛けない。$13|24$ も同様に $(1,3,*)$ と $(2,4,*)$ に分け、定理の右辺を得る。偶数挿入なので[次数付き対称性](../GW1-15/index.md#prop-gw1-15-symmetry)の交換符号は $+1$ である。$14|23$ については四標点の番号 $3,4$ を交換して同じ議論を行う。三つの境界点の Poincaré 双対は $\mathbb P^1$ 上で同じであるため、三つの和が一致する。
+標点の番号により左右は区別されるので、余分な $1/2$ を掛けない。$13|24$ も同様に $(1,3,*)$ と $(2,4,*)$ に分け、定理の右辺を得る。偶数挿入なので、[次数付き対称性](../GW1-15/index.md#prop-gw1-15-symmetry)の交換符号は $+1$ である。
+
+$14|23$ については四標点の番号 $3,4$ を交換して同じ議論を行う。三つの境界点の Poincaré 双対は $\mathbb P^1$ 上で同じであるため、三つの和が一致する。
 <!-- proof-end -->
 
 **見落としやすい点**。この式には「$\overline{\mathcal M}_{0,4}$ 全体上の四点一次不変量」は現れない。各側の三点関数が掛かる理由は、四点の**境界点の逆像**を積分しているからである。また次数0成分は三標点なので許されるが、次数0の二標点相関を仮に0と置く操作はしていない。
@@ -448,7 +450,21 @@ $$
 任意の偶数斉次類 $\alpha\in H^*(X;\mathbb Q)$ と任意の正の有効曲線類 $\beta$ について、$\langle1,\alpha,\phi_a\rangle_\beta=0$ を説明し、$(1*\alpha)_\beta=0$ とせよ。
 
 <!-- solution-start -->
-**詳細解答**。正次数 $\beta\ne0$ の二標点安定写像は非定数写像なので安定であり、三標点から単位類の付いた標点を忘れる射が定義される。[基本類公理](../GW1-15/index.md#thm-gw1-15-fundamental-class)を $k=2$、挿入 $(\alpha,\phi_a)$、新標点の挿入 $1$ に適用して $\langle\alpha,\phi_a,1\rangle_\beta=0$。偶数の[対称性](../GW1-15/index.md#prop-gw1-15-symmetry)により問の三点関数も0。量子積の定義で $(1*\alpha)_\beta=\sum_a0\cdot\phi^a=0$。$\beta=0$ の三標点は基本類公理の不安定な忘却例外なので、そこで消滅を主張せず $1\smile\alpha=\alpha$ とする。
+**詳細解答**。正次数 $\beta\ne0$ の二標点安定写像は非定数写像なので安定であり、三標点から単位類の付いた標点を忘れる射が定義される。
+
+[基本類公理](../GW1-15/index.md#thm-gw1-15-fundamental-class)を $k=2$、挿入 $(\alpha,\phi_a)$、新標点の挿入 $1$ に適用して
+
+$
+\langle\alpha,\phi_a,1\rangle_\beta=0
+$
+
+を得る。偶数の[対称性](../GW1-15/index.md#prop-gw1-15-symmetry)により問の三点関数も0。量子積の定義で
+
+$
+(1*\alpha)_\beta=\sum_a0\cdot\phi^a=0
+$
+
+となる。$\beta=0$ の三標点は基本類公理の不安定な忘却例外なので、そこで消滅を主張せず $1\smile\alpha=\alpha$ とする。
 <!-- solution-end -->
 
 <a id="ex-gw1-16-a05"></a>
@@ -560,7 +576,15 @@ $X=\mathbb P^1$ とする。(i) Poincaré 双対基底と Novikov 次数を求�
 <!-- solution-start -->
 **詳細解答**。(i) $\int_{\mathbb P^1}h=1$、$h^2=0$ なので基底 $(1,h)$ の交叉行列は $\begin{pmatrix}0&1\\1&0\end{pmatrix}$、双対基底は $(h,1)$。[第一 Chern 類](../GW1-09/index.md#thm-gw1-09-projective-convex)が $2h$ なので $\deg q=4$。
 
-(ii) [次数0三点公式](../GW1-13/index.md#prop-gw1-13-zero-degree)で古典積は $1\smile1=1$、$1\smile h=h$、$h^2=0$。[基本類公理](../GW1-15/index.md#thm-gw1-15-fundamental-class)により正次数の単位挿入はすべて0。一方[次数1の点計数](../GW1-14/index.md#thm-gw1-14-p1-degree-one)に[因子公理](../GW1-15/index.md#thm-gw1-15-divisor)を用いると $\langle h,h,h\rangle_1=1$。三点で $\deg_{\mathbb C} M_{3,d}=1+2d$、$h,h,h$ の複素余次元和は3なので $d=1$ 以外は消える。双対基底の $\phi^h=1$ に対応するため
+(ii) [次数0三点公式](../GW1-13/index.md#prop-gw1-13-zero-degree)で古典積は $1\smile1=1$、$1\smile h=h$、$h^2=0$。[基本類公理](../GW1-15/index.md#thm-gw1-15-fundamental-class)により正次数の単位挿入はすべて0。
+
+一方、[次数1の点計数](../GW1-14/index.md#thm-gw1-14-p1-degree-one)に[因子公理](../GW1-15/index.md#thm-gw1-15-divisor)を用いると
+
+$
+\langle h,h,h\rangle_1=1
+$
+
+を得る。三点で $\deg_{\mathbb C} M_{3,d}=1+2d$、$h,h,h$ の複素余次元和は3なので $d=1$ 以外は消える。双対基底の $\phi^h=1$ に対応するため
 
 $$
 1*1=1,\qquad1*h=h,\qquad h*h=q.
