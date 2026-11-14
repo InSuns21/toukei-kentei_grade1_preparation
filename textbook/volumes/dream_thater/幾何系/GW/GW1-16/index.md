@@ -22,11 +22,11 @@ $V$ の斉次基底を $\phi_0,\ldots,\phi_r$ とする。[節点一致を表す
 
 積分による Poincaré ペアリング $\langle u,v\rangle_X=\int_Xu\smile v$ は、[GW1-12で対角類を双対基底に展開したときのペアリング](../GW1-12/index.md#def-gw1-12-diagonal-matching)である。斉次基底 $\{\phi_a\}$ でこの双線形形式を行列表示したものが $\eta_{ab}=\langle\phi_a,\phi_b\rangle_X$ である。$X$ は滑らかな向き付けられたコンパクト多様体なので Poincaré 双対性が成立し、偶数部分同士の交叉行列 $\eta$ は非退化となる。そこで逆行列を $\eta^{ab}$ で表し、
 
-$
+$$
 \eta_{ab}=\int_X\phi_a\smile\phi_b,
 \qquad
 \sum_b\eta_{ab}\eta^{bc}=\delta_a^c
-$
+$$
 
 と置き、$\phi^a=\sum_b\eta^{ab}\phi_b$ とする。これは基底で表した非退化なペアリングを逆行列で解く操作である。ここで基底の次数を考慮すると、$\eta_{ab}$ は $\deg\phi_a+\deg\phi_b=2m$ のとき以外0である。このため逆行列も補次数を持つ成分だけが非零であり、
 
@@ -38,20 +38,20 @@ $$
 
 任意の $v\in V$ を $v=\sum_c v^c\phi_c$ と展開し、$t_a=\int_Xv\smile\phi_a$ と置くと、$t_a=\sum_cv^c\eta_{ca}$ である。逆行列との積を一度展開すれば、
 
-$
+$$
 \begin{aligned}
 \sum_a t_a\phi^a
 &=\sum_{a,b,c}v^c\eta_{ca}\eta^{ab}\phi_b\\
 &=\sum_{b,c}v^c\delta_c^b\phi_b
 =\sum_c v^c\phi_c=v.
 \end{aligned}
-$
+$$
 
 したがって復元式は
 
-$
+$$
 v=\sum_a\left(\int_Xv\smile\phi_a\right)\phi^a.
-$
+$$
 
 これは単なる座標の約束ではない。**三点の交叉数をすべて知れば、非退化な双対性によって一つのコホモロジー類が一意に復元される**という仕組みである。
 
@@ -106,7 +106,35 @@ $$
 <!-- definition-example-start: def-gw1-16-novikov -->
 **定義の確認**（射影直線）。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$ となる。面積を $a=A([\mathbb P^1])>0$ と置くと、$A(d[\mathbb P^1])=da$ である。したがって任意の $E>0$ に対して $da\le E$ の整数 $d\ge0$ は $0\le d\le E/a$ の有限個しかない。形式冪級数 $\sum_{d\ge0}c_dq^d$ は定義の有限性条件を満たす。
 
-さらに二つの形式冪級数の積で $q^n$ の係数は $\sum_{i=0}^nc_id_{n-i}$ という有限和なので積は定義され、$\deg q^n=4n$ も加法的である。実際、[射影空間の接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)から $\det(T\mathbb P^n)\simeq\mathcal O(n+1)$、従って $c_1(T\mathbb P^n)=(n+1)H$ である。$n=1$ では $H=h$ なので $\deg q=2\langle2h,[\mathbb P^1]\rangle=4$。$\mathbb P^2$ の直線類を $\ell$、$q=Q^\ell$ とすれば $n=2$ より $\deg q=2\langle3H,\ell\rangle=6$。同じ字 $q$ でも次数は標的によって異なる。
+さらに二つの形式冪級数の積について、$q^k$ の係数は有限和となる。
+
+$$
+[q^k]\left(\sum_{i\ge0}c_iq^i\right)
+\left(\sum_{j\ge0}d_jq^j\right)
+=\sum_{i=0}^k c_i d_{k-i}.
+$$
+
+よって積は定義される。次数の加法性も確認する。[射影空間の接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から
+
+$$
+\det(T\mathbb P^n)\simeq\mathcal O(n+1),
+\qquad c_1(T\mathbb P^n)=(n+1)H
+$$
+
+が得られる。$\mathbb P^1$ では $H=h$ であるから
+
+$$
+\deg q=2\langle2h,[\mathbb P^1]\rangle=4,
+\qquad \deg(q^k)=4k.
+$$
+
+$\mathbb P^2$ の直線類を $\ell$、その Novikov 変数を $q=Q^\ell$ とすると
+
+$$
+\deg q=2\langle3H,\ell\rangle=6.
+$$
+
+同じ字 $q$ でも次数は標的によって異なる。
 <!-- definition-example-end -->
 
 ## 4. 三点不変量による小量子積
@@ -306,9 +334,9 @@ $14|23$ については四標点の番号 $3,4$ を交換して同じ議論を�
 
 第2節で導入した $\langle u,v\rangle_X$ を $\Lambda_X$-双線形に延長し、以後は $(u,v)$ と略記する。すなわち $u,v\in V$ では
 
-$
+$$
 (u,v)=\int_Xu\smile v
-$
+$$
 
 とし、Novikov 係数には $\bigl(Q^{\beta_1}u,Q^{\beta_2}v\bigr)=Q^{\beta_1+\beta_2}(u,v)$ と拡張する。値域は $\Lambda_X$ であり、量子積の等式は曲線類ごとの係数を比較する。
 
@@ -350,7 +378,7 @@ $$
 \langle\alpha,\lambda,\phi_a\rangle_{B_1}
 \eta^{ab}
 \langle\phi_b,\mu,\nu\rangle_{B_2}.
-$
+$$
 
 同じ操作を右括弧へ行うと
 
@@ -360,7 +388,7 @@ $$
 \langle\lambda,\mu,\phi_a\rangle_{B_1}
 \eta^{ab}
 \langle\alpha,\phi_b,\nu\rangle_{B_2}.
-$
+$$
 
 右括弧の展開式で $B_1,B_2$ と $a,b$ を同時に入れ替える。$\eta^{ab}=\eta^{ba}$ は偶数部分の交叉行列の対称性による。さらに[偶数挿入の対称性](../GW1-15/index.md#prop-gw1-15-symmetry)で三点の順序を変えると
 
@@ -453,7 +481,31 @@ $v$ の係数を試験類 $1,h$ と組ませると $\int v\smile1=2$、$\int v\s
 $\mathbb P^1$ の $q=Q^{[\mathbb P^1]}$ と $\mathbb P^2$ の $q=Q^\ell$ について、$\deg q$ と $\deg(q^2)$ をそれぞれ求めよ。どちらも実コホモロジー次数で答えよ。
 
 <!-- solution-start -->
-**詳細解答**。[接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式を取ると $\det(T\mathbb P^n)\simeq\mathcal O(n+1)$ であり、$c_1(T\mathbb P^n)=(n+1)H$ となる。直線類との交叉数は $\langle H,\ell\rangle=1$ である。従って[Novikov 次数の定義](#def-gw1-16-novikov)による $\deg Q^\beta=2c_1(TX)\cdot\beta$ により、$\mathbb P^1$ は $\deg q=2\cdot2=4$ と $\deg q^2=8$、$\mathbb P^2$ は $\deg q=2\cdot3=6$ と $\deg q^2=12$。$q$ を普通の次数0の数として扱わない。
+**詳細解答**。[接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式を取ると、次の第一 Chern 類を得る。
+
+$$
+\det(T\mathbb P^n)\simeq\mathcal O(n+1),
+\qquad c_1(T\mathbb P^n)=(n+1)H.
+$$
+
+直線類 $\ell$ との交叉数は $\langle H,\ell\rangle=1$ である。[Novikov 次数の定義](#def-gw1-16-novikov)へ $\beta=d\ell$ を代入すると
+
+$$
+\deg Q^{d\ell}
+=2\langle(n+1)H,d\ell\rangle
+=2d(n+1).
+$$
+
+$\mathbb P^1$ と $\mathbb P^2$ にそれぞれ代入して
+
+$$
+\begin{aligned}
+\mathbb P^1:\quad&\deg q=4,\quad\deg(q^2)=8,\\
+\mathbb P^2:\quad&\deg q=6,\quad\deg(q^2)=12.
+\end{aligned}
+$$
+
+$q$ を次数0の数として扱わないことが重要である。
 <!-- solution-end -->
 
 <a id="ex-gw1-16-a03"></a>
