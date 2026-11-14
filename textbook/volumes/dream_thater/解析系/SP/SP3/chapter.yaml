@@ -1,0 +1,41 @@
+id: "SP3"
+title: "通信クラス・再帰と過渡・Green 核"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO2A
+official_scope: []
+learning_objectives:
+  - 到達可能性と通信を同値関係として定義し、有限遷移図の通信クラスを分解できる
+  - 閉じた通信クラスを定義例で検証し、再帰的なクラスが閉じていることを証明できる
+  - 有限で閉じた通信クラスが再帰的であることを一様な帰還確率から証明できる
+  - 再帰状態から到達可能な状態には確率1で到達することを強Markov性で導ける
+  - 過渡的な到達先についてGreen核を初到達確率と対角成分へ分解できる
+  - 初帰還分布と対角遷移確率の畳み込み式・生成関数を導ける
+  - 整数上の偏りのあるランダムウォークの帰還確率とGreen核を境界値問題から求められる
+  - 非対角Green核の発散と出発状態の再帰性を混同せず演習で検証できる
+definitions:
+  - { id: SP3-DEF-01, name: "到達可能性・通信クラス・既約性" }
+  - { id: SP3-DEF-02, name: "閉じた通信クラス" }
+theorems:
+  - { id: SP3-PROP-01, name: "通信は同値関係" }
+  - { id: SP3-THM-01, name: "再帰的な通信クラスは閉じている" }
+  - { id: SP3-THM-02, name: "有限で閉じた通信クラスは再帰的" }
+  - { id: SP3-PROP-02, name: "再帰状態から到達可能な状態への到達確率" }
+  - { id: SP3-THM-03, name: "初到達によるGreen核の分解" }
+  - { id: SP3-THM-04, name: "初帰還分解と生成関数" }
+  - { id: SP3-THM-05, name: "整数上の最近接ランダムウォークの再帰分類" }
+canonical_examples:
+  - "出口のあるクラスと閉じた二状態クラス"
+  - "自己ループから吸収状態へ逃げる連鎖"
+  - "偏りのある整数上の最近接ランダムウォーク"
+problem_patterns:
+  - SP3-COMMUNICATION-1
+  - SP3-CLOSED-RECURRENCE-1
+  - SP3-GREEN-HITTING-1
+  - SP3-RETURN-GENERATING-1
+  - SP3-BIASED-WALK-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 4.0, review: 1.0 }
