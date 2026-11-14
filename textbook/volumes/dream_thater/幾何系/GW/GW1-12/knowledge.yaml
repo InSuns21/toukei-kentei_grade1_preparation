@@ -1,0 +1,58 @@
+chapter: GW1-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-11
+  - GW1-10
+  - GW1-09
+  - GW1-08
+  - GW1-07
+concepts:
+  - id: gromov-witten.admissible-one-node-splitting
+    name: 許容される一節点分裂
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（許容される一節点分裂）"]
+    requires: [gromov-witten.stable-map, gromov-witten.stable-map-zero-class]
+  - id: gromov-witten.node-matching-fiber-product
+    name: 節点一致のファイバー積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（節点一致のファイバー積）"]
+    requires: [gromov-witten.admissible-one-node-splitting, gromov-witten.evaluation-map]
+  - id: gromov-witten.node-clutching-morphism
+    name: 節点での貼り合わせ射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（節点での貼り合わせ射）"]
+    requires: [gromov-witten.node-matching-fiber-product, gromov-witten.stable-map-stack]
+  - id: gromov-witten.boundary-fiber-product-dimension
+    name: 節点一致と境界の次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（節点一致と境界の次元）"]
+    requires: [gromov-witten.node-matching-fiber-product, gromov-witten.convex-evaluation-surjectivity, gromov-witten.convex-moduli-dimension]
+  - id: gromov-witten.convex-nodal-gluing
+    name: 凸標的の局所貼り合わせと平滑化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（凸標的の局所貼り合わせと平滑化）"]
+    requires: [gromov-witten.convex-nodal-vanishing, gromov-witten.convex-boundary-codimension]
+  - id: gromov-witten.node-diagonal-class
+    name: 対角類による節点一致の交叉類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対角類による節点一致の交叉類）"]
+    requires: [gromov-witten.node-matching-fiber-product, gromov-witten.evaluation-insertion]
+  - id: gromov-witten.convex-boundary-splitting-formula
+    name: 凸標的の一節点境界の分裂公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（凸標的の一節点境界の分裂公式）"]
+    requires: [gromov-witten.node-diagonal-class, gromov-witten.node-clutching-morphism, gromov-witten.boundary-fiber-product-dimension]
+  - id: gromov-witten.four-point-boundary-splitting
+    name: 四標点境界の二通りの分裂
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四標点境界の二通りの分裂）"]
+    requires: [gromov-witten.convex-boundary-splitting-formula, gromov-witten.stable-marked-curve]
