@@ -21,15 +21,15 @@ $$
 > **定義（対数満期価格の特性関数と複素延長）**  
 > 実確率変数 $X$ に対し、実数 $u$ と虚数単位 $i^2=-1$ で、特性関数を
 
-$
+$$
 \varphi_X(u)=E_Q[e^{iuX}]
-$
+$$
 
 > と定める。複素引数 $z=u-ib$（$u\in\mathbb R,b\ge0$）に対して指数モーメント $E_Q[e^{bX}]<\infty$ が成り立つなら、同じ期待値を
 
-$
+$$
 \varphi_X(z)=E_Q[e^{izX}]
-$
+$$
 
 > により定義する。
 <!-- formal-statement-end -->
@@ -68,22 +68,22 @@ $$
 
 複素数 $w$ に対して $F(w)=E[e^{wZ}]$ と置きます。$w$ がコンパクト集合に動いても $|e^{wx-x^2/2}|\le e^{B|x|-x^2/2}$ という共通の可積分上界を取れます。$x$ 倍した導関数にも同じ種類の上界があるので、積分の中を複素微分でき、
 
-$
+$$
 F'(w)=\frac1{\sqrt{2\pi}}\int_{\mathbb R}x e^{wx-x^2/2}\,dx
-$
+$$
 
 です。一方、$x$ に関する導関数を積分すると、端点では Gaussian の減衰により境界項は消えて
 
-$
+$$
 0=\int_{\mathbb R}\frac d{dx}e^{wx-x^2/2}\,dx
 =\int_{\mathbb R}(w-x)e^{wx-x^2/2}\,dx.
-$
+$$
 
 従って $F'(w)=wF(w)$ です。積の微分から
 
-$
+$$
 \frac d{dw}\bigl(e^{-w^2/2}F(w)\bigr)=0
-$
+$$
 
 が得られ、$F(0)=1$ より $F(w)=e^{w^2/2}$ です。これは[Gaussian Fourier変換](../../../解析系/FOU/FOU3/index.md#lem-fou3-gaussian-transform)とも整合します。$w=iz\sqrt v$ を代入して
 
