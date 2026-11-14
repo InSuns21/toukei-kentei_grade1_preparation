@@ -33,3 +33,4 @@
 30. [AQFT30 Araki相対エントロピーの有限次元還元](textbook/volumes/dream_thater/解析系/AQFT/AQFT30/index.md)
 31. [AQFT31 非忠実状態・支持射影・無限値](textbook/volumes/dream_thater/解析系/AQFT/AQFT31/index.md)
 32. [AQFT32 相対エントロピーの正値性](textbook/volumes/dream_thater/解析系/AQFT/AQFT32/index.md)
+33. [AQFT33 部分環制限と相対エントロピーの単調性](textbook/volumes/dream_thater/解析系/AQFT/AQFT33/index.md)
