@@ -2,7 +2,7 @@ id: "U4-16"
 title: "平均回帰の速度・閾値・保有期間"
 volume: "foundations"
 status: supplementary
-prerequisites: [U4-15, U4-11, U4-12, STO6, STO7]
+prerequisites: [U4-15, U4-11, U4-12, STO6, STO7, ODE1]
 official_scope: []
 learning_objectives:
   - AR(1) の条件付き平均・予測分散と定常分散を独立ショックの和から導出できる
