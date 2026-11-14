@@ -1,0 +1,69 @@
+chapter: FLUID15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID14
+  - FLUID12
+  - FLUID11
+  - FLUID6
+concepts:
+  - id: fluid.sphere-no-penetration
+    name: 並進球の非貫通条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（並進球の非貫通条件）"]
+    requires: [fluid.velocity-potential, fluid.ideal-potential-force-model]
+  - id: fluid.sphere-harmonic-modes
+    name: 軸対称一次角モードの調和性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（軸対称一次角モードの調和性）"]
+    requires: [fluid.velocity-potential, fluid.potential-superposition]
+  - id: fluid.fixed-sphere-potential
+    name: 静止球まわりの一様ポテンシャル流
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静止球まわりの一様ポテンシャル流）"]
+    requires: [fluid.sphere-no-penetration, fluid.sphere-harmonic-modes]
+  - id: fluid.fixed-sphere-pressure
+    name: 静止球の圧力係数と零合力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止球の圧力係数と零合力）"]
+    requires: [fluid.fixed-sphere-potential, fluid.bernoulli-global, fluid.pressure-coefficient]
+  - id: fluid.translating-sphere-potential
+    name: 並進球の外部ポテンシャル
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（並進球の外部ポテンシャル）"]
+    requires: [fluid.fixed-sphere-potential, fluid.sphere-no-penetration, fluid.sphere-harmonic-modes]
+  - id: fluid.added-mass
+    name: 並進球の付加質量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（並進球の付加質量）"]
+    requires: [fluid.translating-sphere-potential, fluid.euler-constant-density]
+  - id: fluid.sphere-added-mass
+    name: 加速球の圧力合力と付加質量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（加速球の圧力合力と付加質量）"]
+    requires: [fluid.added-mass, fluid.translating-sphere-potential, fluid.euler-constant-density]
+  - id: fluid.fluid-kinetic-energy
+    name: 並進球が誘起する流体の運動エネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（並進球が誘起する流体の運動エネルギー）"]
+    requires: [fluid.sphere-added-mass, fluid.translating-sphere-potential]
+  - id: fluid.added-mass-matrix
+    name: 並進の付加質量行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（並進の付加質量行列）"]
+    requires: [fluid.added-mass, fluid.fluid-kinetic-energy]
+  - id: fluid.added-mass-symmetry
+    name: 付加質量行列の対称性と正値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（付加質量行列の対称性と正値性）"]
+    requires: [fluid.added-mass-matrix, fluid.fluid-kinetic-energy]
