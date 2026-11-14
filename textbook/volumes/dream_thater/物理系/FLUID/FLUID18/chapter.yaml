@@ -1,0 +1,46 @@
+id: "FLUID18"
+title: "遅い球周りの流れにかかる抵抗は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID17
+  - FLUID15
+official_scope: []
+learning_objectives:
+  - "球半径基準と直径基準のReynolds数を区別し、定常Stokes近似の成立範囲を尺度から説明する"
+  - "軸対称球座標の発散・渦度から速度場の一般半径形を導き、無滑り・遠方条件で係数を決める"
+  - "ベクトルLaplacianと圧力勾配から球周りの圧力場を復元し、Stokes方程式の全成分を検証する"
+  - "球面の法線・接線応力から圧力抵抗2πηaUと粘性抵抗4πηaUを積分して6πηaUを得る"
+  - "固定球と移動球の抗力方向、Cd=24/Re_dの約束、遠方での近似の非一様性を区別する"
+  - "球面積分を数値的に再計算し、角度分割に対する誤差低下を検証する"
+definitions:
+  - { id: FLUID18-DEF-01, name: "半径基準 Reynolds 数と低 Reynolds 数の領域" }
+  - { id: FLUID18-DEF-02, name: "静止球の定常 Stokes 境界値問題" }
+  - { id: FLUID18-DEF-03, name: "球に働く圧力抵抗・粘性抵抗" }
+theorems:
+  - { id: FLUID18-THM-01, name: "静止球周りの定常 Stokes 速度場" }
+  - { id: FLUID18-PROP-01, name: "球周りの圧力場" }
+  - { id: FLUID18-THM-02, name: "Stokes の球抵抗則と圧力・せん断寄与" }
+  - { id: FLUID18-PROP-02, name: "Stokes 領域の抗力係数" }
+canonical_examples:
+  - "水中半径1mmの球でRe_a=0.01とRe_d=0.02を区別する"
+  - "一様流はStokes方程式を満たすが球の無滑りに反する"
+  - "球面のf(a)=f'(a)=0と無限遠f(∞)=1を検算する"
+  - "上流θ=πが高圧で、下流θ=0が低圧になる"
+  - "球の圧力と剪断の合力が1対2になることを面積分で検算する"
+  - "球面積分の中点則で角分割を倍増して誤差低下を確認する"
+problem_patterns:
+  - FLUID18-REYNOLDS-RADIUS-DIAMETER
+  - FLUID18-NO-SLIP-FAR-FIELD
+  - FLUID18-PRESSURE-SIGN
+  - FLUID18-TANGENTIAL-TRACTION
+  - FLUID18-DRAG-DIMENSION
+  - FLUID18-SPHERICAL-DIVERGENCE
+  - FLUID18-VORTICITY-RADIAL-ODE
+  - FLUID18-SURFACE-STRESS-INTEGRAL
+  - FLUID18-MOVING-SPHERE-DRAG
+  - FLUID18-COMBINED-DERIVATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
