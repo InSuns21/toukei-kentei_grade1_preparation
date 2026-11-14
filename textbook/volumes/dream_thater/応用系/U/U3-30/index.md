@@ -367,21 +367,21 @@ $$
 > **定義（平均二乗漸近安定性）**  
 > 実数係数 $\lambda,\nu$ と非零の初期値 $x_0$ を持つ Itô SDE
 
-$
+$$
 dX_t=\lambda X_t\,dt+\nu X_t\,dW_t,\qquad X_0=x_0
-$
+$$
 
 > の解が平均二乗漸近安定であるとは、次の極限が0になることをいう。
 
-$
+$$
 \lim_{t\to\infty}E|X_t|^2=0.
-$
+$$
 
 > また刻み $h>0$ の数値法 $Y_{j+1}=F_jY_j$ で、$Y_0=x_0$、乗数 $F_j$ が独立同分布かつ過去と独立である場合、数値法が平均二乗漸近安定であるとは次を満たすことをいう。
 
-$
+$$
 \lim_{j\to\infty}E|Y_j|^2=0.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-30-ms-stability -->
@@ -533,19 +533,23 @@ $L_0b$ にある二階微分は $b''=0$ のため消え、$L_1L_1b$ では中間
 <!-- solution-start -->
 **詳細解答**：[三次更新の定義](#def-u3-30-cubic)で $Z=0$ を代入すると、二次と三次の補正に使う式はそれぞれ
 
-$
+$$
 Z^2-h=-1,\qquad Z^3-3hZ=0
-$
+$$
 
 となります。よって、初期値10に掛ける EM・Milstein・三次 Hermite の乗数と終端値は順に
 
-$
-\begin{aligned}
-F_E&=1,&Y_E&=10,\\
-F_M&=1-\frac12=\frac12,&Y_M&=5,\\
-F_H&=1-\frac12+0=\frac12,&Y_H&=5.
-\end{aligned}
-$
+$$
+F_E=1,\qquad Y_E=10.
+$$
+
+$$
+F_M=1-\frac12=\frac12,\qquad Y_M=5.
+$$
+
+$$
+F_H=1-\frac12+0=\frac12,\qquad Y_H=5.
+$$
 
 一方、[GBM 陽解](../U3-14/index.md#thm-u3-14-explicit-gbm)から厳密乗数は $e^{-1/2}$、終端値は $10e^{-1/2}\approx6.0653$ です。この一経路では EM の誤差がほかの二方式より小さく、強誤差の**期待値としての次数**と一経路の誤差の大小は別だと分かります。
 <!-- solution-end -->
