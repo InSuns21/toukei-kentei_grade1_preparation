@@ -21,7 +21,7 @@ learning_objectives:
   - 射影空間の直線計数を一般の次元へ拡張し自己同型と点条件の次数を検算できる
 definitions:
   - { id: GW1-11-DEF-01, name: 評価写像 }
-  - { id: GW1-11-DEF-02, name: 忘却写像と安定化 }
+  - { id: GW1-11-DEF-02, name: 安定写像の標点忘却と安定化 }
   - { id: GW1-11-DEF-03, name: 評価挿入と交叉類 }
 theorems:
   - { id: GW1-11-PROP-01, name: 忘却射と残る評価写像の可換性 }
