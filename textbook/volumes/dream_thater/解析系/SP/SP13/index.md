@@ -136,7 +136,7 @@ $t=0$ では $P_0=I$、全ての $t\ge0$ で各行和が $1$、$t\to\infty$ で�
 > を満たすとき、$\pi$ を **定常分布**（不変確率分布）と呼ぶ。
 <!-- formal-statement-end -->
 
-これは [離散時間 Markov 連鎖の不変分布](../../STO/STO2A/index.md#def-sto2a-invariant-measure)における $\pi P=\pi$ を、全ての経過時間に拡張した条件です。分布の行ベクトルに右から $P_t$ を掛けるのは「出発状態 $i$ の質量を到着状態 $j$ へ運ぶ」ためで、$(\pi P_t)_j=\sum_i\pi_iP_t(i,j)$ です。
+これは [帰還 cycle から得られる離散時間の不変測度](../../STO/STO2A/index.md#thm-sto2a-cycle-invariant)でも現れた $\pi P=\pi$ を、全ての経過時間に拡張した条件です。分布の行ベクトルに右から $P_t$ を掛けるのは「出発状態 $i$ の質量を到着状態 $j$ へ運ぶ」ためで、$(\pi P_t)_j=\sum_i\pi_iP_t(i,j)$ です。
 
 <a id="thm-sp13-stationarity-criterion"></a>
 
