@@ -25,7 +25,7 @@ $$
 
 $\psi\in\mathbb C$ は**複素構造を動かす**パラメータである。[Fermat型族の滑らかさ判定](../../CYG/CYG1-13/index.md#prop-cyg1-13-fermat-101)より $\psi^5\ne1$ なら $X_\psi$ は滑らかで、とくに $\psi=0$ の近傍では滑らかな族になる。斉次座標 $z_0,\ldots,z_4$ を固定して複素パラメータ $\psi$ のみを微分すると、導関数は
 
-$
+$$
 \left.\frac{\partial F_\psi}{\partial\psi}\right|_{\psi=0}
 =-5z_0z_1z_2z_3z_4.
 $$
@@ -61,9 +61,9 @@ $[B]+i[\omega]$ を一つの複素類としてまとめる。後で指数座標�
 <!-- definition-example-start: def-mir1-01-a-b-input -->
 **定義の確認**（Fermat五次）。 $X=X_0$ を上節の滑らかなFermat五次とし、$H=c_1(\mathcal O_X(1))$ とする。[quinticのKähler錐の命題](../../CYG/CYG1-13/index.md#prop-cyg1-13-kahler-ray)により、$v>0$ なら $vH$ はKähler類である。$b\in\mathbb R$ を選び、既習の規格化に従って
 
-$
+$$
 \frac{[B]}{2\pi}=bH,\qquad \frac{[\omega]}{2\pi}=vH\quad(v>0)
-$
+$$
 
 と置く。$H$ は整数係数の実 $(1,1)$ 類であり、二つとも実二次コホモロジー類となる。後者は $v>0$ と $2\pi>0$ よりKähler錐に入るため、A側の入力条件を満たす。特に $[\omega]$ の正値性は座標表示だけからではなく、上記のKähler錐の命題から従う。
 
@@ -72,12 +72,12 @@ B側には、前節の滑らかな $X_\psi$（$\psi$ は0の近傍）と、[既�
 
 quinticについては超平面類 $H$ が整数係数の二次類であり、[quinticのKähler錐は正半直線](../../CYG/CYG1-13/index.md#prop-cyg1-13-kahler-ray)により、上記の規格化を用いて複素化方向を
 
-$
+$$
 \frac{[B]}{2\pi}=bH,\qquad
 \frac{[\omega]}{2\pi}=vH,\qquad
 [B+i\omega]=2\pi(b+iv)H=2\pi tH,
 \qquad t=b+iv,\quad b\in\mathbb R,\ v>0
-$
+$$
 
 と記録できる。これはB場という実二次類をKähler類に加えた表示であり、単なるKähler錐の実一次元を複素一次元と言い換えたものではない。整数B場シフト $[B]\mapsto[B]+2\pi mH$（$m\in\mathbb Z$）は $b\mapsto b+m$ に対応し、同じ指数変数へ送られる規約が自然である。ここで示すのはあくまで**指数変数の数学的性質**であって、物理理論全体のゲージ不変性の証明ではない。
 
