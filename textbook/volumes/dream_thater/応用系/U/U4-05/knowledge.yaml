@@ -1,0 +1,48 @@
+chapter: U4-05
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-04]
+forward_references: []
+concepts:
+  - id: finance.spot-forward-funded-carry
+    name: 資金調達付き現物・先渡carry取引
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（資金調達付き現物・先渡 carry 取引）"]
+    requires: [finance.bid-ask-executable-gain]
+  - id: finance.spot-forward-reverse-carry
+    name: 現物空売り・買い先渡のreverse carry取引
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（現物空売り・買い先渡の reverse carry 取引）"]
+    requires: [finance.spot-forward-funded-carry]
+  - id: finance.spot-forward-executable-bounds
+    name: 資金調達・空売り条件を含む先渡の無裁定必要条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（資金調達・空売り条件を含む先渡の無裁定必要条件）"]
+    requires: [finance.spot-forward-funded-carry, finance.spot-forward-reverse-carry]
+  - id: finance.spot-forward-ideal-parity
+    name: 摩擦なし・保管費なしの現物先渡等価式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（摩擦なし・保管費なしの現物先渡等価式）"]
+    requires: [finance.spot-forward-executable-bounds]
+  - id: finance.spot-forward-interim-dividends
+    name: 中間配当を満期へそろえる収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中間配当を満期へそろえる収支）"]
+    requires: [finance.spot-forward-executable-bounds]
+  - id: finance.spot-forward-executable-basis
+    name: 売買可能なcarry超過額
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（売買可能な carry 超過額）"]
+    requires: [finance.spot-forward-executable-bounds]
+  - id: finance.futures-variation-margin-timing
+    name: 2回の値洗いがある買い先物の満期換算収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（2回の値洗いがある買い先物の満期換算収支）"]
+    requires: [finance.spot-forward-executable-basis]
