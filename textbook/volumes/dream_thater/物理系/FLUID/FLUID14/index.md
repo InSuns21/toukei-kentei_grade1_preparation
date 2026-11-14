@@ -279,7 +279,26 @@ $$
 実部・虚部を比較して $F_x=0$ と $F_y=-\rho U\Gamma$ を得る。
 <!-- proof-end -->
 
-**遠方展開の意味**：一般の外部正則速度は、十分大きい円の外側の環状領域で[CA4 の Laurent 展開定理](../../../解析系/CA/CA4/index.md#thm-ca4-laurent)を適用し、$q(z)=U+b_1/z+b_2/z^2+\cdots$ と展開できる。大円を反時計回りに進むと、$(u_x-iu_y)(dx+i\,dy)=(u_x\,dx+u_y\,dy)+i(u_x\,dy-u_y\,dx)$ である。したがって $\oint q\,dz=2\pi i b_1$ の実部は循環 $\Gamma=-2\pi\operatorname{Im}b_1$、虚部は物体から外向きの正味流量 $Q=2\pi\operatorname{Re}b_1$ に等しい。物体の非貫通条件と流体内に湧出がないことから $Q=0$ なので $\operatorname{Re}b_1=0$、ゆえに $b_1=-i\Gamma/(2\pi)$ が確定する。したがって表示した遠方展開は勝手な形状仮定ではなく、湧出ゼロ・循環 $\Gamma$ の外部流から生じる。
+**遠方展開の意味**：[CA4 の Laurent 展開定理](../../../解析系/CA/CA4/index.md#thm-ca4-laurent)を十分大きい円の外側の環状領域に適用する。無限遠の極限が $U$ なので
+
+$$
+q(z)=U+\frac{b_1}{z}+\frac{b_2}{z^2}+\cdots
+$$
+
+と展開できる。大円を反時計回りに進むと、線素 $dz=dx+i\,dy$ に対して
+
+$$
+q\,dz=(u_x\,dx+u_y\,dy)+i(u_x\,dy-u_y\,dx)
+$$
+
+となる。実部は接線方向の循環、虚部は大円の外向き法線 $(dy,-dx)/ds$ との内積で定まる正味流量である。$\oint q\,dz=2\pi i b_1$ を実部と虚部に分けて
+
+$$
+\Gamma=-2\pi\operatorname{Im}b_1,\qquad
+Q=2\pi\operatorname{Re}b_1
+$$
+
+を得る。物体の非貫通条件と流体内に湧出がないことから $Q=0$。従って $\operatorname{Re}b_1=0$、$b_1=-i\Gamma/(2\pi)$ となる。表示した遠方展開は勝手な形状仮定ではなく、湧出ゼロ・循環 $\Gamma$ の外部流から生じる。
 
 **どの抗力が零か**：この定理が消すのは「滑らかな形状、または尖点でも速度が有界な区分的に滑らかな形状に、剥離も後流もない定常非粘性・無渦の二次元モデルでの圧力抗力」である。物体表面に粘性剪断が働く現実流れ、境界層剥離で後流に運動量欠損ができる流れ、三次元翼の誘導抗力、非定常流・圧縮性の圧力跳躍を含む流れには、この証明を適用できない。実在流の抗力が零になるという予測ではない。具体的な粘性抵抗と後流は FLUID16 以降で扱う。
 
@@ -406,7 +425,7 @@ $$
 \widetilde q(w)=Ue^{-i\alpha}-\frac{i\Gamma}{2\pi w}+O(w^{-2}).
 $$
 
-[Kutta 条件](#def-fluid14-kutta-condition)で後縁速度が有界となったため、尖点にも適用できる[Blasius の圧力力公式](#thm-fluid14-blasius)を使う。$\widetilde q^2$ の $1/w$ 係数は $-iU\Gamma e^{-i\alpha}/\pi$ であり、反時計回りの大円で積分すると
+[Kutta 条件](#def-fluid14-kutta-condition)により後縁速度が有界なので、[Blasius の力公式と一般断面の Kutta–Joukowski 関係](#thm-fluid14-blasius)の圧力力公式を尖点へ適用できる。$\widetilde q^2$ の $1/w$ 係数は $-iU\Gamma e^{-i\alpha}/\pi$ であり、反時計回りの大円で積分すると
 
 $$
 F_x-iF_y=\frac{i\rho}{2}\left(2\pi i\cdot\frac{-iU\Gamma e^{-i\alpha}}{\pi}\right)
@@ -575,7 +594,21 @@ F'(c)=-i\left(2U\cdot\frac12+\frac{-2\pi RU}{2\pi R}\right)
 =-i(U-U)=0.
 $$
 
-$\Gamma=0$ なら $F'(c)=-iU\ne0$、一方 $J_c'(c)=0$ だから $F'/J_c'$ は発散する。$\Gamma_{\rm K}$ の場合は $F'$ に少なくとも一位の零点ができる。実際に上の導関数をもう一度 $z$ で微分すると $F''(c)=2U\cos(\pi/6)/R=\sqrt3 U/R$、$J_c''(c)=2/c$ なので、$\widetilde q\to F''(c)/J_c''(c)=\sqrt3 Uc/(2R)$ と有限になる。$\Gamma=0$ で無限大になるのは圧力を求める前の速度であり、失われた条件は Kutta 条件である。
+$\Gamma=0$ なら $F'(c)=-iU\ne0$、一方 $J_c'(c)=0$ だから $F'/J_c'$ は発散する。$\Gamma_{\rm K}$ の場合は $F'$ に少なくとも一位の零点ができる。実際に上の導関数をもう一度 $z$ で微分すると
+
+$$
+F''(c)=\frac{2U\cos(\pi/6)}{R}=\frac{\sqrt3 U}{R},
+\qquad J_c''(c)=\frac2c
+$$
+
+なので、写像先で
+
+$$
+\lim_{z\to c}\widetilde q(J_c(z))
+=\frac{F''(c)}{J_c''(c)}=\frac{\sqrt3 Uc}{2R}
+$$
+
+と有限になる。$\Gamma=0$ で無限大になるのは圧力を求める前の速度であり、失われた条件は Kutta 条件である。
 <!-- solution-end -->
 
 ### Level C
