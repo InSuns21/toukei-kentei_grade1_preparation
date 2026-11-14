@@ -1,0 +1,52 @@
+chapter: SP4
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP3
+forward_references: []
+concepts:
+  - id: stochastic.stationary-cycle-domination
+    name: 定常分布による帰還サイクルの支配
+    kind: lemma
+    aliases: [stationary cycle domination]
+    introduction: formal
+    introduction_aliases: ["補題（定常分布による帰還サイクルの支配）"]
+    requires:
+      - stochastic.markov-hitting-return-time
+      - stochastic.discrete-markov-chain
+  - id: stochastic.positive-recurrence-stationary-equivalence
+    name: 既約可算連鎖の正再帰性と不変確率分布
+    kind: theorem
+    aliases: [既約連鎖の正再帰性と不変確率分布の同値]
+    introduction: formal
+    introduction_aliases: ["定理（既約可算連鎖の正再帰性と不変確率分布）"]
+    requires:
+      - stochastic.stationary-cycle-domination
+      - stochastic.return-cycle-invariant-measure
+      - stochastic.communication-classes
+  - id: stochastic.finite-irreducible-positive-recurrence
+    name: 有限既約連鎖の正再帰性
+    kind: theorem
+    aliases: [有限既約連鎖の正再帰性]
+    introduction: formal
+    introduction_aliases: ["定理（有限既約連鎖の正再帰性）"]
+    requires:
+      - stochastic.positive-recurrence-stationary-equivalence
+  - id: stochastic.birth-death-stationary-criterion
+    name: 可算出生死滅連鎖の不変分布判定
+    kind: proposition
+    aliases: [可算出生死滅連鎖の正規化判定]
+    introduction: formal
+    introduction_aliases: ["命題（可算出生死滅連鎖の不変分布判定）"]
+    requires:
+      - stochastic.detailed-balance-invariance
+      - stochastic.positive-recurrence-stationary-equivalence
+  - id: stochastic.reflected-walk-null-recurrence
+    name: 対称な反射ランダムウォークは零再帰的
+    kind: proposition
+    aliases: [対称反射ランダムウォークの零再帰性]
+    introduction: formal
+    introduction_aliases: ["命題（対称な反射ランダムウォークは零再帰的）"]
+    requires:
+      - stochastic.birth-death-stationary-criterion
+      - stochastic.recurrence-class-invariant

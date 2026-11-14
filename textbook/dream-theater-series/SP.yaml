@@ -10,7 +10,7 @@ chapters:
   - { id: STO1, path: textbook/volumes/dream_thater/解析系/STO/STO1, status: completed, title: "確率過程・標本路・情報と停止時刻" } # SP1
   - { id: STO2A, path: textbook/volumes/dream_thater/解析系/STO/STO2A, status: completed, title: "Markov 性・遷移確率・強 Markov 性" } # SP2
   - { id: SP3, path: textbook/volumes/dream_thater/解析系/SP/SP3, status: completed, title: "通信クラス・再帰と過渡・Green 核" }
-  - { id: SP4, path: textbook/volumes/dream_thater/解析系/SP/SP4, status: planned, title: "正再帰・零再帰・不変測度・詳細釣合い" }
+  - { id: SP4, path: textbook/volumes/dream_thater/解析系/SP/SP4, status: completed, title: "正再帰・零再帰・不変測度・詳細釣合い" }
   - { id: SP5, path: textbook/volumes/dream_thater/解析系/SP/SP5, status: planned, title: "有限 Markov 連鎖の収束・周期性・結合" }
   - { id: SP6, path: textbook/volumes/dream_thater/解析系/SP/SP6, status: planned, title: "ランダムウォーク・境界到達・破産問題" }
   - { id: SP7, path: textbook/volumes/dream_thater/解析系/SP/SP7, status: planned, title: "マルチンゲール・条件付き期待値・予測可能変換" }

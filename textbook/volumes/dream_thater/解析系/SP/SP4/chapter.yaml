@@ -1,0 +1,38 @@
+id: "SP4"
+title: "正再帰・零再帰・不変測度・詳細釣合い"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP3
+official_scope: []
+learning_objectives:
+  - 帰還サイクルの占有測度の総質量と正再帰性の関係を説明できる
+  - 定常分布による帰還サイクル支配を最後の帰還時刻による分解から導ける
+  - 既約可算連鎖で正再帰性と不変確率分布の存在が同値となり一意性も従うことを証明できる
+  - 有限既約連鎖の不変確率分布の存在を時間平均の部分列で証明できる
+  - 出生死滅連鎖の詳細釣合いと正規化可能性を必要十分条件として導ける
+  - 対称反射ランダムウォークの帰還確率と不変分布不存在を別々に確認し零再帰性を証明できる
+  - 非既約連鎖で不変分布の混合と過渡状態の支えの消失を計算できる
+  - 不変性と可逆性、定常分布の存在と時刻分布の収束を区別できる
+definitions: []
+theorems:
+  - { id: SP4-LEM-01, name: "定常分布による帰還サイクルの支配" }
+  - { id: SP4-THM-01, name: "既約可算連鎖の正再帰性と不変確率分布" }
+  - { id: SP4-THM-02, name: "有限既約連鎖の正再帰性" }
+  - { id: SP4-PROP-01, name: "可算出生死滅連鎖の不変分布判定" }
+  - { id: SP4-PROP-02, name: "対称な反射ランダムウォークは零再帰的" }
+canonical_examples:
+  - "一方向の三状態サイクル：不変だが非可逆"
+  - "原点への drift を持つ反射ランダムウォーク：幾何型定常分布"
+  - "対称な反射ランダムウォーク：零再帰と無限不変測度"
+  - "過渡状態と二つの閉クラス：不変分布の非一意性"
+problem_patterns:
+  - SP4-STATIONARY-RETURN-1
+  - SP4-STATIONARY-DOMINATION-1
+  - SP4-BIRTH-DEATH-NORMALIZATION-1
+  - SP4-NULL-RECURRENCE-1
+  - SP4-REDUCIBLE-STATIONARY-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.5 }
