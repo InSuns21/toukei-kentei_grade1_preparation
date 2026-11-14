@@ -52,8 +52,8 @@ def derivatives(a, x, y, h):
     uxm, _ = field(a, x-h, y)
     _, uyp = field(a, x, y+h)
     _, uym = field(a, x, y-h)
-    _, uxyp = field(a, x, y+h)
-    _, uxym = field(a, x, y-h)
+    uxyp, _ = field(a, x, y+h)
+    uxym, _ = field(a, x, y-h)
     _, uyxp = field(a, x+h, y)
     _, uyxm = field(a, x-h, y)
     div = (uxp-uxm+uyp-uym)/(2*h)
@@ -71,8 +71,8 @@ def main():
     parser.add_argument("--a", type=float, default=1.0)
     parser.add_argument("--step", type=float, default=0.2)
     args = parser.parse_args()
-    if not math.isfinite(args.a) or not 0.02 <= args.step <= 0.5:
-        parser.error("a must be finite; step must be in [0.02, 0.5]")
+    if not math.isfinite(args.a) or args.a <= 0 or not 0.02 <= args.step <= 0.5:
+        parser.error("a must be finite and positive; step must be in [0.02, 0.5]")
     h = args.step
     errors = [derivatives(args.a, x, y, h)
               for x, y in ((0.3, 0.7), (-1.2, 0.4), (0.0, 0.0))]

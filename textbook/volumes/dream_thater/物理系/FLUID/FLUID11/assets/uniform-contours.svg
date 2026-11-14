@@ -9,7 +9,7 @@
 <path d="M115 52 V282 M215 52 V282 M315 52 V282 M415 52 V282 M515 52 V282"/>
 </g>
 <g stroke="#173e56" stroke-width="3" fill="none" stroke-linecap="round">
-<path d="M262 200 H350"/>
-<path d="M336 192 L350 200 L336 208"/>
+<path d="M232 171 H302"/>
+<path d="M288 163 L302 171 L288 179"/>
 </g>
 </svg>
