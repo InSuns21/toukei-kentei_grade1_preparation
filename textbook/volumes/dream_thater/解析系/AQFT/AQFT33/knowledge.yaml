@@ -1,0 +1,42 @@
+chapter: AQFT33
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT29
+  - AQFT30
+  - AQFT31
+  - AQFT32
+  - AQFT2
+  - AQFT9
+forward_references: []
+concepts:
+  - id: aqft.normal-state-restriction
+    name: 正規状態の部分環への制限
+    kind: definition
+    introduction: formal
+    requires: [aqft.araki-relative-entropy-nonfaithful]
+  - id: aqft.resolvent-variational
+    name: 非負自己共役作用素の逆作用素の変分表示
+    kind: lemma
+    introduction: formal
+    requires: [aqft.supported-relative-tomita]
+  - id: aqft.relative-resolvent-variational
+    name: 相対逆作用素の代数上の変分表示
+    kind: lemma
+    introduction: formal
+    requires: [aqft.resolvent-variational, aqft.supported-relative-tomita, aqft.normal-state-support]
+  - id: aqft.relative-resolvent-order
+    name: 部分環包含による相対逆作用素期待値の順序
+    kind: proposition
+    introduction: formal
+    requires: [aqft.normal-state-restriction, aqft.relative-resolvent-variational]
+  - id: aqft.relative-entropy-resolvent-integral
+    name: 相対エントロピーの逆作用素積分表示
+    kind: lemma
+    introduction: formal
+    requires: [aqft.relative-resolvent-variational, aqft.relative-spectral-first-moment, aqft.araki-relative-entropy-nonfaithful]
+  - id: aqft.relative-entropy-monotonicity
+    name: 部分環への制限に関するAraki相対エントロピーの単調性
+    kind: theorem
+    introduction: formal
+    requires: [aqft.relative-resolvent-order, aqft.relative-entropy-resolvent-integral]
