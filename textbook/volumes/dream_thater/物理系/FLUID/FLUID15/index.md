@@ -14,7 +14,15 @@ $$
 
 を占める。流体の速度を $u(x,t)$、圧力を $p(x,t)$、遠方の一定圧力を $p_\infty$ と書く。球が**動く問題**では実験室座標で遠方流体は静止し、$u\to0$、$p\to p_\infty$ とする。
 
-球中心からの位置ベクトル $y=x-X(t)$、距離 $r=|y|$、半径方向単位ベクトル $n=y/r$ を用いる。$n$ は**球から流体へ向く法線**であり、外部流体領域 $\Omega$ の内側境界での外向き法線は $-n$ である。必要な場合には極軸を $z$ 方向にとり、$\cos\theta=n\cdot e_z$ とする。球面素は $dS=a^2\sin\theta\,d\theta\,d\varphi$（$0\leq\theta\leq\pi$、$0\leq\varphi<2\pi$）である。
+球中心からの位置ベクトル $y=x-X(t)$、距離 $r=|y|$、半径方向単位ベクトル $n=y/r$ を用いる。$n$ は**球から流体へ向く法線**であり、外部流体領域 $\Omega$ の内側境界での外向き法線は $-n$ である。必要な場合には極軸を $z$ 方向にとり、$\theta$ を $+z$ 軸からの極角、$\varphi$ を方位角とし、$\cos\theta=n\cdot e_z$ とする。球面素は $dS=a^2\sin\theta\,d\theta\,d\varphi$（$0\leq\theta\leq\pi$、$0\leq\varphi<2\pi$）である。半径方向の速度成分は $u_r=u\cdot n=\partial_r\phi$。極角方向の単位接ベクトルを $e_\theta=\partial_\theta n$（極では極限で読む）と定めると、$y=rn$ から $\partial_\theta y=re_\theta$ なので、連鎖律より
+
+$
+\partial_\theta\phi=\nabla_y\phi\cdot\partial_\theta y
+=r(u\cdot e_\theta),\qquad
+u_\theta=u\cdot e_\theta=\frac1r\partial_\theta\phi.
+$
+
+これらの偏微分は時刻を固定して行う。
 
 既習の[速度ポテンシャル](../FLUID11/index.md#def-fluid11-velocity-potential)を三次元にも用い、$u=\nabla\phi$ とする。非圧縮条件 $\nabla\cdot u=0$ は、球の外で
 
@@ -39,7 +47,7 @@ $$
 > を満たすことを、球面の非貫通条件という。速度ポテンシャル $u=\nabla\phi$ を持つ場合は $\partial_r\phi|_{r=a}=V\cdot n$ と同値である。
 <!-- formal-statement-end -->
 
-直接例として、球が静止していれば $V=0$ だから $\partial_r\phi(a,\theta)=0$ が必要である。球が $V e_z$ で動く場合、北極 $\theta=0$ では $\partial_r\phi=V$、赤道 $\theta=\pi/2$ では $\partial_r\phi=0$、南極 $\theta=\pi$ では $\partial_r\phi=-V$ となる。赤道で半径方向の速度が零でも、接線方向に流れがあってよいことに注意する。
+直接例として、球が静止していれば $V=0$ だから $\partial_r\phi(a,\theta)=0$ が必要である。球速度が $V=ve_z$（$v$ は符号付きのスカラー）である場合、北極 $\theta=0$ では $\partial_r\phi=v$、赤道 $\theta=\pi/2$ では $\partial_r\phi=0$、南極 $\theta=\pi$ では $\partial_r\phi=-v$ となる。赤道で半径方向の速度が零でも、接線方向に流れがあってよいことに注意する。
 
 <!-- definition-example-start: def-fluid15-no-penetration -->
 **定義の確認**（一様に運ばれる流体）：球速度を $V=ve_z$（$v$ は一定）、流速を $u(x)=ve_z$ とする。球面の任意の点で
@@ -55,14 +63,25 @@ $$
 
 二次元の二重湧出は遠方で距離の逆数程度に減衰した。三次元で球を流れから避ける効果を表すには、どのべき乗が調和条件を満たすかを調べる。
 
-極軸 $e_z$ に対称な候補を $f(r)\cos\theta$ とする。球面座標で角度方向と半径方向の微分を分けると
+極軸 $e_z$ に対称な候補を $f(r)\cos\theta$ とする。この調和性の判定式は、三次元の直交座標からも導ける。第3座標を $z=x_3=r\cos\theta$ と書き、$h(r)=f(r)/r$ と置けば $f(r)\cos\theta=zh(r)$ である。$r>0$ では $\partial_{x_i}r=x_i/r$ だから、合成関数の微分と積の微分から
 
-$$
+$
+\begin{aligned}
+\Delta h(r)&=h''(r)+\frac2r h'(r),\\
+\Delta\{zh(r)\}
+&=z\,\Delta h(r)+2\partial_z h(r)
+=z\left(h''(r)+\frac4r h'(r)\right).
+\end{aligned}
+$
+
+ここで $h'=f'/r-f/r^2$、$h''=f''/r-2f'/r^2+2f/r^3$ と代入すれば
+
+$
 \Delta\{f(r)\cos\theta\}
 =\left(f''(r)+\frac{2}{r}f'(r)-\frac{2}{r^2}f(r)\right)\cos\theta.
-$$
+$
 
-ここで角度項は $\partial_\theta(\sin\theta\,\partial_\theta\cos\theta)=-2\sin\theta\cos\theta$ から生じる。$f(r)=r^k$ を代入すると角括弧の係数は $[k(k-1)+2k-2]r^{k-2}=[k(k+1)-2]r^{k-2}$ となる。したがって $k=1,-2$ の二つが得られる。
+球面座標で計算しても、角度部分 $\partial_\theta(\sin\theta\,\partial_\theta\cos\theta)=-2\sin\theta\cos\theta$ から同じ項が得られる。$f(r)=r^k$ を代入すると角括弧の係数は $[k(k-1)+2k-2]r^{k-2}=[k(k+1)-2]r^{k-2}$ となる。したがって $k=1,-2$ の二つが得られる。
 
 <a id="prop-fluid15-harmonic-modes"></a>
 
@@ -160,7 +179,7 @@ $r=a$ を代入して結論の表面速度を得る。
 
 <!-- formal-statement-start -->
 > **命題（静止球の圧力係数と零合力）**  
-> [静止球まわりの一様ポテンシャル流](#thm-fluid15-fixed-sphere)で遠方圧力を $p_\infty$ とする。球面の圧力係数を $C_p=(p-p_\infty)/(\rho U^2/2)$ とすると
+> [静止球まわりの一様ポテンシャル流](#thm-fluid15-fixed-sphere)で遠方圧力を $p_\infty$ とする。球面の[圧力係数](../FLUID12/index.md#def-fluid12-pressure-coefficient)を $C_p=(p-p_\infty)/(\rho U^2/2)$ とすると
 
 $$
 C_p(\theta)=1-\frac94\sin^2\theta.
@@ -456,6 +475,16 @@ $$
 
 滑らかな有界剛体 $B\subset\mathbb R^3$ の外部領域 $\Omega=\mathbb R^3\setminus\overline B$ を考え、剛体から流体へ向く単位法線を $n$ とする。剛体を単位速度 $e_j$ で動かす際の、無限遠で零に減衰する調和ポテンシャル $\psi_j$ が存在すると仮定する。その球面でない一般の表面に対しても境界条件は $\partial_n\psi_j=n_j$ である。ここで $n_j=e_j\cdot n$。$u=\sum_j V_j\nabla\psi_j$ は法線方向で $V\cdot n$ に等しい。
 
+行列を導入する理由を先に計算する。三次元の標準基底 $e_1,e_2,e_3$ で $V=\sum_j V_j e_j$ と表し、$\phi_V=\sum_j V_j\psi_j$ と置くと、誘起流速は $u=\nabla\phi_V$ である。流体の運動エネルギーを展開すれば
+
+$
+T_{\mathrm{fluid}}
+=\frac\rho2\sum_{i,j=1}^3 V_iV_j
+\int_\Omega\nabla\psi_i\cdot\nabla\psi_j\,d^3x.
+$
+
+[発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を有限の外部領域に適用し、無限遠の境界項が零へ収束する場合、$\Delta\psi_i=0$ と外部流体側の法線 $-n$ から $\int_\Omega\nabla\psi_i\cdot\nabla\psi_j\,d^3x=-\int_{\partial B}\psi_j n_i\,dS$ となる。この**エネルギー二次形式の係数**を次の行列で表す。負号は物体表面での外部領域の法線が $-n$ であることに由来する。等式と対称性は後の命題で詳しく確かめる。
+
 <a id="def-fluid15-added-mass-matrix"></a>
 
 <!-- formal-statement-start -->
@@ -468,8 +497,6 @@ $$
 
 > $V\in\mathbb R^3$ に対する誘起流体の運動エネルギーは $T_{\mathrm{fluid}}=\frac12 V^\mathsf{T}MV$ である。
 <!-- formal-statement-end -->
-
-定義から判定までの橋渡しを確認しよう。流速は $\nabla\phi=\sum_j V_j\nabla\psi_j$ なので、エネルギーを二乗展開すると $\frac{\rho}{2}\sum_{ij}V_iV_j\int_\Omega\nabla\psi_i\cdot\nabla\psi_j\,d^3x$ となる。次の命題で体積積分と定義の表面積分が一致することを示す。行列を突然置いたのではなく、**流体の運動エネルギーの二次形式**の係数として自然に現れる。
 
 <a id="prop-fluid15-added-mass-symmetry"></a>
 
@@ -543,7 +570,16 @@ $$
 =\int_{-1}^1s^2\,ds=\left[\frac{s^3}{3}\right]_{-1}^{1}=\frac23.
 $$
 
-[球面積分の検算コード](sphere_check.py)では、$\theta$ に関する Simpson 則を用いて $m_{\mathrm a}$ の係数と対称性を計算できる。これは証明の代わりではなく、$2\pi$、$a^2$、符号の入力ミスを独立に検出する補助である。実行時には刻み数を増やし、解析値 $2/3$ と誤差を比較する。
+[球面積分の検算コード](sphere_check.py)では、$\theta$ に関する Simpson 則を用いて $m_{\mathrm a}$ の係数と対称性を計算できる。ブラウザの次の実行欄から既存の Python ファイルをそのまま動かせる。
+
+```python-file-lab
+# lab-id: FLUID15-SPHERE-CHECK
+# lab-title: 球面積分と付加質量の数値検算
+# lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID15/sphere_check.py
+# timeout-ms: 10000
+```
+
+出力の `integral` は $\int_0^\pi\cos^2\theta\sin\theta\,d\theta$ の数値値、`error` は解析値 $2/3$ との差、`added_mass` は $\rho=1000\ \mathrm{kg/m^3}$・$a=0.10\ \mathrm m$ の付加質量、`drag_angular` は前後対称圧力の軸方向積分である。刻み数 $n=40,80,160,400$ に応じた誤差の減少と、$m_{\mathrm a}\approx2.094\ \mathrm{kg}$、零合力に対応する `drag_angular\approx0` を照合する。これは証明の代わりではなく、$2\pi$、$a^2$、符号の入力ミスを独立に検出する補助である。
 
 この講義の模型では、球は非粘性流体の表面を滑り、流れは全域で無渦で、球の周囲の流体は無限に広い。粘性境界層・剥離がある実在球の抗力、容器壁の影響、加速直後に生じる渦などはこの模型からは予測できない。**付加質量と粘性抵抗を同一視しない**ことが重要である。
 
