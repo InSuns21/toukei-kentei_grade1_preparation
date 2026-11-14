@@ -1,0 +1,56 @@
+id: "GW1-09"
+title: "凸な射影標的と変形・障害"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-08
+  - GW1-03
+  - CM2-07
+  - AG2-09
+  - AG2-10
+  - AG3-08
+official_scope: []
+learning_objectives:
+  - 正則写像の固定定義域の一次変形と局所持ち上げの障害をH0・H1のČech計算から説明できる
+  - 球面上の全正則写像でH1が消えるという凸性を定義し高種数への誤用を避けられる
+  - 大域生成の評価写像条件を直接確認し長完全列からH1消滅を証明できる
+  - 接Euler列から射影空間の凸性と変形次元を任意次数で導出できる
+  - Grassmann多様体の接空間をグラフ座標から作り普遍部分束・商束の大域生成で凸性を示せる
+  - Dolbeault線形化とRiemann–Rochから球面写像の滑らかな局所自由度・標点・再パラメータ化を数えられる
+  - 節点付き木の正規化完全列と値一致写像の全射性からH0・H1を計算できる
+  - 負の正規束を持つ滑らかな射影曲面の反例で障害と期待次元・実次元の相違を説明できる
+  - 凸性による障害消滅と節点を含むモジュライ全体の構成・固有性との論証上の違いを特定できる
+definitions:
+  - { id: GW1-09-DEF-01, name: 固定定義域の変形空間と障害空間 }
+  - { id: GW1-09-DEF-02, name: 種数0に関する凸な射影標的 }
+  - { id: GW1-09-DEF-03, name: 正則ベクトル束の大域生成 }
+theorems:
+  - { id: GW1-09-PROP-01, name: 一次変形と貼り合わせ障害 }
+  - { id: GW1-09-LEM-01, name: 大域生成から球面上の一次コホモロジー消滅 }
+  - { id: GW1-09-THM-01, name: 射影空間の凸性と変形次元 }
+  - { id: GW1-09-PROP-02, name: Grassmann多様体の接束と凸性 }
+  - { id: GW1-09-PROP-03, name: 凸標的への滑らかな球面写像の局所自由度 }
+  - { id: GW1-09-PROP-04, name: 種数0の節点付き写像の切断と障害 }
+  - { id: GW1-09-PROP-05, name: 負の正規束を持つ射影標的は凸でない }
+canonical_examples:
+  - 定数写像の引き戻し自明束と標的点の変形
+  - 射影直線の次数d写像でのO(2d)のH1消滅
+  - 接Euler列を用いた射影平面への直線写像の5次元変形と2次元商
+  - Grassmann多様体のグラフ座標とS双対テンソルQ
+  - 二つの次数1球面が節点で一致する場合の正規化短完全列
+  - Hirzebruch曲面の負の切断とO(2)直和O(-2)の障害
+problem_patterns:
+  - GW1-09-COHOMOLOGY-DIMENSIONS
+  - GW1-09-CONSTANT-DEFORMATION
+  - GW1-09-EULER-PULLBACK
+  - GW1-09-H1-OBSTRUCTION-DISTINCTION
+  - GW1-09-MARKED-DIMENSION
+  - GW1-09-CECH-CORRECTION
+  - GW1-09-NODAL-MATCHING
+  - GW1-09-NEGATIVE-NORMAL
+  - GW1-09-EXPECTED-DIMENSION
+  - GW1-09-NODAL-VERSUS-SMOOTH
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }
