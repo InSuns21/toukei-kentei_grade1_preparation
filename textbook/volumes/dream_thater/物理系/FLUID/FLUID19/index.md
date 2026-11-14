@@ -352,14 +352,14 @@ $$
 
 もし積分が零なら、連続性と $\eta>0$ から全領域で $D(u)=0$、すなわち $\partial_i u_j+\partial_j u_i=0$ である。添字 $i,j,k$ を任意に取り、これらの等式を微分して足し引きすると
 
-$
+$$
 \begin{aligned}
 2\partial_i\partial_j u_k
 &=\partial_i(\partial_j u_k+\partial_k u_j)
 +\partial_j(\partial_i u_k+\partial_k u_i)\\
 &\quad-\partial_k(\partial_i u_j+\partial_j u_i)=0.
 \end{aligned}
-$
+$$
 
 よって $\nabla u$ は連結領域で一定の反対称行列であり、積分すると $u(x)=a+\omega\times x$ の剛体速度場になる。無限遠で $u\to0$ だから $a=\omega=0$。無滑りの物体面でも $V_i+\Omega_i\times(x-X_i)=0$ が全点で成り立つため、各 $V_i=\Omega_i=0$。従って非零の一般化速度は正の散逸を生む。
 <!-- proof-end -->
@@ -409,10 +409,10 @@ Stokes 問題は境界速度に線形だから、剛体の並進速度 $\dot X$ 
 
 各瞬間の形状 $q$ を固定して Stokes 方程式を解く。境界上の速度を、単位並進に対応する場 $g_{\rm tr}(q)$ と単位形状速度に対応する場 $g_{\rm sh}(q)$ を用いて $g=\dot Xg_{\rm tr}(q)+\dot qg_{\rm sh}(q)$ と分解する。体積力零の Stokes 方程式は線形なので、各境界場に対する解を $(u_{\rm tr},p_{\rm tr})$、$(u_{\rm sh},p_{\rm sh})$ とすれば、
 
-$
+$$
 u=\dot X u_{\rm tr}+\dot q u_{\rm sh},\qquad
 p-p_0=\dot X(p_{\rm tr}-p_0)+\dot q(p_{\rm sh}-p_0)
-$
+$$
 
 が方程式、非圧縮性と境界条件をすべて満たす。一意性によってこれが実際の瞬時解であり、応力から計算する流体力も $\dot X$ と $\dot q$ に線形となる。[運動学的可逆性](#thm-fluid19-kinematic-reversibility)は、特に両速度の符号を反転した場合である。
 
