@@ -1,0 +1,53 @@
+chapter: SP12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP11
+  - STO13
+forward_references: []
+concepts:
+  - id: stochastic.ctmc-first-jump-joint-law
+    name: 初跳躍時刻と行き先の同時法則
+    kind: proposition
+    aliases: ["first-jump time and destination joint law"]
+    introduction: formal
+    introduction_aliases: ["命題（初跳躍時刻と行き先の同時法則）"]
+    requires:
+      - stochastic.ctmc-jump-chain-holding-time
+
+  - id: stochastic.ctmc-uniformization
+    name: 有限状態 CTMC の一様化
+    kind: theorem
+    aliases: ["CTMC uniformization"]
+    introduction: formal
+    introduction_aliases: ["定理（有限状態 CTMC の一様化）"]
+    requires:
+      - stochastic.ctmc-jump-chain-holding-time
+      - stochastic.poisson-independent-thinning
+
+  - id: stochastic.ctmc-short-time-second-order-remainder
+    name: 有限状態 CTMC の短時間遷移
+    kind: proposition
+    aliases: ["finite CTMC small-time expansion"]
+    introduction: formal
+    introduction_aliases: ["命題（有限状態 CTMC の短時間遷移）"]
+    requires:
+      - stochastic.ctmc-uniformization
+
+  - id: stochastic.pure-birth-explosion-time
+    name: 純粋出生過程の爆発時刻
+    kind: definition
+    aliases: ["pure-birth explosion time"]
+    introduction: formal
+    introduction_aliases: ["定義（純粋出生過程の爆発時刻）"]
+    requires:
+      - stochastic.ctmc-jump-chain-holding-time
+
+  - id: stochastic.pure-birth-explosion-test
+    name: 純粋出生過程の爆発判定
+    kind: theorem
+    aliases: ["pure-birth explosion criterion"]
+    introduction: formal
+    introduction_aliases: ["定理（純粋出生過程の爆発判定）"]
+    requires:
+      - stochastic.pure-birth-explosion-time
