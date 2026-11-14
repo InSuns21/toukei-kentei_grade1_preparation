@@ -2,7 +2,7 @@ id: "U4-10"
 title: "無裁定と統計的裁定の論理的な距離"
 volume: "foundations"
 status: supplementary
-prerequisites: [U4-09]
+prerequisites: [U4-09, F0-00P3]
 official_scope: []
 learning_objectives:
   - 全状態で非負の純損益と確率分布に関する期待純損益の主張を区別できる
