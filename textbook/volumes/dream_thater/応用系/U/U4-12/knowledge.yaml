@@ -1,0 +1,48 @@
+chapter: U4-12
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-11, TSA1, STO4, F0-00P4]
+forward_references: []
+concepts:
+  - id: finance.arb-unit-root
+    name: AR(1) の単位根と局所単位根
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（AR(1) の単位根と局所単位根）"]
+    requires: [finance.arb-ar1-stationary-solution, finance.arb-random-walk-level-difference]
+  - id: finance.arb-adf-test
+    name: 拡張 Dickey–Fuller 検定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（拡張 Dickey–Fuller 検定：ADF 検定）"]
+    requires: [finance.arb-unit-root, finance.arb-difference-deterministic-trend]
+  - id: finance.arb-ar2-adf-representation
+    name: AR(2) の ADF 表現
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（AR(2) の ADF 表現）"]
+    requires: [finance.arb-adf-test]
+  - id: finance.arb-df-nonstandard-limit
+    name: ドリフトなし DF 統計量の非標準極限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ドリフトなし DF 統計量の非標準極限）"]
+    requires: [finance.arb-adf-test, finance.arb-random-walk-level-difference]
+  - id: finance.arb-test-size-power
+    name: 検定のサイズ・検出力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（検定のサイズ・検出力）"]
+    requires: [finance.arb-adf-test]
+  - id: finance.arb-local-unit-root-persistence
+    name: 局所単位根の持続性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所単位根の持続性）"]
+    requires: [finance.arb-unit-root, finance.arb-ar1-stationary-solution]
+  - id: finance.arb-mean-break-non-unit-root
+    name: 平均の一回の変化と非単位根モデル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均の一回の変化と非単位根モデル）"]
+    requires: [finance.arb-ar1-stationary-solution, timeseries.second-order-stationarity]
