@@ -74,7 +74,7 @@ $$
 \sigma(\operatorname{diag}(a,b))=qa+(1-q)b
 $$
 
-と定めます。係数は正で和が1なので、両者は忠実な正規状態です。代表ベクトル $\xi_\rho=(\sqrt p,\sqrt{1-p})$、$\xi_\sigma=(\sqrt q,\sqrt{1-q})$ は
+と定めます。$\rho(A^*A)=p|a|^2+(1-p)|b|^2$ は $A\ne0$ なら正なので忠実であり、$\rho(I)=1$ です。$\sigma$ 側も同様で、有限次元ではこれらの状態は正規です。代表ベクトル $\xi_\rho=(\sqrt p,\sqrt{1-p})$、$\xi_\sigma=(\sqrt q,\sqrt{1-q})$ は
 
 $$
 \|\xi_\rho\|^2=p+(1-p)=1,\qquad
