@@ -14,9 +14,9 @@ $$
 
 では、$[Z:W]$ を元の球面 $\mathbb{CP}^1$ の斉次座標とし、$W\ne0$ では $z=Z/W$ と置く。$\zeta=z/\varepsilon$ は $z=0$ の近くを拡大して見る別の球面座標である。元の $z\ne0$ を固定すれば $f_\varepsilon(z)\to z$、一方 $\zeta\ne\infty$ を固定して $z=\varepsilon\zeta$ と代入すれば
 
-$
+$$
 f_\varepsilon(\varepsilon\zeta)=\varepsilon\zeta+\frac1\zeta\longrightarrow\frac1\zeta
-$
+$$
 
 となる（極限は節点を避けた領域で取る）。極限の二球面は各々一つの節点しか持たないが、両方の写像が非定数であり、無理に収縮すれば一方の次数を失う。実際、[射影直線の次数2の泡立ちとエネルギー分裂](../GW1-05/index.md#prop-gw1-05-explicit-splitting)によれば次数は $2=1+1$ に分かれる。
 
@@ -36,10 +36,10 @@ $
 
 各 $C_v$ には複素向きを入れ、その二次元基本類 $[C_v]\in H_2(C_v;\mathbb Z)$ を $u_v$ で標的へ送ったものを $\beta_v=(u_v)_*[C_v]\in H_2(X;\mathbb Z)$ と書く。写像で二次元サイクルを押し出す操作が $(u_v)_*$ である。例えば $X=\mathbb{CP}^1$ なら $H_2(X;\mathbb Z)$ は $[\mathbb{CP}^1]$ で生成される。$\beta_v=n_v[\mathbb{CP}^1]$ と書き、面積を $\int_X\omega=2\pi$ に規格化すれば、次数 $d_v$ の正則写像には[有理写像の次数と面積](../GW1-06/index.md#prop-gw1-06-rational-area)から
 
-$
+$$
 2\pi n_v=\langle[\omega],\beta_v\rangle
 =\int_{C_v}u_v^*\omega=2\pi d_v,
-$
+$$
 
 ゆえに $n_v=d_v$、すなわち $\beta_v=d_v[\mathbb{CP}^1]$ となる。これは面積と次数を結ぶ先行結果を、基本類の押し出しの係数判定に使ったものである。その和 $\beta=\sum_v\beta_v$ が**総曲線類**である。節点は二次元の面積を持たず、独立の球面成分でもないので、クラスを二度足さない。
 
@@ -277,9 +277,9 @@ $V=1$ の場合は $N=1,D=0$ である。$k\ge1$ なら $0\le k+1-2=k-1$ なの�
 
 先の[総曲線類0の命題](#prop-gw1-08-zero-class)は、この記法を使うと同型類の集合として
 
-$
+$$
 \overline{\mathcal M}_{0,k}(X,0)\cong X\times\overline{\mathcal M}_{0,k}\qquad(k\ge3)
-$
+$$
 
 となる。特に $k=3$ では $\overline{\mathcal M}_{0,3}(X,0)\cong X$ である。ここで $J$ は固定したまま省略し、$\overline{\mathcal M}_{0,k}$ は前講の安定標点曲線の同型類集合を表す。
 
