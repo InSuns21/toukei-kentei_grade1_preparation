@@ -641,8 +641,18 @@ $$
 =\frac a2\frac{4\pi a^2}{3}|V|^2.
 $$
 
-$T_{\mathrm{fluid}}=(\rho/2)(2\pi a^3/3)|V|^2=(\pi\rho a^3/3)|V|^2
-=\frac12(2\pi\rho a^3/3)|V|^2$。よって流体の運動エネルギーから得た付加質量は $2\pi\rho a^3/3$。
+流体の運動エネルギーは
+
+$$
+\begin{aligned}
+T_{\mathrm{fluid}}
+&=\frac{\rho}{2}\frac{2\pi a^3}{3}|V|^2\\
+&=\frac{\pi\rho a^3}{3}|V|^2
+=\frac12\frac{2\pi\rho a^3}{3}|V|^2.
+\end{aligned}
+$$
+
+よって流体の運動エネルギーから得た付加質量は $2\pi\rho a^3/3$。
 <!-- solution-end -->
 
 ### B4. 方向依存の質量行列
