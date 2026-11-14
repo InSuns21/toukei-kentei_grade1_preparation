@@ -4,7 +4,7 @@
 
 ## 0. 模型と円筒座標の意味
 
-長い直円管の軸を $z$ 軸とし、軸からの距離 $r=\sqrt{x^2+y^2}$、軸の周りの角度 $\theta$ を用いる。円筒座標の単位ベクトルは $e_r=(\cos\theta,\sin\theta,0)$、$e_\theta=(-\sin\theta,\cos\theta,0)$、$e_z=(0,0,1)$ である。$r>0$ で $\partial_\theta e_r=e_\theta$、$\partial_\theta e_\theta=-e_r$ となる。円管断面の面積要素は、幅 $dr$ の薄い円環の面積を考えると $dA=r\,dr\,d\theta$ である。
+長い直円管の軸を $z$ 軸とし、軸からの距離 $r=\sqrt{x^2+y^2}$、軸の周りの角度 $\theta$ を用いる。円筒座標の単位ベクトルは $e_r=(\cos\theta,\sin\theta,0)$、$e_\theta=(-\sin\theta,\cos\theta,0)$、$e_z=(0,0,1)$ である。$r>0$ で $\partial_\theta e_r=e_\theta$、$\partial_\theta e_\theta=-e_r$ となる。円管断面の面積要素は、幅 $dr$ の薄い円環の面積を考えると $dA=r\,dr\,d\theta$ である。以下、一変数の速度関数 $w=w(r)$ の $w'=dw/dr$、$w''=d^2w/dr^2$ は半径 $r$ に関する常微分であり、$\partial_t$ や $\partial_z$ は他の座標を固定した偏微分を表す。
 
 一定密度 $\rho>0$、一定の動的粘性係数 $\eta>0$ の非圧縮 Newton 流体を、体積力なしで考える。速度 $v$ は空間 $C^2$、圧力 $p$ は空間 $C^1$ とし、壁まで速度が連続とする。既習の[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)と[Newton 応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)は
 
@@ -34,7 +34,7 @@ $$
 > 半径 $R>0$ の固定円管の内部で、$w\in C^2((0,R))\cap C([0,R])$ を用いて $v=w(r)e_z$ と書け、時間・$z$・$\theta$ に依存しない速度場を、定常・完全発達した円管一方向流という。軸 $r=0$ では $w$ が有界で滑らかな三次元速度場へ延長できるとし、固定壁で無滑り条件 $w(R)=0$ を課す。
 <!-- formal-statement-end -->
 
-定義を満たす候補として $w(r)=c(R^2-r^2)$（$c>0$）を選べる。実際に $w(R)=0$、$w(0)=cR^2$ は有限、$w'(0)=0$ なので軸を横切って滑らかである。さらに $\partial_z w=0$ より非圧縮でもある。ただし**圧力との運動量釣合**はまだ検証していない。
+定義を満たす候補として $w(r)=c(R^2-r^2)$（$c>0$）を選べる。実際に $w(R)=0$、$w(0)=cR^2$ は有限、$w'(0)=0$ である。ただし一般には $w'(0)=0$ だけで三次元への滑らかな延長を保証できないため、次に直交座標で直接確かめる。$\partial_z w=0$ より非圧縮でもあるが、**圧力との運動量釣合**はまだ検証していない。
 
 <!-- definition-example-start: def-fluid16-pipe-flow -->
 **定義の確認**：$w(r)=c(R^2-r^2)$ は $r^2=x^2+y^2$ を用いると $c(R^2-x^2-y^2)$ であり、$x,y,z$ の滑らかな関数として軸に延長できる。境界 $x^2+y^2=R^2$ では全速度が零、内側では軸方向のみ、$\partial_t v=\partial_zv=0$ であり、定義の滑らかさ・完全発達・無滑りを全て満たす。
@@ -48,11 +48,25 @@ $$
 +w'\left(\frac1r-\frac{x^2}{r^3}\right).
 $$
 
-$y$ についても同様に足すと
+$y$ 方向にも連鎖律を使うと $\partial_y r=y/r$ なので
 
 $$
-\Delta w=w''+\frac1r w'=\frac1r(rw')'.
+\partial_y^2w=w''\frac{y^2}{r^2}
++w'\left(\frac1r-\frac{y^2}{r^3}\right).
 $$
+
+従って $r>0$ では $x^2+y^2=r^2$ を代入して
+
+$$
+\begin{aligned}
+\Delta w&=\partial_x^2w+\partial_y^2w\\
+&=w''\frac{x^2+y^2}{r^2}
++w'\left(\frac2r-\frac{x^2+y^2}{r^3}\right)\\
+&=w''+\frac1r w'=\frac1r(rw')'.
+\end{aligned}
+$$
+
+ここで $1/r$ を含む式は軸の外での表示であり、軸上の値は直交座標で滑らかに延長した速度場から決める。
 
 ここで $e_z$ は位置によらないので $\Delta(w e_z)=(\Delta w)e_z$ である。円管では平板の $w''$ に加えて $w'/r$ が現れる。
 
@@ -247,19 +261,37 @@ $$
 **定義の確認**：$w=\Omega r$ は $C^2$、時間・$\theta$・$z$ に依存せず、二つの壁の速度と一致する。直交成分 $v_x=-\Omega y$、$v_y=\Omega x$ に対して $\nabla\cdot v=\partial_x(-\Omega y)+\partial_y(\Omega x)=0$。この直接例は境界条件と非圧縮性を満たすが、圧力を指定するまでは全方程式の解だとは主張しない。
 <!-- definition-example-end -->
 
-円周方向の単位ベクトルは角度とともに向きが変わる。ここが平板 Couette 流との決定的な違いである。具体的には
+円周方向の単位ベクトルは角度とともに向きが変わる。ここが平板 Couette 流との決定的な違いである。半径 $r>0$ の円周では弧長の微小変化が $r\,d\theta$ なので、円周方向の方向微分は $e_\theta\cdot\nabla=r^{-1}\partial_\theta$ となる。$w$ は角度に依存しないが、$e_\theta$ は変わるから
 
 $$
-(v\cdot\nabla)v=\frac{w}{r}\partial_\theta(w e_\theta)
+\begin{aligned}
+(v\cdot\nabla)v
+&=\frac{w}{r}\partial_\theta(w e_\theta)\\
+&=\frac{w^2}{r}(-e_r)
 =-\frac{w^2}{r}e_r.
+\end{aligned}
 $$
 
-一方、ベクトルラプラシアンでは $e_\theta$ 自身の角度微分が寄与する。$w$ は $\theta$ に依存しないが $\partial_\theta^2e_\theta=-e_\theta$ だから
+一方、ベクトルラプラシアン $\Delta v$ は直交座標では各成分にスカラーのラプラシアンを作用させたものである。円筒座標で同じ演算を表すと、各直交成分に対して
+
+$$
+\Delta=\partial_r^2+\frac1r\partial_r
++\frac1{r^2}\partial_\theta^2+\partial_z^2
+$$
+
+を作用させる。$e_\theta$ は $r,z$ に依存せず、$\partial_\theta^2e_\theta=-e_\theta$ なので
+
+$$
+\partial_r^2(w e_\theta)=w''e_\theta,\qquad
+\partial_\theta^2(w e_\theta)=-w e_\theta,
+$$
 
 $$
 \Delta(w e_\theta)
 =\left(w''+\frac{w'}r-\frac{w}{r^2}\right)e_\theta.
 $$
+
+この $-w/r^2$ は角度方向の基底ベクトルを微分した寄与であり、スカラー関数 $w$ のラプラシアンだけでは出てこない。
 
 すなわち移流は**径方向の向心加速度**を残し、粘性は $-w/r^2$ を加える。
 
@@ -291,7 +323,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-速度は $\theta$ に依存しないため、円周方向の粘性項も $r$ だけの関数である。円周方向の式は $-\partial_\theta p/r+\eta(w''+w'/r-w/r^2)=0$ であり、単価な圧力の一周周期性 $p(r,\theta+2\pi,z)=p(r,\theta,z)$ の下で $\theta$ 方向に $0$ から $2\pi$ まで積分すると、粘性項も零と分かる。従って $\partial_\theta p=0$ であり、
+速度は $\theta$ に依存しないため、円周方向の粘性項も $r$ だけの関数である。円周方向の式は $-\partial_\theta p/r+\eta(w''+w'/r-w/r^2)=0$ であり、一価の圧力の一周周期性 $p(r,\theta+2\pi,z)=p(r,\theta,z)$ の下で $\theta$ 方向に $0$ から $2\pi$ まで積分すると、粘性項も零と分かる。従って $\partial_\theta p=0$ であり、
 
 $$
 w''+\frac{w'}r-\frac{w}{r^2}=0.
@@ -371,7 +403,24 @@ $$
 \sigma_{r\theta}=\eta\left(w'-\frac wr\right).
 $$
 
-この式は、$\partial_r(we_\theta)=w'e_\theta$、一方で単位円周方向へ $\theta$ を変えたとき $\partial_\theta(we_\theta)=-we_r$ となることを、[変形速度テンソル](../../CTM/CTM4/index.md#def-ctm4-rate-of-deformation-spin)の対称和に代入して得る。従って回転剛体流 $w=\Omega r$ は $w'-w/r=0$ でせん断を生じない。
+この式を[変形速度テンソル](../../CTM/CTM4/index.md#def-ctm4-rate-of-deformation-spin) $D=(\nabla v+(\nabla v)^\mathsf{T})/2$ から求める。$e_r,e_\theta$ は各点の直交単位基底であり、速度勾配 $\nabla v$ の各方向への作用は
+
+$$
+(\nabla v)e_r=\partial_r(we_\theta)=w'e_\theta,\qquad
+(\nabla v)e_\theta=\frac1r\partial_\theta(we_\theta)
+=-\frac wr e_r.
+$$
+
+従って対称部分の $r\theta$ 成分は
+
+$$
+2D_{r\theta}
+=e_r\cdot(\nabla v)e_\theta
++e_\theta\cdot(\nabla v)e_r
+=-\frac wr+w'.
+$$
+
+圧力項 $-pI$ の非対角成分は零なので、[Newton 応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)から $\sigma_{r\theta}=2\eta D_{r\theta}$ となる。従って回転剛体流 $w=\Omega r$ は $w'-w/r=0$ でせん断を生じない。
 
 <a id="thm-fluid16-couette-torque"></a>
 
@@ -432,7 +481,23 @@ $$
 
 円管 Poiseuille 流は**固定壁と軸方向圧力差**で駆動され、円管中心の滑らかさが対数項を消した。同心円筒 Couette 流は**動く二つの円筒壁**で駆動され、$a>0$ のため $B/r$ 項を許す。円管での $r^{-1}(rw')'$ と円筒回転での $w''+w'/r-w/r^2$ は、ベクトル方向の違いに由来する。
 
-狭い隙間 $d=b-a$ に対し $d/a\ll1$ で、内外の接線速度 $U_i=a\Omega_i$、$U_o=b\Omega_o$ を一定に保つ場合は、曲率を無視すると速度はほぼ壁間の線形補間となる。厳密式を $r=a+y$、$0\le y\le d$ に代入し、$r^2$ が $a^2+2ay$ に近いことを使うと、$w$ が $U_i+(U_o-U_i)y/d$ に近づく。[平板 Couette 流](../../CTM/CTM16/index.md#thm-ctm16-couette-profile)との接続である。
+狭い隙間 $d=b-a$ に対し $d/a\ll1$ で、内外の接線速度 $U_i=a\Omega_i$、$U_o=b\Omega_o$ を一定に保つ場合は、曲率を無視すると速度はほぼ壁間の線形補間となる。実際、$w=Ar+B/r$ の両辺に $r$ を掛けると $rw=Ar^2+B$ は $r^2$ の一次関数である。両端の値 $aw(a)=aU_i$、$bw(b)=bU_o$ から
+
+$$
+w(r)=\frac ar\frac{b^2-r^2}{b^2-a^2}U_i
++\frac br\frac{r^2-a^2}{b^2-a^2}U_o.
+$$
+
+$r=a+y$、$0\le y\le d$ と置けば
+
+$$
+\frac{b^2-r^2}{b^2-a^2}
+=\frac{(d-y)(2a+d+y)}{d(2a+d)},\qquad
+\frac{r^2-a^2}{b^2-a^2}
+=\frac{y(2a+y)}{d(2a+d)}.
+$$
+
+$d/a\to0$ で $y/d$ を一定に保つと、$a/r,b/r\to1$、二つの比はそれぞれ $1-y/d$ と $y/d$ に近づく。従って $w(a+y)\to U_i+(U_o-U_i)y/d$ となり、[平板 Couette 流](../../CTM/CTM16/index.md#thm-ctm16-couette-profile)の線形速度分布へつながる。
 
 本講の二つの解は、指定した速度形状の下で移流を全て捨てた**近似解ではなく定常 Navier–Stokes 式の厳密解**である。ただし実際にこの速度形が生じ続けるかは別問題である。入口発達、粗い壁、回転円筒の遠心不安定性、乱流化、端部の影響などはここで証明していない。厳密解の存在と、その実験的な安定性を同一視しない。
 
@@ -451,7 +516,21 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-両辺に $r$ を掛けると $(rw')'=-Gr/\eta$。積分で $rw'=-Gr^2/(2\eta)+C_1$、$w'=-Gr/(2\eta)+C_1/r$。もう一度積分すると $w=-Gr^2/(4\eta)+C_1\log r+C_0$。$r\downarrow0$ で $\log r\to-\infty$ なので有界性より $C_1=0$。$w(R)=0$ から $C_0=GR^2/(4\eta)$。従って $w=G(R^2-r^2)/(4\eta)$、かつ $w'(0)=0$ で軸上も滑らかである。
+$r>0$ で両辺に $r$ を掛け、$r$ に関して積分すると
+
+$$
+(rw')'=-\frac{G}{\eta}r,\qquad
+rw'=-\frac{G}{2\eta}r^2+C_1.
+$$
+
+$r>0$ で割ってもう一度積分すると
+
+$$
+w'=-\frac{G}{2\eta}r+\frac{C_1}{r},\qquad
+w=-\frac{G}{4\eta}r^2+C_1\log r+C_0.
+$$
+
+$r\downarrow0$ で $\log r\to-\infty$ なので、有界性から $C_1=0$。$w(R)=0$ を代入して $C_0=GR^2/(4\eta)$ を得る。従って $w=G(R^2-r^2)/(4\eta)$ であり、$r^2=x^2+y^2$ に戻すと軸上まで滑らかである。
 <!-- solution-end -->
 
 ### A2. 円管の平均速度
@@ -493,7 +572,22 @@ B=\frac{(0.01)^2(0.02)^2\cdot10}{(0.02)^2-(0.01)^2}
 =\frac1{750}\ \mathrm{m^2/s}.
 $$
 
-内壁では $w(a)=(-10/3)(0.01)+(1/750)/0.01=-1/30+2/15=0.10\,\mathrm{m/s}=a\Omega_i$。外壁では $w(b)=-1/15+(1/750)/0.02=-1/15+1/15=0=b\Omega_o$。半径を掛けずに $w(a)=\Omega_i$ としてはいけない。
+二つの壁に代入して、接線速度と照合する。
+
+$$
+\begin{aligned}
+w(a)&=\left(-\frac{10}{3}\right)(0.01)
++\frac{1/750}{0.01}
+=-\frac1{30}+\frac2{15}
+=0.10\,\mathrm{m/s}=a\Omega_i,\\
+w(b)&=\left(-\frac{10}{3}\right)(0.02)
++\frac{1/750}{0.02}
+=-\frac1{15}+\frac1{15}
+=0=b\Omega_o.
+\end{aligned}
+$$
+
+半径を掛けずに $w(a)=\Omega_i$ としてはいけない。
 <!-- solution-end -->
 
 ### A4. 剛体回転と圧力
@@ -555,7 +649,16 @@ $$
 =-\frac{w^2}{r}e_r.
 $$
 
-ラプラシアンは $(w''+w'/r-w/r^2)e_\theta$。$w=Ar+B/r$ なら $w'=A-B/r^2$、$w''=2B/r^3$ だから $w''+w'/r-w/r^2=(2B-B-B)/r^3=0$。径方向の運動量式は $dp/dr=\rho w^2/r$。これに $w=Ar+B/r$ を入れて
+円筒座標での[粘性項の導出](#thm-fluid16-couette-profile)に従い、ベクトルラプラシアンは $(w''+w'/r-w/r^2)e_\theta$。$w=Ar+B/r$ から
+
+$$
+w'=A-\frac{B}{r^2},\qquad
+w''=\frac{2B}{r^3},\qquad
+w''+\frac{w'}r-\frac{w}{r^2}
+=\frac{2B-B-B}{r^3}=0.
+$$
+
+径方向の運動量式は $dp/dr=\rho w^2/r$。これに $w=Ar+B/r$ を入れて
 
 $$
 \frac{p(r)-p(a)}{\rho}
@@ -605,7 +708,7 @@ $$
 
 $G=\Delta p/L$ は不変。[流量公式](#thm-fluid16-pipe-flux)で $Q\propto R^4$ だから $Q_{\mathrm{new}}/Q_{\mathrm{old}}=2^4=16$。平均速度は $\bar w=GR^2/(8\eta)$ より比 $2^2=4$。壁面せん断応力は $|t_z|=GR/2$ より比 $2$ である。
 
-しかし管径を変えると代表長さ $2R$ と平均速度がともに増え、Reynolds 数は同じ $\rho,\eta$ なら $4\times2=8$ 倍になる。元の円管が層流でも新しい管で完全発達層流が維持されるとは限らない。いずれもその解クラスが妥当である場合に限った比較である。
+しかし管径を変えると代表長さ $2R$ と平均速度がともに増え、[Reynolds 数の定義](../../CTM/CTM16/index.md#def-ctm16-reynolds)から、同じ $\rho,\eta$ なら $4\times2=8$ 倍になる。元の円管が層流でも新しい管で完全発達層流が維持されるとは限らない。いずれもその解クラスが妥当である場合に限った比較である。
 <!-- solution-end -->
 
 ### Level C
