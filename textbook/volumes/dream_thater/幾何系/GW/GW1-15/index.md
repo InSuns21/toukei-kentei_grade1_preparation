@@ -208,7 +208,7 @@ $$
 \langle H^2,H^2\rangle_{\beta_1}=1
 $$
 
-となる。因子公理を適用すると
+となる。[因子公理](#thm-gw1-15-divisor)を適用すると
 
 $$
 \langle H^2,H^2,H\rangle_{\beta_1}
