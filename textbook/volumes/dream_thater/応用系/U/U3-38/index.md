@@ -29,9 +29,9 @@ $$
 
 > と定める。複素引数 $z=u+it$（$u,t\in\mathbb R$）について、絶対値 $|e^{izX}|=e^{-tX}$ に対応する指数モーメント $E_Q[e^{-tX}]<\infty$ が存在するとき、
 
-$
+$$
 \varphi_X(z)=E_Q[e^{izX}]
-$
+$$
 
 > と拡張する。特に価格公式で使う $z=u-ib$（$b\ge0$）では $t=-b$ なので、必要な条件は $E_Q[e^{bX}]<\infty$ である。
 <!-- formal-statement-end -->
