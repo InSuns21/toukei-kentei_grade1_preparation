@@ -7,9 +7,9 @@
   </defs>
   <rect width="860" height="330" rx="8" fill="#ffffff"/>
   <g font-family="sans-serif" fill="#172b43">
-    <text x="99" y="31" font-size="17">時刻0</text>
-    <text x="393" y="31" font-size="17">時刻1</text>
-    <text x="717" y="31" font-size="17">満期</text>
+    <text x="99" y="18" font-size="17">時刻0</text>
+    <text x="393" y="18" font-size="17">時刻1</text>
+    <text x="717" y="18" font-size="17">満期</text>
     <g fill="none" stroke="#66778c" stroke-width="2" marker-end="url(#arrow)">
       <path d="M178 165 L346 87"/><path d="M178 165 L346 241"/>
       <path d="M498 87 L667 53"/><path d="M498 87 L667 133"/>
