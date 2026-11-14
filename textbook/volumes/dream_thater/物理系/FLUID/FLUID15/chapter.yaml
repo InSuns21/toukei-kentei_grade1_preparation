@@ -1,0 +1,51 @@
+id: "FLUID15"
+title: "三次元ポテンシャル流と付加質量は何を予測するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID14
+  - FLUID12
+  - FLUID11
+  - FLUID6
+official_scope: []
+learning_objectives:
+  - "三次元の一次角モードの調和性、原点特異性、遠方減衰と球面非貫通条件を直接確かめられる"
+  - "静止球の一様流ポテンシャル、表面速度、圧力係数、圧力合力零を中間式から導ける"
+  - "並進球のポテンシャルと実験室座標での時間微分を区別し、非定常 Bernoulli 関係を Euler 方程式から導ける"
+  - "速度二乗項の偶対称性と加速度項の球面積分から付加質量 m_a=2πρa³/3 を検算できる"
+  - "外部流体の運動エネルギーを発散定理で評価し、付加質量を独立に再導出できる"
+  - "一般剛体の並進付加質量行列をエネルギー積分で解釈し、対称性・半正定値性と模型の限界を示せる"
+definitions:
+  - { id: FLUID15-DEF-01, name: "並進球の非貫通条件" }
+  - { id: FLUID15-DEF-02, name: "並進球の付加質量" }
+  - { id: FLUID15-DEF-03, name: "並進の付加質量行列" }
+theorems:
+  - { id: FLUID15-PROP-01, name: "軸対称一次角モードの調和性" }
+  - { id: FLUID15-THM-01, name: "静止球まわりの一様ポテンシャル流" }
+  - { id: FLUID15-PROP-02, name: "静止球の圧力係数と零合力" }
+  - { id: FLUID15-THM-02, name: "並進球の外部ポテンシャル" }
+  - { id: FLUID15-THM-03, name: "加速球の圧力合力と付加質量" }
+  - { id: FLUID15-PROP-03, name: "並進球が誘起する流体の運動エネルギー" }
+  - { id: FLUID15-PROP-04, name: "付加質量行列の対称性と正値性" }
+canonical_examples:
+  - "三次元角モード r cosθ と cosθ/r² の調和性"
+  - "固定球の球面で u_r=0 と赤道で u_θ=-3U/2"
+  - "球の前後で圧力が対称なため抗力が零になる球面積分"
+  - "移動中心 y=x-X(t) の偏微分と加速度項の分離"
+  - "水中半径 10 cm 球の排除質量と付加質量の数値比較"
+  - "Green の公式で外部流体の運動エネルギーを球面だけで評価"
+  - "球の付加質量行列がスカラー行列になる確認"
+problem_patterns:
+  - FLUID15-HARMONIC-DECAY
+  - FLUID15-SPHERE-BOUNDARY
+  - FLUID15-SURFACE-PRESSURE
+  - FLUID15-PARITY-INTEGRAL
+  - FLUID15-MOVING-BOUNDARY
+  - FLUID15-LAB-TIME-DERIVATIVE
+  - FLUID15-GREEN-ENERGY
+  - FLUID15-MASS-MATRIX
+  - FLUID15-FORCED-OSCILLATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
