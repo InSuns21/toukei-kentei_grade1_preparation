@@ -242,7 +242,7 @@ $$
 E[X_n^-]=E[X_n^+]-E[X_n]\le C-E[X_0],
 $$
 
-ゆえに $\sup_nE|X_n|\le2C-E[X_0]<\infty$ です。[Fatou の補題](../../F0/F0-00P4A/index.md)を非負変数 $|X_n|$ に使うと
+ゆえに $\sup_nE|X_n|\le2C-E[X_0]<\infty$ です。[Fatou の補題](../../F0/F0-00D2B/index.md#lem-f0-00d2b-01)を非負変数 $|X_n|$ に使うと
 
 $$
 E|X_\infty|\le\liminf_n E|X_n|<\infty.
