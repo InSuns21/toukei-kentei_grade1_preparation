@@ -13,6 +13,7 @@ learning_objectives:
   - "平行平板の押しつぶし流で圧力分布、荷重、膜厚への依存を検算し、空洞化や慣性の限界を区別する"
   - "Python検算で圧力と流量の独立関係、端条件、質量収支を照合する"
 definitions:
+  - { id: FLUID20-DEF-00, name: "運動学的境界条件" }
   - { id: FLUID20-DEF-01, name: "二次元薄膜の尺度と境界運動" }
   - { id: FLUID20-DEF-02, name: "薄膜の単位幅流量" }
 theorems:
