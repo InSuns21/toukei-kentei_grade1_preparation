@@ -615,7 +615,20 @@ $$
 
 $B=Ap$ は $\rho(B)=\rho(A)$、$\rho(B^*B)=\rho(A^*A)$、$\sigma(BB^*)=\sigma(ApA^*)$ を満たすため、上限は $\sigma(AA^*)$ を用いる同じ式へ変えられます。この操作は $\rho$ が非忠実な場合こそ必要です。
 
-$\mathcal N$ でもその環自身の支持を使って同じ議論を繰り返すと、両環の上限は共通の関数 $F_s(A)$ をそれぞれ $\mathcal N$ と $\mathcal M$ で最大化したものです。よって $R_{\mathcal N}(s)\le R_{\mathcal M}(s)$。各環の入力スペクトル測度の一次モーメントは[AQFT32の補題](../AQFT32/index.md#lem-aqft32-first-moment)により1以下なので、$a>1$ での $\log a$ 積分は有限です。一方 $a\le1$ での $-\log a$ の正部分は無限でもよく、Tonelliで扱えます。[逆作用素積分表示](#lem-aqft33-log-resolvent)で両辺から $1/(1+s)$ を引いて積分すれば
+$\mathcal N$ でも、その環自身の支持を使って同じ議論を繰り返します。両環の上限は共通の試験関数 $F_s(A)$ を、それぞれ $\mathcal N$ と $\mathcal M$ で最大化したものなので、
+
+$
+R_{\mathcal N}(s)\le R_{\mathcal M}(s).
+$
+
+各環の入力スペクトル測度 $\mu$ の一次モーメントは[相対スペクトル測度の一次モーメント補題](../AQFT32/index.md#lem-aqft32-first-moment)により1以下です。従って、対数積分の負部分は
+
+$
+\int_{(1,\infty)}\log a\,d\mu(a)
+\le\int_{(1,\infty)}a\,d\mu(a)\le1
+$
+
+で有限になります。正部分は無限でもよく、非負関数のTonelliの定理を用いて扱います。[逆作用素積分表示](#lem-aqft33-log-resolvent)で両辺から共通の $1/(1+s)$ を引き、上の可積分性を確認して積分すれば
 
 $$
 S_{\mathrm A}^{\mathcal N}(\rho|_{\mathcal N}\Vert\sigma|_{\mathcal N})
