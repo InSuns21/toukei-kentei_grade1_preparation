@@ -1,0 +1,28 @@
+chapter: GW1-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-13
+  - GW1-11
+  - GW1-10
+  - GW1-09
+  - GW1-08
+concepts:
+  - id: gromov-witten.degree-one-contracted-tail
+    name: 次数1写像での定数成分と標点の衝突
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（次数1写像での定数成分と標点の衝突）"]
+    requires: [gromov-witten.stable-map, gromov-witten.stable-map-zero-class]
+  - id: gromov-witten.p1-degree-one-point-count
+    name: 射影直線の次数1・点挿入の計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の次数1・点挿入の計数）"]
+    requires: [gromov-witten.degree-one-contracted-tail, gromov-witten.primary-enumerative-count, gromov-witten.convex-moduli-dimension]
+  - id: gromov-witten.p2-marked-line-count
+    name: 射影平面の二点と直線条件による次数1計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影平面の二点と直線条件による次数1計数）"]
+    requires: [gromov-witten.degree-one-contracted-tail, gromov-witten.lines-moduli, gromov-witten.primary-enumerative-count]
