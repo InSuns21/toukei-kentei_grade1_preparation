@@ -14,7 +14,7 @@ chapters:
   - { id: SP5, path: textbook/volumes/dream_thater/解析系/SP/SP5, status: completed, title: "有限 Markov 連鎖の収束・周期性・結合" }
   - { id: SP6, path: textbook/volumes/dream_thater/解析系/SP/SP6, status: completed, title: "ランダムウォーク・境界到達・破産問題" }
   - { id: SP7, path: textbook/volumes/dream_thater/解析系/SP/SP7, status: completed, title: "マルチンゲール・条件付き期待値・予測可能変換" }
-  - { id: SP8, path: textbook/volumes/dream_thater/解析系/SP/SP8, status: planned, title: "停止と任意抽出・Doob 分解" }
+  - { id: SP8, path: textbook/volumes/dream_thater/解析系/SP/SP8, status: completed, title: "停止と任意抽出・Doob 分解" }
   - { id: SP9, path: textbook/volumes/dream_thater/解析系/SP/SP9, status: planned, title: "最大不等式・上向き横断・マルチンゲール収束" }
   - { id: SP10, path: textbook/volumes/dream_thater/解析系/SP/SP10, status: planned, title: "計数過程・Poisson 過程・指数待ち時間" }
   - { id: SP11, path: textbook/volumes/dream_thater/解析系/SP/SP11, status: planned, title: "Poisson の重ね合わせ・間引き・印付き到着" }
