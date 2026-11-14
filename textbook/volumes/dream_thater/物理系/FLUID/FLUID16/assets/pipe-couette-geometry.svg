@@ -23,11 +23,11 @@
     <circle cx="658" cy="155" r="106" fill="#eef4f6" stroke="#385766" stroke-width="2.5"/>
     <circle cx="658" cy="155" r="56" fill="#fff" stroke="#385766" stroke-width="3"/>
     <path d="M673 100 A56 56 0 0 0 616 116" fill="none" stroke="#1b709d" stroke-width="4" marker-end="url(#flow-head)"/>
-    <line x1="658" y1="155" x2="714" y2="155" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
-    <line x1="658" y1="155" x2="764" y2="155" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <line x1="658" y1="155" x2="704" y2="123" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <line x1="658" y1="155" x2="750" y2="208" stroke="#71818b" stroke-width="1.5" stroke-dasharray="3 5"/>
     <circle cx="658" cy="155" r="3" fill="#25343d"/>
-    <text x="683" y="177" fill="#27343e" font-size="19">a</text>
-    <text x="749" y="176" fill="#27343e" font-size="19">b</text>
-    <text x="582" y="81" fill="#1b709d" font-size="19">Ωᵢ</text>
+    <text x="706" y="114" fill="#27343e" font-size="19">a</text>
+    <text x="755" y="229" fill="#27343e" font-size="19">b</text>
+    <text x="552" y="35" fill="#1b709d" font-size="19">Ωᵢ</text>
   </g>
 </svg>
