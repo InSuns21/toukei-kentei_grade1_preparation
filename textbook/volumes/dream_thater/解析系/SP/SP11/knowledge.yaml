@@ -1,0 +1,62 @@
+chapter: SP11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP10
+forward_references: []
+concepts:
+  - id: stochastic.poisson-superposition
+    name: 独立 Poisson 過程の重ね合わせ
+    kind: theorem
+    aliases: ["Poisson superposition theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（独立 Poisson 過程の重ね合わせ）"]
+    requires:
+      - stochastic.exponential-waiting-poisson-construction
+
+  - id: stochastic.independent-marked-arrivals
+    name: 独立な印付き到着
+    kind: definition
+    aliases: ["independent marked arrivals"]
+    introduction: formal
+    introduction_aliases: ["定義（独立な印付き到着）"]
+    requires:
+      - stochastic.simple-counting-process
+
+  - id: stochastic.poisson-independent-thinning
+    name: 独立間引きと多種類分割
+    kind: theorem
+    aliases: ["independent Poisson thinning"]
+    introduction: formal
+    introduction_aliases: ["定理（独立間引きと多種類分割）"]
+    requires:
+      - stochastic.independent-marked-arrivals
+
+  - id: stochastic.poisson-origin-marks
+    name: 重ね合わせた到着の出身印
+    kind: proposition
+    aliases: ["source marks of Poisson superposition"]
+    introduction: formal
+    introduction_aliases: ["命題（重ね合わせた到着の出身印）"]
+    requires:
+      - stochastic.poisson-superposition
+      - stochastic.independent-marked-arrivals
+
+  - id: stochastic.finite-mark-compound-poisson
+    name: 有限印を持つ複合 Poisson 過程
+    kind: definition
+    aliases: ["finite-mark compound Poisson process"]
+    introduction: formal
+    introduction_aliases: ["定義（有限印を持つ複合 Poisson 過程）"]
+    requires:
+      - stochastic.exponential-waiting-poisson-construction
+      - stochastic.independent-marked-arrivals
+
+  - id: stochastic.finite-mark-compound-poisson-moments
+    name: 有限印の複合 Poisson 過程の分布とモーメント
+    kind: proposition
+    aliases: ["finite-mark compound Poisson moments"]
+    introduction: formal
+    introduction_aliases: ["命題（有限印の複合 Poisson 過程の分布とモーメント）"]
+    requires:
+      - stochastic.finite-mark-compound-poisson
