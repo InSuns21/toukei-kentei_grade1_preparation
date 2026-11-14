@@ -185,7 +185,7 @@ $$
 \qquad p=s(\rho).
 $$
 
-$g(\lambda)>0$ は $\lambda\ne1$ のすべての正の点で成立します。非負関数の積分が零ならその関数はほとんど至る所零なので、$\mu_\rho(\{1\})=1$ です。スペクトル定理により
+$g(\lambda)>0$ は $\lambda\ne1$ のすべての正の点で成立します。非負関数の積分が零ならその関数はほとんど至る所零なので、$\mu_\rho(\{1\})=1$ です。[AQFT30の相対スペクトル測度の構成](../AQFT30/index.md#def-aqft30-araki-relative-entropy)で用いた非負自己共役作用素の関数計算から
 
 $$
 E_\Delta(\{1\})\xi_\rho=\xi_\rho,\qquad
@@ -511,7 +511,7 @@ $$
 一般の標準形で $p=s(\rho)$、$S_{\sigma\mid\rho,0}(A\xi_\rho+\zeta)=pA^*\xi_\sigma$ とする。$\int\lambda\,d\mu_\rho=\sigma(p)\le1$ を、定義域の確認から証明せよ。$\rho$ が忠実なら何が変わるか。
 
 <!-- solution-start -->
-**詳細解答。** $\xi_\rho=1\xi_\rho$ だから初期定義域に入り、$S\xi_\rho=p\xi_\sigma$ です。[相対モジュラー作用素](../AQFT29/index.md#def-aqft29-relative-modular)の平方根ノルム等式により $\xi_\rho\in\operatorname{Dom}\Delta^{1/2}$ で、スペクトル定理から
+**詳細解答。** $\xi_\rho=1\xi_\rho$ だから初期定義域に入り、$S\xi_\rho=p\xi_\sigma$ です。[相対モジュラー作用素](../AQFT29/index.md#def-aqft29-relative-modular)の平方根ノルム等式により $\xi_\rho\in\operatorname{Dom}\Delta^{1/2}$ であり、[AQFT30の相対スペクトル測度の構成](../AQFT30/index.md#def-aqft30-araki-relative-entropy)と非負自己共役作用素の関数計算から
 
 $$
 \int\lambda\,d\mu_\rho
