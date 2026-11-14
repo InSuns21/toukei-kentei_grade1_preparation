@@ -12,9 +12,9 @@
       <path d="M0 0 L7 3.5 L0 7 Z" fill="#a34a21"/>
     </marker>
   </defs>
-  <path d="M112 286 C255 278 435 209 778 162 L778 286 Z" fill="#dceff5"/>
+  <path d="M112 286 C185 214 430 180 778 162 L778 286 Z" fill="#dceff5"/>
   <rect x="81" y="287" width="715" height="39" fill="#e8e8e8" stroke="#697582" stroke-width="1.5"/>
-  <path d="M112 286 C255 278 435 209 778 162" fill="none" stroke="#176588" stroke-width="3" stroke-dasharray="10 7"/>
+  <path d="M112 286 C185 214 430 180 778 162" fill="none" stroke="#176588" stroke-width="3" stroke-dasharray="10 7"/>
   <line x1="81" y1="286" x2="830" y2="286" stroke="#253446" stroke-width="2.5" marker-end="url(#axis-arrow)"/>
   <line x1="81" y1="286" x2="81" y2="44" stroke="#253446" stroke-width="2.5" marker-end="url(#axis-arrow)"/>
   <g stroke="#136b8b" stroke-width="3" marker-end="url(#flow-arrow)">
@@ -22,7 +22,7 @@
     <line x1="367" y1="100" x2="467" y2="100"/>
     <line x1="558" y1="100" x2="658" y2="100"/>
   </g>
-  <line x1="686" y1="280" x2="686" y2="179" stroke="#a34a21" stroke-width="2.5" stroke-dasharray="4 4" marker-end="url(#delta-arrow)"/>
+  <line x1="686" y1="280" x2="686" y2="169" stroke="#a34a21" stroke-width="2.5" stroke-dasharray="4 4" marker-end="url(#delta-arrow)"/>
   <g font-family="Arial, sans-serif" font-size="21" fill="#253446">
     <text x="844" y="300">x</text>
     <text x="68" y="31">y</text>
