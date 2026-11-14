@@ -18,7 +18,7 @@ definitions:
 theorems:
   - { id: U3-26-PROP-02, name: "割引支払額の標本分散の有限標本不偏性" }
   - { id: U3-26-PROP-03, name: "GBM 欧州 call の漸近95%価格区間" }
-  - { id: U3-26-PROP-05, name: "K=0 Asian の右端平均バイアス" }
+  - { id: U3-26-PROP-05, name: "零行使価格 Asian の右端平均バイアス" }
 canonical_examples:
   - "s=K=100,r=0.03,q=0,sigma=0.2,T=1 の欧州 call 真値 9.413403383853 円"
   - "call 割引 payoff の真の標準偏差 14.110881 円と n=256,1024,4096,16384 の平方根則"
