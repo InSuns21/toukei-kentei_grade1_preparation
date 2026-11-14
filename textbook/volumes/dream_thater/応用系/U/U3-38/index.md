@@ -427,6 +427,18 @@ $$
 
 検算用の [fourier_pricing.py](assets/fourier_pricing.py) は **Python 3 標準ライブラリのみ**を使用します。$U$・$h$・$\alpha$ を変えた価格、独立な解析式との誤差を表示し、ゼロ配当・異なる行使価格・刻み幅を含む回帰テストを実行します。
 
+ブラウザでも、次の実行欄から**同じ Python ファイル**を実行できます。上限ごとの価格と符号付き誤差を表として読み、$U$ を固定して刻みを変えた行と、刻みを固定して上限を変えた行を区別します。今回は単一銘柄・単一行使価格のスカラー価格誤差の比較なので、数値表で離散化と打切りを直接照合します。
+
+~~~python-file-lab
+# lab-id: U3-38-FOURIER-CALL
+# lab-title: Fourier 積分と配当付き Black–Scholes 閉形式の照合
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-38/assets/fourier_pricing.py
+# timeout-ms: 15000
+# lab-preset: 積分上限と台形刻みを変え、独立解析式と照合 |
+~~~
+
+ローカルの Python 3 環境では、同じファイルを次のように実行します。
+
 ~~~bash
 python textbook/volumes/dream_thater/応用系/U/U3-38/assets/fourier_pricing.py
 ~~~
