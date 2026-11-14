@@ -1,0 +1,45 @@
+id: "FLUID19"
+title: "Stokes流はなぜ時間逆転に似た性質をもつか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID18
+official_scope: []
+learning_objectives:
+  - "同一形状・瞬時Stokes近似の線形性と運動学的可逆性を、物理的な時間反転や散逸の逆転と区別する"
+  - "二つのStokes解の積の発散を展開し、体積力を含むLorentz相反定理を法線の符号まで導出する"
+  - "平行平板の二つの駆動と体積力付きの例で境界仕事の相反性を直接検算する"
+  - "相反定理と粘性散逸恒等式から剛体の抵抗行列の対称性・正定値性を導き、球抵抗と接続する"
+  - "一自由度の往復形状変形が無変位となる条件を証明し、非相反ストロークや慣性・記憶効果との境界を説明する"
+definitions:
+  - { id: FLUID19-DEF-01, name: "Stokes相反問題の二解と境界仕事" }
+  - { id: FLUID19-DEF-02, name: "運動学的な逆向き駆動" }
+  - { id: FLUID19-DEF-03, name: "剛体運動の抵抗行列" }
+  - { id: FLUID19-DEF-04, name: "一自由度の相反ストローク" }
+theorems:
+  - { id: FLUID19-THM-01, name: "Lorentz相反定理" }
+  - { id: FLUID19-THM-02, name: "瞬時Stokes流の運動学的可逆性" }
+  - { id: FLUID19-THM-03, name: "抵抗行列の対称性と正の散逸" }
+  - { id: FLUID19-THM-04, name: "一自由度のスカラップ定理" }
+canonical_examples:
+  - "上側と下側を別々に動かす二つのCouette流の境界仕事が一致する"
+  - "Poiseuille体積力とCouette試験流で体積力の補正項を検算する"
+  - "Stokes球の6πηa抵抗を並進抵抗行列の対角成分として読む"
+  - "時間逆向きの速度でも散逸率は常に非負である"
+  - "形状変数qを往復させると積分が行きと帰りで打ち消される"
+  - "二自由度の閉路では一般に線積分が零とはならない"
+problem_patterns:
+  - FLUID19-RECIPROCAL-DIVERGENCE
+  - FLUID19-COUETTE-BOUNDARY-WORK
+  - FLUID19-BODY-FORCE-SIGN
+  - FLUID19-KINEMATIC-REVERSAL
+  - FLUID19-DISSIPATION
+  - FLUID19-RESISTANCE-SYMMETRY
+  - FLUID19-COUETTE-POISEUILLE-CHECK
+  - FLUID19-SCALLOP-INTEGRAL
+  - FLUID19-TWO-CONTROL-COUNTEREXAMPLE
+  - FLUID19-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 4 }

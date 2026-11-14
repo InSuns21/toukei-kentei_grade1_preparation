@@ -1,0 +1,54 @@
+chapter: FLUID19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID18
+concepts:
+  - id: fluid.stokes-reciprocal-pair
+    name: Stokes相反問題の二解と境界仕事
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Stokes相反問題の二解と境界仕事）"]
+    requires: [fluid.stokes-sphere-bvp, continuum.incompressible-newtonian-stress]
+  - id: fluid.lorentz-reciprocity
+    name: Lorentz相反定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Lorentz相反定理）"]
+    requires: [fluid.stokes-reciprocal-pair]
+  - id: fluid.kinematic-reversed-drive
+    name: 運動学的な逆向き駆動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動学的な逆向き駆動）"]
+    requires: [fluid.stokes-reciprocal-pair]
+  - id: fluid.stokes-kinematic-reversibility
+    name: 瞬時Stokes流の運動学的可逆性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（瞬時Stokes流の運動学的可逆性）"]
+    requires: [fluid.kinematic-reversed-drive]
+  - id: fluid.rigid-body-resistance
+    name: 剛体運動の抵抗行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（剛体運動の抵抗行列）"]
+    requires: [fluid.lorentz-reciprocity]
+  - id: fluid.resistance-reciprocal
+    name: 抵抗行列の対称性と正の散逸
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（抵抗行列の対称性と正の散逸）"]
+    requires: [fluid.rigid-body-resistance, fluid.lorentz-reciprocity]
+  - id: fluid.one-degree-reciprocal-stroke
+    name: 一自由度の相反ストローク
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一自由度の相反ストローク）"]
+    requires: [fluid.stokes-kinematic-reversibility]
+  - id: fluid.scallop-one-degree
+    name: 一自由度のスカラップ定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一自由度のスカラップ定理）"]
+    requires: [fluid.one-degree-reciprocal-stroke, fluid.resistance-reciprocal]
