@@ -1,0 +1,38 @@
+chapter: FLUID9
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID8
+  - FLUID4
+  - VC9
+concepts:
+  - id: fluid.material-loop
+    name: 物質閉曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（物質閉曲線）"]
+    requires: [fluid.pathline]
+  - id: fluid.material-loop-circulation
+    name: 物質閉曲線の循環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（物質閉曲線の循環）"]
+    requires: [fluid.material-loop, vector-calculus.circulation-vorticity]
+  - id: fluid.material-circulation-derivative
+    name: 物質閉曲線の循環の時間微分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（物質閉曲線の循環の時間微分）"]
+    requires: [fluid.material-loop-circulation, vector-calculus.material-derivative]
+  - id: fluid.kelvin-circulation
+    name: Kelvin の循環定理
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kelvin の循環定理）"]
+    requires: [fluid.material-circulation-derivative, fluid.barotropic-vorticity-condition, fluid.barotropic-pressure-potential, fluid.ideal-potential-force-model]
+  - id: fluid.baroclinic-circulation-source
+    name: 非順圧での循環生成と渦度流束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非順圧での循環生成と渦度流束）"]
+    requires: [fluid.material-circulation-derivative, fluid.baroclinic-source, vector-calculus.circulation-vorticity]
