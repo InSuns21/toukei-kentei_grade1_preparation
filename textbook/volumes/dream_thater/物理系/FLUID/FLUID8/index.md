@@ -26,8 +26,7 @@ $$
 
 $$
 D_tu=-\frac1\rho\nabla p-\nabla\Phi
-
-$$
+$
 
 となる。ただし [CTM7 の体積力](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)を本講では $f_{\mathrm{ext}}=-\nabla\Phi$ と書き、各 $t\in I$ に対して $\Phi(\cdot,t)\in C^2(\mathcal D)$ とする。$\nabla\Phi$ は時刻を固定した空間勾配なので、$\Phi$ が時間に依存してもよい。$\rho>0$ だから除算できる。この模型に粘性、非保存体積力、不連続面を含む流れは入れない。後の FLUID10 で粘性の寄与を加える。
 
@@ -549,7 +548,7 @@ $$
 
 ### B1. 初期加速度の curl と生成項の一致
 
-$\rho(\boldsymbol x,0)=3(1+0.1x)$、$p(\boldsymbol x,0)=p_0-9y$、$u(\boldsymbol x,0)=0$、$\Phi=0$ とする。$1+0.1x>0$ で滑らかな Euler 解が存在すると仮定する。$\partial_tu(x,0)$ を求め、その curl と傾圧項をそれぞれ計算して一致を示せ。
+$\rho(\boldsymbol x,0)=3(1+0.1x)$、$p(\boldsymbol x,0)=p_0-9y$、$u(\boldsymbol x,0)=0$、$\Phi=0$ とする。$1+0.1x>0$ で滑らかな Euler 解が存在すると仮定する。$\partial_tu(\boldsymbol x,0)$ を求め、その curl と傾圧項をそれぞれ計算して一致を示せ。
 
 - Level: B
 
