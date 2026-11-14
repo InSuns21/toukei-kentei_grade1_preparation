@@ -29,11 +29,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（高Re境界層の内側尺度）**  
 > 代表速度 $U>0$、長さ $L>0$、厚さ $\delta>0$ に対し、$\varepsilon=\delta/L$ と置く。二次元非圧縮流の内側で
->
+
 > - $x\sim L$、$y\sim\delta$、$u\sim U$、
 > - 連続の式と壁の非貫通条件に整合する $v\sim\varepsilon U$、
 > - 圧力差の尺度は $\rho U^2$
->
+
 > を採ることを、本講でいう**内側尺度**とする。議論する領域では無次元速度・圧力と、使う階数までの無次元微分が一様に $O(1)$ と仮定する。
 <!-- formal-statement-end -->
 
@@ -57,13 +57,19 @@ $u_x\sim U/L$、積分区間が $\delta$ なら $v\sim U\delta/L$ となる。�
 
 <!-- formal-statement-start -->
 > **定義（付着した境界層の接線速度接続）**  
-> $x$ を固定した壁近傍で $u(x,0)=v(x,0)=0$ とする。外部 Euler 流の壁に沿う接線速度を $U_e(x)>0$ とし、内側座標 $Y=y/\delta$ における先頭次数の接線速度 $u_0(x,Y)$ に
->
-> $$
-> \lim_{Y\to\infty}u_0(x,Y)=U_e(x)
-> $$
->
-> を課すことを**接線速度の整合（matching）**と呼ぶ。ここで $Y\to\infty$ は $\varepsilon\to0$ の内側座標で外側に向かう重なり領域を表し、固定された物理的 $y$ で無限遠へ進む操作と区別する。外部側には壁を横切る速度が先頭次数で零という条件を課すが、内側の $v$ が $Y\to\infty$ で零になるとは限らない。
+> 固定した $x$ で壁面が静止し、外部 Euler 流の接線速度を $U_e(x)>0$ とする。壁上では
+
+$
+u(x,0)=v(x,0)=0
+$
+
+> を課す。内側座標を $Y=y/\delta$ とし、先頭次数の接線速度 $u_0(x,Y)$ に次の極限条件を課す。
+
+$$
+\lim_{Y\to\infty}u_0(x,Y)=U_e(x)
+$$
+
+> この極限条件を**接線速度の整合（matching）**と呼ぶ。ここで $Y\to\infty$ は $\varepsilon\to0$ の内側座標で外側に向かう重なり領域を表し、固定された物理的 $y$ で無限遠へ進む操作と区別する。外部側には壁を横切る速度が先頭次数で零という条件を課すが、内側の $v$ が $Y\to\infty$ で零になるとは限らない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid21-matching -->
@@ -106,7 +112,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（境界層尺度での項の次数）**  
-> [内側尺度](#def-fluid21-inner-scaling)を満たす定常二次元非圧縮流について $\mathrm{Re}_L\gg1$ とし、$\varepsilon=\mathrm{Re}_L^{-1/2}$ を選ぶ。無次元微分が有界なら、水平慣性・水平圧力勾配・$y$ 方向の水平速度粘性は同じ基準次数であり、水平速度の $x$ 方向粘性は相対 $O(\varepsilon^2)$ である。垂直運動量式は先頭次数で $q_Y=0$ を与える。
+> [内側尺度](#def-fluid21-inner-scaling)を満たす定常二次元非圧縮流を考える。無次元微分は一様有界とし、尺度を
+
+$
+\mathrm{Re}_L\gg1,\qquad
+\varepsilon=\mathrm{Re}_L^{-1/2}
+$
+
+> と選ぶ。このとき、水平慣性・水平圧力勾配・壁に垂直な方向の粘性は同じ基準次数となる。流れ方向の水平速度粘性は相対 $O(\varepsilon^2)$ である。垂直運動量式は先頭次数で $q_Y=0$ を与える。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -155,24 +168,34 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（定常二次元 Prandtl 境界層方程式：形式的先頭次数）**  
-> $\rho,\mu,U,L>0$ を一定、$\nu=\mu/\rho$、$\mathrm{Re}_L=UL/\nu\gg1$ とする。滑らかな定常二次元非圧縮 Newton 流体が固定平板 $y=0$ の上を流れ、[内側尺度](#def-fluid21-inner-scaling)と[整合条件](#def-fluid21-matching)が成立すると仮定する。境界層外の接線速度 $U_e(x)>0$ と圧力 $p_e(x)$ は滑らかで、上記の接線 Euler 式を満たす。$\varepsilon=\mathrm{Re}_L^{-1/2}\to0$ で先頭次数の内側解を取ると、その運動方程式と条件は
->
-> $$
-> \boxed{u_x+v_y=0,}
-> $$
->
-> $$
-> \boxed{u u_x+v u_y
-> =-\frac1\rho p_e'(x)+\nu u_{yy}
-> =U_e(x)U_e'(x)+\nu u_{yy},}
-> $$
->
-> $$
-> u(x,0)=v(x,0)=0,\qquad
-> u(x,y)\longrightarrow U_e(x)
-> \quad (y/\delta\to\infty).
-> $$
->
+> 密度・粘性係数・代表速度・長さを正の定数とし、動粘性係数と Reynolds 数を
+
+$
+\nu=\frac{\mu}{\rho},\qquad
+\mathrm{Re}_L=\frac{UL}{\nu}\gg1,
+\qquad \rho,\mu,U,L>0
+$
+
+> と定める。滑らかな定常二次元非圧縮 Newton 流体が固定平板 $y=0$ の上を流れ、[内側尺度](#def-fluid21-inner-scaling)と[整合条件](#def-fluid21-matching)を満たすとする。外部速度 $U_e(x)>0$ と圧力 $p_e(x)$ は滑らかで、外部 Euler の接線式を満たす。
+
+> $\varepsilon=\mathrm{Re}_L^{-1/2}\to0$ で内側解の先頭次数を取ると、運動方程式と条件は
+
+$$
+\boxed{u_x+v_y=0,}
+$$
+
+$$
+\boxed{u u_x+v u_y
+=-\frac1\rho p_e'(x)+\nu u_{yy}
+=U_e(x)U_e'(x)+\nu u_{yy},}
+$$
+
+$$
+u(x,0)=v(x,0)=0,\qquad
+u(x,y)\longrightarrow U_e(x)
+\quad (y/\delta\to\infty).
+$$
+
 > ここで $(u,v)$ は境界層近似の先頭次数を物理単位に戻して書いたもので、圧力は先頭次数で $p_e(x)$ に等しい。これは一般の Navier–Stokes 方程式の厳密な恒等式ではない。
 <!-- formal-statement-end -->
 
@@ -211,11 +234,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（外部流の圧力と加速）**  
 > 定常・密度一定の滑らかな外側 Euler 流が、滑らかな固定壁に沿って接線速度 $U_e(x)>0$ を持ち、壁での法線速度が零、体積力がないとする。壁に沿う Euler 方程式により
->
-> $$
-> \boxed{p_e(x)+\frac{\rho}{2}U_e(x)^2=C}
-> $$
->
+
+$$
+\boxed{p_e(x)+\frac{\rho}{2}U_e(x)^2=C}
+$$
+
 > が壁に沿う一つの滑らかな区間で成り立つ。特に $U_e'>0$ は $p_e'<0$、$U_e'<0$ は $p_e'>0$ に対応する。
 <!-- formal-statement-end -->
 
@@ -258,11 +281,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（平板の局所 Reynolds 数）**  
 > 一様外部速度 $U>0$、一定動粘性係数 $\nu>0$、前縁からの距離 $x>0$ に対し、
->
-> $$
-> \boxed{\mathrm{Re}_x=\frac{Ux}{\nu}}
-> $$
->
+
+$$
+\boxed{\mathrm{Re}_x=\frac{Ux}{\nu}}
+$$
+
 > を**局所 Reynolds 数**とする。$\mathrm{Re}_x=\mathrm{Re}_L(x/L)$ であり、同じ流体・同じ外部速度でも前縁に近いほど小さい。
 <!-- formal-statement-end -->
 
@@ -275,13 +298,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（零圧力勾配・付着層流の厚さ尺度）**  
 > 一様な $U>0$ の外部流が、滑らかな静止平板に沿う定常二次元付着層流を形成し、局所変化の $x$ 方向長さが $x>0$、無次元微分が有界で水平移流と垂直粘性が両方残ると仮定する。$\mathrm{Re}_x\gg1$ の領域では
->
-> $$
-> \boxed{\frac{\delta(x)}x\sim\mathrm{Re}_x^{-1/2}},
-> \qquad
-> \boxed{\delta(x)\sim\sqrt{\frac{\nu x}{U}}}.
-> $$
->
+
+$$
+\boxed{\frac{\delta(x)}x\sim\mathrm{Re}_x^{-1/2}},
+\qquad
+\boxed{\delta(x)\sim\sqrt{\frac{\nu x}{U}}}.
+$$
+
 > この $\sim$ は尺度の次数の同等性を表し、厚さを99%速度などの基準で測ったときの厳密な係数を意味しない。
 <!-- formal-statement-end -->
 
@@ -330,17 +353,17 @@ $\delta(x)$ は下流へ増えるが、相対厚さ $\delta(x)/x$ は減る。$x
 <!-- formal-statement-start -->
 > **命題（境界層における壁面せん断）**  
 > [Prandtl 境界層の尺度](#thm-fluid21-prandtl)と滑らかな固定壁の無滑り条件の下で、壁面の接線粘性応力は先頭次数で
->
-> $$
-> \boxed{\tau_w(x)=\mu\,u_y(x,0)}
-> $$
->
+
+$$
+\boxed{\tau_w(x)=\mu\,u_y(x,0)}
+$$
+
 > となる。ただし $\tau_w$ は流体の応力成分 $\sigma_{xy}$ を壁位置で評価した符号付き量であり、壁が流体に与える接線力の向きとは区別する。$U_e(x)>0$ とする局所摩擦係数は
->
-> $$
-> \boxed{C_f(x)=\frac{\tau_w(x)}{\tfrac12\rho U_e(x)^2}}
-> $$
->
+
+$$
+\boxed{C_f(x)=\frac{\tau_w(x)}{\tfrac12\rho U_e(x)^2}}
+$$
+
 > と定められる。尺度解析だけでは $C_f$ の正確な係数も、どこでも $\tau_w>0$ となることも決まらない。
 <!-- formal-statement-end -->
 
@@ -482,7 +505,7 @@ $U_e(x)=U_0(1+x/L)$、$0\le x\le L$ とする。壁に沿う圧力差 $p_e(L)-p_
 <!-- solution-start -->
 #### 詳細解答
 
-[外部 Euler 圧力の命題](#prop-fluid21-edge-pressure)より $p_e+\rho U_e^2/2$ は一定。$U_e(0)=U_0$、$U_e(L)=2U_0$ だから
+[外部流の圧力と加速](#prop-fluid21-edge-pressure)より $p_e+\rho U_e^2/2$ は一定。$U_e(0)=U_0$、$U_e(L)=2U_0$ だから
 
 $$
 p_e(L)-p_e(0)
@@ -521,7 +544,7 @@ $u(y)=U(1-e^{-y/d})$、$U,d>0$ とする。$u_y(0)$、$\tau_w$、$C_f$ を求め
 <!-- solution-start -->
 #### 詳細解答
 
-$u_y=(U/d)e^{-y/d}$ より $u_y(0)=U/d>0$。[壁面せん断の命題](#prop-fluid21-wall-shear)から
+$u_y=(U/d)e^{-y/d}$ より $u_y(0)=U/d>0$。[境界層における壁面せん断](#prop-fluid21-wall-shear)から
 
 $$
 \tau_w=\frac{\mu U}{d}>0,\qquad
@@ -695,7 +718,7 @@ u_y(0)=\frac{2}{5\times10^{-4}}
 =4000\ \mathrm{s}^{-1}.
 $$
 
-$\mu=\rho\nu=1000\times10^{-6}=10^{-3}$ Pa s。よって[壁面せん断の公式](#prop-fluid21-wall-shear)から
+$\mu=\rho\nu=1000\times10^{-6}=10^{-3}$ Pa s。よって[境界層における壁面せん断](#prop-fluid21-wall-shear)から
 
 $$
 \tau_w=\mu u_y(0)
