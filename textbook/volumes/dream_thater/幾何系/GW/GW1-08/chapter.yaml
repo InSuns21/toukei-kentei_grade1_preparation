@@ -15,7 +15,7 @@ learning_objectives:
   - Gromovコンパクト性から安定極限が得られる方向と平滑化の逆方向を区別できる
   - 標点忘却の際に定数二特殊点成分だけを収縮して総曲線類を保てる
 definitions:
-  - { id: GW1-08-DEF-01, name: 種数0の標点付き安定J-正則写像 }
+  - { id: GW1-08-DEF-01, name: 種数0の標点付き安定写像 }
   - { id: GW1-08-DEF-02, name: 安定写像の同型と自己同型 }
   - { id: GW1-08-DEF-03, name: 種数0安定写像のモジュライ集合 }
 theorems:
