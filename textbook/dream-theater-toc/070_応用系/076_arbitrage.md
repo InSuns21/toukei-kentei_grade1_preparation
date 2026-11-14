@@ -13,3 +13,4 @@
 10. [U4-10 無裁定と統計的裁定の論理的な距離](textbook/volumes/dream_thater/応用系/U/U4-10/index.md)
 11. [U4-11 価格・対数価格・収益率の定常性を分ける](textbook/volumes/dream_thater/応用系/U/U4-11/index.md)
 12. [U4-12 単位根検定とその限界](textbook/volumes/dream_thater/応用系/U/U4-12/index.md)
+13. [U4-13 2系列の共和分とEngle–Granger法](textbook/volumes/dream_thater/応用系/U/U4-13/index.md)
