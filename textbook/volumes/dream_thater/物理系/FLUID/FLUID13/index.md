@@ -17,6 +17,8 @@ $$
 
 である。$\phi,\psi$ はどちらも [m$^2$/s]。複素微分、正則性と導関数の演算法則は [CA1 の正則関数の定義](../../../解析系/CA/CA1/index.md#def-ca1-holomorphic)および[複素微分法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)を使用する。以下では速度の二成分を $u_x-iu_y$ と一つの複素数に組み合わせる（$u_x+iu_y$ ではない）。
 
+$\phi_x=\partial\phi/\partial x$ は $y$ を固定した偏微分を表す一方、$F'(z)$ は複素変数 $z$ に関する微分である。両者がどう結び付くかは第1節の命題で証明する。
+
 ## 1. 二つのポテンシャルから複素速度を読む
 
 既知の円柱解では $\phi$ と $\psi$ を別々に持っていた。まとめた関数の導関数だけで速度を復元したいので、まず次を導入する。
@@ -113,12 +115,14 @@ $$
 J_c(z):=z+\frac{c^2}{z}
 $$
 
-を**Joukowski写像**という。この写像 $J_c$ の導関数 $J_c'(z_0)$ が零となる点 $z_0$ を、**Joukowski写像の臨界点**という。$J'(z_0)\ne0$ の点を、この章では局所的な等角点として扱う。
+を**Joukowski写像**という。この写像 $J_c$ の導関数 $J_c'(z_0)$ が零となる点 $z_0$ を、**Joukowski写像の臨界点**という。$J_c'(z_0)\ne0$ の点を、この章では局所的な等角点として扱う。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid13-joukowski -->
 **定義の確認**：$z=2c$ を代入すると $J_c(2c)=2c+c/2=5c/2$、$J_c'(z)=1-c^2/z^2$ より $J_c'(2c)=3/4\ne0$。この点の微小変位は一次近似で $3/4$ 倍となり、角度は保たれる。一方 $z=c$ では $J_c'(c)=0$、したがって等角点ではなく写像微分の零点である。$z=0$ はそもそも定義域に入らない。
 <!-- definition-example-end -->
+
+ここからは元の座標 $z$ に関する複素微分 $J_c'(z)=dJ_c/dz$ と、写像先の座標 $w$ に関する微分 $d\widetilde F/dw$ を区別する。$w=J_c(z)$ では変数が変わるため、$F'(z)$ をそのまま写像先の速度とはできない。次の命題で、非零の $J_c'(z)$ を介した連鎖律を差商から確かめる。
 
 <a id="prop-fluid13-map-and-velocity"></a>
 
@@ -167,7 +171,21 @@ J_c'(z)=1-\frac{c^2}{z^2},\qquad
 J_c''(z)=\frac{2c^2}{z^3}.
 $$
 
-$z_0\ne\pm c$ より $J_c'(z_0)\ne0$ で、一次近似 $J_c(z_0+h)=J_c(z_0)+J_c'(z_0)h+o(|h|)$ は正の倍率と回転を表す。局所逆写像が存在する点で、差商を変数 $z$ へ戻すと
+$z_0\ne\pm c$ より $J_c'(z_0)\ne0$ で、一次近似 $J_c(z_0+h)=J_c(z_0)+J_c'(z_0)h+o(|h|)$ は、複素数 $J_c'(z_0)$ の絶対値を倍率、偏角を回転角とする。
+
+逆写像の存在も式で確かめる。$w_0=J_c(z_0)$ とおけば
+
+$$
+w_0^2-4c^2=\left(z_0-\frac{c^2}{z_0}\right)^2\ne0.
+$$
+
+したがって $w_0$ の十分小さい近傍では $w^2-4c^2$ が零にならず、偏角を連続に選んで平方根の枝を固定できる。二次方程式 $z^2-wz+c^2=0$ の二根
+
+$$
+z_\pm(w)=\frac{w\pm\sqrt{w^2-4c^2}}2
+$$
+
+のうち $z_\pm(w_0)=z_0$ を満たす方は連続で、近傍を小さくすれば $z_0$ の近傍へ値を取り、$J_c(z_\pm(w))=w$ を満たす。既に示した局所単射性と合わせて、これが局所逆写像である。この逆写像が連続なので、$w\to w_0$ は対応する $z\to z_0$ と同値になり、差商を変数 $z$ へ戻すと
 
 $$
 \begin{aligned}
@@ -181,7 +199,7 @@ $$
 \end{aligned}
 $$
 
-分母の極限は零でないので商の極限を取れる。最後に $w=z+c^2/z$ の両辺へ $z$ を掛けると $z^2-wz+c^2=0$。判別式 $w^2-4c^2=0$ から $w=\pm2c$、対応する根はそれぞれ $z=\pm c$ である。
+分母の極限は零でないので商の極限を取れる。逆写像を構成した二次方程式の判別式が $w^2-4c^2=0$ となるのは $w=\pm2c$ のときであり、対応する重根はそれぞれ $z=\pm c$ である。
 <!-- proof-end -->
 
 分岐値があることと、その点が**流体の領域内にあること**は別問題である。写像する外部領域から導関数の零点を取り除ければ、流体内では速度変換が正則に使える場合がある。実例を次に作る。
@@ -234,9 +252,20 @@ w&=ae^{i\theta}+\frac{c^2}{a}e^{-i\theta}\\
 \end{aligned}
 $$
 
-$B>0$ だから単純な楕円を一周する。$J_c$ は境界を含む外部で連続かつ単射、$|z|\to\infty$ で $|J_c(z)|\to\infty$ である。楕円の外の任意の点へ逆を延長するとき、逆像が途中で消えるには有限境界へ近づくか無限遠へ逃げる必要があるが、前者の像は楕円上、後者の像は無限遠となり、ともに不可能である。したがって連結な楕円外部はすべて像に入る。これは境界の像が楕円であることと、単射性・無限遠での振舞いを合わせた結論である。
+$B>0$ だから円周の像は単純な楕円を一周する。外部の像が**楕円の外部全体**であることも確認する。先ほどの積の判定は $|z_1|,|z_2|\ge a>c$ でも成立するので、$J_c$ は境界を含む集合 $\{|z|\ge a\}$ で単射であり、$J_c(D_a)$ は楕円周上の点を含まない。$D_a$ は連結で、$J_c(z)=z+O(1/z)$ より像は無限遠へ伸びる。したがって $J_c(D_a)$ は楕円の外側の連結成分 $E$ に含まれる。
 
-[円柱流の複素ポテンシャル](#prop-fluid13-complex-velocity)は $D_a$ 全体で一価、境界上で $\operatorname{Im}F(ae^{i\theta})=0$ である。ゆえに $\operatorname{Im}\widetilde F=0$ が楕円の境界全体で成り立つ。[流れ関数の等高線が流線となる関係](../FLUID11/index.md#prop-fluid11-cr-harmonic)より境界へ接する流れである。速度は[変換公式](#prop-fluid13-map-and-velocity)に $F'(z)=U(1-a^2/z^2)$ を代入した式となる。$|z|\to\infty$ で分子と分母はともに1に近づくので $\widetilde q\to U$。
+逆に像が $E$ の一部で止まらないことを示す。前節の[Joukowski写像の局所可逆性と複素速度変換](#prop-fluid13-map-and-velocity)から $J_c(D_a)$ は $E$ の開集合である。さらに $w_n=J_c(z_n)\in J_c(D_a)$ が $w_*\in E$ に収束するとする。$|z_n|>a$ と
+
+$$
+|w_n|=\left|z_n+\frac{c^2}{z_n}\right|
+\ge |z_n|-\frac{c^2}{a}
+$$
+
+より $(z_n)$ は有界なので、部分列を選んで $z_n\to z_*$、$|z_*|\ge a$ とできる。もし $|z_*|=a$ なら連続性から $w_*=J_c(z_*)$ は楕円周上にあり、$w_*\in E$ に矛盾する。よって $|z_*|>a$、$w_*=J_c(z_*)$ である。像は $E$ の中で閉でもある。非空かつ連結な $E$ の開閉部分集合なので $J_c(D_a)=E$ と結論できる。
+
+[円柱流の複素ポテンシャル](#prop-fluid13-complex-velocity)は $D_a$ 全体で一価、境界上で $\operatorname{Im}F(ae^{i\theta})=0$ である。ゆえに $\operatorname{Im}\widetilde F=0$ が楕円の境界全体で成り立つ。
+
+[流れ関数の等高線が流線となる関係](../FLUID11/index.md#prop-fluid11-cr-harmonic)より境界へ接する流れである。速度は[変換公式](#prop-fluid13-map-and-velocity)に $F'(z)=U(1-a^2/z^2)$ を代入した式となる。$|z|\to\infty$ で分子と分母はともに1に近づくので $\widetilde q\to U$。
 <!-- proof-end -->
 
 **直接計算**：$a=2c$ とすれば、半長軸 $A=5c/2$、半短軸 $B=3c/2$ である。$A^2-B^2=(25-9)c^2/4=4c^2$。たとえば円周の上端 $z=ia$ の写像は $w=iB$。流線の接線速度は変わるが、流線という**境界条件そのもの**は写像後も保たれる。
@@ -249,7 +278,23 @@ $$
 =\frac{2U}{1+c^2/a^2}.
 $$
 
-この値は円柱の上端速度 $2U$ と等しいとは限らない。圧力を求めるときは、[FLUID6 の全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)が成立する追加の定常・非粘性・一定密度条件で、**写像後の速度の絶対値**を使う。
+この値は円柱の上端速度 $2U$ と等しいとは限らない。写像後の複素速度は $\widetilde q=\widetilde u_X-i\widetilde u_Y$ なので、速さは $|\widetilde q|=\sqrt{\widetilde u_X^2+\widetilde u_Y^2}$ と読む。
+
+圧力に使う [FLUID6 の全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)は三次元の連結開領域上の定理である。楕円外部を $E\subset\mathbb R^2$ とし、$E\times(-1,1)$ 上へ
+
+$$
+\overline u(X,Y,s)=(\widetilde u_X(X,Y),\widetilde u_Y(X,Y),0),
+\qquad \overline p(X,Y,s)=p(X,Y)
+$$
+
+と高さ変数 $s$ に依存しない形で延長する。$E$ は連結で $\widetilde u$ は正則ポテンシャルから得た滑らかな無渦場だから、$\nabla\times\overline u=(0,0,\partial_X\widetilde u_Y-\partial_Y\widetilde u_X)=0$。**さらに** $\rho>0$ が一定、$p\in C^1$、体積力のポテンシャルが一定で、延長した場が定常・非粘性の [Euler 方程式](../FLUID6/index.md#thm-fluid6-euler-equation)を満たすと仮定したときに限り、同系を適用して
+
+$$
+p+\frac{\rho}{2}|\widetilde q|^2
+=p_\infty+\frac{\rho}{2}U^2
+$$
+
+を得る。圧力を求めるときは**写像後の速さ**を用い、等角写像が速度の大きさまで保存すると誤解しない。
 
 ## 4. 翼型状の輪郭を作ると後縁で何が起きるか
 
@@ -302,8 +347,21 @@ $$
 へ $z(\theta)$ を代入する。$e^{i\theta}=1+i\theta-\theta^2/2-i\theta^3/6+O(\theta^4)$ を使うと
 
 $$
-z(\theta)-c=iR\theta-\frac R2\theta^2+O(\theta^3),
+z(\theta)-c=iR\theta-\frac R2\theta^2+O(\theta^3).
 $$
+
+分子を二乗し、分母を $z(0)=c>0$ の近くで展開すると
+
+$$
+\begin{aligned}
+(z(\theta)-c)^2
+&=-R^2\theta^2-iR^2\theta^3+O(\theta^4),\\
+\frac1{z(\theta)}
+&=\frac1c-\frac{iR}{c^2}\theta+O(\theta^2).
+\end{aligned}
+$$
+
+積の三次係数は $-iR^2/c+iR^3/c^2=iR^2d/c^2$ である。さらに $z(-\theta)=\overline{z(\theta)}$ と $J_c(\overline z)=\overline{J_c(z)}$ により、実部は $\theta$ の偶関数、虚部は奇関数で、表示した余剰次数が従う。
 
 $$
 \begin{aligned}
@@ -500,7 +558,9 @@ $$
 |\widetilde q(iB)|=\frac{2U}{5/4}=\frac85U.
 $$
 
-写像前のよどみ点 $z=\pm a$ は $F'(\pm a)=0$ であり、写像微分は $1-c^2/a^2=3/4\ne0$。したがって像 $w=\pm(a+c^2/a)=\pm5c/2$ がよどみ点となる。速度の全域無渦性と定常・非粘性・一定密度より[全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)が成立し、[圧力係数の定義](../FLUID12/index.md#def-fluid12-pressure-coefficient)で
+写像前のよどみ点 $z=\pm a$ は $F'(\pm a)=0$ であり、写像微分は $1-c^2/a^2=3/4\ne0$。したがって像 $w=\pm(a+c^2/a)=\pm5c/2$ がよどみ点となる。
+
+写像後の楕円外部で速度場を高さに依存しない三次元場へ延長すると、第3節で確認したとおり、連結性・滑らかさ・無渦性が成り立つ。問題の定常・一定密度・非粘性 Euler 方程式と水平面の一定体積力ポテンシャルを合わせて[全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)を適用する。[圧力係数の定義](../FLUID12/index.md#def-fluid12-pressure-coefficient)で
 
 $$
 C_p(iB)=1-\frac{|\widetilde q(iB)|^2}{U^2}
@@ -617,7 +677,7 @@ $$
 
 であり、$z\in D$ なので $z\ne c$ として約分できる。$z\to c$ で $z+c+2d=2R$、$z+d=R$ より $\widetilde q\to Uc/R$。この計算は $0/0$ を直接代入していない。
 
-**5.** [FLUID6 の全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)の適用条件を満たし、無限遠で $J_c(z)=z+O(1/z)$、$\widetilde q\to U$ だから
+**5.** 写像後の領域 $J_c(D)$ は連結で、速度は正則ポテンシャルから得られる $C^2$ 無渦場である。第3節と同じく高さ方向へ $(\widetilde u_X,\widetilde u_Y,0)$ と延長すれば、問題の定常・一定密度・非粘性 Euler 方程式および一定高さの仮定で三次元の[FLUID6 の全域 Bernoulli 積分](../FLUID6/index.md#cor-fluid6-global-bernoulli)の条件を満たす。無限遠で $J_c(z)=z+O(1/z)$、$\widetilde q\to U$ だから
 
 $$
 p+\frac{\rho}{2}|\widetilde q|^2
