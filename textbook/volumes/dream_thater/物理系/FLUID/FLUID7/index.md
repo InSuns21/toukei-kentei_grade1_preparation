@@ -76,10 +76,10 @@ $$
 
 ここで行列の核と、線形代数で学ぶ「零化空間」との対応を確認する。$A$ の独立な行が張る $W\subset\mathbb R^n$ は $\dim W=r=\operatorname{rank}A$ を満たす。指数ベクトル $\alpha\in\mathbb R^n$ に線形形式 $\varphi_\alpha(w)=w\cdot\alpha$ を対応させると、標準内積によって $\mathbb R^n$ とその双対空間が同一視できる。行列積 $A\alpha$ の各成分は行ベクトルと $\alpha$ の内積なので、
 
-$
+$$
 A\alpha=0\quad\Longleftrightarrow\quad
 (\forall w\in W)\ \varphi_\alpha(w)=0.
-$
+$$
 
 つまり $\ker A$ は $W$ の零化空間に対応する。[LA3A の零化空間の次元公式](../../../基礎科目/LA/LA3A/index.md#thm-la3a-annihilator-dimension)をこの $n$ 次元空間の $W$ に適用して $\dim\ker A=n-r$ を得る。したがって、独立な無次元積が何個必要かは、単位の指数を並べた段階で分かる。ただし、量の一覧は問題の現象に必要なものを漏れなく指定したものとする。次元定理は未知の物理量や境界条件を発見してくれるわけではない。
 
@@ -120,25 +120,25 @@ $$
 
 残りの第 $r+k$ 量（$1\le k\le n-r$）の変換後の対数を実際に求める。$a_{r+k}$ は $A$ の第 $r+k$ 列であり、先ほど定めた $s$ を代入すると、
 
-$
+$$
 y_{r+k}+a_{r+k}^{\mathsf T}s
 =y_{r+k}-\bigl(A_r^{-1}a_{r+k}\bigr)^{\mathsf T}
 (y_1,\ldots,y_r)^{\mathsf T}.
-$
+$$
 
 この右辺を $\beta^{(k)}\cdot y$ と置く。$\beta^{(k)}$ は先頭 $r$ 成分が $-A_r^{-1}a_{r+k}$、第 $r+k$ 成分が $1$、それ以外が $0$ の指数ベクトルである。したがって
 
-$
+$$
 A\beta^{(k)}
 =-A_r(A_r^{-1}a_{r+k})+a_{r+k}=0,
-$
+$$
 
 ゆえに任意の単位変更 $s'$ に対して
 
-$
+$$
 \beta^{(k)}\cdot(y+A^{\mathsf T}s')
 =\beta^{(k)}\cdot y.
-$
+$$
 
 さらに後半 $n-r$ 成分を見ると、各 $\beta^{(k)}$ は異なる位置にだけ $1$ を持つので一次独立である。前節で示した $\dim\ker A=n-r$ と合わせて零化空間の基底になる。対数を指数へ戻せば、変換後の残りの値は $\prod_jq_j^{\beta_j^{(k)}}$ である。
 
