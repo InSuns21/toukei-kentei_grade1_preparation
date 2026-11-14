@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" data-layout-lint="strict" role="img" aria-labelledby="t d">
+  <title id="t">薄膜の収束くさびと壁速度</title>
+  <desc id="d">水平な下壁は右向きに速度Uで動き、上壁は静止している。入口の隙間h_inは出口の隙間h_outより広く、両者の間の液体の薄膜は右に向かって薄くなる。下壁をz=0、上壁をz=h(x)とし、x軸は右方向。</desc>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0 0 L9 4 L0 8 Z" fill="#27466a"/>
+    </marker>
+    <marker id="gap" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto-start-reverse">
+      <path d="M0 0 L6 3.5 L0 7 Z" fill="#3162a4"/>
+    </marker>
+  </defs>
+  <path d="M122 98 L634 176 L634 245 L122 245 Z" fill="#dbeef5" stroke="none"/>
+  <path d="M100 95 L650 179" fill="none" stroke="#333a46" stroke-width="8" stroke-linecap="round"/>
+  <line x1="100" y1="248" x2="652" y2="248" stroke="#333a46" stroke-width="8" stroke-linecap="round"/>
+  <line x1="163" y1="110" x2="163" y2="237" stroke="#3162a4" stroke-width="2" stroke-dasharray="5 3" marker-start="url(#gap)" marker-end="url(#gap)"/>
+  <line x1="601" y1="178" x2="601" y2="237" stroke="#3162a4" stroke-width="2" stroke-dasharray="5 3" marker-start="url(#gap)" marker-end="url(#gap)"/>
+  <text x="78" y="176" text-anchor="end" font-family="sans-serif" font-size="21" fill="#183f79">h_in</text>
+  <text x="665" y="219" font-family="sans-serif" font-size="21" fill="#183f79">h_out</text>
+  <text x="312" y="65" font-family="sans-serif" font-size="22" fill="#25313d">U₁ = 0</text>
+  <line x1="290" y1="285" x2="409" y2="285" stroke="#27466a" stroke-width="3.5" marker-end="url(#arr)"/>
+  <text x="310" y="329" font-family="sans-serif" font-size="22" fill="#27466a">U₀ = U</text>
+  <line x1="490" y1="319" x2="668" y2="319" stroke="#6a727c" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="680" y="328" font-family="sans-serif" font-size="21" fill="#25313d">x</text>
+  <text x="318" y="205" font-family="sans-serif" font-size="22" fill="#20476b">p(x)</text>
+</svg>

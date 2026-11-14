@@ -1,0 +1,48 @@
+chapter: FLUID20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID19
+concepts:
+  - id: fluid.thin-film-kinematic-boundary
+    name: 運動学的境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動学的境界条件）"]
+    requires: [continuum.wall-no-slip]
+  - id: fluid.thin-film-scaling
+    name: 二次元薄膜の尺度と境界運動
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二次元薄膜の尺度と境界運動）"]
+    requires: [continuum.incompressible-navier-stokes, fluid.thin-film-kinematic-boundary]
+  - id: fluid.thin-film-width-flux
+    name: 薄膜の単位幅流量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（薄膜の単位幅流量）"]
+    requires: [fluid.thin-film-scaling]
+  - id: fluid.lubrication-couette-poiseuille
+    name: 薄膜のCouette–Poiseuille速度・流量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（薄膜のCouette–Poiseuille速度・流量）"]
+    requires: [fluid.thin-film-scaling, fluid.thin-film-width-flux]
+  - id: fluid.reynolds-lubrication
+    name: Reynolds潤滑方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Reynolds潤滑方程式）"]
+    requires: [fluid.lubrication-couette-poiseuille]
+  - id: fluid.wedge-bearing-lubrication
+    name: 収束くさび軸受の圧力と流量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（収束くさび軸受の圧力と流量）"]
+    requires: [fluid.reynolds-lubrication]
+  - id: fluid.squeeze-film-pressure
+    name: 平行板押しつぶし膜の圧力と荷重
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平行板押しつぶし膜の圧力と荷重）"]
+    requires: [fluid.reynolds-lubrication]

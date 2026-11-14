@@ -1,0 +1,42 @@
+id: "FLUID20"
+title: "薄い流れで潤滑方程式が現れるのはなぜか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID19
+official_scope: []
+learning_objectives:
+  - "細長比ε=H/Lと慣性比Re_L ε²を項別に比較し、薄膜近似の成立条件と捨てた項を説明する"
+  - "無滑り境界条件からCouette–Poiseuille型速度分布と単位幅流量qを積分して導出する"
+  - "動く上壁の運動学的境界条件と非圧縮質量保存からReynolds潤滑方程式を導く"
+  - "定常収束くさびで入口出口の圧力、一定流量、最大圧力の位置と値を求める"
+  - "平行平板の押しつぶし流で圧力分布、荷重、膜厚への依存を検算し、空洞化や慣性の限界を区別する"
+  - "Python検算で圧力と流量の独立関係、端条件、質量収支を照合する"
+definitions:
+  - { id: FLUID20-DEF-00, name: "運動学的境界条件" }
+  - { id: FLUID20-DEF-01, name: "二次元薄膜の尺度と境界運動" }
+  - { id: FLUID20-DEF-02, name: "薄膜の単位幅流量" }
+theorems:
+  - { id: FLUID20-THM-01, name: "薄膜のCouette–Poiseuille速度・流量" }
+  - { id: FLUID20-THM-02, name: "Reynolds潤滑方程式" }
+  - { id: FLUID20-PROP-01, name: "収束くさび軸受の圧力と流量" }
+  - { id: FLUID20-PROP-02, name: "平行板押しつぶし膜の圧力と荷重" }
+canonical_examples:
+  - "平行平板h=Hで圧力勾配零なら線形Couette速度とq=UH/2"
+  - "長さLで厚さ2HからHへ減るくさびのq=2UH/3とp_max=ηUL/(4H²)"
+  - "同じ厚さのまま押しつぶす平板でp(x)=6ηV((L/2)²-x²)/H³"
+  - "Re_L=10でもε=0.005ならRe_L ε²=0.00025"
+  - "薄いというだけでは慣性・空洞化・壁のすべり・急勾配を無視できない"
+problem_patterns:
+  - FLUID20-LUBRICATION-SCALING
+  - FLUID20-THIN-FILM-VELOCITY
+  - FLUID20-FLUX-INTEGRATION
+  - FLUID20-WALL-KINEMATICS
+  - FLUID20-STEADY-WEDGE
+  - FLUID20-SQUEEZE-FILM
+  - FLUID20-WEDGE-EXTREMUM
+  - FLUID20-INTEGRATED-REYNOLDS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 4 }
