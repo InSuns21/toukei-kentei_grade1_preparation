@@ -408,7 +408,7 @@ $$
 
 [定義](#def-fluid14-kutta-condition)の有限速度条件は $F'(c)=0$ と同値であるから、$2U\sin\alpha+\Gamma/(2\pi R)=0$ を解いて $\Gamma=-4\pi R U\sin\alpha$ と決まる。逆にこの $\Gamma$ なら $F'(c)=0$ である。$F'$ は $c$ の近傍で正則で $J_c'(z)$ は一位零点だから、$F'/J_c'$ は有限極限を持つ。
 
-有限極限の値も確認できる。$F'(c)=J_c'(c)=0$ なので、$z$ に関する Taylor 展開と $J_c''(c)=2/c$ から
+有限極限の値も確認できる。$F'(c)=J_c'(c)=0$ なので、$z$ に関する[CA3 の正則関数の Taylor 展開](../../../解析系/CA/CA3/index.md#thm-ca3-taylor)と $J_c''(c)=2/c$ から
 
 $$
 \begin{aligned}
