@@ -92,7 +92,18 @@ V(t,s)=E^Q_{t,s}\!\left[
 \right].
 $$
 
-この恒等式は有界な古典解の一意性も与えます。期待値から PDE を導く方向は、まず $h_\Delta=\min\{H_B,t+\Delta t\}$ として到達前の短区間に限定し、条件付き期待値と Itô 展開を使います。$s>B$ の内部では $\Delta t\downarrow0$ とすると境界への到達確率が小さくなるため、内部の $C^{1,2}$ 正則性と局所化の下で drift 係数が0でなければなりません。なお $G(B+)\ne0$ の場合、角 $(T,B)$ では終端値と境界値が不連続です。角まで $C^{1,2}$ と主張していません。
+この恒等式は有界な古典解の一意性も与えます。期待値から PDE を導く方向では、$0<\Delta<T-t$、$h_\Delta=\min\{H_B,t+\Delta\}$ とします。[Brown 運動の強マルコフ性](../../../解析系/STO/STO4/index.md#thm-sto4-brownian-strong-markov)を用いた停止時点の条件付き価格表現と、割引価値への Itô 公式から
+
+$
+V(t,s)=E^Q_{t,s}[e^{-r(h_\Delta-t)}V(h_\Delta,S_{h_\Delta})],
+$
+
+$
+0=E^Q_{t,s}\left[\int_t^{h_\Delta}e^{-r(u-t)}
+(V_t+\mathcal L_sV-rV)(u,S_u)\,du\right]
+$
+
+を得ます。内点 $s>B$ で $\delta=\log(s/B)>0$、$\mu=r-q-\sigma^2/2$ とおくと、対数 GBM は $\log(S_{t+v}/B)=\delta+\mu v+\sigma(W_{t+v}^Q-W_t^Q)$ です。小さい $\Delta$ の間に障壁へ到達するには、Brown 増分が少なくとも $(\delta-|\mu|\Delta)/\sigma>0$ だけ動く必要があります。[反射原理](../../../解析系/STO/STO4/index.md#thm-sto4-reflection-principle)と正規尾の評価によって到達確率は $O(\exp[-c/\Delta])=o(\Delta)$（ある $c>0$）です。内点付近で局所化して上式を $\Delta$ で割り、$C^{1,2}$ の連続性と停止前経路の連続性を使い $\Delta\downarrow0$ とすれば $(V_t+\mathcal L_sV-rV)(t,s)=0$ となります。なお $G(B+)\ne0$ の場合、角 $(T,B)$ では終端値と境界値が不連続です。角まで $C^{1,2}$ と主張していません。
 <!-- proof-end -->
 
 ### knock-in との価格関係と境界の違い
