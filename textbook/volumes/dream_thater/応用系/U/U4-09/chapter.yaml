@@ -1,0 +1,46 @@
+id: "U4-09"
+title: "気配値の一括監査と最小修正"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-08]
+official_scope: []
+learning_objectives:
+  - 満期・フォワード・割引と行使価格を規格化して同時刻の気配を比較できる
+  - 同満期の上下限・縦スプレッド・凸性と仮定付き満期条件を行列不等式へ変換できる
+  - 中値の違反と気配区間の同時選択不能を区別できる
+  - 不整合コアを取り出し非負結合の証明書を手で検算できる
+  - 有限線形不等式のFarkas型二者択一を証明できる
+  - 重み付き二乗修正の存在・一意性と最適性条件を再導出できる
+  - 気配区間の最大緩和問題と重み・価格尺度の違いを計算できる
+  - 修正した仮想価格・モデル条件の不整合と実行可能な静的裁定を区別できる
+definitions:
+  - { id: U4-09-DEF-01, name: 格子上の形状整合価格集合 }
+  - { id: U4-09-DEF-02, name: 気配値の同時選択可能性 }
+  - { id: U4-09-DEF-03, name: 不整合コアと非負結合証明書 }
+  - { id: U4-09-DEF-04, name: 重み付き二乗修正と気配区間の最大緩和 }
+theorems:
+  - { id: U4-09-PROP-01, name: 形状条件の線形行表示 }
+  - { id: U4-09-THM-01, name: 有限個の価格不等式に対する二者択一 }
+  - { id: U4-09-THM-02, name: 重み付き二乗修正の存在・一意性と判定式 }
+  - { id: U4-09-PROP-02, name: 最大緩和問題と同時選択の関係 }
+canonical_examples:
+  - 二満期三行使価格の格子から二変数の形状整合集合を構成
+  - 同時選択不能な気配の三行不整合コアとFarkas証明書
+  - 中値の重み4対1で二乗修正を0.58へ投影する計算
+  - 区間距離の最大緩和で0.03だけ区間を広げる解
+  - 規格化行使価格0・1・2の蝶型を実際のbid/askで検算
+problem_patterns:
+  - U4-09-A1
+  - U4-09-A2
+  - U4-09-A3
+  - U4-09-A4
+  - U4-09-A5
+  - U4-09-B1
+  - U4-09-B2
+  - U4-09-B3
+  - U4-09-B4
+  - U4-09-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
