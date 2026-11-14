@@ -84,11 +84,13 @@ $$
 
 有限個のこのような射影 $p_1,\ldots,p_k$ に対し、
 $a=p_1+\cdots+p_k$ と置くと $\omega(a)=0$ です。
+
 $a$ の正のスペクトル射影 $e_n=1_{[1/n,\infty)}(a)$ は
 $0\le e_n\le na$ を満たすので、$0\le\omega(e_n)\le n\omega(a)=0$ です。
 $e_n$ は $n\to\infty$ で $a$ の像への射影、すなわち
 $p_1\vee\cdots\vee p_k$ に強収束します。$\omega$ の正規性より
 $\omega(p_1\vee\cdots\vee p_k)=0$ です。
+
 さらに有限部分族の上限を増加させた射影ネットにも正規性を適用すると
 $\omega(e)=0$ となります。従って $e$ は零射影の最大元で、
 $s(\omega)=1-e$ が条件を満たす最小射影です。
@@ -155,7 +157,11 @@ $$
 $E_{ij}=|e_i\rangle\langle e_j|$ を行列単位と書きます。
 例えば $E_{ij}E_{k\ell}=\delta_{jk}E_{i\ell}$ です。
 
-一般の標準形 $(\mathcal M,\mathcal H,J,\mathcal P)$ の自然正錐 $\mathcal P$ で、状態 $\rho,\sigma$ を単位ベクトル $\xi_\rho,\xi_\sigma$ で表します。ここで自然正錐は既習の[AQFT30での状態代表](../AQFT30/index.md#def-aqft30-araki-relative-entropy)と同じ設定です。ベクトル状態の $\mathcal M$ に関する支持を $p=s_{\mathcal M}(\xi_\rho)=s(\rho)$、可換子 $\mathcal M'$ に関する支持を $q=s_{\mathcal M'}(\xi_\rho)$ と記します。具体的には
+一般の標準形 $(\mathcal M,\mathcal H,J,\mathcal P)$ の自然正錐 $\mathcal P$ で、状態 $\rho,\sigma$ を単位ベクトル $\xi_\rho,\xi_\sigma$ で表します。
+
+ここで自然正錐は既習の[AQFT30での状態代表](../AQFT30/index.md#def-aqft30-araki-relative-entropy)と同じ設定です。
+
+ベクトル状態の $\mathcal M$ に関する支持を $p=s_{\mathcal M}(\xi_\rho)=s(\rho)$、可換子 $\mathcal M'$ に関する支持を $q=s_{\mathcal M'}(\xi_\rho)$ と記します。具体的には
 
 $$
 p\mathcal H=\overline{\mathcal M'\xi_\rho},
@@ -167,9 +173,11 @@ $$
 $P$ を $\overline{\mathcal M'\xi_\rho}$ への直交射影とすると、
 この閉部分空間は $\mathcal M'$ とその随伴で不変なので $P\in\mathcal M$ です。
 $P\xi_\rho=\xi_\rho$ より $\rho(1-P)=\|(1-P)\xi_\rho\|^2=0$ です。
+
 逆に $e\in\mathcal M$ が $\rho(1-e)=0$ を満たすなら
 $e\xi_\rho=\xi_\rho$ であり、任意の $B\in\mathcal M'$ に対して
 $eB\xi_\rho=Be\xi_\rho=B\xi_\rho$ です。
+
 ゆえに $e\ge P$、すなわち[支持射影の最小性](#def-aqft31-support)から $P=p$ です。
 同様の議論を $\mathcal M'$ に適用すると、もう一方の射影は $q$ となります。
 
