@@ -16,7 +16,7 @@ chapters:
   - { id: U4-09, path: textbook/volumes/dream_thater/応用系/U/U4-09, status: completed, title: "気配値の一括監査と最小修正" }
   - { id: U4-10, path: textbook/volumes/dream_thater/応用系/U/U4-10, status: completed, title: "無裁定と統計的裁定の論理的な距離" }
   - { id: U4-11, path: textbook/volumes/dream_thater/応用系/U/U4-11, status: completed, title: "価格・対数価格・収益率の定常性を分ける" }
-  - { id: U4-12, path: textbook/volumes/dream_thater/応用系/U/U4-12, status: planned, title: "単位根検定とその限界" }
+  - { id: U4-12, path: textbook/volumes/dream_thater/応用系/U/U4-12, status: completed, title: "単位根検定とその限界" }
   - { id: U4-13, path: textbook/volumes/dream_thater/応用系/U/U4-13, status: planned, title: "2系列の共和分とEngle–Granger法" }
   - { id: U4-14, path: textbook/volumes/dream_thater/応用系/U/U4-14, status: planned, title: "多変量共和分と誤差修正表現" }
   - { id: U4-15, path: textbook/volumes/dream_thater/応用系/U/U4-15, status: planned, title: "統計残差を取引可能なspreadに変える" }

@@ -1,0 +1,46 @@
+id: "U4-12"
+title: "単位根検定とその限界"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-11, TSA1, STO4, F0-00P4, F0-00P6]
+official_scope: []
+learning_objectives:
+  - AR(1) の単位根・安定性・局所単位根を区別し階差回帰の係数を計算できる
+  - ADF 回帰の定数・トレンド・差分ラグを設定し帰無仮説を正しく記述できる
+  - AR(2) から ADF 表現を自力導出し追加ラグの役割を説明できる
+  - ドリフトなし DF 統計量の有限標本恒等式から非標準極限分布を導出できる
+  - 回帰仕様別の単位根用臨界値と通常の t 分布の違いを説明できる
+  - 帰無モデルの第一種過誤確率と対立モデルの検出力を区別できる
+  - 局所単位根と一回の平均構造変化による検出力の問題を計算・反証できる
+  - 合成実験の乱数シード・生成過程・検定設定を再現し判定を監査できる
+definitions:
+  - { id: U4-12-DEF-01, name: AR(1) の単位根と局所単位根 }
+  - { id: U4-12-DEF-02, name: 拡張 Dickey–Fuller 検定：ADF 検定 }
+  - { id: U4-12-DEF-03, name: 検定のサイズ・検出力 }
+theorems:
+  - { id: U4-12-PROP-01, name: AR(2) の ADF 表現 }
+  - { id: U4-12-THM-01, name: ドリフトなし DF 統計量の非標準極限 }
+  - { id: U4-12-PROP-02, name: 局所単位根の持続性 }
+  - { id: U4-12-PROP-03, name: 平均の一回の変化と非単位根モデル }
+canonical_examples:
+  - 係数0.8と1の階差回帰比較
+  - AR(2) の係数1.4と負の0.4による差分ラグの役割
+  - 帰無モデルの DF 回帰の正確な平方和恒等式
+  - 局所単位根の分散の n オーダー成長
+  - 一回の平均変化を持つ安定な AR(1) の反例
+  - 固定シードの単位根・局所単位根・安定・構造変化の棄却率比較
+problem_patterns:
+  - U4-12-A1
+  - U4-12-A2
+  - U4-12-A3
+  - U4-12-A4
+  - U4-12-A5
+  - U4-12-B1
+  - U4-12-B2
+  - U4-12-B3
+  - U4-12-B4
+  - U4-12-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
