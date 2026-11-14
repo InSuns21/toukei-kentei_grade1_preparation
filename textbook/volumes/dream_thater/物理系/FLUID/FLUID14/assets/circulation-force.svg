@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="fluid14-title fluid14-desc" data-layout-lint="strict">
   <title id="fluid14-title">反時計回り循環の円柱流と下向き揚力</title>
   <desc id="fluid14-desc">右向き一様流Uが左から右へ円柱に向かう。中央の円柱の外側に反時計回りの循環を示す破線円弧と矢印があり、正の循環Gammaに対する圧力合力の揚力は円柱の中心から下向き、抗力は零と示している。</desc>
+  <rect x="0" y="0" width="720" height="320" fill="#ffffff"/>
   <defs>
     <marker id="flow-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0 0 L10 5 L0 10 Z" fill="#365a72"/>
@@ -21,13 +22,14 @@
     <circle cx="335" cy="155" r="4" fill="#222"/>
   </g>
   <g aria-label="反時計回りの正の循環" fill="none" stroke="#75552b" stroke-width="3.5" stroke-dasharray="12 6">
-    <path d="M448 155 A113 113 0 0 0 335 42" marker-end="url(#circ-head)"/>
+    <path d="M448 155 A113 113 0 0 0 335 42"/>
   </g>
+  <path d="M335 42 L355 33 L355 51 Z" fill="#75552b"/>
   <text x="472" y="78" font-size="22" fill="#66451c" font-family="sans-serif">Γ &gt; 0</text>
   <g aria-label="円柱への圧力合力としての下向き揚力" fill="none" stroke="#8c3838" stroke-width="4">
     <path d="M335 162 V270" marker-end="url(#force-head)"/>
   </g>
-  <text x="370" y="278" font-size="21" fill="#782c2c" font-family="sans-serif">L′ = −ρUΓ</text>
+  <text x="370" y="278" font-size="21" fill="#782c2c" font-family="sans-serif">L′ = -ρUΓ</text>
   <text x="490" y="170" font-size="22" fill="#333" font-family="sans-serif">D′ = 0</text>
   <g aria-label="座標の正方向" stroke="#555" stroke-width="2" fill="none">
     <path d="M604 246 H662" marker-end="url(#flow-head)"/>
