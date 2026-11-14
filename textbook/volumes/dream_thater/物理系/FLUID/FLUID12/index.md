@@ -168,7 +168,22 @@ $$
 =\int_0^{2\pi}\frac{Q}{2\pi R}R\,d\theta=Q.
 $$
 
-一方、円周上の位置ベクトルを $\boldsymbol{\ell}(\theta)=(R\cos\theta,R\sin\theta)$ と置くと、$\theta$ を変数として $\mathrm d\boldsymbol{\ell}=(\mathrm d\boldsymbol{\ell}/\mathrm d\theta)\,\mathrm d\theta=Re_\theta\,\mathrm d\theta$ である。$u_Q\cdot e_\theta=0$ だから循環は零。角度を連続に選んだ小領域で $\psi_Q=(Q/(2\pi))\theta$ とすると $(1/r)\psi_{\theta}=u_r,\ -\psi_r=u_\theta=0$ である。$Q\ne0$ のとき $\theta$ を $2\pi$ 増やすと $\psi_Q$ は $Q$ 変わり、[FLUID11 の大域判定定理](../FLUID11/index.md#thm-fluid11-global-period)とも一致する。
+一方、円周上の位置ベクトルを $\boldsymbol{\ell}(\theta)=(R\cos\theta,R\sin\theta)$ と置く。$\theta$ で微分すると向き付き接線変位は
+
+$$
+\mathrm d\boldsymbol{\ell}
+=\frac{\mathrm d\boldsymbol{\ell}}{\mathrm d\theta}\,\mathrm d\theta
+=Re_\theta\,\mathrm d\theta.
+$$
+
+$u_Q\cdot e_\theta=0$ だから循環は零。角度を連続に選んだ小領域では $\psi_Q=(Q/(2\pi))\theta$ と置けば、
+
+$$
+\frac1r\partial_\theta\psi_Q=\frac{Q}{2\pi r}=u_r,
+\qquad -\partial_r\psi_Q=0=u_\theta
+$$
+
+となる。$Q\ne0$ のとき $\theta$ を $2\pi$ 増やすと $\psi_Q$ は $Q$ 変わり、[FLUID11 の大域判定定理](../FLUID11/index.md#thm-fluid11-global-period)とも一致する。
 <!-- proof-end -->
 
 ここでの「湧出」は、領域 $D$ の**外にある原点**を通して流体を供給する数学的な境界条件である。$r=0$ を含めて「発散零だから流体は生まれていない」と推論するのは誤りである。基準長 $r_0$ は $\phi_Q$ の加法定数を変えるだけで速度・流束を変えない。
@@ -220,7 +235,7 @@ $$
 
 特に $x\ne0,\ y=0$ 上では $\phi_D=\mu/x$、$u_{D,x}=-\mu/x^2$、$u_{D,y}=0$。また分母 $r^4$ は定義域 $D$ 上で零にならず、$\phi_D$ と $u_D$ はその全域で滑らかである。調和性は次の命題の証明で確認する。
 
-特に $(x,y)=(a,0)$（$a>0$）で $u_D=(-\mu/a^2,0)$ となる。両軸に沿う速度が同一符号とは限らない点に注意する。
+例えば $(x,y)=(a,0)$（$a>0$）で $u_D=(-\mu/a^2,0)$ となる。両軸に沿う速度が同一符号とは限らない点に注意する。
 <!-- definition-example-end -->
 
 <a id="prop-fluid12-doublet-limit"></a>
@@ -289,7 +304,13 @@ $$
 \psi_D=-\frac{\mu\sin\theta}{r}+f(r).
 $$
 
-この式を $r$ で微分して $-\partial_r\psi_D=-\mu\sin\theta/r^2-f'(r)$ とすると、先に求めた $u_{D,\theta}=-\mu\sin\theta/r^2$ に一致するためには $f'(r)=0$ が必要である。加法定数を零に選び、
+この式を $r$ で微分すると
+
+$$
+-\partial_r\psi_D=-\frac{\mu\sin\theta}{r^2}-f'(r).
+$$
+
+先に求めた $u_{D,\theta}=-\mu\sin\theta/r^2$ と一致するには $f'(r)=0$ が必要である。加法定数を零に選び、
 
 $$
 \psi_D=-\frac{\mu\sin\theta}{r}
