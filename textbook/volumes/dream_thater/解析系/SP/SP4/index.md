@@ -152,7 +152,7 @@ $$
 \end{aligned}
 $$
 
-二つ目の等号では、各時刻にちょうど一つの状態へいることと、非負項への [Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)を使いました。この式で $\pi_i>0$、左辺は有限なので
+二つ目の等号では、各時刻にちょうど一つの状態へいることと、有限部分和を増やす [単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を使いました。この式で $\pi_i>0$、左辺は有限なので
 
 $$
 E_i[T_i^+]\le\frac1{\pi_i}<\infty.
