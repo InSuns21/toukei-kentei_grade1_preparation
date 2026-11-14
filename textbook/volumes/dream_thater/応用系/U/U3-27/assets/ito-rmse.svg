@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="355" viewBox="0 0 700 355" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">Itô左端和と時刻中点和の理論RMSE</title>
+  <desc id="desc">T=1、分割数mを4、16、64、256と4倍ずつ増やすと、左端和のItô積分への理論RMSEは0.354、0.177、0.088、0.044となり、実線と丸印で減少する。時刻中点和のStratonovich積分へのRMSEは0.250、0.125、0.0625、0.03125となり、破線と四角印で同じく半減する。縦軸は対数目盛である。</desc>
+  <rect width="700" height="355" rx="8" fill="#fcfdff"/>
+  <g stroke="#dce2e8" stroke-width="1">
+    <path d="M92 100 H574 M92 148 H574 M92 196 H574 M92 244 H574"/>
+    <path d="M125 70 V290"/>
+    <path d="M260 70 V290"/>
+    <path d="M395 70 V290"/>
+    <path d="M530 70 V290"/>
+  </g>
+  <g stroke="#414b56" stroke-width="2" fill="none">
+    <path d="M92 65 V290 H580"/>
+  </g>
+  <g fill="#263541" font-family="sans-serif" font-size="15">
+    <text x="90" y="38">RMSE（対数目盛）</text>
+    <text x="50" y="105" text-anchor="end">0.354</text>
+    <text x="50" y="153" text-anchor="end">0.177</text>
+    <text x="50" y="201" text-anchor="end">0.088</text>
+    <text x="50" y="249" text-anchor="end">0.044</text>
+    <text x="125" y="313" text-anchor="middle">4</text>
+    <text x="260" y="313" text-anchor="middle">16</text>
+    <text x="395" y="313" text-anchor="middle">64</text>
+    <text x="530" y="313" text-anchor="middle">256</text>
+    <text x="607" y="313">m</text>
+  </g>
+  <g data-series-group="integral-error" data-series-label="Ito-left" fill="none" stroke="#205a85" stroke-width="3">
+    <polyline points="125,100 260,148 395,196 530,244"/>
+  </g>
+  <g data-series-group="integral-error" data-series-label="time-midpoint" fill="none" stroke="#b45727" stroke-width="3" stroke-dasharray="10 7">
+    <polyline points="125,124 260,172 395,220 530,268"/>
+  </g>
+  <g>
+  <circle cx="125" cy="100" r="5.5" fill="#205a85" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="260" cy="148" r="5.5" fill="#205a85" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="395" cy="196" r="5.5" fill="#205a85" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="530" cy="244" r="5.5" fill="#205a85" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="120" y="119" width="10" height="10" fill="#b45727" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="255" y="167" width="10" height="10" fill="#b45727" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="390" y="215" width="10" height="10" fill="#b45727" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="525" y="263" width="10" height="10" fill="#b45727" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+  <g font-family="sans-serif" font-size="14" fill="#263541">
+    <path d="M97 339 H132" stroke="#205a85" stroke-width="3"/>
+    <circle cx="115" cy="339" r="5" fill="#205a85"/>
+    <text x="143" y="344">左端／Itô</text>
+    <path d="M332 339 H367" stroke="#b45727" stroke-width="3" stroke-dasharray="9 6"/>
+    <rect x="346" y="334" width="10" height="10" fill="#b45727"/>
+    <text x="378" y="344">時刻中点／Stratonovich</text>
+  </g>
+</svg>
