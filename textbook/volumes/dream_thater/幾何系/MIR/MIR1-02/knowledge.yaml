@@ -1,0 +1,23 @@
+chapter: MIR1-02
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-01, CYG1-14]
+concepts:
+  - id: mirror.hodge-number-swap
+    name: 三次元のHodge数交換の数値条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三次元のHodge数交換の数値条件）"]
+    requires: [mirror.quintic-two-directions, cyg.mirror-euler-sign]
+  - id: mirror.threefold-hodge-matrix
+    name: Calabi–Yau型三次元のHodge数行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Calabi–Yau型三次元のHodge数行列）"]
+    requires: [cyg.threefold-hodge-skeleton, cyg.threefold-euler-hodge]
+  - id: mirror.threefold-hodge-reflection
+    name: 三次元Hodge数交換と行列の反射
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次元Hodge数交換と行列の反射）"]
+    requires: [mirror.hodge-number-swap, mirror.threefold-hodge-matrix]
