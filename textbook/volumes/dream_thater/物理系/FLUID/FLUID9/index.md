@@ -310,7 +310,7 @@ $$
 
 - **非保存外力** $b_{\mathrm{ext}}$ の場合は $\oint b_{\mathrm{ext}}\cdot d\ell$ が残る。勾配でない力は閉曲線で相殺されるとは限らない。
 - **粘性** があれば Euler の加速度以外に粘性応力の発散が入り、その循環が残り得る（次講 FLUID10）。
-- **不連続な流れ・破れた滑らかさ**では、曲線微分や Stokes の定理をこの形で使えない。衝撃波を跨ぐ場合まで本定理を無条件に延長しない。
+- **不連続な流れ・破れた滑らかさ**では、曲線微分や Stokes の定理をこの形で使えない。不連続面を跨ぐ流れまで本定理を無条件に延長しない。
 - **曲線が物質曲線でない**と、第2節で $\partial_tX=u$ が使えず、線素の時間変化を落としてしまう。
 - **単に $\nabla\rho\times\nabla p=0$ が曲線上で成り立つ**だけでは、囲む曲面内の生成項が零とは限らない。順圧は全域での十分条件であり、個々の曲線については線積分の相殺だけでも保存し得る。
 
@@ -327,7 +327,7 @@ $$
 $t>0$ には上下辺は水平なまま、左右辺は斜めになる。右辺 $X=(L+aty,y)$ を $y:0\to H$ で進むと
 
 $$
-\int_{\mathrm{右辺}}u\cdot d\ell
+\int_{\mathrm{R}}u\cdot d\ell
 =\int_0^H(ay,0)\cdot(at,1)\,dy
 =\frac{a^2tH^2}{2}.
 $$
@@ -523,7 +523,7 @@ $$
 =\oint_C\partial_tu\cdot d\ell=0.
 $$
 
-物質輪は[循環の時間微分](#thm-fluid9-material-derivative)により $\oint_{C(t)}D_tu\cdot d\ell=0$。この例では $(u\cdot\nabla)u=0$ なので一致しただけで、一般には $D_tu=\partial_tu+(u\cdot\nabla)u$ かつ積分曲線も違う。[物質閉曲線](#def-fluid9-material-loop)の条件のない固定輪に Kelvin の定理を適用してはならない。
+物質輪は[循環の時間微分](#thm-fluid9-material-derivative)により $\oint_{C(t)}D_tu\cdot d\ell=0$。この例では $(u\cdot\nabla)u=0$ なので一致しただけで、一般には $D_tu=\partial_tu+(u\cdot\nabla)u$ かつ積分する輪も異なる。固定された輪は[物質閉曲線](#def-fluid9-material-loop)とは限らないので、[Kelvin の循環定理](#thm-fluid9-kelvin)の結論を直接適用してはならない。
 <!-- solution-end -->
 
 ### Level C
