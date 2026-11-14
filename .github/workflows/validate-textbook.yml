@@ -348,6 +348,12 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-20/assets/greeks_hedge.py
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-20/assets/tests -v
 
+      # U3-27: exact Brownian sum identities and independent path MSE checks.
+      - name: Verify U3-27 Ito numerical integral experiment
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-27/assets/ito_integral_diagnostics.py
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-27/assets/tests -v
+
       # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding
