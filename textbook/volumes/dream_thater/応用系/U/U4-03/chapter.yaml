@@ -2,7 +2,7 @@ id: "U4-03"
 title: "売値・買値・手数料・空売り制約を入れた裁定探索"
 volume: "foundations"
 status: supplementary
-prerequisites: [U4-02]
+prerequisites: [U4-02, F0-00B]
 official_scope: []
 learning_objectives:
   - bid・askとmidの違いを同一ペイオフを持つ商品の実行可能価格で検算できる
