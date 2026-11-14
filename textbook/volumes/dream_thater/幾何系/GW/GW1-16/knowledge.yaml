@@ -9,6 +9,7 @@ prerequisites:
   - GW1-11
   - GW1-10
   - GW1-09
+  - COMB9
 concepts:
   - id: gromov-witten.novikov-completion
     name: 有効曲線類の Novikov 完備化
