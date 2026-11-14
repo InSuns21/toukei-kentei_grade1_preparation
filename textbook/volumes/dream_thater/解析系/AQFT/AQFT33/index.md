@@ -655,4 +655,4 @@ $$
 
 - Huzihiro Araki, [Relative Entropy of States of von Neumann Algebras](https://doi.org/10.2977/prims/1195191148), *Publ. RIMS* **11** (1975/76), 809–833.
 - Huzihiro Araki, [Relative Entropy of States of von Neumann Algebras II](https://ems.press/journals/prims/articles/2844), *Publ. RIMS* **13** (1977), 173–192.
-- Hideki Kosaki, [Relative entropy of states: a variational expression](https://doi.org/10.1016/0022-1236(86)90058-5), *J. Operator Theory* **16** (1986), 335–348.
+- Hideki Kosaki, [Relative entropy of states: a variational expression](https://jot.theta.ro/jot/archive/1986-016-002/index_1986-016-002.html), *J. Operator Theory* **16** (1986), 335–348.
