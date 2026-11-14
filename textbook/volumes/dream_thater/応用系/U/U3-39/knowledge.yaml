@@ -51,6 +51,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（IV の行使価格断面）"]
     requires: [finance.implied-volatility]
+  - id: finance.implied-volatility-smile-skew
+    name: ボラティリティ・スマイルとスキュー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ボラティリティ・スマイルとスキュー）"]
+    requires: [finance.iv-strike-slice]
   - id: finance.iv-call-strike-noarbitrage
     name: 同一満期 call の行使価格制約
     kind: proposition
