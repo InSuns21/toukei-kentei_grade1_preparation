@@ -72,7 +72,7 @@ chapters:
     title: "量子積と結合律（WDVV）"
   - id: GW1-17
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-17
-    status: planned
+    status: completed
     title: "射影空間の量子コホモロジー"
   - id: GW1-18
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-18
