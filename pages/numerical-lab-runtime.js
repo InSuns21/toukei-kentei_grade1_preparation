@@ -329,6 +329,65 @@
     return new URL(path, scriptBase);
   }
 
+  // Markdown links to raw .py files can trigger a download on Pages.
+  // Resolve only published same-origin textbook Python paths for inline view.
+  function sourcePathFromHref(href) {
+    if (!href || href.startsWith("#")) return null;
+    try {
+      const url = new URL(href, scriptBase);
+      if (url.origin !== scriptBase.origin ||
+          !url.pathname.startsWith(scriptBase.pathname) || url.search || url.hash) {
+        return null;
+      }
+      const path = decodeURIComponent(url.pathname.slice(scriptBase.pathname.length));
+      return isSafePythonFile(path) ? path : null;
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function showPythonSourceDialog(path) {
+    if (!isSafePythonFile(path)) return;
+    const dialog = document.createElement("dialog");
+    dialog.className = "numerical-python-source-dialog";
+    dialog.setAttribute("aria-label", "Python ソースを表示: " + path);
+
+    const header = document.createElement("div");
+    header.className = "numerical-python-source-header";
+    const title = document.createElement("strong");
+    title.textContent = "Python ソース: " + path;
+    const close = document.createElement("button");
+    close.type = "button";
+    close.textContent = "閉じる";
+    close.addEventListener("click", () => dialog.close());
+    header.append(title, close);
+
+    const pre = document.createElement("pre");
+    pre.className = "numerical-lab-solution-code";
+    const code = document.createElement("code");
+    code.textContent = "Python ソースを取得中…";
+    pre.appendChild(code);
+    dialog.append(header, pre);
+    dialog.addEventListener("close", () => dialog.remove());
+    document.body.appendChild(dialog);
+    dialog.showModal();
+
+    fetch(fileUrl(path), { credentials: "same-origin" })
+      .then(async (response) => {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        return response.text();
+      })
+      .then((source) => {
+        if (dialog.isConnected) code.innerHTML = highlightPython(source) + "\n";
+      })
+      .catch((error) => {
+        if (dialog.isConnected) {
+          code.textContent = "ソースを取得できませんでした: " +
+            (error?.message || String(error));
+        }
+      });
+  }
+
   function storageKey(id) {
     return STORAGE_PREFIX + id;
   }
@@ -1112,6 +1171,19 @@
 
   function mountLabs(container) {
     if (!container) return;
+    if (!container.dataset.pythonSourceViewerBound) {
+      container.dataset.pythonSourceViewerBound = "true";
+      container.addEventListener("click", (event) => {
+        if (event.defaultPrevented || event.button !== 0 ||
+            event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        const link = event.target?.closest?.("a[href]");
+        const path = link && sourcePathFromHref(link.getAttribute("href"));
+        if (!path) return;
+        event.preventDefault();
+        event.stopPropagation();
+        showPythonSourceDialog(path);
+      }, true);
+    }
     const blocks = [...container.querySelectorAll("pre")];
     let labIndex = 0;
 
