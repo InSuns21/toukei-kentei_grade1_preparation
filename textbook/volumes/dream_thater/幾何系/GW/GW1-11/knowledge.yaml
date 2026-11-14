@@ -1,0 +1,52 @@
+chapter: GW1-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-10
+  - GW1-09
+  - GW1-08
+  - GW1-07
+  - AG2-09
+concepts:
+  - id: gromov-witten.evaluation-map
+    name: 評価写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（評価写像）"]
+    requires: [gromov-witten.stable-map-family, gromov-witten.stable-map-stack]
+  - id: gromov-witten.forgetful-stabilization
+    name: 忘却写像と安定化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（忘却写像と安定化）"]
+    requires: [gromov-witten.stable-map, gromov-witten.stable-map-family]
+  - id: gromov-witten.evaluation-forgetful-compatibility
+    name: 忘却射と残る評価写像の可換性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（忘却射と残る評価写像の可換性）"]
+    requires: [gromov-witten.evaluation-map, gromov-witten.forgetful-stabilization]
+  - id: gromov-witten.evaluation-insertion
+    name: 評価挿入と交叉類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（評価挿入と交叉類）"]
+    requires: [gromov-witten.evaluation-map, gromov-witten.convex-moduli-dimension]
+  - id: gromov-witten.insertion-degree-condition
+    name: 評価挿入の次数条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（評価挿入の次数条件）"]
+    requires: [gromov-witten.evaluation-insertion, gromov-witten.convex-moduli-dimension]
+  - id: gromov-witten.constant-map-evaluation-integral
+    name: 定数写像の評価積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数写像の評価積分）"]
+    requires: [gromov-witten.zero-degree-product, gromov-witten.evaluation-insertion]
+  - id: gromov-witten.p2-two-point-line-incidence
+    name: 射影平面の二点を通る直線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影平面の二点を通る直線）"]
+    requires: [gromov-witten.lines-moduli, gromov-witten.insertion-degree-condition]
