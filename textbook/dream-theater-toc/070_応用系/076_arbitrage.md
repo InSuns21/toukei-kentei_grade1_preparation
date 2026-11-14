@@ -6,3 +6,4 @@
 3. [U4-03 売値・買値・手数料・空売り制約を入れた裁定探索](textbook/volumes/dream_thater/応用系/U/U4-03/index.md)
 4. [U4-04 外国為替の三角裁定と同時刻気配](textbook/volumes/dream_thater/応用系/U/U4-04/index.md)
 5. [U4-05 現物・先渡・先物のcash-and-carry](textbook/volumes/dream_thater/応用系/U/U4-05/index.md)
+6. [U4-06 ETF・指数構成銘柄の価格整合性](textbook/volumes/dream_thater/応用系/U/U4-06/index.md)
