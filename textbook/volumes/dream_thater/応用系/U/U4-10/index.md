@@ -231,18 +231,18 @@ $$
 
 まず、推定の限界を証明できる最小設定を作ります。[独立な確率変数](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-independent-random-variables)という既習概念だけでは、各取引が同じ分布を持つとは限りません。互いに独立であることと、全取引の損益が同じ分布に従うことの両方を仮定します。
 
-<a id="def-u4-10-iid-sample"></a>
+<a id="def-u4-10-independent-same-distribution"></a>
 
 <!-- formal-statement-start -->
 > **定義（独立同分布の検証標本）**  
 > 共通の確率空間で定義された実数値確率変数 $G_1,\ldots,G_n$ について、どの異なる添字の集まりを選んでも対応する確率変数が独立であり、かつ $G_1,\ldots,G_n$ の分布がすべて等しいとき、これらを**独立同分布**の検証標本という。
 <!-- formal-statement-end -->
 
-<!-- definition-example-start: def-u4-10-iid-sample -->
+<!-- definition-example-start: def-u4-10-independent-same-distribution -->
 **定義の確認**：独立に二回投げる公平な硬貨の各結果を、表なら $+1$、裏なら $-1$ として $G_1,G_2$ に記録します。各回で $+1,-1$ が確率 $1/2$ ずつなので両者は同じ分布です。さらに四通りの組 $(+1,+1),(+1,-1),(-1,+1),(-1,-1)$ はいずれも確率 $1/4=(1/2)(1/2)$ です。従って二つの確率変数の独立性も成立します。逆に、同じ硬貨投げを二回コピーして $G_2=G_1$ とした標本は同じ分布ですが独立ではありません。
 <!-- definition-example-end -->
 
-ルール $f$ は評価標本を見る前に固定済みとし、評価標本 $G_1,\ldots,G_n$ がこの[独立同分布の条件](#def-u4-10-iid-sample)を満たすと仮定して、共通平均を $\mu$ とします。各損益が既知の定数 $M>0$ で $|G_j|\le M$ を満たす場合、$\operatorname{Var}(G_j)\le E[G_j^2]\le M^2$ です。
+ルール $f$ は評価標本を見る前に固定済みとし、評価標本 $G_1,\ldots,G_n$ がこの[独立同分布の条件](#def-u4-10-independent-same-distribution)を満たすと仮定して、共通平均を $\mu$ とします。各損益が既知の定数 $M>0$ で $|G_j|\le M$ を満たす場合、$\operatorname{Var}(G_j)\le E[G_j^2]\le M^2$ です。
 
 標本平均を $\overline G_n=n^{-1}\sum_{j=1}^nG_j$ とします。独立性により異なる $i,j$ の共分散は0なので、
 
