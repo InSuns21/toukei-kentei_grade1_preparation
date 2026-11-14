@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" data-layout-lint="strict" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">球周りのStokes流における表面力</title>
+  <desc id="diagram-desc">遠方の一様流Uは左から右の正のz方向へ進む。中心の球の上流左面には高圧による右向きの力が、上面右寄りには接線せん断が右下へ作用し、それらの合力Fは右向き。描いた流線は位置関係の模式図である。</desc>
+  <defs>
+    <marker id="fluid-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L6 3L0 6Z" fill="#256a9a"/></marker>
+    <marker id="force-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L6 3L0 6Z" fill="#c34828"/></marker>
+    <marker id="drag-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0L6 3L0 6Z" fill="#2d6545"/></marker>
+  </defs>
+  <g fill="none" stroke="#8daabd" stroke-width="2" data-series-group="flow-streamlines" data-series-label="流線（模式）">
+    <path d="M40 98 C180 98 200 74 335 67 S530 98 710 98"/>
+    <path d="M40 246 C180 246 206 268 335 270 S530 246 710 246"/>
+  </g>
+  <g>
+    <circle cx="335" cy="171" r="76" fill="#e7eef4" stroke="#263746" stroke-width="3"/>
+    <text x="309" y="177" font-size="22" font-family="sans-serif" fill="#263746">球</text>
+  </g>
+  <g fill="none" stroke="#256a9a" stroke-width="3" marker-end="url(#fluid-arrow)" data-series-group="flow-velocity" data-series-label="流れ方向">
+    <path d="M55 45H175"/><path d="M55 289H175"/>
+  </g>
+  <g fill="#19557e" font-family="sans-serif" font-size="21">
+    <text x="75" y="24">一様流 U</text>
+    <text x="674" y="176">+z</text>
+  </g>
+  <path d="M185 171H256" stroke="#c34828" stroke-width="4" fill="none" marker-end="url(#force-arrow)" data-series-group="local-force" data-series-label="局所表面力"/>
+  <text x="183" y="151" font-size="19" fill="#9c361c" font-family="sans-serif">圧力</text>
+  <path d="M391 119L427 155" stroke="#c34828" stroke-width="4" fill="none" marker-end="url(#force-arrow)" data-series-group="local-force" data-series-label="局所表面力"/>
+  <text x="448" y="134" font-size="19" fill="#9c361c" font-family="sans-serif">接線せん断</text>
+  <path d="M454 211H602" stroke="#2d6545" stroke-width="5" fill="none" marker-end="url(#drag-arrow)" data-series-group="net-force" data-series-label="合力"/>
+  <text x="493" y="171" font-size="19" fill="#27593b" font-family="sans-serif">合力 F</text>
+  <text x="504" y="287" font-size="15" fill="#4b5563" font-family="sans-serif">表面力と流線の模式図（縮尺なし）</text>
+</svg>
