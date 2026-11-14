@@ -47,7 +47,7 @@ $$
 この軸対称・無旋回のクラスで、球座標の $r=|x|$、$0\le\theta\le\pi$ を、$\theta=0$ が $+z$ 方向となるように取る。$e_r,e_\theta$ は、それぞれ球から外向きの単位方向と $\theta$ の増加方向の単位方向である。$Ue_z=U(\cos\theta\,e_r-\sin\theta\,e_\theta)$ だから、遠方条件の成分は $v_r\to U\cos\theta$、$v_\theta\to-U\sin\theta$ となる。
 
 <!-- definition-example-start: def-fluid18-stokes-sphere -->
-**境界条件の確認**：一様場 $v=Ue_z$、$p=p_\infty$ は領域内部の Stokes 方程式と無限遠条件は満たす。しかし球面では $Ue_z\ne0$ で、無滑り条件に反する。逆に $v\equiv0$ は球面条件を満たすが無限遠条件に反する。微分方程式だけでなく両方の境界条件を満たす場が必要である。
+**定義の確認**：一様場 $v=Ue_z$、$p=p_\infty$ は領域内部の Stokes 方程式と無限遠条件は満たす。しかし球面では $Ue_z\ne0$ で、無滑り条件に反する。逆に $v\equiv0$ は球面条件を満たすが無限遠条件に反する。微分方程式だけでなく両方の境界条件を満たす場が必要である。
 <!-- definition-example-end -->
 
 ## 1. 球面の条件から速度場を決める
