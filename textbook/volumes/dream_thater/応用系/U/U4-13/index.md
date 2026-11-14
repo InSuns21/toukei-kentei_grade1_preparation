@@ -368,13 +368,13 @@ $$
 >
 > の形になります。この仕組みを明示するため、ここでは二つのショックをそれぞれ分散 $\sigma_\varepsilon^2,\sigma_\zeta^2>0$ の正規分布とします。時点 $t$ の規格化水準を $X_t/(\sigma_\varepsilon\sqrt n)$、$Y_t/(\sigma_\zeta\sqrt n)$ とすれば、その極限は独立な標準ブラウン運動 $W_X,W_Y$ です。規格化した残差は
 >
-$
+$$
 \frac{\widehat u_t}{\sigma_\zeta\sqrt n}
 =\frac{Y_t}{\sigma_\zeta\sqrt n}
 -\frac{\widehat\alpha}{\sigma_\zeta\sqrt n}
 -\frac{\sigma_\varepsilon\widehat\beta}{\sigma_\zeta}
- \frac{X_t}{\sigma_\varepsilon\sqrt n}.
-$
+\frac{X_t}{\sigma_\varepsilon\sqrt n}.
+$$
 >
 > したがって、極限での $A$ は規格化切片、$B$ は規格化傾きに対応します。$A,B$ は $W_Y$ を $1$ と $W_X$ の張る空間へ区間 $[0,1]$ 上の二乗積分で射影する係数で、[第1段階の正規方程式](#def-u4-13-eg-regression)を積分に置き換えて導けます。$\bar W_X=\int_0^1W_X(r)\,dr$、$\bar W_Y=\int_0^1W_Y(r)\,dr$ と置き、
 >
