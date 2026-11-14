@@ -151,7 +151,9 @@ $$
 ここで第2行は Brown 増分 $W_t-W_{t_j}\sim N(0,t-t_j)$ の分散を代入した結果です。従って $H^{(m)}\to W$ は $L^2(P\otimes dt)$ で成立し、同じ二乗平均誤差を得ます。
 <!-- proof-end -->
 
-**実験の読み方**：$m$ を4倍にすると二乗平均誤差（MSE）は4分の1、二乗平均平方根誤差（RMSE）は半分です。しかし単一の標本路の実現誤差が必ず半分になるという主張ではありません。$E[L_m-I]=0$ でも、各標本路で $L_m=I$ になるわけではありません。
+**実験の読み方**：$m$ を4倍にすると、二乗平均誤差（Mean Squared Error; MSE）は4分の1、二乗平均平方根誤差（Root Mean Squared Error; RMSE）は半分になります。
+
+ただし単一の標本路の実現誤差が必ず半分になるわけではありません。$E[L_m-I]=0$ であっても、各標本路で $L_m=I$ とは限りません。
 
 ## 3. 「中点」は2種類あり、Itô の近似にはならない
 
@@ -299,7 +301,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-27-empirical-mse -->
-**定義の直接確認**：独立な Brown 増分列を各経路ごとに作れば $W^{(i)}$ は独立・同分布になります。[左端誤差の命題](#prop-u3-27-left-mse)より、各 $Y_i$ の母平均は $q_m$ です。正規増分はすべての有限次数のモーメントを持ち、$Y_i$ は有限個の増分の四次多項式なので $E[Y_i^2]<\infty$ です。[Monte Carlo 不偏性と平均の分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)を $Y_i$ に適用できます。$Y_i$ を例として $0.01,0.04,0.09$ と観測したなら、$\widehat q=(0.01+0.04+0.09)/3=0.046666\ldots$ です。単なる3値の算術例であり、Brown 標本を発生させた結果ではありません。
+**定義の直接確認**：独立な Brown 増分列を各経路ごとに生成すると、$W^{(i)}$ は互いに独立で同じ分布に従います。[左端誤差の命題](#prop-u3-27-left-mse)から、各 $Y_i$ の母平均は $q_m$ です。
+
+正規増分はすべての有限次数のモーメントを持ちます。$Y_i$ は有限個の増分の四次多項式なので $E[Y_i^2]<\infty$ です。従って [Monte Carlo 不偏性と平均の分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)を $Y_i$ に適用できます。
+
+たとえば $Y_i$ を $0.01,0.04,0.09$ と観測した場合、標本平均は
+
+$$
+\widehat q=\frac{0.01+0.04+0.09}{3}=0.046666\ldots
+$$
+
+です。これは3値の算術例であり、Brown 運動を生成して得た標本結果ではありません。
 <!-- definition-example-end -->
 
 [MC1 の平均の分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)で $Y_i=D_m(W^{(i)})^2$ と置くと
@@ -418,7 +430,15 @@ $m=32,T=1$ を固定する。$n$ 本の独立な同一路二乗誤差 $Y_i$ に�
 任意の $T>0$ と格子について $H_t\equiv c$（$c\in\mathbb R$）を積分する。左端和、両端対称和、実時刻中点和、真の Itô 積分と Stratonovich 積分を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**：係数が常に $c$ なので三つの有限和はすべて $\sum_jc\Delta_jW=c(W_T-W_0)=cW_T$。[STO6 の単純確率積分](../../../解析系/STO/STO6/index.md#def-sto6-simple-integral)も $cW_T$ であり、[Itô–Stratonovich 換算](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)の補正は定数過程と $W$ の共変分 $[c,W]_T=0$ だから、Stratonovich 積分も $cW_T$。従ってすべて $m$ に依らず一致する。$H=W$ で生じた $T/2$ は、被積分過程と積分器が同時に揺れることに由来する。
+**詳細解答**：係数が常に $c$ なので、左端和・両端対称和・時刻中点和はすべて
+
+$$
+\sum_j c\Delta_jW=c(W_T-W_0)=cW_T
+$$
+
+に一致する。[STO6 の単純確率積分](../../../解析系/STO/STO6/index.md#def-sto6-simple-integral)も $cW_T$ である。
+
+さらに [Itô–Stratonovich 換算](../../../解析系/STO/STO7/index.md#thm-sto7-ito-stratonovich-conversion)の補正項は、定数過程と $W$ の共変分 $[c,W]_T=0$ なので消える。従って Stratonovich 積分も $cW_T$ となり、すべての和は $m$ に依存せず厳密に一致する。$H=W$ で生じる $T/2$ は、被積分過程自身も積分器と一緒に揺れる場合の補正である。
 <!-- solution-end -->
 
 <a id="ex-u3-27-b1"></a>
@@ -559,7 +579,25 @@ $T=1$ の Brown 運動を扱う。次の五点を検討せよ。
 
 (iii) $m=64$ 固定なら真の MSE は $1/128$ のまま。[MC1 の標本平均分散公式](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)へ、各独立経路の二乗誤差 $Y_i$ を代入すると $\operatorname{Var}(\widehat q_{64,n})=\operatorname{Var}(Y_1)/n$。$n=1024$ から4096なら標準誤差の理論倍率は $\sqrt{1024/4096}=1/2$。二乗誤差の標本平均自体が半分になるわけではない。
 
-(iv) 各区間について独立な $A_j,B_j\sim N(0,1/(2m))$ を一度だけ生成し $\Delta_jW=A_j+B_j$ とする。時刻 $t_j$ の $W$ を蓄積し、左端和には $W_{t_j}\Delta_jW$、時刻中点和には $(W_{t_j}+A_j)\Delta_jW$、両端対称和には $(W_{t_j}+\Delta_jW/2)\Delta_jW$ を加える。最後の $W_T$ はそれらと共通にし、左端は $I=(W_T^2-1)/2$、中点二種は $J=W_T^2/2$ と照合する。$\sum_j(\Delta_jW)^2$ も保存し、左端誤差が $-(\sum_j(\Delta_jW)^2-1)/2$ であることを経路ごとに検査する。独立な経路を繰り返して二乗誤差の標本平均とその推定標準誤差を出し、理論 MSE と比較する。個別経路の誤差が単調とは限らない。
+(iv) 各区間について、前半・後半の独立な増分 $A_j,B_j\sim N(0,1/(2m))$ を一度だけ生成する。区間全体の増分は $\Delta_jW=A_j+B_j$ である。
+
+時刻 $t_j$ の $W$ を蓄積し、同じ経路の各区間で次の三つの加算値を計算する。
+
+$$
+\begin{aligned}
+\text{左端： }&W_{t_j}\Delta_jW,\\
+\text{時刻中点： }&(W_{t_j}+A_j)\Delta_jW,\\
+\text{両端対称： }&(W_{t_j}+\Delta_jW/2)\Delta_jW.
+\end{aligned}
+$$
+
+最後の $W_T$ は三つの和で共通に使う。左端和は $I=(W_T^2-1)/2$、二つの中点型和は $J=W_T^2/2$ と比較する。二次変動和 $Q_m=\sum_j(\Delta_jW)^2$ も保存し、[左端誤差恒等式](#prop-u3-27-left-mse)によって
+
+$$
+L_m-I=-\frac12(Q_m-1)
+$$
+
+を経路ごとに検査する。独立経路を繰り返し、二乗誤差の標本平均とその推定標準誤差を出して理論 MSE と比較する。個別経路の誤差が単調とは限らない。
 
 (v) 数学的な左端和は $L_m(c+W)=c\sum_j\Delta_jW+\sum_jW_{t_j}\Delta_jW=cW_T+L_m(W)$ なので、差を取れば正確には $L_m(W)$ が残る。しかし浮動小数点では大きい二数 $L_m(c+W)$ と $cW_T$ の差を取ると有効桁が失われる。直接 $W$ を中心化して $L_m(W)$ を計算し、両者の差を比較する。さらに[左端誤差の代数恒等式](#prop-u3-27-left-mse)の残差と、独立な標本での MSE を分けて計算すれば、丸めによる差を時間離散化バイアスと誤認しにくい。
 <!-- solution-end -->
