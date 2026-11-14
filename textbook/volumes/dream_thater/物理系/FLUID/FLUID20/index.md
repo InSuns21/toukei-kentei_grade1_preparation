@@ -16,6 +16,25 @@
 
 代表的な水平長さを $L$、膜厚を $H$、水平速さを $U>0$ とする。膜厚を $H$ で割った無次元関数 $\bar h$ が正の定数から上下に有界で、$x/L$ による一階・二階微分も有界と仮定する。したがって壁の傾斜は $O(H/L)$ である。$O(\cdot)$ は、細長比を零へ近づけたときに、その量を定数倍で抑えられるという意味で使う。
 
+壁の場所が時間とともに変わる場合、流体が壁をすり抜けないためには、壁面の粒子と流体の法線方向の速度が一致しなければならない。上壁の高さを関数 $z=h(x,t)$ で表し、その上での水平方向の壁速度を $U_1$ とすると、壁に沿う粒子の位置 $(x(t),z(t))$ は $z(t)=h(x(t),t)$ を満たす。これを微分した関係を、運動学的境界条件と呼ぶ。
+
+<a id="def-fluid20-wall-kinematics"></a>
+
+<!-- formal-statement-start -->
+> **定義（運動学的境界条件）**  
+> 滑らかな上壁 $z=h(x,t)>0$ の物質点が水平速度 $\dot x=U_1(x,t)$、鉛直速度 $\dot z=w_{\rm wall}(x,t)$ で動くとき、その点が常に壁面に留まるための関係を
+
+$
+\boxed{w_{\rm wall}(x,t)=\partial_t h(x,t)+U_1(x,t)\partial_x h(x,t)}
+$
+
+> と呼ぶ。無滑りかつ非貫通のとき、流体の上壁での鉛直速度 $w(x,h(x,t),t)$ は $w_{\rm wall}$ と一致する。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fluid20-wall-kinematics -->
+**定義の確認**：固定形状の斜めの壁 $h(x,t)=H+\alpha x$（$H+\alpha x>0$）で、壁の物質点が接線方向に進み水平方向速度を $U_1$ とすると、$\partial_t h=0$、$\partial_x h=\alpha$ なので $w_{\rm wall}=\alpha U_1$。実際に $x(t)=x_0+U_1t$、$z(t)=H+\alpha(x_0+U_1t)$ と置けば $z(t)=h(x(t),t)$ かつ $\dot z=\alpha U_1$ であり、壁面から離れない。$w_{\rm wall}=0$ と誤って置くと、$\alpha U_1\ne0$ のとき物質点は壁の直線上から外れる。
+<!-- definition-example-end -->
+
 <a id="def-fluid20-thin-film"></a>
 
 <!-- formal-statement-start -->
@@ -26,7 +45,7 @@ $$
 w(x,h(x,t),t)=\partial_t h+U_1\partial_x h
 $$
 >
-> とする。この上壁条件を**運動学的境界条件**と呼ぶ。$\rho,\eta$ は正の定数で、速度と圧力は以下の微分が存在するほど滑らかとする。
+> とする。この上壁条件は[運動学的境界条件](#def-fluid20-wall-kinematics)である。$\rho,\eta$ は正の定数で、速度と圧力は以下の微分が存在するほど滑らかとする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid20-thin-film -->
@@ -256,7 +275,13 @@ $$
 \right].}
 $$
 >
-> 圧力は内部で正、最大は $h(x_*)=2h_{\rm in}h_{\rm out}/(h_{\rm in}+h_{\rm out})$ の一点で生じる。特に $h_{\rm in}=2H$、$h_{\rm out}=H$ なら
+> 圧力は内部で正であり、唯一の最大点 $x_*$ は次の膜厚を満たす。
+>
+$
+h(x_*)=\frac{2h_{\rm in}h_{\rm out}}{h_{\rm in}+h_{\rm out}}.
+$
+>
+> 特に $h_{\rm in}=2H$、$h_{\rm out}=H$ なら
 >
 $$
 q=\frac{2UH}{3},\qquad x_*=\frac{2L}{3},\qquad
@@ -510,7 +535,7 @@ $h(x)=3H-2Hx/L$、$U_0=U>0$、$U_1=0$、$p(0)=p(L)=0$ の定常膜で $q$ を求
 <!-- solution-start -->
 #### 詳細解答
 
-[くさびの流量命題](#prop-fluid20-wedge)を使う前に導出を確かめる。$q$ が一定で $p_x=12\eta(U/(2h^2)-q/h^3)$ だから、端の圧力差零から
+[収束くさび軸受の圧力と流量](#prop-fluid20-wedge)を使う前に導出を確かめる。$q$ が一定で $p_x=12\eta(U/(2h^2)-q/h^3)$ だから、端の圧力差零から
 
 $$
 q=\frac U2\frac{\int_0^Lh^{-2}\,dx}{\int_0^Lh^{-3}\,dx}.
