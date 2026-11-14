@@ -18,7 +18,7 @@
     <path d="M55 45H175"/><path d="M55 289H175"/>
   </g>
   <g fill="#19557e" font-family="sans-serif" font-size="21">
-    <text x="75" y="34">一様流 U</text>
+    <text x="75" y="24">一様流 U</text>
     <text x="674" y="176">+z</text>
   </g>
   <path d="M185 171H256" stroke="#c34828" stroke-width="4" fill="none" marker-end="url(#force-arrow)" data-series-group="local-force" data-series-label="局所表面力"/>
@@ -26,6 +26,6 @@
   <path d="M391 119L427 155" stroke="#c34828" stroke-width="4" fill="none" marker-end="url(#force-arrow)" data-series-group="local-force" data-series-label="局所表面力"/>
   <text x="448" y="134" font-size="19" fill="#9c361c" font-family="sans-serif">接線せん断</text>
   <path d="M454 211H602" stroke="#2d6545" stroke-width="5" fill="none" marker-end="url(#drag-arrow)" data-series-group="net-force" data-series-label="合力"/>
-  <text x="493" y="201" font-size="19" fill="#27593b" font-family="sans-serif">合力 F</text>
+  <text x="493" y="171" font-size="19" fill="#27593b" font-family="sans-serif">合力 F</text>
   <text x="504" y="287" font-size="15" fill="#4b5563" font-family="sans-serif">表面力と流線の模式図（縮尺なし）</text>
 </svg>
