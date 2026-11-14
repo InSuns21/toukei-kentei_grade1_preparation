@@ -20,7 +20,7 @@ $$
 N_t=\sum_{j=1}^rN_t^{(j)}
 $$
 
-> と定めると、$N$ は率 $\Lambda=\sum_{j=1}^r\lambda_j$ の Poisson 過程である。異なる流の到着時刻は確率 $1$ で一致せず、$N$ の跳躍は大きさ $1$ である。
+> このとき $N$ は率 $\Lambda=\sum_{j=1}^r\lambda_j$ の Poisson 過程である。異なる流の到着時刻は確率 $1$ で一致せず、$N$ の跳躍は大きさ $1$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
