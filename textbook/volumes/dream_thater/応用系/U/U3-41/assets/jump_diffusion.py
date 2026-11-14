@@ -52,9 +52,19 @@ def exact_call(intensity, last=60):
                        - STRIKE * normal_cdf(d2))
         price += weight * max(0.0, conditional)
     # Uniform bound on omitted discounted call payments by discounted S_T.
-    tilted = poisson_probabilities(intensity * T * jump_mean(), last)
-    remaining = max(0.0, 1.0 - math.fsum(tilted))
-    bound = S0 * math.exp(-DIVIDEND * T) * remaining
+    tilted_mean = intensity * T * jump_mean()
+    # Avoid 1 - CDF cancellation: the truncated CDF rounds to 1.0
+    # for small intensities although its mathematically positive tail remains.
+    first_tail = math.exp(-tilted_mean)
+    for n in range(1, last + 2):
+        first_tail *= tilted_mean / n
+    # Successive Poisson tail terms shrink by at most
+    # tilted_mean/(last+2) < 1. Bound their sum geometrically.
+    ratio = tilted_mean / (last + 2)
+    if ratio >= 1.0:
+        raise ValueError("increase 'last' to bound the Poisson tail")
+    remaining_upper = first_tail / (1.0 - ratio)
+    bound = S0 * math.exp(-DIVIDEND * T) * remaining_upper
     return math.exp(-RATE * T) * price, bound
 
 
