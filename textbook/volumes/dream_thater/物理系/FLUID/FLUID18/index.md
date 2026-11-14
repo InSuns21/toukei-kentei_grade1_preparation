@@ -95,11 +95,11 @@ $$
 
 この式は、周方向ベクトル $A=h(r)\sin\theta\,e_\phi$ の Laplacian を次のように成分で展開して確かめられる。
 
-$
+$$
 (\Delta A)_\phi=\frac1{r^2}\partial_r(r^2\partial_r A_\phi)
 +\frac1{r^2\sin\theta}\partial_\theta(\sin\theta\,\partial_\theta A_\phi)
 -\frac{A_\phi}{r^2\sin^2\theta}.
-$
+$$
 
 径方向項は $(h''+2h'/r)\sin\theta$。角度項の括弧内は $\{\cos^2\theta-\sin^2\theta-1\}h/\sin\theta=-2h\sin\theta$ なので、合計が上の $-2W/r^2$ を含む形になる。極での式は滑らかな場の極限として解釈する。従って未知関数は $W''+2W'/r-2W/r^2=0$ を満たす。$W=r^m$ と仮定すると $m(m-1)+2m-2=(m-1)(m+2)=0$、すなわち
 
