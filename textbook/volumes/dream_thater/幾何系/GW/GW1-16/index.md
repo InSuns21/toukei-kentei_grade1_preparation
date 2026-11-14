@@ -93,7 +93,7 @@ $$
 **なぜ積が定義できるか**。固定した $E$ より小さな面積の非零係数の項は、各因子で有限個である。$A(\beta_i)\ge0$ だから、積の面積 $E$ 以下の係数に寄与する組は、両因子の面積 $E$ 以下の項の組に限られる。したがって係数の畳み込みは有限和であり、積も同じ有限性条件を満たす。
 
 <!-- definition-example-start: def-gw1-16-novikov -->
-**定義の確認（射影直線）**。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$ となる。面積を $a=A([\mathbb P^1])>0$ と置くと、$A(d[\mathbb P^1])=da$ である。したがって任意の $E>0$ に対して $da\le E$ の整数 $d\ge0$ は $0\le d\le E/a$ の有限個しかない。形式冪級数 $\sum_{d\ge0}c_dq^d$ は定義の有限性条件を満たす。
+**定義の確認**（射影直線）。。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$ となる。面積を $a=A([\mathbb P^1])>0$ と置くと、$A(d[\mathbb P^1])=da$ である。したがって任意の $E>0$ に対して $da\le E$ の整数 $d\ge0$ は $0\le d\le E/a$ の有限個しかない。形式冪級数 $\sum_{d\ge0}c_dq^d$ は定義の有限性条件を満たす。
 
 さらに二つの形式冪級数の積で $q^n$ の係数は $\sum_{i=0}^nc_id_{n-i}$ という有限和なので積は定義され、$\deg q^n=4n$ も加法的である。実際、$c_1(T\mathbb P^1)=2h$ だから $\deg q=2\langle2h,[\mathbb P^1]\rangle=4$。$\mathbb P^2$ の直線類を $\ell$、$q=Q^\ell$ とすれば同様に $\deg q=2\langle3H,\ell\rangle=6$。同じ字 $q$ でも次数は標的によって異なる。
 <!-- definition-example-end -->
@@ -119,7 +119,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-16-small-quantum-product -->
-**定義の確認（射影直線の単位類と点類）**。$X=\mathbb P^1$、$V=\mathbb Q\{1,h\}$ とし、双対基底は $\phi^0=h,\phi^1=1$ とする。[次数0の三点不変量](../GW1-13/index.md#prop-gw1-13-zero-degree)により
+**定義の確認**（射影直線の単位類と点類）。。$X=\mathbb P^1$、$V=\mathbb Q\{1,h\}$ とし、双対基底は $\phi^0=h,\phi^1=1$ とする。[次数0の三点不変量](../GW1-13/index.md#prop-gw1-13-zero-degree)により
 
 $$
 \langle1,h,1\rangle_0=1,\qquad
