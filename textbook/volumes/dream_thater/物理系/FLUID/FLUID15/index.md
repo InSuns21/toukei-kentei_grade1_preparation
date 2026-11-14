@@ -41,6 +41,16 @@ $$
 
 直接例として、球が静止していれば $V=0$ だから $\partial_r\phi(a,\theta)=0$ が必要である。球が $V e_z$ で動く場合、北極 $\theta=0$ では $\partial_r\phi=V$、赤道 $\theta=\pi/2$ では $\partial_r\phi=0$、南極 $\theta=\pi$ では $\partial_r\phi=-V$ となる。赤道で半径方向の速度が零でも、接線方向に流れがあってよいことに注意する。
 
+<!-- definition-example-start: def-fluid15-no-penetration -->
+**定義の確認（一様に運ばれる流体）**：球速度を $V=ve_z$（$v$ は一定）、流速を $u(x)=ve_z$ とする。球面の任意の点で
+
+$$
+(u-V)\cdot n=(ve_z-ve_z)\cdot n=0
+$$
+
+が成立し、[非貫通条件](#def-fluid15-no-penetration)を満たす。球の北極、赤道、南極ではそれぞれ $u\cdot n=v,0,-v$ であり、球の法線方向速度と一致する。ただしこの例の無限遠も $ve_z$ であって、後に扱う**遠方静止の境界値問題**とは別である。
+<!-- definition-example-end -->
+
 ## 1. 球の外で減衰する調和ポテンシャルを作る
 
 二次元の二重湧出は遠方で距離の逆数程度に減衰した。三次元で球を流れから避ける効果を表すには、どのべき乗が調和条件を満たすかを調べる。
@@ -371,7 +381,15 @@ $$
 これは各 $i$ で成立し、ベクトル形式の結論を得る。
 <!-- proof-end -->
 
-**数値と次元の直接確認**：例えば水の密度を $\rho=1000\ \mathrm{kg/m^3}$、半径を $a=0.10\ \mathrm m$ とすると、排除した水の質量は $(4\pi/3)\rho a^3\approx4.189$ kg、付加質量は約 $2.094$ kg である。$A=2\ \mathrm{m/s^2}$ のとき加速度に抗する流体力は約 $4.189$ N。$\rho a^3$ の次元が kg、$m_{\mathrm a}A$ の次元が N であることも確認できる。
+<!-- definition-example-start: def-fluid15-added-mass -->
+**定義の確認（付加質量の数値・符号・単位）**：例えば水の密度を $\rho=1000\ \mathrm{kg/m^3}$、半径を $a=0.10\ \mathrm m$ とすると、排除した水の質量は $(4\pi/3)\rho a^3\approx4.189$ kg。したがって
+
+$$
+m_{\mathrm a}=\frac{2\pi}{3}(1000)(0.10)^3\approx2.094\ \mathrm{kg}>0.
+$$
+
+球が $A=2e_z\ \mathrm{m/s^2}$ で加速するとき、[圧力積分で導いた合力](#thm-fluid15-added-mass)は $F_{\mathrm{fluid}}\approx-4.189e_z\ \mathrm N$ である。係数は正、力は加速度と逆向きなので[付加質量の定義](#def-fluid15-added-mass)を満たす。$\rho a^3$ の次元は kg、$m_{\mathrm a}A$ の次元は N である。
+<!-- definition-example-end -->
 
 ## 5. 流体の運動エネルギーと付加質量
 
@@ -501,6 +519,18 @@ $$
 
 これで定義の各条件を実例で確認した。球の $\psi_j$ は外部で調和、球面で $\partial_n\psi_j=n_j$、無限遠で $O(r^{-2})$ に減衰し、勾配は $O(r^{-3})$ なので平方可積分でもある。
 <!-- proof-end -->
+
+<!-- definition-example-start: def-fluid15-added-mass-matrix -->
+**定義の確認（球の行列を直接計算）**：半径 $a$ の球に対し $\psi_j=-a^3y_j/(2r^3)$ と置く。[調和性](#prop-fluid15-harmonic-modes)により外部領域で $\Delta\psi_j=0$、[並進球のポテンシャル](#thm-fluid15-moving-sphere)に $V=e_j$ を代入すると球面で $\partial_n\psi_j=n_j$、無限遠では $\psi_j=O(r^{-2})\to0$、$\nabla\psi_j=O(r^{-3})$ で平方可積分である。球面で $\psi_j=-an_j/2$ だから
+
+$$
+M_{ij}=-\rho\int_{r=a}\psi_j n_i\,dS
+=\frac{\rho a}{2}\frac{4\pi a^2}{3}\delta_{ij}
+=\frac{2\pi\rho a^3}{3}\delta_{ij}.
+$$
+
+よって $M=m_{\mathrm a}I_3$ となり、定義で要求した三次元の各成分、対称性、非負のエネルギー $V^\mathsf{T}MV/2$ を同時に確認できる。
+<!-- definition-example-end -->
 
 この行列は、静止した形状と向きについての**並進**に限った定義である。剛体が回転すれば姿勢による $M$ の変化や角速度との結合も考える必要がある。有限容器や水面、圧縮性、粘性によっても値と適用範囲は変わる。
 
