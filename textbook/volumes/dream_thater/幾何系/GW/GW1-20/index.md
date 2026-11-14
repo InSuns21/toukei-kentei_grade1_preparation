@@ -187,7 +187,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-20-section-virtual-cycle -->
-**定義の確認（正則な零点）**。$Y=\mathbb A^1,V=\mathcal O_Y,s=x^2$ とする。$x^2$ は零因子でないので、余次元1の正則埋め込み $Z=V(x^2)\hookrightarrow Y$ を定める。前命題より錐は $V|_Z$ 全体であり、正則埋め込みで錐が正規束全体となる場合の計算規則 $0_V^![V|_Z]=[Z]$ を用いると
+**定義の確認**（正則な零点）。$Y=\mathbb A^1,V=\mathcal O_Y,s=x^2$ とする。$x^2$ は零因子でないので、余次元1の正則埋め込み $Z=V(x^2)\hookrightarrow Y$ を定める。前命題より錐は $V|_Z$ 全体であり、正則埋め込みで錐が正規束全体となる場合の計算規則 $0_V^![V|_Z]=[Z]$ を用いると
 
 $$
 [Z]^{\mathrm{sec}}=[Z]=2[0]\in A_0(Z).
@@ -245,7 +245,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-20-perfect-obstruction -->
-**定義の確認（零点模型）**。$Y=\mathbb A^1$、$V=\mathcal O_Y$、$s=x^2$ の $Z$ に対し
+**定義の確認**（零点模型）。$Y=\mathbb A^1$、$V=\mathcal O_Y$、$s=x^2$ の $Z$ に対し
 
 $$
 E^\bullet=[V^\vee|_Z\xrightarrow{\,ds^\vee\,}\Omega_Y|_Z]
