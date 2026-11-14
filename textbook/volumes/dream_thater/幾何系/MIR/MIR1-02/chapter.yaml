@@ -1,0 +1,35 @@
+id: "MIR1-02"
+title: "Hodge数交換は何を主張するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-01
+  - CYG1-14
+learning_objectives:
+  - Hodge数交換の数値条件とミラー多様体の存在や観測量の一致を区別できる
+  - Calabi–Yau型三次元の全Hodge数行列を二つのHodge数から再構成できる
+  - Hodge数行列の反射条件と二数交換の同値性を示しBetti数・Euler標数を計算できる
+  - quinticの数値予測を条件付きで検算し元のH3全体と候補側のH3を区別できる
+  - 楕円曲線・K3曲面・標準束非自明な三次元で三次元公式が使えない機構を説明できる
+theorems:
+  - { id: MIR1-02-DEF-01, name: "三次元のHodge数交換の数値条件" }
+  - { id: MIR1-02-PROP-01, name: "Calabi–Yau型三次元のHodge数行列" }
+  - { id: MIR1-02-PROP-02, name: "三次元Hodge数交換と行列の反射" }
+canonical_examples:
+  - quinticの数値署名1と101の交換を条件付きで検査
+  - 二数からHodge行列・Betti数・Euler標数を展開
+  - 楕円曲線と四次K3に三次元式を誤適用したときの破綻
+  - 標準束が非自明な射影三次元空間の反例
+problem_patterns:
+  - MIR1-02-HODGE-SYMMETRIES
+  - MIR1-02-ODD-BETTI
+  - MIR1-02-QUINTIC-NUMERICS
+  - MIR1-02-K3-DIMENSION
+  - MIR1-02-REFLECTION-IF-AND-ONLY-IF
+  - MIR1-02-RECONSTRUCT-FROM-EULER
+  - MIR1-02-NONTRIVIAL-CANONICAL
+  - MIR1-02-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 7, review: 4 }
