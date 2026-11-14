@@ -1,0 +1,44 @@
+chapter: FLUID11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID10
+  - VC9
+  - VC2
+concepts:
+  - id: fluid.local-stream-existence
+    name: 平面非圧縮場の局所流れ関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面非圧縮場の局所流れ関数）"]
+    requires: [vector-calculus.stream-function, vector-calculus.incompressible-flow, vector-calculus.poincare-star-shaped]
+  - id: fluid.velocity-potential
+    name: 速度ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（速度ポテンシャル）"]
+    requires: [vector-calculus.conservative-potential]
+  - id: fluid.local-velocity-potential
+    name: 無渦場の局所速度ポテンシャル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（無渦場の局所速度ポテンシャル）"]
+    requires: [fluid.velocity-potential, vector-calculus.poincare-star-shaped, vector-calculus.vorticity]
+  - id: fluid.closed-loop-flux
+    name: 閉曲線の速度流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閉曲線の速度流束）"]
+    requires: [vector-calculus.vector-line-integral, vector-calculus.incompressible-flow]
+  - id: fluid.global-potential-stream-criterion
+    name: 速度ポテンシャル・流れ関数の大域的存在判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（速度ポテンシャル・流れ関数の大域的存在判定）"]
+    requires: [fluid.velocity-potential, fluid.closed-loop-flux, vector-calculus.conservative-equivalence, vector-calculus.stream-function]
+  - id: fluid.potential-stream-cr
+    name: 流れ関数と速度ポテンシャルの関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（流れ関数と速度ポテンシャルの関係）"]
+    requires: [fluid.velocity-potential, vector-calculus.stream-function, vector-calculus.vorticity]
