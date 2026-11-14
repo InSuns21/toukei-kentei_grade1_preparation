@@ -1,0 +1,46 @@
+id: "U3-25"
+title: "Barrier/Asian の PDE：境界と状態追加"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-08, U3-09, U3-13, U3-14, U3-16, U3-17, U3-22, U3-23]
+official_scope: []
+learning_objectives:
+  - 連続監視 knock-out を停止時刻と吸収境界で定義し、既に失効した状態と生存状態を区別できる
+  - 停止付き割引期待値から障壁内部の Black–Scholes PDE と正しい終端・境界条件を導ける
+  - 監視日の包含による価格単調性と反射原理による障壁デジタルの厳密価格を証明できる
+  - 対数変換の連鎖律と陽的差分を導き、境界打切り・格子誤差・監視規則の差を分離できる
+  - 算術平均 Asian の累積積分状態と二次元生成作用素を Itô 公式から導ける
+  - Asian PDE の s=0 境界・a=0 の非境界性・高累積量での厳密境界を区別できる
+  - 非負な Asian 右向き差分と刻み条件を証明し、数値演算・記憶量を見積もれる
+  - Python で barrier FD と反射原理の厳密解、Asian 連続／離散平均の計算を再現できる
+definitions:
+  - { id: U3-25-DEF-01, name: "連続監視 down-and-out と吸収境界" }
+  - { id: U3-25-DEF-02, name: "連続算術平均 Asian と累積積分状態" }
+  - { id: U3-25-DEF-03, name: "Asian の右向き累積量差分" }
+theorems:
+  - { id: U3-25-PROP-01, name: "吸収境界付き Barrier 価格 PDE" }
+  - { id: U3-25-PROP-02, name: "監視集合の包含と価格の順序" }
+  - { id: U3-25-PROP-03, name: "対数ドリフト0の障壁デジタル厳密価格" }
+  - { id: U3-25-PROP-04, name: "Asian の増次元 Black–Scholes PDE" }
+  - { id: U3-25-PROP-05, name: "Asian 線形領域の厳密価格" }
+  - { id: U3-25-PROP-06, name: "Asian 陽的更新の非負性と刻み条件" }
+canonical_examples:
+  - "S0=100,B=80,sigma=0.2,r=0.02,q=0,T=1 の連続監視デジタル 0.720894008 円と満期のみ監視 0.850546340 円"
+  - "対数格子 M=40,80,160,320 の barrier FD 価格 0.716497340,0.719767984,0.720611469,0.720823350 円"
+  - "K=0,S0=100,r=0.02,q=0,T=1 の連続時間算術平均 99.006633466 円"
+  - "Asian 二次元差分で i=2,s_i=100,h_a=5,k=0.01,r=q=0,sigma=0.2 の4係数を検算"
+problem_patterns:
+  - U3-25-A1
+  - U3-25-A2
+  - U3-25-A3
+  - U3-25-A4
+  - U3-25-A5
+  - U3-25-B1
+  - U3-25-B2
+  - U3-25-B3
+  - U3-25-B4
+  - U3-25-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
