@@ -344,7 +344,7 @@ u_y(x,0)=\frac U{d(x)}f''(0)
 =U\sqrt{\frac{U}{\nu x}}\,a.
 $$
 
-[壁面せん断と摩擦係数の定義](../FLUID21/index.md#prop-fluid21-wall-shear)を使い、
+[境界層における壁面せん断](../FLUID21/index.md#prop-fluid21-wall-shear)を使い、
 
 $$
 \tau_w=\mu u_y(x,0)
@@ -659,7 +659,7 @@ f'''+\frac12ff''=0,\qquad
 f(0)=f'(0)=0,\quad f'(\infty)=1.
 $$
 
-**3. 係数を含む予測。** $\mathrm{Re}_x=Ux/\nu=10^6$、$d=\sqrt{10^{-6}(0.5)/2}=5\times10^{-4}$ m。[Blasius摩擦係数の命題](#prop-fluid22-wall-friction)より
+**3. 係数を含む予測。** $\mathrm{Re}_x=Ux/\nu=10^6$、$d=\sqrt{10^{-6}(0.5)/2}=5\times10^{-4}$ m。[Blasius平板の99%厚さと局所摩擦係数](#prop-fluid22-wall-friction)より
 
 $$
 \delta_{99}=\eta_{99}d
