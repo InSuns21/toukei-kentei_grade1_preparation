@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="330" viewBox="0 0 860 330" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" width="860" height="330" viewBox="0 0 860 330" role="img" aria-labelledby="title desc">
   <title id="title">二期間二項 put の行使判定</title>
   <desc id="desc">初期100円から時刻1で120円は継続、80円は行使。満期の4節点へ分岐する。線と枠の形、文字で判断を区別。</desc>
   <defs>
