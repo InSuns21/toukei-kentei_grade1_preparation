@@ -36,3 +36,4 @@
 32. [U3-32 分散減少：対称変量・対照変量](textbook/volumes/dream_thater/応用系/U/U3-32/index.md)
 33. [U3-33 層化抽出・重要度サンプリング](textbook/volumes/dream_thater/応用系/U/U3-33/index.md)
 34. [U3-34 準 Monte Carlo と次元削減](textbook/volumes/dream_thater/応用系/U/U3-34/index.md)
+35. [U3-35 Brownian bridge・連続障壁の越境補正](textbook/volumes/dream_thater/応用系/U/U3-35/index.md)
