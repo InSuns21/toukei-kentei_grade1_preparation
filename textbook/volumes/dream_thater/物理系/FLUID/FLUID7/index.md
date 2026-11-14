@@ -78,7 +78,7 @@ $$
 
 $
 A\alpha=0\quad\Longleftrightarrow\quad
-\varphi_\alpha(w)=0\ \text{（すべての }w\in W\text{）}.
+(\forall w\in W)\ \varphi_\alpha(w)=0.
 $
 
 つまり $\ker A$ は $W$ の零化空間に対応する。[LA3A の零化空間の次元公式](../../../基礎科目/LA/LA3A/index.md#thm-la3a-annihilator-dimension)をこの $n$ 次元空間の $W$ に適用して $\dim\ker A=n-r$ を得る。したがって、独立な無次元積が何個必要かは、単位の指数を並べた段階で分かる。ただし、量の一覧は問題の現象に必要なものを漏れなく指定したものとする。次元定理は未知の物理量や境界条件を発見してくれるわけではない。
