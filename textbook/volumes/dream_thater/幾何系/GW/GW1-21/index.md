@@ -47,18 +47,18 @@ $$
 <!-- definition-example-start: def-gw1-21-reduction -->
 **定義の確認**。$B=E=\mathbb R^2$、$F(x,y)=(x,y^2)$ とする。$F$ は多項式写像なので $C^2$ 級で、$F(0)=0$ である。標準基底を $e_1=(1,0),e_2=(0,1)$ とすると、原点での微分は
 
-$
+$$
 D(ae_1+be_2)=ae_1,\qquad
 [D]_{(e_1,e_2)}=\begin{pmatrix}1&0\\0&0\end{pmatrix}.
-$
+$$
 
 この行列の第1列は $D(e_1)=e_1$、第2列は $D(e_2)=0$ を表す。従って $K=\ker D=\mathbb Re_2$、$\operatorname{im}D=\mathbb Re_1$ であり、有限次元なので $D$ はFredholmで像は閉じている。$B_1=\mathbb Re_1$、$E_1=\mathbb Re_2$ と選べば、定義で要求した二つの連続直和が成立し、$E_1$ は $E/\operatorname{im}D$ の代表である。
 
 この基底分解に沿う射影は $P(u,v)=(u,0)$、$R(u,v)=(0,v)$ である。$k=ye_2$、$b=xe_1$ と置いたとき、
 
-$
+$$
 PF(k+b)=(x,0)=0\quad\Longleftrightarrow\quad x=0.
-$
+$$
 
 よって補方向の解は唯一で $\phi(ye_2)=0\in B_1$、残る方程式は $\kappa(ye_2)=y^2e_2\in E_1$ となる。元の方程式の二条件 $x=0,y^2=0$ と、$PF=0$ の解を代入した後の $\kappa=0$ は同値である。最後に $\dim_{\mathbb R}K-\dim_{\mathbb R}E_1=1-1=0$ で、指数の条件も直接確認できた。
 <!-- definition-example-end -->
@@ -80,11 +80,11 @@ $$
 >
 > さらに、上記の原点近傍に制限すると
 >
-$
+$$
 F^{-1}(0)\cap(V_K+V_1)
 =\{k+\phi(k):k\in V_K,\ \kappa(k)=0\},\qquad
 \kappa(k)=RF(k+\phi(k))
-$
+$$
 >
 > が成り立ち、$\kappa(0)=0$、$d\kappa_0=0$ である。また
 >
