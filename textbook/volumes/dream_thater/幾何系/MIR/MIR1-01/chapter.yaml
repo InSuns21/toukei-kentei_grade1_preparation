@@ -1,0 +1,36 @@
+id: "MIR1-01"
+title: "A模型とB模型の問い"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-13
+  - CYG1-14
+  - DEF1-14
+learning_objectives:
+  - 複素構造変形と複素化Kähler構造を何を固定し何を動かすかによって区別できる
+  - B側の正則3形式と周期の入力を明示しFermat型一方向の非自明性を判定できる
+  - A側のt=b+ivと指数qの絶対値・整数シフト・正値領域を証明できる
+  - quinticの一次方向101と1を根拠となる既習定理から説明できる
+  - Hodge数交換からEuler標数とb3を計算し存在や周期・GWの等式と区別できる
+theorems:
+  - { id: MIR1-01-DEF-01, name: "本講で比較するA側とB側の入力" }
+  - { id: MIR1-01-PROP-01, name: "複素化Kähler座標の指数と整数シフト" }
+  - { id: MIR1-01-PROP-02, name: "滑らかなquinticの二種類の一次方向" }
+canonical_examples:
+  - Fermat型五次の一パラメータ変形とJacobian商での非自明性
+  - 超平面類HからbH+ivHを作りA側の入力条件を検査
+  - t=1/4+iの指数座標と整数シフト
+  - Xと仮想的ミラーYのHodge数・Euler標数・b3の比較
+problem_patterns:
+  - MIR1-01-CLASSIFY-MODULI
+  - MIR1-01-EXPONENTIAL-MODULUS
+  - MIR1-01-HODGE-DIRECTION
+  - MIR1-01-EULER-SIGN
+  - MIR1-01-Q-FIBERS
+  - MIR1-01-JACOBIAN-SLICE
+  - MIR1-01-NUMERIC-VS-MIRROR
+  - MIR1-01-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 7, review: 4 }

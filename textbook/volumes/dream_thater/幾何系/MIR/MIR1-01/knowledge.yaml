@@ -1,0 +1,23 @@
+chapter: MIR1-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-13, CYG1-14, DEF1-14]
+concepts:
+  - id: mirror.geometric-a-b-input
+    name: A側とB側の幾何的入力の比較
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講で比較するA側とB側の入力）"]
+    requires: [cyg.complexified-kahler-parameter, deformation.quintic-residue-volume, cyg.quintic-all-first-order]
+  - id: mirror.exponential-kahler-coordinate
+    name: 複素化Kähler座標の指数と整数シフト
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素化Kähler座標の指数と整数シフト）"]
+    requires: [mirror.geometric-a-b-input]
+  - id: mirror.quintic-two-directions
+    name: quinticの二種類の一次方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかなquinticの二種類の一次方向）"]
+    requires: [cyg.quintic-all-first-order, cyg.quintic-kahler-ray, cyg.quintic-low-hodge]
