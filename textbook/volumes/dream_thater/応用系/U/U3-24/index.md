@@ -10,10 +10,10 @@
 
 put の即時行使額 $g(s)=(K-s)_+$ と、American 価値 $u(\tau,s)=V(T-\tau,s)$ を考えます。[U3-21 の障害条件](../U3-21/index.md#prop-u3-21-obstacle)では元の時刻 $t$ に関する $\mathcal AV=V_t+\mathcal LV-rV\le0$ を使いました。ここでは株価 $s$ を固定して $\tau=T-t$ で微分するので、連鎖律から
 
-$
+$$
 u_\tau(\tau,s)=-V_t(T-\tau,s),\qquad
 (Lu)(\tau,s)=(\mathcal LV-rV)(T-\tau,s)
-$
+$$
 
 です。従って $-(\mathcal AV)(T-\tau,s)=u_\tau-Lu$ となり、不等号の向きも反転します。[U3-22 の残存時間格子](../U3-22/index.md#def-u3-22-grid)と同じ向きに直すと、滑らかな点では
 
@@ -53,11 +53,11 @@ $$
 
 $U_i^n$ は株価 $s_i$・残存時間 $\tau_n$ における $u(\tau_n,s_i)$ の近似値で、上付き $n$ は微分次数ではなく**時間段の番号**です。$D$ は[前講の三点差分作用素](../U3-23/index.md#def-u3-23-theta)を内部未知数だけで表した $(M-1)$ 次行列とし、その成分を
 
-$
+$$
 D_{ii}=b_i,\qquad
 D_{i,i-1}=a_i\ (2\le i\le M-1),\qquad
 D_{i,i+1}=c_i\ (1\le i\le M-2)
-$
+$$
 
 と定めます。端の行では未知数でない $U_0,U_M$ を行列に入れず、境界寄与として分けます。実際、第1行では $(L_hU)_1=a_1U_0+b_1U_1+c_1U_2$ であり、内部ベクトルへの作用 $Dx$ に $a_1U_0$ を加えれば元の三点差分に戻ります。
 
@@ -91,11 +91,11 @@ $$
 <!-- definition-example-start: def-u3-24-lcp -->
 **定義の確認**：この二元系の $A,f$ は、[前講の三重対角方程式の定義例](../U3-23/index.md#def-u3-23-tridiagonal)で $M=3$、$r=q=0$、$\sigma=1$、$k=1/2$、両端値0、旧内部値 $(1,0)^{\mathsf T}$ として得たものです。$a_1=c_1=1/2,\ b_1=-1,\ a_2=c_2=2,\ b_2=-4$ を内部の三点差分に入れると、
 
-$
+$$
 D=\begin{pmatrix}-1&1/2\\2&-4\end{pmatrix},\quad
 A=I-\tfrac12D=\begin{pmatrix}3/2&-1/4\\-1&3\end{pmatrix},
 \quad f=\begin{pmatrix}1\\0\end{pmatrix}.
-$
+$$
 
 ここへ制約の判定を練習するため、**一般の相補問題の仮想的な障害値** $g=(1/2,1/2)^{\mathsf T}$ を追加します。これは同一幅の株価格子における実際の put 支払額を表す例ではありません。まず $x-g$ で行使下限を、$Ax-f$ で差分不等式を、両者の成分積で相補性をそれぞれ判定します。
 
@@ -165,17 +165,17 @@ $$
 <!-- definition-example-start: def-u3-24-psor -->
 **定義の確認**：第2節の二元系で初期値 $x^{(0)}=g=(1/2,1/2)^{\mathsf T}$、$\omega=1$ とします。第1行は右隣の旧値 $x_2^{(0)}=1/2$ を使い、
 
-$
+$$
 z_1=\frac{1+(1/4)(1/2)}{3/2}=\frac34,\qquad
 x_1^{(1)}=\max\!\left(\frac12,\frac34\right)=\frac34
-$
+$$
 
 です。第2行は左隣の**新値** $x_1^{(1)}=3/4$ を使うため、
 
-$
+$$
 z_2=\frac{0+3/4}{3}=\frac14,\qquad
 x_2^{(1)}=\max\!\left(\frac12,\frac14\right)=\frac12.
-$
+$$
 
 第2節点の候補は行使額未満なので射影されます。この一掃引で $x^{(1)}=(3/4,1/2)^{\mathsf T}$ に到達し、前の[相補条件の定義例](#def-u3-24-lcp)と一致します。
 <!-- definition-example-end -->
@@ -293,7 +293,7 @@ $$
 
 固定点の存在を確認するため、任意の $z^{(0)}\in\mathbb R^{M-1}$ から $z^{(j+1)}=\mathcal T(z^{(j)})$ と反復します。収縮性を繰り返し適用すると、$j\ge0,\ p\ge1$ に対し
 
-$
+$$
 \begin{aligned}
 \|z^{(j+1)}-z^{(j)}\|_\infty
 &\le\rho^j\|z^{(1)}-z^{(0)}\|_\infty,\\
@@ -303,7 +303,7 @@ $
 &\le\frac{\rho^j}{1-\rho}\|z^{(1)}-z^{(0)}\|_\infty
 \xrightarrow[j\to\infty]{}0.
 \end{aligned}
-$
+$$
 
 従って反復列は Cauchy 列です。$\mathbb R^{M-1}$ は最大値ノルムで完備だから極限 $x^*$ が存在し、$\mathcal T$ の連続性から $\mathcal T(x^*)=x^*$ です。別の固定点 $y^*$ があれば $\|x^*-y^*\|_\infty\le\rho\|x^*-y^*\|_\infty$ であり、$\rho<1$ より $x^*=y^*$。固定点条件 $x_i^*=\max(g_i,x_i^*-\alpha w_i^*)$ を、[射影 SOR 固定点](#prop-u3-24-psor-fixed)の証明と同様に、$x_i^*>g_i$ なら $w_i^*=0$、$x_i^*=g_i$ なら $w_i^*\ge0$ と成分で分ければ、$x^*$ は相補問題の解であり、逆も成り立ちます。最後に
 
@@ -351,10 +351,10 @@ $$
 
 [U3-11 の CRR 二項木](../U3-11/index.md#def-u3-11-crr)を、[連続配当付き株価のリスク中立ドリフト](../U3-19/index.md#thm-u3-19-forward)に合わせて参照計算に使います。U3-11 の無配当の上昇確率をそのまま使わず、木の一段を $\Delta t=T/L$ として株価の平均倍率を $e^{(r-q)\Delta t}$ に変更します。上昇倍率 $u=e^{\sigma\sqrt{\Delta t}}$、下落倍率 $d=u^{-1}$ に対し、各段で
 
-$
+$$
 p=\frac{e^{(r-q)\Delta t}-d}{u-d},\qquad
 C_{\mathrm{hold}}=e^{-r\Delta t}\{pC_{\mathrm{up}}+(1-p)C_{\mathrm{down}}\}
-$
+$$
 
 を計算し、American put は $C=\max(g,C_{\mathrm{hold}})$ と後退更新します。$0<p<1$ は各 $\Delta t$ で検査します。ただし二項木にも時間離散化誤差があり、**CRR(800) は厳密解ではありません**。差分法とのずれを全て PSOR の反復誤差だと誤認しないようにします。
 
