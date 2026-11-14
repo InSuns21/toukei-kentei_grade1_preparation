@@ -57,6 +57,8 @@ $$
 <!-- definition-example-start: def-sp7-martingale-difference -->
 ### 直接例：二段階のコイントス
 
+**定義の確認**
+
 先ほどの公平コインで $D_1=\xi_1$、$D_2=\xi_1\xi_2$ とします。$D_1$ は $\mathcal F_1$ 可測、$D_2$ は $\mathcal F_2$ 可測で、どちらも絶対値が $1$ です。さらに
 
 $$
