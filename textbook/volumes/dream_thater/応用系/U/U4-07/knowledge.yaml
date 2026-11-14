@@ -10,6 +10,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（同一満期コールと行使価格格子）"]
     requires: [finance.finite-state-quote-payoff-table]
+  - id: finance.option-vertical-spread
+    name: 縦スプレッド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（縦スプレッド）"]
+    requires: [finance.option-call-strike-grid]
+  - id: finance.option-strike-convexity
+    name: 行使価格格子上の凸性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（行使価格格子上の凸性）"]
+    requires: [finance.option-call-strike-grid]
   - id: finance.option-call-static-bounds
     name: コールの基本上下限
     kind: theorem
