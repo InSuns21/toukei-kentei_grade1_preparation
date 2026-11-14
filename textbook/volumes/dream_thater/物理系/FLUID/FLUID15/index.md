@@ -14,13 +14,19 @@ $$
 
 を占める。流体の速度を $u(x,t)$、圧力を $p(x,t)$、遠方の一定圧力を $p_\infty$ と書く。球が**動く問題**では実験室座標で遠方流体は静止し、$u\to0$、$p\to p_\infty$ とする。
 
-球中心からの位置ベクトル $y=x-X(t)$、距離 $r=|y|$、半径方向単位ベクトル $n=y/r$ を用いる。$n$ は**球から流体へ向く法線**であり、外部流体領域 $\Omega$ の内側境界での外向き法線は $-n$ である。必要な場合には極軸を $z$ 方向にとり、$\theta$ を $+z$ 軸からの極角、$\varphi$ を方位角とし、$\cos\theta=n\cdot e_z$ とする。球面素は $dS=a^2\sin\theta\,d\theta\,d\varphi$（$0\leq\theta\leq\pi$、$0\leq\varphi<2\pi$）である。半径方向の速度成分は $u_r=u\cdot n=\partial_r\phi$。極角方向の単位接ベクトルを $e_\theta=\partial_\theta n$（極では極限で読む）と定めると、$y=rn$ から $\partial_\theta y=re_\theta$ なので、連鎖律より
+球中心からの位置ベクトル $y=x-X(t)$、距離 $r=|y|$、半径方向単位ベクトル $n=y/r$ を用いる。$n$ は**球から流体へ向く法線**であり、外部流体領域 $\Omega$ の内側境界での外向き法線は $-n$ である。
 
-$
+必要な場合には極軸を $z$ 方向にとり、$\theta$ を $+z$ 軸からの極角、$\varphi$ を方位角とし、$\cos\theta=n\cdot e_z$ とする。球面素は $dS=a^2\sin\theta\,d\theta\,d\varphi$（$0\leq\theta\leq\pi$、$0\leq\varphi<2\pi$）である。
+
+半径方向の速度成分は $u_r=u\cdot n=\partial_r\phi$。
+
+極角方向の単位接ベクトルを $e_\theta=\partial_\theta n$（極では極限で読む）と定めると、$y=rn$ から $\partial_\theta y=re_\theta$ なので、連鎖律より
+
+$$
 \partial_\theta\phi=\nabla_y\phi\cdot\partial_\theta y
 =r(u\cdot e_\theta),\qquad
 u_\theta=u\cdot e_\theta=\frac1r\partial_\theta\phi.
-$
+$$
 
 これらの偏微分は時刻を固定して行う。
 
@@ -65,21 +71,21 @@ $$
 
 極軸 $e_z$ に対称な候補を $f(r)\cos\theta$ とする。この調和性の判定式は、三次元の直交座標からも導ける。第3座標を $z=x_3=r\cos\theta$ と書き、$h(r)=f(r)/r$ と置けば $f(r)\cos\theta=zh(r)$ である。$r>0$ では $\partial_{x_i}r=x_i/r$ だから、合成関数の微分と積の微分から
 
-$
+$$
 \begin{aligned}
 \Delta h(r)&=h''(r)+\frac2r h'(r),\\
 \Delta\{zh(r)\}
 &=z\,\Delta h(r)+2\partial_z h(r)
 =z\left(h''(r)+\frac4r h'(r)\right).
 \end{aligned}
-$
+$$
 
 ここで $h'=f'/r-f/r^2$、$h''=f''/r-2f'/r^2+2f/r^3$ と代入すれば
 
-$
+$$
 \Delta\{f(r)\cos\theta\}
 =\left(f''(r)+\frac{2}{r}f'(r)-\frac{2}{r^2}f(r)\right)\cos\theta.
-$
+$$
 
 球面座標で計算しても、角度部分 $\partial_\theta(\sin\theta\,\partial_\theta\cos\theta)=-2\sin\theta\cos\theta$ から同じ項が得られる。$f(r)=r^k$ を代入すると角括弧の係数は $[k(k-1)+2k-2]r^{k-2}=[k(k+1)-2]r^{k-2}$ となる。したがって $k=1,-2$ の二つが得られる。
 
@@ -477,11 +483,11 @@ $$
 
 行列を導入する理由を先に計算する。三次元の標準基底 $e_1,e_2,e_3$ で $V=\sum_j V_j e_j$ と表し、$\phi_V=\sum_j V_j\psi_j$ と置くと、誘起流速は $u=\nabla\phi_V$ である。流体の運動エネルギーを展開すれば
 
-$
+$$
 T_{\mathrm{fluid}}
 =\frac\rho2\sum_{i,j=1}^3 V_iV_j
 \int_\Omega\nabla\psi_i\cdot\nabla\psi_j\,d^3x.
-$
+$$
 
 [発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を有限の外部領域に適用し、無限遠の境界項が零へ収束する場合、$\Delta\psi_i=0$ と外部流体側の法線 $-n$ から $\int_\Omega\nabla\psi_i\cdot\nabla\psi_j\,d^3x=-\int_{\partial B}\psi_j n_i\,dS$ となる。この**エネルギー二次形式の係数**を次の行列で表す。負号は物体表面での外部領域の法線が $-n$ であることに由来する。等式と対称性は後の命題で詳しく確かめる。
 
@@ -579,7 +585,15 @@ $$
 # timeout-ms: 10000
 ```
 
-出力の `integral` は $\int_0^\pi\cos^2\theta\sin\theta\,d\theta$ の数値値、`error` は解析値 $2/3$ との差、`added_mass` は $\rho=1000\ \mathrm{kg/m^3}$・$a=0.10\ \mathrm m$ の付加質量、`drag_angular` は前後対称圧力の軸方向積分である。刻み数 $n=40,80,160,400$ に応じた誤差の減少と、$m_{\mathrm a}\approx2.094\ \mathrm{kg}$、零合力に対応する `drag_angular\approx0` を照合する。これは証明の代わりではなく、$2\pi$、$a^2$、符号の入力ミスを独立に検出する補助である。
+出力の `integral` は次の角度積分の近似値で、`error` は解析値 $2/3$ との差である。
+
+$$
+\int_0^\pi\cos^2\theta\sin\theta\,d\theta=\frac23.
+$$
+
+`added_mass` は密度 $\rho=1000\ \mathrm{kg/m^3}$、半径 $a=0.10\ \mathrm m$ の球の付加質量で、`drag_angular` は前後対称圧力の軸方向積分である。
+
+刻み数 $n=40,80,160,400$ に応じた `error` の減少と、付加質量 $m_{\mathrm a}\approx2.094\ \mathrm{kg}$、`drag_angular` がほぼ $0$ であることを照合する。これは証明の代わりではなく、$2\pi$、$a^2$、符号の入力ミスを独立に検出する補助である。
 
 この講義の模型では、球は非粘性流体の表面を滑り、流れは全域で無渦で、球の周囲の流体は無限に広い。粘性境界層・剥離がある実在球の抗力、容器壁の影響、加速直後に生じる渦などはこの模型からは予測できない。**付加質量と粘性抵抗を同一視しない**ことが重要である。
 
