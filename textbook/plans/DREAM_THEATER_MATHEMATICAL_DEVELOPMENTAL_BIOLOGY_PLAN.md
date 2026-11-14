@@ -19,7 +19,7 @@
 - [Wolpert's Principles of Development, 7th ed.（Oxford University Press, 2025）](https://www.oupjapan.co.jp/en/products/detail/65084?language=en)：胚の体軸、形態形成、細胞分化、器官形成、成長、再生、幹細胞・胚モデルという**生物学側の現象の幅**を確認。特に旧案で薄かった軸形成、細胞間相互作用、上皮形態形成、再生を独立した到達点として明確化。
 - [J. D. Murray, Mathematical Biology II: Spatial Models and Biomedical Applications（Springer, 2003）](https://link.springer.com/book/10.1007/b98869)：反応拡散の線形不安定性、空間モード・波長選択、成長領域、力学的形態形成を別々に扱う構成を参照。Turing条件の計算と空間パターンの解釈を旧1講へ詰め込まない。
 - [G. Forgacs and S. A. Newman, Biological Physics of the Developing Embryo（Cambridge University Press, 2005）](https://www.cambridge.org/core/books/biological-physics-of-the-developing-embryo/224FAA1BC95A83E8E62D770F503EC1D6)：細胞状態・接着・細胞選別・上皮変形・原腸形成・軸と分節の順序を参照。生化学のみから形態を説明せず、離散力学から組織変形へ橋渡しする。
-- [J. K. Percus and S. Childress, Mathematical Models in Developmental Biology（AMS, 2015）](https://www.ams.org/books/cln/026/)：発生モデルのパターン形成・接着・形態形成を数式で接続する補助参照。
+- [J. K. Percus and S. Childress, Mathematical Models in Developmental Biology（AMS, 2015）](https://doi.org/10.1090/cln/026)：発生モデルのパターン形成・接着・形態形成を数式で接続する補助参照。
 - [Mathematical modeling for developmental processes（Development, Growth & Differentiation, 2023）](https://doi.org/10.1111/dgd.12856)：遺伝子調節ネットワークと組織変形を単一の実験・数理モデルへ結び付ける現代的な出口の確認。
 
 上記は公開された出版社説明・目次および公開抄録に基づく**構成上の照合**であって、各書の全本文を精読したとの主張ではない。講義本文・図・演習は独自に構成し、図版や文章を転載しない。
