@@ -151,6 +151,9 @@ A\rho^{1/2}=0,\qquad A^*\sigma^{1/2}=|e_2\rangle\langle e_1|\ne0.
 $$
 
 **同じ零入力に非零の出力が付く**ため、このままでは作用素ですらありません。
+以後 $\mathbb C^2$ の標準基底を $e_1,e_2$ とし、
+$E_{ij}=|e_i\rangle\langle e_j|$ を行列単位と書きます。
+例えば $E_{ij}E_{k\ell}=\delta_{jk}E_{i\ell}$ です。
 
 一般の標準形 $(\mathcal M,\mathcal H,J,\mathcal P)$ の自然正錐 $\mathcal P$ で、状態 $\rho,\sigma$ を単位ベクトル $\xi_\rho,\xi_\sigma$ で表します。ここで自然正錐は既習の[AQFT30での状態代表](../AQFT30/index.md#def-aqft30-araki-relative-entropy)と同じ設定です。ベクトル状態の $\mathcal M$ に関する支持を $p=s_{\mathcal M}(\xi_\rho)=s(\rho)$、可換子 $\mathcal M'$ に関する支持を $q=s_{\mathcal M'}(\xi_\rho)$ と記します。具体的には
 
@@ -158,9 +161,20 @@ $$
 p\mathcal H=\overline{\mathcal M'\xi_\rho},
 \qquad
 q\mathcal H=\overline{\mathcal M\xi_\rho}.
-$$
+$
 
-$p\in\mathcal M$、$q\in\mathcal M'$ であるため両者は可換ですが、一般に同じ射影ではありません。$\mathcal M\xi_\rho$ は $q\mathcal H$ に稠密であり、その直交補空間を定義域に足して全 $\mathcal H$ 上で稠密にします。
+この射影表示は単なる記号の置換ではありません。
+$P$ を $\overline{\mathcal M'\xi_\rho}$ への直交射影とすると、
+この閉部分空間は $\mathcal M'$ とその随伴で不変なので $P\in\mathcal M$ です。
+$P\xi_\rho=\xi_\rho$ より $\rho(1-P)=\|(1-P)\xi_\rho\|^2=0$ です。
+逆に $e\in\mathcal M$ が $\rho(1-e)=0$ を満たすなら
+$e\xi_\rho=\xi_\rho$ であり、任意の $B\in\mathcal M'$ に対して
+$eB\xi_\rho=Be\xi_\rho=B\xi_\rho$ です。
+ゆえに $e\ge P$、すなわち[支持射影の最小性](#def-aqft31-support)から $P=p$ です。
+同様の議論を $\mathcal M'$ に適用すると、もう一方の射影は $q$ となります。
+
+$p\in\mathcal M$、$q\in\mathcal M'$ であるため両者は可換ですが、一般に同じ射影ではありません。
+$\mathcal M\xi_\rho$ は $q\mathcal H$ に稠密であり、その直交補空間を定義域に足して全 $\mathcal H$ 上で稠密にします。
 
 反線形作用素の随伴は、[AQFT29の相対モジュラー作用素の定義](../AQFT29/index.md#def-aqft29-relative-modular)
 と同じく $S^\sharp$ と書きます。これは反線形作用素に対する随伴であり、
@@ -197,7 +211,10 @@ $$
 ### 直接例：零入力の矛盾を支持射影が消す
 
 上の二準位の純粋状態では、Hilbert–Schmidt空間に左から作用する環が
-$\mathcal M=L_{M_2(\mathbb C)}$、可換子が右乗算環です。このため状態の二つの支持は
+$\mathcal M=L_{M_2(\mathbb C)}$、可換子が右乗算環です。
+ここで $L_A(Y)=AY$、$R_B(Y)=YB$（$A,B,Y\in M_2(\mathbb C)$）は
+それぞれ行列空間上の左・右乗算作用素です。
+このため状態の二つの支持は
 $p=L_{E_{11}}$、$q=R_{E_{11}}$ となり、任意の行列 $Y$ に
 $pY=E_{11}Y$、$qY=YE_{11}$ と作用します。
 これらは**行列そのものの同一の支持射影ではなく、行列空間に作用する別の射影**です。
