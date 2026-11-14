@@ -5,12 +5,14 @@ prerequisites:
   - SP12
   - SP5
   - STO13
+  - ODE3
+  - RA5
 forward_references: []
 concepts:
   - id: stochastic.ctmc-stationary-distribution
     name: CTMC の定常分布
     kind: definition
-    aliases: ["stationary distribution of a finite CTMC"]
+    aliases: ["stationary distribution of a finite CTMC", "定常分布"]
     introduction: formal
     introduction_aliases: ["定義（CTMC の定常分布）"]
     requires:
@@ -29,7 +31,7 @@ concepts:
   - id: stochastic.ctmc-detailed-balance
     name: CTMC の詳細釣合い
     kind: definition
-    aliases: ["continuous-time detailed balance"]
+    aliases: ["continuous-time detailed balance", "詳細釣合い"]
     introduction: formal
     introduction_aliases: ["定義（CTMC の詳細釣合い）"]
     requires:
