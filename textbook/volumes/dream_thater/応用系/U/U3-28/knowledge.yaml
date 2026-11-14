@@ -1,0 +1,53 @@
+chapter: U3-28
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-14, U3-27]
+concepts:
+  - id: finance.gbm-coupled-exact-grid
+    name: 同一路での GBM 厳密格子経路
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同一路での GBM 厳密格子経路）"]
+    requires: [finance.gbm-explicit-positive]
+  - id: finance.gbm-exact-step-factor
+    name: GBM の厳密一刻み乗数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GBM の厳密一刻み乗数）"]
+    requires: [finance.gbm-coupled-exact-grid, finance.gbm-explicit-positive]
+  - id: finance.gbm-euler-maruyama
+    name: GBM の Euler–Maruyama 更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（GBM の Euler–Maruyama 更新）"]
+    requires: [finance.gbm-coupled-exact-grid, stochastic.simple-predictable-integrand]
+  - id: finance.gbm-ito-iterated-correction
+    name: 反復 Itô 積分の二次変動補正
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反復 Itô 積分の二次変動補正）"]
+    requires: [stochastic.ito-process-formula]
+  - id: finance.gbm-scalar-milstein
+    name: GBM のスカラー Milstein 更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（GBM のスカラー Milstein 更新）"]
+    requires: [finance.gbm-euler-maruyama, finance.gbm-ito-iterated-correction]
+  - id: finance.gbm-discrete-positivity
+    name: 離散更新における正値性の限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（離散更新における正値性の限界）"]
+    requires: [finance.gbm-scalar-milstein, finance.gbm-exact-step-factor]
+  - id: finance.gbm-coupled-terminal-errors
+    name: 同一路 GBM の終端強・弱誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同一路 GBM の終端強・弱誤差）"]
+    requires: [finance.gbm-coupled-exact-grid, finance.gbm-scalar-milstein, numerical.monte-carlo-estimator]
+  - id: finance.gbm-finite-mse-weak-bias
+    name: GBM の有限刻み強 MSE と平均偏り
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GBM の有限刻み強 MSE と平均偏り）"]
+    requires: [finance.gbm-coupled-terminal-errors, finance.gbm-exact-step-factor, finance.gbm-real-moments]
