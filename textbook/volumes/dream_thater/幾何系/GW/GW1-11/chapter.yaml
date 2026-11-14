@@ -1,0 +1,52 @@
+id: "GW1-11"
+title: "評価写像・忘却写像・交叉条件"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-10
+  - GW1-09
+  - GW1-08
+  - GW1-07
+  - AG2-09
+official_scope: []
+learning_objectives:
+  - 家族における標点切断と標的への写像の合成から評価写像を定義し同型類でのwell-defined性を確かめられる
+  - 定数成分を収縮する忘却写像の定義域と次数0の例外を確認できる
+  - 忘却写像と残された標点の評価写像の可換性を成分ごとに証明できる
+  - Poincaré双対な条件を評価写像で引き戻してコホモロジー挿入へ翻訳できる
+  - 凸標的のモジュライ次元から交叉積分の必要次数条件を導ける
+  - 定数安定写像の評価積分を標的上のカップ積へ還元し四標点以上の消滅を説明できる
+  - 射影平面の次数1写像の二点条件を横断的な交叉として計算できる
+  - 点条件が対角に退化したときの正次元繊維と横断性の破れを説明できる
+  - 射影空間の直線計数を一般の次元へ拡張し自己同型と点条件の次数を検算できる
+definitions:
+  - { id: GW1-11-DEF-01, name: 評価写像 }
+  - { id: GW1-11-DEF-02, name: 安定写像モジュライの忘却射 }
+  - { id: GW1-11-DEF-03, name: 評価挿入と交叉類 }
+theorems:
+  - { id: GW1-11-PROP-01, name: 忘却射と残る評価写像の可換性 }
+  - { id: GW1-11-PROP-02, name: 評価挿入の次数条件 }
+  - { id: GW1-11-PROP-03, name: 定数写像の評価積分 }
+  - { id: GW1-11-PROP-04, name: 射影平面の二点を通る直線 }
+canonical_examples:
+  - 三標点付き定数写像の各評価写像が恒等写像となる例
+  - 二標点の次数1写像に付いた定数球面を忘却で収縮する例
+  - 次数0射影平面での二超平面挿入と点類
+  - 三標点の定数写像での積分と四標点での消滅
+  - 射影平面の異なる二点を通る直線と積評価の横断性
+  - 対角に退化した二点条件が正次元繊維を持つ例
+problem_patterns:
+  - GW1-11-CONSTANT-EVALUATION
+  - GW1-11-INSERTION-AND-MARKS
+  - GW1-11-FORGETFUL-STABILITY
+  - GW1-11-P1-LINE-TWO-POINTS
+  - GW1-11-HYPERPLANE-POINT-DEGREE
+  - GW1-11-EVALUATION-COMMUTES
+  - GW1-11-FOUR-MARKED-CONSTANT-VANISHING
+  - GW1-11-P2-TRANSVERSE-INCIDENCE
+  - GW1-11-DIAGONAL-DEGENERATION
+  - GW1-11-PN-TWO-POINT-LINES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 12, review: 6 }
