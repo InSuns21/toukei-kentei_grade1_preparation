@@ -6,6 +6,8 @@ prerequisites:
   - SP12
   - SP5
   - STO13
+  - ODE3
+  - RA5
 official_scope: []
 learning_objectives:
   - 有限状態 CTMC の遷移半群を定義し P'_t=QP_t=P_tQ の左右の意味を説明できる
