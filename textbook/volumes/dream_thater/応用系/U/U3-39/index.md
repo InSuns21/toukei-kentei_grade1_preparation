@@ -312,7 +312,7 @@ $V_{\min}>0$ で割れば結論です。
 
 <!-- formal-statement-start -->
 > **定義（IV の行使価格断面）**  
-> $s,\tau>0$、$r\in\mathbb R$、$q\ge0$ と満期を固定し、行使価格 $K$ ごとの call 観測価格 $c(K)$ が各 $K$ で正の IV を持つとする。写像 $K\mapsto\sigma_{\rm IV}(K,\tau)$ を、その満期の IV 行使価格断面という。$c(K)$ が連続・微分可能であることは、この離散気配の定義には要求しない。
+> $s,\tau>0$、$r\in\mathbb R$、$q\ge0$ と満期を固定し、観測対象の行使価格を有限集合 $\mathcal K=\{K_1,\ldots,K_m\}\subset(0,\infty)$ とする。各 $K\in\mathcal K$ の call 観測価格 $c(K)$ が正の IV を持つとき、$\mathcal K$ 上の写像 $K\mapsto\sigma_{\rm IV}(K,\tau)$ を、その満期の IV 行使価格断面という。離散気配の定義では $c(K)$ の点間の値や連続・微分可能性は要求しない。
 <!-- formal-statement-end -->
 
 <a id="def-u3-39-smile-skew"></a>
@@ -402,7 +402,7 @@ J(\sigma)=\sum_{i=1}^m w_iR_i(\sigma)^2,
 \widehat\sigma\in\mathop{\rm argmin}_{\sigma\in[\sigma_{\min},\sigma_{\max}]}J(\sigma)
 $$
 
-> を、定数変動率の価格残差による校正とする。$R_i$ は円、$J$ は無次元である。閉区間なので最小点は存在するが、一般に一意とは限らない。
+> を、定数変動率の価格残差による校正とする。$R_i$ は円、$J$ は無次元である。各 $C_{\rm BS}$ が正の変動率で連続であるため、有限和 $J$ は閉有界な探索区間上で連続となり最小点を持つが、一般に一意とは限らない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-39-calibration -->
