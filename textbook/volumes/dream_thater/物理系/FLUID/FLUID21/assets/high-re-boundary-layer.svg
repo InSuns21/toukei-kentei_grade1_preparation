@@ -25,7 +25,7 @@
   <line x1="686" y1="280" x2="686" y2="169" stroke="#a34a21" stroke-width="2.5" stroke-dasharray="4 4" marker-end="url(#delta-arrow)"/>
   <g font-family="Arial, sans-serif" font-size="21" fill="#253446">
     <text x="844" y="300">x</text>
-    <text x="68" y="31">y</text>
+    <text x="42" y="31">y</text>
     <text x="100" y="357">y = 0</text>
     <text x="700" y="234" fill="#853e17">δ(x)</text>
     <text x="675" y="76" fill="#136b8b">Uₑ</text>
