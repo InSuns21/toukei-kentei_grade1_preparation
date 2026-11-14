@@ -1,0 +1,29 @@
+chapter: U3-26
+scope: dream-theater
+coverage: complete
+prerequisites: [MC1, U3-14, U3-15, U3-17, U3-18, U3-19, U3-25]
+concepts:
+  - id: finance.risk-neutral-mc-discounted-sample
+    name: リスク中立割引支払標本と価格の標本平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（リスク中立割引支払標本と価格の標本平均）"]
+    requires: [finance.risk-neutral-terminal-value, finance.gbm-explicit-positive, numerical.monte-carlo-estimator]
+  - id: finance.discounted-payoff-finite-sample-unbiased-variance
+    name: 割引支払額の標本分散の有限標本不偏性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（割引支払額の標本分散の有限標本不偏性）"]
+    requires: [finance.risk-neutral-mc-discounted-sample, numerical.monte-carlo-rmse, numerical.monte-carlo-standard-error]
+  - id: finance.gbm-call-asymptotic-price-interval
+    name: GBM 欧州 call の漸近95%価格区間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GBM 欧州 call の漸近95%価格区間）"]
+    requires: [finance.risk-neutral-mc-discounted-sample, numerical.monte-carlo-clt, numerical.monte-carlo-standard-error-consistency, finance.gbm-real-moments]
+  - id: finance.asian-right-grid-mean-bias
+    name: 零行使価格 Asian の右端平均バイアス
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零行使価格 Asian の右端平均バイアス）"]
+    requires: [finance.asian-integral-state, finance.gbm-conditional-moments, numerical.monte-carlo-bias-variance-decomposition]
