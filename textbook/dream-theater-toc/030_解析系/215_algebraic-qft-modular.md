@@ -31,3 +31,4 @@
 28. [AQFT28 局所Type III₁性の適用境界](textbook/volumes/dream_thater/解析系/AQFT/AQFT28/index.md)
 29. [AQFT29 相対Tomita作用素](textbook/volumes/dream_thater/解析系/AQFT/AQFT29/index.md)
 30. [AQFT30 Araki相対エントロピーの有限次元還元](textbook/volumes/dream_thater/解析系/AQFT/AQFT30/index.md)
+31. [AQFT31 非忠実状態・支持射影・無限値](textbook/volumes/dream_thater/解析系/AQFT/AQFT31/index.md)
