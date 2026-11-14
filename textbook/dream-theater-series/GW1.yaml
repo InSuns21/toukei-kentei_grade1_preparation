@@ -52,7 +52,7 @@ chapters:
     title: "評価写像・忘却写像・交叉条件"
   - id: GW1-12
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-12
-    status: planned
+    status: completed
     title: "境界の分裂と貼り合わせ"
   - id: GW1-13
     path: textbook/volumes/dream_thater/幾何系/GW/GW1-13
