@@ -18,6 +18,7 @@ definitions:
   - { id: U3-39-DEF-02, name: "bid/ask と両立する変動率集合" }
   - { id: U3-39-DEF-03, name: "IV の行使価格断面" }
   - { id: U3-39-DEF-04, name: "価格残差による定数変動率校正" }
+  - { id: U3-39-DEF-05, name: "ボラティリティ・スマイルとスキュー" }
 theorems:
   - { id: U3-39-PROP-01, name: "配当付き call/put の変動率境界" }
   - { id: U3-39-THM-01, name: "IV の存在と一意性" }
