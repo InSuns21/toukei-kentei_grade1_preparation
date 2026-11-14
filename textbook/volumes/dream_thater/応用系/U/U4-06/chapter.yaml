@@ -1,0 +1,45 @@
+id: "U4-06"
+title: "ETF・指数構成銘柄の価格整合性"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-05]
+official_scope: []
+learning_objectives:
+  - 指数・ETF市場価格・基金純資産価値の違いと、基金資産の口数換算を説明・計算できる
+  - 設定単位・指定バスケット・調整現金の符号と認定参加者のアクセス条件を特定できる
+  - ETFおよび構成銘柄のbid/askを方向別に選び設定・交換の現金収支を再現できる
+  - 設定・交換の実行可能な無裁定必要上下限をポートフォリオから証明できる
+  - NAVプレミアムだけでは裁定が確定しない反例を構成できる
+  - 整数設定単位・板容量・受付上限・固定費から利益を生む数量を判定できる
+  - 異なる設定・交換バスケットと決済遅延が価格整合性判定へ及ぼす影響を検証できる
+  - 取引不能な裁定候補と実行可能な確定利益を区別できる
+definitions:
+  - { id: U4-06-DEF-01, name: 純資産価値の口数換算 }
+  - { id: U4-06-DEF-02, name: 設定・交換バスケットと調整現金 }
+  - { id: U4-06-DEF-03, name: 設定・交換の実行可能純利益 }
+theorems:
+  - { id: U4-06-THM-01, name: 設定・交換による無裁定必要境界 }
+  - { id: U4-06-PROP-01, name: 整数設定単位と板容量の上限 }
+canonical_examples:
+  - A2株・B3株・現金40円の基金を10口で割り1口NAV39円を確認
+  - ETF40.5/41.2円とA99/101円・B49/51円から設定8円、交換マイナス30円
+  - bid/askを区別した設定境界39.7円と交換境界38.2円
+  - ETF中値のNAVプレミアムが正でも設定・交換とも赤字となる反例
+  - 設定・交換でバスケットが違う場合の交換利益マイナス80円
+  - 設定容量1単位と追加固定費10円により理論黒字が赤字となる反例
+  - 決済翌日の売値37円または43円による価格変動リスク
+problem_patterns:
+  - U4-06-A1
+  - U4-06-A2
+  - U4-06-A3
+  - U4-06-A4
+  - U4-06-A5
+  - U4-06-B1
+  - U4-06-B2
+  - U4-06-B3
+  - U4-06-B4
+  - U4-06-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
