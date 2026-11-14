@@ -32,6 +32,7 @@ concepts:
     requires: [fluid.lift-drag, fluid.bernoulli-global, fluid.complex-velocity-formula]
   - id: fluid.kutta-condition
     name: 尖った後縁のKutta条件
+    aliases: ["Kutta 条件"]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（尖った後縁の Kutta 条件）"]
