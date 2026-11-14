@@ -120,9 +120,9 @@ $$
 
 有限状態なら総率には有限な最大値 $L=\max_{i\in S}q_i$ があります。$L=0$ なら全状態が吸収状態です。$L>0$ で、吸収に至らない滞在では
 
-$
+$$
 H_n=\frac{E_n}{q_{Y_n}}\ge\frac{E_n}{L}.
-$
+$$
 
 吸収に達した場合も $H_n=+\infty$ と定めたので同じ下界が成り立ちます。従って、どの標本路でも $T_n\ge L^{-1}\sum_{k=0}^{n-1}E_k$ です。[STO13 の構成定理](../../STO/STO13/index.md#thm-sto13-ctmc-construction)の非爆発性を、ここでは上界の意味まで追います。
 
@@ -261,14 +261,14 @@ $$
 
 最後の不等式には $1_{\{n\ge2\}}\le n(n-1)/2$ を使いました。二次階乗モーメントも、$\mu=Lh$ とおいて Poisson 分布の質量関数から直接計算できます。
 
-$
+$$
 \begin{aligned}
 E[N_h(N_h-1)]
 &=\sum_{n=2}^{\infty}n(n-1)e^{-\mu}\frac{\mu^n}{n!}\\
 &=e^{-\mu}\mu^2\sum_{k=0}^{\infty}\frac{\mu^k}{k!}
 =\mu^2=(Lh)^2.
 \end{aligned}
-$
+$$
 
 従って残りは $O(h^2)$。$e^{-Lh}=1-Lh+O(h^2)$ を代入し、
 
@@ -536,7 +536,7 @@ $$
 
 $t>0$ を固定します。$e^{-x}$ は減少関数なので $T_m\le t$ なら $\sum_{n<m}E_n\le Lt$。[Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)と独立性から
 
-$
+$$
 \begin{aligned}
 P(T_m\le t)
 &\le P\left(e^{-\sum_{n<m}E_n}\ge e^{-Lt}\right)\\
@@ -689,20 +689,20 @@ $$
 
 時計三回以上について、$1_{\{N_h\ge3\}}\le N_h(N_h-1)(N_h-2)/6$ を使います。三次階乗モーメントは Poisson 分布の質量関数を $n=3$ から和にして
 
-$
+$$
 \begin{aligned}
 E[N_h(N_h-1)(N_h-2)]
 &=e^{-5h}(5h)^3\sum_{k=0}^{\infty}\frac{(5h)^k}{k!}\\
 &=(5h)^3
 \end{aligned}
-$
+$$
 
 と求まります。従って
 
-$
+$$
 P(N_h\ge3)\le\frac{E[N_h(N_h-1)(N_h-2)]}{6}
 =\frac{(5h)^3}{6}=O(h^3).
-$
+$$
 
 時計零回と一回の寄与は零なので、$P_h(0,2)=2h^2+O(h^3)$ です。
 
