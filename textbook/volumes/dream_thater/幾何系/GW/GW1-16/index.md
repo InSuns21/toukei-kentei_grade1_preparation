@@ -20,7 +20,7 @@ $$
 
 $V$ の斉次基底を $\phi_0,\ldots,\phi_r$ とする。[節点一致を表す対角類](../GW1-12/index.md#def-gw1-12-diagonal-matching)では、左右の節点に入れる類を Poincaré 双対基底で組にした。同じ組を積の係数にも使う。
 
-交叉行列とその逆行列を
+積分による Poincaré ペアリング $\langle u,v\rangle_X=\int_Xu\smile v$ は、[GW1-12で対角類を双対基底に展開したときのペアリング](../GW1-12/index.md#def-gw1-12-diagonal-matching)である。斉次基底 $\{\phi_a\}$ でこの双線形形式を行列表示したものが $\eta_{ab}=\langle\phi_a,\phi_b\rangle_X$ である。$X$ は滑らかな向き付けられたコンパクト多様体なので Poincaré 双対性が成立し、偶数部分同士の交叉行列 $\eta$ は非退化となる。そこで逆行列を $\eta^{ab}$ で表し、
 
 $$
 \eta_{ab}=\int_X\phi_a\smile\phi_b,
@@ -28,7 +28,7 @@ $$
 \sum_b\eta_{ab}\eta^{bc}=\delta_a^c
 $$
 
-と置き、$\phi^a=\sum_b\eta^{ab}\phi_b$ とする。$X$ が滑らかな向き付けられたコンパクト多様体であるため Poincaré 双対性が成立し、偶数部分同士の交叉行列は非退化である。ここで基底の次数を考慮すると、$\eta_{ab}$ は $\deg\phi_a+\deg\phi_b=2m$ のとき以外0である。このため逆行列も補次数を持つ成分だけが非零であり、
+と置き、$\phi^a=\sum_b\eta^{ab}\phi_b$ とする。これは基底で表した非退化なペアリングを逆行列で解く操作である。ここで基底の次数を考慮すると、$\eta_{ab}$ は $\deg\phi_a+\deg\phi_b=2m$ のとき以外0である。このため逆行列も補次数を持つ成分だけが非零であり、
 
 $$
 \int_X\phi^a\smile\phi_c
@@ -36,7 +36,18 @@ $$
 =\delta_c^a.
 $$
 
-したがって任意の $v\in V$ について
+任意の $v\in V$ を $v=\sum_c v^c\phi_c$ と展開し、$t_a=\int_Xv\smile\phi_a$ と置くと、$t_a=\sum_cv^c\eta_{ca}$ である。逆行列との積を一度展開すれば、
+
+$$
+\begin{aligned}
+\sum_a t_a\phi^a
+&=\sum_{a,b,c}v^c\eta_{ca}\eta^{ab}\phi_b\\
+&=\sum_{b,c}v^c\delta_c^b\phi_b
+=\sum_c v^c\phi_c=v.
+\end{aligned}
+$$
+
+したがって復元式は
 
 $$
 v=\sum_a\left(\int_Xv\smile\phi_a\right)\phi^a.
@@ -93,9 +104,37 @@ $$
 **なぜ積が定義できるか**。固定した $E$ より小さな面積の非零係数の項は、各因子で有限個である。$A(\beta_i)\ge0$ だから、積の面積 $E$ 以下の係数に寄与する組は、両因子の面積 $E$ 以下の項の組に限られる。したがって係数の畳み込みは有限和であり、積も同じ有限性条件を満たす。
 
 <!-- definition-example-start: def-gw1-16-novikov -->
-**定義の確認**（射影直線）。。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$ となる。面積を $a=A([\mathbb P^1])>0$ と置くと、$A(d[\mathbb P^1])=da$ である。したがって任意の $E>0$ に対して $da\le E$ の整数 $d\ge0$ は $0\le d\le E/a$ の有限個しかない。形式冪級数 $\sum_{d\ge0}c_dq^d$ は定義の有限性条件を満たす。
+**定義の確認**（射影直線）。$\mathbb P^1$ では $\mathrm{Eff}(\mathbb P^1)=\{d[\mathbb P^1]:d\ge0\}$ で、$q=Q^{[\mathbb P^1]}$ と書けば $\Lambda_{\mathbb P^1}\simeq\mathbb Q[[q]]$ となる。面積を $a=A([\mathbb P^1])>0$ と置くと、$A(d[\mathbb P^1])=da$ である。したがって任意の $E>0$ に対して $da\le E$ の整数 $d\ge0$ は $0\le d\le E/a$ の有限個しかない。形式冪級数 $\sum_{d\ge0}c_dq^d$ は定義の有限性条件を満たす。
 
-さらに二つの形式冪級数の積で $q^n$ の係数は $\sum_{i=0}^nc_id_{n-i}$ という有限和なので積は定義され、$\deg q^n=4n$ も加法的である。実際、$c_1(T\mathbb P^1)=2h$ だから $\deg q=2\langle2h,[\mathbb P^1]\rangle=4$。$\mathbb P^2$ の直線類を $\ell$、$q=Q^\ell$ とすれば同様に $\deg q=2\langle3H,\ell\rangle=6$。同じ字 $q$ でも次数は標的によって異なる。
+さらに二つの形式冪級数の積について、$q^k$ の係数は有限和となる。
+
+$$
+[q^k]\left(\sum_{i\ge0}c_iq^i\right)
+\left(\sum_{j\ge0}d_jq^j\right)
+=\sum_{i=0}^k c_i d_{k-i}.
+$$
+
+よって積は定義される。次に、曲線類を足して掛けた際に次数も足し合わされることを確認する。[射影空間の接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式から
+
+$$
+\det(T\mathbb P^n)\simeq\mathcal O(n+1),
+\qquad c_1(T\mathbb P^n)=(n+1)H
+$$
+
+が得られる。$\mathbb P^1$ では $H=h$ であるから
+
+$$
+\deg q=2\langle2h,[\mathbb P^1]\rangle=4,
+\qquad \deg(q^k)=4k.
+$$
+
+$\mathbb P^2$ の直線類を $\ell$、その Novikov 変数を $q=Q^\ell$ とすると
+
+$$
+\deg q=2\langle3H,\ell\rangle=6.
+$$
+
+同じ字 $q$ でも次数は標的によって異なる。
 <!-- definition-example-end -->
 
 ## 4. 三点不変量による小量子積
@@ -119,7 +158,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-gw1-16-small-quantum-product -->
-**定義の確認**（射影直線の単位類と点類）。。$X=\mathbb P^1$、$V=\mathbb Q\{1,h\}$ とし、双対基底は $\phi^0=h,\phi^1=1$ とする。[次数0の三点不変量](../GW1-13/index.md#prop-gw1-13-zero-degree)により
+**定義の確認**（射影直線の単位類と点類）。$X=\mathbb P^1$、$V=\mathbb Q\{1,h\}$ とし、双対基底は $\phi^0=h,\phi^1=1$ とする。[次数0の三点不変量](../GW1-13/index.md#prop-gw1-13-zero-degree)により
 
 $$
 \langle1,h,1\rangle_0=1,\qquad
@@ -217,7 +256,7 @@ $$
 h*h=q\cdot1,\qquad1*h=h,\qquad1*1=1.
 $$
 
-ここでは $\phi^h=1$、$\phi^1=h$ なので、$q$ の係数が $h$ ではなく $1$ に付く点を確認できる。この計算を量子環の関係式へまとめるのは次講で行う。
+ここでは $\phi_0=1,\phi_1=h$ に対する双対基底が $\phi^0=h,\phi^1=1$ なので、$q$ の係数が $h$ ではなく $1$ に付く点を確認できる。この計算を量子環の関係式へまとめるのは次講で行う。
 
 ## 5. WDVV：四標点の二通りの分裂が同じ数になる
 
@@ -293,13 +332,13 @@ $14|23$ については四標点の番号 $3,4$ を交換して同じ議論を�
 
 ## 6. WDVV から結合律を、添字を省略せず導く
 
-Poincaré ペアリングを $\Lambda_X$-双線形に
+第2節で導入した $\langle u,v\rangle_X$ を $\Lambda_X$-双線形に延長し、以後は $(u,v)$ と略記する。すなわち $u,v\in V$ では
 
 $$
 (u,v)=\int_Xu\smile v
 $$
 
-と延長する。値域は $\Lambda_X$ であり、$\Lambda_X$ を足した量子積では曲線類ごとの係数を比較する。
+とし、Novikov 係数には $\bigl(Q^{\beta_1}u,Q^{\beta_2}v\bigr)=Q^{\beta_1+\beta_2}(u,v)$ と拡張する。値域は $\Lambda_X$ であり、量子積の等式は曲線類ごとの係数を比較する。
 
 <a id="thm-gw1-16-associativity"></a>
 
@@ -339,7 +378,6 @@ $$
 \langle\alpha,\lambda,\phi_a\rangle_{B_1}
 \eta^{ab}
 \langle\phi_b,\mu,\nu\rangle_{B_2}.
-
 $$
 
 同じ操作を右括弧へ行うと
@@ -350,7 +388,6 @@ $$
 \langle\lambda,\mu,\phi_a\rangle_{B_1}
 \eta^{ab}
 \langle\alpha,\phi_b,\nu\rangle_{B_2}.
-
 $$
 
 右括弧の展開式で $B_1,B_2$ と $a,b$ を同時に入れ替える。$\eta^{ab}=\eta^{ba}$ は偶数部分の交叉行列の対称性による。さらに[偶数挿入の対称性](../GW1-15/index.md#prop-gw1-15-symmetry)で三点の順序を変えると
@@ -444,7 +481,31 @@ $v$ の係数を試験類 $1,h$ と組ませると $\int v\smile1=2$、$\int v\s
 $\mathbb P^1$ の $q=Q^{[\mathbb P^1]}$ と $\mathbb P^2$ の $q=Q^\ell$ について、$\deg q$ と $\deg(q^2)$ をそれぞれ求めよ。どちらも実コホモロジー次数で答えよ。
 
 <!-- solution-start -->
-**詳細解答**。[射影空間の第一 Chern 類](../GW1-09/index.md#thm-gw1-09-projective-convex)は $c_1(T\mathbb P^n)=(n+1)H$ で、直線類との交叉数は1。従って定義の $\deg Q^\beta=2c_1(TX)\cdot\beta$ により、$\mathbb P^1$ は $\deg q=2\cdot2=4$ と $\deg q^2=8$、$\mathbb P^2$ は $\deg q=2\cdot3=6$ と $\deg q^2=12$。$q$ を普通の次数0の数として扱わない。
+**詳細解答**。[接 Euler 列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)の行列式を取ると、次の第一 Chern 類を得る。
+
+$$
+\det(T\mathbb P^n)\simeq\mathcal O(n+1),
+\qquad c_1(T\mathbb P^n)=(n+1)H.
+$$
+
+直線類 $\ell$ との交叉数は $\langle H,\ell\rangle=1$ である。[Novikov 次数の定義](#def-gw1-16-novikov)へ $\beta=d\ell$ を代入すると
+
+$$
+\deg Q^{d\ell}
+=2\langle(n+1)H,d\ell\rangle
+=2d(n+1).
+$$
+
+$\mathbb P^1$ と $\mathbb P^2$ にそれぞれ代入して
+
+$$
+\begin{aligned}
+\mathbb P^1:\quad&\deg q=4,\quad\deg(q^2)=8,\\
+\mathbb P^2:\quad&\deg q=6,\quad\deg(q^2)=12.
+\end{aligned}
+$$
+
+$q$ を次数0の数として扱わないことが重要である。
 <!-- solution-end -->
 
 <a id="ex-gw1-16-a03"></a>
@@ -560,13 +621,13 @@ $B_1\leftrightarrow B_2$、$a\leftrightarrow b$ とし、偶数対称性を用�
 $X=\mathbb P^1$、$B=1$、挿入 $(h,h,h,1)$ とする。$12|34$ と $14|23$ の分裂で $(B_1,B_2)=(0,1),(1,0)$ をすべて調べ、値を比較せよ。
 
 <!-- solution-start -->
-**詳細解答**。$D(4,1)=1-3+2+4=4$、挿入余次元和は3で境界積分の条件を満たす。対角は $1\boxtimes h+h\boxtimes1$。$12|34$ で $(0,1)$ は左に $h,h$ を含む次数0三点相関を持ち、$h^2=0$ で両項0。$(1,0)$ では右が $(h,1,q_t)$ の定数相関で、$\int hq_t$ が非零となるには $q_t=1$、従って左の $p_t=h$ の項だけが残る。
+**詳細解答**。$D(4,1)=1-3+2+4=4$、挿入余次元和は3で境界積分の条件を満たす。対角は $1\boxtimes h+h\boxtimes1$。$12|34$ で $(0,1)$ は左に $h,h$ を含む次数0三点相関を持ち、$h^2=0$ で両項0。$(1,0)$ では右が $(h,1,\phi^a)$ の定数相関で、$\int_{\mathbb P^1}h\smile\phi^a$ が非零となるには $\phi^a=1$、つまり $a=1$ であり、左の節点挿入は $\phi_1=h$ となる。
 
 $$
 \langle h,h,h\rangle_1\langle h,1,1\rangle_0=1.
 $$
 
-$14|23$ で $(0,1)$ は左 $(h,1,p_t)$ が定数で、$p_t=1$ のみ非零、右は $(h,h,h)$ の次数1で値1。$(1,0)$ は右に $(h,h,q_t)$ の次数0があるため0。従って
+$14|23$ で $(0,1)$ は左 $(h,1,\phi_a)$ が定数で、$\phi_a=1$（$a=0$）のみ非零、対応する右の節点挿入は $\phi^0=h$ だから、右は $(h,h,h)$ の次数1で値1。$(1,0)$ は右に $\langle h,h,\phi^a\rangle_0=\int_{\mathbb P^1}h^2\smile\phi^a=0$ が現れるので、どの $a$ についても零。従って
 
 $$
 \mathcal B_{12|34}=1=\mathcal B_{14|23}.
@@ -606,7 +667,7 @@ $$
 \langle h,h,h\rangle_1=1
 $$
 
-を得る。三点で $\deg_{\mathbb C} M_{3,d}=1+2d$、$h,h,h$ の複素余次元和は3なので $d=1$ 以外は消える。双対基底の $\phi^h=1$ に対応するため
+を得る。三標点のモジュライの複素次元は $\dim_{\mathbb C} \overline{\mathcal M}_{0,3}(\mathbb P^1,d)=1+2d$ で、$h,h,h$ の複素余次元和は3なので $d=1$ 以外は消える。$\phi_1=h$ に対応する双対基底元は $\phi^1=1$ なので
 
 $$
 1*1=1,\qquad1*h=h,\qquad h*h=q.
