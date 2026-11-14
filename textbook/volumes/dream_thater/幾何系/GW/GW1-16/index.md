@@ -140,16 +140,16 @@ $$
 > **命題（古典極限・単位元・次数）**  
 > $X$ を上記の滑らかな連結複素射影凸多様体とし、$\alpha,\lambda$ を偶数次数の斉次コホモロジー類とする。小量子積の次数0成分と単位元は
 
-$
+$$
 (\alpha*\lambda)_0=\alpha\smile\lambda,
 \qquad 1*\alpha=\alpha*1=\alpha
-$
+$$
 
 > を満たす。また Novikov 変数に Chern 次数を与えると、任意の非零項 $Q^\beta\phi^a$ について
 
-$
+$$
 \deg(Q^\beta\phi^a)=\deg\alpha+\deg\lambda
-$
+$$
 
 > が成り立つ。
 <!-- formal-statement-end -->
@@ -454,15 +454,15 @@ $$
 
 [基本類公理](../GW1-15/index.md#thm-gw1-15-fundamental-class)を $k=2$、挿入 $(\alpha,\phi_a)$、新標点の挿入 $1$ に適用して
 
-$
+$$
 \langle\alpha,\phi_a,1\rangle_\beta=0
-$
+$$
 
 を得る。偶数の[対称性](../GW1-15/index.md#prop-gw1-15-symmetry)により問の三点関数も0。量子積の定義で
 
-$
+$$
 (1*\alpha)_\beta=\sum_a0\cdot\phi^a=0
-$
+$$
 
 となる。$\beta=0$ の三標点は基本類公理の不安定な忘却例外なので、そこで消滅を主張せず $1\smile\alpha=\alpha$ とする。
 <!-- solution-end -->
@@ -580,9 +580,9 @@ $X=\mathbb P^1$ とする。(i) Poincaré 双対基底と Novikov 次数を求�
 
 一方、[次数1の点計数](../GW1-14/index.md#thm-gw1-14-p1-degree-one)に[因子公理](../GW1-15/index.md#thm-gw1-15-divisor)を用いると
 
-$
+$$
 \langle h,h,h\rangle_1=1
-$
+$$
 
 を得る。三点で $\deg_{\mathbb C} M_{3,d}=1+2d$、$h,h,h$ の複素余次元和は3なので $d=1$ 以外は消える。双対基底の $\phi^h=1$ に対応するため
 
