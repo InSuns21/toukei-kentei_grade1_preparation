@@ -123,7 +123,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid11-velocity-potential -->
-**定義の確認**：一様流 $u=(U,0)$ に対し $\phi=Ux$ と置けば $\phi_x=U,\phi_y=0$。また $\zeta=\partial_x0-\partial_yU=0$ である。$\phi$ の加法定数を変えても速度は変わらない。
+**定義の確認**：$D=\mathbb R^2$、定数 $U$ の一様流 $u=(U,0)$ に対し $\phi=Ux$ と置く。$\phi\in C^2(D)$ であり、$\nabla\phi=(\phi_x,\phi_y)=(U,0)=u$ と定義の各条件を満たす。また $\zeta=\partial_x0-\partial_yU=0$ である。$\phi$ の加法定数を変えても速度は変わらない。
 <!-- definition-example-end -->
 
 $\phi$ が存在すれば $\zeta=\phi_{yx}-\phi_{xy}=0$。この逆が局所的には成立する。
@@ -202,7 +202,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid11-loop-flux -->
-**定義の確認**：$C$ が半径 $R$ の反時計回り円周で、$u=(q x/r^2,q y/r^2)$、$r=\sqrt{x^2+y^2}>0$ とする。円周上では $u=(q/R)e_r$、外向き法線 $n=e_r$、$ds=R\,d\theta$ だから
+**定義の確認**：$D=\mathbb R^2\setminus\{0\}$ 上の $C^1$ 場 $u=(q x/r^2,q y/r^2)$ を取り、$C$ を $R>0$ の反時計回り円周 $x=R\cos\theta,\ y=R\sin\theta$（$0\le\theta\le2\pi$）とする。円周上で $u=(q/R)e_r$、右側法線は $n=e_r$、$ds=|d(x,y)/d\theta|d\theta=R\,d\theta$ だから
 
 $$
 Q_C=\int_0^{2\pi}(q/R)R\,d\theta=2\pi q.
@@ -307,6 +307,22 @@ $F=u$ では $Q_x-P_y=\zeta$、$F=(-u_2,u_1)$ では $Q_x-P_y=\delta$。した�
 ## 4. 穴あき平面の二つの厳密な反例
 
 $D=\mathbb R^2\setminus\{(0,0)\}$、$r^2=x^2+y^2$ とし、定数 $\kappa,q\in\mathbb R$ は m$^2$/s の単位を持つものとする。$r=0$ は領域に含めない。対数の引数は無次元にするため、基準長 $r_0=1\,\mathrm m$ を固定し、以後の $\log r$ は $\log(r/r_0)$ の略記とする。基準長を変更してもポテンシャルには加法定数が加わるだけで、速度は変わらない。
+
+局所的に角度 $\theta$ を選び $x=r\cos\theta,\ y=r\sin\theta$ と書くと、連鎖律から
+
+$$
+dx=\cos\theta\,dr-r\sin\theta\,d\theta,\qquad
+dy=\sin\theta\,dr+r\cos\theta\,d\theta.
+$$
+
+よって $x\,dx+y\,dy=r\,dr$ と $x\,dy-y\,dx=r^2\,d\theta$ であり、$r>0$ では
+
+$$
+d\log(r/r_0)=\frac{x\,dx+y\,dy}{r^2},\qquad
+d\theta=\frac{-y\,dx+x\,dy}{r^2}.
+$$
+
+したがって偏微分の係数を比較すると $\partial_x\log(r/r_0)=x/r^2,\ \partial_y\log(r/r_0)=y/r^2$、$\theta_x=-y/r^2,\ \theta_y=x/r^2$ を得る。後者は角度の**局所的な枝**に関する式であり、原点を囲む一周で同じ角度値へ戻ることは意味しない。
 
 ### 周回流：流れ関数はあるが速度ポテンシャルはない
 
@@ -447,7 +463,7 @@ $\nabla\phi=(ax,-ay)$、$(\psi_y,-\psi_x)=(ax,-ay)$ なので両定義を直接�
 
 ### A1. 流れ関数から発散と渦度
 
-$u=(2y,-2x)$（m/s、座標は m）について、$\psi$ と $\delta,\zeta$ を求めよ。なぜ速度ポテンシャルが局所的にもないか述べよ。
+$u=(2y,-2x)$（座標は m、各係数 $2$ の単位は s$^{-1}$）について、$\psi$ と $\delta,\zeta$ を求めよ。なぜ速度ポテンシャルが局所的にもないか述べよ。
 
 - Level: A
 
@@ -471,7 +487,7 @@ $\phi_x=3,\ \phi_y=0$ から $\phi=3x+C_1$（m$^2$/s）。$\psi_y=3,\ -\psi_x=0$
 
 ### A3. 循環と流束を区別する
 
-$u=(-y,x)$ m/s、円周 $C_R:(x,y)=(R\cos\theta,R\sin\theta)$、$0\le\theta\le2\pi$（$R>0$）に対し、$\Gamma_{C_R},Q_{C_R}$ を求めよ。
+$u=(-y,x)$（座標は m、各係数の単位は s$^{-1}$）と円周 $C_R:(x,y)=(R\cos\theta,R\sin\theta)$、$0\le\theta\le2\pi$（$R>0$）に対し、$\Gamma_{C_R},Q_{C_R}$ を求めよ。
 
 - Level: A
 
