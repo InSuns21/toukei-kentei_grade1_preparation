@@ -442,18 +442,18 @@ $\nabla\phi=(ax,-ay)$、$(\psi_y,-\psi_x)=(ax,-ay)$ なので両定義を直接�
 
 ## 6. ブラウザ Python で条件と等高線の数値検算
 
-[contour_check.py](contour_check.py) は標準ライブラリのみを用い、よどみ点流 $\phi=a(x^2-y^2)/2,\ \psi=axy$ の格子を作る。簡易 marching-squares によって等高線を格子辺との交点で近似し、各等高線の線分数を数える。また中心差分で $\delta,\zeta$ と Cauchy–Riemann 関係の残差を独立に確認する。**等高線線分の数は保存則の証明でも、連続曲線の本数でもない**。
+[contour_check.py](contour_check.py) は、よどみ点流 $\phi=a(x^2-y^2)/2,\ \psi=axy$ を同じ関数定義から数値検算・図示する。標準ライブラリで簡易 marching-squares による等高線と格子辺との交点・線分数を数え、中心差分で $\delta,\zeta$ と Cauchy–Riemann 関係の残差を確認する。ブラウザの実行欄では NumPy・Matplotlib を追加で読み込み、**破線の速度ポテンシャル等高線、実線の流れ関数等高線と速度矢印**を一枚の図に重ねる。**等高線線分の数は保存則の証明でも、連続曲線の本数でもない**。
 
 ~~~python-file-lab
 # lab-id: FLUID11-CONTOURS-FILE
 # lab-title: 流れ関数・速度ポテンシャルの等高線と微分残差
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID11/contour_check.py
 # timeout-ms: 10000
-# lab-preset: 標準格子 | --a 1 --step 0.2
-# lab-preset: 細かい格子 | --a 1 --step 0.1
+# lab-preset: 標準格子と等高線図 | --a 1 --step 0.2 --plot
+# lab-preset: 細かい格子と等高線図 | --a 1 --step 0.1 --plot
 ~~~
 
-出力の potential_segments、stream_segments はそれぞれ指定値の等高線を近似する線分数、max_div、max_curl、max_cr は中央差分の最大絶対残差である。線分数が変化しても、厳密式から $\delta=\zeta=0$ が成り立つ事実は変わらない。刻み幅を細かくしたときに、表示の解像度と偏微分残差を別に評価する。
+「このページで実行」を押すと、計算結果と等高線図を同じ実行結果に表示する。出力の `potential_segments`、`stream_segments` はそれぞれ指定値の等高線を近似する線分数、`max_div`、`max_curl`、`max_cr` は中央差分の最大絶対残差である。図の破線は $\phi=\text{定数}$、実線は $\psi=\text{定数}$ で、速度矢印は実線に沿う。原点は $u=0$ のよどみ点なので、そこで一意の接線方向を主張しない。色だけでなく線種でも区別する。格子を細かくすると等高線の表示精度と線分数が変わるが、厳密式から $\delta=\zeta=0$ が成り立つ事実は変わらない。図は証明の代用ではない。初回はブラウザに描画ライブラリを読み込むため時間がかかる場合がある。ローカルで数値だけ確認する場合は `python contour_check.py --a 1 --step 0.2` とし、`--plot` を指定した場合にのみ NumPy・Matplotlib を必要とする。
 
 ## 7. 演習
 
