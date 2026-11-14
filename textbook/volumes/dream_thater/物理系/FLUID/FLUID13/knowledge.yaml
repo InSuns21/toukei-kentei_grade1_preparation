@@ -31,7 +31,7 @@ concepts:
     introduction_aliases: ["定義（Joukowski写像と臨界点）"]
     requires: [complex-analysis.holomorphic-function]
   - id: fluid.joukowski-critical-point
-    name: 臨界点
+    name: Joukowski写像の臨界点
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Joukowski写像と臨界点）"]
