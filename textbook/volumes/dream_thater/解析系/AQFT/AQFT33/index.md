@@ -413,7 +413,7 @@ $$
 
 ## 6. 局所netへ戻す
 
-[AQFT2のHaag–Kastler net](../AQFT2/index.md)の等方性（領域包含が環包含を生む性質）により、$O_1\subset O_2$ である領域の局所von Neumann環は、[AQFT9のGNSによる局所環](../AQFT9/index.md)で同じ表現を固定すれば
+[AQFT2の包含単調性（isotony）](../AQFT2/index.md#def-aqft2-isotony)により、$O_1\subset O_2$ である領域の局所von Neumann環は、[AQFT9の局所von Neumann netの包含定理](../AQFT9/index.md#thm-aqft9-isotony-locality)を同じ表現で適用すれば
 
 $$
 \mathcal M(O_1)\subset\mathcal M(O_2)
