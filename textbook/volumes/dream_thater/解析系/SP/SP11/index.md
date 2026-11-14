@@ -16,9 +16,13 @@
 > **定理（独立 Poisson 過程の重ね合わせ）**  
 > 同一確率空間上で $N^{(1)},\ldots,N^{(r)}$ を互いに独立な Poisson 過程とし、各率を $\lambda_j>0$（$j=1,\ldots,r$、$r\ge2$）とする。このとき
 >
-> $N_t=\sum_{j=1}^rN_t^{(j)}$
->
-> は率 $\Lambda=\sum_{j=1}^r\lambda_j$ の Poisson 過程である。異なる流の到着時刻は確率 $1$ で一致せず、$N$ の跳躍は大きさ $1$ である。
+> 合成過程を
+
+$$
+N_t=\sum_{j=1}^rN_t^{(j)}
+$$
+
+> と定めると、$N$ は率 $\Lambda=\sum_{j=1}^r\lambda_j$ の Poisson 過程である。異なる流の到着時刻は確率 $1$ で一致せず、$N$ の跳躍は大きさ $1$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -82,13 +86,17 @@ $$
 > **定義（独立な印付き到着）**  
 > 率 $\lambda>0$ の Poisson 過程 $N$ の到着時刻を $T_1<T_2<\cdots$ とする。有限の印集合 $K=\{1,\ldots,r\}$（$r\ge2$）と確率 $q_1,\ldots,q_r\ge0$（$\sum_{j=1}^r q_j=1$）を固定する。$K$ 値確率変数 $J_1,J_2,\ldots$ が互いに独立同分布であり、
 >
-> $P(J_n=j)=q_j \quad(n\ge1,\ j\in K)$
->
-> を満たし、さらに印の**列全体**が元の計数過程 $N$ と独立であるとき、$(T_n,J_n)_{n\ge1}$ を独立な印付き到着という。種類 $j$ の計数過程を
->
-> $N_t^{[j]}=\sum_{n\ge1}\boldsymbol{1}_{\{T_n\le t\}}\boldsymbol{1}_{\{J_n=j\}}$
->
-> で定める。
+> 次の印の確率を満たし、
+
+$$
+P(J_n=j)=q_j\qquad(n\ge1,\ j\in K)
+$$
+
+> さらに印の**列全体**が元の計数過程 $N$ と独立であるとき、$(T_n,J_n)_{n\ge1}$ を独立な印付き到着という。種類 $j$ の計数過程は次で定める。
+
+$$
+N_t^{[j]}=\sum_{n\ge1}\boldsymbol{1}_{\{T_n\le t\}}\boldsymbol{1}_{\{J_n=j\}}.
+$$
 <!-- formal-statement-end -->
 
 ここで印の独立性とは、到着順に印を振る際に、前に付いた印にも全到着時刻にも依存させないことです。各有限時刻までの到着数は [SP10 の単純計数過程](../SP10/index.md#def-sp10-simple-counting)として有限なので、上の和には有限個しか非零項がありません。
@@ -113,9 +121,14 @@ $$
 > **定理（独立間引きと多種類分割）**  
 > 率 $\lambda>0$ の Poisson 過程 $N$ に、[独立な印付き到着](#def-sp11-independent-marking)として有限印集合 $K=\{1,\ldots,r\}$、印確率 $q_1,\ldots,q_r$ を与える。このとき種類別の計数過程 $N^{[1]},\ldots,N^{[r]}$ は**互いに独立**であり、$N^{[j]}$ は率 $\lambda q_j$ の Poisson 過程である（$q_j=0$ の場合は恒等的に $0$ の退化過程とする）。任意の $0\le s<t$ について、$N_t-N_s=n$ という条件の下では種類別の件数は多項分布
 >
-> $P(N^{[j]}_t-N^{[j]}_s=k_j\ (1\le j\le r)\mid N_t-N_s=n)=\dfrac{n!}{\prod_{j=1}^r k_j!}\prod_{j=1}^r q_j^{k_j}$
->
-> に従う。ただし $k_j$ は非負整数、$\sum_j k_j=n$ とし、$0^0=1$ と約束する。
+> に従う。すなわち
+
+$$
+P\left(N^{[j]}_t-N^{[j]}_s=k_j\ (1\le j\le r)\mid N_t-N_s=n\right)
+=\frac{n!}{\prod_{j=1}^r k_j!}\prod_{j=1}^r q_j^{k_j}.
+$$
+
+> ただし $k_j$ は非負整数、$\sum_j k_j=n$ とし、$0^0=1$ と約束する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -168,9 +181,13 @@ $$
 > **命題（重ね合わせた到着の出身印）**  
 > $r\ge2$ 個の互いに独立な Poisson 過程 $N^{(j)}$ の率を $\lambda_j>0$ とし、$\Lambda=\sum_j\lambda_j$ とする。重ね合わせた過程 $N=\sum_jN^{(j)}$ の第 $n$ 到着時刻を $T_n$、その到着が属する流の番号を $J_n$ とする。このとき $J_1,J_2,\ldots$ は確率
 >
-> $P(J_n=j)=\lambda_j/\Lambda$
->
-> を持つ独立同分布の印であり、印の列全体は重ね合わせた計数過程 $N$ と独立である。
+> 次の確率を持つ独立同分布の印であり、
+
+$$
+P(J_n=j)=\frac{\lambda_j}{\Lambda}\qquad(n\ge1,\ 1\le j\le r).
+$$
+
+> 印の列全体は重ね合わせた計数過程 $N$ と独立である。、印の列全体は重ね合わせた計数過程 $N$ と独立である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -180,14 +197,14 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず各流の初到着待ち時間 $W_j$ は率 $\lambda_j$ の独立な指数分布です（[SP10 の指数待ち時間構成](../SP10/index.md#thm-sp10-exponential-construction)）。$W=\min_jW_j$、最小を取る流を $J$ とします。待ち時間は連続分布なので同着の確率は $0$ です。$t>0$ について
+まず各流の初到着待ち時間 $W_j$ は率 $\lambda_j$ の独立な指数分布です（[SP10 の指数待ち時間構成](../SP10/index.md#thm-sp10-exponential-construction)）。$W=\min_jW_j$、最小を取る流を $J$ とします。待ち時間は連続分布なので同着の確率は $0$ です。$t>0$ について、流 $j$ の時計が $t$ で鳴る密度 $\lambda_j e^{-\lambda_jt}$ に、他の時計が時刻 $t$ まで鳴らない生存確率を掛けると、$W$ と $J=j$ の同時密度は
 
 $$
 \begin{aligned}
-P(W\in(t,t+dt),J=j)
-&=\lambda_je^{-\lambda_jt}\,dt
+f_{W,J}(t,j)
+&=\lambda_je^{-\lambda_jt}
 \prod_{k\ne j}e^{-\lambda_kt}\\
-&=\lambda_je^{-\Lambda t}\,dt.
+&=\lambda_je^{-\Lambda t}.
 \end{aligned}
 $$
 
@@ -225,9 +242,13 @@ $$
 > **定義（有限印を持つ複合 Poisson 過程）**  
 > 率 $\lambda>0$ の Poisson 過程 $N$ と、それと独立で互いに独立同分布な実数値印 $Y_1,Y_2,\ldots$ を取る。印の取り得る値は有限集合 $\{a_1,\ldots,a_r\}\subset\mathbb R$、$P(Y_n=a_j)=q_j$、$\sum_jq_j=1$ とする。このとき
 >
-> $X_t=\sum_{n=1}^{N_t}Y_n,\qquad X_0=0$
->
-> で定める過程 $X$ を、有限印を持つ複合 Poisson 過程という。空和は $0$ とする。
+> 次で定める過程 $X$ を
+
+$$
+X_t=\sum_{n=1}^{N_t}Y_n,\qquad X_0=0
+$$
+
+> 、有限印を持つ複合 Poisson 過程という。空和は $0$ とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sp11-compound-poisson -->
@@ -242,10 +263,16 @@ $$
 > **命題（有限印の複合 Poisson 過程の分布とモーメント）**  
 > 上の[有限印を持つ複合 Poisson 過程](#def-sp11-compound-poisson)について $m_1=E[Y_1]=\sum_jq_ja_j$、$m_2=E[Y_1^2]=\sum_jq_ja_j^2$ と置く。各 $t\ge0$、実数 $u$ に対して
 >
-> $E[e^{iuX_t}]=\exp\{\lambda t(\sum_j q_j e^{iua_j}-1)\},$
->
-> $E[X_t]=\lambda t\,m_1,\qquad \operatorname{Var}(X_t)=\lambda t\,m_2.$
->
+> 次の特性関数と平均・分散を持つ。
+
+$$
+E[e^{iuX_t}]=\exp\left\{\lambda t\left(\sum_j q_j e^{iua_j}-1\right)\right\}.
+$$
+
+$$
+E[X_t]=\lambda t\,m_1,\qquad \operatorname{Var}(X_t)=\lambda t\,m_2.
+$$
+
 > また、$X$ は独立定常増分を持つ。ただし $X_t$ が Poisson 分布に従うとは一般には言えない。
 <!-- formal-statement-end -->
 
