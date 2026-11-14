@@ -2,7 +2,7 @@ id: "U3-39"
 title: "インプライド・ボラティリティと校正"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-19, U3-20, U3-38]
+prerequisites: [U3-19, U3-20, U3-38, OPT1]
 official_scope: []
 learning_objectives:
   - 配当付き Black–Scholes call/put の変動率ゼロ・無限大極限を条件別に導ける
