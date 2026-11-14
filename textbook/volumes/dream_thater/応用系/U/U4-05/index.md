@@ -1,4 +1,4 @@
-# U4-05 現物・先渡・先物の cash-and-carry
+# U4-05 現物・先渡・先物のcash-and-carry
 
 <!-- definition-example-audit: strict -->
 
