@@ -582,6 +582,7 @@ $$
 # lab-id: FLUID15-SPHERE-CHECK
 # lab-title: 球面積分と付加質量の数値検算
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID15/sphere_check.py
+# lab-preset: 標準の数値検算 |
 # timeout-ms: 10000
 ```
 
