@@ -1,0 +1,49 @@
+id: "GW1-18"
+title: "平面有理曲線の数え上げ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - GW1-17
+  - GW1-16
+  - GW1-15
+  - GW1-14
+  - GW1-13
+  - GW1-12
+  - GW1-10
+  - GW1-09
+official_scope: []
+learning_objectives:
+  - 平面有理曲線の一次GW計数N_dを定義し3d-1個の点条件の次数整合を証明できる
+  - 因子公理で直線挿入を次数の冪に変換できる
+  - 四つの特別な標点の境界12|34と13|24で零次数成分を含め分裂寄与を導出できる
+  - Kontsevich再帰式の二項係数と次数係数を証明し二つの同値な形を比較できる
+  - N_1=1からN_2=1とN_3=12、発展としてN_4=620を検算できる
+  - GW積分と一般点を通る既約有理曲線の幾何学的本数の一致条件と失敗例を説明できる
+definitions:
+  - { id: GW1-18-DEF-01, name: 平面有理曲線の一次GW計数 }
+theorems:
+  - { id: GW1-18-PROP-01, name: 平面有理曲線の期待点条件 }
+  - { id: GW1-18-LEM-01, name: 点条件と直線挿入の還元 }
+  - { id: GW1-18-THM-01, name: Kontsevichの平面有理曲線再帰式 }
+  - { id: GW1-18-PROP-02, name: 一般点条件下の曲線数としての解釈 }
+canonical_examples:
+  - 二点を通る直線からN_1=1
+  - 四点境界の零次数側がN_dを生む機構
+  - N_2=1とN_3=12の再帰式による再計算
+  - d=4の三分割によるN_4=620
+  - 一般点条件と非横断・多重被覆を区別する例
+problem_patterns:
+  - GW1-18-EXPECTED-POINTS
+  - GW1-18-DIVISOR-INSERTIONS
+  - GW1-18-DEGREE-TWO-RECURSION
+  - GW1-18-DEGREE-THREE-SPLITS
+  - GW1-18-ZERO-DEGREE-THREE-POINT
+  - GW1-18-BOUNDARY-12-34
+  - GW1-18-BOUNDARY-13-24
+  - GW1-18-INDEX-SWAP
+  - GW1-18-DEGREE-FOUR-COUNT
+  - GW1-18-FULL-RECURSION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 13, review: 6 }
