@@ -15,7 +15,7 @@ u_x=\phi_x=\psi_y,\qquad
 u_y=\phi_y=-\psi_x
 $$
 
-である。$\phi,\psi$ はどちらも [m$^2$/s]。複素微分、正則性と導関数の演算法則は [CA1 の正則関数の定義](../../../解析系/CA/CA1/index.md#def-ca1-holomorphic)および[複素微分法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)を使用する。以下では「複素速度」を $u_x-iu_y$ と書く（$u_x+iu_y$ ではない）。
+である。$\phi,\psi$ はどちらも [m$^2$/s]。複素微分、正則性と導関数の演算法則は [CA1 の正則関数の定義](../../../解析系/CA/CA1/index.md#def-ca1-holomorphic)および[複素微分法則](../../../解析系/CA/CA1/index.md#thm-ca1-derivative-rules)を使用する。以下では速度の二成分を $u_x-iu_y$ と一つの複素数に組み合わせる（$u_x+iu_y$ ではない）。
 
 ## 1. 二つのポテンシャルから複素速度を読む
 
@@ -534,7 +534,7 @@ F_\alpha'(z)=U\left(e^{-i\alpha}
 -\frac{R^2e^{i\alpha}}{(z+d)^2}\right).
 $$
 
-$z=c$ では $z+d=R$ より $F_\alpha'(c)=U(e^{-i\alpha}-e^{i\alpha})=-2iU\sin\alpha$。$\alpha=0$ なら $F_0'(c)=0$ で、因数分解した[尖点命題](#prop-fluid13-cusp)より $\widetilde q\to Uc/R$。$\sin\alpha\ne0$ なら分子は非零、分母 $J_c'(z)\to0$ なので $|\widetilde q|\to\infty$。境界が流線であるだけでは有限速度を保証しない。
+$z=c$ では $z+d=R$ より $F_\alpha'(c)=U(e^{-i\alpha}-e^{i\alpha})=-2iU\sin\alpha$。$\alpha=0$ なら $F_0'(c)=0$ で、[翼型状境界の尖点と有限速度条件](#prop-fluid13-cusp)の因数分解より $\widetilde q\to Uc/R$。$\sin\alpha\ne0$ なら分子は非零、分母 $J_c'(z)\to0$ なので $|\widetilde q|\to\infty$。境界が流線であるだけでは有限速度を保証しない。
 <!-- solution-end -->
 
 ### B4. 失われない循環と流束
