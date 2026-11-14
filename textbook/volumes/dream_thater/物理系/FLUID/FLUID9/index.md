@@ -42,17 +42,17 @@ $$
 
 二次元の定常場 $u(x,y)=(ay,0)$（$a$ の単位は s$^{-1}$）を考える。三次元模型ではこれを $u=(ay,0,0)$ として $z$ を固定すればよい。粒子 $X_0(s)=(x_0(s),y_0(s))$ から始めると
 
-$
+$$
 X(s,t)=(x_0(s)+a(t-t_0)y_0(s),\ y_0(s)).
-$
+$$
 
 確かに $\partial_tX=(ay_0,0)=u(X,t)$、かつ初期曲線が閉じていれば $X(0,t)=X(1,t)$ で閉じる。次に**なぜ微分同相と向きを判定できるか**を確かめる。$\tau=t-t_0$ を固定すると、流れ写像とその空間微分（初期位置を変えたときの一次変化）は
 
-$
+$$
 F_t(x_0,y_0)=(x_0+a\tau y_0,y_0),\qquad
 DF_t=\begin{pmatrix}1&a\tau\\0&1\end{pmatrix},\qquad
 \det DF_t=1>0.
-$
+$$
 
 これは初期座標の標準基底による表示である。さらに $(x,y)$ から初期位置への逆対応を**実際に**解くと $F_t^{-1}(x,y)=(x-a\tau y,y)$ で、これも $C^1$ 級である。従って任意の点を一意に戻せる微分同相であり、行列式の正符号から向きも保存される（行列式の正値だけでは一般に大域的単射性まではいえない）。初期の長方形は平行四辺形へ変形する。単に時刻 $t$ に選び直した長方形を積分することとは異なる。
 <!-- definition-example-end -->
@@ -79,23 +79,23 @@ $$
 
 一定の角速度 $\Omega$ [s$^{-1}$] で $u=(-\Omega y,\Omega x,0)$ とする。ここでの $\Omega$ は角速度であり、第0節の空間領域 $\mathcal D$ とは別の量である。半径 $R$ の円を反時計回り（$+z$ 側から見て）にたどる。先の $s\in[0,1]$ から角度 $\theta=2\pi s\in[0,2\pi]$ に変数を替え、初期時刻を $t_0$ とすると
 
-$
+$$
 X(\theta,t)=R(\cos(\theta+\Omega(t-t_0)),\sin(\theta+\Omega(t-t_0)),0).
-$
+$$
 
 $\partial_tX=\Omega\partial_\theta X=u(X,t)$ であり、$\theta=0,2\pi$ の位置は一致する。流れ写像は平面の回転で、逆写像は角度 $-\Omega(t-t_0)$ の回転だから物質閉曲線の条件を満たす。また
 
-$
+$$
 \partial_\theta X=R(-\sin(\theta+\Omega(t-t_0)),\cos(\theta+\Omega(t-t_0)),0),
 \qquad u(X,t)=\Omega\partial_\theta X.
-$
+$$
 
 $d\ell=\partial_\theta X\,d\theta$ と置いて積分すると
 
-$
+$$
 \Gamma(t)=\int_0^{2\pi}u(X,t)\cdot\partial_\theta X\,d\theta
 =\int_0^{2\pi}\Omega R^2\,d\theta=2\pi\Omega R^2.
-$
+$$
 
 $R^2\Omega$ の単位は m$^2$/s である。時計回りなら $-2\pi\Omega R^2$ となる。$\Omega>0$ なら反時計回りを正とする規約を以後固定する。
 <!-- definition-example-end -->
