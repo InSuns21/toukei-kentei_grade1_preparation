@@ -585,7 +585,28 @@ $\mathbb P^1\to\mathbb P^1$ の次数3写像に、相異なる二つの標点を
 滑らかな射影曲面内の正則な有理曲線 $C\simeq\mathbb P^1$ が $N_{C/X}\simeq\mathcal O(-2)$ を満たすとする。接完全列が分裂する理由、$h^0,h^1$、一次の法方向の自由度を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[正規束接完全列](../../../代数系/AG/AG2-10/index.md#thm-ag2-10-normal-tangent)は $0\to\mathcal O(2)\to TX|_C\to\mathcal O(-2)\to0$。この拡張類は $H^1(\mathcal O(2)\otimes\mathcal O(2))=H^1(\mathcal O(4))=0$ に属するので分裂する。[線束公式](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から $h^0(TX|_C)=3+0=3$、$h^1(TX|_C)=0+1=1$。法方向の一次変分は $H^0(N_{C/X})=H^0(\mathcal O(-2))=0$。従って曲線の像は法方向に一次的には動けないが、非零の障害空間を持つ。凸性を満たさないことはこの一つの写像で十分に示せる。
+**詳細解答**。[正規束接完全列](../../../代数系/AG/AG2-10/index.md#thm-ag2-10-normal-tangent)は
+
+$$
+0\to\mathcal O(2)\xrightarrow{\iota}TX|_C\to\mathcal O(-2)\to0.
+$$
+
+一般の曲線には前節の射影束の射影 $\pi$ はないので、ここでは局所の右逆を貼り合わせる。$C\simeq\mathbb P^1$ の標準アフィン被覆 $\{U_i\}$ 上では、局所自由束の全射には正則な右逆 $s_i:\mathcal O(-2)|_{U_i}\to TX|_{U_i}$ がある。重なりで $s_j-s_i$ は $\mathcal O(2)$ に値を取るため、その差は
+
+$$
+\alpha_{ij}\in\Gamma(U_i\cap U_j,
+\mathcal Hom(\mathcal O(-2),\mathcal O(2)))
+=\Gamma(U_i\cap U_j,\mathcal O(4))
+$$
+
+である。三重重なりでは $\alpha_{ij}+\alpha_{jk}+\alpha_{ki}=0$。従って[Čech比較定理](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-cech-comparison)と[線束コホモロジーの公式](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から $H^1(\mathbb P^1,\mathcal O(4))=0$ であり、$\alpha_{ij}=b_j-b_i$ と書ける。$s_i$ を $s_i-\iota\circ b_i$ に直すと差は零になり、大域的な右逆が得られる。よって
+
+$$
+TX|_C\simeq\mathcal O(2)\oplus\mathcal O(-2),\qquad
+(h^0,h^1)=(3+0,0+1)=(3,1).
+$$
+
+法方向の一次変分は $H^0(N_{C/X})=H^0(\mathcal O(-2))=0$。従って曲線の像は法方向に一次的には動けないが、非零の障害空間を持つ。[凸性の定義](#def-gw1-09-convex)を満たさないことはこの一つの写像で十分に示せる。
 <!-- solution-end -->
 
 <a id="ex-gw1-09-b04"></a>
