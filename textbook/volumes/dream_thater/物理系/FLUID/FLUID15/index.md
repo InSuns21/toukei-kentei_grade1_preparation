@@ -393,12 +393,12 @@ $$
 
 ### 証明の見取り図
 
-$\Delta\phi=0$ だから $\nabla\cdot(\phi\nabla\phi)=|\nabla\phi|^2$ である。半径 $R$ で切った外部領域に発散定理を使うと、**球面の領域外向き法線は $-n$**、遠方球面からの寄与は消える。球面のポテンシャル値と法線微分だけで全エネルギーが決まる。
+$\Delta\phi=0$ だから $\nabla\cdot(\phi\nabla\phi)=|\nabla\phi|^2$ である。半径 $R$ で切った外部領域に[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を使うと、**球面の領域外向き法線は $-n$**、遠方球面からの寄与は消える。球面のポテンシャル値と法線微分だけで全エネルギーが決まる。
 
 <!-- proof-start -->
 ### 証明
 
-球の外側 $a<r<R$ に発散定理を適用する。$\Delta\phi=0$ を[調和モード](#prop-fluid15-harmonic-modes)と[並進球の解](#thm-fluid15-moving-sphere)から確認済みなので、
+球の外側 $a<r<R$ に[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を適用する。$\Delta\phi=0$ を[調和モード](#prop-fluid15-harmonic-modes)と[並進球の解](#thm-fluid15-moving-sphere)から確認済みなので、
 
 $$
 \int_{a<r<R}|\nabla\phi|^2\,d^3x
@@ -469,7 +469,7 @@ $$
 
 ### 証明の見取り図
 
-[流体エネルギー](#prop-fluid15-fluid-energy)と同じ発散定理を $\psi_i\nabla\psi_j$ に適用する。球では $\psi_j=-a n_j/2$ なので定義の積分を直接計算でき、どの方向も同じ係数を持つ。
+[流体エネルギー](#prop-fluid15-fluid-energy)と同じ [Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を $\psi_i\nabla\psi_j$ に適用する。球では $\psi_j=-a n_j/2$ なので定義の積分を直接計算でき、どの方向も同じ係数を持つ。
 
 <!-- proof-start -->
 ### 証明
@@ -619,14 +619,14 @@ $r=a$ で $\partial_t\phi=-a(A\cdot n)/2+\{|V|^2-3(V\cdot n)^2\}/2$。$A=0$ で�
 
 ### B3. 運動エネルギーから質量を求める
 
-半径 $a$ の並進球のポテンシャル $\phi=-a^3(V\cdot n)/(2r^2)$ が調和、球面で $\partial_r\phi=V\cdot n$、遠方で $\phi=O(r^{-2})$、$\partial_r\phi=O(r^{-3})$ を満たすものとする。発散定理を用いて $T_{\mathrm{fluid}}=\rho\int_{r>a}|\nabla\phi|^2\,d^3x/2$ を計算せよ。
+半径 $a$ の並進球のポテンシャル $\phi=-a^3(V\cdot n)/(2r^2)$ が調和、球面で $\partial_r\phi=V\cdot n$、遠方で $\phi=O(r^{-2})$、$\partial_r\phi=O(r^{-3})$ を満たすものとする。[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を用いて $T_{\mathrm{fluid}}=\rho\int_{r>a}|\nabla\phi|^2\,d^3x/2$ を計算せよ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-$\nabla\cdot(\phi\nabla\phi)=|\nabla\phi|^2+\phi\Delta\phi=|\nabla\phi|^2$ なので $a<r<R$ に発散定理を適用する。$r=a$ で流体領域の外向き法線が $-n$ であることから
+$\nabla\cdot(\phi\nabla\phi)=|\nabla\phi|^2+\phi\Delta\phi=|\nabla\phi|^2$ なので $a<r<R$ に[Gauss--Ostrogradsky の発散定理](../../../幾何系/VC/VC4/index.md#thm-vc4-gauss-divergence)を適用する。$r=a$ で流体領域の外向き法線が $-n$ であることから
 
 $$
 \int_{a<r<R}|\nabla\phi|^2\,d^3x
