@@ -37,7 +37,7 @@ concepts:
     name: 大域生成から球面上の一次コホモロジー消滅
     kind: lemma
     introduction: formal
-    introduction_aliases: ["補題（大域生成から球面上のH1消滅）"]
+    introduction_aliases: ["補題（大域生成から球面上の一次コホモロジー消滅）"]
     requires: [gromov-witten.global-generation-on-curves, algebraic-geometry.sheaf-cohomology-les, algebraic-geometry.p1-sheaf-cohomology]
   - id: gromov-witten.projective-space-convex
     name: 射影空間の凸性と変形次元
