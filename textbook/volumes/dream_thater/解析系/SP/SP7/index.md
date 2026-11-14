@@ -162,7 +162,7 @@ $V_n$ は次の増分を見る前に分かる非負の累積量です。ただ�
 <!-- proof-start -->
 ### 証明
 
-$M_n,M_{n-1}$ は二乗可積分なので $D_n$ も二乗可積分です。Cauchy–Schwarz の不等式により $M_{n-1}D_n$ は可積分です。また $E[D_n^2\mid\mathcal F_{n-1}]$ は非負・可積分で、その期待値は $E[D_n^2]$ です。従って $V_n$ は可積分で、各項が $\mathcal F_{k-1}\subseteq\mathcal F_{n-1}$ 可測なので $\mathcal F_{n-1}$ 可測です。
+$M_n,M_{n-1}$ は二乗可積分なので $D_n$ も二乗可積分です。[Cauchy–Schwarz の不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)により $M_{n-1}D_n$ は可積分です。また $E[D_n^2\mid\mathcal F_{n-1}]$ は非負・可積分で、その期待値は $E[D_n^2]$ です。従って $V_n$ は可積分で、各項が $\mathcal F_{k-1}\subseteq\mathcal F_{n-1}$ 可測なので $\mathcal F_{n-1}$ 可測です。
 
 $D_n=M_n-M_{n-1}$ から
 
