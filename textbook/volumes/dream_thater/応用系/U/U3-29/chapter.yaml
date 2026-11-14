@@ -1,0 +1,44 @@
+id: "U3-29"
+title: "強収束・弱収束と誤差予算"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-28, U3-26]
+official_scope: []
+learning_objectives:
+  - 同一 Brown 運動上の終端強 L2 誤差と試験関数に対する弱誤差を定義し、両者の違いと必要な可積分条件を説明できる
+  - Lipschitz 試験関数の弱誤差を強 L2 誤差で評価でき、逆向きや非滑らかな支払への外挿が不正確だと説明できる
+  - GBM の有限刻み二乗平均誤差式から EM 強次数1/2と scalar Milstein 強次数1の正確な主要係数を導ける
+  - GBM の一次・二次モーメントから滑らかな試験関数の弱次数を独立に計算できる
+  - 時間刻み比と誤差比から観測次数を計算し、有限標本の傾きと理論次数を区別できる
+  - 同一路の粗細 Brown 増分結合と独立経路の Monte Carlo 推定を実装・検証できる
+  - 時間離散化バイアスと標本分散を厳密に分解し、許容誤差と計算量から m と n を選定できる
+definitions:
+  - { id: U3-29-DEF-01, name: "終端の強誤差・弱誤差と収束次数" }
+  - { id: U3-29-DEF-02, name: "観測収束次数" }
+  - { id: U3-29-DEF-03, name: "離散化と標本誤差の予算" }
+theorems:
+  - { id: U3-29-PROP-01, name: "強 L2 誤差から Lipschitz 試験関数の弱誤差を抑える" }
+  - { id: U3-29-PROP-02, name: "GBM の EM 強1/2次・Milstein 強1次" }
+  - { id: U3-29-PROP-03, name: "GBM の滑らかな多項式支払の弱1次評価" }
+  - { id: U3-29-PROP-04, name: "時間離散化と独立経路平均の厳密分解" }
+canonical_examples:
+  - "S0=100, mu=0.08, sigma=0.20, T=1, m=4...128 の厳密 GBM 同一路 RMSE と平均弱偏り"
+  - "EM/Milstein 有限刻み強 MSE の対数展開と正の先頭係数"
+  - "phi(s)=s,s² で弱バイアスの符号と leading coefficient を検算"
+  - "粗細 Brown 増分を一致させた Python 同一路実験と有限刻み理論の照合"
+  - "許容 RMSE ε の誤差予算・経路数 n・時間刻み m・総費用"
+problem_patterns:
+  - U3-29-A1
+  - U3-29-A2
+  - U3-29-A3
+  - U3-29-A4
+  - U3-29-A5
+  - U3-29-B1
+  - U3-29-B2
+  - U3-29-B3
+  - U3-29-B4
+  - U3-29-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

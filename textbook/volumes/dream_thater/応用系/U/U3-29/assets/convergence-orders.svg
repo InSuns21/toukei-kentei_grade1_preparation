@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" data-layout-lint="strict" role="img" aria-labelledby="u329-title u329-desc">
+<title id="u329-title">GBM の強収束と弱収束の対数図</title>
+<desc id="u329-desc">横軸は時間刻みhで左が細かく右が粗い。縦軸は理論誤差の絶対値（円）の対数目盛。丸印付き実線のEuler–Maruyama強誤差は右上がりの緩い傾き約1/2。四角印付き破線のMilstein強誤差と三角印付き点線の線形支払の弱偏りは傾き約1。いずれも有限刻みのGBM公式から求めた。</desc>
+<rect x="0" y="0" width="760" height="430" rx="12" fill="#fff"/>
+<g font-family="system-ui, sans-serif">
+<g aria-label="legend">
+<line x1="28" y1="32" x2="76" y2="32" stroke="#27628c" stroke-width="3"/><circle cx="52" cy="32" r="5.5" fill="#27628c"/><text x="85" y="37" font-size="16" fill="#213547">EM strong</text>
+<line x1="255" y1="32" x2="303" y2="32" stroke="#bf6531" stroke-width="3" stroke-dasharray="9 5"/><rect x="274" y="27" width="10" height="10" fill="#bf6531"/><text x="312" y="37" font-size="16" fill="#213547">Milstein strong</text>
+<line x1="514" y1="32" x2="562" y2="32" stroke="#33866d" stroke-width="3" stroke-dasharray="3 6"/><path d="M 538 26 L 532 37 L 544 37 Z" fill="#33866d"/><text x="572" y="37" font-size="16" fill="#213547">Linear weak</text>
+</g>
+<g aria-label="grid">
+<line x1="88" y1="110" x2="696" y2="110" stroke="#d7e0e8" stroke-width="1"/><text x="77" y="115" text-anchor="end" font-size="16" fill="#2c3d4e">1</text>
+<line x1="88" y1="190" x2="696" y2="190" stroke="#d7e0e8" stroke-width="1"/><text x="77" y="195" text-anchor="end" font-size="16" fill="#2c3d4e">0.1</text>
+<line x1="88" y1="270" x2="696" y2="270" stroke="#d7e0e8" stroke-width="1"/><text x="77" y="275" text-anchor="end" font-size="16" fill="#2c3d4e">0.01</text>
+<line x1="88" y1="350" x2="696" y2="350" stroke="#d7e0e8" stroke-width="1"/><text x="77" y="355" text-anchor="end" font-size="16" fill="#2c3d4e">0.001</text>
+<line x1="110" y1="70" x2="110" y2="350" stroke="#e5e9ee" stroke-width="1"/><text x="110" y="376" text-anchor="middle" font-size="15" fill="#2c3d4e">1/128</text>
+<line x1="224" y1="70" x2="224" y2="350" stroke="#e5e9ee" stroke-width="1"/><text x="224" y="376" text-anchor="middle" font-size="15" fill="#2c3d4e">1/64</text>
+<line x1="338" y1="70" x2="338" y2="350" stroke="#e5e9ee" stroke-width="1"/><text x="338" y="376" text-anchor="middle" font-size="15" fill="#2c3d4e">1/32</text>
+<line x1="452" y1="70" x2="452" y2="350" stroke="#e5e9ee" stroke-width="1"/><text x="452" y="376" text-anchor="middle" font-size="15" fill="#2c3d4e">1/16</text>
+<line x1="566" y1="70" x2="566" y2="350" stroke="#e5e9ee" stroke-width="1"/><text x="566" y="376" text-anchor="middle" font-size="15" fill="#2c3d4e">1/8</text>
+<line x1="680" y1="70" x2="680" y2="350" stroke="#e5e9ee" stroke-width="1"/><text x="680" y="376" text-anchor="middle" font-size="15" fill="#2c3d4e">1/4</text>
+</g>
+<line x1="88" y1="70" x2="88" y2="350" stroke="#31475a" stroke-width="2"/>
+<line x1="88" y1="350" x2="696" y2="350" stroke="#31475a" stroke-width="2"/>
+<g data-series-group="convergence" data-series-label="EM strong">
+<path d="M110.00 154.64 L224.00 142.56 L338.00 130.42 L452.00 118.20 L566.00 105.82 L680.00 93.14" fill="none" stroke="#27628c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="110" cy="154.64" r="5.6" fill="#27628c" stroke="#ffffff" stroke-width="1"/>
+<circle cx="224" cy="142.56" r="5.6" fill="#27628c" stroke="#ffffff" stroke-width="1"/>
+<circle cx="338" cy="130.42" r="5.6" fill="#27628c" stroke="#ffffff" stroke-width="1"/>
+<circle cx="452" cy="118.20" r="5.6" fill="#27628c" stroke="#ffffff" stroke-width="1"/>
+<circle cx="566" cy="105.82" r="5.6" fill="#27628c" stroke="#ffffff" stroke-width="1"/>
+<circle cx="680" cy="93.14" r="5.6" fill="#27628c" stroke="#ffffff" stroke-width="1"/>
+</g>
+<g data-series-group="convergence" data-series-label="Milstein strong">
+<path d="M110.00 255.61 L224.00 231.56 L338.00 207.53 L452.00 183.57 L566.00 159.72 L680.00 136.09" fill="none" stroke="#bf6531" stroke-width="3" stroke-dasharray="9 5" stroke-linecap="round"/>
+<rect x="104.8" y="250.41" width="10.4" height="10.4" fill="#bf6531" stroke="#ffffff" stroke-width="1"/>
+<rect x="218.8" y="226.36" width="10.4" height="10.4" fill="#bf6531" stroke="#ffffff" stroke-width="1"/>
+<rect x="332.8" y="202.33" width="10.4" height="10.4" fill="#bf6531" stroke="#ffffff" stroke-width="1"/>
+<rect x="446.8" y="178.37" width="10.4" height="10.4" fill="#bf6531" stroke="#ffffff" stroke-width="1"/>
+<rect x="560.8" y="154.52" width="10.4" height="10.4" fill="#bf6531" stroke="#ffffff" stroke-width="1"/>
+<rect x="674.8" y="130.89" width="10.4" height="10.4" fill="#bf6531" stroke="#ffffff" stroke-width="1"/>
+</g>
+<g data-series-group="convergence" data-series-label="Linear weak">
+<path d="M110.00 315.40 L224.00 291.33 L338.00 267.28 L452.00 243.26 L566.00 219.29 L680.00 195.45" fill="none" stroke="#33866d" stroke-width="3" stroke-dasharray="3 6" stroke-linecap="round"/>
+<path d="M 110 309.40 L 104 320.60 L 116 320.60 Z" fill="#33866d" stroke="#ffffff" stroke-width="1"/>
+<path d="M 224 285.33 L 218 296.53 L 230 296.53 Z" fill="#33866d" stroke="#ffffff" stroke-width="1"/>
+<path d="M 338 261.28 L 332 272.48 L 344 272.48 Z" fill="#33866d" stroke="#ffffff" stroke-width="1"/>
+<path d="M 452 237.26 L 446 248.46 L 458 248.46 Z" fill="#33866d" stroke="#ffffff" stroke-width="1"/>
+<path d="M 566 213.29 L 560 224.49 L 572 224.49 Z" fill="#33866d" stroke="#ffffff" stroke-width="1"/>
+<path d="M 680 189.45 L 674 200.65 L 686 200.65 Z" fill="#33866d" stroke="#ffffff" stroke-width="1"/>
+</g>
+<text x="18" y="85" font-size="16" fill="#213547">Error</text>
+<text x="390" y="412" text-anchor="middle" font-size="18" fill="#213547">h (years, fine to coarse)</text>
+</g>
+</svg>
