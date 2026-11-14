@@ -198,7 +198,7 @@ $$
 
 が現れます。ただし $I_{00}=\int_t^{t+h}\int_t^s du\,ds=h^2/2$ は重み2なので残差に入れます。$L_1a$ は内側が $dW_u$、外側が $ds$ だから $I_{10}$、$L_0b$ は内側が $du$、外側が $dW_s$ だから $I_{01}$ となります。
 
-さらに $D=L_1b$ に同じ [Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を適用すると
+さらに $D=L_1b$ に同じ [時間依存 Itô 公式](../../../解析系/STO/STO7/index.md#thm-sto7-ito-process-formula)を適用すると
 
 $$
 D(X_u)-D(x)
