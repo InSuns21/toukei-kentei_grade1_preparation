@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 360" width="610" height="360" role="img" aria-labelledby="svg-title svg-desc" data-layout-lint="strict">
+  <title id="svg-title">並進する球の球固定座標系の流線</title>
+  <desc id="svg-desc">中央の円は剛体球。球中心から右向きの太い矢印Vは実験室での球速度。球固定座標系では周囲の流体が右から左へ流れ、上側と下側の曲線は球面を避けて曲がる。流線の形は定性的な模式図。</desc>
+  <defs>
+    <marker id="stream-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="#25648b" stroke-width="1.7" stroke-linejoin="round"/>
+    </marker>
+    <marker id="velocity-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 1 1 L 9 5 L 1 9 Z" fill="#8e4232"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="#25648b" stroke-width="2.1" stroke-linecap="round" marker-end="url(#stream-tip)">
+    <path d="M 572 59 C 456 59 380 63 298 60 C 216 57 151 60 36 59"/>
+    <path d="M 572 116 C 472 116 406 91 361 87 C 299 79 254 80 212 99 C 155 124 105 130 36 130"/>
+    <path d="M 572 245 C 472 245 406 270 361 274 C 299 282 254 281 212 262 C 155 237 105 231 36 231"/>
+    <path d="M 572 304 C 456 304 380 300 298 303 C 216 306 151 303 36 304"/>
+  </g>
+  <circle cx="290" cy="180" r="96" fill="#f4f5f6" stroke="#2c3548" stroke-width="3"/>
+  <circle cx="290" cy="180" r="3.8" fill="#2c3548"/>
+  <line x1="290" y1="180" x2="440" y2="180" stroke="#8e4232" stroke-width="3.5" marker-end="url(#velocity-tip)"/>
+  <text x="447" y="162" font-size="21" fill="#8e4232" font-family="Arial,sans-serif" font-style="italic">V</text>
+  <text x="483" y="35" font-size="16" fill="#25648b" font-family="Arial,sans-serif">u_rel = -V</text>
+</svg>
