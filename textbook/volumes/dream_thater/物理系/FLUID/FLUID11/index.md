@@ -20,7 +20,18 @@ $$
 \zeta:=\partial_xu_2-\partial_yu_1
 $$
 
-とする。平面の閉曲線 $C$ は区分的 $C^1$ とし、反時計回りを正向きとする。線積分と外法線の約束は[VC4 の Green の定理](../../../幾何系/VC/VC4/index.md#thm-vc4-green-circulation)および[流束形](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)に従う。以下の存在定理は**運動方程式を満たすことを仮定しない**運動学的結果である。
+とする。以下、$\partial_xu_i=\partial u_i/\partial x$、$u_{i,x}=\partial_xu_i$ と略記する場合も、他方の座標と時刻は固定して微分する。
+
+円周・穴あき領域の例では $r=\sqrt{x^2+y^2}>0$、局所的に選ぶ極角を $\theta$ とし、
+
+$$
+e_r=(\cos\theta,\sin\theta)=(x/r,y/r),\qquad
+e_\theta=(-\sin\theta,\cos\theta)=(-y/r,x/r)
+$$
+
+をそれぞれ外向きの半径方向、反時計回りの接線方向の単位ベクトルとする。$\theta$ は原点を避けた小領域では連続な枝を選べるが、穴あき平面全体の一価関数ではない。
+
+平面の閉曲線 $C$ は区分的 $C^1$ とし、反時計回りを正向きとする。線積分と外法線の約束は[VC4 の Green の定理](../../../幾何系/VC/VC4/index.md#thm-vc4-green-circulation)および[流束形](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)に従う。以下の存在定理は**運動方程式を満たすことを仮定しない**運動学的結果である。
 
 ## 1. 非圧縮性から流れ関数へ：局所的には必ず作れる
 
@@ -112,7 +123,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid11-velocity-potential -->
-**定義の確認**：一様流 $u=(U,0)$ に対し $\phi=Ux$ と置けば $\phi_x=U,\phi_y=0$。また $\zeta=\partial_x0-\partial_yU=0$ である。$\phi$ の加法定数を変えても速度は変わらない。
+**定義の確認**：$D=\mathbb R^2$、定数 $U$ の一様流 $u=(U,0)$ に対し $\phi=Ux$ と置く。$\phi\in C^2(D)$ であり、$\nabla\phi=(\phi_x,\phi_y)=(U,0)=u$ と定義の各条件を満たす。また $\zeta=\partial_x0-\partial_yU=0$ である。$\phi$ の加法定数を変えても速度は変わらない。
 <!-- definition-example-end -->
 
 $\phi$ が存在すれば $\zeta=\phi_{yx}-\phi_{xy}=0$。この逆が局所的には成立する。
@@ -127,7 +138,13 @@ $D\subset\mathbb R^2$ を開集合、$u\in C^1(D;\mathbb R^2)$ とする。$\zet
 
 ### 証明の見取り図
 
-流速そのものの平面回転 $\partial_xu_2-\partial_yu_1$ が零なので、[VC2 の初等 Poincaré の補題](../../../幾何系/VC/VC2/index.md#thm-vc2-poincare-star)が適用できる。長方形上の構成式も計算して確かめる。
+流速そのものの平面回転 $\partial_xu_2-\partial_yu_1$ が零なので、局所的には保存場となる。厳密には [VC2 の星型領域上の初等 Poincaré の補題](../../../幾何系/VC/VC2/index.md#thm-vc2-poincare-star)は三次元の定理である。小長方形 $R$ と $\varepsilon>0$ に対して $R\times(-\varepsilon,\varepsilon)$ 上の $F(x,y,z)=(u_1(x,y),u_2(x,y),0)$ を考えれば、この領域は星型で
+
+$$
+\nabla\times F=(0,0,\partial_xu_2-\partial_yu_1)=(0,0,0)
+$$
+
+だから同定理を適用でき、得たポテンシャルを $z=0$ に制限できる。以下ではこの対応を積分の構成式からも直接確かめる。
 
 <!-- proof-start -->
 ### 証明
@@ -160,6 +177,15 @@ $$
 
 以下では**単連結**を「領域内のあらゆる閉曲線を領域内で一点へ連続的に縮められる」という意味で使う。この平面内の縮約条件だけを本講の仮定とし、多様体の一般理論は使わない。
 
+閉曲線の流束を座標で計算する前に、向きの約束を確かめる。弧を $\gamma(\tau)=(x(\tau),y(\tau))$ とパラメータ表示すると、$ds=|\gamma'(\tau)|\,d\tau$、右側単位法線は $n=(y',-x')/|\gamma'|$ である。したがって
+
+$$
+n\,ds=(dy,-dx),\qquad
+u\cdot n\,ds=u_1\,dy-u_2\,dx.
+$$
+
+この座標表示は、外法線と接線を90度回転で結んだ結果であり、行列式等を別の判定条件として導入したものではない。
+
 <a id="def-fluid11-loop-flux"></a>
 
 <!-- formal-statement-start -->
@@ -176,7 +202,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid11-loop-flux -->
-**定義の確認**：$C$ が半径 $R$ の反時計回り円周で、$u=(q x/r^2,q y/r^2)$、$r=\sqrt{x^2+y^2}>0$ とする。円周上では $u=(q/R)e_r$、外向き法線 $n=e_r$、$ds=R\,d\theta$ だから
+**定義の確認**：$D=\mathbb R^2\setminus\{0\}$ 上の $C^1$ 場 $u=(q x/r^2,q y/r^2)$ を取り、$C$ を $R>0$ の反時計回り円周 $x=R\cos\theta,\ y=R\sin\theta$（$0\le\theta\le2\pi$）とする。円周上で $u=(q/R)e_r$、右側法線は $n=e_r$、$ds=|d(x,y)/d\theta|d\theta=R\,d\theta$ だから
 
 $$
 Q_C=\int_0^{2\pi}(q/R)R\,d\theta=2\pi q.
@@ -213,20 +239,25 @@ $\phi$ には1形式に相当する線積分 $u_1dx+u_2dy$、$\psi$ には $-u_2
 <!-- proof-start -->
 ### 証明
 
-(1) $\phi$ が存在すれば、[VC2 の線積分の基本定理](../../../幾何系/VC/VC2/index.md#thm-vc2-line-ftc)により閉曲線で $\oint_C\nabla\phi\cdot dr=0$。逆にすべての閉曲線で $\Gamma_C=0$ なら、$a\in D$ を固定して
+(1) $\phi$ が存在すれば、[VC2 の線積分の基本定理](../../../幾何系/VC/VC2/index.md#thm-vc2-line-ftc)により閉曲線で $\oint_C\nabla\phi\cdot dr=0$。逆にすべての閉曲線で $\Gamma_C=0$ なら、基準点 $a\in D$ を固定し、終点を $p=(x,y)\in D$ として
 
 $$
-\phi(x)=\int_{a}^{x}(u_1\,dx+u_2\,dy)
+\phi(p)=\int_{a}^{p}(u_1\,dx+u_2\,dy)
 $$
 
-と経路積分で定義する。$D$ は連結開集合だから道で結べ、経路を変えても二つを繋いだ閉曲線の積分が零であるため値は同じ。端点を $x$ 方向に $h$ だけ動かした短い線分を加えれば
+と経路積分で定義する。$D$ は連結開集合だから区分的 $C^1$ の道で結べる。二つの道を連結した閉曲線の積分が零だから値は道に依存しない。$e_1=(1,0)$、$e_2=(0,1)$ とし、$h$ を十分小さく取って $p$ から $p+he_i$ までの線分を $D$ 内に置く。すると
 
 $$
-\frac{\phi(x+he_1)-\phi(x)}h
-=\frac1h\int_0^h u_1(x+se_1)\,ds\longrightarrow u_1(x)
+\frac{\phi(p+he_1)-\phi(p)}h
+=\frac1h\int_0^h u_1(p+se_1)\,ds\longrightarrow u_1(p),
 $$
 
-である。$y$ 方向も同様に $\phi_y=u_2$。$u\in C^1$ だから $\phi\in C^2$ である。
+$$
+\frac{\phi(p+he_2)-\phi(p)}h
+=\frac1h\int_0^h u_2(p+se_2)\,ds\longrightarrow u_2(p).
+$$
+
+ここで $s$ は線分上の位置パラメータであり、極限は $u$ の連続性による。ゆえに $\nabla\phi=u$、さらに $u\in C^1$ から $\phi\in C^2$ である。
 
 (2) [流れ関数の定義](../../../幾何系/VC/VC9/index.md#def-vc9-stream-function)より $d\psi=-u_2dx+u_1dy$。存在すれば閉曲線積分 $Q_C$ は零である。逆にすべての $Q_C$ が零なら
 
@@ -236,14 +267,39 @@ $$
 
 は経路独立である。上と同じ短線分の極限で $\psi_x=-u_2,\ \psi_y=u_1$ を得る。
 
-最後に単連結の十分性を確認する。一般の $C^1$ ベクトル場 $F=(P,Q)$ が $Q_x-P_y=0$ を満たすとする。閉曲線を滑らかに変形する $\gamma(s,t)$（$0\le s,t\le1$、各 $s$ で $t$ に関し閉曲線）に対し $I(s)=\int_0^1[P(\gamma)x_t+Q(\gamma)y_t]\,dt$ と置く。積の微分と部分積分を行い、$t=0,1$ の端点項を閉曲線条件で消すと
+最後に単連結の十分性を確認する。一般の $C^1$ ベクトル場 $F=(P,Q)$ が $Q_x-P_y=0$ を満たすとする。まず滑らかな閉曲線の変形 $\gamma(s,t)=(x(s,t),y(s,t))$（$0\le s,t\le1$、各 $s$ について $\gamma(s,0)=\gamma(s,1)$）を考え、
 
 $$
-\frac{dI}{ds}
-=\int_0^1(Q_x-P_y)(x_sy_t-y_sx_t)\,dt=0.
+I(s)=\int_0^1\{P(\gamma(s,t))x_t+Q(\gamma(s,t))y_t\}\,dt
 $$
 
-したがって曲線を一点まで縮めるとき積分値は一定で、定点曲線の積分値0に等しい。区分的に滑らかな曲線や連続ホモトピーは、局所的な長方形へ分割して同じ結論を得られる。$F=u$ では $Q_x-P_y=\zeta$、$F=(-u_2,u_1)$ では $Q_x-P_y=\delta$。よって単連結上でそれぞれの閉曲線積分は零になる。
+と置く。添字 $s,t$ は各パラメータによる偏微分であり、$P_x,Q_y$ などは位置座標による偏微分である。連鎖律と積の微分により
+
+$$
+\begin{aligned}
+I'(s)=\int_0^1\{&
+(P_xx_s+P_yy_s)x_t+P x_{st}\\
+&+(Q_xx_s+Q_yy_s)y_t+Q y_{st}\}\,dt.
+\end{aligned}
+$$
+
+一方、$t$ による全微分は
+
+$$
+\partial_t(Px_s+Qy_s)
+=(P_xx_t+P_yy_t)x_s+Px_{st}
+ +(Q_xx_t+Q_yy_t)y_s+Qy_{st}.
+$$
+
+この式を差し引いて $t$ で積分すると、端点では $\gamma(s,0)=\gamma(s,1)$ と $\gamma_s(s,0)=\gamma_s(s,1)$ により境界項が相殺し、
+
+$$
+I'(s)=\int_0^1(Q_x-P_y)(x_sy_t-y_sx_t)\,dt=0.
+$$
+
+連続な縮約を初めから微分可能と仮定してはいけない。一般の連続な縮約 $H:[0,1]^2\to D$ では、コンパクトな像を $D$ 内の小長方形で覆い、パラメータ正方形を十分細かい格子に分ける。各格子小方形の像が一つの長方形に収まるようにできる。格子点の像を直線で結べば、各小方形の辺はその長方形内にあり、平面回転零から局所ポテンシャルが存在するので、四辺の線積分の和は零である。全小方形について足すと内部辺は逆向きに現れて相殺する。始端の元の区分的 $C^1$ 閉曲線も、各小弧を同じ長方形内の弦に置換でき、局所ポテンシャルの端点差が等しいので積分は不変である。終端の定点曲線は積分零、閉曲線の継ぎ目の辺も互いに相殺する。よって元の閉曲線の積分は零になる。
+
+$F=u$ では $Q_x-P_y=\zeta$、$F=(-u_2,u_1)$ では $Q_x-P_y=\delta$。したがって単連結上でそれぞれの閉曲線積分が零となり、前半の同値判定から両関数の大域的存在が従う。
 <!-- proof-end -->
 
 **なぜ Green の定理だけでは足りないか**：穴を囲む $C$ の内部に $u$ が定義されない点があると、[Green の定理](../../../幾何系/VC/VC4/index.md#thm-vc4-green-circulation)を内部円板へ適用できない。穴を避けた環状領域では**内側境界の積分が残る**。ここが大域的障害であり、局所微分だけでは見えない。
@@ -251,6 +307,22 @@ $$
 ## 4. 穴あき平面の二つの厳密な反例
 
 $D=\mathbb R^2\setminus\{(0,0)\}$、$r^2=x^2+y^2$ とし、定数 $\kappa,q\in\mathbb R$ は m$^2$/s の単位を持つものとする。$r=0$ は領域に含めない。対数の引数は無次元にするため、基準長 $r_0=1\,\mathrm m$ を固定し、以後の $\log r$ は $\log(r/r_0)$ の略記とする。基準長を変更してもポテンシャルには加法定数が加わるだけで、速度は変わらない。
+
+局所的に角度 $\theta$ を選び $x=r\cos\theta,\ y=r\sin\theta$ と書くと、連鎖律から
+
+$$
+dx=\cos\theta\,dr-r\sin\theta\,d\theta,\qquad
+dy=\sin\theta\,dr+r\cos\theta\,d\theta.
+$$
+
+よって $x\,dx+y\,dy=r\,dr$ と $x\,dy-y\,dx=r^2\,d\theta$ であり、$r>0$ では
+
+$$
+d\log(r/r_0)=\frac{x\,dx+y\,dy}{r^2},\qquad
+d\theta=\frac{-y\,dx+x\,dy}{r^2}.
+$$
+
+したがって偏微分の係数を比較すると $\partial_x\log(r/r_0)=x/r^2,\ \partial_y\log(r/r_0)=y/r^2$、$\theta_x=-y/r^2,\ \theta_y=x/r^2$ を得る。後者は角度の**局所的な枝**に関する式であり、原点を囲む一周で同じ角度値へ戻ることは意味しない。
 
 ### 周回流：流れ関数はあるが速度ポテンシャルはない
 
@@ -391,7 +463,7 @@ $\nabla\phi=(ax,-ay)$、$(\psi_y,-\psi_x)=(ax,-ay)$ なので両定義を直接�
 
 ### A1. 流れ関数から発散と渦度
 
-$u=(2y,-2x)$（m/s、座標は m）について、$\psi$ と $\delta,\zeta$ を求めよ。なぜ速度ポテンシャルが局所的にもないか述べよ。
+$u=(2y,-2x)$（座標は m、各係数 $2$ の単位は s$^{-1}$）について、$\psi$ と $\delta,\zeta$ を求めよ。なぜ速度ポテンシャルが局所的にもないか述べよ。
 
 - Level: A
 
@@ -415,7 +487,7 @@ $\phi_x=3,\ \phi_y=0$ から $\phi=3x+C_1$（m$^2$/s）。$\psi_y=3,\ -\psi_x=0$
 
 ### A3. 循環と流束を区別する
 
-$u=(-y,x)$ m/s、円周 $C_R:(x,y)=(R\cos\theta,R\sin\theta)$、$0\le\theta\le2\pi$（$R>0$）に対し、$\Gamma_{C_R},Q_{C_R}$ を求めよ。
+$u=(-y,x)$（座標は m、各係数の単位は s$^{-1}$）と円周 $C_R:(x,y)=(R\cos\theta,R\sin\theta)$、$0\le\theta\le2\pi$（$R>0$）に対し、$\Gamma_{C_R},Q_{C_R}$ を求めよ。
 
 - Level: A
 
