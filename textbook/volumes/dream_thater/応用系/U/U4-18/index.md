@@ -47,7 +47,12 @@ $
 
 <!-- formal-statement-start -->
 > **定義（観測前の革新と革新分散）**  
-> [線形Gaussian状態空間モデル](#def-u4-18-state-space)で時刻 $t$ の $X_t$ を既知として、観測前の価格予測 $H_tm_t^-$ からの差を革新 $e_t=Y_t-H_tm_t^-$ といい、その条件付き分散を $S_t=\operatorname{Var}(e_t\mid\mathcal F_{t-1},X_t)$ とする。$\mathcal F_{t-1}$ は時刻 $t-1$ までの価格観測と採用済みのモデル情報を表す。
+> [線形Gaussian状態空間モデル](#def-u4-18-state-space)で、時刻 $t$ の $X_t$ を既知とする。$\mathcal F_{t-1}$ は時刻 $t-1$ までの価格観測と採用済みのモデル情報を表す。観測前の価格予測からの差を**革新**と呼び、その条件付き分散を**革新分散**と呼ぶ。
+
+$
+e_t=Y_t-H_tm_t^-,\qquad
+S_t=\operatorname{Var}(e_t\mid\mathcal F_{t-1},X_t).
+$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u4-18-innovation -->
@@ -243,7 +248,7 @@ $$
 
 ## 4. 静的回帰はどこに含まれるか
 
-$Q=0$ なら係数は動かず、各期で同じ未知の $\theta$ を推定します。ただし「Kalmanフィルタに $Q=0$ を代入する」ことと「通常の最小二乗法を無条件に再現する」ことは同義ではありません。初期値に置いた初期分布が残るためです。
+$Q=0$ なら係数は動かず、各期で同じ未知の $\theta$ を推定します。ただし「Kalmanフィルタに $Q=0$ を代入する」ことと「[U4-13の水準回帰](../U4-13/index.md#def-u4-13-eg-regression)で使った残差平方和だけを最小化する係数を無条件に再現する」ことは同義ではありません。初期値に置いた初期分布が残るためです。
 
 <a id="prop-u4-18-static"></a>
 
