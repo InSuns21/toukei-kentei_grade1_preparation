@@ -1,0 +1,38 @@
+id: "SP6"
+title: "ランダムウォーク・境界到達・破産問題"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP3
+official_scope: []
+learning_objectives:
+  - 有限区間吸収ランダムウォークを定義し境界と吸収時刻を確かめられる
+  - 有限区間の吸収時刻の幾何級数型尾評価と平均有限性を証明できる
+  - 上端先着確率の調和差分方程式を導き境界値から一意解を求められる
+  - 平均吸収時刻の非同次差分方程式を導き一意解を求められる
+  - 公平な場合と偏った場合の公式を計算例で検算できる
+  - 半直線上の破産確率を有限区間からの事象の増加極限で求められる
+  - 半直線上の平均破産時刻を単調収束で導き確率1と有限期待値を区別できる
+  - 状態依存の遷移確率について最初の一歩の方程式を組み立てられる
+definitions:
+  - { id: SP6-DEF-01, name: "有限区間の吸収ランダムウォーク" }
+theorems:
+  - { id: SP6-LEM-01, name: "吸収時刻の幾何級数型評価" }
+  - { id: SP6-THM-01, name: "有限区間の上端先着確率" }
+  - { id: SP6-THM-02, name: "有限区間の平均吸収時刻" }
+  - { id: SP6-THM-03, name: "半直線上の破産確率と平均破産時刻" }
+canonical_examples:
+  - "境界が吸収的な三状態の直接確認"
+  - "公平な賭けと有利な賭けの上端先着確率"
+  - "平均吸収歩数の直接計算"
+  - "半直線上の確実な破産と無限平均"
+problem_patterns:
+  - SP6-ABSORPTION-TAIL-1
+  - SP6-RUIN-DIFFERENCE-1
+  - SP6-EXPECTED-ABSORPTION-1
+  - SP6-HALF-LINE-LIMIT-1
+  - SP6-STATE-DEPENDENT-WALK-1
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6.0, exercises: 5.0, review: 1.5 }
