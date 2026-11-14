@@ -154,7 +154,7 @@ $$
 
 [Euler の運動方程式](../FLUID8/index.md#thm-fluid8-vorticity-equation)で加速度を置き換えると、圧力と外力が輪に沿って仕事をする。外力 $-\nabla\Phi$ は勾配なので閉曲線で積分すると消える。圧力項も勾配へ直せるには、追加の条件が必要である。
 
-[FLUID8 の順圧条件](../FLUID8/index.md#def-fluid8-barotropic)は、同じ $C^1$ 級関数 $P$ で $p=P(\rho)$ と書けることだった。そこで[FLUID6 の順圧の圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-potential)に従い、密度の値域を含む正の区間で
+[FLUID8 の順圧条件](../FLUID8/index.md#def-fluid8-barotropic)は、同じ $C^1$ 級関数 $P$ で $p=P(\rho)$ と書けることだった。そこで[FLUID6 の順圧の圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)に従い、密度の値域を含む正の区間で
 
 $$
 h(r)=\int_{\rho_*}^r\frac{P'(q)}q\,dq,\qquad
@@ -186,7 +186,7 @@ $$
 
 ### 証明の見取り図
 
-[循環微分の定理](#thm-fluid9-material-derivative)に Euler の加速度を代入する。[順圧の圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-potential)で圧力項が $\nabla h(\rho)$ となる。勾配の積分は閉曲線で零になる。
+[循環微分の定理](#thm-fluid9-material-derivative)に Euler の加速度を代入する。[順圧の圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)で圧力項が $\nabla h(\rho)$ となる。勾配の積分は閉曲線で零になる。
 
 <!-- proof-start -->
 ### 証明
@@ -399,7 +399,7 @@ $\rho>0$、$p=K\rho^3$（$K>0$）とする。$\nabla p/\rho$ が勾配になる�
 <!-- solution-start -->
 #### 詳細解答
 
-[順圧圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-potential)の積分の integrand は $P'(r)/r=3Kr^2/r=3Kr$ なので
+[順圧圧力ポテンシャル](../FLUID6/index.md#def-fluid6-barotropic-enthalpy)の積分の integrand は $P'(r)/r=3Kr^2/r=3Kr$ なので
 
 $$
 h(\rho)=\int_{\rho_*}^{\rho}3Kr\,dr
