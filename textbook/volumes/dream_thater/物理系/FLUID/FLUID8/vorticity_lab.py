@@ -43,8 +43,10 @@ def check_baroclinic(rho0=2.0, a=0.2, b=6.0, x=1.0, h=0.1):
         "half_step_difference_curl_z_per_s2": half_step_curl,
         "absolute_error_h": abs(central_curl - exact),
         "absolute_error_h_over_2": abs(half_step_curl - exact),
-        "simple_shear_curl_z_for_a": -a,
-        "solid_rotation_curl_z_for_omega_1": 2.0,
+        "shear_rate_per_s": 1.5,
+        "simple_shear_curl_z_per_s": -1.5,
+        "rotation_rate_per_s": 1.0,
+        "solid_rotation_curl_z_per_s": 2.0,
         "note": "Instantaneous derivatives only; no fluid trajectory or Euler PDE time integration.",
     }
 
