@@ -187,7 +187,7 @@ $$
 <!-- formal-statement-start -->
 ### 命題（流束が消える場合の総渦度保存）
 
-二次元非圧縮 Navier–Stokes の滑らかな解で、各 $t$ について $\zeta(\cdot,t)\in L^1(\mathbb R^2)$ とし、$Q(t)$ を微分・積分の交換で計算できるとする。円板 $B_R$ の外向き単位法線を $n$ として、各有限時間区間で
+二次元非圧縮 Navier–Stokes の滑らかな解で、各 $t$ について $\zeta(\cdot,t)$ は[平面の総渦度の定義](#def-fluid10-total-vorticity)の意味で絶対可積分とし、$Q(t)$ を微分・積分の交換で計算できるとする。円板 $B_R$ の外向き単位法線を $n$ として、各有限時間区間で
 
 $$
 \lim_{R\to\infty}\int_{\partial B_R}\zeta(u\cdot n)\,ds=0,
@@ -195,12 +195,12 @@ $$
 \lim_{R\to\infty}\int_{\partial B_R}\nabla\zeta\cdot n\,ds=0
 $$
 
-が成り立ち、極限を時間積分と交換できると仮定する。このとき $Q(t)=Q(0)$ が成り立つ。有限領域でも同様に、境界の移流・拡散の合計流束が零なら総渦度は保存される。
+が成り立ち、極限を時間積分と交換できると仮定する。このとき任意の $t,t_0\in I$ に対して $Q(t)=Q(t_0)$ が成り立つ。有限領域でも同様に、境界の移流・拡散の合計流束が零なら総渦度は保存される。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-[二次元輸送式](#prop-fluid10-planar-transport)の移流を発散形に直す。円板へ積分して[VC の発散定理](../../../幾何系/VC/VC9/index.md#cor-vc9-circulation-vorticity)とは別の二次元 Gauss の面積分公式（外向き流束と内部の発散の一致）を用い、指定した二種類の境界流束の極限を取る。
+[二次元輸送式](#prop-fluid10-planar-transport)の移流を発散形に直す。円板へ積分して[VC4 の Green の定理（流束形）](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)を円板へ用い、指定した二種類の境界流束の極限を取る。
 
 <!-- proof-start -->
 ### 証明
@@ -218,7 +218,7 @@ $$
 \partial_t\zeta+\nabla_2\cdot(u\zeta-\nu\nabla_2\zeta)=0
 $$
 
-となる。半径 $R$ の円板 $B_R$ について発散定理を適用すると
+となる。半径 $R$ の円板 $B_R$ について[Green の定理（流束形）](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)を適用すると
 
 $$
 \frac{d}{dt}\int_{B_R}\zeta\,dA
@@ -226,7 +226,7 @@ $$
 +\nu\int_{\partial B_R}\nabla_2\zeta\cdot n\,ds.
 $$
 
-時間 $0$ から $t$ まで積分し、定理の仮定により $R\to\infty$ と時間積分の交換を行う。右辺両項が零に収束し、左辺は絶対可積分性で $Q(t)-Q(0)$ へ収束するので結論を得る。
+時間 $t_0$ から $t$ まで積分し、定理の仮定により $R\to\infty$ と時間積分の交換を行う。右辺両項が零に収束し、左辺は絶対可積分性で $Q(t)-Q(t_0)$ へ収束するので結論を得る。
 <!-- proof-end -->
 
 **境界の注意**：固体壁の[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $u=0$ は移流流束を消すが、一般には $\nabla\zeta\cdot n=0$ を意味しない。したがって壁のある流れで総渦度の保存を主張するには、渦度の拡散流束を別途検査する必要がある。粘性の存在だけで「全渦度が必ず失われる」とも言えない。
@@ -620,7 +620,7 @@ $r=0$ でも両辺は滑らかな関数の極限で一致し、$\partial_t\zeta_
 <!-- solution-start -->
 #### 詳細解答
 
-[二次元輸送命題](#prop-fluid10-planar-transport)を $\partial_t\zeta+\nabla_2\cdot(u\zeta-\nu\nabla_2\zeta)=0$ と書き直す。静止した $D$ に面積積分し発散定理を使えば
+[二次元輸送命題](#prop-fluid10-planar-transport)を $\partial_t\zeta+\nabla_2\cdot(u\zeta-\nu\nabla_2\zeta)=0$ と書き直す。静止した $D$ に面積積分し[Green の定理（流束形）](../../../幾何系/VC/VC4/index.md#cor-vc4-green-flux)を使えば
 
 $$
 \frac{d}{dt}\int_D\zeta\,dA
