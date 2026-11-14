@@ -205,7 +205,7 @@ $$
 
 が二乗平均、したがって確率変数として成立し、$Y_t=m+S_t$ が漸化式を満たします。
 
-有限次元の $(S_{t_1,N},\ldots,S_{t_k,N})$ は全時点を平行移動しても同分布です。各成分は二乗平均収束するので、任意の $\delta>0$ について和事象の確率の上界を取ると
+有限次元の $(S_{t_1,N},\ldots,S_{t_k,N})$ は全時点を平行移動しても同分布です。各成分について既に示した $E[(S_{t_i,N}-S_{t_i})^2]\to0$ を使います。任意の $\delta>0$ について和事象の確率の上界を取ると
 
 $$
 P\!\left(\max_{1\le i\le k}|S_{t_i,N}-S_{t_i}|>\delta\right)
@@ -213,7 +213,18 @@ P\!\left(\max_{1\le i\le k}|S_{t_i,N}-S_{t_i}|>\delta\right)
 E[(S_{t_i,N}-S_{t_i})^2]\longrightarrow0.
 $$
 
-したがって[確率収束の定義](../../../解析系/F0/F0-00P4/index.md#def-f0-00p4-probability-convergence)から、どの有限次元ベクトルも確率収束します。さらに各成分が閾値 $x_i$ 以下となる事象を考えると、極限ベクトルの閾値を $\pm\delta$ だけ緩めた事象の確率の間に有限和ベクトルの確率が挟まれ、その誤差は上式で0へ近づきます。分布関数の連続点で $\delta\downarrow0$ とすれば、有限和で等しかった平行移動前後の同時分布は極限でも等しいと分かります。よって $S_t$ も $Y_t$ も強定常です。上で有限の二次モーメントを確認したので[狭義定常性から二次定常性への定理](../../../解析系/TSA/TSA1/index.md#thm-tsa1-strict-implies-second-order)が適用できます。
+したがって[確率収束の定義](../../../解析系/F0/F0-00P4/index.md#def-f0-00p4-probability-convergence)から、どの有限次元ベクトルも確率収束します。具体的に上式左辺の事象を $A_N$ とし、各成分の閾値を $x_1,\ldots,x_k$ とします。$\delta$ より大きい誤差が出ない場合は、極限値と有限和の大小関係は $\delta$ だけずらした閾値で挟めるので
+
+$$
+P(S_{t_i}\le x_i-\delta\ \text{（全 }i\text{）})-P(A_N)
+\le P(S_{t_i,N}\le x_i\ \text{（全 }i\text{）})
+$$
+
+$$
+\le P(S_{t_i}\le x_i+\delta\ \text{（全 }i\text{）})+P(A_N)
+$$
+
+です。平行移動前後の有限和ベクトルはすべての $N$ で同分布なので、この不等式を両方に適用します。$N\to\infty$ で $P(A_N)\to0$ とし、閾値を動かしても同時確率が連続な点で $\delta\downarrow0$ とすれば、極限の同時確率も一致します。この一致する閾値から各有限次元の分布が決まるので、$S_t$ も $Y_t$ も強定常です。上で有限の二次モーメントを確認したので[狭義定常性から二次定常性への定理](../../../解析系/TSA/TSA1/index.md#thm-tsa1-strict-implies-second-order)が適用できます。
 
 $h\ge0$ とすると、$S_t$ と $S_{t-h}$ の和の中で共通する衝撃は $\varepsilon_{t-h-j}$（$j\ge0$）だけです。それぞれの係数は $\phi^{h+j}$ と $\phi^j$ ですから
 
@@ -307,7 +318,7 @@ $$
 \qquad (0\le k<n)
 $$
 
-と置きます。$k=0$ では $\widehat\gamma(0)=n^{-1}\sum_{t=1}^{n}(y_t-\bar y)^2$ です。この章では両方に同じ分母 $n$ を用いる流儀を採用し、母自己相関 $\rho(k)=\gamma(k)/\gamma(0)$ に対応させて $\widehat\gamma(k)/\widehat\gamma(0)$ を計算します。分母の $n$ が消えるため、次の標本自己相関の式になります。
+と置きます。$k=0$ では $\widehat\gamma(0)=n^{-1}\sum_{t=1}^{n}(y_t-\bar y)^2$ です。この章では両方に同じ分母 $n$ を用いる流儀を採用し、母自己相関 $\rho(k)=\gamma(k)/\gamma(0)$ に対応させて $\widehat\gamma(k)/\widehat\gamma(0)$ を計算します。分母の $n$ が消えるため、次の比の式になります。
 
 <a id="def-u4-11-sample-acf"></a>
 
