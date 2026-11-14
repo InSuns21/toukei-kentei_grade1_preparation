@@ -398,7 +398,11 @@ S_{\mathrm A}(\rho\Vert\sigma)
 f_\varepsilon(\lambda)\,d\mu_\rho(\lambda)\right].
 $$
 
-これは一般環にも使える**スペクトル切断による極限**です。証明は次の通りです。$-\log(\max\{\lambda,\varepsilon\})$ は $\varepsilon$ が減ると点ごとに増大します。また $\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$（$0<\varepsilon\le1$）なので、この非負関数列に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用し、有限な $\int\lambda\,d\mu_\rho$ を最後に引きます。零の質量があれば $\log\varepsilon$ の項が $-\infty$ へ向かい、結果は $+\infty$ です。**状態そのものを混合して忠実化する極限とは別**の操作です。
+これは一般環にも使える**スペクトル切断による極限**です。$-\log(\max\{\lambda,\varepsilon\})$ は、$\varepsilon$ が減ると点ごとに増大します。
+
+さらに $0<\varepsilon\le1$ では $\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ です。この非負関数列に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用し、有限な $\int\lambda\,d\mu_\rho$ を最後に引けば、上の極限を得ます。
+
+零の質量があれば $\log\varepsilon$ の寄与が $-\infty$ へ向かい、相対エントロピーは $+\infty$ です。これは**状態そのものを混合して忠実化する極限とは別**の操作です。
 
 ## 6. 有限次元の拡張公式と忠実化極限
 
