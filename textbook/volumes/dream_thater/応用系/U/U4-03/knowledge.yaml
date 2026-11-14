@@ -1,0 +1,48 @@
+chapter: U4-03
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-02, F0-00B]
+forward_references: []
+concepts:
+  - id: finance.bid-ask-executable-gain
+    name: 売買方向別の実行利得
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（売買方向別の実行利得）"]
+    requires: [finance.finite-state-quote-payoff-table, finance.quote-table-arbitrage-certificate]
+  - id: finance.constrained-arbitrage-admissible-set
+    name: 制約付き実行可能集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（制約付き実行可能集合）"]
+    requires: [finance.bid-ask-executable-gain]
+  - id: finance.bounded-arbitrage-lp
+    name: 有界な制約付き裁定探索LP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有界な制約付き裁定探索LP）"]
+    requires: [finance.constrained-arbitrage-admissible-set]
+  - id: finance.bounded-arbitrage-lp-equivalence
+    name: 有界LPの最適値と裁定の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界LPの最適値と裁定の同値性）"]
+    requires: [finance.bounded-arbitrage-lp]
+  - id: finance.bid-ask-consistent-state-prices
+    name: 売買気配と整合する正の状態価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（売買気配と整合する正の状態価格）"]
+    requires: [finance.finite-market-positive-state-prices, finance.bid-ask-executable-gain]
+  - id: finance.finite-cone-simplex-separation
+    name: 有限生成錐と非負単体の分離
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（有限生成錐と非負単体の分離）"]
+    requires: [finance.finite-market-strict-simplex-separation]
+  - id: finance.bid-ask-friction-alternative
+    name: 比例費用付き無制約市場の裁定・気配整合の二者択一
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（比例費用付き無制約市場の裁定・気配整合の二者択一）"]
+    requires: [finance.bid-ask-consistent-state-prices, finance.finite-cone-simplex-separation, finance.bid-ask-executable-gain]
