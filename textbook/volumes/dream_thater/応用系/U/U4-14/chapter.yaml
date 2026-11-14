@@ -1,0 +1,49 @@
+id: "U4-14"
+title: "多変量共和分と誤差修正表現"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-13, F0-00F, LA3B, F0-00F1, F0-00P7]
+official_scope: []
+learning_objectives:
+  - 3系列の共和分空間とランクを分散計算から求められる
+  - 共通確率トレンドの数と共和分ランクの関係を仮定込みで証明できる
+  - VAR(p)からVECMへの係数変換を添字を追って導ける
+  - 誤差修正の符号と調整方向を具体モデルで確認できる
+  - Piのランク分解と基底変換を証明して正規化と識別を区別できる
+  - Johansen法の残差共分散・一般化固有値・縮約尤度を説明できる
+  - トレース統計量と最大固有値統計量を導出できる
+  - 非標準臨界値・ラグ・決定論的項への感度を点検できる
+  - 標本外の係数変化が共和分関係を壊す仕組みを示せる
+  - 共和分の成立と取引可能性・無裁定性を区別できる
+definitions:
+  - { id: U4-14-DEF-01, name: "多変量共和分空間と共和分ランク" }
+  - { id: U4-14-DEF-02, name: "誤差修正表現 VECM" }
+  - { id: U4-14-DEF-03, name: "Johansenのランク検定統計量" }
+theorems:
+  - { id: U4-14-PROP-01, name: "共通確率トレンドと共和分ランク" }
+  - { id: U4-14-PROP-02, name: "VAR(p) の誤差修正表現" }
+  - { id: U4-14-PROP-03, name: "ランク分解と基底変換の不変性" }
+  - { id: U4-14-PROP-04, name: "Gaussian VECM の縮約ランク尤度" }
+canonical_examples:
+  - 3系列の共通トレンドと独立な2本の定常偏差
+  - 共通トレンド係数行列の核によるランクの証明
+  - 2系列の条件付き平均への誤差修正の影響
+  - 3系列の正確なVECMと正定値ショック共分散
+  - Johansenの2次元対角残差共分散と一般化固有値
+  - ラグ・定数仕様を変える合成実験
+  - 標本外係数変化による共和分崩壊の反例
+problem_patterns:
+  - U4-14-A1
+  - U4-14-A2
+  - U4-14-A3
+  - U4-14-A4
+  - U4-14-A5
+  - U4-14-B1
+  - U4-14-B2
+  - U4-14-B3
+  - U4-14-B4
+  - U4-14-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
