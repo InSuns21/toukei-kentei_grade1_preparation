@@ -421,9 +421,11 @@ $$
 
 実際に $v_y=(U/(2x))\zeta e^{-\zeta}=-u_x$ である。さらに $u(x,0)=v(x,0)=0$、$u(x,y)\to U$、$v(x,y)\to Ud(x)/(2x)$ が確かめられる。**外側の法線速度を内側の極限で零と置かない**理由が、この構成例で目に見える。
 
+<a id="ref-fluid21-trial-derivatives"></a>
+
 この候補場では
 
-$$
+$
 u_{xx}=\frac{Ue^{-\zeta}}{4x^2}\zeta(3-\zeta),
 \qquad
 u_{yy}=-\frac{Ue^{-\zeta}}{d(x)^2}.
@@ -641,7 +643,7 @@ d=\sqrt{\frac{10^{-5}\times0.5}{2}}
 \simeq1.5811\times10^{-3}\ \mathrm m.
 $$
 
-[第5節の導関数](#prop-fluid21-thickness)の計算に $y=d$ を入れると $\zeta=1$ で、比は
+[第5節の候補場の導関数](#ref-fluid21-trial-derivatives)の計算に $y=d$ を入れると $\zeta=1$ で、比は
 
 $$
 \left|\frac{u_{xx}}{u_{yy}}\right|
