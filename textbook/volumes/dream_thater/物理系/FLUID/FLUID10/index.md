@@ -24,7 +24,18 @@ $$
 \qquad \nabla\cdot u=0.}
 $$
 
-ここで $x_1=x,x_2=y,x_3=z$、$\partial_i=\partial/\partial x_i$、$\partial_t$ は位置 $(x,y,z)$ を固定した時間偏微分、$\nabla=(\partial_x,\partial_y,\partial_z)$ は時刻を固定した空間微分である。$\Delta=\partial_1^2+\partial_2^2+\partial_3^2$ は速度・渦度の各成分に作用する Laplace 演算子とする。$u\cdot\nabla=\sum_{i=1}^3u_i\partial_i$ は空間方向微分であり、$D_t=\partial_t+u\cdot\nabla$ は[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)である。$D_tf$ は粒子に沿った $d f(X(t),t)/dt$ に対応するが、固定位置での $\partial_tf$ とは一般に異なる。壁面では別途境界条件が必要になる。とくに**非圧縮**だけでなく**密度一定**を仮定しているので、変密度の圧力項や可変粘度の勾配項はここでは扱わない。
+ここで $x_1=x,\ x_2=y,\ x_3=z$ とし、$\partial_i=\partial/\partial x_i$ と書く。$\partial_t$ は位置を固定した時間偏微分、$\nabla=(\partial_x,\partial_y,\partial_z)$ は時刻を固定した空間微分である。
+
+速度・渦度の各成分に作用する Laplace 演算子と、速度に沿う方向微分は
+
+$$
+\Delta=\sum_{i=1}^3\partial_i^2,\qquad
+u\cdot\nabla=\sum_{i=1}^3u_i\partial_i
+$$
+
+である。したがって[VC9 の物質微分](../../../幾何系/VC/VC9/index.md#def-vc9-material-derivative)は $D_t=\partial_t+u\cdot\nabla$ と書ける。粒子の流跡 $X(t)$ に沿う $D_tf$ は全微分 $d f(X(t),t)/dt$ に対応するが、位置を固定した $\partial_tf$ とは一般に異なる。
+
+壁面では別途境界条件が必要になる。とくに**非圧縮**だけでなく**密度一定**を仮定しているので、変密度の圧力項や可変粘度の勾配項はここでは扱わない。
 
 [VC9 の渦度](../../../幾何系/VC/VC9/index.md#def-vc9-vorticity)を $\omega=\nabla\times u$ と書く。例えば $\omega_3=\partial_1u_2-\partial_2u_1$ であり、単位は s$^{-1}$。右手系なので反時計回りの平面循環は正の $\omega_3$ に対応する。
 
@@ -456,7 +467,19 @@ Q_R(t)=\int_{r\le R}\zeta_G\,dA
 =\Gamma\left(1-e^{-R^2/a(t)}\right).
 $$
 
-**同じ固定半径 $R>0$ の内側**では $a$ が増えると $1-e^{-R^2/a}$ は減少する。従って $\Gamma>0$ なら $Q_R$ は減少し、$\Gamma<0$ なら $Q_R$ は零へ向かって増加するが、どちらも $|Q_R|$ は減少する。無限平面全体の $Q=\Gamma$ は一定であり、符号付き渦度が固定円板の境界を越えて拡散するので矛盾しない。[FLUID9 の Kelvin の定理](../FLUID9/index.md#thm-fluid9-kelvin)を粘性渦へ直接適用するのも誤りである。こちらの総量保存は境界流束が消えることから得た別の結論だ。なお $\Gamma\ne0$ では $u_\theta(r,t)\sim\Gamma/(2\pi r)$ であり、速度は無限遠で零へ近づいても円周積分 $2\pi r u_\theta$ は $\Gamma$ へ近づく。したがってこの全平面の渦を、全境界で無滑り条件を課した有界容器内の渦へ同一視できない。平面全体の運動エネルギー積分も $\int^\infty u_\theta^2\,r\,dr$ が対数的に発散する。
+**同じ固定半径 $R>0$ の内側**では $a$ が増えると $1-e^{-R^2/a}$ は減少する。従って $\Gamma>0$ なら $Q_R$ は減少し、$\Gamma<0$ なら零へ向かって増加するが、どちらも絶対値 $|Q_R|$ は減少する。全平面の総渦度は $\Gamma$ のままであり、固定円板の境界を越える拡散と矛盾しない。
+
+[FLUID9 の Kelvin の定理](../FLUID9/index.md#thm-fluid9-kelvin)をこの粘性渦へ直接適用するのは誤りである。こちらの総量保存は、無限遠で境界流束が消えることから得た別の結論である。
+
+なお $\Gamma\ne0$ なら無限遠で $u_\theta(r,t)\sim\Gamma/(2\pi r)$ となる。速度は零へ近づいても円周積分 $2\pi r u_\theta$ は $\Gamma$ に近づくため、全境界が無滑りの有界容器とは同一視できない。さらに平面全体の運動エネルギー積分は
+
+$$
+\int^\infty u_\theta(r,t)^2\,r\,dr
+\sim\frac{\Gamma^2}{4\pi^2}\int^\infty\frac{dr}{r}
+=\infty
+$$
+
+となり、この全平面解は有限エネルギーの局在流ではない。
 
 ## 5. 三次元の伸長は本当に渦を強めるか
 
