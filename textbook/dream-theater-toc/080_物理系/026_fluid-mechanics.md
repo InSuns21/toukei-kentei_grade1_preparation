@@ -12,3 +12,4 @@
 9. [FLUID9 循環はいつ保存されるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID9/index.md)
 10. [FLUID10 渦は移流・伸長・拡散でどう変わるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID10/index.md)
 11. [FLUID11 流れ関数と速度ポテンシャルはいつ存在するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID11/index.md)
+12. [FLUID12 単純なポテンシャル流を重ね合わせられるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID12/index.md)
