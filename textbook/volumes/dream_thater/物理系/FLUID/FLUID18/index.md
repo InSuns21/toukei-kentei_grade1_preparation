@@ -288,7 +288,22 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid18-drag-parts -->
-**定義の確認**：仮に一定圧力 $p=p_\infty$ だけが球全体に作用するなら、$F_p=-2\pi a^2p_\infty\int_0^\pi\cos\theta\sin\theta\,d\theta=0$。球面では法線が場所ごとに異なるため、圧力が正でも合力は零になり得る。求める抗力には**圧力の角度依存**が必要である。また赤道 $\theta=\pi/2$ では、[速度場](#thm-fluid18-stokes-sphere-velocity)の $v_\theta=-Ug(r)\sin\theta$ を微分して $\partial_rv_\theta(a,\pi/2)=-3U/(2a)$ となる。無滑りから他の接線応力項が壁上で零なので、$\sigma_{r\theta}=-3\eta U/(2a)$、$e_\theta\cdot e_z=-1$ より粘性接線力の $z$ 成分は $+3\eta U/(2a)$ と確かめられる。面積分による全体の値は次の定理で求める。
+**定義の確認（圧力）**：仮に一定圧力 $p=p_\infty$ だけが球全体に作用するなら、定義の圧力積分は
+
+$$
+F_p=-2\pi a^2p_\infty\int_0^\pi\cos\theta\sin\theta\,d\theta=0.
+$$
+
+球面では法線が場所ごとに異なるため、圧力が正でも合力は零になり得る。求める抗力には**圧力の角度依存**が必要である。
+
+**定義の確認（接線）**：赤道 $\theta=\pi/2$ では、[速度場](#thm-fluid18-stokes-sphere-velocity)の $v_\theta=-Ug(r)\sin\theta$ を半径で微分する。上に導いた無滑り壁での接線応力式から
+
+$$
+\partial_rv_\theta(a,\pi/2)=-\frac{3U}{2a},\qquad
+\sigma_{r\theta}(a,\pi/2)=-\frac{3\eta U}{2a}.
+$$
+
+また $e_\theta\cdot e_z=-1$ だから、この点で粘性接線力の $z$ 成分は $+3\eta U/(2a)$ と確かめられる。面積分による全体の値は次の定理で求める。
 <!-- definition-example-end -->
 
 ![一様流が左から右へ流れる球と、球面の圧力・接線せん断・抗力の向き](assets/stokes-sphere-forces.svg)
