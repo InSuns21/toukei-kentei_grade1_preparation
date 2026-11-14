@@ -29,3 +29,4 @@
 26. [U3-26 リスク中立期待値の Monte Carlo 推定](textbook/volumes/dream_thater/応用系/U/U3-26/index.md)
 27. [U3-27 Itô 積分の数値近似と誤差の実測](textbook/volumes/dream_thater/応用系/U/U3-27/index.md)
 28. [U3-28 厳密 GBM・Euler–Maruyama・Milstein](textbook/volumes/dream_thater/応用系/U/U3-28/index.md)
+29. [U3-29 強収束・弱収束と誤差予算](textbook/volumes/dream_thater/応用系/U/U3-29/index.md)
