@@ -25,8 +25,11 @@ def evaluate(gamma=2 * math.pi, a0=1.0, nu=0.25, t=1.0,
     a = a0 + 4 * nu * t
     width = math.sqrt(a)
 
+    def radial_zeta(radius, width_squared):
+        return gamma / (math.pi * width_squared) * math.exp(-radius*radius / width_squared)
+
     def zeta(x, y):
-        return gamma / (math.pi * a) * math.exp(-(x*x + y*y) / a)
+        return radial_zeta(math.hypot(x, y), a)
 
     center = zeta(0, 0)
     point = zeta(r, 0)
@@ -59,7 +62,19 @@ def evaluate(gamma=2 * math.pi, a0=1.0, nu=0.25, t=1.0,
     velocity = (gamma / (2*math.pi*r) *
                 (-math.expm1(-r*r/a))) if r > 0 else 0.0
 
+    # The same analytic vorticity formula supplies both point checks and the
+    # browser SVG profile. These samples are not a numerical time integration.
+    radial_grid = [3.0 * max(math.sqrt(a0), width) * i / 100 for i in range(101)]
+    profiles = [{"name": "at t=" + str(t) + " s", "points":
+                 [[rad, radial_zeta(rad, a)] for rad in radial_grid]}]
+    if t > 0:
+        profiles.append({"name": "initial t=0 s", "points":
+                         [[rad, radial_zeta(rad, a0)] for rad in radial_grid]})
+
     return {
+        "plots": [{"title": "Gaussian vortex: radial vorticity",
+                   "x_label": "radius r (m)", "y_label": "vorticity (1/s)",
+                   "series": profiles}],
         "parameters": {"gamma_m2_per_s": gamma, "a0_m2": a0,
                        "nu_m2_per_s": nu, "t_s": t, "r_m": r,
                        "h_m": h, "radial_intervals": n},
