@@ -141,7 +141,7 @@ $$
 
 $$
 \operatorname{Var}(\widehat V_{\rm str})
-\simeq2.8680\times10^{-8}\ {\rm 円}^2.
+\simeq2.8680\times10^{-8}\ \text{円}^2.
 $$
 
 同じ1536回の独立な通常MCなら
@@ -149,7 +149,7 @@ $$
 $$
 \operatorname{Var}(\widehat V_{\rm plain})
 =\frac{D^2\pi(1-\pi)}{1536}
-\simeq1.1827\times10^{-6}\ {\rm 円}^2.
+\simeq1.1827\times10^{-6}\ \text{円}^2.
 $$
 
 比は約 $0.02425$ です。これは「希少事象が最後の層へ収まる」と事前に分かる特別な設定での比較であり、**等配分がどの商品にも最適という意味ではありません**。[MC3 の最適配分](../../../計算系/MC/MC3/index.md#thm-mc3-stratified-variance)は $n_k\propto p_k\sqrt{v_k}$（整数制約・各層最低数を別途考慮）であり、未知の $v_k$ を予備標本から求めるなら学習費用も勘定に入れます。
