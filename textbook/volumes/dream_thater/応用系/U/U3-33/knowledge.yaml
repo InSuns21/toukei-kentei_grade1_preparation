@@ -16,10 +16,10 @@ concepts:
     introduction_aliases: ["命題（正規層化推定量の分散と希少閾値）"]
     requires: [finance.gbm-quantile-strata-estimator, numerical.stratified-variance]
   - id: finance.gaussian-shift-importance-pricing
-    name: 正規平均シフトによる金融重要度サンプリング
+    name: 正規平均シフトによる金融重点サンプリング
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（正規平均シフトによる金融重要度サンプリング）"]
+    introduction_aliases: ["定義（正規平均シフトによる金融重点サンプリング）"]
     requires: [numerical.importance-sampling, finance.risk-neutral-mc-discounted-sample]
   - id: finance.gaussian-shift-tail-second-moment
     name: Gaussianシフトの尤度比と閾値事象の分散
