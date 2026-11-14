@@ -1,0 +1,53 @@
+chapter: U3-38
+scope: dream-theater
+coverage: complete
+prerequisites: [FOU3, U3-14, U3-19, U3-26]
+concepts:
+  - id: finance.fourier-logprice-characteristic
+    name: 対数満期価格の特性関数と複素延長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対数満期価格の特性関数と複素延長）"]
+    requires: [finance.gbm-explicit-positive]
+  - id: finance.fourier-gbm-characteristic
+    name: GBM の対数価格の複素特性関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GBM の対数価格の複素特性関数）"]
+    requires: [finance.fourier-logprice-characteristic]
+  - id: finance.fourier-damped-call
+    name: 減衰した対数行使価格 call
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（減衰した対数行使価格 call）"]
+    requires: [finance.continuous-dividend-bsm-formula]
+  - id: finance.fourier-payoff-transform
+    name: 減衰 call の Fourier 変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（減衰 call の Fourier 変換）"]
+    requires: [finance.fourier-damped-call, finance.fourier-logprice-characteristic]
+  - id: finance.fourier-call-inversion
+    name: 特性関数からの欧州型 call 価格公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（特性関数からの欧州型 call 価格公式）"]
+    requires: [finance.fourier-payoff-transform, fourier.fou3-inversion]
+  - id: finance.fourier-tail-bound
+    name: Fourier 積分の打切り誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Fourier 積分の打切り誤差）"]
+    requires: [finance.fourier-call-inversion, finance.fourier-gbm-characteristic]
+  - id: finance.fourier-trapezoid
+    name: 有限区間の複合台形価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限区間の複合台形価格）"]
+    requires: [finance.fourier-call-inversion]
+  - id: finance.fourier-trapezoid-bound
+    name: 台形価格の誤差分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（台形価格の誤差分離）"]
+    requires: [finance.fourier-trapezoid, finance.fourier-tail-bound]
