@@ -340,7 +340,7 @@ $$
 (\beta^\top S_{11}\beta)^{-1}\beta^\top S_{10}.
 $$
 
-[尤度関数](../../../解析系/F0/F0-00P7/index.md#def-f0-00p7-likelihood)の対数を取ると、正規誤差の対数尤度は $\Omega$ に依存する部分が次になります。
+ここで $\operatorname{tr}(A)$ は正方行列 $A$ の対角成分の和です。[尤度関数](../../../解析系/F0/F0-00P7/index.md#def-f0-00p7-likelihood)の対数を取ると、正規誤差の対数尤度は $\Omega$ に依存する部分が次になります。
 
 $$
 \ell(\Omega,\beta)
@@ -349,7 +349,7 @@ $$
 +\mathrm{const}.
 $$
 
-ここで $\operatorname{tr}(A)$ は正方行列 $A$ の対角成分の和です。$\widehat\Omega(\beta)\succ0$ はブロック標本共分散の正定値性から従います。$F=\widehat\Omega(\beta)$ と置き、$G=F^{1/2}\Omega^{-1}F^{1/2}$ の正の固有値を $\mu_1,\ldots,\mu_k$ とします。行列式とトレースを順に書き直すと
+$\widehat\Omega(\beta)\succ0$ はブロック標本共分散の正定値性から従います。$F=\widehat\Omega(\beta)$ と置き、$G=F^{1/2}\Omega^{-1}F^{1/2}$ の正の固有値を $\mu_1,\ldots,\mu_k$ とします。行列式とトレースを順に書き直すと
 
 $$
 \log\det\Omega+\operatorname{tr}(\Omega^{-1}F)
