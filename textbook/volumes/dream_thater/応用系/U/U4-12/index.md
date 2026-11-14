@@ -1,7 +1,6 @@
 # U4-12 単位根検定とその限界
 
 <!-- definition-example-audit: strict -->
-<!-- DT-REVIEW: U4-12 -->
 
 前講では、[ランダムウォークの水準と階差](../U4-11/index.md#prop-u4-11-random-walk)を比べ、価格水準が非定常でも変化分は定常になり得ると確かめました。しかし、観測した有限個のデータから「ランダムウォークに近い」ことと「真に単位根を持つ」ことを区別できるでしょうか。見かけの平均回帰が、過去の一回の構造変化による錯覚ではないでしょうか。
 
@@ -134,7 +133,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（ドリフトなし DF 統計量の非標準極限）**  
-> 初期値 $X_0=0$ とし、$t=1,\ldots,n$ について以下のモデルを考える。$\varepsilon_t$ は独立同分布の $N(0,\sigma^2)$ に従い、$\sigma^2>0$ とする。
+> 標本長 $n\ge2$、初期値 $X_0=0$ とし、$t=1,\ldots,n$ について以下のモデルを考える。$\varepsilon_t$ は独立同分布の $N(0,\sigma^2)$ に従い、$\sigma^2>0$ とする。
 
 $$
 X_t=X_{t-1}+\varepsilon_t.
@@ -225,7 +224,7 @@ E\left[\frac1{n\sigma^2}\sum_{t=1}^n\varepsilon_t^2\right]=1,\qquad
 \operatorname{Var}\left(\frac1{n\sigma^2}\sum_{t=1}^n\varepsilon_t^2\right)=\frac2n.
 $$
 
-従って任意の $\delta>0$ について、Chebyshev の不等式を使えば
+ここで $Y_n=(n\sigma^2)^{-1}\sum_{t=1}^n\varepsilon_t^2-1$ と置きます。事象 $\{|Y_n|>\delta\}$ 上では $Y_n^2>\delta^2$、その外では $Y_n^2\ge0$ なので、期待値を取ると $E[Y_n^2]\ge\delta^2 P(|Y_n|>\delta)$ です。上の計算から $E[Y_n]=0$ と $E[Y_n^2]=2/n$ です。従って任意の $\delta>0$ について
 
 $$
 P\left(\left|\frac1{n\sigma^2}\sum_{t=1}^n\varepsilon_t^2-1\right|>\delta\right)
