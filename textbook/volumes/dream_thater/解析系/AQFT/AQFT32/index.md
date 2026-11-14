@@ -121,7 +121,7 @@ $$
 
 ### 直接計算：非忠実な二準位状態
 
-入力を $\rho=|e_1\rangle\langle e_1|$、比較相手を $\sigma=I_2/2$ とします。$\rho,\sigma$ はそれぞれ正半定値・トレース1ですが、$\rho$ は非忠実です。支持は $p=|e_1\rangle\langle e_1|$ なので
+以下の二準位例では、$e_1,e_2$ を $\mathbb C^2$ の標準正規直交基底、$E_{ij}=|e_i\rangle\langle e_j|$ を行列単位とします（[AQFT31での行列単位と支持付き作用素の確認](../AQFT31/index.md#def-aqft31-relative-tomita-supported)）。入力を $\rho=|e_1\rangle\langle e_1|$、比較相手を $\sigma=I_2/2$ とします。$\rho,\sigma$ はそれぞれ正半定値・トレース1ですが、$\rho$ は非忠実です。支持は $p=|e_1\rangle\langle e_1|$ なので
 
 $$
 \sigma(p)=\operatorname{Tr}(\sigma p)=\frac12.
@@ -275,7 +275,7 @@ $$
 
 これまでに必要だったのは**スカラー関数**の接線不等式です。比較した作用素が可換であるという仮定は一度も置きませんでした。次講の部分環制限を考えるときには、行列や作用素の順序を保ちながら平均を取る問題が現れます。その準備として、別のより強い性質を証明します。
 
-正の自己共役作用素 $X,Y$ の不等式 $X\le Y$ は、すべてのベクトル $v$ に対して $\langle v,Xv\rangle\le\langle v,Yv\rangle$ となる順序（Löwner順序）です。$f$ が**作用素凸**であるとは、任意の同じHilbert空間上の有界・正定値自己共役作用素 $A,B$ と $0\le\theta\le1$ に対して
+同じHilbert空間 $\mathcal H$ 上の**有界自己共役作用素** $X,Y$ について、$X\le Y$ とは、すべての $v\in\mathcal H$ で $\langle v,Xv\rangle\le\langle v,Yv\rangle$ が成り立つことを意味します（Löwner順序）。非有界作用素では二次形式の定義域の指定が別に必要なので、以下の作用素凸性の議論は有界作用素に限定します。$f$ が**作用素凸**であるとは、任意の同じHilbert空間上の有界・正定値自己共役作用素 $A,B$ と $0\le\theta\le1$ に対して
 
 $$
 f((1-\theta)A+\theta B)
@@ -301,16 +301,30 @@ $$
 <!-- definition-example-start: def-aqft32-operator-convex -->
 ### 直接例：可換な二行列で定義の不等式を確認する
 
-$A=\operatorname{diag}(1,4)$、$B=\operatorname{diag}(4,1)$、$\theta=1/2$、$f(t)=-\log t$ とします。$A,B$ は正定値・有界で、$0\le\theta\le1$ です。スペクトル計算では対角成分に関数を作用させるため
+$A=\operatorname{diag}(1,4)$、$B=\operatorname{diag}(4,1)$、$\theta=1/2$、$f(t)=-\log t$ とします。$A,B$ は正定値・有界で、$0\le\theta\le1$ です。ここで行列は $\mathbb C^2$ の標準正規直交基底 $e_1,e_2$ による作用素表示です。$P_j=|e_j\rangle\langle e_j|$ とすると
 
-$$
+$
+A=P_1+4P_2,\qquad B=4P_1+P_2,\qquad
+(A+B)/2=\tfrac52(P_1+P_2).
+$
+
+スペクトル計算は各固有空間に関数値を掛ける操作です。例えば任意の $v=v_1e_1+v_2e_2$ に対し
+$f(A)v=f(1)v_1e_1+f(4)v_2e_2$ となるので、
+
+$
 \begin{aligned}
 f((A+B)/2)&=-\log(5/2)\,I_2,\\
 \bigl(f(A)+f(B)\bigr)/2&=-\log2\,I_2.
 \end{aligned}
-$$
+$
 
-右辺と左辺の差は $\log(5/4)I_2\ge0$ です。よってこの組では作用素順序の不等式が確かめられます。ただし一つの可換な例だけでは、非可換な任意の $A,B$ に対する定義を証明したことにはなりません。
+定義の作用素順序を判定するため、右辺から左辺を引いて $D=\log(5/4)I_2$ を作ります。任意の $v\in\mathbb C^2$ について
+
+$
+\langle v,Dv\rangle=\log(5/4)(|v_1|^2+|v_2|^2)\ge0
+$
+
+なので $D\ge0$、すなわちこの組では作用素凸性の不等式が成立します。ただし一つの可換な例だけでは、非可換な任意の $A,B$ に対する定義を証明したことにはなりません。
 
 **定義の確認**：入力の正定値性・有界性、凸結合の係数範囲、作用素順序の差の非負性を具体的に検査しました。
 <!-- definition-example-end -->
@@ -336,7 +350,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず正の下限を持つ有界自己共役作用素 $T$ と $x$ に対して、平方完成から
+まずHilbert空間 $\mathcal H$ 上の有界自己共役作用素 $T\ge cI$（$c>0$）と、任意の $x,y\in\mathcal H$ に対して、平方完成から
 
 $$
 \begin{aligned}
@@ -351,12 +365,12 @@ $$
 
 $$
 \langle x,T^{-1}x\rangle
-=\sup_y\left\{
+=\sup_{y\in\mathcal H}\left\{
 2\operatorname{Re}\langle x,y\rangle-\langle y,Ty\rangle
 \right\}.
 $$
 
-$C=(1-\theta)A+\theta B$ とします。括弧内の式は $T$ に関してアフィンなので、上限を取る前に二つへ分解すると
+平方項は $y=T^{-1}x$ で零になり、この上限は実際に達成されます。$C=(1-\theta)A+\theta B$ とします。括弧内の式は $T$ に関してアフィンなので、共通の $y$ で取る上限は $A,B$ それぞれ独立に $y$ を選んだ上限の重み付き和以下です。従って
 
 $$
 \begin{aligned}
@@ -599,11 +613,11 @@ $$
 有界な正定値作用素 $A,B$、$0\le\theta\le1$ に対して $-\log((1-\theta)A+\theta B)\le-(1-\theta)\log A-\theta\log B$ を、逆作用素の変分表示と積分表示から証明せよ。単なるスカラーJensenとの違いも述べよ。
 
 <!-- solution-start -->
-**詳細解答。** $T>0$ と $x$ を固定すると、平方完成によって
+**詳細解答。** $T\ge cI$（$c>0$）と $x\in\mathcal H$ を固定します。任意の $y\in\mathcal H$ について平方完成し、$y=T^{-1}x$ で平方項が零になることから
 
 $$
 \langle x,T^{-1}x\rangle
-=\sup_y\bigl(2\operatorname{Re}\langle x,y\rangle-\langle y,Ty\rangle\bigr)
+=\sup_{y\in\mathcal H}\bigl(2\operatorname{Re}\langle x,y\rangle-\langle y,Ty\rangle\bigr)
 $$
 
 です。$C=(1-\theta)A+\theta B$ を代入すると括弧内が重み付き和になります。一つの $y$ で取る上限は、$A$ と $B$ に別々の $y$ を選べる上限以下なので
