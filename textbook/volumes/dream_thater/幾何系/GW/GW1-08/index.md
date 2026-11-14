@@ -34,7 +34,9 @@ $$
 
 成分を $C_v\simeq\mathbb{CP}^1$、その写像を $u_v:C_v\to X$ と書く。節点が成分 $v,w$ の点 $q_{v,e},q_{w,e}$ をつなぐなら、写像が節点で連続であるためには $u_v(q_{v,e})=u_w(q_{w,e})$ を要する。成分上の標点と節点の枝を合わせた相異なる点の数を $s_v$（特殊点数）とする。
 
-各 $C_v$ には複素向きを入れ、その二次元基本類 $[C_v]\in H_2(C_v;\mathbb Z)$ を $u_v$ で標的へ送ったものを $\beta_v=(u_v)_*[C_v]\in H_2(X;\mathbb Z)$ と書く。`$(u_v)_*$ は $C_v$ 上の二次元ホモロジー類を $X$ 上の二次元ホモロジー類に写す、$u_v$ が誘導する準同型である。例えば $X=\mathbb{CP}^1$ なら $H_2(X;\mathbb Z)$ は $[\mathbb{CP}^1]$ で生成される。$\beta_v=n_v[\mathbb{CP}^1]$ と書き、面積を $\int_X\omega=2\pi$ に規格化すれば、次数 $d_v$ の正則写像には[有理写像の次数と面積](../GW1-06/index.md#prop-gw1-06-rational-area)から
+各 $C_v$ には複素向きを入れ、その二次元基本類 $[C_v]\in H_2(C_v;\mathbb Z)$ を $u_v$ で標的へ送ったものを $\beta_v=(u_v)_*[C_v]\in H_2(X;\mathbb Z)$ と書く。ここで $(u_v)_*$ は、$u_v$ がホモロジーに誘導する準同型 $H_2(C_v;\mathbb Z)\to H_2(X;\mathbb Z)$ である。
+
+例えば $X=\mathbb{CP}^1$ の場合、$H_2(X;\mathbb Z)$ は $[\mathbb{CP}^1]$ で生成される。$\beta_v=n_v[\mathbb{CP}^1]$ と置き、面積を $\int_X\omega=2\pi$ に規格化する。[有理写像の次数と面積](../GW1-06/index.md#prop-gw1-06-rational-area)を次数 $d_v$ の正則写像へ適用すると
 
 $$
 2\pi n_v=\langle[\omega],\beta_v\rangle
