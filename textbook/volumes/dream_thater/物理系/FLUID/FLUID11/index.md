@@ -49,15 +49,15 @@ $$
 
 $D\subset\mathbb R^2$ を開集合、$u=(u_1,u_2)\in C^1(D;\mathbb R^2)$ とし、$D$ で発散が零とする。
 
-$
+$$
 \partial_xu_1+\partial_yu_2=0.
-$
+$$
 
 任意の $a\in D$ の近傍に開長方形 $R\subset D$ と $\psi\in C^2(R)$ が存在し、
 
-$
+$$
 u_1=\partial_y\psi,\qquad u_2=-\partial_x\psi
-$
+$$
 
 を $R$ 上で満たす。$R$ は連結なので、この $\psi$ は加法定数を除いて一意である。
 <!-- formal-statement-end -->
