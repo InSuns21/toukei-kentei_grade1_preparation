@@ -26,7 +26,7 @@ $$
 
 $$
 D_tu=-\frac1\rho\nabla p-\nabla\Phi
-$
+$$
 
 となる。ただし [CTM7 の体積力](../../CTM/CTM7/index.md#thm-ctm7-material-momentum)を本講では $f_{\mathrm{ext}}=-\nabla\Phi$ と書き、各 $t\in I$ に対して $\Phi(\cdot,t)\in C^2(\mathcal D)$ とする。$\nabla\Phi$ は時刻を固定した空間勾配なので、$\Phi$ が時間に依存してもよい。$\rho>0$ だから除算できる。この模型に粘性、非保存体積力、不連続面を含む流れは入れない。後の FLUID10 で粘性の寄与を加える。
 
