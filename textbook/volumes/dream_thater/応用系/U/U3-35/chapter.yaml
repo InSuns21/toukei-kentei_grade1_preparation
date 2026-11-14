@@ -1,0 +1,44 @@
+id: "U3-35"
+title: "Brownian bridge・連続障壁の越境補正"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-09, U3-14, U3-26, U3-29, U3-34]
+official_scope: []
+learning_objectives:
+  - 離散監視と連続監視の上方ノックアウトを区別し経路ごとの見逃しを説明できる
+  - GBMの対数過程と端点で条件付けたBrownian bridgeの平均・分散を導出できる
+  - 反射原理と正規密度比から一定障壁への越境確率を証明できる
+  - 区間ごとの条件付き生存重みから連続監視の不偏Monte Carlo推定量を構成できる
+  - 格子点の条件付き独立性と全分散公式から不偏性・分散減少を証明できる
+  - 連続監視デジタルの解析値と離散監視価格を比較し監視バイアスと標本誤差を区別できる
+  - 定数係数・水平単一障壁・端点測定可能な支払額という適用条件と限界を説明できる
+definitions:
+  - { id: U3-35-DEF-01, name: "連続監視上方ノックアウトと格子監視" }
+  - { id: U3-35-DEF-02, name: "対数株価の条件付き Brownian bridge" }
+  - { id: U3-35-DEF-03, name: "連続上方ノックアウトの橋補正推定量" }
+theorems:
+  - { id: U3-35-PROP-01, name: "Brownian bridge の上側障壁越境確率" }
+  - { id: U3-35-PROP-02, name: "橋重みの条件付き期待値と不偏性" }
+  - { id: U3-35-PROP-03, name: "橋補正の条件付き平均による分散減少" }
+  - { id: U3-35-PROP-04, name: "対数 drift が0の上側生存デジタルの解析解" }
+canonical_examples:
+  - "両端100円でも途中130円へ上昇して120円障壁へ到達する経路"
+  - "sigma=0.2の1年橋で両端対数0の越境確率e^-2"
+  - "二つの区間の生存重み(1-e^-2)^2"
+  - "対数drift0、b=0.2、sigma=0.2の離散生存Phi(1)と連続生存2Phi(1)-1"
+  - "m=1,4,16,64、200000経路の再現可能なPython実験"
+problem_patterns:
+  - U3-35-A1
+  - U3-35-A2
+  - U3-35-A3
+  - U3-35-A4
+  - U3-35-A5
+  - U3-35-B1
+  - U3-35-B2
+  - U3-35-B3
+  - U3-35-B4
+  - U3-35-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
