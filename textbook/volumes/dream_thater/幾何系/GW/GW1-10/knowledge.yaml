@@ -1,0 +1,71 @@
+chapter: GW1-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - GW1-09
+  - GW1-08
+  - GW1-07
+  - GW1-03
+  - AG3-08
+  - AG2-09
+concepts:
+  - id: gromov-witten.stable-map-family
+    name: 種数0安定写像の家族
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0安定写像の家族）"]
+    requires: [gromov-witten.stable-map, gromov-witten.stable-map-isomorphism]
+  - id: gromov-witten.stable-map-stack
+    name: 安定写像のモジュライ・スタックと粗モジュライ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（安定写像のモジュライ・スタックと粗モジュライ）"]
+    requires: [gromov-witten.stable-map-family, gromov-witten.stable-map-moduli-set]
+  - id: gromov-witten.convex-evaluation-surjectivity
+    name: 凸性からの評価全射
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（凸性からの評価全射）"]
+    requires: [gromov-witten.convex-projective-target, gromov-witten.global-generation-on-curves, algebraic-geometry.sheaf-cohomology-les]
+  - id: gromov-witten.convex-nodal-vanishing
+    name: 凸標的への種数0節点写像の障害消滅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（凸標的への種数0節点写像の障害消滅）"]
+    requires: [gromov-witten.convex-evaluation-surjectivity, gromov-witten.stable-map]
+  - id: gromov-witten.stable-map-uniform-embedding
+    name: 安定性が与える一様な埋め込み次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（安定性が与える一様な埋め込み次数）"]
+    requires: [gromov-witten.stable-map, algebraic-geometry.p1-sheaf-cohomology]
+  - id: gromov-witten.genus-zero-moduli-existence
+    name: 種数0安定写像の代数的モジュライ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（種数0安定写像の代数的モジュライ）"]
+    requires: [gromov-witten.stable-map-stack, gromov-witten.stable-map-uniform-embedding, gromov-witten.stable-map-finite-automorphisms]
+  - id: gromov-witten.convex-moduli-dimension
+    name: 凸標的の種数0モジュライの滑らかさと次元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（凸標的の種数0モジュライの滑らかさと次元）"]
+    requires: [gromov-witten.genus-zero-moduli-existence, gromov-witten.convex-nodal-vanishing, gromov-witten.dolbeault-rr-index]
+  - id: gromov-witten.zero-degree-product
+    name: 次数0モジュライの積表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（次数0モジュライの積表示）"]
+    requires: [gromov-witten.stable-map-zero-class, gromov-witten.stable-map-stack]
+  - id: gromov-witten.lines-moduli
+    name: 射影平面への無標点次数1安定写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影平面への無標点次数1安定写像）"]
+    requires: [gromov-witten.stable-map-stack, gromov-witten.projective-space-convex]
+  - id: gromov-witten.convex-boundary-codimension
+    name: 凸標的の節点数と境界の余次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（凸標的の節点数と境界の余次元）"]
+    requires: [gromov-witten.convex-moduli-dimension, gromov-witten.stable-marked-curve]
