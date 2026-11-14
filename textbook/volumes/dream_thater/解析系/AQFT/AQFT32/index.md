@@ -100,7 +100,7 @@ $$
 S\xi_\rho=p\,1^*\xi_\sigma=p\xi_\sigma.
 $$
 
-[相対モジュラー作用素の平方根ノルム公式](../AQFT29/index.md#def-aqft29-relative-modular)により $\operatorname{Dom}\Delta^{1/2}=\operatorname{Dom}S$ かつ
+[相対モジュラー作用素](../AQFT29/index.md#def-aqft29-relative-modular)の平方根ノルム等式により $\operatorname{Dom}\Delta^{1/2}=\operatorname{Dom}S$ かつ
 
 $$
 \int_{[0,\infty)}\lambda\,d\mu_\rho(\lambda)
@@ -133,7 +133,7 @@ $$
 
 [AQFT31の拡張定義](../AQFT31/index.md#def-aqft31-relative-entropy-extended)では、$s(\rho)\nleq s(\sigma)$ のとき相対エントロピーは $+\infty$ です。支持包含が成立するとき、入力の零固有値重みが消え、正スペクトル上の $-\log\lambda$ を $\mu_\rho$ で積分できます。ただし、正の固有値が0へ近付くため値はなお $+\infty$ になり得ます。
 
-まず積分の等号条件を途中で失わないため、接線との差を一つの式にします。$\mu_\rho(\{0\})=0$ の場合、[第1節の接線不等式](#lem-aqft32-log-tangent)と[第2節のモーメント公式](#lem-aqft32-first-moment)より
+まず積分の等号条件を途中で失わないため、接線との差を一つの式にします。$\mu_\rho(\{0\})=0$ の場合、[対数の接線不等式と等号](#lem-aqft32-log-tangent)から $g\ge0$ です。また[相対スペクトル測度の一次モーメント](#lem-aqft32-first-moment)から次の等式が従います。
 
 $$
 \begin{aligned}
@@ -175,7 +175,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**（I）正値性。** $s(\rho)\nleq s(\sigma)$ なら定義により $S_{\mathrm A}=+\infty$ で、主張は成立します。以下、$s(\rho)\le s(\sigma)$ とします。[支持と零重みの判定](../AQFT31/index.md#def-aqft31-relative-entropy-extended)により $\mu_\rho(\{0\})=0$ です。上の分解の第1項は $1-\sigma(s(\rho))\ge0$、第2項も接線不等式から非負です。ゆえに $S_{\mathrm A}\ge0$ です。一般の正規状態にしか用いていないので、Type III環でも成立します。
+**（I）正値性。** $s(\rho)\nleq s(\sigma)$ なら定義により $S_{\mathrm A}=+\infty$ で、主張は成立します。以下、$s(\rho)\le s(\sigma)$ とします。[支持と零重みの判定](../AQFT31/index.md#def-aqft31-relative-entropy-extended)により $\mu_\rho(\{0\})=0$ です。上の分解の第1項は $1-\sigma(s(\rho))\ge0$、第2項の被積分関数も[対数の接線不等式と等号](#lem-aqft32-log-tangent)により非負です。ゆえに $S_{\mathrm A}\ge0$ です。一般の正規状態にしか用いていないので、Type III環でも成立します。
 
 **（II）零なら状態が等しい。** $S_{\mathrm A}=0$ と仮定します。分解の二つの非負項はそれぞれ0なので
 
@@ -311,6 +311,8 @@ f((A+B)/2)&=-\log(5/2)\,I_2,\\
 $$
 
 右辺と左辺の差は $\log(5/4)I_2\ge0$ です。よってこの組では作用素順序の不等式が確かめられます。ただし一つの可換な例だけでは、非可換な任意の $A,B$ に対する定義を証明したことにはなりません。
+
+**定義の確認**：入力の正定値性・有界性、凸結合の係数範囲、作用素順序の差の非負性を具体的に検査しました。
 <!-- definition-example-end -->
 
 <a id="lem-aqft32-operator-log-convex"></a>
@@ -329,7 +331,7 @@ $$
 
 ### 証明の見取り図
 
-対数を正の逆作用素の積分として表します。逆作用素の凸性を、二次形式の最大化公式から示せば、非可換な作用素についても結論を積分で得られます。
+対数を正の逆作用素の積分として表します。逆作用素の凸性を、二次形式の平方完成から示せば、非可換な作用素についても結論を積分で得られます。
 
 <!-- proof-start -->
 ### 証明
@@ -491,7 +493,7 @@ $$
 $\rho=\sigma=E_{11}$ を二準位系で取る。$\Delta_{\rho\mid\rho}$ が全行列空間上の恒等作用素でないこと、しかし $S_{\mathrm A}(\rho\Vert\rho)=0$ であることを示せ。
 
 <!-- solution-start -->
-**詳細解答。** $\rho^+=E_{11}$ です。[非忠実有限行列の作用素公式](../AQFT31/index.md#thm-aqft31-finite-modular)により $\Delta(X)=E_{11}XE_{11}$ なので、$\Delta(E_{11})=E_{11}$、$\Delta(E_{12})=\Delta(E_{21})=\Delta(E_{22})=0$ です。従って $\Delta\ne I$。しかし $\xi_\rho=E_{11}$ は固有値1のベクトルなので、入力測度は $\delta_1$ です。支持は等しく
+**詳細解答。** $\rho^+=E_{11}$ です。[非忠実有限行列の相対モジュラー作用素](../AQFT31/index.md#thm-aqft31-finite-modular)により $\Delta(X)=E_{11}XE_{11}$ なので、$\Delta(E_{11})=E_{11}$、$\Delta(E_{12})=\Delta(E_{21})=\Delta(E_{22})=0$ です。従って $\Delta\ne I$。しかし $\xi_\rho=E_{11}$ は固有値1のベクトルなので、入力測度は $\delta_1$ です。支持は等しく
 
 $$
 S_{\mathrm A}(\rho\Vert\rho)=-\int\log\lambda\,d\delta_1=-\log1=0.
@@ -509,7 +511,7 @@ $$
 一般の標準形で $p=s(\rho)$、$S_{\sigma\mid\rho,0}(A\xi_\rho+\zeta)=pA^*\xi_\sigma$ とする。$\int\lambda\,d\mu_\rho=\sigma(p)\le1$ を、定義域の確認から証明せよ。$\rho$ が忠実なら何が変わるか。
 
 <!-- solution-start -->
-**詳細解答。** $\xi_\rho=1\xi_\rho$ だから初期定義域に入り、$S\xi_\rho=p\xi_\sigma$ です。[相対モジュラー作用素の平方根公式](../AQFT29/index.md#def-aqft29-relative-modular)により $\xi_\rho\in\operatorname{Dom}\Delta^{1/2}$ で、スペクトル定理から
+**詳細解答。** $\xi_\rho=1\xi_\rho$ だから初期定義域に入り、$S\xi_\rho=p\xi_\sigma$ です。[相対モジュラー作用素](../AQFT29/index.md#def-aqft29-relative-modular)の平方根ノルム等式により $\xi_\rho\in\operatorname{Dom}\Delta^{1/2}$ で、スペクトル定理から
 
 $$
 \int\lambda\,d\mu_\rho
@@ -529,7 +531,7 @@ $$
 $s(\rho)\le s(\sigma)$ と $S_{\mathrm A}(\rho\Vert\sigma)=0$ を仮定する。$\mu_\rho=\delta_1$、$\sigma(s(\rho))=1$ を導き、反線形随伴の関係から任意の $A\in\mathcal M$ に $\rho(A)=\sigma(A)$ を証明せよ。
 
 <!-- solution-start -->
-**詳細解答。** [接線補題](#lem-aqft32-log-tangent)と[モーメント補題](#lem-aqft32-first-moment)から
+**詳細解答。** [対数の接線不等式と等号](#lem-aqft32-log-tangent)を適用します。また[相対スペクトル測度の一次モーメント](#lem-aqft32-first-moment)を代入すると
 
 $$
 0=1-\sigma(p)+\int g(\lambda)\,d\mu_\rho,\qquad p=s(\rho).
@@ -672,7 +674,7 @@ $$
 \begin{pmatrix}0&1/2\\-1/2&0\end{pmatrix}\ne0
 $$
 
-です。入力ベクトル $E_{11}$ の二つの正固有方向への重みはそれぞれ $1/2$。[AQFT31の有限次元公式](../AQFT31/index.md#thm-aqft31-nonfaithful-reduction)から
+です。入力ベクトル $E_{11}$ の二つの正固有方向への重みはそれぞれ $1/2$。[非忠実有限次元のトレース公式と発散条件](../AQFT31/index.md#thm-aqft31-nonfaithful-reduction)から
 
 $$
 \begin{aligned}
@@ -697,7 +699,7 @@ $$
 
 - 正規状態の支持付き相対Tomita作用素から一次モーメント $\sigma(s(\rho))$ を導いた。
 - 接線不等式と反線形随伴を用い、任意のvon Neumann環で $S_{\mathrm A}\ge0$、零値と状態の一致の同値性を証明した。
-- 正定値有界作用素に限り $-\log$ の作用素凸性を証明したが、一般の非有界相対モジュラー作用素へ未証明の作用素不等式を適用していない。
+- 正定値有界作用素に限り $-\log$ の作用素凸性を証明したが、一般の非有界相対モジュラー作用素への拡張はこの証明で行っていない。
 - **部分環へ制限すると相対エントロピーが増えないことはまだ証明していない。** それはAQFT33で、収縮写像の定義域と作用素比較を別途構成して扱う。
 
 ### 参考文献
