@@ -201,6 +201,7 @@
     const lines = String(raw || "").replace(/\r\n/g, "\n").split("\n");
     const metadata = {};
     const body = [];
+    const params = [];
 
     for (const line of lines) {
       let match = line.match(/^\s*#\s*lab-id:\s*(.+?)\s*$/i);
@@ -223,6 +224,23 @@
         metadata.mode = match[1].trim().toLowerCase();
         continue;
       }
+      match = line.match(/^\s*#\s*lab-param:\s*(.+?)\s*$/i);
+      if (match) {
+        const parts = match[1].split("|").map((part) => part.trim());
+        if (parts.length !== 6 || !/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(parts[0]) ||
+          !parts[1] || params.some((param) => param.name === parts[0])) {
+          throw new Error("Invalid numerical experiment parameter: " + match[1]);
+        }
+        const values = parts.slice(2).map(Number);
+        if (!values.every(Number.isFinite) || values[3] <= 0 ||
+          values[1] > values[0] || values[0] > values[2] ||
+          params.length >= 8) {
+          throw new Error("Invalid numerical experiment range: " + match[1]);
+        }
+        params.push({ name: parts[0], label: parts[1],
+          defaultValue: values[0], min: values[1], max: values[2], step: values[3] });
+        continue;
+      }
       body.push(line);
     }
 
@@ -230,6 +248,12 @@
     const id = metadata.id || ("anonymous-" + index);
     const requestedTimeout = Number(metadata.timeoutMs) || DEFAULT_TIMEOUT_MS;
     const timeoutMs = Math.max(250, Math.min(requestedTimeout, MAX_TIMEOUT_MS));
+    if (metadata.mode === "experiment" && !params.length) {
+      throw new Error("Numerical experiment must define at least one # lab-param:");
+    }
+    if (params.length && metadata.mode !== "experiment") {
+      throw new Error("lab-param is only supported by # lab-mode: experiment");
+    }
 
     return {
       id,
@@ -237,7 +261,8 @@
       timeoutMs,
       mode: metadata.mode || "free",
       code,
-      sourceHash: fnv1a(code),
+      params,
+      sourceHash: fnv1a(metadata.mode === "experiment" ? raw : code),
     };
   }
 
@@ -695,12 +720,12 @@
     resetCurrentJob();
   }
 
-  function launchJob(panel, lab, code, tests, prepareMessage) {
+  function launchJob(panel, lab, code, tests, prepareMessage, progressCode = code) {
     if (currentJob) {
       setStatus(panel, "別のラボを実行中です", "busy");
       return;
     }
-    saveProgress(lab, code, false);
+    saveProgress(lab, progressCode, false);
     setOutput(panel, "", false);
     setFigures(panel, []);
     setStatus(panel, "実行環境を確認中…", "busy");
@@ -712,7 +737,7 @@
       panel,
       lab,
       tests,
-      code,
+      code: progressCode,
       bootTimer: setTimeout(() => {
         finishWithInfrastructureError(
           "Python 実行環境の準備が " + BOOT_TIMEOUT_MS / 1000 +
@@ -945,6 +970,122 @@
     activateLabTab(panel, "editor");
   }
 
+  function buildExperimentPanel(pre, lab, tests) {
+    const panel = document.createElement("section");
+    panel.className = "numerical-lab numerical-experiment-lab";
+    panel.dataset.labId = lab.id;
+
+    const header = document.createElement("div");
+    header.className = "numerical-lab-header";
+    const title = document.createElement("strong");
+    title.textContent = lab.title;
+    const status = document.createElement("span");
+    status.className = "numerical-lab-status";
+    const saved = loadProgress(lab);
+    status.textContent = saved?.completed ? "実行済み" : "未実行";
+    header.append(title, status);
+
+    let stored = {};
+    try {
+      stored = saved && typeof saved.code === "string" ? JSON.parse(saved.code) : {};
+    } catch (_error) {
+      stored = {};
+    }
+    const settings = document.createElement("div");
+    settings.className = "numerical-file-settings";
+    const inputs = new Map();
+    for (const param of lab.params) {
+      const label = document.createElement("label");
+      label.textContent = param.label;
+      const input = document.createElement("input");
+      input.type = "number";
+      input.min = String(param.min);
+      input.max = String(param.max);
+      input.step = String(param.step);
+      const previous = Number(stored[param.name]);
+      input.value = String(stored[param.name] !== undefined &&
+        Number.isFinite(previous) && previous >= param.min && previous <= param.max
+        ? previous : param.defaultValue);
+      input.setAttribute("aria-label", param.label);
+      label.appendChild(input);
+      settings.appendChild(label);
+      inputs.set(param.name, input);
+    }
+
+    const controls = document.createElement("div");
+    controls.className = "numerical-lab-controls";
+    const run = document.createElement("button");
+    run.type = "button";
+    run.className = "numerical-lab-run";
+    run.textContent = "条件を指定して実行";
+    run.addEventListener("click", () => {
+      const values = {};
+      for (const param of lab.params) {
+        const input = inputs.get(param.name);
+        const number = Number(input.value);
+        if (!input.value.trim() || !input.checkValidity() || !Number.isFinite(number) ||
+          number < param.min || number > param.max) {
+          setStatus(panel, "条件エラー", "error");
+          setOutput(panel, param.label + " は " + param.min + " ～ " +
+            param.max + " の範囲で指定してください。", true);
+          return;
+        }
+        values[param.name] = number;
+      }
+      const assignment = lab.params.map((param) =>
+        param.name + " = " + String(values[param.name])).join("\n");
+      launchJob(panel, lab, assignment + "\n" + lab.code,
+        tests, () => ({}), JSON.stringify(values));
+    });
+
+    const stop = document.createElement("button");
+    stop.type = "button";
+    stop.className = "numerical-lab-stop";
+    stop.textContent = "停止";
+    stop.addEventListener("click", () => stopLab(panel));
+
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.className = "numerical-lab-reset";
+    reset.textContent = "初期条件に戻す";
+    reset.addEventListener("click", () => {
+      if (currentJob?.panel === panel) stopLab(panel);
+      for (const param of lab.params) {
+        inputs.get(param.name).value = String(param.defaultValue);
+      }
+      clearProgress(lab);
+      setStatus(panel, "未実行", "");
+      setOutput(panel, "条件を指定して実行してください。", false);
+      setFigures(panel, []);
+    });
+
+    const timeout = document.createElement("span");
+    timeout.className = "numerical-lab-timeout";
+    timeout.textContent = "実行上限 " + lab.timeoutMs + " ms";
+    controls.append(run, stop, reset, timeout);
+
+    const output = document.createElement("pre");
+    output.className = "numerical-lab-output";
+    output.setAttribute("aria-live", "polite");
+    output.textContent = "条件を指定して実行してください。";
+    const figures = document.createElement("div");
+    figures.className = "numerical-lab-figures";
+
+    const source = document.createElement("details");
+    source.className = "numerical-experiment-source";
+    const summary = document.createElement("summary");
+    summary.textContent = "計算に使用する Python コード（参照用）";
+    const sourcePre = document.createElement("pre");
+    sourcePre.className = "numerical-lab-solution-code";
+    const sourceCode = document.createElement("code");
+    sourceCode.innerHTML = highlightPython(lab.code) + "\n";
+    sourcePre.appendChild(sourceCode);
+    source.append(summary, sourcePre);
+
+    panel.append(header, settings, controls, output, figures, source);
+    pre.replaceWith(panel);
+  }
+
   function buildFilePanel(pre, lab) {
     const panel = document.createElement("section");
     panel.className = "numerical-lab numerical-file-lab";
@@ -1081,7 +1222,12 @@
         next.remove();
       }
 
-      buildPanel(pre, lab, tests, solution);
+      if (lab.mode === "experiment") {
+        if (solution) throw new Error("experiment mode does not use python-solution");
+        buildExperimentPanel(pre, lab, tests);
+      } else {
+        buildPanel(pre, lab, tests, solution);
+      }
     }
   }
 
