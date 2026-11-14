@@ -133,62 +133,62 @@ $$
 
 **（1）から（3）。** 正再帰状態 $i$ を選びます。[帰還 cycle の occupation measure](../../STO/STO2A/index.md#thm-sto2a-cycle-invariant)の仮定は $i$ が再帰的で $E_i[T_i^+]<\infty$ であることです。この定理により $\nu P=\nu$、$\sum_j\nu_j=m_i<\infty$ なので $\nu/m_i$ が不変確率分布です。
 
-**（3）から（2）。** 不変確率分布 $\pi$ を取り、任意の $i$ を固定します。先ほどの既約性の議論から $\pi_i>0$ です。[再帰性が通信クラスで共通である定理](../../STO/STO2A/index.md#thm-sto2a-recurrence-class)だけでは、まだ再帰的かどうかは分かりません。そこでまず **$i$ が再帰的であること** を示します。
-
-$T_i^+$ が無限となる可能性を残して
+**（3）から（2）。** 不変確率分布 $\pi$ を取り、任意の $i\in S$ を固定します。既約性から $\pi_i>0$ です。初帰還時刻 $T_i^+$ はまだ無限大の可能性があるものとして、補題の $\nu_j$ を使います。[定常分布による帰還サイクルの支配](#lem-sp4-cycle-domination)により各 $j$ について
 
 $$
-\nu_j=E_i\left[\sum_{r=0}^{T_i^+-1}1_{\{X_r=j\}}\right]
+\pi_j\ge\pi_i\nu_j.
 $$
 
-と置きます。前の補題の証明で使った排反事象の議論は帰還確率 $1$ を仮定していないので、同じ計算から $\pi_j\ge\pi_i\nu_j$ が得られ、各 $\nu_j$ は有限です。
-
-この $\nu$ が不変かどうかは、まだ $T_i^+<\infty$ が確率 $1$ でないため言えません。ただし一周期が終わらない確率を $a=P_i(T_i^+=\infty)$ とすれば、同じ時刻シフトの計算から
+全状態で足すと、各項が非負なので和の順序を交換してもよく、
 
 $$
-(\nu P)_j=\nu_j-\mathbf1_{\{j=i\}}+
-P_i(T_i^+<\infty)\mathbf1_{\{j=i\}}
-=\nu_j-a\mathbf1_{\{j=i\}}.
+\begin{aligned}
+1=\sum_j\pi_j
+&\ge\pi_i\sum_j\nu_j\\
+&=\pi_i E_i\left[
+\sum_{r=0}^{T_i^+-1}\sum_j1_{\{X_r=j\}}
+\right]\\
+&=\pi_i E_i[T_i^+].
+\end{aligned}
 $$
 
-実際、左辺は $E_i[\sum_{r=1}^{T_i^+}1_{\{X_r=j\}}]$ に対応し、戻らない経路では和を全ての有限時刻で取ります。右端は始点 $X_0=i$ の一回を除いて、有限時刻に帰還した場合だけ $i$ の一回を加えたものです。非負級数の Tonelli と Markov 性で導かれるので、無限大同士の差は作っていません。
-
-$\rho=\pi-\pi_i\nu$ とすると $\rho\ge0$、$\rho_i=\pi_i-\pi_i\nu_i=0$、しかも
+二つ目の等号では、各時刻にちょうど一つの状態へいることと、非負項への [Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)を使いました。この式で $\pi_i>0$、左辺は有限なので
 
 $$
-\rho P=\pi P-\pi_i\nu P
-=\rho+\pi_i a\,\delta_i.
+E_i[T_i^+]\le\frac1{\pi_i}<\infty.
 $$
 
-左辺の $i$ 成分は非負であり、右辺は $\pi_i a$ です。この式だけではまだ $a=0$ を直ちに言えません。代わりに、$i$ に到達する確率を用います。$\rho_i=0$ なので、$\rho P$ の $i$ 成分が正なら、それは $\rho$ が正の質量を置く別の状態からの流入です。しかし $\rho P-\rho=\pi_i a\delta_i$ を繰り返せば
+もし $P_i(T_i^+=\infty)>0$ ならこの期待値は無限大になるため、$P_i(T_i^+<\infty)=1$ です。従って $i$ は正再帰的であり、全ての $i$ について同様です。
+
+ここからは定常分布の**一意性と等号**を示します。$i$ が再帰的と分かったので、[帰還 cycle の occupation measure](../../STO/STO2A/index.md#thm-sto2a-cycle-invariant)を適用して $\nu_i=1$、$\nu P=\nu$ が成立します。
 
 $$
-\rho P^n=\rho+\pi_i a\sum_{k=0}^{n-1}\delta_iP^k.
+\rho_j=\pi_j-\pi_i\nu_j
 $$
 
-両辺の全質量を比べます。$\rho$ は $\pi$ 以下なので総質量は有限です。$P$ は確率行列であるため左辺の総質量は $\sum_j\rho_j$、右辺の総質量は $\sum_j\rho_j+n\pi_i a$ となります。従って $n\pi_i a=0$、すなわち $a=0$ です。よって $i$ は再帰的です。
+と置くと補題の不等式から $\rho_j\ge0$、$\sum_j\rho_j\le1$ です。また $\rho_i=\pi_i-\pi_i\nu_i=0$、両者の不変性から
 
-再帰性が示せたので、[帰還サイクルの不変性](../../STO/STO2A/index.md#thm-sto2a-cycle-invariant)を適用して $\nu P=\nu$ です。補題から $\rho_j=\pi_j-\pi_i\nu_j\ge0$、さらに $\rho P=\rho$ で $\rho_i=0$。もし $\rho_k>0$ となる $k$ があれば、既約性よりある $n$ で $p^{(n)}(k,i)>0$ です。そのとき
+$$
+\rho P=\pi P-\pi_i(\nu P)
+=\pi-\pi_i\nu=\rho.
+$$
+
+もし $\rho_k>0$ の状態 $k$ があれば、既約性により $k$ から $i$ へ $n$ 歩で移れる確率 $p^{(n)}(k,i)>0$ となる $n$ が存在します。不変性を $n$ 回使えば
 
 $$
 0=\rho_i=(\rho P^n)_i
-\ge\rho_kp^{(n)}(k,i)>0
+=\sum_{\ell\in S}\rho_\ell p^{(n)}(\ell,i)
+\ge\rho_kp^{(n)}(k,i)>0,
 $$
 
-となり矛盾します。従って $\rho=0$、つまり
-
-$$
-\pi_j=\pi_i\nu_j\qquad(j\in S).
-$$
-
-全成分を足し、[帰還 cycle の occupation measure](../../STO/STO2A/index.md#thm-sto2a-cycle-invariant)を使うと
+となって矛盾します。従って $\rho=0$、すなわち $\pi_j=\pi_i\nu_j$ です。全成分を足し、帰還サイクルの総質量が平均帰還時間であることを再び使うと
 
 $$
 1=\sum_j\pi_j=\pi_i\sum_j\nu_j
-=\pi_iE_i[T_i^+].
+=\pi_i E_i[T_i^+],
 $$
 
-よって $E_i[T_i^+]=1/\pi_i<\infty$ です。$i$ は任意なので全状態が正再帰的です。
+よって $\pi_i=1/E_i[T_i^+]$ が成立します。
 
 **（2）から（1）** は状態空間が空でないことから直ちに従います。
 
