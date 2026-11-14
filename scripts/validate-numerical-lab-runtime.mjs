@@ -68,6 +68,19 @@ assert.match(runtime, /navigator\.serviceWorker\.ready/);
 assert.match(runtime, /highlightPython/);
 assert.match(runtime, /python-solution/);
 assert.match(runtime, /numerical-lab-tab/);
+assert.match(runtime, /function showPythonSourceDialog/);
+assert.match(runtime, /function sourcePathFromHref/);
+assert.match(runtime, /sourcePathFromHref\(link.getAttribute\("href"\)\)/);
+assert.match(runtime, /showPythonSourceDialog\(path\)/);
+assert.match(runtime, /function showFileSource\(\)/);
+assert.match(runtime, /sourceCode\.innerHTML = highlightPython\(content\)/);
+assert.match(runtime, /\["settings", "実験条件"\]/);
+assert.match(runtime, /\["source", "Python ソース"\]/);
+assert.match(runtime, /\["result", "実行結果"\]/);
+assert.doesNotMatch(runtime, /sourceLink\.href = fileUrl\(lab\.file\)/,
+  'Python source viewing must not navigate to a raw .py download');
+assert.doesNotMatch(runtime, /function buildExperimentPanel/,
+  'NUMLAB code exercises should not silently become parameter-only demos');
 
 assert.match(indexHtml, /numerical-lab\.css/);
 assert.match(indexHtml, /numerical-lab-runtime\.js/);
@@ -206,6 +219,14 @@ for (const chapter of chapterDirs) {
     );
   }
 }
+
+// NUMLAB1's first experiment must retain the original Python programming
+// exercise and model solution; a bare numerical demo is insufficient.
+const na1 = pageText.get('NUMLAB1');
+assert.match(na1, /# lab-id: NUMLAB1-NA1-CANCELLATION\n[\s\S]*?# lab-mode: exercise/);
+assert.match(na1, /# ヒント: 桁落ちを避けるため/);
+assert.match(na1, /stable = ___/);
+assert.match(na1, /```python-solution/);
 
 const linkRegistry = YAML.parse(linkRegistryText);
 assert.equal(linkRegistry.schema_version, 1);
