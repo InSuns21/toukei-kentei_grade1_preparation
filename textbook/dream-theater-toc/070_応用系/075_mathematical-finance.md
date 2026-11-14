@@ -37,3 +37,4 @@
 33. [U3-33 層化抽出・重要度サンプリング](textbook/volumes/dream_thater/応用系/U/U3-33/index.md)
 34. [U3-34 準 Monte Carlo と次元削減](textbook/volumes/dream_thater/応用系/U/U3-34/index.md)
 35. [U3-35 Brownian bridge・連続障壁の越境補正](textbook/volumes/dream_thater/応用系/U/U3-35/index.md)
+36. [U3-36 Least-squares Monte Carlo で American を評価](textbook/volumes/dream_thater/応用系/U/U3-36/index.md)

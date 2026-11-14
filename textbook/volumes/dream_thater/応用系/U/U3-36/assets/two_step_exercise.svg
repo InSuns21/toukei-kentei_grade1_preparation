@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-layout-lint="strict" width="860" height="330" viewBox="0 0 860 330" role="img" aria-labelledby="title desc">
+  <title id="title">二期間二項 put の行使判定</title>
+  <desc id="desc">初期100円から時刻1で120円は継続、80円は行使。満期の4節点へ分岐する。線と枠の形、文字で判断を区別。</desc>
+  <defs>
+    <pattern id="exercise" patternUnits="userSpaceOnUse" width="8" height="8"><path d="M0 8L8 0" stroke="#bcc7d2" stroke-width="1"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10" fill="none" stroke="#4b5563" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="860" height="330" rx="8" fill="#ffffff"/>
+  <g font-family="sans-serif" fill="#172b43">
+    <text x="99" y="18" font-size="17">時刻0</text>
+    <text x="393" y="18" font-size="17">時刻1</text>
+    <text x="717" y="18" font-size="17">満期</text>
+    <g fill="none" stroke="#66778c" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M178 165 L346 87"/><path d="M178 165 L346 241"/>
+      <path d="M498 87 L667 75"/><path d="M498 87 L667 133"/>
+      <path d="M498 241 L667 213"/><path d="M498 241 L667 293"/>
+    </g>
+    <rect x="32" y="133" width="146" height="65" rx="9" fill="#f3f6f9" stroke="#172b43" stroke-width="2"/>
+    <text x="45" y="158" font-size="16">株価 100 円</text><text x="45" y="180" font-size="14">今は継続</text>
+    <rect x="346" y="54" width="152" height="65" rx="9" fill="#eff6ff" stroke="#174d8c" stroke-width="2"/>
+    <text x="358" y="78" font-size="16">株価 120 円</text><text x="358" y="100" font-size="14">継続 (10/7)</text>
+    <rect x="346" y="207" width="152" height="69" rx="9" fill="url(#exercise)" stroke="#172b43" stroke-width="3" stroke-dasharray="7 4"/>
+    <text x="358" y="234" font-size="16">株価 80 円</text><text x="358" y="259" font-size="14">行使 (20)</text>
+    <g stroke="#66778c" stroke-width="1.5" fill="#f9fafb">
+      <rect x="668" y="51" width="170" height="47" rx="7"/>
+      <rect x="668" y="109" width="170" height="47" rx="7"/>
+      <rect x="668" y="189" width="170" height="47" rx="7"/>
+      <rect x="668" y="269" width="170" height="47" rx="7"/>
+    </g>
+    <text x="680" y="80" font-size="15">144 円 → 0 円</text>
+    <text x="680" y="138" font-size="15">96 円 → 4 円</text>
+    <text x="680" y="218" font-size="15">96 円 → 4 円</text>
+    <text x="680" y="298" font-size="15">64 円 → 36 円</text>
+  </g>
+</svg>
