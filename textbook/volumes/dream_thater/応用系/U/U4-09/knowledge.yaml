@@ -1,0 +1,54 @@
+chapter: U4-09
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-08]
+forward_references: []
+concepts:
+  - id: finance.quote-shape-feasibility-polytope
+    name: 格子上の形状整合価格集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子上の形状整合価格集合）"]
+    requires: [finance.option-strike-secant-test, finance.option-calendar-normalized-monotonicity]
+  - id: finance.quote-shape-linear-rows
+    name: 形状条件の線形行表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（形状条件の線形行表示）"]
+    requires: [finance.quote-shape-feasibility-polytope, finance.option-vertical-static-bounds]
+  - id: finance.quote-interval-simultaneous-feasibility
+    name: 気配値の同時選択可能性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（気配値の同時選択可能性）"]
+    requires: [finance.quote-shape-feasibility-polytope, finance.option-calendar-quote-interval]
+  - id: finance.quote-minimal-infeasible-core
+    name: 不整合コアと非負結合証明書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不整合コアと非負結合証明書）"]
+    requires: [finance.quote-interval-simultaneous-feasibility]
+  - id: finance.quote-farkas-infeasibility-alternative
+    name: 有限個の価格不等式に対する二者択一
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限個の価格不等式に対する二者択一）"]
+    requires: [finance.quote-minimal-infeasible-core]
+  - id: finance.quote-weighted-squared-repair
+    name: 重み付き二乗修正と気配区間の最大緩和
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重み付き二乗修正と気配区間の最大緩和）"]
+    requires: [finance.quote-shape-feasibility-polytope, finance.quote-interval-simultaneous-feasibility]
+  - id: finance.quote-weighted-projection-uniqueness
+    name: 重み付き二乗修正の存在・一意性と判定式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重み付き二乗修正の存在・一意性と判定式）"]
+    requires: [finance.quote-weighted-squared-repair]
+  - id: finance.quote-interval-relaxation-equivalence
+    name: 最大緩和問題と同時選択の関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最大緩和問題と同時選択の関係）"]
+    requires: [finance.quote-weighted-squared-repair]
