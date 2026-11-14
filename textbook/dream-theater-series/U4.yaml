@@ -11,7 +11,7 @@ chapters:
   - { id: U4-04, path: textbook/volumes/dream_thater/応用系/U/U4-04, status: completed, title: "外国為替の三角裁定と同時刻気配" }
   - { id: U4-05, path: textbook/volumes/dream_thater/応用系/U/U4-05, status: completed, title: "現物・先渡・先物のcash-and-carry" }
   - { id: U4-06, path: textbook/volumes/dream_thater/応用系/U/U4-06, status: completed, title: "ETF・指数構成銘柄の価格整合性" }
-  - { id: U4-07, path: textbook/volumes/dream_thater/応用系/U/U4-07, status: planned, title: "行使価格方向のオプション静的裁定" }
+  - { id: U4-07, path: textbook/volumes/dream_thater/応用系/U/U4-07, status: completed, title: "行使価格方向のオプション静的裁定" }
   - { id: U4-08, path: textbook/volumes/dream_thater/応用系/U/U4-08, status: planned, title: "満期方向・ボラティリティ曲面の整合性" }
   - { id: U4-09, path: textbook/volumes/dream_thater/応用系/U/U4-09, status: planned, title: "気配値の一括監査と最小修正" }
   - { id: U4-10, path: textbook/volumes/dream_thater/応用系/U/U4-10, status: planned, title: "無裁定と統計的裁定の論理的な距離" }

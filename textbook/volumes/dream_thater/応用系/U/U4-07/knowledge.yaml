@@ -1,0 +1,66 @@
+chapter: U4-07
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-06]
+forward_references: []
+concepts:
+  - id: finance.option-call-strike-grid
+    name: 同一満期コールと行使価格格子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同一満期コールと行使価格格子）"]
+    requires: [finance.finite-state-quote-payoff-table]
+  - id: finance.option-vertical-spread
+    name: 縦スプレッド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（縦スプレッド）"]
+    requires: [finance.option-call-strike-grid]
+  - id: finance.option-strike-convexity
+    name: 行使価格格子上の凸性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（行使価格格子上の凸性）"]
+    requires: [finance.option-call-strike-grid]
+  - id: finance.option-call-static-bounds
+    name: コールの基本上下限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（コールの基本上下限）"]
+    requires: [finance.option-call-strike-grid, finance.spot-forward-executable-bounds]
+  - id: finance.option-vertical-static-bounds
+    name: 行使価格方向の単調性と縦スプレッド上限
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（行使価格方向の単調性と縦スプレッド上限）"]
+    requires: [finance.option-call-strike-grid, finance.option-vertical-spread]
+  - id: finance.option-uneven-butterfly
+    name: 不等間隔の蝶型スプレッド
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不等間隔の蝶型スプレッド）"]
+    requires: [finance.option-call-strike-grid]
+  - id: finance.option-butterfly-strike-convexity
+    name: 蝶型非負性とコール価格の凸性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（蝶型非負性とコール価格の凸性）"]
+    requires: [finance.option-uneven-butterfly, finance.option-strike-convexity]
+  - id: finance.option-strike-secant-test
+    name: 不等間隔の離散傾き判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（不等間隔の離散傾き判定）"]
+    requires: [finance.option-butterfly-strike-convexity]
+  - id: finance.option-executable-static-certificate
+    name: 静的スプレッドの実行可能な裁定証明書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静的スプレッドの実行可能な裁定証明書）"]
+    requires: [finance.bid-ask-executable-gain, finance.option-butterfly-strike-convexity]
+  - id: finance.option-quoted-spread-necessary-bounds
+    name: 売買気配に対する静的無裁定必要条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（売買気配に対する静的無裁定必要条件）"]
+    requires: [finance.option-executable-static-certificate, finance.option-vertical-static-bounds]
