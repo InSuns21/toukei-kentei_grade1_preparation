@@ -12,7 +12,7 @@
 
 ### 計算に必要な三つの入力
 
-第一に、射影空間の有理コホモロジーは、超平面の Poincaré 双対類 $x$ で生成される。
+第一に、射影空間の超平面条件は、[評価挿入で用いた Poincaré 双対](../GW1-11/index.md#def-gw1-11-insertion)によって実次数2のコホモロジー類 $x$ で表される。超平面の交叉をカップ積で表すと、有理コホモロジー環は次のようになる。
 
 $$
 H^*(\mathbb P^n;\mathbb Q)
@@ -20,12 +20,20 @@ H^*(\mathbb P^n;\mathbb Q)
 \deg x=2,\qquad \int_{\mathbb P^n}x^n=1.
 $$
 
-$\mathbb P^1$ では $x=h$（点類）、$\mathbb P^2$ では $x=H$（直線類）と区別して書く。$x^{n+1}=0$ は**古典的カップ積**の式であり、量子積について先取りして使ってはならない。
+$\mathbb P^1$ では $x=h$（点類）、$\mathbb P^2$ では $x=H$（直線類）と区別して書く。$x^{n+1}=0$ は**古典的カップ積**の式であり、量子積について先取りして使ってはならない。なお、超平面に対応する「Poincaré 双対類」と、後で使う「Poincaré 双対基底」は同じものではない。後者は $\int\phi_a\smile\phi^b=\delta_a^b$ を満たす基底の組であり、第2・3節で求める。
 
-第二に、曲線次数 $d$ は直線類 $\ell\in H_2(\mathbb P^n;\mathbb Z)$ に対する $d\ell$ で表され、$q=Q^\ell$ とする。[Novikov 完備化](../GW1-16/index.md#def-gw1-16-novikov)から係数環は $\mathbb Q[[q]]$ である。$c_1(T\mathbb P^n)=(n+1)x$ より、実コホモロジー次数は
+第二に、$\ell\in H_2(\mathbb P^n;\mathbb Z)$ は射影空間の直線のホモロジー類で、$\langle x,\ell\rangle=1$ と規格化する。曲線次数 $d\ge0$ の類を $d\ell$ と書き、$q=Q^\ell$ とする。[Novikov 完備化](../GW1-16/index.md#def-gw1-16-novikov)から係数環は $\mathbb Q[[q]]$ である。[射影空間の接 Euler 列](../GW1-09/index.md#thm-gw1-09-projective-convex)は
 
 $$
-\deg q=2(n+1),\qquad
+0\longrightarrow\mathcal O
+\longrightarrow\mathcal O(1)^{\oplus(n+1)}
+\longrightarrow T\mathbb P^n\longrightarrow0
+$$
+
+であり、行列式を取って $\det(T\mathbb P^n)\simeq\mathcal O(n+1)$、従って $c_1(T\mathbb P^n)=(n+1)x$ を得る。Novikov 変数の実次数は $2\langle c_1(T\mathbb P^n),d\ell\rangle$ で測るから、
+
+$$
+\deg q=2(n+1)\langle x,\ell\rangle=2(n+1),\qquad
 \deg q^d=2(n+1)d.
 $$
 
@@ -47,13 +55,15 @@ $$
 
 ## 2. 射影直線：二つの点類の積を求める
 
-$H^*(\mathbb P^1;\mathbb Q)$ の基底を $(1,h)$ とすると、積分の交叉行列と双対基底は
+$H^*(\mathbb P^1;\mathbb Q)$ の基底を $\phi_0=1,\phi_1=h$ とする。積分はトップ次数を評価するので $\int_{\mathbb P^1}1=0$、$\int_{\mathbb P^1}h=1$、また $h^2=h\smile h=0$ である。そこで[既習の Poincaré ペアリングと双対基底の関係](../GW1-12/index.md#def-gw1-12-diagonal-matching)に従い、$\eta_{ab}=\int_{\mathbb P^1}\phi_a\smile\phi_b$ を作ると、交叉行列と双対基底は
 
 $$
 \left(\int_{\mathbb P^1}\phi_a\smile\phi_b\right)_{a,b}
 =\begin{pmatrix}0&1\\1&0\end{pmatrix},
 \qquad (\phi^0,\phi^1)=(h,1).
 $$
+
+実際、この行列は自分自身が逆行列で、$\phi^a=\sum_b(\eta^{-1})^{ab}\phi_b$ によって $\phi^0=h,\phi^1=1$ を得る。例えば $\int 1\smile h=1$、$\int h\smile h=0$ なので、$\int\phi_a\smile\phi^b=\delta_a^b$ を各成分で確認できる。
 
 この順番を[量子積の定義](../GW1-16/index.md#def-gw1-16-small-quantum-product)へ代入すると
 
@@ -114,7 +124,18 @@ $$
 
 ## 3. 射影平面：三回掛けて初めて曲線が現れる
 
-$\mathbb P^2$ の基底を $(1,H,H^2)$ とする。$\int_{\mathbb P^2}H^2=1$ より、その Poincaré 双対基底は $(H^2,H,1)$ である。従って任意の $a,b\in\{0,1,2\}$ について、三点不変量から積へ戻す式は
+$\mathbb P^2$ の基底を $\phi_0=1,\phi_1=H,\phi_2=H^2$ とする。ここで $H^2=H\smile H$ は**古典的カップ積**で作った類であり、以下の $H^a$ も古典積の冪を意味する（量子積は $*$ と書く）。$\int_{\mathbb P^2}H^2=1$ と $H^3=0$ から、ペアリングの成分は
+
+$$
+\eta_{ab}=\int_{\mathbb P^2}H^{a+b}
+=\begin{cases}
+1 &(a+b=2),\\
+0 &(a+b\ne2)
+\end{cases}
+\qquad (0\le a,b\le2)
+$$
+
+となる。反対角に1が並ぶ交叉行列はその逆行列と一致するので、$\phi^a=\sum_b(\eta^{-1})^{ab}\phi_b$ により双対基底は $(H^2,H,1)$ である。従って任意の $a,b\in\{0,1,2\}$ について、三点不変量から積へ戻す式は
 
 $$
 H^a*H^b=
