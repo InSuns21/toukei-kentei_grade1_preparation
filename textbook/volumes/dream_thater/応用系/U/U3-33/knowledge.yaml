@@ -1,0 +1,53 @@
+chapter: U3-33
+scope: dream-theater
+coverage: complete
+prerequisites: [MC3, U3-14, U3-26, U3-32, U3-09]
+concepts:
+  - id: finance.gbm-quantile-strata-estimator
+    name: 正規分位層によるGBM価格推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規分位層によるGBM価格推定量）"]
+    requires: [numerical.stratified-sampling, finance.risk-neutral-mc-discounted-sample]
+  - id: finance.gbm-stratified-rare-event-variance
+    name: 正規層化推定量の分散と希少閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規層化推定量の分散と希少閾値）"]
+    requires: [finance.gbm-quantile-strata-estimator, numerical.stratified-variance]
+  - id: finance.gaussian-shift-importance-pricing
+    name: 正規平均シフトによる金融重要度サンプリング
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規平均シフトによる金融重要度サンプリング）"]
+    requires: [numerical.importance-sampling, finance.risk-neutral-mc-discounted-sample]
+  - id: finance.gaussian-shift-tail-second-moment
+    name: Gaussianシフトの尤度比と閾値事象の分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussianシフトの尤度比と閾値事象の分散）"]
+    requires: [finance.gaussian-shift-importance-pricing, numerical.importance-sampling-variance]
+  - id: finance.discrete-monitoring-knockin-importance
+    name: 離散監視上方ノックインの重み付き価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散監視上方ノックインの重み付き価格）"]
+    requires: [finance.gaussian-shift-importance-pricing]
+  - id: finance.discrete-monitoring-path-shift
+    name: 多時点シフトの尤度比と離散監視事象
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多時点シフトの尤度比と離散監視事象）"]
+    requires: [finance.discrete-monitoring-knockin-importance, finance.gaussian-shift-tail-second-moment]
+  - id: finance.importance-proposal-ess
+    name: 提案標本の有効標本数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（提案標本の有効標本数）"]
+    requires: [finance.gaussian-shift-importance-pricing]
+  - id: finance.importance-self-normalized-bias
+    name: 自己正規化と有効標本数の限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自己正規化と有効標本数の限界）"]
+    requires: [finance.importance-proposal-ess]
