@@ -1,0 +1,53 @@
+chapter: U3-32
+scope: dream-theater
+coverage: complete
+prerequisites: [MC3, U3-26, U3-31]
+concepts:
+  - id: finance.gbm-antithetic-pair
+    name: GBM の対称経路と対称変量価格推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（GBM の対称経路と対称変量価格推定量）"]
+    requires: [numerical.antithetic-variates, finance.risk-neutral-mc-discounted-sample]
+  - id: finance.gbm-antithetic-efficiency
+    name: call の対称変量推定量と計算予算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（call の対称変量推定量と計算予算）"]
+    requires: [finance.gbm-antithetic-pair, numerical.antithetic-variance, numerical.antithetic-monotone-covariance]
+  - id: finance.gbm-linear-antithetic-moments
+    name: 零行使価格の対称変量分散比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零行使価格の対称変量分散比）"]
+    requires: [finance.gbm-antithetic-efficiency, finance.gbm-real-moments]
+  - id: finance.discounted-stock-control-estimator
+    name: 割引満期株価を使う対照変量価格推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（割引満期株価を使う対照変量価格推定量）"]
+    requires: [numerical.control-variate, finance.gbm-real-moments]
+  - id: finance.discounted-stock-optimal-control
+    name: 株式対照変量の最適係数と分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（株式対照変量の最適係数と分散）"]
+    requires: [finance.discounted-stock-control-estimator, numerical.optimal-control-variate]
+  - id: finance.call-stock-truncated-moments
+    name: GBM call と割引株式の二次モーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GBM call と割引株式の二次モーメント）"]
+    requires: [finance.discounted-stock-optimal-control, finance.gaussian-tilted-tail]
+  - id: finance.independent-pilot-control
+    name: 独立パイロット対照変量推定量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（独立パイロット対照変量推定量）"]
+    requires: [finance.discounted-stock-control-estimator]
+  - id: finance.pilot-control-unbiasedness
+    name: 独立パイロット係数の不偏性と過剰分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立パイロット係数の不偏性と過剰分散）"]
+    requires: [finance.independent-pilot-control, finance.discounted-stock-optimal-control]
