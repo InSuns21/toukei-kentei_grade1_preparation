@@ -1,0 +1,45 @@
+id: "SP13"
+title: "CTMC の Kolmogorov 方程式・定常性・可逆性"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP12
+  - SP5
+  - STO13
+official_scope: []
+learning_objectives:
+  - 有限状態 CTMC の遷移半群を定義し P'_t=QP_t=P_tQ の左右の意味を説明できる
+  - 一様化の Poisson 級数と行列指数 P_t=e^{tQ} を結び付けられる
+  - 二状態 CTMC の Kolmogorov 前進方程式を解き時刻別遷移確率を計算できる
+  - 定常分布の定義を全時刻で確認し πQ=0 との同値性を証明できる
+  - CTMC の詳細釣合いを率で判定し時間反転対称性との同値性を導ける
+  - 定常だが非可逆な三状態 CTMC の総流量と対ごとの流量の違いを説明できる
+  - 有限既約 CTMC の長期収束を一様化と離散時間の収束定理から導ける
+  - 非既約性や零質量の例で定常性・可逆性・収束の仮定を区別できる
+definitions:
+  - { id: SP13-DEF-01, name: "CTMC の定常分布" }
+  - { id: SP13-DEF-02, name: "CTMC の詳細釣合い" }
+theorems:
+  - { id: SP13-THM-01, name: "有限 CTMC の定常分布の判定" }
+  - { id: SP13-THM-02, name: "詳細釣合いと CTMC の可逆性" }
+  - { id: SP13-THM-03, name: "有限既約 CTMC の収束" }
+canonical_examples:
+  - "率2と率3の二状態CTMCの遷移行列と定常分布"
+  - "三状態一方向サイクルの定常だが非可逆な流れ"
+  - "Q=0 の非既約系と非一意な定常分布"
+  - "零質量を持つ吸収系の可逆性"
+problem_patterns:
+  - SP13-SHORT-TIME-MATRIX
+  - SP13-TWO-STATE-STATIONARY
+  - SP13-THREE-STATE-FLOW
+  - SP13-BACKWARD-FORWARD-INDEX
+  - SP13-NONIRREDUCIBLE-COUNTEREXAMPLE
+  - SP13-DETAILED-BALANCE-PROOF
+  - SP13-ABSORBING-REVERSIBILITY
+  - SP13-REVERSE-TIME-JOINT-LAW
+  - SP13-POISSON-UNIFORMIZATION-LIMIT
+  - SP13-DIRECTED-CYCLE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 7.0, review: 2.0 }
