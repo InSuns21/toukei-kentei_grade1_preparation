@@ -33,7 +33,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（行使価格方向の単調性と縦スプレッド上限）"]
-    requires: [finance.option-call-strike-grid]
+    requires: [finance.option-call-strike-grid, finance.option-vertical-spread]
   - id: finance.option-uneven-butterfly
     name: 不等間隔の蝶型スプレッド
     kind: definition
@@ -45,7 +45,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（蝶型非負性とコール価格の凸性）"]
-    requires: [finance.option-uneven-butterfly]
+    requires: [finance.option-uneven-butterfly, finance.option-strike-convexity]
   - id: finance.option-strike-secant-test
     name: 不等間隔の離散傾き判定
     kind: proposition
