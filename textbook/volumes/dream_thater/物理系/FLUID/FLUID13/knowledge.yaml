@@ -1,0 +1,56 @@
+chapter: FLUID13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID12
+  - FLUID11
+  - CA1
+concepts:
+  - id: fluid.complex-potential
+    name: 複素ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素ポテンシャルと複素速度）"]
+    requires: [fluid.velocity-potential, vector-calculus.stream-function, complex-analysis.holomorphic-function]
+  - id: fluid.complex-velocity
+    name: 複素速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素ポテンシャルと複素速度）"]
+    requires: [fluid.complex-potential]
+  - id: fluid.complex-velocity-formula
+    name: 複素ポテンシャルの微分と実速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素ポテンシャルの微分と実速度）"]
+    requires: [fluid.complex-potential, fluid.complex-velocity, complex-analysis.cauchy-riemann-sufficient]
+  - id: fluid.joukowski-map
+    name: Joukowski写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Joukowski写像と臨界点）"]
+    requires: [complex-analysis.holomorphic-function]
+  - id: fluid.joukowski-critical-point
+    name: 臨界点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Joukowski写像と臨界点）"]
+    requires: [complex-analysis.complex-differentiable]
+  - id: fluid.joukowski-velocity-transform
+    name: Joukowski写像の局所可逆性と複素速度変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Joukowski写像の局所可逆性と複素速度変換）"]
+    requires: [fluid.complex-velocity-formula, fluid.joukowski-map, fluid.joukowski-critical-point, complex-analysis.derivative-rules]
+  - id: fluid.joukowski-ellipse
+    name: 円柱外部から楕円外部へのJoukowski写像
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（円柱外部から楕円外部へのJoukowski写像）"]
+    requires: [fluid.cylinder-potential-flow, fluid.joukowski-velocity-transform]
+  - id: fluid.joukowski-cusp
+    name: 翼型状境界の尖点と有限速度条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（翼型状境界の尖点と有限速度条件）"]
+    requires: [fluid.joukowski-map, fluid.joukowski-velocity-transform, fluid.joukowski-ellipse]
