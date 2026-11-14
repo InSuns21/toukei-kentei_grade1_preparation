@@ -16,3 +16,4 @@
 13. [U4-13 2系列の共和分とEngle–Granger法](textbook/volumes/dream_thater/応用系/U/U4-13/index.md)
 14. [U4-14 多変量共和分と誤差修正表現](textbook/volumes/dream_thater/応用系/U/U4-14/index.md)
 15. [U4-15 統計残差を取引可能なspreadに変える](textbook/volumes/dream_thater/応用系/U/U4-15/index.md)
+16. [U4-16 平均回帰の速度・閾値・保有期間](textbook/volumes/dream_thater/応用系/U/U4-16/index.md)
