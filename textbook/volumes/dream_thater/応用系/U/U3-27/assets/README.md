@@ -5,6 +5,7 @@ Python 3.10 以降・標準ライブラリのみで実行できます。入力�
 ~~~sh
 python textbook/volumes/dream_thater/応用系/U/U3-27/assets/ito_integral_diagnostics.py
 python -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-27/assets/tests -v
+python textbook/volumes/dream_thater/応用系/U/U3-27/assets/plot_ito_rmse.py
 ~~~
 
 ブラウザ上の講義内 Python パネルも同じソースを読み込みます。初回は Pyodide の通信が必要な場合があります。T=1、固定シード 20261114、各 m で2048独立標本路。1標本路では半刻みの独立な N(0,T/(2m)) 増分を2m個作り、左端 Itô 和、真の時刻中点和、両端の算術平均を**同じ Brown 運動**から求めます。行ごとの m は別の乱数列を使います。m=32 固定の n=256/1024/4096 は別々の独立な実験です。
