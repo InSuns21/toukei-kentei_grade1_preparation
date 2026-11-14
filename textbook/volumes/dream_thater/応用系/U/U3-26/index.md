@@ -28,12 +28,12 @@ $$
 
 各 $Z_i$ は互いに独立で、いずれも同じ $N(0,1)$ 分布に従います。従って各 $S_T^{(i)}$ も互いに独立で、かつすべてが $S_T$ と同じ分布を持ちます。
 
-まず、満期支払額 $G(S_T)$ を円単位の実数とし、$E^Q[|G(S_T)|]<\infty$ と仮定します。価格は $V_0=e^{-rT}E^Q[G(S_T)]$ です。金融契約を決める関数 $G$ と、発生させた株価 $S_T^{(i)}$ とは別のものです。
+まず、満期株価は $S_T>0$ なので、支払額を与える関数を可測な $G:(0,\infty)\to\mathbb R$ とし、$G(S_T)$ は円単位、$E^Q[|G(S_T)|]<\infty$ と仮定します。価格は $V_0=e^{-rT}E^Q[G(S_T)]$ です。金融契約を決める関数 $G$ と、発生させた株価 $S_T^{(i)}$ とは別のものです。
 
 <a id="def-u3-26-mc-estimator"></a>
 <!-- formal-statement-start -->
 > **定義（リスク中立割引支払標本と価格の標本平均）**  
-> 共通のリスク中立測度 $Q$ に従い、$S_T$ と同じ分布を持つ**互いに独立な**標本 $S_T^{(1)},\ldots,S_T^{(n)}$（$n\ge2$）を取る。各標本について
+> 定数 $r\in\mathbb R$、満期 $T>0$、可測な支払額関数 $G:(0,\infty)\to\mathbb R$ を取り、$E^Q[|G(S_T)|]<\infty$ とする。共通のリスク中立測度 $Q$ に従い、$S_T>0$ と同じ分布を持つ**互いに独立な**標本 $S_T^{(1)},\ldots,S_T^{(n)}$（$n\ge2$）を取る。各標本について
 >
 $$
 X_i=e^{-rT}G(S_T^{(i)})
@@ -153,7 +153,7 @@ X_i=e^{-rT}(S_T^{(i)}-K)_+,\qquad
 V_0=E^Q[X_i]
 $$
 >
-> とする。標本平均 $\widehat V_n$ と標本標準偏差 $s_n$ は第2節のとおりとする。$s_n>0$ のとき、次の区間を構成する。
+> とする。標本平均 $\widehat V_n$ と標本標準偏差 $s_n$ は第2節のとおりとする。任意の標本結果（$s_n=0$ も含む）に対し、次の区間を構成する。$s_n=0$ のときは幅0の退化区間と定めるが、これを有限標本で正確な95%区間とみなしてはならない。
 >
 $$
 I_n=[\widehat V_n-1.96s_n/\sqrt n,\ \widehat V_n+1.96s_n/\sqrt n].
@@ -177,15 +177,54 @@ $$
 \frac{\sqrt n(\widehat V_n-V_0)}{\nu}\xrightarrow{d}N(0,1).
 $$
 
-また[標本分散と標準誤差推定の一致性](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)から $s_n/\nu\xrightarrow{P}1$ です。従って分母の比で割った
+また[標本分散と標準誤差推定の一致性](../../../計算系/MC/MC1/index.md#thm-mc1-standard-error-limit)から $s_n/\nu\xrightarrow{P}1$ です。$p_0=\Pr(X_1=0)=\Pr(S_T\le K)$ と置くと $0<p_0<1$ です。正の call payoff は連続分布を持ち、独立な2標本が同じ正の値を取る確率は0です。従って $n\ge2$ では、標本分散が0となるのは確率0の事象を除き全標本の payoff が0の場合だけであり、
 
 $$
-\frac{\widehat V_n-V_0}{s_n/\sqrt n}
-=\frac{\sqrt n(\widehat V_n-V_0)/\nu}{s_n/\nu}
-\xrightarrow{d}N(0,1)
+\Pr(s_n=0)=\Pr(X_1=\cdots=X_n=0)=p_0^n\longrightarrow0.
 $$
 
-が成立します。絶対値が1.96以下となる事象は $V_0\in I_n$ と等価で、正規分布は境界に質量を持たないので区間被覆率の極限が得られます。
+分母が0の場合の扱いを含めて極限を述べるため、統計量を
+
+$$
+T_n=
+\begin{cases}
+\dfrac{\sqrt n(\widehat V_n-V_0)}{s_n},&s_n>0,\\[4pt]
+0,&s_n=0
+\end{cases}
+$$
+
+と定義します。$s_n>0$ の事象上では
+
+$$
+T_n=\frac{\sqrt n(\widehat V_n-V_0)/\nu}{s_n/\nu}
+$$
+
+です。これを引用だけで済ませず、比の極限を確かめます。$Z_n=\sqrt n(\widehat V_n-V_0)/\nu$、$R_n=s_n/\nu$ と置くと、$Z_n\xrightarrow{d}N(0,1)$ なので $Z_n$ は確率的に有界であり、$R_n\xrightarrow{P}1$ です。$0<\varepsilon<1$、$M>0$ とし、$|Z_n|\le M$、$|R_n-1|\le\varepsilon$ の事象上で
+
+$$
+\left|\frac{Z_n}{R_n}-Z_n\right|
+=|Z_n|\frac{|1-R_n|}{R_n}
+\le\frac{M\varepsilon}{1-\varepsilon}.
+$$
+
+正規極限から大きな $M$ の外側の確率を小さくでき、$R_n$ が1から $\varepsilon$ 以上離れる確率も0へ収束します。$s_n=0$ の確率も $p_0^n\to0$ なので、以上から $T_n-Z_n\xrightarrow{P}0$ です。任意の $x\in\mathbb R$ と $\delta>0$ で分布関数を
+
+$$
+\begin{aligned}
+\Pr(Z_n\le x-\delta)-\Pr(|T_n-Z_n|>\delta)
+&\le\Pr(T_n\le x)\\
+&\le\Pr(Z_n\le x+\delta)+\Pr(|T_n-Z_n|>\delta)
+\end{aligned}
+$$
+
+と挟み、$n\to\infty$ の後に $\delta\downarrow0$ とすれば、正規分布関数の連続性から $T_n\xrightarrow{d}N(0,1)$ が従います。$s_n>0$ なら $|T_n|\le1.96$ と $V_0\in I_n$ は同値であり、
+
+$$
+\left|\Pr(V_0\in I_n)-\Pr(|T_n|\le1.96)\right|
+\le\Pr(s_n=0)=p_0^n\longrightarrow0.
+$$
+
+正規分布は境界 $\pm1.96$ に質量を持たないので、**退化区間を含めて定義した** $I_n$ の被覆率の極限が得られます。
 <!-- proof-end -->
 
 **解釈**：同じ契約で独立実験を繰り返し区間を作ると、標本数が大きいとき約95%が真値を含む、という意味です。得られた一本の区間が真値を「95%の確率で含む」という解釈ではありません。
@@ -250,7 +289,7 @@ $$
 
 ### 直接例：連続平均 Asian を右端 Riemann 和に置き換える
 
-[連続算術平均 Asian の定義](../U3-25/index.md#def-u3-25-asian)で $K=0$ 円の場合、株価が正なので payoff は $(T^{-1}\int_0^TS_u\,du-0)_+=T^{-1}\int_0^TS_u\,du$ 円です。[GBM の条件付きモーメント](../U3-14/index.md#prop-u3-14-conditional)により $E^Q[S_u]=se^{(r-q)u}$ です。非負過程なので積分と期待値の交換が可能で、真の価格は
+[連続算術平均 Asian の定義](../U3-25/index.md#def-u3-25-asian)で $K=0$ 円の場合、株価が正なので payoff は $(T^{-1}\int_0^TS_u\,du-0)_+=T^{-1}\int_0^TS_u\,du$ 円です。[GBM の条件付きモーメント](../U3-14/index.md#prop-u3-14-conditional)により $E^Q[S_u]=se^{(r-q)u}$ です。株価過程は非負で可測なので、時間の Lebesgue 測度と確率測度 $Q$ に対して [Tonelli の定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を適用でき、積分と期待値を交換できます。従って真の価格は
 
 $$
 V_{\rm cont}=\frac{se^{-rT}}{T}\int_0^T e^{(r-q)u}\,du
@@ -392,7 +431,7 @@ $G(S_T)\equiv10$ 円、$r=0.02,T=1$ とする。独立経路を何本取って�
 ### U3-26-B1：不偏標本分散の分母を導出
 - Level: B
 
-互いに独立で同じ分布に従うの $X_i$ に対して $\sum_i(X_i-\overline X_n)^2$ を母平均 $\mu=E[X_i]$ で書き直し、$E[\sum_i(X_i-\overline X_n)^2]=(n-1)\nu^2$ を示せ。
+互いに独立で同じ分布に従い、$E[X_i^2]<\infty$ を満たす $X_1,\ldots,X_n$（$n\ge2$）を考える。$\mu=E[X_i]$、$\nu^2=\operatorname{Var}(X_i)$ とする。$\sum_i(X_i-\overline X_n)^2$ を母平均 $\mu$ で書き直し、$E[\sum_i(X_i-\overline X_n)^2]=(n-1)\nu^2$ を示せ。
 
 <!-- solution-start -->
 **詳細解答**：$X_i-\overline X_n=(X_i-\mu)-(\overline X_n-\mu)$ と書き、二乗して和を取る。
@@ -400,7 +439,7 @@ $$
 \sum_i(X_i-\overline X_n)^2
 =\sum_i(X_i-\mu)^2-2(\overline X_n-\mu)\sum_i(X_i-\mu)+n(\overline X_n-\mu)^2.
 $$
-$\sum_i(X_i-\mu)=n(\overline X_n-\mu)$ を代入すると、右辺は $\sum_i(X_i-\mu)^2-n(\overline X_n-\mu)^2$。期待値を取れば第一項は $n\nu^2$、第二項は独立性による $\operatorname{Var}(\overline X_n)=\nu^2/n$ から $n(\nu^2/n)=\nu^2$。差は $(n-1)\nu^2$ となり、$n-1$ で割ることで不偏になる。
+$\sum_i(X_i-\mu)=n(\overline X_n-\mu)$ を代入すると、右辺は $\sum_i(X_i-\mu)^2-n(\overline X_n-\mu)^2$。期待値を取れば第一項は $n\nu^2$、第二項は独立性を確認して適用する [MC1 の標本平均分散命題](../../../計算系/MC/MC1/index.md#prop-mc1-unbiased-variance-rmse)の $\operatorname{Var}(\overline X_n)=\nu^2/n$ から $n(\nu^2/n)=\nu^2$。差は $(n-1)\nu^2$ となり、$n-1$ で割ることで不偏になる。
 <!-- solution-end -->
 
 <a id="ex-u3-26-b2"></a>
@@ -420,7 +459,7 @@ $\sum_i(X_i-\mu)=n(\overline X_n-\mu)$ を代入すると、右辺は $\sum_i(X_
 $s=100,T=1,r=0.03,q=0,K=0$ とする。連続平均と右端 $m$ 点平均の価格式を期待値から導け。$m=4$ と $m=16$ の誤差の符号を説明し、$m\to\infty$ での収束を示せ。
 
 <!-- solution-start -->
-**詳細解答**：[GBM の条件付きモーメント](../U3-14/index.md#prop-u3-14-conditional)から $E[S_u]=100e^{0.03u}$。非負の経路なので期待値と積分を交換でき、連続価格は
+**詳細解答**：[GBM の条件付きモーメント](../U3-14/index.md#prop-u3-14-conditional)から $E[S_u]=100e^{0.03u}$。非負可測な経路について [Tonelli の定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli)を適用できるので期待値と積分を交換でき、連続価格は
 $$
 V_{\rm cont}=100e^{-0.03}\int_0^1e^{0.03u}du
 =100e^{-0.03}\frac{e^{0.03}-1}{0.03}
@@ -486,7 +525,17 @@ $$
 
 (iii) 各反復で新しい独立乱数列から $n$ 個の $X_i$ を作り、$\overline X_n$ と $s_n$ を計算し $[\overline X_n\pm1.96s_n/\sqrt n]$ を作る。閉形式価格9.413403384円が区間に入った回数 $B$ を数え、$B/400$ を報告する。大標本では被覆率が約0.95なので、400回なら期待被覆回数は約380回である。独立な反復で理想被覆確率が0.95なら回数の標準偏差は $\sqrt{400(0.95)(0.05)}=\sqrt{19}\approx4.36$ 回であり、厳密に380回になるとは限らない。
 
-(iv) 上の Asian の解析式より $V_{\rm cont}\approx98.514888172$ 円、$V_{16}\approx98.607274741$ 円。差は $b_{16}\approx+0.092386569$ 円。$m=16$ を固定して標本数だけ増やすと、標本平均は大数の法則で $V_{16}$ へ収束し、$V_{\rm cont}$ には収束しない。
+(iv) 上の Asian の解析式より $V_{\rm cont}\approx98.514888172$ 円、$V_{16}\approx98.607274741$ 円。差は $b_{16}\approx+0.092386569$ 円。各経路での右端平均を $A_{16}=16^{-1}\sum_{j=1}^{16}S_{jT/16}$ と置きます。偏差平方和の非負性を展開すると
+
+$$
+\begin{aligned}
+0&\le\sum_{j=1}^{16}(S_{jT/16}-A_{16})^2
+=\sum_{j=1}^{16}S_{jT/16}^2-16A_{16}^2,\\
+A_{16}^2&\le\frac1{16}\sum_{j=1}^{16}S_{jT/16}^2.
+\end{aligned}
+$$
+
+右辺は [GBM の二次モーメント](../U3-14/index.md#prop-u3-14-moments)から有限な期待値を持ちます。経路を互いに独立に発生させれば、割引平均 $e^{-rT}A_{16}$ は独立・同分布・有限分散なので、[MC1 の強一致性](../../../計算系/MC/MC1/index.md#thm-mc1-strong-law)を適用できます。従って $m=16$ を固定して標本数だけ増やすと標本平均は $V_{16}$ に収束し、$V_{\rm cont}$ には収束しません。
 
 (v) [平均二乗誤差の分解](../../../計算系/MC/MC1/index.md#prop-mc1-bias-variance-decomposition)により、二乗した目標誤差を満たすためには次が必要である。
 
