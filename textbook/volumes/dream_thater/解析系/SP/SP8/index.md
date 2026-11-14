@@ -25,7 +25,7 @@ $$
 $$
 M_{n\wedge\tau}
 =M_0+\sum_{k=1}^n \boldsymbol{1}_{\{\tau\ge k\}}D_k.
-$
+$$
 
 この式の意味を、$\tau<k$ なら第 $k$ 回の賭けを行わず、$\tau\ge k$ ならその回の損益 $D_k$ を加える、と読んでください。式は各標本路で成り立つ有限和で、無限時刻 $\tau=\infty$ でも問題ありません。第 $k$ 項の係数は $\mathcal F_{k-1}$ 可測かつ $0$ または $1$ です。
 
@@ -84,12 +84,12 @@ E[\boldsymbol{1}_{C_k}\Delta M_k]
 =E[\boldsymbol{1}_{C_k}E[\Delta M_k\mid\mathcal F_{k-1}]]=0.
 $$
 
-有限和を取って $E[1_B(M_\tau-M_\sigma)]=0$ となります。$M_\sigma$ の $\mathcal F_\sigma$ 可測性も、任意の Borel 集合 $D$ と整数 $m$ について
+有限和を取って $E[\boldsymbol{1}_B(M_\tau-M_\sigma)]=0$ となります。$M_\sigma$ の $\mathcal F_\sigma$ 可測性も、任意の Borel 集合 $D$ と整数 $m$ について
 
-$
+$$
 \{M_\sigma\in D\}\cap\{\sigma\le m\}
 =\bigcup_{j=0}^{m}\bigl(\{\sigma=j\}\cap\{M_j\in D\}\bigr)\in\mathcal F_m
-$
+$$
 
 から確かめられます（$\sigma$ と $M$ の適合性を使用）。また $0\le\sigma,\tau\le N$ なので $|M_\sigma|,|M_\tau|\le\sum_{j=0}^N|M_j|$ であり、両者は可積分です。したがって条件付き期待値の特徴付けから
 
@@ -442,11 +442,11 @@ $\sigma$ は第1回の結果だけで $1$ または $2$ と決まり、$\{\sigma
 
 なぜ停止時刻ごとに固定時刻の条件付き平均で計算できるのでしょうか。[停止時刻までの情報の定義](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)から、任意の $B\in\mathcal F_\sigma$ と $j=1,2$ について
 
-$
+$$
 B\cap\{\sigma=j\}
 =(B\cap\{\sigma\le j\})\setminus(B\cap\{\sigma\le j-1\})
 \in\mathcal F_j
-$
+$$
 
 です。したがって可積分な $Y$ について、$\{\sigma=j\}$ 上では $E[Y\mid\mathcal F_\sigma]$ と $E[Y\mid\mathcal F_j]$ が一致します。実際、上式から各 $B\in\mathcal F_\sigma$ で両者の $\boldsymbol{1}_{B\cap\{\sigma=j\}}$ を掛けた積分が一致し、$\boldsymbol{1}_{\{\sigma=j\}}E[Y\mid\mathcal F_j]$ 自身も $\mathcal F_\sigma$ 可測なので、条件付き期待値の特徴付けを使えます。
 
