@@ -34,3 +34,4 @@
 31. [AQFT31 非忠実状態・支持射影・無限値](textbook/volumes/dream_thater/解析系/AQFT/AQFT31/index.md)
 32. [AQFT32 相対エントロピーの正値性](textbook/volumes/dream_thater/解析系/AQFT/AQFT32/index.md)
 33. [AQFT33 部分環制限と相対エントロピーの単調性](textbook/volumes/dream_thater/解析系/AQFT/AQFT33/index.md)
+34. [AQFT34 自由場net・真空・モジュラー流・相対情報の総合演習](textbook/volumes/dream_thater/解析系/AQFT/AQFT34/index.md)

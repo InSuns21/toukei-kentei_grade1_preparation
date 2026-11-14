@@ -1,0 +1,61 @@
+id: "AQFT34"
+title: "自由場net・真空・モジュラー流・相対情報の総合演習"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - AQFT1
+  - AQFT5
+  - AQFT6
+  - AQFT8
+  - AQFT9
+  - AQFT12
+  - AQFT13
+  - AQFT16
+  - AQFT17
+  - AQFT18
+  - AQFT23
+  - AQFT25
+  - AQFT27
+  - AQFT28
+  - AQFT30
+  - AQFT31
+  - AQFT32
+  - AQFT33
+learning_objectives:
+  - 因果伝播子のシンプレクティック形式からWeyl交換位相と局所可換性を再構成できる
+  - 真空Fock表現上で局所Weyl励起の正値性・正規性・位相公式を導ける
+  - 空間的分離を使い小領域で識別できない二状態が大領域では異なる例を構成できる
+  - Reeh–Schliederの巡回性と局所性からの分離性を適用条件付きで説明できる
+  - 真空wedgeの幾何学的モジュラー流の符号を照合し励起ベクトルのモジュラー流を導ける
+  - 同じ二状態の局所環制限とAraki相対エントロピーの零条件・単調性を結合できる
+  - Type I有限行列で相対エントロピーの非可換計算を検算できる
+  - splitの緩衝領域付き帰結と鋭い局所境界の限界を区別できる
+  - DHR・局所共変AQFT・Hadamard状態・地平線情報への接続の前提差を説明できる
+definitions:
+  - { id: AQFT34-DEF-01, name: "局所Weyl励起状態" }
+theorems:
+  - { id: AQFT34-PROP-01, name: "空間的に分離した領域からは励起を見分けられない" }
+  - { id: AQFT34-PROP-02, name: "局所ユニタリ励起のモジュラー流" }
+  - { id: AQFT34-PROP-03, name: "局所励起による相対情報の不可逆な消失" }
+canonical_examples:
+  - 商空間のWeyl積の位相と局所生成元の可換性
+  - 真空Fock表現における局所Weyl励起状態と真空特性汎関数
+  - 空間的に分離した二つのdouble coneとそれらを含む大領域
+  - 右wedgeの真空boostと局所ユニタリ励起によるモジュラー流の共役
+  - 異なる非可換二準位状態の相対エントロピーと対角部分環への制限
+  - split inclusionの中間Type I因子と正規積状態
+problem_patterns:
+  - AQFT34-WEYL-PHASE
+  - AQFT34-WEYL-NORMAL-STATE
+  - AQFT34-DOUBLE-CONE-SEPARATION
+  - AQFT34-RELATIVE-ENTROPY-RIGIDITY
+  - AQFT34-LOCAL-INVISIBILITY
+  - AQFT34-MODULAR-EXCITATION
+  - AQFT34-NONCOMMUTATIVE-DATA-PROCESSING
+  - AQFT34-SPLIT-NOT-VACUUM-PRODUCT
+  - AQFT34-INTEGRATED-FREE-SCALAR
+  - AQFT34-HYPOTHESIS-DIAGNOSTICS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 11, review: 7 }

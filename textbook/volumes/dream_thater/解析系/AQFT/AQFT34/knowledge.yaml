@@ -1,0 +1,44 @@
+chapter: AQFT34
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - AQFT1
+  - AQFT5
+  - AQFT6
+  - AQFT8
+  - AQFT9
+  - AQFT12
+  - AQFT13
+  - AQFT16
+  - AQFT17
+  - AQFT18
+  - AQFT23
+  - AQFT25
+  - AQFT27
+  - AQFT28
+  - AQFT30
+  - AQFT31
+  - AQFT32
+  - AQFT33
+forward_references: []
+concepts:
+  - id: aqft.local-weyl-excited-state
+    name: 局所Weyl励起状態
+    kind: definition
+    introduction: formal
+    requires: [aqft.kg-weyl-local-net, aqft.minkowski-fock-weyl, aqft.gns-local-normal-state]
+  - id: aqft.weyl-local-invisibility
+    name: 空間的に分離した領域からは励起を見分けられない
+    kind: proposition
+    introduction: formal
+    requires: [aqft.local-weyl-excited-state, aqft.kg-local-symplectic-orthogonality, aqft.gns-local-net-isotony-locality]
+  - id: aqft.excited-modular-conjugacy
+    name: 局所ユニタリ励起のモジュラー流
+    kind: proposition
+    introduction: formal
+    requires: [aqft.vacuum-local-standard, aqft.modular-flow, aqft.free-scalar-bisognano-wichmann]
+  - id: aqft.local-relative-information-loss
+    name: 局所励起による相対情報の不可逆な消失
+    kind: proposition
+    introduction: formal
+    requires: [aqft.weyl-local-invisibility, aqft.araki-relative-entropy-positivity, aqft.relative-entropy-monotonicity]
