@@ -1,0 +1,46 @@
+id: "FLUID8"
+title: "理想流体で渦度は何から生まれるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID6
+official_scope: []
+learning_objectives:
+  - "curl の定義からせん断流・剛体回転の渦度を符号・単位を含めて計算できる"
+  - "変密度の質量保存と非粘性運動量式から渦度方程式を導き、移流・伸長・膨張・傾圧生成を区別できる"
+  - "密度・圧力勾配の外積の向きと分母 rho^2 を検算し、生成項の消失条件を説明できる"
+  - "一定密度と順圧の条件を区別し、二次元 Euler 流の流跡上の渦度輸送を証明できる"
+  - "非一様密度・横向き圧力勾配の初期場で、加速度の curl と生成項を独立に突き合わせられる"
+  - "圧縮性での omega/rho の発展と三次元渦伸長を検算し、保存外力・滑らかさの限界を述べられる"
+  - "ブラウザで中央差分の誤差と生成方向の反転を確認し、数値検算と流体解の時間発展を区別できる"
+definitions:
+  - { id: FLUID8-DEF-01, name: "渦度" }
+  - { id: FLUID8-DEF-02, name: "傾圧性の渦度生成項" }
+  - { id: FLUID8-DEF-03, name: "本講での順圧条件" }
+theorems:
+  - { id: FLUID8-THM-01, name: "非粘性圧縮性流体の渦度方程式" }
+  - { id: FLUID8-PROP-01, name: "一定密度または順圧の流れでの傾圧項消失" }
+  - { id: FLUID8-PROP-02, name: "二次元一定密度 Euler 流の渦度輸送" }
+  - { id: FLUID8-PROP-03, name: "単位密度当たりの渦度の発展" }
+canonical_examples:
+  - "せん断流 u=(ay,0,0) と剛体回転の curl を成分で直接確認"
+  - "密度・圧力勾配が直交する場の正の z 方向の生成項"
+  - "順圧 p=K rho^2 で生成が消える条件の直接確認"
+  - "一定密度せん断・剛体回転で質量保存と Euler 式を同時検算"
+  - "初期速度ゼロの非順圧場から加速度 curl と傾圧項の一致"
+  - "伸長流で三次元の渦度が増幅する Euler 解"
+  - "標準ライブラリ Python で中心差分の二次収束と符号の反転を検算"
+problem_patterns:
+  - FLUID8-CURL-SIGN
+  - FLUID8-CROSS-PRODUCT
+  - FLUID8-BAROTROPIC
+  - FLUID8-INCOMPRESSIBLE-LIMIT
+  - FLUID8-INITIAL-CURL
+  - FLUID8-2D-MATERIAL-TRANSPORT
+  - FLUID8-SPECIFIC-VORTICITY
+  - FLUID8-3D-STRETCHING
+  - FLUID8-MODEL-LIMITS-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 3 }
