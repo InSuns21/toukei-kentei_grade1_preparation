@@ -8,3 +8,4 @@
 5. [GW1-05 泡立ちの機構](textbook/volumes/dream_thater/幾何系/GW/GW1-05/index.md)
 6. [GW1-06 Gromov収束とコンパクト性](textbook/volumes/dream_thater/幾何系/GW/GW1-06/index.md)
 7. [GW1-07 標点付き球面・交比・安定曲線](textbook/volumes/dream_thater/幾何系/GW/GW1-07/index.md)
+8. [GW1-08 安定写像とコンパクト化](textbook/volumes/dream_thater/幾何系/GW/GW1-08/index.md)
