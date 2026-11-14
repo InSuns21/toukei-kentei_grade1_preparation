@@ -172,10 +172,10 @@ $$
 
 これは $\nabla\cdot\tau=0$ に $w$ を掛けて積分し、$\tau:\nabla w=2\eta D(w):D(w)$ とした恒等式である。内側境界では $w=0$。外側境界について $w=O(R^{-1})$、$\tau=O(R^{-2})$ など境界積分を零にする減衰を仮定したから、右辺は $O(R^{-1})\to0$。従って非負の積分が零なので $D(w)=0$。ここから剛体速度場だけが残ることも成分で確かめる。直交座標の添字 $i,j,k\in\{1,2,3\}$ について、$D_{ij}(w)=(\partial_iw_j+\partial_jw_i)/2=0$ を微分すると
 
-$
+$$
 \partial_i\partial_jw_k
 =\partial_iD_{jk}(w)+\partial_jD_{ik}(w)-\partial_kD_{ij}(w)=0.
-$
+$$
 
 従って全ての二階導関数が零である。連結な外部領域で $w(x)=b+Ax$（$b$ は定数ベクトル、$A$ は定数行列）となり、$D(w)=0$ は $A+A^{\mathsf T}=0$ を意味する。これは平行移動と剛体回転の速度場だが、$w(x)\to0$ を全方向で満たすには $A=0$ かつ $b=0$ が必要である。よって指定した減衰クラスで一意である。
 <!-- proof-end -->
@@ -214,17 +214,17 @@ $$
 
 径方向の式を $r$ について積分すると
 
-$
+$$
 p(r,\theta)=-\frac{3\eta Ua}{2r^2}\cos\theta+C(\theta)
-$
+$$
 
 となる。$\theta$ を固定して積分したので、ここでの積分「定数」$C$ はまだ角度に依存してよい。これを極角方向の式へ代入すると
 
-$
+$$
 \frac1r\partial_\theta p
 =\frac{3\eta Ua}{2r^3}\sin\theta+\frac1r\frac{dC}{d\theta}
 =\frac{3\eta Ua}{2r^3}\sin\theta
-$
+$$
 
 より $dC/d\theta=0$。さらに無限遠で $p\to p_\infty$ なので $C=p_\infty$ を得る。
 
@@ -259,9 +259,9 @@ $r$ 微分は $\partial_r(-3\eta Ua\cos\theta/(2r^2))=3\eta Ua\cos\theta/r^3$。
 
 球の外向き法線は $e_r$ である。流体領域 $\Omega$ の内側境界の外向き法線は $-e_r$ なので、流体が球へ及ぼす力は作用反作用によって $\sigma e_r$ となる。一般に $\sigma e_r$ には、圧力 $-pe_r$ に加えて法線粘性応力 $2\eta D_{rr}e_r$ と接線粘性応力 $2\eta D_{\theta r}e_\theta$ がある。球座標では $D_{rr}=\partial_r v_r$ であり、[球の速度場](#thm-fluid18-stokes-sphere-velocity)を $r$ で微分すると
 
-$
+$$
 D_{rr}(a,\theta)=U\cos\theta\left(\frac{3a}{2a^2}-\frac{3a^3}{2a^4}\right)=0.
-$
+$$
 
 従って**この解では**法線粘性応力が消え、$\sigma e_r=-pe_r+\sigma_{r\theta}e_\theta$ となる（$\sigma_{r\theta}=2\eta D_{r\theta}$）。これは任意の Newton 流体で法線粘性応力が零という意味ではない。$e_r\cdot e_z=\cos\theta$、$e_\theta\cdot e_z=-\sin\theta$ に注意する。
 
