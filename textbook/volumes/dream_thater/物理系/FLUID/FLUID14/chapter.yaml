@@ -6,6 +6,7 @@ prerequisites:
   - FLUID13
   - FLUID9
   - FLUID6
+  - CA4
 official_scope: []
 learning_objectives:
   - "反時計回り循環を正としたときの圧力合力・抗力・揚力の定義と符号を検算できる"
