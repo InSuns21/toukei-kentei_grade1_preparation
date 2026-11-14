@@ -75,7 +75,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid21-matching -->
-**定義の確認**：一定の外部接線速度 $U_e>0$ と長さ $d>0$ を選び、$\delta=d$、$Y=y/d$、$u_0(x,Y)=U_e(1-e^{-Y})$、$v_0(x,Y)=0$ と置く。壁上では $u_0(x,0)=v_0(x,0)=0$、また $\lim_{Y\to\infty}u_0(x,Y)=U_e$ である。$u_0$ は $x$ に依存せず $v_0$ は恒等的に零なので、連続の式も $(u_0)_x+(v_0)_y=0$ と確認できる。こうして**壁条件・接線速度接続・質量保存**を別々に判定できる。ただし $\nu(u_0)_{yy}\ne0$ だから、圧力勾配零の Prandtl 運動量方程式の解ではない。$d$ の係数もこれらの条件だけでは決まらない。
+**定義の確認**：一定の外部接線速度 $U_e>0$ と長さ $d>0$ を選び、$\delta=d$、$Y=y/d$ として、物理変数による候補場 $u(x,y)=U_e(1-e^{-y/d})$、$v(x,y)=0$ を置く。その内側表示は $u_0(x,Y)=U_e(1-e^{-Y})$ である。壁上では $u(x,0)=v(x,0)=0$、また $\lim_{Y\to\infty}u_0(x,Y)=U_e$ である。$u$ は $x$ に依存せず $v$ は恒等的に零だから、連続の式も $u_x+v_y=0$ と確認できる。こうして**壁条件・接線速度接続・質量保存**を別々に判定できる。ただし $\nu u_{yy}\ne0$ だから、圧力勾配零の Prandtl 運動量方程式の解ではない。$d$ の係数もこれらの条件だけでは決まらない。
 <!-- definition-example-end -->
 
 ## 2. どの粘性項だけが生き残るか
@@ -406,10 +406,10 @@ $$
 
 $d'(x)=d(x)/(2x)$ なので、$y$ を固定した連鎖律から
 
-$
+$$
 \zeta_x=-\frac{y}{d(x)^2}d'(x)=-\frac{\zeta}{2x},\qquad
 u_x=Ue^{-\zeta}\zeta_x=-\frac{U}{2x}\zeta e^{-\zeta}.
-$
+$$
 
 連続の式 $v_y=-u_x$ を $v(x,0)=0$ とともに積分すれば
 
@@ -429,7 +429,7 @@ $$
 
 この候補場の二階導関数も、$y$ を固定して $\zeta_x=-\zeta/(2x)$ を用いれば
 
-$
+$$
 \begin{aligned}
 u_{xx}
 &=-\frac U2\frac{\partial}{\partial x}
@@ -442,7 +442,7 @@ u_{yy}
 &=\frac{\partial}{\partial y}\left(\frac U{d(x)}e^{-\zeta}\right)
 =-\frac{Ue^{-\zeta}}{d(x)^2}.
 \end{aligned}
-$
+$$
 
 例えば $y=d(x)$、すなわち $\zeta=1$ では
 
@@ -498,13 +498,13 @@ $\mathrm{Re}_L=10^6$、$\delta/L=10^{-3}$ のとき、水平運動量式の $u_{
 
 [項の次数の命題](#prop-fluid21-term-orders)に $\varepsilon=10^{-3}$、$\mathrm{Re}_L^{-1}=10^{-6}=\varepsilon^2$ を代入する。慣性・圧力を基準にした二方向の粘性係数は
 
-$
+$$
 \begin{array}{c|cc}
  & \text{流れ方向の二階微分} & \text{壁法線方向の二階微分}\\ \hline
 \text{水平運動量} & \varepsilon^2=10^{-6} & 1\\
 \text{垂直運動量} & \varepsilon^4=10^{-12} & \varepsilon^2=10^{-6}
 \end{array}
-$
+$$
 
 垂直運動量の慣性項全体にも $\varepsilon^2=10^{-6}$ が掛かるため、先頭次数では $q_Y=0$。一方、水平運動量の $u_{yy}$ は係数が $1$ で残る。
 <!-- solution-end -->
@@ -520,11 +520,11 @@ $u_x$ の規模が $U/L$、壁からの高さ $y$ が $\delta$、$v(x,0)=0$ の�
 
 [連続の式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes) $u_x+v_y=0$ を $y=0$ から $\delta$ まで積分し、壁条件 $v(x,0)=0$ を用いると
 
-$
+$$
 v(x,\delta)-v(x,0)
 =-\int_0^\delta u_x(x,s)\,ds,\qquad
 |v|_{\rm scale}\sim\frac{U\delta}{L}.
-$
+$$
 
 従って垂直速度の尺度は $2\times0.002=0.004$ m/s。符号は $u_x$ の分布が分からないので決められない。
 <!-- solution-end -->
@@ -697,13 +697,13 @@ $\varepsilon=H/L=0.01$ とする。二つの流れで $\mathrm{Re}_L=100$ と $\
 
 $\varepsilon^2=10^{-4}$ なので、二つのケースで
 
-$
+$$
 \mathrm{Re}_L\varepsilon^2
 =\begin{cases}
 100\times10^{-4}=0.01\ll1,\\
 10^6\times10^{-4}=100\gg1
 \end{cases}
-$
+$$
 
 となる。
 
