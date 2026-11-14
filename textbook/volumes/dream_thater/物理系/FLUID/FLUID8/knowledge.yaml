@@ -3,19 +3,20 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - FLUID6
+  - VC9
 concepts:
-  - id: fluid.vorticity
-    name: 渦度
+  - id: fluid.vorticity-coordinate-review
+    name: 渦度の三次元座標表示：再掲
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（渦度）"]
-    requires: [fluid.euler-constant-density]
+    introduction_aliases: ["定義（渦度の三次元座標表示：再掲）"]
+    requires: [vector-calculus.vorticity]
   - id: fluid.baroclinic-source
     name: 傾圧性の渦度生成項
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（傾圧性の渦度生成項）"]
-    requires: [fluid.vorticity]
+    requires: [vector-calculus.vorticity]
   - id: fluid.vorticity-euler-transport
     name: 非粘性圧縮性流体の渦度方程式
     kind: theorem
@@ -39,7 +40,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（二次元一定密度 Euler 流の渦度輸送）"]
-    requires: [fluid.no-baroclinic-source, fluid.vorticity]
+    requires: [fluid.no-baroclinic-source, vector-calculus.vorticity]
   - id: fluid.specific-vorticity
     name: 単位密度当たりの渦度の発展
     kind: proposition
