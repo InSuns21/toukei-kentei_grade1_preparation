@@ -1,0 +1,44 @@
+id: "SP12"
+title: "CTMC の Q 行列・跳躍連鎖・滞在時間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP11
+  - STO13
+official_scope: []
+learning_objectives:
+  - 有限状態Q行列の非対角成分・行和・吸収状態を判定し跳躍連鎖を求められる
+  - 指数時計の構成から初跳躍の同時密度と待ち時間・行き先の独立性を導ける
+  - 有限状態で総跳躍率に共通上界があることを使い非爆発性を証明できる
+  - Poisson時計による一様化を構成し仮想自己遷移と実際の跳躍を区別できる
+  - Poisson時計の二回以上の確率を評価して短時間遷移確率の一次項を導ける
+  - 可算状態での爆発時刻を定義し純粋出生過程の爆発判定を証明・適用できる
+  - Q行列から跳躍連鎖と滞在時間へ移る操作を三状態モデルで統合して計算できる
+definitions:
+  - { id: SP12-DEF-01, name: "純粋出生過程の爆発時刻" }
+theorems:
+  - { id: SP12-PROP-01, name: "初跳躍時刻と行き先の同時法則" }
+  - { id: SP12-THM-01, name: "有限状態CTMCの一様化" }
+  - { id: SP12-PROP-02, name: "有限状態CTMCの短時間遷移" }
+  - { id: SP12-THM-02, name: "純粋出生過程の爆発判定" }
+canonical_examples:
+  - "正常・故障・修理中の三状態Q行列と率の読解"
+  - "吸収状態を含む跳躍連鎖"
+  - "仮想自己遷移を含む一様化行列"
+  - "n^2の純粋出生率でほぼ確実に爆発する反例"
+  - "nの純粋出生率で非爆発となる比較例"
+problem_patterns:
+  - SP12-QMATRIX-EMBEDDED-JUMP
+  - SP12-FIRST-JUMP-JOINT
+  - SP12-UNIFORMIZATION-MATRIX
+  - SP12-SHORT-TIME-EXPANSION
+  - SP12-BIRTH-TELESCOPING-EXPLOSION
+  - SP12-COMPETING-CLOCKS
+  - SP12-FINITE-NONEXPLOSION-BOUND
+  - SP12-POISSON-TAIL-BOUND
+  - SP12-NONEXPLOSION-LAPLACE
+  - SP12-THREE-STATE-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 7.0, review: 2.0 }
