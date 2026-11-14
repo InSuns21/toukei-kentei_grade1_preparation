@@ -38,7 +38,7 @@ chapters:
   - { id: U3-32, path: textbook/volumes/dream_thater/応用系/U/U3-32, status: completed, title: "分散減少：対称変量・対照変量" }
   - { id: U3-33, path: textbook/volumes/dream_thater/応用系/U/U3-33, status: completed, title: "層化抽出・重要度サンプリング" }
   - { id: U3-34, path: textbook/volumes/dream_thater/応用系/U/U3-34, status: completed, title: "準 Monte Carlo と次元削減" }
-  - { id: U3-35, path: textbook/volumes/dream_thater/応用系/U/U3-35, status: planned, title: "Brownian bridge・連続障壁の越境補正" }
+  - { id: U3-35, path: textbook/volumes/dream_thater/応用系/U/U3-35, status: completed, title: "Brownian bridge・連続障壁の越境補正" }
   - { id: U3-36, path: textbook/volumes/dream_thater/応用系/U/U3-36, status: planned, title: "Least-squares Monte Carlo で American を評価" }
   - { id: U3-37, path: textbook/volumes/dream_thater/応用系/U/U3-37, status: planned, title: "Monte Carlo Greeks と手法横断ベンチマーク" }
   - { id: U3-38, path: textbook/volumes/dream_thater/応用系/U/U3-38, status: planned, title: "Fourier／特性関数による価格付け" }
