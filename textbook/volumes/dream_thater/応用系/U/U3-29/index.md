@@ -2,7 +2,7 @@
 
 [U3-28 の同一路 GBM・Euler–Maruyama・Milstein](../U3-28/index.md#def-u3-28-terminal-errors)では、同じ Brown 運動で厳密解と数値解を作り、終端の誤差を測りました。しかし、表の一行だけで「何次で収束する」と言えるのでしょうか。さらに、オプション価格を Monte Carlo 法で求めるなら、時間刻みを細かくするだけでは標本平均の揺れは消えません。
 
-ここでは**同一路の近さ（強収束）**、**期待値の近さ（弱収束）**、**価格推定の誤差予算**を別々に定義し、[既出の有限刻み GBM 誤差恒等式](../U3-28/index.md#prop-u3-28-finite-mse)から収束次数を計算します。抽象的な確率微分方程式の一般収束定理を、必要条件を省いてすべての係数・商品へ適用することはしません。
+ここでは**同一路の近さ（強収束）**、**期待値の近さ（弱収束）**、**価格推定の誤差予算**を別々に定義します。二乗した差の期待値を平均二乗誤差（Mean Squared Error; MSE）と呼び、[GBM の有限刻み強 MSE と平均偏り](../U3-28/index.md#prop-u3-28-finite-mse)から収束次数を計算します。抽象的な確率微分方程式の一般収束定理を、必要条件を省いてすべての係数・商品へ適用することはしません。
 
 ## 1. 何を近似するかで「収束」の意味が違う
 
@@ -33,7 +33,7 @@ $$
 「少なくとも」を付けるのは、$O(h^\alpha)$ がより速い収束を排除しないからです。正確に $\alpha$ 次と示すには、典型的には $e_q(h)/h^\alpha$ が正の定数へ収束することまで調べます。強 $L^2$ 誤差の単位は株価と同じ円、$\varphi(s)=s^2$ の弱誤差の単位は円$^2$ です。
 
 <!-- definition-example-start: def-u3-29-strong-weak -->
-**定義の確認**：$S_0=100$ 円、$\mu=0.08$ 年$^{-1}$、$\sigma=0.20$ 年$^{-1/2}$、$T=1$ 年の GBM を同じ $W$ で EM と Milstein に結合します。$m=4$ のとき、[有限刻みの厳密公式](../U3-28/index.md#prop-u3-28-finite-mse)から
+**定義の確認**：$S_0=100$ 円、$\mu=0.08$ 年$^{-1}$、$\sigma=0.20$ 年$^{-1/2}$、$T=1$ 年の GBM を同じ $W$ で EM と Milstein に結合します。$m=4$ のとき、[GBM の有限刻み強 MSE と平均偏り](../U3-28/index.md#prop-u3-28-finite-mse)から
 
 $$
 e_2^{\rm EM}(1/4)=1.624777\ {\rm 円},\qquad
@@ -47,7 +47,7 @@ $$
 
 <a id="prop-u3-29-strong-to-lipschitz"></a>
 <!-- formal-statement-start -->
-> **命題（強 $L^2$ 誤差から Lipschitz 試験関数の弱誤差を抑える）**  
+> **命題（強 L2 誤差から Lipschitz 試験関数の弱誤差を抑える）**  
 > 実数値確率変数 $X,Y$ が同一確率空間にあり、$E|X|^2+E|Y|^2<\infty$ とする。$\varphi:\mathbb R\to\mathbb R$ がある $L\ge0$ に対し任意の $x,y\in\mathbb R$ で $|\varphi(x)-\varphi(y)|\le L|x-y|$ を満たすなら、
 >
 $$
@@ -83,7 +83,7 @@ $$
 
 <a id="prop-u3-29-gbm-strong-orders"></a>
 <!-- formal-statement-start -->
-> **命題（GBM の EM 強 $1/2$ 次・Milstein 強 $1$ 次）**  
+> **命題（GBM の EM 強1/2次・Milstein 強1次）**  
 > $s_0>0,T>0,\mu\in\mathbb R,\sigma>0$、標準 Brown 運動 $W$ のもとで、厳密 GBM の $S_T$ と $h=T/m$ の EM 終端値 $E_m$、スカラー Milstein 終端値 $M_m$ を**同一の Brown 増分**で構成する。$a=2\mu+\sigma^2$ とすると、$h\downarrow0$（$m\to\infty$）で
 >
 $$
@@ -109,7 +109,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[有限刻み MSE 恒等式](../U3-28/index.md#prop-u3-28-finite-mse)から出発します。$a=2\mu+\sigma^2$、$b=\mu+\sigma^2$、$k=\sigma^4/2$ と置きます。各刻みは独立なので
+[GBM の有限刻み強 MSE と平均偏り](../U3-28/index.md#prop-u3-28-finite-mse)から出発します。$a=2\mu+\sigma^2$、$b=\mu+\sigma^2$、$k=\sigma^4/2$ と置きます。各刻みは独立なので
 
 $$
 \begin{aligned}
@@ -217,7 +217,7 @@ $\sigma=0$ の場合、両方式は通常の Euler 更新 $Y_m=s_0(1+\mu h)^m$ �
 
 <a id="prop-u3-29-gbm-weak-moments"></a>
 <!-- formal-statement-start -->
-> **命題（GBM の滑らかな多項式支払の弱 $1$ 次評価）**  
+> **命題（GBM の滑らかな多項式支払の弱1次評価）**  
 > $s_0>0,T>0,\mu\in\mathbb R,\sigma\ge0$ とし、[GBM の厳密値・EM・Milstein](../U3-28/index.md#prop-u3-28-finite-mse)を同じ分割幅 $h=T/m$ で作る。$\varphi(s)=s$ なら両方式の符号付き弱誤差は
 >
 $$
@@ -415,7 +415,7 @@ $$
 
 次の実験では $s_0=100,\mu=0.08,\sigma=0.20,T=1$、$m=4,8,16,32,64,128$ の刻みを使います。各独立経路で $m=128$ の Brown 増分を一度生成し、粗い刻みの増分は対応する細かい増分を**加算**します。これにより各方式の強誤差の比較が同じ $W$ に対して定義されます。異なる経路同士は独立です。
 
-[Python 実行ソース・テスト・実行手順](assets/README.md)では、有限刻みの理論強 MSE・弱偏りと、固定 seed の Monte Carlo 推定値を別々に表示します。強 MSE は各経路の $(Y_m-S_T)^2$ の標本平均、弱偏りは $\varphi(s)=s$ について $(Y_m-S_T)$ の標本平均で推定します。各推定値は標本標準誤差を持つので、実測した傾きだけで理論次数を断定せず、第2・3節の独立の式で確認します。特に小さな差を近接する大きな数の差として求める理論 MSE 公式には、極細刻みで丸め誤差が生じ得ます。
+[Python 実行ソース・テスト・実行手順](assets/README.md)では、有限刻みの理論強 MSE・弱偏りと、固定した乱数生成器の初期値 の Monte Carlo 推定値を別々に表示します。強 MSE は各経路の $(Y_m-S_T)^2$ の標本平均、弱偏りは $\varphi(s)=s$ について $(Y_m-S_T)$ の標本平均で推定します。各推定値は標本標準誤差を持つので、実測した傾きだけで理論次数を断定せず、第2・3節の独立の式で確認します。特に小さな差を近接する大きな数の差として求める理論 MSE 公式には、極細刻みで丸め誤差が生じ得ます。
 
 ~~~python-file-lab
 # lab-id: U3-29-GBM-CONVERGENCE
@@ -436,7 +436,7 @@ $$
 $\varphi(s)=s$ とし、同じ Brown 運動の厳密値 $X=S_T$ と数値値 $Y$ が $E[(Y-X)^2]=9$ 円$^2$、$E[Y-X]=-1$ 円を満たす。強 $L^2$ 誤差と符号付き弱誤差を求めよ。二量が等しい必要はあるか。
 
 <!-- solution-start -->
-**詳細解答**：[強・弱誤差の定義](#def-u3-29-strong-weak)から $e_2=\sqrt9=3$ 円、$b_\varphi=-1$ 円です。強誤差は必ず非負ですが弱誤差は負にもなります。[Lipschitz 評価](#prop-u3-29-strong-to-lipschitz)で $|b_\varphi|\le e_2$、すなわち $1\le3$ は確認できますが、等号は要求されません。
+**詳細解答**：[終端の強誤差・弱誤差と収束次数](#def-u3-29-strong-weak)から $e_2=\sqrt9=3$ 円、$b_\varphi=-1$ 円です。強誤差は必ず非負ですが弱誤差は負にもなります。[Lipschitz 評価](#prop-u3-29-strong-to-lipschitz)で $|b_\varphi|\le e_2$、すなわち $1\le3$ は確認できますが、等号は要求されません。
 <!-- solution-end -->
 
 <a id="ex-u3-29-a2"></a>
