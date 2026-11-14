@@ -509,7 +509,9 @@ $$
 
 これは一般環にも使える**スペクトル切断による極限**です。$-\log(\max\{\lambda,\varepsilon\})$ は、$\varepsilon$ が減ると点ごとに増大します。
 
-さらに $0<\varepsilon\le1$ では $\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ です。この非負関数列に[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用し、有限な $\int\lambda\,d\mu_\rho$ を最後に引けば、上の極限を得ます。
+厳密には $\varepsilon_n=1/n$（$n\ge1$）を選びます。$g_n(\lambda)=\lambda-\log(\max\{\lambda,1/n\})$ は各 $\lambda\ge0$ で非負かつ $n$ に関して単調増大です。
+
+そこで[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を $g_n$ に適用し、有限な $\int\lambda\,d\mu_\rho$ を差し引くと、まず $\varepsilon_n$ に沿う切断極限を得ます。切断値は $\varepsilon$ の減少とともに単調増大するため、この列が得た極限と一般の $\varepsilon\downarrow0$ の極限は一致します。
 
 零の質量があれば $\log\varepsilon$ の寄与が $-\infty$ へ向かい、相対エントロピーは $+\infty$ です。これは**状態そのものを混合して忠実化する極限とは別**の操作です。
 
@@ -823,7 +825,9 @@ $$
 \int\lambda\,d\mu_\rho=\|S\xi_\rho\|^2=\sigma(s(\rho))\le1.
 $$
 
-$g_\varepsilon(\lambda)=\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ は $\varepsilon\downarrow0$ で単調増大します。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により $\int g_\varepsilon\,d\mu_\rho$ は有限または $+\infty$ に収束し、そこから有限の $\int\lambda\,d\mu_\rho$ を引けば切断極限を得ます。
+$g_\varepsilon(\lambda)=\lambda-\log(\max\{\lambda,\varepsilon\})\ge0$ は $\varepsilon\downarrow0$ で単調増大します。$\varepsilon_n=1/n$ と置くと $g_{1/n}$ は非負可測関数の増大**列**なので、[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)を適用できます。
+
+$\int g_{1/n}\,d\mu_\rho$ の極限（有限または $+\infty$）から有限の $\int\lambda\,d\mu_\rho$ を引き、さらに切断値の単調性を用いると、任意の $\varepsilon\downarrow0$ に対する同じ極限が得られます。
 
 （a）$\rho=E_{11}$、$\sigma=I_2/2$ なら入力のスペクトル測度は $\lambda=1/2$ に1だけあるので、$0<\varepsilon<1/2$ で切断値は常に $\log2$ です。
 
