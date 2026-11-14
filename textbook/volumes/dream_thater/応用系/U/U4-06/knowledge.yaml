@@ -1,0 +1,36 @@
+chapter: U4-06
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-05]
+forward_references: []
+concepts:
+  - id: finance.etf-nav-per-share
+    name: 純資産価値の口数換算
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（純資産価値の口数換算）"]
+    requires: [finance.spot-forward-executable-bounds]
+  - id: finance.etf-creation-redemption-basket
+    name: 設定・交換バスケットと調整現金
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（設定・交換バスケットと調整現金）"]
+    requires: [finance.etf-nav-per-share]
+  - id: finance.etf-creation-redemption-executable-surplus
+    name: 設定・交換の実行可能純利益
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（設定・交換の実行可能純利益）"]
+    requires: [finance.etf-creation-redemption-basket, finance.bid-ask-executable-gain]
+  - id: finance.etf-creation-redemption-no-arbitrage-bounds
+    name: 設定・交換による無裁定必要境界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（設定・交換による無裁定必要境界）"]
+    requires: [finance.etf-creation-redemption-executable-surplus]
+  - id: finance.etf-integer-basket-depth-capacity
+    name: 整数設定単位と板容量の上限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（整数設定単位と板容量の上限）"]
+    requires: [finance.etf-creation-redemption-executable-surplus]
