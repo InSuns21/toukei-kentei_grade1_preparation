@@ -124,7 +124,7 @@ $$
 
 従って $T_n\ge L^{-1}\sum_{k=0}^{n-1}E_k$ です。[STO13 の構成定理](../../STO/STO13/index.md#thm-sto13-ctmc-construction)の非爆発性を、ここでは上界の意味まで追います。
 
-実際、任意の $a>0$ に対し、非負変数 $e^{-\sum_{k<n}E_k}$ に Markov の不等式を適用すると
+実際、任意の $a>0$ に対し、非負変数 $e^{-\sum_{k<n}E_k}$ に [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用すると
 
 $$
 \begin{aligned}
@@ -293,7 +293,7 @@ $$
 
 **定義の確認**
 
-$\lambda_n=n^2$ とします。各 $\lambda_n$ は正で有限であり、$H_n$ は独立な指数変数なので、定義の前提を満たします。$T_m$ は非減少で、極限 $\zeta$ は拡張実数として確実に存在します。さらに非負変数の単調収束定理により
+$\lambda_n=n^2$ とします。各 $\lambda_n$ は正で有限であり、$H_n$ は独立な指数変数なので、定義の前提を満たします。$T_m$ は非減少で、極限 $\zeta$ は拡張実数として確実に存在します。さらに非負変数の[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により
 
 $$
 E[\zeta]=\lim_{m\to\infty}\sum_{n=1}^mE[H_n]
@@ -325,7 +325,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $\sum_n1/\lambda_n<\infty$ とします。非負項の単調収束定理から
+まず $\sum_n1/\lambda_n<\infty$ とします。非負項の[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)から
 
 $$
 E[\zeta]=E\left[\lim_{m\to\infty}T_m\right]
@@ -466,7 +466,7 @@ $$
 \end{aligned}
 $$
 
-よってほぼ確実に爆発します。各滞在時間の平均が $1/[n(n+1)]$ なので、非負項の単調収束定理で $E[\zeta]=\sum_nE[H_n]=1$ です。
+よってほぼ確実に爆発します。各滞在時間の平均が $1/[n(n+1)]$ なので、非負項の[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)で $E[\zeta]=\sum_nE[H_n]=1$ です。
 <!-- solution-end -->
 
 ## 7. 演習 Level B：独立性・一様化・爆発を証明する
@@ -517,7 +517,7 @@ T_m=\sum_{n=0}^{m-1}H_n
 \ge L^{-1}\sum_{n=0}^{m-1}E_n.
 $$
 
-$t>0$ を固定します。$e^{-x}$ は減少関数なので $T_m\le t$ なら $\sum_{n<m}E_n\le Lt$。Markov の不等式と独立性から
+$t>0$ を固定します。$e^{-x}$ は減少関数なので $T_m\le t$ なら $\sum_{n<m}E_n\le Lt$。[Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)と独立性から
 
 $$
 \begin{aligned}
