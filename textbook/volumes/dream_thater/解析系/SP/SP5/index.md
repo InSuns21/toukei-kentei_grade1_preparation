@@ -178,3 +178,243 @@ $$
 $A$ に関する最大を取って結論を得ます。
 <!-- proof-end -->
 
+## 4. 非周期性から一様な正確率へ
+
+既約性は「出発地と到着地ごとに**何歩かで**行ける」、非周期性は「帰還時刻の最大公約数が $1$」という意味です。収束のためには、両者を合わせ「**共通の歩数** $m$ で、すべての状態対を正確率で結べる」ことを証明します。
+
+<a id="lem-sp5-large-returns"></a>
+
+<!-- formal-statement-start -->
+> **補題（十分長い非周期帰還時刻）**  
+> 有限状態空間 $S$ 上の時間一様 Markov 連鎖と状態 $o\in S$ について、$R_o=\{n\ge1:p^{(n)}(o,o)>0\}$ が空でなく $\gcd R_o=1$ なら、ある整数 $N\ge1$ が存在し、全整数 $n\ge N$ に対し $p^{(n)}(o,o)>0$ である。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+正確率の帰還経路は何本でもつなげられます。最大公約数 $1$ を作る有限個の帰還経路から、十分大きなあらゆる整数を帰還経路の長さとして作ります。
+
+<!-- proof-start -->
+### 証明
+
+$R_o$ の元を順に取り最大公約数を計算すると、最大公約数は正整数の非増加列であり、最終的に $\gcd R_o=1$ になります。従って有限個の $a_1,\ldots,a_\ell\in R_o$ で $\gcd(a_1,\ldots,a_\ell)=1$ と選べます。$a=a_1$ とします。
+
+各 $a_k$ の剰余を法 $a$ で考え、それらの**非負整数係数による和**の剰余全体を $H\subset\mathbb Z/a\mathbb Z$ とします。$H$ は $0$ を含み加法について閉じます。有限群の元 $h$ はある $q\ge1$ について $qh=0$ だから、$-h=(q-1)h\in H$ です。従って $H$ は部分群です。$\gcd(a_1,\ldots,a_\ell)=1$ なので Bézout の整数係数表示により剰余 $1$ が生成され、$H$ は全剰余類を含みます。
+
+各剰余 $r\in\{0,\ldots,a-1\}$ に、$a_k$ の非負整数係数和として作れる整数 $b_r\ge0$ を一つ選べます。帰還経路をつなぐと [Chapman–Kolmogorov の式](../../STO/STO2A/index.md#eq-sto2a-chapman-kolmogorov)から $p^{(b_r)}(o,o)>0$ です。$b_r=0$ の場合は $p^{(0)}(o,o)=1$ と解釈します。
+
+$N=\max(1,b_0,\ldots,b_{a-1})$ と置き、$n\ge N$ が $r$ に合同なら $n=b_r+ka$ で $k\ge0$ です。$b_r$ 歩の帰還の後に $a$ 歩の帰還を $k$ 本つなげれば、$p^{(n)}(o,o)>0$ となります。
+<!-- proof-end -->
+
+<a id="thm-sp5-eventual-positivity"></a>
+
+<!-- formal-statement-start -->
+> **定理（有限既約非周期連鎖の一様な正値性）**  
+> 空でない有限状態空間 $S$ 上の時間一様 Markov 連鎖の遷移行列 $P$ が既約かつ非周期なら、ある整数 $m\ge1$ が存在し、すべての $i,j\in S$ について $p^{(m)}(i,j)>0$ となる。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+基準状態 $o$ を一つ選び、$i\to o$、十分長い $o\to o$ の帰還、$o\to j$ の三本をつなげます。出発地・到着地の組が有限個しかないことが、共通の歩数 $m$ を選べる理由です。
+
+<!-- proof-start -->
+### 証明
+
+基準状態 $o\in S$ を固定します。既約性から各 $i$ の $i\to o$ の正確率経路の長さを $a_i\ge0$、各 $j$ の $o\to j$ の長さを $b_j\ge0$ と選べます。$i=o$、$j=o$ では長さ $0$ の経路を使います。[周期が通信クラスで共通](#prop-sp5-class-period)なので $d(o)=1$。[十分長い帰還時刻の補題](#lem-sp5-large-returns)から $n\ge N$ なら $p^{(n)}(o,o)>0$ です。
+
+有限個の $i,j$ の組に対して一つの整数
+
+$$
+m\ge1+\max_{i,j\in S}(a_i+b_j+N)
+$$
+
+を選べば、$m-a_i-b_j\ge N$ です。従って [Chapman–Kolmogorov の式](../../STO/STO2A/index.md#eq-sto2a-chapman-kolmogorov)を二回適用すると
+
+$$
+p^{(m)}(i,j)\ge
+p^{(a_i)}(i,o)\,
+p^{(m-a_i-b_j)}(o,o)\,
+p^{(b_j)}(o,j)>0.
+$$
+
+よってすべての状態対で同時に正になります。
+<!-- proof-end -->
+
+$s=|S|$ と置き、正の値の有限個の最小値を $\varepsilon_0=\min_{i,j}p^{(m)}(i,j)>0$ とします。$\alpha=s\varepsilon_0$ とすると各行の和が $1$ なので $0<\alpha\le1$ です。一様分布 $u_j=1/s$ に対して
+
+$$
+p^{(m)}(i,j)\ge\varepsilon_0=\alpha u_j
+$$
+
+が、**出発状態 $i$ に関係なく**成立します。すなわち、$m$ 歩後の分布には共通の割合 $\alpha$ の一様分布が含まれます。
+
+## 5. 結合による収束定理
+
+$K=P^m$ とします。$0<\alpha<1$ なら
+
+$$
+K(i,j)=\alpha u_j+(1-\alpha)R(i,j),
+\qquad R(i,j)=\frac{K(i,j)-\alpha u_j}{1-\alpha}
+$$
+
+と分解できます。$R(i,j)\ge0$ であり、$\sum_j R(i,j)=(1-\alpha)/(1-\alpha)=1$ なので $R$ も行確率行列です。$\alpha=1$ なら $K(i,j)=u_j$ であり、出発状態は $m$ 歩で完全に忘れられます。
+
+<a id="thm-sp5-finite-convergence"></a>
+
+<!-- formal-statement-start -->
+> **定理（有限既約非周期 Markov 連鎖の収束）**  
+> 空でない有限状態空間 $S$ 上の時間一様 Markov 連鎖の遷移行列 $P$ が既約非周期なら、一意の不変確率分布 $\pi$ が存在し、すべての $i\in S$ について $\pi_i>0$ である。さらにある整数 $m\ge1$ と $\alpha\in(0,1]$ が存在し、任意の初期分布 $\mu$、整数 $n\ge0$ に対して
+
+$$
+\|\mu P^n-\pi\|_{\mathrm{TV}}
+\le(1-\alpha)^{\lfloor n/m\rfloor}
+$$
+
+> が成立する。指数 $0$ のとき右辺を $1$ と読み、$\alpha=1$ かつ指数が正のとき右辺を $0$ と読む。特に $\mu P^n$ は $\pi$ に全変動距離で収束する。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+不変分布の存在・一意性は [SP4 の正再帰・不変分布の定理](../SP4/index.md#thm-sp4-positive-recurrence-characterization)と[有限既約連鎖の定理](../SP4/index.md#thm-sp4-finite-irreducible)から従います。新しい部分は収束です。$m$ 歩ごとに二本の連鎖を比べ、割合 $\alpha$ で同じ一様乱数の値に移して一致させます。一度一致したら、共通乱数で一致を保てます。
+
+<!-- proof-start -->
+### 証明
+
+有限既約性から [SP4 の有限既約連鎖定理](../SP4/index.md#thm-sp4-finite-irreducible)によって正再帰です。[SP4 の正再帰性と不変分布の同値](../SP4/index.md#thm-sp4-positive-recurrence-characterization)から一意の不変確率分布 $\pi$ があり、各 $\pi_i>0$ です。
+
+[一様な正値性](#thm-sp5-eventual-positivity)から $m,\alpha,u,R$ を直前の通りに選びます。$m$ 歩ごとの二本の連鎖を一方の初期分布 $\mu$、もう一方の初期分布 $\pi$ で始めます。
+
+$0<\alpha<1$ の場合、二本が状態 $i,k$ で**異なる**とき、確率 $\alpha$ で同じ $u$ 分布の値 $J$ を使って両方を $J$ へ移します。それ以外は二本をそれぞれ $R(i,\cdot),R(k,\cdot)$ に従って移します。各周辺分布は
+
+$$
+\alpha u_j+(1-\alpha)R(i,j)=K(i,j),
+\quad
+\alpha u_j+(1-\alpha)R(k,j)=K(k,j)
+$$
+
+なので、もとの $m$ 歩遷移を保っています。すでに二本が同じ状態なら、一つの $K(i,\cdot)$ の値を共有して次も一致させます。
+
+$k$ ブロック後に二本が異なる事象を $D_k$ とすると、異なる場合でも共通成分を選べば必ず一致するので
+
+$$
+P(D_{k+1})\le(1-\alpha)P(D_k),
+\qquad
+P(D_k)\le(1-\alpha)^k.
+$$
+
+[結合不等式](#lem-sp5-coupling-inequality)を適用します。他方の周辺分布は不変性から $\pi K^k=\pi$ なので、
+
+$$
+\|\mu P^{mk}-\pi\|_{\mathrm{TV}}
+\le P(D_k)\le(1-\alpha)^k.
+$$
+
+$n=mk+r$、$0\le r<m$ と書けば、[全変動距離の遷移縮小](#prop-sp5-tv-contraction)を $r$ 回適用して
+
+$$
+\begin{aligned}
+\|\mu P^{mk+r}-\pi\|_{\mathrm{TV}}
+&=\|(\mu P^{mk})P^r-\pi P^r\|_{\mathrm{TV}}\\
+&\le\|\mu P^{mk}-\pi\|_{\mathrm{TV}}
+\le(1-\alpha)^k.
+\end{aligned}
+$$
+
+$\alpha=1$ では全 $i$ で $K(i,\cdot)=u$ なので最初のブロックで確実に一致させられ、$k\ge1$ なら距離は $0$ です。$k=0$ なら全変動距離は高々 $1$。以上からどの場合も $n\to\infty$ で右辺は $0$ となります。
+<!-- proof-end -->
+
+周期性が残ると、この証明の共通正値成分を作れません。
+
+<a id="prop-sp5-periodic-obstruction"></a>
+
+<!-- formal-statement-start -->
+> **命題（周期的既約連鎖の非収束）**  
+> 空でない有限状態空間上の時間一様既約 Markov 連鎖が周期 $d>1$ を持ち、その一意の不変確率分布が $\pi$ であるとする。任意の状態 $i$ と、$d$ で割り切れない任意の整数 $n\ge1$ について
+
+$$
+\|\delta_iP^n-\pi\|_{\mathrm{TV}}\ge\pi_i>0
+$$
+
+> である。従って $\delta_iP^n$ は $\pi$ に収束しない。
+<!-- formal-statement-end -->
+
+<!-- proof-start -->
+### 証明
+
+$d=\gcd R_i$ なので、$d$ で割り切れない $n$ では $p^{(n)}(i,i)=0$ です。[SP4 の正再帰・不変分布定理](../SP4/index.md#thm-sp4-positive-recurrence-characterization)から $\pi_i>0$ であり、全変動距離の事象 $A=\{i\}$ を取ると
+
+$$
+\|\delta_iP^n-\pi\|_{\mathrm{TV}}\ge
+|p^{(n)}(i,i)-\pi_i|=\pi_i.
+$$
+
+$d\nmid n$ となる正整数は無限にあるため、距離は $0$ に収束しません。
+<!-- proof-end -->
+
+交互二状態連鎖 $P=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ は周期 $2$、不変分布 $(1/2,1/2)$ を持ちますが、$\delta_0P^{2k}=\delta_0$、$\delta_0P^{2k+1}=\delta_1$ で、いずれも不変分布からの全変動距離は $1/2$ です。
+
+## 6. 混合時間と二状態連鎖
+
+収束が分かっても、実際に必要な歩数は別問題です。初期状態のうち収束が最も遅いものを基準にします。
+
+<a id="def-sp5-mixing-time"></a>
+
+<!-- formal-statement-start -->
+> **定義（混合時間）**  
+> 空でない有限状態空間 $S$ 上の既約非周期 Markov 連鎖の遷移行列を $P$、その一意の不変確率分布を $\pi$ とする。$0<\eta<1$ に対し
+
+$$
+d(n)=\max_{i\in S}\|\delta_iP^n-\pi\|_{\mathrm{TV}},
+\qquad
+t_{\mathrm{mix}}(\eta)
+=\min\{n\ge0:d(n)\le\eta\}
+$$
+
+> を最悪初期状態からの距離と精度 $\eta$ の**混合時間**という。
+<!-- formal-statement-end -->
+
+[収束定理](#thm-sp5-finite-convergence)から混合時間は有限です。そこで得られた $m,\alpha$ で $0<\alpha<1$ なら
+
+$$
+t_{\mathrm{mix}}(\eta)
+\le m\left\lceil\frac{\log\eta}{\log(1-\alpha)}\right\rceil;
+$$
+
+$\alpha=1$ なら $t_{\mathrm{mix}}(\eta)\le m$ です。共通成分 $\alpha$ の下界は粗いこともあり、この式は必ずしも鋭い評価ではありません。
+
+<!-- definition-example-start: def-sp5-mixing-time -->
+### 直接例：二状態連鎖の正確な距離
+
+$0<a,b<1$ とし、
+
+$$
+P=\begin{pmatrix}1-a&a\\b&1-b\end{pmatrix}.
+$$
+
+両向きの遷移と各状態の自己ループが正確率なので既約非周期です。不変方程式から $a\pi_0=b\pi_1$、$\pi_0+\pi_1=1$、従って
+
+$$
+\pi=\left(\frac b{a+b},\frac a{a+b}\right).
+$$
+
+$u_n=(\mu P^n)_0$ とすると、次の一歩を場合分けして
+
+$$
+u_{n+1}=(1-a)u_n+b(1-u_n)=b+(1-a-b)u_n.
+$$
+
+不変分布の第0成分も $\pi_0=b+(1-a-b)\pi_0$ を満たすので、差を取ると
+
+$$
+u_n-\pi_0=(1-a-b)^n(\mu_0-\pi_0).
+$$
+
+二状態では全変動距離が一成分の差の絶対値と一致するため、
+
+$$
+\|\mu P^n-\pi\|_{\mathrm{TV}}
+=|1-a-b|^n|\mu_0-\pi_0|.
+$$
+
+$a=1/5$、$b=3/10$ なら $\pi=(3/5,2/5)$、$|1-a-b|=1/2$ です。最悪初期状態は $1$ なので $d(n)=(3/5)2^{-n}$。従って $d(2)=3/20>1/10$、$d(3)=3/40<1/10$ から $t_{\mathrm{mix}}(1/10)=3$ です。
+<!-- definition-example-end -->
+
