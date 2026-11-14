@@ -182,16 +182,16 @@ $$
 
 密度が $1000\,\mathrm{kg/m^3}$ なら直径 $2R$、平均速度 $\bar w$ を代表尺度とした[Reynolds 数](../../CTM/CTM16/index.md#def-ctm16-reynolds)は $\rho\bar w(2R)/\eta=200$ となる。ただし Reynolds 数だけで入口長さや境界の乱れを検査せず、任意の装置にこの厳密分布を当てはめてよいわけではない。
 
-解析式を単なる図の形として信じないため、次の検算では円環を細分した Simpson 積分と壁面での差分微分を使って、流量、壁面力、散逸を独立に照合する。刻み数を増やしたときの収束を確かめられる。どの式を数値化したかは[検算用 Python ソース](laminar_check.py)で確認できる。ブラウザでも同じファイルをそのまま実行できる。
+解析式を単なる図の形として信じないため、次の検算では円環を細分した Simpson 積分と壁面での差分微分を使って、流量、壁面力、散逸を独立に照合する。刻み数を増やしたときの収束を確かめられる。どの式を数値化したかは[検算用 Python ソース](laminar_check.py)で確認できる。ブラウザでも同じファイルをそのまま実行できる。 実行欄では数値検算と併せ、円管の軸方向速度 $w(r)$ と円筒間の周方向速度 $v_\theta(r)$ を実際の半径に対して描く。どちらも横軸は半径（mm）、縦軸は速度（m/s）で、黒い点が中心または壁面の境界条件を示す。前者は放物線型、後者は $Ar+B/r$ の形であり、同じ形の曲線と誤解しないこと。ローカルでは `--plot` を付けない限り Matplotlib は不要である。
 
 ```python-file-lab
 # lab-id: FLUID16-LAMINAR-CHECK
 # lab-title: 円管流量と円筒トルクの独立数値検算
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID16/laminar_check.py
 # timeout-ms: 10000
-# lab-preset: 円管の流量・せん断・仕事 | --case pipe --n 512
-# lab-preset: 回転円筒の壁面トルク・散逸 | --case couette --n 512
-# lab-preset: 両流れを高精度で検算 | --case both --n 1024
+# lab-preset: 円管の流量・せん断・仕事 | --case pipe --n 512 --plot
+# lab-preset: 回転円筒の壁面トルク・散逸 | --case couette --n 512 --plot
+# lab-preset: 両流れを高精度で検算 | --case both --n 1024 --plot
 ```
 
 ## 3. 圧力の仕事が粘性散逸に変わる
