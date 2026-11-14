@@ -1,0 +1,47 @@
+id: "U3-30"
+title: "Itô–Taylor 展開・高次法・安定性"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-29, STO7]
+official_scope: []
+learning_objectives:
+  - 反復 Itô 積分 I11・I111・I01・I10 を積分順序と重み付きで定義し、分散と追加乱数の必要性を示せる
+  - Itô 公式から反復積分の Hermite 表示と混合積分の同時正規分布を導ける
+  - スカラー Itô–Taylor 展開における L0・L1・混合積分の役割と局所評価の境界を説明できる
+  - ドリフトなし GBM の三次 Hermite 法を実装し有限刻み強 MSE と強3/2次を再計算できる
+  - 滑らかな多項式支払の弱誤差と不連続 payoff での外挿制限を区別できる
+  - Itô 方程式への無補正 predictor–corrector の弱不整合を期待値で証明できる
+  - 線形 SDE に対する EM と Milstein の平均二乗増幅率・安定刻み範囲を導ける
+  - Python で同一路強誤差と独立標本誤差・安定性を区別して検証できる
+definitions:
+  - { id: U3-30-DEF-01, name: "重み付き反復 Itô 積分" }
+  - { id: U3-30-DEF-02, name: "Itô–Taylor の微分作用素" }
+  - { id: U3-30-DEF-03, name: "ドリフトなし GBM の三次 Hermite 更新" }
+  - { id: U3-30-DEF-04, name: "平均二乗漸近安定性" }
+theorems:
+  - { id: U3-30-PROP-01, name: "反復積分の Hermite 表示と混合積分" }
+  - { id: U3-30-PROP-02, name: "スカラー Itô–Taylor の重み3/2までの項" }
+  - { id: U3-30-PROP-03, name: "三次 Hermite 法の有限刻み強 MSE と正確な次数" }
+  - { id: U3-30-PROP-04, name: "Itô 方程式への無補正 Heun 更新は平均が一致しない" }
+  - { id: U3-30-PROP-05, name: "線形 SDE の厳密解・EM・Milstein の平均二乗安定領域" }
+canonical_examples:
+  - "h=1/4 の I11 と I01 の分散、および Z と独立な混合積分乱数"
+  - "ドリフトなし GBM の三次 Hermite 法と正規指数積率による有限刻み強 MSE"
+  - "無補正 Heun の平均が s0 exp(sigma²T/2) に偏る反例"
+  - "lambda=-1, nu=1 で EM の安定上限1年と Milstein の上限2/3年を比較"
+  - "固定 seed の同一路 EM・Milstein・三次法の誤差と安定性の Python 再現実験"
+problem_patterns:
+  - U3-30-A1
+  - U3-30-A2
+  - U3-30-A3
+  - U3-30-A4
+  - U3-30-A5
+  - U3-30-B1
+  - U3-30-B2
+  - U3-30-B3
+  - U3-30-B4
+  - U3-30-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
