@@ -161,7 +161,7 @@ $X=x$ に固定すると call が正になるのは $k<x$ です。**まず stri
 <!-- proof-start -->
 ### 証明
 
-非負支払額より Tonelli を適用して
+非負支払額の積分順序は [Tonelli の定理](../../../解析系/F0/F0-00D2C/index.md#thm-tonelli) で交換でき、
 
 $$
 \begin{aligned}
@@ -175,7 +175,7 @@ e^X\frac{e^{\alpha X}}{\alpha}
 \end{aligned}
 $$
 
-$|e^{iuk}|=1$ なので、この評価は複素被積分関数の二重積分の絶対可積分性も与えます。Fubini で積分と期待値を交換します。固定した $x$ に対し $p=\alpha+iu$ と置けば $\operatorname{Re}p=\alpha>0$ であり、
+$|e^{iuk}|=1$ なので、この評価は複素被積分関数の二重積分の絶対可積分性も与えます。絶対可積分なので [Fubini の定理](../../../解析系/F0/F0-00D2C/index.md#thm-f0-00d2c-02) により積分と期待値を交換します。固定した $x$ に対し $p=\alpha+iu$ と置けば $\operatorname{Re}p=\alpha>0$ であり、
 
 $$
 \begin{aligned}
@@ -189,7 +189,7 @@ $$
 
 $E_Q[e^{(\alpha+1+iu)X}]=\varphi_X(u-i(\alpha+1))$ を代入すると主張の変換公式です。
 
-連続性も確認します。$k_n\to k$ として支払額 $(e^X-e^{k_n})_+\to(e^X-e^k)_+$ は各標本で連続です。$k_n$ を有界区間に制限すれば支払額は $e^X+e^{\sup k_n}$ 以下、これは $E[e^X]<\infty$ によって可積分です。優収束定理と $e^{\alpha k_n}\to e^{\alpha k}$ から $c_\alpha(k_n)\to c_\alpha(k)$ です。
+連続性も確認します。$k_n\to k$ として支払額 $(e^X-e^{k_n})_+\to(e^X-e^k)_+$ は各標本で連続です。$k_n$ を有界区間に制限すれば支払額は $e^X+e^{\sup k_n}$ 以下、これは $E[e^X]<\infty$ によって可積分です。[優収束定理](../../../解析系/F0/F0-00D2B/index.md#thm-f0-00d2b-01)と $e^{\alpha k_n}\to e^{\alpha k}$ から $c_\alpha(k_n)\to c_\alpha(k)$ です。
 <!-- proof-end -->
 
 <a id="thm-u3-38-fourier-price"></a>
