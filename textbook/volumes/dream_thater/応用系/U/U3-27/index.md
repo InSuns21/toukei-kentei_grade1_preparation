@@ -151,7 +151,7 @@ $$
 ここで第2行は Brown 増分 $W_t-W_{t_j}\sim N(0,t-t_j)$ の分散を代入した結果です。従って $H^{(m)}\to W$ は $L^2(P\otimes dt)$ で成立し、同じ二乗平均誤差を得ます。
 <!-- proof-end -->
 
-**実験の読み方**：$m$ を4倍にすると、二乗平均誤差（Mean Squared Error; MSE）は4分の1、二乗平均平方根誤差（Root Mean Squared Error; RMSE）は半分になります。
+**実験の読み方**：$m$ を4倍にすると、平均二乗誤差（Mean Squared Error; MSE）は4分の1、二乗平均平方根誤差（Root Mean Squared Error; RMSE）は半分になります。
 
 ただし単一の標本路の実現誤差が必ず半分になるわけではありません。$E[L_m-I]=0$ であっても、各標本路で $L_m=I$ とは限りません。
 
