@@ -11,7 +11,7 @@ concepts:
     name: 正規状態の支持射影
     kind: definition
     introduction: formal
-    requires: [aqft.hs-modular-formulas]
+    requires: [aqft.hs-faithful-density]
   - id: aqft.support-inclusion-criterion
     name: 有限次元における支持包含の判定
     kind: proposition
