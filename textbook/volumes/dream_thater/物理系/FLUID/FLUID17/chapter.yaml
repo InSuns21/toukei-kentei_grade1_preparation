@@ -1,0 +1,46 @@
+id: "FLUID17"
+title: "壁が急に動くと運動量はどう広がるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID16
+  - CTM15
+official_scope: []
+learning_objectives:
+  - "非圧縮一方向非定常速度場で対流項が厳密に零になることを成分で示し、粘性拡散式を導く"
+  - "Stokes 第一問題の不連続な壁始動と初期条件を区別し、相似変数から相補誤差関数解を導く"
+  - "速度閾値厚さの定義と平方根時間則を示し、壁面力と流体全運動量の収支を検算する"
+  - "Stokes 第二問題の単一周波数周期解を複素振幅から導き、位相と減衰長を計算する"
+  - "周期壁面せん断力、平均入力仕事、粘性散逸を計算し、周期解と突然の振動開始を区別する"
+  - "前進Euler差分の安定条件・格子細分化・解析解との誤差をブラウザ内Pythonで検証する"
+definitions:
+  - { id: FLUID17-DEF-01, name: "Stokes 第一問題" }
+  - { id: FLUID17-DEF-04, name: "相補誤差関数" }
+  - { id: FLUID17-DEF-02, name: "第一問題の速度閾値厚さ" }
+  - { id: FLUID17-DEF-03, name: "Stokes 第二問題の周期応答" }
+theorems:
+  - { id: FLUID17-THM-01, name: "Stokes 第一問題の相似拡散解" }
+  - { id: FLUID17-THM-02, name: "第一問題の壁面せん断力と運動量収支" }
+  - { id: FLUID17-THM-03, name: "Stokes 第二問題の振動境界層" }
+  - { id: FLUID17-PROP-01, name: "振動壁のせん断力と一周期平均の散逸" }
+canonical_examples:
+  - "境界条件を満たしても拡散方程式を満たさない指数候補"
+  - "粘度1e-6m2/sの1秒後、2mm位置の急発進速度"
+  - "1Hzでの振動浸透深さと位相の数値検算"
+  - "周期解のt=0の非零速度が静止初期値と矛盾する例"
+  - "格子更新の最大値安定条件と解析誤差の収束"
+problem_patterns:
+  - FLUID17-UNSTEADY-REDUCTION
+  - FLUID17-ERFC-DERIVATIVE
+  - FLUID17-PENETRATION-SCALE
+  - FLUID17-WALL-TRACTION-SIGN
+  - FLUID17-HARMONIC-AMPLITUDE
+  - FLUID17-SIMILARITY-ODE
+  - FLUID17-IMPULSE-MOMENTUM
+  - FLUID17-COMPLEX-DECAY
+  - FLUID17-PERIOD-WORK-DISSIPATION
+  - FLUID17-STEP-HARMONIC-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
