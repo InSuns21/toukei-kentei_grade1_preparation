@@ -168,6 +168,18 @@ $$
 
 密度が $1000\,\mathrm{kg/m^3}$ なら直径 $2R$、平均速度 $\bar w$ を代表尺度とした[Reynolds 数](../../CTM/CTM16/index.md#def-ctm16-reynolds)は $\rho\bar w(2R)/\eta=200$ となる。ただし Reynolds 数だけで入口長さや境界の乱れを検査せず、任意の装置にこの厳密分布を当てはめてよいわけではない。
 
+解析式を単なる図の形として信じないため、次の検算では円環を細分した Simpson 積分と壁面での差分微分を使って、流量、壁面力、散逸を独立に照合する。刻み数を増やしたときの収束を確かめられる。どの式を数値化したかは[検算用 Python ソース](laminar_check.py)で確認できる。ブラウザでも同じファイルをそのまま実行できる。
+
+```python-file-lab
+# lab-id: FLUID16-LAMINAR-CHECK
+# lab-title: 円管流量と円筒トルクの独立数値検算
+# lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID16/laminar_check.py
+# timeout-ms: 10000
+# lab-preset: 円管の流量・せん断・仕事 | --case pipe --n 512
+# lab-preset: 回転円筒の壁面トルク・散逸 | --case couette --n 512
+# lab-preset: 両流れを高精度で検算 | --case both --n 1024
+```
+
 ## 3. 圧力の仕事が粘性散逸に変わる
 
 定常で速度場が変わらないからといって、壁の摩擦が仕事をしないわけではない。圧力源は流体に単位時間当たり $\Delta p\,Q$ の仕事を供給し、その分だけ粘性応力がエネルギーを散逸させる。既習の[粘性散逸式](../../CTM/CTM15/index.md#thm-ctm15-viscous-dissipation)では体積当たり $2\eta D:D$ が散逸率である。
