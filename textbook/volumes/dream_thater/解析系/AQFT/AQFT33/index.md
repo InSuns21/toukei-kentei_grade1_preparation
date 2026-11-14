@@ -8,6 +8,8 @@
 
 $\mathcal N\subset\mathcal M$ を**単位元を共有する**von Neumann環の包含とします。$\rho,\sigma$ は $\mathcal M$ の正規状態です。$\rho|_{\mathcal N}$ は $A\in\mathcal N$ に $\rho(A)$ を対応させる状態であり、正規性は制限後も保たれます。$\mathcal N$ の観測量しか使わない者には、$\mathcal M$ で異なる状態さえ同一に見えることがあります。
 
+有限次元では、正半定値でトレース1の密度行列 $D$ は $\omega_D(A)=\operatorname{Tr}(DA)$ という正規状態を定めます（[AQFT31の密度行列表示](../AQFT31/index.md#def-aqft31-support)）。以下の二準位例では、状態とその密度行列を同じ $\rho,\sigma$ で記します。
+
 たとえば $\mathcal M=M_2(\mathbb C)$、$\mathcal N$ を対角行列の環とし、
 
 $$
@@ -16,7 +18,7 @@ $$
 \sigma=\begin{pmatrix}1/2&-1/4\\-1/4&1/2\end{pmatrix}
 $$
 
-とします。両者の固有値は $3/4,1/4$ で、正定値・トレース1です。非対角成分は違いますが、対角観測量 $A=\operatorname{diag}(a,b)$ については
+とします。$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ と置くと $X^2=I$ で、$\rho=I/2+X/4$、$\sigma=I/2-X/4$ です。従って $X$ の固有値 $\pm1$ に対応して両密度行列の固有値は $3/4,1/4$ となり、正定値・トレース1です。この固有値判定によって状態の正値性・規格化も確認できます。非対角成分は違いますが、対角観測量 $A=\operatorname{diag}(a,b)$ については
 
 $$
 \operatorname{Tr}(\rho A)
@@ -159,7 +161,9 @@ $$
 \rho(B)=\rho(A),\qquad
 \rho(B^*B)=\rho(A^*A),\qquad
 BB^*=ApA^*.
-$$
+$
+
+第2式は $\rho(B^*B)=\|Ap\xi_\rho\|^2=\|A\xi_\rho\|^2=\rho(A^*A)$ と展開して確かめられます。ここで $p\xi_\rho=\xi_\rho$ を用いました。
 
 したがって
 
@@ -308,7 +312,7 @@ $$
 \le\sigma(s(\rho))\le1.
 $$
 
-従って負部分は絶対可積分で、Fubiniの定理を適用できます。両部分を合わせると
+従って負部分は絶対可積分で、[Fubiniの定理](../../F0/F0-00D2C/index.md#thm-f0-00d2c-02)を適用できます。両部分を合わせると
 
 $$
 \begin{aligned}
@@ -322,7 +326,7 @@ $$
 ここで $-\log0:=+\infty$ です。入力スペクトルの零重みは、[AQFT31の支持を含む拡張定義](../AQFT31/index.md#def-aqft31-relative-entropy-extended)により、支持包含が破れたときの $+\infty$ と一致します。支持包含があるときは零重みがなく正スペクトル上の積分と一致します。よって全ての場合に拡張相対エントロピーが得られます。負部分が有限なので $+\infty-\infty$ の不定形は生じません。
 <!-- proof-end -->
 
-**極限の読み方。** 各 $s>0$ の $R(s)$ は有限です。しかし $s\downarrow0$ で積分が発散することはあります。零固有値の重みがある場合の $1/s$ 型発散と、正固有値が0へ集積する場合の非可積分性を混同しません。**忠実化した状態列の相対エントロピーの収束**を仮定する必要はありません。
+**極限の読み方。** 各 $s>0$ の $R(s)$ は有限です。さらに変分式で $A=I/(1+s)$ を試せば $R(s)\ge 1/(1+s)$ であり、積分後の被積分関数は非負です。一方、個々のスペクトル値 $a>1$ では $h_s(a)<0$ なので、上記の積分順序交換には負部分の可積分性の確認が必要です。しかし $s\downarrow0$ で積分が発散することはあります。零固有値の重みがある場合の $1/s$ 型発散と、正固有値が0へ集積する場合の非可積分性を混同しません。**忠実化した状態列の相対エントロピーの収束**を仮定する必要はありません。
 
 ## 5. Araki相対エントロピーの単調性
 
@@ -383,7 +387,13 @@ $$
 =\begin{pmatrix}0&1/8\\-1/8&0\end{pmatrix}\ne0.
 $$
 
-$\sigma$ の固有値は $3/4,1/4$ で、$\log\sigma$ の対角成分はどちらも $\tfrac12(\log(3/4)+\log(1/4))$ です。[AQFT30の有限次元還元](../AQFT30/index.md#thm-aqft30-finite-reduction)から
+$X=\begin{pmatrix}0&1\\1&0\end{pmatrix}$、$P_\pm=(I\pm X)/2$ と置きます。$X^2=I$ より $P_\pm$ は直交射影で、$P_++P_-=I$、$\sigma=(3/4)P_++(1/4)P_-$ です。従ってスペクトル関数計算によって
+
+$
+\log\sigma=\log(3/4)P_++\log(1/4)P_-
+$
+
+となります。$(P_\pm)_{11}=(P_\pm)_{22}=1/2$ なので、$\log\sigma$ の対角成分はどちらも $\tfrac12(\log(3/4)+\log(1/4))$ です。[AQFT30の有限次元還元](../AQFT30/index.md#thm-aqft30-finite-reduction)から
 
 $$
 \begin{aligned}
@@ -594,7 +604,19 @@ R_{\mathcal N}(s)=\sup_{A\in\mathcal N}F_s(A)
 \le\sup_{A\in\mathcal M}F_s(A)=R_{\mathcal M}(s).
 $$
 
-ただし $R(s)-1/(1+s)$ は各 $s$ で常に非負とは限りません。符号が変わり得るため、[対数積分補題](#lem-aqft33-log-resolvent)に従いスペクトル変数 $a\le1$ と $a>1$ を分け、後者の絶対積分を一次モーメントで抑えてから積分の順序を保つ必要があります。
+各 $s>0$ で $R(s)-1/(1+s)$ 自体は**非負**です。実際、変分式で $A=I/(1+s)$ を試すと、両状態の規格化から
+
+$
+\begin{aligned}
+R(s)&\ge 2\operatorname{Re}\rho\!\left(\frac{I}{1+s}\right)
+-\sigma\!\left(\frac{I}{(1+s)^2}\right)
+-s\rho\!\left(\frac{I}{(1+s)^2}\right)\\
+&=\frac{2}{1+s}-\frac{1+s}{(1+s)^2}
+=\frac1{1+s}.
+\end{aligned}
+$
+
+ただし、[対数積分補題](#lem-aqft33-log-resolvent)の**スペクトル積分核** $h_s(a)$ は $a\le1$ で非負、$a>1$ で負です。$R(s)-1/(1+s)$ の非負性だけでは、$s$ と $a$ の積分順序を無条件に交換できません。後者の絶対積分を一次モーメントで抑えてから積分順序を交換する必要があります。
 <!-- solution-end -->
 
 ### Level C：一般性と局所情報の統合
