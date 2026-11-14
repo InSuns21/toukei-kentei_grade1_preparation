@@ -2,7 +2,7 @@ id: "U4-12"
 title: "単位根検定とその限界"
 volume: "foundations"
 status: supplementary
-prerequisites: [U4-11, TSA1, STO4, F0-00P4]
+prerequisites: [U4-11, TSA1, STO4, F0-00P4, F0-00P6]
 official_scope: []
 learning_objectives:
   - AR(1) の単位根・安定性・局所単位根を区別し階差回帰の係数を計算できる
