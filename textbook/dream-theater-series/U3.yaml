@@ -42,7 +42,7 @@ chapters:
   - { id: U3-36, path: textbook/volumes/dream_thater/応用系/U/U3-36, status: completed, title: "Least-squares Monte Carlo で American を評価" }
   - { id: U3-37, path: textbook/volumes/dream_thater/応用系/U/U3-37, status: completed, title: "Monte Carlo Greeks と手法横断ベンチマーク" }
   - { id: U3-38, path: textbook/volumes/dream_thater/応用系/U/U3-38, status: completed, title: "Fourier／特性関数による価格付け" }
-  - { id: U3-39, path: textbook/volumes/dream_thater/応用系/U/U3-39, status: planned, title: "インプライド・ボラティリティと校正" }
+  - { id: U3-39, path: textbook/volumes/dream_thater/応用系/U/U3-39, status: completed, title: "インプライド・ボラティリティと校正" }
   - { id: U3-40, path: textbook/volumes/dream_thater/応用系/U/U3-40, status: planned, title: "局所ボラティリティ・確率ボラティリティ" }
   - { id: U3-41, path: textbook/volumes/dream_thater/応用系/U/U3-41, status: planned, title: "ジャンプ拡散と非完備市場" }
   - { id: U3-42, path: textbook/volumes/dream_thater/応用系/U/U3-42, status: planned, title: "金利曲線・債券・短期金利モデル" }
