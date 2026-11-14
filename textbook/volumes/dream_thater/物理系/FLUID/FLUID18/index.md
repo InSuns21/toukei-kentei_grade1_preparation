@@ -27,7 +27,7 @@ $$
 **定義の確認**：水の目安 $\rho=10^3\,\mathrm{kg/m^3}$、$\eta=10^{-3}\,\mathrm{Pa\,s}$、球半径 $a=10^{-3}\,\mathrm m$、相対速度 $U=10^{-5}\,\mathrm{m/s}$ なら、$\rho Ua/\eta=10^3\cdot10^{-5}\cdot10^{-3}/10^{-3}=0.01$、直径基準では $0.02$ となる。単位は $(\mathrm{kg/m^3})(\mathrm{m/s})\mathrm m/(\mathrm{kg/(m\,s)})=1$ である。
 <!-- definition-example-end -->
 
-低 Reynolds 数で定常・滑らかな流れを球の大きさ程度の距離で考えれば、移流項が粘性項より小さい。時間微分もなくした**定常 Stokes 近似**では、[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)の $\rho(v\cdot\nabla)v$ を落とす。遠く離れた領域まで一様に正確という意味ではないことを、最後に確かめる。
+低 Reynolds 数で定常・滑らかな流れを球の大きさ程度の距離で考えれば、移流項が粘性項より小さい。時間微分もなくした**定常 Stokes 近似**では、[条件付き低 Reynolds 数極限](../../CTM/CTM16/index.md#thm-ctm16-low-re-stokes)の尺度判断に従い、[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)の $\rho(v\cdot\nabla)v$ を落とす。これは定常性に加え、代表尺度で速度・その勾配が有界に保たれ、移流が増幅されないという条件を使う。遠く離れた領域まで一様に正確という意味ではないことを、最後に確かめる。
 
 ここでは球の中心を通る $z$ 軸の周りで場の成分法則が変わらない**軸対称**の流れを考え、さらに軸を取り巻く周方向速度を零とする。これは回転する球の周方向の流れを考えないという条件であり、全ての Stokes 解に自動的に成り立つと先取りするのではない。
 
@@ -41,7 +41,7 @@ $$
 -\nabla p+\eta\Delta v=0,\qquad \nabla\cdot v=0 \quad (|x|>a)
 $$
 
-> を満たし、[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $v=0$ を $|x|=a$ で、遠方条件 $v(x)\to Ue_z$ と $p(x)\to p_\infty$ を $|x|\to\infty$ で満たすとする。$p_\infty$ は与えた基準圧力である。求める解は軸対称で、無限遠で速度差と圧力差が減衰し、速度勾配と応力も十分減衰するクラスに限る。
+> を満たし、[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $v=0$ を $|x|=a$ で、遠方条件 $v(x)\to Ue_z$ と $p(x)\to p_\infty$ を $|x|\to\infty$ で満たすとする。$p_\infty$ は与えた基準圧力である。求める解は軸対称・周方向速度零であり、$r=|x|\to\infty$ で $v-Ue_z=O(r^{-1})$、$p-p_\infty=O(r^{-2})$、$\nabla v=O(r^{-2})$ を満たすクラスに限る。応力の減衰とは、一定の等方応力 $-p_\infty I$ を除いた部分の減衰を指す。
 <!-- formal-statement-end -->
 
 この軸対称・無旋回のクラスで、球座標の $r=|x|$、$0\le\theta\le\pi$ を、$\theta=0$ が $+z$ 方向となるように取る。$e_r,e_\theta$ は、それぞれ球から外向きの単位方向と $\theta$ の増加方向の単位方向である。$Ue_z=U(\cos\theta\,e_r-\sin\theta\,e_\theta)$ だから、遠方条件の成分は $v_r\to U\cos\theta$、$v_\theta\to-U\sin\theta$ となる。
@@ -59,7 +59,7 @@ v_r=U f(r)\cos\theta,\qquad
 v_\theta=-U g(r)\sin\theta,\qquad v_\phi=0 .
 $$
 
-この形が先の[境界値問題](#def-fluid18-stokes-sphere)の解を構成できるかを確かめる。球座標の発散と回転の $\phi$ 成分は、この軸対称な場では
+ここで $f,g:(a,\infty)\to\mathbb R$ は半径 $r$ のみで変わる無次元関数とし、$f'=df/dr$、$f''=d^2f/dr^2$ と書く。一方、$\partial_r$ や $\partial_\theta$ は、他方の座標を固定した偏微分を表す。この形が先の[境界値問題](#def-fluid18-stokes-sphere)の解を構成できるかを確かめる。球座標の発散と回転の $\phi$ 成分は、この軸対称な場では
 
 $$
 \nabla\cdot v=\frac1{r^2}\partial_r(r^2v_r)
@@ -170,7 +170,14 @@ $$
 =\int_{\partial\{a<r<R\}} w\cdot(\tau n)\,dS .
 $$
 
-これは $\nabla\cdot\tau=0$ に $w$ を掛けて積分し、$\tau:\nabla w=2\eta D(w):D(w)$ とした恒等式である。内側境界では $w=0$。外側境界について $w=O(R^{-1})$、$\tau=O(R^{-2})$ など境界積分を零にする減衰を仮定したから、右辺は $O(R^{-1})\to0$。従って $D(w)=0$。各成分の対称勾配が零なら、$w$ は平行移動と回転を合わせた剛体速度場に限られ、無限遠の減衰から $w=0$。よって指定した減衰クラスで一意である。
+これは $\nabla\cdot\tau=0$ に $w$ を掛けて積分し、$\tau:\nabla w=2\eta D(w):D(w)$ とした恒等式である。内側境界では $w=0$。外側境界について $w=O(R^{-1})$、$\tau=O(R^{-2})$ など境界積分を零にする減衰を仮定したから、右辺は $O(R^{-1})\to0$。従って非負の積分が零なので $D(w)=0$。ここから剛体速度場だけが残ることも成分で確かめる。直交座標の添字 $i,j,k\in\{1,2,3\}$ について、$D_{ij}(w)=(\partial_iw_j+\partial_jw_i)/2=0$ を微分すると
+
+$
+\partial_i\partial_jw_k
+=\partial_iD_{jk}(w)+\partial_jD_{ik}(w)-\partial_kD_{ij}(w)=0.
+$
+
+従って全ての二階導関数が零である。連結な外部領域で $w(x)=b+Ax$（$b$ は定数ベクトル、$A$ は定数行列）となり、$D(w)=0$ は $A+A^{\mathsf T}=0$ を意味する。これは平行移動と剛体回転の速度場だが、$w(x)\to0$ を全方向で満たすには $A=0$ かつ $b=0$ が必要である。よって指定した減衰クラスで一意である。
 <!-- proof-end -->
 
 **見方**：赤道 $\theta=\pi/2$ では $v_r=0$、球面の接線速度も $v_\theta(a,\pi/2)=0$。これに対し非粘性の[FLUID15 の球面速度](../FLUID15/index.md#thm-fluid15-fixed-sphere)は無貫通だけを課すため赤道で一般に非零である。まさにこの差が、粘性による抵抗を生む。
@@ -205,7 +212,21 @@ $$
 \frac1r\partial_\theta p=\frac{3\eta Ua}{2r^3}\sin\theta .
 $$
 
-径方向を積分し、極角方向の式で積分「定数」の角度依存がないことを確かめ、無限遠で $p\to p_\infty$ とすれば次を得る。
+径方向の式を $r$ について積分すると
+
+$
+p(r,\theta)=-\frac{3\eta Ua}{2r^2}\cos\theta+C(\theta)
+$
+
+となる。$\theta$ を固定して積分したので、ここでの積分「定数」$C$ はまだ角度に依存してよい。これを極角方向の式へ代入すると
+
+$
+\frac1r\partial_\theta p
+=\frac{3\eta Ua}{2r^3}\sin\theta+\frac{C'(\theta)}r
+=\frac{3\eta Ua}{2r^3}\sin\theta
+$
+
+より $C'(\theta)=0$。さらに無限遠で $p\to p_\infty$ なので $C=p_\infty$ を得る。
 
 <a id="prop-fluid18-pressure"></a>
 
@@ -236,13 +257,19 @@ $r$ 微分は $\partial_r(-3\eta Ua\cos\theta/(2r^2))=3\eta Ua\cos\theta/r^3$。
 
 表面に局所的な力が生じても、全てが流れ方向へ向くわけではない。[Newton 応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian) $\sigma=-pI+2\eta D$ による、**流体が球へ加える**表面力密度を考える。
 
-球の外向き法線は $e_r$ である。流体領域 $\Omega$ の内側境界の外向き法線は $-e_r$ なので、流体が球へ及ぼす力は作用反作用によって $\sigma e_r$ となる。圧力からの $\sigma e_r$ は $-p e_r$、接線方向成分は $\sigma_{r\theta}e_\theta$ である。$e_r\cdot e_z=\cos\theta$、$e_\theta\cdot e_z=-\sin\theta$ に注意する。
+球の外向き法線は $e_r$ である。流体領域 $\Omega$ の内側境界の外向き法線は $-e_r$ なので、流体が球へ及ぼす力は作用反作用によって $\sigma e_r$ となる。一般に $\sigma e_r$ には、圧力 $-pe_r$ に加えて法線粘性応力 $2\eta D_{rr}e_r$ と接線粘性応力 $2\eta D_{\theta r}e_\theta$ がある。球座標では $D_{rr}=\partial_r v_r$ であり、[球の速度場](#thm-fluid18-stokes-sphere-velocity)を $r$ で微分すると
+
+$
+D_{rr}(a,\theta)=U\cos\theta\left(\frac{3a}{2a^2}-\frac{3a^3}{2a^4}\right)=0.
+$
+
+従って**この解では**法線粘性応力が消え、$\sigma e_r=-pe_r+\sigma_{r\theta}e_\theta$ となる（$\sigma_{r\theta}=2\eta D_{r\theta}$）。これは任意の Newton 流体で法線粘性応力が零という意味ではない。$e_r\cdot e_z=\cos\theta$、$e_\theta\cdot e_z=-\sin\theta$ に注意する。
 
 <a id="def-fluid18-drag-parts"></a>
 
 <!-- formal-statement-start -->
 > **定義（球に働く圧力抵抗・粘性抵抗）**  
-> [Stokes 球の応力場](#def-fluid18-stokes-sphere)において、$z$ 方向合力を、圧力由来の $F_p$ と粘性せん断由来の $F_\eta$ に分ける。球面の面積要素は $dS=a^2\sin\theta\,d\theta\,d\phi$ とし、
+> [球の速度場](#thm-fluid18-stokes-sphere-velocity)と[圧力場](#prop-fluid18-pressure)から[Newton 応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)を作る。球面上で法線粘性応力が零であることを用い、$z$ 方向合力を圧力由来の $F_p$ と粘性せん断由来の $F_\eta$ に分ける。球面の面積要素は $dS=a^2\sin\theta\,d\theta\,d\phi$ とし、
 
 $$
 F_p=\int_{|x|=a}(-p e_r)\cdot e_z\,dS,\qquad
@@ -254,7 +281,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid18-drag-parts -->
-**定義の確認**：仮に一定圧力 $p=p_\infty$ だけが球全体に作用するなら、$F_p=-2\pi a^2p_\infty\int_0^\pi\cos\theta\sin\theta\,d\theta=0$。球面では法線が場所ごとに異なるため、圧力が正でも合力は零になり得る。求める抗力には**圧力の角度依存**が必要である。
+**定義の確認**：仮に一定圧力 $p=p_\infty$ だけが球全体に作用するなら、$F_p=-2\pi a^2p_\infty\int_0^\pi\cos\theta\sin\theta\,d\theta=0$。球面では法線が場所ごとに異なるため、圧力が正でも合力は零になり得る。求める抗力には**圧力の角度依存**が必要である。また赤道 $\theta=\pi/2$ では、[速度場](#thm-fluid18-stokes-sphere-velocity)の $v_\theta=-Ug(r)\sin\theta$ を微分して $\partial_rv_\theta(a,\pi/2)=-3U/(2a)$ となる。無滑りから他の接線応力項が壁上で零なので、$\sigma_{r\theta}=-3\eta U/(2a)$、$e_\theta\cdot e_z=-1$ より粘性接線力の $z$ 成分は $+3\eta U/(2a)$ と確かめられる。面積分による全体の値は次の定理で求める。
 <!-- definition-example-end -->
 
 ![一様流が左から右へ流れる球と、球面の圧力・接線せん断・抗力の向き](assets/stokes-sphere-forces.svg)
