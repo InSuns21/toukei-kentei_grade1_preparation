@@ -15,3 +15,4 @@
 12. [U4-12 単位根検定とその限界](textbook/volumes/dream_thater/応用系/U/U4-12/index.md)
 13. [U4-13 2系列の共和分とEngle–Granger法](textbook/volumes/dream_thater/応用系/U/U4-13/index.md)
 14. [U4-14 多変量共和分と誤差修正表現](textbook/volumes/dream_thater/応用系/U/U4-14/index.md)
+15. [U4-15 統計残差を取引可能なspreadに変える](textbook/volumes/dream_thater/応用系/U/U4-15/index.md)
