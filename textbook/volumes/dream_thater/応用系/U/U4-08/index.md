@@ -311,7 +311,36 @@ E[(\sqrt{v_1}N_1+\sqrt{v_2}N_2)^2]
 =v_1+v_2.
 $$
 
-です。なぜこの分布から先ほどの [Black 価格関数](#def-u4-08-implied-total-variance) が出るのかも確かめます。$v>0$ で $X=\exp(-v/2+\sqrt v N)$、$N$ は標準正規とし、$k>0$ を固定します。$X>k$ の条件を $N>a$ へ書き直すと
+です。正規分布となることも $v_1,v_2>0$ なら密度から確かめられます。平均0で2次中心モーメント $v>0$ の正規密度を $g_v(u)=(2\pi v)^{-1/2}\exp(-u^2/(2v))$ と書きます。二つの独立な変数の値が $u$ と $y-u$ なら和が $y$ となり、この変数変換の絶対倍率は1です。従って、和 $Y=\sqrt{v_1}N_1+\sqrt{v_2}N_2$ の密度は
+
+$
+\begin{aligned}
+f_Y(y)
+&=\int_{-\infty}^{\infty}g_{v_1}(u)g_{v_2}(y-u)\,du,\\
+\frac{u^2}{v_1}+\frac{(y-u)^2}{v_2}
+&=\frac{v_1+v_2}{v_1v_2}
+\left(u-\frac{v_1y}{v_1+v_2}\right)^2
++\frac{y^2}{v_1+v_2}.
+\end{aligned}
+$
+
+この平方完成を密度積に代入します。1変数の正規密度の積分が1であることから、
+
+$
+\begin{aligned}
+f_Y(y)
+&=\frac{e^{-y^2/(2(v_1+v_2))}}{2\pi\sqrt{v_1v_2}}
+\int_{-\infty}^{\infty}
+\exp\left[-\frac{v_1+v_2}{2v_1v_2}
+\left(u-\frac{v_1y}{v_1+v_2}\right)^2\right]du\\
+&=\frac1{\sqrt{2\pi(v_1+v_2)}}
+e^{-y^2/(2(v_1+v_2))}=g_{v_1+v_2}(y).
+\end{aligned}
+$
+
+よって和は確かに正規分布です。$v_1=0$ または $v_2=0$ なら、その項は恒等的に0なので同じ結論が成立します。
+
+なぜこの分布から先ほどの [Black 価格関数](#def-u4-08-implied-total-variance) が出るのかも確かめます。$v>0$ で $X=\exp(-v/2+\sqrt v N)$、$N$ は標準正規とし、$k>0$ を固定します。$X>k$ の条件を $N>a$ へ書き直すと
 
 $$
 a=\frac{\log k+v/2}{\sqrt v}=-d_-,\qquad
