@@ -303,23 +303,31 @@ $$
 \log X_{T_2}=-\frac{v_1+v_2}2+\sqrt{v_1}N_1+\sqrt{v_2}N_2.
 $$
 
-独立な正規確率変数の和の性質から、後者も正規分布に従い、その分散は $v_1+v_2$ です。なぜこの分布から先ほどの [Black 価格関数](#def-u4-08-implied-total-variance) が出るのかも確かめます。$v>0$ で $X=\exp(-v/2+\sqrt v N)$、$N$ は標準正規とし、$k>0$ を固定します。$X>k$ の条件を $N>a$ へ書き直すと
+独立な標準正規確率変数の線形結合も正規分布となります。後者の対数について、平均からの偏差は $\sqrt{v_1}N_1+\sqrt{v_2}N_2$ です。独立性から $E[N_1N_2]=E[N_1]E[N_2]=0$、また $E[N_i^2]=1$ なので、2次中心モーメントは
+
+$
+E[(\sqrt{v_1}N_1+\sqrt{v_2}N_2)^2]
+=v_1E[N_1^2]+2\sqrt{v_1v_2}E[N_1N_2]+v_2E[N_2^2]
+=v_1+v_2.
+$
+
+です。なぜこの分布から先ほどの [Black 価格関数](#def-u4-08-implied-total-variance) が出るのかも確かめます。$v>0$ で $X=\exp(-v/2+\sqrt v N)$、$N$ は標準正規とし、$k>0$ を固定します。$X>k$ の条件を $N>a$ へ書き直すと
 
 $$
 a=\frac{\log k+v/2}{\sqrt v}=-d_-,\qquad
 \sqrt v-a=d_+
 $$
 
-です。ここで $\mathbb P$ はモデルの確率、$\mathbf{1}_{\{N>a\}}$ は $N>a$ のときだけ1となる指示関数です。正規密度の指数を平方完成すると $e^{-v/2+\sqrt v z}\phi(z)=\phi(z-\sqrt v)$ なので、
+です。受取額 $(X-k)_+$ は $N\le a$ で0、$N>a$ で $e^{-v/2+\sqrt vN}-k$ です。正規密度の指数を平方完成すると $e^{-v/2+\sqrt v z}\phi(z)=\phi(z-\sqrt v)$ なので、
 
 $$
 \begin{aligned}
 E[(X-k)_+]
-&=E[X\,\mathbf{1}_{\{N>a\}}]-k\mathbb P(N>a)\\
-&=\int_a^\infty e^{-v/2+\sqrt v z}\phi(z)\,dz-k\Phi(-a)\\
-&=\int_a^\infty\phi(z-\sqrt v)\,dz-k\Phi(d_-)\\
-&=\Phi(\sqrt v-a)-k\Phi(d_-)
-=b(k,v).
+&=\int_a^\infty (e^{-v/2+\sqrt v z}-k)\phi(z)\,dz\\
+&=\int_a^\infty\phi(z-\sqrt v)\,dz
+-k\int_a^\infty\phi(z)\,dz\\
+&=\Phi(\sqrt v-a)-k\Phi(-a)\\
+&=\Phi(d_+)-k\Phi(d_-)=b(k,v).
 \end{aligned}
 $$
 
