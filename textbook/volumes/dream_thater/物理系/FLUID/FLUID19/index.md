@@ -15,7 +15,7 @@ D(u)=\frac{\nabla u+(\nabla u)^{\mathsf T}}2,\qquad
 \sigma=-pI+2\eta D(u)
 $$
 
-とする。ここで $(\nabla u)_{ij}=\partial_j u_i$、$D$ は $3\times3$ の対称行列である。[定常 Stokes 方程式](../FLUID18/index.md#def-fluid18-stokes-sphere)の体積力零の場合を拡げ、単位体積当たりの既知の力 $f$（単位 $\mathrm{N/m^3}$）を認める：
+とする。ここで $x=(x_1,x_2,x_3)$、$\partial_j=\partial/\partial x_j$ は他の空間座標を固定した偏微分、$(\nabla u)_{ij}=\partial_j u_i$、$D$ は $3\times3$ の対称行列である。以下で行列の二重縮約 $M:N=\sum_{i,j=1}^3M_{ij}N_{ij}$ を用いる。[定常 Stokes 方程式](../FLUID18/index.md#def-fluid18-stokes-sphere)の体積力零の場合を拡げ、単位体積当たりの既知の力 $f$（単位 $\mathrm{N/m^3}$）を認める：
 
 $$
 \nabla\cdot\sigma+f=0,\qquad \nabla\cdot u=0,\qquad
@@ -60,7 +60,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid19-reciprocal-pair -->
-**定義の確認**：高さ $h>0$、周期的な水平断面積 $A>0$ をもつ平板間 $0<y<h$ を考える。上板だけ $Ue_x$ で動く実験1と、下板だけ $Ve_x$ で動く実験2なら、境界は同じで速度条件だけ異なる。各流れは $u^{(1)}=Uy e_x/h$、$u^{(2)}=V(1-y/h)e_x$、$p^{(k)}=0$、$f^{(k)}=0$。いずれも $u_y=0$、$\nabla\cdot u=0$、$\Delta u=0$ で Stokes 方程式を満たす。水平の側面は周期対で相殺され、法線は上板で $+e_y$、下板で $-e_y$。この条件の下で初めて $W_{1|2}$ が一意に計算できる。
+**定義の確認**：高さ $h>0$、周期的な水平断面積 $A>0$ をもつ平板間 $0<y<h$ を考える。上板だけ $Ue_x$ で動く実験1と、下板だけ $Ve_x$ で動く実験2なら、境界は同じで速度条件だけ異なる。各流れは $u^{(1)}=Uy e_x/h$、$u^{(2)}=V(1-y/h)e_x$、$p^{(k)}=0$、$f^{(k)}=0$。いずれも $u_y=0$、$\nabla\cdot u=0$、$\Delta u=0$ で Stokes 方程式を満たす。水平の側面は周期対で相殺され、法線は上板で $+e_y$、下板で $-e_y$。周期セルの角は滑らかでなくても区分的に滑らかな境界として扱え、発散積分の側面寄与は向かい合う面で打ち消し合う。$\partial_yu_x^{(1)}=U/h$、$\partial_yu_x^{(2)}=-V/h$ より、$\sigma_{xy}^{(k)}=\eta\partial_yu_x^{(k)}$ と判定できる。こうして各境界速度と相手側の面力から $W_{1|2}$ を計算できる。
 <!-- definition-example-end -->
 
 ## 1. 相反定理はどこから生まれるか
@@ -102,7 +102,7 @@ $$
 \end{aligned}
 $$
 
-応力は対称だから、$\nabla u^{(1)}=D(u^{(1)})+A(u^{(1)})$（$A$ は反対称部分）であり、対称行列と反対称行列の内積が零であることを成分交換で確かめる：
+ここで $A(u)=(\nabla u-(\nabla u)^{\mathsf T})/2$ を速度勾配の反対称部分と定義する。したがって $\nabla u^{(1)}=D(u^{(1)})+A(u^{(1)})$ であり、応力は対称なので、対称行列と反対称行列の二重縮約が零であることを成分交換で確かめる：
 
 $$
 \sum_{ij}\sigma^{(2)}_{ij}A^{(1)}_{ij}
@@ -268,6 +268,8 @@ $$
 
 内面の流体法線は $n=-n_i$ である。よって流体側の境界仕事は $\int_{S_i}u\cdot\sigma n=-V_i\cdot F_i^{\rm fluid}-\Omega_i\cdot T_i^{\rm fluid}$ となる。外力で剛体速度を維持するにはこれらと逆の力が必要である。
 
+**なぜ行列で表せるのか。** 配置を固定し、並進3成分と回転3成分を物体ごとに並べた $6N$ 個の速度成分を取る。第 $j$ 成分だけを単位量動かす境界速度に対応する Stokes 解を $(u^{[j]},p^{[j]})$、必要な外力・トルクの各成分を $\mathcal G^{[j]}$ と書く。方程式と境界速度は線形なので、速度成分が $\mathcal V_j$ の一般の駆動は、圧力の加法定数を除き $u=\sum_j\mathcal V_j u^{[j]}$、$\mathcal G=\sum_j\mathcal V_j\mathcal G^{[j]}$ となる。したがって $R_{ij}=(\mathcal G^{[j]})_i$ と置けば $\mathcal G_i=\sum_jR_{ij}\mathcal V_j$ である。各成分の単位は、その並進・回転の成分に合わせて読む。
+
 <a id="def-fluid19-resistance-matrix"></a>
 
 <!-- formal-statement-start -->
@@ -289,7 +291,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid19-resistance-matrix -->
-**定義の確認**：半径 $a$ の球が静止流体中を速度 $V$ で並進する例では[FLUID18 の結果](../FLUID18/index.md#thm-fluid18-stokes-drag)から $F^{\rm fluid}=-6\pi\eta aV$、必要な外力は $+6\pi\eta aV$ である。ゆえに並進・並進ブロックは $R_{tt}=6\pi\eta aI_3$。$[6\pi\eta aV]=\mathrm N$ で、正の係数を持ち、速度が零なら外力も零となる。球の回転成分の値まで、この並進実験から決まると主張しない。
+**定義の確認**：半径 $a$ の球を速度 $V$ で並進させ、遠方流体を静止させる。[FLUID18 の固定球の抵抗則](../FLUID18/index.md#thm-fluid18-stokes-drag)では、固定球に遠方速度 $-V$ を与えたときの流体力は $-6\pi\eta aV$ である。速度場に一様な $V$ を加える座標系の変更では速度勾配・応力が変わらないため、動く球に対しても $F^{\rm fluid}=-6\pi\eta aV$、必要な外力は $+6\pi\eta aV$ となる。球の等方性から $e_x,e_y,e_z$ の各単位並進で必要な外力は対応方向だけに $6\pi\eta a$ ずつ生じる。従ってこれら3列を並べた並進・並進ブロックは $R_{tt}=6\pi\eta aI_3$。$[6\pi\eta aV]=\mathrm N$ で、正の係数を持ち、速度が零なら外力も零となる。球の回転成分の値まで、この並進実験から決まると主張しない。
 <!-- definition-example-end -->
 
 <a id="thm-fluid19-resistance-symmetry"></a>
@@ -348,7 +350,18 @@ $$
 
 左辺はすでに確認した法線の向きにより $\mathcal V^{\mathsf T}\mathcal G=\mathcal V^{\mathsf T}R\mathcal V$ である。$D:D=\sum_{ij}D_{ij}^2\ge0$ だから正半定値。
 
-もし積分が零なら、連続性と $\eta>0$ から全領域で $D(u)=0$。$D(u)=0$ を微分して添字を入れ替えると二階微分がすべて零となり、連結領域で $u(x)=a+\omega\times x$ の剛体速度場になる。無限遠で $u\to0$ だから $a=\omega=0$。無滑りの物体面でも $V_i+\Omega_i\times(x-X_i)=0$ が全点で成り立つため、各 $V_i=\Omega_i=0$。従って非零の一般化速度は正の散逸を生む。
+もし積分が零なら、連続性と $\eta>0$ から全領域で $D(u)=0$、すなわち $\partial_i u_j+\partial_j u_i=0$ である。添字 $i,j,k$ を任意に取り、これらの等式を微分して足し引きすると
+
+$
+\begin{aligned}
+2\partial_i\partial_j u_k
+&=\partial_i(\partial_j u_k+\partial_k u_j)
++\partial_j(\partial_i u_k+\partial_k u_i)\\
+&\quad-\partial_k(\partial_i u_j+\partial_j u_i)=0.
+\end{aligned}
+$
+
+よって $\nabla u$ は連結領域で一定の反対称行列であり、積分すると $u(x)=a+\omega\times x$ の剛体速度場になる。無限遠で $u\to0$ だから $a=\omega=0$。無滑りの物体面でも $V_i+\Omega_i\times(x-X_i)=0$ が全点で成り立つため、各 $V_i=\Omega_i=0$。従って非零の一般化速度は正の散逸を生む。
 <!-- proof-end -->
 
 球について $R_{tt}=6\pi\eta aI_3$ なので、並進だけなら外力の仕事率は $6\pi\eta a|V|^2>0$。逆向き駆動をしても $\mathcal V\mapsto-\mathcal V$、$\mathcal G\mapsto-\mathcal G$ となり、積 $\mathcal V\cdot\mathcal G$ は**正のまま**である。
@@ -394,7 +407,14 @@ Stokes 問題は境界速度に線形だから、剛体の並進速度 $\dot X$ 
 <!-- proof-start -->
 ### 証明
 
-各瞬間の形状 $q$ を固定して Stokes 方程式を解く。境界上の速度は、物体をその形のまま単位速度で並進させる境界場と、物体全体を止めて単位速度 $\dot q$ で内部形状を変える境界場の線形結合である。[逆向き駆動と線形性](#thm-fluid19-kinematic-reversibility)から、Stokes 解も応力もその線形結合になる。
+各瞬間の形状 $q$ を固定して Stokes 方程式を解く。境界上の速度を、単位並進に対応する場 $g_{\rm tr}(q)$ と単位形状速度に対応する場 $g_{\rm sh}(q)$ を用いて $g=\dot Xg_{\rm tr}(q)+\dot qg_{\rm sh}(q)$ と分解する。体積力零の Stokes 方程式は線形なので、各境界場に対する解を $(u_{\rm tr},p_{\rm tr})$、$(u_{\rm sh},p_{\rm sh})$ とすれば、
+
+$
+u=\dot X u_{\rm tr}+\dot q u_{\rm sh},\qquad
+p-p_0=\dot X(p_{\rm tr}-p_0)+\dot q(p_{\rm sh}-p_0)
+$
+
+が方程式、非圧縮性と境界条件をすべて満たす。一意性によってこれが実際の瞬時解であり、応力から計算する流体力も $\dot X$ と $\dot q$ に線形となる。[運動学的可逆性](#thm-fluid19-kinematic-reversibility)は、特に両速度の符号を反転した場合である。
 
 正方向に動く物体が受ける流体力を $F^{\rm fluid}$ とすると、外部の並進抵抗 $R(q)>0$ と、形状駆動の係数 $B(q)$ を用いて
 
@@ -603,25 +623,25 @@ $$
 
 ### B4. 形状速度の速さに依存しない往復
 
-力が $F^{\rm fluid}=-R(q)\dot X-B(q)\dot q$ で、$R(q)=r_0(1+q^2)>0$、$B(q)=r_0q(1+q^2)$、$r_0>0$ とする。外力零で、$q:1\to2\to1$ の相反ストロークを行う。各行程の変位と一周期の変位を計算せよ。開閉時間が違っても結果は同じか。
+力が $F^{\rm fluid}=-R(q)\dot X-B(q)\dot q$ で、無次元形状変数 $q$、長さ $\ell>0$、抵抗係数 $r_0>0$ を用いて $R(q)=r_0(1+q^2)>0$、$B(q)=r_0\ell q(1+q^2)$ とする。外力零で、$q:1\to2\to1$ の相反ストロークを行う。各行程の変位と一周期の変位を計算せよ。開閉時間が違っても結果は同じか。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-力零より $\dot X=-B(q)\dot q/R(q)=-q\dot q$。$q$ が滑らかな各行程で $dX=-q\,dq$、原始関数は $-q^2/2$。開く行程では
+力零より $\dot X=-B(q)\dot q/R(q)=-\ell q\dot q$。ここで $dX=-\ell q\,dq$ は、時間に関する連鎖律 $d(-\ell q(t)^2/2)/dt=-\ell q(t)\dot q(t)$ に基づく省略記法であり、$\dot q=0$ の時刻でも成り立つ。原始関数は $-\ell q^2/2$。開く行程では
 
 $$
-\Delta X_{\rm open}=-\int_1^2q\,dq
-=-\left[\frac{q^2}{2}\right]_1^2=-\frac32.
+\Delta X_{\rm open}=-\ell\int_1^2q\,dq
+=-\ell\left[\frac{q^2}{2}\right]_1^2=-\frac{3\ell}{2}.
 $$
 
 閉じる行程では
 
 $$
-\Delta X_{\rm close}=-\int_2^1q\,dq
-=-\left[\frac{q^2}{2}\right]_2^1=+\frac32.
+\Delta X_{\rm close}=-\ell\int_2^1q\,dq
+=-\ell\left[\frac{q^2}{2}\right]_2^1=+\frac{3\ell}{2}.
 $$
 
 合計は零。時間変数を積分から消したため、時間配分が異なっても $q$ が同じ区間を逆にたどる限り結果は変わらない。[一自由度の定理](#thm-fluid19-scallop)の直接計算例である。
