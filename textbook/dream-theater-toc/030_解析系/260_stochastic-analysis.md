@@ -6,7 +6,7 @@
 3. [STO2 離散時間マルチンゲール・不等式・収束](textbook/volumes/dream_thater/解析系/STO/STO2/index.md)
 4. [STO2A 離散時間Markov連鎖・再帰・Green核・不変測度](textbook/volumes/dream_thater/解析系/STO/STO2A/index.md)
 5. [SP3 通信クラス・再帰と過渡・Green 核](textbook/volumes/dream_thater/解析系/SP/SP3/index.md)
-7. [SP4 正再帰・零再帰・不変測度・詳細釣合い](textbook/volumes/dream_thater/解析系/SP/SP4/index.md)
+6. [SP4 正再帰・零再帰・不変測度・詳細釣合い](textbook/volumes/dream_thater/解析系/SP/SP4/index.md)
 7. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/dream_thater/解析系/STO/STO3/index.md)
 8. [STO4 ブラウン運動・Wiener 測度・到達時刻・強マルコフ性](textbook/volumes/dream_thater/解析系/STO/STO4/index.md)
 9. [STO3A 経路空間の弱収束・tightness・Donsker](textbook/volumes/dream_thater/解析系/STO/STO3A/index.md)
