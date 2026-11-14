@@ -14,3 +14,4 @@
 11. [U4-11 価格・対数価格・収益率の定常性を分ける](textbook/volumes/dream_thater/応用系/U/U4-11/index.md)
 12. [U4-12 単位根検定とその限界](textbook/volumes/dream_thater/応用系/U/U4-12/index.md)
 13. [U4-13 2系列の共和分とEngle–Granger法](textbook/volumes/dream_thater/応用系/U/U4-13/index.md)
+14. [U4-14 多変量共和分と誤差修正表現](textbook/volumes/dream_thater/応用系/U/U4-14/index.md)
