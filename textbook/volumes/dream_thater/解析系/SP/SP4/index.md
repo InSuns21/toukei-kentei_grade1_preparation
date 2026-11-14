@@ -166,7 +166,7 @@ $$
 \rho_j=\pi_j-\pi_i\nu_j
 $$
 
-と置くと補題の不等式から $\rho_j\ge0$、$\sum_j\rho_j\le1$ です。また $\rho_i=\pi_i-\pi_i\nu_i=0$、両者の不変性から
+と置きます。[定常分布による帰還サイクルの支配](#lem-sp4-cycle-domination)から $\rho_j\ge0$、$\sum_j\rho_j\le1$ です。また $\rho_i=\pi_i-\pi_i\nu_i=0$、両者の不変性から
 
 $$
 \rho P=\pi P-\pi_i(\nu P)
