@@ -29,6 +29,8 @@ $$
 
 低 Reynolds 数で定常・滑らかな流れを球の大きさ程度の距離で考えれば、移流項が粘性項より小さい。時間微分もなくした**定常 Stokes 近似**では、[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)の $\rho(v\cdot\nabla)v$ を落とす。遠く離れた領域まで一様に正確という意味ではないことを、最後に確かめる。
 
+ここでは球の中心を通る $z$ 軸の周りで場の成分法則が変わらない**軸対称**の流れを考え、さらに軸を取り巻く周方向速度を零とする。これは回転する球の周方向の流れを考えないという条件であり、全ての Stokes 解に自動的に成り立つと先取りするのではない。
+
 <a id="def-fluid18-stokes-sphere"></a>
 
 <!-- formal-statement-start -->
@@ -42,7 +44,7 @@ $$
 > を満たし、[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip) $v=0$ を $|x|=a$ で、遠方条件 $v(x)\to Ue_z$ と $p(x)\to p_\infty$ を $|x|\to\infty$ で満たすとする。$p_\infty$ は与えた基準圧力である。求める解は軸対称で、無限遠で速度差と圧力差が減衰し、速度勾配と応力も十分減衰するクラスに限る。
 <!-- formal-statement-end -->
 
-ここで**軸対称**とは、$z$ 軸の周りに回しても成分の法則が変わらず、周方向の速度成分もない場を指す。極座標の $r=|x|$、$0\le\theta\le\pi$ を、$\theta=0$ が $+z$ 方向となるように取る。$e_r,e_\theta$ は、それぞれ球から外向きの単位方向と $\theta$ の増加方向の単位方向である。$Ue_z=U(\cos\theta\,e_r-\sin\theta\,e_\theta)$ だから、遠方条件の成分は $v_r\to U\cos\theta$、$v_\theta\to-U\sin\theta$ となる。
+この軸対称・無旋回のクラスで、球座標の $r=|x|$、$0\le\theta\le\pi$ を、$\theta=0$ が $+z$ 方向となるように取る。$e_r,e_\theta$ は、それぞれ球から外向きの単位方向と $\theta$ の増加方向の単位方向である。$Ue_z=U(\cos\theta\,e_r-\sin\theta\,e_\theta)$ だから、遠方条件の成分は $v_r\to U\cos\theta$、$v_\theta\to-U\sin\theta$ となる。
 
 <!-- definition-example-start: def-fluid18-stokes-sphere -->
 **境界条件の確認**：一様場 $v=Ue_z$、$p=p_\infty$ は領域内部の Stokes 方程式と無限遠条件は満たす。しかし球面では $Ue_z\ne0$ で、無滑り条件に反する。逆に $v\equiv0$ は球面条件を満たすが無限遠条件に反する。微分方程式だけでなく両方の境界条件を満たす場が必要である。
@@ -91,7 +93,15 @@ $$
 \left(W''+\frac2rW'-\frac2{r^2}W\right).
 $$
 
-ここで $\theta$ についての二回微分と球座標の基底方向の変化を含めた結果が $-2W/r^2$ である。従って未知関数は $W''+2W'/r-2W/r^2=0$ を満たす。$W=r^m$ と仮定すると $m(m-1)+2m-2=(m-1)(m+2)=0$、すなわち
+この式を得る際は、周方向ベクトル $A=h(r)\sin\theta\,e_\phi$ に対する次の成分公式を使う。
+
+$
+(\Delta A)_\phi=\frac1{r^2}\partial_r(r^2\partial_r A_\phi)
++\frac1{r^2\sin\theta}\partial_\theta(\sin\theta\,\partial_\theta A_\phi)
+-\frac{A_\phi}{r^2\sin^2\theta}.
+$
+
+径方向項は $(h''+2h'/r)\sin\theta$。角度項の括弧内は $\{\cos^2\theta-\sin^2\theta-1\}h/\sin\theta=-2h\sin\theta$ なので、合計が上の $-2W/r^2$ を含む形になる。極での式は滑らかな場の極限として解釈する。従って未知関数は $W''+2W'/r-2W/r^2=0$ を満たす。$W=r^m$ と仮定すると $m(m-1)+2m-2=(m-1)(m+2)=0$、すなわち
 
 $$
 W(r)=A r+\frac B{r^2}.
