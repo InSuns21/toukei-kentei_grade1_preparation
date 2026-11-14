@@ -1,0 +1,629 @@
+# SP10 計数過程・Poisson 過程・指数待ち時間
+
+電話の着信や機械の故障を調べるとき、個々の出来事の中身より、まず「時刻 $t$ までに何回起きたか」を知りたいことがあります。[STO1 の確率過程](../../STO/STO1/index.md#def-sto1-stochastic-process)は時刻ごとの確率変数を与えますが、それだけでは、過去と無関係な到着かどうかは分かりません。
+
+本講では、出来事を数える標本路から始め、**Poisson 分布で数える方法**と**独立な指数待ち時間を足し合わせる方法**が同じ過程を構成することを検証します。最後に、過去の計数を知っても将来の増分の平均は変わらないという性質を、[STO2 のマルチンゲール](../../STO/STO2/index.md#def-sto2-martingale)へ接続します。
+
+以下、確率空間を $(\Omega,\mathcal F,P)$、率を $\lambda>0$ とし、時間は $t\ge0$ とします。$N_t$ は時刻 $t$ までの到着回数で、$N_t-N_s$ は区間 $(s,t]$ 内の到着回数です。$\mathcal F_t^N=\sigma(N_u:0\le u\le t)$ は計数の自然な情報です。
+
+## 1. 到着を数える標本路
+
+たとえば到着が時刻 $0.4,1.1,1.9$ に生じれば、$N_0=0$、$N_1=1$、$N_{1.1}=2$、$N_2=3$ となります。到着の瞬間を「すでに数えた」値にするため、右連続な階段状の標本路を考えます。
+
+<a id="def-sp10-simple-counting"></a>
+
+<!-- formal-statement-start -->
+> **定義（単純計数過程）**  
+> 確率空間 $(\Omega,\mathcal F,P)$ 上の過程 $N=(N_t)_{t\ge0}$ が単純計数過程であるとは、確率 $1$ で次をすべて満たすことをいう。
+>
+> 1. $N_0=0$ で、各 $N_t$ は有限の非負整数値を取る。
+> 2. 標本路 $t\mapsto N_t$ は非減少かつ右連続である。
+> 3. 各跳躍の大きさは $1$ である（同時に二件以上到着しない）。
+>
+> 従って各有限区間には有限個の到着しかない。$n\ge1$ に対する第 $n$ 到着時刻は次で与える。
+
+$$
+T_n=\inf\{t\ge0:N_t\ge n\},\qquad T_0=0,
+$$
+
+> ただし到着しなければ $T_n=\infty$ とする。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-sp10-simple-counting -->
+### 直接例：三回の確定的な到着
+
+上の $0.4,1.1,1.9$ の三回だけ到着するモデルでは
+
+$$
+N_t=\boldsymbol{1}_{\{t\ge0.4\}}+
+\boldsymbol{1}_{\{t\ge1.1\}}+
+\boldsymbol{1}_{\{t\ge1.9\}}.
+$$
+
+$N_0=0$、すべての時刻で $N_t\in\{0,1,2,3\}$、各指示関数は非減少・右連続です。異なる三時刻に $1$ ずつ増えるので各跳躍の大きさも $1$。$T_1=0.4,T_2=1.1,T_3=1.9$、$T_4=\infty$ で、定義の全条件を確認できました。
+<!-- definition-example-end -->
+
+このモデルは単純計数過程ですが、到着時刻が決定論的なため、これから導入する Poisson 過程とは異なります。**計数過程であること**と**Poisson 過程であること**を分ける必要があります。
+
+## 2. 区間の長さだけで到着確率を決める
+
+到着数が時間の長さだけで決まり、互いに重ならない区間の到着数が独立なら、過去の件数を知っても次の区間の件数を予測しやすくなりません。独立増分と定常増分とは、それぞれ「離れた区間の無関係さ」と「同じ長さの区間の同じ分布」という別の条件です。
+
+これらを厳密にした [Poisson 過程の定義](../../STO/STO13/index.md#def-sto13-poisson-process)を用います。率 $\lambda$ の過程では、任意の $0\le s<t$ と整数 $k\ge0$ に対して
+
+$$
+P(N_t-N_s=k)=e^{-\lambda(t-s)}
+\frac{(\lambda(t-s))^k}{k!},
+$$
+
+かつ互いに重ならない時間区間の増分は独立です。Poisson 分布の値は非負整数です。長さ $h$ の区間では
+
+$$
+\begin{aligned}
+P(\Delta N=0)&=e^{-\lambda h},\\
+P(\Delta N=1)&=\lambda h e^{-\lambda h},\\
+P(\Delta N\ge2)&=1-(1+\lambda h)e^{-\lambda h}.
+\end{aligned}
+$$
+
+$h\downarrow0$ とすると、指数関数の展開から三式は順に $1-\lambda h+O(h^2)$、$\lambda h+O(h^2)$、$O(h^2)$ となります。短い時間での二回以上の到着は一次より小さい確率です。
+
+### 分布で指定された過程は本当に一回ずつ跳ぶか
+
+[既出の定義](../../STO/STO13/index.md#def-sto13-poisson-process)は、右連続・整数値・非減少と増分分布を直接要求しますが、跳躍の大きさ $1$ を別の公理としては置いていません。そこで $[0,T]$ を長さ $T/m$ の $m$ 区間に分けます。Poisson 変数 $K$ の平均が $\mu$ なら
+
+$$
+E[K(K-1)]=\mu^2,\qquad
+P(K\ge2)\le\frac{E[K(K-1)]}{2}=\frac{\mu^2}{2}.
+$$
+
+各小区間の平均は $\mu=\lambda T/m$。和集合の確率の上界から
+
+$$
+P\left(\text{少なくとも一つの小区間で二回以上到着}\right)
+\le\frac{\lambda^2T^2}{2m}\longrightarrow0.
+$$
+
+大きさ $2$ 以上の跳躍があれば、どの分割でもそれを含む区間の増分は $2$ 以上です。ゆえに $[0,T]$ で複数同時到着の確率は $0$。$T=1,2,\ldots$ を合わせれば全時刻で単位跳躍です。また $N_T$ は有限の Poisson 変数なので有限時間で無限回の跳躍はありません。これで Poisson 過程が前節の単純計数過程でもあることを確認できました。
+
+## 3. 最初の到着を待つ：指数分布と無記憶性
+
+最初の到着 $T_1$ が $t$ より後であることは、時刻 $t$ まで何も到着しないことと同値です。
+
+$$
+P(T_1>t)=P(N_t=0)=e^{-\lambda t}\qquad(t\ge0).
+$$
+
+これが率 $\lambda$ の指数分布の生存関数です。従って $T_1$ は密度 $\lambda e^{-\lambda t}$（$t>0$）を持ち、積分により平均 $1/\lambda$ となります。
+
+すでに時刻 $s$ まで何も起きなかったとき、追加で $t$ 待つ確率を考えます。条件付き確率を商で書けば
+
+$$
+\begin{aligned}
+P(T_1>s+t\mid T_1>s)
+&=\frac{P(T_1>s+t)}{P(T_1>s)}\\
+&=\frac{e^{-\lambda(s+t)}}{e^{-\lambda s}}\\
+&=e^{-\lambda t}.
+\end{aligned}
+$$
+
+これが**無記憶性**です。経過した待ち時間 $s$ が、残りの待ち時間の分布に影響しません。逆に、非負で有限な待ち時間の生存関数 $G(t)$ が $G(0)=1$、$G(s+t)=G(s)G(t)$ を満たし右連続かつ $G(t)>0$ なら、$g(t)=-\log G(t)$ は連続な加法関数です。正整数の倍数から有理数へ、さらに連続性で実数へ拡張すると $g(t)=\lambda t$ となります。正の有限平均を仮定すれば $\lambda>0$ です。**指数分布だけ**がこの条件を満たすことが分かります。
+
+最初の一回だけでは足りません。二回目以降にも同じ法則が現れ、しかも独立である必要があります。[Poisson 過程の待ち時間定理](../../STO/STO13/index.md#thm-sto13-exponential-waiting)は
+
+$$
+W_n=T_n-T_{n-1}\quad(n\ge1),\qquad
+W_1,W_2,\ldots\ \text{独立同分布 }\operatorname{Exp}(\lambda)
+$$
+
+を与えます。ここではこの定理の密度計算を再確認します。
+
+### なぜ待ち時間は互いに独立なのか
+
+$0<t_1<\cdots<t_n$ の付近に順番どおり一回ずつ到着し、それ以前には余計な到着がない事象を、互いに交わらない幅 $h_1,\ldots,h_n$ の小区間で考えます。独立増分より、区間ごとの「一回」の主要項は $\lambda h_i$、そこ以外の「零回」は $e^{-\lambda t_n}$ であり、二回以上の誤差は各区間で $O(h_i^2)$ です。各幅を零へ送ると、順序付き到着時刻の同時密度は
+
+$$
+f_{T_1,\ldots,T_n}(t_1,\ldots,t_n)
+=\lambda^n e^{-\lambda t_n}
+\qquad(0<t_1<\cdots<t_n)
+$$
+
+になります。これは上の定理の証明で使った密度です。
+
+待ち時間へ変数変換するには $w_1=t_1$、$w_k=t_k-t_{k-1}$（$k\ge2$）と置きます。逆変換は $t_k=w_1+\cdots+w_k$ で、Jacobian 行列は下三角、対角成分がすべて $1$、従って行列式も $1$ です。以上から
+
+$$
+\begin{aligned}
+f_{W_1,\ldots,W_n}(w_1,\ldots,w_n)
+&=\lambda^n e^{-\lambda(w_1+\cdots+w_n)}\\
+&=\prod_{j=1}^n\lambda e^{-\lambda w_j},
+\qquad w_j>0.
+\end{aligned}
+$$
+
+任意の有限 $n$ で同時密度が積へ分解するため、全待ち時間列は独立同分布です。また $T_n$ の密度は、[既出の待ち時間定理](../../STO/STO13/index.md#thm-sto13-exponential-waiting)から
+
+$$
+f_{T_n}(t)=\frac{\lambda^nt^{n-1}e^{-\lambda t}}{(n-1)!},\qquad t>0.
+$$
+
+**この片方向だけなら**、Poisson 過程が存在することを前提として待ち時間を取り出しています。逆に指数待ち時間だけを用意したとき、Poisson 過程を構成できるでしょうか。
+
+## 4. 指数待ち時間から計数過程を構成する
+
+独立同分布の正の待ち時間 $W_1,W_2,\ldots$ を用意し、到着時刻を部分和 $T_n=\sum_{j=1}^nW_j$ で定めます。$T_n$ が有限時間に無限個たまらないことを確認した後、$N_t$ を $T_n\le t$ の個数で定めます。
+
+<a id="thm-sp10-exponential-construction"></a>
+
+<!-- formal-statement-start -->
+> **定理（指数待ち時間からの Poisson 過程構成）**  
+> $\lambda>0$ とし、確率空間上の $W_1,W_2,\ldots$ を独立同分布で、各 $W_j$ が密度 $\lambda e^{-\lambda w}$（$w>0$）を持つ確率変数とする。
+
+$$
+T_0=0,\qquad T_n=\sum_{j=1}^nW_j,\qquad
+N_t=\sum_{n=1}^{\infty}\boldsymbol{1}_{\{T_n\le t\}}
+$$
+
+> と定める。このとき確率 $1$ で $T_n\to\infty$ であり、$N$ は率 $\lambda$ の Poisson 過程である。特に自然なフィルトレーションについて独立定常増分を持ち、任意の $t\ge0$、$k\ge0$ で次が成立する。
+
+$$
+P(N_t=k)=e^{-\lambda t}\frac{(\lambda t)^k}{k!}.
+$$
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+まず指数変数の Laplace 変換を使い、有限時間で到着回数が無限大にならないことを示します。次に $N_t=n$ を「$n$ 回目まで到着し、次はまだ到着していない」という事象へ置き換え、時刻の同時密度を単体領域で積分します。最後に無記憶性を**任意の決定論的時刻 $s$** に適用し、残りの待ち時間と、その後の待ち時間列が過去から独立であることを示します。
+
+<!-- proof-start -->
+### 証明
+
+**(1) 非爆発性と標本路。** $W_j>0$ a.s. なので $T_n$ は狭義増加です。任意の $a>0$ と固定した $t>0$ に対し、$e^{-aT_n}$ への Markov の不等式を用います。
+
+$$
+\begin{aligned}
+P(T_n\le t)
+&=P(e^{-aT_n}\ge e^{-at})\\
+&\le e^{at}E[e^{-aT_n}]\\
+&=e^{at}\prod_{j=1}^nE[e^{-aW_j}]\\
+&=e^{at}\left(\int_0^\infty\lambda e^{-(\lambda+a)w}\,dw\right)^n\\
+&=e^{at}\left(\frac{\lambda}{\lambda+a}\right)^n
+\longrightarrow0.
+\end{aligned}
+$$
+
+$T_n$ は増加するため、$\{T_n\le t\}$ は $n$ に関して減少します。その極限事象 $\{\sup_nT_n\le t\}$ の確率は $0$。$t=1,2,\ldots$ を合わせれば $T_n\to\infty$ a.s. です。従って有限の $t$ には有限個の到着しかなく、$N_0=0$、非減少・右連続・整数値・単位跳躍が成立します。
+
+**(2) 一時刻の Poisson 分布。** 変数変換 $w_j=t_j-t_{j-1}$（$t_0=0$）の Jacobian は $1$ です。独立な指数密度を掛けると、任意の $n\ge1$ について
+
+$$
+f_{T_1,\ldots,T_n}(t_1,\ldots,t_n)
+=\lambda^n e^{-\lambda t_n},
+\qquad 0<t_1<\cdots<t_n.
+$$
+
+また、$W_{n+1}$ は $(T_1,\ldots,T_n)$ と独立なので、$N_t=n$ は $T_n\le t<T_{n+1}=T_n+W_{n+1}$ に書き換えられます。従って
+
+$$
+\begin{aligned}
+P(N_t=n)
+&=\int_{0<t_1<\cdots<t_n\le t}
+\lambda^n e^{-\lambda t_n}
+P(W_{n+1}>t-t_n)\,dt_1\cdots dt_n\\
+&=\int_{0<t_1<\cdots<t_n\le t}
+\lambda^n e^{-\lambda t_n}e^{-\lambda(t-t_n)}
+\,dt_1\cdots dt_n\\
+&=\lambda^ne^{-\lambda t}\frac{t^n}{n!}.
+\end{aligned}
+$$
+
+最後の $t^n/n!$ は立方体 $(0,t)^n$ を全順列の $n!$ 個の等体積の領域に分けた一つの体積です。$n=0$ では $P(N_t=0)=P(W_1>t)=e^{-\lambda t}$ で同じ式となります。$t=0$ は $N_0=0$ から従います。
+
+**(3) 過去と将来の増分の独立性。** 固定した $s\ge0$、$n\ge0$ を取り、$N_s=n$ とします。$T_n\le s<T_{n+1}$ なので、現在進行中の待ち時間の残余は $R_s=T_{n+1}-s$ です。任意の $B\in\sigma(W_1,\ldots,W_n)$ と $h\ge0$ について、$W_{n+1}$ の独立性を使うと
+
+$$
+\begin{aligned}
+&P(B,N_s=n,R_s>h)\\
+&=E\left[\boldsymbol{1}_B\boldsymbol{1}_{\{T_n\le s\}}
+P(W_{n+1}>s+h-T_n\mid W_1,\ldots,W_n)\right]\\
+&=E\left[\boldsymbol{1}_B\boldsymbol{1}_{\{T_n\le s\}}
+e^{-\lambda(s+h-T_n)}\right]\\
+&=e^{-\lambda h}P(B,N_s=n).
+\end{aligned}
+$$
+
+時刻 $s$ までの計数経路は、$N_s=n$ の上では $T_1,\ldots,T_n$ と「$T_{n+1}>s$」から読み取れます。上の等式を有限到着時刻の生成する事象に適用すれば、$R_s$ の条件付き生存関数は過去に依存せず $e^{-\lambda h}$ です。さらに $W_{n+2},W_{n+3},\ldots$ はそれ以前の待ち時間列と独立です。$n$ ごとに同じ分布が得られるため、**時刻 $s$ 以降の待ち時間列**は $\mathcal F_s^N$ と独立で、元の $W_1,W_2,\ldots$ と同じ独立同分布の指数列になります。
+
+従って $u\ge0$ に対し $N_{s+u}-N_s$ は元の構成の $N_u$ と同じ法則を持ち、しかも $\mathcal F_s^N$ から独立です。順に時刻を選び条件付ければ、互いに重ならない複数区間の増分も独立です。以上で独立定常増分、Poisson 分布、および右連続な計数標本路をすべて示しました。
+<!-- proof-end -->
+
+この証明は「待ち時間の無記憶性」を、最初の一回だけでなく**時刻 $s$ で進行中の待ち時間**へ使う点が重要です。単に $N_t$ の周辺分布が Poisson であると分かっても、独立増分は自動的には得られません。
+
+## 5. 到着時刻を条件付きで見る
+
+$N_t=n$ と分かったとき、時刻 $t$ より前の $n$ 回はどのように配置されるでしょうか。上の同時密度計算が、そのまま答えを与えます。
+
+<a id="prop-sp10-conditional-arrival-times"></a>
+
+<!-- formal-statement-start -->
+> **命題（到着回数を固定したときの到着時刻）**  
+> $N$ を率 $\lambda>0$ の Poisson 過程とする。$t>0$ と $n\ge1$ を固定すると、$N_t=n$ を条件とした $(T_1,\ldots,T_n)$ の同時密度は
+
+$$
+f(t_1,\ldots,t_n\mid N_t=n)
+=\frac{n!}{t^n}
+\boldsymbol{1}_{\{0<t_1<\cdots<t_n<t\}}.
+$$
+
+> 特に、この条件付き分布は $\lambda$ に依存せず、区間 $(0,t)$ の独立な一様乱数 $n$ 個を小さい順に並べた分布と一致する。
+<!-- formal-statement-end -->
+
+### 証明の見取り図
+
+「指定した $n$ 時刻に到着し、時刻 $t$ まで次の到着がない」同時密度は $\lambda^n e^{-\lambda t}$ です。これを $P(N_t=n)$ で割ると、$\lambda$ が消えます。
+
+<!-- proof-start -->
+### 証明
+
+[既出の Poisson 待ち時間定理](../../STO/STO13/index.md#thm-sto13-exponential-waiting)と第4節の密度計算から、$0<t_1<\cdots<t_n<t$ における $T_1,\ldots,T_n$ と $N_t=n$ の同時密度は
+
+$$
+\lambda^ne^{-\lambda t_n}
+P(W_{n+1}>t-t_n)
+=\lambda^ne^{-\lambda t}.
+$$
+
+一方、$P(N_t=n)=e^{-\lambda t}(\lambda t)^n/n!>0$ です。従って条件付き密度は
+
+$$
+\frac{\lambda^ne^{-\lambda t}}
+{e^{-\lambda t}(\lambda t)^n/n!}
+=\frac{n!}{t^n}
+$$
+
+です。一様乱数 $n$ 個の同時密度は立方体 $(0,t)^n$ 上で $t^{-n}$。その並び方は $n!$ 通りで、重複時刻の確率は $0$ なので、昇順に整列した密度は $n!/t^n$ です。これで一致を示しました。
+<!-- proof-end -->
+
+例えば $N_t=1$ と分かったときの $T_1$ は $(0,t)$ の一様分布です。これは、到着数を先に固定して時刻をランダムに配置するシミュレーションにも利用できます。
+
+## 6. 平均の蓄積とマルチンゲール
+
+Poisson 分布から $E[N_t]=\lambda t$、$\operatorname{Var}(N_t)=\lambda t$ です。これらは確率母関数を使わなくても、$P(N_t=k)$ の級数を添字移動して確かめられます。たとえば $\mu=\lambda t$ とすると
+
+$$
+\begin{aligned}
+E[N_t]
+&=e^{-\mu}\sum_{k=1}^\infty
+k\frac{\mu^k}{k!}
+=\mu e^{-\mu}\sum_{\ell=0}^\infty\frac{\mu^\ell}{\ell!}
+=\mu,\\
+E[N_t(N_t-1)]
+&=e^{-\mu}\sum_{k=2}^\infty
+k(k-1)\frac{\mu^k}{k!}=\mu^2.
+\end{aligned}
+$$
+
+従って $E[N_t^2]=\mu^2+\mu$、$\operatorname{Var}(N_t)=\mu$ です。$0\le s\le t$ なら $N_t=N_s+(N_t-N_s)$、二項は独立であり、
+
+$$
+\operatorname{Cov}(N_s,N_t)
+=\operatorname{Var}(N_s)=\lambda s.
+$$
+
+一般には $\operatorname{Cov}(N_s,N_t)=\lambda\min(s,t)$ です。時間差を無視して $N_s$ と $N_t$ を独立だと考えると、この共分散を失います。
+
+中心化した $M_t=N_t-\lambda t$ は各 $t$ で可積分、$\mathcal F_t^N$ 可測です。$s\le t$ のとき
+
+$$
+\begin{aligned}
+E[M_t\mid\mathcal F_s^N]
+&=E[N_s+(N_t-N_s)-\lambda t\mid\mathcal F_s^N]\\
+&=N_s+E[N_t-N_s]-\lambda t\\
+&=N_s+\lambda(t-s)-\lambda t
+=M_s.
+\end{aligned}
+$$
+
+最後の等式に使ったのは**自然な情報全体からの増分の独立性**です。$N_s$ という一変数だけとの独立性では、$\mathcal F_s^N$ についての条件付き等式を保証できません。連続時間版のマルチンゲール条件は [STO13 の補償 Poisson マルチンゲール](../../STO/STO13/index.md#prop-sto13-compensated-poisson-martingale)と同じ内容であり、別の定理として重複登録しません。
+
+$N_t-\lambda t$ は「平均 $\lambda t$ を引いた公平な揺らぎ」です。[STO13 の補償過程の定義](../../STO/STO13/index.md#def-sto13-compensator)では、この決定論的な平均蓄積項が補償過程の最も基本的な例になります。
+
+## 7. 何が Poisson 過程でないか
+
+待ち時間 $W_1$ だけを率 $\lambda$ の指数分布として、その後は到着が二度と起きない過程
+
+$$
+X_t=\boldsymbol{1}_{\{W_1\le t\}}
+$$
+
+を考えます。これは単純計数過程で、最初の待ち時間は無記憶です。しかし $X_t\le1$ なので $P(X_t=2)=0$、一方 Poisson 分布なら $t>0$ で $P(N_t=2)=e^{-\lambda t}(\lambda t)^2/2>0$ です。壊れたのは**二回目以降も同率の独立な待ち時間が続く**という構成条件です。
+
+また、到着が必ず時刻 $1,2,3,\ldots$ に起きる $N_t=\lfloor t\rfloor$ は単純計数過程ですが、例えば $(0,1/2]$ と $(1/2,1]$ では長さが同じでも到着数がそれぞれ $0$ と $1$ です。定常増分を失っています。名前だけを見て「計数過程なら Poisson」としてはいけません。
+
+## 8. 演習 Level A：標本路・分布・待ち時間
+
+#### SP10-A01 右連続な到着回数
+- Level: A
+
+確定的な到着時刻が $1/2,3/2,2$ の三回だけである。$N_t$ を指示関数の和で書き、$N_1,N_{3/2},N_3$ および $T_4$ を求めよ。単純計数過程の三条件を検証せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$$
+N_t=\boldsymbol{1}_{\{t\ge1/2\}}+
+\boldsymbol{1}_{\{t\ge3/2\}}+
+\boldsymbol{1}_{\{t\ge2\}}.
+$$
+
+よって $N_1=1$、到着の瞬間を含めるため $N_{3/2}=2$、$N_3=3$。四回目は存在しないので $T_4=\infty$ です。各指示関数は右連続・非減少で、和は整数値かつ $N_0=0$。時刻は相異なるので各跳躍は $1$。いずれも有限個で、[単純計数過程の定義](#def-sp10-simple-counting)を満たします。
+<!-- solution-end -->
+
+#### SP10-A02 短い区間で二件以上
+- Level: A
+
+率 $2$ の Poisson 過程について、長さ $h=0.1$ の区間に $0,1,2$ 件以上到着する確率を、それぞれ厳密な式で求めよ。さらに $h\downarrow0$ のとき、二件以上の確率を $h^2$ まで展開せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+区間の件数 $K$ は平均 $\mu=2h=0.2$ の Poisson 分布なので
+
+$$
+P(K=0)=e^{-0.2},\qquad
+P(K=1)=0.2e^{-0.2},\qquad
+P(K\ge2)=1-1.2e^{-0.2}.
+$$
+
+一般の $h$ に戻し $e^{-2h}=1-2h+2h^2+O(h^3)$ を $(1+2h)$ に掛けると
+
+$$
+(1+2h)e^{-2h}=1-2h^2+O(h^3).
+$$
+
+従って $P(K\ge2)=2h^2+O(h^3)$ です。一次の係数は $0$ で、一回到着の $2h+O(h^2)$ より小さい次数です。
+<!-- solution-end -->
+
+#### SP10-A03 残りの指数待ち時間
+- Level: A
+
+$W\sim\operatorname{Exp}(3)$ とする。$P(W>5/3\mid W>2/3)$ を求め、$E[W]$ と比較して残り時間の解釈を述べよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$\{W>5/3\}\subset\{W>2/3\}$ で、分母は $e^{-2}>0$ です。従って
+
+$$
+P(W>5/3\mid W>2/3)
+=\frac{e^{-3(5/3)}}{e^{-3(2/3)}}
+=e^{-5+2}=e^{-3}.
+$$
+
+追加で $1$ 単位待つ確率は $P(W>1)=e^{-3}$ に一致します。指数待ち時間の平均は $\int_0^\infty e^{-3t}\,dt=1/3$。すでに $2/3$ 待ったことは、残りの待ち時間の分布や平均 $1/3$ を変えません。
+<!-- solution-end -->
+
+#### SP10-A04 二時刻の相関
+- Level: A
+
+率 $2$ の Poisson 過程について、$E[N_1]$、$E[N_3]$、$\operatorname{Cov}(N_1,N_3)$、$E[N_1N_3]$ を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$E[N_1]=2$、$E[N_3]=6$ です。$N_3=N_1+(N_3-N_1)$ で増分は $N_1$ と独立なので
+
+$$
+\operatorname{Cov}(N_1,N_3)
+=\operatorname{Var}(N_1)+\operatorname{Cov}(N_1,N_3-N_1)
+=2+0=2.
+$$
+
+従って $E[N_1N_3]=\operatorname{Cov}(N_1,N_3)+E[N_1]E[N_3]=2+2\cdot6=14$。$N_1$ は $N_3$ の一部分なので独立ではありません。
+<!-- solution-end -->
+
+#### SP10-A05 二回目までに到着する確率
+- Level: A
+
+率 $\lambda$ の Poisson 過程に対して、$P(T_2\le t)$ を $N_t$ の分布から計算せよ。$t>0$ で微分し、第2到着時刻の密度を求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$\{T_2\le t\}=\{N_t\ge2\}$ なので
+
+$$
+P(T_2\le t)=1-P(N_t=0)-P(N_t=1)
+=1-e^{-\lambda t}(1+\lambda t).
+$$
+
+右辺を微分すると、積の微分より
+
+$$
+f_{T_2}(t)
+=\lambda e^{-\lambda t}(1+\lambda t)-\lambda e^{-\lambda t}
+=\lambda^2 t e^{-\lambda t}\quad(t>0).
+$$
+
+これは [待ち時間定理](../../STO/STO13/index.md#thm-sto13-exponential-waiting)で $n=2$ とした密度に一致します。
+<!-- solution-end -->
+
+## 9. 演習 Level B：構成の仮定と条件付き時刻
+
+#### SP10-B01 件数を固定した時刻の分布
+- Level: B
+
+率 $\lambda$ の Poisson 過程について、$t>0$ と $0<a<t$ を固定する。$P(T_1\le a\mid N_t=1)$ を求め、$E[T_1\mid N_t=1]$ を導け。
+
+<!-- solution-start -->
+### 詳細解答
+
+[条件付き到着時刻命題](#prop-sp10-conditional-arrival-times)で $n=1$ とすると、$T_1$ の条件付き密度は $1/t$（$0<u<t$）です。従って
+
+$$
+P(T_1\le a\mid N_t=1)=\int_0^a\frac{du}{t}=\frac at.
+$$
+
+また
+
+$$
+E[T_1\mid N_t=1]=\int_0^t u\frac{du}{t}
+=\frac{t^2/2}{t}=\frac t2.
+$$
+
+「最初の到着までの指数分布」は無条件の分布であり、「時刻 $t$ までに一件だけと分かったとき」は一様分布です。条件付けを無視して $1/\lambda$ と答えてはいけません。
+<!-- solution-end -->
+
+#### SP10-B02 指数列から三つの計数確率を復元
+- Level: B
+
+独立な $W_i\sim\operatorname{Exp}(\lambda)$ から $T_n=\sum_{j=1}^nW_j$ と $N_t=\#\{n:T_n\le t\}$ を作る。$P(N_t=0)$、$P(N_t=1)$、$P(N_t=2)$ を、指数密度の積分によって直接示せ。また $T_n$ が有限時刻に蓄積しない理由を一つ示せ。
+
+<!-- solution-start -->
+### 詳細解答
+
+零件は $W_1>t$ なので $P(N_t=0)=e^{-\lambda t}$ です。一件では最初の到着時刻を $u$ とし、次の待ち時間が $t-u$ より長い必要があります。
+
+$$
+P(N_t=1)=\int_0^t\lambda e^{-\lambda u}e^{-\lambda(t-u)}\,du
+=\lambda te^{-\lambda t}.
+$$
+
+二件では $0<u<v<t$ に到着し、三件目は $t$ より後なので
+
+$$
+\begin{aligned}
+P(N_t=2)
+&=\int_0^t\int_u^t
+\lambda^2 e^{-\lambda v}e^{-\lambda(t-v)}\,dv\,du\\
+&=\lambda^2 e^{-\lambda t}\int_0^t(t-u)\,du\\
+&=e^{-\lambda t}\frac{(\lambda t)^2}{2}.
+\end{aligned}
+$$
+
+有限時間への蓄積を否定するには、[構成定理](#thm-sp10-exponential-construction)の証明で示した $P(T_n\le t)\le e^{at}(\lambda/(\lambda+a))^n\to0$（任意の $a>0$）を使えます。$T_n$ は単調増加なので、全有理 $t>0$ でのこの評価から $T_n\to\infty$ a.s. です。
+<!-- solution-end -->
+
+#### SP10-B03 最初だけ無記憶な反例
+- Level: B
+
+$W\sim\operatorname{Exp}(\lambda)$ とし、$X_t=\boldsymbol{1}_{\{W\le t\}}$ と置く。(1) 単純計数過程の条件、(2) $P(X_t=2)$、(3) $P(X_{s+h}-X_s=1)$ を計算し、この過程が Poisson 過程でない理由を二種類述べよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+$W>0$ a.s. なので $X_0=0$、$X_t$ は非減少・右連続の $\{0,1\}$ 値で、時刻 $W$ の一回だけ $1$ 跳びます。よって [単純計数過程の定義](#def-sp10-simple-counting)を満たします。$X_t\le1$ より $P(X_t=2)=0$ です。
+
+$s,h>0$ の区間に到着する事象は $\{s<W\le s+h\}$ だから
+
+$$
+P(X_{s+h}-X_s=1)
+=P(W>s)-P(W>s+h)
+=e^{-\lambda s}(1-e^{-\lambda h}).
+$$
+
+これは $s$ に依存し、定常増分ではありません。また $t>0$ の Poisson 分布なら二件到着の確率 $e^{-\lambda t}(\lambda t)^2/2$ が正なので周辺分布も合いません。最初の待ち時間が無記憶であることだけから、二回目以降の到着や定常増分は導けません。
+<!-- solution-end -->
+
+#### SP10-B04 二回の到着の条件付き平均
+- Level: B
+
+$t>0$ について $N_t=2$ と条件付ける。このとき $E[T_1\mid N_t=2]$ と $E[T_2\mid N_t=2]$ を条件付き同時密度から求めよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+[条件付き到着時刻命題](#prop-sp10-conditional-arrival-times)より領域 $0<u<v<t$ で同時密度は $2/t^2$ です。従って
+
+$$
+\begin{aligned}
+E[T_1\mid N_t=2]
+&=\frac2{t^2}\int_0^t\int_0^v u\,du\,dv
+=\frac2{t^2}\int_0^t\frac{v^2}{2}\,dv=\frac t3,\\
+E[T_2\mid N_t=2]
+&=\frac2{t^2}\int_0^t\int_0^v v\,du\,dv
+=\frac2{t^2}\int_0^t v^2\,dv=\frac{2t}{3}.
+\end{aligned}
+$$
+
+二個の一様な時刻を昇順に並べるため、早い方の平均は $t/3$、遅い方は $2t/3$ です。二つの時刻そのものは条件付きで独立ではありません（必ず $T_1<T_2$）。
+<!-- solution-end -->
+
+## 10. 演習 Level C：過去の計数と未来の到着
+
+#### SP10-C01 到着を二件観測した後の一時間
+- Level: C
+
+率 $\lambda>0$ の Poisson 過程と、その自然なフィルトレーション $\mathcal F_t^N$ を考える。$t>0$ を固定し、$A=\{N_t=2\}$ とする。
+
+1. $P(A)$、$P(N_{2t}=3\mid A)$ を求めよ。
+2. $A$ の下で $(T_1,T_2)$ の条件付き同時密度を導き、$E[T_2-T_1\mid A]$ を計算せよ。
+3. $A$ が分かっているときの $P(N_{t+h}-N_t=0\mid A)$ と、$\mathcal F_t^N$ 全体で条件付けた $E[N_{t+h}-N_t\mid\mathcal F_t^N]$ を求めよ。
+4. $M_u=N_u-\lambda u$ が連続時間のマルチンゲールであることを、可積分性・適合性・条件付き等式を順に確認して示せ。2で求めた過去の待ち時間の条件付き分布と、3の未来の増分の独立性が矛盾しない理由も説明せよ。
+
+<!-- solution-start -->
+### 詳細解答
+
+**1. 件数の条件付き確率。** $N_t$ は平均 $\lambda t$ の Poisson 分布なので
+
+$$
+P(A)=e^{-\lambda t}\frac{(\lambda t)^2}{2}.
+$$
+
+$(t,2t]$ の増分 $K=N_{2t}-N_t$ は、$A\in\mathcal F_t^N$ と独立で平均 $\lambda t$ の Poisson 分布です。$A$ 上で $N_{2t}=3$ と $K=1$ は同値なので
+
+$$
+P(N_{2t}=3\mid A)=P(K=1)=\lambda t e^{-\lambda t}.
+$$
+
+**2. 過去の到着時刻。** 到着時刻の密度と $T_3>t$ を掛けた同時密度は、$0<u<v<t$ で $\lambda^2e^{-\lambda t}$ です。これを $P(A)$ で割ると
+
+$$
+f_{T_1,T_2\mid A}(u,v)=\frac2{t^2}
+\boldsymbol{1}_{\{0<u<v<t\}}.
+$$
+
+ゆえに
+
+$$
+\begin{aligned}
+E[T_2-T_1\mid A]
+&=\frac2{t^2}\int_0^t\int_0^v(v-u)\,du\,dv\\
+&=\frac2{t^2}\int_0^t\frac{v^2}{2}\,dv\\
+&=\frac t3.
+\end{aligned}
+$$
+
+**3. 未来の待ち時間。** $N_{t+h}-N_t$ は長さ $h$ の区間の Poisson 件数で、$\mathcal F_t^N$ と独立です。従って
+
+$$
+P(N_{t+h}-N_t=0\mid A)=e^{-\lambda h},
+$$
+
+$$
+E[N_{t+h}-N_t\mid\mathcal F_t^N]
+=E[N_{t+h}-N_t]=\lambda h
+\quad\text{a.s.}
+$$
+
+**4. マルチンゲール性と情報の違い。** $N_u$ は $\mathcal F_u^N$ 可測で、$E|M_u|\le E[N_u]+\lambda u=2\lambda u<\infty$。従って $M_u$ は可積分かつ適合です。$0\le s\le u$ とすると独立定常増分から
+
+$$
+\begin{aligned}
+E[M_u\mid\mathcal F_s^N]
+&=E[N_s+(N_u-N_s)-\lambda u\mid\mathcal F_s^N]\\
+&=N_s+\lambda(u-s)-\lambda u\\
+&=M_s.
+\end{aligned}
+$$
+
+よってマルチンゲールです。2の分布は**過去の二到着がいつ起きたか**を $A$ によって条件付けた結果です。3は**これからの増分**を扱い、Poisson 過程では自然な過去の情報全体と独立です。過去の配置が条件付けで変化しても、未来の増分が過去と独立であることと矛盾しません。
+<!-- solution-end -->
+
+## 11. この講義のまとめ
+
+- [単純計数過程](#def-sp10-simple-counting)は、時間とともに一件ずつ増える階段状の標本路を記述します。それだけでは Poisson 性は決まりません。
+- [Poisson 過程の定義](../../STO/STO13/index.md#def-sto13-poisson-process)にある独立定常増分と Poisson 件数により、最初の待ち時間の指数分布、全待ち時間の独立性が得られます。定理の正本は [Poisson 待ち時間定理](../../STO/STO13/index.md#thm-sto13-exponential-waiting)です。
+- [指数待ち時間からの構成定理](#thm-sp10-exponential-construction)は逆方向を保証します。非爆発性、一時刻の Poisson 分布、過去から独立な将来増分を**別々に証明**する必要があります。
+- [条件付き到着時刻命題](#prop-sp10-conditional-arrival-times)から、件数を固定した到着時刻は一様乱数の順序統計量になります。
+- $M_t=N_t-\lambda t$ の公平性は、自然な過去の情報に関する独立増分から従います。[補償 Poisson マルチンゲール](../../STO/STO13/index.md#prop-sto13-compensated-poisson-martingale)へ接続し、次の SP11 では独立な到着流の重ね合わせ・間引きを考えます。
