@@ -1,0 +1,45 @@
+id: "FLUID14"
+title: "理想流で揚力と抗力はどう異なるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID13
+  - FLUID9
+  - FLUID6
+official_scope: []
+learning_objectives:
+  - "反時計回り循環を正としたときの圧力合力・抗力・揚力の定義と符号を検算できる"
+  - "循環円柱の複素速度から非貫通条件、表面速度、循環、よどみ点を導ける"
+  - "Bernoulli積分と圧力積分からD'=0、L'=-ρUΓを各中間式付きで導ける"
+  - "Blasiusの力公式を圧力積分から導出し、一般断面の零抗力と揚力を遠方展開で示せる"
+  - "d'Alembertの抗力逆説の成立範囲と粘性・剥離による破綻機構を説明できる"
+  - "Joukowski翼型の尖点でKutta条件が循環を選ぶ計算と物理的限界を示せる"
+definitions:
+  - { id: FLUID14-DEF-01, name: "単位スパン当たりの抗力・揚力" }
+  - { id: FLUID14-DEF-02, name: "尖った後縁のKutta条件" }
+theorems:
+  - { id: FLUID14-PROP-01, name: "循環のある円柱流と表面接線速度" }
+  - { id: FLUID14-THM-01, name: "循環円柱のKutta–Joukowski揚力と零抗力" }
+  - { id: FLUID14-THM-02, name: "Blasiusの力公式と一般断面のKutta–Joukowski関係" }
+  - { id: FLUID14-PROP-02, name: "Joukowski尖点で選ばれる循環" }
+canonical_examples:
+  - "一様圧力が合力を作らない円周積分"
+  - "循環円柱の上端と下端の速さ・圧力差"
+  - "円柱の圧力力の三角関数積分"
+  - "Blasius公式の境界接線条件と遠方Laurent係数"
+  - "偏心円の後縁でF'(c)=0となる循環"
+  - "非粘性抗力零が現実の翼へ転用できない理由"
+problem_patterns:
+  - FLUID14-PRESSURE-NORMAL
+  - FLUID14-CIRCULATION-SIGN
+  - FLUID14-PRESSURE-COEFFICIENT
+  - FLUID14-LIFT-UNITS
+  - FLUID14-STAGNATION
+  - FLUID14-PRESSURE-INTEGRAL
+  - FLUID14-BLASIUS-LAURENT
+  - FLUID14-KUTTA-EDGE
+  - FLUID14-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }
