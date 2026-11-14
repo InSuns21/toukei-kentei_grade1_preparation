@@ -138,14 +138,35 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(1) 定数 drift を除く。** $Y_u=X_{a+u}-x_0=\mu u+\sigma B_u$ とし、$B$ を区間の Brown 運動とします。終点 $Y_h=z=x_1-x_0$ を固定すると、$0\le u\le h$ の条件付き平均は $uz/h$、共分散は
+**(1) 定数 drift を除く。** $Y_u=X_{a+u}-x_0=\mu u+\sigma B_u$ とし、$B$ を区間の Brown 運動とします。$0\le u\le h$ に対して、終点の増分を引いた残差
 
 $$
-\operatorname{Cov}(Y_u,Y_v\mid Y_h)
-=\sigma^2\left(\min(u,v)-\frac{uv}{h}\right).
+R_u=B_u-\frac{u}{h}B_h
 $$
 
-これは drift $0$ の $\sigma B$ を終点 $z$ に条件付けた平均・共分散と同じです。両者は Gaussian 過程で連続版を持つため、条件付き経路法則も一致します。従って以後は drift $0$ の場合だけ示せばよいです。
+を考えます。$\operatorname{Cov}(B_u,B_h)=u$、$\operatorname{Var}(B_h)=h$ なので
+
+$$
+\operatorname{Cov}(R_u,B_h)=u-\frac{u}{h}h=0.
+$$
+
+有限個の時刻で $(R_u,B_h)$ は同時正規ですから、残差過程 $R$ は終点 $B_h$ と独立です。また
+
+$$
+Y_u=\frac{u}{h}Y_h+\sigma R_u
+$$
+
+であり、$Y_h=z=x_1-x_0$ を固定したときの平均は $uz/h$ です。$0\le u,v\le h$ について、残差の共分散を展開すると
+
+$$
+\begin{aligned}
+\operatorname{Cov}(R_u,R_v)
+&=\min(u,v)-\frac{v}{h}u-\frac{u}{h}v+\frac{uv}{h^2}h\\
+&=\min(u,v)-\frac{uv}{h}.
+\end{aligned}
+$$
+
+従って条件付き共分散は $\sigma^2(\min(u,v)-uv/h)$ です。drift $0$ の $\sigma B$ を終点 $z$ に条件付けても、同じ独立残差表示になります。両者は Gaussian 過程で連続版を持ち、平均・共分散が同じなので有限次元分布が一致します。さらに[連続経路の Borel σ 代数が座標評価で生成される補題](../../../解析系/STO/STO4/index.md#lem-sto4-path-borel-coordinates)により、有限次元分布の一致から条件付き経路法則も一致します。よって以後は drift $0$ の場合だけ示せばよいです。
 
 **(2) 反射による密度対応。** $d=b-x_0>0$、$z=x_1-x_0<d$ とします。drift $0$ の $\sigma B_h$ の密度は
 
@@ -212,7 +233,7 @@ $$
 <a id="def-u3-35-bridge-weight"></a>
 <!-- formal-statement-start -->
 > **定義（連続上方ノックアウトの橋補正推定量）**  
-> 前節の定数係数 GBM と上側障壁 $H>s$、格子 $0=t_0<\cdots<t_m=T$、$g\ge0$、$E_Q[g(S_T)]<\infty$ を固定する。$X_j=\log(S_{t_j}/s)$、$h_j=t_{j+1}-t_j$、$b=\log(H/s)$ とする。各区間の**橋生存重み**を
+> 前節の定数係数 GBM と上側障壁 $H>s$、格子 $0=t_0<\cdots<t_m=T$、$g\ge0$、$E_Q[g(S_T)]<\infty$ を固定する。$X_j=X_{t_j}=\log(S_{t_j}/s)$、$h_j=t_{j+1}-t_j$、$b=\log(H/s)$ とする。各区間の**橋生存重み**を
 
 $$
 w_j=
@@ -271,7 +292,30 @@ $$
 \boldsymbol1_{\{\tau_H>T\}}=\prod_{j=0}^{m-1}\boldsymbol1_{A_j}
 $$
 
-です。格子点の値を固定すると、各区間の Brown 運動増分の密度は元の独立増分の密度の積を端点差ごとに条件付けたものなので、区間内部の橋の条件付き法則も積になります。従って
+です。この条件付き独立性を増分から確かめます。各区間 $j$ で $0\le u\le h_j$ とし、
+
+$$
+\Delta W_j=W_{t_{j+1}}-W_{t_j},
+\qquad
+R^{(j)}_u=W_{t_j+u}-W_{t_j}-\frac{u}{h_j}\Delta W_j
+$$
+
+と置きます。Brown 運動の独立増分と共分散から
+
+$$
+\operatorname{Cov}(R^{(j)}_u,\Delta W_j)
+=u-\frac{u}{h_j}h_j=0.
+$$
+
+同じ区間内では同時正規性により、残差過程 $R^{(j)}$ は $\Delta W_j$ と独立です。異なる区間の Brown 運動増分全体は独立なので、$R^{(j)}$ 同士も独立で、すべての格子増分 $(\Delta W_0,\ldots,\Delta W_{m-1})$ と独立です。実際、
+
+$$
+X_{t_j+u}
+=\left(1-\frac{u}{h_j}\right)X_{t_j}
++\frac{u}{h_j}X_{t_{j+1}}+\sigma R^{(j)}_u
+$$
+
+となり、定数 drift は端点の線形補間に吸収されています。従って、全格子点を条件としても各区間の残差は独立に残り、区間内で障壁に触れない事象 $A_j$ の条件付き確率は、その区間の二端点だけで決まります。よって
 
 $$
 \begin{aligned}

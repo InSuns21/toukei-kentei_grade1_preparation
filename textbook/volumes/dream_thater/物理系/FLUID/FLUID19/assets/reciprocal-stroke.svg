@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="370" viewBox="0 0 860 370" data-layout-lint="strict" role="img" aria-labelledby="figure-title figure-description">
+  <title id="figure-title">一自由度の相反的な開閉ストローク</title>
+  <desc id="figure-description">上段は閉じた二本の腕を開く行程で、左の狭い形から右の広い形へ向かう実線矢印。下段は同じ広い形から狭い形へ戻す行程で、破線の矢印。形状の往復経路が同一で逆向きになる。</desc>
+  <defs>
+    <marker id="arrow-solid" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#254b72"/>
+    </marker>
+    <marker id="arrow-dashed" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#6b4c29"/>
+    </marker>
+  </defs>
+  <rect x="12" y="12" width="836" height="166" rx="12" fill="#f3f7fb" stroke="#c4d3e3"/>
+  <rect x="12" y="192" width="836" height="166" rx="12" fill="#fcf8f1" stroke="#dfd1b7"/>
+  <g fill="none" stroke="#254b72" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 128 61 L 170 139 L 212 61"/>
+    <path d="M 542 88 L 650 139 L 758 88"/>
+  </g>
+  <g fill="#fff" stroke="#254b72" stroke-width="4">
+    <circle cx="170" cy="139" r="8"/>
+    <circle cx="650" cy="139" r="8"/>
+  </g>
+  <path d="M 317 96 L 503 96" fill="none" stroke="#254b72" stroke-width="5" marker-end="url(#arrow-solid)"/>
+  <g fill="none" stroke="#6b4c29" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 62 268 L 170 319 L 278 268"/>
+    <path d="M 608 241 L 650 319 L 692 241"/>
+  </g>
+  <g fill="#fff" stroke="#6b4c29" stroke-width="4">
+    <circle cx="170" cy="319" r="8"/>
+    <circle cx="650" cy="319" r="8"/>
+  </g>
+  <path d="M 317 276 L 503 276" fill="none" stroke="#6b4c29" stroke-width="5" stroke-dasharray="15 10" marker-end="url(#arrow-dashed)"/>
+</svg>

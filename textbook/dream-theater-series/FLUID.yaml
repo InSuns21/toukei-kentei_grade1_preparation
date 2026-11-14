@@ -23,7 +23,7 @@ chapters:
   - { id: FLUID16, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID16, status: completed, title: "管路・円筒間の定常層流をどう解くか" }
   - { id: FLUID17, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID17, status: completed, title: "壁が急に動くと運動量はどう広がるか" }
   - { id: FLUID18, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID18, status: completed, title: "遅い球周りの流れにかかる抵抗は何か" }
-  - { id: FLUID19, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID19, status: planned, title: "Stokes流はなぜ時間逆転に似た性質をもつか" }
+  - { id: FLUID19, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID19, status: completed, title: "Stokes流はなぜ時間逆転に似た性質をもつか" }
   - { id: FLUID20, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID20, status: planned, title: "薄い流れで潤滑方程式が現れるのはなぜか" }
   - { id: FLUID21, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID21, status: planned, title: "高Reの壁近傍だけ粘性が残る理由は何か" }
   - { id: FLUID22, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID22, status: planned, title: "平板境界層の自己相似解はどう出るか" }
