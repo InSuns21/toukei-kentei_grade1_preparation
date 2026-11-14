@@ -14,12 +14,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（評価写像）"]
     requires: [gromov-witten.stable-map-family, gromov-witten.stable-map-stack]
-  - id: gromov-witten.stable-map-forgetful-stabilization
-    name: 安定写像の標点忘却と安定化
+  - id: gromov-witten.stable-map-moduli-forgetful-morphism
+    name: 安定写像モジュライの忘却射
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（安定写像の標点忘却と安定化）"]
-    requires: [gromov-witten.stable-map, gromov-witten.stable-map-family]
+    introduction_aliases: ["定義（安定写像モジュライの忘却射）"]
+    requires: [gromov-witten.stable-map-forgetful, gromov-witten.stable-map-stack]
   - id: gromov-witten.evaluation-forgetful-compatibility
     name: 忘却射と残る評価写像の可換性
     kind: proposition
