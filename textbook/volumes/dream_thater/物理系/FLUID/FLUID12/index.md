@@ -396,7 +396,19 @@ $r\to\infty$ のとき $u_r\to U\cos\theta$、$u_\theta\to-U\sin\theta$、すな
 
 ここからは流れが、一定密度 $\rho$、非粘性、定常、水平面で一定体積力ポテンシャルの [FLUID6 の Euler 方程式](../FLUID6/index.md#thm-fluid6-euler-equation) を満たすと仮定する。
 
-[FLUID6 の全域 Bernoulli 定数](../FLUID6/index.md#cor-fluid6-global-bernoulli)は三次元の連結開領域で述べられている。ここでは $\Omega_a\times(-1,1)\subset\mathbb R^3$ 上に、平面速度を $(u_x(x,y),u_y(x,y),0)$、圧力を $p(x,y)$ として $z$ に依存させずに延長する。$\Omega_a$ は連結であり、速度は $r>a$ で滑らか、延長した場の渦度も零で、Euler 方程式と一定密度・定常性・保存体積力の仮定を満たす。よって三次元の系を適用してから水平面に制限できる。遠方に $u\to(U,0)$、$p\to p_\infty$ という基準を与えると
+[FLUID6 の全域 Bernoulli 定数](../FLUID6/index.md#cor-fluid6-global-bernoulli)は三次元の連結開領域で述べられている。そこで円柱外部の平面流を、鉛直座標 $z$ に依存しない三次元場へ延長する。具体的に
+
+$$
+\begin{aligned}
+\widetilde\Omega&=\Omega_a\times(-1,1)\subset\mathbb R^3,\\
+\widetilde u(x,y,z)&=(u_x(x,y),u_y(x,y),0),\\
+\widetilde p(x,y,z)&=p(x,y)
+\end{aligned}
+$$
+
+と置く。領域 $\widetilde\Omega$ は連結であり、速度と圧力はその内部で滑らかである。平面流の渦度が零なので、延長場の渦度も零となる。仮定した定常 Euler 方程式は鉛直成分も満たし、密度と体積力ポテンシャルは一定のままである。
+
+したがって上記の Bernoulli の系を三次元場に適用し、水平面へ制限できる。遠方に $u\to(U,0)$、$p\to p_\infty$ という基準を与えると
 
 $$
 p+\frac12\rho|u|^2=p_\infty+\frac12\rho U^2.
