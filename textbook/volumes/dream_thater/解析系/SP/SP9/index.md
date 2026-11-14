@@ -4,11 +4,29 @@
 
 [STO2 の最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)・[上向き横断不等式](../../STO/STO2/index.md#thm-sto2-upcrossing)・[概収束定理](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)・[一様可積分マルチンゲール収束定理](../../STO/STO2/index.md#thm-sto2-ui-martingale-convergence)は既習です。本章ではこれらの正本を参照しながら、停止時刻・取引戦略・極限交換の中間計算を再構成し、二乗平均に関する帰結を導きます。
 
-以下、$(\Omega,\mathcal F,P)$ は確率空間、$(\mathcal F_n)_{n\ge0}$ はフィルトレーション、過程は実数値・適合、$X_n$ は各 $n$ で可積分とします。$x^+=\max(x,0)$、$x^-=\max(-x,0)$、$X^*_n=\max_{0\le k\le n}|X_k|$ と書きます。「概確実」は確率 $1$ の意味です。
+以下、$(\Omega,\mathcal F,P)$ を確率空間、$(\mathcal F_n)_{n\ge0}$ をフィルトレーションとします。扱う過程は実数値・適合で、$X_n$ は各 $n$ で可積分とします。
+
+実数の正部分・負部分、有限時間までの最大絶対値を次のように書きます。
+
+$$
+x^+=\max(x,0),\qquad x^-=\max(-x,0),\qquad
+X_n^*=\max_{0\le k\le n}|X_k|.
+$$
+
+「概確実」は確率 $1$ の意味です。
+
+独立公平コイン $\xi_1,\xi_2,\ldots$ を使う例・演習では、別途断らない限り、[自然フィルトレーション](../../STO/STO1/index.md#def-sto1-adapted-natural-filtration)を次で指定します。
+
+$$
+\mathcal F_0=\{\varnothing,\Omega\},\qquad
+\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)\quad(n\ge1).
+$$
+
+コイン同士の独立性から、$\xi_{n+1}$ は $\mathcal F_n$ と独立です。マルチンゲール性の判定ではこの条件付き平均の根拠を用います。
 
 ## 1. 最終値から途中の最大値をどう抑えるか
 
-劣マルチンゲールの時刻 $n$ の平均は増加しますが、単純に各 $k$ へ Markov の不等式を当てると $n+1$ 個の上界を足すことになります。一方、最大値が初めて水準 $\lambda$ を超えた瞬間に止めれば、途中の事象を一つにまとめられます。
+[劣マルチンゲール](../../STO/STO2/index.md#def-sto2-martingale)の時刻 $n$ の平均は増加しますが、単純に各 $k$ へ [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を当てると $n+1$ 個の上界を足すことになります。一方、最大値が初めて水準 $\lambda$ を超えた瞬間に止めれば、途中の事象を一つにまとめられます。
 
 [Doob 最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)の結論は、劣マルチンゲール $X_0,\ldots,X_n$ と $\lambda>0$ について
 
@@ -26,7 +44,7 @@ $$
 \tau=\inf\{k\ge0:X_k\ge\lambda\},\qquad \sigma=\tau\wedge n
 $$
 
-とします。$\{\tau\le m\}=\bigcup_{k=0}^m\{X_k\ge\lambda\}\in\mathcal F_m$ なので $\tau$ は停止時刻です。また $A\in\mathcal F_\sigma$ です。実際、$m<n$ なら $A\cap\{\sigma\le m\}=\{\tau\le m\}\in\mathcal F_m$、$m\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_m$ です。
+とします。$\{\tau\le m\}=\bigcup_{k=0}^m\{X_k\ge\lambda\}\in\mathcal F_m$ なので $\tau$ は停止時刻です。また[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)を使って $A\in\mathcal F_\sigma$ を確かめます。実際、$m<n$ なら $A\cap\{\sigma\le m\}=\{\tau\le m\}\in\mathcal F_m$、$m\ge n$ なら $A\in\mathcal F_n\subseteq\mathcal F_m$ です。
 
 [有界任意抽出定理](../../STO/STO2/index.md#thm-sto2-bounded-optional-sampling)を $\sigma\le n$ に使うと、条件付き不等式
 
@@ -63,7 +81,18 @@ $$
 
 ## 2. 二乗平均があれば最大値の二乗平均も抑えられる
 
-最大値の *確率* を抑えた後、**最大値の二乗期待値**まで評価したいことがあります。二乗可積分マルチンゲールとは、マルチンゲール $M$ で各 $E[M_n^2]<\infty$ であるものです。たとえば公平な独立 $\pm1$ コインの和 $S_n$ は、[SP7 の二乗平均計算](../SP7/index.md#prop-sp7-square-compensation)から $E[S_n^2]=n$ を満たします。
+最大値の *確率* を抑えた後、**最大値の二乗期待値**まで評価したいことがあります。二乗可積分マルチンゲールとは、各時刻の二乗期待値が有限なマルチンゲール $M$ です。
+
+ここで $L^2$ は二乗可積分な確率変数の空間です。収束記号も次の意味で使います。
+
+$$
+L^2(P)=\{Z:E[Z^2]<\infty\},\qquad
+M_n\to M_\infty\ \text{in }L^2
+\ \Longleftrightarrow\
+E[(M_n-M_\infty)^2]\to0.
+$$
+
+たとえば公平な独立 $\pm1$ コインの和 $S_n$ は、[SP7 の二乗平均計算](../SP7/index.md#prop-sp7-square-compensation)から $E[S_n^2]=n$ を満たします。
 
 次は [Doob 最大不等式](../../STO/STO2/index.md#thm-sto2-doob-maximal)から導く、二乗平均版です。
 
@@ -130,7 +159,13 @@ $$
 E[(Z^*)^2]\le4E[Z_n^2]=4E[M_n^2]
 $$
 
-を得ます。最後に非負変数 $(Z^*)^2$ へ Markov の不等式を適用すれば確率の評価も従います。
+を得ます。最後に $\lambda>0$ に対して $\lambda^2 1_{\{Z^*\ge\lambda\}}\le(Z^*)^2$ なので、[Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を非負変数 $(Z^*)^2$ と閾値 $\lambda^2$ に適用して
+
+$$
+\lambda^2P(Z^*\ge\lambda)\le E[(Z^*)^2]\le4E[M_n^2]
+$$
+
+を得ます。これが確率の評価です。
 <!-- proof-end -->
 
 **具体例。** 独立公平コインの歩行 $S_n=\sum_{k=1}^n\xi_k$ では、[マルチンゲール差分の二乗平均恒等式](../SP7/index.md#thm-sp7-predictable-isometry)を係数 $H_k=1$ に適用して
@@ -263,7 +298,7 @@ $$
 
 ### 平均は常に 1 なのに極限は 0 になる例
 
-独立な公平コイン $\xi_k\in\{-1,1\}$ に対し、初期値 $R_0=1$、$n\ge1$ で
+独立な公平コイン $\xi_k\in\{-1,1\}$ と、その自然なフィルトレーション $\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)$（$\mathcal F_0$ は自明）に対し、初期値 $R_0=1$、$n\ge1$ で
 
 $$
 R_n=2^n1_{\{\xi_1=\cdots=\xi_n=1\}}
@@ -296,7 +331,7 @@ M_n\to M_\infty\quad\text{a.s. かつ }L^1,\qquad
 M_n=E[M_\infty\mid\mathcal F_n]
 $$
 
-が成立します。証明の橋渡しも確認します。UI なら $\sup_nE|M_n|<\infty$ で、前節の概収束定理を適用できます。さらに概収束は確率収束を含むため [Vitali 型収束定理](../../F0/F0-00P4A/index.md#thm-f0-00p4a-vitali)により $L^1$ 収束します。
+が成立します。証明の橋渡しも確認します。[UI の一様 $L^1$ 有界性](../../F0/F0-00P4A/index.md#lem-f0-00p4a-ui-consequences)から $\sup_nE|M_n|<\infty$ で、前節の概収束定理を適用できます。さらに概収束は確率収束を含むため [Vitali 型収束定理](../../F0/F0-00P4A/index.md#thm-f0-00p4a-vitali)により $L^1$ 収束します。
 
 固定した $n$ と $B\in\mathcal F_n$ について、$m\ge n$ のマルチンゲール性から
 
@@ -354,7 +389,7 @@ E[(M_m-M_n)^2]
 \end{aligned}
 $$
 
-左辺が非負なので $v_n=E[M_n^2]$ は単調非減少です。仮定から $v_n\uparrow v<\infty$ となるので、$m\ge n$ に対して $0\le E[(M_m-M_n)^2]\le v-v_n\to0$。従って $(M_n)$ は $L^2$ の Cauchy 列であり、$L^2$ の完備性よりある $Y\in L^2$ へ $L^2$ 収束します。
+左辺が非負なので $v_n=E[M_n^2]$ は単調非減少です。仮定から $v_n\uparrow v<\infty$ となるので、$m\ge n$ に対して $0\le E[(M_m-M_n)^2]\le v-v_n\to0$。従って $(M_n)$ は $L^2$ の Cauchy 列であり、[$L^2$ の完備性](../../F0/F0-00D2E/index.md#thm-f0-00d2e-01)よりある $Y\in L^2$ へ $L^2$ 収束します。
 
 一方 $E|M_n|\le\sqrt{E[M_n^2]}$ なので $\sup_nE[M_n^+]<\infty$。[劣マルチンゲールの概収束](../../STO/STO2/index.md#thm-sto2-submartingale-convergence)から、ある $X\in L^1$ へ概収束します。概収束と $L^2$ 収束はいずれも確率収束を含みます。任意の $\varepsilon>0$ に対し、三角不等式と和集合の確率評価から
 
@@ -472,7 +507,7 @@ $$
 
 - Level: B
 
-独立公平コイン $\xi_k$ と $M_n=\sum_{k=1}^n2^{-k}\xi_k$（$M_0=0$）を考える。次を求め、$L^2$ 収束と概収束を結論せよ。
+独立公平コイン $\xi_k$ とその自然なフィルトレーション $\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)$（$\mathcal F_0$ は自明）、$M_n=\sum_{k=1}^n2^{-k}\xi_k$（$M_0=0$）を考える。次を求め、$L^2$ 収束と概収束を結論せよ。
 
 1. マルチンゲール性
 2. $E[M_n^2]$
@@ -481,7 +516,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$M_n$ は $\xi_1,\ldots,\xi_n$ による情報に適合し、$|M_n|\le\sum_{k=1}^n2^{-k}<1$ で可積分です。また
+$M_n$ は指定した $\mathcal F_n$ に適合し、$|M_n|\le\sum_{k=1}^n2^{-k}<1$ で可積分です。$\xi_n$ は $\xi_1,\ldots,\xi_{n-1}$ と独立なので、$\mathcal F_{n-1}$ と独立です。また
 
 $$
 E[M_n-M_{n-1}\mid\mathcal F_{n-1}]
@@ -564,7 +599,7 @@ $$
 
 - Level: C
 
-$a,b$ を正整数とし、$S_0=0$、$S_n=\sum_{k=1}^n\xi_k$ を独立公平 $\pm1$ 歩行とする。$\tau=\inf\{n\ge0:S_n\in\{-a,b\}\}$、$M_n=S_{n\wedge\tau}$ とする。[SP6 の吸収時刻の評価](../SP6/index.md#lem-sp6-geometric-tail)から $P(\tau<\infty)=1$ としてよい。
+$a,b$ を正整数とし、$S_0=0$、$S_n=\sum_{k=1}^n\xi_k$ を独立公平 $\pm1$ 歩行とする。情報は $\mathcal F_0$ を自明として $\mathcal F_n=\sigma(\xi_1,\ldots,\xi_n)$ とする。$\tau=\inf\{n\ge0:S_n\in\{-a,b\}\}$、$M_n=S_{n\wedge\tau}$ とする。[SP6 の吸収時刻の評価](../SP6/index.md#lem-sp6-geometric-tail)から $P(\tau<\infty)=1$ としてよい。
 
 1. $M_n$ がマルチンゲールで、$-a\le M_n\le b$ であることを確かめよ。
 2. 概確実・$L^2$・$L^1$ 収束することを示し、$P(S_\tau=b)$ を求めよ。
@@ -598,13 +633,19 @@ E[S_k^2-S_{k-1}^2\mid\mathcal F_{k-1}]
 =E[2S_{k-1}\xi_k+\xi_k^2\mid\mathcal F_{k-1}]=1.
 $$
 
-[SP8 の停止と Doob 分解の整合](../SP8/index.md#prop-sp8-doob-stop)から $M_n^2-(n\wedge\tau)$ はマルチンゲールです。初期値 $0$ なので
+この条件付き増分の計算により、$N_j:=S_j^2-j$（$j\ge0$）はマルチンゲールです。したがって $S_j^2=N_j+j$ が Doob 分解です。[SP8 の停止と Doob 分解の整合](../SP8/index.md#prop-sp8-doob-stop)をこの分解と停止時刻 $\tau$ に適用すると
+
+$$
+M_n^2=S_{n\wedge\tau}^2=N_{n\wedge\tau}+(n\wedge\tau)
+$$
+
+を得ます。停止過程 $(N_{n\wedge\tau})_{n\ge0}$ はマルチンゲールなので、$M_n^2-(n\wedge\tau)$ もマルチンゲールです。初期値は $0$ なので
 
 $$
 E[n\wedge\tau]=E[M_n^2].
 $$
 
-$n\to\infty$ で、左辺には $n\wedge\tau\uparrow\tau$ に対する[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)、右辺には $0\le M_n^2\le d^2$ と $M_n\to S_\tau$ に対する有界収束定理を使います。よって
+$n\to\infty$ で、左辺には $n\wedge\tau\uparrow\tau$ に対する[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)、右辺には $0\le M_n^2\le d^2$ と $M_n\to S_\tau$ に対する[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を、可積分な定数 $d^2$ を支配関数として使います。よって
 
 $$
 E[\tau]=E[S_\tau^2]
