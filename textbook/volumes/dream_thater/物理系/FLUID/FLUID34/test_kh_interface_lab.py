@@ -31,7 +31,7 @@ class KHInterfaceTests(unittest.TestCase):
         self.assertEqual(interface_state(k=500)["state"]["status"], "neutral")
         still = interface_state(k=30, u1=0, u2=0)
         self.assertEqual(still["state"]["growth_rate_s-1"], 0)
-        no_tension = interface_state(k=500, sigma=0, time=0.05)
+        no_tension = interface_state(k=500, sigma=0, amplitude=1e-5, time=0.05)
         self.assertGreater(no_tension["state"]["growth_rate_s-1"], 0)
         sheet = interface_state(rho1=1, rho2=1, g=9.81, sigma=0,
                                 u1=2, u2=0, k=3, amplitude=1e-4, time=0.2)
