@@ -602,15 +602,15 @@ $N>0$、$k>0$、$m=\sqrt3\,k$ の平面波を考える。振動数、鉛直変�
 
 [分散関係](#thm-fluid31-dispersion)に $m=\sqrt3\,k$ を代入する。$k>0$ だから
 
-$
+$$
 K=\sqrt{k^2+3k^2}=2k,\qquad \omega=N\frac{k}{K}=\frac N2.
-$
+$$
 
 鉛直速度を $w=A\cos\theta$ とすれば、[位相関係](#prop-fluid31-polarization)より
 
-$
+$$
 \xi=-\frac A\omega\sin\theta,\qquad \frac{\omega}{N}=\frac12.
-$
+$$
 
 速度が最大となる位相 $\theta=0$ では変位は零である。速度と変位の極値は四分の一周期だけずれる。[局所粒子試験](#prop-fluid31-parcel)の振動数は $N$ だが、波では圧力と非圧縮条件が空間モードを拘束するので、振動数はその半分になる。
 <!-- solution-end -->
