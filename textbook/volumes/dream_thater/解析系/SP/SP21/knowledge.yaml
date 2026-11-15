@@ -1,0 +1,68 @@
+chapter: SP21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO4
+concepts:
+  - id: stochastic.brownian-post-stopping-maximum
+    name: 停止時刻後の最大上昇
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（停止時刻後の最大上昇）"]
+    requires:
+      - stochastic.brownian-strong-markov-property
+      - stochastic.brownian-reflection-principle
+  - id: stochastic.brownian-maximum-endpoint-law
+    name: 最大値と終点の同時分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（最大値と終点の同時分布）"]
+    requires:
+      - stochastic.brownian-reflection-principle
+  - id: stochastic.brownian-bounded-stopping-mean
+    name: 本講で使う有界停止時刻の平均値保存
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（本講で使う有界停止時刻の平均値保存）"]
+    requires:
+      - stochastic.brownian-motion
+      - stochastic.brownian-reflection-principle
+      - stochastic.stopping-time
+  - id: stochastic.brownian-hitting-laplace
+    name: 正の水準到達時刻の Laplace 変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正の水準到達時刻の Laplace 変換）"]
+    requires:
+      - stochastic.brownian-bounded-stopping-mean
+      - stochastic.brownian-hitting-time
+  - id: stochastic.brownian-successive-hitting
+    name: 連続する二水準の到達待ち時間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連続する二水準の到達待ち時間）"]
+    requires:
+      - stochastic.brownian-strong-markov-property
+      - stochastic.brownian-hitting-time
+  - id: stochastic.brownian-interval-first-exit
+    name: 区間からの初退出時刻
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（区間からの初退出時刻）"]
+    requires:
+      - stochastic.brownian-hitting-time
+  - id: stochastic.brownian-two-sided-exit
+    name: Brown 運動の両側退出確率と平均退出時刻
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Brown 運動の両側退出確率と平均退出時刻）"]
+    requires:
+      - stochastic.brownian-interval-first-exit
+      - stochastic.brownian-bounded-stopping-mean
+  - id: stochastic.brownian-hitting-moment-cutoff
+    name: 一側到達時刻の正のモーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一側到達時刻の正のモーメント）"]
+    requires:
+      - stochastic.brownian-hitting-time-distribution
