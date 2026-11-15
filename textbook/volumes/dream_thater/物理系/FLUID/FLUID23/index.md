@@ -290,7 +290,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid23-quartic-profile -->
-**定義の確認**： $x$ を固定すると $z=y/\delta(x)$ について $\partial z/\partial y=1/\delta(x)$ である。連鎖律により、近似層の内側 $0<y<\delta(x)$ で
+**定義の確認**： $x$ を固定すると $z=y/\delta(x)$ について $\partial z/\partial y=1/\delta(x)$ である。ここで $g'(z)=dg/dz$、$g''(z)=d^2g/dz^2$ は無次元座標 $z$ に関する微分を表す。連鎖律により、近似層の内側 $0<y<\delta(x)$ で
 
 $
 u_y=\frac{U}{\delta(x)}g'(z),\qquad
