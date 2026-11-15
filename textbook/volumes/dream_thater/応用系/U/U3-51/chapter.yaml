@@ -1,0 +1,48 @@
+id: "U3-51"
+title: "極値理論：POT・一般化パレート尾部"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-50, U3-48, U3-46, F0-00P7A]
+official_scope: []
+learning_objectives:
+  - 閾値超過数と条件付き超過幅を区別し標本比率を計算できる
+  - 一般化パレート分布の生存関数・密度・台と形状母数の意味を確認できる
+  - 条件付き確率からGPD閾値安定性を証明し新閾値の尺度と超過確率を計算できる
+  - POTの尾部生存確率を反転して高水準VaRを導出できる
+  - 生存確率の積分からESを導き形状母数1での発散を説明できる
+  - 平均超過直線・閾値感度・最尤推定・超過数の不確実性を検算できる
+  - 合成損失分布でVaRとESの母数感度を比較し標本外予測の限界を説明できる
+definitions:
+  - { id: U3-51-DEF-01, name: "閾値超過標本と超過確率" }
+  - { id: U3-51-DEF-02, name: "一般化パレート超過分布" }
+  - { id: U3-51-DEF-03, name: "POT 尾部損失モデル" }
+  - { id: U3-51-DEF-04, name: "平均超過関数" }
+theorems:
+  - { id: U3-51-PROP-01, name: "一般化パレート分布の閾値安定性" }
+  - { id: U3-51-PROP-02, name: "POT 尾部の高水準 VaR" }
+  - { id: U3-51-PROP-03, name: "POT 尾部の ES と存在条件" }
+  - { id: U3-51-PROP-04, name: "GPD 尾部の平均超過直線" }
+  - { id: U3-51-PROP-05, name: "指数超過幅の尺度の最尤推定" }
+  - { id: U3-51-PROP-06, name: "固定閾値の超過比率の分散" }
+canonical_examples:
+  - "閾値10万円の超過幅2,2,6と超過比率3/7の計算"
+  - "負の形状で右端8万円・確率密度積分1の確認"
+  - "合成損失で98%VaR6+4sqrt(10)・ES6+8sqrt(10)万円を算出"
+  - "閾値10万円から12万円への移動で形状不変とVaR不変を検算"
+  - "形状0,1/2,1で指数型・冪型・無限ESの比較"
+  - "指数超過幅1,2,3,6から最尤尺度3万円を導出"
+problem_patterns:
+  - U3-51-A1
+  - U3-51-A2
+  - U3-51-A3
+  - U3-51-A4
+  - U3-51-A5
+  - U3-51-B1
+  - U3-51-B2
+  - U3-51-B3
+  - U3-51-B4
+  - U3-51-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
