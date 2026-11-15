@@ -1,0 +1,41 @@
+chapter: MIR1-06
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-05, CYG1-13]
+concepts:
+  - id: mirror.dwork-discriminant-set
+    name: 射影超曲面族の判別集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影超曲面族の判別集合）"]
+    requires: []
+  - id: mirror.dwork-smooth-locus
+    name: Dwork型quinticの滑らかさと判別集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dwork型quinticの滑らかさと判別集合）"]
+    requires: [mirror.dwork-discriminant-set]
+  - id: mirror.dwork-conifold-nodes
+    name: 特異ファイバーの125個の通常二重点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（特異ファイバーの125個の通常二重点）"]
+    requires: [mirror.dwork-smooth-locus, mirror.greene-plesser-stabilizer-classification]
+  - id: mirror.dwork-z-coordinate
+    name: Dwork型族のz座標と被覆座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dwork型族のz座標と被覆座標）"]
+    requires: [mirror.greene-plesser-orbit-quotient]
+  - id: mirror.dwork-z-discriminant
+    name: z座標の有限判別値とFermat点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（z座標の有限判別値とFermat点）"]
+    requires: [mirror.dwork-smooth-locus, mirror.dwork-z-coordinate]
+  - id: mirror.dwork-boundary-degeneration
+    name: z=0に向かう被覆族の中心ファイバー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（z=0に向かう被覆族の中心ファイバー）"]
+    requires: [mirror.dwork-z-coordinate, mirror.dwork-z-discriminant]
