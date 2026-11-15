@@ -35,17 +35,17 @@ $Z_n$ は有限個の有限な非負整数の和から再帰的に作られる�
 
 現在人数を $Z_n=z$ と固定すると、次の世代の人数は独立な $z$ 個の子孫数の和です。例えば $z=2$ のとき、合計が $k$ 人になる組を数えると、独立性から
 
-$
+$$
 P(Z_{n+1}=k\mid Z_n=2)
 =\sum_{j=0}^{k}P(\xi_{n,1}=j)P(\xi_{n,2}=k-j)
 =\sum_{j=0}^{k}p_jp_{k-j}
-$
+$$
 
 となります。このように「合計が指定値になる組」について確率の積を足す操作を、分布の**畳込み**といいます。$z$ 個の場合も同じ操作を繰り返します。特に全員が0人の子を残す場合は、$z$ 個体それぞれの確率 $p_0$ を掛けるので
 
-$
+$$
 P(Z_{n+1}=0\mid Z_n=z)=p_0^z
-$
+$$
 
 です。各個体が子を残さない事象は独立であることを使いました。$z=0$ では $p_0^0$ を $1$ と読むため、零から零への遷移確率も $1$ になります。
 
@@ -273,20 +273,20 @@ $f(1)=1$、左微分係数 $f'(1-)=m$、$f$ の凸性を使います。劣臨界
 
 まず $0\le s<1$ を固定します。$f(1)=1$ と等比和の恒等式を使うと、$s$ と $1$ を結ぶ弦の傾きは
 
-$
+$$
 \begin{aligned}
 \frac{f(1)-f(s)}{1-s}
 &=\sum_{k\ge1}p_k\frac{1-s^k}{1-s}\\
 &=\sum_{k\ge1}p_k\sum_{j=0}^{k-1}s^j
 \le\sum_{k\ge1}kp_k=m.
 \end{aligned}
-$
+$$
 
 ここで $0\le s<1$ なら各 $s^j\le1$ であり、$m<\infty$ なので右辺は有限です。また $s\uparrow1$ のとき、各内側の和は $k$ に単調増加します。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)から弦の傾きは $m$ に収束します。これが前節の $f'(1-)=m$ と同じ値になる理由です。従って
 
-$
+$$
 f(s)\ge1-m(1-s).
-$
+$$
 
 **(1) 劣臨界。** $m<1$ なら
 
@@ -495,15 +495,15 @@ $Z_n$ は $\mathcal F_n$ によって決まります。第 $n$ 世代より後�
 
 [絶滅確率の反復](#thm-sp18-extinction)で定めた $q_r=P(Z_r=0)$（$r\ge0$）を使い、任意の $n,r\ge0$ に対して
 
-$
+$$
 P(Z_{n+r}=0\mid\mathcal F_n)=q_r^{Z_n}
-$
+$$
 
 を $r$ について帰納法で示します。$r=0$ では左辺が $\boldsymbol{1}_{\{Z_n=0\}}$ であり、$q_0=0$ と $0^0=1$ の約束から右辺と一致します。
 
 すべての $n$ について $r$ で成立すると仮定します。[条件付き期待値の塔の性質](../../F0/F0-00P3A/index.md#thm-f0-00p3a-tower)を $\mathcal F_n\subset\mathcal F_{n+1}$ に適用し、続いて[一世代の母関数の計算](#thm-sp18-generation-pgf)を使うと、
 
-$
+$$
 \begin{aligned}
 P(Z_{n+r+1}=0\mid\mathcal F_n)
 &=E[P(Z_{(n+1)+r}=0\mid\mathcal F_{n+1})\mid\mathcal F_n]\\
@@ -511,20 +511,20 @@ P(Z_{n+r+1}=0\mid\mathcal F_n)
 &=f(q_r)^{Z_n}
 =q_{r+1}^{Z_n}.
 \end{aligned}
-$
+$$
 
 二つ目の等号は帰納法の仮定、三つ目は次世代の各個体の子孫数が独立で同分布であることによります。これで有限世代の式が確かめられました。
 
 零は吸収的なので $\{Z_{n+r}=0\}$ は $r$ とともに増加し、その和集合は $\{\tau<\infty\}$ です。任意の事象 $B\in\mathcal F_n$ について、[確率測度の下からの連続性](../../F0/F0-00D2/index.md#thm-f0-00d2-01)と[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により
 
-$
+$$
 \begin{aligned}
 P(B\cap\{\tau<\infty\})
 &=\lim_{r\to\infty}P(B\cap\{Z_{n+r}=0\})\\
 &=\lim_{r\to\infty}E[\boldsymbol{1}_B q_r^{Z_n}]\\
 &=E[\boldsymbol{1}_B q^{Z_n}].
 \end{aligned}
-$
+$$
 
 最後は $q_r\uparrow q$、$0\le q_r^{Z_n}\le1$ を使いました（$Z_n=0$ なら常に1）。この等式がすべての $B\in\mathcal F_n$ で成り立つので、[条件付き期待値の定義](../../F0/F0-00P3A/index.md#def-f0-00p3a-conditional-expectation)から $P(\tau<\infty\mid\mathcal F_n)=q^{Z_n}$ が従います。
 <!-- proof-end -->
