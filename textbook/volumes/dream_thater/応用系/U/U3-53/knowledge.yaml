@@ -1,0 +1,53 @@
+chapter: U3-53
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-45, U3-44, U3-48]
+concepts:
+  - id: finance.var-hit
+    name: 予測時点と VaR 超過指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（予測時点と VaR 超過指標）"]
+    requires: [finance.value-at-risk, finance.holding-period-loss]
+  - id: finance.var-conditional-iid
+    name: 条件付き校正から独立 Bernoulli 超過列へ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（条件付き校正から独立 Bernoulli 超過列へ）"]
+    requires: [finance.var-hit]
+  - id: finance.var-binomial-hits
+    name: 超過数の二項分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（超過数の二項分布）"]
+    requires: [finance.var-conditional-iid]
+  - id: finance.var-unconditional-coverage-lr
+    name: 無条件被覆の尤度比統計量 LRuc
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（無条件被覆の尤度比統計量 LRuc）"]
+    requires: [finance.var-binomial-hits]
+  - id: finance.var-lruc-maximization
+    name: LRuc の最大化と非負性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（LRuc の最大化と非負性）"]
+    requires: [finance.var-unconditional-coverage-lr]
+  - id: finance.var-markov-hit-model
+    name: 一次 Markov 超過モデルと独立モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次 Markov 超過モデルと独立モデル）"]
+    requires: [finance.var-hit]
+  - id: finance.var-independence-lr
+    name: Christoffersen の独立性尤度比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Christoffersen の独立性尤度比）"]
+    requires: [finance.var-markov-hit-model, finance.var-lruc-maximization]
+  - id: finance.var-conditional-coverage-lr
+    name: 条件付き被覆の合成統計量 LRcc
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付き被覆の合成統計量 LRcc）"]
+    requires: [finance.var-unconditional-coverage-lr, finance.var-independence-lr]
