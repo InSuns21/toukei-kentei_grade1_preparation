@@ -26,7 +26,7 @@
 
 <!-- formal-statement-start -->
 > **定義（線形因子損失と分散共分散法）**  
-> 固定した保有期間の実確率空間 $(\Omega,\mathcal F,P)$ 上で、$X\in\mathbb R^d$ を有限二次モーメントを持つ因子変化ベクトル、$w\in\mathbb R^d$ を時点0で固定した感応度ベクトル、$c\in\mathbb R$ を確定した費用（万円）とする。線形損益を $\Pi=w^{\mathsf T}X-c$、損失を
+> 固定した保有期間の実確率空間 $(\Omega,\mathcal F,P)$ 上で、$X\in\mathbb R^d$ を有限二次モーメントを持つ因子変化ベクトル、$w\in\mathbb R^d$ を時点0で固定した感応度ベクトル、$c\in\mathbb R$ を確定した費用・現金収支の調整額（万円、正なら費用、負なら受取）とする。線形損益を $\Pi=w^{\mathsf T}X-c$、損失を
 
 $$
 L=c-w^{\mathsf T}X
@@ -125,6 +125,17 @@ $$
 > で表せる因子ベクトルを、ここでは**多変量正規因子モデル**と呼ぶ。分散共分散行列は $\Sigma=AA^{\mathsf T}$ で、特異行列でもよい。
 <!-- formal-statement-end -->
 
+行列表示 $X=\mu+AZ$ を成分へ戻すと $X_i-\mu_i=\sum_{k=1}^r A_{ik}Z_k$ です。独立標準正規性から $E[Z_kZ_\ell]=1$（$k=\ell$）、$0$（$k\ne\ell$）なので、
+
+$
+\operatorname{Cov}(X_i,X_j)
+=\sum_{k,\ell}A_{ik}A_{j\ell}E[Z_kZ_\ell]
+=\sum_{k=1}^r A_{ik}A_{jk}
+=(AA^{\mathsf T})_{ij}.
+$
+
+従って $d\times r$ 行列 $A$ から得る $d\times d$ 行列 $AA^{\mathsf T}$ が、定義で要求した分散共分散行列そのものです。以下の例ではこの成分対応を検算します。
+
 <!-- definition-example-start: def-u3-47-normal-factor -->
 **定義の確認**：$d=r=2$、$A=\begin{pmatrix}2&0\\1/2&\sqrt{35}/2\end{pmatrix}$、$\mu=(1,0)^{\mathsf T}$ とします。$Z_1,Z_2$ が独立に標準正規なので $X_1=1+2Z_1$、$X_2=Z_1/2+\sqrt{35}Z_2/2$ です。行列積の各成分を確かめると
 
@@ -170,7 +181,7 @@ L-\mu_L
 \end{aligned}
 $$
 
-独立な $Z_j\sim N(0,1)$ の特性関数は、標準正規積分から $E[e^{itZ_j}]=e^{-t^2/2}$ です。独立性により $-b^{\mathsf T}Z$ の特性関数は
+[特性関数の定義](../U3-38/index.md#def-u3-38-characteristic)を本講の測度 $P$ で用います。[正規特性関数の導出](../U3-38/index.md#prop-u3-38-gbm-phi)に $m=0$、$v=1$ を代入すれば、独立な $Z_j\sim N(0,1)$ について $E^P[e^{itZ_j}]=e^{-t^2/2}$ です。ここで $t\in\mathbb R$ は特性関数の引数であり、時刻ではありません。独立性によって積の期待値を分解すると、$-b^{\mathsf T}Z$ の特性関数は
 
 $$
 E[e^{it(-\sum_jb_j Z_j)}]
@@ -372,6 +383,8 @@ $$
 
 正規モデルで独立の因子ノイズを $AZ$ としてまとめたのと同じ発想を、t 分布へ拡張します。ただし重要なのは、**すべての因子に同じランダムな分母 $V$ を使う**ことです。因子ごとに独立の分母を使うと、一般の線形結合が同じ t 分布になるという性質は失われます。
 
+以下の $N_r(0,I_r)$ は「$r$ 成分が独立な標準正規分布に従うベクトル」を表し、$I_r$ は $r\times r$ 単位行列です。$\mu$ はまず**位置ベクトル**であり、$\nu\le1$ では平均ベクトルとは呼べません。
+
 <a id="def-u3-47-multivariate-t"></a>
 
 <!-- formal-statement-start -->
@@ -385,6 +398,20 @@ $$
 
 > と定める。$\Omega$ を**尺度行列**と呼ぶ。$\nu>2$ の場合の分散共分散行列は $\Sigma=\nu\Omega/(\nu-2)$ であり、一般に $\Omega$ 自身とは異なる。
 <!-- formal-statement-end -->
+
+$Z$ の各成分の平均は0、共分散は $I_r$ です。$\nu>2$ なら[逆 $\chi^2$ モーメントの計算](#prop-u3-47-t-moments)から $E[\nu/V]=\nu/(\nu-2)<\infty$ であり、$Z$ と $V$ の独立性を使って
+
+$
+\begin{aligned}
+E[X]&=\mu+E[\sqrt{\nu/V}]A E[Z]=\mu,\\
+\operatorname{Cov}(X)
+&=E[(X-\mu)(X-\mu)^{\mathsf T}]\\
+&=E[\nu/V]A E[ZZ^{\mathsf T}]A^{\mathsf T}
+=\frac{\nu}{\nu-2}\,AA^{\mathsf T}.
+\end{aligned}
+$
+
+と導けます。ここでは $E[\sqrt{\nu/V}]<\infty$ は $E[\nu/V]<\infty$ から Cauchy--Schwarz 不等式で従います。これが $\Omega=AA^{\mathsf T}$ を**尺度行列**、$\Sigma=\nu\Omega/(\nu-2)$ を**共分散行列**と区別する根拠です。$\nu\le2$ では一般にこの共分散計算はできません。
 
 <!-- definition-example-start: def-u3-47-multivariate-t -->
 **定義の確認**：第2節の $A$ と $\mu$、共通の $V\sim\chi_5^2$ を使います。$A$ は $2\times2$、$Z$ は2次元、$\Omega=AA^{\mathsf T}=\begin{pmatrix}4&1\\1&9\end{pmatrix}$ は半正定値です。$\nu=5>2$ なので
@@ -400,14 +427,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（共通尺度 t 因子の線形射影）**  
-> [多変量 t 因子モデル](#def-u3-47-multivariate-t)と[線形因子損失](#def-u3-47-linear-loss)について
+> [多変量 t 因子モデル](#def-u3-47-multivariate-t)に対して、固定ベクトル $w\in\mathbb R^d$ と確定調整額 $c\in\mathbb R$ を取り、$L=c-w^{\mathsf T}X$ と置く。ここでは[線形損失の式](#def-u3-47-linear-loss)だけを用い、同定義の有限二次モーメント条件は仮定しない。
 
 $$
 m=c-w^{\mathsf T}\mu,\qquad
 s=\sqrt{w^{\mathsf T}\Omega w}.
 $$
 
-> $s>0$ なら $L$ は $m+sT_\nu$ と同じ分布を持つ。$s=0$ なら $L=m$ がほとんど確実である。$\nu>2$ の場合に限り
+> $s>0$ なら $L$ は $m+sT_\nu$ と同じ分布を持つ。$s=0$ なら $L=m$ がほとんど確実である。$m$ は位置パラメータであり、$\nu>1$ なら平均損失に等しい。$\nu>2$ の場合に限り
 
 $$
 \operatorname{Var}(L)=\frac{\nu}{\nu-2}s^2
@@ -426,7 +453,7 @@ $$
 L-m=-\sqrt{\frac{\nu}{V}}\,b^{\mathsf T}Z.
 $$
 
-$s>0$ なら、[正規射影の命題](#prop-u3-47-normal-projection)により $Z_*=-b^{\mathsf T}Z/s$ は標準正規です。$Z_*$ は $Z$ の関数であり $V$ は $Z$ と独立なので、$Z_*$ と $V$ も独立です。ゆえに
+$s>0$ なら、[正規射影の命題](#prop-u3-47-normal-projection)を $X=Z$、$A=I_r$、平均0、感応度 $w=b$、費用 $c=0$ に適用します。このとき損失 $-b^{\mathsf T}Z$ の分散は $b^{\mathsf T}b=s^2>0$ なので、$Z_*=-b^{\mathsf T}Z/s$ は標準正規です。$Z_*$ は $Z$ の関数であり $V$ は $Z$ と独立なので、$Z_*$ と $V$ も独立です。ゆえに
 
 $$
 L=m+s\frac{Z_*}{\sqrt{V/\nu}}
