@@ -34,4 +34,4 @@ chapters:
   - { id: U4-27, path: textbook/volumes/dream_thater/応用系/U/U4-27, status: completed, title: "時系列のwalk-forwardと漏洩防止" }
   - { id: U4-28, path: textbook/volumes/dream_thater/応用系/U/U4-28, status: completed, title: "多重探索・過学習・Sharpeの検証" }
   - { id: U4-29, path: textbook/volumes/dream_thater/応用系/U/U4-29, status: completed, title: "レジーム変化・テール・流動性のストレス監査" }
-  - { id: U4-30, path: textbook/volumes/dream_thater/応用系/U/U4-30, status: planned, title: "研究の再現と3種の裁定の最終判定" }
+  - { id: U4-30, path: textbook/volumes/dream_thater/応用系/U/U4-30, status: completed, title: "研究の再現と3種の裁定の最終判定" }
