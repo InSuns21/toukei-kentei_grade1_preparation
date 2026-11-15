@@ -68,7 +68,7 @@ $$
 \omega_{\gamma_2}(z)=\int_{\gamma_2}\alpha_z=z
 $$
 
-を直接得る。したがってこの例の**対象周期関数**は $\{1,z\}$ である。$\theta=z\,d/dz$ は $u,v$ とサイクルを固定して $z$ だけを微分するので、$\theta1=0$、$\theta z=z$ となり、
+を直接得る。したがって、この二つの積分値が定義でいう**周期関数の族** $\{1,z\}$ をなす。$\theta=z\,d/dz$ は $u,v$ とサイクルを固定して $z$ だけを微分するので、$\theta1=0$、$\theta z=z$ となり、
 
 $$
 \theta(\theta-1)1=0,\qquad
@@ -388,7 +388,22 @@ $$
 
 **四階とは何の四次元か。** [鏡像のHodge数](../MIR1-05/index.md#prop-mir1-05-hodge-count)では、crepant解消したミラー側の $h^{2,1}=1$ から $b_3=2+2h^{2,1}=4$ となる。一方、元の滑らかなquinticでは $h^{2,1}=101$ なので $b_3=204$ である。本講の低減は、$P^j$ を含む**対角群不変の変動部分**を閉じる。全204次元へ四階方程式がそのまま基底を与えると解釈してはいけない。
 
-ここで四つの独立な方向が現れる理由も検算できる。Fermat点 $\psi=0$ では[既習のJacobianイデアル](../MIR1-09/index.md#def-mir1-09-jacobian-ideal)が $(x_0^4,\ldots,x_4^4)$ であり、商環の単項式基底は各変数の指数を $0,1,2,3$ に制限して得る。[Greene–Plesser型の位相群](../MIR1-04/index.md#def-mir1-04-phase-group)を五乗根 $\lambda_i$ による対角作用（$\prod_i\lambda_i=1$、共通の五乗根倍は射影的に同じ変換）で表す。次数が5の倍数の単項式では共通倍が自明に作用する。各二つの座標への $\lambda_i=\zeta,\lambda_j=\zeta^{-1}$ の作用を確かめれば、不変であるためには指数差 $a_i-a_j$ が5の倍数でなければならない。逆に全指数が5を法として等しければ、作用因子は $(\prod_i\lambda_i)^{a_0}=1$ なので十分でもある。従って次数 $0,5,10,15$ での候補は
+ここで四つの独立な方向が現れる理由も検算できる。Fermat点 $\psi=0$ では[既習のJacobianイデアル](../MIR1-09/index.md#def-mir1-09-jacobian-ideal)が $(x_0^4,\ldots,x_4^4)$ である。商環の単項式基底は、各変数の指数 $a_i$ が $0,1,2,3$ のものから得る。
+
+[Greene–Plesser型の位相群](../MIR1-04/index.md#def-mir1-04-phase-group)を五乗根 $\lambda_i$ による対角作用で表す。指数列 $a=(a_0,\ldots,a_4)$ の単項式への作用は
+
+$$
+x^a\longmapsto\left(\prod_{i=0}^4\lambda_i^{a_i}\right)x^a,
+\qquad \prod_{i=0}^4\lambda_i=1
+$$
+
+である。次数が5の倍数なので、全座標の共通五乗根倍は単項式に自明に作用し、位相群の商と整合する。任意の $i\ne j$ について $\lambda_i=\zeta,\lambda_j=\zeta^{-1}$、他を1と置ける。不変であるための必要条件は
+
+$$
+\zeta^{a_i-a_j}=1,\qquad a_i\equiv a_j\pmod5
+$$
+
+となる。逆に全指数が $a_i\equiv r\pmod5$ なら、作用因子は $(\prod_i\lambda_i)^r=1$ なので十分でもある。各指数は0から3なので全て等しく、次数 $0,5,10,15$ での候補は
 
 $$
 1,\qquad P,\qquad P^2,\qquad P^3
@@ -602,7 +617,15 @@ $$
 Fermat点 $F_0=\sum_i x_i^5$ のJacobian環 $\mathbb C[x_0,\ldots,x_4]/(x_0^4,\ldots,x_4^4)$ を考える。各 $x_i$ を五乗根 $\lambda_i$ で掛け、$\prod_i\lambda_i=1$ とする群に不変な、次数 $0,5,10,15$ の単項式をすべて求めよ。なぜこれだけで元のquinticの $b_3=204$ を否定しないか述べよ。
 
 <!-- solution-start -->
-**詳細解答。** Jacobian環では指数を $0,1,2,3$ に制限した単項式が基底である。任意の $i,j$ に対し $\lambda_i=\zeta$、$\lambda_j=\zeta^{-1}$、他を1と選べるので、不変な $x^a$ は $\zeta^{a_i-a_j}=1$ を満たし、すべての指数が5を法として等しい。指数は0から3なので、実際にすべて等しい。逆に全指数が5を法として等しいなら、作用の因子は $(\prod_i\lambda_i)^{a_0}=1$ なので不変でもある。このため次数 $0,5,10,15$ の候補は順に $1,P,P^2,P^3$ の各一つである。これらは生成元 $x_i^4$ の倍数を含まず零ではない。
+**詳細解答。** Jacobian環の単項式基底は各指数が0から3の範囲である。任意の $i\ne j$ について $\lambda_i=\zeta$、$\lambda_j=\zeta^{-1}$、他を1と選べる。不変な $x^a$ は
+
+$$
+\zeta^{a_i-a_j}=1\quad\Longrightarrow\quad a_i\equiv a_j\pmod5
+$$
+
+を満たす。各指数は0から3なので、実際にすべて等しい。逆にすべて等しければ作用因子は $(\prod_i\lambda_i)^{a_0}=1$ なので不変である。
+
+よって次数 $0,5,10,15$ の候補は順に $1,P,P^2,P^3$ の各一つである。これらは生成元 $x_i^4$ の倍数を含まず、商環で零ではない。
 
 これは**群不変部分**の計算であり、他の群表現に属するJacobian環の単項式を零にしたのではない。[quinticと鏡像のHodge数](../MIR1-05/index.md#prop-mir1-05-hodge-count)では元のquinticは $h^{2,1}=101$、従って $b_3=204$。四次元の不変変動だけを今回の作用素で記述しても矛盾はない。Jacobian環をHodge成分へ移すには別途Griffithsの留数比較定理を用いる。
 <!-- solution-end -->
