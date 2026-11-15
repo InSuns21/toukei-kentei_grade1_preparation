@@ -1,0 +1,49 @@
+id: "FLUID31"
+title: "密度成層内ではどんな波が生まれるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID2
+  - FLUID29
+official_scope: []
+learning_objectives:
+  - "背景の静水圧と密度差を分け、Boussinesq近似で慣性から密度差を除き浮力には残す条件を説明する"
+  - "Brunt–Väisälä周波数の定義・単位・鉛直安定性の符号を具体例で検証する"
+  - "密度移流と運動量・非圧縮条件から線形Boussinesq方程式を導く"
+  - "圧力消去から2次元内部重力波の分散関係を導出し退化波数と壁境界条件の範囲を区別する"
+  - "鉛直速度から水平速度・浮力・密度面変位・圧力を再構成する"
+  - "線形波の正値エネルギー保存と群速度・エネルギー流束の一致を検算する"
+  - "ブラウザPythonで波数・成層強度・位相・二次元変位・式の残差を比較する"
+definitions:
+  - { id: FLUID31-DEF-01, name: "本講の Boussinesq 近似" }
+  - { id: FLUID31-DEF-02, name: "浮力加速度" }
+  - { id: FLUID31-DEF-03, name: "Brunt–Väisälä 周波数の二乗" }
+theorems:
+  - { id: FLUID31-PROP-01, name: "局所浮力試験" }
+  - { id: FLUID31-THM-01, name: "非回転 Boussinesq 成層流体の線形方程式" }
+  - { id: FLUID31-THM-02, name: "2次元内部重力波の分散関係" }
+  - { id: FLUID31-PROP-02, name: "内部波の速度・浮力・圧力の位相関係" }
+  - { id: FLUID31-THM-03, name: "線形内部波のエネルギー保存" }
+  - { id: FLUID31-PROP-03, name: "内部重力波の群速度と波数の直交" }
+canonical_examples:
+  - "小密度差と浮力尺度の両立"
+  - "線形成層の背景密度正値性とNの計算"
+  - "水平・鉛直波数3対4での分散と位相"
+  - "群速度と波数の直交、平均エネルギー流束"
+  - "成層符号反転による不安定モード"
+  - "Pythonで線形方程式の残差と2次元変位断面を照合"
+problem_patterns:
+  - FLUID31-NEGATIVE-STRATIFICATION
+  - FLUID31-BUOYANCY-SIGN
+  - FLUID31-DISPERSION-PERIOD
+  - FLUID31-INCOMPRESSIBILITY-POLARIZATION
+  - FLUID31-SCALE-VALIDITY
+  - FLUID31-PRESSURE-ELIMINATION
+  - FLUID31-PARCEL-VS-WAVE
+  - FLUID31-ENERGY-CANCELLATION
+  - FLUID31-GROUP-DIRECTION
+  - FLUID31-INTEGRATED-ENERGY-TRANSFER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 5 }
