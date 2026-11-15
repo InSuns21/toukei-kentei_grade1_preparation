@@ -4,7 +4,7 @@
 
 [FLUID27 の分散関係](../FLUID27/index.md#thm-fluid27-dispersion)は、波数ごとに山の進む速度が変わることを示した。しかし、山の進む速さと、局所的に作った波の揺れが遠くへ届く速さは同じだろうか。近い二つの波を重ねると速い振動の上に緩やかな強弱が現れる。この強弱の移動を調べ、その速さが**波のエネルギー流束を平均エネルギーで割った速さ**と一致する理由を、線形自由表面の保存則から求める。
 
-**結論の成立域を先に区別する。** 本講の模型は一定水深の水平底面、一定密度・非圧縮・非粘性・無渦の二次元液体、一定気圧の気体、一様な表面張力、弱い振幅の線形波である。波束の包絡を群速度で追うときは、さらに波数の広がりが中心波数より十分小さいとする。非線形波、砕波、風によるエネルギー入力、粘性散逸、水深が変化する伝播はここでの等式からは直接結論できない。
+**結論の成立域を先に区別する。** 本講の模型は一定水深の水平底面、一定密度・非圧縮・非粘性・無渦の二次元液体、一定気圧の気体、一様な表面張力、弱い振幅の線形波である。波束の包絡の移動を一つの速度で近似するときは、さらに波数の広がりが中心波数より十分小さいとする。非線形波、砕波、風によるエネルギー入力、粘性散逸、水深が変化する伝播はここでの等式からは直接結論できない。
 
 ## 0. 何を輸送と呼ぶのか
 
@@ -31,7 +31,13 @@ $$
 
 で決まる。[前講の分散関係](../FLUID27/index.md#thm-fluid27-dispersion)の正の枝を選んでいる。
 
-中心波数 $k_0>0$ の前後に $k_\pm=k_0\pm\delta k/2$ を取り、$0<\delta k<2k_0$、$\omega_\pm=\omega(k_\pm)$ とする。各成分の振幅を $a/2$ にすると、三角関数の加法公式より
+中心波数 $k_0>0$ の前後に $k_\pm=k_0\pm\delta k/2$ を取り、$0<\delta k<2k_0$、$\omega_\pm=\omega(k_\pm)$ とする。各成分の振幅を $a/2$ にする。ここで余弦の和を積へ直す恒等式
+
+$$
+\cos A+\cos B=2\cos\left(\frac{A+B}{2}\right)\cos\left(\frac{A-B}{2}\right)
+$$
+
+に $A=k_+x-\omega_+t$、$B=k_-x-\omega_-t$ を代入すると
 
 $$
 \begin{aligned}
@@ -554,7 +560,7 @@ $a>0$ の線形単色波について、$\langle U_g\rangle,\langle U_\gamma\rang
 <!-- solution-start -->
 #### 詳細解答
 
-[平均エネルギー命題](#prop-fluid28-wave-energy)から
+[線形重力・毛管波の平均エネルギー](#prop-fluid28-wave-energy)から
 
 $$
 \langle U_g\rangle=\frac{\rho ga^2}{4},\quad
@@ -666,7 +672,7 @@ $$
 =\frac12\left(\frac{1+3r}{1+r}+S\right).
 $$
 
-右辺は[群速度定理](#thm-fluid28-finite-depth-group)の $c_g/c_p$ なので、$J=\mathcal E c_g$。$\gamma>0$ で張力仕事を消すと比は $r/(1+r)$ だけ不足する。
+右辺は[有限水深の重力・毛管波の群速度](#thm-fluid28-finite-depth-group)の $c_g/c_p$ なので、$J=\mathcal E c_g$。$\gamma>0$ で張力仕事を消すと比は $r/(1+r)$ だけ不足する。
 <!-- solution-end -->
 
 ### B3. 狭帯域の誤差を評価する
@@ -709,7 +715,7 @@ $kh\gg1$ の深水極限を取り、$r=\gamma k^2/(\rho g)$ は有限で非負�
 <!-- solution-start -->
 #### 詳細解答
 
-$q\to\infty$ では $S\to0$。従って[エネルギー輸送の定理](#thm-fluid28-energy-transport)から
+$q\to\infty$ では $S\to0$。従って[平均波エネルギー流束と群速度](#thm-fluid28-energy-transport)から
 
 $$
 \frac{J_p}{\mathcal E}\to\frac{c_p}{2},
@@ -744,7 +750,7 @@ $$
 \qquad c_p=\sqrt{\frac{2g\tanh1}{k}}.
 $$
 
-[群速度定理](#thm-fluid28-finite-depth-group)で $(1+3r)/(1+r)=4/2=2$ だから
+[有限水深の重力・毛管波の群速度](#thm-fluid28-finite-depth-group)で $(1+3r)/(1+r)=4/2=2$ だから
 
 $$
 \frac{c_g}{c_p}
@@ -760,7 +766,7 @@ $$
 
 平均重力エネルギーは $\rho ga^2/4$、平均毛管エネルギーも $\rho ga^2/4$、運動エネルギーは $\rho ga^2/2$。合計は $\rho ga^2$ になる。
 
-3. $S=2/\sinh2$ を[流束定理](#thm-fluid28-energy-transport)に代入する。
+3. $S=2/\sinh2$ を[平均波エネルギー流束と群速度](#thm-fluid28-energy-transport)に代入する。
 
 $$
 \frac{J_p}{\mathcal E c_p}
