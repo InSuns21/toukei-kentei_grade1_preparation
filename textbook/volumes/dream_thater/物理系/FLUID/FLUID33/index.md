@@ -26,7 +26,7 @@ $$
 <a id="def-fluid33-beta-plane"></a>
 
 <!-- formal-statement-start -->
-> **定義（$\beta$ 面近似）**  
+> **定義（β面近似）**  
 > 自転角速度 $\Omega>0$、半径 $a>0$ の球面上の基準緯度 $\varphi_0$ を固定する。東・北向き局所座標 $x,y$ で $|y|/a\ll1$ のとき、Coriolis パラメータを一次まで
 
 $$
@@ -204,7 +204,7 @@ $$
 +\beta\,\partial_x\psi=0.}
 $$
 
-> $\nabla_h^2=\partial_x^2+\partial_y^2$。ここで $Q'$ の単位は s$^{-1}$ で、前節の $q$ の単位とは異なり、$HQ'$ に相当する規格化を経た量である。
+> $\nabla_h^2=\partial_x^2+\partial_y^2$。ここで $Q'$ の単位は s$^{-1}$ で、前節の $q$ の単位とは異なる。一次の偏差では $Q'=H\{q-f(y)/H\}$ の近似関係にある。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
