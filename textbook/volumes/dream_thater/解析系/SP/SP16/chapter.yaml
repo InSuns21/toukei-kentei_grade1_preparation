@@ -1,0 +1,48 @@
+id: "SP16"
+title: "更新報酬・残余寿命・長期平均"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP15
+official_scope: []
+learning_objectives:
+  - 独立同分布サイクルの組から更新報酬過程を定義し、同一サイクルの報酬と長さの依存を許した強法則と期待値極限を証明できる
+  - 年齢・残余寿命・観測サイクル長の定義を更新瞬間を含めて確認できる
+  - 有界なサイクル内観測関数の長期時間平均を更新報酬定理と端サイクルの評価から導ける
+  - 残余寿命と年齢の時間平均尾確率を待ち時間の尾積分で表せる
+  - 長さに比例した観測バイアスと有限二次モーメント下の平均残余寿命を導ける
+  - 更新測度による固定時刻の残余寿命の式を証明し、非格子性と鍵更新定理が必要となる位置を特定できる
+  - 一定間隔・Poisson・二段階指数型を比較し、時間平均と固定時刻分布の違いを説明できる
+definitions:
+  - { id: SP16-DEF-01, name: "更新報酬過程" }
+  - { id: SP16-DEF-02, name: "年齢過程・残余寿命・観測サイクル長" }
+  - { id: SP16-DEF-03, name: "更新測度" }
+  - { id: SP16-DEF-04, name: "算術型・非算術型の更新間隔" }
+theorems:
+  - { id: SP16-THM-01, name: "更新報酬定理" }
+  - { id: SP16-THM-02, name: "年齢・残余寿命の時間平均" }
+  - { id: SP16-PROP-01, name: "観測サイクル長の長さによる偏り" }
+  - { id: SP16-PROP-02, name: "残余寿命の更新測度表示" }
+  - { id: SP16-THM-03, name: "鍵更新定理（引用する特殊形）" }
+  - { id: SP16-COR-01, name: "非格子型の固定時刻残余寿命極限" }
+canonical_examples:
+  - "二点分布の間隔と同一サイクルの報酬の依存"
+  - "一定交換間隔の年齢と残余寿命と格子型の固定時刻反例"
+  - "検査のパラドックスと長さに比例した観測確率"
+  - "指数間隔とPoissonの無記憶性"
+  - "二段階指数待ち時間の更新密度を経由した残余寿命の直接導出"
+problem_patterns:
+  - SP16-DETERMINISTIC-REWARD
+  - SP16-CORRELATED-REWARD
+  - SP16-AGE-RESIDUAL-AT-RENEWAL
+  - SP16-RESIDUAL-TIME-TAIL
+  - SP16-EXPONENTIAL-RESIDUAL
+  - SP16-REWARD-EXPECTATION-DEPENDENCE
+  - SP16-LENGTH-BIAS
+  - SP16-LATTICE-COUNTEREXAMPLE
+  - SP16-RESIDUAL-RENEWAL-MEASURE
+  - SP16-REWARD-RESIDUAL-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 2.5 }
