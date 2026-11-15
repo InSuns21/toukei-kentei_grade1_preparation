@@ -103,14 +103,16 @@ $$
 \|A\|:=\max_{i\in S}\sum_{j\in S}|a_{ij}|
 $$
 
-を表します。行列積を成分ごとに展開して三角不等式を使うと
+を表します。各成分の積の和 $(AB)_{ij}=\sum_k a_{ik}b_{kj}$ を代入し、絶対値の和を順に評価します。有限和の順序は交換できます。
 
 $$
 \begin{aligned}
 \sum_j|(AB)_{ij}|
-&\le\sum_k|a_{ik}|\sum_j|b_{kj}|\\
-&\le\|B\|\sum_k|a_{ik}|
-\le\|A\|\|B\|
+&=\sum_j\left|\sum_k a_{ik}b_{kj}\right|\\
+&\le\sum_j\sum_k|a_{ik}|\,|b_{kj}|\\
+&=\sum_k|a_{ik}|\sum_j|b_{kj}|\\
+&\le\|B\|\sum_k|a_{ik}|\\
+&\le\|A\|\|B\|.
 \end{aligned}
 $$
 
