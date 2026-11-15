@@ -306,7 +306,7 @@ $$
 $\mathrm{Re}_x=U_e x/\nu$ を用いれば所望の式となる。また[相似方程式](#thm-fluid24-falkner-skan-ode)で $\eta=0$ とし $f(0)=f'(0)=0$ を代入すると $f'''(0)+\beta=0$ となる。
 <!-- proof-end -->
 
-<!-- definition-example-start: def-fluid24-falkner-skan -->
+
 **係数の整合例**：$m=0$ のとき、[Blasius壁面係数](../FLUID22/index.md#prop-fluid22-wall-friction) $F''(0)\simeq0.3320573$ と $f''(0)=\sqrt2 F''(0)$ を用いると
 
 $$
@@ -315,7 +315,7 @@ C_{f,x}=\sqrt{\frac{2}{\mathrm{Re}_x}}\sqrt2(0.3320573)
 $$
 
 前講の局所摩擦係数と一致する。この例は、$f''(0)$ そのものの数値が相似変数の規格化に依存することも示す。
-<!-- definition-example-end -->
+
 
 $m<0$ なら $\beta<0$ で逆圧力勾配となる。しかし $f'''(0)>0$ は $f''(0)<0$ を意味しない。前者は壁面近くの**曲率**、後者は**傾き**である。滑らかな解では $f'$ を $\eta=0$ で展開して
 
