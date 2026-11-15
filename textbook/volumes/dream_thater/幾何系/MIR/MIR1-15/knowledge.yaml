@@ -1,7 +1,7 @@
 chapter: MIR1-15
 scope: dream-theater
 coverage: complete
-prerequisites: [MIR1-14, MIR1-12]
+prerequisites: [MIR1-14, MIR1-12, RA6A]
 concepts:
   - id: mirror.quintic-normalized-mirror-coordinate
     name: 規格化ミラー座標
@@ -14,7 +14,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（ミラー写像は原点で局所双正則）"]
-    requires: [mirror.quintic-normalized-mirror-coordinate]
+    requires: [mirror.quintic-normalized-mirror-coordinate, analysis.inverse-function-theorem]
   - id: mirror.quintic-mirror-forward-coefficients
     name: quinticのミラー写像の初期係数
     kind: proposition

@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - MIR1-14
   - MIR1-12
+  - RA6A
 learning_objectives:
   - 規格化周期比Tとtを区別し一周作用からqの一価性を説明できる
   - 正則解の非零条件と逆関数定理から局所双正則性を証明できる
