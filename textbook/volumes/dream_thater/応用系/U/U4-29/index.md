@@ -72,7 +72,19 @@ $q_i=0$ なら両者は0です。したがって各 $i$ の差を合計してか
 
 [U4-25の因子中立](../U4-25/index.md#def-u4-25-exposures)は、決められた負荷量に沿う**共通変動**を相殺する条件でした。他方、[U4-17の閾値レジームモデル](../U4-17/index.md#def-u4-17-tar)は、残差の復帰則が状態により変わり得ることを教えました。過去に平均回帰を示した残差について、ストレス状態でも同じ係数が続くとは仮定しません。
 
-中値の相対変化を、共通因子 $g_s\in\mathbb R^k$ による部分と、銘柄固有の変化 $\varepsilon_s\in\mathbb R^n$ に分けます。$F\in\mathbb R^{n\times k}$ は**基準時に固定した**因子負荷量行列です。基準円建て保有額を $w_i=q_i p_{i0}$ とすれば、単位を掛け合わせた因子損益と固有損益を別々に計算できます。
+中値の相対変化を、共通因子 $g_s\in\mathbb R^k$ による部分と、銘柄固有の変化 $\varepsilon_s\in\mathbb R^n$ に分けます。$F\in\mathbb R^{n\times k}$ は**基準時に固定した**因子負荷量行列です。基準円建て保有額を $w_i=q_i p_{i0}$ とすれば、単位を掛け合わせた因子損益と固有損益を別々に計算できます。具体的に、銘柄 $i$ の価格変化が $\Delta p_{is}=p_{is}-p_{i0}=p_{i0}(\sum_{a=1}^{k}F_{ia}g_{as}+\varepsilon_{is})$ と分解されるとき、
+
+$$
+\begin{aligned}
+\sum_{i=1}^{n}q_i(p_{is}-p_{i0})
+&=\sum_{i=1}^{n}w_i\left(\sum_{a=1}^{k}F_{ia}g_{as}+\varepsilon_{is}\right)\\
+&=\sum_{a=1}^{k}\left(\sum_{i=1}^{n}F_{ia}w_i\right)g_{as}
++\sum_{i=1}^{n}w_i\varepsilon_{is}\\
+&=(F^\top w)^\top g_s+w^\top\varepsilon_s.
+\end{aligned}
+$$
+
+ここで $F^\top w\in\mathbb R^k$ の第 $a$ 成分は $\sum_iF_{ia}w_i$ です。これは[U4-25の因子中立条件](../U4-25/index.md#def-u4-25-exposures)で相殺する円建て係数そのもので、$F^\top w=0$ でも $w^\top\varepsilon_s$ はゼロとは限りません。
 
 <a id="def-u4-29-factor-break"></a>
 
@@ -174,12 +186,18 @@ $$
 
 を満たします。線形項 $-\sum_iq_i d_{is}$ は両辺で等号となります。
 
-$L_s=\max\{0,-G_s\}$ について、$0$ と $-G_s$ はいずれも凸関数です。より直接には、それぞれの関数の凸性を上の点へ適用し、最大値を取れば
+$L_s=\max\{0,-G_s\}$ について、$0$ と $-G_s$ はいずれも凸関数です。ここでそれぞれの値を先に評価すると、
 
 $$
+\begin{aligned}
 L_s(\theta q+(1-\theta)r)
-\le \theta L_s(q)+(1-\theta)L_s(r).
+&=\max\{0,-G_s(\theta q+(1-\theta)r)\}\\
+&\le\max\{0,\theta[-G_s(q)]+(1-\theta)[-G_s(r)]\}\\
+&\le\theta L_s(q)+(1-\theta)L_s(r).
+\end{aligned}
 $$
+
+最後の不等号では、$0$ と $\theta[-G_s(q)]+(1-\theta)[-G_s(r)]$ のどちらも右辺以下であることを使いました。
 
 さらに全 $s$ についてこの不等式が成り立つので
 
@@ -264,6 +282,19 @@ $$
 ## 6. 期限内に全脚を閉じられるかを、容量で判定する
 
 ショート $q_i<0$ を閉じるには $|q_i|$ 株の買戻し、ロング $q_i>0$ を閉じるには $q_i$ 株の売却が必要です。価格がどれほど良くても、時間内に市場で成立可能な株数が足りなければ、[全脚約定容量の命題](../U4-24/index.md#prop-u4-24-capacity)と同様、想定したバスケットの退出は成立しません。
+
+各期の退出数量 $x_{it}\ge0$ は**売買方向を含まない株数**として記録します。第 $t$ 期までの退出後の符号付き残保有 $q_{i,t}$ は
+
+$$
+q_{i,t}=
+\begin{cases}
+q_i-\sum_{u=1}^{t}x_{iu},&q_i>0\quad(\text{売却}),\\
+q_i+\sum_{u=1}^{t}x_{iu},&q_i<0\quad(\text{買戻し}),\\
+0,&q_i=0
+\end{cases}
+$$
+
+です。新規の逆方向建玉を許さないので、$q_{i,H}=0$ を満たすために必要な累積退出数量は、どちらの方向でも $\sum_{t=1}^{H}x_{it}=|q_i|$ となります。
 
 <a id="def-u4-29-capacity"></a>
 
