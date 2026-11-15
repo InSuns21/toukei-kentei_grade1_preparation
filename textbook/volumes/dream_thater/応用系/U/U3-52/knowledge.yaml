@@ -50,4 +50,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（二値損失のリスク集約と境界の原子）"]
-    requires: [finance.two-asset-aggregate-loss, finance.upper-lower-tail-dependence, finance.es-atom-tail-formula]
+    requires: [finance.two-asset-aggregate-loss, finance.upper-lower-tail-dependence, finance.es-atom-tail]
