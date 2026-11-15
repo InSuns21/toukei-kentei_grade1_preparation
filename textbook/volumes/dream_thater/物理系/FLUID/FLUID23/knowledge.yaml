@@ -1,0 +1,54 @@
+chapter: FLUID23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID22
+concepts:
+  - id: fluid.displacement-thickness
+    name: 変位厚さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変位厚さ）"]
+    requires: [fluid.prandtl-steady-boundary-layer]
+  - id: fluid.momentum-thickness
+    name: 運動量厚さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動量厚さ）"]
+    requires: [fluid.prandtl-steady-boundary-layer]
+  - id: fluid.boundary-layer-shape-factor
+    name: 形状係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（形状係数）"]
+    requires: [fluid.displacement-thickness, fluid.momentum-thickness]
+  - id: fluid.von-karman-integral
+    name: von Kármán の運動量積分式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（von Kármán の運動量積分式）"]
+    requires: [fluid.displacement-thickness, fluid.momentum-thickness, fluid.prandtl-steady-boundary-layer, fluid.boundary-layer-wall-shear]
+  - id: fluid.flat-plate-drag-integral
+    name: 一様外部流平板の運動量欠損と摩擦抗力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一様外部流平板の運動量欠損と摩擦抗力）"]
+    requires: [fluid.von-karman-integral]
+  - id: fluid.quartic-boundary-layer-profile
+    name: 零圧力勾配の四次近似速度分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零圧力勾配の四次近似速度分布）"]
+    requires: [fluid.prandtl-steady-boundary-layer]
+  - id: fluid.quartic-thickness-integrals
+    name: 四次近似の厚さと壁摩擦
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四次近似の厚さと壁摩擦）"]
+    requires: [fluid.quartic-boundary-layer-profile, fluid.displacement-thickness, fluid.momentum-thickness, fluid.boundary-layer-shape-factor]
+  - id: fluid.quartic-integral-drag
+    name: 四次積分近似の平板抗力
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四次積分近似の平板抗力）"]
+    requires: [fluid.quartic-thickness-integrals, fluid.von-karman-integral, fluid.flat-plate-drag-integral]
