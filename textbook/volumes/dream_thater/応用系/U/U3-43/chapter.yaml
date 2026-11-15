@@ -2,7 +2,7 @@ id: "U3-43"
 title: "価格付けモデルの横断較正・検証"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-11, U3-15, U3-19, U3-20, U3-26, U3-39, U3-40, U3-41, U3-42]
+prerequisites: [INV1, U3-11, U3-15, U3-19, U3-20, U3-26, U3-39, U3-40, U3-41, U3-42]
 official_scope: []
 learning_objectives:
   - 契約の満期・日数規約・配当・割引・払戻し・通貨・単位・気配を共通入力として固定できる
