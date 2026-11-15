@@ -1,12 +1,12 @@
 # DREAM THEATER WebGL2・OpenGL系リアルタイムCG／GPUプログラミング講座 PLAN（WGL1〜WGL20・全20講確定）
 
 設計・講数確定日：2026-11-15  
-状態：planned（PLAN設計のみ。本文・GLSL/JavaScript実行環境・教材コード・系列manifest・目次は未実装）  
+状態：in progress（WGL1 着手。完了状況は系列 manifest を正本とする）  
 講数：**20講**（A 6講＋B 6講＋C 4講＋D 4講）。既存の流体CG（FCG1〜20）とは別系列とし、共通WebGLラボを共同利用する。
 
 ## 0. 判断・中心問い・範囲
 
-**独立講座を設ける**。既存の[FCG全20講](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)は流体数値模型とその表現が主役であり、FCG2のWebGL2入門だけでは、一般の座標変換・可視性・陰影・テクスチャ・多段レンダリング・GPU検算を順序立てて学べない。一方でFCGの既存20講を増やして描画API入門を重複実装するのは避ける。
+**独立講座を設ける**。既存の[FCG全20講](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)は流体数値模型とその表現が主役であり、FCG2のWebGL2入門だけでは、一般の座標変換・可視性・陰影・テクスチャ・多段レンダリング・GPU検算を順序立てて学べない。一方でFCGの既存20講を増やして描画API入門を重複実装するのは避ける。
 
 > JavaScriptとGLSL ES 3.00を自分で編集・実行し、3Dの幾何が画素へ変わる仕組みとGPU演算の限界を、図・数式・計算結果・ピクセルの独立検算で説明できるか。
 
@@ -26,7 +26,7 @@
 | [WebGL2 Fundamentals](https://webgl2fundamentals.org/webgl/lessons/) | 実際の描画パイプライン、texture、framebuffer、shadow、GPGPU等の公開教育的配置を照合。コード・図は転載せず独自に作成 |
 | [MDN WebGL2RenderingContext](https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext) | ブラウザcontext・API・例外とフォールバック（WGL1・17–19） |
 | [Physically Based Rendering, 4th ed.](https://www.pbrt.org/) | 光輸送・反射モデルをWGL12の近似の根拠として使う。フルpath tracerや分光renderは範囲外 |
-| 既存[FCG PLAN](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
+| 既存[FCG PLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
 
 資料は範囲と説明順序の検証に利用し、図・演習・ソース・数値例は自作する。各版の機能・ブラウザ対応は実装日に再検証する。
 

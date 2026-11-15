@@ -1,0 +1,17 @@
+chapter: WGL1
+terms:
+  - term: 描画バッファ
+    english: drawing buffer
+    meaning: canvas の実際のピクセル幅と高さを持つ描画先。CSS表示幅とは独立に指定する。
+  - term: 正規化デバイス座標
+    english: normalized device coordinates
+    meaning: 透視除算後に画面に向かう各軸おおむね -1〜1 の座標。WGL1 の頂点では w=1 とする。
+  - term: ビューポート
+    english: viewport
+    meaning: 正規化デバイス座標から描画バッファ上の矩形へ写す設定。
+  - term: 頂点シェーダ
+    english: vertex shader
+    meaning: 頂点ごとに実行され clip 座標を gl_Position へ書き込む GLSL プログラム。
+  - term: フラグメントシェーダ
+    english: fragment shader
+    meaning: ラスタ化で発生したフラグメントの色などを計算する GLSL プログラム。

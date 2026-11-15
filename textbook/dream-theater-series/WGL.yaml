@@ -1,0 +1,26 @@
+version: 1
+id: WGL
+title: WebGL2・OpenGL系リアルタイムCG／GPUプログラミング
+plan: textbook/plans_progress/DREAM_THEATER_WEBGL_OPENGL_GRAPHICS_PROGRAMMING_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+chapters:
+  - { id: WGL1, path: textbook/volumes/dream_thater/計算系/WGL/WGL1, status: planned, title: "ブラウザの画素までの最短経路は？" }
+  - { id: WGL2, path: textbook/volumes/dream_thater/計算系/WGL/WGL2, status: planned, title: "GPUは頂点とピクセルをどう区別する？" }
+  - { id: WGL3, path: textbook/volumes/dream_thater/計算系/WGL/WGL3, status: planned, title: "多数の三角形をどう共有する？" }
+  - { id: WGL4, path: textbook/volumes/dream_thater/計算系/WGL/WGL4, status: planned, title: "モデル座標を世界へどう移す？" }
+  - { id: WGL5, path: textbook/volumes/dream_thater/計算系/WGL/WGL5, status: planned, title: "視点と投影はどう画素を決める？" }
+  - { id: WGL6, path: textbook/volumes/dream_thater/計算系/WGL/WGL6, status: planned, title: "三角形内部の値はどう決まる？" }
+  - { id: WGL7, path: textbook/volumes/dream_thater/計算系/WGL/WGL7, status: planned, title: "テクスチャ画像はなぜにじみ・ちらつく？" }
+  - { id: WGL8, path: textbook/volumes/dream_thater/計算系/WGL/WGL8, status: planned, title: "透明・色空間の計算はいつ正しい？" }
+  - { id: WGL9, path: textbook/volumes/dream_thater/計算系/WGL/WGL9, status: planned, title: "法線と光源は明暗をどう決める？" }
+  - { id: WGL10, path: textbook/volumes/dream_thater/計算系/WGL/WGL10, status: planned, title: "一回描いた結果を次に使うには？" }
+  - { id: WGL11, path: textbook/volumes/dream_thater/計算系/WGL/WGL11, status: planned, title: "光が遮られる場所をどう判定する？" }
+  - { id: WGL12, path: textbook/volumes/dream_thater/計算系/WGL/WGL12, status: planned, title: "金属と粗面の光はどう近似する？" }
+  - { id: WGL13, path: textbook/volumes/dream_thater/計算系/WGL/WGL13, status: planned, title: "周囲の風景を反射へ使うには？" }
+  - { id: WGL14, path: textbook/volumes/dream_thater/計算系/WGL/WGL14, status: planned, title: "画面全体をどう加工する？" }
+  - { id: WGL15, path: textbook/volumes/dream_thater/計算系/WGL/WGL15, status: planned, title: "画面クリックを3D物体へどう対応させる？" }
+  - { id: WGL16, path: textbook/volumes/dream_thater/計算系/WGL/WGL16, status: planned, title: "同じ形を多数描くと何が速い？" }
+  - { id: WGL17, path: textbook/volumes/dream_thater/計算系/WGL/WGL17, status: planned, title: "物理データをGPU textureへ送るとき何を失う？" }
+  - { id: WGL18, path: textbook/volumes/dream_thater/計算系/WGL/WGL18, status: planned, title: "fragment shaderだけで時間発展できる？" }
+  - { id: WGL19, path: textbook/volumes/dream_thater/計算系/WGL/WGL19, status: planned, title: "動く描画の正しさと性能をどう監査する？" }
+  - { id: WGL20, path: textbook/volumes/dream_thater/計算系/WGL/WGL20, status: planned, title: "GIS地形と数値格子を誤解なく重ねるには？" }
