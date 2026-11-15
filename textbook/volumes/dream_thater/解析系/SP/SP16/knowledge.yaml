@@ -41,7 +41,6 @@ concepts:
   - id: stochastic.renewal-length-bias
     name: 観測サイクル長の長さによる偏り
     kind: proposition
-    aliases: ["inspection paradox"]
     introduction: formal
     introduction_aliases: ["命題（観測サイクル長の長さによる偏り）"]
     requires:
