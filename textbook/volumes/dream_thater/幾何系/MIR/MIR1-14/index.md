@@ -219,16 +219,16 @@ $$
 
 **整数基底が取れる理由。** 整数交叉形式の行列式が $\pm1$ という単模性と、$\langle v,v\rangle=0$ という交代性から、標準形は整数係数の基底変換で構成できる。まず原始元 $a_0\in L$ を選ぶ。交叉形式から得る $L\to\operatorname{Hom}_{\mathbb Z}(L,\mathbb Z)$ は単模性により同型なので、$\langle a_0,b_0\rangle=1$ を満たす $b_0\in L$ が存在する。任意の $v\in L$ に対し
 
-$
+$$
 v_\perp=v-\langle v,b_0\rangle a_0+\langle v,a_0\rangle b_0
-$
+$$
 
 と置けば、交代性で $\langle v_\perp,a_0\rangle=\langle v,a_0\rangle-\langle v,a_0\rangle=0$、$\langle v_\perp,b_0\rangle=\langle v,b_0\rangle-\langle v,b_0\rangle=0$。従って
 
-$
+$$
 L=\mathbb Za_0\oplus\mathbb Zb_0\oplus
 \{v:\langle v,a_0\rangle=\langle v,b_0\rangle=0\}.
-$
+$$
 
 残る直和因子は階数2で、交叉形式の制限も単模かつ交代である。同じ議論で $a_1,b_1$ を選ぶと、望んだ整数基底になる。これは[シンプレクティック標準形の構成](../../SYM/SYM1/index.md#thm-sym1-linear-normal-form)を整数格子へ適用する際に、各対を交叉数1で選べる根拠である。
 
