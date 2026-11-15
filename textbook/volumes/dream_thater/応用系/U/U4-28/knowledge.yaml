@@ -1,0 +1,54 @@
+chapter: U4-28
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-10, U4-27]
+forward_references: []
+concepts:
+  - id: finance.arb-multiple-sample-sharpe
+    name: 標本Sharpe比と評価単位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本Sharpe比と評価単位）"]
+    requires: [finance.stat-arb-performance-measures]
+  - id: finance.arb-multiple-trial-family
+    name: 候補族・探索回数・選択後評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（候補族・探索回数・選択後評価）"]
+    requires: [finance.arb-wf-frozen-selection]
+  - id: finance.arb-multiple-maximum-null
+    name: 独立な帰無候補の最大値分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立な帰無候補の最大値分布）"]
+    requires: [finance.arb-multiple-trial-family]
+  - id: finance.arb-multiple-family-error
+    name: 検定族の家族内誤り率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（検定族の家族内誤り率）"]
+    requires: [finance.arb-multiple-trial-family, finance.stat-arb-prespecified-hypothesis]
+  - id: finance.arb-multiple-bonferroni
+    name: Bonferroniの家族内誤り率上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Bonferroniの家族内誤り率上界）"]
+    requires: [finance.arb-multiple-family-error]
+  - id: finance.arb-multiple-dsr
+    name: DSRの近似診断量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（DSRの近似診断量）"]
+    requires: [finance.arb-multiple-sample-sharpe, finance.arb-multiple-maximum-null]
+  - id: finance.arb-multiple-pbo
+    name: CSCVによるPBO指標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CSCVによるPBO指標）"]
+    requires: [finance.arb-multiple-trial-family, finance.arb-wf-frozen-selection]
+  - id: finance.arb-multiple-pbo-rank
+    name: PBO判定と順位の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（PBO判定と順位の同値性）"]
+    requires: [finance.arb-multiple-pbo]

@@ -28,3 +28,4 @@
 25. [U4-25 戦略の組合せとリスク予算](textbook/volumes/dream_thater/応用系/U/U4-25/index.md)
 26. [U4-26 生存者・価格修正・情報時刻の監査](textbook/volumes/dream_thater/応用系/U/U4-26/index.md)
 27. [U4-27 時系列のwalk-forwardと漏洩防止](textbook/volumes/dream_thater/応用系/U/U4-27/index.md)
+28. [U4-28 多重探索・過学習・Sharpeの検証](textbook/volumes/dream_thater/応用系/U/U4-28/index.md)
