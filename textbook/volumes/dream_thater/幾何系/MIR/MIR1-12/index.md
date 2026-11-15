@@ -36,11 +36,11 @@ $$
 
 $z^{d+\rho}$ に $\theta$ を作用させると
 
-$
+$$
 \theta z^{d+\rho}
 =z\frac{d}{dz}e^{(d+\rho)\operatorname{Log}z}
 =(d+\rho)z^{d+\rho}
-$
+$$
 
 になる。係数にも $\rho$ を入れ、$d\ge1$ について相殺を起こしたい。そこで、$|\rho|<1/2$ で
 
@@ -77,7 +77,7 @@ $$
 
 分母は $|\rho|<1/2$ で零にならず、$c_1(0)=5\cdot1\cdot2\cdot3\cdot4=120$。さらに定義の係数が既習の正則周期と**全次数で**一致することを確かめる。第1節の $a_d=(5d)!/(d!)^5$ に対し、$d\ge1$ では
 
-$
+$$
 \begin{aligned}
 \frac{c_d(0)}{c_{d-1}(0)}
 &=\frac{5\prod_{j=1}^4(5(d-1)+j)}{d^4}\\
@@ -85,7 +85,7 @@ $
 &=\frac{(5d)!}{(5d-5)!}\frac{((d-1)!)^5}{(d!)^5}
 =\frac{a_d}{a_{d-1}}.
 \end{aligned}
-$
+$$
 
 $c_0(0)=a_0=1$ だから帰納的に $c_d(0)=a_d$ となる。これにより $F(0,z)$ は[原点で正則な規格化解](../MIR1-11/index.md#thm-mir1-11-regular-period)そのもので、冒頭は $1+120z+\cdots$ となる。
 
@@ -207,18 +207,18 @@ $$
 
 $F=e^{\rho L}C(\rho,z)$、$C=\sum c_d(\rho)z^d$ と置く。$z$ は固定しているので $L=\operatorname{Log}z$ は $\rho$ 微分では定数であり、積の微分則を $k$ 回用いると
 
-$
+$$
 \partial_\rho^kF
 =e^{\rho L}\sum_{j=0}^k\binom{k}{j}L^{k-j}\partial_\rho^jC.
-$
+$$
 
 両辺を $k!$ で割り、$\binom{k}{j}/k!=1/((k-j)!j!)$ を使うと
 
-$
+$$
 \left.\frac1{k!}\partial_\rho^kF\right|_{\rho=0}
 =\sum_{j=0}^k\frac{L^{k-j}}{(k-j)!}
 \left.\frac1{j!}\partial_\rho^jC\right|_{\rho=0}.
-$
+$$
 
 $C(0,z)=\omega_0$ と $\partial_\rho^jC(0,z)/j!=A_j$（$j\ge1$）を代入すると四式が得られる。[残差公式](#thm-mir1-12-residual)により全て方程式の解である。
 
@@ -239,9 +239,9 @@ $$
 
 したがってこの領域の各点は通常点である。ここでは最高階係数で割った後の各係数が正則である。[高階線形初期値問題の存在・一意性](../../../解析系/ODE/ODE2/index.md#thm-ode2-linear-ivp)のPicard反復は複素係数の正則な方程式にも局所的に適用できる。具体的には、正則係数の積分を小円板内の線分に沿って行えば、Picard反復の収束評価は実数の場合と変わらず、極限は正則関数となる。初期値 $y(z_0),y'(z_0),y''(z_0),y'''(z_0)$ の四つの複素数を任意に指定でき、一意性がある。このため初期データ写像
 
-$
+$$
 E_{z_0}(y)=\bigl(y(z_0),y'(z_0),y''(z_0),y'''(z_0)\bigr)\in\mathbb C^4
-$
+$$
 
 は複素線形全単射となる。これは[ODE2の斉次解空間の次元定理](../../../解析系/ODE/ODE2/index.md#thm-ode2-solution-space-dim)と同じ論証を正則な複素方程式に適用したもので、局所解空間は複素四次元である。従って四本の独立解が全局所解を張る。$U_\delta$ は単連結なので、同じ式による解析接続が領域全体で一致する。$\square$
 <!-- proof-end -->
@@ -380,9 +380,9 @@ $$
 
 従って
 
-$
+$$
 c_1'(0)=120\cdot\frac{77}{12}=770.
-$
+$$
 
 $c_1(0)$ は $\omega_0$ の一次係数、$c_1'(0)$ は $A_1$ の一次係数である。
 <!-- solution-end -->
@@ -469,18 +469,18 @@ $y_k(x)=(\log x)^k/k!+o(1)$（$x\downarrow0$、$0\le k\le3$）を用い、線形
 <!-- solution-start -->
 **詳細解答。** $\sum_{k=0}^3b_ky_k=0$ と仮定し、$b_m\ne0$ となる最大の $m$ を取る。両辺を $(\log x)^m$ で割り、$x\downarrow0$ とすると、$k<m$ では $(\log x)^{k-m}\to0$ で、誤差項も $o(1)/(\log x)^m\to0$ となる。従って
 
-$
+$$
 0=\lim_{x\downarrow0}\sum_{k=0}^m
 b_k\frac{y_k(x)}{(\log x)^m}
 =\frac{b_m}{m!},
-$
+$$
 
 となり矛盾する。最高階微分の係数は、$\theta=z\,d/dz$ の四回の積から $z^4$、$5z\prod_{j=1}^4(5\theta+j)$ から $5z\cdot5^4z^4=3125z^5$ なので、
 
-$
+$$
 p_4(z)=z^4-3125z^5=z^4(1-3125z)\ne0
 \qquad(0<|z|<R).
-$
+$$
 
 この領域の各点は四階方程式の通常点であり、[高階線形初期値問題の存在・一意性](../../../解析系/ODE/ODE2/index.md#thm-ode2-linear-ivp)を前述の複素正則係数の場合へ拡張すれば解空間は四次元となる。四本の独立解は基本解系をなす。
 <!-- solution-end -->
