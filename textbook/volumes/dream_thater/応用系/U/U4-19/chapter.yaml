@@ -1,5 +1,5 @@
 id: "U4-19"
-title: "因子中立・PCA・多銘柄残差戦略"
+title: "因子中立・主成分分析・多銘柄残差戦略"
 volume: "foundations"
 status: supplementary
 prerequisites: [U4-18, U4-15, U4-16, U4-10, LA5]
