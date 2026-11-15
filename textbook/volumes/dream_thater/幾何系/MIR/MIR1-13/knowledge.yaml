@@ -1,0 +1,41 @@
+chapter: MIR1-13
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-12]
+concepts:
+  - id: mirror.quintic-local-monodromy
+    name: 局所モノドロミー作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所モノドロミー作用素）"]
+    requires: [mirror.quintic-frobenius-log-basis]
+  - id: mirror.quintic-frobenius-continuation
+    name: 四本のFrobenius解の一周変換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（四本のFrobenius解の一周変換）"]
+    requires: [mirror.quintic-local-monodromy, mirror.frobenius-parameter-family]
+  - id: mirror.quintic-unipotent-operator
+    name: 単冪作用素と冪零作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単冪作用素と冪零作用素）"]
+    requires: []
+  - id: mirror.quintic-rank4-mum
+    name: 階数4の最大単冪モノドロミー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（階数4の最大単冪モノドロミー）"]
+    requires: [mirror.quintic-unipotent-operator, mirror.quintic-local-monodromy]
+  - id: mirror.quintic-mum-monodromy
+    name: quinticの原点は階数4で最大単冪
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（quinticの原点は階数4で最大単冪）"]
+    requires: [mirror.quintic-rank4-mum, mirror.quintic-frobenius-continuation]
+  - id: mirror.quintic-monodromy-invariance
+    name: 規格化・向きと最大単冪性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（規格化・向きと最大単冪性）"]
+    requires: [mirror.quintic-mum-monodromy]
