@@ -377,13 +377,15 @@ $$
 
 固定するモデルは $S_0=K=100$ 円、$T=1$ 年、$r=0.05$ 年$^{-1}$、$q=0.02$ 年$^{-1}$、$\sigma=0.20$ 年$^{-1/2}$ です。配当付き [Black–Scholes 閉形式](../U3-19/index.md#thm-u3-19-bsm-dividend)による call 価格は約 **9.227005508 円**。比較対象を同じ条件に統一します。
 
-<!-- lab-start -->
+~~~python-file-lab
 # lab-id: U3-22-EXPLICIT-BSM
 # lab-title: 陽的差分の格子縮小・負価格・高周波増幅・上端境界
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-22/assets/explicit_bs.py
 # timeout-ms: 20000
 # lab-preset: 標準ライブラリのみで M=30,60,120 の安定計算と M=60,N=24 の発散を比較 |
-<!-- lab-end -->
+~~~
+
+[Python ソースを閲覧](assets/explicit_bs.py)。ブラウザ内で同じファイルを実行でき、ローカル実行と計算式を共有します。
 
 $S_{\max}=300$ 円で株価格子数 $M$ を増やすとき、$k$ は前節の非負係数条件の上限の80%以下に選び直します。これは **$M$ を倍にすると $k$ を概ね4分の1へ減らす** ことを意味します。プログラムの実測は次の通りです。
 

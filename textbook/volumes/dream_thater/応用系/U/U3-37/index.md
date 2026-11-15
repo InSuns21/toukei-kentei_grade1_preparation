@@ -417,6 +417,16 @@ $$
 python textbook/volumes/dream_thater/応用系/U/U3-37/assets/benchmark_greeks.py
 ~~~
 
+~~~python-file-lab
+# lab-id: U3-37-BROWSER-CHECK
+# lab-title: call 価格と Greeks の木・PDE・MC・MLMC 横断比較
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-37/assets/benchmark_greeks.py
+# timeout-ms: 60000
+# lab-preset: 同一モデルの誤差・費用・標準誤差を比較 |
+~~~
+
+**ブラウザで Python 実行**：解析価格との差、推定標準誤差、格子のバイアス、計算費用を同じ表で比較してください。 実行には初回のみブラウザ用 Python 環境の読み込みが必要です。
+
 設定は $s=K=100$ 円、$r=0.05$ 年$^{-1}$、$q=0.02$ 年$^{-1}$、$\sigma=0.20$ 年$^{-1/2}$、$T=1$ 年です。[配当付き Black–Scholes 価格](../U3-19/index.md#thm-u3-19-bsm-dividend)から $d_1=0.25,d_2=0.05$、
 
 $$

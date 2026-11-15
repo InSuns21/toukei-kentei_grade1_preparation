@@ -494,6 +494,16 @@ $$
 
 本講の [検証用 Python コード](assets/variance_reduction.py) は NumPy を用い、固定 seed 20261114、独立反復600回、各反復の予算4096組で次を比較します。
 
+~~~python-file-lab
+# lab-id: U3-32-BROWSER-CHECK
+# lab-title: 対称変量・対照変量・独立パイロットの分散比較
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-32/assets/variance_reduction.py
+# timeout-ms: 60000
+# lab-preset: 固定シード600反復の同一評価予算で比較 |
+~~~
+
+**ブラウザで Python 実行**：4手法の標本分散と、解析式で得た理論分散を同じ評価費用で比較してください。 実行には初回のみブラウザ用 Python 環境の読み込みが必要です。
+
 1. 通常 MC：独立な4096個の $Z$ に対し $X(Z)$ を平均する。
 2. 対称変量：同じ乱数配列の先頭2048個から $X(Z)$ と $X(-Z)$ の4096回の支払を評価する。
 3. 既知最適係数：通常MCと**同じ4096個の $Z$**で $X-\beta_*(C-c_0)$ を平均する。最適係数を既知と仮定した理想的な対照実験である。

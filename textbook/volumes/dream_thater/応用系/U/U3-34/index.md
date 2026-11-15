@@ -492,6 +492,16 @@ $$
 
 添付の [Python 実験](assets/qmc_asian_experiment.py) は、標本平均・反復間標準誤差・同じ費用の通常MCに対する反復間分散比を表として出力します。固定シードは再現性のためのものであり、計算機やライブラリ版によって最後の桁は異なり得ます。推定値の表は確率実験の一実現で、**QMCの理論的な優位性の証明ではありません**。また、上の不偏性命題は連続一様な周辺分布を仮定しますが、実際の Sobol 実装は有限桁・浮動小数点であり、コードは逆正規変換が無限大になる端点を `np.clip` で避けます。したがって実装の丸め・端点処理まで含めた厳密な不偏性を主張するものではありません。
 
+~~~python-file-lab
+# lab-id: U3-34-BROWSER-CHECK
+# lab-title: 乱択 Sobol と Brownian bridge の反復間分散
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-34/assets/qmc_asian_experiment.py
+# timeout-ms: 60000
+# lab-preset: 通常 MC・スクランブル Sobol・橋を同じ費用で比較 |
+~~~
+
+**ブラウザで Python 実行**：標準ライブラリではなく NumPy と SciPy を読み込みます。独立スクランブル間の標準誤差と通常 MC に対する反復間分散比を確認してください。 実行には初回のみブラウザ用 Python 環境の読み込みが必要です。
+
 比較の前に二つの誤差を分けます。$V_{\rm cont}$ を連続時間の算術平均の価格、$V_m$ を上で固定した $m$ 時点契約の価格、$\widehat V$ を $V_m$ に不偏な乱択推定量とすると、
 
 <a id="prop-u3-34-error-budget"></a>
