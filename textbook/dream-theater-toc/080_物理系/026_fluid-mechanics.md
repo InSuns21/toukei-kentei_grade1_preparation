@@ -34,3 +34,4 @@
 31. [FLUID31 密度成層内ではどんな波が生まれるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID31/index.md)
 32. [FLUID32 地球回転で地衡流が成立する条件は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID32/index.md)
 33. [FLUID33 Rossby波は回転成層流のどこから出るか](textbook/volumes/dream_thater/物理系/FLUID/FLUID33/index.md)
+34. [FLUID34 せん断流はいつ界面を不安定にするか](textbook/volumes/dream_thater/物理系/FLUID/FLUID34/index.md)
