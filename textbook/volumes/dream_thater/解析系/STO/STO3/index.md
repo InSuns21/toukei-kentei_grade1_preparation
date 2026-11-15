@@ -967,7 +967,7 @@ Kolmogorov 拡張定理の代表的な使い方として、平均関数と共分
 $K(s,t)=\min(s,t)$
 を代入します。
 
-ここでいう**多変量ガウス分布**とは、独立な標準正規変数のベクトル $Z\in\mathbb R^d$ を、行列 $A\in\mathbb R^{n\times d}$ と定数ベクトル $b\in\mathbb R^n$ で変換した
+ここでいう**多変量正規分布（ガウス分布）**とは、独立な標準正規変数のベクトル $Z\in\mathbb R^d$ を、行列 $A\in\mathbb R^{n\times d}$ と定数ベクトル $b\in\mathbb R^n$ で変換した
 
 $$
 Y=b+AZ
