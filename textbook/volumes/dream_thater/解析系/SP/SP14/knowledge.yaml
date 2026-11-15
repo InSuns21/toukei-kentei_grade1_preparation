@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - SP13
+  - COMB2
 forward_references: []
 concepts:
   - id: stochastic.birth-death-process
