@@ -8,7 +8,13 @@
 
 ## 0. 何を輸送と呼ぶのか
 
-水平座標を $x$、鉛直上向き座標を $z$、時刻を $t$ とし、平均水面 $z=0$、底面 $z=-h$（$h>0$）とする。密度 $\rho>0$、重力加速度の大きさ $g>0$、表面張力 $\gamma\ge0$ は定数である。水面変位を $\eta(x,t)$、速度ポテンシャルを $\phi(x,z,t)$、速度を $(u,w)=(\phi_x,\phi_z)$ とする。[線形自由表面条件](../FLUID27/index.md#prop-fluid27-linear-boundary)を使い、$-h<z<0$ で $\phi_{xx}+\phi_{zz}=0$、底面で $\phi_z=0$、水面で
+水平座標を $x$、鉛直上向き座標を $z$、時刻を $t$ とする。平均水面は $z=0$、底面は $z=-h$（$h>0$）である。
+
+密度 $\rho>0$、重力加速度の大きさ $g>0$、表面張力 $\gamma\ge0$ は定数とする。水面変位を $\eta(x,t)$、速度ポテンシャルを $\phi(x,z,t)$、速度を $(u,w)=(\phi_x,\phi_z)$ と置く。
+
+下付きの $x,z,t$ は、残りの変数を固定して偏微分する変数を表す。例えば $\eta_t=\partial\eta/\partial t$、$\phi_z=\partial\phi/\partial z$ である。
+
+[線形自由表面条件](../FLUID27/index.md#prop-fluid27-linear-boundary)によって、内部 $-h<z<0$ では $\phi_{xx}+\phi_{zz}=0$、底面では $\phi_z=0$、水面では
 
 $$
 \eta_t=\phi_z,\qquad
@@ -82,7 +88,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（近接二波の包絡速度）**  
-> $k_0>0$ の近傍で分散関係 $\omega(k)$ が連続微分可能とし、$0<\delta k<2k_0$ とする。二つの右進行波 $k_\pm=k_0\pm\delta k/2$ を等振幅で重ねると、符号付き包絡の位相は $\delta k\,x-\delta\omega\,t$ であり、その速度は
+> $k_0>0$ の近傍で分散関係 $\omega(k)$ が二階連続微分可能とし、$0<\delta k<2k_0$ とする。二つの右進行波 $k_\pm=k_0\pm\delta k/2$ を等振幅で重ねると、符号付き包絡の位相は $\delta k\,x-\delta\omega\,t$ であり、その速度は
 
 $$
 v_{\rm beat}=\frac{\omega(k_+)-\omega(k_-)}{\delta k}.
@@ -101,11 +107,13 @@ $$
 二波の合成式は節頭で導いた。包絡の符号付き因子の一定位相を追うと
 
 $$
-0=d(\delta k\,x-\delta\omega\,t)
-=\delta k\,dx-\delta\omega\,dt,
+0=\frac{d}{dt}\{\delta k\,x(t)-\delta\omega\,t\}
+=\delta k\,\frac{dx}{dt}-\delta\omega,
 $$
 
-ゆえに $dx/dt=\delta\omega/\delta k$。$\omega$ の連続微分可能性から
+ここで $x(t)$ は包絡の位相を一定に保つ点であり、$\delta k,\delta\omega$ は固定した二波の定数である。$\delta k>0$ で割って $dx/dt=\delta\omega/\delta k$ を得る。
+
+以下、$\omega'(k_0)$ は $\omega$ を波数 $k$ で常微分して $k_0$ で評価した値、すなわち $(d\omega/dk)(k_0)$ を表す。$\omega$ の微分可能性から
 
 $$
 \lim_{\delta k\to0}
@@ -113,23 +121,37 @@ $$
 =\omega'(k_0).
 $$
 
-波束を有限個の近接成分の和 $\sum_j a_j\cos(k_jx-\omega(k_j)t)$ で近似し、$k_j=k_0+q_j$、$|q_j|\ll k_0$ と書く。一次展開 $\omega(k_0+q_j)=\omega(k_0)+c_g(k_0)q_j+O(q_j^2)$ を各成分に入れると、位相は
+波束を有限個の近接成分の和 $\sum_j a_j\cos(k_jx-\omega(k_j)t)$ で近似する。各波数を $k_j=k_0+q_j$ と書き、$|q_j|\ll k_0$ とする。
+
+すべての $k_0,k_j$ を含む閉区間 $I\subset(0,\infty)$ を選び、$M=\sup_{s\in I}|\omega''(s)|<\infty$ と置く。
+
+[群速度の定義](#def-fluid28-group-velocity)より $\omega'(k_0)=c_g(k_0)$ である。差を二度積分すると、$q_j$ の正負どちらでも
+
+$$
+\begin{aligned}
+R_j&:=\omega(k_0+q_j)-\omega(k_0)-\omega'(k_0)q_j\\
+&=\int_0^{q_j}\{\omega'(k_0+s)-\omega'(k_0)\}\,ds\\
+&=\int_0^{q_j}(q_j-s)\omega''(k_0+s)\,ds.
+\end{aligned}
+$$
+
+従って $|R_j|\le Mq_j^2/2$ であり、$\omega(k_0+q_j)=\omega(k_0)+c_g(k_0)q_j+R_j$ を各成分に代入すると、位相は
 
 $$
 k_jx-\omega(k_j)t
 =k_0x-\omega(k_0)t
 +q_j\{x-c_g(k_0)t\}
-+O(q_j^2t).
+-R_jt,\qquad |R_jt|\le\frac{M}{2}q_j^2|t|.
 $$
 
-二次の位相差が小さい時間範囲では、ゆっくりした振幅の和が $x-c_g(k_0)t$ の関数になる。従って**この近似の範囲内で**包絡が群速度で移動する。時間が長く $q_j^2t$ の寄与が無視できなくなれば、包絡は変形・拡散し、単なる平行移動ではなくなる。
+すべての成分について $Mq_j^2|t|\ll1$ で二次の位相差が小さい時間範囲では、ゆっくりした振幅の和が $x-c_g(k_0)t$ の関数になる。従って**この近似の範囲内で**包絡が群速度で移動する。時間が長く $q_j^2t$ の寄与が無視できなくなれば、包絡は変形・拡散し、単なる平行移動ではなくなる。
 <!-- proof-end -->
 
 **注意**：位相速度は搬送波の進み方、群速度は近接波数の干渉による包絡の進み方である。二波のうなりの山を見ただけで「必ず物質や情報がその速さで運ばれる」と主張はできない。次に**実際のエネルギー保存式**を調べる。
 
 ## 2. 有限水深の群速度を計算する
 
-$q=kh>0$ と $r=\gamma k^2/(\rho g)\ge0$ を置く。$q$ は底の影響を、$r$ は毛管項と重力項の比を表す。$\omega^2=(gk+\gamma k^3/\rho)\tanh q$ の両辺を $k$ で微分し、$h,\rho,g,\gamma$ を固定すると
+$q=kh>0$ と $r=\gamma k^2/(\rho g)\ge0$ を置く。$q$ は底の影響を、$r$ は毛管項と重力項の比を表す。ここで $\omega'(k)=d\omega/dk$ は $k$ についての常微分であり、$h,\rho,g,\gamma$ は固定する。$\omega^2=(gk+\gamma k^3/\rho)\tanh q$ の両辺を $k$ で微分すると
 
 $$
 2\omega\omega'
@@ -282,7 +304,9 @@ $$
 
 ## 4. エネルギー保存式から流束を求める
 
-エネルギーがどこへ流れるかを求めるには、平均エネルギーだけでは足りない。[線形化した Euler 方程式](../FLUID27/index.md#prop-fluid27-linear-boundary)の背景で、静水圧 $p_0(z)=p_a-\rho gz$ からの圧力摂動を $p'(x,z,t)$ と置く。一次の運動方程式は
+エネルギーがどこへ流れるかを求めるには、平均エネルギーだけでは足りない。[線形化した Euler 方程式](../FLUID27/index.md#prop-fluid27-linear-boundary)の背景で、静水圧 $p_0(z)=p_a-\rho gz$ からの圧力摂動を $p'(x,z,t)$ と置く。
+
+$p'$ のプライムは「静水圧との差」を表し、前節の $\omega'(k)=d\omega/dk$ のような微分記号ではない。一次の運動方程式は
 
 $$
 \rho u_t=-p'_x,\qquad \rho w_t=-p'_z.
@@ -587,7 +611,14 @@ $$
 \cos\left(\frac{k_++k_-}{2}x-\frac{\omega_++\omega_-}{2}t\right).
 $$
 
-第1因子の位相を一定に保つには $\delta k\,dx-\delta\omega\,dt=0$ が必要だから
+第1因子の位相を固定して位置 $x=x(t)$ を追う。$\delta k,\delta\omega$ は定数なので、連鎖律から
+
+$$
+0=\frac{d}{dt}\{\delta k\,x(t)-\delta\omega\,t\}
+=\delta k\,\frac{dx}{dt}-\delta\omega
+$$
+
+を得る。$\delta k>0$ で割ると
 
 $$
 v_{\rm beat}=\frac{dx}{dt}=\frac{\delta\omega}{\delta k}.
