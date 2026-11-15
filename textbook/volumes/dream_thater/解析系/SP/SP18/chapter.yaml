@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - STO1
+  - RA3
 official_scope: []
 learning_objectives:
   - 独立同分布の子孫数から世代人数を構成し、絶滅状態が吸収的であることを確認できる
