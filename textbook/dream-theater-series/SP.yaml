@@ -1,7 +1,7 @@
 version: 1
 id: SP
 title: "確率過程"
-plan: textbook/plans_progress/DREAM_THEATER_STOCHASTIC_PROCESSES_COURSE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_STOCHASTIC_PROCESSES_COURSE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 # この系列の講義番号 SP1 は既存の正本章 STO1 へ対応する。
 # canonical な章IDは STO1 のままとし、URL・stable anchor・knowledge concept を二重登録しない。

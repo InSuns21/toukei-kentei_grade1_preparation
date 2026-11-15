@@ -62,7 +62,7 @@ $f(t)=t$, $g(t)=t^2$ はともに $[0,1]$ 上連続なので $C([0,1])$ の元�
 $$
 d_\infty(f,g)
 =
-\sup_{0\le t\le1}(t-t^2)
+\sup_{0\le t\le1}\left(\frac14-\left(t-\frac12\right)^2\right)
 =
 \frac14,
 $$
@@ -138,7 +138,23 @@ $$
 
 なので 1-Lipschitz、特に連続です。
 
-したがって経路空間上の弱収束が分かれば、任意の有限個の時刻における分布収束が従います。
+有限個の時刻 $t_1,\ldots,t_m$ をまとめた評価写像を
+
+$$
+E_{\boldsymbol t}(f)=(f(t_1),\ldots,f(t_m))
+$$
+
+と置きます。各成分が上の不等式を満たすため、この写像は $\sqrt m$-Lipschitz です。
+
+任意の有界連続関数 $h:\mathbb R^m\to\mathbb R$ に対し、合成 $h\circ E_{\boldsymbol t}$ は経路空間上で有界連続です。よって[経路空間上の弱収束](#def-sto3a-function-weak-convergence)の定義を直接適用できます。
+
+$$
+E[h(E_{\boldsymbol t}(X_n))]
+\longrightarrow
+E[h(E_{\boldsymbol t}(X))].
+$$
+
+これが経路空間の弱収束から有限次元分布の収束が従う理由であり、ここで使う **連続写像定理** の具体的な形でもあります。
 
 逆向きは一般には偽です。有限個の観測時刻で山が見えなくなっても、経路全体から山が消えたとは限りません。
 
@@ -344,7 +360,7 @@ $K$ が閉なら極限も $K$ に属するため compact です。
 
 ## 3. tightness を modulus で判定する
 
-前節の compactness criterion を確率過程へ使うには、「ほとんどの標本路が同じ compact 集合へ入る」ように $f(0)$ と modulus の条件を確率的に同時達成させればよいことになります。
+前節の[連続経路空間の compactness criterion](#thm-sto3a-compact-modulus) を確率過程へ使うには、「ほとんどの標本路が同じ compact 集合へ入る」ように $f(0)$ と modulus の条件を確率的に同時達成させればよいことになります。
 
 初期値が大きく外れる確率を小さくし、各精度 $2^{-m}$ で modulus が悪い確率を総和可能に配分します。すると union bound で、全ての modulus 条件を同時に満たす確率を $1-\varepsilon$ 以上にできます。
 
@@ -441,7 +457,7 @@ $$
 \sup_{f\in K}\omega_f(\delta_m)\le2^{-m}\to0
 $$
 
-なので、前節の compactness criterion により $K$ は compact です。
+なので、前節の[連続経路空間の compactness criterion](#thm-sto3a-compact-modulus) により $K$ は compact です。
 
 [union bound](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound) から
 
@@ -484,7 +500,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Kolmogorov 型 tightness criterion）**  
-> $X_n(0)=0$ a.s. とし、ある $C<\infty$, $\beta>0$ が存在して全ての $n$ と $0\le s<t\le1$ について
+> $X_n$ を $C([0,1])$ 値確率変数とし、$X_n(0)=0$ a.s. とする。ある $C<\infty$, $\beta>0$ が存在して全ての $n$ と $0\le s<t\le1$ について
 >
 $$
 E|X_n(t)-X_n(s)|^4
@@ -495,7 +511,21 @@ $$
 > が成り立つとする。このとき $\{X_n\}$ は $C([0,1])$ で tight である。
 <!-- formal-statement-end -->
 
-本章で使うのは $\beta=1$ の場合です。
+本章で使うのは $\beta=1$ の場合です。**連続標本路の仮定を落としてはなりません。**
+
+例えば $U$ を区間 $[0,1]$ 上の一様乱数とし、次の確率過程を考えます。
+
+$$
+Z(t)=1_{\{t=U\}},\qquad 0\le t\le1.
+$$
+
+固定した時刻 $s,t$ については $P(U=s)=P(U=t)=0$ なので、
+
+$$
+E|Z(t)-Z(s)|^4=0.
+$$
+
+しかし各標本路はランダムな時刻 $U$ で不連続です。したがって $Z$ 自身は $C([0,1])$ 値確率変数ではありません。増分モーメント条件から得られる連続**修正**と、元の過程の標本路連続性は区別する必要があります。
 
 ### 証明の見取り図
 
@@ -531,7 +561,7 @@ $$
 
 とします。
 
-Markov 不等式と [union bound](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound) から
+[Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)と [union bound](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound) から
 
 $$
 \begin{aligned}
@@ -644,7 +674,7 @@ C
 \end{aligned}
 $$
 
-前節の modulus criterion から tightness が従います。
+前節の[連続過程の tightness criterion](#thm-sto3a-tightness-modulus) から tightness が従います。
 <!-- proof-end -->
 
 ---
@@ -911,7 +941,7 @@ $$
 
 ## 7. bounded increments なら四次モーメントで tightness
 
-前節で有限個の時刻の極限は得ました。残るのは、経路が格子の間で激しく振動しないことを一様に示す仕事です。第4節の判定条件に入れるため、まず増分の四次モーメントを $|t-s|^2$ で抑えます。
+前節で有限個の時刻の極限は得ました。残るのは、経路が格子の間で激しく振動しないことを一様に示す仕事です。第4節の[Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) に入れるため、まず増分の四次モーメントを $|t-s|^2$ で抑えます。
 
 一般の有限分散変数では四次モーメントが存在するとは限らないため、最初は $|X_1|\le M$ という有界な場合だけを扱います。後で有界化と [Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)を使って、この制限を外します。
 
@@ -1293,7 +1323,7 @@ $$
 
 $\eta>0$ と $\varepsilon>0$ を固定します。
 
-有界化 approximation により、$M$ を十分大きく選べば
+[有界化の一様近似補題](#lem-sto3a-bounded-uniform) により、$M$ を十分大きく選べば
 
 $$
 \sup_n
@@ -1304,7 +1334,7 @@ P\left(
 \frac{\varepsilon}{2}.
 $$
 
-固定した $M$ では $X_i^{(M)}$ は bounded です。したがって第7節の四次増分評価を第4節の Kolmogorov 型判定の証明へ入れたときに得た
+固定した $M$ では $X_i^{(M)}$ は bounded です。したがって第7節の[四次増分評価補題](#lem-sto3a-bounded-fourth-increment)を第4節の[Kolmogorov 型判定](#thm-sto3a-kolmogorov-tightness)の証明へ入れたときに得た
 
 $$
 \lim_{\delta\downarrow0}
@@ -1357,7 +1387,7 @@ P\left(
 \end{aligned}
 $$
 
-$W_n(0)=0$ なので初期値の tightness は自明です。modulus criterion から $(W_n)$ は tight です。
+$W_n(0)=0$ なので初期値の tightness は自明です。[連続過程の tightness criterion](#thm-sto3a-tightness-modulus) から $(W_n)$ は tight です。
 <!-- proof-end -->
 
 ---
@@ -1435,7 +1465,7 @@ $C([0,1])$ は sup metric で完備です。実際、sup norm Cauchy 列は一�
 
 任意の部分列 $(W_{n_\ell})$ を取ります。
 
-finite-variance tightness theorem により、その law は tight です。Prokhorov theorem からさらに部分列 $(W_{n_{\ell_r}})$ と $C([0,1])$ 上の確率測度 $\mu$ が存在して
+[有限分散 random walk 経路の tightness 定理](#thm-sto3a-finite-variance-tightness)により、その law は tight です。Prokhorov theorem からさらに部分列 $(W_{n_{\ell_r}})$ と $C([0,1])$ 上の確率測度 $\mu$ が存在して
 
 $$
 W_{n_{\ell_r}}\Rightarrow\mu
@@ -1473,7 +1503,7 @@ $$
 
 従ってこの写像は $\sqrt m$-Lipschitz、特に連続です。continuous mapping theorem をこの写像へ適用すると、$\mu$ の有限次元分布は $(W_{n_{\ell_r}})$ の有限次元分布の極限です。
 
-一方、finite-dimensional convergence theorem によりその極限は
+一方、[polygonal random walk の有限次元収束命題](#prop-sto3a-fdd-convergence)によりその極限は
 
 $$
 (B_{t_1},\ldots,B_{t_m})
@@ -1581,7 +1611,7 @@ $$
 
 なので 1-Lipschitz です。
 
-従って Donsker と continuous mapping theorem から
+従って[Donsker 不変原理](#thm-sto3a-donsker)と continuous mapping theorem から
 
 $$
 \max_{0\le t\le1}W_n(t)
@@ -1627,7 +1657,7 @@ $$
 
 - Level: A
 
-独立・平均0の $Y_1,\ldots,Y_m$ に対し
+独立で平均0、かつ各 $E[Y_j^4]<\infty$ を満たす $Y_1,\ldots,Y_m$ に対し
 
 $$
 E\left(\sum_{j=1}^{m}Y_j\right)^4
@@ -1975,7 +2005,7 @@ $$
 M_n.
 $$
 
-最大値 functional は sup norm で連続なので、Donsker と continuous mapping theorem から
+最大値 functional は sup norm で連続なので、[Donsker 不変原理](#thm-sto3a-donsker)と continuous mapping theorem から
 
 $$
 M_n
@@ -2051,7 +2081,7 @@ $$
 
 1. 時刻
    $$
-   0=t_0<t_1<\cdots<t_m
+   0=t_0<t_1<\cdots<t_m\le1
    $$
    を固定します。各区間の格子累積和は disjoint な $X_i$ を使うため独立です。それぞれに 独立同分布 [中心極限定理](../../F0/F0-00P6A/index.md#thm-iid-clt) を適用すると
    $$
@@ -2115,13 +2145,22 @@ $$
    $$
    と書き、独立平均0変数の四次展開を使います。係数について
    $$
-   \sum a_j=n(t-s)
+   \sum_ja_j=n(t-s),\qquad 0\le a_j\le1
    $$
-   であり、$n(t-s)\ge1$ と $<1$ を分ければ
+   です。独立性と平均0から、添字が1回だけ現れる交差項は消え、残るのは
+   $$
+   E\left(\sum_ja_jX_j^{(M)}\right)^4
+   =
+   \sum_ja_j^4E[(X_j^{(M)})^4]
+   +6\sum_{i<j}a_i^2a_j^2E[(X_i^{(M)})^2]E[(X_j^{(M)})^2]
+   \le C'_M\left(\sum_ja_j^2\right)^2.
+   $$
+   $q=n(t-s)$ と置くと、$q\ge1$ では $\sum a_j^2\le q$、$q<1$ では $\sum a_j^2\le(\sum a_j)^2=q^2\le q$ です。従って
    $$
    E|W_n^{(M)}(t)-W_n^{(M)}(s)|^4
    \le
-   C_M|t-s|^2.
+   \frac{C'_M}{\sigma^4n^2}q^2
+   =\frac{C'_M}{\sigma^4}|t-s|^2.
    $$
 
 5. 固定 $M$ について、第4節の [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) の証明は tightness だけでなく
