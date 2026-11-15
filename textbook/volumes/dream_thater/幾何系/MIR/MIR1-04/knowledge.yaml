@@ -1,0 +1,47 @@
+chapter: MIR1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-03, CYG1-02]
+concepts:
+  - id: mirror.greene-plesser-phase-group
+    name: quinticのGreene–Plesser型位相群
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticのGreene–Plesser型位相群）"]
+    requires: [mirror.fermat-one-parameter-direction]
+  - id: mirror.greene-plesser-order-action
+    name: 125元の群と五次方程式の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（125元の群と五次方程式の不変性）"]
+    requires: [mirror.greene-plesser-phase-group]
+  - id: mirror.greene-plesser-residue-invariant
+    name: 正則3形式の位相群不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正則3形式の位相群不変性）"]
+    requires: [mirror.greene-plesser-order-action, cyg.fermat-local-volume-test]
+  - id: mirror.greene-plesser-stabilizer
+    name: 位相群作用の安定化群と自由点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相群作用の安定化群と自由点）"]
+    requires: [mirror.greene-plesser-phase-group]
+  - id: mirror.greene-plesser-stabilizer-classification
+    name: 支えの大きさによる安定化群の分類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（支えの大きさによる安定化群の分類）"]
+    requires: [mirror.greene-plesser-stabilizer, mirror.greene-plesser-order-action]
+  - id: mirror.greene-plesser-orbit-quotient
+    name: 位相群による軌道商
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相群による軌道商）"]
+    requires: [mirror.greene-plesser-phase-group, mirror.greene-plesser-stabilizer-classification]
+  - id: mirror.greene-plesser-local-singularity
+    name: 固定点近傍の商は特異になる
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定点近傍の商は特異になる）"]
+    requires: [mirror.greene-plesser-orbit-quotient, mirror.greene-plesser-stabilizer-classification]

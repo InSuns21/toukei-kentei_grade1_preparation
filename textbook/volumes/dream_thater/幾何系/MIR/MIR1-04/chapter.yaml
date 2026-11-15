@@ -1,0 +1,41 @@
+id: "MIR1-04"
+title: "Greene–Plesser型の群作用と商"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-03
+  - CYG1-02
+learning_objectives:
+  - 射影的な対角位相群H/Dを定義し125元となることを再現できる
+  - quintic族のFermat項と積の項が保たれる条件を検算できる
+  - 正則3形式の留数が位相群作用で不変になる理由を分子・分母から示せる
+  - 支えの大きさから安定化群と軌道サイズを算出し固定点を分類できる
+  - 支え3の固定曲線と支え2の50点・10軌道を区別して数えられる
+  - 不変式環の生成元と関係から商の局所特異性を証明できる
+  - 特異な群商とcrepant解消後のミラー候補・Hodge数を混同しない
+theorems:
+  - { id: MIR1-04-DEF-01, name: "quinticのGreene–Plesser型位相群" }
+  - { id: MIR1-04-PROP-01, name: "125元の群と五次方程式の不変性" }
+  - { id: MIR1-04-PROP-02, name: "正則3形式の位相群不変性" }
+  - { id: MIR1-04-DEF-02, name: "位相群作用の安定化群と自由点" }
+  - { id: MIR1-04-PROP-03, name: "支えの大きさによる安定化群の分類" }
+  - { id: MIR1-04-DEF-03, name: "位相群による軌道商" }
+  - { id: MIR1-04-PROP-04, name: "固定点近傍の商は特異になる" }
+canonical_examples:
+  - 位相指数aとa+(1,1,1,1,1)が同じ射影変換になることを直接確認
+  - 非零座標二つの点の安定化群25元・軌道5点と50点の数え上げ
+  - 非零座標三つの点の局所作用(1,4)と不変式UV=W^5
+  - 非零座標二つの点の局所作用(r,s,-r-s)と不変式T^5=UVW
+problem_patterns:
+  - MIR1-04-PROJECTIVE-COSSETS
+  - MIR1-04-POLYNOMIAL-INVARIANCE
+  - MIR1-04-STABILIZER-ORBIT
+  - MIR1-04-RESIDUE-TRANSFORM
+  - MIR1-04-FIXED-LOCUS-COUNT
+  - MIR1-04-THREE-SUPPORT-QUOTIENT
+  - MIR1-04-TWO-SUPPORT-QUOTIENT
+  - MIR1-04-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 8, review: 4 }
