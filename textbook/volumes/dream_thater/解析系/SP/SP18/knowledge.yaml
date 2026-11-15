@@ -42,6 +42,13 @@ concepts:
     introduction_aliases: ["定理（絶滅確率の最小不動点表示）"]
     requires:
       - stochastic.gw-generation-pgf
+  - id: stochastic.gw-regime-names
+    name: 劣臨界・臨界・超臨界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（劣臨界・臨界・超臨界）"]
+    requires:
+      - stochastic.galton-watson-process
   - id: stochastic.gw-extinction-classification
     name: 平均子孫数による絶滅の分類
     kind: theorem
@@ -49,6 +56,7 @@ concepts:
     introduction_aliases: ["定理（平均子孫数による絶滅の分類）"]
     requires:
       - stochastic.gw-extinction-fixed-point
+      - stochastic.gw-regime-names
   - id: stochastic.gw-generation-variance
     name: 世代人数の分散
     kind: proposition
