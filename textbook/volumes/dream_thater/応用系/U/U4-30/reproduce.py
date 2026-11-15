@@ -115,7 +115,7 @@ def main() -> None:
     assert isclose(static_gain, 2.5) and static_feasible
     assert isclose(stale_gain, -2.5) and not no_borrow_feasible
     assert (train, holdout, all_gains) == (4.0, -6.0, -2.0)
-    assert (success, failure, expected) == (8.0, -42.0, 3.0)
+    assert success == 8.0 and failure == -42.0 and isclose(expected, 3.0)
     assert isclose(break_even, 0.84) and not budget_pass
     print(f"data_sha256={digest}")
     print(f"static_gain={static_gain:.2f}, static_feasible={static_feasible}")
