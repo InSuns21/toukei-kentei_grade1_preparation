@@ -7,8 +7,8 @@ parser.add_argument("--window", type=int, default=40)
 parser.add_argument("--alpha", type=float, default=0.90)
 parser.add_argument("--plot", action="store_true")
 args = parser.parse_args()
-if args.window < 10 or not 0.5 <= args.alpha < 1.0:
-    raise ValueError("window >= 10 and 0.5 <= alpha < 1 required")
+if not (10 <= args.window <= 180) or not (0.5 <= args.alpha < 1.0):
+    raise ValueError("10 <= window <= 180 and 0.5 <= alpha < 1 required")
 
 def risk(values, alpha):
     x = sorted(values)
@@ -66,8 +66,8 @@ print(f"target violation rate={1-args.alpha:.3f} "
       "(sample rates fluctuate; no automatic superiority claim)")
 
 if args.plot:
-        try:
-            import matplotlib.pyplot as plt
+    try:
+        import matplotlib.pyplot as plt
         fig, ax = plt.subplots(figsize=(9, 3.8))
         ax.plot(dates, realized, color="gray", lw=0.9, alpha=0.65,
                 label="next-day realized loss")
