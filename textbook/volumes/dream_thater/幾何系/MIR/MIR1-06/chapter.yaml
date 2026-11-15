@@ -1,0 +1,42 @@
+id: "MIR1-06"
+title: "Dwork型一パラメータ族と判別式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-05
+  - CYG1-13
+learning_objectives:
+  - 射影超曲面族の判別集合を定義し具体的なconic例の偏微分から検査できる
+  - Dwork型quinticの偏微分を零座標と非零座標に分けて解析し滑らかさと被約判別式を証明できる
+  - 特異値での125個の射影点を数え局所Hessianの非退化性を計算できる
+  - 125節点がGreene–Plesser群商で一軌道になることを安定化群から示せる
+  - z=(5psi)^(-5)と被覆t=(5psi)^(-1)を区別して判別値z=1/3125を得られる
+  - z=0の退化境界とz=無限大のFermat点を区別し境界ファイバーの特異集合を求められる
+  - 一般次数dへの拡張を偏微分・点数・Hessianから再構成できる
+theorems:
+  - { id: MIR1-06-DEF-01, name: "射影超曲面族の判別集合" }
+  - { id: MIR1-06-PROP-01, name: "Dwork型quinticの滑らかさと判別集合" }
+  - { id: MIR1-06-PROP-02, name: "特異ファイバーの125個の通常二重点" }
+  - { id: MIR1-06-DEF-02, name: "Dwork型族のz座標と被覆座標" }
+  - { id: MIR1-06-PROP-03, name: "z座標の有限判別値とFermat点" }
+  - { id: MIR1-06-PROP-04, name: "z=0に向かう被覆族の中心ファイバー" }
+canonical_examples:
+  - conic族u^2+v^2-sw^2の判別集合s=0と特異射影点
+  - psi=1の125個の五乗根特異点とHessian固有値5と25
+  - 位相群Gの自由な125点軌道と商の一つの追加節点
+  - psi=2と2zetaに対する同じz=1/100000と判別値
+  - t=0の座標超平面和と二つ以上の零座標による特異集合
+problem_patterns:
+  - MIR1-06-ZERO-COORDINATE
+  - MIR1-06-SINGULAR-ROOT-COUNT
+  - MIR1-06-CONIC-DISCRIMINANT
+  - MIR1-06-Z-COORDINATE
+  - MIR1-06-HESSIAN-NODE
+  - MIR1-06-QUOTIENT-ORBIT
+  - MIR1-06-BOUNDARY-JACOBIAN
+  - MIR1-06-FERMAT-BRANCH
+  - MIR1-06-GENERAL-DEGREE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 10, review: 5 }
