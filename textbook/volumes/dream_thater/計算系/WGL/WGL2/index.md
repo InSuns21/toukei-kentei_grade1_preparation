@@ -22,42 +22,42 @@ JavaScriptは、頂点ごとに「位置2個、色3個」の5個の数を並べ�
 
 <!-- formal-statement-start -->
 > **定義（頂点属性）**  
-> WebGL2の一つの描画呼出しで、頂点番号に従って読み出され、頂点シェーダへ入力される値を**頂点属性（attribute）**という。GLSL ES 3.00の頂点シェーダでは \`in\` で宣言し、JavaScript側の頂点属性配列設定から供給する。
+> WebGL2の一つの描画呼出しで、頂点番号に従って読み出され、頂点シェーダへ入力される値を**頂点属性（attribute）**という。GLSL ES 3.00の頂点シェーダでは `in` で宣言し、JavaScript側の頂点属性配列設定から供給する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl2-attribute -->
-**定義の確認。** 第0番の頂点属性を位置 \`a_position\`（2成分）、第1番を色 \`a_color\`（3成分）とすれば、頂点 $A$ では $(-0.8,-0.8)$ と $(1,0,0)$、頂点 $B$ では $(0.8,-0.8)$ と $(0,1,0)$ が入力されます。これらは**頂点ごとに値が変わる**ことを、実際の2頂点で確認できます。
+**定義の確認。** 第0番の頂点属性を位置 `a_position`（2成分）、第1番を色 `a_color`（3成分）とすれば、頂点 $A$ では $(-0.8,-0.8)$ と $(1,0,0)$、頂点 $B$ では $(0.8,-0.8)$ と $(0,1,0)$ が入力されます。これらは**頂点ごとに値が変わる**ことを、実際の2頂点で確認できます。
 <!-- definition-example-end -->
 
 <a id="def-wgl2-uniform"></a>
 
 <!-- formal-statement-start -->
 > **定義（uniform）**  
-> WebGL2のリンク済みプログラムに設定し、一つの描画呼出しの間に同じ値として参照されるシェーダ変数を**uniform**という。GLSLでは \`uniform\` で宣言し、JavaScriptでは対応する \`uniform*\` APIで値を設定する。頂点ごとの属性とは異なる。
+> WebGL2のリンク済みプログラムに設定し、一つの描画呼出しの間に同じ値として参照されるシェーダ変数を**uniform**という。GLSLでは `uniform` で宣言し、JavaScriptでは対応する `uniform*` APIで値を設定する。頂点ごとの属性とは異なる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl2-uniform -->
-**定義の確認。** \`uniform vec3 u_gain;\` に対して、リンク済みプログラムを \`useProgram\` した後に \`uniform3f(location,1.0,0.5,0.25)\` を一度実行すれば、三角形の**どの内部フラグメントにも**同じ倍率 $(1,0.5,0.25)$ が渡ります。頂点 $A$ と $B$ に別々の倍率を設定する操作ではありません。
+**定義の確認。** `uniform vec3 u_gain;` に対して、リンク済みプログラムを `useProgram` した後に `uniform3f(location,1.0,0.5,0.25)` を一度実行すれば、三角形の**どの内部フラグメントにも**同じ倍率 $(1,0.5,0.25)$ が渡ります。頂点 $A$ と $B$ に別々の倍率を設定する操作ではありません。
 <!-- definition-example-end -->
 
-uniform の初期値はゼロです。したがって本講の \`u_gain\` を設定し忘れると全色が黒になります。「変数を宣言しただけで $(1,1,1)$ が入る」とは考えないでください。
+uniform の初期値はゼロです。したがって本講の `u_gain` を設定し忘れると全色が黒になります。「変数を宣言しただけで $(1,1,1)$ が入る」とは考えないでください。
 
 ### 実データのバイト配置
 
-本講の \`colors.js\` では、各頂点を
+本講の `colors.js` では、各頂点を
 
-\`\`\`text
+```text
 [x, y, red, green, blue]
-\`\`\`
+```
 
-の順で保存します。各要素は32 bitの \`float\`、つまり4 byteです。1頂点の**stride（次の頂点までの間隔）**は $5\times4=20$ byte、色の開始位置の**offset（先頭からの位置）**は $2\times4=8$ byteです。
+の順で保存します。各要素は32 bitの `float`、つまり4 byteです。1頂点の**stride（次の頂点までの間隔）**は $5\times4=20$ byte、色の開始位置の**offset（先頭からの位置）**は $2\times4=8$ byteです。
 
-\`\`\`js
+```js
 gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 20, 0);
 gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 20, 8);
-\`\`\`
+```
 
-ここで \`0\` と \`1\` は頂点シェーダの \`layout(location=0)\`、\`layout(location=1)\` に対応します。 \`gl.enableVertexAttribArray(0)\` と \`(1)\` も必要です。位置と色を同じバッファに並べても、読み方を別々に設定できます。初期値では $3\times5=15$ 個、合計60 byteをGPUへ転送します。
+ここで `0` と `1` は頂点シェーダの `layout(location=0)`、`layout(location=1)` に対応します。 `gl.enableVertexAttribArray(0)` と `(1)` も必要です。位置と色を同じバッファに並べても、読み方を別々に設定できます。初期値では $3\times5=15$ 個、合計60 byteをGPUへ転送します。
 
 ## 2. 頂点3個から内部の色が生まれる
 
@@ -67,11 +67,11 @@ gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 20, 8);
 
 <!-- formal-statement-start -->
 > **定義（頂点・フラグメント間の varying）**  
-> 頂点シェーダの \`out\` 変数と、同じ名前・互換な型で対応するフラグメントシェーダの \`in\` 変数を、両段階を結ぶ**varying**とする。本講では浮動小数点の \`vec3\` を用い、標準の滑らかな補間（\`smooth\`）で内部フラグメントに値を渡す。
+> 頂点シェーダの `out` 変数と、同じ名前・互換な型で対応するフラグメントシェーダの `in` 変数を、両段階を結ぶ**varying**とする。本講では浮動小数点の `vec3` を用い、標準の滑らかな補間（`smooth`）で内部フラグメントに値を渡す。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl2-varying -->
-**定義の確認。** 頂点側が \`out vec3 v_color;\` に $(1,0,0)$、$(0,1,0)$、$(0,0,1)$ をそれぞれ代入し、フラグメント側が \`in vec3 v_color;\` と受ければ、内部では3成分すべてが補間されます。一方、片方を \`vec2\` に変えると型が一致しなくなり、プログラムの**リンク**に失敗します。これは頂点属性のバッファ設定の誤りとは異なる失敗です。
+**定義の確認。** 頂点側が `out vec3 v_color;` に $(1,0,0)$、$(0,1,0)$、$(0,0,1)$ をそれぞれ代入し、フラグメント側が `in vec3 v_color;` と受ければ、内部では3成分すべてが補間されます。一方、片方を `vec2` に変えると型が一致しなくなり、プログラムの**リンク**に失敗します。これは頂点属性のバッファ設定の誤りとは異なる失敗です。
 <!-- definition-example-end -->
 
 この章でいうフラグメントは描画バッファの画素そのものとは限りません。ラスタ化で生成され、深度検査等を経て画素に寄与する候補です。WGL2では重なり・深度検査・ブレンドを使わず、不透明な三角形を1枚だけ描きます。
@@ -142,7 +142,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（同一clip $w$ の三角形の色補間）**  
-> 非退化な三角形 $ABC$ の3頂点が、頂点シェーダから同じ正のclip座標成分 $w_c$ を出力し、補間指定が \`smooth\`、varying値が各頂点で $c_A,c_B,c_C\in\mathbb R^3$ とする。三角形の内部のフラグメント中心 $P$ に対応する画面上の重心座標を $\lambda_A,\lambda_B,\lambda_C$ とすると、フラグメント側へ渡される色は
+> 非退化な三角形 $ABC$ の3頂点が、頂点シェーダから同じ正のclip座標成分 $w_c$ を出力し、補間指定が `smooth`、varying値が各頂点で $c_A,c_B,c_C\in\mathbb R^3$ とする。三角形の内部のフラグメント中心 $P$ に対応する画面上の重心座標を $\lambda_A,\lambda_B,\lambda_C$ とすると、フラグメント側へ渡される色は
 
 $$
 c(P)=\lambda_Ac_A+\lambda_Bc_B+\lambda_Cc_C
@@ -158,7 +158,7 @@ GPUの補間規則はWebGL2の描画仕様が定めるものであり、ここ�
 <!-- proof-start -->
 ### 証明
 
-重心座標の和は $\lambda_A+\lambda_B+\lambda_C=1$ です。GLSLの \`smooth\` varying に対する透視補正補間の値は、頂点ごとのclip座標の第4成分を $w_A,w_B,w_C$ とすると、フラグメントが生成される内部位置について
+重心座標の和は $\lambda_A+\lambda_B+\lambda_C=1$ です。GLSLの `smooth` varying に対する透視補正補間の値は、頂点ごとのclip座標の第4成分を $w_A,w_B,w_C$ とすると、フラグメントが生成される内部位置について
 
 $$
 c(P)=
@@ -236,7 +236,7 @@ $$
 
 頂点シェーダでは2種類の入力属性を読み、位置と色の出力を分けます。
 
-\`\`\`glsl
+```glsl
 #version 300 es
 precision highp float;
 layout(location = 0) in vec2 a_position;
@@ -247,11 +247,11 @@ void main() {
   gl_Position = vec4(a_position, 0.0, 1.0);
   v_color = a_color;
 }
-\`\`\`
+```
 
 フラグメントシェーダは補間済みの色に共通倍率をかけます。
 
-\`\`\`glsl
+```glsl
 #version 300 es
 precision highp float;
 in vec3 v_color;
@@ -261,11 +261,11 @@ out vec4 outColor;
 void main() {
   outColor = vec4(v_color * u_gain, 1.0);
 }
-\`\`\`
+```
 
-**失敗の切り分け**をしておきます。GLSLのセミコロンを消せば通常はそのシェーダの**コンパイル**に失敗します。頂点 \`out vec3 v_color\` とフラグメント \`in vec2 v_color\` は個別には文法上有効でも、2段階を接続する**リンク**で失敗します。他方、JavaScriptの \`vertexAttribPointer(1,3,...,20,8)\` を誤って \`(1,2,...,20,8)\` とすると、GPUは色の3成分目を読めず、**エラーを出さずに誤った絵になることがある**ので、CPU基準と照合する必要があります。
+**失敗の切り分け**をしておきます。GLSLのセミコロンを消せば通常はそのシェーダの**コンパイル**に失敗します。頂点 `out vec3 v_color` とフラグメント `in vec2 v_color` は個別には文法上有効でも、2段階を接続する**リンク**で失敗します。他方、JavaScriptの `vertexAttribPointer(1,3,...,20,8)` を誤って `(1,2,...,20,8)` とすると、GPUは色の3成分目を読めず、**エラーを出さずに誤った絵になることがある**ので、CPU基準と照合する必要があります。
 
-WebGL2でシェーダが組み合わさること、描画呼出しの順序は[WGL1の段階定義](../WGL1/index.md#def-wgl1-shader-stages)に従います。本講のプログラムは \`drawArrays(gl.TRIANGLES,0,3)\` を呼び、JavaScriptが色を画素ごとに描き込むのではありません。頂点バッファの共有と \`drawElements\` は次のWGL3で扱います。
+WebGL2でシェーダが組み合わさること、描画呼出しの順序は[WGL1の段階定義](../WGL1/index.md#def-wgl1-shader-stages)に従います。本講のプログラムは `drawArrays(gl.TRIANGLES,0,3)` を呼び、JavaScriptが色を画素ごとに描き込むのではありません。頂点バッファの共有と `drawElements` は次のWGL3で扱います。
 
 ## 5. 3タブWebGL2実験
 
@@ -273,11 +273,11 @@ WebGL2でシェーダが組み合わさること、描画呼出しの順序は[W
 
 <iframe src="simulation/wgl-lab.html?lesson=WGL2" title="WGL2 頂点属性・uniform・varying 補間の編集実行ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
-最初は $320\times240$ の初期ソースを実行し、「中央・赤側・緑側・背景」の4画素について予測と \`readPixels\` を照合してください。次に \`colors.js\` の \`gl.uniform3f(gain,1.0,1.0,1.0)\` を $(1,0.5,0.25)$ へ変え、予測した変化が現れるか確認します。最後に「varyingの型不一致」プリセットでリンクエラー、「構文エラー」でコンパイルエラーをそれぞれ観察してください。
+最初は $320\times240$ の初期ソースを実行し、「中央・赤側・緑側・背景」の4画素について予測と `readPixels` を照合してください。次に `colors.js` の `gl.uniform3f(gain,1.0,1.0,1.0)` を $(1,0.5,0.25)$ へ変え、予測した変化が現れるか確認します。最後に「varyingの型不一致」プリセットでリンクエラー、「構文エラー」でコンパイルエラーをそれぞれ観察してください。
 
 このラボは初期値のままならCPUとGPUの差を自動比較します。**編集した後の不一致は、それだけで誤答ではありません**。修正したuniform/頂点色に合わせてCPU側の理論予測も自分で更新してください。初期プログラムからの差分や数値表が、思いどおりにシェーダへ伝わったかの手掛かりです。ブラウザがWebGL2非対応の場合、CPUの式を学習できてもGPU課題の完了にはなりません。
 
-編集JSは \`sandbox="allow-scripts"\` の不透明originの子フレームだけで実行され、保存コードを自動実行しません。GPU停止やJS無限ループの完全な強制停止は保証できません。保存・初期化・停止・再実行の操作を用意しています。
+編集JSは `sandbox="allow-scripts"` の不透明originの子フレームだけで実行され、保存コードを自動実行しません。GPU停止やJS無限ループの完全な強制停止は保証できません。保存・初期化・停止・再実行の操作を用意しています。
 
 ## 6. 演習
 
@@ -286,12 +286,12 @@ WebGL2でシェーダが組み合わさること、描画呼出しの順序は[W
 <a id="ex-wgl2-a1"></a>
 **A1. 属性と共通値を分ける**
 
-頂点3個に位置 $(x,y)$ と色 $(r,g,b)$ を設定し、同一倍率 $(1,0.5,0.25)$ を全体へ適用する。それぞれ attribute と uniform のどちらに置くべきか述べ、\`in\` と \`uniform\` を使ったGLSL宣言を記せ。
+頂点3個に位置 $(x,y)$ と色 $(r,g,b)$ を設定し、同一倍率 $(1,0.5,0.25)$ を全体へ適用する。それぞれ attribute と uniform のどちらに置くべきか述べ、`in` と `uniform` を使ったGLSL宣言を記せ。
 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 位置と色は頂点番号で変わるため、頂点シェーダの属性として \`in vec2 a_position;\` と \`in vec3 a_color;\` を宣言します。倍率は全頂点・全フラグメントに共通でよいので、フラグメントシェーダに \`uniform vec3 u_gain;\` を宣言します。JavaScriptでリンク済みプログラムを有効にし、\`gl.uniform3f(location,1.0,0.5,0.25)\` を設定します。位置と色をuniformにすると3頂点で異なる値を個別に読み出す仕組みにならず、倍率をattributeにすると同じ3数を各頂点へ冗長に送ることになります。
+**詳細解答。** 位置と色は頂点番号で変わるため、頂点シェーダの属性として `in vec2 a_position;` と `in vec3 a_color;` を宣言します。倍率は全頂点・全フラグメントに共通でよいので、フラグメントシェーダに `uniform vec3 u_gain;` を宣言します。JavaScriptでリンク済みプログラムを有効にし、`gl.uniform3f(location,1.0,0.5,0.25)` を設定します。位置と色をuniformにすると3頂点で異なる値を個別に読み出す仕組みにならず、倍率をattributeにすると同じ3数を各頂点へ冗長に送ることになります。
 <!-- solution-end -->
 
 <a id="ex-wgl2-a2"></a>
@@ -316,12 +316,12 @@ $$
 <a id="ex-wgl2-a3"></a>
 **A3. バッファのstrideとoffset**
 
-1頂点を \`Float32Array\` の位置2成分・色3成分で交互に格納する。3頂点分の要素数と総byte数、位置・色それぞれの \`vertexAttribPointer\` の成分数、stride、offsetを求めよ。
+1頂点を `Float32Array` の位置2成分・色3成分で交互に格納する。3頂点分の要素数と総byte数、位置・色それぞれの `vertexAttribPointer` の成分数、stride、offsetを求めよ。
 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 1頂点に $2+3=5$ 個の32 bit値があるので、3頂点では $5\cdot3=15$ 個、$15\cdot4=60$ byteです。次の頂点までの間隔は $5\cdot4=20$ byteです。位置は先頭なので \`(location=0,size=2,stride=20,offset=0)\`、色は位置2個の後なので \`(location=1,size=3,stride=20,offset=2\cdot4=8)\` です。strideを誤って12 byteにすると頂点の開始位置を3成分先と見なし、異なる頂点の値を混ぜて読みます。
+**詳細解答。** 1頂点に $2+3=5$ 個の32 bit値があるので、3頂点では $5\cdot3=15$ 個、$15\cdot4=60$ byteです。次の頂点までの間隔は $5\cdot4=20$ byteです。位置は先頭なので `(location=0,size=2,stride=20,offset=0)`、色は位置2個の後なので `(location=1,size=3,stride=20,offset=2\cdot4=8)` です。strideを誤って12 byteにすると頂点の開始位置を3成分先と見なし、異なる頂点の値を混ぜて読みます。
 <!-- solution-end -->
 
 <a id="ex-wgl2-a4"></a>
@@ -377,12 +377,12 @@ $$
 <a id="ex-wgl2-b2"></a>
 **B2. 何がどの段階で壊れるか**
 
-次の3操作を、コンパイル・リンク・実行/画素値のどの段階の誤りか分類し、その理由を述べよ。(i) フラグメントGLSLの代入文の \`;\` を消す。(ii) 頂点側 \`out vec3 v_color\` を維持し、フラグメント側を \`in vec2 v_color\` に変える。(iii) JSの色属性のsizeを3から2に変える。
+次の3操作を、コンパイル・リンク・実行/画素値のどの段階の誤りか分類し、その理由を述べよ。(i) フラグメントGLSLの代入文の `;` を消す。(ii) 頂点側 `out vec3 v_color` を維持し、フラグメント側を `in vec2 v_color` に変える。(iii) JSの色属性のsizeを3から2に変える。
 
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** (i) はGLSL構文が成立しないので、該当フラグメントシェーダの**コンパイル失敗**です。(ii) は各ソース内の宣言自体は有効ですが、同名varyingの型が一致しないため**プログラムのリンク失敗**です。(iii) は \`vertexAttribPointer\` のsize=2自体は有効なAPI指定です。しかし色の3番目の成分がバッファから読まれず、足りない成分には属性の既定値が使われます。そのため**描画できても色が違う**という種類の失敗になり、\`readPixels\` とCPU予測で検出する必要があります。エラーログが空でも正しいとは限りません。
+**詳細解答。** (i) はGLSL構文が成立しないので、該当フラグメントシェーダの**コンパイル失敗**です。(ii) は各ソース内の宣言自体は有効ですが、同名varyingの型が一致しないため**プログラムのリンク失敗**です。(iii) は `vertexAttribPointer` のsize=2自体は有効なAPI指定です。しかし色の3番目の成分がバッファから読まれず、足りない成分には属性の既定値が使われます。そのため**描画できても色が違う**という種類の失敗になり、`readPixels` とCPU予測で検出する必要があります。エラーログが空でも正しいとは限りません。
 <!-- solution-end -->
 
 <a id="ex-wgl2-b3"></a>
@@ -400,7 +400,7 @@ c(P)=\lambda_Aq+\lambda_Bq+\lambda_Cq
 =(\lambda_A+\lambda_B+\lambda_C)q=q.
 $$
 
-よって内部の位置によらず一定です。uniformを成分別に掛けた出力は $(0.2\cdot1,0.4\cdot0,0.6\cdot0.5)=(0.2,0,0.3)$ です。一方 \`u_gain\` の初期値は $(0,0,0)$ なので、未設定なら $(0,0,0)$ になります。頂点色を均一にしてもuniformの未設定は救えません。
+よって内部の位置によらず一定です。uniformを成分別に掛けた出力は $(0.2\cdot1,0.4\cdot0,0.6\cdot0.5)=(0.2,0,0.3)$ です。一方 `u_gain` の初期値は $(0,0,0)$ なので、未設定なら $(0,0,0)$ になります。頂点色を均一にしてもuniformの未設定は救えません。
 <!-- solution-end -->
 
 ### Level C
@@ -408,7 +408,7 @@ $$
 <a id="ex-wgl2-c1"></a>
 **C1. 設計・予測・診断をつなぐ**
 
-$A=(-0.8,-0.8), B=(0.8,-0.8), C=(0,0.8)$ にそれぞれ赤・緑・青を与える。三角形内の $P=(0.2,0)$ について、(1)重心座標、(2)uniform $u_{\mathrm{gain}}=(0.8,0.5,1)$ を使ったRGBAの8 bit予測値、(3)\`a_color\` を3成分ずつ読むための1頂点5 floatのVBO設定（位置と色のsize・stride・offset）、(4)結果が青成分だけ不足するときに最初に点検すべきAPI設定と、ログだけで正否を判定できない理由、を説明せよ。すべて $w_c=1$、補間は \`smooth\`、不透明、深度検査なしとする。
+$A=(-0.8,-0.8), B=(0.8,-0.8), C=(0,0.8)$ にそれぞれ赤・緑・青を与える。三角形内の $P=(0.2,0)$ について、(1)重心座標、(2)uniform $u_{\mathrm{gain}}=(0.8,0.5,1)$ を使ったRGBAの8 bit予測値、(3)`a_color` を3成分ずつ読むための1頂点5 floatのVBO設定（位置と色のsize・stride・offset）、(4)結果が青成分だけ不足するときに最初に点検すべきAPI設定と、ログだけで正否を判定できない理由、を説明せよ。すべて $w_c=1$、補間は `smooth`、不透明、深度検査なしとする。
 
 - Level: C
 
@@ -431,9 +431,9 @@ $$
 
 $255$ 倍すると $(25.5,47.8125,127.5)$ なので、8 bit RGBAの目安は $(26,48,128,255)$ です。丸め方やGPU量子化により±1〜2程度の差はあり得ます。
 
-(3) 1頂点は位置2 float、色3 floatです。floatは4 byteなのでstrideは20 byte。位置属性（location 0）はsize=2、offset=0、色属性（location 1）はsize=3、offset=8 byteです。両方とも \`gl.FLOAT\` で設定して有効化します。
+(3) 1頂点は位置2 float、色3 floatです。floatは4 byteなのでstrideは20 byte。位置属性（location 0）はsize=2、offset=0、色属性（location 1）はsize=3、offset=8 byteです。両方とも `gl.FLOAT` で設定して有効化します。
 
-(4) 色属性の \`gl.vertexAttribPointer(1,3,gl.FLOAT,false,20,8)\` をまず確認します。sizeが2なら青に対応する第3成分をバッファから読めず、補間後の青成分が期待より小さくなります。このAPI呼出し自体は合法なのでGLエラーやshaderのコンパイル・リンクエラーが出ない場合があります。したがってエラーログだけでは不十分で、CPU基準の $(26,48,128,255)$ とGPU値を比較し、さらにuniformの第3成分が本当に1かを調べる必要があります。
+(4) 色属性の `gl.vertexAttribPointer(1,3,gl.FLOAT,false,20,8)` をまず確認します。sizeが2なら青に対応する第3成分をバッファから読めず、補間後の青成分が期待より小さくなります。このAPI呼出し自体は合法なのでGLエラーやshaderのコンパイル・リンクエラーが出ない場合があります。したがってエラーログだけでは不十分で、CPU基準の $(26,48,128,255)$ とGPU値を比較し、さらにuniformの第3成分が本当に1かを調べる必要があります。
 <!-- solution-end -->
 
 ## 7. この先
