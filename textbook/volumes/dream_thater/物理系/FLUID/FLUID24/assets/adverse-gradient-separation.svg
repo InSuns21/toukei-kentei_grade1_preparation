@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="380" viewBox="0 0 940 380" role="img" aria-labelledby="title desc">
+  <title id="title">逆圧力勾配と壁面せん断の符号</title>
+  <desc id="desc">左は壁に沿って外側流れが減速し圧力が上昇する様子。右は横軸を接線速度、縦軸を壁からの高さとして、正の壁面せん断、零の壁面せん断、壁近くの逆流を異なる線種と形で示す模式図。</desc>
+  <rect x="10" y="10" width="405" height="348" rx="12" fill="#f7f9fc" stroke="#b5c5d6"/>
+  <rect x="427" y="10" width="503" height="348" rx="12" fill="#ffffff" stroke="#b5c5d6"/>
+  <g font-family="sans-serif" fill="#203047">
+    <text x="28" y="39" font-size="19" font-weight="bold">外側流れの減速</text>
+    <text x="447" y="39" font-size="19" font-weight="bold">壁近くの速度分布</text>
+    <text x="28" y="68" font-size="15">流れ方向 x →　外縁速度 Uₑ が減少</text>
+    <text x="28" y="93" font-size="15">圧力は下流へ上昇：dpₑ/dx &gt; 0</text>
+  </g>
+  <path d="M38 296 H389" stroke="#34445d" stroke-width="4"/>
+  <text x="36" y="326" font-family="sans-serif" font-size="15" fill="#34445d">固定壁（u = 0）</text>
+  <g stroke="#1766a1" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M66 149 H260"/>
+    <path d="M235 139 L260 149 L235 159"/>
+    <path d="M230 199 H333"/>
+    <path d="M310 189 L333 199 L310 209"/>
+  </g>
+  <g font-family="sans-serif" font-size="15" fill="#1766a1">
+    <text x="69" y="131">上流：速い</text>
+    <text x="230" y="182">下流：遅い</text>
+  </g>
+  <path d="M68 260 Q192 225 328 262" stroke="#ad6744" stroke-width="3" fill="none" stroke-dasharray="8 5"/>
+  <text x="110" y="283" font-family="sans-serif" font-size="13" fill="#8e4b2a">壁近くの層（概念的な輪郭）</text>
+  <g font-family="sans-serif" font-size="15" fill="#203047">
+    <text x="447" y="67">各断面：横軸 u、縦軸 y（上向き）</text>
+    <text x="447" y="89">曲線は定量解ではなく形状の比較</text>
+  </g>
+  <g stroke="#6c7c91" stroke-width="1.5" fill="none">
+    <path d="M515 307 V128 M492 307 H627"/>
+    <path d="M670 307 V128 M645 307 H784"/>
+    <path d="M823 307 V128 M795 307 H919"/>
+  </g>
+  <g font-family="sans-serif" font-size="14" fill="#24364b" text-anchor="middle">
+    <text x="560" y="117">正せん断</text>
+    <text x="720" y="117">零せん断</text>
+    <text x="863" y="117">負せん断</text>
+    <text x="566" y="335">u →</text>
+    <text x="722" y="335">u →</text>
+    <text x="864" y="335">u →</text>
+    <text x="512" y="351">∂u/∂y &gt; 0</text>
+    <text x="670" y="351">∂u/∂y = 0</text>
+    <text x="828" y="351">∂u/∂y &lt; 0</text>
+  </g>
+  <g fill="none" stroke-width="4" stroke-linecap="round">
+    <path d="M515 307 C548 272 569 219 608 153" stroke="#1766a1"/>
+    <path d="M670 307 C670 282 711 214 761 153" stroke="#24815c" stroke-dasharray="10 6"/>
+    <path d="M823 307 C790 267 808 237 823 227 S881 171 909 153" stroke="#b34d3c" stroke-dasharray="3 6"/>
+  </g>
+  <circle cx="515" cy="307" r="3" fill="#1766a1"/>
+  <circle cx="670" cy="307" r="3" fill="#24815c"/>
+  <circle cx="823" cy="307" r="3" fill="#b34d3c"/>
+  <text x="778" y="243" font-family="sans-serif" font-size="13" fill="#a13b2c">逆流</text>
+  <g font-family="sans-serif" font-size="12" fill="#516176">
+    <text x="445" y="370">実線：付着 ／ 破線：壁面零勾配 ／ 点線：近壁逆流</text>
+  </g>
+</svg>
