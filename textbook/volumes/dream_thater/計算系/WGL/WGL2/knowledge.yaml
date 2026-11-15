@@ -1,0 +1,35 @@
+chapter: WGL2
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL1]
+concepts:
+  - id: graphics.vertex-attribute
+    name: 頂点属性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（頂点属性）"]
+    requires: [graphics.shader-pipeline]
+  - id: graphics.shader-uniform
+    name: uniform
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（uniform）"]
+    requires: [graphics.shader-pipeline]
+  - id: graphics.interstage-varying
+    name: 頂点・フラグメント間の varying
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（頂点・フラグメント間の varying）"]
+    requires: [graphics.shader-pipeline, graphics.vertex-attribute]
+  - id: graphics.barycentric-coordinate
+    name: 三角形の重心座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三角形の重心座標）"]
+    requires: [graphics.triangle-edge-test]
+  - id: graphics.barycentric-shader-color
+    name: 同一clip w の三角形の色補間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一clip w の三角形の色補間）"]
+    requires: [graphics.barycentric-coordinate, graphics.interstage-varying, graphics.perspective-division]
