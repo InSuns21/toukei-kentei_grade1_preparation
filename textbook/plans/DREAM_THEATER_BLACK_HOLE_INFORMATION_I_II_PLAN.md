@@ -20,7 +20,7 @@
 | [QCURV I](../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)（特にQCURV9〜18, 21） | 崩壊時空のBogoliubov計算・Hawking温度・灰色体因子・状態選択・半古典的エネルギー流。**Hawking温度の導出を重複しない** | 内外の相関と放射の**精細エントロピー**、逐次放出模型が意味する情報の矛盾 |
 | [BHT I](../plan_done/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)（特にBHT8〜9, 21〜24）・[GR I/II](../plan_done/DREAM_THEATER_GENERAL_RELATIVITY_I_II_PLAN.md) | Bekenstein–Hawking面積則・一般化エントロピー・地平線・古典／熱力学的収支。**第一法則・GSLを再証明しない** | Page時刻に関わるエントロピー収支と、放射領域に対する重力の極値化 |
 | [QFT IV](../plan_done/DREAM_THEATER_QUANTUM_FIELD_THEORY_I_IV_PLAN.md) | 二次元CFTの区間エントロピー、レプリカトリック・OPEの基本 | 熱的・時間依存の放射浴で区間端点とcutoffを固定した実計算 |
-| [HOLO I](../plans_progress/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)（特にHOLO21〜30） | **HOLOが正本:** 重力レプリカ法の一般論、RT/HRT・FLM・QES、entanglement wedge、JLMSと作用素代数量子誤り訂正 | **BHI IIが正本:** 非重力浴、islandの出現、放射Page曲線を生む鞍点、レプリカ・ワームホールと蒸発の情報問題 |
+| [HOLO I](../plan_done/DREAM_THEATER_HOLOGRAPHY_I_PLAN.md)（特にHOLO21〜30） | **HOLOが正本:** 重力レプリカ法の一般論、RT/HRT・FLM・QES、entanglement wedge、JLMSと作用素代数量子誤り訂正 | **BHI IIが正本:** 非重力浴、islandの出現、放射Page曲線を生む鞍点、レプリカ・ワームホールと蒸発の情報問題 |
 
 - IはQINF・QCURV・BHTの指定箇所が実在・到達可能であることを着手時に確認し、HOLO未完了でも開始できる構成とする。相対論的因果構造はGR/LORGの実在する前提へ接続する。
 - IIはIを直接前提とする。**HOLO21（重力レプリカ）、HOLO23〜24（FLM/QES）、HOLO25・27〜30（ウェッジ／再構成／符号）**は、それを使う講義の前に実装済みとするか、当該BHI講内で定義・直接例・必要な核心論証まで独立に閉じる。未実装の結果を既習と称さない。HOLOの系列進捗は系列manifestが正本。
