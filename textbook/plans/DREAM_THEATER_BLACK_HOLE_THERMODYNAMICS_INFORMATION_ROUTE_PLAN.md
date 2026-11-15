@@ -31,7 +31,7 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
                                       INFO   HOLO
 ~~~
 
-- LORG/HPDE/MICA/AQFTは[独立した数学系列](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)が正本。MICAやAQFT全講をすべての物理科目に必須としない。
+- LORG/HPDE/MICA/AQFTは[独立した数学系列](../plan_done/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)が正本。MICAやAQFT全講をすべての物理科目に必須としない。
 - **ITD系列の分岐（2026-11-08）**：古典確率的測定・記憶消去・循環収支は[ITD1〜ITD17の完了記録](../plan_done/DREAM_THEATER_INFORMATION_THERMODYNAMICS_I_PLAN.md#itd-series-closeout-audit)で監査した。量子測定とエントロピーにはQINFのPOVM・instrument・von Neumannエントロピー等を別に要し、古典のフィードバック下限を無条件に移さない。連続拡散の一般境界・温度勾配・熱の小質量極限も別課題である。
 - **2026-10-13改訂: 物理・情報は17セメスター相当**（従来の15にQFT II・IIIの不足範囲を追加し、旧QFT IIのCFTはIVへ移す）。QFT I〜IVは同一PLAN内に置くが、I→II→IIIの素粒子ルートとI→IIの必要部分→IVのCFTルートに分岐する。講数・実学修週数は固定しない。
 - 章ID・前提の全体衝突監査、未実装PLANの利用停止線、物理的仮定の整合は各講義着手時に確認する。本ルートファイルは個別科目の完了を代替しない。
@@ -44,7 +44,7 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 
 熱・仕事・確率・情報を測る理論から、曲がった時空の地平線に温度とエントロピーが現れる理由を導き、最後に「蒸発するブラックホールの量子情報はどう扱われるか」を数学的に定式化する。
 
-本PLANは**科目間の依存関係・境界・学修テーマ・研究論点**を管理する横断ルートである。新たに定義した [時空・量子場の数学基盤4セメスターPLAN](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) を数学的補完のcanonical ownerとして参照し、本PLAN内に数学講義を重複執筆しない。すでに存在する `DREAM_THEATER_THERMODYNAMICS_STATISTICAL_MECHANICS_SPIN_GLASS_PLAN.md` が **熱力学TH・統計力学SM・スピングラスSGのcanonical owner** であり、ここでTH/SMの理論的定義や証明を重複実装しない。情報幾何も既存の独立PLANが所有する。将来各専門PLANを切り出しても、正本を一つに保つ。
+本PLANは**科目間の依存関係・境界・学修テーマ・研究論点**を管理する横断ルートである。新たに定義した [時空・量子場の数学基盤4セメスターPLAN](../plan_done/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) を数学的補完のcanonical ownerとして参照し、本PLAN内に数学講義を重複執筆しない。すでに存在する `DREAM_THEATER_THERMODYNAMICS_STATISTICAL_MECHANICS_SPIN_GLASS_PLAN.md` が **熱力学TH・統計力学SM・スピングラスSGのcanonical owner** であり、ここでTH/SMの理論的定義や証明を重複実装しない。情報幾何も既存の独立PLANが所有する。将来各専門PLANを切り出しても、正本を一つに保つ。
 
 ### 成功条件
 
@@ -94,7 +94,7 @@ GR＋QFT IV＋QINF＋BHT → HOLO ──┘          ↑     ↑
 | MICA1–MICA15：超局所解析・波面集合・Hadamard条件 | 厳密ルート | 分布の積と引戻し・特異性伝播・量子場のUV構造 |
 | AQFT1–AQFT15：代数的量子場理論・モジュラー理論 | 研究入門 | 局所環・Type III・Tomita–Takesaki・相対エントロピー |
 
-新数学 **4科目** を独立に位置付ける。物理・情報のQFT I〜IVを含む計17セメスター相当の教育単位と合わせて設計するが、**60週・285週などの固定学修週数は設定しない**。数学側の学習テーマと証明課題は [専用数学PLAN](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) の科目別正本で扱う。
+新数学 **4科目** を独立に位置付ける。物理・情報のQFT I〜IVを含む計17セメスター相当の教育単位と合わせて設計するが、**60週・285週などの固定学修週数は設定しない**。数学側の学習テーマと証明課題は [専用数学PLAN](../plan_done/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md) の科目別正本で扱う。
 
 数学的に厳密なQCURV・BHT・BHIの発展内容を読む際にはMICA/AQFTを強く推奨する。一方、標準の物理講義の導入部へそれらの全講を一律必修化しない。各章の必要箇所でLORG/HPDEの定義・定理やMICA/AQFTの先行結果を参照する。**GR Iの幾何学的前提はLORGに置き、LORGにGR Iを必須前提として設定しない**。
 

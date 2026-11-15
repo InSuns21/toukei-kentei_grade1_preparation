@@ -12,7 +12,7 @@
 
 ### 共通参照
 
-- 横断読順は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、Lorentz幾何・HPDE・MICA・AQFTの数学的基礎は[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)から正本を特定する。
+- 横断読順は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、Lorentz幾何・HPDE・MICA・AQFTの数学的基礎は[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)から正本を特定する。
 - 上記前提のうち未実装PLANの定理は、必要な本文が完成するまでは章内導入か理由付き結果先行とする。
 
 ## 講義設計：講数を決めずに中心問いから構成する

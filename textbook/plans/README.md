@@ -43,8 +43,8 @@
 | 流体力学（静水・渦・層流・境界層・波・乱流・圧縮性・CFD） | [DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)（FLUID1〜48、設計済み・未実装。CTM5/7/9/10/15〜17の流体力学的な応用。Python数値計算・必要なWebGL表示を各講同時制作） |
 | 流体コンピュータグラフィックス（CG・GPU表示・水/煙/火） | [DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)（FCG1〜20・設計済み未実装。動く計算コード・ブラウザ表示・数値/表示テストを毎講本文と同じPRで完成。FLUID48講からの選択的発展コース） |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
-| 整数論・Diophantine近似・解析的整数論・楕円曲線・モジュラー形式の5科目間の履修ルート | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
-| 円積問題の2科目（古典作図SQC1〜7・Tarski等分解SQC8〜12）の履修ルート | `DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md`（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
+| 整数論・Diophantine近似・解析的整数論・楕円曲線・モジュラー形式の5科目間の履修ルート | [完了済みの整数論横断ルート](../plan_done/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md)（楕円関数は既存 `CA8` / `CA9` を再利用） |
+| 円積問題の2科目（古典作図SQC1〜7・Tarski等分解SQC8〜12）の履修ルート | [完了済みの円積問題横断ルート](../plan_done/DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md)（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
 | オリガミクス・計算折り紙（ORI1〜30） | [進行中のORI計画](../plans_progress/DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md)（ORI1完成、ORI2以降とSVG動画は未完了。定規・コンパスの作図不可能性はSQC/FLDを正本とする） |
 | 超越数論Ⅰ・Hermiteの $e$ の超越性・Hermite–Lindemann・Lindemann–Weierstrass | `DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md`（TRN1–TRN14、独立科目。Liouville定理・Liouville数は整数論ルート `NDA6` が正本） |
 | 熱力学・熱力学ポテンシャル | `textbook/plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md`（TH1〜TH8 全章・横断監査完了） |
@@ -54,9 +54,9 @@
 | Lie群の表現・相対論的粒子・スピノル | `DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md`（LREP：QFT I／IIIで必要な表現論の独立数学科目） |
 | 主束・接続・Chern–Weil・大域的ゲージ幾何 | `DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md`（GBG：GEO／LIEの停止線外、QFT II／IIIと接続） |
 | Euclid場／構成的QFT・対角延長による摂動的くりこみ | `DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md`（MQFC I/II：任意の数学的厳密化ルート） |
-| ローレンツ幾何・大域因果構造 | `../plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md`（全21講・LORG1完了、LORG2以降進行中） |
+| ローレンツ幾何・大域因果構造 | [完了済みLORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)（全21講完了） |
 | Lorentz多様体上の双曲型PDE | `../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md`（HPDE1〜HPDE24・全24講完了） |
-| 超局所解析・Hadamard条件 | `../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md`（MICA1完了・以降進行中） |
+| 超局所解析・Hadamard条件 | [完了済みMICA](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)（全15講完了） |
 | 代数的QFT・モジュラー理論 | [進行中のAQFT全34講PLAN](../plans_progress/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)（AQFT1完了、AQFT2–34は未着手。進捗は系列manifest `textbook/dream-theater-series/AQFT.yaml` を参照） |
 | THE END OF MATHEMATICS? 5テーマの横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
 | 金融の価格付け・最適執行の応用 | [進行中のU3数理ファイナンスPLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)（U3-01完成・以降計画中。HJB理論は既存の最適制御PLANを参照） |

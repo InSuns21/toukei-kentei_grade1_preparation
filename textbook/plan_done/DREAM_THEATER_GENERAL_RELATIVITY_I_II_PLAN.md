@@ -32,7 +32,7 @@ GR I（GR1–24）とGR II（GR25–46）の全46講について、各章の `in
 | ブラックホール熱力学の四法則、第一法則、Waldエントロピー、温度・エントロピーの導出 | [BHT](../plans_progress/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_I_PLAN.md)。GRではsurface gravityの幾何学的定義・例の計算までを扱い、熱力学的同定の証明を横取りしない |
 | 曲がった時空の量子場、Bogoliubov変換、Unruh効果・Hawking放射 | [QCURV](../plan_done/DREAM_THEATER_QFT_CURVED_SPACETIME_I_PLAN.md)。GRは古典的背景計量と因果構造を提供する |
 
-横断の全体配置は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)および[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)を参照する。
+横断の全体配置は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)および[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)を参照する。
 
 ## 2. 教材全体で固定・照合する約束
 

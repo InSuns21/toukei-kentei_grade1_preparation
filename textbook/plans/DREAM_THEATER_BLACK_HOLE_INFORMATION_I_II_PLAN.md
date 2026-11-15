@@ -25,7 +25,7 @@
 - IはQINF・QCURV・BHTの指定箇所が実在・到達可能であることを着手時に確認し、HOLO未完了でも開始できる構成とする。相対論的因果構造はGR/LORGの実在する前提へ接続する。
 - IIはIを直接前提とする。**HOLO21（重力レプリカ）、HOLO23〜24（FLM/QES）、HOLO25・27〜30（ウェッジ／再構成／符号）**は、それを使う講義の前に実装済みとするか、当該BHI講内で定義・直接例・必要な核心論証まで独立に閉じる。未実装の結果を既習と称さない。HOLOの系列進捗は系列manifestが正本。
 - MICA（Hadamard）／AQFT（Type III・局所代数）を発展的に参照するが、全講の事前修了を一律必須とはしない。重力Hilbert空間の素朴な因数分解の限界はBHI15で扱い、厳密な一般論は到達可能なAQFTの実在章へリンクする。
-- 本PLANは独立した **BHI系列** の設計であり、横断読順は[熱・時空・情報ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、LORG/HPDE/MICA/AQFTの正本は[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で確認する。旧PLANにあった未定義の「BHII」「BHIII」は前提IDに使わない。
+- 本PLANは独立した **BHI系列** の設計であり、横断読順は[熱・時空・情報ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、LORG/HPDE/MICA/AQFTの正本は[時空・量子場数学ルート](../plan_done/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で確認する。旧PLANにあった未定義の「BHII」「BHIII」は前提IDに使わない。
 
 ## 2. 標準テキスト・原論文との照合による講数決定
 

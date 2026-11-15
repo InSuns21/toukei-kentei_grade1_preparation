@@ -214,7 +214,7 @@ EC11 + MF7 → MF8（modularity theorem / FLT）
 
 この図は**学習上の概形**であり、横列を全章の自動 prerequisite にしない。例えば EC9 は EC6 の descent を使わないので依存させない。EC5 は EC4 の isogeny 一般論を待たず始められる。EC11 は MF7 を読み、MF7 は EC11 を読まない。
 
-既存 [整数論・modularity 横断ルート](../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md) の MF/EC の双方向説明は、この非循環 DAG に従って実装時に確定する。仮 ID を公開索引、knowledge DAG、chapter manifest へ設計段階で登録しない。
+既存 [整数論・modularity 横断ルート](DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md) の MF/EC の双方向説明は、この非循環 DAG に従って実装時に確定する。仮 ID を公開索引、knowledge DAG、chapter manifest へ設計段階で登録しない。
 
 ## 5. 章ごとの直接例・演習・査読の受け入れ基準
 
