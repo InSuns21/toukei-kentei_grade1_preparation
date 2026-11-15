@@ -638,7 +638,7 @@ $t_1<t_2$ を代入すると対角成分は $t_1,t_2$、
 非対角成分は $\min(t_1,t_2)=t_1$ です。
 従って平均は $(0,0)$、分散共分散行列は
 
-$
+$$
 \Sigma
 =
 \begin{pmatrix}
@@ -1448,9 +1448,9 @@ $$
 
 その符号を反転した
 
-$
+$$
 -(B_{\sigma+t}-B_\sigma)
-$
+$$
 
 も同じ法則のブラウン運動です。
 停止した過去の経路 $(B_{t\wedge\sigma})_{t\ge0}$ と停止時刻 $\sigma$ は
@@ -1460,13 +1460,13 @@ $\mathcal F_\sigma^{B,c}$ の情報で決まり、
 「停止時刻・停止した過去・停止後の増分」の同時分布は変わりません。
 実際、
 
-$
+$$
 \widetilde B_t
 =
 B_{t\wedge\sigma}
 -
 \bigl(B_t-B_{t\wedge\sigma}\bigr)
-$
+$$
 
 なので、この三つ組から復元される $\widetilde B$ と $B$ は同じ有限次元分布を持ちます。
 $\widetilde B$ の標本路も連続なので、標準 Brown 運動と同じ法則です。
@@ -1770,7 +1770,7 @@ $[\sigma_k,t]$ 上の経路が $a_k$ に触れることは、
 連続性からその区間における $|B_s-a_k|$ の最小値が 0 となることと同値です。
 従って任意の固定した $t\ge0$ について
 
-$
+$$
 \{\sigma_{k+1}\le t\}
 =
 \{\sigma_k\le t\}
@@ -1778,7 +1778,7 @@ $
 \left\{
 \min_{\sigma_k\le s\le t}|B_s-a_k|=0
 \right\}.
-$
+$$
 
 $\sigma_k\wedge t$ は $\mathcal F_t^{B,c}$-可測で、
 制限経路 $B|_{[0,t]}$ も有理時刻の座標評価から可測です。
@@ -1792,9 +1792,9 @@ $\sigma_k$ 後の shifted 過程は新しいブラウン運動です。
 現在値から次の目標水準までの距離は 2 なので、
 [到達確率1の定理](#thm-sto4-hitting-time-law)から
 
-$
+$$
 P(\sigma_{k+1}<\infty\mid\mathcal F_{\sigma_k}^{B,c})=1.
-$
+$$
 
 帰納的に全ての $\sigma_k$ は finite ほとんど確実にです。
 
@@ -2597,9 +2597,9 @@ $$
 
 [到達時刻の分布](#thm-sto4-hitting-time-law)から
 
-$
+$$
 P(\sigma_1<\infty)=1.
-$
+$$
 
 次に
 
@@ -2791,7 +2791,7 @@ $$
 連続標本路が $a+b$ に到達するには先に $a$ を通るので
 $\tau_a\le\tau_{a+b}$ です。また $B_{\tau_a}=a$ ほとんど確実なので
 
-$
+$$
 \begin{aligned}
 \tau_{a+b}-\tau_a
 &=
@@ -2812,7 +2812,7 @@ $$
 \overset{d}=\tau_b.
 $$
 
-しかも右辺を決める shifted 過程 $W$ 全体が $\mathcal F_{\tau_a}^B$ と独立なので、
+しかも右辺を決める shifted 過程 $W$ 全体が $\mathcal F_{\tau_a}^{B,c}$ と独立なので、
 
 $$
 \tau_{a+b}-\tau_a
