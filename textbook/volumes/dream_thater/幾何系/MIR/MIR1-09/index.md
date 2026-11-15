@@ -62,7 +62,7 @@ $\mathbb C^5\setminus\{0\}$ で $(x_0,\ldots,x_4)$ を同時に $\lambda$ 倍し
 <a id="def-mir1-09-pole-form"></a>
 
 <!-- formal-statement-start -->
-> **定義（射影五次に沿う極次数 $k$ の有理4形式）**
+> **定義（射影五次に沿う有理4形式の極次数）**
 >
 > $\psi\in\mathbb C$、整数 $k\ge1$、斉次次数 $5(k-1)$ の多項式 $A\in\mathbb C[x_0,\ldots,x_4]$ と、上記の斉次五次式 $F_\psi$ をとる。$V_\psi=\mathbb P^4_{\mathbb C}\setminus\{F_\psi=0\}$ 上の有理4形式を
 
@@ -161,11 +161,11 @@ $\Phi_B=-\iota_E\eta_B$ と置く。内部積を二度取ると零だから $\io
 
 ここで外微分と内部積の関係を、この場合に直接確かめる。$\eta_B$ の各項を $h\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$ と書くと、$h=B_i/F_\psi^{k-1}$ は次数 $-4$ なので $E(h)=-4h$ である。また $d(\iota_E(dx_{i_1}\wedge\cdots\wedge dx_{i_4}))=4\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$。内部積の積の規則 $\iota_E(dh\wedge\sigma)=E(h)\sigma-dh\wedge\iota_E\sigma$ と合わせれば
 
-$
+$$
 d\iota_E(h\sigma)+\iota_Ed(h\sigma)
 =(E(h)+4h)\sigma=0,\qquad
 \sigma=dx_{i_1}\wedge\cdots\wedge dx_{i_4}.
-$
+$$
 
 全項に足すと $d\iota_E\eta_B=-\iota_Ed\eta_B$ が得られる。これは重み零の形式に対するCartanの公式を直接計算したものなので、$\Phi_B=-\iota_E\eta_B$ について
 
@@ -440,7 +440,7 @@ $$
 #### MIR1-09-B01 射影チャートでも係数は一致するか
 - Level: B
 
-$x_0=1$、$y_j=x_j/x_0$ と置き、$f(y)=F_\psi(1,y)$ とする。$k=2$、$B_0=x_0$、$B_j=0$（$j\ge1$）のとき、Eulerの斉次式 $\sum_i x_i\partial_iF_\psi=5F_\psi$ を利用して $F_{\psi,0}(1,y)=5f-\sum_{j=1}^4y_j f_j$ を示せ。局所の全微分公式により $F_{\psi,0}(1,y)\,dy_1\wedge\cdots\wedge dy_4/f^2$ を単純極へ低減せよ。
+$x_0=1$、$y_j=x_j/x_0$ と置き、$f(y)=F_\psi(1,y)$ とする。$k=2$、$B_0=x_0$、$B_j=0$（$j\ge1$）のとき、Eulerの斉次式 $\sum_i x_i\partial_iF_\psi=5F_\psi$ を利用して $F_{\psi,0}(1,y)=5f-\sum_{j=1}^4y_j f_j$ を示せ。局所3形式を実際に外微分して $F_{\psi,0}(1,y)\,dy_1\wedge\cdots\wedge dy_4/f^2$ を単純極へ低減せよ。
 
 <!-- solution-start -->
 **詳細解答。** $F_\psi$ は斉次次数5だからEulerの式が成り立つ。$x_0=1$ を代入すると
@@ -530,10 +530,11 @@ $B_0=x_1^4x_2^4x_3^4x_4^4/5$ は次数16で五重極に必要な次数を満た�
 <!-- solution-start -->
 **詳細解答。** 
 
-1. 原始関数 $1/t$ は道に沿って定義されているから、微分形式の積分の基本定理より
+1. 原始関数 $1/t$ は道に沿って定義されている。$γ$ を $t=t(s)$（$0\le s\le1$、$t(0)=a$、$t(1)=b$）とパラメータ表示すれば、連鎖律から
 
 $$
 \int_\gamma d(t^{-1})
+=\int_0^1\frac{d}{ds}\left(\frac1{t(s)}\right)ds
 =\int_\gamma-\frac{dt}{t^2}
 =\frac1b-\frac1a.
 $$
