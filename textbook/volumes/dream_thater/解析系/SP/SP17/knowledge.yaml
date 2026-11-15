@@ -13,7 +13,7 @@ concepts:
     introduction_aliases: ["定義（M/M/1 待ち行列と負荷率）"]
     requires:
       - stochastic.birth-death-process
-      - stochastic.poisson-process
+      - stochastic.exponential-waiting-poisson-construction
   - id: stochastic.mm1-q-matrix
     name: M/M/1 の人数過程
     kind: proposition
