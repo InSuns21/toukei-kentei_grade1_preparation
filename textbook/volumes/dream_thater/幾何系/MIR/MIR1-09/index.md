@@ -159,11 +159,18 @@ $$
 
 $\Phi_B=-\iota_E\eta_B$ と置く。内部積を二度取ると零だから $\iota_E\Phi_B=0$ であり、$\eta_B$ の重みが零なので $\Phi_B$ も重み零である。この二条件によって $\Phi_B$ は射影空間上の有理3形式として貼り合わさる。特に $V_\psi$ では分母が零にならず正則である。
 
-[Cartanの公式](../../GEO/GEO1-06/index.md#prop-geo1-06-cartan-formula) $L_E=d\iota_E+\iota_Ed$ と、重み零から $L_E\eta_B=0$ を使うと
+ここで外微分と内部積の関係を、この場合に直接確かめる。$\eta_B$ の各項を $h\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$ と書くと、$h=B_i/F_\psi^{k-1}$ は次数 $-4$ なので $E(h)=-4h$ である。また $d(\iota_E(dx_{i_1}\wedge\cdots\wedge dx_{i_4}))=4\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$。内部積の積の規則 $\iota_E(dh\wedge\sigma)=E(h)\sigma-dh\wedge\iota_E\sigma$ と合わせれば
+
+$
+d\iota_E(h\sigma)+\iota_Ed(h\sigma)
+=(E(h)+4h)\sigma=0,\qquad
+\sigma=dx_{i_1}\wedge\cdots\wedge dx_{i_4}.
+$
+
+全項に足すと $d\iota_E\eta_B=-\iota_Ed\eta_B$ が得られる。これは重み零の形式に対するCartanの公式を直接計算したものなので、$\Phi_B=-\iota_E\eta_B$ について
 
 $$
 d\Phi_B=-d(\iota_E\eta_B)
-=\iota_E(d\eta_B)-L_E\eta_B
 =\iota_E(d\eta_B).
 $$
 
