@@ -1,0 +1,42 @@
+chapter: FLUID28
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID27
+concepts:
+  - id: fluid.wave-group-speed
+    name: 群速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（群速度）"]
+    requires: [fluid.gravity-capillary-dispersion, fluid.wave-phase-speed]
+  - id: fluid.wave-beat-envelope
+    name: 近接二波の包絡速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（近接二波の包絡速度）"]
+    requires: [fluid.wave-group-speed, fluid.wave-wavenumber-frequency]
+  - id: fluid.gravity-capillary-group-speed
+    name: 有限水深の重力・毛管波の群速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限水深の重力・毛管波の群速度）"]
+    requires: [fluid.wave-group-speed, fluid.gravity-capillary-dispersion]
+  - id: fluid.linear-wave-energy-mean
+    name: 線形重力・毛管波の平均エネルギー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形重力・毛管波の平均エネルギー）"]
+    requires: [fluid.gravity-capillary-dispersion, fluid.linear-free-surface-conditions]
+  - id: fluid.linear-wave-energy-conservation
+    name: 線形自由表面波の二次エネルギー保存則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形自由表面波の二次エネルギー保存則）"]
+    requires: [fluid.linear-free-surface-conditions]
+  - id: fluid.wave-energy-transport
+    name: 平均波エネルギー流束と群速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平均波エネルギー流束と群速度）"]
+    requires: [fluid.gravity-capillary-group-speed, fluid.linear-wave-energy-mean, fluid.linear-wave-energy-conservation]
