@@ -1,0 +1,50 @@
+id: "U3-42"
+title: "金利曲線・債券・短期金利モデル"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-15, U3-19, U3-26, STO9]
+official_scope: []
+learning_objectives:
+  - ゼロクーポン債の割引因子から連続複利ゼロ金利と瞬間フォワード金利を計算できる
+  - 割引曲線とフォワード金利の積分・微分恒等式を証明できる
+  - 異なる満期のゼロクーポン債から無裁定先渡受渡価格を複製で導出できる
+  - 確率的な短期金利と実現割引因子を区別し評価測度での条件付き割引期待値を証明できる
+  - Vasicek 短期金利の陽解と条件付き平均分散を Itô 公式で導ける
+  - 累積短期金利の条件付き正規分布からゼロクーポン債価格を導出できる
+  - Vasicek 債券価格の PDE と金利感応度を検算できる
+  - 厳密な累積金利標本の Monte Carlo と解析値・標準誤差を比較できる
+  - 市場曲線と単一短期金利モデルの較正残差を区別できる
+definitions:
+  - { id: U3-42-DEF-01, name: "ゼロクーポン債と割引因子" }
+  - { id: U3-42-DEF-02, name: "ゼロ金利と瞬間フォワード金利" }
+  - { id: U3-42-DEF-03, name: "短期金利と銀行口座" }
+  - { id: U3-42-DEF-04, name: "Vasicek 短期金利モデル" }
+theorems:
+  - { id: U3-42-PROP-01, name: "割引曲線と金利曲線の恒等式" }
+  - { id: U3-42-THM-01, name: "ゼロクーポン債の無裁定先渡受渡価格" }
+  - { id: U3-42-PROP-02, name: "確率短期金利のゼロクーポン債評価" }
+  - { id: U3-42-PROP-03, name: "Vasicek 短期金利の条件付き解" }
+  - { id: U3-42-THM-02, name: "Vasicek モデルのゼロクーポン債価格" }
+  - { id: U3-42-PROP-04, name: "Vasicek ゼロクーポン債の価格 PDE" }
+canonical_examples:
+  - "2年ゼロ金利のゼロクーポン債価格への変換"
+  - "2次式の対数割引曲線からゼロ金利・瞬間フォワード金利の比較"
+  - "1年債と2年債から先渡受渡価格を複製し将来の現物価格と区別"
+  - "2状態の累積金利で期待割引と期待金利割引を比較"
+  - "Vasicek条件付き平均・分散から1/2/3/5年債券価格を算出"
+  - "Vasicek PDE と短期金利感応度を検算"
+problem_patterns:
+  - U3-42-A1
+  - U3-42-A2
+  - U3-42-A3
+  - U3-42-A4
+  - U3-42-A5
+  - U3-42-B1
+  - U3-42-B2
+  - U3-42-B3
+  - U3-42-B4
+  - U3-42-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
