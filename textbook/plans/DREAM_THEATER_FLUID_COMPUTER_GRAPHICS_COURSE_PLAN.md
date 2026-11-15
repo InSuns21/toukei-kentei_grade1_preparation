@@ -41,7 +41,7 @@
 
 ### 2.1 WGLと共通の「編集→実行→検算」プログラミングラボ
 
-新しい[WGL／OpenGL系PLANの共通ラボ契約](DREAM_THEATER_WEBGL_OPENGL_GRAPHICS_PROGRAMMING_PLAN.md#2-fluid10型を発展させた共通プログラミングラボ必須)をFCG全講でも使用する。単なるJS/GLSLファイルの公開、固定HTMLデモへのリンク、完成済みアニメーションでは**プログラミング演習**の要件を満たさない。
+新しい[WGL／OpenGL系PLANの共通ラボ契約](DREAM_THEATER_WEBGL_OPENGL_GRAPHICS_PROGRAMMING_PLAN.md)をFCG全講でも使用する。単なるJS/GLSLファイルの公開、固定HTMLデモへのリンク、完成済みアニメーションでは**プログラミング演習**の要件を満たさない。
 
 - **章本文の中に3タブラボ**を置く：**実験条件・課題／コード編集／実行結果**。FLUID10の[ブラウザPython検算](../volumes/dream_thater/物理系/FLUID/FLUID10/index.md)の「条件を変えて同じ画面で結果を見る」導線を参考にするが、python-file-lab（完成済みPythonスクリプトの閲覧・実行）と異なり、**FCGではJavaScriptとGLSLのソース自体を学習者が編集できる**ようにする。
 - 全講の物理更新を担当するJavaScript（又は適切に再現可能なPython参照計算）と、その場の操作/描画用JavaScriptを実コードとして読めて編集・再実行できること。**WebGL2を使う講はvertex/fragment GLSLの独立編集欄も用意**し、複数passでは必要なstageを切替編集可能とする。FCG1等のCanvas2Dのみの正当な導入部分に、無意味なshader編集を強制しない。少なくともFCG2以降でWebGL2を利用する課題ではGLSLの編集→GPU再コンパイル→画素・診断差分を検査できる。
