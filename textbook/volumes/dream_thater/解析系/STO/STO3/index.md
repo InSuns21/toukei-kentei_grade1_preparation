@@ -777,15 +777,17 @@ $$
 
 を考えます。
 
-各 $D_n$ が課す条件は有限個の座標だけに依存し、compact 集合 $K_j$ への所属条件なので、
+$D_n$ は $\mathbb R^T$ の集合、$K$ は $\mathbb R^{I_\infty}$ の部分集合なので、両者をそのまま交わらせず、$D_n$ の有限座標条件だけを $K$ 内で考えます。
 
 $$
-E_n:=K\cap D_n
+E_n
+=
+\left\{x\in K:x|_{I_j}\in K_j\quad(1\le j\le n)\right\}
 $$
 
 は座標ごとの極限で閉じた条件です。
 
-さらに $E_n$ が非空であることも確認します。$D_n$ の点を一つ取ると、その $I_n$ 座標は $H_1,\ldots,H_n$ の全条件を満たします。特に $t\in I_n$ なら $n(t)\le n$ なので、その $t$ 座標は $K_{n(t)}$ の射影 $L_t$ に入ります。$t\in I_\infty\setminus I_n$ の座標は $D_n$ の条件に現れないので、各 $L_t$ から値を選んで補えば $K\cap D_n$ の点が得られます。
+さらに $E_n$ が非空であることも確認します。$D_n$ の点を一つ取ると、その $I_n$ 座標は $H_1,\ldots,H_n$ の全条件を満たします。特に $t\in I_n$ なら $n(t)\le n$ なので、その $t$ 座標は $K_{n(t)}$ の射影 $L_t$ に入ります。$t\in I_\infty\setminus I_n$ の座標は $D_n$ の条件に現れないので、各 $L_t$ から値を選んで補えば $E_n$ の点が得られます。
 
 従って各 $E_n$ は非空で、
 
@@ -795,7 +797,7 @@ $$
 
 です。
 
-ここでは一般の積空間の compact 性を黒箱にせず、対角部分列で共通点を作ります。
+ここでは一般の積空間の compact 性を黒箱にせず、対角部分列で共通点を作ります。$I_\infty$ が有限なら有限個の座標で順に収束部分列を取ればよいので、以下では無限可算の場合を書きます。
 
 $I_\infty$ を
 
@@ -847,13 +849,7 @@ $$
 x\in\bigcap_{m=1}^\infty E_m.
 $$
 
-したがって
-
-$$
-\bigcap_{n=1}^\infty D_n\ne\varnothing.
-$$
-
-この点を $I_\infty$ 以外の座標へ任意に延長すれば
+得られた $x\in\bigcap_nE_n$ は、全ての $j$ について $x|_{I_j}\in K_j$ を満たします。この点を $I_\infty$ 以外の座標へ任意に延長すれば
 
 $$
 \omega\in\bigcap_{n=1}^\infty H_n
@@ -971,6 +967,8 @@ Kolmogorov 拡張定理の代表的な使い方として、平均関数と共分
 $K(s,t)=\min(s,t)$
 を代入します。
 
+ここでいう **多変量ガウス分布** とは、独立な標準正規変数 $Z_1,\ldots,Z_r$ を並べたベクトル $Z$、定数ベクトル $b$、実行列 $A$ により $Y=b+AZ$ と表せる確率ベクトルの分布です。標準正規 $N(0,1)$ は密度 $(2\pi)^{-1/2}e^{-z^2/2}$ を持ちます。$A$ の階数が座標数より小さい退化例も含みます。例えば $(Z,2Z)$ は二変量ガウスですが、その値は直線上に限られます。
+
 <a id="def-sto3-gaussian-process"></a>
 
 <!-- formal-statement-start -->
@@ -990,9 +988,11 @@ $$
 > が多変量ガウス分布を持つことをいう。退化したガウス分布も許す。
 <!-- formal-statement-end -->
 
+ガウス分布が平均と共分散で一意に決まる理由も確認します。$Y=b+AZ$ なら $E[Y]=b$、$\operatorname{Cov}(Y)=AA^\mathsf T$ です。$AA^\mathsf T$ を [実対称行列のスペクトル定理](../../../基礎科目/F0/F0-00F1/index.md#thm-real-symmetric-spectral)で対角化し、$Q^\mathsf TAA^\mathsf TQ=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)$ とします。正の固有値を $\lambda_1,\ldots,\lambda_r$ とすると、$Q^\mathsf T(Y-b)$ の第 $i>r$ 座標は分散0であり、ほとんど確実に0です。最初の $r$ 座標を各 $\sqrt{\lambda_i}$ で割ると、標準正規ベクトル $Z$ の線形変換行列の行は互いに直交し長さ1です。これらの行を正規直交基底へ補い、$Z$ の結合密度が $e^{-\|z\|^2/2}$ に比例して直交変換で不変なことを使うと、割った $r$ 座標は互いに独立な標準正規変数になります。従って $Y$ の分布は平均 $b$ と共分散 $AA^\mathsf T$ だけで決まります。
+
 ガウス過程では、平均関数
 
-$$
+$
 m(t)=E[X_t]
 $$
 
@@ -1253,7 +1253,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Hölder 連続性）**  
-> 区間 $[0,T]$ 上の関数 $f$ と指数 $\gamma\in(0,1]$ を考える。ある定数 $C_f<\infty$ が存在して
+> 区間 $[0,T]$ 上の関数 $f$ と指数 $\gamma>0$ を考える。ある定数 $C_f<\infty$ が存在して
 >
 $$
 |f(t)-f(s)|
@@ -1266,7 +1266,15 @@ $$
 > が成り立つとき、$f$ は指数 $\gamma$ で **Hölder 連続** であるという。
 <!-- formal-statement-end -->
 
-$\gamma=1$ は上の評価で指数が 1 の場合です。
+$\gamma=1$ は上の評価で指数が 1 の場合です。$\gamma>1$ のとき、区間 $[s,t]$ を $N$ 等分して三角不等式を適用すれば
+
+$
+|f(t)-f(s)|
+\le N C_f((t-s)/N)^\gamma
+=C_f(t-s)^\gamma N^{1-\gamma}\to0.
+$
+
+従って指数1を超えて Hölder 連続な関数は定数です。非定数の標本路では通常 $0<\gamma\le1$ の指数を考えます。
 
 $\gamma<1$ では、短い時間差 $h$ に対する変動が
 
@@ -2310,7 +2318,7 @@ $$
    $$
    を示せ。
 2. 従って $\Sigma$ が半正定値であることを示せ。
-3. $I\subset J$ で座標を減らしたとき、この分散分散共分散行列が対応する添字の行・列だけを残した部分行列へ移ることを確認せよ。
+3. $I\subset J$ で座標を減らしたとき、この分散共分散行列が対応する添字の行・列だけを残した部分行列へ移ることを確認せよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -2388,7 +2396,7 @@ $$
 
 だけを残します。
 
-従って分散分散共分散行列は $\Sigma_J$ の対応する添字の行・列だけを残した部分行列となり、それは $\Sigma_I$ そのものです。
+従って分散共分散行列は $\Sigma_J$ の対応する添字の行・列だけを残した部分行列となり、それは $\Sigma_I$ そのものです。
 
 STO4 ではこの整合性とガウス周辺分布の安定性を組み合わせ、ブラウン有限次元分布を作ります。
 <!-- solution-end -->
@@ -2526,41 +2534,29 @@ $$
 
 を考えます。
 
-可算個の compact metric spaces の積は、対角部分列法で compact です。
+可算個の compact metric spaces の積は、座標ごとに収束部分列を取り対角部分列を選ぶ方法で compact です（座標が有限個なら通常の有限次元 compact 性で足ります）。
 
-各 $D_n$ は有限個の座標に対する closed 条件なので $K^\ast$ 内で closed です。
+ただし $D_n$ は $\mathbb R^T$ の集合であり、$K^\ast$ は $\mathbb R^{I_\infty}$ の部分集合です。両者の共通部分を直接取る代わりに
 
-しかも
+$
+E_n=\{x\in K^\ast:x|_{I_j}\in K_j\ (1\le j\le n)\}
+$
 
-$$
-D_1\supset D_2\supset\cdots
-$$
+と置きます。各 $E_n$ は有限個の compact 集合への所属条件で定まる閉集合です。$D_n$ の点の $I_n$ 座標を使い、残りの座標を各非空 compact 集合 $L_t$ から選べば、$E_n$ が非空であることも分かります。さらに $E_{n+1}\subset E_n$ です。
 
-で各 $D_n$ は非空です。
+compact 空間の減少する非空閉集合族は共通点を持つため
 
-compact 空間内の nested nonempty closed sets の共通部分は非空なので
+$
+x\in\bigcap_nE_n
+$
 
-$$
-\bigcap_nD_n\ne\varnothing.
-$$
+を取れます。$x$ を $I_\infty$ 以外の座標へ任意に延長すると $\omega\in\mathbb R^T$ が得られ、全ての $j$ で $\omega|_{I_j}\in K_j$ です。従って
 
-しかし
+$
+\omega\in\bigcap_nH_n\subset\bigcap_nA_n=\varnothing,
+$
 
-$$
-D_n\subset H_n\subset A_n
-$$
-
-だから
-
-$$
-\bigcap_nD_n
-\subset
-\bigcap_nA_n
-=
-\varnothing,
-$$
-
-矛盾です。
+となり矛盾です。
 
 従って最初の仮定が誤りで
 
