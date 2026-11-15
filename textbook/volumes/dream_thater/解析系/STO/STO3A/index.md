@@ -360,7 +360,7 @@ $K$ が閉なら極限も $K$ に属するため compact です。
 
 ## 3. tightness を modulus で判定する
 
-前節の compactness criterion を確率過程へ使うには、「ほとんどの標本路が同じ compact 集合へ入る」ように $f(0)$ と modulus の条件を確率的に同時達成させればよいことになります。
+前節の[連続経路空間の compactness criterion](#thm-sto3a-compact-modulus) を確率過程へ使うには、「ほとんどの標本路が同じ compact 集合へ入る」ように $f(0)$ と modulus の条件を確率的に同時達成させればよいことになります。
 
 初期値が大きく外れる確率を小さくし、各精度 $2^{-m}$ で modulus が悪い確率を総和可能に配分します。すると union bound で、全ての modulus 条件を同時に満たす確率を $1-\varepsilon$ 以上にできます。
 
@@ -457,7 +457,7 @@ $$
 \sup_{f\in K}\omega_f(\delta_m)\le2^{-m}\to0
 $$
 
-なので、前節の compactness criterion により $K$ は compact です。
+なので、前節の[連続経路空間の compactness criterion](#thm-sto3a-compact-modulus) により $K$ は compact です。
 
 [union bound](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound) から
 
@@ -674,7 +674,7 @@ C
 \end{aligned}
 $$
 
-前節の modulus criterion から tightness が従います。
+前節の[連続過程の tightness criterion](#thm-sto3a-tightness-modulus) から tightness が従います。
 <!-- proof-end -->
 
 ---
@@ -941,7 +941,7 @@ $$
 
 ## 7. bounded increments なら四次モーメントで tightness
 
-前節で有限個の時刻の極限は得ました。残るのは、経路が格子の間で激しく振動しないことを一様に示す仕事です。第4節の判定条件に入れるため、まず増分の四次モーメントを $|t-s|^2$ で抑えます。
+前節で有限個の時刻の極限は得ました。残るのは、経路が格子の間で激しく振動しないことを一様に示す仕事です。第4節の[Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) に入れるため、まず増分の四次モーメントを $|t-s|^2$ で抑えます。
 
 一般の有限分散変数では四次モーメントが存在するとは限らないため、最初は $|X_1|\le M$ という有界な場合だけを扱います。後で有界化と [Doob 最大不等式](../STO2/index.md#thm-sto2-doob-maximal)を使って、この制限を外します。
 
@@ -1323,7 +1323,7 @@ $$
 
 $\eta>0$ と $\varepsilon>0$ を固定します。
 
-有界化 approximation により、$M$ を十分大きく選べば
+[有界化の一様近似補題](#lem-sto3a-bounded-uniform) により、$M$ を十分大きく選べば
 
 $$
 \sup_n
@@ -1334,7 +1334,7 @@ P\left(
 \frac{\varepsilon}{2}.
 $$
 
-固定した $M$ では $X_i^{(M)}$ は bounded です。したがって第7節の四次増分評価を第4節の Kolmogorov 型判定の証明へ入れたときに得た
+固定した $M$ では $X_i^{(M)}$ は bounded です。したがって第7節の[四次増分評価補題](#lem-sto3a-bounded-fourth-increment)を第4節の[Kolmogorov 型判定](#thm-sto3a-kolmogorov-tightness)の証明へ入れたときに得た
 
 $$
 \lim_{\delta\downarrow0}
@@ -1387,7 +1387,7 @@ P\left(
 \end{aligned}
 $$
 
-$W_n(0)=0$ なので初期値の tightness は自明です。modulus criterion から $(W_n)$ は tight です。
+$W_n(0)=0$ なので初期値の tightness は自明です。[連続過程の tightness criterion](#thm-sto3a-tightness-modulus) から $(W_n)$ は tight です。
 <!-- proof-end -->
 
 ---
@@ -1465,7 +1465,7 @@ $C([0,1])$ は sup metric で完備です。実際、sup norm Cauchy 列は一�
 
 任意の部分列 $(W_{n_\ell})$ を取ります。
 
-finite-variance tightness theorem により、その law は tight です。Prokhorov theorem からさらに部分列 $(W_{n_{\ell_r}})$ と $C([0,1])$ 上の確率測度 $\mu$ が存在して
+[有限分散 random walk 経路の tightness 定理](#thm-sto3a-finite-variance-tightness)により、その law は tight です。Prokhorov theorem からさらに部分列 $(W_{n_{\ell_r}})$ と $C([0,1])$ 上の確率測度 $\mu$ が存在して
 
 $$
 W_{n_{\ell_r}}\Rightarrow\mu
@@ -1503,7 +1503,7 @@ $$
 
 従ってこの写像は $\sqrt m$-Lipschitz、特に連続です。continuous mapping theorem をこの写像へ適用すると、$\mu$ の有限次元分布は $(W_{n_{\ell_r}})$ の有限次元分布の極限です。
 
-一方、finite-dimensional convergence theorem によりその極限は
+一方、[polygonal random walk の有限次元収束命題](#prop-sto3a-fdd-convergence)によりその極限は
 
 $$
 (B_{t_1},\ldots,B_{t_m})
@@ -1611,7 +1611,7 @@ $$
 
 なので 1-Lipschitz です。
 
-従って Donsker と continuous mapping theorem から
+従って[Donsker 不変原理](#thm-sto3a-donsker)と continuous mapping theorem から
 
 $$
 \max_{0\le t\le1}W_n(t)
@@ -2005,7 +2005,7 @@ $$
 M_n.
 $$
 
-最大値 functional は sup norm で連続なので、Donsker と continuous mapping theorem から
+最大値 functional は sup norm で連続なので、[Donsker 不変原理](#thm-sto3a-donsker)と continuous mapping theorem から
 
 $$
 M_n
