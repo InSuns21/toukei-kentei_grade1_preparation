@@ -412,13 +412,13 @@ $$
 
 損益分岐式そのものも[状態別の現在価値](#def-u4-21-event-time-factors)を用いて確かめられます。分母が正であることを先に確認すれば、
 
-$
+$$
 \begin{aligned}
 \Delta(p)&=B_FF-A_0-c_0+p(B_SC-B_FF),\\
 \Delta(p)>0&\iff p(B_SC-B_FF)>A_0+c_0-B_FF\\
 &\iff p>\frac{A_0+c_0-B_FF}{B_SC-B_FF}=p_*.
 \end{aligned}
-$
+$$
 
 $p_*<0$ ならすべての $p\in[0,1]$ で期待差が正、$p_*>1$ ならどの $p\in[0,1]$ でも正の期待差は得られません。端点で等号となる場合は期待差0です。
 
