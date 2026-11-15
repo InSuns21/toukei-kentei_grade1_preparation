@@ -1,5 +1,8 @@
 chapter: WGL1
 terms:
+  - term: 透視除算
+    english: perspective divide
+    meaning: 同次clip座標の最初の3成分を第4成分で割って正規化デバイス座標を得る操作。
   - term: 描画バッファ
     english: drawing buffer
     meaning: canvas の実際のピクセル幅と高さを持つ描画先。CSS表示幅とは独立に指定する。

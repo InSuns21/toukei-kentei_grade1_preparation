@@ -11,6 +11,7 @@ learning_objectives:
   - CSS上の大きさとdrawing bufferを区別し、resize後のviewport更新を実装できる
   - 3タブラボでJS・vertex・fragmentソースを編集し、描画・ピクセル検査・shaderエラー・隔離実行を確認できる
 definitions:
+  - { id: WGL1-DEF-00, name: 透視除算 }
   - { id: WGL1-DEF-01, name: 描画バッファと画素 }
   - { id: WGL1-DEF-02, name: 正規化デバイス座標と viewport }
   - { id: WGL1-DEF-03, name: シェーダ段階と描画呼出し }
