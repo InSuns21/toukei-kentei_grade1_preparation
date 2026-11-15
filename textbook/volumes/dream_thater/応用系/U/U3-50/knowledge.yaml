@@ -1,0 +1,47 @@
+chapter: U3-50
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-49, U3-20]
+concepts:
+  - id: finance.multifactor-delta-gamma-mark
+    name: ロール後の多因子 Delta–Gamma 近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ロール後の多因子 Delta–Gamma 近似）"]
+    requires: [finance.rolled-first-order-mark, finance.bsm-greeks-definition]
+  - id: finance.delta-gamma-loss
+    name: Delta–Gamma 損失と二次残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Delta–Gamma 損失と二次残差）"]
+    requires: [finance.multifactor-delta-gamma-mark, finance.full-repricing-risk-sample]
+  - id: finance.portfolio-greeks-aggregation
+    name: 保有数量による勾配と Hessian の集計
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（保有数量による勾配と Hessian の集計）"]
+    requires: [finance.multifactor-delta-gamma-mark, finance.portfolio-full-revaluation]
+  - id: finance.delta-gamma-cubic-remainder
+    name: 二次近似の三次剰余上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次近似の三次剰余上界）"]
+    requires: [finance.delta-gamma-loss, finance.first-order-repricing-error]
+  - id: finance.delta-gamma-shock-diagnostic
+    name: ショック幅別の二次残差診断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ショック幅別の二次残差診断）"]
+    requires: [finance.delta-gamma-cubic-remainder]
+  - id: finance.delta-gamma-correlated-mean
+    name: 多因子 Delta–Gamma 価格変化の期待値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多因子 Delta–Gamma 価格変化の期待値）"]
+    requires: [finance.multifactor-delta-gamma-mark, finance.two-factor-correlation]
+  - id: finance.delta-gamma-risk-stability
+    name: 同じ有限標本での VaR/ES 近似誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同じ有限標本での VaR/ES 近似誤差）"]
+    requires: [finance.delta-gamma-cubic-remainder, finance.repricing-risk-stability]
