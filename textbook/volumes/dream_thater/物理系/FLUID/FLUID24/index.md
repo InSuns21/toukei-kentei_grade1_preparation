@@ -223,7 +223,7 @@ v=-\psi_x&=-\frac{A}{2x}\bigl((m+1)f+(m-1)\eta f'\bigr).
 \end{aligned}
 $$
 
-$AB=U_e$ なので、上の定義の範囲では混合偏微分の交換により $u_x+v_y=0$ である。さらに
+$AB=U_e$ なので、上の定義の範囲では[混合偏微分の交換](../../../基礎科目/RA/RA6/index.md#thm-ra6-mixed-partials)により $u_x+v_y=0$ である。さらに
 
 $$
 \begin{aligned}
