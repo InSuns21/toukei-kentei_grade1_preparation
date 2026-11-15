@@ -17,3 +17,33 @@ table{width:100%;border-collapse:collapse}th,td{border:1px solid #cbd5e1;padding
 #status{font-weight:bold}small{color:#475569}.error{color:#991b1b}.ok{color:#14532d}
 @media (min-width:800px){.editors{grid-template-columns:1fr 1fr}.editors>div:first-child{grid-row:span 2}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Same textarea-over-highlight approach as the Python lab: the textarea owns
+   all editing, selection and source values; the backdrop is only visual. */
+.wgl-code-editor {position:relative;min-width:0;background:#0d1117;border-radius:4px}
+.wgl-code-highlight,.wgl-code-editor textarea {
+  box-sizing:border-box;width:100%;margin:0;padding:8px;
+  font:13px/1.4 ui-monospace,Consolas,monospace;tab-size:2;
+  white-space:pre;letter-spacing:normal;word-break:normal;
+}
+.wgl-code-highlight {
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+  min-height:0;max-height:none;border:1px solid transparent;border-radius:4px;
+  background:#0d1117;color:#e6edf3;
+}
+.wgl-code-highlight code {font:inherit;white-space:inherit}
+.wgl-code-editor textarea {
+  position:relative;display:block;overflow:auto;wrap:off;
+  background:transparent;color:transparent;-webkit-text-fill-color:transparent;
+  caret-color:#f0f6fc;white-space:pre;
+}
+.wgl-code-editor textarea::selection {background:rgba(56,139,253,.4)}
+.wgl-token-keyword {color:#ff7b72;font-weight:600}
+.wgl-token-type {color:#ffa657}
+.wgl-token-string {color:#a5d6ff}
+.wgl-token-comment {color:#8b949e;font-style:italic}
+.wgl-token-number {color:#79c0ff}
+.wgl-token-function {color:#d2a8ff}
+.wgl-token-builtin {color:#ffa657}
+.wgl-token-directive {color:#d2a8ff}
