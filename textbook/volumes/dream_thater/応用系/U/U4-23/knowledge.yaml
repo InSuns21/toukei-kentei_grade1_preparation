@@ -1,0 +1,60 @@
+chapter: U4-23
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-22, U4-03, U4-16]
+forward_references: []
+concepts:
+  - id: finance.arb-directional-execution-cost
+    name: 中値評価と方向別約定費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中値評価と方向別約定費用）"]
+    requires: [finance.bid-ask-executable-gain, finance.arb-fill-self-financing-book]
+  - id: finance.arb-restricted-cash-carry
+    name: 拘束現金・調達利息・借株料
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（拘束現金・調達利息・借株料）"]
+    requires: [finance.arb-fill-self-financing-book, finance.arb-directional-execution-cost]
+  - id: finance.arb-net-cash-ledger
+    name: 摩擦を含む売買後の現金・純資産
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（摩擦を含む売買後の現金・純資産）"]
+    requires: [finance.arb-directional-execution-cost, finance.arb-restricted-cash-carry, finance.arb-execution-wealth-increments]
+  - id: finance.arb-net-wealth-identity
+    name: 費用控除後の多時点損益恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（費用控除後の多時点損益恒等式）"]
+    requires: [finance.arb-net-cash-ledger]
+  - id: finance.arb-costed-roundtrip-pnl
+    name: 往復取引の実現純損益
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（往復取引の実現純損益）"]
+    requires: [finance.arb-net-wealth-identity]
+  - id: finance.arb-spread-break-even
+    name: 費用控除後の損益分岐spread変化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（費用控除後の損益分岐spread変化）"]
+    requires: [finance.arb-costed-roundtrip-pnl, finance.arb-level-share-spread]
+  - id: finance.arb-spread-break-even-scale
+    name: 株数換算した損益分岐条件と固定費の効果
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（株数換算した損益分岐条件と固定費の効果）"]
+    requires: [finance.arb-spread-break-even]
+  - id: finance.arb-mid-turnover
+    name: 中値取引金額による回転額
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（中値取引金額による回転額）"]
+    requires: [finance.arb-directional-execution-cost]
+  - id: finance.arb-turnover-cost-identity
+    name: 比例費用と回転額による利益条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（比例費用と回転額による利益条件）"]
+    requires: [finance.arb-mid-turnover, finance.arb-net-wealth-identity]
