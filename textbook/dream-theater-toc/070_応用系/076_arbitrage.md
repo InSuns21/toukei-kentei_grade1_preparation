@@ -26,3 +26,4 @@
 23. [U4-23 取引費用・借株・資金調達と損益分岐](textbook/volumes/dream_thater/応用系/U/U4-23/index.md)
 24. [U4-24 複数脚の約定不一致・市場アクセス](textbook/volumes/dream_thater/応用系/U/U4-24/index.md)
 25. [U4-25 戦略の組合せとリスク予算](textbook/volumes/dream_thater/応用系/U/U4-25/index.md)
+26. [U4-26 生存者・価格修正・情報時刻の監査](textbook/volumes/dream_thater/応用系/U/U4-26/index.md)
