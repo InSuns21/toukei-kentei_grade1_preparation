@@ -1,0 +1,56 @@
+chapter: FLUID33
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID29
+  - FLUID31
+  - FLUID32
+concepts:
+  - id: fluid.beta-plane
+    name: β面近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（β面近似）"]
+    requires: [fluid.coriolis-parameter]
+  - id: fluid.shallow-potential-vorticity
+    name: 浅水渦位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（浅水渦位）"]
+    requires: [fluid.beta-plane, fluid.shallow-depth-mass-balance]
+  - id: fluid.shallow-pv-conservation
+    name: 非粘性回転浅水流の渦位保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非粘性回転浅水流の渦位保存）"]
+    requires: [fluid.shallow-potential-vorticity, fluid.shallow-water-equations]
+  - id: fluid.geostrophic-streamfunction-deformation
+    name: 地衡流の流れ関数と一層変形半径
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（地衡流の流れ関数と一層変形半径）"]
+    requires: [fluid.geostrophic-flow, fluid.shallow-water-characteristics]
+  - id: fluid.linear-qg-pv
+    name: 静止背景まわりの線形準地衡渦位方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静止背景まわりの線形準地衡渦位方程式）"]
+    requires: [fluid.shallow-pv-conservation, fluid.geostrophic-streamfunction-deformation]
+  - id: fluid.rossby-wave-dispersion
+    name: 静止背景の線形 Rossby 波の分散関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静止背景の線形 Rossby 波の分散関係）"]
+    requires: [fluid.linear-qg-pv]
+  - id: fluid.rossby-wave-group-velocity
+    name: Rossby 波の群速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Rossby 波の群速度）"]
+    requires: [fluid.rossby-wave-dispersion, fluid.group-velocity]
+  - id: fluid.qg-quadratic-invariant
+    name: 周期領域での準地衡波の二次量保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期領域での準地衡波の二次量保存）"]
+    requires: [fluid.linear-qg-pv]
