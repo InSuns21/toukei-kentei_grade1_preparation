@@ -53,22 +53,22 @@ $$
 
 <!-- definition-example-start: def-mir1-10-pf-operator -->
 
-**定義の確認**（実際に二つの周期を同時に消す直接例）。固定した空間 $Y=(\\mathbb C^*)^2$ の座標を $(u,v)$ とする。$z\\in V$ に応じて変わる1形式と、$z$ に依存しない二つの閉1サイクルを
+**定義の確認**（実際に二つの周期を同時に消す直接例）。固定した空間 $Y=(\mathbb C^*)^2$ の座標を $(u,v)$ とする。$z\in V$ に応じて変わる1形式と、$z$ に依存しない二つの閉1サイクルを
 
-$
-\\alpha_z=\\frac{1}{2\\pi i}\\left(\\frac{du}{u}+z\\frac{dv}{v}\\right),\\qquad
-\\gamma_1(s)=(e^{2\\pi i s},1),\\qquad
-\\gamma_2(s)=(1,e^{2\\pi i s})\\quad(0\\le s\\le1)
-$
+$$
+\alpha_z=\frac{1}{2\pi i}\left(\frac{du}{u}+z\frac{dv}{v}\right),\qquad
+\gamma_1(s)=(e^{2\pi i s},1),\qquad
+\gamma_2(s)=(1,e^{2\pi i s})\quad(0\le s\le1)
+$$
 
-と定める。いずれも $u,v\\ne0$ の領域で定義され、$\\alpha_z$ の係数は $V$ 上で正則、サイクルは固定されている。各経路で $du/u$ または $dv/v$ が $2\\pi i\\,ds$ になることから
+と定める。いずれも $u,v\ne0$ の領域で定義され、$\alpha_z$ の係数は $V$ 上で正則、サイクルは固定されている。各経路で $du/u$ または $dv/v$ が $2\pi i\,ds$ になることから
 
-$
-\\omega_{\\gamma_1}(z)=\\int_{\\gamma_1}\\alpha_z=1,\\qquad
-\\omega_{\\gamma_2}(z)=\\int_{\\gamma_2}\\alpha_z=z
-$
+$$
+\omega_{\gamma_1}(z)=\int_{\gamma_1}\alpha_z=1,\qquad
+\omega_{\gamma_2}(z)=\int_{\gamma_2}\alpha_z=z
+$$
 
-を直接得る。したがってこの例の**対象周期関数**は $\\{1,z\\}$ である。$\\theta=z\\,d/dz$ は $u,v$ とサイクルを固定して $z$ だけを微分するので、$\\theta1=0$、$\\theta z=z$ となり、
+を直接得る。したがってこの例の**対象周期関数**は $\{1,z\}$ である。$\theta=z\,d/dz$ は $u,v$ とサイクルを固定して $z$ だけを微分するので、$\theta1=0$、$\theta z=z$ となり、
 
 $$
 \theta(\theta-1)1=0,\qquad
