@@ -4,6 +4,9 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - FLUID25
+  - GEO10
+  - ODE4
+  - NA7
 official_scope: []
 learning_objectives:
   - "法線と二主曲率の符号規約を固定し、球面・円筒面の曲率和を確認する"

@@ -16,7 +16,9 @@
 
 平らな面では、両側から押す圧力が同じなら面は動かない。球形の液滴のように面が曲がると、面積を増やす張力の仕事が変位方向に依存する。その変化率を記述するには、二つの独立な接線方向に沿って面がどれだけ曲がるかが必要になる。
 
-曲面上の点で互いに直交する二つの接線方向を選び、それぞれを含む法線断面の曲率が極値となる方向を**主方向**、その符号付き曲率を $\kappa_1,\kappa_2$ とする。ここでは、外向き法線をもつ半径 $R$ の球で両方が $+1/R$ となる符号規約を採る（幾何学の別の文献では曲率の符号を逆にすることがある）。
+[GEO10 の主曲率・平均曲率の定義](../../../幾何系/GEO/GEO10/index.md#def-geo10-principal-curvature)では、形作用素を $S=-dn$ として定めるため、外向き法線の球の主曲率は $-1/R$ になる。本講義では流体界面の圧力差と符号を直接結ぶため、**法線の変化率 $dn$ の固有値**を $\kappa_1,\kappa_2$ と表す。従って GEO10 の主曲率の符号をともに逆転させた値であり、外向き球では両方が $+1/R$ となる。対応する直交方向を主方向とし、二つの方向を区別して曲面の曲がりを数える。
+
+幾何学の Gauss 曲率（主曲率の積）とここで扱う**主曲率の和**は異なる。二方向の値を合計する記号には $\kappa_\Sigma$ を使い、GEO10 で Gauss 曲率に用いられる記号 $K$ と混同しない。
 
 <a id="def-fluid26-oriented-curvature"></a>
 
@@ -25,14 +27,31 @@
 > $C^2$ 級の向き付けられた曲面 $S\subset\mathbb R^3$ と単位法線 $n$ に対し、点 $q\in S$ での主曲率を、半径 $R>0$ の外向き球で $+1/R$ となる規約の $\kappa_1(q),\kappa_2(q)$ とする。その和
 
 $$
-K(q)=\kappa_1(q)+\kappa_2(q)=\operatorname{div}_S n(q)
+\kappa_\Sigma(q)=\kappa_1(q)+\kappa_2(q)=\operatorname{div}_S n(q)
 $$
 
-> を**向き付き全曲率**とする。平均曲率を $H=K/2$ と呼ぶ流儀では $K=2H$ である。法線を $-n$ に替えると $K$ の符号も変わる。
+> を**向き付き全曲率**とする。平均曲率を $H=\kappa_\Sigma/2$ と呼ぶ流儀では $\kappa_\Sigma=2H$ である。法線を $-n$ に替えると $\kappa_\Sigma$ の符号も変わる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid26-oriented-curvature -->
-**定義の確認：平面・球面・円筒面。** 平面では法線はどちらの接線方向に移動しても一定なので $\kappa_1=\kappa_2=0$、よって $K=0$。半径 $R$ の球面では、それぞれの主方向の法線断面が半径 $R$ の円であり、外向きに $n$ を取ると $\kappa_1=\kappa_2=1/R$、従って $K=2/R$。長い円筒の側面なら円周方向の法線断面の曲率は $1/R$、軸方向には法線が変わらないため $0$、よって $K=1/R$ となる。いずれも曲面の**二方向**を確認しており、見かけ上の一断面の曲率だけを足していない。
+**定義の確認：平面・球面・円筒面。** 二つの主方向へ進むときの法線の変化をそれぞれ確認する。
+
+- 平面では法線がどちらの接線方向でも一定なので、$\kappa_1=\kappa_2=0$、曲率和も零である。
+- 半径 $R$ の球面では、どちらの主方向の法線断面も半径 $R$ の円となる。外向き法線が各方向で $1/R$ ずつ変化するから
+
+$$
+\kappa_1=\frac1R,\qquad \kappa_2=\frac1R,
+\qquad \kappa_\Sigma=\frac2R.
+$$
+
+- 円筒面では円周方向にだけ法線が変わり、軸方向には一定である。従って
+
+$$
+\kappa_1=\frac1R,\qquad \kappa_2=0,
+\qquad \kappa_\Sigma=\frac1R.
+$$
+
+いずれも**二方向を別々に検算した**。見かけの一断面だけで二つの曲率を同一視しない。
 <!-- definition-example-end -->
 
 ![球形液滴の外向き法線と二つの主曲率、鉛直壁の濡れ角と湾曲液面の位置関係を示す二つの模式図。](assets/curvature-and-contact.svg)
@@ -41,16 +60,16 @@ $$
 
 ## 2. 圧力と表面張力の力を釣り合わせる
 
-[表面張力の仕事の定義](../FLUID1/index.md#def-fluid1-surface-tension)から、面積が $\delta A$ だけ増えれば界面自由エネルギーは $\gamma\delta A$ 増える。一方、A 側の圧力が B 側より大きいなら、A の体積を $\delta V>0$ 増やす際の圧力の仕事は $(p_A-p_B)\delta V$ となる。局所的にこの二つを釣り合わせる。
+[界面の表面張力](../FLUID1/index.md#def-fluid1-surface-tension)から、面積が $\delta A$ だけ増えれば界面自由エネルギーは $\gamma\delta A$ 増える。一方、A 側の圧力が B 側より大きいなら、A の体積を $\delta V>0$ 増やす際の圧力の仕事は $(p_A-p_B)\delta V$ となる。局所的にこの二つを釣り合わせる。
 
 <a id="thm-fluid26-young-laplace"></a>
 
 <!-- formal-statement-start -->
 > **定理（Young–Laplace の界面圧力跳躍）**  
-> $C^2$ 級の界面 $S$ で、二つの静止流体 A、B の応力はそれぞれ等方的な $-p_AI$、$-p_BI$、表面張力 $\gamma>0$ は一定とする。相 A から相 B への法線 $n$ で測る曲率を[向き付き全曲率](#def-fluid26-oriented-curvature) $K$ とし、界面に追加の面力・曲げモーメントはないとする。任意の局所的な法線仮想変位で静的釣合が成立するなら、界面上の各点で
+> $C^2$ 級の界面 $S$ で、二つの静止流体 A、B の応力はそれぞれ等方的な $-p_AI$、$-p_BI$、表面張力 $\gamma>0$ は一定とする。相 A から相 B への法線 $n$ で測る曲率を[向き付き全曲率](#def-fluid26-oriented-curvature) $\kappa_\Sigma$ とし、界面に追加の面力や曲げ剛性はないとする。任意の局所的な法線仮想変位で静的釣合が成立するなら、界面上の各点で
 
 $$
-\boxed{p_A-p_B=\gamma K=\gamma(\kappa_1+\kappa_2).}
+\boxed{p_A-p_B=\gamma \kappa_\Sigma=\gamma(\kappa_1+\kappa_2).}
 $$
 
 > 圧力と曲率は同じ界面点の値である。重力があってもこの局所条件は保たれるが、各相の圧力は高さで変化し得る。
@@ -81,7 +100,7 @@ $$
 変位 $w$ が領域内部で滑らかに変わる場合も、勾配による線素変化は面積の一次変化に寄与しない。境界で $w=0$ となる小領域を使えば境界線の仕事もない。したがって
 
 $$
-\delta A=\varepsilon\int_S Kw\,dA+o(\varepsilon).
+\delta A=\varepsilon\int_S \kappa_\Sigma w\,dA+o(\varepsilon).
 $$
 
 同じ変位で A の体積が増える一次変化は
@@ -94,13 +113,13 @@ $$
 
 $$
 \delta E
-=\varepsilon\int_S\{\gamma K-(p_A-p_B)\}w\,dA+o(\varepsilon).
+=\varepsilon\int_S\{\gamma \kappa_\Sigma-(p_A-p_B)\}w\,dA+o(\varepsilon).
 $$
 
-界面上の任意の小領域に支持された正負両方向の滑らかな $w$ を選べ、静的平衡なら一次の係数は零である。$p_A,p_B,K$ が連続だから各点で $\gamma K-(p_A-p_B)=0$ が成り立つ。
+界面上の任意の小領域に支持された正負両方向の滑らかな $w$ を選べ、静的平衡なら一次の係数は零である。$p_A,p_B,\kappa_\Sigma$ が連続だから各点で $\gamma \kappa_\Sigma-(p_A-p_B)=0$ が成り立つ。
 <!-- proof-end -->
 
-**符号の反証。** 法線を B から A へ逆転させると $\kappa_i$ と $K$ は負に変わり、左辺も $p_B-p_A$ へ変える必要がある。「外側の圧力から内側を引く」だけを固定して曲率の向きは反転させない、という使い方は誤りである。
+**符号の反証。** 法線を B から A へ逆転させると $\kappa_i$ と $\kappa_\Sigma$ は負に変わり、左辺も $p_B-p_A$ へ変える必要がある。「外側の圧力から内側を引く」だけを固定して曲率の向きは反転させない、という使い方は誤りである。
 
 <a id="prop-fluid26-sphere-cylinder"></a>
 
@@ -116,7 +135,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-球面の法線断面は直交する二主方向とも半径 $R$ の円だから $K=1/R+1/R=2/R$。従って $p_A-p_B=\gamma(2/R)=2\gamma/R$。円筒側面では円周方向が $1/R$、軸方向が $0$ なので $K=1/R+0=1/R$、従って $p_A-p_B=\gamma/R$。どちらも圧力差は正で、相 A の方が高圧となる。
+球面の法線断面は直交する二主方向とも半径 $R$ の円だから $\kappa_\Sigma=1/R+1/R=2/R$。従って $p_A-p_B=\gamma(2/R)=2\gamma/R$。円筒側面では円周方向が $1/R$、軸方向が $0$ なので $\kappa_\Sigma=1/R+0=1/R$、従って $p_A-p_B=\gamma/R$。どちらも圧力差は正で、相 A の方が高圧となる。
 <!-- proof-end -->
 
 **三種類の泡を区別する。** 液滴（内側液体、外側気体）も、液中の**単一界面**の気泡（内側気体、外側液体）も、それぞれ内側が $2\gamma/R$ 高圧である。これに対して薄い石鹸膜の泡は内面と外面に**二つの界面**がある。両界面の張力が同じ $\gamma$、膜厚が $R$ に比べ小さく、膜内の圧力差を無視できれば、内外の気体圧力差はそれぞれの跳躍を足して約 $4\gamma/R$ になる。単一の気泡に二面分を数えてはいけない。
@@ -190,9 +209,28 @@ $$
 
 ## 4. 細い管では水面がどこまで上がるか
 
+曲面の重力影響をどこまで無視できるかは、曲率圧力と静水圧差の大きさを比べて判断する。その比較に使う固有の長さをここで固定する。
+
+<a id="def-fluid26-capillary-length"></a>
+
+<!-- formal-statement-start -->
+> **定義（毛管長）**  
+> 表面張力 $\gamma>0$、密度差 $\Delta\rho>0$、重力加速度 $g>0$ をもつ二相流体について
+
+$$
+\ell_c=\sqrt{\frac{\gamma}{\Delta\rho g}}
+$$
+
+> を毛管長と定義する。界面の長さ尺度が $\ell_c$ 程度なら、表面張力の曲率圧力と静水圧差が同程度になる。$\mathrm{Bo}=(a/\ell_c)^2$ は長さ $a$ に基づく Bond 数である。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-fluid26-capillary-length -->
+**定義の確認：単位と実数性。** $\gamma=0.072$ N/m、$\Delta\rho=1000$ kg/m$^3$、$g=9.8$ m/s$^2$ なら $\gamma/(\Delta\rho g)=0.072/(9800)\ {\rm m^2}>0$ である。従って平方根が実数として定まり、$\ell_c=\sqrt{0.072/9800}\ {\rm m}\simeq2.71$ mm となる。半径 $a=1$ mm なら $\mathrm{Bo}=a^2/\ell_c^2\simeq0.136$。力の単位を比べると $[\gamma/(\Delta\rho g)]=(\mathrm{N/m})/(\mathrm{N/m^3})=\mathrm{m^2}$ で、定義に矛盾はない。
+<!-- definition-example-end -->
+
 水槽に鉛直な細い円管を挿すと、濡れやすい液体は管壁に引かれて上昇し得る。ここで上昇高 $h$ は**水槽のほぼ平坦な自由表面から、管内のメニスカスの代表高さまでの差**であり、曲面上の全点の高さが等しいと主張するものではない。半径を $a>0$、気体と液体の密度差を $\Delta\rho=\rho_l-\rho_g>0$ とする。
 
-$a$ が十分小さく、管内液面を接触角 $\theta$ の球面帽で近似できるなら、曲率半径は $R\simeq a/|\cos\theta|$、液体から気体への法線に対する曲率は $K\simeq-2\cos\theta/a$ となる。濡れやすい場合 $\cos\theta>0$ なので液面は凹形で、液体側が低圧である。
+$a$ が十分小さく、管内液面を接触角 $\theta$ の球面帽で近似できるなら、曲率半径は $R\simeq a/|\cos\theta|$、液体から気体への法線に対する曲率は $\kappa_\Sigma\simeq-2\cos\theta/a$ となる。濡れやすい場合 $\cos\theta>0$ なので液面は凹形で、液体側が低圧である。
 
 <a id="thm-fluid26-jurin-rise"></a>
 
@@ -230,7 +268,7 @@ $$
 円管内の液面が球面帽なら、垂直な壁に対する接触角 $\theta$ から半径は符号付きで $1/R_{\rm signed}=-\cos\theta/a$ に対応し、二つの主曲率はともに $-\cos\theta/a$。よって[Young–Laplace の式](#thm-fluid26-young-laplace)は
 
 $$
-p_l(h)-p_g(h)\simeq\gamma K
+p_l(h)-p_g(h)\simeq\gamma \kappa_\Sigma
 \simeq-\frac{2\gamma\cos\theta}{a}.
 $$
 
@@ -261,7 +299,7 @@ $$
 このグラフで液体から気体へ向く法線は $n=(-h',0,1)/\sqrt{1+h'^2}$。法線を上下方向に変化させず延長すれば
 
 $$
-K=\nabla\cdot n
+\kappa_\Sigma=\nabla\cdot n
 =-\frac{d}{dx}\left(\frac{h'}{\sqrt{1+h'^2}}\right)
 =-\frac{h''}{(1+h'^2)^{3/2}}.
 $$
@@ -272,24 +310,9 @@ $$
 \gamma\frac{h''}{(1+h'^2)^{3/2}}=\Delta\rho gh
 $$
 
-となる。これがこの模型の静的な形状方程式であり、時間発展を解く方程式ではない。
+となる。これがこの模型の静的な形状方程式であり、時間発展を解く方程式ではない。[ODE4 の保存量・第一積分](../../../解析系/ODE/ODE4/index.md#def-ode4-first-integral)と同じく、微分すると零になる組合せを探して一度積分すれば、二階の式を一階の式へ変換できる。
 
-<a id="def-fluid26-capillary-length"></a>
 
-<!-- formal-statement-start -->
-> **定義（毛管長）**  
-> 表面張力 $\gamma>0$、密度差 $\Delta\rho>0$、重力加速度 $g>0$ をもつ二相流体について
-
-$$
-\ell_c=\sqrt{\frac{\gamma}{\Delta\rho g}}
-$$
-
-> を毛管長と定義する。界面の長さ尺度が $\ell_c$ 程度なら、表面張力の曲率圧力と静水圧差が同程度になる。$\mathrm{Bo}=(a/\ell_c)^2$ は長さ $a$ に基づく Bond 数である。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-fluid26-capillary-length -->
-**定義の確認：単位と実数性。** $\gamma=0.072$ N/m、$\Delta\rho=1000$ kg/m$^3$、$g=9.8$ m/s$^2$ なら $\gamma/(\Delta\rho g)=0.072/(9800)\ {\rm m^2}>0$ である。従って平方根が実数として定まり、$\ell_c=\sqrt{0.072/9800}\ {\rm m}\simeq2.71$ mm となる。半径 $a=1$ mm なら $\mathrm{Bo}=a^2/\ell_c^2\simeq0.136$。力の単位を比べると $[\gamma/(\Delta\rho g)]=(\mathrm{N/m})/(\mathrm{N/m^3})=\mathrm{m^2}$ で、定義に矛盾はない。
-<!-- definition-example-end -->
 
 <a id="thm-fluid26-wall-meniscus"></a>
 
@@ -372,7 +395,7 @@ $$
 =-\frac{H\sqrt{1-H^2/4}}{1-H^2/2}.
 $$
 
-符号は $H>0$、$H<0$ の両方で同じ式で扱える。初期値は上の定理の $H(0)$ を使い、四次 Runge–Kutta 法で $0\le X\le6$ を刻む。出力には境界の高さ、細分化前後の $X=3$ における差、差分勾配で検算した第一積分残差、非線形形状と小勾配の指数近似を含める。
+符号は $H>0$、$H<0$ の両方で同じ式で扱える。初期値は上の定理の $H(0)$ を使い、[NA7 で導入した古典四段四次 Runge–Kutta 法](../../../計算系/NA/NA7/index.md#def-na7-runge-kutta)で $0\le X\le6$ を刻む。出力には境界の高さ、細分化前後の $X=3$ における差、差分勾配で検算した第一積分残差、非線形形状と小勾配の指数近似を含める。
 
 これは**静的な二次元毛管形状の境界値問題を第一積分で積分した結果**であり、管内の三次元自由表面や時間依存の流動の計算ではない。折れ線と指数近似のずれは、刻み誤差だけでなく小勾配近似そのものの誤差を含む。
 
@@ -425,7 +448,7 @@ $\mathrm{N/m}$ を $\mathrm m$ で割ると $\mathrm{N/m^2}=\mathrm{Pa}$ で、�
 <!-- solution-start -->
 #### 詳細解答
 
-円筒では円周方向が $1/R$、軸方向が $0$ なので[曲率和の定義](#def-fluid26-oriented-curvature)から $K=1/R$。球面では $K=2/R$ である。[Young–Laplace の式](#thm-fluid26-young-laplace)より
+円筒では円周方向が $1/R$、軸方向が $0$ なので[曲率和の定義](#def-fluid26-oriented-curvature)から $\kappa_\Sigma=1/R$。球面では $\kappa_\Sigma=2/R$ である。[Young–Laplace の式](#thm-fluid26-young-laplace)より
 
 $$
 \Delta p_{\rm cylinder}=\frac{0.06}{10^{-3}}=60\ \mathrm{Pa},
@@ -674,7 +697,20 @@ $$
 
 管の $14.7$ mm と壁際の $1.40$ mm は矛盾しない。前者は**二主曲率を持つ円管内の球面帽**の釣合、後者は**奥行き方向の曲率が零の平面壁**の二次元形状方程式から求めたもので、幾何と境界条件が違う。
 
-**(iv) 尺度。** 液滴の差圧は $2\gamma/R$ なので半径を $R/2$ にすると $2$ 倍。細管の高さは $2\gamma\cos\theta/(\Delta\rho ga)$ なので半径を $2a$ にすると $1/2$ 倍。球形液滴の局所的な Young–Laplace 式そのものに $g$ は現れないが、液滴の球形を維持できるかは重力と曲率の相対尺度に依存する。毛管高さには、局所圧力跳躍を[静水圧差](../FLUID2/index.md#thm-fluid2-hydrostatic-balance)に結び付けるために $g$ が現れる。
+**(iv) 尺度。** 液滴では圧力跳躍が半径に反比例する。$R$ を $R/2$ にすると
+
+$$
+\frac{2\gamma/(R/2)}{2\gamma/R}=2.
+$$
+
+一方、細管の高さも半径に反比例するため、$a$ を $2a$ にすると
+
+$$
+\frac{h(2a,\theta)}{h(a,\theta)}
+=\frac{1/(2a)}{1/a}=\frac12.
+$$
+
+球形液滴の局所的な Young–Laplace 式そのものには重力 $g$ は現れない。しかし球形のまま静止できるかは重力の影響を受ける。毛管高さでは、局所的な圧力跳躍を[静水圧方程式](../FLUID2/index.md#thm-fluid2-hydrostatic-balance)に結び付けるために $g$ が現れる。
 <!-- solution-end -->
 
 ## 7. まとめと次の講義

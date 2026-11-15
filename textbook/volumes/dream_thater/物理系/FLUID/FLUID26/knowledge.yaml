@@ -3,13 +3,16 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - FLUID25
+  - GEO10
+  - ODE4
+  - NA7
 concepts:
   - id: fluid.oriented-total-curvature
     name: 向き付き全曲率
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（向き付き全曲率）"]
-    requires: [fluid.interfacial-tension]
+    requires: [geometry.principal-curvature, fluid.interfacial-tension]
   - id: fluid.young-laplace-pressure-jump
     name: Young–Laplace の界面圧力跳躍
     kind: theorem
@@ -51,4 +54,4 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（鉛直壁の静的メニスカスと第一積分）"]
-    requires: [fluid.young-laplace-pressure-jump, fluid.capillary-length, fluid.liquid-contact-angle, fluid.vertical-hydrostatic-integral]
+    requires: [fluid.young-laplace-pressure-jump, fluid.capillary-length, fluid.liquid-contact-angle, fluid.vertical-hydrostatic-integral, ode.ode4-first-integral]
