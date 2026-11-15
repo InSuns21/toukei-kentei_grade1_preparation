@@ -10,13 +10,14 @@ concepts:
     introduction_aliases: ["定義（Dwork五次のJacobianイデアル）"]
     requires: [mirror.dwork-smooth-locus]
   - id: mirror.dwork-pole-form
-    name: 射影五次に沿う極次数の有理4形式
+    name: 射影五次に沿う有理4形式の極次数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（射影五次に沿う極次数 $k$ の有理4形式）"]
+    introduction_aliases: ["定義（射影五次に沿う有理4形式の極次数）"]
     requires: [mirror.quintic-residue-form]
   - id: mirror.griffiths-dwork-pole-reduction
     name: Griffiths–Dworkの極次数低減公式
+    aliases: [極次数低減公式]
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（Griffiths–Dworkの極次数低減公式）"]
