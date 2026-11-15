@@ -2,7 +2,7 @@ id: "U3-51"
 title: "極値理論：POT・一般化パレート尾部"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-50, U3-48, U3-46]
+prerequisites: [U3-50, U3-48, U3-46, F0-00P7A]
 official_scope: []
 learning_objectives:
   - 閾値超過数と条件付き超過幅を区別し標本比率を計算できる
