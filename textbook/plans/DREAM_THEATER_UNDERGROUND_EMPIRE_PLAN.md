@@ -3,10 +3,10 @@
 分冊: 2026-10-11  
 状態: planned（各応用科目の個別PLANとは別の案内）
 
-- [U2 確率ロボティクス：自己位置推定](DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)
+- [U2 確率ロボティクス：自己位置推定・SLAM（全28講）](DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)
 - [U3 数理ファイナンス：価格付け・最適執行](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)
 - [U4 裁定機会：価格矛盾の検出・相対価値・統計的裁定（全30講）](../plans_progress/DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)
-- [U6 量子状態推定](DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md)
+- [U6 量子状態推定（全22講）](DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md)
 
 応用系列の共通導線は「Mission → 最小モデル → 既習事項の限界 → 必要な数学 → 導出 → 数値検証 → 演習 → 正本へ戻る」。U2はBayes/状態空間、U3はSTO/最適制御、U4は凸最適化/時系列、U6はQM/推定にそれぞれ直接依存し、他のU講義を履修条件としない。[逆問題](DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md)と[情報幾何](../plan_done/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md)の一般論は既存の独立PLANを正本とする。
 
@@ -143,11 +143,11 @@ $$
 
 巨大な「応用数学大全」を一度に作らず、各系列を小さなPRへ分割する。
 
-推奨単位：
+初期着手例（以下は**全講義の一覧ではない**。確定された章ID・講義数・順序は個別PLANを正本とする）：
 
-1. U2-01 Bayes localization
-2. U2-02 Kalman filter
-3. U2-03 particle filterからSLAM入口
+1. U2-01 belief と測定データの意味
+2. U2-02 Bayes 自己位置推定の予測・更新
+3. U2-03 線形 Gaussian 事後推定（Kalman 予測・更新は U2-04〜05、粒子フィルタは U2-14〜16、SLAM は U2-20〜28。**U2全28講の所有権は個別PLAN**）
 4. U3-01 1期間二項モデルと複製ポートフォリオ
 5. U3-02 無裁定条件と状態価格
 6. U3-03 多期間二項モデルと割引マルチンゲール（U3は[確定版68講PLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)に従い、二項モデル→PDE・期待値→数値計算→VaR/ES→最適執行まで展開する。HJB / viscosity の理論正本は最適制御・微分ゲーム計画）
@@ -155,8 +155,8 @@ $$
 8. U4-02 有限市場の分離定理と状態価格の双対
 9. U4-03 売値・買値・手数料・空売り制約を入れた裁定探索（U4は[確定版30講PLAN](../plans_progress/DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)に従い、静的無裁定→時系列・共和分→イベント・執行→バックテスト検証まで展開。U3の価格付け一般理論を重複させない）
 10. U6-01 qubit測定を二項推定として読む
-11. U6-02 density matrix・tomography
-12. U6-03 quantum Fisher information
+11. U6-02 測定確率の最尤推定と Cramér–Rao 界
+12. U6-03 密度行列と Bloch 球（tomography は U6-06〜14、量子 Fisher 情報量は U6-17〜21。**U6全22講の所有権は個別PLAN**）
 
 逆問題・情報幾何の実装単位は独立 PLAN 側で管理する。
 
