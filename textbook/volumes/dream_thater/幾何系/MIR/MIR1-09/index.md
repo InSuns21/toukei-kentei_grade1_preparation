@@ -68,7 +68,13 @@ $\mathbb C^5\setminus\{0\}$ で $(x_0,\ldots,x_4)$ を同時に $\lambda$ 倍し
 <!-- formal-statement-start -->
 > **定義（射影五次に沿う有理4形式の極次数）**
 >
-> $\psi\in\mathbb C$、整数 $k\ge1$、斉次次数 $5(k-1)$ の多項式 $A\in\mathbb C[x_0,\ldots,x_4]$ と、上記の斉次五次式 $F_\psi$ をとる。$V_\psi=\mathbb P^4_{\mathbb C}\setminus\{F_\psi=0\}$ 上の有理4形式を
+> $\psi\in\mathbb C$ に対し、次の斉次五次式をとる。
+
+$$
+F_\psi=\sum_{i=0}^4x_i^5-5\psi\prod_{i=0}^4x_i.
+$$
+
+> 整数 $k\ge1$ と斉次次数 $5(k-1)$ の多項式 $A\in\mathbb C[x_0,\ldots,x_4]$ を選ぶ。$V_\psi=\mathbb P^4_{\mathbb C}\setminus\{F_\psi=0\}$ 上の有理4形式を
 
 $$
 \alpha_{k,A}=\frac{A\Omega}{F_\psi^k}
@@ -167,12 +173,19 @@ $$
 
 $\Phi_B=-\iota_E\eta_B$ と置く。内部積を二度取ると零だから $\iota_E\Phi_B=0$ であり、$\eta_B$ の重みが零なので $\Phi_B$ も重み零である。この二条件によって $\Phi_B$ は射影空間上の有理3形式として貼り合わさる。特に $V_\psi$ では分母が零にならず正則である。
 
-ここで外微分と内部積の関係を、この場合に直接確かめる。$\eta_B$ の各項を $h\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$ と書くと、$h=B_i/F_\psi^{k-1}$ は次数 $-4$ なので $E(h)=-4h$ である。また $d(\iota_E(dx_{i_1}\wedge\cdots\wedge dx_{i_4}))=4\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$。内部積の積の規則 $\iota_E(dh\wedge\sigma)=E(h)\sigma-dh\wedge\iota_E\sigma$ と合わせれば
+ここで外微分と内部積の関係を、この場合に直接確かめる。$\eta_B$ の各項を $h\,dx_{i_1}\wedge\cdots\wedge dx_{i_4}$ と書くと、$h=B_i/F_\psi^{k-1}$ は次数 $-4$ なので $E(h)=-4h$ である。ここで $\sigma=dx_{i_1}\wedge\cdots\wedge dx_{i_4}$ とおくと、
+
+$$
+\iota_E\sigma
+=\sum_{a=1}^4(-1)^{a-1}x_{i_a}\,
+dx_{i_1}\wedge\cdots\wedge\widehat{dx_{i_a}}\wedge\cdots\wedge dx_{i_4}.
+$$
+
+各項を外微分すると、$dx_{i_a}$ を元の位置へ戻す符号が $(-1)^{a-1}$ と打ち消されるから、$d(\iota_E\sigma)=4\sigma$ となる。内部積の積の規則 $\iota_E(dh\wedge\sigma)=E(h)\sigma-dh\wedge\iota_E\sigma$ と合わせれば
 
 $$
 d\iota_E(h\sigma)+\iota_Ed(h\sigma)
-=(E(h)+4h)\sigma=0,\qquad
-\sigma=dx_{i_1}\wedge\cdots\wedge dx_{i_4}.
+=(E(h)+4h)\sigma=0.
 $$
 
 全項に足すと $d\iota_E\eta_B=-\iota_Ed\eta_B$ が得られる。これは重み零の形式に対するCartanの公式を直接計算したものなので、$\Phi_B=-\iota_E\eta_B$ について
