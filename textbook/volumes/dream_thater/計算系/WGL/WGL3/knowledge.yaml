@@ -1,0 +1,35 @@
+chapter: WGL3
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL2]
+concepts:
+  - id: graphics.indexed-triangle-mesh
+    name: 添字付き三角形メッシュ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（添字付き三角形メッシュ）"]
+    requires: [graphics.vertex-attribute, graphics.triangle-edge-test]
+  - id: graphics.element-array-buffer
+    name: 要素配列バッファ EBO
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（要素配列バッファ EBO）"]
+    requires: [graphics.indexed-triangle-mesh]
+  - id: graphics.vertex-array-object
+    name: 頂点配列オブジェクト VAO
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（頂点配列オブジェクト VAO）"]
+    requires: [graphics.vertex-attribute, graphics.element-array-buffer]
+  - id: graphics.indexed-draw-equivalence
+    name: 展開した頂点列との描画入力の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（展開した頂点列との描画入力の一致）"]
+    requires: [graphics.indexed-triangle-mesh, graphics.shader-pipeline, graphics.vertex-array-object]
+  - id: graphics.grid-mesh-count
+    name: 格子メッシュの個数・面積・データ量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（格子メッシュの個数・面積・データ量）"]
+    requires: [graphics.indexed-triangle-mesh, graphics.triangle-edge-test]

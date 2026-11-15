@@ -1,0 +1,28 @@
+id: WGL3
+title: 多数の三角形をどう共有する？
+volume: foundations
+status: supplementary
+prerequisites: [WGL2]
+official_scope: []
+learning_objectives:
+  - 添字付き三角形メッシュの頂点表と添字列から三角形を復元し、添字範囲と向きを確認できる
+  - VBO・EBO・VAOの保存する状態を区別し、drawArraysとdrawElementsを正しく切り替えられる
+  - n×n格子の共有頂点数・三角形数・添字数・メモリ量・面積の式を導出し検算できる
+  - 頂点列の展開で両描画方式が同じ三角形入力になることを仮定付きで説明できる
+  - 共通3タブラボでJSとGLSLを編集し、GPU画素とCPU基準、個数ログを独立に比較できる
+definitions:
+  - { id: WGL3-DEF-01, name: 添字付き三角形メッシュ }
+  - { id: WGL3-DEF-02, name: 要素配列バッファ EBO }
+  - { id: WGL3-DEF-03, name: 頂点配列オブジェクト VAO }
+theorems:
+  - { id: WGL3-PROP-01, name: 展開した頂点列との描画入力の一致 }
+  - { id: WGL3-PROP-02, name: 格子メッシュの個数・面積・データ量 }
+canonical_examples:
+  - 4頂点6添字の四角形と6頂点展開の比較
+  - 2×2格子の9頂点8三角形24添字と120byte対192byte
+  - 320×240画素のCPU基準とGPU読出しの照合
+problem_patterns: [WGL3-INDICES, WGL3-EBO-VAO, WGL3-GRID, WGL3-DRAW-EQUIVALENCE, WGL3-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 1 }

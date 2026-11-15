@@ -1,15 +1,19 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
+import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
-const lesson = new URL(location.href).searchParams.get('lesson') === 'WGL2' ? 'WGL2' : 'WGL1';
+const requestedLesson = new URL(location.href).searchParams.get('lesson');
+const lesson = ['WGL1', 'WGL2', 'WGL3'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isWGL2 = lesson === 'WGL2';
+const isWGL3 = lesson === 'WGL3';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/' + lesson + '/', import.meta.url);
-const FILES = isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
+const FILES = isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
+  isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isWGL2 ? expectedWGL2Samples : expectedSamples;
+const oracle = isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
 const TIMEOUT_MS = 6000;
@@ -155,7 +159,11 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', request.js);
       run(gl, canvas, request.vertex, request.fragment, report);
-      const positions = request.lesson === 'WGL2' ? [
+      const positions = request.lesson === 'WGL3' ? [
+        [Math.floor(canvas.width / 2), Math.floor(canvas.height / 2)],
+        [Math.floor(canvas.width * 0.67), Math.floor(canvas.height * 0.33)],
+        [0, 0]
+      ] : request.lesson === 'WGL2' ? [
         [Math.floor(canvas.width / 2), Math.floor(canvas.height / 2)],
         [Math.floor(canvas.width * 0.31), Math.floor(canvas.height * 0.40)],
         [Math.floor(canvas.width * 0.69), Math.floor(canvas.height * 0.40)],
@@ -260,7 +268,7 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
@@ -325,6 +333,9 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+    } else if (isWGL3) {
+      inputs.fragment.value = defaults.fragment.replace('outColor = vec4(0.2, 0.6, 0.8, 1.0);',
+        'outColor = vec4(0.2, 0.6, 0.8, 1.0)');
     } else if (isWGL2) {
       inputs.fragment.value = defaults.fragment.replace('outColor = vec4(v_color * u_gain, 1.0);',
         'outColor = vec4(v_color * u_gain, 1.0)');
@@ -349,6 +360,19 @@ if (isWGL2) {
   preset.options[0].textContent = '初期の頂点色三角形';
   preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
   preset.options[1].textContent = 'fragment の構文エラー';
+}
+if (isWGL3) {
+  document.title = 'WGL3 共有頂点と添字描画ラボ';
+  document.querySelector('h1').textContent = 'WGL3 四角形と格子：drawArrays / drawElements';
+  document.querySelector('#panel-conditions > p').textContent =
+    '正方形を2つ以上の三角形へ分割。頂点表・添字数・転送byte数とCPUの内外画素を照合します。';
+  document.querySelector('#panel-conditions ol').innerHTML =
+    '<li>初期の gridSteps=2 と elements で実行し個数と3画素のRGBAを確認する。</li>' +
+    '<li>mesh.js の drawMode を arrays に変え、同じ3画素になるか確認する。</li>' +
+    '<li>gridSteps=4 にして頂点数・参照数・転送byte数を予測して比較する。</li>' +
+    '<li>GLSLを変更するか構文エラープリセットでshader診断を確認する。</li>';
+  byId('preset').options[0].textContent = '初期の格子（添字描画）';
+  byId('preset').options[1].textContent = 'fragment の構文エラー';
 }
 load();
 // 画素の期待値は、GPUに触れる前に CPU 側で示せる。

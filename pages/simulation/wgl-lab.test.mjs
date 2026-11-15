@@ -106,3 +106,6 @@ test('readback tolerance and UI copy match WGL1 and WGL2 independently', async (
   wgl2[0].rgba[0] += 1; // three steps must fail
   assert.equal(compareWGL2Readback(wgl2, 320, 240)[0].pass, false);
 });
+
+// WGL3のCPU検算と実教材コードのテストも共通ラボCIで実行する。
+import './wgl3-lab.test.mjs';
