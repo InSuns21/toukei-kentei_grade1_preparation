@@ -10,3 +10,4 @@
 7. [MIR1-07 留数で作る正則3形式](textbook/volumes/dream_thater/幾何系/MIR/MIR1-07/index.md)
 8. [MIR1-08 Gauss–Manin接続・Hodge構造の変動](textbook/volumes/dream_thater/幾何系/MIR/MIR1-08/index.md)
 9. [MIR1-09 Griffiths–Dworkの極次数低減](textbook/volumes/dream_thater/幾何系/MIR/MIR1-09/index.md)
+10. [MIR1-10 quinticのPicard–Fuchs作用素](textbook/volumes/dream_thater/幾何系/MIR/MIR1-10/index.md)

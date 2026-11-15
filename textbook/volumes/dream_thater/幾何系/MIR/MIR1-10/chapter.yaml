@@ -1,0 +1,40 @@
+id: "MIR1-10"
+title: "quinticのPicard–Fuchs作用素"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-09
+learning_objectives:
+  - 周期系を消すPicard–Fuchs作用素を定義し単独の特殊解との違いを説明できる
+  - Griffiths–Dwork公式から単項式の一段低減漸化式を証明できる
+  - 五重極を四重極から単純極まで低減し係数を全て検算できる
+  - ψ微分の四階周期方程式とz座標での作用素の同値性を計算できる
+  - 正則特異点と指標多項式を最高階係数から求められる
+  - 四階作用素がquinticのH3全体でなく群不変部分を扱うことを説明できる
+  - 正則冪級数を代入して係数漸化式と初項を求められる
+theorems:
+  - { id: MIR1-10-DEF-01, name: "周期系のPicard–Fuchs作用素" }
+  - { id: MIR1-10-PROP-01, name: "単項式の一段低減漸化式" }
+  - { id: MIR1-10-THM-01, name: "quinticのPicard–Fuchs作用素" }
+  - { id: MIR1-10-PROP-02, name: "Picard–Fuchs方程式の正則特異点" }
+  - { id: MIR1-10-PROP-03, name: "正則冪級数に対する係数漸化式" }
+canonical_examples:
+  - θ(θ-1)が1とzの双方を消すことを検算
+  - 五重極の五段階置換とI3 I2 I1 I0の係数を全て算出
+  - θ4(ψΠ)と四つの一次因子の連鎖をψ微分へ展開
+  - FermatのJacobian環で四つの群不変単項式を列挙
+  - z=0とz=1/3125と無限遠で正則特異条件を検証
+problem_patterns:
+  - MIR1-10-EULER-NORMALIZATION
+  - MIR1-10-SECOND-POLE
+  - MIR1-10-DERIVATIVE-COEFFICIENT
+  - MIR1-10-SINGULAR-LOCUS
+  - MIR1-10-THIRD-POLE
+  - MIR1-10-FOURTH-POLE
+  - MIR1-10-COORDINATE-CONJUGATION
+  - MIR1-10-INVARIANT-RANK
+  - MIR1-10-INTEGRATED-PF
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 12, review: 5 }
