@@ -3,10 +3,18 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - STO1
+  - RA3
 forward_references: []
 concepts:
   - id: stochastic.galton-watson-process
     name: Galton–Watson 分枝過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Galton–Watson 分枝過程）"]
+    requires:
+      - stochastic.stochastic-process
+  - id: stochastic.gw-offspring-distribution
+    name: 子孫数分布
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Galton–Watson 分枝過程）"]
