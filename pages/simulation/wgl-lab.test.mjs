@@ -89,3 +89,20 @@ test('WGL2 GLSL interfaces and interleaved attribute layout are in real lesson f
   assert.ok(js.includes('gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 20, 8)'));
   assert.ok(js.includes('gl.uniform3f(gain, 1.0, 1.0, 1.0)'));
 });
+
+test('readback tolerance and UI copy match WGL1 and WGL2 independently', async () => {
+  const host = await readFile(new URL('./wgl-lab-host.mjs', import.meta.url), 'utf8');
+  assert.ok(host.includes("(isWGL2 ? '±2' : '±1')"));
+
+  const wgl1 = expectedSamples(320, 240).map(s => ({x:s.x, y:s.y, rgba:[...s.rgba]}));
+  wgl1[0].rgba[1] = 127; // expected 128; one-step difference is accepted
+  assert.equal(compareReadback(wgl1, 320, 240)[0].pass, true);
+  wgl1[0].rgba[1] = 126; // two-step difference is rejected by WGL1
+  assert.equal(compareReadback(wgl1, 320, 240)[0].pass, false);
+
+  const wgl2 = expectedWGL2Samples(320, 240).map(s => ({x:s.x, y:s.y, rgba:[...s.rgba]}));
+  wgl2[0].rgba[0] += 2; // WGL2 accepts two steps
+  assert.equal(compareWGL2Readback(wgl2, 320, 240)[0].pass, true);
+  wgl2[0].rgba[0] += 1; // three steps must fail
+  assert.equal(compareWGL2Readback(wgl2, 320, 240)[0].pass, false);
+});
