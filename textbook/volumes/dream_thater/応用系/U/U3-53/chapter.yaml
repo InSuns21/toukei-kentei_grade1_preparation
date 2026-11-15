@@ -1,0 +1,46 @@
+id: "U3-53"
+title: "VaR バックテスト：超過数とクラスタリング"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-45, U3-44, U3-48]
+official_scope: []
+learning_objectives:
+  - 事前 VaR 予測と観測損失を分離し厳密超過指標を作れる
+  - 条件付き校正から独立 Bernoulli 超過列が従うことを証明できる
+  - 二項分布で超過数と正確な片側確率を計算できる
+  - 無条件被覆の尤度比統計量を尤度最大化から導ける
+  - 一次遷移表と独立性尤度比を計算しクラスタリングを識別できる
+  - LRuc LRind LRcc の差と漸近近似の限界を説明できる
+  - 同回数異配置の反例と有限標本の検定力を計算できる
+  - 先読みと評価期間でのモデル選択が検証を損なうことを説明できる
+definitions:
+  - { id: U3-53-DEF-01, name: "予測時点と VaR 超過指標" }
+  - { id: U3-53-DEF-02, name: "無条件被覆の尤度比統計量 LRuc" }
+  - { id: U3-53-DEF-03, name: "一次 Markov 超過モデルと独立モデル" }
+  - { id: U3-53-DEF-04, name: "条件付き被覆の合成統計量 LRcc" }
+theorems:
+  - { id: U3-53-PROP-01, name: "条件付き校正から独立 Bernoulli 超過列へ" }
+  - { id: U3-53-PROP-02, name: "超過数の二項分布" }
+  - { id: U3-53-PROP-03, name: "LRuc の最大化と非負性" }
+  - { id: U3-53-PROP-04, name: "Christoffersen の独立性尤度比" }
+canonical_examples:
+  - "等号は超過としない4日損失"
+  - "100日5%目標で10超過したLRuc"
+  - "20日6超過の二つの列の遷移表とLRind比較"
+  - "境界0超過の安全な対数尤度"
+  - "有限標本二項検定力の対立仮説感度"
+problem_patterns:
+  - U3-53-A1
+  - U3-53-A2
+  - U3-53-A3
+  - U3-53-A4
+  - U3-53-A5
+  - U3-53-B1
+  - U3-53-B2
+  - U3-53-B3
+  - U3-53-B4
+  - U3-53-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
