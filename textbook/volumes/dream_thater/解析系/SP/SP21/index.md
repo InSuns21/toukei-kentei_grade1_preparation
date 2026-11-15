@@ -8,7 +8,24 @@
 
 ## 1. ランダムな時刻から「もう一度」出発する
 
-[Brown 運動の定義](../../STO/STO4/index.md#def-sto4-brownian-motion)に従う1次元標準ブラウン運動を $B=(B_t)_{t\ge0}$ とします。情報は、既習の[ブラウン運動の自然なフィルトレーション](../../STO/STO4/index.md#def-sto4-brownian-filtration) $\mathcal F_t^B=\sigma(B_s:0\le s\le t)$ に零集合を加えた $\mathcal F_t$ で表します。ランダム時刻 $\tau$ での $\mathcal F_\tau$ は[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)で、$A\in\mathcal F_\tau$ とは任意の $t\ge0$ で $A\cap\{\tau\le t\}\in\mathcal F_t$ となることです。経路連続性により[水準到達時刻](../../STO/STO4/index.md#def-sto4-hitting-time)はこのフィルトレーションの停止時刻です。
+[Brown 運動の定義](../../STO/STO4/index.md#def-sto4-brownian-motion)に従う1次元標準ブラウン運動を $B=(B_t)_{t\ge0}$ とします。
+
+情報は、既習の[ブラウン運動の自然なフィルトレーション](../../STO/STO4/index.md#def-sto4-brownian-filtration)に零集合を加えて完備化した $(\mathcal F_t)$ で表します。完備化する前の情報は
+
+$$
+\mathcal F_t^B=\sigma(B_s:0\le s\le t)
+$$
+
+です。また、ランダムな停止時刻 $\tau$ での $\mathcal F_\tau$ は、[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)を表します。その条件は
+
+$$
+A\in\mathcal F_\tau
+\quad\Longleftrightarrow\quad
+A\cap\{\tau\le t\}\in\mathcal F_t
+\quad(\text{任意の }t\ge0)
+$$
+
+です。経路連続性により[水準到達時刻](../../STO/STO4/index.md#def-sto4-hitting-time)はこのフィルトレーションの停止時刻です。
 
 水準 $c>0$ の初到達時刻を $\tau_c$ とします。到達事象が起きるかどうかを将来を見てから決める時刻ではなく、時刻 $t$ の情報だけで $\{\tau_c\le t\}$ を判定できる時刻です。さらに[ブラウン到達時刻の分布](../../STO/STO4/index.md#thm-sto4-hitting-time-law)から $P(\tau_c<\infty)=1$ です。
 
@@ -134,7 +151,7 @@ P(M_T\ge a,\ B_T\le b)
 \int_{2a-b}^{\infty}\varphi_T(y)\,dy.
 $$
 
-ここで $d/db$ は $T$ と $a$ を固定し、終点の閾値 $b$ だけを動かす微分です。右辺は $b$ に関して微分可能で、下端 $2a-b$ の導関数は $-1$ であるため
+ここで $d/db$ は $T$ と $a$ を固定し、終点の閾値 $b$ だけを動かす微分です。右辺は $b$ に関して微分可能で、下端 $2a-b$ を $b$ で微分すると $-1$ になるため
 
 $$
 \frac{d}{db}\int_{2a-b}^{\infty}\varphi_T(y)\,dy
