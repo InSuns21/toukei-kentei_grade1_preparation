@@ -116,7 +116,7 @@ import {highlightSource} from './wgl-lab-highlight.mjs';
 test('WGL editors highlight JS and GLSL without interpreting source as HTML', () => {
   const js = highlightSource('const shade = "<script>&"; // let ignored\nfunction draw() { return gl.drawArrays(3); }', 'javascript');
   assert.match(js, /wgl-token-keyword">const<\/span>/);
-  assert.match(js, /wgl-token-string">&lt;script&gt;&amp;<\/span>/);
+  assert.match(js, /wgl-token-string">"&lt;script&gt;&amp;"<\/span>/);
   assert.match(js, /wgl-token-comment">\/\/ let ignored<\/span>/);
   assert.match(js, /wgl-token-function">draw<\/span>/);
   assert.match(js, /wgl-token-number">3<\/span>/);
