@@ -12,7 +12,7 @@
 
 両流体は各層で一定密度・非圧縮・非粘性とし、界面 $z=\eta(x,t)$ は物質面で、無限遠の擾乱は減衰する。二層は鉛直方向に半無限、回転・底壁・混合・蒸発を無視し、界面張力 $\sigma\ge0$ は一定とする。
 
-本講で正規モードを一波数ずつ扱うときは、界面の最大勾配について $k|\widehat\eta|\ll1$ を仮定する。増幅枝ではこの条件が時間とともに破れるため、線形解は条件が維持される時刻に限って解釈する。
+本講では界面の最大勾配が十分小さい時刻に限り、一次の線形化を使う。増幅する波では、この小勾配条件が時間とともに破れ得る。定量的な条件は正規モードを導入した後に示す。
 
 [FLUID31 の成層による復元力](../FLUID31/index.md#prop-fluid31-parcel)と比べると、ここでは連続密度分布でなく**密度の跳び**を考える。
 
@@ -33,7 +33,7 @@ $$
 > 上の形で表される微小擾乱を界面の正規モードとし、$\gamma=\operatorname{Im}\omega$ [s$^{-1}$] を時間成長率とする。$\gamma>0$ を線形不安定、$\gamma<0$ を線形減衰、$\gamma=0$ を（そのモードについて）中立と呼ぶ。本講の非粘性模型では正負の対の根が現れる場合がある。
 <!-- formal-statement-end -->
 
-指数を二つに分ければ $e^{i(kx-\omega t)}=e^{\gamma t}e^{i(kx-\omega_rt)}$ である。
+指数を二つに分ければ $e^{i(kx-\omega t)}=e^{\gamma t}e^{i(kx-\omega_rt)}$ である。従って時刻 $t$ の最大振幅は $|\widehat\eta|e^{\gamma t}$、最大勾配は $k|\widehat\eta|e^{\gamma t}$ となる。正規モードの線形近似を適用するには、この時刻の量が $k|\widehat\eta|e^{\gamma t}\ll1$ を満たす必要がある。
 
 <!-- definition-example-start: def-fluid34-normal-mode -->
 **定義の確認**：$k=2$ m$^{-1}$、$\widehat\eta=10^{-3}$ m、$\omega=3+0.2i$ s$^{-1}$ を代入すると、実際の界面の変位は
@@ -42,25 +42,48 @@ $$
 \eta(x,t)=10^{-3}e^{0.2t}\cos(2x-3t)\ {\rm m}.
 $$
 
-この式は波数が $k=2>0$ の単一正規モードの形を満たす。時刻 $t=0$ と $t=5$ s の最大絶対振幅を比較すると、それぞれ $10^{-3}$ m と $10^{-3}e$ m である。従って時間成長率は $\gamma=\operatorname{Im}\omega=0.2>0$ s$^{-1}$ で、定義通り線形不安定のモードである。山を追うと位相 $2x-3t$ が一定なので $dx/dt=3/2$ m/s。位相移動と増幅は別の量である。比較して $\omega=3$ s$^{-1}$ の場合は $\gamma=0$ で、同じ位相速度でも振幅は一定になる。
+この式は波数が $k=2>0$ の単一正規モードの形を満たす。時刻 $t=0$ と $t=5$ s の最大絶対振幅を比較すると、それぞれ $10^{-3}$ m と $10^{-3}e$ m である。従って時間成長率は $\gamma=\operatorname{Im}\omega=0.2>0$ s$^{-1}$ で、定義通り線形不安定のモードである。
+
+一方、山など**同じ位相**を追う点の位置を $x(t)$ と置く。この点は流体粒子そのものとは限らない。[FLUID27 の位相速度の定義](../FLUID27/index.md#def-fluid27-phase-speed)と連鎖律から
+
+$
+0=\frac{d}{dt}\{2x(t)-3t\}
+=2\frac{dx}{dt}-3,
+\qquad \frac{dx}{dt}=\frac32\ {\rm m/s}.
+$
+
+$dx/dt$ は位相を固定して動かす点の時間微分であり、局所的な振幅増大 $e^{0.2t}$ とは別の量である。比較して $\omega=3$ s$^{-1}$ の場合は $\gamma=0$ で、同じ位相速度でも振幅は一定になる。
 <!-- definition-example-end -->
 
 $\gamma=0$ は一般にすべての初期値の有界性を保証する意味での「完全安定」ではない。特に重根や非正規なモードの重ね合わせには別の検討が必要である。
 
-速度差がある場所では各流体粒子が位相を異なる速さで見る。これを数式へ入れるため、各層の対流微分 $D_j=\partial_t+U_j\partial_x$ を使う。正規モードに作用すると $D_j e^{i(kx-\omega t)}=-i(\omega-kU_j)e^{i(kx-\omega t)}$ となる。
+速度差がある場所では、各層の背景速度に沿って動く点が波の位相を異なる速さで見る。$z$ を固定して $x(t)=x_0+U_jt$ と動く点で、任意の滑らかな関数 $f(x,z,t)$ に連鎖律を適用すると
+
+$
+\frac{d}{dt}f(x_0+U_jt,z,t)
+=\partial_t f+U_j\partial_x f.
+$
+
+この右辺を各層の**対流微分** $D_j=\partial_t+U_j\partial_x$ と呼ぶ。$\partial_t$ は $x,z$ を固定した偏微分、$d/dt$ は上記の動く点に沿った全微分であり、同じものではない。正規モードに作用させれば
+
+$
+D_j e^{i(kx-\omega t)}
+=(-i\omega+ikU_j)e^{i(kx-\omega t)}
+=-i(\omega-kU_j)e^{i(kx-\omega t)}.
+$
 
 ## 2. 各層の微小速度と界面条件をつなぐ
 
 各層で背景速度は一様で渦度が零なので、一次の**無渦擾乱**だけを調べる。[速度ポテンシャル](../FLUID11/index.md#def-fluid11-velocity-potential)を用いて擾乱速度を $(u_j',w_j')=(\partial_x\phi_j,\partial_z\phi_j)$ と書く。[非圧縮条件](../FLUID27/index.md#prop-fluid27-linear-boundary)を使えば $\partial_x^2\phi_j+\partial_z^2\phi_j=0$ である。これは全てのせん断流が無渦という意味ではない。境界の速度の跳びは渦度が集中した渦層を表すが、**各層の内部**では無渦と仮定している。
 
-波の水平依存を $e^{ikx}$ とすると、鉛直方向の振幅 $F_j(z)$ は $F_j''-k^2F_j=0$ を満たす。指数解 $e^{\pm kz}$ のうち無限遠で増える項は除くため、
+波の水平依存を $e^{ikx}$ として $\phi_j=F_j(z)e^{i(kx-\omega t)}$ と代入すると、鉛直方向の振幅は $F_j''-k^2F_j=0$ を満たす。ここでプライムは $z$ による微分、すなわち $F_j''=d^2F_j/dz^2$ である。指数解 $e^{\pm kz}$ のうち無限遠で増える項は除くため、
 
 $$
 \phi_1=A_1e^{-kz}e^{i(kx-\omega t)},\quad z>0;\qquad
 \phi_2=A_2e^{kz}e^{i(kx-\omega t)},\quad z<0.
 $$
 
-複素表示の実部を物理的速度場と解釈する。鉛直依存は $k>0$ のためどちらも遠方で減衰する。
+鉛直依存は $k>0$ のためどちらも遠方で減衰する。ここからの線形境界条件・証明では、計算を簡単にするため **$\eta,\phi_j$ を一時的に実部を取る前の複素表示として使う**。物理的な界面変位・速度は最後にそれぞれの実部を取る。方程式の係数は実数であり、$k>0$ なら全ての $x$ について実部が等しいことは、正弦・余弦の独立性により複素振幅の係数が等しいことと同値である。従って以下の $D_j\eta=-i(\omega-kU_j)\eta$ などは**複素表示の等式**であり、実数値の物理場へそのまま複素数を掛ける等式ではない。
 
 界面上の粒子が界面から離れない条件は $D_j\eta=w'_j$ の一次近似である。二層の界面は同じ変位 $\eta$ を共有するが、**接線速度は一致する必要がない**。[FLUID27 の運動学的境界条件](../FLUID27/index.md#prop-fluid27-linear-boundary)を背景の $U_j$ に沿って書き換えたものである。
 
@@ -101,7 +124,17 @@ $k>0$ で割れば命題の二式を得る。逆にこの二式を鉛直微分�
 
 二つの流体の背景圧力 $p_{0j}(z)$ は $\partial_zp_{0j}=-\rho_jg$。Euler 方程式を背景一様流まわりで一次化して $D_j\nabla\phi_j=-\nabla p'_j/\rho_j$ とし、空間的な定数をポテンシャルへ吸収すれば $p'_j=-\rho_jD_j\phi_j$。界面 $z=\eta$ での圧力には、静水圧の位置変化 $-\rho_jg\eta$ も足す必要がある。
 
-[FLUID26 の Young–Laplace 圧力跳躍](../FLUID26/index.md#thm-fluid26-young-laplace)を、法線を上向きにとった小勾配の界面へ適用すると、「下側圧力 − 上側圧力」は一次で $-\sigma\eta_{xx}$ となる。山の頂点 $\eta_{xx}<0$ では下側が高圧になり、界面を戻そうとする符号である。従って圧力条件は
+[FLUID26 の Young–Laplace 圧力跳躍](../FLUID26/index.md#thm-fluid26-young-laplace)は静止流体について導かれたが、本講の動く**非粘性流体**でも、両側の応力が $-p_jI$ で、界面自身の慣性・表面粘性がない場合、瞬間的な法線応力釣合は同じ形を持つ。$\sigma=0$ のときは通常の圧力連続条件となる。
+
+下層から上層へ向かう単位法線を $n=(-\eta_x,1)/\sqrt{1+\eta_x^2}$ とすると、[向き付き全曲率](../FLUID26/index.md#def-fluid26-oriented-curvature)のグラフ表示は
+
+$
+\kappa_\Sigma=\operatorname{div}_S n
+=-\frac{\eta_{xx}}{(1+\eta_x^2)^{3/2}}
+\simeq-\eta_{xx}
+$
+
+となる（奥行き方向の曲率は零）。$|\eta_x|\ll1$ で二次以上の効果を捨てたので、圧力差「下側 $-$ 上側」は一次で $-\sigma\eta_{xx}$。山の頂点 $\eta_{xx}<0$ では下側が高圧になり、界面を戻そうとする符号である。従って圧力条件は
 
 $$
 -\rho_2(D_2\phi_2+g\eta)+\rho_1(D_1\phi_1+g\eta)=-\sigma\eta_{xx}.
@@ -381,7 +414,7 @@ $R=k(B-Ak)/\rho_T$、$A>0$、$B>0$ だから $R<0$ は $B-Ak<0$、すなわち $
 <!-- solution-start -->
 #### 詳細解答
 
-$D_j\eta=-i\Delta_j\eta$、$\partial_z\phi_1|_0=-kA_1e^{i\theta}$、$\partial_z\phi_2|_0=kA_2e^{i\theta}$ なので [運動学的条件](#prop-fluid34-kinematic-amplitudes)から $A_1=i\Delta_1\widehat\eta/k$、$A_2=-i\Delta_2\widehat\eta/k$。これに $D_j=-i\Delta_j$ を作用させると $D_1\phi_1=\Delta_1^2\eta/k$、$D_2\phi_2=-\Delta_2^2\eta/k$。静水圧は界面で $-\rho_jg\eta$ だけ変わり、[Young–Laplaceの小勾配式](../FLUID26/index.md#thm-fluid26-young-laplace)は $p_2-p_1=-\sigma\eta_{xx}=\sigma k^2\eta$。従って
+第2節と同様、実部を取る前の複素表示で $D_j\eta=-i\Delta_j\widehat\eta e^{i\theta}$、$\partial_z\phi_1|_0=-kA_1e^{i\theta}$、$\partial_z\phi_2|_0=kA_2e^{i\theta}$ なので [運動学的条件](#prop-fluid34-kinematic-amplitudes)から $A_1=i\Delta_1\widehat\eta/k$、$A_2=-i\Delta_2\widehat\eta/k$。これに $D_j=-i\Delta_j$ を作用させると $D_1\phi_1=\Delta_1^2\eta/k$、$D_2\phi_2=-\Delta_2^2\eta/k$。静水圧は界面で $-\rho_jg\eta$ だけ変わり、[Young–Laplaceの小勾配式](../FLUID26/index.md#thm-fluid26-young-laplace)は $p_2-p_1=-\sigma\eta_{xx}=\sigma k^2\eta$。従って
 
 $$
 -\rho_2\left(-\frac{\Delta_2^2}{k}\eta+g\eta\right)
