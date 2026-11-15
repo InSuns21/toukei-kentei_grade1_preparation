@@ -336,7 +336,7 @@ $$
 
 以下の2列は20日の合成超過指標です。ブラウザ実行パネルでは、閾値を変えずに回数と遷移を計算します。別のモードでは独立 Bernoulli 列と集中的な Markov 列を固定乱数で生成し、推定の揺らぎを比較できます。
 
-<!-- python-lab
+~~~python-file-lab
 # lab-id: U3-53-VAR-BACKTEST
 # lab-title: VaR 超過数とクラスタリングのバックテスト
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-53/assets/backtest_var.py
@@ -345,11 +345,12 @@ $$
 # lab-preset: 同じ6超過・集中 | --scenario clustered
 # lab-preset: 過少被覆 | --scenario undercoverage
 # lab-preset: 独立 Bernoulli（固定乱数） | --scenario iid --n 100
--->
+# lab-preset: Markov 集中（固定乱数） | --scenario markov --n 100
+~~~
 
 **期待する検算点**：spread と clustered はどちらも $n=20,K=6,LR_{\mathrm{uc}}=0$ ですが、$n_{11}$ がそれぞれ1と4になり、$LR_{\mathrm{ind}}$ が約0.969と4.898に分かれます。undercoverage は100日中10超過、目標5%なので $LR_{\mathrm{uc}}\simeq4.131$ です。固定乱数の出力は一回の標本であり、検定力や有意水準の精密な推定ではありません。
 
-ローカルでも Python 3.10以降の標準ライブラリだけで再現できます。実行例は \`python assets/backtest_var.py --scenario clustered\`、単体テストは章ディレクトリから \`python -m unittest discover -s assets/tests -v\` です。テストでは遷移の合計、手計算結果、0超過・全日超過の有限値、評価データからのモデル再学習がないことを検証します。図を強制せず、位置を伴う超過日の一覧と遷移表が「時系列のどこで集中したか」を直接示す形式を選びました。
+ローカルでも Python 3.10以降の標準ライブラリだけで再現できます。実行例は \`python assets/backtest_var.py --scenario clustered\`、単体テストは章ディレクトリから \`python -m unittest discover -s assets/tests -v\` です。テストでは遷移の合計、手計算結果、0超過・全日超過の有限値、保存済み予測を評価データで再学習・修正しないことを確認します。図を強制せず、位置を伴う超過日の一覧と遷移表が「時系列のどこで集中したか」を直接示す形式を選びました。
 
 ## 7. 演習と詳細解答
 
@@ -495,10 +496,10 @@ $$
 ### U3-53-C1：VaR モデルの二種類の失敗を見分ける
 - Level: C
 
-目標超過率 $p=0.05$ の1日 VaR モデルについて、100日で10超過したモデル X と、20日で6超過したモデル Y を考える。モデル Y の超過日は $\{4,5,6,7,8,10\}$ である。
+1日 VaR モデル X は目標超過率 $p_X=0.05$ の100日間で10超過し、別のモデル Y は目標超過率 $p_Y=0.30$ の20日間で6超過した。モデル Y の超過日は $\{4,5,6,7,8,10\}$ である。
 
 1. モデル X の $LR_{\mathrm{uc}}$ を計算し、独立 Bernoulli 帰無仮説の5%漸近参考閾値3.841と比較せよ。
-2. モデル Y について遷移表と $LR_{\mathrm{ind}}$、$LR_{\mathrm{uc}}$、$LR_{\mathrm{cc}}$ を計算せよ（モデル Y の帰無率は $p=0.30$ として計算し直す）。
+2. モデル Y について遷移表と $LR_{\mathrm{ind}}$、$LR_{\mathrm{uc}}$、$LR_{\mathrm{cc}}$ を計算せよ（モデル Y の帰無率は $p_Y=0.30$ とする）。
 3. 無条件被覆検定と独立性検定の判断を比較し、非棄却が予測分布の妥当性を証明しない理由を述べよ。
 
 <!-- solution-start -->
