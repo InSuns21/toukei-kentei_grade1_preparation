@@ -1,0 +1,20 @@
+chapter: WGL4
+terms:
+  - term: モデル座標
+    english: model coordinates
+    meaning: メッシュの頂点を部品固有の原点と軸で表した座標。
+  - term: 世界座標
+    english: world coordinates
+    meaning: シーン内で複数の部品に共通の原点と軸により表した座標。
+  - term: 斉次座標
+    english: homogeneous coordinates
+    meaning: 3次元点を第4成分1、方向を第4成分0に拡張して4×4行列を作用させる表現。
+  - term: モデル行列
+    english: model matrix
+    meaning: モデル座標を世界座標へ移すための4×4変換行列。
+  - term: 列優先格納
+    english: column-major storage
+    meaning: 4×4行列の成分を列単位で連続して格納する配列の並べ方。
+  - term: 逆モデル変換
+    english: inverse model transform
+    meaning: 非零拡大率の下で世界座標をモデル座標へ戻す写像。
