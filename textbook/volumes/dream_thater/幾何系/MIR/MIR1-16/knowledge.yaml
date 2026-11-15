@@ -1,0 +1,41 @@
+chapter: MIR1-16
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-15]
+concepts:
+  - id: mirror.quintic-b-yukawa-cubic
+    name: B側のHodge三次結合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（B側のHodge三次結合）"]
+    requires: [mirror.dwork-gauss-manin-period, mirror.dwork-griffiths]
+  - id: mirror.quintic-b-yukawa-ode
+    name: 四階周期方程式と三次結合の微分方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四階周期方程式と三次結合の微分方程式）"]
+    requires: [mirror.quintic-b-yukawa-cubic, mirror.quintic-picard-fuchs]
+  - id: mirror.quintic-b-yukawa-rational
+    name: quinticの三次結合の有理形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（quinticの三次結合の有理形）"]
+    requires: [mirror.quintic-b-yukawa-ode, mirror.quintic-picard-fuchs]
+  - id: mirror.quintic-b-yukawa-coordinate
+    name: 三次結合の座標変換と形式の再規格化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次結合の座標変換と形式の再規格化）"]
+    requires: [mirror.quintic-b-yukawa-cubic, mirror.quintic-mirror-coordinate-derivative]
+  - id: mirror.quintic-b-yukawa-normalized
+    name: 周期規格化したB側Yukawa結合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期規格化したB側Yukawa結合）"]
+    requires: [mirror.quintic-b-yukawa-rational, mirror.quintic-b-yukawa-coordinate, mirror.quintic-normalized-mirror-coordinate]
+  - id: mirror.quintic-b-yukawa-series
+    name: B側の正規化式と初期係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（B側の正規化式と初期係数）"]
+    requires: [mirror.quintic-b-yukawa-normalized, mirror.quintic-mirror-inverse-coefficients, mirror.quintic-mirror-forward-coefficients]
