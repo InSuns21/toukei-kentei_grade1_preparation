@@ -22,3 +22,4 @@
 19. [U4-19 因子中立・主成分分析・多銘柄残差戦略](textbook/volumes/dream_thater/応用系/U/U4-19/index.md)
 20. [U4-20 合併裁定：deal spreadは無リスクか](textbook/volumes/dream_thater/応用系/U/U4-20/index.md)
 21. [U4-21 市場が示唆する成立確率とイベント時間](textbook/volumes/dream_thater/応用系/U/U4-21/index.md)
+22. [U4-22 売買シグナルを自己金融の保有量に変換](textbook/volumes/dream_thater/応用系/U/U4-22/index.md)

@@ -1,0 +1,48 @@
+chapter: U4-22
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-15, U4-19, U4-21]
+forward_references: []
+concepts:
+  - id: finance.arb-signal-order-fill-clock
+    name: シグナル・注文・約定の情報時刻
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（シグナル・注文・約定の情報時刻）"]
+    requires: [finance.arb-multiasset-self-financing]
+  - id: finance.arb-fill-self-financing-book
+    name: 約定後の自己金融保有と現金勘定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（約定後の自己金融保有と現金勘定）"]
+    requires: [finance.arb-multiasset-self-financing, finance.arb-fixed-spread-wealth]
+  - id: finance.arb-execution-wealth-increments
+    name: 自己金融帳簿の損益恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（自己金融帳簿の損益恒等式）"]
+    requires: [finance.arb-fill-self-financing-book]
+  - id: finance.arb-signal-target-holdings
+    name: 方向シグナルからの目標株数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（方向シグナルからの目標株数）"]
+    requires: [finance.arb-signal-order-fill-clock, finance.arb-level-share-spread, finance.arb-fill-self-financing-book]
+  - id: finance.arb-fill-to-close-pnl
+    name: 遅延約定を含む一回の建玉・手仕舞いの損益
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（遅延約定を含む一回の建玉・手仕舞いの損益）"]
+    requires: [finance.arb-execution-wealth-increments, finance.arb-signal-order-fill-clock]
+  - id: finance.arb-execution-rebalance
+    name: 約定価格での再均衡
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（約定価格での再均衡）"]
+    requires: [finance.arb-fill-self-financing-book]
+  - id: finance.arb-rebalance-wealth-preservation
+    name: 再均衡時の純資産不変と区間損益の総和
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（再均衡時の純資産不変と区間損益の総和）"]
+    requires: [finance.arb-execution-rebalance, finance.arb-execution-wealth-increments]
