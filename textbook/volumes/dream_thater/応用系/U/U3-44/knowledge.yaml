@@ -1,0 +1,47 @@
+chapter: U3-44
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-01, U3-15, U3-42, U3-43]
+concepts:
+  - id: finance.risk-factor-scenario
+    name: 保有期間とリスクファクター・シナリオ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（保有期間とリスクファクター・シナリオ）"]
+    requires: [finance.one-period-binomial-market]
+  - id: finance.portfolio-full-revaluation
+    name: 固定ポジションの全再評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定ポジションの全再評価）"]
+    requires: [finance.risk-factor-scenario, finance.cross-model-input-contract]
+  - id: finance.holding-period-loss
+    name: 保有期間の基準額付き損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（保有期間の基準額付き損失）"]
+    requires: [finance.portfolio-full-revaluation, finance.numeraire-discounted-price]
+  - id: finance.physical-versus-pricing-measure
+    name: 損失予測のPと価格付けのQ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（損失予測の $P$ と価格付けの $Q$）"]
+    requires: [finance.equivalent-martingale-measure, finance.holding-period-loss]
+  - id: finance.finite-loss-distribution
+    name: 有限状態の損失分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の損失分布）"]
+    requires: [finance.physical-versus-pricing-measure]
+  - id: finance.risk-neutral-mean-loss
+    name: 価格付け測度での基準額付き平均損失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（価格付け測度での基準額付き平均損失）"]
+    requires: [finance.holding-period-loss, finance.one-period-backward-pricing]
+  - id: finance.finite-measure-reweighting
+    name: 有限状態でのP/Q再重み付け
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限状態での $P/Q$ 再重み付け）"]
+    requires: [finance.physical-versus-pricing-measure, finance.finite-loss-distribution]
