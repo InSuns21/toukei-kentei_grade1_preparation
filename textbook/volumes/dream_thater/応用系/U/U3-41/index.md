@@ -142,7 +142,15 @@ $b=r-q-\lambda\kappa$ だから、連続ドリフトの係数は $b-r=-q-\lambda
 
 ## 3. 価格付けは PDE から PIDE へ
 
-[Black–Scholes PDE](../U3-16/index.md#thm-u3-16-bsm-necessity)では、短時間の株価変化は局所微分で扱えました。今は一回のジャンプで $s$ が $sY$ に飛ぶため、価格 $v(t,sY)$ を評価する**非局所項**が必要です。以降、満期支払 $g(S_T)$ は可積分で、指定した $Q$ で評価します。価格関数の $v_t=\partial v/\partial t$ は株価 $s$ を固定した時間偏微分、$v_s=\partial v/\partial s$ と $v_{ss}=\partial^2v/\partial s^2$ は時刻 $t$ を固定した株価偏微分です。$dS_t$ が経路上の確率的増分を表すのに対し、$v_s$ は価格関数の一変数方向の感度です。
+[Black–Scholes PDE](../U3-16/index.md#thm-u3-16-bsm-necessity)では、短時間の株価変化は局所微分で扱えました。今は一回のジャンプで $s$ が $sY$ に飛ぶため、価格 $v(t,sY)$ を評価する**非局所項**が必要です。以降、満期支払 $g(S_T)$ は可積分で、指定した $Q$ で評価します。価格関数の偏導関数は
+
+$
+v_t=\frac{\partial v}{\partial t},\qquad
+v_s=\frac{\partial v}{\partial s},\qquad
+v_{ss}=\frac{\partial^2v}{\partial s^2}
+$
+
+と表します。$v_t$ は株価 $s$ を固定した時間偏微分、$v_s,v_{ss}$ は時刻 $t$ を固定した株価偏微分です。$dS_t$ が経路上の確率的増分を表すのに対し、$v_s$ は価格関数の一変数方向の感度です。
 
 <a id="prop-u3-41-pide"></a>
 
