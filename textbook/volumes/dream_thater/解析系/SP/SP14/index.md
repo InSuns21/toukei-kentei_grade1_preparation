@@ -43,7 +43,7 @@ $$
 例えば状態 $1$ では出生と死亡の率が $1,3$、合計離脱率が $4$ です。非対角成分はすべて非負、隣接しない $0\leftrightarrow2$ の率は零、各行和は $-2+2=0$、$3-4+1=0$、$4-4=0$ です。端点 $0$ の死亡率と端点 $2$ の出生率も零で、定義の全条件を検査できました。状態 $0$ からは出生できるので、$0$ は吸収状態ではありません。
 <!-- definition-example-end -->
 
-有限状態では $\max_n(\lambda_n+\mu_n)<\infty$ ですから、[一様化による有限 CTMC の構成](../SP12/index.md#thm-sp12-uniformization)で非爆発です。可算状態ではこの上界がない場合があります。例えば $\mu_n=0,\lambda_n=(n+1)^2$ という純粋出生過程は、[純粋出生過程の爆発判定](../SP12/index.md#thm-sp12-pure-birth-explosion)の級数 $\sum_{n\ge0}1/(n+1)^2<\infty$ により有限時間で無限回跳躍し得ます。
+有限状態では $\max_n(\lambda_n+\mu_n)<\infty$ ですから、[一様化による有限 CTMC の構成](../SP12/index.md#thm-sp12-uniformization)で非爆発です。可算状態ではこの上界がない場合があります。例えば $\mu_n=0,\lambda_n=(n+1)^2$ という純粋出生過程は、[純粋出生過程の爆発判定](../SP12/index.md#thm-sp12-birth-explosion)の級数 $\sum_{n\ge0}1/(n+1)^2<\infty$ により有限時間で無限回跳躍し得ます。
 
 ## 2. 定常確率は隣の状態との流れで決まる
 
@@ -141,7 +141,7 @@ $$
 
 となるモデルでは $w_n=(\alpha/\beta)^n/n!$、$Z=e^{\alpha/\beta}$ なので、候補は平均 $\alpha/\beta$ の Poisson 分布です。この場合は次のように**全時刻の不変性**も確認できます。
 
-時刻 $0$ に独立な寿命が指数率 $\beta$ の個体が Poisson$(\alpha/\beta)$ 個いるとします。時刻 $t$ まで生き残る各個体の確率は $e^{-\beta t}$ なので、[Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)により初期個体の生存数は平均 $(\alpha/\beta)e^{-\beta t}$ の Poisson 分布です。さらに、時刻 $s\in[0,t]$ に Poisson 率 $\alpha$ で移入した個体は確率 $e^{-\beta(t-s)}$ で生存します。小区間ごとの独立間引き、または時刻依存の生存率を区間分割して極限を取ることから、この移入個体の生存数は平均
+時刻 $0$ に独立な寿命が指数率 $\beta$ の個体が Poisson$(\alpha/\beta)$ 個いるとします。時刻 $t$ まで生き残る各個体の確率は $e^{-\beta t}$ なので、[Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)により初期個体の生存数は平均 $(\alpha/\beta)e^{-\beta t}$ の Poisson 分布です。さらに、時刻 $s\in[0,t]$ に Poisson 率 $\alpha$ で移入した個体は確率 $e^{-\beta(t-s)}$ で生存します。[Poisson 過程の到着回数を固定したときの到着時刻](../SP10/index.md#prop-sp10-conditional-arrival-times)を使い、$N_t=m$ の下で移入時刻を独立な一様時刻 $U_1,\ldots,U_m$ と見なします。各移入分子の生存指示変数は、時刻と独立な寿命を合わせて独立で、その共通生存確率は $t^{-1}\int_0^t e^{-\beta(t-s)}\,ds$ です。従って [Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)から、この移入個体の生存数は平均
 
 $$
 \int_0^t\alpha e^{-\beta(t-s)}\,ds
@@ -152,7 +152,7 @@ $$
 
 ## 3. 吸収境界へどちらから到達するか
 
-個体数が $0$ になれば絶滅、$N$ になれば容量の上限に到達、として観測を終了することがあります。ここで **吸収状態**とは、そこからの全遷移率が零で、いったん入ると出ない状態です。一般の出生死滅系で $0$ が吸収であるには、$\mu_0=0$ に加え $\lambda_0=0$ も必要です。
+個体数が $0$ になれば絶滅、$N$ になれば容量の上限に到達、として観測を終了することがあります。全遷移率が零の状態は、いったん入ると出ない吸収状態です。一般の出生死滅系で $0$ が吸収であるには、$\mu_0=0$ に加え $\lambda_0=0$ も必要です。
 
 端点 $0,N$ をともに吸収とし、内部状態 $1,\ldots,N-1$ では出生・死亡率がともに正である系を考えます。$\tau=\inf\{t\ge0:X_t\in\{0,N\}\}$ を端点到達時刻とし、$h_i=P_i(X_\tau=N)$ を**上側吸収確率**とします。有限状態なので吸収がほぼ確実に有限時間で起きることも示せます。
 
@@ -198,7 +198,7 @@ $$
 P_i(J>k(N-1))\le(1-p)^k\quad(k\ge0).
 $$
 
-これは各ブロックの開始状態で再び同じ下界が成り立つことを [CTMC の跳躍時刻での再始動](../../STO/STO13/index.md#def-sto13-ctmc-qmatrix)の構成から用いたものです。尾確率の和より $E_i[J]\le(N-1)/p<\infty$。一回ごとの滞在時間の条件付き平均は $1/(\lambda_i+\mu_i)\le1/c_*$ なので、非負項の期待値を足し合わせれば $E_i[\tau]\le E_i[J]/c_*<\infty$ です。従って $\tau<\infty$ は確率 $1$ です。
+これは各ブロックの開始状態で再び同じ下界が成り立つことを [CTMC の跳躍連鎖・滞在時間構成](../../STO/STO13/index.md#thm-sto13-ctmc-construction)から用いたものです。尾確率の和より $E_i[J]\le(N-1)/p<\infty$。一回ごとの滞在時間の条件付き平均は $1/(\lambda_i+\mu_i)\le1/c_*$ なので、非負項の期待値を足し合わせれば $E_i[\tau]\le E_i[J]/c_*<\infty$ です。従って $\tau<\infty$ は確率 $1$ です。
 
 **到達確率。** 内部状態 $i$ の最初の跳躍先は確率 $\lambda_i/(\lambda_i+\mu_i)$ で $i+1$、確率 $\mu_i/(\lambda_i+\mu_i)$ で $i-1$ です。最初の跳躍以降に同じ到達問題が始まるので
 
@@ -311,7 +311,7 @@ $$
 
 ### 証明の見取り図
 
-[Kolmogorov 前進方程式](../SP13/index.md#thm-sp13-stationarity-criterion)を成分表示すると、到着状態への流入の和から離脱率を引く形になります。反応の種類を区別しても、分子数の変化先が一致する反応の率は足し合わせればよいのです。
+[Kolmogorov 前進方程式](../../STO/STO13/index.md#thm-sto13-kolmogorov-equations)を成分表示すると、到着状態への流入の和から離脱率を引く形になります。反応の種類を区別しても、分子数の変化先が一致する反応の率は足し合わせればよいのです。
 
 <!-- proof-start -->
 ### 証明
@@ -541,7 +541,7 @@ w_n=\prod_{k=0}^{n-1}\frac{\alpha}{\beta(k+1)}
 Z=\sum_{n=0}^\infty w_n=e^{\alpha/\beta}.
 $$
 
-よって候補は $\pi_n=e^{-\alpha/\beta}(\alpha/\beta)^n/n!$ です。$\theta=\alpha/\beta$、$u=e^{-\beta t}$ とします。独立な指数寿命のため初期 Poisson$(\theta)$ 個の生存数は [独立間引き](../SP11/index.md#thm-sp11-thinning)から Poisson$(\theta u)$。時刻 $s$ に到着した新個体の時刻 $t$ での生存確率は $e^{-\beta(t-s)}$ で、移入後の生存数は独立に Poisson$(\int_0^t\alpha e^{-\beta(t-s)}ds)$ です。指数積分を評価すると平均は $\theta(1-u)$。[重ね合わせ](../SP11/index.md#thm-sp11-superposition)から合計は Poisson$(\theta u+\theta(1-u))=$ Poisson$(\theta)$。初期個体数はほぼ確実に有限で、有限時間内の移入数は Poisson$(\alpha t)$ 個（有限）です。各個体の死亡は高々一度なので有限時間の跳躍回数は有限、非爆発です。無限状態では単なる $\pi Q=0$ の計算ではなく、この構成が不変性を保証します。
+よって候補は $\pi_n=e^{-\alpha/\beta}(\alpha/\beta)^n/n!$ です。$\theta=\alpha/\beta$、$u=e^{-\beta t}$ とします。独立な指数寿命のため初期 Poisson$(\theta)$ 個の生存数は [独立間引き](../SP11/index.md#thm-sp11-thinning)から Poisson$(\theta u)$。時刻 $s$ に到着した個体が $t$ まで生き残る確率は $e^{-\beta(t-s)}$ です。[到着時刻の条件付き一様分布](../SP10/index.md#prop-sp10-conditional-arrival-times)により、移入数 $N_t=m$ を固定すると到着時刻を独立な一様乱数 $U_1,\ldots,U_m$ と見なせます。独立な寿命と合わせた各個体の生存指示変数は独立かつ共通の成功確率 $t^{-1}\int_0^t e^{-\beta(t-s)}\,ds$ を持ちます。従って [独立間引き](../SP11/index.md#thm-sp11-thinning)により、移入個体の生存数は Poisson$(\int_0^t\alpha e^{-\beta(t-s)}ds)$ です。指数積分を評価すると平均は $\theta(1-u)$。[重ね合わせ](../SP11/index.md#thm-sp11-superposition)から合計は Poisson$(\theta u+\theta(1-u))=$ Poisson$(\theta)$。初期個体数はほぼ確実に有限で、有限時間内の移入数は Poisson$(\alpha t)$ 個（有限）です。各個体の死亡は高々一度なので有限時間の跳躍回数は有限、非爆発です。無限状態では単なる $\pi Q=0$ の計算ではなく、この構成が不変性を保証します。
 <!-- solution-end -->
 
 <a id="ex-sp14-b03"></a>
