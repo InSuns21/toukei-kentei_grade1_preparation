@@ -885,7 +885,11 @@ P(B_\sigma=3)=\frac{0+1}{1+3}=\frac14,
 E[\sigma]=(0+1)(3-0)=3.
 $$
 
-**2. 途中水準で再始動する。** $\tau_1<\infty$ はほとんど確実で、$B_{\tau_1}=1$ です。[連続する二水準の到達命題](#prop-sp21-successive-hitting)を $c=1,d=2$ に適用すると、$\tau_3-\tau_1$ は $\mathcal F_{\tau_1}$ と独立で $\tau_2$ と同分布です。したがって時刻 $t$ までの到達確率と密度は[到達時刻の分布](../../STO/STO4/index.md#thm-sto4-hitting-time-law)に $c=2$ を代入して
+**2. 途中水準で再始動する。** $\tau_1<\infty$ はほとんど確実で、$B_{\tau_1}=1$ です。
+
+[連続する二水準の到達命題](#prop-sp21-successive-hitting)に距離 $c=1,d=2$ を代入します。すると $\tau_3-\tau_1$ は過去の情報 $\mathcal F_{\tau_1}$ と独立で、水準2への到達時刻 $\tau_2$ と同分布です。
+
+よって[ブラウン到達時刻の分布](../../STO/STO4/index.md#thm-sto4-hitting-time-law)の水準を2とすれば、時刻 $t$ までの到達確率と密度は
 
 $$
 P(\tau_3-\tau_1\le t)
