@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - MIR1-09
+  - ODE6
 learning_objectives:
   - 周期系を消すPicard–Fuchs作用素を定義し単独の特殊解との違いを説明できる
   - Griffiths–Dwork公式から単項式の一段低減漸化式を証明できる
