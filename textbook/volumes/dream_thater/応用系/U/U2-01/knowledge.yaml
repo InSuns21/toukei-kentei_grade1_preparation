@@ -11,13 +11,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（有限位置 belief と点推定）"]
     requires: [prob.random-variable, prob.distribution-law]
-  - id: robotics.finite-observation-likelihood
-    name: 有限観測モデルと尤度
+  - id: robotics.finite-observation-model
+    name: 有限観測モデル
     kind: definition
-    aliases: [尤度]
     introduction: formal
-    introduction_aliases: ["定義（有限観測モデルと尤度）"]
+    introduction_aliases: ["定義（有限観測モデルと観測尤度）"]
     requires: [robotics.finite-position-belief]
+  - id: robotics.finite-observation-likelihood
+    name: 観測尤度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限観測モデルと観測尤度）"]
+    requires: [robotics.finite-observation-model]
   - id: robotics.finite-observation-bayes-update
     name: 有限位置に対するベイズ更新
     kind: theorem
