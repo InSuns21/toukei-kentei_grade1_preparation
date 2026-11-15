@@ -292,16 +292,16 @@ $$
 <!-- definition-example-start: def-fluid23-quartic-profile -->
 **定義の確認**： $x$ を固定すると $z=y/\delta(x)$ について $\partial z/\partial y=1/\delta(x)$ である。ここで $g'(z)=dg/dz$、$g''(z)=d^2g/dz^2$ は無次元座標 $z$ に関する微分を表す。連鎖律により、近似層の内側 $0<y<\delta(x)$ で
 
-$
+$$
 u_y=\frac{U}{\delta(x)}g'(z),\qquad
 u_{yy}=\frac{U}{\delta(x)^2}g''(z).
-$
+$$
 
 したがって壁面条件 $u_{yy}(x,0)=0$ は $g''(0)=0$ に対応し、外縁の一様流との一階・二階微分の接続には $g'(1)=g''(1)=0$ を確かめればよい。実際に
 
-$
+$$
 g'(z)=2-6z^2+4z^3,\qquad g''(z)=-12z+12z^2
-$
+$$
 
 であり、$g(0)=0$、$g(1)=1$ と併せて
 
@@ -695,11 +695,11 @@ $$
 
 正の平方根で $h=2\sqrt{\nu x/U}$、$\theta=\sqrt{\nu x/U}$。[局所摩擦係数の式](#prop-fluid23-flat-drag)を $x$ で微分した $\theta$ に適用すると
 
-$
+$$
 C_{f,x}=2\theta'(x)
 =2\cdot\frac12\sqrt{\frac{\nu}{Ux}}
 =\frac{1}{\sqrt{\mathrm{Re}_x}}.
-$
+$$
 
 これは[Blasius値](../FLUID22/index.md#prop-fluid22-wall-friction) $0.664115/\sqrt{\mathrm{Re}_x}$ より約 $50.6\%$ 大きい。さらに
 
