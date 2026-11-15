@@ -65,7 +65,7 @@ $$
 \simeq-\xi\,\frac{d\bar\rho}{dz}.
 $$
 
-粒子が受ける密度差による鉛直加速度は $-g\rho'_{\rm parcel}/\rho_0$。この量を**浮力加速度** $b$ [m/s$^2$] としておけば、上向き変位が復元されるかを符号で読める。
+粒子が受ける密度差による鉛直加速度は $-g\rho'_{\rm parcel}/\rho_0$。この鉛直加速度を上向き正の量 $b$ [m/s$^2$] で表すと、上向き変位が復元されるかを符号で読める。以下でその量の名称と定義を固定する。
 
 <a id="def-fluid31-buoyancy"></a>
 
@@ -134,7 +134,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-先の一次展開と[浮力の定義](#def-fluid31-buoyancy)から
+移動先の背景密度との差を一次まで取ると $\rho'_{\rm parcel}=-\xi\bar\rho'$ となる。この密度差を[浮力加速度の定義](#def-fluid31-buoyancy)に代入すると
 
 $$
 b=-\frac g{\rho_0}(-\xi\bar\rho')
@@ -451,11 +451,11 @@ $$
 
 同じ解析解から波の空間パターン、水平断面の値、分散関係、連立方程式の残差を検算する。$N,k,m,A$ を変えると、周波数、波数と群速度の直交性、密度面の変位振幅が変化する。背景密度の代表高さ差 $500$ m を固定し、$\Delta\rho/\rho_0\simeq N^2(500)/g$ を表示して Boussinesq 近似の目安も確認する。
 
-これは**線形平面波の再構成**であり、流体の非線形 PDE を時間積分する数値シミュレーションではない。標準ライブラリだけでもグラフデータと代数的残差を出力し、\`--plot\` を付けると同じ解析式による二次元の変位等値線図を Matplotlib で描画する。
+これは**線形平面波の再構成**であり、流体の非線形 PDE を時間積分する数値シミュレーションではない。標準ライブラリだけでもグラフデータと代数的残差を出力し、`--plot` を付けると同じ解析式による二次元の変位等値線図を Matplotlib で描画する。
 
 <!-- python-file-lab -->
 # lab-id: FLUID31-INTERNAL-WAVE
-# lab-title: 成層の内部重力波・位相と分散・残差
+# lab-title: 成層の内部重力波・位相と分散関係・残差
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID31/internal_wave_lab.py
 # timeout-ms: 15000
 # lab-preset: 基準の内部重力波 | --n 0.02 --k 0.003 --m 0.004 --amplitude 0.001
@@ -600,7 +600,19 @@ $N>0$、$k>0$、$m=\sqrt3\,k$ の平面波を考える。振動数、鉛直変�
 <!-- solution-start -->
 #### 詳細解答
 
-[分散関係](#thm-fluid31-dispersion)より $K=\sqrt{k^2+3k^2}=2k$ だから $\omega=N/2$。鉛直速度を $w=A\cos\theta$ とすれば[位相関係](#prop-fluid31-polarization)から $\xi=-(A/\omega)\sin\theta$。速度が最大の位相 $\theta=0$ では変位が零で、変位が最大になるのは四分の一周期ずれた時点である。[局所粒子試験](#prop-fluid31-parcel)の周波数 $N$ と比べると $\omega/N=1/2$。圧力・非圧縮性が空間モードを拘束するため単一粒子の $N$ とは一致しない。
+[分散関係](#thm-fluid31-dispersion)に $m=\sqrt3\,k$ を代入する。$k>0$ だから
+
+$
+K=\sqrt{k^2+3k^2}=2k,\qquad \omega=N\frac{k}{K}=\frac N2.
+$
+
+鉛直速度を $w=A\cos\theta$ とすれば、[位相関係](#prop-fluid31-polarization)より
+
+$
+\xi=-\frac A\omega\sin\theta,\qquad \frac{\omega}{N}=\frac12.
+$
+
+速度が最大となる位相 $\theta=0$ では変位は零である。速度と変位の極値は四分の一周期だけずれる。[局所粒子試験](#prop-fluid31-parcel)の振動数は $N$ だが、波では圧力と非圧縮条件が空間モードを拘束するので、振動数はその半分になる。
 <!-- solution-end -->
 
 ### B3. 浮力エネルギーの必要性
