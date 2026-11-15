@@ -48,7 +48,7 @@ chapters:
   - { id: U3-42, path: textbook/volumes/dream_thater/応用系/U/U3-42, status: completed, title: "金利曲線・債券・短期金利モデル" }
   - { id: U3-43, path: textbook/volumes/dream_thater/応用系/U/U3-43, status: completed, title: "価格付けモデルの横断較正・検証" }
   - { id: U3-44, path: textbook/volumes/dream_thater/応用系/U/U3-44, status: completed, title: "損益分布・リスクファクター・P と Q" }
-  - { id: U3-45, path: textbook/volumes/dream_thater/応用系/U/U3-45, status: planned, title: "Value at Risk の定義と限界" }
+  - { id: U3-45, path: textbook/volumes/dream_thater/応用系/U/U3-45, status: completed, title: "Value at Risk の定義と限界" }
   - { id: U3-46, path: textbook/volumes/dream_thater/応用系/U/U3-46, status: planned, title: "Expected Shortfall の定義と性質" }
   - { id: U3-47, path: textbook/volumes/dream_thater/応用系/U/U3-47, status: planned, title: "正規・t 分布と分散共分散法による VaR/ES" }
   - { id: U3-48, path: textbook/volumes/dream_thater/応用系/U/U3-48, status: planned, title: "historical / filtered historical simulation" }
