@@ -4,9 +4,6 @@
   <rect x="0" y="0" width="720" height="360" fill="#fff"/>
   <g stroke="#d6dce7" stroke-width="1" stroke-dasharray="4 5">
     <line x1="125" y1="76" x2="610" y2="76"/>
-    <line x1="125" y1="126" x2="610" y2="126"/>
-    <line x1="125" y1="176" x2="610" y2="176"/>
-    <line x1="125" y1="226" x2="610" y2="226"/>
   </g>
   <g stroke="#202c3d" stroke-width="2" fill="none">
     <line x1="125" y1="64" x2="125" y2="276"/>
