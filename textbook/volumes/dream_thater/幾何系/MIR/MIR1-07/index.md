@@ -52,16 +52,16 @@ $$
 >
 > $\psi\in U$ とし、$X_\psi\subset\mathbb P^4_{\mathbb C}$ を次の五次式の零集合とする。
 
-$
+$$
 F_\psi=\sum_{i=0}^4x_i^5-5\psi\prod_{i=0}^4x_i,\qquad X_\psi=\{F_\psi=0\}.
-$
+$$
 
 > 留数の分子を次の4形式に固定する。
 
-$
+$$
 \Omega=\sum_{i=0}^4(-1)^ix_i\,
 dx_0\wedge\cdots\wedge\widehat{dx_i}\wedge\cdots\wedge dx_4.
-$
+$$
 
 > $X_\psi$ 上の留数3形式を
 
@@ -163,7 +163,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-mir1-07-residue-form -->
-**定義の直接例（Fermat点での非消失性）。** $\psi=0$、$p=[1:0:0:0:-1]$ を取る。$f_0(0,0,0,-1)=1+(-1)^5=0$ なので $p\in X_0$。消去方向 $y_4$ については
+**定義の確認（Fermat点での非消失性）。** $\psi=0$、$p=[1:0:0:0:-1]$ を取る。$f_0(0,0,0,-1)=1+(-1)^5=0$ なので $p\in X_0$。消去方向 $y_4$ については
 
 $$
 f_4=5y_4^4-5\psi y_1y_2y_3,\qquad f_4(p)=5\ne0.
@@ -189,23 +189,23 @@ $$
 >
 > $\psi\in\mathbb C$、$\psi^5\ne1$ とする。次の射影五次超曲面と留数3形式を取る。
 
-$
+$$
 F_\psi=\sum_{i=0}^4x_i^5-5\psi\prod_{i=0}^4x_i,\qquad
 X_\psi=\{F_\psi=0\}\subset\mathbb P^4_{\mathbb C}.
-$
+$$
 
-$
+$$
 \Omega=\sum_{i=0}^4(-1)^ix_i\,
 dx_0\wedge\cdots\wedge\widehat{dx_i}\wedge\cdots\wedge dx_4,
 \qquad
 \omega_\psi=\operatorname{Res}_{X_\psi}(\Omega/F_\psi).
-$
+$$
 
 > この $\omega_\psi$ は斉次座標の代表に依存せず、大域的に定義された、どの点でも零にならない正則3形式である。したがって標準束は自明である。
 
-$
+$$
 K_{X_\psi}\simeq\mathcal O_{X_\psi}.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -268,7 +268,7 @@ $$
 よって周期は代表の取り方によらず、ホモロジー類で決まる。
 
 <!-- definition-example-start: def-mir1-07-period -->
-**定義の直接確認。** 同じサイクルを逆向きに取れば $\int_{-\gamma}\omega_\psi=-\Pi_\gamma$ である。また $a[\gamma]+b[\delta]$（$a,b\in\mathbb Z$）を積分すると、積分の線形性より $a\Pi_\gamma+b\Pi_\delta$ となる。**周期を1にする**という主張には非零な周期を持つサイクルと再規格化する係数の選択が必要で、全サイクル・全パラメータで自動的に1になるわけではない。$\omega_\psi$ がどの点でも零でないことだけから、特定のサイクルの周期が非零だとは言えない。
+**定義の確認。** 同じサイクルを逆向きに取れば $\int_{-\gamma}\omega_\psi=-\Pi_\gamma$ である。また $a[\gamma]+b[\delta]$（$a,b\in\mathbb Z$）を積分すると、積分の線形性より $a\Pi_\gamma+b\Pi_\delta$ となる。**周期を1にする**という主張には非零な周期を持つサイクルと再規格化する係数の選択が必要で、全サイクル・全パラメータで自動的に1になるわけではない。$\omega_\psi$ がどの点でも零でないことだけから、特定のサイクルの周期が非零だとは言えない。
 <!-- definition-example-end -->
 
 留数にはもう一つの具体的な積分表示がある。滑らかな超曲面 $X_\psi\subset\mathbb P^4$ の実3サイクル $\gamma$ の周りで、複素1次元の法方向へ小さい**正向きの円**を付けて得る実4次元の管状サイクルを $T(\gamma)$ と呼ぶ。向きは「法方向の円が先、$\gamma$ が後」と約束する。局所座標では法方向が $f_\psi$、円が $f_\psi=\varepsilon e^{i\theta}$ である。
@@ -409,9 +409,9 @@ $$
 
 [前講で定義した座標](../MIR1-06/index.md#def-mir1-06-z-coordinate)は、$\psi\ne0$ のとき
 
-$
+$$
 z=(5\psi)^{-5}
-$
+$$
 
 である。この座標の有限判別値は $z=1/3125$ である。一方、$z=0$ は有限な滑らかなファイバーを表さず、退化境界である。[前講の境界ファイバーの計算](../MIR1-06/index.md#prop-mir1-06-boundary)で得た特異な中心ファイバーに、滑らかなファイバーの周期の定義を直接適用してはならない。
 
