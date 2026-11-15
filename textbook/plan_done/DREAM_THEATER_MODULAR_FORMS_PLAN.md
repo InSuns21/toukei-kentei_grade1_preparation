@@ -64,7 +64,7 @@ MF7 ─────────────────────────�
 MF7 ─────────────────────────────────────────→ MF8
 ~~~
 
-現行EC PLANは [楕円曲線PLAN](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)（EC1〜EC11は完成・公開済み）。元の整数論横断ルート ../plans/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md のMF8接続と整合させる。各章の正式な直接prerequisite、章ID、concept owner、実在stable anchorは着手時に個別確認し、系列を丸ごと機械的に前提へ加えない。
+現行EC PLANは [楕円曲線PLAN](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)（EC1〜EC11は完成・公開済み）。元の整数論横断ルート DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md のMF8接続と整合させる。各章の正式な直接prerequisite、章ID、concept owner、実在stable anchorは着手時に個別確認し、系列を丸ごと機械的に前提へ加えない。
 
 ## 3. 記号の統一と共通注意点
 

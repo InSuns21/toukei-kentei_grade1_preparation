@@ -17,7 +17,7 @@
 - **必須:** [QM1〜QM8の量子力学](../plan_done/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md)のうち状態・観測・Born則・射影測定・ユニタリ発展、既存の線形代数（内積・テンソル積に必要な行列演算・固有値・特異値分解）と有限確率論。QMの非有界作用素やCCRの高度な結果は本講の標準経路では使わない。
 - **古典情報:** [INFO1〜INFO10](../plan_done/DREAM_THEATER_INFORMATION_THEORY_I_PLAN.md)（Shannonエントロピー、Gibbs不等式、相対エントロピー、典型列、情報源・通信路符号化）。量子情報量を初めて使う箇所でINFO側の結果と仮定を正確に参照し、古典情報理論の証明を二重所有しない。量子Shannon理論に入る前にはINFO3・INFO5〜7の必要部分を直接prerequisiteに加える。
 - **発展時のみ:** 一部の強い行列不等式・測度集中には既存の作用素論や高次元確率・ランダム行列理論を参照してよいが、全体の必修前提にしない。標準部分は有限行列・有限確率だけで理解できるよう補題を本文へ導入する。
-- **依存ルート:** [熱・時空・情報の横断ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)。各章の直接依存は実装時の chapter.yaml / knowledge.yaml で最小集合を確定する。
+- **依存ルート:** [熱・時空・情報の横断ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)。各章の直接依存は実装時の chapter.yaml / knowledge.yaml で最小集合を確定する。
 
 **原則として有限次元の複素Hilbert空間を扱う。** 基底の選択、テンソル積の順序、状態の正規化、作用素の正値性・trace=1、logの底（既定は2、必要時は自然対数）、相対エントロピーでのsupport条件を明示する。連続変数・無限次元・局所QFT代数へ定理を無条件に延長しない。
 
