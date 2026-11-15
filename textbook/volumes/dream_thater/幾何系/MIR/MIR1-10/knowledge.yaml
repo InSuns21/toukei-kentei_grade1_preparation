@@ -1,10 +1,11 @@
 chapter: MIR1-10
 scope: dream-theater
 coverage: complete
-prerequisites: [MIR1-09]
+prerequisites: [MIR1-09, ODE6]
 concepts:
   - id: mirror.picard-fuchs-operator
     name: 周期系のPicard–Fuchs作用素
+    aliases: [Picard–Fuchs作用素]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（周期系のPicard–Fuchs作用素）"]
@@ -26,7 +27,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（Picard–Fuchs方程式の正則特異点）"]
-    requires: [mirror.quintic-picard-fuchs, mirror.dwork-z-discriminant]
+    requires: [mirror.quintic-picard-fuchs, mirror.dwork-z-discriminant, ode.ode6-ordinary-singular-point, ode.ode6-indicial-equation]
   - id: mirror.quintic-pf-coefficient-recurrence
     name: 正則冪級数に対する係数漸化式
     kind: proposition
