@@ -72,6 +72,12 @@ def pair_pnl(s0: float, s1: float, half_spread: float) -> float:
     # Two legs at entry and two legs at exit: 4 * half_spread.
     return s0 - s1 - 4.0 * half_spread
 
+def fixed_rule_pnl(s0: float, s1: float, half_spread: float, threshold: float) -> float:
+    # The precommitted entry rule applies equally to training and held-out data.
+    if s0 < threshold:
+        return 0.0  # No position was opened, hence no four-leg transaction.
+    return pair_pnl(s0, s1, half_spread)
+
 def pair_audit() -> tuple[float, float, float]:
     p = DATA["pair"]
     assert time_utc(p["training_last_available_utc"]) < time_utc(
@@ -86,8 +92,8 @@ def pair_audit() -> tuple[float, float, float]:
     train_gains = []
     for i in range(0, len(train), 2):
         if train[i] >= p["threshold"]:
-            train_gains.append(pair_pnl(train[i], train[i + 1], h))
-    holdout_gain = pair_pnl(holdout[0], holdout[1], h)
+            train_gains.append(fixed_rule_pnl(train[i], train[i + 1], h, p["threshold"]))
+    holdout_gain = fixed_rule_pnl(holdout[0], holdout[1], h, p["threshold"])
     return sum(train_gains), holdout_gain, sum(train_gains) + holdout_gain
 
 def event_audit() -> tuple[float, float, float, float, bool]:
@@ -115,6 +121,8 @@ def main() -> None:
     assert isclose(static_gain, 2.5) and static_feasible
     assert isclose(stale_gain, -2.5) and not no_borrow_feasible
     assert (train, holdout, all_gains) == (4.0, -6.0, -2.0)
+    # A different precommitted threshold would prohibit this same holdout entry.
+    assert fixed_rule_pnl(2.0, 6.0, 0.5, 3.0) == 0.0
     assert success == 8.0 and failure == -42.0 and isclose(expected, 3.0)
     assert isclose(break_even, 0.84) and not budget_pass
     print(f"data_sha256={digest}")
