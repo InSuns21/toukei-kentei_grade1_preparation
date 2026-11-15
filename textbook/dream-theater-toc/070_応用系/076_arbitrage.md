@@ -20,3 +20,4 @@
 17. [U4-17 非線形・閾値共和分とレジーム変化](textbook/volumes/dream_thater/応用系/U/U4-17/index.md)
 18. [U4-18 時変ヘッジ比率とKalmanフィルタ](textbook/volumes/dream_thater/応用系/U/U4-18/index.md)
 19. [U4-19 因子中立・主成分分析・多銘柄残差戦略](textbook/volumes/dream_thater/応用系/U/U4-19/index.md)
+20. [U4-20 合併裁定：deal spreadは無リスクか](textbook/volumes/dream_thater/応用系/U/U4-20/index.md)
