@@ -102,7 +102,16 @@ $$
 
 ## 3. ミラー候補の「数値仕様」を先に確定する
 
-新しい多様体 $Y$ の実在を仮定する前に、どの値が必要なのかを一覧にしたい。元の三次元多様体の二数を $a=h^{1,1}(X)$、$b=h^{2,1}(X)$ とすると、交換される相手は $(b,a)$ である。[前講のHodge数行列](../MIR1-02/index.md#prop-mir1-02-hodge-matrix)によれば、その相手が同じCalabi–Yau型の仮定を満たすなら、三次Betti数とEuler標数も自動的に決まる。
+新しい多様体 $Y$ の実在を仮定する前に、どの値が必要なのかを一覧にしたい。元の三次元多様体の二数を $a=h^{1,1}(X)$、$b=h^{2,1}(X)$ とすると、交換される相手は $(b,a)$ である。[前講のHodge数行列](../MIR1-02/index.md#prop-mir1-02-hodge-matrix)によれば、その相手 $Y$ が同じCalabi–Yau型の仮定を満たすなら、後ろの二つの数値は次のように計算される。
+
+$
+\begin{aligned}
+b_3(Y)&=2+2h^{2,1}(Y)=2+2a,\\
+\chi_{\mathrm{top}}(Y)&=2\bigl(h^{1,1}(Y)-h^{2,1}(Y)\bigr)=2(b-a).
+\end{aligned}
+$
+
+つまり三次Betti数とEuler標数を独立に想像して指定するのでなく、交換されたHodge数から導く。
 
 <a id="def-mir1-03-numerical-target"></a>
 
@@ -188,6 +197,22 @@ $$
 
 である。係数 $\psi$ を動かすことと、**101次元の一次変形空間を全部動かすこと**は異なる。
 
+何を数えるかを先に区別しよう。$\psi$ は複素パラメータ、$z=(z_0,\ldots,z_4)$ は斉次座標である。$z$ を固定して $\psi$ だけで偏微分すると、$\psi=0$ での五次式の係数方向は
+
+$
+G(z)=\left.\frac{\partial F_\psi(z)}{\partial\psi}\right|_{\psi=0}=-5P(z)
+$
+
+となる。一方、座標自体の無限小変換 $z_i\mapsto z_i+\varepsilon L_i(z)$（$L_i$ は一次斉次式、$\varepsilon$ は一次の変化を追う記号）では、連鎖律によって
+
+$
+F_0(z+\varepsilon L(z))
+=F_0(z)+\varepsilon\sum_{i=0}^4L_i(z)\frac{\partial F_0}{\partial z_i}(z)
+\pmod{\varepsilon^2}
+$
+
+である。この座標変換は一次まで逆変換を持ち、右辺の和は同じ射影超曲面の座標表示を取り替えるだけの方向を表す。[五次式の一次多項式変形の定義](../../CYG/CYG1-13/index.md#def-cyg1-13-polynomial-direction)に従い、このような和全体を $J(F_0)_5$ として除き、五次斉次式全体の空間 $S_5$ の商 $S_5/J(F_0)_5$ で $[G]$ が非零かを調べる。$\partial/\partial\psi$ は**係数パラメータ**を、$\partial/\partial z_i$ は**座標**を微分するので、役割が異なる。
+
 <a id="prop-mir1-03-fermat-direction"></a>
 
 <!-- formal-statement-start -->
@@ -212,7 +237,7 @@ Jacobian商では座標変換に由来する方向を同一視する。[既習�
 <!-- proof-start -->
 ### 証明
 
-$F_\psi$ を $\psi$ で微分すると $\partial F_\psi/\partial\psi=-5P$。$F_0$ の偏微分は $\partial F_0/\partial z_i=5z_i^4$ だから、Jacobianイデアルの次数五部分は
+斉次座標 $z$ を固定して $F_\psi$ を $\psi$ で微分すると $\partial F_\psi/\partial\psi=-5P$。座標方向の偏微分は $\partial F_0/\partial z_i=5z_i^4$ だから、上の座標変換で得られるJacobianイデアルの次数五部分は
 
 $$
 J(F_0)_5
