@@ -1,0 +1,42 @@
+chapter: FLUID24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID23
+concepts:
+  - id: fluid.adverse-pressure-gradient
+    name: 順圧力勾配と逆圧力勾配
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（順圧力勾配と逆圧力勾配）"]
+    requires: [fluid.boundary-layer-edge-pressure]
+  - id: fluid.wall-shear-separation
+    name: 壁面せん断の零点と逆流の判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（壁面せん断の零点と逆流の判定）"]
+    requires: [fluid.boundary-layer-wall-shear, fluid.adverse-pressure-gradient]
+  - id: fluid.wall-pressure-curvature
+    name: 壁面圧力勾配と速度曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（壁面圧力勾配と速度曲率）"]
+    requires: [fluid.prandtl-steady-boundary-layer, fluid.boundary-layer-edge-pressure]
+  - id: fluid.falkner-skan-similarity
+    name: Falkner–Skanの相似表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Falkner–Skanの相似表示）"]
+    requires: [fluid.blasius-similarity, fluid.adverse-pressure-gradient]
+  - id: fluid.falkner-skan-ode
+    name: Falkner–Skan方程式への還元
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Falkner–Skan方程式への還元）"]
+    requires: [fluid.falkner-skan-similarity, fluid.prandtl-steady-boundary-layer]
+  - id: fluid.falkner-skan-friction
+    name: Falkner–Skan相似流れの壁摩擦と壁面曲率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Falkner–Skan相似流れの壁摩擦と壁面曲率）"]
+    requires: [fluid.falkner-skan-ode, fluid.boundary-layer-wall-shear, fluid.wall-pressure-curvature]

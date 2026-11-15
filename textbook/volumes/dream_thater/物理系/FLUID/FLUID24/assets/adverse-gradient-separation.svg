@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="710" viewBox="0 0 540 710" data-layout-lint="strict" role="img" aria-labelledby="separation-title separation-desc">
+  <title id="separation-title">逆圧力勾配と境界層剥離の模式図</title>
+  <desc id="separation-desc">上段は下流へ進む外側流れの減速と圧力上昇、下段は正せん断、零せん断、負せん断による壁近くの逆流を、速度プロファイルの形と線種で区別した模式図。横軸は速度、縦軸は壁からの距離。</desc>
+  <rect x="12" y="12" width="516" height="242" rx="12" fill="#f7f9fc" stroke="#b8c6d4"/>
+  <rect x="12" y="270" width="516" height="425" rx="12" fill="#ffffff" stroke="#b8c6d4"/>
+  <g font-family="sans-serif" fill="#26354a">
+    <text x="32" y="47" font-size="23" font-weight="bold">外側流れの減速と圧力上昇</text>
+    <text x="32" y="84" font-size="18">下流ほど外縁速度が小さくなる</text>
+    <text x="32" y="112" font-size="18">逆圧力勾配：dpₑ/dx &gt; 0</text>
+    <text x="38" y="165" font-size="18" fill="#135b9c">上流：速い</text>
+    <text x="324" y="165" font-size="18" fill="#135b9c">下流：遅い</text>
+    <text x="33" y="232" font-size="18">固定壁（無滑り：u = 0）</text>
+    <text x="32" y="310" font-size="23" font-weight="bold">壁面せん断と速度の向き</text>
+    <text x="32" y="340" font-size="18">横軸：接線速度 u　縦軸：壁からの高さ y</text>
+  </g>
+  <g stroke="#135b9c" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M44 182 H263"/>
+    <path d="M246 172 L263 182 L246 192"/>
+    <path d="M326 182 H480"/>
+    <path d="M463 172 L480 182 L463 192"/>
+  </g>
+  <path d="M33 200 H510" stroke="#303d52" stroke-width="4"/>
+  <g font-family="sans-serif" fill="#26354a" font-size="18" text-anchor="middle">
+    <text x="108" y="385">正せん断</text>
+    <text x="276" y="385">零せん断</text>
+    <text x="443" y="385">負せん断</text>
+  </g>
+  <g stroke="#667589" stroke-width="2" fill="none">
+    <path d="M85 607 V419 M57 607 H169"/>
+    <path d="M264 607 V419 M230 607 H348"/>
+    <path d="M445 607 V419 M401 607 H516"/>
+  </g>
+  <g font-family="sans-serif" fill="#526174" font-size="18">
+    <text x="146" y="634">u →</text>
+    <text x="319" y="634">u →</text>
+    <text x="483" y="634">u →</text>
+  </g>
+  <path d="M85 607 C116 574 141 487 166 433" stroke="#176aa5" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M264 607 C264 581 289 495 328 433" stroke="#25805c" stroke-width="4" stroke-dasharray="11 6" fill="none" stroke-linecap="round"/>
+  <path d="M445 607 C410 573 410 544 447 517 S488 459 503 434" stroke="#b34d3c" stroke-width="4" stroke-dasharray="3 7" fill="none" stroke-linecap="round"/>
+  <g font-family="sans-serif" font-size="18" fill="#26354a">
+    <text x="30" y="671">実線：下流向き</text>
+    <text x="205" y="671">破線：勾配ゼロ</text>
+    <text x="373" y="671">点線：近壁逆流</text>
+  </g>
+</svg>
