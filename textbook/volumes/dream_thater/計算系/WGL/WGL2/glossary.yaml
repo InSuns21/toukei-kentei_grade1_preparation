@@ -1,0 +1,20 @@
+chapter: WGL2
+terms:
+  - term: 頂点属性
+    english: vertex attribute
+    meaning: 頂点番号に従って入力される頂点シェーダ用の値。
+  - term: uniform
+    english: uniform
+    meaning: 一つの描画呼出しの間に共通に参照されるシェーダの変数。
+  - term: varying
+    english: inter-stage varying
+    meaning: 頂点シェーダのoutからフラグメントシェーダのinへラスタ化補間で渡す変数。
+  - term: 重心座標
+    english: barycentric coordinates
+    meaning: 非退化三角形の3頂点に対する総和1の位置係数。
+  - term: stride
+    english: vertex stride
+    meaning: 頂点属性配列で隣の頂点へ移るためのbyte単位の間隔。
+  - term: offset
+    english: vertex attribute offset
+    meaning: 頂点内の対象属性を読み始めるbyte単位の位置。
