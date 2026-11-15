@@ -153,7 +153,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（clip座標の第4成分が等しい三角形の色補間）**  
-> 頂点シェーダが3頂点から同じ正のclip座標の第4成分 $w_c$ を出力し、透視除算・viewport変換後に画面上で非退化な三角形 $ABC$ ができるとする。補間指定は `smooth`、各頂点のvarying値は $c_A,c_B,c_C\in\mathbb R^3$ とする。三角形の内部のフラグメント中心 $P$ に対応する画面上の重心座標を $\lambda_A,\lambda_B,\lambda_C$ とすると、フラグメント側へ渡される色は
+> 頂点シェーダが3頂点から同じ正のclip座標の第4成分 $w_c$ を出力し、透視除算後のNDC上で非退化な三角形 $ABC$ ができるとする。補間指定は `smooth`、各頂点のvarying値は $c_A,c_B,c_C\in\mathbb R^3$ とする。フラグメント中心に対応する三角形内部のNDC上の点 $P$ の重心座標を $\lambda_A,\lambda_B,\lambda_C$ とすると（直前に示したように画面上でも同じ重みである）、フラグメント側へ渡される色は
 
 $$
 c(P)=\lambda_Ac_A+\lambda_Bc_B+\lambda_Cc_C
