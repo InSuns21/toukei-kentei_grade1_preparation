@@ -165,7 +165,7 @@ E(U,V,P)
 =(V_x-U_x)(P_y-U_y)-(V_y-U_y)(P_x-U_x)
 $$
 
-と置きます。これは $U\to V$ と $U\to P$ の向きと面積を記録します。
+と置きます。これは $U\to V$ と $U\to P$ の向きを符号で、3点で作る三角形の面積の2倍を絶対値で記録します。$E(U,V,P)=0$ は3点が一直線上にあることを表します。
 
 <a id="prop-wgl1-edge-test"></a>
 
@@ -187,7 +187,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $B-A$ と $C-A$ の2成分を使って任意の点 $P$ を表します。$P-A=s(B-A)+t(C-A)$ と置くと、$x,y$ 成分について
+まず $B-A$ と $C-A$ の2成分を使って任意の点 $P$ を表します。未知の実数 $s,t$ を使って $P-A=s(B-A)+t(C-A)$ と置くと、$x,y$ 成分について
 
 $$
 P_x-A_x=s(B_x-A_x)+t(C_x-A_x),
@@ -245,7 +245,7 @@ E(B,C,P)=\lambda_A D,\qquad
 E(C,A,P)=\lambda_B D.
 $$
 
-最後に、この係数の非負性と三角形への所属を結び付けます。閉三角形は、辺 $AB$ 上の点と頂点 $C$ を結ぶ線分をすべて集めた領域です。$Q=(1-r)A+rB$（$0\le r\le1$）から $P=(1-u)Q+uC$（$0\le u\le1$）を作れば
+最後に、この係数の非負性と三角形への所属を結び付けます。閉三角形は、辺 $AB$ 上の点と頂点 $C$ を結ぶ線分をすべて集めた領域です。$R=(1-r)A+rB$（$0\le r\le1$）から $P=(1-u)R+uC$（$0\le u\le1$）を作れば
 
 $$
 \lambda_A=(1-u)(1-r),\quad
@@ -256,12 +256,12 @@ $$
 はすべて非負で総和1です。逆に非負の $\lambda_A,\lambda_B,\lambda_C$ の総和が1なら、$\lambda_C<1$ の場合
 
 $$
-Q=\frac{\lambda_A}{1-\lambda_C}A+
+R=\frac{\lambda_A}{1-\lambda_C}A+
 \frac{\lambda_B}{1-\lambda_C}B,\qquad
-P=(1-\lambda_C)Q+\lambda_C C
+P=(1-\lambda_C)R+\lambda_C C
 $$
 
-となり、$Q$ の2係数は非負・総和1なので $Q$ は辺 $AB$ 上です。$\lambda_C=1$ の場合は $P=C$ です。よって閉三角形への所属と3係数の非負性は同値になります。上の3つの $E$ の式で $D>0$ と $D<0$ に分ければ、命題の不等号が得られます。$\square$
+となり、$R$ の2係数は非負・総和1なので $R$ は辺 $AB$ 上です。$\lambda_C=1$ の場合は $P=C$ です。よって閉三角形への所属と3係数の非負性は同値になります。上の3つの $E$ の式で $D>0$ と $D<0$ に分ければ、命題の不等号が得られます。$\square$
 <!-- proof-end -->
 
 **判定の直接例。** 今の三角形では
@@ -449,7 +449,7 @@ HTMLのcanvasにCSS幅160pxを設定し、`canvas.width=320`、`canvas.height=24
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** [描画バッファと画素](#def-wgl1-drawing-buffer)に従い、添字の範囲は $0\le i<320,\ 0\le j<240$ です。したがって中央付近として
+**詳細解答。** [描画バッファと画素](#def-wgl1-drawing-buffer)に従い、添字の範囲は $0\le i<320,\ 0\le j<240$ です。記号 $\lfloor z\rfloor$ は $z$ 以下の最大の整数（切り捨て）を表します。したがって中央付近として
 
 $$
 (i,j)=(\lfloor320/2\rfloor,\lfloor240/2\rfloor)=(160,120)
