@@ -1,0 +1,88 @@
+chapter: SP16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP15
+forward_references: []
+concepts:
+  - id: stochastic.renewal-reward-process
+    name: 更新報酬過程
+    kind: definition
+    aliases: ["renewal reward process"]
+    introduction: formal
+    introduction_aliases: ["定義（更新報酬過程）"]
+    requires:
+      - stochastic.renewal-process
+  - id: stochastic.renewal-reward-theorem
+    name: 更新報酬定理
+    kind: theorem
+    aliases: ["renewal reward theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（更新報酬定理）"]
+    requires:
+      - stochastic.renewal-reward-process
+      - stochastic.renewal-strong-law
+      - stochastic.elementary-renewal-theorem
+  - id: stochastic.renewal-age-residual
+    name: 年齢過程・残余寿命・観測サイクル長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（年齢過程・残余寿命・観測サイクル長）"]
+    requires:
+      - stochastic.renewal-process
+  - id: stochastic.renewal-occupation
+    name: 年齢・残余寿命の時間平均
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（年齢・残余寿命の時間平均）"]
+    requires:
+      - stochastic.renewal-age-residual
+      - stochastic.renewal-reward-theorem
+  - id: stochastic.renewal-length-bias
+    name: 観測サイクル長の長さによる偏り
+    kind: proposition
+    aliases: ["inspection paradox"]
+    introduction: formal
+    introduction_aliases: ["命題（観測サイクル長の長さによる偏り）"]
+    requires:
+      - stochastic.renewal-occupation
+  - id: stochastic.renewal-measure
+    name: 更新測度
+    kind: definition
+    aliases: ["renewal measure"]
+    introduction: formal
+    introduction_aliases: ["定義（更新測度）"]
+    requires:
+      - stochastic.renewal-function
+  - id: stochastic.renewal-residual-formula
+    name: 残余寿命の更新測度表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（残余寿命の更新測度表示）"]
+    requires:
+      - stochastic.renewal-measure
+      - stochastic.renewal-age-residual
+  - id: stochastic.arithmetic-renewal
+    name: 算術型・非算術型の更新間隔
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（算術型・非算術型の更新間隔）"]
+    requires:
+      - stochastic.renewal-process
+  - id: stochastic.key-renewal-input
+    name: 鍵更新定理（単調可積分関数への適用形）
+    kind: theorem
+    aliases: ["key renewal theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（鍵更新定理：単調可積分関数への適用形）"]
+    requires:
+      - stochastic.renewal-measure
+      - stochastic.arithmetic-renewal
+  - id: stochastic.renewal-residual-limit
+    name: 非格子型の固定時刻残余寿命極限
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（非格子型の固定時刻残余寿命極限）"]
+    requires:
+      - stochastic.renewal-residual-formula
+      - stochastic.key-renewal-input
