@@ -28,15 +28,15 @@ $k>0$ [m$^{-1}$] の単一水平波数を用い、$k|\widehat\eta|\ll1$ の小�
 > **定義（Rayleigh–Taylor密度逆転とAtwood数）**  
 > この二層模型で $\rho_1>\rho_2$ を**密度逆転**と呼ぶ。上層と下層の密度差の無次元指標を
 >
-> $$
-> A_T=\frac{\rho_1-\rho_2}{\rho_1+\rho_2},\qquad -1<A_T<1
-> $$
+$$
+A_T=\frac{\rho_1-\rho_2}{\rho_1+\rho_2},\qquad -1<A_T<1
+$$
 >
 > と定義し、Atwood 数と呼ぶ。$A_T>0$ が密度逆転、$A_T<0$ が安定な密度配置、$A_T=0$ が等密度である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid35-atwood -->
-**定義の直接確認**：$\rho_1=1050,\rho_2=1000$ kg/m$^3$ なら両密度は正、$1050>1000$ なので密度逆転である。$A_T=50/2050=1/41>0$ となる。一方、密度を上下で入れ替えると $A_T=-1/41<0$。単に密度差の絶対値を使うと、この重要な判定を失う。
+**定義の確認**：$\rho_1=1050,\rho_2=1000$ kg/m$^3$ なら両密度は正、$1050>1000$ なので密度逆転である。$A_T=50/2050=1/41>0$ となる。一方、密度を上下で入れ替えると $A_T=-1/41<0$。単に密度差の絶対値を使うと、この重要な判定を失う。
 <!-- definition-example-end -->
 
 ### 1.1 圧力と運動学的境界条件から分散式へ
@@ -73,16 +73,16 @@ $$
 > **定理（Rayleigh–Taylorの分散関係と成長率）**  
 > 上記の半無限二層、静止、非圧縮・非粘性・内部無渦、小振幅、遠方減衰、$\rho_1,\rho_2,g,k>0$、$\sigma\ge0$ の模型で、非零の界面正規モードが運動学的条件と線形圧力条件を満たす必要十分条件は
 >
-> $$
-> \boxed{\omega^2=\frac{(\rho_2-\rho_1)gk+\sigma k^3}{\rho_1+\rho_2}
-> =-A_Tgk+\frac{\sigma k^3}{\rho_1+\rho_2}.}
-> $$
+$$
+\boxed{\omega^2=\frac{(\rho_2-\rho_1)gk+\sigma k^3}{\rho_1+\rho_2}
+=-A_Tgk+\frac{\sigma k^3}{\rho_1+\rho_2}.}
+$$
 >
 > 右辺が負のとき、二根は $\omega=\pm i\gamma$ で、成長枝の時間成長率は
 >
-> $$
-> \boxed{\gamma(k)=\sqrt{A_Tgk-\frac{\sigma k^3}{\rho_1+\rho_2}}>0.}
-> $$
+$$
+\boxed{\gamma(k)=\sqrt{A_Tgk-\frac{\sigma k^3}{\rho_1+\rho_2}}>0.}
+$$
 >
 > 右辺が正なら二根は実数で、その単一モードは指数増大しない。零のときは重根なので、$\gamma=0$ だけからすべての初期値の有界性までは結論しない。
 <!-- formal-statement-end -->
@@ -133,16 +133,16 @@ $$
 > **命題（表面張力で選択される不安定波数帯と最速波数）**  
 > [Rayleigh–Taylor分散関係](#thm-fluid35-rt-growth)の仮定に加えて $\rho_1>\rho_2$、$\sigma>0$ とする。指数成長する波数の集合は
 >
-> $$
-> 0<k<k_c,\qquad k_c=\sqrt{\frac{(\rho_1-\rho_2)g}{\sigma}}
-> $$
+$$
+0<k<k_c,\qquad k_c=\sqrt{\frac{(\rho_1-\rho_2)g}{\sigma}}
+$$
 >
 > であり、成長率が最大となる唯一の正波数と最大値は
 >
-> $$
-> \boxed{k_*=\frac{k_c}{\sqrt3}},\qquad
-> \boxed{\gamma_{\max}^2=\frac23 A_Tgk_*}.
-> $$
+$$
+\boxed{k_*=\frac{k_c}{\sqrt3}},\qquad
+\boxed{\gamma_{\max}^2=\frac23 A_Tgk_*}.
+$$
 >
 > $k=k_c$ では $\gamma=0$ だが、重根の長時間挙動を指数成長率だけで判定しない。
 <!-- formal-statement-end -->
@@ -196,23 +196,23 @@ $|\alpha(T-T_0)|\ll1$ として、密度差は浮力だけに保持し、慣性�
 > **定義（Rayleigh–Bénardの伝導基底状態・Rayleigh数・Prandtl数）**  
 > 水平無限層 $0<z<d$ の固定温度 $T_b>T_t$、定数 $g,\alpha,\nu,\kappa>0$ の Boussinesq 模型において、基底速度が零、基底温度が
 >
-> $$
-> \overline T(z)=T_b-\beta z,\qquad
-> \beta=\frac{\Delta T}{d}>0
-> $$
+$$
+\overline T(z)=T_b-\beta z,\qquad
+\beta=\frac{\Delta T}{d}>0
+$$
 >
 > の状態を伝導基底状態と呼ぶ。無次元数を
 >
-> $$
-> \boxed{\mathrm{Ra}=\frac{g\alpha\Delta T\,d^3}{\nu\kappa}},\qquad
-> \boxed{\mathrm{Pr}=\frac{\nu}{\kappa}}
-> $$
+$$
+\boxed{\mathrm{Ra}=\frac{g\alpha\Delta T\,d^3}{\nu\kappa}},\qquad
+\boxed{\mathrm{Pr}=\frac{\nu}{\kappa}}
+$$
 >
 > と定義し、それぞれ Rayleigh 数、Prandtl 数と呼ぶ。以下の加熱層では $\mathrm{Ra}>0$、$\mathrm{Pr}>0$ である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid35-rayleigh -->
-**定義の直接確認**：$g=10$ m/s$^2$、$\alpha=0.003$ K$^{-1}$、$\Delta T=10$ K、$d=8\cdot10^{-4}$ m、$\nu=10^{-6}$ m$^2$/s、$\kappa=1.5\cdot10^{-7}$ m$^2$/s の仮想的な定物性流体なら、両板の温度差は正、物性は全て正で、$\alpha\Delta T=0.03\ll1$ という近似も概ね満たす。$\beta=12500$ K/m で $\overline T(0)=T_b$、$\overline T(d)=T_b-\Delta T=T_t$ を直接確かめられる。
+**定義の確認**：$g=10$ m/s$^2$、$\alpha=0.003$ K$^{-1}$、$\Delta T=10$ K、$d=8\cdot10^{-4}$ m、$\nu=10^{-6}$ m$^2$/s、$\kappa=1.5\cdot10^{-7}$ m$^2$/s の仮想的な定物性流体なら、両板の温度差は正、物性は全て正で、$\alpha\Delta T=0.03\ll1$ という近似も概ね満たす。$\beta=12500$ K/m で $\overline T(0)=T_b$、$\overline T(d)=T_b-\Delta T=T_t$ を直接確かめられる。
 
 $$
 \mathrm{Ra}=\frac{10\cdot0.003\cdot10\cdot(8\cdot10^{-4})^3}
@@ -229,7 +229,7 @@ $$
 
 温度のずれを $\theta=T-\overline T$、速度の擾乱を $\boldsymbol u=(u,w)$ とする。圧力は伝導基底状態の静水圧分布を引いたずれを $p'$ とする。$x$ 方向と $z$ 方向の二次元擾乱だけを書くが、水平二方向では水平波数の大きさを使えば同じ結果となる。正の温度差は密度を $\rho'\simeq-\rho_0\alpha\theta$ だけ減らすので、鉛直上向きの浮力加速度は $+g\alpha\theta$ である。
 
-非圧縮・Boussinesq の運動量・温度方程式を基底状態の周りで一次化すると
+非圧縮・Boussinesq の運動量・温度方程式をこの静止した伝導状態の周りで一次化すると
 
 $$
 \partial_t\boldsymbol u=-\frac{\nabla p'}{\rho_0}
@@ -296,26 +296,26 @@ $$
 > **定理（自由滑り等温壁のRayleigh–Bénard固有値方程式）**  
 > $d,\rho_0,g,\alpha,\nu,\kappa>0$、$\Delta T>0$、水平方向無限、上下壁を固定温度・不透過・自由滑り、非回転・Boussinesq・定物性とする線形加熱層を考える。整数 $n\ge1$、水平波数 $k_h>0$ の正弦鉛直モードについて、
 >
-> $$
-> a=k_hd,\quad Q=a^2+n^2\pi^2,\quad
-> \lambda=\frac{s d^2}{\kappa},\quad \mathrm{Pr}=\frac{\nu}{\kappa},
-> \quad \mathrm{Ra}=\frac{g\alpha\Delta T d^3}{\nu\kappa}
-> $$
+$$
+a=k_hd,\quad Q=a^2+n^2\pi^2,\quad
+\lambda=\frac{s d^2}{\kappa},\quad \mathrm{Pr}=\frac{\nu}{\kappa},
+\quad \mathrm{Ra}=\frac{g\alpha\Delta T d^3}{\nu\kappa}
+$$
 >
 > と置く。非零の速度・温度擾乱が存在する必要十分条件は
 >
-> $$
-> \boxed{(\lambda+\mathrm{Pr}Q)(\lambda+Q)Q
-> =\mathrm{Pr}\,\mathrm{Ra}\,a^2.}
-> $$
+$$
+\boxed{(\lambda+\mathrm{Pr}Q)(\lambda+Q)Q
+=\mathrm{Pr}\,\mathrm{Ra}\,a^2.}
+$$
 >
 > このモードの無次元時間成長率の二根は
 >
-> $$
-> \boxed{\lambda_\pm=-\frac{(\mathrm{Pr}+1)Q}{2}
-> \pm\sqrt{\frac{(\mathrm{Pr}-1)^2Q^2}{4}
-> +\frac{\mathrm{Pr}\,\mathrm{Ra}\,a^2}{Q}}.}
-> $$
+$$
+\boxed{\lambda_\pm=-\frac{(\mathrm{Pr}+1)Q}{2}
+\pm\sqrt{\frac{(\mathrm{Pr}-1)^2Q^2}{4}
++\frac{\mathrm{Pr}\,\mathrm{Ra}\,a^2}{Q}}.}
+$$
 >
 > $\mathrm{Ra}>0$ なら二根は実数で、$\lambda_+>0$ となる必要十分条件は
 > $\mathrm{Ra}>(a^2+n^2\pi^2)^3/a^2$ である。
@@ -394,10 +394,10 @@ $$
 > **定理（自由滑り等温壁の臨界Rayleigh数）**  
 > [自由滑り等温壁の固有値方程式](#thm-fluid35-rb-eigen)と同じ仮定の下、すべての正弦鉛直モードと正の水平波数を通じた線形不安定の発生閾値は
 >
-> $$
-> \boxed{\mathrm{Ra}_c=\frac{27\pi^4}{4}\simeq657.511},\qquad
-> \boxed{a_c=\frac{\pi}{\sqrt2}\simeq2.22144}
-> $$
+$$
+\boxed{\mathrm{Ra}_c=\frac{27\pi^4}{4}\simeq657.511},\qquad
+\boxed{a_c=\frac{\pi}{\sqrt2}\simeq2.22144}
+$$
 >
 > である。$\mathrm{Ra}<\mathrm{Ra}_c$ ではすべての非零水平波数の正規モードで $\lambda_+<0$、$\mathrm{Ra}>\mathrm{Ra}_c$ では正の成長率をもつモードが存在する。等号での臨界モードは中立である。
 <!-- formal-statement-end -->
