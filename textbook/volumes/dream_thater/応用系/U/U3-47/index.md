@@ -496,7 +496,7 @@ $s>0$ の場合、[正規射影の命題](#prop-u3-47-normal-projection)へ、�
 $$
 X=Z,\quad A=I_r,\quad \mu=0,\quad
 w=b,\quad c=0,\quad
-\sigma_L^2=b^{\mathsf T}b=s^2>0.
+\operatorname{Var}(-b^{\mathsf T}Z)=b^{\mathsf T}b=s^2>0.
 $$
 
 この命題から
