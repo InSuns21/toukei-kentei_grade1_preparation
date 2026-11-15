@@ -171,11 +171,11 @@ $$
 >
 > $G$ が作用する $X_\psi$ の点 $p$ の安定化群と軌道を、それぞれ
 
-$
+$$
 G_p=\{g\in G:g\cdot p=p\},
 \qquad
 G\cdot p=\{g\cdot p:g\in G\}
-$
+$$
 
 > と定義する。$G_p=\{e\}$ の点を**自由点**と呼ぶ。ここで $e$ は $G$ の単位元である。
 <!-- formal-statement-end -->
