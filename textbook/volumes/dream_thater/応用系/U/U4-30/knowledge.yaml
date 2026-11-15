@@ -1,0 +1,54 @@
+chapter: U4-30
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-02, U4-15, U4-20, U4-21, U4-22, U4-23, U4-24, U4-26, U4-27, U4-28, U4-29]
+forward_references: []
+concepts:
+  - id: finance.arb-final-frozen-record
+    name: 時点整合した再現記録
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時点整合した再現記録）"]
+    requires: [finance.arb-audit-asof-snapshot, finance.arb-wf-frozen-selection]
+  - id: finance.arb-final-causal-replay
+    name: 凍結規則の過去判定は未来の追記に依存しない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（凍結規則の過去判定は未来の追記に依存しない）"]
+    requires: [finance.arb-final-frozen-record, finance.arb-wf-causal-pipeline]
+  - id: finance.arb-final-executable-certificate
+    name: 期限・容量付き二商品裁定証明書
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（期限・容量付き二商品裁定証明書）"]
+    requires: [finance.finite-market-arbitrage-alternative, finance.arb-multileg-access]
+  - id: finance.arb-final-static-payoff
+    name: 同一ペイオフ二商品の固定取引の全状態利得
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一ペイオフ二商品の固定取引の全状態利得）"]
+    requires: [finance.arb-final-executable-certificate]
+  - id: finance.arb-final-pair-ledger
+    name: 一回の固定数量ペアの約定純損益
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一回の固定数量ペアの約定純損益）"]
+    requires: [finance.arb-fill-self-financing-book, finance.arb-signal-order-fill-clock]
+  - id: finance.arb-final-pair-identity
+    name: 固定数量ペアの現金収支恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定数量ペアの現金収支恒等式）"]
+    requires: [finance.arb-final-pair-ledger]
+  - id: finance.arb-final-event-gate
+    name: イベント分岐と損失予算の同時判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イベント分岐と損失予算の同時判定）"]
+    requires: [finance.merger-break-even-probability, finance.arb-stress-scenarios]
+  - id: finance.arb-final-verdict
+    name: 三層の研究判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三層の研究判定）"]
+    requires: [finance.arb-final-static-payoff, finance.arb-final-pair-identity, finance.arb-final-event-gate, finance.arb-final-causal-replay]
