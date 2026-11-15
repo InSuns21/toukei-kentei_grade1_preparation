@@ -13,6 +13,6 @@
   <text x="97" y="290" font-size="17" fill="#1f2937" font-family="sans-serif">0</text>
   <text x="463" y="290" font-size="17" fill="#1f2937" font-family="sans-serif">1</text>
   <text x="87" y="70" font-size="17" fill="#1f2937" font-family="sans-serif">1</text>
-  <text x="503" y="93" font-size="18" fill="#155e82" font-family="sans-serif">u/U</text>
+  <text x="503" y="93" font-size="18" fill="#155e82" font-family="sans-serif">u/U=1</text>
   <line x1="485" y1="86" x2="474" y2="86" stroke="#155e82" stroke-width="2.1" stroke-dasharray="9 6"/>
 </svg>
