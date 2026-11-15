@@ -11,3 +11,4 @@
 8. [MIR1-08 Gauss–Manin接続・Hodge構造の変動](textbook/volumes/dream_thater/幾何系/MIR/MIR1-08/index.md)
 9. [MIR1-09 Griffiths–Dworkの極次数低減](textbook/volumes/dream_thater/幾何系/MIR/MIR1-09/index.md)
 10. [MIR1-10 quinticのPicard–Fuchs作用素](textbook/volumes/dream_thater/幾何系/MIR/MIR1-10/index.md)
+11. [MIR1-11 正則周期と超幾何級数](textbook/volumes/dream_thater/幾何系/MIR/MIR1-11/index.md)
