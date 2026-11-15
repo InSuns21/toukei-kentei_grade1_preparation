@@ -193,15 +193,29 @@ $$
 
 $$
 m(t)=E[N(t)]\quad(t\ge0)
-$$
->
+$
+
 > を**更新関数**と呼ぶ。初期時刻を含む平均更新時刻数は $U(t)=1+m(t)$ と書くことがある。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sp15-renewal-function -->
 ### 直接例：一定間隔と指数間隔
 
-第1節の $T_i=2$ では、$N(t)=\lfloor t/2\rfloor$ が確率 $1$ なので $m(t)=\lfloor t/2\rfloor$ です。有限値で、非減少かつ右連続ですが、$t=2,4,\ldots$ に跳びがあります。一方、$T_i$ が独立同分布の率 $\lambda>0$ の指数分布なら、[指数待ち時間からの Poisson 過程構成](../SP10/index.md#thm-sp10-exponential-construction)により $N(t)$ は平均 $\lambda t$ の Poisson 分布に従い、$m(t)=\lambda t$ です。どちらも定義の対象・条件を満たし、更新関数の形は異なります。
+第1節の定数間隔 $T_i=2$ では、更新回数が確率 $1$ で $N(t)=\lfloor t/2\rfloor$ となります。よって期待値も
+
+$
+m(t)=\lfloor t/2\rfloor
+$
+
+です。有限値で、非減少かつ右連続ですが、整数時刻 $2,4,6,\ldots$ に跳びがあります。
+
+一方、$T_i$ が独立同分布の率 $\lambda>0$ の指数分布なら、[指数待ち時間からの Poisson 過程構成](../SP10/index.md#thm-sp10-exponential-construction)により $N(t)$ は平均 $\lambda t$ の Poisson 分布に従います。この場合は
+
+$
+m(t)=\lambda t
+$
+
+という連続的な直線になります。どちらも更新関数の定義の条件を満たし、形は異なります。
 <!-- definition-example-end -->
 
 第一回の更新が $s\le t$ に起きれば、その更新を1回数え、残り $t-s$ の間には**それ以降の独立同分布の更新間隔列**による新しい更新過程が現れます。ここで最初の時刻によって条件付けると、求める関数 $m$ 自体を右辺に含む方程式が出ます。
