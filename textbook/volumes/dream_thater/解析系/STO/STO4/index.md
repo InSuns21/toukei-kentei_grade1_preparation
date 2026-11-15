@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[ガウス過程](../STO3/index.md#def-sto3-gaussian-process)、[平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
+> **既出概念への参照**：[STO1の停止時刻の定義](../STO1/index.md#def-sto1-stopping-time)、[ガウス過程](../STO3/index.md#def-sto3-gaussian-process)、[平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
 
 STO3 では、整合的な有限次元分布から確率過程を作り、モーメント評価から連続な修正を得るところまで閉じました。
 
@@ -323,7 +323,7 @@ $$
 
 を全て満たします。
 
-ここで「ガウス過程を作れた」と「連続な標本路を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
+ここで「ガウス過程を作れた」と「連続な標本路を選べた」は別々の構成段階です。STO3 の二つの定理を別々に使ったことが重要です。
 <!-- definition-example-end -->
 
 ---
@@ -631,7 +631,12 @@ P(B_{t_1}\le a,\ B_{t_2}\le b).
 \end{aligned}
 $$
 
-右辺は平均 0、分散共分散行列
+右辺は二変量ベクトル $(B_{t_1},B_{t_2})$ の確率です。
+その分散共分散行列の $(i,j)$ 成分は
+$\operatorname{Cov}(B_{t_i},B_{t_j})=\min(t_i,t_j)$ であり、
+$t_1<t_2$ を代入すると対角成分は $t_1,t_2$、
+非対角成分は $\min(t_1,t_2)=t_1$ です。
+従って平均は $(0,0)$、分散共分散行列は
 
 $$
 \Sigma
@@ -660,8 +665,8 @@ $$
 >
 > と置く。
 >
-> 1. $X=(X_t)_{0\le t\le T}$ は $W_T$ のもとで標準 Brown 運動である。
-> 2. $\mu$ が $C_0([0,T])$ 上の確率測度で、座標過程 $(e_t)$ が $\mu$ のもとで標準 Brown 運動なら
+> 1. $X=(X_t)_{0\le t\le T}$ は $W_T$ のもとで、区間 $[0,T]$ に制限した標準 Brown 運動の4条件を満たす。
+> 2. $\mu$ が $C_0([0,T])$ 上の確率測度で、座標過程 $(e_t)_{0\le t\le T}$ が $\mu$ のもとで区間 $[0,T]$ 上の標準 Brown 運動の4条件を満たすなら
 >
 $$
 \mu=W_T.
@@ -709,7 +714,7 @@ $$
 
 は **全ての標本点で**連続です。
 
-従って $X$ は $W_T$ のもとで標準 Brown 運動です。
+従って $X$ は $W_T$ のもとで、区間 $[0,T]$ 上の標準 Brown 運動の条件を満たします。
 
 **2. 一意性を示す。**
 
@@ -1002,7 +1007,7 @@ $$
 > このとき
 >
 $$
-W_t
+Z_t
 =
 B_{\tau+t}-B_\tau,
 \qquad t\ge0
@@ -1245,23 +1250,23 @@ $$
 
 は元の標本路の連続性から連続です。
 
-よって $W_t=B_{\tau+t}-B_\tau$ は 標準ブラウン運動です。
+よって $Z_t=B_{\tau+t}-B_\tau$ は 標準ブラウン運動です。
 
 最後に、有限個の時刻 $t_1,\ldots,t_m$ と Borel 集合 $C\subset\mathbb R^m$ から作る
 
 $$
-\{(W_{t_1},\ldots,W_{t_m})\in C\}
+\{(Z_{t_1},\ldots,Z_{t_m})\in C\}
 $$
 
-は全て $\mathcal F_\tau^B$ と独立です。これらの cylinder event は $\sigma(W_t:t\ge0)$ を生成します。
+は全て $\mathcal F_\tau^B$ と独立です。これらの cylinder event は $\sigma(Z_t:t\ge0)$ を生成します。
 
-ここで「$\mathcal F_\tau^B$ と独立である $W$ 側の事象全体」を集めると、補集合と互いに素な可算和で閉じています。また上の有限次元 cylinder event を全て含みます。したがって cylinder event から生成される
+ここで「$\mathcal F_\tau^B$ と独立である $Z$ 側の事象全体」を集めると、補集合と互いに素な可算和で閉じています。また上の有限次元 cylinder event を全て含みます。したがって cylinder event から生成される
 
 $$
-\sigma(W_t:t\ge0)
+\sigma(Z_t:t\ge0)
 $$
 
-の全事象まで独立性が拡張され、$\sigma(W_t:t\ge0)$ 全体が $\mathcal F_\tau^B$ と独立です。
+の全事象まで独立性が拡張され、$\sigma(Z_t:t\ge0)$ 全体が $\mathcal F_\tau^B$ と独立です。
 <!-- proof-end -->
 
 全体の確率空間の $P$-零集合に含まれる集合を全て加えた完備化を
@@ -1276,7 +1281,14 @@ $$
 \right)
 $$
 
-と書きます。この完備化に対しても同じ強マルコフ結論が成り立ちます。実際、raw な $\mathcal F_t^B$ の事象へ零集合の部分集合を加えても独立性の等式は変わらず、上の離散化証明をそのまま繰り返せます。
+と書きます。この完備化に対しても同じ強マルコフ結論が成り立ちます。
+$\tau$ が完備化フィルトレーションに関する停止時刻なら、
+各 $k,n$ について $\{\tau_n=k2^{-n}\}\in\mathcal F_{k2^{-n}}^{B,c}$
+が成り立ちます。決定論的時刻の増分と raw な過去との独立性は、
+零集合でしか異ならない事象を追加しても保たれます。
+従って Step 2 の可算和の等式と Step 3 の有界収束の議論を
+$\mathcal F_{\tau}^{B,c}$ に属する事象に対して繰り返せます。
+この議論では確率測度も必要に応じて完備化へ延長して考えます。
 
 以下の到達時刻では、標本路連続性の例外零集合を吸収するため $\mathcal F_t^{B,c}$ を使います。
 
@@ -1402,7 +1414,7 @@ $$
 
 水準 $a$ へ初めて到達した時点で、その後の増分の符号を反転します。
 
-強マルコフ性により、停止時刻の後ろは過去と独立なブラウン運動です。ブラウン運動は $W$ と $-W$ が同じ法則を持つので、反射後の過程全体もブラウン法則を持ちます。
+強マルコフ性により、停止時刻の後ろは過去と独立なブラウン運動です。ブラウン運動は $Z$ と $-Z$ が同じ法則を持つので、反射後の過程全体もブラウン法則を持ちます。
 
 <!-- proof-start -->
 ### 証明
@@ -1440,7 +1452,24 @@ $$
 -(B_{\sigma+t}-B_\sigma)
 $$
 
-も同じ法則のブラウン運動なので、$\widetilde B$ も 標準ブラウン運動と同じ法則を持ちます。
+も同じ法則のブラウン運動です。
+停止した過去の経路 $(B_{t\wedge\sigma})_{t\ge0}$ と停止時刻 $\sigma$ は
+$\mathcal F_\sigma^{B,c}$ の情報で決まり、
+停止後の増分過程はその情報と独立です。
+そのため、停止後の増分を符号反転しても、
+「停止時刻・停止した過去・停止後の増分」の同時分布は変わりません。
+実際、
+
+$$
+\widetilde B_t
+=
+B_{t\wedge\sigma}
+-
+\bigl(B_t-B_{t\wedge\sigma}\bigr)
+$$
+
+なので、この三つ組から復元される $\widetilde B$ と $B$ は同じ有限次元分布を持ちます。
+$\widetilde B$ の標本路も連続なので、標準 Brown 運動と同じ法則です。
 
 event
 
@@ -1709,6 +1738,8 @@ $$
 任意の $x\in\mathbb R$ に対し $n>|x|$ を取ります。連続な標本路は値 $-n$ から $n$ へ移る途中で $x$ を飛び越えられないので、ほとんど確実に全ての実数水準を hit します。
 
 次に return を示します。
+ここからは、到達時刻の停止時刻性を示したときと同じく、
+完備化された自然なフィルトレーション $(\mathcal F_t^{B,c})$ を用います。
 
 $\sigma_0=0$ とし、順に
 
@@ -1732,12 +1763,37 @@ $$
 
 と交互に定めます。
 
-$\sigma_k<\infty$ が成立したとします。強マルコフ性により、$\sigma_k$ 後の shifted 過程は新しいブラウン運動です。
-
-現在値から次の目標水準までの距離は 2 なので、前節の hitting probability 1 から
+各 $\sigma_k$ は $(\mathcal F_t^{B,c})$ に関する停止時刻です。
+これを確認するため、$\sigma_k$ が停止時刻であるとし、
+次の目標水準を $a_k\in\{-1,1\}$ と書きます。
+$[\sigma_k,t]$ 上の経路が $a_k$ に触れることは、
+連続性からその区間における $|B_s-a_k|$ の最小値が 0 となることと同値です。
+従って任意の固定した $t\ge0$ について
 
 $$
-P(\sigma_{k+1}<\infty\mid\mathcal F_{\sigma_k}^B)=1.
+\{\sigma_{k+1}\le t\}
+=
+\{\sigma_k\le t\}
+\cap
+\left\{
+\min_{\sigma_k\le s\le t}|B_s-a_k|=0
+\right\}.
+$$
+
+$\sigma_k\wedge t$ は $\mathcal F_t^{B,c}$-可測で、
+制限経路 $B|_{[0,t]}$ も有理時刻の座標評価から可測です。
+区間の左端と連続経路を動かしても最小値は連続に変化するため、
+右辺は $\mathcal F_t^{B,c}$ に属します。
+これを $\sigma_1$ から帰納すれば停止時刻性が従います。
+
+$\sigma_k<\infty$ が成立したとします。
+[強マルコフ性](#thm-sto4-brownian-strong-markov)により、
+$\sigma_k$ 後の shifted 過程は新しいブラウン運動です。
+現在値から次の目標水準までの距離は 2 なので、
+[ブラウン到達時刻の分布](#thm-sto4-hitting-time-law)から
+
+$$
+P(\sigma_{k+1}<\infty\mid\mathcal F_{\sigma_k}^{B,c})=1.
 $$
 
 帰納的に全ての $\sigma_k$ は finite ほとんど確実にです。
@@ -1747,9 +1803,10 @@ $$
 もし $(\sigma_k)$ が有限値 $T$ へ収束したなら、偶数番目と奇数番目の双方で $\sigma_k\to T$ なのに
 
 $$
-B_{\sigma_{2j}}\in\{-1,1\},
+B_{\sigma_{2j}}=-1,
 \qquad
-B_{\sigma_{2j+1}}=-B_{\sigma_{2j}}
+B_{\sigma_{2j+1}}=1
+\quad(j\ge1)
 $$
 
 と値が交互に $-1$ と $1$ を取ります。これは $B$ の $T$ における連続性に反します。従って
@@ -1836,7 +1893,7 @@ $$
 E[B_n^4]=3n^2.
 $$
 
-任意の $\varepsilon>0$ に対し Markov inequality から
+任意の $\varepsilon>0$ に対し [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov) から
 
 $$
 P(|B_n|>\varepsilon n)
@@ -1844,7 +1901,7 @@ P(|B_n|>\varepsilon n)
 \frac{3}{\varepsilon^4n^2}.
 $$
 
-右辺は $n$ について可算和可能なので、Borel--Cantelli lemma により
+右辺は $n$ について可算和可能なので、[Borel--Cantelli 第1補題](../../F0/F0-00P4/index.md#thm-f0-00p4-borel-cantelli-1) により
 
 $$
 \frac{B_n}{n}\to0
@@ -2152,7 +2209,7 @@ $$
 
 ### A4. 到達時刻の累積分布関数
 
-$a>0$ とします。
+$a>0$ と $t>0$ とします。
 
 [反射原理](#thm-sto4-reflection-principle) を用いて
 
@@ -2412,7 +2469,7 @@ $$
 
 ### B2. 時間反転の $t=0$ での連続性
 
-[反射原理](#thm-sto4-reflection-principle) と Borel--Cantelli lemma を用いて
+[反射原理](#thm-sto4-reflection-principle) と [Borel--Cantelli 第1補題](../../F0/F0-00P4/index.md#thm-f0-00p4-borel-cantelli-1) を用いて
 
 $$
 \frac{B_t}{t}\to0
@@ -2438,7 +2495,7 @@ $$
 E[B_n^4]=3n^2.
 $$
 
-よって Markov inequality から
+よって [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov) から
 
 $$
 P(|B_n|>\varepsilon n)
@@ -2446,7 +2503,7 @@ P(|B_n|>\varepsilon n)
 \frac{3}{\varepsilon^4n^2}.
 $$
 
-右辺の和は収束するので Borel--Cantelli lemma により
+右辺の和は収束するので [Borel--Cantelli 第1補題](../../F0/F0-00P4/index.md#thm-f0-00p4-borel-cantelli-1) により
 
 $$
 \frac{B_n}{n}\to0
@@ -2474,7 +2531,7 @@ P\left(\inf_{0\le u\le1}B_u<-x\right)
 4P(B_1>x).
 $$
 
-従って第4 モーメントによる Markov inequality で
+従って第4 モーメントによる [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov) で
 
 $$
 P(D_n>\varepsilon n)
@@ -2538,7 +2595,7 @@ $$
 
 と置きます。
 
-到達時刻 theorem から
+[到達時刻の分布](#thm-sto4-hitting-time-law)から
 
 $$
 P(\sigma_1<\infty)=1.
@@ -2552,23 +2609,28 @@ $$
 \inf\{t\ge\sigma_1:B_t=-1\}.
 $$
 
-$\sigma_1<\infty$ 上で強マルコフ性を使うと
+$\sigma_1<\infty$ 上で、完備化された自然なフィルトレーションに関する
+[強マルコフ性](#thm-sto4-brownian-strong-markov)を使うと
 
 $$
-W_t=B_{\sigma_1+t}-B_{\sigma_1}
+Z_t=B_{\sigma_1+t}-B_{\sigma_1}
 $$
 
 は新しいブラウン運動です。
 
-$B_{\sigma_1}=1$ なので、$B$ が $-1$ へ到達することは $W$ が $-2$ へ到達することと同値です。
+$B_{\sigma_1}=1$ なので、$B$ が $-1$ へ到達することは $Z$ が $-2$ へ到達することと同値です。
 
-$-W$ もブラウン運動であり水準 2 の hitting probability は 1 なので
+$-Z$ もブラウン運動であり水準 2 の hitting probability は 1 なので
 
 $$
-P(\sigma_2<\infty\mid\mathcal F_{\sigma_1}^B)=1.
+P(\sigma_2<\infty\mid\mathcal F_{\sigma_1}^{B,c})=1.
 $$
 
-同様に、$\sigma_3$ を $\sigma_2$ 後の $+1$ 到達時刻、以後交互に定義すると、帰納的に全ての $\sigma_n$ が finite ほとんど確実にです。
+同様に、$\sigma_3$ を $\sigma_2$ 後の $+1$ 到達時刻、以後交互に定義します。
+各次の到達時刻は、$\{\sigma_n\le t\}$ 上で
+$[\sigma_n,t]$ 上の連続経路と目標水準の最小距離が 0 になる事象として判定でき、
+完備化フィルトレーションに関する停止時刻になります。
+これと強マルコフ性を帰納的に使えば、全ての $\sigma_n$ が有限に定まります（ほとんど確実に）。
 
 連続な標本路が $+1$ と $-1$ の間を移るたびに、値 0 を飛び越えられないので水準 0 を通ります。
 
@@ -2684,7 +2746,8 @@ $$
 とします。
 
 1. $\tau_a<\infty$ ほとんど確実にを用いて、
-   $\tau_{a+b}-\tau_a$ が $\mathcal F_{\tau_a}^B$ と独立であることを示してください。
+   $\tau_{a+b}-\tau_a$ が完備化された自然なフィルトレーションの
+   $\mathcal F_{\tau_a}^{B,c}$ と独立であることを示してください。
 2. $\tau_{a+b}-\tau_a$ の法則が $\tau_b$ の法則と同じであることを示してください。
 3. 任意の $s,t>0$ に対し
 
@@ -2711,20 +2774,22 @@ $$
 P(\tau_a<\infty)=1.
 $$
 
-従って強マルコフ性を $\tau_a$ に適用できます。
+$\tau_a$ は完備化された自然なフィルトレーションに関する停止時刻なので、
+[強マルコフ性](#thm-sto4-brownian-strong-markov)を $\tau_a$ に適用できます。
 
 $$
-W_u
+Z_u
 =
 B_{\tau_a+u}-B_{\tau_a},
 \qquad u\ge0
 $$
 
-は 標準ブラウン運動で、$\mathcal F_{\tau_a}^B$ と独立です。
+は 標準ブラウン運動で、$\mathcal F_{\tau_a}^{B,c}$ と独立です。
 
 **2. 次の水準までの待ち時間を書き換える。**
 
-$B_{\tau_a}=a$ ほとんど確実になので
+連続標本路が $a+b$ に到達するには先に $a$ を通るので
+$\tau_a\le\tau_{a+b}$ です。また $B_{\tau_a}=a$ ほとんど確実なので
 
 $$
 \begin{aligned}
@@ -2734,11 +2799,11 @@ $$
 &=
 \inf\{u\ge0:B_{\tau_a+u}-B_{\tau_a}=b\}\\
 &=
-\inf\{u\ge0:W_u=b\}.
+\inf\{u\ge0:Z_u=b\}.
 \end{aligned}
 $$
 
-右辺はブラウン運動 $W$ の水準 $b$ 到達時刻です。
+右辺はブラウン運動 $Z$ の水準 $b$ 到達時刻です。
 
 したがって
 
@@ -2747,24 +2812,24 @@ $$
 \overset{d}=\tau_b.
 $$
 
-しかも右辺を決める shifted 過程 $W$ 全体が $\mathcal F_{\tau_a}^B$ と独立なので、
+しかも右辺を決める shifted 過程 $Z$ 全体が $\mathcal F_{\tau_a}^{B,c}$ と独立なので、
 
 $$
 \tau_{a+b}-\tau_a
 $$
 
-も $\mathcal F_{\tau_a}^B$ と独立です。
+も $\mathcal F_{\tau_a}^{B,c}$ と独立です。
 
 **3. joint probability を分解する。**
 
-event $\{\tau_a\le s\}$ は $\mathcal F_{\tau_a}^B$ に属します。実際、任意の $u\ge0$ について
+event $\{\tau_a\le s\}$ は $\mathcal F_{\tau_a}^{B,c}$ に属します。実際、任意の $u\ge0$ について
 
 $$
 \{\tau_a\le s\}\cap\{\tau_a\le u\}
 =
 \{\tau_a\le \min(s,u)\}
 \in
-\mathcal F_u^B.
+\mathcal F_u^{B,c}.
 $$
 
 従って独立性から
