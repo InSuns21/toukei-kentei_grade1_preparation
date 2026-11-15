@@ -257,7 +257,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二戦略の中立制約下での比例費用付き最適倍率）**  
-> $\mu=(3,2)^\top$ 円、$\Sigma=\left(\begin{smallmatrix}4&2\\2&4\end{smallmatrix}\right)$ 円の2乗、$\lambda=1/2$ 円の逆数とし、中立制約 $x_1+x_2=0$、既存倍率 $x^{\mathrm{old}}=0$、$\kappa_1=\kappa_2=c\ge0$ 円を仮定する。ほかの制約がないとき、[目的関数](#def-u4-25-objective)の唯一の最大点は
+> $\mu=(3,2)^\top$ 円、$\lambda=1/2$ 円の逆数とし、予測共分散を
+
+$$
+\Sigma=\begin{pmatrix}4&2\\2&4\end{pmatrix}\quad(\text{円}^2)
+$$
+
+> とする。中立制約 $x_1+x_2=0$、既存倍率 $x^{\mathrm{old}}=0$、$\kappa_1=\kappa_2=c\ge0$ 円を仮定する。ほかの制約がないとき、[目的関数](#def-u4-25-objective)の唯一の最大点は
 
 $$
 x_*=(t_*,-t_*)^\top,\qquad
@@ -447,7 +453,7 @@ $\mu=(3,2)^\top$ 円、$\Sigma=\left(\begin{smallmatrix}4&2\\2&4\end{smallmatrix
 $\mu=(1,-1)^\top$ 円、$\lambda=1$ 円の逆数、$\Sigma_\rho=\left(\begin{smallmatrix}1&\rho\\\rho&1\end{smallmatrix}\right)$ 円の2乗、$\rho=0.99$ とする。無制約解を求め、$\rho=0.98$ なら倍率がどう変わるか比較せよ。次に $H=I_2$、$G(x)\le2$ 円としたときの最適倍率を求め、相関0.80で実際の分散を計算せよ。
 
 <!-- solution-start -->
-**詳細解答**：[相関と最適倍率の命題](#prop-u4-25-near-collinear)から、$\rho=0.99$ では $x=(100,-100)^\top$、$\rho=0.98$ なら $x=(50,-50)^\top$ です。相関が0.01変わっただけで倍率は半分になります。
+**詳細解答**：[ほぼ完全相関する二戦略の倍率増幅](#prop-u4-25-near-collinear)から、$\rho=0.99$ では $x=(100,-100)^\top$、$\rho=0.98$ なら $x=(50,-50)^\top$ です。相関が0.01変わっただけで倍率は半分になります。
 
 グロス制約の下で $x=(t,-t)^\top$ と置けば $G=2|t|\le2$ から $|t|\le1$。推定相関0.99での評価値は $J_0(t)=2t-(1-\rho)t^2=2t-0.01t^2$ です。導関数 $2-0.02t$ は $-1\le t\le1$ で正なので、最大点は $t=1$、すなわち $(1,-1)^\top$ です。
 
