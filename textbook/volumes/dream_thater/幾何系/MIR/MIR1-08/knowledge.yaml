@@ -1,0 +1,35 @@
+chapter: MIR1-08
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-07, DEF1-13]
+concepts:
+  - id: mirror.dwork-gauss-manin-period
+    name: Dwork族の周期とGauss–Manin微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dwork族の周期とGauss–Manin微分）"]
+    requires: [deformation.gauss-manin-period, mirror.quintic-residue-period]
+  - id: mirror.dwork-pole-derivatives
+    name: Dwork周期の高次パラメータ微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dwork周期の高次パラメータ微分）"]
+    requires: [mirror.quintic-tube-residue, mirror.dwork-gauss-manin-period]
+  - id: mirror.dwork-griffiths
+    name: Dwork族のGriffiths横断性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dwork族のGriffiths横断性）"]
+    requires: [deformation.griffiths-transversality, mirror.quintic-global-volume]
+  - id: mirror.dwork-finite-ode
+    name: 有限ランク接続からの周期微分方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限ランク接続からの周期微分方程式）"]
+    requires: [mirror.dwork-gauss-manin-period, mirror.dwork-griffiths]
+  - id: mirror.dwork-z-derivative
+    name: z座標への周期微分の変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（z座標への周期微分の変換）"]
+    requires: [mirror.dwork-z-coordinate, mirror.dwork-gauss-manin-period]
