@@ -1,0 +1,48 @@
+chapter: U4-20
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-10, U4-15]
+forward_references: []
+concepts:
+  - id: finance.merger-cash-deal-pnl
+    name: 現金買収のdeal spreadと分岐純損益
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（現金買収のdeal spreadと分岐純損益）"]
+    requires: [finance.stat-arb-zero-funded-statewise-gain]
+  - id: finance.merger-conditional-expected-pnl
+    name: 成立確率に基づく条件付き純損益評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（成立確率に基づく条件付き純損益評価）"]
+    requires: [finance.merger-cash-deal-pnl, finance.stat-arb-performance-measures]
+  - id: finance.merger-break-even-probability
+    name: 現金買収の損益分岐成功確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（現金買収の損益分岐成功確率）"]
+    requires: [finance.merger-conditional-expected-pnl]
+  - id: finance.merger-stock-ratio-hedge
+    name: 株式対価買収の固定交換比率ヘッジ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（株式対価買収の固定交換比率ヘッジ）"]
+    requires: [finance.arb-fixed-spread-wealth, finance.merger-cash-deal-pnl]
+  - id: finance.merger-stock-contingent-pnl
+    name: 株式対価ヘッジの成立時消去と失敗時残存リスク
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（株式対価ヘッジの成立時消去と失敗時残存リスク）"]
+    requires: [finance.merger-stock-ratio-hedge]
+  - id: finance.merger-event-scenario-table
+    name: 複数結果のイベント損益表
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複数結果のイベント損益表）"]
+    requires: [finance.merger-conditional-expected-pnl]
+  - id: finance.merger-event-arbitrage-test
+    name: 有限イベント表での裁定判定と期待値の非同値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限イベント表での裁定判定と期待値の非同値）"]
+    requires: [finance.merger-event-scenario-table, finance.stat-arb-zero-funded-statewise-gain]
