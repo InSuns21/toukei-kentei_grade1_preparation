@@ -10,7 +10,7 @@
   <rect width="720" height="330" rx="10" fill="#fff"/>
   <line x1="90" y1="168" x2="634" y2="168" stroke="#777" stroke-width="1.5" stroke-dasharray="2 9" marker-end="url(#axis-arrow)"/>
   <line x1="320" y1="310" x2="320" y2="26" stroke="#777" stroke-width="1.5" stroke-dasharray="2 9" marker-end="url(#axis-arrow)"/>
-  <text x="638" y="172" font-size="18" fill="#222">east x</text>
+  <text x="640" y="142" font-size="18" fill="#222">east x</text>
   <text x="231" y="27" font-size="18" fill="#222">north y</text>
   <line x1="320" y1="168" x2="525" y2="168" stroke="#146f46" stroke-width="5" marker-end="url(#velocity-arrow)"/>
   <text x="475" y="142" font-size="19" fill="#146f46">u_g</text>
