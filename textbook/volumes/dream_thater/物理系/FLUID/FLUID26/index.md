@@ -20,11 +20,11 @@
 
 ここで $dn$ を単なる記号で済ませず、接方向から確認する。点 $q\in S$ の単位接ベクトル $v$ に沿う曲面内の曲線 $c(s)$（$c(0)=q,\ c'(0)=v$）を取れば、$dn_q(v)$ は $d(n(c(s)))/ds$ の $s=0$ での値である。$|n|^2=1$ を微分すると $n(q)\cdot dn_q(v)=0$ だから、この値は接平面 $T_qS$ に属する。従って $dn_q:T_qS\to T_qS$ は接方向を別の接方向へ写す線形写像として扱える。[GEO10 の形作用素](../../../幾何系/GEO/GEO10/index.md#def-geo10-shape-operator)の符号を反転した写像であり、その正規直交固有ベクトル $e_1,e_2$ で $dn_q(e_i)=\kappa_i e_i$ と書く。この基底では
 
-$
+$$
 \operatorname{div}_S n
 =\langle dn_q(e_1),e_1\rangle+\langle dn_q(e_2),e_2\rangle
 =\kappa_1+\kappa_2.
-$
+$$
 
 よって「二つの曲率を足す」とは、各単位接方向での法線の変化率を足す操作である。
 
@@ -49,18 +49,18 @@ $$
 - 平面では法線がどちらの接線方向でも一定なので、$\kappa_1=\kappa_2=0$、曲率和も零である。
 - 原点中心、半径 $R>0$ の球面では $n(q)=q/R$ である。接平面上の任意の単位ベクトル $v$ に沿って微分すれば $dn_q(v)=v/R$。したがって二つの直交接方向 $e_1,e_2$ はともに固有ベクトルで、固有値はそれぞれ $1/R$ となる。
 
-$
+$$
 dn_q(e_1)=\frac1R e_1,\qquad
 dn_q(e_2)=\frac1R e_2,\qquad
 \kappa_\Sigma=\frac2R.
-$
+$$
 
 - 半径 $R>0$ の円筒側面を $q(\phi,z)=(R\cos\phi,R\sin\phi,z)$ と表示すると、外向き法線は $n(\phi,z)=(\cos\phi,\sin\phi,0)$ である。円周方向の単位接ベクトル $e_\phi=(-\sin\phi,\cos\phi,0)$ について、弧長の増分が $R\,d\phi$ なので $dn_q(e_\phi)=e_\phi/R$。軸方向の $e_z=(0,0,1)$ では $n$ が $z$ に依存しないため $dn_q(e_z)=0$。よって
 
-$
+$$
 \kappa_1=\frac1R,\qquad \kappa_2=0,
 \qquad \kappa_\Sigma=\frac1R.
-$
+$$
 
 いずれも**二方向を別々に検算した**。見かけの一断面だけで二つの曲率を同一視しない。
 <!-- definition-example-end -->
@@ -110,10 +110,10 @@ $$
 
 変位 $w$ が領域内部で滑らかに変わる場合も確認する。変形写像 $F_\varepsilon(q)=q+\varepsilon w(q)n(q)$ を主方向 $e_i$ に沿って微分すると
 
-$
+$$
 dF_\varepsilon(e_i)
 =e_i+\varepsilon\{(\partial_{e_i}w)n+w\kappa_i e_i\}.
-$
+$$
 
 $n\cdot e_i=0$ だから、$|dF_\varepsilon(e_i)|^2=1+2\varepsilon w\kappa_i+O(\varepsilon^2)$ である。従って $\partial_{e_i}w$ が作る法線方向の変化は面積の一次項に現れず、先の曲率和の係数が残る。境界で $w=0$ となる小領域を使えば境界線の仕事もない。したがって
 
@@ -250,16 +250,16 @@ $$
 
 $a$ が十分小さく、管内液面を接触角 $\theta$ の球面帽で近似できるなら、壁での接線方向と球の半径を結び付けられる。管軸から外向きの水平座標を $r$、界面高さを $z(r)$ とする。液体側から測る接触角の定義により、壁 $r=a$ での接線勾配は $z_r(a)=\cot\theta$（ここで $z_r=dz/dr$）である。従って、液体から気体への上向き法線の断面成分は
 
-$
+$$
 \frac{(-z_r(a),1)}{\sqrt{1+z_r(a)^2}}
 =(-\cos\theta,\sin\theta).
-$
+$$
 
 球面帽の中心は管軸上にあり、その半径方向の法線成分の絶対値は $a/R$ でもある。よって $\theta\ne\pi/2$ では $a/R=|\cos\theta|$、すなわち $R=a/|\cos\theta|$。液体側の法線は濡れる凹面では球面の中心へ向くため、二つの主曲率の**符号**も含めると $\kappa_1=\kappa_2=-\cos\theta/a$、従って
 
-$
+$$
 \kappa_\Sigma\simeq-\frac{2\cos\theta}{a}.
-$
+$$
 
 $\theta=\pi/2$ では球面帽の半径が無限大となる平面の極限と読み、曲率は零である。濡れやすい場合 $\cos\theta>0$ なので液面は凹形で、液体側が低圧である。
 
@@ -337,12 +337,12 @@ $$
 
 ここで $h'=dh/dx$、$h''=d^2h/dx^2$ はともに水平距離 $x$ に関する導関数であり、時間微分ではない。途中の商の微分は
 
-$
+$$
 \frac d{dx}\left(\frac{h'}{\sqrt{1+h'^2}}\right)
 =\frac{h''}{\sqrt{1+h'^2}}
 -\frac{h'^2h''}{(1+h'^2)^{3/2}}
 =\frac{h''}{(1+h'^2)^{3/2}}
-$
+$$
 
 である。遠方で二相の基準圧力が等しいなら、[静水圧積分](../FLUID2/index.md#prop-fluid2-integral-profile)から界面高さ $h$ で $p_l-p_g=-\Delta\rho gh$。したがって[Young–Laplace の式](#thm-fluid26-young-laplace)は
 
