@@ -1,0 +1,48 @@
+id: "FLUID33"
+title: "Rossby波は回転成層流のどこから出るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID29
+  - FLUID31
+  - FLUID32
+official_scope: []
+learning_objectives:
+  - "球面上のfのTaylor展開からβ面近似、符号、単位、地衡近似が破れる範囲を説明する"
+  - "二次元回転浅水方程式のcurlと質量保存から浅水渦位の物質保存を導く"
+  - "水面の伸縮項を保持して静止背景の線形準地衡渦位方程式を導出する"
+  - "自由表面変形半径と内部成層モードの変形半径の区別を説明する"
+  - "Rossby波の平面波分散関係、位相速度、群速度と符号を主要中間式から計算する"
+  - "周期境界で線形QG波の正の二次不変量の保存を示す"
+  - "ブラウザPythonで位相・群速度、渦位残差、適用条件の尺度を検算する"
+definitions:
+  - { id: FLUID33-DEF-01, name: "β面近似" }
+  - { id: FLUID33-DEF-02, name: "浅水渦位" }
+  - { id: FLUID33-DEF-03, name: "地衡流の流れ関数と一層変形半径" }
+theorems:
+  - { id: FLUID33-THM-01, name: "非粘性回転浅水流の渦位保存" }
+  - { id: FLUID33-THM-02, name: "静止背景まわりの線形準地衡渦位方程式" }
+  - { id: FLUID33-THM-03, name: "静止背景の線形Rossby波の分散関係" }
+  - { id: FLUID33-PROP-01, name: "Rossby波の群速度" }
+  - { id: FLUID33-PROP-02, name: "周期領域での準地衡波の二次量保存" }
+canonical_examples:
+  - "北緯・南緯と赤道のfとβの符号"
+  - "固体回転速度場での相対渦度・絶対渦度・浅水渦位"
+  - "地衡流れ関数の速度・水面変位の二成分確認"
+  - "Rossby波の位相西進と群速度東進の同時成立"
+  - "Pythonで解析的渦位残差と位相・群速度の比較"
+problem_patterns:
+  - FLUID33-BETA-LATITUDE
+  - FLUID33-PV-CURL
+  - FLUID33-DEFORMATION-RADIUS
+  - FLUID33-DISPERSION-SIGN
+  - FLUID33-MERIDIONAL-PV
+  - FLUID33-PV-QUOTIENT
+  - FLUID33-QG-STRETCHING
+  - FLUID33-GROUP-EASTWARD
+  - FLUID33-PERIODIC-INVARIANT
+  - FLUID33-INTEGRATED-ROSSBY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 5 }

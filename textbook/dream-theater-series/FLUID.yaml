@@ -37,7 +37,7 @@ chapters:
   - { id: FLUID30, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID30, status: completed, title: "段波と跳水の上下流をどうつなぐか" }
   - { id: FLUID31, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID31, status: completed, title: "密度成層内ではどんな波が生まれるか" }
   - { id: FLUID32, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID32, status: completed, title: "地球回転で地衡流が成立する条件は何か" }
-  - { id: FLUID33, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID33, status: planned, title: "Rossby波は回転成層流のどこから出るか" }
+  - { id: FLUID33, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID33, status: completed, title: "Rossby波は回転成層流のどこから出るか" }
   - { id: FLUID34, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID34, status: planned, title: "せん断流はいつ界面を不安定にするか" }
   - { id: FLUID35, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID35, status: planned, title: "重い流体が上にあると何が起きるか" }
   - { id: FLUID36, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID36, status: planned, title: "平行剪断流の擾乱はなぜ増幅するか" }

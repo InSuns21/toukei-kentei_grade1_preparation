@@ -33,3 +33,4 @@
 30. [FLUID30 段波と跳水の上下流をどうつなぐか](textbook/volumes/dream_thater/物理系/FLUID/FLUID30/index.md)
 31. [FLUID31 密度成層内ではどんな波が生まれるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID31/index.md)
 32. [FLUID32 地球回転で地衡流が成立する条件は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID32/index.md)
+33. [FLUID33 Rossby波は回転成層流のどこから出るか](textbook/volumes/dream_thater/物理系/FLUID/FLUID33/index.md)
