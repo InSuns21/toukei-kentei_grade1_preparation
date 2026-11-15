@@ -24,16 +24,16 @@ $\partial\Omega$ の外向き単位法線を $n$、物体の外向き法線（�
 
 [FLUID14 の圧力による揚抗力の定義](../FLUID14/index.md#def-fluid14-lift-drag)は非粘性の圧力合力を扱った。粘性流では圧力のほか、流体が物体表面を接線・法線方向に引く応力も必要である。[CTM6 の Cauchy 応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)では、単位法線 $n$ の面に働く力の面積密度を応力行列と法線の積 $\sigma n$ で表した。ここではその平面成分を使う。$I$ を二次単位行列、$\tau$ を粘性応力行列として $\sigma=-pI+\tau$ と書き、$x_1=x$、$x_2=y$、$(u_1,u_2)=(u,v)$、$\partial_i=\partial/\partial x_i$（$i=1,2$）と定める。[CTM15 の非圧縮 Newton 構成則](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)をこの座標に制限すると、
 
-$
+$$
 \tau_{ij}=\mu(\partial_i u_j+\partial_j u_i),
 \qquad i,j\in\{1,2\}
-$
+$$
 
 となる。例えば $\tau_{11}=2\mu\,\partial_xu$、$\tau_{12}=\mu(\partial_yu+\partial_xv)$ である。これはひとつの応力行列の成分表示であり、法線 $n_B=((n_B)_x,(n_B)_y)$ を代入して $x$ 方向の粘性表面力密度を取り出すと、
 
-$
+$$
 (\tau n_B)_x=\tau_{11}(n_B)_x+\tau_{12}(n_B)_y
-$
+$$
 
 となる。圧力による表面力密度は $-pn_B$ であり、これらを物体表面に沿って積分したものが次の抗力である。
 
@@ -55,10 +55,10 @@ $$
 <!-- definition-example-start: def-fluid25-drag-components -->
 **定義の確認**（円柱に非対称な圧力を与える）：半径 $a>0$ の円柱の中心を原点に置き、下流側を $\theta=0$ とする。円周の位置を $r(\theta)=(a\cos\theta,a\sin\theta)$（$0\le\theta\le2\pi$）と表す。半径方向が物体の外向き法線なので $n_B=r/a=(\cos\theta,\sin\theta)$ であり、接線ベクトルと弧長要素は
 
-$
+$$
 \frac{dr}{d\theta}=a(-\sin\theta,\cos\theta),\qquad
 ds=\left|\frac{dr}{d\theta}\right|d\theta=a\,d\theta
-$
+$$
 
 である。これにより定義の表面積分を $\theta$ に関する積分へ移せる。試験的な表面圧力 $p(\theta)=p_\infty-k\cos\theta$（$k>0$）、表面で $(\tau n_B)_x=0$ を仮定すれば、
 
@@ -272,14 +272,14 @@ $$
 
 下流圧力が回復し、上の定理の外側流束条件が満たされ、$H\to\infty$ の極限が取れるなら、[この Gaussian 積分](#ref-fluid25-gaussian-integral)を利用できる。第1項では $z=y/b$ と置いて $dy=b\,dz$、第2項では $w=\sqrt2y/b$ と置いて $dy=(b/\sqrt2)\,dw$ となる。従って
 
-$
+$$
 \int_{\mathbb R}e^{-y^2/b^2}\,dy=b\sqrt\pi,\qquad
 \int_{\mathbb R}e^{-2y^2/b^2}\,dy=\frac b{\sqrt2}\sqrt\pi.
-$
+$$
 
 これらを代入すると
 
-$
+$$
 \begin{aligned}
 D'&=\rho U^2
 \left(a\int_{-\infty}^{\infty}e^{-y^2/b^2}\,dy
@@ -329,9 +329,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（半周期の鏡映対称性と揚抗力の周期）**  
 > 固定円柱まわりの時間周期 $T>0$ の滑らかな二次元 Newton 流れについて、物体表面の圧力と粘性応力の合力が存在するとする。位置を $r=(x,y)$、速度ベクトルを $\boldsymbol q(r,t)=(u(r,t),v(r,t))$、鏡映行列を $S=\operatorname{diag}(1,-1)$ とする。流体領域の全点と全時刻で
->
-> $\boldsymbol q(Sr,t+T/2)=S\boldsymbol q(r,t),\qquad p(Sr,t+T/2)=p(r,t)$
->
+
+$$
+\boldsymbol q(Sr,t+T/2)=S\boldsymbol q(r,t),\qquad
+p(Sr,t+T/2)=p(r,t)
+$$
+
 > が成立すると仮定する。このとき流体が円柱へ与える $x$ 方向の力 $D'(t)$ と $y$ 方向の力 $L'(t)$ は
 
 $$
@@ -351,21 +354,21 @@ $$
 
 $S^\mathsf T=S$、$S^2=I$ である。命題の速度の鏡映条件を、時刻 $t$ を固定して位置 $r$ で微分する。速度勾配を $(\nabla\boldsymbol q)_{ij}=\partial_j q_i$ と定めると、連鎖律から
 
-$
+$$
 (\nabla\boldsymbol q)(Sr,t+T/2)S
 =S(\nabla\boldsymbol q)(r,t),
-$
+$$
 
-$
+$$
 (\nabla\boldsymbol q)(Sr,t+T/2)
 =S(\nabla\boldsymbol q)(r,t)S^\mathsf T.
-$
+$$
 
 [非圧縮 Newton 応力の構成則](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)では $\tau=\mu\{\nabla\boldsymbol q+(\nabla\boldsymbol q)^\mathsf T\}$ である。上の式と圧力の鏡映条件を $\sigma=-pI+\tau$ に代入すると
 
-$
+$$
 \sigma(Sr,t+T/2)=S\sigma(r,t)S^\mathsf T
-$
+$$
 
 を得る。円柱の法線は $n_B(r)=r/a$ なので $n_B(Sr)=Sn_B(r)$ であり、$S$ が長さを保つため弧長要素 $ds$ も変わらない。[表面力の定義](#def-fluid25-drag-components)に対応する合力ベクトルを $F(t)=\int_{\partial B}\sigma(r,t)n_B(r)\,ds$ とすれば、$r'=Sr$ の変数変換で
 
@@ -524,9 +527,9 @@ $$
 
 従って
 
-$
+$$
 D'=M_d+2b\Delta p.
-$
+$$
 
 $M_d$ のみを用いれば $2b\Delta p$ だけ過小評価する。圧力補正は検査断面での量であって、物体表面の圧力抗力成分そのものではない。
 <!-- solution-end -->
@@ -745,7 +748,7 @@ $$
 
 **4. 積分範囲。** $z=y/d$ と置けば $dy=d\,dz$ であり、有限の $H$ では各 Gaussian 項の積分範囲が $[-H/d,H/d]$ に切られる。速度欠損と圧力補正を合計した**抗力の切断誤差**は、対称性より
 
-$
+$$
 \begin{aligned}
 D'_{\infty}-D'_H
 &=2d\int_{H/d}^{\infty}
@@ -754,7 +757,7 @@ D'_{\infty}-D'_H
 +\Delta p\,e^{-z^2}
 \right]\,dz>0.
 \end{aligned}
-$
+$$
 
 $z\ge0$ では $e^{-2z^2}\le e^{-z^2}$ だから、角括弧の速度欠損部分は $\rho U^2e^{-z^2}/4$ 以上である。$H<\infty$ では尾部が必ず正で、刻み幅を零にしてもこの**測定範囲の誤差**は消えない。台形則等の求積誤差は、同じ有限区間の厳密積分との差として別に評価する。
 <!-- solution-end -->
