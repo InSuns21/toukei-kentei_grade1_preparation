@@ -34,7 +34,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ローリング Historical Simulation）**  
-> 予測時点 $t\ge n$ において、$t$ までのデータと時点 $t$ に固定した $w_t,c_t$ によって計算した $n$ 個の損失 $\ell_{t;s}$ の**経験分布**を
+> 予測時点 $t\ge n$ において、$t$ までのデータと時点 $t$ に固定した $w_t,c_t$ によって計算した $n$ 個の損失 $\ell_{t;s}$ から作る**確率分布**を
 
 $$
 \widehat P^{\mathrm{HS}}_t
