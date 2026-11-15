@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - MIR1-13
+  - SYM1
 learning_objectives:
   - conifold点の四階方程式を通常微分へ展開し指標根0,1,1,2を導ける
   - 節点の局所平滑化から消滅三次元球面とその留数周期を積分できる
