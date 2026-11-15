@@ -109,3 +109,47 @@ test('readback tolerance and UI copy match WGL1 and WGL2 independently', async (
 
 // WGL3のCPU検算と実教材コードのテストも共通ラボCIで実行する。
 import './wgl3-lab.test.mjs';
+
+
+import {highlightSource} from './wgl-lab-highlight.mjs';
+
+test('WGL editors highlight JS and GLSL without interpreting source as HTML', () => {
+  const js = highlightSource('const shade = "<script>&"; // let ignored\nfunction draw() { return gl.drawArrays(3); }', 'javascript');
+  assert.match(js, /wgl-token-keyword">const<\/span>/);
+  assert.match(js, /wgl-token-string">&lt;script&gt;&amp;<\/span>/);
+  assert.match(js, /wgl-token-comment">\/\/ let ignored<\/span>/);
+  assert.match(js, /wgl-token-function">draw<\/span>/);
+  assert.match(js, /wgl-token-number">3<\/span>/);
+  assert.ok(!js.includes('<script>'));
+  assert.ok(!js.includes('wgl-token-keyword">let'));
+
+  const glsl = highlightSource('#version 300 es\nprecision highp float;\nin vec2 a_position; // vec3 ignored\nvoid main() { gl_Position = vec4(0.0, 1.0, 0.0, 1.0); }', 'glsl');
+  assert.match(glsl, /wgl-token-directive">#version 300 es<\/span>/);
+  assert.match(glsl, /wgl-token-keyword">precision<\/span>/);
+  assert.match(glsl, /wgl-token-type">vec2<\/span>/);
+  assert.match(glsl, /wgl-token-builtin">gl_Position<\/span>/);
+  assert.match(glsl, /wgl-token-number">0\.0<\/span>/);
+  assert.ok(!glsl.includes('wgl-token-type">vec3'));
+
+  const block = highlightSource('/* const fake = 2; */ const live = 1;', 'javascript');
+  assert.match(block, /wgl-token-comment">\/\* const fake = 2; \*\/<\/span>/);
+  assert.match(block, /wgl-token-keyword">const<\/span> live/);
+  assert.equal(highlightSource('', 'glsl'), '');
+});
+
+test('WGL source editor keeps all textarea IDs and loads a local syntax-highlighter module', async () => {
+  const html = await readFile(new URL('./wgl-lab.html', import.meta.url), 'utf8');
+  const host = await readFile(new URL('./wgl-lab-host.mjs', import.meta.url), 'utf8');
+  const css = await readFile(new URL('./wgl-lab.css', import.meta.url), 'utf8');
+  for (const id of ['js-source', 'vertex-source', 'fragment-source']) {
+    assert.ok(html.includes('id="' + id + '"'));
+  }
+  assert.ok(host.includes("import { highlightSource } from './wgl-lab-highlight.mjs'"));
+  assert.ok(host.includes("editor.addEventListener('input', refresh)"));
+  assert.ok(host.includes("highlight.scrollTop = editor.scrollTop"));
+  assert.ok(host.includes("highlight.scrollLeft = editor.scrollLeft"));
+  assert.ok(host.includes('refreshSourceHighlights();')); // programmatic reset/presets
+  assert.match(css, /\.wgl-code-editor textarea\s*\{/);
+  assert.match(css, /-webkit-text-fill-color:transparent/);
+  assert.match(css, /pointer-events:none/);
+});
