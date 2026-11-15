@@ -181,7 +181,13 @@ L-\mu_L
 \end{aligned}
 $$
 
-[特性関数の定義](../U3-38/index.md#def-u3-38-characteristic)を本講の測度 $P$ で用います。[正規特性関数の導出](../U3-38/index.md#prop-u3-38-gbm-phi)に $m=0$、$v=1$ を代入すれば、独立な $Z_j\sim N(0,1)$ について $E^P[e^{itZ_j}]=e^{-t^2/2}$ です。ここで $t\in\mathbb R$ は特性関数の引数であり、時刻ではありません。独立性によって積の期待値を分解すると、$-b^{\mathsf T}Z$ の特性関数は
+[特性関数の定義](../U3-38/index.md#def-u3-38-characteristic)を、本講の測度 $P$ で用います。[正規特性関数の導出](../U3-38/index.md#prop-u3-38-gbm-phi)に $m=0$、$v=1$ を代入すると、独立な $Z_j\sim N(0,1)$ について
+
+$$
+E^P[e^{itZ_j}]=e^{-t^2/2}\qquad(t\in\mathbb R).
+$$
+
+ここで $t$ は特性関数の実引数であり、時刻ではありません。独立性で積の期待値を分解すると、$-b^{\mathsf T}Z$ の特性関数は
 
 $$
 E[e^{it(-\sum_jb_j Z_j)}]
@@ -189,13 +195,39 @@ E[e^{it(-\sum_jb_j Z_j)}]
 =e^{-t^2\sigma_L^2/2}.
 $$
 
-これは平均0・分散 $\sigma_L^2$ の正規分布と同じ特性関数です。分布まで一致する理由も確認します。$\sigma_L>0$ なら $b_k\ne0$ となる成分 $k$ が少なくとも一つあり、$Y=-\sum_{j\ne k}b_jZ_j$ は $Z_k$ と独立です。$-b_kZ_k$ の正規密度を $g_k(x)=\phi(x/|b_k|)/|b_k|$ と書けば、$-b^{\mathsf T}Z=Y-b_kZ_k$ は
+これは平均0・分散 $\sigma_L^2$ の正規分布と同じ特性関数です。分布まで一致する理由も確認します。
+
+$\sigma_L>0$ なら $b_k\ne0$ となる成分 $k$ が少なくとも一つあります。残りの和と、$-b_kZ_k$ の正規密度を
+
+$$
+Y=-\sum_{j\ne k}b_jZ_j,\qquad
+g_k(x)=\frac{1}{|b_k|}\phi\left(\frac{x}{|b_k|}\right)
+$$
+
+と置きます。$Y$ は $Z_k$ と独立なので、$-b^{\mathsf T}Z=Y-b_kZ_k$ は
 
 $$
 h(x)=E[g_k(x-Y)]
 $$
 
-という密度を持ちます。$g_k$ は有界・連続なので $h$ も連続で、$\int h(x)\,dx=1$ は非負積分の順序交換から従います。$h$ の Fourier 変換は上で求めた特性関数に $t=-\xi$ を代入した $e^{-\xi^2\sigma_L^2/2}$ です。この変換は可積分であり、平均0・分散 $\sigma_L^2$ の正規密度も同じ変換を持ちます。従って両密度へ[Fourier反転定理](../../../解析系/FOU/FOU3/index.md#thm-fou3-inversion)を適用すれば一致し、$\sigma_L>0$ の標準化で結論を得ます。$\sigma_L=0$ の場合は[前命題](#prop-u3-47-moments)の最後の結論を使います。
+という密度を持ちます。$g_k$ は有界・連続なので $h$ も連続です。非負積分の順序交換を使えば
+
+$$
+\int_{\mathbb R}h(x)\,dx
+=E\left[\int_{\mathbb R}g_k(x-Y)\,dx\right]=1.
+$$
+
+また Fourier 変換の引数を $\xi\in\mathbb R$ とすると、上の特性関数へ $t=-\xi$ を代入して
+
+$$
+\widehat h(\xi)
+=E[e^{-i\xi(L-\mu_L)}]
+=e^{-\xi^2\sigma_L^2/2}
+$$
+
+を得ます。この関数は $\xi$ について可積分であり、平均0・分散 $\sigma_L^2$ の正規密度も同じ Fourier 変換を持ちます。両密度は連続かつ可積分なので、[Fourier反転定理](../../../解析系/FOU/FOU3/index.md#thm-fou3-inversion)によって一致します。$\sigma_L>0$ の標準化で結論を得ます。
+
+$\sigma_L=0$ の場合は[前命題](#prop-u3-47-moments)の最後の結論を使います。
 <!-- proof-end -->
 
 ## 3. 正規分布の VaR と ES を尾部積分から導く
