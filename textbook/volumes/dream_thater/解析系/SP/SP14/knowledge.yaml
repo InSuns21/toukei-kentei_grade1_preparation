@@ -1,0 +1,65 @@
+chapter: SP14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP13
+forward_references: []
+concepts:
+  - id: stochastic.birth-death-process
+    name: 出生死滅過程
+    kind: definition
+    aliases: ["birth-death process"]
+    introduction: formal
+    introduction_aliases: ["定義（出生死滅過程）"]
+    requires:
+      - stochastic.ctmc-q-matrix
+
+  - id: stochastic.birth-death-stationary-finite
+    name: 有限出生死滅過程の定常分布
+    kind: theorem
+    aliases: ["finite birth-death stationary distribution"]
+    introduction: formal
+    introduction_aliases: ["定理（有限出生死滅過程の定常分布）"]
+    requires:
+      - stochastic.birth-death-process
+      - stochastic.ctmc-stationarity-criterion
+      - stochastic.ctmc-detailed-balance
+
+  - id: stochastic.birth-death-absorption
+    name: 有限出生死滅過程の吸収確率と平均吸収時間
+    kind: theorem
+    aliases: ["finite birth-death absorption probabilities and mean hitting times"]
+    introduction: formal
+    introduction_aliases: ["定理（有限出生死滅過程の吸収確率と平均吸収時間）"]
+    requires:
+      - stochastic.birth-death-process
+      - stochastic.ctmc-first-jump-joint-law
+
+  - id: stochastic.finite-reaction-network
+    name: 有限状態の反応ネットワーク
+    kind: definition
+    aliases: ["finite-state chemical reaction network"]
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の反応ネットワーク）"]
+    requires:
+      - stochastic.ctmc-q-matrix
+
+  - id: stochastic.reaction-master-equation
+    name: 有限反応ネットワークの化学マスター方程式
+    kind: proposition
+    aliases: ["finite chemical master equation"]
+    introduction: formal
+    introduction_aliases: ["命題（有限反応ネットワークの化学マスター方程式）"]
+    requires:
+      - stochastic.finite-reaction-network
+      - stochastic.ctmc-kolmogorov-equations
+
+  - id: stochastic.reaction-binomial-stationary
+    name: 二状態分子変換の二項定常分布
+    kind: theorem
+    aliases: ["binomial stationary law for two-state molecule conversion"]
+    introduction: formal
+    introduction_aliases: ["定理（二状態分子変換の二項定常分布）"]
+    requires:
+      - stochastic.birth-death-stationary-finite
+      - stochastic.finite-reaction-network
