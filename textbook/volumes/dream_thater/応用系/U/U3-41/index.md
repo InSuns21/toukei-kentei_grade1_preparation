@@ -144,11 +144,11 @@ $b=r-q-\lambda\kappa$ だから、連続ドリフトの係数は $b-r=-q-\lambda
 
 [Black–Scholes PDE](../U3-16/index.md#thm-u3-16-bsm-necessity)では、短時間の株価変化は局所微分で扱えました。今は一回のジャンプで $s$ が $sY$ に飛ぶため、価格 $v(t,sY)$ を評価する**非局所項**が必要です。以降、満期支払 $g(S_T)$ は可積分で、指定した $Q$ で評価します。価格関数の偏導関数は
 
-$
+$$
 v_t=\frac{\partial v}{\partial t},\qquad
 v_s=\frac{\partial v}{\partial s},\qquad
 v_{ss}=\frac{\partial^2v}{\partial s^2}
-$
+$$
 
 と表します。$v_t$ は株価 $s$ を固定した時間偏微分、$v_s,v_{ss}$ は時刻 $t$ を固定した株価偏微分です。$dS_t$ が経路上の確率的増分を表すのに対し、$v_s$ は価格関数の一変数方向の感度です。
 
@@ -330,10 +330,10 @@ $$
 
 独立性で積の期待値も1です。密度は有限期間で厳密に正なので $Q_\lambda\sim P$。Brown 指数変換で $W_t^{Q_\lambda}=W_t^P+\theta_\lambda t$ が Brown 運動となり、Poisson の強度変化を各増分で確認します。長さ $h>0$ の一区間について、元の確率 $e^{-\lambda_0h}(\lambda_0h)^n/n!$ に尤度比 $e^{(\lambda_0-\lambda)h}(\lambda/\lambda_0)^n$ を掛けると
 
-$
+$$
  e^{-\lambda_0h}\frac{(\lambda_0h)^n}{n!}\,e^{(\lambda_0-\lambda)h}\left(\frac{\lambda}{\lambda_0}\right)^n
  =e^{-\lambda h}\frac{(\lambda h)^n}{n!}.
-$
+$$
 
 さらに区間分割 $0=t_0<\cdots<t_k=T$ に対して、Poisson 尤度比全体は各区間の比の積に分解します。したがって $Q_\lambda$ の下でも異なる区間の増分は独立で、その強度は $\lambda$ です。Brown 密度も $W^P$ のみに依存し、Poisson 密度は $N$ のみに依存するため、両者の独立性は保たれます。
 
