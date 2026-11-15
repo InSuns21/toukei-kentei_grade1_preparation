@@ -697,7 +697,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-**1. 欠損と圧力項。** $a=1/2$、$b=d$ を[Gaussian 後流の積分](#thm-fluid25-wake-drag)に適用する。速度部分は
+**1. 欠損と圧力項。** $a=1/2$、$b=d$ を[定常後流の抗力定理](#thm-fluid25-wake-drag)へ代入し、[Gaussian 積分](#ref-fluid25-gaussian-integral)で各項を積分する。速度部分は
 
 $$
 \begin{aligned}
