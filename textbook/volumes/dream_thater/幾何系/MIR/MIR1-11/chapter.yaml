@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - MIR1-10
+  - CA11
 learning_objectives:
   - Picard–Fuchs作用素から正則級数の係数漸化式と一意性を再現できる
   - 階乗係数を解き初項と超幾何表示のパラメータを検算できる
