@@ -1,0 +1,42 @@
+id: "MIR1-13"
+title: "大複素構造極限と最大単冪モノドロミー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-12
+learning_objectives:
+  - 穿孔円板での解析接続と局所モノドロミーの定義を説明できる
+  - Frobeniusパラメータ族から四本の解の一周変換をLeibniz則で導ける
+  - 解基底の列規約を固定してモノドロミー行列を構成できる
+  - 単冪性・冪零指数・最大単冪性を別々に検証できる
+  - 冪零対数とJordan鎖を次数ごとの中間式から計算できる
+  - 周回の向き・可逆基底変換による変化と不変量を区別できる
+  - 大複素構造境界と積分周期格子の未確定性を説明できる
+  - 周期比の一周変換から一価な局所座標候補を構成できる
+theorems:
+  - { id: MIR1-13-DEF-01, name: "局所モノドロミー作用素" }
+  - { id: MIR1-13-THM-01, name: "四本のFrobenius解の一周変換" }
+  - { id: MIR1-13-DEF-02, name: "単冪作用素と冪零作用素" }
+  - { id: MIR1-13-DEF-03, name: "階数4の最大単冪モノドロミー" }
+  - { id: MIR1-13-THM-02, name: "quinticの原点は階数4で最大単冪" }
+  - { id: MIR1-13-PROP-01, name: "規格化・向きと最大単冪性" }
+canonical_examples:
+  - 二次元の対数解で解析接続と列規約を直接確認
+  - M2-Iの二乗で単冪性と冪零指数を直接確認
+  - 恒等行列の失敗例で最大単冪の三乗非消滅を区別
+  - SのJordan鎖とM-Iの二乗・三乗を別々に計算
+  - Tの指数Qがzで単純零点を持つことを計算
+problem_patterns:
+  - MIR1-13-SECOND-LOG-CONTINUATION
+  - MIR1-13-COLUMN-MATRIX
+  - MIR1-13-NILPOTENCE-INDEX
+  - MIR1-13-EXP-PERIOD-RATIO
+  - MIR1-13-LOG-POLYNOMIAL
+  - MIR1-13-INVERSE-ORIENTATION
+  - MIR1-13-CONJUGATION
+  - MIR1-13-EIGENVALUE-COUNTEREXAMPLE
+  - MIR1-13-MONODROMY-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 10, review: 4 }
