@@ -1,0 +1,45 @@
+id: "U3-49"
+title: "シナリオ Monte Carlo と full repricing"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-48, U3-18, U3-26]
+official_scope: []
+learning_objectives:
+  - 時点tで確定した実確率Pモデルから独立試行の多因子シナリオを構成し先読みを防止できる
+  - 二つの独立正規乱数から所定の相関をもつショックを生成して共分散を証明できる
+  - 株価と金利の将来状態に残存満期を反映し非線形商品を全再評価できる
+  - 元利倍率と期末換算の現金収支を区別しシナリオ損失から経験VaRとESを計算できる
+  - ロール後の一次近似と全再評価を同じ将来時点で比較し二次誤差上界の仮定を確認できる
+  - 標本平均誤差の平方根則と標本VaR/ESの一様評価誤差上界を証明できる
+  - 共通乱数を使ったPython検算で価格評価の近似誤差と標本誤差・モデル誤差を区別できる
+definitions:
+  - { id: U3-49-DEF-01, name: "条件付きシナリオ Monte Carlo" }
+  - { id: U3-49-DEF-02, name: "株価と短期金利の二因子 P シナリオ" }
+  - { id: U3-49-DEF-03, name: "Monte Carlo による full repricing 損失標本" }
+  - { id: U3-49-DEF-04, name: "保有期間末のロール後一次近似" }
+theorems:
+  - { id: U3-49-PROP-01, name: "二因子の共分散と退化相関" }
+  - { id: U3-49-PROP-02, name: "一次近似の誤差上界" }
+  - { id: U3-49-PROP-03, name: "固定予測モデルの標本平均誤差" }
+  - { id: U3-49-PROP-04, name: "共通シナリオの一様再評価誤差と標本 VaR/ES" }
+canonical_examples:
+  - "rho=3/5の二因子でZ=(1,-1)からU=1,W=-1/5を構成"
+  - "非線形価格v(x,y)=x^2+y^2の厳密評価4と一次近似2を比較"
+  - "損失-3,-1,0,4,10の70%VaR4と端数ES8を算出"
+  - "相関正規と欧州callの固定seed試行で全再評価・一次近似のVaR/ESを比較"
+  - "4つの二因子シナリオから全再評価・一次近似の差と尾部リスクの上界を手計算"
+problem_patterns:
+  - U3-49-A1
+  - U3-49-A2
+  - U3-49-A3
+  - U3-49-A4
+  - U3-49-A5
+  - U3-49-B1
+  - U3-49-B2
+  - U3-49-B3
+  - U3-49-B4
+  - U3-49-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
