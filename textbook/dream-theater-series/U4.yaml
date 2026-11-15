@@ -1,7 +1,7 @@
 version: 1
 id: U4
 title: "裁定機会：価格矛盾の検出・相対価値・統計的裁定"
-plan: textbook/plans_progress/DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 # 全30講の設計確定。最初の講義から順に実装・検証を行う。
 chapters:
