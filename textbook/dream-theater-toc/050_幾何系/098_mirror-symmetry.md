@@ -13,3 +13,4 @@
 10. [MIR1-10 quinticのPicard–Fuchs作用素](textbook/volumes/dream_thater/幾何系/MIR/MIR1-10/index.md)
 11. [MIR1-11 正則周期と超幾何級数](textbook/volumes/dream_thater/幾何系/MIR/MIR1-11/index.md)
 12. [MIR1-12 Frobenius法と対数周期](textbook/volumes/dream_thater/幾何系/MIR/MIR1-12/index.md)
+13. [MIR1-13 大複素構造極限と最大単冪モノドロミー](textbook/volumes/dream_thater/幾何系/MIR/MIR1-13/index.md)
