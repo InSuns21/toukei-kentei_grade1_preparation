@@ -240,7 +240,20 @@ u_d(U-u_d)=U^2(1-aE)aE
 =U^2(aE-a^2E^2).
 $$
 
-下流圧力が回復し、上の定理の外側流束条件が満たされ、$H\to\infty$ の極限が取れるなら、[Gaussian積分](../../../基礎科目/RA/RA8/index.md#thm-ra8-gaussian-integral)の変数変換 $z=y/b$ および $z=\sqrt2y/b$ から
+<a id="ref-fluid25-gaussian-integral"></a>
+
+ここで使う Gaussian 積分を確認しておく。$I=\int_{-\infty}^{\infty}e^{-z^2}\,dz>0$ は収束し、その二乗を直交二座標の積分とみて極座標 $z=r\cos\theta,w=r\sin\theta$（Jacobian $r$）に変換すると
+
+$
+I^2=\int_{\mathbb R^2}e^{-(z^2+w^2)}\,dz\,dw
+=\int_0^{2\pi}\!\int_0^\infty e^{-r^2}r\,dr\,d\theta
+=2\pi\left[-\frac12e^{-r^2}\right]_0^\infty
+=\pi .
+$
+
+したがって $I=\sqrt\pi$ である。非負の積分関数なので積分順序と極座標変換が許される。
+
+下流圧力が回復し、上の定理の外側流束条件が満たされ、$H\to\infty$ の極限が取れるなら、[この Gaussian 積分](#ref-fluid25-gaussian-integral)を用いた変数変換 $z=y/b$ および $z=\sqrt2y/b$ から
 
 $$
 \begin{aligned}
@@ -506,7 +519,7 @@ $$
 u_d(U-u_d)=U(1-aE)\,UaE=U^2(aE-a^2E^2).
 $$
 
-[定常後流の抗力定理](#thm-fluid25-wake-drag)の圧力項は零である。[Gaussian積分](../../../基礎科目/RA/RA8/index.md#thm-ra8-gaussian-integral)で、$z=y/b$ と $w=\sqrt2y/b$ と別々に置換すると
+[定常後流の抗力定理](#thm-fluid25-wake-drag)の圧力項は零である。[Gaussian 積分](#ref-fluid25-gaussian-integral)で、$z=y/b$ と $w=\sqrt2y/b$ と別々に置換すると
 
 $$
 \int_{\mathbb R}E\,dy=b\sqrt\pi,\qquad
