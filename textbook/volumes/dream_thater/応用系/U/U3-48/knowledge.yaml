@@ -1,0 +1,53 @@
+chapter: U3-48
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-47, U3-46, U3-45, U3-44]
+concepts:
+  - id: finance.historical-simulation
+    name: ローリング Historical Simulation
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ローリング Historical Simulation）"]
+    requires: [finance.linear-factor-loss, finance.value-at-risk, finance.expected-shortfall]
+  - id: finance.hs-order-statistics
+    name: HS の順位分位点と端数 ES
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（HS の順位分位点と端数 ES）"]
+    requires: [finance.historical-simulation, finance.es-empirical]
+  - id: finance.weighted-historical-simulation
+    name: 時間重み付き Historical Simulation
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間重み付き Historical Simulation）"]
+    requires: [finance.historical-simulation]
+  - id: finance.weighted-hs-tail
+    name: 重み付き HS の ES と有効標本数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重み付き HS の ES と有効標本数）"]
+    requires: [finance.weighted-historical-simulation, finance.es-atom-tail]
+  - id: finance.filtered-historical-simulation
+    name: 単一因子 Filtered Historical Simulation
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単一因子 Filtered Historical Simulation）"]
+    requires: [finance.historical-simulation, finance.linear-factor-loss]
+  - id: finance.ewma-variance-filter
+    name: 予測時点を守る EWMA 分散フィルター
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（予測時点を守る EWMA 分散フィルター）"]
+    requires: [finance.filtered-historical-simulation]
+  - id: finance.ewma-causality
+    name: EWMA の正値性と先読み防止
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（EWMA の正値性と先読み防止）"]
+    requires: [finance.ewma-variance-filter]
+  - id: finance.fhs-scale-relation
+    name: FHS の正の尺度変換と HS への一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（FHS の正の尺度変換と HS への一致）"]
+    requires: [finance.filtered-historical-simulation, finance.historical-simulation, finance.expected-shortfall]
