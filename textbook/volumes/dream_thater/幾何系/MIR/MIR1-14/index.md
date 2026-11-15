@@ -221,10 +221,10 @@ $$
 
 節点の一周作用は**Picard–Lefschetzの公式**によって決まる。これは局所Milnorファイバーの位相と交叉数から導く定理で、前提の微分方程式だけでは証明できない。ここでは幾何学的な外部定理として正確な仮定と結論を示し、その後の線形代数は証明する。サイクルの向きと周回方向を選び、符号を次式の規約に固定する。
 
-<a id="principle-mir1-14-picard-lefschetz"></a>
+<a id="thm-mir1-14-picard-lefschetz"></a>
 
 <!-- formal-statement-start -->
-> **原理（Picard–Lefschetzの節点公式：幾何学的入力）**
+> **定理（Picard–Lefschetzの節点公式：幾何学的入力）**
 >
 > 滑らかなコンパクト複素三次元の一パラメータ族が、基底の $s=0$ でただ一個の通常二重点を持ち、$0<|s|<\varepsilon$ では滑らかであるとする。消滅サイクル $\delta\in H_3(Y_s,\mathbb Z)/\mathrm{tors}$ と交叉形式を上記の向き規約で取り、反時計回りの一周によるホモロジーの作用を $T_c$ とする。このとき
 
@@ -673,7 +673,7 @@ $$
 
 $y=w^\rho$ の先頭係数を零と置いて $\prod_{j=1}^4(j/5-\rho)=0$。根は $1/5,2/5,3/5,4/5$。
 
-**(2)** [Picard–Lefschetzの節点公式](#principle-mir1-14-picard-lefschetz)を、設問で与えた「一個の節点・原始的消滅サイクル」という仮定の下で使う。$N_c\gamma=\langle\gamma,\delta\rangle\delta$ とすれば $\langle\delta,\delta\rangle=0$ から $N_c^2=0$。交叉形式の単模性と $\delta$ の原始性から $\langle\gamma,\delta\rangle=\pm1$ となる $\gamma$ があるので $N_c\ne0$、階数1、冪零指数2。$T_c=I+N_c$ は最大単冪ではない。
+**(2)** [Picard–Lefschetzの節点公式](#thm-mir1-14-picard-lefschetz)を、設問で与えた「一個の節点・原始的消滅サイクル」という仮定の下で使う。$N_c\gamma=\langle\gamma,\delta\rangle\delta$ とすれば $\langle\delta,\delta\rangle=0$ から $N_c^2=0$。交叉形式の単模性と $\delta$ の原始性から $\langle\gamma,\delta\rangle=\pm1$ となる $\gamma$ があるので $N_c\ne0$、階数1、冪零指数2。$T_c=I+N_c$ は最大単冪ではない。
 
 無限遠では指標根の差が整数でないため、Frobenius解が $w^{j/5}h_j(w)$ と取れる。一周の固有値は $\zeta^j$（$\zeta=e^{2\pi i/5}$）なので、$T_\infty^5=I$、$T_\infty\ne I$。その特性多項式は
 
