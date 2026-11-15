@@ -277,8 +277,8 @@ $$
 \begin{aligned}
 \frac{f(1)-f(s)}{1-s}
 &=\sum_{k\ge1}p_k\frac{1-s^k}{1-s}\\
-&=\sum_{k\ge1}p_k\sum_{j=0}^{k-1}s^j
-\le\sum_{k\ge1}kp_k=m.
+&=\sum_{k\ge1}p_k\sum_{j=0}^{k-1}s^j\\
+&\le\sum_{k\ge1}kp_k=m.
 \end{aligned}
 $$
 
@@ -508,8 +508,8 @@ $$
 P(Z_{n+r+1}=0\mid\mathcal F_n)
 &=E[P(Z_{(n+1)+r}=0\mid\mathcal F_{n+1})\mid\mathcal F_n]\\
 &=E[q_r^{Z_{n+1}}\mid\mathcal F_n]\\
-&=f(q_r)^{Z_n}
-=q_{r+1}^{Z_n}.
+&=f(q_r)^{Z_n}\\
+&=q_{r+1}^{Z_n}.
 \end{aligned}
 $$
 
