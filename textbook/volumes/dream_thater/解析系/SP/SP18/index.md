@@ -223,7 +223,11 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（劣臨界・臨界・超臨界）**  
-> $Z_0=1$ の[Galton–Watson 分枝過程](#def-sp18-gw)で $m=E[\xi_{0,1}]<\infty$ とする。$m<1$ のときを **劣臨界**、$m=1$ のときを **臨界**、$m>1$ のときを **超臨界**という。
+> $Z_0=1$ の[Galton–Watson 分枝過程](#def-sp18-gw)で、有限な平均子孫数 $m=E[\xi_{0,1}]$ を持つとする。次の三つに分類する。
+>
+> - $m<1$：**劣臨界**
+> - $m=1$：**臨界**
+> - $m>1$：**超臨界**
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-sp18-regimes -->
