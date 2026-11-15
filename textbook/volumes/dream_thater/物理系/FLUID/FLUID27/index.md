@@ -123,7 +123,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（波数・角周波数・周期）**  
-> 右向きに進む周期的な表面変位 $\eta(x,t)=a\cos(kx-\omega t)$（$a>0$）について、波長 $\lambda>0$ を空間周期、$k=2\pi/\lambda>0$ を波数、$\omega>0$ を角周波数とする。時間周期は $T=2\pi/\omega>0$ である。$k$ の単位は rad/m（ラジアンは無次元）、$\omega$ は rad/s とする。
+> 振幅 $a>0$ の右進行波を次の形で表す。
+
+$
+\eta(x,t)=a\cos(kx-\omega t).
+$
+
+> その空間周期を波長 $\lambda>0$ といい、波数 $k>0$、角周波数 $\omega>0$、時間周期 $T>0$ を次の式で結ぶ。
+
+$
+k=\frac{2\pi}{\lambda},\qquad T=\frac{2\pi}{\omega}.
+$
+
+> $k$ の単位は rad/m（ラジアンは無次元）、$\omega$ の単位は rad/s である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid27-wavenumber -->
