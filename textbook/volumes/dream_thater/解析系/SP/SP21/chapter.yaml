@@ -1,0 +1,47 @@
+id: "SP21"
+title: "Brown 運動の再始動と境界到達の計算"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO4
+official_scope: []
+learning_objectives:
+  - ブラウン運動の強 Markov 性の適用条件として停止時刻性とほとんど確実な有限性を確認し、二進格子近似による既習の核心証明を説明できる
+  - 停止時刻後の最大上昇確率を強 Markov 性と反射原理から条件付き確率として計算できる
+  - 反射原理の同時事象から最大値と終点の同時密度を導き、終点条件付き障壁非到達確率を計算できる
+  - Gaussian increments から三つのマルチンゲールを導出し、二進丸めと可積分な支配から有界停止時刻の平均値保存を証明できる
+  - 一側初到達時刻の Laplace 変換を指数マルチンゲールと停止・支配収束から導出できる
+  - 強 Markov 性を用いて連続する二水準への到達待ち時間を独立な和へ分解できる
+  - 区間の初退出時刻の停止時刻性と有限性を確認し、上下どちらへ退出する確率および平均退出時間を求められる
+  - 一側初到達時刻の正のモーメントの有限性の境界を尾確率積分から証明し、両側退出の有限平均と対比できる
+definitions:
+  - { id: SP21-DEF-01, name: "区間からの初退出時刻" }
+theorems:
+  - { id: SP21-PROP-01, name: "停止時刻後の最大上昇" }
+  - { id: SP21-THM-01, name: "最大値と終点の同時分布" }
+  - { id: SP21-LEM-01, name: "本講で使う有界停止時刻の平均値保存" }
+  - { id: SP21-THM-02, name: "正の水準到達時刻の Laplace 変換" }
+  - { id: SP21-PROP-02, name: "連続する二水準の到達待ち時間" }
+  - { id: SP21-THM-03, name: "Brown 運動の両側退出確率と平均退出時刻" }
+  - { id: SP21-PROP-03, name: "一側到達時刻の正のモーメント" }
+canonical_examples:
+  - "水準2で再始動した後の1単位時間の増分"
+  - "水準1で再出発し時間4でさらに1上昇する条件付き確率"
+  - "終点0を条件とする障壁1の非到達確率"
+  - "区間(-1,2)での初退出時刻の停止時刻性"
+  - "一側到達と両側退出で平均時間が異なる例"
+problem_patterns:
+  - SP21-POST-STOP-INDEPENDENCE
+  - SP21-POST-STOP-MAXIMUM
+  - SP21-HITTING-LAPLACE
+  - SP21-ASYMMETRIC-EXIT
+  - SP21-ENDPOINT-BARRIER
+  - SP21-DYADIC-STOPPING
+  - SP21-SUCCESSIVE-HITTING
+  - SP21-JOINT-MAXIMUM-ENDPOINT
+  - SP21-EXIT-EXPECTED-TIME
+  - SP21-INTEGRATED-HITTING-EXIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 5.0, review: 2.0 }
