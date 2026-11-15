@@ -14,7 +14,7 @@ ETFは多数銘柄をまとめて保有する取引可能な証券で、その�
 
 <!-- formal-statement-start -->
 > **定義（多銘柄の線形因子モデルと残差）**  
-> $n\ge2$ 銘柄の収益率ベクトル $r\in L^2(\Omega;\mathbb R^n)$ と、$k\ge1$ 個の共通因子 $f\in L^2(\Omega;\mathbb R^k)$ に対し、定数ベクトル $a\in\mathbb R^n$、定数行列 $B\in\mathbb R^{n\times k}$ を用い
+> $n\ge2$ 銘柄の収益率ベクトル $r\in\mathbb R^n$ と、$k\ge1$ 個の共通因子 $f\in\mathbb R^k$ （各成分の二次モーメントが有限）に対し、定数ベクトル $a\in\mathbb R^n$、定数行列 $B\in\mathbb R^{n\times k}$ を用い
 
 $$
 r=a+Bf+\varepsilon,\qquad \varepsilon=r-a-Bf
@@ -190,7 +190,7 @@ v_2=\frac{(1,0,-1)^\top}{\sqrt2},\quad
 v_3=\frac{(1,-2,1)^\top}{\sqrt6}
 $$
 
-> とし、標本共分散が $S=9v_1v_1^\top+4v_2v_2^\top+v_3v_3^\top$ だったとします。内積は $v_1^\top v_2=0$、$v_1^\top v_3=(1-2+1)/\sqrt{18}=0$、$v_2^\top v_3=(1-1)/\sqrt{12}=0$ で、いずれの長さも1です。各 $Sv_j=\lambda_jv_j$ となり、固有値は9、4、1です。偏差 $x=(1,-2,1)^\top=\sqrt6v_3$ に $k=2$ を使うと、得点 $v_1^\top x=v_2^\top x=0$、共通変動0、残差 $x$ です。$x$ が消えずに残る理由は $v_3$ 方向だからです。
+とし、標本共分散が $S=9v_1v_1^\top+4v_2v_2^\top+v_3v_3^\top$ だったとします。内積は $v_1^\top v_2=0$、$v_1^\top v_3=(1-2+1)/\sqrt{18}=0$、$v_2^\top v_3=(1-1)/\sqrt{12}=0$ で、いずれの長さも1です。各 $Sv_j=\lambda_jv_j$ となり、固有値は9、4、1です。偏差 $x=(1,-2,1)^\top=\sqrt6v_3$ に $k=2$ を使うと、得点 $v_1^\top x=v_2^\top x=0$、共通変動0、残差 $x$ です。$x$ が消えずに残る理由は $v_3$ 方向だからです。
 <!-- definition-example-end -->
 
 どの主成分を共通変動として除くべきかは、説明分散が大きいことだけでは決まりません。特に最大の主成分が市場ETFと一致する必然性はなく、株価収益率の標準化の有無によっても主成分は変わります。
@@ -229,7 +229,7 @@ $$
 =\operatorname{tr}(U^\top SU).
 $$
 
-$S=\sum_j\lambda_jv_jv_j^\top$ を代入し、$d_j=\|U^\top v_j\|_2^2$ とおくと、$0\le d_j\le1$、$\sum_jd_j=\operatorname{tr}(U^\top U)=k$ で、
+実対称の $S$ に[正規作用素のスペクトル定理](../../../基礎科目/LA/LA5/index.md#thm-la5-normal-spectral)を適用します。$S=\sum_j\lambda_jv_jv_j^\top$ と展開できるので、これを代入し、$d_j=\|U^\top v_j\|_2^2$ とおくと、$0\le d_j\le1$、$\sum_jd_j=\operatorname{tr}(U^\top U)=k$ で、
 
 $$
 \operatorname{tr}(U^\top SU)=\sum_{j=1}^n\lambda_jd_j.
@@ -245,7 +245,7 @@ $$
 \end{aligned}
 $$
 
-です（$k=0$ の場合は取り出す分散が0なので自明）。ゆえに取り出せる分散は高々 $\sum_{j=1}^k\lambda_j$ で、残差平方和は $\operatorname{tr}S-\sum_{j=1}^k\lambda_j=\sum_{j=k+1}^n\lambda_j$ 以上です。$U=V_k$ なら $d_1=\cdots=d_k=1$、残りは0となり等号です。
+です（ここでは $1\le k<n$ とした）。$k=0$ では取り出す分散が0なので直接成立します。ゆえに取り出せる分散は高々 $\sum_{j=1}^k\lambda_j$ で、残差平方和は $\operatorname{tr}S-\sum_{j=1}^k\lambda_j=\sum_{j=k+1}^n\lambda_j$ 以上です。$U=V_k$ なら $d_1=\cdots=d_k=1$、残りは0となり等号です。
 
 残差共分散は残差の外積を平均して
 
