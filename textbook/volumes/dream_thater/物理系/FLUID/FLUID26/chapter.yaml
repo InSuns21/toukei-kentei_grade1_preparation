@@ -1,0 +1,50 @@
+id: "FLUID26"
+title: "曲がった界面の圧力差は何で決まるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID25
+  - GEO10
+  - ODE4
+  - NA7
+official_scope: []
+learning_objectives:
+  - "法線と二主曲率の符号規約を固定し、球面・円筒面の曲率和を確認する"
+  - "界面の面積・体積の一次変分からYoung–Laplace圧力跳躍を導き、圧力差の符号と単位を確定する"
+  - "一枚の液滴・気泡と二面の薄膜泡を区別して差圧を計算する"
+  - "接触角の幾何学的定義と理想平衡接触線のYoungの式を導出する"
+  - "静水圧積分と球面帽近似から毛管上昇・下降を導き、Bond数で成立域を点検する"
+  - "毛管長と鉛直壁の非線形メニスカス形状方程式・第一積分を導出する"
+  - "Pythonの静的メニスカス積分で格子誤差と小勾配近似誤差を区別する"
+definitions:
+  - { id: FLUID26-DEF-01, name: "向き付き全曲率" }
+  - { id: FLUID26-DEF-02, name: "液体側から測る接触角" }
+  - { id: FLUID26-DEF-03, name: "毛管長" }
+theorems:
+  - { id: FLUID26-THM-01, name: "Young–Laplace の界面圧力跳躍" }
+  - { id: FLUID26-PROP-01, name: "球面と円筒面の圧力差" }
+  - { id: FLUID26-PROP-02, name: "理想平衡接触線の Young の式" }
+  - { id: FLUID26-THM-02, name: "細管近似での毛管上昇・下降" }
+  - { id: FLUID26-THM-03, name: "鉛直壁の静的メニスカスと第一積分" }
+canonical_examples:
+  - "平面・球・円筒の主曲率の二方向確認"
+  - "液滴半径と圧力差、薄膜の二界面との比較"
+  - "鉛直壁の接線ベクトルから接触角を内積で確認"
+  - "Youngの式を満たす表面自由エネルギー差"
+  - "小Bond数の円管毛管上昇と毛管長"
+  - "静的メニスカスの第一積分とPython検算"
+problem_patterns:
+  - FLUID26-DROPLET-PRESSURE
+  - FLUID26-CYLINDER-CURVATURE
+  - FLUID26-BUBBLE-INTERFACES
+  - FLUID26-CAPILLARY-RISE
+  - FLUID26-CONTACT-ANGLE-CAPILLARY-LENGTH
+  - FLUID26-VIRTUAL-WORK-SPHERE
+  - FLUID26-RADIUS-ANGLE-SCALING
+  - FLUID26-WALL-FIRST-INTEGRAL
+  - FLUID26-YOUNG-LIMIT
+  - FLUID26-INTEGRATED-THREE-MODELS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }

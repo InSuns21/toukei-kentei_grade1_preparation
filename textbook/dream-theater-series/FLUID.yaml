@@ -30,7 +30,7 @@ chapters:
   - { id: FLUID23, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID23, status: completed, title: "境界層を積分すると抗力を評価できるか" }
   - { id: FLUID24, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID24, status: completed, title: "圧力勾配はどのように境界層を剥離させるか" }
   - { id: FLUID25, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID25, status: completed, title: "物体の抗力と後流の渦をどう結ぶか" }
-  - { id: FLUID26, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID26, status: planned, title: "曲がった界面の圧力差は何で決まるか" }
+  - { id: FLUID26, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID26, status: completed, title: "曲がった界面の圧力差は何で決まるか" }
   - { id: FLUID27, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID27, status: planned, title: "水面波の伝播速度は波長でなぜ変わるか" }
   - { id: FLUID28, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID28, status: planned, title: "群速度はエネルギーの輸送とどう関係するか" }
   - { id: FLUID29, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID29, status: planned, title: "浅水近似はどの保存則を残すか" }
