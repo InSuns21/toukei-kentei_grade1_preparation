@@ -1,0 +1,51 @@
+id: "FLUID29"
+title: "浅水近似はどの保存則を残すか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID28
+  - FLUID5
+  - FLUID6
+official_scope: []
+learning_objectives:
+  - "水深・自由表面標高・底面標高・水深平均速度・単位幅流量の意味と単位を区別する"
+  - "非圧縮・自由表面条件・底面非貫通から鉛直積分した質量保存を厳密に導く"
+  - "浅水比とFroude数の尺度から静水圧近似を導き、速度の鉛直一様性が別仮定であると説明する"
+  - "深さ平均水平運動から底面源項を含む浅水方程式を導出し、平底の場合の保存形を示す"
+  - "流束Jacobianの固有値から二つの特性速度を求め、微小長波速度と対応させる"
+  - "起伏上の湖面静止を質量式・圧力勾配・底面源項で検算する"
+  - "滑らかな解の水柱エネルギー保存則を証明し、跳水への無条件な拡張を避ける"
+  - "ブラウザPython有限体積法でダム決壊・湖面静止の正値水深、総水量、釣合残差を再現する"
+definitions:
+  - { id: FLUID29-DEF-01, name: "水深平均速度と単位幅流量" }
+  - { id: FLUID29-DEF-02, name: "水柱の力学的エネルギー" }
+theorems:
+  - { id: FLUID29-THM-01, name: "鉛直積分による水深の質量保存" }
+  - { id: FLUID29-PROP-01, name: "浅水長波の静水圧近似" }
+  - { id: FLUID29-THM-02, name: "一次元非粘性浅水方程式" }
+  - { id: FLUID29-THM-03, name: "浅水方程式の特性速度" }
+  - { id: FLUID29-PROP-02, name: "湖面静止の釣合解" }
+  - { id: FLUID29-THM-04, name: "滑らかな浅水流のエネルギー保存" }
+canonical_examples:
+  - "鉛直速度分布の積分から平均流量を定める"
+  - "水面と底の運動学条件による積分端点項の相殺"
+  - "静水圧勾配から地形源項を導出する"
+  - "特性多項式の平方完成と静止水の線形波動方程式"
+  - "起伏のある湖面静止で圧力勾配と底面力が相殺する"
+  - "底面位置エネルギーを含む滑らかな流れの保存則"
+  - "反射壁ダム決壊と起伏湖面静止の保存性・正値検査"
+problem_patterns:
+  - FLUID29-HYDROSTATIC-SCALE
+  - FLUID29-VERTICAL-DISCHARGE
+  - FLUID29-LAKE-STATIC-COSINE
+  - FLUID29-CHARACTERISTIC-SIGNS
+  - FLUID29-MOMENTUM-FLUX-UNITS
+  - FLUID29-BOUNDARY-CANCELLATION
+  - FLUID29-LINEAR-LONG-WAVE
+  - FLUID29-MECHANICAL-ENERGY
+  - FLUID29-CELL-MASS-TELESCOPING
+  - FLUID29-HYDROSTATIC-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }
