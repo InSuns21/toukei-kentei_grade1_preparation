@@ -673,7 +673,7 @@ $$
 これらを PDE へ代入すると
 
 $$
-\frac{\mathrm{PDE\ 左辺}}{p}
+\frac{p_t+\kappa(\theta-x)p_x+\frac{\sigma^2}{2}p_{xx}-xp}{p}
 =-a'+b'x-\kappa(\theta-x)b+\frac{\sigma^2}{2}b^2-x.
 $$
 
