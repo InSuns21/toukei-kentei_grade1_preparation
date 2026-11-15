@@ -1,0 +1,39 @@
+id: "MIR1-11"
+title: "正則周期と超幾何級数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-10
+  - CA11
+learning_objectives:
+  - Picard–Fuchs作用素から正則級数の係数漸化式と一意性を再現できる
+  - 階乗係数を解き初項と超幾何表示のパラメータを検算できる
+  - 比の判定法とStirling公式から収束半径と境界での挙動を区別できる
+  - トーラス留数周期を一様収束の下で展開し定数項を抽出できる
+  - 正則局所解と実際の周期および原点の退化境界の違いを説明できる
+theorems:
+  - { id: MIR1-11-THM-01, name: "原点で正則な規格化解" }
+  - { id: MIR1-11-DEF-01, name: "本講の一般化超幾何級数" }
+  - { id: MIR1-11-PROP-01, name: "quintic正則解の超幾何表示" }
+  - { id: MIR1-11-PROP-02, name: "境界での収束と導関数の発散" }
+  - { id: MIR1-11-PROP-03, name: "トーラス留数積分による正則周期" }
+canonical_examples:
+  - a0=1からa1=120 a2=113400 a3=168168000を再計算
+  - 上昇階乗の直接例で24x/625が120zになることを確認
+  - Stirling公式でa_d R^dのd^{-2}と微分のd^{-1}を比較
+  - 4トーラスの指数零条件から五つの選択回数がdとなることを確認
+  - 固定点反復からu4の根の一意性と単純性を示す
+problem_patterns:
+  - MIR1-11-PF-COEFFICIENT
+  - MIR1-11-FIRST-TERMS
+  - MIR1-11-POCHHAMMER
+  - MIR1-11-RADIUS-PSI
+  - MIR1-11-HOLOMORPHIC-UNIQUENESS
+  - MIR1-11-BOUNDARY-DERIVATIVE
+  - MIR1-11-TORUS-CONSTANT-TERM
+  - MIR1-11-PERIOD-NORMALIZATION
+  - MIR1-11-FUNDAMENTAL-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 5 }

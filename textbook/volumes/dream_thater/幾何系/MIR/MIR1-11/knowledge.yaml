@@ -1,0 +1,35 @@
+chapter: MIR1-11
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-10, CA11]
+concepts:
+  - id: mirror.quintic-holomorphic-hypergeometric-period
+    name: quintic正則周期の階乗級数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（原点で正則な規格化解）"]
+    requires: [mirror.quintic-pf-coefficient-recurrence]
+  - id: mirror.hypergeometric-4f3
+    name: 一般化超幾何級数4F3
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講の一般化超幾何級数）"]
+    requires: []
+  - id: mirror.quintic-hypergeometric-identity
+    name: quintic正則解の超幾何表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quintic正則解の超幾何表示）"]
+    requires: [mirror.quintic-holomorphic-hypergeometric-period, mirror.hypergeometric-4f3]
+  - id: mirror.quintic-period-radius-boundary
+    name: quintic正則周期の境界挙動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界での収束と導関数の発散）"]
+    requires: [mirror.quintic-holomorphic-hypergeometric-period, complex-analysis.stirling-formula]
+  - id: mirror.quintic-torus-residue-period
+    name: quinticトーラス留数周期
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（トーラス留数積分による正則周期）"]
+    requires: [mirror.quintic-holomorphic-hypergeometric-period, mirror.quintic-residue-period]

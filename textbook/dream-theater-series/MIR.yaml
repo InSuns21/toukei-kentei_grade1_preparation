@@ -48,7 +48,7 @@ chapters:
     title: "quinticのPicard–Fuchs作用素"
   - id: MIR1-11
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-11
-    status: planned
+    status: completed
     title: "正則周期と超幾何級数"
   - id: MIR1-12
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-12
