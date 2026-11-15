@@ -84,7 +84,9 @@ $$
 
 後者は、$dx_0=0$ により $\Omega$ の $i=0$ 項だけが残るためである。
 
-例えば $f_4=\partial f_\psi/\partial y_4\ne0$ の領域では、[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により $f_\psi=0$ を $y_4$ について解ける。$df_\psi=\sum_jf_j\,dy_j$ と書くと、$dy_1\wedge dy_2\wedge dy_3$ を左から掛けたとき $f_4$ の項しか残らないので
+以後 $f_j=\partial f_\psi/\partial y_j$（$1\le j\le4$）と略記し、偏微分では $\psi$ と他の $y_k$ を固定する。また $df_\psi=\sum_{j=1}^4 f_j\,dy_j$ は、$\psi$ を固定した **$y$ 方向の外微分**を意味する。
+
+例えば $f_4\ne0$ の領域では、[局所正則随伴形式の座標構成](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)で使った非零Jacobian条件により、$f_\psi=0$ を $y_4$ について正則に解ける。残る $(y_1,y_2,y_3)$ が超曲面の正則局所座標になる。上記の $df_\psi$ を用いると、$dy_1\wedge dy_2\wedge dy_3$ を左から掛けたとき $f_4$ の項しか残らないので
 
 $$
 df_\psi\wedge dy_1\wedge dy_2\wedge dy_3
@@ -222,11 +224,11 @@ $$
 F_\psi(\lambda x)=\lambda^5F_\psi(x).
 $$
 
-従って $\Omega/F_\psi$ の倍率は1。さらに $\Omega$ はEuler方向の径ベクトル場 $\sum_i x_i\partial_{x_i}$ に4次元の体積形式を収縮したものなので、もう一度その径方向に収縮すると零になる。この水平性と倍率0の不変性から $\Omega/F_\psi$ は $\mathbb P^4\setminus X_\psi$ 上の有理4形式を定める。
+従って $\Omega/F_\psi$ の倍率は1。さらに、$\Omega$ は $\mathbb C^5$ の標準**5形式** $dx_0\wedge\cdots\wedge dx_4$ にEuler方向の径ベクトル場 $E=\sum_i x_i\partial_{x_i}$ を収縮した $\iota_E(dx_0\wedge\cdots\wedge dx_4)$ である。従って $\iota_E\Omega=\iota_E^2(dx_0\wedge\cdots\wedge dx_4)=0$ となる。この水平性と倍率0の不変性から $\Omega/F_\psi$ は $\mathbb P^4\setminus X_\psi$ 上の有理4形式を定める。
 
 第二に[前講の滑らかさの必要十分条件](../MIR1-06/index.md#prop-mir1-06-smooth-locus)により $X_\psi$ は滑らかである。任意の点を含む射影チャート $x_k\ne0$ を一つ選ぶ。そのチャートで $F_\psi$ の局所式を $f$ とすると、もし $f$ の全偏微分が零なら、斉次Eulerの式から残りの偏微分も零となり、射影超曲面が特異であるという矛盾に至る。よって少なくとも一つの消去偏微分 $f_j$ は非零である。
 
-第三に[局所留数表示](#prop-mir1-07-local-form)をその消去方向に適用する。[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)から残り三変数は局所座標になり、$\omega_\psi$ はその最高外積の $1/f_j$ 倍（符号を除く）である。$f_j$ は近傍で正則かつ非零なので係数も正則かつ非零である。座標を替えた表示の一致は[随伴形式の貼り合わせ](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)から従う。この3形式が標準束の非消失な大域切断となり、[体積形式による自明化](../../CYG/CYG1-02/index.md#prop-cyg1-02-volume-trivialization)より結論する。$\square$
+第三に[局所留数表示](#prop-mir1-07-local-form)をその消去方向に適用する。[局所正則随伴形式の構成](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)で確認したとおり、非零な消去偏微分の条件から残り三変数が**正則**局所座標になり、$\omega_\psi$ はその最高外積の $1/f_j$ 倍（符号を除く）である。$f_j$ は近傍で正則かつ非零なので係数も正則かつ非零である。座標を替えた表示の一致は[随伴形式の貼り合わせ](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)から従う。この3形式が標準束の非消失な大域切断となり、[体積形式による自明化](../../CYG/CYG1-02/index.md#prop-cyg1-02-volume-trivialization)より結論する。$\square$
 <!-- proof-end -->
 
 **次数をずらすと何が壊れるか。** $\mathbb P^4$ で分母を次数 $d$ の斉次式に替えると、同じ分子の比は $\lambda^{5-d}$ 倍となる。$d\ne5$ では $\Omega/F$ は射影的な4形式としてそのまま貼り合わない。次数 $d$ の滑らかな超曲面に[既習の標準束の次数判定](../../CYG/CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)を適用すると、$K_X\simeq\mathcal O_X(d-5)$ を得る。六次では追加の一次式を分子に掛ければ切断は作れるが、その一次式が零になる場所では体積形式も零となる。四次で同じ定数分子の処方を使うこともできない。このように**局所留数が書けること**と**大域的な非消失形式になること**は異なる。
@@ -241,14 +243,14 @@ $p=(u,v)=(0,-1)$ では $f(p)=0$、$f_v(p)=3$ なので $\eta|_p=-du/3\ne0$。�
 
 ## 4. 留数を3サイクルに積分する
 
-正則3形式を得たら、それを積分する場所を指定する。ここでいう**3サイクル**は $X_\psi$ の中の向き付き実3次元の閉じた特異サイクル（またはそれで表されるホモロジー類）であって、複素三次元部分多様体ではない。小さな滑らかな三角形片などの和で表してよく、各片の境界は総和として打ち消される。
+正則3形式を得たら、それを積分する場所を指定する。ここでいう**3サイクル**は $X_\psi$ の中の向き付き実3次元の閉じた特異サイクル（またはそれで表されるホモロジー類）であって、複素三次元部分多様体ではない。積分には**区分的に滑らかな代表**を用い、実3次元の単体の有限和として扱う。各単体の境界は総和として打ち消される。ホモロジー類の代表はこのように滑らかな鎖で取れるため、積分の定義とホモロジー類への依存を以下で確かめられる。
 
 <a id="def-mir1-07-period"></a>
 
 <!-- formal-statement-start -->
 > **定義（留数3形式の周期）**
 >
-> $\psi^5\ne1$ となる $\psi\in\mathbb C$ を固定し、$X_\psi$ 上の留数正則3形式を $\omega_\psi=\operatorname{Res}_{X_\psi}(\Omega/F_\psi)$ とする。$[\gamma]\in H_3(X_\psi,\mathbb Z)$ を向き付き実3サイクルのホモロジー類とし、代表 $\gamma$ を取る。**周期**を
+> $\psi^5\ne1$ となる $\psi\in\mathbb C$ を固定し、$X_\psi$ 上の留数正則3形式を $\omega_\psi=\operatorname{Res}_{X_\psi}(\Omega/F_\psi)$ とする。$[\gamma]\in H_3(X_\psi,\mathbb Z)$ を向き付き実3サイクルのホモロジー類とし、区分的に滑らかな代表 $\gamma$ を取る。**周期**を
 
 $$
 \Pi_\gamma(\psi)=\int_\gamma\omega_\psi
@@ -257,7 +259,7 @@ $$
 > と定義する。複素係数で積分する。形式 $\omega_\psi$ の規格化は分子 $\Omega$ と分母 $F_\psi$ の上記の選択で固定するが、周期の値は $\gamma$ の選択にも依存する。
 <!-- formal-statement-end -->
 
-正則最高次形式は閉形式である。実際、局所表示 $\omega=h\,du_1\wedge du_2\wedge du_3$ の外微分では $du_j$ の項は外積で重複して消え、$d\bar u_j$ の項は $h$ の正則性から零となる。従って $d\omega=0$。もし $\gamma-\gamma'=\partial B$ なら [Stokesの定理](../../VC/VC5/index.md#thm-vc5-stokes)から
+正則最高次形式は閉形式である。実際、局所表示 $\omega=h\,du_1\wedge du_2\wedge du_3$ の外微分では $du_j$ の項は外積で重複して消え、$d\bar u_j$ の項は $h$ の正則性から零となる。従って $d\omega=0$。もし $\gamma-\gamma'=\partial B$ なら、$B$ を区分的に滑らかな実4鎖として取り、その各片へ[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用する。内部の3次元境界は向きが逆で相殺するので、
 
 $$
 \int_\gamma\omega_\psi-\int_{\gamma'}\omega_\psi
@@ -321,7 +323,7 @@ $$
 =2\pi i\int_\gamma\omega_\psi.
 $$
 
-$\gamma$ を有限個の座標近傍に分割して積分すればこの計算を貼り合わせられる。一方、$\alpha$ は補集合上の正則最高次形式なので閉形式である。異なる十分小さな管状サイクルは補集合内でホモローグであり、[Stokesの定理](../../VC/VC5/index.md#thm-vc5-stokes)より左辺は半径に依存しない。従って極限の等式が元の管状サイクルの等式となる。$\square$
+$\gamma$ を有限個の座標近傍に分割して積分すればこの計算を貼り合わせられる。一方、$\alpha$ は補集合上の正則最高次形式なので閉形式である。異なる十分小さな管状サイクルは補集合内でホモローグである。二つの管状サイクルを結ぶ実5鎖へ[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を片ごとに適用すれば、内部境界が相殺し、$d\alpha=0$ により両サイクルの積分が一致する。ゆえに左辺は半径に依存しない。従って極限の等式が元の管状サイクルの等式となる。$\square$
 <!-- proof-end -->
 
 **局所符号を手で確かめる。** $\mathbb C^4$ の座標 $(u,v,t,w)$ で超曲面 $w=0$、有理4形式
@@ -366,7 +368,7 @@ $$
 \Pi(\psi)=\int_{\gamma(\psi)}\omega_\psi
 $$
 
-> は $D$ 上正則である。$\psi_0$ の固定された十分小さな管状サイクル $T_0\subset\mathbb P^4\setminus X_{\psi_0}$ を選べば、$D$ をさらに縮めて
+> は $D$ 上正則である。ここで $\Pi'(\psi)=d\Pi/d\psi$ は、運んだサイクルを使って定義した周期関数の**複素パラメータ $\psi$ に関する導関数**である。$\psi_0$ の固定された十分小さな管状サイクル $T_0\subset\mathbb P^4\setminus X_{\psi_0}$ を選べば、$D$ をさらに縮めて
 
 $$
 \Pi'(\psi)=\frac{1}{2\pi i}
@@ -385,7 +387,13 @@ $$
 
 $\psi_0$ における管状サイクル $T_0$ を十分小さな半径で取る。これはコンパクトで $X_{\psi_0}$ と交わらないから、連続関数 $|F_{\psi_0}|$ を**射影座標の有限個の自明化チャートで評価**した各値は、適切な有限被覆を取ることで $T_0$ 上で正の下限を持つ。従って $\psi$ を $\psi_0$ の近くに限れば $F_\psi$ も $T_0$ 上で零にならない。
 
-$X_\psi$ の局所自明化により、$\gamma(\psi)$ を動かした管状サイクルと固定 $T_0$ は、さらに円板を縮めれば補集合 $\mathbb P^4\setminus X_\psi$ 内でホモローグになる。そこで[管状サイクルの留数公式](#prop-mir1-07-tube)を使うと
+局所自明化で $\gamma(\psi_0)$ を $\gamma(\psi)$ へ運ぶと、法方向に小円を付けた管状サイクル $T_\psi$ も滑らかに運べる。
+
+固定 $T_0$ はコンパクトで $X_{\psi_0}$ と離れている。円板 $D$ を十分縮めれば、任意の固定 $\psi\in D$ において、二つの管状サイクルとその間の小さな変形が**同一の補集合**に収まる。
+
+具体的には、$T_\psi$ を $T_0$ の十分小さな管状近傍で法方向のグラフとして表し、その変位を0に縮める。この変形で、固定された $X_\psi$ を避ける実5鎖が得られる。
+
+この5鎖で $d(\Omega/F_\psi)=0$ と[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を使うと、両サイクルの有理4形式の積分は等しい。そこで[管状サイクルの留数公式](#prop-mir1-07-tube)から
 
 $$
 \Pi(\psi)=\frac{1}{2\pi i}
@@ -394,7 +402,7 @@ $$
 
 $T_0$ は固定されたコンパクトな積分領域である。各チャートで $F_\psi$ は $\psi$ に正則に依存し、分母は一様に非零であるから、局所的に一様収束する幾何級数として $1/F_\psi$ を展開できる。積分とその級数を交換でき、$\Pi$ は正則になる。
 
-さらに $P$ と $\Omega$ は $\psi$ に依存せず、$\partial_\psi F_\psi=-5P$ なので
+ここで $\partial_\psi$ は**斉次座標 $x$ を固定して $\psi$ だけを動かす偏微分**であり、先の $df_\psi=\sum_j f_jdy_j$（$\psi$ 固定）とは区別する。$P$ と $\Omega$ は $\psi$ に依存せず、$\partial_\psi F_\psi=-5P$ なので
 
 $$
 \frac{\partial}{\partial\psi}\left(\frac{\Omega}{F_\psi}\right)
@@ -459,7 +467,7 @@ $$
 f_4=5y_4^4-5\psi y_1y_2y_3=5.
 $$
 
-$5\ne0$ なので[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)から $y_1,y_2,y_3$ が局所座標になる。[消去方向の公式](#prop-mir1-07-local-form)で $j=4$ を選ぶと符号は $(-1)^3=-1$、従って
+$5\ne0$ なので[局所正則随伴形式の座標構成](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)により $y_1,y_2,y_3$ が正則局所座標になる。[消去方向の公式](#prop-mir1-07-local-form)で $j=4$ を選ぶと符号は $(-1)^3=-1$、従って
 
 $$
 \omega_\psi|_p=-\frac15\,dy_1\wedge dy_2\wedge dy_3.
@@ -616,7 +624,7 @@ $\psi_0^5\ne1$、$F_\psi=\sum x_i^5-5\psi\prod x_i$、$\Omega=\sum_i(-1)^ix_i\,d
 <!-- solution-start -->
 **詳細解答。** まず $\Omega$ の一項は座標1個・微分4個なので斉次次数5である。$F_\psi$ も五次で、共通拡大 $x\mapsto\lambda x$ の倍率はともに $\lambda^5$。また $\Omega$ は径方向の収縮なので水平であり、比は射影的に定まる。
 
-$\psi_0^5\ne1$ では[滑らかさの命題](../MIR1-06/index.md#prop-mir1-06-smooth-locus)より全点で斉次偏微分が同時に零とはならない。射影チャートでEulerの式を使えば、ある消去偏微分が非零である。従って各点で[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を用いて三つの正則局所座標を選べ、分母が非零な留数の局所式を得る。貼り合わせは[局所正則随伴形式](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)によって保証され、係数も非零だから大域的な非消失3形式となる。
+$\psi_0^5\ne1$ では[滑らかさの命題](../MIR1-06/index.md#prop-mir1-06-smooth-locus)より全点で斉次偏微分が同時に零とはならない。射影チャートでEulerの式を使えば、ある消去偏微分が非零である。従って各点で[局所正則随伴形式の座標構成](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)を用いて三つの正則局所座標を選べ、分母が非零な留数の局所式を得る。貼り合わせは[局所正則随伴形式](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)によって保証され、係数も非零だから大域的な非消失3形式となる。
 
 $x_0=1$ では $\Omega/F_\psi=dy_1\wedge\cdots\wedge dy_4/f_\psi$。$df_\psi\wedge dy_1\wedge dy_2\wedge dy_3=-f_4dy_1\wedge\cdots\wedge dy_4$ より
 
