@@ -1,0 +1,54 @@
+chapter: U4-24
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-23, U4-22, U4-04, U4-03]
+forward_references: []
+concepts:
+  - id: finance.arb-multileg-fill-residual
+    name: 複数脚の目標数量・約定数量・残数量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複数脚の目標数量・約定数量・残数量）"]
+    requires: [finance.arb-fill-self-financing-book]
+  - id: finance.arb-multileg-access
+    name: 複数脚の市場アクセスと数量上限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複数脚の市場アクセスと数量上限）"]
+    requires: [finance.arb-multileg-fill-residual, finance.fx-cycle-capacity-bound]
+  - id: finance.arb-multileg-capacity
+    name: 固定比率バスケットの全脚約定容量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定比率バスケットの全脚約定容量）"]
+    requires: [finance.arb-multileg-access]
+  - id: finance.arb-partial-fill-ledger
+    name: 部分約定の現金・時価帳簿
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（部分約定の現金・時価帳簿）"]
+    requires: [finance.arb-multileg-fill-residual, finance.arb-net-cash-ledger]
+  - id: finance.arb-partial-fill-increment
+    name: 部分約定を含む損益恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（部分約定を含む損益恒等式）"]
+    requires: [finance.arb-partial-fill-ledger, finance.arb-net-wealth-identity]
+  - id: finance.arb-legging-exposure
+    name: 片脚残りの価格変動曝露
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（片脚残りの価格変動曝露）"]
+    requires: [finance.arb-multileg-fill-residual, finance.arb-partial-fill-increment]
+  - id: finance.arb-legging-shock-bound
+    name: 価格変動幅による片脚曝露の上下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（価格変動幅による片脚曝露の上下界）"]
+    requires: [finance.arb-legging-exposure]
+  - id: finance.arb-multileg-fill-prob-bound
+    name: 全脚約定確率の一般上下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全脚約定確率の一般上下界）"]
+    requires: [finance.arb-multileg-fill-residual]
