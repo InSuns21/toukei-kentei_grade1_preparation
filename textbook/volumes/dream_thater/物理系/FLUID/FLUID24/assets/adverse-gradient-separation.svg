@@ -9,7 +9,7 @@
     <text x="32" y="112" font-size="18">逆圧力勾配：dpₑ/dx &gt; 0</text>
     <text x="38" y="165" font-size="18" fill="#135b9c">上流：速い</text>
     <text x="324" y="165" font-size="18" fill="#135b9c">下流：遅い</text>
-    <text x="33" y="244" font-size="18">固定壁（無滑り：u = 0）</text>
+    <text x="33" y="232" font-size="18">固定壁（無滑り：u = 0）</text>
     <text x="32" y="310" font-size="23" font-weight="bold">壁面せん断と速度の向き</text>
     <text x="32" y="340" font-size="18">横軸：接線速度 u　縦軸：壁からの高さ y</text>
   </g>
@@ -19,7 +19,7 @@
     <path d="M326 182 H480"/>
     <path d="M463 172 L480 182 L463 192"/>
   </g>
-  <path d="M33 215 H510" stroke="#303d52" stroke-width="4"/>
+  <path d="M33 200 H510" stroke="#303d52" stroke-width="4"/>
   <g font-family="sans-serif" fill="#26354a" font-size="18" text-anchor="middle">
     <text x="108" y="385">正せん断</text>
     <text x="276" y="385">零せん断</text>
