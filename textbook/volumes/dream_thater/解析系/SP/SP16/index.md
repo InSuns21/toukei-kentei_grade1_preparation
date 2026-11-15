@@ -111,7 +111,15 @@ $$
 \longrightarrow\frac1\mu.
 $$
 
-また $m$ は非減少なので $0\le m(t-s)\le m(t)$（$0\le s\le t$）。$t\ge1$ において $(1+m(t))/t$ は、[初等更新定理](../SP15/index.md#thm-sp15-elementary-renewal)と局所有限性から一様な有限上界 $C$ を持ちます。したがって期待値の被積分変数を $t$ で割った絶対値は $C|R_1|$ 以下です。$E|R_1|<\infty$ より[Lebesgue の優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用して
+また $m$ は非減少です。従って $0\le s\le t$ なら
+
+$$
+0\le m(t-s)\le m(t)
+$$
+
+が成り立ちます。[初等更新定理](../SP15/index.md#thm-sp15-elementary-renewal)の $m(t)/t\to1/\mu$ と局所有限性より、$t\ge1$ で $(1+m(t))/t$ はある定数 $C<\infty$ 以下です。
+
+期待値の被積分変数を $t$ で割った絶対値は $C|R_1|$ 以下で、$E|R_1|<\infty$ です。この可積分な上界を用いて [Lebesgue の優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)を適用すると
 
 $$
 \lim_{t\to\infty}\frac{E[Y(t)]}{t}
