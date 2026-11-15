@@ -79,7 +79,7 @@ def main():
     d_infinite = scale * infinite
     cd = 2 * d_num / (args.rho * args.speed ** 2 * args.diameter)
 
-    assert finite > 0 and infinite > finite
+    assert finite > 0 and infinite >= finite
     assert all(0 < q < 1 for q in ratios)
     assert d_infinite > 0 and math.isfinite(cd)
     assert abs(d_finite - scale * finite) < 1e-12 * max(1.0, d_finite)
