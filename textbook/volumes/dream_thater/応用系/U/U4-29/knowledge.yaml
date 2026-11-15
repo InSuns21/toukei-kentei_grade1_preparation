@@ -1,7 +1,7 @@
 chapter: U4-29
 scope: dream-theater
 coverage: complete
-prerequisites: [U4-16, U4-17, U4-20, U4-23, U4-24, U4-25, U4-27, U4-28]
+prerequisites: [OPT1, U4-16, U4-17, U4-20, U4-23, U4-24, U4-25, U4-27, U4-28]
 forward_references: []
 concepts:
   - id: finance.arb-stress-exit-pnl
@@ -33,7 +33,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（固定シナリオ最大損失の凸性と単調性）"]
-    requires: [finance.arb-stress-scenarios]
+    requires: [finance.arb-stress-scenarios, convex.convex-function]
   - id: finance.arb-stress-margin-deficit
     name: 保有継続に必要な追加証拠金
     kind: definition
