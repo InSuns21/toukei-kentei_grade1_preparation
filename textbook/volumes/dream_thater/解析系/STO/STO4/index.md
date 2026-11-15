@@ -1893,7 +1893,7 @@ $$
 E[B_n^4]=3n^2.
 $$
 
-任意の $\varepsilon>0$ に対し Markov inequality から
+任意の $\varepsilon>0$ に対し [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov) から
 
 $$
 P(|B_n|>\varepsilon n)
@@ -1901,7 +1901,7 @@ P(|B_n|>\varepsilon n)
 \frac{3}{\varepsilon^4n^2}.
 $$
 
-右辺は $n$ について可算和可能なので、Borel--Cantelli lemma により
+右辺は $n$ について可算和可能なので、[Borel--Cantelli 第1補題](../../F0/F0-00P4/index.md#thm-f0-00p4-borel-cantelli-1) により
 
 $$
 \frac{B_n}{n}\to0
@@ -2469,7 +2469,7 @@ $$
 
 ### B2. 時間反転の $t=0$ での連続性
 
-[反射原理](#thm-sto4-reflection-principle) と Borel--Cantelli lemma を用いて
+[反射原理](#thm-sto4-reflection-principle) と [Borel--Cantelli 第1補題](../../F0/F0-00P4/index.md#thm-f0-00p4-borel-cantelli-1) を用いて
 
 $$
 \frac{B_t}{t}\to0
@@ -2495,7 +2495,7 @@ $$
 E[B_n^4]=3n^2.
 $$
 
-よって Markov inequality から
+よって [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov) から
 
 $$
 P(|B_n|>\varepsilon n)
@@ -2503,7 +2503,7 @@ P(|B_n|>\varepsilon n)
 \frac{3}{\varepsilon^4n^2}.
 $$
 
-右辺の和は収束するので Borel--Cantelli lemma により
+右辺の和は収束するので [Borel--Cantelli 第1補題](../../F0/F0-00P4/index.md#thm-f0-00p4-borel-cantelli-1) により
 
 $$
 \frac{B_n}{n}\to0
@@ -2531,7 +2531,7 @@ P\left(\inf_{0\le u\le1}B_u<-x\right)
 4P(B_1>x).
 $$
 
-従って第4 モーメントによる Markov inequality で
+従って第4 モーメントによる [Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov) で
 
 $$
 P(D_n>\varepsilon n)
