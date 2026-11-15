@@ -47,7 +47,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（Rossby 波の群速度）"]
-    requires: [fluid.rossby-wave-dispersion, fluid.group-velocity]
+    requires: [fluid.rossby-wave-dispersion, fluid.wave-group-speed]
   - id: fluid.qg-quadratic-invariant
     name: 周期領域での準地衡波の二次量保存
     kind: proposition
