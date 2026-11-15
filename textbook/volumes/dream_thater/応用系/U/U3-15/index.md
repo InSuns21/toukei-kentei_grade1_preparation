@@ -510,6 +510,16 @@ $T=1$ 年、$s_0=100$ 円、$\mu=0.08$、$r=0.03$、$\sigma=0.20$ を共通設�
 
 [再現用 Python](assets/risk_neutral_check.py) は標準正規密度に対する数値積分とシード固定の標本平均を用い、$E_P[Z_T]=1$、割引株価の $Q$-期待値、二乗支払額の複製価格を照合します。[テスト](assets/tests/test_risk_neutral_check.py)と[実行方法](assets/README.md)も添付します。標本平均には統計誤差があるため、乱数推定値を理論値へ厳密一致させてはいけません。数値積分には区間切断・台形近似の誤差があり、両者を区別します。比較表で $P$ と $Q$ の違いを説明できるため、新しい図は追加しません。
 
+~~~python-file-lab
+# lab-id: U3-15-BROWSER-CHECK
+# lab-title: P と Q の割引価格・密度変換の独立検算
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-15/assets/risk_neutral_check.py
+# timeout-ms: 30000
+# lab-preset: 理論値・数値積分・固定シード MC を比較 |
+~~~
+
+**ブラウザで Python 実行**：理論値、数値積分、標本平均を別々に読み、有限標本の偏差を測度変換の誤りと混同しないでください。 実行には初回のみブラウザ用 Python 環境の読み込みが必要です。
+
 ## 9. 演習と詳細解答
 
 以下は明記しない限り本講の無配当・定数係数・有限満期モデル（時刻は年、通貨は円、$B_0=1$、$\sigma>0$）で、確率測度 $P$ の下の株価 SDE から開始します。

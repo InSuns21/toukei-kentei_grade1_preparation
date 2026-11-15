@@ -542,6 +542,17 @@ EM の安定範囲は $0<h<1$ 年、Milstein は $0<h<2/3$ 年です。このモ
 
 付属の [再現用 Python](assets/ito_taylor_stability.py) は標準ライブラリだけで動作します。固定乱数種の同じ Brown 増分から、ドリフトなし GBM の厳密値、EM、Milstein、三次 Hermite を更新し、同一路二乗誤差の標本平均と上の**有限刻み理論 MSE**を並べます。また平均二乗安定領域は**乱数実験に依存しない**理論増幅率を出力します。
 
+~~~python-file-lab
+# lab-id: U3-30-BROWSER-CHECK
+# lab-title: GBM の有限刻み MSE と平均二乗安定性
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-30/assets/ito_taylor_stability.py
+# timeout-ms: 60000
+# lab-preset: 基準：2万経路・理論 MSE 比較 | --paths 20000
+# lab-preset: 標本数を減らす：5000経路 | --paths 5000
+~~~
+
+**ブラウザで Python 実行**：同じ刻みで標本数を変更し、理論 MSE 自体は変わらず推定のばらつきが変わることを確認してください。 実行には初回のみブラウザ用 Python 環境の読み込みが必要です。
+
 ~~~bash
 python textbook/volumes/dream_thater/応用系/U/U3-30/assets/ito_taylor_stability.py --paths 20000
 python -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-30/assets/tests
