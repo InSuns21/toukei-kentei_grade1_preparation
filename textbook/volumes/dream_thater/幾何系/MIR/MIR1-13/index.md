@@ -45,7 +45,7 @@ $$
 
 <!-- definition-example-start: def-mir1-13-monodromy -->
 
-**定義の確認**。 より小さい例として、穿孔円板での二階方程式 $zf''(z)+f'(z)=0$ を考える。プライムは $z$ による微分である。$f=1$ は両導関数が零、$f=\operatorname{Log}z$ は $f'=1/z$、$f''=-1/z^2$ だから $zf''+f'=0$。二解のWronskianは $1/z\ne0$ なので、局所解空間は $V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\}$ であり、$e_0=1,e_1=\operatorname{Log}z$ が基底となる。解析接続の線形性は $C_\gamma(af+bg)=aC_\gamma(f)+bC_\gamma(g)$ から従い、逆向きの一周で元に戻る。$C_\gamma(e_0)=e_0$、$C_\gamma(e_1)=2\pi i e_0+e_1$ なので、各像の $e_0,e_1$ 係数を列に並べると行列は
+**定義の確認**。 より小さい例として、穿孔円板での二階方程式 $zf''(z)+f'(z)=0$ を考える。プライムは $z$ による微分である。$f=1$ は両導関数が零、$f=\operatorname{Log}z$ は $f'=1/z$、$f''=-1/z^2$ だから $zf''+f'=0$。さらに $zf''+f'=(zf')'=0$ を積分すると、$z\ne0$ 上で $zf'=a$（定数）、続いて $f=a\operatorname{Log}z+b$（定数 $b$）となる。対数分枝を固定した局所領域では $1$ と $\operatorname{Log}z$ は一次独立だから、局所解空間は $V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\}$ であり、$e_0=1,e_1=\operatorname{Log}z$ が基底となる。解析接続の線形性は $C_\gamma(af+bg)=aC_\gamma(f)+bC_\gamma(g)$ から従い、逆向きの一周で元に戻る。$C_\gamma(e_0)=e_0$、$C_\gamma(e_1)=2\pi i e_0+e_1$ なので、各像の $e_0,e_1$ 係数を列に並べると行列は
 
 $$
 M_2=\begin{pmatrix}1&2\pi i\\0&1\end{pmatrix},
