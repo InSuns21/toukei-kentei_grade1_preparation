@@ -32,6 +32,8 @@ $$
 <!-- definition-example-start: def-sp15-renewal-process -->
 ### 直接例：2時間ごとに交換する部品
 
+**定義の確認**
+
 $T_n=2$ をすべての $n$ について確率 $1$ で満たす列は、定数確率変数なので独立同分布であり、$0<T_n<\infty$ です。$S_n=2n$ なので
 
 $$
@@ -63,9 +65,9 @@ $$
 > **命題（更新回数の局所有限性とモーメント）**  
 > $(T_n)_{n\ge1}$ が独立同分布で、各待ち時間は正かつ有限であるとする。定義した更新回数 $N(t)$ について、任意の有限時刻 $t\ge0$ と整数 $r\ge1$ で
 
-$
+$$
 P(N(t)<\infty)=1,\qquad E[N(t)^r]<\infty
-$
+$$
 
 > が成り立つ。待ち時間の平均の有限性は仮定しない。
 <!-- formal-statement-end -->
@@ -193,7 +195,7 @@ $$
 
 $$
 m(t)=E[N(t)]\quad(t\ge0)
-$
+$$
 
 > を**更新関数**と呼ぶ。初期時刻を含む平均更新時刻数は $U(t)=1+m(t)$ と書くことがある。
 <!-- formal-statement-end -->
@@ -201,19 +203,21 @@ $
 <!-- definition-example-start: def-sp15-renewal-function -->
 ### 直接例：一定間隔と指数間隔
 
+**定義の確認**
+
 第1節の定数間隔 $T_i=2$ では、更新回数が確率 $1$ で $N(t)=\lfloor t/2\rfloor$ となります。よって期待値も
 
-$
+$$
 m(t)=\lfloor t/2\rfloor
-$
+$$
 
 です。有限値で、非減少かつ右連続ですが、整数時刻 $2,4,6,\ldots$ に跳びがあります。
 
 一方、$T_i$ が独立同分布の率 $\lambda>0$ の指数分布なら、[指数待ち時間からの Poisson 過程構成](../SP10/index.md#thm-sp10-exponential-construction)により $N(t)$ は平均 $\lambda t$ の Poisson 分布に従います。この場合は
 
-$
+$$
 m(t)=\lambda t
-$
+$$
 
 という連続的な直線になります。どちらも更新関数の定義の条件を満たし、形は異なります。
 <!-- definition-example-end -->
