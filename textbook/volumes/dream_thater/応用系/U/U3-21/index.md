@@ -576,13 +576,15 @@ $$
 
 再現可能な計算は次の Python ファイルに置きます。
 
-<!-- lab-start -->
+~~~python-file-lab
 # lab-id: U3-21-AMERICAN-STOPPING
 # lab-title: American put の後退帰納・行使節点と欧州型比較
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-21/assets/american_stopping.py
 # timeout-ms: 15000
 # lab-preset: N=2,25,100,400 の American/European put と無配当 call を比較 |
-<!-- lab-end -->
+~~~
+
+[Python ソースを閲覧](assets/american_stopping.py)。ブラウザ内で同じファイルを実行でき、ローカル実行と計算式を共有します。
 
 プログラムは各 $N$ に対し American put $\ge$ European put $\ge$ 時刻0の即時行使額を検査し、無配当 call の American/European が格子でも一致することを確認します。$N=2,25,100,400$ の American put はおよそ $5.737654,6.146185,6.082354,6.088406$ 円で、**CRR の $N$ に対する単調性はない**ことも分かります。行使日だけの包含から得た第3節の単調性とは別の主張です。
 

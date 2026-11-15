@@ -384,13 +384,15 @@ $$
 
 実験の条件は $S_0=K=100$ 円、$T=1$ 年、$S_{\max}=300$ 円、$r=0.05$ 年$^{-1}$、$q=0.02$ 年$^{-1}$、$\sigma=0.20$ 年$^{-1/2}$。日数への換算はせず、1年を単位とする連続複利・連続配当のモデルです。乱数は使いません。後退 Euler による各段の LCP を PSOR（$\omega=1.25$、更新差停止閾値 $10^{-10}$ 円）で解き、停止後に相補残差と[反復誤差上界](#thm-u3-24-unique)を計算します。
 
-<!-- lab-start -->
+~~~python-file-lab
 # lab-id: U3-24-AMERICAN-PUT-PSOR
 # lab-title: American put の PSOR 相補残差・行使節点・CRR 二項木比較
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-24/assets/american_put_psor.py
 # timeout-ms: 20000
 # lab-preset: Python 標準ライブラリのみで M=30,60,120 と N=60,120,240 を実行し、CRR(800) および相補残差を照合 |
-<!-- lab-end -->
+~~~
+
+[Python ソースを閲覧](assets/american_put_psor.py)。ブラウザ内で同じファイルを実行でき、ローカル実行と計算式を共有します。
 
 再現結果（価格は円、相補残差と反復誤差上界も円）は次の通りです。
 

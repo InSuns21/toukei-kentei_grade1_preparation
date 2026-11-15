@@ -479,13 +479,15 @@ $e^0=0$ と $Nk=T$ を使い、$\|\delta^n\|_\infty\le C(k^p+h^2)$ を代入し�
 
 金額は円、時間は年です。$S_0=K=100$、$T=1$、$r=0.05$、$q=0.02$、$\sigma=0.20$、$S_{\max}=300$ を共通にします。右端の有限境界を同一に保ち、$h$ を固定して $k$ だけ縮めると、時間誤差と空間・境界誤差を区別できます。[配当付き閉形式](../U3-19/index.md#thm-u3-19-bsm-dividend)の参照価格は約 **9.227005508 円** です。
 
-<!-- lab-start -->
+~~~python-file-lab
 # lab-id: U3-23-IMPLICIT-CN-RANNACHER
 # lab-title: 陰解法・Crank–Nicolson・Rannacher の価格、残差、初期高周波減衰
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-23/assets/implicit_cn_rannacher.py
 # timeout-ms: 20000
 # lab-preset: 標準ライブラリのみ。M=60、N=8,16,32,64,128 で三重対角求解と閉形式価格を照合 |
-<!-- lab-end -->
+~~~
+
+[Python ソースを閲覧](assets/implicit_cn_rannacher.py)。ブラウザ内で同じファイルを実行でき、ローカル実行と計算式を共有します。
 
 $M=60$（$h=5$ 円）で得られる価格の一例を示します。各列で変えているのは時間の分割数 $N$ だけです。
 
