@@ -556,7 +556,9 @@ $$
 
 $C,\rho,\nu>0,\ m>-1,\ x>0$、$U_e=Cx^m$ の滑らかな相似流れを考える。速度欠損積分が収束し、外縁流束条件が成り立ち、$\theta>0$、$H>0$ は $x$ に依存せず、運動量厚さは $\theta(x)=K\sqrt{\nu x/U_e(x)}$（定数 $K>0$）であるとする。
 
-(1) $\theta'$ を求めよ。(2) [von Kármán運動量積分式](../FLUID23/index.md#thm-fluid23-karman-integral)から $C_{f,x}$ を $m,H,K$ と $\mathrm{Re}_x$ で表せ。(3) $m<0$ で $C_{f,x}=0$ が起きる条件を求め、その条件を満たしたとしても流れ全体の剥離が確定したとはいえない理由を述べよ。
+1. $\theta'$ を求めよ。
+2. [von Kármán運動量積分式](../FLUID23/index.md#thm-fluid23-karman-integral)から $C_{f,x}$ を $m,H,K$ と $\mathrm{Re}_x$ で表せ。
+3. $m<0$ で $C_{f,x}=0$ が起きる条件を求め、その条件を満たしたとしても流れ全体の剥離が確定したとはいえない理由を述べよ。
 
 - Level: C
 
