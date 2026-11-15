@@ -1,0 +1,60 @@
+chapter: U4-27
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-10, U4-16, U4-22, U4-26]
+forward_references: []
+concepts:
+  - id: finance.arb-wf-event-sample
+    name: 意思決定標本とラベルの結果期間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（意思決定標本とラベルの結果期間）"]
+    requires: [finance.arb-audit-asof-snapshot, finance.arb-signal-order-fill-clock]
+  - id: finance.arb-wf-frozen-selection
+    name: 凍結した選定手順のwalk-forward
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（凍結した選定手順のwalk-forward）"]
+    requires: [finance.arb-wf-event-sample, finance.arb-threshold-exit-rule, finance.stat-arb-prespecified-hypothesis]
+  - id: finance.arb-wf-causal-pipeline
+    name: 時刻を守る学習・選定・予測は先読みしない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時刻を守る学習・選定・予測は先読みしない）"]
+    requires: [finance.arb-wf-frozen-selection, finance.arb-audit-no-lookahead]
+  - id: finance.arb-wf-purging
+    name: ラベル期間に基づくpurging
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ラベル期間に基づくpurging）"]
+    requires: [finance.arb-wf-event-sample]
+  - id: finance.arb-wf-overlap
+    name: 結果期間の重複判定式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（結果期間の重複判定式）"]
+    requires: [finance.arb-wf-purging]
+  - id: finance.arb-wf-embargo
+    name: 固定lookback幅のembargo
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定lookback幅のembargo）"]
+    requires: [finance.arb-wf-event-sample, finance.arb-wf-purging]
+  - id: finance.arb-wf-embargo-bound
+    name: 固定lookbackに対する隔離幅の十分性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定lookbackに対する隔離幅の十分性）"]
+    requires: [finance.arb-wf-embargo]
+  - id: finance.arb-wf-outer-risk
+    name: 非重複外側テストの標本平均損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非重複外側テストの標本平均損失）"]
+    requires: [finance.arb-wf-frozen-selection, finance.stat-arb-performance-measures]
+  - id: finance.arb-wf-weighted-risk
+    name: 外側テスト平均の行数重み付き集計
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（外側テスト平均の行数重み付き集計）"]
+    requires: [finance.arb-wf-outer-risk]
