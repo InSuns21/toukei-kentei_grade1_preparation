@@ -1,0 +1,45 @@
+id: "SP15"
+title: "更新過程・更新方程式・更新回数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP10
+  - F0-00P5A
+official_scope: []
+learning_objectives:
+  - 正の独立同分布待ち時間から更新時刻と更新回数を定義し有限時刻での回数を判定できる
+  - 指数モーメントの評価から局所有限性と有限時刻の全整数次モーメントを証明できる
+  - 更新時刻の畳み込み分布から更新回数の分布公式と期待回数の級数表示を導ける
+  - 最初の更新で条件付けた更新方程式を導き局所有界可測解の一意性を証明できる
+  - 有限平均の強大数則と更新時刻の挟み撃ちから更新回数の標本路極限を導ける
+  - 二乗モーメントの一様上界によって期待値と極限を交換し初等更新定理を証明できる
+  - 格子型更新と指数型更新を比較し独立性や有限時刻と長期極限の違いを説明できる
+definitions:
+  - { id: SP15-DEF-01, name: "通常更新過程" }
+  - { id: SP15-DEF-02, name: "更新関数" }
+theorems:
+  - { id: SP15-PROP-01, name: "更新回数の局所有限性とモーメント" }
+  - { id: SP15-PROP-02, name: "更新回数の分布と期待回数" }
+  - { id: SP15-THM-01, name: "更新方程式と局所有界解の一意性" }
+  - { id: SP15-THM-02, name: "更新回数の強大数法則" }
+  - { id: SP15-THM-03, name: "初等更新定理" }
+canonical_examples:
+  - "一定間隔の更新と右連続な更新回数"
+  - "二値の待ち時間の二回更新確率と有限時刻の期待値"
+  - "指数待ち時間とPoisson過程の更新関数"
+  - "共通の待ち時間を持つ非独立列での長期頻度の反例"
+problem_patterns:
+  - SP15-DETERMINISTIC-COUNT
+  - SP15-TWO-POINT-FINITE-COUNT
+  - SP15-EXPONENTIAL-RENEWAL-EQUATION
+  - SP15-TWO-POINT-FINITE-VS-LONG
+  - SP15-COUNT-DISTRIBUTION-DERIVATION
+  - SP15-RENEWAL-EQUATION-UNIQUENESS
+  - SP15-LONG-RUN-COUNT
+  - SP15-DEPENDENCE-COUNTEREXAMPLE
+  - SP15-DISCRETE-RENEWAL-RECURRENCE
+  - SP15-RENEWAL-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 6.5, review: 2.0 }
