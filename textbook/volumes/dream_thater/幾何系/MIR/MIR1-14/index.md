@@ -31,7 +31,7 @@ $$
 
 ## 2. conifold点の指標根を演算子から出す
 
-conifold点に近づく変数を $s=1-x$ とする。$s=0$ が節点の値である。まず、$D=x\,d/dx$ の冪を通常の微分へ展開すると
+conifold点に近づく変数を $s=1-x$ とする。$s=0$ が節点の値である。ここで $\partial_x=d/dx$ は正則な**一変数関数を $x$ で微分する演算子**の略記とし、$D=x\,d/dx=x\partial_x$ と置く。$D$ の冪を通常の微分へ展開すると
 
 $$
 \begin{aligned}
@@ -49,7 +49,13 @@ $$
 =D^4+2D^3+\frac75D^2+\frac25D+\frac{24}{625}.
 $$
 
-これらを $\mathcal L$ に代入し、$\partial_x=-\partial_s$ とすると、$y=y(s)$ に対する方程式は
+これらを $\mathcal L$ に代入する。$y(x)=Y(s)$、$s=1-x$ と書くと、連鎖律により $dy/dx=-dY/ds$ であり、二階以上も反復して
+
+$
+\frac{d^ky}{dx^k}=(-1)^k\frac{d^kY}{ds^k}\qquad(k=1,2,3,4)
+$
+
+が成り立つ。以下では $Y(s)$ を再び $y(s)$ と書く。この置換により、方程式は
 
 $$
 \begin{aligned}
@@ -61,7 +67,7 @@ $$
 \end{aligned}
 $$
 
-ここで上付き括弧内の数字は $s$ による微分回数である。最高階係数は $s$ の一次零点を持ち、第三階係数は $s=0$ で $2$ である。正則特異点の指標多項式を求めるには、$y=s^\rho$ を形式的に代入し、最も低い $s$ の次数を比べる。[正則特異点の判定](../MIR1-10/index.md#prop-mir1-10-regular-singular)に沿った計算である。
+ここで上付き括弧内の数字は $s$ による微分回数である。最高階係数は $s$ の一次零点を持ち、第三階係数は $s=0$ で $2$ である。正則特異点の指標多項式を求めるには、[既習のFrobenius型級数](../MIR1-12/index.md#def-mir1-12-frobenius-family)と同様に $y=s^\rho\sum_{n\ge0}a_ns^n$（$a_0\ne0$）を置き、先頭の $s^\rho$ を形式的に代入して最も低い $s$ の次数を比べる。[正則特異点の判定](../MIR1-10/index.md#prop-mir1-10-regular-singular)に沿った計算である。
 
 <a id="prop-mir1-14-conifold-exponents"></a>
 
@@ -190,7 +196,26 @@ $$
 J=\begin{pmatrix}0&I_2\\-I_2&0\end{pmatrix}
 $$
 
-にできる。この基底を**整数シンプレクティック基底**と呼ぶ。[線形シンプレクティック基底の定義](../../SYM/SYM1/index.md#def-sym1-symplectic-basis)の整数格子版であり、実際の整数サイクル上の交叉数を条件として追加する。以下は、そのような幾何学的基底を最初から選んだ場合の計算である。
+にできる。この基底を**整数シンプレクティック基底**と呼ぶ。[線形シンプレクティック基底の定義](../../SYM/SYM1/index.md#def-sym1-symplectic-basis)の整数格子版であり、実際の整数サイクル上の交叉数を条件として追加する。
+
+なぜ交叉数を行列で検査できるのかを先に確かめる。基底を $(a_0,a_1,b_0,b_1)$ と書き、$\gamma=\sum_{i=0}^1(p_ia_i+q_ib_i)$、$\eta=\sum_{i=0}^1(p'_ia_i+q'_ib_i)$ の列座標をそれぞれ $v=(p_0,p_1,q_0,q_1)^{\mathsf T}$、$v'=(p'_0,p'_1,q'_0,q'_1)^{\mathsf T}$ とする。基底の交叉数と双線形性から
+
+$
+\langle\gamma,\eta\rangle
+=\sum_{i=0}^1(p_iq'_i-q_ip'_i)
+=v^{\mathsf T}Jv'.
+$
+
+サイクルの作用 $T$ の行列 $M$ は、各基底の像の座標を**列**に並べると定める。すると $T\gamma$ の座標は $Mv$ だから、すべての $\gamma,\eta$ の交叉数を保つ条件は
+
+$
+\langle T\gamma,T\eta\rangle
+=v^{\mathsf T}M^{\mathsf T}JMv'
+=v^{\mathsf T}Jv'
+\quad\Longleftrightarrow\quad M^{\mathsf T}JM=J.
+$
+
+これは[線形シンプレクティック写像の行列条件](../../SYM/SYM1/index.md#thm-sym1-matrix-criterion)を、この整数基底で具体化したものである。さらに整数**格子の自己同型**とするには、$M$ と $M^{-1}$ の両方が整数行列、すなわち $M\in\operatorname{GL}_4(\mathbb Z)$ であることを要する。以下は、そのような幾何学的基底を最初から選んだ場合の計算である。
 
 <a id="def-mir1-14-integral-symplectic-basis"></a>
 
@@ -568,10 +593,10 @@ $$
 $s$ の反時計回りで $f(s)$ が一価とし、$g(s)=-f(s)\operatorname{Log}s/(2\pi i)+h(s)$ とする。$h$ も一価正則である。$f,g$ の一周行列を列の規約で求め、$(M-I)^2$ を計算せよ。
 
 <!-- solution-start -->
-**詳細解答。** $\operatorname{Log}s\mapsto\operatorname{Log}s+2\pi i$、$f,h$ は不変なので $Cf=f$、
+**詳細解答。** 一周の解析接続作用を $T$ と書く。$\operatorname{Log}s\mapsto\operatorname{Log}s+2\pi i$、$f,h$ は不変なので $Tf=f$、
 
 $$
-Cg=-\frac{f}{2\pi i}(\operatorname{Log}s+2\pi i)+h=g-f.
+Tg=-\frac{f}{2\pi i}(\operatorname{Log}s+2\pi i)+h=g-f.
 $$
 
 基底 $(f,g)$ の各像の座標は $(1,0)^{\mathsf T}$、$(-1,1)^{\mathsf T}$。従って
