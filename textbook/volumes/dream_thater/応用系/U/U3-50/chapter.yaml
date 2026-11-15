@@ -1,0 +1,43 @@
+id: "U3-50"
+title: "Delta–Gamma 近似と複雑なポートフォリオ"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-49, U3-20]
+official_scope: []
+learning_objectives:
+  - 保有期間末にロールした価格と現時点の比較基準額を区別し多因子Delta–Gamma近似を作れる
+  - 混合二階偏微分を行列の非対角成分へ対応させ交差ショックの係数を検算できる
+  - 固定保有数量と純受取現金の勾配・Hessianを集計し空売りの負符号を追える
+  - 線分への制限と三次Taylor剰余を導出しショック幅による誤差推移を評価できる
+  - 予測用実確率P下の平均・共分散から二次価格変化の期待値を導きVaR/ESと区別できる
+  - 同じシナリオで全再評価と二次近似の損失・経験VaR/ESを比較し標本外の限界を説明できる
+definitions:
+  - { id: U3-50-DEF-01, name: "ロール後の多因子 Delta–Gamma 近似" }
+  - { id: U3-50-DEF-02, name: "Delta–Gamma 損失と二次残差" }
+  - { id: U3-50-DEF-03, name: "ショック幅別の二次残差診断" }
+theorems:
+  - { id: U3-50-PROP-01, name: "保有数量による勾配と Hessian の集計" }
+  - { id: U3-50-PROP-02, name: "二次近似の三次剰余上界" }
+  - { id: U3-50-PROP-03, name: "多因子 Delta–Gamma 価格変化の期待値" }
+  - { id: U3-50-PROP-04, name: "同じ有限標本での VaR/ES 近似誤差" }
+canonical_examples:
+  - "二因子多項式の混合偏微分と交差項の係数を原点で手計算"
+  - "空売りを含む二商品の勾配とHessianの集計"
+  - "ショック幅1/4から3/2までの一次・二次・全再評価の誤差推移"
+  - "相関3/5と交差Gammaによる平均二次価格変化5.2万円"
+  - "4シナリオの二次損失と全再評価損失の経験VaR/ES比較"
+problem_patterns:
+  - U3-50-A1
+  - U3-50-A2
+  - U3-50-A3
+  - U3-50-A4
+  - U3-50-A5
+  - U3-50-B1
+  - U3-50-B2
+  - U3-50-B3
+  - U3-50-B4
+  - U3-50-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

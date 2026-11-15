@@ -51,3 +51,4 @@
 47. [U3-47 正規・t 分布と分散共分散法による VaR/ES](textbook/volumes/dream_thater/応用系/U/U3-47/index.md)
 48. [U3-48 Historical Simulation と Filtered Historical Simulation](textbook/volumes/dream_thater/応用系/U/U3-48/index.md)
 49. [U3-49 シナリオ Monte Carlo と full repricing](textbook/volumes/dream_thater/応用系/U/U3-49/index.md)
+50. [U3-50 Delta–Gamma 近似と複雑なポートフォリオ](textbook/volumes/dream_thater/応用系/U/U3-50/index.md)
