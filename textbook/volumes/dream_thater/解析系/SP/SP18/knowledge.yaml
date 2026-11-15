@@ -4,7 +4,8 @@ coverage: complete
 prerequisites:
   - STO1
   - RA3
-forward_references: []
+forward_references:
+  - stochastic.birth-death-process
 concepts:
   - id: stochastic.galton-watson-process
     name: Galton–Watson 分枝過程
