@@ -297,7 +297,7 @@ e^{\kappa u}r_u-e^{\kappa t}r_t
 +\sigma\int_t^u e^{\kappa v}\,dW_v^Q.
 $$
 
-両辺に $e^{-\kappa u}$ を掛けて明示式を得ます。確率積分の核は決定的で二乗可積分なので、Brown 増分の独立性から条件付き平均は0です。[Itô 等長性](../../../解析系/STO/STO6/index.md)による条件付き分散は
+両辺に $e^{-\kappa u}$ を掛けて明示式を得ます。確率積分の核は決定的で二乗可積分なので、Brown 増分の独立性から条件付き平均は0です。[Itô 等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)による条件付き分散は
 
 $$
 \sigma^2\int_t^u e^{-2\kappa(u-v)}\,dv
@@ -388,7 +388,7 @@ $$
 \int_t^T\{1-e^{-\kappa(T-v)}\}\,dW_v^Q.
 $$
 
-核は決定的かつ二乗可積分ですから、条件付きで平均0の正規変数となり、[Itô 等長性](../../../解析系/STO/STO6/index.md)から分散は
+核は決定的かつ二乗可積分ですから、条件付きで平均0の正規変数となり、[Itô 等長性](../../../解析系/STO/STO6/index.md#thm-sto6-ito-isometry-simple)から分散は
 
 $$
 \begin{aligned}
