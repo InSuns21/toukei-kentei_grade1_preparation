@@ -38,14 +38,14 @@ q=\int_0^2(1+z)\,dz
 \qquad \bar u=\frac{q}{h}=2\ {\rm m/s}.
 $$
 
-速度を上端値 $3$ m/s で代用すると $q=6$ m$^2$/s となり、定義を満たさない。以下の浅水近似で $q\simeq h\bar u$ は近似ではなく**定義による恒等式**である。
+速度を上端値 $3$ m/s で代用すると $q=6$ m$^2$/s となり、定義を満たさない。浅水近似を使う前から $q=h\bar u$ は**定義による厳密な恒等式**である。
 <!-- definition-example-end -->
 
 ここで「浅い」とは水深そのものが数 cm という意味ではない。代表水深 $H>0$、水平変化長 $L>0$、代表水平速度 $U>0$ に対して $\varepsilon=H/L\ll1$ とし、代表流速と重力の比を $Fr=U/\sqrt{gH}=O(1)$ とする。底と水面の典型的勾配も $O(\varepsilon)$、鉛直速度は $w=O(\varepsilon U)$、速度の鉛直方向の変化は主要な水平運動を変えないほど小さいと仮定する。これは**長波・静水圧近似**の使用範囲であり、鉛直循環・境界層・波数に依存する波速差・表面張力・砕波を再現するものではない。
 
 ## 1. 自由表面と底で流体を通さないと何が残るか
 
-まず深さ平均速度を使わず、元の流速で正確な質量収支を導く。非圧縮条件は $\partial_xv+\partial_zw=0$。水面の運動学条件は $w_s=\eta_t+v_s\eta_x$、固定底面の非貫通条件は $w_b=v_b b_x$ である。添字 $s,b$ は、それぞれ $z=\eta$ と $z=b$ における値を示す。底面で $w=0$ とするのは、$b_x=0$ の場合に限られる。
+まず深さ平均速度を使わず、元の流速で正確な質量収支を導く。以後、$f_x=\partial f/\partial x$、$f_t=\partial f/\partial t$、$f_z=\partial f/\partial z$ は**ほかの独立変数を固定した偏微分**であり、$\partial_x f$ などと同じ意味で用いる。非圧縮条件は $\partial_xv+\partial_zw=0$。水面の運動学条件は $w_s=\eta_t+v_s\eta_x$、固定底面の非貫通条件は $w_b=v_b b_x$ である。添字 $s,b$ は、それぞれ $z=\eta$ と $z=b$ における値を示す。底面で $w=0$ とするのは、$b_x=0$ の場合に限られる。
 
 <a id="thm-fluid29-depth-mass"></a>
 
@@ -195,7 +195,23 @@ $ghh_x=\partial_x(gh^2/2)$ を左辺に移し、$q=hu$、$hu^2=q^2/h$ を代入�
 
 ## 4. 波が伝わる速さはどこから出るか
 
-平らな底で、$h>0$ と $q$ をまとめた列ベクトル $V=(h,q)^{\mathsf T}$ を取る。浅水方程式は $V_t+F(V)_x=0$、$F(V)=(q,q^2/h+gh^2/2)^{\mathsf T}$ である。滑らかな変化について $F(V)_x=DF(V)V_x$ とできる。行列 $DF(V)$ は各成分を $h,q$ で偏微分したもの、固有値は小さな擾乱が進む二つの速さを表す。
+平らな底で、水深 $h>0$ と流量 $q$ を列ベクトル $V=(h,q)^{\mathsf T}$ の二成分として並べる。[浅水方程式](#thm-fluid29-shallow-water)の保存形は $V_t+F(V)_x=0$、流束は $F(V)=(q,q^2/h+gh^2/2)^{\mathsf T}$ である。$DF(V)$ は、この二成分の流束を変数 $(h,q)$ でそれぞれ偏微分した $2\times2$ 行列（Jacobian）を表す。滑らかな状態では連鎖律から $F(V)_x=DF(V)V_x$ となる。
+
+なぜこの行列の固有値が波の速さを表すのか。一定状態 $V_0=(h_0,q_0)^{\mathsf T}$（$h_0>0$）の近くで $V=V_0+\delta V$ とし、擾乱の一次項だけを残す。$A_0=DF(V_0)$ と置けば、$V_0$ は一定なので
+
+$$
+\delta V_t+A_0\delta V_x=0
+$$
+
+となる。一定の形を保って速度 $\lambda$ で進む微小波を $\delta V=r\,\psi(x-\lambda t)$ と仮定する。ここで $r\ne0$ は二成分の定数ベクトル、$\psi$ は微分可能な1変数関数で、$\psi'$ は引数 $s=x-\lambda t$ に関する常微分 $d\psi(s)/ds$ を表す。$V_t$ や $V_x$ の偏微分とは区別し、$\psi'$ が恒等的に零ではない波形を考える。連鎖律で $\delta V_t=-\lambda r\psi'$、$\delta V_x=r\psi'$ だから、
+
+$$
+(A_0-\lambda I)r\,\psi'=0
+\quad\Longrightarrow\quad
+(A_0-\lambda I)r=0.
+$$
+
+非零の $r$ が存在するには $\det(A_0-\lambda I)=0$ が必要である。このため固有値を微小波の**特性速度**として判定できる。以下では各滑らかな局所状態で同じ行列を計算する。
 
 <a id="thm-fluid29-characteristics"></a>
 
@@ -242,7 +258,7 @@ $$
 これが零になるのは $\lambda=u\pm\sqrt{gh}$ である。$g,h>0$ なら $\sqrt{gh}>0$ で二根は異なり実数である。
 <!-- proof-end -->
 
-**線形波との接続**：平底の静水 $(h,u)=(H,0)$（$H>0$）へ $h=H+\zeta$、$u=v$（$|\zeta|/H, |v|/\sqrt{gH}\ll1$）を入れる。一次項だけ取ると
+**線形波との接続**：平底の静水 $(h,u)=(H,0)$（$H>0$）へ $h=H+\zeta$、$u=v$（$|\zeta|/H, |v|/\sqrt{gH}\ll1$）を入れる。ここでの $v=v(x,t)$ は**水深平均速度の微小擾乱**であり、第0節の深さ依存速度 $v(x,z,t)$ とは異なる局所記号である。一次項だけ取ると
 
 $$
 \zeta_t+Hv_x=0,\qquad v_t+g\zeta_x=0.
@@ -297,7 +313,23 @@ $$
 
 ## 6. エネルギーは消えずに残るのか
 
-平底に限らず、[FLUID6 の位置水頭](../FLUID6/index.md#def-fluid6-head)から得られる重力ポテンシャル $gz$ を水柱の全高さで積分する。高さ $z$ にある単位質量には重力によるエネルギー $gz$ が対応するので、水柱全体を密度 $\rho$ で割ると $\int_b^{b+h}gz\,dz=g(bh+h^2/2)$ となる。水深平均の運動エネルギーと合わせた量を次のように取る。
+平底に限らず、[FLUID6 の位置水頭](../FLUID6/index.md#def-fluid6-head)に現れる高さ $z$ の重力ポテンシャル $gz$ を水柱の全高さで積分する。さらに[浅水模型の鉛直一様速度の仮定](#thm-fluid29-shallow-water)により $v\simeq u=q/h$ だから、密度 $\rho$ で割った単位幅当たりの運動エネルギーは
+
+$$
+\int_b^{b+h}\frac{v^2}{2}\,dz
+\simeq\int_b^{b+h}\frac{u^2}{2}\,dz
+=\frac{hu^2}{2}=\frac{q^2}{2h}.
+$$
+
+一方、重力ポテンシャルの寄与は、底面を積分の下端にして
+
+$$
+\int_b^{b+h}gz\,dz
+=\frac g2\bigl((b+h)^2-b^2\bigr)
+=ghb+\frac12gh^2.
+$$
+
+よって運動と位置の寄与を足した量を次のように定義する。$ghb$ を落とすと起伏上のエネルギー収支が閉じない。
 
 <a id="def-fluid29-column-energy"></a>
 
@@ -320,7 +352,16 @@ E=\frac{6^2}{2\cdot2}+\frac{9.8}{2}\cdot2^2
 =9+19.6=28.6\ {\rm m^3/s^2}.
 $$
 
-運動の寄与は $hu^2/2=9$、重力の寄与は $gh^2/2=19.6$ で、定義の各部分と単位を直接照合した。
+運動の寄与は $hu^2/2=9$、重力の寄与は $gh^2/2=19.6$ である。底面標高の効果も直接確かめるため、水深と流速は変えず $b=1$ m とする。このとき $\eta=b+h=3$ m で、水深の正値と $q=hu=6$ m$^2$/s は保たれ、
+
+$$
+E=\underbrace{9}_{hu^2/2}
++\underbrace{19.6}_{gh^2/2}
++\underbrace{9.8\cdot2\cdot1}_{ghb}
+=48.2\ {\rm m^3/s^2}.
+$$
+
+底を1 m高くした分だけ $ghb=19.6$ m$^3$/s$^2$ 増える。三項と各項の単位を確かめたので、平底の場合だけでなく定義の全ての寄与を確認できる。
 <!-- definition-example-end -->
 
 <a id="thm-fluid29-energy"></a>
@@ -386,14 +427,14 @@ $$
 
 ## 7. 保存を壊さず数値実験するには
 
-平底なら質量と運動量は保存形であるから、セル $i$ の平均 $V_i=(h_i,q_i)^{\mathsf T}$ を幅 $\Delta x>0$ の領域で積分すると、セル両端を共有する同じ数値流束 $\widehat F$ によって
+平底なら[浅水方程式](#thm-fluid29-shallow-water)の質量と運動量はともに保存形である。幅 $\Delta x>0$ のセル $i$ における平均 $V_i=(h_i,q_i)^{\mathsf T}$ を取り、セルの両端で隣接セルと共有する数値流束 $\widehat F$ を用いると
 
 $$
 V_i^{n+1}=V_i^n-\frac{\Delta t}{\Delta x}
 \left(\widehat F_{i+1/2}-\widehat F_{i-1/2}\right)
 $$
 
-と更新できる。隣接セルの共通面で流束が逆符号で打ち消し合うため、総水量 $\sum_i h_i\Delta x$ は**境界流束以外で増減しない**。非線形波の先端では流れが滑らかなままである保証はなく、差分 $F'(V)$ を直接使うよりこの有限体積形式が適する。
+と更新できる。隣接セルの共通面で流束が逆符号で打ち消し合うため、総水量 $\sum_i h_i\Delta x$ は**境界流束以外で増減しない**。非線形波の先端では流れが滑らかなままである保証はなく、滑らかな状態の局所微分行列 $DF(V)$ だけで不連続をまたぐ流量を表すより、この有限体積形式が適する。
 
 本講のラボでは $h>0$ の湿潤状態に限る。平底のダム決壊には $|u|+\sqrt{gh}$ を最大波速に選んだ局所 Lax–Friedrichs（Rusanov）流束を使い、反射壁を置いて総水量と最小水深を測る。さらに**起伏上の湖面静止**を保つには、斜面源項を運動量フラックスと釣り合わせる必要がある。各面で水面標高を変えずに水深だけ再構成する、静水圧再構成の基礎を別の設定で検査する。
 
@@ -491,19 +532,64 @@ $\partial_xv+\partial_zw=0$、$w_s=\eta_t+v_s\eta_x$、$w_b=v_bb_x$、$b_t=0$ �
 <!-- solution-start -->
 #### 詳細解答
 
-$h=\eta-b$ だから $h_t=\eta_t$。積分端点を含む微分は $q_x=\int_b^\eta v_xdz+v_s\eta_x-v_bb_x$。非圧縮条件を用いると $\int_b^\eta v_xdz=-\int_b^\eta w_zdz=-w_s+w_b$。よって $q_x=-\eta_t-v_s\eta_x+v_bb_x+v_s\eta_x-v_bb_x=-\eta_t$。水深の時間変化を足せば零となる。斜面では $w_b=v_bb_x$ を省略できない。
+$h=\eta-b$、$b_t=0$ だから $h_t=\eta_t$。積分の上下端が $x$ に依存するので、端点を含む微分を行うと
+
+$$
+q_x=\int_b^\eta v_x\,dz+v_s\eta_x-v_bb_x.
+$$
+
+非圧縮条件から $v_x=-w_z$ なので
+
+$$
+\int_b^\eta v_x\,dz=-\int_b^\eta w_z\,dz=-w_s+w_b.
+$$
+
+[水面・底面の運動学条件を使った質量保存の証明](#thm-fluid29-depth-mass)と同じく、ここに $w_s=\eta_t+v_s\eta_x$、$w_b=v_bb_x$ を代入すると
+
+$$
+\begin{aligned}
+q_x&=-w_s+w_b+v_s\eta_x-v_bb_x\\
+&=-\eta_t-v_s\eta_x+v_bb_x+v_s\eta_x-v_bb_x\\
+&=-\eta_t=-h_t.
+\end{aligned}
+$$
+
+斜面では $w_b=v_bb_x$ を省略できない。
 <!-- solution-end -->
 
 ### B2. 線形水面波を浅水式から再導出する
 
-平底静水 $h=H>0,u=0$ に $h=H+\zeta$、$u=v$ の小擾乱を加える。一次方程式を求め、$\zeta$ が満たす波動方程式と波速を求めよ。
+平底静水 $h=H>0,u=0$ に $h=H+\zeta$、$u=v(x,t)$ の小擾乱を加える。ここで $v$ は水深平均速度の微小擾乱である。一次方程式を求め、$\zeta$ が満たす波動方程式と波速を求めよ。
 
 - Level: B
 
 <!-- solution-start -->
 #### 詳細解答
 
-質量式は $(H+\zeta)_t+[(H+\zeta)v]_x=0$。二次項 $\zeta v$ を捨てて $\zeta_t+Hv_x=0$。速度式は $v_t+vv_x+g\zeta_x=0$ なので二次項 $vv_x$ を捨てて $v_t+g\zeta_x=0$。第一式の時間微分は $\zeta_{tt}+H v_{xt}=0$、第二式の空間微分は $v_{tx}+g\zeta_{xx}=0$。滑らかさで混合微分を交換し、$v_{xt}=-g\zeta_{xx}$ を代入して $\zeta_{tt}-gH\zeta_{xx}=0$。$g,H>0$ なので波速は $\sqrt{gH}$ である。
+[浅水方程式](#thm-fluid29-shallow-water)の質量式に $h=H+\zeta$、$u=v$ を代入すると
+
+$$
+(H+\zeta)_t+\partial_x\bigl((H+\zeta)v\bigr)
+=\zeta_t+Hv_x+(\zeta v)_x=0.
+$$
+
+$\zeta v$ は擾乱の二次なので捨て、$\zeta_t+Hv_x=0$ を得る。一方、速度式への代入は
+
+$$
+v_t+vv_x+g\zeta_x=0
+\quad\Longrightarrow\quad v_t+g\zeta_x=0
+$$
+
+であり、$vv_x$ を二次項として落とした。前式を $t$ で、後式を $x$ で微分し、混合微分を交換できる滑らかさを用いると
+
+$$
+\zeta_{tt}+H v_{xt}=0,\qquad
+v_{tx}+g\zeta_{xx}=0
+\quad\Longrightarrow\quad
+\zeta_{tt}-gH\zeta_{xx}=0.
+$$
+
+$g,H>0$ より両方向へ進む波の速さは $\sqrt{gH}$ である。
 <!-- solution-end -->
 
 ### B3. 力学的エネルギー流束を組み立てる
@@ -515,7 +601,42 @@ $h=\eta-b$ だから $h_t=\eta_t$。積分端点を含む微分は $q_x=\int_b^\
 <!-- solution-start -->
 #### 詳細解答
 
-積の微分から $\partial_t(hu^2/2)+\partial_x(hu^3/2)=hu(u_t+uu_x)+(u^2/2)(h_t+(hu)_x)=-ghu(h+b)_x$。重力部分は $\partial_t(gh^2/2+ghb)=g(h+b)h_t=-g(h+b)(hu)_x$。足すと $E_t+\partial_x(hu^3/2)=-g[(hu)(h+b)_x+(h+b)(hu)_x]=-\partial_x[g(h+b)hu]$。したがって流束は $hu^3/2+g(h+b)hu=u(E+gh^2/2)$ となる。不連続解ではこの積の微分をそのまま用いない。
+[水柱の力学的エネルギー](#def-fluid29-column-energy)を使い、運動エネルギー部分を質量式と速度式で微分すると
+
+$$
+\begin{aligned}
+\partial_t\left(\frac12hu^2\right)
++\partial_x\left(\frac12hu^3\right)
+&=hu(u_t+uu_x)+\frac12u^2\left(h_t+(hu)_x\right)\\
+&=-ghu(h+b)_x.
+\end{aligned}
+$$
+
+固定底 $b_t=0$ だから、重力部分は
+
+$$
+\partial_t\left(\frac12gh^2+ghb\right)
+=g(h+b)h_t=-g(h+b)(hu)_x.
+$$
+
+両方を加え、積の微分を逆に使うと
+
+$$
+\begin{aligned}
+E_t+\partial_x\left(\frac12hu^3\right)
+&=-g\left[hu(h+b)_x+(h+b)(hu)_x\right]\\
+&=-\partial_x\left[g(h+b)hu\right].
+\end{aligned}
+$$
+
+よって流束は
+
+$$
+\frac12hu^3+g(h+b)hu
+=u\left(E+\frac12gh^2\right)
+$$
+
+である。滑らかさを仮定して積の微分を行ったため、不連続解にはこの等式をそのまま適用しない。
 <!-- solution-end -->
 
 ### B4. 有限体積の質量収支を確認する
