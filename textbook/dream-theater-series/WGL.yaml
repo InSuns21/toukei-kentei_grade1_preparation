@@ -5,7 +5,7 @@ plan: textbook/plans_progress/DREAM_THEATER_WEBGL_OPENGL_GRAPHICS_PROGRAMMING_PL
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: WGL1, path: textbook/volumes/dream_thater/計算系/WGL/WGL1, status: completed, title: "ブラウザの画素までの最短経路は？" }
-  - { id: WGL2, path: textbook/volumes/dream_thater/計算系/WGL/WGL2, status: planned, title: "GPUは頂点とピクセルをどう区別する？" }
+  - { id: WGL2, path: textbook/volumes/dream_thater/計算系/WGL/WGL2, status: completed, title: "GPUは頂点とピクセルをどう区別する？" }
   - { id: WGL3, path: textbook/volumes/dream_thater/計算系/WGL/WGL3, status: planned, title: "多数の三角形をどう共有する？" }
   - { id: WGL4, path: textbook/volumes/dream_thater/計算系/WGL/WGL4, status: planned, title: "モデル座標を世界へどう移す？" }
   - { id: WGL5, path: textbook/volumes/dream_thater/計算系/WGL/WGL5, status: planned, title: "視点と投影はどう画素を決める？" }
