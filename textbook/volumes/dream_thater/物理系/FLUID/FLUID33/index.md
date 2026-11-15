@@ -153,7 +153,7 @@ $$
 
 一層浅水流は速い重力波も支える。[FLUID29 の浅水長波速度](../FLUID29/index.md#thm-fluid29-characteristics)は静止水で $\sqrt{gH}$ だった。今欲しいのはこれより遅い、回転と緯度勾配の影響を受ける波である。
 
-$h=H+\eta$、背景速度零、$|\eta|/H\ll1$、水平流速の二次項を無視できる程度に小さいとする。$\beta$ 面では、$|\beta y|/|f_0|\ll1$ の局所帯である。水深方程式と渦度方程式の一次項を取り出すと
+$h=H+\eta$、背景速度零、$|\eta|/H\ll1$、水平流速の二次項を無視できる程度に小さいとする。$\beta$ 面では、$|\beta y|/|f_0|\ll1$ の局所帯である。水平発散を $\delta=u_x+v_y$ と置けば、質量式から $\eta_t+H\delta=0$ を得る。渦度式を速度と水面変位について一次化した段階では $\zeta_t+(f_0+\beta y)\delta+\beta v=0$ である。ここから、$|\beta y|/|f_0|\ll1$ によって伸縮係数の相対的に小さい補正 $\beta y\delta$ を落とす。ただし $\beta v$ は背景渦位の移流を表すため残す。こうして
 
 $$
 \eta_t+H(u_x+v_y)=0,\qquad
@@ -237,9 +237,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-地衡表示を二回微分すると
+まず[浅水渦位の定義](#def-fluid33-shallow-pv)と $h=H+\eta$ から、$|\eta|/H\ll1$ に対して
 
-$$
+$
+\begin{aligned}
+q&=\frac{f+\zeta}{H+\eta}
+=\frac{f+\zeta}{H}\left(1-\frac{\eta}{H}+O\!\left(\frac{\eta^2}{H^2}\right)\right),\\
+H\left(q-\frac{f}{H}\right)
+&=\zeta-\frac{f\eta}{H}+O\!\left(\frac{|\zeta\eta|}{H}+\frac{|f|\eta^2}{H^2}\right)
+\simeq\zeta-\frac{f_0}{H}\eta.
+\end{aligned}
+$
+
+最後の近似では $|\beta y|/|f_0|\ll1$ を用い、$f\eta/H$ の係数だけを $f_0$ に替えた。これが、厚さで割った渦位 $q$ から線形偏差 $Q'$ へ移る根拠である。次に地衡表示を二回微分すると
+
+$
 \zeta_g=\partial_xv_g-\partial_yu_g
 =\psi_{xx}+\psi_{yy}.
 $$
