@@ -1,0 +1,54 @@
+chapter: FLUID26
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID25
+concepts:
+  - id: fluid.oriented-total-curvature
+    name: 向き付き全曲率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（向き付き全曲率）"]
+    requires: [fluid.interfacial-tension]
+  - id: fluid.young-laplace-pressure-jump
+    name: Young–Laplace の界面圧力跳躍
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Young–Laplace の界面圧力跳躍）"]
+    requires: [fluid.oriented-total-curvature, fluid.interfacial-tension]
+  - id: fluid.sphere-cylinder-pressure-jump
+    name: 球面と円筒面の圧力差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（球面と円筒面の圧力差）"]
+    requires: [fluid.young-laplace-pressure-jump]
+  - id: fluid.liquid-contact-angle
+    name: 液体側から測る接触角
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（液体側から測る接触角）"]
+    requires: [fluid.interfacial-tension]
+  - id: fluid.young-contact-law
+    name: 理想平衡接触線の Young の式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（理想平衡接触線の Young の式）"]
+    requires: [fluid.liquid-contact-angle, fluid.interfacial-tension]
+  - id: fluid.jurin-capillary-rise
+    name: 細管近似での毛管上昇・下降
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（細管近似での毛管上昇・下降）"]
+    requires: [fluid.young-laplace-pressure-jump, fluid.liquid-contact-angle, fluid.hydrostatic-pressure-balance]
+  - id: fluid.capillary-length
+    name: 毛管長
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（毛管長）"]
+    requires: [fluid.interfacial-tension, fluid.hydrostatic-pressure-balance]
+  - id: fluid.static-wall-meniscus
+    name: 鉛直壁の静的メニスカスと第一積分
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（鉛直壁の静的メニスカスと第一積分）"]
+    requires: [fluid.young-laplace-pressure-jump, fluid.capillary-length, fluid.liquid-contact-angle, fluid.vertical-hydrostatic-integral]
