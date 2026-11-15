@@ -367,6 +367,13 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-53/assets/backtest_var.py --scenario clustered
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-53/assets/tests -v
 
+      # U3-54: frozen predictive distributions, atom-aware ES and proper CRPS.
+      - name: Verify U3-54 ES and predictive distribution backtesting
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-54/assets/backtest_es.py --scenario baseline
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-54/assets/backtest_es.py --scenario severe
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-54/assets/tests -v
+
       # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding
