@@ -52,19 +52,19 @@ $$
 
 標本平均の推定精度を考えるには、各期の二次モーメントが有限であることを仮定し、時刻 $t,u\in\{1,\ldots,T\}$ の間の共分散を数えます。平均の分散を展開すると、
 
-$
+$$
 \operatorname{Var}(\bar R)
 =\operatorname{Var}\left(\frac1T\sum_{t=1}^{T}R_t\right)
 =\frac1{T^2}\sum_{t=1}^{T}\sum_{u=1}^{T}
 \operatorname{Cov}(R_t,R_u)
-$
+$$
 
 です。時刻差（ラグ）を $h\ge0$ とし、$\gamma(h)=\operatorname{Cov}(R_t,R_{t+h})$ が $t$ に依存しないと仮定します。$h=0$ の組は $T$ 個、各 $h\ge1$ の組は $(t,t+h)$ と $(t+h,t)$ がそれぞれ $T-h$ 個あるので、
 
-$
+$$
 \operatorname{Var}(\bar R)
 =\frac1{T^2}\left(T\gamma(0)+2\sum_{h=1}^{T-1}(T-h)\gamma(h)\right)
-$
+$$
 
 を得ます。独立同分布なら $\gamma(0)=\sigma^2>0$、$h\ge1$ で $\gamma(h)=0$ となり $\operatorname{Var}(\bar R)=\sigma^2/T$ です。後者を無視して「日次Sharpeに $\sqrt{252}$ を掛ければ推定精度も $\sqrt{252}$ 倍」と考えるのは誤りです。年間換算 $\widehat S\sqrt{252}$ も独立・同分布や時点の整合性に依存する慣用表示であり、本講の推論は未年率の値で行います。
 
@@ -215,11 +215,11 @@ $$
 
 歪度 $\widehat\gamma_3$ は収益率の左右非対称さ、**通常の尖度** $\widehat\gamma_4$ は裾の厚さなどに関わる4次の標準化モーメントです。本講では第2節の $s>0$ を使い、$k=3,4$ に対して
 
-$
+$$
 m_k=\frac1T\sum_{t=1}^{T}(R_t-\bar R)^k,\qquad
 \widehat\gamma_3=\frac{m_3}{s^3},\qquad
 \widehat\gamma_4=\frac{m_4}{s^4}
-$
+$$
 
 という規約で定義します。正規分布の**母**尖度は3、超過尖度（通常尖度から3を引いた量）なら0です。有限標本では補正付きの別推定式もあるため、DSRに代入する推定法・$T$・分母 $s$ の規約を揃えます。
 
@@ -254,11 +254,11 @@ $$
 <!-- definition-example-start: def-u4-28-dsr -->
 **定義の確認**： 正規・独立の帰無近似で $T=250$、$N_{\mathrm{eff}}=100$ とし、$V_{\mathrm{trial}}=1/250$ を採用します。第3節の母分散1が既知のモデルなら
 
-$
+$$
 \operatorname{Var}(\bar X_j)
 =\frac1{T^2}\sum_{t=1}^{T}\operatorname{Var}(X_{jt})
 =\frac1T=\frac1{250}
-$
+$$
 
 です。この値をSharpe推定量の**近似分散**として使うのであり、標本標準偏差 $s$ を推定した $\widehat S$ の厳密な有限標本分散が $1/T$ という意味ではありません。極値近似の括弧内は約2.5306、したがって $S_0\approx0.1600$ です。これは第3節の**厳密な最大値の中央値0.1557**とは異なり、最大値の期待値に対する極値近似を使うためです。仮に $\widehat S=0.10$、$\widehat\gamma_3=0$、$\widehat\gamma_4=3$ なら
 
