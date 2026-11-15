@@ -141,7 +141,17 @@ $$
 
 となるモデルでは $w_n=(\alpha/\beta)^n/n!$、$Z=e^{\alpha/\beta}$ なので、候補は平均 $\alpha/\beta$ の Poisson 分布です。この場合は次のように**全時刻の不変性**も確認できます。
 
-時刻 $0$ に独立な寿命が指数率 $\beta$ の個体が Poisson$(\alpha/\beta)$ 個いるとします。時刻 $t$ まで生き残る各個体の確率は $e^{-\beta t}$ なので、[Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)により初期個体の生存数は平均 $(\alpha/\beta)e^{-\beta t}$ の Poisson 分布です。さらに、時刻 $s\in[0,t]$ に Poisson 率 $\alpha$ で移入した個体は確率 $e^{-\beta(t-s)}$ で生存します。[Poisson 過程の到着回数を固定したときの到着時刻](../SP10/index.md#prop-sp10-conditional-arrival-times)を使い、$N_t=m$ の下で移入時刻を独立な一様時刻 $U_1,\ldots,U_m$ と見なします。各移入分子の生存指示変数は、時刻と独立な寿命を合わせて独立で、その共通生存確率は $t^{-1}\int_0^t e^{-\beta(t-s)}\,ds$ です。従って [Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)から、この移入個体の生存数は平均
+時刻 $0$ に Poisson$(\alpha/\beta)$ 個の個体がいて、個体ごとに率 $\beta$ の独立な指数寿命を持つとします。時刻 $t$ まで一個が生き残る確率は $e^{-\beta t}$ です。[Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)により、初期個体の生存数は平均 $(\alpha/\beta)e^{-\beta t}$ の Poisson 分布です。
+
+次に、率 $\alpha$ の Poisson 過程で個体が移入するとします。時刻 $s\in[0,t]$ に移入した個体の生存確率は $e^{-\beta(t-s)}$ です。$t>0$ について [到着回数を固定したときの到着時刻の法則](../SP10/index.md#prop-sp10-conditional-arrival-times)を使います。移入数 $N_t=m$ を固定すれば、移入時刻は独立な一様時刻 $U_1,\ldots,U_m$ を並べ替えたものです。
+
+寿命は到着時刻にも互いにも独立なので、並べ替える前の各個体の生存指示変数は独立で、その共通成功確率は
+
+$$
+p_t=\frac1t\int_0^t e^{-\beta(t-s)}\,ds
+$$
+
+です。そこで [Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)から、移入個体の生存数は平均
 
 $$
 \int_0^t\alpha e^{-\beta(t-s)}\,ds
@@ -541,7 +551,30 @@ w_n=\prod_{k=0}^{n-1}\frac{\alpha}{\beta(k+1)}
 Z=\sum_{n=0}^\infty w_n=e^{\alpha/\beta}.
 $$
 
-よって候補は $\pi_n=e^{-\alpha/\beta}(\alpha/\beta)^n/n!$ です。$\theta=\alpha/\beta$、$u=e^{-\beta t}$ とします。独立な指数寿命のため初期 Poisson$(\theta)$ 個の生存数は [独立間引き](../SP11/index.md#thm-sp11-thinning)から Poisson$(\theta u)$。時刻 $s$ に到着した個体が $t$ まで生き残る確率は $e^{-\beta(t-s)}$ です。[到着時刻の条件付き一様分布](../SP10/index.md#prop-sp10-conditional-arrival-times)により、移入数 $N_t=m$ を固定すると到着時刻を独立な一様乱数 $U_1,\ldots,U_m$ と見なせます。独立な寿命と合わせた各個体の生存指示変数は独立かつ共通の成功確率 $t^{-1}\int_0^t e^{-\beta(t-s)}\,ds$ を持ちます。従って [独立間引き](../SP11/index.md#thm-sp11-thinning)により、移入個体の生存数は Poisson$(\int_0^t\alpha e^{-\beta(t-s)}ds)$ です。指数積分を評価すると平均は $\theta(1-u)$。[重ね合わせ](../SP11/index.md#thm-sp11-superposition)から合計は Poisson$(\theta u+\theta(1-u))=$ Poisson$(\theta)$。初期個体数はほぼ確実に有限で、有限時間内の移入数は Poisson$(\alpha t)$ 個（有限）です。各個体の死亡は高々一度なので有限時間の跳躍回数は有限、非爆発です。無限状態では単なる $\pi Q=0$ の計算ではなく、この構成が不変性を保証します。
+よって定常分布の候補は
+
+$$
+\pi_n=e^{-\alpha/\beta}\frac{(\alpha/\beta)^n}{n!}.
+$$
+
+ここで $\theta=\alpha/\beta$、$u=e^{-\beta t}$ と置きます。初期個体の寿命は独立な指数分布なので、生存確率は $u$ です。[独立間引き](../SP11/index.md#thm-sp11-thinning)により、初期 Poisson$(\theta)$ 個のうち時刻 $t$ まで生き残る個体数は Poisson$(\theta u)$ に従います。
+
+一方、時刻 $s$ に到着した新しい個体が時刻 $t$ まで生き残る確率は $e^{-\beta(t-s)}$ です。$t>0$ について [到着時刻の条件付き一様分布](../SP10/index.md#prop-sp10-conditional-arrival-times)を使い、移入数 $N_t=m$ の下で到着時刻を独立な一様時刻 $U_1,\ldots,U_m$ の並べ替えとして表します。寿命は独立なので、生存指示変数は独立かつ共通の成功確率
+
+$$
+p_t=\frac1t\int_0^t e^{-\beta(t-s)}\,ds
+$$
+
+を持ちます。[独立間引き](../SP11/index.md#thm-sp11-thinning)から、移入個体の生存数は平均
+
+$$
+\alpha t p_t=\int_0^t\alpha e^{-\beta(t-s)}\,ds
+=\frac{\alpha}{\beta}(1-u)=\theta(1-u)
+$$
+
+の Poisson 分布です。初期個体からの生存数と移入個体からの生存数は独立なので、[Poisson の重ね合わせ](../SP11/index.md#thm-sp11-superposition)から合計は Poisson$(\theta u+\theta(1-u))$、すなわち Poisson$(\theta)$ に戻ります。
+
+初期個体数はほぼ確実に有限で、時刻 $t$ までの移入数も Poisson$(\alpha t)$ 個で有限です。各個体が死亡するのは高々一度なので、有限時間に無限回の跳躍は起きません。これで非爆発性と全時刻の定常性を直接確かめられました。
 <!-- solution-end -->
 
 <a id="ex-sp14-b03"></a>
