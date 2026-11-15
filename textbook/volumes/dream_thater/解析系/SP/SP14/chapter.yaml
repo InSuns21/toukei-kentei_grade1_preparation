@@ -1,0 +1,44 @@
+id: "SP14"
+title: "出生死滅過程・吸収・化学反応ネットワーク"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP13
+official_scope: []
+learning_objectives:
+  - 出生率と死亡率から有限状態の Q 行列を構成し境界条件と吸収状態を区別できる
+  - 有限出生死滅過程で定常流量を用いて積の重みと唯一の定常分布を証明できる
+  - 可算状態では正規化の必要性と非爆発性を区別し移入死亡系の Poisson 定常性を直接検証できる
+  - 二つの吸収境界への到達確率を初跳躍方程式と差分の積から導出できる
+  - 吸収時間の有限性と平均時間の後退方程式および一意性を証明できる
+  - 有限化学反応ネットワークの状態変化と反応率から Q 行列と化学マスター方程式を導ける
+  - 二状態分子変換の二項定常分布と片方向反応の吸収を比較できる
+definitions:
+  - { id: SP14-DEF-01, name: "出生死滅過程" }
+  - { id: SP14-DEF-02, name: "有限状態の反応ネットワーク" }
+theorems:
+  - { id: SP14-THM-01, name: "有限出生死滅過程の定常分布" }
+  - { id: SP14-THM-02, name: "有限出生死滅過程の吸収確率と平均吸収時間" }
+  - { id: SP14-PROP-01, name: "有限反応ネットワークの化学マスター方程式" }
+  - { id: SP14-THM-03, name: "二状態分子変換の二項定常分布" }
+canonical_examples:
+  - "三状態出生死滅系の Q 行列と隣接率の釣合い"
+  - "無限状態の移入死亡過程と Poisson 定常分布の生存分解"
+  - "両端吸収系の到達確率・平均到達時間"
+  - "保存量を持つ A と B の可逆反応ネットワーク"
+  - "片方向反応における吸収と可逆な定常状態の違い"
+problem_patterns:
+  - SP14-BIRTH-DEATH-QMATRIX
+  - SP14-FINITE-STATIONARY-WEIGHTS
+  - SP14-ASYMMETRIC-ABSORPTION-PROBABILITY
+  - SP14-SYMMETRIC-MEAN-ABSORPTION
+  - SP14-CHEMICAL-MASTER-EQUATION
+  - SP14-STATIONARY-FLOW-PROOF
+  - SP14-INFINITE-IMMIGRATION-DEATH-STATIONARITY
+  - SP14-ASYMMETRIC-MEAN-ABSORPTION
+  - SP14-IRREVERSIBLE-REACTION-ABSORPTION
+  - SP14-REVERSIBLE-REACTION-BOUNDARY-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 7.0, review: 2.0 }
