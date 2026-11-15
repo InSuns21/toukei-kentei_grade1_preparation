@@ -51,7 +51,7 @@ chapters:
   - { id: U3-45, path: textbook/volumes/dream_thater/応用系/U/U3-45, status: completed, title: "Value at Risk の定義と限界" }
   - { id: U3-46, path: textbook/volumes/dream_thater/応用系/U/U3-46, status: completed, title: "Expected Shortfall の定義と性質" }
   - { id: U3-47, path: textbook/volumes/dream_thater/応用系/U/U3-47, status: completed, title: "正規・t 分布と分散共分散法による VaR/ES" }
-  - { id: U3-48, path: textbook/volumes/dream_thater/応用系/U/U3-48, status: planned, title: "historical / filtered historical simulation" }
+  - { id: U3-48, path: textbook/volumes/dream_thater/応用系/U/U3-48, status: completed, title: "Historical Simulation と Filtered Historical Simulation" }
   - { id: U3-49, path: textbook/volumes/dream_thater/応用系/U/U3-49, status: planned, title: "シナリオ Monte Carlo と full repricing" }
   - { id: U3-50, path: textbook/volumes/dream_thater/応用系/U/U3-50, status: planned, title: "Delta–Gamma 近似と複雑なポートフォリオ" }
   - { id: U3-51, path: textbook/volumes/dream_thater/応用系/U/U3-51, status: planned, title: "極値理論：POT・一般化 Pareto 尾部" }
