@@ -13,13 +13,13 @@
 <!-- formal-statement-start -->
 > **定義（通常更新過程）**  
 > 確率空間上の独立同分布な実確率変数列 $(T_n)_{n\ge1}$ が $P(0<T_1<\infty)=1$ を満たすとする。$S_0=0$ および
->
+
 $$
 S_n=\sum_{k=1}^nT_k\quad(n\ge1)
 $$
 >
 > とおき、$t\ge0$ に対して
->
+
 $$
 N(t)=\sum_{n=1}^{\infty}\mathbf1_{\{S_n\le t\}}
 $$
@@ -79,7 +79,7 @@ E[e^{-\theta S_n}]
 =q^n.
 $$
 
-$S_n\le t$ のとき $e^{-\theta S_n}\ge e^{-\theta t}$ です。[Markov の不等式](../../F0/F0-00P2/index.md#thm-markov-inequality)を非負変数 $e^{-\theta S_n}$、閾値 $e^{-\theta t}$ に適用して
+$S_n\le t$ のとき $e^{-\theta S_n}\ge e^{-\theta t}$ です。$e^{-\theta S_n}\ge e^{-\theta t}\mathbf1_{\{S_n\le t\}}$ の両辺の期待値を取って
 
 $$
 P(N(t)\ge n)=P(S_n\le t)
@@ -123,13 +123,13 @@ $$
 <!-- formal-statement-start -->
 > **命題（更新回数の分布と期待回数）**  
 > 正かつ有限な独立同分布の待ち時間を持つ通常更新過程について、全ての $t\ge0$、整数 $n\ge0$ で
->
+
 $$
 P(N(t)=n)=F^{*n}(t)-F^{*(n+1)}(t)
 $$
 >
 > が成り立つ。また期待更新回数は
->
+
 $$
 E[N(t)]=\sum_{n=1}^{\infty}F^{*n}(t)<\infty
 $$
@@ -153,7 +153,7 @@ $$
 
 確率を引けば最初の公式です。$n=0$ は $F^{*0}(t)=1$ と定めたため、$P(N(t)=0)=1-F(t)$ に一致します。
 
-第1節の $N(t)=\sum_{n\ge1}\mathbf1_{\{S_n\le t\}}$ に対して部分和は非負かつ単調増加です。[単調収束定理](../../F0/F0-00P3C/index.md#thm-monotone-convergence)により
+第1節の $N(t)=\sum_{n\ge1}\mathbf1_{\{S_n\le t\}}$ に対して部分和は非負かつ単調増加です。[単調収束定理](../../F0/F0-00D2B/index.md#ref-limit-integral-exchange)により
 
 $$
 E[N(t)]=\lim_{m\to\infty}\sum_{n=1}^m
@@ -184,7 +184,7 @@ $$
 <!-- formal-statement-start -->
 > **定義（更新関数）**  
 > 正かつ有限な独立同分布の更新間隔を持つ通常更新過程 $(N(t))_{t\ge0}$ に対し
->
+
 $$
 m(t)=E[N(t)]\quad(t\ge0)
 $$
@@ -205,13 +205,13 @@ $$
 <!-- formal-statement-start -->
 > **定理（更新方程式と局所有界解の一意性）**  
 > $P(0<T_1<\infty)=1$ を満たす独立同分布の更新間隔の分布関数を $F$ とする。更新関数 $m(t)=E[N(t)]$ は全ての $t\ge0$ で
->
+
 $$
 \boxed{m(t)=F(t)+\int_{(0,t]}m(t-s)\,dF(s)}
 $$
 >
-> を満たす。さらにこの方程式を満たす $[0,\infty)$ 上の局所有界な実数値関数の解は一意であり、
->
+> を満たす。さらにこの方程式を満たす $[0,\infty)$ 上の局所有界な Borel 可測実数値関数の解は一意であり、
+
 $$
 m(t)=\sum_{n=1}^{\infty}F^{*n}(t)
 $$
@@ -296,7 +296,7 @@ $p=1/2$ とすれば $5/4$ であり、前節の直接計算と一致します�
 <!-- formal-statement-start -->
 > **定理（更新回数の強大数法則）**  
 > $(T_n)_{n\ge1}$ が独立同分布で $P(0<T_1<\infty)=1$、かつ $0<\mu=E[T_1]<\infty$ を満たす通常更新過程を考える。このとき
->
+
 $$
 \boxed{\frac{N(t)}t\longrightarrow\frac1\mu
 \quad(t\to\infty)\quad\text{ほとんど確実に}}
@@ -349,7 +349,7 @@ $t\to\infty$ で $n\to\infty$ だから、両端は強大数則で $\mu$ に収�
 <!-- formal-statement-start -->
 > **定理（初等更新定理）**  
 > 独立同分布の正で有限な待ち時間が $0<\mu=E[T_1]<\infty$ を満たす通常更新過程について、更新関数 $m(t)=E[N(t)]$ は
->
+
 $$
 \boxed{\lim_{t\to\infty}\frac{m(t)}t=\frac1\mu}
 $$
@@ -402,7 +402,7 @@ E[Y_t\mathbf1_{\{Y_t>R\}}]
 \le\frac{E[Y_t^2]}R\le\frac KR,
 $$
 
-という一様な尾部評価を得ます。ここで $Y_t>R$ なら $Y_t\le Y_t^2/R$ を使いました。前節で $Y_t\to1/\mu$ がほとんど確実なので、各固定 $R>1/\mu$ について、有界変数 $\min(Y_t,R)$ は $1/\mu$ にほとんど確実に収束します。[有界収束定理（優収束定理の適用）](../../F0/F0-00P3C/index.md#thm-dominated-convergence)により
+という一様な尾部評価を得ます。ここで $Y_t>R$ なら $Y_t\le Y_t^2/R$ を使いました。前節で $Y_t\to1/\mu$ がほとんど確実なので、各固定 $R>1/\mu$ について、有界変数 $\min(Y_t,R)$ は $1/\mu$ にほとんど確実に収束します。[優収束定理](../../F0/F0-00D2B/index.md#thm-f0-00d2b-01)により
 
 $$
 E[\min(Y_t,R)]\longrightarrow\frac1\mu.
