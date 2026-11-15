@@ -306,7 +306,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（深水・浅水の位相速度）**  
-> 有限水深の[重力・毛管波分散関係](#thm-fluid27-dispersion)で $k,h,\rho,g>0$、$\gamma\ge0$ を固定する。
+> 有限水深の[重力・毛管波分散関係](#thm-fluid27-dispersion)で $k,h,\rho,g>0$、$\gamma\ge0$ とする。深水では $k$ を固定して $h\to\infty$、浅水では $h,\rho,g,\gamma$ を固定して $k\to0$ とする。
 >
 > **（D）深水極限**：$kh\to\infty$ で
 
@@ -454,7 +454,7 @@ $$
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID27/dispersion_lab.py
 # timeout-ms: 15000
 # lab-preset: 標準・水深40cm | --depth 0.4 --wavelength 1 --samples 240
-# lab-preset: 浅水・水深5cm | --depth 0.05 --wavelength 1 --samples 240
+# lab-preset: 浅水・水深5cm | --depth 0.05 --wavelength 1 --amplitude 0.001 --samples 240
 # lab-preset: 短い毛管波 | --depth 0.4 --wavelength 0.03 --amplitude 0.0003 --samples 240
 # lab-preset: 張力なし | --depth 0.4 --wavelength 1 --gamma 0 --samples 240
 # lab-preset: 波形細分化 | --depth 0.4 --wavelength 1 --samples 480
