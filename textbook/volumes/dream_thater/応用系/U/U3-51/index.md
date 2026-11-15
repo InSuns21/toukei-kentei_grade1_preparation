@@ -20,7 +20,7 @@ $$
 k_u=\sum_{i=1}^{n}\boldsymbol{1}_{\{L_i>u\}},\qquad
 (L_i-u)_{1\le i\le n,\ L_i>u},\qquad
 \widehat p_u=k_u/n.
-$
+$$
 
 > $\boldsymbol{1}_{\{L_i>u\}}$ は $L_i>u$ なら1、そうでなければ0の指示関数である。中央は該当する $i$ を昇順に並べた**超過幅の列**で、同じ幅が複数あれば重複も保持する（集合ではない）。値がちょうど $u$ の観測は超過に含まれず、$k_u=0$ では列は空でモデルを当てはめられない。
 <!-- formal-statement-end -->
@@ -208,23 +208,23 @@ $$
 
 既習の [ES の分位点積分定義](../U3-46/index.md#def-u3-46-es)は **$E[|L|]<\infty$** を仮定していました。しかし GPD では形状 $\xi\ge1$ のとき上側の平均が発散します。本講の高水準 $1-p_u<\alpha<1$ では $q_\alpha=\operatorname{VaR}_\alpha(L)>u$ なので、上側分位点は $q_\alpha$ 以上です。そこでこの水準の ES は、積分が $+\infty$ となる場合も許して
 
-$
+$$
 \operatorname{ES}_\alpha(L)
 :=\frac1{1-\alpha}\int_\alpha^1\operatorname{VaR}_t(L)\,dt
 \quad\in\mathbb R\cup\{+\infty\}
-$
+$$
 
 と**拡張して**扱います。積分変数 $t$ は確率水準であり、保有期間の時刻ではありません。下からは $q_\alpha$ で抑えられるため、積分値に $-\infty$ との不定形は生じません。
 
-この尾部は連続で $P(L>q_\alpha)=1-\alpha$ です。[ES の尾部公式](../U3-46/index.md#prop-u3-46-atom)を有限に切断した損失へ適用し、$M>q_\alpha$ として $(L-q_\alpha)_+$ を $\min\{(L-q_\alpha)_+,M-q_\alpha\}$ から単調に近づければ、
+以下 $(a)_+=\max(a,0)$ を正の部分と書きます。この尾部は連続で $P(L>q_\alpha)=1-\alpha$ です。[ES の尾部公式](../U3-46/index.md#prop-u3-46-atom)を有限に切断した損失へ適用し、$M>q_\alpha$ として $(L-q_\alpha)_+$ を $\min\{(L-q_\alpha)_+,M-q_\alpha\}$ から単調に近づければ、
 
-$
+$$
 \operatorname{ES}_\alpha(L)
 =q_\alpha+\frac{E[(L-q_\alpha)_+]}{1-\alpha}
 =E[L\mid L>q_\alpha]
-$
+$$
 
-が $+\infty$ を許して成立します。ここで $(a)_+=\max(a,0)$ であり、最後の条件付き期待値も拡張実数値です。このように「VaR を超えた分の平均」を積分して有限性を判定します。
+が $+\infty$ を許して成立します。最後の条件付き期待値も拡張実数値です。このように「VaR を超えた分の平均」を積分して有限性を判定します。
 
 <a id="prop-u3-51-es"></a>
 
@@ -256,7 +256,13 @@ Z=L-q_\alpha\mid(L>q_\alpha)
 b=\beta+\xi(q_\alpha-u)>0
 $$
 
-を得ます。非負 $Z$ の各実現値について $Z=\int_0^\infty\boldsymbol{1}_{\{Z>z\}}\,dz$ であり、非負関数の積分順序交換から $E[Z]=\int_0^\infty P(Z>z)\,dz$ です（この時点で有限性は仮定しません）。$\xi\ne0,\ \xi<1$ の場合に $w=1+\xi z/b$ と置換すると、
+を得ます。非負の実数 $a$ では $a=\int_0^\infty\boldsymbol{1}_{\{a>z\}}\,dz$ です。これを $Z$ に適用し、非負関数の積分順序を交換すると、
+
+$$
+E[Z]=\int_0^\infty P(Z>z)\,dz\in[0,+\infty]
+$$
+
+となります（有限性はまだ仮定しません）。$\xi\ne0,\ \xi<1$ の場合、$\xi<0$ なら積分上端は $-b/\xi$、$\xi>0$ なら $+\infty$ です。$w=1+\xi z/b$ と置換すると、
 
 $$
 \begin{aligned}
