@@ -8,9 +8,9 @@
 
 $x$ は東、$y$ は北、$z$ は上向き。重力加速度の大きさを $g>0$ [m/s$^2$]、平均水深を $H>0$ [m] とする。実際の水深と水面変位は
 
-$
+$$
 h(x,y,t)>0,\qquad \eta=h-H
-$
+$$
 
 で、水深平均の水平速度を $(u,v)$ [m/s] とする。
 
@@ -404,7 +404,7 @@ $$
 
 <!-- python-file-lab -->
 # lab-id: FLUID33-ROSSBY-WAVE
-# lab-title: Rossby波の分散・位相・群速度と渦位残差
+# lab-title: Rossby波の波数依存・位相・群速度と渦位残差
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID33/rossby_wave_lab.py
 # timeout-ms: 15000
 # lab-preset: 西進位相・東向き群速度 | --beta 1.6e-11 --f0 1e-4 --depth 1000 --k 2e-6 --ell 1e-6 --amplitude 10000
