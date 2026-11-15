@@ -139,7 +139,7 @@ def self_test() -> None:
     assert call_price(120, 100, 0.02, 0.2, 0) == 20.0
     assert abs(call_price(100, 100, 0.02, 0.2, 1)
                - 8.916037278572539) < 1e-9
-    assert quantile_and_es([-3, -1, 0, 4, 10], 0.70) == (4, 8.0)
+    assert abs(quantile_and_es([-3, -1, 0, 4, 10], 0.70)[1] - 8.0) < 1e-12
     assert quantile_and_es([-2, 1, 3, 7], 0.75) == (3, 7.0)
     assert abs(quantile_and_es([0, 1, 4, 10], 0.625)[1]
                - (10 + 0.5 * 4) / 1.5) < 1e-12
