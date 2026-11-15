@@ -21,7 +21,7 @@ chapters:
   - { id: SP12, path: textbook/volumes/dream_thater/解析系/SP/SP12, status: completed, title: "CTMC の Q 行列・跳躍連鎖・滞在時間" }
   - { id: SP13, path: textbook/volumes/dream_thater/解析系/SP/SP13, status: completed, title: "CTMC の Kolmogorov 方程式・定常性・可逆性" }
   - { id: SP14, path: textbook/volumes/dream_thater/解析系/SP/SP14, status: completed, title: "出生死滅過程・吸収・化学反応ネットワーク" }
-  - { id: SP15, path: textbook/volumes/dream_thater/解析系/SP/SP15, status: planned, title: "更新過程・更新方程式・更新回数" }
+  - { id: SP15, path: textbook/volumes/dream_thater/解析系/SP/SP15, status: completed, title: "更新過程・更新方程式・更新回数" }
   - { id: SP16, path: textbook/volumes/dream_thater/解析系/SP/SP16, status: planned, title: "更新報酬・残余寿命・長期平均" }
   - { id: SP17, path: textbook/volumes/dream_thater/解析系/SP/SP17, status: planned, title: "待ち行列の確率過程" }
   - { id: SP18, path: textbook/volumes/dream_thater/解析系/SP/SP18, status: planned, title: "Galton–Watson 分枝過程・絶滅" }
