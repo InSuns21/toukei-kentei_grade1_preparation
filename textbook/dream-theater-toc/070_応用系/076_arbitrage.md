@@ -24,3 +24,4 @@
 21. [U4-21 市場が示唆する成立確率とイベント時間](textbook/volumes/dream_thater/応用系/U/U4-21/index.md)
 22. [U4-22 売買シグナルを自己金融の保有量に変換](textbook/volumes/dream_thater/応用系/U/U4-22/index.md)
 23. [U4-23 取引費用・借株・資金調達と損益分岐](textbook/volumes/dream_thater/応用系/U/U4-23/index.md)
+24. [U4-24 複数脚の約定不一致・市場アクセス](textbook/volumes/dream_thater/応用系/U/U4-24/index.md)
