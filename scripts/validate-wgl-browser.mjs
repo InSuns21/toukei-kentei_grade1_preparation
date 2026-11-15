@@ -88,6 +88,18 @@ try{
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
   assert.equal(await evalJS('document.querySelectorAll("[role=tabpanel]").length'),3);
   assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.drawArrays")'));
+  await click('tab-code');
+  const syntax=await evalJS('({count:document.querySelectorAll(".wgl-code-editor").length,js:document.querySelector("#js-source").previousElementSibling.innerHTML,vertex:document.querySelector("#vertex-source").previousElementSibling.innerHTML,fragment:document.querySelector("#fragment-source").previousElementSibling.innerHTML,color:getComputedStyle(document.getElementById("js-source")).color})');
+  assert.equal(syntax.count,3);
+  assert.match(syntax.js,/wgl-token-keyword/);
+  assert.match(syntax.vertex,/wgl-token-directive/);
+  assert.match(syntax.fragment,/wgl-token-type/);
+  assert.equal(syntax.color,'rgba(0, 0, 0, 0)');
+  const scroll=await evalJS('(()=>{const e=document.getElementById("js-source");e.scrollTop=100;e.dispatchEvent(new Event("scroll"));return [e.scrollTop,e.previousElementSibling.scrollTop]})()');
+  assert.ok(scroll[0]>0);
+  assert.equal(scroll[0],scroll[1]);
+  await click('tab-conditions');
+  console.log('WGL1 JS/GLSL colored overlays, transparent textarea and scroll sync: PASS');
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
   const first=await evalJS('({result:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
@@ -104,7 +116,9 @@ try{
   const shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl1-initial.png',Buffer.from(shot.data,'base64'));
 
-  await evalJS('(()=>{const e=document.getElementById("fragment-source");e.value=e.value.replace("vec4(1.0, 0.5, 0.0, 1.0)","vec4(0.0, 1.0, 0.0, 1.0)");})()');
+  await evalJS('(()=>{const e=document.getElementById("fragment-source");e.value=e.value.replace("vec4(1.0, 0.5, 0.0, 1.0)","vec4(0.0, 1.0, 0.0, 1.0)");e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  const editedHighlight=await evalJS('document.getElementById("fragment-source").previousElementSibling.textContent');
+  assert.ok(editedHighlight.includes('vec4(0.0, 1.0, 0.0, 1.0)'));
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
   const recolor=await evalJS('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent');
@@ -117,6 +131,7 @@ try{
   assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
   console.log('WGL1 invalid GLSL stage error: PASS');
   await click('reset');
+  assert.ok(await evalJS('document.getElementById("fragment-source").previousElementSibling.textContent.includes("vec4(1.0, 0.5, 0.0, 1.0)")'));
   await evalJS('(()=>{document.getElementById("width").value="640";document.getElementById("height").value="360";})()');
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);

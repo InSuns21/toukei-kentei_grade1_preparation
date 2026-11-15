@@ -1,4 +1,5 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
+import { highlightSource } from './wgl-lab-highlight.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
@@ -30,6 +31,44 @@ const defaults = {};
 let ready = false;
 let active = null;
 let sequence = 0;
+
+function initializeHighlightedEditors() {
+  const refreshers = {};
+  for (const [name, editor] of Object.entries(inputs)) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'wgl-code-editor';
+    const highlight = document.createElement('pre');
+    highlight.className = 'wgl-code-highlight';
+    highlight.setAttribute('aria-hidden', 'true');
+    const code = document.createElement('code');
+    highlight.append(code);
+    editor.parentNode.insertBefore(wrapper, editor);
+    wrapper.append(highlight, editor);
+    editor.wrap = 'off';
+
+    const refresh = () => {
+      code.innerHTML = highlightSource(editor.value, name === 'js' ? 'javascript' : 'glsl') + '\n';
+      highlight.scrollTop = editor.scrollTop;
+      highlight.scrollLeft = editor.scrollLeft;
+    };
+    editor.addEventListener('input', refresh);
+    editor.addEventListener('scroll', () => {
+      highlight.scrollTop = editor.scrollTop;
+      highlight.scrollLeft = editor.scrollLeft;
+    });
+    editor.addEventListener('keydown', event => {
+      if (event.key !== 'Tab' || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      event.preventDefault();
+      editor.setRangeText('  ', editor.selectionStart, editor.selectionEnd, 'end');
+      refresh();
+    });
+    refreshers[name] = refresh;
+    refresh();
+  }
+  return () => Object.values(refreshers).forEach(refresh => refresh());
+}
+const refreshSourceHighlights = initializeHighlightedEditors();
+
 
 function selectTab(name, focus = false) {
   for (const tab of tabs) {
@@ -80,6 +119,7 @@ function setSources(record) {
   for (const name of Object.keys(inputs)) {
     if (typeof record[name] === 'string') inputs[name].value = record[name];
   }
+  refreshSourceHighlights();
 }
 
 async function load() {
@@ -355,6 +395,7 @@ byId('preset').addEventListener('change', event => {
         'outColor = vec4(1.0, 0.5, 0.0, 1.0)');
     }
   }
+  refreshSourceHighlights();
   selectTab('code');
 });
 if (isWGL2) {
