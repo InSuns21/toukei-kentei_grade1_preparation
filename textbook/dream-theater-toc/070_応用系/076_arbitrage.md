@@ -23,3 +23,4 @@
 20. [U4-20 合併裁定：deal spreadは無リスクか](textbook/volumes/dream_thater/応用系/U/U4-20/index.md)
 21. [U4-21 市場が示唆する成立確率とイベント時間](textbook/volumes/dream_thater/応用系/U/U4-21/index.md)
 22. [U4-22 売買シグナルを自己金融の保有量に変換](textbook/volumes/dream_thater/応用系/U/U4-22/index.md)
+23. [U4-23 取引費用・借株・資金調達と損益分岐](textbook/volumes/dream_thater/応用系/U/U4-23/index.md)
