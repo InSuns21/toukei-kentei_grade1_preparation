@@ -1,0 +1,36 @@
+chapter: MIR1-09
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-08]
+concepts:
+  - id: mirror.dwork-jacobian-ideal
+    name: Dwork五次のJacobianイデアル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dwork五次のJacobianイデアル）"]
+    requires: [mirror.dwork-smooth-locus]
+  - id: mirror.dwork-pole-form
+    name: 射影五次に沿う有理4形式の極次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射影五次に沿う有理4形式の極次数）"]
+    requires: [mirror.quintic-residue-form]
+  - id: mirror.griffiths-dwork-pole-reduction
+    name: Griffiths–Dworkの極次数低減公式
+    aliases: [極次数低減公式]
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Griffiths–Dworkの極次数低減公式）"]
+    requires: [mirror.dwork-jacobian-ideal, mirror.dwork-pole-form, mirror.quintic-tube-residue]
+  - id: mirror.dwork-second-pole-reduction
+    name: Dwork五次の二重極の低減
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dwork五次の二重極の低減）"]
+    requires: [mirror.griffiths-dwork-pole-reduction]
+  - id: mirror.dwork-fifth-pole-reduction
+    name: Dwork五次の五重極の一段低減
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dwork五次の五重極の一段低減）"]
+    requires: [mirror.griffiths-dwork-pole-reduction, mirror.dwork-pole-derivatives, mirror.dwork-smooth-locus]
