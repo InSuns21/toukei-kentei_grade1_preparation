@@ -10,6 +10,8 @@
 
 水平な二次元の固定物体断面 $B$ を考える。$x$ 軸を一様接近流の向き（右向き）、$y$ 軸を上向きに取り、紙面垂直方向の**単位スパン当たり**で力と流束を数える。流体領域を、物体を内側に含む長方形 $\Omega=(-L,R)\times(-H,H)$ から $B$ を除いた領域 $V=\Omega\setminus B$ とする。$L,R,H>0$、$B$ は区分的 $C^1$ 境界をもつ有界集合で、$\overline B\subset\Omega$ とする。
 
+本章で使う抗力 $D'$ と揚力 $L'$ のプライムは、**時間微分ではなく単位スパン当たりの力**を表す印である。時間微分は $d/dt$ で明示し、後に現れる内部運動量 $P(t)$ の微分は $dP/dt$ と書く。
+
 流体は一定密度 $\rho>0$ [kg/m$^3$]、一定動粘度 $\nu>0$ [m$^2$/s] の非圧縮 Newton 流体で、粘性係数は $\mu=\rho\nu$ [Pa s] とする。速度を $(u(x,y,t),v(x,y,t))$ [m/s]、圧力を $p(x,y,t)$ [Pa] と書く。流速・圧力は外側の境界まで必要な回数だけ滑らかで、流体中で連続の式と運動量保存を満たす。ここでは物体を固定し、流体に体積力の水平成分はないとする。固体境界で非貫通、粘性を含む流れのモデルでは無滑り条件を課す。
 
 $\partial\Omega$ の外向き単位法線を $n$、物体の外向き法線（物体から流体へ向くもの）を $n_B$ とする。$\partial V$ 上では物体境界の法線は $-n_B$ である。この区別が抗力の符号に効く。[FLUID5 の検査体積の運動量収支](../FLUID5/index.md#thm-fluid5-moving-momentum)を、動かない $\Omega$ に適用する。
@@ -20,14 +22,20 @@ $\partial\Omega$ の外向き単位法線を $n$、物体の外向き法線（�
 
 ## 1. 物体表面の圧力と粘性が抗力を作る
 
-[FLUID14 の圧力による揚抗力の定義](../FLUID14/index.md#def-fluid14-lift-drag)は非粘性の圧力合力を扱った。粘性流では圧力のほか、流体が物体表面を接線・法線方向に引く応力も必要である。流体の Cauchy 応力を $\sigma=-pI+\tau$ と書き、非圧縮 Newton 流体について
+[FLUID14 の圧力による揚抗力の定義](../FLUID14/index.md#def-fluid14-lift-drag)は非粘性の圧力合力を扱った。粘性流では圧力のほか、流体が物体表面を接線・法線方向に引く応力も必要である。[CTM6 の Cauchy 応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)では、単位法線 $n$ の面に働く力の面積密度を応力行列と法線の積 $\sigma n$ で表した。ここではその平面成分を使う。$I$ を二次単位行列、$\tau$ を粘性応力行列として $\sigma=-pI+\tau$ と書き、$x_1=x$、$x_2=y$、$(u_1,u_2)=(u,v)$、$\partial_i=\partial/\partial x_i$（$i=1,2$）と定める。[CTM15 の非圧縮 Newton 構成則](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)をこの座標に制限すると、
 
-$$
+$
 \tau_{ij}=\mu(\partial_i u_j+\partial_j u_i),
-\qquad (u_1,u_2)=(u,v)
-$$
+\qquad i,j\in\{1,2\}
+$
 
-とする。$\partial_i$ は座標 $x_i$ に関する偏微分で、$i,j\in\{1,2\}$ である。
+となる。例えば $\tau_{11}=2\mu\,\partial_xu$、$\tau_{12}=\mu(\partial_yu+\partial_xv)$ である。これはひとつの応力行列の成分表示であり、法線 $n_B=((n_B)_x,(n_B)_y)$ を代入して $x$ 方向の粘性表面力密度を取り出すと、
+
+$
+(\tau n_B)_x=\tau_{11}(n_B)_x+\tau_{12}(n_B)_y
+$
+
+となる。圧力による表面力密度は $-pn_B$ であり、これらを物体表面に沿って積分したものが次の抗力である。
 
 <a id="def-fluid25-drag-components"></a>
 
@@ -45,7 +53,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid25-drag-components -->
-**定義の確認**（円柱に非対称な圧力を与える）：半径 $a>0$ の円柱について $\theta=0$ を下流側の点とし、$(n_B)_x=\cos\theta$、$ds=a\,d\theta$ とする。試験的な表面圧力 $p(\theta)=p_\infty-k\cos\theta$（$k>0$）、表面で $(\tau n_B)_x=0$ を仮定すれば、
+**定義の確認**（円柱に非対称な圧力を与える）：半径 $a>0$ の円柱の中心を原点に置き、下流側を $\theta=0$ とする。円周の位置を $r(\theta)=(a\cos\theta,a\sin\theta)$（$0\le\theta\le2\pi$）と表す。半径方向が物体の外向き法線なので $n_B=r/a=(\cos\theta,\sin\theta)$ であり、接線ベクトルと弧長要素は
+
+$
+\frac{dr}{d\theta}=a(-\sin\theta,\cos\theta),\qquad
+ds=\left|\frac{dr}{d\theta}\right|d\theta=a\,d\theta
+$
+
+である。これにより定義の表面積分を $\theta$ に関する積分へ移せる。試験的な表面圧力 $p(\theta)=p_\infty-k\cos\theta$（$k>0$）、表面で $(\tau n_B)_x=0$ を仮定すれば、
 
 $$
 \begin{aligned}
@@ -255,9 +270,16 @@ $$
 
 したがって $I=\sqrt\pi$ である。非負の積分関数なので積分順序と極座標変換が許される。
 
-下流圧力が回復し、上の定理の外側流束条件が満たされ、$H\to\infty$ の極限が取れるなら、[この Gaussian 積分](#ref-fluid25-gaussian-integral)を用いた変数変換 $z=y/b$ および $z=\sqrt2y/b$ から
+下流圧力が回復し、上の定理の外側流束条件が満たされ、$H\to\infty$ の極限が取れるなら、[この Gaussian 積分](#ref-fluid25-gaussian-integral)を利用できる。第1項では $z=y/b$ と置いて $dy=b\,dz$、第2項では $w=\sqrt2y/b$ と置いて $dy=(b/\sqrt2)\,dw$ となる。従って
 
-$$
+$
+\int_{\mathbb R}e^{-y^2/b^2}\,dy=b\sqrt\pi,\qquad
+\int_{\mathbb R}e^{-2y^2/b^2}\,dy=\frac b{\sqrt2}\sqrt\pi.
+$
+
+これらを代入すると
+
+$
 \begin{aligned}
 D'&=\rho U^2
 \left(a\int_{-\infty}^{\infty}e^{-y^2/b^2}\,dy
@@ -300,11 +322,17 @@ $$
 
 周期 $T$ は、例えば上側から出る渦の符号と放出状態が再び同じになるまでの時間とする。上下交互の渦**2個**を含むのが典型的な1周期であり、単に1個ごとの時間間隔を $T$ としない。
 
+上側と下側の流れが半周期後に入れ替わるなら、力の向きにも対応する制約が生じる。ただし「渦が交互に見える」という観察だけでは、この**速度場と圧力場全体の鏡映条件**は保証されない。
+
 <a id="prop-fluid25-frequency-symmetry"></a>
 
 <!-- formal-statement-start -->
 > **命題（半周期の鏡映対称性と揚抗力の周期）**  
-> 固定円柱まわりの時間周期 $T>0$ の二次元流れについて、物体表面の圧力と粘性応力の合力が存在し、半周期後の流れが $y\mapsto-y$ の鏡映で一致するとする。このとき流体が円柱へ与える $x$ 方向の力 $D'(t)$ と $y$ 方向の力 $L'(t)$ は
+> 固定円柱まわりの時間周期 $T>0$ の滑らかな二次元 Newton 流れについて、物体表面の圧力と粘性応力の合力が存在するとする。位置を $r=(x,y)$、速度ベクトルを $\boldsymbol q(r,t)=(u(r,t),v(r,t))$、鏡映行列を $S=\operatorname{diag}(1,-1)$ とする。流体領域の全点と全時刻で
+>
+> $\boldsymbol q(Sr,t+T/2)=S\boldsymbol q(r,t),\qquad p(Sr,t+T/2)=p(r,t)$
+>
+> が成立すると仮定する。このとき流体が円柱へ与える $x$ 方向の力 $D'(t)$ と $y$ 方向の力 $L'(t)$ は
 
 $$
 D'(t+T/2)=D'(t),\qquad
@@ -321,7 +349,25 @@ $$
 <!-- proof-start -->
 ### 証明
 
-鏡映行列を $S=\operatorname{diag}(1,-1)$ とする。仮定した対称性は、円柱上の各点 $r$ について、流体応力が $\sigma(Sr,t+T/2)=S\sigma(r,t)S^\mathsf T$ を満たすことを意味する。円柱法線は $n_B(Sr)=Sn_B(r)$、鏡映で弧長要素 $ds$ は変わらない。[表面力の定義](#def-fluid25-drag-components)に対応する合力ベクトルを $F(t)=\int_{\partial B}\sigma(r,t)n_B(r)\,ds$ とすれば、$r'=Sr$ の変数変換で
+$S^\mathsf T=S$、$S^2=I$ である。命題の速度の鏡映条件を、時刻 $t$ を固定して位置 $r$ で微分する。速度勾配を $(\nabla\boldsymbol q)_{ij}=\partial_j q_i$ と定めると、連鎖律から
+
+$
+(\nabla\boldsymbol q)(Sr,t+T/2)S
+=S(\nabla\boldsymbol q)(r,t),
+$
+
+$
+(\nabla\boldsymbol q)(Sr,t+T/2)
+=S(\nabla\boldsymbol q)(r,t)S^\mathsf T.
+$
+
+[非圧縮 Newton 応力の構成則](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)では $\tau=\mu\{\nabla\boldsymbol q+(\nabla\boldsymbol q)^\mathsf T\}$ である。上の式と圧力の鏡映条件を $\sigma=-pI+\tau$ に代入すると
+
+$
+\sigma(Sr,t+T/2)=S\sigma(r,t)S^\mathsf T
+$
+
+を得る。円柱の法線は $n_B(r)=r/a$ なので $n_B(Sr)=Sn_B(r)$ であり、$S$ が長さを保つため弧長要素 $ds$ も変わらない。[表面力の定義](#def-fluid25-drag-components)に対応する合力ベクトルを $F(t)=\int_{\partial B}\sigma(r,t)n_B(r)\,ds$ とすれば、$r'=Sr$ の変数変換で
 
 $$
 \begin{aligned}
@@ -476,12 +522,18 @@ $$
 =\int_{-b}^{b}\Delta p\,dy=2b\Delta p.
 $$
 
-従って $D'=M_d+2b\Delta p$。$M_d$ のみを用いれば $2b\Delta p$ だけ過小評価する。圧力補正は検査断面での量であって、物体表面の圧力抗力成分そのものではない。
+従って
+
+$
+D'=M_d+2b\Delta p.
+$
+
+$M_d$ のみを用いれば $2b\Delta p$ だけ過小評価する。圧力補正は検査断面での量であって、物体表面の圧力抗力成分そのものではない。
 <!-- solution-end -->
 
 ### A5. 圧力回復と運動量蓄積
 
-流れが時間周期 $T>0$ で、固定検査領域内の $x$ 運動量が $P(t)=P_0+A\sin(2\pi t/T)$ とする。瞬間の蓄積項 $-P'(t)$ と一周期平均を求めよ。
+流れが時間周期 $T>0$ で、固定検査領域内の $x$ 運動量が $P(t)=P_0+A\sin(2\pi t/T)$ とする。瞬間の蓄積項 $-dP/dt$ と一周期平均を求めよ。
 
 - Level: A
 
@@ -491,13 +543,13 @@ $$
 微分すると
 
 $$
--P'(t)=-\frac{2\pi A}{T}\cos(2\pi t/T).
+-\frac{dP}{dt}=-\frac{2\pi A}{T}\cos(2\pi t/T).
 $$
 
 時間積分では
 
 $$
--\frac1T\int_{t_0}^{t_0+T}P'(t)\,dt
+-\frac1T\int_{t_0}^{t_0+T}\frac{dP}{dt}\,dt
 =-\frac{P(t_0+T)-P(t_0)}T=0
 $$
 
@@ -579,7 +631,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-鏡映 $S=\operatorname{diag}(1,-1)$ で、上半円上の点 $r$ に対応する下半円上の点が $Sr$ である。法線と応力の変換は $n_B(Sr)=Sn_B(r)$ と $\sigma(Sr,t+T/2)=S\sigma(r,t)S^\mathsf T$。従って $Sr$ での力の微小寄与は
+[半周期鏡映の命題](#prop-fluid25-frequency-symmetry)と同様、鏡映 $S=\operatorname{diag}(1,-1)$ で、上半円上の点 $r$ に対応する下半円上の点が $Sr$ である。法線と応力の変換は $n_B(Sr)=Sn_B(r)$ と $\sigma(Sr,t+T/2)=S\sigma(r,t)S^\mathsf T$。従って $Sr$ での力の微小寄与は
 
 $$
 \sigma(Sr,t+T/2)n_B(Sr)\,ds
@@ -691,13 +743,20 @@ $$
 
 **3. 非定常性。** [瞬間の収支](#thm-fluid25-control-volume-force)には内部蓄積 $-P'(t)$ と、外側の $\rho u(u,v)\cdot n$ がある。厳密周期では前者の周期平均は零だが、後者の平均は $\overline{u^2}$ などを含む。変動 $u'=u-\bar u$ には $\overline{(u')^2}$ が生じるため、平均速度 $\bar u$ を定常式の $u_d$ に代入するだけでは平均抗力を復元できない。側面の流束と圧力変動も同様に確認が必要である。
 
-**4. 積分範囲。** 有限の $H$ で $z=y/d$ と置換すると、有限区間の積分は $d\int_{-H/d}^{H/d}e^{-z^2}\,dz$ となる。無限区間の積分との差は
+**4. 積分範囲。** $z=y/d$ と置けば $dy=d\,dz$ であり、有限の $H$ では各 Gaussian 項の積分範囲が $[-H/d,H/d]$ に切られる。速度欠損と圧力補正を合計した**抗力の切断誤差**は、対称性より
 
-$$
-2d\int_{H/d}^{\infty}e^{-z^2}\,dz>0
-$$
+$
+\begin{aligned}
+D'_{\infty}-D'_H
+&=2d\int_{H/d}^{\infty}
+\left[
+\rho U^2\left(\frac12e^{-z^2}-\frac14e^{-2z^2}\right)
++\Delta p\,e^{-z^2}
+\right]\,dz>0.
+\end{aligned}
+$
 
-であり、$H<\infty$ では常に尾部が残る。刻み幅を零にしてもこの**測定範囲の誤差**は消えないため、求積誤差と切断誤差を別々に評価しなければならない。
+$z\ge0$ では $e^{-2z^2}\le e^{-z^2}$ だから、角括弧の速度欠損部分は $\rho U^2e^{-z^2}/4$ 以上である。$H<\infty$ では尾部が必ず正で、刻み幅を零にしてもこの**測定範囲の誤差**は消えない。台形則等の求積誤差は、同じ有限区間の厳密積分との差として別に評価する。
 <!-- solution-end -->
 
 ## 7. 学んだ結果と次への接続
