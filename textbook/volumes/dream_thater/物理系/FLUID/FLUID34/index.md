@@ -46,11 +46,11 @@ $$
 
 一方、山など**同じ位相**を追う点の位置を $x(t)$ と置く。この点は流体粒子そのものとは限らない。[FLUID27 の位相速度の定義](../FLUID27/index.md#def-fluid27-phase-speed)と連鎖律から
 
-$
+$$
 0=\frac{d}{dt}\{2x(t)-3t\}
 =2\frac{dx}{dt}-3,
 \qquad \frac{dx}{dt}=\frac32\ {\rm m/s}.
-$
+$$
 
 $dx/dt$ は位相を固定して動かす点の時間微分であり、局所的な振幅増大 $e^{0.2t}$ とは別の量である。比較して $\omega=3$ s$^{-1}$ の場合は $\gamma=0$ で、同じ位相速度でも振幅は一定になる。
 <!-- definition-example-end -->
@@ -59,18 +59,18 @@ $\gamma=0$ は一般にすべての初期値の有界性を保証する意味で
 
 速度差がある場所では、各層の背景速度に沿って動く点が波の位相を異なる速さで見る。$z$ を固定して $x(t)=x_0+U_jt$ と動く点で、任意の滑らかな関数 $f(x,z,t)$ に連鎖律を適用すると
 
-$
+$$
 \frac{d}{dt}f(x_0+U_jt,z,t)
 =\partial_t f+U_j\partial_x f.
-$
+$$
 
 この右辺を各層の**対流微分** $D_j=\partial_t+U_j\partial_x$ と呼ぶ。$\partial_t$ は $x,z$ を固定した偏微分、$d/dt$ は上記の動く点に沿った全微分であり、同じものではない。正規モードに作用させれば
 
-$
+$$
 D_j e^{i(kx-\omega t)}
 =(-i\omega+ikU_j)e^{i(kx-\omega t)}
 =-i(\omega-kU_j)e^{i(kx-\omega t)}.
-$
+$$
 
 ## 2. 各層の微小速度と界面条件をつなぐ
 
@@ -128,11 +128,11 @@ $k>0$ で割れば命題の二式を得る。逆にこの二式を鉛直微分�
 
 下層から上層へ向かう単位法線を $n=(-\eta_x,1)/\sqrt{1+\eta_x^2}$ とすると、[向き付き全曲率](../FLUID26/index.md#def-fluid26-oriented-curvature)のグラフ表示は
 
-$
+$$
 \kappa_\Sigma=\operatorname{div}_S n
 =-\frac{\eta_{xx}}{(1+\eta_x^2)^{3/2}}
 \simeq-\eta_{xx}
-$
+$$
 
 となる（奥行き方向の曲率は零）。$|\eta_x|\ll1$ で二次以上の効果を捨てたので、圧力差「下側 $-$ 上側」は一次で $-\sigma\eta_{xx}$。山の頂点 $\eta_{xx}<0$ では下側が高圧になり、界面を戻そうとする符号である。従って圧力条件は
 
