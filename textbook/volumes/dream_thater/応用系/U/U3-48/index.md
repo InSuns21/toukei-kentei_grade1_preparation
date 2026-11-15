@@ -366,13 +366,17 @@ returns = [rng.gauss(0, 1 if s < 120 else 2.5) for s in range(240)]
 # forecast variance from the first 20 observations (training period).
 rho = 0.94
 v = sum(z*z for z in returns[:20]) / 20
-variances = [v]
-for s in range(len(returns)):
+# Past day 19 is the final training observation. The first genuinely
+# forward-looking variance prediction is for day 20 (zero-based).
+variances = [None] * 20 + [v]
+for s in range(20, len(returns)):
     # variances[s] uses only observations strictly before day s.
     v = rho*v + (1-rho)*returns[s]**2
     variances.append(v)
 
-start = max(30, args.window)
+# Every selected historical day must be outside the training prefix;
+# otherwise its "ex ante" volatility would be fitted with future data.
+start = 20 + args.window
 dates, realized, hs_var, fhs_var, hs_es, fhs_es = [], [], [], [], [], []
 for t in range(start, len(returns)-1):
     # returns[:t+1] is known at the end of day t;
