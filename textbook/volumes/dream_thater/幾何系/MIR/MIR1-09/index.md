@@ -63,6 +63,30 @@ $$
 
 $\mathbb C^5\setminus\{0\}$ で $(x_0,\ldots,x_4)$ を同時に $\lambda$ 倍しても、射影点は変わらない。$\Omega$ は $x_i$ を一つ、$dx_j$ を四つ含むので $\lambda^5$ 倍され、$F_\psi$ は $\lambda^5$ 倍される。したがって、分子が斉次次数 $5(k-1)$ の多項式 $A$ なら $A\Omega/F_\psi^k$ は $\lambda^{5(k-1)+5-5k}=1$ 倍となる。
 
+ただし、斉次重みが零という条件だけでは、微分形式が射影空間へ降りることはまだ分からない。実際に座標表示を確認する。$x_0\ne0$ のチャートで、$t=x_0$、$y_j=x_j/x_0$（$j=1,\ldots,4$）と置けば、$x=(t,ty_1,\ldots,ty_4)$ である。このとき
+
+$$
+dx_0\wedge\cdots\wedge dx_4
+=t^4\,dt\wedge dy_1\wedge\cdots\wedge dy_4.
+$$
+
+$$
+\Omega=t^5\,dy_1\wedge\cdots\wedge dy_4.
+$$
+
+後者は $\Omega$ の定義に代入して展開すれば得られ、スケール方向の $dt$ が残らないことも示している。$f_\psi(y)=F_\psi(1,y)$ と置くと、$F_\psi(t,ty)=t^5f_\psi(y)$ だから
+
+$$
+\frac{A(t,ty)\Omega}{F_\psi(t,ty)^k}
+=\frac{t^{5(k-1)}A(1,y)\,t^5}
+{t^{5k}f_\psi(y)^k}\,
+dy_1\wedge\cdots\wedge dy_4
+=\frac{A(1,y)}{f_\psi(y)^k}\,
+dy_1\wedge\cdots\wedge dy_4.
+$$
+
+$t$ が消えて射影座標 $y$ だけの形式になった。他の $x_i\ne0$ のチャートでも同じ計算ができ、重なりでは元の同じ形式の座標表示なので一致する。これで、次数条件から射影上の有理4形式を作るまでの橋渡しができた。
+
 <a id="def-mir1-09-pole-form"></a>
 
 <!-- formal-statement-start -->
@@ -85,7 +109,15 @@ $$
 
 <!-- definition-example-start: def-mir1-09-pole-form -->
 
-**定義の確認**（次数と射影への降下の直接例）。 $k=1$ なら $\deg A=0$ なので $A=1$ を選べる。$k=2$ なら $\deg A=5$ なので $A=x_0^5$ や $A=P$ が許される。$k=3$ なら $\deg A=10$ なので $A=P^2$ が許される。いずれも分子と $\Omega$ の全次数が分母の全次数に一致する。さらに $\Omega$ は放射方向のベクトル場で縮約すると零になるため、形式が射影空間上へ降りることを、単なる斉次次数の一致と併せて確認できる。
+**定義の確認**（次数と射影への降下の直接例）。 $k=1$ なら $\deg A=0$ なので $A=1$ を選べる。$k=2$ なら $\deg A=5$ なので $A=x_0^5$ や $A=P$ が許される。$k=3$ なら $\deg A=10$ なので $A=P^2$ が許される。いずれも分子と $\Omega$ の全次数が分母の全次数に一致する。上の座標表示で $\nu=dy_1\wedge\cdots\wedge dy_4$、$q(y)=y_1y_2y_3y_4$ と置くと、それぞれの局所表示は
+
+$$
+\alpha_{1,1}=\frac{\nu}{f_\psi},\qquad
+\alpha_{2,P}=\frac{q(y)\nu}{f_\psi^2},\qquad
+\alpha_{3,P^2}=\frac{q(y)^2\nu}{f_\psi^3}.
+$$
+
+どの場合もスケール変数 $t$ は残らず、射影上の形式としての条件も確認できる。
 
 <!-- definition-example-end -->
 
@@ -383,11 +415,12 @@ $$
 
 ## 7. なぜ境界と次数を無視できないか
 
-「全微分だから積分は零」は、**閉じた**サイクルで成立する。例えば複素平面の $0$ を避ける領域で、端点 $a,b\ne0$ を持つ道 $\gamma$ に対して
+「全微分だから積分は零」は、**閉じた**サイクルで成立する。例えば複素平面の座標を $t$ とし、$0$ を通らない滑らかな道 $\gamma$ を $t=t(s)$（$0\le s\le1$、$t(0)=a\ne0$、$t(1)=b\ne0$）と書く。このとき $dt=t'(s)\,ds$ であり、連鎖律から
 
 $$
 \int_\gamma d(t^{-1})
-=\int_\gamma-\frac{dt}{t^2}
+=\int_0^1-\frac{t'(s)}{t(s)^2}\,ds
+=\left[\frac1{t(s)}\right]_{s=0}^{s=1}
 =\frac1b-\frac1a
 $$
 
@@ -461,10 +494,10 @@ $$
 #### MIR1-09-B01 射影チャートでも係数は一致するか
 - Level: B
 
-$x_0=1$、$y_j=x_j/x_0$ と置き、$f(y)=F_\psi(1,y)$ とする。$k=2$、$B_0=x_0$、$B_j=0$（$j\ge1$）のとき、Eulerの斉次式 $\sum_i x_i\partial_iF_\psi=5F_\psi$ を利用して $F_{\psi,0}(1,y)=5f-\sum_{j=1}^4y_j f_j$ を示せ。局所3形式を実際に外微分して $F_{\psi,0}(1,y)\,dy_1\wedge\cdots\wedge dy_4/f^2$ を単純極へ低減せよ。
+$x_0=1$、$y_j=x_j/x_0$（$j=1,\ldots,4$）と置き、$f(y)=F_\psi(1,y)$ とする。ここで $F_{\psi,i}=\partial F_\psi/\partial x_i$（$\psi$ と他の $x_j$ は固定）、$f_j=\partial f/\partial y_j$ と書く。$k=2$、$B_0=x_0$、$B_j=0$（$j\ge1$）のとき、Eulerの斉次式 $\sum_i x_i\partial_iF_\psi=5F_\psi$ を利用して $F_{\psi,0}(1,y)=5f-\sum_{j=1}^4y_j f_j$ を示せ。局所3形式を実際に外微分して $F_{\psi,0}(1,y)\,dy_1\wedge\cdots\wedge dy_4/f^2$ を単純極へ低減せよ。
 
 <!-- solution-start -->
-**詳細解答。** $F_\psi$ は斉次次数5だからEulerの式が成り立つ。$x_0=1$ を代入すると
+**詳細解答。** $x_0=1$ のチャートでは $x_j=y_j$（$j\ge1$）なので、連鎖律を各 $y_j$ に適用すると $f_j(y)=F_{\psi,j}(1,y)$ となる。ここでの $F_{\psi,0}(1,y)$ は、$x_0$ でもう一度 $f$ を微分した量ではなく、$F_\psi$ を $x_0$ で偏微分してから $x_0=1$ を代入した量である。$F_\psi$ は斉次次数5だからEulerの式が成り立つ。$x_0=1$ を代入すると
 
 $$
 F_{\psi,0}(1,y)+\sum_{j=1}^4y_j f_j=5f,
