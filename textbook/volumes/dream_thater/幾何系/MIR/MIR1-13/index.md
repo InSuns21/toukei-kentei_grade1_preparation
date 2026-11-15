@@ -45,7 +45,7 @@ $$
 
 <!-- definition-example-start: def-mir1-13-monodromy -->
 
-**定義の直接確認。** より小さい例として $V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\}$ を取り、$e_0=1,e_1=\operatorname{Log}z$ とする。解析接続の線形性は $C_\gamma(af+bg)=aC_\gamma(f)+bC_\gamma(g)$ から従い、逆向きの一周で元に戻る。$C_\gamma(e_0)=e_0$、$C_\gamma(e_1)=2\pi i e_0+e_1$ なので、列の規約では行列は
+**定義の確認**。 より小さい例として $V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\}$ を取り、$e_0=1,e_1=\operatorname{Log}z$ とする。解析接続の線形性は $C_\gamma(af+bg)=aC_\gamma(f)+bC_\gamma(g)$ から従い、逆向きの一周で元に戻る。$C_\gamma(e_0)=e_0$、$C_\gamma(e_1)=2\pi i e_0+e_1$ なので、列の規約では行列は
 
 $$
 M_2=\begin{pmatrix}1&2\pi i\\0&1\end{pmatrix},
@@ -137,7 +137,7 @@ $k=0,1,2,3$ を順に代入して所望の四式が出る。特に $k=3$ の $y_
 
 <!-- definition-example-start: def-mir1-13-unipotent -->
 
-**定義の直接確認。** 先の二次元例で $U_2=M_2-I$ とすると
+**定義の確認**。 先の二次元例で $U_2=M_2-I$ とすると
 
 $$
 U_2=\begin{pmatrix}0&c\\0&0\end{pmatrix},
@@ -165,7 +165,7 @@ $$
 
 <!-- definition-example-start: def-mir1-13-mum -->
 
-**定義の直接確認の目標。** $M=I_4$ は $(M-I)^4=0$ を満たすが $(M-I)^3=0$ でもあるため最大ではない。一方、次節のquinticの基底では $U^3(u_3)=u_0\ne0$、$U^4=0$ を両方計算する。定義にある二条件の一方だけを確かめて満足しない。
+**定義の確認**。 $M=I_4$ は $(M-I)^4=0$ を満たすが $(M-I)^3=0$ でもあるため最大ではない。一方、次節のquinticの基底では $U^3(u_3)=u_0\ne0$、$U^4=0$ を両方計算する。定義にある二条件の一方だけを確かめて満足しない。
 
 <!-- definition-example-end -->
 
