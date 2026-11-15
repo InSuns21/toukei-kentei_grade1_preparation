@@ -60,7 +60,7 @@ chapters:
     title: "大複素構造極限と最大単冪モノドロミー"
   - id: MIR1-14
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-14
-    status: planned
+    status: completed
     title: "conifold・orbifold点と積分構造"
   - id: MIR1-15
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-15
