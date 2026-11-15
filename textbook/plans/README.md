@@ -40,12 +40,12 @@
 | 最適輸送・Wasserstein幾何・測度上の勾配流 | [完了済みOTR全26講PLAN](../plan_done/DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md)（独立発展科目） |
 | SDE / Markov generator / Feynman--Kac | 完了済み Encore IV（`STO9` / `STO11`） |
 | 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
-| 流体力学（静水・渦・層流・境界層・波・乱流・圧縮性・CFD） | [DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)（FLUID1〜48、設計済み・未実装。CTM5/7/9/10/15〜17の流体力学的な応用。Python数値計算・必要なWebGL表示を各講同時制作） |
+| 流体力学（静水・渦・層流・境界層・波・乱流・圧縮性・CFD） | [DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)（FLUID1〜48、FLUID1〜27が完成・残21講。CTM5/7/9/10/15〜17の流体力学的な応用。Python数値計算・必要なWebGL表示を各講同時制作） |
 | 流体コンピュータグラフィックス（CG・GPU表示・水/煙/火） | [DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)（FCG1〜20・設計済み未実装。動く計算コード・ブラウザ表示・数値/表示テストを毎講本文と同じPRで完成。FLUID48講からの選択的発展コース） |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
-| 整数論・Diophantine近似・解析的整数論・楕円曲線・モジュラー形式の5科目間の履修ルート | `DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md`（楕円関数は既存 `CA8` / `CA9` を再利用） |
-| 円積問題の2科目（古典作図SQC1〜7・Tarski等分解SQC8〜12）の履修ルート | `DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md`（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
-| オリガミクス・計算折り紙（ORI1〜30） | [進行中のORI計画](../plans_progress/DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md)（ORI1完成、ORI2以降とSVG動画は未完了。定規・コンパスの作図不可能性はSQC/FLDを正本とする） |
+| 整数論・Diophantine近似・解析的整数論・楕円曲線・モジュラー形式の5科目間の履修ルート | [完了済みの整数論横断ルート](../plan_done/DREAM_THEATER_NUMBER_THEORY_MODULARITY_ROUTE_PLAN.md)（楕円関数は既存 `CA8` / `CA9` を再利用） |
+| 円積問題の2科目（古典作図SQC1〜7・Tarski等分解SQC8〜12）の履修ルート | [完了済みの円積問題横断ルート](../plan_done/DREAM_THEATER_CIRCLE_SQUARING_COURSE_PLAN.md)（SQC1–SQC12、独立科目。指数値の超越性の完全証明はTRN） |
+| オリガミクス・計算折り紙（ORI1〜30） | [進行中のORI計画](../plan_done/DREAM_THEATER_ORIGAMICS_MATHEMATICAL_ORIGAMI_PLAN.md)（ORI1〜30完成、系列横断監査済み。定規・コンパスの作図不可能性はSQC/FLDを正本とする） |
 | 超越数論Ⅰ・Hermiteの $e$ の超越性・Hermite–Lindemann・Lindemann–Weierstrass | `DREAM_THEATER_TRANSCENDENTAL_NUMBER_THEORY_I_PLAN.md`（TRN1–TRN14、独立科目。Liouville定理・Liouville数は整数論ルート `NDA6` が正本） |
 | 熱力学・熱力学ポテンシャル | `textbook/plan_done/DREAM_THEATER_THERMODYNAMICS_PLAN.md`（TH1〜TH8 全章・横断監査完了） |
 | 平衡統計力学・アンサンブル・Ising | `DREAM_THEATER_STATISTICAL_MECHANICS_PLAN.md`（SM1〜8） |
@@ -54,14 +54,14 @@
 | Lie群の表現・相対論的粒子・スピノル | `DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md`（LREP：QFT I／IIIで必要な表現論の独立数学科目） |
 | 主束・接続・Chern–Weil・大域的ゲージ幾何 | `DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md`（GBG：GEO／LIEの停止線外、QFT II／IIIと接続） |
 | Euclid場／構成的QFT・対角延長による摂動的くりこみ | `DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md`（MQFC I/II：任意の数学的厳密化ルート） |
-| ローレンツ幾何・大域因果構造 | `../plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md`（全21講・LORG1完了、LORG2以降進行中） |
+| ローレンツ幾何・大域因果構造 | [完了済みLORG](../plan_done/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)（全21講完了） |
 | Lorentz多様体上の双曲型PDE | `../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md`（HPDE1〜HPDE24・全24講完了） |
-| 超局所解析・Hadamard条件 | `../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md`（MICA1完了・以降進行中） |
-| 代数的QFT・モジュラー理論 | [進行中のAQFT全34講PLAN](../plans_progress/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)（AQFT1完了、AQFT2–34は未着手。進捗は系列manifest `textbook/dream-theater-series/AQFT.yaml` を参照） |
+| 超局所解析・Hadamard条件 | [完了済みMICA](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)（全15講完了） |
+| 代数的QFT・モジュラー理論 | [進行中のAQFT全34講PLAN](../plan_done/DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)（AQFT1〜34完成。進捗は系列manifest `textbook/dream-theater-series/AQFT.yaml` を参照） |
 | THE END OF MATHEMATICS? 5テーマの横断接続 | `DREAM_THEATER_END_OF_MATHEMATICS_PLAN.md` |
 | 金融の価格付け・最適執行の応用 | [進行中のU3数理ファイナンスPLAN](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)（U3-01完成・以降計画中。HJB理論は既存の最適制御PLANを参照） |
 | 確率ロボティクス・自己位置推定 | [DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md](DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)（U2-01〜U2-28、全28講・設計確定、未実装） |
-| 無裁定・相対価値・統計的裁定の応用 | [DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md](DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)（U4、全30講の設計確定・未実装。U3のデリバティブ価格付けと役割分担） |
+| 無裁定・相対価値・統計的裁定の応用 | [DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md](../plans_progress/DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)（U4、全30講の設計確定・U4-01〜23完成。U3のデリバティブ価格付けと役割分担） |
 | 量子状態推定の応用 | [DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md](DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md)（U6-01〜U6-22、全22講・設計確定、未実装） |
 | Newton 力学・保存則・振動・中心力・2体問題・剛体 | `DREAM_THEATER_CLASSICAL_MECHANICS_I_PLAN.md` |
 | 一般化座標・Lagrangian・Hamiltonian・Poisson 括弧・Hamilton--Jacobi | `DREAM_THEATER_ANALYTICAL_MECHANICS_I_PLAN.md` |
@@ -70,7 +70,7 @@
 | 変分問題・第二変分・測地線・極小曲面・直接法・Tonelli・minimax・Morse指数 | `../plans_progress/DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md`（VAR1〜12：前提監査・manifest初期化済、各章は未執筆） |
 | Liouville 可積分性・Liouville--Arnold・作用角変数・Birkhoff 標準形・KAM | `textbook/plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md`（INT1〜8：全章実装・終了確認済み） |
 | 三体問題・制限三体問題・Lagrange 点・天体力学上の非可積分性・Hamiltonian chaos | `textbook/plan_done/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md`（CELE1〜8完了） |
-| 変分的n体周期軌道・Chenciner–Montgomery 8の字・舞踏解・実動作するNewton/変分シミュレーション | [DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md](../plans_progress/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)（CELEV1完成・CELEV2〜8未着手。Python物理積分+Canvas描画を計画。SVG再生のみは禁止） |
+| 変分的n体周期軌道・Chenciner–Montgomery 8の字・舞踏解・実動作するNewton/変分シミュレーション | [DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md](../plan_done/DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)（CELEV1完成・CELEV2〜8未着手。Python物理積分+Canvas描画を計画。SVG再生のみは禁止） |
 | 一般力学系の不変多様体・分岐・ホモクリニック構造・記号力学・chaos | `DREAM_THEATER_DYNAMICAL_SYSTEMS_COURSE_PLAN.md` |
 | Coulomb / Gauss / Maxwell・電磁ポテンシャル・電磁波 | `DREAM_THEATER_ELECTROMAGNETISM_I_PLAN.md` |
 | Schrödinger 作用素・変分原理・量子調和振動子・水素原子 | `DREAM_THEATER_MATHEMATICAL_QUANTUM_MECHANICS_PLAN.md` |
