@@ -70,7 +70,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$E[X_i^2]<\infty$ なので Cauchy–Schwarz の不等式から $E[|X_iX_j|]<\infty$ です。従って成分ごとの和と期待値を交換できます。
+$E[X_i^2]<\infty$ なので [Cauchy--Schwarz 不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)から $E[|X_iX_j|]<\infty$ です。従って成分ごとの和と期待値を交換できます。
 
 $$
 E[L]=c-\sum_{i=1}^d w_i E[X_i]
