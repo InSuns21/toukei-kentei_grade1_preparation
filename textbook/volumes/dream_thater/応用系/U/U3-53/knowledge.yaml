@@ -1,7 +1,7 @@
 chapter: U3-53
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-45, U3-44, U3-48]
+prerequisites: [U3-45, U3-44, U3-48, F0-00P7]
 concepts:
   - id: finance.var-hit
     name: 予測時点と VaR 超過指標
@@ -26,13 +26,13 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（無条件被覆の尤度比統計量 LRuc）"]
-    requires: [finance.var-binomial-hits]
+    requires: [finance.var-binomial-hits, stat.likelihood]
   - id: finance.var-lruc-maximization
     name: LRuc の最大化と非負性
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（LRuc の最大化と非負性）"]
-    requires: [finance.var-unconditional-coverage-lr]
+    requires: [finance.var-unconditional-coverage-lr, stat.log-likelihood]
   - id: finance.var-markov-hit-model
     name: 一次 Markov 超過モデルと独立モデル
     kind: definition
@@ -44,7 +44,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（Christoffersen の独立性尤度比）"]
-    requires: [finance.var-markov-hit-model, finance.var-lruc-maximization]
+    requires: [finance.var-markov-hit-model, finance.var-lruc-maximization, stat.likelihood]
   - id: finance.var-conditional-coverage-lr
     name: 条件付き被覆の合成統計量 LRcc
     kind: definition
