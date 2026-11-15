@@ -181,10 +181,10 @@ $$
 <!-- definition-example-start: def-fluid24-falkner-skan -->
 **定義の確認**：$C,\nu,x>0$ の下で $m=0$ とすれば $U_e=C$、$\beta=0$、$\eta=y\sqrt{C/(2\nu x)}$、$\psi=\sqrt{2\nu Cx}\,f(\eta)$ となる。$\eta$ は無次元で、$\psi$ の単位は m$^2$/s、$u=\psi_y$ と $v=-\psi_x$ の単位は m/s である。実際、$A=\sqrt{2\nu Cx}$、$B=\sqrt{C/(2\nu x)}$ と置くと $AB=C$、$B_x=-B/(2x)$ だから連鎖律により
 
-$
+$$
 u=\psi_y=AB f'(\eta)=C f'(\eta),\qquad
 v=-\psi_x=-\frac{A}{2x}\{f(\eta)-\eta f'(\eta)\}.
-$
+$$
 
 混合偏微分が交換できる $f\in C^3$ なら、[流れ関数の性質](../../../幾何系/VC/VC9/index.md#def-vc9-stream-function)から $u_x+v_y=0$ も満たす。$m=1$ なら $\beta=1$、$m=-1/20$ なら $\beta=-2/19<0$ で、いずれも $m>-1$ である。ただしこの表示自体は運動量式の解であることを保証しない。
 <!-- definition-example-end -->
