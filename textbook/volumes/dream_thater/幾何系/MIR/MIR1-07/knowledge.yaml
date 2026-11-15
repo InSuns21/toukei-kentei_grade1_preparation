@@ -1,0 +1,41 @@
+chapter: MIR1-07
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-06]
+concepts:
+  - id: mirror.quintic-residue-form
+    name: Dwork型五次の留数3形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dwork型五次の留数3形式）"]
+    requires: [mirror.dwork-smooth-locus]
+  - id: mirror.quintic-residue-local
+    name: 消去変数による局所留数表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（消去変数による局所留数表示）"]
+    requires: [mirror.quintic-residue-form]
+  - id: mirror.quintic-global-volume
+    name: Dwork族の大域的な非消失正則3形式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Dwork族の大域的な非消失正則3形式）"]
+    requires: [mirror.quintic-residue-local, mirror.dwork-smooth-locus]
+  - id: mirror.quintic-residue-period
+    name: 留数3形式の周期
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（留数3形式の周期）"]
+    requires: [mirror.quintic-global-volume]
+  - id: mirror.quintic-tube-residue
+    name: 管状サイクルの留数公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（管状サイクルの留数公式）"]
+    requires: [mirror.quintic-residue-period, mirror.quintic-residue-local]
+  - id: mirror.quintic-period-holomorphic
+    name: 滑らかなパラメータ領域での周期の正則性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかなパラメータ領域での周期の正則性）"]
+    requires: [mirror.quintic-tube-residue, mirror.dwork-z-coordinate]
