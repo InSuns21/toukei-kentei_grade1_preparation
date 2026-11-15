@@ -42,7 +42,8 @@ def rt_state(rho1=1050.0, rho2=1000.0, g=9.81, sigma=0.072,
     y0 = [[x, amplitude * math.cos(k * x)] for x in xs]
     y1 = [[x, amplitude * math.exp(growth * time) * math.cos(k * x)]
           for x in xs] if radicand < 0 else [
-              [x, amplitude * math.cos(k * x)] for x in xs]
+              [x, amplitude * math.cos(k * x - math.sqrt(radicand) * time)]
+              for x in xs]
     dispersion_residual = total * radicand - ((rho2 - rho1) * g * k +
                                               sigma * k**3)
     return {
