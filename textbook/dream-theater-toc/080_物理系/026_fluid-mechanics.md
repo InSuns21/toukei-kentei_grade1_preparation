@@ -29,3 +29,4 @@
 26. [FLUID26 曲がった界面の圧力差は何で決まるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID26/index.md)
 27. [FLUID27 水面波の伝播速度は波長でなぜ変わるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID27/index.md)
 28. [FLUID28 群速度はエネルギーの輸送とどう関係するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID28/index.md)
+29. [FLUID29 浅水近似はどの保存則を残すか](textbook/volumes/dream_thater/物理系/FLUID/FLUID29/index.md)

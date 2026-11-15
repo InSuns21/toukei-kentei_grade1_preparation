@@ -1,0 +1,56 @@
+chapter: FLUID29
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID28
+  - FLUID5
+  - FLUID6
+concepts:
+  - id: fluid.shallow-depth-discharge
+    name: 水深平均速度と単位幅流量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（水深平均速度と単位幅流量）"]
+    requires: [fluid.moving-mass-balance]
+  - id: fluid.shallow-depth-mass-balance
+    name: 鉛直積分による水深の質量保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（鉛直積分による水深の質量保存）"]
+    requires: [fluid.shallow-depth-discharge, fluid.moving-mass-balance]
+  - id: fluid.shallow-hydrostatic-limit
+    name: 浅水長波の静水圧近似
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（浅水長波の静水圧近似）"]
+    requires: [fluid.euler-constant-density]
+  - id: fluid.shallow-water-equations
+    name: 一次元非粘性浅水方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一次元非粘性浅水方程式）"]
+    requires: [fluid.shallow-depth-mass-balance, fluid.shallow-hydrostatic-limit]
+  - id: fluid.shallow-water-characteristics
+    name: 浅水方程式の特性速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（浅水方程式の特性速度）"]
+    requires: [fluid.shallow-water-equations, fluid.gravity-capillary-dispersion]
+  - id: fluid.shallow-lake-at-rest
+    name: 湖面静止の釣合解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（湖面静止の釣合解）"]
+    requires: [fluid.shallow-water-equations]
+  - id: fluid.shallow-column-energy
+    name: 水柱の力学的エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（水柱の力学的エネルギー）"]
+    requires: [fluid.shallow-water-equations]
+  - id: fluid.shallow-energy-balance
+    name: 滑らかな浅水流のエネルギー保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな浅水流のエネルギー保存）"]
+    requires: [fluid.shallow-column-energy, fluid.shallow-water-equations]
