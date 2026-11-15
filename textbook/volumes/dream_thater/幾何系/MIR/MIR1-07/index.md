@@ -224,7 +224,7 @@ $$
 F_\psi(\lambda x)=\lambda^5F_\psi(x).
 $$
 
-従って $\Omega/F_\psi$ の倍率は1。さらに $\Omega$ はEuler方向の径ベクトル場 $\sum_i x_i\partial_{x_i}$ に4次元の体積形式を収縮したものなので、もう一度その径方向に収縮すると零になる。この水平性と倍率0の不変性から $\Omega/F_\psi$ は $\mathbb P^4\setminus X_\psi$ 上の有理4形式を定める。
+従って $\Omega/F_\psi$ の倍率は1。さらに、$\Omega$ は $\mathbb C^5$ の標準**5形式** $dx_0\wedge\cdots\wedge dx_4$ にEuler方向の径ベクトル場 $E=\sum_i x_i\partial_{x_i}$ を収縮した $\iota_E(dx_0\wedge\cdots\wedge dx_4)$ である。従って $\iota_E\Omega=\iota_E^2(dx_0\wedge\cdots\wedge dx_4)=0$ となる。この水平性と倍率0の不変性から $\Omega/F_\psi$ は $\mathbb P^4\setminus X_\psi$ 上の有理4形式を定める。
 
 第二に[前講の滑らかさの必要十分条件](../MIR1-06/index.md#prop-mir1-06-smooth-locus)により $X_\psi$ は滑らかである。任意の点を含む射影チャート $x_k\ne0$ を一つ選ぶ。そのチャートで $F_\psi$ の局所式を $f$ とすると、もし $f$ の全偏微分が零なら、斉次Eulerの式から残りの偏微分も零となり、射影超曲面が特異であるという矛盾に至る。よって少なくとも一つの消去偏微分 $f_j$ は非零である。
 
