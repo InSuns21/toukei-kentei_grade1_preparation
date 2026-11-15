@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="380" viewBox="0 0 940 380" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="820" viewBox="0 0 480 820" role="img" aria-labelledby="title desc">
   <title id="title">逆圧力勾配と壁面せん断の符号</title>
-  <desc id="desc">左は壁に沿って外側流れが減速し圧力が上昇する様子。右は横軸を接線速度、縦軸を壁からの高さとして、正の壁面せん断、零の壁面せん断、壁近くの逆流を異なる線種と形で示す模式図。</desc>
-  <rect x="10" y="10" width="405" height="348" rx="12" fill="#f7f9fc" stroke="#b5c5d6"/>
+  <desc id="desc">上段は壁に沿う外側流れの減速と圧力上昇。下段は横軸を接線速度、縦軸を壁からの高さとして、正のせん断、零せん断、近壁逆流を線種と曲線形状で区別した模式図。</desc>
+  <defs>
+    <g id="original-panels">
+<rect x="10" y="10" width="405" height="348" rx="12" fill="#f7f9fc" stroke="#b5c5d6"/>
   <rect x="427" y="10" width="503" height="348" rx="12" fill="#ffffff" stroke="#b5c5d6"/>
   <g font-family="sans-serif" fill="#203047">
     <text x="28" y="39" font-size="19" font-weight="bold">外側流れの減速</text>
@@ -55,4 +57,12 @@
   <g font-family="sans-serif" font-size="12" fill="#516176">
     <text x="445" y="370">実線：付着 ／ 破線：壁面零勾配 ／ 点線：近壁逆流</text>
   </g>
+    </g>
+  </defs>
+  <svg x="0" y="0" width="480" height="390" viewBox="0 0 420 380">
+    <use href="#original-panels"/>
+  </svg>
+  <svg x="0" y="400" width="480" height="395" viewBox="422 0 518 380">
+    <use href="#original-panels"/>
+  </svg>
 </svg>
