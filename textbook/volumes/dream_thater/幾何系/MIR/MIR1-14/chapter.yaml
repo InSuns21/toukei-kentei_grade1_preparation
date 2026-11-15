@@ -17,7 +17,7 @@ theorems:
   - { id: MIR1-14-PROP-01, name: "conifold点の指標多項式" }
   - { id: MIR1-14-DEF-01, name: "節点の消滅サイクルと消滅周期" }
   - { id: MIR1-14-DEF-02, name: "整数シンプレクティック基底とモノドロミー" }
-  - { id: MIR1-14-PRINCIPLE-01, name: "Picard–Lefschetzの節点公式：幾何学的入力" }
+  - { id: MIR1-14-THM-02, name: "Picard–Lefschetzの節点公式：幾何学的入力" }
   - { id: MIR1-14-PROP-02, name: "節点の一周は階数1のシンプレクティック単冪変換" }
   - { id: MIR1-14-DEF-03, name: "本講のorbifold点の局所モノドロミー" }
   - { id: MIR1-14-THM-01, name: "orbifold点の指標根と位数5の一周作用" }
