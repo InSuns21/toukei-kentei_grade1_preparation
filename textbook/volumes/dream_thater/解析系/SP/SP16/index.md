@@ -346,7 +346,9 @@ $$
 > を対応させる局所有限な測度 $U$ を**更新測度**と呼ぶ。
 <!-- formal-statement-end -->
 
-$U$ は確率分布を表す測度 $P(S_n\in\cdot)$ の非負な和なので、互いに素な可算個の集合について和を入れ替えると可算加法性を満たします。[SP15 の局所有限性](../SP15/index.md#prop-sp15-local-finiteness)と[更新関数](../SP15/index.md#def-sp15-renewal-function)から $U([0,t])=1+m(t)<\infty$ であり、任意の有界区間において有限です。$\overline F(v)=P(T_1>v)$（$v\ge0$）を待ち時間の尾確率とします。
+各 $n\ge0$ に対して $P(S_n\in C)$ は集合 $C$ に関する確率測度の値です。$U(C)$ はこれらの非負の和なので、互いに素な可算個の集合について和を交換でき、可算加法性を満たします。
+
+[SP15 の局所有限性](../SP15/index.md#prop-sp15-local-finiteness)と[更新関数](../SP15/index.md#def-sp15-renewal-function)から $U([0,t])=1+m(t)<\infty$ であり、任意の有界区間で有限です。$\overline F(v)=P(T_1>v)$（$v\ge0$）を待ち時間の尾確率とします。
 
 <!-- definition-example-start: def-sp16-renewal-measure -->
 ### 直接例：2時間刻みの更新測度
@@ -356,7 +358,7 @@ $U$ は確率分布を表す測度 $P(S_n\in\cdot)$ の非負な和なので、�
 $T_i=2$ なら $S_n=2n$ は確定値で、$P(S_n\in C)=\boldsymbol{1}_{\{2n\in C\}}$。従って $U(C)$ は $C$ に含まれる $0,2,4,\ldots$ の個数です。互いに素な Borel 集合の可算和に対して個数を足せるので測度となり、$U([0,t])=1+\lfloor t/2\rfloor<\infty$ により局所有限性も確認できます。
 <!-- definition-example-end -->
 
-以下の $\int_{[0,t]}f(s)\,U(ds)$ は、$s$ を積分変数とする**更新測度 $U$ に関する積分**です。密度の存在は仮定しません。たとえば直前の $T_i=2$ の例では、$U$ が時刻 $0,2,4,\ldots$ に質量 $1$ を置くため、
+非負の Borel 可測関数 $f:[0,\infty)\to[0,\infty)$ に対し、$\int_{[0,t]}f(s)\,U(ds)$ は、$s$ を積分変数とする**更新測度 $U$ に関する積分**です。密度の存在は仮定しません。たとえば直前の $T_i=2$ の例では、$U$ が時刻 $0,2,4,\ldots$ に質量 $1$ を置くため、
 
 $$
 \int_{[0,t]}f(s)\,U(ds)
