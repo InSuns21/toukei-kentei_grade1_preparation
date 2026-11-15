@@ -49,7 +49,12 @@ def wave_state(n=0.02, k=0.003, m=0.004, amplitude=0.001, time=0.0):
     residual_max = {key: max(abs(item["residuals"][key]) for item in samples)
                     for key in samples[0]["residuals"]}
     mean_energy = 0.5 * amplitude ** 2 * wave_number ** 2 / (k * k)
-    mean_flux = [cgx * mean_energy, cgz * mean_energy]
+    # Compute <pi u> and <pi w> directly from the phase fields, independently
+    # of group velocity, so the transport identity is a real cross-check.
+    mean_flux = [
+        omega * m * m * amplitude ** 2 / (2 * k ** 3),
+        -omega * m * amplitude ** 2 / (2 * k ** 2),
+    ]
     wave_grid_x = [-500 + 10 * i for i in range(101)]
     profile = [[x, fields(x, 0)["xi_m"]] for x in wave_grid_x]
     dispersion = [[r, n / math.hypot(1, r)]
@@ -74,8 +79,8 @@ def wave_state(n=0.02, k=0.003, m=0.004, amplitude=0.001, time=0.0):
         "checks": {
             "sample_points": samples, "maximum_absolute_linear_PDE_residuals": residual_max,
             "mean_flux_minus_cg_energy": [
-                mean_flux[0] - n * m*m / wave_number**3 * mean_energy,
-                mean_flux[1] + n * k*m / wave_number**3 * mean_energy,
+                mean_flux[0] - cgx * mean_energy,
+                mean_flux[1] - cgz * mean_energy,
             ],
             "description": "analytic derivatives; not finite-difference residuals",
         },
