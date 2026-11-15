@@ -1,0 +1,47 @@
+chapter: MIR1-15
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-14, MIR1-12]
+concepts:
+  - id: mirror.quintic-normalized-mirror-coordinate
+    name: 規格化ミラー座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（規格化ミラー座標）"]
+    requires: [mirror.quintic-local-period-ratio, mirror.quintic-local-ratio-branch]
+  - id: mirror.quintic-local-mirror-biholomorphism
+    name: ミラー写像は原点で局所双正則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ミラー写像は原点で局所双正則）"]
+    requires: [mirror.quintic-normalized-mirror-coordinate]
+  - id: mirror.quintic-mirror-forward-coefficients
+    name: quinticのミラー写像の初期係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticのミラー写像の初期係数）"]
+    requires: [mirror.quintic-normalized-mirror-coordinate, mirror.quintic-logarithmic-harmonic-correction]
+  - id: mirror.quintic-inverse-mirror-series
+    name: 逆ミラー級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆ミラー級数）"]
+    requires: [mirror.quintic-local-mirror-biholomorphism, mirror.quintic-mirror-forward-coefficients]
+  - id: mirror.quintic-mirror-inverse-coefficients
+    name: 逆ミラー級数の初期係数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（逆ミラー級数の初期係数）"]
+    requires: [mirror.quintic-inverse-mirror-series]
+  - id: mirror.quintic-lagrange-inversion
+    name: 指数型ミラー写像のLagrange反転公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（指数型ミラー写像のLagrange反転公式）"]
+    requires: [mirror.quintic-inverse-mirror-series]
+  - id: mirror.quintic-mirror-coordinate-derivative
+    name: ミラー座標の微分の変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ミラー座標の微分の変換）"]
+    requires: [mirror.quintic-normalized-mirror-coordinate]
