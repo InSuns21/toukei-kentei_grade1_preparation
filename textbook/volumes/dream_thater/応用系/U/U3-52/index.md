@@ -33,6 +33,7 @@ $$
 > が成り立つ。最後の左辺は長方形 $(a,b]\times(c,d]$ の確率である。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-u3-52-copula -->
 **定義の確認**：独立な一様変数 $(U,W)$ の copula は $C_{\mathrm{ind}}(u,v)=uv$ です。実際、$C_{\mathrm{ind}}(u,1)=u$、$C_{\mathrm{ind}}(1,v)=v$、ゼロ端点でも0です。長方形の確率は
 
 $$
@@ -40,6 +41,7 @@ bd-ad-bc+ac=(b-a)(d-c)\ge0
 $$
 
 で、長方形確率の非負条件も満たします。片方だけを調べれば一様なのに、同時確率には積が現れます。
+<!-- definition-example-end -->
 
 <a id="prop-u3-52-margin-copula"></a>
 
@@ -126,7 +128,9 @@ $$
 
 です。分母は $P(U>q)=1-q$。この変形をせずに $C(q,q)$ 自体を「同時大損失確率」と取り違えてはいけません。
 
+<!-- definition-example-start: def-u3-52-tail -->
 **定義の確認**：独立 copula では $C(q,q)=q^2$ なので上側比は $(1-q)^2/(1-q)=1-q\to0$、下側比は $q^2/q=q\to0$ です。一方 $(U,V)=(U,U)$ なら $C(q,q)=q$ で、上側・下側ともに比は1です。両者の成分は全く同じ一様分布ですが、尾部依存係数は違います。$\lambda_U=0$ でも、有限の閾値での同時超過確率が0とは限りません。
+<!-- definition-example-end -->
 
 **相関0の反例を作る**ために、一様 $U$、独立な公平なコイン $B$（$P(B=1)=P(B=0)=1/2$）を用意します。$B=1$ なら $V=U$、$B=0$ なら $V=1-U$ とします。前者は同方向、後者は逆方向の動きです。このような二つの確率構造の混合では、平均的な線形関係が打ち消されても、同時大損失は残ります。
 
@@ -144,7 +148,9 @@ $$
 > である。$\theta=1/2$ を**公平混合モデル**と呼ぶ。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-u3-52-mixture -->
 **定義の確認**：$1-U$ も一様分布です。従って $V$ は一様分布二つの混合であり、$P(V\le v)=\theta v+(1-\theta)v=v$ です。同方向の場合は $P(U\le u,U\le v)=\min(u,v)$、逆方向の場合は $1-v\le U\le u$ なので確率は $\max(u+v-1,0)$。独立なコインで条件付けて足せば上の式を得ます。$C_\theta(1,v)=\theta v+(1-\theta)v=v$、$C_\theta(u,1)=u$、長方形確率の非負性は $(U,V)$ の実際の確率構成から従います。このように、単なる式の候補ではなく確率変数を作って定義条件を確認しました。
+<!-- definition-example-end -->
 
 <a id="prop-u3-52-zero-correlation"></a>
 
@@ -230,7 +236,9 @@ $$
 > を合計損失とする。合計損失の $\operatorname{VaR}_\alpha(S)$ と $\operatorname{ES}_\alpha(S)$ はそれぞれ [左側分位点](../U3-45/index.md#def-u3-45-var)と[分位点積分](../U3-46/index.md#def-u3-46-es)の定義で計算し、単体の値を機械的に足さない。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-u3-52-aggregate -->
 **定義の確認**：二つとも0.8万円の損失が出れば合計は1.6万円です。逆方向の枝 $V=1-U$ では $S=1$ 万円で一定、同方向の枝 $V=U$ では $S=2U$ 万円と変動します。どちらも $E[S]=1$ 万円ですが、上位損失の分布は異なります。数量と通貨単位をそろえない和にこの定義を適用することはできません。
+<!-- definition-example-end -->
 
 <a id="prop-u3-52-sum-risk"></a>
 
