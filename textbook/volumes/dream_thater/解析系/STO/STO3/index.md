@@ -1040,14 +1040,11 @@ $$
 $$
 Y\overset{d}{=}
 b+Q
-\begin{pmatrix}
-\sqrt{\lambda_1}U_1\\
-\vdots\\
-\sqrt{\lambda_k}U_k\\
-0\\
-\vdots\\
-0
-\end{pmatrix}
+\left(
+\sqrt{\lambda_1}U_1,\ldots,
+\sqrt{\lambda_k}U_k,
+\underbrace{0,\ldots,0}_{n-k\text{ 個}}
+\right)^\mathsf T
 $$
 
 です。右辺の分布は平均 $b$ と共分散 $\Sigma$ だけで定まるので、退化した場合も含めてガウス分布は平均と共分散によって一意に定まります。
