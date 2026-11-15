@@ -16,6 +16,7 @@ learning_objectives:
 definitions:
   - { id: SP18-DEF-01, name: "Galton–Watson 分枝過程" }
   - { id: SP18-DEF-02, name: "子孫数の確率母関数" }
+  - { id: SP18-DEF-03, name: "劣臨界・臨界・超臨界" }
 theorems:
   - { id: SP18-THM-01, name: "世代人数の母関数と平均" }
   - { id: SP18-THM-02, name: "絶滅確率の最小不動点表示" }
