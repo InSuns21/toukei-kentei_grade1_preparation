@@ -45,7 +45,36 @@ $$
 
 <!-- definition-example-start: def-mir1-13-monodromy -->
 
-**定義の確認**。 より小さい例として、穿孔円板での二階方程式 $zf''(z)+f'(z)=0$ を考える。プライムは $z$ による微分である。$f=1$ は両導関数が零、$f=\operatorname{Log}z$ は $f'=1/z$、$f''=-1/z^2$ だから $zf''+f'=0$。さらに $zf''+f'=(zf')'=0$ を積分すると、$z\ne0$ 上で $zf'=a$（定数）、続いて $f=a\operatorname{Log}z+b$（定数 $b$）となる。対数分枝を固定した局所領域では $1$ と $\operatorname{Log}z$ は一次独立だから、局所解空間は $V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\}$ であり、$e_0=1,e_1=\operatorname{Log}z$ が基底となる。解析接続の線形性は $C_\gamma(af+bg)=aC_\gamma(f)+bC_\gamma(g)$ から従い、逆向きの一周で元に戻る。$C_\gamma(e_0)=e_0$、$C_\gamma(e_1)=2\pi i e_0+e_1$ なので、各像の $e_0,e_1$ 係数を列に並べると行列は
+**定義の確認**。 より小さい例として穿孔円板での二階方程式 $zf''(z)+f'(z)=0$ を考える。ここでプライムは $z$ による微分である。$f_0(z)=1$ は両導関数が零だから解である。$f_1(z)=\operatorname{Log}z$ についても、代入すると
+
+$$
+f_1'(z)=\frac1z,\qquad f_1''(z)=-\frac1{z^2},
+\qquad zf_1''+f_1'=-\frac1z+\frac1z=0.
+$$
+
+また、与えられた微分方程式を一度積分すると次を得る。
+
+$$
+(zf')'=0\quad\Longrightarrow\quad zf'=a
+\quad\Longrightarrow\quad f=a\operatorname{Log}z+b
+\qquad(z\ne0).
+$$
+
+ここで $a,b$ は定数で、最後の積分には固定した対数分枝を使った。$\operatorname{Log}z$ は定数関数ではないから、二解は一次独立であり、局所解空間は
+
+$$
+V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\},\qquad
+e_0=1,\quad e_1=\operatorname{Log}z
+$$
+
+と表される。解析接続は線形で、逆向きの一周で元に戻る。像を基底で展開すると
+
+$$
+C_\gamma(e_0)=e_0,\qquad
+C_\gamma(e_1)=2\pi i\,e_0+e_1.
+$$
+
+従って、各像の $e_0,e_1$ 係数を**列**に並べると行列は
 
 $$
 M_2=\begin{pmatrix}1&2\pi i\\0&1\end{pmatrix},
