@@ -1,0 +1,41 @@
+id: "MIR1-12"
+title: "Frobenius法と対数周期"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-11
+  - MIR1-10
+  - ODE6
+learning_objectives:
+  - 四重指標根と正則Taylor解の自由度を区別できる
+  - Frobenius族の係数漸化式と四次残差を導ける
+  - 係数比とCauchy積分公式からパラメータ微分を正当化できる
+  - 四本の対数解と独立性を証明できる
+  - 調和数から第一補正の初項と周期比を再計算できる
+  - 対数分枝・周期比の定義域・解の規格化を区別できる
+theorems:
+  - { id: MIR1-12-DEF-01, name: "Frobeniusパラメータ族" }
+  - { id: MIR1-12-THM-01, name: "Frobenius族の残差公式" }
+  - { id: MIR1-12-THM-02, name: "四本の対数局所解と基本解系" }
+  - { id: MIR1-12-PROP-01, name: "対数解の第一正則補正" }
+  - { id: MIR1-12-DEF-02, name: "規格化した局所周期比" }
+  - { id: MIR1-12-PROP-02, name: "周期比の展開と対数の分枝" }
+canonical_examples:
+  - c1の有理式で分母非零とc1(0)=120を確認
+  - 一次係数のTaylor展開120 770 575 -1150を確認
+  - 調和数からA1の770と810225を再計算
+  - 級数除算で周期比の717825を再計算
+problem_patterns:
+  - MIR1-12-SHIFTED-EXPONENT
+  - MIR1-12-COEFFICIENT-DERIVATIVE
+  - MIR1-12-SECOND-LOG-DERIVATIVE
+  - MIR1-12-RATIO-DOMAIN
+  - MIR1-12-UNIFORM-CONVERGENCE
+  - MIR1-12-HARMONIC-COEFFICIENT
+  - MIR1-12-INDEPENDENCE
+  - MIR1-12-BRANCH-AND-BASIS
+  - MIR1-12-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 12, review: 5 }
