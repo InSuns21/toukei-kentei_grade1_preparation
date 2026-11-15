@@ -324,30 +324,30 @@ $$
 
 なぜなら $|u_4^*|<1<|\psi|$ だからである。よって零点は $(u_1,u_2,u_3)$ に沿って滑らかに動き、超曲面内のコンパクトな実3トーラス $\gamma_\psi$ を作る。$u_4$ 円積分は、各固定した $(u_1,u_2,u_3)$ に対して唯一の単純零点を囲むので、小円へ縮めて [管状サイクルの留数公式](../MIR1-07/index.md#prop-mir1-07-tube)を適用できる。向きを明示的に照合する。[消去変数による局所留数表示](../MIR1-07/index.md#prop-mir1-07-local-form)で $f_4=\partial f_\psi/\partial u_4\ne0$ とすると、$\gamma_\psi$ 上では
 
-$
+$$
 \operatorname{Res}_{X_\psi}\!\left(\frac{\Omega}{F_\psi}\right)
 =-\frac{du_1\wedge du_2\wedge du_3}{f_4}
-$
+$$
 
 である。実際、$df_\psi$ の $du_4$ 成分を取り出すと
 
-$
+$$
 df_\psi\wedge du_1\wedge du_2\wedge du_3
 =-f_4\,du_1\wedge du_2\wedge du_3\wedge du_4
-$
+$$
 
 となる。4トーラスの積の向きは $(u_1,u_2,u_3,u_4)$ の順だが、[管状サイクルの留数公式](../MIR1-07/index.md#prop-mir1-07-tube)は法方向の円を先にする規約である。ここでは
 
-$
+$$
 du_1\wedge du_2\wedge du_3\wedge du_4
 =-du_4\wedge du_1\wedge du_2\wedge du_3
-$
+$$
 
 だから、$\gamma_\psi$ を $(u_1,u_2,u_3)$ の積の向きとは逆に向き付ければ両規約が一致する。従って
 
-$
+$$
 \Pi_T=\int_{\gamma_\psi}\operatorname{Res}_{X_\psi}(\Omega/F_\psi)
-$
+$$
 
 となる。$\square$
 <!-- proof-end -->
