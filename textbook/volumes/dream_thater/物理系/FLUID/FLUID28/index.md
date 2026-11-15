@@ -119,7 +119,9 @@ $$
 =\omega'(k_0).
 $$
 
-波束を有限個の近接成分の和 $\sum_j a_j\cos(k_jx-\omega(k_j)t)$ で近似する。$k_j=k_0+q_j$、$|q_j|\ll k_0$ と書き、すべての $k_0,k_j$ を含む閉区間 $I\subset(0,\infty)$ で $M=\sup_{s\in I}|\omega''(s)|<\infty$ と置く。
+波束を有限個の近接成分の和 $\sum_j a_j\cos(k_jx-\omega(k_j)t)$ で近似する。各波数を $k_j=k_0+q_j$ と書き、$|q_j|\ll k_0$ とする。
+
+すべての $k_0,k_j$ を含む閉区間 $I\subset(0,\infty)$ を選び、$M=\sup_{s\in I}|\omega''(s)|<\infty$ と置く。
 
 [群速度の定義](#def-fluid28-group-velocity)より $\omega'(k_0)=c_g(k_0)$ である。差を二度積分すると、$q_j$ の正負どちらでも
 
@@ -147,7 +149,7 @@ $$
 
 ## 2. 有限水深の群速度を計算する
 
-$q=kh>0$ と $r=\gamma k^2/(\rho g)\ge0$ を置く。$q$ は底の影響を、$r$ は毛管項と重力項の比を表す。ここで $\omega'(k)=d\omega/dk$ は $k$ についての常微分であり、$h,\rho,g,\gamma$ は固定する。$\omega^2=(gk+\gamma k^3/\rho)\tanh q$ の両辺を $k$ で微分し、$h,\rho,g,\gamma$ を固定すると
+$q=kh>0$ と $r=\gamma k^2/(\rho g)\ge0$ を置く。$q$ は底の影響を、$r$ は毛管項と重力項の比を表す。ここで $\omega'(k)=d\omega/dk$ は $k$ についての常微分であり、$h,\rho,g,\gamma$ は固定する。$\omega^2=(gk+\gamma k^3/\rho)\tanh q$ の両辺を $k$ で微分すると
 
 $$
 2\omega\omega'
@@ -300,7 +302,9 @@ $$
 
 ## 4. エネルギー保存式から流束を求める
 
-エネルギーがどこへ流れるかを求めるには、平均エネルギーだけでは足りない。[線形化した Euler 方程式](../FLUID27/index.md#prop-fluid27-linear-boundary)の背景で、静水圧 $p_0(z)=p_a-\rho gz$ からの圧力摂動を $p'(x,z,t)$ と置く。ここで $p'$ のプライムは「静水圧との差」を表し、前節の $\omega'(k)=d\omega/dk$ のような微分記号ではない。一次の運動方程式は
+エネルギーがどこへ流れるかを求めるには、平均エネルギーだけでは足りない。[線形化した Euler 方程式](../FLUID27/index.md#prop-fluid27-linear-boundary)の背景で、静水圧 $p_0(z)=p_a-\rho gz$ からの圧力摂動を $p'(x,z,t)$ と置く。
+
+$p'$ のプライムは「静水圧との差」を表し、前節の $\omega'(k)=d\omega/dk$ のような微分記号ではない。一次の運動方程式は
 
 $$
 \rho u_t=-p'_x,\qquad \rho w_t=-p'_z.
@@ -605,7 +609,14 @@ $$
 \cos\left(\frac{k_++k_-}{2}x-\frac{\omega_++\omega_-}{2}t\right).
 $$
 
-第1因子の位相を固定して位置 $x=x(t)$ を追う。$\delta k,\delta\omega$ は定数なので、連鎖律から $0=d\{\delta k\,x(t)-\delta\omega\,t\}/dt=\delta k\,dx/dt-\delta\omega$。$\delta k>0$ で割ると
+第1因子の位相を固定して位置 $x=x(t)$ を追う。$\delta k,\delta\omega$ は定数なので、連鎖律から
+
+$$
+0=\frac{d}{dt}\{\delta k\,x(t)-\delta\omega\,t\}
+=\delta k\,\frac{dx}{dt}-\delta\omega
+$$
+
+を得る。$\delta k>0$ で割ると
 
 $$
 v_{\rm beat}=\frac{dx}{dt}=\frac{\delta\omega}{\delta k}.
