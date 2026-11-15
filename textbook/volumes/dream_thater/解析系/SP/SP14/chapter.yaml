@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SP13
+  - COMB2
 official_scope: []
 learning_objectives:
   - 出生率と死亡率から有限状態の Q 行列を構成し境界条件と吸収状態を区別できる
