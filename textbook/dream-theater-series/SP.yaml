@@ -23,7 +23,7 @@ chapters:
   - { id: SP14, path: textbook/volumes/dream_thater/解析系/SP/SP14, status: completed, title: "出生死滅過程・吸収・化学反応ネットワーク" }
   - { id: SP15, path: textbook/volumes/dream_thater/解析系/SP/SP15, status: completed, title: "更新過程・更新方程式・更新回数" }
   - { id: SP16, path: textbook/volumes/dream_thater/解析系/SP/SP16, status: completed, title: "更新報酬・残余寿命・長期平均" }
-  - { id: SP17, path: textbook/volumes/dream_thater/解析系/SP/SP17, status: planned, title: "待ち行列の確率過程" }
+  - { id: SP17, path: textbook/volumes/dream_thater/解析系/SP/SP17, status: completed, title: "待ち行列の確率過程" }
   - { id: SP18, path: textbook/volumes/dream_thater/解析系/SP/SP18, status: planned, title: "Galton–Watson 分枝過程・絶滅" }
   - { id: SP19, path: textbook/volumes/dream_thater/解析系/SP/SP19, status: planned, title: "整合的有限次元分布・ガウス過程・連続修正" }
   - { id: SP20, path: textbook/volumes/dream_thater/解析系/SP/SP20, status: planned, title: "Brown 運動の構成・増分・スケーリング" }
