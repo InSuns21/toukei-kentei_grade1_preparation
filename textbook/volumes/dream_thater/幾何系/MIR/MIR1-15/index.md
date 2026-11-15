@@ -697,7 +697,7 @@ q(z)=e^{T(z)}=ze^{h(z)},\qquad
 q(0)=0,\qquad q'(0)=1\ne0
 $$
 
-を満たす。[局所双正則性の定理](#thm-mir1-15-local-biholomorphism)により正則逆関数が存在する。指数のTaylor式より
+を満たす。直前に証明した[局所双正則性](#thm-mir1-15-local-biholomorphism)により正則逆関数が存在する。指数のTaylor式より
 
 $$
 q=z+h_1z^2+(h_2+h_1^2/2)z^3
