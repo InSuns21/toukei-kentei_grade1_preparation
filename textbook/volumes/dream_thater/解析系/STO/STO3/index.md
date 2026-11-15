@@ -967,7 +967,7 @@ Kolmogorov 拡張定理の代表的な使い方として、平均関数と共分
 $K(s,t)=\min(s,t)$
 を代入します。
 
-有限個の座標に現れる正規分布は、独立な標準正規変数のベクトル $Z\in\mathbb R^d$ を、行列 $A\in\mathbb R^{n\times d}$ と定数ベクトル $b\in\mathbb R^n$ で変換した
+ここでいう**多変量ガウス分布**とは、独立な標準正規変数のベクトル $Z\in\mathbb R^d$ を、行列 $A\in\mathbb R^{n\times d}$ と定数ベクトル $b\in\mathbb R^n$ で変換した
 
 $$
 Y=b+AZ
@@ -1077,7 +1077,7 @@ a_i a_j K(t_i,t_j)
 \ge0
 $$
 
-でなければなりません。つまり各有限集合で作る分散共分散行列は半正定値である必要があります。
+でなければなりません。つまり各有限集合で作る分散共分散行列は[半正定値](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)である必要があります。係数ベクトル $a=(a_1,\ldots,a_n)^\mathsf T$ を用いれば、左辺がまさに $a^\mathsf T\Sigma a$ となるためです。
 
 次の結果は、この必要条件が十分でもあることを示します。各有限集合で半正定値行列の平方根を作って多変量正規分布を構成し、座標を捨てたときの整合性を確認してから、前節の拡張結果へ渡します。
 
@@ -1412,7 +1412,7 @@ Hölder 指数は「連続か否か」より細かく、経路の粗さを測り
 
 <!-- formal-statement-start -->
 > **定理（Kolmogorov--Chentsov 連続定理：1 パラメータ版）**  
-> 実数値確率過程 $X=(X_t)_{0\le t\le T}$ に対し、ある定数
+> $T>0$ とし、実数値確率過程 $X=(X_t)_{0\le t\le T}$ に対し、ある定数
 >
 $$
 \alpha>0,\qquad
@@ -2529,7 +2529,7 @@ $$
 次の論理を自力で再構成せよ。
 
 1. $\mu_0(A_n)\ge\delta>0$ と仮定する。
-2. 各有限次元集合 $B_n$ を compact $K_n\subset B_n$ で
+2. 各 $A_n=C(I_n,B_n)$ の有限次元 Borel 集合 $B_n\subset\mathbb R^{I_n}$ を compact $K_n\subset B_n$ で
    $$
    \mu_{I_n}(B_n\setminus K_n)<\varepsilon_n,
    \qquad
