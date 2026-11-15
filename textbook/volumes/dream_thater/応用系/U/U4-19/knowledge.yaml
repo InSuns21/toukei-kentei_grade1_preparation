@@ -1,0 +1,54 @@
+chapter: U4-19
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-18, U4-15, U4-16, U4-10, LA5]
+forward_references: []
+concepts:
+  - id: finance.arb-multi-factor-model
+    name: 多銘柄の線形因子モデルと残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多銘柄の線形因子モデルと残差）"]
+    requires: [finance.arb-dollar-beta-neutrality]
+  - id: finance.arb-etf-ols-orthogonality
+    name: ETF単一因子回帰の負荷量と直交残差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ETF単一因子回帰の負荷量と直交残差）"]
+    requires: [finance.arb-multi-factor-model]
+  - id: finance.arb-multi-factor-neutrality
+    name: 複数因子中立とドル中立
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複数因子中立とドル中立）"]
+    requires: [finance.arb-multi-factor-model, finance.arb-dollar-beta-neutrality]
+  - id: finance.arb-neutral-subspace-projection
+    name: 中立部分空間への直交射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（中立部分空間への直交射影）"]
+    requires: [finance.arb-multi-factor-neutrality]
+  - id: finance.arb-sample-pca-residual
+    name: 標本PCAの主成分と残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標本PCAの主成分と残差）"]
+    requires: [finance.arb-multi-factor-model]
+  - id: finance.arb-pca-residual-optimality
+    name: PCAによる残差平方和の最小化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（PCAによる残差平方和の最小化）"]
+    requires: [finance.arb-sample-pca-residual, finance.arb-neutral-subspace-projection]
+  - id: finance.arb-multiasset-self-financing
+    name: 時刻整合した多銘柄の自己金融保有
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時刻整合した多銘柄の自己金融保有）"]
+    requires: [finance.arb-multi-factor-neutrality, finance.arb-time-varying-hedge-holding]
+  - id: finance.arb-multiasset-factor-pnl
+    name: 多銘柄の因子損益と残差損益の分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多銘柄の因子損益と残差損益の分解）"]
+    requires: [finance.arb-multiasset-self-financing, finance.arb-multi-factor-model]
