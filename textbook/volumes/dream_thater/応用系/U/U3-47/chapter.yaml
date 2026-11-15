@@ -1,0 +1,45 @@
+id: "U3-47"
+title: "正規・t 分布と分散共分散法による VaR/ES"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-46, U3-45, U3-44]
+official_scope: []
+learning_objectives:
+  - 線形因子損益の符号・単位・確定費用を固定し平均と分散共分散行列から損失分散を導ける
+  - 多変量正規因子の線形射影を証明し正規損失のVaRとESを密度積分から導ける
+  - Student tの自由度ごとの可積分性・分散条件と尺度・標準偏差を区別できる
+  - 共通尺度混合の多変量tとその線形射影・共分散行列を導ける
+  - t損失のVaRとESを上側尾部積分から導き正規モデルと同一分散で比較できる
+  - 数値積分と有限標本推定を使って閉形式を検算しモデル誤差と標本誤差を区別できる
+definitions:
+  - { id: U3-47-DEF-01, name: "線形因子損失と分散共分散法" }
+  - { id: U3-47-DEF-02, name: "多変量正規因子モデル" }
+  - { id: U3-47-DEF-03, name: "標準 Student t 分布と位置尺度型" }
+  - { id: U3-47-DEF-04, name: "共通尺度混合の多変量 t 因子モデル" }
+theorems:
+  - { id: U3-47-PROP-01, name: "線形損失の平均と分散" }
+  - { id: U3-47-PROP-02, name: "正規因子の線形射影" }
+  - { id: U3-47-THM-01, name: "正規線形損失の VaR/ES" }
+  - { id: U3-47-PROP-03, name: "Student t のモーメントと尺度" }
+  - { id: U3-47-PROP-04, name: "共通尺度 t 因子の線形射影" }
+  - { id: U3-47-THM-02, name: "位置尺度型 t 損失の VaR/ES" }
+canonical_examples:
+  - "二因子w=(2,-1), mu=(1,0), Sigma=[[4,1],[1,9]]の平均損失1と分散21"
+  - "平均2・標準偏差10万円で正規とnu=5のtの95%・99% VaR/ESの交差比較"
+  - "自由度nu<=1と1<nu<=2のES・分散存在の違い"
+  - "tのOmegaとSigmaのnu/(nu-2)倍の違い"
+problem_patterns:
+  - U3-47-A1
+  - U3-47-A2
+  - U3-47-A3
+  - U3-47-A4
+  - U3-47-A5
+  - U3-47-B1
+  - U3-47-B2
+  - U3-47-B3
+  - U3-47-B4
+  - U3-47-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
