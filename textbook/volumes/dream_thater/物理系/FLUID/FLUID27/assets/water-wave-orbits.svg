@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="270" viewBox="0 0 800 270" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">有限水深の表面波と流体粒子の楕円軌道</title>
+  <desc id="desc">平均水面を破線、正弦波状の水面を実線、底面を太線で示す。隣り合う山の距離が波長。粒子は中層では丸い楕円、底面近くでは横長の楕円を描く。粒子軌道の大きさは見やすさのため拡大した模式図。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#304f8c"/>
+    </marker>
+  </defs>
+  <path d="M100 91 C140 91,180 105,220 105 S300 91,340 91 S420 105,460 105 S540 91,580 91 S660 105,700 105 L700 210 L100 210 Z" fill="#dcecf5" opacity=".75"/>
+  <line x1="100" y1="98" x2="700" y2="98" stroke="#65778c" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <path d="M100 91 C140 91,180 105,220 105 S300 91,340 91 S420 105,460 105 S540 91,580 91 S660 105,700 105" fill="none" stroke="#1b5c87" stroke-width="3.2"/>
+  <line x1="100" y1="210" x2="700" y2="210" stroke="#4c525e" stroke-width="4"/>
+  <line x1="100" y1="46" x2="340" y2="46" stroke="#4c525e" stroke-width="1.5"/>
+  <line x1="100" y1="40" x2="100" y2="53" stroke="#4c525e" stroke-width="1.5"/>
+  <line x1="340" y1="40" x2="340" y2="53" stroke="#4c525e" stroke-width="1.5"/>
+  <line x1="74" y1="98" x2="74" y2="210" stroke="#4c525e" stroke-width="1.5"/>
+  <line x1="69" y1="98" x2="79" y2="98" stroke="#4c525e" stroke-width="1.5"/>
+  <line x1="69" y1="210" x2="79" y2="210" stroke="#4c525e" stroke-width="1.5"/>
+  <ellipse cx="345" cy="145" rx="22" ry="20" fill="none" stroke="#304f8c" stroke-width="2.5"/>
+  <ellipse cx="570" cy="191" rx="22" ry="9" fill="none" stroke="#304f8c" stroke-width="2.5"/>
+  <circle cx="345" cy="145" r="2.5" fill="#304f8c"/>
+  <circle cx="570" cy="191" r="2.5" fill="#304f8c"/>
+  <path d="M367 136 L367 155" fill="none" stroke="#304f8c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M592 186 L592 197" fill="none" stroke="#304f8c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="214" y="30" font-size="20" font-family="sans-serif" fill="#273649" text-anchor="middle">λ</text>
+  <text x="45" y="160" font-size="19" font-family="sans-serif" fill="#273649">h</text>
+  <text x="24" y="88" font-size="17" font-family="sans-serif" fill="#273649">z=0</text>
+  <text x="15" y="240" font-size="17" font-family="sans-serif" fill="#273649">z=−h</text>
+</svg>
