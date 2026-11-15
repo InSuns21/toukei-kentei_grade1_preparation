@@ -1,0 +1,41 @@
+chapter: U3-45
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-44, U3-18]
+concepts:
+  - id: finance.value-at-risk
+    name: 左側分位点による Value at Risk
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（左側分位点による Value at Risk）"]
+    requires: [finance.finite-loss-distribution]
+  - id: finance.var-coverage
+    name: VaR の非超過確率と超過確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（VaR の非超過確率と超過確率）"]
+    requires: [finance.value-at-risk]
+  - id: finance.var-finite-quantile
+    name: 離散分布での VaR の決定法
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（離散分布での VaR の決定法）"]
+    requires: [finance.value-at-risk, finance.finite-loss-distribution]
+  - id: finance.var-basic-properties
+    name: VaR の単調性・現金平行移動・正の斉次性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（VaR の単調性・現金平行移動・正の斉次性）"]
+    requires: [finance.value-at-risk]
+  - id: finance.var-normal-loss
+    name: 正規損失の VaR
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規損失の VaR）"]
+    requires: [finance.value-at-risk, finance.bsm-normal-indices]
+  - id: finance.var-nonsubadditivity-example
+    name: VaR の劣加法性が破れる反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（VaR の劣加法性が破れる反例）"]
+    requires: [finance.var-finite-quantile]
