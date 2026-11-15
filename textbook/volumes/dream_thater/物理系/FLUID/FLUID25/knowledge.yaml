@@ -1,0 +1,36 @@
+chapter: FLUID25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID24
+concepts:
+  - id: fluid.viscous-body-drag
+    name: 圧力抗力・粘性抗力と全抗力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圧力抗力・粘性抗力と全抗力）"]
+    requires: [fluid.lift-drag, fluid.moving-momentum-balance]
+  - id: fluid.control-volume-instantaneous-drag
+    name: 固定検査体積による瞬間抗力
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定検査体積による瞬間抗力）"]
+    requires: [fluid.viscous-body-drag, fluid.moving-momentum-balance]
+  - id: fluid.wake-momentum-deficit
+    name: 後流速度欠損と運動量欠損積分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（後流速度欠損と運動量欠損積分）"]
+    requires: [fluid.momentum-thickness]
+  - id: fluid.wake-drag
+    name: 定常後流による抗力評価
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定常後流による抗力評価）"]
+    requires: [fluid.wake-momentum-deficit, fluid.control-volume-instantaneous-drag, fluid.moving-mass-balance]
+  - id: fluid.wake-half-period-force-symmetry
+    name: 半周期の鏡映対称性と揚抗力の周期
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（半周期の鏡映対称性と揚抗力の周期）"]
+    requires: [fluid.viscous-body-drag, fluid.planar-vorticity-diffusion, continuum.strouhal-number]
