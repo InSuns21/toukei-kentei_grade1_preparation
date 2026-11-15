@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 385" width="940" height="385" data-layout-lint="strict" role="img" aria-labelledby="title desc">
+  <title id="title">物体を囲む検査体積と後流の運動量欠損</title>
+  <desc id="desc">流れは左から右へ進む。中央の固定物体を長方形の仮想検査面が囲み、右側には速度欠損と符号の異なる二つの渦を描く。上下の検査面にも流体の出入りがあり、後流の質量欠損を補償する。渦列と流れの分布は模式的であり数値解ではない。</desc>
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#23648a"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a14c26"/>
+    </marker>
+  </defs>
+  <rect x="92" y="58" width="738" height="268" rx="4" fill="#fafafa" stroke="#636d76" stroke-width="2.5" stroke-dasharray="9 6"/>
+  <path d="M 415 145 C 495 107, 565 106, 810 119 L 810 256 C 565 261, 493 266, 415 224 Z" fill="#e8f0f4" opacity="0.95" stroke="none"/>
+  <path d="M 413 145 C 500 112, 670 113, 815 120" fill="none" stroke="#678da4" stroke-width="2.5" stroke-dasharray="10 7" data-series-group="wake-edge" data-series-label="upper-edge"/>
+  <path d="M 413 224 C 500 256, 670 265, 815 256" fill="none" stroke="#678da4" stroke-width="2.5" stroke-dasharray="5 6" data-series-group="wake-edge" data-series-label="lower-edge"/>
+  <circle cx="366" cy="187" r="39" fill="#a5aeb5" stroke="#45545e" stroke-width="3"/>
+  <path d="M 126 143 H 300" fill="none" stroke="#23648a" stroke-width="3.4" marker-end="url(#arr-blue)"/>
+  <path d="M 126 242 H 300" fill="none" stroke="#23648a" stroke-width="3.4" marker-end="url(#arr-blue)"/>
+  <path d="M 665 156 H 801" fill="none" stroke="#23648a" stroke-width="3.4" marker-end="url(#arr-blue)"/>
+  <path d="M 666 220 H 736" fill="none" stroke="#23648a" stroke-width="3.4" marker-end="url(#arr-blue)"/>
+  <path d="M 563 63 V 20" fill="none" stroke="#a14c26" stroke-width="3.4" stroke-dasharray="8 4" marker-end="url(#arr-orange)" data-series-group="side-flux" data-series-label="upper-outflow"/>
+  <path d="M 563 322 V 365" fill="none" stroke="#a14c26" stroke-width="3.4" stroke-dasharray="4 5" marker-end="url(#arr-orange)" data-series-group="side-flux" data-series-label="lower-outflow"/>
+  <path d="M 500 166 C 485 148, 510 133, 529 153 C 543 172, 522 191, 500 178" fill="none" stroke="#8251a1" stroke-width="3" marker-end="url(#arr-blue)" data-series-group="vortex-pair" data-series-label="upper-vortex"/>
+  <path d="M 599 209 C 614 227, 589 242, 570 222 C 556 203, 577 184, 599 197" fill="none" stroke="#8251a1" stroke-width="2.8" stroke-dasharray="5 3" marker-end="url(#arr-blue)" data-series-group="vortex-pair" data-series-label="lower-vortex"/>
+  <g fill="#253848" font-family="sans-serif" font-size="21">
+    <text x="148" y="130">U</text>
+    <text x="356" y="195">B</text>
+    <text x="726" y="146">u<tspan dy="5" font-size="14">d</tspan></text>
+    <text x="98" y="42">CV</text>
+    <text x="571" y="40" fill="#a14c26">Q<tspan dy="5" font-size="14">s</tspan></text>
+    <text x="575" y="360" fill="#a14c26">Q<tspan dy="5" font-size="14">s</tspan></text>
+    <text x="513" y="207" font-size="18">−</text>
+    <text x="581" y="172" font-size="18">＋</text>
+  </g>
+</svg>
