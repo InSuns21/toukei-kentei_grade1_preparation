@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320" data-layout-lint="strict" role="img" aria-labelledby="fig-title fig-description">
+  <title id="fig-title">Two distinct sources of buoyancy instability</title>
+  <desc id="fig-description">Left: an upper, denser, semi-infinite fluid is above a lighter lower fluid; a curved interface is disturbed while gravity points down. Right: a single layer lies between a cooler upper plate and a warmer lower plate; conductive heat flux points up, opposite downward gravity. The left model has an interface, the right has solid temperature boundaries.</desc>
+  <defs>
+    <marker id="down-arrow" markerWidth="9" markerHeight="9" refX="7.2" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#2b3545" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="up-arrow" markerWidth="9" markerHeight="9" refX="7.2" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#3e7464" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect x="25" y="40" width="410" height="255" rx="10" fill="#fff" stroke="#d2d9e0" stroke-width="1.5"/>
+  <rect x="465" y="40" width="410" height="255" rx="10" fill="#fff" stroke="#d2d9e0" stroke-width="1.5"/>
+  <text x="49" y="68" font-family="sans-serif" font-size="20" font-weight="600" fill="#243348">RT</text>
+  <text x="489" y="68" font-family="sans-serif" font-size="20" font-weight="600" fill="#243348">RB</text>
+  <rect x="49" y="88" width="302" height="93" fill="#e4eff8"/>
+  <rect x="49" y="181" width="302" height="94" fill="#f8efdb"/>
+  <path d="M49 181 C77 159 105 159 133 181 S189 203 217 181 S273 159 301 181 S335 203 351 181" fill="none" stroke="#233b57" stroke-width="3" stroke-linecap="round"/>
+  <line x1="49" y1="181" x2="351" y2="181" stroke="#627b99" stroke-width="1.4" stroke-dasharray="6 5"/>
+  <text x="176" y="132" font-family="sans-serif" font-size="21" fill="#243348">ρ₁</text>
+  <text x="176" y="248" font-family="sans-serif" font-size="21" fill="#243348">ρ₂</text>
+  <line x1="392" y1="116" x2="392" y2="218" stroke="#2b3545" stroke-width="2.5" marker-end="url(#down-arrow)"/>
+  <text x="402" y="177" font-family="sans-serif" font-size="20" fill="#243348">g</text>
+  <rect x="489" y="110" width="302" height="141" fill="#f2e9d4"/>
+  <line x1="489" y1="109" x2="791" y2="109" stroke="#22364e" stroke-width="5"/>
+  <line x1="489" y1="252" x2="791" y2="252" stroke="#22364e" stroke-width="5"/>
+  <text x="704" y="99" font-family="sans-serif" font-size="19" fill="#243348">Tₜ</text>
+  <text x="704" y="280" font-family="sans-serif" font-size="19" fill="#243348">Tᵦ</text>
+  <line x1="591" y1="224" x2="591" y2="138" stroke="#3e7464" stroke-width="3" stroke-dasharray="9 5" marker-end="url(#up-arrow)"/>
+  <text x="604" y="184" font-family="sans-serif" font-size="21" fill="#285a4b">q</text>
+  <line x1="830" y1="137" x2="830" y2="222" stroke="#2b3545" stroke-width="2.5" marker-end="url(#down-arrow)"/>
+  <text x="841" y="184" font-family="sans-serif" font-size="20" fill="#243348">g</text>
+</svg>
