@@ -253,7 +253,7 @@ $$
 この教材の初期JSが行う操作は、順番に次のとおりです。
 
 1. \`canvas.getContext('webgl2')\` の成功を確認する（失敗した場合は処理しない）。
-2. 2種類のGLSLを \`compileShader\` でコンパイルし、\`linkProgram\` で結合する。どちらかが失敗すればログを示す。
+2. 2種類のGLSLを \`compileShader\` でコンパイルし、\`linkProgram\` で一つのGPUプログラムにまとめる。どちらかが失敗すればログを示す。
 3. 頂点の6個の実数を \`Float32Array\` に入れ、\`bufferData\` でGPUへ渡す。2成分ずつ読ませるため \`vertexAttribPointer(...,2,...)\` を設定する。
 4. \`viewport(0,0,canvas.width,canvas.height)\` を指定し、背景を黒で \`clear\` する。
 5. \`useProgram\` と \`drawArrays(TRIANGLES,0,3)\` で描画する。
@@ -393,7 +393,7 @@ HTMLのcanvasにCSS幅160pxを設定し、\`canvas.width=320\`、\`canvas.height
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** [描画バッファの定義](#def-wgl1-drawing-buffer)に従い、添字の範囲は $0\le i<320,\ 0\le j<240$ です。したがって中央付近として
+**詳細解答。** [描画バッファと画素](#def-wgl1-drawing-buffer)に従い、添字の範囲は $0\le i<320,\ 0\le j<240$ です。したがって中央付近として
 
 $$
 (i,j)=(\lfloor320/2\rfloor,\lfloor240/2\rfloor)=(160,120)
