@@ -2,7 +2,7 @@
 
 <!-- definition-example-audit: strict -->
 
-> **既出概念への参照**：[停止時刻](../STO1/index.md#def-sto1-stopping-time)、[ガウス過程](../STO3/index.md#def-sto3-gaussian-process)、[平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
+> **既出概念への参照**：[STO1の停止時刻の定義](../STO1/index.md#def-sto1-stopping-time)、[ガウス過程](../STO3/index.md#def-sto3-gaussian-process)、[平均関数と半正定値共分散核からのガウス過程構成](../STO3/index.md#thm-sto3-gaussian-process-existence)、[Kolmogorov--Chentsov 連続定理](../STO3/index.md#thm-sto3-kolmogorov-chentsov) を直接参照します。
 
 STO3 では、整合的な有限次元分布から確率過程を作り、モーメント評価から連続な修正を得るところまで閉じました。
 
@@ -323,7 +323,7 @@ $$
 
 を全て満たします。
 
-ここで「ガウス過程を作れた」と「連続な標本路を選べた」は別の仕事です。STO3 の二つの定理を別々に使ったことが重要です。
+ここで「ガウス過程を作れた」と「連続な標本路を選べた」は別々の構成段階です。STO3 の二つの定理を別々に使ったことが重要です。
 <!-- definition-example-end -->
 
 ---
@@ -1790,7 +1790,7 @@ $\sigma_k<\infty$ が成立したとします。
 [強マルコフ性](#thm-sto4-brownian-strong-markov)により、
 $\sigma_k$ 後の shifted 過程は新しいブラウン運動です。
 現在値から次の目標水準までの距離は 2 なので、
-[到達確率1の定理](#thm-sto4-hitting-time-law)から
+[ブラウン到達時刻の分布](#thm-sto4-hitting-time-law)から
 
 $$
 P(\sigma_{k+1}<\infty\mid\mathcal F_{\sigma_k}^{B,c})=1.
