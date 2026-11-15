@@ -1,0 +1,45 @@
+id: "U3-52"
+title: "相関・copula・尾部依存とリスク集約"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-51, U3-50, U3-46, U3-45]
+official_scope: []
+learning_objectives:
+  - 二変量copulaの周辺一様条件と長方形確率を直接検証できる
+  - 連続周辺分布を確率積分変換でcopulaと分離し逆向きに構成できる
+  - 上下尾部依存係数を条件付き確率から導き有限閾値の同時超過と区別できる
+  - 同方向・逆方向混合で相関0でも尾部依存が非零となる反例を証明できる
+  - 独立および公平混合の一様損失の合計分布・VaR・ESを導ける
+  - 二値化した極端損失で周辺頻度・同時頻度・99%VaR/ESを正確に集約できる
+  - 離散ESの境界原子の端数処理とP/Q・推定不確実性を区別できる
+definitions:
+  - { id: U3-52-DEF-01, name: "二変量 copula" }
+  - { id: U3-52-DEF-02, name: "上側・下側尾部依存係数" }
+  - { id: U3-52-DEF-03, name: "同方向・逆方向混合 copula" }
+  - { id: U3-52-DEF-04, name: "二資産の合計損失" }
+theorems:
+  - { id: U3-52-PROP-01, name: "連続周辺分布と copula の分離" }
+  - { id: U3-52-PROP-02, name: "相関が消えても尾部依存は残る" }
+  - { id: U3-52-PROP-03, name: "独立組と公平混合の合計 VaR/ES" }
+  - { id: U3-52-PROP-04, name: "二値損失のリスク集約と境界の原子" }
+canonical_examples:
+  - "独立copulaで長方形確率を四項差と面積で照合"
+  - "公平混合で相関0・上下尾部依存1/2を同じ確率空間で導出"
+  - "閾値90/95/99%で独立と公平混合の同時超過確率を厳密計算"
+  - "一様損失合計の95%VaR/ESを独立と公平混合で比較"
+  - "二値損失合計の99%VaR/ESと境界原子の端数重みを検算"
+problem_patterns:
+  - U3-52-A1
+  - U3-52-A2
+  - U3-52-A3
+  - U3-52-A4
+  - U3-52-A5
+  - U3-52-B1
+  - U3-52-B2
+  - U3-52-B3
+  - U3-52-B4
+  - U3-52-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
