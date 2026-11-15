@@ -47,7 +47,21 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid33-beta-plane -->
-**定義の確認**：$\varphi_0=45^\circ$、$\Omega=7.29\times10^{-5}$ s$^{-1}$、$a=6.37\times10^6$ m とすれば、$f_0\simeq1.03\times10^{-4}$ s$^{-1}$、$\beta\simeq1.62\times10^{-11}$ m$^{-1}$s$^{-1}$。例えば南北幅 $L=10^5$ m の領域を基準緯度の前後 $|y|\le L/2$ に取れば、$|y|/a\le7.85\times10^{-3}$、$|\beta|L/|f_0|\simeq1.57\times10^{-2}$ となり、局所一次近似と定数 $f_0$ による地衡釣合の尺度条件をともに満たす。南緯45度では $f_0$ だけが負に変わり、$\beta$ はなお正である。赤道では $f_0=0$ なので後述の $1/f_0$ を用いる地衡近似はできない。
+**定義の確認**：$\varphi_0=45^\circ$、$\Omega=7.29\times10^{-5}$ s$^{-1}$、$a=6.37\times10^6$ m を定義式へ代入すると
+
+$
+f_0\simeq1.03\times10^{-4}\ {\rm s^{-1}},\qquad
+\beta\simeq1.62\times10^{-11}\ {\rm m^{-1}s^{-1}}.
+$
+
+例えば南北幅 $L=10^5$ m の領域を基準緯度の前後 $|y|\le L/2$ に取ると、
+
+$
+\frac{|y|}{a}\le7.85\times10^{-3},\qquad
+\frac{|\beta|L}{|f_0|}\simeq1.57\times10^{-2}.
+$
+
+よって局所一次近似と定数 $f_0$ による地衡釣合の尺度条件をともに満たす。南緯45度では $f_0$ だけが負に変わり、$\beta$ はなお正である。赤道では $f_0=0$ なので後述の $1/f_0$ を用いる地衡近似はできない。
 <!-- definition-example-end -->
 
 ## 2. 水柱は何を保存するか
@@ -153,7 +167,14 @@ $$
 
 一層浅水流は速い重力波も支える。[FLUID29 の浅水長波速度](../FLUID29/index.md#thm-fluid29-characteristics)は静止水で $\sqrt{gH}$ だった。今欲しいのはこれより遅い、回転と緯度勾配の影響を受ける波である。
 
-$h=H+\eta$、背景速度零、$|\eta|/H\ll1$、水平流速の二次項を無視できる程度に小さいとする。$\beta$ 面では、$|\beta y|/|f_0|\ll1$ の局所帯である。水平発散を $\delta=u_x+v_y$ と置けば、質量式から $\eta_t+H\delta=0$ を得る。渦度式を速度と水面変位について一次化した段階では $\zeta_t+(f_0+\beta y)\delta+\beta v=0$ である。ここから、$|\beta y|/|f_0|\ll1$ によって伸縮係数の相対的に小さい補正 $\beta y\delta$ を落とす。ただし $\beta v$ は背景渦位の移流を表すため残す。こうして
+$h=H+\eta$、背景速度零、$|\eta|/H\ll1$、水平流速の二次項を無視できる程度に小さいとする。$\beta$ 面では、$|\beta y|/|f_0|\ll1$ の局所帯である。水平発散を $\delta=u_x+v_y$ と置けば、質量式と渦度式を速度と水面変位について一次化した段階では
+
+$
+\eta_t+H\delta=0,\qquad
+\zeta_t+(f_0+\beta y)\delta+\beta v=0
+$
+
+となる。ここから、$|\beta y|/|f_0|\ll1$ によって伸縮係数の相対的に小さい補正 $\beta y\delta$ を落とす。ただし $\beta v$ は背景渦位の移流を表すため残す。こうして
 
 $$
 \eta_t+H(u_x+v_y)=0,\qquad
@@ -175,7 +196,16 @@ $$
 f_0u_g=-g\eta_y.
 $$
 
-これにより $g\eta/f_0$ を一つの関数として使えば速度の両成分を表せる。以下の準地衡（quasi-geostrophic）近似では、[FLUID32 の Rossby 数](../FLUID32/index.md#def-fluid32-rossby-ekman) $\mathrm{Ro}=U/(|f_0|L)\ll1$、$1/(|f_0|T)\ll1$、$|\beta|L/|f_0|\ll1$、および $|\eta|/H\ll1$ を仮定する。ここで $U$ は代表流速、$L$ は水平代表長さ、$T>0$ は変動の代表時間である。$1/T$ は代表的な時間変化率であって、微分演算子 $\partial_t$ の絶対値ではない。また $f_0\ne0$ が必要である。一次の渦位変化に対して速度の最低次を地衡流で近似する。非地衡速度は伸縮を通じて一次渦位式へ寄与し得るので、連続式の発散を**最初から零には置かない**。
+これにより $g\eta/f_0$ を一つの関数として使えば速度の両成分を表せる。以下の準地衡（quasi-geostrophic）近似では、[FLUID32 の Rossby 数](../FLUID32/index.md#def-fluid32-rossby-ekman)を用い、
+
+$
+\mathrm{Ro}=\frac{U}{|f_0|L}\ll1,\qquad
+\frac{1}{|f_0|T}\ll1,\qquad
+\frac{|\beta|L}{|f_0|}\ll1,\qquad
+\frac{|\eta|}{H}\ll1
+$
+
+を仮定する。ここで $U$ は代表流速、$L$ は水平代表長さ、$T>0$ は変動の代表時間である。$1/T$ は代表的な時間変化率であって、微分演算子 $\partial_t$ の絶対値ではない。また $f_0\ne0$ が必要である。一次の渦位変化に対して速度の最低次を地衡流で近似する。非地衡速度は伸縮を通じて一次渦位式へ寄与し得るので、連続式の発散を**最初から零には置かない**。
 
 <a id="def-fluid33-streamfunction-radius"></a>
 
@@ -205,7 +235,7 @@ $
 f_0u_g=-f_0\psi_y=-g\eta_y.
 $
 
-よって[地衡流の両成分の釣合](../FLUID32/index.md#thm-fluid32-geostrophic-formula)を直接確認できる。流れ関数は任意の行列による判定ではなく、二つの速度成分と水面勾配を結び付ける表示である。
+よって[地衡流の両成分の釣合](../FLUID32/index.md#thm-fluid32-geostrophic-formula)を直接確認できる。この例では、二つの速度成分と水面勾配の対応をそれぞれ計算している。
 <!-- definition-example-end -->
 
 水平勾配を $\nabla_h=(\partial_x,\partial_y)$、水平 Laplace 演算子を $\Delta_h=\nabla_h^2=\partial_x^2+\partial_y^2$ と記す。$\Delta_h\psi$ は地衡速度 $(u_g,v_g)=(-\psi_y,\psi_x)$ の鉛直渦度 $v_{g,x}-u_{g,y}$ に一致する。
