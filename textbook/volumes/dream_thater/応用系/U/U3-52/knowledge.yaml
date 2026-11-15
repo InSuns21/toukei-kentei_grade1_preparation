@@ -1,0 +1,53 @@
+chapter: U3-52
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-51, U3-50, U3-46, U3-45]
+concepts:
+  - id: finance.bivariate-copula
+    name: 二変量 copula
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二変量 copula）"]
+    requires: [finance.holding-period-loss]
+  - id: finance.continuous-margin-copula-decomposition
+    name: 連続周辺分布と copula の分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連続周辺分布と copula の分離）"]
+    requires: [finance.bivariate-copula]
+  - id: finance.upper-lower-tail-dependence
+    name: 上側・下側尾部依存係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（上側・下側尾部依存係数）"]
+    requires: [finance.bivariate-copula]
+  - id: finance.direction-mixture-copula
+    name: 同方向・逆方向混合 copula
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（同方向・逆方向混合 copula）"]
+    requires: [finance.bivariate-copula]
+  - id: finance.zero-correlation-with-tail-dependence
+    name: 相関が消えても尾部依存は残る
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相関が消えても尾部依存は残る）"]
+    requires: [finance.direction-mixture-copula, finance.upper-lower-tail-dependence, finance.delta-gamma-correlated-mean]
+  - id: finance.two-asset-aggregate-loss
+    name: 二資産の合計損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二資産の合計損失）"]
+    requires: [finance.holding-period-loss, finance.value-at-risk, finance.expected-shortfall]
+  - id: finance.uniform-copula-aggregate-risk
+    name: 独立組と公平混合の合計 VaR/ES
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立組と公平混合の合計 VaR/ES）"]
+    requires: [finance.two-asset-aggregate-loss, finance.direction-mixture-copula, finance.expected-shortfall]
+  - id: finance.binary-extreme-risk-aggregation
+    name: 二値損失のリスク集約と境界の原子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二値損失のリスク集約と境界の原子）"]
+    requires: [finance.two-asset-aggregate-loss, finance.upper-lower-tail-dependence, finance.es-atom-tail]
