@@ -414,7 +414,23 @@ $R=k(B-Ak)/\rho_T$、$A>0$、$B>0$ だから $R<0$ は $B-Ak<0$、すなわち $
 <!-- solution-start -->
 #### 詳細解答
 
-第2節と同様、実部を取る前の複素表示で $D_j\eta=-i\Delta_j\widehat\eta e^{i\theta}$、$\partial_z\phi_1|_0=-kA_1e^{i\theta}$、$\partial_z\phi_2|_0=kA_2e^{i\theta}$ なので [運動学的条件](#prop-fluid34-kinematic-amplitudes)から $A_1=i\Delta_1\widehat\eta/k$、$A_2=-i\Delta_2\widehat\eta/k$。これに $D_j=-i\Delta_j$ を作用させると $D_1\phi_1=\Delta_1^2\eta/k$、$D_2\phi_2=-\Delta_2^2\eta/k$。静水圧は界面で $-\rho_jg\eta$ だけ変わり、[Young–Laplaceの小勾配式](../FLUID26/index.md#thm-fluid26-young-laplace)は $p_2-p_1=-\sigma\eta_{xx}=\sigma k^2\eta$。従って
+第2節と同様、実部を取る前の複素表示で $E=e^{i\theta}$（$\theta=kx-\omega t$）と置く。運動学的条件は、$D_j\eta=-i\Delta_j\widehat\eta E$ と上下の鉛直微分から
+
+$$
+-i\Delta_1\widehat\eta E=-kA_1E,\qquad
+-i\Delta_2\widehat\eta E=kA_2E
+$$
+
+となる。$E\ne0$、$k>0$ なので、[運動学的条件](#prop-fluid34-kinematic-amplitudes)の振幅式 $A_1=i\Delta_1\widehat\eta/k$、$A_2=-i\Delta_2\widehat\eta/k$ を得る。各層の $D_j$ はモード因子 $E$ に作用すると $-i\Delta_j$ 倍するため、
+
+$$
+D_1\phi_1|_0=(-i\Delta_1)\frac{i\Delta_1\widehat\eta}{k}E
+=\frac{\Delta_1^2}{k}\eta,\qquad
+D_2\phi_2|_0=(-i\Delta_2)\frac{-i\Delta_2\widehat\eta}{k}E
+=-\frac{\Delta_2^2}{k}\eta.
+$$
+
+静水圧は界面で $-\rho_jg\eta$ だけ変わる。[Young–Laplace の圧力跳躍](../FLUID26/index.md#thm-fluid26-young-laplace)は、本講の非粘性応力条件と小勾配の曲率表示により $p_2-p_1=-\sigma\eta_{xx}=\sigma k^2\eta$ となる。従って
 
 $$
 -\rho_2\left(-\frac{\Delta_2^2}{k}\eta+g\eta\right)
@@ -465,14 +481,19 @@ $\Delta U=0$ だから $R(k)=(\rho_2-\rho_1)gk/\rho_T<0$。よって $k>0$ の�
 
 ### C1. 流速差の閾値・増幅・可視化の限界
 
-$\rho_1=1000$、$\rho_2=1020$ kg/m$^3$、$g=9.81$ m/s$^2$、$\sigma=0.072$ N/m、$U_2=0$ とする。(i) ある波数で指数増大が起こるために必要な $|U_1|$ の閾値を導け。(ii) $U_1=0.2$ m/s とし $k=30$ m$^{-1}$ の $\omega$ 二根と $\gamma$ を計算せよ。(iii) 初期振幅 $10^{-4}$ m の成長枝について $t=0.5$ s 後の振幅を見積もり、線形近似 $k|\eta|\ll1$ を確認せよ。(iv) この模型から界面の巻き上がりが予言できない理由を述べよ。
+$\rho_1=1000$、$\rho_2=1020$ kg/m$^3$、$g=9.81$ m/s$^2$、$\sigma=0.072$ N/m、$U_2=0$ とする。次の問いに答えよ。
+
+1. ある波数で指数増大が起こるために必要な $|U_1|$ の閾値を導け。
+2. $U_1=0.2$ m/s とし、$k=30$ m$^{-1}$ での $\omega$ の二根と $\gamma$ を計算せよ。
+3. 初期振幅 $10^{-4}$ m の成長枝について $t=0.5$ s 後の振幅を見積もり、時刻 $t$ の最大勾配による線形近似の条件を確認せよ。
+4. この模型から界面の巻き上がりが予言できない理由を述べよ。
 
 - Level: C
 
 <!-- solution-start -->
 #### 詳細解答
 
-(i) $\rho_T=2020$、$A=(1000\cdot1020/2020)U_1^2$、$B=(1020-1000)g=196.2$。[不安定帯命題](#prop-fluid34-shear-band)から $A^2>4\sigma B$、$A\ge0$ より $A>2\sqrt{\sigma B}$。従って
+**（1）** $\rho_T=2020$、$A=(1000\cdot1020/2020)U_1^2$、$B=(1020-1000)g=196.2$。[不安定帯命題](#prop-fluid34-shear-band)から $A^2>4\sigma B$、$A\ge0$ より $A>2\sqrt{\sigma B}$。従って
 
 $$
 |U_1|>
@@ -481,16 +502,16 @@ $$
 
 $2\sqrt{0.072\cdot196.2}\simeq7.517$、$\rho_1\rho_2/\rho_T\simeq504.9505$ を入れると閾値は約 $0.1220$ m/s。
 
-(ii) $U_1=0.2$ なら $A=504.9505\cdot0.04\simeq20.1980$、$q(30)=B-30A+0.072\cdot900\simeq-344.94$。従って $R(30)=30q(30)/2020\simeq-5.123$ s$^{-2}$、$\gamma=\sqrt{-R}\simeq2.263$ s$^{-1}$。$U_c=200/2020\simeq0.09901$ m/s、よって
+**（2）** $U_1=0.2$ なら $A=504.9505\cdot0.04\simeq20.1980$、$q(30)=B-30A+0.072\cdot900\simeq-344.94$。従って $R(30)=30q(30)/2020\simeq-5.123$ s$^{-2}$、$\gamma=\sqrt{-R}\simeq2.263$ s$^{-1}$。$U_c=200/2020\simeq0.09901$ m/s、よって
 
 $$
 \omega_\pm=30U_c\pm i\gamma
 \simeq2.9703\pm2.263i\quad{\rm s^{-1}}.
 $$
 
-(iii) 増幅枝の振幅は $a(0.5)=10^{-4}e^{2.263\cdot0.5}\simeq3.10\times10^{-4}$ m。$ka\simeq30\cdot3.10\times10^{-4}=9.3\times10^{-3}\ll1$ で、この時点では小勾配の近似と整合的。ただし時間が延び $ka$ が1に近づけば一次理論は破れる。
+**（3）** 増幅枝の振幅は $a(0.5)=10^{-4}e^{2.263\cdot0.5}\simeq3.10\times10^{-4}$ m。$ka\simeq30\cdot3.10\times10^{-4}=9.3\times10^{-3}\ll1$ で、この時点では小勾配の近似と整合的。ただし時間が延び $ka$ が1に近づけば一次理論は破れる。
 
-(iv) 本章では $O(\eta^2)$ の非線形項、界面の大変形、粘性・混合・渦層厚さを捨てている。指数増大する一次の波形を表示しても、巻き上がりの形や長時間の飽和振幅を予測する方程式は解いていない。
+**（4）** 本章では $O(\eta^2)$ の非線形項、界面の大変形、粘性・混合・渦層厚さを捨てている。指数増大する一次の波形を表示しても、巻き上がりの形や長時間の飽和振幅を予測する方程式は解いていない。
 <!-- solution-end -->
 
 ## 8. まとめ
