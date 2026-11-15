@@ -202,7 +202,7 @@ $$
 \{\tau<\infty\}=\bigcup_{n\ge0}\{Z_n=0\}.
 $$
 
-確率の下からの連続性により $q_n\uparrow q=P(\tau<\infty)$ です。$f$ は $[0,1]$ で連続だから
+[確率測度の下からの連続性](../../F0/F0-00D2/index.md#thm-f0-00d2-01)により $q_n\uparrow q=P(\tau<\infty)$ です。$f$ は $[0,1]$ で連続だから
 
 $$
 f(q)=f\left(\lim_{n\to\infty}q_n\right)
