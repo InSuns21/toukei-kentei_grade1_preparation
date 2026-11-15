@@ -182,7 +182,16 @@ $$
 [前講の大域非消失正則3形式](../MIR1-07/index.md#prop-mir1-07-global-volume)により $\omega_\psi$ は相対正則3形式を与え、$[\omega_\psi]$ は局所正則な $\mathcal F^3$ の切断である。$h^{3,0}=1$ なので各点で非零な $\omega_\psi$ は $F_\psi^3$ を張る。第一式を $p=3$ に適用して第二式を得る。$\square$
 <!-- proof-end -->
 
-**微分で型が一段下がる機構。** [周期写像の微分とKodaira–Spencer収縮](../../DEF/DEF1-13/index.md#prop-def1-13-infinitesimal-period)は、$\nabla_v[\omega]$ を $F^3$ で割った $(2,1)$ 成分が、変形方向 $v$ のBeltrami代表 $\mu_v$ に対する $-\mu_v\lrcorner\omega$ で表せることを示す。局所的に $\omega=h\,du^1\wedge du^2\wedge du^3$ なら、一度の収縮 $\iota_{\partial_{u^i}}\omega$ は正則微分を一つだけ取り去り、そこに $d\bar u^j$ が一つ加わるため型は $(2,1)$ となる。一度の微分で $(1,2)$ が突然現れない理由は、この一因子ずつの置換にある。負号は既習のBeltrami規約を用いる場合のものとし、極次数の計算だけから符号を推測しない。
+**微分で型が一段下がる機構。** [周期写像の微分とKodaira–Spencer収縮](../../DEF/DEF1-13/index.md#prop-def1-13-infinitesimal-period)は、最上段の正則3形式について、接続微分を $F^3$ で割った成分を次のように表す。
+
+$
+[\nabla_v\omega]\bmod F^3
+=[-\mu_v\lrcorner\omega]\in F^2/F^3.
+$
+
+ここで $v$ は変形方向、$\mu_v$ はそのBeltrami代表である。局所的に $\omega=h\,du^1\wedge du^2\wedge du^3$ と書くと、収縮 $\iota_{\partial_{u^i}}\omega$ は正則微分を一つだけ取り去る。代わりに $d\bar u^j$ が加わるので、出力の型は $(2,1)$ となる。
+
+一度の微分で $(1,2)$ 型が突然現れない理由は、この一因子ずつの置換にある。負号は既習のBeltrami規約によるもので、極次数の計算から推測した符号ではない。
 
 **条件の直接確認：楕円曲線の小模型。** $\operatorname{Im}\tau>0$ として $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ を考える。実トーラスの座標 $(x,y)\in\mathbb R^2/\mathbb Z^2$ を固定し、複素座標 $u=x+\tau y$ を採用する。正則1形式は
 
@@ -197,7 +206,23 @@ $$
 
 周期を何度も微分すると高次極が現れ続ける。しかしそれらのコホモロジー類が住む空間は、有限次元である。「無限に新しい独立な類が生まれるわけではない」ことが、微分方程式への入口になる。
 
-元の滑らかなquinticでは第3 Betti数は $2+2h^{2,1}=204$ である。ミラー計算では[位相群による正則3形式の不変性](../MIR1-04/index.md#prop-mir1-04-residue-invariant)を利用し、群 $G$ に不変な第3コホモロジーの部分空間を取る。[Greene–Plesser型のHodge数計算](../MIR1-05/index.md#prop-mir1-05-hodge-count)の恒等元寄与では $G$ 不変の $(3,0),(2,1),(1,2),(0,3)$ の次元はそれぞれ $(1,1,1,1)$ であり、$H^3(X_\psi,\mathbb C)^G$ は4次元になる。群作用はパラメータを固定して族全体に働くから、Gauss–Manin平行移動と可換で、不変部分は接続で保たれる。商とcrepant解消後の $H^3$ のランク4という値とも整合するが、元の $H^3$ **全体が4次元なのではない**。
+元の滑らかなquinticの第3 Betti数は
+
+$
+b_3(X_\psi)=2+2h^{2,1}(X_\psi)=2+2\cdot101=204
+$
+
+である。一方、ミラー計算では[位相群による正則3形式の不変性](../MIR1-04/index.md#prop-mir1-04-residue-invariant)を利用し、群 $G$ に不変な第3コホモロジーの部分空間を取る。
+
+[Greene–Plesser型のHodge数計算](../MIR1-05/index.md#prop-mir1-05-hodge-count)では、恒等元寄与にあたる不変部分のHodge次元は次のとおりである。
+
+$
+\bigl(h_G^{3,0},h_G^{2,1},h_G^{1,2},h_G^{0,3}\bigr)=(1,1,1,1),
+\qquad
+\dim_{\mathbb C}H^3(X_\psi,\mathbb C)^G=4.
+$
+
+群作用はパラメータを固定して族全体に働くため、Gauss–Manin平行移動と可換である。その結果、不変部分は接続でも保たれる。商とcrepant解消後の第3コホモロジーのランク4とも整合するが、元の第3コホモロジー**全体が4次元なのではない**。
 
 <a id="prop-mir1-08-finite-ode"></a>
 
