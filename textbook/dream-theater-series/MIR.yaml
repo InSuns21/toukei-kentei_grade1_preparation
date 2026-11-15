@@ -28,7 +28,7 @@ chapters:
     title: "特異点・crepant解消・鏡像のHodge数"
   - id: MIR1-06
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-06
-    status: planned
+    status: completed
     title: "Dwork型一パラメータ族と判別式"
   - id: MIR1-07
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-07
