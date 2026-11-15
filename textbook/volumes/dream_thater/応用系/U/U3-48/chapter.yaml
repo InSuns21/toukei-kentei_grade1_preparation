@@ -1,0 +1,44 @@
+id: "U3-48"
+title: "Historical Simulation と Filtered Historical Simulation"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-47, U3-46, U3-45, U3-44]
+official_scope: []
+learning_objectives:
+  - 現在ポジションと過去観測から先読みなしの経験損失分布を構成しHSのVaR/ESを順位統計量で計算できる
+  - 経験分布の端数ESと時間重み付きHSの境界確率の部分採用を証明し計算できる
+  - 窓長と時間重みのトレードオフおよび有効標本数の限界を説明できる
+  - 単一因子の条件付き分散フィルターを過去情報だけで更新しFHS候補を導ける
+  - HSとFHSの同値条件と差異を検算し予測時点以降のデータ漏洩を検出できる
+  - ローリング予測の数値実験で超過とモデル不確実性を分けて解釈できる
+definitions:
+  - { id: U3-48-DEF-01, name: "ローリング Historical Simulation" }
+  - { id: U3-48-DEF-02, name: "時間重み付き Historical Simulation" }
+  - { id: U3-48-DEF-03, name: "単一因子 Filtered Historical Simulation" }
+  - { id: U3-48-DEF-04, name: "予測時点を守る EWMA 分散フィルター" }
+theorems:
+  - { id: U3-48-PROP-01, name: "HS の順位分位点と端数 ES" }
+  - { id: U3-48-PROP-02, name: "重み付き HS の ES と有効標本数" }
+  - { id: U3-48-PROP-03, name: "EWMA の正値性と先読み防止" }
+  - { id: U3-48-PROP-04, name: "FHS の正の尺度変換と HS への一致" }
+canonical_examples:
+  - "五点損失-2,-1,0,1,4で75%HS VaR1と端数ES3.4を算出"
+  - "重み0.10,0.15,0.20,0.25,0.30を使った60%重み付きHS VaR1/ES3.25"
+  - "標準偏差1,1,1,2,4から翌日標準偏差2のFHS損失-4,-2,0,1,2を構成"
+  - "EWMA初期分散4とショック2,-4から逐次予測分散4,10を計算"
+  - "固定seedの変動期切替実験で予測時点以降のデータ利用を排除"
+problem_patterns:
+  - U3-48-A1
+  - U3-48-A2
+  - U3-48-A3
+  - U3-48-A4
+  - U3-48-A5
+  - U3-48-B1
+  - U3-48-B2
+  - U3-48-B3
+  - U3-48-B4
+  - U3-48-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
