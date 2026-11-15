@@ -12,7 +12,7 @@
 
 速度場 $(u(x,y),v(x,y))$ は定常・二次元・非圧縮性の滑らかな付着層流とする。固定壁では接線・法線速度とも零、外側では接線速度が正の $U_e(x)$ に近づき、その壁法線方向微分は零へ近づく。積分の収束、$x$ 微分との交換、外縁での後述する欠損流束の消滅が成立する範囲で考える。
 
-外部速度の変化は[外側のEuler関係](../FLUID21/index.md#prop-fluid21-edge-pressure)とつながっている。
+この章で $U_e'(x)=dU_e/dx$ など $x$ のみの関数に付けるプライムは、$x$ に関する常微分を表す。一方、二変数の速度 $u(x,y)$ に付く $u_x=\partial u/\partial x$、$u_y=\partial u/\partial y$ は、他方の変数を固定した偏微分である。外部速度の変化は[外側のEuler関係](../FLUID21/index.md#prop-fluid21-edge-pressure)とつながっている。
 
 $$
 -\frac{p_e'}{\rho}=U_eU_e'.
@@ -106,7 +106,7 @@ u_x+v_y=0,\qquad
 u u_x+v u_y=U_eU_e'+\nu u_{yy}.
 $$
 
-壁面せん断応力の正の大きさを $\tau_w=\mu u_y(x,0)$ と書く。負の壁面勾配ではこの値は負となるので、以下の恒等式自体は符号付きで読む。[Newton流体の壁面応力](../FLUID21/index.md#prop-fluid21-wall-shear)との対応である。
+壁面せん断応力を $\tau_w=\mu u_y(x,0)$ と符号付きで書く。$u_y(x,0)>0$ なら平板が流体から受ける抗力の正の大きさに一致するが、壁面勾配が負なら $\tau_w$ も負となる。以下の恒等式はどちらの符号でも成り立つ。[Newton流体の壁面応力](../FLUID21/index.md#prop-fluid21-wall-shear)との対応である。
 
 積分しやすい量は速度そのものではなく、**運動量欠損密度** $u(U_e-u)$ である。
 
@@ -290,7 +290,20 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid23-quartic-profile -->
-**定義の確認**： $g(0)=0$、$g(1)=1$、$g'(z)=2-6z^2+4z^3$、$g''(z)=-12z+12z^2$ だから
+**定義の確認**： $x$ を固定すると $z=y/\delta(x)$ について $\partial z/\partial y=1/\delta(x)$ である。連鎖律により、近似層の内側 $0<y<\delta(x)$ で
+
+$
+u_y=\frac{U}{\delta(x)}g'(z),\qquad
+u_{yy}=\frac{U}{\delta(x)^2}g''(z).
+$
+
+したがって壁面条件 $u_{yy}(x,0)=0$ は $g''(0)=0$ に対応し、外縁の一様流との一階・二階微分の接続には $g'(1)=g''(1)=0$ を確かめればよい。実際に
+
+$
+g'(z)=2-6z^2+4z^3,\qquad g''(z)=-12z+12z^2
+$
+
+であり、$g(0)=0$、$g(1)=1$ と併せて
 
 $$
 g'(0)=2,\quad g''(0)=0,\quad
@@ -672,7 +685,7 @@ $$
 \theta=h\int_0^\infty(e^{-z}-e^{-2z})dz=\frac h2.
 $$
 
-$u_y=(U/h)e^{-y/h}$ より $\tau_w=\mu U/h$。従って $\theta'=\tau_w/(\rho U^2)$ は
+$u_y=(U/h)e^{-y/h}$ より $\tau_w=\mu U/h$。[運動量積分式](#thm-fluid23-karman-integral)の $U_e'=0$ の場合を適用すると、$\theta'=\tau_w/(\rho U^2)$ なので
 
 $$
 \frac{h'}2=\frac{\nu}{Uh},\quad
@@ -680,7 +693,15 @@ $$
 h^2=\frac{4\nu x}{U}.
 $$
 
-正の平方根で $h=2\sqrt{\nu x/U}$、$\theta=\sqrt{\nu x/U}$。局所係数は $C_{f,x}=2\theta'=2/\sqrt{\mathrm{Re}_x}$ で、[Blasius値](../FLUID22/index.md#prop-fluid22-wall-friction)より著しく大きい。さらに
+正の平方根で $h=2\sqrt{\nu x/U}$、$\theta=\sqrt{\nu x/U}$。[局所摩擦係数の式](#prop-fluid23-flat-drag)を $x$ で微分した $\theta$ に適用すると
+
+$
+C_{f,x}=2\theta'(x)
+=2\cdot\frac12\sqrt{\frac{\nu}{Ux}}
+=\frac{1}{\sqrt{\mathrm{Re}_x}}.
+$
+
+これは[Blasius値](../FLUID22/index.md#prop-fluid22-wall-friction) $0.664115/\sqrt{\mathrm{Re}_x}$ より約 $50.6\%$ 大きい。さらに
 
 $$
 u_{yy}(x,0)=-\frac{U}{h^2}\ne0.
@@ -693,7 +714,7 @@ $$
 
 ### C1. 平板抗力の二つの計算法を照合する
 
-密度 $\rho=1000$ kg/m$^3$、動粘度 $\nu=10^{-6}$ m$^2$/s、外部速度 $U=2$ m/s、平板長さ $L=0.5$ m とする。定常二次元・零圧力勾配、平板片面の付着層流を仮定する。Blasiusの $a=0.3320573362$ を使ってよい。
+密度 $\rho=1000$ kg/m$^3$、動粘度 $\nu=10^{-6}$ m$^2$/s、外部速度 $U=2$ m/s、平板長さ $L=0.5$ m とする。定常二次元・零圧力勾配、平板片面の付着層流を仮定し、先端で $\theta(0+)=0$ とする。Blasiusの $a=0.3320573362$ を使ってよい。
 
 1. $D'(L)=\rho U^2\theta(L)$ を導くための欠損保存形を示せ。
 2. 四次分布 $g(z)=2z-2z^3+z^4$ から $\delta^*$、$\theta$、$\tau_w$ を求めて $\delta(x)$ を導け。
