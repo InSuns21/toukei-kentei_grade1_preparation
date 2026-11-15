@@ -1,0 +1,44 @@
+chapter: FLUID35
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID26
+  - FLUID31
+  - FLUID34
+concepts:
+  - id: fluid.rt-density-inversion-atwood
+    name: Rayleigh–Taylor密度逆転とAtwood数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Rayleigh–Taylor密度逆転とAtwood数）"]
+    requires: [fluid.kh-normal-mode-growth-rate]
+  - id: fluid.rt-growth-dispersion
+    name: Rayleigh–Taylorの分散関係と成長率
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Rayleigh–Taylorの分散関係と成長率）"]
+    requires: [fluid.rt-density-inversion-atwood, fluid.kh-two-layer-dispersion]
+  - id: fluid.rt-cutoff-fastest
+    name: 表面張力で選択される不安定波数帯と最速波数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（表面張力で選択される不安定波数帯と最速波数）"]
+    requires: [fluid.rt-growth-dispersion]
+  - id: fluid.rb-conductive-state-rayleigh-prandtl
+    name: Rayleigh–Bénardの伝導基底状態・Rayleigh数・Prandtl数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Rayleigh–Bénardの伝導基底状態・Rayleigh数・Prandtl数）"]
+    requires: [fluid.boussinesq-stratified]
+  - id: fluid.rb-stressfree-eigenproblem
+    name: 自由滑り等温壁のRayleigh–Bénard固有値方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自由滑り等温壁のRayleigh–Bénard固有値方程式）"]
+    requires: [fluid.rb-conductive-state-rayleigh-prandtl]
+  - id: fluid.rb-stressfree-critical
+    name: 自由滑り等温壁の臨界Rayleigh数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自由滑り等温壁の臨界Rayleigh数）"]
+    requires: [fluid.rb-stressfree-eigenproblem]
