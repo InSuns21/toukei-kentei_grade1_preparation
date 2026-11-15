@@ -2,13 +2,13 @@
 
 [FLUID31 の非回転 Boussinesq 模型](../FLUID31/index.md#def-fluid31-boussinesq)では、水平圧力差が流体を加速する。一方、実際の大規模な海流・大気の流れは、圧力勾配があっても直ちにその向きへ走り続けるとは限らない。地球とともに回転する観測者には、流れの向きに直角な見かけの力が現れるからである。
 
-本講では、回転座標の加速度を導いてから、**どの項が小さいときに圧力勾配と Coriolis 力だけが釣り合うか**を明確にする。さらに壁の近くでは粘性が無視できないことを、線形の Ekman 層の厳密解で調べる。「地球上の流れはすべて地衡流」という結論にはしない。
+本講では、回転座標の加速度を導いてから、**どの項が小さいときに圧力勾配と Coriolis 力だけが釣り合うか**を明確にする。さらに壁の近くでは粘性が無視できないことを、線形の Ekman 層の厳密解で調べる。「地球上の流れはすべて圧力と回転だけで釣り合う」という結論にはしない。
 
 ## 0. 座標・力・模型の約束
 
 局所直交座標を $x$ 東向き、$y$ 北向き、$z$ 上向きとする。$\boldsymbol e_z$ は上向きの単位ベクトル、水平速度は $\boldsymbol u_h=(u,v)$、鉛直速度は $w$、圧力は $p$ [Pa]。回転角速度の大きさ $\Omega>0$ [s$^{-1}$]、緯度 $\varphi$（北緯を正）、参照密度 $\rho_0>0$ [kg/m$^3$] とする。以下、地球の $\Omega$ を時間的に一定とする。
 
-[FLUID1 の動粘度](../FLUID1/index.md#def-fluid1-kinematic-viscosity)は $\nu=\eta/\rho_0>0$ [m$^2$/s] である。壁の無滑り条件と粘性応力は[FLUID16 の非圧縮 Newton 流体](../FLUID16/index.md#def-fluid16-pipe-flow)で使ったものを、ここでは局所平面上に適用する。成層のある領域を扱う場合も、慣性に現れる密度の近似を $\rho_0$ とする条件は[FLUID31](../FLUID31/index.md#def-fluid31-boussinesq)に従う。
+[FLUID1 の動粘度](../FLUID1/index.md#def-fluid1-kinematic-viscosity)は $\nu=\eta/\rho_0>0$ [m$^2$/s] である。壁の無滑り条件と粘性応力は[非圧縮 Newton 流体の構成則](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)で使ったものを、ここでは局所平面上に適用する。成層のある領域を扱う場合も、慣性に現れる密度の近似を $\rho_0$ とする条件は[FLUID31](../FLUID31/index.md#def-fluid31-boussinesq)に従う。
 
 地球自転の角速度ベクトルはこの局所座標では
 
@@ -83,7 +83,7 @@ $$
 もし $\boldsymbol\Omega=\boldsymbol0$ なら追加項は両方消える。回転する軸上に静止する粒子は $\boldsymbol v_R=\boldsymbol0$ だが、軸から離れていれば遠心項は残る。従って二つの項を混同できない。
 <!-- proof-end -->
 
-地表の小領域で遠心項を背景の有効重力と合わせ、局所座標へ書き直す。$\boldsymbol\Omega$ と速度 $\boldsymbol v_R=(u,v,w)$ の外積は
+地表の小領域で遠心項を背景の有効重力と合わせ、局所座標へ書き直す。$\boldsymbol\Omega$ と速度 $\boldsymbol v_R=(u,v,w)$ のベクトル積は
 
 $$
 2\boldsymbol\Omega\times\boldsymbol v_R
@@ -91,7 +91,7 @@ $$
 2\Omega\sin\varphi\,u,\,-2\Omega\cos\varphi\,u).
 $$
 
-ここで水平運動の $2\Omega\cos\varphi\,w$ と、鉛直運動の $-2\Omega\cos\varphi\,u$ を落とし、鉛直は別途静水圧近似で扱う **traditional approximation（伝統的近似）** を採用する。これは外積の恒等式ではなく、浅い層・小さな鉛直速度などの尺度条件の下で行うモデル化である。赤道近傍などでは小さいと無条件に断定できない。
+ここで水平運動の $2\Omega\cos\varphi\,w$ と、鉛直運動の $-2\Omega\cos\varphi\,u$ を落とし、鉛直は別途静水圧近似で扱う **traditional approximation（伝統的近似）** を採用する。これはベクトル積の恒等式ではなく、浅い層・小さな鉛直速度などの尺度条件の下で行うモデル化である。赤道近傍などでは小さいと無条件に断定できない。
 
 水平速度に掛かる係数だけを一つの符号付き量で表す。
 
@@ -125,7 +125,7 @@ D_tv+fu&=-\frac{p_y}{\rho_0}+\nu\Delta v,
 D_t=\partial_t+u\partial_x+v\partial_y+w\partial_z.
 $$
 
-この式は[非圧縮 Navier–Stokes 方程式](../FLUID16/index.md#def-fluid16-pipe-flow)を回転系へ書き換え、遠心力を有効重力へ含め、traditional approximation を採用したものである。鉛直運動と質量保存の解を同時に満たす必要があり、この水平二式だけが流体の全方程式ではない。
+この式は[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を回転系へ書き換え、遠心力を有効重力へ含め、traditional approximation を採用したものである。鉛直運動と質量保存の解を同時に満たす必要があり、この水平二式だけが流体の全方程式ではない。
 
 圧力勾配による加速度の尺度を $U^2/L$ と決め打ちせず、回転の大きさ $|f|U$ と比べる。代表水平速度 $U>0$、水平長さ $L>0$、時間尺度 $T>0$、鉛直長さ $H>0$ を与え、$f\ne0$ とする。移流項は $U^2/L$、非定常項は $U/T$、鉛直粘性は $\nu U/H^2$ の尺度を持つ。
 
@@ -403,7 +403,11 @@ $\Omega=7.29\times10^{-5}$ s$^{-1}$ とする。北緯30度・南緯30度・赤�
 <!-- solution-start -->
 #### 詳細解答
 
-[定義](#def-fluid32-coriolis-parameter)で $\sin30^\circ=1/2$、$\sin(-30^\circ)=-1/2$ だから $f=+7.29\times10^{-5},-7.29\times10^{-5},0$ s$^{-1}$。水平運動の左辺の回転項は $f(-v,u)=(-f,0)$。見かけの加速度は反対符号の $-f(-v,u)=(f,0)$。従って北緯30度で東向き $+7.29\times10^{-5}$ m/s$^2$、南緯30度で西向き $-7.29\times10^{-5}$ m/s$^2$、赤道ではこの鉛直自転成分による水平加速度は零である。赤道で全 Coriolis 加速度が厳密に零だとは述べない（traditional approximation で捨てた成分がある）。
+[Coriolis パラメータの定義](#def-fluid32-coriolis-parameter)に北緯30度と南緯30度の正弦値 $1/2$ と $-1/2$ を代入する。得られる $f$ は順に $+7.29\times10^{-5}$、$-7.29\times10^{-5}$、赤道では $0$ s$^{-1}$ である。
+
+水平運動の左辺の回転項は $f(-v,u)=(-f,0)$。見かけの加速度はこれと反対符号の $(f,0)$ である。したがって北緯30度では東向き $+7.29\times10^{-5}$ m/s$^2$、南緯30度では西向き $-7.29\times10^{-5}$ m/s$^2$、赤道ではこの鉛直自転成分による水平加速度は零となる。
+
+ただし赤道でも、traditional approximation で捨てた自転軸の水平成分は残る。全 Coriolis 加速度まで厳密に零とは述べていない。
 <!-- solution-end -->
 
 ### A2. 圧力勾配から地衡流を復元
@@ -624,7 +628,7 @@ U_g=-\frac{-0.01}{1000\cdot10^{-4}}=0.10\ {\rm m/s},
 \qquad v_g=0.
 $$
 
-$U=|U_g|=0.10$ m/s と選び、[Rossby・Ekman 数の定義](#def-fluid32-rossby-ekman)を使うと
+$U=|U_g|=0.10$ m/s と選び、[Rossby 数と Ekman 数](#def-fluid32-rossby-ekman)を使うと
 
 $$
 \mathrm{Ro}=\frac{0.10}{10^{-4}\cdot10^5}=0.01,
@@ -698,4 +702,10 @@ $$
 
 ## 7. まとめ
 
-回転する座標では基底そのものが動くため、慣性系加速度との差に $2\boldsymbol\Omega\times\boldsymbol v$ が現れる。局所の水平模型で $f=2\Omega\sin\varphi\ne0$ とすると、移流の $\mathrm{Ro}$、非定常の $(|f|T)^{-1}$、粘性の $\mathrm{Ek}$ が小さく、圧力と回転項の釣合が成立する領域に限って、$\boldsymbol u_g$ は圧力勾配に直交する。鉛直静水圧釣合を併せれば密度の水平勾配が地衡流の鉛直変化を決める。壁では水平運動が同じでも粘性の尺度が変わり、厚さ $\delta_E=\sqrt{2\nu/|f|}$ の Ekman 層で地衡流への接続が起きる。次の FLUID33 では $f$ を緯度で一定とせず、その変化が波の伝播にどう効くかを調べる。
+回転する座標では基底そのものが動くため、慣性系加速度との差に Coriolis 項 $2\boldsymbol\Omega\times\boldsymbol v$ が現れる。
+
+局所の水平模型で $f=2\Omega\sin\varphi\ne0$ とする。移流の $\mathrm{Ro}$、非定常の $(|f|T)^{-1}$、粘性の $\mathrm{Ek}$ がそれぞれ小さく、圧力と回転項が釣り合う領域では、地衡流速は圧力勾配に直交する。
+
+鉛直静水圧釣合を併せれば密度の水平勾配が地衡流の鉛直変化を決める。壁では粘性の尺度が変わり、厚さ $\delta_E=\sqrt{2\nu/|f|}$ の Ekman 層で内部の地衡流へ接続する。
+
+次の FLUID33 では $f$ を緯度で一定とせず、その変化が波の伝播にどう効くかを調べる。
