@@ -321,7 +321,9 @@ byId('preset').addEventListener('change', event => {
   else {
     setSources(defaults);
     if (isWGL2 && event.target.value === 'type-error') {
-      inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;');
+      inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
+        .replace('outColor = vec4(v_color * u_gain, 1.0);',
+          'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
     } else if (isWGL2) {
       inputs.fragment.value = defaults.fragment.replace('outColor = vec4(v_color * u_gain, 1.0);',
         'outColor = vec4(v_color * u_gain, 1.0)');
