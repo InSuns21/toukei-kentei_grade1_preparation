@@ -268,7 +268,8 @@ window.addEventListener('message', event => {
       unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' : '編集コードを実行しました（基準との差を比較）',
       unchanged && !pass);
     byId('result-note').textContent = unchanged ?
-      'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分±1を許容します。' :
+      'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
+      (isWGL2 ? '±2' : '±1') + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
