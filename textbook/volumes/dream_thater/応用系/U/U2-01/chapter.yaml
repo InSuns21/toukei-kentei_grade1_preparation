@@ -1,0 +1,44 @@
+id: "U2-01"
+title: "ロボットの belief：迷子を確率分布で表す"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - F0-00P1
+official_scope: []
+learning_objectives:
+  - 有限位置 belief の非負性と正規化を確認し点推定が失う情報を説明できる
+  - 位置と観測の確率変数、既知地図と時刻、事前の情報を区別できる
+  - 各位置で正規化する観測モデルと位置についての尤度の違いを検査できる
+  - 有限位置の事前と尤度から証拠・事後 belief を導出し正規化を証明できる
+  - 事前オッズと尤度比から事後の逆転・同率を判定できる
+  - ゼロ証拠・ゼロ事前確率と観測モデル不整合の限界を説明できる
+  - 観測値ごとの最良点推定と平均正解確率を比較できる
+definitions:
+  - { id: U2-01-DEF-01, name: 有限位置 belief と点推定 }
+  - { id: U2-01-DEF-02, name: 有限観測モデル }
+  - { id: U2-01-DEF-03, name: 観測尤度 }
+theorems:
+  - { id: U2-01-THM-01, name: 有限位置に対するベイズ更新 }
+  - { id: U2-01-PROP-01, name: 事後オッズの積の公式 }
+canonical_examples:
+  - 三地点の正規化と最大事後確率点推定
+  - 三地点の二値センサーによる証拠11/24と事後3/11・6/11・2/11
+  - 同じ観測と二種類の事前から異なる点推定を得る例
+  - 尤度比3で事後オッズ1となる境界
+  - モデル上起こらない観測の証拠0と更新不能
+  - 観測による平均正解確率1/2から5/8への改善
+problem_patterns:
+  - U2-01-A01
+  - U2-01-A02
+  - U2-01-A03
+  - U2-01-A04
+  - U2-01-A05
+  - U2-01-B01
+  - U2-01-B02
+  - U2-01-B03
+  - U2-01-B04
+  - U2-01-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 2.5, exercises: 3.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
