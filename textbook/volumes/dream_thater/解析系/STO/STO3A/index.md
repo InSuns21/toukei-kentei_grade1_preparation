@@ -140,11 +140,11 @@ $$
 
 有限個の時刻 $t_1,\ldots,t_m$ をまとめた評価写像 $E_{\boldsymbol t}(f)=(f(t_1),\ldots,f(t_m))$ も、各成分が上の不等式を満たすため $\sqrt m$-Lipschitz です。任意の有界連続関数 $h:\mathbb R^m\to\mathbb R$ について $h\circ E_{\boldsymbol t}$ は $C([0,1])$ 上の有界連続汎関数になるので、[経路空間上の弱収束](#def-sto3a-function-weak-convergence)の定義をそのまま適用できます。
 
-$
+$$
 E[h(E_{\boldsymbol t}(X_n))]
 \longrightarrow
 E[h(E_{\boldsymbol t}(X))].
-$
+$$
 
 これが経路空間の弱収束から有限次元分布の収束が従う理由であり、ここで使う **連続写像定理** の具体的な形でもあります。
 
@@ -2124,22 +2124,22 @@ $$
    と書き、独立平均0変数の四次展開を使います。係数について
    $$
    \sum_ja_j=n(t-s),\qquad 0\le a_j\le1
-   $
+   $$
    です。独立性と平均0から、添字が1回だけ現れる交差項は消え、残るのは
-   $
+   $$
    E\left(\sum_ja_jX_j^{(M)}\right)^4
    =
    \sum_ja_j^4E[(X_j^{(M)})^4]
    +6\sum_{i<j}a_i^2a_j^2E[(X_i^{(M)})^2]E[(X_j^{(M)})^2]
    \le C'_M\left(\sum_ja_j^2\right)^2.
-   $
+   $$
    $q=n(t-s)$ と置くと、$q\ge1$ では $\sum a_j^2\le q$、$q<1$ では $\sum a_j^2\le(\sum a_j)^2=q^2\le q$ です。従って
-   $
+   $$
    E|W_n^{(M)}(t)-W_n^{(M)}(s)|^4
    \le
    \frac{C'_M}{\sigma^4n^2}q^2
    =\frac{C'_M}{\sigma^4}|t-s|^2.
-   $
+   $$
 
 5. 固定 $M$ について、第4節の [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) の証明は tightness だけでなく
    $$
