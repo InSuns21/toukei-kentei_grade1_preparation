@@ -6,7 +6,7 @@
 
 本講では、幅方向に一様な直線水路、水平で固定した底、一定密度の非圧縮液体、重力 $g>0$、両側の正の水深を仮定する。跳躍の内部にある砕波・乱流・粘性散逸の微細構造は解かないが、内部が十分薄いときの外側の質量と水平運動量の収支を求める。**運動量は保存しても、力学的エネルギーは一般には保存しない**。後者は許される跳びを選ぶ物理的条件になる。
 
-[FLUID29 の滑らかな解のエネルギー定理](../FLUID29/index.md#thm-fluid29-energy)を不連続面の両側へ無条件に延長しない。一般的な保存則の跳びは[NPDE1 の Rankine–Hugoniot 条件](../../../../解析系/NPDE/NPDE1/index.md#thm-npde1-rankine-hugoniot)、不連続解の選択は[NPDE2 の entropy 条件](../../../../解析系/NPDE/NPDE2/index.md#prop-npde2-shock-entropy-jump)でも扱う。本講で必要な水理学の式はここで直接導き、これらの一般理論を前提にしない。
+[FLUID29 の滑らかな解のエネルギー定理](../FLUID29/index.md#thm-fluid29-energy)を不連続面の両側へ無条件に延長しない。一般的な保存則の跳びは[NPDE1 の Rankine–Hugoniot 条件](../../../解析系/NPDE/NPDE1/index.md#thm-npde1-rankine-hugoniot)、不連続解の選択は[NPDE2 の entropy 条件](../../../解析系/NPDE/NPDE2/index.md#prop-npde2-shock-entropy-jump)でも扱う。本講で必要な水理学の式はここで直接導き、これらの一般理論を前提にしない。
 
 ## 0. 動く段差をどの座標から見るか
 
@@ -297,7 +297,7 @@ $$
 主張の不等式を得る。
 <!-- proof-end -->
 
-ここでの波の許容性は、**二つの保存式に加えた物理的散逸と特性の向き**の検査である。一般の非線形保存則全体の一意性の証明をこの観察だけから得たわけではない。そこでは[NPDE2 の跳躍 entropy 条件](../../../../解析系/NPDE/NPDE2/index.md#prop-npde2-shock-entropy-jump)のような選択原理を扱う。
+ここでの波の許容性は、**二つの保存式に加えた物理的散逸と特性の向き**の検査である。一般の非線形保存則全体の一意性の証明をこの観察だけから得たわけではない。そこでは[NPDE2 の跳躍 entropy 条件](../../../解析系/NPDE/NPDE2/index.md#prop-npde2-shock-entropy-jump)のような選択原理を扱う。
 
 ## 5. 検算用の Python ラボ
 
