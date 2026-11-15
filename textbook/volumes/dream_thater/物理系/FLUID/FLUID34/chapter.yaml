@@ -1,0 +1,45 @@
+id: "FLUID34"
+title: "せん断流はいつ界面を不安定にするか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID11
+  - FLUID27
+  - FLUID31
+official_scope: []
+learning_objectives:
+  - "二層半無限・一定流速・非粘性・非圧縮・鋭い界面の模型とその限界を明示する"
+  - "複素周波数の正規モードで位相速度と時間成長率を区別する"
+  - "上下の遠方減衰ポテンシャルと運動学的境界条件から振幅を決める"
+  - "静水圧変化とYoung–Laplace圧力跳躍を結合して二層分散関係を導く"
+  - "二根の平方完成から安定条件・時間成長率・Galilei移動への不変性を示す"
+  - "安定成層と表面張力の下で不安定波数帯とせん断閾値を導く"
+  - "Pythonで分散残差・成長率・線形界面モードを検算し、非線形流れの計算とは区別する"
+definitions:
+  - { id: FLUID34-DEF-01, name: "界面の正規モードと時間成長率" }
+theorems:
+  - { id: FLUID34-PROP-01, name: "界面の運動学的条件とポテンシャル振幅" }
+  - { id: FLUID34-THM-01, name: "二層Kelvin–Helmholtz波の分散関係" }
+  - { id: FLUID34-THM-02, name: "界面モードの成長率と線形不安定判定" }
+  - { id: FLUID34-PROP-02, name: "安定成層・正の表面張力での不安定波数帯" }
+canonical_examples:
+  - "複素角周波数の振幅増加と位相移動の区別"
+  - "上層下層で鉛直指数関数の符号が逆になる確認"
+  - "等密度・無張力の渦層の成長率"
+  - "重力が長波、表面張力が短波を安定化する数値例"
+  - "ブラウザPythonで分散二根・境界残差・時間断面を可視化"
+problem_patterns:
+  - FLUID34-COMPLEX-GROWTH
+  - FLUID34-DECAYING-POTENTIALS
+  - FLUID34-CAPILLARY-LIMITS
+  - FLUID34-VORTEX-SHEET
+  - FLUID34-NO-TENSION
+  - FLUID34-INTERFACE-JUMP-DERIVATION
+  - FLUID34-GALILEAN-SHIFT
+  - FLUID34-BAND-ENDPOINTS
+  - FLUID34-DENSITY-INVERSION
+  - FLUID34-INTEGRATED-THRESHOLD
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 5 }
