@@ -37,6 +37,7 @@ theorems:
   - { id: STO3A-THM-04, name: 有限分散 random walk 経路のtightness }
   - { id: STO3A-THM-05, name: Donsker不変原理 }
 canonical_examples:
+  - finite-dimensional convergence without path-space convergence (moving triangular spike)
   - polygonal interpolation of simple random walk
   - maximum 経路 functional
   - bounded approximation plus tail martingale
