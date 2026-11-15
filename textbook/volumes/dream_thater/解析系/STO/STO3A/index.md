@@ -62,7 +62,7 @@ $f(t)=t$, $g(t)=t^2$ はともに $[0,1]$ 上連続なので $C([0,1])$ の元�
 $$
 d_\infty(f,g)
 =
-\sup_{0\le t\le1}(t-t^2)
+\sup_{0\le t\le1}\left(\frac14-\left(t-\frac12\right)^2\right)
 =
 \frac14,
 $$
@@ -138,7 +138,15 @@ $$
 
 なので 1-Lipschitz、特に連続です。
 
-したがって経路空間上の弱収束が分かれば、任意の有限個の時刻における分布収束が従います。
+有限個の時刻 $t_1,\ldots,t_m$ をまとめた評価写像 $E_{\boldsymbol t}(f)=(f(t_1),\ldots,f(t_m))$ も、各成分が上の不等式を満たすため $\sqrt m$-Lipschitz です。任意の有界連続関数 $h:\mathbb R^m\to\mathbb R$ について $h\circ E_{\boldsymbol t}$ は $C([0,1])$ 上の有界連続汎関数になるので、[経路空間上の弱収束](#def-sto3a-function-weak-convergence)の定義をそのまま適用できます。
+
+$
+E[h(E_{\boldsymbol t}(X_n))]
+\longrightarrow
+E[h(E_{\boldsymbol t}(X))].
+$
+
+これが経路空間の弱収束から有限次元分布の収束が従う理由であり、ここで使う **連続写像定理** の具体的な形でもあります。
 
 逆向きは一般には偽です。有限個の観測時刻で山が見えなくなっても、経路全体から山が消えたとは限りません。
 
@@ -484,7 +492,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（Kolmogorov 型 tightness criterion）**  
-> $X_n(0)=0$ a.s. とし、ある $C<\infty$, $\beta>0$ が存在して全ての $n$ と $0\le s<t\le1$ について
+> $X_n$ を $C([0,1])$ 値確率変数とし、$X_n(0)=0$ a.s. とする。ある $C<\infty$, $\beta>0$ が存在して全ての $n$ と $0\le s<t\le1$ について
 >
 $$
 E|X_n(t)-X_n(s)|^4
@@ -495,7 +503,7 @@ $$
 > が成り立つとする。このとき $\{X_n\}$ は $C([0,1])$ で tight である。
 <!-- formal-statement-end -->
 
-本章で使うのは $\beta=1$ の場合です。
+本章で使うのは $\beta=1$ の場合です。**連続標本路の仮定を落としてはなりません。** 例えば $U$ を $[0,1]$ の一様乱数とし、$Z(t)=1_{\{t=U\}}$ と置くと、各固定時刻の値はほとんど確実に0なので、任意の固定 $s,t$ に対する四次増分モーメントは0です。しかし各標本路は時刻 $U$ で不連続であり、$Z$ 自身は $C([0,1])$ 値確率変数ではありません。このモーメント条件だけから得られる連続**修正**と、元の標本路の連続性は区別します。
 
 ### 証明の見取り図
 
@@ -531,7 +539,7 @@ $$
 
 とします。
 
-Markov 不等式と [union bound](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound) から
+[Markov の不等式](../../F0/F0-00P2A/index.md#thm-f0-00p2a-markov)と [union bound](../../F0/F0-00P2A/index.md#thm-f0-00p2a-union-bound) から
 
 $$
 \begin{aligned}
@@ -1627,7 +1635,7 @@ $$
 
 - Level: A
 
-独立・平均0の $Y_1,\ldots,Y_m$ に対し
+独立で平均0、かつ各 $E[Y_j^4]<\infty$ を満たす $Y_1,\ldots,Y_m$ に対し
 
 $$
 E\left(\sum_{j=1}^{m}Y_j\right)^4
@@ -2051,7 +2059,7 @@ $$
 
 1. 時刻
    $$
-   0=t_0<t_1<\cdots<t_m
+   0=t_0<t_1<\cdots<t_m\le1
    $$
    を固定します。各区間の格子累積和は disjoint な $X_i$ を使うため独立です。それぞれに 独立同分布 [中心極限定理](../../F0/F0-00P6A/index.md#thm-iid-clt) を適用すると
    $$
@@ -2115,14 +2123,23 @@ $$
    $$
    と書き、独立平均0変数の四次展開を使います。係数について
    $$
-   \sum a_j=n(t-s)
-   $$
-   であり、$n(t-s)\ge1$ と $<1$ を分ければ
-   $$
+   \sum_ja_j=n(t-s),\qquad 0\le a_j\le1
+   $
+   です。独立性と平均0から、添字が1回だけ現れる交差項は消え、残るのは
+   $
+   E\left(\sum_ja_jX_j^{(M)}\right)^4
+   =
+   \sum_ja_j^4E[(X_j^{(M)})^4]
+   +6\sum_{i<j}a_i^2a_j^2E[(X_i^{(M)})^2]E[(X_j^{(M)})^2]
+   \le C'_M\left(\sum_ja_j^2\right)^2.
+   $
+   $q=n(t-s)$ と置くと、$q\ge1$ では $\sum a_j^2\le q$、$q<1$ では $\sum a_j^2\le(\sum a_j)^2=q^2\le q$ です。従って
+   $
    E|W_n^{(M)}(t)-W_n^{(M)}(s)|^4
    \le
-   C_M|t-s|^2.
-   $$
+   \frac{C'_M}{\sigma^4n^2}q^2
+   =\frac{C'_M}{\sigma^4}|t-s|^2.
+   $
 
 5. 固定 $M$ について、第4節の [Kolmogorov 型 tightness criterion](#thm-sto3a-kolmogorov-tightness) の証明は tightness だけでなく
    $$
