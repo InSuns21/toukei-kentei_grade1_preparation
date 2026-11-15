@@ -1,0 +1,54 @@
+chapter: U4-26
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-11, U4-22, U4-23, U4-25]
+forward_references: []
+concepts:
+  - id: finance.arb-audit-decision-universe
+    name: 意思決定時点のユニバースと事後生存集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（意思決定時点のユニバースと事後生存集合）"]
+    requires: [finance.arb-price-return-transforms]
+  - id: finance.arb-audit-survivor-mixture
+    name: 生存銘柄平均と全銘柄平均の差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（生存銘柄平均と全銘柄平均の差）"]
+    requires: [finance.arb-audit-decision-universe]
+  - id: finance.arb-audit-corporate-return
+    name: 分割・配当を含む保有期間収益率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分割・配当を含む保有期間収益率）"]
+    requires: [finance.arb-price-return-transforms]
+  - id: finance.arb-audit-adjustment-invariance
+    name: 株数換算と配当換算による総収益率の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（株数換算と配当換算による総収益率の不変性）"]
+    requires: [finance.arb-audit-corporate-return]
+  - id: finance.arb-audit-asof-snapshot
+    name: 時点整合スナップショット
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時点整合スナップショット）"]
+    requires: [finance.arb-signal-order-fill-clock]
+  - id: finance.arb-audit-no-lookahead
+    name: 時点整合入力からの先読み防止
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（時点整合入力からの先読み防止）"]
+    requires: [finance.arb-audit-asof-snapshot]
+  - id: finance.arb-audit-missing-execution
+    name: 欠測収益率と実行可能価格の区別
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（欠測収益率と実行可能価格の区別）"]
+    requires: [finance.arb-audit-decision-universe, finance.arb-fill-self-financing-book]
+  - id: finance.arb-audit-missing-bounds
+    name: 欠測収益率を含む固定重みポートフォリオの範囲
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（欠測収益率を含む固定重みポートフォリオの範囲）"]
+    requires: [finance.arb-audit-missing-execution]

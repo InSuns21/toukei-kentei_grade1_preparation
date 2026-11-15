@@ -30,7 +30,7 @@ chapters:
   - { id: U4-23, path: textbook/volumes/dream_thater/応用系/U/U4-23, status: completed, title: "取引費用・借株・資金調達と損益分岐" }
   - { id: U4-24, path: textbook/volumes/dream_thater/応用系/U/U4-24, status: completed, title: "複数脚の約定不一致・市場アクセス" }
   - { id: U4-25, path: textbook/volumes/dream_thater/応用系/U/U4-25, status: completed, title: "戦略の組合せとリスク予算" }
-  - { id: U4-26, path: textbook/volumes/dream_thater/応用系/U/U4-26, status: planned, title: "生存者・価格修正・情報時刻の監査" }
+  - { id: U4-26, path: textbook/volumes/dream_thater/応用系/U/U4-26, status: completed, title: "生存者・価格修正・情報時刻の監査" }
   - { id: U4-27, path: textbook/volumes/dream_thater/応用系/U/U4-27, status: planned, title: "時系列のwalk-forwardと漏洩防止" }
   - { id: U4-28, path: textbook/volumes/dream_thater/応用系/U/U4-28, status: planned, title: "多重探索・過学習・Sharpeの検証" }
   - { id: U4-29, path: textbook/volumes/dream_thater/応用系/U/U4-29, status: planned, title: "レジーム変化・テール・流動性のストレス監査" }
