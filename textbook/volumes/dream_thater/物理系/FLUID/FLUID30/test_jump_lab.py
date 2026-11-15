@@ -2,7 +2,7 @@
 """Regression checks for FLUID30 analytical jump identities.
 
 Run:
-python -m unittest textbook/volumes/dream_thater/物理系/FLUID/FLUID30/test_jump_lab.py
+python textbook/volumes/dream_thater/物理系/FLUID/FLUID30/test_jump_lab.py
 """
 import unittest
 from jump_lab import jump_state, plot_data
