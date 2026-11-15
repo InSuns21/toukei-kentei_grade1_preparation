@@ -35,7 +35,7 @@ def interface_state(rho1=1000.0, rho2=1020.0, u1=0.2, u2=0.0,
     growth = math.sqrt(max(0, -radicand))
     if growth * time > 8:
         raise ValueError("time is too long for this illustrative growing linear mode")
-    if k * amplitude * math.exp(growth * time) >= 0.25:
+    if k * amplitude * math.exp(growth * time) >= 0.1:
         raise ValueError("linear small-slope approximation invalid for chosen amplitude/time")
     threshold = None
     unstable_band = None
@@ -72,7 +72,9 @@ def interface_state(rho1=1000.0, rho2=1020.0, u1=0.2, u2=0.0,
                 mode_value((-1 + j / 60) * wavelength, time)]
                for j in range(121)]
     initial_profile = [[x, mode_value(x, 0.0)] for x, _ in profile]
-    ks = [max(0.05, k / 100) * (10000 ** (j / 120)) for j in range(121)]
+    # Keep the instability band visually resolvable on a linear horizontal axis.
+    max_k = max(2 * k, 2 * unstable_band[1] if unstable_band else 2 * k)
+    ks = [max_k * (j + 1) / 121 for j in range(121)]
     growth_curve = [[h, math.sqrt(max(0.0, -h * (b - a * h + sigma * h**2) /
                                           rho_total))]
                     for h in ks]
