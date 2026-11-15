@@ -1,0 +1,47 @@
+chapter: MIR1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-04, CYG1-13]
+concepts:
+  - id: mirror.crepant-resolution
+    name: crepant解消と例外因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（crepant解消と例外因子）"]
+    requires: [mirror.greene-plesser-local-singularity, mirror.greene-plesser-residue-invariant]
+  - id: mirror.singular-curve-contribution
+    name: 10本の特異曲線と40の曲線上寄与
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（10本の特異曲線と40の曲線上寄与）"]
+    requires: [mirror.crepant-resolution, mirror.greene-plesser-stabilizer-classification, mirror.greene-plesser-local-singularity]
+  - id: mirror.age-junior-element
+    name: ageと高さ1の群元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ageと高さ1の群元）"]
+    requires: [mirror.crepant-resolution, mirror.greene-plesser-stabilizer-classification]
+  - id: mirror.singular-point-contribution
+    name: 支え2の各商点に固有な6つの高さ1成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（支え2の各商点に固有な6つの高さ1成分）"]
+    requires: [mirror.age-junior-element, mirror.singular-curve-contribution]
+  - id: mirror.orbifold-hodge-input
+    name: このquintic商のcrepant解消とorbifold Hodge対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（このquintic商のcrepant解消とorbifold Hodge対応）"]
+    requires: [mirror.crepant-resolution, mirror.age-junior-element, mirror.greene-plesser-residue-invariant]
+  - id: mirror.fixed-curve-rational-quotient
+    name: 固定五次曲線の商は射影直線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定五次曲線の商は射影直線）"]
+    requires: [mirror.singular-curve-contribution, mirror.greene-plesser-orbit-quotient]
+  - id: mirror.crepant-mirror-hodge-count
+    name: Greene–Plesser型crepant解消のHodge数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Greene–Plesser型crepant解消のHodge数）"]
+    requires: [mirror.singular-curve-contribution, mirror.singular-point-contribution, mirror.orbifold-hodge-input, mirror.fixed-curve-rational-quotient, mirror.fermat-one-parameter-direction]

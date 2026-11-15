@@ -24,7 +24,7 @@ chapters:
     title: "Greene–Plesser型の群作用と商"
   - id: MIR1-05
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-05
-    status: planned
+    status: completed
     title: "特異点・crepant解消・鏡像のHodge数"
   - id: MIR1-06
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-06
