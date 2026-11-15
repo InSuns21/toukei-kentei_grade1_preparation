@@ -12,7 +12,11 @@ $$
 \frac{d\bar p}{dz}=-g\bar\rho(z)
 $$
 
-を満たす。これは[静水圧の局所釣合](../FLUID2/index.md#thm-fluid2-hydrostatic-balance)において水平一様な密度を選んだ結果である。密度の勾配 $\bar\rho'(z)<0$ は**上ほど軽い**ことを意味する。背景量の $\bar\rho'(z)$ は $d\bar\rho/dz$ と同じ $z$ による通常の微分であり、後に使う擾乱 $\rho'$ とは異なる。$\partial_t,\partial_x,\partial_z$ は他の独立変数を固定した偏微分で、$f_t=\partial_t f$、$f_{xz}=\partial_z\partial_x f$ と略記する。粒子変位 $\xi(t)$ の $d/dt$ は、位置を固定した偏微分とは区別する。
+を満たす。これは[静水圧の局所釣合](../FLUID2/index.md#thm-fluid2-hydrostatic-balance)で水平一様な密度を選んだ結果である。密度勾配 $\bar\rho'(z)<0$ は**上ほど軽い**ことを意味する。
+
+背景量の $\bar\rho'(z)$ は $d\bar\rho/dz$ と同じ $z$ による通常の微分で、後に使う擾乱 $\rho'$ とは異なる。
+
+$\partial_t,\partial_x,\partial_z$ は他の独立変数を固定した偏微分である。例えば、$f_t=\partial_t f$ と $f_{xz}=\partial_z\partial_x f$ は同じ意味の略記である。粒子変位 $\xi(t)$ の $d/dt$ は、位置を固定した偏微分と区別する。
 
 ## 1. 密度の差をどこまで無視できるか
 
