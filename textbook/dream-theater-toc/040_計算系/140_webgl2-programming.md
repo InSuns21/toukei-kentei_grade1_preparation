@@ -3,3 +3,4 @@
 
 1. [WGL1 ブラウザの画素までの最短経路](textbook/volumes/dream_thater/計算系/WGL/WGL1/index.md)
 2. [WGL2 GPUは頂点とピクセルをどう区別する？](textbook/volumes/dream_thater/計算系/WGL/WGL2/index.md)
+3. [WGL3 多数の三角形をどう共有する？](textbook/volumes/dream_thater/計算系/WGL/WGL3/index.md)

@@ -1,0 +1,20 @@
+chapter: WGL3
+terms:
+  - term: 添字付き三角形メッシュ
+    english: indexed triangle mesh
+    meaning: 頂点表とその参照番号を三角形ごとに3個並べた組。
+  - term: VBO
+    english: vertex buffer object
+    meaning: 頂点属性の値をGPUへ保存するバッファ。
+  - term: EBO
+    english: element buffer object
+    meaning: drawElementsが使う頂点番号を格納する要素配列バッファ。
+  - term: VAO
+    english: vertex array object
+    meaning: 属性形式・参照バッファ・要素配列バッファの結び付け状態を保持するオブジェクト。
+  - term: drawArrays
+    english: draw arrays
+    meaning: 連続する頂点属性を順番に読んで描画する呼出し。
+  - term: drawElements
+    english: draw elements
+    meaning: 添字列の参照順に頂点属性を読んで描画する呼出し。
