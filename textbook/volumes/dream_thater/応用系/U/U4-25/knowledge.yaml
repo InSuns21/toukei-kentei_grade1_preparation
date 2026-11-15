@@ -1,0 +1,60 @@
+chapter: U4-25
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-19, U4-23, U4-24]
+forward_references: []
+concepts:
+  - id: finance.arb-combined-factor-exposures
+    name: 組合せ保有額・ネット額・グロス額・因子中立
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（組合せ保有額・ネット額・グロス額・因子中立）"]
+    requires: [finance.arb-multi-factor-neutrality, finance.arb-multileg-access]
+  - id: finance.arb-strategy-pnl-covariance
+    name: 戦略損益ベクトルと予測共分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（戦略損益ベクトルと予測共分散）"]
+    requires: [finance.arb-multiasset-factor-pnl]
+  - id: finance.arb-combined-pnl-variance
+    name: 合成損益の平均・分散と各戦略の寄与
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（合成損益の平均・分散と各戦略の寄与）"]
+    requires: [finance.arb-strategy-pnl-covariance]
+  - id: finance.arb-strategy-risk-budget
+    name: 予測リスク・グロス・ネット・集中の同時制約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（予測リスク・グロス・ネット・集中の同時制約）"]
+    requires: [finance.arb-combined-factor-exposures, finance.arb-combined-pnl-variance]
+  - id: finance.arb-covariance-turnover-objective
+    name: 共分散罰則と売買回転費用付き目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共分散罰則と売買回転費用付き目的関数）"]
+    requires: [finance.arb-strategy-risk-budget, finance.arb-turnover-cost-identity]
+  - id: finance.arb-constrained-quadratic-allocation
+    name: 正定値共分散の下での中立制約付き最適倍率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正定値共分散の下での中立制約付き最適倍率）"]
+    requires: [finance.arb-covariance-turnover-objective, finance.arb-multi-factor-neutrality]
+  - id: finance.arb-turnover-shrinkage
+    name: 二戦略の中立制約下での比例費用付き最適倍率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二戦略の中立制約下での比例費用付き最適倍率）"]
+    requires: [finance.arb-covariance-turnover-objective, finance.arb-constrained-quadratic-allocation]
+  - id: finance.arb-collinear-covariance-instability
+    name: ほぼ完全相関する二戦略の倍率増幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ほぼ完全相関する二戦略の倍率増幅）"]
+    requires: [finance.arb-constrained-quadratic-allocation]
+  - id: finance.arb-stress-scenario-loss-budget
+    name: 指定シナリオのストレス損失上限
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（指定シナリオのストレス損失上限）"]
+    requires: [finance.arb-strategy-risk-budget, finance.arb-multileg-fill-residual]
