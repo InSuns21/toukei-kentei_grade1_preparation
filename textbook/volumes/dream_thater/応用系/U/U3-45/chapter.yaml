@@ -1,0 +1,42 @@
+id: "U3-45"
+title: "Value at Risk の定義と限界"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-44, U3-18]
+official_scope: []
+learning_objectives:
+  - 保有期間・損失符号・実確率P・信頼水準を固定し、VaRを左側分位点として定義できる
+  - 離散損失で累積確率と境界の原子を扱い、VaRと厳密な超過確率を計算できる
+  - VaRの被覆・単調性・現金平行移動・正の斉次性を仮定から証明できる
+  - 二値損失と正規損失のVaRを手計算できる
+  - VaRが尾部の深刻さを捉えない例と劣加法性の独立二値反例を再現できる
+  - 価格付け測度Qと損失予測測度Pを混同せずポートフォリオVaRを説明できる
+definitions:
+  - { id: U3-45-DEF-01, name: "左側分位点によるValue at Risk" }
+theorems:
+  - { id: U3-45-PROP-01, name: "VaRの非超過確率と超過確率" }
+  - { id: U3-45-PROP-02, name: "離散分布でのVaRの決定法" }
+  - { id: U3-45-PROP-03, name: "VaRの単調性・現金平行移動・正の斉次性" }
+  - { id: U3-45-PROP-04, name: "正規損失のVaR" }
+  - { id: U3-45-PROP-05, name: "VaRの劣加法性が破れる反例" }
+canonical_examples:
+  - "三点損失 -20/10/50円のF(ell)=0.5/0.8/1と0.75/0.80/0.81分位点"
+  - "二値損失0/100円、確率0.96/0.04で95% VaRが0円"
+  - "正規損失 -2+10Zの95% VaRが約14.44853627円"
+  - "独立二値損失100円・確率0.04の合計で単体VaR 0円から合計100円への反例"
+  - "前講の株式・callポートフォリオでP/Q 80% VaRが10/30円となる差"
+problem_patterns:
+  - U3-45-A1
+  - U3-45-A2
+  - U3-45-A3
+  - U3-45-A4
+  - U3-45-A5
+  - U3-45-B1
+  - U3-45-B2
+  - U3-45-B3
+  - U3-45-B4
+  - U3-45-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
