@@ -1,0 +1,28 @@
+id: WGL2
+title: GPUは頂点とピクセルをどう区別する？
+volume: foundations
+status: supplementary
+prerequisites: [WGL1]
+official_scope: []
+learning_objectives:
+  - 頂点属性とuniformの値が変わる単位を区別し、VBOのstride・offset・型を自分で設定できる
+  - vertexのoutとfragmentのinを接続し、GLSLのコンパイル失敗とリンク失敗を区別できる
+  - 三角形の符号付き面積から重心座標を導出し、同一clip wでの色補間を証明できる
+  - 画素中心からGPUのRGB値をCPUで独立予測し、readPixelsと許容差付きで照合できる
+  - 共通3タブラボでJavaScript・GLSL・uniformを編集し、エラーと変更後の画素を診断できる
+definitions:
+  - { id: WGL2-DEF-01, name: 頂点属性 }
+  - { id: WGL2-DEF-02, name: uniform }
+  - { id: WGL2-DEF-03, name: 頂点・フラグメント間の varying }
+  - { id: WGL2-DEF-04, name: 三角形の重心座標 }
+theorems:
+  - { id: WGL2-PROP-01, name: clip座標の第4成分が等しい三角形の色補間 }
+canonical_examples:
+  - 三頂点赤緑青・画素160,120の補間RGBを符号付き面積とCPUで独立検算
+  - uniform変更とvarying型不一致のリンクエラーを実行環境で観察
+  - 位置2成分・色3成分のstride20byte・offset8byte
+problem_patterns: [WGL2-ATTRIBUTE, WGL2-UNIFORM, WGL2-VARYING, WGL2-BARYCENTRIC, WGL2-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 1 }

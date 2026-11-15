@@ -56,3 +56,36 @@ test('initial shaders have compilable GLSL ES 3.00 interface and independent CPU
   assert.ok(vert.includes('in vec2 a_position'));
   assert.ok(frag.includes('vec4(1.0, 0.5, 0.0, 1.0)'));
 });
+
+import {barycentric, expectedWGL2Samples, compareWGL2Readback} from './wgl2-lab-core.mjs';
+
+test('WGL2 barycentric oracle checks exact weights and four known pixel probes', () => {
+  const w=barycentric([0,0]);
+  assert.ok(Math.abs(w[0]-0.25)<1e-12);
+  assert.ok(Math.abs(w[1]-0.25)<1e-12);
+  assert.ok(Math.abs(w[2]-0.5)<1e-12);
+  const samples=expectedWGL2Samples(320,240);
+  assert.deepEqual(samples.map(x=>x.rgba),[
+    [63,64,128,255],[140,19,96,255],[19,140,96,255],[0,0,0,255]
+  ]);
+  assert.ok(samples.every(x=>Math.abs(x.weights.reduce((a,b)=>a+b,0)-1)<1e-12));
+  assert.deepEqual(samples.map(x=>x.inside),[true,true,true,false]);
+  const got=samples.map(x=>({x:x.x,y:x.y,rgba:[...x.rgba]}));
+  assert.ok(compareWGL2Readback(got,320,240).every(x=>x.pass));
+  got[1].rgba=[255,255,255,255];
+  assert.equal(compareWGL2Readback(got,320,240)[1].pass,false);
+});
+
+test('WGL2 GLSL interfaces and interleaved attribute layout are in real lesson files', async () => {
+  const base=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL2/',import.meta.url);
+  const [js,vert,frag]=await Promise.all(['colors.js','colors.vert','colors.frag']
+    .map(name=>readFile(new URL(name,base),'utf8')));
+  assert.match(vert,/layout\(location = 0\) in vec2 a_position/);
+  assert.match(vert,/layout\(location = 1\) in vec3 a_color/);
+  assert.match(vert,/out vec3 v_color/);
+  assert.match(frag,/in vec3 v_color/);
+  assert.match(frag,/uniform vec3 u_gain/);
+  assert.ok(js.includes('gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 20, 0)'));
+  assert.ok(js.includes('gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 20, 8)'));
+  assert.ok(js.includes('gl.uniform3f(gain, 1.0, 1.0, 1.0)'));
+});

@@ -131,6 +131,45 @@ try{
   assert.ok(mobile.editorWidth<=mobile.pageWidth+1);
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
   console.log('WGL1 narrow 360px and reduced motion: PASS');
+
+  // WGL2: WGL1と同じホスト・隔離方式で、頂点色の4画素とリンク失敗を実測する。
+  await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
+  await cdp('Page.navigate',{url:url+'?lesson=WGL2'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.uniform3f")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  const wgl2=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl2.rows.length,4);
+  assert.ok(wgl2.rows.every(row=>row[4]==='OK'));
+  assert.match(wgl2.rows[0][2],/63, 64, 128, 255/);
+  assert.equal(wgl2.sandbox,'allow-scripts');
+  console.log('WGL2 GPU four color samples / CPU barycentric oracle / opaque iframe: PASS');
+  const wgl2shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl2-initial.png',Buffer.from(wgl2shot.data,'base64'));
+
+  await evalJS('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("gl.uniform3f(gain, 1.0, 1.0, 1.0)","gl.uniform3f(gain, 1.0, 0.5, 0.25)");})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const shifted=await evalJS('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent');
+  assert.notEqual(shifted,wgl2.rows[0][2]);
+  assert.match(shifted,/, 3[12], 3[12], 255/);
+  console.log('WGL2 uniform editing changes actual GPU color channels: PASS');
+
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="type-error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/LINK/i);
+  console.log('WGL2 varying vec3/vec2 mismatch fails program link: PASS');
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL2 compilation error and stop/disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
