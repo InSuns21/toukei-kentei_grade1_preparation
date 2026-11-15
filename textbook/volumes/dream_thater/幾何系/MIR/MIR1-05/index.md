@@ -137,7 +137,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（ageと高さ1の群元）**
 >
-> 複素三次元の点 $p$ を固定する有限位数の線形変換 $g$ の固有値を $e^{2\pi i\alpha_1},e^{2\pi i\alpha_2},e^{2\pi i\alpha_3}$（$0\le\alpha_j<1$）と書く。**age** を $\operatorname{age}_p(g)=\alpha_1+\alpha_2+\alpha_3$ と定義する。$\det(g)=1$ ならageは整数である。非恒等元で $\operatorname{age}_p(g)=1$ を満たす元を、この局所模型では **高さ1の元** と呼ぶ。
+> 複素三次元の点 $p$ を固定する有限位数の線形変換 $g$ を考える。$g$ の固有値を $e^{2\pi i\alpha_j}$（$j=1,2,3$、$0\le\alpha_j<1$）と表すとき、**age** は次の数である。
+>
+> $
+> \operatorname{age}_p(g)=\alpha_1+\alpha_2+\alpha_3.
+> $
+>
+> $\det(g)=1$ ならageは整数である。非恒等元でageが1のものを、この局所模型では **高さ1の元** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir1-05-age -->
@@ -182,7 +188,7 @@ $$
 
 上のage1点は、三次元の商格子で $a+b+c=5$、$a,b,c\ge0$ を満たす三角形上の点である。三角形の三辺の内部点は各4個、合計12個。三角形の内部点は6個である。これらを使って基本格子三角形へ細分すると滑らかなcrepantな局所トーリック模型を作れる。**局所で数えたことだけから、大域的で射影的な解消を貼り合わせられると結論するのは誤り**である。$Q_\psi$ についてその存在を保証するのは、Greene–Plesser商のトーリック解消の構成という別の結果である。
 
-## 5. その数が実際にHodge数になるための定理
+## 5. 局所の数からHodge数への橋渡し
 
 因子の本数を数えただけでは、直ちに独立な $(1,1)$ コホモロジー類の次元とは言えない。また複素構造側の $(2,1)$ を求めるには、固定曲線の一次コホモロジーが残るかも調べる必要がある。この橋渡しを行うのが **cohomological McKay対応**（orbifold Hodge数の一致）である。
 
@@ -191,7 +197,7 @@ $$
 <a id="thm-mir1-05-external-input"></a>
 
 <!-- formal-statement-start -->
-> **外部定理（このquintic商のcrepant解消とorbifold Hodge対応）**
+> **定理（このquintic商のcrepant解消とorbifold Hodge対応）**
 >
 > $\psi^5\ne1$ とし、滑らかな射影三次元多様体 $X_\psi$ と正則3形式を保つ位相群 $G=H/D$ を前節のように取る。商 $Q_\psi=X_\psi/G$ には滑らかな射影的crepant解消 $f:Y_\psi\to Q_\psi$ が存在する。さらに、そのHodge数は次の固定部分の総和で計算できる。
 >
@@ -215,9 +221,15 @@ $$
 <a id="prop-mir1-05-curve-quotient"></a>
 
 <!-- formal-statement-start -->
-> **命題（固定五次曲線の商は $\mathbb P^1$）**
+> **命題（固定五次曲線の商は射影直線）**
 >
-> 三添字集合 $I=\{i,j,k\}$ に対し $C_I=\{x_i^5+x_j^5+x_k^5=0\}\subset\mathbb P^2_{\mathbb C}$ とする。$G$ が $C_I$ に誘導する作用の商は $\mathbb P^1_{\mathbb C}$ に同型であり、したがって $H^{1,0}(C_I)^G=0$ である。
+> 三添字集合 $I=\{i,j,k\}$ に対し、次の平面五次曲線を取る。
+>
+> $
+> C_I=\{[x_i:x_j:x_k]\in\mathbb P^2_{\mathbb C}:x_i^5+x_j^5+x_k^5=0\}.
+> $
+>
+> $G$ が $C_I$ に誘導する作用の商は $\mathbb P^1_{\mathbb C}$ に同型である。したがって $H^{1,0}(C_I)^G=0$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
