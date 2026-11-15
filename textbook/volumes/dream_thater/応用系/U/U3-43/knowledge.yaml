@@ -1,7 +1,7 @@
 chapter: U3-43
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-11, U3-15, U3-19, U3-20, U3-26, U3-39, U3-40, U3-41, U3-42]
+prerequisites: [INV1, U3-11, U3-15, U3-19, U3-20, U3-26, U3-39, U3-40, U3-41, U3-42]
 concepts:
   - id: finance.cross-model-input-contract
     name: 価格付けの共通入力規約
@@ -32,7 +32,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（異なる2満期による線形ゼロ金利曲線の識別）"]
-    requires: [finance.zero-spot-and-instantaneous-forward-rate]
+    requires: [finance.zero-spot-and-instantaneous-forward-rate, inverse.identifiability]
   - id: finance.cross-model-triple-verification
     name: 三重照合と誤差内訳の検証台帳
     kind: definition
