@@ -14,6 +14,7 @@ concepts:
   - id: robotics.finite-observation-likelihood
     name: 有限観測モデルと尤度
     kind: definition
+    aliases: [尤度]
     introduction: formal
     introduction_aliases: ["定義（有限観測モデルと尤度）"]
     requires: [robotics.finite-position-belief]
