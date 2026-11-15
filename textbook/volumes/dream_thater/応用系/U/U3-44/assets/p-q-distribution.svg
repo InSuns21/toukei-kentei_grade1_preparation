@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc" data-layout-lint="strict">
+  <title id="title">二状態におけるPとQの確率比較</title>
+  <desc id="desc">上状態Uでは実確率Pが0.75、評価測度Qが0.50、下状態DではPが0.25、Qが0.50。棒の高さは確率で、Pは青の実線枠、Qは橙の破線枠で区別する。</desc>
+  <rect x="0" y="0" width="720" height="360" fill="#fff"/>
+  <g stroke="#d6dce7" stroke-width="1" stroke-dasharray="4 5">
+    <line x1="125" y1="76" x2="610" y2="76"/>
+    <line x1="125" y1="126" x2="610" y2="126"/>
+    <line x1="125" y1="176" x2="610" y2="176"/>
+    <line x1="125" y1="226" x2="610" y2="226"/>
+  </g>
+  <g stroke="#202c3d" stroke-width="2" fill="none">
+    <line x1="125" y1="64" x2="125" y2="276"/>
+    <line x1="125" y1="276" x2="610" y2="276"/>
+  </g>
+  <g font-family="Arial, 'Noto Sans CJK JP', sans-serif" font-size="17" fill="#202c3d" text-anchor="end">
+    <text x="111" y="82">1.00</text>
+    <text x="111" y="132">0.75</text>
+    <text x="111" y="182">0.50</text>
+    <text x="111" y="232">0.25</text>
+    <text x="111" y="282">0</text>
+  </g>
+  <g>
+    <rect x="190" y="126" width="56" height="150" fill="#a9c1f2" stroke="#254b8e" stroke-width="2" data-series-group="measure" data-series-label="P"/>
+    <rect x="268" y="176" width="56" height="100" fill="#f8dcab" stroke="#a46206" stroke-width="2.5" stroke-dasharray="7 4" data-series-group="measure" data-series-label="Q"/>
+    <rect x="423" y="226" width="56" height="50" fill="#a9c1f2" stroke="#254b8e" stroke-width="2" data-series-group="measure" data-series-label="P"/>
+    <rect x="501" y="176" width="56" height="100" fill="#f8dcab" stroke="#a46206" stroke-width="2.5" stroke-dasharray="7 4" data-series-group="measure" data-series-label="Q"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="17" font-weight="600" text-anchor="middle" fill="#202c3d">
+    <text x="218" y="300">P</text>
+    <text x="296" y="300">Q</text>
+    <text x="451" y="300">P</text>
+    <text x="529" y="300">Q</text>
+    <text x="257" y="334">U</text>
+    <text x="490" y="334">D</text>
+  </g>
+</svg>
