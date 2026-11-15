@@ -140,7 +140,7 @@ $$
 
 <!-- definition-example-start: def-mir1-14-vanishing-cycle -->
 
-**定義の確認：局所球面の周期を実際に積分する。** $E_s$ 上で $\Omega_s$ を
+**定義の確認**：局所球面の周期を実際に積分する。 $E_s$ 上で $\Omega_s$ を
 
 $$
 \Omega_s=\operatorname{Res}_{E_s}
@@ -215,7 +215,22 @@ $$
 
 <!-- definition-example-start: def-mir1-14-integral-symplectic-basis -->
 
-**定義の確認。** $a_0,a_1,b_0,b_1$ の順に置くと、$\langle a_1,b_1\rangle=1$、$\langle b_1,a_1\rangle=-1$ であり、他の異なる添字の交叉は零である。よって交叉行列は上の $J$ となる。恒等変換なら $I_4^{\mathsf T}JI_4=J$ を直接満たす。次の例では恒等でない整数行列についても同じ条件を検算する。
+**定義の確認**。 $a_0,a_1,b_0,b_1$ の順に置くと、$\langle a_1,b_1\rangle=1$、$\langle b_1,a_1\rangle=-1$ であり、他の異なる添字の交叉は零である。よって交叉行列は上の $J$ となる。恒等変換なら $I_4^{\mathsf T}JI_4=J$ を直接満たす。次の例では恒等でない整数行列についても同じ条件を検算する。
+
+**整数基底が取れる理由。** 整数交叉形式の行列式が $\pm1$ という単模性と、$\langle v,v\rangle=0$ という交代性から、標準形は整数係数の基底変換で構成できる。まず原始元 $a_0\in L$ を選ぶ。交叉形式から得る $L\to\operatorname{Hom}_{\mathbb Z}(L,\mathbb Z)$ は単模性により同型なので、$\langle a_0,b_0\rangle=1$ を満たす $b_0\in L$ が存在する。任意の $v\in L$ に対し
+
+$
+v_\perp=v-\langle v,b_0\rangle a_0+\langle v,a_0\rangle b_0
+$
+
+と置けば、交代性で $\langle v_\perp,a_0\rangle=\langle v,a_0\rangle-\langle v,a_0\rangle=0$、$\langle v_\perp,b_0\rangle=\langle v,b_0\rangle-\langle v,b_0\rangle=0$。従って
+
+$
+L=\mathbb Za_0\oplus\mathbb Zb_0\oplus
+\{v:\langle v,a_0\rangle=\langle v,b_0\rangle=0\}.
+$
+
+残る直和因子は階数2で、交叉形式の制限も単模かつ交代である。同じ議論で $a_1,b_1$ を選ぶと、望んだ整数基底になる。これは[シンプレクティック標準形の構成](../../SYM/SYM1/index.md#thm-sym1-linear-normal-form)を整数格子へ適用する際に、各対を交叉数1で選べる根拠である。
 
 <!-- definition-example-end -->
 
@@ -342,7 +357,7 @@ $\psi=0$ のFermatファイバー自体は滑らかであるが、$w$ は $\psi$
 
 <!-- definition-example-start: def-mir1-14-orbifold-local-monodromy -->
 
-**定義の確認。** $w=\psi^5$ で $w>0$ の五乗根の枝を一つ選ぶ。$w$ を反時計回り一周させると $\psi$ は $2\pi/5$ 回転して別の枝へ移る。五周で $\psi$ は $2\pi$ 回転し元に戻る。これは五乗被覆から有限位数を**予想**する例であり、四本の微分方程式の解で本当に位数5となることは次の定理で確かめる。
+**定義の確認**。 $w=\psi^5$ で $w>0$ の五乗根の枝を一つ選ぶ。$w$ を反時計回り一周させると $\psi$ は $2\pi/5$ 回転して別の枝へ移る。五周で $\psi$ は $2\pi$ 回転し元に戻る。これは五乗被覆から有限位数を**予想**する例であり、四本の微分方程式の解で本当に位数5となることは次の定理で確かめる。
 
 <!-- definition-example-end -->
 
@@ -454,7 +469,7 @@ $$
 
 **行列の置き方の注意。** [前講の列規約](../MIR1-13/index.md#def-mir1-13-monodromy)は、基底関数の各像の係数を行列の**列**に入れる規約だった。一方、ここで $f$ 自身を縦に並べて $f\mapsto Af$ と書くと、その $A$ は前講の列規約での行列の転置である。この節の $CMC^{-1}$ は後者の「周期列ベクトルに左から作用する行列」に対する相似式であって、二つの規約を無言で混在させない。
 
-**定義の確認：最小の二次元模型。** 解の組 $f=(f_0,f_1)^{\mathsf T}$ が一周で $f\mapsto Mf$、$M=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ と変わるとする。$\Pi=Cf$、$C=\operatorname{diag}(2,1)$ に取り替えると
+**定義の確認**：最小の二次元模型。 解の組 $f=(f_0,f_1)^{\mathsf T}$ が一周で $f\mapsto Mf$、$M=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ と変わるとする。$\Pi=Cf$、$C=\operatorname{diag}(2,1)$ に取り替えると
 
 $$
 \Pi\longmapsto CMC^{-1}\Pi
