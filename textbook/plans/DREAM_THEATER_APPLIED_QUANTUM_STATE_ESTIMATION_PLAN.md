@@ -19,14 +19,14 @@ $$
 
 観測数 $k$ は二項分布に従うが、**一つの測定基底のデータだけでは任意の qubit 状態を同定できない**。未知の状態 $\rho$ を推定するには、適切な測定集合、物理制約 $\rho\succeq0,\ \operatorname{tr}\rho=1$、標本変動を扱う必要がある。
 
-**最終到達点：** qubit の測定計画を立て、複数の測定軸の度数から線形逆推定・正値制約付き最尤推定・小規模 Bayes 推定を再現し、測定の情報完全性・推定誤差・量子 Fisher 情報量・量子 Cramér–Rao 下界の成立条件と限界を説明できる。
+**最終到達点：** qubit の測定計画を立て、複数の測定軸の度数から線形逆推定・正値制約付き最尤推定・小規模 Bayes 推定を再現し、測定の情報完全性・推定誤差・量子 フィッシャー 情報量・量子 Cramér–Rao 下界の成立条件と限界を説明できる。
 
 ## 2. 前提・canonical ownership と停止線
 
-- **直接必要な既習：** 有限次元の線形代数（Hermitian 行列、固有値、トレース）、条件付き確率、二項/多項分布、尤度・最尤法、Fisher 情報量、Cramér–Rao 不等式とその正則性条件。
+- **直接必要な既習：** 有限次元の線形代数（Hermitian 行列、固有値、トレース）、条件付き確率、二項/多項分布、尤度・最尤法、フィッシャー 情報量、Cramér–Rao 不等式とその正則性条件。
 - **量子力学の基本：** [QM1〜QM8を含む作用素論・量子力学コア](../plan_done/DREAM_THEATER_FUNCTIONAL_ANALYSIS_OPERATOR_ALGEBRA_PLAN.md)の**状態・Born則・測定と必要な有限行列の部分だけ**を参照する。非有界作用素・Schrödinger 方程式の全理論・量子場理論を必須にしない。複素内積・Hermitian/ユニタリ・テンソル積の計算補足は初使用箇所で最小限示す。
 - **有限次元量子状態・操作・測定：** [量子情報 QINF1〜QINF33](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)、とくに [POVM の正本 QINF5](../volumes/dream_thater/応用系/QINF/QINF5/index.md#def-qinf5-povm)を再利用する。密度作用素・Bloch 表示、量子測定の一般論、Kraus / channel の基本定理を U6 の「新定理」として複製しない。U6 はその行列表現を**観測設計と推定量**に適用する。
-- **古典統計・情報幾何：** [IG1〜IG14](../plan_done/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md)を Fisher 計量・識別可能性などの正本とし、[INV15〜16](../plan_done/DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md)を一般 Bayes 逆問題の正本とする。これらの**全講受講を機械的に必須にしない**。量子 Fisher 情報量や SLD は U6 自身の有限次元推定問題として導入する。
+- **古典統計・情報幾何：** [IG1〜IG14](../plan_done/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md)を フィッシャー 計量・識別可能性などの正本とし、[INV15〜16](../plan_done/DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md)を一般 Bayes 逆問題の正本とする。これらの**全講受講を機械的に必須にしない**。量子 フィッシャー 情報量や SLD は U6 自身の有限次元推定問題として導入する。
 - **他 U 科目:** [地下帝国の横断ルート](DREAM_THEATER_UNDERGROUND_EMPIRE_PLAN.md)の案内のみ参照し、U2・U3・U4を前提にしない。
 
 **境界：** 本コースは有限次元の状態トモグラフィと局所的な量子パラメータ推定を扱う。一般の quantum LAN、Holevo 界の完全証明、量子チャネル tomography の全体系、連続変数の homodyne tomography、量子計算一般、量子誤り訂正はここでは必修にしない。既存 QINF の状態・POVM・チャネルの定義と、U6 の**データからの推定**を区別する。
@@ -41,7 +41,7 @@ $$
 同一条件で独立に用意した状態と射影測定を区別し、Born則から二項分布を導く。測定を繰り返すたびに**同じ1個体を無条件に再利用しているのではない**ことを明示する。
 
 #### U6-02　測定確率の最尤推定と Cramér–Rao 界
-二項尤度、スコア、Fisher 情報量を直接計算し、確率パラメータ $p$ と角度 $\theta$ の再パラメータ化、識別不能性、境界点で正則性が壊れる例を区別する。
+二項尤度、スコア、フィッシャー 情報量を直接計算し、確率パラメータ $p$ と角度 $\theta$ の再パラメータ化、識別不能性、境界点で正則性が壊れる例を区別する。
 
 #### U6-03　密度行列と Bloch 球：推定すべき未知数は何か
 QINF の密度行列の正本を用い、$\rho=(I+\boldsymbol r\cdot\boldsymbol\sigma)/2$ が許される条件 $|\boldsymbol r|\le1$ を固有値で検算する。純粋/混合状態と推定量の次元を区別する。
@@ -86,14 +86,14 @@ readout error と測定設定の較正ずれを前向き観測モデルへ組み
 #### U6-15　量子パラメータ符号化：未知状態と未知角度
 既知の状態準備と未知パラメータによるユニタリ変換の模型を作る。状態全体の復元と、限られたパラメータの推定の目的・パラメータ空間を区別する。
 
-#### U6-16　測定後の古典 Fisher 情報量と測定設計
-固定した POVM で得られる確率分布の Fisher 情報量を導出し、測定軸により情報量が異なる例を計算する。測定が状態に依存して変わる場合の条件を明記する。
+#### U6-16　測定後の古典 フィッシャー 情報量と測定設計
+固定した POVM で得られる確率分布の フィッシャー 情報量を導出し、測定軸により情報量が異なる例を計算する。測定が状態に依存して変わる場合の条件を明記する。
 
 #### U6-17　対称対数微分（SLD）：量子のスコアを作る
 有限次元で $2\partial_\theta\rho=L_\theta\rho+\rho L_\theta$ を定義し、正定値の場合の固有基底表示を導く。零固有値がある場合の非一意性・正則性を別途扱う。
 
-#### U6-18　量子 Fisher 情報量：純粋状態と混合状態
-$F_Q=\operatorname{tr}(\rho L_\theta^2)$ を計算し、純粋状態とフルランク混合 qubit の例、古典 Fisher との大小関係を適用条件つきで比較する。古典 IG の Fisher 計量と同じ対象だと短絡しない。
+#### U6-18　量子 フィッシャー 情報量：純粋状態と混合状態
+$F_Q=\operatorname{tr}(\rho L_\theta^2)$ を計算し、純粋状態とフルランク混合 qubit の例、古典 フィッシャー との大小関係を適用条件つきで比較する。古典 IG の フィッシャー 計量と同じ対象だと短絡しない。
 
 #### U6-19　量子 Cramér–Rao 下界：測定の選択を含めた限界
 古典 Cramér–Rao 不等式と $F_{\rm classical}\le F_Q$ を結び、局所不偏推定量・独立な同一状態 $n$ 個などの条件下で分散下界を導く。有限標本の任意の偏った推定量への保証と誤読しない。
@@ -102,17 +102,17 @@ $F_Q=\operatorname{tr}(\rho L_\theta^2)$ を計算し、純粋状態とフルラ
 単一パラメータの局所模型で SLD の固有射影測定を構成し、評価点に依存する測定設計と、実際に未知のパラメータの下で実行できる事前固定測定を区別する。
 
 #### U6-21　複数パラメータ推定：非可換性が競合を生む
-複数 SLD の交換子と Fisher 行列を qubit の例で計算し、各パラメータに最適な測定が同時に最適とは限らないことを示す。単一パラメータの下界を機械的に行列へ並べて一斉達成可能とはしない。
+複数 SLD の交換子と フィッシャー 行列を qubit の例で計算し、各パラメータに最適な測定が同時に最適とは限らないことを示す。単一パラメータの下界を機械的に行列へ並べて一斉達成可能とはしない。
 
 #### U6-22　総合演習：測定設計・物理制約・有限標本の精度
-同一の合成データで測定設定の選択、正値制約付き推定、bootstrap/事後不確実性、古典/量子 Fisher 情報量を比較する。情報完全性、境界、較正誤差、局所不偏性を明示して結論を出す。
+同一の合成データで測定設定の選択、正値制約付き推定、bootstrap/事後不確実性、古典/量子 フィッシャー 情報量を比較する。情報完全性、境界、較正誤差、局所不偏性を明示して結論を出す。
 
 ## 4. 旧11項目案からの変更と確定理由
 
-- 旧「Born rule・二項尤度・最尤法・Fisher・Cramér–Rao」は **U6-01〜02** で統計推論として一まとまりにする。
+- 旧「Born rule・二項尤度・最尤法・フィッシャー・Cramér–Rao」は **U6-01〜02** で統計推論として一まとまりにする。
 - 旧「複素線形代数の補講・density matrix」は **QM/QINFの既習成果を使い U6-03** の観測問題へ接続する。古典量子力学を再講義しない。
 - 旧「quantum state tomography／POVM」は使用順を修正し、**POVM・情報完全性（U6-04〜06）→線形反転（U6-07）→物理制約・最尤/ベイズ推定（U6-08〜14）** に整理。密度行列推定の非物理性と測定器誤差を省略しない。
-- 旧「quantum Fisher information／quantum Cramér–Rao bound」は **U6-15〜21** へ展開し、SLD・単一/複数パラメータ・測定の可到達性・正則条件を分ける。総合比較は U6-22。
+- 旧「quantum フィッシャー information／quantum Cramér–Rao bound」は **U6-15〜21** へ展開し、SLD・単一/複数パラメータ・測定の可到達性・正則条件を分ける。総合比較は U6-22。
 - 量子推定を統計学から始める中心問いを保ちつつ、**状態推定（tomography）**と**量子パラメータ推定（metrology）**を別の問題として接続する。22講より縮めると定義の使用順と境界点・非可換性の検証が脱落し、これ以上の細分化は既習理論の重複を増やすため、**全22講で確定**する。
 
 ## 5. 数値・演習・変更時の査読と完了条件
@@ -129,7 +129,7 @@ $F_Q=\operatorname{tr}(\rho L_\theta^2)$ を計算し、純粋状態とフルラ
 
 1. Michael A. Nielsen, Isaac L. Chuang, *Quantum Computation and Quantum Information*, 10th Anniversary Ed. (Cambridge University Press, 2010/2011), [出版社目次](https://www.cambridge.org/highereducation/books/quantum-computation-and-quantum-information/01E10196D0A682A6AEFFEA52D53BE9AE/contents/729A1063B8E18926B2B83C43A9D3F892)。状態・測定・POVM・密度作用素は QM/QINF で既習の正本であり、U6で再構築しないと判断。
 2. Matteo G. A. Paris, Jaroslav Řeháček (eds.), *Quantum State Estimation* (Springer Lecture Notes in Physics 649, 2004), [出版社目次・概要](https://link.springer.com/book/10.1007/b98673)。量子トモグラフィ、最大尤度、qubit 状態再構成、Bayes 推論の位置づけを照合。光学実験の専門的技法は停止線外とした。
-3. Matteo G. A. Paris, “Quantum estimation for quantum technology” (*International Journal of Quantum Information*, 2009), [著者所属機関の書誌・要旨](https://expertise.unimi.it/resource/item/107020?language=en_US)、[著者公開論文](https://arxiv.org/abs/0804.2981)。局所量子推定、SLD、量子 Fisher 情報量、精度下界と幾何の接続を照合。
-4. [QINF 量子情報 I〜III の完成PLAN](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) と [IG 情報幾何の完成PLAN](../plan_done/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md)、[INV 逆問題の完成PLAN](../plan_done/DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md)。一般量子測定、古典 Fisher、Bayes 逆問題の二重所有を避けた。
+3. Matteo G. A. Paris, “Quantum estimation for quantum technology” (*International Journal of Quantum Information*, 2009), [著者所属機関の書誌・要旨](https://expertise.unimi.it/resource/item/107020?language=en_US)、[著者公開論文](https://arxiv.org/abs/0804.2981)。局所量子推定、SLD、量子 フィッシャー 情報量、精度下界と幾何の接続を照合。
+4. [QINF 量子情報 I〜III の完成PLAN](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) と [IG 情報幾何の完成PLAN](../plan_done/DREAM_THEATER_INFORMATION_GEOMETRY_PLAN.md)、[INV 逆問題の完成PLAN](../plan_done/DREAM_THEATER_INVERSE_PROBLEMS_PLAN.md)。一般量子測定、古典 フィッシャー、Bayes 逆問題の二重所有を避けた。
 
 照合は出版社の書誌・目次および公開要旨に基づく。外部資料の証明・図・問題は転載せず、執筆時に最新の既存章・直接 prerequisite・stable anchor を再確認する。
