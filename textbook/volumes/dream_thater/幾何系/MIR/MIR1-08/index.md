@@ -33,6 +33,14 @@ $$
 
 固定した $\psi_0\in U$ の周りに単連結な小円板 $D\subset U$ を取り、$[\gamma_\psi]\in H_3(X_\psi,\mathbb Z)$ を局所的に平行なサイクル類とする。「平行」は各ファイバーの実3次元サイクルが全く同じ点集合になることではなく、滑らかな局所自明化で同一のホモロジー類へ対応することである。
 
+以後、$\psi=u+iv$ に対する基底方向の微分記号を
+
+$$
+\partial_\psi=\frac12\left(\frac{\partial}{\partial u}-i\frac{\partial}{\partial v}\right)
+$$
+
+とする。正則関数 $\Pi(\psi)$ には $\partial_\psi\Pi=d\Pi/d\psi$ が成り立つ。一方、$\partial_\psi F_\psi(x)$ は射影座標 $x$ を固定したパラメータ偏微分であり、$\partial_\psi(\Phi_\psi^*\omega_\psi)$ は局所自明化で固定ファイバーへ引き戻した形式の係数を微分する。作用対象を取り違えない。
+
 <a id="prop-mir1-08-period-connection"></a>
 
 <!-- formal-statement-start -->
@@ -102,7 +110,7 @@ $\partial_\psi F_\psi=-5P$ を使って逆数を微分する。一度微分す�
 <!-- proof-start -->
 ### 証明
 
-$T_0\times\overline D'$（$\overline D'\subset D$ は任意の十分小さい閉円板）で $F_\psi$ は零にならず、コンパクト性により $|F_\psi|$ は正の下限を持つ。従って有理形式とその有限階の $\psi$ 微分はこの集合上で一様に有界で、積分と微分を反復して交換できる。
+$\Omega/F_\psi$ は射影空間上の有理4形式だが、斉次多項式 $F_\psi$ の絶対値は射影点上の関数ではない。そこで $T_0$ を覆う有限個のアフィンチャートと、パラメータに依存しない分割の1を選び、積分を各チャート内のコンパクトな台を持つ積分の和にする。任意の小閉円板 $\overline D'\subset D$ について、各チャートでの局所分母 $f_\psi$ はそのコンパクトな台と $\overline D'$ の積で非零なので、$|f_\psi|$ に正の下限がある。局所分子の係数とその有限階の $\psi$ 微分も有界である。従って各局所積分で微分と積分を反復して交換でき、その有限和である管状積分でも交換できる。
 
 $k=0$ は定義そのもの。$\partial_\psi F_\psi=-5P$ だから
 
@@ -182,14 +190,20 @@ $$
 [前講の大域非消失正則3形式](../MIR1-07/index.md#prop-mir1-07-global-volume)により $\omega_\psi$ は相対正則3形式を与え、$[\omega_\psi]$ は局所正則な $\mathcal F^3$ の切断である。$h^{3,0}=1$ なので各点で非零な $\omega_\psi$ は $F_\psi^3$ を張る。第一式を $p=3$ に適用して第二式を得る。$\square$
 <!-- proof-end -->
 
-**微分で型が一段下がる機構。** [周期写像の微分とKodaira–Spencer収縮](../../DEF/DEF1-13/index.md#prop-def1-13-infinitesimal-period)は、最上段の正則3形式について、接続微分を $F^3$ で割った成分を次のように表す。
+**微分で型が一段下がる機構。** $v$ を基底の変形方向とし、[Beltrami表示](../../DEF/DEF1-02/index.md#def-def1-02-beltrami-graph)に従って、その代表を局所座標 $u^1,u^2,u^3$ で
+
+$$
+\mu_v=\sum_{i,j}\mu^i_{\bar j}\,d\bar u^j\otimes\partial_{u^i}
+$$
+
+と書く。$\mu_v\lrcorner\omega$ は $\sum_{i,j}\mu^i_{\bar j}d\bar u^j\wedge\iota_{\partial_{u^i}}\omega$ を表す。[周期写像の微分とKodaira–Spencer収縮](../../DEF/DEF1-13/index.md#prop-def1-13-infinitesimal-period)は、最上段の正則3形式について、接続微分を $F^3$ で割った成分を
 
 $$
 [\nabla_v\omega]\bmod F^3
-=[-\mu_v\lrcorner\omega]\in F^2/F^3.
+=[-\mu_v\lrcorner\omega]\in F^2/F^3
 $$
 
-ここで $v$ は変形方向、$\mu_v$ はそのBeltrami代表である。局所的に $\omega=h\,du^1\wedge du^2\wedge du^3$ と書くと、収縮 $\iota_{\partial_{u^i}}\omega$ は正則微分を一つだけ取り去る。代わりに $d\bar u^j$ が加わるので、出力の型は $(2,1)$ となる。
+と表す。局所的に $\omega=h\,du^1\wedge du^2\wedge du^3$ と書くと、$\iota_{\partial_{u^i}}\omega$ は正則微分を一つだけ取り去り、$d\bar u^j$ が一つ加わるので、出力は $(2,1)$ 型となる。
 
 一度の微分で $(1,2)$ 型が突然現れない理由は、この一因子ずつの置換にある。負号は既習のBeltrami規約によるもので、極次数の計算から推測した符号ではない。
 
@@ -222,7 +236,17 @@ $$
 \dim_{\mathbb C}H^3(X_\psi,\mathbb C)^G=4.
 $$
 
-群作用はパラメータを固定して族全体に働くため、Gauss–Manin平行移動と可換である。その結果、不変部分は接続でも保たれる。商とcrepant解消後の第3コホモロジーのランク4とも整合するが、元の第3コホモロジー**全体が4次元なのではない**。
+この内訳では、[正則3形式の群不変性](../MIR1-04/index.md#prop-mir1-04-residue-invariant)が $(3,0)$ の1次元を、上記のJacobian商の計算が $(2,1)$ の1次元を与え、複素共役が残り二つの次元を与える。
+
+接続による保存性も確認する。有限群 $G$ は各ファイバーに作用し、$\pi\circ g=\pi$ を満たす。局所自明化を作る水平分布は、任意のRiemann計量を $G$ で平均してからファイバー接空間の直交補を取れば $G$ と可換に選べる。従ってコホモロジーの平行移動は各 $g^*$ と可換であり、
+
+$$
+e_G=\frac1{|G|}\sum_{g\in G}g^*,\qquad
+\nabla_{\partial_\psi}^{\mathrm{GM}}(e_Gs)
+=e_G\nabla_{\partial_\psi}^{\mathrm{GM}}s
+$$
+
+となる。$e_G^2=e_G$ で、その像が $H^3(X_\psi,\mathbb C)^G$ だから、不変部分は接続で保たれる。商とcrepant解消後の第3コホモロジーのランク4とも整合するが、元の第3コホモロジー**全体が4次元なのではない**。
 
 <a id="prop-mir1-08-finite-ode"></a>
 
@@ -496,7 +520,23 @@ $$
 a_0\Pi+a_1\Pi'+a_2\Pi''=0.
 $$
 
-$a_2\ne0$ の領域では二階方程式であるが、もし $a_2=0$ なら次数を下げて考える。例えば $s$ と $\nabla s$ を並べた行列式が零になる場所では、両者を基底として係数を解く操作ができず、解いた係数が極を持つことがある。この行列式の消失は**選んだ切断の微分が基底をなすか**という問題であり、族のJacobian条件が零になることを意味しない。したがって方程式の見かけの極を直ちに幾何学的判別点と同一視できない。
+$a_2\ne0$ の領域では二階方程式であるが、もし最高次係数が恒等的に零なら次数を下げて考える。見かけの極が生まれる仕組みを具体的に見る。局所枠 $e_1,e_2$ を使って $s=s_1e_1+s_2e_2$、$\nabla s=t_1e_1+t_2e_2$ と展開すると、二つの切断を列に並べた係数行列は
+
+$$
+A(\psi)=\begin{pmatrix}s_1&t_1\\s_2&t_2\end{pmatrix}
+$$
+
+である。この行列は二つの切断が基底をなすかを表し、$\det A=0$ ならその点では係数を一意に解けない。これはファイバーのJacobian判定とは別の行列である。
+
+実際に平坦な積束 $E=D\times\mathbb C^2$ の一定枠で $s=e_1+\psi^2e_2$ とすると、
+
+$$
+\nabla s=2\psi e_2,\qquad
+\nabla^2s=2e_2,\qquad
+\Pi''-\frac1\psi\Pi'=0\quad(\psi\ne0)
+$$
+
+となる。$\psi=0$ では $s$ と $\nabla s$ が独立でなく、係数に $1/\psi$ が現れるが、元の平坦束に特異性はない。平行な双対切断と組にした周期は $\Pi=c_1+c_2\psi^2$ と正則である。従って方程式の見かけの極を幾何学的判別点と同一視できない。
 <!-- solution-end -->
 
 ### Level C：一つの周期から微分方程式の入口まで
@@ -515,7 +555,7 @@ $\psi_0\in\mathbb C^*$、$\psi_0^5\ne1$ を選び、近傍に固定管状サイ�
 <!-- solution-start -->
 **詳細解答。**
 
-(1) $F_\psi=\sum x_i^5-5\psi P$ から $\partial_\psi F_\psi=-5P$。$T_0$ はコンパクトで、十分小さい閉円板の全パラメータで分母が零にならないため、分母の絶対値には正の一様下限がある。このため微分と積分を二回交換できる。
+(1) $F_\psi=\sum x_i^5-5\psi P$ から $\partial_\psi F_\psi=-5P$。$T_0$ に固定した有限個のアフィンチャートと分割の1を選ぶ。各チャートの局所分母は、対応するコンパクトな積分片と十分小さい閉円板の積で非零だから、その絶対値には正の一様下限がある。従って有理4形式の局所係数と一階・二階の $\psi$ 微分が有界で、局所積分ごとの微分積分交換を二回行える。
 
 $$
 \Pi'(\psi)=\frac1{2\pi i}\int_{T_0}\frac{5P\Omega}{F_\psi^2}.
