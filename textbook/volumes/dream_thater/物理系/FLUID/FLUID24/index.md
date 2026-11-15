@@ -155,7 +155,7 @@ $$
 
 とおく。$C$ の単位は $[{\rm m}^{1-m}{\rm s}^{-1}]$ であり、$m$ は無次元である。$m>-1$ は次に定義する相似変数の平方根を実数かつ正に保つ選択である。$m<0$ は $x\downarrow0$ で外部速度が発散するため、現実の前縁まで模型を延ばせるという意味ではない。
 
-何を相似化するかを先に確認する。[Blasiusの自己相似表示](../FLUID22/index.md#def-fluid22-blasius-similarity)では、厚さの尺度 $d(x)=\sqrt{\nu x/U_e}$ を用い、断面速度 $u/U_e$ を無次元座標 $y/d(x)$ の関数にした。今回は同じ尺度に $\sqrt{(m+1)/2}$ を掛けて $\eta=y\sqrt{(m+1)U_e/(2\nu x)}$ を選ぶ。この係数は後で移流項と粘性項を整理するための規格化であり、$m=0$ ではBlasiusの規格化と $\sqrt2$ 倍だけ異なる。また、非圧縮条件を自動的に処理するため、既習の[二次元の流れ関数の定義](../../../幾何系/VC/VC9/index.md#def-vc9-stream-function) $u=\psi_y,\ v=-\psi_x$ を使う。$\psi$ の尺度は「速度 $U_e$ × 厚さ」なので、以下では $\psi=\sqrt{2\nu xU_e/(m+1)}\,f(\eta)$ とする。$f',f'',f'''$ は $\eta$ を動かす常微分で、$x$ を動かす $U_e'$ とは異なる。
+何を相似化するかを先に確認する。[Blasiusの自己相似表示](../FLUID22/index.md#def-fluid22-blasius-similarity)では、厚さの尺度 $d(x)=\sqrt{\nu x/U_e}$ を用い、断面速度 $u/U_e$ を無次元座標 $y/d(x)$ の関数にした。今回は無次元座標 $y/d(x)$ に $\sqrt{(m+1)/2}$ を掛け、$\eta=y\sqrt{(m+1)U_e/(2\nu x)}$ を選ぶ。この係数は後で移流項と粘性項を整理するための規格化であり、$m=0$ ではBlasiusの規格化と $\sqrt2$ 倍だけ異なる。また、非圧縮条件を自動的に処理するため、既習の[二次元の流れ関数の定義](../../../幾何系/VC/VC9/index.md#def-vc9-stream-function) $u=\psi_y,\ v=-\psi_x$ を使う。$\psi$ の尺度は「速度 $U_e$ × 厚さ」なので、以下では $\psi=\sqrt{2\nu xU_e/(m+1)}\,f(\eta)$ とする。$f',f'',f'''$ は $\eta$ を動かす常微分で、$x$ を動かす $U_e'$ とは異なる。
 
 <a id="def-fluid24-falkner-skan"></a>
 
