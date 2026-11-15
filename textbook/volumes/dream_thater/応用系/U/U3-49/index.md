@@ -224,7 +224,16 @@ $$
 Cauchy–Schwarz と仮定から被積分関数の絶対値は $Ku\|\Delta\|^2$ 以下です。積分すると $K\|\Delta\|^2\int_0^1u\,du=K\|\Delta\|^2/2$ を得ます。
 <!-- proof-end -->
 
-**失敗の機構**：$v_h(x)=(x-1)^+$ は $x=1$ で微分できません。行使価格の折れ目では命題の連続微分可能性が壊れます。実際、$x_t=1-\varepsilon$、$x=1+\varepsilon$ なら現在点の傾き0による近似値0に対し、全再評価は $\varepsilon$ です。誤差はショック幅 $2\varepsilon$ の一次で、二次の一様上界を当然視できません。
+**失敗の機構**：$v_h(x)=(x-1)^+$ は $x=1$ で微分できません。行使価格の折れ目では命題の連続微分可能性が壊れます。実際、$x_t=1-\varepsilon$、$x=1+\varepsilon$ なら現在点の傾き0による近似値0に対し、全再評価は $\varepsilon$ です。誤差はショック幅 $2\varepsilon$ の一次です。さらに $\varepsilon>0$ に対し
+
+$$
+\frac{|v_h(x)-\widetilde v_h(x)|}{|x-x_t|^2}
+=\frac{\varepsilon}{(2\varepsilon)^2}
+=\frac1{4\varepsilon}\longrightarrow\infty
+\qquad(\varepsilon\downarrow0)
+$$
+
+となり、一定の $K/2$ では一様に抑えられません。折れ目で微分可能性が失われ、連鎖律で作る勾配差の Lipschitz 評価が使えないことが失敗の原因です。
 
 ## 5. 標本誤差と再価格誤差を分離する
 
@@ -402,7 +411,17 @@ $v(x,y)=x^2+y^2$ 万円、現在因子 $(1,1)$、将来因子 $(2,0)$、倍率1�
 $\sigma_1=2,\sigma_2=3,\rho=-1/2$ とし、$(Y_1,Y_2)=(2U,3W)$ とする。共分散行列を導出し、負定値にならないことを確認せよ。
 
 <!-- solution-start -->
-**詳細解答**：[相関の命題](#prop-u3-49-correlation)から $\operatorname{Var}(U)=\operatorname{Var}(W)=1$、$\operatorname{Cov}(U,W)=-1/2$ です。[共分散行列の定義](../U3-47/index.md#def-u3-47-linear-loss)では、第 $(i,j)$ 成分は $\operatorname{Cov}(Y_i,Y_j)$ です。$\operatorname{Var}(aY_1+bY_2)=a^2\operatorname{Var}(Y_1)+2ab\operatorname{Cov}(Y_1,Y_2)+b^2\operatorname{Var}(Y_2)$ なので、行列の二次形式を計算すれば非負性を直接判定できます。各成分に定数倍の分散・共分散公式を適用すると
+**詳細解答**：[相関の命題](#prop-u3-49-correlation)から $\operatorname{Var}(U)=\operatorname{Var}(W)=1$、$\operatorname{Cov}(U,W)=-1/2$ です。[共分散行列の定義](../U3-47/index.md#def-u3-47-linear-loss)では、第 $(i,j)$ 成分は $\operatorname{Cov}(Y_i,Y_j)$ です。任意の $a,b\in\mathbb R$ について
+
+$$
+\begin{aligned}
+\operatorname{Var}(aY_1+bY_2)
+&=a^2\operatorname{Var}(Y_1)+2ab\operatorname{Cov}(Y_1,Y_2)\\
+&\quad+b^2\operatorname{Var}(Y_2)
+\end{aligned}
+$$
+
+となるので、行列の二次形式を計算すれば非負性を直接判定できます。各成分に定数倍の分散・共分散公式を適用すると
 $$
 \operatorname{Cov}(Y)=
 \begin{pmatrix}
