@@ -1,0 +1,65 @@
+chapter: U3-42
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-15, U3-19, U3-26, STO9]
+concepts:
+  - id: finance.zero-coupon-discount-curve
+    name: ゼロクーポン債と割引因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ゼロクーポン債と割引因子）"]
+    requires: [finance.numeraire-discounted-price]
+  - id: finance.zero-spot-and-instantaneous-forward-rate
+    name: ゼロ金利と瞬間フォワード金利
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ゼロ金利と瞬間フォワード金利）"]
+    requires: [finance.zero-coupon-discount-curve]
+  - id: finance.discount-yield-forward-identity
+    name: 割引曲線と金利曲線の恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（割引曲線と金利曲線の恒等式）"]
+    requires: [finance.zero-spot-and-instantaneous-forward-rate]
+  - id: finance.zero-bond-forward-delivery
+    name: ゼロクーポン債の無裁定先渡受渡価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ゼロクーポン債の無裁定先渡受渡価格）"]
+    requires: [finance.zero-coupon-discount-curve, finance.continuous-dividend-forward]
+  - id: finance.short-rate-bank-account
+    name: 短期金利と銀行口座
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（短期金利と銀行口座）"]
+    requires: [finance.numeraire-discounted-price]
+  - id: finance.short-rate-discount-expectation
+    name: 確率短期金利のゼロクーポン債評価
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（確率短期金利のゼロクーポン債評価）"]
+    requires: [finance.short-rate-bank-account, finance.risk-neutral-terminal-value]
+  - id: finance.vasicek-short-rate
+    name: Vasicek 短期金利モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Vasicek 短期金利モデル）"]
+    requires: [finance.short-rate-bank-account, stochastic.brownian-sde]
+  - id: finance.vasicek-conditional-solution
+    name: Vasicek 短期金利の条件付き解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Vasicek 短期金利の条件付き解）"]
+    requires: [finance.vasicek-short-rate, stochastic.ito-process-formula]
+  - id: finance.vasicek-zero-bond-price
+    name: Vasicek モデルのゼロクーポン債価格
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Vasicek モデルのゼロクーポン債価格）"]
+    requires: [finance.vasicek-conditional-solution, finance.short-rate-discount-expectation]
+  - id: finance.vasicek-zero-bond-pde
+    name: Vasicek ゼロクーポン債の価格 PDE
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Vasicek ゼロクーポン債の価格 PDE）"]
+    requires: [finance.vasicek-zero-bond-price, stochastic.ito-process-formula]

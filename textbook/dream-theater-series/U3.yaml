@@ -45,7 +45,7 @@ chapters:
   - { id: U3-39, path: textbook/volumes/dream_thater/応用系/U/U3-39, status: completed, title: "インプライド・ボラティリティと校正" }
   - { id: U3-40, path: textbook/volumes/dream_thater/応用系/U/U3-40, status: completed, title: "局所ボラティリティ・確率ボラティリティ" }
   - { id: U3-41, path: textbook/volumes/dream_thater/応用系/U/U3-41, status: completed, title: "ジャンプ拡散と非完備市場" }
-  - { id: U3-42, path: textbook/volumes/dream_thater/応用系/U/U3-42, status: planned, title: "金利曲線・債券・短期金利モデル" }
+  - { id: U3-42, path: textbook/volumes/dream_thater/応用系/U/U3-42, status: completed, title: "金利曲線・債券・短期金利モデル" }
   - { id: U3-43, path: textbook/volumes/dream_thater/応用系/U/U3-43, status: planned, title: "価格付けモデルの横断較正・検証" }
   - { id: U3-44, path: textbook/volumes/dream_thater/応用系/U/U3-44, status: planned, title: "損益分布・リスクファクター・P と Q" }
   - { id: U3-45, path: textbook/volumes/dream_thater/応用系/U/U3-45, status: planned, title: "Value at Risk の定義と限界" }
