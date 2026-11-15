@@ -36,6 +36,7 @@ const pages = new Map();
 const concepts = new Map();
 const aliasOwners = new Map();
 const findings = [];
+const shadowAliasCandidatesCache = new Map();
 
 for (const relPath of pagePaths) {
   const id = inferPageId(relPath);
@@ -166,6 +167,11 @@ for (const page of pages.values()) {
 
       const resolution = resolveAliasOwners(page, alias, owners, lineNumber);
       if (resolution.status !== 'ambiguous') continue;
+      // A shorter ambiguous alias may appear only inside a longer, uniquely
+      // resolved alias (e.g. 特異点 inside 正則特異点). Do not report it as a
+      // separate ambiguous use, but keep checking if it also occurs alone.
+      if (!hasUnshadowedAmbiguousAlias(page, readerLines[i], alias, owners, lineNumber,
+          aliasOwners, shadowAliasCandidatesCache)) continue;
       findings.push({
         severity: strict ? 'ERROR' : 'AUDIT',
         file: page.path,
@@ -218,6 +224,29 @@ function resolveAliasOwners(page, alias, owners, lineNumber) {
   );
   if (reachable.length <= 1) return { status: reachable.length === 1 ? 'resolved' : 'unresolved', owners: reachable };
   return { status: 'ambiguous', owners: reachable };
+}
+
+function hasUnshadowedAmbiguousAlias(page, sourceLine, alias, owners, lineNumber,
+  aliasesByOwner, candidateCache) {
+  const key = normalizeAlias(alias);
+  if (!key) return false;
+  let longer = candidateCache.get(key);
+  if (!longer) {
+    longer = [...aliasesByOwner.entries()]
+      .filter(([other]) => other.length > key.length && other.includes(key))
+      .sort(([a], [b]) => b.length - a.length);
+    candidateCache.set(key, longer);
+  }
+
+  let remaining = normalizeAlias(sourceLine);
+  for (const [longAlias, longOwners] of longer) {
+    const resolution = resolveAliasOwners(page, longAlias, longOwners, lineNumber);
+    if (resolution.status !== 'resolved') continue;
+    if (!owners.some((owner) => owner.id === resolution.owners[0].id)) continue;
+    // Strip only the longer technical term, not a separately written short term.
+    remaining = remaining.replaceAll(longAlias, '');
+  }
+  return remaining.includes(key);
 }
 
 function firstAliasUse(lines, aliases) {
@@ -509,6 +538,27 @@ function runSelfTest() {
     const resolution = resolveAliasOwners(page, 'σ-finite測度', [duplicateOwner, duplicateOwner], 1);
     if (resolution.status !== 'resolved' || resolution.owners.length !== 1) {
       failures.push('duplicate alias owner deduplication');
+    }
+  }
+
+  {
+    const odeOwner = { id: 'ode.point', page: { id: 'ODE6' }, aliases: ['特異点', '正則特異点'] };
+    const geoOwner = { id: 'geometry.point', page: { id: 'AG' }, aliases: ['特異点'] };
+    const page = { id: 'MIR', ancestors: new Set(['ODE6', 'AG']), localAliases: new Map() };
+    const owners = [odeOwner, geoOwner];
+    const aliasMap = new Map([
+      ['特異点', owners],
+      ['正則特異点', [odeOwner]],
+    ]);
+    const cache = new Map();
+    if (hasUnshadowedAmbiguousAlias(page, '正則特異点を扱う', '特異点', owners, 1, aliasMap, cache)) {
+      failures.push('nested longer unambiguous alias must shadow a shorter collision');
+    }
+    if (!hasUnshadowedAmbiguousAlias(page, '特異点と正則特異点の違い', '特異点', owners, 1, aliasMap, cache)) {
+      failures.push('independently occurring ambiguous short alias must remain detectable');
+    }
+    if (!hasUnshadowedAmbiguousAlias(page, '特異点', '特異点', owners, 1, aliasMap, cache)) {
+      failures.push('standalone ambiguous alias must remain detectable');
     }
   }
 
