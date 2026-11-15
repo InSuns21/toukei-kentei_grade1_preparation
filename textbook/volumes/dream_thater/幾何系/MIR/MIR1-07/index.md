@@ -50,7 +50,20 @@ $$
 <!-- formal-statement-start -->
 > **定義（Dwork型五次の留数3形式）**
 >
-> $\psi\in U$、$X_\psi=\{F_\psi=0\}\subset\mathbb P^4_{\mathbb C}$ とする。$F_\psi=\sum x_i^5-5\psi\prod x_i$、$\Omega=\sum_i(-1)^ix_i\,dx_0\wedge\cdots\wedge\widehat{dx_i}\wedge\cdots\wedge dx_4$ と置く。$X_\psi$ 上の留数3形式を
+> $\psi\in U$ とし、$X_\psi\subset\mathbb P^4_{\mathbb C}$ を次の五次式の零集合とする。
+
+$
+F_\psi=\sum_{i=0}^4x_i^5-5\psi\prod_{i=0}^4x_i,\qquad X_\psi=\{F_\psi=0\}.
+$
+
+> 留数の分子を次の4形式に固定する。
+
+$
+\Omega=\sum_{i=0}^4(-1)^ix_i\,
+dx_0\wedge\cdots\wedge\widehat{dx_i}\wedge\cdots\wedge dx_4.
+$
+
+> $X_\psi$ 上の留数3形式を
 
 $$
 \omega_\psi=\operatorname{Res}_{X_\psi}
@@ -174,7 +187,25 @@ $$
 <!-- formal-statement-start -->
 > **命題（Dwork族の大域的な非消失正則3形式）**
 >
-> $\psi\in\mathbb C$、$\psi^5\ne1$ とする。$X_\psi=\{\sum_{i=0}^4x_i^5-5\psi\prod_ix_i=0\}\subset\mathbb P^4_{\mathbb C}$ 上で、上記の留数 $\omega_\psi=\operatorname{Res}_{X_\psi}(\Omega/F_\psi)$ は斉次座標の代表に依存せず大域的に定義され、どの点でも零にならない正則3形式である。したがって $K_{X_\psi}\simeq\mathcal O_{X_\psi}$ である。
+> $\psi\in\mathbb C$、$\psi^5\ne1$ とする。次の射影五次超曲面と留数3形式を取る。
+
+$
+F_\psi=\sum_{i=0}^4x_i^5-5\psi\prod_{i=0}^4x_i,\qquad
+X_\psi=\{F_\psi=0\}\subset\mathbb P^4_{\mathbb C}.
+$
+
+$
+\Omega=\sum_{i=0}^4(-1)^ix_i\,
+dx_0\wedge\cdots\wedge\widehat{dx_i}\wedge\cdots\wedge dx_4,
+\qquad
+\omega_\psi=\operatorname{Res}_{X_\psi}(\Omega/F_\psi).
+$
+
+> この $\omega_\psi$ は斉次座標の代表に依存せず、大域的に定義された、どの点でも零にならない正則3形式である。したがって標準束は自明である。
+
+$
+K_{X_\psi}\simeq\mathcal O_{X_\psi}.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -198,7 +229,7 @@ $$
 第三に[局所留数表示](#prop-mir1-07-local-form)をその消去方向に適用する。陰関数定理から残り三変数は局所座標になり、$\omega_\psi$ はその最高外積の $1/f_j$ 倍（符号を除く）である。$f_j$ は近傍で正則かつ非零なので係数も正則かつ非零である。座標を替えた表示の一致は[随伴形式の貼り合わせ](../../../代数系/CAG/CAG1-11/index.md#prop-cag1-11-holomorphic-residue)から従う。この3形式が標準束の非消失な大域切断となり、[体積形式による自明化](../../CYG/CYG1-02/index.md#prop-cyg1-02-volume-trivialization)より結論する。$\square$
 <!-- proof-end -->
 
-**次数をずらすと何が壊れるか。** $\mathbb P^4$ で分母を次数 $d$ の斉次式に替えると、同じ分子の比は $\lambda^{5-d}$ 倍となる。$d\ne5$ では $\Omega/F$ は射影的な4形式としてそのまま貼り合わない。滑らかな次数 $d$ 超曲面の標準束は[随伴公式](../../CYG/CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)から $\mathcal O_X(d-5)$ である。六次では追加の一次式を分子に掛ければ切断は作れるが、その一次式が零になる場所では体積形式も零となる。四次で同じ定数分子の処方を使うこともできない。このように**局所留数が書けること**と**大域的な非消失形式になること**は異なる。
+**次数をずらすと何が壊れるか。** $\mathbb P^4$ で分母を次数 $d$ の斉次式に替えると、同じ分子の比は $\lambda^{5-d}$ 倍となる。$d\ne5$ では $\Omega/F$ は射影的な4形式としてそのまま貼り合わない。次数 $d$ の滑らかな超曲面に[既習の標準束の次数判定](../../CYG/CYG1-02/index.md#thm-cyg1-02-hypersurface-degree)を適用すると、$K_X\simeq\mathcal O_X(d-5)$ を得る。六次では追加の一次式を分子に掛ければ切断は作れるが、その一次式が零になる場所では体積形式も零となる。四次で同じ定数分子の処方を使うこともできない。このように**局所留数が書けること**と**大域的な非消失形式になること**は異なる。
 
 **低次元の検算。** 滑らかなFermat三次曲線 $E=\{u^3+v^3+w^3=0\}\subset\mathbb P^2$ でも、分子は次数3の射影2形式、分母も次数3である。$w=1$ のチャートで $f=u^3+v^3+1$ とすると、$f_v=3v^2\ne0$ の領域の留数1形式は
 
