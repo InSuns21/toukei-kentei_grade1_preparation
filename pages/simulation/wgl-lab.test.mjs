@@ -109,3 +109,6 @@ test('readback tolerance and UI copy match WGL1 and WGL2 independently', async (
 
 // WGL3のCPU検算と実教材コードのテストも共通ラボCIで実行する。
 import './wgl3-lab.test.mjs';
+
+// WGL4: 数理CPU基準・実ソース・共通ラボへの登録を確認する。
+import './wgl4-lab.test.mjs';

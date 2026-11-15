@@ -1,19 +1,23 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
+import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
 
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
+const isWGL4 = lesson === 'WGL4';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/' + lesson + '/', import.meta.url);
-const FILES = isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
+const FILES = isWGL4 ? {js: 'model.js', vertex: 'model.vert', fragment: 'model.frag'} :
+  isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
+const oracle = isWGL4 ? expectedWGL4Samples :
+  isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
 const TIMEOUT_MS = 6000;
@@ -159,7 +163,12 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', request.js);
       run(gl, canvas, request.vertex, request.fragment, report);
-      const positions = request.lesson === 'WGL3' ? [
+      const positions = request.lesson === 'WGL4' ? [
+        [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
+        [Math.floor(canvas.width * 0.57), Math.floor(canvas.height * 0.37)],
+        [Math.floor(canvas.width * 0.375), Math.floor(canvas.height * 0.625)],
+        [Math.floor(canvas.width * 0.05), Math.floor(canvas.height * 0.05)]
+      ] : request.lesson === 'WGL3' ? [
         [Math.floor(canvas.width / 2), Math.floor(canvas.height / 2)],
         [Math.floor(canvas.width * 0.67), Math.floor(canvas.height * 0.33)],
         [0, 0]
@@ -268,7 +277,7 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
@@ -333,6 +342,8 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+    } else if (isWGL4) {
+      inputs.fragment.value = defaults.fragment.replace('outColor = u_color;', 'outColor = u_color');
     } else if (isWGL3) {
       inputs.fragment.value = defaults.fragment.replace('outColor = vec4(0.2, 0.6, 0.8, 1.0);',
         'outColor = vec4(0.2, 0.6, 0.8, 1.0)');
@@ -360,6 +371,19 @@ if (isWGL2) {
   preset.options[0].textContent = '初期の頂点色三角形';
   preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
   preset.options[1].textContent = 'fragment の構文エラー';
+}
+if (isWGL4) {
+  document.title = 'WGL4 モデル行列と世界座標の変換ラボ';
+  document.querySelector('h1').textContent = 'WGL4 モデル座標から世界へ：T × R × S';
+  document.querySelector('#panel-conditions > p').textContent =
+    '4頂点を斉次行列で世界座標へ移し、赤いローカルx軸・緑のローカルy軸も同時に描きます。四隅・逆変換・4画素を別々のCPU計算で検査します。';
+  document.querySelector('#panel-conditions ol').innerHTML =
+    '<li>初期値の4点の世界座標と4画素を予測してから実行する。</li>' +
+    '<li>model.js の angleDegrees と scaleY を変更し、図形と軸を比較する。</li>' +
+    '<li>multiply4の積順をT*R*SからR*T*Sへ変えて差を調べる。</li>' +
+    '<li>model.vert のu_modelまたは構文エラープリセットを変えて診断を見る。</li>';
+  byId('preset').options[0].textContent = '初期のT*R*Sとローカル軸';
+  byId('preset').options[1].textContent = 'fragment の構文エラー';
 }
 if (isWGL3) {
   document.title = 'WGL3 共有頂点と添字描画ラボ';
