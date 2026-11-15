@@ -1,0 +1,42 @@
+id: "MIR1-16"
+title: "B側Yukawa結合と周期の統合"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-15
+learning_objectives:
+  - HodgeフィルトレーションとGriffiths横断性から三階結合が最初に非零となり得る理由を説明できる
+  - 平行な交代形式と四階周期方程式からYukawa結合の一次微分方程式を証明できる
+  - quinticのPicard–Fuchs作用素を通常微分へ変換して有理形と未定定数を求められる
+  - 定数5を得る追加規格化と局所方程式だけからは決まらない情報を区別できる
+  - 正則3形式の再規格化と局所座標変換による三次結合の変化を計算できる
+  - 周期二乗と2πiの三乗を含む規格化を導き非零条件を検証できる
+  - zとqの両座標でB側級数の二次係数まで計算しA側との未証明の同一視を識別できる
+theorems:
+  - { id: MIR1-16-DEF-01, name: "B側のHodge三次結合" }
+  - { id: MIR1-16-PROP-01, name: "四階周期方程式と三次結合の微分方程式" }
+  - { id: MIR1-16-THM-01, name: "quinticの三次結合の有理形" }
+  - { id: MIR1-16-PROP-02, name: "三次結合の座標変換と形式の再規格化" }
+  - { id: MIR1-16-DEF-02, name: "周期規格化したB側Yukawa結合" }
+  - { id: MIR1-16-THM-02, name: "B側の正規化式と初期係数" }
+canonical_examples:
+  - 交代四次元模型でF3とF1の直交条件と三次結合1を検算
+  - 四階作用素のD4とD3の係数から一次方程式を導出
+  - 正則3形式の変数依存倍率で結合が二乗倍になることを確認
+  - 2πiの三乗規格化を対数座標の最小例で検算
+  - B側q級数の5と2875と4876875を因子別展開から計算
+problem_patterns:
+  - MIR1-16-HODGE-VANISHING
+  - MIR1-16-EULER-HIGHEST-COEFFICIENTS
+  - MIR1-16-VOLUME-RESCALING
+  - MIR1-16-TWO-PI-NORMALIZATION
+  - MIR1-16-LEADING-B-SERIES
+  - MIR1-16-SYMPLECTIC-DIFFERENTIATION
+  - MIR1-16-COORDINATE-TENSOR
+  - MIR1-16-SECOND-ORDER-SERIES
+  - MIR1-16-POLARIZATION-SCALE
+  - MIR1-16-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 12, review: 5 }
