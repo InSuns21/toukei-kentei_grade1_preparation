@@ -91,10 +91,10 @@ $$
 2\Omega\sin\varphi\,u,\,-2\Omega\cos\varphi\,u).
 $$
 
-ここで水平運動の $2\Omega\cos\varphi\,w$ と、鉛直運動の $-2\Omega\cos\varphi\,u$ を落とし、鉛直は別途静水圧近似で扱う **traditional approximation（伝統的近似）** を採用する。これはベクトル積の恒等式ではない。代表速度を水平 $U>0$、鉛直 $W\ge0$ とすると、緯度 $\varphi$ で水平の省略項が保持する回転項より小さいには、少なくとも
+ここで水平運動の $2\Omega\cos\varphi\,w$ と、鉛直運動の $-2\Omega\cos\varphi\,u$ を落とし、鉛直は別途静水圧近似で扱う **traditional approximation（伝統的近似）** を採用する。これはベクトル積の恒等式ではない。代表速度を水平 $U>0$、鉛直 $U_{\mathrm{vert}}\ge0$ とすると、緯度 $\varphi$ で水平の省略項が保持する回転項より小さいには、少なくとも
 
 $
-2\Omega|\cos\varphi|W\ll |f|U
+2\Omega|\cos\varphi|U_{\mathrm{vert}}\ll |f|U
 \quad (f=2\Omega\sin\varphi)
 $
 
@@ -134,7 +134,7 @@ $$
 
 この式は[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を回転系へ書き換え、遠心力を有効重力へ含め、traditional approximation を採用したものである。鉛直運動と質量保存の解を同時に満たす必要があり、この水平二式だけが流体の全方程式ではない。
 
-圧力勾配による加速度の尺度を $U^2/L$ と決め打ちせず、回転の大きさ $|f|U$ と比べる。代表水平速度 $U>0$、水平長さ $L>0$、時間尺度 $T>0$、鉛直長さ $H>0$ を与え、$f\ne0$ とする。水平移流項 $u\partial_xu+v\partial_yu$ などは $U^2/L$、非定常項は $U/T$、鉛直粘性は $\nu U/H^2$ の尺度を持つ。鉛直移流 $w\partial_zu$ は鉛直速度の尺度を $W$ とすると $WU/H$ である。非圧縮の薄層で $W\sim UH/L$ と見積もれる場合にはこれも $U^2/L$ と同程度になるが、そう見積もれない流れでは別途比較が必要である。
+圧力勾配による加速度の尺度を $U^2/L$ と決め打ちせず、回転の大きさ $|f|U$ と比べる。代表水平速度 $U>0$、水平長さ $L>0$、時間尺度 $T>0$、鉛直長さ $H>0$ を与え、$f\ne0$ とする。水平移流項 $u\partial_xu+v\partial_yu$ などは $U^2/L$、非定常項は $U/T$、鉛直粘性は $\nu U/H^2$ の尺度を持つ。鉛直移流 $w\partial_zu$ は鉛直速度の尺度を $U_{\mathrm{vert}}$ とすると $U_{\mathrm{vert}}U/H$ である。非圧縮の薄層で $U_{\mathrm{vert}}\sim UH/L$ と見積もれる場合にはこれも $U^2/L$ と同程度になるが、そう見積もれない流れでは別途比較が必要である。
 
 <a id="def-fluid32-rossby-ekman"></a>
 
