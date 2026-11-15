@@ -8,7 +8,24 @@
 
 ## 1. ランダムな時刻から「もう一度」出発する
 
-[Brown 運動の定義](../../STO/STO4/index.md#def-sto4-brownian-motion)に従う1次元標準ブラウン運動を $B=(B_t)_{t\ge0}$ とします。情報は、零集合を加えて完備化した自然なフィルトレーション $(\mathcal F_t)$ で表します。経路連続性により[水準到達時刻](../../STO/STO4/index.md#def-sto4-hitting-time)はこのフィルトレーションの停止時刻です。
+[Brown 運動の定義](../../STO/STO4/index.md#def-sto4-brownian-motion)に従う1次元標準ブラウン運動を $B=(B_t)_{t\ge0}$ とします。
+
+情報は、既習の[ブラウン運動の自然なフィルトレーション](../../STO/STO4/index.md#def-sto4-brownian-filtration)に零集合を加えて完備化した $(\mathcal F_t)$ で表します。完備化する前の情報は
+
+$$
+\mathcal F_t^B=\sigma(B_s:0\le s\le t)
+$$
+
+です。また、ランダムな停止時刻 $\tau$ での $\mathcal F_\tau$ は、[停止時刻までの情報](../../STO/STO1/index.md#def-sto1-stopping-sigma-field)を表します。その条件は
+
+$$
+A\in\mathcal F_\tau
+\quad\Longleftrightarrow\quad
+A\cap\{\tau\le t\}\in\mathcal F_t
+\quad(\text{任意の }t\ge0)
+$$
+
+です。経路連続性により[水準到達時刻](../../STO/STO4/index.md#def-sto4-hitting-time)はこのフィルトレーションの停止時刻です。
 
 水準 $c>0$ の初到達時刻を $\tau_c$ とします。到達事象が起きるかどうかを将来を見てから決める時刻ではなく、時刻 $t$ の情報だけで $\{\tau_c\le t\}$ を判定できる時刻です。さらに[ブラウン到達時刻の分布](../../STO/STO4/index.md#thm-sto4-hitting-time-law)から $P(\tau_c<\infty)=1$ です。
 
@@ -88,7 +105,13 @@ $$
 \varphi_T(y)=\frac{1}{\sqrt{2\pi T}}\exp\left(-\frac{y^2}{2T}\right)
 $$
 
-と書きます。
+と書きます。ここで $db$ は終点の値 $b$ を動かす密度の記法です。$B_T$ は連続な正規分布なので $P(B_T=b)=0$ です。「$B_T=b$ としたときの条件付き確率」とは、例えば任意の Borel 集合 $C\subset(-\infty,a)$ に対し
+$$
+P(M_T<a,\ B_T\in C)
+=
+\int_C q_a(b)\varphi_T(b)\,db
+$$
+を満たす関数 $q_a(b)$（正則条件付き確率の一つの版）の値を指します。このように終点密度との積分によって条件付けを定め、確率0の事象で直接割ることはしません。
 
 <a id="thm-sp21-maximum-endpoint"></a>
 
@@ -128,7 +151,7 @@ P(M_T\ge a,\ B_T\le b)
 \int_{2a-b}^{\infty}\varphi_T(y)\,dy.
 $$
 
-右辺は $b$ に関して微分可能で、積分の下端の微分が $-1$ であるため
+ここで $d/db$ は $T$ と $a$ を固定し、終点の閾値 $b$ だけを動かす微分です。右辺は $b$ に関して微分可能で、下端 $2a-b$ を $b$ で微分すると $-1$ になるため
 
 $$
 \frac{d}{db}\int_{2a-b}^{\infty}\varphi_T(y)\,dy
@@ -136,7 +159,7 @@ $$
 \varphi_T(2a-b).
 $$
 
-つまり $b<a$ の範囲では、$M_T\ge a$ と $B_T\in db$ の同時分布は密度 $\varphi_T(2a-b)$ を持ちます。$B_T$ 全体の密度 $\varphi_T(b)$ から差し引けば、主張の第一式です。境界 $M_T=a$ の確率は零であり、ここでは $<$ と $\le$ の違いを生みません。
+つまり $b<a$ の範囲では、$M_T\ge a$ と $B_T\in db$ の同時分布は密度 $\varphi_T(2a-b)$ を持ちます。$B_T$ 全体の密度 $\varphi_T(b)$ から差し引けば、主張の第一式です。[反射原理による最大値の尾分布](../../STO/STO4/index.md#thm-sto4-reflection-principle)は $r>0$ で $P(M_T\ge r)=2(1-\Phi(r/\sqrt T))$ と連続なので、$P(M_T=a)=0$ です。したがって、ここでは $<$ と $\le$ の違いを生みません。
 
 $\varphi_T(b)>0$ なので、密度の比を取ると
 
@@ -164,14 +187,14 @@ $$
 
 本節で使う**マルチンゲール**とは、各 $t$ で可積分かつその時刻までの情報で値が定まり、$s\le t$ に対して $E[X_t\mid\mathcal F_s]=X_s$ となる過程です。時間の添字を整数に制限した場合とも同じ考え方ですが、ここでは連続時間の対象について必要な性質を直接計算します。一般の連続時間任意抽出定理を仮定せず、必要な範囲を次の補題で証明します。
 
-まず $Z\sim N(0,h)$ なら
+まず $h>0$、$\theta>0$ とし、$Z\sim N(0,h)$ なら
 
 $$
 E[Z]=0,\qquad E[Z^2]=h,\qquad
 E[e^{\theta Z}]=e^{\theta^2h/2}
 $$
 
-です。$B_t-B_s$ が $\mathcal F_s$ と独立な $N(0,t-s)$ に従うため、次の三過程はマルチンゲールです。
+です。特に $0\le s<t$ では $h=t-s$、$Z=B_t-B_s$ と置くと、$Z$ は $\mathcal F_s$ と独立な $N(0,h)$ に従います。以下の条件付き期待値では、この $Z$ を増分として使います（$s=t$ なら等式は自明です）。したがって次の三過程はマルチンゲールです。
 
 $$
 B_t,\qquad B_t^2-t,\qquad
@@ -247,7 +270,15 @@ $$
 
 有限和を取って $E[X_{S_n}]=E[X_0]$ を得ます。
 
-極限交換を確かめます。[反射原理](../../STO/STO4/index.md#thm-sto4-reflection-principle)を $B$ と $-B$ に使うと、任意の $R>0$ について $\sup_{0\le t\le R}|B_t|$ は全ての正の整数次モーメントと正の指数モーメントを持ちます。実際、正側最大値の分布は $|N(0,R)|$ の分布と同じであり、負側最大値も同じ分布だからです。
+極限交換を確かめます。[反射原理](../../STO/STO4/index.md#thm-sto4-reflection-principle)を $B$ と $-B$ に使うと、正側最大値 $H_R^+=\sup_{t\le R}B_t$ と負側最大値 $H_R^-=\sup_{t\le R}(-B_t)$ は、それぞれ $|N(0,R)|$ と同じ分布です。したがって $D_R=\sup_{t\le R}|B_t|=\max(H_R^+,H_R^-)$ とおけば、任意の $\theta>0$ について
+$$
+e^{\theta D_R}
+\le e^{\theta H_R^+}+e^{\theta H_R^-},
+\qquad
+E[e^{\theta D_R}]
+\le 2E[e^{\theta|N(0,R)|}]<\infty
+$$
+です。最後の期待値は正規密度の平方完成で有限と分かります。指数の代わりに任意の正の整数乗を取っても同様に有限なので、$D_R$ は以下の三つの支配に必要な可積分性を持ちます。
 
 $R=T+1$ とすれば、三つの $X$ に対してそれぞれ
 
@@ -408,14 +439,14 @@ $$
 \left\{\sup_{0\le s\le t}B_s\ge2\right\}.
 $$
 
-連続標本路上では両極値は有理時刻の値で近似できるので、この事象は完備化した $\mathcal F_t$ に属します。よって停止時刻の条件も実際に確認できます。さらに $\sigma\le\tau_2<\infty$ がほとんど確実なので、退出後の値 $B_\sigma$ も定義できます。
+連続標本路上では両極値は有理時刻の値で近似できるので、この事象は完備化した $\mathcal F_t$ に属します。よって停止時刻の条件も実際に確認できます。さらに $\sigma\le\tau_2$ であり、[ブラウン到達時刻の分布](../../STO/STO4/index.md#thm-sto4-hitting-time-law)から $\tau_2<\infty$ がほとんど確実です。よって $\sigma$ も有限で、退出時の値 $B_\sigma\in\{-1,2\}$ を定義できます。
 <!-- definition-example-end -->
 
 <a id="thm-sp21-two-sided-exit"></a>
 
 <!-- formal-statement-start -->
 > **定理（Brown 運動の両側退出確率と平均退出時刻）**  
-> $B$ を標準ブラウン運動、$X_t=x+B_t$、$u,v>0$、$-u<x<v$ とする。[初退出時刻](#def-sp21-two-sided-exit) $\sigma$ はほとんど確実に有限で、
+> $B$ を標準ブラウン運動、$X_t=x+B_t$、$u,v>0$、$-u<x<v$ とする。[初退出時刻](#def-sp21-two-sided-exit) $\sigma$ はほとんど確実に有限で、$P_x,E_x$ を初期値 $X_0=x$ での確率・期待値と書けば、
 
 $$
 P_x(X_\sigma=v)
@@ -431,7 +462,7 @@ $$
 E_x[\sigma]=(x+u)(v-x)
 $$
 
-> が成立する。添字 $x$ は初期値 $X_0=x$ で計算することを表す。
+> が成立する。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -463,12 +494,18 @@ $$
 
 を与えます。
 
-退出前は $X_t\in(-u,v)$ であり、退出時も連続性から $X_\sigma\in\{-u,v\}$ なので、全ての $n$ について $|X_{S_n}|\le\max(u,v)$ です。$S_n\uparrow\sigma$、$X_{S_n}\to X_\sigma$ であるため、有界収束と非負確率変数の単調収束から
+退出前は $X_t\in(-u,v)$ であり、退出時も連続性から $X_\sigma\in\{-u,v\}$ なので、$K=\max(u,v)$ と置けば全ての $n$ で $|X_{S_n}|\le K$ です。したがって停止補題の第二式から
+$$
+0\le E[S_n]=E[X_{S_n}^2]-x^2\le K^2-x^2<\infty
+$$
+です。$S_n\uparrow\sigma$ なので単調収束により、**まず** $E[\sigma]=\lim_nE[S_n]\le K^2-x^2<\infty$ が分かります。
 
+さらに $X_{S_n}\to X_\sigma$ がほとんど確実に成り立ち、$|X_{S_n}|\le K$ です。有界収束を $X_{S_n}$ と $X_{S_n}^2$ に適用できるので、期待値がすべて有限なことを確認した上で
 $$
 E[X_\sigma]=x,\qquad
-E[X_\sigma^2]-E[\sigma]=x^2.
+E[X_\sigma^2]-E[\sigma]=x^2
 $$
+を得ます。
 
 $p=P_x(X_\sigma=v)$ と置きます。$X_\sigma$ は二つの端点にしか値を取らないので
 
@@ -521,7 +558,7 @@ P(\tau_c>t)
 2\int_0^{c/\sqrt t}\varphi_1(z)\,dz.
 $$
 
-大きい $t$ では積分区間が短くなり、$\varphi_1(0)=1/\sqrt{2\pi}$ に近い値だけを積分するため、尾確率はおおよそ $t^{-1/2}$ の速さで減衰します。
+ここで $\varphi_1$ は第2節の正規密度 $\varphi_T$ に $T=1$ を代入したものです。$c$ を固定して $t$ を大きくすると積分区間が短くなり、$\varphi_1(0)=1/\sqrt{2\pi}$ に近い値だけを積分するため、尾確率はおおよそ $t^{-1/2}$ の速さで減衰します。
 
 <a id="prop-sp21-hitting-moments"></a>
 
@@ -843,7 +880,7 @@ $$
 E[B_{S_n}^2-S_n]=0.
 $$
 
-したがって $E[B_{S_n}^2]=E[S_n]$ です。$|B_{S_n}|\le\max(u,v)$ は区間からの初退出という定義と連続性によります。よって有界収束で $E[B_{S_n}^2]\to E[B_\sigma^2]$、単調収束で $E[S_n]\to E[\sigma]$ となります。
+したがって $E[B_{S_n}^2]=E[S_n]$ です。$|B_{S_n}|\le\max(u,v)$ は区間からの初退出という定義と連続性によります。したがって $0\le E[S_n]=E[B_{S_n}^2]\le\max(u,v)^2$ であり、単調収束から **先に** $E[\sigma]\le\max(u,v)^2<\infty$ を確認できます。その後、有界収束で $E[B_{S_n}^2]\to E[B_\sigma^2]$、単調収束で $E[S_n]\to E[\sigma]$ と極限を通せます。
 
 また $E[B_\sigma]=0$ から、$p=P(B_\sigma=v)$ は $vp-u(1-p)=0$ を満たすので $p=u/(u+v)$ です。したがって
 
