@@ -31,7 +31,7 @@ concepts:
     name: このquintic商のcrepant解消とorbifold Hodge対応
     kind: theorem
     introduction: formal
-    introduction_aliases: ["外部定理（このquintic商のcrepant解消とorbifold Hodge対応）"]
+    introduction_aliases: ["定理（このquintic商のcrepant解消とorbifold Hodge対応）"]
     requires: [mirror.crepant-resolution, mirror.age-junior-element, mirror.greene-plesser-residue-invariant]
   - id: mirror.fixed-curve-rational-quotient
     name: 固定五次曲線の商は射影直線
