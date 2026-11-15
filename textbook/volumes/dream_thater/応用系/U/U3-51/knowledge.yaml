@@ -1,7 +1,7 @@
 chapter: U3-51
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-50, U3-48, U3-46]
+prerequisites: [U3-50, U3-48, U3-46, F0-00P7A]
 concepts:
   - id: finance.pot-exceedance-sample
     name: 閾値超過標本と超過確率
@@ -56,7 +56,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（指数超過幅の尺度の最尤推定）"]
-    requires: [finance.generalized-pareto-excess]
+    requires: [finance.generalized-pareto-excess, stat.likelihood, stat.mle]
   - id: finance.pot-count-variance
     name: 固定閾値の超過比率の分散
     kind: proposition
