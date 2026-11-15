@@ -14,7 +14,7 @@ learning_objectives:
   - 周期の四階微分の五重極を四重極へ低減し判別点での除算不可を説明できる
 theorems:
   - { id: MIR1-09-DEF-01, name: "Dwork五次のJacobianイデアル" }
-  - { id: MIR1-09-DEF-02, name: "射影五次に沿う極次数kの有理4形式" }
+  - { id: MIR1-09-DEF-02, name: "射影五次に沿う有理4形式の極次数" }
   - { id: MIR1-09-PROP-01, name: "Griffiths–Dworkの極次数低減公式" }
   - { id: MIR1-09-PROP-02, name: "Dwork五次の二重極の低減" }
   - { id: MIR1-09-PROP-03, name: "Dwork五次の五重極の一段低減" }
