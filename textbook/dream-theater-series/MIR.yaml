@@ -68,7 +68,7 @@ chapters:
     title: "ミラー写像の構成と逆級数"
   - id: MIR1-16
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR1-16
-    status: planned
+    status: completed
     title: "B側Yukawa結合と周期の統合"
   - id: MIR2-01
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-01

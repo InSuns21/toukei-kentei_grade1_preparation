@@ -16,3 +16,4 @@
 13. [MIR1-13 大複素構造極限と最大単冪モノドロミー](textbook/volumes/dream_thater/幾何系/MIR/MIR1-13/index.md)
 14. [MIR1-14 conifold・orbifold点と積分構造](textbook/volumes/dream_thater/幾何系/MIR/MIR1-14/index.md)
 15. [MIR1-15 ミラー写像の構成と逆級数](textbook/volumes/dream_thater/幾何系/MIR/MIR1-15/index.md)
+16. [MIR1-16 B側Yukawa結合と周期の統合](textbook/volumes/dream_thater/幾何系/MIR/MIR1-16/index.md)
