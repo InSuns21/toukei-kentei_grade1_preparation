@@ -1,0 +1,46 @@
+id: "SP17"
+title: "待ち行列の確率過程"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SP16
+  - SP14
+official_scope: []
+learning_objectives:
+  - 到着とサービスから M/M/1 の人数過程・負荷率・境界付き Q 行列を定義し非爆発性を説明できる
+  - 可算状態 M/M/1 の定常確率分布を流量釣合いと正規化から導き負荷率1以上と区別できる
+  - Poisson 到着が見る人数分布と指数サービスの無記憶性から平均待機時間と平均滞在時間を計算できる
+  - Little の法則の時間面積等式・端点誤差・収束条件を示し M/M/1 の平均人数と照合できる
+  - 空き時間と繁忙期間の再生サイクルを構成し更新報酬による稼働時間割合を導ける
+  - M/G/1 における人数過程の非 Markov 性と Lindley 再帰を示し負の平均増分から定常待ち時間を構成できる
+definitions:
+  - { id: SP17-DEF-01, name: "M/M/1 待ち行列と負荷率" }
+  - { id: SP17-DEF-02, name: "M/G/1 と到着時の待ち時間" }
+theorems:
+  - { id: SP17-PROP-01, name: "M/M/1 の人数過程" }
+  - { id: SP17-THM-01, name: "M/M/1 の定常分布と安定条件" }
+  - { id: SP17-PROP-02, name: "M/M/1 の定常到着客の滞在時間" }
+  - { id: SP17-THM-02, name: "Little の法則" }
+  - { id: SP17-PROP-03, name: "M/M/1 の平均繁忙期間" }
+  - { id: SP17-PROP-04, name: "Lindley の待ち時間再帰" }
+canonical_examples:
+  - "到着率2・サービス率3の M/M/1 の Q 行列と幾何定常分布"
+  - "稼働率と待機確率と平均滞在時間の違い"
+  - "顧客滞在時間を人数の時間積分として数える面積等式"
+  - "空き時間・繁忙時間の更新報酬比"
+  - "定時サービスの M/G/1 と到着時待ち時間再帰"
+problem_patterns:
+  - SP17-MM1-QMATRIX-BOUNDARY
+  - SP17-MM1-GEOMETRIC-TAIL
+  - SP17-PATH-CUSTOMER-COUNT
+  - SP17-LITTLE-UNITS-CONDITIONS
+  - SP17-LINDLEY-NUMERIC
+  - SP17-STATIONARY-NORMALIZATION
+  - SP17-PASTA-SOJOURN
+  - SP17-BUSY-STOPPING
+  - SP17-LINDLEY-STATIONARY
+  - SP17-QUEUE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8.0, exercises: 7.0, review: 2.5 }
