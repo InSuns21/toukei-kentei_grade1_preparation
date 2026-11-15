@@ -26,7 +26,7 @@
 | [WebGL2 Fundamentals](https://webgl2fundamentals.org/webgl/lessons/) | 実際の描画パイプライン、texture、framebuffer、shadow、GPGPU等の公開教育的配置を照合。コード・図は転載せず独自に作成 |
 | [MDN WebGL2RenderingContext](https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext) | ブラウザcontext・API・例外とフォールバック（WGL1・17–19） |
 | [Physically Based Rendering, 4th ed.](https://www.pbrt.org/) | 光輸送・反射モデルをWGL12の近似の根拠として使う。フルpath tracerや分光renderは範囲外 |
-| 既存[FCG PLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
+| 既存[FCG PLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
 
 資料は範囲と説明順序の検証に利用し、図・演習・ソース・数値例は自作する。各版の機能・ブラウザ対応は実装日に再検証する。
 
@@ -52,7 +52,7 @@
 - JSを自由編集させる以上、**ブラウザ側から無限ループを完全にプリエンプトできない**。実行ごとに隔離iframe/contextを破棄・再生成し、ホストにタイムアウト/世代上限/資源上限を設ける。GPUドライバ停止・GPUハングは完全に防げないため、カーネル/ブラウザ依存の制約と警告を明記する。検査用pixel readbackと別系統CPU参考値を持つ。
 - WebGL2が非対応/失敗なら対応検査を表示し、必要なら同じ理論のCanvas2D/CPU参照値を示す。ただしGPU-specificな到達目標をCPU再現で達成済みにはしない。GPU再試験が必要と明記する。GPUでfloat render targetを使う講は拡張・format・フィルタ可否を実測/問い合わせで判定し、対応前提で固定しない。
 - ネットワーク不要の静的Pages資産で配布できる設計を優先し、CSP/Service Worker・オフライン再訪・古い保存状態・ページ更新を検査する。外部CDN・remote texture・実ユーザーデータをラボの既定入力としない。
-- [対話型シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のstop/reset、実験記録/世代制御は適合する部分を**APIとして再利用**するが、既存WorkerプロトコルにGL contextや任意コード評価を無理に同居させない。共通UIの仮定は着手PRで実コードと照合する。
+- [対話型シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のstop/reset、実験記録/世代制御は適合する部分を**APIとして再利用**するが、既存WorkerプロトコルにGL contextや任意コード評価を無理に同居させない。共通UIの仮定は着手PRで実コードと照合する。
 - **WGL1またはFCGの先行着手講（どちらが先でもよい）で最小安全ラボを同時実装**。WGL1→2・FCG2以降のWebGL課題が同じ基盤を段階拡張し、重複実装しない。共通ランタイム変更は両系列の回帰影響を評価する。ソフトウェア上の再利用は、他系列の未完了章を数学的prerequisiteに要求する理由にはならない。
 
 ### 2.3 全講での具体的受け入れ契約
