@@ -31,7 +31,7 @@
 | [Lorentz多様体上の双曲型PDE（HPDE）](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md) | 古典Klein–Gordon初期値、Green作用素、シンプレクティック解空間 | 量子状態の物理・検出器はQCURVが所有 |
 | [超局所解析・Hadamard条件（MICA）](../plan_done/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md) | Hadamard二点関数、点分離、局所共変な応力テンソル | 一般的な数学証明はMICA。QCURVは物理的状態と流束の具体計算 |
 | [量子情報（QINF）](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md) | 縮約状態・熱的混合状態・エンタングルメントの入口 | くさびへの制限に必要な結果だけ参照し、全講必修とはしない |
-| [数学基盤ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)、[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md) | 学修経路と他科目との境界 | 参照先の未実装結果を既証扱いしない |
+| [数学基盤ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)、[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md) | 学修経路と他科目との境界 | 参照先の未実装結果を既証扱いしない |
 
 - **最小学修路**：QFT Iの自由場、LORG/HPDEの必要結果、GRのブラックホール幾何 → QCURV。MICAの厳密Hadamard理論を深掘りする路と、QINF/AQFTによる状態・代数の路は必要箇所から分岐させる。MICAが完成済みであっても、QCURVでの物理的適用は別途導出する。
 - **QCURVの所有範囲**：背景依存の真空・粒子生成、検出器の物理的応答、Rindler/Unruh、重力崩壊/Hawking、ブラックホールの代表的量子状態、エネルギー流・半古典的近似。

@@ -14,13 +14,17 @@
 
 上側の気体圧力は一定の $p_a$ とし、気体の密度・慣性・粘性・風の影響は無視する。液体は非圧縮・非粘性で、二次元の単連結領域内では無渦である。
 
-ここでの $h$ は**平均水深**、$\eta$ はその平均位置からの**符号付き変位**である。$\eta>0$ は山、$\eta<0$ は谷を意味する。速度場を $u=(u_x,u_z)$ と書き、[速度ポテンシャルの定義](../FLUID11/index.md#def-fluid11-velocity-potential)と同じ勾配表示を二次元の $(x,z)$ 座標へ適用して
+ここでの $h$ は**平均水深**、$\eta$ はその平均位置からの**符号付き変位**である。$\eta>0$ は山、$\eta<0$ は谷を意味する。
+
+速度場を $u=(u_x,u_z)$ と書き、[速度ポテンシャルの定義](../FLUID11/index.md#def-fluid11-velocity-potential)と同じ勾配表示を二次元の $(x,z)$ 座標へ適用して
 
 $$
 u_x=\partial_x\phi,\qquad u_z=\partial_z\phi
 $$
 
-と置く。液体内部の質量保存 $\partial_xu_x+\partial_zu_z=0$ と合わせると
+と置く。以下、$\eta_x=\partial\eta/\partial x$、$\eta_t=\partial\eta/\partial t$ は他方の変数を固定した偏微分、$\phi_z=\partial\phi/\partial z$ や $\phi_{xx}=\partial_x(\partial_x\phi)$ も残りの変数を固定した偏微分を表す。下付き添字 $x,z,t$ は微分する変数を示し、速度成分を表す $u_x,u_z$ とは役割が異なる。
+
+液体内部の質量保存 $\partial_xu_x+\partial_zu_z=0$ と合わせると
 
 $$
 \partial_{xx}\phi+\partial_{zz}\phi=0
@@ -35,13 +39,15 @@ $$
 
 波長 $\lambda>0$ は隣り合う山の水平距離であり、対応する波数 $k=2\pi/\lambda$ は波長が短いほど大きい。角周波数 $\omega>0$ は波の位相 $kx-\omega t$ が時間とともに変化する速さである。これらの関係は後で周期と合わせて定義する。
 
-**小さな振幅を仮定する際の条件**：代表振幅 $a>0$、波数 $k>0$ に対して $ka\ll1$ と $a/h\ll1$ を要求する。水平勾配、速度の二乗、変位した位置 $z=\eta$ で評価することによる二次の補正を捨て、すべての境界式を**静止水面 $z=0$** で評価する。これは有限振幅の砕波や流れの剥離を扱う模型ではない。
+**小さな振幅を仮定する際の条件**：代表振幅 $a>0$、波数 $k>0$ に対して $ka\ll1$ と $a/h\ll1$ を要求する。
+
+水平勾配、速度の二乗、変位した位置 $z=\eta$ で評価することによる二次の補正を捨て、すべての境界式を**静止水面 $z=0$** で評価する。これは有限振幅の砕波や流れの剥離を扱う模型ではない。
 
 ## 1. 水面で何を釣り合わせるか
 
 ### 1.1 自由表面は流体粒子とともに動く
 
-表面を表す関数 $F(x,z,t)=z-\eta(x,t)$ は、水面上の粒子を追う間は零であり続ける。従って粒子の軌道に沿って微分すると
+表面を表す関数 $F(x,z,t)=z-\eta(x,t)$ は、水面上の粒子を追う間は零であり続ける。粒子位置を $(x(t),z(t))$ と書けば $dx/dt=u_x$、$dz/dt=u_z$ である。$DF/Dt$ はこの軌道上での常微分 $dF(x(t),z(t),t)/dt$ を表す。連鎖律によって
 
 $$
 0=\frac{DF}{Dt}=F_t+u_xF_x+u_zF_z
@@ -75,7 +81,19 @@ $$
 
 波の山 $\eta=a\cos(kx-\omega t)$ では $\eta_{xx}=-k^2\eta$ なので、山の頂点では $\gamma>0$ なら液体側の圧力が高い。曲率の符号を誤ると、後で表面張力が不安定化するという誤った分散式が現れる。
 
-液体内部では、[一定密度 Euler 方程式](../FLUID6/index.md#thm-fluid6-euler-equation)が成り立つ。$u=\nabla\phi$ を代入し、$\partial_tu=\nabla\phi_t$ と $(u\cdot\nabla)u=\nabla(|\nabla\phi|^2/2)$（無渦条件）を使うと
+液体内部では、[一定密度 Euler 方程式](../FLUID6/index.md#thm-fluid6-euler-equation)が成り立つ。$u=\nabla\phi$ を代入する。ここで $\nabla=(\partial_x,\partial_z)$ は空間微分であり、$\partial_t$ は空間座標を固定する時間偏微分である。
+
+$\phi$ が二階連続微分可能なら、各 $i\in\{x,z\}$ について
+
+$$
+\begin{aligned}
+((u\cdot\nabla)u)_i
+&=\sum_{j\in\{x,z\}}(\partial_j\phi)(\partial_j\partial_i\phi)\\
+&=\partial_i\!\left[\frac12\bigl((\partial_x\phi)^2+(\partial_z\phi)^2\bigr)\right].
+\end{aligned}
+$$
+
+従って $(u\cdot\nabla)u=\nabla(|\nabla\phi|^2/2)$、また $\partial_tu=\nabla\phi_t$ だから、Euler 方程式は
 
 $$
 \nabla\left(\phi_t+\frac12|\nabla\phi|^2+\frac{p_l}{\rho}+gz\right)=0.
@@ -92,7 +110,7 @@ $$
 \quad(z=\eta).
 $$
 
-小振幅の一次だけ残し、水面を $z=0$ で評価すれば
+小振幅の一次だけ残す。例えば $\phi_t(x,\eta,t)=\phi_t(x,0,t)+\eta\,\phi_{tz}(x,0,t)+\cdots$ である。静止状態の周りでは $\eta$ と $\phi_t$ はともに一次の摂動だから、積 $\eta\phi_{tz}$ は二次となる。$ka\ll1$ と $a/h\ll1$ によって水平・鉛直の評価位置の補正を捨て、水面を $z=0$ で評価すれば
 
 $$
 \boxed{\phi_t+g\eta-\frac{\gamma}{\rho}\eta_{xx}=0
@@ -105,7 +123,9 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（線形自由表面条件）**  
-> 水深 $h>0$、密度 $\rho>0$、重力 $g>0$、一様表面張力 $\gamma\ge0$ の二次元・非圧縮・非粘性・無渦液体を、一定気圧の下で小振幅 $ka\ll1,\ a/h\ll1$ の静止状態まわりに一次線形化する。平均水面 $z=0$、底面 $z=-h$ とする。このとき速度ポテンシャル $\phi$ と水面変位 $\eta$ は次の境界値問題を満たす。
+> 水深 $h>0$、密度 $\rho>0$、重力 $g>0$、一様表面張力 $\gamma\ge0$ の二次元・非圧縮・非粘性・無渦液体を考える。
+>
+> 一定気圧の下で小振幅 $ka\ll1,\ a/h\ll1$ の静止状態まわりに一次線形化する。平均水面 $z=0$、底面 $z=-h$ とする。このとき速度ポテンシャル $\phi$ と水面変位 $\eta$ は次の境界値問題を満たす。
 
 $$
 \begin{cases}
@@ -148,7 +168,16 @@ $$
 **定義の確認**：$\lambda=2$ m、$k=\pi$ m$^{-1}$ なら $k(x+\lambda)-\omega t=(kx-\omega t)+2\pi$。従って任意の $x,t$ で $\eta(x+\lambda,t)=\eta(x,t)$。同様に $t+T$ では位相が $-2\pi$ 変化するので $\eta(x,t+T)=\eta(x,t)$。波長と周期の**両条件**を直接満たす。
 <!-- definition-example-end -->
 
-一定の位相 $\theta=\theta_0$ を追うと $k\,dx-\omega\,dt=0$、従って進行速度は $\omega/k$ である。
+一定の位相 $\theta(x(t),t)=\theta_0$ を追う。ここで $x(t)$ は山など同じ位相の点の位置であり、流体粒子の軌道とは限らない。偏微分を含む連鎖律を使うと
+
+$$
+0=\frac{d}{dt}\theta(x(t),t)
+=\frac{\partial\theta}{\partial x}\frac{dx}{dt}
++\frac{\partial\theta}{\partial t}
+=k\frac{dx}{dt}-\omega.
+$$
+
+$k>0$ だから $dx/dt=\omega/k$ が進行速度である。
 
 <a id="def-fluid27-phase-speed"></a>
 
@@ -169,7 +198,11 @@ $$
 
 ## 3. 底面を満たすポテンシャルから分散式を導く
 
-水面の候補を $\eta=a\cos(kx-\omega t)$ と置く。対応する $\phi$ は、内部の Laplace 方程式を満たし、底面で鉛直速度が零になるように作る。水平依存を $\sin(kx-\omega t)$ とし $\phi=Z(z)\sin(kx-\omega t)$ と仮定すると、
+水面の候補を $\eta=a\cos(kx-\omega t)$ と置く。対応する $\phi$ は、内部の Laplace 方程式を満たし、底面で鉛直速度が零になるように作る。
+
+水平依存を $\sin(kx-\omega t)$ とし、$\phi=Z(z)\sin(kx-\omega t)$ と仮定する。ここで $Z(z)$ は鉛直座標だけの未知関数、$Z'$ と $Z''$ は $z$ に関する常微分である。
+
+$\phi_{zz}$ は $x,t$ を固定して二度偏微分するので $Z''(z)\sin(kx-\omega t)$ となる。実際、
 
 $$
 \phi_{xx}=-k^2Z(z)\sin\theta,\qquad
@@ -371,7 +404,9 @@ $$
 $\gamma=0$ なら $c_p^2=gh+O(k^2)$、$g,h>0$ より正の平方根を取って $c_p\to\sqrt{gh}$ を得る。
 <!-- proof-end -->
 
-重力だけなら、深水では $c_p\sim\sqrt{g/k}$ なので長い波が速い。一方、深水で毛管項が優勢なら $c_p\sim\sqrt{\gamma k/\rho}$ なので**短い波ほど速い**。浅水での $c_p\simeq\sqrt{gh}$ は「浅い海ではどの波長も厳密に同じ速度」という意味ではなく、$kh\ll1$ の主近似である。上の $k^2$ 補正まで残せば位相速度の波数依存性が見える。
+重力だけなら、深水では $c_p\sim\sqrt{g/k}$ なので長い波が速い。一方、深水で毛管項が優勢なら $c_p\sim\sqrt{\gamma k/\rho}$ なので**短い波ほど速い**。
+
+浅水での $c_p\simeq\sqrt{gh}$ は「浅い海ではどの波長も厳密に同じ速度」という意味ではなく、$kh\ll1$ の主近似である。上の $k^2$ 補正まで残せば位相速度の波数依存性が見える。
 
 ### 例：深水の速さが最小になる長さ
 
@@ -404,7 +439,16 @@ u_x=\frac{a\omega\cosh(k(z+h))}{\sinh(kh)}\cos\theta,
 u_z=\frac{a\omega\sinh(k(z+h))}{\sinh(kh)}\sin\theta.
 $$
 
-波が右へ進んでも、固定された初期位置 $(x_0,z_0)$ の流体粒子は一次近似では前後・上下に振動する。粒子のずれを $(\xi,\zeta)$ とし、一次で $\dot\xi=u_x(x_0,z_0,t)$、$\dot\zeta=u_z(x_0,z_0,t)$ を積分する。
+波が右へ進んでも、固定された平均位置 $(x_0,z_0)$ の流体粒子は一次近似では前後・上下に振動する。粒子のずれを $(\xi(t),\zeta(t))$ とすると、実際の粒子位置は $(x_0+\xi(t),z_0+\zeta(t))$ である。
+
+速度場と変位はともに一次の小量なので、速度の評価位置を変位させたことによる補正は二次である。従って一次では
+
+$$
+\dot\xi=\frac{d\xi}{dt}=u_x(x_0,z_0,t),\qquad
+\dot\zeta=\frac{d\zeta}{dt}=u_z(x_0,z_0,t)
+$$
+
+を時間積分する。点付き記法は、時間だけで動く粒子変位の**常微分**を表す。
 
 <a id="prop-fluid27-particle-orbit"></a>
 
@@ -462,11 +506,15 @@ $$
 
 図では隣り合う山の距離が波長 $\lambda$、破線から底面までの距離が平均水深 $h$ である。粒子の楕円は軌道の形を見やすくするため実際の波面振幅に対して拡大して描いた。楕円の半軸比は[粒子軌道の式](#prop-fluid27-particle-orbit)で決まり、図の見かけの長さを測って数値計算してはいけない。
 
-深水で $kh\gg1$、底から十分離れていれば $A_x\simeq A_z\simeq a e^{kz_0}$ で、粒子軌道はほぼ円になる。浅水で $kh\ll1$ の水面付近では $A_z/A_x\simeq kh\ll1$ だから横長の楕円になる。いずれも**波の位相速度**と**粒子の平均速度**を混同してはならない。
+深水で $kh\gg1$、底から十分離れていれば $A_x\simeq A_z\simeq a e^{kz_0}$ で、粒子軌道はほぼ円になる。
+
+浅水で $kh\ll1$ の水面付近では $A_z/A_x\simeq kh\ll1$ だから横長の楕円になる。いずれも**波の位相速度**と**粒子の平均速度**を混同してはならない。
 
 ## 6. ブラウザで分散関係と二波の重ね合わせを確かめる
 
-下の Python は[分散関係](#thm-fluid27-dispersion)を直接計算し、波長に対する位相速度と、近い二つの波数 $k$ と $1.10k$ の**線形な重ね合わせ**を一つの実行結果に描く。表面形状は $t=0$ と搬送波の一周期後 $t=T$ の二枚の曲線で比較する。これは水面形状の標本化であり、流体力学の非線形時間発展シミュレーションではない。
+下の Python は[分散関係](#thm-fluid27-dispersion)を直接計算し、波長に対する位相速度と、近い二つの波数 $k$ と $1.10k$ の**線形な重ね合わせ**を一つの実行結果に描く。
+
+表面形状は $t=0$ と搬送波の一周期後 $t=T$ の二枚の曲線で比較する。これは水面形状の標本化であり、流体力学の非線形時間発展シミュレーションではない。
 
 数値欄には $kh$、毛管／重力項の比、位相速度、重力だけにした比較、および**力学的水面条件の相対残差**も表示する。波長を短くするプリセットは $\gamma>0$ の効果を、浅い水深では $\tanh(kh)$ の効果を観察する。波形の重なりを見ても、包絡の速度をそのまま位相速度と断定しないこと。
 
@@ -532,7 +580,7 @@ c_p\simeq\sqrt{gh}=\sqrt{9.8(0.25)}
 =\sqrt{2.45}\simeq1.565\ {\rm m/s}.
 $$
 
-$tanh q/q=1-q^2/3+O(q^4)$ を $q=\pi/20$ に適用すると
+$\tanh q/q=1-q^2/3+O(q^4)$ を $q=\pi/20$ に適用すると
 
 $$
 \frac{c_p^2}{gh}
@@ -540,7 +588,7 @@ $$
 \simeq1-0.00822.
 $$
 
-これは**速度の二乗**の相対補正で約 $-0.82\%$。速度自体の相対補正は平方根展開で約 $-0.41\%$ となる。両者を混同しない。
+これは**速度の二乗**の相対補正で約 $-0.82\%$。速度自体は $\sqrt{1-\delta}=1-\delta/2+O(\delta^2)$（$\delta=\pi^2/1200$）より、相対補正が約 $-0.41\%$ となる。両者を混同しない。
 <!-- solution-end -->
 
 ### A3. 波の山での圧力跳躍
@@ -617,7 +665,7 @@ $$
 \eta_t+\phi_x(x,\eta,t)\eta_x=\phi_z(x,\eta,t).
 $$
 
-$\phi=O(a)$、$\eta=O(a)$ の一次摂動とし、$\eta_x=O(ka)$ だから積 $\phi_x\eta_x$ を二次として捨てる。$\phi_z(x,\eta,t)=\phi_z(x,0,t)+O(a^2)$ と水面を平均位置で評価すれば
+$\phi=O(a)$、$\eta=O(a)$ の一次摂動とし、$\eta_x=O(ka)$ だから積 $\phi_x\eta_x$ を二次として捨てる。水面位置での速度は $\phi_z(x,\eta,t)=\phi_z(x,0,t)+\eta\phi_{zz}(x,0,t)+\cdots$ と展開でき、後項は二次摂動なので捨てる。従って水面を平均位置で評価すれば
 
 $$
 \eta_t=\phi_z(x,0,t).
@@ -630,7 +678,7 @@ $$
 \frac{p_l-p_a}{\rho}+g\eta=0 \quad(z=\eta).
 $$
 
-速度の二乗を二次項として捨て、水面評価位置を $z=0$ に替え、一次の圧力跳躍を代入して
+速度の二乗を二次項として捨てる。$\phi_t(x,\eta,t)=\phi_t(x,0,t)+\eta\phi_{tz}(x,0,t)+\cdots$ の後項も二次摂動だから、評価位置を $z=0$ に替えられる。一次の圧力跳躍を代入して
 
 $$
 \phi_t+g\eta-\frac{\gamma}{\rho}\eta_{xx}=0 \quad(z=0)
@@ -701,7 +749,16 @@ c_{p,\min}^2=\frac{g}{k_c}+\frac{\gamma}{\rho}k_c
 \quad c_{p,\min}=(4g\gamma/\rho)^{1/4}.
 $$
 
-有限水深では $c_p^2=(g/k+\gamma k/\rho)\tanh(kh)$。微分に $(g/k+\gamma k/\rho)h\,\operatorname{sech}^2(kh)$ が**追加**されるので、$k=k_c$ では一般にその項が零にならない。従って交差波数と最小波数を同一視してはいけない。
+有限水深では $c_p^2=(g/k+\gamma k/\rho)\tanh(kh)$。$d(\tanh(kh))/dk=h/\cosh^2(kh)$ と積の微分を使えば
+
+$$
+\frac{d(c_p^2)}{dk}
+=\left(-\frac{g}{k^2}+\frac{\gamma}{\rho}\right)\tanh(kh)
++\left(\frac gk+\frac{\gamma}{\rho}k\right)
+\frac{h}{\cosh^2(kh)}.
+$$
+
+$k=k_c$ では第1項が零だが、$h,g,\rho,\gamma,k_c>0$ により第2項は正である。従って有限水深では交差波数と最小波数を同一視してはいけない。
 <!-- solution-end -->
 
 ### B4. 浅水での最初の分散補正

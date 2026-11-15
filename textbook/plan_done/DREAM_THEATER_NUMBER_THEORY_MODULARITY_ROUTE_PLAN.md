@@ -1,13 +1,13 @@
 # DREAM THEATER 整数論・楕円曲線・モジュラー形式 依存ルート
 
 分冊: 2026-10-11  
-状態: planned（横断ルート台帳のみ）
+状態: completed（5科目の全章と横断依存を照合した履修ルート）
 
 - [整数論NT1〜10](../plan_done/DREAM_THEATER_ELEMENTARY_NUMBER_THEORY_PLAN.md)
 - [Diophantine近似NDA1〜8](../plan_done/DREAM_THEATER_DIOPHANTINE_APPROXIMATION_PLAN.md)
 - [解析的整数論ANT1〜8](../plan_done/DREAM_THEATER_ANALYTIC_NUMBER_THEORY_PLAN.md)
-- [楕円曲線EC1〜11](../plans_progress/DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)
-- [モジュラー形式MF1〜8](../plans_progress/DREAM_THEATER_MODULAR_FORMS_PLAN.md)
+- [楕円曲線EC1〜11](DREAM_THEATER_ELLIPTIC_CURVES_PLAN.md)
+- [モジュラー形式MF1〜8](DREAM_THEATER_MODULAR_FORMS_PLAN.md)
 
 ## 直接依存DAG
 
@@ -22,6 +22,8 @@ CA8/9/12＋NT2〜4 → MF1〜8 ────────────────�
 NT1〜10は明確に続く一つのPLAN、NDA・ANT・EC・MFは各自の中心問いを持つ独立PLANとする。楕円関数CA8/9の既存証明を繰り返さない。未実装PLANを定理の実在stable anchorと混同しない。
 
 ---
+
+**以下は分冊時の設計・論証ルートの履歴である。各系列の現在位置はmanifestを正本とし、旧『Phase 0〜7』は未着手タスクの一覧として扱わない。**
 
 ## 元PLANの共通設計・文献・依存監査資料（各科目のシラバスは分冊先が正本）
 
@@ -722,3 +724,11 @@ CA12 theta / zeta
 - DIO 系列は作らない。Hilbert第10問題は NT9--NT10 として整数論側に置く。
 - NT9--NT10 は初等整数論の必修続編ではなく、NT + CMP + EC を合流させる発展章とする。
 - EOM004 / EOM017 固有の2026年結果・検証状況は EOM 側へ置く。
+
+
+## 完了時の横断確認（2026-11-15）
+
+- NT1〜10、NDA1〜8、ANT1〜8、EC1〜11、MF1〜8は各manifestで**全45章 completed**、個別PLANはいずれも `plan_done/`。CA8/9/12との接続は既存の複素解析を再利用し、再講義しない。
+- Phase 6の編集的な横断監査として、NT→NDA/ANT/EC、CA8/9/12+NT→MF、EC11→MF8という依存方向と正本の重複回避を照合。ECの群則・有限体・導手とMFのモジュラー形式／L関数は各章の正本とし、MF7→EC11という依存逆転を新設しない。
+- Modularity Theoremの一般証明（Wiles–Taylor–Wiles）を本ルート内で新規に閉じたとは主張しない。MF8における定理の扱いとFLT接続、各章の詳細証明の責務を混同しない。横断ルート自体には新規の講義・定理・演習を所有させない。
+- 章ID、manifest、用語、公開導線、リンクの移動先を照合し、元PLANが要求した親ルート固有の重複owner・参照整合の確認を完了。研究級の個別章をここで再査読したとの主張ではない。
