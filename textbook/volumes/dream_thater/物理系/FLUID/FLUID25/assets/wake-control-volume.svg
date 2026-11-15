@@ -24,9 +24,9 @@
   <path d="M 500 178 C 522 191, 543 172, 529 153 C 510 133, 485 148, 500 166" fill="none" stroke="#8251a1" stroke-width="3" marker-end="url(#arr-purple)" data-series-group="vortex-pair" data-series-label="upper-vortex"/>
   <path d="M 599 209 C 614 227, 589 242, 570 222 C 556 203, 577 184, 599 197" fill="none" stroke="#8251a1" stroke-width="2.8" stroke-dasharray="5 3" marker-end="url(#arr-purple)" data-series-group="vortex-pair" data-series-label="lower-vortex"/>
   <g fill="#253848" font-family="sans-serif" font-size="21">
-    <text x="148" y="130">U</text>
+    <text x="148" y="111">U</text>
     <text x="356" y="195">B</text>
-    <text x="726" y="146">u<tspan dy="5" font-size="14">d</tspan></text>
+    <text x="728" y="191">u<tspan dy="5" font-size="14">d</tspan></text>
     <text x="98" y="42">CV</text>
     <text x="571" y="40" fill="#a14c26">Q<tspan dy="5" font-size="14">t</tspan></text>
     <text x="575" y="360" fill="#a14c26">Q<tspan dy="5" font-size="14">b</tspan></text>
