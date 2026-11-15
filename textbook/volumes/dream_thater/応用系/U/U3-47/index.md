@@ -677,7 +677,7 @@ $$
 有限二次モーメントの因子 $X\in\mathbb R^d$ と任意の実ベクトル $w$ について、$\operatorname{Var}(w^{\mathsf T}X)=w^{\mathsf T}\Sigma w\ge0$ を、共分散の定義だけから証明せよ。$\Sigma$ が特異でもよいことを説明せよ。
 
 <!-- solution-start -->
-**詳細解答**：$Y=w^{\mathsf T}X$ と置きます。$E[Y]=\sum_iw_i\mu_i$ であり、有限次元なので有限和と期待値を交換できます。さらに $E[(X_i-\mu_i)(X_j-\mu_j)]$ は Cauchy–Schwarz で有限です。
+**詳細解答**：$Y=w^{\mathsf T}X$ と置きます。$E[Y]=\sum_iw_i\mu_i$ であり、有限次元なので有限和と期待値を交換できます。さらに $E[(X_i-\mu_i)(X_j-\mu_j)]$ は [Cauchy--Schwarz 不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz) で有限です。
 
 $$
 \begin{aligned}
