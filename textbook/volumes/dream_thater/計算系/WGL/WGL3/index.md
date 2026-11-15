@@ -68,7 +68,17 @@ WGL2で用いた VBO（vertex buffer object）は、頂点座標のような属�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl3-vao -->
-**定義の確認**。 VAOを結び付けたまま、VBOを `ARRAY_BUFFER` に結び、`vertexAttribPointer(0,2,gl.FLOAT,false,8,0)` を実行します。これで属性0の「位置2成分・stride 8 byte・offset 0 byte・その時点のVBO」がVAOへ記録されます。さらに同じVAOが選択された状態で EBO を結び付ければ、EBOの結び付けも記録されます。VAOを切り替えてから元へ戻すとこの組合せを再利用できます。単に別の `ARRAY_BUFFER` を結び付けるだけでは、既に記録された属性0の参照元は変わりません。
+**定義の確認**。 [WGL2の頂点属性](../WGL2/index.md#def-wgl2-attribute)を実際に読み出すため、頂点シェーダの `layout(location=0) in vec2 a_position;` に対応する属性0を設定します。頂点表のVBOには各頂点の $x,y$ をFloat32で順に格納してあり、1頂点は $2\cdot4=8$ byteです。以下の `vao`、`vbo`、`ebo` は作成済みで、VBOには頂点表、EBOには添字列を転送済みとします。
+
+```js
+gl.bindVertexArray(vao);
+gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+gl.enableVertexAttribArray(0);
+gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 8, 0);
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ebo);
+```
+
+属性0の**有効化状態**と「位置2成分・stride 8 byte・offset 0 byte・`vertexAttribPointer` 実行時点のVBO」がVAOに記録されます。有効化しなければ、形式だけ指定しても頂点ごとの位置をこの配列から読みません。また、同じVAOを選んでいる間に結び付けたEBOも記録されます。VAOを切り替えてから元へ戻すと両方の状態を再利用できますが、単に別の `ARRAY_BUFFER` を結び付けるだけでは、属性0に記録済みの参照元は変わりません。
 <!-- definition-example-end -->
 
 この違いは、**EBOの結び付けがVAOに属する**という点で重要です。別のVAOを選んだ後に初めてEBOを結び付けても、先のVAOがそのEBOを記録することにはなりません。属性設定の詳細は[WGL2の頂点属性定義](../WGL2/index.md#def-wgl2-attribute)も参照してください。
@@ -254,13 +264,13 @@ gl.drawArrays(gl.TRIANGLES, 0, indices.length);
 <!-- solution-end -->
 
 <a id="ex-wgl3-a2"></a>
-**A2. Byteとoffsetを取り違えない**  
+**A2. byteとoffsetを取り違えない**  
 4頂点を各2成分のFloat32、6添字をUint16として保存する。VBO、EBOのbyte数を求め、EBO先頭からすべて読む `drawElements` の count、type、offset を答えよ。
 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 頂点は $4\cdot2\cdot4=32$ byte、添字は $6\cdot2=12$ byteです。したがって `gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0)` を使います。`count=6` は添字の要素数、`offset=0` は先頭からのバイト数です。`offset=6` とすると6番目の頂点から開始する意味にはならず、意図した列を読めません。
+**詳細解答。** 頂点は $4\cdot2\cdot4=32$ byte、添字は $6\cdot2=12$ byteです。したがって `gl.drawElements(gl.TRIANGLES,6,gl.UNSIGNED_SHORT,0)` を使います。`count=6` は添字の要素数、`offset=0` は先頭からのバイト数です。`offset=6` は6番目の頂点を意味せず、6 byte先、すなわち4番目のUint16添字（0始まりの添字位置3）から読み始める指定です。このEBOでは残り3個しかないため、`count=6` のままでは必要な6個を読み取れません。
 <!-- solution-end -->
 
 <a id="ex-wgl3-a3"></a>
@@ -275,12 +285,12 @@ $2\times2$ 小正方形をそれぞれ2枚の三角形に分ける。共有頂�
 
 <a id="ex-wgl3-a4"></a>
 **A4. VAOの状態**  
-VAO Aを選んでVBO Pを属性0に設定し、EBO Xを結び付けた後、VAO Bを選んでEBO Yを結び付けた。再びVAO Aを選ぶと属性0の参照先とEBOは何か。
+VAO Aを選んで属性0の配列を有効化し、VBO Pを属性0の参照元に設定してEBO Xを結び付けた後、VAO Bを選んでEBO Yを結び付けた。再びVAO Aを選ぶと属性0の有効化状態・参照先とEBOは何か。
 
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** [頂点配列オブジェクト VAO](#def-wgl3-vao)により属性0は、`vertexAttribPointer` 実行時に記録されたVBO Pを参照します。EBOもVAOの状態なのでAを選び直すとEBO Xが戻ります。EBO YはBの結び付けです。最後の `ARRAY_BUFFER` の一般的な結び付けを調べるだけでは属性0の参照先は分かりません。
+**詳細解答。** [頂点配列オブジェクト VAO](#def-wgl3-vao)には属性0の有効化状態も保存されます。Aを選び直すと属性0は有効のままで、`vertexAttribPointer` 実行時に記録されたVBO Pを参照します。EBOもVAOの状態なのでEBO Xが戻り、EBO YはBの結び付けのままです。最後の `ARRAY_BUFFER` の一般的な結び付けを調べるだけでは属性0の参照先は分かりません。
 <!-- solution-end -->
 
 ### Level B
