@@ -1,0 +1,46 @@
+id: "MIR1-15"
+title: "ミラー写像の構成と逆級数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-14
+  - MIR1-12
+  - RA6A
+learning_objectives:
+  - 規格化周期比Tとtを区別し一周作用からqの一価性を説明できる
+  - 正則解の非零条件と逆関数定理から局所双正則性を証明できる
+  - 周期級数の商を三次まで係数比較で導ける
+  - q=z+770z^2+1014275z^3+1703916750z^4まで計算できる
+  - 逆級数を合成係数比較とLagrange反転の二通りで計算できる
+  - 定数規格化の変更と整数周期基底の未確定性を区別できる
+  - theta_zとtheta_qの連鎖律およびdz/dtを導ける
+  - 局所ミラー座標の計算とA側曲線計数の証明を混同しない
+theorems:
+  - { id: MIR1-15-DEF-01, name: "規格化ミラー座標" }
+  - { id: MIR1-15-THM-01, name: "ミラー写像は原点で局所双正則" }
+  - { id: MIR1-15-PROP-01, name: "quinticのミラー写像の初期係数" }
+  - { id: MIR1-15-DEF-02, name: "逆ミラー級数" }
+  - { id: MIR1-15-THM-02, name: "逆ミラー級数の初期係数" }
+  - { id: MIR1-15-THM-03, name: "指数型ミラー写像のLagrange反転公式" }
+  - { id: MIR1-15-PROP-02, name: "ミラー座標の微分の変換" }
+canonical_examples:
+  - 正実軸でqの値と原点規格化および一価性を確認
+  - h=azの最小例で指数座標の二次補正を確認
+  - 係数比較でh1=770 h2=717825 h3=3225308000/3を求める
+  - q=z/(1-z)の逆座標を合成恒等式で検算
+  - Lagrange反転と合成係数比較で逆級数四次を独立検算
+problem_patterns:
+  - MIR1-15-MONODROMY-EXPONENTIAL
+  - MIR1-15-HARMONIC-QUOTIENT
+  - MIR1-15-EXPONENTIAL-COEFFICIENT
+  - MIR1-15-INVERSE-LOW-ORDER
+  - MIR1-15-NORMALIZATION
+  - MIR1-15-LOCAL-INVERSE-EXISTENCE
+  - MIR1-15-INVERSE-ORDER-FOUR
+  - MIR1-15-LAGRANGE-REVERSION
+  - MIR1-15-JACOBIAN
+  - MIR1-15-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 12, review: 5 }
