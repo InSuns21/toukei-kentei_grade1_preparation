@@ -55,12 +55,12 @@ $$
 また、与えられた微分方程式を一度積分すると次を得る。
 
 $$
-(zf')'=0\quad\Longrightarrow\quad zf'=a
-\quad\Longrightarrow\quad f=a\operatorname{Log}z+b
+(zf')'=0\quad\Longrightarrow\quad zf'=\alpha
+\quad\Longrightarrow\quad f=\alpha\operatorname{Log}z+\beta
 \qquad(z\ne0).
 $$
 
-ここで $a,b$ は定数で、最後の積分には固定した対数分枝を使った。$\operatorname{Log}z$ は定数関数ではないから、二解は一次独立であり、局所解空間は
+ここで $\alpha,\beta$ は積分定数であり、冒頭で定めた円周の基点 $b$ とは異なる。最後の積分には固定した対数分枝を使った。$\operatorname{Log}z$ は定数関数ではないから、二解は一次独立であり、局所解空間は
 
 $$
 V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\},\qquad
