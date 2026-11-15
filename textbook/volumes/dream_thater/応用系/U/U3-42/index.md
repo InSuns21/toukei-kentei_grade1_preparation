@@ -389,7 +389,7 @@ $$
 =\theta\tau+(r_t-\theta)b(\tau),
 $$
 
-確率積分の項は、$W_T-W_t=\int_t^T1\,dW_v$ により
+確率積分の項は、同じ $Q$-Brown 運動の増分を $W_T^Q-W_t^Q=\int_t^T1\,dW_v^Q$ と表せることから
 
 $$
 \frac{\sigma}{\kappa}
@@ -464,13 +464,13 @@ $$
 
 **一階感応度**は負で、$\sigma$ や $\theta$ に依存しないように見えても、それらは $P$ 自身を通じて作用します。この偏微分はモデル係数・残存期間を固定して短期金利状態だけを変えるもので、観測市場曲線の一様な金利シフトと必ずしも同じではありません。
 
-確率過程の価格付けを PDE 側から確かめます。$p(t,x)$ を、時刻 $t$ の短期金利が $x$ のときの満期1円の価格とします。$x$ は金利であって株価ではありません。
+確率過程の価格付けを PDE 側から確かめます。$p(t,x)$ を、時刻 $t$ の短期金利が $x$ のときの満期1円の価格とします。$x$ は金利であって株価ではありません。以下の $p_t=\partial p/\partial t$ は金利状態 $x$ と満期 $T$ を固定した偏微分、$p_x=\partial p/\partial x$ と $p_{xx}=\partial^2p/\partial x^2$ は時刻 $t$ と満期 $T$ を固定した偏微分です。一方、後に使う $a'(\tau),b'(\tau),v'(\tau)$ のプライムは残存期間 $\tau=T-t$ による通常の微分を表し、$T$ を固定して $t$ を動かせば $\partial_t\tau=-1$ となります。
 
 <a id="prop-u3-42-bond-pde"></a>
 
 <!-- formal-statement-start -->
 > **命題（Vasicek ゼロクーポン債の価格 PDE）**  
-> $0\le t<T\le H$、$\kappa>0$、$\theta\in\mathbb R$、$\sigma\ge0$ の [Vasicek モデル](#def-u3-42-vasicek)を考える。$p(t,x)$ が $t<T,x\in\mathbb R$ で $C^{1,2}$ 級で、対応する割引過程が真のマルチンゲールとなる可積分性を満たし、$p(T,x)=1$ なら、リスク中立債券価格の PDE は
+> $0\le t<T\le H$、$\kappa>0$、$\theta\in\mathbb R$、$\sigma\ge0$ の [Vasicek モデル](#def-u3-42-vasicek)を考える。$p(t,x)$ は $t<T,x\in\mathbb R$ で $C^{1,2}$ 級、終端で $p(T,x)=1$ とする。各開始時刻 $s<T$、金利状態 $x\in\mathbb R$ から出発するモデルの短期金利を $r_u^{s,x}$（$r_s^{s,x}=x$）と書き、割引過程 $\exp(-\int_s^u r_v^{s,x}\,dv)\,p(u,r_u^{s,x})$ が全ての $s\le u\le T$ で真の $Q$-マルチンゲールとなる可積分性を仮定する。このとき価格関数の PDE は
 
 $$
 p_t+\kappa(\theta-x)p_x
@@ -481,7 +481,7 @@ $$
 > [Vasicek 債券価格定理](#thm-u3-42-vasicek-bond)の $p(t,x)=\exp\{a(T-t)-b(T-t)x\}$ はこの方程式を満たす。
 <!-- formal-statement-end -->
 
-**証明の見取り図**：$e^{-\int_0^t r_u\,du}p(t,r_t)$ の Itô ドリフトを0と置きます。さらに明示した指数アフィン形を代入し、$x$ の係数と定数項を別々に相殺します。
+**証明の見取り図**：[割引債券のマルチンゲール性](#prop-u3-42-stochastic-discount)を使い、$B_t^{-1}p(t,r_t)$ の Itô ドリフトを0と置きます。さらに明示した指数アフィン形を代入し、$x$ の係数と定数項を別々に相殺します。
 
 <!-- proof-start -->
 ### 証明
@@ -506,7 +506,7 @@ p_t+\kappa(\theta-r_t)p_x
 +B_t^{-1}\sigma p_x\,dW_t^Q.
 $$
 
-[割引債券のマルチンゲール性](#prop-u3-42-stochastic-discount)に合わせ、ドリフトを0とすると PDE を得ます。逆に、所定の可積分性で局所マルチンゲールを真のマルチンゲールへ昇格できれば、終端条件 $p(T,x)=1$ から条件付き期待値表示が復元されます。
+仮定した真のマルチンゲール性より、この連続なドリフト係数は開始直後にも0です。開始状態 $(s,x)$ を任意に選べるので、任意の $(t,x)$ で PDE を得ます。逆に、PDE によりドリフトが0になり、所定の可積分性で局所マルチンゲールを真のマルチンゲールへ昇格できれば、終端条件 $p(T,x)=1$ から[確率短期金利の評価式](#prop-u3-42-stochastic-discount)が復元されます。
 
 明示価格に $\tau=T-t$ を用いると
 
@@ -515,7 +515,14 @@ p_t=(-a'(\tau)+b'(\tau)x)p,\quad
 p_x=-bp,\quad p_{xx}=b^2p.
 $$
 
-$b'(\tau)=e^{-\kappa\tau}=1-\kappa b$ です。また $v'(\tau)=\sigma^2b(\tau)^2$ です。実際、[分散の積分表示](#thm-u3-42-vasicek-bond)で変数変換すると $v=\sigma^2\int_0^\tau b(z)^2\,dz$ なので微分できます。従って
+$b'(\tau)=e^{-\kappa\tau}=1-\kappa b$ です。また[分散の積分表示](#thm-u3-42-vasicek-bond)で変数変換すると
+
+$
+v(\tau)=\frac{\sigma^2}{\kappa^2}\int_0^\tau(1-e^{-\kappa z})^2\,dz
+=\sigma^2\int_0^\tau b(z)^2\,dz
+$
+
+です。積分上端で微分すると $v'(\tau)=\sigma^2b(\tau)^2$ です。従って
 
 $$
 a'=-\theta(1-b')+\frac{v'}2
@@ -532,12 +539,18 @@ $$
 定数項と $x$ の係数がそれぞれ0なので、全ての $x\in\mathbb R$ で PDE が成り立ちます。$\tau=0$ なら $p(T,x)=1$ です。
 <!-- proof-end -->
 
-最後にモデルから得られる瞬間フォワード金利も検算できます。[曲線の定義](#def-u3-42-curve-rates)と $m,v$ を使い、$t$ 固定で満期を微分すると
+最後にモデルから得られる瞬間フォワード金利も検算できます。[曲線の定義](#def-u3-42-curve-rates)と[累積金利の平均・分散](#thm-u3-42-vasicek-bond)により $-\log P(t,T)=m(\tau)-v(\tau)/2$ です。ここでは評価時刻 $t$ と金利状態 $r_t$ を固定して満期 $T$ を動かすので、$\partial_T\tau=1$ です。したがって
 
-$$
-f(t,T)=\theta+(r_t-\theta)e^{-\kappa\tau}
+$
+\begin{aligned}
+\partial_Tm&=\theta+(r_t-\theta)b'(\tau)
+=\theta+(r_t-\theta)e^{-\kappa\tau},\\
+\partial_Tv&=v'(\tau)=\sigma^2b(\tau)^2,\\
+f(t,T)&=\partial_Tm-\tfrac12\partial_Tv\\
+&=\theta+(r_t-\theta)e^{-\kappa\tau}
 -\frac{\sigma^2}{2\kappa^2}(1-e^{-\kappa\tau})^2.
-$$
+\end{aligned}
+$
 
 $\tau\downarrow0$ で $f(t,t+)=r_t$ ですが、長期極限は $\theta-\sigma^2/(2\kappa^2)$ です。モデルの曲線が必ず市場の全満期に完全一致するわけではありません。係数が一定の Vasicek モデルは、任意の初期市場曲線を自由に再現できないという制限を持ちます。
 
@@ -720,7 +733,7 @@ $$
 
 よって $P_{\mathrm{mod}}(0,2)=e^{-m_2+v_2/2}\approx0.9312746$ です。
 
-3. $b_1\approx0.63212056$ なので[感応度](#prop-u3-42-bond-pde)の直前で求めた式を使い
+3. [Vasicek 債券価格定理](#thm-u3-42-vasicek-bond)の $P_{\mathrm{mod}}(0,T)=e^{a(T)-b(T)r_0}$ を $r_0$ で偏微分すると $\partial_{r_0}P_{\mathrm{mod}}=-b(T)P_{\mathrm{mod}}$ です。$b_1\approx0.63212056$ を代入して
 
 $$
 \frac{\partial P_{\mathrm{mod}}(0,1)}{\partial r_0}
