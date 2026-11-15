@@ -22,7 +22,17 @@ $\partial\Omega$ の外向き単位法線を $n$、物体の外向き法線（�
 
 ## 1. 物体表面の圧力と粘性が抗力を作る
 
-[FLUID14 の圧力による揚抗力の定義](../FLUID14/index.md#def-fluid14-lift-drag)は非粘性の圧力合力を扱った。粘性流では圧力のほか、流体が物体表面を接線・法線方向に引く応力も必要である。[CTM6 の Cauchy 応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)では、単位法線 $n$ の面に働く力の面積密度を応力行列と法線の積 $\sigma n$ で表した。ここではその平面成分を使う。$I$ を二次単位行列、$\tau$ を粘性応力行列として $\sigma=-pI+\tau$ と書き、$x_1=x$、$x_2=y$、$(u_1,u_2)=(u,v)$、$\partial_i=\partial/\partial x_i$（$i=1,2$）と定める。[CTM15 の非圧縮 Newton 構成則](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)をこの座標に制限すると、
+[FLUID14 の圧力による揚抗力の定義](../FLUID14/index.md#def-fluid14-lift-drag)は非粘性の圧力合力を扱った。粘性流では圧力のほか、流体が物体表面を接線・法線方向に引く応力も必要である。
+
+[CTM6 の Cauchy 応力定理](../../CTM/CTM6/index.md#thm-ctm6-cauchy-stress)では、単位法線 $n$ の面に働く力の面積密度を応力行列と法線の積 $\sigma n$ で表した。ここではその平面成分を使い、$I$ を二次単位行列、$\tau$ を粘性応力行列として
+
+$$
+\sigma=-pI+\tau
+$$
+
+と書く。二次元直交座標では $x_1=x$、$x_2=y$ とし、速度成分は $(u_1,u_2)=(u,v)$ とする。$\partial_i=\partial/\partial x_i$（$i=1,2$）は空間座標による偏微分である。
+
+[CTM15 の非圧縮 Newton 構成則](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)をこの座標に制限すると、
 
 $$
 \tau_{ij}=\mu(\partial_i u_j+\partial_j u_i),
