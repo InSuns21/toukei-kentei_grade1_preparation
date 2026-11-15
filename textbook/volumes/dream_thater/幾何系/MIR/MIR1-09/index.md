@@ -67,8 +67,10 @@ $\mathbb C^5\setminus\{0\}$ で $(x_0,\ldots,x_4)$ を同時に $\lambda$ 倍し
 
 $$
 dx_0\wedge\cdots\wedge dx_4
-=t^4\,dt\wedge dy_1\wedge\cdots\wedge dy_4,
-\qquad
+=t^4\,dt\wedge dy_1\wedge\cdots\wedge dy_4.
+$$
+
+$$
 \Omega=t^5\,dy_1\wedge\cdots\wedge dy_4.
 $$
 
@@ -107,7 +109,15 @@ $$
 
 <!-- definition-example-start: def-mir1-09-pole-form -->
 
-**定義の確認**（次数と射影への降下の直接例）。 $k=1$ なら $\deg A=0$ なので $A=1$ を選べる。$k=2$ なら $\deg A=5$ なので $A=x_0^5$ や $A=P$ が許される。$k=3$ なら $\deg A=10$ なので $A=P^2$ が許される。いずれも分子と $\Omega$ の全次数が分母の全次数に一致する。さらに上の $x_0\ne0$ の座標表示へ代入すると、$k=1, A=1$ では $dy_1\wedge\cdots\wedge dy_4/f_\psi$、$k=2, A=P$ では $(y_1y_2y_3y_4)\,dy_1\wedge\cdots\wedge dy_4/f_\psi^2$、$k=3, A=P^2$ では $(y_1y_2y_3y_4)^2\,dy_1\wedge\cdots\wedge dy_4/f_\psi^3$ となる。どの場合もスケール変数 $t$ は残らず、射影上の形式としての条件も確認できる。
+**定義の確認**（次数と射影への降下の直接例）。 $k=1$ なら $\deg A=0$ なので $A=1$ を選べる。$k=2$ なら $\deg A=5$ なので $A=x_0^5$ や $A=P$ が許される。$k=3$ なら $\deg A=10$ なので $A=P^2$ が許される。いずれも分子と $\Omega$ の全次数が分母の全次数に一致する。上の座標表示で $\nu=dy_1\wedge\cdots\wedge dy_4$、$q(y)=y_1y_2y_3y_4$ と置くと、それぞれの局所表示は
+
+$$
+\alpha_{1,1}=\frac{\nu}{f_\psi},\qquad
+\alpha_{2,P}=\frac{q(y)\nu}{f_\psi^2},\qquad
+\alpha_{3,P^2}=\frac{q(y)^2\nu}{f_\psi^3}.
+$$
+
+どの場合もスケール変数 $t$ は残らず、射影上の形式としての条件も確認できる。
 
 <!-- definition-example-end -->
 
