@@ -28,8 +28,8 @@ concepts:
     introduction_aliases: ["定義（三角形の重心座標）"]
     requires: [graphics.triangle-edge-test]
   - id: graphics.barycentric-shader-color
-    name: 同一clip w の三角形の色補間
+    name: clip座標の第4成分が等しい三角形の色補間
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（同一clip w の三角形の色補間）"]
+    introduction_aliases: ["命題（clip座標の第4成分が等しい三角形の色補間）"]
     requires: [graphics.barycentric-coordinate, graphics.interstage-varying, graphics.perspective-division]
