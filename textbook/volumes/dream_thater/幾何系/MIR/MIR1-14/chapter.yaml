@@ -1,0 +1,45 @@
+id: "MIR1-14"
+title: "conifold・orbifold点と積分構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-13
+learning_objectives:
+  - conifold点の四階方程式を通常微分へ展開し指標根0,1,1,2を導ける
+  - 節点の局所平滑化から消滅三次元球面とその留数周期を積分できる
+  - 整数交叉形式・シンプレクティック基底の定義を条件ごとに確認できる
+  - Picard–Lefschetzの幾何学的入力と、その帰結の線形代数的証明を区別できる
+  - conifoldの階数1単冪性と最大単冪性の違いを行列で検算できる
+  - orbifold点の指標根1/5,2/5,3/5,4/5と位数5を導ける
+  - 局所Frobenius基底と整数シンプレクティック周期基底の接続条件を説明できる
+  - サイクル像の列規約と周期列ベクトルの作用規約を区別できる
+theorems:
+  - { id: MIR1-14-PROP-01, name: "conifold点の指標多項式" }
+  - { id: MIR1-14-DEF-01, name: "節点の消滅サイクルと消滅周期" }
+  - { id: MIR1-14-DEF-02, name: "整数シンプレクティック基底とモノドロミー" }
+  - { id: MIR1-14-PRINCIPLE-01, name: "Picard–Lefschetzの節点公式：幾何学的入力" }
+  - { id: MIR1-14-PROP-02, name: "節点の一周は階数1のシンプレクティック単冪変換" }
+  - { id: MIR1-14-DEF-03, name: "本講のorbifold点の局所モノドロミー" }
+  - { id: MIR1-14-THM-01, name: "orbifold点の指標根と位数5の一周作用" }
+  - { id: MIR1-14-DEF-04, name: "積分周期格子と基底の接続行列" }
+canonical_examples:
+  - s=1-xの指標多項式の低次係数を検算
+  - 平滑化二次超曲面の三次元球面で留数周期を積分
+  - 消滅サイクルa1のPicard–Lefschetz行列と交叉保存を検算
+  - ψの五乗被覆上でorbifold解が正則になることを確認
+  - 二次元の周期列の基底変換で非整数係数を具体計算
+problem_patterns:
+  - MIR1-14-CONIFOLD-INDICIAL
+  - MIR1-14-ORBIFOLD-CHARACTERISTIC
+  - MIR1-14-VANISHING-CYCLE-MATRIX
+  - MIR1-14-RESIDUE-PERIOD
+  - MIR1-14-LOG-CONTINUATION
+  - MIR1-14-SYMPLECTIC-TRANSVECTION
+  - MIR1-14-NONINTEGRAL-BASIS
+  - MIR1-14-WRONSKIAN
+  - MIR1-14-FIFTH-ROOT-COVER
+  - MIR1-14-THREE-POINT-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 12, review: 5 }
