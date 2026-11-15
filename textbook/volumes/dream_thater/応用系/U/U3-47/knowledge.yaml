@@ -1,0 +1,65 @@
+chapter: U3-47
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-46, U3-45, U3-44]
+concepts:
+  - id: finance.linear-factor-loss
+    name: 線形因子損失と分散共分散法
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形因子損失と分散共分散法）"]
+    requires: [finance.holding-period-loss, finance.finite-loss-distribution]
+  - id: finance.linear-loss-moments
+    name: 線形損失の平均と分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形損失の平均と分散）"]
+    requires: [finance.linear-factor-loss]
+  - id: finance.normal-factor-model
+    name: 多変量正規因子モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多変量正規因子モデル）"]
+    requires: [finance.linear-factor-loss]
+  - id: finance.normal-linear-projection
+    name: 正規因子の線形射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規因子の線形射影）"]
+    requires: [finance.normal-factor-model, finance.linear-loss-moments]
+  - id: finance.normal-parametric-risk
+    name: 正規線形損失の VaR/ES
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正規線形損失の VaR/ES）"]
+    requires: [finance.normal-linear-projection, finance.value-at-risk, finance.expected-shortfall]
+  - id: finance.student-t-law
+    name: 標準 Student t 分布と位置尺度型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標準 Student t 分布と位置尺度型）"]
+    requires: [finance.normal-factor-model]
+  - id: finance.student-t-moments
+    name: Student t のモーメントと尺度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Student t のモーメントと尺度）"]
+    requires: [finance.student-t-law]
+  - id: finance.multivariate-t-factor
+    name: 共通尺度混合の多変量 t 因子モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（共通尺度混合の多変量 t 因子モデル）"]
+    requires: [finance.student-t-law, finance.normal-factor-model]
+  - id: finance.t-linear-projection
+    name: 共通尺度 t 因子の線形射影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共通尺度 t 因子の線形射影）"]
+    requires: [finance.multivariate-t-factor, finance.normal-linear-projection, finance.student-t-moments]
+  - id: finance.t-parametric-risk
+    name: 位置尺度型 t 損失の VaR/ES
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（位置尺度型 t 損失の VaR/ES）"]
+    requires: [finance.t-linear-projection, finance.student-t-moments, finance.expected-shortfall, finance.value-at-risk]
