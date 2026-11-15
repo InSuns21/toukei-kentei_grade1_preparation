@@ -34,7 +34,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（ローリング Historical Simulation）**  
-> 予測時点 $t\ge n$ において、$t$ までのデータと時点 $t$ に固定した $w_t,c_t$ によって計算した $n$ 個の損失 $\ell_{t;s}$ の**経験確率分布**を
+> 予測時点 $t\ge n$ において、$t$ までのデータと時点 $t$ に固定した $w_t,c_t$ によって計算した $n$ 個の損失 $\ell_{t;s}$ の**経験分布**を
 
 $$
 \widehat P^{\mathrm{HS}}_t
@@ -327,7 +327,15 @@ $$
 
 と書きます。$\mathcal F_t$ は $t$ までの観測から判定できる事象を集めた情報を表します。予測値 $\widehat q_{t+1\mid t}$ が $\mathcal F_t$ のみから計算できる、というのが**先読みをしない**という条件です。
 
-実務上の順序は「(1) 訓練期間だけで窓長・$\rho$ 等を選ぶ → (2) 日 $t$ に観測済みデータで標本と分散を更新 → (3) 日 $t+1$ の VaR/ES を保存 → (4) 翌日の損失を観測して評価 → (5) 必要ならルールを守って再学習」です。後から全データの平均、標準偏差、分散や最良の $\rho$ を決め、過去の時点の予測に使うのは漏洩です。*値がたまたま似ていても手順は不正*です。
+実務上は、次の順序を守ります。
+
+1. 訓練期間だけで窓長・$\rho$ 等を選ぶ。
+2. 日 $t$ に観測済みデータで標本と分散を更新する。
+3. 日 $t+1$ の VaR/ES 予測を確定して保存する。
+4. 翌日の損失が観測されてから、保存済みの予測を評価する。
+5. 必要なら事前に決めたルールで再学習する。
+
+後から全データの平均、標準偏差、分散や最良の $\rho$ を決め、過去時点の予測に使うのは漏洩です。*値がたまたま似ていても手順は不正*です。
 
 窓長 $n$ が短いほど変動に素早く反応しやすい一方で、尾部に含まれる観測は少なくなります。例えば $n=20,\alpha=0.99$ なら $r=0.2$ で ES は標本最大値と一致します。$n=250$ でも $r=2.5$ で、99% ES は上位2件と次の0.5件分だけで決まります。これを「真の99% ES を十分精密に推定できた」と解釈してはいけません。変動率を調整しても履歴に存在しない破局シナリオを新しく生成するわけではありません。
 
@@ -362,7 +370,7 @@ def risk(values, alpha):
 
 rng = random.Random(483)
 returns = [rng.gauss(0, 1 if s < 120 else 2.5) for s in range(240)]
-# Before the evaluation begins, fix the filter parameters and initial
+# Before the evaluation begins, fix the EWMA coefficient and initial
 # forecast variance from the first 20 observations (training period).
 rho = 0.94
 v = sum(z*z for z in returns[:20]) / 20
@@ -379,7 +387,7 @@ for s in range(20, len(returns)):
 start = 20 + args.window
 dates, realized, hs_var, fhs_var, hs_es, fhs_es = [], [], [], [], [], []
 for t in range(start, len(returns)-1):
-    # returns[:t+1] is known at the end of day t;
+    # returns[:t+1] is known after observing day t;
     # returns[t+1] must never enter the forecast.
     historical = returns[t-args.window+1:t+1]
     losses = [-z for z in historical]
@@ -438,7 +446,7 @@ except ImportError:
 $X_1=-2,X_2=1,X_3=3$（1日の因子変化）、予測時点 $t=3$ の感応度 $w_t=2$、確定費用 $c_t=1$ 万円とする。$n=3$ の HS 損失候補、$\alpha=2/3$ の VaR と ES を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[HS の定義](#def-u3-48-hs)より、損失は $1-2X_s$ なので $5,-1,-5$ 万円です。昇順に $(-5,-1,5)$、$k=\lceil3(2/3)\rceil=2$ なので [順位分位点命題](#prop-u3-48-hs-quantiles)で VaR は $-1$ 万円。$r=3(1-2/3)=1$、$m=1$、$\theta=0$ より ES は最大値の5万円です。現在の感応度2は3日すべてに同じように適用しています。
+**詳細解答**：[ローリング Historical Simulation の定義](#def-u3-48-hs)より、損失は $1-2X_s$ なので $5,-1,-5$ 万円です。昇順に $(-5,-1,5)$、$k=\lceil3(2/3)\rceil=2$ なので [順位分位点命題](#prop-u3-48-hs-quantiles)で VaR は $-1$ 万円。$r=3(1-2/3)=1$、$m=1$、$\theta=0$ より ES は最大値の5万円です。現在の感応度2は3日すべてに同じように適用しています。
 <!-- solution-end -->
 
 <a id="ex-u3-48-a2"></a>
@@ -466,7 +474,7 @@ $$
 $n=3$、$\lambda=1/2$ とする。最も古い日から新しい日への指数時間重みと、有効標本数を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[指数時間重み](#def-u3-48-weighted-hs)の正規化分母は $1-\lambda^3=7/8$ です。古い順の非正規化分子は $(1/2)(1/2)^2=1/8$、$(1/2)(1/2)=1/4$、$1/2$ なので、重みは $(1/7,2/7,4/7)$ です。総和は $(1+2+4)/7=1$。[有効標本数命題](#prop-u3-48-weighted-tail)より
+**詳細解答**：[指数時間重み](#def-u3-48-weighted-hs)の正規化分母は $1-\lambda^3=7/8$ です。古い順の非正規化分子は $(1/2)(1/2)^2=1/8$、$(1/2)(1/2)=1/4$、$1/2$ なので、重みは $(1/7,2/7,4/7)$ です。総和は $(1+2+4)/7=1$。[重み付き HS の ES と有効標本数](#prop-u3-48-weighted-tail)より
 
 $$
 n_{\mathrm{eff}}
@@ -484,7 +492,7 @@ $$
 $v_1=4,\rho=1/2$、$R_1=2,R_2=-4$ とする。$v_2,v_3$ と標準化残差 $e_2$ を求め、$v_2$ を作る際に利用可能なショックを述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[EWMA の定義](#def-u3-48-ewma)より $v_2=(4+2^2)/2=4$、$v_3=(4+(-4)^2)/2=10$ です。2日目の予測標準偏差は $\sigma_2=\sqrt{v_2}=2$ なので $e_2=R_2/\sigma_2=-4/2=-2$。$v_2$ は初期値と $R_1$ のみから作られ、$R_2$ はその後に判明します。
+**詳細解答**：[予測時点を守る EWMA 分散フィルターの定義](#def-u3-48-ewma)より $v_2=(4+2^2)/2=4$、$v_3=(4+(-4)^2)/2=10$ です。2日目の予測標準偏差は $\sigma_2=\sqrt{v_2}=2$ なので $e_2=R_2/\sigma_2=-4/2=-2$。$v_2$ は初期値と $R_1$ のみから作られ、$R_2$ はその後に判明します。
 <!-- solution-end -->
 
 <a id="ex-u3-48-a5"></a>
@@ -555,7 +563,7 @@ $0<\rho<1$、$v_1>0$ とすべての平方が非負なので、$v_4\ge\rho^3v_1>
 単一因子で $\mu_s=1$、$\sigma_s=2$、観測変化 $R_s=-1$、翌日予測 $\mu_{t+1\mid t}=0.5,\sigma_{t+1\mid t}=3$、現在ポジション $w_t=-2$、確定費用 $c_t=1$（万円）とする。この日の FHS シナリオと損失を求め、損失に単純に倍率 $3/2$ を掛ける方法が誤る理由を示せ。
 
 <!-- solution-start -->
-**詳細解答**：[FHS 定義](#def-u3-48-fhs)より標準化残差は
+**詳細解答**：[単一因子 Filtered Historical Simulation の定義](#def-u3-48-fhs)より標準化残差は
 
 $$
 e_s=\frac{-1-1}{2}=-1.
@@ -582,7 +590,7 @@ $$
 \widehat{\operatorname{ES}}^{\mathrm{HS}}_{0.60}=\frac{1+4}{2}=2.5.
 $$
 
-(ii) 重み付き累積確率を $0.10,0.25,0.45,0.70,1$ と作ると、最初の0.60到達値は1万円。厳密に超える4万円の確率は0.30、尾部総量0.40から境界に回すのは0.10です。[重み付き ES の公式](#prop-u3-48-weighted-tail)より
+(ii) 重み付き累積確率を $0.10,0.25,0.45,0.70,1$ と作ると、最初の0.60到達値は1万円。厳密に超える4万円の確率は0.30、尾部総量0.40から境界に回すのは0.10です。[重み付き HS の ES と有効標本数](#prop-u3-48-weighted-tail)より
 
 $$
 \widehat{\operatorname{VaR}}^{\mathrm{WHS}}_{0.60}=1,\qquad
