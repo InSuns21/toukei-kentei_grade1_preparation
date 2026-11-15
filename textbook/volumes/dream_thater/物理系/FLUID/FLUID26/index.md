@@ -16,9 +16,13 @@
 
 平らな面では、両側から押す圧力が同じなら面は動かない。球形の液滴のように面が曲がると、面積を増やす張力の仕事が変位方向に依存する。その変化率を記述するには、二つの独立な接線方向に沿って面がどれだけ曲がるかが必要になる。
 
-[GEO10 の主曲率・平均曲率の定義](../../../幾何系/GEO/GEO10/index.md#def-geo10-principal-curvature)では、形作用素を $S=-dn$ として定めるため、外向き法線の球の主曲率は $-1/R$ になる。本講義では流体界面の圧力差と符号を直接結ぶため、**法線の変化率 $dn$ の固有値**を $\kappa_1,\kappa_2$ と表す。従って GEO10 の主曲率の符号をともに逆転させた値であり、外向き球では両方が $+1/R$ となる。対応する直交方向を主方向とし、二つの方向を区別して曲面の曲がりを数える。
+[GEO10 の主曲率・平均曲率の定義](../../../幾何系/GEO/GEO10/index.md#def-geo10-principal-curvature)では、形作用素を $-dn$（GEO10 での記号 $S$ は、本講義の界面 $S$ とは別の対象）として定めるため、外向き法線の球の主曲率は $-1/R$ になる。本講義では流体界面の圧力差と符号を直接結ぶため、**法線の変化率 $dn$ の固有値**を $\kappa_1,\kappa_2$ と表す。従って GEO10 の主曲率の符号をともに逆転させた値であり、外向き球では両方が $+1/R$ となる。対応する直交方向を主方向とし、二つの方向を区別して曲面の曲がりを数える。
 
-ここで $dn$ を単なる記号で済ませず、接方向から確認する。点 $q\in S$ の単位接ベクトル $v$ に沿う曲面内の曲線 $c(s)$（$c(0)=q,\ c'(0)=v$）を取れば、$dn_q(v)$ は $d(n(c(s)))/ds$ の $s=0$ での値である。$|n|^2=1$ を微分すると $n(q)\cdot dn_q(v)=0$ だから、この値は接平面 $T_qS$ に属する。従って $dn_q:T_qS\to T_qS$ は接方向を別の接方向へ写す線形写像として扱える。[GEO10 の形作用素](../../../幾何系/GEO/GEO10/index.md#def-geo10-shape-operator)の符号を反転した写像であり、その正規直交固有ベクトル $e_1,e_2$ で $dn_q(e_i)=\kappa_i e_i$ と書く。この基底では
+ここで $dn$ を単なる記号で済ませず、接方向から確認する。点 $q\in S$ の単位接ベクトル $v$ に沿う曲面内の曲線 $c(s)$ を取り、$c(0)=q$、$c'(0)=v$ とする。$dn_q(v)$ は、法線 $n(c(s))$ を曲線の弧長変数 $s$ で微分した $s=0$ での値である。
+
+$|n|^2=1$ を微分すると $n(q)\cdot dn_q(v)=0$ だから、この値は接平面 $T_qS$ に属する。従って $dn_q:T_qS\to T_qS$ は接方向を別の接方向へ写す線形写像である。
+
+[GEO10 の形作用素](../../../幾何系/GEO/GEO10/index.md#def-geo10-shape-operator)の符号を反転した写像であり、その正規直交固有ベクトル $e_1,e_2$ で $dn_q(e_i)=\kappa_i e_i$ と書く。この基底では
 
 $$
 \operatorname{div}_S n
@@ -55,7 +59,7 @@ dn_q(e_2)=\frac1R e_2,\qquad
 \kappa_\Sigma=\frac2R.
 $$
 
-- 半径 $R>0$ の円筒側面を $q(\phi,z)=(R\cos\phi,R\sin\phi,z)$ と表示すると、外向き法線は $n(\phi,z)=(\cos\phi,\sin\phi,0)$ である。円周方向の単位接ベクトル $e_\phi=(-\sin\phi,\cos\phi,0)$ について、弧長の増分が $R\,d\phi$ なので $dn_q(e_\phi)=e_\phi/R$。軸方向の $e_z=(0,0,1)$ では $n$ が $z$ に依存しないため $dn_q(e_z)=0$。よって
+- 半径 $R>0$ の円筒側面を $q(\phi,z)=(R\cos\phi,R\sin\phi,z)$ と表示する。ここで $\phi$ は円周角、$z$ は軸方向座標であり、外向き法線は $n(\phi,z)=(\cos\phi,\sin\phi,0)$ である。円周方向の単位接ベクトル $e_\phi=(-\sin\phi,\cos\phi,0)$ について、弧長の増分が $R\,d\phi$ なので $dn_q(e_\phi)=e_\phi/R$。軸方向の $e_z=(0,0,1)$ では $n$ が $z$ に依存しないため $dn_q(e_z)=0$。よって
 
 $$
 \kappa_1=\frac1R,\qquad \kappa_2=0,
@@ -115,7 +119,7 @@ dF_\varepsilon(e_i)
 =e_i+\varepsilon\{(\partial_{e_i}w)n+w\kappa_i e_i\}.
 $$
 
-$n\cdot e_i=0$ だから、$|dF_\varepsilon(e_i)|^2=1+2\varepsilon w\kappa_i+O(\varepsilon^2)$ である。従って $\partial_{e_i}w$ が作る法線方向の変化は面積の一次項に現れず、先の曲率和の係数が残る。境界で $w=0$ となる小領域を使えば境界線の仕事もない。したがって
+ここで $\partial_{e_i}w$ は $e_i$ に沿った $w$ の方向微分である。$n\cdot e_i=0$ だから、$|dF_\varepsilon(e_i)|^2=1+2\varepsilon w\kappa_i+O(\varepsilon^2)$ である。従って $\partial_{e_i}w$ が作る法線方向の変化は面積の一次項に現れず、先の曲率和の係数が残る。境界で $w=0$ となる小領域を使えば境界線の仕事もない。したがって
 
 $$
 \delta A=\varepsilon\int_S \kappa_\Sigma w\,dA+o(\varepsilon).
@@ -243,7 +247,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid26-capillary-length -->
-**定義の確認**：単位と実数性。$\gamma=0.072$ N/m、$\Delta\rho=1000$ kg/m$^3$、$g=9.8$ m/s$^2$ なら $\gamma/(\Delta\rho g)=0.072/(9800)\ {\rm m^2}>0$ である。従って平方根が実数として定まり、$\ell_c=\sqrt{0.072/9800}\ {\rm m}\simeq2.71$ mm となる。半径 $a=1$ mm なら $\mathrm{Bo}=a^2/\ell_c^2\simeq0.136$。力の単位を比べると $[\gamma/(\Delta\rho g)]=(\mathrm{N/m})/(\mathrm{N/m^3})=\mathrm{m^2}$ で、定義に矛盾はない。
+**定義の確認**：実数性・単位・Bond 数。$\gamma=0.072$ N/m、$\Delta\rho=1000$ kg/m$^3$、$g=9.8$ m/s$^2$ とする。いずれも正なので平方根の中身は正であり、
+
+$$
+\frac{\gamma}{\Delta\rho g}=\frac{0.072}{9800}\ {\rm m^2}>0,
+\qquad
+\ell_c=\sqrt{\frac{0.072}{9800}}\ {\rm m}\simeq2.71\ {\rm mm}.
+$$
+
+密度差と重力の積は単位体積当たりの重さだから、$[\Delta\rho g]=\mathrm{N/m^3}$ である。従って $[\gamma/(\Delta\rho g)]=(\mathrm{N/m})/(\mathrm{N/m^3})=\mathrm{m^2}$ で、$\ell_c$ は長さになる。半径 $a=1$ mm の管では $\mathrm{Bo}=a^2/\ell_c^2\simeq0.136$ と計算でき、無次元である。
 <!-- definition-example-end -->
 
 水槽に鉛直な細い円管を挿すと、濡れやすい液体は管壁に引かれて上昇し得る。ここで上昇高 $h$ は**水槽のほぼ平坦な自由表面から、管内のメニスカスの代表高さまでの差**であり、曲面上の全点の高さが等しいと主張するものではない。半径を $a>0$、気体と液体の密度差を $\Delta\rho=\rho_l-\rho_g>0$ とする。
@@ -255,7 +267,9 @@ $$
 =(-\cos\theta,\sin\theta).
 $$
 
-球面帽の中心は管軸上にあり、その半径方向の法線成分の絶対値は $a/R$ でもある。よって $\theta\ne\pi/2$ では $a/R=|\cos\theta|$、すなわち $R=a/|\cos\theta|$。液体側の法線は濡れる凹面では球面の中心へ向くため、二つの主曲率の**符号**も含めると $\kappa_1=\kappa_2=-\cos\theta/a$、従って
+球面帽の中心は管軸上にあり、その半径方向の法線成分の絶対値は $a/R$ でもある。よって $\theta\ne\pi/2$ では $a/R=|\cos\theta|$、すなわち $R=a/|\cos\theta|$。
+
+液体側の法線は濡れる凹面では球面の中心へ向くため、二つの主曲率の**符号**も含めると $\kappa_1=\kappa_2=-\cos\theta/a$ となる。従って
 
 $$
 \kappa_\Sigma\simeq-\frac{2\cos\theta}{a}.
