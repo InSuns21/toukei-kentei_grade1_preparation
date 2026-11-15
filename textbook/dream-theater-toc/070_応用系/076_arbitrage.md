@@ -29,3 +29,4 @@
 26. [U4-26 生存者・価格修正・情報時刻の監査](textbook/volumes/dream_thater/応用系/U/U4-26/index.md)
 27. [U4-27 時系列のwalk-forwardと漏洩防止](textbook/volumes/dream_thater/応用系/U/U4-27/index.md)
 28. [U4-28 多重探索・過学習・Sharpeの検証](textbook/volumes/dream_thater/応用系/U/U4-28/index.md)
+29. [U4-29 レジーム変化・テール・流動性のストレス監査](textbook/volumes/dream_thater/応用系/U/U4-29/index.md)
