@@ -1,0 +1,76 @@
+chapter: SP15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP10
+  - F0-00P5A
+forward_references: []
+concepts:
+  - id: stochastic.renewal-process
+    name: 通常更新過程
+    kind: definition
+    aliases: ["ordinary renewal process"]
+    introduction: formal
+    introduction_aliases: ["定義（通常更新過程）"]
+    requires:
+      - stochastic.simple-counting-process
+      - prob.independent-random-variables
+
+  - id: stochastic.renewal-local-finiteness
+    name: 更新回数の局所有限性とモーメント
+    kind: proposition
+    aliases: ["local finiteness of renewal counts"]
+    introduction: formal
+    introduction_aliases: ["命題（更新回数の局所有限性とモーメント）"]
+    requires:
+      - stochastic.renewal-process
+
+  - id: stochastic.renewal-count-distribution
+    name: 更新回数の確率と期待値
+    kind: proposition
+    aliases: ["renewal count distribution"]
+    introduction: formal
+    introduction_aliases: ["命題（更新回数の確率と期待値）"]
+    requires:
+      - stochastic.renewal-local-finiteness
+
+  - id: stochastic.renewal-function
+    name: 更新関数
+    kind: definition
+    aliases: ["renewal function"]
+    introduction: formal
+    introduction_aliases: ["定義（更新関数）"]
+    requires:
+      - stochastic.renewal-process
+      - prob.expectation
+
+  - id: stochastic.renewal-equation
+    name: 更新方程式と局所有界解の一意性
+    kind: theorem
+    aliases: ["renewal equation"]
+    introduction: formal
+    introduction_aliases: ["定理（更新方程式と局所有界解の一意性）"]
+    requires:
+      - stochastic.renewal-function
+      - stochastic.renewal-local-finiteness
+
+  - id: stochastic.renewal-strong-law
+    name: 更新回数の強大数法則
+    kind: theorem
+    aliases: ["strong law for renewal counts"]
+    introduction: formal
+    introduction_aliases: ["定理（更新回数の強大数法則）"]
+    requires:
+      - stochastic.renewal-process
+      - prob.iid-integrable-slln
+
+  - id: stochastic.elementary-renewal-theorem
+    name: 初等更新定理
+    kind: theorem
+    aliases: ["elementary renewal theorem"]
+    introduction: formal
+    introduction_aliases: ["定理（初等更新定理）"]
+    requires:
+      - stochastic.renewal-function
+      - stochastic.renewal-strong-law
+      - stochastic.renewal-local-finiteness
