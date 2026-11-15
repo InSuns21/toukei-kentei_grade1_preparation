@@ -18,6 +18,8 @@ $$
 
 各シナリオのオプション評価には、採用した価格付けモデルの $Q$ による評価を行ってよく、シナリオを発生させる頻度まで $Q$ に置き換えるわけではありません。
 
+ここで $\mathcal F_t$ は時点 $t$ までに利用できる情報、$\theta_t$ はその情報だけで決める予測パラメータです。乱数を状態へ変換する写像 $G_{\theta_t}$ の「可測」とは、変換後の状態についても確率的な事象を定められるという条件です。この条件は、[U3-44 の全再評価で使う可測性](../U3-44/index.md#def-u3-44-full-revaluation)と同様、損失分布を扱うために必要です。入力乱数の分布 $H$ と、出力の条件付き $P$ 分布は、写像を通して対応付けます。
+
 <a id="def-u3-49-scenario-mc"></a>
 
 <!-- formal-statement-start -->
@@ -40,6 +42,8 @@ $$
 G(z_1,z_2)=(z_1,z_2).
 $$
 
+各試行 $j$ に別々の独立な $H$ 分布の入力 $Z^{(j)}$ を使うと、恒等写像による出力 $X^{(j)}=G(Z^{(j)})=Z^{(j)}$ も同じ $H$ 分布に従い、試行間で独立です。これは写像の性質と入力の独立性から確かめる条件であり、実現した3点の並びだけから独立性を判定するものではありません。
+
 固定した $M=3$ 組の標本値として $((1,0),(0,1),(-1,0))$ を考えます。写像は可測で、出力は必ず $D$ に属します。
 
 正規乱数は連続分布なので、特定の数値を**正確に**引く確率は0ですが、その近傍は正の確率を持ちます。標本値を例示することと、3点の等確率分布を元の連続 $P$ 分布そのものと取り違えることは別です。
@@ -47,7 +51,7 @@ $$
 
 ## 2. 多因子モデル：相関をどう入れるか
 
-株価と金利を独立に発生させると、両者が同時に動くリスクを誤って評価しかねません。相関係数 $\rho$ の意味は、共分散をそれぞれの標準偏差で割った値です（多変量正規因子の導入は [U3-47](../U3-47/index.md#def-u3-47-normal-factor)）。
+株価と金利を独立に発生させると、両者が同時に動くリスクを誤って評価しかねません。そこで [U3-47 の多変量正規因子モデル](../U3-47/index.md#def-u3-47-normal-factor)を使い、**生成に用いる標準正規ショック間の相関**を $\rho$ と指定します。相関係数は共分散を二つの標準偏差の積で割った値です。ただし、$\rho$ は指数変換後の株価水準 $S_{t+h}$ と金利水準 $r_{t+h}$ 自体の相関係数とは一般に一致しません。どちらかの因子が定数になる場合、その因子と他方の相関係数は定義されません。
 
 <a id="def-u3-49-two-factor"></a>
 
@@ -148,6 +152,19 @@ $$
 
 比較を公平にするため、まず将来時点まで暦だけ進め、因子を動かさない価格 $v_h(x_t)$ を計算します。これが「ロール後の基準評価額」です。時点 $t$ の価格 $V_t$ をそのまま近似の切片とすると、時間経過と因子ショックの誤差が混ざります。
 
+この節では保有期間 $h>0$（時点 $t$ から将来の評価時点 $t+h$ までの長さ）と他の契約条件を固定し、因子座標 $x=(x_1,\ldots,x_d)^{\mathsf T}$ だけを変化させます。$\partial v_h/\partial x_i$ は第 $i$ 因子を動かし他の因子を固定した偏微分です。これらを列に並べた勾配と、因子変化 $\Delta=x-x_t$ の内積は
+
+$$
+\nabla v_h(x_t)=
+\left(\frac{\partial v_h}{\partial x_1}(x_t),\ldots,
+\frac{\partial v_h}{\partial x_d}(x_t)\right)^{\mathsf T},
+\qquad
+\nabla v_h(x_t)^{\mathsf T}\Delta
+=\sum_{i=1}^{d}\frac{\partial v_h}{\partial x_i}(x_t)(x_i-x_{t,i}).
+$$
+
+したがって転置記号 $\mathsf T$ は列ベクトル同士の内積を表すためのもので、行列式や固有値による判定は使いません。[U3-47 の線形因子損失](../U3-47/index.md#def-u3-47-linear-loss)で用いた感応度と因子変化の積を、同じ将来時点の価格関数の偏微分で具体化したものです。
+
 <a id="def-u3-49-roll-linear"></a>
 
 <!-- formal-statement-start -->
@@ -207,7 +224,16 @@ $$
 Cauchy–Schwarz と仮定から被積分関数の絶対値は $Ku\|\Delta\|^2$ 以下です。積分すると $K\|\Delta\|^2\int_0^1u\,du=K\|\Delta\|^2/2$ を得ます。
 <!-- proof-end -->
 
-**失敗の機構**：$v_h(x)=(x-1)^+$ は $x=1$ で微分できません。行使価格の折れ目では命題の連続微分可能性が壊れます。実際、$x_t=1-\varepsilon$、$x=1+\varepsilon$ なら現在点の傾き0による近似値0に対し、全再評価は $\varepsilon$ です。誤差はショック幅 $2\varepsilon$ の一次で、二次の一様上界を当然視できません。
+**失敗の機構**：$v_h(x)=(x-1)^+$ は $x=1$ で微分できません。行使価格の折れ目では命題の連続微分可能性が壊れます。実際、$x_t=1-\varepsilon$、$x=1+\varepsilon$ なら現在点の傾き0による近似値0に対し、全再評価は $\varepsilon$ です。誤差はショック幅 $2\varepsilon$ の一次です。さらに $\varepsilon>0$ に対し
+
+$$
+\frac{|v_h(x)-\widetilde v_h(x)|}{|x-x_t|^2}
+=\frac{\varepsilon}{(2\varepsilon)^2}
+=\frac1{4\varepsilon}\longrightarrow\infty
+\qquad(\varepsilon\downarrow0)
+$$
+
+となり、一定の $K/2$ では一様に抑えられません。折れ目で微分可能性が失われ、連鎖律で作る勾配差の Lipschitz 評価が使えないことが失敗の原因です。
 
 ## 5. 標本誤差と再価格誤差を分離する
 
@@ -277,7 +303,7 @@ $$
 $$
 \widetilde L_j-\varepsilon\le L_j\le\widetilde L_j+\varepsilon.
 $$
-成分ごとの不等式があれば、任意の閾値 $z$ に対して $\#\{j:L_j\le z\}$ の順序関係から、各順位統計量にも同じ順序が成立します。したがって $k=\lceil M\alpha\rceil$ として
+成分ごとに $a_j\le b_j$ なら、$b_{(k)}$ 以下の $b_j$ が少なくとも $k$ 個あるので、対応する $a_j$ も少なくとも $k$ 個が $b_{(k)}$ 以下です。よって $a_{(k)}\le b_{(k)}$ です。これを $a_j=L_j,\ b_j=\widetilde L_j+\varepsilon$ と $a_j=\widetilde L_j-\varepsilon,\ b_j=L_j$ にそれぞれ適用します。一定値の加減は順位を変えないため、$k=\lceil M\alpha\rceil$ として
 $$
 \widetilde L_{(k)}-\varepsilon\le L_{(k)}
 \le\widetilde L_{(k)}+\varepsilon.
@@ -385,7 +411,29 @@ $v(x,y)=x^2+y^2$ 万円、現在因子 $(1,1)$、将来因子 $(2,0)$、倍率1�
 $\sigma_1=2,\sigma_2=3,\rho=-1/2$ とし、$(Y_1,Y_2)=(2U,3W)$ とする。共分散行列を導出し、負定値にならないことを確認せよ。
 
 <!-- solution-start -->
-**詳細解答**：[相関の命題](#prop-u3-49-correlation)から $\operatorname{Var}(U)=\operatorname{Var}(W)=1$、$\operatorname{Cov}(U,W)=-1/2$ です。したがって
+**詳細解答**：[相関の命題](#prop-u3-49-correlation)から $\operatorname{Var}(U)=\operatorname{Var}(W)=1$、$\operatorname{Cov}(U,W)=-1/2$ です。[共分散行列の定義](../U3-47/index.md#def-u3-47-linear-loss)では、第 $(i,j)$ 成分は $\operatorname{Cov}(Y_i,Y_j)$ です。任意の $a,b\in\mathbb R$ について
+
+$$
+\begin{aligned}
+\operatorname{Var}(aY_1+bY_2)
+&=a^2\operatorname{Var}(Y_1)+2ab\operatorname{Cov}(Y_1,Y_2)\\
+&\quad+b^2\operatorname{Var}(Y_2)
+\end{aligned}
+$$
+
+となるので、行列の二次形式を計算すれば非負性を直接判定できます。今回は $E[U]=E[W]=0$ であるため、定義に戻って
+
+$$
+\operatorname{Var}(2U)=E[(2U)^2]=4,\qquad
+\operatorname{Var}(3W)=E[(3W)^2]=9,
+$$
+
+$$
+\operatorname{Cov}(2U,3W)=E[(2U)(3W)]
+=6E[UW]=6(-1/2)=-3
+$$
+
+と求められます。これらを各成分へ代入すると
 $$
 \operatorname{Cov}(Y)=
 \begin{pmatrix}
