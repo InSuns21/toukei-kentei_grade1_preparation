@@ -1,0 +1,56 @@
+chapter: FLUID32
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID1
+  - FLUID16
+  - FLUID31
+concepts:
+  - id: fluid.rotating-frame-acceleration
+    name: 一定角速度の回転系における加速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一定角速度の回転系における加速度）"]
+    requires: []
+  - id: fluid.coriolis-parameter
+    name: Coriolis パラメータ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Coriolis パラメータ）"]
+    requires: [fluid.rotating-frame-acceleration]
+  - id: fluid.rossby-ekman-numbers
+    name: Rossby 数と Ekman 数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Rossby 数と Ekman 数）"]
+    requires: [fluid.coriolis-parameter, fluid.kinematic-viscosity]
+  - id: fluid.geostrophic-flow
+    name: 地衡流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（地衡流）"]
+    requires: [fluid.coriolis-parameter, fluid.rossby-ekman-numbers]
+  - id: fluid.geostrophic-formula
+    name: 地衡流速の成分と水平発散
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（地衡流速の成分と水平発散）"]
+    requires: [fluid.geostrophic-flow]
+  - id: fluid.thermal-wind-balance
+    name: 静水圧・地衡釣合から得る熱風関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静水圧・地衡釣合から得る熱風関係）"]
+    requires: [fluid.geostrophic-formula]
+  - id: fluid.ekman-depth-constant-viscosity
+    name: 定数粘性模型の Ekman 厚さ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定数粘性模型の Ekman 厚さ）"]
+    requires: [fluid.coriolis-parameter, fluid.kinematic-viscosity]
+  - id: fluid.ekman-bottom-spiral
+    name: 静止水平底面上の Ekman らせん
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（静止水平底面上の Ekman らせん）"]
+    requires: [fluid.ekman-depth-constant-viscosity, fluid.geostrophic-flow]

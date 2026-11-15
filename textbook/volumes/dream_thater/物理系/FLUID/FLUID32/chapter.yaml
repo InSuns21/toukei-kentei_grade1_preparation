@@ -1,0 +1,48 @@
+id: "FLUID32"
+title: "地球回転で地衡流が成立する条件は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID1
+  - FLUID16
+  - FLUID31
+official_scope: []
+learning_objectives:
+  - "回転座標の基底微分から Coriolis 加速度の係数2と遠心項を導き、traditional approximationの仮定を区別する"
+  - "緯度によるCoriolisパラメータの符号と地衡流の右左・高低圧側を具体例で検証する"
+  - "Rossby数、Ekman数、局所時間尺度を運動方程式の項から導いて地衡近似の成立・破綻を判定する"
+  - "地衡流速の二成分と一定f面での水平発散・相対渦度を導出する"
+  - "静水圧・地衡釣合から熱風関係を導き、水平密度勾配と鉛直シアの符号を検算する"
+  - "半空間・静止底面・定粘性のEkman層を複素速度で解き、両端条件・らせんの符号・輸送を検証する"
+  - "赤道・非定常・高Ro・壁・緯度変化でどの仮定と釣合が破れるか説明する"
+definitions:
+  - { id: FLUID32-DEF-01, name: "Coriolis パラメータ" }
+  - { id: FLUID32-DEF-02, name: "Rossby 数と Ekman 数" }
+  - { id: FLUID32-DEF-03, name: "地衡流" }
+  - { id: FLUID32-DEF-04, name: "定数粘性模型の Ekman 厚さ" }
+theorems:
+  - { id: FLUID32-THM-01, name: "一定角速度の回転系における加速度" }
+  - { id: FLUID32-THM-02, name: "地衡流速の成分と水平発散" }
+  - { id: FLUID32-PROP-01, name: "静水圧・地衡釣合から得る熱風関係" }
+  - { id: FLUID32-THM-03, name: "静止水平底面上の Ekman らせん" }
+canonical_examples:
+  - "北緯と南緯30度でのCoriolisパラメータの符号確認"
+  - "北に低圧がある東向き地衡流と圧力・Coriolisのベクトル釣合"
+  - "Ro・Ek・無次元時間尺度を別々に判定する例"
+  - "水平密度勾配から高さ20mあたりの地衡流変化量"
+  - "底面Ekman層の厚さ・z=δの速度・輸送と南北半球比較"
+problem_patterns:
+  - FLUID32-F-SIGN
+  - FLUID32-GEOSTROPHIC-COMPONENTS
+  - FLUID32-TIMESCALE
+  - FLUID32-EKMAN-DEPTH
+  - FLUID32-SOUTHERN-PRESSURE
+  - FLUID32-ROTATING-DERIVATIVE
+  - FLUID32-GEOSTROPHIC-DIVERGENCE
+  - FLUID32-EKMAN-SOUTHERN
+  - FLUID32-THERMAL-WIND
+  - FLUID32-INTEGRATED-BOTTOM-LAYER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 5 }
