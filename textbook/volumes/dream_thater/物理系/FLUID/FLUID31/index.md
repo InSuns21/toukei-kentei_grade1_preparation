@@ -109,11 +109,11 @@ $$
 
 とする。この区間では $1-\alpha z\ge0.99>0$、両端間の背景密度差は $\rho_0$ の $2\%$ である。勾配 $d\bar\rho/dz=-\rho_0\alpha$ を[成層強度の定義](#def-fluid31-bv-frequency)へ代入すると
 
-$
+$$
 N^2=-\frac g{\rho_0}(-\rho_0\alpha)
 =g\alpha=4.0\times10^{-4}\ {\rm s^{-2}},\qquad
 N=\sqrt{N^2}=0.020\ {\rm s^{-1}}.
-$
+$$
 
 逆に $\alpha<0$ にすると同じ式は $N^2<0$ を与え、安定成層とは呼べない。
 <!-- definition-example-end -->
@@ -152,21 +152,21 @@ $$
 
 加速度 $\xi_{tt}$ と等置して結論の方程式を得る。$N^2>0$ なら正の平方根 $N$ を用いた一般解は
 
-$
+$$
 \xi(t)=C\cos Nt+D\sin Nt.
-$
+$$
 
 $N^2=0$ なら $\xi_{tt}=0$ を二回積分して
 
-$
+$$
 \xi(t)=\xi_0+v_0t.
-$
+$$
 
 $N^2=-\sigma^2<0$（$\sigma>0$）なら特性方程式 $r^2-\sigma^2=0$ の根は $r=\pm\sigma$ なので
 
-$
+$$
 \xi(t)=C e^{\sigma t}+D e^{-\sigma t}.
-$
+$$
 
 $C\ne0$ の場合、増大する指数項が存在する。
 <!-- proof-end -->
