@@ -517,10 +517,12 @@ $$
 
 $b'(\tau)=e^{-\kappa\tau}=1-\kappa b$ です。また[分散の積分表示](#thm-u3-42-vasicek-bond)で変数変換すると
 
-$
-v(\tau)=\frac{\sigma^2}{\kappa^2}\int_0^\tau(1-e^{-\kappa z})^2\,dz
-=\sigma^2\int_0^\tau b(z)^2\,dz
-$
+$$
+\begin{aligned}
+v(\tau)&=\frac{\sigma^2}{\kappa^2}\int_0^\tau(1-e^{-\kappa z})^2\,dz\\
+&=\sigma^2\int_0^\tau b(z)^2\,dz.
+\end{aligned}
+$$
 
 です。積分上端で微分すると $v'(\tau)=\sigma^2b(\tau)^2$ です。従って
 
@@ -541,7 +543,7 @@ $$
 
 最後にモデルから得られる瞬間フォワード金利も検算できます。[曲線の定義](#def-u3-42-curve-rates)と[累積金利の平均・分散](#thm-u3-42-vasicek-bond)により $-\log P(t,T)=m(\tau)-v(\tau)/2$ です。ここでは評価時刻 $t$ と金利状態 $r_t$ を固定して満期 $T$ を動かすので、$\partial_T\tau=1$ です。したがって
 
-$
+$$
 \begin{aligned}
 \partial_Tm&=\theta+(r_t-\theta)b'(\tau)
 =\theta+(r_t-\theta)e^{-\kappa\tau},\\
@@ -550,7 +552,7 @@ f(t,T)&=\partial_Tm-\tfrac12\partial_Tv\\
 &=\theta+(r_t-\theta)e^{-\kappa\tau}
 -\frac{\sigma^2}{2\kappa^2}(1-e^{-\kappa\tau})^2.
 \end{aligned}
-$
+$$
 
 $\tau\downarrow0$ で $f(t,t+)=r_t$ ですが、長期極限は $\theta-\sigma^2/(2\kappa^2)$ です。モデルの曲線が必ず市場の全満期に完全一致するわけではありません。係数が一定の Vasicek モデルは、任意の初期市場曲線を自由に再現できないという制限を持ちます。
 
