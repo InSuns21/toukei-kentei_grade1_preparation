@@ -1259,15 +1259,24 @@ $$
 X_t=tZ
 $$
 
-と置けば、
+と置きます。任意の有限時刻 $t_1,\ldots,t_n$ に対して
 
 $$
-\operatorname{Cov}(X_s,X_t)
+(X_{t_1},\ldots,X_{t_n})^\mathsf T
 =
-st
+(t_1,\ldots,t_n)^\mathsf T Z
 $$
 
-です。この例では全時刻の値が一つの $Z$ で決まるため、有限次元分布は一般に退化しています。退化ガウス分布を許す必要があることもここで分かります。
+は標準正規変数 $Z$ の線形像なので、退化を許す多変量ガウス分布です。また $E[Z]=0$、$E[Z^2]=1$ から
+
+$$
+E[X_t]=tE[Z]=0,
+\qquad
+\operatorname{Cov}(X_s,X_t)
+=stE[Z^2]=st.
+$$
+
+よってガウス過程の定義と、構成定理が要求する平均・共分散の両方を確認できました。この例では全時刻の値が一つの $Z$ で決まるため、有限次元分布は一般に退化しています。退化ガウス分布を許す必要があることもここで分かります。
 <!-- definition-example-end -->
 
 STO4 ではこの一般定理に
@@ -1350,7 +1359,7 @@ $$
 
 $s,t\ge0$ とします。
 
-一般性を失わず $t\ge s$ とすると
+$t=s$ なら差は 0 で評価は自明です。以下は $t>s\ge0$ とします。このとき $\sqrt t+\sqrt s>0$ なので分母を払ってよく、
 
 $$
 \sqrt t-\sqrt s
@@ -1358,7 +1367,7 @@ $$
 \frac{t-s}{\sqrt t+\sqrt s}.
 $$
 
-さらに
+$t\ge t-s\ge0$ から $\sqrt t\ge\sqrt{t-s}$ であり、
 
 $$
 \sqrt t+\sqrt s
@@ -1771,7 +1780,21 @@ $$
 
 です。
 
-これは十分小さい $|t-s|$ に対して成立します。有限区間上では、この局所 bound から定数を大きくすれば全ての $s,t$ に対する bound へ拡張できます。
+これは $n\ge N(\omega)$ と選べる十分小さい $|t-s|$ に対して成立します。そこで $h_0=T2^{-N(\omega)}>0$ と置くと、上の評価から $\widetilde X$ は各点で連続です。連続関数はコンパクト区間 $[0,T]$ で有界なので、
+
+$$
+M(\omega)=\sup_{0\le u\le T}|\widetilde X_u(\omega)|<\infty
+$$
+
+です。$|t-s|\ge h_0$ なら
+
+$$
+|\widetilde X_t-\widetilde X_s|
+\le 2M(\omega)
+\le 2M(\omega)h_0^{-\eta}|t-s|^\eta
+$$
+
+です。従って近い二時刻の連鎖評価と合わせて全ての $s,t$ への Hölder 評価を得ます。
 
 したがって $\widetilde X$ の標本路は a.s. 指数 $\eta$ で Hölder 連続です。
 
@@ -1785,7 +1808,23 @@ $$
 
 より指数 $\gamma$ でも Hölder 連続です。
 
-$\gamma<\beta/\alpha$ は任意だったので結論を得ます。
+以上で、固定した $\gamma$ ごとには指数 $\gamma$ の修正を構成できました。「同じ修正が全ての $\gamma<\beta/\alpha$ に対応する」という強い形も確認します。
+
+$$
+\gamma_j=\frac{\beta}{\alpha}\left(1-\frac{1}{j+1}\right)
+\quad(j=1,2,\ldots)
+$$
+
+と置くと、$\gamma_j\uparrow\beta/\alpha$ です。各 $j$ に今の構成を適用して、$\gamma_j$-Hölder な連続修正 $Y^{(j)}$ を取ります。任意の有理時刻 $q\in\mathbb Q\cap[0,T]$ で、全ての $Y^{(j)}_q$ は同じ $X_q$ にほとんど確実に一致します。$j$ と $q$ は可算個なので、確率 1 の一つの事象上で全てが一致します。各 $Y^{(j)}$ の連続性も同時に満たす確率 1 の事象を取れば、稠密な有理時刻での一致から全ての実時刻でも一致します。
+
+従って例えば $Y^{(1)}$ を選べば、一つの共通の確率 1 事象上で全ての $\gamma_j$-Hölder 評価が成立します。任意の $0<\gamma<\beta/\alpha$ に対し $\gamma<\gamma_j$ となる $j$ を選べば、
+
+$$
+|t-s|^{\gamma_j}
+\le\max\{1,T^{\gamma_j-\gamma}\}|t-s|^\gamma
+$$
+
+より、この同じ修正が指数 $\gamma$ でも Hölder 連続です。
 <!-- proof-end -->
 
 ---
@@ -2059,6 +2098,18 @@ $$
 
 と書けます。
 
+境界値 $p=0,1$ も含めて扱うため、$x\in\{0,1\}$ に対して
+
+$$
+w_p(x)=
+\begin{cases}
+p & (x=1),\\
+1-p & (x=0)
+\end{cases}
+$$
+
+と置きます。これなら $0^0$ の取り決めを必要としません。
+
 $\mu_J$ は全座標の積測度なので、$I$ の座標がある値
 
 $$
@@ -2068,8 +2119,7 @@ $$
 を取る確率は
 
 $$
-\prod_{t\in I}
-p^{x_t}(1-p)^{1-x_t}
+\prod_{t\in I}w_p(x_t)
 $$
 
 に、余分な座標 $u_1,\ldots,u_r$ の全ての取り方の確率和を掛けたものです。
@@ -2091,8 +2141,7 @@ $$
 従って $I$ 座標の周辺分布は
 
 $$
-\prod_{t\in I}
-p^{x_t}(1-p)^{1-x_t},
+\prod_{t\in I}w_p(x_t),
 $$
 
 すなわち $\mu_I$ です。
@@ -2435,7 +2484,7 @@ a_i1_{\{u\le t_i\}}
 \end{aligned}
 $$
 
-2. 半正定値の定義は
+2. [半正定値行列の定義](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)は
 
 $$
 a^\mathsf T\Sigma a\ge0
@@ -2482,7 +2531,7 @@ $$
 1. $\mu_0(A_n)\ge\delta>0$ と仮定する。
 2. 各有限次元集合 $B_n$ を compact $K_n\subset B_n$ で
    $$
-   \mu(B_n\setminus K_n)<\varepsilon_n,
+   \mu_{I_n}(B_n\setminus K_n)<\varepsilon_n,
    \qquad
    \sum_n\varepsilon_n<\delta/2
    $$
@@ -2730,7 +2779,7 @@ $$
 \gamma<\frac{\beta}{\alpha}
 $$
 
-なので連続性 theorem を適用でき、指数 $\gamma$ で Hölder 連続な標本路を持つ修正が存在します。
+なので[Kolmogorov--Chentsov 連続定理](#thm-sto3-kolmogorov-chentsov)を適用でき、指数 $\gamma$ で Hölder 連続な標本路を持つ修正が存在します。
 
 $\gamma<1/2$ は任意だったので、任意の $1/2$ 未満の指数を得られます。
 
