@@ -1,0 +1,38 @@
+chapter: FLUID34
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID11
+  - FLUID27
+  - FLUID31
+concepts:
+  - id: fluid.kh-normal-mode-growth-rate
+    name: 界面の正規モードと時間成長率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（界面の正規モードと時間成長率）"]
+    requires: [fluid.wave-wavenumber-frequency]
+  - id: fluid.kh-kinematic-amplitudes
+    name: 界面の運動学的条件とポテンシャル振幅
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（界面の運動学的条件とポテンシャル振幅）"]
+    requires: [fluid.kh-normal-mode-growth-rate, fluid.velocity-potential, fluid.linear-free-surface-conditions]
+  - id: fluid.kh-two-layer-dispersion
+    name: 二層Kelvin–Helmholtz波の分散関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二層Kelvin–Helmholtz波の分散関係）"]
+    requires: [fluid.kh-kinematic-amplitudes, fluid.young-laplace-pressure-jump]
+  - id: fluid.kh-growth-criterion
+    name: 界面モードの成長率と線形不安定判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（界面モードの成長率と線形不安定判定）"]
+    requires: [fluid.kh-two-layer-dispersion, fluid.kh-normal-mode-growth-rate]
+  - id: fluid.kh-instability-band
+    name: 安定成層・正の表面張力での不安定波数帯
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（安定成層・正の表面張力での不安定波数帯）"]
+    requires: [fluid.kh-growth-criterion]
