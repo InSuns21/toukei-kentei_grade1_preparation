@@ -79,13 +79,13 @@ $$
 
 液体内部では、[一定密度 Euler 方程式](../FLUID6/index.md#thm-fluid6-euler-equation)が成り立つ。$u=\nabla\phi$ を代入する。ここで $\nabla=(\partial_x,\partial_z)$ は空間微分であり、$\partial_t$ は空間座標を固定する時間偏微分である。$\phi$ が二階連続微分可能なら、各 $i\in\{x,z\}$ について
 
-$
+$$
 \begin{aligned}
 ((u\cdot\nabla)u)_i
 &=\sum_{j\in\{x,z\}}(\partial_j\phi)(\partial_j\partial_i\phi)\\
 &=\partial_i\!\left[\frac12\bigl((\partial_x\phi)^2+(\partial_z\phi)^2\bigr)\right].
 \end{aligned}
-$
+$$
 
 従って $(u\cdot\nabla)u=\nabla(|\nabla\phi|^2/2)$、また $\partial_tu=\nabla\phi_t$ だから、Euler 方程式は
 
@@ -162,12 +162,12 @@ $$
 
 一定の位相 $\theta(x(t),t)=\theta_0$ を追う。ここで $x(t)$ は山など同じ位相の点の位置であり、流体粒子の軌道とは限らない。偏微分を含む連鎖律を使うと
 
-$
+$$
 0=\frac{d}{dt}\theta(x(t),t)
 =\frac{\partial\theta}{\partial x}\frac{dx}{dt}
 +\frac{\partial\theta}{\partial t}
 =k\frac{dx}{dt}-\omega.
-$
+$$
 
 $k>0$ だから $dx/dt=\omega/k$ が進行速度である。
 
@@ -724,12 +724,12 @@ $$
 
 有限水深では $c_p^2=(g/k+\gamma k/\rho)\tanh(kh)$。$d(\tanh(kh))/dk=h/\cosh^2(kh)$ と積の微分を使えば
 
-$
+$$
 \frac{d(c_p^2)}{dk}
 =\left(-\frac{g}{k^2}+\frac{\gamma}{\rho}\right)\tanh(kh)
 +\left(\frac gk+\frac{\gamma}{\rho}k\right)
 \frac{h}{\cosh^2(kh)}.
-$
+$$
 
 $k=k_c$ では第1項が零だが、$h,g,\rho,\gamma,k_c>0$ により第2項は正である。従って有限水深では交差波数と最小波数を同一視してはいけない。
 <!-- solution-end -->
