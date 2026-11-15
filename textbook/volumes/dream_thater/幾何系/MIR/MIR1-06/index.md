@@ -47,7 +47,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir1-06-discriminant-set -->
-**定義の確認。** 小さな模型として、複素射影平面で
+**定義の確認**。 小さな模型として、複素射影平面で
 
 $$
 C_s=\{[u:v:w]\in\mathbb P^2_{\mathbb C}:u^2+v^2-s w^2=0\}
@@ -259,7 +259,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir1-06-z-coordinate -->
-**定義の確認。** $\psi=2$ のとき $t=1/10$、$z=1/100000$。$\psi'=2\zeta$ に変えると $t'=t/\zeta$ だが
+**定義の確認**。 $\psi=2$ のとき $t=1/10$、$z=1/100000$。$\psi'=2\zeta$ に変えると $t'=t/\zeta$ だが
 
 $$
 z'=(t/\zeta)^5=t^5/\zeta^5=z
