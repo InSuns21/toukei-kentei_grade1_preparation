@@ -1,9 +1,15 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
+import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 
 const VERSION = 'wgl-fcg-lab-v1';
-const STORAGE_KEY = 'toukei-' + VERSION + '-WGL1';
-const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/WGL1/', import.meta.url);
-const FILES = {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
+// ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
+const lesson = new URL(location.href).searchParams.get('lesson') === 'WGL2' ? 'WGL2' : 'WGL1';
+const isWGL2 = lesson === 'WGL2';
+const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
+const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/' + lesson + '/', import.meta.url);
+const FILES = isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
+  {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
+const oracle = isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
 const TIMEOUT_MS = 6000;
@@ -149,7 +155,12 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', request.js);
       run(gl, canvas, request.vertex, request.fragment, report);
-      const positions = [
+      const positions = request.lesson === 'WGL2' ? [
+        [Math.floor(canvas.width / 2), Math.floor(canvas.height / 2)],
+        [Math.floor(canvas.width * 0.31), Math.floor(canvas.height * 0.40)],
+        [Math.floor(canvas.width * 0.69), Math.floor(canvas.height * 0.40)],
+        [0, 0]
+      ] : [
         [Math.floor(canvas.width / 2), Math.floor(canvas.height / 2)],
         [0, 0]
       ];
@@ -249,7 +260,8 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = compareReadback(samples, active.payload.width, active.payload.height);
+    const rows = (isWGL2 ? compareWGL2Readback : compareReadback)(
+      samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
     setStatus(unchanged && pass ? '初期ソースの独立画素検算に合格' :
@@ -266,7 +278,7 @@ function run() {
   stop('実行準備中');
   if (!ready) { setStatus('教材ソースがまだ読み込まれていません', true); return; }
   let payload;
-  try { payload = capture(); }
+  try { payload = {...capture(), lesson}; }
   catch (error) { setStatus(error.message, true); return; }
   const iframe = document.createElement('iframe');
   iframe.className = 'result-frame';
@@ -308,12 +320,34 @@ byId('preset').addEventListener('change', event => {
   if (event.target.value === 'default') setSources(defaults);
   else {
     setSources(defaults);
-    inputs.fragment.value = defaults.fragment.replace('outColor = vec4(1.0, 0.5, 0.0, 1.0);',
-      'outColor = vec4(1.0, 0.5, 0.0, 1.0)');
+    if (isWGL2 && event.target.value === 'type-error') {
+      inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;');
+    } else if (isWGL2) {
+      inputs.fragment.value = defaults.fragment.replace('outColor = vec4(v_color * u_gain, 1.0);',
+        'outColor = vec4(v_color * u_gain, 1.0)');
+    } else {
+      inputs.fragment.value = defaults.fragment.replace('outColor = vec4(1.0, 0.5, 0.0, 1.0);',
+        'outColor = vec4(1.0, 0.5, 0.0, 1.0)');
+    }
   }
   selectTab('code');
 });
+if (isWGL2) {
+  document.title = 'WGL2 頂点属性・uniform・varying 共通ラボ';
+  document.querySelector('h1').textContent = 'WGL2 頂点ごとのRGB色を画素へ補間する';
+  const intro = document.querySelector('#panel-conditions > p');
+  intro.textContent = '頂点 A=赤・B=緑・C=青。中央・赤側・緑側・背景の4画素をCPU重み付き和とGPUで照合します。uniform u_gain は全フラグメントに共通です。';
+  document.querySelector('#panel-conditions ol').innerHTML =
+    '<li>初期値で実行し4画素のRGBAとCPU基準を照合する。</li>' +
+    '<li>colors.js の uniform3f を変更し全体の色の変化を観察する。</li>' +
+    '<li>colors.vert の v_color を変更して頂点ごとの差を見る。</li>' +
+    '<li>型不一致プリセットでリンクエラー、構文エラーでコンパイルエラーを検査する。</li>';
+  const preset = byId('preset');
+  preset.options[0].textContent = '初期の頂点色三角形';
+  preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
+  preset.options[1].textContent = 'fragment の構文エラー';
+}
 load();
 // 画素の期待値は、GPUに触れる前に CPU 側で示せる。
-byId('result-note').textContent = 'CPU予測: ' + expectedSamples(320, 240)
+byId('result-note').textContent = 'CPU予測: ' + oracle(320, 240)
   .map(item => item.label + '=' + item.rgba.join('/')).join('、');
