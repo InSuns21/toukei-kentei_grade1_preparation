@@ -127,12 +127,12 @@ $$
 
 行列表示 $X=\mu+AZ$ を成分へ戻すと $X_i-\mu_i=\sum_{k=1}^r A_{ik}Z_k$ です。独立標準正規性から $E[Z_kZ_\ell]=1$（$k=\ell$）、$0$（$k\ne\ell$）なので、
 
-$
+$$
 \operatorname{Cov}(X_i,X_j)
 =\sum_{k,\ell}A_{ik}A_{j\ell}E[Z_kZ_\ell]
 =\sum_{k=1}^r A_{ik}A_{jk}
 =(AA^{\mathsf T})_{ij}.
-$
+$$
 
 従って $d\times r$ 行列 $A$ から得る $d\times d$ 行列 $AA^{\mathsf T}$ が、定義で要求した分散共分散行列そのものです。以下の例ではこの成分対応を検算します。
 
@@ -401,7 +401,7 @@ $$
 
 $Z$ の各成分の平均は0、共分散は $I_r$ です。$\nu>2$ なら[逆 $\chi^2$ モーメントの計算](#prop-u3-47-t-moments)から $E[\nu/V]=\nu/(\nu-2)<\infty$ であり、$Z$ と $V$ の独立性を使って
 
-$
+$$
 \begin{aligned}
 E[X]&=\mu+E[\sqrt{\nu/V}]A E[Z]=\mu,\\
 \operatorname{Cov}(X)
@@ -409,7 +409,7 @@ E[X]&=\mu+E[\sqrt{\nu/V}]A E[Z]=\mu,\\
 &=E[\nu/V]A E[ZZ^{\mathsf T}]A^{\mathsf T}
 =\frac{\nu}{\nu-2}\,AA^{\mathsf T}.
 \end{aligned}
-$
+$$
 
 と導けます。ここでは $E[\sqrt{\nu/V}]<\infty$ は $E[\nu/V]<\infty$ から [Cauchy--Schwarz 不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で従います。これが $\Omega=AA^{\mathsf T}$ を**尺度行列**、$\Sigma=\nu\Omega/(\nu-2)$ を**共分散行列**と区別する根拠です。$\nu\le2$ では一般にこの共分散計算はできません。
 
