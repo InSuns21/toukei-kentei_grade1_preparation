@@ -1,0 +1,68 @@
+chapter: SP17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - SP16
+  - SP14
+forward_references: []
+concepts:
+  - id: stochastic.mm1-queue
+    name: M/M/1 待ち行列と負荷率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（M/M/1 待ち行列と負荷率）"]
+    requires:
+      - stochastic.birth-death-process
+      - stochastic.poisson-process
+  - id: stochastic.mm1-q-matrix
+    name: M/M/1 の人数過程
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（M/M/1 の人数過程）"]
+    requires:
+      - stochastic.mm1-queue
+      - stochastic.ctmc-uniformization
+  - id: stochastic.mm1-stationary
+    name: M/M/1 の定常分布と安定条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（M/M/1 の定常分布と安定条件）"]
+    requires:
+      - stochastic.mm1-q-matrix
+  - id: stochastic.mm1-sojourn
+    name: M/M/1 の定常到着客の滞在時間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（M/M/1 の定常到着客の滞在時間）"]
+    requires:
+      - stochastic.mm1-stationary
+  - id: stochastic.queue-little-law
+    name: Little の法則
+    kind: theorem
+    aliases: ["Little's law"]
+    introduction: formal
+    introduction_aliases: ["定理（Little の法則：標本路の十分条件）"]
+    requires:
+      - stochastic.mm1-queue
+  - id: stochastic.mm1-busy-period
+    name: M/M/1 の平均繁忙期間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（M/M/1 の平均繁忙期間）"]
+    requires:
+      - stochastic.mm1-q-matrix
+      - stochastic.renewal-reward-theorem
+  - id: stochastic.mg1-queue
+    name: M/G/1 と到着時の待ち時間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（M/G/1 と到着時の待ち時間）"]
+    requires:
+      - stochastic.mm1-queue
+  - id: stochastic.mg1-lindley
+    name: Lindley の待ち時間再帰
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lindley の待ち時間再帰）"]
+    requires:
+      - stochastic.mg1-queue
