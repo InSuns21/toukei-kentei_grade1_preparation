@@ -446,6 +446,16 @@ $$
 
 [Python 実験](assets/bridge_barrier_experiment.py) は、固定シード、$N=200000$ 本の独立な格子経路、$m=1,4,16,64$ という**入れ子の等間隔監視幅**を用い、格子監視（指示関数）と橋補正（生存重みの積）の両方を、同じ格子経路上で計算します。
 
+~~~python-file-lab
+# lab-id: U3-35-BROWSER-CHECK
+# lab-title: 連続監視の橋補正と離散監視バイアス
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-35/assets/bridge_barrier_experiment.py
+# timeout-ms: 60000
+# lab-preset: 監視日1,4,16,64と20万経路を比較 |
+~~~
+
+**ブラウザで Python 実行**：格子監視の対象契約と橋補正の対象契約の違いを保ち、両者の標本誤差と真値との差を比較してください。 実行には初回のみブラウザ用 Python 環境の読み込みが必要です。
+
 | 測定項目 | 格子監視 | 橋補正 |
 | --- | --- | --- |
 | 推定対象 | $V_m$（異なる契約） | $V_{\rm cont}$（同じ連続監視契約） |

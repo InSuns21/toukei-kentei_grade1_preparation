@@ -510,6 +510,18 @@ $N=1$ の自己正規化では、$L_1>0$ により $\widehat\pi_{\rm SN}=\boldsy
 
 [検証用 Python コード](assets/stratified_importance.py) は標準ライブラリだけを用い、固定乱数seedと、互いに独立な反復を使います。実行方法は同ファイルの説明と末尾のコマンドを参照してください。
 
+~~~python-file-lab
+# lab-id: U3-33-BROWSER-CHECK
+# lab-title: 層化・重要度サンプリングの希少事象と ESS
+# lab-file: textbook/volumes/dream_thater/応用系/U/U3-33/assets/stratified_importance.py
+# timeout-ms: 60000
+# lab-preset: 解析恒等式だけを独立検算 | --check
+# lab-preset: 短時間：40反復・768経路 | --reps 40 --barrier-reps 20 --paths 768
+# lab-preset: 本文の比較：200反復・1536経路 | --reps 200 --barrier-reps 80 --paths 1536
+~~~
+
+**ブラウザで Python 実行**：希少事象確率の解析値と、層化・正規シフトによる標本分散を区別してください。 実行には初回のみブラウザ用 Python 環境の読み込みが必要です。
+
 実験では次の二つの**異なる契約**を混同しません。
 
 1. **満期デジタル**：$D\boldsymbol1_{\{S_T\ge180\}}$。$Q$ 下の真値は $D\overline\Phi(a)$ で、通常MC・正規分位層化・正規シフトの理論分散まで閉形式で分かります。層化では3層各512標本で合計1536経路、通常MCと正規シフトもそれぞれ1536経路にそろえます。
