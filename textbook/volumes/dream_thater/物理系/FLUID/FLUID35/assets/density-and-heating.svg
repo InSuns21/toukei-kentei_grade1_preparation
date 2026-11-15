@@ -24,7 +24,7 @@
   <rect x="489" y="110" width="302" height="141" fill="#f2e9d4"/>
   <line x1="489" y1="109" x2="791" y2="109" stroke="#22364e" stroke-width="5"/>
   <line x1="489" y1="252" x2="791" y2="252" stroke="#22364e" stroke-width="5"/>
-  <text x="704" y="99" font-family="sans-serif" font-size="19" fill="#243348">Tₜ</text>
+  <text x="704" y="90" font-family="sans-serif" font-size="19" fill="#243348">Tₜ</text>
   <text x="704" y="280" font-family="sans-serif" font-size="19" fill="#243348">Tᵦ</text>
   <line x1="591" y1="224" x2="591" y2="138" stroke="#3e7464" stroke-width="3" stroke-dasharray="9 5" marker-end="url(#up-arrow)"/>
   <text x="604" y="184" font-family="sans-serif" font-size="21" fill="#285a4b">q</text>
