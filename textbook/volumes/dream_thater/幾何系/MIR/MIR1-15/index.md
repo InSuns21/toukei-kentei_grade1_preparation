@@ -100,17 +100,17 @@ $h(0)=0$ を代入すると $q(0)=0$、$q'(0)=e^0=1\ne0$。
 
 複素変数 $z=x+iy$ を実二次元座標とみなし、$q(x+iy)=u(x,y)+iv(x,y)$、$q'(z)=a+ib$（$a,b\in\mathbb R$）と書く。複素微分の定義から、$\Delta z=\Delta x+i\Delta y$ に対し
 
-$
+$$
 \begin{aligned}
 q(z+\Delta z)-q(z)
 &=(a+ib)(\Delta x+i\Delta y)+o(|\Delta z|)\\
 &=(a\Delta x-b\Delta y)+i(b\Delta x+a\Delta y)+o(|\Delta z|).
 \end{aligned}
-$
+$$
 
 したがって実微分行列 $D_{\mathbb R}q$ は、[Cauchy–Riemann必要条件](../../../解析系/CA/CA1/index.md#thm-ca1-cr-necessary)とも整合して
 
-$
+$$
 D_{\mathbb R}q(z)=
 \begin{pmatrix}
 \operatorname{Re}q'(z)&-\operatorname{Im}q'(z)\\
@@ -131,9 +131,9 @@ $$
 
 となる。この逆行列は複素数 $1/q'(z)$ を掛ける実線形写像である。実 $C^1$ 級逆写像の一次近似を複素増分 $\eta$ で書くと
 
-$
+$$
 Z(w+\eta)-Z(w)=\frac{\eta}{q'(z)}+o(|\eta|).
-$
+$$
 
 $\eta\ne0$ で両辺を $\eta$ で割れば複素差商の極限は $1/q'(z)$ になる。よって $Z$ は複素微分可能で正則、$q$ は双正則となる。
 
@@ -281,10 +281,10 @@ $$
 
 実際、$Z(0)=0$、$Z'(w)=1/(1+w)^2$ から $Z'(0)=1$ であり、合成も
 
-$
+$$
 Q(Z(w))=\frac{w/(1+w)}{1-w/(1+w)}
 =\frac{w/(1+w)}{1/(1+w)}=w
-$
+$$
 
 と確かめられる。模型は $|z|<1$ で正則であり、例えば $|w|<1/2$ なら $|Z(w)|\le |w|/(1-|w|)<1$ だから、逆写像の値は確かに $Q$ の定義域に入る。これで原点値、微分、合成条件をそれぞれ確認した。**quinticそのもの**については、[前節の局所双正則性](#thm-mir1-15-local-biholomorphism)が正則逆関数の存在を保証し、固有の高次係数は以下で計算する。
 
@@ -627,17 +627,17 @@ $$
 
 従って座標 $q$ に直した関数への作用素として
 
-$
+$$
 \theta_z=(1+770z+1435650z^2+O(z^3))\theta_q.
-$
+$$
 
 また、$t$ を変数として微分するときは、選んだ対数分枝の上で
 
-$
+$$
 \frac{dt}{dz}=\frac{1/z+h'(z)}{2\pi i}
 =\frac{1+zh'(z)}{2\pi iz},\qquad
 \frac{dz}{dt}=\frac{2\pi iz}{1+zh'(z)}.
-$
+$$
 
 逆数を取るには $z\ne0$、$1+zh'\ne0$ が必要である。後者は $z=0$ で値1だから十分小さい穿孔円板で満たされる。
 <!-- solution-end -->
@@ -693,13 +693,13 @@ $$
 
 また[反転公式](#thm-mir1-15-lagrange-inversion)に $n=4$ を代入すると
 
-$
+$$
 \begin{aligned}
 [q^4]Z&=\tfrac14[z^3]e^{-4h}\\
 &=-h_3+4h_1h_2-\tfrac83h_1^3\\
 &=-81623000.
 \end{aligned}
-$
+$$
 
 これは合成による四次係数と一致する。
 
