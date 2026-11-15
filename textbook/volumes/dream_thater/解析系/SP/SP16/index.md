@@ -80,16 +80,23 @@ $$
 
 強大数則が成り立つ標本路では、添字を $n=N(t)$ という無限大へ向かう整数に置き換えても収束は保存されます。
 
-**有限時刻の期待値。** $m(u)=E[N(u)]$ とし、$u<0$ では $m(u)=0$ と約束します。第 $i$ サイクルが時刻 $t$ までに終了したときの報酬の絶対値を和に取ると、第 $i$ サイクルの組とそれより前の待ち時間列の独立性によって
+**有限時刻の期待値。** $m(u)=E[N(u)]$ とし、$u<0$ では $m(u)=0$ と約束します。第 $i$ サイクルが時刻 $t$ までに終了したときの報酬の絶対値を和に取ります。[SP15 の分布公式](../SP15/index.md#prop-sp15-count-distribution)による $F^{*n}(u)=P(S_n\le u)$ と、$F^{*0}(u)=1$（$u\ge0$）を使います。第 $i$ サイクルの組はそれより前の $S_{i-1}$ と独立で、$S_i=S_{i-1}+T_i$ なので、非負和の期待値を順に計算すると
 
-$$
+$
+\begin{aligned}
 E\left[\sum_{i=1}^{N(t)}|R_i|\right]
-=E\left[|R_1|\mathbf1_{\{T_1\le t\}}
-\{1+m(t-T_1)\}\right]
-\le E|R_1|\{1+m(t)\}<\infty.
-$$
+&=\sum_{i=1}^\infty E\left[|R_i|\mathbf1_{\{S_i\le t\}}\right]\\
+&=\sum_{i=1}^\infty E\left[
+|R_i|\mathbf1_{\{T_i\le t\}}F^{*(i-1)}(t-T_i)\right]\\
+&=E\left[|R_1|\mathbf1_{\{T_1\le t\}}
+\sum_{i=1}^\infty F^{*(i-1)}(t-T_1)\right]\\
+&=E\left[|R_1|\mathbf1_{\{T_1\le t\}}
+\{1+m(t-T_1)\}\right]\\
+&\le E|R_1|\{1+m(t)\}<\infty.
+\end{aligned}
+$
 
-ここでは各 $i$ について $S_{i-1}$ が $(T_i,R_i)$ に独立であることを利用し、$S_i=S_{i-1}+T_i$ とおいて和を取っています。更新回数が有限であることと $m(t)<\infty$ は [SP15 の局所有限性](../SP15/index.md#prop-sp15-local-finiteness)によります。非負和で各サイクルの直前までにかかった時間に条件付けした後、絶対収束から符号付きの $R_i$ にも同じ分解が使え、
+最後の級数は $S_0$ の1項と、[SP15 の更新関数](../SP15/index.md#def-sp15-renewal-function) $m$ の和です。局所有限性と $m(t)<\infty$ は [SP15 の局所有限性](../SP15/index.md#prop-sp15-local-finiteness)によります。非負和で各サイクルの直前までにかかった時間に条件付けした後、絶対収束から符号付きの $R_i$ にも同じ分解が使え、
 
 $$
 E[Y(t)]=E\left[R_1\mathbf1_{\{T_1\le t\}}
