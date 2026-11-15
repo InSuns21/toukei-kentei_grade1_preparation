@@ -184,7 +184,6 @@ $$
 
 **微分で型が一段下がる機構。** [周期写像の微分とKodaira–Spencer収縮](../../DEF/DEF1-13/index.md#prop-def1-13-infinitesimal-period)は、$\nabla_v[\omega]$ を $F^3$ で割った $(2,1)$ 成分が、変形方向 $v$ のBeltrami代表 $\mu_v$ に対する $-\mu_v\lrcorner\omega$ で表せることを示す。局所的に $\omega=h\,du^1\wedge du^2\wedge du^3$ なら、一度の収縮 $\iota_{\partial_{u^i}}\omega$ は正則微分を一つだけ取り去り、そこに $d\bar u^j$ が一つ加わるため型は $(2,1)$ となる。一度の微分で $(1,2)$ が突然現れない理由は、この一因子ずつの置換にある。負号は既習のBeltrami規約を用いる場合のものとし、極次数の計算だけから符号を推測しない。
 
-<!-- definition-example-start: prop-mir1-08-hodge-variation -->
 **条件の直接確認：楕円曲線の小模型。** $\operatorname{Im}\tau>0$ として $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ を考える。実トーラスの座標 $(x,y)\in\mathbb R^2/\mathbb Z^2$ を固定し、複素座標 $u=x+\tau y$ を採用する。正則1形式は
 
 $$
@@ -193,7 +192,6 @@ $$
 $$
 
 固定された平坦枠 $([dx],[dy])$ で微分したため右式を得る。$F^1_\tau=\mathbb C[\eta_\tau]$ は1次元だが、$[dy]$ がその中にあると仮定すると $[dy]=c([dx]+\tau[dy])$ となり、$[dx]$ の係数から $c=0$、$[dy]$ の係数から $1=0$ で矛盾する。一方 $F^0_\tau=H^1(E_\tau,\mathbb C)$ は2次元なので $[dy]\in F^0_\tau$。これは「平坦なのにHodge型が動く」ことを、定義に戻って確認した例である。
-<!-- definition-example-end -->
 
 ## 5. なぜ四階以下の微分方程式が出るのか
 
