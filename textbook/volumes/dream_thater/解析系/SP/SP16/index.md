@@ -6,7 +6,11 @@
 
 ## 1. 一回ごとの報酬を時間平均へ変える
 
-時刻 $0$ から始まる更新間隔を $T_1,T_2,\ldots$ とし、更新時刻を $S_0=0$, $S_n=\sum_{i=1}^nT_i$ とします。第 $i$ サイクルは時刻 $S_{i-1}$ から $S_i$ までです。たとえば修理が終わるたびに得る売上を $R_i$ とすれば、時刻 $t$ までに完了したサイクルの報酬合計は $Y(t)=\sum_{i=1}^{N(t)}R_i$ です。$T_i$ と $R_i$ は**同じサイクル内では依存してよい**ことが重要です。
+時刻 $0$ から始まる更新間隔を $T_1,T_2,\ldots$ とし、更新時刻を $S_0=0$、$S_n=\sum_{i=1}^nT_i$ とします。第 $i$ サイクルの経過時間は区間 $[S_{i-1},S_i)$ で数え、終了時刻 $S_i$ に報酬を計上します。
+
+たとえば修理が終わるたびに得る売上を $R_i$ とすれば、時刻 $t$ までに完了した報酬の合計は $Y(t)=\sum_{i=1}^{N(t)}R_i$ です。同じサイクル内の $T_i$ と $R_i$ は**依存してよい**ことが重要です。
+
+以下、$\boldsymbol{1}_C$ は事象 $C$ の指示関数です。事象が起これば $1$、起こらなければ $0$ を取ります。
 
 <a id="def-sp16-renewal-reward"></a>
 
@@ -16,7 +20,7 @@
 
 $$
 Y(t)=\sum_{i=1}^{N(t)}R_i
-=\sum_{i=1}^{\infty}R_i\mathbf1_{\{S_i\le t\}}
+=\sum_{i=1}^{\infty}R_i\boldsymbol{1}_{\{S_i\le t\}}
 \quad(t\ge0)
 $$
 
@@ -85,12 +89,12 @@ $$
 $$
 \begin{aligned}
 E\left[\sum_{i=1}^{N(t)}|R_i|\right]
-&=\sum_{i=1}^\infty E\left[|R_i|\mathbf1_{\{S_i\le t\}}\right]\\
+&=\sum_{i=1}^\infty E\left[|R_i|\boldsymbol{1}_{\{S_i\le t\}}\right]\\
 &=\sum_{i=1}^\infty E\left[
-|R_i|\mathbf1_{\{T_i\le t\}}F^{*(i-1)}(t-T_i)\right]\\
-&=E\left[|R_1|\mathbf1_{\{T_1\le t\}}
+|R_i|\boldsymbol{1}_{\{T_i\le t\}}F^{*(i-1)}(t-T_i)\right]\\
+&=E\left[|R_1|\boldsymbol{1}_{\{T_1\le t\}}
 \sum_{i=1}^\infty F^{*(i-1)}(t-T_1)\right]\\
-&=E\left[|R_1|\mathbf1_{\{T_1\le t\}}
+&=E\left[|R_1|\boldsymbol{1}_{\{T_1\le t\}}
 \{1+m(t-T_1)\}\right]\\
 &\le E|R_1|\{1+m(t)\}<\infty.
 \end{aligned}
@@ -99,7 +103,7 @@ $$
 最後の級数は $S_0$ の1項と、[SP15 の更新関数](../SP15/index.md#def-sp15-renewal-function) $m$ の和です。局所有限性と $m(t)<\infty$ は [SP15 の局所有限性](../SP15/index.md#prop-sp15-local-finiteness)によります。非負和で各サイクルの直前までにかかった時間に条件付けした後、絶対収束から符号付きの $R_i$ にも同じ分解が使え、
 
 $$
-E[Y(t)]=E\left[R_1\mathbf1_{\{T_1\le t\}}
+E[Y(t)]=E\left[R_1\boldsymbol{1}_{\{T_1\le t\}}
 \{1+m(t-T_1)\}\right].
 $$
 
@@ -165,7 +169,7 @@ $$
 $t=3$ では $A=1,B=1,L=2$。$t=4$ は更新の瞬間なので $N(4)=2$、$A(4)=0,B(4)=2,L(4)=2$ です。いずれも $A\ge0,B>0$、$A+B=T_{N+1}=2$ を確認できます。
 <!-- definition-example-end -->
 
-この章での「時間平均」は一つの長い標本路に沿った積分の平均です。例えば「残余寿命が $x$ より大きい時間の割合」は $t^{-1}\int_0^t\mathbf1_{\{B(s)>x\}}ds$ と書けます。**特定時刻の確率** $P(B(t)>x)$ と混同しないようにします。
+この章での「時間平均」は一つの長い標本路に沿った積分の平均です。例えば「残余寿命が $x$ より大きい時間の割合」は $t^{-1}\int_0^t\boldsymbol{1}_{\{B(s)>x\}}ds$ と書けます。**特定時刻の確率** $P(B(t)>x)$ と混同しないようにします。
 
 ## 3. 時間平均をサイクル別の報酬として計算する
 
@@ -202,7 +206,7 @@ $$
 +\int_{S_{N(t)}}^t h(A(s),B(s))\,ds.
 $$
 
-第一項は [更新報酬定理](#thm-sp16-renewal-reward)で $t$ で割ると $E[Z_1]/\mu$ に収束します。第二項の絶対値は $M(t-S_{N(t)})=MA(t)$ 以下です。[SP15 の更新回数の強大数法則](../SP15/index.md#thm-sp15-renewal-strong-law)と待ち時間への強大数則から
+第一項は [更新報酬定理](#thm-sp16-renewal-reward)で $t$ で割ると $E[Z_1]/\mu$ に収束します。第二項の絶対値は $M(t-S_{N(t)})=MA(t)$ 以下です。[SP15 の更新回数の強大数法則](../SP15/index.md#thm-sp15-renewal-strong-law)と[待ち時間への強大数則](../../F0/F0-00P5A/index.md#thm-iid-integrable-slln)から
 
 $$
 \frac{S_{N(t)}}t
@@ -215,23 +219,23 @@ $$
 
 ### 年齢と残余寿命の「典型値」
 
-固定した $x\ge0$ について $h(a,b)=\mathbf1_{\{a>x\}}$ とおくと、一サイクルで条件が成立する時間は $(T_i-x)_+=\max(T_i-x,0)$。$h(a,b)=\mathbf1_{\{b>x\}}$ の場合も、$0\le u<T_i-x$ の長さが同じになります。よって [時間平均定理](#thm-sp16-occupation)から両方に対し
+固定した $x\ge0$ について $h(a,b)=\boldsymbol{1}_{\{a>x\}}$ とおくと、一サイクルで条件が成立する時間は $(T_i-x)_+=\max(T_i-x,0)$。$h(a,b)=\boldsymbol{1}_{\{b>x\}}$ の場合も、$0\le u<T_i-x$ の長さが同じになります。よって [時間平均定理](#thm-sp16-occupation)から両方に対し
 
 $$
-\lim_{t\to\infty}\frac1t\int_0^t\mathbf1_{\{A(s)>x\}}\,ds
-=\lim_{t\to\infty}\frac1t\int_0^t\mathbf1_{\{B(s)>x\}}\,ds
+\lim_{t\to\infty}\frac1t\int_0^t\boldsymbol{1}_{\{A(s)>x\}}\,ds
+=\lim_{t\to\infty}\frac1t\int_0^t\boldsymbol{1}_{\{B(s)>x\}}\,ds
 =\frac{E[(T_1-x)_+]}{\mu}
 $$
 
-がほとんど確実に成り立ちます。非負量の積分を確率で分解する 非負量を指示関数の積分へ分解すると、
+がほとんど確実に成り立ちます。非負量を指示関数の積分へ分解すると、
 
 $$
-(T_1-x)_+=\int_x^\infty\mathbf1_{\{T_1>v\}}\,dv,
+(T_1-x)_+=\int_x^\infty\boldsymbol{1}_{\{T_1>v\}}\,dv,
 \qquad
 E[(T_1-x)_+]=\int_x^\infty P(T_1>v)\,dv.
 $$
 
-この順の交換は非負性によります。従って時間平均に現れる共通の尾確率は
+この期待値と積分の交換は、被積分関数が非負なので[Tonelli の定理](../../F0/F0-00D2C/index.md#thm-tonelli)で正当化できます。従って時間平均に現れる共通の尾確率は
 
 $$
 \boxed{G(x)=\frac1\mu\int_x^\infty P(T_1>v)\,dv}\qquad(x\ge0)
@@ -250,8 +254,8 @@ $$
 > [年齢・残余寿命の定義](#def-sp16-age-residual)の待ち時間について $0<\mu<\infty$ とし、$C\subset(0,\infty)$ を Borel 集合とする。このとき
 
 $$
-\lim_{t\to\infty}\frac1t\int_0^t\mathbf1_{\{L(s)\in C\}}\,ds
-=\frac{E[T_1\mathbf1_{\{T_1\in C\}}]}{\mu}
+\lim_{t\to\infty}\frac1t\int_0^t\boldsymbol{1}_{\{L(s)\in C\}}\,ds
+=\frac{E[T_1\boldsymbol{1}_{\{T_1\in C\}}]}{\mu}
 $$
 
 > がほとんど確実に成り立つ。さらに $E[T_1^2]<\infty$ なら
@@ -269,16 +273,16 @@ $$
 
 ### 証明の見取り図
 
-最初の式はサイクル中ずっと $\mathbf1_{\{T_i\in C\}}$ を観測するだけなので、報酬は $T_i\mathbf1_{\{T_i\in C\}}$。平均残余寿命では一サイクルの残余時間を積分すると三角形の面積 $T_i^2/2$ になります。後者は有界な関数ではないため、**更新時刻での強大数則と積分の単調性**を用いて端のサイクルを処理します。
+最初の式はサイクル中ずっと $\boldsymbol{1}_{\{T_i\in C\}}$ を観測するだけなので、報酬は $T_i\boldsymbol{1}_{\{T_i\in C\}}$。平均残余寿命では一サイクルの残余時間を積分すると三角形の面積 $T_i^2/2$ になります。後者は有界な関数ではないため、**更新時刻での強大数則と積分の単調性**を用いて端のサイクルを処理します。
 
 <!-- proof-start -->
 ### 証明
 
-最初の主張は [時間平均定理](#thm-sp16-occupation)に $h(a,b)=\mathbf1_{\{a+b\in C\}}$ を代入します。サイクル内で $a+b=T_1$ は一定だから
+最初の主張は [時間平均定理](#thm-sp16-occupation)に $h(a,b)=\boldsymbol{1}_{\{a+b\in C\}}$ を代入します。サイクル内で $a+b=T_1$ は一定だから
 
 $$
-\frac1\mu E\int_0^{T_1}\mathbf1_{\{T_1\in C\}}\,du
-=\frac{E[T_1\mathbf1_{\{T_1\in C\}}]}{\mu}.
+\frac1\mu E\int_0^{T_1}\boldsymbol{1}_{\{T_1\in C\}}\,du
+=\frac{E[T_1\boldsymbol{1}_{\{T_1\in C\}}]}{\mu}.
 $$
 
 二乗モーメントが有限なら、更新時刻 $S_n$ までの観測長さの積分は
@@ -342,15 +346,26 @@ $$
 > を対応させる局所有限な測度 $U$ を**更新測度**と呼ぶ。
 <!-- formal-statement-end -->
 
-[SP15 の局所有限性と更新関数](../SP15/index.md#prop-sp15-local-finiteness)から $U([0,t])=1+m(t)<\infty$ です。$\overline F(v)=P(T_1>v)$（$v\ge0$）を待ち時間の尾確率とします。
+各 $n\ge0$ に対して $P(S_n\in C)$ は集合 $C$ に関する確率測度の値です。$U(C)$ はこれらの非負の和なので、互いに素な可算個の集合について和を交換でき、可算加法性を満たします。
+
+[SP15 の局所有限性](../SP15/index.md#prop-sp15-local-finiteness)と[更新関数](../SP15/index.md#def-sp15-renewal-function)から $U([0,t])=1+m(t)<\infty$ であり、任意の有界区間で有限です。$\overline F(v)=P(T_1>v)$（$v\ge0$）を待ち時間の尾確率とします。
 
 <!-- definition-example-start: def-sp16-renewal-measure -->
 ### 直接例：2時間刻みの更新測度
 
 **定義の確認**
 
-$T_i=2$ なら $S_n=2n$ は確定値で、$P(S_n\in C)=\mathbf1_{\{2n\in C\}}$。従って $U(C)$ は $C$ に含まれる $0,2,4,\ldots$ の個数です。互いに素な Borel 集合の可算和に対して個数を足せるので測度となり、$U([0,t])=1+\lfloor t/2\rfloor<\infty$ により局所有限性も確認できます。
+$T_i=2$ なら $S_n=2n$ は確定値で、$P(S_n\in C)=\boldsymbol{1}_{\{2n\in C\}}$。従って $U(C)$ は $C$ に含まれる $0,2,4,\ldots$ の個数です。互いに素な Borel 集合の可算和に対して個数を足せるので測度となり、$U([0,t])=1+\lfloor t/2\rfloor<\infty$ により局所有限性も確認できます。
 <!-- definition-example-end -->
+
+非負の Borel 可測関数 $f:[0,\infty)\to[0,\infty)$ に対し、$\int_{[0,t]}f(s)\,U(ds)$ は、$s$ を積分変数とする**更新測度 $U$ に関する積分**です。密度の存在は仮定しません。たとえば直前の $T_i=2$ の例では、$U$ が時刻 $0,2,4,\ldots$ に質量 $1$ を置くため、
+
+$$
+\int_{[0,t]}f(s)\,U(ds)
+=\sum_{n=0}^{\lfloor t/2\rfloor}f(2n)
+$$
+
+となります。
 
 <a id="prop-sp16-residual-formula"></a>
 
@@ -379,7 +394,7 @@ $$
 P(B(t)>x)
 &=\sum_{n=0}^\infty P(S_n\le t,\ S_{n+1}>t+x)\\
 &=\sum_{n=0}^\infty E\left[
-\mathbf1_{\{S_n\le t\}}
+\boldsymbol{1}_{\{S_n\le t\}}
 P(T_{n+1}>t+x-S_n\mid S_n)\right].
 \end{aligned}
 $$
@@ -507,6 +522,7 @@ $$
 
 $$
 u(s)=\sum_{n=1}^\infty f_{S_n}(s)
+=\lambda e^{-\lambda s}\sum_{n=1}^\infty\frac{(\lambda s)^{2n-1}}{(2n-1)!}
 =\lambda e^{-\lambda s}\sinh(\lambda s)
 =\frac{\lambda}{2}(1-e^{-2\lambda s})
 $$
@@ -636,10 +652,10 @@ $(T_i,R_i)$ は独立同分布なサイクルの組で、$T_i>0$、$E[T_i]\in(0,
 <!-- solution-start -->
 ### 詳細解答
 
-**完了した第 $i$ サイクルが寄与する報酬**を $R_i\mathbf1_{\{S_i\le t\}}$ と分解します。$S_{i-1}$ は $(T_i,R_i)$ に独立であるため、$T_i=s\le t$ で条件付けたときの寄与の期待値は $E[R_i\mathbf1_{\{T_i\le t\}}P(S_{i-1}\le t-T_i\mid T_i,R_i)]$ です。$i\ge1$ で足し合わせ、$U([0,u])=1+m(u)$ を使うと
+**完了した第 $i$ サイクルが寄与する報酬**を $R_i\boldsymbol{1}_{\{S_i\le t\}}$ と分解します。$S_{i-1}$ は $(T_i,R_i)$ に独立であるため、$T_i=s\le t$ で条件付けたときの寄与の期待値は $E[R_i\boldsymbol{1}_{\{T_i\le t\}}P(S_{i-1}\le t-T_i\mid T_i,R_i)]$ です。$i\ge1$ で足し合わせ、$U([0,u])=1+m(u)$ を使うと
 
 $$
-E[Y(t)]=E\left[\mathbf1_{\{T_1\le t\}}R_1\{1+m(t-T_1)\}\right].
+E[Y(t)]=E\left[\boldsymbol{1}_{\{T_1\le t\}}R_1\{1+m(t-T_1)\}\right].
 $$
 
 絶対可積分性は [更新報酬定理の証明](#thm-sp16-renewal-reward)で示した $E|R_1|(1+m(t))<\infty$ から従います。例として $P((T,R)=(1,1))=P((T,R)=(3,9))=1/2$ を取ると $t=1$ では $Y(1)=1$ が確率 $1/2$、それ以外は零なので $E[Y(1)]=1/2$。一方 $\rho=5$, $m(1)=1/2$ だから $\rho m(1)=5/2$ で一致しません。完成時刻と報酬が同じ組の中で結び付くため、単純な積への分解ができないのです。
@@ -665,7 +681,7 @@ $\mu=(2/3)\cdot1+(1/3)\cdot4=2$、$E[T^2]=(2/3)\cdot1+(1/3)\cdot16=6$。[観測�
 
 - Level: B
 
-$T_i=3$ の一定更新間隔で $x=1$ とする。$\lim_{t\to\infty}P(B(t)>1)$ が存在しないことを示し、一方で $\lim_{t\to\infty}t^{-1}\int_0^t\mathbf1_{\{B(s)>1\}}ds$ を求めよ。
+$T_i=3$ の一定更新間隔で $x=1$ とする。$\lim_{t\to\infty}P(B(t)>1)$ が存在しないことを示し、一方で $\lim_{t\to\infty}t^{-1}\int_0^t\boldsymbol{1}_{\{B(s)>1\}}ds$ を求めよ。
 
 <!-- solution-start -->
 ### 詳細解答
@@ -701,7 +717,7 @@ $$
 $B(t)>x$ であるのは、ただ一つの $n\ge0$ で $S_n\le t<S_{n+1}$ かつ $S_{n+1}>t+x$ が成立することです。$S_{n+1}=S_n+T_{n+1}$、$T_{n+1}$ は $S_n$ と独立なので
 
 $$
-P(B(t)>x)=\sum_{n\ge0}E[\mathbf1_{\{S_n\le t\}}\overline F(t+x-S_n)]
+P(B(t)>x)=\sum_{n\ge0}E[\boldsymbol{1}_{\{S_n\le t\}}\overline F(t+x-S_n)]
 =\int_{[0,t]}\overline F(t+x-s)\,U(ds).
 $$
 
@@ -745,7 +761,7 @@ $$
 
 $$
 P_{\mathrm{time}}(L=3)
-=\frac{E[T\mathbf1_{\{T=3\}}]}{\mu}
+=\frac{E[T\boldsymbol{1}_{\{T=3\}}]}{\mu}
 =\frac{3(1/2)}2=\frac34.
 $$
 
@@ -778,13 +794,17 @@ $$
 a_k=\frac12a_{k-1}+\frac12a_{k-3}\qquad(k\ge1).
 $$
 
-特性方程式は $2r^3-r^2-1=(r-1)(2r^2+r+1)=0$。$r=1$ 以外の二根は $(-1\pm i\sqrt7)/4$ で、その絶対値は $1/\sqrt2<1$ です。よって $a_k\to c$ と書けます。また上の漸化式から
+特性方程式は $2r^3-r^2-1=(r-1)(2r^2+r+1)=0$。$r=1$ 以外の二根は $r_\pm=(-1\pm i\sqrt7)/4$ で、その絶対値は $1/\sqrt2<1$ です。根が重複しない線形漸化式の一般解は $a_k=c+\alpha r_+^k+\beta r_-^k$ と書けるため、$a_k\to c$ です。
+
+定数 $c$ を初期値から決めます。$a_j=0$（$j<0$）と約束し、$Q_k=a_k+\frac12a_{k-1}+\frac12a_{k-2}$ と置きます。漸化式を代入すると
 
 $$
-a_k+\frac12a_{k-1}+\frac12a_{k-2}=1\qquad(k\ge0)
+Q_k-Q_{k-1}
+=a_k-\frac12a_{k-1}-\frac12a_{k-3}=0
+\quad(k\ge1).
 $$
 
-が帰納法で分かります（$k=0$ では $a_0=1$、漸化式を使うと左辺は一つ前から変わりません）。極限を取って $2c=1$、すなわち $a_k\to1/2$ です。
+よって $Q_k=Q_0=a_0=1$ が全ての $k\ge0$ で成り立ちます。$a_k,a_{k-1},a_{k-2}\to c$ を代入すれば $2c=1$、すなわち $a_k\to1/2$ です。
 
 $B(k)\ge2$ となるのは、最後の更新が $k$ か $k-1$ で、**次の間隔が $3$** の場合だけです。両事象は互いに素で、更新後の間隔は過去に独立なので
 
