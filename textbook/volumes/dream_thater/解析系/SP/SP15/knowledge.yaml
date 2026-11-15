@@ -26,11 +26,11 @@ concepts:
       - stochastic.renewal-process
 
   - id: stochastic.renewal-count-distribution
-    name: 更新回数の分布と期待回数
+    name: 更新回数の確率と期待値
     kind: proposition
     aliases: ["renewal count distribution"]
     introduction: formal
-    introduction_aliases: ["命題（更新回数の分布と期待回数）"]
+    introduction_aliases: ["命題（更新回数の確率と期待値）"]
     requires:
       - stochastic.renewal-local-finiteness
 
