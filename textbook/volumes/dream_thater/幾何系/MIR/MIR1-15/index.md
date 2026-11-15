@@ -46,7 +46,14 @@ $\omega_0(0)=1$ だから、十分小さい $\delta$（$0<\delta<R$）を選べ�
 <!-- formal-statement-start -->
 > **定義（規格化ミラー座標）**
 >
-> $\omega_0(z)=\sum_{d\ge0}(5d)!z^d/(d!)^5$ と $A_1(z)=5\sum_{d\ge1}(5d)!(H_{5d}-H_d)z^d/(d!)^5$ を使う。$|z|<\delta<1/3125$ で $\omega_0$ が非零となる $\delta$ を選び、$h=A_1/\omega_0$ とする。切断した $0<|z|<\delta$ で対数分枝を固定し、$T=\operatorname{Log}z+h$、$t=T/(2\pi i)$ と置く。**本講の規格化ミラー写像**を
+> $a_d=(5d)!/(d!)^5$、$H_n=\sum_{k=1}^n1/k$ とし、周期級数を次で定める。
+
+$
+\omega_0(z)=\sum_{d\ge0}a_dz^d,
+\qquad A_1(z)=5\sum_{d\ge1}a_d(H_{5d}-H_d)z^d.
+$
+
+> $|z|<\delta<1/3125$ で $\omega_0$ が非零となる $\delta$ を選び、$h=A_1/\omega_0$ とする。切断した $0<|z|<\delta$ で対数分枝を固定し、$T=\operatorname{Log}z+h$、$t=T/(2\pi i)$ と置く。**本講の規格化ミラー写像**を
 
 $$
 \boxed{q(z)=e^{2\pi it(z)}=e^{T(z)}=z e^{h(z)}}
@@ -155,7 +162,14 @@ $$
 <!-- formal-statement-start -->
 > **命題（quinticのミラー写像の初期係数）**
 >
-> $\omega_0(z)=\sum_{d\ge0}(5d)!z^d/(d!)^5$、$A_1(z)=5\sum_{d\ge1}(5d)!(H_{5d}-H_d)z^d/(d!)^5$ とする。$q(z)=z\exp(A_1(z)/\omega_0(z))$ の原点近傍のTaylor展開は
+> $a_d=(5d)!/(d!)^5$、$H_n=\sum_{k=1}^n1/k$ を使い、次の周期級数を考える。
+
+$
+\omega_0(z)=\sum_{d\ge0}a_dz^d,
+\qquad A_1(z)=5\sum_{d\ge1}a_d(H_{5d}-H_d)z^d.
+$
+
+> $\omega_0(0)=1$ なので、原点近傍で $q(z)=z\exp(A_1(z)/\omega_0(z))$ を定められる。この写像のTaylor展開は
 
 $$
 \boxed{q(z)=z+770z^2+1014275z^3+1703916750z^4+O(z^5)}
@@ -205,7 +219,13 @@ $h$ が原点近くで正則なので剰余は $O(z^5)$ とできる。$\square$
 <!-- formal-statement-start -->
 > **定義（逆ミラー級数）**
 >
-> 前節の $q(z)=z+770z^2+1014275z^3+1703916750z^4+O(z^5)$ の原点近傍の正則逆関数を $Z(q)$ とする。$Z(0)=0$、$Z'(0)=1$、$q(Z(w))=w$ が成立する。この $Z$ の原点でのTaylor級数を**逆ミラー級数**と呼ぶ。
+> 原点近傍で正則な写像 $q(z)$ が次の展開を持つとする。
+
+$
+q(z)=z+770z^2+1014275z^3+1703916750z^4+O(z^5).
+$
+
+> $q(0)=0$、$q'(0)=1$ により、原点近傍で正則逆関数 $Z$ が存在する。$Z(0)=0$、$Z'(0)=1$、$q(Z(w))=w$ が成立する。この $Z$ の原点でのTaylor級数を**逆ミラー級数**と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir1-15-inverse-mirror-series -->
