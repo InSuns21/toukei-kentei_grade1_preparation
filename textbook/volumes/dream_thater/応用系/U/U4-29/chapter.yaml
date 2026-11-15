@@ -2,7 +2,7 @@ id: "U4-29"
 title: "レジーム変化・テール・流動性のストレス監査"
 volume: "foundations"
 status: supplementary
-prerequisites: [U4-16, U4-17, U4-20, U4-23, U4-24, U4-25, U4-27, U4-28]
+prerequisites: [OPT1, U4-16, U4-17, U4-20, U4-23, U4-24, U4-25, U4-27, U4-28]
 official_scope: []
 learning_objectives:
   - 基準時点の保有株数と将来の方向別約定価格から現金勘定と整合するストレス純損益を導出できる
