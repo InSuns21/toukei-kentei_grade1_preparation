@@ -1,0 +1,53 @@
+chapter: U3-49
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-48, U3-18, U3-26]
+concepts:
+  - id: finance.physical-scenario-monte-carlo
+    name: 条件付きシナリオ Monte Carlo
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付きシナリオ Monte Carlo）"]
+    requires: [finance.physical-versus-pricing-measure, finance.risk-factor-scenario]
+  - id: finance.two-factor-physical-risk-model
+    name: 株価と短期金利の二因子 P シナリオ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（株価と短期金利の二因子 P シナリオ）"]
+    requires: [finance.physical-scenario-monte-carlo, finance.normal-factor-model]
+  - id: finance.two-factor-correlation
+    name: 二因子の共分散と退化相関
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二因子の共分散と退化相関）"]
+    requires: [finance.two-factor-physical-risk-model]
+  - id: finance.full-repricing-risk-sample
+    name: Monte Carlo による full repricing 損失標本
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Monte Carlo による full repricing 損失標本）"]
+    requires: [finance.physical-scenario-monte-carlo, finance.portfolio-full-revaluation, finance.holding-period-loss]
+  - id: finance.rolled-first-order-mark
+    name: 保有期間末のロール後一次近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（保有期間末のロール後一次近似）"]
+    requires: [finance.full-repricing-risk-sample, finance.linear-factor-loss]
+  - id: finance.first-order-repricing-error
+    name: 一次近似の誤差上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次近似の誤差上界）"]
+    requires: [finance.rolled-first-order-mark]
+  - id: finance.mc-risk-mean-variance
+    name: 固定予測モデルの標本平均誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定予測モデルの標本平均誤差）"]
+    requires: [finance.full-repricing-risk-sample, numerical.monte-carlo-standard-error]
+  - id: finance.repricing-risk-stability
+    name: 共通シナリオの一様再評価誤差と標本 VaR/ES
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共通シナリオの一様再評価誤差と標本 VaR/ES）"]
+    requires: [finance.full-repricing-risk-sample, finance.rolled-first-order-mark, finance.es-empirical, finance.value-at-risk]
