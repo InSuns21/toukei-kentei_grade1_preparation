@@ -1,0 +1,48 @@
+chapter: U4-21
+scope: dream-theater
+coverage: complete
+prerequisites: [U4-20]
+forward_references: []
+concepts:
+  - id: finance.merger-price-implied-weight
+    name: 二状態モデルの価格整合的な示唆重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二状態モデルの価格整合的な示唆重み）"]
+    requires: [finance.merger-cash-deal-pnl, finance.merger-conditional-expected-pnl]
+  - id: finance.merger-implied-weight-inversion
+    name: 二状態の逆算式と存在範囲
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二状態の逆算式と存在範囲）"]
+    requires: [finance.merger-price-implied-weight]
+  - id: finance.merger-implied-weight-sensitivity
+    name: 二状態の示唆重みの局所感度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二状態の示唆重みの局所感度）"]
+    requires: [finance.merger-implied-weight-inversion]
+  - id: finance.merger-event-time-discount-factors
+    name: イベント状態別の割引因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（イベント状態別の割引因子）"]
+    requires: [finance.merger-price-implied-weight]
+  - id: finance.merger-timed-inversion
+    name: 状態別決着時刻の下での逆算式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態別決着時刻の下での逆算式）"]
+    requires: [finance.merger-event-time-discount-factors, finance.merger-implied-weight-inversion]
+  - id: finance.merger-time-probability-nonidentification
+    name: 価格一つによる成立重みと決着時刻の非識別
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（価格一つによる成立重みと決着時刻の非識別）"]
+    requires: [finance.merger-timed-inversion]
+  - id: finance.merger-personal-belief-edge
+    name: 個人の成立確率による期待現在価値差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（個人の成立確率による期待現在価値差）"]
+    requires: [finance.merger-timed-inversion, finance.merger-conditional-expected-pnl]
