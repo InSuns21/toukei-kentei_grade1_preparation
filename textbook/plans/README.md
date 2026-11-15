@@ -40,7 +40,7 @@
 | 最適輸送・Wasserstein幾何・測度上の勾配流 | [完了済みOTR全26講PLAN](../plan_done/DREAM_THEATER_OPTIMAL_TRANSPORT_WASSERSTEIN_PLAN.md)（独立発展科目） |
 | SDE / Markov generator / Feynman--Kac | 完了済み Encore IV（`STO9` / `STO11`） |
 | 多様体上の確率解析 | `DREAM_THEATER_STOCHASTIC_ANALYSIS_II_GEOMETRIC_PLAN.md` |
-| 流体力学（静水・渦・層流・境界層・波・乱流・圧縮性・CFD） | [DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)（FLUID1〜48、設計済み・未実装。CTM5/7/9/10/15〜17の流体力学的な応用。Python数値計算・必要なWebGL表示を各講同時制作） |
+| 流体力学（静水・渦・層流・境界層・波・乱流・圧縮性・CFD） | [進行中のFLUID全48講PLAN](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)（完成状況は[FLUID系列manifest](../dream-theater-series/FLUID.yaml)を参照。物理方程式と保存則がFCGの正本） |
 | 流体コンピュータグラフィックス（CG・GPU表示・水/煙/火） | [DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)（FCG1〜20・設計済み未実装。WGLと共通の編集可能なJS/GLSLブラウザラボ、流体数値/描画テストを毎講本文と同じPRで完成。FLUIDからの選択的発展コース） |
 | WebGL2・OpenGL系リアルタイムCG／GPUプログラミング | [DREAM_THEATER_WEBGL_OPENGL_GRAPHICS_PROGRAMMING_PLAN.md](DREAM_THEATER_WEBGL_OPENGL_GRAPHICS_PROGRAMMING_PLAN.md)（WGL1〜20・全20講確定、未着手。座標・shader・陰影・FBO・GPGPUと共通の編集実行ラボを担当。FCGと共有） |
 | Navier--Stokes millennium problem への専門ルート | `DREAM_THEATER_NAVIER_STOKES_MILLENNIUM_PLAN.md` |
