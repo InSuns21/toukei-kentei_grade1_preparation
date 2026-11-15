@@ -23,9 +23,9 @@ concepts:
     requires: [mirror.quintic-vanishing-cycle]
   - id: mirror.quintic-picard-lefschetz-conifold
     name: Picard–Lefschetzの節点公式
-    kind: principle
+    kind: theorem
     introduction: formal
-    introduction_aliases: ["原理（Picard–Lefschetzの節点公式：幾何学的入力）"]
+    introduction_aliases: ["定理（Picard–Lefschetzの節点公式：幾何学的入力）"]
     requires: [mirror.quintic-vanishing-cycle, mirror.quintic-integral-symplectic-basis]
   - id: mirror.quintic-conifold-transvection
     name: 節点の一周は階数1のシンプレクティック単冪変換
