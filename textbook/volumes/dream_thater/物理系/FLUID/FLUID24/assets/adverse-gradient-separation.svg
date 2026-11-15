@@ -11,7 +11,7 @@
     <text x="324" y="165" font-size="18" fill="#135b9c">下流：遅い</text>
     <text x="33" y="244" font-size="18">固定壁（無滑り：u = 0）</text>
     <text x="32" y="310" font-size="23" font-weight="bold">壁面せん断と速度の向き</text>
-    <text x="32" y="340" font-size="17">横軸：接線速度 u　縦軸：壁からの高さ y</text>
+    <text x="32" y="340" font-size="18">横軸：接線速度 u　縦軸：壁からの高さ y</text>
   </g>
   <g stroke="#135b9c" stroke-width="5" stroke-linecap="round" fill="none">
     <path d="M44 182 H263"/>
@@ -38,7 +38,7 @@
   <path d="M85 607 C116 574 141 487 166 433" stroke="#176aa5" stroke-width="4" fill="none" stroke-linecap="round"/>
   <path d="M264 607 C264 581 289 495 328 433" stroke="#25805c" stroke-width="4" stroke-dasharray="11 6" fill="none" stroke-linecap="round"/>
   <path d="M445 607 C410 573 410 544 447 517 S488 459 503 434" stroke="#b34d3c" stroke-width="4" stroke-dasharray="3 7" fill="none" stroke-linecap="round"/>
-  <g font-family="sans-serif" font-size="16" fill="#26354a">
+  <g font-family="sans-serif" font-size="18" fill="#26354a">
     <text x="30" y="671">実線：下流向き</text>
     <text x="205" y="671">破線：勾配ゼロ</text>
     <text x="373" y="671">点線：近壁逆流</text>
