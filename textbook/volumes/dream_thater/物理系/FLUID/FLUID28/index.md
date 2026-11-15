@@ -476,7 +476,7 @@ $$
 # timeout-ms: 15000
 # lab-preset: 水深40cm・重力優勢 | --depth 0.4 --wavelength 1 --samples 240
 # lab-preset: 浅水・長波 | --depth 0.05 --wavelength 1 --amplitude 0.001 --samples 240
-# lab-preset: 深水・毛管優勢 | --depth 0.4 --wavelength 0.03 --amplitude 0.0003 --samples 240
+# lab-preset: 深水・毛管優勢 | --depth 0.4 --wavelength 0.01 --amplitude 0.0001 --samples 240
 # lab-preset: 表面張力なし | --depth 0.4 --wavelength 1 --gamma 0 --samples 240
 # lab-preset: 波数差を縮める | --depth 0.4 --wavelength 1 --spread 0.04 --samples 480
 <!-- python-file-lab-end -->
