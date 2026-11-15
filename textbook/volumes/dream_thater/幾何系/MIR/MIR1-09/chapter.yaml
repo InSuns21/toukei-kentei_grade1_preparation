@@ -1,0 +1,40 @@
+id: "MIR1-09"
+title: "Griffiths–Dworkの極次数低減"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-08
+learning_objectives:
+  - Dwork五次のJacobianイデアルを定義しFermat点で単項式の所属と非所属を直接判定できる
+  - 射影有理4形式の極次数と分子・係数多項式の斉次次数を検算できる
+  - Euler縮約と全微分の恒等式からGriffiths–Dwork極次数低減公式を証明できる
+  - 閉サイクル・分母の非消失・境界条件を区別し全微分の積分が消える条件を説明できる
+  - Dwork族の二重極と三重極についてJacobian偏微分から極次数を下げられる
+  - ψの五段階の単項式置換から(1-ψ^5)P^4がJacobianイデアルに属することを構成的に証明できる
+  - 周期の四階微分の五重極を四重極へ低減し判別点での除算不可を説明できる
+theorems:
+  - { id: MIR1-09-DEF-01, name: "Dwork五次のJacobianイデアル" }
+  - { id: MIR1-09-DEF-02, name: "射影五次に沿う極次数kの有理4形式" }
+  - { id: MIR1-09-PROP-01, name: "Griffiths–Dworkの極次数低減公式" }
+  - { id: MIR1-09-PROP-02, name: "Dwork五次の二重極の低減" }
+  - { id: MIR1-09-PROP-03, name: "Dwork五次の五重極の一段低減" }
+canonical_examples:
+  - Fermat点のJacobianイデアルでx0^4x1は含まれPは含まれないことを単項式の指数で確認
+  - 極次数1・2・3と斉次次数0・5・10を射影スケーリングで検算
+  - x0F0偏微分の二重極低減とFermatの消える二重極
+  - ψの五段階の置換による(1-ψ^5)P^4のJacobian表示と発散和の直接計算
+  - 境界のある道で全微分の積分が消えない反例
+problem_patterns:
+  - MIR1-09-HOMOGENEITY
+  - MIR1-09-FERMAT-JACOBIAN-MEMBERSHIP
+  - MIR1-09-EXTERIOR-DERIVATIVE
+  - MIR1-09-SECOND-POLE
+  - MIR1-09-AFFINE-CHART
+  - MIR1-09-THIRD-POLE
+  - MIR1-09-FERMAT-FIFTH-POLE
+  - MIR1-09-BOUNDARY-DISCRIMINANT
+  - MIR1-09-FIFTH-POLE-INTEGRATED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 11, review: 5 }
