@@ -1,12 +1,12 @@
 # DREAM THEATER WebGL2・OpenGL系リアルタイムCG／GPUプログラミング講座 PLAN（WGL1〜WGL20・全20講確定）
 
 設計・講数確定日：2026-11-15  
-状態：planned（PLAN設計のみ。本文・GLSL/JavaScript実行環境・教材コード・系列manifest・目次は未実装）  
+状態：in progress（WGL1 着手。完了状況は系列 manifest を正本とする）  
 講数：**20講**（A 6講＋B 6講＋C 4講＋D 4講）。既存の流体CG（FCG1〜20）とは別系列とし、共通WebGLラボを共同利用する。
 
 ## 0. 判断・中心問い・範囲
 
-**独立講座を設ける**。既存の[FCG全20講](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)は流体数値模型とその表現が主役であり、FCG2のWebGL2入門だけでは、一般の座標変換・可視性・陰影・テクスチャ・多段レンダリング・GPU検算を順序立てて学べない。一方でFCGの既存20講を増やして描画API入門を重複実装するのは避ける。
+**独立講座を設ける**。既存の[FCG全20講](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)は流体数値模型とその表現が主役であり、FCG2のWebGL2入門だけでは、一般の座標変換・可視性・陰影・テクスチャ・多段レンダリング・GPU検算を順序立てて学べない。一方でFCGの既存20講を増やして描画API入門を重複実装するのは避ける。
 
 > JavaScriptとGLSL ES 3.00を自分で編集・実行し、3Dの幾何が画素へ変わる仕組みとGPU演算の限界を、図・数式・計算結果・ピクセルの独立検算で説明できるか。
 
@@ -26,7 +26,7 @@
 | [WebGL2 Fundamentals](https://webgl2fundamentals.org/webgl/lessons/) | 実際の描画パイプライン、texture、framebuffer、shadow、GPGPU等の公開教育的配置を照合。コード・図は転載せず独自に作成 |
 | [MDN WebGL2RenderingContext](https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext) | ブラウザcontext・API・例外とフォールバック（WGL1・17–19） |
 | [Physically Based Rendering, 4th ed.](https://www.pbrt.org/) | 光輸送・反射モデルをWGL12の近似の根拠として使う。フルpath tracerや分光renderは範囲外 |
-| 既存[FCG PLAN](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
+| 既存[FCG PLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
 
 資料は範囲と説明順序の検証に利用し、図・演習・ソース・数値例は自作する。各版の機能・ブラウザ対応は実装日に再検証する。
 
@@ -52,7 +52,7 @@
 - JSを自由編集させる以上、**ブラウザ側から無限ループを完全にプリエンプトできない**。実行ごとに隔離iframe/contextを破棄・再生成し、ホストにタイムアウト/世代上限/資源上限を設ける。GPUドライバ停止・GPUハングは完全に防げないため、カーネル/ブラウザ依存の制約と警告を明記する。検査用pixel readbackと別系統CPU参考値を持つ。
 - WebGL2が非対応/失敗なら対応検査を表示し、必要なら同じ理論のCanvas2D/CPU参照値を示す。ただしGPU-specificな到達目標をCPU再現で達成済みにはしない。GPU再試験が必要と明記する。GPUでfloat render targetを使う講は拡張・format・フィルタ可否を実測/問い合わせで判定し、対応前提で固定しない。
 - ネットワーク不要の静的Pages資産で配布できる設計を優先し、CSP/Service Worker・オフライン再訪・古い保存状態・ページ更新を検査する。外部CDN・remote texture・実ユーザーデータをラボの既定入力としない。
-- [対話型シミュレーション共通基盤](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のstop/reset、実験記録/世代制御は適合する部分を**APIとして再利用**するが、既存WorkerプロトコルにGL contextや任意コード評価を無理に同居させない。共通UIの仮定は着手PRで実コードと照合する。
+- [対話型シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のstop/reset、実験記録/世代制御は適合する部分を**APIとして再利用**するが、既存WorkerプロトコルにGL contextや任意コード評価を無理に同居させない。共通UIの仮定は着手PRで実コードと照合する。
 - **WGL1またはFCGの先行着手講（どちらが先でもよい）で最小安全ラボを同時実装**。WGL1→2・FCG2以降のWebGL課題が同じ基盤を段階拡張し、重複実装しない。共通ランタイム変更は両系列の回帰影響を評価する。ソフトウェア上の再利用は、他系列の未完了章を数学的prerequisiteに要求する理由にはならない。
 
 ### 2.3 全講での具体的受け入れ契約

@@ -93,6 +93,24 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: npm run validate:pages
 
+      - name: Check WGL shared laboratory CPU and isolation contracts
+        if: steps.scope.outputs.full == 'true'
+        run: node --test pages/simulation/wgl-lab.test.mjs
+
+      - name: Test WGL1 shader compilation and actual GPU pixels in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-wgl-browser.mjs
+
+      - name: Upload WGL1 screenshot review artifact
+        if: always() && steps.scope.outputs.full == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: wgl1-browser-review
+          path: _wgl_browser_review/
+          if-no-files-found: warn
+          retention-days: 14
+
+
       # Ubuntu's default headless Chrome environment lacks Japanese glyphs;
       # render artifacts must display the same CJK labels as learners see.
       - name: Install verified CJK font for ORI SVG screenshot review

@@ -1,0 +1,41 @@
+chapter: WGL1
+scope: dream-theater
+coverage: complete
+prerequisites: []
+concepts:
+  - id: graphics.perspective-division
+    name: 透視除算
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（透視除算）"]
+    requires: []
+  - id: graphics.drawing-buffer-pixel
+    name: 描画バッファと画素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（描画バッファと画素）"]
+    requires: []
+  - id: graphics.ndc-viewport
+    name: 正規化デバイス座標と viewport
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化デバイス座標と viewport）"]
+    requires: [graphics.drawing-buffer-pixel]
+  - id: graphics.shader-pipeline
+    name: シェーダ段階と描画呼出し
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（シェーダ段階と描画呼出し）"]
+    requires: [graphics.drawing-buffer-pixel]
+  - id: graphics.viewport-map
+    name: 全画面viewportの座標対応
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全画面viewportの座標対応）"]
+    requires: [graphics.ndc-viewport]
+  - id: graphics.triangle-edge-test
+    name: 三角形の符号付き面積による内外判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三角形の符号付き面積による内外判定）"]
+    requires: [graphics.ndc-viewport]

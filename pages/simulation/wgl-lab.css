@@ -1,0 +1,19 @@
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,"Noto Sans JP",sans-serif;color:#182739;background:#fff}
+main{max-width:900px;margin:auto;padding:12px}h1{font-size:1.18rem;margin:0 0 .5rem}h2{font-size:1rem;margin:.6rem 0}
+p{margin:.45rem 0}.tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:2px solid #cbd5e1;padding:4px 0}
+.tabs button{border:1px solid #64748b;padding:9px 12px;background:#f8fafc;border-radius:5px 5px 0 0;color:#1e293b;cursor:pointer}
+.tabs button[aria-selected="true"]{background:#163b63;color:white;font-weight:bold}
+.tabs button:focus-visible,button:focus-visible,textarea:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+section[hidden]{display:none!important}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:.7rem 0}
+.controls label{display:flex;align-items:center;gap:4px}.controls input{width:5.2rem;padding:.35rem}.controls select{padding:.4rem}
+button{font:inherit}button.action{border:1px solid #315a7e;padding:.5rem .9rem;border-radius:5px;background:#f5f9ff;cursor:pointer}
+button.primary{background:#164a78;color:white}
+.editors{display:grid;grid-template-columns:1fr;gap:.5rem}
+.editors label{display:block;font-weight:bold}
+textarea{width:100%;min-height:9rem;font:13px/1.4 ui-monospace,Consolas,monospace;tab-size:2;border:1px solid #64748b;border-radius:4px;padding:8px;resize:vertical}
+#js-source{min-height:21rem}.result-frame{border:1px solid #64748b;width:100%;height:300px;background:#eee}
+pre{white-space:pre-wrap;word-break:break-word;background:#f1f5f9;padding:10px;border-radius:5px;max-height:18rem;overflow:auto}
+table{width:100%;border-collapse:collapse}th,td{border:1px solid #cbd5e1;padding:5px;text-align:left;font-size:.85rem}
+#status{font-weight:bold}small{color:#475569}.error{color:#991b1b}.ok{color:#14532d}
+@media (min-width:800px){.editors{grid-template-columns:1fr 1fr}.editors>div:first-child{grid-row:span 2}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
