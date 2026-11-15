@@ -1,0 +1,43 @@
+id: "FLUID25"
+title: "物体の抗力と後流の渦をどう結ぶか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID24
+official_scope: []
+learning_objectives:
+  - "物体表面の圧力・粘性応力を区別して単位スパンの抗力の符号を確定する"
+  - "固定検査体積の質量・運動量収支から非定常の瞬間抗力公式を導く"
+  - "側面の質量・運動量流束を消去し、圧力回復条件付きの定常後流抗力を導く"
+  - "Gaussian型の速度欠損プロファイルから抗力係数を積分計算し模型上の限界を説明する"
+  - "渦度輸送、交互渦放出、Reynolds数・Strouhal数の意味と非普遍性を区別する"
+  - "鏡映半周期条件の揚抗力対称性を証明し、瞬間・平均の運動量流束を区別する"
+  - "速度断面の求積誤差と観測範囲の切断誤差をPythonで分離し数値シミュレーションと混同しない"
+definitions:
+  - { id: FLUID25-DEF-01, name: "圧力抗力・粘性抗力と全抗力" }
+  - { id: FLUID25-DEF-02, name: "後流速度欠損と運動量欠損積分" }
+theorems:
+  - { id: FLUID25-THM-01, name: "固定検査体積による瞬間抗力" }
+  - { id: FLUID25-THM-02, name: "定常後流による抗力評価" }
+  - { id: FLUID25-PROP-01, name: "半周期の鏡映対称性と揚抗力の周期" }
+canonical_examples:
+  - "円柱の前後圧力の非対称分布から正の圧力抗力を積分する"
+  - "矩形速度欠損から運動量欠損の積分可能性と符号を確認する"
+  - "滑らかなGaussian型後流の抗力と係数を正確に積分する"
+  - "円柱の測定周波数からReynolds数・Strouhal数を算出する"
+  - "Python積分で求積刻みと有限観測幅の誤差を分離する"
+problem_patterns:
+  - FLUID25-CYLINDER-PRESSURE
+  - FLUID25-RECTANGULAR-DEFICIT
+  - FLUID25-REYNOLDS-STROUHAL
+  - FLUID25-OUTLET-PRESSURE
+  - FLUID25-PERIODIC-STORAGE
+  - FLUID25-GAUSSIAN-DRAG
+  - FLUID25-SIDE-MASS-FLUX
+  - FLUID25-HALF-PERIOD-SYMMETRY
+  - FLUID25-MEAN-SQUARE-DEFICIT
+  - FLUID25-INTEGRATED-WAKE-ACCOUNTING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }

@@ -25,3 +25,4 @@
 22. [FLUID22 平板境界層の自己相似解はどう出るか](textbook/volumes/dream_thater/物理系/FLUID/FLUID22/index.md)
 23. [FLUID23 境界層を積分すると抗力を評価できるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID23/index.md)
 24. [FLUID24 圧力勾配はどのように境界層を剥離させるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID24/index.md)
+25. [FLUID25 物体の抗力と後流の渦をどう結ぶか](textbook/volumes/dream_thater/物理系/FLUID/FLUID25/index.md)
