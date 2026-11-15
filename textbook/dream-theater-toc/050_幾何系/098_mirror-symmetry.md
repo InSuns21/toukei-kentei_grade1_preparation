@@ -12,3 +12,4 @@
 9. [MIR1-09 Griffiths–Dworkの極次数低減](textbook/volumes/dream_thater/幾何系/MIR/MIR1-09/index.md)
 10. [MIR1-10 quinticのPicard–Fuchs作用素](textbook/volumes/dream_thater/幾何系/MIR/MIR1-10/index.md)
 11. [MIR1-11 正則周期と超幾何級数](textbook/volumes/dream_thater/幾何系/MIR/MIR1-11/index.md)
+12. [MIR1-12 Frobenius法と対数周期](textbook/volumes/dream_thater/幾何系/MIR/MIR1-12/index.md)
