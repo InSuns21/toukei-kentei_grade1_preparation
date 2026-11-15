@@ -45,7 +45,7 @@ $$
 
 <!-- definition-example-start: def-mir1-13-monodromy -->
 
-**定義の確認**。 より小さい例として $V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\}$ を取り、$e_0=1,e_1=\operatorname{Log}z$ とする。解析接続の線形性は $C_\gamma(af+bg)=aC_\gamma(f)+bC_\gamma(g)$ から従い、逆向きの一周で元に戻る。$C_\gamma(e_0)=e_0$、$C_\gamma(e_1)=2\pi i e_0+e_1$ なので、列の規約では行列は
+**定義の確認**。 より小さい例として、穿孔円板での二階方程式 $zf''(z)+f'(z)=0$ を考える。プライムは $z$ による微分である。$f=1$ は両導関数が零、$f=\operatorname{Log}z$ は $f'=1/z$、$f''=-1/z^2$ だから $zf''+f'=0$。二解のWronskianは $1/z\ne0$ なので、局所解空間は $V_2=\operatorname{span}_{\mathbb C}\{1,\operatorname{Log}z\}$ であり、$e_0=1,e_1=\operatorname{Log}z$ が基底となる。解析接続の線形性は $C_\gamma(af+bg)=aC_\gamma(f)+bC_\gamma(g)$ から従い、逆向きの一周で元に戻る。$C_\gamma(e_0)=e_0$、$C_\gamma(e_1)=2\pi i e_0+e_1$ なので、各像の $e_0,e_1$ 係数を列に並べると行列は
 
 $$
 M_2=\begin{pmatrix}1&2\pi i\\0&1\end{pmatrix},
@@ -56,7 +56,7 @@ $$
 
 <!-- definition-example-end -->
 
-ここから前講と同じ規格化を使う。$c=2\pi i$ と略記し、固定分枝上で
+ここから前講と同じ規格化を使う。$c=2\pi i$ と略記し、$z$ を固定する補助パラメータ微分 $\partial_\rho=\partial/\partial\rho$（$\theta=z\,d/dz$ は逆に $\rho$ を固定する）を区別する。固定分枝上で
 
 $$
 F(\rho,z)=z^\rho\sum_{d\ge0}c_d(\rho)z^d,\qquad
@@ -91,7 +91,7 @@ $$
 
 ### 証明の見取り図
 
-原点を一周しても級数の $z^d$ は変化せず、$z^\rho=e^{\rho\operatorname{Log}z}$ だけが $e^{c\rho}$ 倍になる。これを $\rho$ で微分すると、積の微分公式の係数がそのまま三角行列の係数になる。
+原点を一周しても級数の $z^d$ は変化せず、$z^\rho=e^{\rho\operatorname{Log}z}$ だけが $e^{c\rho}$ 倍になる。$\rho\ne0$ の $F(\rho,z)$ 自体は一般に方程式の解ではないので、まず関数として解析接続し、$\rho=0$ での三階までの微分に限って解空間上の $C_\gamma$ と同一視する。積の微分公式の係数が三角行列の係数になる。
 
 <!-- proof-start -->
 ### 証明
@@ -99,11 +99,11 @@ $$
 固定した $|\rho|<1/2$ について係数級数 $\sum c_d(\rho)z^d$ は円板 $|z|<R$ で正則一価である。[Frobenius族の収束とパラメータ微分](../MIR1-12/index.md#thm-mir1-12-residual)により、$\rho$ 微分と解析接続を局所的に交換できる。道 $\gamma$ に沿う $\operatorname{Log}z$ の増分は $c$ なので、
 
 $$
-C_\gamma F(\rho,z)=e^{\rho(\operatorname{Log}z+c)}
+\operatorname{Cont}_\gamma F(\rho,z)=e^{\rho(\operatorname{Log}z+c)}
 \sum_{d\ge0}c_d(\rho)z^d=e^{c\rho}F(\rho,z).
 $$
 
-両辺を $k$ 回微分するとLeibniz則から
+ここで $\operatorname{Cont}_\gamma$ は関数の解析接続を表す（$C_\gamma$ は解空間 $V$ 上の作用）。局所一様収束から $\rho$ 微分との交換ができ、$\rho=0$ で $k\le3$ の微分が方程式の解になることは[前講の残差公式](../MIR1-12/index.md#thm-mir1-12-residual)で確認済みである。両辺を $k$ 回微分するとLeibniz則から
 
 $$
 \partial_\rho^k(e^{c\rho}F)
@@ -149,7 +149,7 @@ $$
 
 <!-- definition-example-end -->
 
-四次元では $(M-I)^4=0$ が成り立つだけなら、$M=I$ でも満たしてしまう。「最大」という語には、**四回で零になるが三回では零にならない**という条件が必要である。
+四次元では $(M-I)^4=0$ が成り立つだけなら、$M=I$ でも満たしてしまう。「最大」という語には、**四回で零になるが三回では零にならない**という条件が必要である。ここでいう**局所系**とは、各小領域の解空間を重なりでの解析接続によって結び付けたもので、先ほどの $V$ と一周作用 $C_\gamma$ がその局所表示を与える。
 
 <a id="def-mir1-13-mum"></a>
 
@@ -263,6 +263,8 @@ $N$ については $N(u_3)=u_2$、$N^2(u_3)=u_1$、$N^3(u_3)=u_0$。これが�
 
 ## 5. 何が基底や一周の向きに依存するか
 
+元の基底を横に並べて $B=(u_0,u_1,u_2,u_3)$ と記し、可逆な定数係数行列 $P$ の**各列**を新基底ベクトルの旧基底座標とする。従って新基底は $B'=BP$ である。この列規約を固定してから変換行列を求める。
+
 <a id="prop-mir1-13-invariance"></a>
 
 <!-- formal-statement-start -->
@@ -281,7 +283,7 @@ $$
 (M'-I)^4=0,\qquad (M'-I)^3\ne0.
 $$
 
-> また $N=\log M$ とすると、逆向き一周の作用とその冪零対数は次のとおりである。
+> また $U=M-I$、$N=\log M:=U-U^2/2+U^3/3$ とすると、逆向き一周の作用とその冪零対数は次のとおりである。
 
 $$
 M^{-1}=\exp(-N),\qquad \log(M^{-1})=-N.
@@ -295,7 +297,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-元の基底を横に並べた形式記号 $B=(u_0,u_1,u_2,u_3)$ とし、新基底を $B'=BP$ と書く。$P$ は可逆である。$C_\gamma(B)=BM$ を使うと
+導入で固定した基底 $B$ と新基底 $B'=BP$ に対し、$C_\gamma(B)=BM$ を使うと
 
 $$
 C_\gamma(B')=C_\gamma(B)P=BMP
@@ -308,13 +310,32 @@ $$
 (M'-I)^k=P^{-1}(M-I)^kP
 $$
 
-となり、零であることと非零であることが両方保たれる。逆向き一周は解析接続を元に戻すので $M^{-1}$ であり、$N=S$ と $S^4=0$ から
+となり、零であることと非零であることが両方保たれる。逆向き一周は解析接続を元に戻すので $M^{-1}$ である。ここからはquintic固有の $N=S$ を仮定せず、命題の一般の $U=M-I$（$U^4=0$）だけで計算する。定義した $N=U-U^2/2+U^3/3$ から四次以上を捨てれば
 
-$$
-M^{-1}=\exp(-S)=I-S+\tfrac12S^2-\tfrac16S^3.
-$$
+$
+N^2=U^2-U^3,\qquad N^3=U^3,\qquad N^4=0.
+$
 
-この有限指数多項式の対数は $-S=-N$ である。特に $(-N)^3=-N^3\ne0$、$(-N)^4=0$。$\square$
+よって有限指数多項式は
+
+$
+\begin{aligned}
+\exp(N)&=I+N+\tfrac12N^2+\tfrac16N^3=I+U=M,\\
+\exp(-N)&=I-N+\tfrac12N^2-\tfrac16N^3
+=I-U+U^2-U^3.
+\end{aligned}
+$
+
+$(I+U)(I-U+U^2-U^3)=I-U^4=I$ なので、後者は確かに $M^{-1}$ である。$W=M^{-1}-I=-U+U^2-U^3$ とおけば $W^2=U^2-2U^3$、$W^3=-U^3$ となる。従って
+
+$
+\begin{aligned}
+\log(M^{-1})&=W-\tfrac12W^2+\tfrac13W^3\\
+&=-U+\tfrac12U^2-\tfrac13U^3=-N.
+\end{aligned}
+$
+
+さらに $N^3=U^3\ne0$、$N^4=0$ なので、$(-N)^3=-U^3\ne0$、$(-N)^4=0$ である。$\square$
 <!-- proof-end -->
 
 ここまでの数値行列は**Frobenius局所解基底**で得たものだ。基底の定数倍を含む $u_k$ は、一般に整数係数のホモロジー基底上の周期とは限らない。[Gauss–Manin接続による周期の平行移動](../MIR1-08/index.md#prop-mir1-08-period-connection)に対応する幾何学的モノドロミーを整数行列で書くには、整数サイクルの基底、周期との対応、双対作用の規約を別途決める必要がある。解を解析接続する作用と、サイクルを運ぶ作用の行列を、向きや双対の違いを無視して同じものと断定してはならない。
@@ -381,7 +402,7 @@ $$
 #### MIR1-13-A03 冪零指数の判定
 - Level: A
 
-$D(u_0)=0$、$D(u_1)=u_0$、$D(u_2)=u_1$、$D(u_3)=u_2$ とする。$D^2u_3,D^3u_3,D^4u_3$ を求めて、$D$ の冪零指数を示せ。
+四次元ベクトル空間の基底 $u_0,u_1,u_2,u_3$ に対して、$D(u_0)=0$、$D(u_1)=u_0$、$D(u_2)=u_1$、$D(u_3)=u_2$ とする。$D^2u_3,D^3u_3,D^4u_3$ を求めて、$D$ の冪零指数を示せ。
 
 <!-- solution-start -->
 **詳細解答。** 線形性と定義を順に適用すれば $D^2u_3=D(u_2)=u_1$、$D^3u_3=D(u_1)=u_0\ne0$、$D^4u_3=D(u_0)=0$。ほかの $u_j$（$j\le2$）にも四回適用すると零なので $D^4=0$。三乗は $u_3$ で非零だから最小の消滅次数は4。
@@ -467,7 +488,7 @@ $F(\rho,z)=z^\rho\sum_{d\ge0}c_d(\rho)z^d$ が $|\rho|<1/2$、$0<|z|<1/3125$ の
 <!-- solution-start -->
 **詳細解答。**
 
-**(1)** $\operatorname{Log}z$ の増分を $c=2\pi i$ とすると $C_\gamma F=e^{c\rho}F$。Leibniz則により
+**(1)** $\operatorname{Log}z$ の増分を $c=2\pi i$ とすると、一般の $\rho$ の $F$ はまだ解とは限らないが、その解析接続は $\operatorname{Cont}_\gamma F=e^{c\rho}F$。$\rho=0$ で三階までのパラメータ微分は解だから、Leibniz則により
 
 $$
 C_\gamma y_k=\frac1{k!}\sum_{j=0}^k\binom{k}{j}c^{k-j}\partial_\rho^jF(0,z)
