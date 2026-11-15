@@ -211,7 +211,7 @@ F_0(z+\varepsilon L(z))
 \pmod{\varepsilon^2}
 $$
 
-である。この座標変換は一次まで逆変換を持ち、右辺の和は同じ射影超曲面の座標表示を取り替えるだけの方向を表す。また $5F_0=\sum_i z_i\,\partial F_0/\partial z_i$ というEuler恒等式により、方程式全体のスカラー倍もこの部分空間に含まれる。[五次式の一次多項式変形の定義](../../CYG/CYG1-13/index.md#def-cyg1-13-polynomial-direction)に従い、このような和全体を $J(F_0)_5$ として除き、五次斉次式全体の空間 $S_5$ の商 $S_5/J(F_0)_5$ で $[G]$ が非零かを調べる。$\partial/\partial\psi$ は**係数パラメータ**を、$\partial/\partial z_i$ は**座標**を微分するので、役割が異なる。
+である。この座標変換は一次まで逆変換を持ち、右辺の和は同じ射影超曲面の座標表示を取り替えるだけの方向を表す。また $F_0=\sum_i z_i^5$ を直接微分すると $\sum_i z_i\,\partial F_0/\partial z_i=\sum_i5z_i^5=5F_0$ なので、方程式全体のスカラー倍もこの部分空間に含まれる。[五次式の一次多項式変形の定義](../../CYG/CYG1-13/index.md#def-cyg1-13-polynomial-direction)に従い、このような和全体を $J(F_0)_5$ として除き、五次斉次式全体の空間 $S_5$ の商 $S_5/J(F_0)_5$ で $[G]$ が非零かを調べる。$\partial/\partial\psi$ は**係数パラメータ**を、$\partial/\partial z_i$ は**座標**を微分するので、役割が異なる。
 
 <a id="prop-mir1-03-fermat-direction"></a>
 
