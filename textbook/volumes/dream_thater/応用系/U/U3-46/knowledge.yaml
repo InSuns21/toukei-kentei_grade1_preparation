@@ -1,0 +1,41 @@
+chapter: U3-46
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-45, U3-44]
+concepts:
+  - id: finance.expected-shortfall
+    name: 分位点積分による Expected Shortfall
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分位点積分による Expected Shortfall）"]
+    requires: [finance.value-at-risk, finance.finite-loss-distribution]
+  - id: finance.es-atom-tail
+    name: 境界原子を含む ES の尾部公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（境界原子を含む ES の尾部公式）"]
+    requires: [finance.expected-shortfall, finance.var-coverage]
+  - id: finance.es-variational
+    name: ES の最小化表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ES の最小化表示）"]
+    requires: [finance.es-atom-tail]
+  - id: finance.es-dual
+    name: ES の最大化表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ES の最大化表示）"]
+    requires: [finance.es-variational, finance.es-atom-tail]
+  - id: finance.es-coherence
+    name: ES のコヒーレント性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ES のコヒーレント性）"]
+    requires: [finance.es-dual]
+  - id: finance.es-empirical
+    name: 等確率標本の ES と端数重み
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等確率標本の ES と端数重み）"]
+    requires: [finance.expected-shortfall, finance.var-finite-quantile]
