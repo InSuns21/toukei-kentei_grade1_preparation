@@ -17,16 +17,16 @@
 > 実数値損失 $L$ と固定閾値 $u\in\mathbb R$ について、$p_u=P(L>u)$ とする。$0<p_u<1$ のとき、条件 $L>u$ の下での非負超過幅を $Y_u=L-u$ とする。標本 $L_1,\ldots,L_n$ の超過数、超過幅標本および超過比率は次式とする。
 
 $$
-k_u=\sum_{i=1}^{n}{\bf1}_{\{L_i>u\}},\qquad
-\{L_i-u:L_i>u\},\qquad
+k_u=\sum_{i=1}^{n}\boldsymbol{1}_{\{L_i>u\}},\qquad
+(L_i-u)_{1\le i\le n,\ L_i>u},\qquad
 \widehat p_u=k_u/n.
 $$
 
-> 値がちょうど $u$ の観測は超過に含まれない。$k_u=0$ では超過幅にモデルを当てはめられない。
+> $\boldsymbol{1}_{\{L_i>u\}}$ は $L_i>u$ なら1、そうでなければ0の指示関数である。中央は該当する $i$ を昇順に並べた**超過幅の列**で、同じ幅が複数あれば重複も保持する（集合ではない）。値がちょうど $u$ の観測は超過に含まれず、$k_u=0$ では列は空でモデルを当てはめられない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-51-pot -->
-**定義の確認**：標本 $(-2,0,4,10,12,12,16)$ 万円、$u=10$ 万円なら $n=7$、$k_u=3$、超過幅は $(2,2,6)$ 万円、$\widehat p_u=3/7$ です。値10は数えません。これは標本比率であって、真の確率 $p_u$ が厳密に $3/7$ という主張ではありません。
+**定義の確認**：標本 $(-2,0,4,10,12,12,16)$ 万円、$u=10$ 万円なら $n=7$、$k_u=3$、超過幅列は $(2,2,6)$ 万円、$\widehat p_u=3/7$ です。2万円の超過が2回観測されたことを保持し、値10は数えません。これは標本比率であって、真の確率 $p_u$ が厳密に $3/7$ という主張ではありません。
 <!-- definition-example-end -->
 
 以下ではまず、予測時点より前に固定した閾値で、独立同分布の損失を観測する状況を考えます。極端損失が時間的に固まる場合には独立性の仮定を見直す必要があります。
@@ -60,7 +60,7 @@ f(y)=
 $$
 <!-- formal-statement-end -->
 
-$\xi\ne0$ では合成関数の微分から
+ここで $S'(y)=dS(y)/dy$ は超過幅 $y$ に関する通常の導関数です。$\xi\ne0$ では合成関数の微分から
 
 $$
 -S'(y)=-\left(-\frac1\xi\right)
@@ -206,7 +206,25 @@ $$
 です。両辺から1を引いて $\beta/\xi$ 倍すると表示式が得られます。$\xi<0$ では右側の冪が $(0,1)$ にあるので $0<y<-\beta/\xi$ です。$\xi=0$ では $e^{-y/\beta}=(1-\alpha)/p_u$ の対数を取り $y=\beta\log(p_u/(1-\alpha))$ を得ます。
 <!-- proof-end -->
 
-同じ連続尾部における [ES の分位点積分定義](../U3-46/index.md#def-u3-46-es)は、$q_\alpha=\operatorname{VaR}_\alpha(L)>u$ に対して $E[L\mid L>q_\alpha]$ と一致します。したがって「VaR を超えた分の平均」を正しく積分する必要があります。
+既習の [ES の分位点積分定義](../U3-46/index.md#def-u3-46-es)は **$E[|L|]<\infty$** を仮定していました。しかし GPD では形状 $\xi\ge1$ のとき上側の平均が発散します。本講の高水準 $1-p_u<\alpha<1$ では $q_\alpha=\operatorname{VaR}_\alpha(L)>u$ なので、上側分位点は $q_\alpha$ 以上です。そこでこの水準の ES は、積分が $+\infty$ となる場合も許して
+
+$$
+\operatorname{ES}_\alpha(L)
+:=\frac1{1-\alpha}\int_\alpha^1\operatorname{VaR}_t(L)\,dt
+\quad\in\mathbb R\cup\{+\infty\}
+$$
+
+と**拡張して**扱います。積分変数 $t$ は確率水準であり、保有期間の時刻ではありません。下からは $q_\alpha$ で抑えられるため、積分値に $-\infty$ との不定形は生じません。
+
+以下 $(a)_+=\max(a,0)$ を正の部分と書きます。この尾部は連続で $P(L>q_\alpha)=1-\alpha$ です。[ES の尾部公式](../U3-46/index.md#prop-u3-46-atom)を有限に切断した損失へ適用し、$M>q_\alpha$ として $(L-q_\alpha)_+$ を $\min\{(L-q_\alpha)_+,M-q_\alpha\}$ から単調に近づければ、
+
+$$
+\operatorname{ES}_\alpha(L)
+=q_\alpha+\frac{E[(L-q_\alpha)_+]}{1-\alpha}
+=E[L\mid L>q_\alpha]
+$$
+
+が $+\infty$ を許して成立します。最後の条件付き期待値も拡張実数値です。このように「VaR を超えた分の平均」を積分して有限性を判定します。
 
 <a id="prop-u3-51-es"></a>
 
@@ -238,7 +256,13 @@ Z=L-q_\alpha\mid(L>q_\alpha)
 b=\beta+\xi(q_\alpha-u)>0
 $$
 
-を得ます。非負 $Z$ の期待値は生存関数の積分です。$\xi\ne0,\ \xi<1$ の場合に $w=1+\xi z/b$ と置換すると、
+を得ます。非負の実数 $a$ では $a=\int_0^\infty\boldsymbol{1}_{\{a>z\}}\,dz$ です。これを $Z$ に適用し、非負関数の積分順序を交換すると、
+
+$$
+E[Z]=\int_0^\infty P(Z>z)\,dz\in[0,+\infty]
+$$
+
+となります（有限性はまだ仮定しません）。$\xi\ne0,\ \xi<1$ の場合、$\xi<0$ なら積分上端は $-b/\xi$、$\xi>0$ なら $+\infty$ です。$w=1+\xi z/b$ と置換すると、
 
 $$
 \begin{aligned}
@@ -380,7 +404,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$s=\sum_jy_j>0$ と置くと $\ell(\beta)=-k\log\beta-s/\beta$ なので、
+観測幅 $y_1,\ldots,y_k$ と形状 $\xi=0$ を固定し、$\ell'(\beta)=d\ell(\beta)/d\beta$ を尺度 $\beta>0$ についての導関数とします。$s=\sum_jy_j>0$ と置くと $\ell(\beta)=-k\log\beta-s/\beta$ なので、
 
 $$
 \ell'(\beta)=-k/\beta+s/\beta^2
