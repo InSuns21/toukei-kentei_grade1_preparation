@@ -1,0 +1,42 @@
+id: "FLUID24"
+title: "圧力勾配はどのように境界層を剥離させるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID23
+official_scope: []
+learning_objectives:
+  - "外縁Euler関係から順・逆圧力勾配を判定し、圧力勾配の符号だけで剥離を断定しない"
+  - "固定壁でPrandtl式を評価し、壁面速度曲率と圧力勾配の関係を証明する"
+  - "壁面せん断零点と負せん断による近壁逆流の違いを速度のTaylor展開で検証する"
+  - "べき乗外縁速度のFalkner–Skan相似変数と常微分方程式を項別微分から導く"
+  - "相似の摩擦係数・Blasius規格化の対応・逆圧力勾配下の相似解の限界を説明する"
+  - "運動量積分式と相似厚さの尺度から零摩擦の候補条件を導き、追加仮定を区別する"
+definitions:
+  - { id: FLUID24-DEF-01, name: "順圧力勾配と逆圧力勾配" }
+  - { id: FLUID24-DEF-02, name: "壁面せん断の零点と逆流の判定" }
+  - { id: FLUID24-DEF-03, name: "Falkner–Skanの相似表示" }
+theorems:
+  - { id: FLUID24-PROP-01, name: "壁面圧力勾配と速度曲率" }
+  - { id: FLUID24-THM-01, name: "Falkner–Skan方程式への還元" }
+  - { id: FLUID24-PROP-02, name: "Falkner–Skan相似流れの壁摩擦と壁面曲率" }
+canonical_examples:
+  - "減速する外側速度と正の圧力勾配の同値性を直接確認"
+  - "負せん断と零せん断の速度Taylor形状を区別"
+  - "べき乗外部速度で相似変数と圧力勾配指標を算出"
+  - "m=0の相似規格化をBlasiusの摩擦係数と照合"
+  - "試行速度の近壁逆流区間と境界層方程式の適用条件を判別"
+problem_patterns:
+  - FLUID24-PRESSURE-SIGN
+  - FLUID24-WALL-TAYLOR
+  - FLUID24-POWER-LAW-SIGN
+  - FLUID24-SIMILARITY-FRICTION
+  - FLUID24-INTEGRAL-GROWTH
+  - FLUID24-SIMILARITY-DERIVATIVES
+  - FLUID24-REVERSE-PROFILE
+  - FLUID24-WALL-CURVATURE-CHECK
+  - FLUID24-POWER-LAW-INTEGRAL-COMBINED
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }
