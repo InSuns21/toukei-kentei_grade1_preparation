@@ -66,7 +66,21 @@ $$
 
 ## 2. 水柱は何を保存するか
 
-回転する平底の二次元浅水方程式は、[FLUID29 の水深・流量の定義](../FLUID29/index.md#def-fluid29-depth-discharge)を水平方向二成分へ広げたものである。滑らかな $u,v,h$ に対し、$D_t=\partial_t+u\partial_x+v\partial_y$ と書く。$\partial_t$ は位置 $x,y$ を固定した時間微分、$D_t$ は流体粒子に沿う**物質微分**である。実際、粒子の位置 $(X(t),Y(t))$ が $dX/dt=u(X,Y,t)$、$dY/dt=v(X,Y,t)$ を満たすなら、任意の滑らかなスカラー場 $s(x,y,t)$ に対して連鎖律より
+回転する平底の二次元浅水方程式は、[FLUID29 の水深・流量の定義](../FLUID29/index.md#def-fluid29-depth-discharge)を水平方向二成分へ広げたものである。滑らかな $u,v,h$ に対し、
+
+$$
+D_t=\partial_t+u\partial_x+v\partial_y
+$$
+
+と書く。$\partial_t$ は位置 $x,y$ を固定した時間微分、$D_t$ は流体粒子に沿う**物質微分**である。
+
+実際、粒子の位置 $(X(t),Y(t))$ が
+
+$$
+\frac{dX}{dt}=u(X,Y,t),\qquad\frac{dY}{dt}=v(X,Y,t)
+$$
+
+を満たすなら、任意の滑らかなスカラー場 $s(x,y,t)$ に対して連鎖律より
 
 $$
 \frac{d}{dt}s(X(t),Y(t),t)=s_t+u s_x+v s_y=D_ts
