@@ -19,7 +19,6 @@ const supportedStrategies = new Set([
   'stale-while-revalidate',
 ]);
 let manualCacheJob = null;
-let networkDegradedUntil = 0;
 
 function strategyFor(kind) {
   const configured = config.strategyByKind?.[kind] || config.defaultStrategy || 'network-first';
@@ -69,7 +68,9 @@ function requestForNetwork(request) {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return request;
 
-  return new Request(request, { cache: 'reload' });
+  // Do not accept a previously cached HTTP response when the network works.
+  // Cache Storage remains available exclusively as the network-failure fallback.
+  return new Request(request, { cache: 'no-store' });
 }
 
 function normalizedSameOriginUrl(rawUrl) {
@@ -251,22 +252,9 @@ async function cachedFallback(request, primaryCache) {
   return Response.error();
 }
 
-function markNetworkDegraded() {
-  const cooldown = Math.max(Number(config.networkFailureCooldownMs) || 0, 0);
-  networkDegradedUntil = cooldown ? Date.now() + cooldown : 0;
-}
-
-function clearNetworkDegraded() {
-  networkDegradedUntil = 0;
-}
-
-function isNetworkDegraded() {
-  return networkDegradedUntil > Date.now();
-}
-
-async function fetchWithTimeout(request) {
+async function fetchWithTimeout(request, configuredTimeoutMs = config.networkTimeoutMs) {
   const networkRequest = requestForNetwork(request);
-  const timeoutMs = Math.max(Number(config.networkTimeoutMs) || 0, 0);
+  const timeoutMs = Math.max(Number(configuredTimeoutMs) || 0, 0);
   if (!timeoutMs || typeof AbortController === 'undefined') {
     return fetch(networkRequest);
   }
@@ -292,16 +280,13 @@ async function networkFirst(request, cache) {
   try {
     const response = await updateCache(cache, request);
     if (!responseLooksUsable(request, response)) {
-      if (isSameOriginRequest(request)) markNetworkDegraded();
       const fallback = await cachedFallback(request, cache);
       if (fallback) return fallback;
       return response;
     }
 
-    if (isSameOriginRequest(request)) clearNetworkDegraded();
     return response;
   } catch {
-    if (isSameOriginRequest(request)) markNetworkDegraded();
     return cachedFallback(request, cache);
   }
 }
@@ -343,11 +328,6 @@ async function applyStrategy(event, request, kind) {
     return cachedFallback(request, cache);
   }
 
-  if ((kind === 'navigation' || kind === 'sameOrigin') && isNetworkDegraded()) {
-    const fallback = await cachedFallback(request, cache);
-    if (fallback.type !== 'error') return fallback;
-  }
-
   const strategy = numericalRuntime ? 'cache-first' : strategyFor(kind);
 
   if (strategy === 'cache-first') {
@@ -372,10 +352,9 @@ function cssDependencyUrls(cssText, cssUrl) {
 async function precacheOne(cache, rawUrl, followCssDependencies = true) {
   const url = new URL(rawUrl, self.registration.scope).href;
   const request = new Request(url, { cache: 'reload' });
-  // The install event must not be held hostage by a slow or blocked CDN.
-  // Use the same bounded fetch that guards runtime network-first requests;
-  // unsuccessful optional assets are retried by the ordinary fetch handler.
-  const response = await fetchWithTimeout(request);
+  // Do not delay worker activation because an optional shell/CDN asset is slow.
+  // Interactive content requests have a longer timeout to prefer fresh data.
+  const response = await fetchWithTimeout(request, config.installNetworkTimeoutMs);
   if (!isCacheable(response) || !responseLooksUsable(request, response)) return false;
 
   await cache.put(cacheKeyFor(request), response.clone());

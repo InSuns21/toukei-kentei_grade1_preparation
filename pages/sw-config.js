@@ -12,10 +12,9 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     'https://cdn.jsdelivr.net/pyodide/v314.0.7/full/',
   ]),
 
-  // Online requests should see the latest published content. service-worker.js
-  // short-circuits these strategies to Cache Storage when WorkerNavigator says
-  // the browser is offline. It also falls back when a nominally-online mobile
-  // or VPN path cannot actually reach GitHub Pages cleanly.
+  // Online page/content requests always try the network with HTTP caching
+  // disabled. Offline requests use stored content; a failed online request
+  // also falls back to available cached content.
   defaultStrategy: 'network-first',
   strategyByKind: Object.freeze({
     navigation: 'network-first',
@@ -25,11 +24,13 @@ self.TOUKEI_SW_CONFIG = Object.freeze({
     externalAsset: 'cache-first',
   }),
 
-  // A saved page should not wait forever on a half-connected mobile/VPN path.
-  // Valid online responses still win and refresh the runtime cache; failed,
-  // timed-out, or HTML-error responses fall back to saved offline content.
-  networkTimeoutMs: 2500,
-  networkFailureCooldownMs: 5000,
+  // Give a working but slow connection time to return fresh content instead
+  // of prematurely showing an old copy. When the network really is unusable,
+  // fall back to cached content after this bounded wait; do not enter a
+  // cooldown that skips later online fetches.
+  networkTimeoutMs: 12000,
+  // Optional install-time shell assets should not delay a worker update.
+  installNetworkTimeoutMs: 2500,
 
   // Keep the shell and a same-origin KaTeX fallback available after the first
   // online visit. The local KaTeX CSS pulls its font dependencies into the
