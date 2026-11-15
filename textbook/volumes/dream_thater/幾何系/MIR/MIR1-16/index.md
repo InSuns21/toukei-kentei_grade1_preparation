@@ -403,7 +403,7 @@ $$
 重さ3の交叉形式 $Q$ について $Q(F^p,F^{4-p})=0$、$\Omega\in F^3$、$\nabla\Omega\in F^2$、$\nabla^2\Omega\in F^1$ とする。$Q(\Omega,\nabla\Omega)$ と $Q(\Omega,\nabla^2\Omega)$ を求め、三回目の微分について同じ議論だけでは何が言えないか答えよ。
 
 <!-- solution-start -->
-**詳細解答。** $F^2\subset F^1$ なので $\nabla\Omega\in F^1$、$\nabla^2\Omega\in F^1$。$Q(F^3,F^1)=0$ より両方零となる。三回目はGriffiths横断性から $\nabla^3\Omega\in F^0$ しか従わず、$Q(F^3,F^0)=0$ は仮定されていない。従って $C=Q(\Omega,\nabla^3\Omega)$ は零とも非零ともまだ断定できない。
+**詳細解答。** $F^2\subset F^1$ なので $\nabla\Omega\in F^1$、$\nabla^2\Omega\in F^1$。$Q(F^3,F^1)=0$ より両方零となる。三回目は[Griffiths横断性](../../DEF/DEF1-13/index.md#thm-def1-13-griffiths)から $\nabla^3\Omega\in F^0$ しか従わず、$Q(F^3,F^0)=0$ は仮定されていない。従って $C=Q(\Omega,\nabla^3\Omega)$ は零とも非零ともまだ断定できない。
 <!-- solution-end -->
 
 <a id="ex-mir1-16-a02"></a>
