@@ -1,0 +1,65 @@
+chapter: U3-51
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-50, U3-48, U3-46]
+concepts:
+  - id: finance.pot-exceedance-sample
+    name: 閾値超過標本と超過確率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（閾値超過標本と超過確率）"]
+    requires: [finance.holding-period-loss]
+  - id: finance.generalized-pareto-excess
+    name: 一般化パレート超過分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一般化パレート超過分布）"]
+    requires: [finance.pot-exceedance-sample]
+  - id: finance.gpd-threshold-stability
+    name: 一般化パレート分布の閾値安定性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一般化パレート分布の閾値安定性）"]
+    requires: [finance.generalized-pareto-excess]
+  - id: finance.pot-tail-loss-model
+    name: POT 尾部損失モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（POT 尾部損失モデル）"]
+    requires: [finance.generalized-pareto-excess, finance.holding-period-loss]
+  - id: finance.pot-high-confidence-var
+    name: POT 尾部の高水準 VaR
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（POT 尾部の高水準 VaR）"]
+    requires: [finance.pot-tail-loss-model, finance.value-at-risk]
+  - id: finance.pot-es-existence
+    name: POT 尾部の ES と存在条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（POT 尾部の ES と存在条件）"]
+    requires: [finance.pot-high-confidence-var, finance.expected-shortfall, finance.gpd-threshold-stability]
+  - id: finance.gpd-mean-excess-function
+    name: 平均超過関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均超過関数）"]
+    requires: [finance.pot-tail-loss-model]
+  - id: finance.gpd-mean-excess-line
+    name: GPD 尾部の平均超過直線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GPD 尾部の平均超過直線）"]
+    requires: [finance.gpd-mean-excess-function, finance.pot-es-existence]
+  - id: finance.exponential-excess-mle
+    name: 指数超過幅の尺度の最尤推定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（指数超過幅の尺度の最尤推定）"]
+    requires: [finance.generalized-pareto-excess]
+  - id: finance.pot-count-variance
+    name: 固定閾値の超過比率の分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定閾値の超過比率の分散）"]
+    requires: [finance.pot-exceedance-sample]
