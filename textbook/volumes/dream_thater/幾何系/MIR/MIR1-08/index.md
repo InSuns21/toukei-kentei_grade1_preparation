@@ -320,7 +320,7 @@ $$
 =-\frac{5z}{\psi}\ne0.
 $$
 
-逆関数定理から局所逆 $\psi(z)$ が存在し、$d\psi/dz=-\psi/(5z)$。連鎖律を $\Pi(\psi(z))$ に適用して第二式を得る。最後に積の微分より
+[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から局所逆 $\psi(z)$ が存在し、$d\psi/dz=-\psi/(5z)$。連鎖律を $\Pi(\psi(z))$ に適用して第二式を得る。最後に積の微分より
 
 $$
 \frac{d}{dz}(\psi\Pi)
