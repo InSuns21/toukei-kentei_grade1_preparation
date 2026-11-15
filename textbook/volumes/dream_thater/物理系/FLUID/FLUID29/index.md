@@ -203,7 +203,7 @@ $$
 \delta V_t+A_0\delta V_x=0
 $$
 
-となる。一定の形を保って速度 $\lambda$ で進む微小波を $\delta V=r\,\psi(x-\lambda t)$ と仮定する。ここで $r\ne0$ は二成分の定数ベクトル、$\psi$ は微分可能で $\psi'$ が恒等的に零ではない関数である。$\psi'$ は1変数の引数 $s=x-\lambda t$ に関する常微分 $d\psi(s)/ds$ を表し、$V_t$ や $V_x$ の偏微分と区別する。連鎖律で $\delta V_t=-\lambda r\psi'$、$\delta V_x=r\psi'$ だから、
+となる。一定の形を保って速度 $\lambda$ で進む微小波を $\delta V=r\,\psi(x-\lambda t)$ と仮定する。ここで $r\ne0$ は二成分の定数ベクトル、$\psi$ は微分可能な1変数関数で、$\psi'$ は引数 $s=x-\lambda t$ に関する常微分 $d\psi(s)/ds$ を表す。$V_t$ や $V_x$ の偏微分とは区別し、$\psi'$ が恒等的に零ではない波形を考える。連鎖律で $\delta V_t=-\lambda r\psi'$、$\delta V_x=r\psi'$ だから、
 
 $$
 (A_0-\lambda I)r\,\psi'=0
