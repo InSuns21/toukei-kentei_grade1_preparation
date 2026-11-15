@@ -184,10 +184,10 @@ $$
 
 **微分で型が一段下がる機構。** [周期写像の微分とKodaira–Spencer収縮](../../DEF/DEF1-13/index.md#prop-def1-13-infinitesimal-period)は、最上段の正則3形式について、接続微分を $F^3$ で割った成分を次のように表す。
 
-$
+$$
 [\nabla_v\omega]\bmod F^3
 =[-\mu_v\lrcorner\omega]\in F^2/F^3.
-$
+$$
 
 ここで $v$ は変形方向、$\mu_v$ はそのBeltrami代表である。局所的に $\omega=h\,du^1\wedge du^2\wedge du^3$ と書くと、収縮 $\iota_{\partial_{u^i}}\omega$ は正則微分を一つだけ取り去る。代わりに $d\bar u^j$ が加わるので、出力の型は $(2,1)$ となる。
 
@@ -208,19 +208,19 @@ $$
 
 元の滑らかなquinticの第3 Betti数は
 
-$
+$$
 b_3(X_\psi)=2+2h^{2,1}(X_\psi)=2+2\cdot101=204
-$
+$$
 
 である。一方、ミラー計算では[位相群による正則3形式の不変性](../MIR1-04/index.md#prop-mir1-04-residue-invariant)を利用し、群 $G$ に不変な第3コホモロジーの部分空間を取る。
 
 [Greene–Plesser型のHodge数計算](../MIR1-05/index.md#prop-mir1-05-hodge-count)では、恒等元寄与にあたる不変部分のHodge次元は次のとおりである。
 
-$
+$$
 \bigl(h_G^{3,0},h_G^{2,1},h_G^{1,2},h_G^{0,3}\bigr)=(1,1,1,1),
 \qquad
 \dim_{\mathbb C}H^3(X_\psi,\mathbb C)^G=4.
-$
+$$
 
 群作用はパラメータを固定して族全体に働くため、Gauss–Manin平行移動と可換である。その結果、不変部分は接続でも保たれる。商とcrepant解消後の第3コホモロジーのランク4とも整合するが、元の第3コホモロジー**全体が4次元なのではない**。
 
@@ -233,9 +233,9 @@ $
 >
 > $s$ を正則切断、$\gamma$ を接続の双対局所系の平行切断とする。両者を組にして周期関数を
 
-$
+$$
 \Pi(\psi)=\langle\gamma_\psi,s(\psi)\rangle
-$
+$$
 
 > と定める。このとき $D$ の十分小さい開部分で、零でない最高次係数を持つ有理型（meromorphic）係数の斉次線形常微分方程式が存在し、その階数は高々 $r$ である。
 >
