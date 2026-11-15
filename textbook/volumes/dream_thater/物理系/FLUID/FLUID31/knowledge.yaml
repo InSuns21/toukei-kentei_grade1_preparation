@@ -1,0 +1,61 @@
+chapter: FLUID31
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID2
+  - FLUID29
+concepts:
+  - id: fluid.boussinesq-stratified
+    name: 本講の Boussinesq 近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講の Boussinesq 近似）"]
+    requires: []
+  - id: fluid.buoyancy-acceleration
+    name: 浮力加速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（浮力加速度）"]
+    requires: [fluid.boussinesq-stratified]
+  - id: fluid.brunt-vaisala-frequency
+    name: Brunt–Väisälä 周波数の二乗
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Brunt–Väisälä 周波数の二乗）"]
+    requires: [fluid.buoyancy-acceleration]
+  - id: fluid.parcel-buoyancy-oscillation
+    name: 局所浮力試験
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所浮力試験）"]
+    requires: [fluid.brunt-vaisala-frequency]
+  - id: fluid.stratified-linear-system
+    name: 非回転 Boussinesq 成層流体の線形方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（非回転 Boussinesq 成層流体の線形方程式）"]
+    requires: [fluid.boussinesq-stratified, fluid.buoyancy-acceleration, fluid.brunt-vaisala-frequency]
+  - id: fluid.internal-wave-dispersion
+    name: 2次元内部重力波の分散関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（2次元内部重力波の分散関係）"]
+    requires: [fluid.stratified-linear-system]
+  - id: fluid.internal-wave-polarization
+    name: 内部波の速度・浮力・圧力の位相関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（内部波の速度・浮力・圧力の位相関係）"]
+    requires: [fluid.internal-wave-dispersion]
+  - id: fluid.internal-wave-energy
+    name: 線形内部波のエネルギー保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形内部波のエネルギー保存）"]
+    requires: [fluid.stratified-linear-system]
+  - id: fluid.internal-wave-group-velocity
+    name: 内部重力波の群速度と波数の直交
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（内部重力波の群速度と波数の直交）"]
+    requires: [fluid.internal-wave-dispersion, fluid.internal-wave-polarization, fluid.internal-wave-energy]

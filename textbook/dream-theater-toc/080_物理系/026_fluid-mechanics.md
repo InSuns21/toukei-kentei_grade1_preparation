@@ -31,3 +31,4 @@
 28. [FLUID28 群速度はエネルギーの輸送とどう関係するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID28/index.md)
 29. [FLUID29 浅水近似はどの保存則を残すか](textbook/volumes/dream_thater/物理系/FLUID/FLUID29/index.md)
 30. [FLUID30 段波と跳水の上下流をどうつなぐか](textbook/volumes/dream_thater/物理系/FLUID/FLUID30/index.md)
+31. [FLUID31 密度成層内ではどんな波が生まれるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID31/index.md)
