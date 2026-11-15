@@ -1,0 +1,41 @@
+chapter: U3-43
+scope: dream-theater
+coverage: complete
+prerequisites: [INV1, U3-11, U3-15, U3-19, U3-20, U3-26, U3-39, U3-40, U3-41, U3-42]
+concepts:
+  - id: finance.cross-model-input-contract
+    name: 価格付けの共通入力規約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（価格付けの共通入力規約）"]
+    requires: [finance.day-count-compounding, finance.continuous-dividend-forward, finance.zero-coupon-discount-curve]
+  - id: finance.cross-model-call-envelope
+    name: 配当付き欧州 call の無裁定価格境界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（配当付き欧州 call の無裁定価格境界）"]
+    requires: [finance.cross-model-input-contract, finance.continuous-dividend-put-call-parity]
+  - id: finance.cross-quote-normalized-calibration
+    name: 気配幅で規格化した横断較正
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（気配幅で規格化した横断較正）"]
+    requires: [finance.cross-model-input-contract, finance.iv-constant-vol-calibration]
+  - id: finance.cross-calibration-loss-gradient
+    name: 規格化価格残差の勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（規格化価格残差の勾配）"]
+    requires: [finance.cross-quote-normalized-calibration, finance.bsm-greeks-dividend]
+  - id: finance.two-maturity-discount-curve-identification
+    name: 異なる2満期による線形ゼロ金利曲線の識別
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（異なる2満期による線形ゼロ金利曲線の識別）"]
+    requires: [finance.zero-spot-and-instantaneous-forward-rate, inverse.identifiability]
+  - id: finance.cross-model-triple-verification
+    name: 三重照合と誤差内訳の検証台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三重照合と誤差内訳の検証台帳）"]
+    requires: [finance.cross-model-input-contract, finance.risk-neutral-mc-discounted-sample, finance.crr-time-step-binomial]
