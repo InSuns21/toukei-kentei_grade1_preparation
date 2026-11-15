@@ -1,0 +1,46 @@
+id: "U4-28"
+title: "多重探索・過学習・Sharpeの検証"
+volume: "foundations"
+status: supplementary
+prerequisites: [U4-10, U4-27]
+official_scope: []
+learning_objectives:
+  - 費用控除済み純超過収益率の一期間標本Sharpe比を計算し推定標準偏差と自己相関の仮定を確認できる
+  - 探索候補族と選択後評価を定義し試行回数の記録と未使用テストの役割を説明できる
+  - 独立な正規帰無候補の最大値分布と分位点を厳密に導出し偽Sharpeの出現を定量化できる
+  - 家族内誤り率とBonferroniの上界を証明し候補間依存に関する仮定を区別できる
+  - DSRの式の各入力と通常尖度・極値近似・実効試行数・時系列依存の限界を説明できる
+  - CSCVによるPBO指標を定義し全分割のIS選択とOOS順位を手で再計算できる
+  - CSCVが先読みのないwalk-forwardを保証しない理由と最終保留の必要性を示せる
+  - 試行全件・費用・約定・区間・停止条件を保存し反証可能な研究手順を設計できる
+definitions:
+  - { id: U4-28-DEF-01, name: "標本Sharpe比と評価単位" }
+  - { id: U4-28-DEF-02, name: "候補族・探索回数・選択後評価" }
+  - { id: U4-28-DEF-03, name: "検定族の家族内誤り率" }
+  - { id: U4-28-DEF-04, name: "DSRの近似診断量" }
+  - { id: U4-28-DEF-05, name: "CSCVによるPBO指標" }
+theorems:
+  - { id: U4-28-PROP-01, name: "独立な帰無候補の最大値分布" }
+  - { id: U4-28-PROP-02, name: "Bonferroniの家族内誤り率上界" }
+  - { id: U4-28-PROP-03, name: "PBO判定と順位の同値性" }
+canonical_examples:
+  - 正規帰無100候補250期間で最高標本平均の中央値が約0.1557となる導出
+  - 独立な100検定で単独5パーセントを繰り返すと家族内誤り率が約0.994となる計算
+  - DSRの実効試行数100と正規近似による基準Sharpe約0.160と診断値の比較
+  - 四区間三候補のCSCV全六分割からPBOを三分の一と判定する例
+  - 最終保留結果を見て選択し直すとテストを再利用してしまう反例
+problem_patterns:
+  - U4-28-A1
+  - U4-28-A2
+  - U4-28-A3
+  - U4-28-A4
+  - U4-28-A5
+  - U4-28-B1
+  - U4-28-B2
+  - U4-28-B3
+  - U4-28-B4
+  - U4-28-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
