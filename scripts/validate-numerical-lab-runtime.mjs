@@ -89,6 +89,7 @@ assert.match(labCss, /\.numerical-lab-solution \.numerical-lab-solution-code > c
 assert.match(labCss, /\.numerical-python-source-dialog \.numerical-lab-solution-code > code/);
 assert.match(labCss, /\.numerical-lab-code-editor \.numerical-lab-code-highlight > code/);
 assert.match(labCss, /background: transparent !important;[\s\S]*?color: inherit !important;/);
+assert.match(labCss, /overflow: visible !important;/);
 
 assert.match(indexHtml, /numerical-lab\.css/);
 assert.match(indexHtml, /numerical-lab-runtime\.js/);
