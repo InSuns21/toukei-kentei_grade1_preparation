@@ -83,7 +83,7 @@ $$
 \alpha-\beta=d\Phi
 $$
 
-となる有理3形式 $\Phi$ が $V_\psi$ 上に存在するとき、**全微分を除いて等しい**と書く。閉4サイクル $T\subset V_\psi$ 上ではStokesの定理から
+となる有理3形式 $\Phi$ が $V_\psi$ 上に存在するとき、**全微分を除いて等しい**と書く。区分的に滑らかでコンパクトな閉4サイクル $T\subset V_\psi$ の各向き付けられた4片へ[一般Stokes公式](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用し、内部の境界寄与を相殺すると
 
 $$
 \int_T\alpha-\int_T\beta
@@ -191,7 +191,7 @@ $$
 -\frac{1}{k-1}d\Phi_B.
 $$
 
-右端は全微分である。閉4サイクル $T\subset V_\psi$ は境界を持たず、$\Phi_B$ は $T$ 上で定義されるので、Stokesの定理によりその積分は零である。これが主張である。$\square$
+右端は全微分である。閉4サイクル $T\subset V_\psi$ は境界を持たず、$\Phi_B$ は $T$ 上で定義されるので、[一般Stokes公式](../../GEO/GEO8/index.md#thm-geo8-general-stokes)によりその積分は零である。これが主張である。$\square$
 <!-- proof-end -->
 
 この証明では **$F_\psi$ が滑らかという仮定は代数恒等式そのものには不要**である。一方、滑らかな三次元ファイバーの周期・Gauss–Manin接続として解釈する際には $\psi^5\ne1$ を使う。また $A$ がJacobianイデアルに属するだけでなく、**その極次数に合った次数の** $B_i$ を選ぶ必要がある。斉次な $A$ なら、各 $B_i$ の該当する斉次部分だけを取ればよい。
@@ -517,7 +517,7 @@ $$
 =x_0^4x_1^4x_2^4x_3^4x_4^4=P^4.
 $$
 
-$B_0=x_1^4x_2^4x_3^4x_4^4/5$ は次数16で五重極に必要な次数を満たし、$\partial_0B_0=0$ である。他は零だから、[極次数低減公式](#prop-mir1-09-pole-reduction)の $k=5$ で $P^4\Omega/F_0^5\equiv0\pmod d$。$F_0\ne0$ の領域の閉4サイクル上で全微分を積分するとStokesの定理で零になる。多項式 $P^4$ 自体が零だからではない。
+$B_0=x_1^4x_2^4x_3^4x_4^4/5$ は次数16で五重極に必要な次数を満たし、$\partial_0B_0=0$ である。他は零だから、[極次数低減公式](#prop-mir1-09-pole-reduction)の $k=5$ で $P^4\Omega/F_0^5\equiv0\pmod d$。$F_0\ne0$ の領域の閉4サイクル上で全微分を積分すると[一般Stokes公式](../../GEO/GEO8/index.md#thm-geo8-general-stokes)で零になる。多項式 $P^4$ 自体が零だからではない。
 <!-- solution-end -->
 
 <a id="ex-mir1-09-b04"></a>
