@@ -242,6 +242,8 @@ $$
 
 <a id="ref-fluid25-gaussian-integral"></a>
 
+### Gaussian 積分の導出
+
 ここで使う Gaussian 積分を確認しておく。$I=\int_{-\infty}^{\infty}e^{-z^2}\,dz>0$ は収束し、その二乗を直交二座標の積分とみて極座標 $z=r\cos\theta,w=r\sin\theta$（Jacobian $r$）に変換すると
 
 $$
