@@ -89,3 +89,6 @@ test('WGL2 GLSL interfaces and interleaved attribute layout are in real lesson f
   assert.ok(js.includes('gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 20, 8)'));
   assert.ok(js.includes('gl.uniform3f(gain, 1.0, 1.0, 1.0)'));
 });
+
+// 既存WGL1/WGL2の回帰と同じCI入口からWGL3も検査する。
+import './wgl3-lab.test.mjs';

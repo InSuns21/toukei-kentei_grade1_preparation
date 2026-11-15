@@ -170,6 +170,45 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL2 compilation error and stop/disposal: PASS');
 
+
+  // WGL3 live GPU acceptance: actual indexed and expanded draw plus diagnostics.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL3'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  const wgl3=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl3.rows.length,3);
+  assert.ok(wgl3.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl3.sandbox,'allow-scripts');
+  assert.match(wgl3.rows[0][2],/51, 153, 204, 255/);
+  assert.match(wgl3.rows[2][2],/0, 0, 0, 255/);
+  assert.match(wgl3.log,/mode=elements grid=2x2 vertices=9 triangles=8 references=24 indexedBytes=120 expandedBytes=192/);
+  const shot3=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl3-initial.png',Buffer.from(shot3.data,'base64'));
+  console.log('WGL3 indexed GPU pixels and CPU reference: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace(\"const drawMode = 'elements'\",\"const drawMode = 'arrays'\");})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const other=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent})');
+  assert.ok(other.rows.every((row,i)=>row[2]===wgl3.rows[i][2]));
+  assert.match(other.log,/mode=arrays grid=2x2/);
+  console.log('WGL3 drawElements / drawArrays pixel equivalence: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const gridSteps = 2','const gridSteps = 4');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/grid=4x4 vertices=25 triangles=32 references=96 indexedBytes=392 expandedBytes=768/);
+  console.log('WGL3 editable 4x4 grid counts and bytes: PASS');
+
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL3 shader compile and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
