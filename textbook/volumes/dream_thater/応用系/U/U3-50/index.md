@@ -54,9 +54,9 @@ $$
 
 比較に使う一次近似も、[U3-49 のロール後一次近似](../U3-49/index.md#def-u3-49-roll-linear)を同じ $m_h$ と展開点に適用して
 
-$
+$$
 m_h^{\mathrm{lin}}(x_0+u)=m_h(x_0)+g^{\mathsf T}u
-$
+$$
 
 と書きます。ここでは $\mathrm{lin}$ が一次、$DG$ が二次を意味し、どちらも時刻 $t+h$ の評価額です。両者の差は $\frac12u^{\mathsf T}Hu$ で、現在額 $RV_t$ との差とは区別します。
 
@@ -78,11 +78,11 @@ $$
 
 よって $m_h(0,0)=100$、$g=(3,-2)^{\mathsf T}$、$H=\begin{pmatrix}2&2\\2&6\end{pmatrix}$ です。任意のショック $u=(a,b)^{\mathsf T}$ に対して、偏微分で得た行列を二次型へ代入すると
 
-$
+$$
 \frac12u^{\mathsf T}Hu
 =\frac12\left(2a^2+2\cdot2ab+6b^2\right)
 =a^2+2ab+3b^2.
-$
+$$
 
 特に $u=(1,1)$ の一次変化は $3-2=1$、二次補正は $1+2+3=6$ なので近似額は107万円。真の評価額は $m_h(1,1)=108$ 万円です。関数の各偏微分が行列のどの成分になり、交差成分が二次式の係数へどう対応するかを確認できました。
 <!-- definition-example-end -->
@@ -164,24 +164,24 @@ $$
 
 **具体例**：$v_1(x,y)=5+2x+x^2$ を2単位ロングし、$v_2(x,y)=7-y+xy$ を1単位ショートします。現金は0とします。$D=\mathbb R^2$ 上の多項式なので両商品は $C^2$、保有数量 $n_1=2,n_2=-1$ は因子によらない定数です。点 $(0,0)$ でそれぞれ微分すると
 
-$
+$$
 \begin{aligned}
 \nabla v_1&=(2,0)^{\mathsf T},&
 \nabla^2v_1&=\begin{pmatrix}2&0\\0&0\end{pmatrix},\\
 \nabla v_2&=(0,-1)^{\mathsf T},&
 \nabla^2v_2&=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
 \end{aligned}
-$
+$$
 
 これらはすべて点 $(0,0)$ での値です。[集計命題](#prop-u3-50-portfolio)に数量と現金 $c=0$ を代入すると
 
-$
+$$
 g=2(2,0)^{\mathsf T}-(0,-1)^{\mathsf T}=(4,1)^{\mathsf T},
 \qquad
 H=2\begin{pmatrix}2&0\\0&0\end{pmatrix}
 -\begin{pmatrix}0&1\\1&0\end{pmatrix}
 =\begin{pmatrix}4&-1\\-1&0\end{pmatrix}.
-$
+$$
 
 実際、合算した $m_h=2v_1-v_2=3+4x+y+2x^2-xy$ を直接微分しても一致します。交差成分の負号は、空売りした商品の $xy$ 項の係数から生じます。
 
@@ -191,12 +191,12 @@ $
 
 以下の $D^3m_h(z)[u,u,u]$ は、点 $z$ から方向 $u$ に沿って動かす実変数 $q$ に関する三階微分
 
-$
+$$
 D^3m_h(z)[u,u,u]
 =\left.\frac{d^3}{dq^3}m_h(z+qu)\right|_{q=0}
 =\sum_{i,j,k=1}^d
 \frac{\partial^3m_h}{\partial x_i\partial x_j\partial x_k}(z)u_iu_ju_k
-$
+$$
 
 を表します。$z$ と $u$ を固定して $q$ だけを動かし、最後に $q=0$ とします。これは $m_h$ が $z$ の近傍で $C^3$ のときに使用する記法です。
 
@@ -239,31 +239,31 @@ $$
 
 特に $f'(0)=g^{\mathsf T}u$、$f''(0)=u^{\mathsf T}Hu$ です。[微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)を $f'$ に適用し、連続な $f''$ の積分順序を三角領域で交換すると
 
-$
+$$
 \begin{aligned}
 f(1)-f(0)-f'(0)
 &=\int_0^1\bigl(f'(s)-f'(0)\bigr)\,ds\\
 &=\int_0^1\int_0^s f''(q)\,dq\,ds\\
 &=\int_0^1(1-q)f''(q)\,dq.
 \end{aligned}
-$
+$$
 
 次に同じ基本定理を $f''$ に適用して $f''(q)=f''(0)+\int_0^q f'''(w)\,dw$ を代入します。連続な $f'''$ の積分順序も交換でき、
 
-$
+$$
 \begin{aligned}
 \int_0^1(1-q)\int_0^q f'''(w)\,dw\,dq
 &=\int_0^1 f'''(w)\left(\int_w^1(1-q)\,dq\right)dw\\
 &=\frac12\int_0^1(1-w)^2f'''(w)\,dw.
 \end{aligned}
-$
+$$
 
 したがって
 
-$
+$$
 f(1)=f(0)+f'(0)+\frac12f''(0)
 +\frac12\int_0^1(1-w)^2f'''(w)\,dw.
-$
+$$
 
 最初の三項は [二次近似](#def-u3-50-delta-gamma)です。よって
 
