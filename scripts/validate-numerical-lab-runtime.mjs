@@ -82,6 +82,15 @@ assert.doesNotMatch(runtime, /sourceLink\.href = fileUrl\(lab\.file\)/,
 assert.doesNotMatch(runtime, /function buildExperimentPanel/,
   'NUMLAB code exercises should not silently become parameter-only demos');
 
+// Docsify's default pre > code surface must not override the dark Python
+// source viewer, the source dialog, or the editable highlight layer.
+const labCss = await read('pages/numerical-lab.css');
+assert.match(labCss, /\.numerical-lab-solution \.numerical-lab-solution-code > code/);
+assert.match(labCss, /\.numerical-python-source-dialog \.numerical-lab-solution-code > code/);
+assert.match(labCss, /\.numerical-lab-code-editor \.numerical-lab-code-highlight > code/);
+assert.match(labCss, /background: transparent !important;[\s\S]*?color: inherit !important;/);
+assert.match(labCss, /overflow: visible !important;/);
+
 assert.match(indexHtml, /numerical-lab\.css/);
 assert.match(indexHtml, /numerical-lab-runtime\.js/);
 assert.match(indexHtml, /ToukeiNumericalLab\.docsifyPlugin/);

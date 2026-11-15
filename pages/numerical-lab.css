@@ -273,9 +273,25 @@
   font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace !important;
   white-space: pre;
 }
-.numerical-lab-solution-code code {
-  font: inherit;
-  white-space: inherit;
+/* Docsify styles `pre > code` as a light panel with its own padding.
+   The source viewer and editable highlight layer already have dark <pre> surfaces:
+   keep the nested <code> transparent to avoid pale tokens on a white block. */
+.numerical-lab-solution .numerical-lab-solution-code > code,
+.numerical-python-source-dialog .numerical-lab-solution-code > code,
+.numerical-lab-code-editor .numerical-lab-code-highlight > code {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0;
+  max-width: none;
+  overflow: visible !important;
+  background: transparent !important;
+  color: inherit !important;
+  font: inherit !important;
+  white-space: inherit !important;
 }
 .numerical-lab-solution-controls {
   display: flex;
