@@ -67,7 +67,15 @@ $$
 \end{aligned}
 $$
 
-ここで上付き括弧内の数字は $s$ による微分回数である。最高階係数は $s$ の一次零点を持ち、第三階係数は $s=0$ で $2$ である。正則特異点の指標多項式を求めるには、[既習のFrobenius型級数](../MIR1-12/index.md#def-mir1-12-frobenius-family)と同様に $y=s^\rho\sum_{n\ge0}a_ns^n$（$a_0\ne0$）を置き、先頭の $s^\rho$ を形式的に代入して最も低い $s$ の次数を比べる。[正則特異点の判定](../MIR1-10/index.md#prop-mir1-10-regular-singular)に沿った計算である。
+ここで $y^{(k)}$ は $s$ による $k$ 階微分を表す。最高階係数は $s$ の一次零点を持ち、第三階係数は $s=0$ で $2$ である。
+
+[既習のFrobenius型級数](../MIR1-12/index.md#def-mir1-12-frobenius-family)と同様に、先頭係数 $a_0\ne0$ の形
+
+$
+y=s^\rho\sum_{n\ge0}a_ns^n
+$
+
+を置く。[正則特異点の判定](../MIR1-10/index.md#prop-mir1-10-regular-singular)に沿って、先頭の $s^\rho$ を形式的に代入し、最も低い $s$ の次数を比べて指標多項式を求める。
 
 <a id="prop-mir1-14-conifold-exponents"></a>
 
