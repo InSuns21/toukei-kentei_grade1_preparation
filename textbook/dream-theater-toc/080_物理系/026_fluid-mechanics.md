@@ -27,3 +27,4 @@
 24. [FLUID24 圧力勾配はどのように境界層を剥離させるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID24/index.md)
 25. [FLUID25 物体の抗力と後流の渦をどう結ぶか](textbook/volumes/dream_thater/物理系/FLUID/FLUID25/index.md)
 26. [FLUID26 曲がった界面の圧力差は何で決まるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID26/index.md)
+27. [FLUID27 水面波の伝播速度は波長でなぜ変わるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID27/index.md)
