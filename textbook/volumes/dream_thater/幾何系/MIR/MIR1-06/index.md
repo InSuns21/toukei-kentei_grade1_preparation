@@ -247,7 +247,7 @@ $\psi\ne0$ の領域では、後の周期の級数展開に適した座標を次
 <a id="def-mir1-06-z-coordinate"></a>
 
 <!-- formal-statement-start -->
-> **定義（Dwork型族の $z$ 座標と被覆座標）**
+> **定義（Dwork型族のz座標と被覆座標）**
 >
 > $\psi\in\mathbb C^*$ をDwork型quinticのパラメータとする。$\psi$ の五乗根による同一視 $\psi\sim\zeta\psi$ の下で、座標 $z$ とその五乗根に相当する被覆座標 $t$ を
 >
@@ -271,7 +271,7 @@ $$
 <a id="prop-mir1-06-z-discriminant"></a>
 
 <!-- formal-statement-start -->
-> **命題（$z$ 座標の有限判別値とFermat点）**
+> **命題（z座標の有限判別値とFermat点）**
 >
 > $\psi\in\mathbb C^*$、$z=(5\psi)^{-5}$ とする。Dwork型quinticの元のファイバー $X_\psi$ が特異になる条件は
 >
@@ -321,7 +321,7 @@ $$
 <a id="prop-mir1-06-boundary"></a>
 
 <!-- formal-statement-start -->
-> **命題（$z=0$ に向かう被覆族の中心ファイバー）**
+> **命題（z=0に向かう被覆族の中心ファイバー）**
 >
 > $t$ を複素パラメータとし、$\widetilde X_t\subset\mathbb P^4_{\mathbb C}$ を $P(x)-t\sum_i x_i^5=0$ で定める。$t\ne0$ では $\widetilde X_t=X_{1/(5t)}$ である。$t=0$ の中心ファイバーは
 >
