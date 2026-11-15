@@ -1,0 +1,35 @@
+chapter: WGL4
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL3]
+concepts:
+  - id: graphics.model-world-space
+    name: モデル座標と世界座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モデル座標と世界座標）"]
+    requires: [graphics.indexed-triangle-mesh]
+  - id: graphics.homogeneous-position-direction
+    name: 点・方向の斉次座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（点・方向の斉次座標）"]
+    requires: [graphics.model-world-space]
+  - id: graphics.model-transform-matrix
+    name: モデル行列と列優先格納
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（モデル行列と列優先格納）"]
+    requires: [graphics.homogeneous-position-direction, graphics.vertex-attribute]
+  - id: graphics.model-transform-composition
+    name: モデル変換の合成順序
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（モデル変換の合成順序）"]
+    requires: [graphics.model-transform-matrix]
+  - id: graphics.inverse-model-transform
+    name: 逆モデル変換の存在と順序
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（逆モデル変換の存在と順序）"]
+    requires: [graphics.model-transform-composition]

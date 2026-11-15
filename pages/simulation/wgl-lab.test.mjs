@@ -153,3 +153,6 @@ test('WGL source editor keeps all textarea IDs and loads a local syntax-highligh
   assert.match(css, /-webkit-text-fill-color:transparent/);
   assert.match(css, /pointer-events:none/);
 });
+
+// WGL4: 独立CPU基準・実ソース・共通ラボの追加検証。
+import './wgl4-lab.test.mjs';

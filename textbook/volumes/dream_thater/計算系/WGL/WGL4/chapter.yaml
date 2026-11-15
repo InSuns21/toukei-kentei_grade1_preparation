@@ -1,0 +1,28 @@
+id: WGL4
+title: モデル座標を世界へどう移す？
+volume: foundations
+status: supplementary
+prerequisites: [WGL3]
+official_scope: []
+learning_objectives:
+  - モデル座標と世界座標の違い、点w=1と方向w=0の使い分けを説明できる
+  - 4×4斉次行列の並進・回転・非零拡大縮小を列ベクトル規約で構成できる
+  - 行列積T R Sの順序・列優先配列・transpose=falseを展開して検算できる
+  - 4頂点の変換と逆変換を手で再現し、合成順序の反例と不可逆条件を示せる
+  - JavaScript・vertex/fragment GLSLの3欄を編集し、座標軸・GPU画素と独立CPU基準を比較できる
+definitions:
+  - { id: WGL4-DEF-01, name: モデル座標と世界座標 }
+  - { id: WGL4-DEF-02, name: 点・方向の斉次座標 }
+  - { id: WGL4-DEF-03, name: モデル行列と列優先格納 }
+theorems:
+  - { id: WGL4-PROP-01, name: モデル変換の合成順序 }
+  - { id: WGL4-PROP-02, name: 逆モデル変換の存在と順序 }
+canonical_examples:
+  - T(0.25,-0.1) R(90度) S(1,0.5)による四隅の独立計算
+  - T RとR Tで(1,0)が別の点へ移る反例
+  - 320×240画素のCPU逆写像とGPU readPixelsの独立照合
+problem_patterns: [WGL4-HOMOGENEOUS, WGL4-COLUMN-MAJOR, WGL4-COMPOSITION, WGL4-INVERSE, WGL4-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 1 }
