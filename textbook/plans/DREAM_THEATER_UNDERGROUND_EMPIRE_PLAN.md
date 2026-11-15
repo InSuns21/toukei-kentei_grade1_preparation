@@ -3,7 +3,7 @@
 分冊: 2026-10-11  
 状態: planned（各応用科目の個別PLANとは別の案内）
 
-- [U2 確率ロボティクス：自己位置推定・SLAM（全28講）](DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)
+- [U2 確率ロボティクス：自己位置推定・SLAM（全28講）](../plans_progress/DREAM_THEATER_APPLIED_PROBABILISTIC_ROBOTICS_PLAN.md)
 - [U3 数理ファイナンス：価格付け・最適執行](../plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md)
 - [U4 裁定機会：価格矛盾の検出・相対価値・統計的裁定（全30講）](../plans_progress/DREAM_THEATER_APPLIED_ARBITRAGE_PLAN.md)
 - [U6 量子状態推定（全22講）](DREAM_THEATER_APPLIED_QUANTUM_STATE_ESTIMATION_PLAN.md)
