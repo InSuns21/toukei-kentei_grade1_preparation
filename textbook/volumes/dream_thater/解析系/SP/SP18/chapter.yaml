@@ -1,0 +1,46 @@
+id: "SP18"
+title: "Galton–Watson 分枝過程・絶滅"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - STO1
+  - RA3
+official_scope: []
+learning_objectives:
+  - 独立同分布の子孫数から世代人数を構成し、絶滅状態が吸収的であることを確認できる
+  - 子孫数の確率母関数と合成反復から各世代の母関数と有限時点の絶滅確率を導ける
+  - 絶滅確率が母関数の区間0から1における最小不動点であることを証明できる
+  - 平均子孫数で劣臨界・臨界・超臨界を分類し、必ず一子を残す退化例を区別できる
+  - 独立性と条件付けを使って世代人数の平均・分散を導出できる
+  - 総個体数と途中世代からの条件付き絶滅確率を計算し、系譜と連続時間出生死滅モデルの違いを説明できる
+definitions:
+  - { id: SP18-DEF-01, name: "Galton–Watson 分枝過程" }
+  - { id: SP18-DEF-02, name: "子孫数の確率母関数" }
+  - { id: SP18-DEF-03, name: "劣臨界・臨界・超臨界" }
+theorems:
+  - { id: SP18-THM-01, name: "世代人数の母関数と平均" }
+  - { id: SP18-THM-02, name: "絶滅確率の最小不動点表示" }
+  - { id: SP18-THM-03, name: "平均子孫数による絶滅の分類" }
+  - { id: SP18-PROP-01, name: "世代人数の分散" }
+  - { id: SP18-PROP-02, name: "総個体数の期待値" }
+  - { id: SP18-PROP-03, name: "現在の人数から見た最終絶滅確率" }
+canonical_examples:
+  - "0人または2人の子を独立に残す家系の分枝木"
+  - "超臨界二分枝の有限時点と最終的な絶滅確率"
+  - "臨界0/2分枝と必ず一子を残す退化例の対比"
+  - "世代人数の二次モーメントと総家系人数"
+problem_patterns:
+  - SP18-GW-CONSTRUCTION
+  - SP18-GW-PGF-TWO-GENERATIONS
+  - SP18-GW-EXPECTED-GENERATION
+  - SP18-GW-DEGENERACY
+  - SP18-GW-FINITE-EXTINCTION
+  - SP18-GW-CONDITIONAL-GENERATING
+  - SP18-GW-CRITICAL
+  - SP18-GW-VARIANCE
+  - SP18-GW-TOTAL-PROGENY
+  - SP18-GW-PARAMETRIC-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7.0, exercises: 5.0, review: 1.5 }

@@ -1,0 +1,80 @@
+chapter: SP18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - STO1
+  - RA3
+forward_references:
+  - stochastic.birth-death-process
+concepts:
+  - id: stochastic.galton-watson-process
+    name: Galton–Watson 分枝過程
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Galton–Watson 分枝過程）"]
+    requires:
+      - stochastic.stochastic-process
+  - id: stochastic.gw-offspring-distribution
+    name: 子孫数分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Galton–Watson 分枝過程）"]
+    requires:
+      - stochastic.stochastic-process
+  - id: stochastic.gw-offspring-pgf
+    name: 子孫数の確率母関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（子孫数の確率母関数）"]
+    requires:
+      - stochastic.galton-watson-process
+  - id: stochastic.gw-generation-pgf
+    name: 世代人数の母関数と平均
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（世代人数の母関数と平均）"]
+    requires:
+      - stochastic.gw-offspring-pgf
+  - id: stochastic.gw-extinction-fixed-point
+    name: 絶滅確率の最小不動点表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（絶滅確率の最小不動点表示）"]
+    requires:
+      - stochastic.gw-generation-pgf
+  - id: stochastic.gw-regime-names
+    name: 劣臨界・臨界・超臨界
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（劣臨界・臨界・超臨界）"]
+    requires:
+      - stochastic.galton-watson-process
+  - id: stochastic.gw-extinction-classification
+    name: 平均子孫数による絶滅の分類
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平均子孫数による絶滅の分類）"]
+    requires:
+      - stochastic.gw-extinction-fixed-point
+      - stochastic.gw-regime-names
+  - id: stochastic.gw-generation-variance
+    name: 世代人数の分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（世代人数の分散）"]
+    requires:
+      - stochastic.gw-generation-pgf
+  - id: stochastic.gw-total-progeny
+    name: 総個体数の期待値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（総個体数の期待値）"]
+    requires:
+      - stochastic.gw-generation-pgf
+  - id: stochastic.gw-conditional-extinction
+    name: 現在の人数から見た最終絶滅確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（現在の人数から見た最終絶滅確率）"]
+    requires:
+      - stochastic.gw-extinction-fixed-point
