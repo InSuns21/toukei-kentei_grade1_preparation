@@ -56,10 +56,10 @@ $$
 dx\wedge dy\wedge dz=t^2\,dt\wedge du\wedge dv.
 $$
 
-従って標準因子の食い違いは $2E$ で、$K_Z=f^*K_{\mathbb C^3}+2E$。これは滑らかさを得る解消ではあっても **crepantではない**。解消の存在とcrepant性は別の条件だと分かる。
+従って標準因子の食い違いは $2E$ で、$K_Z=f^*K_{\mathbb C^3}+2E$。この写像は滑らかな空間同士の固有双有理な改変であり、原点も滑らかなため上の定義でいう「特異空間の解消」そのものではない。それでも **crepantではない**。滑らかな双有理改変だからといって標準因子が保たれるわけではなく、特異空間の解消でもcrepant性を個別に確認する必要がある。
 <!-- definition-example-end -->
 
-この失敗例では、引き戻した体積形式が $t=0$ で二重に零になることが差の原因である。以下では逆に、元の局所群作用の行列式が1であることがcrepantな置換を可能にする鍵となる。
+この失敗例では、引き戻した体積形式が $t=0$ で二重に零になることが差の原因である。一方、ここで用いる商 $Q_\psi$ は、滑らかな $X_\psi$ に有限群が作用してできるため正規である。[不変な正則3形式](../MIR1-04/index.md#prop-mir1-04-residue-invariant)から、各固定点の接空間上の安定化群は行列式1で作用する。有限な $SL(3,\mathbb C)$ 部分群の商がGorensteinになるという局所商の結果を使うと、$K_{Q_\psi}$ がCartierであることも確認できる。以下ではこの条件の下でcrepant解消を考える。
 
 ## 3. 特異曲線は10本あり、各曲線から4因子が現れる
 
@@ -358,7 +358,7 @@ $\mathbb C^3$ に作用する $g=\operatorname{diag}(\zeta^r,\zeta^s,\zeta^{-r-s
 <!-- solution-end -->
 
 <a id="ex-mir1-05-a04"></a>
-#### MIR1-05-A04 解消とcrepant性の反例
+#### MIR1-05-A04 双有理改変とcrepant性の反例
 - Level: A
 
 $\mathbb C^3$ の原点の吹き上げのチャート $x=t,\ y=tu,\ z=tv$ について、Jacobian行列式を直接求め、標準因子を保存するか判定せよ。なぜ「滑らかにした」という事実だけでは十分でないか説明せよ。
@@ -370,7 +370,7 @@ $$
 \begin{pmatrix}1&0&0\\u&t&0\\v&0&t\end{pmatrix}
 $$
 
-で、その行列式は $t^2$。従って $dx\wedge dy\wedge dz=t^2dt\wedge du\wedge dv$ となり、例外因子 $E=\{t=0\}$ に沿って引き戻した体積形式が二重零を持つ。ゆえに $K_{\mathrm{Bl}_0\mathbb C^3}=f^*K_{\mathbb C^3}+2E$ でcrepantではない。滑らかさの獲得は $K$ の保存を含意しないため、鏡像候補には別途crepant条件が必要になる。
+で、その行列式は $t^2$。従って $dx\wedge dy\wedge dz=t^2dt\wedge du\wedge dv$ となり、例外因子 $E=\{t=0\}$ に沿って引き戻した体積形式が二重零を持つ。ゆえに $K_{\mathrm{Bl}_0\mathbb C^3}=f^*K_{\mathbb C^3}+2E$ でcrepantではない。この操作は滑らかな空間への双有理改変であっても $K$ を保たない。ゆえに、特異空間を解消するときにもcrepant性は別途確認しなければならない。
 <!-- solution-end -->
 
 ### Level B：群・不変部分・Hodge数を接続する
