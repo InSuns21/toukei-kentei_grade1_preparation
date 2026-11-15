@@ -55,7 +55,17 @@ WGL2で用いた VBO（vertex buffer object）は、頂点座標のような属�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl3-ebo -->
-**定義の確認**。 `new Uint16Array([0,1,2,0,2,3])` は6個の16 bit非負整数を持つため、サイズは $6\cdot2=12$ byteです。`gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indices, gl.STATIC_DRAW)` で転送し、`gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0)` を呼ぶと先頭0 byteから6個の添字を読む指定になります。末尾の引数は**頂点番号ではなくEBO内のバイト位置**です。
+**定義の確認**。 `new Uint16Array([0,1,2,0,2,3])` は6個の16 bit非負整数を持つため、サイズは $6\cdot2=12$ byteです。頂点表の転送と位置属性の設定を済ませた描画状態で、EBOを作成して結び付け、添字列を転送します。
+
+```js
+const indices = new Uint16Array([0, 1, 2, 0, 2, 3]);
+const ebo = gl.createBuffer();
+gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ebo);
+gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indices, gl.STATIC_DRAW);
+gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+```
+
+ここで `bindBuffer` は**どのバッファへ転送するか**を選び、`bufferData` はそのバッファに12 byteを保存します。`drawElements` は先頭0 byteから6個の添字を読む指定です。末尾の引数は**頂点番号ではなくEBO内のバイト位置**です。添字値はいずれも $0\le i_k<4$ で、先に登録した4頂点の範囲内にあります。
 <!-- definition-example-end -->
 
 描画時に必要なのは属性のバイト配置だけではありません。どの VBO を位置属性として解釈し、どの EBO を使うかという組合せも保存したいところです。そこで頂点属性の読み方をまとめる装置を使います。
