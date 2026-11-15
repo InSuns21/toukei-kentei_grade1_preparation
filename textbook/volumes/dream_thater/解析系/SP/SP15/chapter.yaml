@@ -19,7 +19,7 @@ definitions:
   - { id: SP15-DEF-02, name: "更新関数" }
 theorems:
   - { id: SP15-PROP-01, name: "更新回数の局所有限性とモーメント" }
-  - { id: SP15-PROP-02, name: "更新回数の分布と期待回数" }
+  - { id: SP15-PROP-02, name: "更新回数の確率と期待値" }
   - { id: SP15-THM-01, name: "更新方程式と局所有界解の一意性" }
   - { id: SP15-THM-02, name: "更新回数の強大数法則" }
   - { id: SP15-THM-03, name: "初等更新定理" }
