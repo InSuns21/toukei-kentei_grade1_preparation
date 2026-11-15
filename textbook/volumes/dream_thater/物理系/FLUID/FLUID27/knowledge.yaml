@@ -1,0 +1,48 @@
+chapter: FLUID27
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID26
+concepts:
+  - id: fluid.linear-free-surface-conditions
+    name: 線形自由表面条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形自由表面条件）"]
+    requires: [fluid.euler-constant-density, fluid.young-laplace-pressure-jump, fluid.velocity-potential]
+  - id: fluid.wave-wavenumber-frequency
+    name: 波数・角周波数・周期
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（波数・角周波数・周期）"]
+    requires: []
+  - id: fluid.wave-phase-speed
+    name: 位相速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（位相速度）"]
+    requires: [fluid.wave-wavenumber-frequency]
+  - id: fluid.gravity-capillary-dispersion
+    name: 有限水深の重力・毛管波の分散関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限水深の重力・毛管波の分散関係）"]
+    requires: [fluid.linear-free-surface-conditions, fluid.wave-wavenumber-frequency, fluid.wave-phase-speed]
+  - id: fluid.gravity-capillary-crossover
+    name: 重力・毛管の交差波数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重力・毛管の交差波数）"]
+    requires: [fluid.gravity-capillary-dispersion, fluid.capillary-length]
+  - id: fluid.surface-wave-depth-limits
+    name: 深水・浅水の位相速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（深水・浅水の位相速度）"]
+    requires: [fluid.gravity-capillary-dispersion, fluid.wave-phase-speed]
+  - id: fluid.linear-surface-wave-orbits
+    name: 線形波に伴う粒子の楕円軌道
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形波に伴う粒子の楕円軌道）"]
+    requires: [fluid.gravity-capillary-dispersion, fluid.velocity-potential]
