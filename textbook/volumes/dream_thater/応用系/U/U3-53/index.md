@@ -61,7 +61,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$e_1,\ldots,e_n\in\{0,1\}$ とし、$A_{n-1}=\{I_1=e_1,\ldots,I_{n-1}=e_{n-1}\}$ と置きます。各 $I_s$ が $\mathcal F_s$ で観測でき、情報が時点とともに増えるので $A_{n-1}\in\mathcal F_{n-1}$ です。条件付き期待値の塔の性質から
+$e_1,\ldots,e_n\in\{0,1\}$ とし、$A_{n-1}=\{I_1=e_1,\ldots,I_{n-1}=e_{n-1}\}$ と置きます。各 $I_s$ が $\mathcal F_s$ で観測でき、情報が時点とともに増えるので $A_{n-1}\in\mathcal F_{n-1}$ です。[条件付き期待値の既知量の取り出し](../../../解析系/F0/F0-00P3A/index.md#thm-f0-00p3a-basic-properties)と[塔の性質](../../../解析系/F0/F0-00P3A/index.md#thm-f0-00p3a-tower)から
 
 $$
 \begin{aligned}
@@ -205,7 +205,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（一次 Markov 超過モデルと独立モデル）**  
-> 観測列 $I_1,\ldots,I_n\in\{0,1\}$ の最初の $I_1$ を条件として固定する。一次 Markov モデルでは、$t=2,\ldots,n$ と $i\in\{0,1\}$ に対し、事象 $\{I_{t-1}=i\}$ 上で
+> $n\ge2$ とし、観測列 $I_1,\ldots,I_n\in\{0,1\}$ の最初の $I_1$ を条件として固定する。一次 Markov モデルでは、$t=2,\ldots,n$ と $i\in\{0,1\}$ に対し、事象 $\{I_{t-1}=i\}$ 上で
 >
 $$
 P(I_t=1\mid I_1,\ldots,I_{t-1})=\pi_{i1},
@@ -311,7 +311,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（条件付き被覆の合成統計量 LRcc）**  
-> 目標超過率 $0<p<1$、観測列 $I_1,\ldots,I_n$ に対し、無条件被覆の $LR_{\mathrm{uc}}$ と一次遷移独立性の $LR_{\mathrm{ind}}$ を前節の規則で求め、
+> 目標超過率 $0<p<1$、観測列 $I_1,\ldots,I_n$ に対し、[無条件被覆の $LR_{\mathrm{uc}}$](#def-u3-53-lruc) と [一次遷移独立性の $LR_{\mathrm{ind}}$](#prop-u3-53-lrind) を前節の規則で求め、
 >
 $$
 LR_{\mathrm{cc}}=LR_{\mathrm{uc}}+LR_{\mathrm{ind}}
