@@ -1,0 +1,59 @@
+chapter: U3-54
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-44, U3-45, U3-46, U3-53]
+concepts:
+  - id: finance.es-ex-ante-pair
+    name: 事前の VaR・ES 共同予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（事前の VaR・ES 共同予測）"]
+    requires: [finance.expected-shortfall, finance.value-at-risk, finance.holding-period-loss]
+  - id: finance.es-tail-residual
+    name: ES の尾部残差と VaR の校正残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ES の尾部残差と VaR の校正残差）"]
+    requires: [finance.es-ex-ante-pair, finance.es-atom-tail]
+  - id: finance.es-conditional-moments
+    name: 正しい共同予測の条件付きモーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正しい共同予測の条件付きモーメント）"]
+    requires: [finance.es-tail-residual, finance.var-hit]
+  - id: finance.es-pinball
+    name: 分位点損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分位点損失）"]
+    requires: [finance.value-at-risk]
+  - id: finance.es-pinball-proper
+    name: 分位点損失は VaR を選ぶ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（分位点損失は VaR を選ぶ）"]
+    requires: [finance.es-pinball]
+  - id: finance.es-randomized-pit
+    name: 確率化した PIT
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（確率化した PIT）"]
+    requires: [finance.es-ex-ante-pair]
+  - id: finance.es-pit-uniform
+    name: 正しい条件付き分布の PIT
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正しい条件付き分布の PIT）"]
+    requires: [finance.es-randomized-pit]
+  - id: finance.es-crps
+    name: CRPS
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CRPS）"]
+    requires: [finance.es-ex-ante-pair]
+  - id: finance.es-crps-proper
+    name: CRPS の適切性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（CRPS の適切性）"]
+    requires: [finance.es-crps]

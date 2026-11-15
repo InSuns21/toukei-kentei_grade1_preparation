@@ -57,7 +57,7 @@ chapters:
   - { id: U3-51, path: textbook/volumes/dream_thater/応用系/U/U3-51, status: completed, title: "極値理論：POT・一般化 Pareto 尾部" }
   - { id: U3-52, path: textbook/volumes/dream_thater/応用系/U/U3-52, status: completed, title: "相関・copula・尾部依存とリスク集約" }
   - { id: U3-53, path: textbook/volumes/dream_thater/応用系/U/U3-53, status: completed, title: "VaR バックテスト：超過数とクラスタリング" }
-  - { id: U3-54, path: textbook/volumes/dream_thater/応用系/U/U3-54, status: planned, title: "ES バックテストと予測分布検証" }
+  - { id: U3-54, path: textbook/volumes/dream_thater/応用系/U/U3-54, status: completed, title: "ES バックテストと予測分布検証" }
   - { id: U3-55, path: textbook/volumes/dream_thater/応用系/U/U3-55, status: planned, title: "ストレステスト・シナリオ・流動性とモデルリスク" }
   - { id: U3-56, path: textbook/volumes/dream_thater/応用系/U/U3-56, status: planned, title: "限界・成分リスクとリスク配賦" }
   - { id: U3-57, path: textbook/volumes/dream_thater/応用系/U/U3-57, status: planned, title: "ES（CVaR）最適化とヘッジ" }
