@@ -28,4 +28,4 @@ chapters:
   - { id: STO3, path: textbook/volumes/dream_thater/解析系/STO/STO3, status: completed, title: "整合的有限次元分布・ガウス過程・連続修正" } # SP19
   - { id: STO4, path: textbook/volumes/dream_thater/解析系/STO/STO4, status: completed, title: "Brown 運動の構成・増分・スケーリング" } # SP20
   - { id: SP21, path: textbook/volumes/dream_thater/解析系/SP/SP21, status: completed, title: "Brown 運動の再始動と境界到達の計算" }
-  - { id: SP22, path: textbook/volumes/dream_thater/解析系/SP/SP22, status: planned, title: "ランダムウォークから Brown 運動へ：Donsker 不変原理" }
+  - { id: STO3A, path: textbook/volumes/dream_thater/解析系/STO/STO3A, status: completed, title: "経路空間の弱収束・tightness・Donsker" } # SP22
