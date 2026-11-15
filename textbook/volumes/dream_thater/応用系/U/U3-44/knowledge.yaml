@@ -22,10 +22,10 @@ concepts:
     introduction_aliases: ["定義（保有期間の基準額付き損失）"]
     requires: [finance.portfolio-full-revaluation, finance.numeraire-discounted-price]
   - id: finance.physical-versus-pricing-measure
-    name: 損失予測のPと価格付けのQ
+    name: 損失予測の P と価格付けの Q
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（損失予測の $P$ と価格付けの $Q$）"]
+    introduction_aliases: ["定義（損失予測の P と価格付けの Q）"]
     requires: [finance.equivalent-martingale-measure, finance.holding-period-loss]
   - id: finance.finite-loss-distribution
     name: 有限状態の損失分布
@@ -40,8 +40,8 @@ concepts:
     introduction_aliases: ["命題（価格付け測度での基準額付き平均損失）"]
     requires: [finance.holding-period-loss, finance.one-period-backward-pricing]
   - id: finance.finite-measure-reweighting
-    name: 有限状態でのP/Q再重み付け
+    name: 有限状態での P/Q 再重み付け
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（有限状態での $P/Q$ 再重み付け）"]
+    introduction_aliases: ["命題（有限状態での P/Q 再重み付け）"]
     requires: [finance.physical-versus-pricing-measure, finance.finite-loss-distribution]
