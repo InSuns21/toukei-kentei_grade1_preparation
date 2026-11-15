@@ -70,11 +70,11 @@ $q_i:=-q_{ii}=\sum_{j\ne i}q_{ij}$ と置き、$L>\max_iq_i$（特に $L>0$）�
 
 率 $L$ の Poisson 時計が鳴るたびに $R$ に従って次状態を選びます。状態 $i$ から本当に離れる確率は一回につき $q_i/L$ です。$q_i>0$ なら [Poisson の独立間引き](../SP11/index.md#thm-sp11-thinning)により実際の離脱待ち時間は率 $L(q_i/L)=q_i$ の指数分布で、離脱を条件とする行き先 $j\ne i$ の確率は
 
-$
+$$
 \frac{R_{ij}}{1-R_{ii}}
 =\frac{q_{ij}/L}{q_i/L}
 =\frac{q_{ij}}{q_i}.
-$
+$$
 
 $q_i=0$ なら状態 $i$ からは離脱しません。時計と離散連鎖の独立性・Markov 性および Poisson 時計の独立増分を使う [SP12 の構成の証明](../SP12/index.md#thm-sp12-uniformization)と同じ議論で、これは元の $Q$ の跳躍率を持つ時間一様 CTMC を与えます。有限時間内の状態変化回数は時計の回数以下なので爆発もしません。以上より、$L>\max_iq_i$ でも $R$ と率 $L$ の Poisson 時計 $N_t$ を用いる一様化が成立し、従って
 
@@ -99,20 +99,20 @@ $$
 
 微分の正当化も確認します。以下の $\|A\|$ は $m\times m$ 行列 $A=(a_{ij})$ の最大行和ノルム
 
-$
+$$
 \|A\|:=\max_{i\in S}\sum_{j\in S}|a_{ij}|
-$
+$$
 
 を表します。行列積を成分ごとに展開して三角不等式を使うと
 
-$
+$$
 \begin{aligned}
 \sum_j|(AB)_{ij}|
 &\le\sum_k|a_{ik}|\sum_j|b_{kj}|\\
 &\le\|B\|\sum_k|a_{ik}|
 \le\|A\|\|B\|
 \end{aligned}
-$
+$$
 
 となるため、$\|AB\|\le\|A\|\|B\|$、特に $\|Q^n\|\le\|Q\|^n$ です。$n\ge1$、$0\le t\le T<\infty$ で
 
