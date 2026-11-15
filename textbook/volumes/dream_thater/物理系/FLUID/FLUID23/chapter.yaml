@@ -1,0 +1,44 @@
+id: "FLUID23"
+title: "境界層を積分すると抗力を評価できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID22
+official_scope: []
+learning_objectives:
+  - "変位厚さ、運動量厚さ、形状係数を速度欠損の積分から定義し、単位・直接例・相違を確認する"
+  - "Prandtl式と連続の式から欠損の保存形を作り、外縁流束の条件を明示してvon Kármán運動量積分式を導く"
+  - "零圧力勾配平板の摩擦抗力を運動量厚さに結び、片面の平均・局所摩擦係数と基準面積を区別する"
+  - "四次近似速度分布の境界条件・積分係数・壁せん断から厚さと抗力を導く"
+  - "Blasius解との近似誤差、数値積分の刻み誤差、境界層模型の適用条件を区別する"
+  - "外部減速の運動量厚さへの寄与と剥離判定を分離する"
+definitions:
+  - { id: FLUID23-DEF-01, name: "変位厚さ" }
+  - { id: FLUID23-DEF-02, name: "運動量厚さ" }
+  - { id: FLUID23-DEF-03, name: "形状係数" }
+  - { id: FLUID23-DEF-04, name: "零圧力勾配の四次近似速度分布" }
+theorems:
+  - { id: FLUID23-THM-01, name: "von Kármán の運動量積分式" }
+  - { id: FLUID23-PROP-01, name: "一様外部流平板の運動量欠損と摩擦抗力" }
+  - { id: FLUID23-PROP-02, name: "四次近似の厚さと壁摩擦" }
+  - { id: FLUID23-PROP-03, name: "四次積分近似の平板抗力" }
+canonical_examples:
+  - "折れ線速度分布で変位厚さと運動量厚さの定義条件を直接確認"
+  - "四次多項式の壁・外縁条件と積分係数を再計算"
+  - "同じ平板条件で四次近似とBlasius解の抗力誤差を比較"
+  - "指数型試行分布が壁でPrandtl方程式を満たさない例"
+problem_patterns:
+  - FLUID23-DEFICIT-UNITS
+  - FLUID23-LINEAR-PROFILE
+  - FLUID23-SHEAR-SIGN
+  - FLUID23-AVERAGE-FRICTION
+  - FLUID23-ADVERSE-GRADIENT
+  - FLUID23-CONSERVATIVE-INTEGRAL
+  - FLUID23-QUARTIC-BOUNDARY
+  - FLUID23-QUARTIC-QUADRATURE
+  - FLUID23-EXPONENTIAL-CHECK
+  - FLUID23-INTEGRATED-FLAT-PLATE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }

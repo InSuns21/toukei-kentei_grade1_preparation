@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="330" viewBox="0 0 640 330" data-layout-lint="strict" role="img" aria-labelledby="fig-title fig-desc">
+  <title id="fig-title">境界層の変位厚さと速度欠損</title>
+  <desc id="fig-desc">横軸は速度比u/U、縦軸は壁からの無次元距離y/δ。壁の速度零から外側の速度1へ滑らかに増える実線の速度曲線と、速度1の破線の間の領域を淡色で示す。各高さでの横方向の差を縦に積分すると変位厚さになる。</desc>
+  <rect x="0" y="0" width="640" height="330" fill="#ffffff"/>
+  <path d="M 470,66 L 470,264 L 120,264 L 137.49,259.05 L 154.91,254.1 L 172.22,249.15 L 189.33,244.2 L 206.22,239.25 L 222.81,234.3 L 239.08,229.35 L 254.96,224.4 L 270.42,219.45 L 285.43,214.5 L 299.94,209.55 L 313.94,204.6 L 327.38,199.65 L 340.24,194.7 L 352.51,189.75 L 364.16,184.8 L 375.18,179.85 L 385.56,174.9 L 395.3,169.95 L 404.38,165 L 412.8,160.05 L 420.56,155.1 L 427.68,150.15 L 434.16,145.2 L 440.01,140.25 L 445.24,135.3 L 449.88,130.35 L 453.94,125.4 L 457.44,120.45 L 460.43,115.5 L 462.92,110.55 L 464.96,105.6 L 466.58,100.65 L 467.81,95.7 L 468.72,90.75 L 469.33,85.8 L 469.72,80.85 L 469.91,75.9 L 469.99,70.95 L 470,66 Z" fill="#d9edf4" stroke="none"/>
+  <line x1="120" y1="264" x2="505" y2="264" stroke="#374151" stroke-width="2.3"/>
+  <line x1="120" y1="264" x2="120" y2="37" stroke="#374151" stroke-width="2.3"/>
+  <line x1="120" y1="66" x2="470" y2="66" stroke="#c2cbd3" stroke-width="1" stroke-dasharray="3 5"/>
+  <path d="M 120,264 L 137.49,259.05 L 154.91,254.1 L 172.22,249.15 L 189.33,244.2 L 206.22,239.25 L 222.81,234.3 L 239.08,229.35 L 254.96,224.4 L 270.42,219.45 L 285.43,214.5 L 299.94,209.55 L 313.94,204.6 L 327.38,199.65 L 340.24,194.7 L 352.51,189.75 L 364.16,184.8 L 375.18,179.85 L 385.56,174.9 L 395.3,169.95 L 404.38,165 L 412.8,160.05 L 420.56,155.1 L 427.68,150.15 L 434.16,145.2 L 440.01,140.25 L 445.24,135.3 L 449.88,130.35 L 453.94,125.4 L 457.44,120.45 L 460.43,115.5 L 462.92,110.55 L 464.96,105.6 L 466.58,100.65 L 467.81,95.7 L 468.72,90.75 L 469.33,85.8 L 469.72,80.85 L 469.91,75.9 L 469.99,70.95 L 470,66" fill="none" stroke="#155e82" stroke-width="3.4" data-series-group="velocity" data-series-label="boundary-layer-profile"/>
+  <line x1="470" y1="66" x2="470" y2="264" stroke="#4b5563" stroke-width="2.1" stroke-dasharray="9 6" data-series-group="velocity" data-series-label="outer-speed"/>
+  <text x="521" y="270" font-size="21" fill="#1f2937" font-family="sans-serif">u/U</text>
+  <text x="74" y="30" font-size="20" fill="#1f2937" font-family="sans-serif">y/δ</text>
+  <text x="97" y="290" font-size="17" fill="#1f2937" font-family="sans-serif">0</text>
+  <text x="463" y="290" font-size="17" fill="#1f2937" font-family="sans-serif">1</text>
+  <text x="87" y="70" font-size="17" fill="#1f2937" font-family="sans-serif">1</text>
+  <text x="503" y="93" font-size="18" fill="#155e82" font-family="sans-serif">u/U=1</text>
+  <line x1="485" y1="86" x2="474" y2="86" stroke="#155e82" stroke-width="2.1" stroke-dasharray="9 6"/>
+</svg>
