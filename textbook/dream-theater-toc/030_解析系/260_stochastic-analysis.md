@@ -18,7 +18,7 @@
 15. [SP13 CTMC の Kolmogorov 方程式・定常性・可逆性](textbook/volumes/dream_thater/解析系/SP/SP13/index.md)
 16. [SP14 出生死滅過程・吸収・化学反応ネットワーク](textbook/volumes/dream_thater/解析系/SP/SP14/index.md)
 17. [SP15 更新過程・更新方程式・更新回数](textbook/volumes/dream_thater/解析系/SP/SP15/index.md)
-19. [SP16 更新報酬・残余寿命・長期平均](textbook/volumes/dream_thater/解析系/SP/SP16/index.md)
+18. [SP16 更新報酬・残余寿命・長期平均](textbook/volumes/dream_thater/解析系/SP/SP16/index.md)
 19. [STO3 確率過程の構成・Kolmogorov continuity](textbook/volumes/dream_thater/解析系/STO/STO3/index.md)
 20. [STO4 ブラウン運動・Wiener 測度・到達時刻・強マルコフ性](textbook/volumes/dream_thater/解析系/STO/STO4/index.md)
 21. [STO3A 経路空間の弱収束・tightness・Donsker](textbook/volumes/dream_thater/解析系/STO/STO3A/index.md)
