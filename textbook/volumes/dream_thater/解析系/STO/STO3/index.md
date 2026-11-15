@@ -992,7 +992,7 @@ $$
 
 ガウス過程では、平均関数
 
-$
+$$
 m(t)=E[X_t]
 $$
 
@@ -1268,11 +1268,11 @@ $$
 
 $\gamma=1$ は上の評価で指数が 1 の場合です。$\gamma>1$ のとき、区間 $[s,t]$ を $N$ 等分して三角不等式を適用すれば
 
-$
+$$
 |f(t)-f(s)|
 \le N C_f((t-s)/N)^\gamma
 =C_f(t-s)^\gamma N^{1-\gamma}\to0.
-$
+$$
 
 従って指数1を超えて Hölder 連続な関数は定数です。非定数の標本路では通常 $0<\gamma\le1$ の指数を考えます。
 
@@ -2538,23 +2538,23 @@ $$
 
 ただし $D_n$ は $\mathbb R^T$ の集合であり、$K^\ast$ は $\mathbb R^{I_\infty}$ の部分集合です。両者の共通部分を直接取る代わりに
 
-$
+$$
 E_n=\{x\in K^\ast:x|_{I_j}\in K_j\ (1\le j\le n)\}
-$
+$$
 
 と置きます。各 $E_n$ は有限個の compact 集合への所属条件で定まる閉集合です。$D_n$ の点の $I_n$ 座標を使い、残りの座標を各非空 compact 集合 $L_t$ から選べば、$E_n$ が非空であることも分かります。さらに $E_{n+1}\subset E_n$ です。
 
 compact 空間の減少する非空閉集合族は共通点を持つため
 
-$
+$$
 x\in\bigcap_nE_n
-$
+$$
 
 を取れます。$x$ を $I_\infty$ 以外の座標へ任意に延長すると $\omega\in\mathbb R^T$ が得られ、全ての $j$ で $\omega|_{I_j}\in K_j$ です。従って
 
-$
+$$
 \omega\in\bigcap_nH_n\subset\bigcap_nA_n=\varnothing,
-$
+$$
 
 となり矛盾です。
 
