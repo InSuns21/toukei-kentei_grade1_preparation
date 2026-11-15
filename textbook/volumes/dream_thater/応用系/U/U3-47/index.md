@@ -491,7 +491,21 @@ $$
 L-m=-\sqrt{\frac{\nu}{V}}\,b^{\mathsf T}Z.
 $$
 
-$s>0$ なら、[正規射影の命題](#prop-u3-47-normal-projection)を $X=Z$、$A=I_r$、平均0、感応度 $w=b$、費用 $c=0$ に適用します。このとき損失 $-b^{\mathsf T}Z$ の分散は $b^{\mathsf T}b=s^2>0$ なので、$Z_*=-b^{\mathsf T}Z/s$ は標準正規です。$Z_*$ は $Z$ の関数であり $V$ は $Z$ と独立なので、$Z_*$ と $V$ も独立です。ゆえに
+$s>0$ の場合、[正規射影の命題](#prop-u3-47-normal-projection)へ、平均0・独立標準正規のベクトル $Z$ を次のように代入します。
+
+$$
+X=Z,\quad A=I_r,\quad \mu=0,\quad
+w=b,\quad c=0,\quad
+\sigma_L^2=b^{\mathsf T}b=s^2>0.
+$$
+
+この命題から
+
+$$
+Z_*=-\frac{b^{\mathsf T}Z}{s}\sim N(0,1)
+$$
+
+です。$Z_*$ は $Z$ の関数であり、$V$ は $Z$ と独立なので、$Z_*$ と $V$ も独立です。ゆえに
 
 $$
 L=m+s\frac{Z_*}{\sqrt{V/\nu}}
