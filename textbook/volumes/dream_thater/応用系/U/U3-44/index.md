@@ -28,22 +28,22 @@
 > **定義（保有期間とリスクファクター・シナリオ）**  
 > 時点 $t\ge0$、期間の長さ $\Delta>0$、整数 $d\ge1$ を指定し、終了時点を
 >
-$
+$$
 h=t+\Delta>t
-$
+$$
 >
 > と置く。$(\Omega,\mathcal F)$ を状態の可測空間、$\mathcal D\subseteq\mathbb R^d$ を可測な状態空間とする。次の可測写像を終了時のリスクファクターと呼ぶ。
 >
-$
+$$
 X_h:\Omega\to\mathcal D.
-$
+$$
 >
 > その実現値 $x\in\mathcal D$ をシナリオと呼び、時点 $t$ に観測された値は $x_t$ と書く。有限状態で全状態を $\omega_1,\ldots,\omega_n$ とすると、
 >
-$
+$$
 \Omega=\{\omega_1,\ldots,\omega_n\},\qquad
 x_j=X_h(\omega_j)
-$
+$$
 >
 > を列挙できる。
 <!-- formal-statement-end -->
