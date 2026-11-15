@@ -111,7 +111,9 @@ $$
 =\delta k\,\frac{dx}{dt}-\delta\omega,
 $$
 
-ここで $x(t)$ は包絡の位相を一定に保つ点であり、$\delta k,\delta\omega$ は固定した二波の定数である。$\delta k>0$ で割って $dx/dt=\delta\omega/\delta k$ を得る。$\omega$ の微分可能性から
+ここで $x(t)$ は包絡の位相を一定に保つ点であり、$\delta k,\delta\omega$ は固定した二波の定数である。$\delta k>0$ で割って $dx/dt=\delta\omega/\delta k$ を得る。
+
+以下、$\omega'(k_0)$ は $\omega$ を波数 $k$ で常微分して $k_0$ で評価した値、すなわち $(d\omega/dk)(k_0)$ を表す。$\omega$ の微分可能性から
 
 $$
 \lim_{\delta k\to0}
