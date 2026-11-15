@@ -1,0 +1,44 @@
+id: "U3-44"
+title: "損益分布・リスクファクター・P と Q"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-01, U3-15, U3-42, U3-43]
+official_scope: []
+learning_objectives:
+  - 保有期間とリスクファクターの状態空間・可測シナリオを指定できる
+  - 固定保有数量と時点別評価関数からシナリオごとの全再評価を計算できる
+  - 途中の純現金収支と資金調達の比較倍率を入れ、損失の符号を正しく定義できる
+  - 価格付け測度Qと実確率Pの役割を区別して株式・オプションの数値例で検算できる
+  - 有限状態の損失分布・非超過確率・平均損失を計算できる
+  - Qの価格付け条件からQ平均損失が0になる十分条件を証明できる
+  - 有限状態でPとQの確率比を用いた期待値変換を証明・検算できる
+  - 株式と債券の複数ファクターを用い残存満期を進めて再評価できる
+definitions:
+  - { id: U3-44-DEF-01, name: "保有期間とリスクファクター・シナリオ" }
+  - { id: U3-44-DEF-02, name: "固定ポジションの全再評価" }
+  - { id: U3-44-DEF-03, name: "保有期間の基準額付き損失" }
+  - { id: U3-44-DEF-04, name: "損失予測のPと価格付けのQ" }
+  - { id: U3-44-DEF-05, name: "有限状態の損失分布" }
+theorems:
+  - { id: U3-44-PROP-01, name: "価格付け測度での基準額付き平均損失" }
+  - { id: U3-44-PROP-02, name: "有限状態でのP/Q再重み付け" }
+canonical_examples:
+  - "二項株価100→120/80、R=1、P(U)=3/4とQ(U)=1/2の比較"
+  - "株式1/2株とcall1契約の全再評価：現在60円、期末80/40円、損失-20/20円"
+  - "2年物債券を1年保有した後の残存1年物金利による複数ファクター評価"
+  - "3状態の株式とcallで損失の実確率と評価測度の平均を独立に照合"
+problem_patterns:
+  - U3-44-A1
+  - U3-44-A2
+  - U3-44-A3
+  - U3-44-A4
+  - U3-44-A5
+  - U3-44-B1
+  - U3-44-B2
+  - U3-44-B3
+  - U3-44-B4
+  - U3-44-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
