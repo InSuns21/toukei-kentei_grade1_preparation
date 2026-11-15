@@ -1,0 +1,53 @@
+chapter: MIR1-14
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-13]
+concepts:
+  - id: mirror.quintic-conifold-exponents
+    name: conifold点の指標多項式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（conifold点の指標多項式）"]
+    requires: [mirror.quintic-picard-fuchs, mirror.quintic-pf-regular-singular]
+  - id: mirror.quintic-vanishing-cycle
+    name: 節点の消滅サイクルと消滅周期
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（節点の消滅サイクルと消滅周期）"]
+    requires: [mirror.quintic-conifold-exponents]
+  - id: mirror.quintic-integral-symplectic-basis
+    name: 整数シンプレクティック基底とモノドロミー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（整数シンプレクティック基底とモノドロミー）"]
+    requires: [mirror.quintic-vanishing-cycle]
+  - id: mirror.quintic-picard-lefschetz-conifold
+    name: Picard–Lefschetzの節点公式
+    kind: principle
+    introduction: formal
+    introduction_aliases: ["原理（Picard–Lefschetzの節点公式：幾何学的入力）"]
+    requires: [mirror.quintic-vanishing-cycle, mirror.quintic-integral-symplectic-basis]
+  - id: mirror.quintic-conifold-transvection
+    name: 節点の一周は階数1のシンプレクティック単冪変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（節点の一周は階数1のシンプレクティック単冪変換）"]
+    requires: [mirror.quintic-picard-lefschetz-conifold, mirror.quintic-rank4-mum]
+  - id: mirror.quintic-orbifold-local-monodromy
+    name: 本講のorbifold点の局所モノドロミー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講のorbifold点の局所モノドロミー）"]
+    requires: [mirror.quintic-local-monodromy]
+  - id: mirror.quintic-orbifold-exponents
+    name: orbifold点の指標根と位数5の一周作用
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（orbifold点の指標根と位数5の一周作用）"]
+    requires: [mirror.quintic-orbifold-local-monodromy, mirror.quintic-picard-fuchs]
+  - id: mirror.quintic-integral-period-lattice
+    name: 積分周期格子と基底の接続行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（積分周期格子と基底の接続行列）"]
+    requires: [mirror.quintic-integral-symplectic-basis, mirror.quintic-orbifold-exponents, mirror.dwork-gauss-manin-period]
