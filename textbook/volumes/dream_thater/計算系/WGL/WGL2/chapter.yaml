@@ -16,7 +16,7 @@ definitions:
   - { id: WGL2-DEF-03, name: 頂点・フラグメント間の varying }
   - { id: WGL2-DEF-04, name: 三角形の重心座標 }
 theorems:
-  - { id: WGL2-PROP-01, name: 同一clip w の三角形の色補間 }
+  - { id: WGL2-PROP-01, name: clip座標の第4成分が等しい三角形の色補間 }
 canonical_examples:
   - 三頂点赤緑青・画素160,120の補間RGBを符号付き面積とCPUで独立検算
   - uniform変更とvarying型不一致のリンクエラーを実行環境で観察
