@@ -14,9 +14,9 @@
 
 外部速度の変化は[外側のEuler関係](../FLUID21/index.md#prop-fluid21-edge-pressure)とつながっている。
 
-$
+$$
 -\frac{p_e'}{\rho}=U_eU_e'.
-$
+$$
 
 流体の流速 $u$ が一様速度 $U_e$ より小さい断面では、厚さ $dy$ を通る流量が $(U_e-u)dy$ だけ不足する。この総量を、一様流に置いた壁を仮想的に押し上げた厚さとして表す。
 
@@ -32,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid23-displacement -->
-**定義の直接例。** 厚さ $\delta>0$、無次元座標 $z=y/\delta$ として、$0\le y\le\delta$ では $u/U_e=z$、$y>\delta$ では $u/U_e=1$ という折れ線状の分布を考える。欠損は $0\le z\le1$ にだけ残るため、$dy=\delta\,dz$ から
+**定義の確認**： 厚さ $\delta>0$、無次元座標 $z=y/\delta$ として、$0\le y\le\delta$ では $u/U_e=z$、$y>\delta$ では $u/U_e=1$ という折れ線状の分布を考える。欠損は $0\le z\le1$ にだけ残るため、$dy=\delta\,dz$ から
 
 $$
 \delta^*=\delta\int_0^1(1-z)\,dz
@@ -63,7 +63,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid23-momentum -->
-**同じ直接例での条件確認。** 上の折れ線状分布は積分可能であり、$u/U_e=z$ を代入すると
+**定義の確認**： 上の折れ線状分布は積分可能であり、$u/U_e=z$ を代入すると
 
 $$
 \theta=\delta\int_0^1z(1-z)\,dz
@@ -90,7 +90,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid23-shape-factor -->
-**直接例。** 同じ折れ線状分布では $H=(\delta/2)/(\delta/6)=3$ である。両厚さは長さなので比の単位は消える。$H$ は速度分布の要約であって、$H$ だけから壁面勾配を一意に復元できるわけではない。
+**定義の確認**： 同じ折れ線状分布では $H=(\delta/2)/(\delta/6)=3$ である。両厚さは長さなので比の単位は消える。$H$ は速度分布の要約であって、$H$ だけから壁面勾配を一意に復元できるわけではない。
 <!-- definition-example-end -->
 
 ![外部速度と境界層速度の差が、壁に沿った流量欠損を作る。縦は壁からの距離、横は無次元速度。](assets/velocity-deficit.svg)
@@ -290,7 +290,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid23-quartic-profile -->
-**定義の直接確認。** $g(0)=0$、$g(1)=1$、$g'(z)=2-6z^2+4z^3$、$g''(z)=-12z+12z^2$ だから
+**定義の確認**： $g(0)=0$、$g(1)=1$、$g'(z)=2-6z^2+4z^3$、$g''(z)=-12z+12z^2$ だから
 
 $$
 g'(0)=2,\quad g''(0)=0,\quad
@@ -481,11 +481,11 @@ $\rho>0$、$U_e>0$ とし、$u/U_e$ は $y$ のみの関数で外側で1へ近�
 
 密度と速度の二乗の積は圧力と同じ単位をもつ。したがって運動量欠損流束の単位は
 
-$
+$$
 [\rho U_e^2\theta]
 =\frac{\mathrm{kg}}{\mathrm{m\,s^2}}\cdot\mathrm m
 =\frac{\mathrm N}{\mathrm m}.
-$
+$$
 
 これは単位幅当たりの運動量流束である。一様流なら両方の被積分関数が恒等的に零なので、変位厚さも運動量厚さも零となる。
 <!-- solution-end -->
