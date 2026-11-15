@@ -1,0 +1,43 @@
+id: "U3-46"
+title: "Expected Shortfall の定義と性質"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-45, U3-44]
+official_scope: []
+learning_objectives:
+  - 実確率P下で可積分損失の分位点積分としてESを定義しVaRと比較できる
+  - 離散分布のVaR境界原子を部分採用する尾部公式を導出・検算できる
+  - ESの正の部分による最小化表示と最適点の条件を証明できる
+  - 制約付き確率再重み付けの最大化表示と最適重みを構成できる
+  - 単調性・現金平行移動・正の斉次性・劣加法性を証明できる
+  - 等確率標本でタイと上位観測の端数重みを正しく計算できる
+  - 独立二値損失のES合算とP/Qの混同の影響を数値的に説明できる
+definitions:
+  - { id: U3-46-DEF-01, name: "分位点積分による Expected Shortfall" }
+theorems:
+  - { id: U3-46-PROP-01, name: "境界原子を含む ES の尾部公式" }
+  - { id: U3-46-THM-01, name: "ES の最小化表示" }
+  - { id: U3-46-THM-02, name: "ES の最大化表示" }
+  - { id: U3-46-PROP-02, name: "ES のコヒーレント性" }
+  - { id: U3-46-PROP-03, name: "等確率標本の ES と端数重み" }
+canonical_examples:
+  - "0.96/0.04の二値損失で95%VaR=0円・ES=80円、条件付き平均は100円/4円"
+  - "三点損失-20/10/50の75%ESを境界質量0.05と尾部0.20から42円と求める"
+  - "独立二値損失の和の95%ES 103.2円と単体ES合計160円"
+  - "10個の同額タイを含む標本で上位2.5個の75%ES 42円"
+  - "PとQで75%VaRが10円と等しい一方ESは26円と30円"
+problem_patterns:
+  - U3-46-A1
+  - U3-46-A2
+  - U3-46-A3
+  - U3-46-A4
+  - U3-46-A5
+  - U3-46-B1
+  - U3-46-B2
+  - U3-46-B3
+  - U3-46-B4
+  - U3-46-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

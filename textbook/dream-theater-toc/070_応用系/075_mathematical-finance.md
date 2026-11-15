@@ -47,3 +47,4 @@
 43. [U3-43 価格付けモデルの横断較正・検証](textbook/volumes/dream_thater/応用系/U/U3-43/index.md)
 44. [U3-44 損益分布・リスクファクター・P と Q](textbook/volumes/dream_thater/応用系/U/U3-44/index.md)
 45. [U3-45 Value at Risk の定義と限界](textbook/volumes/dream_thater/応用系/U/U3-45/index.md)
+46. [U3-46 Expected Shortfall の定義と性質](textbook/volumes/dream_thater/応用系/U/U3-46/index.md)
