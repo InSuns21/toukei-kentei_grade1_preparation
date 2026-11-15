@@ -47,12 +47,46 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid33-beta-plane -->
-**定義の確認**：$\varphi_0=45^\circ$、$\Omega=7.29\times10^{-5}$ s$^{-1}$、$a=6.37\times10^6$ m とすれば、$f_0\simeq1.03\times10^{-4}$ s$^{-1}$、$\beta\simeq1.62\times10^{-11}$ m$^{-1}$s$^{-1}$。南緯45度では $f_0$ だけが負に変わり、$\beta$ はなお正である。赤道では $f_0=0$ なので後述の $1/f_0$ を用いる地衡近似はできない。
+**定義の確認**：$\varphi_0=45^\circ$、$\Omega=7.29\times10^{-5}$ s$^{-1}$、$a=6.37\times10^6$ m を定義式へ代入すると
+
+$$
+f_0\simeq1.03\times10^{-4}\ {\rm s^{-1}},\qquad
+\beta\simeq1.62\times10^{-11}\ {\rm m^{-1}s^{-1}}.
+$$
+
+例えば南北幅 $L=10^5$ m の領域を基準緯度の前後 $|y|\le L/2$ に取ると、
+
+$$
+\frac{|y|}{a}\le7.85\times10^{-3},\qquad
+\frac{|\beta|L}{|f_0|}\simeq1.57\times10^{-2}.
+$$
+
+よって局所一次近似と定数 $f_0$ による地衡釣合の尺度条件をともに満たす。南緯45度では $f_0$ だけが負に変わり、$\beta$ はなお正である。赤道では $f_0=0$ なので後述の $1/f_0$ を用いる地衡近似はできない。
 <!-- definition-example-end -->
 
 ## 2. 水柱は何を保存するか
 
-回転する平底の二次元浅水方程式は、[FLUID29 の水深・流量の定義](../FLUID29/index.md#def-fluid29-depth-discharge)を水平方向二成分へ広げたものである。滑らかな $u,v,h$ に対し、$D_t=\partial_t+u\partial_x+v\partial_y$ と書けば
+回転する平底の二次元浅水方程式は、[FLUID29 の水深・流量の定義](../FLUID29/index.md#def-fluid29-depth-discharge)を水平方向二成分へ広げたものである。滑らかな $u,v,h$ に対し、
+
+$$
+D_t=\partial_t+u\partial_x+v\partial_y
+$$
+
+と書く。$\partial_t$ は位置 $x,y$ を固定した時間微分、$D_t$ は流体粒子に沿う**物質微分**である。
+
+実際、粒子の位置 $(X(t),Y(t))$ が
+
+$$
+\frac{dX}{dt}=u(X,Y,t),\qquad\frac{dY}{dt}=v(X,Y,t)
+$$
+
+を満たすなら、任意の滑らかなスカラー場 $s(x,y,t)$ に対して連鎖律より
+
+$$
+\frac{d}{dt}s(X(t),Y(t),t)=s_t+u s_x+v s_y=D_ts
+$$
+
+となる（右辺は粒子位置で評価する）。この意味で以下の方程式は
 
 $$
 \begin{aligned}
@@ -147,7 +181,14 @@ $$
 
 一層浅水流は速い重力波も支える。[FLUID29 の浅水長波速度](../FLUID29/index.md#thm-fluid29-characteristics)は静止水で $\sqrt{gH}$ だった。今欲しいのはこれより遅い、回転と緯度勾配の影響を受ける波である。
 
-$h=H+\eta$、背景速度零、$|\eta|/H\ll1$、水平流速の二次項を無視できる程度に小さいとする。$\beta$ 面では、$|\beta y|/|f_0|\ll1$ の局所帯である。水深方程式と渦度方程式の一次項を取り出すと
+$h=H+\eta$、背景速度零、$|\eta|/H\ll1$、水平流速の二次項を無視できる程度に小さいとする。$\beta$ 面では、$|\beta y|/|f_0|\ll1$ の局所帯である。水平発散を $\delta=u_x+v_y$ と置けば、質量式と渦度式を速度と水面変位について一次化した段階では
+
+$$
+\eta_t+H\delta=0,\qquad
+\zeta_t+(f_0+\beta y)\delta+\beta v=0
+$$
+
+となる。ここから、$|\beta y|/|f_0|\ll1$ によって伸縮係数の相対的に小さい補正 $\beta y\delta$ を落とす。ただし $\beta v$ は背景渦位の移流を表すため残す。こうして
 
 $$
 \eta_t+H(u_x+v_y)=0,\qquad
@@ -169,7 +210,16 @@ $$
 f_0u_g=-g\eta_y.
 $$
 
-これにより $g\eta/f_0$ を一つの関数として使えば速度の両成分を表せる。以下の準地衡（quasi-geostrophic）近似では、$|f_0|>0$、$\mathrm{Ro}\ll1$、$|\partial_t|/|f_0|\ll1$、$\beta L/|f_0|\ll1$、および $|\eta|/H\ll1$ を仮定し、一次の渦位変化に対して速度の最低次を地衡流で近似する。非地衡速度は伸縮を通じて一次渦位式へ寄与し得るので、連続式の発散を**最初から零には置かない**。
+これにより $g\eta/f_0$ を一つの関数として使えば速度の両成分を表せる。以下の準地衡（quasi-geostrophic）近似では、[FLUID32 の Rossby 数](../FLUID32/index.md#def-fluid32-rossby-ekman)を用い、
+
+$$
+\mathrm{Ro}=\frac{U}{|f_0|L}\ll1,\qquad
+\frac{1}{|f_0|T}\ll1,\qquad
+\frac{|\beta|L}{|f_0|}\ll1,\qquad
+\frac{|\eta|}{H}\ll1
+$$
+
+を仮定する。ここで $U$ は代表流速、$L$ は水平代表長さ、$T>0$ は変動の代表時間である。$1/T$ は代表的な時間変化率であって、微分演算子 $\partial_t$ の絶対値ではない。また $f_0\ne0$ が必要である。一次の渦位変化に対して速度の最低次を地衡流で近似する。非地衡速度は伸縮を通じて一次渦位式へ寄与し得るので、連続式の発散を**最初から零には置かない**。
 
 <a id="def-fluid33-streamfunction-radius"></a>
 
@@ -192,8 +242,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid33-streamfunction-radius -->
-**定義の確認**：$g=10$ m/s$^2$、$H=1000$ m、$f_0=10^{-4}$ s$^{-1}$ なら $\sqrt{gH}=100$ m/s なので $L_D=10^6$ m。さらに $\psi=A\cos(kx+\ell y)$ とすると $u_g=A\ell\sin(kx+\ell y)$、$v_g=-Ak\sin(kx+\ell y)$。両成分を微分して $u_{g,x}+v_{g,y}=Ak\ell\cos-Ak\ell\cos=0$。また $\eta=f_0\psi/g$ を代入すると地衡の東・北成分をともに満たす。単なる関数の名付けではなく、速度と水面の条件を検算している。
+**定義の確認**：$g=10$ m/s$^2$、$H=1000$ m、$f_0=10^{-4}$ s$^{-1}$ なら $\sqrt{gH}=100$ m/s なので $L_D=10^6$ m。さらに $\psi=A\cos(kx+\ell y)$（$A$ は m$^2$/s、$k,\ell$ は m$^{-1}$）とすると $u_g=-\psi_y=A\ell\sin(kx+\ell y)$、$v_g=\psi_x=-Ak\sin(kx+\ell y)$。両成分を微分して $u_{g,x}+v_{g,y}=Ak\ell\cos-Ak\ell\cos=0$。水面を $\eta=f_0\psi/g$ と置けば、$f_0$ が一定なので
+
+$$
+-f_0v_g=-f_0\psi_x=-g\eta_x,\qquad
+f_0u_g=-f_0\psi_y=-g\eta_y.
+$$
+
+よって[地衡流の両成分の釣合](../FLUID32/index.md#thm-fluid32-geostrophic-formula)を直接確認できる。この例では、二つの速度成分と水面勾配の対応をそれぞれ計算している。
 <!-- definition-example-end -->
+
+水平勾配を $\nabla_h=(\partial_x,\partial_y)$、水平 Laplace 演算子を $\Delta_h=\nabla_h^2=\partial_x^2+\partial_y^2$ と記す。$\Delta_h\psi$ は地衡速度 $(u_g,v_g)=(-\psi_y,\psi_x)$ の鉛直渦度 $v_{g,x}-u_{g,y}$ に一致する。
 
 <a id="thm-fluid33-qg-pv"></a>
 
@@ -212,7 +271,7 @@ $$
 +\beta\,\partial_x\psi=0.}
 $$
 
-> $\nabla_h^2=\partial_x^2+\partial_y^2$。ここで $Q'$ の単位は s$^{-1}$ で、前節の $q$ の単位とは異なる。一次の偏差では $Q'=H\{q-f(y)/H\}$ の近似関係にある。
+> ここで $Q'$ の単位は s$^{-1}$ で、前節の $q$ の単位とは異なる。一次の偏差では $Q'=H\{q-f(y)/H\}$ の近似関係にある。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -222,7 +281,19 @@ $$
 <!-- proof-start -->
 ### 証明
 
-地衡表示を二回微分すると
+まず[浅水渦位の定義](#def-fluid33-shallow-pv)と $h=H+\eta$ から、$|\eta|/H\ll1$ に対して
+
+$$
+\begin{aligned}
+q&=\frac{f+\zeta}{H+\eta}
+=\frac{f+\zeta}{H}\left(1-\frac{\eta}{H}+O\!\left(\frac{\eta^2}{H^2}\right)\right),\\
+H\left(q-\frac{f}{H}\right)
+&=\zeta-\frac{f\eta}{H}+O\!\left(\frac{|\zeta\eta|}{H}+\frac{|f|\eta^2}{H^2}\right)
+\simeq\zeta-\frac{f_0}{H}\eta.
+\end{aligned}
+$$
+
+最後の近似では $|\beta y|/|f_0|\ll1$ を用い、$f\eta/H$ の係数だけを $f_0$ に替えた。これが、厚さで割った渦位 $q$ から線形偏差 $Q'$ へ移る根拠である。次に地衡表示を二回微分すると
 
 $$
 \zeta_g=\partial_xv_g-\partial_yu_g
