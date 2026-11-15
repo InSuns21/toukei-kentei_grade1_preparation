@@ -1,0 +1,36 @@
+chapter: FLUID30
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID29
+concepts:
+  - id: fluid.hydraulic-jump-balance
+    name: 移動する段波の質量・運動量跳躍条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（移動する段波の質量・運動量跳躍条件）"]
+    requires: [fluid.shallow-water-equations]
+  - id: fluid.hydraulic-conjugate-depth
+    name: 共役水深と Froude 数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（共役水深と Froude 数）"]
+    requires: [fluid.hydraulic-jump-balance]
+  - id: fluid.hydraulic-specific-head
+    name: 移動座標の比エネルギー水頭
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（移動座標の比エネルギー水頭）"]
+    requires: [fluid.shallow-column-energy]
+  - id: fluid.hydraulic-energy-loss
+    name: 跳水の水頭損失とエネルギーの許容条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（跳水の水頭損失とエネルギーの許容条件）"]
+    requires: [fluid.hydraulic-conjugate-depth, fluid.hydraulic-specific-head, fluid.shallow-energy-balance]
+  - id: fluid.hydraulic-characteristic-selection
+    name: 右向き相対流の圧縮型跳水
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（右向き相対流の圧縮型跳水）"]
+    requires: [fluid.hydraulic-conjugate-depth, fluid.shallow-water-characteristics]
