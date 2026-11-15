@@ -16,7 +16,7 @@
 - **本PLANのcanonical owner：** 熱浴に接した確率軌道の仕事・熱・全エントロピー生成の結合、測定とフィードバックによる情報付き第二法則、記憶の測定・消去費用、全装置の循環収支。平衡エントロピー・分配関数・Shannon情報量の一般定理を重複して所有しない。
 - **標準ルート：** 古典的な有限状態模型、単一温度の熱浴、操作で変わるエネルギー準位、相互に逆向きの遷移が許されるMarkov動力学を用いる。後から連続状態のLangevin模型、複数浴・化学ポテンシャル、粗視化、強結合、非Markov性を扱う場合は追加の仮定と変更点を明記する。
 - **停止線：** 量子測定・量子フィードバックは[量子情報の既習正本](../plan_done/DREAM_THEATER_QUANTUM_INFORMATION_I_PLAN.md)と接続する発展入口にとどめる。古典測定の相互情報量による式を任意の量子計測へ無条件に移植しない。ブラックホールの情報問題にも古典的なLandauer評価をそのまま適用しない。
-- **横断読順：** [熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)。数理物理の厳密化を必要とする発展分岐は[時空・量子場数学ルート](../plans/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で位置付ける。
+- **横断読順：** [熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)。数理物理の厳密化を必要とする発展分岐は[時空・量子場数学ルート](DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で位置付ける。
 
 初回の設計改稿は実装開始ではなかったが、2026-11-07にITD1を実装してITD系列manifestを設けた。旧案のITD1〜ITD15は固定講数とみなさず、後続の章数は証明・演習のまとまりで決める。
 

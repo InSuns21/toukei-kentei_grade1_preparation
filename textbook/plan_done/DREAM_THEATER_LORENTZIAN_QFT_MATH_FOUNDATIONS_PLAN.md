@@ -1,26 +1,26 @@
 # DREAM THEATER 時空・量子場の数学基盤：4科目の履修ルート
 
 分冊: 2026-10-11  
-状態: planned（横断案内のみ）
+状態: completed（4系列の完了・履修接続を照合した横断案内）
 
-1. [ローレンツ幾何と大域因果構造（LORG1〜LORG21・全21講）](../plans_progress/DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)
-2. [ローレンツ多様体上の双曲型PDE（HPDE1〜HPDE24・全24講）](../plan_done/DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)
-3. [超局所解析・Hadamard条件 I（MICA1〜15）](../plans_progress/DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)
+1. [ローレンツ幾何と大域因果構造（LORG1〜LORG21・全21講）](DREAM_THEATER_LORENTZIAN_GEOMETRY_CAUSALITY_PLAN.md)
+2. [ローレンツ多様体上の双曲型PDE（HPDE1〜HPDE24・全24講）](DREAM_THEATER_LORENTZIAN_HYPERBOLIC_PDE_PLAN.md)
+3. [超局所解析・Hadamard条件 I（MICA1〜15）](DREAM_THEATER_MICROLOCAL_HADAMARD_PLAN.md)
 4. [代数的量子場理論・モジュラー理論 I（AQFT1〜15）](DREAM_THEATER_ALGEBRAIC_QFT_MODULAR_PLAN.md)
 
-GEO / SREL → LORG → HPDE → MICA（厳密Hadamard条件）。OA / VN + QM / QINF + HPDE → AQFT、曲がった時空のAQFTで必要ならMICAを追加。GR・QCURV・HOLO・BHIの物理科目は[熱・時空・情報横断ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)の各個別PLANへ。
+GEO / SREL → LORG → HPDE → MICA（厳密Hadamard条件）。OA / VN + QM / QINF + HPDE → AQFT、曲がった時空のAQFTで必要ならMICAを追加。GR・QCURV・HOLO・BHIの物理科目は[熱・時空・情報横断ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)の各個別PLANへ。
 
 本ファイルは学修ゲートと直接依存を案内するだけであり、各科目のシラバスは上記ファイルを唯一の正本とする。
 
-**2026-10-13 数学的QFT補完:** 既存のLORG／HPDE／MICA／AQFTという「時空と局所場の数学基盤」4科目とは別に、[Lie群の表現・スピノル（LREP）](DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)、[主束・ゲージ幾何（GBG）](DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)、[量子場の数学的構成 I/II（MQFC）](DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)を**独立した未着手PLAN**として追加した。LREP／GBGは通常のQFTに必要な数学の一般化、MQFCはWightman／OS・構成的QFT・対角延長くりこみの任意発展ルートを所有する。この横断PLANの4科目を7科目に置換したり、全数学科目をGR／QCURV／HOLOの必須前提へ追加したりはしない。各PLANの実装状態・責務は各個別ファイルを正本とする。
+**2026-10-13 数学的QFT補完:** 既存のLORG／HPDE／MICA／AQFTという「時空と局所場の数学基盤」4科目とは別に、[Lie群の表現・スピノル（LREP）](../plans/DREAM_THEATER_LIE_REPRESENTATIONS_SPINORS_PLAN.md)、[主束・ゲージ幾何（GBG）](../plans/DREAM_THEATER_PRINCIPAL_BUNDLES_GAUGE_GEOMETRY_PLAN.md)、[量子場の数学的構成 I/II（MQFC）](../plans/DREAM_THEATER_MATHEMATICAL_QFT_CONSTRUCTION_I_II_PLAN.md)を**独立した未着手PLAN**として追加した。LREP／GBGは通常のQFTに必要な数学の一般化、MQFCはWightman／OS・構成的QFT・対角延長くりこみの任意発展ルートを所有する。この横断PLANの4科目を7科目に置換したり、全数学科目をGR／QCURV／HOLOの必須前提へ追加したりはしない。各PLANの実装状態・責務は各個別ファイルを正本とする。
 
 ---
 
-## 元の横断PLANから保持した共通規則・資料（個別シラバスは各科目PLANが正本）
+## 元の横断PLANから保持した共通規則・資料（設計当時の記載。各科目の実装進捗はmanifestが正本）
 
 ## 0. 目的
 
-既存の [熱力学・ブラックホール・情報の横断PLAN](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md) を厳密に履修するための数学的不足を、**既存DREAM THEATERを重複執筆せずに**埋める。数学そのものを主題とする独立講義として成立させ、物理の短い補講にしない。
+既存の [熱力学・ブラックホール・情報の横断PLAN](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md) を厳密に履修するための数学的不足を、**既存DREAM THEATERを重複執筆せずに**埋める。数学そのものを主題とする独立講義として成立させ、物理の短い補講にしない。
 
 物理・情報系17セメスター相当（2026-10-13 QFT I〜IV改訂）に対して、新数学 **4つの独立科目** を設計する（各科目の講数・学修期間は可変）。既存の線形代数、微分幾何Ⅰ/Ⅱ、関数解析Ⅰ/Ⅱ、量子力学基礎Ⅰ/Ⅱ、作用素環Ⅰ/Ⅱ、測度/確率、Fourier解析、偏微分方程式Ⅰ/Ⅱ、既存調和解析・幾何解析・変分問題の各PLANは改めて科目として数えない。
 
@@ -124,3 +124,11 @@ GEO12–GEO19 + SRELの入口
 - Ola Bratteli and Derek W. Robinson, *Operator Algebras and Quantum Statistical Mechanics*（KMS・作用素環と統計力学の接続）.
 
 上記の書籍・文献は到達水準・成立条件の校正に使い、本文・演習・証明を転載しない。
+
+
+## 完了時の横断確認（2026-11-15）
+
+- LORG1〜21、HPDE1〜24、MICA1〜15、AQFT1〜34は各系列manifestで**全94章 completed**。4つの個別PLANはすべて `plan_done/` にあり、引用先の内容正本を分担している。
+- GEO/SRELからLORG、HPDE、必要に応じMICAへ進む数学的な道と、HPDEおよびOA/VN/QINFからAQFTへ進む道を区別した。MICAとAQFTを無条件にGR/QCURV/HOLOの全章必修とはしない。
+- LREP・GBG・MQFCは任意または別正本の数学的拡張であり、本4科目の未完了タスクへ混ぜない。本文上の「計画段階」「未実装」は分冊当時の履歴であり、完成章と現在位置は系列manifestを参照する。
+- 本ルート固有の公開経路、分野横断の証明担当、独立PLANへのリンクを確認。新たな章・演習の所有範囲はないため完了済みの履修ルートとして保存する。

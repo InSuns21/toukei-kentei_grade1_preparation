@@ -1,7 +1,7 @@
 # DREAM THEATER 解析力学・対称性・可積分系・三体問題 統合ルート
 
 分冊再設計: 2026-10-11  
-状態: planned（順序・責務・依存だけを管理）
+状態: completed（履修経路・責務・依存の最終照合済み）
 
 ## 正本PLANの履修順
 
@@ -11,9 +11,9 @@
 4. [幾何学的力学 I（GMECH1〜8）](../plan_done/DREAM_THEATER_GEOMETRIC_MECHANICS_I_PLAN.md)：Hamilton作用、運動量写像、Noether、簡約、Lie–Poisson。
 5. [可積分系と摂動論・KAM（INT1〜8）](../plan_done/DREAM_THEATER_INTEGRABLE_SYSTEMS_PERTURBATION_KAM_PLAN.md)。
 6. [天体力学・三体問題・Hamiltonian chaos（CELE1〜8）](../plan_done/DREAM_THEATER_CELESTIAL_MECHANICS_THREE_BODY_CHAOS_PLAN.md)。
-7. [変分的周期軌道・8の字・舞踏解と実数値シミュレーション（CELEV1〜8）](DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)（未着手）。
+7. [変分的周期軌道・8の字・舞踏解と実数値シミュレーション（CELEV1〜8）](DREAM_THEATER_N_BODY_VARIATIONAL_PERIODIC_ORBITS_SIMULATION_PLAN.md)（全8講完了）。
 
-並行して[変分問題（VAR1〜12）](DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md)を解析・ODE・微分幾何から進められる。CELEVの存在論には**VAR9〜10の直接法・Tonelli**、CELEV7の第二変分にはVAR12を必要箇所だけ前提にする（いずれもPLAN上は未実装）。
+並行して[変分問題（VAR1〜12）](DREAM_THEATER_VARIATIONAL_PROBLEMS_GEOMETRIC_PLAN.md)を解析・ODE・微分幾何から進められる。CELEVの存在論には**VAR9〜10の直接法・Tonelli**、CELEV7の第二変分にはVAR12を必要箇所だけ前提にする（VAR1〜12はいずれもcompleted）。
 
 ## 直接依存と所管
 
@@ -29,3 +29,10 @@ GMECHの簡約・対称性とINT6〜8のKAMはCELE後半で必要箇所のみ追
 ~~~
 
 SYMからGMECHを経てINTへ進むのは**推奨読順**。INT1の証明にGMECH8全講を強制せず、chapter.yamlの直接依存で定理ごとに管理する。Darboux/Moser/Lagrange部分多様体はSYM、運動量写像・簡約はGMECH、Liouville–Arnold/KAMはINT、三体モデルはCELEが唯一の正本。AMECH9〜16という旧案は実装せず、その[旧PLANのURL](DREAM_THEATER_ANALYTICAL_MECHANICS_II_GEOMETRIC_SYMMETRY_PLAN.md)は案内ファイルとして残す。
+
+
+## 完了時の横断確認（2026-11-15）
+
+- 古典力学MECH1〜8・解析力学AMECH1〜8は既完了の入口。SYM1〜8、GMECH1〜8、INT1〜8、CELE1〜8、CELEV1〜8、VAR1〜12はそれぞれの系列manifestで**全52章 completed**、対応する個別PLANもすべて `plan_done/` にある。
+- 分冊先の正本はSYM（シンプレクティック幾何）、GMECH（運動量写像・簡約）、INT（Liouville–Arnold/KAM）、CELE（三体）、VAR（直接法・第二変分）、CELEV（周期解と2方式の数値シミュレーション）で重複していない。CELEVへはVAR9〜10およびVAR12を必要箇所で参照し、全科目の一律前提化を避ける。
+- 本PLANは学修ルートのみを所有するため独立した演習・講義の残タスクはない。リンク・章進捗と分冊責務の整合を確認し、完了済み横断ルートとして保存する。
