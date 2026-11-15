@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="820" viewBox="0 0 480 820" role="img" aria-labelledby="title desc">
+<svg data-layout-lint="strict" xmlns="http://www.w3.org/2000/svg" width="480" height="820" viewBox="0 0 480 820" role="img" aria-labelledby="title desc">
   <title id="title">逆圧力勾配と壁面せん断の符号</title>
   <desc id="desc">上段は壁に沿う外側流れの減速と圧力上昇。下段は横軸を接線速度、縦軸を壁からの高さとして、正のせん断、零せん断、近壁逆流を線種と曲線形状で区別した模式図。</desc>
   <defs>
