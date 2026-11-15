@@ -1,7 +1,7 @@
 chapter: MIR1-11
 scope: dream-theater
 coverage: complete
-prerequisites: [MIR1-10]
+prerequisites: [MIR1-10, CA11]
 concepts:
   - id: mirror.quintic-holomorphic-hypergeometric-period
     name: quintic正則周期の階乗級数
@@ -26,7 +26,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（境界での収束と導関数の発散）"]
-    requires: [mirror.quintic-holomorphic-hypergeometric-period]
+    requires: [mirror.quintic-holomorphic-hypergeometric-period, complex-analysis.stirling-formula]
   - id: mirror.quintic-torus-residue-period
     name: quinticトーラス留数周期
     kind: proposition
