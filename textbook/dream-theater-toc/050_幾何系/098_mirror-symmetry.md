@@ -8,3 +8,4 @@
 5. [MIR1-05 特異点・crepant解消・鏡像のHodge数](textbook/volumes/dream_thater/幾何系/MIR/MIR1-05/index.md)
 6. [MIR1-06 Dwork型一パラメータ族と判別式](textbook/volumes/dream_thater/幾何系/MIR/MIR1-06/index.md)
 7. [MIR1-07 留数で作る正則3形式](textbook/volumes/dream_thater/幾何系/MIR/MIR1-07/index.md)
+8. [MIR1-08 Gauss–Manin接続・Hodge構造の変動](textbook/volumes/dream_thater/幾何系/MIR/MIR1-08/index.md)
