@@ -2,7 +2,7 @@ id: "U3-53"
 title: "VaR バックテスト：超過数とクラスタリング"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-45, U3-44, U3-48]
+prerequisites: [U3-45, U3-44, U3-48, F0-00P7]
 official_scope: []
 learning_objectives:
   - 事前 VaR 予測と観測損失を分離し厳密超過指標を作れる
