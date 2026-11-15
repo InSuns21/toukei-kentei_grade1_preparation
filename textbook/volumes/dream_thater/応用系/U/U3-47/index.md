@@ -411,7 +411,7 @@ E[X]&=\mu+E[\sqrt{\nu/V}]A E[Z]=\mu,\\
 \end{aligned}
 $
 
-と導けます。ここでは $E[\sqrt{\nu/V}]<\infty$ は $E[\nu/V]<\infty$ から Cauchy--Schwarz 不等式で従います。これが $\Omega=AA^{\mathsf T}$ を**尺度行列**、$\Sigma=\nu\Omega/(\nu-2)$ を**共分散行列**と区別する根拠です。$\nu\le2$ では一般にこの共分散計算はできません。
+と導けます。ここでは $E[\sqrt{\nu/V}]<\infty$ は $E[\nu/V]<\infty$ から [Cauchy--Schwarz 不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)で従います。これが $\Omega=AA^{\mathsf T}$ を**尺度行列**、$\Sigma=\nu\Omega/(\nu-2)$ を**共分散行列**と区別する根拠です。$\nu\le2$ では一般にこの共分散計算はできません。
 
 <!-- definition-example-start: def-u3-47-multivariate-t -->
 **定義の確認**：第2節の $A$ と $\mu$、共通の $V\sim\chi_5^2$ を使います。$A$ は $2\times2$、$Z$ は2次元、$\Omega=AA^{\mathsf T}=\begin{pmatrix}4&1\\1&9\end{pmatrix}$ は半正定値です。$\nu=5>2$ なので
