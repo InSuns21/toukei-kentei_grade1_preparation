@@ -8,7 +8,13 @@
 
 ## 0. 何を輸送と呼ぶのか
 
-水平座標を $x$、鉛直上向き座標を $z$、時刻を $t$ とし、平均水面 $z=0$、底面 $z=-h$（$h>0$）とする。密度 $\rho>0$、重力加速度の大きさ $g>0$、表面張力 $\gamma\ge0$ は定数である。水面変位を $\eta(x,t)$、速度ポテンシャルを $\phi(x,z,t)$、速度を $(u,w)=(\phi_x,\phi_z)$ とする。下付きの $x,z,t$ は、残りの変数を固定して偏微分する変数を表す（例えば $\eta_t=\partial\eta/\partial t$、$\phi_z=\partial\phi/\partial z$）。この記法は[前講の自由表面模型](../FLUID27/index.md#prop-fluid27-linear-boundary)と同じである。[線形自由表面条件](../FLUID27/index.md#prop-fluid27-linear-boundary)を使い、$-h<z<0$ で $\phi_{xx}+\phi_{zz}=0$、底面で $\phi_z=0$、水面で
+水平座標を $x$、鉛直上向き座標を $z$、時刻を $t$ とする。平均水面は $z=0$、底面は $z=-h$（$h>0$）である。
+
+密度 $\rho>0$、重力加速度の大きさ $g>0$、表面張力 $\gamma\ge0$ は定数とする。水面変位を $\eta(x,t)$、速度ポテンシャルを $\phi(x,z,t)$、速度を $(u,w)=(\phi_x,\phi_z)$ と置く。
+
+下付きの $x,z,t$ は、残りの変数を固定して偏微分する変数を表す。例えば $\eta_t=\partial\eta/\partial t$、$\phi_z=\partial\phi/\partial z$ である。
+
+[線形自由表面条件](../FLUID27/index.md#prop-fluid27-linear-boundary)によって、内部 $-h<z<0$ では $\phi_{xx}+\phi_{zz}=0$、底面では $\phi_z=0$、水面では
 
 $$
 \eta_t=\phi_z,\qquad
@@ -113,14 +119,19 @@ $$
 =\omega'(k_0).
 $$
 
-波束を有限個の近接成分の和 $\sum_j a_j\cos(k_jx-\omega(k_j)t)$ で近似し、$k_j=k_0+q_j$、$|q_j|\ll k_0$ と書く。すべての $k_0,k_j$ を含む閉区間 $I\subset(0,\infty)$ で $M=\sup_{s\in I}|\omega''(s)|<\infty$ とおく。Taylor の定理と[群速度の定義](#def-fluid28-group-velocity)から
+波束を有限個の近接成分の和 $\sum_j a_j\cos(k_jx-\omega(k_j)t)$ で近似する。$k_j=k_0+q_j$、$|q_j|\ll k_0$ と書き、すべての $k_0,k_j$ を含む閉区間 $I\subset(0,\infty)$ で $M=\sup_{s\in I}|\omega''(s)|<\infty$ と置く。
+
+[群速度の定義](#def-fluid28-group-velocity)より $\omega'(k_0)=c_g(k_0)$ である。差を二度積分すると、$q_j$ の正負どちらでも
 
 $$
-\omega(k_0+q_j)=\omega(k_0)+c_g(k_0)q_j+R_j,
-\qquad |R_j|\le\frac{M}{2}q_j^2
+\begin{aligned}
+R_j&:=\omega(k_0+q_j)-\omega(k_0)-\omega'(k_0)q_j\\
+&=\int_0^{q_j}\{\omega'(k_0+s)-\omega'(k_0)\}\,ds\\
+&=\int_0^{q_j}(q_j-s)\omega''(k_0+s)\,ds.
+\end{aligned}
 $$
 
-が成り立つ。これを各成分に入れると、位相は
+従って $|R_j|\le Mq_j^2/2$ であり、$\omega(k_0+q_j)=\omega(k_0)+c_g(k_0)q_j+R_j$ を各成分に代入すると、位相は
 
 $$
 k_jx-\omega(k_j)t
