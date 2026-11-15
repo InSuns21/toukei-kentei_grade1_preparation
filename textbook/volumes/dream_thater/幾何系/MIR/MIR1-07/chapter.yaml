@@ -1,0 +1,41 @@
+id: "MIR1-07"
+title: "留数で作る正則3形式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-06
+learning_objectives:
+  - Dwork型五次の射影有理4形式と留数3形式を定義し斉次次数と規格化を再現できる
+  - 消去変数の偏微分から局所留数の符号を導き異なる消去方向の一致を検算できる
+  - 滑らかさのJacobian条件と随伴公式から大域的な非消失正則3形式を構成できる
+  - 正則3形式の閉性とStokesの定理から3サイクルの周期がホモロジー類に依存することを示せる
+  - 正向き法円の管状積分に現れる2πiと符号を局所計算できる
+  - 滑らかな固有族でサイクルを局所的に運び固定管状サイクル上で周期の正則性と微分式を証明できる
+  - 判別点・zの退化境界・群商の整数周期の選択を混同せず適用範囲を説明できる
+theorems:
+  - { id: MIR1-07-DEF-01, name: "Dwork型五次の留数3形式" }
+  - { id: MIR1-07-PROP-01, name: "消去変数による局所留数表示" }
+  - { id: MIR1-07-PROP-02, name: "Dwork族の大域的な非消失正則3形式" }
+  - { id: MIR1-07-DEF-02, name: "留数3形式の周期" }
+  - { id: MIR1-07-PROP-03, name: "管状サイクルの留数公式" }
+  - { id: MIR1-07-PROP-04, name: "滑らかなパラメータ領域での周期の正則性" }
+canonical_examples:
+  - Fermat点[1:0:0:0:-1]でf4=5と留数の係数-1/5
+  - y3とy4の消去方向で同一の3形式になること
+  - Fermat平面三次曲線で次数3と留数1形式を確認
+  - 法円と実三次元立方体から管状積分-2πiを直接計算
+  - 二重極のパラメータ微分を固定管状サイクル上で正当化
+problem_patterns:
+  - MIR1-07-PROJECTIVE-WEIGHT
+  - MIR1-07-LOCAL-NONVANISH
+  - MIR1-07-ELIMINATION-SIGN
+  - MIR1-07-CUBIC-RESIDUE
+  - MIR1-07-CHART-OVERLAP
+  - MIR1-07-TUBE-ORIENTATION
+  - MIR1-07-PARAMETER-DERIVATIVE
+  - MIR1-07-BOUNDARY-DISCRIMINANT
+  - MIR1-07-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 5 }
