@@ -103,11 +103,9 @@
     var currentSiteMeta = null;
 
     if ('serviceWorker' in navigator) {
-      // A Docsify tab can stay open across several Pages deployments without
-      // navigating the document. Check for a new worker when it comes back
-      // online or into the foreground, rather than leaving its Markdown stale.
-      var hadServiceWorkerController = Boolean(navigator.serviceWorker.controller);
-      var reloadingForServiceWorkerUpdate = false;
+      // Discover worker updates when a tab becomes active or comes online.
+      // Do not reload the document automatically: the reader controls when
+      // to navigate or refresh, and subsequent requests use network-first.
       var lastServiceWorkerUpdateCheck = 0;
 
       function checkForServiceWorkerUpdate(force) {
@@ -121,15 +119,6 @@
           console.warn('Service Worker update check failed:', error);
         });
       }
-
-      navigator.serviceWorker.addEventListener('controllerchange', function () {
-        // The initial installation must not reload a first-time visitor.
-        // An existing controller being replaced means the old page may have
-        // rendered an older lecture before the new worker took control.
-        if (!hadServiceWorkerController || !navigator.onLine || reloadingForServiceWorkerUpdate) return;
-        reloadingForServiceWorkerUpdate = true;
-        window.location.reload();
-      });
 
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('./service-worker.js', {

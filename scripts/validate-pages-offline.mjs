@@ -214,13 +214,15 @@ const swConfig = sandbox.self.TOUKEI_SW_CONFIG;
 assert.equal(swConfig.strategyByKind.navigation, 'network-first', 'online navigation must request latest shell');
 assert.equal(swConfig.strategyByKind.sameOrigin, 'network-first', 'online same-origin must request latest content');
 assert.equal(swConfig.strategyByKind.externalAsset, 'cache-first', 'version-pinned external assets may prefer cache');
-assert(swConfig.networkTimeoutMs > 0, 'nominally-online requests must have a bounded network wait');
+assert(swConfig.networkTimeoutMs >= 10000, 'online content needs a generous window to avoid stale results on slow connections');
+assert(swConfig.installNetworkTimeoutMs > 0 && swConfig.installNetworkTimeoutMs < swConfig.networkTimeoutMs,
+  'optional install assets should have a separate, shorter timeout');
+assert.equal(swConfig.networkFailureCooldownMs, undefined, 'online requests must not skip the network after an earlier failure');
 assert.equal(swConfig.publishedFilesHashManifest, './pages-manifest.json');
 assert.equal(swConfig.offlineContentCacheName, 'toukei-grade1-offline-content-v1');
 
-// A long-lived Docsify tab needs to discover a newer worker and rerender the
-// already displayed lecture after control changes; network-first alone only
-// governs subsequent fetches.
+// A long-lived Docsify tab should discover new workers, but changing control
+// must never reload the reader or discard its current scroll position.
 const indexHtml = await readFile(path.join(root, 'pages', 'index.html'), 'utf8');
 const indexStartupScript = [...indexHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)]
   .map((match) => match[1])
@@ -269,14 +271,20 @@ function testIndexWorkerRefresh(initiallyControlled) {
   emit(windowListeners, 'online');
   emit(workerListeners, 'controllerchange');
   emit(workerListeners, 'controllerchange');
-  return { initiallyControlled, get reloads() { return reloads; }, get updateChecks() { return updateChecks; } };
+  return {
+    initiallyControlled,
+    controllerchangeHandlers: (workerListeners.get('controllerchange') || []).length,
+    get reloads() { return reloads; },
+    get updateChecks() { return updateChecks; },
+  };
 }
 
 const existingTab = testIndexWorkerRefresh(true);
 const firstVisit = testIndexWorkerRefresh(false);
 await new Promise((resolve) => setTimeout(resolve, 0));
-assert.equal(existingTab.reloads, 1, 'an already controlled online tab must reload exactly once after a worker update');
+assert.equal(existingTab.reloads, 0, 'a worker update must never reload an existing tab');
 assert.equal(firstVisit.reloads, 0, 'the initial Service Worker installation must not reload a new visitor');
+assert.equal(existingTab.controllerchangeHandlers, 0, 'the reader must not register an automatic reload handler');
 assert.equal(existingTab.updateChecks, 2, 'foreground and online events must check for updates, with foreground throttled');
 
 const serviceWorkerSource = await readFile(path.join(root, 'pages', 'service-worker.js'), 'utf8');
@@ -363,14 +371,17 @@ await memoryCache.put(
   new Response('# stale cached page', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
 );
 let onlineFetchCalls = 0;
-fetchImplementation = async () => {
+let lastOnlineRequestCacheMode = null;
+fetchImplementation = async (request) => {
   onlineFetchCalls += 1;
+  lastOnlineRequestCacheMode = request.cache;
   return new Response('# latest online page', { status: 200, headers: { 'Content-Type': 'text/markdown' } });
 };
 const freshOnlineResponse = await dispatch(new Request(freshOnlineUrl));
 assert.equal(freshOnlineResponse.status, 200, 'online same-origin request must succeed');
 assert.equal(await freshOnlineResponse.text(), '# latest online page');
 assert.equal(onlineFetchCalls, 1, 'online same-origin request must hit the network');
+assert.equal(lastOnlineRequestCacheMode, 'no-store', 'online content must bypass the browser HTTP cache');
 const refreshedCachedResponse = await memoryCache.match(freshOnlineUrl);
 assert.equal(await refreshedCachedResponse.text(), '# latest online page', 'online response must refresh runtime cache');
 
@@ -394,14 +405,18 @@ assert.equal(pseudoOnlineFetchCalls, 1, 'first nominally-online request should p
 const pseudoOnlineCached = await memoryCache.match(pseudoOnlineUrl);
 assert.equal(await pseudoOnlineCached.text(), '# saved home', 'HTML error must not poison the runtime cache');
 
-const cooldownUrl = new URL('textbook/cooldown.md', scope).href;
+const recoveryUrl = new URL('textbook/network-recovered.md', scope).href;
 await memoryCache.put(
-  cooldownUrl,
-  new Response('# cooldown cached page', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
+  recoveryUrl,
+  new Response('# previously saved page', { status: 200, headers: { 'Content-Type': 'text/markdown' } }),
 );
-const cooldownResponse = await dispatch(new Request(cooldownUrl));
-assert.equal(await cooldownResponse.text(), '# cooldown cached page');
-assert.equal(pseudoOnlineFetchCalls, 1, 'degraded-path cooldown must avoid repeated failed fetches');
+fetchImplementation = async () => {
+  pseudoOnlineFetchCalls += 1;
+  return new Response('# newly published page', { status: 200, headers: { 'Content-Type': 'text/markdown' } });
+};
+const recoveredResponse = await dispatch(new Request(recoveryUrl));
+assert.equal(await recoveredResponse.text(), '# newly published page', 'a prior error must not make online pages stale');
+assert.equal(pseudoOnlineFetchCalls, 2, 'a subsequent online request must try the network again');
 
 sandbox.self.navigator.onLine = false;
 const imageCachedUrl = new URL('textbook/assets/offline-test.png', scope).href;
