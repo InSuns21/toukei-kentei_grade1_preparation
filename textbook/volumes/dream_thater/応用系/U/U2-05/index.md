@@ -265,12 +265,16 @@ $$
 \operatorname{Cov}(e^+\mid D_{t-1},Z_t)=P_t^+.
 $$
 
-これを使い、条件付き期待値を重ねて取ると
+これを使い、観測値の取り得る範囲で平均します。[密度版 Bayes フィルタ](../U2-02/index.md#thm-u2-02-density-filter)と同じく、$Z_t$ の履歴 $D_{t-1}$ の下での条件付き密度を $f_{Z_t\mid D_{t-1}}(z)$ と書きます。$Z_t\mid D_{t-1}\sim N(H_tm_t^-,S_t)$ なのでこの密度は存在して積分1です。どの $z$ の下でも誤差平均は0であり、その二乗の平均が $P_t^+$ だから
 
 $$
+\begin{aligned}
 \operatorname{Cov}(e^+\mid D_{t-1})
-=\mathbb E[\operatorname{Cov}(e^+\mid D_{t-1},Z_t)\mid D_{t-1}]
+&=\int_{\mathbb R^p}\mathbb E[e^+(e^+)^T\mid D_{t-1},Z_t=z]\,
+ f_{Z_t\mid D_{t-1}}(z)\,dz\\
+&=\int_{\mathbb R^p}P_t^+f_{Z_t\mid D_{t-1}}(z)\,dz
 =P_t^+.
+\end{aligned}
 $$
 
 これにより Joseph 形の右辺が真の事後共分散 $P_t^+$ と一致することも確かめられました。
