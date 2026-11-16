@@ -387,7 +387,7 @@ $$
 
 第3節の対数則では $\ell_m=\kappa y$ を壁に近づけると、粘性応力を無視する仮定が破れる。壁から中心まで一続きの**計算用曲線**を描くには、壁近傍で混合長を小さくする模型が必要となる。ここでは観測に合わせた万能模型を作るのではなく、次の関係を**明示的に指定**し、剪断収支と積分精度を検算する。
 
-[FLUID38 の Prandtl 混合長閉鎖](../FLUID38/index.md#def-fluid38-mixing-length)は、$U'\ge0$ の場合、模型共分散について $-R_{xy}^{\mathrm{model}}=\ell_m^2(U')^2$ と書ける。実寸の混合長 $\ell_m$ と平均速度勾配 $U'$ を壁単位で表すには、[摩擦速度と粘性長さの定義](#def-fluid40-wall-units)を使って
+[FLUID38 の Prandtl 混合長閉鎖](../FLUID38/index.md#def-fluid38-mixing-length)は、$U'\ge0$ の場合、模型共分散について $-R_{xy}^{\mathrm{model}}=\ell_m^2(U')^2$ と書ける。実寸の混合長 $\ell_m$ と平均速度勾配 $U'$ を壁単位で表すには、[摩擦速度と壁単位](#def-fluid40-wall-units)を使って
 
 $$
 L=\frac{\ell_m u_\tau}{\nu},\qquad
