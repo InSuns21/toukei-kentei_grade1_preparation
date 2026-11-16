@@ -61,3 +61,4 @@
 57. [U3-57 ES（CVaR）最適化とヘッジ](textbook/volumes/dream_thater/応用系/U/U3-57/index.md)
 58. [U3-58 信用・相手先・流動性リスクの入口](textbook/volumes/dream_thater/応用系/U/U3-58/index.md)
 59. [U3-59 板・注文方式・執行コストの定義](textbook/volumes/dream_thater/応用系/U/U3-59/index.md)
+60. [U3-60 TWAP／VWAP／POV と基準執行スケジュール](textbook/volumes/dream_thater/応用系/U/U3-60/index.md)

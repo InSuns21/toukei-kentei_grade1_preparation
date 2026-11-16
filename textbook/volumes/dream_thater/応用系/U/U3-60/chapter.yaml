@@ -1,0 +1,44 @@
+id: "U3-60"
+title: "TWAP／VWAP／POV と基準執行スケジュール"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-59]
+official_scope: []
+learning_objectives:
+  - 親注文の目標配分・実約定・未約定と出来高上限を区別して計算できる
+  - TWAP の時間均等配分と予測出来高による VWAP 型予定配分を定義できる
+  - 実現市場 VWAP と開始前に利用可能な出来高予測を区別できる
+  - POV の因果的な観測後発注と総執行上限・未約定式を証明できる
+  - 固定配分の残数量恒等式を証明し流動性上限の影響を計算できる
+  - 自分の平均約定価格と実現市場 VWAP の乖離を二項に分解できる
+  - 同じ市場経路で三政策の IS・現金・在庫・未執行を計算できる
+  - Python実験で最終区間の出来高変更が先行POV注文を変えないことを検算できる
+definitions:
+  - { id: U3-60-DEF-01, name: "親注文・目標配分と実約定" }
+  - { id: U3-60-DEF-02, name: "予測出来高に基づく VWAP 型配分と実現市場 VWAP" }
+  - { id: U3-60-DEF-03, name: "因果的な POV 型注文" }
+theorems:
+  - { id: U3-60-PROP-01, name: "POV の予算上限と未約定" }
+  - { id: U3-60-PROP-02, name: "固定配分の欠損恒等式" }
+  - { id: U3-60-PROP-03, name: "実現 VWAP との差の配分・価格差分解" }
+canonical_examples:
+  - "120株の等長4区間TWAP予定30株ずつ、上限適用後106株約定"
+  - "予測出来高100/200/300/200によるVWAP予定15/30/45/30、上限適用後107株"
+  - "POV 15%、実現市場出来高80/240/160/320で12/36/24/48株約定"
+  - "市場VWAP100.24円/株、POV平均約定価格100.34円/株"
+  - "TWAP IS42.12円、予測VWAP IS41.84円、POV IS43.2円"
+problem_patterns:
+  - U3-60-A1
+  - U3-60-A2
+  - U3-60-A3
+  - U3-60-A4
+  - U3-60-A5
+  - U3-60-B1
+  - U3-60-B2
+  - U3-60-B3
+  - U3-60-B4
+  - U3-60-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
