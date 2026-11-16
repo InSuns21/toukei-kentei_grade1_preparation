@@ -509,7 +509,7 @@ $k$ と $\varepsilon$ の次元が異なるのは波数二乗と $\nu$ を掛け
 <!-- solution-start -->
 #### 詳細解答
 
-[波数殻エネルギー密度の定義](#def-fluid39-energy-spectrum)から $E\simeq K(I)/\Delta\kappa=0.50/2=0.25$ m$^3$/s$^2$。単位は $(\mathrm{m^2/s^2})/(\mathrm{m^{-1}})=\mathrm{m^3/s^2}$。殻のエネルギーをそのまま密度と呼ぶと $\Delta\kappa$ の因子を落とす。
+[波数殻エネルギーと一側エネルギースペクトル](#def-fluid39-energy-spectrum)から $E\simeq K(I)/\Delta\kappa=0.50/2=0.25$ m$^3$/s$^2$。単位は $(\mathrm{m^2/s^2})/(\mathrm{m^{-1}})=\mathrm{m^3/s^2}$。殻のエネルギーをそのまま密度と呼ぶと $\Delta\kappa$ の因子を落とす。
 <!-- solution-end -->
 
 #### A4. 波数の大きいモードほど散逸しやすい
