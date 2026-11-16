@@ -1,0 +1,53 @@
+chapter: WGL7
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL6]
+concepts:
+  - id: graphics.texture-uv-texel
+    name: UV座標とテクセル中心
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（UV座標とテクセル中心）"]
+    requires: [graphics.perspective-correct-interpolation]
+  - id: graphics.texture-wrap
+    name: UVのラップ方式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（UVのラップ方式）"]
+    requires: [graphics.texture-uv-texel]
+  - id: graphics.texture-filter
+    name: 最近傍と双線形テクスチャフィルタ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（最近傍と双線形テクスチャフィルタ）"]
+    requires: [graphics.texture-wrap]
+  - id: graphics.texture-bilinear-convex
+    name: 双線形補間の定数再現と上下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双線形補間の定数再現と上下界）"]
+    requires: [graphics.texture-filter]
+  - id: graphics.texture-mipmap
+    name: ミップマップ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ミップマップ）"]
+    requires: [graphics.texture-filter, graphics.pixel-sampling-aliasing]
+  - id: graphics.texture-checker-average
+    name: 交互チェッカーのミップ平均値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（交互チェッカーのミップ平均値）"]
+    requires: [graphics.texture-mipmap]
+  - id: graphics.texture-footprint
+    name: 軸平行UV写像の簡易フットプリント
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（軸平行UV写像の簡易フットプリント）"]
+    requires: [graphics.texture-mipmap]
+  - id: graphics.texture-minification-bound
+    name: 本章初期実験の縮小度の下界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（本章初期実験の縮小度の下界）"]
+    requires: [graphics.texture-footprint, graphics.texture-checker-average]

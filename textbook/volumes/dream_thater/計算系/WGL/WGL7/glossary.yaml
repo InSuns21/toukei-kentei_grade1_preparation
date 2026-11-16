@@ -1,0 +1,20 @@
+chapter: WGL7
+terms:
+  - term: UV座標
+    english: texture coordinates
+    meaning: テクスチャ画像内の参照位置を表す2つの実数。
+  - term: テクセル
+    english: texel
+    meaning: 離散的なテクスチャ画像の一要素。画面上の画素と区別する。
+  - term: ラップ方式
+    english: texture wrap mode
+    meaning: UVが0〜1を外れるときに繰返し・端への固定・鏡映を適用する規則。
+  - term: 双線形補間
+    english: bilinear interpolation
+    meaning: 隣接4要素を横と縦の一次重みの積で混ぜる補間法。
+  - term: ミップマップ
+    english: mipmap
+    meaning: 縮小済み画像を段階的に持ち、小さく表示する参照に用いる多解像度画像列。
+  - term: フットプリント
+    english: texture footprint
+    meaning: 画面1画素に対応するテクスチャ側の広がり。

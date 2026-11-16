@@ -1,0 +1,34 @@
+id: WGL7
+title: テクスチャ画像はなぜにじみ・ちらつく？
+volume: foundations
+status: supplementary
+prerequisites: [WGL6]
+official_scope: []
+learning_objectives:
+  - UVからテクセル中心と最近傍添字を計算できる
+  - REPEAT・CLAMP_TO_EDGE・MIRRORED_REPEATの境界動作を説明できる
+  - 双線形フィルタの重みと補間値を導出できる
+  - ミップマップの平均化と縮小フットプリントを計算できる
+  - チェッカーとRGBA8データテクスチャの標本化・量子化の違いを説明できる
+  - JSとGLSLを編集しCPU期待画素とWebGL2 readPixelsを比較できる
+definitions:
+  - { id: WGL7-DEF-01, name: UV座標とテクセル中心 }
+  - { id: WGL7-DEF-02, name: UVのラップ方式 }
+  - { id: WGL7-DEF-03, name: 最近傍と双線形テクスチャフィルタ }
+  - { id: WGL7-DEF-04, name: ミップマップ }
+  - { id: WGL7-DEF-05, name: 軸平行UV写像の簡易フットプリント }
+theorems:
+  - { id: WGL7-PROP-01, name: 双線形補間の定数再現と上下界 }
+  - { id: WGL7-PROP-02, name: 交互チェッカーのミップ平均値 }
+  - { id: WGL7-PROP-03, name: 本章初期実験の縮小度の下界 }
+canonical_examples:
+  - 4×2画像のUVから最近傍テクセルを求める
+  - 四隅の値を双線形補間する
+  - 8×8チェッカーの縮小とmipmapの128平均を算出する
+  - RGBA8データテクスチャの量子化を確かめる
+  - 左右8画素のCPU予測とWebGL2 readPixelsを比較する
+problem_patterns: [WGL7-TEXEL, WGL7-WRAP, WGL7-BILINEAR, WGL7-MIPMAP, WGL7-FOOTPRINT, WGL7-DATA, WGL7-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 1 }
