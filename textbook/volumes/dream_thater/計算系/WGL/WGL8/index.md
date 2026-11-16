@@ -105,7 +105,7 @@ $$
 
 アルファについても、[一般のsource-over](#def-wgl8-premultiplied)からまず $1-\alpha_{AB}=(1-\alpha_A)(1-\alpha_B)$ を得ます。したがって
 
-$
+$$
 \begin{aligned}
 \alpha_{(AB)C}
 &=\alpha_{AB}+(1-\alpha_{AB})\alpha_C\\
@@ -113,16 +113,16 @@ $
  +(1-\alpha_A)(1-\alpha_B)\alpha_C\\
 &=1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C),
 \end{aligned}
-$
+$$
 
-$
+$$
 \begin{aligned}
 \alpha_{A(BC)}
 &=\alpha_A+(1-\alpha_A)\alpha_{BC}\\
 &=\alpha_A+(1-\alpha_A)\{\alpha_B+(1-\alpha_B)\alpha_C\}\\
 &=1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C).
 \end{aligned}
-$
+$$
 
 最後の等式はいずれも $\alpha_A+(1-\alpha_A)\alpha_B=1-(1-\alpha_A)(1-\alpha_B)$ を用いたものです。括り方でRGB・アルファとも一致するので結合則が成立します。順序を交換した場合は各 $P$ に付く係数自体が変わるため、この証明は交換則を与えません。$\square$
 <!-- proof-end -->
@@ -161,10 +161,10 @@ $$
 <!-- definition-example-start: def-wgl8-srgb-transfer -->
 **定義の確認**。 $S=0.02$ は最初の枝に入るので $L=0.02/12.92\approx0.001548$ です。この値は $0.0031308$ より小さいため、再符号化は $12.92L=0.02$。上側の枝の内部の例として $S=0.5>0.04045$ では
 
-$
+$$
 L=D(0.5)=\left(\frac{0.5+0.055}{1.055}\right)^{2.4}
 \approx0.214041>0.0031308,
-$
+$$
 
 なので $E(L)=1.055L^{1/2.4}-0.055=0.5$ と元に戻ります。端点 $S=1$ も $D(1)=(1.055/1.055)^{2.4}=1$、$E(1)=1$ です。$D,E$ はRGBの各成分に適用しますが、例えば $\alpha=0.5$ は不透明度なので0.5のままです。
 <!-- definition-example-end -->
@@ -275,9 +275,9 @@ WebGL2の gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ONE,gl.ONE
 
 ここで $(u,v)$ はテクスチャのUV参照先ではなく、**各viewportの左下から測った画面内の相対座標**です。幅 $W$、高さ $H$ のviewportで左下を $(i,j)=(0,0)$ とする整数画素添字を使えば、その画素中心は
 
-$
+$$
 u=\frac{i+1/2}{W},\qquad v=\frac{j+1/2}{H}
-$
+$$
 
 となります。これは[WGL7のテクセル中心と添字](../WGL7/index.md#def-wgl7-texel)と同じ「整数格子の中心を半画素ずらす」考え方ですが、今回は**画面座標の領域判定**に使います。例えば $(u,v)=(0.55,0.5)$ 付近なら $i=\lfloor160(0.55)\rfloor=88$、$j=\lfloor240(0.5)\rfloor=120$ を選び、実際の画素中心は $(0.553125,0.5020833\ldots)$ です。
 
@@ -391,14 +391,14 @@ $$
 
 アルファは $1-\alpha_{AB}=(1-\alpha_A)(1-\alpha_B)$ を用いると
 
-$
+$$
 \begin{aligned}
 \alpha_{(AB)C}
 &=\alpha_A+(1-\alpha_A)\alpha_B
  +(1-\alpha_A)(1-\alpha_B)\alpha_C\\
 &=1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C).
 \end{aligned}
-$
+$$
 
 また $\alpha_{BC}=\alpha_B+(1-\alpha_B)\alpha_C$ を $\alpha_A+(1-\alpha_A)\alpha_{BC}$ に代入して展開すると同じ式を得ます。[結合則](#prop-wgl8-associative)の証明を別の括り方から再構成できました。括り方を変えることとA・Bの上下順を入れ替えることは異なります。
 <!-- solution-end -->
