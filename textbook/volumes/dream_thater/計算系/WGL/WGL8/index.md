@@ -66,6 +66,8 @@ $$
 
 不透明背景では $P_B=C_B,\alpha_B=1$ だから、[一般のsource-over](#def-wgl8-premultiplied)に代入すると $\alpha_{\mathrm{out}}=1$ となり、[最初の合成式](#def-wgl8-source-over)が戻ります。
 
+3層を扱うときは、前乗算RGBAの各層を $A=(P_A,\alpha_A)$、$B=(P_B,\alpha_B)$、$C=(P_C,\alpha_C)$ と書きます。ここで $P_A,P_B,P_C$ はRGBの3成分、$\alpha_A,\alpha_B,\alpha_C$ は対応する層の不透明度です。括弧の付け方は合成の順序ではなく計算をまとめる場所を表します。
+
 <a id="prop-wgl8-associative"></a>
 
 <!-- formal-statement-start -->
@@ -273,7 +275,7 @@ WebGL2の gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ONE,gl.ONE
 
 横320×縦240画素の描画バッファを、左右それぞれ160×240のviewportに分けます。各viewportの相対位置 $(u,v)\in[0,1]^2$ を使い、背景Gは全面、層Aは $0.1\le u<0.75,\ 0.2\le v<0.85$、層Bは $0.4\le u<0.9,\ 0.4\le v<0.75$ を覆います。
 
-ここで $(u,v)$ はテクスチャのUV参照先ではなく、**各viewportの左下から測った画面内の相対座標**です。幅 $W$、高さ $H$ のviewportで左下を $(i,j)=(0,0)$ とする整数画素添字を使えば、その画素中心は
+ここで $(u,v)$ はテクスチャのUV参照先ではなく、**各viewportの左下から測った画面内の相対座標**です。幅 $W$、高さ $H$ のviewportで、[WGL1の描画バッファと画素](../WGL1/index.md#def-wgl1-drawing-buffer)と同じく左下を $(i,j)=(0,0)$ とする整数画素添字を使えば、その画素中心は
 
 $$
 u=\frac{i+1/2}{W},\qquad v=\frac{j+1/2}{H}
