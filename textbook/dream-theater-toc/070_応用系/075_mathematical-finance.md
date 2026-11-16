@@ -56,3 +56,4 @@
 52. [U3-52 相関・copula・尾部依存とリスク集約](textbook/volumes/dream_thater/応用系/U/U3-52/index.md)
 53. [U3-53 VaR バックテスト：超過数とクラスタリング](textbook/volumes/dream_thater/応用系/U/U3-53/index.md)
 54. [U3-54 ES バックテストと予測分布検証](textbook/volumes/dream_thater/応用系/U/U3-54/index.md)
+55. [U3-55 ストレステスト・シナリオ・流動性とモデルリスク](textbook/volumes/dream_thater/応用系/U/U3-55/index.md)

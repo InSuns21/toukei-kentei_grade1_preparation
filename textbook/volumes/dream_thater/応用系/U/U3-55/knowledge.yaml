@@ -1,0 +1,53 @@
+chapter: U3-55
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-44, U3-46, U3-50, U3-52, U3-54]
+concepts:
+  - id: finance.stress-scenario
+    name: 金融ストレスシナリオ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（金融ストレスシナリオ）"]
+    requires: [finance.holding-period-loss, finance.portfolio-full-revaluation]
+  - id: finance.stress-liquidity-cost
+    name: 流動性調整済みストレス損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（流動性調整済みストレス損失）"]
+    requires: [finance.stress-scenario]
+  - id: finance.stress-cost-order-convexity
+    name: 流動性コストの単調性と注文量の凸性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（流動性コストの単調性と注文量の凸性）"]
+    requires: [finance.stress-liquidity-cost]
+  - id: finance.stress-model-envelope
+    name: シナリオ・モデルの最悪損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（シナリオ・モデルの最悪損失）"]
+    requires: [finance.stress-liquidity-cost, finance.delta-gamma-loss]
+  - id: finance.stress-sum-upper-bound
+    name: 市場リスクと流動性リスクの最悪値の上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（市場リスクと流動性リスクの最悪値の上界）"]
+    requires: [finance.stress-model-envelope]
+  - id: finance.reverse-stress-level
+    name: 単調ショック族の逆ストレス水準
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単調ショック族の逆ストレス水準）"]
+    requires: [finance.stress-scenario, finance.stress-liquidity-cost]
+  - id: finance.reverse-stress-quadratic
+    name: 線形・二次損失での逆ストレス水準
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形・二次損失での逆ストレス水準）"]
+    requires: [finance.reverse-stress-level]
+  - id: finance.stress-var-es-unbounded
+    name: 固定VaR・ESは最大損失を上から抑えない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定 VaR・ES は最大損失を上から抑えない）"]
+    requires: [finance.expected-shortfall, finance.es-atom-tail, finance.stress-scenario]
