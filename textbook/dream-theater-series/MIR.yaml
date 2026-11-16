@@ -72,7 +72,7 @@ chapters:
     title: "B側Yukawa結合と周期の統合"
   - id: MIR2-01
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-01
-    status: planned
+    status: completed
     title: "複素化KählerパラメータとA側の幾何"
   - id: MIR2-02
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-02
