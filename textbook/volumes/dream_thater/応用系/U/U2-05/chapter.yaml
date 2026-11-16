@@ -1,5 +1,5 @@
 id: "U2-05"
-title: "Kalman フィルタの更新：innovation と不確実性の縮小"
+title: "Kalman フィルタの更新：観測 innovation と不確実性の縮小"
 volume: "foundations"
 status: supplementary
 prerequisites:
@@ -17,7 +17,7 @@ learning_objectives:
   - 相関する位置速度の二次元Kalmanフィルタを予測から更新まで再構成できる
   - 外れ値・誤った観測雑音モデルと厳密Gaussian更新の射程を区別できる
 definitions:
-  - { id: U2-05-DEF-01, name: innovation と innovation 共分散 }
+  - { id: U2-05-DEF-01, name: 観測 innovation と innovation 共分散 }
   - { id: U2-05-DEF-02, name: Kalman gain と線形補正 }
 theorems:
   - { id: U2-05-THM-01, name: Kalman フィルタの Gaussian 観測更新 }
