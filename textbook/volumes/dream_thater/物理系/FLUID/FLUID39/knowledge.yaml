@@ -19,10 +19,10 @@ concepts:
     introduction_aliases: ["命題（乱流運動エネルギーの局所収支）"]
     requires: [fluid.production-dissipation, fluid.rans]
   - id: fluid.energy-spectrum
-    name: 波数殻エネルギーと一方向エネルギースペクトル
+    name: 波数殻エネルギーと一側エネルギースペクトル
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（波数殻エネルギーと一方向エネルギースペクトル）"]
+    introduction_aliases: ["定義（波数殻エネルギーと一側エネルギースペクトル）"]
     requires: [fluid.periodic-spectrum, fluid.reynolds-decomposition]
   - id: fluid.spectral-dissipation
     name: Parsevalによるエネルギーと散逸の表示
