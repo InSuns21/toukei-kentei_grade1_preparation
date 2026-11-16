@@ -1,0 +1,44 @@
+id: "U3-56"
+title: "限界・成分リスクとリスク配賦"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-44, U3-45, U3-46, U3-47, U3-50, U3-55]
+official_scope: []
+learning_objectives:
+  - 数量と単位損失を分離して同じ保有期間と実確率Pの下で損失分布を作れる
+  - 限界リスクと成分寄与を区別し正の1次斉次性と微分可能性からEuler配賦を証明できる
+  - ESの有限状態双対表現から最適尾部重みと完全配賦を導ける
+  - 原子・境界タイ・非微分点で限界寄与の一意性を判定できる
+  - ヘッジの負寄与と単独ESの和が全体ESと一致しない理由を説明できる
+  - 数量の非線形清算費用でEuler恒等式が壊れる例と経路積分による代替配賦を計算できる
+  - 四状態の合成損失でES寄与と全体ESの一致を手計算・Pythonで検証できる
+definitions:
+  - { id: U3-56-DEF-01, name: "数量線形なポートフォリオ損失" }
+  - { id: U3-56-DEF-02, name: "限界リスクとEuler成分寄与" }
+  - { id: U3-56-DEF-03, name: "有限状態ESの最適尾部重み" }
+theorems:
+  - { id: U3-56-PROP-01, name: "Euler配賦" }
+  - { id: U3-56-THM-01, name: "有限状態ESの完全配賦と微分可能性" }
+  - { id: U3-56-PROP-02, name: "尾部同順位と非微分点" }
+  - { id: U3-56-PROP-03, name: "数量二乗のコストはEuler総和を壊す" }
+canonical_examples:
+  - "等確率4状態の全体損失(-6,5,17,28)で50%ES=22.5と寄与(20,2.5)"
+  - "60%ES=23.875と端数尾部重み(0.375,0.625)"
+  - "二状態タイで非微分だが複数の完全配賦が可能"
+  - "ヘッジ資産の負の寄与(10,-3)"
+  - "数量二乗費用でEuler形式3.8と真のリスク3.4の差を比較"
+problem_patterns:
+  - U3-56-A1
+  - U3-56-A2
+  - U3-56-A3
+  - U3-56-A4
+  - U3-56-A5
+  - U3-56-B1
+  - U3-56-B2
+  - U3-56-B3
+  - U3-56-B4
+  - U3-56-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
