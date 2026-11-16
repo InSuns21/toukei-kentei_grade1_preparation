@@ -29,8 +29,8 @@ $$
 <a id="def-u2-05-innovation"></a>
 
 <!-- formal-statement-start -->
-> **定義（innovation と innovation 共分散）**  
-> $n,p\ge1$、$P_t^-\succ0$、$H_t\in\mathbb R^{p\times n}$、$R_t\succ0$ とし、上の独立な線形 Gaussian 観測模型を固定する。観測前のランダムな **innovation** を $\mathcal V_t=Z_t-H_tm_t^-$、その実現値を $\nu_t=z_t-H_tm_t^-$ とする。観測前の **innovation covariance** を
+> **定義（観測 innovation と innovation 共分散）**  
+> $n,p\ge1$、$P_t^-\succ0$、$H_t\in\mathbb R^{p\times n}$、$R_t\succ0$ とし、上の独立な線形 Gaussian 観測模型を固定する。観測前のランダムな **観測 innovation** を $\mathcal V_t=Z_t-H_tm_t^-$、その実現値を $\nu_t=z_t-H_tm_t^-$ とする。観測前の **観測 innovation の共分散** を
 
 $$
 S_t=\operatorname{Cov}(\mathcal V_t\mid D_{t-1})
@@ -40,7 +40,7 @@ $$
 > とする。ここで $\nu_t\in\mathbb R^p$、$S_t\in\mathbb R^{p\times p}$ である。
 <!-- formal-statement-end -->
 
-「innovation」は、観測のうち予測から説明できなかった部分です。平均との差が大きいかどうかを判断するときには、差そのものだけでなく $S_t$ の大きさを見る必要があります。
+「観測 innovation」は、観測のうち予測から説明できなかった部分です。平均との差が大きいかどうかを判断するときには、差そのものだけでなく $S_t$ の大きさを見る必要があります。
 
 <!-- definition-example-start: def-u2-05-innovation -->
 **定義の確認**（直接例）：廊下の位置を $X_t\sim N(2,4)$ m、センサーを $Z_t=X_t+E_t$、$E_t\sim N(0,1)$ m（独立）とします。$n=p=1,H_t=1,R_t=1$ m² です。測定値が $z_t=5$ m なら
@@ -72,7 +72,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Kalman gain と線形補正）**  
-> 上の観測模型で、観測前の $P_t^-\succ0$、$H_t\in\mathbb R^{p\times n}$、$S_t=H_tP_t^-H_t^T+R_t\succ0$ に対し **Kalman gain** を
+> 上の観測模型で、観測前の $P_t^-\succ0$、$H_t\in\mathbb R^{p\times n}$、$S_t=H_tP_t^-H_t^T+R_t\succ0$ に対し **利得行列 $K_t$** を
 
 $$
 K_t=P_t^-H_t^TS_t^{-1}\in\mathbb R^{n\times p}
@@ -81,7 +81,7 @@ $$
 > とする。観測 $z_t$ から作る状態平均の線形補正候補は $m_t^-+L\nu_t$（$L\in\mathbb R^{n\times p}$）であり、$L=K_t$ の場合を Kalman 補正と呼ぶ。
 <!-- formal-statement-end -->
 
-$P_t^-H_t^T$ は、状態の予測誤差と innovation の**交差共分散**です。実際、
+$P_t^-H_t^T$ は、状態の予測誤差と観測 innovation の**交差共分散**です。実際、
 
 $$
 \operatorname{Cov}(X_t-m_t^-,\mathcal V_t\mid D_{t-1})
@@ -322,7 +322,7 @@ $$
 $S_t^{-1}\succ0$ のため等号成立は $H_tP_t^-v=0$ と同値です。最後に[Gaussian 事後更新](#thm-u2-05-update)で $P_t^+=\{(P_t^-)^{-1}+H_t^TR_t^{-1}H_t\}^{-1}$ でした。括弧内は正定値行列と半正定値行列の和であり、非零 $v$ について厳密に正です。従ってその逆行列 $P_t^+$ も正定値です。$\square$
 <!-- proof-end -->
 
-[U2-03 の共分散縮小命題](../U2-03/index.md#prop-u2-03-covariance-contraction)と同じ現象ですが、ここでは innovation 共分散によって**どれだけ縮んだか**と縮まない方向まで具体的に判定できます。
+[U2-03 の共分散縮小命題](../U2-03/index.md#prop-u2-03-covariance-contraction)と同じ現象ですが、ここでは観測 innovation 共分散によって**どれだけ縮んだか**と縮まない方向まで具体的に判定できます。
 
 <a id="prop-u2-05-noise-limits"></a>
 
@@ -372,7 +372,7 @@ m^-=\begin{pmatrix}0\\0\end{pmatrix},\qquad
 P^-=\begin{pmatrix}4&0\\0&1\end{pmatrix}
 $$
 
-とし、$H=\begin{pmatrix}1&1\end{pmatrix}$、$R=(1)$、実測 $z=3$ とします。センサーは $X_1+X_2$ を読むので、予測観測は0、innovation は3です。
+とし、$H=\begin{pmatrix}1&1\end{pmatrix}$、$R=(1)$、実測 $z=3$ とします。センサーは $X_1+X_2$ を読むので、予測観測は0、観測 innovation は3です。
 
 $$
 S=HP^-H^T+R=4+1+1=6,\qquad
@@ -417,7 +417,7 @@ $\det P^+=(4/3)(5/6)-(2/3)^2=2/3>0$、左上要素 $4/3>0$ なので対称正定
 
 ~~~python-file-lab
 # lab-id: U2-05-KALMAN-UPDATE
-# lab-title: Kalman 更新：innovation・gain・Joseph 形を分数で検算
+# lab-title: Kalman 更新：観測 innovation・gain・Joseph 形を分数で検算
 # lab-file: textbook/volumes/dream_thater/応用系/U/U2-05/assets/kalman_update.py
 # timeout-ms: 30000
 # lab-preset: 1次元の測定 | --scenario scalar
@@ -432,11 +432,11 @@ $\det P^+=(4/3)(5/6)-(2/3)^2=2/3>0$、左上要素 $4/3>0$ なので対称正定
 
 <a id="ex-u2-05-a01"></a>
 
-**A1. innovation の二つの意味**
+**A1. 観測 innovation の二つの意味**
 
 - Level: A
 
-時刻 $t$ に $X_t\mid D_{t-1}\sim N(1,9)$、$Z_t=2X_t+E_t$、$E_t\sim N(0,4)$ で独立とする。$z_t=8$ を観測した。予測観測、実現 innovation $\nu_t$、予測 innovation 共分散 $S_t$ を求め、$S_t$ と $\nu_t^2$ が一般に違う理由を述べよ。
+時刻 $t$ に $X_t\mid D_{t-1}\sim N(1,9)$、$Z_t=2X_t+E_t$、$E_t\sim N(0,4)$ で独立とする。$z_t=8$ を観測した。予測観測、実現した観測 innovation $\nu_t$、予測した観測 innovation 共分散 $S_t$ を求め、$S_t$ と $\nu_t^2$ が一般に違う理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：$H_t=2$、$m_t^-=1$、$P_t^-=9$、$R_t=4$ です。[観測 innovation の定義](#def-u2-05-innovation)から予測観測は $Hm^-=2$、実測との差は $\nu_t=8-2=6$ です。測定前の誤差は $\mathcal V_t=2(X_t-1)+E_t$ なので、独立性から
@@ -611,7 +611,7 @@ $$
 $P^-\succ0$、$H$ を全成分0の $p\times n$ 行列、$R\succ0$ とする。$S,K,m^+,P^+$ を求め、$R$ が非常に小さくても状態が更新されない理由を述べよ。
 
 <!-- solution-start -->
-**詳細解答**：[innovation の定義](#def-u2-05-innovation)で $S=HP^-H^T+R=R\succ0$ です。$P^-H^T=0$ なので
+**詳細解答**：[観測 innovation の定義](#def-u2-05-innovation)で $S=HP^-H^T+R=R\succ0$ です。$P^-H^T=0$ なので
 
 $$
 K=P^-H^TR^{-1}=0,\qquad m^+=m^-+0\cdot z=m^-,
@@ -698,7 +698,7 @@ $$
 
 $P_1^-$ の左上要素は3、行列式は $3-1=2>0$ なので正定値です。過程雑音 $Q$ は退化していますが $F$ が可逆なため予測共分散は正定値です。
 
-**(2) innovation と更新**：実測と予測観測はそれぞれ2と $Hm_1^-=0$ なので $\nu_1=2$ です。[観測 innovation の定義](#def-u2-05-innovation)と[補正行列の定義](#def-u2-05-gain)から
+**(2) 観測 innovation と更新**：実測と予測観測はそれぞれ2と $Hm_1^-=0$ なので $\nu_1=2$ です。[本講の観測残差](#def-u2-05-innovation)と[利得行列](#def-u2-05-gain)の式に代入すると
 
 $$
 S_1=HP_1^-H^T+1=3+1=4,\qquad
@@ -775,6 +775,6 @@ P_t^+&=(I-K_tH_t)P_t^-(I-K_tH_t)^T+K_tR_tK_t^T.
 \end{aligned}
 $$
 
-上二行の予測は[前講の定理](../U2-04/index.md#thm-u2-04-gaussian-prediction)から、更新は[本講の定理](#thm-u2-05-update)と[Joseph 形](#prop-u2-05-joseph)から得られます。**観測前 $-$ と観測後 $+$ の順番**、$Q_t$（走行誤差）と $R_t$（測定誤差）の違い、innovation の実現値とその予測共分散の違いを混ぜないことが重要です。
+上二行の予測は[前講の定理](../U2-04/index.md#thm-u2-04-gaussian-prediction)から、更新は[本講の定理](#thm-u2-05-update)と[Joseph 形](#prop-u2-05-joseph)から得られます。**観測前 $-$ と観測後 $+$ の順番**、$Q_t$（走行誤差）と $R_t$（測定誤差）の違い、観測 innovation の実現値とその予測共分散の違いを混ぜないことが重要です。
 
 次の U2-06 では、ロボットの状態が位置だけでなく**平面の向き**を持つ場合を扱います。異なる座標系で同じ位置をどう表し、角度の差をどう計算するかが次の問題です。
