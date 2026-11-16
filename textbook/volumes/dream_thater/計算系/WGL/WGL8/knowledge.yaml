@@ -1,0 +1,41 @@
+chapter: WGL8
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL7]
+concepts:
+  - id: graphics.alpha-source-over
+    name: 不透明背景へのsource-over合成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不透明背景へのsource-over合成）"]
+    requires: [graphics.texture-uv-texel]
+  - id: graphics.premultiplied-alpha
+    name: 前乗算アルファと一般のsource-over
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前乗算アルファと一般のsource-over）"]
+    requires: [graphics.alpha-source-over]
+  - id: graphics.alpha-compositing-associativity
+    name: 前乗算source-overの結合則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（前乗算source-overの結合則）"]
+    requires: [graphics.premultiplied-alpha]
+  - id: graphics.srgb-linear-transfer
+    name: sRGBと線形光の変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（sRGBと線形光の変換）"]
+    requires: [graphics.alpha-source-over]
+  - id: graphics.srgb-midpoint
+    name: 黒と白を半分ずつ混ぜた画素
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（黒と白を半分ずつ混ぜた画素）"]
+    requires: [graphics.srgb-linear-transfer, graphics.alpha-source-over]
+  - id: graphics.alpha-order-dependence
+    name: 前後を交換すると画素が変わる具体例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（前後を交換すると画素が変わる具体例）"]
+    requires: [graphics.alpha-source-over]
