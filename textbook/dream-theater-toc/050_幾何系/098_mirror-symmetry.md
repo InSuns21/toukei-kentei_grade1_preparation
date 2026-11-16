@@ -21,3 +21,4 @@
 18. [MIR2-02 quinticのGW不変量と仮想次元](textbook/volumes/dream_thater/幾何系/MIR/MIR2-02/index.md)
 19. [MIR2-03 因子公理と三点関数](textbook/volumes/dream_thater/幾何系/MIR/MIR2-03/index.md)
 20. [MIR2-04 小量子積・Novikov環・大きい量子積との差](textbook/volumes/dream_thater/幾何系/MIR/MIR2-04/index.md)
+21. [MIR2-05 種数0ポテンシャルとA側Yukawa結合](textbook/volumes/dream_thater/幾何系/MIR/MIR2-05/index.md)
