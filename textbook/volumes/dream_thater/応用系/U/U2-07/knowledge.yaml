@@ -23,6 +23,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（一定車体速度の平面運動を厳密に積分する）"]
     requires: [robotics.planar-velocity-motion, robotics.planar-angle-wrap]
+  - id: robotics.euler-start-motion-approximation
+    name: 始点 Euler 近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（始点 Euler 近似）"]
+    requires: [robotics.planar-velocity-motion]
   - id: robotics.three-stage-odometry
     name: 三段階の相対オドメトリ模型
     kind: definition
@@ -46,7 +52,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（始点 Euler 運動の一次誤差行列）"]
-    requires: [robotics.planar-velocity-motion]
+    requires: [robotics.planar-velocity-motion, robotics.euler-start-motion-approximation]
   - id: robotics.local-motion-covariance
     name: 独立速度雑音に対する局所一次共分散予測
     kind: proposition
