@@ -171,7 +171,7 @@ $$
 
 ### 証明の見取り図
 
-指数の各項を $t$ で微分すると曲線次数 $d$ が一回ずつ現れる。三回微分で得た係数を、因子公理から定めた三点関数と比較する。最後に $t=0$ と $Q=0$ の異なる特殊化を調べる。
+指数の各項を $t$ で微分すると曲線次数 $d$ が一回ずつ現れる。三回微分で得た係数を、[因子公理](../../GW/GW1-15/index.md#thm-gw1-15-divisor)の[quintic仮想版](../MIR2-03/index.md#thm-mir2-03-divisor)から定めた三点関数と比較する。最後に $t=0$ と $Q=0$ の異なる特殊化を調べる。
 
 <!-- proof-start -->
 ### 証明
@@ -436,7 +436,7 @@ $$
 #### MIR2-05-B01 GW不変量から指数級数まで復元する
 - Level: B
 
-$d\ge1$ を一つ固定し、$\langle H^{[n]}\rangle_{0,d}^X=d^nN_d^X$ を仮想版因子公理から帰納的に導き、$\sum_{n\ge0}t^n\langle H^{[n]}\rangle_{0,d}^X/n!$ を計算せよ。$d=0$ に同じ議論を使えない理由も述べよ。
+$d\ge1$ を一つ固定し、$\langle H^{[n]}\rangle_{0,d}^X=d^nN_d^X$ を[因子公理](../../GW/GW1-15/index.md#thm-gw1-15-divisor)の[quintic仮想版](../MIR2-03/index.md#thm-mir2-03-divisor)から帰納的に導き、$\sum_{n\ge0}t^n\langle H^{[n]}\rangle_{0,d}^X/n!$ を計算せよ。$d=0$ に同じ議論を使えない理由も述べよ。
 
 <!-- solution-start -->
 **詳細解答**。$n=0$ は[無標点GW数の定義](../MIR2-03/index.md#def-mir2-03-unmarked-number)で $I_{d,0}=N_d^X$。$d>0$ では忘却後も安定なので、[仮想版因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)が
