@@ -1,14 +1,20 @@
 chapter: WGL9
 scope: dream-theater
 coverage: complete
-prerequisites: [WGL8]
+prerequisites: [WGL8, F0-00A, F0-00E2, LA3B]
 concepts:
+  - id: graphics.vector-cross-product
+    name: 3次元のベクトル積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（3次元のベクトル積）"]
+    requires: [graphics.model-world-space, linear.inner-product]
   - id: graphics.oriented-unit-normal
     name: 向き付き単位法線
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（向き付き単位法線）"]
-    requires: [graphics.front-face-culling, graphics.model-world-space]
+    requires: [graphics.front-face-culling, graphics.vector-cross-product]
   - id: graphics.lambert-factor
     name: Lambert拡散反射の照度因子
     kind: definition
