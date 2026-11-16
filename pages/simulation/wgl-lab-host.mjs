@@ -407,6 +407,10 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+    } else if (isWGL10) {
+      inputs.fragment.value = defaults.fragment.replace(
+        'outColor = vec4(sampleColor, 1.0);',
+        'outColor = vec4(sampleColor, 1.0)');
     } else if (isWGL9) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(encodeColor(clamp(linearRgb, 0.0, 1.0)), 1.0);',
