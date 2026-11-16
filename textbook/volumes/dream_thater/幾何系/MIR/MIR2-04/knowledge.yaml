@@ -1,0 +1,41 @@
+chapter: MIR2-04
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR2-03, GW1-16]
+concepts:
+  - id: mirror.quintic-novikov-coefficient-ring
+    name: quinticのNovikov係数環
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticのNovikov係数環）"]
+    requires: [mirror.quintic-degree-formal-series, gromov-witten.novikov-completion]
+  - id: mirror.quintic-ambient-small-quantum-product
+    name: quinticのambient小量子積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticのambient小量子積）"]
+    requires: [mirror.quintic-novikov-coefficient-ring, gromov-witten.even-small-quantum-product, mirror.quintic-virtual-primary-gw]
+  - id: mirror.quintic-ambient-small-product-table
+    name: ambient小量子積の表
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ambient小量子積の表）"]
+    requires: [mirror.quintic-ambient-small-quantum-product, mirror.quintic-three-point-ambient-selection, mirror.quintic-hyperplane-three-point-series]
+  - id: mirror.quintic-ambient-associativity-normal-form
+    name: ambient小量子積の結合律と環表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ambient小量子積の結合律と環表示）"]
+    requires: [mirror.quintic-ambient-small-product-table]
+  - id: mirror.quintic-even-big-quantum-product
+    name: quinticの偶数方向の大きい量子積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticの偶数方向の大きい量子積）"]
+    requires: [mirror.quintic-ambient-small-quantum-product, mirror.quintic-virtual-primary-gw]
+  - id: mirror.quintic-big-divisor-specialization
+    name: 因子方向の大きい量子積の特殊化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（因子方向の大きい量子積の特殊化）"]
+    requires: [mirror.quintic-even-big-quantum-product, mirror.quintic-virtual-divisor-axiom, mirror.quintic-ambient-small-product-table]
