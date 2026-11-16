@@ -10,7 +10,7 @@ chapters:
   - { id: U2-04, path: textbook/volumes/dream_thater/応用系/U/U2-04, status: completed, title: "Kalman フィルタの予測：運動誤差の伝播" }
   - { id: U2-05, path: textbook/volumes/dream_thater/応用系/U/U2-05, status: completed, title: "Kalman フィルタの更新：観測 innovation と不確実性の縮小" }
   - { id: U2-06, path: textbook/volumes/dream_thater/応用系/U/U2-06, status: completed, title: "平面姿勢と座標系：位置だけでは足りない" }
-  - { id: U2-07, path: textbook/volumes/dream_thater/応用系/U/U2-07, status: planned, title: "オドメトリ・速度運動モデルと誤差" }
+  - { id: U2-07, path: textbook/volumes/dream_thater/応用系/U/U2-07, status: completed, title: "オドメトリ・速度運動モデルと誤差" }
   - { id: U2-08, path: textbook/volumes/dream_thater/応用系/U/U2-08, status: planned, title: "測距・方位・ランドマークの観測モデル" }
   - { id: U2-09, path: textbook/volumes/dream_thater/応用系/U/U2-09, status: planned, title: "拡張 Kalman フィルタ：どこで線形化するか" }
   - { id: U2-10, path: textbook/volumes/dream_thater/応用系/U/U2-10, status: planned, title: "EKF の一貫性：角度・線形化誤差・innovation 診断" }
