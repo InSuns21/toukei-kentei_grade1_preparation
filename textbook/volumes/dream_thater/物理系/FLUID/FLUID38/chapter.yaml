@@ -1,0 +1,49 @@
+id: "FLUID38"
+title: "Reynolds応力はなぜ閉じないか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID37
+  - CTM15
+official_scope: []
+learning_objectives:
+  - "一定密度の集合平均と空間・時間微分の交換条件を明示してReynolds共分散・応力の符号と単位を定義する"
+  - "Navier–Stokes方程式の保存形からReynolds平均方程式と未閉鎖項の符号を導く"
+  - "変動方程式の積からReynolds共分散の輸送式を導き三次相関・圧力相関・散逸相関の役割を区別する"
+  - "共分散の対称・半正定値性と交差成分の限界を証明する"
+  - "平行剪断の運動量輸送と平均から変動へのエネルギー生成率の符号を検算する"
+  - "Boussinesq渦粘性仮説とPrandtl混合長模型を経験的閉鎖として定義し非負渦粘性の限界を説明する"
+  - "単純剪断の渦粘性共分散が実現可能である条件を導きモデルの異方性欠落を検出する"
+  - "ブラウザPythonで合成四状態共分散と混合長模型を比較し、DNSや実測と区別する"
+definitions:
+  - { id: FLUID38-DEF-01, name: "Reynolds共分散とReynolds応力" }
+  - { id: FLUID38-DEF-02, name: "Boussinesq渦粘性閉鎖" }
+  - { id: FLUID38-DEF-03, name: "Prandtl混合長閉鎖" }
+theorems:
+  - { id: FLUID38-PROP-01, name: "共分散の対称性・非負性・交差成分の上限" }
+  - { id: FLUID38-THM-01, name: "一定密度のReynolds平均Navier–Stokes方程式" }
+  - { id: FLUID38-PROP-02, name: "Reynolds共分散の厳密な輸送式" }
+  - { id: FLUID38-PROP-03, name: "平均剪断と乱流エネルギー生成率" }
+  - { id: FLUID38-PROP-04, name: "非負渦粘性が予測する生成率" }
+canonical_examples:
+  - "等確率の逆向き速度変動でR12・τ12・kを直接検算"
+  - "平均二次積の展開とRANSの応力発散の符号"
+  - "一定剪断の鉛直運動量輸送と生成率"
+  - "剪断反転で混合長模型の符号を確認"
+  - "モデル共分散が負の固有方向分散を出す反例"
+  - "合成四状態アンサンブルと閉鎖の比較をPythonで再現"
+problem_patterns:
+  - FLUID38-AVERAGE-QUADRATIC
+  - FLUID38-STRESS-SIGN-UNIT
+  - FLUID38-SHEAR-FLUX
+  - FLUID38-MIXING-LENGTH-SIGN
+  - FLUID38-PRODUCTION-SIGN
+  - FLUID38-RANS-CONSERVATIVE
+  - FLUID38-MOMENT-HIERARCHY
+  - FLUID38-REALIZABILITY
+  - FLUID38-BACKSCATTER
+  - FLUID38-INTEGRATED-CLOSURE-DIAGNOSTIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }
