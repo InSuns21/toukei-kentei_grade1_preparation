@@ -1,0 +1,32 @@
+chapter: U2-03
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-02
+  - INV15
+forward_references: []
+concepts:
+  - id: robotics.gaussian-position-belief
+    name: 正定値 Gaussian 位置 belief
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正定値 Gaussian 位置 belief）"]
+    requires: [inverse.gaussian-density-finite, robotics.density-bayes-filter]
+  - id: robotics.linear-gaussian-position-observation
+    name: 線形 Gaussian 位置観測模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形 Gaussian 位置観測模型）"]
+    requires: [robotics.gaussian-position-belief, inverse.linear-gaussian-model]
+  - id: robotics.linear-gaussian-position-update
+    name: 線形 Gaussian 位置観測の事後更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形 Gaussian 位置観測の事後更新）"]
+    requires: [robotics.linear-gaussian-position-observation, inverse.gaussian-posterior-formula]
+  - id: robotics.gaussian-position-covariance-contraction
+    name: Gaussian 位置観測による共分散の縮小
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian 位置観測による共分散の縮小）"]
+    requires: [robotics.linear-gaussian-position-update]
