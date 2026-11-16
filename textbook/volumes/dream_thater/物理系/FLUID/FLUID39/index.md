@@ -6,7 +6,17 @@
 
 ## 0. 流れと平均の仮定を固定する
 
-一定密度 $\rho>0$ [kg/m$^3$]、一定動粘度 $\nu>0$ [m$^2$/s] の三次元[非圧縮 Newton 流体](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)を扱う。速度 $\boldsymbol u(\boldsymbol x,t,\omega)$ [m/s] と圧力 $p(\boldsymbol x,t,\omega)$ [Pa] は、各実現 $\omega$ について [非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすとする。第1節までは体積力をゼロとする。空間座標は $\boldsymbol x=(x_1,x_2,x_3)$、時間は $t$ で、$\partial_t=\partial/\partial t$ は位置を固定した時間偏微分、$\partial_j=\partial/\partial x_j$ は時刻を固定した空間偏微分、$\Delta=\sum_{j=1}^3\partial_j^2$ は空間 Laplace 演算子を表す。
+一定密度 $\rho>0$ [kg/m$^3$]、一定動粘度 $\nu>0$ [m$^2$/s] の三次元[非圧縮 Newton 流体](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)を扱う。速度 $\boldsymbol u(\boldsymbol x,t,\omega)$ [m/s] と圧力 $p(\boldsymbol x,t,\omega)$ [Pa] は、各実現 $\omega$ について [非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすとする。第1節までは体積力をゼロとする。
+
+空間座標は $\boldsymbol x=(x_1,x_2,x_3)$、時間は $t$ である。微分記号は
+
+$$
+\partial_t=\frac{\partial}{\partial t},\qquad
+\partial_j=\frac{\partial}{\partial x_j},\qquad
+\Delta=\sum_{j=1}^3\partial_j^2
+$$
+
+と書く。$\partial_t$ は位置を固定した時間偏微分、$\partial_j$ は時刻を固定した空間偏微分、$\Delta$ は空間 Laplace 演算子である。
 
 $$
 \partial_tu_i+u_j\partial_ju_i
@@ -14,7 +24,18 @@ $$
 \qquad \partial_i u_i=0
 $$
 
-を出発点とする。繰り返した添字 $i,j\in\{1,2,3\}$ は総和を取る。集合平均を $\overline{(\,\cdot\,)}=\mathbb E_\omega(\,\cdot\,)$ と書き、**位置・時刻を固定した実現の平均**だけを指す。$U_i=\overline{u_i}$、$v_i=u_i-U_i$、$P=\overline p$、$p'=p-P$ とする。$v_i$ は速度変動であり、$u_i'$ と同じものを表す。ここでプライム $'$ は微分ではなく集合平均からの偏差を表し、$\partial_jv_i$ は別に空間微分を意味する。分散・三次積・勾配二乗が有限で、ここで行う微分・平均・空間積分の交換を正当化する十分な滑らかさ・可積分性があると仮定する。$U$ と $v$ はともに発散ゼロである。
+を出発点とする。繰り返した添字 $i,j\in\{1,2,3\}$ は総和を取る。
+
+集合平均を $\overline{(\,\cdot\,)}=\mathbb E_\omega(\,\cdot\,)$ と書き、**位置・時刻を固定した実現の平均**だけを指す。次の平均と変動を区別する。
+
+$$
+U_i=\overline{u_i},\qquad v_i=u_i-U_i,\qquad
+P=\overline p,\qquad p'=p-P.
+$$
+
+$v_i$ は速度変動であり、$u_i'$ と同じものを表す。ここでプライム $'$ は微分ではなく集合平均からの偏差を表し、$\partial_jv_i$ は別に空間微分を意味する。
+
+分散・三次積・勾配二乗が有限で、ここで行う微分・平均・空間積分の交換を正当化する十分な滑らかさ・可積分性があると仮定する。$U$ と $v$ はともに発散ゼロである。
 
 [乱流運動エネルギーの定義](../FLUID37/index.md#def-fluid37-reynolds-decomposition)と[一点共分散](../FLUID38/index.md#def-fluid38-reynolds-stress)は
 
@@ -27,7 +48,15 @@ $$
 
 ## 1. 変動エネルギーの収支を導く
 
-$y=x_2$ を鉛直座標、$G=dU_1/dy$ を一定の剪断率として平均流 $U_1=Gy$、$U_2=U_3=0$ を考える。この定常な $U_1(y)$ の全微分 $dU_1/dy$ は、第0節の偏微分 $\partial_2U_1$ と同じである。このとき、[FLUID38 の剪断生成率](../FLUID38/index.md#prop-fluid38-shear-production)は $\mathcal P=-R_{12}G$ だった。$R_{12}<0$、$G>0$ なら生成は正だが、それだけでは $k$ の時間変化を決められない。変動の三乗平均による輸送、圧力の仕事、粘性散逸も同時に数える必要がある。
+$y=x_2$ を鉛直座標、$G=dU_1/dy$ を一定の剪断率として、平均流を
+
+$$
+U_1(y)=Gy,\qquad U_2=U_3=0
+$$
+
+とする。定常な $U_1(y)$ の全微分 $dU_1/dy$ は、第0節の空間偏微分 $\partial_2U_1$ と一致する。
+
+このとき[FLUID38 の剪断生成率](../FLUID38/index.md#prop-fluid38-shear-production)は $\mathcal P=-R_{12}G$ である。$R_{12}<0$、$G>0$ なら生成は正だが、それだけでは $k$ の時間変化を決められない。変動の三乗平均による輸送、圧力の仕事、粘性散逸も同時に数える必要がある。
 
 そのため局所生成率 $\mathcal P$、局所散逸率 $\varepsilon$、物理空間での輸送束 $J_j$ を次で用いる。ここで $\partial_j=\partial/\partial x_j$ である。
 
@@ -169,11 +198,25 @@ K(I)=\frac12\sum_{\kappa_{\boldsymbol n}\in I}
 \overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}
 $$
 
-> と定める。有限周期箱の非零の殻質量 $K$ は点に集中するため、そのまま連続関数 $E$ の積分では厳密に表せない。帯域エネルギーが適切な極限で $K_\infty(I)$ に収束し、$K_\infty([a,b))=\int_a^b E(\kappa)\,d\kappa$ を満たす非負の密度 $E$ が存在する場合、その $E$ を一側エネルギースペクトルという。連続波数の模型ではこの積分関係を直接採用してもよい。有限箱での殻幅 $\Delta\kappa>0$ に対する $\Delta\kappa^{-1}K([\kappa,\kappa+\Delta\kappa))$ はあくまで密度近似である。$K$ の単位は m$^2$/s$^2$、$E$ の単位は m$^3$/s$^2$。
+> と定める。有限周期箱の非零の殻質量 $K$ は点に集中するため、連続関数の積分では厳密に表せない。
+>
+> 帯域エネルギーが適切な極限で $K_\infty(I)$ に収束し、その極限について
+
+$$
+K_\infty([a,b))=\int_a^b E(\kappa)\,d\kappa
+$$
+
+> を満たす非負密度 $E$ が存在する場合、$E$ を一側エネルギースペクトルという。連続波数の模型では、この積分関係を直接採用してもよい。
+>
+> 有限箱の殻幅 $\Delta\kappa>0$ に対しては、$\Delta\kappa^{-1}K([\kappa,\kappa+\Delta\kappa))$ は密度の近似にとどまる。$K$ の単位は m$^2$/s$^2$、$E$ の単位は m$^3$/s$^2$。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid39-energy-spectrum -->
-**定義の確認**：$x=x_1$、$q=2\pi/L>0$、$\boldsymbol q=(q,0,0)$ とする。一様位相 $\Phi\in[0,2\pi)$ と $a>0$ [m/s] に対して $\boldsymbol v=(0,a\cos(qx+\Phi),0)$ を取る。$qL=2\pi$ だから周期境界を満たす。$v_x=v_z=0$ で $v_y$ は $y=x_2$ に依存しないので $\partial_xv_x+\partial_yv_y+\partial_zv_z=0$。位相平均で $\overline{\cos(qx+\Phi)}=0$、よって $\overline{\boldsymbol v}=0$ である。余弦を展開すると
+**定義の確認**：$x=x_1$、$q=2\pi/L>0$、$\boldsymbol q=(q,0,0)$ とする。一様位相 $\Phi\in[0,2\pi)$ と $a>0$ [m/s] に対して、$\boldsymbol v=(0,a\cos(qx+\Phi),0)$ を取る。
+
+$qL=2\pi$ なので周期境界を満たす。$v_x=v_z=0$ で $v_y$ は $y=x_2$ に依存しないから、$\partial_xv_x+\partial_yv_y+\partial_zv_z=0$ である。
+
+位相平均で $\overline{\cos(qx+\Phi)}=0$、したがって $\overline{\boldsymbol v}=0$ となる。余弦を展開すると
 
 $$
 v_y=\frac a2 e^{i\Phi}e^{iqx}+\frac a2 e^{-i\Phi}e^{-iqx}.
