@@ -1,0 +1,45 @@
+id: "FLUID36"
+title: "平行剪断流の擾乱はなぜ増幅するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID10
+  - FLUID34
+official_scope: []
+learning_objectives:
+  - "平行剪断基底流の駆動・非圧縮性・正規モードの時間成長率を正しい符号で設定する"
+  - "速度・圧力の線形化と流れ関数を用いて非粘性Rayleigh方程式を導く"
+  - "Rayleigh変曲点必要条件を複素積分恒等式から証明し十分条件との違いを説明する"
+  - "粘性Orr–Sommerfeld四階方程式と無滑り壁条件を導き非粘性極限の特異性を説明する"
+  - "平行剪断流の線形擾乱エネルギー収支を導き指数モードと過渡増幅を区別する"
+  - "壁条件を組み込むGalerkin行列の負定値を証明し有限次元固有値の残差・収束を検査する"
+  - "ブラウザPythonでPoiseuille・Couette流の数値的固有値と近似次数依存を検証する"
+definitions:
+  - { id: FLUID36-DEF-01, name: "平行剪断流の正規モードと時間成長率" }
+theorems:
+  - { id: FLUID36-THM-01, name: "非粘性Rayleigh方程式" }
+  - { id: FLUID36-THM-02, name: "Rayleighの変曲点必要条件" }
+  - { id: FLUID36-THM-03, name: "Orr–Sommerfeld固有値問題" }
+  - { id: FLUID36-PROP-01, name: "線形擾乱のエネルギー収支" }
+  - { id: FLUID36-PROP-02, name: "Galerkin行列Bの負定値と可逆性" }
+canonical_examples:
+  - "Poiseuille基底流と定常圧力勾配の直接計算"
+  - "正規モード位相速度と成長率の符号の確認"
+  - "Couette流・Poiseuille流に非粘性の変曲点必要条件を適用"
+  - "二重零を持つ試験関数の壁条件と四階演算子を直接検算"
+  - "Poiseuille Re=10000のGalerkin固有値を異なる近似次数で検証"
+problem_patterns:
+  - FLUID36-BASE-DRIVING
+  - FLUID36-MODE-GROWTH-SIGN
+  - FLUID36-WALL-CONDITIONS
+  - FLUID36-INFLECTION-NECESSITY
+  - FLUID36-FOURTH-ORDER
+  - FLUID36-RAYLEIGH-INTEGRAL
+  - FLUID36-PERTURBATION-ENERGY
+  - FLUID36-GALERKIN-NEGATIVITY
+  - FLUID36-SINGULAR-INVISCID-LIMIT
+  - FLUID36-INTEGRATED-EIGENVALUE-CONVERGENCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 5 }
