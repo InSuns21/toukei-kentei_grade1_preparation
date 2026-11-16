@@ -152,11 +152,11 @@ $$
 >
 > と定める。相対並進が $\delta_B=0$ なら方向は定義されない。この場合は次の規約を採用する。
 >
-$
+$$
 \delta_{\rm trans}=0,\qquad
 \delta_{\rm rot1}=0,\qquad
 \delta_{\rm rot2}=\operatorname{wrap}(\delta_\theta).
-$
+$$
 >
 > 初期姿勢 $(x,y,\theta)$ からの予測は
 >
@@ -189,15 +189,15 @@ $$
 > **定義（車体座標での並進雑音）**  
 > 初期姿勢の向きが $\theta$ の平面ロボットを考える。車体座標の相対並進誤差を $\eta_B\in\mathbb R^2$ とし、平均と共分散は
 >
-$
+$$
 E[\eta_B]=0,\qquad \operatorname{Cov}(\eta_B)=\Sigma_B
-$
+$$
 >
 > を満たすとする。$\Sigma_B$ は車体の長さの単位 m を用いた $2\times2$ の対称半正定値行列（単位 m²）である。世界座標での並進誤差を
 >
-$
+$$
 \eta_W=R(\theta)\eta_B
-$
+$$
 >
 > と定義する。
 <!-- formal-statement-end -->
@@ -235,7 +235,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-u2-07-body-noise -->
-**定義と命題の確認**：車体前後の分散 $0.09$ m²、左右の分散 $0.01$ m²、共分散0なら $\Sigma_B=\operatorname{diag}(0.09,0.01)$ m² で対称半正定値です。向き $\theta=\pi/2$ では
+**定義の確認**（命題の計算も同時に検査）：：車体前後の分散 $0.09$ m²、左右の分散 $0.01$ m²、共分散0なら $\Sigma_B=\operatorname{diag}(0.09,0.01)$ m² で対称半正定値です。向き $\theta=\pi/2$ では
 $$
 R=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
 R\Sigma_BR^T=
