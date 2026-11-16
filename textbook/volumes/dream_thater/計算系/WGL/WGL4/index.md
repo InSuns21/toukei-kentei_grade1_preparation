@@ -279,7 +279,13 @@ void main() {
 }
 ```
 
-JavaScriptでは `model = multiply4(multiply4(T, R), S)` を構成して、`gl.uniformMatrix4fv(location, false, model)` を実行します。最初の `T` の最終列は `[tx,ty,0,1]` です。式の $\theta$ は回転角であり、JavaScriptの `angleDegrees` はその角度を度数法で指定します。`Math.sin` と `Math.cos` の引数はラジアンなので、コードでは `rad = angleDegrees * Math.PI / 180` として $\theta$ に対応する値へ換算します。頂点GLSLでは3成分の `a_position` に第4成分1を足すことで、先に定義したモデル点 $p_{\mathrm m}$ を作ります。`gl_Position` はその4成分の世界点をこの講だけclip座標として使うもので、一般の視点・投影変換と同じものではありません。軸は2本の線分なので `LINES` を2回呼び、長方形は `TRIANGLES` で描きます。フラグメントGLSLでは `u_color` を変更して、面の色と軸の色を変えられます。
+JavaScriptでは `model = multiply4(multiply4(T, R), S)` を構成して、`gl.uniformMatrix4fv(location, false, model)` を実行します。最初の `T` の最終列は `[tx,ty,0,1]` です。
+
+式の $\theta$ は回転角であり、JavaScriptの `angleDegrees` はその角度を度数法で指定します。`Math.sin` と `Math.cos` の引数はラジアンなので、コードでは `rad = angleDegrees * Math.PI / 180` として $\theta$ に対応する値へ換算します。
+
+頂点GLSLでは3成分の `a_position` に第4成分1を足すことで、先に定義したモデル点 $p_{\mathrm m}$ を作ります。`gl_Position` はその4成分の世界点をこの講だけclip座標として使うもので、一般の視点・投影変換と同じものではありません。
+
+軸は2本の線分なので `LINES` を2回呼び、長方形は `TRIANGLES` で描きます。フラグメントGLSLでは `u_color` を変更して、面の色と軸の色を変えられます。
 
 <iframe src="simulation/wgl-lab.html?lesson=WGL4" title="WGL4 モデル行列・列優先格納・逆写像とGPU画素照合ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
