@@ -36,8 +36,8 @@ concepts:
     introduction_aliases: ["命題（線形擾乱のエネルギー収支）"]
     requires: [continuum.incompressible-navier-stokes, fluid.parallel-shear-normal-mode]
   - id: fluid.os-galerkin-negative-b
-    name: Galerkin 行列 B の負定値と可逆性
+    name: Galerkin 行列の負定値と可逆性
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（Galerkin 行列 $B$ の負定値と可逆性）"]
+    introduction_aliases: ["命題（Galerkin 行列の負定値と可逆性）"]
     requires: [fluid.orr-sommerfeld-eigenproblem]
