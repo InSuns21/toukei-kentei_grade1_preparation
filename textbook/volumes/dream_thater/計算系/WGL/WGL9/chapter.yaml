@@ -1,0 +1,32 @@
+id: WGL9
+title: 法線と光源は明暗をどう決める？
+volume: foundations
+status: supplementary
+prerequisites: [WGL8]
+official_scope: []
+learning_objectives:
+  - 三角形の向き付き単位法線とLambertの余弦因子を導出し数値計算できる
+  - 非一様拡大縮小を含む可逆モデル行列の法線変換が逆転置になる理由を接線の直交性から証明できる
+  - Blinn–Phongの半角ベクトルと鏡面項を求め、逆光・零光源・退化変換の限界を判定できる
+  - 平面メッシュの面法線と球メッシュの頂点法線・補間後正規化を区別できる
+  - WebGL2で立方体と球のGLSL照明・法線行列を変更しCPUの独立画素予測と照合できる
+definitions:
+  - { id: WGL9-DEF-01, name: 向き付き単位法線 }
+  - { id: WGL9-DEF-02, name: Lambert拡散反射の照度因子 }
+  - { id: WGL9-DEF-03, name: 法線行列 }
+  - { id: WGL9-DEF-04, name: Blinn–Phongの半角ベクトルと鏡面項 }
+theorems:
+  - { id: WGL9-PROP-01, name: Lambert余弦因子の面積投影 }
+  - { id: WGL9-PROP-02, name: 可逆線形変換の法線変換 }
+  - { id: WGL9-PROP-03, name: 補間した法線の長さと光量の上界 }
+canonical_examples:
+  - 三角形の外向き法線を外積で算出する
+  - 非一様拡大縮小で逆転置と誤ったモデル行列法線の差を示す
+  - 入射方向と視線方向から半角ベクトル・鏡面寄与を計算する
+  - 線形光の照明値をsRGBへ符号化してRGBA8で読出す
+  - 立方体の面法線と球の補間法線をCPU射線とGPU実測で比較する
+problem_patterns: [WGL9-FACE-NORMAL, WGL9-LAMBERT, WGL9-NORMAL-MATRIX, WGL9-HALF-VECTOR, WGL9-INTERPOLATION, WGL9-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }
