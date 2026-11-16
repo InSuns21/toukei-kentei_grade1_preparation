@@ -88,7 +88,7 @@ chapters:
     title: "小量子積・Novikov環・大きい量子積との差"
   - id: MIR2-05
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-05
-    status: planned
+    status: completed
     title: "種数0ポテンシャルとA側Yukawa結合"
   - id: MIR2-06
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-06
