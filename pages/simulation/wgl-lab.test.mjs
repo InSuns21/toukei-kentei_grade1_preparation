@@ -147,7 +147,13 @@ test('WGL source editor keeps all textarea IDs and loads a local syntax-highligh
   assert.ok(host.includes("import { highlightSource } from './wgl-lab-highlight.mjs'"));
   assert.ok(host.includes("editor.addEventListener('input', refresh)"));
   assert.ok(host.includes("highlight.scrollTop = editor.scrollTop"));
-  assert.ok(host.includes("highlight.scrollLeft = editor.scrollLeft"));
+  assert.ok(host.includes("editor.wrap = 'soft'"));
+  assert.ok(!host.includes("editor.wrap = 'off'"));
+  assert.ok(!host.includes("highlight.scrollLeft = editor.scrollLeft"));
+  assert.match(css, /white-space:pre-wrap;overflow-wrap:anywhere/);
+  assert.match(css, /scrollbar-gutter:stable/);
+  assert.match(css, /overflow-x:hidden;overflow-y:auto/);
+  assert.match(css, /\.wgl-code-highlight code \{[^}]*overflow-wrap:inherit/);
   assert.ok(host.includes('refreshSourceHighlights();')); // programmatic reset/presets
   assert.match(css, /\.wgl-code-editor textarea\s*\{/);
   assert.match(css, /-webkit-text-fill-color:transparent/);

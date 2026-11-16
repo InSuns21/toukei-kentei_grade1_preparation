@@ -95,6 +95,34 @@ try{
   assert.match(syntax.vertex,/wgl-token-directive/);
   assert.match(syntax.fragment,/wgl-token-type/);
   assert.equal(syntax.color,'rgba(0, 0, 0, 0)');
+  // Native textarea and colored backdrop must both soft-wrap long JS/GLSL lines.
+  const wrap = await evalJS(`(() => {
+    const editors = [...document.querySelectorAll('.wgl-code-editor textarea')];
+    const measure = e => ({
+      mode: e.wrap, width: e.clientWidth, scroll: e.scrollWidth,
+      backdropWidth: e.previousElementSibling.clientWidth,
+      backdropScroll: e.previousElementSibling.scrollWidth
+    });
+    const initial = editors.map(measure);
+    const editor = editors[0];
+    const original = editor.value;
+    editor.value += '\\n' + 'longIdentifier'.repeat(100);
+    editor.dispatchEvent(new Event('input', {bubbles: true}));
+    const longLine = measure(editor);
+    editor.value = original;
+    editor.dispatchEvent(new Event('input', {bubbles: true}));
+    return {initial, longLine};
+  })()`);
+  for (const size of [...wrap.initial, wrap.longLine]) {
+    assert.equal(size.mode, 'soft');
+    assert.ok(size.scroll <= size.width + 1, 'textarea has horizontal overflow: ' + JSON.stringify(size));
+    assert.ok(size.backdropScroll <= size.backdropWidth + 1,
+      'highlight has horizontal overflow: ' + JSON.stringify(size));
+  }
+  await mkdir('_wgl_browser_review',{recursive:true});
+  const codeShot = await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl1-code-wrap.png',Buffer.from(codeShot.data,'base64'));
+  console.log('WGL1 JS/GLSL source soft wrap and long-line horizontal overflow: PASS');
   const scroll=await evalJS('(()=>{const e=document.getElementById("js-source");e.scrollTop=100;e.dispatchEvent(new Event("scroll"));return [e.scrollTop,e.previousElementSibling.scrollTop]})()');
   assert.ok(scroll[0]>0);
   assert.equal(scroll[0],scroll[1]);
@@ -144,6 +172,9 @@ try{
   const mobile=await evalJS('({editorWidth:document.getElementById("js-source").getBoundingClientRect().width,pageWidth:document.querySelector("main").getBoundingClientRect().width,tabs:[...document.querySelectorAll("[role=tab]")].length})');
   assert.equal(mobile.tabs,3);
   assert.ok(mobile.editorWidth<=mobile.pageWidth+1);
+  await click('tab-code');
+  const mobileWrap=await evalJS('(()=>{const e=document.getElementById("js-source");return [e.scrollWidth,e.clientWidth]})()');
+  assert.ok(mobileWrap[0]<=mobileWrap[1]+1,'narrow viewport source editor has horizontal overflow');
   await cdp('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
   console.log('WGL1 narrow 360px and reduced motion: PASS');
 

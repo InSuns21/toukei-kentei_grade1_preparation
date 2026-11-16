@@ -56,17 +56,15 @@ function initializeHighlightedEditors() {
     highlight.append(code);
     editor.parentNode.insertBefore(wrapper, editor);
     wrapper.append(highlight, editor);
-    editor.wrap = 'off';
+    editor.wrap = 'soft';
 
     const refresh = () => {
       code.innerHTML = highlightSource(editor.value, name === 'js' ? 'javascript' : 'glsl') + '\n';
       highlight.scrollTop = editor.scrollTop;
-      highlight.scrollLeft = editor.scrollLeft;
     };
     editor.addEventListener('input', refresh);
     editor.addEventListener('scroll', () => {
       highlight.scrollTop = editor.scrollTop;
-      highlight.scrollLeft = editor.scrollLeft;
     });
     editor.addEventListener('keydown', event => {
       if (event.key !== 'Tab' || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
