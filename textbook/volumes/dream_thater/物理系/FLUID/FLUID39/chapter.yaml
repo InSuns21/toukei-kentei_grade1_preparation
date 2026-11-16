@@ -16,7 +16,7 @@ learning_objectives:
   - "合成切断スペクトルの解析積分と数値台形積分を比較し、DNS・観測・フラックス測定との違いを説明する"
 definitions:
   - { id: FLUID39-DEF-01, name: "変動エネルギーの生成・散逸・空間輸送" }
-  - { id: FLUID39-DEF-02, name: "波数殻エネルギーと一方向エネルギースペクトル" }
+  - { id: FLUID39-DEF-02, name: "波数殻エネルギーと一側エネルギースペクトル" }
   - { id: FLUID39-DEF-03, name: "波数別の非線形移送と前方フラックス" }
   - { id: FLUID39-DEF-04, name: "Kolmogorovの微細尺度" }
 theorems:
