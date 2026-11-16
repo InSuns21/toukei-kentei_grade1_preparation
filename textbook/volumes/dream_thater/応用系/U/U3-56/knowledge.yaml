@@ -1,0 +1,47 @@
+chapter: U3-56
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-44, U3-45, U3-46, U3-47, U3-50, U3-55]
+concepts:
+  - id: finance.holdings-linear-loss
+    name: 数量線形なポートフォリオ損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（数量線形なポートフォリオ損失）"]
+    requires: [finance.holding-period-loss, finance.portfolio-full-revaluation]
+  - id: finance.euler-marginal-component
+    name: 限界リスクと Euler 成分寄与
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（限界リスクと Euler 成分寄与）"]
+    requires: [finance.holdings-linear-loss, finance.expected-shortfall]
+  - id: finance.euler-allocation
+    name: Euler 配賦
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Euler 配賦）"]
+    requires: [finance.euler-marginal-component]
+  - id: finance.es-tail-weights
+    name: 有限状態 ES の最適尾部重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態 ES の最適尾部重み）"]
+    requires: [finance.es-dual, finance.holdings-linear-loss]
+  - id: finance.es-component-allocation
+    name: 有限状態 ES の完全配賦と微分可能性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限状態 ES の完全配賦と微分可能性）"]
+    requires: [finance.es-tail-weights, finance.euler-allocation]
+  - id: finance.es-tie-nondifferentiability
+    name: 尾部同順位と非微分点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（尾部同順位と非微分点）"]
+    requires: [finance.es-component-allocation]
+  - id: finance.nonlinear-position-cost
+    name: 数量二乗のコストは Euler 総和を壊す
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（数量二乗のコストは Euler 総和を壊す）"]
+    requires: [finance.euler-allocation, finance.stress-liquidity-cost]
