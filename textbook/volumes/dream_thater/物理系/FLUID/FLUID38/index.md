@@ -45,10 +45,10 @@ $$
 <!-- definition-example-start: def-fluid38-reynolds-stress -->
 **定義の確認**：等確率で $\pm1$ を取る $Z$ に対し、成分順を $(x_1,x_2,x_3)$ として $\boldsymbol a=(2,-1,0)$ [m/s]、$\boldsymbol u'=Z\boldsymbol a$ とする。$\overline Z=0$、$\overline{Z^2}=1$ だから $\overline{\boldsymbol u'}=\boldsymbol0$ である。ここで行列 $R$ の第 $(i,j)$ 成分は**第 $i$ 成分と第 $j$ 成分の変動積の平均**であり、定義から
 
-$
+$$
 R_{ij}=\overline{(Za_i)(Za_j)}
 =a_ia_j\overline{Z^2}=a_ia_j.
-$
+$$
 
 よって行・列を速度の三成分の順に並べると
 
@@ -275,20 +275,20 @@ $$
 
 この式に一定密度 $\rho$ を掛け、左辺へ鉛直方向の輸送を集めると
 
-$
+$$
 \partial_t(\rho U)+\partial_yJ_{yx}=-\partial_xP,
 \qquad
 J_{yx}=\rho R_{12}-\rho\nu\partial_yU
-$
+$$
 
 となる。$J_{yx}$ は **$+y$ 方向を正とする水平運動量の流束**であり、添字 $yx$ は「$y$ 方向に運ばれる $x$ 方向の運動量」を表す。対して、[Newton 流体の粘性応力](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)と [Reynolds 応力の定義](#def-fluid38-reynolds-stress)を合わせた剪断応力（右辺で発散を取る量）は
 
-$
+$$
 \sigma^{\rm eff}_{12}
 =\rho\nu\partial_yU+\tau^R_{12}
 =\rho\nu\partial_yU-\rho R_{12}
 =-J_{yx}
-$
+$$
 
 であり、**流束と応力では符号が逆**になる。例えば $\partial_yU>0$ で $R_{12}<0$ なら、上向きの乱流運動量流束 $\rho R_{12}$ は負だが、乱流剪断応力 $-\rho R_{12}$ は正である。$\partial_yU$ は時刻 $t$ を固定して $y$ で偏微分した量であり、以下で定常平均流 $U(y)$ を考えるときの $dU/dy$ と同じ勾配を表す。図の上下の交換運動はこの符号を説明する模式図であり、流れの数値解ではない。
 
@@ -450,14 +450,14 @@ $$
 
 [共分散の半正定値性](#prop-fluid38-realizability)は、任意の実数ベクトル $\boldsymbol a=(x,y,z)$ について $a_iR_{ij}^{\rm model}a_j\ge0$ を要求する。$d=2k/3$、$b=\nu_tG$ と置き、$xy$ 平面の直交する二方向への成分を $\xi=(x+y)/\sqrt2$、$\eta=(x-y)/\sqrt2$ とすると、基底変換は逆に $x=(\xi+\eta)/\sqrt2$、$y=(\xi-\eta)/\sqrt2$ と戻せる。したがって
 
-$
+$$
 \begin{aligned}
 a_iR_{ij}^{\rm model}a_j
 &=d(x^2+y^2+z^2)-2bxy\\
 &=d(\xi^2+\eta^2+z^2)-b(\xi^2-\eta^2)\\
 &=(d-b)\xi^2+(d+b)\eta^2+dz^2.
 \end{aligned}
-$
+$$
 
 $\xi,\eta,z$ は独立に任意の実数を取るので、この式が常に非負である必要十分条件は $d-b\ge0$、$d+b\ge0$、$d\ge0$ である。これは **$|\nu_tG|\le2k/3$** と同値であり、二方向だけの試験でなく三次元の全方向を調べた判定になっている。例えば $k=0.125$ m$^2$/s$^2$、$\nu_t=0.045$ m$^2$/s、$G=2$ s$^{-1}$ なら $|\nu_tG|=0.090>2k/3\approx0.0833$。剪断応力の数値だけが合っても、この模型は負の固有方向分散を予測する。原因は **$R$ の六成分を一つの渦動粘度と等方成分に押し込めたこと**にある。
 
@@ -527,16 +527,16 @@ $$
 
 [Reynolds 応力の定義](#def-fluid38-reynolds-stress)に密度と共分散を代入すると
 
-$
+$$
 \tau^R_{12}=-\rho R_{12}=-(1000)(-0.04)=40\ \mathrm{Pa}.
-$
+$$
 
 単位も
 
-$
+$$
 (\mathrm{kg/m^3})(\mathrm{m^2/s^2})
 =\mathrm{kg/(m\,s^2)}=\mathrm{Pa}
-$
+$$
 
 となる。共分散が負であっても、応力の剪断成分には正号が付く。
 <!-- solution-end -->
@@ -569,20 +569,20 @@ $R_{12}$ が $y$ に依らず一定なら $\partial_yR_{12}=0$ なので、体�
 
 [混合長閉鎖](#def-fluid38-mixing-length)では $\ell_m^2=0.01$ m$^2$、$|G|=3$ s$^{-1}$ だから、勾配の符号によらず
 
-$
+$$
 \nu_t=\ell_m^2|G|=0.01\cdot3=0.03\ \mathrm{m^2/s}.
-$
+$$
 
 一方、剪断成分は
 
-$
+$$
 -R_{12}^{\rm model}
 =\nu_tG=
 \begin{cases}
 +0.09\ \mathrm{m^2/s^2}&(G=+3\ \mathrm{s^{-1}}),\\
 -0.09\ \mathrm{m^2/s^2}&(G=-3\ \mathrm{s^{-1}}).
 \end{cases}
-$
+$$
 
 絶対値が $\nu_t\ge0$ を保ち、勾配の符号は輸送の向きに反映される。
 <!-- solution-end -->
@@ -597,15 +597,15 @@ $G=4$ s$^{-1}$、$R_{12}=0.02$ m$^2$/s$^2$ とする。真の生成率 $\mathcal
 
 [平均剪断の生成率](#prop-fluid38-shear-production)に代入すると
 
-$
+$$
 \mathcal P=-R_{12}G=-(0.02)(4)=-0.08\ \mathrm{m^2/s^3}.
-$
+$$
 
 一方、[非負渦粘性模型の生成率](#prop-fluid38-eddy-production)は
 
-$
+$$
 \mathcal P_{\rm model}=\nu_tG^2=16\nu_t\ge0
-$
+$$
 
 であるため、$\nu_t\ge0$ を守る限り一致させられない。破綻するのは厳密な生成率の式ではなく、非負渦粘性で応力を置き換える仮説である。
 <!-- solution-end -->
@@ -699,10 +699,10 @@ $$
 
 $Z,W$ は独立に $\pm1$ を等確率で取る。$a=0.4$ m/s、$b=0.3$ m/s、$c=3/4$ として
 
-$
+$$
 u'=aZ,\qquad
 v'=-b(cZ+\sqrt{1-c^2}W),\qquad w'=0
-$
+$$
 
 を作る。平均流は $U_1=Gy$、$G=2$ s$^{-1}$ とする。
 
