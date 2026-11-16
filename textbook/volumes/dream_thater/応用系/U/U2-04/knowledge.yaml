@@ -1,0 +1,37 @@
+chapter: U2-04
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-03
+forward_references: []
+concepts:
+  - id: robotics.linear-gaussian-motion
+    name: 線形 Gaussian 運動模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形 Gaussian 運動模型）"]
+    requires: [robotics.gaussian-position-belief, robotics.motion-observation-conditional-model]
+  - id: robotics.linear-motion-predicted-belief
+    name: 線形運動の予測 belief
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形運動の予測 belief）"]
+    requires: [robotics.linear-gaussian-motion, robotics.density-bayes-filter]
+  - id: robotics.kalman-linear-prediction
+    name: 線形 Gaussian 運動の予測公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形 Gaussian 運動の予測公式）"]
+    requires: [robotics.linear-motion-predicted-belief, robotics.gaussian-position-belief]
+  - id: robotics.prediction-positive-definite
+    name: 予測共分散が正定値となる条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（予測共分散が正定値となる条件）"]
+    requires: [robotics.kalman-linear-prediction]
+  - id: robotics.prediction-correlated-process-noise
+    name: 過去の誤差と過程雑音が相関する場合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（過去の誤差と過程雑音が相関する場合）"]
+    requires: [robotics.kalman-linear-prediction]

@@ -12,7 +12,7 @@
 
 ## 1. 瞬時値を平均と揺らぎに分ける
 
-例えば流速を各時刻に測った列 $(1,3,1,3,\ldots)$ [m/s] は平均 $2$ m/s だが、瞬時値は常に平均から $1$ m/s 離れる。この違いを数式化するのが Reynolds 分解である。
+例えば流速を各時刻に測った列 $(1,3,1,3,\ldots)$ [m/s] は平均 $2$ m/s だが、瞬時値は常に平均から $1$ m/s 離れる。この違いを数式化するのが Reynolds 分解である。ここで速度の $u'$ のプライムは時間・空間微分ではなく、集合平均からの**変動**を表す。
 
 <a id="def-fluid37-reynolds-decomposition"></a>
 
@@ -85,7 +85,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid37-two-point-covariance -->
-**定義の確認**：確率 $1/2$ ずつの符号 $Z=\pm1$ を用いて、二点の変動を $v'(x)=2Z$、$v'(y)=-3Z$ [m/s] とする。両平均はゼロ、分散は $4,9$、共分散は $\mathbb E[(2Z)(-3Z)]=-6$ [m$^2$/s$^2$]。従って $C=-6/(2\cdot3)=-1$。二点は常に逆向きに変動する。
+**定義の確認**：同じ速度成分を二点で測る一次元の場合を考える。確率 $1/2$ ずつの符号 $Z=\pm1$ を用いて、その成分の変動を $v'(x)=2Z$、$v'(y)=-3Z$ [m/s] とする。両平均はゼロ、分散は $4,9$、共分散は $\mathbb E[(2Z)(-3Z)]=-6$ [m$^2$/s$^2$]。従って $C=-6/(2\cdot3)=-1$。二点は常に逆向きに変動する。
 <!-- definition-example-end -->
 
 <a id="prop-fluid37-covariance-bound"></a>
@@ -129,7 +129,7 @@ $$
 
 ## 3. 定常・一様・等方は三つの異なる対称性
 
-「どこで測っても同じ」「いつ測っても同じ」「向きを変えても同じ」は別の条件である。**統計的定常性**は時刻の平行移動、**統計的一様性**は位置の平行移動、**等方性**は空間方向の回転に対する分布の不変性を意味する。ここでは各有限個の時空間点での同時分布が不変という強い意味で定義する。この条件なら平均・共分散についての対応する不変性も従うが、逆は一般に言えない。
+「どこで測っても同じ」「いつ測っても同じ」「向きを変えても同じ」は別の条件である。**統計的定常性**は時刻の平行移動、**統計的一様性**は位置の平行移動、**等方性**は空間方向の回転に対する分布の不変性を意味する。ここでは各有限個の時空間点での同時分布が不変という強い意味で定義する。この条件なら平均・共分散についての対応する不変性も従うが、逆は一般に言えない。回転行列の集合 $SO(3)$ は $Q^{\mathsf T}Q=I$、$\det Q=1$ を満たす実 $3\times3$ 行列の集合である。回転後の速度成分は $(Q\boldsymbol u)_i=\sum_{j=1}^3Q_{ij}u_j$ となる。
 
 <a id="def-fluid37-statistical-symmetries"></a>
 
@@ -140,6 +140,28 @@ $$
 
 <!-- definition-example-start: def-fluid37-statistical-symmetries -->
 **定義の確認**：$Z=\pm1$ が等確率、$\boldsymbol u(\boldsymbol x,t)=(0,Z,0)$ [m/s] で全空間・全時刻に同じ $Z$ を用いる場は、時間・空間をずらしても全ての同時分布が変わらず、定常かつ一様である。一方、$90^\circ$ の軸回転で $(0,Z,0)$ は別の座標軸へ移るので、速度の分布は一般に回転不変でなく等方的ではない。またこの場は発散ゼロであっても、時間的に揺れ続ける乱流ではない。
+
+**三条件が成立する直接例**：単位球面 $S^2=\{\boldsymbol n\in\mathbb R^3:|\boldsymbol n|=1\}$ 上の面積を確率 $1$ に正規化した分布から方向 $\boldsymbol N$ を選び、定数 $a>0$ に対して $\boldsymbol u(\boldsymbol x,t)=a\boldsymbol N$ とする。
+
+全点・全時刻に同じ $\boldsymbol N$ を用いるから、時間・空間の平行移動は全ての同時分布を変えない。球面の面積分布は回転で不変なので、任意の $Q\in SO(3)$ に対して $\boldsymbol N$ と $Q\boldsymbol N$ は同分布であり、速度は等方性の定義も満たす。
+
+二軸の符号反転（座標軸まわりの半回転）と座標の交換を適切な回転で実現できる。この回転不変性を各成分に適用すると
+
+$$
+\mathbb EN_i=0,\qquad
+\mathbb E[N_iN_j]=0\ (i\ne j),\qquad
+\mathbb EN_1^2=\mathbb EN_2^2=\mathbb EN_3^2
+$$
+
+が従う。さらに $\sum_{i=1}^3N_i^2=1$ なので、次を得る（$\delta_{ij}$ は $i=j$ のとき $1$、それ以外では $0$ の Kronecker 記号）。
+
+$$
+\mathbb E[N_i^2]=\frac13,\qquad
+\mathbb E[u_i'u_j']=\frac{a^2}{3}\delta_{ij},\qquad
+k=\frac{a^2}{2}.
+$$
+
+この場も各実現で時間的に一定であり、**等方性は乱流であることも時間エルゴード性も保証しない**。
 <!-- definition-example-end -->
 
 時間定常なら $R_{ij}(\boldsymbol x,\boldsymbol y;t,s)$ は時間差 $s-t$ の関数になり、空間一様なら位置差 $\boldsymbol r=\boldsymbol y-\boldsymbol x$ の関数になる。一方の条件だけでは他方を結論できない。
@@ -166,9 +188,33 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一様性から共分散行列 $A=(\mathbb E[u_i'u_j'])_{i,j=1}^3$ は位置に依存しない。等方性から任意の $Q\in SO(3)$ で $QAQ^{\mathsf T}=A$ である。$A$ は積の可換性より対称行列である。
+一点共分散の各成分を、標準直交基底 $\boldsymbol e_i$ による速度変動の座標 $u_i'=\boldsymbol e_i\cdot\boldsymbol u'$ を使って
 
-例えば $Q_1=\operatorname{diag}(1,-1,-1)$ は第一軸まわりの半回転であり、$Q_1AQ_1^{\mathsf T}=A$ の $(1,2),(1,3)$ 成分から $A_{12}=-A_{12}$、$A_{13}=-A_{13}$ を得る。第二軸まわりの半回転で $A_{23}=0$ も得る。ゆえに $A$ は対角。第三軸まわりの直角回転は第一・第二軸を交換するので $A_{11}=A_{22}$。第一軸まわりの直角回転で $A_{22}=A_{33}$。共通値を $q^2$ とすると $q^2=\mathbb E(u_1')^2\ge0$。従って $A=q^2I$、そして $k=\frac12\operatorname{tr}A=3q^2/2$。
+$$
+A_{ij}=\mathbb E[u_i'u_j']
+=\mathbb E[(\boldsymbol e_i\cdot\boldsymbol u')
+           (\boldsymbol e_j\cdot\boldsymbol u')]
+$$
+と並べたものが共分散行列 $A$ である。一様性から $A$ は位置に依存しない。等方性では $\boldsymbol u(Q\boldsymbol x,t)$ と $Q\boldsymbol u(\boldsymbol x,t)$ が同分布なので、平均を引いた速度変動についても同じ関係が成り立つ。回転後の共分散成分は
+
+$$
+\begin{aligned}
+\mathbb E[(Q\boldsymbol u')_i(Q\boldsymbol u')_j]
+&=\sum_{a,b=1}^3Q_{ia}Q_{jb}\mathbb E[u_a'u_b']\\
+&=(QAQ^{\mathsf T})_{ij}.
+\end{aligned}
+$$
+
+左辺は等方性と一様性によって $A_{ij}$ に等しい。従って任意の $Q\in SO(3)$ について $QAQ^{\mathsf T}=A$ となる。$A_{ij}=A_{ji}$ は実数の積の可換性から従う。
+
+例えば $Q_1=\operatorname{diag}(1,-1,-1)$ は第一軸まわりの半回転であり、$Q_1AQ_1^{\mathsf T}=A$ の $(1,2),(1,3)$ 成分から $A_{12}=-A_{12}$、$A_{13}=-A_{13}$ を得る。第二軸まわりの半回転で $A_{23}=0$ も得る。ゆえに $A$ は対角。第三軸まわりの直角回転は第一・第二軸を交換するので $A_{11}=A_{22}$。第一軸まわりの直角回転で $A_{22}=A_{33}$。共通値を $q^2$ とすると $q^2=\mathbb E(u_1')^2\ge0$。従って $A=q^2I$ である。定義の $k=\frac12\mathbb E|\boldsymbol u'|^2$ に $|\boldsymbol u'|^2=\sum_{i=1}^3(u_i')^2$ を代入すれば
+
+$$
+k=\frac12\sum_{i=1}^3A_{ii}
+=\frac12\operatorname{tr}A
+=\frac32q^2
+$$
+を得る。
 <!-- proof-end -->
 
 **非同値性の確認**：時間に依らず空間位置だけで変わる速度場は定常でも一様とは限らない。上の $Z$ の場は定常・一様でも等方でない。特定の平均や共分散が一様だからといって、全ての高次統計量まで一様と判定してはいけない。
@@ -193,15 +239,38 @@ $$
 
 <!-- definition-example-start: def-fluid37-ergodicity -->
 **定義の確認**（反例）：$Z=\pm1$ を等確率とし、$X(t,\omega)=Z(\omega)$ とする。この過程は全ての時刻で同時分布が不変だから厳密定常だが、$f(z)=z$ について時間平均は常に $Z$、集合平均は $\mathbb E Z=0$。各実現では $Z\ne0$ なので、エルゴード性は破れる。失われているのは「一つの軌道が実現間の違いを時間発展で巡る」という機構であり、定常性そのものではない。
+
+**成立する直接例**：$\Phi$ を $[0,2\pi)$ の一様位相、$\omega_0>0$ を固定した角周波数 [rad/s] とし、$X(t)=\cos(\omega_0t+\Phi)$ と置く。時間を $s$ だけずらすと位相が $\omega_0s$ だけ進み、位相の一様分布は変わらないので厳密定常である。任意の可積分な経路観測量 $F$ に対し、$X_\phi(t)=\cos(\omega_0t+\phi)$、$g(\phi)=F(X_\phi)$ と書けば、$g$ は可積分な $2\pi$ 周期関数である。周期 $P=2\pi/\omega_0$ と任意の正整数 $m$ について
+
+$$
+\begin{aligned}
+\frac1{mP}\int_0^{mP}F(\theta_sX_\Phi)\,ds
+&=\frac1{mP}\int_0^{mP}g(\Phi+\omega_0s)\,ds\\
+&=\frac1{2\pi}\int_0^{2\pi}g(\phi)\,d\phi
+=\mathbb E[F(X)].
+\end{aligned}
+$$
+
+一般の $T\to\infty$ でも、端数の時間区間は長さ $P$ 未満で、その積分は各実現について一周期の $|g|$ の積分で抑えられる。$T$ で割れば端数の寄与はゼロへ行く。このように**全ての可積分な $F$** に対して定義の極限を確認できるから時間エルゴード的である。一つの観測量だけの平均が一致したことを根拠にしているのではない。
 <!-- definition-example-end -->
 
 反対に、ランダム位相を持つ周期波は平均について時間平均が合う例を作れるが、それだけでは**すべての観測関数**についてエルゴード性を示したことにならない。時間的定常性、標本の長さ、標本間の相関を区別する必要がある。
 
 ## 5. 相関の距離依存を波数ごとに調べる
 
-二点相関 $R(r)$ を距離 $r$ の関数として眺めると、周期的な構造や長距離の相関を読み取れる。この関数の波数ごとの構造を表すには、Fourier モードの非負の二乗振幅に分ければよい。以下でその量を定義する。ここでは正規化が追えるよう、まず長さ $L>0$ の一次元周期区間で**有限個のモード**だけを持つ実速度変動 $v(x,\omega)$ [m/s] を扱う。$v$ は集合平均ゼロ、二乗可積分で、空間に関して統計的一様と仮定する。時間は固定している。
+二点相関 $R(r)$ を変位 $r$ の関数として眺めると、周期的な構造や長距離の相関を読み取れる。この関数の波数ごとの構造を表すには、Fourier モードの非負の二乗振幅に分ければよい。
 
-波数 $k_n=2\pi n/L$ [rad/m]、整数 $n$ とすると、$v$ の Fourier 係数 $a_n$ は空間積分で定まり、$v(x)=\sum_n a_ne^{ik_nx}$ と再構成できる。複素係数は計算上の表現であり、現実の速度は実数だから $a_{-n}=\overline{a_n}$ が必要である。
+ここでは正規化が追えるよう、まず長さ $L>0$ の一次元周期区間で**有限個のモード**だけを持つ実速度変動 $v(x,\omega)$ [m/s] を扱う。$v$ は集合平均ゼロ、二乗可積分で、空間に関して統計的一様と仮定する。時間は固定している。
+
+ここで $x$ は一次元の空間座標、$r$ は同じ時刻での二点間の符号付き変位であり、時間のずれではない。$v$ は速度変動の一成分を取り出した実数値場である。集合平均 $\mathbb Ev(x)=0$ と、各実現での空間平均
+
+$$
+\frac1L\int_0^L v(x,\omega)\,dx
+$$
+
+は別の量である。
+
+波数 $k_n=2\pi n/L$ [rad/m]、整数 $n$ とすると、$v$ の Fourier 係数 $a_n$ は空間積分で定まり、$v(x)=\sum_n a_ne^{ik_nx}$ と再構成できる。添字付きの $k_n$ は波数であり、第1節の変動運動エネルギー $k$ [m$^2$/s$^2$] とは次元も意味も違う。複素係数は計算上の表現であり、現実の速度は実数だから $a_{-n}=\overline{a_n}$ が必要である。
 
 <a id="def-fluid37-periodic-spectrum"></a>
 
@@ -219,7 +288,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid37-periodic-spectrum -->
-**定義の確認**：$v(x,\Phi)=A\cos(k_1x+\Phi)$、$A>0$ [m/s]、$\Phi$ は $[0,2\pi)$ 上で一様とする。指数関数で余弦を開くと $a_1=(A/2)e^{i\Phi}$、$a_{-1}=(A/2)e^{-i\Phi}$、他はゼロ。従って $S_{\pm1}=A^2/4$、$\mathcal E_1=A^2/2$。位相平均では $\mathbb E v=0$、$R(r)=\frac{A^2}2\cos(k_1r)$、$R(0)=A^2/2$ となる。振幅 $A$ の次元とスペクトルの二乗次元も一致する。
+**定義の確認**：$v(x,\Phi)=A\cos(k_1x+\Phi)$、$A>0$ [m/s]、$\Phi$ は $[0,2\pi)$ 上で一様とする。余弦の指数表示 $2\cos\theta=e^{i\theta}+e^{-i\theta}$ から、係数積分は
+
+$$
+a_1=\frac A2e^{i\Phi},\qquad
+a_{-1}=\frac A2e^{-i\Phi},\qquad
+a_n=0\quad(n\ne\pm1).
+$$
+
+位相を一様分布で平均すると、$\mathbb Ev(x)=0$ である。二点積は $\cos\alpha\cos\beta=\{\cos(\alpha-\beta)+\cos(\alpha+\beta)\}/2$ を使って
+
+$$
+\begin{aligned}
+R(r)&=\frac{A^2}{2\pi}\int_0^{2\pi}
+\cos(k_1(x+r)+\phi)\cos(k_1x+\phi)\,d\phi\\
+&=\frac{A^2}{4\pi}\int_0^{2\pi}
+\{\cos(k_1r)+\cos(2k_1x+k_1r+2\phi)\}\,d\phi\\
+&=\frac{A^2}{2}\cos(k_1r).
+\end{aligned}
+$$
+
+従って $S_{\pm1}=A^2/4$、一側では $\mathcal E_1=S_1+S_{-1}=A^2/2=R(0)$。速度振幅 $A$ が m/s なら、スペクトルと相関はともに m$^2$/s$^2$ である。
 <!-- definition-example-end -->
 
 なぜ相関とスペクトルを結び付けられるのか。離散的な直交性
@@ -313,7 +402,7 @@ $$
 \mathbb E(U-\overline U)^2=9/4+3/4=3\ {\rm m^2/s^2}.
 $$
 
-また $\mathbb EU^2=0+16\cdot3/4=12$ m$^2$/s$^2$。実際 $\overline U^2+\operatorname{Var}U=9+3=12$。$k=\operatorname{Var}U/2=1.5$ m$^2$/s$^2$。
+また $\mathbb EU^2=0+16\cdot3/4=12$ m$^2$/s$^2$。実際、[Reynolds 分解のエネルギー命題](#prop-fluid37-mean-variance)を一次元速度 $U$ に適用すれば $\overline U^2+\operatorname{Var}U=9+3=12$。$k=\operatorname{Var}U/2=1.5$ m$^2$/s$^2$。
 <!-- solution-end -->
 
 #### A2. 相関係数とゼロ分散
@@ -324,7 +413,7 @@ $Z=\pm1$ が等確率とし、$X=Z$、$Y=2Z$、$W=5$ とする。$C_{XY}$ を計
 <!-- solution-start -->
 #### 詳細解答
 
-$\mathbb EX=\mathbb EY=0$、$\operatorname{Var}X=1$、$\operatorname{Var}Y=4$、$\mathbb E(XY)=\mathbb E(2Z^2)=2$。従って $C_{XY}=2/(1\cdot2)=1$。一方 $W-\mathbb EW=0$ が常に成り立ち $\operatorname{Var}W=0$ なので、正規化の分母 $\sigma_X\sigma_W=0$。共分散そのものはゼロでも相関係数は定義されない。
+$\mathbb EX=\mathbb EY=0$、$\operatorname{Var}X=1$、$\operatorname{Var}Y=4$、$\mathbb E(XY)=\mathbb E(2Z^2)=2$。[二点共分散と相関係数の定義](#def-fluid37-two-point-covariance)に従って $C_{XY}=2/(1\cdot2)=1$。一方 $W-\mathbb EW=0$ が常に成り立ち $\operatorname{Var}W=0$ なので、正規化の分母 $\sigma_X\sigma_W=0$。共分散そのものはゼロでも相関係数は定義されない。
 <!-- solution-end -->
 
 #### A3. 定常とエルゴード性の区別
@@ -335,7 +424,7 @@ $Z=\pm2$ が等確率、$X(t)=Z$ とする。$X(t)$ が統計的定常かを判�
 <!-- solution-start -->
 #### 詳細解答
 
-任意の $(t_1,\ldots,t_m)$ で $(X(t_1),\ldots,X(t_m))=(Z,\ldots,Z)$ だから、共通時間シフトで同時分布は変化せず定常。一方、任意の $T>0$ で $T^{-1}\int_0^T X(t)dt=Z$、$\mathbb EX(t)=\mathbb EZ=(-2+2)/2=0$。確率1で $Z\ne0$ なので、観測関数 $f(z)=z$ だけですでに時間エルゴード性の条件に違反する。
+任意の $(t_1,\ldots,t_m)$ で $(X(t_1),\ldots,X(t_m))=(Z,\ldots,Z)$ だから、共通時間シフトで同時分布は変化せず定常。一方、任意の $T>0$ で $T^{-1}\int_0^T X(t)dt=Z$、$\mathbb EX(t)=\mathbb EZ=(-2+2)/2=0$。確率1で $Z\ne0$ なので、観測関数 $f(z)=z$ だけですでに[時間エルゴード性の定義](#def-fluid37-ergodicity)に違反する。
 <!-- solution-end -->
 
 #### A4. 単一モードの Fourier 係数
@@ -364,7 +453,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-ゼロモードは重複しないから $\mathcal E_0=S_0=1$。正波数について $\mathcal E_1=2S_1=4$、$\mathcal E_2=2S_2=6$。全体は $1+4+6=11$ m$^2$/s$^2$ で、二側で直接足した $1+2+2+3+3=11$ と一致する。
+[一側スペクトルの定義](#def-fluid37-periodic-spectrum)ではゼロモードは重複しないから $\mathcal E_0=S_0=1$。正波数について $\mathcal E_1=2S_1=4$、$\mathcal E_2=2S_2=6$。全体は $1+4+6=11$ m$^2$/s$^2$ で、二側で直接足した $1+2+2+3+3=11$ と一致する。
 <!-- solution-end -->
 
 ### Level B
@@ -389,7 +478,13 @@ R(r)&=\frac{A^2}{2\pi}\int_0^{2\pi}
 \end{aligned}
 $$
 
-$R(0)=A^2/2>0$ だから $C(r)=R(r)/R(0)=\cos(kr)$。$r=\pi/(2k)$ では二点は無相関だが、同じ位相 $\Phi$ から決まるので一般に独立ではない。相関ゼロは統計的独立を意味しない。
+$R(0)=A^2/2>0$ だから $C(r)=R(r)/R(0)=\cos(kr)$。$r=\pi/(2k)$ では $v(x)=A\cos(kx+\Phi)$ と $v(x+r)=-A\sin(kx+\Phi)$ となり、相関はゼロだが
+
+$$
+\left(\frac{v(x)}A\right)^2
++\left(\frac{v(x+r)}A\right)^2=1
+$$
+が常に成立する。二つの値はこの関係に拘束されており、独立ではない。[無相関と独立の違い](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)を確かめる例である。
 <!-- solution-end -->
 
 #### B2. 一様と等方の違い
@@ -408,7 +503,7 @@ A=\mathbb E[\boldsymbol u\boldsymbol u^{\mathsf T}]
 \qquad k=\frac12\operatorname{tr}A=\frac{a^2}2.
 $$
 
-等方と誤って仮定すれば $A=q^2I$ として三方向に同じ分散を割り当ててしまう。欠けた仮定は回転不変性であり、証明で軸の交換を使う段階が成立しない。
+[等方な一点共分散の命題](#prop-fluid37-isotropic-covariance)を等方性なしに誤用すれば $A=q^2I$ として三方向に同じ分散を割り当ててしまう。欠けた仮定は回転不変性であり、証明で軸の交換を使う段階が成立しない。
 <!-- solution-end -->
 
 #### B3. 定理の適用条件を外す
@@ -467,7 +562,7 @@ $L=2\pi$ m、$\Phi_1,\Phi_2$ は独立に $[0,2\pi)$ 一様とし、$v(x)=2\cos(
 <!-- solution-start -->
 #### 詳細解答
 
-(i) 各余弦は独立な一様位相の平均でゼロ。交差項は独立性から $\mathbb E[\cos(\cdot+\Phi_1)\cos(\cdot+\Phi_2)]=\mathbb E\cos(\cdot+\Phi_1)\,\mathbb E\cos(\cdot+\Phi_2)=0$。同じモード同士について B1 の積和公式を適用し、
+(i) 各余弦は独立な一様位相の平均でゼロ。交差項は独立性から $\mathbb E[\cos(\cdot+\Phi_1)\cos(\cdot+\Phi_2)]=\mathbb E\cos(\cdot+\Phi_1)\,\mathbb E\cos(\cdot+\Phi_2)=0$。同じモード同士は $\cos\alpha\cos\beta=\{\cos(\alpha-\beta)+\cos(\alpha+\beta)\}/2$ で展開する。位相平均では第二項がゼロとなるので、
 
 $$
 R(r)=\frac{2^2}{2}\cos(r/(1\ {\rm m}))
@@ -475,7 +570,7 @@ R(r)=\frac{2^2}{2}\cos(r/(1\ {\rm m}))
 =2\cos(r/(1\ {\rm m}))+\tfrac12\cos(2r/(1\ {\rm m})).
 $$
 
-(ii) 指数表示から $a_{\pm1}=e^{\pm i\Phi_1}$、$a_{\pm2}=\frac12e^{\pm i\Phi_2}$ [m/s]。よって $S_{\pm1}=1$、$S_{\pm2}=1/4$、一側では $\mathcal E_1=2$、$\mathcal E_2=1/2$ [m$^2$/s$^2$]。二側和は $1+1+1/4+1/4=5/2=R(0)$。
+(ii) 指数表示から $a_{\pm1}=e^{\pm i\Phi_1}$、$a_{\pm2}=\frac12e^{\pm i\Phi_2}$ [m/s]。よって $S_{\pm1}=1$、$S_{\pm2}=1/4$、一側では $\mathcal E_1=2$、$\mathcal E_2=1/2$ [m$^2$/s$^2$]。[相関と Parseval の定理](#thm-fluid37-parseval-correlation)の二側和は $1+1+1/4+1/4=5/2=R(0)$。
 
 (iii) $r=\pi/2$ m で $\cos(\pi/2)=0$、$\cos(\pi)=-1$ より $R(\pi/2)=-1/2$。分散は両点とも $R(0)=5/2$ なので、相関係数は $C=-\frac{1/2}{5/2}=-1/5$。
 
