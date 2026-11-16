@@ -1,0 +1,29 @@
+chapter: WGL6
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL5]
+concepts:
+  - id: graphics.perspective-correct-interpolation
+    name: 透視補正補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（透視補正補間）"]
+    requires: [graphics.barycentric-coordinate, graphics.clip-ndc, graphics.interstage-varying]
+  - id: graphics.perspective-weights
+    name: 透視補正重みの導出
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（透視補正重みの導出）"]
+    requires: [graphics.perspective-correct-interpolation]
+  - id: graphics.front-face-culling
+    name: 投影後の前面・背面とカリング
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（投影後の前面・背面とカリング）"]
+    requires: [graphics.triangle-edge-test]
+  - id: graphics.pixel-sampling-aliasing
+    name: 画素標本化とエイリアシング
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（画素標本化とエイリアシング）"]
+    requires: [graphics.drawing-buffer-pixel, graphics.viewport-map]
