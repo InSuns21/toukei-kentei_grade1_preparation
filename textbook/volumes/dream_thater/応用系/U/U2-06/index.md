@@ -22,7 +22,15 @@
 
 <!-- formal-statement-start -->
 > **定義（平面姿勢）**  
-> 世界座標系 $W$ に対する車体座標系 $B$ の**平面姿勢**を、位置 $t_{WB}=(x,y)^T\in\mathbb R^2$ と、反時計回りを正とする向き $\theta_{WB}\in\mathbb R$ の組 $g_{WB}=(t_{WB},\theta_{WB})$ とする。角度が $2k\pi$ だけ異なり位置が等しい二つの組は、同じ姿勢を表す。位置の単位は m、角度は rad とする。
+> 平面上の世界座標系を $W$、車体座標系を $B$ とする。世界座標で測った車体の位置と反時計回りを正とする向きの組を**平面姿勢**とし、
+>
+$$
+g_{WB}=(t_{WB},\theta_{WB}),\qquad
+t_{WB}=\begin{pmatrix}x\\y\end{pmatrix}\in\mathbb R^2,\quad
+\theta_{WB}\in\mathbb R
+$$
+>
+> で表す。位置が等しく、角度が $2k\pi$（$k$ は整数）だけ異なる二つの組は同じ姿勢を表す。位置の単位は m、角度の単位は rad とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-06-planar-pose -->
