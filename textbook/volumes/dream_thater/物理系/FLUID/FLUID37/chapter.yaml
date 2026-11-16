@@ -1,0 +1,47 @@
+id: "FLUID37"
+title: "乱流をどんな統計量で定義するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID36
+  - CTM15
+official_scope: []
+learning_objectives:
+  - "集合平均・Reynolds分解・変動エネルギーの単位と条件を説明しエネルギー分解を証明する"
+  - "二点共分散と相関係数を定義しCauchy–Schwarz型の限界を導く"
+  - "厳密定常・空間一様・等方という異なる分布の対称性を区別し等方一点共分散を証明する"
+  - "定常過程の時間エルゴード性を定義し定常で非エルゴードな反例を示す"
+  - "周期的な有限Fourier場でスペクトルと二点相関・Parseval関係を導く"
+  - "合成周期速度場の一側・二側スペクトルと相関をブラウザPythonで検算し実乱流との違いを説明する"
+definitions:
+  - { id: FLUID37-DEF-01, name: "集合平均・Reynolds分解・乱流運動エネルギー" }
+  - { id: FLUID37-DEF-02, name: "二点共分散テンソルと相関係数" }
+  - { id: FLUID37-DEF-03, name: "統計的定常性・一様性・等方性" }
+  - { id: FLUID37-DEF-04, name: "時間エルゴード性と平均の一致" }
+  - { id: FLUID37-DEF-05, name: "周期場のFourierスペクトル" }
+theorems:
+  - { id: FLUID37-PROP-01, name: "Reynolds分解の直交性とエネルギー分解" }
+  - { id: FLUID37-PROP-02, name: "相関の対称性・限界" }
+  - { id: FLUID37-PROP-03, name: "等方な一様場の一点共分散" }
+  - { id: FLUID37-THM-01, name: "周期場の相関とスペクトル・Parseval関係" }
+canonical_examples:
+  - "二点分布でReynolds分解の全条件を確認"
+  - "逆向き変動の二点相関と正規化"
+  - "定常・一様でも非等方かつ時間非エルゴードな確率場"
+  - "ランダム位相の単一余弦波の二側・一側スペクトル"
+  - "複数モードの周期場とParseval関係の数値検算"
+problem_patterns:
+  - FLUID37-REYNOLDS-DECOMPOSITION
+  - FLUID37-CORRELATION-NORMALIZATION
+  - FLUID37-ERGODIC-COUNTEREXAMPLE
+  - FLUID37-FOURIER-PARSEVAL
+  - FLUID37-ONE-SIDED-SPECTRUM
+  - FLUID37-PHASE-AVERAGE
+  - FLUID37-ISOTROPICITY-FAILURE
+  - FLUID37-TIME-STATIONARITY-DISTINCTION
+  - FLUID37-MODE-ORTHOGONALITY
+  - FLUID37-INTEGRATED-CORRELATION-SPECTRUM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }
