@@ -45,7 +45,7 @@ chapters:
   - { id: FLUID38, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID38, status: completed, title: "Reynolds応力はなぜ閉じないか" }
   - { id: FLUID39, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID39, status: completed, title: "乱流のエネルギーは尺度間をどう移るか" }
   - { id: FLUID40, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID40, status: completed, title: "壁乱流の速度分布をどう整理するか" }
-  - { id: FLUID41, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID41, status: planned, title: "圧縮性流れでは質量・運動量・エネルギーをどう閉じるか" }
+  - { id: FLUID41, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID41, status: completed, title: "圧縮性流れでは質量・運動量・エネルギーをどう閉じるか" }
   - { id: FLUID42, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID42, status: planned, title: "ノズルで音速に達する条件は何か" }
   - { id: FLUID43, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID43, status: planned, title: "衝撃波を跨ぐと何が不連続になるか" }
   - { id: FLUID44, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID44, status: planned, title: "斜めの衝撃波と膨張波をどう区別するか" }

@@ -1,0 +1,49 @@
+id: "FLUID41"
+title: "圧縮性流れでは質量・運動量・エネルギーをどう閉じるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM5
+  - CTM7
+  - CTM9
+  - CTM10
+  - FLUID6
+official_scope: []
+learning_objectives:
+  - "密度を未知量とする圧縮性Eulerの質量・運動量・全エネルギー保存形とフラックスを、既習の連続体収支から導く"
+  - "理想気体の熱的・熱量的状態方程式、正の温度・圧力・密度、断熱可逆仮定による閉鎖条件を区別する"
+  - "滑らかな断熱流の内部エネルギー式から等エントロピー関係と音速二乗c²=(∂p/∂ρ)_s=γp/ρを導く"
+  - "一様静止平衡の線形化から音波方程式・左右の特性速度・音響エネルギー収支を導き、等温音速と区別する"
+  - "音圧と密度・速度摂動を実数値で検算し、ブラウザPythonの解析解と差分残差・格子細分を照合する"
+definitions:
+  - { id: FLUID41-DEF-01, name: "圧縮性流れの保存変数と全エネルギー" }
+  - { id: FLUID41-DEF-02, name: "理想気体の熱的・熱量的閉鎖" }
+  - { id: FLUID41-DEF-03, name: "等エントロピー音速とMach数" }
+  - { id: FLUID41-DEF-04, name: "線形音響摂動と音響エネルギー" }
+theorems:
+  - { id: FLUID41-THM-01, name: "圧縮性Euler方程式の保存形" }
+  - { id: FLUID41-PROP-01, name: "滑らかな理想気体の等エントロピー関係" }
+  - { id: FLUID41-THM-02, name: "一様静止気体の線形音波方程式" }
+  - { id: FLUID41-PROP-02, name: "線形音波の左右の特性量" }
+  - { id: FLUID41-PROP-03, name: "線形音響エネルギーの局所保存" }
+canonical_examples:
+  - "指定された密度・気圧・流速から保存変数と質量・運動量・全エネルギーフラックスの単位を照合"
+  - "断熱密度変化による圧力比と比内部エネルギーを計算"
+  - "空気に近い定数を指定して断熱音速と等温微分値を比較"
+  - "微小な右向き音圧波について密度・速度変動および左右の特性を確認"
+  - "ブラウザPythonで進行波・二方向波の解析解と差分残差の二次収束・周期平均音響エネルギーを検算"
+problem_patterns:
+  - FLUID41-CONSERVED-STATE-AND-FLUX
+  - FLUID41-ISENTROPIC-PRESSURE-RATIO
+  - FLUID41-SOUND-SPEED-UNITS
+  - FLUID41-RIGHT-WAVE-SIGN
+  - FLUID41-BODY-FORCE-SOURCES
+  - FLUID41-CONSERVATIVE-MOMENTUM
+  - FLUID41-ADIABATIC-VS-ISOTHERMAL
+  - FLUID41-ACOUSTIC-ENERGY
+  - FLUID41-ENTROPY-CONTACT-MODE
+  - FLUID41-TWO-WAVE-INITIAL-VALUE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }
