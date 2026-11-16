@@ -35,7 +35,7 @@ $$
 \longrightarrow\mathcal O_X(5)\longrightarrow0.
 $$
 
-右辺の $\mathcal O_X(5)$ が現れるのは、五次多項式の微分が法方向の値を与えるためである。[射影空間の標準束](../../CYG/CYG1-09/index.md#prop-cyg1-09-adjunction)の計算と同じく $c_1(T\mathbb P^4|_X)=5H$ であるから、完全列で第一Chern類が和になる関係を適用して $c_1(TX)+5H=5H$ を得る。
+右辺の $\mathcal O_X(5)$ が現れるのは、五次多項式の微分が法方向の値を与えるためである。[射影空間の接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)から $c_1(T\mathbb P^4|_X)=5H$ であるから、完全列で第一Chern類が和になる関係を適用して $c_1(TX)+5H=5H$ を得る。
 
 <a id="prop-mir2-02-c1-zero"></a>
 
@@ -55,7 +55,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)を $r=1,d_1=5,N=4$ に適用する。射影空間のEuler列 $0\to\mathcal O_{\mathbb P^4}\to\mathcal O_{\mathbb P^4}(1)^{\oplus5}\to T\mathbb P^4\to0$ から $c_1(T\mathbb P^4)=5c_1(\mathcal O(1))$。包含による引戻しで $c_1(T\mathbb P^4|_X)=5H$。法束の第一Chern類は $c_1(\mathcal O_X(5))=5H$。接束完全列で第一Chern類が和になる関係を用いると
+[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)を $r=1,d_1=5,N=4$ に適用する。[射影空間の接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler) $0\to\mathcal O_{\mathbb P^4}\to\mathcal O_{\mathbb P^4}(1)^{\oplus5}\to T\mathbb P^4\to0$ から $c_1(T\mathbb P^4)=5c_1(\mathcal O(1))$。包含による引戻しで $c_1(T\mathbb P^4|_X)=5H$。法束の第一Chern類は $c_1(\mathcal O_X(5))=5H$。接束完全列で第一Chern類が和になる関係を用いると
 
 $$
 c_1(TX)=c_1(T\mathbb P^4|_X)-c_1(\mathcal O_X(5))
@@ -316,7 +316,7 @@ $$
 $\mathbb P^4$ の滑らかな次数 $e$ の超曲面 $X_e$ に対して $c_1(TX_e)$ を超平面類 $H$ で表し、$e=4,5$ を比較せよ。$e=4$ の種数0・次数 $d$・$k$ 標点の期待次元も計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)では、次数 $e$ の超曲面の法束は $\mathcal O_{X_e}(e)$ である。[射影空間のEuler列](../../CYG/CYG1-09/index.md#prop-cyg1-09-adjunction)から $c_1(T\mathbb P^4|_{X_e})=5H$ なので、
+**詳細解答**。[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)では、次数 $e$ の超曲面の法束は $\mathcal O_{X_e}(e)$ である。[射影空間の接Euler列](../../../代数系/AG/AG2-09/index.md#thm-ag2-09-tangent-euler)から $c_1(T\mathbb P^4|_{X_e})=5H$ なので、
 
 $$
 c_1(TX_e)=5H-eH=(5-e)H.
