@@ -1,0 +1,47 @@
+chapter: MIR2-06
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR2-04, MIR2-05, GW1-16, GW1-17]
+concepts:
+  - id: mirror.dubrovin-quantum-connection
+    name: Dubrovin型量子接続
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Dubrovin型量子接続）"]
+    requires: [gromov-witten.even-small-quantum-product, mirror.quintic-even-big-quantum-product]
+  - id: mirror.quantum-differential-equation
+    name: 量子微分方程式と水平切断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（量子微分方程式と水平切断）"]
+    requires: [mirror.dubrovin-quantum-connection]
+  - id: mirror.quantum-connection-curvature
+    name: 量子接続の曲率公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（量子接続の曲率公式）"]
+    requires: [mirror.dubrovin-quantum-connection]
+  - id: mirror.quantum-flatness-potential-associativity
+    name: ポテンシャルと結合律からの平坦性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ポテンシャルと結合律からの平坦性）"]
+    requires: [mirror.quantum-connection-curvature, gromov-witten.even-small-quantum-associativity]
+  - id: mirror.p1-quantum-differential-equation
+    name: 射影直線の量子微分方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線の量子微分方程式）"]
+    requires: [mirror.quantum-differential-equation, gromov-witten.p1-small-quantum-ring]
+  - id: mirror.p2-quantum-differential-equation
+    name: 射影平面の三階量子微分方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影平面の三階量子微分方程式）"]
+    requires: [mirror.quantum-differential-equation, gromov-witten.p2-small-quantum-products]
+  - id: mirror.quintic-ambient-quantum-differential-system
+    name: quinticのambient量子微分系
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticのambient量子微分系）"]
+    requires: [mirror.quantum-differential-equation, mirror.quintic-big-divisor-specialization, mirror.quintic-a-yukawa-series]
