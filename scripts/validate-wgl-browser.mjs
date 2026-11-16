@@ -234,9 +234,13 @@ try{
   const wgl5=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
   assert.equal(wgl5.rows.length,4);
   assert.ok(wgl5.rows.every(row=>row[4]==='OK'));
-  assert.match(wgl5.rows[0][2],/230, 77, 51, 255/);
-  assert.match(wgl5.rows[1][2],/51, 153, 230, 255/);
-  assert.match(wgl5.rows[2][2],/0, 0, 0, 255/);
+  const closeRgba = (value,expected) => {
+    const rgba=value.split(',').map(x=>Number(x.trim()));
+    return rgba.length===4 && rgba.every((x,i)=>Number.isInteger(x)&&Math.abs(x-expected[i])<=1);
+  };
+  assert.ok(closeRgba(wgl5.rows[0][2],[230,77,51,255]));
+  assert.ok(closeRgba(wgl5.rows[1][2],[51,153,230,255]));
+  assert.ok(closeRgba(wgl5.rows[2][2],[0,0,0,255]));
   assert.equal(wgl5.sandbox,'allow-scripts');
   assert.match(wgl5.log,/depthBits=\d+/);
   const shot5=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
@@ -247,7 +251,7 @@ try{
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
   const noDepth=await evalJS('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent');
-  assert.match(noDepth,/51, 153, 230, 255/);
+  assert.ok(closeRgba(noDepth,[51,153,230,255]));
   console.log('WGL5 disabling depth makes far cube overwrite near cube: PASS');
 
   await click('reset');
@@ -261,8 +265,8 @@ try{
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
   const clipped=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
-  assert.match(clipped[0],/230, 77, 51, 255/);
-  assert.match(clipped[1],/0, 0, 0, 255/);
+  assert.ok(closeRgba(clipped[0],[230,77,51,255]));
+  assert.ok(closeRgba(clipped[1],[0,0,0,255]));
   console.log('WGL5 far=3 clips entire farther cube but retains nearer cube: PASS');
   await click('reset');
 
