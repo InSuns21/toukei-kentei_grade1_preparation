@@ -83,12 +83,14 @@ def profile(retau=1000.0, kappa=0.40, damping=26.0, grid=2048):
                     {"name": "synthetic closure U+",
                      "points": [[ys[i], us[i]] for i in sample_index]},
                     {"name": "viscous reference U+=y+ (0 to 5)",
-                     "points": [[ys[i], ys[i]] for i in sample_index
-                                if ys[i] <= 5.0]},
+                     "points": [[j / 10.0, j / 10.0] for j in range(51)]},
                     {"name": "empirical logarithmic reference (30 to 0.15*Re_tau)",
-                     "points": [[ys[i], math.log(ys[i]) / kappa + 5.0]
-                                for i in log_index
-                                if 30.0 <= ys[i] <= 0.15 * retau]}
+                     "points": [
+                         [30.0 * (0.15 * retau / 30.0) ** (j / 40.0),
+                          math.log(30.0 * (0.15 * retau / 30.0) ** (j / 40.0))
+                          / kappa + 5.0]
+                         for j in range(41)
+                     ]}
                 ]
             },
             {
