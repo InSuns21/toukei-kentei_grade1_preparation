@@ -6,17 +6,24 @@ prerequisites:
 forward_references: []
 concepts:
   - id: robotics.kalman-innovation
-    name: innovation と innovation 共分散
+    name: 観測 innovation
     kind: definition
+    aliases: ["innovation", "イノベーション"]
     introduction: formal
     introduction_aliases: ["定義（innovation と innovation 共分散）"]
     requires: [robotics.kalman-linear-prediction, robotics.linear-gaussian-position-observation]
+  - id: robotics.kalman-innovation-covariance
+    name: innovation 共分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（innovation と innovation 共分散）"]
+    requires: [robotics.kalman-innovation]
   - id: robotics.kalman-gain
-    name: Kalman gain と線形補正
+    name: Kalman gain
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（Kalman gain と線形補正）"]
-    requires: [robotics.kalman-innovation]
+    requires: [robotics.kalman-innovation-covariance]
   - id: robotics.kalman-measurement-update
     name: Kalman フィルタの Gaussian 観測更新
     kind: theorem
