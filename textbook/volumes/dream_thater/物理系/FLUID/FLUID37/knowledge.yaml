@@ -4,6 +4,9 @@ coverage: complete
 prerequisites:
   - FLUID36
   - CTM15
+  - F0-00P3
+  - STO1
+  - TSA5
 concepts:
   - id: fluid.reynolds-decomposition
     name: 集合平均・Reynolds分解・乱流運動エネルギー
