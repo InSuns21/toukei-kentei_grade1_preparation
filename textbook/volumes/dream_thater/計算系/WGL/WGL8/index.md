@@ -400,7 +400,19 @@ $$
 \end{aligned}
 $$
 
-また $\alpha_{BC}=\alpha_B+(1-\alpha_B)\alpha_C$ を $\alpha_A+(1-\alpha_A)\alpha_{BC}$ に代入して展開すると同じ式を得ます。[結合則](#prop-wgl8-associative)の証明を別の括り方から再構成できました。括り方を変えることとA・Bの上下順を入れ替えることは異なります。
+もう一方も $\alpha_{BC}=\alpha_B+(1-\alpha_B)\alpha_C$ を代入して
+
+$$
+\begin{aligned}
+\alpha_{A(BC)}
+&=\alpha_A+(1-\alpha_A)\{\alpha_B+(1-\alpha_B)\alpha_C\}\\
+&=\alpha_A+(1-\alpha_A)\alpha_B
+ +(1-\alpha_A)(1-\alpha_B)\alpha_C\\
+&=\alpha_{(AB)C}
+\end{aligned}
+$$
+
+と確かめられます。[結合則](#prop-wgl8-associative)の証明を別の括り方から再構成できました。括り方を変えることとA・Bの上下順を入れ替えることは異なります。
 <!-- solution-end -->
 
 <a id="ex-wgl8-b2"></a>
