@@ -1,0 +1,53 @@
+chapter: WGL9
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL8, F0-00A, F0-00E2, LA3B]
+concepts:
+  - id: graphics.vector-cross-product
+    name: 3次元のベクトル積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（3次元のベクトル積）"]
+    requires: [graphics.model-world-space, linear.inner-product]
+  - id: graphics.oriented-unit-normal
+    name: 向き付き単位法線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（向き付き単位法線）"]
+    requires: [graphics.front-face-culling, graphics.vector-cross-product]
+  - id: graphics.lambert-factor
+    name: Lambert拡散反射の照度因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lambert拡散反射の照度因子）"]
+    requires: [graphics.oriented-unit-normal]
+  - id: graphics.lambert-projected-area
+    name: Lambert余弦因子の面積投影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Lambert余弦因子の面積投影）"]
+    requires: [graphics.lambert-factor]
+  - id: graphics.normal-matrix
+    name: 法線行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（法線行列）"]
+    requires: [graphics.oriented-unit-normal, graphics.model-transform-matrix]
+  - id: graphics.inverse-transpose-normal
+    name: 可逆線形変換の法線変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（可逆線形変換の法線変換）"]
+    requires: [graphics.normal-matrix]
+  - id: graphics.blinn-phong
+    name: Blinn–Phongの半角ベクトルと鏡面項
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Blinn–Phongの半角ベクトルと鏡面項）"]
+    requires: [graphics.lambert-factor, graphics.inverse-transpose-normal]
+  - id: graphics.normal-interpolation-bounds
+    name: 補間した法線の長さと光量の上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（補間した法線の長さと光量の上界）"]
+    requires: [graphics.blinn-phong, graphics.perspective-correct-interpolation]

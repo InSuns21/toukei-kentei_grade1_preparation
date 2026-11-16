@@ -171,3 +171,6 @@ import './wgl6-lab.test.mjs';
 
 // WGL8: algebraic source-over, sRGB conversion and independent GPU-pixel oracle.
 import './wgl8-lab.test.mjs';
+
+// WGL9: CPU inverse-transpose, Lambert/Blinn-Phong, ray/mesh lesson contract.
+import './wgl9-lab.test.mjs';
