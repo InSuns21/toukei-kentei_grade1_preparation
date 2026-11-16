@@ -128,7 +128,16 @@ $$
 <!-- definition-example-start: def-u3-58-joint-default -->
 **定義の確認**：**直接例**：$p=0.1$、独立なら $q=p^2=0.01$ です。制約 $0\le0.01\le0.1$ を満たし、表は $(0.81,0.09,0.09,0.01)$。和は1で、A社のPDは $0.09+0.01=0.1$、B社も同じです。独立性を確認するには、$P(D_A=1,D_B=1)=0.01=0.1^2$ と4状態の積の形が一致することを見ます。反対に $q=0.1$ は両社が必ず同時に倒れる模型で、独立ではありません。
 
-各社の EAD を100万円、LGDを0.6に固定します。[一社の信用損失の定義](#def-u3-58-credit-parameters)をそれぞれの社に適用すると、状態 $\omega$ における損失は $L_A(\omega)=0.6\cdot100D_A(\omega)$、$L_B(\omega)=0.6\cdot100D_B(\omega)$ です。両社の未回収額を重複なく合計するので、
+各社の EAD を100万円、LGDを0.6に固定します。[一社の信用損失の定義](#def-u3-58-credit-parameters)をそれぞれの社に適用すると、状態 $\omega$ における損失は
+
+$
+\begin{aligned}
+L_A(\omega)&=0.6\cdot100D_A(\omega)=60D_A(\omega),\\
+L_B(\omega)&=0.6\cdot100D_B(\omega)=60D_B(\omega)
+\end{aligned}
+$
+
+です。両社の未回収額を重複なく合計するので、
 
 $
 L_{\mathrm{cr}}(\omega)=L_A(\omega)+L_B(\omega)
