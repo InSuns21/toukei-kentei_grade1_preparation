@@ -373,7 +373,13 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（quinticのambient量子微分系）**  
-> $X$ を滑らかなquintic三次元多様体とし、$\hbar$ を可逆とする。$s(t,Q)=a_0\,1+a_1H+a_2H^2+a_3H^3$ が因子方向の量子微分方程式
+> $X$ を滑らかなquintic三次元多様体とし、$\hbar$ を可逆とする。$V_{\mathrm{amb}}$ に値を取る切断を次のように展開する。
+
+$
+s(t,Q)=a_0\,1+a_1H+a_2H^2+a_3H^3.
+$
+
+> この切断が因子方向の量子微分方程式
 
 $$
 \hbar\partial_t s=H*_{tH,Q}s
