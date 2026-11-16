@@ -23,7 +23,7 @@ theorems:
   - { id: FLUID39-PROP-01, name: "乱流運動エネルギーの局所収支" }
   - { id: FLUID39-PROP-02, name: "Parsevalによるエネルギーと散逸の表示" }
   - { id: FLUID39-PROP-03, name: "非線形移送の総和はゼロ" }
-  - { id: FLUID39-PROP-04, name: "K41仮説の下での-5/3次元則" }
+  - { id: FLUID39-PROP-04, name: "K41仮説の下での慣性領域スペクトル次元則" }
 canonical_examples:
   - "平行剪断のReynolds共分散から生成率を直接計算し散逸の符号と区別"
   - "位相平均した発散ゼロ単一Fourierモードの殻エネルギーと散逸"
