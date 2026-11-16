@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="316" viewBox="0 0 760 316" data-layout-lint="strict" role="img" aria-labelledby="fluid38-title fluid38-desc">
+  <title id="fluid38-title">平均剪断と水平運動量の鉛直交換</title>
+  <desc id="fluid38-desc">上ほど水平方向の平均速度が大きい。速い流体塊が下へ移動すると水平変動は正で鉛直変動は負となる。遅い流体塊が上へ移動すると水平変動は負で鉛直変動は正となる。両者は負のu'v'を作る模式図。</desc>
+  <defs>
+    <marker id="axis-arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L6 3 L0 6 Z" fill="#344054"/></marker>
+    <marker id="fast-arr" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7 Z" fill="#9a3412"/></marker>
+    <marker id="slow-arr" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L7 3.5 L0 7 Z" fill="#1d4ed8"/></marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="314" rx="6" fill="#ffffff" stroke="#ccd5df"/>
+  <g stroke="#98a2b3" stroke-width="1.4" stroke-dasharray="6 5" fill="none">
+    <path d="M125 99 H725"/>
+    <path d="M125 224 H725"/>
+  </g>
+  <g stroke="#344054" stroke-width="2" fill="none" marker-end="url(#axis-arr)">
+    <path d="M82 273 V43"/>
+    <path d="M82 273 H197"/>
+  </g>
+  <g fill="#344054" font-size="17" font-family="sans-serif">
+    <text x="60" y="40">y</text>
+    <text x="201" y="278">x</text>
+  </g>
+  <g fill="none" stroke="#475467" stroke-width="3" marker-end="url(#axis-arr)">
+    <path d="M147 77 H391"/>
+    <path d="M147 202 H265"/>
+  </g>
+  <g fill="#344054" font-family="sans-serif" font-size="16">
+    <text x="408" y="83">U(high)</text>
+    <text x="280" y="207">U(low)</text>
+  </g>
+  <g data-series-group="momentum-exchange" data-series-label="fast-downward" stroke="#9a3412" stroke-width="4" fill="none" marker-end="url(#fast-arr)">
+    <path d="M526 108 V218"/>
+    <path d="M526 240 H653"/>
+  </g>
+  <g fill="#9a3412" font-size="17" font-family="sans-serif">
+    <text x="543" y="168">v' &lt; 0</text>
+    <text x="557" y="266">u' &gt; 0</text>
+  </g>
+  <g data-series-group="momentum-exchange" data-series-label="slow-upward" stroke="#1d4ed8" stroke-width="3.5" stroke-dasharray="10 6" fill="none" marker-end="url(#slow-arr)">
+    <path d="M350 232 V110"/>
+    <path d="M350 121 H247"/>
+  </g>
+  <g fill="#1d4ed8" font-size="17" font-family="sans-serif">
+    <text x="285" y="160">v' &gt; 0</text>
+    <text x="214" y="147">u' &lt; 0</text>
+  </g>
+</svg>
