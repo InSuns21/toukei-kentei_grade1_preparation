@@ -51,6 +51,10 @@ class ScheduleTests(unittest.TestCase):
                          (12, 36, 24, 18))
         self.assertEqual(compare(participation=Decimal("0.10"))
                          ["methods"]["POV"]["remaining"], 40)
+        # A high requested participation must update residual using actual
+        # capacity-constrained fills, not the uncapped hypothetical quota.
+        self.assertEqual(compare(participation=Decimal("0.40"))
+                         ["methods"]["POV"]["fills"], (16, 48, 32, 24))
 
     def test_zero_fills_and_invalid_data(self):
         row = cost_breakdown(120, (0, 0, 0, 0))
