@@ -105,7 +105,7 @@ def experiment(modes=6, seed=37, grid_size=128):
                              for lag, value in zip(shifts, theory_corr)]},
              ]},
             {"title": "One-sided power by Fourier mode (not continuous density)",
-             "x_label": "mode n [1]", "y_label": "one-sided S_n [m^2/s^2]",
+             "x_label": "mode n [1]", "y_label": "one-sided E_n [m^2/s^2]",
              "series": [
                  {"name": "DFT power",
                   "points": [[n, one_sided[n]] for n in range(0, min(16, n_grid // 2) + 1)]},
