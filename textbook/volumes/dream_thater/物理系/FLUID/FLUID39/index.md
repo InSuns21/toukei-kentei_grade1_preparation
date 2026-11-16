@@ -262,13 +262,13 @@ $\nu>0$ を掛けて平均すると有限周期箱での散逸式となる。帯
 
 ここからは **$U=0$ の周期・発散ゼロ場**を扱い、必要なら平均ゼロの外力 $\boldsymbol f$ [m/s$^2$] を Navier–Stokes 方程式の右辺に加える。$\boldsymbol f$ は指定されたエネルギー入力であり、その統計と速度との相関が存在するとする。第1節で扱った平均剪断の生成と、ここでの外力入力を混同しない。
 
-非線形移流 $\boldsymbol v\cdot\nabla\boldsymbol v$ は Fourier モードを掛け合わせるので、ある波数の係数だけでその波数の時間発展を閉じられない。しかし**全モードで足すと非線形項のエネルギー寄与はゼロ**になる。この事実を、尺度間の受け渡しの符号に利用する。
+非線形移流 $\boldsymbol v\cdot\nabla\boldsymbol v$ は Fourier モードを掛け合わせるので、ある波数の係数だけでその波数の時間発展を閉じられない。しかし**全モードで足すと非線形項のエネルギー寄与はゼロ**になる。この事実を、尺度間の受け渡しの符号に利用する。以下の $\widehat{(\boldsymbol v\cdot\nabla\boldsymbol v)}_{\boldsymbol n}$ と $\widehat{\boldsymbol f}_{\boldsymbol n}$ は、第2節と同じ空間積分でそれぞれ非線形項・外力を Fourier 展開した係数、$\operatorname{Re}$ は複素数の実部を表す。
 
 <a id="def-fluid39-spectral-flux"></a>
 
 <!-- formal-statement-start -->
 > **定義（波数別の非線形移送と前方フラックス）**  
-> 第3節の周期場で有限 Fourier 和が正当化されるとき、波数殻の非線形エネルギー移送密度 $T(\kappa)$ を、各 Fourier モードにおける
+> 第3節の周期場で Fourier 展開と平均が正当化されるとき、まず各 Fourier モードへの非線形エネルギー移送率 $T_{\boldsymbol n}$ を
 
 $$
 T_{\boldsymbol n}
@@ -277,13 +277,13 @@ T_{\boldsymbol n}
 \widehat{(\boldsymbol v\cdot\nabla\boldsymbol v)}_{\boldsymbol n}}
 $$
 
-> を殻ごとに合計したものとして定める。$\kappa$ 以下の低波数領域から高波数領域への正味の非線形移送率を、離散の場合
+> と定め、波数帯 $I$ の離散移送率は $T(I)=\sum_{\kappa_{\boldsymbol n}\in I}T_{\boldsymbol n}$ とする。これは殻当たりの総量であり、単位波数幅当たりの連続密度ではない。$\kappa$ 以下の低波数領域から高波数領域への正味の移送率を、離散の場合
 
 $$
 \Pi(\kappa)=-\sum_{\kappa_{\boldsymbol n}\le\kappa}T_{\boldsymbol n}
 $$
 
-> と定義する。連続的な移送密度が使える場合は $\Pi(\kappa)=-\int_0^\kappa T(q)\,dq$ とする。$\Pi>0$ は**低波数から高波数への正味の移送**を意味し、$\Pi$ の単位は m$^2$/s$^3$。
+> と定義する。連続波数の極限で帯域移送率が $T(I)\to\int_I T(q)\,dq$ と表せる場合にのみ、連続密度 $T(q)$ と $\Pi(\kappa)=-\int_0^\kappa T(q)\,dq$ を使う。$T_{\boldsymbol n}$ と $\Pi$ の単位は m$^2$/s$^3$、連続密度 $T$ の単位は m$^3$/s$^3$。$\Pi>0$ は**低波数から高波数への正味の移送**を意味する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid39-spectral-flux -->
@@ -300,7 +300,7 @@ $$
 \sum_{\boldsymbol n}T_{\boldsymbol n}=0.
 $$
 
-> 外力の殻入力 $F_{\boldsymbol n}=\operatorname{Re}\overline{\widehat{\boldsymbol v}_{\boldsymbol n}^{\,*}\cdot\widehat{\boldsymbol f}_{\boldsymbol n}}$ とすると、各殻をまとめたスペクトル収支は
+> 外力のモード入力 $F_{\boldsymbol n}=\operatorname{Re}\overline{\widehat{\boldsymbol v}_{\boldsymbol n}^{\,*}\cdot\widehat{\boldsymbol f}_{\boldsymbol n}}$ とする。さらに第2節の $E$、第3節の $T$、外力入力密度 $F$ が連続波数の極限で存在し、時間微分と極限を交換できる場合、スペクトル収支は
 
 $$
 \partial_t E(\kappa)
@@ -349,7 +349,16 @@ $$
 -\nu\kappa_{\boldsymbol n}^2\overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}.
 $$
 
-殻ごとに足し、定義した $E,T,F$ を用いると表示したスペクトル収支を得る。
+波数帯 $I$ に含まれるモードについて足すと、有限周期箱では
+
+$$
+\partial_t K(I)=T(I)+\sum_{\kappa_{\boldsymbol n}\in I}F_{\boldsymbol n}
+-2\nu\sum_{\kappa_{\boldsymbol n}\in I}
+\kappa_{\boldsymbol n}^2\frac12
+\overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}.
+$$
+
+次に第2節の $E$、本節の $T$ および $F$ が連続密度として存在し、時間微分・重み付き和と極限を交換できる場合に、これを各波数での密度の等式として書けば命題のスペクトル収支を得る。
 <!-- proof-end -->
 
 $\kappa$ 以下の積分に対しては
