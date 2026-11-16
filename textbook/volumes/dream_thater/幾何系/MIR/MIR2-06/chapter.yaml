@@ -1,0 +1,49 @@
+id: "MIR2-06"
+title: "量子接続と量子微分方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-04
+  - MIR2-05
+  - GW1-16
+  - GW1-17
+learning_objectives:
+  - 既習の三点GW相関と量子積から積作用素を基底像を使って行列化できる
+  - Dubrovin型量子接続・水平切断・量子微分方程式を定義しLeibniz則を確認できる
+  - 曲率の交換子を展開し積作用素の可換性と交差微分の対称性を区別できる
+  - ポテンシャルの四階微分とWDVV由来の結合律から多変数の平坦性を証明できる
+  - 射影直線の量子微分方程式を二階に消去し形式冪級数の漸化式を導ける
+  - 射影平面の量子微分方程式を三階に消去し形式解の初項を再計算できる
+  - quinticのambient量子積から因子方向の四成分系を導き古典極限を確認できる
+  - 因子方向の平坦性だけではB側周期との一致やミラー定理が出ない理由を説明できる
+definitions:
+  - { id: MIR2-06-DEF-01, name: "Dubrovin型量子接続" }
+  - { id: MIR2-06-DEF-02, name: "量子微分方程式と水平切断" }
+theorems:
+  - { id: MIR2-06-PROP-01, name: "量子接続の曲率公式" }
+  - { id: MIR2-06-THM-01, name: "ポテンシャルと結合律からの平坦性" }
+  - { id: MIR2-06-PROP-02, name: "射影直線の量子微分方程式" }
+  - { id: MIR2-06-PROP-03, name: "射影平面の三階量子微分方程式" }
+  - { id: MIR2-06-PROP-04, name: "quinticのambient量子微分系" }
+canonical_examples:
+  - 射影直線の基底像から二次元の積作用素を構成
+  - Leibniz則と水平切断の二成分比較
+  - 交換するが平坦でない可変結合代数の反例
+  - 射影直線の正則形式解と係数漸化式
+  - 射影平面の三階式と級数解
+  - quinticのQ=0での四成分水平切断
+problem_patterns:
+  - MIR2-06-MULTIPLICATION-MATRIX
+  - MIR2-06-LEIBNIZ
+  - MIR2-06-LOGARITHMIC-DERIVATIVE
+  - MIR2-06-P1-SERIES
+  - MIR2-06-CLASSICAL-LIMIT
+  - MIR2-06-CURVATURE-EXPANSION
+  - MIR2-06-P2-ELIMINATION
+  - MIR2-06-POTENTIAL-FLATNESS
+  - MIR2-06-QUINTIC-CLASSICAL-SECTION
+  - MIR2-06-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 5 }
