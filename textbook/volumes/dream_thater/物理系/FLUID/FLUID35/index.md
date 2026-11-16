@@ -245,9 +245,9 @@ $$
 
 固定温度の両板では $\theta=0$ とする。まず計算可能な**自由滑り（接線方向の粘性応力零）・不透過**の境界条件を採用する。水平擾乱波数 $k_h>0$ の正規モードについて、$w=0$ と $\partial_z^2w=0$ を両壁で要求する。後者は非圧縮条件 $\partial_xu+\partial_zw=0$ と接線応力条件 $\partial_zu+\partial_xw=0$ から導く。壁上で全ての $x$ に対し $w=0$ なので $\partial_xw=0$ であり、接線応力条件は $\partial_zu=0$ となる。さらに非圧縮条件を $z$ で微分すると
 
-$
+$$
 \partial_x\partial_zu+\partial_z^2w=0.
-$
+$$
 
 壁上で $\partial_zu=0$ が全ての $x$ に対して成り立つため $\partial_x\partial_zu=0$、従って $\partial_z^2w=0$ である。**無滑り壁**の $u=w=0$ とは異なる。
 
@@ -450,30 +450,30 @@ $$
 
 定常中立（$s=0$）では、前節の**定数の振幅 $W,\Theta$ とは区別して**、高さに依存する鉛直速度振幅 $\mathcal W(z)$ と温度振幅 $\mathcal T(z)$ を
 
-$
+$$
 w(x,z,t)=\operatorname{Re}\{\mathcal W(z)e^{ik_hx}\},\qquad
 \theta(x,z,t)=\operatorname{Re}\{\mathcal T(z)e^{ik_hx}\}
-$
+$$
 
 と置く。$D_z=d/dz$ は $z$ だけを動かす常微分であり、$L=D_z^2-k_h^2$ と書く。圧力消去式と温度式（第3.1節）へ代入すると、$\partial_x^2\mapsto-k_h^2$ なので
 
-$
+$$
 -\nu L^2\mathcal W=-g\alpha k_h^2\mathcal T,
 \qquad -\beta\mathcal W=\kappa L\mathcal T.
-$
+$$
 
 $g,\alpha,k_h>0$ であるから第1式より $\mathcal T=\nu L^2\mathcal W/(g\alpha k_h^2)$ と解ける。これを第2式へ代入して両辺へ $g\alpha k_h^2/(\nu\kappa)$ を掛けると
 
-$
+$$
 \boxed{\left(D_z^2-k_h^2\right)^3\mathcal W
 =-\frac{g\alpha\beta}{\nu\kappa}k_h^2\mathcal W.}
-$
+$$
 
 上下の**無滑り・固定温度**壁では $w=0$ より $\mathcal W=0$、水平速度 $u=0$ と非圧縮条件 $ik_hu+D_z\mathcal W=0$ より $D_z\mathcal W=0$。さらに固定温度 $\mathcal T=0$ は上の第1式を介して $L^2\mathcal W=0$ と同値になる。すなわち両壁で
 
-$
+$$
 \mathcal W=D_z\mathcal W=(D_z^2-k_h^2)^2\mathcal W=0.
-$
+$$
 
 これは先ほどの正弦関数を代入するだけでは解けない、別の六階境界値・固有値問題である。
 
