@@ -6,7 +6,11 @@
 
 ## 0. どの流れを平均するか
 
-空間は三次元の周期領域または十分滑らかな領域、流体は一定の密度 $\rho>0$ [kg/m$^3$]、一定の動粘度 $\nu>0$ [m$^2$/s] を持つ非圧縮 Newton 流体とする。各実現 $\omega$ の速度 $u_i(\boldsymbol x,t,\omega)$ [m/s]、圧力 $p(\boldsymbol x,t,\omega)$ [Pa] は、[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすものとする。添字 $i,j,k\in\{1,2,3\}$ は座標成分を表し、繰り返した添字は三成分について和を取る。
+空間は三次元の周期領域または十分滑らかな領域とする。流体の密度は一定で $\rho>0$ [kg/m$^3$]、動粘度は一定で $\nu>0$ [m$^2$/s] とする。
+
+各実現 $\omega$ の速度成分 $u_i(\boldsymbol x,t,\omega)$ [m/s] と圧力 $p(\boldsymbol x,t,\omega)$ [Pa] は、[非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすものとする。
+
+添字 $i,j,k\in\{1,2,3\}$ は座標成分を表す。繰り返した添字は三成分について和を取る。
 
 $$
 \partial_t u_i+u_j\partial_j u_i
@@ -47,7 +51,7 @@ R=\begin{pmatrix}4&-2&0\\-2&1&0\\0&0&0\end{pmatrix}
 \tau^R_{12}=-\rho R_{12}=\rho(2\ {\rm m^2/s^2})
 $$
 
-となる（例えば $\rho=1000$ kg/m$^3$ なら $\tau^R_{12}=2000$ Pa）。対角成分は変動の分散で非負、交差成分は負でもよい。[変動エネルギーの定義](../FLUID37/index.md#def-fluid37-reynolds-decomposition)から $k=\tfrac12\operatorname{tr}R=(4+1)/2=2.5$ m$^2$/s$^2$ である。
+となる（例えば $\rho=1000$ kg/m$^3$ なら $\tau^R_{12}=2000$ Pa）。対角成分は変動の分散で非負、交差成分は負でもよい。[集合平均・Reynolds分解・乱流運動エネルギー](../FLUID37/index.md#def-fluid37-reynolds-decomposition)から $k=\tfrac12\operatorname{tr}R=(4+1)/2=2.5$ m$^2$/s$^2$ である。
 <!-- definition-example-end -->
 
 共分散行列が単なる任意の対称行列ではないことは、閉鎖モデルを判定するときに重要になる。
@@ -406,7 +410,7 @@ $$
 速度勾配を $-2$ s$^{-1}$ に反転すれば $\nu_t=0.045$ は変わらず、$-\overline{u'v'}^{\,\rm model}=-0.090$ となる。$|G|G$ の絶対値を取り忘れるとこの符号反転を再現できない。
 <!-- definition-example-end -->
 
-**モデルの停止条件**：$\ell_m$ をどう選ぶかは平均方程式では決まらない。壁・圧力勾配・遷移・剥離・回転・成層の効果もこの局所関係だけでは予測できない。特に $G=0$ ならこの模型は必ず $R_{12}^{\rm model}=0$ とするが、瞬時の変動から得られる相関が常にゼロになるわけではない。これは模型が失った情報である。
+**この模型が使えない場面**：$\ell_m$ をどう選ぶかは平均方程式では決まらない。壁・圧力勾配・遷移・剥離・回転・成層の効果もこの局所関係だけでは予測できない。特に $G=0$ ならこの模型は必ず $R_{12}^{\rm model}=0$ とするが、瞬時の変動から得られる相関が常にゼロになるわけではない。これは模型が失った情報である。
 
 ### 共分散として実現可能か
 
