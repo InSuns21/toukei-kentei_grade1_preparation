@@ -156,3 +156,6 @@ test('WGL source editor keeps all textarea IDs and loads a local syntax-highligh
 
 // WGL4: 独立CPU基準・実ソース・共通ラボの追加検証。
 import './wgl4-lab.test.mjs';
+
+// WGL5: camera/projection/depth source and CPU oracle.
+import './wgl5-lab.test.mjs';

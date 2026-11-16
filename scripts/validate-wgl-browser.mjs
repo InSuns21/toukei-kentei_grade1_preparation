@@ -224,6 +224,60 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL3 shader compile and sandbox disposal: PASS');
 
+
+  // WGL5: depth test, projection matrices and readPixels verified on actual GPU driver.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL5'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("depthEnabled=true")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  const wgl5=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl5.rows.length,4);
+  assert.ok(wgl5.rows.every(row=>row[4]==='OK'));
+  const closeRgba = (value,expected) => {
+    const rgba=value.split(',').map(x=>Number(x.trim()));
+    return rgba.length===4 && rgba.every((x,i)=>Number.isInteger(x)&&Math.abs(x-expected[i])<=1);
+  };
+  assert.ok(closeRgba(wgl5.rows[0][2],[230,77,51,255]));
+  assert.ok(closeRgba(wgl5.rows[1][2],[51,153,230,255]));
+  assert.ok(closeRgba(wgl5.rows[2][2],[0,0,0,255]));
+  assert.equal(wgl5.sandbox,'allow-scripts');
+  assert.match(wgl5.log,/depthBits=\d+/);
+  const shot5=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl5-initial.png',Buffer.from(shot5.data,'base64'));
+  console.log('WGL5 real shader/camera/projection and four independent CPU pixel probes: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const depthEnabled=true','const depthEnabled=false');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const noDepth=await evalJS('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent');
+  assert.ok(closeRgba(noDepth,[51,153,230,255]));
+  console.log('WGL5 disabling depth makes far cube overwrite near cube: PASS');
+
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace(\"const projectionMode='perspective'\",\"const projectionMode='orthographic'\");})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/projection=orthographic/);
+  console.log('WGL5 orthographic projection switch executes in GPU: PASS');
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const nearPlane=1, farPlane=9','const nearPlane=1, farPlane=3');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const clipped=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.ok(closeRgba(clipped[0],[230,77,51,255]));
+  assert.ok(closeRgba(clipped[1],[0,0,0,255]));
+  console.log('WGL5 far=3 clips entire farther cube but retains nearer cube: PASS');
+  await click('reset');
+
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL5 shader failure and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}

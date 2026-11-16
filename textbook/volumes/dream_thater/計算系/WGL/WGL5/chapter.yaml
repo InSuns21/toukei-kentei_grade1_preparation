@@ -1,0 +1,31 @@
+id: WGL5
+title: 視点と投影はどう画素を決める？
+volume: foundations
+status: supplementary
+prerequisites: [WGL4]
+official_scope: []
+learning_objectives:
+  - 世界座標からカメラ基底を構成し、視点行列を列優先で実装できる
+  - クリップ領域と透視除算を区別し、viewportで画素中心へ対応できる
+  - 直交投影と透視投影を構成し、near/farでのNDC端点を導出できる
+  - 深度値の距離に関する単調性とz-fightingの精度条件を証明できる
+  - 二つの立方体の前後関係をCPU射線とWebGL2 readPixelsで独立検算できる
+  - JavaScriptおよびvertex/fragment GLSLを編集して投影とdepth状態の差を実行できる
+definitions:
+  - { id: WGL5-DEF-01, name: 視点変換とカメラ座標 }
+  - { id: WGL5-DEF-02, name: クリップ座標・正規化デバイス座標 }
+  - { id: WGL5-DEF-03, name: 直交投影 }
+  - { id: WGL5-DEF-04, name: 透視投影 }
+  - { id: WGL5-DEF-05, name: 深度値と深度テスト }
+theorems:
+  - { id: WGL5-PROP-01, name: 透視投影のNDCとnear/far }
+  - { id: WGL5-PROP-02, name: 透視深度の単調性 }
+canonical_examples:
+  - 標準視点からカメラ座標とNDCを実際に計算する
+  - near/farのNDC端点と距離2.5、3.5の深度を手計算する
+  - 手前と奥の立方体を描きCPU独立射線とRGBA8画素を照合する
+problem_patterns: [WGL5-VIEW, WGL5-CLIP, WGL5-PROJECTION, WGL5-DEPTH, WGL5-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 1 }
