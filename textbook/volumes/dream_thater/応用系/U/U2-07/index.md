@@ -150,7 +150,15 @@ $$
 \delta_{\rm rot2}=\operatorname{wrap}(\delta_\theta-\delta_{\rm rot1})
 $$
 >
-> と定める。$\delta_B=0$ なら方向は定義されないため、規約として $\delta_{\rm trans}=0,\delta_{\rm rot1}=0,\delta_{\rm rot2}=\operatorname{wrap}(\delta_\theta)$ とする。初期姿勢 $(x,y,\theta)$ からの予測は
+> と定める。相対並進が $\delta_B=0$ なら方向は定義されない。この場合は次の規約を採用する。
+>
+$
+\delta_{\rm trans}=0,\qquad
+\delta_{\rm rot1}=0,\qquad
+\delta_{\rm rot2}=\operatorname{wrap}(\delta_\theta).
+$
+>
+> 初期姿勢 $(x,y,\theta)$ からの予測は
 >
 $$
 \begin{aligned}
@@ -179,7 +187,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（車体座標での並進雑音）**  
-> 初期姿勢の向きが $\theta$ の平面ロボットについて、車体座標の相対並進誤差 $\eta_B\in\mathbb R^2$ が $E[\eta_B]=0$、$\operatorname{Cov}(\eta_B)=\Sigma_B$ を満たすとする。$\Sigma_B$ は $2\times2$ の対称半正定値行列（単位 m²）とする。世界座標での並進誤差を $\eta_W=R(\theta)\eta_B$ と定義する。
+> 初期姿勢の向きが $\theta$ の平面ロボットを考える。車体座標の相対並進誤差を $\eta_B\in\mathbb R^2$ とし、平均と共分散は
+>
+$
+E[\eta_B]=0,\qquad \operatorname{Cov}(\eta_B)=\Sigma_B
+$
+>
+> を満たすとする。$\Sigma_B$ は車体の長さの単位 m を用いた $2\times2$ の対称半正定値行列（単位 m²）である。世界座標での並進誤差を
+>
+$
+\eta_W=R(\theta)\eta_B
+$
+>
+> と定義する。
 <!-- formal-statement-end -->
 
 <a id="prop-u2-07-noise-rotation"></a>
