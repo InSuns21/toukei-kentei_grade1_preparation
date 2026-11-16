@@ -257,6 +257,14 @@ try{
   assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/projection=orthographic/);
   console.log('WGL5 orthographic projection switch executes in GPU: PASS');
   await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const nearPlane=1, farPlane=9','const nearPlane=1, farPlane=3');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const clipped=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.match(clipped[0],/230, 77, 51, 255/);
+  assert.match(clipped[1],/0, 0, 0, 255/);
+  console.log('WGL5 far=3 clips entire farther cube but retains nearer cube: PASS');
+  await click('reset');
 
   await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
   await click('run');
