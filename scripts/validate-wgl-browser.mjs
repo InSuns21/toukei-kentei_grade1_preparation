@@ -238,7 +238,7 @@ try{
   assert.match(wgl5.rows[1][2],/51, 153, 230, 255/);
   assert.match(wgl5.rows[2][2],/0, 0, 0, 255/);
   assert.equal(wgl5.sandbox,'allow-scripts');
-  assert.match(wgl5.log,/depthBits=\\d+/);
+  assert.match(wgl5.log,/depthBits=\d+/);
   const shot5=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl5-initial.png',Buffer.from(shot5.data,'base64'));
   console.log('WGL5 real shader/camera/projection and four independent CPU pixel probes: PASS');
