@@ -10,11 +10,8 @@
 
 3成分ベクトルの記号について、$v\cdot w=v_xw_x+v_yw_y+v_zw_z$、$\|v\|=\sqrt{v\cdot v}$ と定め、また
 
-$
-v\times w=(v_yw_z-v_zw_y,\ v_zw_x-v_xw_z,\ v_xw_y-v_yw_x)
-$
 
-と表します。この式の右辺を展開すると $(v\times w)\cdot v=0$ と $(v\times w)\cdot w=0$ が確認できます。
+また $v\times w$ は3成分 $(v_yw_z-v_zw_y,\ v_zw_x-v_xw_z,\ v_xw_y-v_yw_x)$ を表す記号と定めます。この式の右辺を展開すると $(v\times w)\cdot v=0$ と $(v\times w)\cdot w=0$ が確認できます。
 
 カメラ前方の単位方向を $g=(T-E)/\|T-E\|$ とし、右向き $r=(g\times q)/\|g\times q\|$、後ろ向き $b=-g$、上向き $u=b\times r$ を作ります。$g$ と $q$ が平行でないので分母は正です。$r,u,b$ は互いに垂直で長さ1です。これを「正規直交3軸」と呼びます。
 
