@@ -6,7 +6,7 @@
 
 ## 0. 観測量と平均の対象を固定する
 
-位置 $\boldsymbol x\in\mathbb R^3$ [m]、時刻 $t\in\mathbb R$ [s]、実現を表す $\omega\in\Omega$ を用い、速度 $\boldsymbol u(\boldsymbol x,t,\omega)\in\mathbb R^3$ [m/s] を確率場とする。$\mathbb E$ は、[期待値](../../F0/F0-00P2A/index.md#def-f0-00p2a-expectation)として**位置・時刻を固定して**実現 $\omega$ の分布について取る集合平均（ensemble mean）である。必要な各成分は可測、二乗可積分とし、確率的な二次量が有限になると仮定する。$\mathbb E$ が時間平均や空間平均を指すわけではない。
+位置 $\boldsymbol x\in\mathbb R^3$ [m]、時刻 $t\in\mathbb R$ [s]、実現を表す $\omega\in\Omega$ を用い、速度 $\boldsymbol u(\boldsymbol x,t,\omega)\in\mathbb R^3$ [m/s] を確率場とする。$\mathbb E$ は、[期待値](../../../解析系/F0/F0-00P2A/index.md#def-f0-00p2a-expectation)として**位置・時刻を固定して**実現 $\omega$ の分布について取る集合平均（ensemble mean）である。必要な各成分は可測、二乗可積分とし、確率的な二次量が有限になると仮定する。$\mathbb E$ が時間平均や空間平均を指すわけではない。
 
 [非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)の一定密度の速度を主な動機とするが、本講の平均恒等式は方程式を解かなくても成り立つ。速度場が発散ゼロかどうかも統計量の**定義**の必要条件ではない。成長率や流れの機構に関する[FLUID36 の擾乱エネルギー収支](../FLUID36/index.md#prop-fluid36-energy)と、以下の統計的分散は同じ対象を異なる問いで見るものである。
 
@@ -74,7 +74,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（二点共分散テンソルと相関係数）**  
-> 二次モーメントが有限な速度確率場に対して、二点の[共分散](../../F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)を
+> 二次モーメントが有限な速度確率場に対して、二点の[共分散](../../../解析系/F0/F0-00P3/index.md#def-f0-00p3-covariance-uncorrelated)を
 
 $$
 R_{ij}(\boldsymbol x,\boldsymbol y;t,s)
@@ -181,7 +181,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（時間エルゴード性と平均の一致）**  
-> 固定位置での[確率過程](../../STO/STO1/index.md#def-sto1-stochastic-process) $X(t)$ が厳密定常であるとする。[エルゴード性の定義](../../TSA/TSA5/index.md#def-tsa5-ergodicity)の連続時間版として、経路を時刻 $s$ だけ平行移動する操作を $(\theta_sX)(t)=X(t+s)$ と書く。この過程が時間エルゴード的であるとは、経路に依存する**全ての可積分な観測量** $F$ について、時間平均が存在し、
+> 固定位置での[確率過程](../../../解析系/STO/STO1/index.md#def-sto1-stochastic-process) $X(t)$ が厳密定常であるとする。[エルゴード性の定義](../../../解析系/TSA/TSA5/index.md#def-tsa5-ergodicity)の連続時間版として、経路を時刻 $s$ だけ平行移動する操作を $(\theta_sX)(t)=X(t+s)$ と書く。この過程が時間エルゴード的であるとは、経路に依存する**全ての可積分な観測量** $F$ について、時間平均が存在し、
 
 $
 \lim_{T\to\infty}\frac1T\int_0^T F(\theta_sX)\,ds
