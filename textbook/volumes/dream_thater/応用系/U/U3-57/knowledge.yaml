@@ -1,0 +1,41 @@
+chapter: U3-57
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-56]
+concepts:
+  - id: finance.es-hedge-objective
+    name: 有限状態の ES ヘッジ目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の ES ヘッジ目的関数）"]
+    requires: [finance.holdings-linear-loss, finance.expected-shortfall]
+  - id: finance.es-hedge-ru
+    name: 有限状態 ES の正の部分による最小化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限状態 ES の正の部分による最小化）"]
+    requires: [finance.es-variational, finance.es-hedge-objective]
+  - id: finance.es-hedge-lp
+    name: ES ヘッジの線形計画表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ES ヘッジの線形計画表示）"]
+    requires: [finance.es-hedge-ru]
+  - id: finance.es-hedge-lp-convex
+    name: 線形計画と ES ヘッジの同値性・凸性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形計画と ES ヘッジの同値性・凸性）"]
+    requires: [finance.es-hedge-lp, finance.es-dual]
+  - id: finance.es-hedge-piecewise
+    name: 4状態例の ES と費用込み目的の区分式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（4状態例の ES と費用込み目的の区分式）"]
+    requires: [finance.es-hedge-objective, finance.es-hedge-lp-convex]
+  - id: finance.es-hedge-certificate
+    name: 尾部重みによるヘッジ最適性の証明書
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（尾部重みによるヘッジ最適性の証明書）"]
+    requires: [finance.es-tail-weights, finance.es-hedge-objective]
