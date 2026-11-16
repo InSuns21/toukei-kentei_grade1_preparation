@@ -1,0 +1,47 @@
+id: "FLUID40"
+title: "壁乱流の速度分布をどう整理するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID38
+  - FLUID21
+official_scope: []
+learning_objectives:
+  - "滑面・非圧縮定常平行流の条件から壁面摩擦応力、摩擦速度、粘性長さ、y+・U+・Re_tauを定義して単位を確認する"
+  - "平面水路のReynolds平均運動量方程式から粘性・乱流剪断応力の和が線形分布する厳密式を導き、流束との符号を区別する"
+  - "壁でのno-slipと滑らかさからU+=y++o(y+)を証明し、粘性底層の経験的な有限幅と区別する"
+  - "混合長・一定全剪断・乱流応力優勢という仮定の下で対数勾配を導き、定数と成立範囲が経験的であることを説明する"
+  - "内層・外層の変数と重なり領域の欠陥則を導出し、中心線への対数則延長が破綻する理由を確認する"
+  - "粗面・圧力勾配・有限摩擦Reynolds数による制約を、圧力駆動水路と混同せずに整理する"
+  - "ブラウザPythonで指定した減衰混合長の合成平均速度を積分し、全剪断残差と刻み幅誤差を検証する"
+definitions:
+  - { id: FLUID40-DEF-01, name: "摩擦速度と壁単位" }
+  - { id: FLUID40-DEF-02, name: "粘性・乱流・全剪断応力" }
+  - { id: FLUID40-DEF-03, name: "内層表示と外層速度欠陥" }
+  - { id: FLUID40-DEF-04, name: "壁減衰付き混合長の合成模型" }
+theorems:
+  - { id: FLUID40-PROP-01, name: "平面水路の全剪断応力は壁から線形に減る" }
+  - { id: FLUID40-PROP-02, name: "滑面壁での粘性漸近則" }
+  - { id: FLUID40-PROP-03, name: "混合長仮説からの条件付き対数則" }
+  - { id: FLUID40-PROP-04, name: "内外の重なりによる速度欠陥表示" }
+  - { id: FLUID40-PROP-05, name: "合成模型の勾配と全剪断残差" }
+canonical_examples:
+  - "水の粘性・壁面剪断からu_tau、粘性長さ、y+、Re_tauを算出"
+  - "Re_tau=1000で壁と中心線における全剪断の粘性・乱流分担を照合"
+  - "混合長による勾配u_tau/(kappa*y)を積分し、対数則の積分定数は理論から決まらないことを確認"
+  - "同一y/hでもRe_tauの異なる試料のy+を比較"
+  - "ブラウザPythonで指定した滑面合成模型と経験的な対数参照線の違いを可視化"
+problem_patterns:
+  - FLUID40-WALL-UNITS
+  - FLUID40-SHEAR-SIGNS
+  - FLUID40-CHANNEL-TOTAL-STRESS
+  - FLUID40-WALL-TAYLOR
+  - FLUID40-MATCHED-COORDINATES
+  - FLUID40-LOG-LAW-CONDITIONS
+  - FLUID40-ROUGHNESS-SHIFT
+  - FLUID40-PRESSURE-GRADIENT-SCOPE
+  - FLUID40-SYNTHETIC-CLOSURE-RESIDUAL
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }

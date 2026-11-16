@@ -40,3 +40,5 @@
 37. [FLUID37 乱流をどんな統計量で定義するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID37/index.md)
 38. [FLUID38 Reynolds応力はなぜ閉じないか](textbook/volumes/dream_thater/物理系/FLUID/FLUID38/index.md)
 39. [FLUID39 乱流のエネルギーは尺度間をどう移るか](textbook/volumes/dream_thater/物理系/FLUID/FLUID39/index.md)
+
+40. [FLUID40 壁乱流の速度分布をどう整理するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID40/index.md)
