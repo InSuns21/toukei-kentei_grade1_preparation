@@ -520,7 +520,7 @@ $$
 \frac{U^+}{y^+}=\frac{\nu}{u_\tau^2}\frac{U(y)-U(0)}y.
 $$
 
-右辺の商は $y\downarrow0$ で $U'(0)$ へ収束する。従って極限は $\nu U'(0)/u_\tau^2=1$。[$壁の粘性漸近則](#prop-fluid40-viscous-asymptote)は $y^+\to0$ の主張なので、有限の $y^+=5$ における等号までは言えない。
+右辺の商は $y\downarrow0$ で $U'(0)$ へ収束する。従って極限は $\nu U'(0)/u_\tau^2=1$。[壁の粘性漸近則](#prop-fluid40-viscous-asymptote)は $y^+\to0$ の主張なので、有限の $y^+=5$ における等号までは言えない。
 <!-- solution-end -->
 
 #### A4. 内外の位置座標の換算
