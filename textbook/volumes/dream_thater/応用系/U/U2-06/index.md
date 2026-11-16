@@ -226,7 +226,7 @@ $$
 
 よって得られた式は $C$ から $A$ への[剛体変換の定義](#def-u2-06-rigid-transform)そのものであり、位置が $t_{AC}$、向きが $\theta_{AC}$ です。ここで $R_{AB}=R(\theta_{AB})$、$R_{BC}=R(\theta_{BC})$ と略記すると、同次行列ではブロック行列積
 
-$
+$$
 \begin{pmatrix}R_{AB}&t_{AB}\\0_{1\times2}&1\end{pmatrix}
 \begin{pmatrix}R_{BC}&t_{BC}\\0_{1\times2}&1\end{pmatrix}
 =
