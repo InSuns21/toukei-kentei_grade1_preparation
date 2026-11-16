@@ -422,7 +422,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid40-damped-model -->
-**定義の確認**：壁では $L(0)=0$、右辺が 1 なので $S(0)=1$、模型の共分散はゼロ。中心では右辺が 0 なので非負の解は $S(Re_\tau)=0$、模型の共分散もゼロとなる。壁の [粘性漸近勾配](#prop-fluid40-viscous-asymptote)と中心対称性の両条件を直接確認した。$L$ は無次元の混合長で、実寸の $\ell_m$ との関係は $\ell_m=(\nu/u_\tau)L$ である。
+**定義の確認**：$0<y^+<Re_\tau$ では $L>0$、$T=1-y^+/Re_\tau\in(0,1)$ である。$f(S)=S+L^2S^2$ は $S\ge0$ で狭義単調増加し、$f(0)=0<T\le f(T)$ だから、$f(S)=T$ を満たす非負の勾配は $0<S\le T$ に一意に存在し、模型乱流剪断 $L^2S^2$ も非負となる。壁では $L(0)=0$、右辺が 1 なので $S(0)=1$、模型の共分散はゼロ。中心では右辺が 0 なので非負の解は $S(Re_\tau)=0$、模型の共分散もゼロとなる。壁の [粘性漸近勾配](#prop-fluid40-viscous-asymptote)と中心対称性の両条件を直接確認した。$L$ は無次元の混合長で、実寸の $\ell_m$ との関係は $\ell_m=(\nu/u_\tau)L$ である。
 <!-- definition-example-end -->
 
 <a id="prop-fluid40-model-gradient"></a>
