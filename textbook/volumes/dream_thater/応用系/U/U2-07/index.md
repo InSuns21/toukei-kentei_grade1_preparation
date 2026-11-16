@@ -235,7 +235,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-u2-07-body-noise -->
-**定義の確認**（命題の計算も同時に検査）：：車体前後の分散 $0.09$ m²、左右の分散 $0.01$ m²、共分散0なら $\Sigma_B=\operatorname{diag}(0.09,0.01)$ m² で対称半正定値です。向き $\theta=\pi/2$ では
+**定義の確認**（命題の計算も同時に検査）：車体前後の分散 $0.09$ m²、左右の分散 $0.01$ m²、共分散0なら $\Sigma_B=\operatorname{diag}(0.09,0.01)$ m² で対称半正定値です。向き $\theta=\pi/2$ では
 $$
 R=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
 R\Sigma_BR^T=
