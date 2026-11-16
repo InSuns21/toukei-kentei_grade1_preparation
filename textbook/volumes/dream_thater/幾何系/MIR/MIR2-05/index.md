@@ -76,7 +76,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（種数0ポテンシャルの指数表示）**  
-> 上の滑らかなquinticと一次GW不変量について、因子方向の種数0ポテンシャルは $\mathbb Q[[Q,t]]$ で
+> $X\subset\mathbb P^4_{\mathbb C}$ を滑らかな五次超曲面、$H=c_1(\mathcal O_X(1))$、$Q,t$ を独立な形式変数とし、$N_d^X$（$d\ge1$）を無標点種数0仮想GW数とする。[因子方向の種数0ポテンシャル](#def-mir2-05-potential) $\mathcal F_0^X(t,Q)$ は、$e^{dt}=\sum_{n\ge0}(dt)^n/n!$ と書くと $\mathbb Q[[Q,t]]$ で
 
 $$
 \boxed{\mathcal F_0^X(t,Q)=\frac56t^3+\sum_{d\ge1}N_d^XQ^de^{dt}}
@@ -157,7 +157,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（A側三次結合と三点関数）**  
-> 上記の $X,H,Q,t$ のもとで次の等式が $\mathbb Q[[Q,t]]$ で成り立つ。
+> $X\subset\mathbb P^4_{\mathbb C}$ を滑らかな五次超曲面、$H=c_1(\mathcal O_X(1))$、$Q,t$ を独立な形式変数とする。$N_d^X$ を正次数の無標点種数0仮想GW数、$Y_A^X$ を[因子方向のA側Yukawa結合](#def-mir2-05-a-yukawa)とする。このとき次の等式が $\mathbb Q[[Q,t]]$ で成り立つ。
 
 $$
 Y_A^X(t,Q)
@@ -236,7 +236,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（量子積とのPoincaréペアリング）**  
-> 滑らかなquintic $X$ に対し、$H=c_1(\mathcal O_X(1))$、$t,Q$ を形式変数とする。Poincaréペアリング $\eta(u,v)=\int_Xu\smile v$ を $\mathbb Q[[Q,t]]$-双線形に延長すると
+> 滑らかなquintic $X\subset\mathbb P^4_{\mathbb C}$ に対し、$H=c_1(\mathcal O_X(1))$、$t,Q$ を独立な形式変数とする。[A側Yukawa結合](#def-mir2-05-a-yukawa)を $Y_A^X$、正次数の無標点種数0仮想GW数を $N_d^X$ とし、$A(x):=1+\frac15\sum_{d\ge1}d^3N_d^Xx^d$ と置く。Poincaréペアリング $\eta(u,v)=\int_Xu\smile v$ を $\mathbb Q[[Q,t]]$-双線形に延長すると
 
 $$
 \boxed{Y_A^X(t,Q)=\eta(H*_{tH,Q}H,H)=5A(Qe^t)}
