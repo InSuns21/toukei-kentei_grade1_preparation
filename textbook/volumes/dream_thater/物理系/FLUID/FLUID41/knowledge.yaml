@@ -1,12 +1,16 @@
 chapter: FLUID41
 scope: dream-theater
 coverage: complete
+forward_references:
+  - nonlinear-pde.shock-wave
 prerequisites:
   - CTM5
   - CTM7
   - CTM9
   - CTM10
   - FLUID6
+  - FLUID7
+  - TH1
 concepts:
   - id: fluid.compressible-conserved-state
     name: 圧縮性流れの保存変数と全エネルギー
@@ -32,10 +36,10 @@ concepts:
     introduction_aliases: ["命題（滑らかな理想気体の等エントロピー関係）"]
     requires: [fluid.ideal-gas-closure, fluid.compressible-euler]
   - id: fluid.isentropic-sound-speed
-    name: 等エントロピー音速とMach数
+    name: 等エントロピー音速
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（等エントロピー音速とMach数）"]
+    introduction_aliases: ["定義（等エントロピー音速）"]
     requires: [fluid.isentropic-relation]
   - id: fluid.linear-acoustic-perturbation
     name: 線形音響摂動と音響エネルギー

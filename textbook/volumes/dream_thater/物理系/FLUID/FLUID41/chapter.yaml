@@ -8,6 +8,8 @@ prerequisites:
   - CTM9
   - CTM10
   - FLUID6
+  - FLUID7
+  - TH1
 official_scope: []
 learning_objectives:
   - "密度を未知量とする圧縮性Eulerの質量・運動量・全エネルギー保存形とフラックスを、既習の連続体収支から導く"
@@ -18,7 +20,7 @@ learning_objectives:
 definitions:
   - { id: FLUID41-DEF-01, name: "圧縮性流れの保存変数と全エネルギー" }
   - { id: FLUID41-DEF-02, name: "理想気体の熱的・熱量的閉鎖" }
-  - { id: FLUID41-DEF-03, name: "等エントロピー音速とMach数" }
+  - { id: FLUID41-DEF-03, name: "等エントロピー音速" }
   - { id: FLUID41-DEF-04, name: "線形音響摂動と音響エネルギー" }
 theorems:
   - { id: FLUID41-THM-01, name: "圧縮性Euler方程式の保存形" }
