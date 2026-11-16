@@ -24,12 +24,12 @@ $$
 
 であり、$P=\lambda_A A+\lambda_B B+\lambda_C C$、$\lambda_A+\lambda_B+\lambda_C=1$ を満たします。[WGL1のviewport座標対応](../WGL1/index.md#prop-wgl1-viewport-map)による写像を、左下 $(x_0,y_0)$、幅・高さ $V_w,V_h>0$ のviewportに対して $T$ と書きます。$X_A=A,X_B=B,X_C=C$ とし、$P=\sum_i\lambda_iX_i$、$\sum_i\lambda_i=1$ を横成分へ代入すると、定数項は $\sum_i\lambda_i x_0=x_0$ となるので
 
-$
+$$
 \begin{aligned}
 T(x,y)&=\left(x_0+\frac{V_w}{2}(x+1),\ y_0+\frac{V_h}{2}(y+1)\right),\\
 T(P)&=\sum_{i\in\{A,B,C\}}\lambda_i T(X_i)
 \end{aligned}
-$
+$$
 
 を得ます。縦成分も同じ計算です。$V_w,V_h>0$ なので $T$ は可逆であり、[WGL2の重心座標の一意性](../WGL2/index.md#def-wgl2-barycentric)により、**NDC上でもviewportの画素位置でも重みは同じ**です。画素中心をまずNDCに戻して計算してもよいのです。
 
@@ -149,9 +149,9 @@ $$
 
 一枚の不透明な面の裏側まで描く必要はあるでしょうか。裏面だけを省くには、まず画面へ投影した頂点の**回る向き**を調べます。世界の法線の $z$ 成分だけでは決まりません。画面の $y$ が上向きのとき、$A\to B\to C$ が反時計回りなら CCW、時計回りなら CW と表します。この向きを使って描画を間引く方法を、次に定義します。第1節のviewport写像 $T$ の横・縦の倍率は $V_w/2,V_h/2$ です。符号付き二倍面積は2つの辺ベクトルの行列式なので、平行移動の項は差で消え、
 
-$
+$$
 E(T(A),T(B),T(C))=\frac{V_wV_h}{4}E(A,B,C)
-$
+$$
 
 となります。$V_w,V_h>0$ より、NDCから通常viewportへ移してもCCW/CWは反転しません。これは[WGL1のviewport対応](../WGL1/index.md#prop-wgl1-viewport-map)と[符号付き二倍面積](../WGL1/index.md#prop-wgl1-edge-test)を組み合わせた判定です。
 
@@ -235,13 +235,13 @@ $$
 <!-- solution-start -->
 **詳細解答。** [符号付き二倍面積](../WGL1/index.md#prop-wgl1-edge-test)で $D=E(A,B,C)=4$ です。[WGL2の重心座標の定義](../WGL2/index.md#def-wgl2-barycentric)で割る3つの分子を順に求めると
 
-$
+$$
 \begin{aligned}
 E(B,C,P)&=(-2)(1/2)-2(1/2-2)=2,\\
 E(C,A,P)&=0(1/2)-(-2)(1/2)=1,\\
 E(A,B,P)&=2(1/2)-0=1
 \end{aligned}
-$
+$$
 
 です。従って
 
