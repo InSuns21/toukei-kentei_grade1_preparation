@@ -20,3 +20,4 @@
 17. [MIR2-01 複素化KählerパラメータとA側の幾何](textbook/volumes/dream_thater/幾何系/MIR/MIR2-01/index.md)
 18. [MIR2-02 quinticのGW不変量と仮想次元](textbook/volumes/dream_thater/幾何系/MIR/MIR2-02/index.md)
 19. [MIR2-03 因子公理と三点関数](textbook/volumes/dream_thater/幾何系/MIR/MIR2-03/index.md)
+20. [MIR2-04 小量子積・Novikov環・大きい量子積との差](textbook/volumes/dream_thater/幾何系/MIR/MIR2-04/index.md)
