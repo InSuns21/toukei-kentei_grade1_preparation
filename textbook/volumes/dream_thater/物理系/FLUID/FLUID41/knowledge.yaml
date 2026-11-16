@@ -1,0 +1,67 @@
+chapter: FLUID41
+scope: dream-theater
+coverage: complete
+forward_references:
+  - nonlinear-pde.shock-wave
+prerequisites:
+  - CTM5
+  - CTM7
+  - CTM9
+  - CTM10
+  - FLUID6
+  - FLUID7
+  - TH1
+concepts:
+  - id: fluid.compressible-conserved-state
+    name: 圧縮性流れの保存変数と全エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（圧縮性流れの保存変数と全エネルギー）"]
+  - id: fluid.compressible-euler
+    name: 圧縮性Euler方程式の保存形
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（圧縮性Euler方程式の保存形）"]
+    requires: [fluid.compressible-conserved-state]
+  - id: fluid.ideal-gas-closure
+    name: 理想気体の熱的・熱量的閉鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（理想気体の熱的・熱量的閉鎖）"]
+    requires: [fluid.compressible-conserved-state]
+  - id: fluid.isentropic-relation
+    name: 滑らかな理想気体の等エントロピー関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかな理想気体の等エントロピー関係）"]
+    requires: [fluid.ideal-gas-closure, fluid.compressible-euler]
+  - id: fluid.isentropic-sound-speed
+    name: 等エントロピー音速
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等エントロピー音速）"]
+    requires: [fluid.isentropic-relation]
+  - id: fluid.linear-acoustic-perturbation
+    name: 線形音響摂動と音響エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形音響摂動と音響エネルギー）"]
+    requires: [fluid.isentropic-sound-speed]
+  - id: fluid.linear-acoustic-wave
+    name: 一様静止気体の線形音波方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一様静止気体の線形音波方程式）"]
+    requires: [fluid.compressible-euler, fluid.linear-acoustic-perturbation]
+  - id: fluid.acoustic-characteristics
+    name: 線形音波の左右の特性量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形音波の左右の特性量）"]
+    requires: [fluid.linear-acoustic-wave]
+  - id: fluid.acoustic-energy-balance
+    name: 線形音響エネルギーの局所保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形音響エネルギーの局所保存）"]
+    requires: [fluid.linear-acoustic-wave, fluid.linear-acoustic-perturbation]
