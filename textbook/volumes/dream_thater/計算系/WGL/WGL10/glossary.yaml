@@ -1,0 +1,20 @@
+chapter: WGL10
+terms:
+  - term: フレームバッファオブジェクト
+    english: framebuffer object (FBO)
+    meaning: 描画先の色・深度などの画像を接続するWebGL2オブジェクト。画素そのものは保持しない。
+  - term: カラーアタッチメント
+    english: color attachment
+    meaning: FBOに接続して描画結果のRGBAを保存する画像。
+  - term: フレームバッファの完成状態
+    english: framebuffer completeness
+    meaning: 接続先の有無・寸法・形式に基づく描画可能性の判定。画素値の正しさの判定ではない。
+  - term: render-to-texture
+    english: render-to-texture
+    meaning: 画像へ描き終えた結果を、次のパスでテクスチャ入力として読む処理。
+  - term: フィードバックループ
+    english: framebuffer-texture feedback loop
+    meaning: 同じ画像を描画先とsampler入力として同時に扱う禁止された状態。
+  - term: 中間量子化
+    english: intermediate quantization
+    meaning: 多段描画の途中でRGBA8などの有限精度の整数成分に丸められること。

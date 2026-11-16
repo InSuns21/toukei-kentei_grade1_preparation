@@ -395,6 +395,55 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL9 shader error, reset and opaque sandbox disposal: PASS');
 
+
+  // WGL10: FBO completeness, independent 8-pixel oracle, edited second pass,
+  // viewport resize, fragment compile diagnostics and opaque iframe isolation.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL10'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.framebufferTexture2D")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  const wgl10=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl10.rows.length,8);
+  assert.ok(wgl10.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl10.sandbox,'allow-scripts');
+  assert.match(wgl10.log,/FRAMEBUFFER_COMPLETE, RGBA8 160x240/);
+  assert.match(wgl10.log,/PASS1: offscreen lower-left quarter RGBA=/);
+  assert.match(wgl10.log,/GL error: 0x0/);
+  const checkRgba = (value,expected) => {
+    const got=value.split(',').map(x=>Number(x.trim()));
+    assert.equal(got.length,4);
+    assert.ok(got.every((x,i)=>Math.abs(x-expected[i])<=2),
+      JSON.stringify(got)+' expected '+JSON.stringify(expected));
+  };
+  checkRgba(wgl10.rows[0][2],[51,77,102,255]);
+  checkRgba(wgl10.rows[4][2],[204,178,153,255]);
+  const shot10=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl10-initial.png',Buffer.from(shot10.data,'base64'));
+  console.log('WGL10 FBO render-to-texture 8 GPU pixel references and readback: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const invertRight = true;', 'const invertRight = false;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const unfiltered=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  checkRgba(unfiltered[4],[51,77,102,255]);
+  assert.notEqual(unfiltered[4],wgl10.rows[4][2]);
+  console.log('WGL10 editing second-pass filter changes real GPU output: PASS');
+  await click('reset');
+  await evalJS('(()=>{document.getElementById("width").value="640";document.getElementById("height").value="360";})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/RGBA8 320x360/);
+  console.log('WGL10 FBO resized with canvas and revalidated: PASS');
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL10 shader diagnostics and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
