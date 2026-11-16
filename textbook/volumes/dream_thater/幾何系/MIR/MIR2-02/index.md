@@ -201,11 +201,11 @@ $$
 \qquad(k\ge3).
 $$
 
-種数0の節点木状曲線 $C$ について、正規化成分を $C_v\simeq\mathbb P^1$、節点を $q_a$ とすると、構造層の正規化完全列は
+種数0の節点木状曲線 $C$ について、正規化成分を $C_v\simeq\mathbb P^1$、その $C$ への写像を $\nu_v:C_v\to C$、節点を $q_a$ とする。成分数を $v$、節点数を $e=v-1$ とすれば、構造層の正規化完全列は
 
 $$
 0\longrightarrow\mathcal O_C
-\longrightarrow\bigoplus_v\mathcal O_{C_v}
+\longrightarrow\bigoplus_v\nu_{v*}\mathcal O_{C_v}
 \longrightarrow\bigoplus_a\mathbb C_{q_a}
 \longrightarrow0
 $$
