@@ -16,9 +16,9 @@
 > **定義（3次元のベクトル積）**  
 > $u=(u_1,u_2,u_3),\ v=(v_1,v_2,v_3)\in\mathbb R^3$ に対し、ベクトル積（cross product）を
 
-$
+$$
 u\times v=(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1)
-$
+$$
 
 > と定める。どちらの入力に関しても線形で、$u\cdot(u\times v)=v\cdot(u\times v)=0$、$v\times u=-(u\times v)$ が成り立つ。
 <!-- formal-statement-end -->
@@ -260,21 +260,21 @@ $$
 > **命題（補間した法線の長さと光量の上界）**  
 > 単位ベクトル $n_1,\ldots,n_k$ と非負の重み $w_i\ge0$（$\sum_iw_i=1$）を考え、補間値を
 
-$
+$$
 \tilde N=\sum_{i=1}^k w_i n_i
-$
+$$
 
 > と定めると、$\|\tilde N\|\le1$ である。さらに $\tilde N\ne0$ の場合、正規化法線
 
-$
+$$
 N=\frac{\tilde N}{\|\tilde N\|}
-$
+$$
 
 > は単位長であり、任意の単位光方向 $L$ に対して次を満たす。
 
-$
+$$
 0\le\max(0,N\cdot L)\le1
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
