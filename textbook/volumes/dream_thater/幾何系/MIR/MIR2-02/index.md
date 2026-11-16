@@ -316,7 +316,20 @@ $$
 $\mathbb P^4$ の滑らかな次数 $e$ の超曲面 $X_e$ に対して $c_1(TX_e)$ を超平面類 $H$ で表し、$e=4,5$ を比較せよ。$e=4$ の種数0・次数 $d$・$k$ 標点の期待次元も計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)の法束を $\mathcal O(e)$ とすると、$c_1(T\mathbb P^4|_{X_e})=5H$ から $c_1(TX_e)=(5-e)H$。$e=4$ では $c_1=H$、$e=5$ では $c_1=0$。$X_4$ の複素次元は3なので、$d=\langle H,\beta\rangle$ に対して指数公式は $(3-3)+(5-4)d+k=d+k$。quinticでは同じ計算が $k$ だけとなる。ただし安定写像の仮想次元として用いるのは、$d>0$ または $d=0,\ k\ge3$ の安定範囲に限る。$e$ の項を誤って標的の次元 $4$ に入れない。
+**詳細解答**。[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)では、次数 $e$ の超曲面の法束は $\mathcal O_{X_e}(e)$ である。[射影空間のEuler列](../../CYG/CYG1-09/index.md#prop-cyg1-09-adjunction)から $c_1(T\mathbb P^4|_{X_e})=5H$ なので、
+
+$$
+c_1(TX_e)=5H-eH=(5-e)H.
+$$
+
+よって四次超曲面では $c_1(TX_4)=H$、五次超曲面では $c_1(TX_5)=0$ となる。どちらも複素次元は3である。四次超曲面で $d=\langle H,\beta\rangle$ と書けば、
+
+$$
+\operatorname{vdim}_{\mathbb C}\overline{\mathcal M}_{0,k}(X_4,d)
+=(3-3)+\langle H,\beta\rangle+k=d+k.
+$$
+
+五次超曲面では同じ計算が $k$ だけとなる。ただし安定写像の仮想次元として用いるのは、$d>0$ または $d=0,\ k\ge3$ の安定範囲に限る。超曲面の次数 $e$ と標的の複素次元3を混同しない。
 <!-- solution-end -->
 
 <a id="ex-mir2-02-a02"></a>
