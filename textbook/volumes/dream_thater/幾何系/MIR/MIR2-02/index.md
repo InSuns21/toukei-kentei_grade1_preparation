@@ -65,7 +65,7 @@ $$
 同じ結論は[完全交叉の随伴公式](../../CYG/CYG1-09/index.md#prop-cyg1-09-adjunction)に $n=3,r=1,d_1=5$ を入れて $K_X\simeq\mathcal O_X(5-3-1-1)=\mathcal O_X$ としたことからも確かめられる。
 <!-- proof-end -->
 
-次に**期待次元が実際の次元と一致するとは限らない**ことを念頭に、指数を計算する。まず定義域が滑らかな球面の場合、[球面のRiemann–Roch指数](../../GW/GW1-03/index.md#thm-gw1-03-rr-computation)の複素版は
+次に**期待次元が実際の次元と一致するとは限らない**ことを念頭に、指数を計算する。以下、$h^q(C,E)=\dim_{\mathbb C}H^q(C,E)$ と書く（[完全障害理論](../../GW/GW1-20/index.md#def-gw1-20-perfect-obstruction)の複体のコホモロジー層 $h^q(E^\bullet)$ とは異なる記号の使い方である）。まず定義域が滑らかな球面の場合、[球面のRiemann–Roch指数](../../GW/GW1-03/index.md#thm-gw1-03-rr-computation)の複素版は
 
 $$
 h^0(\mathbb P^1,f^*TX)-h^1(\mathbb P^1,f^*TX)
