@@ -36,3 +36,4 @@
 33. [FLUID33 Rossby波は回転成層流のどこから出るか](textbook/volumes/dream_thater/物理系/FLUID/FLUID33/index.md)
 34. [FLUID34 せん断流はいつ界面を不安定にするか](textbook/volumes/dream_thater/物理系/FLUID/FLUID34/index.md)
 35. [FLUID35 重い流体が上にあると何が起きるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID35/index.md)
+36. [FLUID36 平行剪断流の擾乱はなぜ増幅するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID36/index.md)
