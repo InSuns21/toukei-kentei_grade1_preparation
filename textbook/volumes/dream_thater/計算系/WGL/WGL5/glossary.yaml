@@ -1,0 +1,26 @@
+chapter: WGL5
+terms:
+  - term: 視点変換
+    english: view transform
+    meaning: 世界座標の点をカメラを原点とする正規直交基底へ変換する写像。
+  - term: カメラ座標
+    english: camera coordinates
+    meaning: 視線を負のz方向としカメラを原点に取った3次元座標。
+  - term: クリップ座標
+    english: clip coordinates
+    meaning: 頂点シェーダ出力の4成分でクリップ平面の不等式を評価する座標。
+  - term: 正規化デバイス座標
+    english: normalized device coordinates
+    meaning: クリップした点を第4成分で割って得る範囲マイナス1から1の座標。
+  - term: 直交投影
+    english: orthographic projection
+    meaning: 距離による平面座標の縮小が起こらない投影。
+  - term: 透視投影
+    english: perspective projection
+    meaning: 視線に沿った距離で平面座標を割り遠方ほど小さく映す投影。
+  - term: 深度テスト
+    english: depth test
+    meaning: 保存深度との比較によって画素で前面を優先するWebGLの機能。
+  - term: z-fighting
+    english: z-fighting
+    meaning: 有限深度精度でほぼ等距離の面の優先関係が安定しない現象。
