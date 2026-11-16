@@ -43,7 +43,7 @@ $$
 **定義の確認**：$U=1-y^2$ は実数値で滑らかであり、$(U,0)$ は発散零、$U(\pm1)=0$。定常方程式には $\partial_xP_0=\mathrm{Re}^{-1}U''=-2/\mathrm{Re}$ の基底圧力勾配が必要である。$\alpha=2$、$c=0.3+0.04i$ と仮に書けば $\sigma=0.08$、振幅は $e^{0.08t}$ 倍になる。ただし、この $c$ が特定の流れの**固有値であるとはまだ言っていない**。
 <!-- definition-example-end -->
 
-二次元の非圧縮条件を自動的に満たすため、[FLUID11 の流れ関数](../FLUID11/index.md#def-fluid11-streamfunction)を使う。向きを $(u,v)=(\partial_y\psi,-\partial_x\psi)$ と固定して
+二次元の非圧縮条件を自動的に満たすため、[FLUID11 の流れ関数](../FLUID11/index.md#prop-fluid11-local-stream)を使う。向きを $(u,v)=(\partial_y\psi,-\partial_x\psi)$ と固定して
 
 $$
 \psi=\phi(y)e^{i\alpha(x-ct)},\qquad
