@@ -61,7 +61,7 @@ chapters:
   - { id: U3-55, path: textbook/volumes/dream_thater/応用系/U/U3-55, status: completed, title: "ストレステスト・シナリオ・流動性とモデルリスク" }
   - { id: U3-56, path: textbook/volumes/dream_thater/応用系/U/U3-56, status: completed, title: "限界・成分リスクとリスク配賦" }
   - { id: U3-57, path: textbook/volumes/dream_thater/応用系/U/U3-57, status: completed, title: "ES（CVaR）最適化とヘッジ" }
-  - { id: U3-58, path: textbook/volumes/dream_thater/応用系/U/U3-58, status: planned, title: "信用・相手先・流動性リスクの入口" }
+  - { id: U3-58, path: textbook/volumes/dream_thater/応用系/U/U3-58, status: completed, title: "信用・相手先・流動性リスクの入口" }
   - { id: U3-59, path: textbook/volumes/dream_thater/応用系/U/U3-59, status: planned, title: "板・注文方式・執行コストの定義" }
   - { id: U3-60, path: textbook/volumes/dream_thater/応用系/U/U3-60, status: planned, title: "TWAP／VWAP／POV と基準執行スケジュール" }
   - { id: U3-61, path: textbook/volumes/dream_thater/応用系/U/U3-61, status: planned, title: "市場インパクトと価格形成" }
