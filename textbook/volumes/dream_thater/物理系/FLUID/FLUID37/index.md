@@ -141,7 +141,8 @@ $$
 <!-- definition-example-start: def-fluid37-statistical-symmetries -->
 **定義の確認**：$Z=\pm1$ が等確率、$\boldsymbol u(\boldsymbol x,t)=(0,Z,0)$ [m/s] で全空間・全時刻に同じ $Z$ を用いる場は、時間・空間をずらしても全ての同時分布が変わらず、定常かつ一様である。一方、$90^\circ$ の軸回転で $(0,Z,0)$ は別の座標軸へ移るので、速度の分布は一般に回転不変でなく等方的ではない。またこの場は発散ゼロであっても、時間的に揺れ続ける乱流ではない。
 
-**三条件が成立する直接例**：単位球面 $S^2=\{\boldsymbol n\in\mathbb R^3:|\boldsymbol n|=1\}$ 上の面積を確率 $1$ に正規化した分布から方向 $\boldsymbol N$ を選び、定数 $a>0$ に対して $\boldsymbol u(\boldsymbol x,t)=a\boldsymbol N$ とする。全点・全時刻に同じ $\boldsymbol N$ を用いるから時間・空間の平行移動は全ての同時分布を変えない。また球面の面積分布は回転で不変なので、任意の $Q\in SO(3)$ に対して $\boldsymbol N$ と $Q\boldsymbol N$ は同分布であり、速度も等方性の定義を満たす。二軸の符号反転（座標軸まわりの半回転）と座標の交換を適切な回転で実現できるため、$\mathbb EN_i=0$、$\mathbb E[N_iN_j]=0$（$i\ne j$）、各 $\mathbb EN_i^2$ は等しい。さらに $\sum_iN_i^2=1$ なので
+**三条件が成立する直接例**：単位球面 $S^2=\{\boldsymbol n\in\mathbb R^3:|\boldsymbol n|=1\}$ 上の面積を確率 $1$ に正規化した分布から方向 $\boldsymbol N$ を選び、定数 $a>0$ に対して $\boldsymbol u(\boldsymbol x,t)=a\boldsymbol N$ とする。全点・全時刻に同じ $\boldsymbol N$ を用いるから時間・空間の平行移動は全ての同時分布を変えない。また球面の面積分布は回転で不変なので、任意の $Q\in SO(3)$ に対して $\boldsymbol N$ と $Q\boldsymbol N$ は同分布であり、速度も等方性の定義を満たす。二軸の符号反転（座標軸まわりの半回転）と座標の交換を適切な回転で実現できるため、$\mathbb EN_i=0$、$\mathbb E[N_iN_j]=0$（$i\ne j$）、各 $\mathbb EN_i^2$ は等しい。さらに $\sum_iN_i^2=1$ なので（$\delta_{ij}$ は $i=j$ のとき $1$、それ以外では $0$ の Kronecker 記号とする）、
+
 $$
 \mathbb E[N_i^2]=\frac13,\qquad
 \mathbb E[u_i'u_j']=\frac{a^2}{3}\delta_{ij},\qquad
@@ -176,12 +177,14 @@ $$
 ### 証明
 
 一点共分散の各成分を、標準直交基底 $\boldsymbol e_i$ による速度変動の座標 $u_i'=\boldsymbol e_i\cdot\boldsymbol u'$ を使って
+
 $$
 A_{ij}=\mathbb E[u_i'u_j']
 =\mathbb E[(\boldsymbol e_i\cdot\boldsymbol u')
            (\boldsymbol e_j\cdot\boldsymbol u')]
 $$
 と並べたものが共分散行列 $A$ である。一様性から $A$ は位置に依存しない。等方性では $\boldsymbol u(Q\boldsymbol x,t)$ と $Q\boldsymbol u(\boldsymbol x,t)$ が同分布なので、平均を引いた速度変動についても同じ関係が成り立つ。回転後の共分散成分は
+
 $$
 \begin{aligned}
 \mathbb E[(Q\boldsymbol u')_i(Q\boldsymbol u')_j]
@@ -193,6 +196,7 @@ $$
 左辺は等方性と一様性によって $A_{ij}$ に等しい。従って任意の $Q\in SO(3)$ について $QAQ^{\mathsf T}=A$ となる。$A_{ij}=A_{ji}$ は実数の積の可換性から従う。
 
 例えば $Q_1=\operatorname{diag}(1,-1,-1)$ は第一軸まわりの半回転であり、$Q_1AQ_1^{\mathsf T}=A$ の $(1,2),(1,3)$ 成分から $A_{12}=-A_{12}$、$A_{13}=-A_{13}$ を得る。第二軸まわりの半回転で $A_{23}=0$ も得る。ゆえに $A$ は対角。第三軸まわりの直角回転は第一・第二軸を交換するので $A_{11}=A_{22}$。第一軸まわりの直角回転で $A_{22}=A_{33}$。共通値を $q^2$ とすると $q^2=\mathbb E(u_1')^2\ge0$。従って $A=q^2I$ である。定義の $k=\frac12\mathbb E|\boldsymbol u'|^2$ に $|\boldsymbol u'|^2=\sum_{i=1}^3(u_i')^2$ を代入すれば
+
 $$
 k=\frac12\sum_{i=1}^3A_{ii}
 =\frac12\operatorname{tr}A
@@ -225,6 +229,7 @@ $$
 **定義の確認**（反例）：$Z=\pm1$ を等確率とし、$X(t,\omega)=Z(\omega)$ とする。この過程は全ての時刻で同時分布が不変だから厳密定常だが、$f(z)=z$ について時間平均は常に $Z$、集合平均は $\mathbb E Z=0$。各実現では $Z\ne0$ なので、エルゴード性は破れる。失われているのは「一つの軌道が実現間の違いを時間発展で巡る」という機構であり、定常性そのものではない。
 
 **成立する直接例**：$\Phi$ を $[0,2\pi)$ の一様位相、$\omega_0>0$ を固定した角周波数 [rad/s] とし、$X(t)=\cos(\omega_0t+\Phi)$ と置く。時間を $s$ だけずらすと位相が $\omega_0s$ だけ進み、位相の一様分布は変わらないので厳密定常である。任意の可積分な経路観測量 $F$ に対し、$X_\phi(t)=\cos(\omega_0t+\phi)$、$g(\phi)=F(X_\phi)$ と書けば、$g$ は可積分な $2\pi$ 周期関数である。周期 $P=2\pi/\omega_0$ と任意の正整数 $m$ について
+
 $$
 \begin{aligned}
 \frac1{mP}\int_0^{mP}F(\theta_sX_\Phi)\,ds
@@ -262,6 +267,7 @@ $$
 
 <!-- definition-example-start: def-fluid37-periodic-spectrum -->
 **定義の確認**：$v(x,\Phi)=A\cos(k_1x+\Phi)$、$A>0$ [m/s]、$\Phi$ は $[0,2\pi)$ 上で一様とする。余弦の指数表示 $2\cos\theta=e^{i\theta}+e^{-i\theta}$ から、係数積分は
+
 $$
 a_1=\frac A2e^{i\Phi},\qquad
 a_{-1}=\frac A2e^{-i\Phi},\qquad
@@ -269,6 +275,7 @@ a_n=0\quad(n\ne\pm1).
 $$
 
 位相を一様分布で平均すると、$\mathbb Ev(x)=0$ である。二点積は $\cos\alpha\cos\beta=\{\cos(\alpha-\beta)+\cos(\alpha+\beta)\}/2$ を使って
+
 $$
 \begin{aligned}
 R(r)&=\frac{A^2}{2\pi}\int_0^{2\pi}
@@ -450,6 +457,7 @@ R(r)&=\frac{A^2}{2\pi}\int_0^{2\pi}
 $$
 
 $R(0)=A^2/2>0$ だから $C(r)=R(r)/R(0)=\cos(kr)$。$r=\pi/(2k)$ では $v(x)=A\cos(kx+\Phi)$ と $v(x+r)=-A\sin(kx+\Phi)$ となり、相関はゼロだが
+
 $$
 \left(\frac{v(x)}A\right)^2
 +\left(\frac{v(x+r)}A\right)^2=1
