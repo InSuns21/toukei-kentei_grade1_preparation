@@ -20,7 +20,7 @@
 
 ## 3. 第一Chern類が消える理由と仮想次元
 
-期待次元は[GW1-20の完全障害理論](../../GW/GW1-20/index.md#def-gw1-20-perfect-obstruction)で扱った、変形方向と障害方向の差である。種数0・複素次元 $m$ の標的では、一般の完全障害理論を使ったときの仮想複素次元は
+期待次元は[GW1-20の完全障害理論](../../GW/GW1-20/index.md#def-gw1-20-perfect-obstruction)で扱った、変形方向と障害方向の差である。種数0・複素次元 $m=\dim_{\mathbb C}X$ の標的では、$\beta=f_*[C]$ を写像の曲線類として、自然な完全障害理論から得られる仮想複素次元は
 
 $$
 (m-3)+\langle c_1(TX),\beta\rangle+k
@@ -118,7 +118,7 @@ $$
 
 実際のモジュライが過剰な次元を持つなら、その普通の基本類では期待次数の積分ができない。[有限次元零点模型の仮想類](../../GW/GW1-20/index.md#def-gw1-20-section-virtual-cycle)は、方程式の重複度や障害束を含めて期待次元で交叉する模型だった。一般の安定写像では、[完全障害理論](../../GW/GW1-20/index.md#def-gw1-20-perfect-obstruction)と内在的正規錐が、局所模型を大域的に整合させる役割を担う。
 
-**ここで使う外部数学的入力（仮想類の存在）**。滑らかな射影多様体 $X$、有効曲線類 $\beta$、安定範囲の $g,k$ に対して、安定写像の固有DMスタックには自然な完全障害理論があり、Behrend–Fantechi型の構成によって
+**ここで使う外部数学的入力（仮想類の存在）**。$A_j(M)_{\mathbb Q}$ は $M$ 上の複素 $j$ 次元代数サイクルの有理係数Chow群を表す。滑らかな射影多様体 $X$、有効曲線類 $\beta$、安定範囲の $g,k$ に対して、安定写像の固有DMスタックには自然な完全障害理論があり、Behrend–Fantechi型の構成によって
 
 $$
 [\overline{\mathcal M}_{g,k}(X,\beta)]^{\mathrm{vir}}
@@ -146,6 +146,8 @@ $$
 >
 > と定める。ここで $k=0$ の積は単位類であり、積分は実コホモロジー次数 $2k$ の成分とのペアリングで、次数が合わない斉次挿入については零とする。空のモジュライにも零を割り当てる。$d=0,\ k<3$ は定義の**対象外**とする。
 <!-- formal-statement-end -->
+
+非斉次のコホモロジー類を挿入する場合は、各類を斉次成分の和に分解し、上の式を各成分について計算して多重線形に延長する。この規約によって後述の $H^*(X;\mathbb Q)$ 全体についても三点不変量が定義される。
 
 <!-- definition-example-start: def-mir2-02-virtual-gw -->
 
@@ -199,7 +201,28 @@ $$
 \qquad(k\ge3).
 $$
 
-種数0の節点木状曲線は $H^1(C,\mathcal O_C)=0$。定数写像の引戻し接束は $T_xX\otimes\mathcal O_C$ なので障害 $H^1(C,f^*TX)=T_xX\otimes H^1(C,\mathcal O_C)=0$。従ってこの場合の自然な仮想類は通常の基本類である。$k=3$ では $\overline{\mathcal M}_{0,3}$ が一点なので、次数0の三点GWは普通の交叉積分になる。
+種数0の節点木状曲線 $C$ について、正規化成分を $C_v\simeq\mathbb P^1$、節点を $q_a$ とすると、構造層の正規化完全列は
+
+$$
+0\longrightarrow\mathcal O_C
+\longrightarrow\bigoplus_v\mathcal O_{C_v}
+\longrightarrow\bigoplus_a\mathbb C_{q_a}
+\longrightarrow0
+$$
+
+である。各成分の $H^1(C_v,\mathcal O_{C_v})=0$ は[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)による。大域定数切断の節点での値差写像 $\mathbb C^v\to\mathbb C^e$ は、双対グラフが木であるため、根から葉へ順に値を決めれば任意の値差を実現でき、全射である。長完全列から
+
+$$
+H^1(C,\mathcal O_C)=0
+$$
+
+を得る。定数写像 $f(C)=\{x\}$ の引戻し接束は $f^*TX\simeq T_xX\otimes\mathcal O_C$ だから
+
+$$
+H^1(C,f^*TX)\simeq T_xX\otimes H^1(C,\mathcal O_C)=0.
+$$
+
+従ってこの場合の自然な仮想類は通常の基本類である。$k=3$ では $\overline{\mathcal M}_{0,3}$ が一点なので、次数0の三点GWは普通の交叉積分になる。
 
 <a id="prop-mir2-02-degree-zero-three-point"></a>
 
@@ -245,7 +268,19 @@ f^*TX\simeq\mathcal O(4)\oplus
 \mathcal O(-2)\oplus\mathcal O(-2).
 $$
 
-したがって $h^0=5$、$h^1=1+1=2$。滑らかな球面の再パラメータ化の三次元を除いた一次自由度は $5-3=2$、指数は $2-2=0$。実際に固定直線への次数2被覆は、二つの二次多項式の係数六個から共通スカラー一個、座標変更三個を引き、局所的に複素2次元の族をなす。よって**実際には二次元の被覆族がありながら、仮想複素次元は零**となる。
+[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)で $h^0(\mathcal O(4))=5$、$h^1(\mathcal O(-2))=1$ だから、
+
+$$
+h^0(f^*TX)=5,\qquad h^1(f^*TX)=1+1=2.
+$$
+
+滑らかな球面の再パラメータ化の複素3次元を除くと、一次変形の次元は $5-3=2$、指数は $2-2=0$ である。実際、固定直線への次数2被覆は二つの二次同次多項式（合計6係数、共通零点なし）で表される。共通スカラーと $\operatorname{PGL}_2$ の座標変更を同一視すると、被覆の局所族の次元は
+
+$$
+6-1-\dim_{\mathbb C}\operatorname{PGL}_2=6-1-3=2.
+$$
+
+よって**実際には複素2次元の被覆族がありながら、仮想複素次元は零**となる。
 
 <a id="prop-mir2-02-double-cover"></a>
 
@@ -281,7 +316,7 @@ $$
 $\mathbb P^4$ の滑らかな次数 $e$ の超曲面 $X_e$ に対して $c_1(TX_e)$ を超平面類 $H$ で表し、$e=4,5$ を比較せよ。$e=4$ の種数0・次数 $d$・$k$ 標点の期待次元も計算せよ。
 
 <!-- solution-start -->
-**詳細解答**。[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)の法束を $\mathcal O(e)$ とすると、$c_1(T\mathbb P^4|_{X_e})=5H$ から $c_1(TX_e)=(5-e)H$。$e=4$ では $c_1=H$、$e=5$ では $c_1=0$。$X_4$ の複素次元は3なので、$d=\langle H,\beta\rangle$ に対して指数公式は $(3-3)+(5-4)d+k=d+k$。quinticでは同じ計算が $k$ だけとなる。$e$ の項を誤って標的の次元 $4$ に入れない。
+**詳細解答**。[法束完全列](../../CYG/CYG1-09/index.md#prop-cyg1-09-normal)の法束を $\mathcal O(e)$ とすると、$c_1(T\mathbb P^4|_{X_e})=5H$ から $c_1(TX_e)=(5-e)H$。$e=4$ では $c_1=H$、$e=5$ では $c_1=0$。$X_4$ の複素次元は3なので、$d=\langle H,\beta\rangle$ に対して指数公式は $(3-3)+(5-4)d+k=d+k$。quinticでは同じ計算が $k$ だけとなる。ただし安定写像の仮想次元として用いるのは、$d>0$ または $d=0,\ k\ge3$ の安定範囲に限る。$e$ の項を誤って標的の次元 $4$ に入れない。
 <!-- solution-end -->
 
 <a id="ex-mir2-02-a02"></a>
@@ -333,7 +368,16 @@ $k=2$ で挿入 $(H^2,1)$ と $(H,H)$ のそれぞれが、次数の必要条件
 $N_{L/X}\simeq\mathcal O(-1)^{\oplus2}$ を満たす直線の次数 $m\ge2$ 被覆 $f:\mathbb P^1\to L$ について $h^0(f^*TX),h^1(f^*TX)$ と無標点の指数を求めよ。通常の次元が指数と一致しない機構を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。法束完全列を次数 $m$ の被覆で引き戻すと $0\to\mathcal O(2m)\to f^*TX\to\mathcal O(-m)^{\oplus2}\to0$。拡大類の空間は $H^1(\mathcal O(3m))^{\oplus2}=0$ なので分裂する。[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を用いて
+**詳細解答**。法束完全列を次数 $m$ の被覆で引き戻すと
+
+$$
+0\longrightarrow\mathcal O(2m)
+\longrightarrow f^*TX
+\longrightarrow\mathcal O(-m)^{\oplus2}
+\longrightarrow0.
+$$
+
+この拡大類は $\operatorname{Ext}^1(\mathcal O(-m)^{\oplus2},\mathcal O(2m))\simeq H^1(\mathcal O(3m))^{\oplus2}=0$ なので分裂する。[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を用いて
 
 $$
 h^0=2m+1,\qquad h^1=2(m-1).
