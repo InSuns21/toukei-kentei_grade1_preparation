@@ -1,0 +1,17 @@
+chapter: WGL6
+terms:
+  - term: 透視補正補間
+    english: perspective-correct interpolation
+    meaning: 画面の重心座標を各頂点のクリップ第4成分の逆数で重み付けし直して頂点属性を補間すること。
+  - term: 重心座標
+    english: barycentric coordinates
+    meaning: 非退化三角形の3頂点による点の一意なアフィン重み。定義はWGL2を参照する。
+  - term: winding
+    english: vertex winding
+    meaning: 画面へ投影した三角形の頂点の回る順序。CCWとCWで区別する。
+  - term: 背面カリング
+    english: back-face culling
+    meaning: 設定した前面の頂点順序と反対向きの三角形をラスタ化前に取り除くこと。
+  - term: エイリアシング
+    english: aliasing
+    meaning: 離散的な画素標本で異なる連続信号が区別できなくなる標本化現象。

@@ -1,0 +1,28 @@
+id: WGL6
+title: 三角形内部の値はどう決まる？
+volume: foundations
+status: supplementary
+prerequisites: [WGL5]
+official_scope: []
+learning_objectives:
+  - 非退化三角形の符号付き面積から重心座標を計算し、和1と辺内外を判定できる
+  - クリップ第4成分と画面の重みの関係を導出し、透視補正UVを計算できる
+  - GLSL smooth varyingと画面上の単純補間の差を説明できる
+  - 投影後のwindingと背面カリングの関係を判定できる
+  - 画素中心とエッジ、細い格子のaliasingを区別して説明できる
+  - JavaScriptとvertex/fragment GLSLを編集してCPU予測とGPU readPixelsを照合できる
+definitions:
+  - { id: WGL6-DEF-01, name: 透視補正補間 }
+  - { id: WGL6-DEF-02, name: 投影後の前面・背面とカリング }
+  - { id: WGL6-DEF-03, name: 画素標本化とエイリアシング }
+theorems:
+  - { id: WGL6-PROP-01, name: 透視補正重みの導出 }
+canonical_examples:
+  - wが1、2、4の三角形でUVの単純補間と透視補正補間を比較する
+  - 投影後のCCW/CWとカリングの有無を判定する
+  - 左右の画面で同じ三角形の補間を比較しGPU画素をCPU計算と照合する
+problem_patterns: [WGL6-BARYCENTRIC, WGL6-PERSPECTIVE, WGL6-CULLING, WGL6-RASTER-SAMPLING, WGL6-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 1 }
