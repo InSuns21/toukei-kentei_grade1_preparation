@@ -30,7 +30,7 @@ $R_{xy}$ の単位は m$^2$/s$^2$ で、負になりうる。**流束 $\rho R_{x
 > **定義（摩擦速度と壁単位）**  
 > 第0節の滑面水路で $\tau_w=\rho\nu U'(0)>0$ とする。摩擦速度 $u_\tau$、粘性長さ $\ell_\nu$、壁座標 $y^+$、壁速度 $U^+$、摩擦 Reynolds 数 $Re_\tau$ を次で定義する。
 
-$
+$$
 u_\tau=\sqrt{\frac{\tau_w}{\rho}},\qquad
 \ell_\nu=\frac{\nu}{u_\tau},\qquad
 y^+=\frac{y}{\ell_\nu}=\frac{yu_\tau}{\nu},
@@ -47,17 +47,17 @@ $$
 <!-- definition-example-start: def-fluid40-wall-units -->
 **定義の確認**：水の例として $\rho=1000$ kg/m$^3$、$\nu=10^{-6}$ m$^2$/s、$\tau_w=2.5$ Pa、$h=0.02$ m とする。速度と長さの単位を順に確かめると
 
-$
+$$
 u_\tau=\sqrt{\frac{2.5}{1000}}=0.05\ {\rm m/s},\qquad
 \ell_\nu=\frac{10^{-6}}{0.05}=2\times10^{-5}\ {\rm m}.
-$
+$$
 
 従って $h=0.02$ m、$y=0.10$ mm $=10^{-4}$ m に対し
 
-$
+$$
 Re_\tau=\frac{0.02}{2\times10^{-5}}=1000,\qquad
 y^+=\frac{10^{-4}}{2\times10^{-5}}=5.
-$
+$$
 
 もしそこで $U=0.20$ m/s と測ったなら $U^+=0.20/0.05=4$ であり、$u_\tau=0.05$ m/s と混同しない。さらに壁の勾配を定義に戻して $U'(0)=\tau_w/(\rho\nu)=2.5/(1000\times10^{-6})=2500$ s$^{-1}$ と検算できる。
 <!-- definition-example-end -->
@@ -197,11 +197,11 @@ $U^+(y^+)=y^++o(y^+)$ は同じ極限を言い換えたものである。
 
 より強い壁近傍の正則性を仮定し、各実現の変動速度が壁で二階まで微分可能で、Taylor 展開の余剰項と積の集合平均を一様に評価できるとする。[無滑り条件](../../CTM/CTM15/index.md#def-ctm15-no-slip)により壁では $u'=v'=w'=0$ であり、壁上で恒等的にゼロの接線成分を $x,z$ で微分すると $\partial_xu'|_{y=0}=\partial_zw'|_{y=0}=0$ となる。平均場も各実現も非圧縮なので、変動速度の発散はゼロである。よって
 
-$
+$$
 \partial_xu'+\partial_yv'+\partial_zw'=0
 \quad\Longrightarrow\quad
 \partial_yv'|_{y=0}=0.
-$
+$$
 
 壁からの Taylor 展開を使えば $u',w'=O(y)$、$v'(y)=v'(0)+y\partial_yv'(0)+O(y^2)=O(y^2)$ である。平均に必要な一様評価の下では $R_{xy}=\overline{u'v'}=O(y^3)$ と結論できる。このとき [全剪断の厳密式](#prop-fluid40-channel-stress)の右辺を使って
 
@@ -385,18 +385,18 @@ $$
 
 [FLUID38 の Prandtl 混合長閉鎖](../FLUID38/index.md#def-fluid38-mixing-length)は、$U'\ge0$ の場合、模型共分散について $-R_{xy}^{\mathrm{model}}=\ell_m^2(U')^2$ と書ける。実寸の混合長 $\ell_m$ と平均速度勾配 $U'$ を壁単位で表すには、[摩擦速度と粘性長さの定義](#def-fluid40-wall-units)を使って
 
-$
+$$
 L=\frac{\ell_m u_\tau}{\nu},\qquad
 S=\frac{\nu}{u_\tau^2}U'=\frac{dU^+}{dy^+}
-$
+$$
 
 と変換する。従って
 
-$
+$$
 -\frac{R_{xy}^{\mathrm{model}}}{u_\tau^2}
 =\frac{(\nu L/u_\tau)^2(u_\tau^2S/\nu)^2}{u_\tau^2}
 =L^2S^2.
-$
+$$
 
 この等式は**経験的閉鎖の無次元化**であり、実測の共分散に対する恒等式ではない。以下の $R_{xy}$ は指定した模型の中での値を表す。
 
