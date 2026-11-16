@@ -159,3 +159,6 @@ import './wgl4-lab.test.mjs';
 
 // WGL5: camera/projection/depth source and CPU oracle.
 import './wgl5-lab.test.mjs';
+
+// WGL6: perspective-correct UV, winding and aliasing oracle.
+import './wgl6-lab.test.mjs';
