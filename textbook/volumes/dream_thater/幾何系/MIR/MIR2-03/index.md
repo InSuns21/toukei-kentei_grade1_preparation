@@ -118,7 +118,11 @@ $$
 > と定める。この定義では $N_0^X$ を導入しない。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mir2-03-unmarked-number -->
+
 ここで空の挿入積 $1$ はモジュライの単位類である。正次数で標点数0が安定であることは[安定性の確認](../MIR2-02/index.md#prop-mir2-02-virtual-dimension)と整合する。**定義の直接確認**として、次数 $d=1$ では $\overline{\mathcal M}_{0,0}(X,1)$ の仮想複素次元が0だから、無挿入の実次数0と一致する。従って $N_1^X$ は定義できるが、現段階でその値を直線の本数と等置しない。
+
+<!-- definition-example-end -->
 
 一つの $H$ を追加した場合は、[quinticの因子公理](#thm-mir2-03-divisor)を $k=0$ に適用して $\langle H\rangle_{0,d}^{X}=dN_d^X$。二つの場合は $k=1$ に適用し、さらに一つの場合へ還元する。
 
@@ -247,7 +251,27 @@ $$
 > と定める。定数項は三点の次数0交叉積分であり、無標点の $N_0^X$ ではない。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mir2-03-three-point-series -->
+
 この定義は $Q$ の各冪に一つずつGW数を置くので、各係数が有理数なら形式冪級数として意味を持つ。無標点の定義が $d=0$ で欠けても、三点相関なら全 $d\ge0$ で安定である。
+
+**定義の直接確認**。定義の $Q^0$ の係数は $d=0$ の三標点相関であり、[次数0例外の命題](#prop-mir2-03-zero-vs-positive)から
+
+$
+[Q^0]C_{HHH}^{X}(Q)
+=\langle H,H,H\rangle_{0,0}^{X}=5.
+$
+
+一方、$Q^1$ の係数は $d=1$ での[反復因子挿入](#prop-mir2-03-repeated-divisors)により
+
+$
+[Q^1]C_{HHH}^{X}(Q)
+=\langle H,H,H\rangle_{0,1}^{X}=1^3N_1^X=N_1^X.
+$
+
+この二つは同じ定義の別の次数成分だが、無標点の次数0数を要求するのは後者ではなく、誤った一般化の方である。
+
+<!-- definition-example-end -->
 
 <a id="prop-mir2-03-series-coefficients"></a>
 
