@@ -1,0 +1,20 @@
+chapter: WGL9
+terms:
+  - term: 法線
+    english: surface normal
+    meaning: 面の接線方向と直交する方向。照明では向きを決め単位長へ正規化する。
+  - term: Lambert拡散反射
+    english: Lambertian diffuse reflection
+    meaning: 面と光方向の余弦に比例する拡散反射の簡易模型。
+  - term: 法線行列
+    english: normal matrix
+    meaning: 可逆なモデルの線形部分Mに対する逆転置行列。変換後の接平面との直交性を保つ。
+  - term: Blinn–Phong
+    english: Blinn–Phong shading
+    meaning: 光源方向と視線方向の半角ベクトルを用いる経験的な鏡面ハイライト模型。
+  - term: 頂点法線
+    english: vertex normal
+    meaning: メッシュの各頂点に付けた法線。面内補間してから再正規化すると滑らかに見える。
+  - term: 線形光
+    english: linear light
+    meaning: シェーダ内の光の寄与を足し合わせる空間。表示用sRGBへの符号化と区別する。
