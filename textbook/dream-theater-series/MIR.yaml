@@ -76,7 +76,7 @@ chapters:
     title: "複素化KählerパラメータとA側の幾何"
   - id: MIR2-02
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-02
-    status: planned
+    status: completed
     title: "quinticのGW不変量と仮想次元"
   - id: MIR2-03
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-03
