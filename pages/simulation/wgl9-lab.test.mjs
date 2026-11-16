@@ -25,6 +25,10 @@ test('WGL9 Lambert, Blinn-Phong and zero-light bounds',()=>{
   close(encodeSrgb(1),1);
   assert.deepEqual(shadeNormal([0,0,1],[.1,.45,.75],{power:0}),[0,0,0,1]);
   assert.throws(()=>normalize3([0,0,0]),RangeError);
+  assert.throws(()=>shadeNormal([0,0,0],[.1,.45,.75]),RangeError,
+    'zero local normal cannot be normalized for lighting');
+  const saturated=shadeNormal([0,0,1],[1,1,1],{power:2});
+  assert.deepEqual(saturated,[1,1,1,1], 'linear-light saturation must precede sRGB encoding');
   const a=shadeNormal([1,1,0],[.4,.3,.2]);
   const b=shadeNormal([1,1,0],[.4,.3,.2],{incorrect:true});
   assert.notDeepEqual(a,b);
