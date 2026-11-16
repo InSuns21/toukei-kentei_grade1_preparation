@@ -20,7 +20,7 @@ def basis_matrices(profile, reynolds, alpha, n):
             and isinstance(n, int) and 8 <= n <= 36):
         raise ValueError('Require Re in [100,100000], alpha in [0.2,3], N in [8,36]')
     y, w = leggauss(3*n + 20)
-    factor = Chebyshev([1, 0, -1])**2
+    factor = Chebyshev([0.5, 0, -0.5])**2
     basis = [factor * Chebyshev.basis(j) for j in range(n)]
     v = np.array([p(y) for p in basis], dtype=float)
     dy = np.array([p.deriv(1)(y) for p in basis], dtype=float)
