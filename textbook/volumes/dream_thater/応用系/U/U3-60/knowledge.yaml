@@ -1,0 +1,41 @@
+chapter: U3-60
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-59]
+concepts:
+  - id: finance.execution-schedule
+    name: 親注文・目標配分と実約定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（親注文・目標配分と実約定）"]
+    requires: [finance.implementation-shortfall]
+  - id: finance.forecast-vwap-schedule
+    name: 予測出来高に基づく VWAP 型配分と実現市場 VWAP
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（予測出来高に基づく VWAP 型配分と実現市場 VWAP）"]
+    requires: [finance.execution-schedule]
+  - id: finance.causal-pov
+    name: 因果的な POV 型注文
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因果的な POV 型注文）"]
+    requires: [finance.execution-schedule]
+  - id: finance.pov-budget
+    name: POV の予算上限と未約定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（POV の予算上限と未約定）"]
+    requires: [finance.causal-pov]
+  - id: finance.fixed-schedule-deficit
+    name: 固定配分の欠損恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定配分の欠損恒等式）"]
+    requires: [finance.execution-schedule]
+  - id: finance.execution-vwap-gap
+    name: 実現 VWAP との差の配分・価格差分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（実現 VWAP との差の配分・価格差分解）"]
+    requires: [finance.forecast-vwap-schedule, finance.market-sweep]
