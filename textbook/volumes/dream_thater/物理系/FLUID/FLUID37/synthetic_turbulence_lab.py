@@ -22,7 +22,6 @@ def experiment(modes=6, seed=37, grid_size=128):
     n_grid = grid_size
     length = 2.0 * math.pi  # metres
     mean_speed = 1.5  # m/s
-    phases = [random.Random(seed).uniform(0, 2 * math.pi)] if False else None
     rng = random.Random(seed)
     phases = [rng.uniform(0.0, 2.0 * math.pi) for _ in range(modes)]
     amplitudes = [1.0 / n for n in range(1, modes + 1)]  # m/s
