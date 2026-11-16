@@ -1,0 +1,31 @@
+id: WGL8
+title: 透明・色空間の計算はいつ正しい？
+volume: foundations
+status: supplementary
+prerequisites: [WGL7]
+official_scope: []
+learning_objectives:
+  - 不透明背景と半透明背景へのsource-overのRGB・アルファを計算できる
+  - 前乗算アルファの意味と結合則を証明し描画順序の非可換性を示せる
+  - sRGBと線形光を区別し変換を用いた合成と8bit丸めを計算できる
+  - WebGL2の非前乗算alpha blendと前乗算用係数の違いを説明できる
+  - JSとGLSLで合成順・透明度・色空間を変更してCPU画素とGPU readPixelsを照合できる
+definitions:
+  - { id: WGL8-DEF-01, name: 不透明背景へのsource-over合成 }
+  - { id: WGL8-DEF-02, name: 前乗算アルファと一般のsource-over }
+  - { id: WGL8-DEF-03, name: sRGBと線形光の変換 }
+theorems:
+  - { id: WGL8-PROP-01, name: 前乗算source-overの結合則 }
+  - { id: WGL8-PROP-02, name: 黒と白を半分ずつ混ぜた画素 }
+  - { id: WGL8-PROP-03, name: 前後を交換すると画素が変わる具体例 }
+canonical_examples:
+  - 不透明背景への赤い半透明層のRGB合成
+  - 背景も透明な場合の前乗算RGBとアルファの復元
+  - 白と黒を線形光で合成して8bitの188と符号化値直接合成の128を比較
+  - A/Bの前後順序の交換による画素変化
+  - 左右のWebGL2で8画素を独立CPU基準と比較
+problem_patterns: [WGL8-STRAIGHT, WGL8-PREMULT, WGL8-ASSOCIATIVE, WGL8-SRGB, WGL8-ORDER, WGL8-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3, exercises: 4, review: 1 }

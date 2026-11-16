@@ -162,3 +162,6 @@ import './wgl5-lab.test.mjs';
 
 // WGL6: perspective-correct UV, winding and aliasing oracle.
 import './wgl6-lab.test.mjs';
+
+// WGL8: algebraic source-over, sRGB conversion and independent GPU-pixel oracle.
+import './wgl8-lab.test.mjs';

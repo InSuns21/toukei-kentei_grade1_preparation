@@ -1,0 +1,20 @@
+chapter: WGL8
+terms:
+  - term: アルファ
+    english: alpha
+    meaning: 前景の不透明度を0から1で表す成分。色のガンマ変換対象ではない。
+  - term: source-over合成
+    english: source-over compositing
+    meaning: 前景が覆う割合に応じて前景と背後の色を合成する演算。
+  - term: 前乗算アルファ
+    english: premultiplied alpha
+    meaning: RGBをアルファで事前に掛けた表現。通常の非前乗算RGBと混同しない。
+  - term: sRGB
+    english: standard RGB
+    meaning: 非線形の伝達特性を持つ標準的なRGB色空間の符号化値。
+  - term: 線形光
+    english: linear light
+    meaning: 明るさの加算模型で用いる、光量に比例するRGB成分。
+  - term: ブレンディング
+    english: blending
+    meaning: 画素へ新しい断片を書き込む際、既存の色との組合せを決める処理。

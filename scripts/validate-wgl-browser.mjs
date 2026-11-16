@@ -278,6 +278,47 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL5 shader failure and sandbox disposal: PASS');
 
+  // WGL8: real GPU fixed-function blending vs shader-based linear-light reference.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL8'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("blendFuncSeparate")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  const wgl8=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl8.rows.length,8);
+  assert.ok(wgl8.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl8.sandbox,'allow-scripts');
+  const nearRGBA=(value,expected,tolerance=4)=>{
+    const actual=value.split(',').map(v=>Number(v.trim()));
+    assert.equal(actual.length,4);
+    assert.ok(actual.every((v,i)=>Math.abs(v-expected[i])<=tolerance),
+      JSON.stringify(actual)+' expected '+JSON.stringify(expected));
+  };
+  nearRGBA(wgl8.rows[3][2],[87,61,115,255]);
+  nearRGBA(wgl8.rows[7][2],[122,63,155,255]);
+  assert.match(wgl8.log,/WGL8/);
+  assert.match(wgl8.log,/GL error: 0x0/);
+  const shot8=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl8-initial.png',Buffer.from(shot8.data,'base64'));
+  console.log('WGL8 GPU blending / linear-light shader / CPU 8-pixel oracle: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const reverseOrder = false;', 'const reverseOrder = true;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const reversed=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  nearRGBA(reversed[3],[122,56,74,255]);
+  assert.notEqual(reversed[7],wgl8.rows[7][2]);
+  console.log('WGL8 reversing front/back changes overlapping pixel on real GPU: PASS');
+
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL8 fragment diagnostics, reset and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
