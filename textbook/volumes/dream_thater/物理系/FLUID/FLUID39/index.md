@@ -159,7 +159,7 @@ $$
 <a id="def-fluid39-energy-spectrum"></a>
 
 <!-- formal-statement-start -->
-> **定義（波数殻エネルギーと一方向エネルギースペクトル）**  
+> **定義（波数殻エネルギーと一側エネルギースペクトル）**  
 > 第0節の周期・二乗可積分な速度変動に対し、波数帯 $I\subset[0,\infty)$ の単位質量当たりのエネルギーを
 
 $$
@@ -167,7 +167,7 @@ K(I)=\frac12\sum_{\kappa_{\boldsymbol n}\in I}
 \overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}
 $$
 
-> と定める。連続的な波数密度 $E(\kappa)\ge0$ で $K([a,b))=\int_a^b E(\kappa)\,d\kappa$ と表せる場合、その $E$ を一方向エネルギースペクトルという。離散殻の幅 $\Delta\kappa$ に対しては $\Delta\kappa^{-1}K([\kappa,\kappa+\Delta\kappa))$ を密度近似とする。$K$ の単位は m$^2$/s$^2$、$E$ の単位は m$^3$/s$^2$。
+> と定める。連続的な波数密度 $E(\kappa)\ge0$ で $K([a,b))=\int_a^b E(\kappa)\,d\kappa$ と表せる場合、その $E$ を一側エネルギースペクトルという。離散殻の幅 $\Delta\kappa$ に対しては $\Delta\kappa^{-1}K([\kappa,\kappa+\Delta\kappa))$ を密度近似とする。$K$ の単位は m$^2$/s$^2$、$E$ の単位は m$^3$/s$^2$。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid39-energy-spectrum -->
@@ -380,7 +380,7 @@ K41 の重要部分は、**十分大きい Reynolds 数、近似的な局所等�
 
 <!-- formal-statement-start -->
 > **命題（K41 仮説の下での $-5/3$ 次元則）**  
-> 三次元非圧縮乱流に十分な慣性領域が存在し、そこで一方向エネルギースペクトル $E(\kappa)$ が**普遍的な無次元定数** $C_K>0$ と、平均散逸率 $\varepsilon>0$、波数 $\kappa>0$ のみで次元的に決まると仮定する。このとき
+> 三次元非圧縮乱流に十分な慣性領域が存在し、そこで一側エネルギースペクトル $E(\kappa)$ が**普遍的な無次元定数** $C_K>0$ と、平均散逸率 $\varepsilon>0$、波数 $\kappa>0$ のみで次元的に決まると仮定する。このとき
 
 $$
 E(\kappa)=C_K\varepsilon^{2/3}\kappa^{-5/3}
@@ -656,7 +656,7 @@ $K$ の単位は m$^2$/s$^2$、$D$ は m$^2$/s$^3$ となる。
 <!-- solution-start -->
 #### 詳細解答
 
-(i) [スペクトル積分](#prop-fluid39-spectral-dissipation)の形で、$E=A\kappa_0^{5/3}\kappa^{-5/3}$ を代入する。[$\kappa^{-5/3}$ の積分](#prop-fluid39-k41-scaling)で決めた指数を使うだけでなく、端点で実際に評価すると
+(i) [スペクトル積分](#prop-fluid39-spectral-dissipation)の形で、$E=A\kappa_0^{5/3}\kappa^{-5/3}$ を代入する。原始関数 $\int\kappa^{-5/3}d\kappa=-(3/2)\kappa^{-2/3}$、$\int\kappa^{1/3}d\kappa=(3/4)\kappa^{4/3}$ を使って端点を評価すると
 
 $$
 K=\frac{3A\kappa_0}{2}\left(1-8^{-2/3}\right)
