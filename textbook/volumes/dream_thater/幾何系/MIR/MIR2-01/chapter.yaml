@@ -1,0 +1,42 @@
+id: "MIR2-01"
+title: "複素化KählerパラメータとA側の幾何"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-16
+  - GW1-20
+learning_objectives:
+  - 滑らかなquinticの超平面類と種数0安定写像の曲線類から整数次数を定義し像の次数と被覆次数を区別できる
+  - Kähler類の正値性と整数Chern類から面積2πvdおよび次数0の定数性を証明できる
+  - 実B場とKähler類を分けて複素化パラメータtと次数dの重みq_A^dを導ける
+  - 曲線類の加法性から重みの乗法性・整数シフト・指数減衰を検算できる
+  - Novikov形式変数Qと数値指数q_Aの役割を区別し有限係数和と収束の問題を説明できる
+  - 形式級数の数値評価の十分条件と階乗反例を証明できる
+  - B側の鏡像座標q_BとA側q_Aの同定が外部定理を必要とする理由を説明できる
+theorems:
+  - { id: MIR2-01-DEF-01, name: "quintic上の曲線の超平面次数" }
+  - { id: MIR2-01-PROP-01, name: "面積と超平面次数" }
+  - { id: MIR2-01-DEF-02, name: "複素化Kähler類の曲線重み" }
+  - { id: MIR2-01-PROP-02, name: "重みの乗法性・整数シフト・減衰" }
+  - { id: MIR2-01-DEF-03, name: "quinticの次数記録用形式級数" }
+  - { id: MIR2-01-PROP-03, name: "形式級数を数値評価できる十分条件" }
+canonical_examples:
+  - Fermat五次の具体直線とd重被覆による像次数と曲線類次数の違い
+  - t=1/4+iの次数2重みの位相と減衰
+  - 形式的なCauchy積の二次係数
+  - 形式級数の幾何級数と階乗級数の収束性の相違
+problem_patterns:
+  - MIR2-01-LINE-COVER-DEGREE
+  - MIR2-01-KAHLER-AREA
+  - MIR2-01-B-PHASE
+  - MIR2-01-FORMAL-COEFFICIENT
+  - MIR2-01-LARGE-VOLUME-BOUNDARY
+  - MIR2-01-ZERO-AREA-POSITIVITY
+  - MIR2-01-SPLITTING-WEIGHT
+  - MIR2-01-FACTORIAL-DIVERGENCE
+  - MIR2-01-NONCONVEX-BOUNDARY
+  - MIR2-01-A-B-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 9, review: 4 }
