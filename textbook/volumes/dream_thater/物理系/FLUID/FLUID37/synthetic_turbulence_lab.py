@@ -120,9 +120,9 @@ def experiment(modes=6, seed=37, grid_size=128):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--modes", type=int, default=6)
-    parser.add_argument("--seed", type=int, default=37)
+    parser.add_argument("--phase-init", type=int, default=37)
     args = parser.parse_args(argv)
-    print(json.dumps(experiment(args.modes, args.seed), ensure_ascii=False, indent=2))
+    print(json.dumps(experiment(args.modes, args.phase_init), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
