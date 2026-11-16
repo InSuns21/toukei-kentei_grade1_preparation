@@ -12,9 +12,9 @@
 
 [Reynolds 分解](../FLUID37/index.md#def-fluid37-reynolds-decomposition)による流れ方向の変動を $u'=u-U$、壁垂直方向の変動を $v'=v$ と書く。これらの変動から [FLUID38 の Reynolds 共分散](../FLUID38/index.md#def-fluid38-reynolds-stress)を作る。
 
-$
+$$
 R_{xy}(y)=\overline{u'v'}.
-$
+$$
 
 $R_{xy}$ の単位は m$^2$/s$^2$ で、負になりうる。**流束 $\rho R_{xy}$ と、応力として書く $-\rho R_{xy}$ は逆符号**である。
 
