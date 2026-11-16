@@ -141,7 +141,7 @@ $$
 <!-- definition-example-start: def-fluid37-statistical-symmetries -->
 **定義の確認**：$Z=\pm1$ が等確率、$\boldsymbol u(\boldsymbol x,t)=(0,Z,0)$ [m/s] で全空間・全時刻に同じ $Z$ を用いる場は、時間・空間をずらしても全ての同時分布が変わらず、定常かつ一様である。一方、$90^\circ$ の軸回転で $(0,Z,0)$ は別の座標軸へ移るので、速度の分布は一般に回転不変でなく等方的ではない。またこの場は発散ゼロであっても、時間的に揺れ続ける乱流ではない。
 
-**三条件が成立する直接例**：単位球面 $S^2=\{\boldsymbol n\in\mathbb R^3:|\boldsymbol n|=1\}$ 上の面積を確率 $1$ に正規化した分布から方向 $\boldsymbol N$ を選び、定数 $a>0$ に対して $\boldsymbol u(\boldsymbol x,t)=a\boldsymbol N$ とする。全点・全時刻に同じ $\boldsymbol N$ を用いるから時間・空間の平行移動は全ての同時分布を変えない。また球面の面積分布は回転で不変なので、任意の $Q\in SO(3)$ に対して $\boldsymbol N$ と $Q\boldsymbol N$ は同分布であり、速度も等方性の定義を満たす。二軸の符号反転（座標軸まわりの半回転）と座標の交換を適切な回転で実現できるため、$\mathbb EN_i=0$、$\mathbb E[N_iN_j]=0$（$i\ne j$）、各 $\mathbb EN_i^2$ は等しい。さらに $\sum_iN_i^2=1$ なので（$\delta_{ij}$ は $i=j$ のとき $1$、それ以外では $0$ の Kronecker 記号とする）、
+**三条件が成立する直接例**：単位球面 $S^2=\{\boldsymbol n\in\mathbb R^3:|\boldsymbol n|=1\}$ 上の面積を確率 $1$ に正規化した分布から方向 $\boldsymbol N$ を選び、定数 $a>0$ に対して $\boldsymbol u(\boldsymbol x,t)=a\boldsymbol N$ とする。全点・全時刻に同じ $\boldsymbol N$ を用いるから時間・空間の平行移動は全ての同時分布を変えない。また球面の面積分布は回転で不変なので、任意の $Q\in SO(3)$ に対して $\boldsymbol N$ と $Q\boldsymbol N$ は同分布であり、速度も等方性の定義を満たす。二軸の符号反転（座標軸まわりの半回転）と座標の交換を適切な回転で実現できるため、$\mathbb EN_i=0$、$\mathbb E[N_iN_j]=0$（$i\ne j$）、各 $\mathbb EN_i^2$ は等しい。さらに $\sum_iN_i^2=1$ なので、次を得る（$\delta_{ij}$ は $i=j$ のとき $1$、それ以外では $0$ の Kronecker 記号）。
 
 $$
 \mathbb E[N_i^2]=\frac13,\qquad
@@ -380,7 +380,7 @@ $$
 \mathbb E(U-\overline U)^2=9/4+3/4=3\ {\rm m^2/s^2}.
 $$
 
-また $\mathbb EU^2=0+16\cdot3/4=12$ m$^2$/s$^2$。実際 $\overline U^2+\operatorname{Var}U=9+3=12$。$k=\operatorname{Var}U/2=1.5$ m$^2$/s$^2$。
+また $\mathbb EU^2=0+16\cdot3/4=12$ m$^2$/s$^2$。実際、[Reynolds 分解のエネルギー命題](#prop-fluid37-mean-variance)を一次元速度 $U$ に適用すれば $\overline U^2+\operatorname{Var}U=9+3=12$。$k=\operatorname{Var}U/2=1.5$ m$^2$/s$^2$。
 <!-- solution-end -->
 
 #### A2. 相関係数とゼロ分散
@@ -391,7 +391,7 @@ $Z=\pm1$ が等確率とし、$X=Z$、$Y=2Z$、$W=5$ とする。$C_{XY}$ を計
 <!-- solution-start -->
 #### 詳細解答
 
-$\mathbb EX=\mathbb EY=0$、$\operatorname{Var}X=1$、$\operatorname{Var}Y=4$、$\mathbb E(XY)=\mathbb E(2Z^2)=2$。従って $C_{XY}=2/(1\cdot2)=1$。一方 $W-\mathbb EW=0$ が常に成り立ち $\operatorname{Var}W=0$ なので、正規化の分母 $\sigma_X\sigma_W=0$。共分散そのものはゼロでも相関係数は定義されない。
+$\mathbb EX=\mathbb EY=0$、$\operatorname{Var}X=1$、$\operatorname{Var}Y=4$、$\mathbb E(XY)=\mathbb E(2Z^2)=2$。[二点共分散と相関係数の定義](#def-fluid37-two-point-covariance)に従って $C_{XY}=2/(1\cdot2)=1$。一方 $W-\mathbb EW=0$ が常に成り立ち $\operatorname{Var}W=0$ なので、正規化の分母 $\sigma_X\sigma_W=0$。共分散そのものはゼロでも相関係数は定義されない。
 <!-- solution-end -->
 
 #### A3. 定常とエルゴード性の区別
@@ -402,7 +402,7 @@ $Z=\pm2$ が等確率、$X(t)=Z$ とする。$X(t)$ が統計的定常かを判�
 <!-- solution-start -->
 #### 詳細解答
 
-任意の $(t_1,\ldots,t_m)$ で $(X(t_1),\ldots,X(t_m))=(Z,\ldots,Z)$ だから、共通時間シフトで同時分布は変化せず定常。一方、任意の $T>0$ で $T^{-1}\int_0^T X(t)dt=Z$、$\mathbb EX(t)=\mathbb EZ=(-2+2)/2=0$。確率1で $Z\ne0$ なので、観測関数 $f(z)=z$ だけですでに時間エルゴード性の条件に違反する。
+任意の $(t_1,\ldots,t_m)$ で $(X(t_1),\ldots,X(t_m))=(Z,\ldots,Z)$ だから、共通時間シフトで同時分布は変化せず定常。一方、任意の $T>0$ で $T^{-1}\int_0^T X(t)dt=Z$、$\mathbb EX(t)=\mathbb EZ=(-2+2)/2=0$。確率1で $Z\ne0$ なので、観測関数 $f(z)=z$ だけですでに[時間エルゴード性の定義](#def-fluid37-ergodicity)に違反する。
 <!-- solution-end -->
 
 #### A4. 単一モードの Fourier 係数
@@ -431,7 +431,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-ゼロモードは重複しないから $\mathcal E_0=S_0=1$。正波数について $\mathcal E_1=2S_1=4$、$\mathcal E_2=2S_2=6$。全体は $1+4+6=11$ m$^2$/s$^2$ で、二側で直接足した $1+2+2+3+3=11$ と一致する。
+[一側スペクトルの定義](#def-fluid37-periodic-spectrum)ではゼロモードは重複しないから $\mathcal E_0=S_0=1$。正波数について $\mathcal E_1=2S_1=4$、$\mathcal E_2=2S_2=6$。全体は $1+4+6=11$ m$^2$/s$^2$ で、二側で直接足した $1+2+2+3+3=11$ と一致する。
 <!-- solution-end -->
 
 ### Level B
@@ -548,7 +548,7 @@ R(r)=\frac{2^2}{2}\cos(r/(1\ {\rm m}))
 =2\cos(r/(1\ {\rm m}))+\tfrac12\cos(2r/(1\ {\rm m})).
 $$
 
-(ii) 指数表示から $a_{\pm1}=e^{\pm i\Phi_1}$、$a_{\pm2}=\frac12e^{\pm i\Phi_2}$ [m/s]。よって $S_{\pm1}=1$、$S_{\pm2}=1/4$、一側では $\mathcal E_1=2$、$\mathcal E_2=1/2$ [m$^2$/s$^2$]。二側和は $1+1+1/4+1/4=5/2=R(0)$。
+(ii) 指数表示から $a_{\pm1}=e^{\pm i\Phi_1}$、$a_{\pm2}=\frac12e^{\pm i\Phi_2}$ [m/s]。よって $S_{\pm1}=1$、$S_{\pm2}=1/4$、一側では $\mathcal E_1=2$、$\mathcal E_2=1/2$ [m$^2$/s$^2$]。[相関と Parseval の定理](#thm-fluid37-parseval-correlation)の二側和は $1+1+1/4+1/4=5/2=R(0)$。
 
 (iii) $r=\pi/2$ m で $\cos(\pi/2)=0$、$\cos(\pi)=-1$ より $R(\pi/2)=-1/2$。分散は両点とも $R(0)=5/2$ なので、相関係数は $C=-\frac{1/2}{5/2}=-1/5$。
 
