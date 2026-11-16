@@ -1,0 +1,41 @@
+chapter: MIR2-02
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR2-01, GW1-20, CYG1-09]
+concepts:
+  - id: mirror.quintic-first-chern-zero
+    name: quinticの第一Chern類
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticの第一Chern類）"]
+    requires: [cyg.complete-intersection-normal-sequence]
+  - id: mirror.quintic-stable-map-virtual-dimension
+    name: quintic種数0安定写像の仮想次元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quintic種数0安定写像の仮想次元）"]
+    requires: [mirror.quintic-first-chern-zero, gromov-witten.perfect-obstruction-theory, gromov-witten.stable-map]
+  - id: mirror.quintic-virtual-primary-gw
+    name: quintic種数0の一次GW不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quintic種数0の一次GW不変量）"]
+    requires: [mirror.quintic-stable-map-virtual-dimension, gromov-witten.evaluation-insertion, gromov-witten.perfect-obstruction-theory]
+  - id: mirror.quintic-virtual-insertion-degree
+    name: quinticの一次GW挿入次数の必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticの一次GW挿入次数の必要条件）"]
+    requires: [mirror.quintic-virtual-primary-gw, mirror.quintic-stable-map-virtual-dimension]
+  - id: mirror.quintic-degree-zero-three-point
+    name: quinticの次数0・三点一次不変量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticの次数0・三点一次不変量）"]
+    requires: [mirror.quintic-virtual-primary-gw, gromov-witten.zero-degree-product]
+  - id: mirror.quintic-negative-normal-double-cover
+    name: 負の法束を持つ直線の二重被覆
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（負の法束を持つ直線の二重被覆）"]
+    requires: [mirror.quintic-stable-map-virtual-dimension, gromov-witten.local-reduced-deformation, algebraic-geometry.p1-sheaf-cohomology]
