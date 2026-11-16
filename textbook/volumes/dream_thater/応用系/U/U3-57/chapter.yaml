@@ -1,0 +1,42 @@
+id: "U3-57"
+title: "ES（CVaR）最適化とヘッジ"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-56]
+official_scope: []
+learning_objectives:
+  - 実確率Pと損失符号を固定して数量依存のヘッジ損失・確定費用・数量制約を定式化できる
+  - 有限状態ESの正の部分最小化と境界原子の最適性条件を証明できる
+  - ESヘッジを補助超過変数による線形計画に変換し凸性・解の存在を説明できる
+  - 四状態の最適ヘッジを区分式から導出し尾部重みの大域最適性証明書を構成できる
+  - 取引費用閾値・数量上限・ES制約の実行可能性を判定できる
+  - ブラウザPythonと標準ライブラリのテストで厳密な有限状態計算を再現できる
+definitions:
+  - { id: U3-57-DEF-01, name: "有限状態の ES ヘッジ目的関数" }
+  - { id: U3-57-DEF-02, name: "ES ヘッジの線形計画表示" }
+theorems:
+  - { id: U3-57-THM-01, name: "有限状態 ES の正の部分による最小化" }
+  - { id: U3-57-PROP-01, name: "線形計画と ES ヘッジの同値性・凸性" }
+  - { id: U3-57-PROP-02, name: "4状態例の ES と費用込み目的の区分式" }
+  - { id: U3-57-THM-02, name: "尾部重みによるヘッジ最適性の証明書" }
+canonical_examples:
+  - "4状態の既存損失(0,8,16,24)・単位ヘッジ損失(0,0,4,-12)・費用c=1"
+  - "50%ESの最適数量4/3とES44/3万円・費用込み16万円"
+  - "境界同額状態へ尾部重み(0,1/4,1/2,1/4)を選ぶ大域最適性証明"
+  - "費用c=4で最適解が区間全体になりc=5でヘッジゼロとなる閾値"
+  - "ES15万円以下の数量区間[5/4,3/2]と数量上限1での実行不能"
+problem_patterns:
+  - U3-57-A1
+  - U3-57-A2
+  - U3-57-A3
+  - U3-57-A4
+  - U3-57-A5
+  - U3-57-B1
+  - U3-57-B2
+  - U3-57-B3
+  - U3-57-B4
+  - U3-57-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
