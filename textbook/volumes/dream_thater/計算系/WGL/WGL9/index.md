@@ -27,6 +27,20 @@ $$
 **定義の確認**。 $u=(1,0,0)$、$v=(0,2,0)$ を成分ごとに代入すると、$u\times v=(0,0,2)$ です。$(u\times v)\cdot u=0$、$(u\times v)\cdot v=0$ を直接確かめられ、順序交換では $(0,0,-2)$ になります。一般の場合も、$u\cdot(u\times v)$ の6項は $u_1u_2v_3-u_1u_3v_2+u_2u_3v_1-u_1u_2v_3+u_1u_3v_2-u_2u_3v_1=0$ のように対消滅します。
 <!-- definition-example-end -->
 
+ベクトル積の長さを面積の判定に使える理由も、座標式から確認します。上の3成分をそれぞれ二乗して足すと、$u,v\in\mathbb R^3$ について
+
+$
+\begin{aligned}
+\|u\times v\|^2
+&=\sum_{1\le i<j\le3}(u_iv_j-u_jv_i)^2\\
+&=(u_1^2+u_2^2+u_3^2)(v_1^2+v_2^2+v_3^2)\\
+&\quad -(u_1v_1+u_2v_2+u_3v_3)^2\\
+&=\|u\|^2\|v\|^2-(u\cdot v)^2.
+\end{aligned}
+$
+
+$u,v$ がともに非零なら、[内積](../../../基礎科目/F0/F0-00E1/index.md#def-f0-00e1-inner-product)からなす角 $\theta$ を $u\cdot v=\|u\|\|v\|\cos\theta$ と読めるため、$\|u\times v\|=\|u\|\|v\||\sin\theta|$ です。これは底辺 $\|u\|$ と高さ $\|v\||\sin\theta|$ の平行四辺形の面積に等しくなります。零ベクトルの場合も両者は0です。**直交性だけでなく、この面積との対応**を使って、次に法線を正規化します。
+
 3頂点 $A,B,C\in\mathbb R^3$ の三角形では、辺ベクトル $u=B-A$、$v=C-A$ のベクトル積 $u\times v$ が両辺に直交します。頂点順を逆にすると向きが反転します。長さが0なら三角形が退化しており、面の向きはこの式では決まりません。
 
 <a id="def-wgl9-normal"></a>
@@ -122,11 +136,26 @@ $$
 
 例えば局所的な接線 $t=(1,-1,0)$、法線 $n=(1,1,0)$ は $n\cdot t=0$ です。$M=\operatorname{diag}(2,1,1)$ で位置を変換すると $Mt=(2,-1,0)$ ですが、誤って $Mn=(2,1,0)$ とすると $(Mn)\cdot(Mt)=3$ で直交しません。直交性を回復したいのです。
 
+モデル座標の点 $p$ とその接線方向 $t$ を列ベクトルとして表し、$F(p)=Mp+b$ と置きます。点を $t$ だけ動かした差は
+
+$
+F(p+t)-F(p)=M(p+t)+b-(Mp+b)=Mt
+$
+
+です。したがって、接線に直交する局所法線 $n$ の条件 $n^{\mathsf T}t=0$ を、世界座標でも保つ必要があります。法線に掛ける行列を $B$ と仮置きし、任意の $n,t$ に対して内積を保つように要求すると
+
+$
+(Bn)^{\mathsf T}(Mt)=n^{\mathsf T}B^{\mathsf T}Mt=n^{\mathsf T}t
+\quad\Longleftrightarrow\quad B^{\mathsf T}M=I_3.
+$
+
+$M$ が可逆なら $B^{\mathsf T}=M^{-1}$、すなわち $B=(M^{-1})^{\mathsf T}$ です。これは単に逆行列を暗記したのではなく、**変換された接線との直交性**から得た判定方法です。なお、ここで $I_3$ は3次単位行列、上付き $\mathsf T$ は転置を表します。
+
 <a id="def-wgl9-normal-matrix"></a>
 
 <!-- formal-statement-start -->
 > **定義（法線行列）**  
-> モデル変換の位置への作用が $p\mapsto Mp+b$ であり、線形部分 $M\in\mathbb R^{3\times3}$ が可逆（$\det M\ne0$）とする。この変換に対応する法線行列を
+> モデル変換の位置への作用が $p\mapsto Mp+b$ であり、線形部分 $M\in\mathbb R^{3\times3}$ が可逆（逆行列 $M^{-1}$ が存在する）とする。この変換に対応する法線行列を
 
 $$
 N_M=(M^{-1})^{\mathsf T}=M^{-\mathsf T}
@@ -136,7 +165,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl9-normal-matrix -->
-**定義の確認**。 $M=\operatorname{diag}(2,1,1)$ は $\det M=2\ne0$ なので逆行列を持ち、
+**定義の確認**。$M=\operatorname{diag}(2,1,1)$ は、$M^{-1}=\operatorname{diag}(1/2,1,1)$ を左右から掛けると $I_3$ になるため、確かに可逆です。[行列式の定義](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant)から計算しても $\det M=2$ です。逆行列が対角行列なので、
 
 $$
 M^{-\mathsf T}=\operatorname{diag}(1/2,1,1),\qquad
@@ -152,8 +181,6 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（可逆線形変換の法線変換）**  
-[行列式の定義](../../../基礎科目/LA/LA3B/index.md#def-la3b-matrix-determinant)により、$\det M\ne0$ はこの3次元行列の可逆性を判定する条件です。
-
 > $M\in\mathbb R^{3\times3}$ を可逆行列とし、$n\ne0$ を接平面のすべての接線 $t$ と直交する法線とする。このとき、$n'=M^{-\mathsf T}n$ は変換後のすべての接線 $Mt$ と直交し、$n'\ne0$ である。したがって $n'/\|n'\|$ は向きを定めた変換後の単位法線として使える。ただし負の行列式による面の頂点順の反転は別に考慮する。
 <!-- formal-statement-end -->
 
@@ -246,7 +273,7 @@ $$
 =(0.245140163,\ 0.361140163,\ 0.477140163).
 $$
 
-これは**線形値**です。表示用の8bit値にする前にsRGBへ符号化します。法線可視化モードだけは例外として、$[-1,1]$ の各法線成分を $(N_i+1)/2$ へ写し、幾何の向きそのものを見ます（光の色ではありません）。
+これは**線形値**です。表示用の8bit値にする前にsRGBへ符号化します。法線可視化モードだけは例外として、$[-1,1]$ の各法線成分 $N_i$（$i=1,2,3$ は座標成分の番号）を $(N_i+1)/2$ へ写し、幾何の向きそのものを見ます（光の色ではありません）。
 
 ## 5. 頂点法線の補間とWebGL2での実験
 
@@ -352,7 +379,7 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**。$M$ は $\det M=2\ne0$ なので[法線行列](#def-wgl9-normal-matrix)を使えます。逆転置は $\operatorname{diag}(1/2,1,1)$ で、
+**詳細解答**。$M^{-1}=\operatorname{diag}(1/2,1,1)$ との積が $I_3$ になるので、$M$ は可逆です。よって[法線行列](#def-wgl9-normal-matrix)を使えます。逆転置は $\operatorname{diag}(1/2,1,1)$ で、
 
 $$
 M^{-\mathsf T}n=(1/(2\sqrt2),1/\sqrt2,0),
@@ -473,7 +500,7 @@ $$
 <!-- solution-start -->
 **詳細解答**。
 
-**(1)** $Mt=(2,-1,0)$。$M$ は可逆で、[法線変換の命題](#prop-wgl9-inverse-transpose)から $M^{-\mathsf T}n=(1/(2\sqrt2),1/\sqrt2,0)$。正規化後は $N=(1,2,0)/\sqrt5$ です。内積は
+**(1)** $Mt=(2,-1,0)$。$M^{-1}=\operatorname{diag}(1/2,1,1)$ と確かめられるので $M$ は可逆で、[法線変換の命題](#prop-wgl9-inverse-transpose)から $M^{-\mathsf T}n=(1/(2\sqrt2),1/\sqrt2,0)$。正規化後は $N=(1,2,0)/\sqrt5$ です。内積は
 
 $$
 N\cdot Mt=(2-2)/\sqrt5=0.
