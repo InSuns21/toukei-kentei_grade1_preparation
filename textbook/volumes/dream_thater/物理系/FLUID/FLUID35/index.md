@@ -18,7 +18,7 @@
 
 界面は $z=\eta(x,t)$ であり、両層は半無限、密度一定、非圧縮・非粘性で、界面張力 $\sigma\ge0$ [N/m] は一定とする。各層内部の擾乱は無渦で遠方減衰し、回転・拡散・混合を無視する。
 
-$k>0$ [m$^{-1}$] の単一水平波数を用い、$k|\widehat\eta|\ll1$ の小勾配で一次化する。
+$k>0$ [m$^{-1}$] の単一水平波数を用いる。$\widehat\eta$ [m] は界面変位の複素振幅（第1.1節で用いる正規モードの係数）とし、初期に $k|\widehat\eta|\ll1$ の小勾配で一次化する。時間とともに増幅する枝では、この小勾配条件を各時刻で改めて確かめる。
 
 山を少し上へ押した場所で上の流体が下より重ければ、軽い流体がその場所を持ち上げたことになる。界面を押し戻すはずの重力が、かえって変位を大きくする。そこで密度差の**向き**と無次元の比を先に決める。
 
@@ -41,7 +41,7 @@ $$
 
 ### 1.1 圧力と運動学的境界条件から分散式へ
 
-界面擾乱を $\eta=\operatorname{Re}\{\widehat\eta e^{i(kx-\omega t)}\}$ と置く。ここで $\omega\in\mathbb C$ [s$^{-1}$] であり、[FLUID34 の正規モードと時間成長率](../FLUID34/index.md#def-fluid34-normal-mode)に従い $\gamma=\operatorname{Im}\omega>0$ が増幅を表す。
+界面擾乱を $\eta=\operatorname{Re}\{\widehat\eta e^{i(kx-\omega t)}\}$ と置く。ここで $\omega\in\mathbb C$ [s$^{-1}$] であり、[FLUID34 の正規モードと時間成長率](../FLUID34/index.md#def-fluid34-normal-mode)に従い $\gamma=\operatorname{Im}\omega>0$ が増幅を表す。以下の線形境界条件では、$\eta$ と $\phi_j$ を一時的に**実部を取る前の複素表示**として扱う。実際の界面・速度は最後に実部を取るので、$\partial_t\phi_j$ や $\eta_{xx}=\partial_x^2\eta$ はこの複素表示に作用させた式である（[FLUID34 の複素振幅による境界条件](../FLUID34/index.md#prop-fluid34-kinematic-amplitudes)）。
 
 [FLUID34 の運動学的境界条件](../FLUID34/index.md#prop-fluid34-kinematic-amplitudes)を背景速度 $U_1=U_2=0$ に適用する。各層の擾乱速度ポテンシャルを
 
@@ -186,7 +186,7 @@ $$
 
 物性として、基準密度 $\rho_0>0$、動粘性係数 $\nu>0$ [m$^2$/s]、熱拡散率 $\kappa>0$ [m$^2$/s]、熱膨張係数 $\alpha>0$ [K$^{-1}$] を**定数**とする。
 
-$|\alpha(T-T_0)|\ll1$ として、密度差は浮力だけに保持し、慣性・非圧縮条件・粘性の密度には $\rho_0$ を用いる。これは [FLUID31 の Boussinesq 近似](../FLUID31/index.md#def-fluid31-boussinesq)の熱膨張版であり、連続成層の小密度差という近似条件を引き継ぐ。
+$|\alpha(T-T_0)|\ll1$ として、密度差は浮力だけに保持し、慣性・非圧縮条件・粘性の密度には $\rho_0$ を用いる。ここで $T_0$ は密度 $\rho_0$ を定める基準温度である。[FLUID31 の Boussinesq 近似](../FLUID31/index.md#def-fluid31-boussinesq)から、慣性では密度差を無視し浮力には残す考え方と、小密度差という条件を引き継ぐ。ただし FLUID31 の非粘性・非拡散の設定は引き継がず、本節では粘性 $\nu$ と熱拡散 $\kappa$ を保持する。
 
 静止流体でも、温度は下から上へ直線的に下がり熱が伝導する。この**伝導基底状態**からの小さな速度・温度のずれを調べる。
 
@@ -241,9 +241,15 @@ $$
 \partial_t\theta-\beta w=\kappa\nabla^2\theta.
 $$
 
-後式の負号は、流体粒子の鉛直速度 $w$ が基底温度を移流する項 $w\overline T'(z)=-\beta w$ から現れる。暖かい流体粒子が少し上昇すると周囲より高温になり、浮力がさらに上向きに働く。この**正の帰還**と粘性・熱拡散の競争が重要である。
+後式の負号は、流体粒子の鉛直速度 $w$ が基底温度を移流する項 $w\overline T'(z)=-\beta w$ から現れる。ここでプライム $\overline T'(z)=d\overline T/dz$ は**高さ $z$ に関する常微分**であり、$\partial_t\theta$ は $z$ を固定した時間偏微分である。実際に $T=\overline T(z)+\theta(x,z,t)$ を温度の移流項へ代入すると、一次の項は $w\,d\overline T/dz=-\beta w$ となる。暖かい流体粒子が少し上昇すると周囲より高温になり、浮力がさらに上向きに働く。この**正の帰還**と粘性・熱拡散の競争が重要である。
 
-固定温度の両板では $\theta=0$ とする。まず計算可能な**自由滑り（接線方向の粘性応力零）・不透過**の境界条件を採用する。水平擾乱波数 $k_h>0$ の正規モードについて、$w=0$ と $\partial_z^2w=0$ を両壁で要求する。後者は非圧縮条件 $\partial_xu+\partial_zw=0$ と接線応力条件 $\partial_zu+\partial_xw=0$ を使い、$w=0$ による $\partial_xw=0$ を代入して得る。**無滑り壁**の $u=w=0$ とは異なる。
+固定温度の両板では $\theta=0$ とする。まず計算可能な**自由滑り（接線方向の粘性応力零）・不透過**の境界条件を採用する。水平擾乱波数 $k_h>0$ の正規モードについて、$w=0$ と $\partial_z^2w=0$ を両壁で要求する。後者は非圧縮条件 $\partial_xu+\partial_zw=0$ と接線応力条件 $\partial_zu+\partial_xw=0$ から導く。壁上で全ての $x$ に対し $w=0$ なので $\partial_xw=0$ であり、接線応力条件は $\partial_zu=0$ となる。さらに非圧縮条件を $z$ で微分すると
+
+$
+\partial_x\partial_zu+\partial_z^2w=0.
+$
+
+壁上で $\partial_zu=0$ が全ての $x$ に対して成り立つため $\partial_x\partial_zu=0$、従って $\partial_z^2w=0$ である。**無滑り壁**の $u=w=0$ とは異なる。
 
 ### 3.1 圧力を消すと何が残るか
 
@@ -280,7 +286,7 @@ w=W_0\sin\left(\frac{n\pi z}{d}\right)e^{ik_hx+st},\quad
 \theta=\Theta_0\sin\left(\frac{n\pi z}{d}\right)e^{ik_hx+st}
 $$
 
-とする。ここで $W_0$ [m/s] と $\Theta_0$ [K] は複素振幅であり、実部が物理的擾乱である。$q^2=k_h^2+n^2\pi^2/d^2$ [m$^{-2}$] と置くと、$\nabla^2w=-q^2w$、$\partial_x^2\theta=-k_h^2\theta$ である。前小節の圧力消去式と温度式をそれぞれ代入して
+とする。ここで $W_0$ [m/s] と $\Theta_0$ [K] は複素振幅であり、実部が物理的擾乱である。$q>0$ を水平波数と鉛直波数を合成した波数とし、$q^2=k_h^2+n^2\pi^2/d^2$ [m$^{-2}$] と置くと、$\nabla^2w=-q^2w$、$\partial_x^2\theta=-k_h^2\theta$ である。前小節の圧力消去式と温度式をそれぞれ代入して
 
 $$
 (s+\nu q^2)q^2 W_0=g\alpha k_h^2\Theta_0,
@@ -442,15 +448,34 @@ $$
 
 **いけない。** ここまでの正弦鉛直モードは自由滑り壁の条件 $w=w''=0$ と固定温度 $\theta=0$ に適合する。両板を無滑り（剛体）へ替えると水平速度も壁で零、非圧縮条件から $w=w'=0$ が必要になる。$w=\sin(\pi z/d)$ は壁で $w'\ne0$ だから、**もはや試験関数ですらない**。
 
-例えば定常中立（$s=0$）の鉛直速度と温度の方程式から温度擾乱を消去すると
+定常中立（$s=0$）では、前節の**定数の振幅 $W,\Theta$ とは区別して**、高さに依存する鉛直速度振幅 $\mathcal W(z)$ と温度振幅 $\mathcal T(z)$ を
 
-$$
-\left(D_z^2-k_h^2\right)^3W
-=-\frac{g\alpha\beta}{\nu\kappa}k_h^2W,
-\quad D_z=\frac{d}{dz},
-$$
+$
+w(x,z,t)=\operatorname{Re}\{\mathcal W(z)e^{ik_hx}\},\qquad
+\theta(x,z,t)=\operatorname{Re}\{\mathcal T(z)e^{ik_hx}\}
+$
 
-となる。上下の**無滑り・固定温度**壁では $W=W'=0$、かつ温度式と固定温度から $(D_z^2-k_h^2)^2W=0$ を両壁で課す。これは先ほどの正弦関数を代入するだけでは解けない、別の六階境界値・固有値問題である。
+と置く。$D_z=d/dz$ は $z$ だけを動かす常微分であり、$L=D_z^2-k_h^2$ と書く。圧力消去式と温度式（第3.1節）へ代入すると、$\partial_x^2\mapsto-k_h^2$ なので
+
+$
+-\nu L^2\mathcal W=-g\alpha k_h^2\mathcal T,
+\qquad -\beta\mathcal W=\kappa L\mathcal T.
+$
+
+$g,\alpha,k_h>0$ であるから第1式より $\mathcal T=\nu L^2\mathcal W/(g\alpha k_h^2)$ と解ける。これを第2式へ代入して両辺へ $g\alpha k_h^2/(\nu\kappa)$ を掛けると
+
+$
+\boxed{\left(D_z^2-k_h^2\right)^3\mathcal W
+=-\frac{g\alpha\beta}{\nu\kappa}k_h^2\mathcal W.}
+$
+
+上下の**無滑り・固定温度**壁では $w=0$ より $\mathcal W=0$、水平速度 $u=0$ と非圧縮条件 $ik_hu+D_z\mathcal W=0$ より $D_z\mathcal W=0$。さらに固定温度 $\mathcal T=0$ は上の第1式を介して $L^2\mathcal W=0$ と同値になる。すなわち両壁で
+
+$
+\mathcal W=D_z\mathcal W=(D_z^2-k_h^2)^2\mathcal W=0.
+$
+
+これは先ほどの正弦関数を代入するだけでは解けない、別の六階境界値・固有値問題である。
 
 この問題を数値的に解いた古典的な基準値は、水平無限・上下とも**無滑りかつ固定温度**の場合、$\mathrm{Ra}_c\simeq1707.762$、$a_c\simeq3.117$。これは本講で解析的に証明した $657.511$ から**自動的に導いた値ではなく**、別の固有値問題の数値基準値として引用する（[Scholarpedia: Rayleigh–Bénard convection](https://www.scholarpedia.org/article/Rayleigh-B%C3%A9nard_convection)）。片側だけ自由滑り、一定熱流束境界、有限幅・回転付きでは、さらに別の条件と閾値が必要となる。
 
@@ -503,7 +528,7 @@ $\rho_1=1100,\rho_2=1000$ kg/m$^3$、$g=10$ m/s$^2$、$\sigma=0.1$ N/m とする
 <!-- solution-start -->
 #### 詳細解答
 
-$\Delta\rho=100$ kg/m$^3>0$ だから [不安定波数帯の命題](#prop-fluid35-rt-cutoff)を適用できる。$k_c=\sqrt{100\cdot10/0.1}=\sqrt{10000}=100$ m$^{-1}$。従って不安定区間は $0<k<100$ m$^{-1}$。$50<100$ では $\gamma^2>0$、$150>100$ では $\gamma^2<0$ となり、前者だけ指数増幅する。
+$\Delta\rho=100$ kg/m$^3>0$ だから [不安定波数帯の命題](#prop-fluid35-rt-cutoff)を適用できる。$k_c=\sqrt{100\cdot10/0.1}=\sqrt{10000}=100$ m$^{-1}$。従って不安定区間は $0<k<100$ m$^{-1}$。$50<100$ では分散式の $\omega^2<0$ により実数の $\gamma>0$ が定義できる。$150>100$ では $\omega^2>0$ で根は実数となり、指数増幅しない。$\gamma^2$ を安定域まで負値で延長して実数の成長率と混同してはならない。
 <!-- solution-end -->
 
 ### A3. 正弦モードの壁条件
@@ -661,7 +686,7 @@ $$
 =\frac{4833}{2050}\simeq2.35756\ {\rm s^{-2}}.
 $$
 
-よって $\gamma\simeq1.53543$ s$^{-1}$。$\sigma>0$ なので [不安定波数帯](#prop-fluid35-rt-cutoff)を使え、$k_c=\sqrt{50\cdot9.81/0.072}\simeq82.54$ m$^{-1}$、$k_*=k_c/\sqrt3\simeq47.65$ m$^{-1}$。$t=0.2$ s の増幅係数は $e^{1.53543\cdot0.2}=e^{0.307086}\simeq1.3594$、従って振幅は約 $1.36\cdot10^{-5}$ m、$k|\eta|\simeq1.36\cdot10^{-4}\ll1$。$k=150>k_c$ では $\gamma^2<0$、すなわち $\omega^2>0$ なので指数成長しない。
+よって $\gamma\simeq1.53543$ s$^{-1}$。$\sigma>0$ なので [不安定波数帯](#prop-fluid35-rt-cutoff)を使え、$k_c=\sqrt{50\cdot9.81/0.072}\simeq82.54$ m$^{-1}$、$k_*=k_c/\sqrt3\simeq47.65$ m$^{-1}$。$t=0.2$ s の増幅係数は $e^{1.53543\cdot0.2}=e^{0.307086}\simeq1.3594$、従って振幅は約 $1.36\cdot10^{-5}$ m、$k|\eta|\simeq1.36\cdot10^{-4}\ll1$。$k=150>k_c$ では分散式の $\omega^2>0$ で二根は実数になり、指数成長しない（この領域では実数の正の $\gamma$ は定義しない）。
 
 (ii) [Rayleigh–Bénardの伝導基底状態・Rayleigh数・Prandtl数](#def-fluid35-rayleigh)から $\mathrm{Pr}=10^{-6}/(1.5\cdot10^{-7})=20/3$、$\alpha\Delta T=0.03\ll1$。Rayleigh数の分子は
 
