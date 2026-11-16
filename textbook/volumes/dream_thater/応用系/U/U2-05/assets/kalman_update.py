@@ -202,7 +202,7 @@ def main() -> None:
         self_test()
         return
     print("U2-05: exact Fraction arithmetic, no random sampling")
-    print("Assumptions: P->0, R->0; independent Gaussian observation noise")
+    print("Assumptions: P>0, R>0; independent Gaussian observation noise")
     if args.scenario == "noise":
         for r in (F(1, 10), F(1), F(10), F(100)):
             item = scalar(noise_variance=r)
