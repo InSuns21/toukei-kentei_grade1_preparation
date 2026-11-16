@@ -427,7 +427,7 @@ $u=\phi'e^{i\alpha(x-ct)}$、$v=-i\alpha\phi e^{i\alpha(x-ct)}$。指数因子�
 #### A4. 変曲点の必要性を使う
 - Level: A
 
-非粘性の平行流 $U_1=y$、$U_2=1-y^2$、$U_3=y-y^3$ のどれに Rayleigh の変曲点必要条件から指数増幅モードの不存在を結論できるか。
+非粘性の平行流 $U_1=y$、$U_2=1-y^2$、$U_3=y-y^3$ のどれに [Rayleigh の変曲点必要条件](#thm-fluid36-inflection)から指数増幅モードの不存在を結論できるか。
 
 <!-- solution-start -->
 #### 詳細解答
