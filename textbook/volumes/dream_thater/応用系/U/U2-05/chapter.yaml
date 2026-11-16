@@ -1,0 +1,48 @@
+id: "U2-05"
+title: "Kalman フィルタの更新：観測 innovation と不確実性の縮小"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-04
+official_scope: []
+learning_objectives:
+  - 線形Gaussian観測のinnovationの実現値と測定前の共分散を区別できる
+  - 観測行列と雑音共分散の次元・独立性・正定値性を検査できる
+  - 状態とinnovationの交差共分散からKalman gainを導出できる
+  - 行列平方完成により線形補正の共分散最小性を説明できる
+  - 既習のGaussian事後更新をKalman gain形へ代数変形して証明できる
+  - 標準共分散更新とJoseph形を計算で照合し対称半正定値性を説明できる
+  - 共分散の方向別縮小と等号条件HPv=0を判定できる
+  - 観測雑音分散の極限と退化Gaussianを区別できる
+  - 相関する位置速度の二次元Kalmanフィルタを予測から更新まで再構成できる
+  - 外れ値・誤った観測雑音モデルと厳密Gaussian更新の射程を区別できる
+definitions:
+  - { id: U2-05-DEF-01, name: 観測 innovation と innovation 共分散 }
+  - { id: U2-05-DEF-02, name: Kalman gain と線形補正 }
+theorems:
+  - { id: U2-05-THM-01, name: Kalman フィルタの Gaussian 観測更新 }
+  - { id: U2-05-PROP-01, name: Joseph 形と標準形の同値性 }
+  - { id: U2-05-PROP-02, name: Kalman 更新の共分散縮小と等号条件 }
+  - { id: U2-05-PROP-03, name: 一次元観測雑音の極限 }
+canonical_examples:
+  - 1次元のinnovation3とS=5からgain4/5・平均22/5・分散4/5を導出
+  - 行列恒等式で情報形式とgain形式の更新の同値性を証明
+  - Joseph形と減算型を1次元および二次元で照合
+  - 二次元の和の観測で負の事後交差共分散と不変方向を検証
+  - 雑音分散ゼロ極限と無情報観測H=0を区別
+  - 分数によるPython更新ラボと自己検査
+problem_patterns:
+  - U2-05-A01
+  - U2-05-A02
+  - U2-05-A03
+  - U2-05-A04
+  - U2-05-A05
+  - U2-05-B01
+  - U2-05-B02
+  - U2-05-B03
+  - U2-05-B04
+  - U2-05-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

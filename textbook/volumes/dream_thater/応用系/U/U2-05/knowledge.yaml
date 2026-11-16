@@ -1,0 +1,49 @@
+chapter: U2-05
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-04
+forward_references: []
+concepts:
+  - id: robotics.kalman-innovation
+    name: 観測 innovation
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測 innovation と innovation 共分散）"]
+    requires: [robotics.kalman-linear-prediction, robotics.linear-gaussian-position-observation]
+  - id: robotics.kalman-innovation-covariance
+    name: innovation 共分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測 innovation と innovation 共分散）"]
+    requires: [robotics.kalman-innovation]
+  - id: robotics.kalman-gain
+    name: Kalman gain と線形補正
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kalman gain と線形補正）"]
+    requires: [robotics.kalman-innovation-covariance]
+  - id: robotics.kalman-measurement-update
+    name: Kalman フィルタの Gaussian 観測更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Kalman フィルタの Gaussian 観測更新）"]
+    requires: [robotics.kalman-gain, robotics.linear-gaussian-position-update]
+  - id: robotics.kalman-joseph-form
+    name: Joseph 形と標準形の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Joseph 形と標準形の同値性）"]
+    requires: [robotics.kalman-measurement-update]
+  - id: robotics.kalman-update-contraction
+    name: Kalman 更新の共分散縮小と等号条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Kalman 更新の共分散縮小と等号条件）"]
+    requires: [robotics.kalman-joseph-form]
+  - id: robotics.kalman-observation-noise-limits
+    name: 一次元観測雑音の極限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次元観測雑音の極限）"]
+    requires: [robotics.kalman-measurement-update]

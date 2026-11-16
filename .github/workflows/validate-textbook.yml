@@ -300,6 +300,12 @@ jobs:
         if: github.event_name != 'pull_request' || steps.scope.outputs.full == 'true'
         run: npm run validate:prose-math
 
+      # U2-05: rational exact update and independent 1D/2D covariance oracles.
+      - name: Verify U2-05 Kalman measurement update experiment
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U2-05/assets/kalman_update.py --self-test
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U2-05/assets/tests -v
+
       # U3-04's reproducible numerical check is short and uses Python stdlib only.
       - name: Verify U3-04 self-financing replication experiment
         run: |
