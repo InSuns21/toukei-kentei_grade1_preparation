@@ -1,0 +1,41 @@
+chapter: WGL10
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL9]
+concepts:
+  - id: graphics.framebuffer-object
+    name: フレームバッファオブジェクト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フレームバッファオブジェクト）"]
+    requires: [graphics.drawing-buffer-pixel]
+  - id: graphics.color-attachment
+    name: カラーアタッチメント
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（カラーアタッチメント）"]
+    requires: [graphics.framebuffer-object, graphics.texture-uv-texel]
+  - id: graphics.framebuffer-completeness
+    name: フレームバッファの完成状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フレームバッファの完成状態）"]
+    requires: [graphics.color-attachment]
+  - id: graphics.render-to-texture
+    name: render-to-texture
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（render-to-texture）"]
+    requires: [graphics.framebuffer-completeness, graphics.texture-filter]
+  - id: graphics.render-texture-pixel-centers
+    name: 全画面四角形の画素中心と最近傍読取り
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（全画面四角形の画素中心と最近傍読取り）"]
+    requires: [graphics.render-to-texture, graphics.ndc-viewport]
+  - id: graphics.render-texture-quantization
+    name: RGBA8経由の反転は量子化後の補数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（RGBA8経由の反転は量子化後の補数）"]
+    requires: [graphics.render-to-texture]

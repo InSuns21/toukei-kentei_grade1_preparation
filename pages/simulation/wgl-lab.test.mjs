@@ -174,3 +174,6 @@ import './wgl8-lab.test.mjs';
 
 // WGL9: CPU inverse-transpose, Lambert/Blinn-Phong, ray/mesh lesson contract.
 import './wgl9-lab.test.mjs';
+
+// WGL10: RGBA8 attachment, resize, two passes, and independent CPU oracle.
+import './wgl10-lab.test.mjs';

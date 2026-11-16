@@ -1,0 +1,31 @@
+id: WGL10
+title: 一回描いた結果を次に使うには？
+volume: foundations
+status: supplementary
+prerequisites: [WGL9]
+official_scope: []
+learning_objectives:
+  - framebuffer object・カラーアタッチメント・完成状態を区別しWebGL2のRGBA8 render targetを構成できる
+  - 第1パスのtextureを第2パスでサンプリングし同時read/writeのフィードバックループを避けられる
+  - オフスクリーン寸法とdefault framebufferのviewportを切り替え、リサイズで再確保できる
+  - 画素中心UVとNEARESTのテクセル添字を手計算しGPU画素読出しと照合できる
+  - RGBA8の中間量子化を含む2パスのRGB反転を導出・実装・検算できる
+definitions:
+  - { id: WGL10-DEF-01, name: フレームバッファオブジェクト }
+  - { id: WGL10-DEF-02, name: カラーアタッチメント }
+  - { id: WGL10-DEF-03, name: フレームバッファの完成状態 }
+  - { id: WGL10-DEF-04, name: render-to-texture }
+theorems:
+  - { id: WGL10-PROP-01, name: 全画面四角形の画素中心と最近傍読取り }
+  - { id: WGL10-PROP-02, name: RGBA8経由の反転は量子化後の補数 }
+canonical_examples:
+  - 160x240 RGBA8の単一color attachmentでFBO completenessを判定する
+  - 第1パスの四象限を左へコピーし右へRGB反転する
+  - 画素中心UVを160x240と80x120で計算してNEARESTを確認する
+  - 0.3のRGBA8中間量子化に伴う1階調差を算出する
+  - リサイズと読書きフィードバック禁止をGPUで確認する
+problem_patterns: [WGL10-FBO-COMPLETE, WGL10-ATTACHMENT, WGL10-UV, WGL10-QUANTIZATION, WGL10-RESIZE, WGL10-FEEDBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 1 }

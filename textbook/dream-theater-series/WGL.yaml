@@ -13,7 +13,7 @@ chapters:
   - { id: WGL7, path: textbook/volumes/dream_thater/計算系/WGL/WGL7, status: completed, title: "テクスチャ画像はなぜにじみ・ちらつく？" }
   - { id: WGL8, path: textbook/volumes/dream_thater/計算系/WGL/WGL8, status: completed, title: "透明・色空間の計算はいつ正しい？" }
   - { id: WGL9, path: textbook/volumes/dream_thater/計算系/WGL/WGL9, status: completed, title: "法線と光源は明暗をどう決める？" }
-  - { id: WGL10, path: textbook/volumes/dream_thater/計算系/WGL/WGL10, status: planned, title: "一回描いた結果を次に使うには？" }
+  - { id: WGL10, path: textbook/volumes/dream_thater/計算系/WGL/WGL10, status: completed, title: "一回描いた結果を次に使うには？" }
   - { id: WGL11, path: textbook/volumes/dream_thater/計算系/WGL/WGL11, status: planned, title: "光が遮られる場所をどう判定する？" }
   - { id: WGL12, path: textbook/volumes/dream_thater/計算系/WGL/WGL12, status: planned, title: "金属と粗面の光はどう近似する？" }
   - { id: WGL13, path: textbook/volumes/dream_thater/計算系/WGL/WGL13, status: planned, title: "周囲の風景を反射へ使うには？" }
