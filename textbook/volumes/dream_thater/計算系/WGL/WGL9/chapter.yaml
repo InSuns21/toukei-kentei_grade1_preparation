@@ -2,15 +2,16 @@ id: WGL9
 title: 法線と光源は明暗をどう決める？
 volume: foundations
 status: supplementary
-prerequisites: [WGL8]
+prerequisites: [WGL8, F0-00A, F0-00E2, LA3B]
 official_scope: []
 learning_objectives:
-  - 三角形の向き付き単位法線とLambertの余弦因子を導出し数値計算できる
+  - 3次元のベクトル積を座標から計算し、三角形の向き付き単位法線とLambertの余弦因子を導出できる
   - 非一様拡大縮小を含む可逆モデル行列の法線変換が逆転置になる理由を接線の直交性から証明できる
   - Blinn–Phongの半角ベクトルと鏡面項を求め、逆光・零光源・退化変換の限界を判定できる
   - 平面メッシュの面法線と球メッシュの頂点法線・補間後正規化を区別できる
   - WebGL2で立方体と球のGLSL照明・法線行列を変更しCPUの独立画素予測と照合できる
 definitions:
+  - { id: WGL9-DEF-00, name: 3次元のベクトル積 }
   - { id: WGL9-DEF-01, name: 向き付き単位法線 }
   - { id: WGL9-DEF-02, name: Lambert拡散反射の照度因子 }
   - { id: WGL9-DEF-03, name: 法線行列 }
