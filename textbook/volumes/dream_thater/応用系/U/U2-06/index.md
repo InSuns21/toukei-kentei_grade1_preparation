@@ -51,27 +51,27 @@ v_W=a\begin{pmatrix}\cos\theta\\\sin\theta\end{pmatrix}
 =R(\theta)\begin{pmatrix}a\\b\end{pmatrix}.
 $$
 
-点なら、車体原点の世界位置 $t_{WB}$ を加えます。姿勢の三成分から作る次の行列は、計算をまとめる道具です。
+点なら、車体原点の世界位置 $t_{WB}$ を加えます。姿勢の三成分から作る次の行列は、計算をまとめる道具です。ブロック行列の $0_{1\times2}$ は長さ2の零行ベクトルです。
 
 <a id="def-u2-06-rigid-transform"></a>
 
 <!-- formal-statement-start -->
 > **定義（座標フレーム間の平面剛体変換）**  
 > 二つの右手系直交座標系 $A,B$ で長さの単位と反時計回りの正方向を共通とし、$B$ 原点の $A$ 座標を $t_{AB}\in\mathbb R^2$、$B$ の $x$ 正方向と $A$ の $x$ 正方向のなす角度を $\theta_{AB}\in\mathbb R$ とする。$B$ 座標の点 $q_B$ を $A$ 座標へ写す**平面剛体変換**を
->
-> $$
-> q_A=R(\theta_{AB})q_B+t_{AB}
-> $$
->
+
+$$
+q_A=R(\theta_{AB})q_B+t_{AB}
+$$
+
 > とし、同じ変換を表す同次座標行列を
->
-> $$
-> T_{AB}=\begin{pmatrix}R(\theta_{AB})&t_{AB}\\0&0&1\end{pmatrix},
-> \qquad
-> \begin{pmatrix}q_A\\1\end{pmatrix}
-> =T_{AB}\begin{pmatrix}q_B\\1\end{pmatrix}
-> $$
->
+
+$$
+T_{AB}=\begin{pmatrix}R(\theta_{AB})&t_{AB}\\0_{1\times2}&1\end{pmatrix},
+\qquad
+\begin{pmatrix}q_A\\1\end{pmatrix}
+=T_{AB}\begin{pmatrix}q_B\\1\end{pmatrix}
+$$
+
 > とする。添字 $AB$ は**$B$ の座標を $A$ の座標へ変換する**向きを意味する。
 <!-- formal-statement-end -->
 
@@ -81,7 +81,7 @@ $$
 $$
 R(\pi/2)=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
 \qquad
-T_{WB}=\begin{pmatrix}0&-1&2\\1&0&1\\0&0&1\end{pmatrix}.
+T_{WB}=\begin{pmatrix}0&-1&2\\1&0&1\\0_{1\times2}&1\end{pmatrix}.
 $$
 
 ここで $B$ の二本の軸は世界ではそれぞれ $(0,1)^T$ と $(-1,0)^T$ です。両者の長さは $1$、内積は $0$、行列式は $1$ なので**直交し、向きを反転しません**。車体の点 $q_B=(3,1)^T$ m を変換すると
@@ -113,18 +113,18 @@ $$
 <!-- formal-statement-start -->
 > **命題（平面剛体変換の逆変換）**  
 > $t_{AB}\in\mathbb R^2$、$\theta_{AB}\in\mathbb R$、$R=R(\theta_{AB})$ で定めた $T_{AB}$ は可逆であり、
->
-> $$
-> T_{AB}^{-1}=T_{BA}=
-> \begin{pmatrix}R^T&-R^Tt_{AB}\\0&0&1\end{pmatrix}
-> $$
->
+
+$$
+T_{AB}^{-1}=T_{BA}=
+\begin{pmatrix}R^T&-R^Tt_{AB}\\0_{1\times2}&1\end{pmatrix}
+$$
+
 > である。特に任意の点 $q_A\in\mathbb R^2$ について
->
-> $$
-> q_B=R^T(q_A-t_{AB})
-> $$
->
+
+$$
+q_B=R^T(q_A-t_{AB})
+$$
+
 > であり、平行移動を先に取り消してから逆回転する。
 <!-- formal-statement-end -->
 
@@ -142,10 +142,10 @@ $$
 また、二つの同次行列の積を実際に取ると
 
 $$
-\begin{pmatrix}R&t\\0&0&1\end{pmatrix}
-\begin{pmatrix}R^T&-R^Tt\\0&0&1\end{pmatrix}
+\begin{pmatrix}R&t\\0_{1\times2}&1\end{pmatrix}
+\begin{pmatrix}R^T&-R^Tt\\0_{1\times2}&1\end{pmatrix}
 =
-\begin{pmatrix}RR^T&-RR^Tt+t\\0&0&1\end{pmatrix}
+\begin{pmatrix}RR^T&-RR^Tt+t\\0_{1\times2}&1\end{pmatrix}
 =I_3.
 $$
 
@@ -172,18 +172,18 @@ $$
 <!-- formal-statement-start -->
 > **定理（平面剛体変換の合成則）**  
 > 平面の右手系直交座標フレーム $A,B,C$ 間で、$T_{AB}$ と $T_{BC}$ がそれぞれ位置 $t_{AB},t_{BC}\in\mathbb R^2$ と角度 $\theta_{AB},\theta_{BC}\in\mathbb R$ の剛体変換を表すとする。$C$ 座標から $A$ 座標への剛体変換は
->
-> $$
-> T_{AC}=T_{AB}T_{BC}
-> $$
->
+
+$$
+T_{AC}=T_{AB}T_{BC}
+$$
+
 > であり、その位置・角度は
->
-> $$
-> t_{AC}=t_{AB}+R(\theta_{AB})t_{BC},
-> \qquad
-> \theta_{AC}\equiv\theta_{AB}+\theta_{BC}\pmod {2\pi}.
-> $$
+
+$$
+t_{AC}=t_{AB}+R(\theta_{AB})t_{BC},
+\qquad
+\theta_{AC}\equiv\theta_{AB}+\theta_{BC}\pmod {2\pi}.
+$$
 <!-- formal-statement-end -->
 
 **証明の見取り図**：点を二回変換してから、$q_C$ に掛かる行列と原点の項を集めます。二回の回転が角度の和になることは加法定理で確認します。
@@ -211,10 +211,10 @@ $$
 よって得られた式は $C$ から $A$ への[剛体変換の定義](#def-u2-06-rigid-transform)そのものであり、位置が $t_{AC}$、向きが $\theta_{AC}$ です。同次行列ではブロック行列積
 
 $$
-\begin{pmatrix}R_{AB}&t_{AB}\\0&0&1\end{pmatrix}
-\begin{pmatrix}R_{BC}&t_{BC}\\0&0&1\end{pmatrix}
+\begin{pmatrix}R_{AB}&t_{AB}\\0_{1\times2}&1\end{pmatrix}
+\begin{pmatrix}R_{BC}&t_{BC}\\0_{1\times2}&1\end{pmatrix}
 =
-\begin{pmatrix}R_{AB}R_{BC}&R_{AB}t_{BC}+t_{AB}\\0&0&1\end{pmatrix}
+\begin{pmatrix}R_{AB}R_{BC}&R_{AB}t_{BC}+t_{AB}\\0_{1\times2}&1\end{pmatrix}
 $$
 
 から同じ結論を得ます。回転は $2\pi$ の整数倍の角度を加えても変わらないため、角度の等号は $2\pi$ を法とする合同です。
@@ -241,17 +241,17 @@ $C$ の原点は $A$ から見て $(1,1)$ m、向きは $A$ と同じです。�
 <!-- formal-statement-start -->
 > **定義（相対姿勢）**  
 > 同じ世界座標系 $W$ に対する二つの平面姿勢 $g_{WA}=(t_{WA},\theta_{WA})$、$g_{WB}=(t_{WB},\theta_{WB})$ を与える。それぞれの同次行列を $T_{WA},T_{WB}$ とするとき、**$A$ から見た $B$ の相対姿勢**を
->
-> $$
-> T_{AB}=T_{WA}^{-1}T_{WB}
-> $$
->
+
+$$
+T_{AB}=T_{WA}^{-1}T_{WB}
+$$
+
 > で定める。その位置成分は
->
-> $$
-> t_{AB}=R(\theta_{WA})^T(t_{WB}-t_{WA})
-> $$
->
+
+$$
+t_{AB}=R(\theta_{WA})^T(t_{WB}-t_{WA})
+$$
+
 > で、角度は $\theta_{WB}-\theta_{WA}$ を $2\pi$ の整数倍の違いまで同一視したものとする。
 <!-- formal-statement-end -->
 
@@ -274,11 +274,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（相対姿勢の世界座標不変性）**  
 > 同一平面上の固定された三つの座標系 $W,A,B$ に対する可逆剛体変換 $T_{WA},T_{WB}$ と、別の世界座標系 $W'$ から $W$ への可逆剛体変換 $T_{WW'}$ を与える。$T_{W'A}=T_{WW'}^{-1}T_{WA}$、$T_{W'B}=T_{WW'}^{-1}T_{WB}$ で両姿勢を表し直しても、
->
-> $$
-> T_{W'A}^{-1}T_{W'B}=T_{WA}^{-1}T_{WB}
-> $$
->
+
+$$
+T_{W'A}^{-1}T_{W'B}=T_{WA}^{-1}T_{WB}
+$$
+
 > が成り立つ。すなわち物理的な相対姿勢は、同じ世界座標変換を両方に施しても変わらない。
 <!-- formal-statement-end -->
 
@@ -320,17 +320,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（角度の正規化と角度残差）**  
 > 任意の実数 $\alpha$ に対し、同じ向きを表す $[-\pi,\pi)$ の代表値を
->
-> $$
-> \operatorname{wrap}(\alpha)=((\alpha+\pi)\bmod 2\pi)-\pi
-> $$
->
+
+$$
+\operatorname{wrap}(\alpha)=((\alpha+\pi)\bmod 2\pi)-\pi
+$$
+
 > と定める。予測角度 $\hat\theta\in\mathbb R$ と観測角度 $z_\theta\in\mathbb R$ が同じ軸と同じ正方向で測られているとき、**観測から予測を引いた角度残差**を
->
-> $$
-> r_\theta=\operatorname{wrap}(z_\theta-\hat\theta)
-> $$
->
+
+$$
+r_\theta=\operatorname{wrap}(z_\theta-\hat\theta)
+$$
+
 > とする。ちょうど反対向きの差は $-\pi$ と表記する。
 <!-- formal-statement-end -->
 
