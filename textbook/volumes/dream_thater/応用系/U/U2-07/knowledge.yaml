@@ -1,0 +1,55 @@
+chapter: U2-07
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-06
+forward_references: []
+concepts:
+  - id: robotics.differential-drive-model
+    name: 差動二輪の無滑り速度模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（差動二輪の無滑り速度模型）"]
+    requires: [robotics.planar-pose]
+  - id: robotics.planar-velocity-motion
+    name: 平面速度運動モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面速度運動モデル）"]
+    requires: [robotics.planar-rigid-transform, robotics.differential-drive-model]
+  - id: robotics.constant-twist-integration
+    name: 一定車体速度の平面運動を厳密に積分する
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一定車体速度の平面運動を厳密に積分する）"]
+    requires: [robotics.planar-velocity-motion, robotics.planar-angle-wrap]
+  - id: robotics.three-stage-odometry
+    name: 三段階の相対オドメトリ模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（三段階の相対オドメトリ模型）"]
+    requires: [robotics.planar-relative-pose, robotics.planar-angle-wrap]
+  - id: robotics.body-frame-translation-noise
+    name: 車体座標での並進雑音
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（車体座標での並進雑音）"]
+    requires: [robotics.planar-rigid-transform]
+  - id: robotics.body-world-covariance
+    name: 車体雑音の世界座標への変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（車体雑音の世界座標への変換）"]
+    requires: [robotics.body-frame-translation-noise, robotics.planar-rigid-transform]
+  - id: robotics.euler-motion-jacobians
+    name: 始点 Euler 運動の一次誤差行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（始点 Euler 運動の一次誤差行列）"]
+    requires: [robotics.planar-velocity-motion]
+  - id: robotics.local-motion-covariance
+    name: 独立速度雑音に対する局所一次共分散予測
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立速度雑音に対する局所一次共分散予測）"]
+    requires: [robotics.euler-motion-jacobians, robotics.kalman-linear-prediction]
