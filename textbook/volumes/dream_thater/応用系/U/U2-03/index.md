@@ -95,7 +95,7 @@ Q_z(x)=\left(\frac1p+\frac{h^2}{r}\right)x^2
 +\frac{a^2}{p}+\frac{z^2}{r}.
 $$
 
-$\lambda=1/p+h^2/r>0$、$\eta=a/p+hz/r$ と置きます。$\lambda(x-\eta/\lambda)^2$ を展開すると $\lambda x^2-2\eta x+\eta^2/\lambda$ なので、
+$\lambda=1/p+h^2/r>0$、$\eta=a/p+hz/r$ と置きます。$\lambda$ は分散の逆数である**精度**、$\eta$ は平均に精度を掛けた項を足した**情報量**です。$\lambda(x-\eta/\lambda)^2$ を展開すると $\lambda x^2-2\eta x+\eta^2/\lambda$ なので、
 
 $$
 Q_z(x)=\lambda\left(x-\frac{\eta}{\lambda}\right)^2
@@ -242,7 +242,7 @@ $$
 
 ## 5. 観測はどの向きの不確実性を縮めるか
 
-正定値の行列について、$A-B$ が半正定値（どの $v$ でも $v^T(A-B)v\ge0$）のとき $A\succeq B$ と表します。これは対角成分だけを比較するより強い、**任意方向の分散の比較**です。
+実対称行列 $M$ に対し、$M\succ0$ はすべての非零 $v$ で $v^TMv>0$（正定値）、$M\succeq0$ はすべての $v$ で $v^TMv\ge0$（半正定値）という記法です。実対称行列 $A,B$ に対し、$A-B\succeq0$ のとき $A\succeq B$ と表します。これは対角成分だけを比較するより強い、**任意方向の分散の比較**です。
 
 <a id="prop-u2-03-covariance-contraction"></a>
 
