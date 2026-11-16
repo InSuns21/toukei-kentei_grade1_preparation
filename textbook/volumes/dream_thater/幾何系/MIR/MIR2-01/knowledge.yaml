@@ -1,0 +1,41 @@
+chapter: MIR2-01
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-16, GW1-20]
+concepts:
+  - id: mirror.quintic-curve-hyperplane-degree
+    name: quintic上の曲線の超平面次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quintic上の曲線の超平面次数）"]
+    requires: [gromov-witten.stable-map, cyg.quintic-kahler-ray]
+  - id: mirror.quintic-curve-area-degree
+    name: 面積と超平面次数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（面積と超平面次数）"]
+    requires: [mirror.quintic-curve-hyperplane-degree, cyg.quintic-kahler-ray]
+  - id: mirror.quintic-complexified-curve-weight
+    name: 複素化Kähler類の曲線重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（複素化Kähler類の曲線重み）"]
+    requires: [mirror.quintic-curve-hyperplane-degree, cyg.complexified-kahler-parameter, mirror.geometric-a-b-input]
+  - id: mirror.quintic-curve-weight-laws
+    name: 重みの乗法性・整数シフト・減衰
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重みの乗法性・整数シフト・減衰）"]
+    requires: [mirror.quintic-complexified-curve-weight, mirror.exponential-kahler-coordinate]
+  - id: mirror.quintic-degree-formal-series
+    name: quinticの次数記録用形式級数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticの次数記録用形式級数）"]
+    requires: [mirror.quintic-curve-hyperplane-degree, gromov-witten.novikov-completion]
+  - id: mirror.quintic-formal-series-convergence
+    name: 形式級数を数値評価できる十分条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（形式級数を数値評価できる十分条件）"]
+    requires: [mirror.quintic-degree-formal-series, mirror.quintic-complexified-curve-weight]
