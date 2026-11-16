@@ -1,0 +1,61 @@
+chapter: FLUID40
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID38
+  - FLUID21
+concepts:
+  - id: fluid.wall-units
+    name: 摩擦速度と壁単位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（摩擦速度と壁単位）"]
+    requires: [fluid.rans]
+  - id: fluid.total-wall-shear
+    name: 粘性・乱流・全剪断応力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粘性・乱流・全剪断応力）"]
+    requires: [fluid.wall-units, fluid.reynolds-stress]
+  - id: fluid.channel-stress-law
+    name: 平面水路の全剪断応力は壁から線形に減る
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面水路の全剪断応力は壁から線形に減る）"]
+    requires: [fluid.total-wall-shear, fluid.rans]
+  - id: fluid.wall-viscous-asymptote
+    name: 滑面壁での粘性漸近則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑面壁での粘性漸近則）"]
+    requires: [fluid.channel-stress-law, fluid.wall-units]
+  - id: fluid.inner-outer-defect
+    name: 内層表示と外層速度欠陥
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（内層表示と外層速度欠陥）"]
+    requires: [fluid.wall-units]
+  - id: fluid.wall-log-law
+    name: 混合長仮説からの条件付き対数則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（混合長仮説からの条件付き対数則）"]
+    requires: [fluid.channel-stress-law, fluid.mixing-length-closure, fluid.inner-outer-defect]
+  - id: fluid.wall-overlap-defect
+    name: 内外の重なりによる速度欠陥表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（内外の重なりによる速度欠陥表示）"]
+    requires: [fluid.wall-log-law, fluid.inner-outer-defect]
+  - id: fluid.damped-mixing-length
+    name: 壁減衰付き混合長の合成模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（壁減衰付き混合長の合成模型）"]
+    requires: [fluid.mixing-length-closure, fluid.channel-stress-law]
+  - id: fluid.damped-model-gradient
+    name: 合成模型の勾配と全剪断残差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（合成模型の勾配と全剪断残差）"]
+    requires: [fluid.damped-mixing-length, fluid.channel-stress-law]

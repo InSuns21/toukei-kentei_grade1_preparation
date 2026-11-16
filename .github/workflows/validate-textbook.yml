@@ -392,6 +392,12 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-58/assets/credit_risk.py --scenario independent --alpha 0.95
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-58/assets/tests -v
 
+      # U3-59: exact order book, shortfall ledger and boundary checks.
+      - name: Verify U3-59 order-book execution experiment
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-59/assets/order_book.py --side buy --quantity 70
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-59/assets/tests -v
+
       # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding

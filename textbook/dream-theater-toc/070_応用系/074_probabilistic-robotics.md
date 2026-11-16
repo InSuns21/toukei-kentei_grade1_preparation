@@ -6,3 +6,4 @@
 3. [U2-03 線形 Gaussian 位置推定：事前と尤度の積](textbook/volumes/dream_thater/応用系/U/U2-03/index.md)
 4. [U2-04 Kalman フィルタの予測：運動誤差の伝播](textbook/volumes/dream_thater/応用系/U/U2-04/index.md)
 5. [U2-05 Kalman フィルタの更新：観測 innovation と不確実性の縮小](textbook/volumes/dream_thater/応用系/U/U2-05/index.md)
+6. [U2-06 平面姿勢と座標系：位置だけでは足りない](textbook/volumes/dream_thater/応用系/U/U2-06/index.md)

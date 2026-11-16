@@ -1,0 +1,53 @@
+chapter: U3-59
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-58]
+concepts:
+  - id: finance.order-book
+    name: 有限注文板・最良気配・中値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限注文板・最良気配・中値）"]
+    requires: []
+  - id: finance.market-sweep
+    name: 静止板の成行消費と数量加重平均約定価格
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（静止板の成行消費と数量加重平均約定価格）"]
+    requires: [finance.order-book]
+  - id: finance.sweep-price-priority
+    name: 静止板の価格順消費は代金を最小にする
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止板の価格順消費は代金を最小にする）"]
+    requires: [finance.market-sweep]
+  - id: finance.limit-queue
+    name: 指値の制約と先着数量模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（指値の制約と先着数量模型）"]
+    requires: [finance.order-book]
+  - id: finance.implementation-shortfall
+    name: 到着時点基準の執行不足額と未執行機会費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（到着時点基準の執行不足額と未執行機会費用）"]
+    requires: [finance.market-sweep, finance.credit-liquidity-total]
+  - id: finance.execution-cash-inventory
+    name: 在庫・現金と執行不足額の恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（在庫・現金と執行不足額の恒等式）"]
+    requires: [finance.implementation-shortfall]
+  - id: finance.shortfall-decomposition
+    name: 同一基準による IS の厳密分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一基準による IS の厳密分解）"]
+    requires: [finance.implementation-shortfall]
+  - id: finance.spread-depth-cost
+    name: 静止板の半スプレッド・板深さ分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（静止板の半スプレッド・板深さ分解）"]
+    requires: [finance.order-book, finance.implementation-shortfall]
