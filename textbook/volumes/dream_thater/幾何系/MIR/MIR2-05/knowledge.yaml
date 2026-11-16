@@ -1,0 +1,41 @@
+chapter: MIR2-05
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR2-03, MIR2-04]
+concepts:
+  - id: mirror.quintic-genus-zero-divisor-potential
+    name: 因子方向の種数0ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因子方向の種数0ポテンシャル）"]
+    requires: [mirror.quintic-unmarked-gw-number, mirror.quintic-virtual-divisor-axiom, mirror.quintic-novikov-coefficient-ring]
+  - id: mirror.quintic-genus-zero-potential-expansion
+    name: 種数0ポテンシャルの指数表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（種数0ポテンシャルの指数表示）"]
+    requires: [mirror.quintic-genus-zero-divisor-potential, mirror.quintic-repeated-divisor-insertions, mirror.quintic-three-point-zero-degree]
+  - id: mirror.quintic-a-yukawa-coupling
+    name: quinticのA側Yukawa結合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticのA側Yukawa結合）"]
+    requires: [mirror.quintic-genus-zero-divisor-potential]
+  - id: mirror.quintic-a-yukawa-series
+    name: A側三次結合と三点関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（A側三次結合と三点関数）"]
+    requires: [mirror.quintic-a-yukawa-coupling, mirror.quintic-genus-zero-potential-expansion, mirror.quintic-hyperplane-three-point-series]
+  - id: mirror.quintic-a-yukawa-pairing
+    name: 量子積とのPoincaréペアリング
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（量子積とのPoincaréペアリング）"]
+    requires: [mirror.quintic-a-yukawa-series, mirror.quintic-big-divisor-specialization]
+  - id: mirror.quintic-prepotential-quadratic-ambiguity
+    name: 三階微分の核と低次多項式の不定性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三階微分の核と低次多項式の不定性）"]
+    requires: [mirror.quintic-a-yukawa-coupling]
