@@ -41,11 +41,11 @@ $$
 [\overline{\mathcal M}_{0,k+1}(X,d)]^{\mathrm{vir}}
 \right)
 =
-\langle D,d\rangle
+\int_{\beta}D\;
 [\overline{\mathcal M}_{0,k}(X,d)]^{\mathrm{vir}}.
 $$
 
-ここで $\langle D,d\rangle$ は任意の次数 $d$ の曲線類との交叉数である。この等式は、安定化で生じる泡成分や非横断な変形を含めた**大域的な仮想類の互換性**を必要とする。局所的なファイバー計算だけからは証明できず、仮想GW理論の因子公理という一般定理を用いる。その出力と適用範囲を明示し、以後の quintic 固有の導出は本文中で検算する。参考として [Kontsevich–Manin, Gromov–Witten classes, quantum cohomology, and enumerative geometry](https://arxiv.org/abs/hep-th/9402147) を挙げる。
+ここで $\beta$ は超平面次数が $d$ の曲線類であり、$\int_\beta D$ はその交叉数を表す。この等式は、安定化で生じる泡成分や非横断な変形を含めた**大域的な仮想類の互換性**を必要とする。局所的なファイバー計算だけからは証明できず、仮想GW理論の因子公理という一般定理を用いる。その出力と適用範囲を明示し、以後の quintic 固有の導出は本文中で検算する。参考として [Kontsevich–Manin, Gromov–Witten classes, quantum cohomology, and enumerative geometry](https://arxiv.org/abs/hep-th/9402147) を挙げる。
 
 この式では、左辺の仮想複素次元 $k+1$ から $D$ の複素余次元1を差し引くので、右辺と同じ複素次元 $k$ のサイクルになる。次元の一致は必要な整合性の検算であり、外部入力の証明の代わりではない。
 
@@ -228,7 +228,7 @@ $$
 
 ## 5. 三点関数を形式級数としてまとめる
 
-各次数の三点相関を一つの式に組み立てれば、後続のA側の理論とB側の周期計算を比較する準備になる。[次数を記録する形式変数](../MIR2-01/index.md#def-mir2-01-formal-series)と同様に、$Q$ は最初から収束を仮定した複素数ではなく、係数を整理する形式変数とする。
+各次数の三点相関を一つの式に組み立てれば、後続のA側の理論とB側の周期計算を比較する準備になる。[次数を記録する形式変数](../MIR2-01/index.md#def-mir2-01-degree-series)と同様に、$Q$ は最初から収束を仮定した複素数ではなく、係数を整理する形式変数とする。
 
 <a id="def-mir2-03-three-point-series"></a>
 
@@ -303,7 +303,7 @@ C_{HHH}^{X}(Q)
 =5+N_1^XQ+8N_2^XQ^2+27N_3^XQ^3+\cdots.
 $$
 
-$N_2^X$ が未知でも $Q^2$ の係数が $8N_2^X$ であることまでは、ミラー定理や実際の曲線本数を使わずに確定できる。これは[Novikov形式変数と数値指数の区別](../MIR2-01/index.md#def-mir2-01-formal-series)とも両立する。
+$N_2^X$ が未知でも $Q^2$ の係数が $8N_2^X$ であることまでは、ミラー定理や実際の曲線本数を使わずに確定できる。これは[Novikov形式変数と数値指数の区別](../MIR2-01/index.md#def-mir2-01-degree-series)とも両立する。
 
 ## 6. 挿入次数・単位挿入・曲線の本数を混ぜない
 
