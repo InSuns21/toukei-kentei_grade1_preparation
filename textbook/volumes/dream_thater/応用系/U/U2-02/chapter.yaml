@@ -1,0 +1,46 @@
+id: "U2-02"
+title: "Bayes 自己位置推定：予測と観測の二段階"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-01
+official_scope: []
+learning_objectives:
+  - 時刻とデータの添字を区別し移動前belief・予測belief・更新beliefを説明できる
+  - 遷移核の出発位置ごとの正規化を検査し到着位置ごとの予測を計算できる
+  - 運動と観測に必要な条件付き独立性を生成順序から説明できる
+  - 全確率の公式と有限Bayes則から予測・観測更新を導出し正規化を証明できる
+  - 連続状態の密度について予測・更新の積分形を導出し条件を示せる
+  - 移動でゼロ位置重みが正になる場合と証拠0で更新不能な場合を判定できる
+  - 時系列の二回更新と誤った演算順序を比較できる
+  - 過去位置に依存するセンサーがモデル仮定を壊すことを反例で示せる
+definitions:
+  - { id: U2-02-DEF-01, name: 有限状態の遷移核 }
+  - { id: U2-02-DEF-02, name: 運動・観測の条件付き独立模型 }
+theorems:
+  - { id: U2-02-THM-01, name: 有限状態 Bayes フィルタの予測・更新 }
+  - { id: U2-02-THM-02, name: 密度版 Bayes フィルタ }
+  - { id: U2-02-PROP-01, name: ゼロ証拠の判定と支持集合 }
+canonical_examples:
+  - 非負で出発行和1の二地点対称遷移核
+  - 条件付き独立生成模型の正規化と三変数同時確率
+  - 予測5/8・3/8と観測証拠17/40から事後5/17・12/17
+  - 二回目の予測27/68・41/68から事後27/191・164/191
+  - 移動により前時刻0の右位置が予測で1/4となる例
+  - 前位置を読み上げる観測が条件付き独立性を破る反例
+  - 区間上の積分型 Bayes フィルタと事後密度2x
+problem_patterns:
+  - U2-02-A01
+  - U2-02-A02
+  - U2-02-A03
+  - U2-02-A04
+  - U2-02-A05
+  - U2-02-B01
+  - U2-02-B02
+  - U2-02-B03
+  - U2-02-B04
+  - U2-02-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
