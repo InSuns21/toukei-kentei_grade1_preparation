@@ -24,7 +24,18 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl8-source-over -->
-**定義の確認**。 背景 $C_B=(0.2,0.2,0.2)$ に赤い層 $C_F=(0.8,0.2,0.1)$ を $\alpha_F=0.5$ で重ねます。赤成分は $0.5\cdot0.8+0.5\cdot0.2=0.5$、緑は $0.2$、青は $0.5\cdot0.1+0.5\cdot0.2=0.15$ です。従って $(0.5,0.2,0.15)$ となり、各成分は0と1の間にあり、背景が不透明なので結果の $\alpha$ も1です。
+**定義の確認**。 背景 $C_B=(0.2,0.2,0.2)$ に赤い層 $C_F=(0.8,0.2,0.1)$ を $\alpha_F=0.5$ で重ねます。重みは前景・背景ともに0.5なので、成分ごとに
+
+$$
+\begin{aligned}
+C_{\mathrm{out}}
+&=0.5(0.8,0.2,0.1)+0.5(0.2,0.2,0.2)\\
+&=(0.4+0.1,\ 0.1+0.1,\ 0.05+0.1)\\
+&=(0.5,0.2,0.15).
+\end{aligned}
+$$
+
+各成分は0と1の間にあり、背景が不透明なので結果の $\alpha_{\mathrm{out}}$ も1です。
 <!-- definition-example-end -->
 
 この式は「どの数値を平均するか」をまだ指定していません。もしRGBがsRGB符号化値なら符号化値を平均した答え、線形光なら線形光を平均した答えになります。後者が光の加算模型と整合します。
@@ -61,10 +72,12 @@ $$
 C_{\mathrm{out}}=(0.6,\ 8/35,\ 23/70).
 $$
 
-最後の $C_{\mathrm{out}}$ は $P_{\mathrm{out}}$ を0.7で割った値です。この算術例は同一数値空間の形式計算であり、sRGB符号化値を物理的な光量と見なした例ではありません。
+最後の $C_{\mathrm{out}}$ は $P_{\mathrm{out}}$ を0.7で割った値です。$\alpha_{\mathrm{out}}=0.7>0$ なので除算でき、復元した3成分 $0.6,8/35,23/70$ はいずれも $[0,1]$ 内です。また $P_{\mathrm{out}}$ の各成分は $\alpha_{\mathrm{out}}$ 以下で、前乗算RGBとして矛盾しません。この算術例は同一数値空間の形式計算であり、sRGB符号化値を物理的な光量と見なした例ではありません。
 <!-- definition-example-end -->
 
 不透明背景では $P_B=C_B,\alpha_B=1$ だから、[一般のsource-over](#def-wgl8-premultiplied)に代入すると $\alpha_{\mathrm{out}}=1$ となり、[最初の合成式](#def-wgl8-source-over)が戻ります。
+
+3層を扱うときは、前乗算RGBAの各層を $A=(P_A,\alpha_A)$、$B=(P_B,\alpha_B)$、$C=(P_C,\alpha_C)$ と書きます。ここで $P_A,P_B,P_C$ はRGBの3成分、$\alpha_A,\alpha_B,\alpha_C$ は対応する層の不透明度です。括弧の付け方は合成の順序ではなく計算をまとめる場所を表します。
 
 <a id="prop-wgl8-associative"></a>
 
@@ -103,14 +116,28 @@ P_{A\mathrm{\,over\,}(B\mathrm{\,over\,}C)}
 \end{aligned}
 $$
 
-アルファは両括り方で
+アルファについても、[一般のsource-over](#def-wgl8-premultiplied)からまず $1-\alpha_{AB}=(1-\alpha_A)(1-\alpha_B)$ を得ます。したがって
 
 $$
-\alpha_{\mathrm{out}}
-=1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C)
+\begin{aligned}
+\alpha_{(AB)C}
+&=\alpha_{AB}+(1-\alpha_{AB})\alpha_C\\
+&=\alpha_A+(1-\alpha_A)\alpha_B
+ +(1-\alpha_A)(1-\alpha_B)\alpha_C\\
+&=1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C),
+\end{aligned}
 $$
 
-となります。括り方でRGB・アルファとも一致するので結合則が成立します。順序を交換した場合は各 $P$ に付く係数自体が変わるため、この証明は交換則を与えません。$\square$
+$$
+\begin{aligned}
+\alpha_{A(BC)}
+&=\alpha_A+(1-\alpha_A)\alpha_{BC}\\
+&=\alpha_A+(1-\alpha_A)\{\alpha_B+(1-\alpha_B)\alpha_C\}\\
+&=1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C).
+\end{aligned}
+$$
+
+最後の等式はいずれも $\alpha_A+(1-\alpha_A)\alpha_B=1-(1-\alpha_A)(1-\alpha_B)$ を用いたものです。括り方でRGB・アルファとも一致するので結合則が成立します。順序を交換した場合は各 $P$ に付く係数自体が変わるため、この証明は交換則を与えません。$\square$
 <!-- proof-end -->
 
 ## 3. sRGBの数値と線形光の数値は異なる
@@ -145,7 +172,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl8-srgb-transfer -->
-**定義の確認**。 $S=0.02$ は最初の枝に入るので $L=0.02/12.92\approx0.001548$ です。この値は $0.0031308$ より小さいため、再符号化は $12.92L=0.02$。一方、$S=1$ の場合は2つ目の枝で $D(1)=(1.055/1.055)^{2.4}=1$、$E(1)=1$ です。RGB成分には適用しますが、例えば $\alpha=0.5$ は0.5のままです。
+**定義の確認**。 $S=0.02$ は最初の枝に入るので $L=0.02/12.92\approx0.001548$ です。この値は $0.0031308$ より小さいため、再符号化は $12.92L=0.02$。上側の枝の内部の例として $S=0.5>0.04045$ では
+
+$$
+L=D(0.5)=\left(\frac{0.5+0.055}{1.055}\right)^{2.4}
+\approx0.214041>0.0031308,
+$$
+
+なので $E(L)=1.055L^{1/2.4}-0.055=0.5$ と元に戻ります。端点 $S=1$ も $D(1)=(1.055/1.055)^{2.4}=1$、$E(1)=1$ です。$D,E$ はRGBの各成分に適用しますが、例えば $\alpha=0.5$ は不透明度なので0.5のままです。
 <!-- definition-example-end -->
 
 <a id="prop-wgl8-midpoint"></a>
@@ -252,6 +286,14 @@ WebGL2の gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ONE,gl.ONE
 
 横320×縦240画素の描画バッファを、左右それぞれ160×240のviewportに分けます。各viewportの相対位置 $(u,v)\in[0,1]^2$ を使い、背景Gは全面、層Aは $0.1\le u<0.75,\ 0.2\le v<0.85$、層Bは $0.4\le u<0.9,\ 0.4\le v<0.75$ を覆います。
 
+ここで $(u,v)$ はテクスチャのUV参照先ではなく、**各viewportの左下から測った画面内の相対座標**です。幅 $W$、高さ $H$ のviewportで、[WGL1の描画バッファと画素](../WGL1/index.md#def-wgl1-drawing-buffer)と同じく左下を $(i,j)=(0,0)$ とする整数画素添字を使えば、その画素中心は
+
+$$
+u=\frac{i+1/2}{W},\qquad v=\frac{j+1/2}{H}
+$$
+
+となります。これは[WGL7のテクセル中心と添字](../WGL7/index.md#def-wgl7-texel)と同じ「整数格子の中心を半画素ずらす」考え方ですが、今回は**画面座標の領域判定**に使います。例えば $(u,v)=(0.55,0.5)$ 付近なら $i=\lfloor160(0.55)\rfloor=88$、$j=\lfloor240(0.5)\rfloor=120$ を選び、実際の画素中心は $(0.553125,0.5020833\ldots)$ です。
+
 左はRGBA8描画バッファへの通常のブレンディングでG→A→Bの順に描きます。右は同じ位置を1回描画し、GLSLで各sRGB色を線形光へ復号した後、同じ順番でsource-overし、最後にsRGBへ符号化します。入力の色とアルファは同じです。キャンバスは alpha:false、ディザー・深度テスト無効に固定します。
 
 重なり部分の相対座標 $(u,v)=(0.55,0.5)$ を代入すると、符号化値を直接合成する左側のRGBは[前後交換の命題](#prop-wgl8-order)より $(0.34,0.24,0.45)$ で、8bit量子化の予測は $(87,61,115)$ です。一方、右側の赤成分は、[sRGBの復号](#def-wgl8-srgb-transfer)を使うと
@@ -288,7 +330,17 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** [不透明背景へのsource-over](#def-wgl8-source-over)ではRGBの重みが $0.5$ と $0.5$ です。よって赤 $0.5(0.8)+0.5(0.2)=0.5$、緑 $0.5(0.2)+0.5(0.2)=0.2$、青 $0.5(0.1)+0.5(0.2)=0.15$。結果は $(0.5,0.2,0.15)$、アルファは1です。sRGBか線形光かを指定しない限り、物理的な明るさとは結び付けません。
+**詳細解答。** [不透明背景へのsource-over](#def-wgl8-source-over)ではRGBの重みが $0.5$ と $0.5$ です。3成分をそれぞれ合成すると
+
+$$
+\begin{aligned}
+C_{\mathrm{out}}
+&=0.5(0.8,0.2,0.1)+0.5(0.2,0.2,0.2)\\
+&=(0.5,0.2,0.15).
+\end{aligned}
+$$
+
+背景は不透明なので結果のアルファは1です。sRGBか線形光かを指定しない限り、物理的な明るさとは結び付けません。
 <!-- solution-end -->
 
 <a id="ex-wgl8-a2"></a>
@@ -360,7 +412,30 @@ P_{A(BC)}=P_A+(1-\alpha_A)\{P_B+(1-\alpha_B)P_C\}
 =P_{(AB)C}.
 $$
 
-アルファは双方とも $1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C)$ です。[結合則](#prop-wgl8-associative)の証明を別の括り方から再構成できました。括り方を変えることとA・Bの上下順を入れ替えることは異なります。
+アルファは $1-\alpha_{AB}=(1-\alpha_A)(1-\alpha_B)$ を用いると
+
+$$
+\begin{aligned}
+\alpha_{(AB)C}
+&=\alpha_A+(1-\alpha_A)\alpha_B
+ +(1-\alpha_A)(1-\alpha_B)\alpha_C\\
+&=1-(1-\alpha_A)(1-\alpha_B)(1-\alpha_C).
+\end{aligned}
+$$
+
+もう一方も $\alpha_{BC}=\alpha_B+(1-\alpha_B)\alpha_C$ を代入して
+
+$$
+\begin{aligned}
+\alpha_{A(BC)}
+&=\alpha_A+(1-\alpha_A)\{\alpha_B+(1-\alpha_B)\alpha_C\}\\
+&=\alpha_A+(1-\alpha_A)\alpha_B
+ +(1-\alpha_A)(1-\alpha_B)\alpha_C\\
+&=\alpha_{(AB)C}
+\end{aligned}
+$$
+
+と確かめられます。[結合則](#prop-wgl8-associative)の証明を別の括り方から再構成できました。括り方を変えることとA・Bの上下順を入れ替えることは異なります。
 <!-- solution-end -->
 
 <a id="ex-wgl8-b2"></a>
@@ -392,7 +467,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** [source-over](#def-wgl8-source-over)では正しい結果は $0.5(0.8)+0.5(0)=0.4$ です。前乗算したRGBは $P_F=0.5(0.8)=0.4$ なので、前乗算用の係数ONEを掛ければ0.4のままです。しかし誤ってSRC_ALPHAを使うと $0.5P_F=0.5(0.4)=0.2$ となり、正しい0.4の半分になります。アルファを二重に掛けたのが誤りです。RGBが線形光であることと、前乗算表現であることも別々の条件です。
+**詳細解答。** [source-over](#def-wgl8-source-over)では正しい結果は $0.5(0.8)+0.5(0)=0.4$ です。[前乗算アルファと一般のsource-over](#def-wgl8-premultiplied)より $P_F=0.5(0.8)=0.4$ なので、前乗算用の係数ONEを掛ければ0.4のままです。しかし誤ってSRC_ALPHAを使うと $0.5P_F=0.5(0.4)=0.2$ となり、正しい0.4の半分になります。アルファを二重に掛けたのが誤りです。RGBが線形光であることと、前乗算表現であることも別々の条件です。
 <!-- solution-end -->
 
 <a id="ex-wgl8-b4"></a>
