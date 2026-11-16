@@ -25,18 +25,19 @@ table{width:100%;border-collapse:collapse}th,td{border:1px solid #cbd5e1;padding
 .wgl-code-highlight,.wgl-code-editor textarea {
   box-sizing:border-box;width:100%;margin:0;padding:8px;
   font:13px/1.4 ui-monospace,Consolas,monospace;tab-size:2;
-  white-space:pre;letter-spacing:normal;word-break:normal;
+  white-space:pre-wrap;overflow-wrap:anywhere;letter-spacing:normal;word-break:normal;
+  scrollbar-gutter:stable;
 }
 .wgl-code-highlight {
   position:absolute;inset:0;overflow:hidden;pointer-events:none;
   min-height:0;max-height:none;border:1px solid transparent;border-radius:4px;
   background:#0d1117;color:#e6edf3;
 }
-.wgl-code-highlight code {font:inherit;white-space:inherit}
+.wgl-code-highlight code {font:inherit;white-space:inherit;overflow-wrap:inherit}
 .wgl-code-editor textarea {
-  position:relative;display:block;overflow:auto;wrap:off;
+  position:relative;display:block;overflow-x:hidden;overflow-y:auto;
   background:transparent;color:transparent;-webkit-text-fill-color:transparent;
-  caret-color:#f0f6fc;white-space:pre;
+  caret-color:#f0f6fc;
 }
 .wgl-code-editor textarea::selection {background:rgba(56,139,253,.4)}
 .wgl-token-keyword {color:#ff7b72;font-weight:600}
