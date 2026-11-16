@@ -54,7 +54,7 @@ def fixed_fill(target, capacity):
     return tuple(min(d, c) for d, c in zip(target, capacity))
 
 
-def causal_pov(quantity, volume, participation):
+def causal_pov(quantity, volume, participation, capacity=None):
     """Aggregated online outcome for per-trade observe-then-act policy.
 
     In this synthetic immediate-fill model, each interval observes trades
@@ -67,7 +67,8 @@ def causal_pov(quantity, volume, participation):
     for market_volume in volume:
         quota = int((participation * market_volume).to_integral_value(
             rounding=ROUND_FLOOR))
-        bought = min(remaining, quota)
+        cap = capacity[len(fills)] if capacity is not None else quota
+        bought = min(remaining, quota, cap)
         fills.append(bought)
         remaining -= bought
     return tuple(fills)
@@ -109,10 +110,9 @@ def compare(quantity=120, last_volume=320, participation=Decimal("0.15")):
     vwap_target = allocate_integer(quantity, FORECAST)
     twap = fixed_fill(twap_target, cap)
     vwap = fixed_fill(vwap_target, cap)
-    # If rho exceeds our imposed synthetic max fill share, this additional
-    # capacity constraint also binds. These outcomes then differ from the
-    # uncapped POV proposition.
-    pov = fixed_fill(causal_pov(quantity, volume, participation), cap)
+    # Capacity binds inside the sequential POV inventory update when needed.
+    # The uncapped POV identity is not asserted when this cap binds.
+    pov = causal_pov(quantity, volume, participation, cap)
     market_vwap = (sum((Decimal(v) * p for v, p in zip(
         volume, MARKET_PRICES)), Decimal(0)) / Decimal(sum(volume))
                    if sum(volume) else None)
