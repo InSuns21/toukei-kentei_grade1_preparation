@@ -37,3 +37,4 @@
 34. [FLUID34 せん断流はいつ界面を不安定にするか](textbook/volumes/dream_thater/物理系/FLUID/FLUID34/index.md)
 35. [FLUID35 重い流体が上にあると何が起きるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID35/index.md)
 36. [FLUID36 平行剪断流の擾乱はなぜ増幅するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID36/index.md)
+37. [FLUID37 乱流をどんな統計量で定義するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID37/index.md)

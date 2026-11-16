@@ -1,0 +1,64 @@
+chapter: FLUID37
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID36
+  - CTM15
+  - F0-00P3
+  - STO1
+  - TSA5
+concepts:
+  - id: fluid.reynolds-decomposition
+    name: 集合平均・Reynolds分解・乱流運動エネルギー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（集合平均・Reynolds 分解・乱流運動エネルギー）"]
+    requires: []
+  - id: fluid.reynolds-energy-split
+    name: Reynolds分解の直交性とエネルギー分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Reynolds 分解の直交性とエネルギー分解）"]
+    requires: [fluid.reynolds-decomposition]
+  - id: fluid.two-point-covariance
+    name: 二点共分散テンソルと相関係数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二点共分散テンソルと相関係数）"]
+    requires: [fluid.reynolds-decomposition]
+  - id: fluid.correlation-bound
+    name: 相関の対称性・限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相関の対称性・限界）"]
+    requires: [fluid.two-point-covariance]
+  - id: fluid.statistical-symmetries
+    name: 統計的定常性・一様性・等方性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（統計的定常性・一様性・等方性）"]
+    requires: [fluid.two-point-covariance]
+  - id: fluid.isotropic-point-covariance
+    name: 等方な一様場の一点共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（等方な一様場の一点共分散）"]
+    requires: [fluid.statistical-symmetries, fluid.reynolds-decomposition]
+  - id: fluid.temporal-ergodicity
+    name: 時間エルゴード性と平均の一致
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間エルゴード性と平均の一致）"]
+    requires: [fluid.statistical-symmetries]
+  - id: fluid.periodic-spectrum
+    name: 周期場のFourierスペクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期場の Fourier スペクトル）"]
+    requires: [fluid.two-point-covariance]
+  - id: fluid.parseval-correlation-spectrum
+    name: 周期場の相関とスペクトル・Parseval関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期場の相関とスペクトル・Parseval 関係）"]
+    requires: [fluid.periodic-spectrum, fluid.two-point-covariance]
