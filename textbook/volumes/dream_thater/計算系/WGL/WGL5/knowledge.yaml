@@ -1,0 +1,47 @@
+chapter: WGL5
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL4]
+concepts:
+  - id: graphics.camera-view-transform
+    name: 視点変換とカメラ座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（視点変換とカメラ座標）"]
+    requires: [graphics.model-transform-matrix]
+  - id: graphics.clip-ndc
+    name: クリップ座標・正規化デバイス座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（クリップ座標・正規化デバイス座標）"]
+    requires: [graphics.camera-view-transform]
+  - id: graphics.orthographic-projection
+    name: 直交投影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（直交投影）"]
+    requires: [graphics.clip-ndc]
+  - id: graphics.perspective-projection
+    name: 透視投影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（透視投影）"]
+    requires: [graphics.orthographic-projection]
+  - id: graphics.perspective-depth-endpoints
+    name: 透視投影のNDCとnear/far
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（透視投影のNDCとnear/far）"]
+    requires: [graphics.perspective-projection]
+  - id: graphics.depth-test
+    name: 深度値と深度テスト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（深度値と深度テスト）"]
+    requires: [graphics.perspective-depth-endpoints]
+  - id: graphics.perspective-depth-monotone
+    name: 透視深度の単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（透視深度の単調性）"]
+    requires: [graphics.depth-test]
