@@ -268,7 +268,21 @@ $$
 A=U\operatorname{diag}(\alpha_1,\ldots,\alpha_n)U^T,\qquad U^TU=I
 $$
 
-と書けます。そこで $A^{1/2}=U\operatorname{diag}(\sqrt{\alpha_1},\ldots,\sqrt{\alpha_n})U^T$、$A^{-1/2}=U\operatorname{diag}(1/\sqrt{\alpha_1},\ldots,1/\sqrt{\alpha_n})U^T$ と定めます。これらは対称で、積が $A^{1/2}A^{-1/2}=I$ になります。$C=A^{-1/2}BA^{-1/2}$ と置くと、任意の $v$ に対し $v^TCv=(A^{-1/2}v)^TB(A^{-1/2}v)\ge0$ です。
+と書けます。固有値が正なので、平方根とその逆を各固有値について定義できます。
+
+$$
+A^{1/2}=U\operatorname{diag}(\sqrt{\alpha_1},\ldots,\sqrt{\alpha_n})U^T,
+\qquad
+A^{-1/2}=U\operatorname{diag}(\alpha_1^{-1/2},\ldots,\alpha_n^{-1/2})U^T.
+$$
+
+これらは対称で、$A^{1/2}A^{-1/2}=I$ です。$C=A^{-1/2}BA^{-1/2}$ と置くと、任意の $v$ について
+
+$$
+v^TCv=(A^{-1/2}v)^TB(A^{-1/2}v)\ge0
+$$
+
+となります。
 
 $$
 A+B=A^{1/2}(I+C)A^{1/2}
@@ -361,7 +375,13 @@ python -m unittest discover -s assets/tests -v
 二次元位置 $X\sim N((1,2)^T,\operatorname{diag}(2,1))$、独立なセンサー雑音 $E\sim N(0,3)$、観測 $Z=(1,0)X+E$ を考える。[線形位置観測模型](#def-u2-03-linear-observation)の行列の次元、正定値性、$Z\mid X=x$ の平均と分散を確認せよ。
 
 <!-- solution-start -->
-**詳細解答**：状態は2成分、観測は1成分なので $n=2,m=1$、$H=(1,0)$ は $1\times2$ です。$\operatorname{diag}(2,1)$ は対称で、非零 $v$ に対し $2v_1^2+v_2^2>0$、$R=(3)$ は非零 $w$ に対し $3w^2>0$ です。独立性は問題で仮定されています。$HX=x_1$ なので、位置を $X=x$ に固定すると $Z=x_1+E$、従って $Z\mid X=x\sim N(x_1,3)$ です。各 $x$ で $z$ について正規化された密度を持ちます。
+**詳細解答**：状態は2成分、観測は1成分なので $n=2,m=1$、$H=(1,0)$ は $1\times2$ です。事前共分散と雑音分散はともに対称で、任意の非零 $v=(v_1,v_2)^T$ と非零 $w\in\mathbb R$ に対して
+
+$$
+v^TP^-v=2v_1^2+v_2^2>0,\qquad w^TRw=3w^2>0
+$$
+
+です。独立性は問題で仮定されています。位置を $X=x$ に固定すれば行列積 $Hx=(1,0)(x_1,x_2)^T=x_1$ です。よって $Z=x_1+E$ であり、$Z\mid X=x\sim N(x_1,3)$ です。各固定 $x$ で、$z$ について正規化された密度を持ちます。
 <!-- solution-end -->
 
 <a id="ex-u2-03-a02"></a>
@@ -386,6 +406,7 @@ Q_5(x)=\frac54\left(x-\frac{22}{5}\right)^2
 +26-\frac54\left(\frac{22}{5}\right)^2
 =\frac54\left(x-\frac{22}{5}\right)^2+\frac95.
 $$
+
 [事後更新命題](#prop-u2-03-robot-posterior)と同じ平方完成により、平均は $22/5$、分散は $1/(5/4)=4/5$ です。予測分散4より小さく、事後の密度は全実数上で積分1です。
 <!-- solution-end -->
 
@@ -397,7 +418,20 @@ $$
 1次元位置 $X\sim N(-1,2)$ と独立雑音 $E\sim N(0,1)$ に対し、$Z=0X+E$ を考える。どの実測 $z\in\mathbb R$ に対しても更新値が変わらないことを示せ。
 
 <!-- solution-start -->
-**詳細解答**：$H=0$、$P^-=2$、$R=1$ は[更新命題](#prop-u2-03-robot-posterior)の条件を満たします。精度は $\Lambda=1/2+0=1/2$、情報ベクトルは $\eta=(-1)/2+0=-1/2$。従って $P^+=2$、$a^+=2(-1/2)=-1$ です。尤度 $f(z\mid x)=e^{-z^2/2}/\sqrt{2\pi}$ は $x$ に依存せず、正の証拠密度で割ると予測密度だけが残ることとも一致します。
+**詳細解答**：$H=0$、$P^-=2$、$R=1$ は[更新命題](#prop-u2-03-robot-posterior)の条件を満たします。精度と情報量を出発式から計算すると
+
+$$
+\Lambda=\frac12+0=\frac12,\qquad
+\eta=\frac{-1}{2}+0=-\frac12.
+$$
+
+ゆえに $P^+=\Lambda^{-1}=2$、$a^+=P^+\eta=2(-1/2)=-1$ です。また尤度
+
+$$
+f(z\mid x)=\frac{e^{-z^2/2}}{\sqrt{2\pi}}
+$$
+
+は $x$ に依存せず、正の証拠密度で割ると予測密度だけが残ることとも一致します。
 <!-- solution-end -->
 
 <a id="ex-u2-03-a04"></a>
@@ -513,7 +547,19 @@ $$
 <!-- solution-start -->
 **詳細解答**：(i) 事前共分散は $\operatorname{diag}(1,0)$ です。非零 $v=(0,1)^T$ について $v^TP^-v=0$ なので正定値ではなく、逆行列もありません。[更新公式](#prop-u2-03-robot-posterior)を適用することはできません。しかも $X_2=2$ が確定しているので、観測 $Z=2+E$ を得ても $X_2$ の条件付き分布は確定値2のままです。
 
-(ii) $P^-=I_2$ は正定値、$R=1$ も正定値、$H=(0,1)$ は階数1でも[命題](#prop-u2-03-robot-posterior)の仮定を満たします。精度 $\Lambda=I_2+H^TH=\operatorname{diag}(1,2)$、$P^+=\operatorname{diag}(1,1/2)$ です。観測値を $z$ とすると $\eta=(0,z)^T$、$a^+=(0,z/2)^T$。第2成分は確定せず、平均 $z/2$、分散 $1/2$ です。階数不足と事前の退化を混同してはいけません。
+(ii) $P^-=I_2$ は正定値、$R=1$ も正定値、$H=(0,1)$ は階数1でも[命題](#prop-u2-03-robot-posterior)の仮定を満たします。観測値を $z$ とし、精度・共分散・情報量を順に計算すると
+
+$$
+\Lambda=I_2+H^TH=\operatorname{diag}(1,2),\qquad
+P^+=\operatorname{diag}(1,1/2),
+$$
+
+$$
+\eta=H^Tz=(0,z)^T,\qquad
+a^+=P^+\eta=(0,z/2)^T.
+$$
+
+第2成分は確定せず、平均 $z/2$、分散 $1/2$ です。階数不足と事前の退化を混同してはいけません。
 <!-- solution-end -->
 
 ### Level C：二次元位置の統合推定と誤実装の診断
