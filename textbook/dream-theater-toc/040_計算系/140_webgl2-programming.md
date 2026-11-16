@@ -7,3 +7,4 @@
 4. [WGL4 モデル座標を世界へどう移す？](textbook/volumes/dream_thater/計算系/WGL/WGL4/index.md)
 5. [WGL5 視点と投影はどう画素を決める？](textbook/volumes/dream_thater/計算系/WGL/WGL5/index.md)
 6. [WGL6 三角形内部の値はどう決まる？](textbook/volumes/dream_thater/計算系/WGL/WGL6/index.md)
+7. [WGL7 テクスチャ画像はなぜにじみ・ちらつく？](textbook/volumes/dream_thater/計算系/WGL/WGL7/index.md)

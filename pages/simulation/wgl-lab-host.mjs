@@ -5,25 +5,28 @@ import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
 import { compareWGL5Readback, expectedWGL5Samples } from './wgl5-lab-core.mjs';
 import { compareWGL6Readback, expectedWGL6Samples } from './wgl6-lab-core.mjs';
+import { compareWGL7Readback, expectedWGL7Samples } from './wgl7-lab-core.mjs';
 
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
 const isWGL4 = lesson === 'WGL4';
 const isWGL5 = lesson === 'WGL5';
 const isWGL6 = lesson === 'WGL6';
+const isWGL7 = lesson === 'WGL7';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/' + lesson + '/', import.meta.url);
-const FILES = isWGL6 ? {js: 'interpolation.js', vertex: 'interpolation.vert', fragment: 'interpolation.frag'} :
+const FILES = isWGL7 ? {js: 'sampling.js', vertex: 'sampling.vert', fragment: 'sampling.frag'} :
+  isWGL6 ? {js: 'interpolation.js', vertex: 'interpolation.vert', fragment: 'interpolation.frag'} :
   isWGL5 ? {js: 'camera.js', vertex: 'camera.vert', fragment: 'camera.frag'} :
   isWGL4 ? {js: 'model.js', vertex: 'model.vert', fragment: 'model.frag'} :
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
@@ -209,7 +212,7 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', request.js);
       run(gl, canvas, request.vertex, request.fragment, report);
-      const positions = (request.lesson === 'WGL5' || request.lesson === 'WGL6') &&
+      const positions = (['WGL5', 'WGL6', 'WGL7'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -325,7 +328,7 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
@@ -334,7 +337,7 @@ window.addEventListener('message', event => {
       unchanged && !pass);
     byId('result-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      (isWGL6 ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      ((isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
@@ -347,6 +350,7 @@ function run() {
   try { payload = {...capture(), lesson};
     if (isWGL5) payload.probes = expectedWGL5Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL6) payload.probes = expectedWGL6Samples(payload.width,payload.height).map(p => [p.x,p.y]);
+    if (isWGL7) payload.probes = expectedWGL7Samples(payload.width,payload.height).map(p => [p.x,p.y]);
   }
   catch (error) { setStatus(error.message, true); return; }
   const iframe = document.createElement('iframe');
@@ -393,6 +397,10 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+    } else if (isWGL7) {
+      inputs.fragment.value = defaults.fragment.replace(
+        'outColor = texture(u_texture, v_uv * u_repeats + u_offset);',
+        'outColor = texture(u_texture, v_uv * u_repeats + u_offset)');
     } else if (isWGL6) {
       inputs.fragment.value = defaults.fragment.replace('outColor = vec4(rgb, 1.0);',
         'outColor = vec4(rgb, 1.0)');
@@ -426,6 +434,21 @@ if (isWGL2) {
   preset.options[0].textContent = '初期の頂点色三角形';
   preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
   preset.options[1].textContent = 'fragment の構文エラー';
+}
+if (isWGL7) {
+  document.title = 'WGL7 テクスチャ・縮小フィルタ・ミップマップラボ';
+  document.querySelector('h1').textContent =
+    'WGL7 テクスチャ縮小：左は最近傍、右はミップマップ';
+  document.querySelector('#panel-conditions > p').textContent =
+    '同じ8×8チェッカーボードを128回繰り返します。左はmipmapなしの最近傍参照、右はLINEAR_MIPMAP_LINEAR。左の明暗の折返しと右の平均灰色を8画素のCPU計算で照合します。';
+  document.querySelector('#panel-conditions ol').innerHTML =
+    '<li>初期ソースで左右それぞれ4画素のRGBAとCPU基準を比較する。</li>' +
+    '<li>sampling.jsのrepeatsを1、8、128と変え、拡大と縮小の違いを見る。</li>' +
+    '<li>wrapModeをclampやmirrorに変え、UV境界の色を観察する。</li>' +
+    '<li>textureKindをdataへ変え4×4の数値テクスチャを調べ、GLSLも編集する。</li>' +
+    '<li>構文エラープリセットでGLSL診断を確認し、修正して再実行する。</li>';
+  byId('preset').options[0].textContent = '初期の最近傍とmipmapの比較';
+  byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL6) {
   document.title = 'WGL6 透視補正補間・ラスタ化・背面判定ラボ';
