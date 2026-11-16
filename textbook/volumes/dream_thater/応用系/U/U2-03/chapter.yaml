@@ -1,0 +1,46 @@
+id: "U2-03"
+title: "線形 Gaussian 位置推定：事前と尤度の積"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-02
+  - INV15
+official_scope: []
+learning_objectives:
+  - 正定値 Gaussian 位置beliefの密度・平均・分散共分散と確定位置との違いを説明できる
+  - 線形観測行列の次元と独立な Gaussian 雑音の条件付き密度・尤度を検査できる
+  - 一次元の事前密度と尤度の積を平方完成して事後平均・分散を導ける
+  - 有限次元の線形 Gaussian 模型で精度行列の正定値性を示し事後平均と共分散を平方完成から導ける
+  - 観測行列が階数不足でも正定値な事前の下で更新できることを説明できる
+  - 二次元の線形観測から非対角事後共分散を導き観測方向の効果を説明できる
+  - 行列の半正定値順序で共分散の縮小と縮小しない方向を証明できる
+  - 証拠密度と単一点の確率を区別し退化共分散の適用限界を説明できる
+  - 独立な二測定の逐次更新と尤度積による同時更新を照合できる
+definitions:
+  - { id: U2-03-DEF-01, name: 正定値 Gaussian 位置 belief }
+  - { id: U2-03-DEF-02, name: 線形 Gaussian 位置観測模型 }
+theorems:
+  - { id: U2-03-PROP-01, name: 線形 Gaussian 位置観測の事後更新 }
+  - { id: U2-03-PROP-02, name: Gaussian 位置観測による共分散の縮小 }
+canonical_examples:
+  - 一次元位置N(2,4)と観測N(x,1)から事後N(22/5,4/5)を平方完成
+  - 二次元の観測X1+X2+Eから非対角共分散-2/3を含む事後を導出
+  - 階数不足の観測で精度行列が正定値になることを検証
+  - 方向ごとの共分散縮小と縮小しないベクトルを手計算
+  - 事前とセンサー雑音の退化における通常の密度公式の限界
+  - 分数を用いた再実行可能な数値実験と単体テスト
+problem_patterns:
+  - U2-03-A01
+  - U2-03-A02
+  - U2-03-A03
+  - U2-03-A04
+  - U2-03-A05
+  - U2-03-B01
+  - U2-03-B02
+  - U2-03-B03
+  - U2-03-B04
+  - U2-03-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
