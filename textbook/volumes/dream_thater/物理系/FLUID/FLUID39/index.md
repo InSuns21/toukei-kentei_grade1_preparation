@@ -93,7 +93,7 @@ $$
 U_j\overline{v_i\partial_jv_i}=U_j\partial_jk
 $$
 
-となる。平均剪断との結合は $\overline{v_iv_j}\partial_jU_i=R_{ij}\partial_jU_i=-\mathcal P$。三次項では
+となる。平均剪断に由来する項は $\overline{v_iv_j}\partial_jU_i=R_{ij}\partial_jU_i=-\mathcal P$。三次項では
 
 $$
 v_i\partial_j(v_iv_j)
@@ -379,7 +379,7 @@ K41 の重要部分は、**十分大きい Reynolds 数、近似的な局所等�
 <a id="prop-fluid39-k41-scaling"></a>
 
 <!-- formal-statement-start -->
-> **命題（K41 仮説の下での $-5/3$ 次元則）**  
+> **命題（K41 仮説の下での慣性領域スペクトル次元則）**  
 > 三次元非圧縮乱流に十分な慣性領域が存在し、そこで一側エネルギースペクトル $E(\kappa)$ が**普遍的な無次元定数** $C_K>0$ と、平均散逸率 $\varepsilon>0$、波数 $\kappa>0$ のみで次元的に決まると仮定する。このとき
 
 $$
@@ -509,7 +509,7 @@ $k$ と $\varepsilon$ の次元が異なるのは波数二乗と $\nu$ を掛け
 <!-- solution-start -->
 #### 詳細解答
 
-[波数殻スペクトルの定義](#def-fluid39-energy-spectrum)から $E\simeq K(I)/\Delta\kappa=0.50/2=0.25$ m$^3$/s$^2$。単位は $(\mathrm{m^2/s^2})/(\mathrm{m^{-1}})=\mathrm{m^3/s^2}$。殻のエネルギーをそのまま密度と呼ぶと $\Delta\kappa$ の因子を落とす。
+[波数殻エネルギー密度の定義](#def-fluid39-energy-spectrum)から $E\simeq K(I)/\Delta\kappa=0.50/2=0.25$ m$^3$/s$^2$。単位は $(\mathrm{m^2/s^2})/(\mathrm{m^{-1}})=\mathrm{m^3/s^2}$。殻のエネルギーをそのまま密度と呼ぶと $\Delta\kappa$ の因子を落とす。
 <!-- solution-end -->
 
 #### A4. 波数の大きいモードほど散逸しやすい
