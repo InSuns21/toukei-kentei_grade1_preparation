@@ -319,6 +319,51 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL8 fragment diagnostics, reset and sandbox disposal: PASS');
 
+
+  // WGL9 live GPU acceptance: two meshes, inverse-transpose normals and 8 CPU rays.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL9'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("useCorrectNormals")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  const wgl9=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl9.rows.length,8);
+  assert.ok(wgl9.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl9.sandbox,'allow-scripts');
+  assert.match(wgl9.log,/WGL9/);
+  assert.match(wgl9.log,/GL error: 0x0/);
+  assert.match(wgl9.log,/inverse transpose \(correct\)/);
+  const shot9=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl9-initial.png',Buffer.from(shot9.data,'base64'));
+  console.log('WGL9 real GPU cube/sphere shaded pixels match 8 independent CPU ray oracles: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const useCorrectNormals = true;', 'const useCorrectNormals = false;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const wrongNormalPixels=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.ok(wrongNormalPixels.some((pixel,i)=>pixel!==wgl9.rows[i][2]),
+    'incorrect M*n instead of inverse transpose must alter at least one GPU sample');
+  console.log('WGL9 intentionally incorrect normal matrix changes GPU pixels: PASS');
+
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const lightPower = 1.0;', 'const lightPower = 0.0;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const zeroLight=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.match(zeroLight[0],/^0, 0, 0, 255$/);
+  assert.match(zeroLight[4],/^0, 0, 0, 255$/);
+  assert.equal(zeroLight[3],wgl9.rows[3][2], 'clear background is independent of light');
+  console.log('WGL9 zero source power darkens objects without altering clear pixels: PASS');
+
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL9 shader error, reset and opaque sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
