@@ -59,3 +59,4 @@
 55. [U3-55 ストレステスト・シナリオ・流動性とモデルリスク](textbook/volumes/dream_thater/応用系/U/U3-55/index.md)
 56. [U3-56 限界・成分リスクとリスク配賦](textbook/volumes/dream_thater/応用系/U/U3-56/index.md)
 57. [U3-57 ES（CVaR）最適化とヘッジ](textbook/volumes/dream_thater/応用系/U/U3-57/index.md)
+58. [U3-58 信用・相手先・流動性リスクの入口](textbook/volumes/dream_thater/応用系/U/U3-58/index.md)
