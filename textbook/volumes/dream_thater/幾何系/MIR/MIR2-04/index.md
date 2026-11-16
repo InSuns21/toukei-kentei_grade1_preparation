@@ -36,10 +36,10 @@ $$
 > **定義（quinticのNovikov係数環）**  
 > 滑らかなquintic $X\subset\mathbb P^4_{\mathbb C}$ 上で、$d=\int_\beta H\ge0$ を曲線次数とする。$Q$ は数値ではなくこの次数を記録する形式変数とし、
 >
-> $$
-> \Lambda=\mathbb Q[[Q]]
-> =\left\{\sum_{d=0}^{\infty}a_dQ^d:a_d\in\mathbb Q\right\}
-> $$
+$$
+\Lambda=\mathbb Q[[Q]]
+=\left\{\sum_{d=0}^{\infty}a_dQ^d:a_d\in\mathbb Q\right\}
+$$
 >
 > と定義する。積は $Q^{d_1}Q^{d_2}=Q^{d_1+d_2}$ に従って係数ごとに定める。古典極限とは定数項を取る環準同型 $\Lambda\to\mathbb Q,\ \sum a_dQ^d\mapsto a_0$ をいう。
 <!-- formal-statement-end -->
@@ -90,11 +90,11 @@ $$
 > **定義（quinticのambient小量子積）**  
 > 上の滑らかな $X$ と基底 $e_i=H^i\ (0\le i\le3)$、双対基底 $e^i=H^{3-i}/5$、Novikov環 $\Lambda=\mathbb Q[[Q]]$ を用いる。$u,v\in V_{\mathrm{amb}}$ に対し
 >
-> $$
-> u*_Qv:=
-> \sum_{d\ge0}Q^d\sum_{i=0}^{3}
-> \langle u,v,e_i\rangle^X_{0,d}\,e^i
-> $$
+$$
+u*_Qv:=
+\sum_{d\ge0}Q^d\sum_{i=0}^{3}
+\langle u,v,e_i\rangle^X_{0,d}\,e^i
+$$
 >
 > と置き、$V_{\mathrm{amb}}\otimes_{\mathbb Q}\Lambda$ 上へ $\Lambda$-双線形に拡張する。$\langle\cdot,\cdot,\cdot\rangle^X_{0,d}$ は仮想基本類で定義する種数0・三標点・一次GW不変量である。
 <!-- formal-statement-end -->
@@ -114,7 +114,7 @@ $$
 
 ## 4. どの積だけが曲線の量子補正を受けるか
 
-三点GWの零でない可能性を整理する。[正次数の選択則](../MIR2-03/index.md#prop-mir2-03-ambient-selection)によれば、$d>0$ で $(H^a,H^b,H^i)$ が寄与し得るのは $(a,b,i)=(1,1,1)$ だけである。次数0は[定数写像の三点公式](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)によりカップ積を復元する。$1$ の挿入が正次数で消えることにも[基本類公理](../../GW/GW1-15/index.md#thm-gw1-15-fundamental-class)の仮想版を使用している（非凸標的への適用は前講の仮想公理の入力）。
+三点GWの零でない可能性を整理する。[正次数の選択則](../MIR2-03/index.md#prop-mir2-03-ambient-selection)によれば、$d>0$ で $(H^a,H^b,H^i)$ が寄与し得るのは $(a,b,i)=(1,1,1)$ だけである。次数0では[quinticの次数0・三点一次不変量](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)を使ってカップ積を復元する。$1$ の挿入が正次数で消えることにも[基本類公理](../../GW/GW1-15/index.md#thm-gw1-15-fundamental-class)の仮想版を使用している（非凸標的への適用は前講の仮想公理の入力）。
 
 <a id="prop-mir2-04-product-table"></a>
 
@@ -122,22 +122,22 @@ $$
 > **命題（ambient小量子積の表）**  
 > $X,H,\Lambda,*_Q$ を第3節のように定め、
 >
-> $$
-> A(Q):=\frac{C^X_{HHH}(Q)}5
-> =1+\frac15\sum_{d\ge1}d^3N_d^XQ^d\in\Lambda
-> $$
+$$
+A(Q):=\frac{C^X_{HHH}(Q)}5
+=1+\frac15\sum_{d\ge1}d^3N_d^XQ^d\in\Lambda
+$$
 >
 > と置く。このとき $1$ は単位元で、非自明な基底の積は
 >
-> $$
-> H*_QH=A(Q)H^2,\qquad
-> H*_QH^2=H^3,\qquad
-> H*_QH^3=0,
-> $$
+$$
+H*_QH=A(Q)H^2,\qquad
+H*_QH^2=H^3,\qquad
+H*_QH^3=0,
+$$
 >
-> $$
-> H^2*_QH^2=H^2*_QH^3=H^3*_QH^3=0.
-> $$
+$$
+H^2*_QH^2=H^2*_QH^3=H^3*_QH^3=0.
+$$
 >
 > 積は可換である。$Q=0$ の定数項はすべて通常のカップ積になる。
 <!-- formal-statement-end -->
@@ -149,7 +149,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一般に $a,b\in\{0,1,2,3\}$ とすると定義から
+[quinticのambient小量子積の定義](#def-mir2-04-small-product)へ $u=H^a,v=H^b$（$a,b\in\{0,1,2,3\}$）を代入して展開する。
 
 $$
 H^a*_QH^b
@@ -198,11 +198,11 @@ $H*_QH^2=H^3$ に $A(Q)$ を掛けてしまうのは誤りである。三点挿�
 > **命題（ambient小量子積の結合律と環表示）**  
 > 上記の $\Lambda$ 上の $V_{\mathrm{amb}}\otimes\Lambda$ の積 $*_Q$ は結合的・可換・単位的である。$A(Q)\in\Lambda$ は可逆であり、次の $\Lambda$-代数同型が成り立つ。
 >
-> $$
-> \Lambda[x]/(x^4)\longrightarrow
-> (V_{\mathrm{amb}}\otimes\Lambda,*_Q),
-> \qquad [x]\longmapsto H.
-> $$
+$$
+\Lambda[x]/(x^4)\longrightarrow
+(V_{\mathrm{amb}}\otimes\Lambda,*_Q),
+\qquad [x]\longmapsto H.
+$$
 >
 > ただし $x^2$ の像は $H^2$ ではなく $A(Q)H^2$ である。
 <!-- formal-statement-end -->
@@ -267,12 +267,12 @@ $V_{\mathrm{even}}=H^{\mathrm{even}}(X;\mathbb Q)$ の斉次基底を $\{\phi_a\
 > **定義（quinticの偶数方向の大きい量子積）**  
 > $X\subset\mathbb P^4_{\mathbb C}$ を滑らかなquinticとし、上記の形式変数 $t$、$\Lambda$、双対基底を使う。$u,v\in V_{\mathrm{even}}$ に対し
 >
-> $$
-> u*_{t,Q}v=
-> \sum_{d\ge0}\sum_{n\ge0}\frac{Q^d}{n!}
-> \sum_a\langle u,v,\phi_a,
-> \underbrace{t,\ldots,t}_{n\text{個}}\rangle_{0,d}^{X}\phi^a
-> $$
+$$
+u*_{t,Q}v=
+\sum_{d\ge0}\sum_{n\ge0}\frac{Q^d}{n!}
+\sum_a\langle u,v,\phi_a,
+\underbrace{t,\ldots,t}_{n\text{個}}\rangle_{0,d}^{X}\phi^a
+$$
 >
 > と定める。$t$ の形式的次数（追加標点の個数）について完備化し、係数環上へ双線形に拡張する。
 <!-- formal-statement-end -->
@@ -299,22 +299,22 @@ $$
 > **命題（因子方向の大きい量子積の特殊化）**  
 > $X,H,Q$ を前節のとおりとし、$s$ を形式変数として $t=sH$ に制限する。すると $V_{\mathrm{amb}}$ の基底について
 >
-> $$
-> H*_{sH,Q}H=A(Qe^s)H^2,
-> $$
+$$
+H*_{sH,Q}H=A(Qe^s)H^2,
+$$
 >
-> $$
-> 1*_{sH,Q}H^j=H^j,\qquad
-> H*_{sH,Q}H^2=H^3,
-> $$
+$$
+1*_{sH,Q}H^j=H^j,\qquad
+H*_{sH,Q}H^2=H^3,
+$$
 >
 > が成立し、その他の正次数基底の積は第4節と同じく零である。ここで
 >
-> $$
-> A(Qe^s)=1+\frac15\sum_{d\ge1}
-> d^3N_d^XQ^de^{ds}
-> \quad\in\mathbb Q[[Q,s]]
-> $$
+$$
+A(Qe^s)=1+\frac15\sum_{d\ge1}
+d^3N_d^XQ^de^{ds}
+\quad\in\mathbb Q[[Q,s]]
+$$
 >
 > は二変数の形式級数として解釈する。
 <!-- formal-statement-end -->
@@ -622,6 +622,6 @@ $$
 H*_QH=\frac{C^X_{HHH}(Q)}5H^2
 $$
 
-という積の構造定数へ変換した。大きい量子積を因子方向 $t=sH$ に制限すると、曲線の次数 $d$ が $e^{ds}$ を生むことも確かめた。
+という積を決める係数へ変換した。大きい量子積を因子方向 $t=sH$ に制限すると、曲線の次数 $d$ が $e^{ds}$ を生むことも確かめた。
 
-ただし、積の定義はまだ**ポテンシャルを微分して構造定数を得る公式**と同一ではない。次講 MIR2-05 では種数0ポテンシャルの古典三次項 $5t^3/6$ と正次数の寄与を分け、三階微分が三点関数を返すことを係数ごとに導く。その際もGWの有理数値、整数型数値、幾何学的な曲線の本数は区別する。
+ただし、積の定義はまだ**ポテンシャルを微分して積の係数を得る関係式**と同一ではない。次講 MIR2-05 では種数0ポテンシャルの古典三次項 $5t^3/6$ と正次数の寄与を分け、三階微分が三点関数を返すことを係数ごとに導く。その際もGWの有理数値、整数型数値、幾何学的な曲線の本数は区別する。
