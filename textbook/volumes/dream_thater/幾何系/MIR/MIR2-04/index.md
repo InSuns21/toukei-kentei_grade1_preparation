@@ -54,9 +54,9 @@ $$
 一般の $Q^n$ でも $\sum_{i=0}^{n}a_ib_{n-i}$ は有限和なので積は厳密に定義される。$Q=1$ の代入は任意の無限級数について定義されないが、$Q=0$ に相当する定数項の取得は常に定義される。
 <!-- definition-example-end -->
 
-この $Q$ は[ミラー写像](../../MIR/MIR1-15/index.md#def-mir1-15-mirror-map)の後に得る数値座標 $q$ と、現時点では**同じ変数として同定しない**。ここではあくまでA側の形式記号である。
+この $Q$ は[ミラー写像](../../MIR/MIR1-15/index.md#def-mir1-15-mirror-coordinate)の後に得る数値座標 $q$ と、現時点では**同じ変数として同定しない**。ここではあくまでA側の形式記号である。
 
-**次数の規約**。[既習のNovikov次数](../../GW/GW1-16/index.md#def-gw1-16-novikov)は $\deg Q^\beta=2\langle c_1(TX),\beta\rangle$ だった。[quinticの第一Chern類の計算](../MIR2-02/index.md#prop-mir2-02-first-chern)から $c_1(TX)=0$ だから
+**次数の規約**。[既習のNovikov次数](../../GW/GW1-16/index.md#def-gw1-16-novikov)は $\deg Q^\beta=2\langle c_1(TX),\beta\rangle$ だった。[quinticの第一Chern類の計算](../MIR2-02/index.md#prop-mir2-02-c1-zero)から $c_1(TX)=0$ だから
 
 $$
 \deg Q^d=0,\qquad \deg(H^jQ^d)=2j.
@@ -452,7 +452,7 @@ $H*_QH^2$ と $H^2*_QH^2$ を求め、正次数が消える理由と次数0の�
 $H^2Q^7$ の実コホモロジー次数を求めよ。さらに $Q=0$ の操作と $t=0$ の操作が小量子積で何を表すか説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。[quinticの第一Chern類](../MIR2-02/index.md#prop-mir2-02-first-chern)は0だから $\deg Q^7=2\langle c_1(TX),7[\text{曲線}]\rangle=0$。$\deg H^2=4$ なので積の次数は4。一方、指数7は曲線次数を記録している。
+**詳細解答**。[quinticの第一Chern類](../MIR2-02/index.md#prop-mir2-02-c1-zero)は0だから $\deg Q^7=2\langle c_1(TX),7[\text{曲線}]\rangle=0$。$\deg H^2=4$ なので積の次数は4。一方、指数7は曲線次数を記録している。
 
 $Q=0$ は曲線次数 $d=0$ だけを残し古典積を与える。大きい量子積の追加挿入変数 $t=0$ は $n\ge1$ を除いて**全曲線次数 $d$ の三点相関を残す**ので小量子積を与える。両操作は一般に異なる。
 <!-- solution-end -->
