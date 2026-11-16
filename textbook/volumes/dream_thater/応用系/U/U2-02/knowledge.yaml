@@ -1,0 +1,37 @@
+chapter: U2-02
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-01
+forward_references: []
+concepts:
+  - id: robotics.finite-state-transition-kernel
+    name: 有限状態の遷移核
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の遷移核）"]
+    requires: [robotics.finite-position-belief]
+  - id: robotics.motion-observation-conditional-model
+    name: 運動・観測の条件付き独立模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動・観測の条件付き独立模型）"]
+    requires: [robotics.finite-state-transition-kernel, robotics.finite-observation-model]
+  - id: robotics.finite-bayes-filter
+    name: 有限状態 Bayes フィルタの予測・更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有限状態 Bayes フィルタの予測・更新）"]
+    requires: [robotics.motion-observation-conditional-model, robotics.finite-observation-bayes-update]
+  - id: robotics.filter-zero-evidence
+    name: ゼロ証拠の判定と支持集合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ゼロ証拠の判定と支持集合）"]
+    requires: [robotics.finite-bayes-filter]
+  - id: robotics.density-bayes-filter
+    name: 密度版 Bayes フィルタ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（密度版 Bayes フィルタ）"]
+    requires: [robotics.finite-bayes-filter]
