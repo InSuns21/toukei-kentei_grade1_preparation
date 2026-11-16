@@ -1,0 +1,45 @@
+id: "MIR2-02"
+title: "quinticのGW不変量と仮想次元"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-01
+  - GW1-20
+  - CYG1-09
+learning_objectives:
+  - 種数0安定写像の標点・定数成分の安定性を確認し次数と像の本数を区別できる
+  - 法束完全列を使って滑らかなquinticの第一Chern類が零になることを導ける
+  - 種数0安定写像の仮想次元の指数を構成の外部入力と分離して計算できる
+  - 非凸標的の自然な仮想基本類と評価挿入によって一次GW不変量を定義できる
+  - 実コホモロジー次数と複素余次元を区別して挿入の必要次数を検算できる
+  - 次数0の三点不変量を交叉数に帰着し四標点での零を説明できる
+  - 負の法束を持つ直線の多重被覆で実次元と仮想次元の差を算出できる
+  - GWの有理数値と曲線像の本数を混同しない理由を説明できる
+theorems:
+  - { id: MIR2-02-PROP-01, name: "quinticの第一Chern類" }
+  - { id: MIR2-02-PROP-02, name: "quintic種数0安定写像の仮想次元" }
+  - { id: MIR2-02-PROP-03, name: "quinticの一次GW挿入次数の必要条件" }
+  - { id: MIR2-02-PROP-04, name: "quinticの次数0・三点一次不変量" }
+  - { id: MIR2-02-PROP-05, name: "負の法束を持つ直線の二重被覆" }
+definitions:
+  - { id: MIR2-02-DEF-01, name: "quintic種数0の一次GW不変量" }
+canonical_examples:
+  - 次数0三標点の超平面三重交叉が5になる定義の確認
+  - 次数0四標点の次数条件は合うが一次不変量は零になる例
+  - 負の法束を持つ直線の二重被覆の変形・障害次元
+  - 零点模型の期待次元と局所化されたサイクルの違い
+problem_patterns:
+  - MIR2-02-HYPERSURFACE-CHERN
+  - MIR2-02-VIRTUAL-INSERTION-DEGREE
+  - MIR2-02-ZERO-DEGREE-TRIPLE
+  - MIR2-02-CONSTANT-STABILITY
+  - MIR2-02-REAL-COMPLEX-DEGREE
+  - MIR2-02-COVER-OBSTRUCTION
+  - MIR2-02-FOUR-MARKS-VANISHING
+  - MIR2-02-LOCALIZED-ZERO-CYCLE
+  - MIR2-02-RATIONAL-NOT-LINES
+  - MIR2-02-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 5 }
