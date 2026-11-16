@@ -1,0 +1,45 @@
+id: "U3-58"
+title: "信用・相手先・流動性リスクの入口"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-57]
+official_scope: []
+learning_objectives:
+  - PD・LGD・EADから一社の離散信用損失分布と期待損失を計算できる
+  - 単一社のVaRとESの分位点の境界原子を区別し公式を証明できる
+  - 二社の同時デフォルト確率の許容条件と周辺PDを確認できる
+  - 同じ期待損失でデフォルト依存が95%ESを変えることを定量的に証明できる
+  - 相手先の正の露出額・担保とデフォルト条件付き期待値を区別できる
+  - 実確率Pによる予測損失とQによる一期間の信用評価調整を区別できる
+  - 市場・信用・流動性損失を同じ状態で重複なしに合成し尾部を計算できる
+  - ブラウザPythonと独立の手計算で期待損失・VaR・ESを照合できる
+definitions:
+  - { id: U3-58-DEF-01, name: "1期間の PD・LGD・EAD と信用損失" }
+  - { id: U3-58-DEF-02, name: "二社のデフォルト同時分布" }
+  - { id: U3-58-DEF-03, name: "担保控除後の相手先信用損失" }
+  - { id: U3-58-DEF-04, name: "信用・市場・流動性の合成損失" }
+theorems:
+  - { id: U3-58-PROP-01, name: "一社の期待損失・VaR・ES" }
+  - { id: U3-58-PROP-02, name: "二社の同時デフォルトと95% ES" }
+  - { id: U3-58-PROP-03, name: "条件付きエクスポージャーと相手先期待損失" }
+canonical_examples:
+  - "単一債務者 PD2%・EAD100万円・LGD60%：EL1.2万円、95%VaR0、ES24万円"
+  - "PD10%ずつの二社、各損失60万円：独立ES72万円・完全同時ES120万円、ELは12万円"
+  - "逆方向リスク：デフォルト条件付き露出100万円・無条件露出28万円でEL6万円と誤計算1.68万円"
+  - "ストレス時担保40万円で相手先期待損失が6万円から3.6万円へ下がる"
+  - "同じ二状態で信用損失(60,0)・流動性費用(0,20)の合成ESは60万円"
+problem_patterns:
+  - U3-58-A1
+  - U3-58-A2
+  - U3-58-A3
+  - U3-58-A4
+  - U3-58-A5
+  - U3-58-B1
+  - U3-58-B2
+  - U3-58-B3
+  - U3-58-B4
+  - U3-58-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

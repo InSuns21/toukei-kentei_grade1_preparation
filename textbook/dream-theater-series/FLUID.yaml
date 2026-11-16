@@ -43,7 +43,7 @@ chapters:
   - { id: FLUID36, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID36, status: completed, title: "平行剪断流の擾乱はなぜ増幅するか" }
   - { id: FLUID37, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID37, status: completed, title: "乱流をどんな統計量で定義するか" }
   - { id: FLUID38, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID38, status: completed, title: "Reynolds応力はなぜ閉じないか" }
-  - { id: FLUID39, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID39, status: planned, title: "乱流のエネルギーは尺度間をどう移るか" }
+  - { id: FLUID39, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID39, status: completed, title: "乱流のエネルギーは尺度間をどう移るか" }
   - { id: FLUID40, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID40, status: planned, title: "壁乱流の速度分布をどう整理するか" }
   - { id: FLUID41, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID41, status: planned, title: "圧縮性流れでは質量・運動量・エネルギーをどう閉じるか" }
   - { id: FLUID42, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID42, status: planned, title: "ノズルで音速に達する条件は何か" }

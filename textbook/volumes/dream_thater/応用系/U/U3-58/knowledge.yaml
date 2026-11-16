@@ -1,0 +1,47 @@
+chapter: U3-58
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-57]
+concepts:
+  - id: finance.credit-pd-lgd-ead
+    name: 1期間の PD・LGD・EAD と信用損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1期間の PD・LGD・EAD と信用損失）"]
+    requires: [finance.finite-loss-distribution]
+  - id: finance.credit-single-tail
+    name: 一社の期待損失・VaR・ES
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一社の期待損失・VaR・ES）"]
+    requires: [finance.credit-pd-lgd-ead, finance.expected-shortfall, finance.value-at-risk]
+  - id: finance.credit-joint-default
+    name: 二社のデフォルト同時分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（二社のデフォルト同時分布）"]
+    requires: [finance.credit-pd-lgd-ead]
+  - id: finance.credit-default-concentration
+    name: 二社の同時デフォルトと95% ES
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二社の同時デフォルトと95% ES）"]
+    requires: [finance.credit-joint-default, finance.expected-shortfall]
+  - id: finance.counterparty-exposure
+    name: 担保控除後の相手先信用損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（担保控除後の相手先信用損失）"]
+    requires: [finance.credit-pd-lgd-ead]
+  - id: finance.counterparty-conditional-el
+    name: 条件付きエクスポージャーと相手先期待損失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（条件付きエクスポージャーと相手先期待損失）"]
+    requires: [finance.counterparty-exposure]
+  - id: finance.credit-liquidity-total
+    name: 信用・市場・流動性の合成損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（信用・市場・流動性の合成損失）"]
+    requires: [finance.holding-period-loss, finance.stress-liquidity-cost, finance.credit-pd-lgd-ead]

@@ -1,0 +1,45 @@
+id: "MIR2-04"
+title: "小量子積・Novikov環・大きい量子積との差"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-03
+  - GW1-16
+learning_objectives:
+  - quinticの曲線次数とNovikov完備化の対応を説明し形式的な係数演算を検算できる
+  - Poincaré双対基底を交叉数5から求め三点GW数を積へ復元できる
+  - 仮想GW入力の境界を明示しambient偶数コホモロジーの小量子積表を導出できる
+  - 次数選択則・基本類公理から量子補正がH*Hだけに現れることを証明できる
+  - 結合律と係数環上の環表示を積表から直接確認できる
+  - Calabi–YauのNovikov次数と射影空間の例との違いを説明できる
+  - 大きい量子積の追加挿入と小量子積への特殊化を区別できる
+  - 因子方向t=uHでの大きい量子積をQe^uにより係数ごとに検算できる
+definitions:
+  - { id: MIR2-04-DEF-01, name: "quinticのNovikov係数環" }
+  - { id: MIR2-04-DEF-02, name: "quinticのambient小量子積" }
+  - { id: MIR2-04-DEF-03, name: "quinticの偶数方向の大きい量子積" }
+theorems:
+  - { id: MIR2-04-PROP-01, name: "ambient小量子積の表" }
+  - { id: MIR2-04-PROP-02, name: "ambient小量子積の結合律と環表示" }
+  - { id: MIR2-04-PROP-03, name: "因子方向の大きい量子積の特殊化" }
+canonical_examples:
+  - QのCauchy積と次数ゼロのNovikov次数
+  - quinticのPoincaré交叉行列と双対基底
+  - 正次数の三点選択則からH*Hの係数を復元
+  - Hの三重量子積とカップ冪を区別
+  - Qe^uの次数1と次数2を展開
+problem_patterns:
+  - MIR2-04-PAIRING
+  - MIR2-04-NOVIKOV-COEFFICIENTS
+  - MIR2-04-SMALL-PRODUCT
+  - MIR2-04-DEGREE-SELECTION
+  - MIR2-04-FORMAL-SPECIALIZATION
+  - MIR2-04-ASSOCIATIVITY
+  - MIR2-04-QUANTUM-COEFFICIENT
+  - MIR2-04-BIG-DIVISOR-SLICE
+  - MIR2-04-RING-NORMAL-FORM
+  - MIR2-04-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 5 }

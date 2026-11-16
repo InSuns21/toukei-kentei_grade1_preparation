@@ -1,0 +1,56 @@
+chapter: FLUID39
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID38
+  - FLUID37
+  - CTM15
+concepts:
+  - id: fluid.production-dissipation
+    name: 変動エネルギーの生成・散逸・空間輸送
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（変動エネルギーの生成・散逸・空間輸送）"]
+    requires: [fluid.reynolds-stress, fluid.shear-production]
+  - id: fluid.tke-budget
+    name: 乱流運動エネルギーの局所収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（乱流運動エネルギーの局所収支）"]
+    requires: [fluid.production-dissipation, fluid.rans]
+  - id: fluid.energy-spectrum
+    name: 波数殻エネルギーと一側エネルギースペクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（波数殻エネルギーと一側エネルギースペクトル）"]
+    requires: [fluid.periodic-spectrum, fluid.reynolds-decomposition]
+  - id: fluid.spectral-dissipation
+    name: Parsevalによるエネルギーと散逸の表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Parseval によるエネルギーと散逸の表示）"]
+    requires: [fluid.energy-spectrum, fluid.parseval-correlation-spectrum, fluid.production-dissipation]
+  - id: fluid.spectral-flux
+    name: 波数別の非線形移送と前方フラックス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（波数別の非線形移送と前方フラックス）"]
+    requires: [fluid.energy-spectrum, fluid.tke-budget]
+  - id: fluid.transfer-conservation
+    name: 非線形移送の総和はゼロ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非線形移送の総和はゼロ）"]
+    requires: [fluid.spectral-flux, fluid.spectral-dissipation]
+  - id: fluid.kolmogorov-scales
+    name: Kolmogorovの微細尺度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Kolmogorov の微細尺度）"]
+    requires: [fluid.production-dissipation]
+  - id: fluid.k41-scaling
+    name: K41仮説の下での慣性領域スペクトル次元則
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（K41 仮説の下での慣性領域スペクトル次元則）"]
+    requires: [fluid.energy-spectrum, fluid.spectral-flux, fluid.kolmogorov-scales]
