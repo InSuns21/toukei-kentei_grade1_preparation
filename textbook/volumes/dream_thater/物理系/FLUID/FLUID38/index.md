@@ -44,10 +44,10 @@ $$
 $$
 R=\begin{pmatrix}4&-2&0\\-2&1&0\\0&0&0\end{pmatrix}
 \ {\rm m^2/s^2},\qquad
-\tau^R_{12}=-\rho R_{12}=2\rho\ {\rm Pa}
+\tau^R_{12}=-\rho R_{12}=\rho(2\ {\rm m^2/s^2})
 $$
 
-となる（最後の数値式では $\rho$ の単位を kg/m$^3$ として読む）。対角成分は変動の分散で非負、交差成分は負でもよい。[変動エネルギーの定義](../FLUID37/index.md#def-fluid37-reynolds-decomposition)から $k=\tfrac12\operatorname{tr}R=(4+1)/2=2.5$ m$^2$/s$^2$ である。
+となる（例えば $\rho=1000$ kg/m$^3$ なら $\tau^R_{12}=2000$ Pa）。対角成分は変動の分散で非負、交差成分は負でもよい。[変動エネルギーの定義](../FLUID37/index.md#def-fluid37-reynolds-decomposition)から $k=\tfrac12\operatorname{tr}R=(4+1)/2=2.5$ m$^2$/s$^2$ である。
 <!-- definition-example-end -->
 
 共分散行列が単なる任意の対称行列ではないことは、閉鎖モデルを判定するときに重要になる。
