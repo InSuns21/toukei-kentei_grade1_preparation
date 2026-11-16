@@ -6,7 +6,7 @@
 
 ## 0. 流れと平均の仮定を固定する
 
-一定密度 $\rho>0$ [kg/m$^3$]、一定動粘度 $\nu>0$ [m$^2$/s] の三次元非圧縮 Newton 流体を扱う。速度 $\boldsymbol u(\boldsymbol x,t,\omega)$ [m/s] と圧力 $p(\boldsymbol x,t,\omega)$ [Pa] は、各実現 $\omega$ について [非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすとする。第1節までは体積力をゼロとし、
+一定密度 $\rho>0$ [kg/m$^3$]、一定動粘度 $\nu>0$ [m$^2$/s] の三次元[非圧縮 Newton 流体](../../CTM/CTM15/index.md#def-ctm15-incompressible-newtonian)を扱う。速度 $\boldsymbol u(\boldsymbol x,t,\omega)$ [m/s] と圧力 $p(\boldsymbol x,t,\omega)$ [Pa] は、各実現 $\omega$ について [非圧縮 Navier–Stokes 方程式](../../CTM/CTM15/index.md#thm-ctm15-incompressible-navier-stokes)を満たすとする。第1節までは体積力をゼロとする。空間座標は $\boldsymbol x=(x_1,x_2,x_3)$、時間は $t$ で、$\partial_t=\partial/\partial t$ は位置を固定した時間偏微分、$\partial_j=\partial/\partial x_j$ は時刻を固定した空間偏微分、$\Delta=\sum_{j=1}^3\partial_j^2$ は空間 Laplace 演算子を表す。
 
 $$
 \partial_tu_i+u_j\partial_ju_i
@@ -14,7 +14,7 @@ $$
 \qquad \partial_i u_i=0
 $$
 
-を出発点とする。繰り返した添字 $i,j\in\{1,2,3\}$ は総和を取る。集合平均を $\overline{(\,\cdot\,)}=\mathbb E_\omega(\,\cdot\,)$ と書き、**位置・時刻を固定した実現の平均**だけを指す。$U_i=\overline{u_i}$、$v_i=u_i-U_i$、$P=\overline p$、$p'=p-P$ とする。$v_i$ は速度変動であり、$u_i'$ と同じものを表す。分散・三次積・勾配二乗が有限で、ここで行う微分・平均・空間積分の交換を正当化する十分な滑らかさ・可積分性があると仮定する。$U$ と $v$ はともに発散ゼロである。
+を出発点とする。繰り返した添字 $i,j\in\{1,2,3\}$ は総和を取る。集合平均を $\overline{(\,\cdot\,)}=\mathbb E_\omega(\,\cdot\,)$ と書き、**位置・時刻を固定した実現の平均**だけを指す。$U_i=\overline{u_i}$、$v_i=u_i-U_i$、$P=\overline p$、$p'=p-P$ とする。$v_i$ は速度変動であり、$u_i'$ と同じものを表す。ここでプライム $'$ は微分ではなく集合平均からの偏差を表し、$\partial_jv_i$ は別に空間微分を意味する。分散・三次積・勾配二乗が有限で、ここで行う微分・平均・空間積分の交換を正当化する十分な滑らかさ・可積分性があると仮定する。$U$ と $v$ はともに発散ゼロである。
 
 [乱流運動エネルギーの定義](../FLUID37/index.md#def-fluid37-reynolds-decomposition)と[一点共分散](../FLUID38/index.md#def-fluid38-reynolds-stress)は
 
@@ -27,7 +27,7 @@ $$
 
 ## 1. 変動エネルギーの収支を導く
 
-平均流 $U_1=Gy$、$U_2=U_3=0$ では、[FLUID38 の剪断生成率](../FLUID38/index.md#prop-fluid38-shear-production)は $\mathcal P=-R_{12}G$ だった。$R_{12}<0$、$G>0$ なら生成は正だが、それだけでは $k$ の時間変化を決められない。変動の三乗平均による輸送、圧力の仕事、粘性散逸も同時に数える必要がある。
+$y=x_2$ を鉛直座標、$G=dU_1/dy$ を一定の剪断率として平均流 $U_1=Gy$、$U_2=U_3=0$ を考える。この定常な $U_1(y)$ の全微分 $dU_1/dy$ は、第0節の偏微分 $\partial_2U_1$ と同じである。このとき、[FLUID38 の剪断生成率](../FLUID38/index.md#prop-fluid38-shear-production)は $\mathcal P=-R_{12}G$ だった。$R_{12}<0$、$G>0$ なら生成は正だが、それだけでは $k$ の時間変化を決められない。変動の三乗平均による輸送、圧力の仕事、粘性散逸も同時に数える必要がある。
 
 そのため局所生成率 $\mathcal P$、局所散逸率 $\varepsilon$、物理空間での輸送束 $J_j$ を次で用いる。ここで $\partial_j=\partial/\partial x_j$ である。
 
@@ -154,7 +154,9 @@ $$
 e^{-i\boldsymbol q_{\boldsymbol n}\cdot\boldsymbol x}\,d^3x
 $$
 
-である。最初は有限個のモードからなる場で計算し、一般の滑らかな周期場には二乗平均収束と微分の正当化がある場合に拡張する。
+である。最初は有限個のモードからなる場で計算し、一般の滑らかな周期場には二乗平均収束と微分の正当化がある場合に拡張する。以下、上付き $^*$ は Fourier 係数の複素共役であり、$|\widehat{\boldsymbol v}_{\boldsymbol n}|^2=\widehat{\boldsymbol v}_{\boldsymbol n}^{\,*}\cdot\widehat{\boldsymbol v}_{\boldsymbol n}$ とする。
+
+有限の周期箱では波数は整数格子上にあり、エネルギーは離散的な殻に集まる。連続的な波数密度は、周期箱を大きくする等の極限で存在条件を確かめるか、初めから連続波数で定めた模型として扱う。
 
 <a id="def-fluid39-energy-spectrum"></a>
 
@@ -167,11 +169,24 @@ K(I)=\frac12\sum_{\kappa_{\boldsymbol n}\in I}
 \overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}
 $$
 
-> と定める。連続的な波数密度 $E(\kappa)\ge0$ で $K([a,b))=\int_a^b E(\kappa)\,d\kappa$ と表せる場合、その $E$ を一側エネルギースペクトルという。離散殻の幅 $\Delta\kappa$ に対しては $\Delta\kappa^{-1}K([\kappa,\kappa+\Delta\kappa))$ を密度近似とする。$K$ の単位は m$^2$/s$^2$、$E$ の単位は m$^3$/s$^2$。
+> と定める。有限周期箱の非零の殻質量 $K$ は点に集中するため、そのまま連続関数 $E$ の積分では厳密に表せない。帯域エネルギーが適切な極限で $K_\infty(I)$ に収束し、$K_\infty([a,b))=\int_a^b E(\kappa)\,d\kappa$ を満たす非負の密度 $E$ が存在する場合、その $E$ を一側エネルギースペクトルという。連続波数の模型ではこの積分関係を直接採用してもよい。有限箱での殻幅 $\Delta\kappa>0$ に対する $\Delta\kappa^{-1}K([\kappa,\kappa+\Delta\kappa))$ はあくまで密度近似である。$K$ の単位は m$^2$/s$^2$、$E$ の単位は m$^3$/s$^2$。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid39-energy-spectrum -->
-**定義の確認**：$\boldsymbol q=(2\pi/L,0,0)$、一様位相 $\Phi\in[0,2\pi)$、$a>0$ [m/s] を取り、$\boldsymbol v=(0,a\cos(qx+\Phi),0)$ とする。$\partial_xv_x+\partial_yv_y+\partial_zv_z=0$ であり、位相平均で $\overline{\boldsymbol v}=0$。非零の係数は $\widehat v_{y,\pm1}=(a/2)e^{\pm i\Phi}$ だけなので、殻 $|\boldsymbol q|=q$ に $K=a^2/4$ [m$^2$/s$^2$] が集まる。他の殻はゼロである。有限周期場では一般にスペクトルは**離散的な殻質量**であり、連続密度 $E$ が存在すると無条件には言えない。
+**定義の確認**：$x=x_1$、$q=2\pi/L>0$、$\boldsymbol q=(q,0,0)$ とする。一様位相 $\Phi\in[0,2\pi)$ と $a>0$ [m/s] に対して $\boldsymbol v=(0,a\cos(qx+\Phi),0)$ を取る。$qL=2\pi$ だから周期境界を満たす。$v_x=v_z=0$ で $v_y$ は $y=x_2$ に依存しないので $\partial_xv_x+\partial_yv_y+\partial_zv_z=0$。位相平均で $\overline{\cos(qx+\Phi)}=0$、よって $\overline{\boldsymbol v}=0$ である。余弦を展開すると
+
+$$
+v_y=\frac a2 e^{i\Phi}e^{iqx}+\frac a2 e^{-i\Phi}e^{-iqx}.
+$$
+
+[周期場の Fourier 係数](../FLUID37/index.md#def-fluid37-periodic-spectrum)の定義と直交性により、非零の係数は $\widehat v_{y,(\pm1,0,0)}=(a/2)e^{\pm i\Phi}$ だけである。従って殻 $|\boldsymbol q|=q$ のエネルギーは
+
+$$
+K(\{q\})=\frac12\left(\frac{a^2}4+\frac{a^2}4\right)
+=\frac{a^2}4\quad[\mathrm{m^2/s^2}]
+$$
+
+となる。他の殻はゼロであり、係数の二乗も有限である。この例は**離散的な殻質量**を確認したもので、連続密度 $E$ を構成したものではない。
 <!-- definition-example-end -->
 
 <a id="prop-fluid39-spectral-dissipation"></a>
@@ -191,7 +206,7 @@ $$
 \overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}\ge0.
 $$
 
-> 連続密度表示が正当化できる場合は、対応して
+> さらに波数殻のエネルギー測度が連続密度 $E$ に移り、$\kappa^2$ の重み付き総和についても極限と積分の交換が正当化できる場合に限り、対応して
 
 $$
 \langle k\rangle_V=\int_0^\infty E(\kappa)\,d\kappa,\qquad
@@ -238,7 +253,7 @@ $$
 |\widehat{\boldsymbol v}_{\boldsymbol n}|^2.
 $$
 
-$\nu>0$ を掛けて平均すると散逸式となる。最後に第1の総和を波数殻ごとに集めれば、各殻エネルギーが $E(\kappa)d\kappa$ に対応し、散逸には同じ殻へ $2\nu\kappa^2$ を掛けるため、積分表示が従う。
+$\nu>0$ を掛けて平均すると有限周期箱での散逸式となる。帯域 $I$ のエネルギーは $K(I)=\frac12\sum_{\kappa_{\boldsymbol n}\in I}\overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}$ であり、同じ帯域の散逸は $2\nu\sum_{\kappa_{\boldsymbol n}\in I}\kappa_{\boldsymbol n}^2\frac12\overline{|\widehat{\boldsymbol v}_{\boldsymbol n}|^2}$ である。連続密度への極限が存在し、**この $\kappa^2$ 重み付き総和にも極限交換を適用できる場合に限り**、積分表示が従う。エネルギー総和の収束だけでは高波数での散逸積分の収束まで保証しない。
 <!-- proof-end -->
 
 上の単一モード例では $\langle k\rangle_V=a^2/4$、$\langle\varepsilon\rangle_V=\nu q^2 a^2/2$ である。同じ $k$ を細かい波数へ配置すると、粘性散逸の重みは $q^2$ 倍に増える。これが**総エネルギー量だけでは散逸量を特定できない**理由である。
