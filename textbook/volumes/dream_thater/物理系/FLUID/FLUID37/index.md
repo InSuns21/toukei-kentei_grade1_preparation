@@ -141,7 +141,7 @@ $$
 <!-- definition-example-start: def-fluid37-statistical-symmetries -->
 **定義の確認**：$Z=\pm1$ が等確率、$\boldsymbol u(\boldsymbol x,t)=(0,Z,0)$ [m/s] で全空間・全時刻に同じ $Z$ を用いる場は、時間・空間をずらしても全ての同時分布が変わらず、定常かつ一様である。一方、$90^\circ$ の軸回転で $(0,Z,0)$ は別の座標軸へ移るので、速度の分布は一般に回転不変でなく等方的ではない。またこの場は発散ゼロであっても、時間的に揺れ続ける乱流ではない。
 
-**三条件が成立する直接例**：単位球面 $S^2=\{\boldsymbol n\in\mathbb R^3:|\boldsymbol n|=1\}$ 上の面積を確率 $1$ に正規化した分布から方向 $\boldsymbol N$ を選び、定数 $a>0$ に対して $\boldsymbol u(\boldsymbol x,t)=a\boldsymbol N$ とする。全点・全時刻に同じ $\boldsymbol N$ を用いるから時間・空間の平行移動は全ての同時分布を変えない。また球面の面積分布は回転で不変なので、任意の $Q\in SO(3)$ に対して $\boldsymbol N$ と $Q\boldsymbol N$ は同分布であり、速度も等方性の定義を満たす。各座標の符号反転と座標交換を回転で実現できるため、$\mathbb EN_i=0$、$\mathbb E[N_iN_j]=0$（$i\ne j$）、各 $\mathbb EN_i^2$ は等しい。さらに $\sum_iN_i^2=1$ なので
+**三条件が成立する直接例**：単位球面 $S^2=\{\boldsymbol n\in\mathbb R^3:|\boldsymbol n|=1\}$ 上の面積を確率 $1$ に正規化した分布から方向 $\boldsymbol N$ を選び、定数 $a>0$ に対して $\boldsymbol u(\boldsymbol x,t)=a\boldsymbol N$ とする。全点・全時刻に同じ $\boldsymbol N$ を用いるから時間・空間の平行移動は全ての同時分布を変えない。また球面の面積分布は回転で不変なので、任意の $Q\in SO(3)$ に対して $\boldsymbol N$ と $Q\boldsymbol N$ は同分布であり、速度も等方性の定義を満たす。二軸の符号反転（座標軸まわりの半回転）と座標の交換を適切な回転で実現できるため、$\mathbb EN_i=0$、$\mathbb E[N_iN_j]=0$（$i\ne j$）、各 $\mathbb EN_i^2$ は等しい。さらに $\sum_iN_i^2=1$ なので
 $$
 \mathbb E[N_i^2]=\frac13,\qquad
 \mathbb E[u_i'u_j']=\frac{a^2}{3}\delta_{ij},\qquad
