@@ -579,7 +579,7 @@ $$
 0=\frac G\rho+\nu U''-R_{xy}'.
 $$
 
-$\rho$ を掛け、[$全剪断の定義](#def-fluid40-total-shear)から $\tau_{\mathrm{tot}}'=-G$。中心面 $h$ から逆向きに積分して
+$\rho$ を掛け、[全剪断の定義](#def-fluid40-total-shear)から $\tau_{\mathrm{tot}}'=-G$。中心面 $h$ から逆向きに積分して
 
 $$
 \tau_{\mathrm{tot}}(y)=\tau_{\mathrm{tot}}(h)+G(h-y)=G(h-y).
@@ -730,7 +730,7 @@ $$
 
 壁では [$U^+\sim y^+$](#prop-fluid40-viscous-asymptote)だが対数関数は $\ln y^+\to-\infty$。中心では対称性による勾配ゼロに対し対数式の勾配は正であり、[$y\ll h$ の領域限定](#prop-fluid40-overlap-defect)を失う。今回 $y^+=100$ は $Re_\tau=1000$ の 1/10 に当たり、無条件に完全な対数領域と断言できない。
 
-(4) [減衰模型](#def-fluid40-damped-model)で $L=40(1-e^{-100/26})\simeq39.14553$、$T=0.9$ と計算する。[$非負根の公式](#prop-fluid40-model-gradient)に代入すると
+(4) [減衰模型](#def-fluid40-damped-model)で $L=40(1-e^{-100/26})\simeq39.14553$、$T=0.9$ と計算する。[非負根の公式](#prop-fluid40-model-gradient)に代入すると
 
 $$
 S\simeq0.02391068,\qquad
