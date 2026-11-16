@@ -5,6 +5,9 @@ status: supplementary
 prerequisites:
   - FLUID36
   - CTM15
+  - F0-00P3
+  - STO1
+  - TSA5
 official_scope: []
 learning_objectives:
   - "集合平均・Reynolds分解・変動エネルギーの単位と条件を説明しエネルギー分解を証明する"
