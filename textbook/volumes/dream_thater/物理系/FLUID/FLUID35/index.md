@@ -41,7 +41,17 @@ $$
 
 ### 1.1 圧力と運動学的境界条件から分散式へ
 
-界面擾乱を $\eta=\operatorname{Re}\{\widehat\eta e^{i(kx-\omega t)}\}$ と置く。ここで $\omega\in\mathbb C$ [s$^{-1}$] であり、[FLUID34 の正規モードと時間成長率](../FLUID34/index.md#def-fluid34-normal-mode)に従い $\gamma=\operatorname{Im}\omega>0$ が増幅を表す。以下の線形境界条件では、$\eta$ と $\phi_j$ を一時的に**実部を取る前の複素表示**として扱う。実際の界面・速度は最後に実部を取るので、$\partial_t\phi_j$ や $\eta_{xx}=\partial_x^2\eta$ はこの複素表示に作用させた式である（[FLUID34 の複素振幅による境界条件](../FLUID34/index.md#prop-fluid34-kinematic-amplitudes)）。
+界面擾乱は次の正規モードで表す。
+
+$$
+\eta(x,t)=\operatorname{Re}\{\widehat\eta e^{i(kx-\omega t)}\}.
+$$
+
+ここで $\omega\in\mathbb C$ [s$^{-1}$] は複素角周波数である。[FLUID34 の正規モードと時間成長率](../FLUID34/index.md#def-fluid34-normal-mode)に従い、$\gamma=\operatorname{Im}\omega>0$ は増幅を表す。
+
+以下の線形境界条件では、$\eta$ と $\phi_j$ を一時的に**実部を取る前の複素表示**として扱う（[FLUID34 の複素振幅による境界条件](../FLUID34/index.md#prop-fluid34-kinematic-amplitudes)）。実際の界面・速度は最後に実部を取る。
+
+そこで $\partial_t\phi_j$ は複素表示の時間微分、$\eta_{xx}=\partial_x^2\eta$ は水平座標 $x$ に関する二階偏微分として用いる。
 
 [FLUID34 の運動学的境界条件](../FLUID34/index.md#prop-fluid34-kinematic-amplitudes)を背景速度 $U_1=U_2=0$ に適用する。各層の擾乱速度ポテンシャルを
 
@@ -186,7 +196,9 @@ $$
 
 物性として、基準密度 $\rho_0>0$、動粘性係数 $\nu>0$ [m$^2$/s]、熱拡散率 $\kappa>0$ [m$^2$/s]、熱膨張係数 $\alpha>0$ [K$^{-1}$] を**定数**とする。
 
-$|\alpha(T-T_0)|\ll1$ として、密度差は浮力だけに保持し、慣性・非圧縮条件・粘性の密度には $\rho_0$ を用いる。ここで $T_0$ は密度 $\rho_0$ を定める基準温度である。[FLUID31 の Boussinesq 近似](../FLUID31/index.md#def-fluid31-boussinesq)から、慣性では密度差を無視し浮力には残す考え方と、小密度差という条件を引き継ぐ。ただし FLUID31 の非粘性・非拡散の設定は引き継がず、本節では粘性 $\nu$ と熱拡散 $\kappa$ を保持する。
+$T_0$ を密度 $\rho_0$ を定める基準温度とする。$|\alpha(T-T_0)|\ll1$ の小密度差を仮定し、密度差は浮力だけに残す。慣性・非圧縮条件・粘性の密度には $\rho_0$ を用いる。
+
+これは [FLUID31 の Boussinesq 近似](../FLUID31/index.md#def-fluid31-boussinesq)における**慣性と浮力での密度の扱い**を引き継いだものである。ただし、その非粘性・非拡散の設定は引き継がず、ここでは粘性 $\nu$ と熱拡散 $\kappa$ を保持する。
 
 静止流体でも、温度は下から上へ直線的に下がり熱が伝導する。この**伝導基底状態**からの小さな速度・温度のずれを調べる。
 
@@ -241,9 +253,21 @@ $$
 \partial_t\theta-\beta w=\kappa\nabla^2\theta.
 $$
 
-後式の負号は、流体粒子の鉛直速度 $w$ が基底温度を移流する項 $w\overline T'(z)=-\beta w$ から現れる。ここでプライム $\overline T'(z)=d\overline T/dz$ は**高さ $z$ に関する常微分**であり、$\partial_t\theta$ は $z$ を固定した時間偏微分である。実際に $T=\overline T(z)+\theta(x,z,t)$ を温度の移流項へ代入すると、一次の項は $w\,d\overline T/dz=-\beta w$ となる。暖かい流体粒子が少し上昇すると周囲より高温になり、浮力がさらに上向きに働く。この**正の帰還**と粘性・熱拡散の競争が重要である。
+後式の負号は、流体粒子の鉛直速度 $w$ が基底温度を移流する項 $w\overline T'(z)=-\beta w$ から現れる。
 
-固定温度の両板では $\theta=0$ とする。まず計算可能な**自由滑り（接線方向の粘性応力零）・不透過**の境界条件を採用する。水平擾乱波数 $k_h>0$ の正規モードについて、$w=0$ と $\partial_z^2w=0$ を両壁で要求する。後者は非圧縮条件 $\partial_xu+\partial_zw=0$ と接線応力条件 $\partial_zu+\partial_xw=0$ から導く。壁上で全ての $x$ に対し $w=0$ なので $\partial_xw=0$ であり、接線応力条件は $\partial_zu=0$ となる。さらに非圧縮条件を $z$ で微分すると
+ここでプライム $\overline T'(z)=d\overline T/dz$ は**高さ $z$ に関する常微分**であり、$\partial_t\theta$ は $z$ を固定した時間偏微分である。$T=\overline T(z)+\theta(x,z,t)$ を温度の移流項へ代入すると、一次の項は
+
+$$
+w\frac{d\overline T}{dz}=-\beta w
+$$
+
+となる。暖かい流体粒子が少し上昇すると周囲より高温になり、浮力がさらに上向きに働く。この**正の帰還**と粘性・熱拡散の競争が重要である。
+
+固定温度の両板では $\theta=0$ とする。まず計算可能な**自由滑り（接線方向の粘性応力零）・不透過**の境界条件を採用する。水平擾乱波数 $k_h>0$ の正規モードについて、両壁で $w=0$ と $\partial_z^2w=0$ を要求する。
+
+後者は非圧縮条件 $\partial_xu+\partial_zw=0$ と接線応力条件 $\partial_zu+\partial_xw=0$ から導く。壁で全ての $x$ に対し $w=0$ なので $\partial_xw=0$ であり、接線応力条件は $\partial_zu=0$ となる。
+
+さらに非圧縮条件を $z$ で微分すると
 
 $$
 \partial_x\partial_zu+\partial_z^2w=0.
