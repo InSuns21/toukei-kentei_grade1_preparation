@@ -117,8 +117,14 @@ $\cos(\theta+\omega\Delta t)-\cos\theta=-\omega\Delta t\sin\theta+o(\omega)$ で
 **定義の確認**：$g=(0,0,0)$、$v=1$ m/s、$\omega=1$ rad/s、$\Delta t=\pi/2$ s とします。全区間で $v,\omega$ は一定、横滑りはなく、初期姿勢も指定されています。定理へ代入すると $\sin(\pi/2)=1$、$\cos(\pi/2)=0$ より $(x',y',\theta')=(1,1,\pi/2)$。半径 $v/|\omega|=1$ m の円弧を四分の一周進んでいます。いっぽう $\omega=0$、$g=(0,0,\pi/2)$、$v=2$ m/s、$\Delta t=0.5$ s なら $(0,1,\pi/2)$ であり、車体前方への $1$ m が世界の上方向に変換されたことを直接確かめられます。
 <!-- definition-example-end -->
 
-計算を始点の向きだけで固定する簡便な方法もあります。$v,\omega$ が一刻みで一定なら、始点の座標速度に $\Delta t$ を掛けた
+計算を始点の向きだけで固定する簡便な方法もあります。区間中に車体が回っても、位置の更新では**区間開始時の向き**を使い、その時点の速度に $\Delta t$ を掛けます。こうすれば三角関数を一回評価するだけで次の姿勢を近似できます。
 
+<a id="def-u2-07-euler-approx"></a>
+
+<!-- formal-statement-start -->
+> **定義（始点 Euler 近似）**  
+> 初期姿勢 $g=(x,y,\theta)\in\mathbb R^2\times\mathbb R$、車体前進速度 $v$（m/s）、角速度 $\omega$（rad/s）、時間幅 $\Delta t>0$（s）を与える。[平面速度運動モデル](#def-u2-07-velocity-motion)の右辺を**時刻の始点で評価してから** $\Delta t$ 倍する一段の近似を
+>
 $$
 f_{\rm E}(g,v,\omega)=
 \begin{pmatrix}
@@ -127,8 +133,15 @@ y+v\Delta t\sin\theta\\
 \theta+\omega\Delta t
 \end{pmatrix}
 $$
+>
+> と定義し、これを**始点 Euler 近似**と呼ぶ。角度の最終表示には [wrap](../U2-06/index.md#def-u2-06-angle-wrap) を施す。
+<!-- formal-statement-end -->
 
-を**始点 Euler 近似**と呼びます。角度の最終表示には [wrap](../U2-06/index.md#def-u2-06-angle-wrap) を施します。$\omega\ne0$ で進行中に向きが変わる場合、これは上の厳密円弧とは一致しません。例の四分円は厳密解が $(1,1)$ m なのに、始点 Euler は $(\pi/2,0)$ m となります。**後節で導く行列は、この Euler 近似専用です。厳密円弧の式へそのまま流用しません。**
+<!-- definition-example-start: def-u2-07-euler-approx -->
+**定義の確認**：$g=(0,0,0)$、$v=1$ m/s、$\omega=1$ rad/s、$\Delta t=\pi/2$ s なら、始点の向きは $0$、そのときの世界座標速度は $(1,0)$ m/s です。定義の三つの成分へそれぞれ代入すると $f_{\rm E}=(\pi/2,0,\pi/2)$ となります。角度は $[-\pi,\pi)$ に入り、位置は区間開始時の向きだけで求めています。一方、同じ入力に対する[厳密な円弧の定理](#thm-u2-07-exact-integration)では位置が $(1,1)$ m です。
+<!-- definition-example-end -->
+
+$\omega\ne0$ で進行中に向きが変わる場合、この近似は厳密円弧と一致しません。差の原因は丸めではなく区間中の旋回を位置更新へ反映しないことです。**後節で導く一次誤差行列は、この Euler 近似専用です。厳密円弧の式へそのまま流用しません。**
 
 ## 3. オドメトリは「走ったと記録された相対移動」
 
