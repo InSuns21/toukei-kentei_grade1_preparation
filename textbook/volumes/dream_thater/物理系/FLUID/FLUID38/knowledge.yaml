@@ -1,0 +1,55 @@
+chapter: FLUID38
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID37
+  - CTM15
+concepts:
+  - id: fluid.reynolds-stress
+    name: Reynolds共分散とReynolds応力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Reynolds共分散とReynolds応力）"]
+    requires: [fluid.two-point-covariance, fluid.reynolds-decomposition]
+  - id: fluid.reynolds-realizability
+    name: 共分散の対称性・非負性・交差成分の上限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共分散の対称性・非負性・交差成分の上限）"]
+    requires: [fluid.reynolds-stress]
+  - id: fluid.rans
+    name: 一定密度のReynolds平均Navier–Stokes方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一定密度のReynolds平均Navier–Stokes方程式）"]
+    requires: [fluid.reynolds-stress]
+  - id: fluid.reynolds-stress-transport
+    name: Reynolds共分散の厳密な輸送式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Reynolds共分散の厳密な輸送式）"]
+    requires: [fluid.rans, fluid.reynolds-stress]
+  - id: fluid.shear-production
+    name: 平均剪断と乱流エネルギー生成率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均剪断と乱流エネルギー生成率）"]
+    requires: [fluid.rans, fluid.reynolds-stress]
+  - id: fluid.eddy-viscosity-closure
+    name: Boussinesq渦粘性閉鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Boussinesq渦粘性閉鎖）"]
+    requires: [fluid.reynolds-stress, fluid.shear-production]
+  - id: fluid.eddy-production
+    name: 非負渦粘性が予測する生成率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非負渦粘性が予測する生成率）"]
+    requires: [fluid.eddy-viscosity-closure, fluid.shear-production]
+  - id: fluid.mixing-length-closure
+    name: Prandtl混合長閉鎖
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Prandtl混合長閉鎖）"]
+    requires: [fluid.eddy-viscosity-closure]
