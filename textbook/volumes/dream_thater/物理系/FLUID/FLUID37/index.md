@@ -287,10 +287,10 @@ $$
 # lab-title: 合成周期速度場の平均・相関・スペクトル
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID37/synthetic_turbulence_lab.py
 # timeout-ms: 30000
-# lab-preset: 3モード | --modes 3 --seed 37
-# lab-preset: 6モード | --modes 6 --seed 37
-# lab-preset: 12モード | --modes 12 --seed 37
-# lab-preset: 位相だけ変更 | --modes 6 --seed 137
+# lab-preset: 3モード | --modes 3 --phase-init 37
+# lab-preset: 6モード | --modes 6 --phase-init 37
+# lab-preset: 12モード | --modes 12 --phase-init 37
+# lab-preset: 位相だけ変更 | --modes 6 --phase-init 137
 <!-- python-file-lab-end -->
 
 速度・相関の曲線は直接同じ格子で計算した値、波数スペクトルは同じ速度データから求めた Fourier 係数である。$M$ を増やすと細かな波数成分が増え、擬似乱数の初期値の変更では瞬時速度の見た目が変わる一方、指定振幅のもとでは理論上の空間平均相関・エネルギー和は変わらない。有限格子の計算誤差と、連続場の定理の区別も確認する。
