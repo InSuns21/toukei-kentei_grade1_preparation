@@ -12,6 +12,8 @@ if (scale.length !== 3 || scale.some(x => !Number.isFinite(x) || x <= 0) ||
     lightDirection.length !== 3 ||
     lightDirection.some(x => !Number.isFinite(x)) ||
     Math.hypot(...lightDirection) < 1e-8 ||
+    Math.hypot(lightDirection[0], lightDirection[1],
+               lightDirection[2] + Math.hypot(...lightDirection)) < 1e-8 ||
     !Number.isFinite(lightPower) || lightPower < 0 || lightPower > 2 ||
     !Number.isFinite(shininess) || shininess < 1 || shininess > 128) {
   throw new RangeError('Invalid model/lighting parameters');
