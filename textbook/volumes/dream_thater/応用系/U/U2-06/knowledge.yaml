@@ -1,0 +1,49 @@
+chapter: U2-06
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-05
+forward_references: []
+concepts:
+  - id: robotics.planar-pose
+    name: 平面姿勢
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面姿勢）"]
+    requires: []
+  - id: robotics.planar-rigid-transform
+    name: 座標フレーム間の平面剛体変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（座標フレーム間の平面剛体変換）"]
+    requires: [robotics.planar-pose]
+  - id: robotics.planar-rigid-inverse
+    name: 平面剛体変換の逆変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面剛体変換の逆変換）"]
+    requires: [robotics.planar-rigid-transform]
+  - id: robotics.planar-rigid-composition
+    name: 平面剛体変換の合成則
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平面剛体変換の合成則）"]
+    requires: [robotics.planar-rigid-transform]
+  - id: robotics.planar-relative-pose
+    name: 相対姿勢
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（相対姿勢）"]
+    requires: [robotics.planar-rigid-inverse, robotics.planar-rigid-composition]
+  - id: robotics.planar-frame-invariance
+    name: 相対姿勢の世界座標不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相対姿勢の世界座標不変性）"]
+    requires: [robotics.planar-relative-pose]
+  - id: robotics.planar-angle-wrap
+    name: 角度の正規化と角度残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（角度の正規化と角度残差）"]
+    requires: [robotics.planar-pose]
