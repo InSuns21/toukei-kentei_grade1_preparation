@@ -130,19 +130,19 @@ $$
 
 各社の EAD を100万円、LGDを0.6に固定します。[一社の信用損失の定義](#def-u3-58-credit-parameters)をそれぞれの社に適用すると、状態 $\omega$ における損失は
 
-$
+$$
 \begin{aligned}
 L_A(\omega)&=0.6\cdot100D_A(\omega)=60D_A(\omega),\\
 L_B(\omega)&=0.6\cdot100D_B(\omega)=60D_B(\omega)
 \end{aligned}
-$
+$$
 
 です。両社の未回収額を重複なく合計するので、
 
-$
+$$
 L_{\mathrm{cr}}(\omega)=L_A(\omega)+L_B(\omega)
 =60D_A(\omega)+60D_B(\omega)
-$
+$$
 
 となります。以下では状態 $\omega$ を省略して $L_{\mathrm{cr}}=60D_A+60D_B$ と書きます。これは[数量線形の保有損失](../U3-56/index.md#def-u3-56-linear-holdings)と同じ足し算ですが、$D_A,D_B$ は独立とは限りません。
 
