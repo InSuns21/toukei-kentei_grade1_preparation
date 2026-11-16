@@ -10,7 +10,13 @@
 
 統計的に定常で $x,z$ に一様な平均速度を $\boldsymbol U=(U(y),0,0)$、平均圧力を $P(x)$ とし、平均圧力勾配を一定の $dP/dx=-G<0$（$G>0$ [Pa/m]）とする。上半分は対称なので、$0\le y\le h$ を計算する。集合平均と微分の交換、および必要な速度変動の二次モーメントが存在する十分な滑らかさ・可積分性を仮定する。実現ごとに壁で [粘着条件](../../CTM/CTM15/index.md#def-ctm15-no-slip)と不透過条件が成り立つ。
 
-[Reynolds 分解](../FLUID37/index.md#def-fluid37-reynolds-decomposition)による流れ方向の変動を $u'=u-U$、壁垂直方向の変動を $v'=v$ と書く。$R_{xy}(y)=\overline{u'v'}$ [m$^2$/s$^2$] は [FLUID38 の Reynolds 共分散](../FLUID38/index.md#def-fluid38-reynolds-stress)である。$R_{xy}$ は負になりうる。**流束 $\rho R_{xy}$ と、応力として書く $-\rho R_{xy}$ は逆符号**である。
+[Reynolds 分解](../FLUID37/index.md#def-fluid37-reynolds-decomposition)による流れ方向の変動を $u'=u-U$、壁垂直方向の変動を $v'=v$ と書く。これらの変動から [FLUID38 の Reynolds 共分散](../FLUID38/index.md#def-fluid38-reynolds-stress)を作る。
+
+$
+R_{xy}(y)=\overline{u'v'}.
+$
+
+$R_{xy}$ の単位は m$^2$/s$^2$ で、負になりうる。**流束 $\rho R_{xy}$ と、応力として書く $-\rho R_{xy}$ は逆符号**である。
 
 ここで導く水路の厳密な結論は、**平行水路・定常・十分発達した平均流**に限る。外部境界層や剥離流へ、途中の等式をそのまま当てはめない。
 
