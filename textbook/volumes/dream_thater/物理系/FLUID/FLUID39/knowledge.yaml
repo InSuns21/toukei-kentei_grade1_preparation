@@ -49,8 +49,8 @@ concepts:
     introduction_aliases: ["定義（Kolmogorov の微細尺度）"]
     requires: [fluid.production-dissipation]
   - id: fluid.k41-scaling
-    name: K41仮説の下での-5/3次元則
+    name: K41仮説の下での慣性領域スペクトル次元則
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（K41 仮説の下での $-5/3$ 次元則）"]
+    introduction_aliases: ["命題（K41 仮説の下での慣性領域スペクトル次元則）"]
     requires: [fluid.energy-spectrum, fluid.spectral-flux, fluid.kolmogorov-scales]
