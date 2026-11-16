@@ -1,0 +1,45 @@
+id: "MIR2-03"
+title: "因子公理と三点関数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-02
+  - GW1-15
+learning_objectives:
+  - 凸標的に限った既習の因子公理と非凸quinticに必要な仮想類の外部入力を区別できる
+  - 安定な忘却射と仮想押し出し恒等式からquinticの因子公理を導ける
+  - 正次数の無標点GW数を定義し反復因子挿入をdの冪で表せる
+  - d=0の三点交叉数5と不安定な無標点・二標点の例外を説明できる
+  - 三点相関の形式冪級数とTheta_Qの三階作用を係数ごとに検算できる
+  - 挿入次数の必要条件と単位類公理を使いambient三点相関の消滅を区別できる
+  - 有理GW不変量と幾何的な曲線像の本数を同一視しない理由を説明できる
+definitions:
+  - { id: MIR2-03-DEF-01, name: "quinticの無標点種数0GW数" }
+  - { id: MIR2-03-DEF-02, name: "超平面三点関数" }
+theorems:
+  - { id: MIR2-03-THM-01, name: "quinticの種数0一次因子公理" }
+  - { id: MIR2-03-PROP-01, name: "正次数の反復因子挿入" }
+  - { id: MIR2-03-PROP-02, name: "quinticの三つの超平面挿入と次数0例外" }
+  - { id: MIR2-03-PROP-03, name: "三点関数の係数と形式微分" }
+  - { id: MIR2-03-PROP-04, name: "三点ambient挿入の正次数選択則" }
+canonical_examples:
+  - d=2の無標点から三標点への2・4・8倍
+  - d=0の三点交叉積分5と四標点の零
+  - 因子aHと非因子Hの二乗の違い
+  - 三点関数の次数1から3の形式係数
+  - 正次数の単位挿入と仮想次元条件の差
+problem_patterns:
+  - MIR2-03-REPEATED-DIVISORS
+  - MIR2-03-ZERO-DEGREE-EXCEPTION
+  - MIR2-03-DIVISOR-CLASS-CHECK
+  - MIR2-03-SERIES-COEFFICIENTS
+  - MIR2-03-INSERTION-DIMENSION
+  - MIR2-03-RATIONAL-DIVISOR-INSERTIONS
+  - MIR2-03-FUNDAMENTAL-AXIOM
+  - MIR2-03-THETA-FORMAL-POWER-SERIES
+  - MIR2-03-FOUR-MARKED-ZERO
+  - MIR2-03-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 10, review: 5 }
