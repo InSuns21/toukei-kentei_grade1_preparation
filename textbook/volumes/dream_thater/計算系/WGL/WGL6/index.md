@@ -22,7 +22,7 @@ $$
 \lambda_C=\frac{E(A,B,P)}D
 $$
 
-であり、$P=\lambda_A A+\lambda_B B+\lambda_C C$、$\lambda_A+\lambda_B+\lambda_C=1$ を満たします。[WGL1のviewport座標対応](../WGL1/index.md#prop-wgl1-viewport-map)による写像を、左下 $(x_0,y_0)$、幅・高さ $V_w,V_h>0$ のviewportに対して $T$ と書きます。$X_A=A,X_B=B,X_C=C$ とし、$P=\sum_i\lambda_iX_i$、$\sum_i\lambda_i=1$ を横成分へ代入すると、定数項は $\sum_i\lambda_i x_0=x_0$ となるので
+であり、$P=\lambda_A A+\lambda_B B+\lambda_C C$、$\lambda_A+\lambda_B+\lambda_C=1$ を満たします。[WGL1のviewport座標対応](../WGL1/index.md#prop-wgl1-viewport-map)を、左下 $(x_0,y_0)$、幅・高さ $V_w,V_h>0$ のviewportに対して $T$ と書きます。$X_A=A,X_B=B,X_C=C$ とし、$P=\sum_i\lambda_iX_i$、$\sum_i\lambda_i=1$ を横成分へ代入すると、定数項は $\sum_i\lambda_i x_0=x_0$ となるので
 
 $$
 \begin{aligned}
@@ -147,13 +147,22 @@ $$
 
 ## 3. 前を向く三角形と背を向く三角形
 
-一枚の不透明な面の裏側まで描く必要はあるでしょうか。裏面だけを省くには、まず画面へ投影した頂点の**回る向き**を調べます。世界の法線の $z$ 成分だけでは決まりません。画面の $y$ が上向きのとき、$A\to B\to C$ が反時計回りなら CCW、時計回りなら CW と表します。この向きを使って描画を間引く方法を、次に定義します。第1節のviewport写像 $T$ の横・縦の倍率は $V_w/2,V_h/2$ です。符号付き二倍面積は2つの辺ベクトルの行列式なので、平行移動の項は差で消え、
+一枚の不透明な面の裏側まで描く必要はあるでしょうか。裏面だけを省くには、まず画面へ投影した頂点の**回る向き**を調べます。世界の法線の $z$ 成分だけでは決まりません。画面の $y$ が上向きのとき、$A\to B\to C$ が反時計回りなら CCW、時計回りなら CW と表します。この向きを使って描画を間引く方法を、次に定義します。第1節のviewport座標対応 $T$ で2頂点の差を取ると、平行移動の項が消えて
+
+$$
+\begin{aligned}
+T(B)-T(A)&=\left(\frac{V_w}{2}(B_x-A_x),\frac{V_h}{2}(B_y-A_y)\right),\\
+T(C)-T(A)&=\left(\frac{V_w}{2}(C_x-A_x),\frac{V_h}{2}(C_y-A_y)\right)
+\end{aligned}
+$$
+
+となります。これらを[WGL1の符号付き二倍面積の定義式](../WGL1/index.md#prop-wgl1-edge-test)の2つの積の差に代入すると、両項から共通の係数 $V_wV_h/4$ が出て
 
 $$
 E(T(A),T(B),T(C))=\frac{V_wV_h}{4}E(A,B,C)
 $$
 
-となります。$V_w,V_h>0$ より、NDCから通常viewportへ移してもCCW/CWは反転しません。これは[WGL1のviewport対応](../WGL1/index.md#prop-wgl1-viewport-map)と[符号付き二倍面積](../WGL1/index.md#prop-wgl1-edge-test)を組み合わせた判定です。
+を得ます。$V_w,V_h>0$ より、NDCから通常viewportへ移してもCCW/CWは反転しません。
 
 <a id="def-wgl6-front-face"></a>
 
