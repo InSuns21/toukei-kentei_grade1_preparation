@@ -1,0 +1,41 @@
+id: "U3-64"
+title: "板の回復・過渡的インパクト"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-63]
+official_scope: []
+learning_objectives:
+  - 板の価格変位・回復率・減衰係数の単位と状態再帰を導出し直接計算できる
+  - 注文履歴を含む平均約定費用と核行列を再帰式から導き在庫リスクの分散と区別できる
+  - 指数核の正定値性と平均分散最適化の一意性および最適性条件を証明できる
+  - 二期間の最適予定を厳密に解いて回復とリスク回避の感度を説明できる
+  - 三期間の端点集中と瞬時回復・永久残存の極限および端点の非一意性を検算できる
+  - 再帰費用と核二次形式・射影勾配の数値解を比較し境界テストを実行できる
+definitions:
+  - { id: U3-64-DEF-01, name: "回復率と過渡的価格変位" }
+  - { id: U3-64-DEF-02, name: "線形板における平均約定費用" }
+  - { id: U3-64-DEF-03, name: "回復を含むリスク回避清算目的" }
+theorems:
+  - { id: U3-64-PROP-01, name: "過渡的インパクトの核表示とコスト分散" }
+  - { id: U3-64-THM-01, name: "過渡的インパクト清算の厳密凸性と一意解" }
+  - { id: U3-64-PROP-02, name: "二期間清算の明示解" }
+  - { id: U3-64-PROP-03, name: "三期間・リスクなし・局所費用なしの端点集中" }
+canonical_examples:
+  - "40株売り板変位0.8円/株が半減して0.4円/株残る"
+  - "100株2区間のリスク付き最適配分(62.5,37.5)と目的243.75円"
+  - "90株3区間の非局所費用・半減係数と端点集中の最適解"
+problem_patterns:
+  - U3-64-A1
+  - U3-64-A2
+  - U3-64-A3
+  - U3-64-A4
+  - U3-64-A5
+  - U3-64-B1
+  - U3-64-B2
+  - U3-64-B3
+  - U3-64-B4
+  - U3-64-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
