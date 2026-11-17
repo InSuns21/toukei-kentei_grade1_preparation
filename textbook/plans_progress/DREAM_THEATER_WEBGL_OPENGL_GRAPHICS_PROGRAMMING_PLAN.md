@@ -1,7 +1,7 @@
 # DREAM THEATER WebGL2・OpenGL系リアルタイムCG／GPUプログラミング講座 PLAN（WGL1〜WGL20・全20講確定）
 
 設計・講数確定日：2026-11-15  
-状態：in progress（WGL1 着手。完了状況は系列 manifest を正本とする）  
+状態：in progress（着手済み。各講の完了状況は系列 manifest を正本とする）  
 講数：**20講**（A 6講＋B 6講＋C 4講＋D 4講）。既存の流体CG（FCG1〜20）とは別系列とし、共通WebGLラボを共同利用する。
 
 ## 0. 判断・中心問い・範囲
@@ -14,6 +14,7 @@
 - **計算系／基礎数理→GPU可視化→応用への橋**。線形代数の行列/内積、微積分、3Dベクトル、JavaScript/HTML/CSSの基礎を入口とする。各章の実在prerequisiteとstable anchorは実装時に確認し、未定義の専門語は先に説明する。GPUが数値解法を正当化するわけではなく、誤差や保存則の判定は計算側の責務。
 - **講数を20に確定する理由**：初回三角形から「入力→変換→補間→テクスチャ→照明→多重パス→データテクスチャ→計算→検証→GIS」まで、各講に独立した新機能と手計算できる判定を1つずつ置く。FCG固有の移流・Poisson・粒子格子転送・浅水・煙/炎の物理・保存則を本講座の講数稼ぎとして再講義しない。
 - 目標はGPU APIの理解と手書きのGLSL・JSであり、three.js/MapLibre等の高水準ライブラリを主教材のブラックボックスにしない。後の応用例では任意に紹介しても、初学段階の導出・検証コードは素のWebGL2を正本とする。
+- **実データへの接続**：WGL20で国土交通省Project PLATEAUの小規模な実在建物モデルを、既存の合成地形・格子実験に続く**必修の第2データセット**として扱う。WGL15のpick、WGL16の描画負荷、WGL19の診断はWGL20における統合実践で再利用する。基礎講の中心問いをPLATEAU固有のデータ変換・配信へ置換しない。WGL20に紐づく3本の独立ケーススタディを全20講とは別の応用教材として計画し、講義IDや進捗の二重管理を作らない。
 
 ## 1. 市販教科書・公開一次資料と反映先
 
@@ -25,6 +26,8 @@
 | Khronos, [OpenGL／OpenGL ES reference](https://registry.khronos.org/OpenGL-Refpages/) | buffer、draw call、texture、framebuffer、GLSLの正確な入出力・型・状態を確認（WGL1–19） |
 | [WebGL2 Fundamentals](https://webgl2fundamentals.org/webgl/lessons/) | 実際の描画パイプライン、texture、framebuffer、shadow、GPGPU等の公開教育的配置を照合。コード・図は転載せず独自に作成 |
 | [MDN WebGL2RenderingContext](https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext) | ブラウザcontext・API・例外とフォールバック（WGL1・17–19） |
+| [PLATEAU 公式FAQ](https://www.mlit.go.jp/plateau/faq/)・[3D都市モデル標準製品仕様書（CRS）](https://www.mlit.go.jp/plateaudocument/toc7/toc7_02/toc7_02_03/_crs/) | CityGMLの位置づけ、CRS（EPSG:6697等、入力のsrsNameを必ず照合）、標高基準、出典・ライセンスの確認（WGL20・ケーススタディ） |
+| [PLATEAU 配信サービス：CityGML](https://docs.plateauview.mlit.go.jp/datasets/citygml/)・[3D Tiles/MVT](https://docs.plateauview.mlit.go.jp/datasets/3d-tiles/) | 小規模データをオフライン抽出する手順の資料、3D Tiles/MVTによるタイル配信の発展課題（既定ラボで外部取得しない） |
 | [Physically Based Rendering, 4th ed.](https://www.pbrt.org/) | 光輸送・反射モデルをWGL12の近似の根拠として使う。フルpath tracerや分光renderは範囲外 |
 | 既存[FCG PLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
 
@@ -51,7 +54,7 @@
 - 読者が編集したJSは**隔離された不透明originの sandbox iframe**（原則 allow-scripts のみ、allow-same-originは付与しない）で走らせる。親のDOM・保存データ・サービスワーカー・教材UIへの直接アクセスを許さない。CSPとURL/依存ファイルのallowlistで外部通信・外部import・ポップアップ・top navigationを禁止し、iframe生成後のメッセージはsource・session token・request id・世代を照合する。opaque origin の message origin は null になりうるためorigin文字列だけで認証しない。
 - JSを自由編集させる以上、**ブラウザ側から無限ループを完全にプリエンプトできない**。実行ごとに隔離iframe/contextを破棄・再生成し、ホストにタイムアウト/世代上限/資源上限を設ける。GPUドライバ停止・GPUハングは完全に防げないため、カーネル/ブラウザ依存の制約と警告を明記する。検査用pixel readbackと別系統CPU参考値を持つ。
 - WebGL2が非対応/失敗なら対応検査を表示し、必要なら同じ理論のCanvas2D/CPU参照値を示す。ただしGPU-specificな到達目標をCPU再現で達成済みにはしない。GPU再試験が必要と明記する。GPUでfloat render targetを使う講は拡張・format・フィルタ可否を実測/問い合わせで判定し、対応前提で固定しない。
-- ネットワーク不要の静的Pages資産で配布できる設計を優先し、CSP/Service Worker・オフライン再訪・古い保存状態・ページ更新を検査する。外部CDN・remote texture・実ユーザーデータをラボの既定入力としない。
+- ネットワーク不要の静的Pages資産で配布できる設計を優先し、CSP/Service Worker・オフライン再訪・古い保存状態・ページ更新を検査する。外部CDN・remote texture・実ユーザーデータをラボの既定入力としない。WGL20のPLATEAU実データは**事前に抽出・ローカル座標変換した少量の固定スナップショットを同梱**し、sandbox iframeから許可済み静的資産として読み込ませる。外部3D Tiles APIの動的アクセスは共通ラボ内で無理に有効化せず、発展用の別環境に分離する。
 - [対話型シミュレーション共通基盤](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のstop/reset、実験記録/世代制御は適合する部分を**APIとして再利用**するが、既存WorkerプロトコルにGL contextや任意コード評価を無理に同居させない。共通UIの仮定は着手PRで実コードと照合する。
 - **WGL1またはFCGの先行着手講（どちらが先でもよい）で最小安全ラボを同時実装**。WGL1→2・FCG2以降のWebGL課題が同じ基盤を段階拡張し、重複実装しない。共通ランタイム変更は両系列の回帰影響を評価する。ソフトウェア上の再利用は、他系列の未完了章を数学的prerequisiteに要求する理由にはならない。
 
@@ -87,14 +90,36 @@
 | **WGL17** | 物理データをGPU textureへ送るとき何を失う？ 成分・型・float/整数・精度 | 既知2D格子のデータをtextureにし、形式/復元式を編集 | CPU値とGPU readback、量子化・format/extension |
 | **WGL18** | fragment shaderだけで時間発展できる？ ping-pong・feedback禁止・境界 | 2D拡散（小格子）の2枚texture更新、CPU差分解と並列表示 | 1stepの手計算・質量/境界・刻み誤差、readback |
 | **WGL19** | 動く描画の正しさと性能をどう監査する？ GPU状態・profiling・context loss | WGL18をrender fpsと計算step分離、再初期化/diagnostics実装 | 固定初期値・pixel/数値一致、資源解放・復帰・低性能 |
-| **WGL20** | GIS地形と数値格子を誤解なく重ねるには？ 高さ格子・地図座標/ローカル座標・mesh表示 | 合成DEMと合成水深/スカラー場をJSで生成・GLSL表示、FCGの物理solverと独立に試す | 標高≠水深・同一単位・地形の座標とZ誇張、画素値 |
+| **WGL20** | GIS地形と数値格子を誤解なく重ねるには？ 高さ格子・地図座標/ローカル座標・mesh表示・実都市データのCRS/精度 | (1) 合成DEM＋合成水深/スカラー場を自作してGLSL表示、(2) 同梱した小規模PLATEAU建物メッシュを素のWebGL2で重ねる。JSとGLSLを双方編集でき、FCGの物理solverとは独立に実行 | 標高≠水深・高さ基準・水平/鉛直単位・軸順・float精度・Z誇張・既知頂点位置・遮蔽/画素値。PLATEAUプリセットを外しても合成実験が成立 |
 
 各講の「ラボ」は本文執筆と同一PRで完成する。主役でない数学的基盤（線形代数、積分、フラックス/偏微分方程式）を重複証明せず、依存する既出結果への本文内リンクと必要な中間計算を示す。1講に主要な新しいプログラミング技能を1つ以上含め、演習数の水増しや動くデモだけの講義にしない。
+
+### 3.1 PLATEAUによる実践ケーススタディ（全20講の外、WGL20の付属応用教材）
+
+**狙い**：初歩の三角形・合成DEMで得たGPU技能を、実在する都市形状・建物属性・地形/水深の意味の異なるデータへ接続し、見た目だけでなく座標・計算・画素を独立検査できるようにする。**講義番号は増やさず**、WGL20からリンクする独立した3本のケーススタディ（CS1〜CS3）を実装対象とする。ケーススタディIDは教材内のラベルであって系列manifestの新章IDではない。公開ページ/補助ファイルの具体パスはWGL20実装PRで決定する。
+
+**学習順序と既習への接続**：WGL20の合成データで基準面・座標を確認 → WGL20の同梱PLATEAUデータで幾何を描く → CS1でWGL5/15（視点・picking）を再利用 → CS2でWGL9/16/19（法線・描画負荷・診断）を組み合わせる → CS3でWGL8/10/17/20（透明合成・FBO・数値texture・高さ基準）を接続。WGL15/16/19の単独履修や既存のcompleted章を、後からPLATEAUデータ必須に変更しない。
+
+| 実践 | 学習者が編集・実装する機能 | 独立した受け入れ検算 |
+| --- | --- | --- |
+| **CS1：小地区3D都市ビューア** | 建物メッシュ、視点操作、クリック/キーボード選択、選択ID表示。JSのモデル変換とGLSLの描画・ID色出力を編集 | 基準点と代表頂点のローカル座標・選択ID・前後関係をCPU射線/ID bufferで照合。端末画素比/resize後も一致 |
+| **CS2：建物属性・都市描画性能** | データに実在する属性（利用可能なら高さ・用途等）による色分け、欠測の明示、描画の分割/結合を比較。instancingが有効な反復形状と、形状が異なる建物のbatchingを区別 | 属性原値と凡例・表示色、欠測扱い、描画結果の一致、draw call・fps・メモリ使用量の環境別計測。単一数値で速度向上を保証しない |
+| **CS3：建物・地形・仮想浸水深の重ね合わせ** | 建物・簡易地形に**教材で生成した仮想**水位/浸水深格子を可視化。透明度・深度/遮蔽・Z誇張を変更し、浮きや誤配置を検出 | 地盤高・水面高・浸水深の次元と基準面を分け、既知点で `浸水深 = max(0, 水面高 - 地盤高)` を独立計算。実際のハザード評価・洪水予測とは称しない |
+
+**実データ・座標・再現性の契約**
+
+1. 対象自治体・年度・データ版・抽出範囲・地物種・LODを**実装時に実在の公開データから確定**する。対象は数棟〜数十棟程度の小地区を基本とし、バンドル容量・読み込み時間を実測して絞る。現時点で自治体・データ件数・属性の有無を断定しない。配布元・原データURL・取得日・版/処理条件・出典表記・該当する利用ライセンスと再配布条件を添付のメタデータに固定する。版変更で参照結果が変わっても既定実験を再現できるよう、教材の入力は固定スナップショットとする。
+2. CityGML原本のCRS・軸順・高さ基準・単位をメタデータで検証する（標準のEPSG:6697を参照するが、個々の入力の宣言を優先）。必要な座標変換は**オフライン前処理で**行い、変換前後の代表点・基準原点・単位・軸方向・地盤高の意味を表に残す。GPU投入前に局所原点を引いてメートル単位の小さい値へ移し、JavaScript側の倍精度値とGLSL/Float32値の差を代表点で測る。経緯度をそのままメートル座標として扱わず、floatで巨大な世界座標を直接保持しない。
+3. **原データ → 抽出 → 三角形化/属性保持 → 座標変換 → 静的教材資産**の前処理スクリプト、処理手順、入力チェック、期待頂点/建物/ID数、固定テスト値を同梱。教材ラボには必要最小限のローカルメッシュ・属性だけを渡し、CityGML全文parser・高精細都市全域配信をWebGL2入門の必修にしない。検査値は編集可能な描画コードと独立のCPU処理または計算表から作る。
+4. **CS1〜CS3とも既存3タブ形式**で「コード編集→実行→観察→検算→修正」を成立させる。GPUの選択・画素・描画負荷と、CPUで判定する座標・属性・数値の正しさを分離する。外部CDN/外部通信を要求せず、Pages上の静的配布・オフライン再訪・幅360px表示・キーボード操作・WebGL2失敗時の未達表示を検証する。
+5. 3D Tilesのストリーミング、広域LOD、CesiumJS/MapLibre等との接続は**任意の発展解説または別環境の実験**とし、教材内のsandbox権限を拡張しない。3D Tilesを受け取るだけの完成ビューア操作を、JS/GLSLでのGPU実装技能の修了判定に代用しない。
+
+**完了ゲート**：WGL20本体と3件のケーススタディの実行資産・教材内リンク・再現データの来歴/ライセンス・CPU/GPU検算・ブラウザ表示・適用する演習/詳細解答・必要なCIを確認する。3件のケーススタディの完了はWGL20本体の章ステータスとは別に、本PLANの最終横断監査で照合する。WGL20章がcompletedになっただけで、ケーススタディが未実装なら本PLANをdoneへ移さない。
 
 ## 4. 既存FCG・FLUIDとの役割分担と実装順
 
 - **WGLの正本**：GPU pipeline、WebGL2/GLSL ES、buffer/texture/FBO、座標・視点、shader照明、GPUデータ型/精度/性能/検査、共通JS・GLSL編集実行ラボ。FCG側はこれらを必要最小限に導入するか、実際に完成しているWGL章へリンクする。
-- **FCGの正本**：流れの移流・圧力投影・PIC/FLIP・Level Set・浅水・煙/炎のモデル、粒子/流体の物理と可視化が一致する診断。WGL18の拡散格子はGPUデータ処理の最小模型でありFCGの流体ソルバーを置換しない。WGL20の合成地形表示はFCG20の浸水数値モデルと区別する。
+- **FCGの正本**：流れの移流・圧力投影・PIC/FLIP・Level Set・浅水・煙/炎のモデル、粒子/流体の物理と可視化が一致する診断。WGL18の拡散格子はGPUデータ処理の最小模型でありFCGの流体ソルバーを置換しない。WGL20の合成地形表示・PLATEAU小地区の重ね合わせ・CS3の仮想浸水図は、FCG20の浸水数値モデルと区別する。
 - **FLUID/CTM等の正本**：流体の物理方程式・保存則・導出。描画を物理予測と取り違えず、流体物理の証明は所属系列を参照する。
 - **実装順の自由度**：先にFCGが進む場合、FCGのGLSL実験に必要な最小概念はその章で説明し、まだ存在しないWGL章を前提としない。後からWGLが完成したら実在stable anchorへ接続する。逆も同様。系列の数学的completedは別々に管理する。
 - **共通ラボの実装責任**：最初にJS/GLSLラボを必要とする章のPRで共通ランタイムの最小機能を作り、他系列の講では自分の教材コード/テストを追加する。共有ランタイムを変更するPRはWGLとFCGの双方の実行回帰テストを実施する。既存Pyodide/python-file-labやNUMLABの保存契約を壊さない。
@@ -111,11 +136,11 @@
 
 ## 6. PLANの状態遷移と最終全体監査（1サイクル）
 
-- 今回は設計のみ：textbook/plans/に本書を置き、本文・ダミー教材・未実装manifest/目次を追加しない。**WGL1に着手したPR**でPLANをtextbook/plans_progress/へ移動し、series manifest WGL.yamlを作り、新plan pathを記録。各章完成ごとにそのmanifestのstatusを更新する。
+- **現在の状態**：WGL1着手後、本PLANは既に`textbook/plans_progress/`にあり、`textbook/dream-theater-series/WGL.yaml`が系列別進捗の正本。各章完成時には該当manifestのstatusを成果物と同じPRで更新する。ケーススタディは付属応用教材として計画内で追跡し、章IDを追加しない。
 - **毎講の局所ゲート**：実行ソース・教材・テスト・図をまとめて作り、コード実行、計算・描画・全詳細解答の検算、実表示とCIを通してからcompletedにする。共通ランタイム修正時にはFCG/NUMLABへの互換性を同じPRで検証する。
-- **WGL20完了後の系列横断監査は1回**：WGL1–20の定義/anchor/前提順、GLSLとJSの入力出力、色空間/座標/深度/精度の一貫性、全ラボの共有runtimeでのコード編集→実行→復帰と隔離/停止、FCGの代表例との互換性、目次・Pages・系列manifestを確認する。重大指摘は該当講と波及範囲をその監査サイクル内で修正・再検査する。
-- 全20講・ラボ・レビュー・公開・横断監査を完了して初めて、PLANをplans_progress/からplan_done/へ移動し、WGL.yamlのplanと直接参照を同じPRで更新する。系列の20という講数だけでdoneにはしない。
+- **WGL20完了後の系列横断監査は1回**：WGL1–20の定義/anchor/前提順、GLSLとJSの入力出力、色空間/座標/深度/精度の一貫性、全ラボの共有runtimeでのコード編集→実行→復帰と隔離/停止、FCGの代表例との互換性、目次・Pages・系列manifestを確認する。加えてWGL20のPLATEAU同梱データとCS1〜CS3の前処理・ライセンス・座標変換・実行/検算・公開リンクを照合する。重大指摘は該当講と波及範囲をその監査サイクル内で修正・再検査する。
+- 全20講・ラボ・レビュー・公開・**PLATEAU付属ケーススタディ3件**・横断監査を完了して初めて、PLANをplans_progress/からplan_done/へ移動し、WGL.yamlのplanと直接参照を同じPRで更新する。系列の20という講数やWGL20章単独のcompletedだけでdoneにはしない。
 
 ## 7. 範囲外・過大な約束をしないもの
 
-デスクトップOpenGL固有のwindow/context managementやC++/Vulkanの実装、WebGPU compute、GPU vendorの正確なタイミング測定保証、ゲームエンジン全般、分光path tracing/完全GI、全3D流体・高精細GIS地形タイルの実データ配信、GPU安全性の完全保証は対象外。ブラウザ/OS/GPU依存の未対応は検知し、単なる静止代替を実装済みのGPU技能として認定しない。
+デスクトップOpenGL固有のwindow/context managementやC++/Vulkanの実装、WebGPU compute、GPU vendorの正確なタイミング測定保証、ゲームエンジン全般、分光path tracing/完全GI、全3D流体・**都市全域/高精細GIS地形タイルの実データ配信・本格3D Tilesストリーミング**、GPU安全性の完全保証は対象外。WGL20でのPLATEAU小地区の静的実データ表示はこの除外に含めない。ブラウザ/OS/GPU依存の未対応は検知し、単なる静止代替を実装済みのGPU技能として認定しない。
