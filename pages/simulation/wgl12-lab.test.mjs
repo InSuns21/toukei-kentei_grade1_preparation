@@ -26,7 +26,7 @@ test('WGL12 GGX peak, projected-normal normalization and r=0 exclusion', () => {
   assert.ok(Math.abs(ggxDistribution(0,0.5)-1/(16*Math.PI))<1e-12);
   for(const roughness of [0.08,0.25,0.5,0.8,1]) {
     // Midpoint rule: use fine quadrature except near r=.08 sharp peak.
-    const steps=roughness<0.1?300000:60000;
+    const steps=roughness<0.1?600000:60000;
     let integral=0;
     for(let k=0;k<steps;k++) {
       const mu=(k+0.5)/steps;
