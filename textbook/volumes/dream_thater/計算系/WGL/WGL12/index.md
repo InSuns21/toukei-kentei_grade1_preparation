@@ -333,7 +333,7 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**。[GGXの定義](#def-wgl12-ggx)で $\mu=1$ とすると分母の括弧は $1+(\alpha^2-1)=\alpha^2$ だから
+**詳細解答**。[GGX微小面法線分布](#def-wgl12-ggx)で $\mu=1$ とすると分母の括弧は $1+(\alpha^2-1)=\alpha^2$ だから
 
 $$
 D(1)=\frac{\alpha^2}{\pi(\alpha^2)^2}
@@ -385,7 +385,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答**。[GGXの定義](#def-wgl12-ggx)を球面座標 $\mu=\cos\theta$、$d\omega_h=\sin\theta d\theta d\phi$ に代入し、方位角の積分で $2\pi$ を得ます。
+**詳細解答**。[GGX微小面法線分布](#def-wgl12-ggx)を球面座標 $\mu=\cos\theta$、$d\omega_h=\sin\theta d\theta d\phi$ に代入し、方位角の積分で $2\pi$ を得ます。
 
 $$
 I=2\alpha^2\int_0^1\frac{\mu}{(1+(\alpha^2-1)\mu^2)^2}\,d\mu.
@@ -501,7 +501,7 @@ $$
 
 CPUは式の値を求め、GPUは別の検査パスから色を読みます。比較許容差 $2/255$ は量子化・実装差のためであり、描画球の色空間から逆算していません。
 
-**(3)** 粗さを $r=1$ にすると $\alpha=1$、$G=1$ のままで、[GGXの定義](#def-wgl12-ggx)から $D(1)=1/\pi$ です。[モデル式](#def-wgl12-microfacet)へ代入した正面の鏡面項は
+**(3)** 粗さを $r=1$ にすると $\alpha=1$、$G=1$ のままで、[GGX微小面法線分布](#def-wgl12-ggx)から $D(1)=1/\pi$ です。[モデル式](#def-wgl12-microfacet)へ代入した正面の鏡面項は
 
 $$
 f_{s,R}^{\mathrm{nonmetal}}=\frac{0.04}{4\pi}=\frac{0.01}{\pi},
