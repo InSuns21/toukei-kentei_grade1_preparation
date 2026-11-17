@@ -13,7 +13,7 @@
   <path d="M 270 136 L 282 143 L 270 150" fill="none" stroke="#136e79" stroke-width="3" stroke-linejoin="round"/>
   <path d="M 372 143 H 620" fill="none" stroke="#136e79" stroke-width="3"/>
   <path d="M 608 136 L 622 143 L 608 150" fill="none" stroke="#136e79" stroke-width="3" stroke-linejoin="round"/>
-  <g fill="#172b40" font-family="sans-serif" font-size="18">
+  <g fill="#172b40" font-family="Noto Sans CJK JP, sans-serif" font-size="18">
     <text x="72" y="35">入口</text>
     <text x="264" y="35">喉部（最小断面）</text>
     <text x="560" y="35">出口</text>
@@ -21,7 +21,7 @@
     <text x="276" y="260">M = 1</text>
     <text x="474" y="260">超音速  M &gt; 1</text>
   </g>
-  <g font-family="sans-serif" font-size="15" fill="#334155">
+  <g font-family="Noto Sans CJK JP, sans-serif" font-size="15" fill="#334155">
     <text x="165" y="291">収縮（加速）</text>
     <text x="447" y="291">拡大（加速）</text>
   </g>
