@@ -60,7 +60,7 @@ $$
 
 です。外生価格変動がなく $M_0=M_1=M_2=S_0=100$ 円／株、$\gamma=0.002$ 円／株²、$\eta=0.01$ 円・時間／株²とします。[前講の中値・約定価格模型](../U3-61/index.md#def-u3-61-linear-impact)では、区間直前の中値は「無影響価格－過去の売却が残した恒久的下落」です。そこで
 
-$
+$$
 \begin{aligned}
 B_1&=M_1=100,\\
 p_1&=B_1-\frac{\gamma q_1}{2}-\eta\frac{q_1}{\Delta}
@@ -69,7 +69,7 @@ B_2&=M_2-\gamma q_1=100-0.08=99.92,\\
 p_2&=B_2-\frac{\gamma q_2}{2}-\eta\frac{q_2}{\Delta}
 =99.92-0.06-0.60=99.26
 \end{aligned}
-$
+$$
 
 （中値・約定単価はいずれも円／株）です。第2区間では第1区間の一時的価格差 $0.40$ 円／株を持ち越さず、恒久的な $0.08$ 円／株だけを持ち越します。売却による現金受取と到着価格基準コストは
 
@@ -95,7 +95,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（在庫表示による期待清算費用と分散）**  
-> 上記の定数係数・独立なゼロ平均有限分散の増分・確定在庫の仮定の下で、
+> $Q>0$、整数 $N\ge1$、$T>0$、$\Delta=T/N$、$\gamma\ge0$、$\eta>0$、$\sigma\ge0$ とする。[清算在庫と受取額](#def-u3-62-cash)の条件を満たす確定在庫列 $x$ を選び、[前講の線形インパクト模型](../U3-61/index.md#def-u3-61-linear-impact)と、互いに独立で $E[\varepsilon_i]=0$、$\operatorname{Var}(\varepsilon_i)=\sigma^2\Delta$ を満たす[外生価格増分](../U3-61/index.md#def-u3-61-price-noise)を用いる。このとき、
 
 $$
 C=\frac{\gamma Q^2}{2}
@@ -149,7 +149,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（平均費用と費用分散のリスク回避目的）**  
-> [上の費用・分散模型](#prop-u3-62-cost-risk)の下、$x_0=Q,x_N=0,x_{i-1}\ge x_i\ge0$ を満たす確定在庫列 $x$ について、
+> $\lambda\ge0$（単位1／円）を固定する。[上の費用・分散模型](#prop-u3-62-cost-risk)の下、$x_0=Q,x_N=0,x_{i-1}\ge x_i\ge0$ を満たす確定在庫列 $x$ について、
 
 $$
 J_\lambda(x)=E[C]+\lambda\operatorname{Var}(C)
@@ -195,15 +195,15 @@ $$
 
 を得ます。内部方向 $h=(h_1,\ldots,h_{N-1})\ne0$ について $h_0=h_N=0$ と置きます。$h$ は内部在庫を動かす方向であり、$s\mapsto J_\lambda(x+sh)$ を $s$ について二回微分すると
 
-$
+$$
 \left.\frac{d^2}{ds^2}J_\lambda(x+sh)\right|_{s=0}
 =\frac{2\eta}{\Delta}\sum_{i=1}^N(h_{i-1}-h_i)^2
 +2\lambda\sigma^2\Delta\sum_{i=1}^{N-1}h_i^2.
-$
+$$
 
 停留方程式の左辺を並べた係数行列を $A$ とします。第 $i$ 行は $-x_{i-1}+(2+r)x_i-x_{i+1}$（端点は右辺へ移す）なので、実際に掛け算を展開して
 
-$
+$$
 \begin{aligned}
 h^{\mathsf T}Ah
 &=\sum_{i=1}^{N-1}\bigl[(2+r)h_i^2-h_ih_{i-1}-h_ih_{i+1}\bigr]\\
@@ -211,7 +211,7 @@ h^{\mathsf T}Ah
 +r\sum_{i=1}^{N-1}h_i^2
 =\frac{\Delta}{2\eta}\left.\frac{d^2}{ds^2}J_\lambda(x+sh)\right|_{s=0}.
 \end{aligned}
-$
+$$
 
 もし最初の和が0なら全隣接差が0、$h_0=0$ からすべての $h_i=0$ となり矛盾します。したがって $h\ne0$ では $h^{\mathsf T}Ah>0$ です。これが三重対角行列を正定値と判定できる根拠であり、二次目的は厳密凸、停留解は唯一の大域最小となります。その停留解が売却制約を満たすことは次の[解析解定理](#thm-u3-62-exact)で示します。
 <!-- proof-end -->
@@ -298,24 +298,31 @@ $$
 
 [離散方程式](#thm-u3-62-tridiagonal)を $\Delta^2$ で割ると
 
-$
+$$
 \frac{x_{i+1}-2x_i+x_{i-1}}{\Delta^2}
 =\frac{r}{\Delta^2}x_i=\kappa^2x_i
-$
+$$
 
 です。ただし差分方程式だけでは収束の保証になりません。$\kappa>0$ のとき[解析解](#thm-u3-62-exact)の係数は
 
-$
-2(\cosh\theta_N-1)=\kappa^2\Delta^2,\qquad
-\theta_N=2\operatorname{asinh}\left(\frac{\kappa\Delta}{2}\right),
-\qquad \frac{\theta_N}{\Delta}\longrightarrow\kappa.
-$
+$$
+2(\cosh\theta_N-1)=4\sinh^2(\theta_N/2)=\kappa^2\Delta^2,
+\qquad \sinh(\theta_N/2)=\frac{\kappa\Delta}{2}.
+$$
 
-最後の極限は $\operatorname{asinh}(z)/z\to1$（$z\to0$）から従います。$a_N=\theta_N/\Delta$ と置き、区間全体の関数
+$\theta_N>0$ かつ右辺が0へ近づくので $\theta_N\to0$ です。$\sinh z/z\to1$（$z\to0$）を適用して
 
-$
+$$
+\frac{\theta_N}{\Delta}
+=\kappa\frac{\theta_N/2}{\sinh(\theta_N/2)}
+\longrightarrow\kappa
+$$
+
+を得ます。$a_N=\theta_N/\Delta$ と置き、区間全体の関数
+
+$$
 f_N(t)=Q\frac{\sinh(a_N(T-t))}{\sinh(a_NT)}
-$
+$$
 
 を考えると、節点では $f_N(i\Delta)=x_i^*$ です。$a_N\to\kappa>0$ だから、分母は正の値に離れており $f_N\to x^*$ は $[0,T]$ 上一様です。さらに $|f_N'(t)|=Qa_N\cosh(a_N(T-t))/\sinh(a_NT)$ は $N$ によらず有界です。よって隣接する節点の線形補間と $f_N$ の差は最大でもその上界と $\Delta$ の積であり、折れ線補間も $x^*$ に一様収束します。$\kappa=0$ なら各 $N$ の解もその折れ線補間も $Q(1-t/T)$ に一致します。
 
