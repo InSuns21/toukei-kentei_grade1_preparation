@@ -1,0 +1,43 @@
+chapter: U2-12
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-11
+forward_references: []
+concepts:
+  - id: robotics.fixed-interval-filtering-smoothing
+    name: フィルタリングと固定区間平滑化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（フィルタリングと固定区間平滑化）"]
+    requires: [robotics.kalman-measurement-update]
+  - id: robotics.batch-trajectory-weighted-least-squares
+    name: 軌跡の重み付き二乗誤差目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（軌跡の重み付き二乗誤差目的関数）"]
+    requires: [robotics.linear-gaussian-motion, robotics.linear-gaussian-position-observation, robotics.motion-observation-conditional-model]
+  - id: robotics.batch-map-gaussian-mean
+    name: Gaussian 軌跡のバッチ最小二乗と事後平均
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian 軌跡のバッチ最小二乗と事後平均）"]
+    requires: [robotics.batch-trajectory-weighted-least-squares]
+  - id: robotics.batch-block-tridiagonal
+    name: バッチ正規方程式のブロック三重対角構造
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（バッチ正規方程式のブロック三重対角構造）"]
+    requires: [robotics.batch-map-gaussian-mean]
+  - id: robotics.backward-smoothing-gain
+    name: 後ろ向き平滑化利得
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（後ろ向き平滑化利得）"]
+    requires: [robotics.kalman-linear-prediction, robotics.fixed-interval-filtering-smoothing]
+  - id: robotics.gaussian-fixed-interval-smoothing
+    name: 線形 Gaussian 固定区間平滑化の後ろ向き公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（線形 Gaussian 固定区間平滑化の後ろ向き公式）"]
+    requires: [robotics.backward-smoothing-gain, robotics.batch-map-gaussian-mean, robotics.kalman-measurement-update]
