@@ -1,0 +1,47 @@
+chapter: U3-61
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-60]
+concepts:
+  - id: finance.market-impact-linear
+    name: 線形の一時的・恒久的市場インパクト模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形の一時的・恒久的市場インパクト模型）"]
+    requires: [finance.execution-schedule, finance.order-book]
+  - id: finance.market-impact-cost
+    name: 全量売却の執行コストと売却前在庫
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（全量売却の執行コストと売却前在庫）"]
+    requires: [finance.market-impact-linear, finance.implementation-shortfall]
+  - id: finance.market-impact-cost-identity
+    name: 線形インパクトの執行コスト恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形インパクトの執行コスト恒等式）"]
+    requires: [finance.market-impact-linear, finance.market-impact-cost]
+  - id: finance.market-impact-price-noise
+    name: 外生価格増分の拡散型模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（外生価格増分の拡散型模型）"]
+    requires: [finance.market-impact-linear]
+  - id: finance.market-impact-mean-variance
+    name: 期待コストと売却前在庫による分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（期待コストと売却前在庫による分散）"]
+    requires: [finance.market-impact-price-noise, finance.market-impact-cost-identity]
+  - id: finance.market-impact-nonlinear-temp
+    name: べき乗型の一時的インパクト
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（べき乗型の一時的インパクト）"]
+    requires: [finance.market-impact-linear]
+  - id: finance.market-impact-uniform-speed
+    name: べき乗型一時コストを最小化する一定速度
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（べき乗型一時コストを最小化する一定速度）"]
+    requires: [finance.market-impact-nonlinear-temp]
