@@ -87,7 +87,7 @@
 <!-- proof-start -->
 ### 証明
 
-$C=j$ に条件付けると $F_l=\min(l,\max(0,N-b_j))$ です。$F_l=0$ と $N\le b_j$ は同値です。$1\le k<l$ では $F_l=k$ と $N=b_j+k$ が同値であり、$F_l=l$ と $N\ge b_j+l$ も同値です。これらは $N$ の可能性を漏れなく互いに素な事象に分割するため確率の和は1です。独立性と全確率の公式により $P(F_l=k)=(1-c)P(F_l=k\mid C=0)+cP(F_l=k\mid C=1)$ となります。さらに整数 $0\le F_l\le l$ の各標本で $F_l=\sum_{k=1}^{l}\boldsymbol1_{\{F_l\ge k\}}$ なので、期待値の線形性を用いると $E[F_l]=\sum_kP(F_l\ge k)$ です。$F_l\ge k$ が $N\ge b_j+k$ と同値なことから残る式を得ます。
+$C=j$ に条件付けると $F_l=\min(l,\max(0,N-b_j))$ です。$F_l=0$ と $N\le b_j$ は同値です。$1\le k<l$ では $F_l=k$ と $N=b_j+k$ が同値であり、$F_l=l$ と $N\ge b_j+l$ も同値です。これらは $N$ の可能性を漏れなく互いに素な事象に分割するため確率の和は1です。$C=0$ と $C=1$ の場合を、その確率 $1-c,c$ で重み付けして足すことにより $P(F_l=k)=(1-c)P(F_l=k\mid C=0)+cP(F_l=k\mid C=1)$ となります。さらに整数 $0\le F_l\le l$ の各標本で $F_l=\sum_{k=1}^{l}\boldsymbol1_{\{F_l\ge k\}}$ なので、期待値の線形性を用いると $E[F_l]=\sum_kP(F_l\ge k)$ です。$F_l\ge k$ が $N\ge b_j+k$ と同値なことから残る式を得ます。
 <!-- proof-end -->
 
 **手計算参照値**：$a=1,l=2,\mu=1,c=0$ なら
@@ -158,8 +158,14 @@ $t=0,\ldots,T$ とし、$t$ から残る全費用の**最小期待値**を $J_t(
 <a id="def-u3-65-value"></a>
 
 <!-- formal-statement-start -->
-> **定義（価値関数と予見しない発注方策）**  
-> 正整数 $Q,T$ と[区間費用](#def-u3-65-stage)を固定する。各 $t=0,\ldots,T-1$ で、区間内の $C_t,N_t$ を観測する**前**に、現在在庫 $q_t$ に応じた整数行動 $(m_t,l_t)$（$m_t,l_t\ge0,m_t+l_t\le q_t$）を選ぶ方策を許容する。区間内の乱数は区間間で独立とする。総費用
+> **定義（残期間の最小期待費用と予見しない発注方策）**  
+> 正整数 $Q,T$ と[区間費用](#def-u3-65-stage)を固定する。各 $t=0,\ldots,T-1$ では、区間内の $C_t,N_t$ を観測する**前**に、現在在庫に応じた整数行動 $(m_t,l_t)$ を選ぶ。行動には次の制約を課し、各区間の乱数は区間間で独立とする。
+>
+> $
+> m_t,l_t\in\{0,1,\ldots,q_t\},\qquad m_t+l_t\le q_t.
+> $
+>
+> 総費用
 >
 > $$
 > L=\sum_{t=0}^{T-1}G(q_t,m_t,l_t,F_{l_t,t})+H(q_T)
@@ -176,7 +182,7 @@ $t=0,\ldots,T$ とし、$t$ から残る全費用の**最小期待値**を $J_t(
 
 <!-- formal-statement-start -->
 > **定理（指値・成行の Bellman 再帰）**  
-> [価値関数](#def-u3-65-value)に対し、全ての整数 $q=0,\ldots,Q$ で
+> [残期間の最小期待費用](#def-u3-65-value)に対し、全ての整数 $q=0,\ldots,Q$ で
 >
 > $$
 > J_T(q)=Dq+\eta_Tq^2
@@ -209,9 +215,9 @@ $$
 dm+\eta m^2-rf+\gamma(q-m-f)^2+J_{t+1}(q-m-f).
 $$
 
-各 $f=0,\ldots,l$ について確率を掛けて足すと、定理右辺の角括弧になります。未来区間の乱数は現在の乱数から独立で、最適な残余費用は次期の在庫と時刻だけに依存します。行動の有限集合を最小化すれば、少なくとも一つの最適行動があり、その後に帰納仮定の最適方策を使うことで表示値を実現できます。
+各 $f=0,\ldots,l$ について確率を掛けて足すと、定理右辺の角括弧になります。未来区間の乱数は現在の乱数から独立で、次の区間以後の最適費用は次期の在庫と時刻だけに依存します。行動の有限集合を最小化すれば、少なくとも一つの最適行動があり、その後に帰納仮定の最適方策を使うことで表示値を実現できます。
 
-逆に任意の許容方策は当期に実行可能な行動を取らねばならず、次期以後の費用は各在庫で $J_{t+1}(q')$ 未満にできません。よって右辺の最小値より低い期待費用は得られません。後ろ向き帰納法で全時刻について示されます。$q=0$ のとき唯一の行動は $(m,l)=(0,0)$ で $F_0=0$ です。$H(0)=0$ から逆向きに $J_t(0)=0$ が続きます。
+逆に任意の許容方策は当期に実行可能な行動を取らねばならず、次期以後の費用は各在庫で $J_{t+1}(q')$ 未満にできません。よって右辺の最小値より低い期待費用は得られません。終端から時刻を逆順にたどる帰納的議論により、全時刻について示されます。$q=0$ のとき唯一の行動は $(m,l)=(0,0)$ で $F_0=0$ です。$H(0)=0$ から逆向きに $J_t(0)=0$ が続きます。
 <!-- proof-end -->
 
 **アルゴリズム**：$q=0,\ldots,Q$ の終端値をまず作り、$t$ を逆順に、各 $q$ で $m=0,\ldots,q$ と $l=0,\ldots,q-m$ を全て調べます。各候補の $l+1$ 個の約定結果について重み付き和を求め、最小値と行動を保存します。事前に約定確率表を作れば、候補全探索の粗い計算量は $O(TQ^4)$、価値と方策の記録容量は $O(TQ)$ です。整数状態が大きい実際の注文には、このままでは遅く、株数のまとめ方や近似が必要です。
@@ -267,11 +273,11 @@ $$
 # lab-id: u3-65-limit-market
 # lab-title: 約定確率と指値／成行の最適発注
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-65/assets/limit_market_fill.py
-# lab-preset: 3株3区間・標準 | --quantity 3 --periods 3 --queue 1 --rate 1 --cancellation 0.25 --paths 20000 --seed 65
-# lab-preset: キュー先頭 | --quantity 3 --periods 3 --queue 0 --rate 1 --cancellation 0 --paths 20000 --seed 65
-# lab-preset: 先行3株 | --quantity 3 --periods 3 --queue 3 --rate 1 --cancellation 0 --paths 20000 --seed 65
-# lab-preset: 買い到着なし | --quantity 3 --periods 2 --queue 1 --rate 0 --cancellation 0 --paths 20000 --seed 65
-# lab-preset: 一株の解析参照値 | --quantity 1 --periods 1 --queue 0 --rate 1 --cancellation 0 --impact 0 --inventory-penalty 0.05 --terminal-cost 0.4 --terminal-impact 0 --paths 20000 --seed 65
+# lab-preset: 3株3区間・標準 | --quantity 3 --periods 3 --queue 1 --rate 1 --cancellation 0.25 --paths 20000
+# lab-preset: キュー先頭 | --quantity 3 --periods 3 --queue 0 --rate 1 --cancellation 0 --paths 20000
+# lab-preset: 先行3株 | --quantity 3 --periods 3 --queue 3 --rate 1 --cancellation 0 --paths 20000
+# lab-preset: 買い到着なし | --quantity 3 --periods 2 --queue 1 --rate 0 --cancellation 0 --paths 20000
+# lab-preset: 一株の解析参照値 | --quantity 1 --periods 1 --queue 0 --rate 1 --cancellation 0 --impact 0 --inventory-penalty 0.05 --terminal-cost 0.4 --terminal-impact 0 --paths 20000
 # lab-preset: 分布と厳密解のセルフテスト | --self-test
 # lab-timeout-ms: 30000
 ~~~
