@@ -1,0 +1,35 @@
+chapter: WGL16
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL15]
+concepts:
+  - id: graphics.instancing-square-copy
+    name: 正方形メッシュのインスタンス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正方形メッシュのインスタンス）"]
+    requires: [graphics.model-world-space, graphics.indexed-triangle-mesh]
+  - id: graphics.instancing-attribute-divisor
+    name: 属性除数とインスタンス属性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（属性除数とインスタンス属性）"]
+    requires: [graphics.instancing-square-copy, graphics.vertex-attribute, graphics.vertex-array-object]
+  - id: graphics.instancing-pixel-equivalence
+    name: 重ならないコピーの描画結果の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重ならないコピーの描画結果の一致）"]
+    requires: [graphics.instancing-square-copy, graphics.instancing-attribute-divisor]
+  - id: graphics.instancing-draw-count
+    name: 正方形格子の命令数と頂点数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正方形格子の命令数と頂点数）"]
+    requires: [graphics.instancing-square-copy, graphics.instancing-attribute-divisor]
+  - id: graphics.instancing-cost-condition
+    name: 単純費用模型における高速化条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単純費用模型における高速化条件）"]
+    requires: [graphics.instancing-draw-count]

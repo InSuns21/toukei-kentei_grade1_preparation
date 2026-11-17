@@ -192,3 +192,6 @@ import './wgl14-lab.test.mjs';
 
 // WGL15: CSS/device coordinates, ray-panel intersections, depth IDs and interactive sandbox.
 import './wgl15-lab.test.mjs';
+
+// WGL16: instance attribute divisors, draw-call counts and independent 6-pixel oracle.
+import './wgl16-lab.test.mjs';

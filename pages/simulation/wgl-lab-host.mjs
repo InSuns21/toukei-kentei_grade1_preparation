@@ -14,11 +14,12 @@ import { compareWGL12Readback, expectedWGL12Samples } from './wgl12-lab-core.mjs
 import { compareWGL13Readback, expectedWGL13Samples } from './wgl13-lab-core.mjs';
 import { compareWGL14Readback, expectedWGL14Samples } from './wgl14-lab-core.mjs';
 import { compareWGL15Readback, expectedWGL15Samples, cpuPickWGL15Pixel } from './wgl15-lab-core.mjs';
+import { compareWGL16Readback, expectedWGL16Samples } from './wgl16-lab-core.mjs';
 
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
 const isWGL4 = lesson === 'WGL4';
@@ -33,9 +34,11 @@ const isWGL12 = lesson === 'WGL12';
 const isWGL13 = lesson === 'WGL13';
 const isWGL14 = lesson === 'WGL14';
 const isWGL15 = lesson === 'WGL15';
+const isWGL16 = lesson === 'WGL16';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/' + lesson + '/', import.meta.url);
-const FILES = isWGL15 ? {js: 'picking.js', vertex: 'picking.vert', fragment: 'picking.frag'} :
+const FILES = isWGL16 ? {js: 'instancing.js', vertex: 'instancing.vert', fragment: 'instancing.frag'} :
+  isWGL15 ? {js: 'picking.js', vertex: 'picking.vert', fragment: 'picking.frag'} :
   isWGL14 ? {js: 'postprocess.js', vertex: 'postprocess.vert', fragment: 'postprocess.frag'} :
   isWGL13 ? {js: 'environment.js', vertex: 'environment.vert', fragment: 'environment.frag'} :
   isWGL12 ? {js: 'pbr.js', vertex: 'pbr.vert', fragment: 'pbr.frag'} :
@@ -50,7 +53,7 @@ const FILES = isWGL15 ? {js: 'picking.js', vertex: 'picking.vert', fragment: 'pi
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
@@ -273,7 +276,7 @@ function isolatedRunner() {
           }
         });
       }
-      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15'].includes(request.lesson)) &&
+      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -416,7 +419,7 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
@@ -425,7 +428,7 @@ window.addEventListener('message', event => {
       unchanged && !pass);
     byId('result-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      (isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      (isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
@@ -445,6 +448,7 @@ function run() {
     if (isWGL12) payload.probes = expectedWGL12Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL13) payload.probes = expectedWGL13Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL15) payload.probes = expectedWGL15Samples(payload.width,payload.height).map(p => [p.x,p.y]);
+    if (isWGL16) payload.probes = expectedWGL16Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL14) payload.probes = expectedWGL14Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL10) payload.probes = expectedWGL10Samples(payload.width,payload.height).map(p => [p.x,p.y]);
   }
@@ -493,6 +497,8 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+    } else if (isWGL16) {
+      inputs.fragment.value = defaults.fragment.replace('outColor = vec4(v_color, 1.0);','outColor = vec4(v_color, 1.0)');
     } else if (isWGL15) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(rgb, 1.0);', 'outColor = vec4(rgb, 1.0)');
@@ -560,6 +566,20 @@ if (isWGL2) {
   preset.options[0].textContent = '初期の頂点色三角形';
   preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
   preset.options[1].textContent = 'fragment の構文エラー';
+}
+if (isWGL16) {
+  document.title = 'WGL16 インスタンス描画・draw call比較ラボ';
+  document.querySelector('h1').textContent = 'WGL16 64個の四角形を1回のdraw callで描く';
+  document.querySelector('#panel-conditions > p').textContent =
+    '同じ四角形メッシュを64回の通常描画と1回のインスタンス描画で比較。全画素の差、6点の独立CPU基準、呼び出し回数と同期込み時間を表示します。';
+  document.querySelector('#panel-conditions ol').innerHTML =
+    '<li>初期状態を実行し64対1の呼び出し回数、384頂点、全画素差0とCPU/GPUの6点を確認する。</li>' +
+    '<li>instancing.jsのdrawModeをloopへ変更し、同一画像になるか比較する。</li>' +
+    '<li>gridSizeを4または16へ変更し、描画呼び出し数と転送データ量を予測する。</li>' +
+    '<li>頂点シェーダのa_colorを改変して表示とCPU期待値の差を確認する。</li>' +
+    '<li>構文エラープリセットでコンパイル診断し、修正して再実行する。</li>';
+  byId('preset').options[0].textContent = '8×8正方形・描画回数/全画素差/同期時間の比較';
+  byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL15) {
   document.title = 'WGL15 3Dピッキング・CPU射線とGPU ID選択ラボ';
