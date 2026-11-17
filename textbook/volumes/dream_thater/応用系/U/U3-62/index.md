@@ -14,11 +14,13 @@
 
 全量 $Q>0$ 株を $N\ge1$ 個の等間隔に分け、総時間 $T>0$、一区間の長さを $\Delta=T/N$ 時間とします。区間末の残株を $x_i$ と書くと、区間 $i$ の売却量は $x_{i-1}-x_i$ です。時点をこう分けると、約定前に何株がリスクにさらされていたかを数えられます。
 
+[前講の線形市場インパクト模型](../U3-61/index.md#def-u3-61-linear-impact)の記号を引き継ぎ、$M_i$ は売買の影響を受けない区間 $i$ の仮想価格、$S_0=M_0$ は取引開始時の到着価格、$p_i$ は売却が実際にある区間の平均約定価格です。$M_i$ と注文後の中値 $S_i$ は異なり、売却量が0なら $p_i$ 自体を定めません。
+
 <a id="def-u3-62-cash"></a>
 
 <!-- formal-statement-start -->
 > **定義（清算在庫と自己金融的な受取額）**  
-> $Q>0$、整数 $N\ge1$、$\Delta=T/N>0$ とする。各 $x_i$ は売却予定在庫で、以下を満たす。
+> $Q>0$、整数 $N\ge1$、$\Delta=T/N>0$ とする。各 $x_i$ は時点0で確定した売却予定在庫で、以下を満たす。
 
 $$
 x_0=Q,\qquad x_N=0,\qquad x_{i-1}\ge x_i\ge0
@@ -45,7 +47,7 @@ $$
 C=QS_0-R_N.
 $$
 
-> すべての $q_i$ は価格増分を観測する前に固定され、売却予定数量は必ず約定する。
+> すべての $q_i$ は時点0で全区間の価格増分を観測する前に固定し、途中で過去の価格増分を観測しても変更しない。売却予定数量は必ず約定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-62-cash -->
@@ -56,13 +58,20 @@ x_0=100\ge x_1=60\ge x_2=0,\qquad
 (q_1,q_2)=(40,60),\qquad \Delta=1
 $$
 
-です。$S_0=M_i=100$ 円／株、$\gamma=0.002$ 円／株²、$\eta=0.01$ 円・時間／株²を仮定すると、[前講の約定価格](../U3-61/index.md#def-u3-61-linear-impact)から
+です。外生価格変動がなく $M_0=M_1=M_2=S_0=100$ 円／株、$\gamma=0.002$ 円／株²、$\eta=0.01$ 円・時間／株²とします。[前講の中値・約定価格模型](../U3-61/index.md#def-u3-61-linear-impact)では、区間直前の中値は「無影響価格－過去の売却が残した恒久的下落」です。そこで
 
 $$
-p_1=99.56,\qquad p_2=99.26\quad(\text{円／株})
+\begin{aligned}
+B_1&=M_1=100,\\
+p_1&=B_1-\frac{\gamma q_1}{2}-\eta\frac{q_1}{\Delta}
+=100-0.04-0.40=99.56,\\
+B_2&=M_2-\gamma q_1=100-0.08=99.92,\\
+p_2&=B_2-\frac{\gamma q_2}{2}-\eta\frac{q_2}{\Delta}
+=99.92-0.06-0.60=99.26
+\end{aligned}
 $$
 
-となります。売却による現金受取と到着価格基準コストは
+（中値・約定単価はいずれも円／株）です。第2区間では第1区間の一時的価格差 $0.40$ 円／株を持ち越さず、恒久的な $0.08$ 円／株だけを持ち越します。売却による現金受取と到着価格基準コストは
 
 $$
 R_1=40(99.56)=3,982.4\ \text{円},
@@ -80,13 +89,19 @@ $$
 
 ### 1.1 外生価格の動きにさらされたのは何株か
 
-無影響価格の増分を $\varepsilon_i=M_i-M_{i-1}$ とします。各 $\varepsilon_i$ は独立で平均0、分散 $\sigma^2\Delta$ と仮定し、$\sigma\ge0$ の単位は円／株／$\sqrt{\text{時間}}$ です。恒久係数は $\gamma\ge0$ 円／株²、一時係数は $\eta>0$ 円・時間／株²とし、区間・数量によらず一定とします。$\eta>0$ は後で厳密凸性を保証する重要な仮定です。
+[前講の外生価格増分模型](../U3-61/index.md#def-u3-61-price-noise)を等間隔に適用し、無影響価格の増分を $\varepsilon_i=M_i-M_{i-1}$（円／株）とします。各 $\varepsilon_i$ は独立で平均0、分散 $\sigma^2\Delta$ と仮定し、$\sigma\ge0$ の単位は円／株／$\sqrt{\text{時間}}$ です。恒久係数は $\gamma\ge0$ 円／株²、一時係数は $\eta>0$ 円・時間／株²とし、区間・数量によらず一定とします。$\eta>0$ は後で厳密凸性を保証する重要な仮定です。
 
 <a id="prop-u3-62-cost-risk"></a>
 
 <!-- formal-statement-start -->
 > **命題（在庫表示による期待清算費用と分散）**  
-> 上記の定数係数・独立なゼロ平均有限分散の増分・確定在庫の仮定の下で、
+> $Q>0$、整数 $N\ge1$、$T>0$、$\Delta=T/N$ とする。
+> 係数は $\gamma\ge0$、$\eta>0$、$\sigma\ge0$ とする。
+> [清算在庫と受取額](#def-u3-62-cash)の条件を満たす確定在庫列 $x$ を選ぶ。
+> [前講の線形インパクト模型](../U3-61/index.md#def-u3-61-linear-impact)を用い、
+> 互いに独立で $E[\varepsilon_i]=0$、
+> $\operatorname{Var}(\varepsilon_i)=\sigma^2\Delta$ の
+> [外生価格増分](../U3-61/index.md#def-u3-61-price-noise)を仮定する。このとき、
 
 $$
 C=\frac{\gamma Q^2}{2}
@@ -140,7 +155,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（平均費用と費用分散のリスク回避目的）**  
-> [上の費用・分散模型](#prop-u3-62-cost-risk)の下、$x_0=Q,x_N=0,x_{i-1}\ge x_i\ge0$ を満たす確定在庫列 $x$ について、
+> $\lambda\ge0$（単位1／円）を固定する。[上の費用・分散模型](#prop-u3-62-cost-risk)の下、$x_0=Q,x_N=0,x_{i-1}\ge x_i\ge0$ を満たす確定在庫列 $x$ について、
 
 $$
 J_\lambda(x)=E[C]+\lambda\operatorname{Var}(C)
@@ -160,13 +175,17 @@ $$
 
 ## 3. 離散最適性方程式の導出
 
-自由な未知数は $x_1,\ldots,x_{N-1}$ です。いったん売却量非負の制約を外して、二次式の停留条件を計算します。最後にその解が**実際に非負の売却量を持つ**と証明します。
+自由な未知数は $x_1,\ldots,x_{N-1}$ の $N-1$ 個です。いったん売却量非負の制約を外して、二次式の停留条件を計算します。
+
+各未知数 $x_i$ が関わる売却差分は $x_{i-1}-x_i$ と $x_i-x_{i+1}$ の二つだけです。このため、停留条件には隣接する三つの在庫しか現れません。これらの係数を並べた **$(N-1)\times(N-1)$ 三重対角行列**を $A$ と書きます。
+
+行列 $A$ が正定値とは、零でない内部方向 $h$ に対して $h^{\mathsf T}Ah>0$ が成り立つことです。停留解を求めたあと、その解が**実際に非負の売却量を持つ**と証明します。
 
 <a id="thm-u3-62-tridiagonal"></a>
 
 <!-- formal-statement-start -->
 > **定理（離散最適清算の一意解と三重対角系）**  
-> $N\ge2,Q>0,\Delta>0,\eta>0,\sigma\ge0,\lambda\ge0$ とし、$r=\lambda\sigma^2\Delta^2/\eta\ge0$ とする。[リスク回避目的](#def-u3-62-objective)の唯一の最適解は、$x_0=Q,x_N=0$ と
+> $N\ge2,Q>0,\Delta>0,\gamma\ge0,\eta>0,\sigma\ge0,\lambda\ge0$ とし、$r=\lambda\sigma^2\Delta^2/\eta\ge0$ とする。[リスク回避目的](#def-u3-62-objective)の唯一の最適解は、$x_0=Q,x_N=0$ と
 
 $$
 -x_{i-1}+(2+r)x_i-x_{i+1}=0,\qquad i=1,\ldots,N-1
@@ -178,21 +197,38 @@ $$
 <!-- proof-start -->
 ### 証明
 
-一つの内部変数 $x_i$ に依存する一時費用は $\eta[(x_{i-1}-x_i)^2+(x_i-x_{i+1})^2]/\Delta$ で、微分は $2\eta(2x_i-x_{i-1}-x_{i+1})/\Delta$。リスク和では $x_i$ は次区間の売却前在庫なので微分は $2\lambda\sigma^2\Delta x_i$ です。両者の和を0に置き、$\Delta/(2\eta)$ を掛けると
+内部在庫 $x_i$ 以外を固定して偏微分する記号を $\partial/\partial x_i$ とします。一時費用で $x_i$ を含むのは二区間の差分 $(x_{i-1}-x_i)^2$、$(x_i-x_{i+1})^2$ であり、リスク和には次区間の売却前在庫の項 $x_i^2$ が一つ現れます。よって
 
 $$
-2x_i-x_{i-1}-x_{i+1}+rx_i=0
+\begin{aligned}
+\frac{\partial J_\lambda}{\partial x_i}
+&=\frac{2\eta}{\Delta}\bigl[(x_i-x_{i-1})+(x_i-x_{i+1})\bigr]
+ +2\lambda\sigma^2\Delta x_i\\
+&=\frac{2\eta}{\Delta}\bigl[-x_{i-1}+(2+r)x_i-x_{i+1}\bigr]
+\end{aligned}
 $$
 
-を得ます。内部方向 $h=(h_1,\ldots,h_{N-1})\ne0$ について $h_0=h_N=0$ と置くと、二階方向微分は
+です。$\eta,\Delta>0$ より、これを0と置くことは定理の三重対角方程式と同値です。内部方向 $h=(h_1,\ldots,h_{N-1})\ne0$ について $h_0=h_N=0$ と置きます。$h$ は内部在庫を動かす方向であり、$s\mapsto J_\lambda(x+sh)$ を $s$ について二回微分すると
 
 $$
-D^2J_\lambda(x)[h,h]
+\left.\frac{d^2}{ds^2}J_\lambda(x+sh)\right|_{s=0}
 =\frac{2\eta}{\Delta}\sum_{i=1}^N(h_{i-1}-h_i)^2
-+2\lambda\sigma^2\Delta\sum_{i=1}^{N-1}h_i^2>0.
++2\lambda\sigma^2\Delta\sum_{i=1}^{N-1}h_i^2.
 $$
 
-もし最初の和が0なら全隣接差が0、$h_0=0$ からすべての $h_i=0$ となり矛盾します。よって厳密凸で、正定値の連立系の唯一の停留解が大域最小です。その停留解が売却制約を満たすことは次の[解析解定理](#thm-u3-62-exact)で示します。
+停留方程式の左辺を並べた係数行列を $A$ とします。第 $i$ 行は $-x_{i-1}+(2+r)x_i-x_{i+1}$（端点は右辺へ移す）なので、実際に掛け算を展開して
+
+$$
+\begin{aligned}
+h^{\mathsf T}Ah
+&=\sum_{i=1}^{N-1}\bigl[(2+r)h_i^2-h_ih_{i-1}-h_ih_{i+1}\bigr]\\
+&=\sum_{i=1}^{N}(h_{i-1}-h_i)^2
++r\sum_{i=1}^{N-1}h_i^2
+=\frac{\Delta}{2\eta}\left.\frac{d^2}{ds^2}J_\lambda(x+sh)\right|_{s=0}.
+\end{aligned}
+$$
+
+もし最初の和が0なら全隣接差が0、$h_0=0$ からすべての $h_i=0$ となり矛盾します。したがって $h\ne0$ では $h^{\mathsf T}Ah>0$ です。これが三重対角行列を正定値と判定できる根拠であり、二次目的は厳密凸、停留解は唯一の大域最小となります。その停留解が売却制約を満たすことは次の[解析解定理](#thm-u3-62-exact)で示します。
 <!-- proof-end -->
 
 ## 4. 双曲線関数で解く
@@ -243,13 +279,39 @@ $$
 
 ## 5. 連続時間の極限
 
-分割を細かくすると $q_i/\Delta$ は売却速度 $-x'(t)$、$\sum_iq_i^2/\Delta$ は $\int_0^T(x')^2dt$ に近づきます。確定経路 $x$ に対する分散の和も $\sigma^2\int_0^Tx(t)^2dt$ に近づきます。解を予想するだけでなく、上の離散解そのものが収束することを確認します。
+時刻 $t\in[0,T]$ の残在庫を $x(t)$ と書きます。離散在庫 $x_i$ は時点 $t_i=i\Delta$ の値 $x(t_i)$ に対応させます。$x'(t)=dx(t)/dt$ は**時間 $t$ に関する導関数**であり、$-x'(t)$ が売却速度（株／時間）です。
+
+売却量の定義から
+
+$$
+\frac{q_i}{\Delta}
+=-\frac{x_i-x_{i-1}}{\Delta}
+$$
+
+なので、滑らかな経路では時間微分 $-x'(t)$ の近似となります。また、分割を細かくすると一時費用とリスクの和は、それぞれ次の積分に近づくと期待できます。
+
+$$
+\sum_i\frac{q_i^2}{\Delta}\ \longrightarrow\ \int_0^T(x'(t))^2\,dt,
+\qquad
+\sigma^2\Delta\sum_i x_{i-1}^2\ \longrightarrow\
+\sigma^2\int_0^T x(t)^2\,dt.
+$$
+
+連続問題では、導関数の積分から元の経路を復元できる条件
+
+$$
+x(t)=Q+\int_0^t x'(s)\,ds\qquad(0\le t\le T)
+$$
+
+を仮定します。これは以下の命題で用いる「絶対連続」という条件の具体的な積分表示です。さらに $x'\in L^2[0,T]$ は $\int_0^T|x'(t)|^2\,dt<\infty$ の意味です。導関数と売却制約 $x'(t)\le0$ は、長さ0の例外集合を除く**ほとんど至る所**で理解します。
+
+これから使う $\kappa$ は売却経路の減衰率（単位1／時間）で、[前講のべき乗型一時インパクト](../U3-61/index.md#def-u3-61-nonlinear-temp)の係数 $\kappa$ とは別物です。離散解そのものが連続解へ収束することも確認します。
 
 <a id="prop-u3-62-continuous"></a>
 
 <!-- formal-statement-start -->
 > **命題（連続時間極限と境界値問題の解）**  
-> $Q,T,\eta>0,\lambda,\sigma\ge0$ を固定し、$\Delta=T/N\to0$ とする。[離散最適解](#thm-u3-62-exact)の折れ線補間は、$\kappa=\sqrt{\lambda\sigma^2/\eta}$ として
+> $Q,T,\eta>0,\gamma,\lambda,\sigma\ge0$ を固定し、$\Delta=T/N\to0$ とする。[離散最適解](#thm-u3-62-exact)の折れ線補間は、$\kappa=\sqrt{\lambda\sigma^2/\eta}$ として
 
 $$
 x^*(t)=
@@ -273,9 +335,45 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[離散方程式](#thm-u3-62-tridiagonal)は $\frac{x_{i+1}-2x_i+x_{i-1}}{\Delta^2}=\kappa^2x_i$ です。ただし差分式だけでは収束の保証になりません。[解析解](#thm-u3-62-exact)で $2(\cosh\theta_N-1)=\kappa^2\Delta^2$、$\cosh z=1+z^2/2+O(z^4)$ より $\theta_N/\Delta\to\kappa$。$i\Delta\to t$ のとき $(N-i)\theta_N\to\kappa(T-t)$、$N\theta_N\to\kappa T$。$\kappa>0$ では分母も正に収束するので双曲線関数の連続性から表示式を得ます。$\kappa=0$ ならすべての有限 $N$ で既に直線です。隣接節点を結ぶ折れ線も同じ連続極限に収束します。
+[離散方程式](#thm-u3-62-tridiagonal)を $\Delta^2$ で割ると
 
-一方、端点を固定して $x+\epsilon h$（$h(0)=h(T)=0$）と変分すると、$\epsilon$ の一次項は
+$$
+\frac{x_{i+1}-2x_i+x_{i-1}}{\Delta^2}
+=\frac{r}{\Delta^2}x_i=\kappa^2x_i
+$$
+
+です。ただし差分方程式だけでは収束の保証になりません。$\kappa>0$ のとき[解析解](#thm-u3-62-exact)の係数は
+
+$$
+2(\cosh\theta_N-1)=4\sinh^2(\theta_N/2)=\kappa^2\Delta^2,
+\qquad \sinh(\theta_N/2)=\frac{\kappa\Delta}{2}.
+$$
+
+$\theta_N>0$ かつ右辺が0へ近づくので $\theta_N\to0$ です。$\sinh z/z\to1$（$z\to0$）を適用して
+
+$$
+\frac{\theta_N}{\Delta}
+=\kappa\frac{\theta_N/2}{\sinh(\theta_N/2)}
+\longrightarrow\kappa
+$$
+
+を得ます。$a_N=\theta_N/\Delta$ と置き、区間全体の関数
+
+$$
+f_N(t)=Q\frac{\sinh(a_N(T-t))}{\sinh(a_NT)}
+$$
+
+を考えると、節点では $f_N(i\Delta)=x_i^*$ です。$a_N\to\kappa>0$ だから、分母は正の値に離れ、$f_N\to x^*$ は区間 $[0,T]$ 上一様です。
+
+さらに時間微分の絶対値
+
+$$
+|f_N'(t)|=\frac{Qa_N\cosh(a_N(T-t))}{\sinh(a_NT)}
+$$
+
+には $N$ に依存しない上界 $L$ を取れます。隣接する節点の線形補間と $f_N$ の差は最大でも $L\Delta$ なので、折れ線補間も $x^*$ に一様収束します。$\kappa=0$ なら各 $N$ の離散解もその折れ線補間も $Q(1-t/T)$ に一致します。
+
+一方、まず端点を固定した滑らかな経路 $x$ に対して $x+\alpha h$（滑らかな $h$、$h(0)=h(T)=0$）を考えます。係数 $\alpha$ は時間 $t$ とは独立の変分パラメータで、価格ショック $\varepsilon_i$ とも無関係です。目的関数を $\alpha$ で微分した一次項は
 
 $$
 2\eta\int_0^Tx'h'\,dt+2\lambda\sigma^2\int_0^Txh\,dt
@@ -295,7 +393,7 @@ J(y)-J(x^*)
 \end{aligned}
 $$
 
-交差項は境界値方程式と端点条件により0です。等号なら $h'=0$ ほとんど至る所、$h(0)=h(T)=0$ から $h=0$ なので一意です。候補の導関数は $\kappa>0$ では $-Q\kappa\cosh(\kappa(T-t))/\sinh(\kappa T)<0$、$\kappa=0$ では $-Q/T<0$ なので売り制約も満たします。
+交差項は $x^*$ が滑らかで境界値方程式を満たすため、絶対連続な $h$ に対しても部分積分と端点条件で0です。等号なら $h'=0$ ほとんど至る所、絶対連続性から $h(t)=h(0)+\int_0^t h'(s)\,ds=0$ となり一意です。候補の時間導関数は $\kappa>0$ では $-Q\kappa\cosh(\kappa(T-t))/\sinh(\kappa T)<0$、$\kappa=0$ では $-Q/T<0$ なので売り制約も満たします。
 <!-- proof-end -->
 
 **連続式の直接検算**：双曲線恒等式から $\kappa>0$ のとき
