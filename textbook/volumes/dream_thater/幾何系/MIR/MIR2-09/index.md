@@ -45,7 +45,7 @@ $$
 
 <!-- definition-example-start: def-mir2-09-psi-class -->
 
-**定義の確認（定数三標点）。** $\beta=0,\ k=3$ では[次数0の積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)より $M_{3,0}\simeq X\times\overline{\mathcal M}_{0,3}\simeq X$。三つの標点の相対配置は一意で、普遍曲線は $X\times\mathbb P^1$、各切断は一定の点を選ぶ。従って $L_i$ は同じ一次元余接空間を各 $x\in X$ に割り当てる自明線束で、$\psi_i=0$。これは「どの安定写像でも $\psi_i=0$」という意味ではない。
+**定義の確認**（定数三標点）。 $\beta=0,\ k=3$ では[次数0の積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)より $M_{3,0}\simeq X\times\overline{\mathcal M}_{0,3}\simeq X$。三つの標点の相対配置は一意で、普遍曲線は $X\times\mathbb P^1$、各切断は一定の点を選ぶ。従って $L_i$ は同じ一次元余接空間を各 $x\in X$ に割り当てる自明線束で、$\psi_i=0$。これは「どの安定写像でも $\psi_i=0$」という意味ではない。
 
 <!-- definition-example-end -->
 
@@ -114,7 +114,7 @@ $$
 
 <!-- definition-example-start: def-mir2-09-descendant -->
 
-**定義の確認（次数0・四標点）。** $X$ をquintic、$H=c_1(\mathcal O_X(1))$ とする。定数四標点では $M_{4,0}\simeq X\times\overline{\mathcal M}_{0,4}$、評価写像はすべて第一射影、$\psi_1$ は第二射影から来る。写像方向の $H^1(C,f^*TX)$ は零で仮想類は通常の基本類になる。[三重交叉数](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)と[四標点の $\psi$ 積分](#prop-mir2-09-four-point-psi)から
+**定義の確認**（次数0・四標点）。 $X$ をquintic、$H=c_1(\mathcal O_X(1))$ とする。定数四標点では $M_{4,0}\simeq X\times\overline{\mathcal M}_{0,4}$、評価写像はすべて第一射影、$\psi_1$ は第二射影から来る。写像方向の $H^1(C,f^*TX)$ は零で仮想類は通常の基本類になる。[三重交叉数](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)と[四標点の $\psi$ 積分](#prop-mir2-09-four-point-psi)から
 
 $$
 \begin{aligned}
@@ -215,7 +215,7 @@ $$
 
 <!-- definition-example-start: def-mir2-09-j-function -->
 
-**定義の確認（次数0の最初の項）。** $Q=0$ として正次数項を除く。$n=2$ だけを取ると $M_{3,0}\simeq X$、$\psi_3=0$、各評価写像は恒等なので
+**定義の確認**（次数0の最初の項）。 $Q=0$ として正次数項を除く。$n=2$ だけを取ると $M_{3,0}\simeq X$、$\psi_3=0$、各評価写像は恒等なので
 
 $$
 \frac{1}{2!}(\operatorname{ev}_3)_*
@@ -238,7 +238,7 @@ $$
 $$
 \sum_\mu\phi^\mu
 \left\langle
-\underbrace{\mathbf t,\ldots,\mathbf t}_{n\ {\rm 個}},
+\underbrace{\mathbf t,\ldots,\mathbf t}_{n},
 \tau_a(\phi_\mu)
 \right\rangle_{0,\beta}^{X}.
 $$
