@@ -63,3 +63,4 @@
 59. [U3-59 板・注文方式・執行コストの定義](textbook/volumes/dream_thater/応用系/U/U3-59/index.md)
 60. [U3-60 TWAP／VWAP／POV と基準執行スケジュール](textbook/volumes/dream_thater/応用系/U/U3-60/index.md)
 61. [U3-61 市場インパクトと価格形成](textbook/volumes/dream_thater/応用系/U/U3-61/index.md)
+62. [U3-62 Almgren–Chriss 最適清算の導出](textbook/volumes/dream_thater/応用系/U/U3-62/index.md)

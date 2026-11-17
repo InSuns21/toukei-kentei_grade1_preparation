@@ -65,7 +65,7 @@ chapters:
   - { id: U3-59, path: textbook/volumes/dream_thater/応用系/U/U3-59, status: completed, title: "板・注文方式・執行コストの定義" }
   - { id: U3-60, path: textbook/volumes/dream_thater/応用系/U/U3-60, status: completed, title: "TWAP／VWAP／POV と基準執行スケジュール" }
   - { id: U3-61, path: textbook/volumes/dream_thater/応用系/U/U3-61, status: completed, title: "市場インパクトと価格形成" }
-  - { id: U3-62, path: textbook/volumes/dream_thater/応用系/U/U3-62, status: planned, title: "Almgren–Chriss 最適清算の導出" }
+  - { id: U3-62, path: textbook/volumes/dream_thater/応用系/U/U3-62, status: completed, title: "Almgren–Chriss 最適清算の導出" }
   - { id: U3-63, path: textbook/volumes/dream_thater/応用系/U/U3-63, status: planned, title: "最適執行の数値最適化と感度" }
   - { id: U3-64, path: textbook/volumes/dream_thater/応用系/U/U3-64, status: planned, title: "板の回復・過渡的インパクト" }
   - { id: U3-65, path: textbook/volumes/dream_thater/応用系/U/U3-65, status: planned, title: "指値・成行注文と約定不確実性" }
