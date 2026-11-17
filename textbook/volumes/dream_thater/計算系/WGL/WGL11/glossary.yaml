@@ -1,0 +1,23 @@
+chapter: WGL11
+terms:
+  - term: 光源投影座標
+    english: light projection coordinates
+    meaning: 光線と同じ方向へ進む世界点を同じ画素に投影するための座標。
+  - term: 光源深度
+    english: light-space depth
+    meaning: 光源方向への距離順序を表す値。小さい値が光に近いよう定める。
+  - term: シャドウマップ
+    english: shadow map
+    meaning: 光から見た各画素の最前面深度を保存した画像。
+  - term: 深度テクスチャ
+    english: depth texture
+    meaning: 深度値を格納・サンプルできるテクスチャで、深度アタッチメントにも使う。
+  - term: 深度バイアス
+    english: depth bias
+    meaning: 量子化・ラスタライズの誤差による誤遮蔽を緩和するため比較側に設ける余裕。
+  - term: shadow acne
+    english: shadow acne
+    meaning: 同じ表面の深度差が原因で表面自身が遮られたと誤判定される斑点。
+  - term: peter panning
+    english: peter panning
+    meaning: 大きすぎるバイアスにより影が遮蔽物の足元から離れて見える現象。
