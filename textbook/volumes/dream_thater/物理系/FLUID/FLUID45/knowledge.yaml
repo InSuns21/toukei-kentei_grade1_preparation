@@ -1,0 +1,38 @@
+chapter: FLUID45
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID5
+  - FLUID41
+  - FLUID43
+concepts:
+  - id: fluid.finite-volume-cell-average
+    name: セル平均
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（セル平均）"]
+    requires: [fluid.moving-control-volume]
+  - id: fluid.exact-cell-flux-balance
+    name: セルごとの正確な積分収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（セルごとの正確な積分収支）"]
+    requires: [fluid.finite-volume-cell-average, fluid.moving-mass-balance]
+  - id: fluid.finite-volume-face-flux
+    name: 単一の面数値流束と有限体積更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単一の面数値流束と有限体積更新）"]
+    requires: [fluid.exact-cell-flux-balance, fluid.relative-mass-flux]
+  - id: fluid.finite-volume-global-conservation
+    name: 離散的な総量保存と境界収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（離散的な総量保存と境界収支）"]
+    requires: [fluid.finite-volume-face-flux]
+  - id: fluid.finite-volume-upwind-positivity
+    name: 一次風上更新と凸結合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次風上更新と凸結合）"]
+    requires: [fluid.finite-volume-face-flux, fluid.finite-volume-global-conservation]
