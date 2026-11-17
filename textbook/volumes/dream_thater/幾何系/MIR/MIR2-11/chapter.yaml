@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - MIR2-02
+  - MIR2-03
   - MIR2-09
   - MIR2-10
   - GW1-20
