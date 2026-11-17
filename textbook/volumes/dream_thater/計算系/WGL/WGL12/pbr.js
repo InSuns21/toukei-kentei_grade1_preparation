@@ -69,7 +69,7 @@ report('MATERIALS', 'left: ' + roughness[0] + '/' + metallic[0] +
   '; middle: ' + roughness[1] + '/' + metallic[1] +
   '; right: ' + roughness[2] + '/' + metallic[2] +
   ' (roughness/metallic).');
-report('LIGHT', 'orthographic view V=(0,0,1), L=normalize(0.40,0.55,1); linear incident radiance=1.');
+report('LIGHT', 'orthographic view V=(0,0,1), L=normalize(0.40,0.55,1); integrated directional-light weight J=1 (radiance times solid angle).');
 // Separate diagnostic pass: four bottom-left RGBA8 pixels, linear Fresnel F.
 // Expected independent arithmetic: F(1)=F0; F(0.5)=F0+(1-F0)/32.
 gl.viewport(0, 0, 4, 1);
