@@ -13,9 +13,10 @@ learning_objectives:
   - WebGL2のJS/GLSLで3材質の描画を変更しCPU既知値とGPUの4画素を比較できる
 definitions:
   - { id: WGL12-DEF-01, name: 双方向反射率分布関数 }
-  - { id: WGL12-DEF-02, name: Fresnel反射率のSchlick近似 }
-  - { id: WGL12-DEF-03, name: GGX微小面法線分布 }
-  - { id: WGL12-DEF-04, name: metallic–roughnessによる簡易微小面BRDF }
+  - { id: WGL12-DEF-02, name: BRDFのエネルギー制約 }
+  - { id: WGL12-DEF-03, name: Fresnel反射率のSchlick近似 }
+  - { id: WGL12-DEF-04, name: GGX微小面法線分布 }
+  - { id: WGL12-DEF-05, name: metallic–roughnessによる簡易微小面BRDF }
 theorems:
   - { id: WGL12-PROP-01, name: Schlick近似の範囲と角度単調性 }
   - { id: WGL12-PROP-02, name: GGXの射影面積正規化 }
