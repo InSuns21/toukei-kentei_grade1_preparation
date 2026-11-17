@@ -53,6 +53,21 @@ class CappedExecutionTests(unittest.TestCase):
         self.assertEqual(r["fills"], [20, 30, 50])
         self.assertAlmostEqual(r["terminal"], 0)
 
+    def test_zero_capacity_projection_and_execution(self):
+        # A zero-capacity interval is pinned at zero even when y_i-tau>0.
+        p = project_capped_simplex([90, 10], [0, 100], 100)
+        self.assertEqual(p, [0, 100])
+        p = project_capped_simplex([10, 90, 0], [0, 80, 60], 100)
+        self.assertAlmostEqual(p[0], 0)
+        self.assertAlmostEqual(p[1] + p[2], 100)
+        self.assertTrue(0 <= p[1] <= 80 and 0 <= p[2] <= 60)
+        r = solve(quantity=100, hours=2, eta=[0.01, 0.01],
+                  caps=[0, 100], gamma=0.002, sigma=0.1, risk_aversion=1)
+        self.assertTrue(r["converged"])
+        self.assertAlmostEqual(r["fills"][0], 0)
+        self.assertAlmostEqual(r["fills"][1], 100)
+        self.assertAlmostEqual(r["terminal"], 0)
+
     def test_gradient_by_independent_center_difference(self):
         q = [30.0, 40.0, 30.0]
         eta = [0.01, 0.02, 0.03]
