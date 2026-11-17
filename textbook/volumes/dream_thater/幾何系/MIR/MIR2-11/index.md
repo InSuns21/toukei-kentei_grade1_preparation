@@ -302,7 +302,7 @@ j_*[\overline{\mathcal M}_{0,0}(X,d)]^{\mathrm{vir}}
 }
 $$
 
-> が成り立つ。従って [quinticの無標点種数0GW不変量](../MIR2-02/index.md#def-mir2-02-virtual-gw) $N_d$ は右辺を積分した値である。
+> が成り立つ。従って [quinticの無標点種数0GW不変量](../MIR2-03/index.md#def-mir2-03-unmarked-number) $N_d$ は右辺を積分した値である。
 <!-- formal-statement-end -->
 
 この定理は[零点模型の局所化サイクル](../../GW/GW1-20/index.md#def-gw1-20-section-virtual-cycle)を安定写像の完全障害理論と比較する**外部の仮想類比較**を含む。上で証明した束の階数計算だけからは出ない。適用されるのは種数0、滑らかな五次超曲面、$d\ge1$ のこの設定であり、高種数に同じ $E_d$ の局所自由性を勝手に拡張しない。
