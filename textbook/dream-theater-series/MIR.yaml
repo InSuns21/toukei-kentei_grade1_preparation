@@ -116,7 +116,7 @@ chapters:
     title: "トーラス局所化と固定グラフ"
   - id: MIR2-12
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-12
-    status: planned
+    status: completed
     title: "quinticミラー定理の正確な主張"
   - id: MIR2-13
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-13
