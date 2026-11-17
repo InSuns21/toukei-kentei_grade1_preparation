@@ -11,7 +11,9 @@ test('WGL15 CSS pixels use actual buffer size and lower-left origin',()=>{
   assert.deepEqual(cssToWGL15Pixel(300,200,rect,400,300),{x:200,y:149});
   assert.equal(cssToWGL15Pixel(500,350,rect,800,600),null);
   assert.equal(cssToWGL15Pixel(99,50,rect,800,600),null);
-  assert.deepEqual(ndcOfWGL15Pixel(400,299,800,600),[1/800,-1/600]);
+  const ndc=ndcOfWGL15Pixel(400,299,800,600);
+  assert.ok(Math.abs(ndc[0]-1/800)<1e-12);
+  assert.ok(Math.abs(ndc[1]+1/600)<1e-12);
   assert.throws(()=>ndcOfWGL15Pixel(800,0,800,600),RangeError);
 });
 test('WGL15 CPU ray selects nearest panel and preserves empty background',()=>{
