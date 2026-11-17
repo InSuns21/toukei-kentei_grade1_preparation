@@ -1,0 +1,17 @@
+chapter: WGL17
+terms:
+  - term: データテクスチャ
+    english: data texture
+    meaning: 画像の見た目ではなく格子上の物理値や整数をテクセル成分として保持・参照するテクスチャ。
+  - term: 正規化8ビット
+    english: unsigned normalized 8-bit
+    meaning: 整数0から255をサンプリング時に0から1の浮動小数点へ正規化する成分形式。
+  - term: 整数テクスチャ
+    english: integer texture
+    meaning: R8UIなど整数成分を保ち、usampler2Dなど整数サンプラで読むテクスチャ。
+  - term: 量子化誤差
+    english: quantization error
+    meaning: 連続値を有限段階の符号へ丸め復元した際に元の値と異なる差。
+  - term: 浮動小数点読戻し
+    english: floating-point framebuffer readback
+    meaning: 対応するfloatカラーアタッチメントからRGBA/FLOATで画素成分を取り出す操作。画面RGBA8の読戻しとは区別する。

@@ -752,10 +752,76 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL16 shader diagnostics and sandbox disposal: PASS');
 
+  // WGL17: eight GPU samples, three texture formats and float-buffer feature gate.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL17'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.R8UI")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const diagnostic17=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.match(diagnostic17.status,/独立画素検算に合格/,
+    'WGL17 R8 CPU/GPU 8-point verification failed: '+JSON.stringify(diagnostic17));
+  const initial17=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(initial17.rows.length,8);
+  assert.ok(initial17.rows.every(row=>row[4]==='OK'));
+  assert.equal(initial17.sandbox,'allow-scripts');
+  assert.match(initial17.log,/R8 \/ RED \/ UNSIGNED_BYTE/);
+  assert.match(initial17.log,/GL error: 0x0/);
+  const shot17=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl17-r8.png',Buffer.from(shot17.data,'base64'));
+  console.log('WGL17 R8 texture upload and 8 independent CPU/GPU sample matches: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace(\"const mode = 'r8';\", \"const mode = 'r8ui';\");})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト/)',22000);
+  const ui17=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>r.cells[2].textContent)})');
+  assert.match(ui17.status,/編集コードを実行しました/,'R8UI failed: '+JSON.stringify(ui17));
+  assert.match(ui17.log,/R8UI \/ RED_INTEGER \/ UNSIGNED_BYTE/);
+  assert.deepEqual(ui17.rows,initial17.rows.map(r=>r[2]));
+  console.log('WGL17 R8UI integer texture agrees with R8 normalized samples: PASS');
+
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace(\"const mode = 'r8';\", \"const mode = 'r32f';\");})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト/)',22000);
+  const float17=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>r.cells[2].textContent)})');
+  assert.match(float17.status,/編集コードを実行しました/,'R32F failed: '+JSON.stringify(float17));
+  assert.match(float17.log,/R32F \/ RED \/ FLOAT/);
+  assert.match(float17.log,/FLOAT_READBACK/);
+  // Edited sources are intentionally labeled "変更版: 参考" by the shared UI,
+  // so compare numerical column 4, not the unchanged-source status column 5.
+  // At x=0, R32F's blue channel may round to 128 rather than R8's 127.
+  const float17Diffs=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(r=>Number(r.cells[3].textContent))');
+  assert.equal(float17Diffs.length,8);
+  assert.ok(float17Diffs.every(x=>Number.isFinite(x)&&x<=2),
+    'R32F display differs from independent CPU oracle beyond ±2: '+JSON.stringify(float17));
+  const floatReadback=float17.log.match(/FLOAT_READBACK: RGBA32F\/FLOAT: max \|GPU-original\|=([0-9.eE+-]+)/);
+  if(floatReadback) assert.ok(Number(floatReadback[1])<1e-6,
+    'float framebuffer readback deviates from original values: '+floatReadback[1]);
+  else assert.match(float17.log,/FLOAT_READBACK:.*(?:unavailable|incomplete|failed|extension present)/i);
+  console.log('WGL17 R32F sampling/display passed; float FBO capability reported independently: PASS');
+
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('fragment-source');e.value=e.value.replace('1.0 - normalized','normalized');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const wrong17=await evalJS('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent');
+  assert.notEqual(wrong17,initial17.rows[0][2]);
+  console.log('WGL17 edited GLSL changes GPU pixels and exposes oracle disagreement: PASS');
+
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL17 shader failure diagnostics and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
   browser.kill('SIGKILL');
   await new Promise(ok=>server.close(ok));
-  await rm(profile,{recursive:true,force:true});
+  await rm(profile,{recursive:true,force:true,maxRetries:8,retryDelay:150});
 }

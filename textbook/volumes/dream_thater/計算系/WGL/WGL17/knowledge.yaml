@@ -1,0 +1,41 @@
+chapter: WGL17
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL16]
+concepts:
+  - id: graphics.data-grid-texture
+    name: 4×2物理値格子とデータテクスチャ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（4×2物理値格子とデータテクスチャ）"]
+    requires: [graphics.texture-uv-texel]
+  - id: graphics.data-screen-cell
+    name: 画素中心から格子添字への対応
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（画素中心から格子添字への対応）"]
+    requires: [graphics.data-grid-texture]
+  - id: graphics.data-unorm8
+    name: 8ビット正規化符号化と復元
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（8ビット正規化符号化と復元）"]
+    requires: [graphics.data-grid-texture]
+  - id: graphics.data-unorm-error
+    name: 最近接8ビット量子化の絶対誤差上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最近接8ビット量子化の絶対誤差上界）"]
+    requires: [graphics.data-unorm8]
+  - id: graphics.data-typed-formats
+    name: 本講義の3種類の数値テクスチャ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講義の3種類の数値テクスチャ）"]
+    requires: [graphics.data-unorm8, graphics.texture-filter]
+  - id: graphics.data-f32-bound
+    name: 区間内の単精度格納誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（区間内の単精度格納誤差）"]
+    requires: [graphics.data-typed-formats]
