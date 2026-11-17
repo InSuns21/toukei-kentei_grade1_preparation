@@ -640,7 +640,22 @@ Q_j^1
 \end{aligned}
 $$
 
-二行目は $\cos(A+B)-\cos(A-B)=-2\sin A\sin B$ と $\sin(\pi/2)=1$ から従う。直交する余弦・正弦の係数が $(1,\lambda)$ になり、ノルム倍率は $\sqrt{1+\lambda^2}>1$。[中心FTCSの不安定性定理の証明](#thm-fluid46-centered-instability)で求めた係数行列は $(A,B)$ の二乗和を各歩で $1+\lambda^2$ 倍するので、$n$ 歩のノルム倍率は $(1+\lambda^2)^{n/2}$。$h=L/N$、$\Delta t=\lambda h/a$ より $n=\lfloor T/\Delta t\rfloor$ は $N\to\infty$ で増加する。[安定性の定義](#def-fluid46-fourier)に必要な一様上界は存在しない。
+二行目は余弦の差の公式
+
+$$
+\cos(A+B)-\cos(A-B)=-2\sin A\sin B
+$$
+
+に $B=\pi/2$ を代入して得られる。直交する余弦・正弦の係数は一歩後に $(1,\lambda)$ となる。
+
+[中心FTCSの不安定性定理の証明](#thm-fluid46-centered-instability)で導いた係数行列は、二成分の二乗和を一歩ごとに $1+\lambda^2$ 倍する。従って $n$ 歩の格子ノルム倍率は
+
+$$
+\frac{\|Q^n\|_{2,h}}{\|Q^0\|_{2,h}}
+=(1+\lambda^2)^{n/2}.
+$$
+
+$h=L/N$、$\Delta t=\lambda h/a$ なので、$n=\lfloor T/\Delta t\rfloor$ は $N\to\infty$ で増加する。この倍率は上界を持たず、[安定性の定義](#def-fluid46-fourier)を満たさない。
 <!-- solution-end -->
 
 #### B2. 時間だけ細かくするとどうなるか
