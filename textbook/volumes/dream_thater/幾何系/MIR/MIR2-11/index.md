@@ -63,6 +63,25 @@ $$
 
 この線形化を選んだことが重要である。通常の第一Chern類 $c_1(\mathcal O(1))$ は同じでも、等変リフトの繊維重みは線形化によって変わり得る。
 
+射影直線は二つの一次元表現の射影化である。その等変コホモロジーの環を求めるため、一般の**等変射影束公式**をここだけ外部入力として使う。記号の符号を固定したうえで、次の形になる。
+
+<a id="thm-mir2-11-projective-bundle"></a>
+
+<!-- formal-statement-start -->
+> **定理（射影直線の等変射影束公式：外部入力）**
+>
+> $T=\mathbb C^\times$ の一次元表現 $\mathbb C_{\lambda}$ と自明表現 $\mathbb C_0$ の直和 $V$ を考える。$\mathbb P(V)\cong\mathbb P^1$ に誘導される作用と、tautological 線束の双対 $\mathcal O(1)$ の第一等変Chern類 $H$ について
+
+$
+H_T^*(\mathbb P(V);\mathbb Q)
+\cong\frac{\mathbb Q[\lambda,H]}{(H(H+\lambda))}
+$
+
+> が成り立ち、$1,H$ が $\mathbb Q[\lambda]$ 加群の基底となる。
+<!-- formal-statement-end -->
+
+この関係式の符号は、$H$ の固定点での値が $0,-\lambda$ であることとも一致する。等変射影束公式そのものの一般証明は、この一講の局所化計算とは分けて扱う。
+
 <a id="prop-mir2-11-p1-integration"></a>
 
 <!-- formal-statement-start -->
@@ -86,25 +105,6 @@ $$
 
 > であり、とくに $\int^T1=0$、$\int^T H=1$、$\int^T H^2=-\lambda$ となる。
 <!-- formal-statement-end -->
-
-射影直線は二つの一次元表現の射影化である。その等変コホモロジーの環を求めるため、一般の**等変射影束公式**をここだけ外部入力として使う。記号の符号を固定したうえで、次の形になる。
-
-<a id="thm-mir2-11-projective-bundle"></a>
-
-<!-- formal-statement-start -->
-> **定理（射影直線の等変射影束公式：外部入力）**
->
-> $T=\mathbb C^\times$ の一次元表現 $\mathbb C_{\lambda}$ と自明表現 $\mathbb C_0$ の直和 $V$ を考える。$\mathbb P(V)\cong\mathbb P^1$ に誘導される作用と、tautological 線束の双対 $\mathcal O(1)$ の第一等変Chern類 $H$ について
-
-$
-H_T^*(\mathbb P(V);\mathbb Q)
-\cong\frac{\mathbb Q[\lambda,H]}{(H(H+\lambda))}
-$
-
-> が成り立ち、$1,H$ が $\mathbb Q[\lambda]$ 加群の基底となる。
-<!-- formal-statement-end -->
-
-この関係式の符号は、$H$ の固定点での値が $0,-\lambda$ であることとも一致する。等変射影束公式そのものの一般証明は、この一講の局所化計算とは分けて扱う。
 
 **証明の見取り図。** [射影直線の等変射影束公式](#thm-mir2-11-projective-bundle)から $H(H+\lambda)=0$ を得て、多項式を $A(\lambda)+B(\lambda)H$ へ簡約する。積分すると定数項は次数が足りず零、$H$ の積分は1。固定点側の差商も同じ $B$ になる。
 
@@ -414,7 +414,7 @@ $$
 ### 何を外部入力にして、何を計算できたか
 
 - **本文内で確認したこと：** 射影直線の固定点計算、$\mathbb P^4$ の接重み、次数 $d$ の辺の $\mu_d$、$E_d$ の階数と $H^1$ 消滅、仮想次元との一致、局所化公式の適用対象の切り分け。
-- **明示的な外部定理：** ABBVの一般公式、quintic仮想類のEuler類への押し出し、Graber–Pandharipande仮想局所化の一般証明、およびグラフ上の全ての法束寄与を整理するための理論。
+- **明示的な外部定理：** [ABBV等変局所化](#thm-mir2-11-abbv)、[等変射影束公式](#thm-mir2-11-projective-bundle)、[quintic仮想類のEuler類比較](#thm-mir2-11-quintic-euler)、[Graber–Pandharipande仮想局所化](#thm-mir2-11-virtual-localization)、およびグラフ上の全法束寄与を整理する理論。
 - **次講で必要なこと：** [I関数](../MIR2-10/index.md#def-mir2-10-i-function)を [J関数](../MIR2-09/index.md#def-mir2-09-j-function)へ結び付けるミラー定理は、この固定グラフ表示を述べただけでは従わない。対称性・母関数の特徴付けと座標変換を含む数学的定理を別途必要とする。
 
 参考：Graber–Pandharipande, [Localization of virtual classes](https://arxiv.org/abs/alg-geom/9708001)（仮想局所化の原論文）。本節の外部入力の範囲は同定理と、種数0の凸な射影標的上の五次超曲面Euler類の比較に限定した。
