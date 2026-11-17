@@ -120,7 +120,7 @@ chapters:
     title: "quinticミラー定理の正確な主張"
   - id: MIR2-13
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-13
-    status: planned
+    status: completed
     title: "鏡像座標でのYukawa級数"
   - id: MIR2-14
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-14
