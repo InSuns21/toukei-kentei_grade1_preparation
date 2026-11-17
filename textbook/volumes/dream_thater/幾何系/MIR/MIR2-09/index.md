@@ -26,7 +26,7 @@ $$
 
 $M_{k,\beta}$ 上の**普遍曲線**は、各安定写像にその定義域曲線を対応させる族である。これを $\pi:\mathcal C\to M_{k,\beta}$ と書き、第 $i$ 標点を選ぶ切断を $s_i:M_{k,\beta}\to\mathcal C$ とする。自己同型を持つ写像もスタックとして扱う。
 
-節点で正則な微分形式を扱うには、通常の相対余接束に代えて**相対双対化層** $\omega_\pi$ を用いる。標点は節点ではないので、$s_i^*\omega_\pi$ の繊維は $T^*_{p_i}C$ となる。
+節点を持つ曲線の微分も整合的に扱うため、通常の相対余接束に代えて**相対双対化層** $\omega_\pi$ を用いる。節点を局所座標 $u,v$ で $uv=0$ と書くと、二つの枝での $du/u$ と $-dv/v$ のように、各枝には高々単純極を許し、留数が打ち消し合う微分を扱う。従って「節点でも通常の正則1形式である」という意味ではない。一方、各標点切断 $s_i$ は節点を通らないため、$s_i^*\omega_\pi$ の繊維は通常の余接空間 $T^*_{p_i}C$ に一致する。
 
 <a id="def-mir2-09-psi-class"></a>
 
@@ -90,7 +90,7 @@ $$
 
 ## 3. descendantと挿入次数
 
-[一次GW不変量](../MIR2-02/index.md#def-mir2-02-virtual-gw)では評価類 $\operatorname{ev}_i^*\alpha_i$ を掛けた。**子孫挿入**はこれに同じ標点での $\psi_i^{a_i}$ を掛ける操作である。$a_i=0$ なら通常の一次挿入に戻る。
+[一次GW不変量](../MIR2-02/index.md#def-mir2-02-virtual-gw)では評価類 $\operatorname{ev}_i^*\alpha_i$ を掛けた。**子孫挿入**はこれに同じ標点での $\psi_i^{a_i}$ を掛ける操作であり、$\tau_a(\alpha)$ はその標点に $\psi^a\operatorname{ev}^*\alpha$ を挿入するという記法である。$a=0$ なら通常の一次挿入に戻る。
 
 <a id="def-mir2-09-descendant"></a>
 
@@ -114,7 +114,7 @@ $$
 
 <!-- definition-example-start: def-mir2-09-descendant -->
 
-**定義の確認**（次数0・四標点）。 $X$ をquintic、$H=c_1(\mathcal O_X(1))$ とする。定数四標点では $M_{4,0}\simeq X\times\overline{\mathcal M}_{0,4}$、評価写像はすべて第一射影、$\psi_1$ は第二射影から来る。写像方向の $H^1(C,f^*TX)$ は零で仮想類は通常の基本類になる。[三重交叉数](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)と[四標点の $\psi$ 積分](#prop-mir2-09-four-point-psi)から
+**定義の確認**（次数0・四標点）。 $X$ をquintic、$H=c_1(\mathcal O_X(1))$ とする。[次数0モジュライの積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)により、定数四標点では $M_{4,0}\simeq X\times\overline{\mathcal M}_{0,4}$。評価写像はすべて第一射影、$\psi_1$ は第二射影から来る。定数写像 $f:C\to\{x\}\subset X$ では $f^*TX\simeq\mathcal O_C\otimes T_xX$ である。連結な種数0節点曲線は $H^1(C,\mathcal O_C)=0$ なので $H^1(C,f^*TX)=H^1(C,\mathcal O_C)\otimes T_xX=0$。従って次数0の仮想類は通常の積基本類になる。[三重交叉数](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)と[四標点の $\psi$ 積分](#prop-mir2-09-four-point-psi)から
 
 $$
 \begin{aligned}
@@ -215,7 +215,7 @@ $$
 
 <!-- definition-example-start: def-mir2-09-j-function -->
 
-**定義の確認**（次数0の最初の項）。 $Q=0$ として正次数項を除く。$n=2$ だけを取ると $M_{3,0}\simeq X$、$\psi_3=0$、各評価写像は恒等なので
+**定義の確認**（次数0の最初の項）。 $Q=0$ として正次数項を除く。$n=2$ だけを取ると[次数0モジュライの積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)から $M_{3,0}\simeq X$、$\psi_3=0$、各評価写像は恒等なので
 
 $$
 \frac{1}{2!}(\operatorname{ev}_3)_*
@@ -276,7 +276,7 @@ $$
 
 ## 5. 四標点の計算から、指数関数が現れる
 
-次数0では $M_{n+1,0}\simeq X\times\overline{\mathcal M}_{0,n+1}$（$n\ge2$）。標的側の $\mathbf t^n$ と曲線側の $\psi_{n+1}^a$ は別因子に属する。後者が積分できるのは、$\overline{\mathcal M}_{0,n+1}$ の複素次元 $n-2$ に合わせて $a=n-2$ のときだけである。
+次数0では[次数0モジュライの積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)により $M_{n+1,0}\simeq X\times\overline{\mathcal M}_{0,n+1}$（$n\ge2$）。標的側の $\mathbf t^n$ と曲線側の $\psi_{n+1}^a$ は別因子に属する。後者が積分できるのは、$\overline{\mathcal M}_{0,n+1}$ の複素次元 $n-2$ に合わせて $a=n-2$ のときだけである。
 
 種数0の$\psi$交点数には、次の**外部の既知公式**がある（一般の忘却射と境界因子の関係を用いる定理であり、本講の四標点の吹上げ計算だけから全 $n$ を証明したわけではない）。
 
@@ -315,7 +315,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-安定な次数0・$n+1$ 標点のモジュライは積 $X\times\overline{\mathcal M}_{0,n+1}$ であり、写像方向の $H^1(C,f^*TX)$ が消えるので、仮想類は通常の積基本類である。各評価写像は $X$ への第一射影、$\psi_{n+1}$ は第二因子の類なので、順像は
+安定な次数0・$n+1$ 標点のモジュライは[次数0モジュライの積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)により $X\times\overline{\mathcal M}_{0,n+1}$ である。第3節の直接例と同じく $f^*TX\simeq\mathcal O_C\otimes T_xX$ かつ $H^1(C,\mathcal O_C)=0$ なので、仮想類は通常の積基本類になる。各評価写像は $X$ への第一射影、$\psi_{n+1}$ は第二因子の類なので、順像は
 
 $$
 (\operatorname{ev}_{n+1})_*
@@ -379,7 +379,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\psi_1^0$ を順像た類を $A_d$ とする。上の仮想次元の議論から $A_d=c_dH^2$ と書ける。順像の定義を $\gamma=H$ に適用すると
+$\psi_1^0$ を挿入して順像した類を $A_d$ とする。上の仮想次元の議論から $A_d=c_dH^2$ と書ける。順像の定義を $\gamma=H$ に適用すると
 
 $$
 \int_XH\smile A_d
@@ -530,7 +530,7 @@ $$
 <!-- solution-start -->
 **詳細解答**。次数0・五標点の仮想複素次元は5である。$A$ の挿入余次元は $\psi_1$ の1と $H^2$ 二個の各2で合計 $1+2+2=5$。$B$ は $\psi_1^2$ の2と $H^3$ の3で合計 $2+3=5$。いずれも必要次数に一致する。
 
-定数写像の積表示から、$A$ の標的側の積は $H^2\smile H^2=H^4$。$X$ は複素次元3なので $H^4=0$、従って $A=0$。一方 $B$ では標的側は $H^3$ で $\int_XH^3=5$。曲線側は第5節で外部入力と明記した種数0 $\psi$ 交点数公式を $n+1=5$ に適用して $\int_{\overline{\mathcal M}_{0,5}}\psi_1^2=1$。よって
+[次数0モジュライの積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)から、$A$ の標的側の積は $H^2\smile H^2=H^4$。$X$ は複素次元3なので $H^4=0$、従って $A=0$。一方 $B$ では標的側は $H^3$ で $\int_XH^3=5$。曲線側は第5節で外部入力と明記した種数0 $\psi$ 交点数公式を $n+1=5$ に適用して $\int_{\overline{\mathcal M}_{0,5}}\psi_1^2=1$。よって
 
 $$
 B=\left(\int_XH^3\right)
