@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 305" role="img" aria-labelledby="title desc">
+  <title id="title">収縮拡大ノズルと滑らかな設計流の Mach 数</title>
+  <desc id="desc">左の入口は亜音速で、中央の最小断面は Mach 1。右の拡大部では超音速になる設計状態。上下の壁を実線で示し、破線の断面と矢印で流れの方向を区別する。</desc>
+  <rect x="0" y="0" width="720" height="305" fill="#ffffff"/>
+  <path d="M 34 66 L 155 66 Q 230 66 302 119 Q 321 127 348 119 Q 428 70 522 66 L 680 66"
+        fill="none" stroke="#203b55" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 34 220 L 155 220 Q 230 220 302 167 Q 321 159 348 167 Q 428 216 522 220 L 680 220"
+        fill="none" stroke="#203b55" stroke-width="4" stroke-linecap="round"/>
+  <line x1="326" y1="111" x2="326" y2="175" stroke="#955323" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <line x1="80" y1="66" x2="80" y2="220" stroke="#64748b" stroke-width="2" stroke-dasharray="5 6"/>
+  <line x1="620" y1="66" x2="620" y2="220" stroke="#64748b" stroke-width="2" stroke-dasharray="5 6"/>
+  <path d="M 80 143 H 280" fill="none" stroke="#136e79" stroke-width="3"/>
+  <path d="M 270 136 L 282 143 L 270 150" fill="none" stroke="#136e79" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M 372 143 H 620" fill="none" stroke="#136e79" stroke-width="3"/>
+  <path d="M 608 136 L 622 143 L 608 150" fill="none" stroke="#136e79" stroke-width="3" stroke-linejoin="round"/>
+  <g fill="#172b40" font-family="Noto Sans CJK JP, sans-serif" font-size="18">
+    <text x="72" y="35">入口</text>
+    <text x="264" y="35">喉部（最小断面）</text>
+    <text x="560" y="35">出口</text>
+    <text x="54" y="260">亜音速  M &lt; 1</text>
+    <text x="276" y="260">M = 1</text>
+    <text x="474" y="260">超音速  M &gt; 1</text>
+  </g>
+  <g font-family="Noto Sans CJK JP, sans-serif" font-size="15" fill="#334155">
+    <text x="165" y="291">収縮（加速）</text>
+    <text x="447" y="291">拡大（加速）</text>
+  </g>
+</svg>

@@ -1,0 +1,41 @@
+id: "FLUID42"
+title: "ノズルで音速に達する条件は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID41
+official_scope: []
+learning_objectives:
+  - "準一次元・定常・断熱可逆・非粘性理想気体の仮定と断面平均量の意味を確認し、質量流量と停滞エンタルピーの保存を示す"
+  - "運動量・等エントロピー関係から面積–速度式 (M²-1)dv/v=dA/A を導き、音速点での極限と喉部条件を説明する"
+  - "全温・全圧と静温・静圧の関係、面積–Mach関係を導き、亜音速・超音速の分枝選択を説明する"
+  - "臨界圧力比と最大質量流量を導き、収縮ノズルと収縮拡大ノズルの背圧条件を区別する"
+  - "ブラウザPythonで両Mach分枝と静圧を計算し、面積・質量・エネルギーの残差と成立範囲を検証する"
+definitions:
+  - { id: FLUID42-DEF-01, name: "準一次元定常ノズル流とMach数" }
+  - { id: FLUID42-DEF-02, name: "停滞状態と全温・全圧" }
+  - { id: FLUID42-DEF-03, name: "臨界断面とチョーク流" }
+theorems:
+  - { id: FLUID42-THM-01, name: "準一次元ノズルの面積–速度関係" }
+  - { id: FLUID42-THM-02, name: "面積–Mach関係と二分枝" }
+  - { id: FLUID42-THM-03, name: "固定停滞状態での臨界質量流量" }
+  - { id: FLUID42-PROP-01, name: "収縮ノズルの理想チョーク圧力条件" }
+canonical_examples:
+  - "喉部前後で亜音速・超音速の面積変化に対する加速方向を判定"
+  - "比熱比1.4でM=2の面積比1.6875と静圧比を独立に計算"
+  - "空気に近い定数で臨界圧力比0.5283と臨界質量流量を計算"
+  - "ブラウザPythonで面積–Machの二分枝を二分法で解いて質量・エネルギー残差を監査"
+problem_patterns:
+  - FLUID42-AREA-VELOCITY-SIGNS
+  - FLUID42-STAGNATION-STATIC
+  - FLUID42-SONIC-THROAT-LIMIT
+  - FLUID42-AREA-MACH-BRANCH
+  - FLUID42-CRITICAL-PRESSURE
+  - FLUID42-MASS-FLUX-MAX
+  - FLUID42-CHOKING-SCOPE
+  - FLUID42-BRANCH-RESIDUAL
+  - FLUID42-INTEGRATED-NOZZLE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }

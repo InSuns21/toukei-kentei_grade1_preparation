@@ -1,0 +1,50 @@
+chapter: FLUID42
+scope: dream-theater
+coverage: complete
+forward_references:
+  - nonlinear-pde.shock-wave
+prerequisites:
+  - FLUID41
+concepts:
+  - id: fluid.quasi-one-dimensional-nozzle
+    name: 準一次元定常ノズル流とMach数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（準一次元定常ノズル流とMach数）"]
+    requires: [fluid.compressible-euler, fluid.isentropic-sound-speed]
+  - id: fluid.nozzle-area-velocity
+    name: 準一次元ノズルの面積–速度関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（準一次元ノズルの面積–速度関係）"]
+    requires: [fluid.quasi-one-dimensional-nozzle, fluid.isentropic-relation]
+  - id: fluid.stagnation-state
+    name: 停滞状態と全温・全圧
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（停滞状態と全温・全圧）"]
+    requires: [fluid.ideal-gas-closure, fluid.quasi-one-dimensional-nozzle]
+  - id: fluid.nozzle-area-mach
+    name: 面積–Mach関係と二分枝
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（面積–Mach関係と二分枝）"]
+    requires: [fluid.nozzle-area-velocity, fluid.stagnation-state]
+  - id: fluid.nozzle-critical-state
+    name: 臨界断面とチョーク流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（臨界断面とチョーク流）"]
+    requires: [fluid.nozzle-area-mach]
+  - id: fluid.nozzle-critical-mass-flux
+    name: 固定停滞状態での臨界質量流量
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定停滞状態での臨界質量流量）"]
+    requires: [fluid.nozzle-critical-state, fluid.stagnation-state]
+  - id: fluid.nozzle-backpressure
+    name: 収縮ノズルの理想チョーク圧力条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（収縮ノズルの理想チョーク圧力条件）"]
+    requires: [fluid.nozzle-critical-mass-flux]
