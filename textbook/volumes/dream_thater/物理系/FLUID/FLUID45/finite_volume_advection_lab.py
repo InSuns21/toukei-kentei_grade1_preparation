@@ -80,6 +80,8 @@ def compute(grid=40, speed=1.0, cfl=0.8, final_time=0.4,
     dx = 1.0 / grid
     # All steps, including the last one, use the same dt and never exceed CFL.
     steps = math.ceil(final_time / (cfl * dx / speed))
+    if steps > 480:
+        raise ValueError("too many time steps; choose a shorter time or larger cfl")
     dt = final_time / steps
     lam = speed * dt / dx
     values = _initial_values(grid, case, base, amplitude)
