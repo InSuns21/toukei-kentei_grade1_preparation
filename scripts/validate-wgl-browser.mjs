@@ -450,7 +450,7 @@ try{
   await waitFor('document.getElementById("status")?.textContent==="実行できます"');
   assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.DEPTH_COMPONENT24")'));
   await click('run');
-  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|WebGL2実行エラー|編集コードを実行しました|実行エラー/)',22000);
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|編集コードを実行しました|タイムアウト/)',22000);
   const diagnostic11=await evalJS('({status:document.getElementById("status").textContent,diagnostics:document.getElementById("diagnostics").textContent})');
   assert.match(diagnostic11.status,/独立画素検算に合格/,
     'WGL11 GPU error: '+JSON.stringify(diagnostic11));
