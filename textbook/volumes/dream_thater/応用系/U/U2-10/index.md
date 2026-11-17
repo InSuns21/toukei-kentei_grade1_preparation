@@ -34,20 +34,20 @@ $$
 
 この定義の $S_t$ が予測残差の共分散になる理由も、行列の積から確認します。観測前の履歴を固定すると、平均0と条件付き独立性から交差項 $E[e_t^-\varepsilon_t^T\mid D_{t-1}]$ と $E[\varepsilon_t(e_t^-)^T\mid D_{t-1}]$ はともに0です。したがって
 
-$
+$$
 \begin{aligned}
 E[V_tV_t^T\mid D_{t-1}]
 &=H_tE[e_t^-(e_t^-)^T\mid D_{t-1}]H_t^T
   +E[\varepsilon_t\varepsilon_t^T\mid D_{t-1}]\\
 &=H_tP_t^-H_t^T+R_t=S_t.
 \end{aligned}
-$
+$$
 
 さらに任意の非零 $a\in\mathbb R^k$ について
 
-$
+$$
 a^TS_ta=(H_t^Ta)^TP_t^-(H_t^Ta)+a^TR_ta>0
-$
+$$
 
 です。第1項は $P_t^-\succeq0$ により非負、第2項は $R_t\succ0$ により正です。これが **$S_t$ の正定値性**を、行列を眺めるだけでなく定義の二次形式から確認できる根拠です。
 
@@ -83,9 +83,9 @@ $$
 
 二成分の正定値判定では、[既習の二次形式による2×2判定](../U2-05/index.md#remark-u2-05-positive-definite-2x2)を使えます。具体的に実対称行列 $S=\left(\begin{smallmatrix}a&b\\b&c\end{smallmatrix}\right)$ の場合、$a>0$ の下で任意の実ベクトル $u=(u_1,u_2)^T$ に対し
 
-$
+$$
 u^TSu=a\left(u_1+\frac ba u_2\right)^2+\frac{ac-b^2}{a}u_2^2.
-$
+$$
 
 従って **$a>0$ かつ $\det S=ac-b^2>0$** は、全ての $u\ne0$ に対する $u^TSu>0$ と同値です。以下の行列式の計算はこの条件を検査しているのであり、行列式だけを根拠に正定値と断定しているわけではありません。
 
@@ -198,10 +198,10 @@ $$
 
 標準正規の二次モーメントは $E[W_i^2]=1$ です。四次モーメントも密度 $\phi$ の $\phi'(w)=-w\phi(w)$ を使い、境界項 $w^3\phi(w)\to0$（$|w|\to\infty$）を確認して部分積分すると
 
-$
+$$
 E[W_i^4]=-\int_{-\infty}^{\infty}w^3\phi'(w)\,dw
 =3\int_{-\infty}^{\infty}w^2\phi(w)\,dw=3.
-$
+$$
 
 よって $\operatorname{Var}(W_i^2)=E[W_i^4]-E[W_i^2]^2=3-1=2$ です。独立性により交差共分散が0となるので、$E[Q_t]=k$、$\operatorname{Var}(Q_t)=2k$ を得ます。
 
