@@ -31,8 +31,8 @@ concepts:
     introduction_aliases: ["定理（離散的な総量保存と境界収支）"]
     requires: [fluid.finite-volume-face-flux]
   - id: fluid.finite-volume-upwind-positivity
-    name: 一次風上更新と凸結合
+    name: 一次風上更新と非負の重み付き平均
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（一次風上更新と凸結合）"]
+    introduction_aliases: ["命題（一次風上更新と非負の重み付き平均）"]
     requires: [fluid.finite-volume-face-flux, fluid.finite-volume-global-conservation]
