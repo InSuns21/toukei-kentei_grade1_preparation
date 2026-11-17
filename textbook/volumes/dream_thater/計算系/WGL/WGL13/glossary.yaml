@@ -1,0 +1,23 @@
+chapter: WGL13
+terms:
+  - term: 環境マップ
+    english: environment map
+    meaning: 観察点の周囲から来る光や風景を方向で参照する画像。
+  - term: 6面環境マップ
+    english: cube map / cubemap
+    meaning: 立方体の各面に対応した6枚の正方形画像を方向ベクトルで選ぶテクスチャ。
+  - term: 主軸
+    english: major axis
+    meaning: 方向ベクトルの成分のうち絶対値が最大の軸。
+  - term: 面内座標
+    english: face-local coordinates
+    meaning: 選ばれた立方体面上の左右上下を表す正規化されたUV座標。
+  - term: 鏡面反射ベクトル
+    english: reflection vector
+    meaning: 入射方向の法線に平行な成分だけ符号を反転させた出射方向。
+  - term: 継ぎ目
+    english: cube-map seam
+    meaning: 隣接する面の色・方向対応・フィルタリングが連続しないとき境界に現れる差。
+  - term: 環境照明
+    english: image-based lighting (IBL)
+    meaning: 周囲の環境画像から入射光を評価する方法。本章の単一方向サンプルは粗面の環境照明積分そのものではない。

@@ -1,0 +1,34 @@
+id: WGL13
+title: 周囲の風景を反射へ使うには？
+volume: foundations
+status: supplementary
+prerequisites: [WGL12]
+official_scope: []
+learning_objectives:
+  - 6面cubemapの軸と左右上下を方向ベクトルから定めてテクセルを手計算できる
+  - 主軸により面が決まる場合の面座標式とUV範囲を説明・証明できる
+  - 単位法線と入射方向から鏡面反射ベクトルを導出し長さ保存を証明できる
+  - Y軸回転した環境参照と材質のFresnel係数を区別して結果を予測できる
+  - 不連続な6面画像とNEARESTサンプリングの継ぎ目・向きの誤りを検出できる
+  - WebGL2の6面RGBA8 cubemapをJS/GLSLで編集し12画素のCPU/GPU照合を実行できる
+definitions:
+  - { id: WGL13-DEF-01, name: 6面環境マップ }
+  - { id: WGL13-DEF-02, name: cubemapの面選択と面内座標 }
+  - { id: WGL13-DEF-03, name: 鏡面反射ベクトル }
+  - { id: WGL13-DEF-04, name: 環境参照方向のY軸回転 }
+theorems:
+  - { id: WGL13-PROP-01, name: 主軸面写像の座標範囲 }
+  - { id: WGL13-PROP-02, name: 鏡面反射の長さと法線成分 }
+  - { id: WGL13-PROP-03, name: 異なる面の定数境界では継ぎ目が生じ得る }
+canonical_examples:
+  - (+X,-X,+Y,-Y,+Z,-Z)の軸方向が各面中心になる
+  - (1,0.5,0.5)で+X面左下を選び2x2 texelを求める
+  - 入射I=(0,0,-1)を法線N=(0,0,1)で反射して+Zを得る
+  - 入射I=(0,0,-1)を法線N=(sqrt(3)/2,0,1/2)で反射して+X側へ向ける
+  - 境界を挟む(1+eps,0,1)と(1,0,1+eps)で面の色が飛ぶ理由を示す
+  - GPUの6軸+6斜めの12画素をCPU参照色とRGBA各成分1階調以内で照合する
+problem_patterns: [WGL13-FACE, WGL13-UV, WGL13-REFLECTION, WGL13-ROTATION, WGL13-NEAREST, WGL13-SEAM, WGL13-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

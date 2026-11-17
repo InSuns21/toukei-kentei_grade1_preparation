@@ -13,3 +13,4 @@
 10. [WGL10 一回描いた結果を次に使うには？](textbook/volumes/dream_thater/計算系/WGL/WGL10/index.md)
 11. [WGL11 光が遮られる場所をどう判定する？](textbook/volumes/dream_thater/計算系/WGL/WGL11/index.md)
 12. [WGL12 金属と粗面の光はどう近似する？](textbook/volumes/dream_thater/計算系/WGL/WGL12/index.md)
+13. [WGL13 周囲の風景を反射へ使うには？](textbook/volumes/dream_thater/計算系/WGL/WGL13/index.md)

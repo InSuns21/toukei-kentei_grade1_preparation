@@ -1,0 +1,47 @@
+chapter: WGL13
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL12]
+concepts:
+  - id: graphics.environment-cubemap
+    name: 6面環境マップ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（6面環境マップ）"]
+    requires: [graphics.texture-filter, graphics.brdf]
+  - id: graphics.cubemap-face-uv
+    name: cubemapの面選択と面内座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（cubemapの面選択と面内座標）"]
+    requires: [graphics.environment-cubemap, graphics.texture-uv-texel]
+  - id: graphics.cubemap-major-axis-range
+    name: 主軸面写像の座標範囲
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（主軸面写像の座標範囲）"]
+    requires: [graphics.cubemap-face-uv]
+  - id: graphics.mirror-reflection-vector
+    name: 鏡面反射ベクトル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（鏡面反射ベクトル）"]
+    requires: [graphics.cubemap-face-uv, graphics.blinn-phong]
+  - id: graphics.mirror-reflection-involution
+    name: 鏡面反射の長さと法線成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（鏡面反射の長さと法線成分）"]
+    requires: [graphics.mirror-reflection-vector]
+  - id: graphics.environment-yaw
+    name: 環境参照方向のY軸回転
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（環境参照方向のY軸回転）"]
+    requires: [graphics.mirror-reflection-vector]
+  - id: graphics.cubemap-seam
+    name: 異なる面の定数境界では継ぎ目が生じ得る
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（異なる面の定数境界では継ぎ目が生じ得る）"]
+    requires: [graphics.cubemap-face-uv, graphics.texture-filter]
