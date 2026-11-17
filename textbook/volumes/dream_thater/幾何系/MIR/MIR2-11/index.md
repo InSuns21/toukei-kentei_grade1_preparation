@@ -24,10 +24,10 @@ $$
 > と定める。点に対して $H_T^*(\mathrm{pt};\mathbb Q)=H^*(BT;\mathbb Q)=\mathbb Q[\lambda]$、$\deg_{\mathbb R}\lambda=2$ である。一次元表現 $t\cdot v=t^m v$ の第一等変Chern類（重み）は $m\lambda$ と約束する。一般のトーラス $T=(\mathbb C^\times)^r$ では、各座標の重みを $\lambda_1,\ldots,\lambda_r$ と書く。
 <!-- formal-statement-end -->
 
-**定義の確認。** $M=\mathrm{pt}$ では $(ET\times\mathrm{pt})/T=BT$ だから、定義から $\mathbb Q[\lambda]$ が出る。$t\cdot v=t^2v$ は二乗表現なので重みは $2\lambda$、反対の表現 $t^{-1}v$ では $-\lambda$ になる。「点は動かない」ことと、「点上のベクトル（接方向・束の繊維）がどの重みで動くか」を区別する。
+**定義の確認**。 $M=\mathrm{pt}$ では $(ET\times\mathrm{pt})/T=BT$ だから、定義から $\mathbb Q[\lambda]$ が出る。$t\cdot v=t^2v$ は二乗表現なので重みは $2\lambda$、反対の表現 $t^{-1}v$ では $-\lambda$ になる。「点は動かない」ことと、「点上のベクトル（接方向・束の繊維）がどの重みで動くか」を区別する。
 
 <!-- definition-example-start: def-mir2-11-equivariant -->
-**直接例。** 射影直線 $\mathbb P^1$ の斉次座標を $[x:y]$ とし、
+**定義の確認**（直接例）。射影直線 $\mathbb P^1$ の斉次座標を $[x:y]$ とし、
 
 $$
 t\cdot[x:y]=[tx:y]
@@ -72,10 +72,10 @@ $$
 >
 > $T=\mathbb C^\times$ の一次元表現 $\mathbb C_{\lambda}$ と自明表現 $\mathbb C_0$ の直和 $V$ を考える。$\mathbb P(V)\cong\mathbb P^1$ に誘導される作用と、tautological 線束の双対 $\mathcal O(1)$ の第一等変Chern類 $H$ について
 
-$
+$$
 H_T^*(\mathbb P(V);\mathbb Q)
 \cong\frac{\mathbb Q[\lambda,H]}{(H(H+\lambda))}
-$
+$$
 
 > が成り立ち、$1,H$ が $\mathbb Q[\lambda]$ 加群の基底となる。
 <!-- formal-statement-end -->
@@ -180,7 +180,7 @@ $p_i$ のアフィン近傍で $z_j=x_j/x_i$（$j\ne i$）は独立な四座標�
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir2-11-fixed-graph -->
-**定義の確認。** 一辺だけが $p_0$ と $p_1$ を結び、次数 $d_e=2$、標点がない場合、頂点のラベルは異なり、次数和は2、グラフは木である。対応する非定数写像の代表は
+**定義の確認**。 一辺だけが $p_0$ と $p_1$ を結び、次数 $d_e=2$、標点がない場合、頂点のラベルは異なり、次数和は2、グラフは木である。対応する非定数写像の代表は
 
 $$
 f([u:v])=[u^2:v^2:0:0:0].
@@ -238,7 +238,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir2-11-quintic-bundle -->
-**定義の確認。** $d=1$ なら $f^*\mathcal O(5)\cong\mathcal O_{\mathbb P^1}(5)$ で切断空間の基底は $u^5,u^4v,\ldots,v^5$ の6個、従って $\operatorname{rank}E_1=6$。$d=2$ なら $\mathcal O(10)$ の切断は11個で $\operatorname{rank}E_2=11$。二成分で次数が1と2なら各成分の $h^0$ は6と11、節点の一致条件を一つ引いて16となり、次数3の $5\cdot3+1$ と一致する。
+**定義の確認**。 $d=1$ なら $f^*\mathcal O(5)\cong\mathcal O_{\mathbb P^1}(5)$ で切断空間の基底は $u^5,u^4v,\ldots,v^5$ の6個、従って $\operatorname{rank}E_1=6$。$d=2$ なら $\mathcal O(10)$ の切断は11個で $\operatorname{rank}E_2=11$。二成分で次数が1と2なら各成分の $h^0$ は6と11、節点の一致条件を一つ引いて16となり、次数3の $5\cdot3+1$ と一致する。
 <!-- definition-example-end -->
 
 定義中の「束になる」「階数はいくつか」は、種数0が決定的に効くので確認しておく。
@@ -540,9 +540,9 @@ $$
 <!-- solution-start -->
 **詳細解答。** 標的作用で $w$ が重み $\lambda_j-\lambda_i$ を持つ。$w=z^2$ を保つため、有限被覆上での定義域作用は
 
-$
+$$
 z\longmapsto t^{(\lambda_j-\lambda_i)/2}z
-$
+$$
 
 と書ける。従って $z$ の接重みは $(\lambda_j-\lambda_i)/2$。反対端の局所座標は $z^{-1}$ だから、重みは $(\lambda_i-\lambda_j)/2$ である。
 
