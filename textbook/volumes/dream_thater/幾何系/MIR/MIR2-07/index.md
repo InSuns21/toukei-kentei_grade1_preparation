@@ -534,7 +534,7 @@ K_B=\frac{C_{zzz}}{\omega_0^2}\left(\frac{z}{1+zh'}\right)^3
 \left(\frac{2\pi iz}{1+zh'}\right)^3.
 $$
 
-**(2) 正則化と二次展開。** $\kappa=5$ を代入すると $z^{-3}$ がJacobainの $z^3$ と消え、$K_B=5[(1-3125z)\omega_0^2(1+zh')^3]^{-1}$。$\omega_0^{-2}=1-240z-183600z^2+\cdots$、$(1+zh')^{-3}=1-2310z-749550z^2+\cdots$、$(1-3125z)^{-1}=1+3125z+9765625z^2+\cdots$ である。前二因子（判別式と周期）を掛けて $1+2885z+8832025z^2+\cdots$、最後を掛けて $1+575z+1418125z^2+\cdots$。従って $K_B(q_B(z))=5+2875z+7090625z^2+\cdots$。[逆ミラー級数](../MIR1-15/index.md#thm-mir1-15-inverse-coefficients) $z=q_B-770q_B^2+\cdots$ を代入すると $K_B=5+2875q_B+(7090625-2875\cdot770)q_B^2+\cdots=5+2875q_B+4876875q_B^2+\cdots$。
+**(2) 正則化と二次展開。** $\kappa=5$ を代入すると $z^{-3}$ がJacobianの $z^3$ と消え、$K_B=5[(1-3125z)\omega_0^2(1+zh')^3]^{-1}$。$\omega_0^{-2}=1-240z-183600z^2+\cdots$、$(1+zh')^{-3}=1-2310z-749550z^2+\cdots$、$(1-3125z)^{-1}=1+3125z+9765625z^2+\cdots$ である。前二因子（判別式と周期）を掛けて $1+2885z+8832025z^2+\cdots$、最後を掛けて $1+575z+1418125z^2+\cdots$。従って $K_B(q_B(z))=5+2875z+7090625z^2+\cdots$。[逆ミラー級数](../MIR1-15/index.md#thm-mir1-15-inverse-coefficients) $z=q_B-770q_B^2+\cdots$ を代入すると $K_B=5+2875q_B+(7090625-2875\cdot770)q_B^2+\cdots=5+2875q_B+4876875q_B^2+\cdots$。
 
 **(3) 規格化の不変性。** $\widetilde\Omega=g\Omega$ なら周期の線形性から $\widetilde\omega_0=g\omega_0$ であり、[交叉の三次変換](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)から $\widetilde C=g^2C$。ゆえに $\widetilde C/\widetilde\omega_0^2=C/\omega_0^2$。座標微分は同じなので $K_B$ は不変。ただし $Q_{\!B}\mapsto cQ_{\!B}$ は周期を変えず、$K_B\mapsto cK_B$ となる。
 
