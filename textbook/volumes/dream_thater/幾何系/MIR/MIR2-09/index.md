@@ -374,7 +374,7 @@ $$
 
 ### 証明の見取り図
 
-一次の順像は $H^2$ の倍数と分かる。係数を決めるには $H$ とペアリングし、[因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)で一標点の積分を無標点の数に戻す。
+一次の順像は $H^2$ の倍数と分かる。係数を決めるには $H$ とペアリングし、[quinticの種数0一次因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)で一標点の積分を無標点の数に戻す。
 
 <!-- proof-start -->
 ### 証明
@@ -387,7 +387,7 @@ $$
 =\langle H\rangle_{0,d}^{X}.
 $$
 
-$d\ge1$ だから、[正次数の因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)を $k=0$ に適用でき、右辺は $dN_d^X$ である。一方、[古典的三重交叉](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)より
+$d\ge1$ だから、[quinticの種数0一次因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)を $k=0$ に適用でき、右辺は $dN_d^X$ である。一方、[古典的三重交叉](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)より
 
 $$
 \int_XH\smile A_d
@@ -503,7 +503,7 @@ $A=cH^2$ の $H$ とのペアリングは $\int_XH\smile cH^2=5c$。条件 $5c=7
 $d\ge1$ のquintic GW数を $N_d^X$ とする。$J_X(0,Q,w)$ の $Q^dw^{-1}$ 係数を導出せよ。次数0へ同じ式を適用してはいけない理由も示せ。
 
 <!-- solution-start -->
-**詳細解答**。$n=0$ の項は $\beta=d>0$ なら安定で、$w^{-1}$ 係数は $A_d=(\operatorname{ev}_1)_*[M_{1,d}]^{\mathrm{vir}}$。仮想複素次元1、標的複素次元3より $A_d=c_dH^2$。$H$ とペアリングして[正次数の因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)を用いると
+**詳細解答**。$n=0$ の項は $\beta=d>0$ なら安定で、$w^{-1}$ 係数は $A_d=(\operatorname{ev}_1)_*[M_{1,d}]^{\mathrm{vir}}$。仮想複素次元1、標的複素次元3より $A_d=c_dH^2$。$H$ とペアリングして[quinticの種数0一次因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)を用いると
 
 $$
 5c_d=\int_XH\smile A_d
@@ -576,7 +576,7 @@ $$
 =\frac{c_dH^2}{w}+\frac{e_dH^3}{w^2}
 $$
 
-である。$H$ とペアリングした $a=0$ の順像は[因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)により $dN_d^X$、$\int_XH^3=5$ だから $c_d=dN_d^X/5$。$e_d$ は一標点の $\psi$ 挿入に依存し、ここで使った因子公理だけからは数値を決めない。
+である。$H$ とペアリングした $a=0$ の順像は[quinticの種数0一次因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)により $dN_d^X$、$\int_XH^3=5$ だから $c_d=dN_d^X/5$。$e_d$ は一標点の $\psi$ 挿入に依存し、ここで使った因子公理だけからは数値を決めない。
 
 (3) (1) は**定数写像**の普遍的な部分、(2) は**未知のGW数を係数にした形の制約**しか与えていない。B側の超幾何級数、鏡像座標への変換、仮想類によるGW理論との比較という定理の入力がまだない。従って $J=I$ や $N_d^X$ の具体値、曲線の整数本数をこの計算から断言できない。
 <!-- solution-end -->
