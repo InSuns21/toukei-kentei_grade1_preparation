@@ -186,3 +186,6 @@ import './wgl12-lab.test.mjs';
 
 // WGL13: cube-map faces, reflection, seams and independent 12-pixel oracle.
 import './wgl13-lab.test.mjs';
+
+// WGL14: 3x3 convolution, boundary replication, positive Laplacian, Reinhard and 7 probes.
+import './wgl14-lab.test.mjs';
