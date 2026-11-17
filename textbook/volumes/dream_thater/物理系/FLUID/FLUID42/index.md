@@ -31,14 +31,37 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid42-quasi1d-mach -->
-**定義の確認**：$R=287$ J/(kg K)、$\gamma=1.4$、$T=300$ K、$\rho=1.2$ kg/m$^3$、$v=100$ m/s、$A=0.01$ m$^2$ とすると $c=\sqrt{1.4\cdot287\cdot300}\simeq347.19$ m/s、$M\simeq0.288<1$、$\dot m=1.2\cdot100\cdot0.01=1.2$ kg/s。$[\rho v A]=({\rm kg/m^3})({\rm m/s})({\rm m^2})={\rm kg/s}$ である。Mach数の判定では流速と**その場所の**音速を比較し、入口の音速を使い回さない。
+**定義の確認**：$R=287$ J/(kg K)、$\gamma=1.4$、$T=300$ K、$\rho=1.2$ kg/m$^3$、$v=100$ m/s、$A=0.01$ m$^2$ とする。断面の圧力と音速は[理想気体の閉鎖](../FLUID41/index.md#def-fluid41-ideal-gas)・[等エントロピー音速](../FLUID41/index.md#def-fluid41-sound-speed)から
+
+$$
+p=\rho RT=103320\ {\rm Pa}>0,\qquad
+c=\sqrt{1.4\cdot287\cdot300}\simeq347.19\ {\rm m/s}>0.
+$$
+
+すべての状態量・断面積・流速が正であり、$M=v/c\simeq0.288<1$、$\dot m=\rho vA=1.2\cdot100\cdot0.01=1.2$ kg/s。$[\rho v A]=({\rm kg/m^3})({\rm m/s})({\rm m^2})={\rm kg/s}$ である。Mach数の判定では流速と**その場所の**音速を比較し、入口の音速を使い回さない。
 <!-- definition-example-end -->
 
 ## 1. 面積を狭めると、いつ加速するか
 
-定常の[質量保存](../FLUID41/index.md#thm-fluid41-euler-conservative)を断面で積分すると、側壁を通る質量流出がないので、断面間で $\rho v A$ は一定となる。軸方向の非粘性運動量式は、[圧縮性Euler式](../FLUID41/index.md#thm-fluid41-euler-conservative)を流れに沿って書けば $v\,dv+dp/\rho=0$ になる。断面の圧力作用を無視したのではなく、壁の軸方向圧力成分を含めて準一次元化した式である。
+定常の[質量保存](../FLUID41/index.md#thm-fluid41-euler-conservative)を、側壁を通る質量流出のない短い管区間に適用すると、断面間で $\rho v A=\dot m$ は一定となる。一方、運動量を軸方向に数えるときは、断面の圧力だけでなく**傾いた側壁の圧力**も必要である。断面内と壁面の圧力を局所値 $p(x)$ で近似すると、側壁から流体への軸方向の圧力作用は単位長さ当たり $p(x)A'(x)$ となる（拡大部では正、収縮部では負）。[圧縮性Eulerの運動量保存](../FLUID41/index.md#thm-fluid41-euler-conservative)を微小区間へ積分した式は
 
-等エントロピーなら[FLUID41の等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic)から $dp=c^2\,d\rho$。この三式を結びつけると、音速の手前と後で加速方向が逆転する。
+$$
+\frac{d}{dx}\{(\rho v^2+p)A\}=p\frac{dA}{dx}.
+$$
+
+積の微分を展開し、質量保存から $d(\rho vA)/dx=0$ を用いると、
+
+$$
+\begin{aligned}
+\frac{d}{dx}(\rho v^2A)&=\dot m\frac{dv}{dx}=\rho vA\frac{dv}{dx},\\
+\frac{d}{dx}(pA)&=A\frac{dp}{dx}+p\frac{dA}{dx},\\
+\rho vA\frac{dv}{dx}+A\frac{dp}{dx}&=0.
+\end{aligned}
+$$
+
+$A,\rho>0$ で割れば $v\,dv/dx+(1/\rho)\,dp/dx=0$ を得る。これに等エントロピー状態変化の[FLUID41の関係](../FLUID41/index.md#prop-fluid41-isentropic) $dp/dx=c^2\,d\rho/dx$ を組み合わせる。
+
+ここで $dA,dv,d\rho,dp$ は**下流向き座標 $x$ に沿う全微分**であり、例えば $dA/A=(A'(x)/A(x))\,dx$、$dv/v=(v'(x)/v(x))\,dx$ と表す。以後の微分形で符号を比較するときは $dx>0$ とする。この三式を結びつけると、音速の手前と後で加速方向が逆転する。
 
 <a id="thm-fluid42-area-velocity"></a>
 
@@ -130,16 +153,36 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid42-stagnation -->
-**定義の確認**：$\gamma=1.4,R=287,T=300$ K、$M=0.5$ とする。$v^2=\gamma RTM^2$ だから
+**定義の確認**：$\gamma=1.4,R=287,T=300$ K、$M=0.5$、$\rho=1.2$ kg/m$^3$ とする。静圧は[理想気体の状態方程式](../FLUID41/index.md#def-fluid41-ideal-gas)から $p=\rho RT=103320\ {\rm Pa}>0$ である。$v^2=\gamma RTM^2$ と $c_p=\gamma R/(\gamma-1)$ より
 
 $$
 \frac{T_0}{T}
 =1+\frac{\gamma R}{2c_p}M^2
 =1+\frac{\gamma-1}{2}M^2
-=1.05.
+=1.05,
+\qquad T_0=315\ {\rm K}>0.
 $$
 
-よって $T_0=315$ K。等エントロピー比 $p_0/p=(T_0/T)^{\gamma/(\gamma-1)}=1.05^{3.5}>1$ も成り立つ。どちらも正の状態で、全温が静温より高いことと矛盾しない。
+次に、定義の等エントロピー条件を**圧力・密度の判定式**へ結びつける。同じ比エントロピーの二状態には[等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic) $p_0/\rho_0^\gamma=p/\rho^\gamma$ が成り立ち、両状態に $p/\rho=RT$ を適用すると
+
+$$
+\frac{T_0}{T}
+=\frac{p_0/\rho_0}{p/\rho}
+=\left(\frac{\rho_0}{\rho}\right)^{\gamma-1},
+\qquad
+\frac{p_0}{p}
+=\left(\frac{T_0}{T}\right)^{\gamma/(\gamma-1)}.
+$$
+
+したがって $p_0=103320\cdot1.05^{3.5}\simeq122559.49\ {\rm Pa}>0$、$\rho_0=p_0/(RT_0)\simeq1.35567\ {\rm kg/m^3}>0$ と求まる。これらを定義の条件へ戻すと、
+
+$$
+\frac{p_0/\rho_0^\gamma}{p/\rho^\gamma}
+=\frac{(T_0/T)^{\gamma/(\gamma-1)}}{[(T_0/T)^{1/(\gamma-1)}]^\gamma}
+=1.
+$$
+
+エネルギー条件と等エントロピー条件を別々に確かめたので、これは単に全温が高いという例ではなく、定義を満たす正の停滞状態の直接例である。
 <!-- definition-example-end -->
 
 [全エネルギー保存形](../FLUID41/index.md#thm-fluid41-euler-conservative)の定常フラックスは $(E+p)vA$ である。$\dot m=\rho vA$ で割ると
@@ -275,7 +318,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid42-choking -->
-**定義の確認**：収縮拡大ノズルの喉部面積が $A_t=0.010$ m$^2$、上流 $p_0=101325$ Pa、$T_0=300$ K、$R=287$、$\gamma=1.4$ とし、喉部で $M=1$ となる滑らかな流れを取る。$A_t=A_*$、$p_*,T_*,\rho_*>0$ であり、下の最大流量式から $\dot m_*\simeq2.36448$ kg/s を得る。一方、同じ幾何で喉部が $M<1$ のときは音速断面が実在せず、計算上の $A_*<A_t$ となる。形が同じでもチョークの有無は変わる。
+**定義の確認**：収縮拡大ノズルの喉部面積が $A_t=0.010$ m$^2$、上流 $p_0=101325$ Pa、$T_0=300$ K、$R=287$ J/(kg K)、$\gamma=1.4$ とし、喉部で $M=1$ となる滑らかな流れを取る。$A_t=A_*$ であり、前節までに導いた[停滞状態の換算](#def-fluid42-stagnation)を $M=1$ に適用すると、各状態量の正値を実際に確かめられる：
+
+$$
+T_*=\frac{T_0}{1+0.2}=250\ {\rm K}>0,\qquad
+p_*=p_0\left(\frac56\right)^{3.5}\simeq53528.15\ {\rm Pa}>0,
+$$
+
+$$
+\rho_*=\frac{p_*}{RT_*}\simeq0.74604\ {\rm kg/m^3}>0.
+$$
+
+前節の[面積–Mach関係と二分枝](#thm-fluid42-area-mach)の証明では、同じ全圧・全温で $j(M)=\rho v$ が $M=1$ で最大になることも示している。そこで前節の流束式に $M=1$ を代入し、
+
+$$
+\dot m_*=A_tj(1)
+=A_tp_0\sqrt{\frac{\gamma}{RT_0}}
+\left(\frac2{\gamma+1}\right)^{(\gamma+1)/(2(\gamma-1))}
+\simeq2.36448\ {\rm kg/s}
+$$
+
+を得る。これは定義の正値条件と流量最大条件を満たす直接例であり、後の定理を先取りせずに計算できる。一方、同じ幾何で喉部が $M<1$ のときは音速断面が実在せず、計算上の $A_*<A_t$ となる。形が同じでもチョークの有無は変わる。
 <!-- definition-example-end -->
 
 <a id="thm-fluid42-critical-flux"></a>
