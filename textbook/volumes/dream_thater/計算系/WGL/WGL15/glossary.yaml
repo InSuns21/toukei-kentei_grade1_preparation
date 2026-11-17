@@ -1,0 +1,20 @@
+chapter: WGL15
+terms:
+  - term: ピッキング
+    english: picking
+    meaning: 画面上の入力座標から選択対象の物体を決める処理。
+  - term: CSSピクセル
+    english: CSS pixel
+    meaning: ブラウザのレイアウトやポインターイベントが用いる論理座標単位。描画バッファ画素と一致するとは限らない。
+  - term: 逆投影
+    english: unprojection
+    meaning: NDC上の座標を逆変換し、世界座標の候補を得る操作。
+  - term: 射線
+    english: ray
+    meaning: 始点と方向で指定する半直線。クリック位置から3D候補を探索するために使う。
+  - term: 物体IDバッファ
+    english: object-ID buffer
+    meaning: 表示色とは独立に各可視面の番号を整数の画素値として格納する描画先。
+  - term: 深度テスト
+    english: depth test
+    meaning: 同じ画素で奥行きを比較し、条件を満たすフラグメントだけを残す検査。
