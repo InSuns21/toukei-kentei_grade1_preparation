@@ -93,7 +93,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-両側が一様なので、波面の左では $F(x)=F_1$、右では $F(x)=F_2$ である。任意の $\varepsilon>0$ に対し、$(-\varepsilon,\varepsilon)$ の内部だけで非零となる滑らかな試験関数 $\varphi(x)$ を取る。「弱い意味で $\partial_xF=0$」とは、各保存成分について $-\int F\varphi'(x)\,dx=0$ が成り立つことである。通常の微分が存在しない $x=0$ を避けて両側で積分すると、
+両側が一様なので、波面の左では $F(x)=F_1$、右では $F(x)=F_2$ である。任意の $\varepsilon>0$ に対し、$(-\varepsilon,\varepsilon)$ の内部だけで非零となる滑らかな試験関数 $\varphi(x)$ を取る。$\varphi'(x)=d\varphi/dx$ は空間変数 $x$ による通常の導関数である。「弱い意味で $\partial_xF=0$」とは、各保存成分について $-\int F\varphi'(x)\,dx=0$ が成り立つことである。通常の微分が存在しない $x=0$ を避けて両側で積分すると、
 
 $$
 \begin{aligned}
@@ -257,14 +257,25 @@ $$
 
 滑らかな流れで得た[等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic)を波面の前後にそのまま接続してはならない。衝撃波の薄い内部では散逸があり、外から熱を受けなくても比エントロピー $s$ [J/(kg K)] が生成される。[CTM10 のエントロピー原理](../../CTM/CTM10/index.md#principle-ctm10-entropy)では、断熱の不可逆な過程のエントロピー生成が負にならない。
 
-[FLUID41 の Gibbs 関係](../FLUID41/index.md#prop-fluid41-isentropic)から、正の状態間では
+[FLUID41 の Gibbs 関係](../FLUID41/index.md#prop-fluid41-isentropic) $T\,ds=de+p\,d(1/\rho)$ と $e=c_vT$、$p=\rho RT$ より、同じ気体の正の平衡状態を動かすと
 
-$$
+$
+\begin{aligned}
+ds&=c_v\,d\ln T-R\,d\ln\rho\\
+&=c_v\,d\ln p-(c_v+R)\,d\ln\rho.
+\end{aligned}
+$
+
+ここで $T=p/(\rho R)$ を代入し、$R,c_v$ は一定とした。この状態差を両側で積分すれば
+
+$
 s_2-s_1
 =c_v\ln\frac{p_2}{p_1}
 -c_p\ln\frac{\rho_2}{\rho_1}
-=c_v(\ln P-\gamma\ln r).
-$$
+=c_v(\ln P-\gamma\ln r)
+$
+
+となる。微分 $d$ は熱力学的状態の変化を表すもので、波面を横切る空間微分 $\partial_x$ とは区別する。
 
 <a id="thm-fluid43-entropy-selection"></a>
 
@@ -282,7 +293,7 @@ $$
 
 ### 証明の見取り図
 
-$r$ から $M_1^2$ を解き、圧力比を $P(r)$ として表す。$G(r)=\ln P(r)-\gamma\ln r$ の導関数が正で、$G(1)=0$ であることを直接示す。
+$r$ から $M_1^2$ を解き、圧力比を $P(r)$ として表す。$\gamma$ を固定し、密度比 $r$ を変数とする $G(r)=\ln P(r)-\gamma\ln r$ の導関数が正で、$G(1)=0$ であることを直接示す。
 
 <!-- proof-start -->
 ### 証明
