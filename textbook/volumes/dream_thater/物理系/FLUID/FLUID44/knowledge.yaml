@@ -1,0 +1,45 @@
+chapter: FLUID44
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID41
+  - FLUID42
+  - FLUID43
+  - CTM10
+concepts:
+  - id: fluid.oblique-wave-angles
+    name: 斜め波面の入射角と偏向角
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（斜め波面の入射角と偏向角）"]
+    requires: [fluid.normal-shock-traces, fluid.isentropic-sound-speed]
+  - id: fluid.oblique-shock-jump
+    name: 斜め衝撃波の法線跳躍と接線速度
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（斜め衝撃波の法線跳躍と接線速度）"]
+    requires: [fluid.oblique-wave-angles, fluid.normal-shock-jump-balance, fluid.normal-shock-ratios]
+  - id: fluid.theta-beta-mach
+    name: 斜め衝撃波のtheta-beta-M関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（斜め衝撃波の $\\theta$–$\\beta$–$M$ 関係）"]
+    requires: [fluid.oblique-shock-jump]
+  - id: fluid.maximum-shock-deflection
+    name: 最大偏向角と弱・強衝撃波分枝
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最大偏向角と弱・強衝撃波分枝）"]
+    requires: [fluid.theta-beta-mach]
+  - id: fluid.mach-angle
+    name: Mach角
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Mach角）"]
+    requires: [fluid.isentropic-sound-speed, fluid.theta-beta-mach]
+  - id: fluid.prandtl-meyer-expansion
+    name: Prandtl–Meyer膨張関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Prandtl–Meyer膨張関係）"]
+    requires: [fluid.mach-angle, fluid.isentropic-relation, fluid.stagnation-state]
