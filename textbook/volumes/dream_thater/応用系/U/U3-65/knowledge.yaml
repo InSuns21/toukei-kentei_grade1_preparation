@@ -22,10 +22,10 @@ concepts:
     introduction_aliases: ["定義（発注可能集合・在庫遷移・終端清算費用）"]
     requires: [finance.stochastic-queue-fill, finance.execution-cash-inventory]
   - id: finance.stochastic-execution-value
-    name: 価値関数と予見しない発注方策
+    name: 残期間の最小期待費用と予見しない発注方策
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（価値関数と予見しない発注方策）"]
+    introduction_aliases: ["定義（残期間の最小期待費用と予見しない発注方策）"]
     requires: [finance.stochastic-execution-stage]
   - id: finance.stochastic-bellman
     name: 指値・成行のBellman再帰
