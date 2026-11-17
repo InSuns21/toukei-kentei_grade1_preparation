@@ -68,7 +68,7 @@ chapters:
   - { id: U3-62, path: textbook/volumes/dream_thater/応用系/U/U3-62, status: completed, title: "Almgren–Chriss 最適清算の導出" }
   - { id: U3-63, path: textbook/volumes/dream_thater/応用系/U/U3-63, status: completed, title: "最適執行の数値最適化と感度" }
   - { id: U3-64, path: textbook/volumes/dream_thater/応用系/U/U3-64, status: completed, title: "板の回復・過渡的インパクト" }
-  - { id: U3-65, path: textbook/volumes/dream_thater/応用系/U/U3-65, status: planned, title: "指値・成行注文と約定不確実性" }
+  - { id: U3-65, path: textbook/volumes/dream_thater/応用系/U/U3-65, status: completed, title: "指値・成行注文と約定不確実性" }
   - { id: U3-66, path: textbook/volumes/dream_thater/応用系/U/U3-66, status: planned, title: "状態依存最適執行と HJB の応用" }
   - { id: U3-67, path: textbook/volumes/dream_thater/応用系/U/U3-67, status: planned, title: "複数資産・クロスインパクト・流動性調整リスク" }
   - { id: U3-68, path: textbook/volumes/dream_thater/応用系/U/U3-68, status: planned, title: "執行バックテスト・TCA と全科目統合" }

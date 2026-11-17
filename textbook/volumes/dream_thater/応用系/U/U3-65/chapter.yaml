@@ -1,0 +1,41 @@
+id: "U3-65"
+title: "指値・成行注文と約定不確実性"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-64]
+official_scope: []
+learning_objectives:
+  - 前方キュー・一株取消し・Poisson到着から指値の部分約定と確率質量を導出できる
+  - 約定株数の尾確率表示と期待約定株数を独立に計算し総確率を検算できる
+  - 指値・成行・取消し・在庫・売却費用・終端強制清算の帳簿を一貫して記述できる
+  - 予見しない方策に対する有限期間Bellman方程式と最適性を後ろ向きに証明できる
+  - 一株の指値と成行の閾値および待機選択・期間延長による切替を検証できる
+  - 小整数状態の全行動列挙とMonte Carloの期待費用・標準誤差・在庫保存を照合できる
+  - 価格増分の条件付き仮定・逆選択・キュー模型の限界と先読み禁止を説明できる
+definitions:
+  - { id: U3-65-DEF-01, name: "前方キューと指値の部分約定" }
+  - { id: U3-65-DEF-02, name: "発注可能集合・在庫遷移・終端清算費用" }
+  - { id: U3-65-DEF-03, name: "残期間の最小期待費用と予見しない発注方策" }
+theorems:
+  - { id: U3-65-PROP-01, name: "約定株数の分布と期待値" }
+  - { id: U3-65-THM-01, name: "指値・成行のBellman再帰" }
+  - { id: U3-65-PROP-02, name: "一株一期間の指値と成行の切替閾値" }
+canonical_examples:
+  - "前方1株の売り指値2株・買いPoisson(1)で約定確率(2/e,1/(2e),1-5/(2e))"
+  - "一株一期間の指値切替閾値0.60と先行0株・1株の最適発注差"
+  - "二株一期間・平均到着log2の全6行動比較と終端在庫保存"
+problem_patterns:
+  - U3-65-A1
+  - U3-65-A2
+  - U3-65-A3
+  - U3-65-A4
+  - U3-65-A5
+  - U3-65-B1
+  - U3-65-B2
+  - U3-65-B3
+  - U3-65-B4
+  - U3-65-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
