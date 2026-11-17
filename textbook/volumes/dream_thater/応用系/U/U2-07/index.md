@@ -10,7 +10,16 @@
 
 世界座標系 $W$ の軸は右・上、車体座標系 $B$ の軸は前・左、正の角度は反時計回りとします。姿勢を $g=(x,y,\theta)$（m, m, rad）と書きます。車体が前進する速さを $v$（m/s）、反時計回りの角速度を $\omega$（rad/s）とします。時刻区間の長さは $\Delta t>0$ 秒です。
 
-**差動二輪**とは、前後方向に走る二つの駆動輪を車体の左右に備え、それらの回転速度の差によって旋回する平面ロボットの単純模型です。両輪の接地点は車体中心から左右に距離 $b/2$（m）だけ離れ、車輪半径は共通に $r>0$（m）、左右の車輪間隔は $b>0$（m）です。車輪の角速度 $\dot\phi_L,\dot\phi_R$（rad/s）は正が前進方向で、転がりの間に滑らず、中心は横滑りしないと仮定します。
+**差動二輪**とは、前後方向に走る二つの駆動輪を車体の左右に備え、それらの回転速度の差によって旋回する平面ロボットの単純模型です。
+
+両輪の接地点は車体中心から左右に距離 $b/2$（m）だけ離れ、車輪半径は共通に $r>0$（m）、左右の車輪間隔は $b>0$（m）です。
+
+左右の車輪の回転角を時刻 $t$ の関数 $\phi_L(t),\phi_R(t)$ とし、その時間微分（角速度）を
+$$
+\dot\phi_L=\frac{d\phi_L}{dt},\qquad
+\dot\phi_R=\frac{d\phi_R}{dt}
+$$
+と表します（単位 rad/s）。上の点は**時間 $t$ に関する微分**を意味し、正の回転方向は前進です。転がりの間に両輪は滑らず、中心は横滑りしないと仮定します。
 
 右輪は中心より左輪に比べて旋回時に速く進みます。中心の前進速度を $v$ とすると、右輪と左輪の接線方向速度はそれぞれ $v+\frac b2\omega$、$v-\frac b2\omega$。無滑りでは車輪の周速度が $r\dot\phi$ なので
 
@@ -39,7 +48,7 @@ $$
 **定義の確認**：$r=0.1$ m、$b=0.5$ m、$\dot\phi_L=10$ rad/s、$\dot\phi_R=14$ rad/s なら、左輪周速度は $1.0$ m/s、右輪は $1.4$ m/s。公式から $v=0.1(10+14)/2=1.2$ m/s、$\omega=0.1(14-10)/0.5=0.8$ rad/s。逆に左右の速度は $1.2\mp(0.5/2)0.8=1.0,1.4$ m/s と再現されます。右輪が速いので反時計回りです。両輪を同じ速さにすれば $\omega=0$、逆向きに等速で回せば $v=0$ となります。
 <!-- definition-example-end -->
 
-これは**命令された速度を推定する理想化した関係**です。床で滑れば、回転数から計算した $v,\omega$ と実際の車体速度が一致するとは限りません。特に系統的な車輪半径の違いは、後述する「平均0の独立雑音」と同一視できません。
+これは**車輪の角速度から車体速度を求める無滑りの理想関係**です。角速度に指令値を入れるなら指令上の予測、エンコーダーの測定値を入れるなら記録された回転に基づくオドメトリであり、両者は同じ入力とは限りません。床で滑れば、回転数から計算した $v,\omega$ と実際の車体速度が一致するとは限りません。特に系統的な車輪半径の違いは、後述する「平均0の独立雑音」と同一視できません。
 
 ## 2. 速度模型を世界座標の時間変化へ
 
@@ -52,7 +61,15 @@ $$
 \qquad \dot\theta=\omega.
 $$
 
-微小時間に車体が動いた向きを、位置とともに追跡するのが**速度運動モデル**です。$v$ と $\omega$ が区間 $[t,t+\Delta t]$ の間一定という仮定で、以下を厳密積分できます。
+微小時間に車体が動いた向きを、位置とともに追跡するのが**速度運動モデル**です。区間 $[t,t+\Delta t]$ の始点を経過時間 $s=0$ とし、次の初期条件を置きます。
+$$
+0\le s\le\Delta t,\qquad
+(x(0),y(0),\theta(0))=(x,y,\theta).
+$$
+
+以下の $\dot x(s),\dot y(s),\dot\theta(s)$ は、経過時間 $s$ に関する微分です。例えば $\dot x(s)=dx(s)/ds$ であり、車輪の上点と同じく**時間微分**を表します。
+
+一方、**$x',y',\theta'$ のプライムは微分ではなく** $s=\Delta t$ における終端姿勢の成分（角度は wrap 後）を意味します。$v,\omega$ が区間中一定なら、以下を厳密積分できます。
 
 <a id="def-u2-07-velocity-motion"></a>
 
@@ -184,8 +201,37 @@ $$
 > この三段階表示は最終的な相対姿勢を再現するための**幾何学的分解**であり、車輪が実際にこの順に動いたことを主張しない。
 <!-- formal-statement-end -->
 
+なぜこの三段階から世界での変位を再現できるか、定義の条件に戻って確かめます。$\delta_B\ne0$ なら方向角の定義により
+$$
+\delta_{\rm trans}
+\begin{pmatrix}\cos\delta_{\rm rot1}\\\sin\delta_{\rm rot1}\end{pmatrix}
+=\begin{pmatrix}\delta_x\\\delta_y\end{pmatrix}=\delta_B.
+$$
+したがって[車体から世界への回転変換](../U2-06/index.md#def-u2-06-rigid-transform)で
+$$
+\begin{pmatrix}x'-x\\y'-y\end{pmatrix}
+=R(\theta)\delta_B
+=\delta_{\rm trans}\begin{pmatrix}
+\cos(\theta+\delta_{\rm rot1})\\
+\sin(\theta+\delta_{\rm rot1})
+\end{pmatrix}.
+$$
+また $\delta_{\rm rot1}+\delta_{\rm rot2}$ は $\delta_\theta$ と $2\pi$ の整数倍だけ異なるため、最終角度も相対姿勢を再現します。$\delta_B=0$ の場合は並進が零で、$\delta_{\rm rot2}=\operatorname{wrap}(\delta_\theta)$ のみが残ります。この照合は、三段階が実際の走行順序を示すわけではないことも説明します。
+
 <!-- definition-example-start: def-u2-07-odometry -->
-**定義の確認**：$\delta_B=(0,2)^T$ m、$\delta_\theta=\pi/2$、初期姿勢 $(1,1,\pi/2)$ とします。$\|\delta_B\|=2$ m、$\operatorname{atan2}(2,0)=\pi/2$、$\delta_{\rm rot2}=\operatorname{wrap}(\pi/2-\pi/2)=0$。したがって $x'=1+2\cos\pi=-1$、$y'=1+2\sin\pi=1$、$\theta'=\pi$ の代表値 $-\pi$ です。別途、[回転行列](../U2-06/index.md#def-u2-06-rigid-transform)で $R(\pi/2)(0,2)^T=(-2,0)^T$ を計算しても同じ位置差を得ます。$\delta_B=0$ の場合は、方向角を無理に計算せず $x'=x,y'=y$ とし、角度だけを $\delta_\theta$ 変えます。
+**定義の確認**：初期車体座標で $\delta_B=(0,2)^T$ m、相対角 $\delta_\theta=\pi/2$、初期姿勢 $(1,1,\pi/2)$ を与えます。方向角と三段階の値は
+$$
+\delta_{\rm trans}=2,\quad
+\delta_{\rm rot1}=\operatorname{atan2}(2,0)=\frac\pi2,\quad
+\delta_{\rm rot2}=\operatorname{wrap}\left(\frac\pi2-\frac\pi2\right)=0.
+$$
+したがって世界の終姿勢は
+$$
+x'=1+2\cos\pi=-1,\qquad
+y'=1+2\sin\pi=1,\qquad
+\theta'=\operatorname{wrap}(\pi)=-\pi.
+$$
+別途、[回転行列](../U2-06/index.md#def-u2-06-rigid-transform)で $R(\pi/2)(0,2)^T=(-2,0)^T$ を計算しても同じ位置差になります。$\delta_B=0$ の場合は方向角を無理に計算せず、$x'=x,y'=y$ とし角度だけを $\delta_\theta$ 変えます。
 <!-- definition-example-end -->
 
 この模型の $\delta_{\rm trans}$ は**非負の相対並進距離**です。後退を負の距離として入力すると意味が変わります。後退は方向角に $\pi$ を加えた相対並進として表せます。また、同じエンコーダー読みから計算した $(v,\omega)$ と $(\delta_{\rm rot1},\delta_{\rm trans},\delta_{\rm rot2})$ を、**独立した二種類の測定値として二重に数えてはいけません**。
@@ -273,7 +319,16 @@ $$
 \end{aligned}
 $$
 
-「二次以上」には $\delta\theta\,\varepsilon_v$ などの積も含みます。これらを捨てた線形化した誤差式を $\delta g'=F\delta g+G\varepsilon$ と書きます。
+「二次以上」には $\delta\theta\,\varepsilon_v$ などの積も含みます。これらを捨てた線形化の誤差式を、次のように表します。
+$$
+\delta g'=F\delta g+G\varepsilon,\qquad
+\delta g=\begin{pmatrix}\delta x\\\delta y\\\delta\theta\end{pmatrix},\quad
+\varepsilon=\begin{pmatrix}\varepsilon_v\\\varepsilon_\omega\end{pmatrix}.
+$$
+
+プライムはここでも終端の誤差です。$F$ は速度 $(v,\omega)$ を固定して初期姿勢 $(x,y,\theta)$ を一成分ずつ動かした偏導関数の $3\times3$ 行列です。$G$ は初期姿勢を固定して $(v,\omega)$ を動かした偏導関数の $3\times2$ 行列です。
+
+$\partial/\partial\theta$ のような偏微分では**指定された一変数だけを変え、他の入力を固定**します。列の順序は $F$ が $(x,y,\theta)$、$G$ が $(v,\omega)$ です。
 
 <a id="prop-u2-07-euler-jacobians"></a>
 
@@ -302,10 +357,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$x'=x+v\Delta t\cos\theta$ の姿勢偏微分を $(x,y,\theta)$ の順に並べると $(1,0,-v\Delta t\sin\theta)$、速度偏微分を $(v,\omega)$ の順に並べると $(\Delta t\cos\theta,0)$ です。同様に $y'$ の二つの行は $(0,1,v\Delta t\cos\theta)$ と $(\Delta t\sin\theta,0)$。$\theta'=\theta+\omega\Delta t$ の行は $(0,0,1)$ と $(0,\Delta t)$ です。三行を並べると所定の $F,G$ になります。角度は局所座標で微分し、代表値の wrap は最後に行います。
+$x'=x+v\Delta t\cos\theta$ について、姿勢の偏微分は $(x,y,\theta)$ の順に $1,0,-v\Delta t\sin\theta$、速度の偏微分は $(v,\omega)$ の順に $\Delta t\cos\theta,0$ です。
+
+次に $y'=y+v\Delta t\sin\theta$ の姿勢偏微分は $0,1,v\Delta t\cos\theta$、速度偏微分は $\Delta t\sin\theta,0$ です。
+
+最後に $\theta'=\theta+\omega\Delta t$ の偏微分は、それぞれ $(0,0,1)$ と $(0,\Delta t)$ です。これらを各入力成分の順序に合わせて並べると $F,G$ を得ます。角度は wrap の切れ目を避けた局所座標で微分し、代表値の wrap は最後に行います。
 <!-- proof-end -->
 
-速度誤差を $\varepsilon=(\varepsilon_v,\varepsilon_\omega)^T$、$E[\varepsilon]=0$、$\operatorname{Cov}(\varepsilon)=M$（$2\times2$ 対称半正定値）とし、現在の姿勢誤差とは**独立**だとします。さらに $\Delta t$ の間は同一の $\varepsilon$ が持続するとします。現在の姿勢の平均・共分散を $m,P$ とし、$m$ の角度周りで線形化します。
+速度誤差を $\varepsilon=(\varepsilon_v,\varepsilon_\omega)^T$ とし、$E[\varepsilon]=0$、$\operatorname{Cov}(\varepsilon)=M$（$2\times2$ の対称半正定値行列）を仮定します。現在の姿勢誤差とは**独立**で、$\Delta t$ の間は同一の $\varepsilon$ が持続するとします。
+
+現在の姿勢の平均・共分散を $m,P$ とし、$m$ の角度の周りで線形化します。以後の $m'=f_{\rm E}(m,v,\omega)$ は**初期平均を代入して得る一次近似の予測平均**です。
+
+非線形な三角関数の期待値を正確に計算した値という意味ではありません。一般に $E[f_{\rm E}(g,v,\omega)]\ne f_{\rm E}(E[g],v,\omega)$ です。
 
 <a id="prop-u2-07-covariance-propagation"></a>
 
@@ -580,7 +643,7 @@ $C$ は $3\times2$ なので $FCG^T$ は $3\times3$ で、転置項 $GC^TF^T$ �
 
 車輪半径 $r=0.1$ m、輪間距離 $b=0.5$ m の無滑り差動二輪が、左右とも $10$ rad/s で1秒間走る。初期の姿勢平均は $(1,2,\pi/2)$、局所誤差共分散は $P=\operatorname{diag}(0.04,0.09,0.01)$、各区間で一定の独立な速度誤差の共分散は $M=\operatorname{diag}(0.04,0.01)$ とする（速度の単位は m/s、rad/s）。刻みは $\Delta t=1$ s とする。次を求めよ。
 
-1. 車輪から得る $v,\omega$ と厳密な終姿勢平均。
+1. 車輪から得る $v,\omega$ と、初期平均姿勢を出発点にした**公称軌道の厳密な終姿勢**（真の終姿勢の期待値とは区別する）。
 2. 始点 Euler の $F,G$ と一次近似の $P'$。
 3. 予測の $x$ 方向の分散が初期値より増え、$y$ 方向の分散には速度雑音が加わる理由。
 4. この模型だけでは実際の滑りによる位置ずれを必ず包含できない理由。
@@ -593,10 +656,11 @@ $$
 v=\frac{0.1}{2}(10+10)=1\ {\rm m/s},\quad
 \omega=\frac{0.1}{0.5}(10-10)=0.
 $$
-両輪が等速なので[直進公式](#thm-u2-07-exact-integration)が厳密です。初期向き $\pi/2$ は世界の上方向なので
+両輪が等速なので、**姿勢と速度を確定値とした公称軌道には**[直進公式](#thm-u2-07-exact-integration)が厳密に適用できます。初期平均の向き $\pi/2$ は世界の上方向なので
 $$
 m'=(1+1\cos(\pi/2),\,2+1\sin(\pi/2),\,\pi/2)=(1,3,\pi/2).
 $$
+この $m'$ は公称終姿勢で、一般の確率的な終姿勢の**厳密な平均ではありません**。例えば初期向きに平均 $\pi/2$、正の分散があると、$E[\sin\theta]$ は通常 $\sin(E[\theta])=1$ と一致しません。問題に与えられた平均・共分散だけで、この非線形期待値を厳密に決めることはできません。
 
 **(2)** [Euler の一次誤差行列](#prop-u2-07-euler-jacobians)で $\cos(\pi/2)=0$、$\sin(\pi/2)=1$ とすると
 $$
