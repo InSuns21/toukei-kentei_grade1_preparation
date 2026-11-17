@@ -123,7 +123,7 @@ $$
 
 ## 4. 別経路：I関数のH二次成分
 
-B側だけを展開しても、その係数が何を数えるかは分からない。そこで[正規化I関数の成分公式](../MIR2-12/index.md#prop-mir2-12-normalized-components)と[I/Jミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)を使い、A側の種数0GW不変量を**別の計算**から求める。
+B側だけを展開しても、その係数が何を数えるかは分からない。そこで[正規化I関数の低次成分](../MIR2-12/index.md#prop-mir2-12-normalized-components)を使い、まずI関数の二次係数を求める。次に[quinticの種数0ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)を外部入力としてA側の種数0GW不変量へ結び付ける。
 
 $w$ を可逆な形式的子孫変数、$h=H/w$ とする。$H^4=0$ だから、[超幾何I関数](../MIR2-10/index.md#def-mir2-10-i-function)の各五次積は $h^3$ まで計算すれば十分である。ここで $H$ はコホモロジー類であり、調和数 $H_n$ とは区別する。
 
@@ -133,7 +133,7 @@ B_d(h)=\frac{\prod_{m=1}^{5d}(5h+m)}
 I_X=w e^{h\operatorname{Log}z}\sum_{d\ge0}z^dB_d(h).
 $$
 
-$B_d(0)=(5d)!/(d!)^5$ は非零なので、有理関数として $h=0$ 近傍で形式的な対数微分ができる。その一階・二階の係数は
+$B_d(0)=(5d)!/(d!)^5$ は非零なので、各因子の分母が $h=0$ で零にならないため、$h=0$ 近傍の形式的な対数微分ができる。その一階・二階の係数は
 
 $$
 \begin{aligned}
@@ -198,7 +198,7 @@ $$
 S_2(z)=575z+\frac{4208175}{4}z^2+O(z^3).
 $$
 
-[正規化Iの成分公式](../MIR2-12/index.md#prop-mir2-12-normalized-components)により、求める $A(z)$ は $S_2/I_0-g^2/2$ である。$I_0^{-1}=1-120z+O(z^2)$、$g=770z+O(z^2)$ を代入して
+[正規化I関数の低次成分](../MIR2-12/index.md#prop-mir2-12-normalized-components)により、求める $A(z)$ は $S_2/I_0-g^2/2$ である。$I_0^{-1}=1-120z+O(z^2)$、$g=770z+O(z^2)$ を代入して
 
 $$
 \begin{aligned}
@@ -227,7 +227,7 @@ $$
 
 ## 5. ミラー定理を適用し、A側の二次係数と照合する
 
-ここまでの計算では、$B_d$ は単なる有限積だった。[J関数の一標点係数](../MIR2-09/index.md#prop-mir2-09-quintic-first-coefficient)をGW不変量へ同定できるのは、滑らかなquinticの**種数0・ambient部分**についての[ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)を外部の数学的入力として使うからである。
+ここまでの計算では、$B_d$ は有限個の数式因子を掛け合わせたものだった。[J関数の一標点係数](../MIR2-09/index.md#prop-mir2-09-quintic-first-coefficient)をGW不変量へ同定できるのは、滑らかなquinticの**種数0・ambient部分**についての[ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)を外部の数学的入力として使うからである。
 
 $d>0$ の無標点種数0仮想GW不変量を $N_d$ と書く。$w^{-1}$ 項のH二次係数は、仮想次元と[因子公理](../MIR2-03/index.md#thm-mir2-03-divisor)、$\int_XH^3=5$ から
 
@@ -257,7 +257,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)は、$Q=q(z)$ の代入後に $\mathcal F_X(z,w)=J_X(0,q(z),w)$ を与える。[正規化Iの成分公式](../MIR2-12/index.md#prop-mir2-12-normalized-components)により左辺の $H^2/w$ 成分は前命題の $A(z)$。$q$ には形式的逆級数が存在するから
+[ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)は、$Q=q(z)$ の代入後に $\mathcal F_X(z,w)=J_X(0,q(z),w)$ を与える。[正規化I関数の低次成分](../MIR2-12/index.md#prop-mir2-12-normalized-components)により左辺の $H^2/w$ 成分は前命題の $A(z)$。$q$ には形式的逆級数が存在するから
 
 $$
 A(z(q))=\sum_{d\ge1}\frac{dN_d}{5}q^d.
@@ -293,7 +293,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（quinticの鏡像座標Yukawa級数の二次照合）**  
-> 滑らかなquinticについて、B側では $C_{zzz}=5/[z^3(1-3125z)]$、$\omega_0=I_0$、$u=\operatorname{Log}q$ とする。A側では種数0の仮想GW理論、三重交叉数5、上記I/Jミラー定理を用いる。この規約で、A側三点関数の形式変数を $x=q$ として比較すると
+> 滑らかなquinticについて、B側では $C_{zzz}=5/[z^3(1-3125z)]$、$\omega_0=I_0$、$u=\operatorname{Log}q$ とする。A側では種数0の仮想GW理論、三重交叉数5、[quinticの種数0ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)を用いる。この規約で、A側三点関数の形式変数を $x=q$ として比較すると
 
 $$
 \boxed{
@@ -494,7 +494,7 @@ $\ell_2$ だけを使うと指数を戻す際の $\ell_1^2$ を失う。
 $I_0=1+120z+O(z^2)$、$g=770z+O(z^2)$、$S_2=575z+(4208175/4)z^2+O(z^3)$ を使い、$\mathcal F_X$ の $H^2/w$ 係数を正規化し、$q=z+770z^2+O(z^3)$ に直せ。[quinticミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)と[Jの係数公式](../MIR2-09/index.md#prop-mir2-09-quintic-first-coefficient)を外部入力として $N_2$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[正規化Iの成分公式](../MIR2-12/index.md#prop-mir2-12-normalized-components)から $A=S_2/I_0-g^2/2$。従って
+**詳細解答**。[正規化I関数の低次成分](../MIR2-12/index.md#prop-mir2-12-normalized-components)から $A=S_2/I_0-g^2/2$。従って
 
 $$
 A(z)=575z+\left(\frac{4208175}{4}-120\cdot575-\frac{770^2}{2}\right)z^2
