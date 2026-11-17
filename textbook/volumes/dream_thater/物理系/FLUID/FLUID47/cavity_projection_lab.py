@@ -110,7 +110,10 @@ def calculate(n=12, dt=0.01, final_time=1.0, re=20.0, plot=False):
         pressure, residual, sweeps, compat = solve_pressure(rhs, n, h)
         max_poisson = max(max_poisson, residual)
         max_sweeps_used = max(max_sweeps_used, sweeps)
-        max_compat = max(max_compat, abs(compat))
+        # compat = h^2 sum(rhs), with rhs = div(u*) / dt; its units are
+        # m^2/s^2 for this rho=1 solver. Multiply by dt to report
+        # the equivalent signed physical boundary flux in m^2/s.
+        max_compat = max(max_compat, abs(dt * compat))
         for i in range(1, n):
             for j in range(n):
                 u[i][j] = us[i][j] - dt * (pressure[i][j] - pressure[i - 1][j]) / h
@@ -202,6 +205,17 @@ def self_test():
         assert abs(row["net_boundary_flux_m2_s"]) < 1e-12
         assert row["max_pressure_poisson_residual_kg_m3_s2"] < 1e-4
     checks.append("divergence, wall normals, flux and Poisson residual")
+    # A nonzero wall flux is enough to test the compatibility-unit
+    # conversion without attempting the (incompatible) Poisson solve.
+    boundary_u = [[0.0] * n for _ in range(n + 1)]
+    boundary_v = [[0.0] * (n + 1) for _ in range(n)]
+    boundary_u[n][0] = 0.2
+    test_dt = 0.01
+    discrete_rhs = [[z / test_dt for z in row]
+                    for row in divergence(boundary_u, boundary_v, n, h)]
+    rhs_integral = h * h * math.fsum(z for row in discrete_rhs for z in row)
+    assert abs(test_dt * rhs_integral - 0.2 * h) < 1e-12
+    checks.append("Poisson compatibility integral converted to boundary flux")
     assert b["h_m"] < a["h_m"] and c["dt_s"] < a["dt_s"]
     assert a["center_velocity_m_s"] != b["center_velocity_m_s"]
     assert a["center_velocity_m_s"] != c["center_velocity_m_s"]
