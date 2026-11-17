@@ -21,13 +21,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（光源投影座標と光源深度）**  
 > 世界点 $P=(x,y,z)$ と光への方向 $L=(1/2,1/4,1)$ に対し、光源投影座標 $(u_L,v_L)$ と光源深度 $d_L$ を
->
-> $$
-> s=x-\frac z2,\quad t=y-\frac z4,\quad
-> u_L=\frac{s+2}{4},\quad v_L=\frac{t+2}{4},\quad
-> d_L=\frac34-\frac z4
-> $$
->
+
+$$
+s=x-\frac z2,\quad t=y-\frac z4,\quad
+u_L=\frac{s+2}{4},\quad v_L=\frac{t+2}{4},\quad
+d_L=\frac34-\frac z4
+$$
+
 > とする。本章で深度画像内として比較するのは $0\le u_L,v_L,d_L\le1$ の点である。同じ光線上では $d_L$ が小さい点ほど光源に近い。
 <!-- formal-statement-end -->
 
@@ -96,14 +96,14 @@ GLSLでは $M_L\,(x,y,z,1)^T$ を使います。WebGL2に渡す行列配列は�
 <!-- formal-statement-start -->
 > **命題（最前面深度との比較による可視性判定）**  
 > 不透明な表面からなるシーンと平行光 $L$、[光源投影座標](#def-wgl11-light-coordinates)を仮定する。受光点 $P$ は光源画像範囲内にあり、光へ向かう半直線上の全遮蔽物が理想shadow mapに記録されるとする。最前面深度を $D(u_L(P),v_L(P))$ とすれば、受光点が光から見えることと $d_L(P)=D(u_L(P),v_L(P))$ は同値である。従って理想判定は
->
-> $$
-> V(P)=\begin{cases}
-> 1,&d_L(P)\le D(u_L(P),v_L(P)),\\
-> 0,&d_L(P)>D(u_L(P),v_L(P)).
-> \end{cases}
-> $$
->
+
+$$
+V(P)=\begin{cases}
+1,&d_L(P)\le D(u_L(P),v_L(P)),\\
+0,&d_L(P)>D(u_L(P),v_L(P)).
+\end{cases}
+$$
+
 > 有限精度GPUでは $d_L(P)-b\le D$ を近似判定として用いる。近似が厳密な幾何判定と常に一致するとは限らない。
 <!-- formal-statement-end -->
 
@@ -155,12 +155,12 @@ GPUの影がそれらしく見えても、同じ誤った行列を両パスで�
 <!-- formal-statement-start -->
 > **命題（平行光線と軸平行直方体の交差判定）**  
 > 箱 $B=\prod_{i=1}^3[a_i,b_i]$、半直線 $R(\lambda)=P+\lambda L$（$\lambda>0$、$L\ne0$）について、$L_i\ne0$ の軸では
->
-> $$
-> I_i=\left[\min\left(\frac{a_i-P_i}{L_i},\frac{b_i-P_i}{L_i}\right),
-> \max\left(\frac{a_i-P_i}{L_i},\frac{b_i-P_i}{L_i}\right)\right]
-> $$
->
+
+$$
+I_i=\left[\min\left(\frac{a_i-P_i}{L_i},\frac{b_i-P_i}{L_i}\right),
+\max\left(\frac{a_i-P_i}{L_i},\frac{b_i-P_i}{L_i}\right)\right]
+$$
+
 > と定める。$L_i=0$ の軸では $P_i\in[a_i,b_i]$ なら $I_i=\mathbb R$、それ以外なら $I_i=\varnothing$ とする。半直線が箱と交わる必要十分条件は $(0,\infty)\cap I_1\cap I_2\cap I_3\ne\varnothing$ である。
 <!-- formal-statement-end -->
 
