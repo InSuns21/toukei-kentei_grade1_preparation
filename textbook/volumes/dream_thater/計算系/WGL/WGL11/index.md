@@ -248,7 +248,7 @@ WebGL2非対応の場合はGPU描画の成功とは判定しません。任意JS
 - Level: A
 
 <!-- solution-start -->
-**詳細解答**。[shadow mapの定義](#def-wgl11-shadow-map)より深度画像をDEPTH_ATTACHMENTへ接続します。カラー画像がないのでdrawBuffers([NONE])、readBuffer(NONE)を使い、深度画像のレベル0が非零寸法に割り当てられていることを確認します。[完成状態](../WGL10/index.md#def-wgl10-completeness)はcheckFramebufferStatusがFRAMEBUFFER_COMPLETEを返すことで検査します。FBO生成時点では完成を保証しません。
+**詳細解答**。[深度テクスチャによるshadow map](#def-wgl11-shadow-map)より深度画像をDEPTH_ATTACHMENTへ接続します。カラー画像がないのでdrawBuffers([NONE])、readBuffer(NONE)を使い、深度画像のレベル0が非零寸法に割り当てられていることを確認します。[完成状態](../WGL10/index.md#def-wgl10-completeness)はcheckFramebufferStatusがFRAMEBUFFER_COMPLETEを返すことで検査します。FBO生成時点では完成を保証しません。
 <!-- solution-end -->
 
 <a id="ex-wgl11-a4"></a>
@@ -280,7 +280,7 @@ WebGL2非対応の場合はGPU描画の成功とは判定しません。任意JS
 - Level: B
 
 <!-- solution-start -->
-**詳細解答**。[箱と射線の交差命題](#prop-wgl11-ray-box)から、$x$ 制約は $-0.45\le-0.75+0.5\lambda\le0.45$、従って $[0.60,2.40]$。$y$ 制約は $-0.45\le-0.25+0.25\lambda\le0.45$、従って $[-0.80,2.80]$。$z$ 制約は $0\le\lambda\le1$ です。正の共通部分は $[0.60,1]$ なので箱に当たり、最初の接点は $P+0.60L=(-0.45,-0.10,0.60)$ です。
+**詳細解答**。[平行光線と軸平行直方体の交差判定](#prop-wgl11-ray-box)から、$x$ 制約は $-0.45\le-0.75+0.5\lambda\le0.45$、従って $[0.60,2.40]$。$y$ 制約は $-0.45\le-0.25+0.25\lambda\le0.45$、従って $[-0.80,2.80]$。$z$ 制約は $0\le\lambda\le1$ です。正の共通部分は $[0.60,1]$ なので箱に当たり、最初の接点は $P+0.60L=(-0.45,-0.10,0.60)$ です。
 <!-- solution-end -->
 
 <a id="ex-wgl11-b2"></a>
