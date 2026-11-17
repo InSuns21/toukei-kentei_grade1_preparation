@@ -68,7 +68,7 @@ FBOの接続先のうち、色のRGBAを保存する先をcolor attachmentとい
 **定義の確認**。第1パスでは `gl.bindFramebuffer(gl.FRAMEBUFFER, fbo)`、 `gl.viewport(0,0,160,240)`、 `u_pass=0` で4象限をテクスチャへ描きます。第2パスは `gl.bindFramebuffer(gl.FRAMEBUFFER, null)` **の後に**そのテクスチャを `TEXTURE0` へ束縛し、 `u_pass=1` で左半分へ原画、 `u_pass=2` で右半分へRGB反転を描きます。FBOとデフォルト描画先が異なり、先に完了した画像を入力として読んでいるので、2パスの各条件を満たします。
 <!-- definition-example-end -->
 
-今回のテクスチャはRGBA8、[WGL7の最近傍フィルタ](../WGL7/index.md#def-wgl7-filter)の `NEAREST`、境界は `CLAMP_TO_EDGE` とします。ミップマップは生成せず、`TEXTURE_MIN_FILTER` も `NEAREST` を明示します。これはレベル0だけのテクスチャを未完成なミップ系列として誤用しないためです。
+今回のテクスチャはRGBA8、[WGL7の最近傍フィルタ](../WGL7/index.md#def-wgl7-filter)の `NEAREST`、境界は[WGL7のラップ方式](../WGL7/index.md#def-wgl7-wrap)の `CLAMP_TO_EDGE` とします。ミップマップは生成せず、`TEXTURE_MIN_FILTER` も `NEAREST` を明示します。これはレベル0だけのテクスチャを未完成なミップ系列として誤用しないためです。
 
 この実験で第1パスを描く間は、アタッチメントにしたテクスチャをsamplerから外します。第2パスへ切り替える**前にFBOを解除**し、それからテクスチャをsamplerへ束縛します。束縛する順序が違うだけで、同一画像を読む／書くという禁止状態を作り得ます。
 
@@ -112,7 +112,24 @@ $$
 =\frac{i+\frac12}{V_w}=u.
 $$
 
-同様に $y_v=j+1/2$ を代入して $v=(j+1/2)/V_h$ です。頂点の $w$ が一定なので、2枚の三角形内でこの一次関数を補間しても同じUVを得ます。
+縦方向も同じ[viewport写像](../WGL1/index.md#prop-wgl1-viewport-map)を使います。画素中心 $y_v=j+1/2$ を代入すると
+
+$$
+y_v=\frac{V_h}{2}(y_{\mathrm{ndc}}+1)=j+\frac12,
+\qquad
+v=\frac{y_{\mathrm{ndc}}+1}{2}=\frac{j+\frac12}{V_h}.
+$$
+
+右半画面のようにviewportの左下がcanvas上の $(x_0,y_0)$ に移っても、局所添字 $(i,j)$ の画素中心は $(x_0+i+1/2,\,y_0+j+1/2)$ です。viewport写像の両辺から原点を引くと
+
+$$
+\begin{aligned}
+x_{\mathrm{canvas}}-x_0&=\frac{V_w}{2}(x_{\mathrm{ndc}}+1)=i+\frac12,\\
+y_{\mathrm{canvas}}-y_0&=\frac{V_h}{2}(y_{\mathrm{ndc}}+1)=j+\frac12.
+\end{aligned}
+$$
+
+したがって原点をずらしても、**同じ局所添字とviewport寸法ならUVは変わりません**。また、各頂点の $w=1$ なので、[透視補正補間](../WGL6/index.md#def-wgl6-perspective-interpolation)の分子・分母に現れる $1/w$ は打ち消し合います。四角形の2枚の三角形内でも、頂点で与えた一次式 $u=(x_{\mathrm{ndc}}+1)/2$、$v=(y_{\mathrm{ndc}}+1)/2$ がそのまま補間されます。
 
 [テクセル中心の定義](../WGL7/index.md#def-wgl7-texel)では、テクスチャ寸法 $T_w\times T_h$ の添字 $(k,\ell)$ の中心は
 
@@ -318,7 +335,7 @@ $$
 (x,y)=(160+40,60)=(200,60).
 $$
 
-両者はUVがおよそ1/4なので左下象限を読みますが、右のviewportは161幅のため画素中心UVが少し異なります。境界の厳密一致ではなく象限内部を検査します。
+[画素中心の命題](#prop-wgl10-pixel-centers)を左右それぞれの**局所viewport座標**へ適用すると、左のUVは $(40.5/160,\ 60.5/241)$、右のUVは $(40.5/161,\ 60.5/241)$ です。右側は開始位置 $x_0=160$ を差し引いた局所添字40を使っています。いずれも両成分が $1/2$ 未満なので左下象限を読みますが、右のviewportは161幅のため画素中心UVが少し異なります。
 <!-- solution-end -->
 
 <a id="ex-wgl10-b2"></a>
@@ -393,7 +410,14 @@ $$
 =(0.253125,\ 0.2520833\ldots).
 $$
 
-最近傍で80×120のテクスチャを読むと、texel添字は
+この問題ではviewportとテクスチャの寸法が異なるため、[画素中心命題](#prop-wgl10-pixel-centers)の**寸法一致時の添字一致**は適用できません。[WGL7のUV座標とテクセル中心の定義](../WGL7/index.md#def-wgl7-texel)に戻ると、$0\le u,v<1$ の `NEAREST` 参照では、テクスチャ寸法 $(T_w,T_h)$ に対し $(k,\ell)=(\lfloor T_wu\rfloor,\lfloor T_hv\rfloor)$ です。今回のUVは範囲内で、
+
+$$
+80u_1=80\frac{40.5}{160}=20.25,\qquad
+120v_1=120\frac{60.5}{240}=30.25.
+$$
+
+したがって最近傍テクセルの添字は
 
 $$
 (k_1,\ell_1)=(\lfloor80u_1\rfloor,\lfloor120v_1\rfloor)
@@ -409,7 +433,7 @@ $$
 
 $$
 (k_2,\ell_2)=(\lfloor80u_2\rfloor,\lfloor120v_2\rfloor)
-=(60,90).
+=(\lfloor60.25\rfloor,\lfloor90.25\rfloor)=(60,90).
 $$
 
 どちらも境界$1/2$から離れたテクセル中心に最も近く、前者は左下、後者は右上象限です。
