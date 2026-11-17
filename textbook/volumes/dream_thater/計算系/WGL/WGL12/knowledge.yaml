@@ -9,6 +9,12 @@ concepts:
     introduction: formal
     introduction_aliases: ["定義（双方向反射率分布関数）"]
     requires: [graphics.lambert-factor]
+  - id: graphics.brdf-energy-conservation
+    name: BRDFのエネルギー制約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（BRDFのエネルギー制約）"]
+    requires: [graphics.brdf]
   - id: graphics.fresnel-schlick
     name: Fresnel反射率のSchlick近似
     kind: definition
