@@ -9,6 +9,7 @@
       <path d="M0 0 L10 5 L0 10 Z" fill="#286b54"/>
     </marker>
   </defs>
+  <rect x="0" y="0" width="880" height="310" fill="#fff"/>
   <g id="compression-panel">
     <path d="M20 245 H175 L414 199 V281 H20 Z" fill="#e8e9e8" opacity=".75"/>
     <path d="M20 245 H175 L414 199" stroke="#252c34" stroke-width="3" fill="none" stroke-linejoin="round"/>
