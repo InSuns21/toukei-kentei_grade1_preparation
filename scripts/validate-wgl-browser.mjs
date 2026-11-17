@@ -592,6 +592,49 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL13 shader diagnostics and sandbox disposal: PASS');
 
+  // WGL14: real GPU acceptance for two RGBA8 FBOs and three-pass postprocess.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL14'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("makeTarget")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const diagnostic14=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.match(diagnostic14.status,/独立画素検算に合格/,
+    'WGL14 GPU FBO/shader/CPU probes failed: '+JSON.stringify(diagnostic14));
+  const wgl14=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl14.rows.length,7);
+  assert.ok(wgl14.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl14.sandbox,'allow-scripts');
+  assert.match(wgl14.log,/2 independent complete 8x8 RGBA8 targets/);
+  assert.match(wgl14.log,/GL error: 0x0/);
+  for(let i=0;i<7;i++) {
+    const actual=wgl14.rows[i][2].split(',').map(Number);
+    const expected=wgl14.rows[i][1].split(',').map(Number);
+    assert.ok(actual.every((v,j)=>Math.abs(v-expected[j])<=2),
+      'WGL14 readPixels '+i+': '+JSON.stringify({actual,expected}));
+  }
+  const shot14=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl14-initial.png',Buffer.from(shot14.data,'base64'));
+  console.log('WGL14 2 complete FBOs, 3 GPU passes and 7 independent CPU/GPU pixel probes: PASS');
+
+  await evalJS('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("const exposure = 1.0;","const exposure = 0.0;");})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const edited14=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent)');
+  assert.equal(edited14.length,7);
+  assert.equal(edited14[0],wgl14.rows[0][2]); // left source is untouched
+  for(const item of edited14.slice(3)) assert.match(item,/^0, 0, 0, 255$/);
+  console.log('WGL14 editing exposure=0 blacks out only the processed half: PASS');
+
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL14 GLSL syntax error and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
