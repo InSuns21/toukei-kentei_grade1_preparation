@@ -42,9 +42,16 @@ $$
 \left(F_I(v)X^I(w)-X^I(v)F_I(w)\right)
 $$
 
-と固定する（$\mathsf Q$ の全体倍率・符号は[前講の三次結合](../MIR2-07/index.md#prop-mir2-07-period-gauge)と比較する際に別途合わせる）。基底でのこの表示は、各 $A_I,B_I$ が互いに対をなす交代形式の標準行列を用いたものだ。
+と固定する（$\mathsf Q$ の全体倍率・符号は[前講の三次結合](../MIR2-07/index.md#prop-mir2-07-period-gauge)と比較する際に別途合わせる）。この基底は[整数シンプレクティック基底の対条件](../MIR1-14/index.md#def-mir1-14-integral-symplectic-basis)を複素線形に拡張して用いたものである。$\mathsf Q$ は**複素双線形**であってHermitian内積ではない。[交代双線形形式](../../SYM/SYM1/index.md#def-sym1-alternating-form)の条件と、非退化性は区別する。列ベクトル $v=(X,F)^{\mathsf T}$、$w=(Y,G)^{\mathsf T}$（各成分 $X,F,Y,G\in\mathbb C^2$）を上の順に並べると、双線形性から
 
-[Griffiths横断性](../MIR1-08/index.md#prop-mir1-08-period-connection)では、倍率方向と複素構造方向の一次変化はともにHodgeフィルトレーション $F^2$ にある。重さ3の偏極の直交性 $\mathsf Q(F^2,F^2)=0$ により、周期錐上の任意の接ベクトル $V,W$ について
+$$
+\mathsf Q(v,w)=v^{\mathsf T}Jw,\qquad
+J=\begin{pmatrix}0&-I_2\\I_2&0\end{pmatrix}.
+$$
+
+$J^{\mathsf T}=-J$ なので交代的である。また $J^{-1}=-J$ なので、すべての $w$ に対して $\mathsf Q(v,w)=0$ なら $J^{\mathsf T}v=0$、従って $v=0$ となり非退化である。これは[双線形形式の行列判定](../../../基礎科目/LA/LA3E/index.md#prop-la3e-bilinear-nondegenerate-matrix)の複素ベクトル空間への同じ計算の適用である。
+
+[Griffiths横断性](../MIR1-08/index.md#prop-mir1-08-period-connection)では、倍率方向と複素構造方向の一次変化はともにHodgeフィルトレーション $F^2$ にある。[B側Hodge三次結合の先行例](../MIR1-16/index.md#def-mir1-16-yukawa-cubic)でも確認した重さ3の偏極の直交性 $\mathsf Q(F^2,F^2)=0$ により、周期錐上の任意の接ベクトル $V,W$ について
 
 $$
 \mathsf Q(d\Pi(V),d\Pi(W))=0
@@ -64,6 +71,21 @@ $$
 
 > さらに $(X^0,X^1)$ が $U$ の正則局所座標となるとき、これを局所特殊周期座標とする。$\Pi$ が倍率 $\lambda$ に対して $\Pi\mapsto\lambda\Pi$ と変わる場合を同次な周期錐とする。
 <!-- formal-statement-end -->
+
+局所座標性を確認した後なら、$\partial_I:=\partial/\partial X^I$（$I=0,1$）と書ける。接ベクトルの微分は
+
+$$
+d\Pi(V)=(dX^0(V),dX^1(V),dF_0(V),dF_1(V))
+$$
+
+という四成分の列である。特に $dX^I(\partial_J)=\delta^I_J$ を上の交代形式へ代入すれば
+
+$$
+\mathsf Q(\partial_0\Pi,\partial_1\Pi)
+=\partial_0F_1-\partial_1F_0.
+$$
+
+接空間は $\partial_0,\partial_1$ の二方向で張られるため、交代双線形性から、この一組の値が零であることはすべての $V,W$ に対する直交性と同値である。これは**座標性と直交性を別々に確認した後**に使える判定法である。
 
 <!-- definition-example-start: def-mir2-08-special-period-chart -->
 
@@ -119,7 +141,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$X^0,X^1$ が局所座標であるから、$V=\partial/\partial X^0$、$W=\partial/\partial X^1$ を選べる。$\mathsf Q$ の定義を成分で展開すると
+$X^0,X^1$ が局所座標であるから、前節で導入した $\partial_I=\partial/\partial X^I$ を使って $V=\partial_0$、$W=\partial_1$ を選べる。$\mathsf Q$ の定義を成分で展開すると
 
 $$
 \begin{aligned}
@@ -169,7 +191,7 @@ s:=\frac{X^1}{X^0},\qquad
 \mathscr F(X^0,X^1)=(X^0)^2 f(s)
 $$
 
-を考える。$s$ は**周期比としての特殊座標**である。後で $s=u_B$ を選ぶが、その同一視には周期基底の選択が必要で、任意のFrobenius解の並べ方から自動的には従わない。
+を考える。$s$ は**周期比としての特殊座標**である。以下、$f'(s)=df/ds$、$f'''(s)=d^3f/ds^3$ とし、周期列のプライムも成分ごとに $s$ で微分する意味で使う。これらは $X^0,X^1$ の片方を固定する偏微分 $\partial_I$ と区別する。後で $s=u_B$ を選ぶが、その同一視には周期基底の選択が必要で、任意のFrobenius解の並べ方から自動的には従わない。
 
 <a id="prop-mir2-08-period-reconstruction"></a>
 
@@ -265,7 +287,7 @@ $$
 \sum_{d\ge1}\frac{k_d}{d^3}q^d
 $$
 
-も収束する。$d^{-3}$ は係数を大きくしないからである。$D=d/du=q\,d/dq$ とすれば $D^3(q^d)=d^3q^d$ で、古典項は $(d/du)^3(5u^3/6)=5$ となる。
+も収束する。$d^{-3}$ は係数を大きくしないからである。$q=e^u$ だから $dq/du=q\ne0$ であり、連鎖律 $d\varphi(q(u))/du=q\,d\varphi/dq$ が使える。ここでは $X^0,X^1$ の偏微分ではなく $u$ による一変数微分を $D:=d/du=q\,d/dq$ と略記する。すると $D^3(q^d)=d^3q^d$ で、古典項は $(d/du)^3(5u^3/6)=5$ となる。
 
 <a id="def-mir2-08-flat-prepotential"></a>
 
@@ -443,7 +465,14 @@ $$
 $X^0=x,\ X^1=y,\ F_0=2x+y,\ F_1=x+3y$ とする。$(X^0,X^1)$ が局所座標であること、$\mathsf Q(\partial_x\Pi,\partial_y\Pi)=0$ を確認し、対応する $\mathscr F$ を一つ求めよ。
 
 <!-- solution-start -->
-**詳細解答**。$(X^0,X^1)=(x,y)$ のJacobianは単位行列で行列式1、よって座標である。$\partial_x\Pi=(1,0,2,1)$、$\partial_y\Pi=(0,1,1,3)$ なので
+**詳細解答**。座標写像 $(x,y)\mapsto(X^0,X^1)=(x,y)$ の微分行列（Jacobian）は
+
+$$
+\frac{\partial(X^0,X^1)}{\partial(x,y)}
+=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad \det=1.
+$$
+
+実際に逆写像も $(X^0,X^1)\mapsto(x,y)=(X^0,X^1)$ と書けるので、局所座標性が確認できる。$\partial_x\Pi=(1,0,2,1)$、$\partial_y\Pi=(0,1,1,3)$ なので
 
 $$
 \mathsf Q(\partial_x\Pi,\partial_y\Pi)=2\cdot0+1\cdot1-1\cdot1-0\cdot3=0.
@@ -512,7 +541,7 @@ $f(s)=s^3$ と $\widetilde f(s)=s^3+2+3s+4s^2$ を考えよ。両者の三階微
 $F_0(X^0,X^1)=X^1$、$F_1(X^0,X^1)=0$ に対し、$d(F_0dX^0+F_1dX^1)$ を求めよ。なぜ局所prepotentialが存在しないか、混合偏微分を使って説明せよ。
 
 <!-- solution-start -->
-**詳細解答**。$\alpha=X^1dX^0$ だから $d\alpha=dX^1\wedge dX^0=-dX^0\wedge dX^1\ne0$。仮に $F_I=\partial_I\mathscr F$ なら $\partial_1\partial_0\mathscr F=\partial_1F_0=1$、$\partial_0\partial_1\mathscr F=\partial_0F_1=0$ となる。正則関数の混合偏微分は等しいから矛盾。失われている仮定は $\mathsf Q(d\Pi,d\Pi)=0$ という二方向の直交性であり、原始関数の閉性を保証できない。
+**詳細解答**。$\alpha=X^1dX^0$ だから $d\alpha=dX^1\wedge dX^0=-dX^0\wedge dX^1\ne0$。仮に $F_I=\partial_I\mathscr F$ なら $\partial_1\partial_0\mathscr F=\partial_1F_0=1$、$\partial_0\partial_1\mathscr F=\partial_0F_1=0$ となる。正則関数の混合偏微分は等しいから矛盾。失われている仮定は異なる二方向についての直交性である。実際、$\partial_0\Pi=(1,0,0,0)$、$\partial_1\Pi=(0,1,1,0)$ だから $\mathsf Q(\partial_0\Pi,\partial_1\Pi)=-1\ne0$ となる。同じベクトルとの対 $\mathsf Q(d\Pi(V),d\Pi(V))=0$ だけでは原始関数の閉性を保証できない。
 <!-- solution-end -->
 
 <a id="ex-mir2-08-b02"></a>
