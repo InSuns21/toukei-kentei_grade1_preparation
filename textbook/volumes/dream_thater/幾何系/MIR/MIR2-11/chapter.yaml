@@ -23,9 +23,9 @@ definitions:
 theorems:
   - { id: MIR2-11-THM-01, name: "ABBV等変局所化" }
   - { id: MIR2-11-PROP-01, name: "射影直線の局所化の直接検算" }
-  - { id: MIR2-11-PROP-02, name: "P4の固定点分母" }
+  - { id: MIR2-11-PROP-02, name: "射影四次元の固定点分母" }
   - { id: MIR2-11-PROP-03, name: "辺の次数と自己同型係数" }
-  - { id: MIR2-11-PROP-04, name: "E_dの階数と仮想次元の一致" }
+  - { id: MIR2-11-PROP-04, name: "五次束の階数と仮想次元の一致" }
   - { id: MIR2-11-THM-02, name: "種数0quinticのEuler類への押し出し" }
   - { id: MIR2-11-THM-03, name: "Graber–Pandharipande仮想局所化" }
   - { id: MIR2-11-PROP-05, name: "quintic種数0不変量の固定グラフ表示" }
