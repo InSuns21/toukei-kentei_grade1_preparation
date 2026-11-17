@@ -65,3 +65,4 @@
 61. [U3-61 市場インパクトと価格形成](textbook/volumes/dream_thater/応用系/U/U3-61/index.md)
 62. [U3-62 Almgren–Chriss 最適清算の導出](textbook/volumes/dream_thater/応用系/U/U3-62/index.md)
 63. [U3-63 最適執行の数値最適化と感度](textbook/volumes/dream_thater/応用系/U/U3-63/index.md)
+64. [U3-64 板の回復・過渡的インパクト](textbook/volumes/dream_thater/応用系/U/U3-64/index.md)

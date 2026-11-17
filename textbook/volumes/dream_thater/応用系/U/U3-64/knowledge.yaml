@@ -1,0 +1,47 @@
+chapter: U3-64
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-63]
+concepts:
+  - id: finance.transient-resilience
+    name: 回復率と過渡的価格変位
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回復率と過渡的価格変位）"]
+    requires: [finance.ac-constrained-objective]
+  - id: finance.transient-execution-cost
+    name: 線形板における平均約定費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形板における平均約定費用）"]
+    requires: [finance.transient-resilience, finance.ac-inventory-cash]
+  - id: finance.transient-kernel
+    name: 過渡的インパクトの核表示とコスト分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（過渡的インパクトの核表示とコスト分散）"]
+    requires: [finance.transient-execution-cost, finance.ac-mean-variance]
+  - id: finance.transient-objective
+    name: 回復を含むリスク回避清算目的
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（回復を含むリスク回避清算目的）"]
+    requires: [finance.transient-kernel]
+  - id: finance.transient-uniqueness
+    name: 過渡的インパクト清算の厳密凸性と一意解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（過渡的インパクト清算の厳密凸性と一意解）"]
+    requires: [finance.transient-objective]
+  - id: finance.transient-two-period
+    name: 二期間清算の明示解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二期間清算の明示解）"]
+    requires: [finance.transient-objective, finance.transient-uniqueness]
+  - id: finance.transient-three-period
+    name: 三期間・リスクなし・局所費用なしの端点集中
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三期間・リスクなし・局所費用なしの端点集中）"]
+    requires: [finance.transient-kernel, finance.transient-uniqueness]
