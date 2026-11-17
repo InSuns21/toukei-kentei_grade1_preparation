@@ -256,7 +256,7 @@ $$
 
 外向きの凸角を曲がるとき、流れは一枚の圧縮衝撃波ではなく、互いに異なる角度を持つ微小なMach線の扇を通る。この**Prandtl–Meyer膨張扇**の各場所では状態は連続で、理想化した滑らかな断熱可逆流として扱える。ここではさらに二次元・定常・渦なしで、各状態の停滞エンタルピーが共通と仮定する。**中心型の単純膨張扇**とは、壁の角から出る放射線上で状態が一定で、角の頂点を原点とした偏角 $\chi$ のみに流速・密度などが依存する流れをいう。この構造が、特性線に沿った関係を扇全体の状態差へつなぐ。
 
-速度の大きさを $q>0$、上流の水平な $x$ 正方向を基準とした速度方向の角を $\varphi$、局所 Mach 数を $M=q/c>1$ とする。流れ方向とその左法線方向への方向微分は、それぞれ $\partial_\parallel$、$\partial_\perp$ と記す。これらは位置 $(x,y)$ についての偏微分の線形結合で、比エントロピー $s$ に関する微分ではない。角度 $\varphi$ と偏向角 $\theta$ は、向きつきの量とその大きさという違いがある。以下の $\theta>0$ は**膨張によって曲がる角の大きさ**であり、圧縮角の符号をそのまま流用しない。
+速度の大きさを $q>0$、上流の水平な $x$ 正方向を基準とした速度方向の角を $\varphi$、局所 Mach 数を $M=q/c>1$ とする。流れ方向とその左法線方向への方向微分は、それぞれ $\partial_{\parallel}$、$\partial_{\perp}$ と記す。これらは位置 $(x,y)$ についての偏微分の線形結合で、比エントロピー $s$ に関する微分ではない。角度 $\varphi$ と偏向角 $\theta$ は、向きつきの量とその大きさという違いがある。以下の $\theta>0$ は**膨張によって曲がる角の大きさ**であり、圧縮角の符号をそのまま流用しない。
 
 <a id="thm-fluid44-prandtl-meyer"></a>
 
@@ -303,7 +303,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(i) 回転と速度の微分関係。** 速度ベクトルを $\boldsymbol u=q(\cos\varphi,\sin\varphi)$ とする。局所直交単位ベクトルを $\boldsymbol e_\parallel=(\cos\varphi,\sin\varphi)$、$\boldsymbol e_\perp=(-\sin\varphi,\cos\varphi)$ と置き、$\partial_\parallel=\boldsymbol e_\parallel\cdot\nabla$、$\partial_\perp=\boldsymbol e_\perp\cdot\nabla$ とする。
+**(i) 回転と速度の微分関係。** 速度ベクトルを $\boldsymbol u=q(\cos\varphi,\sin\varphi)$ とする。局所直交単位ベクトルを $\boldsymbol e_\parallel=(\cos\varphi,\sin\varphi)$、$\boldsymbol e_\perp=(-\sin\varphi,\cos\varphi)$ と置き、$\partial_{\parallel}=\boldsymbol e_\parallel\cdot\nabla$、$\partial_{\perp}=\boldsymbol e_\perp\cdot\nabla$ とする。
 
 等エントロピー・停滞エンタルピー一定より $dh=dp/\rho=c^2d\rho/\rho$、$q\,dq+dh=0$。従って
 $$
@@ -311,37 +311,37 @@ $$
 \qquad
 d(\rho q)=\rho(1-M^2)\,dq.
 $$
-質量保存 $\nabla\cdot(\rho q\boldsymbol e_\parallel)=0$ において $\nabla\cdot\boldsymbol e_\parallel=\partial_\perp\varphi$ だから
+質量保存 $\nabla\cdot(\rho q\boldsymbol e_\parallel)=0$ において $\nabla\cdot\boldsymbol e_\parallel=\partial_{\perp}\varphi$ だから
 $$
-(1-M^2)\partial_\parallel q+q\partial_\perp\varphi=0.
+(1-M^2)\partial_{\parallel} q+q\partial_{\perp}\varphi=0.
 $$
 また渦なし $\partial_xu_y-\partial_yu_x=0$ をこの基底へ射影すると
 $$
-q\partial_\parallel\varphi-\partial_\perpq=0.
+q\partial_{\parallel}\varphi-\partial_{\perp}q=0.
 $$
 
-**(ii) Mach線上での関係。** 上の二つの式から、流速・方向角の偏微分を結合できる方向は $\cot^2\mu=M^2-1$ を満たす。ここで $\mu\in(0,\pi/2)$ を選べば、[Mach角の関係](#def-fluid44-mach-angle) $\sin\mu=1/M$ に一致する。流れから $\pm\mu$ の方向の方向微分は $D_\pm=\cos\mu\,\partial_\parallel\pm\sin\mu\,\partial_\perp$ である。上の質量式・渦なし式を代入し、$\cot\mu=\sqrt{M^2-1}$ を用いると
+**(ii) Mach線上での関係。** 上の二つの式から、流速・方向角の偏微分を結合できる方向は $\cot^2\mu=M^2-1$ を満たす。ここで $\mu\in(0,\pi/2)$ を選べば、[Mach角の関係](#def-fluid44-mach-angle) $\sin\mu=1/M$ に一致する。流れから $\pm\mu$ の方向の方向微分は $D_\pm=\cos\mu\,\partial_{\parallel}\pm\sin\mu\,\partial_{\perp}$ である。上の質量式・渦なし式を代入し、$\cot\mu=\sqrt{M^2-1}$ を用いると
 $$
 \begin{aligned}
 D_\pm\varphi
-&=\cos\mu\,\frac{\partial_\perpq}{q}
-\pm\sin\mu\,\frac{(M^2-1)\partial_\parallelq}{q}\\
+&=\cos\mu\,\frac{\partial_{\perp}q}{q}
+\pm\sin\mu\,\frac{(M^2-1)\partial_{\parallel}q}{q}\\
 &=\pm\frac{\sqrt{M^2-1}}{q}
-\left(\cos\mu\,\partial_\parallelq\pm\sin\mu\,\partial_\perpq\right)\\
+\left(\cos\mu\,\partial_{\parallel}q\pm\sin\mu\,\partial_{\perp}q\right)\\
 &=\pm\frac{\sqrt{M^2-1}}{q}D_\pm q.
 \end{aligned}
 $$
 従って $D_\pm\varphi=\pm D_\pm\nu$ と書ける。ただし $d\nu:=\sqrt{M^2-1}\,dq/q$ と定義し、次の (iii) で $M$ の関数として積分する。ここで $D_\pm$ は空間内の特性線に沿う方向微分であって、$d\varphi=\pm d\nu$ を**任意の方向の変化**に対して主張しているわけではない。
 
 中心型の膨張扇で下向きの凸角を考えると、上流方向角は $\varphi_1=0$、下流は $\varphi_2=-\theta$ である。角の頂点から出る $D_+$ 特性線は放射線に接し、その上では $\chi$ が一定なので $D_+q=D_+\varphi=0$ となる。一方、扇を横断する $D_-$ 方向には
-$
+$$
 D_-\bigl(\varphi+\nu(M)\bigr)=0
-$
+$$
 が成立する。$D_-$ は放射線に接しない（$\mu>0$）ため、$\varphi+\nu(M)$ は偏角 $\chi$ を変えても一定である。上流の一様状態とつなぐと
-$
+$$
 \varphi_2+\nu(M_2)=\varphi_1+\nu(M_1),
 \qquad -\theta+\nu(M_2)=\nu(M_1).
-$
+$$
 ゆえに $\theta=\nu(M_2)-\nu(M_1)$。上向きに曲がる配置は $D_+$ と $D_-$ の役割が逆になり、同じ偏向角の大きさの式を得る。
 
 **(iii) Mach数で積分。** 停滞温度を $T_0=T[1+(\gamma-1)M^2/2]$ とする[FLUID42 の停滞状態](../FLUID42/index.md#def-fluid42-stagnation)は、等エントロピーの各状態で共通である。$a=(\gamma-1)/2$ とすれば
