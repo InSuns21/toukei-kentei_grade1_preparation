@@ -131,7 +131,7 @@ def compute(ratio=1.6875, gamma=1.4, p0=101325., t0=300.,
             "branch_count_at_selected_area": 1 if ratio == 1 else 2
         },
         "plots": [
-            {"title": "Area-Mach: subsonic (solid) vs supersonic (dashed) roots",
+            {"title": "Area-Mach: subsonic and supersonic roots",
              "x_label": "A/A* [1]", "y_label": "Mach [1]", "series": [
                  {"name": "subsonic root", "points": profiles["sub_M"]},
                  {"name": "supersonic root", "points": profiles["sup_M"]}]},
