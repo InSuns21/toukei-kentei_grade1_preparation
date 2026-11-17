@@ -121,7 +121,7 @@ $$
 <a id="prop-mir2-11-p4-weights"></a>
 
 <!-- formal-statement-start -->
-> **命題（$\mathbb P^4$ の固定点分母）**
+> **命題（射影四次元の固定点分母）**
 >
 > 上の対角作用で、すべての $\lambda_i-\lambda_j$（$i\ne j$）を可逆にすると
 
@@ -223,7 +223,7 @@ $$
 <a id="prop-mir2-11-bundle-rank"></a>
 
 <!-- formal-statement-start -->
-> **命題（$E_d$ の階数と仮想次元の一致）**
+> **命題（五次束の階数と仮想次元の一致）**
 >
 > 連結な種数0の節点曲線 $C$ と次数 $d\ge0$ の写像 $f:C\to\mathbb P^4$ に対し、
 
