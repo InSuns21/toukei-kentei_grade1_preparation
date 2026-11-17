@@ -56,3 +56,5 @@
 46. [FLUID46 格子を細かくすれば必ず正しくなるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID46/index.md)
 
 47. [FLUID47 非圧縮流れを圧力と速度に分けて解けるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID47/index.md)
+
+48. [FLUID48 衝撃波を含む圧縮性流れを数値的に追えるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID48/index.md)
