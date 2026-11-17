@@ -141,11 +141,11 @@ $$
 
 約定がある $q_i>0$ の区間では[約定価格の式](#def-u3-61-linear-impact)から
 
-$
+$$
 q_ip_i=q_iM_i-\gamma q_i\sum_{j<i}q_j
 -\frac{\gamma q_i^2}{2}
 -\eta\frac{q_i^2}{\Delta t_i}.
-$
+$$
 
 約定のない $q_i=0$ の区間は売却代金が0円であり、上式の右辺も0です。したがって右辺の和を全区間に拡張できます。[全量売却コスト](#def-u3-61-cost)へ代入し、$Q=\sum_iq_i$ を使うと
 
