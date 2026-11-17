@@ -406,7 +406,24 @@ $E_d$ に付けた等変線形化の最高等変Chern類 $e_T(E_d)$ は、重み
 [仮想局所化定理](#thm-mir2-11-virtual-localization)を、滑らかなスタック $\mathcal M_d$ の通常の接束に由来する障害理論と、等変挿入類 $\alpha=e_T(E_d)$ に適用する。$[\mathcal M_d]^{\mathrm{vir}}=[\mathcal M_d]$、$N_{F_\Gamma}^{\mathrm{vir}}=N_{F_\Gamma/\mathcal M_d}$ であるから、固定成分は固定グラフで分解され、$\alpha|_{F_\Gamma}=e_T(E_d|_{F_\Gamma})$ だから右辺の和になる。等変積分が元から定数なので、個々の重みを分母に持つ式の極は、和の中で相殺する。よって全体の重み零での値は $N_d$。$\square$
 <!-- proof-end -->
 
-**辺の重みを一歩具体化する。** $p_i$ と $p_j$ を結ぶ次数 $d$ の辺で、標的の局所座標を $w=x_j/x_i$、定義域の端点近傍の座標を $z$ とし、$w=z^d$ と書く。標的では $w\mapsto (t_j/t_i)w$ である。文字 $\chi_{ij}(t)=t_j/t_i$ の重みが $\lambda_j-\lambda_i$ に対応するので、有限被覆トーラス上で $s^d=\chi_{ij}(t)$ を満たす $s$ を取り、$z\mapsto sz$ とすれば $z^d\mapsto\chi_{ij}(t)z^d$ になる。文字を $d$ 乗すると重みも $d$ 倍になるから、$z$ の接重みは $(\lambda_j-\lambda_i)/d$。反対端の座標 $z^{-1}$ は逆の文字で変換され、重みは $(\lambda_i-\lambda_j)/d$ となる。$d$ を無視して重みをそのまま移すと、固定グラフの法Euler類が誤る。
+**辺の重みを一歩具体化する。** $p_i$ と $p_j$ を結ぶ次数 $d$ の辺を考える。標的の局所座標を $w=x_j/x_i$、定義域の端点近傍の座標を $z$ とすると、写像は $w=z^d$ と表せる。
+
+標的の作用は $w\mapsto(t_j/t_i)w$ である。文字 $\chi_{ij}(t)=t_j/t_i$ に対応する重みは $\lambda_j-\lambda_i$ になる。
+
+有限被覆トーラス上で $s^d=\chi_{ij}(t)$ を満たす $s$ を選び、定義域に $z\mapsto sz$ を作用させると
+
+$$
+w=z^d\longmapsto(sz)^d=s^dz^d=\chi_{ij}(t)w
+$$
+
+となり、標的の作用と両立する。定義域の接重みを $\mu$ とすると、文字の $d$ 乗で重みは $d$ 倍になるから
+
+$$
+d\mu=\lambda_j-\lambda_i,\qquad
+\mu=\frac{\lambda_j-\lambda_i}{d}
+$$
+
+を得る。反対端の局所座標 $z^{-1}$ は逆の文字で変換され、接重みは $-\mu=(\lambda_i-\lambda_j)/d$ となる。$d$ を無視して標的の重みをそのまま移すと、固定グラフの法Euler類が誤る。
 
 **五次の分子の意味。** $d=1$ の辺では $f^*\mathcal O(5)=\mathcal O_{\mathbb P^1}(5)$ の切断の重みは、採用した双対線形化で
 
