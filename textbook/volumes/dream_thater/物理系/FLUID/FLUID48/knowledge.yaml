@@ -1,6 +1,12 @@
 chapter: FLUID48
 scope: dream-theater
 coverage: complete
+# NPDE1 develops general scalar conservation laws; this Euler-specific lecture
+# introduces its own wave calculation without requiring scalar weak-solution theory.
+forward_references:
+  - nonlinear-pde.shock-wave
+  - nonlinear-pde.riemann-problem
+  - nonlinear-pde.rarefaction-wave
 prerequisites:
   - FLUID41
   - FLUID43
