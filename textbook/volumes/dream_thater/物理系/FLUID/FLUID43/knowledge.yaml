@@ -1,0 +1,38 @@
+chapter: FLUID43
+scope: dream-theater
+coverage: complete
+# General scalar weak-solution theory is optional context; physical flux jumps
+# are derived directly from the prerequisite FLUID41 conservation laws.
+forward_references:
+  - nonlinear-pde.shock-wave
+  - nonlinear-pde.rankine-hugoniot
+
+prerequisites:
+  - FLUID41
+  - FLUID42
+  - CTM10
+concepts:
+  - id: fluid.normal-shock-traces
+    name: 波面の前後状態と跳び
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（波面の前後状態と跳び）"]
+    requires: [fluid.compressible-conserved-state]
+  - id: fluid.normal-shock-jump-balance
+    name: 正面定常波面の質量・運動量・エネルギー跳躍条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（正面定常波面の質量・運動量・エネルギー跳躍条件）"]
+    requires: [fluid.normal-shock-traces, fluid.compressible-euler, fluid.ideal-gas-closure]
+  - id: fluid.normal-shock-ratios
+    name: 定数比熱理想気体の正面衝撃波関係
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定数比熱理想気体の正面衝撃波関係）"]
+    requires: [fluid.normal-shock-jump-balance, fluid.isentropic-sound-speed]
+  - id: fluid.normal-shock-entropy
+    name: 圧縮型正面衝撃波のエントロピー増大
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（圧縮型正面衝撃波のエントロピー増大）"]
+    requires: [fluid.normal-shock-ratios, fluid.isentropic-relation, fluid.stagnation-state]

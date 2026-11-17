@@ -1,0 +1,41 @@
+id: "FLUID43"
+title: "衝撃波を跨ぐと何が不連続になるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID41
+  - FLUID42
+  - CTM10
+official_scope: []
+learning_objectives:
+  - "波面静止系、片側状態と跳びを定義し、正面衝撃波の定常・断熱模型の適用範囲を示す"
+  - "Euler保存形を狭い検査体積に積分し、質量・運動量・全エネルギーの跳躍条件を導く"
+  - "定数比熱理想気体の非自明圧縮分枝から密度・静圧・温度・Mach比を途中計算付きで導く"
+  - "Gibbs関係と圧縮比を使って衝撃波のエントロピー増大と全圧低下を証明する"
+  - "ブラウザPythonで基準状態・保存残差・エントロピーを検算し接触不連続と区別する"
+definitions:
+  - { id: FLUID43-DEF-01, name: "波面の前後状態と跳び" }
+theorems:
+  - { id: FLUID43-THM-01, name: "正面定常波面の質量・運動量・エネルギー跳躍条件" }
+  - { id: FLUID43-THM-02, name: "定数比熱理想気体の正面衝撃波関係" }
+  - { id: FLUID43-THM-03, name: "圧縮型正面衝撃波のエントロピー増大" }
+canonical_examples:
+  - "Mach数2と比熱比1.4の静圧比9/2と密度比8/3"
+  - "正面衝撃波前後の三保存流束と全圧減少"
+  - "Mach数3の統合演習と膨張型跳躍の非物理性"
+  - "Pythonによる上流Mach掃引と質量・運動量・エネルギーの残差検算"
+problem_patterns:
+  - FLUID43-JUMP-SIGNS
+  - FLUID43-SHOCK-RATIOS
+  - FLUID43-MOMENTUM-PRESSURE
+  - FLUID43-TOTAL-ENTHALPY
+  - FLUID43-STAGNATION-PRESSURE
+  - FLUID43-ALGEBRAIC-BRANCHES
+  - FLUID43-EXPANSION-ENTROPY
+  - FLUID43-ENTROPY-PRESSURE-LOSS
+  - FLUID43-STRONG-SHOCK-LIMIT
+  - FLUID43-INTEGRATED-NORMAL-SHOCK
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 6 }
