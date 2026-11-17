@@ -68,22 +68,22 @@ $$
 
 $s(t,q_0)=a(t,q_0)\,1+b(t,q_0)\,h$ とする。ここでプライム $a',b'$ は**$q_0$ を固定した $t$ 微分**を表す。固定基底の微分 $\partial_t s=a'1+b'h$ と、基底像から得る $C_h(t)s=xb\,1+a\,h$ を別々に計算すると
 
-$
+$$
 \nabla_t^{(\hbar)}s
 =\left(a'-\frac{x}{\hbar}b\right)1
 +\left(b'-\frac1\hbar a\right)h,
 \qquad x=q_0e^t.
-$
+$$
 
 接続のLeibniz則も、$f(t,q_0)$ に対して $C_h(t)(fs)=fC_h(t)s$、$(fa)'=f'a+fa'$、$(fb)'=f'b+fb'$ を用いれば直接確認できる。
 
 **微分変数の対応**も確かめる。$\widetilde a(x)=\sum_{d\ge0}a_dx^d$ とし、$a(t,q_0)=\widetilde a(q_0e^t)$ と特殊化した場合には、$q_0$ を固定した形式的連鎖律から
 
-$
+$$
 \partial_t a(t,q_0)
 =\sum_{d\ge0}d a_d(q_0e^t)^d
 =\left(x\frac{d\widetilde a}{dx}\right)\!(q_0e^t).
-$
+$$
 
 $b$ についても同じである。**$x$ だけに依存する切断に限り**、この $\partial_t$ を対数微分 $D_x=x\,d/dx$ に読み替えられる。任意の $a(t,q_0)$ について二つの微分を同一視するわけではない。一次元の $t$ 方向だけなら、異なる二方向の交換子が存在しないので平坦性は自動的に成り立つ。
 <!-- definition-example-end -->
