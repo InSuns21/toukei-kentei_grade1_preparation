@@ -46,3 +46,5 @@
 41. [FLUID41 圧縮性流れでは質量・運動量・エネルギーをどう閉じるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID41/index.md)
 
 42. [FLUID42 ノズルで音速に達する条件は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID42/index.md)
+
+43. [FLUID43 衝撃波を跨ぐと何が不連続になるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID43/index.md)
