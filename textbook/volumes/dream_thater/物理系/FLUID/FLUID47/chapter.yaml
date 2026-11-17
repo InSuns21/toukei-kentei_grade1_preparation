@@ -1,0 +1,45 @@
+id: "FLUID47"
+title: "非圧縮流れを圧力と速度に分けて解けるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CTM15
+  - FLUID46
+official_scope: []
+learning_objectives:
+  - "MACスタガード格子の圧力・縦面速度・横面速度の位置と非貫通境界条件を正確に指定する"
+  - "離散発散Dと圧力勾配Gを面・セルの収支から導出し、離散部分積分とLh=DGを証明する"
+  - "圧力補正Poisson方程式の壁流束の適合条件と平均零の一意解を証明する"
+  - "射影後の発散とPoisson残差の恒等式、発散零への直交射影と二乗ノルム恒等式を証明する"
+  - "蓋駆動キャビティの法線・接線境界条件とghost差分、明示移流・拡散刻みの安全条件を検算する"
+  - "ブラウザPythonでMAC射影を実行し、Poisson残差・離散発散・境界流束・格子/時間刻み比較を別々に監査する"
+definitions:
+  - { id: FLUID47-DEF-01, name: "MAC配置と壁の法線速度" }
+  - { id: FLUID47-DEF-02, name: "MAC離散発散・勾配・Laplace作用素" }
+  - { id: FLUID47-DEF-03, name: "非圧縮 MAC 射影ステップ" }
+theorems:
+  - { id: FLUID47-PROP-01, name: "MAC格子の離散部分積分" }
+  - { id: FLUID47-THM-01, name: "閉じたMAC格子での Poisson 補正の一意可解性" }
+  - { id: FLUID47-THM-02, name: "射影後の発散と Poisson 残差" }
+  - { id: FLUID47-THM-03, name: "MAC射影の直交性と二乗ノルム非増加" }
+canonical_examples:
+  - "2×2 MAC格子で面・セルを数え、共有面の発散が相殺されることを確認する"
+  - "2×2の仮速度から圧力列の±2.5 Paと発散零への射影を全計算する"
+  - "壁の流量を破ったときにNeumann Poisson方程式が不適合となる反例"
+  - "上壁u=Uと静止壁u=0をghost速度でそれぞれ再構成する"
+  - "8・12・16格子の過渡キャビティで圧力・発散・境界・時間細分を独立検算する"
+problem_patterns:
+  - FLUID47-MAC-DOF-COUNT
+  - FLUID47-TWO-CELL-DIVERGENCE
+  - FLUID47-GHOST-NO-SLIP
+  - FLUID47-PRESSURE-GAUGE
+  - FLUID47-RESIDUAL-TO-DIVERGENCE
+  - FLUID47-NEUMANN-COMPATIBILITY
+  - FLUID47-ORTHOGONAL-PROJECTION
+  - FLUID47-DIFFUSIVE-TIME-STEP
+  - FLUID47-CONTINUOUS-POISSON-VS-PROJECTION
+  - FLUID47-CAVITY-VERIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 13, review: 6 }
