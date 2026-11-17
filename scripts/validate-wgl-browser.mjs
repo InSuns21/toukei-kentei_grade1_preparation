@@ -788,12 +788,17 @@ try{
   assert.match(float17.status,/編集コードを実行しました/,'R32F failed: '+JSON.stringify(float17));
   assert.match(float17.log,/R32F \/ RED \/ FLOAT/);
   assert.match(float17.log,/FLOAT_READBACK/);
-  // R32F original values may round differently from R8's prequantized bytes
-  // at half-byte boundaries; the independent ±2-byte oracle is authoritative.
-  const float17Matches=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(r=>r.cells[4].textContent)');
-  assert.equal(float17Matches.length,8);
-  assert.ok(float17Matches.every(x=>x==='OK'),
-    'R32F display differs from 8-bit oracle beyond tolerance: '+JSON.stringify(float17));
+  // Edited sources are intentionally labeled "変更版: 参考" by the shared UI,
+  // so compare numerical column 4, not the unchanged-source status column 5.
+  // At x=0, R32F's blue channel may round to 128 rather than R8's 127.
+  const float17Diffs=await evalJS('[...document.querySelectorAll("#results-table tbody tr")].map(r=>Number(r.cells[3].textContent))');
+  assert.equal(float17Diffs.length,8);
+  assert.ok(float17Diffs.every(x=>Number.isFinite(x)&&x<=2),
+    'R32F display differs from independent CPU oracle beyond ±2: '+JSON.stringify(float17));
+  const floatReadback=float17.log.match(/FLOAT_READBACK: RGBA32F\/FLOAT: max \|GPU-original\|=([0-9.eE+-]+)/);
+  if(floatReadback) assert.ok(Number(floatReadback[1])<1e-6,
+    'float framebuffer readback deviates from original values: '+floatReadback[1]);
+  else assert.match(float17.log,/FLOAT_READBACK:.*(?:unavailable|incomplete|failed|extension present)/i);
   console.log('WGL17 R32F sampling/display passed; float FBO capability reported independently: PASS');
 
   await click('reset');
