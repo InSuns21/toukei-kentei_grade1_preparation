@@ -27,3 +27,4 @@
 24. [MIR2-08 特殊幾何とprepotential](textbook/volumes/dream_thater/幾何系/MIR/MIR2-08/index.md)
 25. [MIR2-09 GWのJ関数とdescendant](textbook/volumes/dream_thater/幾何系/MIR/MIR2-09/index.md)
 26. [MIR2-10 超幾何I関数とquinticの係数](textbook/volumes/dream_thater/幾何系/MIR/MIR2-10/index.md)
+27. [MIR2-11 トーラス局所化と固定グラフ](textbook/volumes/dream_thater/幾何系/MIR/MIR2-11/index.md)
