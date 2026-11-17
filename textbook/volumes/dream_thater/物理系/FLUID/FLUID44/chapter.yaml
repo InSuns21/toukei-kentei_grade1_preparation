@@ -7,6 +7,7 @@ prerequisites:
   - FLUID42
   - FLUID43
   - CTM10
+  - FLUID11
 official_scope: []
 learning_objectives:
   - "波面と速度のなす角・偏向角・法線Mach数を定義し、法線流束の保存と接線速度の連続性をEuler保存形から導く"
@@ -19,7 +20,7 @@ definitions:
   - { id: FLUID44-DEF-02, name: "Mach角" }
 theorems:
   - { id: FLUID44-THM-01, name: "斜め衝撃波の法線跳躍と接線速度" }
-  - { id: FLUID44-THM-02, name: "斜め衝撃波のtheta-beta-M関係" }
+  - { id: FLUID44-THM-02, name: "斜め衝撃波の偏向角・波面角・Mach数関係" }
   - { id: FLUID44-PROP-01, name: "最大偏向角と弱・強衝撃波分枝" }
   - { id: FLUID44-THM-03, name: "Prandtl–Meyer膨張関係" }
 canonical_examples:
