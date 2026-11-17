@@ -1,0 +1,30 @@
+id: WGL11
+title: 光が遮られる場所をどう判定する？
+volume: foundations
+status: supplementary
+prerequisites: [WGL10]
+official_scope: []
+learning_objectives:
+  - 光源方向の平行光線に沿う投影座標を導出し画面描画のcamera座標と区別できる
+  - 深度テクスチャをDEPTH_ATTACHMENTとするdepth-only FBOの完成条件とWebGL2状態遷移を説明・実装できる
+  - 光源深度と保存された最前面の深度を同じ座標系で比較し影・非影を判断できる
+  - 立方体との射線交差をCPUで独立判定しGPUの4受光点と照合できる
+  - 深度バイアスとshadow map解像度によるacne・peter panning・影の段差を説明できる
+definitions:
+  - { id: WGL11-DEF-01, name: 光源投影座標と光源深度 }
+  - { id: WGL11-DEF-02, name: 深度テクスチャによるshadow map }
+  - { id: WGL11-DEF-03, name: 深度バイアス }
+theorems:
+  - { id: WGL11-PROP-01, name: 最前面深度との比較による可視性判定 }
+  - { id: WGL11-PROP-02, name: 平行光線と軸平行直方体の交差判定 }
+canonical_examples:
+  - 水平床と高さ1の箱に対し光線不変量と深度0.75-z/4を求める
+  - 受光点(-0.75,-0.25,0)の遮蔽と(1.25,1.1,0)の非遮蔽を確認する
+  - DEPTH_COMPONENT24を深度専用FBOへ接続しdrawBuffersとreadBufferのNONEを検査する
+  - 影付きシーンと4画素のCPU射線判定を比較する
+  - 負のbiasと過大biasで生じる失敗機構を説明する
+problem_patterns: [WGL11-LIGHT-PROJECTION, WGL11-DEPTH-ONLY-FBO, WGL11-SHADOW-COMPARE, WGL11-RAY-BOX, WGL11-BIAS, WGL11-RESOLUTION]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
