@@ -26,6 +26,12 @@ class AlmgrenChrissTests(unittest.TestCase):
         self.assertAlmostEqual(observed, theoretical)
         self.assertAlmostEqual(observed, 515/9)
 
+    def test_zero_fill_has_no_average_execution_price(self):
+        observed, identity = cash_ledger([100, 100, 0], [0.10, -0.05],
+                                         1, 0.01, 0.002)
+        self.assertAlmostEqual(observed, identity)
+        self.assertAlmostEqual(observed, 10 + 100 - 5)
+
     def test_zero_risk_returns_uniform_schedule(self):
         for kw in ({"risk_aversion": 0}, {"sigma": 0}):
             r = optimize(**kw)
