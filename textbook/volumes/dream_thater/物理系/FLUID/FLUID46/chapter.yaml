@@ -15,7 +15,7 @@ learning_objectives:
 definitions:
   - { id: FLUID46-DEF-01, name: "Courant数と格子細分経路" }
   - { id: FLUID46-DEF-02, name: "Fourier増幅因子と格子の安定性" }
-  - { id: FLUID46-DEF-03, name: "セル平均誤差と観測収束次数" }
+  - { id: FLUID46-DEF-03, name: "セル平均誤差の評価とセル平均の観測収束次数" }
 theorems:
   - { id: FLUID46-THM-01, name: "周期一次風上法の安定範囲" }
   - { id: FLUID46-THM-02, name: "中心FTCSの不安定性" }
