@@ -1,0 +1,35 @@
+chapter: WGL11
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL10]
+concepts:
+  - id: graphics.shadow-light-coordinates
+    name: 光源投影座標と光源深度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（光源投影座標と光源深度）"]
+    requires: [graphics.ndc-viewport, graphics.render-to-texture]
+  - id: graphics.shadow-depth-map
+    name: 深度テクスチャによるshadow map
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（深度テクスチャによるshadow map）"]
+    requires: [graphics.shadow-light-coordinates, graphics.framebuffer-completeness]
+  - id: graphics.shadow-depth-bias
+    name: 深度バイアス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（深度バイアス）"]
+    requires: [graphics.shadow-depth-map]
+  - id: graphics.shadow-depth-visibility
+    name: 最前面深度との比較による可視性判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最前面深度との比較による可視性判定）"]
+    requires: [graphics.shadow-depth-map, graphics.shadow-depth-bias]
+  - id: graphics.shadow-ray-box-intersection
+    name: 平行光線と軸平行直方体の交差判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平行光線と軸平行直方体の交差判定）"]
+    requires: [graphics.shadow-light-coordinates]

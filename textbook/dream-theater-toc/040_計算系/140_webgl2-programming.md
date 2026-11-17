@@ -11,3 +11,4 @@
 8. [WGL8 透明・色空間の計算はいつ正しい？](textbook/volumes/dream_thater/計算系/WGL/WGL8/index.md)
 9. [WGL9 法線と光源は明暗をどう決める？](textbook/volumes/dream_thater/計算系/WGL/WGL9/index.md)
 10. [WGL10 一回描いた結果を次に使うには？](textbook/volumes/dream_thater/計算系/WGL/WGL10/index.md)
+11. [WGL11 光が遮られる場所をどう判定する？](textbook/volumes/dream_thater/計算系/WGL/WGL11/index.md)
