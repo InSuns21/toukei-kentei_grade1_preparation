@@ -501,14 +501,14 @@ $$
 
 - Level: B
 
-二セルの出発行・到着列の遷移行列を $P=\begin{pmatrix}1&0\\1/2&1/2\end{pmatrix}$、移動前 belief を $u=(1/2,1/2)^T$ とする。行和と列和を求め、$P^Tu$ を計算し、一様 belief が不変でない理由を述べよ。
+二セルの出発行・到着列の遷移行列を $P=\begin{pmatrix}1&0\\1/2&1/2\end{pmatrix}$、移動前 belief を $\nu=(1/2,1/2)^T$ とする。行和と列和を求め、$P^T\nu$ を計算し、一様 belief が不変でない理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：第1行は $1+0=1$、第2行は $1/2+1/2=1$ で有効な遷移核です。一方、第1列の和は $1+1/2=3/2$、第2列の和は $0+1/2=1/2$ です。予測の各成分は
 
 $$
-(P^Tu)_1=1\cdot\frac12+\frac12\cdot\frac12=\frac34,\qquad
-(P^Tu)_2=0\cdot\frac12+\frac12\cdot\frac12=\frac14.
+(P^T\nu)_1=1\cdot\frac12+\frac12\cdot\frac12=\frac34,\qquad
+(P^T\nu)_2=0\cdot\frac12+\frac12\cdot\frac12=\frac14.
 $$
 
 確率和1は保たれますが、予測は $(3/4,1/4)$ で一様ではありません。[反射五セルの命題](#prop-u2-13-reflection-kernel)で使った列和1がここでは成り立たないためです。
