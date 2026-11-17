@@ -79,7 +79,7 @@ def self_test():
         assert "zero evidence" in str(exc)
     else:
         raise AssertionError("zero evidence must fail")
-    print("self-test: passed 12 deterministic consistency checks")
+    print("self-test: all deterministic consistency checks passed")
 
 
 def show(label, belief, evidence=None):
