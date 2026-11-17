@@ -1,0 +1,43 @@
+chapter: U2-13
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-12
+forward_references: []
+concepts:
+  - id: robotics.grid-cell-belief
+    name: 格子セルとセル belief
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子セルとセル belief）"]
+    requires: [robotics.finite-position-belief]
+  - id: robotics.grid-markov-localization
+    name: 格子 Markov localization の更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子 Markov localization の更新）"]
+    requires: [robotics.grid-cell-belief, robotics.finite-bayes-filter]
+  - id: robotics.grid-reflecting-transition
+    name: 反射五セル遷移の正規化と一様不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（反射五セル遷移の正規化と一様不変性）"]
+    requires: [robotics.grid-cell-belief, robotics.finite-state-transition-kernel]
+  - id: robotics.grid-multimodal-belief
+    name: 局所最頻セルと多峰 belief
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（局所最頻セルと多峰 belief）"]
+    requires: [robotics.grid-cell-belief]
+  - id: robotics.grid-reflection-invariance
+    name: 鏡映対称性の予測・更新での保存
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（鏡映対称性の予測・更新での保存）"]
+    requires: [robotics.grid-markov-localization, robotics.grid-multimodal-belief]
+  - id: robotics.grid-gaussian-unimodality-obstruction
+    name: 単一 Gaussian の格子点尤度形状では二峰 belief を再現できない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単一 Gaussian の格子点尤度形状では二峰 belief を再現できない）"]
+    requires: [robotics.grid-multimodal-belief]
