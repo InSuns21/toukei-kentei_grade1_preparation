@@ -576,7 +576,7 @@ if (isWGL16) {
     '<li>初期状態を実行し64対1の呼び出し回数、384頂点、全画素差0とCPU/GPUの6点を確認する。</li>' +
     '<li>instancing.jsのdrawModeをloopへ変更し、同一画像になるか比較する。</li>' +
     '<li>gridSizeを4または16へ変更し、描画呼び出し数と転送データ量を予測する。</li>' +
-    '<li>頂点シェーダのa_instanceColorを改変して表示とCPU期待値の差を確認する。</li>' +
+    '<li>頂点シェーダのa_colorを改変して表示とCPU期待値の差を確認する。</li>' +
     '<li>構文エラープリセットでコンパイル診断し、修正して再実行する。</li>';
   byId('preset').options[0].textContent = '8×8正方形・描画回数/全画素差/同期時間の比較';
   byId('preset').options[1].textContent = 'fragmentの構文エラー';

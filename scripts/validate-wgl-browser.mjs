@@ -692,6 +692,66 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL15 fragment diagnostic, stop and sandbox disposal: PASS');
 
+
+  // WGL16: GPU instancing and per-object uniforms must rasterize identical
+  // 8x8 colored markers. Exercise JS/GLSL edits and GL diagnostics in Chromium.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL16'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.drawArraysInstanced")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const diagnostic16=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.match(diagnostic16.status,/独立画素検算に合格/,
+    'WGL16 GPU instancing or 6 CPU probes failed: '+JSON.stringify(diagnostic16));
+  const wgl16=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl16.rows.length,6);
+  assert.ok(wgl16.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl16.sandbox,'allow-scripts');
+  assert.match(wgl16.log,/loop 64 draw calls; instanced 1 draw call/);
+  assert.match(wgl16.log,/384 vertex invocations/);
+  assert.match(wgl16.log,/0 mismatched RGBA pixels between loop and instanced/);
+  assert.match(wgl16.log,/GL error: 0x0/);
+  const shot16=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl16-initial.png',Buffer.from(shot16.data,'base64'));
+  console.log('WGL16 real GPU instancing: 64 vs 1 draw calls, 384 vertices, same full framebuffer and six CPU probes: PASS');
+
+  // Both paths still execute when the visible drawing method is switched.
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace(\"const drawMode = 'instanced'\",\"const drawMode = 'loop'\");})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const loop16=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>row.cells[2].textContent),log:document.getElementById("diagnostics").textContent})');
+  assert.deepEqual(loop16.rows,wgl16.rows.map(row=>row[2]));
+  assert.match(loop16.log,/0 mismatched RGBA pixels/);
+  console.log('WGL16 loop and instanced paths produce the same six GPU samples: PASS');
+
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const gridSize = 8;','const gridSize = 4;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const grid16=await evalJS('document.getElementById("diagnostics").textContent');
+  assert.match(grid16,/loop 16 draw calls; instanced 1 draw call/);
+  assert.match(grid16,/96 vertex invocations/);
+  assert.match(grid16,/0 mismatched RGBA pixels/);
+  console.log('WGL16 editable instance count updates draw calls and full-pixel equality: PASS');
+
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('fragment-source');e.value=e.value.replace('vec4(v_color, 1.0)','vec4(v_color.bgr, 1.0)');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const changed16=await evalJS('({rgba:document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.notEqual(changed16.rgba,wgl16.rows[0][2]);
+  assert.match(changed16.log,/0 mismatched RGBA pixels/);
+  console.log('WGL16 edited fragment GLSL changes real GPU pixels in both draw paths: PASS');
+
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL16 shader diagnostics and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
