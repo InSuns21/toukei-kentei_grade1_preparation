@@ -24,21 +24,21 @@
 <!-- definition-example-start: def-u2-12-filter-smoother -->
 **定義の確認**：初期位置と移動・観測の模型を
 
-$
+$$
 X_0\sim N(0,1),\qquad X_1=X_0+W_1,\qquad W_1\sim N(0,1),
-$
+$$
 
-$
+$$
 Z_1=X_1+V_1,\qquad V_1\sim N(0,1)
-$
+$$
 
 とし、三つの乱数源を独立とします。時刻0に観測はなく、時刻1で $z_1=2$ を得たとします。
 
 時刻0のフィルタ平均は観測前なので $m_0^+=0$ です。一方、独立性から $\operatorname{Cov}(X_0,Z_1)=1$、$\operatorname{Var}(Z_1)=1+1+1=3$。[Gaussian 事後更新](../U2-03/index.md#prop-u2-03-robot-posterior)の条件を満たすので、過去の状態 $X_0$ の平滑化平均は
 
-$
+$$
 m_0^s=0+\frac13(2-0)=\frac23.
-$
+$$
 
 時刻1では条件とする観測が等しいため $m_1^s=m_1^+=4/3$ です。**どの観測を条件にしているか**が定義の相違です。
 <!-- definition-example-end -->
@@ -107,15 +107,15 @@ $$
 >
 > と書ける。
 
-$
+$$
 p(x\mid z_{\mathcal O})\propto\exp\{-\tfrac12 x^TAx+d^Tx\}.
-$
+$$
 
 > $J(x)$ は以下の二次関数で、狭義凸である。
 
-$
+$$
 J(x)=\tfrac12x^TAx-d^Tx+\text{定数}.
-$
+$$
 
 > 最小点 $\widehat x=A^{-1}d$ は唯一である。この点は事後最頻値（MAP）であると同時に、Gaussian 事後分布の平均である。
 <!-- formal-statement-end -->
@@ -582,13 +582,13 @@ $$
 
 次の模型で $T=2$、全乱数源は独立、$z_0$ は欠測、$z_1=1,z_2=2$ とする。
 
-$
+$$
 X_0\sim N(0,1),\quad X_t=X_{t-1}+W_t,\quad W_t\sim N(0,1),
-$
+$$
 
-$
+$$
 Z_t=X_t+V_t,\quad V_t\sim N(0,1)\qquad(t=1,2).
-$
+$$
 
 1. 目的関数 $J$ と正規方程式の $A,d$ を求めよ。
 2. バッチ解を求めよ。
