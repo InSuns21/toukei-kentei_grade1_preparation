@@ -406,7 +406,17 @@ $M_2>M_1$ なので $T_2<T_1$、$p_2<p_1$、$\rho_2<\rho_1$ である。状態�
 <!-- solution-start -->
 #### 詳細解答
 
-[Mach角の定義](#def-fluid44-mach-angle)より $\sin\mu=1/2$、従って $\mu=30^\circ$。(ii) [法線Mach数](#def-fluid44-wave-angles)は $M_{1n}=M_1\sin\beta$ だから、$\beta=30^\circ$ では $M_{1n}=2\cdot1/2=1$、$\beta=45^\circ$ では $M_{1n}=2(\sqrt2/2)=\sqrt2$。(iii) 非自明な圧縮型[法線跳躍](#thm-fluid44-oblique-jumps)には $M_{1n}>1$ が必要なので、$45^\circ$ は候補となり、$30^\circ$ は波が消える限界である。候補というだけで、壁の偏向角との整合はまだ検査していない。
+(i) [Mach角の定義](#def-fluid44-mach-angle)より $\sin\mu=1/2$、従って $\mu=30^\circ$。
+
+(ii) [法線Mach数](#def-fluid44-wave-angles)に角度を代入する。
+$
+\begin{aligned}
+M_{1n}(30^\circ)&=2\sin30^\circ=1,\\
+M_{1n}(45^\circ)&=2\sin45^\circ=\sqrt2.
+\end{aligned}
+$
+
+(iii) 非自明な圧縮型の[法線跳躍](#thm-fluid44-oblique-jumps)には $M_{1n}>1$ が必要である。従って $45^\circ$ は候補となり、$30^\circ$ は波が消える限界である。候補というだけでは、壁の偏向角との整合をまだ検査したことにはならない。
 <!-- solution-end -->
 
 #### A2. 与えられた衝撃波角から状態比を得る
