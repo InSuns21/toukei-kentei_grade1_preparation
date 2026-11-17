@@ -31,7 +31,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid42-quasi1d-mach -->
-**定義の確認**：$R=287$ J/(kg K)、$\gamma=1.4$、$T=300$ K、$\rho=1.2$ kg/m$^3$、$v=100$ m/s、$A=0.01$ m$^2$ とすると $c=\sqrt{1.4\cdot287\cdot300}\simeq347.19$ m/s、$M\simeq0.288<1$、$\dot m=1.2\cdot100\cdot0.01=1.2$ kg/s。$[\rho v A]=({\rm kg/m^3})({\rm m/s})({\rm m^2})={\rm kg/s}$ である。Mach数の判定では流速と**その場所の**音速を比較し、入口の音速を使い回さない。
+**定義の確認**：$R=287$ J/(kg K)、$\gamma=1.4$、$T=300$ K、$\rho=1.2$ kg/m$^3$、$v=100$ m/s、$A=0.01$ m$^2$ とする。断面の圧力と音速は[理想気体の閉鎖](../FLUID41/index.md#def-fluid41-ideal-gas)・[等エントロピー音速](../FLUID41/index.md#def-fluid41-sound-speed)から
+
+$$
+p=\rho RT=103320\ {\rm Pa}>0,\qquad
+c=\sqrt{1.4\cdot287\cdot300}\simeq347.19\ {\rm m/s}>0.
+$$
+
+すべての状態量・断面積・流速が正であり、$M=v/c\simeq0.288<1$、$\dot m=\rho vA=1.2\cdot100\cdot0.01=1.2$ kg/s。$[\rho v A]=({\rm kg/m^3})({\rm m/s})({\rm m^2})={\rm kg/s}$ である。Mach数の判定では流速と**その場所の**音速を比較し、入口の音速を使い回さない。
 <!-- definition-example-end -->
 
 ## 1. 面積を狭めると、いつ加速するか
@@ -311,7 +318,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid42-choking -->
-**定義の確認**：収縮拡大ノズルの喉部面積が $A_t=0.010$ m$^2$、上流 $p_0=101325$ Pa、$T_0=300$ K、$R=287$、$\gamma=1.4$ とし、喉部で $M=1$ となる滑らかな流れを取る。$A_t=A_*$、$p_*,T_*,\rho_*>0$ であり、下の最大流量式から $\dot m_*\simeq2.36448$ kg/s を得る。一方、同じ幾何で喉部が $M<1$ のときは音速断面が実在せず、計算上の $A_*<A_t$ となる。形が同じでもチョークの有無は変わる。
+**定義の確認**：収縮拡大ノズルの喉部面積が $A_t=0.010$ m$^2$、上流 $p_0=101325$ Pa、$T_0=300$ K、$R=287$ J/(kg K)、$\gamma=1.4$ とし、喉部で $M=1$ となる滑らかな流れを取る。$A_t=A_*$ であり、前節までに導いた[停滞状態の換算](#def-fluid42-stagnation)を $M=1$ に適用すると、各状態量の正値を実際に確かめられる：
+
+$$
+T_*=\frac{T_0}{1+0.2}=250\ {\rm K}>0,\qquad
+p_*=p_0\left(\frac56\right)^{3.5}\simeq53528.15\ {\rm Pa}>0,
+$$
+
+$$
+\rho_*=\frac{p_*}{RT_*}\simeq0.74604\ {\rm kg/m^3}>0.
+$$
+
+前節の[面積–Mach関係と二分枝](#thm-fluid42-area-mach)の証明では、同じ全圧・全温で $j(M)=\rho v$ が $M=1$ で最大になることも示している。そこで前節の流束式に $M=1$ を代入し、
+
+$$
+\dot m_*=A_tj(1)
+=A_tp_0\sqrt{\frac{\gamma}{RT_0}}
+\left(\frac2{\gamma+1}\right)^{(\gamma+1)/(2(\gamma-1))}
+\simeq2.36448\ {\rm kg/s}
+$$
+
+を得る。これは定義の正値条件と流量最大条件を満たす直接例であり、後の定理を先取りせずに計算できる。一方、同じ幾何で喉部が $M<1$ のときは音速断面が実在せず、計算上の $A_*<A_t$ となる。形が同じでもチョークの有無は変わる。
 <!-- definition-example-end -->
 
 <a id="thm-fluid42-critical-flux"></a>
