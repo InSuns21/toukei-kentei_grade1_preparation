@@ -177,3 +177,6 @@ import './wgl9-lab.test.mjs';
 
 // WGL10: RGBA8 attachment, resize, two passes, and independent CPU oracle.
 import './wgl10-lab.test.mjs';
+
+// WGL11: depth-only shadow-map FBO and independent ray-box CPU oracle.
+import './wgl11-lab.test.mjs';
