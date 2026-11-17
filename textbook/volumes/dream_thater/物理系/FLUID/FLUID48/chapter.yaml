@@ -1,0 +1,46 @@
+id: "FLUID48"
+title: "衝撃波を含む圧縮性流れを数値的に追えるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID41
+  - FLUID43
+  - FLUID45
+  - FLUID46
+official_scope: []
+learning_objectives:
+  - "一次元Euler保存変数とフラックスから三つの特性速度を導き、理想気体状態の正値性を確認する"
+  - "Riemann初期値問題と接触面・左右の衝撃波/希薄波を区別し、波曲線と星印圧力の一意性を証明する"
+  - "Hugoniot関係・希薄波の等エントロピー則から星印密度とSod波面位置を手計算する"
+  - "局所Riemann解からGodunov面流束を定義し、整合性と三保存量の境界収支を証明する"
+  - "密度・圧力正値性、Courant条件、境界収支、衝撃位置と厳密セル平均誤差を別々に検証する"
+  - "ブラウザPythonでshock-tubeと格子系列を再現し、有限格子の観測と普遍的収束定理を区別する"
+definitions:
+  - { id: FLUID48-DEF-01, name: "Euler系のRiemann初期値問題" }
+  - { id: FLUID48-DEF-02, name: "理想気体Euler系の波曲線と星印状態" }
+  - { id: FLUID48-DEF-03, name: "一次Godunov数値流束" }
+theorems:
+  - { id: FLUID48-THM-01, name: "真空を生じないときの星印圧力の一意性" }
+  - { id: FLUID48-THM-02, name: "Godunov流束の整合性" }
+  - { id: FLUID48-THM-03, name: "三保存量の離散境界収支" }
+canonical_examples:
+  - "Sod左右状態から保存変数・圧力根・左右星印密度を求める"
+  - "左右一定同一状態のGodunov流束は物理流束に一致する"
+  - "衝撃位置・接触位置を解析式で予測し、境界流入による運動量変化を検証する"
+  - "真空を伴う速度差や負圧候補を失敗として停止する"
+  - "40・80・160格子の密度厳密セル平均誤差と三保存残差を別々に表示する"
+problem_patterns:
+  - FLUID48-CONSERVED-PRIMITIVE
+  - FLUID48-WAVE-SELECTION
+  - FLUID48-SHOCK-CONTACT-POSITION
+  - FLUID48-OPEN-BOUNDARY-BUDGET
+  - FLUID48-CONTACT-FLUX
+  - FLUID48-WAVE-CURVE-MONOTONICITY
+  - FLUID48-SHOCK-HUGONIOT-CURVE
+  - FLUID48-NEGATIVE-PRESSURE-COUNTEREXAMPLE
+  - FLUID48-EXACT-CELL-AVERAGE
+  - FLUID48-INTEGRATED-SHOCK-TUBE-VERIFICATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 12, exercises: 14, review: 6 }
