@@ -1,0 +1,50 @@
+id: "U2-13"
+title: "格子上の Markov localization と多峰事後"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-12
+official_scope: []
+learning_objectives:
+  - 既知地図上の格子セル・離散 belief・位置の代表点の意味と離散化誤差を説明できる
+  - 出発行・到着列の遷移行列と列ベクトル belief から予測を正しく計算できる
+  - 格子版 Markov localization の予測・尤度更新・正規化・ゼロ証拠を検算できる
+  - 反射境界の五セル模型で行の確率保存と一様分布の不変性を導ける
+  - 対称な観測による二峰事後の各セル確率・平均・分散と二度目の更新を手計算できる
+  - 二峰分布における最頻セル・平均・分散の違いを区別できる
+  - 位置対称性が移動と観測を通じて保持される条件を証明できる
+  - 単一 Gaussian の格子点での対数凹性と二峰 belief の非一致を証明できる
+  - 繰返し観測の条件付き独立性・支持集合・格子幅による模型の限界を診断できる
+  - Pythonラボで予測・観測更新・対称性・証拠・二峰性を決定論的に検算できる
+definitions:
+  - { id: U2-13-DEF-01, name: 格子セルとセル belief }
+  - { id: U2-13-DEF-02, name: 格子 Markov localization の更新 }
+  - { id: U2-13-DEF-03, name: 局所最頻セルと多峰 belief }
+theorems:
+  - { id: U2-13-PROP-01, name: 反射五セル遷移の正規化と一様不変性 }
+  - { id: U2-13-THM-01, name: 鏡映対称性の予測・更新での保存 }
+  - { id: U2-13-PROP-02, name: 単一 Gaussian の格子点尤度形状では二峰 belief を再現できない }
+canonical_examples:
+  - 五セルの反射境界遷移行列は行・列の総和が1
+  - 一様予測と交互模様センサーで (1,4,1,4,1)/11 の二峰事後
+  - 二峰事後の平均3・分散16/11・最頻セル2と4
+  - 再予測後の (7,10,10,10,7)/44 と再観測後の (7,40,10,40,7)/104
+  - 一意な位置を知らせる非対称観測で (1,4,1,1,1)/8 に変化
+  - 正の証拠を欠く観測で事後が未定義になる
+  - Python標準ライブラリで二峰・非対称・境界を自己検査
+problem_patterns:
+  - U2-13-A01
+  - U2-13-A02
+  - U2-13-A03
+  - U2-13-A04
+  - U2-13-A05
+  - U2-13-B01
+  - U2-13-B02
+  - U2-13-B03
+  - U2-13-B04
+  - U2-13-C01
+  - U2-13-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
