@@ -50,7 +50,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-66-discrete-state -->
-**定義の確認**（直接例）：$q=2,u=1$ なら $u\in\{0,1,2\}$、次期在庫は $q'=1\ge0$ です。$d_G=0.02,\eta_G=0.06,\alpha_G=0.15,\lambda\sigma_G^2=0.01$ を代入すると
+**定義の確認**（直接例）：$T=Q=2$、$Z=\{G,B\}$ とし、行・列をともに $G,B$ の順に並べた状態推移行列を
+
+$$
+P=\begin{pmatrix}3/4&1/4\\1/2&1/2\end{pmatrix}
+$$
+
+とします。第1行は「今 $G$ なら次は $G$ が $3/4$、$B$ が $1/4$」という条件付き確率です。全成分は非負で、行和は $3/4+1/4=1$ と $1/2+1/2=1$ なので、定義の推移確率の条件を満たします。
+
+$q=2,u=1$ なら整数制約 $u\in\{0,1,2\}$ を満たし、次期在庫は $q'=1\ge0$ です。$d_G=0.02,\eta_G=0.06,\alpha_G=0.15$ と、$\lambda=0.01$（1／円）、$\sigma_G^2=1$（円²／株²）を選ぶと $\lambda\sigma_G^2=0.01$（円／株²）なので、
 
 $$
 g(2,1,G)=0.02+0.06+0.01-0.15=-0.06\ \text{円}.
@@ -246,7 +254,17 @@ $$
 
 ### 4.1 生成作用素はどこから来るか
 
-先行の [HJC5 の制御付き生成作用素](../../../解析系/HJC/HJC5/index.md#def-hjc5-controlled-generator)では、確率状態 $Y$ のドリフトと拡散行列から一次微分項と二階微分項を作ります。ここでは $Y=(X,Z)$ の順に並べます。$dX=-u\,ds$ に Brown 項はなく、$dZ=b\,ds+\Sigma\,dW$ なので、
+先行の [HJC5 の制御付き生成作用素](../../../解析系/HJC/HJC5/index.md#def-hjc5-controlled-generator)は、状態のドリフトを一次微分項へ、Brown 雑音の共分散率を二階微分項へ対応させます。ここでは状態を $Y=(X,Z_1,Z_2,Z_3)$ の4座標の順に並べます。$\phi_t,\phi_x,\phi_{z_i}$ はほかの座標を固定した偏微分で、$dX_s=-u_s\,ds$ は実際の在庫経路に沿う時間変化です。この二つの微分は同じものではありません。
+
+[HJC5 の Itô 公式に基づく生成作用素](../../../解析系/HJC/HJC5/index.md#def-hjc5-controlled-generator)へ代入する前に、二階項の元を確認します。$Z_i$ の Brown 係数は $\Sigma$ の第 $i$ 行なので、$W$ の成分を $W_k$ と書けば
+
+$$
+d[Z_i,Z_j]_s=\sum_{k=1}^{m}\Sigma_{ik}(Z_s)\Sigma_{jk}(Z_s)\,ds,
+\qquad
+d[X,Z_i]_s=d[X,X]_s=0.
+$$
+
+ここで $[Z_i,Z_j]$ は二つの状態成分の二次共変動、$[X,X]$ は在庫の二次変動を表します。最後の等式は $dX=-u\,ds$ が時間積分だけで変化する有限変動過程であり、Brown 項を持たないためです。したがって滑らかな $\phi$ の Itô 展開では、時間微分・各座標の一次項のほかに、$z_i,z_j$ の二階微分だけが現れます。行列で書くとドリフトと共分散率は
 
 $$
 B^u(x,z)=\begin{pmatrix}-u\\b(z)\end{pmatrix},
@@ -254,7 +272,7 @@ B^u(x,z)=\begin{pmatrix}-u\\b(z)\end{pmatrix},
 A(x,z)=\begin{pmatrix}0&0\\0&\Sigma(z)\Sigma(z)^{\mathsf T}\end{pmatrix}.
 $$
 
-上の $A$ は $4\times4$ 行列で、$0$ の最初の行と列は残在庫が直接 Brown 雑音を持たないことを表します。状態関数 $\phi(t,x,z)$ に対して生成作用素を実際に展開すると
+ここで $B^u$ は4次元ベクトル、$A$ は $4\times4$ 行列です。右上の $0$ は $1\times3$、左下の $0$ は $3\times1$、右下の $\Sigma\Sigma^{\mathsf T}$ は $3\times3$ です。この配置が在庫方向の二階項と混合二階項を消す理由です。よって $\phi(t,x,z)$ の生成作用素は
 
 $$
 \mathcal L^u\phi=-u\phi_x+
@@ -374,7 +392,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-内部で $V=A(t)x^2$ と置き、$V_x=2A(t)x$、$V_t=A'(t)x^2$ を求めます。HJB の速度に関する部分は
+内部で $V=A(t)x^2$ と置き、$V_x=2A(t)x$、$V_t=A'(t)x^2$ を求めます。$V_x$ は時刻 $t$ を固定して在庫 $x$ で偏微分した量であり、以下の $X_s'$ と $\dot X_s$ はともに経路を時刻 $s$ で微分した量です。HJB の速度に関する部分は
 
 $$
 \eta u^2-2A(t)xu
@@ -401,14 +419,26 @@ $$
 =\eta\kappa^2\operatorname{csch}^2(\kappa(T-t)).
 $$
 
-よって方程式を満たします。最適速度を $\dot X=-A(s)X/\eta$ に入れると
+よって方程式を満たします。最適速度を $\dot X_s=-A(s)X_s/\eta$ に入れます。まず $x>0$、$t\le s<T$ として、$X_s>0$ の範囲だけで $\log X_s$ を微分します。$\kappa>0$ と $T-s>0$ から $\sinh(\kappa(T-s))>0$ でもあるため、連鎖律で
 
 $$
-\frac{d}{ds}\log X_s=-\kappa\coth(\kappa(T-s))
-=\frac{d}{ds}\log\sinh(\kappa(T-s)).
+\begin{aligned}
+\frac{d}{ds}\log X_s
+&=\frac{\dot X_s}{X_s}=-\kappa\coth(\kappa(T-s)),\\
+\frac{d}{ds}\log\sinh(\kappa(T-s))
+&=\frac{-\kappa\cosh(\kappa(T-s))}{\sinh(\kappa(T-s))}
+=-\kappa\coth(\kappa(T-s)).
+\end{aligned}
 $$
 
-初期条件 $X_t=x$ を代入すれば定理の $X_s^*$ を得ます。微分して速度式を得、$\sinh$ の正値性・単調性から $u_s^*\ge0$ と $X_T^*=0$ を確認します。$k=0$ では $A(t)=\eta/(T-t)$ が $A'=A^2/\eta$ を満たすため、$u^*=X/(T-t)$、積分して直線清算を得ます。
+両辺を $t$ から $s$ まで積分して初期条件 $X_t=x$ を使うと
+
+$$
+\log\frac{X_s}{x}
+=\log\frac{\sinh(\kappa(T-s))}{\sinh(\kappa(T-t))}
+$$
+
+となり、表示した $X_s^*$ を得ます。微分して速度式を得、$\sinh$ の正値性・単調性から $u_s^*\ge0$ と、$s\uparrow T$ での連続性から $X_T^*=0$ を確認します。$x=0$ では対数を取らず、非負・非増加の在庫は恒等的に0です。$k=0$ では $A(t)=\eta/(T-t)$ が $A'=A^2/\eta$ を満たすため、$u^*=X/(T-t)$、積分して直線清算を得ます。
 
 最後に最適性・一意性を確認します。任意の別の許容経路を $X^*+h$ と書けば $h_t=h_T=0$ です。二次目的の差を展開すると
 
