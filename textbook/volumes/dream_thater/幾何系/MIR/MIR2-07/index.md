@@ -315,15 +315,15 @@ $$
 
 > とくに元の級数が次の形であるとき、
 
-$
+$$
 K_B(q_B)=5+k_1q_B+k_2q_B^2+O(q_B^3),
-$
+$$
 
 > 新しい座標での級数は
 
-$
+$$
 \widetilde K_B(\widetilde q_B)=5+\frac{k_1}{\lambda}\widetilde q_B+\frac{k_2}{\lambda^2}\widetilde q_B^2+O(\widetilde q_B^3)
-$
+$$
 
 > となる。両方の座標に $q=z+O(z^2)$ を要求するなら $\lambda=1$ である。
 <!-- formal-statement-end -->
