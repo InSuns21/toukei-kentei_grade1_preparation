@@ -1,0 +1,41 @@
+chapter: WGL12
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL11]
+concepts:
+  - id: graphics.brdf
+    name: 双方向反射率分布関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（双方向反射率分布関数）"]
+    requires: [graphics.lambert-factor]
+  - id: graphics.fresnel-schlick
+    name: Fresnel反射率のSchlick近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fresnel反射率のSchlick近似）"]
+    requires: [graphics.brdf, graphics.blinn-phong]
+  - id: graphics.fresnel-schlick-bounds
+    name: Schlick近似の範囲と角度単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Schlick近似の範囲と角度単調性）"]
+    requires: [graphics.fresnel-schlick]
+  - id: graphics.ggx-normal-distribution
+    name: GGX微小面法線分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（GGX微小面法線分布）"]
+    requires: [graphics.brdf]
+  - id: graphics.ggx-projected-normalization
+    name: GGXの射影面積正規化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（GGXの射影面積正規化）"]
+    requires: [graphics.ggx-normal-distribution]
+  - id: graphics.metallic-roughness-brdf
+    name: metallic–roughnessによる簡易微小面BRDF
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（metallic–roughnessによる簡易微小面BRDF）"]
+    requires: [graphics.fresnel-schlick, graphics.ggx-projected-normalization, graphics.brdf]
