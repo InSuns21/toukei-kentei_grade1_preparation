@@ -389,9 +389,9 @@ $$
 N_d=\int_{\mathcal M_d}c_{5d+1}(E_d).
 $$
 
-$E_d$ に付けた等変線形化の最高等変Chern類 $e_T(E_d)$ は、重みを0へ戻したとき $c_{5d+1}(E_d)$ になる。$\mathcal M_d$ は固有で滑らかであり、被積分類の複素余次元は $5d+1=\dim_{\mathbb C}\mathcal M_d$ なので、等変押し出し $\int_{\mathcal M_d}^T e_T(E_d)$ は $\mathbb Q[\lambda_0,\ldots,\lambda_4]$ の次数0の元、つまり定数 $N_d$ である。
+$E_d$ に付けた等変線形化の最高等変Chern類 $e_T(E_d)$ は、重みを0へ戻したとき $c_{5d+1}(E_d)$ になる。$\mathcal M_d$ は固有で滑らかであり、被積分類の複素余次元は $5d+1=\dim_{\mathbb C}\mathcal M_d$ なので、等変積分 $\int_{\mathcal M_d}^T e_T(E_d)$ は $\mathbb Q[\lambda_0,\ldots,\lambda_4]$ の次数0の元、つまり定数 $N_d$ である。
 
-[ABBV公式](#thm-mir2-11-abbv)の固定成分版を $\alpha=e_T(E_d)$、$M=\mathcal M_d$ に適用する。固定成分は固定グラフで分解され、$\alpha|_{F_\Gamma}=e_T(E_d|_{F_\Gamma})$ だから右辺の和になる。等変押し出しが元から定数なので、個々の重みを分母に持つ式の極は、和の中で相殺する。よって全体の重み零での値は $N_d$。$\square$
+[ABBV公式](#thm-mir2-11-abbv)の固定成分版を $\alpha=e_T(E_d)$、$M=\mathcal M_d$ に適用する。固定成分は固定グラフで分解され、$\alpha|_{F_\Gamma}=e_T(E_d|_{F_\Gamma})$ だから右辺の和になる。等変積分が元から定数なので、個々の重みを分母に持つ式の極は、和の中で相殺する。よって全体の重み零での値は $N_d$。$\square$
 <!-- proof-end -->
 
 **辺の重みを一歩具体化する。** $p_i$ と $p_j$ を結ぶ次数 $d$ の辺写像の定義域で、$p_i$ の近くの座標 $z$ に対して標的局所座標は $z^d$。標的の重みが $\lambda_j-\lambda_i$ なので、辺の定義域に誘導される接方向の重みはその $1/d$、すなわち $(\lambda_j-\lambda_i)/d$ となる（有限被覆上で解釈する）。反対の端では符号が反転する。$d$ を無視して重みをそのまま移すと、固定グラフの法Euler類が誤る。
@@ -512,7 +512,7 @@ $$
 =3\lambda-2\lambda=\lambda.
 $$
 
-一致する。$\int 3\lambda^2$ を普通の積分と同様に単に $3\lambda^2$ と残すのは、押し出しの次数を無視した誤りである。
+一致する。$\int 3\lambda^2$ を普通の積分と同様に単に $3\lambda^2$ と残すのは、積分による次数の減少を無視した誤りである。
 <!-- solution-end -->
 
 <a id="ex-mir2-11-b02"></a>
