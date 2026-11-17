@@ -209,9 +209,9 @@ $$
 
 > $\gamma_t(x_{1:t})>0$ なら必ず $Q_t(x_{1:t})>0$ と仮定する。$Q_t>0$ の経路について、**逐次重点重み**を
 
-$
+$$
 W_t(x_{1:t})=\frac{\gamma_t(x_{1:t})}{Q_t(x_{1:t})}
-$
+$$
 
 > と定める。$Z_t=\sum_{x_{1:t}}\gamma_t(x_{1:t})>0$ なら、経路の事後確率は $\gamma_t/Z_t$ である。
 <!-- formal-statement-end -->
@@ -587,10 +587,10 @@ $F\equiv1$ で $E_{Q_t}[W_t]=Z_t$ を得ます。
 
 分母の極限が正なので、十分大きな $N$ では総重みが正です。従って自己正規化比は
 
-$
+$$
 \widehat I_N(F)\longrightarrow
 \frac{\sum_{x_{1:t}}\gamma_t(x_{1:t})F(x_{1:t})}{Z_t}
-$
+$$
 
 に収束します。
 
