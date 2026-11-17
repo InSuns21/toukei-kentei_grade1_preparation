@@ -18,7 +18,27 @@
 
 <!-- formal-statement-start -->
 > **定義（清算在庫と自己金融的な受取額）**  
-> $Q>0$、整数 $N\ge1$、$\Delta=T/N>0$ とする。各 $x_i$ は売却予定在庫で、$x_0=Q$、$x_N=0$、$x_{i-1}\ge x_i\ge0$（$1\le i\le N$）を満たす。区間 $i$ の事前確定の売却量を $q_i=x_{i-1}-x_i$ とし、[前講の約定単価](../U3-61/index.md#def-u3-61-linear-impact)を $p_i$ とする。売却以外の現金移動がない受取額を $R_0=0$、$R_i=R_{i-1}+q_ip_i$ とし、到着価格 $S_0$ に対する費用を $C=QS_0-R_N$ と定義する。すべての $q_i$ は価格増分を観測する前に固定され、必ず約定する。
+> $Q>0$、整数 $N\ge1$、$\Delta=T/N>0$ とする。各 $x_i$ は売却予定在庫で、以下を満たす。
+
+$
+x_0=Q,\qquad x_N=0,\qquad x_{i-1}\ge x_i\ge0
+\quad(1\le i\le N).
+$
+
+> 区間 $i$ の売却量は次式で事前に固定する。[前講の約定単価](../U3-61/index.md#def-u3-61-linear-impact)を $p_i$ とする。
+
+$
+q_i=x_{i-1}-x_i.
+$
+
+> 売却以外の現金移動がない累積受取額と、到着価格 $S_0$ に対する費用を次式で定める。
+
+$
+R_0=0,\qquad R_i=R_{i-1}+q_ip_i,\qquad
+C=QS_0-R_N.
+$
+
+> すべての $q_i$ は価格増分を観測する前に固定され、必ず約定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-62-cash -->
