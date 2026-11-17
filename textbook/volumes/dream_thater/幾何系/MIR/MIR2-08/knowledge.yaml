@@ -1,0 +1,41 @@
+chapter: MIR2-08
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-08, MIR1-14, MIR1-15, MIR1-16, MIR2-05, MIR2-07]
+concepts:
+  - id: mirror.quintic-special-period-chart
+    name: 特殊幾何の局所周期座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（特殊幾何の局所周期座標）"]
+    requires: [mirror.quintic-b-yukawa-coordinate]
+  - id: mirror.quintic-local-prepotential-existence
+    name: 局所prepotentialの存在
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（局所prepotentialの存在）"]
+    requires: [mirror.quintic-special-period-chart]
+  - id: mirror.quintic-homogeneous-prepotential-periods
+    name: 同次prepotentialと周期成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同次prepotentialと周期成分）"]
+    requires: [mirror.quintic-local-prepotential-existence]
+  - id: mirror.quintic-flat-prepotential
+    name: 平坦座標での局所prepotential
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦座標での局所prepotential）"]
+    requires: [mirror.quintic-homogeneous-prepotential-periods, mirror.quintic-b-yukawa-normalized]
+  - id: mirror.quintic-prepotential-cubic-integration
+    name: 三次結合からprepotentialを復元する公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（三次結合からprepotentialを復元する公式）"]
+    requires: [mirror.quintic-flat-prepotential]
+  - id: mirror.quintic-prepotential-quadratic-period-shift
+    name: 二次不定性とシンプレクティックな周期のずれ
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次不定性とシンプレクティックな周期のずれ）"]
+    requires: [mirror.quintic-homogeneous-prepotential-periods, mirror.quintic-prepotential-cubic-integration]
