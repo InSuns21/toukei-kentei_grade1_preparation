@@ -148,7 +148,7 @@ def self_test():
 
 
 def scenario(name):
-    if name == "gauge":
+    if name == "anchor":
         print("Only movement terms; prior and observations removed:")
         print("A = [[1,-1,0],[-1,2,-1],[0,-1,1]]")
         print("A @ (1,1,1) = (0,0,0): no unique absolute position.")
@@ -174,7 +174,7 @@ def scenario(name):
 
 def main():
     parser = argparse.ArgumentParser(description="U2-12 Gaussian batch/smoother")
-    parser.add_argument("--scenario", choices=("two", "missing", "gauge"),
+    parser.add_argument("--scenario", choices=("two", "missing", "anchor"),
                         default="two")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
