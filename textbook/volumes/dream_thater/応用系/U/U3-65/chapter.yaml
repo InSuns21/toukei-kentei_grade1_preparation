@@ -15,7 +15,7 @@ learning_objectives:
 definitions:
   - { id: U3-65-DEF-01, name: "前方キューと指値の部分約定" }
   - { id: U3-65-DEF-02, name: "発注可能集合・在庫遷移・終端清算費用" }
-  - { id: U3-65-DEF-03, name: "価値関数と予見しない発注方策" }
+  - { id: U3-65-DEF-03, name: "残期間の最小期待費用と予見しない発注方策" }
 theorems:
   - { id: U3-65-PROP-01, name: "約定株数の分布と期待値" }
   - { id: U3-65-THM-01, name: "指値・成行のBellman再帰" }
