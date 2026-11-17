@@ -255,7 +255,23 @@ T D_ts=D_te+pD_t(1/\rho)
 +\frac p\rho\operatorname{div}\boldsymbol u=0.
 $$
 
-$T>0$ だから $D_ts=0$ である。$\gamma$ 定数の理想気体では同じ $s$ の曲線上で $p\rho^{-\gamma}$ は一定である。
+$T>0$ だから $D_ts=0$ である。ただし「流体粒子に沿って一定」と「異なる粒子でも同じ $s$ なら同じ定数 $K$」は別の主張である。後者を確かめるため、Gibbs 関係に $e=c_vT$、$p=\rho RT$ を代入して
+
+$
+\begin{aligned}
+ds&=c_v\frac{dT}{T}-R\frac{d\rho}{\rho}\\
+&=c_v\frac{dp}{p}-(c_v+R)\frac{d\rho}{\rho}\\
+&=c_v\,d\ln(p\rho^{-\gamma})
+\end{aligned}
+$
+
+を得る。正の $p,\rho$ の状態領域でこの式を積分すれば、任意の参照状態 $(p_*,\rho_*,s_*)$ に対して
+
+$
+s-s_*=c_v\ln\left(\frac{p\rho^{-\gamma}}{p_*\rho_*^{-\gamma}}\right).
+$
+
+よって同じ $s$ を持つ二状態では $p\rho^{-\gamma}$ が等しく、等エントロピー曲線を $p=K\rho^\gamma$（$K>0$）と書ける。
 <!-- proof-end -->
 
 **直接例**：同じ等エントロピー曲線上で $\rho_2=2\rho_1$ なら $p_2/p_1=2^\gamma$、$T_2/T_1=(p_2/\rho_2)/(p_1/\rho_1)=2^{\gamma-1}$。$\gamma=1.4$ ではそれぞれ約 $2.639$ と $1.320$ となる。「密度が二倍なら圧力も二倍」は**等温**なら言えるが、今回の断熱可逆変化では違う。
@@ -802,7 +818,7 @@ $
 
 を得る。この式はエントロピーが**空間的に一様であることを要しない**。三つの線形式へ $v'=p'=0$、$\rho'=A\cos(kx)$ を代入すると、すべての時間微分と速度・圧力勾配がゼロで成立する。
 
-実際、前節で導入した Gibbs 関係と $p=\rho RT$ を合わせれば
+実際、[第3節の Gibbs 関係](#prop-fluid41-isentropic)と $p=\rho RT$ を合わせれば
 
 $
 ds=c_v\frac{dT}{T}-R\frac{d\rho}{\rho}
