@@ -1,6 +1,12 @@
 chapter: FLUID43
 scope: dream-theater
 coverage: complete
+# General scalar weak-solution theory is optional context; physical flux jumps
+# are derived directly from the prerequisite FLUID41 conservation laws.
+forward_references:
+  - nonlinear-pde.shock-wave
+  - nonlinear-pde.rankine-hugoniot
+
 prerequisites:
   - FLUID41
   - FLUID42
