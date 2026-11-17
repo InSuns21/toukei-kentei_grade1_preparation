@@ -1,0 +1,43 @@
+chapter: U2-10
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-09
+forward_references: []
+concepts:
+  - id: robotics.innovation-diagnostic-reference-model
+    name: innovation 診断の局所基準模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（innovation 診断の局所基準模型）"]
+    requires: [robotics.ekf-joseph-covariance, robotics.landmark-innovation]
+  - id: robotics.normalized-innovation-squared
+    name: 正規化 innovation 二乗
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正規化 innovation 二乗）"]
+    requires: [robotics.innovation-diagnostic-reference-model]
+  - id: robotics.nis-chi-square-reference
+    name: 線形 Gaussian innovation の NIS 基準分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形 Gaussian innovation の NIS 基準分布）"]
+    requires: [robotics.normalized-innovation-squared]
+  - id: robotics.angular-innovation-diagnostic
+    name: 方位 NIS の局所角度残差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（方位 NIS の局所角度残差）"]
+    requires: [robotics.normalized-innovation-squared, robotics.planar-angle-wrap]
+  - id: robotics.nis-miscalibration
+    name: 平均ずれと分散不足が NIS に与える影響
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均ずれと分散不足が NIS に与える影響）"]
+    requires: [robotics.normalized-innovation-squared]
+  - id: robotics.nis-nonlinear-failure
+    name: 二乗観測の線形化で生じる NIS の過大化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二乗観測の線形化で生じる NIS の過大化）"]
+    requires: [robotics.nis-miscalibration, robotics.ekf-nonlinear-nongaussian-posterior]
