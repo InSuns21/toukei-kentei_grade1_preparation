@@ -1,0 +1,47 @@
+chapter: U3-66
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-65, HJC5]
+concepts:
+  - id: finance.adaptive-execution-state
+    name: 状態依存の清算費用と状態遷移
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態依存の清算費用と状態遷移）"]
+    requires: [finance.stochastic-execution-stage]
+  - id: finance.adaptive-execution-value
+    name: 状態依存最小期待費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態依存最小期待費用）"]
+    requires: [finance.adaptive-execution-state]
+  - id: finance.adaptive-execution-bellman
+    name: 状態依存清算の Bellman 方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（状態依存清算の Bellman 方程式）"]
+    requires: [finance.adaptive-execution-value, finance.stochastic-bellman]
+  - id: finance.adaptive-execution-continuous
+    name: 状態拡散を伴う連続時間清算目的
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（状態拡散を伴う連続時間清算目的）"]
+    requires: [finance.adaptive-execution-state, control.stochastic-cost-value]
+  - id: finance.adaptive-execution-hjb
+    name: 状態依存清算の HJB と境界条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態依存清算の HJB と境界条件）"]
+    requires: [finance.adaptive-execution-continuous, control.second-order-hjb]
+  - id: finance.adaptive-execution-feedback
+    name: 状態依存の最適フィードバック候補
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態依存の最適フィードバック候補）"]
+    requires: [finance.adaptive-execution-hjb, control.stochastic-smooth-verification]
+  - id: finance.adaptive-execution-ac-reduction
+    name: 一定係数・全量清算の Almgren–Chriss への縮退
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一定係数・全量清算の Almgren–Chriss への縮退）"]
+    requires: [finance.adaptive-execution-hjb, finance.ac-continuous-limit]
