@@ -1,0 +1,44 @@
+id: "FLUID44"
+title: "斜めの衝撃波と膨張波をどう区別するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID41
+  - FLUID42
+  - FLUID43
+  - CTM10
+official_scope: []
+learning_objectives:
+  - "波面と速度のなす角・偏向角・法線Mach数を定義し、法線流束の保存と接線速度の連続性をEuler保存形から導く"
+  - "正面衝撃波の法線成分からtheta-beta-M関係と弱・強二分枝、唯一の最大偏向角を導き、付着の条件を区別する"
+  - "線形化した定常音波方程式の特性線からMach角を導出し、有限振幅の衝撃波角と区別する"
+  - "二次元等エントロピー渦なし単純波の特性適合条件からPrandtl–Meyer関数と膨張扇の状態比を積分導出する"
+  - "圧縮でのエントロピー増大・停滞圧低下と膨張での保存を区別し、ブラウザPythonで分枝・角度限界・保存残差を検算する"
+definitions:
+  - { id: FLUID44-DEF-01, name: "斜め波面の入射角と偏向角" }
+  - { id: FLUID44-DEF-02, name: "Mach角" }
+theorems:
+  - { id: FLUID44-THM-01, name: "斜め衝撃波の法線跳躍と接線速度" }
+  - { id: FLUID44-THM-02, name: "斜め衝撃波のtheta-beta-M関係" }
+  - { id: FLUID44-PROP-01, name: "最大偏向角と弱・強衝撃波分枝" }
+  - { id: FLUID44-THM-03, name: "Prandtl–Meyer膨張関係" }
+canonical_examples:
+  - "M1=2、beta=45度から法線Mach数・状態比・偏向角・下流Mach数を独立算出"
+  - "M1=2、theta=10度で弱・強のbeta、圧力比、エントロピーと全圧比を比較"
+  - "M1=2、凸角10度でPrandtl–Meyer関数を反転し下流Machと静圧比を算出"
+  - "ブラウザPythonでtheta最大、分枝と等エントロピーの極限、正のエントロピー生成、保存残差を検査"
+problem_patterns:
+  - FLUID44-MACH-ANGLE
+  - FLUID44-NORMAL-MACH-RATIOS
+  - FLUID44-TURN-ANGLE-COMPONENTS
+  - FLUID44-EXPANSION-PRESSURE-RATIO
+  - FLUID44-STAGNATION-LOSS
+  - FLUID44-MAX-TURN-UNIQUE
+  - FLUID44-PM-INTEGRATION
+  - FLUID44-EXPANSION-SHOCK-ENTROPY
+  - FLUID44-COMPRESSION-EXPANSION-CONTRAST
+  - FLUID44-INTEGRATED-WEDGE-CORNER
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 11, review: 6 }
