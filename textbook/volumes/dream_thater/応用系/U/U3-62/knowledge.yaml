@@ -1,0 +1,47 @@
+chapter: U3-62
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-61]
+concepts:
+  - id: finance.ac-inventory-cash
+    name: 清算在庫と自己金融的な受取額
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（清算在庫と自己金融的な受取額）"]
+    requires: [finance.market-impact-cost, finance.market-impact-linear]
+  - id: finance.ac-mean-variance
+    name: 在庫表示による期待清算費用と分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（在庫表示による期待清算費用と分散）"]
+    requires: [finance.ac-inventory-cash, finance.market-impact-mean-variance]
+  - id: finance.ac-risk-cost
+    name: 平均費用と費用分散のリスク回避目的
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平均費用と費用分散のリスク回避目的）"]
+    requires: [finance.ac-mean-variance]
+  - id: finance.ac-discrete-optimality
+    name: 離散最適清算の一意解と三重対角系
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（離散最適清算の一意解と三重対角系）"]
+    requires: [finance.ac-risk-cost]
+  - id: finance.ac-discrete-exact
+    name: 定数係数の離散最適在庫の解析解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定数係数の離散最適在庫の解析解）"]
+    requires: [finance.ac-discrete-optimality]
+  - id: finance.ac-continuous-limit
+    name: 連続時間極限と境界値問題の解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（連続時間極限と境界値問題の解）"]
+    requires: [finance.ac-discrete-exact]
+  - id: finance.ac-frontier
+    name: 最適清算の費用とリスクの単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最適清算の費用とリスクの単調性）"]
+    requires: [finance.ac-risk-cost, finance.ac-discrete-optimality]

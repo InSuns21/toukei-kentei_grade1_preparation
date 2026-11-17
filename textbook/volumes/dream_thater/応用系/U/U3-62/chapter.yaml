@@ -1,0 +1,43 @@
+id: "U3-62"
+title: "Almgren–Chriss 最適清算の導出"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-61]
+official_scope: []
+learning_objectives:
+  - 在庫と自己金融的な売却現金受取を対応づけ費用恒等式を導出できる
+  - 売却前在庫により期待費用と価格変動に起因する分散を導出できる
+  - リスク回避目的の係数・単位・仮定を説明できる
+  - 離散Euler方程式と正定値三重対角行列を導出して一意性を証明できる
+  - 双曲線関数の解析解を検算し非負の売却量を保証できる
+  - 連続極限と境界値問題を導き一意の最適経路を求められる
+  - コスト–リスクfrontierの単調性と先読みの禁止を説明できる
+  - 三重対角ソルバーと解析解をPythonで比較して残差を検算できる
+definitions:
+  - { id: U3-62-DEF-01, name: "清算在庫と自己金融的な受取額" }
+  - { id: U3-62-DEF-02, name: "平均費用と費用分散のリスク回避目的" }
+theorems:
+  - { id: U3-62-PROP-01, name: "在庫表示による期待清算費用と分散" }
+  - { id: U3-62-THM-01, name: "離散最適清算の一意解と三重対角系" }
+  - { id: U3-62-THM-02, name: "定数係数の離散最適在庫の解析解" }
+  - { id: U3-62-PROP-02, name: "連続時間極限と境界値問題の解" }
+  - { id: U3-62-PROP-03, name: "最適清算の費用とリスクの単調性" }
+canonical_examples:
+  - "100株2時間2区間の一定速度は期待費用60円・分散125円²"
+  - "λ=1/円では最適残在庫100/3株・期待費用590/9円・分散1000/9円²"
+  - "三重対角系の計算と双曲線関数の解析解をPythonで比較"
+problem_patterns:
+  - U3-62-A1
+  - U3-62-A2
+  - U3-62-A3
+  - U3-62-A4
+  - U3-62-A5
+  - U3-62-B1
+  - U3-62-B2
+  - U3-62-B3
+  - U3-62-B4
+  - U3-62-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
