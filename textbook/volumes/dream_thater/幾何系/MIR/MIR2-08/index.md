@@ -58,16 +58,16 @@ $$
 > **定義（特殊幾何の局所周期座標）**  
 > 複素二次元の小さな領域 $U$ 上の正則写像 $\Pi:U\to\mathbb C^4$ を成分 $(X^0,X^1,F_0,F_1)$ で表す。上記の非退化交代形式 $\mathsf Q$ について、すべての接ベクトル $V,W$ に対して次を仮定する。
 
-$
+$$
 \mathsf Q(d\Pi(V),d\Pi(W))=0.
-$
+$$
 
 > さらに $(X^0,X^1)$ が $U$ の正則局所座標となるとき、これを局所特殊周期座標とする。$\Pi$ が倍率 $\lambda$ に対して $\Pi\mapsto\lambda\Pi$ と変わる場合を同次な周期錐とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir2-08-special-period-chart -->
 
-**定義を実際に確認する模型。** $X^0=x$、$X^1=y$、$F_0=x$、$F_1=y$ と置く。$(x,y)$ は座標そのもので、$\Pi$ は両変数を $\lambda$ 倍すると $\lambda$ 倍になる。$dF_0=dx$、$dF_1=dy$ なので、任意の $V,W$ について
+**定義の確認**（線形周期錐）。 $X^0=x$、$X^1=y$、$F_0=x$、$F_1=y$ と置く。$(x,y)$ は座標そのもので、$\Pi$ は両変数を $\lambda$ 倍すると $\lambda$ 倍になる。$dF_0=dx$、$dF_1=dy$ なので、任意の $V,W$ について
 
 $$
 \mathsf Q(d\Pi(V),d\Pi(W))
@@ -273,22 +273,22 @@ $$
 > **定義（平坦座標での局所prepotential）**  
 > $u$ を切断した穿孔円板上の対数座標、$q=e^u$ とする。原点近傍で正則な三次結合を次の形とする。
 
-$
+$$
 K(q)=\kappa+\sum_{d\ge1}k_dq^d.
-$
+$$
 
 > 次の三階微分方程式を満たす局所正則関数 $f$ を、平坦座標 $u$ におけるprepotentialと呼ぶ。
 
-$
+$$
 f'''(u)=K(e^u).
-$
+$$
 
 > 周期の同次prepotentialと対応させる場合は、さらに第4節の特殊座標・交代形式の規格化を仮定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir2-08-flat-prepotential -->
 
-**定義の直接例。** $K(q)=5+6q+16q^2$ なら
+**定義の確認**。 $K(q)=5+6q+16q^2$ なら
 
 $$
 f(u)=\frac56u^3+6e^u+2e^{2u}
@@ -385,7 +385,7 @@ $$
 
 $X^0$ と $X^1$ でそれぞれ偏微分すると、追加分は $2aX^0+bX^1$ と $bX^0+cX^1$ になる。従って主張の行列式を得る。
 
-$A=\begin{psmallmatrix}2a&b\\b&c\end{psmallmatrix}=A^{\mathsf T}$ とし、列ベクトルを $X,F$ と書く。周期の変換 $(X,F)\mapsto(X,F+AX)$ の前後で任意の二組 $(X,F)$、$(Y,G)$ に対し
+$A=\begin{pmatrix}2a&b\\b&c\end{pmatrix}=A^{\mathsf T}$ とし、列ベクトルを $X,F$ と書く。周期の変換 $(X,F)\mapsto(X,F+AX)$ の前後で任意の二組 $(X,F)$、$(Y,G)$ に対し
 
 $$
 \begin{aligned}
@@ -519,7 +519,7 @@ $F_0(X^0,X^1)=X^1$、$F_1(X^0,X^1)=0$ に対し、$d(F_0dX^0+F_1dX^1)$ を求め
 #### MIR2-08-B02 交代形式を保つ行列の条件
 - Level: B
 
-任意の $2\times2$ 複素行列 $A$ について $(X,F)\mapsto(X,F+AX)$ を考える。すべての周期ベクトル対で $\mathsf Q$ が保存される必要十分条件が $A=A^{\mathsf T}$ であることを示し、反対称な $A=\begin{psmallmatrix}0&1\\-1&0\end{psmallmatrix}$ で破れる例を一つ作れ。
+任意の $2\times2$ 複素行列 $A$ について $(X,F)\mapsto(X,F+AX)$ を考える。すべての周期ベクトル対で $\mathsf Q$ が保存される必要十分条件が $A=A^{\mathsf T}$ であることを示し、反対称な $A=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ で破れる例を一つ作れ。
 
 <!-- solution-start -->
 **詳細解答**。二つのベクトル $(X,F),(Y,G)$ に対する新旧の差は
@@ -530,7 +530,7 @@ $$
 =X^{\mathsf T}(A^{\mathsf T}-A)Y.
 $$
 
-すべての $X,Y$ で零となる必要十分条件は $A^{\mathsf T}-A=0$。反対称例で $X=(1,0)^{\mathsf T},Y=(0,1)^{\mathsf T}$ とすると $A^{\mathsf T}-A=\begin{psmallmatrix}0&-2\\2&0\end{psmallmatrix}$ より差は $-2$、従って保存しない。
+すべての $X,Y$ で零となる必要十分条件は $A^{\mathsf T}-A=0$。反対称例で $X=(1,0)^{\mathsf T},Y=(0,1)^{\mathsf T}$ とすると $A^{\mathsf T}-A=\begin{pmatrix}0&-2\\2&0\end{pmatrix}$ より差は $-2$、従って保存しない。
 <!-- solution-end -->
 
 <a id="ex-mir2-08-b03"></a>
