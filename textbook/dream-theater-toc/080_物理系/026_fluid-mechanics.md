@@ -44,3 +44,5 @@
 40. [FLUID40 壁乱流の速度分布をどう整理するか](textbook/volumes/dream_thater/物理系/FLUID/FLUID40/index.md)
 
 41. [FLUID41 圧縮性流れでは質量・運動量・エネルギーをどう閉じるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID41/index.md)
+
+42. [FLUID42 ノズルで音速に達する条件は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID42/index.md)
