@@ -1,0 +1,48 @@
+chapter: FLUID46
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID45
+concepts:
+  - id: fluid.courant-number
+    name: Courant数と格子細分経路
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Courant数と格子細分経路）"]
+    requires: [fluid.finite-volume-upwind-positivity]
+  - id: fluid.fourier-amplification
+    name: Fourier増幅因子と格子の安定性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Fourier増幅因子と格子の安定性）"]
+    requires: [fluid.courant-number, fluid.finite-volume-face-flux]
+  - id: fluid.upwind-fourier-stability
+    name: 周期一次風上法の安定範囲
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（周期一次風上法の安定範囲）"]
+    requires: [fluid.fourier-amplification, fluid.finite-volume-upwind-positivity]
+  - id: fluid.centered-ftcs-instability
+    name: 中心FTCSの不安定性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（中心FTCSの不安定性）"]
+    requires: [fluid.fourier-amplification, fluid.upwind-fourier-stability]
+  - id: fluid.upwind-numerical-diffusion
+    name: 一次風上法の主要な数値拡散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次風上法の主要な数値拡散）"]
+    requires: [fluid.upwind-fourier-stability]
+  - id: fluid.cell-average-error
+    name: セル平均誤差と観測収束次数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（セル平均誤差と観測収束次数）"]
+    requires: [fluid.finite-volume-cell-average]
+  - id: fluid.upwind-smooth-convergence
+    name: 滑らかな周期解に対する一次風上法の収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかな周期解に対する一次風上法の収束）"]
+    requires: [fluid.cell-average-error, fluid.upwind-fourier-stability, fluid.upwind-numerical-diffusion]
