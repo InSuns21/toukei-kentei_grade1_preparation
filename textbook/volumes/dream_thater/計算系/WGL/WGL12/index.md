@@ -21,17 +21,17 @@ $$
 <!-- formal-statement-start -->
 > **定義（双方向反射率分布関数）**  
 > 不透明な局所表面の点を固定し、表側の入射方向 $L$、出射方向 $V$ に対し、入射照度増分 $dE_i>0$ が生む出射放射輝度増分 $dL_o$ の比
->
-> $$
-> f_r(L,V)=\frac{dL_o(V)}{dE_i(L)}
-> $$
->
+
+$$
+f_r(L,V)=\frac{dL_o(V)}{dE_i(L)}
+$$
+
 > を双方向反射率分布関数（BRDF）という。単位は $\mathrm{sr}^{-1}$。局所・単一反射のモデルでは
->
-> $$
-> L_o(V)=\int_{N\cdot L>0}f_r(L,V)\,L_i(L)\,(N\cdot L)\,d\omega_i
-> $$
->
+
+$$
+L_o(V)=\int_{N\cdot L>0}f_r(L,V)\,L_i(L)\,(N\cdot L)\,d\omega_i
+$$
+
 > で照明を積分する。本章の描画実験はその積分を行わず、一つの方向光の寄与を計算する。
 <!-- formal-statement-end -->
 
@@ -55,19 +55,19 @@ $$
 > **定義（BRDFのエネルギー制約）**  
 > 不透明で蛍光・発光を含まない受動表面のBRDF $f_r$ を考える。各入射単位方向 $L$（$N\cdot L>0$）について、出射半球上の積分が次を満たす条件を、BRDFのエネルギー制約という。
 
-$
+$$
 \int_{N\cdot V>0} f_r(L,V)\,(N\cdot V)\,d\omega_o\le 1.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl12-energy-constraint -->
 **定義の確認**。定数 $0\le c\le1$ で $f_r=c/\pi$ とした拡散反射を使います。入射方向 $L$ を固定し、出射方向を半球上で極角 $\theta$、方位角 $\phi$ により積分すると
 
-$
+$$
 \int_{N\cdot V>0}\frac c\pi(N\cdot V)\,d\omega_o
 =\frac c\pi(2\pi)\int_0^{\pi/2}\cos\theta\sin\theta\,d\theta
 =c\le1.
-$
+$$
 
 すべての入射方向で条件を満たします。BRDFには立体角の逆数の単位があるため、**特定方向で $f_r>1$ でも直ちに制約違反とはいえません**。反射の全方向積分を確認します。
 <!-- definition-example-end -->
@@ -83,11 +83,11 @@ $
 <!-- formal-statement-start -->
 > **定義（Fresnel反射率のSchlick近似）**  
 > $0\le F_0\le1$ を正面反射率、$x\in[0,1]$ を半角方向との余弦とするとき、
->
-> $$
-> F(x;F_0)=F_0+(1-F_0)(1-x)^5
-> $$
->
+
+$$
+F(x;F_0)=F_0+(1-F_0)(1-x)^5
+$$
+
 > をSchlick近似という。RGBについては各成分別に同式を適用する。これは正確なFresnel方程式そのものではない。
 <!-- formal-statement-end -->
 
@@ -108,9 +108,9 @@ $$
 > **命題（Schlick近似の範囲と角度単調性）**  
 > $F_0\in[0,1]$、$x\in[0,1]$ とする。このとき反射率は次の範囲に入る。
 
-$
+$$
 F_0\le F(x;F_0)\le1.
-$
+$$
 
 > $x$ を小さくすると $F$ は減少しない。さらに、正面反射率が1未満で余弦が1未満なら、$F$ は正面反射率より厳密に大きい。RGBにも成分ごとに成立する。
 <!-- formal-statement-end -->
@@ -151,13 +151,13 @@ $$
 <!-- formal-statement-start -->
 > **定義（GGX微小面法線分布）**  
 > 粗さ $r\in(0,1]$、$\alpha=r^2$、$\mu=N\cdot H\in[0,1]$ に対し
->
-> $$
-> D_{\mathrm{GGX}}(\mu;\alpha)
-> =\frac{\alpha^2}
-> {\pi\left(1+(\alpha^2-1)\mu^2\right)^2}
-> $$
->
+
+$$
+D_{\mathrm{GGX}}(\mu;\alpha)
+=\frac{\alpha^2}
+{\pi\left(1+(\alpha^2-1)\mu^2\right)^2}
+$$
+
 > と定める。$r=0$ はこの密度の定義域に含めない。実装ラボでは発散する鋭いピークを有限精度で扱うため $0.08\le r\le1$ に制限する。
 <!-- formal-statement-end -->
 
@@ -177,11 +177,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（GGXの射影面積正規化）**  
 > $N$ を単位法線、$0<\alpha\le1$ とし、$N\cdot H\ge0$ の半球で[GGX分布](#def-wgl12-ggx)を用いれば
->
-> $$
-> \int_{N\cdot H>0}D_{\mathrm{GGX}}(N\cdot H;\alpha)
-> (N\cdot H)\,d\omega_h=1.
-> $$
+
+$$
+\int_{N\cdot H>0}D_{\mathrm{GGX}}(N\cdot H;\alpha)
+(N\cdot H)\,d\omega_h=1.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -235,18 +235,18 @@ $$
 <!-- formal-statement-start -->
 > **定義（metallic–roughnessによる簡易微小面BRDF）**  
 > 単位方向 $N,L,V$ は $N\cdot L>0$、$N\cdot V>0$ とし、$H=(L+V)/\|L+V\|$、$0.08\le r\le1$、$\alpha=r^2$、$m\in[0,1]$、$c\in[0,1]^3$ とする。成分ごとに
->
-> $$
-> \begin{aligned}
-> F_0&=(1-m)(0.04,0.04,0.04)+mc,\\
-> F&=F(V\cdot H;F_0),\\
-> G&=G_1(N\cdot L;\alpha)G_1(N\cdot V;\alpha),\\
-> f_s&=\frac{D_{\mathrm{GGX}}(N\cdot H;\alpha)\,G\,F}
-> {4(N\cdot L)(N\cdot V)},\\
-> f_d&=\frac{(1-m)(\mathbf1-F)c}{\pi},\qquad f_r=f_d+f_s.
-> \end{aligned}
-> $$
->
+
+$$
+\begin{aligned}
+F_0&=(1-m)(0.04,0.04,0.04)+mc,\\
+F&=F(V\cdot H;F_0),\\
+G&=G_1(N\cdot L;\alpha)G_1(N\cdot V;\alpha),\\
+f_s&=\frac{D_{\mathrm{GGX}}(N\cdot H;\alpha)\,G\,F}
+{4(N\cdot L)(N\cdot V)},\\
+f_d&=\frac{(1-m)(\mathbf1-F)c}{\pi},\qquad f_r=f_d+f_s.
+\end{aligned}
+$$
+
 > を簡易微小面BRDFとする。式はRGB成分ごとに評価する。$N\cdot L\le0$ または $N\cdot V\le0$ ではこの**直接光モデルの寄与**を0とする。一方向の単位入射輝度に対する線形出力は $f_r(N\cdot L)$ とする。
 <!-- formal-statement-end -->
 
