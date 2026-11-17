@@ -13,7 +13,7 @@ chapters:
   - { id: U2-07, path: textbook/volumes/dream_thater/応用系/U/U2-07, status: completed, title: "オドメトリ・速度運動モデルと誤差" }
   - { id: U2-08, path: textbook/volumes/dream_thater/応用系/U/U2-08, status: completed, title: "測距・方位・ランドマークの観測モデル" }
   - { id: U2-09, path: textbook/volumes/dream_thater/応用系/U/U2-09, status: completed, title: "拡張 Kalman フィルタ：どこで線形化するか" }
-  - { id: U2-10, path: textbook/volumes/dream_thater/応用系/U/U2-10, status: completed, title: "EKF の一貫性：角度・線形化誤差・innovation 診断" }
+  - { id: U2-10, path: textbook/volumes/dream_thater/応用系/U/U2-10, status: completed, title: "EKF の一貫性：角度・線形化誤差・観測 innovation の診断" }
   - { id: U2-11, path: textbook/volumes/dream_thater/応用系/U/U2-11, status: planned, title: "sigma-point フィルタ：微分に頼らない非線形近似" }
   - { id: U2-12, path: textbook/volumes/dream_thater/応用系/U/U2-12, status: planned, title: "軌跡を一括推定する：最小二乗と平滑化の入口" }
   - { id: U2-13, path: textbook/volumes/dream_thater/応用系/U/U2-13, status: planned, title: "格子上の Markov localization と多峰事後" }
