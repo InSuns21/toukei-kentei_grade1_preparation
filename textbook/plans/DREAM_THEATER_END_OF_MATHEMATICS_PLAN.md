@@ -176,9 +176,9 @@ GitHub の系列 manifest を2026-11-18に再確認した。**GMT1–36、HA1–
 - Marc Mézard and Andrea Montanari, [Information, Physics, and Computation](https://academic.oup.com/book/6337): cavity、BP、1RSB。
 - Christopher D. Sogge, [Fourier Integrals in Classical Analysis, 2nd ed.](https://www.cambridge.org/core/books/fourier-integrals-in-classical-analysis/B6564D013B4F3C1897BCC052096EE462): 半波作用素、Fourier積分作用素、local smoothing（とくに第4・8章）。079A–Cで導入する中間命題の教科書基準。
 - Elias M. Stein, [Harmonic Analysis: Real-Variable Methods, Orthogonality, and Oscillatory Integrals](https://press.princeton.edu/books/hardcover/9780691032160/harmonic-analysis): 振動積分・Fourier積分作用素・曲率と最大作用素の接続。HA11/GMT36の後段を補う。
-- Sanjeev Arora and Boaz Barak, [Computational Complexity: A Modern Approach](https://www.cambridge.org/core/books/computational-complexity/A8CCBB5A62BA3D30AB3C35A6AEAE0767): 計算量クラス、NP完全性、帰着とアルゴリズムの時間解析。CMPの計算可能性から378へ移るための標準書。
+- Sanjeev Arora and Boaz Barak, [Computational Complexity: A Modern Approach](https://www.cambridge.org/core/books/abs/computational-complexity/about-this-book/2CBF20D317C390A2D465CBD75E557B49): 計算量クラス、NP完全性、帰着とアルゴリズムの時間解析。CMPの計算可能性から378へ移るための標準書。
 - Marek Cygan et al., [Parameterized Algorithms](https://link.springer.com/book/10.1007/978-3-319-21275-3): ETH型の条件付き下界、sparsification、パラメータ付き・細粒度の帰着。378Aの停止線。
-- István Montvay and Gernot Münster, [Quantum Fields on a Lattice](https://www.cambridge.org/core/books/quantum-fields-on-a-lattice/): 有限格子の gauge fields、Wilson作用、格子QCD。EOMYMA/ QCDA の直接例。
+- István Montvay and Gernot Münster, [Quantum Fields on a Lattice](https://www.cambridge.org/core/books/quantum-fields-on-a-lattice/4401A88CD232B0AEF1409BF6B260883A): 有限格子の gauge fields、Wilson作用、格子QCD。EOMYMA/QCDA の直接例。
 - James Glimm and Arthur Jaffe, [Quantum Physics: A Functional Integral Point of View](https://link.springer.com/book/10.1007/978-1-4612-4728-9): 構成的量子場理論、反射陽性、極限と相関関数。EOMYMB/C の基礎（4D YM の完成証明書と混同しない）。
 - Arthur Jaffe and Edward Witten, [Yang–Mills Existence and Mass Gap: Official Problem Description](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf): 存在と正の質量ギャップの同時要請、証拠水準の比較。
 
