@@ -145,9 +145,38 @@ gl.uniform1i(passLoc,2);
 gl.drawArrays(gl.TRIANGLES,0,6);
 const pixels=new Uint8Array(16);
 gl.readPixels(0,0,4,1,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
-report('PROBES','GPU visibility x4 (0=shadow,255=lit): '+
-  [0,1,2,3].map(i=>pixels[4*i]).join(','));
-report('REFERENCE','CPU rays: shadow,lit,lit,lit at default bias 0.002');
+// CPU reference: independent ray/axis-aligned-box intersection.
+// No GPU depth values or light-space matrix enter this calculation.
+const receivers=[
+  [-0.75,-0.25,0], [1.25,1.10,0], [0,0,1.1], [-1.5,1.5,0]
+];
+function cpuRayHitsBox(p) {
+  const direction=[0.5,0.25,1.0];
+  const boxMin=[a,a,0], boxMax=[b,b,h];
+  let enter=0, exit=Infinity; // lambda > 0, with a closed box
+  for(let i=0;i<3;i++){
+    if(direction[i]===0){
+      if(p[i]<boxMin[i]||p[i]>boxMax[i]) return false;
+      continue;
+    }
+    const t0=(boxMin[i]-p[i])/direction[i];
+    const t1=(boxMax[i]-p[i])/direction[i];
+    enter=Math.max(enter,Math.min(t0,t1));
+    exit=Math.min(exit,Math.max(t0,t1));
+    if(enter>exit) return false;
+  }
+  return exit>0 && enter<=exit;
+}
+const cpuShadow=receivers.map(cpuRayHitsBox);
+const expected=cpuShadow.map(isShadow=>isShadow?0:255);
+const observed=receivers.map((_,i)=>pixels[4*i]);
+const matches=expected.every((value,i)=>
+  pixels[4*i]===value && pixels[4*i+1]===value &&
+  pixels[4*i+2]===value && pixels[4*i+3]===255);
+report('PROBES','GPU visibility x4 (0=shadow,255=lit): '+observed.join(','));
+report('REFERENCE','CPU ray-box x4 (0=shadow,255=lit): '+expected.join(','));
+report('COMPARE',matches?'PASS: all four CPU/GPU RGBA results match':
+  'MISMATCH: GPU results differ from independent CPU geometry reference');
 report('BIAS','depthBias='+depthBias+'; visibility=receiverDepth-bias <= nearestDepth');
 report('STATE','depth pass and shaded pass use distinct framebuffer targets');
 gl.bindTexture(gl.TEXTURE_2D,null);
