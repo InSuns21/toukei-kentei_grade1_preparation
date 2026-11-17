@@ -1,0 +1,43 @@
+id: "U3-66"
+title: "状態依存最適執行と HJB の応用"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-65, HJC5]
+official_scope: []
+learning_objectives:
+  - 現在の残在庫・価格シグナル・変動性・流動性を状態として特定し発注時の先読みを避けられる
+  - 状態別の条件付き期待短所損失と在庫リスク罰則を区別して費用を計算できる
+  - 有限状態・有限発注のBellman方程式と最適性を後ろ向き帰納法で証明できる
+  - 二状態・二期間の全行動比較から価格シグナルに応じた政策マップを再現できる
+  - 既習の二階HJBへ金融固有の状態拡散・費用・終端条件・ゼロ在庫境界条件を代入できる
+  - 売却速度の二次最小化から制約付きフィードバックを導出し実行可能性を判定できる
+  - 一定係数・終端全量清算の仮定でRiccati方程式とAlmgren–Chriss解への縮退を証明できる
+  - Pythonの格子政策・Bellman残差・AC連続極限の誤差と実市場のモデルリスクを区別できる
+definitions:
+  - { id: U3-66-DEF-01, name: "状態依存の清算費用と状態遷移" }
+  - { id: U3-66-DEF-02, name: "状態依存最小期待費用" }
+  - { id: U3-66-DEF-03, name: "状態拡散を伴う連続時間清算目的" }
+theorems:
+  - { id: U3-66-THM-01, name: "状態依存清算のBellman方程式" }
+  - { id: U3-66-PROP-01, name: "状態依存清算のHJBと境界条件" }
+  - { id: U3-66-PROP-02, name: "状態依存の最適フィードバック候補" }
+  - { id: U3-66-PROP-03, name: "一定係数・全量清算のAlmgren–Chrissへの縮退" }
+canonical_examples:
+  - "良い流動性Gと悪い流動性Bを観測する二状態二期間の政策表"
+  - "在庫2株・上昇シグナルGでは待機、下落シグナルBでは1株売却"
+  - "一定係数のRiccati方程式とsinh在庫曲線の照合"
+problem_patterns:
+  - U3-66-A1
+  - U3-66-A2
+  - U3-66-A3
+  - U3-66-A4
+  - U3-66-A5
+  - U3-66-B1
+  - U3-66-B2
+  - U3-66-B3
+  - U3-66-B4
+  - U3-66-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
