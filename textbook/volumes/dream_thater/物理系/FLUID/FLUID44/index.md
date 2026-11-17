@@ -98,7 +98,7 @@ $$
 <a id="thm-fluid44-theta-beta-mach"></a>
 
 <!-- formal-statement-start -->
-> **定理（斜め衝撃波の $\theta$–$\beta$–$M$ 関係）**  
+> **定理（斜め衝撃波の偏向角・波面角・Mach数関係）**  
 > 第1節の非自明な圧縮型・付着平面衝撃波で $M_1>1$、$\gamma>1$、$0<\theta<\beta\leq\pi/2$ とする。上流法線 Mach 数が 1 より大きいなら、偏向角と波面角は
 >
 $$
@@ -229,7 +229,7 @@ $$
 <!-- proof-start -->
 ### Mach角の線形化による導出
 
-等エントロピー・渦なしの一様基準流 $(U,0)$、基準密度 $\rho_0$ と音速 $c_0$ の周りで、速度ポテンシャルを $\Phi=Ux+\psi(x,y)$、$|\nabla\psi|\ll U$ と置く。[FLUID41 の等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic)を使い、一定の停滞エンタルピー $h+|\nabla\Phi|^2/2$ を一次まで展開すると
+等エントロピー・渦なしの一様基準流 $(U,0)$、基準密度 $\rho_0$ と音速 $c_0$ の周りで、[FLUID11で定義した速度ポテンシャル](../FLUID11/index.md#def-fluid11-velocity-potential)を $\Phi=Ux+\psi(x,y)$、$|\nabla\psi|\ll U$ と置く。局所的に渦がないため速度を勾配 $\boldsymbol u=\nabla\Phi$ と表せる条件は[無渦場の局所ポテンシャル存在](../FLUID11/index.md#prop-fluid11-local-potential)による。[FLUID41 の等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic)を使い、一定の停滞エンタルピー $h+|\nabla\Phi|^2/2$ を一次まで展開すると
 $$
 c_0^2\frac{\rho'}{\rho_0}+U\psi_x=0,
 \qquad
@@ -281,7 +281,17 @@ $$
 =\frac{\sqrt{M^2-1}}{M[1+(\gamma-1)M^2/2]}>0.
 $$
 >
-> 角度はラジアンで評価し、$\nu(M_1)+\theta<\nu_\infty=(\sqrt{(\gamma+1)/(\gamma-1)}-1)\pi/2$ のときに限って有限な $M_2$ が存在する。
+> 角度はラジアンで評価する。最大値を次のように置く。
+
+$
+\nu_\infty=\left(\sqrt{\frac{\gamma+1}{\gamma-1}}-1\right)\frac\pi2.
+$
+
+> 有限の下流 Mach 数 $M_2$ が存在するための条件は次のとおりである。
+
+$
+\nu(M_1)+\theta<\nu_\infty.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -384,7 +394,7 @@ $M_2>M_1$ なので $T_2<T_1$、$p_2<p_1$、$\rho_2<\rho_1$ である。状態�
 
 初回実行にはブラウザ上で Python 実行環境の読み込みが必要になることがある。グラフは特定の定常・非粘性・定数比熱模型の解析関係を描き、衝撃波厚さや粘性流の数値解を表していない。基準条件で $\theta_{\max}\simeq22.974^\circ$、弱・強の $\beta\simeq39.314^\circ,83.700^\circ$、膨張後 $M_2\simeq2.38489$ を得るはずである。局所 CLI では同じファイルを Python 3 で実行し、引数 --self-test で代表値・保存残差・入力境界を検査できる。
 
-## 7. 演習：角度と保存量を自分でつなぐ
+## 7. 演習：角度と波面を跨ぐ保存流束をつなぐ
 
 ### Level A
 
