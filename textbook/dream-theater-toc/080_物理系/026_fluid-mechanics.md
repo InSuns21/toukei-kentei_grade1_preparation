@@ -54,3 +54,5 @@
 45. [FLUID45 数値計算で保存則を壊さない方法は何か](textbook/volumes/dream_thater/物理系/FLUID/FLUID45/index.md)
 
 46. [FLUID46 格子を細かくすれば必ず正しくなるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID46/index.md)
+
+47. [FLUID47 非圧縮流れを圧力と速度に分けて解けるか](textbook/volumes/dream_thater/物理系/FLUID/FLUID47/index.md)
