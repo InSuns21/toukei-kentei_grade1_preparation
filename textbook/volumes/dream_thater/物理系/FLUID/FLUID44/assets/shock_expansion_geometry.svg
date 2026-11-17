@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 310" width="880" height="310" data-layout-lint="strict" role="img" aria-labelledby="fig-title fig-desc">
+  <title id="fig-title">超音速流の圧縮角と膨張角</title>
+  <desc id="fig-desc">左では水平上流の矢印が上向きに曲がるくさびに近づき、角から斜め上方へ一本の実線衝撃波が伸びている。右では壁が下方へ折れ、角から複数の破線のMach線が放射状に広がり、流れは滑らかに外向きへ曲がる。模式図であり角度と長さは数値計算に対応させていない。</desc>
+  <defs>
+    <marker id="arrow-solid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#1d4f7a"/>
+    </marker>
+    <marker id="arrow-out" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#286b54"/>
+    </marker>
+  </defs>
+  <g id="compression-panel">
+    <path d="M20 245 H175 L414 199 V281 H20 Z" fill="#e8e9e8" opacity=".75"/>
+    <path d="M20 245 H175 L414 199" stroke="#252c34" stroke-width="3" fill="none" stroke-linejoin="round"/>
+    <line x1="175" y1="245" x2="306" y2="43" stroke="#a13b2c" stroke-width="4" data-series-group="wave-type" data-series-label="圧縮衝撃波"/>
+    <g stroke="#1d4f7a" stroke-width="3.4" fill="none" marker-end="url(#arrow-solid)">
+      <path d="M45 123 H214"/>
+      <path d="M316 144 L402 125"/>
+    </g>
+    <path d="M223 245 A48 48 0 0 0 202 205" fill="none" stroke="#575757" stroke-width="1.6"/>
+    <text x="228" y="209" font-size="17" fill="#222">β</text>
+    <text x="46" y="104" font-size="16" fill="#222">M₁</text>
+    <text x="349" y="104" font-size="16" fill="#222">M₂</text>
+    <text x="165" y="272" font-size="16" fill="#222">θ</text>
+    <text x="222" y="66" font-size="17" fill="#8b3025">衝撃波</text>
+  </g>
+  <path d="M438 24 V286" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <g id="expansion-panel">
+    <path d="M458 201 H599 L859 247 V281 H458 Z" fill="#e8e9e8" opacity=".75"/>
+    <path d="M458 201 H599 L859 247" stroke="#252c34" stroke-width="3" fill="none" stroke-linejoin="round"/>
+    <g fill="none" stroke="#28745a" stroke-width="2.4" stroke-dasharray="8 5" data-series-group="wave-type" data-series-label="膨張扇のMach線">
+      <path d="M599 201 L660 49"/>
+      <path d="M599 201 L708 45"/>
+      <path d="M599 201 L768 52"/>
+    </g>
+    <g stroke="#1d4f7a" fill="none" stroke-width="3.4" marker-end="url(#arrow-solid)">
+      <path d="M470 117 H574"/>
+    </g>
+    <path d="M745 163 L833 180" fill="none" stroke="#286b54" stroke-width="3.4" marker-end="url(#arrow-out)"/>
+    <text x="489" y="98" font-size="16" fill="#222">M₁</text>
+    <text x="783" y="149" font-size="16" fill="#222">M₂</text>
+    <text x="588" y="228" font-size="16" fill="#222">θ</text>
+    <text x="673" y="80" font-size="17" fill="#195c45">膨張扇</text>
+  </g>
+</svg>
