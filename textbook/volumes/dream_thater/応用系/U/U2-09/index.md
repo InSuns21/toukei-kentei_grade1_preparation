@@ -66,13 +66,13 @@ $$
 
 <!-- definition-example-start: def-u2-09-linearization-points -->
 **定義の確認**：$\Delta t=1$、$u_t=(1,0)^T$、$\bar g_{t-1}^{+}=(-1,0,0)^T$ とすると、位置は $(-1,0)$ から $(0,0)$ に進み、$\bar g_t^-=(0,0,0)^T$ です。前時刻の $\theta=0$ に代入した $F_t$ の $(2,3)$ 成分は $v\Delta t\cos0=1$ です。一方、目印 $m=(3,4)$ では**予測後の**位置差が $(3,4)$ なので $q=25>0$、[観測の Jacobi 行列](../U2-08/index.md#prop-u2-08-observation-jacobian)は
-$
+$$
 H_t=
 \begin{pmatrix}
 -3/5&-4/5&0\\
 4/25&-3/25&-1
 \end{pmatrix}.
-$
+$$
 前時刻の位置 $(-1,0)$ で観測行列を評価すると距離が $\sqrt{32}$ になってしまい、予測観測 $5$ m の微分とは一致しません。定義の二つの評価点が異なることを直接確かめられます。
 <!-- definition-example-end -->
 
@@ -114,11 +114,11 @@ P_t^-=
 \end{pmatrix}.
 $$
 $F$ の第2行 $(0,1,1)$ は、一次の予測位置誤差が $\widetilde e_{y,t}=e_{y,t-1}+e_{\theta,t-1}$ となることを意味します。従って初期共分散が対角行列なら
-$
+$$
 \operatorname{Cov}(\widetilde e_{y,t},\widetilde e_{\theta,t})
 =\operatorname{Cov}(e_y+e_\theta,e_\theta)
 =0+\operatorname{Var}(e_\theta)=0.01
-$
+$$
 です。位置 $y$ と角度の共分散 $0.01$ は、初期向きの誤差が前進後の左右位置を変えることに対応します。各項は $3\times3$、対称であり、$FPF^T$ と $GMG^T$ の各二次形式は非負です。
 <!-- definition-example-end -->
 
@@ -339,18 +339,18 @@ $$
 <!-- proof-end -->
 
 また観測だけでなく運動でも平均のずれが生じます。例えば $\Theta=sY$、$Y\sim N(0,1)$、$s>0$ として $\varphi(s)=E[\cos(sY)]$ と置きます。標準正規密度 $\phi(y)=e^{-y^2/2}/\sqrt{2\pi}$ は $\phi'(y)=-y\phi(y)$ を満たします。$|y|\phi(y)$ は可積分なので積分と微分を交換でき、部分積分の境界項も0です。従って
-$
+$$
 \begin{aligned}
 \varphi'(s)
 &=-\int_{\mathbb R}y\sin(sy)\phi(y)\,dy
 =\int_{\mathbb R}\sin(sy)\phi'(y)\,dy\\
 &=-s\int_{\mathbb R}\cos(sy)\phi(y)\,dy=-s\varphi(s).
 \end{aligned}
-$
+$$
 $\varphi(0)=1$ だから $(e^{s^2/2}\varphi(s))'=0$ となり、
-$
+$$
 E[\cos\Theta]=\varphi(s)=e^{-s^2/2}<1=\cos E[\Theta].
-$
+$$
 予測平均では右端の $\cos E[\Theta]$ を使うため、分布が広いほど差が増え、局所線形化の根拠が弱くなります。
 
 **利用前の診断**：$q=0$ で方向角の微分は定義されず、$q$ が小さいと $1/q$ の項が急変します。角度残差は必ず wrap し、真の分布が切替点をまたぐほど広がる場合は単一の局所 Gaussian 近似に注意します。滑りなどによる系統誤差・観測雑音との相関・ランドマーク誤対応があれば、独立平均0の模型が破れます。さらに巨大な観測残差に対しても $P^+$ は残差値に応じて自動増大しません。その診断の定量化は次講で扱います。
