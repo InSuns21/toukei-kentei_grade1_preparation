@@ -275,7 +275,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（局所一次 innovation 共分散）**  
-> 姿勢誤差 $\delta g$ が平均0で $\operatorname{Cov}(\delta g)=P^-$、観測雑音 $\varepsilon$ が平均0で $\operatorname{Cov}(\varepsilon)=R$ とし、両者が独立であるとする。既知目印 $m$ と予測姿勢 $\bar g$ は $q(\bar g,m)>0$ を満たし、角度の同じ連続枝で一次近似できるものとする。観測関数の [Jacobi 行列](#prop-u2-08-observation-jacobian)を予測点で評価した $H$ に対し、局所一次 innovation の共分散は
+> 姿勢誤差 $\delta g$ が平均0で $\operatorname{Cov}(\delta g)=P^-$、観測雑音 $\varepsilon$ が平均0で $\operatorname{Cov}(\varepsilon)=R$ とし、両者が独立であるとする。既知目印 $m$ と予測姿勢 $\bar g$ は $q(\bar g,m)>0$ を満たし、角度の同じ連続枝で一次近似できるものとする。観測関数の [Jacobi 行列](#prop-u2-08-observation-jacobian)を予測点で評価した $H$ に対し、局所的な観測残差の一次近似の共分散は
 
 $$
 S=HP^-H^T+R\in\mathbb R^{2\times2}.
