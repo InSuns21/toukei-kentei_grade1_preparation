@@ -1,0 +1,53 @@
+chapter: MIR2-09
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR2-02, MIR2-03, MIR2-06, MIR2-08, GW1-10, GW1-11, GW1-20]
+concepts:
+  - id: mirror.gw-psi-class
+    name: 標点の余接線束とψ類
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（標点の余接線束とψ類）"]
+    requires: [gromov-witten.stable-map-stack, gromov-witten.evaluation-insertion]
+  - id: mirror.gw-four-mark-psi-integral
+    name: 四標点でのψ積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（四標点でのψ積分）"]
+    requires: [mirror.gw-psi-class, gromov-witten.zero-degree-product]
+  - id: mirror.gw-descendant-invariant
+    name: 種数0 descendant不変量
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0 descendant不変量）"]
+    requires: [mirror.gw-psi-class, mirror.quintic-virtual-primary-gw]
+  - id: mirror.gw-descendant-dimension
+    name: descendantの次数必要条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（descendantの次数必要条件）"]
+    requires: [mirror.gw-descendant-invariant, mirror.quintic-stable-map-virtual-dimension]
+  - id: mirror.gw-genus-zero-j
+    name: 種数0の大きいJ関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0の大きいJ関数）"]
+    requires: [mirror.gw-descendant-invariant, gromov-witten.novikov-completion]
+  - id: mirror.gw-j-coefficient
+    name: J係数は一標点子孫相関である
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（J係数は一標点子孫相関である）"]
+    requires: [mirror.gw-genus-zero-j, mirror.gw-descendant-invariant]
+  - id: mirror.gw-j-degree-zero
+    name: 次数0のJ関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（次数0のJ関数）"]
+    requires: [mirror.gw-four-mark-psi-integral, mirror.gw-genus-zero-j]
+  - id: mirror.gw-j-quintic-coefficient
+    name: quinticのJ関数に現れる無標点GW数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticのJ関数に現れる無標点GW数）"]
+    requires: [mirror.gw-j-coefficient, mirror.quintic-unmarked-gw, mirror.quintic-divisor-axiom]
