@@ -22,7 +22,19 @@ u_B=\operatorname{Log}q_B=\operatorname{Log}z+h(z),\qquad
 t_B=\frac{u_B}{2\pi i}
 $$
 
-とする。ここで $z=(5\psi)^{-5}$ はB側族の座標、$u_B$ は選んだ対数分枝上の座標、$q_B$ は単価な局所座標である。二つの $\operatorname{Log}$ は独立に選ぶのではなく、$\operatorname{Log}q_B=\operatorname{Log}z+h(z)$ が成り立つように分枝を対応させる。また、ここからの $h'(z)$ は $z$ による導関数 $dh/dz$ を表す。$0<|z|<\delta<1/3125$ の単連結な切断領域を取り、$\omega_0(z)\ne0$ かつ $1+zh'(z)\ne0$ を満たすよう $\delta$ を小さくする。[局所双正則性](../MIR1-15/index.md#thm-mir1-15-local-biholomorphism)により $q_B$ を逆に解ける。
+とする。ここで $z=(5\psi)^{-5}$ はB側族の座標、$u_B$ は選んだ対数分枝上の座標、$q_B$ は単価な局所座標である。
+
+二つの $\operatorname{Log}$ は独立に選ばず、$\operatorname{Log}q_B=\operatorname{Log}z+h(z)$ を満たすように分枝を対応させる。また $h'(z)$ は $z$ による導関数 $dh/dz$ を表す。
+
+原点近傍の単連結な切断領域を取り、その点 $z$ に対して次を満たすように $\delta$ を小さくする。
+
+$$
+0<|z|<\delta<\frac1{3125},\qquad
+\omega_0(z)\ne0,\qquad
+1+zh'(z)\ne0.
+$$
+
+[ミラー写像の局所双正則性](../MIR1-15/index.md#thm-mir1-15-local-biholomorphism)により $q_B$ を逆に解ける。
 
 A側では、[種数0の三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series)を、独立な形式変数 $Q,\tau$ に対して
 
@@ -42,7 +54,16 @@ $$
 C_{zzz}=Q_{\!B}(\Omega_z,\nabla_z^3\Omega_z)
 $$
 
-を作る。$\Omega_z$ の添字は点 $z$ のファイバーに属する3形式を表し、$\nabla_z=\nabla_{\partial/\partial z}$ は $z$ 方向のGauss–Manin共変微分、$\nabla_z^3$ はその3回の反復である。ここでは $Q_{\!B}$ とA側のNovikov変数 $Q$ を混同しない。$Q_{\!B}$ はコホモロジー類二つを数へ送る[複素双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)、$Q$ は曲線次数を数える形式変数である。共役線形なHermitian形式ではない。
+を作る。$\Omega_z$ の添字は点 $z$ のファイバーに属する3形式を表す。微分演算子は
+
+$$
+\nabla_z=\nabla_{\partial/\partial z},\qquad
+\nabla_z^3=\nabla_z\circ\nabla_z\circ\nabla_z
+$$
+
+であり、$z$ 方向のGauss–Manin共変微分を3回反復している。
+
+ここでは $Q_{\!B}$ とA側のNovikov変数 $Q$ を混同しない。前者はコホモロジー類二つを数へ送る[複素双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)であり、共役線形なHermitian形式ではない。後者は曲線次数を数える形式変数である。
 
 既習の[三次結合の座標変換・形式の再規格化](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)では、$w$ が別の局所座標、$g$ が零を持たない正則関数のとき
 
