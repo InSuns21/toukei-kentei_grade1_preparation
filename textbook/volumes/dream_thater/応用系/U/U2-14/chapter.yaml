@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - U2-13
+  - MC3
 official_scope: []
 learning_objectives:
   - 目標分布の非正規化重みと提案分布、支持集合の被覆条件を区別できる
