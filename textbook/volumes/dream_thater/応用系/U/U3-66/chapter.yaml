@@ -25,7 +25,7 @@ theorems:
 canonical_examples:
   - "良い流動性Gと悪い流動性Bを観測する二状態二期間の政策表"
   - "在庫2株・上昇シグナルGでは待機、下落シグナルBでは1株売却"
-  - "一定係数のRicatti方程式とsinh在庫曲線の照合"
+  - "一定係数のRiccati方程式とsinh在庫曲線の照合"
 problem_patterns:
   - U3-66-A1
   - U3-66-A2
