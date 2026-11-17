@@ -301,14 +301,14 @@ d(\rho q)=\rho(1-M^2)\,dq.
 $$
 質量保存 $\nabla\cdot(\rho q\boldsymbol e_s)=0$ において $\nabla\cdot\boldsymbol e_s=\partial_n\varphi$ だから
 $$
-(1-M^2)\partial_s q+q\partial_n\varphi=0. \tag{1}
+(1-M^2)\partial_s q+q\partial_n\varphi=0.
 $$
 また渦なし $\partial_xu_y-\partial_yu_x=0$ をこの基底へ射影すると
 $$
-q\partial_s\varphi-\partial_nq=0. \tag{2}
+q\partial_s\varphi-\partial_nq=0.
 $$
 
-**(ii) Mach線上での関係。** 流れから $\pm\mu$ の方向の方向微分は $D_\pm=\cos\mu\,\partial_s\pm\sin\mu\,\partial_n$ である。(1),(2)を代入し、$\cot\mu=\sqrt{M^2-1}$ を用いると
+**(ii) Mach線上での関係。** 流れから $\pm\mu$ の方向の方向微分は $D_\pm=\cos\mu\,\partial_s\pm\sin\mu\,\partial_n$ である。上の質量式・渦なし式を代入し、$\cot\mu=\sqrt{M^2-1}$ を用いると
 $$
 \begin{aligned}
 D_\pm\varphi
