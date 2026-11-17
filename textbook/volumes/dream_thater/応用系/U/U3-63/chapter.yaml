@@ -2,7 +2,7 @@ id: "U3-63"
 title: "最適執行の数値最適化と感度"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-62]
+prerequisites: [U3-62, OPT8]
 official_scope: []
 learning_objectives:
   - 事前予測出来高・参加率・速度上限から固定容量を導き終端全量清算の実行可能性を判定できる
