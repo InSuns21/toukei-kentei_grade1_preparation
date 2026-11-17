@@ -25,7 +25,11 @@ $$
 
 一次 Taylor 展開とは、点 $a$ の近くで増分 $\delta$ に対し $k(a+\delta)\approx k(a)+Dk(a)\delta$ と置くことです。$Dk(a)$ は各出力成分を各入力成分で偏微分した **Jacobi 行列**であり、$Dk$ を計算してから必ず点 $a$ を代入します。剰余は微分可能性の下で $\|\delta\|$ より高次の小ささを持ちますが、有限の誤差では無視できるとは限りません。
 
-ここで $D_gf$ の列は姿勢成分 $(x,y,\theta)$ を順に動かし、入力 $u$ と速度誤差 $\xi$ は固定した偏微分です。$D_\xi f$ の列は $(\xi_v,\xi_\omega)$ を順に動かし、姿勢 $g$ と公称入力 $u$ を固定します。$D_gh$ では目印 $m$ を固定して姿勢 $(x,y,\theta)$ を動かします。この列順と固定変数が、それぞれ $F_t$ の $3\times3$、$G_t$ の $3\times2$、$H_t$ の $2\times3$ という形を決めます。速度に加算する $\xi$ での微分は、[始点 Euler 運動の速度に関する一次誤差行列](../U2-07/index.md#prop-u2-07-euler-jacobians)と同じ操作です。
+$D_gf$ は入力 $u$ と速度誤差 $\xi$ を固定し、姿勢の $(x,y,\theta)$ を一成分ずつ動かす偏微分です。三つの入力成分が列になるため、$F_t$ は $3\times3$ 行列です。
+
+一方、$D_\xi f$ は姿勢 $g$ と公称入力 $u$ を固定し、速度誤差 $(\xi_v,\xi_\omega)$ を一成分ずつ動かします。したがって $G_t$ は $3\times2$ 行列です。これは[始点 Euler 運動の速度に関する一次誤差行列](../U2-07/index.md#prop-u2-07-euler-jacobians)と同じ微分です。
+
+観測側の $D_gh$ は目印 $m$ を固定し、姿勢 $(x,y,\theta)$ を動かします。観測は距離と方位の二成分なので、$H_t$ は $2\times3$ 行列です。
 
 <a id="def-u2-09-linearization-points"></a>
 
@@ -44,7 +48,22 @@ $$
 > それぞれの次元は $3\times3$、$3\times2$、$2\times3$ である。微分は角度の連続した局所座標で行う。
 <!-- formal-statement-end -->
 
-定義の行列を数値例より先に導きます。$f$ の第1成分を $\theta$ で偏微分すると $-(v+\xi_v)\Delta t\sin\theta$、$\xi_v$ で偏微分すると $\Delta t\cos\theta$ です。第2成分からはそれぞれ $(v+\xi_v)\Delta t\cos\theta$、$\Delta t\sin\theta$ を得ます。第3成分の $\theta$ に関する偏微分は $1$、$\xi_\omega$ に関する偏微分は $\Delta t$ です。それ以外の成分も $(x,y,\theta)$ と $(\xi_v,\xi_\omega)$ の順に並べ、$\xi=0$ と前時刻の $\bar g_{t-1}^+$ を代入すると
+定義の行列を数値例より先に導きます。$f=(f_1,f_2,f_3)^T$ と書き、第1・第2成分を姿勢角 $\theta$ と前進速度誤差 $\xi_v$ で偏微分します。
+
+$$
+\begin{aligned}
+\frac{\partial f_1}{\partial\theta}
+&=-(v+\xi_v)\Delta t\sin\theta,\\
+\frac{\partial f_2}{\partial\theta}
+&=(v+\xi_v)\Delta t\cos\theta,\\
+\frac{\partial f_1}{\partial\xi_v}
+&=\Delta t\cos\theta,\\
+\frac{\partial f_2}{\partial\xi_v}
+&=\Delta t\sin\theta.
+\end{aligned}
+$$
+
+第3成分 $f_3=\theta+(\omega+\xi_\omega)\Delta t$ は $\partial f_3/\partial\theta=1$、$\partial f_3/\partial\xi_\omega=\Delta t$ です。各行の残りの偏微分は0または位置 $x,y$ の単位係数です。列を $(x,y,\theta)$ と $(\xi_v,\xi_\omega)$ の順に並べ、$\xi=0$ と前時刻の $\bar g_{t-1}^+$ を代入すると
 
 $$
 F_t=
