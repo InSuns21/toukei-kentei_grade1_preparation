@@ -27,11 +27,9 @@ $$
 $M_{k,\beta}$ 上の**普遍曲線**は、各安定写像にその定義域曲線を対応させる族である。これを $\pi:\mathcal C\to M_{k,\beta}$ と書き、第 $i$ 標点を選ぶ切断を $s_i:M_{k,\beta}\to\mathcal C$ とする。自己同型を持つ写像もスタックとして扱う。
 
 節点を持つ曲線の微分も整合的に扱うため、通常の相対余接束に代えて**相対双対化層** $\omega_\pi$ を用いる。節点を局所座標 $u,v$ で $uv=0$ と書くと、二つの枝での微分は局所的に次の対で表せる。
-
-$
+$$
 \left(\frac{du}{u},-\frac{dv}{v}\right)
-$
-
+$$
 各枝には高々単純極を許すが、その留数 $1$ と $-1$ が打ち消し合う。これは節点で通常の正則1形式になるという意味ではない。一方、各標点切断 $s_i$ は節点を通らないため、$s_i^*\omega_\pi$ の繊維は通常の余接空間 $T^*_{p_i}C$ に一致する。
 
 <a id="def-mir2-09-psi-class"></a>
@@ -125,15 +123,9 @@ $$
 **定義の確認**（次数0・四標点）。 $X$ をquintic、$H=c_1(\mathcal O_X(1))$ とする。[次数0モジュライの積表示](../../GW/GW1-10/index.md#prop-gw1-10-zero-degree)により、定数四標点では $M_{4,0}\simeq X\times\overline{\mathcal M}_{0,4}$ である。評価写像はすべて第一射影、$\psi_1$ は第二射影から来る。
 
 定数写像 $f:C\to\{x\}\subset X$ では、引戻した接束は $\mathcal O_C\otimes T_xX$ になる。$C$ は連結な種数0節点曲線なので $H^1(C,\mathcal O_C)=0$ であり、
-
-$
-\begin{aligned}
-H^1(C,f^*TX)
-&=H^1(C,\mathcal O_C\otimes T_xX)\\
-&=H^1(C,\mathcal O_C)\otimes T_xX=0.
-\end{aligned}
-$
-
+$$
+H^1(C,f^*TX)=H^1(C,\mathcal O_C)\otimes T_xX=0.
+$$
 従って次数0の仮想類は通常の積基本類になる。[三重交叉数](../MIR2-02/index.md#prop-mir2-02-degree-zero-three-point)と[四標点の $\psi$ 積分](#prop-mir2-09-four-point-psi)から
 
 $$
