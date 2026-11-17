@@ -1,0 +1,41 @@
+chapter: U3-65
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-64]
+concepts:
+  - id: finance.stochastic-queue-fill
+    name: 前方キューと指値の部分約定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（前方キューと指値の部分約定）"]
+    requires: [finance.limit-queue]
+  - id: finance.stochastic-fill-law
+    name: 約定株数の分布と期待値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（約定株数の分布と期待値）"]
+    requires: [finance.stochastic-queue-fill]
+  - id: finance.stochastic-execution-stage
+    name: 発注可能集合・在庫遷移・終端清算費用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（発注可能集合・在庫遷移・終端清算費用）"]
+    requires: [finance.stochastic-queue-fill, finance.execution-cash-inventory]
+  - id: finance.stochastic-execution-value
+    name: 価値関数と予見しない発注方策
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（価値関数と予見しない発注方策）"]
+    requires: [finance.stochastic-execution-stage]
+  - id: finance.stochastic-bellman
+    name: 指値・成行のBellman再帰
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（指値・成行の Bellman 再帰）"]
+    requires: [finance.stochastic-execution-value, finance.stochastic-fill-law]
+  - id: finance.stochastic-one-share
+    name: 一株一期間の指値と成行の切替閾値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一株一期間の指値と成行の切替閾値）"]
+    requires: [finance.stochastic-bellman]
