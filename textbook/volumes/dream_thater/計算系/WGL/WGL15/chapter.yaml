@@ -1,0 +1,33 @@
+id: WGL15
+title: 画面クリックを3D物体へどう対応させる？
+volume: foundations
+status: supplementary
+prerequisites: [WGL14]
+official_scope: []
+learning_objectives:
+  - CSS上のマウス位置と描画バッファの下原点画素の関係を導き、高DPIとリサイズに対応できる
+  - NDC上の画素中心から逆投影によるnear/far世界点と画素射線を導ける
+  - 有限平面と射線の交差を計算し、最小奥行きと深度LESSの一致を証明できる
+  - RGBA8専用FBOへ整数の物体IDを描いてreadPixelsし、符号化条件と落とし穴を説明できる
+  - JS/GLSLを編集し、クリック・キーボード選択でCPU射線とGPU IDを比較できる
+definitions:
+  - { id: WGL15-DEF-01, name: CSS位置から描画バッファ画素への写像 }
+  - { id: WGL15-DEF-02, name: 逆投影による画素射線 }
+  - { id: WGL15-DEF-03, name: 射線と奥行き一定の有限面の交差 }
+  - { id: WGL15-DEF-04, name: RGBA8物体IDピッキング }
+theorems:
+  - { id: WGL15-PROP-01, name: 画素添字の範囲と中心への復元 }
+  - { id: WGL15-PROP-02, name: 負のz方向を見る透視カメラの逆投影 }
+  - { id: WGL15-PROP-03, name: 重なった平面の最前面選択 }
+  - { id: WGL15-PROP-04, name: 小さい整数IDの符号化と復号 }
+canonical_examples:
+  - CSS400x300とバッファ800x600の画素対応と上下反転
+  - near1、far9、縦視野90度のNDCから射線への逆変換
+  - 異なる距離2・3にある矩形の重なりと深度9/16・3/4
+  - RGBA8のID1・ID2と背景0のバイト読戻し
+  - WebGL2のクリック・キー選択とCPU/GPU独立比較
+problem_patterns: [WGL15-CSS, WGL15-NDC, WGL15-UNPROJECT, WGL15-RAY, WGL15-DEPTH, WGL15-ID, WGL15-RESIZE]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

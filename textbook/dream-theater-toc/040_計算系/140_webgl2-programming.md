@@ -15,3 +15,4 @@
 12. [WGL12 金属と粗面の光はどう近似する？](textbook/volumes/dream_thater/計算系/WGL/WGL12/index.md)
 13. [WGL13 周囲の風景を反射へ使うには？](textbook/volumes/dream_thater/計算系/WGL/WGL13/index.md)
 14. [WGL14 画面全体をどう加工する？](textbook/volumes/dream_thater/計算系/WGL/WGL14/index.md)
+15. [WGL15 画面クリックを3D物体へどう対応させる？](textbook/volumes/dream_thater/計算系/WGL/WGL15/index.md)

@@ -1,0 +1,53 @@
+chapter: WGL15
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL14]
+concepts:
+  - id: graphics.picking-css-pixel-map
+    name: CSS位置から描画バッファ画素への写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（CSS位置から描画バッファ画素への写像）"]
+    requires: [graphics.drawing-buffer-pixel, graphics.ndc-viewport]
+  - id: graphics.picking-pixel-center
+    name: 画素添字の範囲と中心への復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（画素添字の範囲と中心への復元）"]
+    requires: [graphics.picking-css-pixel-map, graphics.viewport-map]
+  - id: graphics.picking-unproject-ray
+    name: 逆投影による画素射線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆投影による画素射線）"]
+    requires: [graphics.picking-pixel-center, graphics.perspective-projection, graphics.camera-view-transform]
+  - id: graphics.picking-camera-ray
+    name: 負のz方向を見る透視カメラの逆投影
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（負のz方向を見る透視カメラの逆投影）"]
+    requires: [graphics.picking-unproject-ray, graphics.perspective-depth-endpoints]
+  - id: graphics.picking-ray-panel
+    name: 射線と奥行き一定の有限面の交差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（射線と奥行き一定の有限面の交差）"]
+    requires: [graphics.picking-camera-ray]
+  - id: graphics.picking-nearest
+    name: 重なった平面の最前面選択
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（重なった平面の最前面選択）"]
+    requires: [graphics.picking-ray-panel, graphics.perspective-depth-monotone, graphics.depth-test]
+  - id: graphics.picking-id-buffer
+    name: RGBA8物体IDピッキング
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（RGBA8物体IDピッキング）"]
+    requires: [graphics.picking-nearest, graphics.framebuffer-completeness, graphics.render-to-texture]
+  - id: graphics.picking-id-exact
+    name: 小さい整数IDの符号化と復号
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（小さい整数IDの符号化と復号）"]
+    requires: [graphics.picking-id-buffer, graphics.render-texture-quantization]
