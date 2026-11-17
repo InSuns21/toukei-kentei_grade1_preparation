@@ -1,0 +1,23 @@
+chapter: MIR2-13
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-15, MIR1-16, MIR2-05, MIR2-07, MIR2-09, MIR2-10, MIR2-12]
+concepts:
+  - id: mirror.quintic-normalized-i-h2-quadratic
+    name: 正規化I関数のH二次成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正規化I関数のH二次成分）"]
+    requires: [mirror.quintic-normalized-i-components, mirror.quintic-i-first-components, mirror.quintic-i-mirror-coordinate]
+  - id: mirror.quintic-mirror-degree-two-gw
+    name: ミラー定理から得る次数2のGW不変量
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ミラー定理から得る次数2のGW不変量）"]
+    requires: [mirror.quintic-normalized-i-h2-quadratic, mirror.quintic-genus-zero-mirror-theorem, mirror.gw-j-quintic-coefficient]
+  - id: mirror.quintic-mirror-yukawa-quadratic-check
+    name: quinticの鏡像座標Yukawa級数の二次照合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticの鏡像座標Yukawa級数の二次照合）"]
+    requires: [mirror.quintic-mirror-degree-two-gw, mirror.quintic-a-yukawa-series, mirror.quintic-normalized-cubic-regularity]
