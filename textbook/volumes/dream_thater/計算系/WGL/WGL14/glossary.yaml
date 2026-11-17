@@ -1,0 +1,26 @@
+chapter: WGL14
+terms:
+  - term: ポストプロセス
+    english: post-processing
+    meaning: 画像として得られた描画結果を、最終表示前に加工する処理。
+  - term: カーネル
+    english: convolution kernel
+    meaning: 周辺画素へ掛ける重みを並べた有限配列。
+  - term: 端画素複製
+    english: clamp-to-edge extension
+    meaning: 画像の外側の整数座標を最近の端画素へ切り詰める境界条件。
+  - term: 平均ぼかし
+    english: box blur
+    meaning: 近傍の画素の値を等しい重みで平均するフィルタ。
+  - term: インパルス応答
+    english: impulse response
+    meaning: 一つの画素だけ非零にした画像に対するフィルタの結果。
+  - term: 離散Laplacian
+    english: discrete Laplacian
+    meaning: 中央と上下左右の値を比較する有限差分。
+  - term: トーンマッピング
+    english: tone mapping
+    meaning: 非負の輝度などを画面表示の範囲へ写す非線形変換。
+  - term: 量子化
+    english: quantization
+    meaning: 連続値をRGBA8等の有限階調へ写す処理。

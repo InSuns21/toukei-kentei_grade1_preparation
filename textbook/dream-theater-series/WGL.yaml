@@ -17,7 +17,7 @@ chapters:
   - { id: WGL11, path: textbook/volumes/dream_thater/計算系/WGL/WGL11, status: completed, title: "光が遮られる場所をどう判定する？" }
   - { id: WGL12, path: textbook/volumes/dream_thater/計算系/WGL/WGL12, status: completed, title: "金属と粗面の光はどう近似する？" }
   - { id: WGL13, path: textbook/volumes/dream_thater/計算系/WGL/WGL13, status: completed, title: "周囲の風景を反射へ使うには？" }
-  - { id: WGL14, path: textbook/volumes/dream_thater/計算系/WGL/WGL14, status: planned, title: "画面全体をどう加工する？" }
+  - { id: WGL14, path: textbook/volumes/dream_thater/計算系/WGL/WGL14, status: completed, title: "画面全体をどう加工する？" }
   - { id: WGL15, path: textbook/volumes/dream_thater/計算系/WGL/WGL15, status: planned, title: "画面クリックを3D物体へどう対応させる？" }
   - { id: WGL16, path: textbook/volumes/dream_thater/計算系/WGL/WGL16, status: planned, title: "同じ形を多数描くと何が速い？" }
   - { id: WGL17, path: textbook/volumes/dream_thater/計算系/WGL/WGL17, status: planned, title: "物理データをGPU textureへ送るとき何を失う？" }

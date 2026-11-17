@@ -46,7 +46,7 @@ test('WGL14 lab is wired into routing and uses two FBOs and a real readback',asy
     'gl.bindFramebuffer(gl.FRAMEBUFFER,null)','gl.readPixels(3,3','gl.disable(gl.DITHER)'])
     assert.ok(js.includes(k),k);
   assert.match(fs,/texelFetch\(u_source,q,0\)/);
-  assert.match(fs,/light\/(vec3\(1\.0\)\+light\)/);
+  assert.ok(fs.includes('light/(vec3(1.0)+light)'));
   assert.match(host,/const isWGL14 = lesson === 'WGL14'/);
   assert.match(host,/compareWGL14Readback/);
   assert.match(host,/expectedWGL14Samples/);
