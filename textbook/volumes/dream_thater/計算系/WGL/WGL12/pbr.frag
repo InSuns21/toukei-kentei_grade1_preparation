@@ -57,11 +57,15 @@ void main() {
   vec2 xy = (2.0 * gl_FragCoord.xy - u_resolution) / u_resolution.y;
   int hit = -1;
   vec2 q = vec2(0.0);
+  // Keep all three circles visible even on a square 64x64 framebuffer.
+  float scale = min(u_resolution.x / u_resolution.y, 1.35);
+  float centerStep = 0.64 * scale;
+  float sphereRadius = 0.26 * scale;
   for (int i = 0; i < 3; ++i) {
-    vec2 delta = xy - vec2(float(i - 1) * 0.96, 0.0);
-    if (dot(delta, delta) < 0.43 * 0.43) {
+    vec2 delta = xy - vec2(float(i - 1) * centerStep, 0.0);
+    if (dot(delta, delta) < sphereRadius * sphereRadius) {
       hit = i;
-      q = delta / 0.43;
+      q = delta / sphereRadius;
     }
   }
   if (hit < 0) {
