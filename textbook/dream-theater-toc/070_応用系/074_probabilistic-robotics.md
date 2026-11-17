@@ -11,3 +11,4 @@
 8. [U2-08 測距・方位・ランドマークの観測モデル](textbook/volumes/dream_thater/応用系/U/U2-08/index.md)
 9. [U2-09 拡張 Kalman フィルタ：どこで線形化するか](textbook/volumes/dream_thater/応用系/U/U2-09/index.md)
 10. [U2-10 EKF の一貫性：角度・線形化誤差・観測 innovation の診断](textbook/volumes/dream_thater/応用系/U/U2-10/index.md)
+11. [U2-11 sigma-point フィルタ：微分に頼らない非線形近似](textbook/volumes/dream_thater/応用系/U/U2-11/index.md)
