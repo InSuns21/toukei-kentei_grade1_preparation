@@ -71,7 +71,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[前講のコスト恒等式](../U3-61/index.md#prop-u3-61-cost-identity)から $\Delta t_i=\Delta$ と $q_i=x_{i-1}-x_i$ を代入します。外生項は有限和の順序交換により
+[線形インパクトの執行コスト恒等式](../U3-61/index.md#prop-u3-61-cost-identity)から $\Delta t_i=\Delta$ と $q_i=x_{i-1}-x_i$ を代入します。外生項は有限和の順序交換により
 
 $$
 \begin{aligned}
@@ -309,8 +309,8 @@ $\lambda=0$ または $\sigma=0$ の一定速度は、[前講の一定速度命�
 # lab-title: Almgren–Chriss 在庫・リスク・三重対角検算
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-62/assets/almgren_chriss.py
 # lab-preset: リスク中立の一定速度 | --risk-aversion 0
-# lab-preset: リスク回避1 | --risk-aversion 1
-# lab-preset: 強いリスク回避 | --risk-aversion 4
+# lab-preset: 分散重視係数1 | --risk-aversion 1
+# lab-preset: 分散重視係数4 | --risk-aversion 4
 # lab-preset: 2区間の手計算 | --periods 2 --risk-aversion 1
 # lab-timeout-ms: 30000
 ~~~
@@ -357,7 +357,7 @@ $\gamma,\eta,\sigma,\lambda$ の単位を記し、$r=\lambda\sigma^2\Delta^2/\et
 <!-- solution-end -->
 
 <a id="ex-u3-62-a4"></a>
-### U3-62-A4：リスク回避ゼロ
+### U3-62-A4：分散重視係数ゼロ
 - Level: A
 
 $N=2,Q>0,\lambda=0,\eta>0$ なら最適 $x_1$ と $q_1,q_2$ を[三重対角系](#thm-u3-62-tridiagonal)から求めよ。
@@ -367,7 +367,7 @@ $N=2,Q>0,\lambda=0,\eta>0$ なら最適 $x_1$ と $q_1,q_2$ を[三重対角系]
 <!-- solution-end -->
 
 <a id="ex-u3-62-a5"></a>
-### U3-62-A5：リスク回避の二期間解
+### U3-62-A5：分散重視の二期間解
 - Level: A
 
 $N=2,Q=100,\Delta=1,\eta=0.01,\sigma=0.1,\lambda=1$／円の最適在庫と二つの売却量を求め、非負性を検査せよ。
@@ -399,7 +399,7 @@ $0\le\lambda_a<\lambda_b$ の二つの最適解の期待費用・分散を $(E_a
 <!-- solution-end -->
 
 <a id="ex-u3-62-b3"></a>
-### U3-62-B3：連続問題のEuler方程式
+### U3-62-B3：連続問題の停留方程式
 - Level: B
 
 $F(x)=\eta\int_0^T(x')^2dt+\lambda\sigma^2\int_0^Tx^2dt$、$x(0)=Q,x(T)=0$ を変分し、$\lambda=0$ の最適経路を導け。
@@ -452,6 +452,6 @@ $$
 - 自己金融的な売却代金から、価格ショックに掛かる**売却前在庫**が自然に現れます。
 - 期待費用と分散の二次式から正定値三重対角系を導き、双曲線関数の解が非負売却の制約を満たします。
 - 離散解析解は連続時間の境界値問題へ収束しますが、有限分割の最初の区間のリスクは連続積分と同一視できません。
-- リスク回避係数を大きくすれば最適分散は増えず、期待費用は下がりません。実現コストの経路ごとの最安性とは異なります。
+- 分散への重みを大きくすれば最適分散は増えず、期待費用は下がりません。実現コストの経路ごとの最安性とは異なります。
 
 次講 **U3-63「最適執行の数値最適化と感度」** では、流動性の変動、速度上限、参加率、端末在庫制約を加えて解析解から数値最適化へ進みます。
