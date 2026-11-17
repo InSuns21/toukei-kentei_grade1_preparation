@@ -1,0 +1,55 @@
+id: "U2-11"
+title: "sigma-point フィルタ：微分に頼らない非線形近似"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-10
+official_scope: []
+learning_objectives:
+  - 非線形写像で関数の平均値と出力の平均が一致しない理由を二乗観測で説明できる
+  - 正定値分散共分散行列のCholesky分解から2n+1個の対称sigma pointと二種類の重みを構成できる
+  - sigma pointが入力の平均と分散共分散行列を正確に再現することを証明できる
+  - unscented変換の予測平均・分散・状態観測交差分散を次元を確認して計算できる
+  - アフィン写像でのモーメント再現を証明できる
+  - 一次元Gaussian二乗観測の厳密モーメントとsigma point近似の一致を全項検算できる
+  - 四乗観測の近似誤差とGaussian近似で多峰事後を表せない理由を説明できる
+  - 独立加法雑音を含むUKFの予測と観測更新をsigma pointの再生成から再現できる
+  - Schur補行列の評価で観測更新共分散の半正定値性を導ける
+  - EKF・UKF・厳密なBayes事後の違いと角度残差に必要な局所枝条件を判定できる
+  - 固定乱数Pythonラボで算術恒等式と有限標本の近似を区別して検算できる
+definitions:
+  - { id: U2-11-DEF-01, name: 対称 sigma-point と二種類の重み }
+  - { id: U2-11-DEF-02, name: unscented 変換と状態・出力の交差分散 }
+  - { id: U2-11-DEF-03, name: 加法雑音型 UKF の予測 }
+  - { id: U2-11-DEF-04, name: 加法雑音型 UKF の観測更新 }
+theorems:
+  - { id: U2-11-PROP-01, name: 対称 sigma-point の入力モーメント再現 }
+  - { id: U2-11-PROP-02, name: アフィン写像ではモーメントが厳密 }
+  - { id: U2-11-PROP-03, name: Gaussian の二乗観測での厳密な一次・二次モーメント }
+  - { id: U2-11-PROP-04, name: この重みでの UKF 更新共分散は半正定値 }
+canonical_examples:
+  - 一次元平均2分散4の三点で平均と分散を再現
+  - 相関付き二次元入力のCholesky列に沿う五点
+  - Gaussian二乗観測の平均・分散・交差分散を厳密に再現
+  - 四乗観測の真の平均3分散96とsigma-pointの平均1分散2
+  - 独立加法過程雑音で予測平均1分散9/4
+  - 観測前N(1,1/4)でUKFは予測観測5/4とS=11/8
+  - 同じ設定のEKFとUKFの一周期更新比較
+  - 正負対称な二乗観測で交差分散0となる限界
+  - 固定乱数Pythonのモーメント比較と自己検査
+problem_patterns:
+  - U2-11-A01
+  - U2-11-A02
+  - U2-11-A03
+  - U2-11-A04
+  - U2-11-A05
+  - U2-11-B01
+  - U2-11-B02
+  - U2-11-B03
+  - U2-11-B04
+  - U2-11-C01
+  - U2-11-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []
