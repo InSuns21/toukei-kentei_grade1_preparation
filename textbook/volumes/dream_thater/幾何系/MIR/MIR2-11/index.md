@@ -182,9 +182,9 @@ $p_i$ のアフィン近傍で $z_j=x_j/x_i$（$j\ne i$）は独立な四座標�
 <!-- definition-example-start: def-mir2-11-fixed-graph -->
 **定義の確認**。 一辺だけが $p_0$ と $p_1$ を結び、次数 $d_e=2$、標点がない場合、頂点のラベルは異なり、次数和は2、グラフは木である。対応する非定数写像の代表は
 
-$
+$$
 f([u:v])=[u^2:v^2:0:0:0].
-$
+$$
 
 $u^2,v^2$ は $\mathbb P^1$ 上で同時に零とならないので、この写像は全域で定義された次数2の正則写像である。標的の対角作用は定義域の再パラメータ化で補えるので、この安定写像は固定される。非定数成分なので、[安定写像の安定性条件](../../GW/GW1-08/index.md#def-gw1-08-stable-map)は三特殊点を要求しない。定数成分がないため、端点の二頂点を「二つの不安定な縮約成分」と解釈しない。
 <!-- definition-example-end -->
@@ -301,15 +301,15 @@ $$
 
 へ $k=0$ を代入する。その障害消滅は、[Euler列による接束の表示](../MIR2-02/index.md#prop-mir2-02-c1-zero)を $f$ で引き戻した
 
-$
+$$
 0\longrightarrow\mathcal O_C\longrightarrow(f^*\mathcal O(1))^{\oplus5}\longrightarrow f^*T\mathbb P^4\longrightarrow0
-$
+$$
 
 からも確認できる。各成分で $\deg f^*\mathcal O(1)=d_a\ge0$ なので前段と同じ節点帰納法で $H^1(C,f^*\mathcal O(1))=0$、さらに曲線上の $H^2(C,\mathcal O_C)=0$ である。長完全列の
 
-$
+$$
 H^1(C,(f^*\mathcal O(1))^{\oplus5})\longrightarrow H^1(C,f^*T\mathbb P^4)\longrightarrow H^2(C,\mathcal O_C)
-$
+$$
 
 の両端が零だから、$H^1(C,f^*T\mathbb P^4)=0$。よって凸性により期待次元は実際の滑らかなスタックの次元に一致する。$\square$
 <!-- proof-end -->
@@ -552,9 +552,9 @@ $$
 <!-- solution-start -->
 **詳細解答。** 標的の局所座標 $w$ は、文字 $\chi_{ij}(t)=t_j/t_i$ によって $w\mapsto\chi_{ij}(t)w$ と変換され、その等変重みは $\lambda_j-\lambda_i$ である。$w=z^2$ と両立する定義域作用は、$s^2=\chi_{ij}(t)$ を満たす有限被覆トーラス上で
 
-$
+$$
 z\longmapsto sz,\qquad z^2\longmapsto s^2z^2=\chi_{ij}(t)w
-$
+$$
 
 となる。重みは文字の積に対して加法的なので、$z$ の接重み $\mu$ は $2\mu=\lambda_j-\lambda_i$ を満たし、$(\lambda_j-\lambda_i)/2$ である。反対端の局所座標は $z^{-1}$ だから、重みは $(\lambda_i-\lambda_j)/2$ である。
 
