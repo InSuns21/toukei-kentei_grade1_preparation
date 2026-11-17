@@ -1,0 +1,48 @@
+id: "MIR2-10"
+title: "超幾何I関数とquinticの係数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-10
+  - MIR1-11
+  - MIR1-12
+  - MIR1-15
+  - MIR2-02
+  - MIR2-04
+  - MIR2-09
+learning_objectives:
+  - 滑らかなquinticのambient環と四乗零条件を説明しI関数の分母の可逆性を検証できる
+  - 五次超曲面の積からI関数を定義しd=0,1の全非自明条件と係数を計算できる
+  - 積の対数微分からI0とI1の全次数表示および初項770と810225を導ける
+  - 係数比を整理しFrobenius族との全次数一致を示せる
+  - Frobenius残差公式とHの四乗零性からPicard–Fuchs方程式を導ける
+  - I0,I1の比から鏡像写像と逆写像の低次係数を検算できる
+  - 形式級数の収束領域と対数分枝を区別できる
+  - Iの定義的計算とJの仮想GW不変量および未証明のミラー定理の境界を説明できる
+definitions:
+  - { id: MIR2-10-DEF-01, name: "quinticの超幾何I関数" }
+theorems:
+  - { id: MIR2-10-PROP-01, name: "I関数の定数成分と一次成分" }
+  - { id: MIR2-10-THM-01, name: "I関数のFrobenius族への一致" }
+  - { id: MIR2-10-PROP-02, name: "I関数のPicard–Fuchs方程式" }
+  - { id: MIR2-10-PROP-03, name: "I関数から再現されるミラー写像" }
+canonical_examples:
+  - 四乗零環の逆元とd=1の120+770h+575h二乗-1150h三乗
+  - 調和数の差によるI1の770および810225の計算
+  - I0とI1の比からqのz二次770と三次1014275
+  - 次数0のIとJの一致が正次数全体の等式を意味しない例
+problem_patterns:
+  - MIR2-10-AMBIENT-NILPOTENT-INVERSE
+  - MIR2-10-D1-COEFFICIENT
+  - MIR2-10-FACTORIAL-RECURRENCE
+  - MIR2-10-HARMONIC-CORRECTION
+  - MIR2-10-DEGREE-ZERO-VS-POSITIVE
+  - MIR2-10-FROBENIUS-COEFFICIENT-RATIO
+  - MIR2-10-MIRROR-INVERSE
+  - MIR2-10-PF-NILPOTENT-RESIDUAL
+  - MIR2-10-QUINTIC-FACTOR-COUNTEREXAMPLE
+  - MIR2-10-INTEGRATED-RECONSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 5 }

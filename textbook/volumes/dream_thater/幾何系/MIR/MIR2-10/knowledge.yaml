@@ -1,0 +1,35 @@
+chapter: MIR2-10
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-10, MIR1-11, MIR1-12, MIR1-15, MIR2-02, MIR2-04, MIR2-09]
+concepts:
+  - id: mirror.quintic-hypergeometric-i-function
+    name: quinticの超幾何I関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（quinticの超幾何I関数）"]
+    requires: [mirror.quintic-holomorphic-hypergeometric-period, mirror.gw-genus-zero-j]
+  - id: mirror.quintic-i-first-components
+    name: I関数の定数成分と一次成分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（I関数の定数成分と一次成分）"]
+    requires: [mirror.quintic-hypergeometric-i-function, mirror.quintic-logarithmic-harmonic-correction]
+  - id: mirror.quintic-i-frobenius-match
+    name: I関数のFrobenius族への一致
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（I関数のFrobenius族への一致）"]
+    requires: [mirror.quintic-i-first-components, mirror.frobenius-parameter-family]
+  - id: mirror.quintic-i-pf-equation
+    name: I関数のPicard–Fuchs方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（I関数のPicard–Fuchs方程式）"]
+    requires: [mirror.quintic-i-frobenius-match, mirror.quintic-frobenius-residual]
+  - id: mirror.quintic-i-mirror-coordinate
+    name: I関数から再現されるミラー写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（I関数から再現されるミラー写像）"]
+    requires: [mirror.quintic-i-first-components, mirror.quintic-i-frobenius-match, mirror.quintic-normalized-mirror-coordinate]
