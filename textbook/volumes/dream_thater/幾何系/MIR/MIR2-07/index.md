@@ -22,7 +22,19 @@ u_B=\operatorname{Log}q_B=\operatorname{Log}z+h(z),\qquad
 t_B=\frac{u_B}{2\pi i}
 $$
 
-とする。ここで $z=(5\psi)^{-5}$ はB側族の座標、$u_B$ は選んだ対数分枝上の座標、$q_B$ は単価な局所座標である。$0<|z|<\delta<1/3125$ の単連結な切断領域を取り、$\omega_0(z)\ne0$ かつ $1+zh'(z)\ne0$ を満たすよう $\delta$ を小さくする。[局所双正則性](../MIR1-15/index.md#thm-mir1-15-local-biholomorphism)により $q_B$ を逆に解ける。
+とする。ここで $z=(5\psi)^{-5}$ はB側族の座標、$u_B$ は選んだ対数分枝上の座標、$q_B$ は単価な局所座標である。
+
+二つの $\operatorname{Log}$ は独立に選ばず、$\operatorname{Log}q_B=\operatorname{Log}z+h(z)$ を満たすように分枝を対応させる。また $h'(z)$ は $z$ による導関数 $dh/dz$ を表す。
+
+原点近傍の単連結な切断領域を取り、その点 $z$ に対して次を満たすように $\delta$ を小さくする。
+
+$$
+0<|z|<\delta<\frac1{3125},\qquad
+\omega_0(z)\ne0,\qquad
+1+zh'(z)\ne0.
+$$
+
+[ミラー写像の局所双正則性](../MIR1-15/index.md#thm-mir1-15-local-biholomorphism)により $q_B$ を逆に解ける。
 
 A側では、[種数0の三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series)を、独立な形式変数 $Q,\tau$ に対して
 
@@ -42,7 +54,16 @@ $$
 C_{zzz}=Q_{\!B}(\Omega_z,\nabla_z^3\Omega_z)
 $$
 
-を作る。ここでは $Q_{\!B}$ とA側のNovikov変数 $Q$ を混同しない。$Q_{\!B}$ はコホモロジー類二つを数へ送る双線形形式、$Q$ は曲線次数を数える形式変数である。
+を作る。$\Omega_z$ の添字は点 $z$ のファイバーに属する3形式を表す。微分演算子は
+
+$$
+\nabla_z=\nabla_{\partial/\partial z},\qquad
+\nabla_z^3=\nabla_z\circ\nabla_z\circ\nabla_z
+$$
+
+であり、$z$ 方向のGauss–Manin共変微分を3回反復している。
+
+ここでは $Q_{\!B}$ とA側のNovikov変数 $Q$ を混同しない。前者はコホモロジー類二つを数へ送る[複素双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)であり、共役線形なHermitian形式ではない。後者は曲線次数を数える形式変数である。
 
 既習の[三次結合の座標変換・形式の再規格化](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)では、$w$ が別の局所座標、$g$ が零を持たない正則関数のとき
 
@@ -55,11 +76,28 @@ $$
 
 一方、$Q_{\!B}$ を $cQ_{\!B}$（$c\ne0$ は定数）とすれば、$C_{zzz}$ は $c$ 倍になる。この第三の自由度は3形式の倍率とは異なる。
 
+次の命題が使う直交性は、既習の[重さ3のHodgeフィルトレーション](../../HOD/HOD1-15/index.md#def-hod1-15-filtration)と[Hodge三次結合の構成](../MIR1-16/index.md#def-mir1-16-yukawa-cubic)に基づく。Griffiths横断性を一回ずつ適用すると
+
+$$
+\Omega\in F^3,\qquad
+\nabla_z\Omega\in F^2\subset F^1,\qquad
+\nabla_z^2\Omega\in F^1
+$$
+
+となる。これにHodge直交性 $Q_{\!B}(F^3,F^1)=0$ を組み合わせると
+
+$$
+Q_{\!B}(\Omega,\nabla_z\Omega)
+=Q_{\!B}(\Omega,\nabla_z^2\Omega)=0
+$$
+
+を得る。これは交代性による $Q_{\!B}(\Omega,\Omega)=0$ とは別の条件である。
+
 <a id="prop-mir2-07-period-gauge"></a>
 
 <!-- formal-statement-start -->
 > **命題（周期で割った三次結合の変換不変性）**  
-> 重さ3のHodgeフィルトレーションと平行交代形式 $Q_{\!B}$ のもとで、$\Omega$ が $Q_{\!B}(\Omega,\nabla\Omega)=Q_{\!B}(\Omega,\nabla^2\Omega)=0$ を満たすとする。局所座標 $z,w$ は双正則に対応し、$g(z)$ は零を持たない正則関数とする。$\omega(z)=\int_\gamma\Omega_z$ を同じ平行サイクル $\gamma$ 上の非零周期とする。対数座標 $u_B$ を固定したとき
+> 重さ3のHodgeフィルトレーションと平行交代形式 $Q_{\!B}$ のもとで、$\Omega$ が $Q_{\!B}(\Omega,\nabla_z\Omega)=Q_{\!B}(\Omega,\nabla_z^2\Omega)=0$ を満たすとする。局所座標 $z,w$ は双正則に対応し、$g(z)$ は零を持たない正則関数とする。$\omega(z)=\int_\gamma\Omega_z$ を同じ平行サイクル $\gamma$ 上の非零周期とする。対数座標 $u_B$ を固定したとき
 
 $$
 \mathcal K(u_B):=\frac{C_{zzz}}{\omega^2}
@@ -87,7 +125,15 @@ $$
 \end{aligned}
 $$
 
-一方、$\widetilde\Omega=g\Omega$ とすると線形な周期積分により $\widetilde\omega=g\omega$ である。3形式の三階微分には $g',g'',g'''$ を含む項が生じるが、仮定の二つの直交性と交代性でそれらが消え、[同じ既習命題](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)より $\widetilde C=g^2C$ となる。ゆえに
+一方、$\widetilde\Omega=g\Omega$ とすると線形な周期積分により $\widetilde\omega=g\omega$ である。[三次結合の形式変更公式](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)の中身を接続のLeibniz則で展開すると、ここでプライムは $z$ による微分を表し、
+
+$$
+\nabla_z^3(g\Omega)
+=g\nabla_z^3\Omega+3g'\nabla_z^2\Omega
++3g''\nabla_z\Omega+g'''\Omega
+$$
+
+となる。左に $g\Omega$ を置いて $Q_{\!B}$ を評価すると、二つの直交性により $g',g''$ の項が、交代性により $g'''$ の項がそれぞれ零になる。従って $\widetilde C=g^2C$ であり、
 
 $$
 \frac{\widetilde C}{\widetilde\omega^2}
@@ -189,7 +235,7 @@ $\omega_0(0)=1$、$1+0\cdot h'(0)=1$、$1-3125\cdot0=1$ だから三つの分母
 
 <!-- formal-statement-start -->
 > **定理（規格化B側結合の一次係数公式）**  
-> 第3節の仮定を満たし、$\omega_0(z)=1+az+O(z^2)$、$h(z)=bz+O(z^2)$ とする。定数 $\kappa$ を任意の非零値に固定して $C_{zzz}=\kappa/[z^3(1-3125z)]$ と書くと、原点へ正則延長した $K_B$ のTaylor展開は
+> $\omega_0,h$ は原点近傍で正則、$\omega_0(0)=1$、$h(0)=0$ とし、$q_B=ze^{h(z)}$ を採る。$\omega_0(z)=1+az+O(z^2)$、$h(z)=bz+O(z^2)$ とする。第3節とは異なり $\kappa$ をまだ5に固定せず、任意の非零定数 $\kappa$ に対して $C_{zzz}=\kappa/[z^3(1-3125z)]$ と定める。原点の十分小さい穿孔近傍で $1-3125z$、$\omega_0$、$1+zh'$ が零でないとき、原点へ正則延長した $K_B$ のTaylor展開は
 
 $$
 K_B(q_B)=\kappa+\kappa(3125-2a-3b)\,q_B+O(q_B^2)
@@ -344,7 +390,7 @@ $\widetilde u_B=u_B+c$ から $d\widetilde u_B/du_B=1$、従って $dz/d\widetil
 
 ## 6. A側の級数と「比較できる」ことの正確な意味
 
-B側では既に $K_B(q_B)\in\mathbb C[[q_B]]$ を構成した。A側では $C^X_{HHH}(x)\in\mathbb Q[[x]]$ が[因子公理に基づく三点関数](../MIR2-03/index.md#def-mir2-03-three-point-series)から定義されている。二つの形式冪級数は、**同じ記号の変数へ代入して初めて係数を比較できる**が、比較可能性は等式の証明ではない。
+B側では既に $K_B(q_B)\in\mathbb C[[q_B]]$ を構成した。A側では $C^X_{HHH}(x)\in\mathbb Q[[x]]$ が[因子公理に基づく三点関数](../MIR2-03/index.md#def-mir2-03-three-point-series)から定義されている。二つの形式冪級数は、**比較用に変数を対応させて初めて係数を比較できる**が、比較可能性は等式の証明ではない。ここで行うのは $x^d$ を $q_B^d$ へ写す係数ごとの操作である。$q_B$ を形式変数として扱えば、$q_B^n$ の係数を決めるのは次数 $d=n$ の一項だけで、解析的収束を仮定せず無限級数にも作用できる。
 
 <a id="def-mir2-07-comparison-convention"></a>
 
@@ -363,7 +409,26 @@ $$
 
 <!-- definition-example-start: def-mir2-07-comparison-convention -->
 
-**定義の確認**。 $C^X_{HHH}(x)=5+N_1^Xx+8N_2^Xx^2+O(x^3)$ に代入 $\iota$ を行うと、定数5は5のまま、一次は $N_1^Xq_B$、二次は $8N_2^Xq_B^2$ になる。次数2の係数8は $d^3$ から来るので、代入自体が作る値ではない。また $\iota(x^2)=q_B^2=\iota(x)^2$、$\iota(1)=1$ であり、加法と乗法を保つ。元の $N_1^X,N_2^X$ を知らない段階ではB側の $2875,4876875$ と一致するとはまだ結論できない。
+**定義の確認**。まず三点関数の初項に比較用の代入を行うと
+
+$$
+C^X_{HHH}(x)
+=5+N_1^Xx+8N_2^Xx^2+O(x^3)
+\quad\xmapsto{\ \iota\ }\quad
+5+N_1^Xq_B+8N_2^Xq_B^2+O(q_B^3)
+$$
+
+となる。定数5は不変で、二次の係数8は次数 $d=2$ の $d^3$ から来る。代入が新たに作った数値ではない。
+
+この対応が無限級数でも環準同型になることを確認しよう。$\iota(x^2)=q_B^2=\iota(x)^2$、$\iota(1)=1$ である。一般に $f=\sum_{d\ge0}a_dx^d$、$g=\sum_{d\ge0}b_dx^d$ を取ると、任意の $n\ge0$ について
+
+$$
+[x^n](fg)
+=\sum_{j=0}^na_jb_{n-j}
+=[q_B^n]\bigl(\iota(f)\iota(g)\bigr)
+$$
+
+が成立する。右辺と左辺はともに有限和なので解析的収束は不要であり、$\iota(fg)=\iota(f)\iota(g)$ が全次数で従う。加法についても各係数をそのまま写すため保存される。元の $N_1^X,N_2^X$ を知らない段階ではB側の $2875,4876875$ と一致するとはまだ結論できない。
 
 <!-- definition-example-end -->
 
@@ -470,7 +535,30 @@ $$
 $\kappa=5$、$\omega_0=1+120z+O(z^2)$、$h=770z+O(z^2)$ とする。$K_B$ の定数項と一次係数を、三つの分母因子から求めよ。
 
 <!-- solution-start -->
-**詳細解答**。[正則延長の式](#prop-mir2-07-regularity)に $\kappa=5$ を入れると、$(1-3125z)^{-1}=1+3125z+\cdots$、$\omega_0^{-2}=1-240z+\cdots$、$(1+zh')^{-3}=1-2310z+\cdots$。積は $1+(3125-240-2310)z+\cdots=1+575z+\cdots$。$q_B=z+O(z^2)$ なので $K_B=5+5\cdot575q_B+O(q_B^2)=5+2875q_B+O(q_B^2)$ である。
+**詳細解答**。[正則延長の式](#prop-mir2-07-regularity)に $\kappa=5$ を入れる。原点での各分母の値は1なので、一次までの逆数の展開は
+
+$$
+\begin{aligned}
+(1-3125z)^{-1}&=1+3125z+O(z^2),\\
+\omega_0^{-2}&=1-240z+O(z^2),\\
+(1+zh')^{-3}&=1-2310z+O(z^2).
+\end{aligned}
+$$
+
+となる。一次の交差項はないから、その積は
+
+$$
+1+(3125-240-2310)z+O(z^2)=1+575z+O(z^2)
+$$
+
+である。$q_B=z+O(z^2)$ なので $z=q_B+O(q_B^2)$ を代入し、
+
+$$
+K_B(q_B)=5+5\cdot575q_B+O(q_B^2)
+=5+2875q_B+O(q_B^2)
+$$
+
+を得る。
 <!-- solution-end -->
 
 <a id="ex-mir2-07-a04"></a>
@@ -533,9 +621,53 @@ $$
 $\omega_0=1+120z+113400z^2+O(z^3)$、$h=770z+717825z^2+O(z^3)$、$z=q_B-770q_B^2+O(q_B^3)$ とする。第3節の規格化式から $[q_B^2]K_B=4876875$ を計算し、$z$ と $q_B$ の係数の差を示せ。
 
 <!-- solution-start -->
-**詳細解答**。まず $1+zh'=1+770z+1435650z^2+O(z^3)$。$(1+y)^{-2}=1-2y+3y^2+\cdots$ から $\omega_0^{-2}=1-240z+(3\cdot14400-226800)z^2+\cdots=1-240z-183600z^2+\cdots$。$(1+y)^{-3}=1-3y+6y^2+\cdots$ から $(1+zh')^{-3}=1-2310z+(6\cdot592900-3\cdot1435650)z^2+\cdots=1-2310z-749550z^2+\cdots$。判別式因子は $(1-3125z)^{-1}=1+3125z+9765625z^2+\cdots$。
+**詳細解答**。まず $h'=770+1435650z+O(z^2)$ だから、
 
-二つを先に掛けると一次 $3125-240=2885$、二次 $9765625-750000-183600=8832025$。最後の因子との積は一次 $2885-2310=575$、二次 $8832025-2885\cdot2310-749550=1418125$。5倍して $K_B(q_B(z))=5+2875z+7090625z^2+\cdots$。$z=q_B-770q_B^2+\cdots$ へ代入すると二次係数は $7090625-2875\cdot770=4876875$ となる。$z$ 座標の二次係数は $7090625$ で、平坦座標の係数とは $2213750$ 異なる。
+$$
+1+zh'=1+770z+1435650z^2+O(z^3)
+$$
+
+である。$(1+y)^{-2}=1-2y+3y^2+O(y^3)$ と $(1+y)^{-3}=1-3y+6y^2+O(y^3)$ をそれぞれ適用すると、
+
+$$
+\begin{aligned}
+\omega_0^{-2}
+&=1-240z+(3\cdot120^2-2\cdot113400)z^2+O(z^3)\\
+&=1-240z-183600z^2+O(z^3),\\
+(1+zh')^{-3}
+&=1-2310z+(6\cdot770^2-3\cdot1435650)z^2+O(z^3)\\
+&=1-2310z-749550z^2+O(z^3),\\
+(1-3125z)^{-1}
+&=1+3125z+9765625z^2+O(z^3).
+\end{aligned}
+$$
+
+最初に判別式と周期の因子を掛けると、一次は $3125-240=2885$、二次は
+
+$$
+9765625-3125\cdot240-183600=8832025
+$$
+
+となる。最後の因子を掛けると、一次は $2885-2310=575$、二次は
+
+$$
+8832025-2885\cdot2310-749550=1418125.
+$$
+
+従って、規格化式の分子5を掛ければ
+
+$$
+K_B(q_B(z))=5+2875z+7090625z^2+O(z^3)
+$$
+
+を得る。最後に $z=q_B-770q_B^2+O(q_B^3)$ を代入して
+
+$$
+[q_B^2]K_B=7090625-2875\cdot770
+=4876875
+$$
+
+となる。$z$ 座標の二次係数との差は $2875\cdot770=2213750$ である。
 <!-- solution-end -->
 
 <a id="ex-mir2-07-b04"></a>
