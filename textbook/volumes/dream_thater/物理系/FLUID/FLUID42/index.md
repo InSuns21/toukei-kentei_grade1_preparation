@@ -414,7 +414,7 @@ $\gamma=1.4$、$R=287$ J/(kg K)、$T=300$ K、$M=0.5$ で $c_p$、$T_0$、$v^2/2
 <!-- solution-start -->
 #### 詳細解答
 
-[全温・全圧の定義](#def-fluid42-stagnation)より $c_p=\gamma R/(\gamma-1)=1.4\cdot287/0.4=1004.5$ J/(kg K)。$T_0=T(1+0.2M^2)=300(1+0.2\cdot0.25)=315$ K。音速式 $v^2=M^2\gamma RT$ から
+[停滞状態と全温・全圧](#def-fluid42-stagnation)より $c_p=\gamma R/(\gamma-1)=1.4\cdot287/0.4=1004.5$ J/(kg K)。$T_0=T(1+0.2M^2)=300(1+0.2\cdot0.25)=315$ K。音速式 $v^2=M^2\gamma RT$ から
 
 $$
 \frac{v^2}{2}
@@ -582,7 +582,7 @@ $\gamma=1.4$、$R=287$ J/(kg K)、$p_0=101325$ Pa、$T_0=300$ K の理想気体�
 
 喉部が音速なので[臨界断面の定義](#def-fluid42-choking)より $A_t=A_*$。指定出口面積比は[面積–Mach関係と二分枝](#thm-fluid42-area-mach)の $\gamma=1.4,M=2$ の値と一致し、超音速分枝を選ぶという仮定から $M_e=2$ である。$M<1$ 側の別の根はここでは選ばない。
 
-[全温・全圧の定義](#def-fluid42-stagnation)より、$\alpha=(\gamma-1)/2=0.2$ を使い
+[停滞状態と全温・全圧](#def-fluid42-stagnation)より、$\alpha=(\gamma-1)/2=0.2$ を使い
 
 $$
 T_e=\frac{300}{1+0.2\cdot4}
