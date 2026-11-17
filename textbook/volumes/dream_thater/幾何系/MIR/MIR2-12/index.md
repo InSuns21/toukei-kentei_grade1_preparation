@@ -67,7 +67,7 @@ $$
 
 <!-- definition-example-start: def-mir2-12-flat-normalization -->
 
-**定義の直接確認**。 [Iの初期係数](../MIR2-10/index.md#prop-mir2-10-i01)から
+**定義の確認**。 [Iの初期係数](../MIR2-10/index.md#prop-mir2-10-i01)から
 
 $$
 I_0=1+120z+113400z^2+O(z^3),\qquad
@@ -201,7 +201,7 @@ $$
 
 一方、前節の $\mathcal F_X$ は **$z$** の級数である。同じ係数を比較するには、[局所可逆なミラー写像](../MIR1-15/index.md#thm-mir1-15-local-biholomorphism)で得る $q(z)$ をJの次数変数へ代入し、$Q=q(z)$ として比較する必要がある。
 
-## 5. quinticミラー定理
+## 5. IとJを結ぶ比較結果
 
 ここで初めて、幾何的に定義したJと超幾何的に作ったIをつなぐ。関係は、**Iの規格化とミラー写像を両方行った後の等式**である。
 
