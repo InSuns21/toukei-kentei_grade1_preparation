@@ -231,7 +231,16 @@ $$
 q(x,0)=b+A\sin(2\pi x/L),\qquad b>|A|>0
 $$
 
-とする。正確な解は $q(x,t)=b+A\sin(2\pi(x-at)/L)$ である。これは $\partial_tq=-a\partial_xq$ を直接代入して確かめられる。セル中心 $x_j=(j+1/2)h$ とすると、[セル平均の定義](#def-fluid45-cell-average)から正確な比較対象は
+とする。$b,A$ はともに kg/m の単位を持つ。正確な解は $q(x,t)=b+A\sin(2\pi(x-at)/L)$ である。実際、$x$ と $t$ をそれぞれ固定して偏微分すると
+
+$$
+\begin{aligned}
+\partial_tq&=-\frac{2\pi aA}{L}\cos\frac{2\pi(x-at)}L,\\
+\partial_x f(q)&=a\partial_xq=+\frac{2\pi aA}{L}\cos\frac{2\pi(x-at)}L,
+\end{aligned}
+$$
+
+となり、二項の和は零である。セル中心 $x_j=(j+1/2)h$ とすると、[セル平均の定義](#def-fluid45-cell-average)から正確な比較対象は
 
 $$
 \begin{aligned}
