@@ -109,7 +109,7 @@ $$
 
 ## 3. 規格化を固定してから平坦座標に移す
 
-[MIR1-16の有理形定理](../MIR1-16/index.md#thm-mir1-16-rational-yukawa)から、適切な局所的3形式に対し
+[quinticの三次結合の有理形](../MIR1-16/index.md#thm-mir1-16-rational-yukawa)から、適切な局所的3形式に対し
 
 $$
 C_{zzz}=\frac{\kappa}{z^3(1-3125z)}
@@ -189,7 +189,7 @@ $\omega_0(0)=1$、$1+0\cdot h'(0)=1$、$1-3125\cdot0=1$ だから三つの分母
 
 <!-- formal-statement-start -->
 > **定理（規格化B側結合の一次係数公式）**  
-> 第3節の仮定を満たし、$\omega_0(z)=1+az+O(z^2)$、$h(z)=bz+O(z^2)$ とする。定数 $\kappa$ を任意の非零値に固定して $C_{zzz}=\kappa/[z^3(1-3125z)]$ と書くと、原点で正則延長した結合のTaylor展開は
+> 第3節の仮定を満たし、$\omega_0(z)=1+az+O(z^2)$、$h(z)=bz+O(z^2)$ とする。定数 $\kappa$ を任意の非零値に固定して $C_{zzz}=\kappa/[z^3(1-3125z)]$ と書くと、原点へ正則延長した $K_B$ のTaylor展開は
 
 $$
 K_B(q_B)=\kappa+\kappa(3125-2a-3b)\,q_B+O(q_B^2)
@@ -313,7 +313,19 @@ $$
 \widetilde K_B(\widetilde q_B)=K_B(\widetilde q_B/\lambda).
 $$
 
-> とくに $K_B(q_B)=5+k_1q_B+k_2q_B^2+\cdots$ なら $\widetilde K_B(\widetilde q_B)=5+(k_1/\lambda)\widetilde q_B+(k_2/\lambda^2)\widetilde q_B^2+\cdots$ となる。両方の座標に $q=z+O(z^2)$ を要求するなら $\lambda=1$ である。
+> とくに元の級数が次の形であるとき、
+
+$
+K_B(q_B)=5+k_1q_B+k_2q_B^2+O(q_B^3),
+$
+
+> 新しい座標での級数は
+
+$
+\widetilde K_B(\widetilde q_B)=5+\frac{k_1}{\lambda}\widetilde q_B+\frac{k_2}{\lambda^2}\widetilde q_B^2+O(\widetilde q_B^3)
+$
+
+> となる。両方の座標に $q=z+O(z^2)$ を要求するなら $\lambda=1$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -423,7 +435,7 @@ $h$ は原点で正則、$h(0)=0$ とする。$q_B=ze^h$ から $du_B/dz$ と $d
 $\omega_0=1+120z+O(z^2)$、$\widetilde\Omega=(1+2z)\Omega$ とし、$|z|<1/4$ とする。周期と三次結合の変換倍率を求め、$\widetilde C/\widetilde\omega^2=C/\omega_0^2$ を一次まで確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$g=1+2z$ は与えた円板で非零なので、$\widetilde\omega=g\omega_0=(1+2z)(1+120z+\cdots)=1+122z+O(z^2)$。既習の[再規格化公式](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)から $\widetilde C=(1+2z)^2C=(1+4z+O(z^2))C$。また $\widetilde\omega^2=(1+244z+O(z^2))$、$\omega_0^2=1+240z+O(z^2)$。ゆえに $\widetilde C/\widetilde\omega^2=C(1+4z)(1-244z)+O(z^2)C=C(1-240z+O(z^2))=C/\omega_0^2$ である。ここで $C$ はLaurent級数でもよく、括弧内の係数として等式を比較している。
+**詳細解答**。$g=1+2z$ は与えた円板で非零なので、$\widetilde\omega=g\omega_0=(1+2z)(1+120z+\cdots)=1+122z+O(z^2)$。既習の[三次結合の座標変換と形式の再規格化](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)から $\widetilde C=(1+2z)^2C=(1+4z+O(z^2))C$。また $\widetilde\omega^2=(1+244z+O(z^2))$、$\omega_0^2=1+240z+O(z^2)$。ゆえに $\widetilde C/\widetilde\omega^2=C(1+4z)(1-244z)+O(z^2)C=C(1-240z+O(z^2))=C/\omega_0^2$ である。ここで $C$ はLaurent級数でもよく、括弧内の係数として等式を比較している。
 <!-- solution-end -->
 
 <a id="ex-mir2-07-a03"></a>
@@ -497,7 +509,7 @@ $\omega_0=1+120z+113400z^2+O(z^3)$、$h=770z+717825z^2+O(z^3)$、$z=q_B-770q_B^2
 $K_B(q_B)=5+2875q_B+4876875q_B^2+O(q_B^3)$ とする。$\widetilde u_B=u_B+\log2$（局所的に分枝を固定）なら、$\widetilde q_B$ での展開を求めよ。$\widetilde q_B=z+O(z^2)$ が成り立つかも判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。指数を取って $\widetilde q_B=e^{u_B+\log2}=2q_B$、従って $q_B=\widetilde q_B/2$。微分方向は $d/d\widetilde u_B=d/du_B$ と同じだから、[定数シフト命題](#prop-mir2-07-coordinate-shift)より $\widetilde K_B(\widetilde q_B)=5+(2875/2)\widetilde q_B+(4876875/4)\widetilde q_B^2+O(\widetilde q_B^3)$。一方 $\widetilde q_B=2z+O(z^2)$ なので先頭係数は2であり、$z+O(z^2)$ という規格化を満たさない。
+**詳細解答**。指数を取って $\widetilde q_B=e^{u_B+\log2}=2q_B$、従って $q_B=\widetilde q_B/2$。微分方向は $d/d\widetilde u_B=d/du_B$ と同じだから、[対数座標の定数シフトと級数係数](#prop-mir2-07-coordinate-shift)より $\widetilde K_B(\widetilde q_B)=5+(2875/2)\widetilde q_B+(4876875/4)\widetilde q_B^2+O(\widetilde q_B^3)$。一方 $\widetilde q_B=2z+O(z^2)$ なので先頭係数は2であり、$z+O(z^2)$ という規格化を満たさない。
 <!-- solution-end -->
 
 <a id="ex-mir2-07-b05"></a>
