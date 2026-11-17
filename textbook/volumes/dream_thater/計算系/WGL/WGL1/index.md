@@ -2,7 +2,7 @@
 
 ブラウザで三角形を描くには、JavaScriptで頂点を並べるだけでは足りません。GPUに「頂点をどの位置へ置き、内部の小さな画素を何色にするか」を伝える必要があります。逆に完成済みの3Dライブラリを呼ぶだけでは、画素が決まる根拠を自分で検算できません。
 
-本章は、**canvas → WebGL2 → 頂点シェーダ → ラスタ化 → フラグメントシェーダ → 画素**という最短経路を、一つの三角形で閉じます。ラスタ化は三角形が覆う画素の候補（フラグメント）を作る工程で、その候補へ色を付けるのがフラグメントシェーダです。JavaScript、頂点 GLSL、フラグメント GLSL の3欄を自分で編集して実行し、CPUで予測した画素とGPUが返す値を照合します。WebGL2が利用できない環境では、数値による説明を読めてもGPU実行課題を完了したとは扱いません。
+本章は、**canvas → WebGL2 → 頂点シェーダ（各頂点の位置を計算するプログラム） → ラスタ化 → フラグメントシェーダ → 画素**という最短経路を、一つの三角形で閉じます。ラスタ化は三角形が覆う画素の候補（フラグメント）を作る工程で、その候補へ色を付けるのがフラグメントシェーダです。JavaScript、頂点 GLSL、フラグメント GLSL の3欄を自分で編集して実行し、CPUで予測した画素とGPUが返す値を照合します。WebGL2が利用できない環境では、数値による説明を読めてもGPU実行課題を完了したとは扱いません。
 
 本講ではJavaScriptの変数・配列・関数とHTMLの基本構造を例の中で説明します。線形代数の高度な結果は前提にせず、座標変換と三角形の内外判定は必要な式から導きます。
 
@@ -167,6 +167,8 @@ $$
 
 と置きます。これは $U\to V$ と $U\to P$ の向きを符号で、3点で作る三角形の面積の2倍を絶対値で記録します。$E(U,V,P)=0$ は3点が一直線上にあることを表します。
 
+ここで**閉三角形 $ABC$** とは、3本の辺とその内部を合わせた領域です。具体的には、辺 $AB$ 上の点と頂点 $C$ を結ぶ線分をすべて集めたものを指します。次の命題では、その幾何学的な領域への所属を3つの符号付き量で判定します。
+
 <a id="prop-wgl1-edge-test"></a>
 
 <!-- formal-statement-start -->
@@ -209,7 +211,23 @@ $$
 tD=(B_x-A_x)(P_y-A_y)-(B_y-A_y)(P_x-A_x).
 $$
 
-$D\ne0$ なので $s,t$ はともに一意に求まります。この値を2式へ戻すと両成分が一致するため、任意の $P$ に対してこの表示が存在します。ここで $\lambda_A=1-s-t$、$\lambda_B=s$、$\lambda_C=t$ と置くと
+$D\ne0$ なので上の2式から $s,t$ の値が定まります。これらが元の2つの成分方程式を実際に満たすことも確認します。$u=B-A$、$v=C-A$、$q=P-A$ と略記すると、$D=u_xv_y-u_yv_x$、$s=(q_xv_y-q_yv_x)/D$、$t=(u_xq_y-u_yq_x)/D$ です。横成分に代入して
+
+$$
+su_x+tv_x
+=\frac{(q_xv_y-q_yv_x)u_x+(u_xq_y-u_yq_x)v_x}{D}
+=\frac{q_x(u_xv_y-u_yv_x)}D=q_x.
+$$
+
+縦成分でも
+
+$$
+su_y+tv_y
+=\frac{(q_xv_y-q_yv_x)u_y+(u_xq_y-u_yq_x)v_y}{D}
+=\frac{q_y(u_xv_y-u_yv_x)}D=q_y.
+$$
+
+したがって任意の $P$ にこの表示が存在します。2組の係数が同じ $P$ を表すと仮定して差を取れば、同じ消去計算で係数の差に $D$ を掛けた値がともに0になり、$D\ne0$ より $s,t$ も一意です。ここで $\lambda_A=1-s-t$、$\lambda_B=s$、$\lambda_C=t$ と置くと
 
 $$
 P=\lambda_A A+\lambda_B B+\lambda_C C,\qquad
@@ -304,7 +322,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl1-shader-stages -->
-**定義の確認**。 この章の頂点 GLSL は `in vec2 a_position` を受けて `gl_Position=vec4(a_position,0.0,1.0)` を出力します。JS の `coordinates` に並ぶ6個の実数は、`vertexAttribPointer(location,2,gl.FLOAT,false,0,0)` によって2個ずつ `a_position` へ渡され、3頂点 $A,B,C$ に対応します。入力 $(x,y)$ から4成分 $(x,y,0,1)$ を作るため、[透視除算](#def-wgl1-perspective-division)後もNDCは $(x,y)$ です。[viewportの対応命題](#prop-wgl1-viewport-map)を経て、ラスタ化では[符号付き面積の内外判定](#prop-wgl1-edge-test)に対応する三角形を処理します。
+**定義の確認**。 この章の頂点 GLSL は `in vec2 a_position` を受けて `gl_Position=vec4(a_position,0.0,1.0)` を出力します。JS は6個の実数を並べた `coordinates` を `bufferData` でGPUバッファへ渡します。`getAttribLocation(program,"a_position")` が返す `location` は、GLSL側の入力 `a_position` を指す属性位置です。`vertexAttribPointer(location,2,gl.FLOAT,false,0,0)` では、1頂点につき `gl.FLOAT` 型の2成分を読みます。末尾の `0,0` はデータが隙間なく並ぶことと先頭から読むことを指定し、`false` は正規化を行わない指定です。したがって6個の値は順に `(-0.8,-0.8)`、`(0.8,-0.8)`、`(0,0.8)` の3組となり、頂点 $A,B,C$ に対応します。入力 $(x,y)$ から4成分 $(x,y,0,1)$ を作るため、[透視除算](#def-wgl1-perspective-division)後もNDCは $(x,y)$ です。[viewportの対応命題](#prop-wgl1-viewport-map)を経て、ラスタ化では[符号付き面積の内外判定](#prop-wgl1-edge-test)に対応する三角形を処理します。
 
 フラグメント GLSL の `outColor=vec4(1.0,0.5,0.0,1.0)` は各候補の色です。JSは2段階のコンパイル成功を検査し、リンク成功後に `drawArrays(TRIANGLES,0,3)` で3頂点を一組の三角形として処理するよう要求します。この順序なら、頂点入力・座標計算・画素候補の色・描画呼出しが定義の各条件と対応します。
 <!-- definition-example-end -->
