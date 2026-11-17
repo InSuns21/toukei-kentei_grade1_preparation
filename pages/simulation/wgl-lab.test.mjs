@@ -183,3 +183,6 @@ import './wgl11-lab.test.mjs';
 
 // WGL12: Fresnel/GGX CPU oracle and editable roughness/metallic WebGL2 lab.
 import './wgl12-lab.test.mjs';
+
+// WGL13: cube-map faces, reflection, seams and independent 12-pixel oracle.
+import './wgl13-lab.test.mjs';
