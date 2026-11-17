@@ -5,7 +5,7 @@ prerequisites:
   - FLUID45
 concepts:
   - id: fluid.ftcs-advection
-    name: FTCS
+    name: 中心FTCS
     kind: term
     introduction: inline
     requires: [fluid.finite-volume-face-flux]
@@ -34,7 +34,7 @@ concepts:
     introduction_aliases: ["定理（中心FTCSの不安定性）"]
     requires: [fluid.ftcs-advection, fluid.fourier-amplification, fluid.upwind-fourier-stability]
   - id: fluid.numerical-diffusion-advection
-    name: 数値拡散
+    name: 風上法の数値拡散
     kind: term
     introduction: inline
     requires: [fluid.upwind-fourier-stability]
@@ -45,16 +45,16 @@ concepts:
     introduction_aliases: ["命題（一次風上法の主要な数値拡散）"]
     requires: [fluid.upwind-fourier-stability, fluid.numerical-diffusion-advection]
   - id: fluid.cell-average-error
-    name: セル平均誤差
+    name: セル平均誤差の評価
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（セル平均誤差と観測収束次数）"]
+    introduction_aliases: ["定義（セル平均誤差の評価とセル平均の観測収束次数）"]
     requires: [fluid.finite-volume-cell-average]
   - id: fluid.observed-convergence-order
-    name: 観測収束次数
+    name: セル平均の観測収束次数
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（セル平均誤差と観測収束次数）"]
+    introduction_aliases: ["定義（セル平均誤差の評価とセル平均の観測収束次数）"]
     requires: [fluid.cell-average-error]
   - id: fluid.upwind-smooth-convergence
     name: 滑らかな周期解に対する一次風上法の収束
