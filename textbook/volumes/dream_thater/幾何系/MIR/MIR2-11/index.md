@@ -272,7 +272,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各成分 $C_a\cong\mathbb P^1$ において $f^*\mathcal O(5)|_{C_a}\cong\mathcal O_{\mathbb P^1}(5d_a)$、$d_a\ge0$ である。[射影直線の層コホモロジー](../../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)より $H^1(C_a,\mathcal O(5d_a))=0$ である。さらに任意の点 $q=[a:b]$ では、$a\ne0$ なら斉次切断 $u^{5d_a}$、$a=0$ なら $v^{5d_a}$ が $q$ で零でない。したがって切断評価 $H^0(C_a,\mathcal O(5d_a))\to\mathcal O(5d_a)|_q$ は全射であり、任意の繊維値を指定できる。
+各成分 $C_a\cong\mathbb P^1$ において $f^*\mathcal O(5)|_{C_a}\cong\mathcal O_{\mathbb P^1}(5d_a)$、$d_a\ge0$ である。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)より $H^1(C_a,\mathcal O(5d_a))=0$ である。さらに任意の点 $q=[a:b]$ では、$a\ne0$ なら斉次切断 $u^{5d_a}$、$a=0$ なら $v^{5d_a}$ が $q$ で零でない。したがって切断評価 $H^0(C_a,\mathcal O(5d_a))\to\mathcal O(5d_a)|_q$ は全射であり、任意の繊維値を指定できる。
 
 成分が一つなら $H^1=0$、$h^0=5d+1$。複数のとき双対グラフは木だから葉の成分 $C_\ell$ があり、残りを $C'$ とすると $C=C'\cup C_\ell$ は一節点 $q$ で接合する。線束を $L=f^*\mathcal O(5)$ と略すと正規化の短完全列
 
@@ -282,7 +282,7 @@ $$
 \longrightarrow L|_q\longrightarrow0
 $$
 
-を得る。最後の写像は二つの節点値の差である。$L|_{C_\ell}$ の切断評価は全射だから、$H^0(C',L)\oplus H^0(C_\ell,L)\to L|_q$ も全射。帰納法で $H^1(C',L)=0$、また葉の $H^1$ も零なので、[層コホモロジーの長完全列](../../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)で $H^1(C,L)=0$。Euler標数は接合のたびに節点の一次元を引くから
+を得る。最後の写像は二つの節点値の差である。$L|_{C_\ell}$ の切断評価は全射だから、$H^0(C',L)\oplus H^0(C_\ell,L)\to L|_q$ も全射。帰納法で $H^1(C',L)=0$、また葉の $H^1$ も零なので、[層コホモロジーの長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)で $H^1(C,L)=0$。Euler標数は接合のたびに節点の一次元を引くから
 
 $$
 \begin{aligned}
