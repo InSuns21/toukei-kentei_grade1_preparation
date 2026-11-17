@@ -1,0 +1,46 @@
+id: "MIR2-13"
+title: "鏡像座標でのYukawa級数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-15
+  - MIR1-16
+  - MIR2-05
+  - MIR2-07
+  - MIR2-09
+  - MIR2-10
+  - MIR2-12
+learning_objectives:
+  - 鏡像座標の対数微分からdz/duを導出しJacobianの三乗と周期の逆二乗を区別できる
+  - quinticの規格化B側Yukawaをzで二次まで展開しqへの逆級数代入で4876875を導ける
+  - I関数の二次係数を調和数の対数微分から計算し正規化IのH二次成分を求められる
+  - I/Jミラー定理を滑らかなquinticの種数0ambient理論へ適用しN1とN2を導出できる
+  - A側の三点関数とB側Yukawaの二次までの一致を独立した計算経路で検算できる
+  - qとzの誤同一視や微分座標と周期・交叉形式の規格化漏れを診断できる
+  - 仮想GW不変量と整数型曲線数および有限次の一致と全次数の同一性を区別できる
+definitions: []
+theorems:
+  - { id: MIR2-13-PROP-01, name: "正規化I関数のH二次成分" }
+  - { id: MIR2-13-PROP-02, name: "ミラー定理から得る次数2のGW不変量" }
+  - { id: MIR2-13-PROP-03, name: "quinticの鏡像座標Yukawa級数の二次照合" }
+canonical_examples:
+  - q=z/(1-z)の模型でJacobianを含めた三次結合変換
+  - I0逆二乗と対数微分の逆三乗および三因子の交差項
+  - z=q-770q2によるB側二次係数7090625から4876875への変化
+  - B2の調和数差から4208175/4を得てH二次正規化を行う計算
+  - JのH二次係数を通じたN2=4876875/8とA側8倍の検算
+problem_patterns:
+  - MIR2-13-JACOBIAN-DERIVATIVE
+  - MIR2-13-PERIOD-INVERSE-SQUARE
+  - MIR2-13-INVERSE-SERIES
+  - MIR2-13-INVERSE-CUBE
+  - MIR2-13-GW-THIRD-DERIVATIVE
+  - MIR2-13-THREE-FACTORS
+  - MIR2-13-HARMONIC-I-DEGREE-TWO
+  - MIR2-13-IJ-DEGREE-TWO
+  - MIR2-13-GAUGE-DIAGNOSTIC
+  - MIR2-13-COMPLETE-TWO-PATH-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 5 }
