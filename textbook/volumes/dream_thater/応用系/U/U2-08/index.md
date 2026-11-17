@@ -23,14 +23,14 @@ r(g,m)=\sqrt q,\qquad
 \beta(g,m)=\operatorname{wrap}\!\left(\operatorname{atan2}(d_y,d_x)-\theta\right).
 $$
 
-> 二つを並べた $h(g,m)=(r(g,m),\beta(g,m))^T$ を**測距・方位観測関数**とする。$q=0$ では方向が定まらないため、この関数の定義域から除く。
+> 二つを並べた $h(g,m)=(r(g,m),\beta(g,m))^T$ と書く。これは既知目印の測距・方位を予測する関数である。$q=0$ では方向が定まらないため、この関数の定義域から除く。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-08-range-bearing -->
 **定義の確認**：$g=(1,1,\pi/2)$、$m=(2,1)$ では、$d=(1,0)$、$q=1>0$、$\operatorname{atan2}(0,1)=0$。したがって $r=1$ m、$\beta=\operatorname{wrap}(-\pi/2)=-\pi/2$ rad となります。前方（北）から右90度に目印が見えることと一致します。別の姿勢 $g=(0,0,0)$、$m=(3,4)$ では $q=25>0$、$r=5$ m、$\beta=\operatorname{atan2}(4,3)$（約 $0.9273$ rad）です。どちらも目印番号・原点・角度規約を固定したうえで、定義の距離条件と方位条件を直接確認しました。
 <!-- definition-example-end -->
 
-**センサー値をそのまま世界の $x,y$ と見なすことはできません。** 距離 $r$ と車体方位 $\beta$ から復元した相対点は車体座標で $(r\cos\beta,r\sin\beta)$ です。[座標変換](../U2-06/index.md#def-u2-06-rigid-transform)を使えば世界点は
+**センサー値をそのまま世界の $x,y$ と見なすことはできません。** 距離 $r$ と車体方位 $\beta$ から復元した相対点は車体座標で $(r\cos\beta,r\sin\beta)$ です。[車体から世界への平面剛体変換](../U2-06/index.md#def-u2-06-rigid-transform)を使えば世界点は
 
 $$
 m=\begin{pmatrix}x\\y\end{pmatrix}
@@ -70,7 +70,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（距離・方位の観測 innovation）**  
-> $q(g,m)>0$ で、実測 $z=(z_r,z_\beta)^T$（距離 m、角度 rad）、予測 $h(g,m)=(r,\beta)^T$ に対し、innovation $\nu=(\nu_r,\nu_\beta)^T$ を
+> $q(g,m)>0$ で、実測 $z=(z_r,z_\beta)^T$（距離 m、角度 rad）、予測 $h(g,m)=(r,\beta)^T$ に対し、角度を補正した観測残差 $\nu=(\nu_r,\nu_\beta)^T$ を
 
 $$
 \nu_r=z_r-r,\qquad
@@ -357,10 +357,10 @@ $$
 
 - Level: A
 
-予測方位 $179^\circ$、実測 $-179^\circ$、予測距離 $5$ m、実測距離 $5.4$ m とする。innovation の距離成分と角度成分を求めよ。
+予測方位 $179^\circ$、実測 $-179^\circ$、予測距離 $5$ m、実測距離 $5.4$ m とする。観測残差の距離成分と角度成分を求めよ。
 
 <!-- solution-start -->
-**詳細解答**：[innovation の定義](#def-u2-08-innovation)から $\nu_r=5.4-5=0.4$ m。角度の生の差は $-179^\circ-179^\circ=-358^\circ$ ですが、$-358^\circ+360^\circ=2^\circ$ は $[-180^\circ,180^\circ)$ 内です。ゆえに $\nu_\beta=2^\circ=\pi/90$ rad。$-358^\circ$ をそのまま使うと真の方向差を誤ります。
+**詳細解答**：[距離・方位の観測 innovation](#def-u2-08-innovation)から $\nu_r=5.4-5=0.4$ m。角度の生の差は $-179^\circ-179^\circ=-358^\circ$ ですが、$-358^\circ+360^\circ=2^\circ$ は $[-180^\circ,180^\circ)$ 内です。ゆえに $\nu_\beta=2^\circ=\pi/90$ rad。$-358^\circ$ をそのまま使うと真の方向差を誤ります。
 <!-- solution-end -->
 
 <a id="ex-u2-08-a03"></a>
@@ -428,7 +428,7 @@ $$
 姿勢 $(0,0,0)$、目印 $m=(3,4)$ m で $v=(4,-3,1)^T$ が一次零方向であることを行列積から確かめよ。また姿勢を目印の周りに微小回転させる説明と結び付けよ。
 
 <!-- solution-start -->
-**詳細解答**：[Jacobi 行列](#prop-u2-08-observation-jacobian)は $H=\left(\begin{smallmatrix}-3/5&-4/5&0\\4/25&-3/25&-1\end{smallmatrix}\right)$ です。第一行との積は $(-3/5)4+(-4/5)(-3)=-12/5+12/5=0$、第二行との積は $(4/25)4+(-3/25)(-3)-1=16/25+9/25-1=0$。よって $Hv=0$。[一つの目印の零方向](#prop-u2-08-one-landmark-null)の一般式 $(d_y,-d_x,1)$ に $(d_x,d_y)=(3,4)$ を入れたものです。ロボットを目印中心に角度 $\gamma$ だけ回して、車体向きにも $\gamma$ を加えると、目印までの距離と相対方位は変わりません。その $\gamma=0$ の接ベクトルが $v$ です。
+**詳細解答**：[Jacobi 行列](#prop-u2-08-observation-jacobian)は $H=\left(\begin{smallmatrix}-3/5&-4/5&0\\4/25&-3/25&-1\end{smallmatrix}\right)$ です。第一行との積は $(-3/5)4+(-4/5)(-3)=-12/5+12/5=0$、第二行との積は $(4/25)4+(-3/25)(-3)-1=16/25+9/25-1=0$。よって $Hv=0$。[一つの目印の零方向](#prop-u2-08-one-landmark-null)の一般式 $(d_y,-d_x,1)$ に $(d_x,d_y)=(3,4)$ を入れたものです。ロボットを目印中心に角度 $\gamma$ だけ回して、車体向きにも $\gamma$ を加えると、目印までの距離と相対方位は変わりません。その $\gamma=0$ で微分して得る変化ベクトルが $v$ です。
 <!-- solution-end -->
 
 <a id="ex-u2-08-b03"></a>
@@ -440,7 +440,7 @@ $$
 同じ姿勢から異なる二つの既知目印 $m_1,m_2$（ともに距離が正）を観測した。$u=(\delta x,\delta y,\delta\theta)$ が両方の Jacobi 行列の零方向に属するなら $u=0$ を証明せよ。二つが同じ位置だった場合も論ぜよ。
 
 <!-- solution-start -->
-**詳細解答**：[一つの目印の零方向命題](#prop-u2-08-one-landmark-null)より各 $i$ について $u=t_i(d_{iy},-d_{ix},1)$ です。第三成分が共通なので $t_1=t_2=\delta\theta$。従って $\delta\theta(d_{1y}-d_{2y})=0$ と $\delta\theta(d_{1x}-d_{2x})=0$ が必要です。二つの目印が異なれば変位ベクトル $d_1,d_2$ が異なるので $\delta\theta=0$、さらに $\delta x=\delta y=0$。よって[二目印命題](#prop-u2-08-two-landmarks-rank)どおり階数3です。同位置なら $d_1=d_2$、二つの $H$ は同一となり、零方向が残ります。測定を二度数えたことは新しい幾何情報とは異なります。
+**詳細解答**：[一つのランドマークの零方向](#prop-u2-08-one-landmark-null)より各 $i$ について $u=t_i(d_{iy},-d_{ix},1)$ です。第三成分が共通なので $t_1=t_2=\delta\theta$。従って $\delta\theta(d_{1y}-d_{2y})=0$ と $\delta\theta(d_{1x}-d_{2x})=0$ が必要です。二つの目印が異なれば変位ベクトル $d_1,d_2$ が異なるので $\delta\theta=0$、さらに $\delta x=\delta y=0$。よって[相異なる二つの既知ランドマーク](#prop-u2-08-two-landmarks-rank)どおり階数3です。同位置なら $d_1=d_2$、二つの $H$ は同一となり、零方向が残ります。測定を二度数えたことは新しい幾何情報とは異なります。
 <!-- solution-end -->
 
 <a id="ex-u2-08-b04"></a>
@@ -495,7 +495,7 @@ $$
 H=\begin{pmatrix}-3/5&-4/5&0\\4/25&-3/25&-1\end{pmatrix}.
 $$
 
-まず $HP^-=\left(\begin{smallmatrix}-0.024&-0.032&0\\0.0064&-0.0048&-0.01\end{smallmatrix}\right)$。これに $H^T$ を掛けると、距離分散 $0.04$、距離・方位の交差分散 $0$、方位分散 $0.0016+0.01=0.0116$。状態誤差と観測雑音の独立性を用い、[局所一次共分散命題](#prop-u2-08-innovation-covariance)より
+まず $HP^-=\left(\begin{smallmatrix}-0.024&-0.032&0\\0.0064&-0.0048&-0.01\end{smallmatrix}\right)$。これに $H^T$ を掛けると、距離分散 $0.04$、距離・方位の交差分散 $0$、方位分散 $0.0016+0.01=0.0116$。状態誤差と観測雑音の独立性を用い、[局所一次 innovation 共分散](#prop-u2-08-innovation-covariance)より
 
 $$
 S=HP^-H^T+R=\operatorname{diag}(0.05,0.0141).
