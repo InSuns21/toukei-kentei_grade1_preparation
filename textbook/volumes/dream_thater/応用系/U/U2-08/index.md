@@ -172,13 +172,17 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（観測関数の局所一次可観測性）**  
-> $n$ 成分の状態を $g$ とし、観測関数 $h$ が点 $g_0$ の近傍で微分可能であるとする。その点における Jacobi 行列を $H=D_gh(g_0)$ と書く。$H$ の列階数が $n$ なら、この点で**局所一次可観測**と呼ぶ。
->
-> 逆に次の式を満たす非零ベクトル $\delta g$ があれば、これを観測の**一次の零方向**と呼ぶ。
+> 状態を $g\in\mathbb R^n$、観測関数を $h$、着目点を $g_0$ とし、$h$ はその近傍で微分可能とする。Jacobi 行列が次の階数条件を満たすとき、その点で**局所一次可観測**と呼ぶ。
 
-$
+$$
+H=D_gh(g_0),\qquad \operatorname{rank}H=n.
+$$
+
+> また、次の条件を満たす非零の状態変化を、観測の**一次の零方向**と呼ぶ。
+
+$$
 H\delta g=0,\qquad \delta g\ne0.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-08-local-observability -->
@@ -265,7 +269,7 @@ $$
 h(g,m)\simeq h(\bar g,m)+H\delta g.
 $$
 
-誤差 $\varepsilon$ と状態誤差 $\delta g$ を独立と仮定すれば、局所 innovation は $\mathcal V\simeq H\delta g+\varepsilon$ です。
+誤差 $\varepsilon$ と状態誤差 $\delta g$ を独立と仮定すれば、局所的な観測残差の一次近似は $\mathcal V\simeq H\delta g+\varepsilon$ です。
 
 <a id="prop-u2-08-innovation-covariance"></a>
 
