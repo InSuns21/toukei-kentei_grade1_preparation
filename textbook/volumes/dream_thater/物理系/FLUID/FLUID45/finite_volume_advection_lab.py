@@ -45,9 +45,10 @@ def _exact_cell_average(j, t, dx, speed, case, base, amplitude):
             2 * math.pi * (center - speed * t))
     # Periodic pulse: base+amplitude on [1/4, 1/2) modulo domain length.
     shifted = speed * t
-    kcenter = int(math.floor(shifted))
+    # |speed*time| <= 2 m, and cells lie inside [0, 1] m.
+    # Include copies shifted left by two full periods.
     covered = 0.0
-    for k in range(kcenter - 2, kcenter + 3):
+    for k in range(-4, 5):
         lo = 0.25 + shifted + k
         hi = 0.50 + shifted + k
         covered += max(0.0, min(right, hi) - max(left, lo))
@@ -180,6 +181,12 @@ def self_test():
     # period is summed over all cells.
     assert abs(same["initial_mass_kg"] - 1.0) < 1e-13
     tests.append("exact cell integral: sine mean equals base")
+    pulse_dx = 1.0 / 64
+    for j in range(64):
+        start = _exact_cell_average(j, 0.0, pulse_dx, 2.0, "pulse", 1.0, 0.3)
+        twice = _exact_cell_average(j, 1.0, pulse_dx, 2.0, "pulse", 1.0, 0.3)
+        assert abs(start - twice) < 1e-12
+    tests.append("periodic pulse exact integral: two full translations")
     # Smooth, positive profile and dt proportional to dx: first-order
     # upwind should improve under refinement. No general convergence
     # claim is inferred from these finite tests.
