@@ -1,5 +1,5 @@
 id: "U2-10"
-title: "EKF の一貫性：角度・線形化誤差・innovation 診断"
+title: "EKF の一貫性：角度・線形化誤差・観測 innovation の診断"
 volume: "foundations"
 status: supplementary
 prerequisites:
