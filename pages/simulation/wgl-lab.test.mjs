@@ -180,3 +180,6 @@ import './wgl10-lab.test.mjs';
 
 // WGL11: depth-only shadow-map FBO and independent ray-box CPU oracle.
 import './wgl11-lab.test.mjs';
+
+// WGL12: Fresnel/GGX CPU oracle and editable roughness/metallic WebGL2 lab.
+import './wgl12-lab.test.mjs';
