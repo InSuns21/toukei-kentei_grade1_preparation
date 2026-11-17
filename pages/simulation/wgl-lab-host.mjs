@@ -10,11 +10,12 @@ import { compareWGL8Readback, expectedWGL8Samples } from './wgl8-lab-core.mjs';
 import { compareWGL9Readback, expectedWGL9Samples } from './wgl9-lab-core.mjs';
 import { compareWGL10Readback, expectedWGL10Samples } from './wgl10-lab-core.mjs';
 import { compareWGL11Readback, expectedWGL11Samples } from './wgl11-lab-core.mjs';
+import { compareWGL12Readback, expectedWGL12Samples } from './wgl12-lab-core.mjs';
 
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
 const isWGL4 = lesson === 'WGL4';
@@ -25,9 +26,11 @@ const isWGL8 = lesson === 'WGL8';
 const isWGL9 = lesson === 'WGL9';
 const isWGL10 = lesson === 'WGL10';
 const isWGL11 = lesson === 'WGL11';
+const isWGL12 = lesson === 'WGL12';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/' + lesson + '/', import.meta.url);
-const FILES = isWGL11 ? {js: 'shadow.js', vertex: 'shadow.vert', fragment: 'shadow.frag'} :
+const FILES = isWGL12 ? {js: 'pbr.js', vertex: 'pbr.vert', fragment: 'pbr.frag'} :
+  isWGL11 ? {js: 'shadow.js', vertex: 'shadow.vert', fragment: 'shadow.frag'} :
   isWGL10 ? {js: 'framebuffer.js', vertex: 'framebuffer.vert', fragment: 'framebuffer.frag'} :
   isWGL9 ? {js: 'lighting.js', vertex: 'lighting.vert', fragment: 'lighting.frag'} :
   isWGL8 ? {js: 'blending.js', vertex: 'blending.vert', fragment: 'blending.frag'} :
@@ -38,7 +41,7 @@ const FILES = isWGL11 ? {js: 'shadow.js', vertex: 'shadow.vert', fragment: 'shad
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
@@ -222,7 +225,7 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', request.js);
       run(gl, canvas, request.vertex, request.fragment, report);
-      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11'].includes(request.lesson)) &&
+      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -338,7 +341,7 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
@@ -347,7 +350,7 @@ window.addEventListener('message', event => {
       unchanged && !pass);
     byId('result-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      (isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      (isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
@@ -364,6 +367,7 @@ function run() {
     if (isWGL8) payload.probes = expectedWGL8Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL9) payload.probes = expectedWGL9Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL11) payload.probes = expectedWGL11Samples(payload.width,payload.height).map(p => [p.x,p.y]);
+    if (isWGL12) payload.probes = expectedWGL12Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL10) payload.probes = expectedWGL10Samples(payload.width,payload.height).map(p => [p.x,p.y]);
   }
   catch (error) { setStatus(error.message, true); return; }
@@ -411,6 +415,10 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+    } else if (isWGL12) {
+      inputs.fragment.value = defaults.fragment.replace(
+        'outColor = vec4(fresnelSchlick(voh, f0), 1.0);',
+        'outColor = vec4(fresnelSchlick(voh, f0), 1.0)');
     } else if (isWGL11) {
       inputs.fragment.value = defaults.fragment.replace(
         'outColor = vec4(vec3(v), 1.0);',
@@ -464,6 +472,21 @@ if (isWGL2) {
   preset.options[0].textContent = '初期の頂点色三角形';
   preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
   preset.options[1].textContent = 'fragment の構文エラー';
+}
+if (isWGL12) {
+  document.title = 'WGL12 Fresnel・GGX・金属度・粗さの編集ラボ';
+  document.querySelector('h1').textContent = 'WGL12 粗面と金属の微小面反射を数式・画素で比べる';
+  document.querySelector('#panel-conditions > p').textContent =
+    '3球は左から非金属・滑らか、非金属・粗い、金属。JSのroughness/metallicとGLSLのSchlick・GGX・Smith Gを編集できます。' +
+    '画面左下4画素は線形FresnelのCPU/GPU検算専用で、GGXのエネルギー保存まで証明するものではありません。';
+  document.querySelector('#panel-conditions ol').innerHTML =
+    '<li>初期ソースを実行し、4画素の線形Fresnel値のCPU/GPU照合を確認する。</li>' +
+    '<li>pbr.jsのroughnessとmetallicを変更し、3球の反射の広がり・拡散反射量の変化を比べる。</li>' +
+    '<li>pbr.fragでalpha=rough*roughとGGXの分母を読み、粗さを変えた正面密度を計算する。</li>' +
+    '<li>構文エラープリセットでfragment shaderのstage別エラーを確認し、修正して再実行する。</li>' +
+    '<li>表示のclamp・sRGBと方向積分のエネルギー制約の違いを説明する。</li>';
+  byId('preset').options[0].textContent = '初期の3球・Fresnel 4画素比較';
+  byId('preset').options[1].textContent = 'fragmentの構文エラー';
 }
 if (isWGL11) {
   document.title = 'WGL11 光視点の深度テクスチャと影の判定ラボ';
