@@ -18,9 +18,9 @@
 > **定義（4×2物理値格子とデータテクスチャ）**  
 > 実数値 $x_{i,j}$ に対し、横4列・縦2行の格子添字と一次元の格納位置を次のように定める。
 
-$
+$$
 0\le i<4,\quad 0\le j<2,\qquad k=i+4j.
-$
+$$
 
 > 各位置 $k$ をWebGL2の2次元textureの同じ $(i,j)$ テクセルへ対応させたものを、この講義の**データテクスチャ**とする。値は単一の赤成分へ置き、緑・青・不透明度は物理量の成分に含めない。
 <!-- formal-statement-end -->
@@ -43,12 +43,12 @@ GPU shaderで格子要素をそのまま読みたいときは、[WGL7のUVによ
 <!-- formal-statement-start -->
 > **命題（画素中心から格子添字への対応）**  
 > $W,H$ は正整数、$0\le p<W,\ 0\le q<H$ とする。画素中心を横4分割・縦2分割した格子へ写す添字
->
-> $$
-> i=\left\lfloor\frac{4(p+1/2)}{W}\right\rfloor,\qquad
-> j=\left\lfloor\frac{2(q+1/2)}{H}\right\rfloor
-> $$
->
+
+$$
+i=\left\lfloor\frac{4(p+1/2)}{W}\right\rfloor,\qquad
+j=\left\lfloor\frac{2(q+1/2)}{H}\right\rfloor
+$$
+
 > は $0\le i<4,\ 0\le j<2$ を満たす。$W=320,H=240,p=120,q=60$ なら $(i,j)=(1,0)$ となる。
 <!-- formal-statement-end -->
 
@@ -73,12 +73,12 @@ $p\ge0$ より $4(p+1/2)/W>0$ です。また $p\le W-1$ だから $p+1/2\le W-1
 <!-- formal-statement-start -->
 > **定義（8ビット正規化符号化と復元）**  
 > 有限実数 $a<b$、$x\in[a,b]$ を仮定する。線形正規化 $t=(x-a)/(b-a)$、8ビット符号 $q$、復元値 $\widehat{x}$ を
->
-> $$
-> q=\operatorname{round}(255t),\qquad
-> \widehat{x}=a+(b-a)\frac{q}{255}
-> $$
->
+
+$$
+q=\operatorname{round}(255t),\qquad
+\widehat{x}=a+(b-a)\frac{q}{255}
+$$
+
 > と定める。ここで $q\in\{0,\ldots,255\}$、$\operatorname{round}$ は最近接整数への丸め（半整数なら上側）である。**R8 UNORM** は格納符号 $q$ を `sampler2D` の読み取り時に浮動小数点値 $q/255$ として渡す形式である。
 <!-- formal-statement-end -->
 
@@ -98,11 +98,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（最近接8ビット量子化の絶対誤差上界）**  
 > [8ビット符号化](#def-wgl17-unorm)の仮定を満たす任意の $x\in[a,b]$ に対し、
->
-> $$
-> |\widehat{x}-x|\le\frac{b-a}{510}
-> $$
->
+
+$$
+|\widehat{x}-x|\le\frac{b-a}{510}
+$$
+
 > である。特に区間 $[-2,2]$ では上界は $2/255$ である。
 <!-- formal-statement-end -->
 
@@ -143,13 +143,13 @@ R8、R8UI、R32Fは、いずれも赤1成分ですが同じ意味ではありま
 <!-- formal-statement-start -->
 > **定義（本講義の3種類の数値テクスチャ）**  
 > 4×2の赤1成分textureを作るものとし、入力・読取型を次のように選ぶ。
->
+
 > | internalFormat | format | type | 入力バッファ | GLSLの受け手 |
 > | --- | --- | --- | --- | --- |
 > | `R8` | `RED` | `UNSIGNED_BYTE` | `Uint8Array` | `sampler2D`: $q/255$ |
 > | `R8UI` | `RED_INTEGER` | `UNSIGNED_BYTE` | `Uint8Array` | `usampler2D`: $q$ |
 > | `R32F` | `RED` | `FLOAT` | `Float32Array` | `sampler2D`: 単精度値 |
->
+
 > R8とR8UIのどちらにもここでは[量子化した符号](#def-wgl17-unorm) $q$ を格納する。R32Fには元の物理値を `Float32Array` に変換して格納する。
 <!-- formal-statement-end -->
 
@@ -164,11 +164,11 @@ R8、R8UI、R32Fは、いずれも赤1成分ですが同じ意味ではありま
 <!-- formal-statement-start -->
 > **命題（区間内の単精度格納誤差）**  
 > 有限な $x\in[-2,2]$ を、IEEE 754 binary32の最近接・偶数丸めで `Float32Array` に格納し、格納値を $f(x)$ とする。通常のbinary32表現（非数や無限大ではない）では、
->
-> $$
-> |f(x)-x|\le 2^{-24}
-> $$
->
+
+$$
+|f(x)-x|\le 2^{-24}
+$$
+
 > が成り立つ。この上界はR32Fからの**読み出し・演算・表示の全誤差**を保証するものではない。
 <!-- formal-statement-end -->
 
