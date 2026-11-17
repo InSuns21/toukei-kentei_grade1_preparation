@@ -333,7 +333,17 @@ D_\pm\varphi
 $$
 従って $D_\pm\varphi=\pm D_\pm\nu$ と書ける。ただし $d\nu:=\sqrt{M^2-1}\,dq/q$ と定義し、次の (iii) で $M$ の関数として積分する。ここで $D_\pm$ は空間内の特性線に沿う方向微分であって、$d\varphi=\pm d\nu$ を**任意の方向の変化**に対して主張しているわけではない。
 
-中心型の膨張扇で下向きの凸角を考えると、上流方向角は $\varphi_1=0$、下流は $\varphi_2=-\theta$ である。角の頂点から出る $D_+$ 特性線は放射線に接し、その上では $\chi$ が一定なので $D_+q=D_+\varphi=0$ となる。一方、扇を横断する $D_-$ 方向には
+中心型の膨張扇で下向きの凸角を考えると、上流方向角は $\varphi_1=0$、下流は $\varphi_2=-\theta$ である。角の頂点を原点とした極座標 $(r,\chi)$ の扇内 $r>0$ では、任意の状態量 $F=F(\chi)$ に対して
+$$
+\nabla\chi=\frac{(-\sin\chi,\cos\chi)}r,\qquad
+\partial_{\parallel}F=\frac{\sin(\varphi-\chi)}rF_\chi,\qquad
+\partial_{\perp}F=\frac{\cos(\varphi-\chi)}rF_\chi
+$$
+である。これを (i) の質量式・渦なし式に代入すると、$\partial_{\perp}q=q\partial_{\parallel}\varphi$ を消去して
+$$
+\bigl[(1-M^2)\sin^2(\varphi-\chi)+\cos^2(\varphi-\chi)\bigr]q_\chi=0
+$$
+を得る。扇の状態が変化する部分では $q_\chi\ne0$ なので、$M^2\sin^2(\varphi-\chi)=1$、すなわち前進する放射線は $\chi=\varphi\pm\mu$ のいずれかである。下向き膨張の配置では $\chi=\varphi+\mu$ を取るから、放射線が $D_+$ 特性線に接し、その上では $D_+q=D_+\varphi=0$ となる。一方、扇を横断する $D_-$ 方向には
 $$
 D_-\bigl(\varphi+\nu(M)\bigr)=0
 $$
