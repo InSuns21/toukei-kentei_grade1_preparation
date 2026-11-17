@@ -287,6 +287,7 @@ $$
 # lab-preset: 周期・矩形パルス | --grid 80 --case pulse --boundary periodic --time 0.4 --cfl 0.8
 # lab-preset: 流入出境界の収支 | --grid 60 --case sine --boundary open --time 0.4 --cfl 0.8
 # lab-preset: 速度と刻みを変更 | --grid 64 --case sine --boundary periodic --time 0.3 --speed 1.5 --cfl 0.5
+# lab-preset: 一定解・誤差ゼロの確認 | --grid 40 --case sine --boundary periodic --time 0.4 --amplitude 0
 # lab-preset: Python内蔵の保存則テスト | --self-test
 <!-- python-file-lab-end -->
 
