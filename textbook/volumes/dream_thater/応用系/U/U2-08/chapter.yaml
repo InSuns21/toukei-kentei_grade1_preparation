@@ -1,0 +1,52 @@
+id: "U2-08"
+title: "測距・方位・ランドマークの観測モデル"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-07
+official_scope: []
+learning_objectives:
+  - 既知ランドマークの世界座標と平面姿勢から相対距離・車体方位を計算し逆変換を照合できる
+  - 目印の一致・センサー原点・測距正値条件と角度の周期性を明示できる
+  - 距離と方位の加法雑音の単位・共分散・独立性・厳密尤度の射程を区別できる
+  - 距離と方位のinnovationを正しい符号とwrapで計算できる
+  - 観測姿勢Jacobi行列の全六成分を連鎖律・方向角の全微分から導ける
+  - 一つの既知目印では平面姿勢に一次零方向が残ることを行列積と幾何で証明できる
+  - 二つの相異なる既知目印の縦積みJacobi行列が列階数3になることを証明できる
+  - 予測点の一次innovation共分散を独立性から導き数値計算できる
+  - 外れ値・誤対応・共通雑音の相関・線形化の限界を区別できる
+  - Pythonで幾何・偏微分・wrap・不可観測性を手計算と照合できる
+definitions:
+  - { id: U2-08-DEF-01, name: 既知ランドマークの測距・方位予測 }
+  - { id: U2-08-DEF-02, name: 測距・方位の加法雑音模型 }
+  - { id: U2-08-DEF-03, name: 距離・方位の観測 innovation }
+  - { id: U2-08-DEF-04, name: 観測関数の局所一次可観測性 }
+theorems:
+  - { id: U2-08-PROP-01, name: 測距・方位観測の姿勢 Jacobi 行列 }
+  - { id: U2-08-PROP-02, name: 一つのランドマークの零方向 }
+  - { id: U2-08-PROP-03, name: 相異なる二つの既知ランドマーク }
+  - { id: U2-08-PROP-04, name: 局所一次 innovation 共分散 }
+canonical_examples:
+  - 姿勢(1,1,pi/2)と目印(2,1)から距離1m・右90度
+  - 姿勢(0,0,0)と目印(3,4)から距離5mと観測Jacobi行列の数値
+  - 予測179度・観測-179度のwrap残差が正の2度
+  - 位置と目印が一致する場合は方位とJacobi行列が未定義
+  - 一つの目印で(4,-3,1)の不可観測方向が残る
+  - 相異なる二つの目印の零方向の交わりが零になる
+  - 局所innovation共分散diag(0.05,0.0141)の計算
+  - Pythonで幾何・差分・角度wrap・一目印と二目印の階数を自己検査
+problem_patterns:
+  - U2-08-A01
+  - U2-08-A02
+  - U2-08-A03
+  - U2-08-A04
+  - U2-08-A05
+  - U2-08-B01
+  - U2-08-B02
+  - U2-08-B03
+  - U2-08-B04
+  - U2-08-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

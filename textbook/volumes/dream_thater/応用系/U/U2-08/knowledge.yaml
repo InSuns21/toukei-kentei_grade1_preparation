@@ -1,0 +1,55 @@
+chapter: U2-08
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-07
+forward_references: []
+concepts:
+  - id: robotics.landmark-range-bearing
+    name: 既知ランドマークの測距・方位予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既知ランドマークの測距・方位予測）"]
+    requires: [robotics.planar-pose, robotics.planar-rigid-transform, robotics.planar-angle-wrap]
+  - id: robotics.landmark-noisy-observation
+    name: 測距・方位の加法雑音模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（測距・方位の加法雑音模型）"]
+    requires: [robotics.landmark-range-bearing]
+  - id: robotics.landmark-innovation
+    name: 距離・方位の観測 innovation
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離・方位の観測 innovation）"]
+    requires: [robotics.landmark-range-bearing, robotics.planar-angle-wrap, robotics.kalman-innovation]
+  - id: robotics.landmark-observation-jacobian
+    name: 測距・方位観測の姿勢 Jacobi 行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（測距・方位観測の姿勢 Jacobi 行列）"]
+    requires: [robotics.landmark-range-bearing]
+  - id: robotics.landmark-local-observability
+    name: 観測関数の局所一次可観測性
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測関数の局所一次可観測性）"]
+    requires: [robotics.landmark-observation-jacobian]
+  - id: robotics.landmark-single-null
+    name: 一つのランドマークの零方向
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一つのランドマークの零方向）"]
+    requires: [robotics.landmark-observation-jacobian, robotics.landmark-local-observability]
+  - id: robotics.landmark-two-rank
+    name: 相異なる二つの既知ランドマーク
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相異なる二つの既知ランドマーク）"]
+    requires: [robotics.landmark-single-null]
+  - id: robotics.landmark-local-innovation-covariance
+    name: 局所一次 innovation 共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所一次 innovation 共分散）"]
+    requires: [robotics.landmark-noisy-observation, robotics.landmark-innovation, robotics.landmark-observation-jacobian, robotics.kalman-innovation]
