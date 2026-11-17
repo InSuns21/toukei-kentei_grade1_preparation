@@ -1,0 +1,32 @@
+id: WGL12
+title: 金属と粗面の光はどう近似する？
+volume: foundations
+status: supplementary
+prerequisites: [WGL11]
+official_scope: []
+learning_objectives:
+  - BRDFの単位と半球積分における余弦因子を説明しLambert拡散反射で直接確かめられる
+  - Fresnel反射のSchlick近似を計算し反射率範囲と角度単調性を証明できる
+  - GGX微小面法線分布とroughnessの関係を説明し射影面積正規化を導出できる
+  - Smith型マスキング・シャドウイングとmetallic–roughnessの近似BRDFを構成・検算できる
+  - 画素値のclamp・sRGBとエネルギー制約を区別し粗さゼロの特異性を説明できる
+  - WebGL2のJS/GLSLで3材質の描画を変更しCPU既知値とGPUの4画素を比較できる
+definitions:
+  - { id: WGL12-DEF-01, name: 双方向反射率分布関数 }
+  - { id: WGL12-DEF-02, name: Fresnel反射率のSchlick近似 }
+  - { id: WGL12-DEF-03, name: GGX微小面法線分布 }
+  - { id: WGL12-DEF-04, name: metallic–roughnessによる簡易微小面BRDF }
+theorems:
+  - { id: WGL12-PROP-01, name: Schlick近似の範囲と角度単調性 }
+  - { id: WGL12-PROP-02, name: GGXの射影面積正規化 }
+canonical_examples:
+  - Lambert BRDF c/piを半球で積分し出射輝度cを計算する
+  - F0=0.04の正面・半角反射率を0.04と0.07と求める
+  - r=0.5のGGX中心密度16/piを導出し積分を1と確かめる
+  - 同じ法線・視線・光線で非金属と金属の拡散項・鏡面項を比較する
+  - WebGL2で3球とFresnel4画素を描き独立CPU基準とreadPixelsを照合する
+problem_patterns: [WGL12-BRDF-UNITS, WGL12-FRESNEL-BOUNDS, WGL12-GGX-NORMALIZATION, WGL12-GEOMETRY-SMITH, WGL12-METALLIC-ROUGHNESS, WGL12-ENERGY-BOUND, WGL12-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
