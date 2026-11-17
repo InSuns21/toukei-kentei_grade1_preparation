@@ -1,0 +1,51 @@
+id: "U2-09"
+title: "拡張 Kalman フィルタ：どこで線形化するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-08
+official_scope: []
+learning_objectives:
+  - 運動と観測の線形化点を時刻添字とともに区別し局所角度枝の条件を説明できる
+  - 始点Euler模型の状態Jacobi行列Fと速度雑音Jacobi行列Gを直接微分できる
+  - 状態誤差と速度誤差の独立性から一次予測共分散FPF転置+GMG転置を導ける
+  - 速度雑音の単位と姿勢の共分散の次元を区別できる
+  - ランドマーク測距方位のHを予測姿勢で評価しwrapしたinnovationを計算できる
+  - 局所Sとgainの正定値条件を検査しJoseph形の共分散更新を導ける
+  - 平面姿勢で予測から更新までの数値例を手計算で再現できる
+  - 二乗観測の二峰事後をBayes則と対数密度の微分で示せる
+  - q=0や角度切替、広い事前分布、誤対応などEKFの限界を具体的に診断できる
+  - PythonラボでJacobi行列と利得、共分散、非線形反例を再検算できる
+definitions:
+  - { id: U2-09-DEF-01, name: EKF の局所線形化点 }
+  - { id: U2-09-DEF-02, name: 平面姿勢 EKF の予測 }
+  - { id: U2-09-DEF-03, name: 距離・方位 EKF 更新 }
+theorems:
+  - { id: U2-09-PROP-01, name: 独立誤差の一次伝播 }
+  - { id: U2-09-PROP-02, name: 局所 innovation 共分散と Joseph 更新 }
+  - { id: U2-09-PROP-03, name: 二乗観測の事後は一般に Gaussian でない }
+canonical_examples:
+  - 初期姿勢(-1,0,0)から前進1mで予測姿勢(0,0,0)
+  - 始点EulerのFと速度雑音Gを別々に評価する
+  - 既知目印(3,4)への観測Hを予測姿勢で評価する
+  - 予測Pのyと向きに交差共分散0.01が生じる
+  - 2x2のinnovation共分散Sと行列式0.0011
+  - EKFの更新姿勢(-0.052,-0.176,-0.0772)
+  - Joseph共分散と減算形の数値一致
+  - x二乗観測では事後が二峰なのに予測点0のEKF利得は0
+  - Python数値微分と運動・観測行列、Joseph共分散の自己検査
+problem_patterns:
+  - U2-09-A01
+  - U2-09-A02
+  - U2-09-A03
+  - U2-09-A04
+  - U2-09-A05
+  - U2-09-B01
+  - U2-09-B02
+  - U2-09-B03
+  - U2-09-B04
+  - U2-09-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

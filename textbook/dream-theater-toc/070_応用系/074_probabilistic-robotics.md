@@ -9,3 +9,4 @@
 6. [U2-06 平面姿勢と座標系：位置だけでは足りない](textbook/volumes/dream_thater/応用系/U/U2-06/index.md)
 7. [U2-07 オドメトリ・速度運動モデルと誤差](textbook/volumes/dream_thater/応用系/U/U2-07/index.md)
 8. [U2-08 測距・方位・ランドマークの観測モデル](textbook/volumes/dream_thater/応用系/U/U2-08/index.md)
+9. [U2-09 拡張 Kalman フィルタ：どこで線形化するか](textbook/volumes/dream_thater/応用系/U/U2-09/index.md)

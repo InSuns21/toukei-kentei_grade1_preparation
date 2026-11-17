@@ -1,0 +1,43 @@
+chapter: U2-09
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-08
+forward_references: []
+concepts:
+  - id: robotics.ekf-linearization-points
+    name: EKF の局所線形化点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（EKF の局所線形化点）"]
+    requires: [robotics.euler-motion-jacobians, robotics.landmark-observation-jacobian]
+  - id: robotics.ekf-motion-prediction
+    name: 平面姿勢 EKF の予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面姿勢 EKF の予測）"]
+    requires: [robotics.ekf-linearization-points, robotics.local-motion-covariance]
+  - id: robotics.ekf-first-order-prediction
+    name: 独立誤差の一次伝播
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立誤差の一次伝播）"]
+    requires: [robotics.ekf-motion-prediction]
+  - id: robotics.ekf-range-bearing-update
+    name: 距離・方位 EKF 更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（距離・方位 EKF 更新）"]
+    requires: [robotics.ekf-first-order-prediction, robotics.landmark-innovation, robotics.landmark-observation-jacobian, robotics.kalman-gain]
+  - id: robotics.ekf-joseph-covariance
+    name: 局所 innovation 共分散と Joseph 更新
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所 innovation 共分散と Joseph 更新）"]
+    requires: [robotics.ekf-range-bearing-update, robotics.kalman-joseph-form]
+  - id: robotics.ekf-nonlinear-nongaussian-posterior
+    name: 二乗観測の事後は一般に Gaussian でない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二乗観測の事後は一般に Gaussian でない）"]
+    requires: [robotics.ekf-range-bearing-update]
