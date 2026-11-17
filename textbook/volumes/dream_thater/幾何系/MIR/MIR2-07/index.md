@@ -435,7 +435,32 @@ $h$ は原点で正則、$h(0)=0$ とする。$q_B=ze^h$ から $du_B/dz$ と $d
 $\omega_0=1+120z+O(z^2)$、$\widetilde\Omega=(1+2z)\Omega$ とし、$|z|<1/4$ とする。周期と三次結合の変換倍率を求め、$\widetilde C/\widetilde\omega^2=C/\omega_0^2$ を一次まで確認せよ。
 
 <!-- solution-start -->
-**詳細解答**。$g=1+2z$ は与えた円板で非零なので、$\widetilde\omega=g\omega_0=(1+2z)(1+120z+\cdots)=1+122z+O(z^2)$。既習の[三次結合の座標変換と形式の再規格化](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)から $\widetilde C=(1+2z)^2C=(1+4z+O(z^2))C$。また $\widetilde\omega^2=(1+244z+O(z^2))$、$\omega_0^2=1+240z+O(z^2)$。ゆえに $\widetilde C/\widetilde\omega^2=C(1+4z)(1-244z)+O(z^2)C=C(1-240z+O(z^2))=C/\omega_0^2$ である。ここで $C$ はLaurent級数でもよく、括弧内の係数として等式を比較している。
+**詳細解答**。$g=1+2z$ は与えた円板で非零である。周期積分の線形性から
+
+$$
+\widetilde\omega=g\omega_0
+=(1+2z)(1+120z+O(z^2))
+=1+122z+O(z^2).
+$$
+
+既習の[三次結合の座標変換と形式の再規格化](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)から
+
+$$
+\widetilde C=(1+2z)^2C=(1+4z+O(z^2))C.
+$$
+
+一方、$\widetilde\omega^2=1+244z+O(z^2)$、$\omega_0^2=1+240z+O(z^2)$ なので
+
+$$
+\begin{aligned}
+\frac{\widetilde C}{\widetilde\omega^2}
+&=C(1+4z+O(z^2))(1-244z+O(z^2))\\
+&=C(1-240z+O(z^2))
+=\frac{C}{\omega_0^2}.
+\end{aligned}
+$$
+
+最後の等式は $C$ がLaurent級数でも、括弧内の正則な倍率同士を比較した等式である。
 <!-- solution-end -->
 
 <a id="ex-mir2-07-a03"></a>
@@ -487,7 +512,18 @@ $z=w+w^2$、$q_B=z$、$\omega=1$、$C_{zzz}=5z^{-3}$ とする。$w$ 座標の�
 $C_{zzz}=5/[z^3(1-3125z)]$、$\omega_0(0)=1$ とする。(i) $\Omega\mapsto2\Omega$、(ii) $Q_{\!B}\mapsto2Q_{\!B}$、(iii) 両方の操作、の三場合について、$\kappa$、$\omega(0)$、$K_B(0)$ を求めよ。元の値との比較で「不変」と言えるものを明記せよ。
 
 <!-- solution-start -->
-**詳細解答**。最初の値は $(\kappa,\omega(0),K_B(0))=(5,1,5)$。(i) では三次結合に $2^2=4$、周期に2が掛かるので $(20,2,20/2^2)=(20,2,5)$。(ii) では三次結合だけが2倍なので $(10,1,10)$。(iii) では三次結合に4と2が掛かり、周期に2が掛かるので $(40,2,40/2^2)=(40,2,10)$。規格化値が元の5を保つのは(i)だけ。$\kappa=5$ という数値は形式の変更にも固定される絶対定数ではない。
+**詳細解答**。最初の値は $(\kappa,\omega(0),K_B(0))=(5,1,5)$。3形式の二乗倍率と周期の倍率をそれぞれ追うと、
+
+$$
+\begin{array}{c|c|c|c}
+\text{操作}&\kappa&\omega(0)&K_B(0)\\ \hline
+\text{(i) }\Omega\mapsto2\Omega&20&2&20/2^2=5\\
+\text{(ii) }Q_{\!B}\mapsto2Q_{\!B}&10&1&10\\
+\text{(iii) 両方}&40&2&40/2^2=10
+\end{array}
+$$
+
+(i)では $C$ に $2^2=4$、周期に2を掛ける。(ii)では交叉形式だけが2倍なので周期は不変。(iii)では $C$ が $4\cdot2=8$ 倍、周期が2倍になる。元の規格化値5を保つのは(i)だけである。$\kappa=5$ という数値は3形式の変更にも固定される絶対定数ではない。
 <!-- solution-end -->
 
 <a id="ex-mir2-07-b03"></a>
@@ -509,7 +545,15 @@ $\omega_0=1+120z+113400z^2+O(z^3)$、$h=770z+717825z^2+O(z^3)$、$z=q_B-770q_B^2
 $K_B(q_B)=5+2875q_B+4876875q_B^2+O(q_B^3)$ とする。$\widetilde u_B=u_B+\log2$（局所的に分枝を固定）なら、$\widetilde q_B$ での展開を求めよ。$\widetilde q_B=z+O(z^2)$ が成り立つかも判定せよ。
 
 <!-- solution-start -->
-**詳細解答**。指数を取って $\widetilde q_B=e^{u_B+\log2}=2q_B$、従って $q_B=\widetilde q_B/2$。微分方向は $d/d\widetilde u_B=d/du_B$ と同じだから、[対数座標の定数シフトと級数係数](#prop-mir2-07-coordinate-shift)より $\widetilde K_B(\widetilde q_B)=5+(2875/2)\widetilde q_B+(4876875/4)\widetilde q_B^2+O(\widetilde q_B^3)$。一方 $\widetilde q_B=2z+O(z^2)$ なので先頭係数は2であり、$z+O(z^2)$ という規格化を満たさない。
+**詳細解答**。指数を取ると $\widetilde q_B=e^{u_B+\log2}=2q_B$、従って $q_B=\widetilde q_B/2$ である。また $d/d\widetilde u_B=d/du_B$ だから、[対数座標の定数シフトと級数係数](#prop-mir2-07-coordinate-shift)に代入して
+
+$$
+\widetilde K_B(\widetilde q_B)
+=5+\frac{2875}{2}\widetilde q_B
++\frac{4876875}{4}\widetilde q_B^2+O(\widetilde q_B^3)
+$$
+
+を得る。一方 $\widetilde q_B=2z+O(z^2)$ の先頭係数は2であり、$z+O(z^2)$ という規格化を満たさない。
 <!-- solution-end -->
 
 <a id="ex-mir2-07-b05"></a>
@@ -519,7 +563,21 @@ $K_B(q_B)=5+2875q_B+4876875q_B^2+O(q_B^3)$ とする。$\widetilde u_B=u_B+\log2
 $C^X_{HHH}(x)=5+\sum_{d\ge1}d^3N_d^Xx^d$ とする。二次まで展開し、**仮に** $\iota(C^X_{HHH})=K_B$ が成立するときの $N_1^X,N_2^X$ を求めよ。条件なしに本数と呼べない理由も述べよ。
 
 <!-- solution-start -->
-**詳細解答**。[A側Yukawaの式](../MIR2-05/index.md#prop-mir2-05-yukawa-series)で $d=1$ と $d=2$ の項だけ取ると $C^X_{HHH}(x)=5+N_1^Xx+8N_2^Xx^2+O(x^3)$。比較の代入 $\iota(x)=q_B$ を行い、仮定した等式のB側係数 $2875$、$4876875$ と比較すると $N_1^X=2875$、$8N_2^X=4876875$、すなわち $N_2^X=4876875/8$。この仮定はミラー定理の深い内容を先取りしており、本講で証明していない。またGW不変量は仮想類で定義される有理数で、多重被覆を含むため、そのまま曲線像の本数とは限らない。
+**詳細解答**。[A側Yukawaの式](../MIR2-05/index.md#prop-mir2-05-yukawa-series)で次数 $d=1,2$ の項だけを取れば
+
+$$
+C^X_{HHH}(x)=5+N_1^Xx+8N_2^Xx^2+O(x^3).
+$$
+
+比較の代入 $\iota(x)=q_B$ を行い、**追加で仮定したA/Bの等式**に基づいてB側の係数2875と4876875を比較する。このとき
+
+$$
+N_1^X=2875,\qquad
+8N_2^X=4876875,\qquad
+N_2^X=\frac{4876875}{8}.
+$$
+
+ただしA/Bの等式はミラー定理の深い内容を先取りしており、本講では証明していない。またGW不変量は仮想類から得られる有理数で、多重被覆を含むため、曲線像の本数とは限らない。
 <!-- solution-end -->
 
 ### Level C：規格化から比較の限界まで
@@ -546,11 +604,61 @@ K_B=\frac{C_{zzz}}{\omega_0^2}\left(\frac{z}{1+zh'}\right)^3
 \left(\frac{2\pi iz}{1+zh'}\right)^3.
 $$
 
-**(2) 正則化と二次展開。** $\kappa=5$ を代入すると $z^{-3}$ がJacobianの $z^3$ と消え、$K_B=5[(1-3125z)\omega_0^2(1+zh')^3]^{-1}$。$\omega_0^{-2}=1-240z-183600z^2+\cdots$、$(1+zh')^{-3}=1-2310z-749550z^2+\cdots$、$(1-3125z)^{-1}=1+3125z+9765625z^2+\cdots$ である。前二因子（判別式と周期）を掛けて $1+2885z+8832025z^2+\cdots$、最後を掛けて $1+575z+1418125z^2+\cdots$。従って $K_B(q_B(z))=5+2875z+7090625z^2+\cdots$。[逆ミラー級数](../MIR1-15/index.md#thm-mir1-15-inverse-coefficients) $z=q_B-770q_B^2+\cdots$ を代入すると $K_B=5+2875q_B+(7090625-2875\cdot770)q_B^2+\cdots=5+2875q_B+4876875q_B^2+\cdots$。
+**(2) 正則化と二次展開。** $\kappa=5$ とすると $z^{-3}$ はJacobianの $z^3$ と消えて
 
-**(3) 規格化の不変性。** $\widetilde\Omega=g\Omega$ なら周期の線形性から $\widetilde\omega_0=g\omega_0$ であり、[交叉の三次変換](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)から $\widetilde C=g^2C$。ゆえに $\widetilde C/\widetilde\omega_0^2=C/\omega_0^2$。座標微分は同じなので $K_B$ は不変。ただし $Q_{\!B}\mapsto cQ_{\!B}$ は周期を変えず、$K_B\mapsto cK_B$ となる。
+$$
+K_B(q_B(z))=\frac{5}{(1-3125z)\omega_0^2(1+zh')^3}.
+$$
 
-**(4) 数学的な比較。** A側は[三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series) $C_{HHH}^X(x)=5+N_1^Xx+8N_2^Xx^2+\cdots$。$x\mapsto q_B$ の形式的代入を行ったうえで、**別の数学的入力**として $\iota(C_{HHH}^X)=K_B$ を仮定して初めて係数比較が可能となる。そのとき $N_1^X=2875$、$N_2^X=4876875/8$。今回証明したのはB側の規格化であり、GWの仮想類とミラー定理の同一視を証明したのではない。
+三因子の二次展開は
+
+$$
+\begin{aligned}
+(1-3125z)^{-1}&=1+3125z+9765625z^2+O(z^3),\\
+\omega_0^{-2}&=1-240z-183600z^2+O(z^3),\\
+(1+zh')^{-3}&=1-2310z-749550z^2+O(z^3).
+\end{aligned}
+$$
+
+判別式と周期の二因子を掛ければ $1+2885z+8832025z^2+O(z^3)$。第三因子を掛ければ $1+575z+1418125z^2+O(z^3)$。よって
+
+$$
+K_B(q_B(z))=5+2875z+7090625z^2+O(z^3).
+$$
+
+[逆ミラー級数](../MIR1-15/index.md#thm-mir1-15-inverse-coefficients)を $z=q_B-770q_B^2+O(q_B^3)$ と代入すると
+
+$$
+\begin{aligned}
+K_B(q_B)
+&=5+2875q_B+(7090625-2875\cdot770)q_B^2+O(q_B^3)\\
+&=5+2875q_B+4876875q_B^2+O(q_B^3).
+\end{aligned}
+$$
+
+**(3) 規格化の不変性。** $\widetilde\Omega=g\Omega$ なら、周期の線形性により $\widetilde\omega_0=g\omega_0$。[交叉の三次変換](../MIR1-16/index.md#prop-mir1-16-cubic-coordinate)から $\widetilde C=g^2C$ なので
+
+$$
+\frac{\widetilde C}{\widetilde\omega_0^2}
+=\frac{g^2C}{g^2\omega_0^2}
+=\frac{C}{\omega_0^2}.
+$$
+
+座標微分は同じだから $K_B$ は不変。ただし $Q_{\!B}\mapsto cQ_{\!B}$ は周期を変えず、$K_B\mapsto cK_B$ となる。
+
+**(4) 数学的な比較。** A側の[三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series)は
+
+$$
+C_{HHH}^X(x)=5+N_1^Xx+8N_2^Xx^2+O(x^3).
+$$
+
+$x\mapsto q_B$ の形式的代入を行ったうえで、**別の数学的入力**として $\iota(C_{HHH}^X)=K_B$ を仮定して初めて係数比較が可能となる。仮定が成り立つ場合に限り
+
+$$
+N_1^X=2875,\qquad N_2^X=\frac{4876875}{8}
+$$
+
+を得る。今回証明したのはB側の規格化であり、GWの仮想類とミラー定理の同一視を証明したのではない。
 <!-- solution-end -->
 
 ## 8. 次講へ
