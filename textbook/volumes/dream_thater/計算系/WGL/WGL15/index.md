@@ -72,7 +72,24 @@ $0\le u<1$ より $0\le Wu<W$ です。$W$ は正整数なので $0\le\lfloor Wu
 
 1画素には手前から奥まで多くの3D点が投影され得ます。従ってクリックから**1点**を直接戻すのではなく、カメラから伸びる**半直線**を戻します。射線は始点 $O\in\mathbb R^3$ と零でない方向 $d\in\mathbb R^3$ を用いた $O+td$（$t\ge0$）という点の集まりです。
 
-[WGL5の視点行列](../WGL5/index.md#def-wgl5-view)を $V$、[透視投影行列](../WGL5/index.md#def-wgl5-perspective)を $P$ とします。今回は両方とも可逆とし、その積 $PV$ も可逆です。世界点 $X=(x,y,z)$ の同次座標 $(x,y,z,1)^{\mathsf T}$ に $PV$ を掛け、得られたクリップ座標の第1〜3成分を第4成分で割るとNDCになります。逆方向では、NDC $(x_n,y_n,z_n)$ を第4成分が1の同次ベクトル $c=(x_n,y_n,z_n,1)^{\mathsf T}$ で代表させ、$(PV)^{-1}c=q$ を計算します。$q$ の第4成分が非零なら、$q$ の第1〜3成分を第4成分で割ったものが世界点です。このため、NDC奥行き $-1$ と $1$ を使えば同じ画素のnear面・far面の世界点を計算できます。
+[WGL5の視点行列](../WGL5/index.md#def-wgl5-view)を $V$、[透視投影行列](../WGL5/index.md#def-wgl5-perspective)を $P$ とします。今回は両方とも可逆とし、その積も可逆です。世界点の同次座標からクリップ座標へ、次の順で変換します。
+
+$$
+\begin{pmatrix}x\\y\\z\\1\end{pmatrix}
+\xrightarrow{\ V\ }\text{カメラ同次座標}
+\xrightarrow{\ P\ }(c_x,c_y,c_z,c_w)^{\mathsf T}.
+$$
+
+ここで $c_w\ne0$ のとき、クリップ座標の第1〜3成分を第4成分で割った $(c_x/c_w,c_y/c_w,c_z/c_w)$ がNDCです。
+
+逆方向ではNDC $(x_n,y_n,z_n)$ を第4成分が1の同次ベクトルで代表させ、逆行列を掛けます。
+
+$$
+c=(x_n,y_n,z_n,1)^{\mathsf T},\qquad
+q=(PV)^{-1}c.
+$$
+
+$q=(q_1,q_2,q_3,q_4)^{\mathsf T}$ の第4成分が非零なら、世界点は $(q_1/q_4,q_2/q_4,q_3/q_4)$ です。NDC奥行き $-1$ と $1$ の2つを使い、同じ画素のnear面とfar面の世界点を求めます。
 
 <a id="def-wgl15-unproject-ray"></a>
 
