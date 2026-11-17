@@ -24,7 +24,7 @@
     <text x="349" y="104" font-size="16" fill="#222">M2</text>
     <path d="M175 245 H264" stroke="#777" stroke-width="1.1" stroke-dasharray="4 4" fill="none"/>
     <path d="M238 245 A63 63 0 0 0 237 233" stroke="#575757" stroke-width="1.5" fill="none"/>
-    <text x="239" y="265" font-size="16" fill="#222">θ</text>
+    <text x="248" y="285" font-size="16" fill="#222">θ</text>
     <text x="215" y="49" font-size="17" fill="#8b3025">衝撃波</text>
   </g>
   <path d="M438 24 V286" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5 5"/>
@@ -44,7 +44,7 @@
     <text x="783" y="149" font-size="16" fill="#222">M2</text>
     <path d="M599 201 H680" stroke="#777" stroke-width="1.1" stroke-dasharray="4 4" fill="none"/>
     <path d="M665 201 A66 66 0 0 1 664 213" stroke="#575757" stroke-width="1.5" fill="none"/>
-    <text x="674" y="234" font-size="16" fill="#222">θ</text>
+    <text x="686" y="263" font-size="16" fill="#222">θ</text>
     <text x="777" y="88" font-size="17" fill="#195c45">膨張扇</text>
   </g>
 </svg>
