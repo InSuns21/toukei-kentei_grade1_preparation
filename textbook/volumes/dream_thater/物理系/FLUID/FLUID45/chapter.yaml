@@ -1,0 +1,42 @@
+id: "FLUID45"
+title: "数値計算で保存則を壊さない方法は何か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID5
+  - FLUID41
+  - FLUID43
+official_scope: []
+learning_objectives:
+  - "一次元の保存形移流方程式を固定セルで積分し、セル平均と正確なセル収支を導出する"
+  - "共有面に一個の数値フラックスを割り当て、有限体積更新と周期・流入出境界の離散総量保存を証明する"
+  - "一次風上フラックスから非負の重み付き平均更新を導き、刻みの範囲による非負性と保存性の違いを説明する"
+  - "中心流束の反例を構成し、総量が保存されてもセル値の非負性は保証されないことを判定する"
+  - "正弦波と矩形パルスのセル平均を解析解と比較し、ブラウザPythonで境界収支・誤差・格子細分を検算する"
+definitions:
+  - { id: FLUID45-DEF-01, name: "セル平均" }
+  - { id: FLUID45-DEF-02, name: "単一の面数値流束と有限体積更新" }
+theorems:
+  - { id: FLUID45-THM-01, name: "セルごとの正確な積分収支" }
+  - { id: FLUID45-THM-02, name: "離散的な総量保存と境界収支" }
+  - { id: FLUID45-PROP-01, name: "一次風上更新と非負性" }
+canonical_examples:
+  - "2セルで線形密度のセル積分と点値を比較する"
+  - "4セル周期風上更新で面流束相殺と非負性を確かめる"
+  - "中心流束が周期総量を保存しても負値を作る反例"
+  - "開放境界の左右流束と質量変化を突合する"
+  - "ブラウザPythonで正弦波の正確なセル平均と周期・開放境界の保存残差、矩形パルスの形状変化を検算する"
+problem_patterns:
+  - FLUID45-PERIODIC-UPWIND-STEP
+  - FLUID45-BOUNDARY-FLUX-SIGNS
+  - FLUID45-CELL-AVERAGE-VS-POINT
+  - FLUID45-CFL-POSITIVITY
+  - FLUID45-NEGATIVE-SPEED-UPWIND
+  - FLUID45-OPEN-BOUNDARY-BUDGET
+  - FLUID45-CENTERED-FLUX-COUNTEREXAMPLE
+  - FLUID45-ANALYTIC-CELL-AVERAGE
+  - FLUID45-NONUNIFORM-CELL-BALANCE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }
