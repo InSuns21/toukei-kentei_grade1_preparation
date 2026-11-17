@@ -17,7 +17,7 @@ chapters:
   - { id: U2-11, path: textbook/volumes/dream_thater/応用系/U/U2-11, status: completed, title: "sigma-point フィルタ：微分に頼らない非線形近似" }
   - { id: U2-12, path: textbook/volumes/dream_thater/応用系/U/U2-12, status: completed, title: "軌跡を一括推定する：最小二乗と平滑化の入口" }
   - { id: U2-13, path: textbook/volumes/dream_thater/応用系/U/U2-13, status: completed, title: "格子上の Markov localization と多峰事後" }
-  - { id: U2-14, path: textbook/volumes/dream_thater/応用系/U/U2-14, status: planned, title: "逐次重要度サンプリング：粒子の重みはなぜ必要か" }
+  - { id: U2-14, path: textbook/volumes/dream_thater/応用系/U/U2-14, status: completed, title: "逐次重要度サンプリング：粒子の重みはなぜ必要か" }
   - { id: U2-15, path: textbook/volumes/dream_thater/応用系/U/U2-15, status: planned, title: "粒子フィルタ：再標本化と有効標本サイズ" }
   - { id: U2-16, path: textbook/volumes/dream_thater/応用系/U/U2-16, status: planned, title: "誘拐されたロボット：粒子の崩壊から回復する" }
   - { id: U2-17, path: textbook/volumes/dream_thater/応用系/U/U2-17, status: planned, title: "地図が既知のときの観測尤度：障害物と測距" }
