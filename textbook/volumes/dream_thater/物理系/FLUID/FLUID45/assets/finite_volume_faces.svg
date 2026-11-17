@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 188" width="700" height="188" data-layout-lint="strict" role="img" aria-labelledby="fv-title fv-desc">
+  <title id="fv-title">共通面を通る有限体積流束</title>
+  <desc id="fv-desc">左からセルj-1、j、j+1が並ぶ。内部面を横切る右向き矢印は、左セルの流出であると同時に右セルの流入であり、両セルで同じ数値流束を使用する。</desc>
+  <defs>
+    <marker id="fv-tip" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M 0 0 L 9 3.5 L 0 7 Z" fill="#1c6385"/>
+    </marker>
+  </defs>
+  <g fill="#f1f5f9" stroke="#4b5563" stroke-width="1.7">
+    <rect x="70" y="62" width="180" height="88"/>
+    <rect x="250" y="62" width="180" height="88" fill="#e7f2f6"/>
+    <rect x="430" y="62" width="180" height="88"/>
+  </g>
+  <g fill="#1f2937" font-family="sans-serif" font-size="21" text-anchor="middle">
+    <text x="160" y="132">Q[j−1]</text>
+    <text x="340" y="132">Q[j]</text>
+    <text x="520" y="132">Q[j+1]</text>
+  </g>
+  <g stroke="#1c6385" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#fv-tip)">
+    <path d="M 225 87 L 276 87"/>
+    <path d="M 405 87 L 456 87"/>
+  </g>
+  <g fill="#1c6385" font-family="sans-serif" font-size="18" text-anchor="middle">
+    <text x="250" y="41">F[j−1/2]</text>
+    <text x="430" y="41">F[j+1/2]</text>
+  </g>
+</svg>
