@@ -260,6 +260,7 @@ $$
 # lab-preset: 周期・矩形パルス | --grid 80 --case pulse --boundary periodic --time 0.4 --cfl 0.8
 # lab-preset: 流入出境界の収支 | --grid 60 --case sine --boundary open --time 0.4 --cfl 0.8
 # lab-preset: 速度と刻みを変更 | --grid 64 --case sine --boundary periodic --time 0.3 --speed 1.5 --cfl 0.5
+# lab-preset: Python内蔵の保存則テスト | --self-test
 <!-- python-file-lab-end -->
 
 初回は Pyodide の公開実行環境の取得が必要な場合がある。Pythonソースは「Pythonソース」タブからページ内で読める。各出力の質量の単位は kg、時刻は s、セル値は kg/m、速度は m/s、誤差 $E_1$ は kg である。**保存残差の小ささと、解析解に対する誤差の小ささは別々に確認**すること。CLIからは同一ファイルに引数 --self-test を渡すと、周期保存、開放境界収支、非負性、一定解、正弦波格子細分、入力検証を実行する。
