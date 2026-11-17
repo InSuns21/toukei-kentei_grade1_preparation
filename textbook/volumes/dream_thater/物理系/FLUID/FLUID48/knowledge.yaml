@@ -1,0 +1,45 @@
+chapter: FLUID48
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - FLUID41
+  - FLUID43
+  - FLUID45
+  - FLUID46
+concepts:
+  - id: fluid.euler-riemann-data
+    name: Euler系のRiemann初期値問題
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Euler 系の Riemann 初期値問題）"]
+    requires: [fluid.compressible-euler, fluid.ideal-gas-closure]
+  - id: fluid.euler-wave-curve
+    name: 理想気体Euler系の波曲線と星印状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（理想気体 Euler 系の波曲線と星印状態）"]
+    requires: [fluid.euler-riemann-data, fluid.normal-shock-jump-balance, fluid.isentropic-relation]
+  - id: fluid.euler-star-pressure-unique
+    name: 真空を生じないときの星印圧力の一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（真空を生じないときの星印圧力の一意性）"]
+    requires: [fluid.euler-wave-curve]
+  - id: fluid.godunov-euler-flux
+    name: 一次Godunov数値流束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一次 Godunov 数値流束）"]
+    requires: [fluid.euler-wave-curve, fluid.finite-volume-face-flux]
+  - id: fluid.godunov-flux-consistency
+    name: Godunov流束の整合性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Godunov 流束の整合性）"]
+    requires: [fluid.godunov-euler-flux, fluid.euler-star-pressure-unique]
+  - id: fluid.euler-fv-global-balance
+    name: 三保存量の離散境界収支
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（三保存量の離散境界収支）"]
+    requires: [fluid.godunov-euler-flux, fluid.finite-volume-global-conservation]
