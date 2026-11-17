@@ -37,7 +37,7 @@ C_h\begin{pmatrix}a\\b\end{pmatrix}
 [C_h]_{(1,h)}=\begin{pmatrix}0&q\\1&0\end{pmatrix}.
 $$
 
-この行列を作るには、**各列が基底ベクトルの像の座標**であることを先に確かめればよい。
+この行列を作るには、**各列が基底ベクトルの像の座標**であることを先に確かめればよい。以下、作用素の交換子は $[A,B]:=AB-BA$ と書く。
 
 <a id="def-mir2-06-quantum-connection"></a>
 
@@ -64,15 +64,28 @@ $$
 を満たす。この一階の微分則が、単なる行列との違いである。
 
 <!-- definition-example-start: def-mir2-06-quantum-connection -->
-**定義の確認**。二つの基底を持つ $V$ と積作用素 $C_h$ の例で、$s=a\,1+b\,h$ を取る。固定基底における $\partial_t s=a'1+b'h$ と $C_hs=qb\,1+a\,h$ を別々に計算すると
+**定義の確認**。射影直線の基底 $(1,h)$ を使い、曲線次数を表す形式変数 $q_0$ と因子座標 $t$ を**独立**に取る。[因子公理](../../GW/GW1-15/index.md#thm-gw1-15-divisor)によって次数1の係数 $q_0$ は $q_0e^t$ へ変わるので、$x:=q_0e^t$ と置き、$C_h(t)(1)=h$、$C_h(t)(h)=x\,1$ とする。これは元の積作用素の行列の右上成分を $q_0$ から $x$ へ変えたものである。
 
-$$
+$s(t,q_0)=a(t,q_0)\,1+b(t,q_0)\,h$ とする。ここでプライム $a',b'$ は**$q_0$ を固定した $t$ 微分**を表す。固定基底の微分 $\partial_t s=a'1+b'h$ と、基底像から得る $C_h(t)s=xb\,1+a\,h$ を別々に計算すると
+
+$
 \nabla_t^{(\hbar)}s
-=\left(a'-\frac q\hbar b\right)1
-+\left(b'-\frac1\hbar a\right)h.
-$$
+=\left(a'-\frac{x}{\hbar}b\right)1
++\left(b'-\frac1\hbar a\right)h,
+\qquad x=q_0e^t.
+$
 
-ここで $q$ を固定した $t$ 微分なら上式に $q=q_0e^t$ を代入する（$q_0$ は固定した形式変数）。接続のLeibniz則を直接確かめるには $fs=(fa)1+(fb)h$ とし、$(fa)'=f'a+fa'$、$(fb)'=f'b+fb'$ を代入すればよい。一次元の $t$ 方向だけなら、異なる二方向の交換子が存在しないので平坦性は自動的に成り立つ。
+接続のLeibniz則も、$f(t,q_0)$ に対して $C_h(t)(fs)=fC_h(t)s$、$(fa)'=f'a+fa'$、$(fb)'=f'b+fb'$ を用いれば直接確認できる。
+
+**微分変数の対応**も確かめる。$\widetilde a(x)=\sum_{d\ge0}a_dx^d$ とし、$a(t,q_0)=\widetilde a(q_0e^t)$ と特殊化した場合には、$q_0$ を固定した形式的連鎖律から
+
+$
+\partial_t a(t,q_0)
+=\sum_{d\ge0}d a_d(q_0e^t)^d
+=\left(x\frac{d\widetilde a}{dx}\right)\!(q_0e^t).
+$
+
+$b$ についても同じである。**$x$ だけに依存する切断に限り**、この $\partial_t$ を対数微分 $D_x=x\,d/dx$ に読み替えられる。任意の $a(t,q_0)$ について二つの微分を同一視するわけではない。一次元の $t$ 方向だけなら、異なる二方向の交換子が存在しないので平坦性は自動的に成り立つ。
 <!-- definition-example-end -->
 
 <a id="def-mir2-06-qde"></a>
@@ -158,7 +171,7 @@ $R$ の形式偏微分は可換だから $\partial_i\partial_js-\partial_j\parti
 逆向きでは $\hbar^{-1}$ と $\hbar^{-2}$ は独立なLaurent単項式である。恒等的に零となるLaurent多項式の各係数は零なので、両条件が必要となる。
 <!-- proof-end -->
 
-次に、係数が本当にGWのポテンシャルから来る場合を調べる。固定した非退化なPoincaréペアリングを $\eta(\phi_a,\phi_b)=\eta_{ab}$、その逆行列を $\eta^{ab}$ と書く。**一つのスカラー関数を三回微分した値**から積を復元できれば、四回微分の順序交換が係数対称性を保証する。
+次に、係数が本当にGWのポテンシャルから来る場合を調べる。[量子積の係数復元に用いたPoincaréペアリング](../MIR2-04/index.md#def-mir2-04-small-product)を固定した非退化なペアリングとして $\eta(\phi_a,\phi_b)=\eta_{ab}$、その逆行列を $\eta^{ab}$ と書く。**一つのスカラー関数を三回微分した値**から積を復元できれば、四回微分の順序交換が係数対称性を保証する。
 
 <a id="thm-mir2-06-flatness"></a>
 
@@ -383,7 +396,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（quinticのambient量子微分系）**  
-> $X$ を滑らかなquintic三次元多様体とし、$\hbar$ を可逆とする。$V_{\mathrm{amb}}$ に値を取る切断を次のように展開する。
+> $X$ を滑らかなquintic三次元多様体とし、$\hbar$ を可逆とする。$V_{\mathrm{amb}}$ に値を取る切断を次のように展開する。以下、$a_i'=\partial_t a_i$ は $Q$ を固定した形式微分を意味する。
 
 $$
 s(t,Q)=a_0\,1+a_1H+a_2H^2+a_3H^3.
