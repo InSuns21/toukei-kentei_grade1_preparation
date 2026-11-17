@@ -1,0 +1,26 @@
+chapter: WGL12
+terms:
+  - term: 双方向反射率分布関数
+    english: bidirectional reflectance distribution function (BRDF)
+    meaning: 入射する方向から出射する方向への放射輝度の割合を表す関数。単位はsrの逆数。
+  - term: Fresnel反射
+    english: Fresnel reflection
+    meaning: 入射方向の角度と物質特性によって表面の反射率が変わる現象。
+  - term: Schlick近似
+    english: Schlick approximation
+    meaning: 正面反射率と角度の5乗を使ってFresnel反射率を補間する近似。
+  - term: 微小面モデル
+    english: microfacet model
+    meaning: 粗面を互いに異なる向きの微小な鏡面の集合として近似する模型。
+  - term: GGX法線分布
+    english: GGX normal distribution
+    meaning: 微小面の法線方向の分布を表す、正規化された分布関数。
+  - term: 粗さ
+    english: roughness
+    meaning: 微小面の法線分布の広がりを決める材質パラメータ。
+  - term: 金属度
+    english: metallic
+    meaning: 絶縁体の拡散反射と金属的な色付き鏡面反射を補間する制作上のパラメータ。
+  - term: エネルギー制約
+    english: energy conservation
+    meaning: 全方向へ反射するエネルギーが入射するエネルギーを超えない条件。
