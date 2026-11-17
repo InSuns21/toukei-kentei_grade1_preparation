@@ -192,7 +192,7 @@ def compute(mach=2., turn_deg=10., gamma=1.4, p1=101325.,
               "strong_pressure": [], "fan_M2": [], "fan_pressure": []}
     # Separate attached-shock scan from expansion scan; no imaginary roots.
     for j in range(grid + 1):
-        deg = 0.1 + (math.degrees(theta_max) - 0.1) * j / grid
+        deg = math.degrees(theta_max) * (j + 1) / (grid + 1)
         if deg > 0:
             z = shock_branches(mach, gamma, math.radians(deg),
                                p1, t1, gas_constant)
