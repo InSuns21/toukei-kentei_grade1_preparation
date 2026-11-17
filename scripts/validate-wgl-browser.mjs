@@ -494,6 +494,57 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL11 shader error, reset and opaque sandbox disposal: PASS');
 
+  // WGL12: compiled GGX shader, real linear Fresnel diagnostic RGBA8 pixels,
+  // material-change screenshot and GLSL syntax error handling in an opaque iframe.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL12'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("roughness = [0.16, 0.55, 0.32]")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const diagnostic12=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.match(diagnostic12.status,/独立画素検算に合格/,
+    'WGL12 real GGX/Fresnel shader or GPU probes failed: '+JSON.stringify(diagnostic12));
+  const wgl12=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl12.rows.length,4);
+  assert.ok(wgl12.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl12.sandbox,'allow-scripts');
+  assert.match(wgl12.log,/CHECK: PASS: 4\/4 Fresnel probes/);
+  assert.match(wgl12.log,/GL error: 0x0/);
+  for(let i=0;i<4;i++) {
+    const actual=wgl12.rows[i][2].split(',').map(Number);
+    const expected=wgl12.rows[i][1].split(',').map(Number);
+    assert.ok(actual.every((x,j)=>Math.abs(x-expected[j])<=2),
+      'WGL12 probe '+i+': '+JSON.stringify({actual,expected}));
+  }
+  const shot12=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl12-initial.png',Buffer.from(shot12.data,'base64'));
+  console.log('WGL12 real GGX shader, Fresnel 4 GPU/CPU RGB samples and opaque sandbox: PASS');
+
+  // Compare ONLY the rendered iframe area, not changing status/log text.
+  const frameRect12=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  assert.ok(frameRect12.width>100 && frameRect12.height>100);
+  const clip12={...frameRect12,scale:1};
+  const initialMaterial12=await cdp('Page.captureScreenshot',{format:'png',clip:clip12,captureBeyondViewport:true});
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const roughness = [0.16, 0.55, 0.32];', 'const roughness = [0.8, 0.8, 0.8];');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const changed12=await evalJS('document.getElementById("diagnostics").textContent');
+  assert.match(changed12,/left: 0.8\/0/);
+  const changedMaterial12=await cdp('Page.captureScreenshot',{format:'png',clip:clip12,captureBeyondViewport:true});
+  assert.notEqual(changedMaterial12.data,initialMaterial12.data,
+    'changing roughness must change rendered sphere pixel regions');
+  await writeFile('_wgl_browser_review/wgl12-roughness-edited.png',Buffer.from(changedMaterial12.data,'base64'));
+  console.log('WGL12 editing three roughness values changes actual GPU sphere appearance: PASS');
+
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL12 fragment error diagnostics and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
