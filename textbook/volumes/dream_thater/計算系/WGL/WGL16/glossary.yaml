@@ -1,0 +1,20 @@
+chapter: WGL16
+terms:
+  - term: インスタンス描画
+    english: instanced rendering
+    meaning: 同じ頂点メッシュを再利用し、コピーごとの属性を切り替えて一つの描画命令で複数コピーを描く処理。
+  - term: インスタンス属性
+    english: per-instance attribute
+    meaning: 一つのコピーの頂点全体が共有する中心・色などの属性。divisorを1に設定して一コピーごとに進める。
+  - term: 属性除数
+    english: vertex attribute divisor
+    meaning: 頂点属性をインスタンス番号の進行に対して何回ごとに読み進めるかを指定する非負整数。
+  - term: 描画呼び出し
+    english: draw call
+    meaning: drawArraysなどの描画命令を呼び出すこと。減少しても頂点・画素処理数の減少とは限らない。
+  - term: バッチ化
+    english: batching
+    meaning: 複数の描画作業を共通状態・共通命令へまとめ、命令発行などの費用を抑える工夫。
+  - term: 同期時間
+    english: synchronized elapsed time
+    meaning: GPU完了待ちを含む経過時間。gl.finishを含む測定はGPUのみの純粋な実行時間ではない。
