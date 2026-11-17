@@ -1,0 +1,43 @@
+id: "U3-67"
+title: "複数資産・クロスインパクト・流動性調整リスク"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-66, U3-46]
+official_scope: []
+learning_objectives:
+  - 二銘柄の固定予定・価格増分・売却代金を同じ単位で定義し損失恒等式を導出できる
+  - 一時的クロスインパクト行列の対称性と正定値性・価格共分散率の半正定値性を区別できる
+  - 恒久的影響の非対称行列における閉じた注文経路の負費用を導出し失敗機構を説明できる
+  - 多資産二期間平均分散目的の勾配・厳密凸性・制約付き最適予定を計算できる
+  - 市場損失と執行費用の同時分布から流動性調整 VaR・ES を定義し正規模型と確率的費用を判定できる
+  - 流動性・共分散ストレスの条件付き指標と単一路径損失・混合分布を区別できる
+  - Pythonの行列条件・数値最適化・正規VaR/ESを手計算と照合できる
+definitions:
+  - { id: U3-67-DEF-01, name: "多資産の固定予定と到着価格基準損失" }
+  - { id: U3-67-DEF-02, name: "一時的クロスインパクト行列と価格共分散率" }
+  - { id: U3-67-DEF-03, name: "本講の流動性調整 VaR と流動性調整 ES" }
+theorems:
+  - { id: U3-67-PROP-01, name: "多資産の損失恒等式と共分散リスク" }
+  - { id: U3-67-PROP-02, name: "恒久的クロスインパクトの往復売買条件" }
+  - { id: U3-67-PROP-03, name: "二期間多資産の厳密凸性と最適清算" }
+  - { id: U3-67-PROP-04, name: "固定流動性費用付き正規 VaR・ES" }
+canonical_examples:
+  - "二資産の対称正定値一時インパクトAと正定値共分散率Sigmaの行列式判定"
+  - "非対称恒久的インパクトの長方形往復売買で支払額-2円"
+  - "20株二期間の最適在庫(4.84848,3.33333)と目的114.394円"
+  - "均等清算の95% LVaR/LESと流動性・変動性ストレス下の条件付き比較"
+problem_patterns:
+  - U3-67-A1
+  - U3-67-A2
+  - U3-67-A3
+  - U3-67-A4
+  - U3-67-A5
+  - U3-67-B1
+  - U3-67-B2
+  - U3-67-B3
+  - U3-67-B4
+  - U3-67-C1
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
