@@ -21,10 +21,10 @@ concepts:
     introduction_aliases: ["命題（射影直線の局所化の直接検算）"]
     requires: [mirror.abbv-localization]
   - id: mirror.p4-fixed-tangent-weights
-    name: P4の固定点分母
+    name: 射影四次元の固定点分母
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（P4の固定点分母）"]
+    introduction_aliases: ["命題（射影四次元の固定点分母）"]
     requires: [mirror.torus-equivariant-cohomology]
   - id: mirror.fixed-stable-map-graph
     name: 種数0の固定グラフの記録
@@ -45,10 +45,10 @@ concepts:
     introduction_aliases: ["定義（五次超曲面に対応する束）"]
     requires: [gromov-witten.stable-map]
   - id: mirror.quintic-convex-bundle-rank
-    name: E_dの階数と仮想次元の一致
+    name: 五次束の階数と仮想次元の一致
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（E_dの階数と仮想次元の一致）"]
+    introduction_aliases: ["命題（五次束の階数と仮想次元の一致）"]
     requires: [mirror.quintic-convex-bundle, mirror.quintic-stable-map-virtual-dimension]
   - id: mirror.quintic-virtual-euler-pushforward
     name: 種数0quinticのEuler類への押し出し
