@@ -36,9 +36,25 @@ $$
 
 ## 1. 面積を狭めると、いつ加速するか
 
-定常の[質量保存](../FLUID41/index.md#thm-fluid41-euler-conservative)を断面で積分すると、側壁を通る質量流出がないので、断面間で $\rho v A$ は一定となる。軸方向の非粘性運動量式は、[圧縮性Euler式](../FLUID41/index.md#thm-fluid41-euler-conservative)を流れに沿って書けば $v\,dv+dp/\rho=0$ になる。断面の圧力作用を無視したのではなく、壁の軸方向圧力成分を含めて準一次元化した式である。
+定常の[質量保存](../FLUID41/index.md#thm-fluid41-euler-conservative)を、側壁を通る質量流出のない短い管区間に適用すると、断面間で $\rho v A=\dot m$ は一定となる。一方、運動量を軸方向に数えるときは、断面の圧力だけでなく**傾いた側壁の圧力**も必要である。断面内と壁面の圧力を局所値 $p(x)$ で近似すると、側壁から流体への軸方向の圧力作用は単位長さ当たり $p(x)A'(x)$ となる（拡大部では正、収縮部では負）。[圧縮性Eulerの運動量保存](../FLUID41/index.md#thm-fluid41-euler-conservative)を微小区間へ積分した式は
 
-等エントロピーなら[FLUID41の等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic)から $dp=c^2\,d\rho$。この三式を結びつけると、音速の手前と後で加速方向が逆転する。
+$
+\frac{d}{dx}\{(\rho v^2+p)A\}=p\frac{dA}{dx}.
+$
+
+積の微分を展開し、質量保存から $d(\rho vA)/dx=0$ を用いると、
+
+$
+\begin{aligned}
+\frac{d}{dx}(\rho v^2A)&=\dot m\frac{dv}{dx}=\rho vA\frac{dv}{dx},\\
+\frac{d}{dx}(pA)&=A\frac{dp}{dx}+p\frac{dA}{dx},\\
+\rho vA\frac{dv}{dx}+A\frac{dp}{dx}&=0.
+\end{aligned}
+$
+
+$A,\rho>0$ で割れば $v\,dv/dx+(1/\rho)\,dp/dx=0$ を得る。これに等エントロピー状態変化の[FLUID41の関係](../FLUID41/index.md#prop-fluid41-isentropic) $dp/dx=c^2\,d\rho/dx$ を組み合わせる。
+
+ここで $dA,dv,d\rho,dp$ は**下流向き座標 $x$ に沿う全微分**であり、例えば $dA/A=(A'(x)/A(x))\,dx$、$dv/v=(v'(x)/v(x))\,dx$ と表す。以後の微分形で符号を比較するときは $dx>0$ とする。この三式を結びつけると、音速の手前と後で加速方向が逆転する。
 
 <a id="thm-fluid42-area-velocity"></a>
 
@@ -130,16 +146,36 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid42-stagnation -->
-**定義の確認**：$\gamma=1.4,R=287,T=300$ K、$M=0.5$ とする。$v^2=\gamma RTM^2$ だから
+**定義の確認**：$\gamma=1.4,R=287,T=300$ K、$M=0.5$、$\rho=1.2$ kg/m$^3$ とする。静圧は[理想気体の状態方程式](../FLUID41/index.md#def-fluid41-ideal-gas)から $p=\rho RT=103320$ Pa $>0$ である。$v^2=\gamma RTM^2$ と $c_p=\gamma R/(\gamma-1)$ より
 
-$$
+$
 \frac{T_0}{T}
 =1+\frac{\gamma R}{2c_p}M^2
 =1+\frac{\gamma-1}{2}M^2
-=1.05.
-$$
+=1.05,
+\qquad T_0=315\ {\rm K}>0.
+$
 
-よって $T_0=315$ K。等エントロピー比 $p_0/p=(T_0/T)^{\gamma/(\gamma-1)}=1.05^{3.5}>1$ も成り立つ。どちらも正の状態で、全温が静温より高いことと矛盾しない。
+次に、定義の等エントロピー条件を**圧力・密度の判定式**へ結びつける。同じ比エントロピーの二状態には[等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic) $p_0/\rho_0^\gamma=p/\rho^\gamma$ が成り立ち、両状態に $p/\rho=RT$ を適用すると
+
+$
+\frac{T_0}{T}
+=\frac{p_0/\rho_0}{p/\rho}
+=\left(\frac{\rho_0}{\rho}\right)^{\gamma-1},
+\qquad
+\frac{p_0}{p}
+=\left(\frac{T_0}{T}\right)^{\gamma/(\gamma-1)}.
+$
+
+したがって $p_0=103320\cdot1.05^{3.5}\simeq122559.49$ Pa $>0$、$\rho_0=p_0/(RT_0)\simeq1.35567$ kg/m$^3$ $>0$ と求まる。これらを定義の条件へ戻すと、
+
+$
+\frac{p_0/\rho_0^\gamma}{p/\rho^\gamma}
+=\frac{(T_0/T)^{\gamma/(\gamma-1)}}{[(T_0/T)^{1/(\gamma-1)}]^\gamma}
+=1.
+$
+
+エネルギー条件と等エントロピー条件を別々に確かめたので、これは単に全温が高いという例ではなく、定義を満たす正の停滞状態の直接例である。
 <!-- definition-example-end -->
 
 [全エネルギー保存形](../FLUID41/index.md#thm-fluid41-euler-conservative)の定常フラックスは $(E+p)vA$ である。$\dot m=\rho vA$ で割ると
