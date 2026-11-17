@@ -813,5 +813,5 @@ try{
   try{ws?.close();}catch{}
   browser.kill('SIGKILL');
   await new Promise(ok=>server.close(ok));
-  await rm(profile,{recursive:true,force:true});
+  await rm(profile,{recursive:true,force:true,maxRetries:8,retryDelay:150});
 }
