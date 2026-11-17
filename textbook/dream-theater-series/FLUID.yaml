@@ -50,6 +50,6 @@ chapters:
   - { id: FLUID43, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID43, status: completed, title: "衝撃波を跨ぐと何が不連続になるか" }
   - { id: FLUID44, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID44, status: completed, title: "斜めの衝撃波と膨張波をどう区別するか" }
   - { id: FLUID45, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID45, status: completed, title: "数値計算で保存則を壊さない方法は何か" }
-  - { id: FLUID46, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID46, status: planned, title: "格子を細かくすれば必ず正しくなるか" }
+  - { id: FLUID46, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID46, status: completed, title: "格子を細かくすれば必ず正しくなるか" }
   - { id: FLUID47, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID47, status: planned, title: "非圧縮流れを圧力と速度に分けて解けるか" }
   - { id: FLUID48, path: textbook/volumes/dream_thater/物理系/FLUID/FLUID48, status: planned, title: "衝撃波を含む圧縮性流れを数値的に追えるか" }
