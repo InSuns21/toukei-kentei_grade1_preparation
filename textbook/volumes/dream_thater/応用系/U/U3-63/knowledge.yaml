@@ -1,0 +1,47 @@
+chapter: U3-63
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-62, OPT8]
+concepts:
+  - id: finance.ac-capacity
+    name: 事前容量と全量清算の実行可能集合
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（事前容量と全量清算の実行可能集合）"]
+    requires: [finance.ac-inventory-cash]
+  - id: finance.ac-constrained-objective
+    name: 時間別インパクトを含む制約付き平均分散目的
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（時間別インパクトを含む制約付き平均分散目的）"]
+    requires: [finance.ac-capacity, finance.ac-risk-cost]
+  - id: finance.ac-constrained-unique
+    name: 制約付き執行二次計画の存在と一意性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（制約付き執行二次計画の存在と一意性）"]
+    requires: [finance.ac-constrained-objective]
+  - id: finance.ac-capped-projection
+    name: 容量付き単体へのEuclid射影
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（容量付き単体へのEuclid射影）"]
+    requires: [finance.ac-capacity]
+  - id: finance.ac-projected-gradient
+    name: 射影勾配反復の収束と誤差上界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影勾配反復の収束と誤差上界）"]
+    requires: [finance.ac-constrained-unique, finance.ac-capped-projection, optimization.projected-gradient-method]
+  - id: finance.ac-constrained-frontier
+    name: 制約下の費用と分散の単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（制約下の費用と分散の単調性）"]
+    requires: [finance.ac-constrained-unique]
+  - id: finance.ac-two-step-sensitivity
+    name: 二期間モデルの容量感度と折点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二期間モデルの容量感度と折点）"]
+    requires: [finance.ac-constrained-objective, finance.ac-constrained-unique]

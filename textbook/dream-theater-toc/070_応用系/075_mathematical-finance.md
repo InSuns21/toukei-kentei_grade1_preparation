@@ -64,3 +64,4 @@
 60. [U3-60 TWAP／VWAP／POV と基準執行スケジュール](textbook/volumes/dream_thater/応用系/U/U3-60/index.md)
 61. [U3-61 市場インパクトと価格形成](textbook/volumes/dream_thater/応用系/U/U3-61/index.md)
 62. [U3-62 Almgren–Chriss 最適清算の導出](textbook/volumes/dream_thater/応用系/U/U3-62/index.md)
+63. [U3-63 最適執行の数値最適化と感度](textbook/volumes/dream_thater/応用系/U/U3-63/index.md)
