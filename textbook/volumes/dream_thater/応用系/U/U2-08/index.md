@@ -42,7 +42,7 @@ $$
 
 ## 2. 実測には誤差がある
 
-予測関数 $h$ は理想的な値です。実際のセンサーでは距離と方角が少しずれます。距離誤差を $\varepsilon_r$（m）、角度誤差を $\varepsilon_\beta$（rad）とし、まずは状態とは独立で平均0、有限な二次モーメントをもつ雑音を考えます。独立という条件は**状態と雑音の独立**であって、距離誤差と角度誤差の間まで常に独立とする意味ではありません。二成分の共分散を $R$（$2\times2$）と書き、相関がなければ対角行列になります。
+予測関数 $h$ は理想的な値です。実際のセンサーでは距離と方角が少しずれます。距離誤差を $\varepsilon_r$（m）、角度誤差を $\varepsilon_\beta$（rad）とし、まずは状態とは独立で平均0、有限な二次モーメントをもつ雑音を考えます。独立という条件は**状態と雑音の独立**であって、距離誤差と角度誤差の間まで常に独立とする意味ではありません。二成分の共分散を $R$（$2\times2$）と書き、相関がなければ対角行列になります。ここでの $R$ は雑音の共分散行列であり、第1節の回転行列 $R(\theta)$ とは別の量です。
 
 <a id="def-u2-08-noisy-observation"></a>
 
@@ -59,21 +59,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-08-noisy-observation -->
-**定義の確認**：前節の距離 $r=1$ m、方位 $\beta=-\pi/2$ に対し、実際の誤差が $(0.2,0.1)$（m, rad）だったとします。測定値は次のとおりです。
+**定義の確認**：前節の固定姿勢・既知目印で $r=1$ m、$\beta=-\pi/2$ とします。誤差模型を具体的に作るため、$\varepsilon_r$ は $\pm0.2$ m、$\varepsilon_\beta$ は $\pm0.1$ rad をそれぞれ確率 $1/2$ で取り、二成分を互いに独立に生成します。雑音を姿勢とは独立に生成するという仮定も満たします。
+
+平均・共分散を定義から検算すると
+
+$$
+\begin{aligned}
+E[\varepsilon_r]&=\tfrac12(0.2)+\tfrac12(-0.2)=0,
+& E[\varepsilon_\beta]&=\tfrac12(0.1)+\tfrac12(-0.1)=0,\\
+E[\varepsilon_r^2]&=0.04,
+& E[\varepsilon_\beta^2]&=0.01,\\
+E[\varepsilon_r\varepsilon_\beta]
+&=E[\varepsilon_r]E[\varepsilon_\beta]=0,
+& R&=\operatorname{diag}(0.04,0.01)\succ0.
+\end{aligned}
+$$
+
+例えば $(\varepsilon_r,\varepsilon_\beta)=(0.2,0.1)$ が実現した回の測定値は
 
 $$
 Z_r=1.2\ {\rm m},\qquad Z_\beta=-\frac\pi2+0.1\ {\rm rad}.
 $$
 
-平均0というのは多数回の誤差の期待値であり、**一回の実現値が0という意味ではありません**。
-
-距離・角度の誤差が無相関で、標準偏差がそれぞれ $0.2$ m と $0.1$ rad の場合、共分散行列は
-
-$$
-R=\operatorname{diag}(0.04,0.01)
-$$
-
-であり正定値です。対角成分の単位はそれぞれ m²、rad²、非対角成分の単位は m·rad になります。
+平均0は誤差の分布の性質であり、**一回の実現値が0という意味ではありません**。この例では非零の二つの分散と零の交差共分散から $R$ の対称性・正定値性まで直接確認できました。対角成分の単位はそれぞれ m²、rad²、非対角成分の単位は m·rad です。
 <!-- definition-example-end -->
 
 この単純な模型では数学上 $Z_r<0$ も起こり得ます。非負距離しか返さないセンサーを厳密に表すには、測定値の打切り・棄却や非負な別の雑音分布の仕様を明示しなければなりません。本講の加法模型は**距離が0から十分離れ、雑音が小さい場合の局所模型**です。また角度に通常の正規分布を仮定しても、報告される角度は円周上なので、厳密な尤度は $2\pi$ 周期の確率密度として扱います。
@@ -95,7 +103,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-08-innovation -->
-**定義の確認**：予測方位 $179^\circ$、実測 $-179^\circ$ のとき、生の差は $-358^\circ$ ですが、$\operatorname{wrap}(-358^\circ)=+2^\circ$ です。予測 $-179^\circ$、実測 $179^\circ$ なら $+358^\circ$ の wrap は $-2^\circ$ です。いずれも実際に短い角度差を返し、距離残差だけは通常の引き算をするという二条件を確かめられます。度数は説明用で、計算では rad に直します。
+**定義の確認**：予測方位 $179^\circ$、実測 $-179^\circ$ のとき、生の差は $-358^\circ$ ですが、$\operatorname{wrap}(-358^\circ)=+2^\circ$ です。予測 $-179^\circ$、実測 $179^\circ$ なら $+358^\circ$ の wrap は $-2^\circ$ です。いずれも短い角度差を返します。距離についても、予測5 m・実測5.4 m なら $\nu_r=5.4-5=0.4$ m と通常の引き算で確認できます。度数は説明用で、計算では rad に直します。
 <!-- definition-example-end -->
 
 雑音が小さく、真の角度との差が $\pm\pi$ の切替点に近くなければ、局所的には角度も実数として微分できます。しかし誤差が大きいと、wrap 前後で単純な Gaussian 近似は不適切になります。角度の観測が $z_\beta\in[-\pi,\pi)$ にあるとき、たとえば wrap 前の誤差が分散 $\sigma_\beta^2>0$ の正規分布なら、角度の厳密な条件付き密度は
@@ -110,7 +118,15 @@ $$
 
 ## 3. 姿勢を少し変えると観測はどう動くか
 
-ロボットの姿勢を少しずらしたとき、予測観測がどれだけ変わるかを知りたい場面があります。これは次講で予測共分散を観測空間へ運ぶための準備です。姿勢三成分 $(x,y,\theta)$ に関する **Jacobi 行列**（成分ごとの偏微分を行に並べた $2\times3$ 行列）を導きます。角度の wrap を除いた滑らかな局所枝で計算し、切替点は後で区別します。
+ロボットの姿勢を少しずらしたとき、予測観測がどれだけ変わるかを知りたい場面があります。これは次講で予測共分散を観測空間へ運ぶための準備です。
+
+姿勢 $(x,y,\theta)$ に関する **Jacobi 行列**を導きます。観測2成分の偏微分を行、姿勢3成分を列に並べた $2\times3$ 行列です。
+
+[前講の運動模型の一次誤差行列](../U2-07/index.md#prop-u2-07-euler-jacobians)と同様、$\partial_x$ は目印と他の姿勢成分を固定して、座標 $x$ だけを動かす**偏微分**です。
+
+一方、以下の $dx,dy,d\theta$ は姿勢座標の**全微分**です。$d(d_x)$ は変位成分 $d_x=a-x$ の全微分を意味し、下付き添字 $x$ 自体は微分記号ではありません。
+
+角度の wrap を除いた滑らかな局所枝で計算し、切替点は後で区別します。
 
 距離について $r=\sqrt q$、$q=(a-x)^2+(b-y)^2$ より
 
@@ -121,12 +137,26 @@ $$
 \frac{\partial r}{\partial y}=-\frac{d_y}{r}.
 $$
 
-方位の計算では $\alpha=\operatorname{atan2}(d_y,d_x)$ の微小変化が $d\alpha=(d_x\,d(d_y)-d_y\,d(d_x))/q$ であることを確かめます。実際、$d_x=r\cos\alpha$、$d_y=r\sin\alpha$ を微分すると $d_x\,d(d_y)-d_y\,d(d_x)=r^2d\alpha$ です。姿勢の変化では $d(d_x)=-dx$、$d(d_y)=-dy$ なので
+方位では $\alpha=\operatorname{atan2}(d_y,d_x)$ とします。$q>0$ の局所枝で $d_x=r\cos\alpha$、$d_y=r\sin\alpha$ なので、積の微分と連鎖律から
+
+$$
+\begin{aligned}
+d(d_x)&=\cos\alpha\,dr-r\sin\alpha\,d\alpha,\\
+d(d_y)&=\sin\alpha\,dr+r\cos\alpha\,d\alpha,\\
+d_x\,d(d_y)-d_y\,d(d_x)
+&=r^2(\cos^2\alpha+\sin^2\alpha)\,d\alpha=q\,d\alpha.
+\end{aligned}
+$$
+
+目印の $a,b$ は固定されるので $d(d_x)=-dx$、$d(d_y)=-dy$ です。これらを代入して
 
 $$
 d\alpha=\frac{d_y}{q}dx-\frac{d_x}{q}dy,\qquad
-d\beta=d\alpha-d\theta.
+d\beta=d\alpha-d\theta
+=\frac{d_y}{q}dx-\frac{d_x}{q}dy-d\theta.
 $$
+
+全微分 $d\beta=(\partial_x\beta)\,dx+(\partial_y\beta)\,dy+(\partial_\theta\beta)\,d\theta$ と係数を比較すれば、局所 Jacobi 行列の方位の行が求まります。
 
 <a id="prop-u2-08-observation-jacobian"></a>
 
@@ -180,7 +210,17 @@ $$
 
 ## 4. どんな姿勢の違いは観測から見えないか
 
-未知数が $(x,y,\theta)$ の3個なのに、一つの目印から得る値は距離と方位の2個です。Jacobi 行列の**零方向**とは、その方向に姿勢を微小変化させても一次の観測変化が0になるベクトルです。逆に Jacobi 行列の列が独立なら、その点の周辺では小さい姿勢誤差を観測から区別できます（**局所可観測性**）。これは大域的に唯一の姿勢を求められることまで意味しません。
+未知数が $(x,y,\theta)$ の3個なのに、一つの目印から得る値は距離と方位の2個です。Jacobi 行列の**零方向**とは、その方向に姿勢を微小変化させても一次の観測変化が0になるベクトルです。
+
+逆に Jacobi 行列の列が独立なら、その点の周辺では小さい姿勢誤差を観測から区別できます（**局所可観測性**）。これは大域的に唯一の姿勢を求められることまで意味しません。
+
+この判定に行列を使える理由は、状態の微小変化と観測の一次変化の間に
+
+$$
+\delta h\simeq H\delta g
+$$
+
+という対応があるからです。したがって非零の状態変化でも一次の観測変化が0になるかは、零空間で判定できます。列階数が状態次元に等しいことと、$H\delta g=0$ の解が零ベクトルだけであることは同値です。
 
 <a id="def-u2-08-local-observability"></a>
 
@@ -200,7 +240,27 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-08-local-observability -->
-**定義の確認**：前節の一個の目印による $H$ は $2\times3$ で、列階数は最大2です。したがって状態3成分は局所一次可観測ではありません。直接計算でも $H(4,-3,1)^T=(-2.4+2.4,0.64+0.36-1)^T=(0,0)^T$ です。この非零ベクトルは、位置を $(4,-3)$ m/rad の方向へ動かし向きを同時に1 rad/rad 変える微小運動が見えないことを表します。
+**定義の確認**：$g=(0,0,0)$、$m=(3,4)$ では $q=25>0$ で、前節の観測行列は
+
+$$
+H=\begin{pmatrix}-3/5&-4/5&0\\4/25&-3/25&-1\end{pmatrix}.
+$$
+
+観測2成分・状態3成分なので列階数は最大2です。また第一行は非零で、その第三成分は0、第二行の第三成分は $-1$ なので二行は独立で、実際に階数2です。非零の状態変化 $v=(4,-3,1)^T$ を代入すると
+
+$$
+Hv=\begin{pmatrix}
+(-3/5)4+(-4/5)(-3)\\
+(4/25)4+(-3/25)(-3)-1
+\end{pmatrix}
+=\begin{pmatrix}0\\0\end{pmatrix}.
+$$
+
+状態の次元は3で、計算した行列の階数は2です。したがって局所一次可観測ではありません。
+
+一方、上の $v$ は非零で $Hv=0$ を満たすため、一次の零方向であることも直接確認できました。
+
+幾何的には、目印の周りに位置を角度 $\gamma$ だけ回し、車体向きも同じ $\gamma$ だけ増やす運動を考えます。この運動を $\gamma=0$ で微分すると、位置の変化率が $(4,-3)$（m/rad）、向きの変化率が1（rad/rad）になります。長さと角度を直接加算する意味ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-u2-08-one-landmark-null"></a>
@@ -283,7 +343,17 @@ $$
 h(g,m)\simeq h(\bar g,m)+H\delta g.
 $$
 
-誤差 $\varepsilon$ と状態誤差 $\delta g$ を独立と仮定すれば、局所的な観測残差の一次近似は $\mathcal V\simeq H\delta g+\varepsilon$ です。
+ここで大文字 $Z=(Z_r,Z_\beta)^T$ は測定前の**確率変数**、小文字 $z$ はその実現値です。[線形観測で定義した観測残差](../U2-05/index.md#def-u2-05-innovation)に対応させ、予測姿勢 $\bar g$ に対する確率的残差を
+
+$$
+\mathcal V=
+\begin{pmatrix}
+Z_r-r(\bar g,m)\\
+\operatorname{wrap}(Z_\beta-\beta(\bar g,m))
+\end{pmatrix}
+$$
+
+と書きます。実現値が第2節の $\nu$ で、こちらは **予測点 $\bar g$ を固定**した残差です。雑音 $\varepsilon$ と状態誤差 $\delta g$ を独立とし、予測点・真の角度が同じ連続枝にある小誤差の領域では、wrap を局所的に外せるため $\mathcal V\simeq H\delta g+\varepsilon$ となります。
 
 <a id="prop-u2-08-innovation-covariance"></a>
 
@@ -440,7 +510,20 @@ $$
 目印 $m=(a,b)$、姿勢 $(x,y,\theta)$ に対し $q=(a-x)^2+(b-y)^2>0$ とする。$r=\sqrt q$、$\beta=\operatorname{atan2}(b-y,a-x)-\theta$ の局所枝から、$H$ の六成分を微分で導け。
 
 <!-- solution-start -->
-**詳細解答**：$d_x=a-x,d_y=b-y$ と置きます。$dq/dx=-2d_x$、$dq/dy=-2d_y$ より $\partial_xr=(1/(2\sqrt q))(-2d_x)=-d_x/r$、$\partial_yr=-d_y/r$、$\partial_\theta r=0$。一方 $\alpha=\operatorname{atan2}(d_y,d_x)$ の全微分は $d\alpha=(d_x\,dd_y-d_y\,dd_x)/q$ です。$dd_x=-dx,dd_y=-dy$ を代入すると $d\beta=(d_y/q)dx-(d_x/q)dy-d\theta$。よって $\partial_x\beta=d_y/q$、$\partial_y\beta=-d_x/q$、$\partial_\theta\beta=-1$ を得ます。六成分を順に並べた結果は[観測 Jacobi 行列](#prop-u2-08-observation-jacobian)と一致します。wrap の切替点は除外した導出です。
+**詳細解答**：$d_x=a-x,d_y=b-y$ と置きます。$\partial_xq=-2d_x$、$\partial_yq=-2d_y$（他の入力は固定）より $\partial_xr=(1/(2\sqrt q))(-2d_x)=-d_x/r$、$\partial_yr=-d_y/r$、$\partial_\theta r=0$。一方 $\alpha=\operatorname{atan2}(d_y,d_x)$ の全微分は
+
+$$
+d\alpha=\frac{d_x\,d(d_y)-d_y\,d(d_x)}{q}.
+$$
+
+ここで $d(d_x)=-dx,\ d(d_y)=-dy$（目印は固定）を代入すると
+
+$$
+d\beta=d\alpha-d\theta
+=\frac{d_y}{q}dx-\frac{d_x}{q}dy-d\theta.
+$$
+
+$d\beta=(\partial_x\beta)dx+(\partial_y\beta)dy+(\partial_\theta\beta)d\theta$ と係数を照合して $\partial_x\beta=d_y/q$、$\partial_y\beta=-d_x/q$、$\partial_\theta\beta=-1$ を得ます。六成分を順に並べた結果は[観測 Jacobi 行列](#prop-u2-08-observation-jacobian)と一致します。wrap の切替点は除外した導出です。
 <!-- solution-end -->
 
 <a id="ex-u2-08-b02"></a>
@@ -508,7 +591,7 @@ $$
 
 - Level: B
 
-$\bar g=(0,0,0)$、$m=(3,4)$ m、姿勢誤差共分散 $P^-=\operatorname{diag}(0.04,0.04,0.01)$、独立な観測雑音共分散 $R=\operatorname{diag}(0.01,0.0025)$ とする。予測点での局所 $S$ を計算し、交差項が0になる理由を述べよ。
+$\bar g=(0,0,0)$、$m=(3,4)$ m、姿勢誤差共分散 $P^-=\operatorname{diag}(0.04,0.04,0.01)$、**姿勢誤差と独立な**観測雑音の共分散 $R=\operatorname{diag}(0.01,0.0025)$ とする。予測点での局所 $S$ を計算し、交差項が0になる理由を述べよ。
 
 <!-- solution-start -->
 **詳細解答**：予測点の[Jacobi 行列](#prop-u2-08-observation-jacobian)は $H=\left(\begin{smallmatrix}-0.6&-0.8&0\\0.16&-0.12&-1\end{smallmatrix}\right)$。行ごとに $P^-$ を掛けて
