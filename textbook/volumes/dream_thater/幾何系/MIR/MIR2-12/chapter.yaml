@@ -1,0 +1,42 @@
+id: "MIR2-12"
+title: "quinticミラー定理の正確な主張"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-09
+  - MIR2-10
+  - MIR2-11
+learning_objectives:
+  - I関数のzとJ関数のQおよび子孫変数wを区別して比較対象を説明できる
+  - I0による除算とT=Log z+I1/I0およびq=e^Tの必要性を初項で検算できる
+  - 正規化したIの単位類とH一次成分の消滅およびH二次・三次の係数公式を証明できる
+  - 種数0の滑らかなquinticのambient部分に関するI/Jミラー定理を仮定と規約つきで述べられる
+  - 五次束と局所化に関する既習結果と外部比較定理の証明責務を区別できる
+  - Jの一標点係数を因子公理によりdN_d/5としミラー定理からN1=2875を導ける
+  - I=JやQ=zとの誤同一視が破綻する項を示し特異標的と高種数への無断拡張を避けられる
+definitions:
+  - { id: MIR2-12-DEF-01, name: "I関数の平坦座標と正規化" }
+theorems:
+  - { id: MIR2-12-PROP-01, name: "正規化I関数の低次成分" }
+  - { id: MIR2-12-THM-01, name: "quinticの種数0ミラー定理" }
+  - { id: MIR2-12-PROP-02, name: "ミラー定理から得られる次数1のGW数" }
+canonical_examples:
+  - I0逆級数の二次係数と鏡像写像q=z+770z2+1014275z3
+  - 四乗零環における正規化と単位類およびH一次成分の相殺
+  - B1=120+770h+575h2-1150h3と次数1のGW数2875
+  - JのQ=z誤代入が次数2で落とす770倍の項
+problem_patterns:
+  - MIR2-12-I0-INVERSE
+  - MIR2-12-MIRROR-SERIES
+  - MIR2-12-NILPOTENT-NORMALIZATION
+  - MIR2-12-J-STABILITY
+  - MIR2-12-CHANGE-OF-VARIABLE
+  - MIR2-12-DEGREE-ONE-NORMALIZATION
+  - MIR2-12-COMPONENT-PROOF
+  - MIR2-12-J-DIVISOR-COEFFICIENT
+  - MIR2-12-EXTERNAL-THEOREM-SCOPE
+  - MIR2-12-INTEGRATED-MIRROR-CALCULATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 6 }
