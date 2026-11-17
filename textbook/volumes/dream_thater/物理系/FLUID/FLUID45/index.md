@@ -103,10 +103,10 @@ $$
 <!-- definition-example-start: def-fluid45-numerical-flux -->
 **定義の確認**：二つの隣接セル $I_j,I_{j+1}$ を考え、共通面の流束が $F_{j+1/2}^n=3$ kg/s、刻みが $\Delta t_n=0.1$ s とする。更新式を $h$ 倍すれば $hQ_j$ は質量なので、**この共通面だけによる**両セルの質量変化は
 
-$
+$$
 -\Delta t_nF_{j+1/2}^n=-0.1\times3=-0.3\ {\rm kg},\qquad
 +\Delta t_nF_{j+1/2}^n=+0.3\ {\rm kg}
-$
+$$
 
 となる。別々の流束を使えば相殺が壊れる。面の数は周期格子で $N$ 個、開放格子で $N+1$ 個であり、同じ内部面を二度生成しない。
 <!-- definition-example-end -->
@@ -245,14 +245,14 @@ $$
 
 積分の中間式も確認する。$\theta_j=2\pi(x_j-at)/L$、$\delta=\pi h/L$ とおけば、両端が $x_j\mp h/2$ であることから
 
-$
+$$
 \begin{aligned}
 \frac1h\int_{jh}^{(j+1)h}\sin\frac{2\pi(x-at)}L\,dx
 &=\frac{L}{2\pi h}\bigl[\cos(\theta_j-\delta)-\cos(\theta_j+\delta)\bigr]\\
 &=\frac{L}{\pi h}\sin\theta_j\sin\delta
 =\frac{\sin\delta}{\delta}\sin\theta_j.
 \end{aligned}
-$
+$$
 
 ここで $\cos(C-D)-\cos(C+D)=2\sin C\sin D$ を使った。**点での解析値をセル平均と誤認しない**ための係数 $\sin(\pi h/L)/(\pi h/L)$ が現れる。
 
@@ -297,14 +297,14 @@ $N=4$、正速度の風上法で $\lambda=1/2$、旧値 $(1,2,0,1)$ とする。
 
 [風上更新](#prop-fluid45-upwind-positivity)より $Q_j^{n+1}=(Q_j^n+Q_{j-1}^n)/2$ である。周期添字から $Q_{-1}^n=Q_3^n=1$。各セルで左隣の旧値を用いて
 
-$
+$$
 \begin{aligned}
 Q_0^{n+1}&=(1+1)/2=1,\\
 Q_1^{n+1}&=(2+1)/2=1.5,\\
 Q_2^{n+1}&=(0+2)/2=1,\\
 Q_3^{n+1}&=(1+0)/2=0.5.
 \end{aligned}
-$
+$$
 
 旧総和は4、新総和も4なので、任意の $h>0$ に対して総量 $h\sum_jQ_j$ は変わらない。
 <!-- solution-end -->
@@ -330,12 +330,12 @@ $L=1$ m、$q(x)=(2\ {\rm kg/m^2})x$、$N=2$ とする。二つのセル平均と
 
 $h=1/2$ m。[セル平均](#def-fluid45-cell-average)に代入する。以下、長さは m 単位の数値を用いると
 
-$
+$$
 \begin{aligned}
 \bar q_0&=2\int_0^{1/2}2x\,dx=\frac12\ {\rm kg/m},\\
 \bar q_1&=2\int_{1/2}^1 2x\,dx=\frac32\ {\rm kg/m}.
 \end{aligned}
-$
+$$
 
 従って全積分は $h(\bar q_0+\bar q_1)=1$ kg。左端点値は $q(0)=0$、$q(1/2)=1$ kg/m であり平均と異なる。たとえば点値を機械的に足した $h(0+1)=1/2$ kg は真の全積分1 kg に一致しない。
 <!-- solution-end -->
@@ -350,10 +350,10 @@ $a=2$ m/s、$h=0.1$ m で $\Delta t=0.04$ s と $0.06$ s の $\lambda$ を計算
 
 $\lambda=a\Delta t/h$ に数値を代入すると
 
-$
+$$
 \lambda_1=\frac{2(0.04)}{0.1}=0.8,\qquad
 \lambda_2=\frac{2(0.06)}{0.1}=1.2.
-$
+$$
 
 [風上更新](#prop-fluid45-upwind-positivity)では $Q_j^{n+1}=(1-\lambda)\cdot1+\lambda\cdot0=1-\lambda$ だから、新値は順に $0.2$ と $-0.2$ kg/m となる。前者は非負の重み付き平均、後者は非負初期値から負値を作るので[非負性命題](#prop-fluid45-upwind-positivity)の仮定が重要である。周期総量保存は後者でも代数的には成立し得る。
 <!-- solution-end -->
@@ -405,17 +405,17 @@ $$
 
 第0セルの右面と左面（第2セルとの共通面）の数値流束は
 
-$
+$$
 F_{1/2}=\frac a2(0+1)=\frac a2,\qquad
 F_{-1/2}=\frac a2(0+0)=0.
-$
+$$
 
 よって[有限体積更新](#def-fluid45-numerical-flux)に入れれば
 
-$
+$$
 Q_0'=0-\frac{\Delta t}{h}\left(\frac a2-0\right)
 =-\frac\lambda2<0
-$
+$$
 
 となる。しかし流束は各面で単一の値として隣接セルの式に現れるので、[離散総量保存の証明](#thm-fluid45-global-balance)がそのまま使え、$\sum_j Q_j'=\sum_jQ_j=1$ となる。失われたのは**各セル値の非負性**であり、総質量保存ではない。風上で得られた非負の重み付き平均という構造を中心流束は持たない。
 <!-- solution-end -->
