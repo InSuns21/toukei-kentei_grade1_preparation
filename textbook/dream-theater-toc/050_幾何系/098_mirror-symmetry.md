@@ -25,3 +25,4 @@
 22. [MIR2-06 量子接続と量子微分方程式](textbook/volumes/dream_thater/幾何系/MIR/MIR2-06/index.md)
 23. [MIR2-07 B側Yukawaの座標変換と規格化](textbook/volumes/dream_thater/幾何系/MIR/MIR2-07/index.md)
 24. [MIR2-08 特殊幾何とprepotential](textbook/volumes/dream_thater/幾何系/MIR/MIR2-08/index.md)
+25. [MIR2-09 GWのJ関数とdescendant](textbook/volumes/dream_thater/幾何系/MIR/MIR2-09/index.md)

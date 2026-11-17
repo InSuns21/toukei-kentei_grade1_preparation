@@ -1,0 +1,54 @@
+id: "MIR2-09"
+title: "GWのJ関数とdescendant"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-02
+  - MIR2-03
+  - MIR2-06
+  - MIR2-08
+  - GW1-10
+  - GW1-11
+  - GW1-20
+learning_objectives:
+  - 種数0安定写像の普遍曲線と標点切断から余接線束L_iおよびψ_iを定義し直接例で確認できる
+  - 四標点曲線の安定化・吹上げと切断の自己交叉からψ積分が1となる理由を再現できる
+  - descendantの評価挿入とψべきの実次数から仮想次元の必要条件を導ける
+  - 非凸quinticの仮想類を外部入力として区別し定数写像の積表示を検算できる
+  - 種数0の大きいJ関数の不安定項補正と幾何級数の展開を説明できる
+  - Poincaré双対基底と押し出しの定義からJ係数をdescendant相関に戻せる
+  - 種数0ψ交点数の外部公式を明示して次数0J関数とquinticの指数級数を計算できる
+  - quinticのJのwの一次係数を因子公理からdN_d/5と証明できる
+  - J関数の計数的意味とI関数・ミラー定理による同一視の論理的境界を説明できる
+definitions:
+  - { id: MIR2-09-DEF-01, name: "標点の余接線束とψ類" }
+  - { id: MIR2-09-DEF-02, name: "種数0 descendant不変量" }
+  - { id: MIR2-09-DEF-03, name: "種数0の大きいJ関数" }
+theorems:
+  - { id: MIR2-09-PROP-01, name: "四標点でのψ積分" }
+  - { id: MIR2-09-PROP-02, name: "descendantの次数必要条件" }
+  - { id: MIR2-09-PROP-03, name: "J係数は一標点子孫相関である" }
+  - { id: MIR2-09-PROP-04, name: "次数0のJ関数" }
+  - { id: MIR2-09-PROP-05, name: "quinticのJ関数に現れる無標点GW数" }
+canonical_examples:
+  - 定数三標点の自明余接線束とψ零類
+  - 四標点の衝突点吹上げから得られるψの次数1
+  - 定数四標点のdescendant積分とH三重交叉の積5
+  - Q=0でJのn=2の項がt²/(2w)になる計算
+  - quinticのJ次数0項の指数展開とH四乗消滅
+  - 正次数quinticで因子公理と三重交叉からdN_d/5を導く計算
+problem_patterns:
+  - MIR2-09-THREE-POINT-PSI
+  - MIR2-09-DESCENDANT-DIMENSION
+  - MIR2-09-GEOMETRIC-SERIES
+  - MIR2-09-FOUR-POINT-INSERTION
+  - MIR2-09-UNSTABLE-CONVENTION
+  - MIR2-09-EXPONENTIAL-COEFFICIENT
+  - MIR2-09-POINCARE-DUAL
+  - MIR2-09-DIVISOR-J-COEFFICIENT
+  - MIR2-09-DEGREE-AGREEMENT-NOT-SUFFICIENT
+  - MIR2-09-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 11, review: 5 }
