@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - U2-13
+  - MC3
 forward_references: []
 concepts:
   - id: robotics.finite-importance-proposal-weight
