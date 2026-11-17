@@ -635,6 +635,63 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL14 GLSL syntax error and sandbox disposal: PASS');
 
+  // WGL15: real GPU picking ID/depth FBO, independent CPU oracle, mouse,
+  // resize, edited shader diagnostics and sandbox destruction.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL15'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.readPixels(x,y")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const diagnostic15=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.match(diagnostic15.status,/独立画素検算に合格/,
+    'WGL15 WebGL2 ID/depth setup or 4 GPU pixel probes failed: '+JSON.stringify(diagnostic15));
+  const wgl15=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl15.rows.length,4);
+  assert.ok(wgl15.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl15.sandbox,'allow-scripts');
+  assert.match(wgl15.log,/RGBA8 ID texture \+ DEPTH_COMPONENT16 renderbuffer, FBO complete/);
+  assert.match(wgl15.log,/GL error: 0x0/);
+  const expected15=['230, 70, 35, 255','30, 150, 220, 255',
+    '230, 70, 35, 255','10, 18, 29, 255'];
+  for(let i=0;i<4;i++) {
+    const actual=wgl15.rows[i][2].split(',').map(Number);
+    const wanted=expected15[i].split(',').map(Number);
+    assert.ok(actual.every((v,j)=>Math.abs(v-wanted[j])<=2),
+      'WGL15 GPU probe '+i+': '+JSON.stringify({actual,wanted}));
+  }
+  const shot15=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl15-initial.png',Buffer.from(shot15.data,'base64'));
+  console.log('WGL15 4 real GPU display probes, RGBA8/depth FBO and separate CPU ray oracle: PASS');
+
+  // The nested sandbox canvas receives an actual mouse click through Chromium input.
+  const clickPoint15=await evalJS('(()=>{const frame=document.querySelector("#canvas-slot iframe");frame.scrollIntoView({block:"center"});const r=frame.getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+r.height/2};})()');
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',...clickPoint15});
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',...clickPoint15,button:'left',clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',...clickPoint15,button:'left',clickCount:1});
+  await waitFor('document.getElementById("result-note")?.textContent.includes("選択座標")',10000);
+  const pick15=await evalJS('({status:document.getElementById("status").textContent,text:document.getElementById("result-note").textContent})');
+  assert.match(pick15.text,/独立CPU=1、ラボCPU=1、GPU=1/);
+  assert.match(pick15.status,/CPU射線とGPU ID選択が一致/);
+  console.log('WGL15 actual mouse click selects the nearer 3D panel with independent CPU/GPU agreement: PASS');
+
+  // Change drawing buffer resolution: recreate ID FBO and depth renderbuffer.
+  await click('reset');
+  await evalJS('(()=>{document.getElementById("width").value=400;document.getElementById("height").value=300})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  assert.match(await evalJS('document.getElementById("status").textContent'),/独立画素検算に合格/);
+  console.log('WGL15 resized RGBA8/depth FBO and viewport match 4 CPU reference pixels: PASS');
+
+  // Broken GLSL must not silently run, and the opaque iframe is disposable.
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL15 fragment diagnostic, stop and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
