@@ -195,3 +195,5 @@ import './wgl15-lab.test.mjs';
 
 // WGL16: instance attribute divisors, draw-call counts and independent 6-pixel oracle.
 import './wgl16-lab.test.mjs';
+// WGL17: typed texture, quantization, and independent 8-point oracle.
+import './wgl17-lab.test.mjs';
