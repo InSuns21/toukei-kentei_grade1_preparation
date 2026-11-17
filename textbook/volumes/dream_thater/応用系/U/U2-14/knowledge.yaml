@@ -1,0 +1,44 @@
+chapter: U2-14
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-13
+  - MC3
+forward_references: []
+concepts:
+  - id: robotics.finite-importance-proposal-weight
+    name: 提案分布と重点重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（提案分布と重点重み）"]
+    requires: [robotics.grid-markov-localization]
+  - id: robotics.finite-importance-identity
+    name: 有限状態の重点重み恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限状態の重点重み恒等式）"]
+    requires: [robotics.finite-importance-proposal-weight]
+  - id: robotics.selfnormalized-particle-belief
+    name: 自己正規化した重み付き粒子近似
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（自己正規化した重み付き粒子近似）"]
+    requires: [robotics.finite-importance-identity, robotics.grid-cell-belief]
+  - id: robotics.selfnormalized-importance-consistency
+    name: 自己正規化重点推定の強一致性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（自己正規化重点推定の強一致性）"]
+    requires: [robotics.selfnormalized-particle-belief]
+  - id: robotics.sequential-path-proposal
+    name: 経路の目標重みと逐次提案分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（経路の目標重みと逐次提案分布）"]
+    requires: [robotics.finite-importance-proposal-weight, robotics.motion-observation-conditional-model]
+  - id: robotics.sequential-importance-weight-recursion
+    name: 逐次重要度重みの再帰式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（逐次重要度重みの再帰式）"]
+    requires: [robotics.sequential-path-proposal, robotics.finite-importance-identity]
