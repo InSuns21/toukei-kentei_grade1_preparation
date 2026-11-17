@@ -14,12 +14,18 @@ concepts:
     introduction: formal
     introduction_aliases: ["定理（ABBV等変局所化：孤立固定点の場合、外部入力）"]
     requires: [mirror.torus-equivariant-cohomology]
+  - id: mirror.p1-equivariant-projective-bundle
+    name: 射影直線の等変射影束公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の等変射影束公式：外部入力）"]
+    requires: [mirror.torus-equivariant-cohomology]
   - id: mirror.p1-equivariant-integration
     name: 射影直線の局所化の直接検算
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（射影直線の局所化の直接検算）"]
-    requires: [mirror.abbv-localization]
+    requires: [mirror.abbv-localization, mirror.p1-equivariant-projective-bundle]
   - id: mirror.p4-fixed-tangent-weights
     name: 射影四次元の固定点分母
     kind: proposition
