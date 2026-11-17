@@ -1,0 +1,45 @@
+id: "FLUID46"
+title: "格子を細かくすれば必ず正しくなるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - FLUID45
+official_scope: []
+learning_objectives:
+  - "Courant数とCFL条件を定義し、空間・時間刻みの細分経路を具体的に判定する"
+  - "離散Fourierモードの増幅因子と直交性を導き、一次風上法の安定範囲とCFL超過反例を証明する"
+  - "中心FTCSが周期格子の高周波モードで不安定になることを証明し、総量保存との違いを説明する"
+  - "滑らかな波の修正方程式から数値拡散係数を導き、振幅誤差と位相誤差を区別する"
+  - "厳密セル平均を基準にE1・Einf・観測次数を定義し、滑らかな周期解の一次風上収束評価を証明する"
+  - "同一Pythonラボで格子細分・時間刻み細分・不安定例を再現し、CFL・誤差・質量残差を区別する"
+definitions:
+  - { id: FLUID46-DEF-01, name: "Courant数と格子細分経路" }
+  - { id: FLUID46-DEF-02, name: "Fourier増幅因子と格子の安定性" }
+  - { id: FLUID46-DEF-03, name: "セル平均誤差と観測収束次数" }
+theorems:
+  - { id: FLUID46-THM-01, name: "周期一次風上法の安定範囲" }
+  - { id: FLUID46-THM-02, name: "中心FTCSの不安定性" }
+  - { id: FLUID46-PROP-01, name: "一次風上法の主要な数値拡散" }
+  - { id: FLUID46-THM-03, name: "滑らかな周期解に対する一次風上法の収束" }
+canonical_examples:
+  - "CFLを固定して格子と時間を同時に細分する経路"
+  - "風上法のcheckerboardモードとCFL超過"
+  - "中心FTCSのpi/2モードの振幅増大"
+  - "風上法の主要な数値拡散係数と時間細分の逆説"
+  - "質量差がゼロでもE1が正であるセル平均誤差"
+  - "ブラウザPythonで滑らかな正弦波と格子依存の高周波反例を区別"
+problem_patterns:
+  - FLUID46-CFL-REFINEMENT
+  - FLUID46-UPWIND-FOURIER
+  - FLUID46-ERROR-VS-MASS
+  - FLUID46-CENTERED-HIGH-MODE
+  - FLUID46-EXACT-ONE-CELL-SHIFT
+  - FLUID46-FTCS-GROWTH
+  - FLUID46-NUMERICAL-DIFFUSION
+  - FLUID46-STABILITY-CONSISTENCY
+  - FLUID46-PHASE-AMPLITUDE
+  - FLUID46-CONVERGENCE-DESIGN
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 6 }
