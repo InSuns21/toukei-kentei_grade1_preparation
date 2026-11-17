@@ -22,7 +22,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（反射五セル遷移の正規化と一様不変性）"]
-    requires: [robotics.grid-markov-localization]
+    requires: [robotics.grid-cell-belief, robotics.finite-state-transition-kernel]
   - id: robotics.grid-multimodal-belief
     name: 局所最頻セルと多峰 belief
     kind: definition
