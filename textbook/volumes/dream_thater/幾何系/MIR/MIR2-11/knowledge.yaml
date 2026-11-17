@@ -1,0 +1,76 @@
+chapter: MIR2-11
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR2-02, MIR2-03, MIR2-09, MIR2-10, GW1-20]
+concepts:
+  - id: mirror.torus-equivariant-cohomology
+    name: 等変コホモロジーと重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（等変コホモロジーと重み）"]
+  - id: mirror.abbv-localization
+    name: ABBV等変局所化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ABBV等変局所化：孤立固定点の場合、外部入力）"]
+    requires: [mirror.torus-equivariant-cohomology]
+  - id: mirror.p1-equivariant-projective-bundle
+    name: 射影直線の等変射影束公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影直線の等変射影束公式：外部入力）"]
+    requires: [mirror.torus-equivariant-cohomology]
+  - id: mirror.p1-equivariant-integration
+    name: 射影直線の局所化の直接検算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影直線の局所化の直接検算）"]
+    requires: [mirror.abbv-localization, mirror.p1-equivariant-projective-bundle]
+  - id: mirror.p4-fixed-tangent-weights
+    name: 射影四次元の固定点分母
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（射影四次元の固定点分母）"]
+    requires: [mirror.torus-equivariant-cohomology]
+  - id: mirror.fixed-stable-map-graph
+    name: 種数0の固定グラフの記録
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（種数0の固定グラフの記録）"]
+    requires: [mirror.p4-fixed-tangent-weights, gromov-witten.stable-map]
+  - id: mirror.edge-cover-automorphism-factor
+    name: 辺の次数と自己同型係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（辺の次数と自己同型係数）"]
+    requires: [mirror.fixed-stable-map-graph]
+  - id: mirror.quintic-convex-bundle
+    name: 五次超曲面に対応する束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（五次超曲面に対応する束）"]
+    requires: [gromov-witten.stable-map]
+  - id: mirror.quintic-convex-bundle-rank
+    name: 五次束の階数と仮想次元の一致
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（五次束の階数と仮想次元の一致）"]
+    requires: [mirror.quintic-convex-bundle, mirror.quintic-stable-map-virtual-dimension]
+  - id: mirror.quintic-virtual-euler-pushforward
+    name: 種数0quinticのEuler類への押し出し
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（種数0quinticのEuler類への押し出し：外部入力）"]
+    requires: [mirror.quintic-convex-bundle-rank, mirror.quintic-unmarked-gw-number, gromov-witten.perfect-obstruction-theory]
+  - id: mirror.graber-pandharipande-virtual-localization
+    name: Graber–Pandharipande仮想局所化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Graber–Pandharipande仮想局所化：外部入力）"]
+    requires: [mirror.abbv-localization, gromov-witten.perfect-obstruction-theory]
+  - id: mirror.quintic-graph-localization-formula
+    name: quintic種数0不変量の固定グラフ表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quintic種数0不変量の固定グラフ表示）"]
+    requires: [mirror.quintic-virtual-euler-pushforward, mirror.fixed-stable-map-graph, mirror.abbv-localization]

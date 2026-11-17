@@ -1,0 +1,55 @@
+id: "MIR2-11"
+title: "トーラス局所化と固定グラフ"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-02
+  - MIR2-03
+  - MIR2-09
+  - MIR2-10
+  - GW1-20
+learning_objectives:
+  - 等変コホモロジーと重みを定義し射影直線の二固定点と接重みを直接検算できる
+  - ABBV公式の入力と外部証明の境界を示し射影直線の積分を二通りで再計算できる
+  - P4の五座標点と四接重みを局所座標から導ける
+  - 種数0固定安定写像の頂点ラベル・辺次数・標点・木条件を説明できる
+  - 全分岐辺の自己同型群mu_dと1/d係数を導ける
+  - 五次束E_dのH1消滅と階数5d+1を節点曲線でも証明できる
+  - quinticの仮想類押し出しとGraber–Pandharipande定理の必要仮定と外部入力を区別できる
+  - 固定グラフ和の非等変極限とI/J比較の未証明部分を説明できる
+definitions:
+  - { id: MIR2-11-DEF-01, name: "等変コホモロジーと重み" }
+  - { id: MIR2-11-DEF-02, name: "種数0の固定グラフの記録" }
+  - { id: MIR2-11-DEF-03, name: "五次超曲面に対応する束" }
+theorems:
+  - { id: MIR2-11-THM-00, name: "射影直線の等変射影束公式" }
+  - { id: MIR2-11-THM-01, name: "ABBV等変局所化" }
+  - { id: MIR2-11-PROP-01, name: "射影直線の局所化の直接検算" }
+  - { id: MIR2-11-PROP-02, name: "射影四次元の固定点分母" }
+  - { id: MIR2-11-PROP-03, name: "辺の次数と自己同型係数" }
+  - { id: MIR2-11-PROP-04, name: "五次束の階数と仮想次元の一致" }
+  - { id: MIR2-11-THM-02, name: "種数0quinticのEuler類への押し出し" }
+  - { id: MIR2-11-THM-03, name: "Graber–Pandharipande仮想局所化" }
+  - { id: MIR2-11-PROP-05, name: "quintic種数0不変量の固定グラフ表示" }
+canonical_examples:
+  - P1の二固定点と接重みlambdaおよび負lambdaとHの制限
+  - P1での積分1が0でHが1になる符号検算
+  - P4の各座標点での接Euler類の四因子
+  - 次数2と3の辺写像のmu_d自己同型
+  - 節点二成分の切断接合による五次束階数16
+  - quinticが対角トーラス不変でないことを踏まえた射影空間への押し出し
+problem_patterns:
+  - MIR2-11-P1-ISOLATED-WEIGHTS
+  - MIR2-11-P4-TANGENT-WEIGHTS
+  - MIR2-11-MU3-AUTOMORPHISM
+  - MIR2-11-QUINTIC-RANK
+  - MIR2-11-TREE-DEGREES-AND-STABILITY
+  - MIR2-11-P1-POLYNOMIAL-DOUBLE-CHECK
+  - MIR2-11-NODE-NORMALIZATION
+  - MIR2-11-DOUBLE-COVER-TANGENT-WEIGHTS
+  - MIR2-11-INVALID-DIRECT-QUINTIC-LOCALIZATION
+  - MIR2-11-INTEGRATED-LOCALIZATION-BOUNDARY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 13, review: 6 }
