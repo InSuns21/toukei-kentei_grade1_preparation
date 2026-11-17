@@ -259,21 +259,21 @@ $$
 
 [FLUID41 の Gibbs 関係](../FLUID41/index.md#prop-fluid41-isentropic) $T\,ds=de+p\,d(1/\rho)$ と $e=c_vT$、$p=\rho RT$ より、同じ気体の正の平衡状態を動かすと
 
-$
+$$
 \begin{aligned}
 ds&=c_v\,d\ln T-R\,d\ln\rho\\
 &=c_v\,d\ln p-(c_v+R)\,d\ln\rho.
 \end{aligned}
-$
+$$
 
 ここで $T=p/(\rho R)$ を代入し、$R,c_v$ は一定とした。この状態差を両側で積分すれば
 
-$
+$$
 s_2-s_1
 =c_v\ln\frac{p_2}{p_1}
 -c_p\ln\frac{\rho_2}{\rho_1}
 =c_v(\ln P-\gamma\ln r)
-$
+$$
 
 となる。微分 $d$ は熱力学的状態の変化を表すもので、波面を横切る空間微分 $\partial_x$ とは区別する。
 
