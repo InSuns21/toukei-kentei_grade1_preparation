@@ -28,7 +28,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid44-wave-angles -->
-**定義の直接確認**：$M_1=2$、$\beta=45^\circ$ なら $M_{1n}=2\sin45^\circ=\sqrt2>1$。同じ上流状態でも $\beta=20^\circ$ では $M_{1n}\simeq0.684<1$。全 Mach 数が 2 だからといって、任意の入射角で圧縮衝撃波を作れるわけではない。成分は速度ベクトルを波面の接線・法線に射影して得るのであり、単に $M_1$ を「正面衝撃波公式へ代入」するのは誤りである。
+**定義の確認**：$M_1=2$、$\beta=45^\circ$ なら $M_{1n}=2\sin45^\circ=\sqrt2>1$。同じ上流状態でも $\beta=20^\circ$ では $M_{1n}\simeq0.684<1$。全 Mach 数が 2 だからといって、任意の入射角で圧縮衝撃波を作れるわけではない。成分は速度ベクトルを波面の接線・法線に射影して得るのであり、単に $M_1$ を「正面衝撃波公式へ代入」するのは誤りである。
 <!-- definition-example-end -->
 
 ## 1. 斜めでも保存するのは法線流束である
@@ -283,15 +283,15 @@ $$
 >
 > 角度はラジアンで評価する。最大値を次のように置く。
 
-$
+$$
 \nu_\infty=\left(\sqrt{\frac{\gamma+1}{\gamma-1}}-1\right)\frac\pi2.
-$
+$$
 
 > 有限の下流 Mach 数 $M_2$ が存在するための条件は次のとおりである。
 
-$
+$$
 \nu(M_1)+\theta<\nu_\infty.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -409,12 +409,12 @@ $M_2>M_1$ なので $T_2<T_1$、$p_2<p_1$、$\rho_2<\rho_1$ である。状態�
 (i) [Mach角の定義](#def-fluid44-mach-angle)より $\sin\mu=1/2$、従って $\mu=30^\circ$。
 
 (ii) [法線Mach数](#def-fluid44-wave-angles)に角度を代入する。
-$
+$$
 \begin{aligned}
 M_{1n}(30^\circ)&=2\sin30^\circ=1,\\
 M_{1n}(45^\circ)&=2\sin45^\circ=\sqrt2.
 \end{aligned}
-$
+$$
 
 (iii) 非自明な圧縮型の[法線跳躍](#thm-fluid44-oblique-jumps)には $M_{1n}>1$ が必要である。従って $45^\circ$ は候補となり、$30^\circ$ は波が消える限界である。候補というだけでは、壁の偏向角との整合をまだ検査したことにはならない。
 <!-- solution-end -->
