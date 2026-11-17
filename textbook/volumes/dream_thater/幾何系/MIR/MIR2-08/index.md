@@ -56,7 +56,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（特殊幾何の局所周期座標）**  
-> 複素二次元の小さな領域 $U$ 上で、正則写像 $\Pi=(X^0,X^1,F_0,F_1):U\to\mathbb C^4$ を考える。上記の非退化交代形式 $\mathsf Q$ に対して $\mathsf Q(d\Pi(V),d\Pi(W))=0$ がすべての接ベクトル $V,W$ について成り立ち、$(X^0,X^1)$ が $U$ の正則局所座標となるとき、これを局所特殊周期座標とする。さらに $\Pi$ が倍率 $\lambda$ に対して $\Pi\mapsto\lambda\Pi$ と変わる場合を同次な周期錐とする。
+> 複素二次元の小さな領域 $U$ 上の正則写像 $\Pi:U\to\mathbb C^4$ を成分 $(X^0,X^1,F_0,F_1)$ で表す。上記の非退化交代形式 $\mathsf Q$ について、すべての接ベクトル $V,W$ に対して次を仮定する。
+
+$
+\mathsf Q(d\Pi(V),d\Pi(W))=0.
+$
+
+> さらに $(X^0,X^1)$ が $U$ の正則局所座標となるとき、これを局所特殊周期座標とする。$\Pi$ が倍率 $\lambda$ に対して $\Pi\mapsto\lambda\Pi$ と変わる場合を同次な周期錐とする。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir2-08-special-period-chart -->
@@ -265,7 +271,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（平坦座標での局所prepotential）**  
-> $u$ を切断した穿孔円板上の対数座標、$q=e^u$ とする。正則な三次結合 $K(q)=\kappa+\sum_{d\ge1}k_dq^d$ に対し、三階微分方程式 $f'''(u)=K(e^u)$ を満たす局所正則関数 $f$ を、平坦座標 $u$ におけるprepotentialと呼ぶ。周期の同次prepotentialと対応させる場合は、さらに第4節の特殊座標・交代形式の規格化を仮定する。
+> $u$ を切断した穿孔円板上の対数座標、$q=e^u$ とする。原点近傍で正則な三次結合を次の形とする。
+
+$
+K(q)=\kappa+\sum_{d\ge1}k_dq^d.
+$
+
+> 次の三階微分方程式を満たす局所正則関数 $f$ を、平坦座標 $u$ におけるprepotentialと呼ぶ。
+
+$
+f'''(u)=K(e^u).
+$
+
+> 周期の同次prepotentialと対応させる場合は、さらに第4節の特殊座標・交代形式の規格化を仮定する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-mir2-08-flat-prepotential -->
