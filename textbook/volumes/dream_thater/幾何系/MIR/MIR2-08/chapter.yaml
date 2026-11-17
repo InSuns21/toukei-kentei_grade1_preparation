@@ -1,0 +1,50 @@
+id: "MIR2-08"
+title: "特殊幾何とprepotential"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-08
+  - MIR1-14
+  - MIR1-15
+  - MIR1-16
+  - MIR2-05
+  - MIR2-07
+learning_objectives:
+  - 周期錐の接空間の交代形式に関する直交性と局所座標の非退化性を直接例で検証できる
+  - 混合偏微分の対称性から局所prepotentialを構成し同次次数2を証明できる
+  - 周期比sと同次prepotentialから二つの双対周期を連鎖律で復元できる
+  - 規格化周期の三次結合がprepotentialの三階微分になる符号と四階微分の相殺を検算できる
+  - u_Bとt_Bの三乗Jacobianを区別し古典三次交叉数5の規格化を説明できる
+  - B側Yukawaの係数をdの三乗で割って積分しquinticの一次・二次係数を導ける
+  - prepotentialの二次不定性と対称シンプレクティック変換の対応を証明できる
+  - 周期基底の規格化とミラー定理によるA/B同一視が別入力であることを説明できる
+definitions:
+  - { id: MIR2-08-DEF-01, name: "特殊幾何の局所周期座標" }
+  - { id: MIR2-08-DEF-02, name: "平坦座標での局所prepotential" }
+theorems:
+  - { id: MIR2-08-THM-01, name: "局所prepotentialの存在" }
+  - { id: MIR2-08-PROP-01, name: "同次prepotentialと周期成分" }
+  - { id: MIR2-08-PROP-02, name: "三次結合からprepotentialを復元する公式" }
+  - { id: MIR2-08-PROP-03, name: "二次不定性とシンプレクティックな周期のずれ" }
+canonical_examples:
+  - 二次元の線形周期錐で座標性と直交条件を直接確認
+  - 混合偏微分が一致しない場合のprepotential不存在
+  - 5s³/6から四本の周期と三次結合5を再構成
+  - 5+6q+16q²の三回積分と次数二の八分の一
+  - quintic B側の2875と4876875/8を規格化条件つきで導出
+  - 二次式の追加と対数座標シフトの作用の違い
+problem_patterns:
+  - MIR2-08-SPECIAL-CHART
+  - MIR2-08-HOMOGENEOUS-DERIVATIVES
+  - MIR2-08-CUBIC-SIGN
+  - MIR2-08-EXPONENTIAL-INTEGRATION
+  - MIR2-08-QUADRATIC-SHIFT
+  - MIR2-08-NONCLOSED-COUNTEREXAMPLE
+  - MIR2-08-SYMPLECTIC-SHEAR
+  - MIR2-08-QUINTIC-COEFFICIENTS
+  - MIR2-08-LOG-SHIFT
+  - MIR2-08-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 5 }
