@@ -444,6 +444,53 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL10 shader diagnostics and sandbox disposal: PASS');
 
+  // WGL11: real GPU shadow-depth pass, four probe pixels, editable bias and
+  // FRAGMENT syntax errors. The CPU oracle uses ray/AABB, not sampled depth.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL11'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.DEPTH_COMPONENT24")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  const wgl11=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl11.rows.length,4);
+  assert.ok(wgl11.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl11.sandbox,'allow-scripts');
+  assert.deepEqual(wgl11.rows.map(row=>row[2]),[
+    '0, 0, 0, 255','255, 255, 255, 255',
+    '255, 255, 255, 255','255, 255, 255, 255'
+  ]);
+  assert.match(wgl11.log,/FRAMEBUFFER_COMPLETE; DEPTH_COMPONENT24 256x256/);
+  assert.match(wgl11.log,/PROBES: GPU visibility x4/);
+  assert.match(wgl11.log,/GL error: 0x0/);
+  const shot11=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl11-initial.png',Buffer.from(shot11.data,'base64'));
+  console.log('WGL11 depth-only FBO, shadow comparison and 4 GPU/CPU rays: PASS');
+
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const depthBias = 0.002;', 'const depthBias = 0.30;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  const highBias=await evalJS('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent');
+  assert.equal(highBias,'255, 255, 255, 255',
+    'excessive bias should erase the occlusion of the first receiver');
+  assert.notEqual(highBias,wgl11.rows[0][2]);
+  console.log('WGL11 excessive depth bias produces false light on shadow receiver: PASS');
+
+  await click('reset');
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const shadowResolution = 256;', 'const shadowResolution = 64;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/DEPTH_COMPONENT24 64x64/);
+  console.log('WGL11 shadow-map resolution is editable without FBO incompleteness: PASS');
+
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL11 shader error, reset and opaque sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
