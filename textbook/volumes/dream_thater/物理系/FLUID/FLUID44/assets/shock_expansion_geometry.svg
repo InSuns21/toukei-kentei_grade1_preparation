@@ -20,8 +20,8 @@
     </g>
     <path d="M223 245 A48 48 0 0 0 202 205" fill="none" stroke="#575757" stroke-width="1.6"/>
     <text x="228" y="209" font-size="17" fill="#222">β</text>
-    <text x="46" y="104" font-size="16" fill="#222">M₁</text>
-    <text x="349" y="104" font-size="16" fill="#222">M₂</text>
+    <text x="46" y="104" font-size="16" fill="#222">M1</text>
+    <text x="349" y="104" font-size="16" fill="#222">M2</text>
     <path d="M175 245 H264" stroke="#777" stroke-width="1.1" stroke-dasharray="4 4" fill="none"/>
     <path d="M238 245 A63 63 0 0 0 237 233" stroke="#575757" stroke-width="1.5" fill="none"/>
     <text x="239" y="265" font-size="16" fill="#222">θ</text>
@@ -40,8 +40,8 @@
       <path d="M470 117 H574"/>
     </g>
     <path d="M745 163 L833 180" fill="none" stroke="#286b54" stroke-width="3.4" marker-end="url(#arrow-out)"/>
-    <text x="489" y="98" font-size="16" fill="#222">M₁</text>
-    <text x="783" y="149" font-size="16" fill="#222">M₂</text>
+    <text x="489" y="98" font-size="16" fill="#222">M1</text>
+    <text x="783" y="149" font-size="16" fill="#222">M2</text>
     <path d="M599 201 H680" stroke="#777" stroke-width="1.1" stroke-dasharray="4 4" fill="none"/>
     <path d="M665 201 A66 66 0 0 1 664 213" stroke="#575757" stroke-width="1.5" fill="none"/>
     <text x="674" y="234" font-size="16" fill="#222">θ</text>
