@@ -52,9 +52,9 @@ $$
 <!-- definition-example-start: def-u3-66-discrete-state -->
 **定義の確認**（直接例）：$T=Q=2$、$Z=\{G,B\}$ とし、行・列をともに $G,B$ の順に並べた状態推移行列を
 
-$
+$$
 P=\begin{pmatrix}3/4&1/4\\1/2&1/2\end{pmatrix}
-$
+$$
 
 とします。第1行は「今 $G$ なら次は $G$ が $3/4$、$B$ が $1/4$」という条件付き確率です。全成分は非負で、行和は $3/4+1/4=1$ と $1/2+1/2=1$ なので、定義の推移確率の条件を満たします。
 
@@ -258,19 +258,19 @@ $$
 
 [HJC5 の Itô 公式に基づく生成作用素](../../../解析系/HJC/HJC5/index.md#def-hjc5-controlled-generator)へ代入する前に、二階項の元を確認します。$Z_i$ の Brown 係数は $\Sigma$ の第 $i$ 行なので、$W$ の成分を $W_k$ と書けば
 
-$
+$$
 d[Z_i,Z_j]_s=\sum_{k=1}^{m}\Sigma_{ik}(Z_s)\Sigma_{jk}(Z_s)\,ds,
 \qquad
 d[X,Z_i]_s=d[X,X]_s=0.
-$
+$$
 
 ここで $[Z_i,Z_j]$ は二つの状態成分の二次共変動、$[X,X]$ は在庫の二次変動を表します。最後の等式は $dX=-u\,ds$ が時間積分だけで変化する有限変動過程であり、Brown 項を持たないためです。したがって滑らかな $\phi$ の Itô 展開では、時間微分・各座標の一次項のほかに、$z_i,z_j$ の二階微分だけが現れます。行列で書くとドリフトと共分散率は
 
-$
+$$
 B^u(x,z)=\begin{pmatrix}-u\\b(z)\end{pmatrix},
 \qquad
 A(x,z)=\begin{pmatrix}0&0\\0&\Sigma(z)\Sigma(z)^{\mathsf T}\end{pmatrix}.
-$
+$$
 
 ここで $B^u$ は4次元ベクトル、$A$ は $4\times4$ 行列です。右上の $0$ は $1\times3$、左下の $0$ は $3\times1$、右下の $\Sigma\Sigma^{\mathsf T}$ は $3\times3$ です。この配置が在庫方向の二階項と混合二階項を消す理由です。よって $\phi(t,x,z)$ の生成作用素は
 
@@ -421,7 +421,7 @@ $$
 
 よって方程式を満たします。最適速度を $\dot X_s=-A(s)X_s/\eta$ に入れます。まず $x>0$、$t\le s<T$ として、$X_s>0$ の範囲だけで $\log X_s$ を微分します。$\kappa>0$ と $T-s>0$ から $\sinh(\kappa(T-s))>0$ でもあるため、連鎖律で
 
-$
+$$
 \begin{aligned}
 \frac{d}{ds}\log X_s
 &=\frac{\dot X_s}{X_s}=-\kappa\coth(\kappa(T-s)),\\
@@ -429,14 +429,14 @@ $
 &=\frac{-\kappa\cosh(\kappa(T-s))}{\sinh(\kappa(T-s))}
 =-\kappa\coth(\kappa(T-s)).
 \end{aligned}
-$
+$$
 
 両辺を $t$ から $s$ まで積分して初期条件 $X_t=x$ を使うと
 
-$
+$$
 \log\frac{X_s}{x}
 =\log\frac{\sinh(\kappa(T-s))}{\sinh(\kappa(T-t))}
-$
+$$
 
 となり、表示した $X_s^*$ を得ます。微分して速度式を得、$\sinh$ の正値性・単調性から $u_s^*\ge0$ と、$s\uparrow T$ での連続性から $X_T^*=0$ を確認します。$x=0$ では対数を取らず、非負・非増加の在庫は恒等的に0です。$k=0$ では $A(t)=\eta/(T-t)$ が $A'=A^2/\eta$ を満たすため、$u^*=X/(T-t)$、積分して直線清算を得ます。
 
