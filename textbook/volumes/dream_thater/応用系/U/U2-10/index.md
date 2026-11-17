@@ -14,9 +14,9 @@
 
 [測距・方位の観測 Jacobi 行列](../U2-08/index.md#prop-u2-08-observation-jacobian)では、姿勢 $g=(x,y,\theta)^T$ の3成分を列方向、距離・方位の2成分を行方向に並べます。一般には $H_t\in\mathbb R^{k\times n}$ で、状態誤差 $e_t^-\in\mathbb R^n$ を掛けた観測の第 $i$ 成分の一次変化は
 
-$
+$$
 (H_te_t^-)_i=\sum_{j=1}^n(H_t)_{ij}(e_t^-)_j
-$
+$$
 
 です。この予測点の近傍で
 
