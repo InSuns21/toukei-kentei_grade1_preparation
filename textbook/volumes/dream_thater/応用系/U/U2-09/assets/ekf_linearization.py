@@ -48,8 +48,11 @@ def eye(n):
 def inverse2(a):
     assert len(a) == 2 and len(a[0]) == 2
     determinant = a[0][0] * a[1][1] - a[0][1] * a[1][0]
-    if determinant <= 0:
-        raise ValueError("innovation covariance is not positive definite")
+    # Sylvester criterion for a symmetric 2x2 covariance:
+    # a[0][0] > 0 and determinant > 0.
+    if (not math.isclose(a[0][1], a[1][0], abs_tol=1e-12)
+            or a[0][0] <= 0 or determinant <= 0):
+        raise ValueError("innovation covariance is not symmetric positive definite")
     return [[a[1][1] / determinant, -a[0][1] / determinant],
             [-a[1][0] / determinant, a[0][0] / determinant]]
 
@@ -175,6 +178,14 @@ def self_test():
     assert maxdiff(joseph, reduction) < 1e-12
     assert maxdiff(joseph, transpose(joseph)) < 1e-12
     assert maxdiff(matmul(s, inverse2(s)), eye(2)) < 1e-12
+    # Positive determinant alone does not imply positive definiteness.
+    for bad in ([[ -2.0, 0.0], [0.0, -1.0]],
+                [[1.0, 2.0], [0.0, 1.0]]):
+        try:
+            inverse2(bad)
+            raise AssertionError("invalid covariance should fail")
+        except ValueError:
+            pass
     assert nu[0] > 0 and nu[1] > 0 and k[0][0] < 0
     close(wrap(math.radians(-179) - math.radians(179)),
           math.radians(2))
