@@ -24,8 +24,8 @@ def _validate(grid, speed, cfl, final_time, boundary, case, base, amplitude):
         raise ValueError("cfl must be in (0, 1]")
     if not (0 < final_time <= 1):
         raise ValueError("time must be in (0, 1] s")
-    if not (base > amplitude > 0):
-        raise ValueError("require base > amplitude > 0 for positive density")
+    if not (base > amplitude >= 0):
+        raise ValueError("require base > amplitude >= 0 for nonnegative sine amplitude")
     if boundary not in ("periodic", "open"):
         raise ValueError("unsupported boundary")
     if case not in ("sine", "pulse"):
@@ -181,6 +181,13 @@ def self_test():
     # period is summed over all cells.
     assert abs(same["initial_mass_kg"] - 1.0) < 1e-13
     tests.append("exact cell integral: sine mean equals base")
+    constant = compute(grid=32, amplitude=0.0, base=1.0)
+    # A constant state has identical fluxes at every face, so no update.
+    assert all(abs(y - 1.0) < 1e-13
+               for _, y in constant["plots"][0]["series"][1]["points"])
+    assert constant["cell_average_l1_error_kg"] < 1e-13
+    assert abs(constant["global_mass_balance_residual_kg"]) < 1e-13
+    tests.append("constant state: no change and zero cell error")
     pulse_dx = 1.0 / 64
     for j in range(64):
         start = _exact_cell_average(j, 0.0, pulse_dx, 2.0, "pulse", 1.0, 0.3)

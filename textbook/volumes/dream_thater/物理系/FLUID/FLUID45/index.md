@@ -6,7 +6,7 @@
 
 ## 0. 方程式と物理量を固定する
 
-長さ $L>0$ の区間 $0\leq x<L$ を考え、一定の速度 $a>0$ [m/s] で運ばれる量の体積密度 $q(x,t)$ [kg/m] を考える（断面積1に積分した線密度としてもよい）。したがって $q\,dx$ の単位は kg、フラックス $f(q)=aq$ は kg/s である。流入や生成・消滅のない区間内部では
+長さ $L>0$ の区間 $0\leq x<L$ を考え、一定の速度 $a>0$ [m/s] で運ばれる質量の**線密度** $q(x,t)$ [kg/m] を考える。三次元の体積密度 [kg/m$^3$] を断面積 [m$^2$] にわたって積分すると得られる、単位長さ当たりの質量である。したがって $q\,dx$ の単位は kg、フラックス $f(q)=aq$ は kg/s である。流入や生成・消滅のない区間内部では
 
 $$
 \partial_t q+\partial_x f(q)=0,\qquad f(q)=aq,\qquad 0<x<L,\quad t>0.
@@ -14,7 +14,7 @@ $$
 
 $0$ と $L$ を同一視する**周期境界**では $q(0,t)=q(L,t)$ と置く。開放区間では正速度 $a>0$ のため、左端 $x=0$ に流入値 $q_{\rm in}(t)$ を与え、右端 $x=L$ には追加の流入値を指定しない。本講は一定格子上の一次精度更新を扱い、非線形Euler系の数値流束を直接実装するものではない。
 
-滑らかな $q$ を固定区間 $[x_\ell,x_r]$ で積分し、微分と積分を交換してから微積分学の基本定理を適用する：
+滑らかな $q$ を固定区間 $[x_\ell,x_r]$ で積分する。$\partial_tq$ は位置 $x$ を固定した時間微分、$\partial_x f(q)$ は時刻 $t$ を固定した空間微分であり、$d/dt$ は両端 $x_\ell,x_r$ を固定した積分値の時間微分である。この条件の下で微分と積分を交換し、$x$ に関する定積分へ[微積分学の基本定理II](../../../基礎科目/RA/RA4/index.md#thm-ra4-ftc2)を適用する：
 
 $$
 \frac{d}{dt}\int_{x_\ell}^{x_r}q(x,t)\,dx
@@ -42,7 +42,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid45-cell-average -->
-**定義の確認**：$L=1$ m、$N=2$ で $q(x,0)=2x$ kg/m² とする（$x$ は m で測る）。各セルは幅 $h=1/2$ m であり、
+**定義の確認**：$L=1$ m、$N=2$ で $q(x,0)=(2\ {\rm kg/m^2})x$ とする（以下の積分計算では長さを m 単位の数値で代入する）。各セルは幅 $h=1/2$ m であり、
 $$
 \bar q_0(0)=2\int_0^{1/2}2x\,dx=\frac12\ {\rm kg/m},
 \qquad
@@ -101,7 +101,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid45-numerical-flux -->
-**定義の確認**：二つの隣接セル $I_j,I_{j+1}$ を考え、共通面の流束が $F_{j+1/2}^n=3$ kg/s、刻みが $\Delta t_n=0.1$ s なら、**この面だけによる**セル $j$ の質量変化は $-0.3$ kg、セル $j+1$ は $+0.3$ kg となる。別々の流束を使えば相殺が壊れる。面の数は周期格子で $N$ 個、開放格子で $N+1$ 個であり、同じ内部面を二度生成しない。
+**定義の確認**：二つの隣接セル $I_j,I_{j+1}$ を考え、共通面の流束が $F_{j+1/2}^n=3$ kg/s、刻みが $\Delta t_n=0.1$ s とする。更新式を $h$ 倍すれば $hQ_j$ は質量なので、**この共通面だけによる**両セルの質量変化は
+
+$$
+-\Delta t_nF_{j+1/2}^n=-0.1\times3=-0.3\ {\rm kg},\qquad
++\Delta t_nF_{j+1/2}^n=+0.3\ {\rm kg}
+$$
+
+となる。別々の流束を使えば相殺が壊れる。面の数は周期格子で $N$ 個、開放格子で $N+1$ 個であり、同じ内部面を二度生成しない。
 <!-- definition-example-end -->
 
 ![三つの有限体積セル。隣り合うセルが面フラックスを一つだけ共有し、右向き正の流入・流出として扱う。](assets/finite_volume_faces.svg)
@@ -185,7 +192,7 @@ Q_j^{n+1}=Q_j^n-\frac{a\Delta t}{h}(Q_j^n-Q_{j-1}^n)
 =(1-\lambda)Q_j^n+\lambda Q_{j-1}^n.
 $$
 
-$0\leq\lambda\leq1$ では $1-\lambda\geq0,\lambda\geq0$ かつ係数の和は1である。従って $m=\min_kQ_k^n$、$M=\max_kQ_k^n$ とすれば $m\leq Q_j^{n+1}\leq M$。特に $m\geq0$ なら $Q_j^{n+1}\geq0$。周期境界における全量保存は[離散総量保存定理](#thm-fluid45-global-balance)から同時に従う。
+$0\leq\lambda\leq1$ では $1-\lambda\geq0,\lambda\geq0$ かつ係数の和は1である。従って $Q_{\min}=\min_kQ_k^n$、$Q_{\max}=\max_kQ_k^n$ とすれば $Q_{\min}\leq Q_j^{n+1}\leq Q_{\max}$。特に $Q_{\min}\geq0$ なら $Q_j^{n+1}\geq0$。周期境界における全量保存は[離散総量保存定理](#thm-fluid45-global-balance)から同時に従う。
 <!-- proof-end -->
 
 ### 手で一歩だけ追う
@@ -224,7 +231,16 @@ $$
 q(x,0)=b+A\sin(2\pi x/L),\qquad b>|A|>0
 $$
 
-とする。正確な解は $q(x,t)=b+A\sin(2\pi(x-at)/L)$ である。これは $\partial_tq=-a\partial_xq$ を直接代入して確かめられる。セル中心 $x_j=(j+1/2)h$ とすると、[セル平均の定義](#def-fluid45-cell-average)から正確な比較対象は
+とする。$b,A$ はともに kg/m の単位を持つ。正確な解は $q(x,t)=b+A\sin(2\pi(x-at)/L)$ である。実際、$x$ と $t$ をそれぞれ固定して偏微分すると
+
+$$
+\begin{aligned}
+\partial_tq&=-\frac{2\pi aA}{L}\cos\frac{2\pi(x-at)}L,\\
+\partial_x f(q)&=a\partial_xq=+\frac{2\pi aA}{L}\cos\frac{2\pi(x-at)}L,
+\end{aligned}
+$$
+
+となり、二項の和は零である。セル中心 $x_j=(j+1/2)h$ とすると、[セル平均の定義](#def-fluid45-cell-average)から正確な比較対象は
 
 $$
 \begin{aligned}
@@ -236,7 +252,18 @@ $$
 \end{aligned}
 $$
 
-積分で $x$ の両端の余弦の差を取り、$\cos(C-D)-\cos(C+D)=2\sin C\sin D$ を使った。**点での解析値をセル平均と誤認しない**ための係数 $\sin(\pi h/L)/(\pi h/L)$ が現れる。
+積分の中間式も確認する。$\theta_j=2\pi(x_j-at)/L$、$\delta=\pi h/L$ とおけば、両端が $x_j\mp h/2$ であることから
+
+$$
+\begin{aligned}
+\frac1h\int_{jh}^{(j+1)h}\sin\frac{2\pi(x-at)}L\,dx
+&=\frac{L}{2\pi h}\bigl[\cos(\theta_j-\delta)-\cos(\theta_j+\delta)\bigr]\\
+&=\frac{L}{\pi h}\sin\theta_j\sin\delta
+=\frac{\sin\delta}{\delta}\sin\theta_j.
+\end{aligned}
+$$
+
+ここで $\cos(C-D)-\cos(C+D)=2\sin C\sin D$ を使った。**点での解析値をセル平均と誤認しない**ための係数 $\sin(\pi h/L)/(\pi h/L)$ が現れる。
 
 時刻 $T$ に $L^1$ 型のセル平均誤差を
 
@@ -260,10 +287,11 @@ $$
 # lab-preset: 周期・矩形パルス | --grid 80 --case pulse --boundary periodic --time 0.4 --cfl 0.8
 # lab-preset: 流入出境界の収支 | --grid 60 --case sine --boundary open --time 0.4 --cfl 0.8
 # lab-preset: 速度と刻みを変更 | --grid 64 --case sine --boundary periodic --time 0.3 --speed 1.5 --cfl 0.5
+# lab-preset: 一定解・誤差ゼロの確認 | --grid 40 --case sine --boundary periodic --time 0.4 --amplitude 0
 # lab-preset: Python内蔵の保存則テスト | --self-test
 <!-- python-file-lab-end -->
 
-初回は Pyodide の公開実行環境の取得が必要な場合がある。Pythonソースは「Pythonソース」タブからページ内で読める。各出力の質量の単位は kg、時刻は s、セル値は kg/m、速度は m/s、誤差 $E_1$ は kg である。**保存残差の小ささと、解析解に対する誤差の小ささは別々に確認**すること。CLIからは同一ファイルに引数 --self-test を渡すと、周期保存、開放境界収支、非負性、一定解、正弦波格子細分、入力検証を実行する。
+初回は Pyodide の公開実行環境の取得が必要な場合がある。Pythonソースは「Pythonソース」タブからページ内で読める。各出力の質量の単位は kg、時刻は s、セル値は kg/m、速度は m/s、誤差 $E_1$ は kg である。**保存残差の小ささと、解析解に対する誤差の小ささは別々に確認**すること。CLIからは同一ファイルに引数 `--self-test` を渡すと、周期保存、開放境界収支、非負性、一定解、正弦波格子細分、入力検証を実行する。
 
 ## 6. 演習：自力でフラックスの相殺を再構成する
 
@@ -277,7 +305,18 @@ $N=4$、正速度の風上法で $\lambda=1/2$、旧値 $(1,2,0,1)$ とする。
 <!-- solution-start -->
 #### 詳細解答
 
-[風上更新](#prop-fluid45-upwind-positivity)より $Q_j^{n+1}=(Q_j^n+Q_{j-1}^n)/2$ である。周期添字から $Q_{-1}=Q_3=1$。順に $Q_0'=1$、$Q_1'=(2+1)/2=1.5$、$Q_2'=(0+2)/2=1$、$Q_3'=(1+0)/2=0.5$。旧総和は4、新総和も4なので、任意の $h>0$ に対して総量 $h\sum_jQ_j$ は変わらない。
+[風上更新](#prop-fluid45-upwind-positivity)より $Q_j^{n+1}=(Q_j^n+Q_{j-1}^n)/2$ である。周期添字から $Q_{-1}^n=Q_3^n=1$。各セルで左隣の旧値を用いて
+
+$$
+\begin{aligned}
+Q_0^{n+1}&=(1+1)/2=1,\\
+Q_1^{n+1}&=(2+1)/2=1.5,\\
+Q_2^{n+1}&=(0+2)/2=1,\\
+Q_3^{n+1}&=(1+0)/2=0.5.
+\end{aligned}
+$$
+
+旧総和は4、新総和も4なので、任意の $h>0$ に対して総量 $h\sum_jQ_j$ は変わらない。
 <!-- solution-end -->
 
 #### A2. 流束の符号
@@ -294,12 +333,21 @@ $[x_\ell,x_r]$ で左端の物理流束が $4$ kg/s、右端が $7$ kg/s の状�
 #### A3. セル平均を点値と区別する
 - Level: A
 
-$L=1$、$q(x)=2x$、$N=2$ とする。二つのセル平均と全積分をそれぞれ求めよ。左端点での値と比較せよ。
+$L=1$ m、$q(x)=(2\ {\rm kg/m^2})x$、$N=2$ とする。二つのセル平均と全積分をそれぞれ求めよ。左端点での値と比較せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$h=1/2$。[セル平均](#def-fluid45-cell-average)に代入して $\bar q_0=2\int_0^{1/2}2x\,dx=1/2$、$\bar q_1=2\int_{1/2}^1 2x\,dx=3/2$。従って全積分は $h(\bar q_0+\bar q_1)=1$。左端点値は $q(0)=0,q(1/2)=1$ であり平均と異なる。たとえば点値を機械的に足した $h(0+1)=1/2$ は真の全積分1に一致しない。
+$h=1/2$ m。[セル平均](#def-fluid45-cell-average)に代入する。以下、長さは m 単位の数値を用いると
+
+$$
+\begin{aligned}
+\bar q_0&=2\int_0^{1/2}2x\,dx=\frac12\ {\rm kg/m},\\
+\bar q_1&=2\int_{1/2}^1 2x\,dx=\frac32\ {\rm kg/m}.
+\end{aligned}
+$$
+
+従って全積分は $h(\bar q_0+\bar q_1)=1$ kg。左端点値は $q(0)=0$、$q(1/2)=1$ kg/m であり平均と異なる。たとえば点値を機械的に足した $h(0+1)=1/2$ kg は真の全積分1 kg に一致しない。
 <!-- solution-end -->
 
 #### A4. 刻みを大きくすると何が壊れるか
@@ -310,7 +358,14 @@ $a=2$ m/s、$h=0.1$ m で $\Delta t=0.04$ s と $0.06$ s の $\lambda$ を計算
 <!-- solution-start -->
 #### 詳細解答
 
-$\lambda=a\Delta t/h$ だから $\lambda_1=2(0.04)/0.1=0.8$、$\lambda_2=2(0.06)/0.1=1.2$。風上更新式は $Q_j^{n+1}=(1-\lambda)\cdot1+\lambda\cdot0=1-\lambda$。従って $0.2$ と $-0.2$ を得る。前者は非負の重み付き平均、後者は非負初期値から負値を作るので[非負性命題](#prop-fluid45-upwind-positivity)の仮定が重要である。周期総量保存は後者でも代数的には成立し得る。
+$\lambda=a\Delta t/h$ に数値を代入すると
+
+$$
+\lambda_1=\frac{2(0.04)}{0.1}=0.8,\qquad
+\lambda_2=\frac{2(0.06)}{0.1}=1.2.
+$$
+
+[風上更新](#prop-fluid45-upwind-positivity)では $Q_j^{n+1}=(1-\lambda)\cdot1+\lambda\cdot0=1-\lambda$ だから、新値は順に $0.2$ と $-0.2$ kg/m となる。前者は非負の重み付き平均、後者は非負初期値から負値を作るので[非負性命題](#prop-fluid45-upwind-positivity)の仮定が重要である。周期総量保存は後者でも代数的には成立し得る。
 <!-- solution-end -->
 
 ### Level B
@@ -358,20 +413,34 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-第0セルの右面は $a(0+1)/2=a/2$、左面（第2セルとの共通面）は $a(0+0)/2=0$。よって更新すると $Q_0'=0-\Delta t(a/2)/h=-\lambda/2<0$。しかし流束は各面で単一の値として隣接セルの式に現れるので、[離散総量保存の証明](#thm-fluid45-global-balance)がそのまま使え、$\sum_j Q_j'=\sum_jQ_j=1$ となる。失われたのは**各セル値の非負性**であり、総質量保存ではない。風上で得られた非負の重み付き平均という構造を中心流束は持たない。
+第0セルの右面と左面（第2セルとの共通面）の数値流束は
+
+$$
+F_{1/2}=\frac a2(0+1)=\frac a2,\qquad
+F_{-1/2}=\frac a2(0+0)=0.
+$$
+
+よって[有限体積更新](#def-fluid45-numerical-flux)に入れれば
+
+$$
+Q_0'=0-\frac{\Delta t}{h}\left(\frac a2-0\right)
+=-\frac\lambda2<0
+$$
+
+となる。しかし流束は各面で単一の値として隣接セルの式に現れるので、[離散総量保存の証明](#thm-fluid45-global-balance)がそのまま使え、$\sum_j Q_j'=\sum_jQ_j=1$ となる。失われたのは**各セル値の非負性**であり、総質量保存ではない。風上で得られた非負の重み付き平均という構造を中心流束は持たない。
 <!-- solution-end -->
 
 #### B4. 解析的セル平均と誤差の単位
 - Level: B
 
-$L=1$ m、$N=4$、$q(x,0)=1+0.2\sin(2\pi x)$ kg/m とする。第0セルの正確な平均と中心点値を比較し、$E_1=h\sum_j|Q_j-\bar q_j|$ の単位を述べよ。
+$L=1$ m、$N=4$、$q(x,0)=[1+0.2\sin(2\pi x/L)]\ {\rm kg/m}$ とする。第0セルの正確な平均と中心点値を比較し、$E_1=h\sum_j|Q_j-\bar q_j|$ の単位を述べよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$h=1/4$、$x_0=1/8$。[正弦波セル平均](#def-fluid45-cell-average)の積分を直接行えば
+$h=1/4$、$x_0=1/8$。[セル平均の定義](#def-fluid45-cell-average)に正弦波を代入して積分すれば
 $$
-\bar q_0=\frac1h\int_0^{1/4}(1+0.2\sin2\pi x)dx
+\bar q_0=\frac1h\int_0^{1/4}(1+0.2\sin(2\pi x/L))dx
 =1+\frac{0.2}{(1/4)}\frac{1-\cos(\pi/2)}{2\pi}
 =1+\frac{0.4}{\pi}.
 $$
