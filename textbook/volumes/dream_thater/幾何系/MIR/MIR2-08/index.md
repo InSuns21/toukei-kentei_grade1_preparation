@@ -166,7 +166,30 @@ $$
 \mathscr F(X):=\int_{\gamma_X}(F_0\,dX^0+F_1\,dX^1)
 $$
 
-と置く。$d\alpha=0$ であり、$U$ が単連結なので、二つの経路の差が作る閉曲線は零へ縮められる。そのホモトピーにStokesの定理を適用すると積分差は零となり、$\mathscr F$ は経路によらない。
+と置く。ここで経路独立性も計算で確かめよう。$U$ は単連結なので、同じ端点を持つ二経路を端点固定の区分的に滑らかなホモトピー $\Gamma(s,t)$（$0\le s,t\le1$）で結べる。$\Gamma(0,t)=X_*$、$\Gamma(1,t)=X$ であり、$s$ は経路上の位置、$t$ は経路の変形パラメータである。$\Gamma=(\Gamma^0,\Gamma^1)$ として
+
+$$
+I(t):=\int_0^1\sum_{I=0}^1
+F_I(\Gamma(s,t))\,\partial_s\Gamma^I(s,t)\,ds
+$$
+
+を微分する。積の微分と連鎖律を適用し、$\partial_JF_I=\partial_IF_J$ を使うと
+
+$$
+\begin{aligned}
+I'(t)
+&=\int_0^1\left(
+\sum_{I,J}(\partial_JF_I)(\Gamma)\,
+\partial_t\Gamma^J\,\partial_s\Gamma^I
++\sum_I F_I(\Gamma)\,\partial_{st}\Gamma^I
+\right)ds\\
+&=\int_0^1\partial_s
+\left(\sum_JF_J(\Gamma)\,\partial_t\Gamma^J\right)ds\\
+&=\left[\sum_JF_J(\Gamma)\,\partial_t\Gamma^J\right]_{s=0}^{s=1}=0.
+\end{aligned}
+$$
+
+最後は両端点が $t$ に依存しないため $\partial_t\Gamma(0,t)=\partial_t\Gamma(1,t)=0$ とした。従って $I(0)=I(1)$ であり、$\mathscr F$ は経路によらない。
 
 $X$ の近傍で第 $J$ 座標だけ $h$ 動かす線分を経路の末尾に追加すれば
 
