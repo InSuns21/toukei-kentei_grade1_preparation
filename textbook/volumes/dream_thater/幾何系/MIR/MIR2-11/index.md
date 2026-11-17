@@ -21,7 +21,7 @@ $$
 H_T^*(M;\mathbb Q)=H^*((ET\times M)/T;\mathbb Q)
 $$
 
-> と定める。点に対して $H_T^*(\mathrm{pt};\mathbb Q)=H^*(BT;\mathbb Q)=\mathbb Q[\lambda]$、$\deg_{\mathbb R}\lambda=2$ である。一次元表現 $t\cdot v=t^m v$ の第一等変Chern類（重み）は $m\lambda$ と約束する。一般のトーラス $T=(\mathbb C^\times)^r$ では、各座標の重みを $\lambda_1,\ldots,\lambda_r$ と書く。
+> と定める。点に対して $H_T^*(\mathrm{pt};\mathbb Q)=H^*(BT;\mathbb Q)=\mathbb Q[\lambda]$、$\deg_{\mathbb R}\lambda=2$ である。整数 $m$ に対する一次元表現 $t\cdot v=t^m v$ の第一等変Chern類（重み）は $m\lambda$ と約束する。ここで $t^m$ はトーラスの文字（作用の仕方）で、$m\lambda$ はその文字に対応する次数2のコホモロジー類である。一般のトーラス $T=(\mathbb C^\times)^r$ では、各座標の重みを $\lambda_1,\ldots,\lambda_r$ と書く。
 <!-- formal-statement-end -->
 
 **定義の確認**。 $M=\mathrm{pt}$ では $(ET\times\mathrm{pt})/T=BT$ だから、定義から $\mathbb Q[\lambda]$ が出る。$t\cdot v=t^2v$ は二乗表現なので重みは $2\lambda$、反対の表現 $t^{-1}v$ では $-\lambda$ になる。「点は動かない」ことと、「点上のベクトル（接方向・束の繊維）がどの重みで動くか」を区別する。
@@ -33,7 +33,7 @@ $$
 t\cdot[x:y]=[tx:y]
 $$
 
-と作用させる。固定点は $p_0=[0:1]$ と $p_\infty=[1:0]$ の二つだけである。$y\ne0$ の局所座標 $u=x/y$ は $u\mapsto tu$ だから $T_{p_0}\mathbb P^1$ の重みは $+\lambda$。$x\ne0$ の $v=y/x$ は $v\mapsto t^{-1}v$ だから $T_{p_\infty}\mathbb P^1$ の重みは $-\lambda$。対象の全固定点と二つの重みを座標から確認した。
+と作用させる。固定点は $p_0=[0:1]$ と $p_\infty=[1:0]$ の二つだけである。実際、$x,y\ne0$ の点がすべての $t\in T$ に対して $[tx:y]=[x:y]$ を満たすなら、第二成分から比例係数は1、第一成分から $t=1$ が必要となり、トーラス全体の固定点にはならない。$y\ne0$ の局所座標 $u=x/y$ は $u\mapsto tu$ だから $T_{p_0}\mathbb P^1$ の重みは $+\lambda$。$x\ne0$ の $v=y/x$ は $v\mapsto t^{-1}v$ だから $T_{p_\infty}\mathbb P^1$ の重みは $-\lambda$。対象の全固定点と二つの重みを座標から確認した。
 <!-- definition-example-end -->
 
 一般の滑らかなコンパクトな $T$ 多様体では、固定成分の正規方向の重みを分母として積分が分解される。これはAtiyah–Bott／Berline–Vergne（ABBV）局所化公式であり、ここでは**外部定理**として利用する。次の射影直線の場合には式を別に検算する。
@@ -160,7 +160,7 @@ $$
 $p_i$ のアフィン近傍で $z_j=x_j/x_i$（$j\ne i$）は独立な四座標である。$T$ の作用は各座標を $t_j/t_i$ 倍する。したがって $T_{p_i}\mathbb P^4$ は四つの一次元重み表現の直和であり、等変Euler類はその第一等変Chern類の積になる。$\square$
 <!-- proof-end -->
 
-**曲線は点だけでは表せない。** 安定写像 $f:C\to\mathbb P^4$ は、$T$ が標的に作用しても、必要なら定義域 $C$ の自己同型で補正して同じ安定写像を表す場合に「固定」となる。このため、像が座標点にとどまる成分と、二つの座標点を結ぶ座標直線を被覆する成分とが現れる。
+**曲線は点だけでは表せない。** [種数0の安定写像](../../GW/GW1-08/index.md#def-gw1-08-stable-map) $f:C\to\mathbb P^4$ は、$T$ が標的に作用しても、必要なら定義域 $C$ の自己同型で補正して同じ安定写像を表す場合に「固定」となる。このため、像が座標点にとどまる成分と、二つの座標点を結ぶ座標直線を被覆する成分とが現れる。
 
 ここで頂点に「行き先の座標点」、辺に「どの座標直線を何重に覆うか」を記録する。
 
@@ -186,7 +186,7 @@ $$
 f([u:v])=[u^2:v^2:0:0:0].
 $$
 
-標的の対角作用は定義域の再パラメータ化で補えるので、この安定写像は固定される。定数成分がないため、端点の二頂点を「二つの不安定な縮約成分」と解釈しない。
+$u^2,v^2$ は $\mathbb P^1$ 上で同時に零とならないので、この写像は全域で定義された次数2の正則写像である。標的の対角作用は定義域の再パラメータ化で補えるので、この安定写像は固定される。非定数成分なので、[安定写像の安定性条件](../../GW/GW1-08/index.md#def-gw1-08-stable-map)は三特殊点を要求しない。定数成分がないため、端点の二頂点を「二つの不安定な縮約成分」と解釈しない。
 <!-- definition-example-end -->
 
 なぜ木なのか。種数0の連結節点曲線で全成分が有理曲線なら、双対グラフの第一Betti数が全算術種数に寄与する。閉路があれば種数は正になってしまうからである。固定成分の積分では、実際に存在する安定な縮約頂点には $\overline{\mathcal M}_{0,n(v)}$ の積分が残る。これが「固定**点**だけの和」から「固定**グラフ**の和」への変化である。
@@ -202,7 +202,7 @@ $$
 f_d([u:v])=[u^d:v^d]
 $$
 
-> と表す。両端点を保ち $f_d$ と可換な定義域の自己同型がなす群は $\mu_d=\{\zeta\in\mathbb C^\times:\zeta^d=1\}$ で、位数は $d$ である。従って固定グラフのスタック積分には、この辺に由来する $1/d$ の自己同型係数が現れる（他のグラフ対称性とは区別する）。
+> と表す。両端点を保ち、$f_d\circ\phi=f_d$ を満たす定義域の自己同型 $\phi$ がなす群は $\mu_d=\{\zeta\in\mathbb C^\times:\zeta^d=1\}$ で、位数は $d$ である。従って固定グラフのスタック積分には、この辺に由来する $1/d$ の自己同型係数が現れる（他のグラフ対称性とは区別する）。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -272,7 +272,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各成分 $C_a\cong\mathbb P^1$ において $f^*\mathcal O(5)|_{C_a}\cong\mathcal O_{\mathbb P^1}(5d_a)$、$d_a\ge0$ である。従って $H^1(C_a,\mathcal O(5d_a))=0$、かつ任意の一点で切断の値を指定できる（定数切断でも十分）。
+各成分 $C_a\cong\mathbb P^1$ において $f^*\mathcal O(5)|_{C_a}\cong\mathcal O_{\mathbb P^1}(5d_a)$、$d_a\ge0$ である。[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)より $H^1(C_a,\mathcal O(5d_a))=0$ である。さらに任意の点 $q=[a:b]$ では、$a\ne0$ なら斉次切断 $u^{5d_a}$、$a=0$ なら $v^{5d_a}$ が $q$ で零でない。したがって切断評価 $H^0(C_a,\mathcal O(5d_a))\to\mathcal O(5d_a)|_q$ は全射であり、任意の繊維値を指定できる。
 
 成分が一つなら $H^1=0$、$h^0=5d+1$。複数のとき双対グラフは木だから葉の成分 $C_\ell$ があり、残りを $C'$ とすると $C=C'\cup C_\ell$ は一節点 $q$ で接合する。線束を $L=f^*\mathcal O(5)$ と略すと正規化の短完全列
 
@@ -282,7 +282,7 @@ $$
 \longrightarrow L|_q\longrightarrow0
 $$
 
-を得る。最後の写像は二つの節点値の差である。$L|_{C_\ell}$ の切断評価は全射だから、$H^0(C',L)\oplus H^0(C_\ell,L)\to L|_q$ も全射。帰納法で $H^1(C',L)=0$、また葉の $H^1$ も零なので、長完全列より $H^1(C,L)=0$。Euler標数は接合のたびに節点の一次元を引くから
+を得る。最後の写像は二つの節点値の差である。$L|_{C_\ell}$ の切断評価は全射だから、$H^0(C',L)\oplus H^0(C_\ell,L)\to L|_q$ も全射。帰納法で $H^1(C',L)=0$、また葉の $H^1$ も零なので、[層コホモロジーの長完全列](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-long-exact)で $H^1(C,L)=0$。Euler標数は接合のたびに節点の一次元を引くから
 
 $$
 \begin{aligned}
@@ -291,7 +291,7 @@ h^0(C,L)&=\sum_a(5d_a+1)-\#\{\text{節点}\}\\
 \end{aligned}
 $$
 
-$H^1$ の消滅と一定階数から、cohomology and base change によって $\pi_*L$ はベクトル束になる。最後に射影空間の種数0の安定写像の次元公式
+普遍曲線 $\pi$ は平坦かつ固有な曲線族であり、各繊維で $H^1=0$、$h^0=5d+1$ と一定である。この条件の下での **cohomology and base change 定理**（ここでは外部入力）により、$E_d=\pi_*L$ は階数 $5d+1$ の局所自由層、すなわちベクトル束になる。最後に[GW1-10 で示した凸標的に対する滑らかさと次元の結果](../../GW/GW1-10/index.md#thm-gw1-10-smooth-dimension)を射影空間に適用する。得られる次元の式
 
 $$
 (\dim_{\mathbb C}\mathbb P^4-3)+
@@ -299,7 +299,19 @@ $$
 =1+5d+k
 $$
 
-へ $k=0$ を代入する。射影空間では $T\mathbb P^4$ の大域生成性によって種数0の障害 $H^1(C,f^*T\mathbb P^4)$ も零である。よって期待次元は実際の滑らかなスタックの次元に一致する。$\square$
+へ $k=0$ を代入する。その障害消滅は、[Euler列による接束の表示](../MIR2-02/index.md#prop-mir2-02-c1-zero)を $f$ で引き戻した
+
+$$
+0\longrightarrow\mathcal O_C\longrightarrow(f^*\mathcal O(1))^{\oplus5}\longrightarrow f^*T\mathbb P^4\longrightarrow0
+$$
+
+からも確認できる。各成分で $\deg f^*\mathcal O(1)=d_a\ge0$ なので前段と同じ節点帰納法で $H^1(C,f^*\mathcal O(1))=0$、さらに曲線上の $H^2(C,\mathcal O_C)=0$ である。長完全列の
+
+$$
+H^1(C,(f^*\mathcal O(1))^{\oplus5})\longrightarrow H^1(C,f^*T\mathbb P^4)\longrightarrow H^2(C,\mathcal O_C)
+$$
+
+の両端が零だから、$H^1(C,f^*T\mathbb P^4)=0$。よって凸性により期待次元は実際の滑らかなスタックの次元に一致する。$\square$
 <!-- proof-end -->
 
 
@@ -352,7 +364,7 @@ $$
 
 この一般定理の証明（内在的正規錐・等変完全障害理論・Gysin写像の整合）は本講の内部では行わない。必要な構成の入口は[完全障害理論](../../GW/GW1-20/index.md#def-gw1-20-perfect-obstruction)にある。本講で計算したのは、**この外部定理をどこへ、どの入力で使うか**である。
 
-今回の無標点種数0の場合、射影空間の安定写像スタック $\mathcal M_d=\overline{\mathcal M}_{0,0}(\mathbb P^4,d)$ は滑らかなので、その固定成分 $F_\Gamma$ に対する普通の正規束 $N_{F_\Gamma/\mathcal M_d}$ で計算できる。[Euler類押し出しの定理](#thm-mir2-11-quintic-euler)と [ABBVの固定成分版](#thm-mir2-11-abbv)を組み合わせると
+今回の無標点種数0の場合、射影空間の安定写像スタック $\mathcal M_d=\overline{\mathcal M}_{0,0}(\mathbb P^4,d)$ は滑らかな固有 DM スタックである。したがって[Graber–Pandharipandeの仮想局所化](#thm-mir2-11-virtual-localization)に通常の接束から得る等変完全障害理論を入れれば、仮想基本類は通常の基本類、仮想正規束は固定成分 $F_\Gamma$ の通常の正規束 $N_{F_\Gamma/\mathcal M_d}$ となる。これは多様体について述べた [ABBV公式](#thm-mir2-11-abbv)を、根拠なしにスタックへ適用することとは異なる。[Euler類押し出しの定理](#thm-mir2-11-quintic-euler)と組み合わせると
 
 <a id="prop-mir2-11-graph-sum"></a>
 
@@ -391,10 +403,27 @@ $$
 
 $E_d$ に付けた等変線形化の最高等変Chern類 $e_T(E_d)$ は、重みを0へ戻したとき $c_{5d+1}(E_d)$ になる。$\mathcal M_d$ は固有で滑らかであり、被積分類の複素余次元は $5d+1=\dim_{\mathbb C}\mathcal M_d$ なので、等変積分 $\int_{\mathcal M_d}^T e_T(E_d)$ は $\mathbb Q[\lambda_0,\ldots,\lambda_4]$ の次数0の元、つまり定数 $N_d$ である。
 
-[ABBV公式](#thm-mir2-11-abbv)の固定成分版を $\alpha=e_T(E_d)$、$M=\mathcal M_d$ に適用する。固定成分は固定グラフで分解され、$\alpha|_{F_\Gamma}=e_T(E_d|_{F_\Gamma})$ だから右辺の和になる。等変積分が元から定数なので、個々の重みを分母に持つ式の極は、和の中で相殺する。よって全体の重み零での値は $N_d$。$\square$
+[仮想局所化定理](#thm-mir2-11-virtual-localization)を、滑らかなスタック $\mathcal M_d$ の通常の接束に由来する障害理論と、等変挿入類 $\alpha=e_T(E_d)$ に適用する。$[\mathcal M_d]^{\mathrm{vir}}=[\mathcal M_d]$、$N_{F_\Gamma}^{\mathrm{vir}}=N_{F_\Gamma/\mathcal M_d}$ であるから、固定成分は固定グラフで分解され、$\alpha|_{F_\Gamma}=e_T(E_d|_{F_\Gamma})$ だから右辺の和になる。等変積分が元から定数なので、個々の重みを分母に持つ式の極は、和の中で相殺する。よって全体の重み零での値は $N_d$。$\square$
 <!-- proof-end -->
 
-**辺の重みを一歩具体化する。** $p_i$ と $p_j$ を結ぶ次数 $d$ の辺写像の定義域で、$p_i$ の近くの座標 $z$ に対して標的局所座標は $z^d$。標的の重みが $\lambda_j-\lambda_i$ なので、辺の定義域に誘導される接方向の重みはその $1/d$、すなわち $(\lambda_j-\lambda_i)/d$ となる（有限被覆上で解釈する）。反対の端では符号が反転する。$d$ を無視して重みをそのまま移すと、固定グラフの法Euler類が誤る。
+**辺の重みを一歩具体化する。** $p_i$ と $p_j$ を結ぶ次数 $d$ の辺を考える。標的の局所座標を $w=x_j/x_i$、定義域の端点近傍の座標を $z$ とすると、写像は $w=z^d$ と表せる。
+
+標的の作用は $w\mapsto(t_j/t_i)w$ である。文字 $\chi_{ij}(t)=t_j/t_i$ に対応する重みは $\lambda_j-\lambda_i$ になる。
+
+有限被覆トーラス上で $s^d=\chi_{ij}(t)$ を満たす $s$ を選び、定義域に $z\mapsto sz$ を作用させると
+
+$$
+w=z^d\longmapsto(sz)^d=s^dz^d=\chi_{ij}(t)w
+$$
+
+となり、標的の作用と両立する。定義域の接重みを $\mu$ とすると、文字の $d$ 乗で重みは $d$ 倍になるから
+
+$$
+d\mu=\lambda_j-\lambda_i,\qquad
+\mu=\frac{\lambda_j-\lambda_i}{d}
+$$
+
+を得る。反対端の局所座標 $z^{-1}$ は逆の文字で変換され、接重みは $-\mu=(\lambda_i-\lambda_j)/d$ となる。$d$ を無視して標的の重みをそのまま移すと、固定グラフの法Euler類が誤る。
 
 **五次の分子の意味。** $d=1$ の辺では $f^*\mathcal O(5)=\mathcal O_{\mathbb P^1}(5)$ の切断の重みは、採用した双対線形化で
 
@@ -407,7 +436,7 @@ $$
 -5\lambda_j.
 $$
 
-これらは単一の辺の $H^0$ に由来し、節点があれば節点値の一致条件も考慮する。従って「五次のEuler類が分子に現れる」動機は見えるが、この六つの重みだけを掛けても、**固定グラフ全体の寄与や [I関数の五次積](../MIR2-10/index.md#def-mir2-10-i-function)の全次数公式を証明したことにはならない**。法束の分母、節点の接合、縮約頂点の積分、自己同型係数をそろえる必要がある。
+これは $d=1$ の写像の斉次座標を $[u:v]\mapsto[u:v]$ と置き、$H^0(\mathbb P^1,\mathcal O(5))$ の基底 $u^{5-m}v^m$（$m=0,\ldots,5$）を双対線形化で動かすと、それぞれの重みが $-(5-m)\lambda_i-m\lambda_j$ となることから得る。節点があれば節点値の一致条件も考慮する。従って「五次のEuler類が分子に現れる」動機は見えるが、この六つの重みだけを掛けても、**固定グラフ全体の寄与や [I関数の五次積](../MIR2-10/index.md#def-mir2-10-i-function)の全次数公式を証明したことにはならない**。法束の分母、節点の接合、縮約頂点の積分、自己同型係数をそろえる必要がある。
 
 たとえば辺次数 $d=2$ では自己同型係数は $1/2$、辺端の接重みは $(\lambda_j-\lambda_i)/2$ となる。これらは独立に由来する要素で、互いに取り違えない。
 
@@ -538,13 +567,13 @@ $$
 標的座標直線の $p_i$ 側局所座標が重み $\lambda_j-\lambda_i$ を持ち、写像が $w=z^2$ と書けるとする。定義域端点の接重み、反対側の接重み、被覆を保つ自己同型がなす群を求め、それらが同じ情報でない理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答。** 標的作用で $w$ が重み $\lambda_j-\lambda_i$ を持つ。$w=z^2$ を保つため、有限被覆上での定義域作用は
+**詳細解答。** 標的の局所座標 $w$ は、文字 $\chi_{ij}(t)=t_j/t_i$ によって $w\mapsto\chi_{ij}(t)w$ と変換され、その等変重みは $\lambda_j-\lambda_i$ である。$w=z^2$ と両立する定義域作用は、$s^2=\chi_{ij}(t)$ を満たす有限被覆トーラス上で
 
 $$
-z\longmapsto t^{(\lambda_j-\lambda_i)/2}z
+z\longmapsto sz,\qquad z^2\longmapsto s^2z^2=\chi_{ij}(t)w
 $$
 
-と書ける。従って $z$ の接重みは $(\lambda_j-\lambda_i)/2$。反対端の局所座標は $z^{-1}$ だから、重みは $(\lambda_i-\lambda_j)/2$ である。
+となる。重みは文字の積に対して加法的なので、$z$ の接重み $\mu$ は $2\mu=\lambda_j-\lambda_i$ を満たし、$(\lambda_j-\lambda_i)/2$ である。反対端の局所座標は $z^{-1}$ だから、重みは $(\lambda_i-\lambda_j)/2$ である。
 
 一方、$z\mapsto-z$ は $z^2$ を変えない。そのため写像を保つ自己同型は $\mu_2$ をなし、スタック係数は $1/2$ となる。前二つは動く**接方向**の重み、最後は写像を保つ**離散自己同型**の位数である。両方に「2」が出ても、法Euler類の重みを自己同型係数で代用してはならない。
 <!-- solution-end -->
@@ -591,7 +620,7 @@ $$
 
 また $H(H+\lambda)=0$ より $H^2=-\lambda H$ であり、被積分類は $\lambda H+3\lambda^2$。$\int^T H=1$、$\int^T1=0$ なので同じ $\lambda$ となる。
 
-(2) 標的の局所座標 $x_j/x_i$ は重み $\lambda_j-\lambda_i$ を持つ。写像が局所的に $w=z^2$ だから、定義域の $z$ の重みは $(\lambda_j-\lambda_i)/2$ である。反対端の $z^{-1}$ の重みは $(\lambda_i-\lambda_j)/2$。$\phi_c([u:v])=[cu:v]$ が $f_2$ を保つ条件は $c^2=1$ なので $\operatorname{Aut}(f_2)=\mu_2$、係数は $1/2$。
+(2) 標的の局所座標 $w=x_j/x_i$ は文字 $t_j/t_i$ により変換され、重み $\lambda_j-\lambda_i$ を持つ。定義域の局所座標を $z$、写像を $w=z^2$ とすると、有限被覆上の文字 $s$ は $s^2=t_j/t_i$ を満たす。よって $z\mapsto sz$ の重み $\mu$ について $2\mu=\lambda_j-\lambda_i$、すなわち $\mu=(\lambda_j-\lambda_i)/2$ である。反対端の $z^{-1}$ の重みは $(\lambda_i-\lambda_j)/2$。$\phi_c([u:v])=[cu:v]$ が $f_2$ を保つ条件は $c^2=1$ なので $\operatorname{Aut}(f_2)=\mu_2$、係数は $1/2$。
 
 (3) 一成分なら $f_2^*\mathcal O(5)=\mathcal O_{\mathbb P^1}(10)$、$H^1=0$、$h^0=11$ で $\operatorname{rank}E_2=11$。一方射影空間への安定写像の次元は $(4-3)+5\cdot2=11$。よって最高Chern類 $c_{11}(E_2)$ は複素余次元11で、積分が数になる。
 
