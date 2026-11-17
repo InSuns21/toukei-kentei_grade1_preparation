@@ -545,6 +545,53 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL12 fragment error diagnostics and sandbox disposal: PASS');
 
+  // WGL13: compile actual cube-map shader and cross-check all 12 RGBA8 probes.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL13'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("TEXTURE_CUBE_MAP")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  const diagnostic13=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+  assert.match(diagnostic13.status,/独立画素検算に合格/,
+    'WGL13 GPU shader/probes failed: '+JSON.stringify(diagnostic13));
+  const wgl13=await evalJS('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(cell=>cell.textContent)),log:document.getElementById("diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  assert.equal(wgl13.rows.length,12);
+  assert.ok(wgl13.rows.every(row=>row[4]==='OK'));
+  assert.equal(wgl13.sandbox,'allow-scripts');
+  assert.match(wgl13.log,/CHECK: PASS: all 12 cube-face\/orientation probes/);
+  assert.match(wgl13.log,/GL error: 0x0/);
+  assert.equal(wgl13.rows[0][2],'224, 48, 48, 255');
+  assert.equal(wgl13.rows[6][2],'123, 26, 26, 255');
+  for(let i=0;i<12;i++) {
+    const actual=wgl13.rows[i][2].split(',').map(Number);
+    const expected=wgl13.rows[i][1].split(',').map(Number);
+    assert.ok(actual.every((v,j)=>Math.abs(v-expected[j])<=1),
+      'WGL13 probe '+i+': '+JSON.stringify({actual,expected}));
+  }
+  const shot13=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+  await writeFile('_wgl_browser_review/wgl13-initial.png',Buffer.from(shot13.data,'base64'));
+  console.log('WGL13 GPU six cube faces + 12 axis/orientation probes: PASS');
+  const frameRect13=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+  const clip13={...frameRect13,scale:1};
+  const initial13=await cdp('Page.captureScreenshot',{format:'png',clip:clip13,captureBeyondViewport:true});
+  await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const yawDegrees = 0;', 'const yawDegrees = 90;');})()");
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/yaw=90 deg/);
+  const rotated13=await cdp('Page.captureScreenshot',{format:'png',clip:clip13,captureBeyondViewport:true});
+  assert.notEqual(rotated13.data,initial13.data,
+    'rotating environment must change real reflected pixels');
+  await writeFile('_wgl_browser_review/wgl13-yaw90.png',Buffer.from(rotated13.data,'base64'));
+  console.log('WGL13 editing yaw changes actual GPU sphere appearance: PASS');
+  await click('reset');
+  await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+  console.log('WGL13 shader diagnostics and sandbox disposal: PASS');
+
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
