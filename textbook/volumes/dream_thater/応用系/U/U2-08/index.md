@@ -256,7 +256,7 @@ Hv=\begin{pmatrix}
 =\begin{pmatrix}0\\0\end{pmatrix}.
 $$
 
-よって $n=3$ に対し $\operatorname{rank}H=2\ne3$ であり、局所一次可観測ではなく、$v$ は一次の零方向という**定義の両条件**を満たします。幾何的には目印の周りに位置を角度 $\gamma$ だけ回し、車体向きも $\gamma$ 増やす運動を $\gamma=0$ で微分したものです。$v$ の位置成分 $(4,-3)$ は回転角1 rad当たりの位置変化（m/rad）、第三成分1は向きの角度変化率（rad/rad）を表し、長さと角度を直接加算する意味ではありません。
+よって $n=3$ に対し $\operatorname{rank}H=2\ne3$ なので局所一次可観測ではありません。また $v\ne0$ かつ $Hv=0$ なので、$v$ が一次の零方向であることも直接確かめられました。幾何的には目印の周りに位置を角度 $\gamma$ だけ回し、車体向きも $\gamma$ 増やす運動を $\gamma=0$ で微分したものです。$v$ の位置成分 $(4,-3)$ は回転角1 rad当たりの位置変化（m/rad）、第三成分1は向きの角度変化率（rad/rad）を表し、長さと角度を直接加算する意味ではありません。
 <!-- definition-example-end -->
 
 <a id="prop-u2-08-one-landmark-null"></a>
@@ -339,7 +339,7 @@ $$
 h(g,m)\simeq h(\bar g,m)+H\delta g.
 $$
 
-ここで大文字 $Z=(Z_r,Z_\beta)^T$ は測定前の**確率変数**、小文字 $z$ はその実現値です。[線形観測の innovation](../U2-05/index.md#def-u2-05-innovation)に対応させ、予測姿勢 $\bar g$ に対する確率的残差を
+ここで大文字 $Z=(Z_r,Z_\beta)^T$ は測定前の**確率変数**、小文字 $z$ はその実現値です。[線形観測で定義した観測残差](../U2-05/index.md#def-u2-05-innovation)に対応させ、予測姿勢 $\bar g$ に対する確率的残差を
 
 $$
 \mathcal V=
