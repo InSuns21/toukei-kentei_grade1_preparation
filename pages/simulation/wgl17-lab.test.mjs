@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {WGL17_VALUES,wgl17EncodeR8,wgl17DecodeR8,
   expectedWGL17Samples,compareWGL17Readback} from './wgl17-lab-core.mjs';
 test('8-bit quantization is bounded by half a step',()=>{
-  assert.deepEqual(WGL17_VALUES.map(wgl17EncodeR8),[0,45,115,166,204,239,128,255]);
+  assert.deepEqual(WGL17_VALUES.map(x=>wgl17EncodeR8(x)),[0,45,115,166,204,239,128,255]);
   for(const x of WGL17_VALUES)
     assert.ok(Math.abs(wgl17DecodeR8(wgl17EncodeR8(x))-x)<=2/255+1e-14);
   assert.throws(()=>wgl17EncodeR8(3),RangeError);
