@@ -397,19 +397,19 @@ Poisson の各セル残差 $r$ と射影後の $Dw$ は別名で出力される�
 
 [Poisson可解性定理](#thm-fluid47-poisson-solvability)の総和式から、壁を通る符号付き体積流量 $Q_{\mathrm{wall}}$ [m$^2$/s] は
 
-$
+$$
 Q_{\mathrm{wall}}=h^2\sum_{i,j}(Dw^*)_{i,j}
-$
+$$
 
 である。一方、Poisson 右辺の面積積分 $I_{\mathrm{rhs}}$ は
 
-$
+$$
 I_{\mathrm{rhs}}
 =h^2\sum_{i,j}\frac{\rho}{\Delta t}(Dw^*)_{i,j}
 =\frac{\rho}{\Delta t}Q_{\mathrm{wall}},
 \qquad
 Q_{\mathrm{wall}}=\frac{\Delta t}{\rho}I_{\mathrm{rhs}}.
-$
+$$
 
 となる。$I_{\mathrm{rhs}}$ をそのまま [m$^2$/s] と表示するのは単位の誤りである。今回のラボでは $\rho=1$ として Poisson 右辺を $Dw^*/\Delta t$ で作るため、その面積積分を $\Delta t$ 倍して「Poisson適合条件に対応する流量」として出力する。
 
