@@ -50,4 +50,4 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（quinticのJ関数に現れる無標点GW数）"]
-    requires: [mirror.gw-j-coefficient, mirror.quintic-unmarked-gw, mirror.quintic-divisor-axiom]
+    requires: [mirror.gw-j-coefficient, mirror.quintic-unmarked-gw-number, mirror.quintic-virtual-divisor-axiom]
