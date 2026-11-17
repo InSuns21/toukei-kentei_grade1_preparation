@@ -68,3 +68,4 @@
 64. [U3-64 板の回復・過渡的インパクト](textbook/volumes/dream_thater/応用系/U/U3-64/index.md)
 65. [U3-65 指値・成行注文と約定不確実性](textbook/volumes/dream_thater/応用系/U/U3-65/index.md)
 66. [U3-66 状態依存最適執行と HJB の応用](textbook/volumes/dream_thater/応用系/U/U3-66/index.md)
+67. [U3-67 複数資産・クロスインパクト・流動性調整リスク](textbook/volumes/dream_thater/応用系/U/U3-67/index.md)
