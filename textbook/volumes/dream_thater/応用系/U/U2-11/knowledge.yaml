@@ -1,0 +1,55 @@
+chapter: U2-11
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-10
+forward_references: []
+concepts:
+  - id: robotics.sigma-point-symmetric
+    name: 対称 sigma-point と二種類の重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対称 sigma-point と二種類の重み）"]
+    requires: [robotics.ekf-nonlinear-nongaussian-posterior, robotics.nis-nonlinear-failure]
+  - id: robotics.sigma-point-input-moments
+    name: 対称 sigma-point の入力モーメント再現
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対称 sigma-point の入力モーメント再現）"]
+    requires: [robotics.sigma-point-symmetric]
+  - id: robotics.unscented-transform-cross
+    name: unscented 変換と状態・出力の交差分散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（unscented 変換と状態・出力の交差分散）"]
+    requires: [robotics.sigma-point-input-moments]
+  - id: robotics.sigma-affine-moments
+    name: アフィン写像ではモーメントが厳密
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（アフィン写像ではモーメントが厳密）"]
+    requires: [robotics.unscented-transform-cross]
+  - id: robotics.sigma-quadratic-moments
+    name: Gaussian の二乗観測での厳密な一次・二次モーメント
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gaussian の二乗観測での厳密な一次・二次モーメント）"]
+    requires: [robotics.unscented-transform-cross, robotics.ekf-nonlinear-nongaussian-posterior]
+  - id: robotics.ukf-additive-prediction
+    name: 加法雑音型 UKF の予測
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法雑音型 UKF の予測）"]
+    requires: [robotics.sigma-quadratic-moments, robotics.ekf-motion-prediction]
+  - id: robotics.ukf-additive-update
+    name: 加法雑音型 UKF の観測更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（加法雑音型 UKF の観測更新）"]
+    requires: [robotics.ukf-additive-prediction, robotics.sigma-affine-moments, robotics.kalman-gain]
+  - id: robotics.ukf-update-psd
+    name: この重みでの UKF 更新共分散は半正定値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（この重みでの UKF 更新共分散は半正定値）"]
+    requires: [robotics.ukf-additive-update, robotics.sigma-point-input-moments]

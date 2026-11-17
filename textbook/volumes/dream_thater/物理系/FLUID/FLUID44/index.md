@@ -10,7 +10,17 @@
 
 ## 0. 波面の角度と流れの方向を先に固定する
 
-上流速度の大きさを $q_1>0$、上流方向から下流方向への**偏向角の大きさ**を $\theta\geq0$ とする。流れを押し曲げる圧縮角では、上流方向と平面衝撃波のなす鋭角を $\beta$ とする（波面への入射角であり、波面法線となす角ではない）。波面に垂直な成分を $u_n$、接線方向の成分を $u_t$ と書く。正の質量流束が上流から下流へ進む向きに法線を選ぶ。
+上流速度の大きさを $q_1>0$、上流方向から下流方向への**偏向角の大きさ**を $\theta\geq0$ とする。
+
+流れを押し曲げる圧縮角では、上流方向と平面衝撃波のなす鋭角を $\beta$ とする。これは波面への入射角であり、波面法線となす角ではない。波面に垂直な速度成分を $u_n$、接線方向の成分を $u_t$ と書く。
+
+正の質量流束が上流から下流へ進む向きに単位法線 $\boldsymbol n$ を選び、上流速度の接線成分が正となる単位接線 $\boldsymbol t$ を取る。この直交基底への射影は
+$$
+\boldsymbol u_i=u_{in}\boldsymbol n+u_{it}\boldsymbol t,\qquad
+u_{in}=\boldsymbol u_i\cdot\boldsymbol n,\qquad
+u_{it}=\boldsymbol u_i\cdot\boldsymbol t
+$$
+である。これを速度ベクトルへ適用した結果が、以下に現れる $\sin,\cos$ である。
 
 衝撃波の前後で速度が曲がるため、角を分けて記録する必要がある。上流・下流の速度と波面のなす角はそれぞれ $\beta$ と $\beta-\theta$ である。前者は後者より大きくなる。膨張角では衝撃波面は存在せず、後で特性線から膨張扇を構成する。
 
@@ -30,7 +40,19 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid44-wave-angles -->
-**定義の確認**：$M_1=2$、$\beta=45^\circ$ なら $M_{1n}=2\sin45^\circ=\sqrt2>1$。同じ上流状態でも $\beta=20^\circ$ では $M_{1n}\simeq0.684<1$。全 Mach 数が 2 だからといって、任意の入射角で圧縮衝撃波を作れるわけではない。成分は速度ベクトルを波面の接線・法線に射影して得るのであり、単に $M_1$ を「正面衝撃波公式へ代入」するのは誤りである。
+**定義の確認**：$M_1=2$、$\beta=45^\circ$ であれば、定義に従って法線成分と全Mach数を結ぶと
+$$
+M_{1n}=M_1\sin45^\circ=\sqrt2>1
+$$
+となる。一方、同じ上流状態で $\beta=20^\circ$ なら $M_{1n}=2\sin20^\circ\simeq0.684<1$。全Mach数が2でも、任意の入射角で圧縮衝撃波を作れるわけではない。
+
+幾何だけを確かめるため $\beta=45^\circ$、$\theta=10^\circ$、$q_2>0$ とすると、直交射影は
+$$
+\beta-\theta=35^\circ,\qquad
+u_{2n}=q_2\sin35^\circ>0,\qquad
+u_{2t}=q_2\cos35^\circ>0
+$$
+であり、定義の $0\leq\theta<\beta$ と法線成分の正値性を直接確認できる。ただし、これらの角度と $q_2$ が保存則を満たすかはまだ判定していない。単に上流の全Mach数を正面衝撃波公式に代入するのは誤りである。
 <!-- definition-example-end -->
 
 ## 1. 斜めでも保存するのは法線流束である
@@ -231,7 +253,19 @@ $$
 <!-- proof-start -->
 ### 証明（Mach角の線形化による導出）
 
-等エントロピー・渦なしの一様基準流 $(U,0)$、基準密度 $\rho_0$ と音速 $c_0$ の周りで、[FLUID11で定義した速度ポテンシャル](../FLUID11/index.md#def-fluid11-velocity-potential)を $\Phi=Ux+\psi(x,y)$、$|\nabla\psi|\ll U$ と置く。局所的に渦がないため速度を勾配 $\boldsymbol u=\nabla\Phi$ と表せる条件は[無渦場の局所ポテンシャル存在](../FLUID11/index.md#prop-fluid11-local-potential)による。[FLUID41 の等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic)を使い、一定の停滞エンタルピー $h+|\nabla\Phi|^2/2$ を一次まで展開すると
+等エントロピー・渦なしの一様基準流 $(U,0)$、基準密度 $\rho_0$、音速 $c_0$ の周りで、[FLUID11の速度ポテンシャル](../FLUID11/index.md#def-fluid11-velocity-potential)を使う。流れの微小擾乱を
+$$
+\Phi=Ux+\psi(x,y),\qquad |\nabla\psi|\ll U,\qquad
+\rho(x,y)=\rho_0+\rho'(x,y)
+$$
+と書く。ここで $\rho'$ は**密度の微小擾乱**であり、密度の座標微分ではない。下付き添字の偏微分記法は
+$$
+\psi_x=\frac{\partial\psi}{\partial x},\qquad
+\rho'_x=\frac{\partial\rho'}{\partial x}
+$$
+を意味する。
+
+[無渦場の局所ポテンシャル存在](../FLUID11/index.md#prop-fluid11-local-potential)により速度を勾配 $\boldsymbol u=\nabla\Phi$ で表せる。[FLUID41の等エントロピー関係](../FLUID41/index.md#prop-fluid41-isentropic)を使い、一定の停滞エンタルピーを一次まで展開する。すなわち $h+|\nabla\Phi|^2/2$ の微小変化を零と置くと
 $$
 c_0^2\frac{\rho'}{\rho_0}+U\psi_x=0,
 \qquad
@@ -254,15 +288,17 @@ $$
 
 ## 4. 壁が流れから遠ざかると何が起きるか
 
-外向きの凸角を曲がるとき、流れは一枚の圧縮衝撃波ではなく、互いに異なる角度を持つ微小なMach線の扇を通る。この**Prandtl–Meyer膨張扇**の各場所では状態は連続で、理想化した滑らかな断熱可逆流として扱える。ここではさらに二次元・定常・渦なしの単純波で、各状態の停滞エンタルピーが共通と仮定する。
+外向きの凸角を曲がるとき、流れは一枚の圧縮衝撃波ではなく、互いに異なる角度を持つ微小なMach線の扇を通る。この**Prandtl–Meyer膨張扇**の各場所では状態は連続で、理想化した滑らかな断熱可逆流として扱える。ここではさらに二次元・定常・渦なしで、各状態の停滞エンタルピーが共通と仮定する。**中心型の単純膨張扇**とは、壁の角から出る放射線上で状態が一定で、角の頂点を原点とした偏角 $\chi$ のみに流速・密度などが依存する流れをいう。この構造が、特性線に沿った関係を扇全体の状態差へつなぐ。
 
-速度の大きさを $q>0$、速度方向を角 $\varphi$、流れ方向を $s$、その左法線方向を $n$ とし、局所 Mach 数を $M=q/c>1$ とする。角度 $\varphi$ と偏向角 $\theta$ は、向きつきの量とその大きさという違いがある。以下の $\theta>0$ は**膨張によって曲がる角の大きさ**であり、圧縮角の符号をそのまま流用しない。
+速度の大きさを $q>0$、上流の水平な $x$ 正方向から測った速度方向角を $\varphi$ とする。局所Mach数は $M=q/c>1$ である。
+
+流れ方向とその左法線方向への方向微分は、それぞれ $\partial_{\parallel}$、$\partial_{\perp}$ と記す。どちらも位置 $(x,y)$ についての偏微分の線形結合であり、比エントロピー $s$ に関する微分ではない。
 
 <a id="thm-fluid44-prandtl-meyer"></a>
 
 <!-- formal-statement-start -->
 > **定理（Prandtl–Meyer膨張関係）**  
-> $M_1>1,\gamma>1$ の定数比熱理想気体の一様超音速流が、定常・二次元・渦なし・等エントロピーの単純膨張扇を通って、流れから遠ざかる壁へ角度 $\theta>0$ だけ曲がるとする。扇内で $M>1$ かつ $h+q^2/2$ は一定とする。このとき
+> $M_1>1,\gamma>1$ の定数比熱理想気体の一様超音速流が、定常・二次元・渦なし・等エントロピーで、角の頂点から出る放射線上で状態が一定の中心型単純膨張扇を通って、流れから遠ざかる壁へ角度 $\theta>0$ だけ曲がるとする。扇内で $M>1$ かつ $h+q^2/2$ は一定とする。このとき
 >
 $$
 \theta=\nu(M_2)-\nu(M_1),\qquad M_2>M_1
@@ -303,7 +339,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-**(i) 回転と速度の微分関係。** 速度ベクトルを $\boldsymbol u=q(\cos\varphi,\sin\varphi)$ とする。局所直交単位ベクトルを $\boldsymbol e_s=(\cos\varphi,\sin\varphi)$、$\boldsymbol e_n=(-\sin\varphi,\cos\varphi)$ と置き、$\partial_s=\boldsymbol e_s\cdot\nabla$、$\partial_n=\boldsymbol e_n\cdot\nabla$ とする。
+**(i) 回転と速度の微分関係。** 速度ベクトルを $\boldsymbol u=q(\cos\varphi,\sin\varphi)$ とする。局所直交単位ベクトルを $\boldsymbol e_\parallel=(\cos\varphi,\sin\varphi)$、$\boldsymbol e_\perp=(-\sin\varphi,\cos\varphi)$ と置き、$\partial_{\parallel}=\boldsymbol e_\parallel\cdot\nabla$、$\partial_{\perp}=\boldsymbol e_\perp\cdot\nabla$ とする。
 
 等エントロピー・停滞エンタルピー一定より $dh=dp/\rho=c^2d\rho/\rho$、$q\,dq+dh=0$。従って
 $$
@@ -311,27 +347,48 @@ $$
 \qquad
 d(\rho q)=\rho(1-M^2)\,dq.
 $$
-質量保存 $\nabla\cdot(\rho q\boldsymbol e_s)=0$ において $\nabla\cdot\boldsymbol e_s=\partial_n\varphi$ だから
+質量保存 $\nabla\cdot(\rho q\boldsymbol e_\parallel)=0$ において $\nabla\cdot\boldsymbol e_\parallel=\partial_{\perp}\varphi$ だから
 $$
-(1-M^2)\partial_s q+q\partial_n\varphi=0.
+(1-M^2)\partial_{\parallel} q+q\partial_{\perp}\varphi=0.
 $$
 また渦なし $\partial_xu_y-\partial_yu_x=0$ をこの基底へ射影すると
 $$
-q\partial_s\varphi-\partial_nq=0.
+q\partial_{\parallel}\varphi-\partial_{\perp}q=0.
 $$
 
-**(ii) Mach線上での関係。** 流れから $\pm\mu$ の方向の方向微分は $D_\pm=\cos\mu\,\partial_s\pm\sin\mu\,\partial_n$ である。上の質量式・渦なし式を代入し、$\cot\mu=\sqrt{M^2-1}$ を用いると
+**(ii) Mach線上での関係。** 上の二つの式から、流速・方向角の偏微分が両立する特性方向は $\cot^2\mu=M^2-1$ を満たす。ここで $\mu\in(0,\pi/2)$ を選べば、[Mach角の関係](#def-fluid44-mach-angle) $\sin\mu=1/M$ に一致する。流れから $\pm\mu$ の方向の方向微分は $D_\pm=\cos\mu\,\partial_{\parallel}\pm\sin\mu\,\partial_{\perp}$ である。上の質量式・渦なし式を代入し、$\cot\mu=\sqrt{M^2-1}$ を用いると
 $$
 \begin{aligned}
 D_\pm\varphi
-&=\cos\mu\,\frac{\partial_nq}{q}
-\pm\sin\mu\,\frac{(M^2-1)\partial_sq}{q}\\
+&=\cos\mu\,\frac{\partial_{\perp}q}{q}
+\pm\sin\mu\,\frac{(M^2-1)\partial_{\parallel}q}{q}\\
 &=\pm\frac{\sqrt{M^2-1}}{q}
-\left(\cos\mu\,\partial_sq\pm\sin\mu\,\partial_nq\right)\\
+\left(\cos\mu\,\partial_{\parallel}q\pm\sin\mu\,\partial_{\perp}q\right)\\
 &=\pm\frac{\sqrt{M^2-1}}{q}D_\pm q.
 \end{aligned}
 $$
-従って各Mach線に沿って $d\varphi=\pm\sqrt{M^2-1}\,dq/q$ となる。単純膨張扇では、一つの特性線族の不変量 $\varphi\mp\nu(M)$ が一定であり、凸角で流れが加速する向きを選ぶと、速度方向の回転角の大きさは $d\theta=d\nu>0$ である。
+従って $D_\pm\varphi=\pm D_\pm\nu$ と書ける。ただし $d\nu:=\sqrt{M^2-1}\,dq/q$ と定義し、次の (iii) で $M$ の関数として積分する。ここで $D_\pm$ は空間内の特性線に沿う方向微分であって、$d\varphi=\pm d\nu$ を**任意の方向の変化**に対して主張しているわけではない。
+
+中心型の膨張扇で下向きの凸角を考えると、上流方向角は $\varphi_1=0$、下流は $\varphi_2=-\theta$ である。角の頂点を原点とした極座標 $(r,\chi)$ の扇内 $r>0$ では、任意の状態量 $F=F(\chi)$ に対して
+$$
+\nabla\chi=\frac{(-\sin\chi,\cos\chi)}r,\qquad
+\partial_{\parallel}F=\frac{\sin(\varphi-\chi)}rF_\chi,\qquad
+\partial_{\perp}F=\frac{\cos(\varphi-\chi)}rF_\chi
+$$
+である。これを (i) の質量式・渦なし式に代入すると、$\partial_{\perp}q=q\partial_{\parallel}\varphi$ を消去して
+$$
+\bigl[(1-M^2)\sin^2(\varphi-\chi)+\cos^2(\varphi-\chi)\bigr]q_\chi=0
+$$
+を得る。扇の状態が変化する部分では $q_\chi\ne0$ なので、$M^2\sin^2(\varphi-\chi)=1$、すなわち前進する放射線は $\chi=\varphi\pm\mu$ のいずれかである。下向き膨張の配置では $\chi=\varphi+\mu$ を取るから、放射線が $D_+$ 特性線に接し、その上では $D_+q=D_+\varphi=0$ となる。一方、扇を横断する $D_-$ 方向には
+$$
+D_-\bigl(\varphi+\nu(M)\bigr)=0
+$$
+が成立する。$D_-$ は放射線に接しない（$\mu>0$）ため、$\varphi+\nu(M)$ は偏角 $\chi$ を変えても一定である。上流の一様状態とつなぐと
+$$
+\varphi_2+\nu(M_2)=\varphi_1+\nu(M_1),
+\qquad -\theta+\nu(M_2)=\nu(M_1).
+$$
+ゆえに $\theta=\nu(M_2)-\nu(M_1)$。上向きに曲がる配置は $D_+$ と $D_-$ の役割が逆になり、同じ偏向角の大きさの式を得る。
 
 **(iii) Mach数で積分。** 停滞温度を $T_0=T[1+(\gamma-1)M^2/2]$ とする[FLUID42 の停滞状態](../FLUID42/index.md#def-fluid42-stagnation)は、等エントロピーの各状態で共通である。$a=(\gamma-1)/2$ とすれば
 $$
