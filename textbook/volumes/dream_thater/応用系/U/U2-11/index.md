@@ -421,7 +421,7 @@ UKF は予測観測平均 $5/4$、予測観測分散 $11/8$ を使い、$m^+=14/
 # lab-file: textbook/volumes/dream_thater/応用系/U/U2-11/assets/sigma_point_filter.py
 # timeout-ms: 30000
 # lab-preset: 二乗観測の厳密モーメント | --scenario quadratic
-# lab-preset: 四乗観測の近似誤差 | --scenario quartic
+# lab-preset: 四乗観測：近似値と真値の差 | --scenario quartic
 # lab-preset: EKF と UKF の更新比較 | --scenario update
 # lab-preset: 相関のあるアフィン写像 | --scenario affine
 # lab-preset: Monte Carlo で確かめる | --scenario samples
