@@ -1,0 +1,49 @@
+chapter: FLUID47
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - CTM15
+  - FLUID46
+concepts:
+  - id: fluid.mac-grid
+    name: MAC配置と壁の法線速度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（MAC配置と壁の法線速度）"]
+    requires: [continuum.wall-impermeability, fluid.finite-volume-face-flux]
+  - id: fluid.mac-discrete-operators
+    name: MAC離散発散・勾配・Laplace作用素
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（MAC離散発散・勾配・Laplace作用素）"]
+    requires: [fluid.mac-grid]
+  - id: fluid.mac-discrete-green
+    name: MAC格子の離散部分積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（MAC格子の離散部分積分）"]
+    requires: [fluid.mac-discrete-operators]
+  - id: fluid.mac-projection-step
+    name: 非圧縮 MAC 射影ステップ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（非圧縮 MAC 射影ステップ）"]
+    requires: [fluid.mac-discrete-operators, continuum.incompressible-navier-stokes]
+  - id: fluid.mac-poisson-solvability
+    name: 閉じたMAC格子での Poisson 補正の一意可解性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（閉じたMAC格子での Poisson 補正の一意可解性）"]
+    requires: [fluid.mac-projection-step, fluid.mac-discrete-green]
+  - id: fluid.mac-divergence-correction
+    name: 射影後の発散と Poisson 残差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（射影後の発散と Poisson 残差）"]
+    requires: [fluid.mac-poisson-solvability, fluid.mac-discrete-operators]
+  - id: fluid.mac-orthogonal-projection
+    name: MAC射影の直交性と二乗ノルム非増加
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（MAC射影の直交性と二乗ノルム非増加）"]
+    requires: [fluid.mac-divergence-correction, fluid.mac-discrete-green]
