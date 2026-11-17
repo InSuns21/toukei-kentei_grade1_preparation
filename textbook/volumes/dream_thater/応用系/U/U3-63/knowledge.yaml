@@ -1,7 +1,7 @@
 chapter: U3-63
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-62]
+prerequisites: [U3-62, OPT8]
 concepts:
   - id: finance.ac-capacity
     name: 事前容量と全量清算の実行可能集合
@@ -32,7 +32,7 @@ concepts:
     kind: theorem
     introduction: formal
     introduction_aliases: ["定理（射影勾配反復の収束と誤差上界）"]
-    requires: [finance.ac-constrained-unique, finance.ac-capped-projection]
+    requires: [finance.ac-constrained-unique, finance.ac-capped-projection, optimization.projected-gradient-method]
   - id: finance.ac-constrained-frontier
     name: 制約下の費用と分散の単調性
     kind: proposition
