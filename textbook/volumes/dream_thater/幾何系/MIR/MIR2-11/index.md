@@ -218,6 +218,10 @@ $$
 > を置く。これは階数 $5d+1$ のベクトル束である。$\mathbb P^4$ の対角作用と $\mathcal O(5)$ の標準線形化から $E_d$ へ等変構造が入る。
 <!-- formal-statement-end -->
 
+<!-- definition-example-start: def-mir2-11-quintic-bundle -->
+**定義の確認。** $d=1$ なら $f^*\mathcal O(5)\cong\mathcal O_{\mathbb P^1}(5)$ で切断空間の基底は $u^5,u^4v,\ldots,v^5$ の6個、従って $\operatorname{rank}E_1=6$。$d=2$ なら $\mathcal O(10)$ の切断は11個で $\operatorname{rank}E_2=11$。二成分で次数が1と2なら各成分の $h^0$ は6と11、節点の一致条件を一つ引いて16となり、次数3の $5\cdot3+1$ と一致する。
+<!-- definition-example-end -->
+
 定義中の「束になる」「階数はいくつか」は、種数0が決定的に効くので確認しておく。
 
 <a id="prop-mir2-11-bundle-rank"></a>
@@ -279,9 +283,7 @@ $$
 へ $k=0$ を代入する。射影空間では $T\mathbb P^4$ の大域生成性によって種数0の障害 $H^1(C,f^*T\mathbb P^4)$ も零である。よって期待次元は実際の滑らかなスタックの次元に一致する。$\square$
 <!-- proof-end -->
 
-<!-- definition-example-start: def-mir2-11-quintic-bundle -->
-**定義の確認。** $d=1$ なら $f^*\mathcal O(5)\cong\mathcal O_{\mathbb P^1}(5)$ で切断空間の基底は $u^5,u^4v,\ldots,v^5$ の6個、従って $\operatorname{rank}E_1=6$。$d=2$ なら $\mathcal O(10)$ の切断は11個で $\operatorname{rank}E_2=11$。二成分で次数が1と2なら各成分の $h^0$ は6と11、節点の一致条件を一つ引いて16となり、次数3の $5\cdot3+1$ と一致する。
-<!-- definition-example-end -->
+
 
 この束の各点の繊維は、定義域上の $f^*\mathcal O(5)$ の切断空間である。quintic方程式 $s$ を引き戻すと、その値が零となる写像は $X$ へ像を持つ。したがって「安定写像が $X$ に含まれる」という条件は $E_d$ の切断の零点条件に直せる。ただし、この零点は一般に横断的ではない。[完全障害理論と仮想基本類の設計](../../GW/GW1-20/index.md#def-gw1-20-perfect-obstruction)が必要になる。
 
