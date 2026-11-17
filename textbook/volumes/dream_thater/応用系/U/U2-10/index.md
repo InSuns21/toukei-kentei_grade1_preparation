@@ -1,8 +1,8 @@
-# U2-10 EKF の一貫性：角度・線形化誤差・innovation 診断
+# U2-10 EKF の一貫性：角度・線形化誤差・観測 innovation の診断
 
 [前講の EKF 更新](../U2-09/index.md#def-u2-09-ekf-update)では、観測との差で姿勢を補正し、Joseph 形で対称半正定値の分散共分散行列を保ちました。しかし、**計算された共分散が正しいこと**と、**現実の誤差を正しく表すこと**は別問題です。例えば実測が大きく外れていても、[Joseph 更新の公式](../U2-09/index.md#prop-u2-09-joseph)の右辺には実測残差そのものが現れません。行列が正定値でも、推定器が過信している可能性があります。
 
-この講義では、実測を受け取る**前**に予測した観測の平均と分散を、実際の観測差と照合します。小さい誤差でも予測した雑音幅が極端に小さければ不自然です。反対に、大きく見える差でも予測の不確実性が大きければ自然かもしれません。両者を同じ尺度で比べるのが **正規化 innovation 二乗（normalized innovation squared, NIS）** です。
+この講義では、実測を受け取る**前**に予測した観測の平均と分散を、実際の観測差と照合します。小さい誤差でも予測した雑音幅が極端に小さければ不自然です。反対に、大きく見える差でも予測の不確実性が大きければ自然かもしれません。両者を同じ尺度で比べるため、予測した分散共分散行列を使う**無次元の二次形式**を作ります。この講義でその定義と適用条件を順に導きます。
 
 <!-- definition-example-audit: strict -->
 
@@ -132,7 +132,29 @@ E[V_t]=0,\qquad
 \operatorname{Cov}(V_t)=H_tP_t^-H_t^T+R_t=S_t.
 $$
 
-独立 Gaussian ベクトルの線形結合は Gaussian です。正定値 $S_t$ には可逆な下三角行列 $L$ があり、$S_t=LL^T$ と書けます（Cholesky 分解）。$W=L^{-1}V_t$ と置くと
+独立 Gaussian ベクトルの線形結合は Gaussian です。正定値 $S_t$ には $S_t=LL^T$ を満たす可逆な下三角行列 $L$ が存在します。ここで存在を帰納的に確かめます。$k=1$ では $L=(\sqrt{S_{11}})$ です。$k\ge2$ なら
+
+$$
+S_t=\begin{pmatrix}a&b^T\\b&C\end{pmatrix},
+\qquad a>0
+$$
+
+と分割します（$b\in\mathbb R^{k-1}$、$C\in\mathbb R^{(k-1)\times(k-1)}$）。任意の $0\ne y\in\mathbb R^{k-1}$ に $x=-b^Ty/a$ を選ぶと
+
+$$
+\begin{pmatrix}x\\y\end{pmatrix}^T
+S_t\begin{pmatrix}x\\y\end{pmatrix}
+=y^T\left(C-\frac{bb^T}{a}\right)y>0
+$$
+
+なので $D=C-bb^T/a$ も正定値です。帰納法の仮定から可逆な下三角行列 $B$ を $D=BB^T$ と取れます。そこで
+
+$$
+L=\begin{pmatrix}\sqrt a&0\\b/\sqrt a&B\end{pmatrix},\qquad
+LL^T=\begin{pmatrix}a&b^T\\b&bb^T/a+BB^T\end{pmatrix}=S_t.
+$$
+
+対角成分が全て正なので $L$ は可逆です。この構成を用い、$W=L^{-1}V_t$ と置くと
 
 $$
 \operatorname{Cov}(W)=L^{-1}S_t(L^{-1})^T
@@ -577,7 +599,7 @@ $$
 Q=\frac{0.4^2}{0.2^2}+\frac{10^2}{5^2}=4+4=8.
 $$
 
-**(2)** [二次元の基準命題](#prop-u2-10-nis-chi-square)から上側5%境界は $c=-2\log0.05\approx5.99146$。$8>c$ なのでこの gate は拒否します。正常模型でも確率0.05で拒否する判定であり、この一回だけで観測が誤対応だったとは結論できません。
+**(2)** [線形 Gaussian innovation の NIS 基準分布](#prop-u2-10-nis-chi-square)から上側5%境界は $c=-2\log0.05\approx5.99146$。$8>c$ なのでこの gate は拒否します。正常模型でも確率0.05で拒否する判定であり、この一回だけで観測が誤対応だったとは結論できません。
 
 **(3)** 標準偏差を各2倍にすれば分散は各4倍であり、
 
