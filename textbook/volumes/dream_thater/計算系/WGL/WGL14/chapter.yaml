@@ -1,0 +1,34 @@
+id: WGL14
+title: 画面全体をどう加工する？
+volume: foundations
+status: supplementary
+prerequisites: [WGL13]
+official_scope: []
+learning_objectives:
+  - 端画素複製の境界条件を定義し有限画像の3x3畳み込みを計算できる
+  - 対称カーネルの係数総和1が定数画像を保存する必要十分条件であることを証明できる
+  - 内部インパルスと端のインパルスの平均ぼかし応答を手計算できる
+  - 正の離散Laplacianによる輪郭表示の符号とクリップを検算できる
+  - Reinhard型トーンマッピングの単調性と処理順による差を説明できる
+  - WebGL2で2枚のRGBA8 FBOと3描画パスを構成し7点のCPU/GPU検算を実行できる
+definitions:
+  - { id: WGL14-DEF-01, name: 端画素複製による境界拡張 }
+  - { id: WGL14-DEF-02, name: 3×3対称畳み込みと平均ぼかし }
+  - { id: WGL14-DEF-03, name: 正の離散Laplacianエッジ表示 }
+  - { id: WGL14-DEF-04, name: Reinhard型トーンマッピング }
+theorems:
+  - { id: WGL14-PROP-01, name: 定数画像を保存する係数総和の条件 }
+  - { id: WGL14-PROP-02, name: 内部インパルスへの平均ぼかしの応答 }
+  - { id: WGL14-PROP-03, name: 正の離散Laplacianは定数画像を0へ写す }
+  - { id: WGL14-PROP-04, name: トーンマッピングの単調性と上界 }
+canonical_examples:
+  - 8x8画像の内部白点255から3x3平均で28階調へ変わる
+  - 左下の灰点90は端画素複製で40階調になる
+  - 正のLaplacianは内部白点中心1と左下の灰点180階調を返す
+  - 28階調のぼかしをReinhard型T1に代入し25階調へ変換する
+  - WebGL2で独立した2つのFBOを用い7画素のCPU/GPU比較を行う
+problem_patterns: [WGL14-BOUNDARY, WGL14-KERNEL, WGL14-IMPULSE, WGL14-EDGE, WGL14-TONE, WGL14-FBO, WGL14-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

@@ -1,0 +1,53 @@
+chapter: WGL14
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL13]
+concepts:
+  - id: graphics.postprocess-boundary-extension
+    name: 端画素複製による境界拡張
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（端画素複製による境界拡張）"]
+    requires: [graphics.texture-wrap, graphics.render-to-texture]
+  - id: graphics.postprocess-symmetric-convolution
+    name: 3×3対称畳み込みと平均ぼかし
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（3×3対称畳み込みと平均ぼかし）"]
+    requires: [graphics.postprocess-boundary-extension]
+  - id: graphics.postprocess-constant-reproduction
+    name: 定数画像を保存する係数総和の条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数画像を保存する係数総和の条件）"]
+    requires: [graphics.postprocess-symmetric-convolution]
+  - id: graphics.postprocess-impulse-response
+    name: 内部インパルスへの平均ぼかしの応答
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（内部インパルスへの平均ぼかしの応答）"]
+    requires: [graphics.postprocess-symmetric-convolution]
+  - id: graphics.postprocess-positive-laplacian
+    name: 正の離散Laplacianエッジ表示
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正の離散Laplacianエッジ表示）"]
+    requires: [graphics.postprocess-boundary-extension]
+  - id: graphics.postprocess-edge-constant
+    name: 正の離散Laplacianは定数画像を0へ写す
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正の離散Laplacianは定数画像を0へ写す）"]
+    requires: [graphics.postprocess-positive-laplacian]
+  - id: graphics.postprocess-reinhard
+    name: Reinhard型トーンマッピング
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Reinhard型トーンマッピング）"]
+    requires: [graphics.srgb-linear-transfer]
+  - id: graphics.postprocess-tone-monotonicity
+    name: トーンマッピングの単調性と上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（トーンマッピングの単調性と上界）"]
+    requires: [graphics.postprocess-reinhard]
