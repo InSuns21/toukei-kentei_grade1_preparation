@@ -23,3 +23,4 @@
 20. [MIR2-04 小量子積・Novikov環・大きい量子積との差](textbook/volumes/dream_thater/幾何系/MIR/MIR2-04/index.md)
 21. [MIR2-05 種数0ポテンシャルとA側Yukawa結合](textbook/volumes/dream_thater/幾何系/MIR/MIR2-05/index.md)
 22. [MIR2-06 量子接続と量子微分方程式](textbook/volumes/dream_thater/幾何系/MIR/MIR2-06/index.md)
+23. [MIR2-07 B側Yukawaの座標変換と規格化](textbook/volumes/dream_thater/幾何系/MIR/MIR2-07/index.md)

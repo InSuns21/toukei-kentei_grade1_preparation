@@ -1,0 +1,49 @@
+id: "MIR2-07"
+title: "B側Yukawaの座標変換と規格化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR1-16
+  - MIR1-15
+  - MIR2-05
+  - MIR2-06
+learning_objectives:
+  - B側の座標・3形式・交叉形式の三つの倍率自由度を区別し周期規格化された三次結合の不変性を証明できる
+  - q_Bとu_Bとt_Bの間のJacobianと2πiの三乗を非零条件込みで導ける
+  - Picard–Fuchsの有理形から周期を二乗で割ったB側の正則延長を再構成できる
+  - κ=5がPicard–Fuchsだけで決まらない追加の規格化であることを説明できる
+  - 一次係数3125-2a-3bと二次係数4876875を独立に計算できる
+  - 周期を割り忘れる・三乗で割る・定数シフトする誤りがどの係数を変えるか判定できる
+  - A側形式変数とB側の鏡像座標の比較規約を定め一致を仮定した場合だけGW係数を引き出せる
+  - B側局所級数の計算とquinticミラー定理・曲線本数の論理的境界を説明できる
+definitions:
+  - { id: MIR2-07-DEF-01, name: "A/Bの三次結合の形式的比較規約" }
+theorems:
+  - { id: MIR2-07-PROP-01, name: "周期で割った三次結合の変換不変性" }
+  - { id: MIR2-07-PROP-02, name: "quinticの規格化式と原点での正則延長" }
+  - { id: MIR2-07-THM-01, name: "規格化B側結合の一次係数公式" }
+  - { id: MIR2-07-PROP-03, name: "対数座標の定数シフトと級数係数" }
+  - { id: MIR2-07-PROP-04, name: "A/B一致を追加で仮定した場合の係数帰結" }
+canonical_examples:
+  - z=w+w^2で三次結合の三乗Jacobianを確かめる
+  - g(z)=1+zで三次結合と周期を同時に変えたときの相殺
+  - 一次係数2875を三つの因子から独立に復元
+  - 周期を割らない場合と三乗で割る場合の誤係数4075と2275
+  - 対数座標を定数シフトしたときの級数係数の変化
+  - A側形式代入と未証明のA/B等式の論理的分離
+problem_patterns:
+  - MIR2-07-LOG-JACOBIAN
+  - MIR2-07-PERIOD-GAUGE
+  - MIR2-07-FIRST-COEFFICIENT
+  - MIR2-07-WRONG-PERIOD-POWER
+  - MIR2-07-TWO-PI
+  - MIR2-07-NONLINEAR-COORDINATE
+  - MIR2-07-PAIRING-NORMALIZATION
+  - MIR2-07-SECOND-COEFFICIENT
+  - MIR2-07-CONSTANT-SHIFT
+  - MIR2-07-A-B-CONDITIONAL
+  - MIR2-07-INTEGRATED-CAPSTONE
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 5 }

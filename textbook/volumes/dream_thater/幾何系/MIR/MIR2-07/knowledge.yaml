@@ -1,0 +1,41 @@
+chapter: MIR2-07
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR1-16, MIR1-15, MIR2-05, MIR2-06]
+concepts:
+  - id: mirror.quintic-normalized-cubic-gauge-invariance
+    name: 周期で割った三次結合の変換不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期で割った三次結合の変換不変性）"]
+    requires: [mirror.quintic-b-yukawa-coordinate, mirror.quintic-b-yukawa-normalized]
+  - id: mirror.quintic-normalized-cubic-regularity
+    name: quinticの規格化式と原点での正則延長
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quinticの規格化式と原点での正則延長）"]
+    requires: [mirror.quintic-b-yukawa-normalized, mirror.quintic-b-yukawa-rational]
+  - id: mirror.quintic-normalized-cubic-linear-check
+    name: 規格化B側結合の一次係数公式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（規格化B側結合の一次係数公式）"]
+    requires: [mirror.quintic-normalized-cubic-regularity]
+  - id: mirror.quintic-log-coordinate-constant-shift
+    name: 対数座標の定数シフトと級数係数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対数座標の定数シフトと級数係数）"]
+    requires: [mirror.quintic-normalized-mirror-coordinate, mirror.quintic-b-yukawa-normalized]
+  - id: mirror.quintic-ab-yukawa-comparison-convention
+    name: A/Bの三次結合の形式的比較規約
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（A/Bの三次結合の形式的比較規約）"]
+    requires: [mirror.quintic-a-yukawa-series, mirror.quintic-b-yukawa-normalized]
+  - id: mirror.quintic-ab-yukawa-conditional-gw-coefficients
+    name: A/B一致を追加で仮定した場合の係数帰結
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（A/B一致を追加で仮定した場合の係数帰結）"]
+    requires: [mirror.quintic-ab-yukawa-comparison-convention, mirror.quintic-a-yukawa-series]
