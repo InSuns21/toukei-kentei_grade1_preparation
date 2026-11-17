@@ -1,0 +1,47 @@
+chapter: U3-67
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-66, U3-46]
+concepts:
+  - id: finance.multiasset-execution-loss
+    name: 多資産の固定予定と到着価格基準損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多資産の固定予定と到着価格基準損失）"]
+    requires: [finance.ac-inventory-cash, finance.adaptive-execution-state]
+  - id: finance.multiasset-loss-risk
+    name: 多資産の損失恒等式と共分散リスク
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多資産の損失恒等式と共分散リスク）"]
+    requires: [finance.multiasset-execution-loss]
+  - id: finance.cross-impact-matrix
+    name: 一時的クロスインパクト行列と価格共分散率
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一時的クロスインパクト行列と価格共分散率）"]
+    requires: [finance.multiasset-execution-loss]
+  - id: finance.permanent-cross-impact-loop
+    name: 恒久的クロスインパクトの往復売買条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（恒久的クロスインパクトの往復売買条件）"]
+    requires: [finance.cross-impact-matrix]
+  - id: finance.multiasset-optimal-liquidation
+    name: 二期間多資産の厳密凸性と最適清算
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二期間多資産の厳密凸性と最適清算）"]
+    requires: [finance.multiasset-loss-risk, finance.cross-impact-matrix, finance.ac-risk-cost]
+  - id: finance.liquidity-adjusted-tail-risk
+    name: 本講の流動性調整 VaR と流動性調整 ES
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（本講の流動性調整 VaR と流動性調整 ES）"]
+    requires: [finance.multiasset-loss-risk, finance.value-at-risk, finance.expected-shortfall]
+  - id: finance.liquidity-normal-tail-risk
+    name: 固定流動性費用付き正規 VaR・ES
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定流動性費用付き正規 VaR・ES）"]
+    requires: [finance.liquidity-adjusted-tail-risk]
