@@ -160,7 +160,22 @@ d\alpha=dF_0\wedge dX^0+dF_1\wedge dX^1
 =(\partial_0F_1-\partial_1F_0)\,dX^0\wedge dX^1=0.
 $$
 
-ここで符号を確認すると、$dF_0\wedge dX^0=-\partial_1F_0\,dX^0\wedge dX^1$、$dF_1\wedge dX^1=\partial_0F_1\,dX^0\wedge dX^1$ である。小さい単連結な座標領域では、正則な閉一次形式に局所原始関数があり、$d\mathscr F=\alpha$ となる。従って二つの偏微分公式を得る。同じ微分を持つ二関数の差は定数だから一意性も従う。
+ここで符号を確認すると、$dF_0\wedge dX^0=-\partial_1F_0\,dX^0\wedge dX^1$、$dF_1\wedge dX^1=\partial_0F_1\,dX^0\wedge dX^1$ である。原始関数を具体的に作る。$U$ の基点 $X_*=(a^0,a^1)$ を固定し、$X=(X^0,X^1)$ へ向かう区分的に滑らかな経路 $\gamma_X$ に沿って
+
+$
+\mathscr F(X):=\int_{\gamma_X}(F_0\,dX^0+F_1\,dX^1)
+$
+
+と置く。$d\alpha=0$ であり、$U$ が単連結なので、二つの経路の差が作る閉曲線は零へ縮められる。そのホモトピーにStokesの定理を適用すると積分差は零となり、$\mathscr F$ は経路によらない。
+
+$X$ の近傍で第 $J$ 座標だけ $h$ 動かす線分を経路の末尾に追加すれば
+
+$
+\mathscr F(X+h e_J)-\mathscr F(X)
+=\int_0^h F_J(X+t e_J)\,dt\qquad (J=0,1)
+$
+
+となる。$h\to0$ で両辺を $h$ で割り、正則性を使うと $\partial_J\mathscr F=F_J$ を得る。この構成は各座標方向で正則な原始関数を与え、$d\mathscr F=\alpha$ となる。同じ微分を持つ二関数の差は連結領域 $U$ 上の定数だから、一意性も従う。
 
 同次の場合、Eulerの微分公式を成分ごとに用いると $\sum_J X^J\partial_JF_I=F_I$ である。混合偏微分の対称性から
 
@@ -469,7 +484,8 @@ $X^0=x,\ X^1=y,\ F_0=2x+y,\ F_1=x+3y$ とする。$(X^0,X^1)$ が局所座標で
 
 $$
 \frac{\partial(X^0,X^1)}{\partial(x,y)}
-=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad \det=1.
+=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad
+\det\begin{pmatrix}1&0\\0&1\end{pmatrix}=1.
 $$
 
 実際に逆写像も $(X^0,X^1)\mapsto(x,y)=(X^0,X^1)$ と書けるので、局所座標性が確認できる。$\partial_x\Pi=(1,0,2,1)$、$\partial_y\Pi=(0,1,1,3)$ なので
