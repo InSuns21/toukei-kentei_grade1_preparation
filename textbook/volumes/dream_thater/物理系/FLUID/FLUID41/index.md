@@ -187,9 +187,9 @@ $$
 
 ここで使う **Gibbs 関係** は、局所熱平衡における比内部エネルギー $e$、比体積 $1/\rho$、比エントロピー $s$ の微小な状態変化を結ぶ追加の熱力学的関係である。
 
-$
+$$
 T\,ds=de+p\,d(1/\rho).
-$
+$$
 
 $d$ は状態量の全微分であり、時間微分 $D_t$ とは異なる。これを流体粒子の軌道に沿って評価すると、連鎖律により $T D_ts=D_te+pD_t(1/\rho)$ となる。$s$ の意味とエントロピー収支の原理は [CTM10](../../CTM/CTM10/index.md#principle-ctm10-entropy) で導入されている。
 
@@ -257,19 +257,19 @@ $$
 
 $T>0$ だから $D_ts=0$ である。ただし「流体粒子に沿って一定」と「異なる粒子でも同じ $s$ なら同じ定数 $K$」は別の主張である。後者を確かめるため、Gibbs 関係に $e=c_vT$、$p=\rho RT$ を代入して
 
-$
+$$
 \begin{aligned}
 ds&=c_v\frac{dT}{T}-R\frac{d\rho}{\rho}\\
 &=c_v\frac{dp}{p}-(c_v+R)\frac{d\rho}{\rho}\\
 &=c_v\,d\ln(p\rho^{-\gamma})
 \end{aligned}
-$
+$$
 
 を得る。正の $p,\rho$ の状態領域でこの式を積分すれば、任意の参照状態 $(p_*,\rho_*,s_*)$ に対して
 
-$
+$$
 s-s_*=c_v\ln\left(\frac{p\rho^{-\gamma}}{p_*\rho_*^{-\gamma}}\right).
-$
+$$
 
 よって同じ $s$ を持つ二状態では $p\rho^{-\gamma}$ が等しく、等エントロピー曲線を $p=K\rho^\gamma$（$K>0$）と書ける。
 <!-- proof-end -->
@@ -337,20 +337,20 @@ $$
 <!-- definition-example-start: def-fluid41-acoustic-variables -->
 **定義の確認**：$\rho_0=1.2$ kg/m$^3$、$c_0=340$ m/s、$\gamma=1.4$、ある時空点の小さな音圧偏差 $p'=100$ Pa と速度偏差 $v'=0.20$ m/s を選ぶ。この段階では右向き波とは仮定しない。定義の等エントロピー条件を $\rho'=p'/c_0^2$ に戻すと
 
-$
+$$
 \rho'=\frac{100}{340^2}\simeq8.6505\times10^{-4}\ {\rm kg/m^3}.
-$
+$$
 
 平衡圧力は $p_0=\rho_0c_0^2/\gamma\simeq9.91\times10^4$ Pa で正、$|\rho'|/\rho_0<10^{-3}$、$|p'|/p_0<0.002$、$|v'|/c_0<10^{-3}$ なので微小偏差の条件にも適合する。圧力・運動エネルギー密度を**別々に**代入すると
 
-$
+$$
 \begin{aligned}
 \mathcal E_a
 &=\frac{100^2}{2(1.2)(340)^2}+\frac{1.2(0.20)^2}{2}\\
 &\simeq0.03604+0.02400=0.06004\ {\rm J/m^3},\\
 J_{a,x}&=p'v'=100(0.20)=20.0\ {\rm W/m^2}.
 \end{aligned}
-$
+$$
 
 この数値は定義の代入を検証するもので、右進行波かどうかの判定には第5節の特性量を使う。
 <!-- definition-example-end -->
@@ -802,30 +802,37 @@ $$
 
 質量・運動量の線形式は $\partial_t\rho'+\rho_0\partial_xv'=0$、$\rho_0\partial_tv'+\partial_xp'=0$ である。ここで等エントロピーを**仮定しない**場合の圧力式も、内部エネルギー式から導いておく。[理想気体の閉鎖](#def-fluid41-ideal-gas) $p=(\gamma-1)\rho e$ を物質微分し、[質量保存](../../CTM/CTM5/index.md#thm-ctm5-mass-equivalence) $D_t\rho=-\rho\partial_xv$ と [内部エネルギー式](../../CTM/CTM9/index.md#thm-ctm9-internal-energy) $\rho D_te=-p\partial_xv$ を代入すると
 
-$
+$$
 \begin{aligned}
 D_tp&=(\gamma-1)(\rho D_te+eD_t\rho)\\
 &=-(\gamma-1)(p+\rho e)\partial_xv\\
 &=-\gamma p\,\partial_xv.
 \end{aligned}
-$
+$$
 
 一様静止平衡のまわりで一次まで残すと $D_tp=\partial_tp'$、$\gamma p\partial_xv=\gamma p_0\partial_xv'$ である。$\gamma p_0=\rho_0c_0^2$ を使い
 
-$
+$$
 \partial_tp'+\rho_0c_0^2\partial_xv'=0
-$
+$$
 
 を得る。この式はエントロピーが**空間的に一様であることを要しない**。三つの線形式へ $v'=p'=0$、$\rho'=A\cos(kx)$ を代入すると、すべての時間微分と速度・圧力勾配がゼロで成立する。
 
 実際、[第3節の Gibbs 関係](#prop-fluid41-isentropic)と $p=\rho RT$ を合わせれば
 
-$
+$$
 ds=c_v\frac{dT}{T}-R\frac{d\rho}{\rho}
 =c_v\frac{dp}{p}-\gamma c_v\frac{d\rho}{\rho}.
-$
+$$
 
-したがって一次の比エントロピー偏差は $s'=c_v(p'/p_0-\gamma\rho'/\rho_0)=-\gamma c_v A\cos(kx)/\rho_0$ で、$A\ne0$ なら空間的に変化する。圧力一定でも温度が逆向きに変化するため、これは静止した**エントロピー／接触モード**である。
+したがって一次の比エントロピー偏差は
+
+$$
+s'=c_v\left(\frac{p'}{p_0}-\gamma\frac{\rho'}{\rho_0}\right)
+=-\frac{\gamma c_v A}{\rho_0}\cos(kx).
+$$
+
+$A\ne0$ なら空間的に変化する。圧力一定でも温度が逆向きに変化するため、これは静止した**エントロピー／接触モード**である。
 
 ただし[等エントロピー音響摂動の定義](#def-fluid41-acoustic-variables)は $p'=c_0^2\rho'$ を要求する。$c_0^2>0$、$A\ne0$ なら $p'=0$ と $\rho'\ne0$ は同時に満たせない。したがって等エントロピーの波動方程式で密度だけの摂動を伝播させてはいけない。熱的な状態の揺らぎを含む場合に、音響二モードだけでは不十分なことを示す例である。
 <!-- solution-end -->
