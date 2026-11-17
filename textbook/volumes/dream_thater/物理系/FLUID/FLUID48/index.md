@@ -69,7 +69,26 @@ $$
 
 圧力を一つ指定したとき、左右それぞれの状態から星印状態まで波を通過する速度変化を計算する。
 
-左・右を $K\in\{L,R\}$ と書き、$a_K=\sqrt{\gamma p_K/\rho_K}$、$\beta=(\gamma-1)/(\gamma+1)$ とする。**希薄波**では粒子のエントロピーが保たれ、$p/\rho^\gamma$ は一定である。[音速の定義](../FLUID41/index.md#def-fluid41-sound-speed)を使うと $a=a_K(p/p_K)^{(\gamma-1)/(2\gamma)}$。左進・右進の単純波に沿う $du\pm dp/(\rho a)=0$ を積分した速度変化は
+左・右を $K\in\{L,R\}$ と書き、$a_K=\sqrt{\gamma p_K/\rho_K}$、$\beta=(\gamma-1)/(\gamma+1)$ とする。**希薄波**では粒子のエントロピーが保たれ、$p/\rho^\gamma$ は一定である。[音速の定義](../FLUID41/index.md#def-fluid41-sound-speed)を使うと $a=a_K(p/p_K)^{(\gamma-1)/(2\gamma)}$。
+
+単純波が伝わる向きの固有値を $\lambda=u\pm a$ とし、節0の行列に対する固有ベクトルの微小変化を $(d\rho,du,dp)$ と書く。第1行と第3行はそれぞれ
+
+$$
+\rho\,du=(\lambda-u)d\rho,\qquad
+\gamma p\,du=(\lambda-u)dp.
+$$
+
+従って $dp=\pm\rho a\,du$、つまり $du=\pm dp/(\rho a)$ である。左波では負号、右波では正号を選び、出発状態 $(\rho_K,u_K,p_K)$ から積分する。等エントロピー式で $\rho=\rho_K(p/p_K)^{1/\gamma}$ を代入すると
+
+$$
+\int_{p_K}^{p}\frac{dq}{\rho(q)a(q)}
+=\frac{a_K}{\gamma p_K}
+\int_{p_K}^{p}\left(\frac q{p_K}\right)^{-(\gamma+1)/(2\gamma)}dq
+=\frac{2a_K}{\gamma-1}
+\left[\left(\frac p{p_K}\right)^{(\gamma-1)/(2\gamma)}-1\right].
+$$
+
+この速度変化の大きさを符号付き関数としてまとめると
 
 $$
 f_K^{\rm rare}(p)
@@ -84,7 +103,28 @@ $$
 p-p_K=j^2\left(\frac1{\rho_K}-\frac1{\rho_*}\right)
 $$
 
-となる。全エネルギーの跳躍から理想気体の Hugoniot 関係を整理すると
+となる。ここで比エンタルピー $h_{\rm therm}=(E+p)/\rho-u^2/2=\gamma p/((\gamma-1)\rho)$ を用いる。波面静止系の全エネルギーの跳躍から
+
+$$
+h_{{\rm therm},*}+\frac{j^2}{2\rho_*^2}
+=h_{{\rm therm},K}+\frac{j^2}{2\rho_K^2}.
+$$
+
+これに運動量式の $j^2(\rho_K^{-1}-\rho_*^{-1})=p-p_K$ を代入すると
+
+$$
+\frac{2\gamma}{\gamma-1}
+\left(\frac p{\rho_*}-\frac{p_K}{\rho_K}\right)
+=(p-p_K)\left(\frac1{\rho_K}+\frac1{\rho_*}\right).
+$$
+
+$r=p/p_K$、$z=\rho_*/\rho_K$ とおき、両辺に $(\gamma-1)\rho_K z/p_K$ を掛けて
+
+$$
+2\gamma(r-z)=(\gamma-1)(r-1)(z+1)
+$$
+
+を得る。$z$ を含む項を右側へまとめると、$z[(\gamma+1)+(\gamma-1)r]=(\gamma+1)r+(\gamma-1)$ だから、Hugoniot の密度比は
 
 $$
 \frac{\rho_*}{\rho_K}
