@@ -17,3 +17,4 @@
 14. [WGL14 画面全体をどう加工する？](textbook/volumes/dream_thater/計算系/WGL/WGL14/index.md)
 15. [WGL15 画面クリックを3D物体へどう対応させる？](textbook/volumes/dream_thater/計算系/WGL/WGL15/index.md)
 16. [WGL16 同じ形を多数描くと何が速い？](textbook/volumes/dream_thater/計算系/WGL/WGL16/index.md)
+17. [WGL17 物理データをGPU textureへ送るとき何を失う？](textbook/volumes/dream_thater/計算系/WGL/WGL17/index.md)

@@ -1,0 +1,31 @@
+id: WGL17
+title: 物理データをGPU textureへ送るとき何を失う？
+volume: foundations
+status: supplementary
+prerequisites: [WGL16]
+official_scope: []
+learning_objectives:
+  - 4x2物理値格子の下原点の行順とテクセル添字を画素中心から手計算できる
+  - R8の正規化値とR8UIの整数値を区別しGLSL samplerの型と復元式を説明できる
+  - 8ビット量子化の誤差上界と単精度格納の誤差を導出し数値例で検算できる
+  - R32FのサンプリングとEXT_color_buffer_floatによるFBO float読戻しの可否を区別できる
+  - JS/GLSLラボでCPU独立基準と画面RGBA8とfloat読戻しを別々に検算できる
+definitions:
+  - { id: WGL17-DEF-01, name: 4x2物理値格子とデータテクスチャ }
+  - { id: WGL17-DEF-02, name: 8ビット正規化符号化と復元 }
+  - { id: WGL17-DEF-03, name: 本講義の3種類の数値テクスチャ }
+theorems:
+  - { id: WGL17-PROP-01, name: 画素中心から格子添字への対応 }
+  - { id: WGL17-PROP-02, name: 最近接8ビット量子化の絶対誤差上界 }
+  - { id: WGL17-PROP-03, name: 区間内の単精度格納誤差 }
+canonical_examples:
+  - 4x2格子の下原点行順とk=i+4j
+  - -1.3の8ビット符号45と復元誤差
+  - R8とR8UIのsampler2D/usampler2Dの対比
+  - R32FとRGBA8表示の精度分離
+  - 4x2 float framebufferの対応検査と8画素独立CPU検算
+problem_patterns: [WGL17-GRID, WGL17-QUANT, WGL17-SAMPLER, WGL17-F32, WGL17-READBACK, WGL17-LAB]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
