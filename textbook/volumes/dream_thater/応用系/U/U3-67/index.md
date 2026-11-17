@@ -138,7 +138,21 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（一時的クロスインパクト行列と価格共分散率）**  
-> 非負の同時売却数量 $q\in[0,\infty)^2$ に対して $C_{\rm one}(q)=q^{\mathsf T}Aq/2$ を一時的費用とする。$A=A^{\mathsf T}$ を実対称かつ正定値と仮定する。$A_{12}$ を一時的クロスインパクト係数とする。実確率 $P$ の下で平均0、有限二次モーメントの価格増分 $\varepsilon$ の共分散が $\Delta\Sigma$ であるとき、$\Sigma$ を価格共分散率行列とする。$\Sigma$ は実対称かつ半正定値である。
+> 非負の同時売却数量 $q\in[0,\infty)^2$ に対し、一時的費用を次式で表す。
+
+$$
+C_{\rm one}(q)=\frac12 q^{\mathsf T}Aq.
+$$
+
+> $A=A^{\mathsf T}$ は実対称かつ正定値と仮定する。その非対角成分 $A_{12}$ が、一時的クロスインパクト係数である。
+>
+> 実確率 $P$ の下で平均0、有限二次モーメントを持つ価格増分 $\varepsilon$ と区間長 $\Delta>0$ について、価格共分散率行列 $\Sigma$ を次で定める。
+
+$$
+\operatorname{Cov}_P(\varepsilon)=\Delta\Sigma.
+$$
+
+> $\Sigma$ は実対称かつ半正定値である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u3-67-matrices -->
@@ -189,7 +203,7 @@ $$
 
 [既習の平均分散清算目的](../U3-62/index.md#def-u3-62-objective)と同様に、期待損失へ損失分散の $\lambda\ge0$ 倍を足します。$\lambda$ は1／円の単位です。ここでは $N=2,\Delta=1$ 時間とし、最初の区間後に残す在庫を $r=x_1$ とします。最初に売る $x_0-r$ 株と次に売る $r$ 株は $0\le r_i\le x_{0,i}$ を満たします。前節の恒久的な $G$ とは異なり、**一時的な $A$ だけ**をここでは費用に入れます。
 
-目的関数は[損失と分散の恒等式](#prop-u3-67-telescope)から
+[損失恒等式](#prop-u3-67-telescope)へ $N=2$ と $x_1=r$ を代入して、期待費用と在庫の価格分散を足すと
 
 $$
 J(r)=\tfrac12(x_0-r)^{\mathsf T}A(x_0-r)
@@ -242,7 +256,14 @@ A+\lambda\Sigma
 \quad \det(A+\lambda\Sigma)=2.8875.
 $$
 
-二次元の逆行列公式から
+$B=A+\lambda\Sigma$ と置くと、直接の行列積で
+
+$
+B\begin{pmatrix}1.45&-0.55\\-0.55&2.20\end{pmatrix}
+=2.8875 I_2
+$
+
+を確認できます。[最適清算の停留条件](#prop-u3-67-optimal)に従い、この行列の $1/2.8875$ 倍を $Ax_0/2$ に作用させると
 
 $$
 r_{\rm free}=
@@ -264,7 +285,7 @@ $$
 
 ## 4. その執行コストを VaR と ES にどう入れるか
 
-[U3-45 の VaR](../U3-45/index.md#def-u3-45-var)と[U3-46 の ES](../U3-46/index.md#def-u3-46-es)は**損失確率分布**の指標です。価格変動だけの市場損失 $L_{\rm m}$ と、売買に必要な費用 $C_{\rm exec}$ を区別してから、同じ期間・同じ市場シナリオ・同じ通貨で合計します。
+[U3-45 の VaR](../U3-45/index.md#def-u3-45-var)と[U3-46 の ES](../U3-46/index.md#def-u3-46-es)は**損失の分布**から計算します。価格変動だけの市場損失 $L_{\rm m}$ と、売買に必要な費用 $C_{\rm exec}$ を区別してから、同じ期間・同じ市場シナリオ・同じ通貨で合計します。
 
 <a id="def-u3-67-liquidity-risk"></a>
 
@@ -349,7 +370,7 @@ $$
 # lab-title: 二資産の行列検査・清算最適化・流動性ストレス
 # lab-file: textbook/volumes/dream_thater/応用系/U/U3-67/assets/cross_impact_risk.py
 # lab-preset: 基本の二資産モデル | --lambda-risk 0.05
-# lab-preset: リスク回避を強める | --lambda-risk 0.20
+# lab-preset: 分散ペナルティを強める | --lambda-risk 0.20
 # lab-preset: ストレス下のVaR/ES | --lambda-risk 0.05 --stress
 # lab-preset: 行列の反例と単体テスト | --self-test
 # lab-timeout-ms: 30000
