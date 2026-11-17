@@ -55,7 +55,22 @@ $$
 
 一方、$Q_{\!B}$ を $cQ_{\!B}$（$c\ne0$ は定数）とすれば、$C_{zzz}$ は $c$ 倍になる。この第三の自由度は3形式の倍率とは異なる。
 
-次の命題が使う直交性は、既習の[重さ3のHodgeフィルトレーション](../../HOD/HOD1-15/index.md#def-hod1-15-filtration)と[Hodge三次結合の構成](../MIR1-16/index.md#def-mir1-16-yukawa-cubic)で確認したものである。$\Omega\in F^3$、$\nabla_z\Omega\in F^2\subset F^1$、$\nabla_z^2\Omega\in F^1$ と $Q_{\!B}(F^3,F^1)=0$ を組み合わせると、$\Omega$ と一次・二次微分の組は零になる。これは交代性による $Q_{\!B}(\Omega,\Omega)=0$ とも区別する。
+次の命題が使う直交性は、既習の[重さ3のHodgeフィルトレーション](../../HOD/HOD1-15/index.md#def-hod1-15-filtration)と[Hodge三次結合の構成](../MIR1-16/index.md#def-mir1-16-yukawa-cubic)に基づく。Griffiths横断性を一回ずつ適用すると
+
+$$
+\Omega\in F^3,\qquad
+\nabla_z\Omega\in F^2\subset F^1,\qquad
+\nabla_z^2\Omega\in F^1
+$$
+
+となる。これにHodge直交性 $Q_{\!B}(F^3,F^1)=0$ を組み合わせると
+
+$$
+Q_{\!B}(\Omega,\nabla_z\Omega)
+=Q_{\!B}(\Omega,\nabla_z^2\Omega)=0
+$$
+
+を得る。これは交代性による $Q_{\!B}(\Omega,\Omega)=0$ とは別の条件である。
 
 <a id="prop-mir2-07-period-gauge"></a>
 
@@ -373,7 +388,26 @@ $$
 
 <!-- definition-example-start: def-mir2-07-comparison-convention -->
 
-**定義の確認**。 $C^X_{HHH}(x)=5+N_1^Xx+8N_2^Xx^2+O(x^3)$ に代入 $\iota$ を行うと、定数5は5のまま、一次は $N_1^Xq_B$、二次は $8N_2^Xq_B^2$ になる。次数2の係数8は $d^3$ から来るので、代入自体が作る値ではない。また $\iota(x^2)=q_B^2=\iota(x)^2$、$\iota(1)=1$ である。一般の二級数 $f=\sum a_dx^d$、$g=\sum b_dx^d$ の積では、$x^n$ の係数は有限和 $\sum_{j=0}^na_jb_{n-j}$ であり、置換後の $q_B^n$ の係数も同じ有限和になる。このため $\iota(fg)=\iota(f)\iota(g)$ が無限級数についても成立し、加法も係数ごとに保たれる。元の $N_1^X,N_2^X$ を知らない段階ではB側の $2875,4876875$ と一致するとはまだ結論できない。
+**定義の確認**。まず三点関数の初項に比較用の代入を行うと
+
+$$
+C^X_{HHH}(x)
+=5+N_1^Xx+8N_2^Xx^2+O(x^3)
+\quad\xmapsto{\ \iota\ }\quad
+5+N_1^Xq_B+8N_2^Xq_B^2+O(q_B^3)
+$$
+
+となる。定数5は不変で、二次の係数8は次数 $d=2$ の $d^3$ から来る。代入が新たに作った数値ではない。
+
+この対応が無限級数でも環準同型になることを確認しよう。$\iota(x^2)=q_B^2=\iota(x)^2$、$\iota(1)=1$ である。一般に $f=\sum_{d\ge0}a_dx^d$、$g=\sum_{d\ge0}b_dx^d$ を取ると、任意の $n\ge0$ について
+
+$$
+[x^n](fg)
+=\sum_{j=0}^na_jb_{n-j}
+=[q_B^n]\bigl(\iota(f)\iota(g)\bigr)
+$$
+
+が成立する。右辺と左辺はともに有限和なので解析的収束は不要であり、$\iota(fg)=\iota(f)\iota(g)$ が全次数で従う。加法についても各係数をそのまま写すため保存される。元の $N_1^X,N_2^X$ を知らない段階ではB側の $2875,4876875$ と一致するとはまだ結論できない。
 
 <!-- definition-example-end -->
 
