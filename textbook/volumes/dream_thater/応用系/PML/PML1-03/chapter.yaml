@@ -1,0 +1,41 @@
+id: "PML1-03"
+title: "自由エネルギー最小化とKLはどう結び付くか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-02
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 有限候補の損失・確率・正の尺度を定め、自然対数のエントロピーと自由エネルギー型目的関数を単位付きで計算できる
+  - KLの底2と自然対数を換算し、零確率と台の包含条件を正しく扱える
+  - 有限Gibbs分布のKL余剰恒等式を導出し、非負性と一意な等号条件を説明できる
+  - 二状態の変分問題を直接微分してGibbs分布を再現できる
+  - 零尺度での最小値と分布の極限を、同点候補を含めて証明できる
+  - KLの基準分布を指定した場合の最適分布と最小値を導き、物理平衡との主張の違いを説明できる
+definitions:
+  - { id: PML1-03-DEF-01, name: 有限候補の自由エネルギー型目的関数 }
+  - { id: PML1-03-DEF-02, name: 基準分布付きKL正則化目的 }
+theorems:
+  - { id: PML1-03-PROP-01, name: 学習候補の自由エネルギーとKL余剰 }
+  - { id: PML1-03-PROP-02, name: 有限候補の零尺度極限と同点候補 }
+  - { id: PML1-03-PROP-03, name: 基準分布を傾けた最適分布 }
+canonical_examples:
+  - 二候補の一様分布と決め打ちの自由エネルギー比較
+  - 二候補のKL余剰とKLの向き
+  - 三候補で最小損失が同点となる零尺度極限
+  - 非一様な基準分布によるKL正則化と傾いたGibbs分布
+problem_patterns:
+  - PML1-03-A01
+  - PML1-03-A02
+  - PML1-03-A03
+  - PML1-03-A04
+  - PML1-03-B01
+  - PML1-03-B02
+  - PML1-03-B03
+  - PML1-03-B04
+  - PML1-03-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4, review: 2 }

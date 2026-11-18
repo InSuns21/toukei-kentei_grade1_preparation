@@ -1,7 +1,7 @@
 version: 1
 id: MIR
 title: "ミラー対称性 I・II"
-plan: textbook/plans_progress/DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_MIRROR_SYMMETRY_I_II_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 
 # 通算第1講をMIR1-01とし、MIR1-16の次がMIR2-01。完成章のみ目次へ登録する。

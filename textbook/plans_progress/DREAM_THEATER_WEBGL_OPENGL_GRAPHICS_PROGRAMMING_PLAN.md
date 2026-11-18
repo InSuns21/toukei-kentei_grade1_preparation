@@ -1,7 +1,7 @@
 # DREAM THEATER WebGL2・OpenGL系リアルタイムCG／GPUプログラミング講座 PLAN（WGL1〜WGL20・全20講確定）
 
 設計・講数確定日：2026-11-15  
-状態：in progress（着手済み。各講の完了状況は系列 manifest を正本とする）  
+状態：in progress（系列 manifest 上はWGL1〜WGL20が全件completed。ただし最終横断監査・実ブラウザ検証は未完了）  
 講数：**20講**（A 6講＋B 6講＋C 4講＋D 4講）。既存の流体CG（FCG1〜20）とは別系列とし、共通WebGLラボを共同利用する。
 
 ## 0. 判断・中心問い・範囲
@@ -136,9 +136,10 @@
 
 ## 6. PLANの状態遷移と最終全体監査（1サイクル）
 
-- **現在の状態**：WGL1着手後、本PLANは既に`textbook/plans_progress/`にあり、`textbook/dream-theater-series/WGL.yaml`が系列別進捗の正本。各章完成時には該当manifestのstatusを成果物と同じPRで更新する。ケーススタディは付属応用教材として計画内で追跡し、章IDを追加しない。
+- **現在の状態（2026-11-19の現行GitHub確認）**：本PLANは`textbook/plans_progress/`にあり、`textbook/dream-theater-series/WGL.yaml`でWGL1〜WGL20が全件`completed`。WGL20からの付属CS1〜CS3本文・静的PLATEAUデータ・抽出スクリプト・ホスト側数値検査・Nodeテストは実在する。章IDは増やさない。ただし実ブラウザのWebGL2/ピッキング/オフライン検証と、以下の一回限りの横断監査は完了したとは確認されていない。
 - **毎講の局所ゲート**：実行ソース・教材・テスト・図をまとめて作り、コード実行、計算・描画・全詳細解答の検算、実表示とCIを通してからcompletedにする。共通ランタイム修正時にはFCG/NUMLABへの互換性を同じPRで検証する。
 - **WGL20完了後の系列横断監査は1回**：WGL1–20の定義/anchor/前提順、GLSLとJSの入力出力、色空間/座標/深度/精度の一貫性、全ラボの共有runtimeでのコード編集→実行→復帰と隔離/停止、FCGの代表例との互換性、目次・Pages・系列manifestを確認する。加えてWGL20のPLATEAU同梱データとCS1〜CS3の前処理・ライセンス・座標変換・実行/検算・公開リンクを照合する。重大指摘は該当講と波及範囲をその監査サイクル内で修正・再検査する。
+- **最終監査の残件（2026-11-19時点）**：WGL1〜WGL20の教材・演習数・ラボソースの存在、WGL20の二命題・全10解答、WGL20から参照するlocal stable anchorとCS1〜CS3のファイルは静的に照合済み。ただし、全20講の数学・記法・GLSL入出力を対象とする手動横断再査読と、実ブラウザでの全ラボのshaderコンパイル・画素・選択ID・context loss/復帰・360px/キーボード/オフライン・共有FCG代表例の互換性検証は未完了。Node単体テストとCI成功だけでこれらを実施したとは判定しない。実機条件と結果を記録し、重大な失敗は修正・再検証する。
 - 全20講・ラボ・レビュー・公開・**PLATEAU付属ケーススタディ3件**・横断監査を完了して初めて、PLANをplans_progress/からplan_done/へ移動し、WGL.yamlのplanと直接参照を同じPRで更新する。系列の20という講数やWGL20章単独のcompletedだけでdoneにはしない。
 
 ## 7. 範囲外・過大な約束をしないもの

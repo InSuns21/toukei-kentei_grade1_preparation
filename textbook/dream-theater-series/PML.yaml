@@ -15,7 +15,7 @@ chapters:
     title: "有限状態からGibbs分布を構成できるか"
   - id: PML1-03
     path: textbook/volumes/dream_thater/応用系/PML/PML1-03
-    status: planned
+    status: completed
     title: "自由エネルギー最小化とKLはどう結び付くか"
   - id: PML1-04
     path: textbook/volumes/dream_thater/応用系/PML/PML1-04

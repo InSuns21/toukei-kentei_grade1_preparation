@@ -1,0 +1,45 @@
+chapter: PML1-03
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-02, INFO2]
+concepts:
+  - id: physics-machine-learning.finite-free-energy-objective
+    name: 有限候補の自由エネルギー型目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限候補の自由エネルギー型目的関数）"]
+    requires:
+      - statistical-mechanics.gibbs-entropy
+      - physics-machine-learning.finite-loss-gibbs
+  - id: physics-machine-learning.finite-gibbs-kl-gap
+    name: 学習候補の自由エネルギーとKL余剰
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（学習候補の自由エネルギーとKL余剰）"]
+    requires:
+      - physics-machine-learning.finite-free-energy-objective
+      - information.relative-entropy
+      - information.gibbs-inequality
+  - id: physics-machine-learning.finite-zero-scale-limit
+    name: 有限候補の零尺度極限と同点候補
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限候補の零尺度極限と同点候補）"]
+    requires:
+      - physics-machine-learning.finite-gibbs-kl-gap
+  - id: physics-machine-learning.prior-kl-objective
+    name: 基準分布付きKL正則化目的
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基準分布付きKL正則化目的）"]
+    requires:
+      - information.relative-entropy
+      - physics-machine-learning.finite-free-energy-objective
+  - id: physics-machine-learning.prior-gibbs-tilt
+    name: 基準分布を傾けた最適分布
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（基準分布を傾けた最適分布）"]
+    requires:
+      - physics-machine-learning.prior-kl-objective
+      - information.gibbs-inequality
