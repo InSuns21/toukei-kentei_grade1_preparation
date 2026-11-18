@@ -297,7 +297,7 @@ $$
 $N_2$ の分母8を切り捨てる根拠はなく、整数への変換は別の数学的操作を要する。$\square$
 <!-- proof-end -->
 
-最後に[A側の種数0ポテンシャルと三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series)を用いる。$x=Qe^t$ を一つの形式変数として
+最後に[A側の種数0ポテンシャルと三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series)を用いる。MIR2-05のA側変形変数 $t$ を、本講ではB側の $t=u/(2\pi i)$ と区別するため $\tau$ と書く。$Q$ と $\tau$ はA側の独立な形式変数であり、$x=Qe^\tau$ を一つの形式変数として
 
 $$
 C_{HHH}^X(x)=5+\sum_{d\ge1}d^3N_dx^d
