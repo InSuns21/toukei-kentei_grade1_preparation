@@ -27,7 +27,13 @@
 > V^\dagger V=I_{\rm in}
 > $$
 >
-> を固定する。$R$ はその時点で観測対象にした全放射、$B$ は残存物、$E$ はその他の非観測自由度とする。**放射だけで完結した終期**とは $\dim\mathcal H_B=\dim\mathcal H_E=1$ かつ $R$ が全出力を含むとする追加仮定を満たす場合をいう。これは「ある時刻の外部放射が熱的」とは異なる仮定である。
+> を固定する。$R$ は観測対象とする全放射、$B$ は残存物、$E$ はそれ以外の非観測自由度とする。**放射だけで完結した終期**では、$R$ が全出力を含み、さらに
+
+$
+\dim\mathcal H_B=\dim\mathcal H_E=1
+$
+
+> と仮定する。これは「ある時刻の外部放射が熱的」という条件とは異なる。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi1-endpoint-split -->
@@ -112,7 +118,7 @@ $V^\dagger V=I$ と $\langle\psi|\psi\rangle=1$ から $\|V|\psi\rangle\|^2=\lan
 $$
 S(\rho_R)=-2\left(\frac12\ln\frac12\right)=\ln2>0.
 $$
-この混合性は $B$ と $R$ の相関を局所観測から捨てたために現れ、等長性と矛盾しません。$\square$
+この局所状態の混合は $B$ と $R$ の相関を局所観測から捨てたために現れ、等長性と矛盾しません。$\square$
 <!-- proof-end -->
 
 より一般には[QINF33の純粋全系の縮約エントロピー等式](../../../応用系/QINF/QINF33/index.md#prop-qinf33-pure-budget)を使えば、全出力が純粋で $R$ と $BE$ の二部に分けられるとき $S(R)=S(BE)$ と分かります。ただし途中の放射を観測する場合と、終期の全放射を測る場合を取り違えないようにします。
@@ -161,7 +167,19 @@ $$
 <!-- formal-statement-start -->
 > **命題（放射で区別できない二入力と回復の不可能性）**
 >
-> [放射への縮約チャネル](#def-bhi1-radiation-channel)について、相異なる二つの入力状態 $\rho_1\ne\rho_2$ が $\mathcal N_R(\rho_1)=\mathcal N_R(\rho_2)$ を満たすなら、放射だけを入力として**すべての入力状態を厳密に回復する**一つの写像 $\mathcal D$ は存在しない。特に第2節の等長写像 $V$ では、直交する入力 $|+\rangle,|-\rangle=(|0\rangle-|1\rangle)/\sqrt2$ の放射縮約はどちらも $I_2/2$ である。
+> [放射への縮約チャネル](#def-bhi1-radiation-channel)と相異なる二入力状態について、次を仮定する。
+
+$
+\rho_1\ne\rho_2,\qquad
+\mathcal N_R(\rho_1)=\mathcal N_R(\rho_2).
+$
+
+> このとき、放射だけを入力として**すべての入力状態を厳密に回復する**一つの写像は存在しない。第2節の等長写像において直交する入力 $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$ は、次のように同じ放射状態を与える。
+
+$
+\mathcal N_R(|+\rangle\langle+|)
+=\mathcal N_R(|-\rangle\langle-|)=I_2/2.
+$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -184,7 +202,7 @@ $$
 それでも全出力では $X_R\otimes X_B$ の期待値がそれぞれ $+1,-1$ なので区別できます。$\square$
 <!-- proof-end -->
 
-**逆は一般に言えません。** 出力状態から入力を数学的に一意に推定できる（写像が単射）ことだけでは、雑音のあるチャネルを**物理的な量子チャネルで完全復号できる**と保証しません。完全正値性や補助系との相関を保存する条件が別に必要です。[QINF29のデカップリング](../../../応用系/QINF/QINF29/index.md#def-qinf29-reference)と[QINF30の回復写像](../../../応用系/QINF/QINF30/index.md#def-qinf30-petz)はその後の議論の土台になります。
+**逆は一般に言えません。** 出力状態から入力を数学的に一意に推定できる（写像が単射）ことだけでは、雑音のあるチャネルを**物理的な量子チャネルで完全復号できる**と保証しません。完全正値性や補助系との相関を保存する条件が別に必要です。この点は[QINF29の参照系付きチャネル状態](../../../応用系/QINF/QINF29/index.md#def-qinf29-reference)と完全復号条件でさらに詳しく学べます。
 
 また、全放射が純粋であること**だけ**からも、可逆な状態写像は保証されません。例えば、$|0\rangle,|1\rangle$ を持つ2次元入力・出力に対し
 $$
@@ -263,7 +281,7 @@ $$
 - 問題: 純粋な入力と等長発展を仮定する。(i) 終期 $B,E$ がともに1次元、(ii) $B$ が2次元で $E$ は1次元、(iii) $B$ が1次元で $E$ は2次元の場合を考える。各場合で $S(R)>0$ が可能か判定し、可能なら具体的な等長写像を示せ。
 
 <!-- solution-start -->
-**詳細解答**　(i) [終期純粋性定理](#thm-bhi1-endpoint-purity)から、どの純粋入力でも $\rho_R$ は純粋なので $S(R)=0$。$S(R)>0$ は不可能です。(ii) 入力を2次元、$R,B$ を2次元に取り $V|0\rangle=|00\rangle,V|1\rangle=|11\rangle$ とすれば、像は直交規格化され等長です。$|+\rangle$ 入力の放射は $I_2/2$ となり $S(R)=\ln2$。(iii) 同じ写像で第二因子を $B$ でなく $E$ と呼べば、$\dim B=1,\dim E=2$ で同じ結論です。したがって「地平線が残っていない」だけでは未観測の $E$ まで排除できません。
+**詳細解答**　(i) [放射だけで完結する等長発展の純粋性制約](#thm-bhi1-endpoint-purity)から、どの純粋入力でも $\rho_R$ は純粋なので $S(R)=0$。$S(R)>0$ は不可能です。(ii) 入力を2次元、$R,B$ を2次元に取り $V|0\rangle=|00\rangle,V|1\rangle=|11\rangle$ とすれば、像は直交規格化され等長です。$|+\rangle$ 入力の放射は $I_2/2$ となり $S(R)=\ln2$。(iii) 同じ写像で第二因子を $B$ でなく $E$ と呼べば、$\dim B=1,\dim E=2$ で同じ結論です。したがって「地平線が残っていない」だけでは未観測の $E$ まで排除できません。
 <!-- solution-end -->
 
 <a id="ex-bhi1-b02"></a>
@@ -274,7 +292,7 @@ $$
 - 問題: $K_0=|0\rangle\langle0|,K_1=|0\rangle\langle1|$ と $\mathcal T(\rho)=K_0\rho K_0^\dagger+K_1\rho K_1^\dagger$ を考える。跡保存性、任意の入力で出力が純粋であること、完全回復の不可能性を証明せよ。
 
 <!-- solution-start -->
-**詳細解答**　$K_0^\dagger K_0=|0\rangle\langle0|$、$K_1^\dagger K_1=|1\rangle\langle1|$ なので和は $I_2$。したがってKraus表示のチャネルは跡を保存します。一般の密度演算子を $\rho=\sum_{i,j=0}^1\rho_{ij}|i\rangle\langle j|$ と書くと $K_0\rho K_0^\dagger=\rho_{00}|0\rangle\langle0|$、$K_1\rho K_1^\dagger=\rho_{11}|0\rangle\langle0|$。$\rho_{00}+\rho_{11}=\operatorname{Tr}\rho=1$ より $\mathcal T(\rho)=|0\rangle\langle0|$ となり、出力は階数1の純粋状態です。しかし $\mathcal T(|0\rangle\langle0|)=\mathcal T(|1\rangle\langle1|)$ なので、[二入力の回復不能命題](#prop-bhi1-indistinguishable-inputs)を適用すると両方を完全復元する写像は存在しません。
+**詳細解答**　$K_0^\dagger K_0=|0\rangle\langle0|$、$K_1^\dagger K_1=|1\rangle\langle1|$ なので和は $I_2$。したがってKraus表示のチャネルは跡を保存します。一般の密度演算子を $\rho=\sum_{i,j=0}^1\rho_{ij}|i\rangle\langle j|$ と書くと $K_0\rho K_0^\dagger=\rho_{00}|0\rangle\langle0|$、$K_1\rho K_1^\dagger=\rho_{11}|0\rangle\langle0|$。$\rho_{00}+\rho_{11}=\operatorname{Tr}\rho=1$ より $\mathcal T(\rho)=|0\rangle\langle0|$ となり、出力は階数1の純粋状態です。しかし $\mathcal T(|0\rangle\langle0|)=\mathcal T(|1\rangle\langle1|)$ なので、[放射で区別できない二入力と回復の不可能性](#prop-bhi1-indistinguishable-inputs)を適用すると両方を完全復元する写像は存在しません。
 <!-- solution-end -->
 
 <a id="ex-bhi1-b03"></a>
@@ -307,9 +325,9 @@ $M$ を部分トレースしても $\rho_R=|\psi\rangle\langle\psi|$ で純粋�
 
 1. (A) の二つの像は $|00\rangle,|11\rangle$、(B) の二つの像は $|00\rangle,|10\rangle$ です。各組は正規直交しているので、どちらも $\langle V_\bullet i|V_\bullet j\rangle=\delta_{ij}$ を満たし、$V_\bullet^\dagger V_\bullet=I_{\rm in}$ です。
 2. (A) では $V_A|\pm\rangle=(|00\rangle\pm|11\rangle)/\sqrt2=|\Phi^\pm\rangle$。$B$ の正規直交基底で部分トレースすると交差項が消え、いずれも $\rho_R^{A,\pm}=I_2/2$ です。(B) では $V_B|\pm\rangle=(|00\rangle\pm|10\rangle)/\sqrt2=|\pm\rangle_R|0\rangle_B$、従って $\rho_R^{B,\pm}=|\pm\rangle\langle\pm|$ です。前者の放射エントロピーは $\ln2$、後者は0となります。
-3. (A) では二つの直交入力が同じ放射状態へ移るので、[回復不能命題](#prop-bhi1-indistinguishable-inputs)より放射だけからの同時回復は不可能です。(B) では放射に入力状態がそのまま格納されているので、入力と放射を対応させる同一視によって全入力を回復できます。
+3. (A) では二つの直交入力が同じ放射状態へ移るので、[放射で区別できない二入力と回復の不可能性](#prop-bhi1-indistinguishable-inputs)より放射だけからの同時回復は不可能です。(B) では放射に入力状態がそのまま格納されているので、入力と放射を対応させる同一視によって全入力を回復できます。
 4. (A) の $\rho_R^{A,+}=I_2/2$ では $\operatorname{Tr}(\rho_R Z)=\frac12-\frac12=0$。(B) の $\rho_R^{B,+}=|+\rangle\langle+|$ でも $\langle+|Z|+\rangle=(1-1)/2=0$ です。$Z_R$ 一種類の期待値が一致しても、全観測代数の期待値や縮約の固有値は決まりません。例えば $X_R$ の期待値は (A) で0、(B) で1です。
-5. (A) の $|+\rangle$ 出力は $R$ と $B$ の相関を持ち、$S(R)=\ln2$ です。$B$ を非自明なまま残す模型であり、$R$ だけが全出力という条件とは両立しません。(B) では $B$ は常に $|0\rangle$ と固定され、到達可能な出力の情報をすべて $R$ に移せます。固定された $B$ を実効的に1次元の補助系と同一視する**制限された出力模型**としては、[終期純粋性定理](#thm-bhi1-endpoint-purity)と両立します。ただし物理的蒸発がこの模型どおりであることは、これらの計算からは証明されません。
+5. (A) の $|+\rangle$ 出力は $R$ と $B$ の相関を持ち、$S(R)=\ln2$ です。$B$ を非自明なまま残す模型であり、$R$ だけが全出力という条件とは両立しません。(B) では $B$ は常に $|0\rangle$ と固定され、到達可能な出力の情報をすべて $R$ に移せます。固定された $B$ を実効的に1次元の補助系と同一視する**制限された出力模型**としては、[放射だけで完結する等長発展の純粋性制約](#thm-bhi1-endpoint-purity)と両立します。ただし物理的蒸発がこの模型どおりであることは、これらの計算からは証明されません。
 <!-- solution-end -->
 
 ## 9. これから調べるべき物理的な追加仮定
