@@ -1,0 +1,49 @@
+chapter: U2-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-14
+forward_references: []
+concepts:
+  - id: robotics.multinomial-resampling
+    name: 多項再標本化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（多項再標本化）"]
+    requires: [robotics.selfnormalized-particle-belief]
+  - id: robotics.resampling-conditional-moments
+    name: 多項再標本化の条件付き期待値と分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（多項再標本化の条件付き期待値と分散）"]
+    requires: [robotics.multinomial-resampling]
+  - id: robotics.particle-weight-ess
+    name: 重みに基づく有効標本サイズ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（重みに基づく有効標本サイズ）"]
+    requires: [robotics.selfnormalized-particle-belief]
+  - id: robotics.particle-weight-ess-bounds
+    name: 有効標本サイズの範囲と等号
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（有効標本サイズの範囲と等号）"]
+    requires: [robotics.particle-weight-ess]
+  - id: robotics.resampling-ancestor-diversity
+    name: 残る祖先番号数の期待値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（残る祖先番号数の期待値）"]
+    requires: [robotics.multinomial-resampling]
+  - id: robotics.bootstrap-sir
+    name: 運動モデル提案型の逐次重点再標本化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動モデル提案型の逐次重点再標本化）"]
+    requires: [robotics.multinomial-resampling, robotics.sequential-importance-weight-recursion]
+  - id: robotics.bootstrap-sir-unnormalized-step
+    name: SIR 一歩の未正規化積分の条件付き期待値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（SIR 一歩の未正規化積分の条件付き期待値）"]
+    requires: [robotics.bootstrap-sir, robotics.resampling-conditional-moments]
