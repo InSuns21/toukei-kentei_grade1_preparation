@@ -312,7 +312,7 @@ def self_test():
     study = convergence()
     assert all(0 < k < 2 for k in study["observed_orders"])
     checks.append("reference CELL mean convergence (40/80/160)")
-    for invalid in ((0, 1, 1), (1, 0, 1), (1, 1, -1)):
+    for invalid in ((0, 1, 1), (1, 2, 1), (1, 1, -1)):
         try:
             primitive(invalid)
         except ValueError:
