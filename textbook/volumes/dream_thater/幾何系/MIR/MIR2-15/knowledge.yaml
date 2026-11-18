@@ -1,0 +1,47 @@
+chapter: MIR2-15
+scope: dream-theater
+coverage: complete
+prerequisites: [MIR2-14, AG3-13]
+concepts:
+  - id: mirror.quintic-grassmann-universal-subbundle
+    name: Grassmann多様体上の普遍部分束
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Grassmann多様体上の普遍部分束）"]
+    requires: []
+  - id: mirror.quintic-line-section
+    name: 五次超曲面の直線切断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（五次超曲面の直線切断）"]
+    requires: [mirror.quintic-grassmann-universal-subbundle]
+  - id: mirror.quintic-line-transverse-criterion
+    name: 五次直線切断の横断性判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（五次直線切断の横断性判定）"]
+    requires: [mirror.quintic-line-section]
+  - id: mirror.quintic-generic-line-count
+    name: 一般quinticの横断零点とChern類計数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一般quinticの横断零点とChern類計数）"]
+    requires: [mirror.quintic-line-transverse-criterion]
+  - id: mirror.quintic-grassmann-flag-integration
+    name: Grassmann積分の旗多様体公式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Grassmann積分の旗多様体公式）"]
+    requires: [mirror.quintic-grassmann-universal-subbundle]
+  - id: mirror.quintic-2875-lines
+    name: quinticの2875本の直線
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（quinticの2875本の直線）"]
+    requires: [mirror.quintic-generic-line-count, mirror.quintic-grassmann-flag-integration]
+  - id: mirror.quintic-line-count-gw
+    name: 一次GW数との照合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一次GW数との照合）"]
+    requires: [mirror.quintic-2875-lines, mirror.quintic-multicover-integer-type, mirror.quintic-virtual-primary-gw]
