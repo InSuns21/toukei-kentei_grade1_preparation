@@ -73,6 +73,16 @@ $$
 $$
 
 > と記し、$T=V_{\mathbb R}/\Lambda$ の**双対トーラス**と呼ぶ。ここで $\Lambda$ には離散群としての構造を用い、$\widehat T$ には $U(1)^r$ から誘導する位相を入れる。
+>
+> さらに $V_{\mathbb R}^*=\operatorname{Hom}_{\mathbb R}(V_{\mathbb R},\mathbb R)$ とし、全格子上で整数値を取る線形汎関数の集合を
+
+$
+\Lambda^\vee
+=\{\xi\in V_{\mathbb R}^*:\xi(\lambda)\in\mathbb Z
+\text{ for every }\lambda\in\Lambda\}
+$
+
+> と定め、**実双対格子**と呼ぶ。
 <!-- formal-statement-end -->
 
 文字を構成するには基底 $\lambda_a$ の値だけを選べば十分である。実数 $\theta_a$ を用いて
@@ -96,15 +106,7 @@ $$
 とする。積の法則は指数の和から従い、$\chi_{u,v}(0)=1$ である。さらに $\chi_{u+m_0,v+n_0}=\chi_{u,v}$（$m_0,n_0\in\mathbb Z$）なので、文字のパラメータは $(\mathbb R/\mathbb Z)^2$ の点になる。例えば $(u,v)=(1/2,1/3)$ は二つの基本閉路へそれぞれ $-1,e^{2\pi i/3}$ を割り当てる。
 <!-- definition-example-end -->
 
-全格子から双対格子を作る。$V_{\mathbb R}^*=\operatorname{Hom}_{\mathbb R}(V_{\mathbb R},\mathbb R)$ とし、
-
-$$
-\Lambda^\vee
-=\{\xi\in V_{\mathbb R}^*:\xi(\lambda)\in\mathbb Z
-\text{ for every }\lambda\in\Lambda\}
-$$
-
-を**実双対格子**と呼ぶ。これは $\lambda_a$ に対する双対基底 $\varepsilon^a(\lambda_b)=\delta^a_b$ の整数線形結合である。この表示を作る理由は、線形汎関数 $\xi$ から $e^{2\pi i\xi(\lambda)}$ を作ると、整数値の差だけが見えなくなるからである。
+定義した実双対格子を基底で計算しよう。$\lambda_a$ に対する双対基底を $\varepsilon^a(\lambda_b)=\delta^a_b$ とすると、$\Lambda^\vee$ は $\varepsilon^a$ の整数線形結合である。実際、$\xi=\sum_a c_a\varepsilon^a$ と書いたとき、全ての $\lambda_b$ における値が整数である条件は $c_b\in\mathbb Z$ と同値になる。この集合が重要なのは、$e^{2\pi i\xi(\lambda)}$ では整数値の差だけが見えなくなるためである。
 
 <a id="prop-syz1-01-character-quotient"></a>
 
@@ -130,7 +132,18 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\xi\in V_{\mathbb R}^*$ に対する $\lambda\mapsto e^{2\pi i\xi(\lambda)}$ は、$\xi$ の線形性と指数法則から文字になる。$\eta\in\Lambda^\vee$ なら、任意の $\lambda\in\Lambda$ に対して $e^{2\pi i\eta(\lambda)}=1$ なので、$\xi$ と $\xi+\eta$ は同じ文字を与える。
+$\xi\in V_{\mathbb R}^*$ に対して $\chi_\xi(\lambda)=e^{2\pi i\xi(\lambda)}$ と置く。任意の $\lambda,\mu\in\Lambda$ について、実線形性と指数の積法則を順に計算すると
+
+$
+\begin{aligned}
+\chi_\xi(\lambda+\mu)
+&=e^{2\pi i[\xi(\lambda)+\xi(\mu)]}\\
+&=e^{2\pi i\xi(\lambda)}e^{2\pi i\xi(\mu)}
+=\chi_\xi(\lambda)\chi_\xi(\mu)
+\end{aligned}
+$
+
+となり、$\chi_\xi(0)=1$ も成立するので文字になる。$\eta\in\Lambda^\vee$ なら、任意の $\lambda\in\Lambda$ に対して $e^{2\pi i\eta(\lambda)}=1$ なので、$\xi$ と $\xi+\eta$ は同じ文字を与える。
 
 逆に二つの線形汎関数 $\xi,\xi'$ の文字が等しければ、
 
@@ -340,7 +353,19 @@ $\operatorname{Im}(-1/\tau)=b/|\tau|^2>0$ なので右辺も全格子商であ�
 
 ## 6. 滑らかなファイバーを双対にすると何ができるか
 
-SYZでのファイバーは $X$ 全体ではない。$X$ を実 $2n$ 次元のシンプレクティック多様体とし、開集合 $B_0$ 上の滑らかな射影 $\pi:X_0\to B_0$ の各ファイバー $L_b$ が実 $n$ 次元トーラスであるという**存在仮定**を置く。Lagrange条件は $\omega|_{L_b}=0$ である。[Lagrange部分多様体](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)については既習だが、特殊Lagrangeの追加条件は次講以降で明確にする。
+SYZでのファイバーは $X$ 全体ではない。まず $X$ を実 $2n$ 次元のシンプレクティック多様体とし、$B_0$ を実 $n$ 次元の開いた基底とする。次の滑らかな射影を**追加で仮定**する。
+
+$
+\pi:X_0\longrightarrow B_0
+$
+
+各 $b\in B_0$ におけるファイバー $L_b=\pi^{-1}(b)$ は実 $n$ 次元トーラスである。また、Lagrange条件は次の式である。
+
+$
+\omega|_{L_b}=0
+$
+
+[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)は既習だが、特殊Lagrangeの追加条件は次講以降で明確にする。
 
 各ファイバーの第一整数ホモロジー群は $H_1(L_b;\mathbb Z)\simeq\mathbb Z^n$ であり、これは基本群のAbel化である。トーラスの基本群はすでに可換なので、平坦 $U(1)$ 局所系の分類には $H_1$ を使ってよい。
 
@@ -366,7 +391,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$B_0$ の十分小さい可縮な開集合 $U$ で束を自明化し、各 $H_1(L_b;\mathbb Z)$ の整数基底 $\gamma_1(b),\ldots,\gamma_n(b)$ を連続的に選ぶ。文字は各 $\gamma_a$ に割り当てる位相 $e^{2\pi i\theta_a}$ で一意に決まり、定義と[文字商表示の命題](#prop-syz1-01-character-quotient)により
+$B_0$ の十分小さい可縮な開集合 $U$ で束を自明化し、各 $H_1(L_b;\mathbb Z)$ の整数基底 $\gamma_1(b),\ldots,\gamma_n(b)$ を連続的に選ぶ。文字は各 $\gamma_a$ に割り当てる位相 $e^{2\pi i\theta_a}$ で一意に決まる。[文字商表示の命題](#prop-syz1-01-character-quotient)をこの階数 $n$ の周期格子に適用すると、
 
 $$
 \check X_0|_U\simeq U\times(\mathbb R/\mathbb Z)^n.
@@ -408,7 +433,7 @@ SYZの幾何学的着想は、Calabi–Yau多様体上で、**位相・較正の
 
 <a id="ex-syz1-01-a01"></a>
 
-**A01　斜め格子の全格子条件**
+#### SYZ1-01-A01 斜め格子の全格子条件
 
 - Level: A
 
@@ -434,7 +459,7 @@ $\tau$ が純虚数でなくても、実群としては積の二円周になる�
 
 <a id="ex-syz1-01-a02"></a>
 
-**A02　文字の核と整数シフト**
+#### SYZ1-01-A02 文字の核と整数シフト
 
 - Level: A
 
@@ -457,7 +482,7 @@ $$
 
 <a id="ex-syz1-01-a03"></a>
 
-**A03　曲率零でも非自明なホロノミー**
+#### SYZ1-01-A03 曲率零でも非自明なホロノミー
 
 - Level: A
 
@@ -466,7 +491,7 @@ $T=(\mathbb R/\mathbb Z)^2$ 上の $\nabla=d-2\pi i(\frac14\,ds+\frac12\,dt)$ �
 <!-- solution-start -->
 ### 詳細解答
 
-接続1形式 $A=-2\pi i(\frac14\,ds+\frac12\,dt)$ は純虚数値で、係数一定かつ $d(ds)=d(dt)=0$ より $dA=0$。$U(1)$ は可換だから $A\wedge A=0$ で、曲率は零。
+第4節の局所接続表示 $\nabla=d+A$ において、$A=-2\pi i(\frac14\,ds+\frac12\,dt)$ は純虚数値である。係数は一定で $d(ds)=d(dt)=0$ だから $dA=0$。$U(1)$ は可換だから $A\wedge A=0$ で、曲率は零。
 
 水平切断は $df=2\pi i(\frac14ds+\frac12dt)f$ を満たす。$s$ 方向に1周すると
 
@@ -479,7 +504,7 @@ $t$ 方向に1周すると $e^{2\pi i/2}=-1$。曲率零でも閉路に沿う位
 
 <a id="ex-syz1-01-a04"></a>
 
-**A04　どちらの文字群か**
+#### SYZ1-01-A04 どちらの文字群か
 
 - Level: A
 
@@ -495,7 +520,7 @@ $T=\mathbb R/\mathbb Z$ に対して、(i) $\operatorname{Hom}_{\mathrm{cont}}(T
 
 <a id="ex-syz1-01-a05"></a>
 
-**A05　正方格子の双対複素構造**
+#### SYZ1-01-A05 正方格子の双対複素構造
 
 - Level: A
 
@@ -524,7 +549,7 @@ $(u,v)$ の整数シフトは $w$ を $m+in$ ずらすので、$\widehat E_i\sim
 
 <a id="ex-syz1-01-b01"></a>
 
-**B01　閉路基底を変えたときの文字座標**
+#### SYZ1-01-B01 閉路基底を変えたときの文字座標
 
 - Level: B
 
@@ -558,7 +583,7 @@ $$
 
 <a id="ex-syz1-01-b02"></a>
 
-**B02　整数周期差をunitaryゲージ変換で消す**
+#### SYZ1-01-B02 整数周期差をunitaryゲージ変換で消す
 
 - Level: B
 
@@ -588,7 +613,7 @@ $$
 
 <a id="ex-syz1-01-b03"></a>
 
-**B03　斜め楕円格子の双対パラメータ**
+#### SYZ1-01-B03 斜め楕円格子の双対パラメータ
 
 - Level: B
 
@@ -623,7 +648,7 @@ $$
 
 <a id="ex-syz1-01-b04"></a>
 
-**B04　文字トーラスから格子を取り戻す**
+#### SYZ1-01-B04 文字トーラスから格子を取り戻す
 
 - Level: B
 
@@ -647,14 +672,14 @@ F_\lambda(\chi_{u,v})
 =e^{2\pi i(k_1u+k_2v)}.
 $$
 
-逆に $(\mathbb R/\mathbb Z)^2$ の連続文字を二つの座標円周へ制限すると、それぞれ $e^{2\pi ik_1u},e^{2\pi ik_2v}$（$k_i\in\mathbb Z$）に限られる。積群の元 $(u,v)=(u,0)+(0,v)$ での準同型条件から、その連続文字は両者の積で尽くされる。この $k_1,k_2$ に対応する $\lambda$ は一意である。従って評価写像 $\Lambda\to\operatorname{Hom}_{\mathrm{cont}}(\widehat T,U(1))$ は全単射となる。
+逆に $(\mathbb R/\mathbb Z)^2$ の連続文字を二つの座標円周へ制限すると、それぞれ $e^{2\pi ik_1u},e^{2\pi ik_2v}$（$k_i\in\mathbb Z$）に限られる。積群の元 $(u,v)=(u,0)+(0,v)$ での準同型条件から、その連続文字は両者の積で尽くされる。この $k_1,k_2$ に対応する $\lambda$ は一意である。従って $\lambda\mapsto F_\lambda$ という対応は $\Lambda$ から $\operatorname{Hom}_{\mathrm{cont}}(\widehat T,U(1))$ への全単射である。
 <!-- solution-end -->
 
 ### Level C：滑らかな双対化と未証明の期待を仕分ける
 
 <a id="ex-syz1-01-c01"></a>
 
-**C01　円周ファイバーの双対と特異性の境界**
+#### SYZ1-01-C01 円周ファイバーの双対と特異性の境界
 
 - Level: C
 
