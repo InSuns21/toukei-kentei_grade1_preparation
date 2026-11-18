@@ -116,6 +116,14 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node --test pages/simulation/fcg3-lab.test.mjs
 
+      - name: Test FCG4 independent MAC Poisson oracle and editable lesson
+        if: steps.scope.outputs.full == 'true'
+        run: node --test pages/simulation/fcg4-lab.test.mjs
+
+      - name: Test FCG4 editable pressure projection and GPU panels in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg4-browser.mjs
+
       - name: Test FCG3 editable advection and GPU error map in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg3-browser.mjs

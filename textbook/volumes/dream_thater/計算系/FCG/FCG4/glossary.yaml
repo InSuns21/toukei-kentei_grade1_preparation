@@ -1,0 +1,20 @@
+chapter: FCG4
+terms:
+  - term: MAC格子
+    english: marker-and-cell grid
+    meaning: 圧力をセル中心、速度の各成分を対応する面中心に配置する交互配置格子。
+  - term: 離散発散
+    english: discrete divergence
+    meaning: セルの外向き面速度の総和を格子幅で除し、体積変化の局所量を近似する演算。
+  - term: 圧力射影
+    english: pressure projection
+    meaning: 圧力勾配を速度から差し引き、離散発散を零へ近づける操作。
+  - term: Neumann条件
+    english: Neumann boundary condition
+    meaning: 境界上の関数の法線方向微分を指定する条件。零法線速度を保つ場合は圧力法線差分が零。
+  - term: 圧力ゲージ
+    english: pressure gauge
+    meaning: 圧力へ定数を足しても勾配が変わらない自由度。平均零などで代表を固定する。
+  - term: Poisson残差
+    english: Poisson residual
+    meaning: 離散Laplacianの計算値と右辺の差。収束診断と射影後発散に直接対応する。
