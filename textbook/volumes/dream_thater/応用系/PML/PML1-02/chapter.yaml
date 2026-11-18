@@ -1,0 +1,41 @@
+id: "PML1-02"
+title: "有限状態からGibbs分布を構成できるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-01
+  - SM3
+official_scope: []
+learning_objectives:
+  - 正の有限指数重みから分配関数を作り確率の規格化と単位を確認できる
+  - 物理エネルギーの正準分布と学習損失による候補選択を区別できる
+  - 二状態模型の選択比と励起確率を求め温度尺度の単調性を証明できる
+  - 二状態の平均エネルギー・分散・尺度微分を途中式から導ける
+  - 共通の基準移動と尺度付きアフィン変換が確率へ及ぼす作用を証明できる
+  - 準位と微視的配置の多重度を区別し零温度・高温の極限を説明できる
+definitions:
+  - { id: PML1-02-DEF-01, name: 有限候補のGibbs選択則 }
+theorems:
+  - { id: PML1-02-PROP-01, name: 二状態のGibbs確率と選択比 }
+  - { id: PML1-02-PROP-02, name: 二状態の平均・分散・温度応答 }
+  - { id: PML1-02-PROP-03, name: Gibbs確率と尺度の同時変換 }
+canonical_examples:
+  - 二状態励起確率と正規化
+  - 無次元学習損失からの候補選択
+  - 基底準位が二配置ある三状態模型
+  - 温度尺度に対する期待値と分散の応答
+problem_patterns:
+  - PML1-02-A01
+  - PML1-02-A02
+  - PML1-02-A03
+  - PML1-02-A04
+  - PML1-02-B01
+  - PML1-02-B02
+  - PML1-02-B03
+  - PML1-02-B04
+  - PML1-02-C01
+  - PML1-02-C02
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 4.5, review: 2 }
