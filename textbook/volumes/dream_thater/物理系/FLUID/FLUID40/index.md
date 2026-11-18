@@ -500,7 +500,7 @@ $$
 
 次の実験では $0$ から $Re_\tau$ まで等間隔格子を置き、[合成模型の勾配と全剪断残差](#prop-fluid40-model-gradient)を複合台形則で積分する。同じ模型で区間数を倍にした中心速度との差を積分精度の診断とし、各格子点の $\lvert S+L^2S^2-T\rvert$ の最大値を応力収支の診断とする。三つのグラフは**合成平均速度**、**経験的な対数参照線**、**模型応力分担**の比較であり、観測された速度プロファイルではない。$B=5$ の参照線も実測フィットではなく比較用の指定値である。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID40-WALL-UNITS-PROFILE
 # lab-title: 壁乱流の合成平均速度と全剪断検算（測定・DNSではない）
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID40/wall_turbulence_lab.py
@@ -510,7 +510,7 @@ $$
 # lab-preset: 細かい台形積分：8192分割 | --retau 1000 --grid 8192
 # lab-preset: 摩擦Reを下げる：Reτ=300 | --retau 300 --grid 2048
 # lab-preset: 壁減衰を変える：A=32 | --retau 1000 --damping 32 --grid 2048
-<!-- python-file-lab-end -->
+```
 
 公開される [Python ソース](wall_turbulence_lab.py) は標準ライブラリだけを用いる。ローカル検算は Python 3 でこのファイルに引数 --self-test を付けて実行できる。ブラウザ実行は公開 Python 環境の初回ロードが必要な場合がある。実行できない環境でも、上の $y^+=100$ における代数検算と [厳密全剪断式](#prop-fluid40-channel-stress)は紙上で追える。
 
