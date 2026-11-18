@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import math
 import random
+from functools import lru_cache
 from dataclasses import dataclass
 from statistics import mean, stdev
 
@@ -74,6 +75,7 @@ def allocate_integer(quantity: int, weights: tuple[float, ...]) -> tuple[int, ..
     return tuple(floors)
 
 
+@lru_cache(maxsize=None)
 def ac_schedule(quantity: int, periods: int = N,
                 impact: float = ETA_AC, risk: float = RISK_AC) -> tuple[int, ...]:
     """Discrete Almgren-Chriss-like planning: impact * sum(u^2)
