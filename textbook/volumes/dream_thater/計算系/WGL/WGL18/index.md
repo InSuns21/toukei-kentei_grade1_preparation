@@ -1,5 +1,7 @@
 # WGL18 fragment shaderだけで時間発展できる？
 
+<!-- DT-REVIEW: WGL18 -->
+
 [WGL17の数値テクスチャ](../WGL17/index.md#def-wgl17-grid)は格子の数値をGPUへ渡しました。しかし、濃度が時間とともに周囲へ拡がる計算を1回の描画で繰り返すには、**前ステップの格子を読むと同時に、次ステップの格子をどこへ書くか**を決めなければなりません。[WGL10のrender-to-texture](../WGL10/index.md#def-wgl10-render-to-texture)を2枚交互に用いる方法を学びます。
 
 本講では4×4の小格子に1だけを置いた拡散を扱います。流体力学全体をGPUで解くのではなく、CPUでも全16値を計算できる模型で、**保存則・境界・丸め誤差・GPU readback**を別々に検査するのが目的です。
@@ -30,7 +32,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl18-diffusion -->
-**定義の直接確認**。左下隅 $(0,0)$ では、左と下の仮想セルはともに自分の値です。従って4方向の和は $u_{1,0}+u_{0,0}+u_{0,1}+u_{0,0}$ となり、
+**定義の確認**。左下隅 $(0,0)$ では、左と下の仮想セルはともに自分の値です。従って4方向の和は $u_{1,0}+u_{0,0}+u_{0,1}+u_{0,0}$ となり、
 
 $$
 u^{n+1}_{0,0}=(1-2r)u^n_{0,0}+r(u^n_{1,0}+u^n_{0,1}).
@@ -156,7 +158,7 @@ $D$ を一定とすると $r=D\Delta t/h^2\le1/4$ から $\Delta t\le h^2/(4D)$ 
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl18-pingpong -->
-**定義の直接確認**。初期値をAに置いたら、$n=0\to1$ はAを読んでBに書き、$n=1\to2$ はBを読んでAに書きます。いずれも入力と出力が異なり、2段後の最新値はAです。3段後の最新値はBです。描画先フレームバッファの色アタッチメントは[完成状態の確認](../WGL10/index.md#def-wgl10-completeness)を通した上で使います。
+**定義の確認**。初期値をAに置いたら、$n=0\to1$ はAを読んでBに書き、$n=1\to2$ はBを読んでAに書きます。いずれも入力と出力が異なり、2段後の最新値はAです。3段後の最新値はBです。描画先フレームバッファの色アタッチメントは[完成状態の確認](../WGL10/index.md#def-wgl10-completeness)を通した上で使います。
 <!-- definition-example-end -->
 
 今回のGPU計算は各テクセルをRGBA32Fの赤成分に置き、描画先もRGBA32Fにします。入力にR32Fを使えることと、floatのカラーアタッチメントを使えることは別なので、[WGL17の形式別の注意](../WGL17/index.md#def-wgl17-formats)を踏まえ WebGL2の EXT_color_buffer_float 対応、FBO完成状態、RGBA/FLOAT readPixels の成功を毎回確認します。未対応ならCPU参考値を見せても「GPUで拡散できた」とは数えません。
