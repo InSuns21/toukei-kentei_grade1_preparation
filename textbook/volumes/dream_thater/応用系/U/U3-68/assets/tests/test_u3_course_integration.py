@@ -11,6 +11,7 @@ from pathlib import Path
 from fractions import Fraction
 from statistics import covariance, variance
 import re
+import random
 import sys
 import unittest
 from urllib.parse import unquote
@@ -30,6 +31,8 @@ def load_module(name: str, relative: str):
 
 lattice = load_module("u3_course_lattice", "U3-11/assets/lattice_pricing.py")
 pricing = load_module("u3_course_bsm", "U3-18/assets/black_scholes_check.py")
+finite_difference = load_module("u3_course_fd", "U3-22/assets/explicit_bs.py")
+monte_carlo = load_module("u3_course_mc", "U3-26/assets/monte_carlo_pricing.py")
 risk = load_module("u3_course_es", "U3-57/assets/es_hedge.py")
 execution = load_module("u3_course_tca", "U3-68/assets/execution_tca.py")
 
@@ -56,6 +59,31 @@ class U3CrossCourseIntegration(unittest.TestCase):
         self.assertAlmostEqual(put, put_crr, delta=0.05)
         self.assertAlmostEqual(call, call_tca, delta=1e-10)
         self.assertAlmostEqual(call - put, s - k * math.exp(-r*t), delta=1e-10)
+
+    def test_pde_tree_expectation_and_monte_carlo_share_model_assumptions(self):
+        # A single no-dividend European call; PDE uses the same terminal
+        # payoff and rate as the closed-form, but has grid truncation error.
+        s = k = 100.0
+        r, sigma, t = 0.02, 0.20, 1.0
+        exact = pricing.closed_form(s, k, r, sigma, t)[0]
+        fd = finite_difference.solve(
+            60, 300, smax=300.0, k=k, r=r, q=0.0,
+            sigma=sigma, maturity=t,
+        )[20]  # h=300/60=5 yen, index 20 is spot 100 yen
+        self.assertAlmostEqual(fd, exact, delta=0.25)
+        # U3-26 uses a separate, explicitly declared rate r=.03.
+        mc_oracle = monte_carlo.exact_call()
+        self.assertAlmostEqual(
+            mc_oracle, pricing.closed_form(
+                monte_carlo.S0, monte_carlo.K, monte_carlo.R,
+                monte_carlo.SIGMA, monte_carlo.T,
+            )[0], delta=1e-10)
+        rng = random.Random(monte_carlo.SEED)
+        draws = [monte_carlo.discounted_call(rng.gauss(0.0, 1.0))
+                 for _ in range(4096)]
+        estimate, standard_error, _, _ = monte_carlo.estimate(draws)
+        self.assertLess(abs(estimate - mc_oracle), 6 * standard_error)
+        self.assertGreater(standard_error, 0.0)
 
     def test_q_prices_inside_synthetic_p_market_are_not_p_probabilities(self):
         paths = execution.generate_paths(32, seed=20261119)
