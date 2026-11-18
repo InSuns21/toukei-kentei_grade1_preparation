@@ -483,7 +483,7 @@ $$
 
 これは**線形平面波の再構成**であり、流体の非線形 PDE を時間積分する数値シミュレーションではない。標準ライブラリだけでもグラフデータと代数的残差を出力し、`--plot` を付けると同じ解析式による二次元の変位等値線図を Matplotlib で描画する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID31-INTERNAL-WAVE
 # lab-title: 成層の内部重力波・位相と分散関係・残差
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID31/internal_wave_lab.py
@@ -492,7 +492,7 @@ $$
 # lab-preset: 鉛直波数を反転 | --n 0.02 --k 0.003 --m -0.004 --amplitude 0.001
 # lab-preset: より強い成層 | --n 0.03 --k 0.003 --m 0.004 --amplitude 0.001
 # lab-preset: 二次元の変位等値線 | --n 0.02 --k 0.003 --m 0.004 --amplitude 0.001 --plot
-<!-- python-file-lab-end -->
+```
 
 [Python ソースを閲覧](internal_wave_lab.py)。基準と $m$ の符号反転では $\omega$ は同じだが鉛直群速度の向きが変わる。より大きい $N$ は周期を短くする一方、背景密度差の小ささの条件を悪化させる。
 
