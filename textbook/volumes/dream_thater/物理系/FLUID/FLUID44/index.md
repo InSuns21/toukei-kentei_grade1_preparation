@@ -439,7 +439,7 @@ $M_2>M_1$ なので $T_2<T_1$、$p_2<p_1$、$\rho_2<\rho_1$ である。状態�
 
 実行欄の一つの Python ファイルが、$\theta$–$\beta$–$M$ 式の極値、二分法による弱・強分枝、Prandtl–Meyer関数の逆算を行う。グラフには角度・下流Mach数・静圧比を並べる。衝撃波では法線の質量・運動量、接線速度、全エンタルピーの残差と $\Delta s/R$ を計算する。膨張扇では $\nu(M_2)-\nu(M_1)-\theta$、全エンタルピー、等エントロピー状態比を検算する。**解が存在しない角度には架空の付着衝撃波を描かない。**
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID44-OBLIQUE-EXPANSION
 # lab-title: 斜め衝撃波の弱・強分枝とPrandtl–Meyer膨張
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID44/oblique_expansion_lab.py
@@ -449,7 +449,7 @@ $M_2>M_1$ なので $T_2<T_1$、$p_2<p_1$、$\rho_2<\rho_1$ である。状態�
 # lab-preset: 弱い偏向：M1=2、2度 | --mach 2 --turn 2 --grid 80
 # lab-preset: 強い超音速流：M1=3、15度 | --mach 3 --turn 15 --grid 120
 # lab-preset: 比熱比を変更：gamma=1.3 | --mach 2 --turn 10 --gamma 1.3 --grid 80
-<!-- python-file-lab-end -->
+```
 
 初回実行にはブラウザ上で Python 実行環境の読み込みが必要になることがある。グラフは特定の定常・非粘性・定数比熱模型の解析関係を描き、衝撃波厚さや粘性流の数値解を表していない。基準条件で $\theta_{\max}\simeq22.974^\circ$、弱・強の $\beta\simeq39.314^\circ,83.700^\circ$、膨張後 $M_2\simeq2.38489$ を得るはずである。局所 CLI では同じファイルを Python 3 で実行し、引数 --self-test で代表値・保存残差・入力境界を検査できる。
 
