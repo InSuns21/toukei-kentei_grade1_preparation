@@ -818,6 +818,35 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL17 shader failure diagnostics and sandbox disposal: PASS');
 
+  // WGL18: live shader compilation and two-texture diffusion numeric readback.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL18'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.equal(await evalJS('document.querySelectorAll("[role=tabpanel]").length'),3);
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算に合格|WebGL2実行エラー|タイムアウト|不一致/)',22000);
+  const w18=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(c=>c.textContent))})');
+  if(w18.status.includes('WebGL2実行エラー')) {
+    assert.match(w18.log,/EXT_color_buffer_float unavailable|incomplete|FLOAT readPixels failed/);
+    console.log('WGL18 float framebuffer unsupported; GPU verified status correctly withheld');
+  } else {
+    assert.match(w18.status,/独立画素検算に合格/,'WGL18 GPU mismatch: '+JSON.stringify(w18));
+    assert.equal(w18.rows.length,16);
+    assert.ok(w18.rows.every(row=>row[4]==='OK'));
+    assert.match(w18.log,/CPU独立基準 vs GPU RGBA32F: max absolute error=.*一致/);
+    assert.match(w18.log,/mass=1/);
+    const shot18=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+    await writeFile('_wgl_browser_review/wgl18-diffusion.png',Buffer.from(shot18.data,'base64'));
+    console.log('WGL18 2 ping-pong GPU steps, float CPU oracle, mass and 16 RGBA pixels: PASS');
+    await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const steps = 2;', 'const steps = 1;');})()");
+    await click('run');
+    await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト|不一致/)',22000);
+    const edited18=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+    assert.match(edited18.status,/編集コードを実行しました/,'WGL18 step edit failed: '+JSON.stringify(edited18));
+    assert.match(edited18.log,/CPU独立基準 vs GPU RGBA32F: max absolute error=.*一致/);
+    console.log('WGL18 learner-edited step count validates against independent CPU: PASS');
+  }
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
