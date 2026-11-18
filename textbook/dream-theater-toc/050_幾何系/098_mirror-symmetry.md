@@ -31,3 +31,4 @@
 28. [MIR2-12 quinticミラー定理の正確な主張](textbook/volumes/dream_thater/幾何系/MIR/MIR2-12/index.md)
 29. [MIR2-13 鏡像座標でのYukawa級数](textbook/volumes/dream_thater/幾何系/MIR/MIR2-13/index.md)
 30. [MIR2-14 多重被覆と整数型数値](textbook/volumes/dream_thater/幾何系/MIR/MIR2-14/index.md)
+31. [MIR2-15 2875本の直線を独立に数える](textbook/volumes/dream_thater/幾何系/MIR/MIR2-15/index.md)
