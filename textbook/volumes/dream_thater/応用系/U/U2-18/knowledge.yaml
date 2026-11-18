@@ -1,0 +1,31 @@
+chapter: U2-18
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-17
+forward_references: []
+concepts:
+  - id: robotics.planar-mcl-model
+    name: 既知地図上の平面 MCL 模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既知地図上の平面 MCL 模型）"]
+    requires: [robotics.planar-pose, robotics.known-map-ray-range, robotics.multibeam-conditional-independence, robotics.finite-bayes-filter]
+  - id: robotics.bootstrap-mcl
+    name: 運動模型提案型 Monte Carlo localization
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（運動模型提案型 Monte Carlo localization）"]
+    requires: [robotics.planar-mcl-model, robotics.bootstrap-sir]
+  - id: robotics.mcl-unnormalized-conditional-mean
+    name: 運動予測粒子の未正規化量の条件付き期待値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（運動予測粒子の未正規化量の条件付き期待値）"]
+    requires: [robotics.bootstrap-mcl]
+  - id: robotics.mcl-resampling-survival
+    name: 再標本化の平均と少数候補の消失
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（再標本化の平均と少数候補の消失）"]
+    requires: [robotics.bootstrap-mcl, robotics.multinomial-resampling]

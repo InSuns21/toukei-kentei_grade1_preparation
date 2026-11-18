@@ -1,0 +1,45 @@
+id: "U2-18"
+title: "Monte Carlo localization：平面で位置を追う"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-17
+official_scope: []
+learning_objectives:
+  - 平面姿勢と既知地図に条件付けた運動核・観測尤度・定義域を特定できる
+  - MCL の予測・測距重み更新・再標本化の順序を導出して再現できる
+  - 運動モデル提案時の重みと一般の提案分布の補正との違いを説明できる
+  - 有限姿勢上の厳密 Bayes belief と MCL の有限粒子近似を区別できる
+  - 未正規化量の条件付き期待値を導き正規化された比の偏りを反例で示せる
+  - 多項再標本化平均と特定姿勢の消失確率を証明できる
+  - 有効標本サイズと空間的な粒子の多様性が別であると説明できる
+  - 同じ小地図の三姿勢でレイ投射・尤度・重み・ESS・祖先抽選を計算できる
+  - 格子局在法と MCL と EKF の近似対象・仮定の相違を説明できる
+  - Python 標準ライブラリで平面レイ投射と MCL 一歩を再実行し検算できる
+definitions:
+  - { id: U2-18-DEF-01, name: 既知地図上の平面 MCL 模型 }
+  - { id: U2-18-DEF-02, name: 運動模型提案型 Monte Carlo localization }
+theorems:
+  - { id: U2-18-PROP-01, name: 運動予測粒子の未正規化量の条件付き期待値 }
+  - { id: U2-18-PROP-02, name: 再標本化の平均と少数候補の消失 }
+canonical_examples:
+  - 三初期姿勢を東へ1m運動させた後に地図上で距離1.5・0.5・2.5mを計算
+  - 同一の離散尤度から三姿勢重み0.493205251・0.497679433・0.009115317を導出
+  - 有効標本サイズ2.03658と固定一様数による祖先A・B・Bを比較
+  - 希少姿勢Cの三粒子再標本化消失確率0.972903
+  - 一粒子の自己正規化が不偏とは限らない二姿勢反例
+  - EKFに必要な連続Gaussian観測と有限ビン測距尤度の不一致を示す局所更新
+  - Python標準ライブラリによる矩形レイ投射・尤度・再標本化の検算
+problem_patterns:
+  - U2-18-A01
+  - U2-18-A02
+  - U2-18-A03
+  - U2-18-A04
+  - U2-18-B01
+  - U2-18-B02
+  - U2-18-B03
+  - U2-18-C01
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 3.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
