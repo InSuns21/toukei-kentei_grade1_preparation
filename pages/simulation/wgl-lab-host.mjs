@@ -645,6 +645,7 @@ byId('run').addEventListener('click', run);
 byId('stop').addEventListener('click', () => {if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;} if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;} stop();});
 byId('reset').addEventListener('click', () => {
   if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;}
+  if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;}
   if(isFCG2)fcg2Steps=0;
   if(isFCG3)fcg3Steps=0;
   stop('初期ソースに戻しました（未実行）');
