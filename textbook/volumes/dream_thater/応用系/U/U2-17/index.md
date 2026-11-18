@@ -229,22 +229,26 @@ $$
 <!-- definition-example-start: def-u2-17-multibeam -->
 **定義の確認**：第1節の地図で姿勢 $A=(1.5,1.5,0)$ を固定し、$R=2$ m、$K=2$、$d=1$ m、$\sigma_1=\sigma_2=0.5$ m とします。ビーム1は車体前方 $\phi_1=0$、ビーム2は左方向 $\phi_2=\pi/2$ です。世界座標で光線はそれぞれ $(1.5+t,1.5)$、$(1.5,1.5+t)$（$0\le t\le2$）となり、いずれも $D=(0,6)\times(0,4)$ 内にあります。前方ビームは $x=3$ で初めて占有セルに当たるので $h_1=1.5$ m、左ビームは占有セルの $x$ 範囲に入らないので $h_2=R=2$ m です。したがって[有限値の測距ビーム尤度](#def-u2-17-quantized-beam)から、記録番号 $(k_1,k_2)=(1,2)$ の各確率は
 
-$
+$$
 \begin{aligned}
 q_{\sigma_1}(1\mid A,\phi_1,M)
 &=\frac{e^{-0.5}}{e^{-4.5}+2e^{-0.5}},\\
 q_{\sigma_2}(2\mid A,\phi_2,M)
 &=\frac{1}{e^{-8}+e^{-2}+1}.
 \end{aligned}
-$
+$$
 
 **姿勢と地図を条件とした独立性**を仮定して初めて、同時確率はこれらの積 $L((1,2)\mid A,M)\simeq0.436273$ と計算できます。各ビームは全記録番号 $0,1,2$ にわたって正規化されるため、全ての組の確率の総和も
 
-$
-\sum_{k_1=0}^2\sum_{k_2=0}^2q_{\sigma_1}(k_1\mid A,\phi_1,M)q_{\sigma_2}(k_2\mid A,\phi_2,M)
-=\left(\sum_{k_1=0}^2q_{\sigma_1}(k_1\mid A,\phi_1,M)\right)
- \left(\sum_{k_2=0}^2q_{\sigma_2}(k_2\mid A,\phi_2,M)\right)=1
-$
+$$
+\begin{aligned}
+\sum_{k_1=0}^2\sum_{k_2=0}^2
+&q_{\sigma_1}(k_1\mid A,\phi_1,M)q_{\sigma_2}(k_2\mid A,\phi_2,M)\\
+&=\left(\sum_{k_1=0}^2q_{\sigma_1}(k_1\mid A,\phi_1,M)\right)
+  \left(\sum_{k_2=0}^2q_{\sigma_2}(k_2\mid A,\phi_2,M)\right)\\
+&=1.
+\end{aligned}
+$$
 
 となります。姿勢をランダムに混ぜた後の無条件独立まで仮定したわけではありません。
 <!-- definition-example-end -->
