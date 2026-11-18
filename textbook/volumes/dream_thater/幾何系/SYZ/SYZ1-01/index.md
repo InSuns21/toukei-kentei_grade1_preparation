@@ -76,11 +76,11 @@ $$
 >
 > さらに $V_{\mathbb R}^*=\operatorname{Hom}_{\mathbb R}(V_{\mathbb R},\mathbb R)$ とし、全格子上で整数値を取る線形汎関数の集合を
 
-$
+$$
 \Lambda^\vee
 =\{\xi\in V_{\mathbb R}^*:\xi(\lambda)\in\mathbb Z
 \text{ for every }\lambda\in\Lambda\}
-$
+$$
 
 > と定め、**実双対格子**と呼ぶ。
 <!-- formal-statement-end -->
@@ -134,14 +134,14 @@ $$
 
 $\xi\in V_{\mathbb R}^*$ に対して $\chi_\xi(\lambda)=e^{2\pi i\xi(\lambda)}$ と置く。任意の $\lambda,\mu\in\Lambda$ について、実線形性と指数の積法則を順に計算すると
 
-$
+$$
 \begin{aligned}
 \chi_\xi(\lambda+\mu)
 &=e^{2\pi i[\xi(\lambda)+\xi(\mu)]}\\
 &=e^{2\pi i\xi(\lambda)}e^{2\pi i\xi(\mu)}
 =\chi_\xi(\lambda)\chi_\xi(\mu)
 \end{aligned}
-$
+$$
 
 となり、$\chi_\xi(0)=1$ も成立するので文字になる。$\eta\in\Lambda^\vee$ なら、任意の $\lambda\in\Lambda$ に対して $e^{2\pi i\eta(\lambda)}=1$ なので、$\xi$ と $\xi+\eta$ は同じ文字を与える。
 
@@ -355,15 +355,15 @@ $\operatorname{Im}(-1/\tau)=b/|\tau|^2>0$ なので右辺も全格子商であ�
 
 SYZでのファイバーは $X$ 全体ではない。まず $X$ を実 $2n$ 次元のシンプレクティック多様体とし、$B_0$ を実 $n$ 次元の開いた基底とする。次の滑らかな射影を**追加で仮定**する。
 
-$
+$$
 \pi:X_0\longrightarrow B_0
-$
+$$
 
 各 $b\in B_0$ におけるファイバー $L_b=\pi^{-1}(b)$ は実 $n$ 次元トーラスである。また、Lagrange条件は次の式である。
 
-$
+$$
 \omega|_{L_b}=0
-$
+$$
 
 [Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)は既習だが、特殊Lagrangeの追加条件は次講以降で明確にする。
 
