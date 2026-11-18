@@ -109,12 +109,13 @@ try {
 
   // Editing fragment color changes the actual GPU pixels.
   await click('tab-code');
-  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("outColor=vec4(q,0.15,1.0-q,1.0);","outColor=vec4(1.0-q,0.15,q,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(1.0-q,0.15,q,1.0)")})()');
+  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("outColor=vec4(q,0.15,1.0-q,1.0);","outColor=vec4(0.0,1.0,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,1.0,0.0,1.0)")})()');
   assert.ok(modified,'shader source edit did not apply');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")',25000);
   const shader=await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(5)")?.textContent');
   assert.equal(shader,'変更版: 参考');
+  assert.match(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent'),/0, 255, 0, 255/);
   await evaluate('document.querySelector("#preset").value="error";document.querySelector("#preset").dispatchEvent(new Event("change"))');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("WebGL2実行エラー")',25000);
