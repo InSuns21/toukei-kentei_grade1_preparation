@@ -41,7 +41,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-03-free-energy-objective -->
-**定義の確認**（二候補）**。$\Theta=\{a,b\}$、$L(a)=0$、$L(b)=\log3$、$\tau=1$（損失は無次元）とする。確率分布 $q=(1/2,1/2)$ は両成分が非負で和が1。各項は有限であり、
+**定義の確認**（二候補）。$\Theta=\{a,b\}$、$L(a)=0$、$L(b)=\log3$、$\tau=1$（損失は無次元）とする。確率分布 $q=(1/2,1/2)$ は両成分が非負で和が1。各項は有限であり、
 
 $$
 \mathbb E_q[L]=\frac12\log3,\qquad
@@ -611,7 +611,7 @@ $$
 =\tau\left(\frac12\log2+\log\frac{3+u}{4}\right).
 $$
 
-これを[KL余剰の命題](#prop-pml1-03-prior-tilt)の右辺からも確認する。$p_{\tau,r}(a)=2/(3+u)$、$p_{\tau,r}(b)=1/(3+u)$ だから、
+これを[基準分布を傾けた最適分布](#prop-pml1-03-prior-tilt)の右辺からも確認する。$p_{\tau,r}(a)=2/(3+u)$、$p_{\tau,r}(b)=1/(3+u)$ だから、
 
 $$
 \begin{aligned}
