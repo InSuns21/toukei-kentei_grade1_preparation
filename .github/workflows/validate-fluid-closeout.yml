@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
       - name: Install Python plotting dependencies used by FLUID11 and other labs
         run: python3 -m pip install numpy matplotlib
       - name: Run all FLUID Python CLIs, embedded self-tests and course invariants
