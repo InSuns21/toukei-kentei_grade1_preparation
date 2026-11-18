@@ -44,7 +44,7 @@ for(let n=1;n<=48;n++){
   const fileMatch=[...text.matchAll(/^# lab-file: ([^\n\r]+)/gm)];
   if(!fileMatch.length)continue;
   assert.equal(fileMatch.length,1,id+' file lab inventory');
-  const fenced=[...text.matchAll(/```python-file-lab\s*\n([\s\S]*?)\n```/g)];
+  const fenced=[...text.matchAll(/(?:```|~~~)python-file-lab\s*\n([\s\S]*?)\n(?:```|~~~)/g)];
   assert.equal(fenced.length,1,id+' executable Markdown fence missing');
   assert.ok(fenced[0][1].includes(fileMatch[0][0]),id+' lab metadata not in fence');
   assert.ok(!text.includes('<!-- python-file-lab -->'),id+' obsolete inert lab marker');
