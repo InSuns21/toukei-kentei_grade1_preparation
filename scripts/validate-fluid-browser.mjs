@@ -130,5 +130,8 @@ try{
   if(ws){try{ws.close();}catch{}}
   browser.kill('SIGKILL');
   server.close();
-  await rm(profile,{recursive:true,force:true});
+  // Chrome may still be creating profile files while it exits. Never mask
+  // the original browser assertion with an ephemeral cleanup race.
+  try{await rm(profile,{recursive:true,force:true,maxRetries:10,retryDelay:250});}
+  catch(e){console.warn('Chromium temporary profile cleanup:',String(e));}
 }
