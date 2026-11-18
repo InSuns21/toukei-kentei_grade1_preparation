@@ -112,6 +112,14 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg2-browser.mjs
 
+      - name: Test FCG3 independent semi-Lagrangian oracle and editable lesson
+        if: steps.scope.outputs.full == 'true'
+        run: node --test pages/simulation/fcg3-lab.test.mjs
+
+      - name: Test FCG3 editable advection and GPU error map in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg3-browser.mjs
+
       - name: Upload WGL1 screenshot review artifact
         if: always() && steps.scope.outputs.full == 'true'
         uses: actions/upload-artifact@v4
