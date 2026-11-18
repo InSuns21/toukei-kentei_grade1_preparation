@@ -1,0 +1,27 @@
+id: WGL18
+title: fragment shaderだけで時間発展できる？
+volume: foundations
+status: supplementary
+prerequisites: [WGL17]
+official_scope: []
+learning_objectives:
+  - 4x4格子の零流束境界と五点差分の一段更新を添字付きで導ける
+  - rが0以上1/4以下なら非負性と離散総量を保存することを証明できる
+  - 同一textureの読み書きを避けるping-pong更新とFBO検査を説明できる
+  - GPUのRGBA32F読戻しを独立CPU計算と数値的に照合できる
+  - 空間刻みと時間刻みの変更が精度・安定性に与える限界を説明できる
+definitions:
+  - { id: WGL18-DEF-01, name: 4x4零流束拡散の明示差分 }
+  - { id: WGL18-DEF-02, name: ping-pongテクスチャ更新 }
+theorems:
+  - { id: WGL18-PROP-01, name: 零流束差分の総量保存 }
+  - { id: WGL18-PROP-02, name: 安定範囲での非負性と最大値原理 }
+canonical_examples:
+  - 中央付近の1点インパルスから第一・第二ステップの16値
+  - 境界で外側の値を自分自身へ複写する更新
+  - 2枚のRGBA32Fと交互のFBO読書き・CPU16点照合
+problem_patterns: [WGL18-STEP, WGL18-BOUNDARY, WGL18-MASS, WGL18-STABILITY, WGL18-PINGPONG, WGL18-READBACK]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }
