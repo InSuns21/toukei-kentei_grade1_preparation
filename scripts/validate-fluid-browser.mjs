@@ -28,7 +28,7 @@ const server=createServer(async(req,res)=>{
 await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
 const origin='http://127.0.0.1:'+server.address().port;
 const profile=await mkdtemp(path.join(tmpdir(),'fluid-closeout-'));
-const browser=spawn(chrome,['--headless=new','--no-sandbox','--disable-dev-shm-usage',
+const browser=spawn(chrome,['--headless=new','--no-sandbox','--disable-webgl','--disable-dev-shm-usage',
   '--no-first-run','--disable-extensions','--remote-allow-origins=*',
   '--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
 let ws;
@@ -75,6 +75,8 @@ try{
     throw Error('Browser timeout: '+expr+' exceptions '+JSON.stringify(exceptions.slice(-3)));
   };
   await cdp('Runtime.enable');await cdp('Page.enable');
+  const webgl=await js('(()=>{const c=document.createElement("canvas");return Boolean(c.getContext("webgl")||c.getContext("webgl2"));})()');
+  assert.equal(webgl,false,'browser must actually have WebGL disabled for fallback audit');
   await cdp('Emulation.setDeviceMetricsOverride',{width:1120,height:900,deviceScaleFactor:1,mobile:false});
   async function visit(n){
     exceptions.length=0;
