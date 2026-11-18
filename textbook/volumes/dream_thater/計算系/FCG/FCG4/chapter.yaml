@@ -13,6 +13,7 @@ learning_objectives:
 definitions:
   - { id: FCG4-DEF-01, name: "MAC格子と離散発散" }
   - { id: FCG4-DEF-02, name: "離散圧力勾配と射影" }
+  - { id: FCG4-DEF-05, name: "同次Neumann条件" }
   - { id: FCG4-DEF-03, name: "Neumann圧力Poisson問題と圧力ゲージ" }
   - { id: FCG4-DEF-04, name: "Poisson残差と離散発散診断" }
 theorems:
