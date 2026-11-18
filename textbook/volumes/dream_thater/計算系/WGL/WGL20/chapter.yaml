@@ -1,0 +1,28 @@
+id: WGL20
+title: GIS地形と数値格子を誤解なく重ねるには？
+volume: foundations
+status: supplementary
+prerequisites: [WGL19, GEOD6]
+official_scope: []
+learning_objectives:
+  - EPSG:6697の入力軸順と局所東北上座標の変換・近似条件を説明し代表点を検算できる
+  - 地盤標高・水面標高・浸水深の基準面と単位を区別し鉛直シフト不変性を証明できる
+  - 合成DEMの格子・三角形分割とGLSLによる地形/建物の深度重ね合わせを実装できる
+  - 実在PLATEAU LOD1メッシュの座標・属性・出典・変換誤差・描画検算を独立監査できる
+  - Z誇張・透過・float32・描画負荷の表示上の限界と実際の洪水予測との差を説明できる
+definitions:
+  - { id: WGL20-DEF-01, name: 地理座標から局所東北上座標への近似写像 }
+  - { id: WGL20-DEF-02, name: 地盤標高・水面標高・仮想浸水深 }
+  - { id: WGL20-DEF-03, name: 固定都市モデルと描画検算の二系統 }
+theorems:
+  - { id: WGL20-PROP-01, name: 共通高さ原点の移動に対する水深の不変性 }
+  - { id: WGL20-PROP-02, name: 合成格子の補間と高さ差の保存 }
+canonical_examples:
+  - EPSG6697の緯度経度標高から実在PLATEAU代表点の局所東北上メートルへの変換
+  - 4×4合成地形格子と高さ32mの仮想水面の地盤高・水深比較
+  - LOD1建物138頂点88三角形の静的メッシュと独立CPU基準/画素の比較
+problem_patterns: [WGL20-CRS, WGL20-LOCAL, WGL20-HEIGHT, WGL20-INTERPOLATION, WGL20-EXAGGERATION, WGL20-FLOAT, WGL20-PLATEAU, WGL20-VISIBILITY]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 3 }

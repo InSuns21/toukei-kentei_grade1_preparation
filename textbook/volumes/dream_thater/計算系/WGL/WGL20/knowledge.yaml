@@ -1,0 +1,35 @@
+chapter: WGL20
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL19, GEOD6]
+concepts:
+  - id: graphics.gis-local-enu
+    name: 地理座標から局所東北上座標への近似写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（地理座標から局所東北上座標への近似写像）"]
+    requires: [graphics.render-compute-audit, geodesy.crs]
+  - id: graphics.gis-hypothetical-depth
+    name: 地盤標高・水面標高・仮想浸水深
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（地盤標高・水面標高・仮想浸水深）"]
+    requires: [graphics.gis-local-enu]
+  - id: graphics.gis-height-shift
+    name: 共通高さ原点の移動に対する水深の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（共通高さ原点の移動に対する水深の不変性）"]
+    requires: [graphics.gis-hypothetical-depth]
+  - id: graphics.gis-grid-interpolation
+    name: 合成格子の補間と高さ差の保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（合成格子の補間と高さ差の保存）"]
+    requires: [graphics.gis-hypothetical-depth]
+  - id: graphics.gis-provenance-audit
+    name: 固定都市モデルと描画検算の二系統
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定都市モデルと描画検算の二系統）"]
+    requires: [graphics.gis-local-enu, graphics.gis-hypothetical-depth, graphics.render-compute-audit]

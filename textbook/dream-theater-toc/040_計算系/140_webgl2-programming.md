@@ -20,3 +20,4 @@
 17. [WGL17 物理データをGPU textureへ送るとき何を失う？](textbook/volumes/dream_thater/計算系/WGL/WGL17/index.md)
 18. [WGL18 fragment shaderだけで時間発展できる？](textbook/volumes/dream_thater/計算系/WGL/WGL18/index.md)
 19. [WGL19 動く描画の正しさと性能をどう監査する？](textbook/volumes/dream_thater/計算系/WGL/WGL19/index.md)
+20. [WGL20 GIS地形と数値格子を誤解なく重ねるには？](textbook/volumes/dream_thater/計算系/WGL/WGL20/index.md)
