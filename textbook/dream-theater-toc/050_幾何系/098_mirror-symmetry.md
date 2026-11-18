@@ -32,3 +32,4 @@
 29. [MIR2-13 鏡像座標でのYukawa級数](textbook/volumes/dream_thater/幾何系/MIR/MIR2-13/index.md)
 30. [MIR2-14 多重被覆と整数型数値](textbook/volumes/dream_thater/幾何系/MIR/MIR2-14/index.md)
 31. [MIR2-15 2875本の直線を独立に数える](textbook/volumes/dream_thater/幾何系/MIR/MIR2-15/index.md)
+32. [MIR2-16 低次数の照合と論理の総決算](textbook/volumes/dream_thater/幾何系/MIR/MIR2-16/index.md)

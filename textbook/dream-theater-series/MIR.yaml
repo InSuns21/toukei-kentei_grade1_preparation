@@ -132,5 +132,5 @@ chapters:
     title: "2875本の直線を独立に数える"
   - id: MIR2-16
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-16
-    status: planned
+    status: completed
     title: "低次数の照合と論理の総決算"
