@@ -10,8 +10,10 @@ import math
 from pathlib import Path
 from fractions import Fraction
 from statistics import covariance, variance
+import re
 import sys
 import unittest
+from urllib.parse import unquote
 
 U_ROOT = Path(__file__).resolve().parents[3]
 
@@ -113,6 +115,73 @@ class U3CrossCourseIntegration(unittest.TestCase):
             self.assertEqual(before.orders[:3], after.orders[:3])
             self.assertEqual(before.fills[:3], after.fills[:3])
             self.assertEqual(before.inventory[:3], after.inventory[:3])
+
+    def test_manifest_metadata_prerequisites_and_published_toc(self):
+        # One-time course closure check, not a substitute for reading the chapters.
+        repo = U_ROOT.parents[4]
+        manifest = (repo / "textbook/dream-theater-series/U3.yaml").read_text("utf-8")
+        toc = (repo / "textbook/dream-theater-toc/070_応用系/075_mathematical-finance.md").read_text("utf-8")
+        self.assertEqual(re.findall(r"\bid: (U3-\d{2}), path:", manifest),
+                         [f"U3-{i:02d}" for i in range(1, 69)])
+        self.assertEqual(len(re.findall(r"\bstatus: completed,", manifest)), 68)
+        published = re.findall(r"\[U3-(\d{2})\b", toc)
+        self.assertEqual(published, [f"{i:02d}" for i in range(1, 69)])
+        for i in range(1, 69):
+            cid = f"U3-{i:02d}"
+            root = U_ROOT / cid
+            chapter = (root / "chapter.yaml").read_text("utf-8")
+            knowledge = (root / "knowledge.yaml").read_text("utf-8")
+            body = (root / "index.md").read_text("utf-8")
+            with self.subTest(chapter=cid):
+                self.assertIn(f'id: "{cid}"', chapter)
+                self.assertRegex(knowledge, rf"(?m)^chapter: {cid}$")
+                a = re.search(r"(?m)^prerequisites: .*", chapter)
+                b = re.search(r"(?m)^prerequisites: .*", knowledge)
+                self.assertIsNotNone(a)
+                self.assertIsNotNone(b)
+                self.assertEqual(a.group(0), b.group(0))
+                self.assertIn("learning_objectives:", chapter)
+                self.assertIn("<!-- formal-statement-start -->", body)
+                self.assertIn("<!-- proof-start -->", body)
+                exercises = re.findall(r'<a id="ex-u3-\d{2}-[abc]\d+"', body)
+                self.assertGreaterEqual(len(exercises), 8)
+                solutions = len(re.findall(r"<!-- solution-start -->", body))
+                if solutions != len(exercises):
+                    # Legacy U3-11 writes all ten detailed solutions without markers.
+                    self.assertEqual(solutions, 0)
+                    self.assertEqual(
+                        len(re.findall(r"\*\*詳細解答\*\*", body)), len(exercises)
+                    )
+
+    def test_all_u3_formal_anchor_links_from_chapter_bodies(self):
+        # Resolve the actual destination and compare against its stable HTML id.
+        import functools
+
+        @functools.lru_cache(maxsize=None)
+        def anchor_set(file: Path) -> frozenset[str]:
+            content = file.read_text("utf-8")
+            return frozenset(re.findall(r'<a id="([^"]+)"', content))
+
+        stable = re.compile(r"^(?:def|thm|prop|lem|ex)-u3-\d{2}[-\w]*$")
+        failures = []
+        checked = 0
+        for i in range(1, 69):
+            source = U_ROOT / f"U3-{i:02d}" / "index.md"
+            body = source.read_text("utf-8")
+            for target in re.findall(r"\]\(([^)]+)\)", body):
+                link, sep, fragment = target.partition("#")
+                if not sep or not stable.match(fragment):
+                    continue
+                if link.startswith(("https://", "http://")):
+                    continue
+                destination = (source.parent / unquote(link)).resolve() if link else source
+                if not destination.is_relative_to(U_ROOT) or destination.name != "index.md":
+                    continue
+                checked += 1
+                if not destination.is_file() or fragment not in anchor_set(destination):
+                    failures.append(f"{source.parent.name}: {target}")
+        self.assertGreater(checked, 100, "U3 cross-chapter anchor audit is unexpectedly empty")
+        self.assertEqual(failures, [], "missing U3 stable anchors: " + "; ".join(failures[:20]))
 
     def test_same_path_paired_difference_covariance_identity(self):
         paths = execution.generate_paths(40, seed=20261119)
