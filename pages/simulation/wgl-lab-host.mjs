@@ -1,4 +1,5 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
+import {expectedWGL20Samples,compareWGL20Readback,verifyWGL20Report} from './wgl20-lab-core.mjs';
 import {compareWGL19Readback, expectedWGL19Samples, compareWGL19FloatReadback, auditWGL19Clock} from './wgl19-lab-core.mjs';
 import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg2Encode } from './fcg2-lab-core.mjs';
 import { highlightSource } from './wgl-lab-highlight.mjs';
@@ -23,7 +24,7 @@ import { compareWGL18Readback, expectedWGL18Samples, compareWGL18FloatReadback }
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'FCG2'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isFCG2 = lesson === 'FCG2';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
@@ -42,10 +43,12 @@ const isWGL15 = lesson === 'WGL15';
 const isWGL16 = lesson === 'WGL16';
 const isWGL17 = lesson === 'WGL17';
 const isWGL19 = lesson === 'WGL19';
+const isWGL20 = lesson === 'WGL20';
 const isWGL18 = lesson === 'WGL18';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + (isFCG2 ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
 const FILES = isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
+  isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain.frag'} :
   isWGL19 ? {js: 'audit.js', vertex: 'audit.vert', fragment: 'audit.frag'} :
   isWGL18 ? {js: 'diffusion.js', vertex: 'diffusion.vert', fragment: 'diffusion.frag'} :
   isWGL17 ? {js: 'data-grid.js', vertex: 'data-grid.vert', fragment: 'data-grid.frag'} :
@@ -65,7 +68,7 @@ const FILES = isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'densit
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isWGL20 ? expectedWGL20Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
@@ -76,6 +79,7 @@ const inputs = {
 };
 const tabs = ['conditions', 'code', 'result'];
 const defaults = {};
+let plateauSnapshot = null;
 let ready = false;
 let active = null;
 let sequence = 0;
@@ -179,6 +183,18 @@ async function load() {
       if (code.length > SOURCE_LIMIT) throw new Error(file + ': ファイルが大きすぎます');
       return [name, code];
     }));
+    if (isWGL20) {
+      const snapshotResponse=await fetch(new URL('plateau-lod1.json',LESSON_URL));
+      if(!snapshotResponse.ok)throw new Error('PLATEAU snapshot HTTP '+snapshotResponse.status);
+      if(Number(snapshotResponse.headers.get('content-length')||0)>200000)
+        throw new Error('WGL20 snapshot exceeds static asset size limit');
+      plateauSnapshot=await snapshotResponse.json();
+      if(plateauSnapshot?.schema!=='wgl20-offline-mesh-v1'||
+         plateauSnapshot?.source?.declaredCrs!=='EPSG:6697'||
+         !Array.isArray(plateauSnapshot.mesh?.vertices)||
+         !Array.isArray(plateauSnapshot.mesh?.triangles))
+        throw new Error('WGL20 data schema/CRS mismatch');
+    }
     Object.assign(defaults, Object.fromEntries(entries));
     setSources(defaults);
     try {
@@ -251,7 +267,8 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', 'settings', request.js);
       const hooks = await run(gl, canvas, request.vertex, request.fragment, report,
-        {steps: request.lesson === 'FCG2' ? request.steps : undefined});
+        {steps: request.lesson === 'FCG2' ? request.steps : undefined,
+         snapshot: request.lesson === 'WGL20' ? request.snapshot : undefined});
       if (request.lesson === 'WGL15' && hooks && typeof hooks.pick === 'function') {
         let cursorX = Math.floor(canvas.width / 2);
         let cursorY = Math.floor(canvas.height / 2);
@@ -291,7 +308,7 @@ function isolatedRunner() {
           }
         });
       }
-      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'FCG2'].includes(request.lesson)) &&
+      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -357,6 +374,7 @@ function isolatedRunner() {
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
+        checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
     } catch (error) {
@@ -498,13 +516,19 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL20 ? compareWGL20Readback : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
     setStatus(unchanged && pass ? '初期ソースの独立画素検算に合格' :
       unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' : '編集コードを実行しました（基準との差を比較）',
       unchanged && !pass);
+    if (isWGL20) {
+      const verified=verifyWGL20Report(data.checkpoints,plateauSnapshot);
+      byId('diagnostics').textContent += '\nWGL20 independent CPU geodetic→local, mesh count, ground/water/depth: '+
+        (verified.pass?'一致':'不一致') + ' '+JSON.stringify(verified.checks||{});
+      if(!verified.pass)setStatus('WGL20 CRS・位置・地盤高と水深の独立数値検査が未達',true);
+    }
     if (isWGL18) {
       const fp=data.floatParameters;
       const validParameters=fp&&typeof fp.rate==='number'&&Number.isFinite(fp.rate)&&
@@ -548,7 +572,7 @@ window.addEventListener('message', event => {
     }
     byId('result-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      (isFCG2 ? '±2' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      (isWGL20 ? '±1' : isFCG2 ? '±2' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
@@ -559,6 +583,10 @@ function run() {
   if (!ready) { setStatus('教材ソースがまだ読み込まれていません', true); return; }
   let payload;
   try { payload = {...capture(), lesson};
+    if (isWGL20) {
+      payload.snapshot=plateauSnapshot;
+      payload.probes=expectedWGL20Samples(payload.width,payload.height).map(p=>[p.x,p.y]);
+    }
     if (isFCG2) {
       payload.steps=fcg2Steps;
       const predicted=expectedFCG2Samples(payload.width,payload.height,fcg2Steps);
@@ -769,6 +797,20 @@ if (isWGL2) {
   preset.options[0].textContent = '初期の頂点色三角形';
   preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
   preset.options[1].textContent = 'fragment の構文エラー';
+}
+if (isWGL20) {
+  document.title='WGL20 GIS 地形・格子・PLATEAU ラボ';
+  document.querySelector('h1').textContent='WGL20 合成DEMと実在PLATEAU建物を同じ局所座標で表示';
+  document.querySelector('#panel-conditions > p').textContent=
+    '公式サンプルCityGML(EPSG:6697)を固定スナップショットとして読み込み、独立した合成地盤高・仮想水位を重ねます。建物座標・高さ基準・CPU数値・RGBA8凡例画素を別々に検証します。';
+  document.querySelector('#panel-conditions ol').innerHTML=
+    '<li>初期実行で建物138頂点・88三角形、基準点、仮想水深2.29497413mを確認する。</li>'+
+    '<li>terrain.js の usePlateau=false で合成地形だけの実験が成立することを試す。</li>'+
+    '<li>waterLevelM と zExaggeration を変更し、描画のZ誇張が水深値を変えないことを確かめる。</li>'+
+    '<li>scenarioをCS1/CS2/CS3に変更して、投影と描画負荷・重ね合わせ診断を比較する。</li>'+
+    '<li>terrain.vert/terrain.fragを編集し、GPUの見た目と独立CPU高さ検算を分ける。</li>';
+  byId('preset').options[0].textContent='合成地形＋公式PLATEAU LOD1建物・水位とZ誇張';
+  byId('preset').options[1].textContent='fragmentの構文エラー';
 }
 if (isWGL19) {
   document.title='WGL19 固定時間刻み・GPU診断・context lossラボ';
