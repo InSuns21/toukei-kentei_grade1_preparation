@@ -8,7 +8,7 @@
 - [機械学習I・II（ML1/2）](../plan_done/DREAM_THEATER_MACHINE_LEARNING_I_II_PLAN.md)
 - [統計的学習理論I・II（SLT1/2）](../plan_done/DREAM_THEATER_STATISTICAL_LEARNING_THEORY_I_II_PLAN.md)
 - [多様体学習I・II（MFL1/2）](../plan_done/DREAM_THEATER_MANIFOLD_LEARNING_I_II_PLAN.md)
-- [機械学習と物理学I・II（PML1/2）](DREAM_THEATER_PHYSICS_INFORMED_MACHINE_LEARNING_I_II_PLAN.md)
+- [機械学習と物理学I・II（PML1/2）](../plans_progress/DREAM_THEATER_PHYSICS_INFORMED_MACHINE_LEARNING_I_II_PLAN.md)
 
 ## 直接依存の見取り図
 
@@ -41,7 +41,7 @@ SGTは有限グラフのスペクトル定理の正本、MFLは標本グラフ�
 
 各科目は独立した学修系列とするが、**15週・90分×15回は上限・下限・完成条件のいずれにも使わない**。15項目のシラバスは初期テーマ案であり、演習・計算実験の自習時間と主要証明の長さを考慮して必要な章に分ける。章IDは予約候補であり、実装前にDAG・既存ID・series manifestを確認して増減・修正する。
 
-**PML I/II は[個別PLAN](DREAM_THEATER_PHYSICS_INFORMED_MACHINE_LEARNING_I_II_PLAN.md)で教科書・原論文との照合を済ませ、PML1-01〜PML1-22（22講）とPML2-01〜PML2-26（26講）の計48講に確定した（2026-11-13）。** 現時点ではPLAN設計のみで、PML系列の実装・公開は未着手。
+**PML I/II は[個別PLAN](../plans_progress/DREAM_THEATER_PHYSICS_INFORMED_MACHINE_LEARNING_I_II_PLAN.md)で教科書・原論文との照合を済ませ、PML1-01〜PML1-22（22講）とPML2-01〜PML2-26（26講）の計48講に確定した（2026-11-13）。** PML1-01の実装に着手済み。系列manifestを現在の進捗の正本とし、計画のみの講義を公開済みとみなさない。
 
 | ID | 独立科目 | 区分 | 学修到達点 |
 |---|---|---|---|

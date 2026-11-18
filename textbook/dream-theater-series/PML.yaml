@@ -1,0 +1,199 @@
+version: 1
+id: PML
+title: "機械学習と物理学 I・II"
+plan: textbook/plans_progress/DREAM_THEATER_PHYSICS_INFORMED_MACHINE_LEARNING_I_II_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+chapters:
+  - id: PML1-01
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-01
+    status: completed
+    title: "損失と物理エネルギーは何が同じで何が違うか"
+  - id: PML1-02
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-02
+    status: planned
+    title: "有限状態からGibbs分布を構成できるか"
+  - id: PML1-03
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-03
+    status: planned
+    title: "自由エネルギー最小化とKLはどう結び付くか"
+  - id: PML1-04
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-04
+    status: planned
+    title: "エネルギーベース学習は統計力学とどこまで共通か"
+  - id: PML1-05
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-05
+    status: planned
+    title: "perceptronの記憶容量は何に依存するか"
+  - id: PML1-06
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-06
+    status: planned
+    title: "無秩序・相転移を学習へ持ち込める条件は何か"
+  - id: PML1-07
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-07
+    status: planned
+    title: "最適化を連続時間の散逸過程として見られるか"
+  - id: PML1-08
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-08
+    status: planned
+    title: "Langevin方程式に何のノイズが必要か"
+  - id: PML1-09
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-09
+    status: planned
+    title: "Gibbs密度が不変なのはどの条件か"
+  - id: PML1-10
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-10
+    status: planned
+    title: "不変分布と詳細釣合いは同じか"
+  - id: PML1-11
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-11
+    status: planned
+    title: "Langevinの数値離散化はどこで偏るか"
+  - id: PML1-12
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-12
+    status: planned
+    title: "SGDの揺らぎは熱雑音と等しいか"
+  - id: PML1-13
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-13
+    status: planned
+    title: "SGDを局所OU過程で近似できるのはいつか"
+  - id: PML1-14
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-14
+    status: planned
+    title: "SGD=熱平衡という比喩が壊れる例は何か"
+  - id: PML1-15
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-15
+    status: planned
+    title: "物理的な対称性を群作用としてどう記述するか"
+  - id: PML1-16
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-16
+    status: planned
+    title: "群平均はどのように不変モデルを作るか"
+  - id: PML1-17
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-17
+    status: planned
+    title: "Noetherの保存則は学習器に自動で移るか"
+  - id: PML1-18
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-18
+    status: planned
+    title: "Hamiltonian NNは何を構造として固定するか"
+  - id: PML1-19
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-19
+    status: planned
+    title: "Lagrangian NNに可逆な質量行列が必要なのはなぜか"
+  - id: PML1-20
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-20
+    status: planned
+    title: "連続系の保存則と数値積分での保存は同じか"
+  - id: PML1-21
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-21
+    status: planned
+    title: "データから動力学を同定すると何が失われるか"
+  - id: PML1-22
+    path: textbook/volumes/dream_thater/応用系/PML/PML1-22
+    status: planned
+    title: "物理制約付きモデルは本当に優れるか"
+  - id: PML2-01
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-01
+    status: planned
+    title: "何を「PDEを解く」と呼ぶか"
+  - id: PML2-02
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-02
+    status: planned
+    title: "forwardとinverseはどこで問題が変わるか"
+  - id: PML2-03
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-03
+    status: planned
+    title: "機械学習なしでどう解くか"
+  - id: PML2-04
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-04
+    status: planned
+    title: "計算された値の何を「誤差」と呼ぶか"
+  - id: PML2-05
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-05
+    status: planned
+    title: "学習用のPDEデータはどう作り検証するか"
+  - id: PML2-06
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-06
+    status: planned
+    title: "PINNの強形式残差はどう定義されるか"
+  - id: PML2-07
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-07
+    status: planned
+    title: "自動微分で必要な導関数を本当に計算できるか"
+  - id: PML2-08
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-08
+    status: planned
+    title: "初期/境界条件を強制する二つの方法は何か"
+  - id: PML2-09
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-09
+    status: planned
+    title: "物理残差の重みは何を変えるか"
+  - id: PML2-10
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-10
+    status: planned
+    title: "PINNはなぜ学習失敗することがあるか"
+  - id: PML2-11
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-11
+    status: planned
+    title: "残差から解誤差を評価できるのはいつか"
+  - id: PML2-12
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-12
+    status: planned
+    title: "点上の残差ゼロで解が正しいと言えるか"
+  - id: PML2-13
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-13
+    status: planned
+    title: "collocation点の増加や領域分割で何が改善するか"
+  - id: PML2-14
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-14
+    status: planned
+    title: "単一のPDE解と「解作用素」の学習は何が違うか"
+  - id: PML2-15
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-15
+    status: planned
+    title: "Neural Operatorの層をどう構成するか"
+  - id: PML2-16
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-16
+    status: planned
+    title: "Fourier Neural OperatorはなぜFourier係数を用いるか"
+  - id: PML2-17
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-17
+    status: planned
+    title: "解像度を変えても同じ精度が出るのか"
+  - id: PML2-18
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-18
+    status: planned
+    title: "DeepONetは観測点からどう作用素を近似するか"
+  - id: PML2-19
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-19
+    status: planned
+    title: "Neural Operatorの近似定理は何を保証しないか"
+  - id: PML2-20
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-20
+    status: planned
+    title: "PINNとoperator learningは組み合わせられるか"
+  - id: PML2-21
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-21
+    status: planned
+    title: "PDEパラメータを学習すると識別性は保てるか"
+  - id: PML2-22
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-22
+    status: planned
+    title: "数値ソルバを通じた勾配はどう求めるか"
+  - id: PML2-23
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-23
+    status: planned
+    title: "時間発展を微分すると勾配はどこで狂うか"
+  - id: PML2-24
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-24
+    status: planned
+    title: "データ同化を単発の逆問題とどう区別するか"
+  - id: PML2-25
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-25
+    status: planned
+    title: "何を比較すれば科学計算として信頼できるか"
+  - id: PML2-26
+    path: textbook/volumes/dream_thater/応用系/PML/PML2-26
+    status: planned
+    title: "PINN・FNO・古典解法はどんな条件で勝敗が変わるか"
