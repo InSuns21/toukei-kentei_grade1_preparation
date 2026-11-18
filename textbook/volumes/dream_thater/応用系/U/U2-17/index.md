@@ -558,7 +558,7 @@ $$
 \ge\frac1{20}.
 $$
 
-独立な二ビームの積は $\widetilde L\ge(1/20)^2=1/400$ です。有限姿勢集合の事前 $\mu$ を足すと[証拠の下限定理](#prop-u2-17-robust-bound)より $\widetilde Z=\sum_g\mu(g)\widetilde L(g)\ge(1/400)\sum_g\mu(g)=1/400$ です。しかし事後は $\mu(g)\widetilde L(g)/\widetilde Z$ なので、$\mu(g)=0$ なら分子0です。外れ値の混合は**観測の説明可能性**を改善しますが、存在しない姿勢候補を作るものではありません。
+独立な二ビームの積は $\widetilde L\ge(1/20)^2=1/400$ です。有限姿勢集合の事前 $\mu$ を足すと[証拠の下限を与える命題](#prop-u2-17-robust-bound)より $\widetilde Z=\sum_g\mu(g)\widetilde L(g)\ge(1/400)\sum_g\mu(g)=1/400$ です。しかし事後は $\mu(g)\widetilde L(g)/\widetilde Z$ なので、$\mu(g)=0$ なら分子0です。外れ値の混合は**観測の説明可能性**を改善しますが、存在しない姿勢候補を作るものではありません。
 <!-- solution-end -->
 
 <a id="ex-u2-17-b03"></a>
