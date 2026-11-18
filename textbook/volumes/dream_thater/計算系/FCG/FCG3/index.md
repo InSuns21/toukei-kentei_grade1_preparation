@@ -20,13 +20,17 @@ $$
 
 を満たす。物理的な拡散項は**最初から入っていない**。
 
-速度に従う軌道 $\boldsymbol X(s)$ は $d\boldsymbol X/ds=\boldsymbol u(\boldsymbol X(s),s)$ で定まる。連鎖律を成分ごとに適用すると、
+速度に従う軌道 $\boldsymbol X(s)=(X_x(s),X_y(s))$ は $d\boldsymbol X/ds=\boldsymbol u(\boldsymbol X(s),s)$ で定まる。ここで $\partial_tq$ は位置 $(x,y)$ を固定した時刻 $t$ による偏微分であり、$d/ds$ は軌道と時刻をともに動かす合成関数の全微分である。連鎖律を成分ごとに適用すると、
 
-$$
-\frac{d}{ds}q(\boldsymbol X(s),s)
-=\partial_tq+\frac{dX_x}{ds}\partial_xq+\frac{dX_y}{ds}\partial_yq
-=\partial_tq+\boldsymbol u\cdot\nabla q=0.
-$$
+$
+\begin{aligned}
+\frac{d}{ds}q(X_x(s),X_y(s),s)
+={}&\partial_tq(\boldsymbol X(s),s)\\
+&+\partial_xq(\boldsymbol X(s),s)\frac{dX_x}{ds}
++\partial_yq(\boldsymbol X(s),s)\frac{dX_y}{ds}\\
+={}&\bigl(\partial_tq+\boldsymbol u\cdot\nabla q\bigr)(\boldsymbol X(s),s)=0.
+\end{aligned}
+$
 
 だから、同じ軌道に沿う濃度は一定である。新時刻のセル中心に到着した染料を知るには**そこから旧時刻へ遡る**。
 
@@ -42,7 +46,7 @@ $$
 偏微分から $\partial_xu_x+\partial_yu_y=0$。初期染料は中心 $(0.7,0.5)$、半径 $R=0.14$ [m] の塊とし、
 
 $$
-r^2=(x-0.7)^2+(y-0.5)^2,\quad
+r=\sqrt{(x-0.7)^2+(y-0.5)^2},\quad
 q_0(x,y)=
 \begin{cases}
 (1-r^2/R^2)^2,&r<R,\\
@@ -57,7 +61,32 @@ $$
 
 ## 2. 新時刻から前時刻へ足点を戻す
 
-**逆追跡足点**とは、新時刻の位置に届く軌道の一つ前の時刻での位置である。一般の速度では軌道の微分方程式を近似的に逆積分するが、この回転なら厳密に分かる。一般速度での単純な近似は、新時刻の到着点 $\boldsymbol x$ から $\Delta t\,\boldsymbol u(\boldsymbol x,t_{n+1})$ だけ引く**後退Euler足点**である。
+**逆追跡足点**とは、新時刻の位置に届く軌道の一つ前の時刻での位置である。到着点から旧時刻の濃度を参照する半Lagrange法では、まずこの足点を求める。一般の速度では軌道の微分方程式を近似的に逆積分するが、この回転なら厳密に分かる。一般速度での単純な近似は、新時刻の到着点 $\boldsymbol x$ から $\Delta t\,\boldsymbol u(\boldsymbol x,t_{n+1})$ だけ引く**後退Euler足点**である。
+
+なぜ回転の足点が次の座標式になるかを先に確認する。旧時刻 $t_n$ に位置 $\boldsymbol c+(a,b)$ にいた点について、$\tau=s-t_n$ と置くと、回転速度の軌道は
+
+$
+\begin{aligned}
+X_x(s)&=\tfrac12+a\cos(\omega\tau)-b\sin(\omega\tau),\\
+X_y(s)&=\tfrac12+a\sin(\omega\tau)+b\cos(\omega\tau).
+\end{aligned}
+$
+
+実際、$d\tau/ds=1$ なので
+
+$
+\frac{dX_x}{ds}=-\omega(X_y-\tfrac12),\qquad
+\frac{dX_y}{ds}=\omega(X_x-\tfrac12)
+$
+
+となり、第1節の速度場に従う。到着時刻 $t_{n+1}$ では $\theta=\omega\Delta t$、到着点の中心からの変位を $(d_x,d_y)$ として
+
+$
+d_x=a\cos\theta-b\sin\theta,\qquad
+d_y=a\sin\theta+b\cos\theta.
+$
+
+第1式を $\cos\theta$ 倍し第2式を $\sin\theta$ 倍して加えると、$\cos^2\theta+\sin^2\theta=1$ より $a=d_x\cos\theta+d_y\sin\theta$。同様に、第2式を $\cos\theta$ 倍し第1式を $\sin\theta$ 倍して引けば $b=-d_x\sin\theta+d_y\cos\theta$。この $(a,b)$ が旧時刻の変位である。
 
 <a id="def-fcg3-backtrace"></a>
 
@@ -209,7 +238,7 @@ $$
 
 ## 5. 正しい回転と離散更新の違い
 
-中心 $\boldsymbol c$ の周りの角度 $\phi$ の回転行列を
+第2節で成分表示と逆変換を検算した、中心 $\boldsymbol c$ の周りの角度 $\phi$ の回転を行列で表す。列ベクトル $(a,b)^{\mathsf T}$ を $(a\cos\phi-b\sin\phi,\ a\sin\phi+b\cos\phi)^{\mathsf T}$ へ送る行列を
 
 $$
 R(\phi)=\begin{pmatrix}\cos\phi&-\sin\phi\\ \sin\phi&\cos\phi\end{pmatrix}
@@ -222,15 +251,21 @@ $$
 <!-- formal-statement-start -->
 ### 命題（回転の厳密な逆追跡と一周後の復元）
 
-第1節の回転速度、第1節の初期値のもと、移流方程式の連続微分可能な解は
+中心 $\boldsymbol c=(1/2,1/2)$、角速度 $\omega=2\pi$ [rad/s] とし、速度場 $\boldsymbol u(x,y)=(-\omega(y-1/2),\omega(x-1/2))$ を平面 $\mathbb R^2$ 全体で定める。任意の連続微分可能な初期濃度 $q_0:\mathbb R^2\to\mathbb R$ に対し、$\mathbb R^2\times[0,1]$ 上で
 
-$$
+$
+\partial_tq+\boldsymbol u\cdot\nabla q=0,\qquad
+q(\boldsymbol x,0)=q_0(\boldsymbol x)
+$
+
+を満たす連続微分可能な解は一意で、
+
+$
 q(\boldsymbol x,t)
 =q_0\bigl(\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)\bigr)
+$
 
-$$
-
-であり、$\omega=2\pi$ [rad/s] のとき $q(\boldsymbol x,1)=q_0(\boldsymbol x)$ が全ての $\boldsymbol x\in D$ について成り立つ。
+となる。特に第1節の染料 $q_0$ は平面全体で同じ式により定義でき、この仮定を満たすため、$q(\boldsymbol x,1)=q_0(\boldsymbol x)$ が全ての $\boldsymbol x\in D$ について成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -257,7 +292,7 @@ $$
 X'_y=\omega(a\cos\omega t-b\sin\omega t)=\omega(X_x-\tfrac12).
 $$
 
-第1節の回転速度と一致するので $\boldsymbol X$ は指定速度の軌道である。逆行列を掛けると $\boldsymbol z=\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)$。第1節で示した連鎖律と移流方程式から軌道に沿う $q$ は一定だから、$q(\boldsymbol x,t)=q_0(\boldsymbol z)$ で上の解析解を得る。$t=1$ では $\omega t=2\pi$、$R(-2\pi)=I$ より $q(\boldsymbol x,1)=q_0(\boldsymbol x)$。$\square$
+第1節の回転速度と一致するので $\boldsymbol X$ は指定速度の軌道である。$R(-\omega t)R(\omega t)=I$ より、この軌道が時刻 $t$ に $\boldsymbol x$ を通るなら、その初期位置は $\boldsymbol z=\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)$ と一意に決まる。[第1節の連鎖律による計算](#def-fcg3-backtrace)と移流方程式から軌道に沿う任意の解 $q$ は一定だから、必ず $q(\boldsymbol x,t)=q_0(\boldsymbol z)$ となる。一方、右辺で定めた関数は $q_0$ と回転が連続微分可能なので連続微分可能であり、各軌道上で値が $q_0(\boldsymbol z)$ に等しい。したがって同じ連鎖律を逆に使えば全点で移流方程式を満たし、$t=0$ に初期条件も満たす。これで存在と一意性が示せた。$t=1$ では $\omega t=2\pi$、$R(-2\pi)=I$ より $q(\boldsymbol x,1)=q_0(\boldsymbol x)$。$\square$
 <!-- proof-end -->
 
 この結論は**厳密解**の一回転復元であり、補間を32回繰り返した数値値の復元ではない。
@@ -306,7 +341,7 @@ $$
 
 旧格子の隣り合う値を何度も平均することで鋭い輪郭が鈍ることを**数値拡散**という。これは物理式に熱拡散係数を付け加えたこととは異なる。少なくとも次の誤差を分離する。
 
-- **逆追跡誤差**：後退Euler足点では厳密[厳密逆追跡足点](#def-fcg3-backtrace)からずれる。$\theta$ が小さいとき、厳密足点とEuler足点の差の主項は $-\theta^2(\boldsymbol x-\boldsymbol c)/2$。本講の初期コードは厳密足点でこれを取り除く。
+- **逆追跡誤差**：後退Euler足点では[厳密逆追跡足点](#def-fcg3-backtrace)からずれる。$\theta$ が小さいとき、厳密足点とEuler足点の差の主項は $-\theta^2(\boldsymbol x-\boldsymbol c)/2$。本講の初期コードは厳密足点でこれを取り除く。
 - **補間誤差**：厳密足点でも[双線形再構成](#def-fcg3-bilinear)の4値混合は元の連続濃度の真値に必ずしも一致せず、更新反復で輪郭が鈍り得る。
 - **表示誤差**：[FCG2のR8正規化](../FCG2/index.md#def-fcg2-r8-snapshot)による $\widehat Q=\operatorname{round}(255Q)/255$ の誤差は、[WGL17の量子化誤差](../../WGL/WGL17/index.md#prop-wgl17-unorm-error)から最大 $1/510$。色だけでは実数の格子誤差を測れない。
 
@@ -359,7 +394,15 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 第1節の回転速度から速度は $(0,2\pi\cdot0.2)=(0,0.4\pi)$ [m/s]。$h=\Delta t=1/32$ なので $C=0.4\pi\approx1.257$。しかし[値域不増大](#prop-fcg3-range)は $C$ を仮定せず、非負の重みだけから $0\le Q^n\le M$ を導いた。よって値域の意味での発散は結論できず、位相・形状・質量の精度は別途検査する。
+**詳細解答。** 第1節の回転速度から速度は $(0,2\pi\cdot0.2)=(0,0.4\pi)$ [m/s]。格子幅 $h=1/32$ m、時間刻み $\Delta t=1/32$ s だから、単位が消えることを確認して
+
+$
+C=\frac{\|\boldsymbol u\|\Delta t}{h}
+=\frac{(0.4\pi\ \mathrm{m/s})(1/32\ \mathrm{s})}{1/32\ \mathrm{m}}
+=0.4\pi\approx1.257
+$
+
+を得る。しかし[値域不増大](#prop-fcg3-range)は $C$ を仮定せず、非負の重みだけから $0\le Q^n\le M$ を導いた。よって値域の意味での発散は結論できず、位相・形状・質量の精度は別途検査する。
 <!-- solution-end -->
 
 <a id="ex-fcg3-a4"></a>
