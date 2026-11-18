@@ -371,7 +371,7 @@ $$
 
 を生成する。独立な一様位相 $\Phi_n$ を擬似乱数で固定し、格子上の空間平均・二点相関と離散 Fourier 係数を**同じ Python ファイル**で計算する。理論上 $\mathbb E(u-U)^2=\frac12\sum_{n=1}^Mn^{-2}$ [m$^2$/s$^2$]。この例は数学的な合成場であり、Navier–Stokes の時間積分結果、測定データ、エルゴード性の証明ではない。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID37-SYNTHETIC-CORRELATION-SPECTRUM
 # lab-title: 合成周期速度場の平均・相関・スペクトル
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID37/synthetic_turbulence_lab.py
@@ -380,7 +380,7 @@ $$
 # lab-preset: 6モード | --modes 6 --phase-init 37
 # lab-preset: 12モード | --modes 12 --phase-init 37
 # lab-preset: 位相だけ変更 | --modes 6 --phase-init 137
-<!-- python-file-lab-end -->
+```
 
 速度・相関の曲線は直接同じ格子で計算した値、波数スペクトルは同じ速度データから求めた Fourier 係数である。$M$ を増やすと細かな波数成分が増え、擬似乱数の初期値の変更では瞬時速度の見た目が変わる一方、指定振幅のもとでは理論上の空間平均相関・エネルギー和は変わらない。有限格子の計算誤差と、連続場の定理の区別も確認する。
 

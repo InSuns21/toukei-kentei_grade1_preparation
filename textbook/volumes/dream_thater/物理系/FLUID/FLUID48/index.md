@@ -426,7 +426,7 @@ $\gamma=7/5$ では希薄波内の音速 $a(\xi)$ が $\xi$ の一次式で、$\
 
 4点則は7次まで厳密なので、本講の設定では波面分割後の保存変数セル平均が丸め誤差を除いて厳密に求まる。一般の $\gamma$ に同じ厳密性を無条件に主張しない。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID48-GODUNOV-SHOCK-TUBE
 # lab-title: Euler Riemann問題・Godunov有限体積法・三保存量
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID48/shock_tube_godunov_lab.py
@@ -437,7 +437,7 @@ $\gamma=7/5$ では希薄波内の音速 $a(\xi)$ が $\xi$ の一次式で、$\
 # lab-preset: 160セル・細分と描画 | --grid 160 --time 0.15 --cfl 0.45 --plot
 # lab-preset: 密度セル平均誤差の格子比較 | --study
 # lab-preset: 保存・正値・Riemann根・失敗時停止の自己テスト | --self-test
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを読む](shock_tube_godunov_lab.py)
 

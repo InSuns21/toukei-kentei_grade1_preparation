@@ -442,7 +442,7 @@ $$
 
 同じ Python ファイルで四次多項式の台形積分、刻み幅半減、壁勾配による摩擦、運動量積分式による摩擦、Blasius係数との差を計算する。速度曲線と二種類の欠損密度も同じ実験に描く。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID23-MOMENTUM-DEFICIT
 # lab-title: 変位厚さ・運動量厚さ・平板抗力の積分検算
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID23/momentum_integral_lab.py
@@ -451,7 +451,7 @@ $$
 # lab-preset: 粗い格子 | --n 10 --speed 2 --length 0.5
 # lab-preset: 細かい格子 | --n 320 --speed 2 --length 0.5
 # lab-preset: 長さ2倍 | --n 80 --speed 2 --length 1
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを閲覧](momentum_integral_lab.py)し、格子数を増やしたときの積分誤差と、Blasiusとの差約 $3.21\%$ を区別しよう。前者は刻み幅で縮むが、後者は同じ四次近似を使う限り縮まない。
 

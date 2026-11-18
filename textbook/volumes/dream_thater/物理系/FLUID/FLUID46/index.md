@@ -504,7 +504,7 @@ $$
 
 前章と同様、$\sin z/z$ はセルでの積分に由来し、点値を代用していない。$k=1$ は同じ滑らかな初期値を格子間で比較する実験、$k=N/4$ は**格子に依存する高周波擾乱**を使った安定性の反例である。後者を収束次数の測定に用いてはいけない。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID46-STABILITY-CONVERGENCE
 # lab-title: 風上法と中心FTCS・厳密セル平均・誤差比較
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID46/grid_convergence_lab.py
@@ -516,7 +516,7 @@ $$
 # lab-preset: 不安定な中心FTCS・高周波 | --grid 64 --scheme centered --case high --cfl 0.8 --time 0.2
 # lab-preset: 不安定な風上・CFL超過 | --grid 64 --scheme upwind --case high --cfl 1.2 --time 0.2
 # lab-preset: Python自己検算 | --self-test
-<!-- python-file-lab-end -->
+```
 
 各ラボ出力では、実際の $\Delta t$ とCFL、Fourier増幅倍率、質量残差、$E_1$ と $E_\infty$ を区別して記録する。Pythonソースタブから同じファイルを読める。安定プリセットでは曲線と誤差を一緒に見られるが、不安定プリセットには明示的に **UNSTABLE** と表示する。計算が有限値を返したり総質量が一致したりしても、収束に成功した意味にはしない。振幅が安全上限を超えた場合は計算を打ち切り、未計算時刻の誤差を数値として偽装しない。
 

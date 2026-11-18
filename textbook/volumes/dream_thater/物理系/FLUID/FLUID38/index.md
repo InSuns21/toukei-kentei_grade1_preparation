@@ -501,7 +501,7 @@ $$
 
 下の Python ラボでは、平均剪断 $G=2$ s$^{-1}$、混合長 $\ell_m=0.15$ m を標準とし、四実現の集計、理論値との差、混合長模型の予測、生成率、実現可能性を同じ計算から出力する。線グラフは $c$ と $\ell_m$ を変えた**模型曲線**であり、実測乱流の時系列ではない。初回実行時にはブラウザの Python 環境を取得する通信が必要になる場合がある。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID38-REYNOLDS-CLOSURE
 # lab-title: 合成共分散とBoussinesq・混合長閉鎖
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID38/reynolds_closure_lab.py
@@ -510,7 +510,7 @@ $$
 # lab-preset: 相関ゼロ | --corr 0 --shear 2 --length 0.15
 # lab-preset: 逆向き輸送 | --corr -0.75 --shear 2 --length 0.15
 # lab-preset: 剪断を反転 | --corr 0.75 --shear -2 --length 0.15
-<!-- python-file-lab-end -->
+```
 
 **読取り方**：$c=0.75$ なら観測式から $-\overline{u'v'}=0.090$ m$^2$/s$^2$、$\mathcal P=0.180$ m$^2$/s$^3$。選んだ混合長はこの一成分にちょうど合うが、全共分散の形や別の $c$ まで予測できたわけではない。$c=-0.75$ では真の合成値 $-\overline{u'v'}=-0.090$ と $\mathcal P=-0.180$ を、非負渦粘性模型は再現しない。
 

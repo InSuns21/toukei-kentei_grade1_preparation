@@ -499,7 +499,7 @@ $$
 
 この Python ラボは一つの分散式から $\omega,c_p,c_g$ を求め、独立した対称差分による $d\omega/dk$ と比較する。同じ入力で $J_p$、$J_\gamma$、$\mathcal E$ を出し、$J/\mathcal E-c_g$ の残差も調べる。二波の線形うなりの二時刻の水面形状と、波数を変えた $c_p,c_g$ のグラフを同じ実行欄に示す。**これは線形波の解析式の標本化であり、非線形自由表面の数値時間発展ではない。**
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID28-ENERGY-GROUP
 # lab-title: 重力・毛管波の群速度とエネルギー流束
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID28/group_energy_lab.py
@@ -509,7 +509,7 @@ $$
 # lab-preset: 深水・毛管優勢 | --depth 0.4 --wavelength 0.01 --amplitude 0.0001 --samples 240
 # lab-preset: 表面張力なし | --depth 0.4 --wavelength 1 --gamma 0 --samples 240
 # lab-preset: 波数差を縮める | --depth 0.4 --wavelength 1 --spread 0.04 --samples 480
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを閲覧](group_energy_lab.py)。表示した二つの波形は $x/\lambda$、$\eta/a$ を軸に取る。波数差を縮めると差商の群速度は微分で定めた群速度へ近づくが、うなりの空間周期は長くなる。描画点数を増やして線が滑らかになっても、線形模型の物理的精度が上がるわけではない。
 

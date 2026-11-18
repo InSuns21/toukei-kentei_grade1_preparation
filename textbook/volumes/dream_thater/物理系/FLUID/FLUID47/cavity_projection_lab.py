@@ -177,7 +177,8 @@ def calculate(n=12, dt=0.01, final_time=1.0, re=20.0, plot=False):
                title="Pressure (gray) and streamlines (black)")
         ax.set_aspect("equal")
         fig.tight_layout()
-        plt.show()
+        # The Pyodide Worker captures open Matplotlib figures after the run.
+        # plt.show() needs a browser window and fails in a Web Worker.
     return result
 
 

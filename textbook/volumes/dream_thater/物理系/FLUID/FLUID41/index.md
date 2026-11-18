@@ -567,7 +567,7 @@ $$
 
 差分検算では $\Delta x=L/N$、$\Delta t=\Delta x/(4c_0)$ とし、解析解への中心差分から、圧力式・運動量式それぞれの**無次元化した最大残差**を報告する。$N$ と $2N$ の残差の比がおおむね4へ向かうのは中心差分の二次精度の検査であり、Eulerの数値ソルバーが収束したという意味ではない。周期平均エネルギーと解析値も別々に表示する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID41-LINEAR-ACOUSTICS
 # lab-title: 等エントロピー線形音波・特性速度・エネルギーの解析解検算
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID41/linear_acoustics_lab.py
@@ -577,7 +577,7 @@ $$
 # lab-preset: 格子を細かくする：N=1024 | --mode right --grid 1024
 # lab-preset: 音圧を半分にする | --mode right --amplitude 50
 # lab-preset: 早い時刻で二方向波を見る | --mode standing --time 0.001 --grid 512
-<!-- python-file-lab-end -->
+```
 
 公開 [Pythonソース](linear_acoustics_lab.py) は標準ライブラリのみを用いる。通常はこのページから実行し、ローカルでの追加検証だけ Python 3 の --self-test を用いる。ブラウザ実行環境の初回取得には通信が必要なことがある。実行できない場合でも、第5節の正弦波を一度微分すれば二つの線形方程式を満たすこと、$c_0$ が圧力と密度から決まることは紙上で確認できる。
 

@@ -298,7 +298,7 @@ $$
 
 次のPython実験は、同じファイル内で射撃・数値積分・刻み半減検算・速度曲線描画を行う。標準ライブラリのみを用い、出力のグラフはブラウザ内で表示する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID22-BLASIUS-SHOOTING
 # lab-title: Blasius境界値問題の射撃法・速度曲線・刻み検証
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID22/blasius_lab.py
@@ -307,7 +307,7 @@ $$
 # lab-preset: 標準刻み | --step 0.05 --eta-max 12
 # lab-preset: 細かい刻み | --step 0.02 --eta-max 12
 # lab-preset: 遠方を短く切る影響 | --step 0.05 --eta-max 8
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを閲覧](blasius_lab.py)して、最初の条件 $f(0)=f'(0)=0$、試した $a$、終端誤差、刻み半減での値の変化を対応付けよう。同じ速度を無次元化した $f'(\eta)$ は外部流と重なる。もう一つの曲線 $f''(\eta)$ は正で、壁から離れると小さくなる。
 

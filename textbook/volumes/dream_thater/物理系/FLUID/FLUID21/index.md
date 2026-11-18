@@ -517,7 +517,7 @@ $$
 
 次の実行欄は、上記の候補場を数値的に標本化して $d(x)$ と微分比を比較する。$x$ の前縁近くは避け、$x\in[0.05L,L]$ で表示する。$U,L,\nu$ を変えた場合、$d(L)/L=\mathrm{Re}_L^{-1/2}$ がどのように動くかを確認しよう。数値差分の連続式残差も出すが、これは運動量方程式の厳密解の証明ではない。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID21-BOUNDARY-LAYER-FILE
 # lab-title: 高Re境界層の厚さと微分比
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID21/boundary_layer_lab.py
@@ -525,7 +525,7 @@ $$
 # lab-preset: Re=1000・粗い標本 | --nu 0.001 --samples 51
 # lab-preset: Re=100000・標準 | --nu 0.00001 --samples 101
 # lab-preset: Re=100000・細かい標本 | --nu 0.00001 --samples 301
-<!-- python-file-lab-end -->
+```
 
 [検算用 Python ソース](boundary_layer_lab.py) は標準ライブラリだけで動く。各プリセットで縦の厚さ $d$ と横の位置 $x$ の単位を確認し、局所 Reynolds 数が小さい最初の点では近似が相対的に悪くなることを、微分比 $1/(2\mathrm{Re}_x)$ と突き合わせる。
 

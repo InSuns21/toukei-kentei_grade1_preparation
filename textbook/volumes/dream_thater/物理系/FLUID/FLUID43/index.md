@@ -416,7 +416,7 @@ $$
 
 次のブラウザ Python は[閉じた形の正面衝撃波の公式](#thm-fluid43-normal-shock-ratios)を評価する。**衝撃波内部の厚さや位置、非定常 Euler 方程式そのものを離散化するものではない**。上流 Mach 数を変えると、圧力比・密度比・下流 Mach 数・エントロピー生成と全圧比を一つの計算正本から図示する。選択された $M_1$ について質量・運動量・比全エンタルピーの相対残差も表示する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID43-NORMAL-SHOCK
 # lab-title: 正面衝撃波の状態比・三保存残差・エントロピー生成
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID43/normal_shock_lab.py
@@ -426,7 +426,7 @@ $$
 # lab-preset: 強い衝撃波：M=5 | --mach 5 --grid 256
 # lab-preset: 比熱比を変更：gamma=1.3 | --mach 2 --gamma 1.3 --grid 128
 # lab-preset: 上流温度と圧力を変更 | --mach 3 --p1 100000 --t1 250 --grid 256
-<!-- python-file-lab-end -->
+```
 
 [公開 Python ソース](normal_shock_lab.py)は標準ライブラリのみで実行できる。ローカルでは Python 3 で実行すると JSON を表示し、引数に --self-test を与えると基準値・三保存残差・入力範囲を検査する。ブラウザ実行環境は初回に通信を必要とする場合がある。
 

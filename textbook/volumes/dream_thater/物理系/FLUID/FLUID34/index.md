@@ -323,7 +323,7 @@ $$
 
 同一の解析式から分散根、安定帯、運動学的・力学的残差、波の断面を計算する。画面で $k$ と $\Delta U$ を変え、(i) 低波数で重力が勝つ、(ii) 中間波数で増幅する、(iii) 高波数で張力が勝つ、の三状態を比較する。増幅した波形は**線形正規モードの描画**であり、Navier–Stokes方程式や界面追跡法の数値解ではない。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID34-KH-INTERFACE
 # lab-title: 二層Kelvin–Helmholtz界面の分散根・成長率と線形波形
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID34/kh_interface_lab.py
@@ -333,7 +333,7 @@ $$
 # lab-preset: 短波長・表面張力で中立 | --k 500 --time 0.5
 # lab-preset: 速度差なし | --k 30 --u1 0 --u2 0 --time 0.5
 # lab-preset: 張力なし・短波側不安定 | --k 500 --sigma 0 --amplitude 1e-5 --time 0.05
-<!-- python-file-lab-end -->
+```
 
 ラボの図は「時間成長率対波数」と「時刻別の線形界面変位」の数値曲線であり、軸・単位・モード名と安定/不安定を明示する。数値の発散を避けるため初期振幅と表示時刻に制限を置いている。JSONにある残差が小さくても、それは採用した**解析式への実装一致**を示すだけで、非線形時間発展の妥当性を検証するものではない。
 

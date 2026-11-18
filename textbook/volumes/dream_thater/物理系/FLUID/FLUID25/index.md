@@ -432,7 +432,7 @@ $$
 
 次の実験は第3節の **Gaussian 型の測定断面**を台形則で積分するもので、Navier–Stokes 方程式の時間発展や円柱の渦放出を数値計算するものではない。$\pm H$ で切る**断面範囲の誤差**と、同じ範囲で格子を刻む**求積誤差**を別々に出力する。速度分布と運動量欠損密度も同じ Python ファイルから図示する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID25-WAKE-MOMENTUM
 # lab-title: 後流の運動量欠損・断面範囲と刻み誤差
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID25/wake_momentum_lab.py
@@ -442,7 +442,7 @@ $$
 # lab-preset: 細格子 | --n 320 --extent 2 --amplitude 0.4
 # lab-preset: 狭い観測範囲 | --n 80 --extent 0.5 --amplitude 0.4
 # lab-preset: 深い欠損 | --n 80 --extent 2 --amplitude 0.7
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを閲覧](wake_momentum_lab.py)。刻み数を増やしても有限の測定範囲の外に残る欠損は回収できない。逆に外側範囲を広げても、刻みを固定すれば求積誤差の比較は別途必要である。得られる $D'$ は第3節の外側流束条件と圧力回復を満たす場合に**限って**抗力の推定値となる。
 

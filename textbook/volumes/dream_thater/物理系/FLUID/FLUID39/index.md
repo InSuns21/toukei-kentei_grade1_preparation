@@ -515,7 +515,7 @@ $$
 
 この $D_{\mathrm{syn}}$ を「実際の乱流で計測した散逸率」や「定常カスケードの一定フラックス」と同一視してはいけない。次の Python は、**同じ合成関数を台形則で積分して解析積分と比較する**。スペクトルの対数軸表示と、低波数から積算したエネルギー・散逸の割合も同じ Python ファイルから生成する。初回はブラウザの Python 環境の読み込みが必要な場合がある。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID39-SYNTHETIC-SPECTRAL-INTEGRALS
 # lab-title: 合成スペクトルの積分と格子幅検算（DNSではない）
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID39/spectral_cascade_lab.py
@@ -524,7 +524,7 @@ $$
 # lab-preset: 粗い積分：32分割 | --q0 1 --q1 8 --grid 32
 # lab-preset: 細かい積分：512分割 | --q0 1 --q1 8 --grid 512
 # lab-preset: 高波数まで：波数1〜16 | --q0 1 --q1 16 --grid 256
-<!-- python-file-lab-end -->
+```
 
 **読み方**：最初の図の傾き $-5/3$ は**コードで指定した指数**であり、自然に発生した指数ではない。二つ目の図では、大きな波数まで積分しないと粘性散逸の相当部分を取り逃がす一方、エネルギーの積算は低波数で先に増える。分割数を増やして解析積分との相対誤差が減ることと、流体の物理模型が正しいことは別の検査である。
 

@@ -473,7 +473,7 @@ $$
 
 **これは線形平面波の解析式の検算であり、非線形の海流を時間積分する数値シミュレーションではない。** 検算残差が小さいことと、現実の地球流体へ適用できることは別である。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID33-ROSSBY-WAVE
 # lab-title: Rossby波の波数依存・位相・群速度と渦位残差
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID33/rossby_wave_lab.py
@@ -482,7 +482,7 @@ $$
 # lab-preset: 西進位相・西向き群速度 | --beta 1.6e-11 --f0 1e-4 --depth 1000 --k 5e-7 --ell 1e-6 --amplitude 10000
 # lab-preset: 南北波数を反転 | --beta 1.6e-11 --f0 -1e-4 --depth 1000 --k 2e-6 --ell -1e-6 --amplitude 10000
 # lab-preset: 位相の二次元等高線 | --beta 1.6e-11 --f0 1e-4 --depth 1000 --k 2e-6 --ell 1e-6 --amplitude 10000 --plot
-<!-- python-file-lab-end -->
+```
 
 図では色だけでなく等高線の数値ラベルと正負を用いる。図が表示できない環境でも、波数・時間・解析残差と一次元位相断面の数表から検算できる。
 
