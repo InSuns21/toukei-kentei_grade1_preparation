@@ -20,8 +20,8 @@ const server=createServer(async(req,res)=>{
     const pathname=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
     const target=path.resolve(root,'.'+pathname);
     if(!target.startsWith(root+path.sep)){res.writeHead(403).end();return;}
-    res.writeHead(200,{'content-type':mime(target),'cache-control':'no-store'})
-      .end(await readFile(target));
+    const bytes=await readFile(target);
+    res.writeHead(200,{'content-type':mime(target),'cache-control':'no-store'}).end(bytes);
   }catch(error){res.writeHead(404).end(String(error.message));}
 });
 await new Promise(ok=>server.listen(0,'127.0.0.1',ok));
