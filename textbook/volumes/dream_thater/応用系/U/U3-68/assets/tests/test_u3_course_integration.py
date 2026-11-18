@@ -153,6 +153,9 @@ class U3CrossCourseIntegration(unittest.TestCase):
                          [f"U3-{i:02d}" for i in range(1, 69)])
         self.assertEqual(len(re.findall(r"\bstatus: completed,", manifest)), 68)
         published = re.findall(r"\[U3-(\d{2})\b", toc)
+        self.assertIn("plan: textbook/plan_done/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md", manifest)
+        self.assertTrue((repo / "textbook/plan_done/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md").is_file())
+        self.assertFalse((repo / "textbook/plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md").exists())
         self.assertEqual(published, [f"{i:02d}" for i in range(1, 69)])
         for i in range(1, 69):
             cid = f"U3-{i:02d}"
