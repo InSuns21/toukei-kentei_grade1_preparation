@@ -21,23 +21,23 @@
 >
 > 有限次元複素Hilbert空間 $\mathcal H_{\rm in},\mathcal H_R,\mathcal H_B,\mathcal H_E$ と線形写像
 >
-> $$
-> V:\mathcal H_{\rm in}\longrightarrow
-> \mathcal H_R\otimes\mathcal H_B\otimes\mathcal H_E,\qquad
-> V^\dagger V=I_{\rm in}
-> $$
+$$
+V:\mathcal H_{\rm in}\longrightarrow
+\mathcal H_R\otimes\mathcal H_B\otimes\mathcal H_E,\qquad
+V^\dagger V=I_{\rm in}
+$$
 >
 > を固定する。$R$ は観測対象とする全放射、$B$ は残存物、$E$ はそれ以外の非観測自由度とする。**放射だけで完結した終期**では、$R$ が全出力を含み、さらに
 
-$
+$$
 \dim\mathcal H_B=\dim\mathcal H_E=1
-$
+$$
 
 > と仮定する。外部放射の熱性とは異なり、終期の自由度についての仮定である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi1-endpoint-split -->
-**定義の直接確認。** $\mathcal H_{\rm in}=\mathbb C^2$、$\mathcal H_R=\mathcal H_B=\mathbb C^2$、$\mathcal H_E=\mathbb C$ とし、計算基底で
+**定義の確認** $\mathcal H_{\rm in}=\mathbb C^2$、$\mathcal H_R=\mathcal H_B=\mathbb C^2$、$\mathcal H_E=\mathbb C$ とし、計算基底で
 $$
 V|0\rangle=|0\rangle_R|0\rangle_B,\qquad
 V|1\rangle=|1\rangle_R|1\rangle_B
@@ -60,26 +60,26 @@ $$
 >
 > [蒸発終期の系の分割](#def-bhi1-endpoint-split)に対し、
 >
-> $$
-> \mathcal A_R=\{O_R\otimes I_B\otimes I_E:
-> O_R\in\mathcal B(\mathcal H_R)\},
-> \qquad
-> \mathcal N_R(\rho)=\operatorname{Tr}_{BE}(V\rho V^\dagger)
-> $$
+$$
+\mathcal A_R=\{O_R\otimes I_B\otimes I_E:
+O_R\in\mathcal B(\mathcal H_R)\},
+\qquad
+\mathcal N_R(\rho)=\operatorname{Tr}_{BE}(V\rho V^\dagger)
+$$
 >
 > とする。$\mathcal B(\mathcal H_R)$ は $\mathcal H_R$ 上の全線形作用素の集合である。$\mathcal A_R$ を**放射観測代数**、$\mathcal N_R$ を**放射への縮約チャネル**という。任意の入力密度演算子 $\rho$ と放射作用素 $O_R$ に対し、
 >
-> $$
-> \operatorname{Tr}\bigl(V\rho V^\dagger
-> (O_R\otimes I_B\otimes I_E)\bigr)
-> =\operatorname{Tr}\bigl(\mathcal N_R(\rho)O_R\bigr)
-> $$
+$$
+\operatorname{Tr}\bigl(V\rho V^\dagger
+(O_R\otimes I_B\otimes I_E)\bigr)
+=\operatorname{Tr}\bigl(\mathcal N_R(\rho)O_R\bigr)
+$$
 >
 > が成り立つ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi1-radiation-channel -->
-**定義の直接確認。** 前節の $V$ に $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入力すると、全出力は $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ です。$B$ の基底 $\{|0\rangle,|1\rangle\}$ で部分トレースを取ると、交差項 $|0_B\rangle\langle1_B|$ と随伴の跡は0なので
+**定義の確認** 前節の $V$ に $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入力すると、全出力は $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ です。$B$ の基底 $\{|0\rangle,|1\rangle\}$ で部分トレースを取ると、交差項 $|0_B\rangle\langle1_B|$ と随伴の跡は0なので
 $$
 \mathcal N_R(|+\rangle\langle+|)
 =\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|
@@ -99,10 +99,10 @@ $\mathcal N_R$ は[量子チャネルの定義](../../../応用系/QINF/QINF7/in
 >
 > [蒸発終期の系の分割](#def-bhi1-endpoint-split)の等長写像 $V$ と単位ベクトル $|\psi\rangle\in\mathcal H_{\rm in}$ を取る。全出力 $V|\psi\rangle$ は純粋で、そのエントロピーは0である。一方、その放射縮約 $\mathcal N_R(|\psi\rangle\langle\psi|)$ は混合し得る。特に前節の2量子ビット例の $|+\rangle$ 入力では
 >
-> $$
-> S(V|+\rangle\langle+|V^\dagger)=0,\qquad
-> S\bigl(\mathcal N_R(|+\rangle\langle+|)\bigr)=\ln2.
-> $$
+$$
+S(V|+\rangle\langle+|V^\dagger)=0,\qquad
+S\bigl(\mathcal N_R(|+\rangle\langle+|)\bigr)=\ln2.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -132,10 +132,10 @@ $$
 >
 > 有限次元の[蒸発終期の系の分割](#def-bhi1-endpoint-split)で $V^\dagger V=I_{\rm in}$ とする。終期に $\dim\mathcal H_B=\dim\mathcal H_E=1$ で、$R$ が全出力の自由度を含むと仮定する。このとき、どの単位入力 $|\psi\rangle\in\mathcal H_{\rm in}$ についても
 >
-> $$
-> \rho_R=\mathcal N_R(|\psi\rangle\langle\psi|)
-> =V|\psi\rangle\langle\psi|V^\dagger,\qquad S(\rho_R)=0
-> $$
+$$
+\rho_R=\mathcal N_R(|\psi\rangle\langle\psi|)
+=V|\psi\rangle\langle\psi|V^\dagger,\qquad S(\rho_R)=0
+$$
 >
 > であり、入力状態は $V^\dagger$ によって像部分空間上で回復できる。従って、**同じ純粋入力から得られる終期の全放射**が $S(\rho_R)>0$ と確定したなら、これらの仮定の少なくとも一つは成り立たない。
 <!-- formal-statement-end -->
@@ -169,17 +169,17 @@ $$
 >
 > [放射への縮約チャネル](#def-bhi1-radiation-channel)と相異なる二入力状態について、次を仮定する。
 
-$
+$$
 \rho_1\ne\rho_2,\qquad
 \mathcal N_R(\rho_1)=\mathcal N_R(\rho_2).
-$
+$$
 
 > このとき、放射だけを入力として**すべての入力状態を厳密に回復する**一つの写像は存在しない。第2節の等長写像において直交する入力 $|\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$ は、次のように同じ放射状態を与える。
 
-$
+$$
 \mathcal N_R(|+\rangle\langle+|)
 =\mathcal N_R(|-\rangle\langle-|)=I_2/2.
-$
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
