@@ -156,6 +156,16 @@ result family は成果群識別子であって講数ではない。268 は Open
 - EOMQCDA は非可換群のフェルミオン表現、Grassmann積分、fermion determinant、chirality と anomaly cancellation の有限模型を手で確かめ、pure YMにフェルミオンを加える際の新しい難しさを示す。EOMQCD は QCD と unified completion に関する OpenAI 発表を**pure YM の肯定的査定の延長として認定しない**。対応する公開原資料・別審査・正式な模型定義がない場合は未検証の研究目標として扱い、結論を証明済みとせず入出力と未解決箇所を示す。
 - 教科書段階の確立した事実、研究 group の特定版評価、完全未公開の AI 主張の証拠水準を分離し、mass gap と confinement を同じ命題としない。
 
+### 3.9 268/Haldane–Tasaki 量子スピン鎖のギャップ・SPT・一意性
+
+- **有限鎖の対象**：スピン1の $3\times3$ 行列、$H_L=\sum_{j=1}^{L}\boldsymbol S_j\cdot\boldsymbol S_{j+1}$（周期鎖では $\boldsymbol S_{L+1}=\boldsymbol S_1$）、基底エネルギー $E_0(L)$ と次の異なる固有値 $E_1(L)$ の差 $\Delta_L$ を先に定義する。[周期鎖論文](https://github.com/openai/math/tree/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026) の **$S=1$、偶数長周期鎖の一様正ギャップ**と、AKLT模型の厳密に証明されたギャップは別定理である。全整数スピン・全境界条件の予想を一挙に解決したと読み替えない。
+- **解析的証明と有限計算の分業**：EOM268B–C は transfer/thermal estimate、有限サイズの入力不等式、正の一様ギャップへの推論を **入力 → 中間不等式 → 定数 → 結論** の順に分解する。[周期鎖の再計算スクリプト](https://github.com/openai/math/tree/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026/verification) は有限証明書の再計算が可能と説明されているが、本PLANでは**実行・独立検証済みと主張しない**。保持証明書の照合と独立再実行、解析的推論の点検は別の証拠欄とする。
+- **開放鎖の別主張**：EOM268D は [境界場付き開放鎖の論文](https://github.com/openai/math/tree/main/preprints/A-boundary-field-gap-for-the-spin-one-Heisenberg-chain-September-24-2026) にある奇数長・端点磁場 $h=3/5$ の模型・一様ギャップ・境界選択状態を扱う。符号、境界場の方向、鎖長の偶奇、有限計算の範囲を周期鎖と混ぜず原論文の定理ごとに固定する。
+- **SPTと条件付き定理**：EOM268E は田崎氏の [2025年PRL](https://doi.org/10.1103/PhysRevLett.134.076602) のギャップ等を仮定した非自明SPTの結論と、[twist指数・Ogata指数の同値性（arXiv:2609.34119）](https://arxiv.org/abs/2609.34119) を分離する。$U(1)\rtimes\mathbb Z_2$ の対称性、純粋・局所一意・ギャップ付き状態、局所twistと半鎖回転の定義域・誤差評価を定義してから定理文を述べる。異なる論文を組み合わせる場合は仮定を一点ずつ照合する。
+- **無限鎖の射程**：EOM268 では田崎氏の [arXiv:2610.34330](https://arxiv.org/abs/2610.34330) がOpenAIの**解析機構と数値入力に依存して**主張する、無限 $S=1$ Heisenberg鎖と十分小さい $|D|$ の $J$–$D$ 模型における**並進不変基底状態の一意性**、周期鎖・端点場付き開放鎖の局所極限とその収束を追う。すべての非並進不変基底状態の一意性には拡張しない。
+- **独立な読解の評価**：田崎氏の [2026-10-18解説](https://haltasaki.github.io/writings/AI/OpenAI_Haldane.html) は解析部分を連続時間版・離散時間版で解説する一方、計算機援用評価は独立には確認していないと明記する。数学者の読解・演算証明書・Lean kernel・査読付き出版は別々の証拠である。
+- **完成時の証明責務**：小さな $L$ の行列・スペクトルを直接計算し、AKLTを具体例として示し、周期鎖と開放鎖の定理の仮定・不等式・量化・境界条件を同一表で照合する。計算機の補題を教材内で再現できなければ残る依存を記録し、SPT指数と無限鎖の一意性を自明な帰結としない。
+
 ## 4. EOM各章の統一フォーマットと検証状態
 
 各講は次を基本形とする。family の前段講と後段講で不要に重複させない。
@@ -188,6 +198,7 @@ result family は成果群識別子であって講数ではない。268 は Open
 - Sanjeev Arora and Boaz Barak, [Computational Complexity: A Modern Approach](https://www.cambridge.org/core/books/abs/computational-complexity/about-this-book/2CBF20D317C390A2D465CBD75E557B49): 計算量クラス、NP完全性、帰着とアルゴリズムの時間解析。CMPの計算可能性から378へ移るための標準書。
 - Marek Cygan et al., [Parameterized Algorithms](https://link.springer.com/book/10.1007/978-3-319-21275-3): ETH型の条件付き下界、sparsification、パラメータ付き・細粒度の帰着。378Aの停止線。
 - István Montvay and Gernot Münster, [Quantum Fields on a Lattice](https://www.cambridge.org/core/books/quantum-fields-on-a-lattice/4401A88CD232B0AEF1409BF6B260883A): 有限格子の gauge fields、Wilson作用、格子QCD。EOMYMA/QCDA の直接例。
+- Hal Tasaki, [Physics and Mathematics of Quantum Many-Body Systems](https://haltasaki.github.io/books/pmqmbs/index.html): 有限量子スピン鎖・Haldane/AKLT現象・熱力学極限・SPTへの橋渡し。EOM268A/Eの標準書であり2026年の証明の検証書ではない。
 - James Glimm and Arthur Jaffe, [Quantum Physics: A Functional Integral Point of View](https://link.springer.com/book/10.1007/978-1-4612-4728-9): 構成的量子場理論、反射陽性、極限と相関関数。EOMYMB/C の基礎（4D YM の完成証明書と混同しない）。
 - Arthur Jaffe and Edward Witten, [Yang–Mills Existence and Mass Gap: Official Problem Description](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf): 存在と正の質量ギャップの同時要請、証拠水準の比較。
 
@@ -198,25 +209,27 @@ result family は成果群識別子であって講数ではない。268 は Open
 - 017: [無理数度原論文](https://github.com/openai/math/tree/main/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026) / [Lean scope](https://github.com/openai/math/blob/main/lean/docs/017.md)。
 - 004: [Hilbert's tenth problem over the rational numbers](https://github.com/openai/math/tree/main/preprints/Hilberts-tenth-problem-over-the-rational-numbers-October-6-2026)。
 - 376: [Lean scope と関連 manuscript](https://github.com/openai/math/blob/main/lean/docs/376.md)。
+- 268/Haldane–Tasaki: [偶数長周期スピン1 Haldane gap論文](https://github.com/openai/math/tree/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026) / [境界場付き開放鎖ギャップ論文](https://github.com/openai/math/tree/main/preprints/A-boundary-field-gap-for-the-spin-one-Heisenberg-chain-September-24-2026) / [周期鎖のfinite verification手順](https://github.com/openai/math/blob/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026/verification/computations/README.md) / [田崎氏の2026-10-18解析的解説](https://haltasaki.github.io/writings/AI/OpenAI_Haldane.html) / [田崎氏の2025年条件付きSPT定理（PRL）](https://doi.org/10.1103/PhysRevLett.134.076602) / [指数同値性（2026-09、arXiv:2609.34119）](https://arxiv.org/abs/2609.34119) / [並進不変基底状態の一意性（2026-10、arXiv:2610.34330）](https://arxiv.org/abs/2610.34330)。
 - 221: [Mézard–Parisi 原論文](https://github.com/openai/math/tree/main/preprints/The-Mezard-Parisi-formula-for-diluted-spin-glasses-September-23-2026) / [Lean scope](https://github.com/openai/math/blob/main/lean/docs/221.md)。
 - 079: [local smoothing 原論文](https://github.com/openai/math/tree/main/preprints/Local-smoothing-for-the-Euclidean-wave-equation-October-25-2026) / [Lean scope](https://github.com/openai/math/blob/main/lean/docs/079.md) / [2026-10-26 release history](https://github.com/openai/math/blob/main/history.md)。074の2026年9月論文とは別。
 - 378: [ETH反証 原論文](https://github.com/openai/math/tree/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026) / [Lean scope](https://github.com/openai/math/blob/main/lean/docs/378.md) / [10月26日公式説明](https://openai.com/index/building-scientific-understanding-with-academic-communities/)。
 - YM/QCD: [OpenAI 10月26日発表](https://openai.com/index/building-scientific-understanding-with-academic-communities/) / [Yang–Mills group 現行資料](https://github.com/yang-mills-group/YM)（10月28日提出版に対する11月10日付 first assessment、改訂提出版は別扱い） / [Clay 公式問題](https://www.claymath.org/millennium/yang-mills-the-maths-gap/)。QCDと統一模型はpure YM査定から外挿しない。
 
-資料確認基準日は **2026-11-18**（従来5 familyの記述の起点は2026-11-09）。この一覧は全8 family の査読付き出版・証明完了認定ではない。Yang–Mills group の2026-11-10 assessment は明示した版の**限定的な独立評価**であり、他の family やQCDの検証完了を意味しない。本文執筆時は原論文・提出版のSHA・対象 theorem と形式化・評価範囲を再点検する。
+資料確認基準日は **2026-11-19**（従来5 familyの記述の起点は2026-11-09、追加3件の前回構成は2026-11-18）。この一覧は全9 family の査読付き出版・証明完了認定ではない。Yang–Mills group の2026-11-10 assessment は明示した版の**限定的な独立評価**であり、他の family やQCDの検証完了を意味しない。本文執筆時は原論文・提出版のSHA・対象 theorem と形式化・評価範囲を再点検する。
 
 ## 6. 完成条件
 
-- [ ] EOM manifest に**25講**を順序・ID・prerequisite付きで登録し、実際に完成した章のみ completed とする。
+- [ ] EOM manifest に**31講**を順序・ID・prerequisite付きで登録し、実際に完成した章のみ completed とする。
 - [ ] 各章の本文・chapter.yaml・knowledge.yaml と prerequisite・stable anchor が対応する。
 - [ ] 全主要定義、主定理、核心の中間補題、演習と詳細解答が独習者に再構成可能な粒度にある。
-- [ ] **8 family** で主張・証明 artifact・形式化・独立査読・出版・賞を混同せず、基準日と未確認事項を示す。
-- [ ] 079A–C・378A–B・YMA–C・QCDA の8講で不足する基礎概念を導入し、QFT/AQFT・CMP・HA/GMT等の既存成果は参照・重複抑制する。
+- [ ] **9 family** で主張・証明 artifact・形式化・独立査読・出版・賞を混同せず、基準日と未確認事項を示す。
+- [ ] 079A–B・378A–B・YMA–C・QCDA・268A/B/E の**橋渡し11講**で不足する基礎概念を導入し、QFT/AQFT・CMP・HA/GMT・SM等の既存成果は参照・重複抑制する。
 - [ ] 079 と074のKakeya重複を解消し、restriction・Bochner–Riesz 等の指数・端点の差を原論文/Leanで照合する。
+- [ ] 268A–E・268 の6講で周期鎖と境界場付き開放鎖のギャップ、田崎氏の条件付きSPT/指数同値性、無限鎖の**並進不変**一意性を区別し、証明書の再計算・解析的証明・第三者検証の証拠台帳を付ける。
 - [ ] 378 の原論文とLeanで異なる時間指数を照合し、ETH反証とP vs NPを混同しない。
 - [ ] 4D pure YMの存在・無限体積極限の一意性・正の質量ギャップ・QCD/統一模型を分離し、2026-11-10 assessmentを過大評価しない。
 - [ ] GMT からの canonical prerequisite を満たし、Kakeya の集合版・次元版・最大作用素版とlocal smoothingの論理的帰結を混同しない。
-- [ ] 今回確定した8 family の外へEOMを無制限に増やさず、独立した基礎科目は正規PLANで扱う。
+- [ ] 今回確定した9 family の外へEOMを無制限に増やさず、独立した基礎科目は正規PLANで扱う。
 - [ ] DREAM THEATER の変更区分別査読、concept / knowledge / exercise / KaTeX / formal statement / Pages link 検証と公開導線を完了する。
 - [ ] 未実装章を公開目次へ先行登録せず、PLAN を重複配置しない。
 
