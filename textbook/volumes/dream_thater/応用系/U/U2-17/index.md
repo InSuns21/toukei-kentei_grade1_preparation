@@ -18,9 +18,9 @@
 > **定義（既知の二値占有格子地図）**  
 > $\Delta>0$（m）、整数 $n_x,n_y\ge1$ を固定する。既知領域を $D=(0,n_x\Delta)\times(0,n_y\Delta)$ とし、セル番号 $(i,j)$（$0\le i<n_x$, $0\le j<n_y$）に
 >
-> $$
-> C_{ij}=[i\Delta,(i+1)\Delta]\times[j\Delta,(j+1)\Delta]
-> $$
+$
+C_{ij}=[i\Delta,(i+1)\Delta]\times[j\Delta,(j+1)\Delta]
+$
 >
 > を対応させる。各セルの占有値 $m_{ij}\in\{0,1\}$ が既知であり、$m_{ij}=1$ のセルを障害物とする。障害物の領域は
 
