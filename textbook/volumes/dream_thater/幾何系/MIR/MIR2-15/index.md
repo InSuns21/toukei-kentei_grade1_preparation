@@ -156,7 +156,7 @@ A\left.\frac{\partial F}{\partial x_2}\right|_{L_0}
 \end{aligned}
 $
 
-括弧内は次数5の二変数斉次式であり、各偏導関数は直線上で次数4、$A,B,C$ は次数1である。従って $H^0$ を取って得る写像 $H^0(\mathcal O(1))^{\oplus3}\to H^0(\mathcal O(5))$ は、$(a_0,a_1,b_0,b_1,c_0,c_1)$ から括弧内の六係数を作る線形写像、すなわち $ds_F$ のJacobianそのものである。この同一視は座標変換によって一般の $L$ にも移る。したがって $ds_F$ が同型ならその核 $H^0(N_{L/X_F})$ は零である。$\square$
+ここで $O(\varepsilon^2)$ は $\varepsilon$ について二次以上の項をまとめた記号であり、一次の微分には寄与しない。括弧内は次数5の二変数斉次式であり、各偏導関数は直線上で次数4、$A,B,C$ は次数1である。従って $H^0$ を取って得る写像 $H^0(\mathcal O(1))^{\oplus3}\to H^0(\mathcal O(5))$ は、$(a_0,a_1,b_0,b_1,c_0,c_1)$ から括弧内の六係数を作る線形写像、すなわち $ds_F$ のJacobianそのものである。この同一視は座標変換によって一般の $L$ にも移る。したがって $ds_F$ が同型ならその核 $H^0(N_{L/X_F})$ は零である。$\square$
 <!-- proof-end -->
 
 **横断性を手で確認する例**。先ほどの
@@ -376,7 +376,7 @@ $$
 \to R\to0
 $$
 
-を使う。$\operatorname{rank}R=4$ であり、$c(K)=1-x$ なので
+と[Whitney積公式](../../CYG/CYG1-05/index.md#thm-cyg1-05-whitney)を使う。$\operatorname{rank}R=4$ であり、$c(K)=1-x$ なので
 
 $$
 c(R)=\frac1{1-x}=1+x+x^2+x^3+x^4
