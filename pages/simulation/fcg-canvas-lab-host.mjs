@@ -316,6 +316,10 @@ window.addEventListener('message', event => {
 function run() {
   selectTab('result');
   stop('隔離実行環境を準備中');
+  // A new execution must not display the prior run's numeric rows.
+  el('particle-diagnostics').replaceChildren();
+  el('diagnostics').textContent = '未実行';
+  el('result-note').textContent = '新しい解析・数値計算を準備中';
   if (!ready) {setStatus('ソースが未取得です', true); return;}
   let payload;
   try { payload = capture(); }
