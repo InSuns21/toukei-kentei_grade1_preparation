@@ -71,7 +71,13 @@ $$
 
 $$
 
-一般速度に対する後退Euler近似は $\widetilde{\boldsymbol x}^\star_{ij}=\boldsymbol x_{ij}-\Delta t\,\boldsymbol u(\boldsymbol x_{ij},t_{n+1})$ であり、[厳密逆追跡足点](#def-fcg3-backtrace)とは区別する。
+一般速度に対する後退Euler近似は
+
+$
+\widetilde{\boldsymbol x}^\star_{ij}=\boldsymbol x_{ij}-\Delta t\,\boldsymbol u(\boldsymbol x_{ij},t_{n+1})
+$
+
+であり、上で定めた厳密足点とは区別する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg3-backtrace -->
@@ -165,7 +171,19 @@ $$
 <!-- formal-statement-start -->
 ### 命題（双線形更新の値域不増大）
 
-[半Lagrange更新](#def-fcg3-advection-step)のすべての足点が有限座標を持ち、外部仮想セル値が0で、初期値が $0\le Q^0_{ij}\le M$（$M\ge0$）なら、$n=0,\ldots,32$ の全ての格子値は $0\le Q^n_{ij}\le M$ を満たす。$C\le1$ を仮定しない。
+[半Lagrange更新](#def-fcg3-advection-step)の足点がすべて有限座標を持ち、外部仮想セル値は0とする。$M\ge0$ とし、初期値が
+
+$
+0\le Q^0_{ij}\le M\qquad(0\le i,j<32)
+$
+
+を満たすとき、任意の $n=0,\ldots,32$ で
+
+$
+0\le Q^n_{ij}\le M\qquad(0\le i,j<32)
+$
+
+が成り立つ。CFL数の上限は仮定しない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
