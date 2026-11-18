@@ -1,7 +1,7 @@
 version: 1
 id: FLUID
 title: "流体力学"
-plan: textbook/plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 # 本文・章metadata・公開索引は完成した講義だけに追加する。
 chapters:

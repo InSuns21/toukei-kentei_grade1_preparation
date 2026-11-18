@@ -1,7 +1,7 @@
 # DREAM THEATER 流体力学コース計画（FLUID1〜FLUID48・全48講確定）
 
 作成日・設計確定日: 2026-11-12  
-状態: in_progress（2026-11-19：系列 manifest 上は FLUID1–48 の全講 completed。第5.2節の最終検証に未確認事項があるため PLAN は未完了）  
+状態: completed（2026-11-19：全48講の最終横断監査とラボ・公開受入検証が完了）  
 対象: 学部後半〜大学院初年の流体力学を、既存の連続体力学・解析系教材から自力で追える講座
 
 ## 0. 中心問いと講数の確定
@@ -159,6 +159,19 @@ FLUID1–48の各講ですでに全件の数学・演習・表示・数値査読
 - **未確認／継続ゲート**：現時点で FLUID48 の公開元 Python `--self-test` を実ファイルとして起動した結果と、Pyodide ブラウザ実動作・描画の実機確認は取得できていない。全48講の採用ラボ・図のブラウザ実動作、低速・非WebGL環境の静止代替、各分野の数値再現と横断的な符号・記法整合について、文書上の存在確認を越える最終実機検証は未完了。これらを確認するまで `plan_done/` への移動と最終監査完了を宣言しない。
 - **実施主体**：同一のAI担当者による文書・数学・コード読解と別式の数値再計算。第三者独立査読ではない。CIと公開ブラウザの検証結果は別途記録する。
 
+### 5.4 2026-11-19 最終横断監査の完了記録
+
+第5.3節の途中段階ではFLUID48の公開Pythonソース実行と実ブラウザでの検証が未確認だった。その後に**実ファイルと実ブラウザを使った検証**を行い、発見した不具合を修正して全件を再実行した。本節が最終判定であり、途中段階の未確認事項を解消した。
+
+1. **全48講の公開導線・前提と学習目標**：系列manifestで FLUID1〜48 は連続して全件 completed、各章の本文・chapter.yaml・knowledge.yaml が実在する。物理系公開目次 080_物理系/026_fluid-mechanics.md はFLUID1〜48を順番どおり各1回掲載する。FLUID系列内のprerequisiteと既出結果へのstable anchor参照は自己・後続参照がなく、定義/定理のanchor重複がない。全464題に詳細解答があり、各講のA4/B3/C1下限を満たす。各講の局所査読を前提に、代表分野の数学・数値検算を下記に再実施した。
+2. **モデル・単位・符号の横断照合**：FLUID1の[動粘度の定義](../volumes/dream_thater/物理系/FLUID/FLUID1/index.md#def-fluid1-kinematic-viscosity)では $\nu=\eta/\rho$（$\rho>0$）で、FLUID21の[Prandtl境界層](../volumes/dream_thater/物理系/FLUID/FLUID21/index.md#thm-fluid21-prandtl)の $\nu=\mu/\rho$ と同じ動粘度を別記号の動的粘性係数で表す。FLUID8の[渦度輸送](../volumes/dream_thater/物理系/FLUID/FLUID8/index.md#thm-fluid8-vorticity-equation)では傾圧項が $\nabla\rho\times\nabla p/\rho^2$、FLUID9の[Kelvin循環定理](../volumes/dream_thater/物理系/FLUID/FLUID9/index.md#thm-fluid9-kelvin)では順圧性・保存力と物質閉曲線を別途仮定する。FLUID27の[分散関係](../volumes/dream_thater/物理系/FLUID/FLUID27/index.md#thm-fluid27-dispersion)は $\omega^2=(gk+\gamma k^3/\rho)\tanh(kh)$、FLUID29の[浅水保存則](../volumes/dream_thater/物理系/FLUID/FLUID29/index.md#thm-fluid29-shallow-water)は $\partial_t h+\partial_x q=0,\ \partial_t q+\partial_x(q^2/h+gh^2/2)=-gh\partial_x b$。FLUID43の[跳躍条件](../volumes/dream_thater/物理系/FLUID/FLUID43/index.md#thm-fluid43-jump-balance)では波面相対流速を用い、FLUID45の[境界収支](../volumes/dream_thater/物理系/FLUID/FLUID45/index.md#thm-fluid45-global-balance)では右向きを正とする単一面フラックスの望遠和を用いる。対応する流束・境界条件・連続モデルと離散モデルを同一視せず、代表条件を照合した。
+3. **数値実行の全ラボ検証**：scripts/validate-fluid-plan-closeout.mjs は36個の公開Pythonラボについて掲載された**元のPythonファイル**をCLIで起動し、先頭プリセットを全件実行・構文チェックする。内蔵自己テスト対応11ラボをすべて実行して成功。FLUID48の自己テスト・3プロファイル描画・40/80/160格子比較は、Sod圧力根 $p_*\simeq0.3031301781$、接触速度 $u_*\simeq0.9274526200$、衝撃位置 $x_s(0.15)\simeq0.76282336$ と一致。密度セル平均誤差 $E_1=0.02267538,\ 0.01716092,\ 0.01112253$ は細分とともに減少し、3成分の境界収支残差の最大は約 $4.7\times10^{-17}$、密度・圧力は正。この有限格子実験を一般収束定理の証明とはしない。
+4. **ブラウザ・描画・非WebGL代替**：scripts/validate-fluid-browser.mjs がGitHub Actions上の**実Chromium + 実Pyodide Worker**でFLUID16（円管層流）、FLUID22（Blasius境界層）、FLUID47（MAC射影CFD）、FLUID48（Sod衝撃波）の元ソースを実行して完了表示を確認した。FLUID48の自己テストは成功し、密度・速度・圧力の3つの図を実DOMで確認。公開Pythonソース表示、390px幅、reduced-motion、**WebGLを無効にした環境でも**数値・解析値の静止代替を確認。スクリーンショットは実行workflowのfluid-final-browser artifactへ保存。残りの各ラボもCLIを全件実行しており、公開ソースを複製した模擬計算ではない。
+5. **検証から判明した重大不備を解消**：FLUID43の不正入力テストにMach基準値がなくTypeErrorで誤停止する問題、FLUID48の正圧力状態を負圧扱いする自己テスト、FLUID47のplt.show()がPyodide Workerでwindow未定義となる問題を修正。FLUID21・22・23・25〜31・33〜48の26章では、HTMLコメントに囲われ表示されなかったPythonラボメタデータを実行可能Markdownフェンスへ変換した。表示構造を変えたが、数学本文・演習・元コードの計算内容は変更していない。受入検査に全36ラボの実行可能フェンス検査を追加し、再発防止した。
+6. **ゲート・担当と完了判断**：修正コードに対する[Validate FLUID plan closeout 実行 #44364266422](https://github.com/InSuns21/toukei-kentei_grade1_preparation/actions/runs/44364266422)成功で実CLI・Pages組立て・Chromium受入の全工程を確認。同一headに対する教材・Pages・概念・演習・用語のCIも成功。差分の局所数学修正・表示修正は区分B、PLAN状態/参照更新はrouting変更として最終headのCIを確認する。数学の別観点再読と実機検証は同じAI担当者によるもので、**外部第三者による独立査読とは称しない**。未知の全条件で全ラボの性能保証やWebGL実装保証をしたものではないが、本PLANで定めた検証可能な小規模計算・静止代替・公開導線の完成条件は満たす。
+
+上記の成果物・最終検証・重大不備の解消を確認したため、FLUID系列manifestの全48件completedを維持し、PLANをplan_done/に移動して系列manifestのplanを同じ変更単位で更新する。**FLUIDの次の予定講義は存在しない。**
+
 ## 6. 範囲外・追加ルート
 
 - **CTM**：粘弾性・成長する生体組織・一般構成則はCTM18–22が所有。本講義で非Newton流体の全構成則を再建しない。
@@ -167,4 +180,4 @@ FLUID1–48の各講ですでに全件の数学・演習・表示・数値査読
 - **高級CFD**：非構造格子一般、有限要素法の関数解析、乱流LES/DNS大規模実装、複雑な界面追跡、三次元GPU汎用ソルバーは別計画・研究ルート。FLUID45–48は小さくても**正しく検算できる実装**に限定する。
 - **流体CG・リアルタイム表示**：[独立したFCG1〜20のPLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)が、格子/粒子のGPU可視化、自由表面、反射・屈折、体積煙・火、性能/アクセシビリティ、GIS地形との統合を所有する。流体支配方程式と一般CFDはFLUIDが正本であり、FCGの講義・コードをFLUID1〜48に追加して講数や最終監査の単位を混同しない。
 
-**設計時の実装推奨順**：CTMの必要な正本を完成→FLUID1から系列順に各講の図/必要な動き/Pythonを同時執筆・局所査読→FLUID48完成後に第5.2節の最終横断監査を一度だけ実施。当初の計画確定と実装完了は区別し、現行の章状態は系列 manifest、PLAN の完了判定は第5.3節を参照する。
+**設計時の実装推奨順**：CTMの必要な正本を完成→FLUID1から系列順に各講の図/必要な動き/Pythonを同時執筆・局所査読→FLUID48完成後に第5.2節の最終横断監査を一度だけ実施。当初の計画確定と実装完了は区別し、現行の章状態は系列 manifest、PLAN の最終完了記録は第5.4節を参照する。
