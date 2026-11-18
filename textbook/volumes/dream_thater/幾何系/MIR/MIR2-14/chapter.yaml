@@ -5,21 +5,20 @@ status: supplementary
 prerequisites:
   - MIR2-02
   - MIR2-13
+  - NT5
 learning_objectives:
   - 被覆度kと曲線次数dから写像次数kdを求め、像となる曲線の本数と安定写像の計数を区別できる
   - 孤立したO(-1)二重法束の有理曲線に関する局所1/k^3公式を、適用条件と外部証明の境界を明示して使える
   - GW不変量N_mと整数型数値n_dの約数和関係を定義し、存在一意性を帰納法で示せる
-  - Möbius関数の約数和補題から反転公式を導出し、素数と合成数の被覆補正を検算できる
+  - NT5で導入したMöbius関数の約数和公式を多重被覆の約数和へ適用し、反転公式と合成数の被覆補正を検算できる
   - 種数0ポテンシャルの三階形式微分からYukawaのLambert型表示を証明できる
   - N1=2875とN2=4876875/8からn1=2875とn2=609250を得て、q二次係数を二経路で照合できる
   - 整数型数値の整数性・幾何的本数解釈と形式的なMöbius反転の成立を区別できる
 definitions:
   - { id: MIR2-14-DEF-01, name: "種数0の多重被覆補正済み整数型数値" }
-  - { id: MIR2-14-DEF-02, name: "Möbius関数" }
 theorems:
   - { id: MIR2-14-THM-01, name: "Aspinwall–Morrison／Voisinの局所多重被覆公式（外部入力）" }
   - { id: MIR2-14-PROP-01, name: "多重被覆分離の存在と一意性" }
-  - { id: MIR2-14-LEM-01, name: "Möbius関数の約数和" }
   - { id: MIR2-14-THM-02, name: "種数0多重被覆公式のMöbius反転" }
   - { id: MIR2-14-PROP-02, name: "A側Yukawaの多重被覆表示" }
 canonical_examples:
