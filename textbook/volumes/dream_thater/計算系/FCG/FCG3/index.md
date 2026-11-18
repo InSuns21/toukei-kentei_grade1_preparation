@@ -75,15 +75,15 @@ $$
 
 一般速度に対する後退Euler近似は
 
-$
+$$
 \widetilde{\boldsymbol x}^\star_{ij}=\boldsymbol x_{ij}-\Delta t\,\boldsymbol u(\boldsymbol x_{ij},t_{n+1})
-$
+$$
 
 であり、上で定めた厳密足点とは区別する。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg3-backtrace -->
-**定義の確認。** 到着点 $(3/4,1/2)$ の変位は $(1/4,0)$ なので、足点は
+**定義の確認**： 到着点 $(3/4,1/2)$ の変位は $(1/4,0)$ なので、足点は
 
 $$
 \left(\frac12+\frac14\cos\frac\pi{16},\
@@ -126,7 +126,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg3-bilinear -->
-**定義の確認。** 左下・右下・左上・右上の旧値が $(1,0,0,0)$、$a=1/4$、$b=1/2$ の場合、係数は
+**定義の確認**： 左下・右下・左上・右上の旧値が $(1,0,0,0)$、$a=1/4$、$b=1/2$ の場合、係数は
 
 $$
 \bigl((1-a)(1-b),a(1-b),(1-a)b,ab\bigr)
@@ -157,7 +157,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg3-advection-step -->
-**定義の確認。** ある到着セルの足点が前節の $a=1/4,b=1/2$ の位置にあり、旧4セルが $(1,0,0,0)$ なら、[半Lagrange更新](#def-fcg3-advection-step)は新セルへ $3/8$ を書く。旧セルから染料質量を押し出す方式ではなく、**到着セルごとに旧濃度を読む方式**である。実験コードではこれを全1024セルで反復する。
+**定義の確認**： ある到着セルの足点が前節の $a=1/4,b=1/2$ の位置にあり、旧4セルが $(1,0,0,0)$ なら、[半Lagrange更新](#def-fcg3-advection-step)は新セルへ $3/8$ を書く。旧セルから染料質量を押し出す方式ではなく、**到着セルごとに旧濃度を読む方式**である。実験コードではこれを全1024セルで反復する。
 <!-- definition-example-end -->
 
 移動距離を格子幅で割る目安の無次元量を **Courant数（CFL数）** $C=\|\boldsymbol u\|\Delta t/h$ とする。塊中心 $(0.7,0.5)$ では
@@ -175,15 +175,15 @@ $$
 
 [半Lagrange更新](#def-fcg3-advection-step)の足点がすべて有限座標を持ち、外部仮想セル値は0とする。$M\ge0$ とし、初期値が
 
-$
+$$
 0\le Q^0_{ij}\le M\qquad(0\le i,j<32)
-$
+$$
 
 を満たすとき、任意の $n=0,\ldots,32$ で
 
-$
+$$
 0\le Q^n_{ij}\le M\qquad(0\le i,j<32)
-$
+$$
 
 が成り立つ。CFL数の上限は仮定しない。
 <!-- formal-statement-end -->
