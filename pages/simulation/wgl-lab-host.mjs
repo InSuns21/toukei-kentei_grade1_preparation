@@ -1,6 +1,7 @@
 import { compareReadback, expectedSamples } from './wgl-lab-core.mjs';
 import {compareWGL19Readback, expectedWGL19Samples, compareWGL19FloatReadback, auditWGL19Clock} from './wgl19-lab-core.mjs';
 import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg2Encode } from './fcg2-lab-core.mjs';
+import {compareFCG3Readback,expectedFCG3Samples,fcg3Metrics,fcg3PixelCell,fcg3Grid,fcg3Exact} from './fcg3-lab-core.mjs';
 import { highlightSource } from './wgl-lab-highlight.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
@@ -23,8 +24,9 @@ import { compareWGL18Readback, expectedWGL18Samples, compareWGL18FloatReadback }
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'FCG2'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'FCG2', 'FCG3'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isFCG2 = lesson === 'FCG2';
+const isFCG3 = lesson === 'FCG3';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
 const isWGL4 = lesson === 'WGL4';
@@ -44,8 +46,8 @@ const isWGL17 = lesson === 'WGL17';
 const isWGL19 = lesson === 'WGL19';
 const isWGL18 = lesson === 'WGL18';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
-const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + (isFCG2 ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
-const FILES = isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
+const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
+const FILES = isFCG3 ? {js:'advection.js',vertex:'advection.vert',fragment:'advection.frag'} : isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
   isWGL19 ? {js: 'audit.js', vertex: 'audit.vert', fragment: 'audit.frag'} :
   isWGL18 ? {js: 'diffusion.js', vertex: 'diffusion.vert', fragment: 'diffusion.frag'} :
   isWGL17 ? {js: 'data-grid.js', vertex: 'data-grid.vert', fragment: 'data-grid.frag'} :
@@ -65,7 +67,7 @@ const FILES = isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'densit
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isFCG3 ? expectedFCG3Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
@@ -81,6 +83,8 @@ let active = null;
 let sequence = 0;
 let fcg2Steps = 1;
 let fcg2Timer = null;
+let fcg3Steps = 1;
+let fcg3Timer = null;
 
 function initializeHighlightedEditors() {
   const refreshers = {};
@@ -251,7 +255,7 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', 'settings', request.js);
       const hooks = await run(gl, canvas, request.vertex, request.fragment, report,
-        {steps: request.lesson === 'FCG2' ? request.steps : undefined});
+        {steps: ['FCG2','FCG3'].includes(request.lesson) ? request.steps : undefined});
       if (request.lesson === 'WGL15' && hooks && typeof hooks.pick === 'function') {
         let cursorX = Math.floor(canvas.width / 2);
         let cursorY = Math.floor(canvas.height / 2);
@@ -291,7 +295,7 @@ function isolatedRunner() {
           }
         });
       }
-      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'FCG2'].includes(request.lesson)) &&
+      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'FCG2', 'FCG3'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -498,7 +502,7 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
@@ -548,7 +552,7 @@ window.addEventListener('message', event => {
     }
     byId('result-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      (isFCG2 ? '±2' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      ((isFCG2 || isFCG3) ? '±2' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
@@ -559,6 +563,16 @@ function run() {
   if (!ready) { setStatus('教材ソースがまだ読み込まれていません', true); return; }
   let payload;
   try { payload = {...capture(), lesson};
+    if (isFCG3) {
+      payload.steps=fcg3Steps;
+      const predicted=expectedFCG3Samples(payload.width,payload.height,fcg3Steps);
+      payload.probes=predicted.map(p=>[p.x,p.y]);
+      const m=fcg3Metrics(fcg3Steps);
+      byId('fcg3-cpu-prediction').textContent='独立CPU step '+fcg3Steps+
+        ': mass='+m.mass.toPrecision(7)+', analytic sampled mass='+m.exactMass.toPrecision(7)+
+        ', L1='+m.l1.toPrecision(7)+', max='+m.max.toPrecision(7)+', peak='+m.peak.toPrecision(7)+
+        ' / R8 CPU基準: '+predicted.map(p=>p.label+'='+p.rgba.join('/')).join('、');
+    }
     if (isFCG2) {
       payload.steps=fcg2Steps;
       const predicted=expectedFCG2Samples(payload.width,payload.height,fcg2Steps);
