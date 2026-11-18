@@ -22,7 +22,7 @@ $$
 
 速度に従う軌道 $\boldsymbol X(s)=(X_x(s),X_y(s))$ は $d\boldsymbol X/ds=\boldsymbol u(\boldsymbol X(s),s)$ で定まる。ここで $\partial_tq$ は位置 $(x,y)$ を固定した時刻 $t$ による偏微分であり、$d/ds$ は軌道と時刻をともに動かす合成関数の全微分である。連鎖律を成分ごとに適用すると、
 
-$
+$$
 \begin{aligned}
 \frac{d}{ds}q(X_x(s),X_y(s),s)
 ={}&\partial_tq(\boldsymbol X(s),s)\\
@@ -30,7 +30,7 @@ $
 +\partial_yq(\boldsymbol X(s),s)\frac{dX_y}{ds}\\
 ={}&\bigl(\partial_tq+\boldsymbol u\cdot\nabla q\bigr)(\boldsymbol X(s),s)=0.
 \end{aligned}
-$
+$$
 
 だから、同じ軌道に沿う濃度は一定である。新時刻のセル中心に到着した染料を知るには**そこから旧時刻へ遡る**。
 
@@ -65,26 +65,26 @@ $$
 
 なぜ回転の足点が次の座標式になるかを先に確認する。旧時刻 $t_n$ に位置 $\boldsymbol c+(a,b)$ にいた点について、$\tau=s-t_n$ と置くと、回転速度の軌道は
 
-$
+$$
 \begin{aligned}
 X_x(s)&=\tfrac12+a\cos(\omega\tau)-b\sin(\omega\tau),\\
 X_y(s)&=\tfrac12+a\sin(\omega\tau)+b\cos(\omega\tau).
 \end{aligned}
-$
+$$
 
 実際、$d\tau/ds=1$ なので
 
-$
+$$
 \frac{dX_x}{ds}=-\omega(X_y-\tfrac12),\qquad
 \frac{dX_y}{ds}=\omega(X_x-\tfrac12)
-$
+$$
 
 となり、第1節の速度場に従う。到着時刻 $t_{n+1}$ では $\theta=\omega\Delta t$、到着点の中心からの変位を $(d_x,d_y)$ として
 
-$
+$$
 d_x=a\cos\theta-b\sin\theta,\qquad
 d_y=a\sin\theta+b\cos\theta.
-$
+$$
 
 第1式を $\cos\theta$ 倍し第2式を $\sin\theta$ 倍して加えると、$\cos^2\theta+\sin^2\theta=1$ より $a=d_x\cos\theta+d_y\sin\theta$。同様に、第2式を $\cos\theta$ 倍し第1式を $\sin\theta$ 倍して引けば $b=-d_x\sin\theta+d_y\cos\theta$。この $(a,b)$ が旧時刻の変位である。
 
@@ -135,15 +135,15 @@ $$
 
 4点の重みが現れる理由も確かめる。まず下の2中心を水平に $a$ の割合で補間すると
 
-$
+$$
 B_0=(1-a)Q^n_{i_0,j_0}+aQ^n_{i_0+1,j_0}
-$
+$$
 
 を得る。上の2中心も同じ水平割合で
 
-$
+$$
 B_1=(1-a)Q^n_{i_0,j_0+1}+aQ^n_{i_0+1,j_0+1}
-$
+$$
 
 とする。最後に鉛直方向へ $b$ の割合だけ補間した $(1-b)B_0+bB_1$ を展開すれば、以下の4係数が得られる。これは格子値を表現する**二方向の一次補間**であり、行列や固有値による別の判定を仮定していない。
 
@@ -267,17 +267,17 @@ $$
 
 中心 $\boldsymbol c=(1/2,1/2)$、角速度 $\omega=2\pi$ [rad/s] とし、速度場 $\boldsymbol u(x,y)=(-\omega(y-1/2),\omega(x-1/2))$ を平面 $\mathbb R^2$ 全体で定める。任意の連続微分可能な初期濃度 $q_0:\mathbb R^2\to\mathbb R$ に対し、$\mathbb R^2\times[0,1]$ 上で
 
-$
+$$
 \partial_tq+\boldsymbol u\cdot\nabla q=0,\qquad
 q(\boldsymbol x,0)=q_0(\boldsymbol x)
-$
+$$
 
 を満たす連続微分可能な解は一意で、
 
-$
+$$
 q(\boldsymbol x,t)
 =q_0\bigl(\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)\bigr)
-$
+$$
 
 となる。特に第1節の染料 $q_0$ は平面全体で同じ式により定義でき、この仮定を満たすため、$q(\boldsymbol x,1)=q_0(\boldsymbol x)$ が全ての $\boldsymbol x\in D$ について成り立つ。
 <!-- formal-statement-end -->
@@ -298,7 +298,7 @@ $$
 
 ここで $X'_x=dX_x/dt$、$X'_y=dX_y/dt$ は時刻 $t$ による通常の導関数であり、濃度 $q$ の偏微分 $\partial_tq$ と区別する。成分ごとに微分すると、
 
-$
+$$
 X'_x=-\omega(a\sin\omega t+b\cos\omega t)=-\omega(X_y-\tfrac12),
 $$
 
@@ -341,14 +341,14 @@ $$
 
 2セルの旧値を $(Q_0,Q_1)=(1,0)$ とする。各新値を $Q'_r=\sum_{k=0}^1w_{rk}Q_k$ と書くと、行番号 $r$ は**到着セル**、列番号 $k$ は**参照する旧セル**である。係数を行ごとに並べた行列は二つの補間式をまとめたものであり、格子総和は
 
-$
+$$
 \sum_{r=0}^1Q'_r
 =\sum_{k=0}^1\left(\sum_{r=0}^1w_{rk}\right)Q_k
-$
+$$
 
 となる。したがって各行の和が1でも、各列の和が1とは限らない。空間的に異なる足点からの線形補間として、次の重みを選ぶ。
 
-$
+$$
 \begin{pmatrix}Q'_0\\Q'_1\end{pmatrix}
 =\begin{pmatrix}3/4&1/4\\1/2&1/2\end{pmatrix}
 \begin{pmatrix}1\\0\end{pmatrix}
@@ -408,10 +408,10 @@ $$
 <!-- solution-start -->
 **詳細解答。** [双線形再構成](#def-fcg3-bilinear)は水平の重み $(3/4,1/4)$ と鉛直の重み $(1/2,1/2)$ を掛け合わせるので、左下・右下・左上・右上の係数は
 
-$
+$$
 \bigl((1-a)(1-b),\,a(1-b),\,(1-a)b,\,ab\bigr)
 =\left(\frac38,\frac18,\frac38,\frac18\right).
-$
+$$
 
 これらはすべて非負で、和は $(3+1+3+1)/8=1$。旧値 $(1,0,0,0)$ を代入すると補間値は $3/8\cdot1+0=3/8$。この混合が数値的に輪郭を鈍らせ得る。
 <!-- solution-end -->
@@ -424,11 +424,11 @@ $
 <!-- solution-start -->
 **詳細解答。** 第1節の回転速度から速度は $(0,2\pi\cdot0.2)=(0,0.4\pi)$ [m/s]。格子幅 $h=1/32$ m、時間刻み $\Delta t=1/32$ s だから、単位が消えることを確認して
 
-$
+$$
 C=\frac{\|\boldsymbol u\|\Delta t}{h}
 =\frac{(0.4\pi\ \mathrm{m/s})(1/32\ \mathrm{s})}{1/32\ \mathrm{m}}
 =0.4\pi\approx1.257
-$
+$$
 
 を得る。しかし[値域不増大](#prop-fcg3-range)は $C$ を仮定せず、非負の重みだけから $0\le Q^n\le M$ を導いた。よって値域の意味での発散は結論できず、位相・形状・質量の精度は別途検査する。
 <!-- solution-end -->
@@ -441,16 +441,16 @@ $
 <!-- solution-start -->
 **詳細解答。** $t_{32}=32\Delta t=1$ s、角度は $2\pi$ なので[回転復元](#prop-fcg3-rotation)から
 
-$
+$$
 E^{32}_{ij}=q_0(\boldsymbol x_{ij})=Q^0_{ij}.
-$
+$$
 
 数値結果 $Q^{32}=Q^0$ とは限らない。二つのR8復元値が等しければ $\widehat Q-\widehat E=0$ で、右側のGLSL色は $(0,0.08,0.1,1)$。各成分を0〜255の整数へ丸めると、最終RGBA8は
 
-$
+$$
 \bigl(0,\operatorname{round}(255\cdot0.08),\operatorname{round}(255\cdot0.1),255\bigr)
 =(0,20,26,255).
-$
+$$
 <!-- solution-end -->
 
 ### Level B
@@ -496,17 +496,17 @@ $$
 
 原点 $\theta=0$ のTaylor展開を用いると
 
-$
+$$
 \cos\theta=1-\frac{\theta^2}{2}+O(\theta^4),\qquad
 \sin\theta=\theta-\frac{\theta^3}{6}+O(\theta^5)
-$
+$$
 
 である。これを上式に代入して
 
-$
+$$
 \delta x=-\frac{\theta^2}{8}+O(\theta^4),\qquad
 \delta y=\frac{\theta^3}{24}+O(\theta^5)
-$
+$$
 
 を得る。表示の丸めは各値最大 $1/510$ なので、逆三角不等式と三角不等式を順に使い
 
