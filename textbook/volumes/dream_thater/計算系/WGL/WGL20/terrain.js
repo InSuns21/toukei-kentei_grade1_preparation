@@ -96,7 +96,14 @@ gl.disable(gl.BLEND);gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LESS);
 gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
 let first=0,drawCalls=0;
 const draw=(n)=>{if(n){gl.drawArrays(gl.TRIANGLES,first,n);drawCalls++;}first+=n};
-draw(counts.terrain);draw(counts.building);
+draw(counts.terrain);
+if(scenario==='CS2'){
+  // Identical geometry, but intentionally partition into eight triangle batches.
+  // This demonstrates draw-call cost, not instancing and not a speed guarantee.
+  const group=11*3;
+  let remaining=counts.building;
+  while(remaining>0){const n=Math.min(group,remaining);draw(n);remaining-=n;}
+}else draw(counts.building);
 if(showWater){
  gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
  gl.depthMask(false);draw(counts.water);gl.depthMask(true);gl.disable(gl.BLEND);
@@ -116,6 +123,79 @@ report('ATTR','official sample measuredHeight='+data.source.heightAttributeM+
 const checkpoints={firstLocal:positions.slice(0,3),vertices:positions.length/3,
   triangles:triangles.length/3,waterLevelM,groundAtOriginM:dem(0,0),
   depthAtOriginM:depth(0,0),zExaggeration,drawCalls};
+// CS1: an independent solid-object ID pass into RGBA8 plus a CPU triangle-ray check.
+// Transparent hypothetical water and the diagnostic strip are deliberately excluded.
+let pick;
+if(scenario==='CS1'){
+  const idFrag=shader(gl.FRAGMENT_SHADER,
+    '#version 300 es\nprecision highp float;in float v_kind;out vec4 outColor;'+
+    'void main(){outColor=vec4(v_kind>0.5?1.0/255.0:0.0,0.0,0.0,1.0);}',
+    'PICK_FRAGMENT');
+  const idVert=shader(gl.VERTEX_SHADER,vertexSource,'PICK_VERTEX');
+  const idProgram=gl.createProgram();
+  gl.attachShader(idProgram,idVert);gl.attachShader(idProgram,idFrag);gl.linkProgram(idProgram);
+  if(!gl.getProgramParameter(idProgram,gl.LINK_STATUS))
+    throw new Error('PICK_LINK: '+gl.getProgramInfoLog(idProgram));
+  gl.deleteShader(idFrag);gl.deleteShader(idVert);
+  const idTex=gl.createTexture(),idFbo=gl.createFramebuffer(),depthRbo=gl.createRenderbuffer();
+  if(!idTex||!idFbo||!depthRbo)throw new Error('ID buffer allocation failed');
+  gl.bindTexture(gl.TEXTURE_2D,idTex);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA8,canvas.width,canvas.height,0,gl.RGBA,gl.UNSIGNED_BYTE,null);
+  gl.bindRenderbuffer(gl.RENDERBUFFER,depthRbo);
+  gl.renderbufferStorage(gl.RENDERBUFFER,gl.DEPTH_COMPONENT16,canvas.width,canvas.height);
+  gl.bindFramebuffer(gl.FRAMEBUFFER,idFbo);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,idTex,0);
+  gl.framebufferRenderbuffer(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.RENDERBUFFER,depthRbo);
+  if(gl.checkFramebufferStatus(gl.FRAMEBUFFER)!==gl.FRAMEBUFFER_COMPLETE)
+    throw new Error('CS1 ID FBO incomplete');
+  gl.useProgram(idProgram);
+  const set3=(key,v)=>gl.uniform3fv(gl.getUniformLocation(idProgram,key),v);
+  set3('u_eye',eye);set3('u_right',right);set3('u_up',up);
+  set3('u_center',[0,0,7*zExaggeration]);
+  gl.uniform2f(gl.getUniformLocation(idProgram,'u_extent'),60,45);
+  gl.uniform1f(gl.getUniformLocation(idProgram,'u_zScale'),zExaggeration);
+  gl.bindVertexArray(vao);gl.disable(gl.BLEND);gl.enable(gl.DEPTH_TEST);
+  gl.depthMask(true);gl.depthFunc(gl.LESS);gl.clearColor(0,0,0,1);
+  gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+  gl.drawArrays(gl.TRIANGLES,0,counts.terrain);
+  gl.drawArrays(gl.TRIANGLES,counts.terrain,counts.building);
+  gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+  const projectPoint=(base)=>{
+    const q=[vertices[base],vertices[base+1],
+      vertices[base+2]*zExaggeration-7*zExaggeration];
+    return [q[0]*right[0]+q[1]*right[1]+q[2]*right[2],
+            q[0]*up[0]+q[1]*up[1]+q[2]*up[2],
+            -(q[0]*eye[0]+q[1]*eye[1]+q[2]*eye[2])];
+  };
+  pick=(x,y)=>{
+    if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||
+       x>=canvas.width||y>=canvas.height)throw new RangeError('pick pixel');
+    gl.bindFramebuffer(gl.FRAMEBUFFER,idFbo);
+    const pixel=new Uint8Array(4);
+    gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixel);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+    const px=2*(x+0.5)/canvas.width-1,py=2*(y+0.5)/canvas.height-1;
+    let closest=Infinity,cpuId=0;
+    for(let k=0;k<counts.terrain+counts.building;k+=3){
+      const a=projectPoint(k*7),bb=projectPoint((k+1)*7),cc=projectPoint((k+2)*7);
+      const ax=a[0]/60,ay=a[1]/45,bx=bb[0]/60,by=bb[1]/45,cx=cc[0]/60,cy=cc[1]/45;
+      const det=(bx-ax)*(cy-ay)-(by-ay)*(cx-ax);
+      if(Math.abs(det)<1e-10)continue;
+      const beta=((px-ax)*(cy-ay)-(py-ay)*(cx-ax))/det;
+      const gamma=((bx-ax)*(py-ay)-(by-ay)*(px-ax))/det;
+      const alpha=1-beta-gamma;
+      if(Math.min(alpha,beta,gamma)<-1e-6)continue;
+      const z=(alpha*a[2]+beta*bb[2]+gamma*cc[2])/120;
+      if(z<closest&&z>=-1&&z<=1){closest=z;cpuId=k<counts.terrain?0:1;}
+    }
+    return {gpuId:pixel[0],cpuId};
+  };
+  report('PICK','CS1 click/keyboard selects building ID1, ground/background ID0; edges may differ by rasterization');
+  // The temporary ID program/FBO survive only inside this disposable sandbox iframe.
+  // On stop/re-run the entire isolated context is destroyed, including these resources.
+}
 gl.bindVertexArray(null);gl.bindBuffer(gl.ARRAY_BUFFER,null);
 gl.deleteBuffer(buffer);gl.deleteVertexArray(vao);gl.deleteProgram(program);
-return {checkpoints};
+return {checkpoints,pick};
