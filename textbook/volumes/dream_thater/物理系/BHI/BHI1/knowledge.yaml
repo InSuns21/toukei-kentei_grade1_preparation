@@ -1,0 +1,36 @@
+chapter: BHI1
+scope: dream-theater
+coverage: complete
+prerequisites: [QINF33, QCURV21, BHT24]
+forward_references: []
+concepts:
+  - id: black-hole-information.endpoint-system-split
+    name: 蒸発終期の系の分割
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（蒸発終期の系の分割）]
+    requires: [quantum.composite-system, quantum.stepwise-swap-emission]
+  - id: black-hole-information.radiation-observable-channel
+    name: 放射観測代数と縮約チャネル
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（放射観測代数と縮約チャネル）]
+    requires: [black-hole-information.endpoint-system-split, quantum.partial-trace, quantum.quantum-channel]
+  - id: black-hole-information.mixed-radiation-unitary-global
+    name: 可逆な全体と混合放射の両立
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（可逆な全体と混合放射の両立）]
+    requires: [black-hole-information.radiation-observable-channel, quantum.von-neumann-entropy]
+  - id: black-hole-information.endpoint-purity-constraint
+    name: 放射だけで完結する等長発展の純粋性制約
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（放射だけで完結する等長発展の純粋性制約）]
+    requires: [black-hole-information.endpoint-system-split, black-hole-information.mixed-radiation-unitary-global]
+  - id: black-hole-information.noninjective-radiation-no-recovery
+    name: 放射で区別できない二入力と回復の不可能性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（放射で区別できない二入力と回復の不可能性）]
+    requires: [black-hole-information.radiation-observable-channel, quantum.quantum-channel]
