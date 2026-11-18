@@ -1,0 +1,45 @@
+name: Validate FLUID plan closeout
+
+on:
+  pull_request:
+    paths:
+      - 'textbook/volumes/dream_thater/物理系/FLUID/**'
+      - 'textbook/dream-theater-series/FLUID.yaml'
+      - 'textbook/plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md'
+      - 'textbook/plan_done/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md'
+      - 'scripts/validate-fluid-plan-closeout.mjs'
+      - 'scripts/validate-fluid-browser.mjs'
+      - '.github/workflows/validate-fluid-closeout.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fluid-final-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Run all FLUID Python CLIs, embedded self-tests and course invariants
+        run: node scripts/validate-fluid-plan-closeout.mjs
+      - name: Install website dependencies
+        run: npm ci
+      - name: Build and verify assembled Pages
+        run: npm run validate:pages
+      - name: Open real FLUID labs in Chromium / execute Pyodide
+        run: node scripts/validate-fluid-browser.mjs
+      - name: Preserve mobile Chromium screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fluid-final-browser
+          path: _fluid_closeout_review/
+          if-no-files-found: warn
+          retention-days: 14
