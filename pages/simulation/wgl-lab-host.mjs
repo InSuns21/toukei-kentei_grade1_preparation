@@ -17,11 +17,12 @@ import { compareWGL15Readback, expectedWGL15Samples, cpuPickWGL15Pixel } from '.
 import { compareWGL16Readback, expectedWGL16Samples } from './wgl16-lab-core.mjs';
 import { compareWGL17Readback, expectedWGL17Samples } from './wgl17-lab-core.mjs';
 import { compareWGL18Readback, expectedWGL18Samples, compareWGL18FloatReadback } from './wgl18-lab-core.mjs';
+import {compareWGL19Readback, expectedWGL19Samples, compareWGL19FloatReadback, auditWGL19Clock} from './wgl19-lab-core.mjs';
 
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
 const isWGL4 = lesson === 'WGL4';
@@ -39,9 +40,11 @@ const isWGL15 = lesson === 'WGL15';
 const isWGL16 = lesson === 'WGL16';
 const isWGL17 = lesson === 'WGL17';
 const isWGL18 = lesson === 'WGL18';
+const isWGL19 = lesson === 'WGL19';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/WGL/' + lesson + '/', import.meta.url);
-const FILES = isWGL18 ? {js: 'diffusion.js', vertex: 'diffusion.vert', fragment: 'diffusion.frag'} :
+const FILES = isWGL19 ? {js: 'audit.js', vertex: 'audit.vert', fragment: 'audit.frag'} :
+  isWGL18 ? {js: 'diffusion.js', vertex: 'diffusion.vert', fragment: 'diffusion.frag'} :
   isWGL17 ? {js: 'data-grid.js', vertex: 'data-grid.vert', fragment: 'data-grid.frag'} :
   isWGL16 ? {js: 'instancing.js', vertex: 'instancing.vert', fragment: 'instancing.frag'} :
   isWGL15 ? {js: 'picking.js', vertex: 'picking.vert', fragment: 'picking.frag'} :
@@ -59,7 +62,7 @@ const FILES = isWGL18 ? {js: 'diffusion.js', vertex: 'diffusion.vert', fragment:
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
@@ -217,7 +220,7 @@ function isolatedRunner() {
   const canvas = document.getElementById('gpu-canvas');
   let started = false;
   function send(data) { parent.postMessage(data, '*'); }
-  window.addEventListener('message', event => {
+  window.addEventListener('message', async event => {
     if (event.source !== parent || started) return;
     const request = event.data;
     if (!request || request.type !== 'run') return;
@@ -242,7 +245,7 @@ function isolatedRunner() {
         send({...scope, type: 'context-restored', message: 'WebGL context restored（再実行してください）'}));
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', request.js);
-      const hooks = run(gl, canvas, request.vertex, request.fragment, report);
+      const hooks = await run(gl, canvas, request.vertex, request.fragment, report);
       if (request.lesson === 'WGL15' && hooks && typeof hooks.pick === 'function') {
         let cursorX = Math.floor(canvas.width / 2);
         let cursorY = Math.floor(canvas.height / 2);
@@ -282,7 +285,7 @@ function isolatedRunner() {
           }
         });
       }
-      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18'].includes(request.lesson)) &&
+      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -309,12 +312,13 @@ function isolatedRunner() {
       });
       const glError = gl.getError();
       if (glError !== gl.NO_ERROR) report('GL_ERROR', '0x' + glError.toString(16));
-      const floatReadback=request.lesson === 'WGL18' && hooks &&
+      const floatReadback=(request.lesson === 'WGL18' || request.lesson === 'WGL19') && hooks &&
         Array.isArray(hooks.floatReadback) && hooks.floatReadback.length === 16 ?
         hooks.floatReadback.map(v=>Number(v)) : null;
-      const floatParameters=request.lesson === 'WGL18' && hooks && hooks.floatParameters ?
+      const floatParameters=(request.lesson === 'WGL18' || request.lesson === 'WGL19') && hooks && hooks.floatParameters ?
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
-      send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters,
+      const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
+      send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
     } catch (error) {
@@ -430,13 +434,28 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
     setStatus(unchanged && pass ? '初期ソースの独立画素検算に合格' :
       unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' : '編集コードを実行しました（基準との差を比較）',
       unchanged && !pass);
+    if (isWGL19) {
+      const fp=data.floatParameters;
+      const validParameters=fp&&Number.isFinite(fp.rate)&&fp.rate>=0&&fp.rate<=0.25&&
+        Number.isInteger(fp.steps)&&fp.steps>=0&&fp.steps<=12;
+      const clock=auditWGL19Clock(data.frameAudit);
+      const consistent=clock.pass&&validParameters&&fp.steps===data.frameAudit.steps;
+      const floats=validParameters ? compareWGL19FloatReadback(data.floatReadback,fp.rate,fp.steps) :
+        {valid:false,pass:false,maxError:Infinity,mass:NaN};
+      byId('diagnostics').textContent += '\nWGL19 clock: '+(clock.pass?'一致':'不一致')+
+        ' / independent CPU-FLOAT: '+(floats.valid ?
+        'maxError='+floats.maxError.toPrecision(6)+', mass='+floats.mass.toPrecision(9)+
+        ', '+(floats.pass?'一致':'不一致') : '読戻し未取得');
+      if(!consistent||!floats.pass)
+        setStatus('WGL19 計算時計・float独立検算が未達（入力値・readback・GL状態を確認）',true);
+    }
     if (isWGL18) {
       const fp=data.floatParameters;
       const validParameters=fp&&typeof fp.rate==='number'&&Number.isFinite(fp.rate)&&
@@ -452,7 +471,7 @@ window.addEventListener('message', event => {
     }
     byId('result-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      (isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      (isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
@@ -473,6 +492,7 @@ function run() {
     if (isWGL13) payload.probes = expectedWGL13Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL15) payload.probes = expectedWGL15Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL17) payload.probes = expectedWGL17Samples(payload.width,payload.height).map(p => [p.x,p.y]);
+    if (isWGL19) payload.probes = expectedWGL19Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL18) payload.probes = expectedWGL18Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL16) payload.probes = expectedWGL16Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL14) payload.probes = expectedWGL14Samples(payload.width,payload.height).map(p => [p.x,p.y]);
@@ -523,6 +543,10 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+    } else if (isWGL19) {
+      inputs.fragment.value=defaults.fragment.replace(
+        'outColor=vec4(v,0.2,1.0-v,1.0);',
+        'outColor=vec4(v,0.2,1.0-v,1.0)');
     } else if (isWGL18) {
       inputs.fragment.value=defaults.fragment.replace(
         'outColor = vec4(value, 0.2, 1.0-value, 1.0);',
@@ -600,6 +624,20 @@ if (isWGL2) {
   preset.options[0].textContent = '初期の頂点色三角形';
   preset.add(new Option('varyingの型不一致（リンクエラー）', 'type-error'));
   preset.options[1].textContent = 'fragment の構文エラー';
+}
+if (isWGL19) {
+  document.title='WGL19 固定時間刻み・GPU診断・context lossラボ';
+  document.querySelector('h1').textContent='WGL19 描画FPSとGPU拡散の計算時計を分けて監査する';
+  document.querySelector('#panel-conditions > p').textContent=
+    '初期値は(1,1)だけ1の4×4拡散。16/16/72/16msの合成遅延を4描画・6段へ変換し、FLOAT16値とGPU画素を別々のCPU基準で比較します。';
+  document.querySelector('#panel-conditions ol').innerHTML=
+    '<li>初期値で4描画・6段・破棄0msとFLOAT16値を確かめる。</li>'+
+    '<li>audit.jsのframeDeltasMsを[20,20]へ変え、計算段数2を確認する。</li>'+
+    '<li>[200]と上限4へ変え、120msの破棄を確認する。</li>'+
+    '<li>simulateLoss=trueにしてcontext lossと全資源の再構築を試す。非対応・未復旧を合格としない。</li>'+
+    '<li>fragment GLSLの更新項や構文エラーを編集し、CPU差とstageログを調べる。</li>';
+  byId('preset').options[0].textContent='4描画・6段拡散、GPU floatと時計の独立検算';
+  byId('preset').options[1].textContent='fragmentの構文エラー';
 }
 if (isWGL18) {
   document.title='WGL18 GPU拡散とping-pongテクスチャ更新';

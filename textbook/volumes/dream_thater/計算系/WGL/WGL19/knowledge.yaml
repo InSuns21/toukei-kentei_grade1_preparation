@@ -1,0 +1,29 @@
+chapter: WGL19
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL18]
+concepts:
+  - id: graphics.fixed-step-accumulator
+    name: 固定時間刻みの蓄積時計
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定時間刻みの蓄積時計）"]
+    requires: [graphics.diffusion-neumann-five-point]
+  - id: graphics.fixed-step-accounting
+    name: 固定時間刻みの時間収支
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（固定時間刻みの時間収支）"]
+    requires: [graphics.fixed-step-accumulator]
+  - id: graphics.render-compute-audit
+    name: 描画と計算の二系統監査
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（描画と計算の二系統監査）"]
+    requires: [graphics.fixed-step-accumulator, graphics.pingpong-update]
+  - id: graphics.context-replay
+    name: 同一計算段数での決定論的再実行
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（同一計算段数での決定論的再実行）"]
+    requires: [graphics.render-compute-audit, graphics.diffusion-neumann-five-point]
