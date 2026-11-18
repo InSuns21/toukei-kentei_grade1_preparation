@@ -350,7 +350,7 @@ $$
 
 これは跳躍条件の**代数的な検算**であり、跳水の内部厚さやダム決壊の時間発展をシミュレーションするものではない。時間発展の保守的有限体積法は[FLUID29 の数値ラボ](../FLUID29/index.md)を使う。Froude 数を変えたグラフは共役水深比と水頭損失の関係を示し、色だけでなく名前で系列を区別する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID30-JUMP-CHECK
 # lab-title: 跳水の共役水深・移動速度・エネルギー損失の検算
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID30/jump_lab.py
@@ -359,7 +359,7 @@ $$
 # lab-preset: 同じ跳水を動かす | --depth 1 --fr 2 --speed 1
 # lab-preset: ほぼ臨界の跳び | --depth 1 --fr 1.1 --speed 0
 # lab-preset: より強い跳び | --depth 1 --fr 3 --speed -1
-<!-- python-file-lab-end -->
+```
 
 [Python ソースを閲覧](jump_lab.py)。$Fr_1$ を 1 へ近づけると水深比と水頭損失はともに極限値へ近づき、$s$ を変えても相対量は変化しない。全プリセットで水深・流量・単位・数値残差を読み比べる。
 
