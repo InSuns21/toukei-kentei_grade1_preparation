@@ -1,0 +1,27 @@
+version: 1
+id: FCG
+title: "流体コンピュータグラフィックス"
+plan: textbook/plans_progress/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+# 実装済み講義だけを公開目次へ追加する。残りのPLAN講義は予定として保持する。
+chapters:
+  - { id: FCG1, path: textbook/volumes/dream_thater/計算系/FCG/FCG1, status: completed, title: "流れをどう表示するか：流線と流跡" }
+  - { id: FCG2, path: textbook/volumes/dream_thater/計算系/FCG/FCG2, status: planned, title: "WebGL2で物理データを描くには" }
+  - { id: FCG3, path: textbook/volumes/dream_thater/計算系/FCG/FCG3, status: planned, title: "染料移流の数値拡散はどこから来るか" }
+  - { id: FCG4, path: textbook/volumes/dream_thater/計算系/FCG/FCG4, status: planned, title: "圧力射影で発散を減らすには" }
+  - { id: FCG5, path: textbook/volumes/dream_thater/計算系/FCG/FCG5, status: planned, title: "一つの2D流体ソルバーを完成できるか" }
+  - { id: FCG6, path: textbook/volumes/dream_thater/計算系/FCG/FCG6, status: planned, title: "流体と固体の境界をどう接続するか" }
+  - { id: FCG7, path: textbook/volumes/dream_thater/計算系/FCG/FCG7, status: planned, title: "格子と粒子のどちらで水を動かすか" }
+  - { id: FCG8, path: textbook/volumes/dream_thater/計算系/FCG/FCG8, status: planned, title: "動く自由表面をどう追跡するか" }
+  - { id: FCG9, path: textbook/volumes/dream_thater/計算系/FCG/FCG9, status: planned, title: "数値的な液面をどうメッシュにするか" }
+  - { id: FCG10, path: textbook/volumes/dream_thater/計算系/FCG/FCG10, status: planned, title: "透明な水の反射・屈折を表せるか" }
+  - { id: FCG11, path: textbook/volumes/dream_thater/計算系/FCG/FCG11, status: planned, title: "泡と飛沫はどこまで物理モデルか" }
+  - { id: FCG12, path: textbook/volumes/dream_thater/計算系/FCG/FCG12, status: planned, title: "浅水を三次元の水面として描けるか" }
+  - { id: FCG13, path: textbook/volumes/dream_thater/計算系/FCG/FCG13, status: planned, title: "広い海の波を高速に合成するには" }
+  - { id: FCG14, path: textbook/volumes/dream_thater/計算系/FCG/FCG14, status: planned, title: "煙の密度と浮力はどう連成するか" }
+  - { id: FCG15, path: textbook/volumes/dream_thater/計算系/FCG/FCG15, status: planned, title: "煙の厚みはどう光として描くか" }
+  - { id: FCG16, path: textbook/volumes/dream_thater/計算系/FCG/FCG16, status: planned, title: "炎と煙の表現をどう分けるか" }
+  - { id: FCG17, path: textbook/volumes/dream_thater/計算系/FCG/FCG17, status: planned, title: "渦の細部を増やすと何が壊れるか" }
+  - { id: FCG18, path: textbook/volumes/dream_thater/計算系/FCG/FCG18, status: planned, title: "流体と動く物体の作用をどう表示するか" }
+  - { id: FCG19, path: textbook/volumes/dream_thater/計算系/FCG/FCG19, status: planned, title: "計算性能と物理的精度を両立できるか" }
+  - { id: FCG20, path: textbook/volumes/dream_thater/計算系/FCG/FCG20, status: planned, title: "地形上の浸水を誤解なく可視化できるか" }

@@ -1,0 +1,20 @@
+chapter: FCG1
+terms:
+  - term: 流線
+    english: streamline
+    meaning: 観測時刻を固定した速度場へ常に接する曲線。正本はFLUID4。
+  - term: 流跡線
+    english: pathline
+    meaning: 一つの流体粒子を物理時刻に沿って追跡した軌跡。正本はFLUID4。
+  - term: 粒子ID
+    english: tracer identifier
+    meaning: 数値追跡の間、同一の標本粒子を追えるよう変えない識別子。
+  - term: 凍結時刻
+    english: frozen observation time
+    meaning: 瞬時流線の計算に用いる観測時刻Tであり、沿線パラメータではない。
+  - term: 前進Euler法
+    english: forward Euler method
+    meaning: 現時刻の速度を刻み幅だけ掛けて次の粒子位置を得る一段法。正本はNA6。
+  - term: 描画フレーム
+    english: rendering frame
+    meaning: 現在保持する数値状態を画面に再表示する機会。物理時刻の増分とは独立。
