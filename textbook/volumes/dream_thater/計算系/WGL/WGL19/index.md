@@ -20,30 +20,30 @@
 > **定義（固定時間刻みの蓄積時計）**  
 > 描画間隔、計算時間幅、1フレーム当たりの更新上限は次の値とする。
 >
-> $
-> d_1,\ldots,d_m\ge0,\qquad h_t>0,\qquad c\in\mathbb N,\ c\ge1.
-> $
+$$
+d_1,\ldots,d_m\ge0,\qquad h_t>0,\qquad c\in\mathbb N,\ c\ge1.
+$$
 >
 > 初期状態は次の通りとし、各フレームで蓄積時間 $b$ を計算する。
 >
-> $
-> a_0=S_0=Q_0=0,\qquad b=a_{k-1}+d_k.
-> $
+$$
+a_0=S_0=Q_0=0,\qquad b=a_{k-1}+d_k.
+$$
 >
 > 実行する段数と破棄する段数を
 >
-> $$
-> s_k=\min\!\left(c,\left\lfloor b/h_t\right\rfloor\right),\qquad
-> q_k=\left\lfloor(b-s_kh_t)/h_t\right\rfloor
-> $$
+$$
+s_k=\min\!\left(c,\left\lfloor b/h_t\right\rfloor\right),\qquad
+q_k=\left\lfloor(b-s_kh_t)/h_t\right\rfloor
+$$
 >
 > とし、残り時間と段数の累計を次のように定める。
 >
-> $
-> a_k=b-(s_k+q_k)h_t,\quad
-> S_k=S_{k-1}+s_k,\quad
-> Q_k=Q_{k-1}+q_k.
-> $
+$$
+a_k=b-(s_k+q_k)h_t,\quad
+S_k=S_{k-1}+s_k,\quad
+Q_k=Q_{k-1}+q_k.
+$$
 >
 > $s_k$ は実際に実行した段数、$Q_kh_t$ は破棄した時間、$a_k$ は次へ持ち越す端数である。計算式では実数上の厳密な時計を考える。
 <!-- formal-statement-end -->
@@ -69,9 +69,9 @@
 > **命題（固定時間刻みの時間収支）**  
 > [固定時間刻みの蓄積時計](#def-wgl19-clock)で $d_k\ge0$、$h_t>0$、$c\ge1$ とする。任意のフレーム数 $m\ge0$ に対し $0\le a_m<h_t$ であり、
 >
-> $$
-> \sum_{k=1}^m d_k=h_t(S_m+Q_m)+a_m
-> $$
+$$
+\sum_{k=1}^m d_k=h_t(S_m+Q_m)+a_m
+$$
 >
 > が成立する。ここで $S_m$ は実行した段数、$Q_m$ は破棄した段数である。特に破棄がなく $Q_m=0$ なら、$S_m=\lfloor(\sum_kd_k)/h_t\rfloor$ となる。
 <!-- formal-statement-end -->
@@ -145,19 +145,19 @@ $\sum_{l=1}^k d_l=h_t(S_k+Q_k)+a_k$ です。$q_k$ は $s_k$ 回分を除いた 
 
 更新写像 $F_r:\mathbb R^{16}\to\mathbb R^{16}$ を [WGL18の式](../WGL18/index.md#def-wgl18-diffusion)によって定めます。二つの実行で初期値を一致させると、1段後も一致します。
 
-$
+$$
 x_0=y_0
 \quad\Longrightarrow\quad
 x_1=F_r(x_0)=F_r(y_0)=y_1.
-$
+$$
 
 $n$ 段後に一致すると仮定します。共通の更新写像を1回適用すれば、次も一致します。
 
-$
+$$
 x_n=y_n
 \quad\Longrightarrow\quad
 x_{n+1}=F_r(x_n)=F_r(y_n)=y_{n+1}.
-$
+$$
 
 数学的帰納法で $x_S=y_S$ が得られます。フレーム回数は更新写像の引数にないため、**同じ段数であれば描画の回数は結論に影響しません**。
 
