@@ -27,7 +27,17 @@ $$
 
 数値ラボでは $x\in[0,1]$、$t\geq0$、$\gamma=7/5$ とし、長さ $L_0$、密度 $\rho_0$、圧力 $p_0$ から速度基準 $\sqrt{p_0/\rho_0}$、時間基準 $L_0\sqrt{\rho_0/p_0}$ を採る。従って出力の $x,t,\rho,u,p,m,E$ は**無次元**である。圧力 $p$ と総エネルギー $E$ は異なる量であり、保存対象は内部エネルギーだけでなく $E$ である。
 
-滑らかな流れでは $\partial_t\rho+u\partial_x\rho+\rho\partial_xu=0$、$\partial_tu+u\partial_xu+\rho^{-1}\partial_xp=0$、$\partial_tp+u\partial_xp+\gamma p\partial_xu=0$ と書ける。これは上の保存系と、滑らかで等エントロピーな粒子経路に対する[熱力学関係](../FLUID41/index.md#prop-fluid41-isentropic)から従う。原始変数 $(\rho,u,p)$ に対する係数行列は
+滑らかな流れでは、原始変数 $(\rho,u,p)$ は次を満たす。
+
+$$
+\begin{aligned}
+\partial_t\rho+u\partial_x\rho+\rho\partial_xu&=0,\\
+\partial_tu+u\partial_xu+\rho^{-1}\partial_xp&=0,\\
+\partial_tp+u\partial_xp+\gamma p\partial_xu&=0.
+\end{aligned}
+$$
+
+これは上の保存系と、滑らかで等エントロピーな粒子経路に対する[熱力学関係](../FLUID41/index.md#prop-fluid41-isentropic)から従う。原始変数を列ベクトル $V=(\rho,u,p)^{\mathsf T}$ とおく。上の三つの滑らかな方程式をまとめると $\partial_tV+A(V)\partial_xV=0$ となる。ここで $A(V)$ は、$\partial_xV$ に作用する $3\times3$ の係数行列であり、
 
 $$
 A=\begin{pmatrix}u&\rho&0\\0&u&1/\rho\\0&\gamma p&u\end{pmatrix},
@@ -35,11 +45,15 @@ A=\begin{pmatrix}u&\rho&0\\0&u&1/\rho\\0&\gamma p&u\end{pmatrix},
 \det(A-\lambda I)=(u-\lambda)\left[(u-\lambda)^2-\frac{\gamma p}{\rho}\right].
 $$
 
+$z=x-\lambda t$ とおき局所的な進行波 $V(x,t)=v(z)$ を代入する。ここで $v'(z)=dv/dz$ は $z$ に関する常微分であり、$x,t$ に関する偏微分とは異なる。連鎖律より $\partial_tV=-\lambda v'(z)$、$\partial_xV=v'(z)$ だから、$(A-\lambda I)v'=0$ となる。非零の変化 $v'$ が可能な条件 $\det(A-\lambda I)=0$ が特性速度を決める。
+
 したがって波の局所的な速さは $u-a,u,u+a$、$a=\sqrt{\gamma p/\rho}>0$ である。$u$ に対応する中間の波では圧力と速度が連続し、密度が変わり得る。ただしこの**滑らかな係数行列の固有値**だけで、有限振幅衝撃波の速度を置き換えてはならない。
 
 ## 1. 左右一定の初期値から何が現れるか
 
 初期の仕切り位置 $x_0$ を挟んで、左に $(\rho_L,u_L,p_L)$、右に $(\rho_R,u_R,p_R)$ を置く。これらは $t=0$ での原始変数であり、いずれも $\rho_K,p_K>0$（$K=L,R$）を満たす。仕切りを取り去った後、境界の影響が届く前の Euler 解を考える。これが**Riemann 初期値問題**で、問題の形が $x-x_0$ と $t$ の比だけで決まるため、波面は $x=x_0+st$ と進む。
+
+ここで「エントロピー許容」とは、[FLUID43 の衝撃波のエントロピー増大による物理的選別](../FLUID43/index.md#thm-fluid43-entropy-selection)に従い、膨張型の非物理的な衝撃波を選ばず、滑らかな希薄波と圧縮衝撃波を組み合わせることをいう。一般の弱解理論ではなく、本講の理想気体 Euler Riemann 問題での波の選別を指す。
 
 <a id="def-fluid48-riemann-data"></a>
 
@@ -71,7 +85,7 @@ $$
 
 左・右を $K\in\{L,R\}$ と書き、$a_K=\sqrt{\gamma p_K/\rho_K}$、$\beta=(\gamma-1)/(\gamma+1)$ とする。**希薄波**では粒子のエントロピーが保たれ、$p/\rho^\gamma$ は一定である。[音速の定義](../FLUID41/index.md#def-fluid41-sound-speed)を使うと $a=a_K(p/p_K)^{(\gamma-1)/(2\gamma)}$。
 
-単純波が伝わる向きの固有値を $\lambda=u\pm a$ とし、節0の行列に対する固有ベクトルの微小変化を $(d\rho,du,dp)$ と書く。第1行と第3行はそれぞれ
+単純波では状態 $V$ が波の自己相似変数 $\xi$ に沿って変わる。非零の微小変化 $dV=(d\rho,du,dp)^{\mathsf T}$ は、節0の進行波と同様に $(A-\lambda I)dV=0$ を満たし、$\lambda=u\pm a$ を選ぶ。行列の第1行と第3行を書き出すと、それぞれ
 
 $$
 \rho\,du=(\lambda-u)d\rho,\qquad
@@ -142,7 +156,14 @@ f_K^{\rm shock}(p)
 \frac1{\sqrt{p+\beta p_K}},\quad p>p_K.
 $$
 
-どちらの分枝も $p=p_K$ で $0$ に接続する。二つをまとめた関数を $f_K(p)$ と書く。
+どちらの分枝も $p=p_K$ で $0$ に接続する。二つをまとめた関数を $f_K(p)$ と書く。ここで符号の約束から、左波を通る速度変化は $u_*-u_L=-f_L(p_*)$、右波を通る速度変化は $u_*-u_R=f_R(p_*)$ である。両側で**同じ**星印速度となる条件を連立すると
+
+$$
+u_L-f_L(p_*)=u_R+f_R(p_*),\qquad
+f_L(p_*)+f_R(p_*)+u_R-u_L=0.
+$$
+
+共通速度を二式の平均で表すと、次の定義に掲げる $u_*$ の公式が得られる。
 
 <a id="def-fluid48-wave-curve"></a>
 
@@ -259,10 +280,25 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fluid48-godunov-flux -->
-**定義の確認**：左右が同じ静止状態 $U_L=U_R=(1,0,2.5)$、$\gamma=1.4$ なら圧力は $p=0.4(2.5)=1$、根は $p_*=1$、$u_*=0$。面での状態も $(1,0,1)$ なので数値流束は $F=(0,1,0)$ となり物理フラックスと一致する。質量流束が零でも運動量流束は**圧力 $1$**を含む。$F=(0,0,0)$ とするのは誤りである。
+**定義の確認**：左右が同じ静止状態 $U_L=U_R=(1,0,2.5)$、$\gamma=1.4$ なら圧力は $p=0.4(2.5)=1$、根は $p_*=1$、$u_*=0$。面での原始変数も $(\rho,u,p)=(1,0,1)$（保存変数は $U=(1,0,2.5)$）なので数値流束は $F=(0,1,0)$ となり物理フラックスと一致する。質量流束が零でも運動量流束は**圧力 $1$**を含む。$F=(0,0,0)$ とするのは誤りである。
 <!-- definition-example-end -->
 
-面の状態を実際に選ぶには、星印圧力が元の圧力より高ければ衝撃波、低ければ希薄波と判定する。左衝撃波の速度は $s_L=u_L-a_L\sqrt{(\gamma+1)p_*/(2\gamma p_L)+(\gamma-1)/(2\gamma)}$、右衝撃波はプラス符号の同式である。希薄波は左なら先端速度 $u_L-a_L$ と後端速度 $u_*-a_{*L}$ の間、右なら $u_*+a_{*R}$ と $u_R+a_R$ の間で連続変化する。例えば左希薄波内では
+面の状態を実際に選ぶには、星印圧力が元の圧力より高ければ衝撃波、低ければ希薄波と判定する。衝撃波では質量流束の大きさが $|j|=\rho_K|s-u_K|$ である。節2の運動量式と密度比を用いて $j^2=\rho_K\{(\gamma+1)p_*+(\gamma-1)p_K\}/2$ を得るので
+
+$$
+|s-u_K|=\frac{|j|}{\rho_K}
+=a_K\sqrt{\frac{\gamma+1}{2\gamma}\frac{p_*}{p_K}
++\frac{\gamma-1}{2\gamma}}.
+$$
+
+左へ伝わる第1衝撃波は負号、右へ伝わる第3衝撃波は正号を選ぶ。したがって
+
+$$
+s_L=u_L-a_L\sqrt{\frac{\gamma+1}{2\gamma}\frac{p_*}{p_L}+\frac{\gamma-1}{2\gamma}},\qquad
+s_R=u_R+a_R\sqrt{\frac{\gamma+1}{2\gamma}\frac{p_*}{p_R}+\frac{\gamma-1}{2\gamma}}
+$$
+
+となる。希薄波は左なら先端速度 $u_L-a_L$ と後端速度 $u_*-a_{*L}$ の間、右なら $u_*+a_{*R}$ と $u_R+a_R$ の間で連続変化する。例えば左希薄波内では
 
 $$
 u(\xi)=\frac{2}{\gamma+1}
@@ -383,6 +419,12 @@ $$
 ラボは一次精度の区分一定再構成、厳密 Riemann 解から計算した面フラックス、明示時間更新を採用する。境界には最端セルをコピーする**零勾配型の外挿**を使う。$t\leq0.18$ では今回の波は領域端に届かず、外挿が初期遠方状態に一致する設定に限定する。これは完全な無反射境界の一般解法ではない。中央真空の Riemann データには未対応であり、明示的な例外を出す。
 
 同じファイルが根の二分法、希薄波内部の評価、shock-tube 更新、波面位置、厳密セル平均の区分積分、三保存量の境界収支を計算する。プリセットの描画は $x$ 軸上の**密度・速度・圧力**を数値セル状態と Riemann の点値で比較する。誤差の数字は別に**密度の厳密セル平均**で評価する。線画における点値とセル平均を混同しない。
+
+なおラボは各波面で積分区間を区切った後、4点 Gauss–Legendre 積分を行う。
+
+$\gamma=7/5$ では希薄波内の音速 $a(\xi)$ が $\xi$ の一次式で、$\rho\propto a^5$、$\rho u\propto a^5u$、$E=p/(\gamma-1)+\rho u^2/2$ はそれぞれ次数5・6・7以下の多項式となる。
+
+4点則は7次まで厳密なので、本講の設定では波面分割後の保存変数セル平均が丸め誤差を除いて厳密に求まる。一般の $\gamma$ に同じ厳密性を無条件に主張しない。
 
 <!-- python-file-lab -->
 # lab-id: FLUID48-GODUNOV-SHOCK-TUBE

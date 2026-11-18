@@ -1,0 +1,14 @@
+chapter: WGL18
+terms:
+  - term: 明示差分
+    english: explicit finite difference
+    meaning: 次の時刻の格子値を現在時刻の既知の格子値のみから一度に計算する離散更新。
+  - term: 零流束境界
+    english: zero-flux boundary
+    meaning: 境界外への離散的な物質移動を0とし、辺をまたぐ項を打ち消す条件。
+  - term: ping-pong更新
+    english: ping-pong rendering
+    meaning: 読取り用と書込み用の2枚のテクスチャをステップごとに交換するGPU更新。
+  - term: CFL型制約
+    english: explicit diffusion time-step restriction
+    meaning: 明示拡散で時間刻みを空間刻みの2乗に応じて小さくする必要がある条件。

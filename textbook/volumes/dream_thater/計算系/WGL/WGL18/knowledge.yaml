@@ -1,0 +1,29 @@
+chapter: WGL18
+scope: dream-theater
+coverage: complete
+prerequisites: [WGL17]
+concepts:
+  - id: graphics.diffusion-neumann-five-point
+    name: 4×4零流束拡散の明示差分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（4×4零流束拡散の明示差分）"]
+    requires: [graphics.data-grid-texture]
+  - id: graphics.diffusion-total-mass
+    name: 零流束差分の総量保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零流束差分の総量保存）"]
+    requires: [graphics.diffusion-neumann-five-point]
+  - id: graphics.diffusion-maximum-principle
+    name: 安定範囲での非負性と最大値原理
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（安定範囲での非負性と最大値原理）"]
+    requires: [graphics.diffusion-neumann-five-point]
+  - id: graphics.pingpong-update
+    name: ping-pongテクスチャ更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ping-pongテクスチャ更新）"]
+    requires: [graphics.diffusion-neumann-five-point, graphics.render-to-texture]
