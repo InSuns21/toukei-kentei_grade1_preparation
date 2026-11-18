@@ -411,7 +411,7 @@ $$
 
 公開した Python ファイルは NumPy で Chebyshev 基底の微分、Gauss–Legendre 積分、行列の固有値を一か所で計算する。出力する「成長率 $=\alpha\operatorname{Im}c$」の図と数値残差は同じ離散固有対から作る。**非線形 Navier–Stokes の時間発展計算ではない**。Re や近似次数を変えて、見かけの増幅がいつ収束するかを確認する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID36-ORR-SOMMERFELD-GALERKIN
 # lab-title: 平行剪断流のOrr–Sommerfeld固有値と収束
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID36/orr_sommerfeld_lab.py
@@ -420,7 +420,7 @@ $$
 # lab-preset: Poiseuille Re=6000 | --profile poiseuille --re 6000 --alpha 1 --n 28
 # lab-preset: Couette Re=10000 | --profile couette --re 10000 --alpha 1 --n 28
 # lab-preset: 低次数の数値誤差 | --profile poiseuille --re 10000 --alpha 1 --n 20
-<!-- python-file-lab-end -->
+```
 
 ## 6. 演習：符号・境界・固有値を紙上で再現する
 
