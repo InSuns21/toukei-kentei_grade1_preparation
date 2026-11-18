@@ -18,9 +18,9 @@
 > **定義（既知の二値占有格子地図）**  
 > $\Delta>0$（m）、整数 $n_x,n_y\ge1$ を固定する。既知領域を $D=(0,n_x\Delta)\times(0,n_y\Delta)$ とし、セル番号 $(i,j)$（$0\le i<n_x$, $0\le j<n_y$）に
 >
-$
+$$
 C_{ij}=[i\Delta,(i+1)\Delta]\times[j\Delta,(j+1)\Delta]
-$
+$$
 >
 > を対応させる。各セルの占有値 $m_{ij}\in\{0,1\}$ が既知であり、$m_{ij}=1$ のセルを障害物とする。障害物の領域は
 
@@ -158,10 +158,10 @@ $$
 > **命題（ビーム尤度の正規化と分母の必要性）**  
 > [有限値の測距ビーム尤度](#def-u2-17-quantized-beam)で $K\ge1$、$d>0$、$\sigma>0$ とする。任意の許容姿勢 $g$、ビーム方向 $\phi$、記録番号 $k$ について、次が成り立つ。
 
-$
+$$
 q_\sigma(k\mid g,\phi,M)>0,\qquad
 \sum_{k=0}^Kq_\sigma(k\mid g,\phi,M)=1.
-$
+$$
 
 > また、異なる二つの予測値 $h_a,h_b$ に対する同一観測 $k$ の尤度比は、指数因子の比だけではなく、それぞれの正規化分母の比も含む。
 <!-- formal-statement-end -->
@@ -311,10 +311,10 @@ $$
 
 > と定義する。ビームごとの混合事象も、姿勢・地図を条件として独立と仮定する場合に限り、全観測の尤度を次の積とする。
 
-$
+$$
 \widetilde L(\mathbf k\mid g,M)
 =\prod_{b=1}^B\widetilde q_b(k_b\mid g,M).
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-17-robust-beam -->
@@ -616,7 +616,7 @@ D(0.5)&=e^{-0.5}+e^{-0.5}+e^{-4.5}
 \end{aligned}
 $$
 
-両者は等しく、番号1の分子も両者とも $e^{-0.5}$ なので $q_1(1\mid A)=q_1(1\mid B)$ です。左ビームも同一の予測距離2、同一の尺度0.5だから、$q_2(2\mid A)=q_2(2\mid B)$ です。[複数ビーム事後定理](#thm-u2-17-multibeam-posterior)により事前比も1なので
+両者は等しく、番号1の分子も両者とも $e^{-0.5}$ なので $q_1(1\mid A)=q_1(1\mid B)$ です。左ビームも同一の予測距離2、同一の尺度0.5だから、$q_2(2\mid A)=q_2(2\mid B)$ です。[複数ビームによる有限候補姿勢の事後分布](#thm-u2-17-multibeam-posterior)により事前比も1なので
 
 $$
 \frac{\pi(A\mid\mathbf k)}{\pi(B\mid\mathbf k)}
