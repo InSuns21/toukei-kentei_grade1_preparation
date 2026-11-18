@@ -128,7 +128,7 @@ chapters:
     title: "多重被覆と整数型数値"
   - id: MIR2-15
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-15
-    status: planned
+    status: completed
     title: "2875本の直線を独立に数える"
   - id: MIR2-16
     path: textbook/volumes/dream_thater/幾何系/MIR/MIR2-16
