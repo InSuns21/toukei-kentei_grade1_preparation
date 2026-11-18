@@ -1,0 +1,31 @@
+id: FCG4
+title: "圧力射影で発散を減らすには"
+volume: foundations
+status: supplementary
+prerequisites: [FCG3]
+official_scope: []
+learning_objectives:
+  - "MAC格子の速度面と圧力セル中心を対応づけ、発散と勾配を添字・単位込みで組み立てられる"
+  - "非圧縮条件から離散圧力Poisson方程式を導き、零法線流束・Neumann条件・圧力ゲージ・可解条件を説明できる"
+  - "緩和Jacobi反復と残差を計算し、離散発散の残差恒等式を境界込みで検算できる"
+  - "離散stream functionの無発散場と勾配場を分離して射影し、未収束時とゲージ不定性を診断できる"
+  - "編集可能なJSと両GLSLで圧力・発散・速度の物理更新とWebGL2画素を独立に検査できる"
+definitions:
+  - { id: FCG4-DEF-01, name: "MAC格子と離散発散" }
+  - { id: FCG4-DEF-02, name: "離散圧力勾配と射影" }
+  - { id: FCG4-DEF-03, name: "Neumann圧力Poisson問題と圧力ゲージ" }
+  - { id: FCG4-DEF-04, name: "Poisson残差と離散発散診断" }
+theorems:
+  - { id: FCG4-PROP-01, name: "零流束格子の発散総和" }
+  - { id: FCG4-PROP-02, name: "Poisson残差と射影後発散の恒等式" }
+  - { id: FCG4-PROP-03, name: "勾配・無発散分解とゲージ不変性" }
+canonical_examples:
+  - "2×2の角セルで2つの圧力差からPoisson右辺を検算する"
+  - "解析セル圧力cos(πx)cos(πy)と頂点stream functionで射影を検査する"
+  - "反復0と反復160の圧力・発散残差・壁流束の違いを観測する"
+  - "GLSLの三分割表示とR8丸めを独立CPU画素で検算する"
+problem_patterns: [FCG4-MAC, FCG4-TELESCOPE, FCG4-NEUMANN, FCG4-RESIDUAL, FCG4-GAUGE, FCG4-JACOBI, FCG4-GLSL, FCG4-INTEGRATED]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 3 }

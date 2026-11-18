@@ -1,0 +1,47 @@
+chapter: FCG4
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG3]
+concepts:
+  - id: graphics.fcg4-mac-divergence
+    name: MAC格子と離散発散
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（MAC格子と離散発散）"]
+    requires: [graphics.fcg3-advection-step]
+  - id: graphics.fcg4-gradient-projection
+    name: 離散圧力勾配と射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（離散圧力勾配と射影）"]
+    requires: [graphics.fcg4-mac-divergence]
+  - id: graphics.fcg4-neumann-gauge
+    name: Neumann圧力Poisson問題と圧力ゲージ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Neumann圧力Poisson問題と圧力ゲージ）"]
+    requires: [graphics.fcg4-gradient-projection]
+  - id: graphics.fcg4-residual
+    name: Poisson残差と離散発散診断
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Poisson残差と離散発散診断）"]
+    requires: [graphics.fcg4-neumann-gauge]
+  - id: graphics.fcg4-flux-sum
+    name: 零流束格子の発散総和
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（零流束格子の発散総和）"]
+    requires: [graphics.fcg4-mac-divergence]
+  - id: graphics.fcg4-residual-identity
+    name: Poisson残差と射影後発散の恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Poisson残差と射影後発散の恒等式）"]
+    requires: [graphics.fcg4-residual]
+  - id: graphics.fcg4-hodge-test
+    name: 勾配・無発散分解とゲージ不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（勾配・無発散分解とゲージ不変性）"]
+    requires: [graphics.fcg4-residual-identity]
