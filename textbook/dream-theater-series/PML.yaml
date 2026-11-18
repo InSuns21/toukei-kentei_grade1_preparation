@@ -11,7 +11,7 @@ chapters:
     title: "損失と物理エネルギーは何が同じで何が違うか"
   - id: PML1-02
     path: textbook/volumes/dream_thater/応用系/PML/PML1-02
-    status: planned
+    status: completed
     title: "有限状態からGibbs分布を構成できるか"
   - id: PML1-03
     path: textbook/volumes/dream_thater/応用系/PML/PML1-03

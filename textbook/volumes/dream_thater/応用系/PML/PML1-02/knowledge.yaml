@@ -1,0 +1,36 @@
+chapter: PML1-02
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-01, SM3]
+concepts:
+  - id: physics-machine-learning.finite-loss-gibbs
+    name: 有限候補のGibbs選択則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限候補のGibbs選択則）"]
+    requires:
+      - physics-machine-learning.temperature-weight
+      - statistical-mechanics.gibbs-distribution
+  - id: physics-machine-learning.two-state-odds
+    name: 二状態のGibbs確率と選択比
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二状態のGibbs確率と選択比）"]
+    requires:
+      - statistical-mechanics.partition-function
+  - id: physics-machine-learning.two-state-response
+    name: 二状態の平均・分散・温度応答
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二状態の平均・分散・温度応答）"]
+    requires:
+      - physics-machine-learning.two-state-odds
+      - statistical-mechanics.canonical-energy-fluctuation
+  - id: physics-machine-learning.gibbs-affine-covariance
+    name: Gibbs確率と尺度の同時変換
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Gibbs確率と尺度の同時変換）"]
+    requires:
+      - physics-machine-learning.finite-loss-gibbs
+      - physics-machine-learning.affine-minimizer-invariance
