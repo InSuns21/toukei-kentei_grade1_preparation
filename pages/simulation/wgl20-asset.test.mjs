@@ -35,7 +35,9 @@ test('WGL20 checked-in PLATEAU mesh has nondegenerate triangles and reproducible
  assert.ok(Math.abs(Math.max(...zs)-Math.min(...zs)-14.54581833)<0.002);
  const report={firstLocal:snapshot.mesh.vertices.slice(0,3),vertices:138,triangles:88,
    waterLevelM:32,groundAtOriginM:snapshot.coordinate.originLatLonH[2],
-   depthAtOriginM:2.29497413,zExaggeration:1.5};
+   depthAtOriginM:2.29497413,groundAtTestM:snapshot.coordinate.originLatLonH[2]+0.4,
+   depthAtTestM:1.89497413,groundAtWestM:snapshot.coordinate.originLatLonH[2]-0.5,
+   depthAtWestM:2.79497413,zExaggeration:1.5};
  assert.equal(verifyWGL20Report(report,snapshot).pass,true);
 });
 test('WGL20 3-tab lab source is valid editable JS, and all 3 case presets exist',async()=>{
