@@ -6,7 +6,7 @@ chapter_root: textbook/volumes/dream_thater
 # 実装済み講義だけを公開目次へ追加する。残りのPLAN講義は予定として保持する。
 chapters:
   - { id: FCG1, path: textbook/volumes/dream_thater/計算系/FCG/FCG1, status: completed, title: "流れをどう表示するか：流線と流跡" }
-  - { id: FCG2, path: textbook/volumes/dream_thater/計算系/FCG/FCG2, status: planned, title: "WebGL2で物理データを描くには" }
+  - { id: FCG2, path: textbook/volumes/dream_thater/計算系/FCG/FCG2, status: completed, title: "WebGL2で物理データを描くには" }
   - { id: FCG3, path: textbook/volumes/dream_thater/計算系/FCG/FCG3, status: planned, title: "染料移流の数値拡散はどこから来るか" }
   - { id: FCG4, path: textbook/volumes/dream_thater/計算系/FCG/FCG4, status: planned, title: "圧力射影で発散を減らすには" }
   - { id: FCG5, path: textbook/volumes/dream_thater/計算系/FCG/FCG5, status: planned, title: "一つの2D流体ソルバーを完成できるか" }
