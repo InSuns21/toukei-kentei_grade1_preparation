@@ -518,7 +518,7 @@ $$
 
 数値欄には $kh$、毛管／重力項の比、位相速度、重力だけにした比較、および**力学的水面条件の相対残差**も表示する。波長を短くするプリセットは $\gamma>0$ の効果を、浅い水深では $\tanh(kh)$ の効果を観察する。波形の重なりを見ても、包絡の速度をそのまま位相速度と断定しないこと。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID27-DISPERSION
 # lab-title: 有限水深の分散曲線と二波の線形重ね合わせ
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID27/dispersion_lab.py
@@ -528,7 +528,7 @@ $$
 # lab-preset: 短い毛管波 | --depth 0.4 --wavelength 0.03 --amplitude 0.0003 --samples 240
 # lab-preset: 張力なし | --depth 0.4 --wavelength 1 --gamma 0 --samples 240
 # lab-preset: 波形細分化 | --depth 0.4 --wavelength 1 --samples 480
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを閲覧](dispersion_lab.py)。二つの重ね合わせ曲線は $x/\lambda$ と $\eta/a$ を軸に取るため無次元である。サンプル点数だけを倍にして曲線が近づくことは**描画の標本化精度**の確認であり、分散関係そのものの数学的誤差評価ではない。
 
