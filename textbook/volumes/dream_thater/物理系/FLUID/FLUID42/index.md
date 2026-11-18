@@ -455,7 +455,7 @@ $$
 
 また質量流量 $\rho vA$ と停滞エンタルピー $c_pT+v^2/2$ の解析的保存値に対する相対残差、面積比への再代入残差も示す。下流圧力からの衝撃波判定や粘性境界層を再現するものではない。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID42-ISENTROPIC-NOZZLE
 # lab-title: 面積–Mach二分枝・臨界流量・保存残差（衝撃波なし）
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID42/nozzle_isentropic_lab.py
@@ -465,7 +465,7 @@ $$
 # lab-preset: 広い拡大：A/A*=2 | --area-ratio 2 --grid 256
 # lab-preset: 喉部のみ：A/A*=1 | --area-ratio 1 --grid 64
 # lab-preset: 比熱比を変更：gamma=1.3 | --area-ratio 1.6875 --gamma 1.3 --grid 128
-<!-- python-file-lab-end -->
+```
 
 公開 [Pythonソース](nozzle_isentropic_lab.py) は標準ライブラリだけで実行できる。ローカルでは Python 3 で `python nozzle_isentropic_lab.py --self-test` として基準値・入力範囲・保存残差を検査できる。ブラウザ側のPython環境は初回に通信を必要とすることがある。静的に確認する場合は、第3節の $M=2$ に対する面積比 $1.6875$ と、第4節の圧力比 $0.52828$ を式に代入する。
 
