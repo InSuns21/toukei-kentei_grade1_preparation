@@ -45,7 +45,9 @@ const isWGL17 = lesson === 'WGL17';
 const isWGL19 = lesson === 'WGL19';
 const isWGL20 = lesson === 'WGL20';
 const isWGL18 = lesson === 'WGL18';
-const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson;
+const requestedCase = new URL(location.href).searchParams.get('case');
+const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
+const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson + (isWGL20 ? '-' + labCase : '');
 const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + (isFCG2 ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
 const FILES = isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
   isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain.frag'} :
@@ -183,6 +185,11 @@ async function load() {
       if (code.length > SOURCE_LIMIT) throw new Error(file + ': ファイルが大きすぎます');
       return [name, code];
     }));
+    if (isWGL20 && labCase !== 'BASE') {
+      const source=entries.find(([name])=>name==='js');
+      if(!source||!source[1].includes("const scenario='BASE';"))throw new Error('WGL20 lesson scenario source not found');
+      source[1]=source[1].replace("const scenario='BASE';","const scenario='"+labCase+"';");
+    }
     if (isWGL20) {
       const snapshotResponse=await fetch(new URL('plateau-lod1.json',LESSON_URL));
       if(!snapshotResponse.ok)throw new Error('PLATEAU snapshot HTTP '+snapshotResponse.status);
@@ -809,7 +816,7 @@ if (isWGL20) {
     '<li>waterLevelM と zExaggeration を変更し、描画のZ誇張が水深値を変えないことを確かめる。</li>'+
     '<li>scenarioをCS1/CS2/CS3に変更して、投影と描画負荷・重ね合わせ診断を比較する。</li>'+
     '<li>terrain.vert/terrain.fragを編集し、GPUの見た目と独立CPU高さ検算を分ける。</li>';
-  byId('preset').options[0].textContent='合成地形＋公式PLATEAU LOD1建物・水位とZ誇張';
+  byId('preset').options[0].textContent='合成地形＋公式PLATEAU LOD1建物・水位とZ誇張'+(labCase==='BASE'?'':' / '+labCase);
   byId('preset').options[1].textContent='fragmentの構文エラー';
 }
 if (isWGL19) {
