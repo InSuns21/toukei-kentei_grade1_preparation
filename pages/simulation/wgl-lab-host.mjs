@@ -315,6 +315,36 @@ function isolatedRunner() {
           }
         });
       }
+      if (request.lesson==='WGL20' && hooks && typeof hooks.pick==='function') {
+        canvas.tabIndex=0;
+        canvas.setAttribute('aria-label','WGL20 CS1 建物ID選択。クリックまたは矢印キーとEnter');
+        let px=Math.floor(canvas.width/2),py=Math.floor(canvas.height/2);
+        function choose(x,y,method){
+          try{
+            const ids=hooks.pick(x,y);
+            send({...scope,type:'wgl20-pick',x,y,method,
+              gpuId:Number(ids.gpuId),cpuId:Number(ids.cpuId)});
+          }catch(error){
+            send({...scope,type:'wgl20-pick-error',message:String(error).slice(0,300)});
+          }
+        }
+        canvas.addEventListener('click',event=>{
+          const box=canvas.getBoundingClientRect();
+          const u=(event.clientX-box.left)/box.width,v=(event.clientY-box.top)/box.height;
+          if(u<0||u>=1||v<0||v>=1)return;
+          px=Math.floor(u*canvas.width);py=canvas.height-1-Math.floor(v*canvas.height);
+          canvas.focus();choose(px,py,'pointer');
+        });
+        canvas.addEventListener('keydown',event=>{
+          const d={ArrowLeft:[-8,0],ArrowRight:[8,0],ArrowUp:[0,8],ArrowDown:[0,-8]}[event.key];
+          if(d){
+            event.preventDefault();px=Math.min(canvas.width-1,Math.max(0,px+d[0]));
+            py=Math.min(canvas.height-1,Math.max(0,py+d[1]));
+          }else if(event.key==='Enter'||event.key===' '){
+            event.preventDefault();choose(px,py,'keyboard');
+          }
+        });
+      }
       const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
@@ -456,6 +486,24 @@ window.addEventListener('message', event => {
       data.requestId !== active.id || data.generation !== active.generation) return;
   if (data.type === 'context-lost' || data.type === 'context-restored') {
     byId('diagnostics').textContent += '\n' + String(data.message).slice(0, 300);
+    return;
+  }
+  if (isWGL20 && data.type === 'wgl20-pick-error') {
+    setStatus('CS1ピッキングエラー: '+String(data.message).slice(0,300),true);
+    return;
+  }
+  if (isWGL20 && data.type === 'wgl20-pick') {
+    const {x,y,gpuId,cpuId}=data;
+    if(![x,y,gpuId,cpuId].every(Number.isInteger)||x<0||y<0||
+       x>=active.payload.width||y>=active.payload.height||
+       gpuId<0||gpuId>255||cpuId<0||cpuId>1)return;
+    const equal=gpuId===cpuId;
+    byId('result-note').textContent=
+      'CS1 下原点画素('+x+','+y+'): GPU ID='+gpuId+
+      ' / CPU三角形投影によるID='+cpuId+' / '+(equal?'一致':'不一致')+
+      '。ID0=地盤・背景、ID1=建物。輪郭上はラスタ化規則との差を調べてください。';
+    setStatus(equal?'CS1 ID FBO とCPU射影の選択結果が一致':
+      'CS1 GPU/CPU選択が不一致（深度・投影・輪郭を確認）',!equal);
     return;
   }
   if (isWGL15 && data.type === 'cursor') {
@@ -818,6 +866,16 @@ if (isWGL20) {
     '<li>terrain.vert/terrain.fragを編集し、GPUの見た目と独立CPU高さ検算を分ける。</li>';
   byId('preset').options[0].textContent='合成地形＋公式PLATEAU LOD1建物・水位とZ誇張'+(labCase==='BASE'?'':' / '+labCase);
   byId('preset').options[1].textContent='fragmentの構文エラー';
+  if (labCase==='CS1') {
+    document.querySelector('#panel-conditions > p').textContent=
+      'CS1: 実在PLATEAU LOD1建物をクリック/矢印+Enterで選択。GPU ID FBOとCPU射影三角形の最前面判定を比較します。地面と背景はID0、建物はID1です。';
+  } else if (labCase==='CS2') {
+    document.querySelector('#panel-conditions > p').textContent=
+      'CS2: 実在の建物高さ属性14.5mと欠測を区別。単一batchと8分割描画でdraw callを比較します。速度向上は保証されません。';
+  } else if (labCase==='CS3') {
+    document.querySelector('#panel-conditions > p').textContent=
+      'CS3: 実在PLATEAU建物の周囲に教材生成のDEMと仮想水面を重ねます。高さ基準・水深・透明合成・Z誇張を分けて検算してください。';
+  }
 }
 if (isWGL19) {
   document.title='WGL19 固定時間刻み・GPU診断・context lossラボ';
