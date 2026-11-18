@@ -118,6 +118,7 @@ try {
   await writeFile('_fcg1_browser_review/fcg1-code.png',
     Buffer.from(codeShot.data,'base64'));
   await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("Canvas2D実行準備完了")',22000);
   await waitFor('document.querySelectorAll("#particle-diagnostics tbody tr").length===2',22000);
   const initial = await evaluate('({sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),' +
     'opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}' +
@@ -142,6 +143,7 @@ try {
   for (const mode of ['steady','unsteady']) {
     await evaluate('document.getElementById("field").value=' + JSON.stringify(mode));
     await click('run');
+    await waitFor('document.getElementById("status")?.textContent.includes("Canvas2D実行準備完了")',22000);
     await waitFor('document.querySelectorAll("#particle-diagnostics tbody tr").length===2',22000);
     await runStepCount(10);
     const rows = await evaluate('([...document.querySelectorAll("#particle-diagnostics tbody tr")].map(r=>[...r.cells].map(c=>c.textContent)))');
@@ -156,6 +158,7 @@ try {
     'return e.value.includes("const shearRate = 0;");})()');
   assert.equal(altered,true);
   await click('run');
+  await waitFor('document.getElementById("status")?.textContent.includes("Canvas2D実行準備完了")',22000);
   await waitFor('document.querySelectorAll("#particle-diagnostics tbody tr").length===2',22000);
   await runStepCount(2);
   const edited = await evaluate('document.querySelector("#particle-diagnostics tbody tr:first-child td:last-child").textContent');
@@ -184,6 +187,15 @@ try {
 } finally {
   try {ws?.close();} catch {}
   browser.kill('SIGTERM');
+  await new Promise(resolve => {
+    if (browser.exitCode !== null) return resolve();
+    const timer = setTimeout(() => {browser.kill('SIGKILL'); resolve();}, 3000);
+    browser.once('exit', () => {clearTimeout(timer); resolve();});
+  });
   server.close();
-  await rm(profile,{recursive:true,force:true});
+  try {
+    await rm(profile, {recursive:true, force:true, maxRetries:10, retryDelay:100});
+  } catch (error) {
+    console.warn('Browser test profile cleanup failed: ' + error.message);
+  }
 }
