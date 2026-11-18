@@ -28,7 +28,7 @@ $$
 \end{pmatrix}.
 $$
 
-実際、この部分空間上の点は $(s,t,a_0s+a_1t,b_0s+b_1t,c_0s+c_1t)$ で表される。したがって $W_0$ の近傍には自由な複素座標が六個あり、別の二列をピボットにした同型の座標近傍で $G$ 全体を覆える。
+実際、$W$ から最初の二座標への射影 $W\to\mathbb C^2$ が同型である（対応する $2\times2$ 小行列式が非零である）範囲では、二つの基底ベクトルを行基本変形して先頭二列を単位行列にできる。そのとき $W$ の点は $(s,t,a_0s+a_1t,b_0s+b_1t,c_0s+c_1t)$ で一意に表される。したがって残りの $2\times3$ 成分が自由な複素座標六個を与え、別の二列をピボットにした同型の座標近傍で $G$ 全体を覆える。
 
 $$
 \dim_{\mathbb C}G(2,5)=2(5-2)=6.
@@ -75,7 +75,7 @@ F|_W=\alpha_0s^5+\alpha_1s^4t+\alpha_2s^3t^2+
 \alpha_3s^2t^3+\alpha_4st^4+\alpha_5t^5.
 $$
 
-この空間の基底は六個。$W$ を動かすと $E:=\operatorname{Sym}^5S^\vee$ という階数6の束になる。
+この空間の基底は六個。$W$ を動かすと $E:=\operatorname{Sym}^5S^\vee$ という階数6の束になる。基底 $(s,t)$ を変更すると六係数の数値は変わるが、二次元空間 $W$ 上の五次式 $F|_W$ 自体は変わらない。したがって局所表示の六係数は束の座標変換に従って貼り合わさり、$W\mapsto F|_W$ は大域的な切断を定める。
 
 <a id="def-mir2-15-line-section"></a>
 
@@ -143,7 +143,31 @@ $$
 \xrightarrow{\ dF\ }\mathcal O_L(5)\longrightarrow0
 $$
 
-となる。$H^0$ を取って得る写像 $H^0(\mathcal O(1))^{\oplus3}\to H^0(\mathcal O(5))$ は、上の六係数のJacobianそのもの。したがって $ds_F$ が同型ならその核 $H^0(N_{L/X_F})$ は零である。$\square$
+となる。ここで写像 $dF$ が何を計算するか、$L=L_0$ の座標で確かめる。三つの一次式を $A(s,t)=a_0s+a_1t$、$B(s,t)=b_0s+b_1t$、$C(s,t)=c_0s+c_1t$ とし、これらを法方向へ微小量 $\varepsilon$ だけ動かすと、$F|_{L_0}=0$ であることから
+
+$$
+\begin{aligned}
+&F(s,t,\varepsilon A,\varepsilon B,\varepsilon C)\\
+&\quad=\varepsilon\left(
+A\left.\frac{\partial F}{\partial x_2}\right|_{L_0}
++B\left.\frac{\partial F}{\partial x_3}\right|_{L_0}
++C\left.\frac{\partial F}{\partial x_4}\right|_{L_0}
+\right)+O(\varepsilon^2).
+\end{aligned}
+$$
+
+ここで $O(\varepsilon^2)$ は、$\varepsilon$ について二次以上の項をまとめた記号である。従って一次の微分には寄与しない。
+
+括弧内は二変数五次斉次式になる。各偏導関数は直線上で次数4、三つの変形関数は次数1だからである。法束から得た大域切断の写像を具体的に書くと
+
+$$
+H^0(\mathcal O(1))^{\oplus3}
+\xrightarrow{\ dF\ }H^0(\mathcal O(5))
+$$
+
+となる。その行列は、六座標から括弧内の五次式の六係数を作る線形写像であり、切断の微分 $ds_F$ のJacobianそのものである。この対応は座標変換によって一般の直線にも移る。
+
+よって $ds_F$ が同型なら核は零である。法束完全列の左完全性から、その核は $H^0(N_{L/X_F})$ に等しい。$\square$
 <!-- proof-end -->
 
 **横断性を手で確認する例**。先ほどの
@@ -326,6 +350,16 @@ $$
 
 と置く。$0\to K\to p^*S\to M\to0$ から、$p^*S^\vee$ のChern根が $x,y$ になる。よって上節の対称多項式を $T$ に引き戻してよい。
 
+以下の $p^*,q^*$ は各射影による類の引戻しを、$p_*,q_*$ はファイバーに沿う積分（押出し）を表す。$q$ のファイバーは複素次元3なので、$q_*$ は複素余次元を3下げる。
+
+基底側の類 $\beta$ を引き戻した場合、各ファイバー上で $\beta$ は一定である。従ってファイバー積分では
+
+$$
+q_*(q^*\beta\cdot\alpha)=\beta\cdot q_*\alpha
+$$
+
+という関係を使える。特に $x=c_1(K^\vee)$ は、$q$ の基底である $\mathbb P^4$ の超平面類の引戻しでもある。
+
 <a id="prop-mir2-15-flag-integral"></a>
 
 <!-- formal-statement-start -->
@@ -363,7 +397,7 @@ $$
 \to R\to0
 $$
 
-を使う。$\operatorname{rank}R=4$ であり、$c(K)=1-x$ なので
+と[全Chern類のWhitney積公式](../../CYG/CYG1-05/index.md#thm-cyg1-05-whitney)を使う。$\operatorname{rank}R=4$ であり、$c(K)=1-x$ なので
 
 $$
 c(R)=\frac1{1-x}=1+x+x^2+x^3+x^4
