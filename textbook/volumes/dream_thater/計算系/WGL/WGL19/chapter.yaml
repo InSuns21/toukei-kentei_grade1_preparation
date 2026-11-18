@@ -1,0 +1,27 @@
+id: WGL19
+title: 動く描画の正しさと性能をどう監査する？
+volume: foundations
+status: supplementary
+prerequisites: [WGL18]
+official_scope: []
+learning_objectives:
+  - 描画フレームと固定幅の数値更新を分離し累積時間の不変量を証明できる
+  - 計算stepsと描画frames、RAFで測ったfpsとGPU所要時間を区別できる
+  - 固定初期値からCPU独立解とRGBA32Fの16値と画面RGBA8を照合できる
+  - framebuffer・texture・shaderなどの資源寿命を点検しcontext loss後に再構築できる
+  - 遅い描画、過大な遅延、WebGL2拡張非対応時の未達判定を説明できる
+definitions:
+  - { id: WGL19-DEF-01, name: 固定時間刻みの蓄積時計 }
+  - { id: WGL19-DEF-02, name: 描画と計算の二系統監査 }
+theorems:
+  - { id: WGL19-PROP-01, name: 固定時間刻みの時間収支 }
+  - { id: WGL19-PROP-02, name: 同一計算段数での決定論的再実行 }
+canonical_examples:
+  - 16,16,72,16ミリ秒の4描画で6段更新する追跡表
+  - 4×4拡散6段目のCPU16値とGPU float読戻し
+  - context lossによる全GPU資源失効と再作成・同一入力の再計算
+problem_patterns: [WGL19-CLOCK, WGL19-CATCHUP, WGL19-FPS, WGL19-READBACK, WGL19-LIFECYCLE, WGL19-CONTEXT]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 4, review: 2 }

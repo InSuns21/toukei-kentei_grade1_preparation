@@ -1,0 +1,17 @@
+chapter: WGL19
+terms:
+  - term: 固定時間刻み
+    english: fixed simulation timestep
+    meaning: 描画回数ではなく蓄積された経過時間から更新回数を決める一定の計算時間幅。
+  - term: 描画FPS
+    english: frames per second
+    meaning: 観測時間あたりの描画イベント数。数値更新段数やGPUカーネル実行時間ではない。
+  - term: フレーム遅延
+    english: frame delay
+    meaning: 描画の間隔。大きな遅延では更新追付き回数に上限を設けうる。
+  - term: コンテキスト喪失
+    english: WebGL context loss
+    meaning: 以前のWebGLオブジェクトの使用が不可能になり、復旧後に再生成が必要な状態。
+  - term: GPU時間クエリ
+    english: GPU timer query
+    meaning: GPU実行時間を照会する拡張機構。利用可否、非同期完了、disjoint状態を別途検査する。
