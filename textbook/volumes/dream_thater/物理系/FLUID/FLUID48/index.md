@@ -27,7 +27,17 @@ $$
 
 数値ラボでは $x\in[0,1]$、$t\geq0$、$\gamma=7/5$ とし、長さ $L_0$、密度 $\rho_0$、圧力 $p_0$ から速度基準 $\sqrt{p_0/\rho_0}$、時間基準 $L_0\sqrt{\rho_0/p_0}$ を採る。従って出力の $x,t,\rho,u,p,m,E$ は**無次元**である。圧力 $p$ と総エネルギー $E$ は異なる量であり、保存対象は内部エネルギーだけでなく $E$ である。
 
-滑らかな流れでは $\partial_t\rho+u\partial_x\rho+\rho\partial_xu=0$、$\partial_tu+u\partial_xu+\rho^{-1}\partial_xp=0$、$\partial_tp+u\partial_xp+\gamma p\partial_xu=0$ と書ける。これは上の保存系と、滑らかで等エントロピーな粒子経路に対する[熱力学関係](../FLUID41/index.md#prop-fluid41-isentropic)から従う。原始変数を列ベクトル $V=(\rho,u,p)^{\mathsf T}$ とおく。上の三つの滑らかな方程式をまとめると $\partial_tV+A(V)\partial_xV=0$ となる。ここで $A(V)$ は、$\partial_xV$ に作用する $3\times3$ の係数行列であり、
+滑らかな流れでは、原始変数 $(\rho,u,p)$ は次を満たす。
+
+$$
+\begin{aligned}
+\partial_t\rho+u\partial_x\rho+\rho\partial_xu&=0,\\
+\partial_tu+u\partial_xu+\rho^{-1}\partial_xp&=0,\\
+\partial_tp+u\partial_xp+\gamma p\partial_xu&=0.
+\end{aligned}
+$$
+
+これは上の保存系と、滑らかで等エントロピーな粒子経路に対する[熱力学関係](../FLUID41/index.md#prop-fluid41-isentropic)から従う。原始変数を列ベクトル $V=(\rho,u,p)^{\mathsf T}$ とおく。上の三つの滑らかな方程式をまとめると $\partial_tV+A(V)\partial_xV=0$ となる。ここで $A(V)$ は、$\partial_xV$ に作用する $3\times3$ の係数行列であり、
 
 $$
 A=\begin{pmatrix}u&\rho&0\\0&u&1/\rho\\0&\gamma p&u\end{pmatrix},
@@ -35,7 +45,7 @@ A=\begin{pmatrix}u&\rho&0\\0&u&1/\rho\\0&\gamma p&u\end{pmatrix},
 \det(A-\lambda I)=(u-\lambda)\left[(u-\lambda)^2-\frac{\gamma p}{\rho}\right].
 $$
 
-局所的な進行波 $V(x,t)=v(x-\lambda t)$ を代入すると、連鎖律で $\partial_tV=-\lambda v'$、$\partial_xV=v'$ だから、$(A-\lambda I)v'=0$ となる。非零の変化 $v'$ が可能な条件 $\det(A-\lambda I)=0$ が特性速度を決める。
+$z=x-\lambda t$ とおき局所的な進行波 $V(x,t)=v(z)$ を代入する。ここで $v'(z)=dv/dz$ は $z$ に関する常微分であり、$x,t$ に関する偏微分とは異なる。連鎖律より $\partial_tV=-\lambda v'(z)$、$\partial_xV=v'(z)$ だから、$(A-\lambda I)v'=0$ となる。非零の変化 $v'$ が可能な条件 $\det(A-\lambda I)=0$ が特性速度を決める。
 
 したがって波の局所的な速さは $u-a,u,u+a$、$a=\sqrt{\gamma p/\rho}>0$ である。$u$ に対応する中間の波では圧力と速度が連続し、密度が変わり得る。ただしこの**滑らかな係数行列の固有値**だけで、有限振幅衝撃波の速度を置き換えてはならない。
 
@@ -279,7 +289,14 @@ $$
 +\frac{\gamma-1}{2\gamma}}.
 $$
 
-左へ伝わる第1衝撃波は負号、右へ伝わる第3衝撃波は正号を選ぶ。したがって左衝撃波の速度は $s_L=u_L-a_L\sqrt{(\gamma+1)p_*/(2\gamma p_L)+(\gamma-1)/(2\gamma)}$、右衝撃波はプラス符号の同式である。希薄波は左なら先端速度 $u_L-a_L$ と後端速度 $u_*-a_{*L}$ の間、右なら $u_*+a_{*R}$ と $u_R+a_R$ の間で連続変化する。例えば左希薄波内では
+左へ伝わる第1衝撃波は負号、右へ伝わる第3衝撃波は正号を選ぶ。したがって
+
+$$
+s_L=u_L-a_L\sqrt{\frac{\gamma+1}{2\gamma}\frac{p_*}{p_L}+\frac{\gamma-1}{2\gamma}},\qquad
+s_R=u_R+a_R\sqrt{\frac{\gamma+1}{2\gamma}\frac{p_*}{p_R}+\frac{\gamma-1}{2\gamma}}
+$$
+
+となる。希薄波は左なら先端速度 $u_L-a_L$ と後端速度 $u_*-a_{*L}$ の間、右なら $u_*+a_{*R}$ と $u_R+a_R$ の間で連続変化する。例えば左希薄波内では
 
 $$
 u(\xi)=\frac{2}{\gamma+1}
