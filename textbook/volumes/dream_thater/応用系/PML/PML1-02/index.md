@@ -140,9 +140,9 @@ $$
 
 以後、状態 $s$ に対する確率 $p_\tau(s)$ で平均を取る演算を $\mathbb E_\tau$ と書く。例えば $g:\mathbb R\to\mathbb R$ に対し
 
-$
+$$
 \mathbb E_\tau[g(E)]=\sum_{s\in\Omega}p_\tau(s)g(E(s))
-$
+$$
 
 である。したがって $U_\tau=\mathbb E_\tau[E]$、$V_\tau=\mathbb E_\tau[E^2]-U_\tau^2$ とも書ける。ここで最初の $E$ はエネルギー関数、$\mathbb E_\tau$ は期待値の演算子であり、混同しない。平均はエネルギーの単位、分散はその二乗の単位を持つ。**分配関数自体は無次元**なので、$Z_\tau$ と平均エネルギーを同じ量と呼んではいけない。
 
@@ -277,9 +277,9 @@ $$
 
 各配置には $p(a_1)=p(a_2)=1/(2+r)$、$p(b)=r/(2+r)$ が割り当てられる。[SM3の準位表示](../../../物理系/SM/SM3/index.md#prop-sm3-normalization)では、準位 $u\in E(\Omega)$ の確率は、そのエネルギーを持つ配置の確率をすべて足したものとする。すなわち
 
-$
+$$
 P_\tau(E=u)=\sum_{\substack{s\in\Omega\\E(s)=u}}p_\tau(s).
-$
+$$
 
 以下では固定した尺度 $\tau$ を添字から省略し、$P(E=u)$ とも書く。この三状態では
 
@@ -324,11 +324,11 @@ for tau in (0.5, 1.0, 2.0):
 
 手計算に戻るときは $p_\tau(b)=r/(1+r)$、$U_\tau=\Delta p_\tau(b)$、$V_\tau=\Delta^2p_\tau(b)(1-p_\tau(b))$ を照合する。さらに $r=e^{-\Delta/\tau}\in(0,1)$ と $dr/d\tau=\Delta r/\tau^2>0$ から、分散についても
 
-$
+$$
 \frac{dV_\tau}{d\tau}
 =\Delta^2\frac{1-r}{(1+r)^3}\frac{dr}{d\tau}
 =\frac{\Delta^3r(1-r)}{\tau^2(1+r)^3}>0
-$
+$$
 
 となる。この二状態模型では尺度を大きくすると励起確率も分散も増えるが、有限状態の別の模型で同じ分散の単調性を使うには改めて検証が必要である。
 
@@ -402,10 +402,10 @@ $E(a)=0$ だから $U_\tau=0\cdot(3/4)+\Delta\cdot(1/4)=\Delta/4$。平均はエ
 
 元のエネルギー差は2、変更後のエネルギーは $(E'(a),E'(b))=(4,10)$ で差は6である。[二状態のGibbs確率と選択比](#prop-pml1-02-two-state-odds)をそれぞれの尺度に適用すると
 
-$
+$$
 \frac{p(b)}{p(a)}=e^{-2/1}=e^{-2},\qquad
 \frac{p'(b)}{p'(a)}=e^{-6/3}=e^{-2}.
-$
+$$
 
 ここで $p'$ は変換後の分布を表し、微分ではない。$a=3>0,b=4,\tau'=3\tau$ であるため、[Gibbs確率と尺度の同時変換](#prop-pml1-02-affine-covariance)の仮定も満たす。両模型とも規格化後の励起確率は $e^{-2}/(1+e^{-2})$ で一致する。
 <!-- solution-end -->
@@ -582,12 +582,12 @@ $$
 
 有限で尺度に依存しない損失なので、[SM3のエネルギー揺らぎ定理](../../../物理系/SM/SM3/index.md#thm-sm3-energy-variance)のエネルギーを $L$、逆尺度を $\beta=1/\tau$ と読み替えられる。ここで $dU/d\beta=-V$ と $d\beta/d\tau=-1/\tau^2$ に連鎖律を適用すると
 
-$
+$$
 \frac{dU_\tau}{d\tau}
 =\frac{dU}{d\beta}\frac{d\beta}{d\tau}
 =(-V_\tau)\left(-\frac1{\tau^2}\right)
 =\frac{V_\tau}{\tau^2}
-$
+$$
 
 であり、
 
