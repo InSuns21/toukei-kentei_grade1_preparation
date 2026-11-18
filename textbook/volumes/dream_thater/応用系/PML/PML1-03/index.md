@@ -41,7 +41,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-03-free-energy-objective -->
-**定義の確認（二候補）**。$\Theta=\{a,b\}$、$L(a)=0$、$L(b)=\log3$、$\tau=1$（損失は無次元）とする。確率分布 $q=(1/2,1/2)$ は両成分が非負で和が1。各項は有限であり、
+**定義の確認**（二候補）**。$\Theta=\{a,b\}$、$L(a)=0$、$L(b)=\log3$、$\tau=1$（損失は無次元）とする。確率分布 $q=(1/2,1/2)$ は両成分が非負で和が1。各項は有限であり、
 
 $$
 \mathbb E_q[L]=\frac12\log3,\qquad
@@ -492,7 +492,7 @@ $$
 \mathcal J_\tau(q)=\frac{\Delta}{2}-\tau\log2.
 $$
 
-分配関数は $1+r$ なので、[KL余剰の命題](#prop-pml1-03-kl-gap)より
+分配関数は $1+r$ なので、[学習候補の自由エネルギーとKL余剰](#prop-pml1-03-kl-gap)より
 
 $$
 \tau D_{\mathrm e}(q\|p_\tau)
