@@ -6,9 +6,9 @@ import {stepWGL18,expectedWGL18Grid,expectedWGL18Samples,
 
 test('one-step five-point stencil and no-flux boundary mass',()=>{
   const z=expectedWGL18Grid(0.2,1);
-  assert.equal(z[5],0.2);
+  assert.ok(Math.abs(z[5]-0.2)<1e-12);
   for(const k of [1,4,6,9])assert.equal(z[k],0.2);
-  assert.equal(z.reduce((a,b)=>a+b,0),1);
+  assert.ok(Math.abs(z.reduce((a,b)=>a+b,0)-1)<1e-12);
   const two=expectedWGL18Grid();
   const expected=[0.08,0.12,0.08,0,0.12,0.2,0.08,0.04,
     0.08,0.08,0.08,0,0,0.04,0,0];
