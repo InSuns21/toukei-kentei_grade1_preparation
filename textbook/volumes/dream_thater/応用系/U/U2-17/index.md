@@ -156,7 +156,14 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（ビーム尤度の正規化と分母の必要性）**  
-> 上の有限値ビーム模型で $K\ge1$、$d>0$、$\sigma>0$ とする。各許容姿勢とビーム方向について、$q_\sigma(k\mid g,\phi,M)>0$ かつ $\sum_{k=0}^K q_\sigma(k\mid g,\phi,M)=1$ である。異なる二つの予測値 $h_a,h_b$ に対する同一観測 $k$ の尤度比は、指数因子の比だけではなく、それぞれの正規化分母の比も含む。
+> [有限値の測距ビーム尤度](#def-u2-17-quantized-beam)で $K\ge1$、$d>0$、$\sigma>0$ とする。任意の許容姿勢 $g$、ビーム方向 $\phi$、記録番号 $k$ について、次が成り立つ。
+
+$
+q_\sigma(k\mid g,\phi,M)>0,\qquad
+\sum_{k=0}^Kq_\sigma(k\mid g,\phi,M)=1.
+$
+
+> また、異なる二つの予測値 $h_a,h_b$ に対する同一観測 $k$ の尤度比は、指数因子の比だけではなく、それぞれの正規化分母の比も含む。
 <!-- formal-statement-end -->
 
 **証明の見取り図**：分子は全て正で、分母は有限個の分子の和です。同じ記録の姿勢比較でも分母は姿勢依存なので、一般には消せません。
@@ -249,7 +256,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[ビームの正規化](#prop-u2-17-beam-normalized)と、有限積の分配法則より、各 $g\in S$ で
+[ビームの正規化](#prop-u2-17-beam-normalized)を各ビームに適用し、有限個の和に分配法則を繰り返し使うと、各 $g\in S$ で
 
 $$
 \begin{aligned}
@@ -302,7 +309,12 @@ $$
 +\frac{\delta_b}{K+1}
 $$
 
-> と定義する。ビームごとの混合事象も、姿勢・地図を条件として独立と仮定する場合に限り、全観測の尤度を $\widetilde L(\mathbf k\mid g,M)=\prod_{b=1}^B\widetilde q_b(k_b\mid g,M)$ とする。
+> と定義する。ビームごとの混合事象も、姿勢・地図を条件として独立と仮定する場合に限り、全観測の尤度を次の積とする。
+
+$
+\widetilde L(\mathbf k\mid g,M)
+=\prod_{b=1}^B\widetilde q_b(k_b\mid g,M).
+$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-17-robust-beam -->
