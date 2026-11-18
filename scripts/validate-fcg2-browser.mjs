@@ -76,7 +76,8 @@ try {
       if(await evaluate(expression))return;
       await new Promise(ok=>setTimeout(ok,100));
     }
-    throw Error('Timed out: '+expression+' exceptions '+JSON.stringify(exceptions.slice(-2)));
+    const state=await evaluate('({status:document.querySelector("#status")?.textContent,diagnostics:document.querySelector("#diagnostics")?.textContent?.slice(-800)})');
+    throw Error('Timed out: '+expression+' last state='+JSON.stringify(state)+' exceptions '+JSON.stringify(exceptions.slice(-2)));
   };
   const click=id=>evaluate('document.getElementById('+JSON.stringify(id)+').click()');
   await cdp('Runtime.enable');await cdp('Page.enable');
@@ -107,15 +108,16 @@ try {
   assert.match(second,/128, 38, 127, 255/);
   console.log('FCG2 physical step 2 and R8 value 128: PASS');
 
-  // Editing fragment color changes the actual GPU pixels.
+  // Editing fragment color changes GPU pixels; keep q live to prevent the
+  // compiler from optimizing u_density away (which this lesson requires).
   await click('tab-code');
-  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("outColor=vec4(q,0.15,1.0-q,1.0);","outColor=vec4(0.0,1.0,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,1.0,0.0,1.0)")})()');
+  const modified=await evaluate('(()=>{const e=document.querySelector("#fragment-source");e.value=e.value.replace("outColor=vec4(q,0.15,1.0-q,1.0);","outColor=vec4(0.0,q,0.0,1.0);");e.dispatchEvent(new Event("input",{bubbles:true}));return e.value.includes("vec4(0.0,q,0.0,1.0)")})()');
   assert.ok(modified,'shader source edit did not apply');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("編集コードを実行しました")',25000);
   const shader=await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(5)")?.textContent');
   assert.equal(shader,'変更版: 参考');
-  assert.match(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent'),/0, 255, 0, 255/);
+  assert.match(await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)").textContent'),/0, 128, 0, 255/);
   await evaluate('document.querySelector("#preset").value="error";document.querySelector("#preset").dispatchEvent(new Event("change"))');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("WebGL2実行エラー")',25000);
