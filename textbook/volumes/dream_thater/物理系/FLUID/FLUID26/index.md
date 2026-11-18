@@ -457,7 +457,7 @@ $$
 
 これは**静的な二次元毛管形状の境界値問題を第一積分で積分した結果**であり、管内の三次元自由表面や時間依存の流動の計算ではない。折れ線と指数近似のずれは、刻み誤差だけでなく小勾配近似そのものの誤差を含む。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID26-STATIC-MENISCUS
 # lab-title: 静的毛管形状の数値積分と小勾配近似
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID26/static_meniscus_lab.py
@@ -467,7 +467,7 @@ $$
 # lab-preset: 撥水・110度 | --theta-deg 110 --n 160
 # lab-preset: 粗い刻み | --theta-deg 60 --n 40
 # lab-preset: 細かい刻み | --theta-deg 60 --n 640
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを閲覧](static_meniscus_lab.py)。初回実行ではブラウザの Python 環境を取得するため通信が必要な場合がある。$\theta$ を $90^\circ$ に近づければ非線形曲線と指数近似の違いが減るが、境界角を固定して刻み数だけ変えた比較とは区別する。
 
