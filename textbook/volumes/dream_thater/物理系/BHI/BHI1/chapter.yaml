@@ -1,0 +1,38 @@
+id: BHI1
+title: "情報損失の論理と観測可能量"
+volume: foundations
+status: supplementary
+prerequisites:
+  - QINF33
+  - QCURV21
+  - BHT24
+official_scope: []
+learning_objectives:
+  - 崩壊前の純粋入力、蒸発放射、残存系、非観測系を区別し、終期の仮定と等長発展の意味を説明できる
+  - 放射観測代数と部分トレースを対応させ、同じ局所観測値を持つ異なる全状態を計算できる
+  - 終期が放射だけで完結する条件で純粋性制約を証明し、半古典Hawking放射の計算と区別できる
+  - 二入力の放射縮約が一致すると厳密回復不能となることを証明し、純粋出力だけでは可逆性を保証しない反例を構成できる
+definitions:
+  - { id: BHI1-DEF-01, name: "蒸発終期の系の分割" }
+  - { id: BHI1-DEF-02, name: "放射観測代数と縮約チャネル" }
+theorems:
+  - { id: BHI1-PROP-01, name: "可逆な全体と混合放射の両立" }
+  - { id: BHI1-THM-01, name: "放射だけで完結する等長発展の純粋性制約" }
+  - { id: BHI1-PROP-02, name: "放射で区別できない二入力と回復の不可能性" }
+canonical_examples:
+  - 基底を相関させる二量子ビット等長写像と放射の部分トレース
+  - 全出力の共同X相関と放射上の局所X期待値の違い
+  - SWAPによる完全な情報移送と、純粋出力の消去チャネル
+problem_patterns:
+  - BHI1-ISOMETRY
+  - BHI1-OBSERVABLE-ALGEBRA
+  - BHI1-ENTROPY-UNITS
+  - BHI1-MARGINAL-AMBIGUITY
+  - BHI1-ENDPOINT-ASSUMPTIONS
+  - BHI1-PURE-OUTPUT-COUNTEREXAMPLE
+  - BHI1-SWAP-RECOVERY
+  - BHI1-CHANNEL-COMPARISON
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 5 }

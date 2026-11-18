@@ -1,7 +1,7 @@
 # DREAM THEATER ブラックホール情報 I・II（BHI1〜BHI36・全36講確定）
 
-改訂: 2026-11-13（標準教科書・総説・原論文との照合による講義設計の確定）  
-状態: planned（**設計のみ**。BHI章本文・系列manifest・公開索引は未着手）  
+改訂: 2026-11-19（2026-11-13確定シラバスに基づきBHI1の実装を開始）  
+状態: in_progress（BHI1実装済み、BHI2〜BHI36は未着手。系列manifest・公開索引を登録）  
 構成: **第I部 BHI1〜BHI16（16講）／第II部 BHI17〜BHI36（20講）**。15週・90分講義への数合わせはしない。
 
 ## 0. 中心問いと到達点
@@ -25,7 +25,7 @@
 - IはQINF・QCURV・BHTの指定箇所が実在・到達可能であることを着手時に確認し、HOLO未完了でも開始できる構成とする。相対論的因果構造はGR/LORGの実在する前提へ接続する。
 - IIはIを直接前提とする。**HOLO21（重力レプリカ）、HOLO23〜24（FLM/QES）、HOLO25・27〜30（ウェッジ／再構成／符号）**は、それを使う講義の前に実装済みとするか、当該BHI講内で定義・直接例・必要な核心論証まで独立に閉じる。未実装の結果を既習と称さない。HOLOの系列進捗は系列manifestが正本。
 - MICA（Hadamard）／AQFT（Type III・局所代数）を発展的に参照するが、全講の事前修了を一律必須とはしない。重力Hilbert空間の素朴な因数分解の限界はBHI15で扱い、厳密な一般論は到達可能なAQFTの実在章へリンクする。
-- 本PLANは独立した **BHI系列** の設計であり、横断読順は[熱・時空・情報ルート](DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、LORG/HPDE/MICA/AQFTの正本は[時空・量子場数学ルート](../plan_done/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で確認する。旧PLANにあった未定義の「BHII」「BHIII」は前提IDに使わない。
+- 本PLANは独立した **BHI系列** の設計であり、横断読順は[熱・時空・情報ルート](../plans/DREAM_THEATER_BLACK_HOLE_THERMODYNAMICS_INFORMATION_ROUTE_PLAN.md)、LORG/HPDE/MICA/AQFTの正本は[時空・量子場数学ルート](../plan_done/DREAM_THEATER_LORENTZIAN_QFT_MATH_FOUNDATIONS_PLAN.md)で確認する。旧PLANにあった未定義の「BHII」「BHIII」は前提IDに使わない。
 
 ## 2. 標準テキスト・原論文との照合による講数決定
 
@@ -106,13 +106,13 @@
 - 各実装章は理由付き例外がなければ **Level A 4題・B 3題・C 1題以上**を、出発点・前提・中間式・結論まで再現可能な全詳細解答とともに置く。下限は題数ノルマではなく、各learning objective・誤りやすい仮定・複数概念の接続に不足があれば増題する。
 - **横断課題I:** (a) Bell対と逐次放出の$S(R_k)$、(b) 温度と灰色体付き準静的質量収支、(c) Mathur/AMPSの不等式を同じ系名で書き直す、(d) Hayden–Preskillの参照系と環境系の次元を検算。QINFの証明と重複する場合は**使用箇所の実在するstable anchor**へリンクする。
 - **横断課題II:** (a) 明記した二次元CFT状態の区間エントロピー、(b) JT作用の変分と解、(c) 端点ごとの$S_{\rm gen}$を導出して候補を極値化、(d) 二つの鞍点の競合とPage時刻、(e) 重力レプリカの$n\to1$の仮定、(f) 小規模の符号模型の回復可能性を**別々に**計算する。
-- **計算・表示:** 第I部の有限次元状態・エントロピー・次元閾値、第II部の$S_{\mathrm{no\text{-}island}}(t)$／$S_{\mathrm{island}}(t)$と極値端点の移動は、再計算可能なPython等の参照実装・数表を用意する（乱数を使う場合はseed／試行数を記録）。解析式と数値グラフの比較を必須とし、SVGのみの再生を数値計算と称しない。実装基盤は[対話型シミュレーションPLAN](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)の既存仕様を参照するが、講義本文の正当性はUIに依存させない。
+- **計算・表示:** 第I部の有限次元状態・エントロピー・次元閾値、第II部の$S_{\mathrm{no\text{-}island}}(t)$／$S_{\mathrm{island}}(t)$と極値端点の移動は、再計算可能なPython等の参照実装・数表を用意する（乱数を使う場合はseed／試行数を記録）。解析式と数値グラフの比較を必須とし、SVGのみの再生を数値計算と称しない。実装基盤は[対話型シミュレーションPLAN](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)の既存仕様を参照するが、講義本文の正当性はUIに依存させない。
 - **図:** 崩壊と蒸発のPenrose図、$R/b/\tilde b$の状態分割、JT+bathの接合、island端点、replicaの連結／非連結候補、Page曲線の競合枝に絞る。内部と外部、重力と非重力、演算子の再構成可能領域を色以外の線種・ラベルでも区別し、画像なしで論証が読める本文を置く。SVGを追加するときは[執筆・図版品質規約](../DREAM_THEATER_AUTHORING_STANDARD.md)と実レンダリングを確認する。
 
 ## 6. 実装・査読・PLANライフサイクル
 
-1. **今回の作業はシラバス確定だけ。** 現在のPLANは`textbook/plans/`のままにし、BHI1〜BHI36の空章、未実装のstable anchor、knowledge DAG、公開索引、系列manifestを先取り作成しない。BHI系列manifestが見つからないことをもって実装済みとしない。
-2. 最初のBHI章を実装する時点で同名IDの存在、関連系列の現行manifestと実在prerequisite、直近のHOLO完成範囲を確認し、**BHI1〜BHI36の予定を系列manifestに登録**する。PLAN固有の実装に入った時点で`plans_progress/`へ**移動**し、manifestの`plan`と直接参照を同じ作業単位で更新する。
+1. **初期設計段階の記録。** 2026-11-13のシラバス確定時点では`textbook/plans/`に置き、BHI1〜BHI36の空章や未実装のstable anchorを先取り作成しなかった。2026-11-19のBHI1開始時に本PLANを`textbook/plans_progress/`へ移動した。BHI系列manifestが見つからないことをもって実装済みとしない。
+2. BHI1着手時に同名IDの不在、QINF・QCURV・BHT・HOLOの現行manifestと実在prerequisiteを確認し、**BHI1〜BHI36をBHI系列manifestに登録**した。BHI1のstatusを`completed`、BHI2以降を`planned`とし、以降は各講の実装・検証・査読に伴って更新する。
 3. 章ごとの本文には「既習で何が分かる→この模型で何が不足→新しい定義と直接例→適用条件を明示した主要論証→反例／破綻条件→演習と詳細解答」を置き、初出と使用順を確認する。重力経路積分や解析接続を一般的に厳密化したと宣言できない箇所は**仮定を明示した条件付き導出**として扱う。
 4. 新規・実質改稿は[統合執筆規約](../DREAM_THEATER_AUTHORING_STANDARD.md)区分Cとして、**変更章自身**の全主要論証・全演習解答の自己再計算と完成本文の別観点再読を分離する。別の完了章の追跡監査は対象章IDの明示依頼時のみ。PRに根拠・未確認範囲と実施主体を残す。
 5. BHI1〜36の全本文、実在する依存・stable anchorリンク、演習・詳細解答、変更スコープに応じたvalidation、公開導線、I・II各部と系列全体の数学的／読者粒度査読を終えて初めて`textbook/plan_done/`へ移動する。**講義数を確定したことは講義完成を意味しない。**
