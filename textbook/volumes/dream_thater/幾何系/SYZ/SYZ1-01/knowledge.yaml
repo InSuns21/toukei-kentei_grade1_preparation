@@ -1,0 +1,41 @@
+chapter: SYZ1-01
+scope: dream-theater
+coverage: complete
+prerequisites: [CYG1-04, CYG1-10, SYM6]
+concepts:
+  - id: syz.character-dual-torus
+    name: 格子の文字と双対トーラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（格子の文字と双対トーラス）"]
+    requires: [complex-manifolds.higher-complex-torus]
+  - id: syz.character-lattice-quotient
+    name: 文字トーラスの格子商表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（文字トーラスの格子商表示）"]
+    requires: [syz.character-dual-torus]
+  - id: syz.flat-unitary-local-system
+    name: 平坦U(1)局所系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦U(1)局所系）"]
+    requires: []
+  - id: syz.flat-holonomy-classification
+    name: 平坦局所系のホロノミー分類
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦局所系のホロノミー分類）"]
+    requires: [syz.flat-unitary-local-system, syz.character-dual-torus]
+  - id: syz.dual-complex-structure
+    name: 双対トーラスの複素構造
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双対トーラスの複素構造）"]
+    requires: [syz.character-lattice-quotient, complex-manifolds.higher-complex-torus]
+  - id: syz.fiberwise-duality
+    name: 滑らかなトーラス束のファイバー双対化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（滑らかなトーラス束のファイバー双対化）"]
+    requires: [syz.character-dual-torus, symplectic.lagrangian-submanifold]

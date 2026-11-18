@@ -1,0 +1,80 @@
+version: 1
+id: SYZ1
+title: "特殊Lagrange幾何とSYZ"
+plan: textbook/plans_progress/DREAM_THEATER_SYZ_SPECIAL_LAGRANGIAN_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 初講をSYZ1-01とし、全18講。完成章のみ公開目次へ登録する。
+chapters:
+  - id: SYZ1-01
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-01
+    status: completed
+    title: "複素トーラス・双対トーラスとSYZの中心問い"
+  - id: SYZ1-02
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-02
+    status: planned
+    title: "Lagrangeグラフとその局所変形"
+  - id: SYZ1-03
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-03
+    status: planned
+    title: "較正形式と体積最小性"
+  - id: SYZ1-04
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-04
+    status: planned
+    title: "正則体積形式・位相とSLag方程式"
+  - id: SYZ1-05
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-05
+    status: planned
+    title: "McLean理論I――変形方程式の線形化"
+  - id: SYZ1-06
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-06
+    status: planned
+    title: "McLean理論II――無障害性と変形空間"
+  - id: SYZ1-07
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-07
+    status: planned
+    title: "局所トーラス・ファイブレーションと作用・角変数"
+  - id: SYZ1-08
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-08
+    status: planned
+    title: "基底の二種類の整数アフィン構造"
+  - id: SYZ1-09
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-09
+    status: planned
+    title: "Hessian計量とLegendre双対"
+  - id: SYZ1-10
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-10
+    status: planned
+    title: "semi-flat鏡像I――双対トーラスと複素構造"
+  - id: SYZ1-11
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-11
+    status: planned
+    title: "semi-flat鏡像II――Kähler形式・計量・接続"
+  - id: SYZ1-12
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-12
+    status: planned
+    title: "楕円曲線の完全計算"
+  - id: SYZ1-13
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-13
+    status: planned
+    title: "K3と超Kähler回転"
+  - id: SYZ1-14
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-14
+    status: planned
+    title: "特異ファイバーとモノドロミー"
+  - id: SYZ1-15
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-15
+    status: planned
+    title: "正則円板と壁越えの発生条件"
+  - id: SYZ1-16
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-16
+    status: planned
+    title: "インスタントン補正と座標の貼り合わせ"
+  - id: SYZ1-17
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-17
+    status: planned
+    title: "Gross–Siebertとトロピカル退化"
+  - id: SYZ1-18
+    path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-18
+    status: planned
+    title: "滑らかな定理から一般予想への証明地図・総合演習"
