@@ -1,0 +1,155 @@
+version: 1
+id: BHI
+title: "ブラックホール情報 I・II"
+plan: textbook/plans_progress/DREAM_THEATER_BLACK_HOLE_INFORMATION_I_II_PLAN.md
+chapter_root: textbook/volumes/dream_thater
+
+# 2026-11-19時点。先頭から連続するcompletedの次のplannedが次講。
+parts:
+  - { title: "ブラックホール情報 I：情報損失・Page曲線・AMPS・回収条件", from: BHI1, to: BHI16 }
+  - { title: "ブラックホール情報 II：JT重力・island・レプリカと復号", from: BHI17, to: BHI36 }
+chapters:
+  - id: BHI1
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI1
+    status: completed
+    title: "情報損失の論理と観測可能量"
+  - id: BHI2
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI2
+    status: planned
+    title: "地平線内外の分割とHawking対の玩具模型"
+  - id: BHI3
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI3
+    status: planned
+    title: "逐次対生成と放射の混合化"
+  - id: BHI4
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI4
+    status: planned
+    title: "放射のエネルギー収支と準静的蒸発"
+  - id: BHI5
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI5
+    status: planned
+    title: "粗視化と精細エントロピー"
+  - id: BHI6
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI6
+    status: planned
+    title: "ユニタリ蒸発のエントロピー制約"
+  - id: BHI7
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI7
+    status: planned
+    title: "Page曲線の物理的意味"
+  - id: BHI8
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI8
+    status: planned
+    title: "Page時刻の模型依存推定"
+  - id: BHI9
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI9
+    status: planned
+    title: "Mathurのsmall-corrections制約"
+  - id: BHI10
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI10
+    status: planned
+    title: "AMPSのエンタングルメント矛盾"
+  - id: BHI11
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI11
+    status: planned
+    title: "相補性・no-cloning・観測者"
+  - id: BHI12
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI12
+    status: planned
+    title: "Hayden–Preskillの情報投入模型"
+  - id: BHI13
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI13
+    status: planned
+    title: "デカップリングと回収閾値"
+  - id: BHI14
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI14
+    status: planned
+    title: "scrambling時間と情報放出時間"
+  - id: BHI15
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI15
+    status: planned
+    title: "因数分解・ゲージ制約・局所代数"
+  - id: BHI16
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI16
+    status: planned
+    title: "前半総合：矛盾を構成する仮定と選択肢"
+  - id: BHI17
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI17
+    status: planned
+    title: "重力領域と非重力浴の設定"
+  - id: BHI18
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI18
+    status: planned
+    title: "二次元CFT放射領域のエントロピー"
+  - id: BHI19
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI19
+    status: planned
+    title: "JT重力の作用と場の方程式"
+  - id: BHI20
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI20
+    status: planned
+    title: "JTブラックホール解・dilaton・エントロピー"
+  - id: BHI21
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI21
+    status: planned
+    title: "境界モードとSchwarzian力学"
+  - id: BHI22
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI22
+    status: planned
+    title: "JTと非重力浴の接合"
+  - id: BHI23
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI23
+    status: planned
+    title: "islandなしの放射エントロピー"
+  - id: BHI24
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI24
+    status: planned
+    title: "island候補と一般化エントロピー"
+  - id: BHI25
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI25
+    status: planned
+    title: "island端点の極値化"
+  - id: BHI26
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI26
+    status: planned
+    title: "Page転移と複数鞍点の比較"
+  - id: BHI27
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI27
+    status: planned
+    title: "時間依存の蒸発JT模型"
+  - id: BHI28
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI28
+    status: planned
+    title: "重力レプリカの分配関数"
+  - id: BHI29
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI29
+    status: planned
+    title: "レプリカ・ワームホールの鞍点"
+  - id: BHI30
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI30
+    status: planned
+    title: "$n\\to1$とisland公式の導出範囲"
+  - id: BHI31
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI31
+    status: planned
+    title: "ensemble平均とfactorization問題"
+  - id: BHI32
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI32
+    status: planned
+    title: "放射のentanglement wedge"
+  - id: BHI33
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI33
+    status: planned
+    title: "回復写像と情報への操作的アクセス"
+  - id: BHI34
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI34
+    status: planned
+    title: "代替二次元模型との比較"
+  - id: BHI35
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI35
+    status: planned
+    title: "四次元・実在ブラックホールへの外挿"
+  - id: BHI36
+    path: textbook/volumes/dream_thater/物理系/BHI/BHI36
+    status: planned
+    title: "全系列総合と未解決問題"
