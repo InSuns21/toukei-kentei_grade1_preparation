@@ -1,0 +1,46 @@
+chapter: PML1-01
+scope: dream-theater
+coverage: complete
+prerequisites: [ML1-01, ML1-03, SM1]
+concepts:
+  - id: physics-machine-learning.finite-energy-model
+    name: 有限状態のエネルギー模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態のエネルギー模型）"]
+    requires: []
+  - id: physics-machine-learning.data-dependent-loss
+    name: 有限候補のデータ依存損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限候補のデータ依存損失）"]
+    requires:
+      - learning.empirical-risk
+  - id: physics-machine-learning.affine-minimizer-invariance
+    name: 正のアフィン変換と最小化解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正のアフィン変換と最小化解）"]
+    requires:
+      - physics-machine-learning.finite-energy-model
+  - id: physics-machine-learning.scaled-objective
+    name: 尺度を明示した結合目的関数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（尺度を明示した結合目的関数）"]
+    requires:
+      - physics-machine-learning.data-dependent-loss
+  - id: physics-machine-learning.two-candidate-threshold
+    name: 二候補の重み切替え条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二候補の重み切替え条件）"]
+    requires:
+      - physics-machine-learning.scaled-objective
+  - id: physics-machine-learning.temperature-weight
+    name: 有限状態の指数重みと温度尺度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態の指数重みと温度尺度）"]
+    requires:
+      - physics-machine-learning.finite-energy-model
