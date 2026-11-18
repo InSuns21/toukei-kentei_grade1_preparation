@@ -1,6 +1,5 @@
 # WGL18 fragment shaderだけで時間発展できる？
 
-<!-- DT-REVIEW: WGL18 -->
 
 [WGL17の数値テクスチャ](../WGL17/index.md#def-wgl17-grid)は格子の数値をGPUへ渡しました。しかし、濃度が時間とともに周囲へ拡がる計算を1回の描画で繰り返すには、**前ステップの格子を読むと同時に、次ステップの格子をどこへ書くか**を決めなければなりません。[WGL10のrender-to-texture](../WGL10/index.md#def-wgl10-render-to-texture)を2枚交互に用いる方法を学びます。
 
