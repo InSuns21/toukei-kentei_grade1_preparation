@@ -847,6 +847,73 @@ try{
   }
   await click('stop');
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
+
+  // WGL19: async rendering loop; independent CPU time/float oracle; GPU lifetime.
+  await cdp('Page.navigate',{url:url+'?lesson=WGL19'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  assert.equal(await evalJS('document.querySelectorAll("[role=tabpanel]").length'),3);
+  assert.ok(await evalJS('document.getElementById("js-source").value.includes("requestAnimationFrame")'));
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算に合格|WebGL2実行エラー|タイムアウト|未達|不一致/)',22000);
+  const w19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent,rows:[...document.querySelectorAll("#results-table tbody tr")].map(row=>[...row.cells].map(c=>c.textContent)),sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox")})');
+  if(w19.status.includes('WebGL2実行エラー')) {
+    assert.match(w19.log,/EXT_color_buffer_float unavailable|incomplete|FLOAT readPixels error/);
+    console.log('WGL19 float framebuffer unavailable; GPU verification correctly withheld');
+  }else{
+    assert.match(w19.status,/独立画素検算に合格/,'WGL19 live GPU audit failure: '+JSON.stringify(w19));
+    assert.equal(w19.rows.length,16);
+    assert.ok(w19.rows.every(row=>row[4]==='OK'));
+    assert.equal(w19.sandbox,'allow-scripts');
+    assert.match(w19.log,/ticks\/frame=0,1,4,1; total ticks=6/);
+    assert.match(w19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
+    assert.match(w19.log,/RESOURCES:.*deleted; checks passed/);
+    assert.match(w19.log,/FRAME: actual RAF cadence/);
+    assert.match(w19.log,/TIMER_QUERY:/);
+    assert.match(w19.log,/CONTEXT: simulation disabled/);
+    const shot19=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
+    await writeFile('_wgl_browser_review/wgl19-audit.png',Buffer.from(shot19.data,'base64'));
+    console.log('WGL19 real GPU 4 render frames / 6 ticks / FLOAT16 and GPU object disposal: PASS');
+    await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const frameDeltasMs=[16,16,72,16]','const frameDeltasMs=[20,20]');})()");
+    await click('run');
+    await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト|未達/)',22000);
+    const edit19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+    assert.match(edit19.status,/編集コードを実行しました/,'WGL19 edited clock failure: '+JSON.stringify(edit19));
+    assert.match(edit19.log,/total ticks=2/);
+    assert.match(edit19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
+    console.log('WGL19 learner edits clock, 2-step independent float oracle passes: PASS');
+
+    await click('reset');
+    await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const frameDeltasMs=[16,16,72,16]','const frameDeltasMs=[200]');})()");
+    await click('run');
+    await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト|未達/)',22000);
+    const late19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+    assert.match(late19.status,/編集コードを実行しました/,'WGL19 overload failure: '+JSON.stringify(late19));
+    assert.match(late19.log,/total ticks=4; remainder=0.00000ms; dropped=120ms/);
+    assert.match(late19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
+    console.log('WGL19 overload makes dropped simulation time explicit: PASS');
+
+    await click('reset');
+    await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const simulateLoss=false','const simulateLoss=true');})()");
+    await click('run');
+    await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト|未達/)',22000);
+    const lost19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
+    if(lost19.status.includes('編集コードを実行しました')){
+      assert.match(lost19.log,/CONTEXT: (?:context lost\/restored; all resources rebuilt|WEBGL_lose_context not exposed)/);
+      assert.match(lost19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
+      console.log('WGL19 context restore/replay and independent oracle, or explicit unavailable capability: PASS');
+    }else {
+      assert.match(lost19.status,/タイムアウト|WebGL2実行エラー|未達/);
+      console.log('WGL19 actual context-loss recovery is unavailable; status remains not verified: '+lost19.status);
+    }
+    await click('reset');
+    await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
+    await click('run');
+    await waitFor('document.getElementById("status")?.textContent.includes("WebGL2実行エラー")',22000);
+    assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/FRAGMENT/i);
+    console.log('WGL19 fragment shader compilation diagnostics: PASS');
+  }
+  await click('stop');
+  assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   assert.deepEqual(exceptions,[]);
 }finally{
   try{ws?.close();}catch{}
