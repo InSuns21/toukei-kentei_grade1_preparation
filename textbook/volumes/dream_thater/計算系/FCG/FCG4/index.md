@@ -231,7 +231,20 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（勾配・無発散分解とゲージ不変性）**  
-> 連結した零法線MAC格子で、$D_h\boldsymbol u^{s}=0$、$\phi$ が平均零、$\boldsymbol u^\ast=\boldsymbol u^s+(\Delta t/\rho)G_h\phi$ なら、圧力Poissonの平均零解は $p=\phi$、射影速度は $\boldsymbol u^s$ である。任意の定数 $c$ に対し、圧力を $\phi+c$ としても射影速度は変わらない。
+> 連結した零法線MAC格子で、次の仮定を満たす速度場と圧力場を考える。$\phi$ は平均零であり、$\boldsymbol u^s$ は離散的に無発散とする。
+
+$
+D_h\boldsymbol u^{s}=0,\qquad
+\boldsymbol u^\ast=\boldsymbol u^s+\frac{\Delta t}{\rho}G_h\phi.
+$
+
+> このとき、圧力Poisson問題の平均零解と射影後速度は次のとおり。
+
+$
+p=\phi,\qquad \boldsymbol u^{\mathrm{new}}=\boldsymbol u^s.
+$
+
+> 任意の定数 $c$ に対し、圧力を $\phi+c$ としても射影速度は変わらない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
