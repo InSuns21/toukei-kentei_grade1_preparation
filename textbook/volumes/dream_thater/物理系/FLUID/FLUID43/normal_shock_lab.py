@@ -132,7 +132,7 @@ def self_test():
     for kw in ({"mach": 1}, {"mach": 0.5}, {"gamma": 1},
                {"p1": -1}, {"t1": float("nan")}, {"gas_constant": 0}):
         try:
-            shock(**kw)
+            shock(**{"mach": 2.0, **kw})
         except ValueError:
             pass
         else:
