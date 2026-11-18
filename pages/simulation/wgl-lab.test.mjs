@@ -200,3 +200,6 @@ import './wgl17-lab.test.mjs';
 
 // WGL18: diffusion conservation/positivity and GPU float/CPU oracle.
 import './wgl18-lab.test.mjs';
+
+// FCG2: 8x8 analytic scalar field, R8 quantization, steps, WebGL host.
+import './fcg2-lab.test.mjs';
