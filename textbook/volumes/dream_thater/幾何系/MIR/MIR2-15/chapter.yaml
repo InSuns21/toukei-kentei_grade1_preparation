@@ -1,0 +1,47 @@
+id: "MIR2-15"
+title: "2875本の直線を独立に数える"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - MIR2-14
+  - AG3-13
+learning_objectives:
+  - G(2,5)の点と射影4空間の直線を対応させ、局所座標から複素次元6を計算できる
+  - 普遍部分束Sと五次式の制限切断を構成し、Sym^5 S^veeの階数6と零点条件を各点で確認できる
+  - 座標直線で切断の微分を具体的に計算し、横断零点と非横断零点を区別できる
+  - 一般のquinticで横断性が成立する理由を大域生成性と標数0の一般位置論法から説明できる
+  - Chern根を用いてc6(Sym^5 S^vee)を積の形から次数6の対称多項式へ展開できる
+  - 旗多様体の二つの射影束と押出し公式からGrassmann積分を2875と計算できる
+  - 法束と一次変形を結び付け、一般の直線の局所寄与が1である条件を確認できる
+  - 幾何的な直線本数2875とミラー側n1の一致の論理的範囲を説明できる
+definitions:
+  - { id: MIR2-15-DEF-01, name: "Grassmann多様体上の普遍部分束" }
+  - { id: MIR2-15-DEF-02, name: "五次超曲面の直線切断" }
+theorems:
+  - { id: MIR2-15-PROP-01, name: "五次直線切断の横断性判定" }
+  - { id: MIR2-15-THM-01, name: "一般quinticの横断零点とChern類計数" }
+  - { id: MIR2-15-PROP-02, name: "Grassmann積分の旗多様体公式" }
+  - { id: MIR2-15-THM-02, name: "quinticの2875本の直線" }
+  - { id: MIR2-15-PROP-03, name: "一次GW数との照合" }
+canonical_examples:
+  - 座標2平面とG(2,5)の2行3列行列座標を実際に対応させる
+  - 座標直線上の五次制限と六係数零条件を確認する
+  - 選択した三つの四次式から直線での微分が六次元の同型となることを確かめる
+  - 対称積の六本のChern根を計算し600、3850、6725の係数を得る
+  - 射影束の関係式からq_*y^4=-x、q_*y^5=q_*y^6=0を導く
+  - 非横断な特殊五次式では単純な零点の本数をChern積分と同一視できないことを示す
+problem_patterns:
+  - MIR2-15-GRASSMANN-CHART
+  - MIR2-15-RESTRICTION-RANK
+  - MIR2-15-TANGENT-MAP
+  - MIR2-15-CHERN-PRODUCT
+  - MIR2-15-FLAG-PUSHFORWARD
+  - MIR2-15-QUARTIC-CONTRAST
+  - MIR2-15-COEFFICIENT-PROOF
+  - MIR2-15-NONTRANSVERSE
+  - MIR2-15-NORMAL-GW
+  - MIR2-15-COMPLETE-COUNT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 6 }

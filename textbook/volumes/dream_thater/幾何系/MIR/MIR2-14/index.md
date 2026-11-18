@@ -55,21 +55,39 @@ N_{C/X}\simeq\mathcal O_{\mathbb P^1}(-1)\oplus
 \mathcal O_{\mathbb P^1}(-1)
 $$
 
-と分裂している場合を考える。$f$ が被覆度 $k$ なら、$f^*\mathcal O(-1)\simeq\mathcal O(-k)$ なので、法方向の障害空間は $H^1(\mathbb P^1,\mathcal O(-k))^{\oplus2}$ になる。$k\ge1$ に対し
+と分裂している場合を考える。$f$ が被覆度 $k$ なら、$f^*\mathcal O(-1)\simeq\mathcal O(-k)$ なので、法方向の障害空間は $H^1(\mathbb P^1,\mathcal O(-k))^{\oplus2}$ になる。[射影直線の線束コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を次数 $-k$ の線束に適用する。$k\ge1$ なら $-k<0$ なので
 
 $$
-h^0(\mathbb P^1,\mathcal O(-k))=0,\qquad
-h^1(\mathbb P^1,\mathcal O(-k))=k-1
+h^0(\mathbb P^1,\mathcal O(-k))=\max(1-k,0)=0,\qquad
+h^1(\mathbb P^1,\mathcal O(-k))=\max(k-1,0)=k-1.
 $$
 
-である。したがって障害空間の複素次元は $2k-2$。一方、標点なしの次数 $k$ の写像 $\mathbb P^1\to\mathbb P^1$ のモジュライ空間の複素次元も
+法方向は二本あるため障害空間の複素次元は $2(k-1)=2k-2$ である。一方、滑らかな定義域からの次数 $k$ の写像 $\mathbb P^1\to\mathbb P^1$ は、共通零点を持たない二つの $k$ 次同次式の組で表せる。係数は合計 $2(k+1)$ 個で、共通スカラーの1次元と定義域の再パラメータ化 $\operatorname{PGL}_2$ の3次元を引くから、写像族の複素次元は
 
 $$
-(1-0)(1-3)+c_1(T\mathbb P^1)\cdot k
-=-2+2k=2k-2
+2(k+1)-1-3=2k-2.
 $$
 
-であり、障害束の最上Chern類を積分して数を得られる次元がそろう。**次元がそろうだけでは積分値は決まらない**。次の積分評価は深い外部結果であり、法束・孤立性などの適用条件を明記して使用する。
+これは[前提講義での二重被覆の次元計算](../MIR2-02/index.md#prop-mir2-02-double-cover)を一般の $k$ にしたものである。安定写像のコンパクト化についても次元を確かめる。
+
+ここで「$\mathbb P^1$ が凸」というのは、種数0の連結節点曲線 $D$ からの任意の安定写像 $g:D\to\mathbb P^1$ に対し、次の障害群が零になることをいう。
+
+$$
+H^1(D,g^*T\mathbb P^1)=0.
+$$
+
+実際、$D$ の各成分 $D_i\simeq\mathbb P^1$ 上での次数を $k_i\ge0$ とすると
+
+$$
+g^*T\mathbb P^1|_{D_i}\simeq\mathcal O(2k_i),
+\qquad H^1(D_i,\mathcal O(2k_i))=0.
+$$
+
+後者は[射影直線の層コホモロジー](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)から従う。各成分上の $\mathcal O(2k_i)$ は大域切断で生成され、節点での評価は全射である。従って、節点を介して葉成分を一つずつ貼り合わせる長完全列でも $H^1$ は零のままである。この凸性から安定写像のコンパクト化は純次元 $2k-2$ を持つ。
+
+障害束の階数と積分先の次元は一致し、最上Chern類の積分が数になる。ただし、**次元がそろうだけでは積分値は決まらない**。
+
+モジュライ上の各写像の定義域をまとめたものを普遍曲線、その射影を $\pi$、その曲線から $\mathbb P^1$ への普遍写像を $f$ と呼ぶ。法方向の $H^1$ を各写像上でまとめた障害束の最上Chern類を積分するのが次の式である。この積分評価は深い外部結果であり、法束・孤立性などの適用条件を明記して使用する。
 
 <a id="thm-mir2-14-aspinwall-morrison"></a>
 
@@ -273,7 +291,33 @@ $$
 
 ## 5. Yukawa級数と多重被覆のLambert型表示
 
-[因子方向の種数0ポテンシャル](../MIR2-05/index.md#def-mir2-05-potential)の正次数部分は $\sum_{m\ge1}N_mq^m$ であり、平坦変数 $t$ に対して $q=e^t$、$D=\partial/\partial t=q\,d/dq$ と書ける。$D(q^m)=mq^m$ だから三回微分は $m^3$ 倍である。これは[三点関数の係数公式](../MIR2-05/index.md#prop-mir2-05-yukawa-series)と同じ規約である。
+まず微分する変数を区別する。[因子方向の種数0ポテンシャルの指数表示](../MIR2-05/index.md#prop-mir2-05-potential-expansion)では、$Q$ と $t$ は独立な形式変数である。正次数部分は次の式となる。
+
+$$
+\sum_{m\ge1}N_mQ^me^{mt}.
+$$
+
+ここで $x=Qe^t$ と置けば、一変数の級数 $\sum_{m\ge1}N_mx^m$ として扱える。$Q$ を固定して $t$ で偏微分した結果と、$x$ で微分した結果の対応は、級数 $F(x)$ に連鎖律を適用して確かめる。
+
+$$
+\frac{\partial}{\partial t}F(Qe^t)
+=\frac{dF}{dx}(Qe^t)\frac{\partial(Qe^t)}{\partial t}
+=(Qe^t)\frac{dF}{dx}(Qe^t),
+\qquad
+\frac{\partial}{\partial t}(Q^me^{mt})=mQ^me^{mt}
+$$
+
+本講では一変数 $x$ を $q$ と書く。$t=0$、$Q=q$ への特殊化によって、A側の三点関数を $K_A(q)$ として読む。
+
+$q$ の各冪にその指数を掛ける微分を $D$ と書けば、
+
+$$
+D:=q\frac{d}{dq},\qquad D(q^m)=mq^m
+$$
+
+である。形式的な対数座標 $u=\operatorname{Log}q$ に沿った微分 $d/du$ も、$dq/du=q$ によって同じ作用をする。ただし、元の $\partial/\partial t$ は $Q$ を固定して作用するので、$d/dq$ と直接同一視するわけではない。両者の関係は上の $x=Qe^t$ に対する連鎖律で説明される。
+
+従って三回微分は $q^m$ に $m^3$ を掛ける。これは[既習のA側三点関数の係数公式](../MIR2-05/index.md#prop-mir2-05-yukawa-series)とも一致する。
 
 形式的な三重対数型級数 $\operatorname{Li}_3(x)=\sum_{k\ge1}x^k/k^3$ を、ここでは**収束を仮定せず** $x$ の形式冪級数として使う。$q$ の正の次数ごとに和は有限なので
 
@@ -509,7 +553,7 @@ $$
 $N_{C/X}\simeq\mathcal O(-1)^{\oplus2}$ を満たす孤立有理曲線 $C$ とその $k$ 重被覆を考える。$k=1,2,3$ で、被覆後の法束、$h^1$ の和、$\overline{\mathcal M}_{0,0}(\mathbb P^1,k)$ の複素次元を比較せよ。これだけでは $1/k^3$ を証明できない理由も答えよ。
 
 <!-- solution-start -->
-**詳細解答**。$f^*\mathcal O(-1)=\mathcal O(-k)$ だから、被覆後の法束は $\mathcal O(-k)^{\oplus2}$。[射影直線の層コホモロジー](../MIR2-02/index.md#prop-mir2-02-double-cover)で使う $h^1(\mathcal O(-k))=k-1$ により、障害空間の次元は $2(k-1)$。一方、標点なし種数0の $\mathbb P^1$ への次数 $k$ の安定写像の次元は $-2+2k$ なので次の表を得る。
+**詳細解答**。$f^*\mathcal O(-1)=\mathcal O(-k)$ だから、被覆後の法束は $\mathcal O(-k)^{\oplus2}$。[射影直線の層コホモロジー定理](../../../代数系/AG/AG3-08/index.md#thm-ag3-08-p1-cohomology)を次数 $-k$ に適用すると $h^1(\mathcal O(-k))=\max(k-1,0)=k-1$（$k\ge1$）。二つの法方向の和なので障害空間の次元は $2(k-1)$。一方、標点なし種数0の $\mathbb P^1$ への次数 $k$ の安定写像の次元は $-2+2k$ なので次の表を得る。
 
 | 被覆度 | 被覆後の法束 | 障害の複素次元 | 写像空間の複素次元 |
 | --- | --- | ---: | ---: |

@@ -1,7 +1,7 @@
 version: 1
 id: U3
 title: "数理ファイナンス：無裁定価格付け・数値計算・金融リスク・最適執行"
-plan: textbook/plans_progress/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md
+plan: textbook/plan_done/DREAM_THEATER_APPLIED_MATHEMATICAL_FINANCE_PLAN.md
 chapter_root: textbook/volumes/dream_thater
 chapters:
   - { id: U3-01, path: textbook/volumes/dream_thater/応用系/U/U3-01, status: completed, title: "1期間二項モデルの株式・債券・オプション" }

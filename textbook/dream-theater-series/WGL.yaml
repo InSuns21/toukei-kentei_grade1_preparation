@@ -22,5 +22,5 @@ chapters:
   - { id: WGL16, path: textbook/volumes/dream_thater/計算系/WGL/WGL16, status: completed, title: "同じ形を多数描くと何が速い？" }
   - { id: WGL17, path: textbook/volumes/dream_thater/計算系/WGL/WGL17, status: completed, title: "物理データをGPU textureへ送るとき何を失う？" }
   - { id: WGL18, path: textbook/volumes/dream_thater/計算系/WGL/WGL18, status: completed, title: "fragment shaderだけで時間発展できる？" }
-  - { id: WGL19, path: textbook/volumes/dream_thater/計算系/WGL/WGL19, status: planned, title: "動く描画の正しさと性能をどう監査する？" }
+  - { id: WGL19, path: textbook/volumes/dream_thater/計算系/WGL/WGL19, status: completed, title: "動く描画の正しさと性能をどう監査する？" }
   - { id: WGL20, path: textbook/volumes/dream_thater/計算系/WGL/WGL20, status: planned, title: "GIS地形と数値格子を誤解なく重ねるには？" }
