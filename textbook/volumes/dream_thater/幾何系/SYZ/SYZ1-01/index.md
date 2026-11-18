@@ -246,7 +246,7 @@ $$
 <!-- proof-end -->
 
 <!-- definition-example-start: def-syz1-01-flat-local-system -->
-**定義・分類の直接例。** $T=(\mathbb R/\mathbb Z)^2$ の座標を $s,t$ とし、$u,v\in\mathbb R$ を固定して自明なHermitian線束に
+**定義の確認**（分類もあわせて検算）。 $T=(\mathbb R/\mathbb Z)^2$ の座標を $s,t$ とし、$u,v\in\mathbb R$ を固定して自明なHermitian線束に
 
 $$
 \nabla=d-2\pi i(u\,ds+v\,dt)
