@@ -1,0 +1,35 @@
+chapter: FCG1
+scope: dream-theater
+coverage: complete
+prerequisites: [FLUID4, NA6]
+concepts:
+  - id: graphics.tracer-trajectory-samples
+    name: 粒子ID付き数値追跡標本
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粒子ID付き数値追跡標本）"]
+    requires: [fluid.pathline, numerical.time-grid, numerical.forward-euler-method]
+  - id: graphics.frozen-streamline-samples
+    name: 凍結時刻での流線表示標本
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（凍結時刻での流線表示標本）"]
+    requires: [fluid.streamline, graphics.tracer-trajectory-samples]
+  - id: graphics.rotation-euler-radius
+    name: 回転流のEuler追跡で起こる半径増大
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（回転流のEuler追跡で起こる半径増大）"]
+    requires: [graphics.tracer-trajectory-samples, numerical.forward-euler-method]
+  - id: graphics.steady-shear-curves
+    name: 定常せん断流の流線と流跡線
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定常せん断流の流線と流跡線）"]
+    requires: [fluid.streamline, fluid.pathline]
+  - id: graphics.unsteady-shear-discrepancy
+    name: 非定常せん断流の二曲線とEuler誤差
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非定常せん断流の二曲線とEuler誤差）"]
+    requires: [graphics.frozen-streamline-samples, numerical.forward-euler-method]

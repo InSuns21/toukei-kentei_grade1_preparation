@@ -2,7 +2,7 @@
 
 作成・講数確定日：2026-11-12  
 共通プログラミングラボ要件改訂：2026-11-15（WebGL/JS/GLSLをWGL・FCG間で共有。**FCG20講は変更しない**）  
-状態：planned（PLAN設計のみ。章本文・コード・表示・series manifest・公開目次は未実装）  
+状態：in_progress（FCG1の本文・Canvas2D数値実験・系列manifest・公開目次に着手。残りFCG2〜20はplanned）  
 成果物：**独立PLAN 1本・実講義20講**。先の8講試案を「毎講コード・ブラウザ表示・演習・検算を実装する」条件で再分割。
 
 ## 0. 中心問いと講義数
@@ -31,10 +31,10 @@
 
 ## 2. 前提・canonical ownership・既存共通基盤
 
-- [流体力学FLUID全48講PLAN](../plans_progress/DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)が流体の物理・一般数値手法の正本。FLUID4/10/27–29/45–48（流跡・渦・浅水・数値法）と直接接続。FLUIDは実装進行中であり、完了範囲は[FLUID系列manifest](../dream-theater-series/FLUID.yaml)を正本とする。章の執筆時、実在する直接前提とstable anchorを確認し、未完成の場合はFCG側で必要な入口を自足的に説明するか、対応FLUID完成まで依存する章のcompleted判定を保留する。
+- [流体力学FLUID全48講PLAN](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md)が流体の物理・一般数値手法の正本。FLUID4/10/27–29/45–48（流跡・渦・浅水・数値法）と直接接続。FLUIDは実装進行中であり、完了範囲は[FLUID系列manifest](../dream-theater-series/FLUID.yaml)を正本とする。章の執筆時、実在する直接前提とstable anchorを確認し、未完成の場合はFCG側で必要な入口を自足的に説明するか、対応FLUID完成まで依存する章のcompleted判定を保留する。
 - [連続体力学CTM全22講PLAN](../plan_done/DREAM_THEATER_CONTINUUM_MECHANICS_COURSE_PLAN.md)は質量・運動量・Newton流体の応力/構成則の正本（特にCTM5–7/15–17）。原理的なNSEの導出を本CGコース内で重複執筆しない。既存のNS系列/NPDE系列は弱解・正則性/一般保存則を所有し、このCG講座には全講一律の必修にしない。
 - 基礎線形代数・ベクトル解析・初等微積分・ODE、JavaScriptの基礎を前提候補とする。一般のWebGL2/OpenGL描画・GLSL・GPU精度は新しい[WGL全20講PLAN](DREAM_THEATER_WEBGL_OPENGL_GRAPHICS_PROGRAMMING_PLAN.md)が体系的に扱う。FCG2は必要な最小パイプラインとshaderを手順から自足的に導入し、実際に完成済みのWGL結果があれば使用箇所から参照する。未実装WGL章を既習・必須にはしない。必要な章別prerequisitesは実装時に実ファイルとknowledge DAGで確定し、学修依存とソフトウェアコード依存を混同しない。
-- [対話型シミュレーション共通基盤PLAN](../plans_progress/DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のWorker/状態機械/可視化/実験記録の現行実装を、適合する範囲で再利用する。現行リポジトリに pages/simulation/simulation-runtime.mjs とsimulation-worker-host.mjs があるが、実装可能なエンジン登録・protocolの細部は着手PRで再確認。共通基盤のソフトウェア上の不完全状態を、FCG数学・章statusに混入させない。
+- [対話型シミュレーション共通基盤PLAN](DREAM_THEATER_INTERACTIVE_SIMULATION_PLATFORM_PLAN.md)のWorker/状態機械/可視化/実験記録の現行実装を、適合する範囲で再利用する。現行リポジトリに pages/simulation/simulation-runtime.mjs とsimulation-worker-host.mjs があるが、実装可能なエンジン登録・protocolの細部は着手PRで再確認。共通基盤のソフトウェア上の不完全状態を、FCG数学・章statusに混入させない。
 - WebGL2を**標準表示**として設計し、Canvas2D/JS計算を検算と未対応端末のfallbackに使う。GPU上の物理更新はGPU精度・浮動小数点拡張・読み戻し・境界条件・許容誤差の検査ができる場合に限定する。WebGPU・three.jsの導入は任意。低性能端末で本来の数値実験を黙って動画に置換しない。
 
 **ソフトウェア依存の主線**：FCG1→2→3→4→5→6、FCG5→7→8→9→10→11、FCG5→12→13、FCG5→14→15→16→17、FCG6→18、FCG5/12/14→19、FCG12/19→20。上位章が下位章の公開コードを使う場合は固定APIを通し、既存コードの変更時は影響先の数値・表示の回帰テストを追加する。
@@ -92,7 +92,7 @@
 
 ### 5.1 実装着手時
 
-計画のみの今回は textbook/plans/ に置き、FCGのmanifestや教材本文/公開目次・仮のHTMLを作成しない。最初のFCG1実装PRで章ID/パス衝突を再点検し、PLANをplans_progress/へ**移動**、系列manifest FCG.yaml を作成してそのplanに移動後のパスを記録。公開目次には実装・査読済みの講義だけを追加する。
+計画設計時は textbook/plans/ に置いた。FCG1着手で plans_progress/ へ移し、実装・査読済みの講義だけを公開する。FCG1実装PRで章ID/パス衝突を再点検し、PLANをplans_progress/へ**移動**、系列manifest FCG.yaml を作成してそのplanに移動後のパスを記録。公開目次には実装・査読済みの講義だけを追加する。
 
 ### 5.2 20回の局所ゲート（シリーズ全体監査ではない）
 

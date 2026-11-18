@@ -1,0 +1,38 @@
+id: FCG1
+title: "流れをどう表示するか：流線と流跡"
+volume: foundations
+status: supplementary
+prerequisites: [FLUID4, NA6]
+official_scope: []
+learning_objectives:
+  - "FLUID4で定義した流線と流跡線を物理時刻・描画用パラメータの違いから区別し、解析例を再現できる"
+  - "定常回転・定常せん断・非定常せん断で流線と流跡線を計算し、非定常の場合の一致・不一致を検証できる"
+  - "粒子IDを保った前進Eulerの数値更新と流線の凍結時刻積分をJSで実装し、図と数値を別々に判定できる"
+  - "回転場のEuler半径増大と非定常せん断の離散誤差を中間式から求め、刻み幅の効果を説明できる"
+  - "コード編集・実行・停止・1step・リセット・基準値比較をブラウザ内で行い、物理計算と描画更新を区別できる"
+definitions:
+  - { id: FCG1-DEF-01, name: "粒子ID付き数値追跡標本" }
+  - { id: FCG1-DEF-02, name: "凍結時刻での流線表示標本" }
+theorems:
+  - { id: FCG1-PROP-01, name: "回転流のEuler追跡で起こる半径増大" }
+  - { id: FCG1-PROP-02, name: "定常せん断流の流線と流跡線" }
+  - { id: FCG1-PROP-03, name: "非定常せん断流の二曲線とEuler誤差" }
+canonical_examples:
+  - "回転場で粒子IDを保ち真円とEulerの外向き螺旋を比べる"
+  - "定常せん断で凍結時刻の流線と経過時間の流跡が重なる"
+  - "非定常せん断の観測時刻Tで流線・流跡の中点の鉛直差を測る"
+  - "描画fpsを変えず物理刻み幅hのみを変えて数値誤差を比べる"
+problem_patterns:
+  - FCG1-ROTATION-EXACT
+  - FCG1-STEADY-SHEAR
+  - FCG1-TRACKER-IDS
+  - FCG1-TIME-ROLES
+  - FCG1-ROTATION-EULER
+  - FCG1-UNSTEADY-MIDPOINT
+  - FCG1-UNSTEADY-ERROR
+  - FCG1-EDIT-STEP
+  - FCG1-INTEGRATED-VISUALIZATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 4, exercises: 5, review: 2 }

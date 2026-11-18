@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>FCG1 流線・流跡線の編集ラボ</title>
+<link rel="stylesheet" href="wgl-lab.css">
+<style>
+.result-frame{height:430px;background:white}
+#drawing-note{font-size:.9rem;margin:.5rem 0}
+#particle-diagnostics{overflow:auto}
+.editor-full{grid-template-columns:minmax(0,1fr)!important}
+#js-source{min-height:380px}
+.legend{font-size:.9rem}
+.legend span{white-space:nowrap;display:inline-block;margin-right:12px}
+@media (max-width:400px){.result-frame{height:360px}main{padding:6px}.tabs button{padding:6px 8px}}
+</style>
+</head>
+<body><main>
+<h1>FCG1 速度場から流線・流跡線を描く</h1>
+<p>与えた解析速度場をJavaScriptで時間更新し、Canvas2Dで表示します。数値近似であり、流体の支配方程式は解きません。</p>
+<div class="tabs" role="tablist" aria-label="ラボの3タブ">
+<button type="button" role="tab" id="tab-conditions" aria-controls="panel-conditions" aria-selected="true" tabindex="0">1. 実験条件・課題</button>
+<button type="button" role="tab" id="tab-code" aria-controls="panel-code" aria-selected="false" tabindex="-1">2. コード編集</button>
+<button type="button" role="tab" id="tab-result" aria-controls="panel-result" aria-selected="false" tabindex="-1">3. 実行結果</button>
+</div>
+<section id="panel-conditions" role="tabpanel" aria-labelledby="tab-conditions">
+<h2>初期値・検算する量</h2>
+<div class="controls">
+<label>解析速度場
+<select id="field">
+<option value="rotation">定常回転 u=(-y,x)</option>
+<option value="steady">定常せん断 u=(1,x)</option>
+<option value="unsteady">非定常せん断 u=(1,tx)</option>
+</select></label>
+<label>物理刻み幅 h [s]
+<select id="dt">
+<option value="0.1">0.1</option>
+<option value="0.05">0.05</option>
+<option value="0.2">0.2</option>
+<option value="0.25">0.25</option>
+</select></label>
+</div>
+<p>回転流はID1=(1,0) m、ID2=(0,1) mから出発。せん断流はID1=(0,0) m、ID2=(0,0.5) mから出発します。物理時刻0〜2.5秒までの運動学を追跡します。</p>
+<ol>
+<li>初期ソースで「実行・リセット」→「1step」を繰り返す。粒子IDと物理時刻を確認する。</li>
+<li>回転流で h を0.1から0.05へ変更し、円からずれる半径・厳密座標と比較する。</li>
+<li>定常せん断で瞬時流線と解析流跡が重なることを確かめる。</li>
+<li>非定常せん断で瞬時流線と厳密流跡の中途の点が異なることを確かめる。</li>
+<li>「コード編集」でvelocityやEuler更新式を変更して再実行し、図だけでなく数値診断も比べる。</li>
+</ol>
+<p>編集したJavaScriptは不透明originのsandbox iframe内で動きます。外部通信をCSPで禁止し、1回の実行のstep数と通信量を制限します。ただし、ブラウザやGPUの完全な停止防止を保証しません。他人のコードを不用意に貼り付けないでください。</p>
+</section>
+<section id="panel-code" role="tabpanel" aria-labelledby="tab-code" hidden>
+<h2>JavaScript（速度・数値更新・Canvas描画）</h2>
+<p>ここに表示した実際の教材ソースを編集します。JavaScript基礎演習なのでGLSL欄はありません。変更は実行ボタンで新しい隔離環境へ適用されます。</p>
+<div class="editors editor-full">
+<div><label for="js-source">編集可能なJavaScript</label><textarea id="js-source" spellcheck="false" aria-label="FCG1のJavaScriptコード"></textarea></div>
+</div>
+</section>
+<section id="panel-result" role="tabpanel" aria-labelledby="tab-result" hidden>
+<p id="status" role="status" aria-live="polite">準備中</p>
+<div class="legend" aria-label="線種の凡例"><span>実線＝数値の流跡</span><span>点線＝現在時刻の流線</span><span>破線＝厳密流跡</span></div>
+<div id="canvas-slot" aria-label="流線・流跡の数値描画"></div>
+<p id="drawing-note">流線は粒子ID1の厳密解の現在位置を基点に描き、速度評価時刻を固定します。数値粒子の実線とのずれはEuler誤差です。</p>
+<h2>粒子ID・物理時刻と独立CPU基準</h2>
+<div id="particle-diagnostics"></div>
+<p id="result-note">ソースを実行すると解析値、独立のEuler計算との誤差を表示します。</p>
+<h2>診断ログ</h2>
+<pre id="diagnostics" aria-live="polite">未実行</pre>
+</section>
+<div class="controls">
+<button id="run" type="button" class="action primary">実行・リセット</button>
+<button id="step" type="button" class="action">1step</button>
+<button id="play" type="button" class="action">再生</button>
+<button id="pause" type="button" class="action">一時停止</button>
+<button id="stop" type="button" class="action">停止・破棄</button>
+<button id="reset" type="button" class="action">初期コードに戻す</button>
+<button id="save" type="button" class="action">編集を保存</button>
+<span id="save-status" role="status" aria-live="polite"></span>
+</div>
+<small>物理stepの更新時間と、Canvasを再描画する表示間隔は別です。GPUで描いていないためGLSLとGPU画素検査はFCG2以降の課題です。端末に保存したソースは自動実行しません。</small>
+</main>
+<script type="module" src="fcg-canvas-lab-host.mjs"></script>
+</body></html>

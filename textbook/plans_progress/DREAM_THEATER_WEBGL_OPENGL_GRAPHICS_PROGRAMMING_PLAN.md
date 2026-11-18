@@ -6,7 +6,7 @@
 
 ## 0. 判断・中心問い・範囲
 
-**独立講座を設ける**。既存の[FCG全20講](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)は流体数値模型とその表現が主役であり、FCG2のWebGL2入門だけでは、一般の座標変換・可視性・陰影・テクスチャ・多段レンダリング・GPU検算を順序立てて学べない。一方でFCGの既存20講を増やして描画API入門を重複実装するのは避ける。
+**独立講座を設ける**。既存の[FCG全20講](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)は流体数値模型とその表現が主役であり、FCG2のWebGL2入門だけでは、一般の座標変換・可視性・陰影・テクスチャ・多段レンダリング・GPU検算を順序立てて学べない。一方でFCGの既存20講を増やして描画API入門を重複実装するのは避ける。
 
 > JavaScriptとGLSL ES 3.00を自分で編集・実行し、3Dの幾何が画素へ変わる仕組みとGPU演算の限界を、図・数式・計算結果・ピクセルの独立検算で説明できるか。
 
@@ -29,7 +29,7 @@
 | [PLATEAU 公式FAQ](https://www.mlit.go.jp/plateau/faq/)・[3D都市モデル標準製品仕様書（CRS）](https://www.mlit.go.jp/plateaudocument/toc7/toc7_02/toc7_02_03/_crs/) | CityGMLの位置づけ、CRS（EPSG:6697等、入力のsrsNameを必ず照合）、標高基準、出典・ライセンスの確認（WGL20・ケーススタディ） |
 | [PLATEAU 配信サービス：CityGML](https://docs.plateauview.mlit.go.jp/datasets/citygml/)・[3D Tiles/MVT](https://docs.plateauview.mlit.go.jp/datasets/3d-tiles/) | 小規模データをオフライン抽出する手順の資料、3D Tiles/MVTによるタイル配信の発展課題（既定ラボで外部取得しない） |
 | [Physically Based Rendering, 4th ed.](https://www.pbrt.org/) | 光輸送・反射モデルをWGL12の近似の根拠として使う。フルpath tracerや分光renderは範囲外 |
-| 既存[FCG PLAN](../plans/DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
+| 既存[FCG PLAN](DREAM_THEATER_FLUID_COMPUTER_GRAPHICS_COURSE_PLAN.md)・[FLUID PLAN](DREAM_THEATER_FLUID_MECHANICS_COURSE_PLAN.md) | 流体の物理・数値計算の正本を尊重し、可視化レイヤだけを本系列から再利用（特にFCG2・10・15・19・20） |
 
 資料は範囲と説明順序の検証に利用し、図・演習・ソース・数値例は自作する。各版の機能・ブラウザ対応は実装日に再検証する。
 
