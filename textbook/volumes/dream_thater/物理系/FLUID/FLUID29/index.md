@@ -442,7 +442,7 @@ $$
 
 計算で水深が負になったり、質量が保存されなかったりした場合は失敗として扱う。時間刻みは $\max(|u|+\sqrt{gh})\Delta t/\Delta x$ が設定した安全率以下になるよう縮める。有限体積法はこの講義では浅水方程式の検算手段であり、詳細な安定性・収束理論は後の数値流体力学講義で扱う。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID29-SHALLOW-WATER
 # lab-title: ダム決壊と湖面静止の保存・正値検算
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID29/shallow_water_lab.py
@@ -451,7 +451,7 @@ $$
 # lab-preset: 微小擾乱と長波線形近似 | --mode dam --cells 240 --left 1.02 --right 0.98 --final-time 0.5
 # lab-preset: 起伏上の湖面静止 | --mode lake --cells 160 --surface 1 --bump 0.25 --final-time 0.5
 # lab-preset: 湖面静止・格子を倍にする | --mode lake --cells 320 --surface 1 --bump 0.25 --final-time 0.5
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを閲覧](shallow_water_lab.py)。出力の水面標高、底面・水深、速度を比較する。平底のダム決壊は非線形浅水方程式の**数値解**で、真の三次元流体を直接解くわけではない。湖面静止は解析的な正確解があるため、最大水面誤差・最大流速を独立に判定できる。反射壁まで波が到達しない短い時間を使い、格子を増やすことと模型近似の改善を混同しない。
 
