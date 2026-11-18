@@ -41,6 +41,14 @@ export function verifyWGL20Report(report,snapshot){
      report.triangles===snapshot.mesh.triangles.length/3,
    ground:Math.abs(report.groundAtOriginM-ground)<=1e-8,
    waterDepth:Number.isFinite(depth)&&Math.abs(report.depthAtOriginM-depth)<=1e-8,
+   groundAtTest:Number.isFinite(report.groundAtTestM)&&
+     Math.abs(report.groundAtTestM-(ground+0.02*10-0.01*(-20)))<=1e-8,
+   waterDepthAtTest:Number.isFinite(report.depthAtTestM)&&
+     Math.abs(report.depthAtTestM-Math.max(0,report.waterLevelM-(ground+0.4)))<=1e-8,
+   groundAtWest:Number.isFinite(report.groundAtWestM)&&
+     Math.abs(report.groundAtWestM-(ground+0.02*(-20)-0.01*10))<=1e-8,
+   waterDepthAtWest:Number.isFinite(report.depthAtWestM)&&
+     Math.abs(report.depthAtWestM-Math.max(0,report.waterLevelM-(ground-0.5)))<=1e-8,
    visualScale:report.zExaggeration>0&&report.zExaggeration<=5
  };
  return {valid:true,pass:Object.values(checks).every(Boolean),checks,offset,ground,depth};
