@@ -10,7 +10,7 @@
 
 ## 1. 物理式から逆追跡の必要性へ
 
-領域を $D=[0,1]^2$ [m²]、位置の単位を m、時刻の単位を s、染料濃度 $q(x,y,t)\in[0,1]$ を無次元とする。既知の速度 $\boldsymbol u=(u_x,u_y)$ [m/s] によって移されるだけで、物理拡散・反応・生成がない濃度は
+領域を $D=[0,1]^2$ [m²]、位置の単位を m、時刻の単位を s、染料濃度 $q(x,y,t)\in[0,1]$ を無次元とする。偏微分 $\partial_tq,\partial_xq,\partial_yq$ は、それぞれ残る二変数を固定して一変数で微分することを表す。既知の速度 $\boldsymbol u=(u_x,u_y)$ [m/s] によって移されるだけで、物理拡散・反応・生成がない濃度は
 
 $$
 \frac{\partial q}{\partial t}
@@ -131,7 +131,21 @@ i_0=\lfloor x^\star/h-1/2\rfloor,\quad
 j_0=\lfloor y^\star/h-1/2\rfloor
 $$
 
-と置き、その中心からの相対距離を $a=x^\star/h-1/2-i_0$、$b=y^\star/h-1/2-j_0$ とする。常に $0\le a,b<1$ である。外側で $i_0=-1$ 等になるときは領域外の**仮想セル**を用いる。本講では領域外の旧値を0とする。これは**染料流入ゼロ**の補間境界条件であり、速度が壁を貫かない境界条件を解いたものではない。
+と置き、その中心からの相対距離を $a=x^\star/h-1/2-i_0$、$b=y^\star/h-1/2-j_0$ とする。床関数の定義から常に $0\le a,b<1$ である。外側で $i_0=-1$ 等になるときは領域外の**仮想セル**を用いる。本講では領域外の旧値を0とする。これは**染料流入ゼロ**の補間境界条件であり、速度が壁を貫かない境界条件を解いたものではない。
+
+4点の重みが現れる理由も確かめる。まず下の2中心を水平に $a$ の割合で補間すると
+
+$
+B_0=(1-a)Q^n_{i_0,j_0}+aQ^n_{i_0+1,j_0}
+$
+
+を得る。上の2中心も同じ水平割合で
+
+$
+B_1=(1-a)Q^n_{i_0,j_0+1}+aQ^n_{i_0+1,j_0+1}
+$
+
+とする。最後に鉛直方向へ $b$ の割合だけ補間した $(1-b)B_0+bB_1$ を展開すれば、以下の4係数が得られる。これは格子値を表現する**二方向の一次補間**であり、行列や固有値による別の判定を仮定していない。
 
 <a id="def-fcg3-bilinear"></a>
 
@@ -282,9 +296,9 @@ X_x=\tfrac12+a\cos\omega t-b\sin\omega t,\quad
 X_y=\tfrac12+a\sin\omega t+b\cos\omega t.
 $$
 
-微分すると、
+ここで $X'_x=dX_x/dt$、$X'_y=dX_y/dt$ は時刻 $t$ による通常の導関数であり、濃度 $q$ の偏微分 $\partial_tq$ と区別する。成分ごとに微分すると、
 
-$$
+$
 X'_x=-\omega(a\sin\omega t+b\cos\omega t)=-\omega(X_y-\tfrac12),
 $$
 
@@ -292,7 +306,7 @@ $$
 X'_y=\omega(a\cos\omega t-b\sin\omega t)=\omega(X_x-\tfrac12).
 $$
 
-第1節の回転速度と一致するので $\boldsymbol X$ は指定速度の軌道である。$R(-\omega t)R(\omega t)=I$ より、この軌道が時刻 $t$ に $\boldsymbol x$ を通るなら、その初期位置は $\boldsymbol z=\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)$ と一意に決まる。[第1節の連鎖律による計算](#def-fcg3-backtrace)と移流方程式から軌道に沿う任意の解 $q$ は一定だから、必ず $q(\boldsymbol x,t)=q_0(\boldsymbol z)$ となる。一方、右辺で定めた関数は $q_0$ と回転が連続微分可能なので連続微分可能であり、各軌道上で値が $q_0(\boldsymbol z)$ に等しい。したがって同じ連鎖律を逆に使えば全点で移流方程式を満たし、$t=0$ に初期条件も満たす。これで存在と一意性が示せた。$t=1$ では $\omega t=2\pi$、$R(-2\pi)=I$ より $q(\boldsymbol x,1)=q_0(\boldsymbol x)$。$\square$
+第1節の回転速度と一致するので $\boldsymbol X$ は指定速度の軌道である。$R(-\omega t)R(\omega t)=I$ より、この軌道が時刻 $t$ に $\boldsymbol x$ を通るなら、その初期位置は $\boldsymbol z=\boldsymbol c+R(-\omega t)(\boldsymbol x-\boldsymbol c)$ と一意に決まる。第1節で成分ごとに確認した連鎖律と移流方程式から軌道に沿う任意の解 $q$ は一定だから、必ず $q(\boldsymbol x,t)=q_0(\boldsymbol z)$ となる。一方、右辺で定めた関数は $q_0$ と回転が連続微分可能なので連続微分可能であり、各軌道上で値が $q_0(\boldsymbol z)$ に等しい。したがって同じ連鎖律を逆に使えば全点で移流方程式を満たし、$t=0$ に初期条件も満たす。これで存在と一意性が示せた。$t=1$ では $\omega t=2\pi$、$R(-2\pi)=I$ より $q(\boldsymbol x,1)=q_0(\boldsymbol x)$。$\square$
 <!-- proof-end -->
 
 この結論は**厳密解**の一回転復元であり、補間を32回繰り返した数値値の復元ではない。
@@ -325,9 +339,16 @@ $$
 <!-- proof-start -->
 ### 証明
 
-2セルの旧値を $(Q_0,Q_1)=(1,0)$ とし、空間的に異なる足点から線形補間する操作
+2セルの旧値を $(Q_0,Q_1)=(1,0)$ とする。各新値を $Q'_r=\sum_{k=0}^1w_{rk}Q_k$ と書くと、行番号 $r$ は**到着セル**、列番号 $k$ は**参照する旧セル**である。係数を行ごとに並べた行列は二つの補間式をまとめたものであり、格子総和は
 
-$$
+$
+\sum_{r=0}^1Q'_r
+=\sum_{k=0}^1\left(\sum_{r=0}^1w_{rk}\right)Q_k
+$
+
+となる。したがって各行の和が1でも、各列の和が1とは限らない。空間的に異なる足点からの線形補間として、次の重みを選ぶ。
+
+$
 \begin{pmatrix}Q'_0\\Q'_1\end{pmatrix}
 =\begin{pmatrix}3/4&1/4\\1/2&1/2\end{pmatrix}
 \begin{pmatrix}1\\0\end{pmatrix}
@@ -385,7 +406,14 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** 水平の重みは $(3/4,1/4)$、鉛直は $(1/2,1/2)$。積の4係数は $(3/8,1/8,3/8,1/8)$、すべて非負で和は $(3+1+3+1)/8=1$。補間値は $3/8\cdot1+0=3/8$。この混合が数値的に輪郭を鈍らせ得る。
+**詳細解答。** [双線形再構成](#def-fcg3-bilinear)は水平の重み $(3/4,1/4)$ と鉛直の重み $(1/2,1/2)$ を掛け合わせるので、左下・右下・左上・右上の係数は
+
+$
+\bigl((1-a)(1-b),\,a(1-b),\,(1-a)b,\,ab\bigr)
+=\left(\frac38,\frac18,\frac38,\frac18\right).
+$
+
+これらはすべて非負で、和は $(3+1+3+1)/8=1$。旧値 $(1,0,0,0)$ を代入すると補間値は $3/8\cdot1+0=3/8$。この混合が数値的に輪郭を鈍らせ得る。
 <!-- solution-end -->
 
 <a id="ex-fcg3-a3"></a>
@@ -411,7 +439,18 @@ $
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** $t_{32}=32/32=1$ s、角度は $2\pi$ なので[回転復元](#prop-fcg3-rotation)から $E^{32}_{ij}=q_0(\boldsymbol x_{ij})=Q^0_{ij}$。数値結果 $Q^{32}=Q^0$ とは限らない。R8値が等しければ $\widehat Q-\widehat E=0$ で右側のGLSL色は $(0,0.08,0.1,1)$。最終RGBA8は $(0,\operatorname{round}(255\cdot0.08),\operatorname{round}(255\cdot0.1),255)=(0,20,26,255)$。
+**詳細解答。** $t_{32}=32\Delta t=1$ s、角度は $2\pi$ なので[回転復元](#prop-fcg3-rotation)から
+
+$
+E^{32}_{ij}=q_0(\boldsymbol x_{ij})=Q^0_{ij}.
+$
+
+数値結果 $Q^{32}=Q^0$ とは限らない。二つのR8復元値が等しければ $\widehat Q-\widehat E=0$ で、右側のGLSL色は $(0,0.08,0.1,1)$。各成分を0〜255の整数へ丸めると、最終RGBA8は
+
+$
+\bigl(0,\operatorname{round}(255\cdot0.08),\operatorname{round}(255\cdot0.1),255\bigr)
+=(0,20,26,255).
+$
 <!-- solution-end -->
 
 ### Level B
@@ -455,7 +494,21 @@ $$
 \delta y=\frac{\theta-\sin\theta}{4}.
 $$
 
-$\cos\theta=1-\theta^2/2+O(\theta^4)$、$\sin\theta=\theta-\theta^3/6+O(\theta^5)$ より $\delta x=-\theta^2/8+O(\theta^4)$、$\delta y=\theta^3/24+O(\theta^5)$。表示の丸めは各値最大 $1/510$ なので、逆三角不等式と三角不等式を順に使い
+原点 $\theta=0$ のTaylor展開を用いると
+
+$
+\cos\theta=1-\frac{\theta^2}{2}+O(\theta^4),\qquad
+\sin\theta=\theta-\frac{\theta^3}{6}+O(\theta^5)
+$
+
+である。これを上式に代入して
+
+$
+\delta x=-\frac{\theta^2}{8}+O(\theta^4),\qquad
+\delta y=\frac{\theta^3}{24}+O(\theta^5)
+$
+
+を得る。表示の丸めは各値最大 $1/510$ なので、逆三角不等式と三角不等式を順に使い
 
 $$
 \left|5|\widehat Q-\widehat E|-5|Q-E|\right|
