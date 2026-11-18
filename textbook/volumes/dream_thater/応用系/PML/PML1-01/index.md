@@ -56,9 +56,9 @@ $$
 > **定義（有限候補のデータ依存損失）**  
 > 非空有限の候補集合 $\Theta$、非空の入力集合 $\mathcal X$ と目的値集合 $\mathcal Y$、整数 $n\ge1$ を指定する。各 $x_i\in\mathcal X$、$y_i\in\mathcal Y$ からなる長さ $n$ の観測列を
 >
-$
+$$
 D=((x_i,y_i))_{i=1}^n
-$
+$$
 >
 > と書く。各 $\theta\in\Theta$ に予測器 $f_\theta:\mathcal X\to\mathcal Y$ を対応させ、有限非負値の一観測損失関数 $\ell:\mathcal Y\times\mathcal Y\to[0,\infty)$ を指定する。経験損失を
 >
@@ -107,9 +107,9 @@ $$
 > $\operatorname*{argmin}_{s\in S}F(s)$ は、$S$ 上で $F$ が最小値を達成するすべての点を集めた集合である。
 > $G(s)=aF(s)+b$ とすると、
 >
-$
+$$
 \operatorname*{argmin}_{s\in S}G(s)=\operatorname*{argmin}_{s\in S}F(s).
-$
+$$
 >
 > また任意の $s,t\in S$ について $G(s)-G(t)=a(F(s)-F(t))$ が成り立つ。
 <!-- formal-statement-end -->
@@ -232,21 +232,21 @@ $$
 
 **尺度を変えたときの注意**。元の関数 $F$ と尺度 $\tau$ に対して、変換後の関数を $\widetilde F=aF+b$、尺度を $\widetilde\tau=a\tau$ と書く。ここで $a>0$ は無次元、$b$ は $F$ と同じ単位の定数とする。$\widetilde F$ は微分ではなく、変換後の関数を表す。変換後の重みを $\widetilde w_{\widetilde\tau}(s)=\exp(-\widetilde F(s)/\widetilde\tau)$ と定義すると、
 
-$
+$$
 \begin{aligned}
 \widetilde w_{\widetilde\tau}(s)
 &=\exp\left(-\frac{aF(s)+b}{a\tau}\right)\\
 &=\exp\left(-\frac{b}{a\tau}\right)w_\tau(s).
 \end{aligned}
-$
+$$
 
 したがって $s,t\in S$ について共通因子が約分され、
 
-$
+$$
 \frac{\widetilde w_{\widetilde\tau}(s)}{\widetilde w_{\widetilde\tau}(t)}
 =\frac{w_\tau(s)}{w_\tau(t)}
 =\exp\left(-\frac{F(s)-F(t)}{\tau}\right).
-$
+$$
 
 一方、$F$ だけを $aF+b$ に変え尺度 $\tau$ を固定すると、変換後の重み比は $\exp(-a(F(s)-F(t))/\tau)$ となり、一般には元の比と異なる。**最小点が同じこと**と、**重みの比が同じこと**は別の主張である。
 
@@ -369,22 +369,22 @@ $$
 
 [指数重みの定義](#def-pml1-01-temperature-scale)では、同じ正の尺度を持つ二状態の重みを割ると指数の差に帰着する。元の関数では
 
-$
+$$
 \frac{w_\tau(1)}{w_\tau(0)}
 =\exp\left(-\frac{F(1)-F(0)}{\tau}\right)
 =\exp\left(-\frac{2-0}{1}\right)=e^{-2}.
-$
+$$
 
 変換後の関数値は $\widetilde F(0)=5$、$\widetilde F(1)=11$ である。変換後の尺度をそれぞれ指定すると、
 
-$
+$$
 \begin{aligned}
 \frac{\widetilde w_3(1)}{\widetilde w_3(0)}
 &=\exp\left(-\frac{11-5}{3}\right)=e^{-2},\\
 \frac{\widetilde w_1(1)}{\widetilde w_1(0)}
 &=\exp\left(-\frac{11-5}{1}\right)=e^{-6}.
 \end{aligned}
-$
+$$
 
 どちらの場合も [正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)により最小点は0のままである。重みの比は最小点だけから決まらず、関数値の差と尺度の比から決まる。
 <!-- solution-end -->
@@ -437,19 +437,19 @@ $$
 
 **2.** 置換後の目的関数は $\widetilde L_D=2L_D+3$ を使うので、
 
-$
+$$
 \begin{aligned}
 \widetilde J_\lambda(0)&=\frac{2\cdot1+3}{1}+\lambda\frac{4\,\mathrm J}{2\,\mathrm J}=5+2\lambda,\\
 \widetilde J_\lambda(1)&=\frac{2\cdot2+3}{1}+\lambda\frac{0\,\mathrm J}{2\,\mathrm J}=7.
 \end{aligned}
-$
+$$
 
 両値が等しい条件は $5+2\lambda=7$、すなわち $\lambda=1$ に変わる。特に $\lambda=3/4$ では
 
-$
+$$
 (J_{3/4}(0),J_{3/4}(1))=(5/2,2),\qquad
 (\widetilde J_{3/4}(0),\widetilde J_{3/4}(1))=(13/2,7).
-$
+$$
 
 元の目的は1を選び、新目的は0を選ぶ。[正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)は**目的関数全体**を同じ正倍率で変換する場合の主張である。今回は損失成分だけを変えてエネルギー成分は固定したため、命題の仮定には当たらない。
 
