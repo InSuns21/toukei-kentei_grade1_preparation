@@ -12,10 +12,10 @@ concepts:
     introduction_aliases: ["定義（多項再標本化）"]
     requires: [robotics.selfnormalized-particle-belief]
   - id: robotics.resampling-conditional-moments
-    name: 多項再標本化の条件付き期待値と分散
+    name: 多項再標本化の抽選平均と分散
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（多項再標本化の条件付き期待値と分散）"]
+    introduction_aliases: ["命題（多項再標本化の抽選平均と分散）"]
     requires: [robotics.multinomial-resampling]
   - id: robotics.particle-weight-ess
     name: 重みに基づく有効標本サイズ
@@ -42,8 +42,8 @@ concepts:
     introduction_aliases: ["定義（運動モデル提案型の逐次重点再標本化）"]
     requires: [robotics.multinomial-resampling, robotics.sequential-importance-weight-recursion]
   - id: robotics.bootstrap-sir-unnormalized-step
-    name: SIR 一歩の未正規化積分の条件付き期待値
+    name: SIR 一歩の未正規化量の抽選平均
     kind: theorem
     introduction: formal
-    introduction_aliases: ["定理（SIR 一歩の未正規化積分の条件付き期待値）"]
+    introduction_aliases: ["定理（SIR 一歩の未正規化量の抽選平均）"]
     requires: [robotics.bootstrap-sir, robotics.resampling-conditional-moments]
