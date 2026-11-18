@@ -4,7 +4,7 @@ export const WGL19_DELTAS=Object.freeze([16,16,72,16]);
 export const WGL19_DT=20;
 export const WGL19_CAP=4;
 export function scheduleWGL19(deltas=WGL19_DELTAS,fixedMs=WGL19_DT,maxStepsPerFrame=WGL19_CAP){
-  if(!Array.isArray(deltas)&&!Object.isFrozen(deltas))throw new RangeError('deltas must be an array');
+  if(!Array.isArray(deltas))throw new RangeError('deltas must be an array');
   if(deltas.length<1||deltas.length>12||deltas.some(d=>!Number.isFinite(d)||d<0||d>1000)||
      !Number.isFinite(fixedMs)||fixedMs<=0||fixedMs>1000||
      !Number.isInteger(maxStepsPerFrame)||maxStepsPerFrame<1||maxStepsPerFrame>12)

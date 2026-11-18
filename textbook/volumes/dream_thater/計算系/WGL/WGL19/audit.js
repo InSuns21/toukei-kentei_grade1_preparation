@@ -171,6 +171,7 @@ return (async()=>{
       report('CONTEXT','context lost/restored; all resources rebuilt; '+steps+' ticks replayed');
     }
   }else report('CONTEXT','simulation disabled; set simulateLoss=true to test actual loss/rebuild');
+  if(steps>12)throw new RangeError('12 total steps maximum for independent CPU audit');
   const floatReadback=readState();
   drawScreen();
   const mass=floatReadback.reduce((a,b)=>a+b,0);

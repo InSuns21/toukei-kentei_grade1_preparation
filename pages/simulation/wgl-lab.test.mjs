@@ -200,3 +200,6 @@ import './wgl17-lab.test.mjs';
 
 // WGL18: diffusion conservation/positivity and GPU float/CPU oracle.
 import './wgl18-lab.test.mjs';
+
+// WGL19: distinct simulation/render clocks, GPU float oracle and resource lifecycle.
+import './wgl19-lab.test.mjs';
