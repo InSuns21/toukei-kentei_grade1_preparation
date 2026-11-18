@@ -115,6 +115,10 @@ report('DATA','official PLATEAU sample building id '+data.source.gmlId+
 report('COORD','origin latitude '+lat0+', longitude '+lon0+', height '+h0+' m; x=east y=north z=up (m)');
 report('HEIGHT','DEM and water grid entirely synthetic; water surface '+waterLevelM+
   ' m, ground at origin '+dem(0,0).toFixed(6)+' m, depth '+depth(0,0).toFixed(6)+' m');
+report('DEPTH','at (10,-20) ground '+dem(10,-20).toFixed(6)+
+  ' m / depth '+depth(10,-20).toFixed(6)+
+  ' m; at (-20,10) ground '+dem(-20,10).toFixed(6)+
+  ' m / depth '+depth(-20,10).toFixed(6)+' m');
 report('DRAW','terrain '+counts.terrain/3+' triangles, official building '+
   counts.building/3+' triangles, water '+counts.water/3+' triangles, '+drawCalls+' calls');
 report('WARN','Z exaggeration '+zExaggeration+' changes visual geometry only; not elevation data. Terrain is not measured.');
@@ -122,7 +126,9 @@ report('ATTR','official sample measuredHeight='+data.source.heightAttributeM+
   ' m; usage code in original GML; absent municipality/year are not guessed');
 const checkpoints={firstLocal:positions.slice(0,3),vertices:positions.length/3,
   triangles:triangles.length/3,waterLevelM,groundAtOriginM:dem(0,0),
-  depthAtOriginM:depth(0,0),zExaggeration,drawCalls};
+  depthAtOriginM:depth(0,0),groundAtTestM:dem(10,-20),
+  depthAtTestM:depth(10,-20),groundAtWestM:dem(-20,10),
+  depthAtWestM:depth(-20,10),zExaggeration,drawCalls};
 // CS1: an independent solid-object ID pass into RGBA8 plus a CPU triangle-ray check.
 // Transparent hypothetical water and the diagnostic strip are deliberately excluded.
 let pick;
