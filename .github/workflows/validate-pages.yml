@@ -97,6 +97,13 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node --test pages/simulation/wgl-lab.test.mjs
 
+      - name: Test FCG1 independent Canvas tracer numerical invariants and source
+        if: steps.scope.outputs.full == 'true'
+        run: |
+          node --check pages/simulation/fcg-canvas-lab-host.mjs
+          node --check pages/simulation/fcg1-model.mjs
+          node --test pages/simulation/fcg1-model.test.mjs
+
       - name: Test WGL1 shader compilation and actual GPU pixels in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-wgl-browser.mjs
@@ -130,6 +137,19 @@ jobs:
             fi
           fi
           fc-list : family | grep -q 'Noto Sans CJK JP'
+
+      - name: Test FCG1 real-browser source editing, Canvas time controls and snapshots
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg1-browser.mjs
+
+      - name: Upload FCG1 real-browser screenshot review artifact
+        if: always() && steps.scope.outputs.full == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: fcg1-browser-review
+          path: _fcg1_browser_review/
+          if-no-files-found: warn
+          retention-days: 14
 
       - name: Validate all 15 ORI SVG films in real Chromium (Phase C and D)
         if: steps.scope.outputs.full == 'true'
