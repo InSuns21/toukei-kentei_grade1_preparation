@@ -1,0 +1,61 @@
+chapter: U2-17
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-16
+forward_references: []
+concepts:
+  - id: robotics.known-binary-occupancy-map
+    name: 既知の二値占有格子地図
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既知の二値占有格子地図）"]
+    requires: [robotics.planar-pose]
+  - id: robotics.known-map-ray-range
+    name: 既知地図での有限距離レイ投射
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（既知地図での有限距離レイ投射）"]
+    requires: [robotics.known-binary-occupancy-map, robotics.planar-rigid-transform]
+  - id: robotics.ray-first-hit-existence
+    name: 最初の命中距離の存在
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最初の命中距離の存在）"]
+    requires: [robotics.known-map-ray-range]
+  - id: robotics.quantized-beam-likelihood
+    name: 有限値の測距ビーム尤度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限値の測距ビーム尤度）"]
+    requires: [robotics.known-map-ray-range, robotics.landmark-noisy-observation]
+  - id: robotics.quantized-beam-normalization
+    name: ビーム尤度の正規化と分母の必要性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ビーム尤度の正規化と分母の必要性）"]
+    requires: [robotics.quantized-beam-likelihood]
+  - id: robotics.multibeam-conditional-independence
+    name: 条件付き独立な複数ビーム模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（条件付き独立な複数ビーム模型）"]
+    requires: [robotics.quantized-beam-normalization]
+  - id: robotics.multibeam-finite-posterior
+    name: 複数ビームによる有限候補姿勢の事後分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（複数ビームによる有限候補姿勢の事後分布）"]
+    requires: [robotics.multibeam-conditional-independence, robotics.finite-bayes-filter]
+  - id: robotics.robust-quantized-beam
+    name: 一様外れ値を混ぜた有限ビーム尤度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（一様外れ値を混ぜた有限ビーム尤度）"]
+    requires: [robotics.quantized-beam-likelihood, robotics.outlier-mixture-observation]
+  - id: robotics.robust-beam-evidence-bound
+    name: 外れ値混合の正規化と観測証拠の下限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（外れ値混合の正規化と観測証拠の下限）"]
+    requires: [robotics.robust-quantized-beam, robotics.multibeam-conditional-independence]

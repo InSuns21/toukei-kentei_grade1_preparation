@@ -54,13 +54,13 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（有限候補のデータ依存損失）**  
-> 非空有限集合 $\Theta$ と長さ $n\ge1$ の観測列を与える。観測列は
+> 非空有限の候補集合 $\Theta$、非空の入力集合 $\mathcal X$ と目的値集合 $\mathcal Y$、整数 $n\ge1$ を指定する。各 $x_i\in\mathcal X$、$y_i\in\mathcal Y$ からなる長さ $n$ の観測列を
 >
 $$
 D=((x_i,y_i))_{i=1}^n
 $$
 >
-> と書く。パラメータごとの予測器 $f_\theta$ と非負有限値の一観測損失関数 $\ell$ を指定する。経験損失を
+> と書く。各 $\theta\in\Theta$ に予測器 $f_\theta:\mathcal X\to\mathcal Y$ を対応させ、有限非負値の一観測損失関数 $\ell:\mathcal Y\times\mathcal Y\to[0,\infty)$ を指定する。経験損失を
 >
 $$
 L_D(\theta)=\frac1n\sum_{i=1}^n\ell(f_\theta(x_i),y_i)
@@ -70,7 +70,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-01-data-objective -->
-**定義の確認**。$\Theta=\{0,1,2\}$、$f_\theta(x)=\theta x$、$D=((1,1),(2,2))$、$\ell(\widehat y,y)=(\widehat y-y)^2/2$ とする。$x,y$ は同じ無次元の尺度で測った数値とする。
+**定義の確認**。$\mathcal X=\mathcal Y=\mathbb R$（無次元の数値）、$\Theta=\{0,1,2\}$、$f_\theta(x)=\theta x$、$D=((1,1),(2,2))$、$\ell(\widehat y,y)=(\widehat y-y)^2/2$ とする。各 $f_\theta$ は実数から実数への写像で、損失はその予測値と観測値の差の二乗の半分なので、$\mathbb R\times\mathbb R$ 上で有限かつ非負である。
 
 $$
 \begin{aligned}
@@ -103,11 +103,15 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正のアフィン変換と最小化解）**  
-> 非空有限集合 $S$、実数値関数 $F:S\to\mathbb R$、定数 $a>0,b\in\mathbb R$ を固定する。$G(s)=aF(s)+b$ とすると、
+> 非空有限集合 $S$、実数値関数 $F:S\to\mathbb R$、定数 $a>0$ と $b\in\mathbb R$ を固定する。
+> $\operatorname*{argmin}_{s\in S}F(s)$ は、$S$ 上で $F$ が最小値を達成するすべての点を集めた集合である。
+> $G(s)=aF(s)+b$ とすると、
 >
-> $$\operatorname*{argmin}_{s\in S}G(s)=\operatorname*{argmin}_{s\in S}F(s).$$
+$$
+\operatorname*{argmin}_{s\in S}G(s)=\operatorname*{argmin}_{s\in S}F(s).
+$$
 >
-> また $G(s)-G(t)=a(F(s)-F(t))$ が成り立つ。ここで $\operatorname*{argmin}$ は最小値を達成するすべての候補の集合とする。
+> また任意の $s,t\in S$ について $G(s)-G(t)=a(F(s)-F(t))$ が成り立つ。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -134,7 +138,7 @@ $$
 であり、両方の $b$ が相殺される。
 <!-- proof-end -->
 
-**仮定を落とすと**、$a=0$ では $G$ が定数となり、元の最小点以外も最小になる。$a<0$ では順序が逆転する。また $b=b(s)$ が候補に依存すれば相殺されない。例えば $F(0)=0,F(1)=1$ として $b(0)=2,b(1)=0$ とすると $F$ の最小点は0、$F+b$ の最小点は1になる。
+**仮定を落とすと**、$a=0$ では $G$ が定数となり、$F$ が定数でなければ元の最小点以外も最小になる（$F$ が定数なら両者の最小点集合は一致する）。$a<0$ では $F$ の値の大小関係が逆転する。また $b=b(s)$ が候補に依存すれば相殺されない。例えば $F(0)=0,F(1)=1$ として $b(0)=2,b(1)=0$ とすると $F$ の最小点は0、$F+b$ の最小点は1になる。
 
 ## 5. データを足すことと、単位を換えることは違う
 
@@ -226,14 +230,25 @@ $$
 **定義の確認**。第2節のばねの三状態で $\tau=1\,\mathrm J$ とすると $w_\tau(-1\,\mathrm m)=e^{-1}$、$w_\tau(0)=1$、$w_\tau(1\,\mathrm m)=e^{-1}$。すべて正で、指数の入力は $\mathrm J/\mathrm J=1$ である。これらの和は $1+2e^{-1}$ であり、一般に1ではない。次講ではこの和で割る操作の意味を系統的に調べる。
 <!-- definition-example-end -->
 
-**尺度を変えたときの注意**。$F'=aF+b$（$a>0$）とし、$\tau'=a\tau$ とすれば
+**尺度を変えたときの注意**。元の関数 $F$ と尺度 $\tau$ に対して、変換後の関数を $\widetilde F=aF+b$、尺度を $\widetilde\tau=a\tau$ と書く。ここで $a>0$ は無次元、$b$ は $F$ と同じ単位の定数とする。$\widetilde F$ は微分ではなく、変換後の関数を表す。変換後の重みを $\widetilde w_{\widetilde\tau}(s)=\exp(-\widetilde F(s)/\widetilde\tau)$ と定義すると、
 
 $$
-\exp\left(-\frac{F'(s)}{\tau'}\right)
-=\exp\left(-\frac{b}{a\tau}\right)\exp\left(-\frac{F(s)}{\tau}\right).
+\begin{aligned}
+\widetilde w_{\widetilde\tau}(s)
+&=\exp\left(-\frac{aF(s)+b}{a\tau}\right)\\
+&=\exp\left(-\frac{b}{a\tau}\right)w_\tau(s).
+\end{aligned}
 $$
 
-共通因子は全状態で等しいため、重みの比 $w(s)/w(t)$ は変わらない。一方、$F$ だけを倍率 $a$ で換え $\tau$ を固定すれば、$w(s)/w(t)=\exp(-(F(s)-F(t))/\tau)$ の指数が変わる。**最小点が同じこと**と、**重みの比が同じこと**は別の主張である。
+したがって $s,t\in S$ について共通因子が約分され、
+
+$$
+\frac{\widetilde w_{\widetilde\tau}(s)}{\widetilde w_{\widetilde\tau}(t)}
+=\frac{w_\tau(s)}{w_\tau(t)}
+=\exp\left(-\frac{F(s)-F(t)}{\tau}\right).
+$$
+
+一方、$F$ だけを $aF+b$ に変え尺度 $\tau$ を固定すると、変換後の重み比は $\exp(-a(F(s)-F(t))/\tau)$ となり、一般には元の比と異なる。**最小点が同じこと**と、**重みの比が同じこと**は別の主張である。
 
 ## 7. 類比が成立する条件と破綻する場所
 
@@ -347,12 +362,31 @@ $$
 - Level: B
 - 目安時間: 20分
 
-二状態 $S=\{0,1\}$、$F(0)=0,F(1)=2$、$\tau=1$ とする。$F'=3F+5$ を考える。温度尺度を $\tau'=3$ に変更した場合と、$\tau'=1$ に固定した場合の重みの比 $w(1)/w(0)$ を求め、最小点との関係を説明せよ。
+二状態 $S=\{0,1\}$、無次元関数 $F(0)=0,F(1)=2$、尺度 $\tau=1$ とする。変換後の関数 $\widetilde F=3F+5$ を考える。変換後の尺度を $\widetilde\tau=3$ に変更した場合と、$\widetilde\tau=1$ に固定した場合の変換後の重み比 $\widetilde w_{\widetilde\tau}(1)/\widetilde w_{\widetilde\tau}(0)$ を求め、最小点との関係を説明せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-元の比は $\exp(-(F(1)-F(0))/\tau)=e^{-2}$ である。$F'(0)=5,F'(1)=11$ なので、$\tau'=3$ なら比は $\exp(-(11-5)/3)=e^{-2}$、$\tau'=1$ なら $e^{-6}$。いずれも [正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)により最小点は0のまま。重みの比は最小点だけから決まらず、エネルギー差と尺度の比から決まる。
+[指数重みの定義](#def-pml1-01-temperature-scale)では、同じ正の尺度を持つ二状態の重みを割ると指数の差に帰着する。元の関数では
+
+$$
+\frac{w_\tau(1)}{w_\tau(0)}
+=\exp\left(-\frac{F(1)-F(0)}{\tau}\right)
+=\exp\left(-\frac{2-0}{1}\right)=e^{-2}.
+$$
+
+変換後の関数値は $\widetilde F(0)=5$、$\widetilde F(1)=11$ である。変換後の尺度をそれぞれ指定すると、
+
+$$
+\begin{aligned}
+\frac{\widetilde w_3(1)}{\widetilde w_3(0)}
+&=\exp\left(-\frac{11-5}{3}\right)=e^{-2},\\
+\frac{\widetilde w_1(1)}{\widetilde w_1(0)}
+&=\exp\left(-\frac{11-5}{1}\right)=e^{-6}.
+\end{aligned}
+$$
+
+どちらの場合も [正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)により最小点は0のままである。重みの比は最小点だけから決まらず、関数値の差と尺度の比から決まる。
 <!-- solution-end -->
 
 ### PML1-01-B04 データ変更による最小点の逆転
@@ -401,7 +435,23 @@ $$
 
 差は $J_\lambda(0)-J_\lambda(1)=2\lambda-1$ なので、$0\le\lambda<1/2$ は0だけ、$\lambda=1/2$ は両方、$\lambda>1/2$ は1だけが最小となる。
 
-**2.** 新たな目的は $\widetilde J_\lambda(0)=2\cdot1+3+2\lambda=5+2\lambda$、$\widetilde J_\lambda(1)=2\cdot2+3=7$。切替えは $5+2\lambda=7$ すなわち $\lambda=1$ に変わる。特に $\lambda=3/4$ では元の目的が $(5/2,2)$ で1を選び、新目的は $(13/2,7)$ で0を選ぶ。[正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)は**目的関数全体**を同じ正倍率で変換する場合の主張である。今回は損失成分だけを変えてエネルギー成分は固定したため、命題の仮定には当たらない。
+**2.** 置換後の目的関数は $\widetilde L_D=2L_D+3$ を使うので、
+
+$$
+\begin{aligned}
+\widetilde J_\lambda(0)&=\frac{2\cdot1+3}{1}+\lambda\frac{4\,\mathrm J}{2\,\mathrm J}=5+2\lambda,\\
+\widetilde J_\lambda(1)&=\frac{2\cdot2+3}{1}+\lambda\frac{0\,\mathrm J}{2\,\mathrm J}=7.
+\end{aligned}
+$$
+
+両値が等しい条件は $5+2\lambda=7$、すなわち $\lambda=1$ に変わる。特に $\lambda=3/4$ では
+
+$$
+(J_{3/4}(0),J_{3/4}(1))=(5/2,2),\qquad
+(\widetilde J_{3/4}(0),\widetilde J_{3/4}(1))=(13/2,7).
+$$
+
+元の目的は1を選び、新目的は0を選ぶ。[正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)は**目的関数全体**を同じ正倍率で変換する場合の主張である。今回は損失成分だけを変えてエネルギー成分は固定したため、命題の仮定には当たらない。
 
 **3.** [指数重みの定義](#def-pml1-01-temperature-scale)から $w(0)=e^{-4},w(1)=1$。従って $w(1)/w(0)=e^4$。これは指定された物理的エネルギーと $\tau$ から計算した重みの比である。学習パラメータをどう標本抽出するか、あるいは訓練データ $D$ を確率的にどう得るかは別途定義する必要がある。最小化や重みの形の一致だけでは学習器の確率法則を特定できない。
 <!-- solution-end -->

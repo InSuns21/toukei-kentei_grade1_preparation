@@ -1,0 +1,20 @@
+chapter: FCG3
+terms:
+  - term: 染料移流
+    english: passive scalar advection
+    meaning: 与えられた速度場に濃度が輸送され、拡散項や反応項を含まない模型。
+  - term: 特性曲線
+    english: characteristic curve
+    meaning: 速度場に従って動く点の軌道。移流方程式の濃度が軌道に沿って一定となる。
+  - term: 逆追跡
+    english: backtracing
+    meaning: 新時刻の格子セル中心から旧時刻の出発点へ遡る操作。
+  - term: 双線形補間
+    english: bilinear interpolation
+    meaning: 2次元の矩形格子で四隅の標本値を各方向の線形重みによって混合する手法。
+  - term: 数値拡散
+    english: numerical diffusion
+    meaning: 物理式に拡散項がなくても離散更新で鋭い勾配がなまる現象。
+  - term: CFL数
+    english: Courant number
+    meaning: 一歩の移動距離を格子幅で割った量。安定性条件と精度条件を区別して扱う。

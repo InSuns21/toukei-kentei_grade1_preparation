@@ -20,7 +20,7 @@ chapters:
   - { id: U2-14, path: textbook/volumes/dream_thater/応用系/U/U2-14, status: completed, title: "逐次重要度サンプリング：粒子の重みはなぜ必要か" }
   - { id: U2-15, path: textbook/volumes/dream_thater/応用系/U/U2-15, status: completed, title: "粒子フィルタ：再標本化と有効標本サイズ" }
   - { id: U2-16, path: textbook/volumes/dream_thater/応用系/U/U2-16, status: completed, title: "誘拐されたロボット：粒子の崩壊から回復する" }
-  - { id: U2-17, path: textbook/volumes/dream_thater/応用系/U/U2-17, status: planned, title: "地図が既知のときの観測尤度：障害物と測距" }
+  - { id: U2-17, path: textbook/volumes/dream_thater/応用系/U/U2-17, status: completed, title: "地図が既知のときの観測尤度：障害物と測距" }
   - { id: U2-18, path: textbook/volumes/dream_thater/応用系/U/U2-18, status: planned, title: "Monte Carlo localization：平面で位置を追う" }
   - { id: U2-19, path: textbook/volumes/dream_thater/応用系/U/U2-19, status: planned, title: "データ対応と誤観測：見た目が似た目印の落とし穴" }
   - { id: U2-20, path: textbook/volumes/dream_thater/応用系/U/U2-20, status: planned, title: "占有格子地図の更新：log-odds と逆センサーモデル" }

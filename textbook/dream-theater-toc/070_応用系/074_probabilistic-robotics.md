@@ -17,3 +17,4 @@
 14. [U2-14 逐次重要度サンプリング：粒子の重みはなぜ必要か](textbook/volumes/dream_thater/応用系/U/U2-14/index.md)
 15. [U2-15 粒子フィルタ：再標本化と有効標本サイズ](textbook/volumes/dream_thater/応用系/U/U2-15/index.md)
 16. [U2-16 誘拐されたロボット：粒子の崩壊から回復する](textbook/volumes/dream_thater/応用系/U/U2-16/index.md)
+17. [U2-17 地図が既知のときの観測尤度：障害物と測距](textbook/volumes/dream_thater/応用系/U/U2-17/index.md)

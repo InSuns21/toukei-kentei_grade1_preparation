@@ -31,14 +31,19 @@ def normalize(masses: tuple[F, ...]) -> tuple[F, ...] | None:
 
 
 def mixture(a: tuple[F, ...], b: tuple[F, ...], rate: F) -> tuple[F, ...]:
-    if len(a) != len(b) or not F(0) <= rate <= F(1):
+    if not a or len(a) != len(b) or not F(0) <= rate <= F(1):
         raise ValueError("invalid mixture")
-    if sum(a, F(0)) != 1 or sum(b, F(0)) != 1:
-        raise ValueError("mixture inputs must be probability vectors")
+    if (any(x < 0 for x in a + b)
+            or sum(a, F(0)) != 1 or sum(b, F(0)) != 1):
+        raise ValueError("mixture inputs must be nonnegative probability vectors")
     return tuple((1 - rate) * x + rate * y for x, y in zip(a, b))
 
 
 def update(prior: tuple[F, ...], likelihood: tuple[F, ...]) -> tuple[F, ...] | None:
+    if (not prior or len(prior) != len(likelihood)
+            or any(x < 0 for x in prior + likelihood)
+            or sum(prior, F(0)) != 1):
+        raise ValueError("Bayes update needs a prior distribution and nonnegative, aligned likelihoods")
     return normalize(tuple(x * y for x, y in zip(prior, likelihood)))
 
 
@@ -138,6 +143,20 @@ def self_test() -> None:
     assert weights == (F(15, 56), F(5, 6))
     assert sum((q * w for q, w in zip(proposal, weights)), F(0)) == F(7, 16)
     assert update(target, (F(1, 4), F(1))) == (F(3, 7), F(4, 7))
+    # A sum of one does not suffice for a probability vector; also reject silent zip truncation.
+    invalid_cases = (
+        lambda: mixture((F(-1), F(2)), EXPLORATION, KAPPA),
+        lambda: mixture((F(1),), EXPLORATION, KAPPA),
+        lambda: update(PRIOR, (F(1),)),
+        lambda: update((F(0), F(1)), (F(-1), F(1))),
+    )
+    for invalid_case in invalid_cases:
+        try:
+            invalid_case()
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("invalid probability input was accepted")
     print("All exact U2-16 tests passed.")
     show_exact()
     show_zeros()

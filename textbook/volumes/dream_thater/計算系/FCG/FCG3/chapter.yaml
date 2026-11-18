@@ -1,0 +1,30 @@
+id: FCG3
+title: "染料移流の数値拡散はどこから来るか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG2]
+official_scope: []
+learning_objectives:
+  - "既知の回転速度場と初期染料から移流方程式と逆向き特性曲線を導ける"
+  - "セル中心の双線形補間を導出し、ゼロ外部境界での重みと値域を検証できる"
+  - "時刻ごとの半Lagrange更新、格子積分・一回転後の誤差を実装し区別できる"
+  - "CFL値、逆追跡の誤差、補間散逸、非保存性とR8表示誤差を区別できる"
+  - "JSとGLSLを編集して回転染料と誤差mapを表示し、独立CPUとGPU実画素を照合できる"
+definitions:
+  - { id: FCG3-DEF-01, name: "半Lagrange逆追跡足点" }
+  - { id: FCG3-DEF-02, name: "セル中心の双線形再構成" }
+  - { id: FCG3-DEF-03, name: "半Lagrange染料更新" }
+theorems:
+  - { id: FCG3-PROP-01, name: "双線形更新の値域不増大" }
+  - { id: FCG3-PROP-02, name: "回転の厳密な逆追跡と一周後の復元" }
+  - { id: FCG3-PROP-03, name: "非保存性と数値拡散の区別" }
+canonical_examples:
+  - "4個の格子値から足点値を双線形重みで求める"
+  - "角速度2π、刻み1/32で逆回転足点を導く"
+  - "step32の解析一回転と離散場の差・格子積分を測る"
+  - "左の数値染料と右のR8差画像をGLSLで読み分ける"
+problem_patterns: [FCG3-FOOT, FCG3-BILINEAR, FCG3-CFL, FCG3-ROTATE, FCG3-MAX, FCG3-MASS, FCG3-SHADER, FCG3-INTEGRATED]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 3 }
