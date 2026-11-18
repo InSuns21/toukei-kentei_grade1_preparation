@@ -188,7 +188,11 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正規化I関数のH二次成分）**  
-> $X\subset\mathbb P^4_{\mathbb C}$ を滑らかな五次超曲面、$H=c_1(\mathcal O_X(1))$、$w$ を可逆な形式変数、$h=H/w$（$H^4=0$）とする。[quinticの超幾何I関数](../MIR2-10/index.md#def-mir2-10-i-function)の係数 $I_0,I_1$ から、$g(z)=I_1(z)/I_0(z)$、$q(z)=ze^{g(z)}$、[正規化I関数](../MIR2-12/index.md#def-mir2-12-flat-normalization) $\mathcal F_X$ を定める。$\mathcal F_X$ の $H^2/w$ 成分のスカラー級数を $F_2(z)$ と記す。このとき
+> $X\subset\mathbb P^4_{\mathbb C}$ を滑らかな五次超曲面、$H=c_1(\mathcal O_X(1))$、$w$ を可逆な形式変数とし、$h=H/w$（$H^4=0$）とする。
+>
+> [超幾何I関数](../MIR2-10/index.md#def-mir2-10-i-function)の係数を $I_0,I_1$、[正規化I関数](../MIR2-12/index.md#def-mir2-12-flat-normalization)を $\mathcal F_X$ とする。鏡像座標に用いる級数は $g(z)=I_1(z)/I_0(z)$、$q(z)=ze^{g(z)}$ である。
+>
+> $\mathcal F_X$ の $H^2/w$ 成分のスカラー級数を $F_2(z)$ と記す。このとき
 
 $$
 F_2(z)=575z+\frac{2746375}{4}z^2+O(z^3).
