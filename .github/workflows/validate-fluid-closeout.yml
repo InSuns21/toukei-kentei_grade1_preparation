@@ -27,6 +27,8 @@ jobs:
         with:
           node-version: '24'
           cache: npm
+      - name: Install Python plotting dependencies used by FLUID11 and other labs
+        run: python3 -m pip install numpy matplotlib
       - name: Run all FLUID Python CLIs, embedded self-tests and course invariants
         run: node scripts/validate-fluid-plan-closeout.mjs
       - name: Install website dependencies
