@@ -19,7 +19,7 @@ concepts:
     name: Neumann圧力Poisson問題と圧力ゲージ
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（Neumann圧力Poisson問題と圧力ゲージ）"]
+    introduction_aliases: ["定義（Neumann圧力Poisson問題と圧力ゲージ）", "同次Neumann条件"]
     requires: [graphics.fcg4-gradient-projection]
   - id: graphics.fcg4-residual
     name: Poisson残差と離散発散診断
