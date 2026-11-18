@@ -277,7 +277,7 @@ $$
 
 同じ Python ファイルが周期・開放境界で面流束を一度ずつ組み立て、セル値を更新する。厳密セル平均との比較、初期質量・最終質量・境界正味流入、各刻みでの保存残差を出す。周期的な正弦波と段差を持つ矩形パルスを使い分け、**段差が丸くなる現象と質量消失を混同しない**ようにする。図は同一計算の離散値・正確なセル平均・初期値を表示した補助であり、グラフの見た目を保存の証拠としない。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID45-FINITE-VOLUME-ADVECTION
 # lab-title: 1D有限体積移流・セル総量と境界流束
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID45/finite_volume_advection_lab.py
@@ -289,7 +289,7 @@ $$
 # lab-preset: 速度と刻みを変更 | --grid 64 --case sine --boundary periodic --time 0.3 --speed 1.5 --cfl 0.5
 # lab-preset: 一定解・誤差ゼロの確認 | --grid 40 --case sine --boundary periodic --time 0.4 --amplitude 0
 # lab-preset: Python内蔵の保存則テスト | --self-test
-<!-- python-file-lab-end -->
+```
 
 初回は Pyodide の公開実行環境の取得が必要な場合がある。Pythonソースは「Pythonソース」タブからページ内で読める。各出力の質量の単位は kg、時刻は s、セル値は kg/m、速度は m/s、誤差 $E_1$ は kg である。**保存残差の小ささと、解析解に対する誤差の小ささは別々に確認**すること。CLIからは同一ファイルに引数 `--self-test` を渡すと、周期保存、開放境界収支、非負性、一定解、正弦波格子細分、入力検証を実行する。
 
