@@ -527,7 +527,14 @@ function run() {
   if (!ready) { setStatus('教材ソースがまだ読み込まれていません', true); return; }
   let payload;
   try { payload = {...capture(), lesson};
-    if (isFCG2) { payload.steps=fcg2Steps; payload.probes=expectedFCG2Samples(payload.width,payload.height,fcg2Steps).map(p=>[p.x,p.y]); }
+    if (isFCG2) {
+      payload.steps=fcg2Steps;
+      const predicted=expectedFCG2Samples(payload.width,payload.height,fcg2Steps);
+      payload.probes=predicted.map(p=>[p.x,p.y]);
+      byId('fcg2-cpu-prediction').textContent='独立CPU予測（GPU非対応でも利用可） step '+
+        fcg2Steps+': '+predicted.map(p=>p.label+' q='+p.value.toFixed(6)+
+        ', R8='+p.byte+', 予測RGBA='+p.rgba.join('/')).join(' ／ ');
+    }
     if (isWGL5) payload.probes = expectedWGL5Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL6) payload.probes = expectedWGL6Samples(payload.width,payload.height).map(p => [p.x,p.y]);
     if (isWGL7) payload.probes = expectedWGL7Samples(payload.width,payload.height).map(p => [p.x,p.y]);
@@ -682,7 +689,12 @@ if (isFCG2) {
     button.type='button';button.textContent=label;button.className='action';controls.append(button);
   }
   controls.append(marker);
-  document.querySelector('#panel-conditions .controls').after(controls);
+  // Put physical-step controls outside all tabpanels; they must remain visible with GPU canvas.
+  byId('run').parentElement.before(controls);
+  const cpuPreview=document.createElement('p');
+  cpuPreview.id='fcg2-cpu-prediction';
+  cpuPreview.setAttribute('aria-live','polite');
+  byId('panel-result').append(cpuPreview);
   function mark(){marker.textContent='物理step '+fcg2Steps+' / 4、t='+
     (fcg2Steps*Math.PI/2).toFixed(3)+' s（再描画だけでは物理時刻は進みません）';
     pause.disabled=fcg2Timer===null;play.disabled=fcg2Timer!==null;}

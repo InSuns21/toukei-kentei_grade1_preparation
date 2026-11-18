@@ -94,13 +94,15 @@ try {
   assert.ok(initial.rows.every(r=>r[4]==='OK'),JSON.stringify(initial.rows));
   assert.match(initial.rows[0][2],/150, 38, 105, 255/);
   assert.match(initial.log,/R8/);
+  assert.match(await evaluate('document.querySelector("#fcg2-cpu-prediction").textContent'),/R8=150/);
   assert.equal(initial.sandbox,'allow-scripts');
   assert.equal(initial.opaque,true);
   console.log('FCG2 initial physical field, GPU readPixels, CPU oracle, opaque sandbox: PASS');
 
   // One physical step changes n=1 to n=2; all cell values become 0.5.
-  await evaluate('([...document.querySelectorAll("#panel-conditions button")].find(b=>b.textContent==="1step")).click()');
+  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="1step")).click()');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格") && document.querySelector("#result-note")?.textContent.includes("CPU")',25000);
+  assert.match(await evaluate('document.querySelector("#fcg2-cpu-prediction").textContent'),/R8=128/);
   const second=await evaluate('document.querySelector("#results-table tbody tr:first-child td:nth-child(3)")?.textContent');
   assert.match(second,/128, 38, 127, 255/);
   console.log('FCG2 physical step 2 and R8 value 128: PASS');
