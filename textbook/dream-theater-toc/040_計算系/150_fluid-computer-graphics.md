@@ -2,3 +2,4 @@
 ### 流体コンピュータグラフィックス
 
 1. [FCG1 流れをどう表示するか：流線と流跡](textbook/volumes/dream_thater/計算系/FCG/FCG1/index.md)
+2. [FCG2 WebGL2で物理データを描くには](textbook/volumes/dream_thater/計算系/FCG/FCG2/index.md)

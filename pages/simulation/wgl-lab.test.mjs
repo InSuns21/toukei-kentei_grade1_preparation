@@ -203,3 +203,6 @@ import './wgl18-lab.test.mjs';
 
 // WGL19: distinct simulation/render clocks, GPU float oracle and resource lifecycle.
 import './wgl19-lab.test.mjs';
+
+// FCG2: 8x8 analytic scalar field, R8 quantization and WebGL host.
+import './fcg2-lab.test.mjs';

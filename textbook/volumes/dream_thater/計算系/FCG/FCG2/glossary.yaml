@@ -1,0 +1,17 @@
+chapter: FCG2
+terms:
+  - term: スカラー場
+    english: scalar field
+    meaning: 空間と物理時刻へ一つの実数を対応させる場。本講は解析式で指定する。
+  - term: 物理格子
+    english: physical grid
+    meaning: 場を標本化する8×8セルと下原点の添字。
+  - term: R8正規化テクスチャ
+    english: normalized R8 texture
+    meaning: 一成分を8bit整数で格納しshaderで0から1へ正規化して読む形式。
+  - term: ping-pong
+    english: ping-pong buffers
+    meaning: 旧状態と新状態に別の記憶領域を割り当て更新後に役割を交換する手法。
+  - term: 描画フレーム
+    english: rendering frame
+    meaning: 物理状態を再表示する機会であり、物理時刻の進行とは独立。

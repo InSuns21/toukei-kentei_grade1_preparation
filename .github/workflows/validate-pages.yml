@@ -108,6 +108,10 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-wgl-browser.mjs
 
+      - name: Test FCG2 editable GPU scalar-field lab and CPU readback in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg2-browser.mjs
+
       - name: Upload WGL1 screenshot review artifact
         if: always() && steps.scope.outputs.full == 'true'
         uses: actions/upload-artifact@v4
