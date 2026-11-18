@@ -138,7 +138,13 @@ U_\tau=\sum_{s\in\Omega}p_\tau(s)E(s),\qquad
 V_\tau=\sum_s p_\tau(s)\bigl(E(s)-U_\tau\bigr)^2.
 $$
 
-平均はエネルギーの単位、分散はその二乗の単位を持つ。**分配関数自体は無次元**なので、$Z_\tau$ と平均エネルギーを同じ量と呼んではいけない。
+以後、状態 $s$ に対する確率 $p_\tau(s)$ で平均を取る演算を $\mathbb E_\tau$ と書く。例えば $g:\mathbb R\to\mathbb R$ に対し
+
+$
+\mathbb E_\tau[g(E)]=\sum_{s\in\Omega}p_\tau(s)g(E(s))
+$
+
+である。したがって $U_\tau=\mathbb E_\tau[E]$、$V_\tau=\mathbb E_\tau[E^2]-U_\tau^2$ とも書ける。ここで最初の $E$ はエネルギー関数、$\mathbb E_\tau$ は期待値の演算子であり、混同しない。平均はエネルギーの単位、分散はその二乗の単位を持つ。**分配関数自体は無次元**なので、$Z_\tau$ と平均エネルギーを同じ量と呼んではいけない。
 
 <a id="prop-pml1-02-two-state-response"></a>
 
@@ -150,7 +156,7 @@ $$
 > V_\tau=\frac{\Delta^2r}{(1+r)^2},\qquad
 > \frac{dU_\tau}{d\tau}=\frac{V_\tau}{\tau^2}>0.$$
 >
-> 物理的に $\tau=k_{\mathrm B}T$、$k_{\mathrm B}>0$、$T>0$ が成り立ち、$\Delta$ と $k_{\mathrm B}$ が温度に依存しないなら
+> 物理的に $\tau=k_{\mathrm B}T$、$k_{\mathrm B}>0$、$T>0$ が成り立ち、$\Delta$ と $k_{\mathrm B}$ が温度に依存しないとする。このとき $U(T):=U_{k_{\mathrm B}T}$ と定めれば
 >
 > $$\frac{dU}{dT}=\frac{V_\tau}{k_{\mathrm B}T^2}>0.$$
 <!-- formal-statement-end -->
@@ -162,7 +168,7 @@ $E(a)=0$ なので、平均は励起側の確率に $\Delta$ を掛けたもの�
 <!-- proof-start -->
 ### 証明
 
-二状態の確率は $p(a)=1/(1+r)$、$p(b)=r/(1+r)$ である。よって
+[二状態のGibbs確率と選択比](#prop-pml1-02-two-state-odds)から、ここでは $p(a)=p_\tau(a)=1/(1+r)$、$p(b)=p_\tau(b)=r/(1+r)$ である。よって
 
 $$
 U_\tau=0\cdot p(a)+\Delta p(b)=\frac{\Delta r}{1+r}
@@ -231,7 +237,7 @@ $$
 > $$\frac{e^{-E'(s)/\tau'}}{\sum_t e^{-E'(t)/\tau'}}
 > =\frac{e^{-E(s)/\tau}}{\sum_t e^{-E(t)/\tau}}$$
 >
-> が任意の $s\in\Omega$ について成り立つ。$b$ は共通のエネルギー基準の変更、$a$ は正の倍率とする。
+> が任意の $s\in\Omega$ について成り立つ。$a$ は無次元の正の倍率、$b$ は $E$ と同じ単位を持つ共通のエネルギー基準の変更量とする。この節の $E'$、$\tau'$ は変換後の量であり、前節の $r'(\tau)=dr/d\tau$ のような微分記号ではない。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -269,7 +275,13 @@ $$
 Z_\tau=1+1+e^{-\Delta/\tau}=2+r.
 $$
 
-各配置には $p(a_1)=p(a_2)=1/(2+r)$、$p(b)=r/(2+r)$ が割り当てられる。準位の確率は配置の確率を加えたもので、
+各配置には $p(a_1)=p(a_2)=1/(2+r)$、$p(b)=r/(2+r)$ が割り当てられる。[SM3の準位表示](../../../物理系/SM/SM3/index.md#prop-sm3-normalization)では、準位 $u\in E(\Omega)$ の確率は、そのエネルギーを持つ配置の確率をすべて足したものとする。すなわち
+
+$
+P_\tau(E=u)=\sum_{\substack{s\in\Omega\\E(s)=u}}p_\tau(s).
+$
+
+以下では固定した尺度 $\tau$ を添字から省略し、$P(E=u)$ とも書く。この三状態では
 
 $$
 P(E=0)=\frac2{2+r},\qquad P(E=\Delta)=\frac r{2+r}.
@@ -310,7 +322,15 @@ for tau in (0.5, 1.0, 2.0):
     print(f"{tau:.1f} {z:.6f} {p_excited:.6f} {mean:.6f} {variance:.6f}")
 ```
 
-手計算に戻るときは $p_\tau(b)=r/(1+r)$、$U_\tau=\Delta p_\tau(b)$、$V_\tau=\Delta^2p_\tau(b)(1-p_\tau(b))$ を照合する。この二状態模型では、尺度を大きくすると励起確率も分散も増える。有限状態の別の模型で同じ単調性を使うには、改めて検証が必要である。
+手計算に戻るときは $p_\tau(b)=r/(1+r)$、$U_\tau=\Delta p_\tau(b)$、$V_\tau=\Delta^2p_\tau(b)(1-p_\tau(b))$ を照合する。さらに $r=e^{-\Delta/\tau}\in(0,1)$ と $dr/d\tau=\Delta r/\tau^2>0$ から、分散についても
+
+$
+\frac{dV_\tau}{d\tau}
+=\Delta^2\frac{1-r}{(1+r)^3}\frac{dr}{d\tau}
+=\frac{\Delta^3r(1-r)}{\tau^2(1+r)^3}>0
+$
+
+となる。この二状態模型では尺度を大きくすると励起確率も分散も増えるが、有限状態の別の模型で同じ分散の単調性を使うには改めて検証が必要である。
 
 ## 演習
 
@@ -380,14 +400,21 @@ $E(a)=0$ だから $U_\tau=0\cdot(3/4)+\Delta\cdot(1/4)=\Delta/4$。平均はエ
 <!-- solution-start -->
 #### 詳細解答
 
-元のエネルギー差は2なので、[二状態のGibbs確率と選択比](#prop-pml1-02-two-state-odds)は $e^{-2/1}=e^{-2}$。変更後は $(E'(a),E'(b))=(4,10)$、差は6で尺度は3なので比は $e^{-6/3}=e^{-2}$。[Gibbs確率と尺度の同時変換](#prop-pml1-02-affine-covariance)の $a=3,b=4$ を満たす。両模型とも規格化後の励起確率は $e^{-2}/(1+e^{-2})$ で一致する。
+元のエネルギー差は2、変更後のエネルギーは $(E'(a),E'(b))=(4,10)$ で差は6である。[二状態のGibbs確率と選択比](#prop-pml1-02-two-state-odds)をそれぞれの尺度に適用すると
+
+$
+\frac{p(b)}{p(a)}=e^{-2/1}=e^{-2},\qquad
+\frac{p'(b)}{p'(a)}=e^{-6/3}=e^{-2}.
+$
+
+ここで $p'$ は変換後の分布を表し、微分ではない。$a=3>0,b=4,\tau'=3\tau$ であるため、[Gibbs確率と尺度の同時変換](#prop-pml1-02-affine-covariance)の仮定も満たす。両模型とも規格化後の励起確率は $e^{-2}/(1+e^{-2})$ で一致する。
 <!-- solution-end -->
 
 ### PML1-02-B01 平均と分散を二通りに求める
 - Level: B
 - 目安時間: 20分
 
-二状態のエネルギー $0,\Delta>0$、尺度 $\tau>0$ とする。分散を $E[E^2]-E[E]^2$ と $\sum_s p(s)(E(s)-U)^2$ の両方法で求め、同じ式になることを示せ。
+二状態のエネルギー $0,\Delta>0$、尺度 $\tau>0$ とする。分散を $\mathbb E_\tau[E^2]-(\mathbb E_\tau[E])^2$ と $\sum_s p_\tau(s)(E(s)-U_\tau)^2$ の両方法で求め、同じ式になることを示せ。
 
 <!-- solution-start -->
 #### 詳細解答
@@ -395,14 +422,14 @@ $E(a)=0$ だから $U_\tau=0\cdot(3/4)+\Delta\cdot(1/4)=\Delta/4$。平均はエ
 [二状態のGibbs確率と選択比](#prop-pml1-02-two-state-odds)の $r=e^{-\Delta/\tau}$ を使う。第一法では
 
 $$
-E[E^2]=\frac{\Delta^2r}{1+r},\qquad
+\mathbb E_\tau[E^2]=\frac{\Delta^2r}{1+r},\qquad
 U=\frac{\Delta r}{1+r},
 $$
 
 なので
 
 $$
-E[E^2]-U^2
+\mathbb E_\tau[E^2]-U^2
 =\frac{\Delta^2r(1+r)-\Delta^2r^2}{(1+r)^2}
 =\frac{\Delta^2r}{(1+r)^2}.
 $$
@@ -490,7 +517,7 @@ $$
 U_\tau'
 &=\sum_s E(s)p_\tau'(s)\\
 &=\frac{\sum_s p_\tau(s)E(s)^2-U_\tau\sum_s p_\tau(s)E(s)}{\tau^2}\\
-&=\frac{E_\tau[E^2]-U_\tau^2}{\tau^2}
+&=\frac{\mathbb E_\tau[E^2]-U_\tau^2}{\tau^2}
 =\frac{\operatorname{Var}_\tau(E)}{\tau^2}.
 \end{aligned}
 $$
@@ -533,7 +560,7 @@ $$
 
 - Gibbs選択確率
 - 損失の平均と分散
-- 損失を固定したときの $d\,E_\tau[L]/d\tau$
+- 損失を固定したときの $d\mathbb E_\tau[L]/d\tau$（ここで $\tau=\tau_{\mathrm{alg}}$ と略記する）
 - $L'=2L+7$、$\tau'_{\mathrm{alg}}=2\tau_{\mathrm{alg}}$ としたときの新しい選択確率
 
 <!-- solution-start -->
@@ -551,7 +578,18 @@ $$
 U=0\cdot\frac12+1\cdot\frac14+1\cdot\frac14=\frac12.
 $$
 
-損失の二乗も $0,1,1$ だから $E[L^2]=1/2$、従って分散は $V=1/2-(1/2)^2=1/4$。温度に依存しない有限な損失なので[確率の微分計算](#prop-pml1-02-two-state-response)と同型の一般公式（[SM3のエネルギー揺らぎ定理](../../../物理系/SM/SM3/index.md#thm-sm3-energy-variance)を有限損失へ代入）を使い、
+ここでは $U_\tau:=\mathbb E_\tau[L]=\sum_\theta q_\tau(\theta)L(\theta)$、$V_\tau:=\mathbb E_\tau[L^2]-U_\tau^2$ とする。損失の二乗も $0,1,1$ だから $\mathbb E_\tau[L^2]=1/2$、従って $V_\tau=1/2-(1/2)^2=1/4$ である。
+
+有限で尺度に依存しない損失なので、[SM3のエネルギー揺らぎ定理](../../../物理系/SM/SM3/index.md#thm-sm3-energy-variance)のエネルギーを $L$、逆尺度を $\beta=1/\tau$ と読み替えられる。ここで $dU/d\beta=-V$ と $d\beta/d\tau=-1/\tau^2$ に連鎖律を適用すると
+
+$
+\frac{dU_\tau}{d\tau}
+=\frac{dU}{d\beta}\frac{d\beta}{d\tau}
+=(-V_\tau)\left(-\frac1{\tau^2}\right)
+=\frac{V_\tau}{\tau^2}
+$
+
+であり、
 
 $$
 \left.\frac{dU_\tau}{d\tau}\right|_{\tau=1/\log2}
