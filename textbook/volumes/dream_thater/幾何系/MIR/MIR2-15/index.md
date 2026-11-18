@@ -145,7 +145,7 @@ $$
 
 となる。ここで写像 $dF$ が何を計算するか、$L=L_0$ の座標で確かめる。三つの一次式を $A(s,t)=a_0s+a_1t$、$B(s,t)=b_0s+b_1t$、$C(s,t)=c_0s+c_1t$ とし、これらを法方向へ微小量 $\varepsilon$ だけ動かすと、$F|_{L_0}=0$ であることから
 
-$
+$$
 \begin{aligned}
 &F(s,t,\varepsilon A,\varepsilon B,\varepsilon C)\\
 &\quad=\varepsilon\left(
@@ -154,7 +154,7 @@ A\left.\frac{\partial F}{\partial x_2}\right|_{L_0}
 +C\left.\frac{\partial F}{\partial x_4}\right|_{L_0}
 \right)+O(\varepsilon^2).
 \end{aligned}
-$
+$$
 
 ここで $O(\varepsilon^2)$ は $\varepsilon$ について二次以上の項をまとめた記号であり、一次の微分には寄与しない。括弧内は次数5の二変数斉次式であり、各偏導関数は直線上で次数4、$A,B,C$ は次数1である。従って $H^0$ を取って得る写像 $H^0(\mathcal O(1))^{\oplus3}\to H^0(\mathcal O(5))$ は、$(a_0,a_1,b_0,b_1,c_0,c_1)$ から括弧内の六係数を作る線形写像、すなわち $ds_F$ のJacobianそのものである。この同一視は座標変換によって一般の $L$ にも移る。したがって $ds_F$ が同型ならその核 $H^0(N_{L/X_F})$ は零である。$\square$
 <!-- proof-end -->
