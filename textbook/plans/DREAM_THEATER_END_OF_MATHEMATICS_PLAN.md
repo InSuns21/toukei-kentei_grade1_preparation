@@ -235,29 +235,26 @@ result family は成果群識別子であって講数ではない。268 は Open
 
 **講義設計の確定、研究成果の数学的検証完了、教材本文の完成は別の状態である。**
 
-## 7. 追加研究候補：ハルデーン予想・田崎晴明の関連研究（2026-11-19）
+## 7. 268/Haldane–Tasaki の採択根拠と実装順序（2026-11-19）
 
-**採択状態: candidate / 未採択。** 現行の **8 result family・25講・EOM0〜EOM6 の章ID・完成条件は変更しない**。ここは次回の講義再設計で評価する候補台帳であり、family 268 や田崎論文を現行25講に含めたこと、証明を独立検証したことを意味しない。採択時には講数・章ID・manifest・prerequisiteを改めて審査する。
+**採択状態: planned / 正式採択。** EOM268A–E・EOM268の **6講**を第16–21講に追加し、全9 family・31講とした。第268群はOpenAIの2つのギャップ論文のカタログIDであり、田崎氏の論文はこの科目で接続して扱う**別著者・別論文**である。科目の正式採択は各主張の独立検証完了を意味しない。
 
-| 候補 | 中心問い・教材上の位置づけ | 主な証拠・未確認事項 |
+| 設計上の柱 | 参照する研究資料 | 講義上の責務 |
 | --- | --- | --- |
-| **268：Haldane予想と $S=1$ Heisenberg反強磁性鎖** | 整数スピンと半奇整数スピンの低エネルギーの違い、周期鎖の一様スペクトルギャップ、開放端の境界場、AKLT模型との差を区別する。 | [OpenAI「The periodic spin-one Haldane gap」（2026-09-24）](https://github.com/openai/math/tree/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026) と [「A boundary-field gap for the spin-one Heisenberg chain」（同日）](https://github.com/openai/math/tree/main/preprints/A-boundary-field-gap-for-the-spin-one-Heisenberg-chain-September-24-2026) の二つの主張。数値的補題・計算証明書の独立再実行と形式化範囲は要確認。 |
-| **田崎晴明：トポロジカル指数・無限鎖・境界条件** | 有限体積のギャップから何が言え、何が言えないか。SPTの非自明性、twist指数とOgata指数、並進不変基底状態の一意性、異方性への安定性を段階的に読む。 | [2025年PRLの条件付きSPT結果](https://doi.org/10.1103/PhysRevLett.134.076602)、[2026年の指数同値性論文（arXiv:2609.34119）](https://arxiv.org/abs/2609.34119)、[無限鎖の一意性論文（arXiv:2610.34330）](https://arxiv.org/abs/2610.34330)。原論文の版・他の数値的入力への依存・独立検証は個別に点検する。 |
+| 基礎から周期ギャップまで | [The periodic spin-one Haldane gap](https://github.com/openai/math/tree/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026)、[田崎氏の解析的解説](https://haltasaki.github.io/writings/AI/OpenAI_Haldane.html) | EOM268A–Cで有限スピン鎖、解析的転送機構、計算証明書・一様下界を順に学ぶ |
+| 境界場によるギャップとSPT | [A boundary-field gap](https://github.com/openai/math/tree/main/preprints/A-boundary-field-gap-for-the-spin-one-Heisenberg-chain-September-24-2026)、[2025年PRL](https://doi.org/10.1103/PhysRevLett.134.076602)、[2026年指数同値性](https://arxiv.org/abs/2609.34119) | EOM268D–Eで奇数長開放鎖と境界条件、条件付きSPT結果、twist/Ogataの対応を分けて扱う |
+| 無限鎖の一意性・安定性 | [2026年の無限鎖論文](https://arxiv.org/abs/2610.34330) | EOM268で並進不変性、局所極限、$J$–$D$摂動の仮定を証明責務として検査 |
 
-### 7.1 命題を混同しないための研究読解ポイント
+### 7.1 順序と接続方針
 
-- **古典的予想の射程**：1次元・最近接・等方的反強磁性Heisenberg模型 $H_L=\sum_{j=1}^{L}\boldsymbol S_j\cdot\boldsymbol S_{j+1}$ をまず定義する。2026年の周期鎖論文は **$S=1$、偶数長の周期境界条件**で、基底エネルギーと次の異なる固有値の差に対する $L$ に一様な正の下界を主張する。全整数スピン・全境界条件の一挙解決と読み替えない。半奇整数スピン側の Lieb–Schultz–Mattis 型障害も別命題とする。
-- **境界場と無限体積の差**：別のOpenAI論文は、両端に場を置いた奇数長の開放鎖に関する一様ギャップを扱う。周期鎖の結果だけから開放端のギャップ、端状態、無限鎖の一意性を機械的に導かない。有限長でのギャップ、熱力学極限における局所極限、局所一意性、すべての基底状態に関する一意性を区別する。
-- **田崎氏の2025年結果との接続**：[Phys. Rev. Lett. 134, 076602 (2025)](https://doi.org/10.1103/PhysRevLett.134.076602) は、境界磁場付き開放鎖の一様ギャップなどを**仮定して**非自明なSPT指標を示した条件付き定理である。2026年の境界場論文と組み合わせる際は両論文の仮定を照合し、周期鎖のギャップ証明と同一視しない。
-- **田崎氏の指数同値性（2026）**：[arXiv:2609.34119](https://arxiv.org/abs/2609.34119) は $U(1)\rtimes\mathbb Z_2$ 対称性下のtwist指数とOgataの作用素代数的指数の対応を扱い、境界場のギャップ結果を用いた $S=1$ 鎖の非自明な指標（$-1$）へ接続する。指標の定義域（対称性・純粋性・ギャップ・局所一意性等）と定理が要求する仮定を明記する。
-- **田崎氏の無限鎖結果（2026）**：[arXiv:2610.34330](https://arxiv.org/abs/2610.34330) はOpenAIの解析手法と数値的入力を利用し、無限 $S=1$ Heisenberg鎖および小さい $|D|$ の $J$–$D$ 模型で**並進不変**基底状態の一意性、周期鎖と境界場付き開放鎖からの局所極限の一致などを主張する。任意の**非**並進不変基底状態までの一意性を証明したと拡張しない。異方性 $D$ の定義、許容範囲と収束の一様性を原文で検査する。
-- **研究者による読解と完全な独立検証の差**：田崎氏は[2026年10月18日公開の解説ノート](https://haltasaki.github.io/writings/AI/OpenAI_Haldane.html) で解析的議論を連続時間・離散時間の二方式で説明する一方、**計算機援用の評価を独立には確認していない**と記す。この読解を数値証明書・Lean kernel・査読誌の認定と同一視しない。
+EOM268Aの線形代数・量子スピン行列の直接計算を出発点とし、268Bで有限温度・転送作用素の議論を導入する。268Cの**偶数長周期鎖**と268Dの**奇数長端点場付き開放鎖**は同じ結果の言い換えではない。268EでSPT指数の定義・対称性・局所一意性を導入してから田崎氏の2025年および2026年の定理を比較する。最後の268は無限鎖・異方性を扱い、未確認の数値的仮定への依存を保持する。
 
-### 7.2 採択する場合の最小限の橋渡しと実装判断
+- 既存QFT/SM/SG/AQFT等の正本は**名称だけで履修済みと判定せず**、系列manifestと本文のtheorem/knowledgeを着手時に突き合わせる。EOM268A/B/Eの専門語がその利用位置より前に導入されていないなら、直接の例・補題・演習として橋渡しする。
+- 計算機援用部分は [周期鎖 verification](https://github.com/openai/math/blob/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026/verification/computations/README.md) と [境界場論文 verification](https://github.com/openai/math/tree/main/preprints/A-boundary-field-gap-for-the-spin-one-Heisenberg-chain-September-24-2026/verification) のスクリプト・証明書・入出力・実行環境を記録する。**本PLAN更新では再実行していない**ので実行済み・独立検証済みの欄は空欄とし、本文執筆の査読単位で検証する。
+- 田崎氏は [2026-10-18のノート](https://haltasaki.github.io/writings/AI/OpenAI_Haldane.html) で解析的議論を二方式で読解したが、計算機援用評価の独立再検証は行っていないと述べている。SPT指標の非自明性と無限鎖の並進不変一意性を、数値的入力なしの独立証明へ勝手に格上げしない。
 
-- **基礎橋渡し候補**：有限スピン1行列とテンソル積、局所Hamiltonianとスペクトルギャップ、AKLTの厳密可解例、分配関数と転送作用素、有限サイズの指数評価、熱力学極限と局所観測量、作用素代数的基底状態、SPT/twist/Ogata指数。具体例と小サイズの行列計算を優先し、要件を満たさない用語を後出しにしない。
-- **既存教材の接続を要照合**：QM系・SM/SG/TH系・線形代数・作用素論／AQFT・トポロジー/SPTに関する既存正本を章本文・knowledge.yaml・manifestで点検する。これらの系の修了が直ちに量子スピン鎖やC*代数の専門定理の既習を意味するとはしない。
-- **講義分割は未確定**：採択するなら、(A) Haldane予想とAKLT/LSM、(B) 周期鎖・境界場のギャップ証明と有限計算、(C) 田崎氏のSPT指標の橋渡し、(D) 無限鎖の一意性と$J$–$D$摂動、の順を検討する。**A–Dは検討観点であり4講確定・章ID採番ではない**。
-- **採択判定の停止線**：OpenAIの2論文、田崎氏の解説・2025年PRL・2026年2論文それぞれの版と正確な主定理、計算機援用部分の再検証可否、形式化artifactと第三者検証の有無、既存科目との差分を照合してから、family構成・総講数・EOM manifestを改定する。今回は候補の追加のみで、既存25講の完成条件を変更しない。
+### 7.2 着手・完成の判定
 
-資料確認基準日: **2026-11-19**。研究成果の要約は論文著者の主張・既存の解説資料に基づく候補整理であり、すべての計算証明書を本PLAN側で独立検証したという意味ではない。
+今回行うのは**PLANへの正式採択・章割り・前提設計**までである。EOMの章本文・章別chapter.yaml/knowledge.yaml・manifest・公開導線は未着手として扱い、最初の実装単位で plans_progress に移してEOM系列を全31講で登録する。講義内では定理・証明の全依存、有限計算の再現条件、場合分けされた基底状態の一意性の量化を検査する。原論文の評価に疑義が残る場合は明記し、教材で無条件の既知定理にしない。
+
+資料確認基準日: **2026-11-19**。268はOpenAIカタログの結果IDであり、講数ではない。
