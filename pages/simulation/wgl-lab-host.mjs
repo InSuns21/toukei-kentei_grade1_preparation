@@ -321,14 +321,14 @@ function isolatedRunner() {
         return {x, y, rgba: Array.from(value)};
       });
       
-      if(request.lesson === 'FCG2'){
+      if(request.lesson === 'FCG2' || request.lesson === 'FCG3'){
         let cursorX=Math.floor(canvas.width/2),cursorY=Math.floor(canvas.height/2);
         canvas.tabIndex=0;
         canvas.setAttribute('aria-label','物理格子の画素検査。クリックか矢印キー＋Enter');
         function pick(x,y,method){
           const pixel=new Uint8Array(4);
           gl.readPixels(x,y,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixel);
-          send({...scope,type:'fcg2-pick',x,y,method,rgba:Array.from(pixel)});
+          send({...scope,type:request.lesson.toLowerCase()+'-pick',x,y,method,rgba:Array.from(pixel)});
         }
         canvas.addEventListener('click',event=>{
           const box=canvas.getBoundingClientRect();
@@ -346,7 +346,7 @@ function isolatedRunner() {
             event.preventDefault();
             cursorX=Math.max(0,Math.min(canvas.width-1,cursorX+delta[0]));
             cursorY=Math.max(0,Math.min(canvas.height-1,cursorY+delta[1]));
-            send({...scope,type:'fcg2-cursor',x:cursorX,y:cursorY});
+            send({...scope,type:request.lesson.toLowerCase()+'-cursor',x:cursorX,y:cursorY});
           }else if(event.key==='Enter'||event.key===' '){
             event.preventDefault();pick(cursorX,cursorY,'keyboard');
           }
@@ -462,6 +462,31 @@ window.addEventListener('message', event => {
       '（ID 0=背景、1=手前、2=奥）';
     setStatus(consistent ? 'CPU射線とGPU ID選択が一致' :
       'CPU射線とGPU IDが不一致（深度・座標・符号化を確認）', !consistent);
+    return;
+  }
+  if (isFCG3 && data.type === 'fcg3-cursor') {
+    if(Number.isInteger(data.x)&&Number.isInteger(data.y)&&data.x>=0&&
+       data.y>=0&&data.x<active.payload.width&&data.y<active.payload.height){
+      const c=fcg3PixelCell(data.x,data.y,active.payload.width,active.payload.height);
+      byId('result-note').textContent=c.panel+' 格子('+c.i+','+c.j+') Enter/Spaceで画素検査';
+    }
+    return;
+  }
+  if (isFCG3 && data.type === 'fcg3-pick') {
+    const {x,y,rgba}=data,{width,height,steps}=active.payload;
+    if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||
+       x>=width||y>=height||!Array.isArray(rgba)||rgba.length!==4||
+       !rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
+    const c=fcg3PixelCell(x,y,width,height),k=c.i+32*c.j;
+    const q=fcg3Grid(steps)[k],e=fcg3Exact((c.i+0.5)/32,(c.j+0.5)/32,steps);
+    const q8=Math.round(255*q),e8=Math.round(255*e);
+    const ref=c.panel==='density'?[q8,38,255-q8,255]:
+      [Math.round(255*Math.min(1,5*Math.abs(q8-e8)/255)),20,26,255];
+    const d=Math.max(...rgba.map((v,i)=>Math.abs(v-ref[i])));
+    const unchanged=Object.keys(defaults).every(key=>active.payload[key]===defaults[key]);
+    byId('result-note').textContent=c.panel+' 格子('+c.i+','+c.j+')、数値q='+
+      q.toFixed(6)+'、解析='+e.toFixed(6)+'、GPU='+rgba.join('/')+
+      '、初期CPU画素との差='+d+'階調：'+(unchanged?(d<=2?'一致':'不一致'):'編集後は参考比較');
     return;
   }
   if (isFCG2 && data.type === 'fcg2-cursor') {
@@ -617,10 +642,11 @@ function run() {
 }
 
 byId('run').addEventListener('click', run);
-byId('stop').addEventListener('click', () => {if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;} stop();});
+byId('stop').addEventListener('click', () => {if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;} if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;} stop();});
 byId('reset').addEventListener('click', () => {
   if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;}
   if(isFCG2)fcg2Steps=0;
+  if(isFCG3)fcg3Steps=0;
   stop('初期ソースに戻しました（未実行）');
   setSources(defaults);
   byId('preset').value = 'default';
@@ -644,8 +670,12 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
-    } else if (isFCG2) {
-      inputs.fragment.value=defaults.fragment.replace(
+     } else if (isFCG3) {
+       inputs.fragment.value=defaults.fragment.replace(
+         'else outColor=vec4(min(1.0,5.0*abs(q-exact)),0.08,0.1,1.0);',
+         'else outColor=vec4(min(1.0,5.0*abs(q-exact)),0.08,0.1,1.0)');
+     } else if (isFCG2) {
+       inputs.fragment.value=defaults.fragment.replace(
         'outColor=vec4(q,0.15,1.0-q,1.0);',
         'outColor=vec4(q,0.15,1.0-q,1.0)');
     } else if (isWGL19) {
