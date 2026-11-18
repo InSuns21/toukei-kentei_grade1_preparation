@@ -365,7 +365,26 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[指数重みの定義](#def-pml1-01-temperature-scale)から、元の比は $w_\tau(1)/w_\tau(0)=\exp(-(F(1)-F(0))/\tau)=e^{-2}$ である。$\widetilde F(0)=5,\widetilde F(1)=11$ なので、$\widetilde\tau=3$ なら比は $\exp(-(11-5)/3)=e^{-2}$、$\widetilde\tau=1$ なら $e^{-6}$。いずれも [正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)により最小点は0のまま。重みの比は最小点だけから決まらず、関数値の差と尺度の比から決まる。
+[指数重みの定義](#def-pml1-01-temperature-scale)では、同じ正の尺度を持つ二状態の重みを割ると指数の差に帰着する。元の関数では
+
+$
+\frac{w_\tau(1)}{w_\tau(0)}
+=\exp\left(-\frac{F(1)-F(0)}{\tau}\right)
+=\exp\left(-\frac{2-0}{1}\right)=e^{-2}.
+$
+
+変換後の関数値は $\widetilde F(0)=5$、$\widetilde F(1)=11$ である。変換後の尺度をそれぞれ指定すると、
+
+$
+\begin{aligned}
+\frac{\widetilde w_3(1)}{\widetilde w_3(0)}
+&=\exp\left(-\frac{11-5}{3}\right)=e^{-2},\\
+\frac{\widetilde w_1(1)}{\widetilde w_1(0)}
+&=\exp\left(-\frac{11-5}{1}\right)=e^{-6}.
+\end{aligned}
+$
+
+どちらの場合も [正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)により最小点は0のままである。重みの比は最小点だけから決まらず、関数値の差と尺度の比から決まる。
 <!-- solution-end -->
 
 ### PML1-01-B04 データ変更による最小点の逆転
@@ -414,7 +433,23 @@ $$
 
 差は $J_\lambda(0)-J_\lambda(1)=2\lambda-1$ なので、$0\le\lambda<1/2$ は0だけ、$\lambda=1/2$ は両方、$\lambda>1/2$ は1だけが最小となる。
 
-**2.** 新たな目的は $\widetilde J_\lambda(0)=2\cdot1+3+2\lambda=5+2\lambda$、$\widetilde J_\lambda(1)=2\cdot2+3=7$。切替えは $5+2\lambda=7$ すなわち $\lambda=1$ に変わる。特に $\lambda=3/4$ では元の目的が $(5/2,2)$ で1を選び、新目的は $(13/2,7)$ で0を選ぶ。[正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)は**目的関数全体**を同じ正倍率で変換する場合の主張である。今回は損失成分だけを変えてエネルギー成分は固定したため、命題の仮定には当たらない。
+**2.** 置換後の目的関数は $\widetilde L_D=2L_D+3$ を使うので、
+
+$
+\begin{aligned}
+\widetilde J_\lambda(0)&=\frac{2\cdot1+3}{1}+\lambda\frac{4\,\mathrm J}{2\,\mathrm J}=5+2\lambda,\\
+\widetilde J_\lambda(1)&=\frac{2\cdot2+3}{1}+\lambda\frac{0\,\mathrm J}{2\,\mathrm J}=7.
+\end{aligned}
+$
+
+両値が等しい条件は $5+2\lambda=7$、すなわち $\lambda=1$ に変わる。特に $\lambda=3/4$ では
+
+$
+(J_{3/4}(0),J_{3/4}(1))=(5/2,2),\qquad
+(\widetilde J_{3/4}(0),\widetilde J_{3/4}(1))=(13/2,7).
+$
+
+元の目的は1を選び、新目的は0を選ぶ。[正のアフィン変換と最小化解](#prop-pml1-01-affine-minimizers)は**目的関数全体**を同じ正倍率で変換する場合の主張である。今回は損失成分だけを変えてエネルギー成分は固定したため、命題の仮定には当たらない。
 
 **3.** [指数重みの定義](#def-pml1-01-temperature-scale)から $w(0)=e^{-4},w(1)=1$。従って $w(1)/w(0)=e^4$。これは指定された物理的エネルギーと $\tau$ から計算した重みの比である。学習パラメータをどう標本抽出するか、あるいは訓練データ $D$ を確率的にどう得るかは別途定義する必要がある。最小化や重みの形の一致だけでは学習器の確率法則を特定できない。
 <!-- solution-end -->
