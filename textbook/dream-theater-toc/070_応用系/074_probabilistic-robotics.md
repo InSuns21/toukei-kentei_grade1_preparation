@@ -15,3 +15,4 @@
 12. [U2-12 軌跡を一括推定する：最小二乗と平滑化の入口](textbook/volumes/dream_thater/応用系/U/U2-12/index.md)
 13. [U2-13 格子上の Markov localization と多峰事後](textbook/volumes/dream_thater/応用系/U/U2-13/index.md)
 14. [U2-14 逐次重要度サンプリング：粒子の重みはなぜ必要か](textbook/volumes/dream_thater/応用系/U/U2-14/index.md)
+15. [U2-15 粒子フィルタ：再標本化と有効標本サイズ](textbook/volumes/dream_thater/応用系/U/U2-15/index.md)
