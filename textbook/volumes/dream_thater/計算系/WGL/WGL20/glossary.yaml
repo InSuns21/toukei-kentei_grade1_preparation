@@ -1,0 +1,20 @@
+chapter: WGL20
+terms:
+  - term: 数値標高モデル
+    english: digital elevation model
+    meaning: 水平方向の位置ごとに地表面の標高を与える格子などのデータ。高さを持つ建物メッシュや浸水深とは別物。
+  - term: 座標参照系
+    english: coordinate reference system
+    meaning: 数値の軸、単位、基準面と位置を結び付ける規約。EPSG番号だけで元データの軸順を推測しない。
+  - term: 局所東北上座標
+    english: local east-north-up coordinates
+    meaning: 基準点の付近で東・北・上をメートル単位とする局所座標。この章の近似は大域的な厳密座標変換ではない。
+  - term: 高さ基準
+    english: vertical datum
+    meaning: 高さ0の参照面や標高の定義。異なる高さ基準の値をそのまま引いてはならない。
+  - term: Z誇張
+    english: vertical exaggeration
+    meaning: 表示の鉛直座標だけを倍率で伸縮する操作。元の標高や浸水深の数値計算を変更しない。
+  - term: LOD1
+    english: level of detail 1
+    meaning: 建物を簡略化した三次元幾何で表すPLATEAUの詳細度。実際の屋根形状などを精密に表すものではない。
