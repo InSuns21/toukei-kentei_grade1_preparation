@@ -63,7 +63,7 @@
 <p id="status" role="status" aria-live="polite">準備中</p>
 <div class="legend" aria-label="線種の凡例"><span>実線＝数値の流跡</span><span>点線＝現在時刻の流線</span><span>破線＝厳密流跡</span></div>
 <div id="canvas-slot" aria-label="流線・流跡の数値描画"></div>
-<p id="drawing-note">流線は数値粒子ID1の現在位置を通るよう描き、速度評価時刻を固定します。</p>
+<p id="drawing-note">流線は粒子ID1の厳密解の現在位置を基点に描き、速度評価時刻を固定します。数値粒子の実線とのずれはEuler誤差です。</p>
 <h2>粒子ID・物理時刻と独立CPU基準</h2>
 <div id="particle-diagnostics"></div>
 <p id="result-note">ソースを実行すると解析値、独立のEuler計算との誤差を表示します。</p>

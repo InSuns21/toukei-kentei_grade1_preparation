@@ -145,8 +145,9 @@ function createLab(canvas, settings, emit) {
         exactCurve.push(exact(p.start, time * j / 100));
       path(exactCurve, '#666666', [7, 5], 2);
     }
-    // Frozen streamline through the NUMERIC position of ID1 at current physical time.
-    path(frozenSamples(particles[0].position, time), '#2563a4', [2, 4], 2.5);
+    // Frozen streamline through the EXACT current position of ID1.
+    // This isolates the two-curve concept from Euler's position error.
+    path(frozenSamples(exact(particles[0].start, time), time), '#2563a4', [2, 4], 2.5);
     const colors = ['#a83232', '#1c8055'];
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
