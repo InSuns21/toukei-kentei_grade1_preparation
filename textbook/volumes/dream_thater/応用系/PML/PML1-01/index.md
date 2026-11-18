@@ -103,7 +103,9 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（正のアフィン変換と最小化解）**  
-> 非空有限集合 $S$、実数値関数 $F:S\to\mathbb R$、定数 $a>0,b\in\mathbb R$ を固定する。$\operatorname*{argmin}_{s\in S}F(s)$ は、$S$ の中で $F$ の最小値を達成する候補すべての集合を表す。$G(s)=aF(s)+b$ とすると、
+> 非空有限集合 $S$、実数値関数 $F:S\to\mathbb R$、定数 $a>0$ と $b\in\mathbb R$ を固定する。
+> $\operatorname*{argmin}_{s\in S}F(s)$ は、$S$ 上で $F$ が最小値を達成するすべての点を集めた集合である。
+> $G(s)=aF(s)+b$ とすると、
 >
 $
 \operatorname*{argmin}_{s\in S}G(s)=\operatorname*{argmin}_{s\in S}F(s).
