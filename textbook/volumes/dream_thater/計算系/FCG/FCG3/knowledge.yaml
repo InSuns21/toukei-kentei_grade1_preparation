@@ -2,6 +2,8 @@ chapter: FCG3
 scope: dream-theater
 coverage: complete
 prerequisites: [FCG2]
+# FDM4 supplies a later, coefficient-level treatment; only the concept is previewed.
+forward_references: [numerical.numerical-diffusion]
 concepts:
   - id: graphics.fcg3-backtrace
     name: 半Lagrange逆追跡足点
