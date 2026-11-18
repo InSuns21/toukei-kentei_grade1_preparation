@@ -25,6 +25,9 @@ const compile=(type,source,stage)=>{
 };
 let gpu=null;
 function initialize(){
+  // Extensions must be requested again after WebGL context restoration.
+  if(!gl.getExtension('EXT_color_buffer_float'))
+    throw new Error('EXT_color_buffer_float unavailable after initialization/restoration');
   const vertex=compile(gl.VERTEX_SHADER,vertexSource,'VERTEX');
   const fragment=compile(gl.FRAGMENT_SHADER,fragmentSource,'FRAGMENT');
   const program=gl.createProgram();

@@ -312,10 +312,10 @@ function isolatedRunner() {
       });
       const glError = gl.getError();
       if (glError !== gl.NO_ERROR) report('GL_ERROR', '0x' + glError.toString(16));
-      const floatReadback=['WGL18','WGL19'].includes(request.lesson) && hooks &&
+      const floatReadback=(request.lesson === 'WGL18' || request.lesson === 'WGL19') && hooks &&
         Array.isArray(hooks.floatReadback) && hooks.floatReadback.length === 16 ?
         hooks.floatReadback.map(v=>Number(v)) : null;
-      const floatParameters=['WGL18','WGL19'].includes(request.lesson) && hooks && hooks.floatParameters ?
+      const floatParameters=(request.lesson === 'WGL18' || request.lesson === 'WGL19') && hooks && hooks.floatParameters ?
         {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
       const frameAudit = request.lesson === 'WGL19' && hooks ? hooks.frameAudit : null;
       send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters, frameAudit,
