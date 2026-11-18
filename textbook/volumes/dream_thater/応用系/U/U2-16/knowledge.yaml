@@ -1,0 +1,43 @@
+chapter: U2-16
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-15
+forward_references: []
+concepts:
+  - id: robotics.kidnap-mixture-transition
+    name: 誘拐混合遷移
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（誘拐混合遷移）"]
+    requires: [robotics.bootstrap-sir]
+  - id: robotics.kidnap-support-restoration
+    name: 混合遷移による予測支持の回復
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（混合遷移による予測支持の回復）"]
+    requires: [robotics.kidnap-mixture-transition]
+  - id: robotics.outlier-mixture-observation
+    name: 外れ値混合観測模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（外れ値混合観測模型）"]
+    requires: [robotics.bootstrap-sir]
+  - id: robotics.outlier-mixture-posterior
+    name: 外れ値混合の事後分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（外れ値混合の事後分布）"]
+    requires: [robotics.outlier-mixture-observation]
+  - id: robotics.global-mixture-proposal
+    name: 広域混合提案と補正重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（広域混合提案と補正重み）"]
+    requires: [robotics.finite-importance-proposal-weight]
+  - id: robotics.global-proposal-coverage
+    name: 広域再注入の被覆確率と有限粒子の限界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（広域再注入の被覆確率と有限粒子の限界）"]
+    requires: [robotics.global-mixture-proposal]
