@@ -10,7 +10,7 @@ test('FCG3 continuous rotation returns to initial position and CFL exceeds one',
   assert.equal(FCG3_DT,1/32);
   assert.ok(Math.abs(FCG3_OMEGA*FCG3_DT*32-2*Math.PI)<1e-12);
   assert.ok(Math.abs(fcg3Exact(0.7,0.5,32)-fcg3Initial(0.7,0.5))<1e-12);
-  assert.ok(Math.abs(fcg3Exact(0.7,0.5,8)-fcg3Initial(0.5,0.3))<1e-12);
+  assert.ok(Math.abs(fcg3Exact(0.5,0.7,8)-fcg3Initial(0.7,0.5))<1e-12);
   assert.ok(0.4*Math.PI>1);
   assert.equal(fcg3Initial(0.5,0.5),0);
 });
