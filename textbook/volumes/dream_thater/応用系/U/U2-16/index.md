@@ -134,7 +134,7 @@ $$
 \qquad(x\in S,\ y\in Y)
 $$
 
-> とする。$h(y)$ は与えられた観測 $y$ で評価する確率であり、状態の位置へ等しい確率を割り当てる探索分布とは別のものである。
+> とする。$h(y)$ は与えられた観測 $y$ で評価する確率であり、観測値 $y$ に対する確率であり、状態 $x$ に依存しない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-16-outlier-mixture -->
