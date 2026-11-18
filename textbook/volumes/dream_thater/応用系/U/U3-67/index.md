@@ -229,7 +229,7 @@ $$
 一時費用では、行列の反対称部分は二次費用に寄与しません。実際、反対称行列 $K=A-A^{\mathsf T}$ については、任意の実ベクトル $q$ に対し
 
 $$
-q^{\mathsf T}Kq=-(q^{\mathsf T}Kq)^{\mathsf T}=-q^{\mathsf T}Kq
+q^{\mathsf T}Kq=(q^{\mathsf T}Kq)^{\mathsf T}=q^{\mathsf T}K^{\mathsf T}q=-q^{\mathsf T}Kq
 \quad\Longrightarrow\quad q^{\mathsf T}Kq=0
 $$
 
