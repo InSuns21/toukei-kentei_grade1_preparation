@@ -1,14 +1,14 @@
 chapter: WGL20
 scope: dream-theater
 coverage: complete
-prerequisites: [WGL19]
+prerequisites: [WGL19, GEOD6]
 concepts:
   - id: graphics.gis-local-enu
     name: 地理座標から局所東北上座標への近似写像
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（地理座標から局所東北上座標への近似写像）"]
-    requires: [graphics.render-compute-audit]
+    requires: [graphics.render-compute-audit, geodesy.crs]
   - id: graphics.gis-hypothetical-depth
     name: 地盤標高・水面標高・仮想浸水深
     kind: definition
