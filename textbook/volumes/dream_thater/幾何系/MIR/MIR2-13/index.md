@@ -13,7 +13,11 @@
 
 両方が一致すれば、単なる数値の暗記より強い検算になる。ただし有限個の係数の一致だけで、無限級数全体の同一性や整数型曲線数の一般論まで証明したことにはならない。
 
-以下、$X\subset\mathbb P^4_{\mathbb C}$ は滑らかな五次超曲面、$H=c_1(\mathcal O_X(1))$ とし、$\int_XH^3=5$ である。B側の局所座標を $z$、鏡像座標を $q=q_B$、対数座標を $u=\operatorname{Log}q$ と書く。原点の十分小さい穿孔円板で対数の分枝を選び、$z\ne0$、$1-3125z\ne0$、周期と座標微分が非零になるよう領域を狭める。級数の係数比較は $\mathbb Q[[z]]$ と $\mathbb Q[[q]]$ で行うので、形式的な展開では対数分枝は残らない。
+以下、$X\subset\mathbb P^4_{\mathbb C}$ は滑らかな五次超曲面、$H=c_1(\mathcal O_X(1))$ とし、$\int_XH^3=5$ である。
+
+B側の局所座標を $z$、鏡像座標を $q=q_B$、対数座標を $u=\operatorname{Log}q$ と書く。原点の十分小さい穿孔円板で対数の分枝を選び、$z\ne0$、$1-3125z\ne0$、周期と座標微分が非零になるよう領域を狭める。
+
+級数の係数比較は $\mathbb Q[[z]]$ と $\mathbb Q[[q]]$ で行うので、形式的な展開では対数分枝は残らない。
 
 A側の次数変数 $Q$ は初めから $z$ と同じではない。[ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)の $Q=q(z)$ という**代入**によって両者を比較する。
 
@@ -53,7 +57,16 @@ K_B(q(z))&=\frac{C_{zzz}(z)}{I_0(z)^2}
 \end{aligned}
 $$
 
-この式は[既習の規格化の命題](../MIR2-07/index.md#prop-mir2-07-regularity)を本講の記号で使用したもので、別の新定義ではない。$z^{-3}$ と $(dz/du)^3$ の $z^3$ が打ち消し合うので、原点で正則な量となる。もし $t=u/(2\pi i)$ を使えば $dz/dt=2\pi i\,dz/du$ であり、上の $K_B$ は $(2\pi i)^{-3}$ を付けたものに等しい。$t$ 微分と $u$ 微分を混同しない。
+この式は[既習の規格化の命題](../MIR2-07/index.md#prop-mir2-07-regularity)を本講の記号で使用したもので、別の新定義ではない。$z^{-3}$ と $(dz/du)^3$ の $z^3$ が打ち消し合うので、原点で正則な量となる。
+
+B側の別の対数時間を $t_B=u/(2\pi i)$ とする。このとき連鎖律により
+
+$$
+\frac{dz}{dt_B}=2\pi i\frac{dz}{du},\qquad
+\frac{C_{zzz}}{I_0^2}\left(\frac{dz}{dt_B}\right)^3=(2\pi i)^3K_B(q).
+$$
+
+従って、本講の $u$ 微分による $K_B$ は $t_B$ 微分による結合を $(2\pi i)^3$ で割ったものである。微分する変数と倍率を混同しない。
 
 ### 手で確認できる小さな座標変換
 
@@ -125,7 +138,9 @@ $$
 
 B側だけを展開しても、その係数が何を数えるかは分からない。そこで[正規化I関数の低次成分](../MIR2-12/index.md#prop-mir2-12-normalized-components)を使い、まずI関数の二次係数を求める。次に[quinticの種数0ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)を外部入力としてA側の種数0GW不変量へ結び付ける。
 
-$w$ を可逆な形式的子孫変数、$h=H/w$ とする。$H^4=0$ だから、[超幾何I関数](../MIR2-10/index.md#def-mir2-10-i-function)の各五次積は $h^3$ まで計算すれば十分である。$n\ge0$ に対し（$n=0$ の和は空和で $0$ とする）、調和数 $H_n=\sum_{m=1}^n m^{-1}$、二乗逆数和 $H_n^{(2)}=\sum_{m=1}^n m^{-2}$ と置く。添字付きの $H_n$ は数であり、コホモロジー類 $H$ とは別物である。
+$w$ を可逆な形式的子孫変数、$h=H/w$ とする。$H^4=0$ だから、[超幾何I関数](../MIR2-10/index.md#def-mir2-10-i-function)の各五次積は $h^3$ まで計算すれば十分である。
+
+$n\ge0$ に対し（$n=0$ の和は空和で $0$ とする）、調和数 $H_n=\sum_{m=1}^n m^{-1}$、二乗逆数和 $H_n^{(2)}=\sum_{m=1}^n m^{-2}$ と置く。添字付きの $H_n$ は数であり、コホモロジー類 $H$ とは別物である。
 
 $$
 B_d(h)=\frac{\prod_{m=1}^{5d}(5h+m)}
@@ -301,7 +316,7 @@ $$
 $N_2$ の分母8を切り捨てる根拠はなく、整数への変換は別の数学的操作を要する。$\square$
 <!-- proof-end -->
 
-最後に[A側の種数0ポテンシャルと三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series)を用いる。MIR2-05のA側変形変数 $t$ を、本講ではB側の $t=u/(2\pi i)$ と区別するため $\tau$ と書く。$Q$ と $\tau$ はA側の独立な形式変数であり、$x=Qe^\tau$ を一つの形式変数として
+最後に[A側の種数0ポテンシャルと三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series)を用いる。MIR2-05のA側変形変数 $t$ を、本講ではB側の $t_B=u/(2\pi i)$ と区別するため $\tau$ と書く。$Q$ と $\tau$ はA側の独立な形式変数であり、$x=Qe^\tau$ を一つの形式変数として
 
 $$
 C_{HHH}^X(x)=5+\sum_{d\ge1}d^3N_dx^d
@@ -313,7 +328,11 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（quinticの鏡像座標Yukawa級数の二次照合）**  
-> $X\subset\mathbb P^4_{\mathbb C}$ を滑らかなquintic、$H=c_1(\mathcal O_X(1))$ とする。[I関数の周期成分](../MIR2-10/index.md#prop-mir2-10-i01) $I_0,I_1$ から $g(z)=I_1(z)/I_0(z)$、$q(z)=ze^{g(z)}$、$u=\operatorname{Log}q$ と定める（$I_0(0)=1$、$q=z+O(z^2)$）。
+> $X\subset\mathbb P^4_{\mathbb C}$ を滑らかなquintic、$H=c_1(\mathcal O_X(1))$ とする。
+>
+> [I関数の周期成分](../MIR2-10/index.md#prop-mir2-10-i01) $I_0,I_1$ から $g(z)=I_1(z)/I_0(z)$、$q(z)=ze^{g(z)}$ と定める。
+>
+> $I_0(0)=1$、$q=z+O(z^2)$ であり、対数座標は $u=\operatorname{Log}q$ とする。
 >
 > B側では $C_{zzz}=5/[z^3(1-3125z)]$、非零周期 $\omega_0=I_0$ で規格化する。A側では $N_d$ を無標点種数0仮想GW不変量とし、[三点関数](../MIR2-05/index.md#prop-mir2-05-yukawa-series) $C_{HHH}^X(x)=5+\sum_{d\ge1}d^3N_dx^d$ と[quinticの種数0ミラー定理](../MIR2-12/index.md#thm-mir2-12-quintic-mirror)を用いる。形式変数を $x=q$ として比較すると
 
