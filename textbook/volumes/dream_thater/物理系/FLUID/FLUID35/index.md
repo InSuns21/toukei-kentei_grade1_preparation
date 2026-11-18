@@ -511,7 +511,7 @@ $$
 
 RT 入力は $\rho_1,\rho_2,g,\sigma,k,\widehat\eta,t$（SI単位）、RBC は $\mathrm{Ra},\mathrm{Pr},a,n$（無次元）である。RBC の成長時間 $\lambda$ は $\kappa/d^2$ の逆数を掛けて物理時間に戻す。$n=1$ の中立曲線と時間成長率の図は、固有値方程式の残差で数値照合する。$n>1$ を指定すると選択モードの固有値が変わるが、中立曲線の図は比較しやすいよう**常に $n=1$** を表示する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID35-RT-RBC-EIGEN
 # lab-title: RTの波数帯とRBCの自由滑り固有値・臨界条件
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID35/instability_lab.py
@@ -521,7 +521,7 @@ RT 入力は $\rho_1,\rho_2,g,\sigma,k,\widehat\eta,t$（SI単位）、RBC は $
 # lab-preset: RT密度順序を戻す | --rho1 1000 --rho2 1050 --k 10 --ra 500
 # lab-preset: RBC自由滑り臨界付近 | --ra 657.511 --a 2.22144
 # lab-preset: RBC第2鉛直モード | --ra 800 --a 2.2 --n 2
-<!-- python-file-lab-end -->
+```
 
 **ラボの見方**：RTでは $0<k<k_c$ でのみ $\gamma>0$、$\sigma>0$ のとき $k=k_*$ の近くに成長率の頂点がある。RBCでは $\mathrm{Ra}_1(a)$ が $a=\pi/\sqrt2$ で最小になり、$\mathrm{Ra}=800$ のとき $\lambda_1(a)$ はある帯域で正となる。ラボが報告する残差は**採用した線形固有値式への実装一致**の確認であり、別の壁条件に適用できることの証明ではない。局所増幅の表示は $k|\eta|<0.1$ に制限しており、増幅が続いてこの仮定が破れた先は表示しない。
 
