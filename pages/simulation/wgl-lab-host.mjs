@@ -745,6 +745,55 @@ byId('preset').addEventListener('change', event => {
   refreshSourceHighlights();
   selectTab('code');
 });
+if (isFCG3) {
+  document.title='FCG3 染料移流：編集・検算ラボ';
+  document.querySelector('h1').textContent='FCG3 回転染料の移流と数値拡散';
+  document.querySelector('#panel-conditions > p').textContent=
+    'CPU半Lagrange法で32×32染料を更新します。左=数値染料、右=5倍R8誤差map。格子質量・Float64誤差・GPU画素を分けて照合します。';
+  document.querySelector('#panel-conditions ol').innerHTML=
+    '<li>step1で6画素の独立CPU予測とGPUを比較する。</li>'+
+    '<li>1step・再生・一時停止・時刻0へ復帰、step32で一回転を確認する。</li>'+
+    '<li>canvasをクリックか矢印キー＋Enterでセル・誤差を検査する。</li>'+
+    '<li>advection.jsの足点をEulerに、advection.fragの倍率5を10に改造する。</li>'+
+    '<li>GLSL構文エラーとGPU非対応時の診断を確認する。</li>';
+  byId('preset').options[0].textContent='回転染料と誤差map';
+  byId('preset').options[1].textContent='fragment構文エラー';
+  const controls=document.createElement('div');controls.className='controls';
+  const step=document.createElement('button'),play=document.createElement('button'),
+    pause=document.createElement('button'),back=document.createElement('button'),
+    marker=document.createElement('output');
+  for(const [button,label] of [[step,'1step'],[play,'再生'],[pause,'一時停止'],[back,'時刻0へ戻す']]){
+    button.type='button';button.className='action';button.textContent=label;controls.append(button);
+  }
+  controls.append(marker);byId('run').parentElement.before(controls);
+  const preview=document.createElement('p');preview.id='fcg3-cpu-prediction';
+  preview.setAttribute('aria-live','polite');
+  preview.textContent='GPU非対応でも独立CPU予測を表示します。';
+  byId('panel-result').append(preview);
+  function mark(){
+    marker.textContent='物理step '+fcg3Steps+'/32, t='+(fcg3Steps/32).toFixed(5)+
+      ' s（描画フレームとは独立）';
+    pause.disabled=fcg3Timer===null;play.disabled=fcg3Timer!==null;
+  }
+  function pausePlay(){if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;}mark();}
+  step.addEventListener('click',()=>{
+    pausePlay();if(fcg3Steps>=32){setStatus('step32で終了。時刻0へ戻してください');return;}
+    fcg3Steps++;mark();run();
+  });
+  play.addEventListener('click',()=>{
+    if(fcg3Timer!==null)return;
+    fcg3Timer=setInterval(()=>{
+      if(fcg3Steps>=32){pausePlay();return;}
+      fcg3Steps++;mark();run();
+      if(fcg3Steps>=32)pausePlay();
+    },900);mark();
+  });
+  pause.addEventListener('click',pausePlay);
+  back.addEventListener('click',()=>{pausePlay();fcg3Steps=0;mark();run();});
+  byId('reset').addEventListener('click',mark);
+  byId('stop').addEventListener('click',mark);
+  mark();
+}
 if (isFCG2) {
   document.title='FCG2 物理格子からWebGL2へ：編集・検算ラボ';
   document.querySelector('h1').textContent='FCG2 時間発展する8×8スカラー場とGPU表示';
