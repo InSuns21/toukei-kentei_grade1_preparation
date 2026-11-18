@@ -2,7 +2,7 @@ id: WGL20
 title: GIS地形と数値格子を誤解なく重ねるには？
 volume: foundations
 status: supplementary
-prerequisites: [WGL19]
+prerequisites: [WGL19, GEOD6]
 official_scope: []
 learning_objectives:
   - EPSG:6697の入力軸順と局所東北上座標の変換・近似条件を説明し代表点を検算できる
