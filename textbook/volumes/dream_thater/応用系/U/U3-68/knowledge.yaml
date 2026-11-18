@@ -1,7 +1,7 @@
 chapter: U3-68
 scope: dream-theater
 coverage: complete
-prerequisites: [U3-67, U3-60, U3-59, U3-18, U3-44, U3-45, U3-46, U3-62, U3-66]
+prerequisites: [U3-67, U3-60, U3-59, U3-18, U3-44, U3-45, U3-46, U3-62, U3-66, MC2]
 concepts:
   - id: finance.tca-ledger
     name: 到着価格基準のTCA帳簿

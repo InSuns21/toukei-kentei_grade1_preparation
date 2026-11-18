@@ -2,7 +2,7 @@ id: "U3-68"
 title: "執行バックテスト・TCA と全科目統合"
 volume: "foundations"
 status: supplementary
-prerequisites: [U3-67, U3-60, U3-59, U3-18, U3-44, U3-45, U3-46, U3-62, U3-66]
+prerequisites: [U3-67, U3-60, U3-59, U3-18, U3-44, U3-45, U3-46, U3-62, U3-66, MC2]
 official_scope: []
 learning_objectives:
   - 未約定の時価評価を含む到着価格基準の損失会計を二通りで導出・検算できる
