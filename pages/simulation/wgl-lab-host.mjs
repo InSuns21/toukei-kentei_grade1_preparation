@@ -312,7 +312,9 @@ function isolatedRunner() {
       const floatReadback=request.lesson === 'WGL18' && hooks &&
         Array.isArray(hooks.floatReadback) && hooks.floatReadback.length === 16 ?
         hooks.floatReadback.map(v=>Number(v)) : null;
-      send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback,
+      const floatParameters=request.lesson === 'WGL18' && hooks && hooks.floatParameters ?
+        {rate:Number(hooks.floatParameters.rate),steps:Number(hooks.floatParameters.steps)} : null;
+      send({...scope, type: 'result', ok: glError === gl.NO_ERROR, samples, floatReadback, floatParameters,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
     } catch (error) {
@@ -436,7 +438,11 @@ window.addEventListener('message', event => {
       unchanged ? '基準画素と不一致（viewport/色/GL状態を再確認）' : '編集コードを実行しました（基準との差を比較）',
       unchanged && !pass);
     if (isWGL18) {
-      const floats=compareWGL18FloatReadback(data.floatReadback);
+      const fp=data.floatParameters;
+      const validParameters=fp&&typeof fp.rate==='number'&&Number.isFinite(fp.rate)&&
+        fp.rate>=0&&fp.rate<=0.25&&Number.isInteger(fp.steps)&&fp.steps>=0&&fp.steps<=12;
+      const floats=validParameters ? compareWGL18FloatReadback(data.floatReadback,fp.rate,fp.steps) :
+        {valid:false,pass:false,maxError:Infinity,mass:NaN};
       byId('diagnostics').textContent += '\nCPU独立基準 vs GPU RGBA32F: ' +
         (floats.valid ? 'max absolute error='+floats.maxError.toPrecision(6)+
           ', mass='+floats.mass.toPrecision(9)+', '+(floats.pass?'一致':'不一致') :

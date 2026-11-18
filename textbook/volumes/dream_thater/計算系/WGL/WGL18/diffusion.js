@@ -97,4 +97,4 @@ gl.uniform2f(uTarget,canvas.width,canvas.height);
 gl.clearColor(0,0,0,1);gl.clear(gl.COLOR_BUFFER_BIT);
 gl.drawArrays(gl.TRIANGLES,0,6);
 // The parent uses its OWN CPU oracle, not the JS/GLSL source, to compare this readback.
-return {floatReadback:floatValues};
+return {floatReadback:floatValues,floatParameters:{rate,steps}};

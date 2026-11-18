@@ -41,6 +41,8 @@ test('CPU oracle checks 16 independent display probes and float array',()=>{
   assert.equal(compareWGL18FloatReadback(expected).pass,true);
   assert.equal(compareWGL18FloatReadback(expected.map((v,i)=>i===5?v+0.01:v)).pass,false);
   assert.equal(compareWGL18FloatReadback(null).valid,false);
+  assert.equal(compareWGL18FloatReadback(expectedWGL18Grid(0.1,3),0.1,3).pass,true);
+  assert.equal(compareWGL18FloatReadback(expectedWGL18Grid(0.1,3),0.2,2).pass,false);
 });
 test('real editable GPU sources isolate float state and display',async()=>{
   const base=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL18/',import.meta.url);

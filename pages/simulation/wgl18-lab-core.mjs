@@ -47,9 +47,9 @@ export function compareWGL18Readback(actual,width,height,tolerance=2){
       pass:valid&&difference.every(v=>v<=tolerance)};
   });
 }
-export function compareWGL18FloatReadback(actual,tolerance=0.00001){
+export function compareWGL18FloatReadback(actual,rate=0.2,steps=2,tolerance=0.00001){
   if(!Number.isFinite(tolerance)||tolerance<=0)throw new RangeError('invalid tolerance');
-  const expected=expectedWGL18Grid();
+  const expected=expectedWGL18Grid(rate,steps);
   const valid=Array.isArray(actual)&&actual.length===16&&
     actual.every(v=>typeof v==='number'&&Number.isFinite(v));
   const differences=valid?expected.map((v,i)=>Math.abs(v-actual[i])):[Infinity];
