@@ -363,7 +363,7 @@ $$
 
 Python の同一ソースで予測・Poisson の逐次過緩和解法・補正・二本の中心線速度曲線を出力する。二次元の圧力濃淡と流線は描画付きプリセットで表示できる。流線はセル中心へ面速度を平均して描いた近似図であり、同じ格子の残差数値に優先する証拠ではない。描画に失敗してもまず数値出力と収束の条件を確認する。
 
-<!-- python-file-lab -->
+```python-file-lab
 # lab-id: FLUID47-MAC-PROJECTION
 # lab-title: MAC射影・蓋駆動キャビティ・圧力残差と離散発散
 # lab-file: textbook/volumes/dream_thater/物理系/FLUID/FLUID47/cavity_projection_lab.py
@@ -374,7 +374,7 @@ Python の同一ソースで予測・Poisson の逐次過緩和解法・補正�
 # lab-preset: 16×16・格子と刻みを細分 | --grid 16 --dt 0.005 --time 1 --re 20
 # lab-preset: 12×12・圧力と流線の描画 | --grid 12 --dt 0.01 --time 1 --re 20 --plot
 # lab-preset: 離散演算・境界・刻みの自己検査 | --self-test
-<!-- python-file-lab-end -->
+```
 
 [Pythonソースを読む](cavity_projection_lab.py)
 
