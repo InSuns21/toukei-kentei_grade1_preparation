@@ -1,0 +1,53 @@
+chapter: U3-68
+scope: dream-theater
+coverage: complete
+prerequisites: [U3-67, U3-60, U3-59, U3-18, U3-44, U3-45, U3-46, U3-62, U3-66]
+concepts:
+  - id: finance.tca-ledger
+    name: 到着価格基準のTCA帳簿
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（到着価格基準のTCA帳簿）"]
+    requires: [finance.implementation-shortfall, finance.multiasset-execution-loss]
+  - id: finance.tca-shortfall-identity
+    name: 未約定を含む執行不足額の恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（未約定を含む執行不足額の恒等式）"]
+    requires: [finance.tca-ledger, finance.shortfall-decomposition]
+  - id: finance.causal-holdout-execution
+    name: 因果的な方針と未使用経路評価
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（因果的な方針と未使用経路評価）"]
+    requires: [finance.execution-schedule, finance.adaptive-execution-state]
+  - id: finance.execution-future-invariance
+    name: 未来の入力変更に対する発注の不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（未来の入力変更に対する発注の不変性）"]
+    requires: [finance.causal-holdout-execution]
+  - id: finance.tca-vwap-decomposition
+    name: 市場VWAP差の配分・価格差分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（市場VWAP差の配分・価格差分解）"]
+    requires: [finance.execution-vwap-gap, finance.tca-ledger]
+  - id: finance.paired-tca-cost
+    name: 対応のある平均費用差
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対応のある平均費用差）"]
+    requires: [finance.tca-ledger, finance.causal-holdout-execution]
+  - id: finance.paired-tca-variance
+    name: 対応差の分散と同一経路利用
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対応差の分散と同一経路利用）"]
+    requires: [finance.paired-tca-cost]
+  - id: finance.integrated-execution-tail
+    name: 価格付け・執行を通した実確率損失
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（価格付け・執行を通した実確率損失）"]
+    requires: [finance.tca-ledger, finance.physical-versus-pricing-measure, finance.value-at-risk, finance.expected-shortfall]

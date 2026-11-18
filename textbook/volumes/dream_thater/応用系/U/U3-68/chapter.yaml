@@ -1,0 +1,46 @@
+id: "U3-68"
+title: "執行バックテスト・TCA と全科目統合"
+volume: "foundations"
+status: supplementary
+prerequisites: [U3-67, U3-60, U3-59, U3-18, U3-44, U3-45, U3-46, U3-62, U3-66]
+official_scope: []
+learning_objectives:
+  - 未約定の時価評価を含む到着価格基準の損失会計を二通りで導出・検算できる
+  - 到着価格・市場VWAP・自分の約定平均を区別し、配分差と執行価格差に分解できる
+  - 執行方針の情報時点を定義し、先読みと因果性の反例を判定できる
+  - 学習経路と未使用経路を分離し、同じ市場経路上で複数方針を公平に比較できる
+  - 対応のあるTCA平均差・分散・正規近似区間とモデル誤差を区別できる
+  - 価格付け測度Qと将来損失の実確率Pを区別し、売却後のVaRとESを計算できる
+  - Pythonで固定seed・同一経路・流動性ストレス・残在庫・先読み不変性を再現できる
+definitions:
+  - { id: U3-68-DEF-01, name: "到着価格基準のTCA帳簿" }
+  - { id: U3-68-DEF-02, name: "因果的な方針と未使用経路評価" }
+  - { id: U3-68-DEF-03, name: "対応のある平均費用差" }
+  - { id: U3-68-DEF-04, name: "価格付け・執行を通した実確率損失" }
+theorems:
+  - { id: U3-68-PROP-01, name: "未約定を含む執行不足額の恒等式" }
+  - { id: U3-68-PROP-02, name: "未来の入力変更に対する発注の不変性" }
+  - { id: U3-68-PROP-03, name: "市場VWAP差の配分・価格差分解" }
+  - { id: U3-68-PROP-04, name: "対応差の分散と同一経路利用" }
+canonical_examples:
+  - "12契約3区間の実約定・残在庫・価格変動・IS一致5.94円"
+  - "市場VWAP99.8円と自己約定平均99.525円の二項分解"
+  - "4経路の対応差平均1円・近似区間約[-0.789,2.789]円"
+  - "2契約オプションの部分売却とP下の75%VaR・ES"
+  - "独立合成P経路の同条件4方針比較と流動性ストレス"
+problem_patterns:
+  - U3-68-A1
+  - U3-68-A2
+  - U3-68-A3
+  - U3-68-A4
+  - U3-68-A5
+  - U3-68-B1
+  - U3-68-B2
+  - U3-68-B3
+  - U3-68-B4
+  - U3-68-B5
+  - U3-68-C1
+exercise_counts: { level_a: 5, level_b: 5, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.0, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []

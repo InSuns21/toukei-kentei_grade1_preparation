@@ -398,6 +398,13 @@ jobs:
           PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-59/assets/order_book.py --side buy --quantity 70
           PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-59/assets/tests -v
 
+      # U3-68: synthetic held-out execution, paired TCA and no-look-ahead.
+      - name: Verify U3-68 execution TCA and integration experiment
+        run: |
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-68/assets/execution_tca.py --self-test
+          PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s textbook/volumes/dream_thater/応用系/U/U3-68/assets/tests -v
+          PYTHONDONTWRITEBYTECODE=1 python3 textbook/volumes/dream_thater/応用系/U/U3-68/assets/execution_tca.py --paths 48 --seed 20261119
+
       # Fast and full PRs must both check this inexpensive, site-blocking invariant.
       - name: Validate collapsible proof sections
         run: npm run validate:proof-folding
