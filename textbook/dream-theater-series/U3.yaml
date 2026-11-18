@@ -71,4 +71,4 @@ chapters:
   - { id: U3-65, path: textbook/volumes/dream_thater/応用系/U/U3-65, status: completed, title: "指値・成行注文と約定不確実性" }
   - { id: U3-66, path: textbook/volumes/dream_thater/応用系/U/U3-66, status: completed, title: "状態依存最適執行と HJB の応用" }
   - { id: U3-67, path: textbook/volumes/dream_thater/応用系/U/U3-67, status: completed, title: "複数資産・クロスインパクト・流動性調整リスク" }
-  - { id: U3-68, path: textbook/volumes/dream_thater/応用系/U/U3-68, status: planned, title: "執行バックテスト・TCA と全科目統合" }
+  - { id: U3-68, path: textbook/volumes/dream_thater/応用系/U/U3-68, status: completed, title: "執行バックテスト・TCA と全科目統合" }
