@@ -18,14 +18,34 @@
 
 <!-- formal-statement-start -->
 > **定義（固定時間刻みの蓄積時計）**  
-> $d_1,\ldots,d_m\ge0$ を有限のフレーム間隔、$h_t>0$ を固定の計算時間幅、$c\in\mathbb N$、$c\ge1$ を1フレームあたりの更新上限とする。$a_0=0,\ S_0=0,\ Q_0=0$ と置く。フレーム $k$ において $b=a_{k-1}+d_k$ とし、
+> 描画間隔、計算時間幅、1フレーム当たりの更新上限は次の値とする。
+>
+> $
+> d_1,\ldots,d_m\ge0,\qquad h_t>0,\qquad c\in\mathbb N,\ c\ge1.
+> $
+>
+> 初期状態は次の通りとし、各フレームで蓄積時間 $b$ を計算する。
+>
+> $
+> a_0=S_0=Q_0=0,\qquad b=a_{k-1}+d_k.
+> $
+>
+> 実行する段数と破棄する段数を
 >
 > $$
 > s_k=\min\!\left(c,\left\lfloor b/h_t\right\rfloor\right),\qquad
 > q_k=\left\lfloor(b-s_kh_t)/h_t\right\rfloor
 > $$
 >
-> と定め、$a_k=b-(s_k+q_k)h_t$、$S_k=S_{k-1}+s_k$、$Q_k=Q_{k-1}+q_k$ とする。$s_k$ は実際に実行した計算段数、$Q_kh_t$ は計算せずに捨てた経過時間、$a_k$ は繰越し端数である。計算式では実数上の厳密な時計を考える。
+> とし、残り時間と段数の累計を次のように定める。
+>
+> $
+> a_k=b-(s_k+q_k)h_t,\quad
+> S_k=S_{k-1}+s_k,\quad
+> Q_k=Q_{k-1}+q_k.
+> $
+>
+> $s_k$ は実際に実行した段数、$Q_kh_t$ は破棄した時間、$a_k$ は次へ持ち越す端数である。計算式では実数上の厳密な時計を考える。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-wgl19-clock -->
