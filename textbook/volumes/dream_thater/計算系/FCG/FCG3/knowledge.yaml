@@ -1,0 +1,41 @@
+chapter: FCG3
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG2]
+concepts:
+  - id: graphics.fcg3-backtrace
+    name: 半Lagrange逆追跡足点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半Lagrange逆追跡足点）"]
+    requires: [graphics.fcg2-scalar-snapshot]
+  - id: graphics.fcg3-bilinear
+    name: セル中心の双線形再構成
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（セル中心の双線形再構成）"]
+    requires: [graphics.fcg3-backtrace]
+  - id: graphics.fcg3-advection-step
+    name: 半Lagrange染料更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（半Lagrange染料更新）"]
+    requires: [graphics.fcg3-bilinear]
+  - id: graphics.fcg3-range
+    name: 双線形更新の値域不増大
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双線形更新の値域不増大）"]
+    requires: [graphics.fcg3-advection-step]
+  - id: graphics.fcg3-rotation
+    name: 回転の厳密な逆追跡と一周後の復元
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（回転の厳密な逆追跡と一周後の復元）"]
+    requires: [graphics.fcg3-backtrace]
+  - id: graphics.fcg3-nonconservation
+    name: 非保存性と数値拡散の区別
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（非保存性と数値拡散の区別）"]
+    requires: [graphics.fcg3-range]
