@@ -26,8 +26,11 @@ test('numeric elevations and counts are checked separately from pixels',()=>{
  const snapshot={schema:'wgl20-offline-mesh-v1',coordinate:{originLatLonH:origin},
    checks:{firstGeodetic:first},mesh:{vertices:[...xyz],triangles:[0,0,0]}};
  const report={firstLocal:xyz,vertices:1,triangles:1,waterLevelM:32,
-   groundAtOriginM:origin[2],depthAtOriginM:32-origin[2],zExaggeration:1.5};
+   groundAtOriginM:origin[2],depthAtOriginM:32-origin[2],
+   groundAtTestM:origin[2]+0.4,depthAtTestM:32-origin[2]-0.4,
+   groundAtWestM:origin[2]-0.5,depthAtWestM:32-origin[2]+0.5,zExaggeration:1.5};
  assert.ok(verifyWGL20Report(report,snapshot).pass);
  assert.equal(verifyWGL20Report({...report,depthAtOriginM:32},snapshot).pass,false);
+ assert.equal(verifyWGL20Report({...report,depthAtTestM:32},snapshot).pass,false);
  assert.equal(verifyWGL20Report({...report,firstLocal:[100,0,0]},snapshot).pass,false);
 });
