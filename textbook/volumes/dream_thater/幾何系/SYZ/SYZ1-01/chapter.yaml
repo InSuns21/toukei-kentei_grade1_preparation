@@ -1,0 +1,45 @@
+id: "SYZ1-01"
+title: "複素トーラス・双対トーラスとSYZの中心問い"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - CYG1-04
+  - CYG1-10
+  - SYM6
+official_scope: []
+learning_objectives:
+  - 全格子を用いて複素トーラスの実商表示と次元を確認できる
+  - 格子のU(1)文字を全て記述し双対実格子による商と同一視できる
+  - トーラスの文字群と基本群の文字空間を区別し反例で説明できる
+  - 平坦unitary局所系と基本群の文字の全単射を構成しホロノミーの符号を検算できる
+  - 双対実トーラスに生じる複素構造を一般格子と楕円曲線の座標で確認できる
+  - SYZのトーラス束の局所双対化と大域存在・特異補正の未証明部分を区別できる
+definitions:
+  - { id: SYZ1-01-DEF-01, name: "格子の文字と双対トーラス" }
+  - { id: SYZ1-01-DEF-02, name: "平坦U(1)局所系" }
+theorems:
+  - { id: SYZ1-01-PROP-01, name: "文字トーラスの格子商表示" }
+  - { id: SYZ1-01-THM-01, name: "平坦局所系のホロノミー分類" }
+  - { id: SYZ1-01-PROP-02, name: "双対トーラスの複素構造" }
+  - { id: SYZ1-01-PROP-03, name: "滑らかなトーラス束のファイバー双対化" }
+canonical_examples:
+  - 正方格子と斜交格子からの二実周期表示
+  - U(1)文字のパラメータと整数シフトの同値
+  - 平坦接続の並進によるホロノミーの計算
+  - 楕円格子に対する双対の複素パラメータの計算
+  - 円周ファイバーの局所族と特異ファイバーを取り除く必要性
+problem_patterns:
+  - SYZ1-01-FULL-LATTICE
+  - SYZ1-01-CHARACTER-KERNEL
+  - SYZ1-01-FLAT-CONNECTION
+  - SYZ1-01-CHARACTER-GROUP-DISTINCTION
+  - SYZ1-01-ELLIPTIC-DUAL
+  - SYZ1-01-CHANGE-OF-BASIS
+  - SYZ1-01-HOLONOMY-CONSISTENCY
+  - SYZ1-01-DOUBLE-DUAL
+  - SYZ1-01-FIBER-DIMENSION
+  - SYZ1-01-SYZ-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }
