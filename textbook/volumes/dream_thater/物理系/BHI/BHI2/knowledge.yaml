@@ -1,0 +1,42 @@
+chapter: BHI2
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI1, QCURV21, QINF17]
+forward_references: []
+concepts:
+  - id: black-hole-information.horizon-pair-toy
+    name: 有限次元の内外対模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（有限次元の内外対模型）]
+    requires: [black-hole-information.endpoint-system-split, quantum.composite-system]
+  - id: black-hole-information.horizon-pair-reduction
+    name: 内外対の縮約・エントロピー・位相相関
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（内外対の縮約・エントロピー・位相相関）]
+    requires: [black-hole-information.horizon-pair-toy, quantum.partial-trace, quantum.von-neumann-entropy]
+  - id: black-hole-information.two-level-thermal-pair
+    name: 二準位の有効熱的対
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二準位の有効熱的対）]
+    requires: [black-hole-information.horizon-pair-toy, qcurv.hawking-packet-synthesis]
+  - id: black-hole-information.two-level-gibbs
+    name: 二準位対の外部Gibbs表示とエントロピー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（二準位対の外部Gibbs表示とエントロピー）]
+    requires: [black-hole-information.two-level-thermal-pair, black-hole-information.horizon-pair-reduction]
+  - id: black-hole-information.bosonic-pair
+    name: 幾何級数型のボース二モード対
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（幾何級数型のボース二モード対）]
+    requires: [black-hole-information.horizon-pair-toy, qcurv.hawking-packet-synthesis]
+  - id: black-hole-information.bosonic-pair-truncation
+    name: ボース対の縮約・平均占有数・切り詰め確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（ボース対の縮約・平均占有数・切り詰め確率）]
+    requires: [black-hole-information.bosonic-pair, quantum.von-neumann-entropy, black-hole-information.two-level-thermal-pair]
