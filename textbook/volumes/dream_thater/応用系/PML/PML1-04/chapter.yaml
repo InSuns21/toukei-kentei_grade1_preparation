@@ -1,0 +1,47 @@
+id: "PML1-04"
+title: "エネルギーベース学習は統計力学とどこまで共通か"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-03
+  - INFO2
+official_scope: []
+learning_objectives:
+  - 有限状態のエネルギーベースモデルの規格化・パラメータ・尺度を定義し、最小模型で検証できる
+  - 固定データから経験分布と平均対数尤度を計算し、自由エネルギーの変分問題との違いを説明できる
+  - 分配関数を微分し正相・負相の差として最尤勾配を符号とともに導出できる
+  - 二スピンBoltzmann型模型で分配関数・特徴量の平均・勾配を全列挙から検算できる
+  - データからモデルへのKLと平均対数尤度の恒等式を導出し、台条件と最尤解不存在例を説明できる
+  - エネルギーの状態共通移動による非識別性を証明できる
+  - 線形エネルギーのHessianがモデル特徴量の共分散の負定数倍となることを導出できる
+definitions:
+  - { id: PML1-04-DEF-01, name: 有限エネルギーベースモデル }
+  - { id: PML1-04-DEF-02, name: 有限EBMの平均対数尤度 }
+  - { id: PML1-04-DEF-03, name: 線形EBMの正相・負相 }
+theorems:
+  - { id: PML1-04-PROP-01, name: 有限EBMの対数尤度勾配 }
+  - { id: PML1-04-PROP-02, name: 二スピン模型の分配関数とモデル平均 }
+  - { id: PML1-04-PROP-03, name: 最尤学習とデータからモデルへのKL }
+  - { id: PML1-04-PROP-04, name: 状態に依存しないエネルギー移動 }
+  - { id: PML1-04-PROP-05, name: 線形EBMの対数尤度は凹関数 }
+canonical_examples:
+  - 1スピンの分配関数と観測比率の平均対数尤度
+  - 正相・負相による勾配の符号検証
+  - 二スピンの四状態全列挙と結合パラメータの更新方向
+  - 観測分布が境界にある場合の最尤解不存在
+  - 二スピン特徴量の共分散と曲率
+problem_patterns:
+  - PML1-04-A01
+  - PML1-04-A02
+  - PML1-04-A03
+  - PML1-04-A04
+  - PML1-04-A05
+  - PML1-04-B01
+  - PML1-04-B02
+  - PML1-04-B03
+  - PML1-04-B04
+  - PML1-04-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 5, review: 2 }
