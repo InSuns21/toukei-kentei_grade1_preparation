@@ -1,0 +1,20 @@
+chapter: FCG6
+terms:
+  - term: 固体マスク
+    english: solid mask
+    meaning: セル中心が固体内かどうかを二値化したもの。曲面そのものには一致しない。
+  - term: 流体・固体境界面
+    english: fluid-solid interface face
+    meaning: 隣接する二セルの片方だけが固体のMAC内部面。
+  - term: 非貫通境界条件
+    english: no-penetration boundary condition
+    meaning: 流体の法線速度が壁の法線速度に等しいという運動学的条件。
+  - term: 滑りなし境界条件
+    english: no-slip boundary condition
+    meaning: 流体の接線速度も壁の接線速度へ一致させる粘性境界条件。
+  - term: マスク付きNeumann射影
+    english: masked Neumann projection
+    meaning: 流体セルだけでPoisson問題を解き、流体同士の面の速度だけを圧力勾配で補正する処理。
+  - term: 圧力反力
+    english: pressure reaction force
+    meaning: 流体から固体へ働く圧力面力の合計。粘性せん断力は含まない。
