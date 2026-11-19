@@ -73,7 +73,18 @@ $$
 > と置く。基底によらない写像 $e^{i\beta_L}:L\to S^1$ を $L$ の位相写像と呼ぶ。局所的に選んだ実数値の $\beta_L$ を位相角と呼ぶ。
 <!-- formal-statement-end -->
 
-定義の条件を水平平面で直接確認しよう。$L=\mathbb R^2_x\times\{0\}$、$\Omega=dz^1\wedge dz^2$ なら、正の向きの基底 $(\partial_{x^1},\partial_{x^2})$ は正規直交で $\omega=0$、かつ $\Omega=1$ だから $e^{i\beta_L}=1$。同じ平面でも向きを逆にすると評価は $-1$、位相は $\pi$ に変わる。位相は「向きを無視した角度」ではない。
+<!-- definition-example-start: def-syz1-04-phase-map -->
+### 直接例：水平平面の位相を定義から確かめる
+
+**定義の確認**：標準 $\mathbb C^2$ に $\Omega=dz^1\wedge dz^2$ を置き、$L=\mathbb R^2_x\times\{0\}$ を $(x^1,x^2)$ の増加方向に向ける。
+
+1. $F(x^1,x^2)=(x^1,x^2,0,0)$ は埋め込みで、$L$ は実2次元である。接基底 $(v_1,v_2)=(\partial_{x^1},\partial_{x^2})$ は標準計量で正規直交であり、$\omega(v_1,v_2)=0$ なのでLagrange条件を満たす。
+2. $dz^j(v_k)=\delta^j_k$ だから $\Omega(v_1,v_2)=\det I_2=1$。また、この計量での規格化係数は $c(p)=1$ である。ゆえに位相写像は全点で $e^{i\beta_L}=1$ となり、$\beta_L=0$ を選べる。
+3. 別の正の向きの正規直交接基底 $(w_1,w_2)$ との変換行列 $A$ は $SO(2)$ に属する。従って $\Omega(w_1,w_2)=\det A\,\Omega(v_1,v_2)=1$ となり、選ぶ基底によらない。
+4. 向きを逆転して $(v_2,v_1)$ を正の接基底とすると、$\Omega(v_2,v_1)=-1$。従って位相は $\pi$ に変わる。
+
+位相は「向きを無視した角度」ではない。
+<!-- definition-example-end -->
 
 <a id="prop-syz1-04-slag-conditions"></a>
 
