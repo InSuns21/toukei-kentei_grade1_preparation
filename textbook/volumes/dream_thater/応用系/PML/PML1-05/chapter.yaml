@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - PML1-04
   - SLT1-05
+  - COMB2
 official_scope: []
 learning_objectives:
   - バイアスを持つperceptronの厳密線形分離条件を定義し、点配置とラベルの直接例・反例を検算できる

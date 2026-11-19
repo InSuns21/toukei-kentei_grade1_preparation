@@ -1,7 +1,7 @@
 chapter: PML1-05
 scope: dream-theater
 coverage: complete
-prerequisites: [PML1-04, SLT1-05]
+prerequisites: [PML1-04, SLT1-05, COMB2]
 concepts:
   - id: physics-machine-learning.perceptron-strict-separation
     name: 有限標本の厳密なアフィン線形分離
