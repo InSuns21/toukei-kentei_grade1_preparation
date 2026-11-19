@@ -63,7 +63,7 @@ $$
 
 有限次元では、放射だけを測る観測者の作用素は $R$ 上の演算子 $O_R$ を全体系に恒等作用素で延長した $O_R\otimes I_B\otimes I_E$ です。この作用素の集まりは和・積・複素定数倍・随伴で閉じています。こうした代数的な構造を明示するため、以下で**放射観測代数**を定義します。実際に用意できる検出器がその全作用素を測れる、と主張しているわけではありません。
 
-[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)は、観測代数のすべての期待値を放射上の一つの密度演算子で計算できるようにします。入力密度演算子から、等長発展を経て放射だけの密度演算子を取り出す写像を、[量子チャネルの定義](../../../応用系/QINF/QINF7/index.md#def-qinf7-channel)に従って**放射への縮約チャネル**と呼びます。以下、$\mathcal B(\mathcal H_R)$ は放射Hilbert空間上の全線形作用素の集合を表します。
+[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)は、観測代数のすべての期待値を放射上の一つの密度演算子で計算できるようにします。入力密度演算子から放射の情報を取り出すには、等長発展を施した後で部分トレースを取ります。これは[量子チャネルの定義](../../../応用系/QINF/QINF7/index.md#def-qinf7-channel)に沿う操作で、次にその作用対象と期待値の関係を明確にします。以下、$\mathcal B(\mathcal H_R)$ は放射Hilbert空間上の全線形作用素の集合を表します。
 
 <a id="def-bhi1-radiation-channel"></a>
 
@@ -111,7 +111,7 @@ $$
 =\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|
 =I_2/2.
 $$
-$O_R=|0\rangle\langle0|$ なら両辺の期待値は $1/2$。$O_R=X=|0\rangle\langle1|+|1\rangle\langle0|$ なら両辺は0です。しかし放射と残存物を**共同で**測る $X_R\otimes X_B$ は $B$ の基底状態も反転させるので、$B$ に恒等作用素を置く $O_R\otimes I_B$ の形に書けず、$\mathcal A_R$ に属しません。$|\Phi^+\rangle$ における期待値は1です。この違いがアクセス可能範囲の意味です。
+$O_R=|0\rangle\langle0|$ なら両辺の期待値は $1/2$。$O_R=X=|0\rangle\langle1|+|1\rangle\langle0|$ なら両辺は0です。しかし放射と残存物を**共同で**測る $X_R\otimes X_B$ は $B$ 上の $|0\rangle$ と $|1\rangle$ も入れ替えるので、$B$ に恒等作用素を置く $O_R\otimes I_B$ の形に書けず、$\mathcal A_R$ に属しません。$|\Phi^+\rangle$ における期待値は1です。この違いがアクセス可能範囲の意味です。
 <!-- definition-example-end -->
 
 $\mathcal N_R$ は[量子チャネルの定義](../../../応用系/QINF/QINF7/index.md#def-qinf7-channel)に沿って完全正値・跡保存です。等長写像による共役 $V\rho V^\dagger$ と部分トレースを連続して行うためであり、放射上で逆操作が存在するとは限りません。
