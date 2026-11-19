@@ -66,11 +66,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（単一セルの逆センサーモデル）**  
 > セル $i\in I$、既知の姿勢 $x_t$、測距記録 $z_t$、参照事前占有確率 $p_0\in(0,1)$ に対し、逆センサーモデルの出力 $q_{t,i}$ は $0<q_{t,i}<1$ を満たす数とする。モデルが一時刻だけの Bayes 事後を表す理想的な場合は
->
-> $$
-> q_{t,i}=P(M_i=1\mid Z_t=z_t,x_t)
-> $$
->
+
+$$
+q_{t,i}=P(M_i=1\mid Z_t=z_t,x_t)
+$$
+
 > とし、右辺の条件付けには事前確率 $P(M_i=1)=p_0$ を使用する。観測に情報がないセルでは $q_{t,i}=p_0$ とする。実装上の近似逆センサーモデルでは、光線の通過・命中・非観測の分類から同じ範囲の $q_{t,i}$ を指定するが、厳密な一時刻事後に等しいとは限らない。
 <!-- formal-statement-end -->
 
@@ -103,16 +103,16 @@ $$
 $$
 
 > 各セルへの逆モデル入力を
->
-> $$
-> q_{t,i}=
-> \begin{cases}
-> p_{\mathrm{free}},&i\in F_t,\\
-> p_{\mathrm{hit}},&i=H_t\text{（命中がある場合）},\\
-> p_0,&i\in U_t
-> \end{cases}
-> $$
->
+
+$$
+q_{t,i}=
+\begin{cases}
+p_{\mathrm{free}},&i\in F_t,\\
+p_{\mathrm{hit}},&i=H_t\text{（命中がある場合）},\\
+p_0,&i\in U_t
+\end{cases}
+$$
+
 > とする。上限付近の飽和と真の命中が混在するセンサーでは、$z_t=R$ の解釈は別途観測フラグで定める。
 <!-- formal-statement-end -->
 
@@ -133,18 +133,18 @@ $$
 <!-- formal-statement-start -->
 > **定義（占有確率の log-odds）**  
 > $0<p<1$ に対し、占有の非占有に対する odds とその対数をそれぞれ
->
-> $$
-> O(p)=\frac{p}{1-p},\qquad
-> L(p)=\log O(p)
-> $$
->
+
+$$
+O(p)=\frac{p}{1-p},\qquad
+L(p)=\log O(p)
+$$
+
 > とする。実数 $\ell$ から確率へ戻す写像は
->
-> $$
-> S(\ell)=\frac{1}{1+e^{-\ell}}
-> $$
->
+
+$$
+S(\ell)=\frac{1}{1+e^{-\ell}}
+$$
+
 > とする。全セルの占有確率 $p_{t,i}\in(0,1)$ に対応する地図状態を $\ell_{t,i}=L(p_{t,i})$ と表す。
 <!-- formal-statement-end -->
 
@@ -169,17 +169,17 @@ P(M_i=1)=p_0\in(0,1).
 $$
 
 > 既知の固定姿勢列 $x_1,\ldots,x_T$ の下で、観測列 $Z_1,\ldots,Z_T$ は $M_i$ に条件付けて独立と仮定する。実現値 $z_t$ での条件付き尤度 $f_t(z_t\mid M_i=m,x_t)$ は各 $m\in\{0,1\}$ について有限かつ正とする。各時刻で、共通の参照事前 $p_0$ を使った**一観測だけの厳密な事後**
->
-> $$
-> q_{t,i}=P(M_i=1\mid Z_t=z_t,x_t)
-> $$
->
+
+$$
+q_{t,i}=P(M_i=1\mid Z_t=z_t,x_t)
+$$
+
 > を与えられたとき、全観測後の事後 $p_{T,i}=P(M_i=1\mid z_1,\ldots,z_T,x_1,\ldots,x_T)$ は
->
-> $$
-> L(p_{T,i})=L(p_0)+\sum_{t=1}^T\bigl[L(q_{t,i})-L(p_0)\bigr]
-> $$
->
+
+$$
+L(p_{T,i})=L(p_0)+\sum_{t=1}^T\bigl[L(q_{t,i})-L(p_0)\bigr]
+$$
+
 > を満たす。従って逐次形は $\ell_{t,i}=\ell_{t-1,i}+L(q_{t,i})-L(p_0)$、$p_{t,i}=S(\ell_{t,i})$ である。
 <!-- formal-statement-end -->
 
@@ -325,12 +325,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（単一ビーム後の周辺値では同時地図を再現できない）**  
 > $M_1,M_2$ を独立な Bernoulli$(1/2)$ 変数とし、$E=\{M_1=1\text{ または }M_2=1\}$ を観測したとする。このとき
->
-> $$
-> P(M_1=1\mid E)=P(M_2=1\mid E)=\frac23,\qquad
-> P(M_1=1,M_2=1\mid E)=\frac13.
-> $$
->
+
+$$
+P(M_1=1\mid E)=P(M_2=1\mid E)=\frac23,\qquad
+P(M_1=1,M_2=1\mid E)=\frac13.
+$$
+
 > 従って条件付き共分散は $-1/9$ であり、事後周辺確率の積 $4/9$ は真の同時確率 $1/3$ に一致しない。
 <!-- formal-statement-end -->
 
