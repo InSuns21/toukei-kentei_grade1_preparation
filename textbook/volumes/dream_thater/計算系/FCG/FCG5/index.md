@@ -202,7 +202,7 @@ $$
 b_{ij}=\frac{\rho}{\Delta t}(D_h\boldsymbol u^\ast)_{ij}
 $$
 
-を作る。壁法線流束零ゆえ、[FCG4の総和恒等式](../FCG4/index.md#prop-fcg4-flux-sum)から $\sum_{ij}b_{ij}=0$、したがってNeumann問題の可解条件が成り立つ。平均零に固定した圧力を**緩和Jacobiで120回**近似し、隣の圧力数を角2・辺3・内部4として反復する。これは必要な許容残差に必ず達するという意味ではない。
+を作る。壁法線流束零ゆえ、[零流束格子の発散総和](../FCG4/index.md#prop-fcg4-flux-sum)から $\sum_{ij}b_{ij}=0$、したがってNeumann問題の可解条件が成り立つ。平均零に固定した圧力を**緩和Jacobiで120回**近似し、隣の圧力数を角2・辺3・内部4として反復する。これは必要な許容残差に必ず達するという意味ではない。
 
 <a id="prop-fcg5-residual-step"></a>
 
@@ -254,7 +254,11 @@ $$
 > - **最大Poisson残差** $E_P=\max_{ij}|(L_hp-b)_{ij}|$ [Pa/m²]。
 > - **速度二乗積分の半分** $K_h=\tfrac12h^2\sum_{ij}|(u_{c,ij},v_{c,ij})|^2$ [m⁴/s²]。ここでは密度を掛けていない。
 >
-> 射影の検算にはさらに $E_I=\max|D_h\boldsymbol u+(\Delta t/\rho)(L_hp-b)|$ を使う。
+> 射影の検算にはさらに、以下の恒等式のずれを使う。
+
+$
+E_I=\max_{ij}\left|(D_h\boldsymbol u)_{ij}+\frac{\Delta t}{\rho}(L_hp-b)_{ij}\right|.
+$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg5-diagnostics -->
@@ -312,7 +316,7 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** [射影後発散の命題](#prop-fcg5-residual-step)を適用する。$D_h\boldsymbol u^{n+1}=-(\Delta t/\rho)R$ であり、代入すると $-0.04(-0.05)=+0.002$ [s⁻¹]。残差の符号を落とすと正負を逆にしてしまう。最大絶対値の評価とは異なり、この問題ではセルごとの**符号付き**発散を答える。
+**詳細解答。** [分割ステップの射影後発散](#prop-fcg5-residual-step)を適用する。$D_h\boldsymbol u^{n+1}=-(\Delta t/\rho)R$ であり、代入すると $-0.04(-0.05)=+0.002$ [s⁻¹]。残差の符号を落とすと正負を逆にしてしまう。最大絶対値の評価とは異なり、この問題ではセルごとの**符号付き**発散を答える。
 <!-- solution-end -->
 
 ### Level B
