@@ -255,7 +255,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-大域的Lipschitz連続なベクトル場 $-\nabla f$ に対するPicard反復の局所解は、有限時刻で発散できない。実際、$\|\nabla f(x)\|\le\|\nabla f(0)\|+L\|x\|$ なので、積分方程式から
+大域的Lipschitz連続なベクトル場 $-\nabla f$ に対して、[ODE1の初期値問題と積分方程式の同値性](../../../解析系/ODE/ODE1/index.md#prop-ode1-integral-equation)を連立系の各成分へ適用する。局所解の存在区間内で $\|\nabla f(x)\|\le\|\nabla f(0)\|+L\|x\|$ だから、次の積分評価が成立する。
 
 $$
 \|x(t)\|\le\|x_0\|
