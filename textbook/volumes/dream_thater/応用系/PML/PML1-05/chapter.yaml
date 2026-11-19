@@ -1,0 +1,51 @@
+id: "PML1-05"
+title: "perceptronの記憶容量は何に依存するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-04
+  - SLT1-05
+  - COMB2
+official_scope: []
+learning_objectives:
+  - バイアスを持つperceptronの厳密線形分離条件を定義し、点配置とラベルの直接例・反例を検算できる
+  - 固定標本の実現ラベル数とshatteringを対応付け、ラベル数と汎化誤差を区別できる
+  - アフィン一般位置の増補ベクトルによる判定を実行し、少数点の全ラベル分離を構成できる
+  - 一般位置の実現ラベル数を係数空間の凸性と次元減少に基づく再帰式から証明できる
+  - 独立・公平なランダムラベルによる分離確率の二項分布表示を導出できる
+  - 次元と点数を同時に無限大へ送る際の容量比2の十分条件・限界を証明できる
+  - マージンと増補入力長を区別し、perceptronの有限更新回数上界を導出できる
+  - 一般位置、マージン、ラベル独立性、汎化と物理的相転移の仮定を混同せず反例を説明できる
+definitions:
+  - { id: PML1-05-DEF-01, name: 有限標本の厳密なアフィン線形分離 }
+  - { id: PML1-05-DEF-02, name: 固定標本の実現ラベル数 }
+  - { id: PML1-05-DEF-03, name: アフィン一般位置 }
+  - { id: PML1-05-DEF-04, name: 増補空間での正規化マージン }
+theorems:
+  - { id: PML1-05-PROP-01, name: 一般位置の少数点は全ラベル分離可能 }
+  - { id: PML1-05-THM-01, name: 一般位置でのperceptron実現ラベル数 }
+  - { id: PML1-05-PROP-02, name: 独立・一様ラベルの厳密分離確率 }
+  - { id: PML1-05-COR-01, name: 公平ランダムラベルに対する容量比の境界 }
+  - { id: PML1-05-PROP-03, name: 有限標本のperceptron更新回数上界 }
+canonical_examples:
+  - 一次元3点の6ラベル列と不可能な交互符号
+  - 三角形の一般位置と任意ラベルへの分離係数
+  - 共線点・重複点が壊す一般位置と分離可能性
+  - 二次元4点の14通りと正方形の反例
+  - 二項分布による分離確率と容量比2の極限
+  - 増補空間でのマージンとperceptron更新回数
+problem_patterns:
+  - PML1-05-A01
+  - PML1-05-A02
+  - PML1-05-A03
+  - PML1-05-A04
+  - PML1-05-A05
+  - PML1-05-B01
+  - PML1-05-B02
+  - PML1-05-B03
+  - PML1-05-B04
+  - PML1-05-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

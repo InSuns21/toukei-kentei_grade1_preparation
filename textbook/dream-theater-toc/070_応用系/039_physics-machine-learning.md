@@ -5,3 +5,4 @@
 2. [PML1-02 有限状態からGibbs分布を構成できるか](textbook/volumes/dream_thater/応用系/PML/PML1-02/index.md)
 3. [PML1-03 自由エネルギー最小化とKLはどう結び付くか](textbook/volumes/dream_thater/応用系/PML/PML1-03/index.md)
 4. [PML1-04 エネルギーベース学習は統計力学とどこまで共通か](textbook/volumes/dream_thater/応用系/PML/PML1-04/index.md)
+5. [PML1-05 perceptronの記憶容量は何に依存するか](textbook/volumes/dream_thater/応用系/PML/PML1-05/index.md)

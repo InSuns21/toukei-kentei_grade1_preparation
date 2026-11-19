@@ -23,7 +23,7 @@ chapters:
     title: "エネルギーベース学習は統計力学とどこまで共通か"
   - id: PML1-05
     path: textbook/volumes/dream_thater/応用系/PML/PML1-05
-    status: planned
+    status: completed
     title: "perceptronの記憶容量は何に依存するか"
   - id: PML1-06
     path: textbook/volumes/dream_thater/応用系/PML/PML1-06
