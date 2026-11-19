@@ -288,12 +288,12 @@ $$
 
 $\bar n=z/(1-z)$ から $1+\bar n=1/(1-z)$、$z=\bar n/(1+\bar n)$ です。これを第一の表示へ代入すると
 
-$
+$$
 \begin{aligned}
 S(O)&=\ln(1+\bar n)-\bar n\bigl[\ln\bar n-\ln(1+\bar n)\bigr]\\
 &=(1+\bar n)\ln(1+\bar n)-\bar n\ln\bar n.
 \end{aligned}
-$
+$$
 
 内外それぞれの二準位射影を $P_O=\sum_{n=0}^1|n\rangle_O\langle n|$、$P_I=\sum_{n=0}^1|n\rangle_I\langle n|$ とし、局所切り詰めを $P=P_O\otimes P_I$ で行います。これは一般の内外状態に対しては $|01\rangle,|10\rangle$ も残しますが、$|\Omega_z\rangle$ は $|n,n\rangle$ の成分しかないため、作用させた結果は
 
@@ -401,7 +401,7 @@ $$
 <!-- solution-start -->
 **詳細解答。** エネルギー固有値は0と $\omega$ だから、分配関数を $\mathcal Z$（Pauli作用素 $Z$ とは別）と書くと
 
-$
+$$
 \mathcal Z=e^0+e^{-\ln3}=1+\frac13=\frac43,\qquad
 p=\frac{e^{-\ln3}}{\mathcal Z}=\frac14.
 $$
