@@ -265,7 +265,7 @@ $$
 =d(\iota_V\eta|_{TL})=d\beta=d*\alpha.
 $$
 
-定義 $d^*\alpha=-*d*\alpha$ と、任意の最高次形式 $\gamma$ に対する $\gamma=(*\gamma)\operatorname{vol}_L$ を併用すれば
+[余微分の定義](#def-syz1-05-hodge-star-codifferential) $d^*\alpha=-*d*\alpha$ と、任意の最高次形式 $\gamma$ に対する $\gamma=(*\gamma)\operatorname{vol}_L$ を併用すれば
 
 $$
 d*\alpha=(*d*\alpha)\operatorname{vol}_L
@@ -303,7 +303,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$t=0$ での積の微分を行う。第6節の[線形化定理](#thm-syz1-05-linearization)を固定した $\theta$ に適用し、$\partial_t e^{-i\theta(t)}|_0=-i\dot\theta(0)e^{-i\theta}$ を用いると
+$t=0$ での積の微分を行う。第6節の[固定位相のSLag方程式の線形化](#thm-syz1-05-linearization)を固定した $\theta$ に適用し、$\partial_t e^{-i\theta(t)}|_0=-i\dot\theta(0)e^{-i\theta}$ を用いると
 
 $$
 \begin{aligned}
@@ -402,7 +402,7 @@ $\omega=dx\wedge dy$ であり、$-\omega(V,\partial_x)=a(x)$ だから $\alpha=
 <!-- solution-start -->
 ### 詳細解答
 
-外微分すると $d\alpha=dx\wedge dy\ne0$。$*dy=-dx$ だから $*\alpha=-x\,dx$。ここから $d*\alpha=-dx\wedge dx=0$、従って $d^*\alpha=-*0=0$。余閉だが閉ではない。第6節の[線形化定理](#thm-syz1-05-linearization)より、位相方程式の一次部分は零でもLagrange方程式の一次部分は $-dx\wedge dy$ であり零ではない。
+外微分すると $d\alpha=dx\wedge dy\ne0$。$*dy=-dx$ だから $*\alpha=-x\,dx$。ここから $d*\alpha=-dx\wedge dx=0$、従って $d^*\alpha=-*0=0$。余閉だが閉ではない。第6節の[固定位相のSLag方程式の線形化](#thm-syz1-05-linearization)より、位相方程式の一次部分は零でもLagrange方程式の一次部分は $-dx\wedge dy$ であり零ではない。
 <!-- solution-end -->
 
 <a id="ex-syz1-05-a03"></a>
@@ -588,7 +588,7 @@ $
 =\beta_V.
 $
 
-第6節の[線形化定理](#thm-syz1-05-linearization)では両者の外微分だけを取るので、二つの一次変化は不変である。接方向の速度は形状の実変化ではなくパラメータの付け替えであることと整合する。
+第6節の[固定位相のSLag方程式の線形化](#thm-syz1-05-linearization)では両者の外微分だけを取るので、二つの一次変化は不変である。接方向の速度は形状の実変化ではなくパラメータの付け替えであることと整合する。
 <!-- solution-end -->
 
 <a id="ex-syz1-05-b04"></a>
@@ -602,7 +602,7 @@ $L$ を連結・コンパクト・境界なしの向き付きRiemann多様体と
 <!-- solution-start -->
 ### 詳細解答
 
-$d^*df=0$ と $d^*=-*d*$ より $d*df=0$。関数 $f$ と $(n-1)$ 形式 $*df$ に外微分の積の法則を適用すると
+$d^*df=0$ と $d^*=-*d*$ より $d*df=0$。関数 $f$（0形式）と $(n-1)$ 形式 $*df$ に[外微分の次数付きLeibniz則](../../GEO/GEO7/index.md#thm-geo7-graded-leibniz)を適用する。0形式の次数は0だから符号は $(-1)^0=1$ であり、
 
 $$
 d(f*df)=df\wedge *df+f\,d*df
@@ -632,7 +632,7 @@ $X=\mathbb C^3$、$L=\mathbb R^3$ を水平平面・標準向きの位相0のSLa
 <!-- solution-start -->
 ### 詳細解答
 
-**1.** $\alpha=df=yz\,dx+xz\,dy+xy\,dz$ なので $d\alpha=d^2f=0$。余微分は平坦計量で $d^*\alpha=-\Delta f$ である。$f_{xx}=f_{yy}=f_{zz}=0$ より $\Delta f=0$ なので余閉でもある。従って第6節の[線形化定理](#thm-syz1-05-linearization)の二つの一次式はどちらも零である。
+**1.** $\alpha=df=yz\,dx+xz\,dy+xy\,dz$ なので $d\alpha=d^2f=0$。余微分は平坦計量で $d^*\alpha=-\Delta f$ である。$f_{xx}=f_{yy}=f_{zz}=0$ より $\Delta f=0$ なので余閉でもある。従って第6節の[固定位相のSLag方程式の線形化](#thm-syz1-05-linearization)の二つの一次式はどちらも零である。
 
 **2.** 1階微分 $(f_x,f_y,f_z)=(yz,xz,xy)$ をさらに各変数で微分すると
 
