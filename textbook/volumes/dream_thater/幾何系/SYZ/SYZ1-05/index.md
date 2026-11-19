@@ -68,6 +68,8 @@ $$
 <!-- definition-example-start: def-syz1-05-variation-forms -->
 ### 直接例：水平平面の上向き変位
 
+**定義の確認**
+
 $X=\mathbb C^2$、$L=\{y^1=y^2=0\}$ を $(x^1,x^2)$ の標準向きにし、$\theta=0$ とする。$V=a_1\partial_{y^1}+a_2\partial_{y^2}$（$a_1,a_2$ は $L$ 上の滑らかな関数）を考える。
 
 $J\partial_{x^j}=\partial_{y^j}$ で、$V$ は接空間に直交するから法線場である。各接基底 $e_k=\partial_{x^k}$ に対して
@@ -113,6 +115,8 @@ $$
 
 <!-- definition-example-start: def-syz1-05-hodge-star-codifferential -->
 ### 直接例：平面の発散と余微分
+
+**定義の確認**
 
 $L=\mathbb R^2$ を $dx\wedge dy$ の向き、Euclid計量とし、$\alpha=a(x,y)dx+b(x,y)dy$ とする。定義から
 
@@ -577,8 +581,14 @@ $$
 \operatorname{Im}(e^{-i\theta}\Omega)(W,Z_1,\ldots,Z_{n-1})=0.
 $$
 
-ゆえに $\iota_{V+W}\operatorname{Im}(e^{-i\theta}\Omega)|_{TL}
-=\beta_V$。第6節の[線形化定理](#thm-syz1-05-linearization)では両者の外微分だけを取るので、二つの一次変化は不変である。接方向の速度は形状の実変化ではなくパラメータの付け替えであることと整合する。
+ゆえに
+
+$
+\iota_{V+W}\operatorname{Im}(e^{-i\theta}\Omega)|_{TL}
+=\beta_V.
+$
+
+第6節の[線形化定理](#thm-syz1-05-linearization)では両者の外微分だけを取るので、二つの一次変化は不変である。接方向の速度は形状の実変化ではなくパラメータの付け替えであることと整合する。
 <!-- solution-end -->
 
 <a id="ex-syz1-05-b04"></a>
