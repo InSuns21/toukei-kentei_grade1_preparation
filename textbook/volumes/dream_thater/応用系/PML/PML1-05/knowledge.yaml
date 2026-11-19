@@ -1,0 +1,72 @@
+chapter: PML1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-04, SLT1-05]
+concepts:
+  - id: physics-machine-learning.perceptron-strict-separation
+    name: 有限標本の厳密なアフィン線形分離
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限標本の厳密なアフィン線形分離）"]
+    requires:
+      - learning.hypothesis-class
+  - id: physics-machine-learning.perceptron-label-count
+    name: 固定標本の実現ラベル数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定標本の実現ラベル数）"]
+    requires:
+      - physics-machine-learning.perceptron-strict-separation
+      - learning.finite-sample-trace
+  - id: physics-machine-learning.affine-general-position
+    name: アフィン一般位置
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（アフィン一般位置）"]
+    requires:
+      - physics-machine-learning.perceptron-strict-separation
+  - id: physics-machine-learning.small-sample-separation
+    name: 一般位置の少数点は全ラベル分離可能
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一般位置の少数点は全ラベル分離可能）"]
+    requires:
+      - physics-machine-learning.affine-general-position
+      - physics-machine-learning.perceptron-label-count
+      - learning.shattering
+  - id: physics-machine-learning.cover-count
+    name: 一般位置でのperceptron実現ラベル数
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（一般位置でのperceptron実現ラベル数）"]
+    requires:
+      - physics-machine-learning.small-sample-separation
+      - physics-machine-learning.affine-general-position
+  - id: physics-machine-learning.random-label-separability
+    name: 独立・一様ラベルの厳密分離確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立・一様ラベルの厳密分離確率）"]
+    requires:
+      - physics-machine-learning.cover-count
+  - id: physics-machine-learning.capacity-ratio-threshold
+    name: 公平ランダムラベルに対する容量比の境界
+    kind: corollary
+    introduction: formal
+    introduction_aliases: ["系（公平ランダムラベルに対する容量比の境界）"]
+    requires:
+      - physics-machine-learning.random-label-separability
+  - id: physics-machine-learning.normalized-margin
+    name: 増補空間での正規化マージン
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（増補空間での正規化マージン）"]
+    requires:
+      - physics-machine-learning.perceptron-strict-separation
+  - id: physics-machine-learning.perceptron-mistake-bound
+    name: 有限標本のperceptron更新回数上界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限標本のperceptron更新回数上界）"]
+    requires:
+      - physics-machine-learning.normalized-margin
