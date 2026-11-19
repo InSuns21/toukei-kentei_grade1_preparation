@@ -111,7 +111,7 @@ $$
 \xi(m+ni)=am+bn.
 $$
 
-これがすべての $m,n\in\mathbb Z$ で整数となることは、特に $(1,0),(0,1)$ への値 $a,b$ がともに整数であることと同値である。従って $\Lambda^\vee=\mathbb Z\,ds\oplus\mathbb Z\,dt$ であり、$(u,v)$ の整数シフトだけが文字に見えないことを、定義から直接確認できた。
+これがすべての $m,n\in\mathbb Z$ で整数となることは、特に $(1,0),(0,1)$ への値 $a,b$ がともに整数であることと同値である。ここで $ds,dt$ は実座標 $s,t$ を取り出す線形汎関数（$ds(s+it)=s$、$dt(s+it)=t$）を表し、後でトーラス上の対応する定数係数1形式としても用いる。従って $\Lambda^\vee=\mathbb Z\,ds\oplus\mathbb Z\,dt$ であり、$(u,v)$ の整数シフトだけが文字に見えないことを、定義から直接確認できた。
 <!-- definition-example-end -->
 
 定義した実双対格子を基底で計算しよう。$\lambda_a$ に対する双対基底を $\varepsilon^a(\lambda_b)=\delta^a_b$ とすると、$\Lambda^\vee$ は $\varepsilon^a$ の整数線形結合である。実際、$\xi=\sum_a c_a\varepsilon^a$ と書いたとき、全ての $\lambda_b$ における値が整数である条件は $c_b\in\mathbb Z$ と同値になる。この集合が重要なのは、$e^{2\pi i\xi(\lambda)}$ では整数値の差だけが見えなくなるためである。
