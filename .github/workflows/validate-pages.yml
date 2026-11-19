@@ -124,6 +124,14 @@ jobs:
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg4-browser.mjs
 
+      - name: Test FCG5 independent split-step MAC fluid solver and editable lesson
+        if: steps.scope.outputs.full == 'true'
+        run: node --test pages/simulation/fcg5-lab.test.mjs
+
+      - name: Test FCG5 editable fluid solver and GPU panels in Chromium
+        if: steps.scope.outputs.full == 'true'
+        run: node scripts/validate-fcg5-browser.mjs
+
       - name: Test FCG3 editable advection and GPU error map in Chromium
         if: steps.scope.outputs.full == 'true'
         run: node scripts/validate-fcg3-browser.mjs

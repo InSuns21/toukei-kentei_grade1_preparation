@@ -1,0 +1,33 @@
+id: FCG5
+title: "一つの2D流体ソルバーを完成できるか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG4]
+official_scope: []
+learning_objectives:
+  - "非圧縮2Dモデルの速度方程式を移流・粘性・外力・Poisson射影・染料更新の順へ分割し、各項の単位と更新時刻を説明できる"
+  - "MAC面での双線形補間、後退Euler足点、陽的5点拡散と自由滑り近似を実装・検算できる"
+  - "離散流れ関数から無発散の初期速度と外力を構成し、Poisson可解条件と射影後残差恒等式を導ける"
+  - "静止解・壁流束・発散・残差・染料面積積分・刻み依存を区別して数値診断できる"
+  - "編集可能なJS・頂点/断片GLSLと独立CPU・GPU画素検査により動く染料流体を再現できる"
+definitions:
+  - { id: FCG5-DEF-01, name: "MAC格子上の時間分割ステップ" }
+  - { id: FCG5-DEF-02, name: "MAC面速度の半Lagrange予測" }
+  - { id: FCG5-DEF-03, name: "陽的粘性・外力付き予測速度" }
+  - { id: FCG5-DEF-04, name: "離散流れ関数から作る面速度" }
+  - { id: FCG5-DEF-05, name: "流体ソルバーの数値診断" }
+theorems:
+  - { id: FCG5-PROP-01, name: "陽的5点拡散の値域保持条件" }
+  - { id: FCG5-PROP-02, name: "離散流れ関数の発散相殺" }
+  - { id: FCG5-PROP-03, name: "分割ステップの射影後発散" }
+canonical_examples:
+  - "2×2内部水平面速度と左右列圧力によるPoisson射影"
+  - "4面の符号付き頂点差分で全セルの発散が厳密に零となる"
+  - "0.01152の陽的粘性係数で非負重みの加重平均条件を検査する"
+  - "静止流体と定数染料をステップ分割で検算する"
+  - "Float64の染料・Poisson診断とGPU R8画素の差を検査する"
+problem_patterns: [FCG5-MAC, FCG5-CURL, FCG5-INTERPOLATE, FCG5-RESIDUAL, FCG5-DIFFUSION, FCG5-STATIONARY, FCG5-R8, FCG5-INTEGRATED]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 6, exercises: 7, review: 3 }
