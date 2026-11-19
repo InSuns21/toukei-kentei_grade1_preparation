@@ -425,7 +425,7 @@ $$
 
 - Level: A
 
-標準 $\mathbb C^2$ で $\Omega_a=a\,dz^1\wedge dz^2$（$a>0$）のcomassを求める。$\operatorname{Re}\Omega_a$ が較正になる $a$ を求め、虚部の零条件だけでは判定できない理由を説明せよ。
+標準 $\mathbb C^2$ で $\Omega_a=a\,dz^1\wedge dz^2$（$a>0$）と置き、実形式 $\operatorname{Re}\Omega_a$ のcomassを求める。$\operatorname{Re}\Omega_a$ が較正になる $a$ を求め、虚部の零条件だけでは判定できない理由を説明せよ。
 
 <!-- solution-start -->
 ### 詳細解答
