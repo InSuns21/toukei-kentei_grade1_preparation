@@ -7,3 +7,4 @@
 4. [PML1-04 エネルギーベース学習は統計力学とどこまで共通か](textbook/volumes/dream_thater/応用系/PML/PML1-04/index.md)
 5. [PML1-05 perceptronの記憶容量は何に依存するか](textbook/volumes/dream_thater/応用系/PML/PML1-05/index.md)
 6. [PML1-06 無秩序・相転移を学習へ持ち込める条件は何か](textbook/volumes/dream_thater/応用系/PML/PML1-06/index.md)
+7. [PML1-07 最適化を連続時間の散逸過程として見られるか](textbook/volumes/dream_thater/応用系/PML/PML1-07/index.md)
