@@ -82,6 +82,8 @@ $$
 <!-- definition-example-start: def-syz1-02-local-graph-potential -->
 ### 直接例：交差項をもつグラフ
 
+**定義の確認**：以下では実際に $df=\alpha$ と閉性の両方を計算し、局所ポテンシャルの条件を確かめる。
+
 $U=\mathbb R^2$、$\alpha=(2x+y)\,dx+(x+4y)\,dy$ とする。$f=x^2+xy+2y^2$ を選ぶと
 
 $$
@@ -147,6 +149,8 @@ $$
 
 <!-- definition-example-start: def-syz1-02-graph-deformation -->
 ### 直接例：閉形式を一定速度で増やす
+
+**定義の確認**：族の滑らかさ、グラフの埋め込み性、各時刻のLagrange条件を順に検証する。
 
 $Q=\mathbb R^2$ とし、$\alpha_t=t(y\,dx+x\,dy)$ とする。写像 $s_{\alpha_t}(x,y)=(x,y,ty,tx)$ は各時刻で埋め込み、像は2次元である。また
 
@@ -341,9 +345,9 @@ $$
 
 $L\subset T^*Q$ を $n$ 次元の埋め込み部分多様体とし、点 $\ell\in L$ で微分
 
-$
+$$
 d(\pi|_L)_\ell:T_\ell L\longrightarrow T_{\pi(\ell)}Q
-$
+$$
 
 が線形同型だとする。このとき[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により、$\ell$ の周辺では $\pi|_L$ が局所微分同相となる。
 
