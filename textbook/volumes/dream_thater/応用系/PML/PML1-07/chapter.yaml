@@ -1,0 +1,48 @@
+id: "PML1-07"
+title: "最適化を連続時間の散逸過程として見られるか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-06
+  - OPT7
+  - ODE4
+official_scope: []
+learning_objectives:
+  - 最急降下の差分からユークリッド勾配流を導入し、初期値・局所Lipschitz条件を確かめられる
+  - 連鎖律によって散逸恒等式と積分恒等式を証明し、適用条件を説明できる
+  - 停留点と最小点を区別し、非凸な二重井戸と有限時間発散の反例を計算できる
+  - 有界なC2勾配流の勾配消失を積分可能性と一様連続性から証明できる
+  - 強凸性と大域Lipschitz勾配の下で大域存在・損失差と距離の指数収束を導ける
+  - 対称正定値移動度による散逸を証明し、半正定値だけでは等号条件が壊れる例を検証できる
+  - 連続時間の散逸とEuler離散化の歩幅制限を区別できる
+definitions:
+  - { id: PML1-07-DEF-01, name: ユークリッド勾配流 }
+  - { id: PML1-07-DEF-02, name: 勾配流の停留点 }
+  - { id: PML1-07-DEF-03, name: 定数移動度の勾配系 }
+theorems:
+  - { id: PML1-07-THM-01, name: 勾配流の散逸恒等式 }
+  - { id: PML1-07-PROP-01, name: 有界な滑らか勾配流の漸近的停留性 }
+  - { id: PML1-07-THM-02, name: 強凸勾配流の指数収束 }
+  - { id: PML1-07-PROP-02, name: 移動度が正定値なら散逸する }
+canonical_examples:
+  - 一次元二次関数の流れと散逸量を直接積分する
+  - 二重井戸の停留点が局所最大にもなる反例を調べる
+  - 下に有界でない損失の勾配流が有限時間に発散する例を調べる
+  - 強凸な異方二次関数で座標ごとの指数減衰を確認する
+  - 移動度の半正定値性だけでは非停留点で運動が止まる反例を作る
+  - Eulerの大きすぎる刻み幅で離散損失が増える例を計算する
+problem_patterns:
+  - PML1-07-A01
+  - PML1-07-A02
+  - PML1-07-A03
+  - PML1-07-A04
+  - PML1-07-A05
+  - PML1-07-B01
+  - PML1-07-B02
+  - PML1-07-B03
+  - PML1-07-B04
+  - PML1-07-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

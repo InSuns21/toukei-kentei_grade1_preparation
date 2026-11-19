@@ -31,7 +31,7 @@ chapters:
     title: "無秩序・相転移を学習へ持ち込める条件は何か"
   - id: PML1-07
     path: textbook/volumes/dream_thater/応用系/PML/PML1-07
-    status: planned
+    status: completed
     title: "最適化を連続時間の散逸過程として見られるか"
   - id: PML1-08
     path: textbook/volumes/dream_thater/応用系/PML/PML1-08
