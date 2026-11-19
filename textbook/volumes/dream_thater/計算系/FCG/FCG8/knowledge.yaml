@@ -40,10 +40,10 @@ concepts:
     introduction_aliases: ["命題（正確な移流後も符号付き距離は一般に維持されない）"]
     requires: [graphics.fcg8-shear-area, graphics.fcg8-signed-distance]
   - id: graphics.fcg8-interp-bound
-    name: 双線形移流の最大値原理と非保存性
+    name: 双線形移流の値域保持と非保存性
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（双線形移流の最大値原理と非保存性）"]
+    introduction_aliases: ["命題（双線形移流の値域保持と非保存性）"]
     requires: [graphics.fcg8-advection]
   - id: graphics.fcg8-redistance
     name: Godunov再初期化
