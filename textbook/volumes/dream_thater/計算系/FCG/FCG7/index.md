@@ -63,7 +63,7 @@ $$
 <a id="def-fcg7-p2g"></a>
 
 <!-- formal-statement-start -->
-> **定義（質量重み付き粒子から格子への転送：P2G）**  
+> **定義（質量重み付き粒子から格子への転送）**  
 > 有限個の粒子 $p$ が正の質量 $m_p>0$ [kg] と速度 $\boldsymbol v_p\in\mathbb R^2$ [m/s] を持つとする。[双線形転送重み](#def-fcg7-weights)で節点 $I$ の質量 $M_I$ と速度 $\boldsymbol g_I$ を
 
 $$
@@ -260,7 +260,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $M_I>0$ の節点について $\lambda_{pI}=m_pw_{Ip}/M_I$ と置くと、$\lambda_{pI}\ge0$ かつ $\sum_p\lambda_{pI}=1$ である。P2Gの定義から $\boldsymbol g_I^{\mathrm{old}}=\sum_p\lambda_{pI}\boldsymbol v_p^{\mathrm{old}}$。二乗ノルムの凸性で
+まず $M_I>0$ の節点について $\lambda_{pI}=m_pw_{Ip}/M_I$ と置くと、$\lambda_{pI}\ge0$ かつ $\sum_p\lambda_{pI}=1$ である。[P2Gの定義](#def-fcg7-p2g)から $\boldsymbol g_I^{\mathrm{old}}=\sum_p\lambda_{pI}\boldsymbol v_p^{\mathrm{old}}$。二乗ノルムの凸性で
 
 $$
 M_I\|\boldsymbol g_I^{\mathrm{old}}\|^2
@@ -368,7 +368,7 @@ $$
 - Level: A
 
 <!-- solution-start -->
-**詳細解答。** [双線形重みの定義](#def-fcg7-weights)から $X=8(0.95)=7.6$、$Y=8(0.25)=2$。したがって $i=7,j=2,a=0.6,b=0$ である。
+**詳細解答。** [粒子・格子双線形転送重み](#def-fcg7-weights)から $X=8(0.95)=7.6$、$Y=8(0.25)=2$。したがって $i=7,j=2,a=0.6,b=0$ である。
 
 $$
 (1-a)(1-b)=0.4,\quad a(1-b)=0.6,\quad
@@ -492,7 +492,7 @@ $$
 
 粒子を総和して右辺の和を交換すれば $\sum_IM_I\|\boldsymbol g_I\|^2$ になる。二式を連結して1/2を掛ければ[エネルギー命題](#prop-fcg7-energy)の結論となる。
 
-負の重みがあれば凸結合でなくなり、平均の二乗に関する不等式を適用できない。重み和が1でなければ、右辺を元のエネルギーへ戻す最後の等式と定数速度再現が失われる。格子更新があればこの証明の中間の「旧格子速度のまま戻す」部分が成立しない。
+負の重みがあれば非負重みによる平均でなくなり、平均の二乗に関する不等式を適用できない。重み和が1でなければ、右辺を元のエネルギーへ戻す最後の等式と定数速度再現が失われる。格子更新があればこの証明の中間の「旧格子速度のまま戻す」部分が成立しない。
 <!-- solution-end -->
 
 <a id="ex-fcg7-b3"></a>
@@ -569,7 +569,7 @@ $$
 
 従って格子速度は $g_A=-1/2,g_B=1/2$ [m/s] である。全質量2 kg、全運動量0が節点の合計からも分かる。
 
-（2）[PICの定義](#def-fcg7-picflip)から
+（2）[PICとFLIPの粒子速度更新](#def-fcg7-picflip)から
 
 $$
 v_1^{\mathrm{PIC}}=\tfrac14(-\tfrac12)+\tfrac34(\tfrac12)
@@ -581,7 +581,7 @@ v_2^{\mathrm{PIC}}=\tfrac34(-\tfrac12)+\tfrac14(\tfrac12)
 =-\tfrac38+\tfrac18=-\tfrac14.
 $$
 
-格子更新なしなので全節点の速度増分は0。[FLIP増分ゼロの命題](#prop-fcg7-flip-hold)から $(v_1^{\mathrm{FLIP}},v_2^{\mathrm{FLIP}})=(1,-1)$。[混合式](#def-fcg7-mixing)へ $\alpha=0.4$ を代入すると
+格子更新なしなので全節点の速度増分は0。[FLIP増分ゼロ時の速度保持](#prop-fcg7-flip-hold)から $(v_1^{\mathrm{FLIP}},v_2^{\mathrm{FLIP}})=(1,-1)$。[混合式](#def-fcg7-mixing)へ $\alpha=0.4$ を代入すると
 
 $$
 v_1^{n+1}=0.6(\tfrac14)+0.4(1)=0.15+0.4=0.55,
