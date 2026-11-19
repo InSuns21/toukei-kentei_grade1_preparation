@@ -12,7 +12,7 @@ chapters:
     title: "複素トーラス・双対トーラスとSYZの中心問い"
   - id: SYZ1-02
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-02
-    status: planned
+    status: completed
     title: "Lagrangeグラフとその局所変形"
   - id: SYZ1-03
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-03

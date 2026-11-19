@@ -1,0 +1,45 @@
+id: "SYZ1-02"
+title: "Lagrangeグラフとその局所変形"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-01
+  - SYM6
+official_scope: []
+learning_objectives:
+  - 余接束の標準2形式をグラフに引き戻し、閉1形式の判定を成分と接空間から検算できる
+  - 星形領域の閉1形式について動径積分で局所ポテンシャルを構成し微分で確かめられる
+  - 時間依存グラフのLagrange条件と速度1形式の閉性を区別して証明できる
+  - 完全1形式の族にHamilton流を構成し符号と運動方程式を検算できる
+  - 円周・トーラスの周期を用いて局所ポテンシャルと大域ポテンシャルの差を説明できる
+  - グラフ表示に必要な射影の局所同型性と反例を説明できる
+definitions:
+  - { id: SYZ1-02-DEF-01, name: "グラフの局所ポテンシャル" }
+  - { id: SYZ1-02-DEF-02, name: "Lagrangeグラフ変形" }
+theorems:
+  - { id: SYZ1-02-PROP-01, name: "星形領域でのポテンシャルの構成" }
+  - { id: SYZ1-02-PROP-02, name: "グラフ変形の一次条件" }
+  - { id: SYZ1-02-PROP-03, name: "完全なグラフ変形とHamilton流" }
+  - { id: SYZ1-02-PROP-04, name: "閉路積分と大域ポテンシャルの障害" }
+canonical_examples:
+  - 対称なグラフの傾きと非対称な反例
+  - 動径積分で作る二変数ポテンシャル
+  - 閉1形式を速度に持つグラフ族
+  - Hamilton流による完全形式のグラフ移動
+  - 円周・二次元トーラスの非零周期と局所大域差
+  - 余接ファイバーがグラフにならない例
+problem_patterns:
+  - SYZ1-02-GRAPH-CLOSED
+  - SYZ1-02-RADIAL-POTENTIAL
+  - SYZ1-02-CIRCLE-PERIOD
+  - SYZ1-02-VARIATION-SPEED
+  - SYZ1-02-HAMILTONIAN-SIGN
+  - SYZ1-02-EXACT-FLOW
+  - SYZ1-02-TORUS-PERIODS
+  - SYZ1-02-NONGRAPH-FIBER
+  - SYZ1-02-TIME-SPACE-DERIVATIVE
+  - SYZ1-02-TORUS-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 9, review: 4 }

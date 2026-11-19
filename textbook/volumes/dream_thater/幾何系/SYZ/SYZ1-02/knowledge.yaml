@@ -1,0 +1,41 @@
+chapter: SYZ1-02
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-01, SYM6]
+concepts:
+  - id: syz.local-graph-potential
+    name: グラフの局所ポテンシャル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（グラフの局所ポテンシャル）"]
+    requires: [symplectic.lagrangian-graph-criterion]
+  - id: syz.radial-graph-potential
+    name: 星形領域でのポテンシャルの構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（星形領域でのポテンシャルの構成）"]
+    requires: [symplectic.lagrangian-graph-criterion]
+  - id: syz.lagrangian-graph-family
+    name: Lagrangeグラフ変形
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Lagrangeグラフ変形）"]
+    requires: [symplectic.lagrangian-submanifold, symplectic.lagrangian-graph-criterion]
+  - id: syz.infinitesimal-graph-deformation
+    name: グラフ変形の一次条件
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（グラフ変形の一次条件）"]
+    requires: [syz.lagrangian-graph-family, symplectic.lagrangian-graph-criterion]
+  - id: syz.exact-hamiltonian-graph-flow
+    name: 完全なグラフ変形とHamilton流
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（完全なグラフ変形とHamilton流）"]
+    requires: [syz.lagrangian-graph-family]
+  - id: syz.period-obstruction
+    name: 閉路積分と大域ポテンシャルの障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉路積分と大域ポテンシャルの障害）"]
+    requires: [syz.local-graph-potential]
