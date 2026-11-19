@@ -349,10 +349,10 @@ $z=e^{-x}$ を入れると**無限占有**の平均は $\bar n=1/(e^x-1)$、**�
 
 ## 5. 同じ外部縮約だけでは、純化の仕方が決まらない
 
-第3節で固定した正のエネルギー差 $\omega>0$ と正の逆温度 $\beta>0$ に対して、占有確率がGibbs状態を表す必要十分条件は
+第3節のエネルギー配置 $H_O=\omega|1\rangle\langle1|$ の下で、**ある** $\omega>0,\beta>0$ を選んで外部縮約をGibbs状態と表せる必要十分条件は
 
 $$
-\frac{p}{1-p}=e^{-\beta\omega}<1
+\beta\omega=\ln\frac{1-p}{p}>0
 \quad\Longleftrightarrow\quad 0<p<\frac12
 $$
 
