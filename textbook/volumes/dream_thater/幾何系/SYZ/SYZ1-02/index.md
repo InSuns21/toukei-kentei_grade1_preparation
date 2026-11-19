@@ -70,7 +70,26 @@ $$
 
 ## 3. 局所的に「一つの関数の微分」で書ける理由
 
-[SYM6の局所Poincaréの補題への適用](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)から、閉じた1形式は小さい座標近傍では関数の微分になる。単に存在を引用するだけでなく、その関数を手で作る。座標球を原点中心に取り直した、原点を含む星形開集合 $U\subset\mathbb R^n$ で議論する。「星形」とは $q\in U$ と $0\le t\le1$ に対して $tq\in U$ であることをいう。
+[局所Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)から、閉じた1形式は小さい座標近傍では関数の微分になる。単に存在を引用するだけでなく、その関数を手で作る。座標球を原点中心に取り直した、原点を含む星形開集合 $U\subset\mathbb R^n$ で議論する。「星形」とは $q\in U$ と $0\le t\le1$ に対して $tq\in U$ であることをいう。
+
+<a id="def-syz1-02-local-graph-potential"></a>
+
+<!-- formal-statement-start -->
+> **定義（グラフの局所ポテンシャル）**  
+> $Q$ の開集合 $U$ 上の1形式 $\alpha$ に対し、滑らかな実数値関数 $f:U\to\mathbb R$ が $\alpha|_U=df$ を満たすとき、$f$ をグラフ $\Gamma_{\alpha|_U}$ の**局所ポテンシャル**と呼ぶ。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-syz1-02-local-graph-potential -->
+### 直接例：交差項をもつグラフ
+
+$U=\mathbb R^2$、$\alpha=(2x+y)\,dx+(x+4y)\,dy$ とする。$f=x^2+xy+2y^2$ を選ぶと
+
+$$
+\partial_x f=2x+y,\qquad\partial_y f=x+4y,\qquad df=\alpha.
+$$
+
+また $\partial_y(2x+y)=1=\partial_x(x+4y)$ で閉性を確認できる。従って $f$ は定義の等式を満たすポテンシャルであり、グラフはLagrangeである。$f$ に定数を足しても $df$ は変わらない。
+<!-- definition-example-end -->
 
 <a id="prop-syz1-02-radial-potential"></a>
 
@@ -110,25 +129,6 @@ $$
 
 2行目で閉性を使った。$t=0$ の端点は $a_j(0)$ が有限なので零となる。全ての $j$ で $\partial_j f=a_j$ であり $df=\alpha$。
 <!-- proof-end -->
-
-<a id="def-syz1-02-local-graph-potential"></a>
-
-<!-- formal-statement-start -->
-> **定義（グラフの局所ポテンシャル）**  
-> $Q$ の開集合 $U$ 上の1形式 $\alpha$ に対し、滑らかな実数値関数 $f:U\to\mathbb R$ が $\alpha|_U=df$ を満たすとき、$f$ をグラフ $\Gamma_{\alpha|_U}$ の**局所ポテンシャル**と呼ぶ。
-<!-- formal-statement-end -->
-
-<!-- definition-example-start: def-syz1-02-local-graph-potential -->
-### 直接例：交差項をもつグラフ
-
-$U=\mathbb R^2$、$\alpha=(2x+y)\,dx+(x+4y)\,dy$ とする。$f=x^2+xy+2y^2$ を選ぶと
-
-$$
-\partial_x f=2x+y,\qquad\partial_y f=x+4y,\qquad df=\alpha.
-$$
-
-また $\partial_y(2x+y)=1=\partial_x(x+4y)$ で閉性を確認できる。従って $f$ は定義の等式を満たすポテンシャルであり、グラフはLagrangeである。$f$ に定数を足しても $df$ は変わらない。
-<!-- definition-example-end -->
 
 **局所と大域の違い。** 閉1形式のポテンシャルは座標球ごとにはある。しかし重なる球での二つのポテンシャルは、連結した重なり上で定数だけずれうる。これらの定数を大域的に整合させられるとは限らない。次に、この差が変形にどう現れるかを調べる。
 
@@ -335,7 +335,7 @@ $$
 
 ## 7. グラフ表示の適用範囲
 
-局所的な「グラフであること」を判定するには射影 $\pi$ を使う。$L\subset T^*Q$ を $n$ 次元の埋め込み部分多様体とし、$\pi|_L:L\to Q$ が点 $\ell$ で微分同型の微分（$d(\pi|_L)_\ell$ が同型）を持つなら、[逆関数定理](../../GEO/GEO3/index.md#thm-geo3-inverse-function-theorem)により $\ell$ の周辺で $\pi|_L$ は微分同相となる。その逆 $s$ は $\pi\circ s=\operatorname{id}$ を満たすので、$s(q)$ は余接ファイバー上の余ベクトル $\alpha_q$ を選び、局所的に $L=\Gamma_\alpha$ となる。$L$ がLagrangeなら[グラフ判定定理](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)で $d\alpha=0$ も従う。
+局所的な「グラフであること」を判定するには射影 $\pi$ を使う。$L\subset T^*Q$ を $n$ 次元の埋め込み部分多様体とし、$\pi|_L:L\to Q$ が点 $\ell$ で微分同型の微分（$d(\pi|_L)_\ell$ が同型）を持つなら、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $\ell$ の周辺で $\pi|_L$ は微分同相となる。その逆 $s$ は $\pi\circ s=\operatorname{id}$ を満たすので、$s(q)$ は余接ファイバー上の余ベクトル $\alpha_q$ を選び、局所的に $L=\Gamma_\alpha$ となる。$L$ がLagrangeなら[グラフ判定定理](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)で $d\alpha=0$ も従う。
 
 一方、一つの余接ファイバー $T^*_{q_0}Q$ は $n$ 次元で、$\omega_{\mathrm{can}}$ は垂直方向二つに零であるからLagrangeだが、射影は定数写像である。したがって $d\pi$ の階数は0であり、基底 $Q$ 上のグラフではない。「Lagrangeだからグラフ」という推論はこの段階で壊れる。
 
