@@ -20,7 +20,7 @@ theorems:
   - { id: FCG8-PROP-01, name: "Level Set移流と特性曲線" }
   - { id: FCG8-PROP-02, name: "非圧縮せん断による液滴面積の保存" }
   - { id: FCG8-PROP-03, name: "正確な移流後も符号付き距離は一般に維持されない" }
-  - { id: FCG8-PROP-04, name: "双線形移流の最大値原理と非保存性" }
+  - { id: FCG8-PROP-04, name: "双線形移流の値域保持と非保存性" }
   - { id: FCG8-PROP-05, name: "Godunov再初期化の一次関数に対する定常性" }
 canonical_examples:
   - "半径0.18mの円の符号付き距離と中心の非微分可能性"
