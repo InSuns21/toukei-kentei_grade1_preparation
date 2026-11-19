@@ -454,7 +454,7 @@ $L(a)=0$、$L(b)=\Delta>0$、$\tau>0$ とする。$q_t=(t,1-t)$、$0<t<1$ につ
 
 $t$ は候補 $a$ に割り当てる確率で、時刻ではない。$t$ に関する一変数関数 $f(t):=\mathcal J_\tau(q_t)$ を考える。[有限候補の自由エネルギー型目的関数](#def-pml1-03-free-energy-objective)から
 
-$
+$$
 f(t)=\mathcal J_\tau(q_t)
 =(1-t)\Delta+\tau\bigl(t\log t+(1-t)\log(1-t)\bigr).
 $$
