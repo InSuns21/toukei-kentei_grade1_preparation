@@ -224,3 +224,35 @@ import './wgl19-lab.test.mjs';
 
 // FCG2: 8x8 analytic scalar field, R8 quantization and WebGL host.
 import './fcg2-lab.test.mjs';
+
+// FCG8: independently verify level-set advection, redistancing and pixel oracle
+// in the regularly executed shared laboratory suite.
+import './fcg8-lab.test.mjs';
+
+test('FCG8 editable Level Set source and shared host are wired consistently', async () => {
+  const root=new URL('../../textbook/volumes/dream_thater/計算系/FCG/FCG8/',import.meta.url);
+  const [host,js,vert,frag]=await Promise.all([
+    readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8'),
+    readFile(new URL('levelset.js',root),'utf8'),
+    readFile(new URL('levelset.vert',root),'utf8'),
+    readFile(new URL('levelset.frag',root),'utf8')
+  ]);
+  assert.ok(host.includes("lesson === 'FCG8'"));
+  assert.ok(host.includes("js:'levelset.js',vertex:'levelset.vert',fragment:'levelset.frag'"));
+  assert.ok(host.includes('compareFCG8Readback('));
+  assert.ok(host.includes("id='fcg8-cpu-prediction'"));
+  assert.ok(host.includes('fcg8Steps++'));
+  assert.ok(host.includes('fcg8Timer=setInterval('));
+  assert.ok(host.includes("data.type === 'fcg8-pick'"));
+  assert.match(js,/const N=48,h=1\/N,dt=0\.04/);
+  assert.ok(js.includes('redistance(advect(reinit),redistanceIterations)'));
+  assert.ok(js.includes("gl.texImage2D(gl.TEXTURE_2D,0,gl.R8,N,N"));
+  assert.ok(js.includes("report('AREA'"));
+  assert.ok(js.includes("report('DISTANCE'"));
+  assert.ok(vert.startsWith('#version 300 es'));
+  assert.ok(frag.startsWith('#version 300 es'));
+  assert.ok(frag.includes('uniform vec2 u_particles[64]'));
+  assert.ok(frag.includes('uniform sampler2D u_raw'));
+  assert.ok(frag.includes('uniform sampler2D u_reinit'));
+  assert.ok(frag.includes('outColor=vec4(rgb,1.0);'));
+});
