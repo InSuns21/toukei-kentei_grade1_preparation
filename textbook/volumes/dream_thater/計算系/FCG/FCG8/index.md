@@ -36,7 +36,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg8-level-set -->
-**直接例。** $\phi_0(x,y)=\sqrt{(x-0.5)^2+(y-0.5)^2}-0.18$ と置く。中心では $-0.18<0$、$(0.68,0.5)$ では0、$(0.8,0.5)$ では $0.3-0.18=0.12>0$。従って半径0.18 m未満が内部、半径0.18 mの円周が界面、外側が正という3条件が確かめられた。
+**直接例。** **定義の確認**： $\phi_0(x,y)=\sqrt{(x-0.5)^2+(y-0.5)^2}-0.18$ と置く。中心では $-0.18<0$、$(0.68,0.5)$ では0、$(0.8,0.5)$ では $0.3-0.18=0.12>0$。従って半径0.18 m未満が内部、半径0.18 mの円周が界面、外側が正という3条件が確かめられた。
 <!-- definition-example-end -->
 
 $\phi$ を $3\phi$ にしても負・0・正の領域は同じ。しかし勾配は3倍になる。すなわち**界面の位置**と**距離としての意味**は異なる。
@@ -64,7 +64,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg8-signed-distance -->
-**直接例。** 中心 $\boldsymbol c$、半径 $r$ の円周から、中心以外の点 $\boldsymbol x$ までの距離は $|\rho-r|$、ただし $\rho=\|\boldsymbol x-\boldsymbol c\|$ である。内側に負符号を付ければ $d_\Gamma=\rho-r$。$\rho>0$ では
+**直接例。** **定義の確認**： 中心 $\boldsymbol c$、半径 $r$ の円周から、中心以外の点 $\boldsymbol x$ までの距離は $|\rho-r|$、ただし $\rho=\|\boldsymbol x-\boldsymbol c\|$ である。内側に負符号を付ければ $d_\Gamma=\rho-r$。$\rho>0$ では
 
 $$
 \nabla d_\Gamma=\left(\frac{x-0.5}{\rho},\frac{y-0.5}{\rho}\right),
@@ -244,7 +244,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg8-semilag -->
-**直接例。** 隣接する旧格子中心の値が左下 $-0.2$、右下 $0.2$、左上0、右上 $0.4$ [m] で、足点が4中心の中央なら横・縦の比は $a=b=1/2$。4重みはいずれも1/4であり、
+**直接例。** **定義の確認**： 隣接する旧格子中心の値が左下 $-0.2$、右下 $0.2$、左上0、右上 $0.4$ [m] で、足点が4中心の中央なら横・縦の比は $a=b=1/2$。4重みはいずれも1/4であり、
 
 $$
 (I_h\phi)(x^-,y^-)=\tfrac14(-0.2)+\tfrac14(0.2)+\tfrac14(0)+\tfrac14(0.4)=0.1\ \mathrm m.
@@ -313,7 +313,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg8-godunov -->
-**直接例。** 水平に垂直な平面界面の距離 $\psi=x-x_*$ に対して、全内点で $D_x^-\psi=D_x^+\psi=1$、$D_y^-\psi=D_y^+\psi=0$。正の側なら $G_+^2=\max(1,0)=1$、負の側なら $G_-^2=\max(0,1)=1$。従って $G=1$ で擬似時間増分は0。符号による選択、勾配、更新の条件を直接確かめた。
+**直接例。** **定義の確認**： 水平に垂直な平面界面の距離 $\psi=x-x_*$ に対して、全内点で $D_x^-\psi=D_x^+\psi=1$、$D_y^-\psi=D_y^+\psi=0$。正の側なら $G_+^2=\max(1,0)=1$、負の側なら $G_-^2=\max(0,1)=1$。従って $G=1$ で擬似時間増分は0。符号による選択、勾配、更新の条件を直接確かめた。
 <!-- definition-example-end -->
 
 <a id="prop-fcg8-redistance-stationary"></a>
@@ -368,7 +368,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg8-metrics -->
-**直接例。** $N=48$ の初期円盤では、セル中心の負値を数えると240個。$h^2=1/2304$ [m$^2$] なので
+**直接例。** **定義の確認**： $N=48$ の初期円盤では、セル中心の負値を数えると240個。$h^2=1/2304$ [m$^2$] なので
 
 $$
 A_h=240/2304=5/48\approx0.10416667\ \mathrm{m}^2,
