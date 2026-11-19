@@ -322,10 +322,11 @@ $(x,m)$ を $(x+c,m+c)$ としても残差は変わらず、測定だけでは $
 $$
 \frac{\partial e}{\partial x}=1,\qquad
 \frac{\partial e}{\partial m}=-1,\qquad
-\nabla J=\frac{e}{\sigma^2}\begin{pmatrix}1\\-1\end{pmatrix}.
+\frac{\partial J}{\partial x}=\frac{e}{\sigma^2},\qquad
+\frac{\partial J}{\partial m}=-\frac{e}{\sigma^2}.
 $$
 
-ここで $\nabla J$ は $(x,m)$ に関する一階偏微分を縦に並べた勾配、$H$ はその各成分を再び $(x,m)$ で偏微分した $2\times2$ の Hessian 行列です。残差が一次式なので、その二階微分は消え、
+$H$ はこの二つの一階偏微分をそれぞれ $x,m$ でさらに偏微分し、行・列を $(x,m)$ の順に並べた $2\times2$ の Hessian 行列です。残差 $e$ 自体は一次式なので二階偏微分は0ですが、二乗残差 $J$ の二階偏微分は消えず、
 
 $$
 H=\frac1{\sigma^2}
