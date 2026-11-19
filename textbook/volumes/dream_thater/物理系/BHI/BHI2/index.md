@@ -31,7 +31,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi2-pair -->
-**定義の確認。** $p=1/4,\phi=0$ と取れば、状態の二つの係数は $\sqrt3/2$ と $1/2$ です。$|00\rangle$ と $|11\rangle$ は互いに直交するので、ノルムの二乗は
+**定義の確認** $p=1/4,\phi=0$ と取れば、状態の二つの係数は $\sqrt3/2$ と $1/2$ です。$|00\rangle$ と $|11\rangle$ は互いに直交するので、ノルムの二乗は
 
 $$
 \|\Psi_{1/4,0}\|^2=\frac34+\frac14=1.
@@ -142,7 +142,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi2-two-level-thermal -->
-**定義の確認。** $x=\ln3$ なら $e^{-x}=1/3$ なので $p_x=1/4$ です。$x>0$ から $0<p_x<1/2$ が従い、両振幅の二乗和は $(1-p_x)+p_x=1$。外部の0と1の確率の比は $p_x/(1-p_x)=e^{-x}=1/3$ なので、指定したエネルギー差 $\omega$ に対するBoltzmann重みの比になっています。
+**定義の確認** $x=\ln3$ なら $e^{-x}=1/3$ なので $p_x=1/4$ です。$x>0$ から $0<p_x<1/2$ が従い、両振幅の二乗和は $(1-p_x)+p_x=1$。外部の0と1の確率の比は $p_x/(1-p_x)=e^{-x}=1/3$ なので、指定したエネルギー差 $\omega$ に対するBoltzmann重みの比になっています。
 <!-- definition-example-end -->
 
 <a id="prop-bhi2-gibbs"></a>
@@ -217,7 +217,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi2-boson-pair -->
-**定義の確認。** $z=1/3$ とすれば、各占有確率の候補は $(2/3)(1/3)^n$ で非負です。総和は
+**定義の確認** $z=1/3$ とすれば、各占有確率の候補は $(2/3)(1/3)^n$ で非負です。総和は
 
 $$
 \frac23\sum_{n=0}^\infty\left(\frac13\right)^n
