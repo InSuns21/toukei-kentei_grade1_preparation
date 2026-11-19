@@ -34,12 +34,6 @@ concepts:
     introduction: formal
     introduction_aliases: [命題（質量依存光度係数の経過時間積分）]
     requires: [black-hole-information.quasistatic-energy-ledger]
-  - id: black-hole-information.quasistatic-cutoff-domain
-    name: 質量下限までの条件付き経過時間
-    kind: proposition
-    introduction: formal
-    introduction_aliases: [命題（質量下限までの条件付き経過時間）]
-    requires: [black-hole-information.mass-fraction-time-law, qcurv.mass-validity-window]
   - id: black-hole-information.horizon-entropy-decrease-rate
     name: 準静的地平線エントロピーの減少率
     kind: proposition
