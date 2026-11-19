@@ -1,0 +1,51 @@
+id: "U2-19"
+title: "データ対応と誤観測：見た目が似た目印の落とし穴"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-18
+official_scope: []
+learning_objectives:
+  - 既知地図の目印番号と偽検出を排他的な潜在対応仮説として定義できる
+  - 測距・方位の候補別残差と innovation 共分散を単位・正定値性込みで計算できる
+  - innovation gate の閾値と正しい対応の誤棄却確率を区別できる
+  - 局所 Gaussian 観測密度と一様偽検出密度を正規化して比較できる
+  - 対応の事前確率と密度から Bayes 対応事後と証拠を導出できる
+  - 曖昧な二候補の事後を実計算して最近傍・決め打ちの限界を説明できる
+  - 誤対応した線形 Gaussian 観測更新の平均偏りと見かけの分散減少を証明できる
+  - 対応周辺化による事後平均・分散の混合公式を証明して過信を判定できる
+  - 複数検出の一対一対応制約と条件付き独立の適用範囲を判別できる
+  - Python 標準ライブラリで gate・対応確率・誤更新・混合分散を再計算できる
+definitions:
+  - { id: U2-19-DEF-01, name: 単一検出のデータ対応仮説 }
+  - { id: U2-19-DEF-02, name: 目印候補の innovation gate }
+  - { id: U2-19-DEF-03, name: 観測窓上の一様偽検出模型 }
+theorems:
+  - { id: U2-19-PROP-01, name: 正しい候補を gate が棄却する確率 }
+  - { id: U2-19-THM-01, name: 単一検出に対する Bayes データ対応 }
+  - { id: U2-19-PROP-02, name: 誤った既知対応を使った Gaussian 更新の偏り }
+  - { id: U2-19-PROP-03, name: 対応周辺化と状態分散の分解 }
+canonical_examples:
+  - 姿勢原点と方位0・0.2・0.6radの三目印に対するNIS=1.25・1.25・25.25
+  - 閾値4で正しい候補の棄却確率がe^{-2}となる厳密Gaussian模型
+  - 局所Gaussian密度4.259475と一様外れ値密度0.25の単位・正規化
+  - 事前0.4・0.4・0.2の対応事後0.492770・0.492770・0.014461
+  - 真の目印オフセット2mを0mと誤認すると位置平均1mだけ偏る例
+  - 二つの条件付き正規事後を混ぜた分散が1/2から3/4になる例
+  - 二検出・二目印の一対一対応で12/19対7/19を得る例
+  - Python標準ライブラリによるgateと事後の再現計算
+problem_patterns:
+  - U2-19-A01
+  - U2-19-A02
+  - U2-19-A03
+  - U2-19-A04
+  - U2-19-A05
+  - U2-19-B01
+  - U2-19-B02
+  - U2-19-B03
+  - U2-19-B04
+  - U2-19-C01
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
