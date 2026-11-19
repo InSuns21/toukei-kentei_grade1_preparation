@@ -70,7 +70,7 @@ $$
 
 ## 3. 局所的に「一つの関数の微分」で書ける理由
 
-[局所Poincaréの補題](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)から、閉じた1形式は小さい座標近傍では関数の微分になる。単に存在を引用するだけでなく、その関数を手で作る。座標球を原点中心に取り直した、原点を含む星形開集合 $U\subset\mathbb R^n$ で議論する。「星形」とは $q\in U$ と $0\le t\le1$ に対して $tq\in U$ であることをいう。
+[閉形式の局所原始関数の構成](../../GEO/GEO9/index.md#thm-geo9-poincare-lemma)から、閉じた1形式は小さい座標近傍では関数の微分になる。単に存在を引用するだけでなく、その関数を手で作る。座標球を原点中心に取り直した、原点を含む星形開集合 $U\subset\mathbb R^n$ で議論する。「星形」とは $q\in U$ と $0\le t\le1$ に対して $tq\in U$ であることをいう。
 
 <a id="def-syz1-02-local-graph-potential"></a>
 
