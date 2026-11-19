@@ -294,10 +294,10 @@ $$
 
 ### 必要条件：Hamilton的に動かせるなら速度は完全
 
-より一般に、グラフ族 $s_{\alpha_t}$ の像を時間依存Hamilton流 $\phi_t$ で動かすと仮定する（$\phi_t(L_0)=L_t$）。零切断の埋め込みを $s_0$ とし、$h_t=\pi\circ\phi_t\circ s_0:Q\to Q$ とおくと、各 $h_t$ は微分同相であり、
+より一般に、グラフ族 $s_{\alpha_t}$ の像を時間依存Hamilton流 $\phi_t$ で動かすと仮定する（$\phi_t(L_0)=L_t$）。**初期グラフ**の埋め込みを $s_{\alpha_0}$ とし、$h_t=\pi\circ\phi_t\circ s_{\alpha_0}:Q\to Q$ とおくと、各 $h_t$ は微分同相であり、
 
 $$
-\phi_t(s_0(q))=s_{\alpha_t}(h_t(q)).
+\phi_t(s_{\alpha_0}(q))=s_{\alpha_t}(h_t(q)).
 $$
 
 固定した $q$ で時間微分し、流れの定義と連鎖律を使うと
