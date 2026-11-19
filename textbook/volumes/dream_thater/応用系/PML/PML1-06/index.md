@@ -258,7 +258,14 @@ $$
 
 [SG1のRandom Energy Modelの定義](../../../物理系/SG/SG1/index.md#def-sg1-rem)では、$\Theta_N=\{-1,+1\}^N$ の $2^N$ 個の配置に、**互いに独立で平均0・分散 $N$ の正規エネルギー** $H_N(\theta)$ を置く。通常の訓練データから求めた経験損失にこの独立性や正規分布が自動で備わることはない。
 
-以下ではデータ $D$ を $2^N$ 個の正規エネルギーの全配列と解釈する。この場合 $\mathcal D_N$ は連続値なので第1節の有限データ集合の定義の形式からは外れるが、各分配関数は有限和で正、$\mathbb E|\log Z_N|<\infty$、$\mathbb EZ_N<\infty$ が成立し、SG1の確率空間と期待値の定式化をそのまま適用できる。ここでは新しい一般定理を主張せず、既証明のREMについてだけ結論を引用する。
+以下ではデータ $D$ を $2^N$ 個の正規エネルギーの全配列と解釈する。この場合 $\mathcal D_N$ は連続値なので、第1節の有限データ集合の定義の形式からは外れる。期待値の存在を確かめるため、$M_N(D)=\max_{\theta\in\Theta_N}|L_N(\theta;D)|$ と置く。$\beta\ge0$ では各指数重みが $e^{-\beta M_N}\le e^{-\beta L_N(\theta;D)}\le e^{\beta M_N}$ を満たすので、候補数 $2^N$ を掛けて対数を取ると
+
+$$
+N\log2-\beta M_N\le \log Z_N(D,\beta)
+\le N\log2+\beta M_N.
+$$
+
+各 $N$ で損失は有限個の正規確率変数なので、$\mathbb E M_N\le\sum_{\theta\in\Theta_N}\mathbb E|L_N(\theta;D)|<\infty$ となり、上の評価から $\mathbb E|\log Z_N|<\infty$ が従う。また[SG1のREMの正規指数モーメントの計算](../../../物理系/SG/SG1/index.md#prop-sg1-annealed-rem)より $\mathbb EZ_N=2^Ne^{N\beta^2/2}<\infty$。従って SG1 の確率空間と期待値の定式化をそのまま適用できる。ここでは新しい一般定理を主張せず、既証明のREMについてだけ結論を引用する。
 
 <a id="prop-pml1-06-rem-application"></a>
 
