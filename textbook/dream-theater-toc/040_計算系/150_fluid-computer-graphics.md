@@ -6,3 +6,4 @@
 3. [FCG3 染料移流の数値拡散はどこから来るか](textbook/volumes/dream_thater/計算系/FCG/FCG3/index.md)
 4. [FCG4 圧力射影で発散を減らすには](textbook/volumes/dream_thater/計算系/FCG/FCG4/index.md)
 5. [FCG5 一つの2D流体ソルバーを完成できるか](textbook/volumes/dream_thater/計算系/FCG/FCG5/index.md)
+6. [FCG6 流体と固体の境界をどう接続するか](textbook/volumes/dream_thater/計算系/FCG/FCG6/index.md)
