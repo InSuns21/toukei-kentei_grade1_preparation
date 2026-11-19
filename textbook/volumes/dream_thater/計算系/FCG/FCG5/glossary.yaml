@@ -1,0 +1,17 @@
+chapter: FCG5
+terms:
+  - term: 時間分割法
+    english: operator splitting
+    meaning: 速度移流・粘性外力・圧力射影・染料移流を別々の処理として順に進める近似法。
+  - term: 半Lagrange速度移流
+    english: semi-Lagrangian velocity advection
+    meaning: MAC面の到着位置から旧速度で足点を逆追跡し、旧速度成分を補間する方法。
+  - term: 陽的粘性更新
+    english: explicit viscosity update
+    meaning: 旧時刻の速度の5点差分Laplacianを用いて粘性変化を加算する更新。
+  - term: 離散流れ関数
+    english: discrete stream function
+    meaning: 格子頂点の値の差からMAC面速度を作り、離散発散を相殺する構成。
+  - term: 染料面積積分
+    english: integrated dye concentration
+    meaning: セル濃度に面積を掛けて総和した量。非保存補間では一定とは限らない。
