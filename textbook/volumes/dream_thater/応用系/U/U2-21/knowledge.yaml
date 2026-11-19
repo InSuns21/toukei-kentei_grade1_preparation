@@ -42,8 +42,8 @@ concepts:
     introduction_aliases: ["定義（平面 SLAM の共通座標変換）"]
     requires: [robotics.planar-rigid-transform, robotics.planar-frame-invariance]
   - id: robotics.slam-relative-gauge-invariance
-    name: 相対運動・測距方位の ゲージ不変性
+    name: 相対運動・測距方位のゲージ不変性
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（相対運動・測距方位の ゲージ不変性）"]
+    introduction_aliases: ["命題（相対運動・測距方位のゲージ不変性）"]
     requires: [robotics.slam-planar-gauge, robotics.landmark-range-bearing, robotics.planar-relative-pose]

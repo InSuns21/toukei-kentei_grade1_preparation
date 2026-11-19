@@ -52,14 +52,14 @@ def self_test():
 
 def main():
     parser = ArgumentParser(description=__doc__)
-    parser.add_argument("--scenario", choices=("symmetric", "asymmetric", "two", "gauge"), default="symmetric")
+    parser.add_argument("--scenario", choices=("symmetric", "asymmetric", "two", "frame"), default="symmetric")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
     if args.self_test:
         self_test()
         print("all exact checks passed")
         return
-    if args.scenario == "gauge":
+    if args.scenario == "frame":
         print("observed distance: original", 4 - 1, "shifted", (4 - 2) - (1 - 2))
         print("H (unanchored): ((1,-1),(-1,1)); H*(1,1)=0")
         print("H (anchored): ((2,-1),(-1,1)); determinant=1")
