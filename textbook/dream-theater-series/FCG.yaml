@@ -11,7 +11,7 @@ chapters:
   - { id: FCG4, path: textbook/volumes/dream_thater/計算系/FCG/FCG4, status: completed, title: "圧力射影で発散を減らすには" }
   - { id: FCG5, path: textbook/volumes/dream_thater/計算系/FCG/FCG5, status: completed, title: "一つの2D流体ソルバーを完成できるか" }
   - { id: FCG6, path: textbook/volumes/dream_thater/計算系/FCG/FCG6, status: completed, title: "流体と固体の境界をどう接続するか" }
-  - { id: FCG7, path: textbook/volumes/dream_thater/計算系/FCG/FCG7, status: planned, title: "格子と粒子のどちらで水を動かすか" }
+  - { id: FCG7, path: textbook/volumes/dream_thater/計算系/FCG/FCG7, status: completed, title: "格子と粒子のどちらで水を動かすか" }
   - { id: FCG8, path: textbook/volumes/dream_thater/計算系/FCG/FCG8, status: planned, title: "動く自由表面をどう追跡するか" }
   - { id: FCG9, path: textbook/volumes/dream_thater/計算系/FCG/FCG9, status: planned, title: "数値的な液面をどうメッシュにするか" }
   - { id: FCG10, path: textbook/volumes/dream_thater/計算系/FCG/FCG10, status: planned, title: "透明な水の反射・屈折を表せるか" }
