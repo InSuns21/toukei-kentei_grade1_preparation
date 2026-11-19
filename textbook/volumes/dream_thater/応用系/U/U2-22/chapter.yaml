@@ -1,0 +1,49 @@
+id: "U2-22"
+title: "ランドマーク型 EKF-SLAM：交差共分散の役割"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-21
+official_scope: []
+learning_objectives:
+  - 姿勢と複数ランドマークを一つの局所Gaussian状態へ並べて次元と共分散ブロックを確認できる
+  - 一次運動予測の増補行列を作り姿勢・地図の交差共分散の伝播を導出できる
+  - 測距・方位観測を姿勢だけでなく未知ランドマークでも微分し全状態Jacobi行列を計算できる
+  - innovationとKalman利得およびJoseph形を正定値条件から導ける
+  - 観測していない目印の平均が交差共分散を通じて補正されることを数値計算できる
+  - 新しい目印の逆測距・方位写像のJacobi行列を求め増補共分散を導出できる
+  - 新目印の誤差に姿勢誤差と独立なセンサー誤差が加わることと正定値性を示せる
+  - 交差共分散を0と誤置換した場合のinnovation分散と過信を分数で再計算できる
+  - 既知のデータ対応・座標基準・局所角度枝・Gaussian近似の適用限界を説明できる
+definitions:
+  - { id: U2-22-DEF-01, name: ランドマーク型 SLAM の増補状態 }
+  - { id: U2-22-DEF-02, name: 増補状態に対する測距・方位の観測行列 }
+  - { id: U2-22-DEF-03, name: 逆観測によるランドマーク追加 }
+theorems:
+  - { id: U2-22-PROP-01, name: 増補状態の一次予測と交差共分散 }
+  - { id: U2-22-PROP-02, name: 距離・方位の全状態微分 }
+  - { id: U2-22-THM-01, name: ランドマーク型 EKF-SLAM の観測更新 }
+  - { id: U2-22-PROP-03, name: 追加目印の誤差伝播と正定値性 }
+  - { id: U2-22-PROP-04, name: 交差共分散を消した後の再観測による過信例 }
+canonical_examples:
+  - 2目印の7次元共分散と3掛ける4の姿勢地図交差ブロック
+  - 3対4の目印に対する2掛ける5測距方位Jacobi行列
+  - 一次元の2目印更新で未観測目印aが7/3から9/4へ補正
+  - 距離2・方位0から登録した目印で姿勢地図共分散を再構成
+  - 相対再観測で正しい目印分散9/8と誤った5/8を比較
+problem_patterns:
+  - U2-22-A01
+  - U2-22-A02
+  - U2-22-A03
+  - U2-22-A04
+  - U2-22-A05
+  - U2-22-B01
+  - U2-22-B02
+  - U2-22-B03
+  - U2-22-B04
+  - U2-22-C01
+  - U2-22-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
