@@ -23,7 +23,7 @@ chapters:
     title: "逐次対生成と放射の混合化"
   - id: BHI4
     path: textbook/volumes/dream_thater/物理系/BHI/BHI4
-    status: planned
+    status: completed
     title: "放射のエネルギー収支と準静的蒸発"
   - id: BHI5
     path: textbook/volumes/dream_thater/物理系/BHI/BHI5
