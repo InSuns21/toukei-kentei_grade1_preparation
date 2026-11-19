@@ -19,7 +19,7 @@ chapters:
     title: "自由エネルギー最小化とKLはどう結び付くか"
   - id: PML1-04
     path: textbook/volumes/dream_thater/応用系/PML/PML1-04
-    status: planned
+    status: completed
     title: "エネルギーベース学習は統計力学とどこまで共通か"
   - id: PML1-05
     path: textbook/volumes/dream_thater/応用系/PML/PML1-05
