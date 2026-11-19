@@ -21,7 +21,6 @@ theorems:
   - { id: BHI4-PROP-01, name: "放射済みエネルギーと残存質量の対応" }
   - { id: BHI4-THM-01, name: "準静的模型の質量分率と経過時間" }
   - { id: BHI4-PROP-02, name: "質量依存光度係数の経過時間積分" }
-  - { id: BHI4-PROP-03, name: "質量下限までの条件付き経過時間" }
   - { id: BHI4-PROP-04, name: "準静的地平線エントロピーの減少率" }
 canonical_examples:
   - 初期質量100と小さな光度係数によるエネルギー帳簿と時間微分の検算
