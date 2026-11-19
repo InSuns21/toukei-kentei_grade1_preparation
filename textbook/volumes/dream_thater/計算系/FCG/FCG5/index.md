@@ -256,13 +256,13 @@ $$
 >
 > 射影の検算にはさらに、以下の恒等式のずれを使う。
 
-$
+$$
 K_h=\frac12h^2\sum_{ij}|(u_{c,ij},v_{c,ij})|^2.
-$
+$$
 
-$
+$$
 E_I=\max_{ij}\left|(D_h\boldsymbol u)_{ij}+\frac{\Delta t}{\rho}(L_hp-b)_{ij}\right|.
-$
+$$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg5-diagnostics -->
