@@ -17,13 +17,13 @@ definitions:
   - { id: FCG5-DEF-04, name: "離散流れ関数から作る面速度" }
   - { id: FCG5-DEF-05, name: "流体ソルバーの数値診断" }
 theorems:
-  - { id: FCG5-PROP-01, name: "陽的5点拡散の凸結合条件" }
+  - { id: FCG5-PROP-01, name: "陽的5点拡散の値域保持条件" }
   - { id: FCG5-PROP-02, name: "離散流れ関数の発散相殺" }
   - { id: FCG5-PROP-03, name: "分割ステップの射影後発散" }
 canonical_examples:
   - "2×2内部水平面速度と左右列圧力によるPoisson射影"
   - "4面の符号付き頂点差分で全セルの発散が厳密に零となる"
-  - "0.01152の陽的粘性係数で凸結合条件を検査する"
+  - "0.01152の陽的粘性係数で非負重みの加重平均条件を検査する"
   - "静止流体と定数染料をステップ分割で検算する"
   - "Float64の染料・Poisson診断とGPU R8画素の差を検査する"
 problem_patterns: [FCG5-MAC, FCG5-CURL, FCG5-INTERPOLATE, FCG5-RESIDUAL, FCG5-DIFFUSION, FCG5-STATIONARY, FCG5-R8, FCG5-INTEGRATED]
