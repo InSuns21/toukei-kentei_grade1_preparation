@@ -65,7 +65,7 @@ $$
 <!-- definition-example-start: def-syz1-03-calibration -->
 ### 直接例：水平平面と向きの反転
 
-**定義の確認**：$M=\mathbb R^3$、$g$ をEuclid計量、$\varphi=dx\wedge dy$ とする。前節でcomassは1と確認し、$d\varphi=0$ も確認した。$L_c=\{z=c\}$ を $(\partial_x,\partial_y)$ の向きで取れば、埋め込み二次元、誘導計量は $dx^2+dy^2$、誘導体積形式は $dx\wedge dy$ である。従って $\varphi|_{L_c}=\operatorname{vol}_{L_c}$ である。
+**定義の確認**：$M=\mathbb R^3$、$g$ をEuclid計量、$\varphi=dx\wedge dy$ とする。前節でcomassは1と確認し、$d\varphi=0$ も確認した。ここで $\partial_x,\partial_y$ はそれぞれ $x,y$ 座標の増加方向の単位接ベクトル（例えば $dx(\partial_x)=1$、$dy(\partial_x)=0$）である。$L_c=\{z=c\}$ を $(\partial_x,\partial_y)$ の向きで取れば、埋め込み二次元、誘導計量は $dx^2+dy^2$、誘導体積形式は $dx\wedge dy$ である。従って $\varphi|_{L_c}=\operatorname{vol}_{L_c}$ である。
 
 同じ平面を逆向き $(\partial_y,\partial_x)$ にすると $\varphi(\partial_y,\partial_x)=-1$。comassと閉性は変わらないが、この向きの $L_c$ は $\varphi$ では較正されない。向きは飾りではなく等号条件の一部である。
 <!-- definition-example-end -->
@@ -139,7 +139,7 @@ $$
 
 ### 具体例：平坦トーラスの斜め閉路
 
-$T^2=(\mathbb R/\mathbb Z)^2$ に $dx^2+dy^2$ を入れる。$\varphi=(dx+dy)/\sqrt2$ は閉形式であり、正規直交枠で係数ベクトル $(1,1)/\sqrt2$ の長さが1だからcomassも1である。斜め閉路 $L(t)=([t],[t])$（$0\le t\le1$）は接ベクトル $(1,1)$ の速さが $\sqrt2$ で、$\varphi(\dot L)=\sqrt2$。従って弧長単位の接ベクトルに $\varphi$ は1を返す。$L$ は較正され、同じ向き付きホモロジー類 $(1,1)$ の閉曲線の中で長さ $\sqrt2$ が最小である。
+$T^2=(\mathbb R/\mathbb Z)^2$ に $dx^2+dy^2$ を入れる。$\varphi=(dx+dy)/\sqrt2$ は閉形式であり、正規直交枠で係数ベクトル $(1,1)/\sqrt2$ の長さが1だからcomassも1である。斜め閉路 $L(t)=([t],[t])$（$0\le t\le1$）は、パラメータ $t$ による接ベクトル $\dot L(t)=dL(t)/dt=(1,1)$ の速さが $\sqrt2$ で、$\varphi(\dot L)=\sqrt2$。従って弧長単位の接ベクトルに $\varphi$ は1を返す。$L$ は較正され、同じ向き付きホモロジー類 $(1,1)$ の閉曲線の中で長さ $\sqrt2$ が最小である。
 
 ## 5. 極小・安定・最小を区別する
 
@@ -165,7 +165,21 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F:[-\epsilon,\epsilon]\times L\to M$ を向きを保つ変形の写像とする。$[0,t]\times L$ の像を向き付き鎖として取れば、$L$ が境界なしなのでその境界は $L_t-L_0$ である。ゆえに $[L_t]=[L_0]$。前定理から $V(t)\ge V(0)$。$t=0$ は内部の局所最小なので、二回微分可能な実関数の必要条件を適用して $V'(0)=0$、$V''(0)\ge0$。二階微分が厳密に正とは限らない。例えば平坦トーラスの水平閉路を平行移動した族は全て較正され、$V(t)$ が一定になる。
+$F:[-\epsilon,\epsilon]\times L\to M$ を向きを保つ変形の写像とする。$t>0$ では $[0,t]\times L$ の像を鎖 $C_t$ とし、$t<0$ では区間の向きを反転させて符号付きの鎖 $C_t$ とする。$L$ は境界なしなので、どちらの符号でも
+
+$$
+\partial C_t=L_t-L_0,\qquad [L_t]=[L_0]
+$$
+
+が成り立つ。従って[較正された部分多様体の体積最小性](#thm-syz1-03-volume-minimization)を $N=L_t$ に適用し、
+
+$$
+V(t)=\operatorname{Vol}(L_t)\ge\operatorname{Vol}(L_0)=V(0)
+$$
+
+を得る。$t=0$ は内部の局所最小なので、二回微分可能な実関数の必要条件から $V'(0)=0$、$V''(0)\ge0$。
+
+二階微分が厳密に正とは限らない。例えば平坦トーラスの水平閉路を平行移動した族は全て較正され、$V(t)$ が一定になる。
 <!-- proof-end -->
 
 **逆は成り立たない。** 単位球面 $S^2$ の赤道は測地線なので一階変分は0だが、緯度 $t$ の円の長さは $2\pi\cos t$。実際に
@@ -188,7 +202,31 @@ $$
 
 を入れる。$\omega$ は既習の[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)に使う標準シンプレクティック形式である。さらに **複素体積形式** $\Omega=dz^1\wedge\cdots\wedge dz^n$ を取る。これは[複素トーラスの正則最高次形式](../../CYG/CYG1-04/index.md#prop-cyg1-04-volume-form)の平坦空間でのモデルでもある。
 
-実 $n$ 平面の正規直交基底を複素 $n$ 列ベクトルに並べれば、$\Omega$ の評価はその複素行列式になる。列の長さが1の行列の行列式の絶対値は1を超えない。この等号が、複素Hermitian内積で列が直交する条件、すなわちLagrange条件になることが核心である。
+座標表示と接ベクトルの意味を明確にする。各複素座標軸の**実接平面**内で角度 $a$ だけ回した単位ベクトルを
+
+$$
+R_a(\partial_{x^j})
+:=\cos a\,\partial_{x^j}+\sin a\,\partial_{y^j}
+$$
+
+と書く。これは実ベクトルであり、$dz^j(R_a(\partial_{x^j}))=\cos a+i\sin a=e^{ia}$ である。複素数 $e^{ia}$ は**座標形式による評価値**であって、実接ベクトルに複素スカラーを直接掛けたものではない。
+
+一般の実接ベクトル $v_j$ を実座標基底で展開し、
+
+$$
+v_j=\sum_{a=1}^n\bigl(\xi^a_j\partial_{x^a}+\eta^a_j\partial_{y^a}\bigr),
+\qquad dz^a(v_j)=\xi^a_j+i\eta^a_j
+$$
+
+とする。これらを複素行列 $A=(A_{aj})$ の第 $j$ 列に並べ、$A_{aj}=\xi^a_j+i\eta^a_j$ と置く。楔積の交代多重線形性から
+
+$$
+\Omega(v_1,\ldots,v_n)
+=(dz^1\wedge\cdots\wedge dz^n)(v_1,\ldots,v_n)
+=\det_{\mathbb C} A
+$$
+
+となる。つまり行列式は**向き付き実接基底への複素体積形式の評価**を表す。ここから列のHermitian長さと直交性を調べ、較正の等号をLagrange条件と結び付ける。
 
 <a id="lem-syz1-03-complex-determinant"></a>
 
@@ -205,7 +243,7 @@ $$
 
 ### 証明の見取り図
 
-$A_{aj}=dz^a(v_j)$ と置くと $\Omega(v_1,\ldots,v_n)=\det_{\mathbb C}A$。複素Hadamard不等式の等号条件は列がHermitian直交すること。実部は既に $g(v_i,v_j)=\delta_{ij}$ だから、残る虚部だけが $\omega(v_i,v_j)$ と一致する。
+$A_{aj}=dz^a(v_j)$ と置くと $\Omega(v_1,\ldots,v_n)=\det_{\mathbb C}A$。複素Gram–Schmidt直交化では行列式の絶対値が列の長さの積を超えず、等号条件は列がHermitian直交することになる。実部は既に $g(v_i,v_j)=\delta_{ij}$ だから、残る虚部だけが $\omega(v_i,v_j)$ と一致する。
 
 <!-- proof-start -->
 ### 証明
@@ -223,15 +261,30 @@ $$
 \end{aligned}
 $$
 
-従って各列のHermitianノルムは $\|c_j\|^2=g(v_j,v_j)=1$。列へのGram–Schmidt直交化（あるいは複素Hadamard不等式）を適用すると
+従って各列のHermitianノルムは $\|c_j\|^2=g(v_j,v_j)=1$。まず複素一次従属な列があれば $\det A=0<1$ なので、以下は一次独立とする。[Gram–Schmidt直交化法](../../../基礎科目/F0/F0-00E1/index.md#thm-f0-00e1-gram-schmidt)の射影操作を、ここで定義した「第2変数に複素線形」なHermitian内積に適用する。$q_1=c_1$、$u_1=q_1/\|q_1\|$ とし、$j\ge2$ について
+
+$$
+q_j=c_j-\sum_{\ell=1}^{j-1}\langle u_\ell,c_j\rangle_{\mathbb C}u_\ell,
+\qquad u_j=\frac{q_j}{\|q_j\|}.
+$$
+
+一次独立性から各 $q_j$ は非零である。$u_\ell$ が正規直交なので、射影成分と残差の直交性より
+
+$$
+\|q_j\|^2
+=\|c_j\|^2-\sum_{\ell<j}|\langle u_\ell,c_j\rangle_{\mathbb C}|^2
+\le\|c_j\|^2=1.
+$$
+
+$q_j$ は $c_j$ から先行列の線形結合を引いて得るため、列基本変形で行列式は不変である。$Q=(q_1,\ldots,q_n)$、$U=(u_1,\ldots,u_n)$ とすると $Q=U\,\operatorname{diag}(\|q_1\|,\ldots,\|q_n\|)$ で、$U^*U=I$ から $|\det U|^2=\det(U^*U)=1$。したがって
 
 $$
 |\Omega(v_1,\ldots,v_n)|
-=|\det_{\mathbb C}A|
-\le\prod_{j=1}^n\|c_j\|=1.
+=|\det A|=|\det Q|
+=\prod_{j=1}^n\|q_j\|\le\prod_{j=1}^n\|c_j\|=1.
 $$
 
-等号は列 $c_1,\ldots,c_n$ が互いにHermitian直交するとき、かつそのときに限り成立する。ここで $i\ne j$ に対して実部は正規直交性から既に0なので、Hermitian直交性は $\omega(v_i,v_j)=0$ と同値。$\omega$ の交代性により対角成分も0だから、これは $\omega|_P=0$ と等価である。
+等号なら全ての射影係数 $\langle u_\ell,c_j\rangle_{\mathbb C}$ が0である。このとき $q_j=c_j$ が各段階で成り立ち、元の列 $c_1,\ldots,c_n$ は互いにHermitian直交する。逆に列がHermitian直交なら全射影係数が0で、等号が成立する。ここで $i\ne j$ に対して実部は正規直交性から既に0なので、Hermitian直交性は $\omega(v_i,v_j)=0$ と同値。$\omega$ の交代性により対角成分も0だから、これは $\omega|_P=0$ と等価である。
 <!-- proof-end -->
 
 ### 直接計算：Lagrangeでない平面は等号を失う
@@ -288,14 +341,22 @@ $$
 \le|\Omega(v_1,\ldots,v_n)|\le1.
 $$
 
-向きを反転すれば左辺の符号も反転するので絶対値も1以下である。さらに複素線形な実座標回転 $v_j=e^{i\theta/n}\partial_{x^j}$ を取ると、$v_j$ は実正規直交、$\Omega(v_1,\ldots,v_n)=e^{i\theta}$、従って $\varphi_\theta(v_1,\ldots,v_n)=1$。よってcomassはちょうど1。
+向きを反転すれば左辺の符号も反転するので絶対値も1以下である。さらに上で定義した実座標回転 $v_j=R_{\theta/n}(\partial_{x^j})$ を取ると、異なる座標軸にあるため $g(v_i,v_j)=\delta_{ij}$ であり、$dz^a(v_j)=e^{i\theta/n}\delta_{aj}$ となる。従って
 
-$L$ の正の向きの正規直交接基底で較正の等号が成立するなら、連鎖する二つの不等式がともに等号である。補題から $\omega|_{T_pL}=0$。さらに $e^{-i\theta}\Omega(e_1,\ldots,e_n)$ は絶対値1で実部1なので、複素数として1でなければならない。従って $\Omega(e_1,\ldots,e_n)=e^{i\theta}$。逆にこの二条件なら $\varphi_\theta(e_1,\ldots,e_n)=\operatorname{Re}1=1$ であり、定義どおり較正される。
+$$
+\Omega(v_1,\ldots,v_n)
+=\det(e^{i\theta/n}I_n)=e^{i\theta},
+\qquad \varphi_\theta(v_1,\ldots,v_n)=1.
+$$
+
+よってcomassはちょうど1。
+
+$L$ の正の向きの正規直交接基底で較正の等号が成立するなら、連鎖する二つの不等式がともに等号である。[複素行列式の不等式とLagrange等号条件](#lem-syz1-03-complex-determinant)から $\omega|_{T_pL}=0$。さらに $e^{-i\theta}\Omega(e_1,\ldots,e_n)$ は絶対値1で実部1なので、複素数として1でなければならない。従って $\Omega(e_1,\ldots,e_n)=e^{i\theta}$。逆にこの二条件なら $\varphi_\theta(e_1,\ldots,e_n)=\operatorname{Re}1=1$ であり、定義どおり較正される。
 <!-- proof-end -->
 
 ### 直接例：回転した実平面の位相を測る
 
-**条件の確認**：$\mathbb C^2$ で $v_1=e^{ia}\partial_{x^1}$、$v_2=e^{ib}\partial_{x^2}$ が張る向き付き平面を考える。異なる複素座標軸の方向なので $g(v_i,v_j)=\delta_{ij}$、$\omega(v_1,v_2)=0$。さらに
+**条件の確認**：$\mathbb C^2$ で実ベクトル $v_1=R_a(\partial_{x^1})$、$v_2=R_b(\partial_{x^2})$ が張る向き付き平面を考える。どちらも単位長で異なる複素座標軸に属するため $g(v_i,v_j)=\delta_{ij}$、$\omega(v_1,v_2)=0$ であり、これは[Lagrange条件](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)を満たす。さらに $dz^1(v_1)=e^{ia}$、$dz^2(v_2)=e^{ib}$、交差する座標評価は0なので
 
 $$
 \Omega(v_1,v_2)=
@@ -306,7 +367,7 @@ $$
 この平面は $\theta\equiv a+b\pmod{2\pi}$ のとき較正される。$\theta$ を変えて虚部だけ0にした場合、$a+b-\theta=\pi$ なら実部は $-1$ であり較正ではない。
 
 
-本節の「特殊」は、**閉形式による体積最小性という幾何的結論**につながる言葉である。ただし定理4のコンパクト境界なし・同一ホモロジーという条件を、非コンパクトな全平面へそのまま適用してはいけない。平坦なグラフや平面のコンパクト部分では、同じ境界を持ち差が鎖の境界になる競合曲面に対して同様のStokes計算を行える。
+本節の「特殊」は、**閉形式による体積最小性という幾何的結論**につながる言葉である。ただし[較正された部分多様体の体積最小性](#thm-syz1-03-volume-minimization)のコンパクト境界なし・同一ホモロジーという条件を、非コンパクトな全平面へそのまま適用してはいけない。平坦なグラフや平面のコンパクト部分では、同じ境界を持ち差が鎖の境界になる競合曲面に対して同様のStokes計算を行える。
 
 ## 8. 演習：較正を自分の手で判定する
 
@@ -409,12 +470,12 @@ $$
 
 - Level: A
 
-$\mathbb C^2$ の向き付き平面を $v_1=e^{i\pi/6}\partial_{x^1}$、$v_2=e^{i\pi/3}\partial_{x^2}$ で張る。Lagrange性と較正位相を求め、$\theta=-\pi/2$ での実部を計算せよ。
+$\mathbb C^2$ の向き付き平面を、第6節の実接ベクトル $v_1=R_{\pi/6}(\partial_{x^1})$、$v_2=R_{\pi/3}(\partial_{x^2})$ で張る。Lagrange性と較正位相を求め、$\theta=-\pi/2$ での実部を計算せよ。
 
 <!-- solution-start -->
 ### 詳細解答
 
-$v_1,v_2$ は異なる複素座標軸の単位方向で、$\omega(v_1,v_2)=0$。従って二次元で$\omega$ が消えLagrangeである。複素体積形式の値は
+定義した回転の式から $v_1,v_2$ は異なる複素座標軸にある単位実ベクトルであり、$g(v_1,v_2)=0$、$\omega(v_1,v_2)=0$。従ってこの実二次元平面上で $\omega$ は消え、[Lagrange条件](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)を満たす。複素体積形式の値は
 
 $$
 \Omega(v_1,v_2)=e^{i(\pi/6+\pi/3)}=e^{i\pi/2}=i.
@@ -464,7 +525,7 @@ $\mathbb C^2$ で $v_1=\partial_{x^1}$、$v_2=(\partial_{y^1}+\partial_{x^2})/\s
 <!-- solution-start -->
 ### 詳細解答
 
-複素列は $c_1=(1,0)^T$、$c_2=(i/\sqrt2,1/\sqrt2)^T$。内積は
+複素列は $c_1=(1,0)^T$、$c_2=(i/\sqrt2,1/\sqrt2)^T$ である。各列を並べた複素行列を $A=(c_1,c_2)$ とすると、Hermitian Gram行列 $G=A^*A$ の第 $(i,j)$ 成分は $\langle c_i,c_j\rangle_{\mathbb C}$ である。従って内積は
 
 $$
 \langle c_1,c_2\rangle_{\mathbb C}=\frac{i}{\sqrt2},
@@ -481,7 +542,7 @@ $$
 \qquad |\det A|^2=\det G=\frac12.
 $$
 
-実内積での直交性は満たしてもHermitian内積の虚部が0でない。したがってLagrange等号条件が壊れ、絶対値は1に達しない。
+ここで $\det G=\det(A^*A)=\overline{\det A}\det A=|\det A|^2$ を用いた。実内積での直交性は満たしてもHermitian内積の虚部が0でない。したがってLagrange等号条件が壊れ、絶対値は1に達しない。
 <!-- solution-end -->
 
 <a id="ex-syz1-03-b03"></a>
@@ -593,7 +654,7 @@ $$
 
 $b\ne0$ なら $1<\sqrt{1+b^2}$。従って $\operatorname{Re}\Omega$ は誘導体積形式と一致しない。Lagrangeであることだけでは較正は結論できない。
 
-**第4問。** 第4節の定理はコンパクト境界なしのサイクルを比較するので、非コンパクトな $L_f$ 全体にはそのまま適用できない。一方、$L_f$ のコンパクトな向き付き部分 $K$ と同じ境界を持つコンパクトな競合曲面 $N$ について、$K-N=\partial C$ を満たす鎖が存在すれば、
+**第4問。** [較正された部分多様体の体積最小性](#thm-syz1-03-volume-minimization)はコンパクト境界なしのサイクルを比較するので、非コンパクトな $L_f$ 全体にはそのまま適用できない。一方、$L_f$ のコンパクトな向き付き部分 $K$ と同じ境界を持つコンパクトな競合曲面 $N$ について、$K-N=\partial C$ を満たす鎖が存在すれば、
 
 $$
 \operatorname{Area}(K)=\int_K\operatorname{Re}\Omega

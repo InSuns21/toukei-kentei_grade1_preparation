@@ -1,0 +1,62 @@
+chapter: PML1-06
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-05, SG1]
+concepts:
+  - id: physics-machine-learning.random-data-gibbs
+    name: 固定標本のランダム損失Gibbs模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固定標本のランダム損失Gibbs模型）"]
+    requires:
+      - physics-machine-learning.finite-loss-gibbs
+      - spin-glass.quenched-annealed
+  - id: physics-machine-learning.tilted-data-law
+    name: 分配関数で傾けたデータ分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（分配関数で傾けたデータ分布）"]
+    requires:
+      - physics-machine-learning.random-data-gibbs
+  - id: physics-machine-learning.disorder-kl-gap
+    name: quenched・annealed差のKL恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（quenched・annealed差のKL恒等式）"]
+    requires:
+      - physics-machine-learning.tilted-data-law
+      - information.relative-entropy
+      - information.gibbs-inequality
+  - id: physics-machine-learning.pressure-transition-test
+    name: 極限圧力に基づく相転移判定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（極限圧力に基づく相転移判定）"]
+    requires:
+      - physics-machine-learning.random-data-gibbs
+      - spin-glass.freezing-definition
+  - id: physics-machine-learning.independent-site-no-transition
+    name: 独立な局所損失模型には凍結転移がない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立な局所損失模型には凍結転移がない）"]
+    requires:
+      - physics-machine-learning.pressure-transition-test
+      - physics-machine-learning.disorder-kl-gap
+  - id: physics-machine-learning.rem-learning-conditions
+    name: 独立Gaussian損失模型での凍結判定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（独立Gaussian損失模型での凍結判定）"]
+    requires:
+      - spin-glass.rem-pressure
+      - spin-glass.freezing-formulas
+      - physics-machine-learning.pressure-transition-test
+  - id: physics-machine-learning.sample-dependent-loss-shift
+    name: 標本依存の共通損失移動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（標本依存の共通損失移動）"]
+    requires:
+      - physics-machine-learning.random-data-gibbs
+      - physics-machine-learning.ebm-gauge-shift

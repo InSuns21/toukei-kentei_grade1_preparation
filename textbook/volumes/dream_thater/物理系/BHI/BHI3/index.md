@@ -6,7 +6,7 @@
 
 今回は二準位対を各ステップで一組ずつ加えます。いくつもの対を互いに独立に作るという強い仮定をまず固定し、放射エントロピーの増加を計算します。次にその仮定を外した例を実際に作り、どこまでが模型内の定理かを区別します。半古典的なHawking波束の温度・流束の場の理論的導出は[QCURV21の後期波束の計算](../../QCURV/QCURV21/index.md#prop-qcurv21-hawking-chain)にあり、本講の二量子ビット列はそれを導き直す模型ではありません。
 
-必要な量子情報の道具は、[QINF3の部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)、[QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)、[QINF17のテンソル積加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)です。対数は自然対数、エントロピーの単位は nat とします。零固有値については $0\ln0=0$ とします。
+必要な量子情報の道具は、[QINF3の部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)、[QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)、[QINF17のテンソル積加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)です。QINF17の定義は底2の対数（単位 bit）ですが、本講は自然対数（単位 nat）を用います。同じ密度演算子の固有値に対し $S_{\mathrm{nat}}(\rho)=(\ln2)S_{\mathrm{bit}}(\rho)$ で換算でき、テンソル積加法性もこの定数倍の下で成立します。零固有値については $0\ln0=0$ とします。
 
 ## 2. 放出ステップごとの系を曖昧にしない
 
@@ -87,18 +87,56 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi3-radiation-history -->
-**定義の確認**： 二対の最大エンタングル状態では、$\rho_{R_0}=(1)$、$\rho_{R_1}=I_2/2$、$\rho_{R_2}=I_4/4$ になります。後二者は正半定値・跡1です。固有値はそれぞれ $(1/2,1/2)$ と $(1/4,1/4,1/4,1/4)$ なので、履歴は $(0,\ln2,2\ln2)$ です。第2ステップで見るのは $O_1O_2$、第1ステップでは $O_1$ という違いを確認しました。
+**定義の確認**：二対の最大エンタングル状態を用います。各対の射影 $|\psi_j\rangle\langle\psi_j|$ の交差項 $|00\rangle\langle11|$ と $|11\rangle\langle00|$ は、内部基底の直交性 $\langle0|1\rangle=0$ により部分トレースで消えます。したがって各 $O_j$ の縮約は
+
+$$
+\sigma_j=\operatorname{Tr}_{I_j}|\psi_j\rangle\langle\psi_j|
+=\frac12|0\rangle\langle0|+\frac12|1\rangle\langle1|
+=\frac{I_2}{2}.
+$$
+
+第1ステップの放射は $R_1=O_1$、第2ステップの放射は $R_2=O_1O_2$ です。二つの対が直積なので、[部分トレースの積への作用](../../../応用系/QINF/QINF3/index.md#prop-qinf3-state-product)から
+
+$$
+\rho_{R_0}=(1),\qquad
+\rho_{R_1}=\sigma_1=\frac{I_2}{2},\qquad
+\rho_{R_2}=\sigma_1\otimes\sigma_2=\frac{I_4}{4}
+$$
+
+となります。いずれも正半定値・跡1で、固有値は順に $(1)$、$(1/2,1/2)$、$(1/4,1/4,1/4,1/4)$ です。各固有値を放射履歴の定義に代入すると $(S(R_0),S(R_1),S(R_2))=(0,\ln2,2\ln2)$ を得ます。ここで行列は $R_k$ の占有基底で表示しており、最終行列 $I_4/4$ は内部を含む全状態の密度行列ではありません。
 <!-- definition-example-end -->
 
 ## 3. 独立対から放射の全密度行列を計算する
 
-ステップ $j$ の二準位縮約を $\sigma_j$ と書きます。[BHI2の縮約命題](../BHI2/index.md#prop-bhi2-reduction)では、この一対の内部 $I_j$ の跡を取ると
+ステップ $j$ の二準位縮約を $\sigma_j$ と書きます。[BHI2の縮約命題](../BHI2/index.md#prop-bhi2-reduction)が扱うのは $0<p_j<1$ の場合です。本講では端点 $p_j=0,1$ も使うため、[QINF3の部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)に戻って全範囲を確認します。$|ab\rangle=|a\rangle_{O_j}|b\rangle_{I_j}$ と表すと、内部の占有基底で
 
 $$
-\sigma_j=(1-p_j)|0\rangle\langle0|+p_j|1\rangle\langle1|
+\operatorname{Tr}_{I_j}(|ab\rangle\langle cd|)
+=\langle d|b\rangle\,|a\rangle\langle c|
+=\delta_{bd}|a\rangle\langle c|
 $$
 
-となり、位相 $\phi_j$ は消えます。ここでは全状態が対ごとの直積なので、[QINF3の積に対する部分トレース](../../../応用系/QINF/QINF3/index.md#prop-qinf3-state-product)を繰り返し用いられます。
+です。対の射影を展開すると
+
+$$
+\begin{aligned}
+|\psi_j\rangle\langle\psi_j|
+={}&(1-p_j)|00\rangle\langle00|+p_j|11\rangle\langle11|\\
+&+\sqrt{p_j(1-p_j)}
+\bigl(e^{-i\phi_j}|00\rangle\langle11|
++e^{i\phi_j}|11\rangle\langle00|\bigr).
+\end{aligned}
+$$
+
+交差項では内部添字が異なるため消え、従って
+
+$$
+\sigma_j
+=\operatorname{Tr}_{I_j}|\psi_j\rangle\langle\psi_j|
+=(1-p_j)|0\rangle\langle0|+p_j|1\rangle\langle1|
+$$
+
+となります。係数の平方根は端点でも定義され、$p_j=0,1$ なら片方の基底射影だけが残ります。この計算によって全 $0\le p_j\le1$ で縮約が正半定値・跡1であり、位相 $\phi_j$ が消えることを直接確かめました。複数対では、さらに[QINF3の積に対する部分トレース](../../../応用系/QINF/QINF3/index.md#prop-qinf3-state-product)を用います。
 
 <a id="prop-bhi3-radiation-spectrum"></a>
 
@@ -140,7 +178,7 @@ $$
 \otimes\bigotimes_{j=1}^{k}|\psi_j\rangle\langle\psi_j|.
 $$
 
-$\operatorname{Tr}_{B_0}|\chi\rangle\langle\chi|=1$ と、[QINF3の三部系の逐次部分トレース](../../../応用系/QINF/QINF3/index.md#prop-qinf3-iterated)を用いると
+まず $R_k=O_1\cdots O_k$、$B_k=B_0I_1\cdots I_k$ の順にテンソル因子を並べ替えます。これは有限次元の積基底を並べ替えるユニタリな同一視であり、状態や跡の値を変えません。$\operatorname{Tr}_{B_0}|\chi\rangle\langle\chi|=1$ と、[QINF3の三部系の逐次部分トレース](../../../応用系/QINF/QINF3/index.md#prop-qinf3-iterated)および[積に対する部分トレース](../../../応用系/QINF/QINF3/index.md#prop-qinf3-state-product)を各対に適用すると
 
 $$
 \begin{aligned}
@@ -180,7 +218,7 @@ $$
 h(p)=-(1-p)\ln(1-p)-p\ln p,\qquad 0\le p\le1
 $$
 
-と書きます。これは[BHI2の一対のエントロピー](../BHI2/index.md#prop-bhi2-reduction)です。境界では $h(0)=h(1)=0$ であり、$h(1/2)=\ln2$ です。全系にとって放射の「増分」は新しい一モードのエントロピーと同じとは限りませんが、直積対模型では一致します。
+と書きます。$0<p<1$ では[BHI2の一対のエントロピー](../BHI2/index.md#prop-bhi2-reduction)と一致し、端点は $0\ln0=0$ の規約で定めます。従って $h(0)=h(1)=0$、$h(1/2)=\ln2$ です。全系にとって放射の「増分」は新しい一モードのエントロピーと同じとは限りませんが、直積対模型では一致します。
 
 <a id="thm-bhi3-entropy-growth"></a>
 
@@ -236,7 +274,7 @@ $p_j=p$ なら和は $kh(p)$ です。対照的に $p_1=0,p_2=1/2$ なら履歴�
 
 ## 5. 新しい対が純粋だという仮定はどれほど強いか
 
-「新しい外部と内部は純粋な二部対である。ただし前の放射とも相関を持つかもしれない」と考えたくなります。ところが新しい対 $O_kI_k$ の**縮約そのものが厳密に純粋**なら、その対が他の系と相関を持つことはできません。[QINF3の純粋縮約と積性の定理](../../../応用系/QINF/QINF3/index.md#thm-qinf3-product-pure)の適用箇所を明示します。
+「新しい外部と内部は純粋な二部対である。ただし前の放射とも相関を持つかもしれない」と考えたくなります。ところが新しい対 $O_kI_k$ の**縮約そのものが厳密に純粋**なら、その対が他の系と相関を持つことはできません。[QINF3の純粋縮約と積性の定理](../../../応用系/QINF/QINF3/index.md#thm-qinf3-product-pure)は**全系も純粋**な場合の結果です。以下では全系 $\rho_{EOI}$ が混合でもよい、より一般の主張を正値性から直接証明します。
 
 <a id="prop-bhi3-pure-pair-rigidity"></a>
 
@@ -272,7 +310,15 @@ $$
 \operatorname{Tr}\bigl[\rho_{EOI}^{1/2}(I_E\otimes Q)\rho_{EOI}^{1/2}\bigr]=0.
 $$
 
-被トレース作用素は正半定値なので零作用素です。すなわち $(I_E\otimes Q)\rho_{EOI}^{1/2}=0$。従って $\rho_{EOI}$ の支持は $E\otimes\operatorname{span}\{|\psi\rangle\}$ に含まれます。
+$Q$ は直交射影で $Q^2=Q=Q^\dagger$ だから、被トレース作用素は
+
+$$
+\rho_{EOI}^{1/2}(I_E\otimes Q)\rho_{EOI}^{1/2}
+=\bigl((I_E\otimes Q)\rho_{EOI}^{1/2}\bigr)^\dagger
+\bigl((I_E\otimes Q)\rho_{EOI}^{1/2}\bigr)
+$$
+
+と表せます。その跡が0なので各列のノルムの二乗和が0、従って $(I_E\otimes Q)\rho_{EOI}^{1/2}=0$ です。よって $\rho_{EOI}$ の支持は $E\otimes\operatorname{span}\{|\psi\rangle\}$ に含まれます。
 
 $E$ の正規直交基底を $|a\rangle$ として、支持上の行列要素を $t_{ab}$ と書けば
 
