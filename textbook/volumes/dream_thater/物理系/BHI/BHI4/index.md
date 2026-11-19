@@ -445,7 +445,7 @@ $T_H\propto M^{-1}$ より $T_H(M_0/2)/T_H(M_0)=2$、$L=C/M^2$ より $L(M_0/2)/
 <!-- solution-start -->
 **詳細解答**
 
-[BHT9の有限差公式](../../BHT/BHT9/index.md#prop-bht9-schwarzschild-entropy)に $M_2=3M_0/4,M_1=M_0$ の順で時間差を代入すると
+[BHT9で得たSchwarzschildエントロピーの質量依存](../../BHT/BHT9/index.md#prop-bht9-schwarzschild-entropy)を、始状態 $M_0$ と終状態 $3M_0/4$ でそれぞれ評価し、終状態から始状態を引くと
 
 $$
 \Delta S_{\rm BH}
