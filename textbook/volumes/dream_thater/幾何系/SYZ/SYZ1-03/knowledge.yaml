@@ -1,0 +1,41 @@
+chapter: SYZ1-03
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-02, CYG1-04, SYM6, GEO8]
+concepts:
+  - id: syz.calibration-comass
+    name: comass
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（comass）"]
+    requires: []
+  - id: syz.calibration-form
+    name: 較正形式と較正部分多様体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（較正形式と較正部分多様体）"]
+    requires: [syz.calibration-comass]
+  - id: syz.calibrated-volume-minimization
+    name: 較正された部分多様体の体積最小性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（較正された部分多様体の体積最小性）"]
+    requires: [syz.calibration-form]
+  - id: syz.calibration-variation
+    name: 較正と変分の関係
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（較正と変分の関係）"]
+    requires: [syz.calibrated-volume-minimization]
+  - id: syz.complex-determinant-lagrangian
+    name: 複素行列式の不等式とLagrange等号条件
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（複素行列式の不等式とLagrange等号条件）"]
+    requires: [symplectic.lagrangian-submanifold]
+  - id: syz.special-lagrangian-calibration
+    name: 平坦空間での特殊Lagrange較正
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦空間での特殊Lagrange較正）"]
+    requires: [syz.calibration-form, syz.complex-determinant-lagrangian]
