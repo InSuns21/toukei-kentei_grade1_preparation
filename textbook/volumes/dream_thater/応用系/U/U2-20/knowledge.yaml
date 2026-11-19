@@ -1,0 +1,49 @@
+chapter: U2-20
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-19
+forward_references: []
+concepts:
+  - id: robotics.random-occupancy-grid
+    name: 有限占有格子の確率模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限占有格子の確率模型）"]
+    requires: [robotics.known-binary-occupancy-map, robotics.finite-bayes-filter]
+  - id: robotics.inverse-sensor-occupancy
+    name: 単一セルの逆センサーモデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単一セルの逆センサーモデル）"]
+    requires: [robotics.random-occupancy-grid, robotics.known-map-ray-range]
+  - id: robotics.inverse-range-cell-categories
+    name: 有限測距光線のセル別逆モデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限測距光線のセル別逆モデル）"]
+    requires: [robotics.inverse-sensor-occupancy]
+  - id: robotics.occupancy-log-odds
+    name: 占有確率の log-odds
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（占有確率の log-odds）"]
+    requires: [robotics.random-occupancy-grid]
+  - id: robotics.occupancy-log-odds-bayes-update
+    name: 単一セル Bayes 更新の log-odds 表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単一セル Bayes 更新の log-odds 表示）"]
+    requires: [robotics.inverse-sensor-occupancy, robotics.occupancy-log-odds, robotics.finite-bayes-filter]
+  - id: robotics.occupancy-update-direction
+    name: 逆モデルの更新方向と非観測セル
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（逆モデルの更新方向と非観測セル）"]
+    requires: [robotics.occupancy-log-odds-bayes-update]
+  - id: robotics.occupancy-ray-posterior-coupling
+    name: 単一ビーム後の周辺値では同時地図を再現できない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（単一ビーム後の周辺値では同時地図を再現できない）"]
+    requires: [robotics.random-occupancy-grid, robotics.occupancy-log-odds-bayes-update]
