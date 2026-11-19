@@ -1,0 +1,65 @@
+chapter: FCG6
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG5]
+concepts:
+  - id: graphics.fcg6-solid-mask
+    name: 固体マスクと流体・固体境界面
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固体マスクと流体・固体境界面）"]
+    requires: [graphics.fcg5-split-step]
+  - id: graphics.fcg6-moving-normal
+    name: 移動固体との非貫通境界条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（移動固体との非貫通境界条件）"]
+    requires: [graphics.fcg6-solid-mask]
+  - id: graphics.fcg6-tangential-ghost
+    name: 滑りなし境界の接線ghost値
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑りなし境界の接線ghost値）"]
+    requires: [graphics.fcg6-moving-normal]
+  - id: graphics.fcg6-masked-poisson
+    name: 固体マスク付きNeumann圧力射影
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（固体マスク付きNeumann圧力射影）"]
+    requires: [graphics.fcg6-moving-normal, graphics.fcg4-gradient-projection]
+  - id: graphics.fcg6-compatibility
+    name: マスク格子の流束総和と可解性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（マスク格子の流束総和と可解性）"]
+    requires: [graphics.fcg6-masked-poisson]
+  - id: graphics.fcg6-residual
+    name: 平均右辺補正付き射影の発散恒等式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平均右辺補正付き射影の発散恒等式）"]
+    requires: [graphics.fcg6-compatibility, graphics.fcg5-residual-step]
+  - id: graphics.fcg6-pressure-force
+    name: 階段境界での圧力反力
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（階段境界での圧力反力）"]
+    requires: [graphics.fcg6-moving-normal]
+  - id: graphics.fcg6-gauge-force
+    name: 閉じた固体境界での圧力反力のゲージ不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（閉じた固体境界での圧力反力のゲージ不変性）"]
+    requires: [graphics.fcg6-pressure-force]
+  - id: graphics.fcg6-masked-dye
+    name: マスクを使う染料の再重み付け補間
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（マスクを使う染料の再重み付け補間）"]
+    requires: [graphics.fcg6-solid-mask]
+  - id: graphics.fcg6-dye-bounds
+    name: マスク付き補間の値域と非保存性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（マスク付き補間の値域と非保存性）"]
+    requires: [graphics.fcg6-masked-dye]
