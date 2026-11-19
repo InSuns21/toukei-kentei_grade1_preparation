@@ -65,7 +65,7 @@ $$
 <!-- definition-example-start: def-syz1-03-calibration -->
 ### 直接例：水平平面と向きの反転
 
-**定義の確認**：$M=\mathbb R^3$、$g$ をEuclid計量、$\varphi=dx\wedge dy$ とする。前節でcomassは1と確認し、$d\varphi=0$ も確認した。$L_c=\{z=c\}$ を $(\partial_x,\partial_y)$ の向きで取れば、埋め込み二次元、誘導計量は $dx^2+dy^2$、誘導体積形式は $dx\wedge dy$ である。従って $\varphi|_{L_c}=\operatorname{vol}_{L_c}$ である。
+**定義の確認**：$M=\mathbb R^3$、$g$ をEuclid計量、$\varphi=dx\wedge dy$ とする。前節でcomassは1と確認し、$d\varphi=0$ も確認した。ここで $\partial_x,\partial_y$ はそれぞれ $x,y$ 座標の増加方向の単位接ベクトル（例えば $dx(\partial_x)=1$、$dy(\partial_x)=0$）である。$L_c=\{z=c\}$ を $(\partial_x,\partial_y)$ の向きで取れば、埋め込み二次元、誘導計量は $dx^2+dy^2$、誘導体積形式は $dx\wedge dy$ である。従って $\varphi|_{L_c}=\operatorname{vol}_{L_c}$ である。
 
 同じ平面を逆向き $(\partial_y,\partial_x)$ にすると $\varphi(\partial_y,\partial_x)=-1$。comassと閉性は変わらないが、この向きの $L_c$ は $\varphi$ では較正されない。向きは飾りではなく等号条件の一部である。
 <!-- definition-example-end -->
@@ -139,7 +139,7 @@ $$
 
 ### 具体例：平坦トーラスの斜め閉路
 
-$T^2=(\mathbb R/\mathbb Z)^2$ に $dx^2+dy^2$ を入れる。$\varphi=(dx+dy)/\sqrt2$ は閉形式であり、正規直交枠で係数ベクトル $(1,1)/\sqrt2$ の長さが1だからcomassも1である。斜め閉路 $L(t)=([t],[t])$（$0\le t\le1$）は接ベクトル $(1,1)$ の速さが $\sqrt2$ で、$\varphi(\dot L)=\sqrt2$。従って弧長単位の接ベクトルに $\varphi$ は1を返す。$L$ は較正され、同じ向き付きホモロジー類 $(1,1)$ の閉曲線の中で長さ $\sqrt2$ が最小である。
+$T^2=(\mathbb R/\mathbb Z)^2$ に $dx^2+dy^2$ を入れる。$\varphi=(dx+dy)/\sqrt2$ は閉形式であり、正規直交枠で係数ベクトル $(1,1)/\sqrt2$ の長さが1だからcomassも1である。斜め閉路 $L(t)=([t],[t])$（$0\le t\le1$）は、パラメータ $t$ による接ベクトル $\dot L(t)=dL(t)/dt=(1,1)$ の速さが $\sqrt2$ で、$\varphi(\dot L)=\sqrt2$。従って弧長単位の接ベクトルに $\varphi$ は1を返す。$L$ は較正され、同じ向き付きホモロジー類 $(1,1)$ の閉曲線の中で長さ $\sqrt2$ が最小である。
 
 ## 5. 極小・安定・最小を区別する
 
