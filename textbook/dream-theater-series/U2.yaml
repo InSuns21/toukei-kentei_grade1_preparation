@@ -22,7 +22,7 @@ chapters:
   - { id: U2-16, path: textbook/volumes/dream_thater/応用系/U/U2-16, status: completed, title: "誘拐されたロボット：粒子の崩壊から回復する" }
   - { id: U2-17, path: textbook/volumes/dream_thater/応用系/U/U2-17, status: completed, title: "地図が既知のときの観測尤度：障害物と測距" }
   - { id: U2-18, path: textbook/volumes/dream_thater/応用系/U/U2-18, status: completed, title: "Monte Carlo localization：平面で位置を追う" }
-  - { id: U2-19, path: textbook/volumes/dream_thater/応用系/U/U2-19, status: planned, title: "データ対応と誤観測：見た目が似た目印の落とし穴" }
+  - { id: U2-19, path: textbook/volumes/dream_thater/応用系/U/U2-19, status: completed, title: "データ対応と誤観測：見た目が似た目印の落とし穴" }
   - { id: U2-20, path: textbook/volumes/dream_thater/応用系/U/U2-20, status: planned, title: "占有格子地図の更新：log-odds と逆センサーモデル" }
   - { id: U2-21, path: textbook/volumes/dream_thater/応用系/U/U2-21, status: planned, title: "SLAM の確率模型：軌跡と地図の同時事後" }
   - { id: U2-22, path: textbook/volumes/dream_thater/応用系/U/U2-22, status: planned, title: "ランドマーク型 EKF-SLAM：交差共分散の役割" }
