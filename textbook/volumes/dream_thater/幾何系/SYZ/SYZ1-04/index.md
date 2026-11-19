@@ -80,11 +80,11 @@ $$
 
 **定義の確認**：標準 $\mathbb C^2$ に $\Omega=dz^1\wedge dz^2$ を置き、$L=\mathbb R^2_x\times\{0\}$ を $(x^1,x^2)$ の増加方向に向ける。外積を接ベクトルに評価すると
 
-$
+$$
 (dz^1\wedge dz^2)(v_1,v_2)
 =dz^1(v_1)dz^2(v_2)-dz^1(v_2)dz^2(v_1)
 =\det\bigl(dz^j(v_k)\bigr)_{j,k=1}^2
-$
+$$
 
 となる。この行列式は、[前講の複素体積形式の評価](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)と同じく、交代形式を基底に適用した値を表す。これを使い、定義の各条件を個別に確認する。
 
@@ -453,9 +453,9 @@ $$
 
 正の正規直交水平基底で $\Omega_a(\partial_{x^1},\partial_{x^2})=a$。[複素行列式の不等式](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)に $a$ を掛けると、任意の実正規直交2組での $\operatorname{Re}\Omega_a$ の評価の絶対値は高々 $a$。水平基底でこの上限が達成されるので
 
-$
+$$
 \|\operatorname{Re}\Omega_a\|_*=a.
-$
+$$
 
 $\Omega_a$ は定数係数であり $d(\operatorname{Re}\Omega_a)=0$ である。[較正形式の定義](../SYZ1-03/index.md#def-syz1-03-calibration)は **comassが1以下** と閉性を要求するから、$\operatorname{Re}\Omega_a$ が較正形式となる必要十分条件は $0<a\le1$ である。
 
