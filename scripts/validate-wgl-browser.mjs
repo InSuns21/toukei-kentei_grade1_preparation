@@ -89,6 +89,42 @@ try{
   assert.equal(await evalJS('document.querySelectorAll("[role=tabpanel]").length'),3);
   assert.ok(await evalJS('document.getElementById("js-source").value.includes("gl.drawArrays")'));
   await click('tab-code');
+  // WGL and FCG share this host: editors must be wide, vertically ordered,
+  // and the run/save group must stay above them on desktop and mobile.
+  const getEditorLayout = () => evalJS(`(() => {
+    const panel = document.getElementById('panel-code');
+    const bar = document.getElementById('lab-actions');
+    const rects = ['js-source', 'vertex-source', 'fragment-source']
+      .map(id => { const r = document.getElementById(id).getBoundingClientRect();
+        return {left:r.left,top:r.top,width:r.width}; });
+    return {panelWidth:panel.clientWidth,barTop:bar.getBoundingClientRect().top,
+      barBottom:bar.getBoundingClientRect().bottom,
+      barBeforePanel:!!(bar.compareDocumentPosition(panel) & Node.DOCUMENT_POSITION_FOLLOWING),
+      position:getComputedStyle(bar).position,rects};
+  })()`);
+  const wideLayout = await getEditorLayout();
+  assert.equal(wideLayout.barBeforePanel, true);
+  assert.equal(wideLayout.position, 'sticky');
+  assert.ok(wideLayout.rects.every(r => r.width >= wideLayout.panelWidth - 25), JSON.stringify(wideLayout));
+  assert.ok(wideLayout.rects[0].top < wideLayout.rects[1].top &&
+    wideLayout.rects[1].top < wideLayout.rects[2].top, JSON.stringify(wideLayout));
+  assert.ok(wideLayout.rects.every(r => Math.abs(r.left - wideLayout.rects[0].left) < 2));
+  assert.ok(wideLayout.barBottom < wideLayout.rects[0].top);
+  const stuck = await evalJS(`(() => {
+    window.scrollTo(0, 350);
+    return {scrollY:window.scrollY,top:document.getElementById('lab-actions').getBoundingClientRect().top};
+  })()`);
+  assert.ok(stuck.scrollY > 100, JSON.stringify(stuck));
+  assert.ok(Math.abs(stuck.top) < 2, JSON.stringify(stuck));
+  await evalJS('window.scrollTo(0,0)');
+  await cdp('Emulation.setDeviceMetricsOverride',{width:420,height:850,deviceScaleFactor:1,mobile:false});
+  const narrowLayout = await getEditorLayout();
+  assert.ok(narrowLayout.rects.every(r => r.width >= narrowLayout.panelWidth - 25), JSON.stringify(narrowLayout));
+  assert.ok(narrowLayout.rects[0].top < narrowLayout.rects[1].top &&
+    narrowLayout.rects[1].top < narrowLayout.rects[2].top);
+  assert.ok(narrowLayout.rects.every(r => Math.abs(r.left - narrowLayout.rects[0].left) < 2));
+  await cdp('Emulation.setDeviceMetricsOverride',{width:1000,height:900,deviceScaleFactor:1,mobile:false});
+  console.log('WGL/FCG single-column editors and sticky actions at desktop/mobile widths: PASS');
   const syntax=await evalJS('({count:document.querySelectorAll(".wgl-code-editor").length,js:document.querySelector("#js-source").previousElementSibling.innerHTML,vertex:document.querySelector("#vertex-source").previousElementSibling.innerHTML,fragment:document.querySelector("#fragment-source").previousElementSibling.innerHTML,color:getComputedStyle(document.getElementById("js-source")).color})');
   assert.equal(syntax.count,3);
   assert.match(syntax.js,/wgl-token-keyword/);

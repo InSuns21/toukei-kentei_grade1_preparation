@@ -40,6 +40,24 @@ test('input limits and no accidental same-origin sandbox', async () => {
   assert.ok(host.includes('clearTimeout'));
   assert.ok(host.includes('iframe.srcdoc'));
 });
+test('WGL/FCG shared editor uses a full-width column and sticky actions before panels', async () => {
+  const [html, css, host] = await Promise.all([
+    readFile(new URL('./wgl-lab.html', import.meta.url), 'utf8'),
+    readFile(new URL('./wgl-lab.css', import.meta.url), 'utf8'),
+    readFile(new URL('./wgl-lab-host.mjs', import.meta.url), 'utf8')
+  ]);
+  assert.ok(html.indexOf('id="lab-actions"') < html.indexOf('id="panel-conditions"'));
+  assert.equal((html.match(/id="run"/g) || []).length, 1);
+  assert.match(css, /\.editors\{display:grid;grid-template-columns:minmax\(0,1fr\)/);
+  assert.doesNotMatch(css, /grid-template-columns:1fr 1fr/);
+  assert.doesNotMatch(css, /^\/\//m);
+  assert.match(css, /\.lab-actions\{position:sticky;top:0/);
+  assert.match(css, /\.editors textarea\{min-height:15rem\}/);
+  // FCG physical-step controls must join the same persistent group, not be hidden in a tab.
+  assert.ok(host.includes("byId('run').parentElement.before(controls)"));
+  assert.ok(html.indexOf('id="lab-actions"') < html.indexOf('id="js-source"'));
+});
+
 test('initial shaders have compilable GLSL ES 3.00 interface and independent CPU colors',async()=>{
   const base=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL1/',import.meta.url);
   // Repository workspace source path differs from published route.
