@@ -1,0 +1,23 @@
+chapter: FCG8
+terms:
+  - term: 自由表面
+    english: free surface
+    meaning: 液体と外側の相を隔てる動く境界。界面の運動学的追跡と動力学的境界条件は別の課題。
+  - term: Level Set
+    english: level set method
+    meaning: 関数の値0となる点の集合で界面を表し、関数を速度場で移流する方法。
+  - term: 符号付き距離
+    english: signed distance
+    meaning: 界面までの距離に内外で異なる符号を付けた量。滑らかな領域では距離勾配の大きさが1。
+  - term: 半Lagrange法
+    english: semi-Lagrangian advection
+    meaning: 各到着格子点から足点を逆追跡して旧時刻場を補間する移流法。
+  - term: 再初期化
+    english: redistancing
+    meaning: 界面の零等位集合をなるべく維持しながらLevel Set関数を距離関数に近づける手続き。
+  - term: Godunov差分
+    english: Godunov upwind derivative
+    meaning: 勾配の伝播方向に応じて前進・後退差分を選びEikonal型方程式を離散化する構成。
+  - term: 離散面積
+    english: discrete indicator area
+    meaning: セル中心のLevel Set符号が負のセル数にセル面積を掛けた格子近似。
