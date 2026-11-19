@@ -1,0 +1,49 @@
+chapter: U2-19
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-18
+forward_references: []
+concepts:
+  - id: robotics.single-detection-association
+    name: 単一検出のデータ対応仮説
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（単一検出のデータ対応仮説）"]
+    requires: [robotics.landmark-range-bearing, robotics.planar-mcl-model]
+  - id: robotics.landmark-innovation-gate
+    name: 目印候補の innovation gate
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（目印候補の innovation gate）"]
+    requires: [robotics.single-detection-association, robotics.landmark-local-innovation-covariance, robotics.normalized-innovation-squared]
+  - id: robotics.association-gate-false-rejection
+    name: 正しい候補を gate が棄却する確率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（正しい候補を gate が棄却する確率）"]
+    requires: [robotics.landmark-innovation-gate, robotics.nis-chi-square-reference]
+  - id: robotics.uniform-clutter-detection
+    name: 観測窓上の一様偽検出模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（観測窓上の一様偽検出模型）"]
+    requires: [robotics.single-detection-association]
+  - id: robotics.single-detection-bayes-association
+    name: 単一検出に対する Bayes データ対応
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単一検出に対する Bayes データ対応）"]
+    requires: [robotics.single-detection-association, robotics.uniform-clutter-detection, robotics.density-bayes-filter]
+  - id: robotics.hard-association-mean-bias
+    name: 誤った既知対応を使った Gaussian 更新の偏り
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（誤った既知対応を使った Gaussian 更新の偏り）"]
+    requires: [robotics.single-detection-bayes-association, robotics.kalman-measurement-update]
+  - id: robotics.association-mixture-covariance
+    name: 対応周辺化と状態分散の分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（対応周辺化と状態分散の分解）"]
+    requires: [robotics.single-detection-bayes-association, robotics.hard-association-mean-bias]
