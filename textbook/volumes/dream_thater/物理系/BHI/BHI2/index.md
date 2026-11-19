@@ -8,7 +8,7 @@
 
 まず各モードを二準位系で代用し、外側を $O$、内側を $I$ と呼びます。$|0\rangle$ は「そのモードの占有なし」、$|1\rangle$ は「一個の占有あり」を模した基底です。これらは時空内の点を表すのではなく、ある時刻と場のモード分解を指定したうえでの自由度のラベルです。以下でまず用いるのは**有限次元・純粋・二部テンソル積**という数学的仮定であり、量子重力の厳密な地平線分割を証明したものではありません。
 
-密度演算子と部分トレースは[QINF3の部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)、エントロピーは[QINF17のvon Neumannエントロピーの定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)に従い、対数は自然対数（単位 nat）です。
+密度演算子と部分トレースは[QINF3の部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)、エントロピーは[QINF17のvon Neumannエントロピーの定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)を使います。QINF17では対数が底2（単位 bit）ですが、本講では自然対数（単位 nat）に換算します。固有値が同じなら $S_{\mathrm{nat}}=(\ln2)S_{\mathrm{bit}}$ です。
 
 ## 2. 内外二モードを一つの純粋状態にする
 
@@ -37,7 +37,7 @@ $$
 \|\Psi_{1/4,0}\|^2=\frac34+\frac14=1.
 $$
 
-従って $\rho_{OI}$ は規格化ベクトルの階数1射影で、正半定値、跡1、二乗して自身になることを確認できます。
+なぜこのノルムから密度演算子の条件を判定できるかも確かめましょう。$\rho_{OI}=|\Psi\rangle\langle\Psi|$ は任意のベクトル $v$ に対して $\langle v|\rho_{OI}|v\rangle=|\langle\Psi|v\rangle|^2\ge0$ なので正半定値です。また $\operatorname{Tr}\rho_{OI}=\langle\Psi|\Psi\rangle=1$、$\rho_{OI}^2=|\Psi\rangle\langle\Psi|\Psi\rangle\langle\Psi|=\rho_{OI}$ です。従って規格化ベクトルへの階数1射影として、密度演算子の非自明な条件をすべて満たします。
 
 端点 $p=0,1$ では積状態です。逆に $0<p<1$ で積状態だと仮定します。その場合、$|00\rangle$ と $|11\rangle$ の振幅が両方非零なので、各因子の0成分・1成分もすべて非零です。すると $|01\rangle$ と $|10\rangle$ の振幅も非零となるはずですが、定義した状態ではいずれも0です。矛盾するので、内部と外部は積状態になりません。
 <!-- definition-example-end -->
@@ -138,7 +138,7 @@ p_x=\frac{e^{-x}}{1+e^{-x}}
 =\frac1{e^x+1},\qquad \phi=0
 $$
 
-> と定める。このときの $|\Psi_{p_x,0}\rangle$ を**二準位の有効熱的対**という。これは二準位への条件付き切り詰めであり、ボース場の正しい全占有統計そのものではない。
+> と定める。このときの $|\Psi_{p_x,0}\rangle$ を**二準位の有効熱的対**という。ここではBoltzmann比に合う重みを模型の定義として採用した。後の第4節で、無限占有ボース対の $n=0,1$ 成分を残して条件付き正規化すると同じ状態になることを示すが、ボース場の全占有統計そのものではない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi2-two-level-thermal -->
@@ -173,19 +173,19 @@ $H_O$ は基底 $|0\rangle,|1\rangle$ で $\operatorname{diag}(0,\omega)$ です
 
 $$
 e^{-\beta H_O}=\operatorname{diag}(1,e^{-x}),\qquad
-Z=\operatorname{Tr}e^{-\beta H_O}=1+e^{-x}.
+\mathcal Z:=\operatorname{Tr}e^{-\beta H_O}=1+e^{-x}.
 $$
 
-[内外対の縮約命題](#prop-bhi2-reduction)へ $p=p_x=e^{-x}/Z$ を代入すると、$\rho_O=\operatorname{diag}(1/Z,e^{-x}/Z)=e^{-\beta H_O}/Z$。$N_O$ の期待値は $\operatorname{Tr}(\rho_ON_O)=p_x$ です。
+ここで分配関数 $\mathcal Z$ は第2節のPauli作用素 $Z$ と異なります。[内外対の縮約命題](#prop-bhi2-reduction)へ $p=p_x=e^{-x}/\mathcal Z$ を代入すると、$\rho_O=\operatorname{diag}(1/\mathcal Z,e^{-x}/\mathcal Z)=e^{-\beta H_O}/\mathcal Z$。$N_O$ の期待値は $\operatorname{Tr}(\rho_ON_O)=p_x$ です。
 
-$\ln(1-p_x)=-\ln Z$、$\ln p_x=-x-\ln Z$ を[エントロピーの定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)に代入すると
+$\ln(1-p_x)=-\ln\mathcal Z$、$\ln p_x=-x-\ln\mathcal Z$ を[エントロピーの定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)に代入すると
 
 $$
-S(O)=-(1-p_x)(-\ln Z)-p_x(-x-\ln Z)
-=\ln Z+xp_x.
+S(O)=-(1-p_x)(-\ln\mathcal Z)-p_x(-x-\ln\mathcal Z)
+=\ln\mathcal Z+xp_x.
 $$
 
-$dp_x/dx=-e^x/(1+e^x)^2=-p_x(1-p_x)$ です。また $d(\ln Z)/dx=-p_x$ なので
+$dp_x/dx=-e^x/(1+e^x)^2=-p_x(1-p_x)$ です。また $d(\ln\mathcal Z)/dx=-p_x$ なので
 
 $$
 \frac{dS}{dx}=-p_x+p_x+ x\frac{dp_x}{dx}
@@ -199,7 +199,7 @@ $x\downarrow0$ で $p_x\to1/2$、$x\to\infty$ で $p_x\to0$。連続性と $-p\l
 
 ## 4. ボース場の無限占有を考えると、どこが変わるか
 
-一つの自由なボースモードでは $n=0,1,2,\ldots$ 個の占有が許されます。有限模型をこの系にどう接続するかをはっきりさせましょう。以下では $0<z<1$ とし、内外にそれぞれ占有数基底 $|n\rangle$（$n=0,1,2,\ldots$）を持つ、可算個の正規直交基底で張られるHilbert空間を仮定します。無限和の係数の二乗和は幾何級数として収束するので、正規化ベクトルが作れます。
+一つの自由なボースモードでは $n=0,1,2,\ldots$ 個の占有が許されます。有限模型をこの系にどう接続するかをはっきりさせましょう。以下では $0<z<1$ とし、内外にそれぞれ占有数基底 $|n\rangle$（$n=0,1,2,\ldots$）を持つ、可算個の正規直交基底で張られるHilbert空間を仮定します。無限和の係数の二乗和は幾何級数として収束するので、正規化ベクトルが作れます。第2節の有限次元の部分トレースを、この可算占有基底での収束する和へ拡張して計算します。また[QINF17の有限次元のエントロピー定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)を、可算固有値 $\lambda_n\ge0$ の場合には級数 $S=-\sum_{n=0}^\infty\lambda_n\ln\lambda_n$ が収束するときに限り用います。本節ではその収束を平均占有数とともに直接確認します。
 
 <a id="def-bhi2-boson-pair"></a>
 
@@ -224,7 +224,7 @@ $$
 =\frac23\cdot\frac1{1-1/3}=1.
 $$
 
-正規化と、$n=0,1$ だけでなく $n\ge2$ の無限個の成分を持つことの両方を確認できました。
+異なる占有数 $m\ne n$ の基底の内積は $\langle m|n\rangle_O\langle m|n\rangle_I=0$、同じ $n$ なら1なので、上の確率の和が状態ベクトルのノルムの二乗に一致します。正規化と、$n=0,1$ だけでなく $n\ge2$ の無限個の成分を持つことの両方を確認できました。
 <!-- definition-example-end -->
 
 <a id="prop-bhi2-boson-entropy"></a>
@@ -232,7 +232,7 @@ $$
 <!-- formal-statement-start -->
 > **命題（ボース対の縮約・平均占有数・切り詰め確率）**
 >
-> [幾何級数型のボース二モード対](#def-bhi2-boson-pair)で $0<z<1$ とする。外部縮約、平均占有数、およびvon Neumannエントロピーは
+> [幾何級数型のボース二モード対](#def-bhi2-boson-pair)で $0<z<1$ とし、占有数作用素を $N_O|n\rangle=n|n\rangle$ と定める。外部縮約、平均占有数、およびvon Neumannエントロピーは
 
 $$
 \rho_O=(1-z)\sum_{n=0}^\infty z^n|n\rangle\langle n|,
@@ -245,7 +245,7 @@ S(O)=-\ln(1-z)-\frac z{1-z}\ln z
 =(1+\bar n)\ln(1+\bar n)-\bar n\ln\bar n.
 $$
 
-> ここで $N_O|n\rangle=n|n\rangle$。内外の各モードで $n=0,1$ の成分だけを残して正規化すると、得られる二量子ビット状態は $|\Psi_{p,0}\rangle$ で $p=z/(1+z)$。その切り詰めが成功する確率は $1-z^2$、捨てる $n\ge2$ の確率は $z^2$ である。
+> 内外の各モードで $n=0,1$ の成分だけを残して正規化すると、得られる二量子ビット状態は $|\Psi_{p,0}\rangle$ で $p=z/(1+z)$。その切り詰めが成功する確率は $1-z^2$、捨てる $n\ge2$ の確率は $z^2$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -255,7 +255,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\langle m|n\rangle_I=\delta_{mn}$ なので、内側を部分トレースすると $n\ne m$ の交差項は消え、
+$\langle m|n\rangle_I=\delta_{mn}$（$\delta_{mn}$ は $m=n$ なら1、それ以外は0）なので、内側を部分トレースすると $n\ne m$ の交差項は消え、
 
 $$
 \rho_O=(1-z)\sum_{n=0}^\infty z^n|n\rangle_O\langle n|.
@@ -286,9 +286,16 @@ S(O)&=-\sum_{n=0}^\infty\lambda_n\ln\lambda_n\\
 \end{aligned}
 $$
 
-$\bar n=z/(1-z)$ から $1+\bar n=1/(1-z)$、$z=\bar n/(1+\bar n)$ を代入すれば第二の表示を得ます。
+$\bar n=z/(1-z)$ から $1+\bar n=1/(1-z)$、$z=\bar n/(1+\bar n)$ です。これを第一の表示へ代入すると
 
-切り詰め射影 $P=\sum_{n=0}^1|n,n\rangle\langle n,n|$ では
+$
+\begin{aligned}
+S(O)&=\ln(1+\bar n)-\bar n\bigl[\ln\bar n-\ln(1+\bar n)\bigr]\\
+&=(1+\bar n)\ln(1+\bar n)-\bar n\ln\bar n.
+\end{aligned}
+$
+
+内外それぞれの二準位射影を $P_O=\sum_{n=0}^1|n\rangle_O\langle n|$、$P_I=\sum_{n=0}^1|n\rangle_I\langle n|$ とし、局所切り詰めを $P=P_O\otimes P_I$ で行います。これは一般の内外状態に対しては $|01\rangle,|10\rangle$ も残しますが、$|\Omega_z\rangle$ は $|n,n\rangle$ の成分しかないため、作用させた結果は
 
 $$
 P|\Omega_z\rangle=\sqrt{1-z}(|00\rangle+\sqrt z|11\rangle),
@@ -311,7 +318,11 @@ $z=e^{-x}$ を入れると**無限占有**の平均は $\bar n=1/(e^x-1)$、**�
 
 ここでの単一対は、場の理論の紫外短距離相関、連続モードの正規化、灰色体因子、相互作用、放射のエネルギーが時空へ及ぼす反作用を含みません。[QCURV21の後期波束に対するHawking因子の適用条件](../../QCURV/QCURV21/index.md#prop-qcurv21-hawking-chain)に照らすと、有限の占有基底と任意の時間領域での熱的対は物理的に別の仮定です。地平線の位置とテンソル積の同一視そのものにも、ゲージ・重力の制約が残ります。
 
-## 5. 熱的縮約だけでは、純化の仕方が決まらない
+## 5. 同じ外部縮約だけでは、純化の仕方が決まらない
+
+ここでは $0<p<1$ を許しますが、第3節で固定した $H_O=\omega|1\rangle\langle1|$、$\beta>0$ のGibbs状態となるのは $0<p<1/2$ の場合だけです（$p/(1-p)=e^{-\beta\omega}<1$）。以下の非一意性は、熱的でない $p\ge1/2$ を含めた、さらに一般の外部縮約の性質です。
+
+この節以降、$X_OX_I$ は $X_O\otimes X_I$、$Z_OZ_I$ は $Z_O\otimes Z_I$ の略記とします。どちらも異なる因子に作用し、$X,Z$ は[第2節の内外対の縮約・相関命題](#prop-bhi2-reduction)で定義した作用素です。全系が混合状態 $\rho_{OI}$ のときの期待値は $\operatorname{Tr}(\rho_{OI}A)$ で計算します。
 
 同じ $\rho_O=(1-p)|0\rangle\langle0|+p|1\rangle\langle1|$ に対し、先ほどの純粋な対と、位相の交差項を意図的に取り除いた状態を比べます。
 
@@ -388,11 +399,11 @@ $$
 - 問題: 外側のハミルトニアン $H_O=\omega|1\rangle\langle1|$、$\beta\omega=\ln3$ とする。Gibbs状態の分配関数、占有確率、平均エネルギー、エントロピーを求めよ。
 
 <!-- solution-start -->
-**詳細解答。** エネルギー固有値は0と $\omega$ だから
+**詳細解答。** エネルギー固有値は0と $\omega$ だから、分配関数を $\mathcal Z$（Pauli作用素 $Z$ とは別）と書くと
 
-$$
-Z=e^0+e^{-\ln3}=1+\frac13=\frac43,\qquad
-p=\frac{e^{-\ln3}}Z=\frac14.
+$
+\mathcal Z=e^0+e^{-\ln3}=1+\frac13=\frac43,\qquad
+p=\frac{e^{-\ln3}}{\mathcal Z}=\frac14.
 $$
 
 従って $\rho_O=\operatorname{diag}(3/4,1/4)$、$\operatorname{Tr}(\rho_OH_O)=\omega(1/4)=\omega/4$。エントロピーは
@@ -433,7 +444,7 @@ $$
 
 <a id="ex-bhi2-b01"></a>
 
-#### BHI2-B01 同じ局所熱性を持つ二つの全状態
+#### BHI2-B01 同じ外部縮約を持つ二つの全状態
 
 - Level: B
 - 問題: $0<p<1$ とし、$\rho^{(P)}_{OI}=|\Psi_{p,0}\rangle\langle\Psi_{p,0}|$、$\rho^{(C)}_{OI}=(1-p)|00\rangle\langle00|+p|11\rangle\langle11|$ を比較する。縮約、全系のエントロピー、$Z_OZ_I$ と $X_OX_I$ の期待値をそれぞれ示し、「$Z_OZ_I=1$ だから純粋な対である」という推論の誤りを説明せよ。
