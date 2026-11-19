@@ -1,0 +1,42 @@
+id: "SYZ1-04"
+title: "正則体積形式・位相とSLag方程式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-03
+  - SYZ1-02
+official_scope: []
+learning_objectives:
+  - 正規直交接枠を用いて正則体積形式の点ごとの規格化を判定し、規格化を外した較正の失敗例を示せる
+  - 向き付きLagrange部分多様体の位相写像を定義し、基底の取り換えと向き反転の影響を説明できる
+  - Lagrange条件・位相の虚部零・実部の正値性を結び付け、較正等号の必要十分性を証明できる
+  - 勾配グラフの接ベクトル・Hessian・誘導計量を成分から求め、複素体積形式の引戻しを導出できる
+  - 特殊Lagrangeグラフの行列式方程式と固有値の逆正接方程式の同値および位相の分枝を検算できる
+  - 複素次元1・2・3での方程式を展開し、調和関数・凸Monge–Ampère型・非線形三次元例の違いを説明できる
+definitions:
+  - { id: SYZ1-04-DEF-01, name: "特殊Lagrange位相写像" }
+theorems:
+  - { id: SYZ1-04-PROP-01, name: "規格化したSLag条件の同値性" }
+  - { id: SYZ1-04-THM-01, name: "勾配グラフの特殊Lagrange方程式" }
+canonical_examples:
+  - 正則体積形式を正数倍したときのcomassの変化
+  - 水平平面の向き反転と位相の変化
+  - 対角二次ポテンシャルのHessianと誘導体積の照合
+  - 二変数の調和三次ポテンシャルによる非平面SLag
+  - 位相π/2の凸Monge–Ampèreと負の向きの枝の区別
+  - 複素次元1の縦直線によるグラフ表示の限界
+problem_patterns:
+  - SYZ1-04-PHASE-ONE-DIMENSION
+  - SYZ1-04-HARMONIC-GRAPH
+  - SYZ1-04-ORIENTATION-POSITIVITY
+  - SYZ1-04-VOLUME-NORMALIZATION
+  - SYZ1-04-CUBIC-SYMMETRIC-POLYNOMIAL
+  - SYZ1-04-GENERAL-PHASE-TWO
+  - SYZ1-04-INDUCED-METRIC
+  - SYZ1-04-NONLINEAR-HARMONIC
+  - SYZ1-04-ROTATION-AND-SCALING
+  - SYZ1-04-MONGE-AMPERE-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 4 }
