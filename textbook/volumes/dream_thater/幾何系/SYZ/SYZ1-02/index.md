@@ -31,7 +31,7 @@ $$
 
 **なぜこれが部分多様体か。** 微分 $ds_{\alpha,q}(v)=(v,Da(q)v)$ の第1成分は $v$ なので単射であり、像への逆写像は連続な $\pi|_{s_\alpha(Q)}$ である。したがって $s_\alpha$ は埋め込みで、その像の次元は $n$ となる。
 
-[SYM6のグラフ判定定理](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)によれば、像がLagrangeであることと $d\alpha=0$ は同値である。ここでは後続の変形計算のために、判定の中身を成分で再確認する。$p_i\circ s_\alpha=a_i$ なので、[外微分と引き戻しの可換性](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)を適用して
+[閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)によれば、像がLagrangeであることと $d\alpha=0$ は同値である。ここでは後続の変形計算のために、判定の中身を成分で再確認する。$p_i\circ s_\alpha=a_i$ なので、[外微分と引き戻しの可換性](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)を適用して
 
 $$
 s_\alpha^*(dp_i)=d(p_i\circ s_\alpha)=da_i
@@ -140,7 +140,9 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（Lagrangeグラフ変形）**  
-> $Q$ を滑らかな $n$ 次元多様体、$I$ を実数の開区間、$\alpha_t$ を $(t,q)$ に滑らかに依存する $Q$ 上の1形式の族とする。$L_t=\Gamma_{\alpha_t}\subset(T^*Q,\omega_{\mathrm{can}})$ が全ての $t\in I$ でLagrange部分多様体となる族を、**Lagrangeグラフ変形**と呼ぶ。
+> $Q$ を滑らかな多様体、$I$ を実数の開区間、$\alpha_t$ を $Q$ 上の滑らかな1形式の族とする。
+> 余接束 $T^*Q$ には正準形式 $\omega_{\mathrm{can}}=-d\theta$ を入れる。
+> グラフ $L_t=\Gamma_{\alpha_t}$ が全ての $t\in I$ でLagrangeなら、この族を **Lagrangeグラフ変形** と呼ぶ。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-02-graph-deformation -->
@@ -170,12 +172,12 @@ $$
 
 ### 証明の見取り図
 
-各時刻の[グラフ判定定理](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)を適用する。微分と外微分の交換は、固定座標で係数の混合偏微分が交換できることから確かめる。
+時刻を固定し、[閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)を適用する。微分と外微分の交換は、固定座標で係数の混合偏微分が交換できることから確かめる。
 
 <!-- proof-start -->
 ### 証明
 
-必要十分性は[グラフ判定定理](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)を各 $t$ に適用して得られる。$\alpha_t=\sum_i a_i(t,q)dq^i$ と書く。滑らかさから
+必要十分性は[閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)を各 $t$ に適用して得られる。$\alpha_t=\sum_i a_i(t,q)dq^i$ と書く。滑らかさから
 
 $$
 \begin{aligned}
@@ -210,7 +212,7 @@ $$
 <a id="prop-syz1-02-exact-hamiltonian"></a>
 
 <!-- formal-statement-start -->
-> **命題（完全なグラフ変形と Hamilton 流）**  
+> **命題（完全なグラフ変形とHamilton流）**  
 > $Q$ を滑らかな多様体、$I$ を $0$ を含む区間とし、$f_t:Q\to\mathbb R$ を $(t,q)$ に滑らかな関数族で $f_0=0$ とする。$\alpha_t=df_t$ とおく。すると
 
 $$
@@ -246,7 +248,7 @@ p_i(t)-p_i(0)
 \end{aligned}
 $$
 
-よって流れは $(q,p)\mapsto(q,p+df_t(q))$ である。基点は動かず、右辺は区間内の各有限時刻で全ての $(q,p)$ に対して定義されるため大域流である。零切断 $p=0$ の像は $\Gamma_{df_t}$ となる。また $d(df_t)=0$ だからLagrange性も[グラフ判定定理](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)と整合する。
+よって流れは $(q,p)\mapsto(q,p+df_t(q))$ である。基点は動かず、右辺は区間内の各有限時刻で全ての $(q,p)$ に対して定義されるため大域流である。零切断 $p=0$ の像は $\Gamma_{df_t}$ となる。また $d(df_t)=0$ だからLagrange性も[閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)と整合する。
 <!-- proof-end -->
 
 ### 必要条件：Hamilton的に動かせるなら速度は完全
@@ -335,7 +337,7 @@ $$
 
 ## 7. グラフ表示の適用範囲
 
-局所的な「グラフであること」を判定するには射影 $\pi$ を使う。$L\subset T^*Q$ を $n$ 次元の埋め込み部分多様体とし、$\pi|_L:L\to Q$ が点 $\ell$ で微分同型の微分（$d(\pi|_L)_\ell$ が同型）を持つなら、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $\ell$ の周辺で $\pi|_L$ は微分同相となる。その逆 $s$ は $\pi\circ s=\operatorname{id}$ を満たすので、$s(q)$ は余接ファイバー上の余ベクトル $\alpha_q$ を選び、局所的に $L=\Gamma_\alpha$ となる。$L$ がLagrangeなら[グラフ判定定理](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)で $d\alpha=0$ も従う。
+局所的な「グラフであること」を判定するには射影 $\pi$ を使う。$L\subset T^*Q$ を $n$ 次元の埋め込み部分多様体とし、$\pi|_L:L\to Q$ が点 $\ell$ で微分同型の微分（$d(\pi|_L)_\ell$ が同型）を持つなら、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $\ell$ の周辺で $\pi|_L$ は微分同相となる。その逆 $s$ は $\pi\circ s=\operatorname{id}$ を満たすので、$s(q)$ は余接ファイバー上の余ベクトル $\alpha_q$ を選び、局所的に $L=\Gamma_\alpha$ となる。$L$ がLagrangeなら[閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)で $d\alpha=0$ も従う。
 
 一方、一つの余接ファイバー $T^*_{q_0}Q$ は $n$ 次元で、$\omega_{\mathrm{can}}$ は垂直方向二つに零であるからLagrangeだが、射影は定数写像である。したがって $d\pi$ の階数は0であり、基底 $Q$ 上のグラフではない。「Lagrangeだからグラフ」という推論はこの段階で壊れる。
 
