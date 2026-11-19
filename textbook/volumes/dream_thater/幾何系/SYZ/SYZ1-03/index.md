@@ -74,7 +74,7 @@ $$
 
 ## 4. 閉形式の積分が体積の下界になる
 
-体積を最小化する相手は、**向き付きで同じホモロジー類に属する部分多様体**である。ここでは、コンパクトで境界のない向き付き $k$ 次元部分多様体 $L,N$ が同じ実ホモロジー類を表すとは、両者の差がある向き付き $(k+1)$ 次元鎖 $C$ の境界 $\partial C=L-N$ と書けることをいう。鎖への積分に対して[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)が使える状況を考える。
+体積を最小化する相手は、**向き付きで同じホモロジー類に属する部分多様体**である。ここでは、コンパクトで境界のない向き付き $k$ 次元部分多様体 $L,N$ が同じ実ホモロジー類を表すとは、両者の差がある向き付き $(k+1)$ 次元鎖 $C$ の境界 $\partial C=L-N$ と書けることをいう。鎖への積分に対して[一般次元の外微分の積分公式](../../GEO/GEO8/index.md#thm-geo8-general-stokes)が使える状況を考える。
 
 <a id="thm-syz1-03-volume-minimization"></a>
 
@@ -115,7 +115,7 @@ $$
 \le\int_N\operatorname{vol}_N=\operatorname{Vol}_g(N).
 $$
 
-一方、ホモロジーの仮定 $L-N=\partial C$ と閉性 $d\varphi=0$ に[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用すると
+一方、ホモロジーの仮定 $L-N=\partial C$ と閉性 $d\varphi=0$ に[一般次元の外微分の積分公式](../../GEO/GEO8/index.md#thm-geo8-general-stokes)を適用すると
 
 $$
 \int_L\varphi-\int_N\varphi
@@ -249,7 +249,7 @@ $$
 
 ## 7. 位相を選ぶと特殊Lagrange較正が現れる
 
-$\theta\in\mathbb R$ を固定し、複素数 $e^{-i\theta}$ を掛けた $\Omega$ の実部を取る。$\Omega$ は定数係数の形式だから閉じており、その実部も閉じる。前節の不等式から、この実部はどの正規直交実 $n$ 組でも1を超えない。
+$\theta\in\mathbb R$ を固定し、複素数 $e^{-i\theta}$ を掛けた $\Omega$ の実部を取る。$\Omega$ は定数係数の形式だから閉じており、その実部も閉じる。[複素行列式の不等式](#lem-syz1-03-complex-determinant)から、この実部はどの正規直交実 $n$ 組でも1を超えない。
 
 <a id="thm-syz1-03-special-lagrangian-calibration"></a>
 
@@ -323,7 +323,7 @@ $\mathbb R^2$ のEuclid計量で $\alpha=(3\,dx+4\,dy)/5$ のcomassを求めよ�
 <!-- solution-start -->
 ### 詳細解答
 
-単位ベクトル $u=(u_x,u_y)$ に対してCauchy–Schwarz不等式より
+単位ベクトル $u=(u_x,u_y)$ に対して[Cauchy–Schwarz不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)より
 
 $$
 |\alpha(u)|=\frac{|3u_x+4u_y|}{5}
