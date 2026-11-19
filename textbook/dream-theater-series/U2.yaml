@@ -24,7 +24,7 @@ chapters:
   - { id: U2-18, path: textbook/volumes/dream_thater/応用系/U/U2-18, status: completed, title: "Monte Carlo localization：平面で位置を追う" }
   - { id: U2-19, path: textbook/volumes/dream_thater/応用系/U/U2-19, status: completed, title: "データ対応と誤観測：見た目が似た目印の落とし穴" }
   - { id: U2-20, path: textbook/volumes/dream_thater/応用系/U/U2-20, status: completed, title: "占有格子地図の更新：log-odds と逆センサーモデル" }
-  - { id: U2-21, path: textbook/volumes/dream_thater/応用系/U/U2-21, status: planned, title: "SLAM の確率模型：軌跡と地図の同時事後" }
+  - { id: U2-21, path: textbook/volumes/dream_thater/応用系/U/U2-21, status: completed, title: "SLAM の確率模型：軌跡と地図の同時事後" }
   - { id: U2-22, path: textbook/volumes/dream_thater/応用系/U/U2-22, status: planned, title: "ランドマーク型 EKF-SLAM：交差共分散の役割" }
   - { id: U2-23, path: textbook/volumes/dream_thater/応用系/U/U2-23, status: planned, title: "因子グラフ：運動・観測・地図をつなぐ" }
   - { id: U2-24, path: textbook/volumes/dream_thater/応用系/U/U2-24, status: planned, title: "グラフ SLAM の数値解：Gauss–Newton と gauge 固定" }
