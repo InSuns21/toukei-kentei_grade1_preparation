@@ -17,14 +17,14 @@
 > $N\ge3$ とし、各セルへ二値 $s_{ij}\in\{0,1\}$ を割り当てる。$s_{ij}=1$ を固体セル、$s_{ij}=0$ を流体セルとする。二つの隣接セルのうち**片方だけ**が固体である内部MAC面を**流体・固体境界面**（cut face）と呼ぶ。両側が流体の面を流体内部面とする。外箱の境界面とは区別する。
 >
 > 円の例では、セル中心座標 $(x_{ij},y_{ij})$ に対して
->
-> $$
-> s_{ij}=\begin{cases}
-> 1&(x_{ij}-c_x)^2+(y_{ij}-c_y)^2<r^2,\\
-> 0&\text{それ以外}
-> \end{cases}
-> $$
->
+
+$$
+s_{ij}=\begin{cases}
+1&(x_{ij}-c_x)^2+(y_{ij}-c_y)^2<r^2,\\
+0&\text{それ以外}
+\end{cases}
+$$
+
 > とする。矩形では二つの座標差の絶対値をそれぞれ半幅と比較する。
 <!-- formal-statement-end -->
 
@@ -45,11 +45,11 @@
 <!-- formal-statement-start -->
 > **定義（移動固体との非貫通境界条件）**  
 > 各流体・固体境界面 $f$ の単位法線を流体から固体へ向けて $\boldsymbol n_f$ とし、固体の局所速度を $\boldsymbol U_s$ [m/s] とする。境界面の流体速度 $\boldsymbol u_f$ には
->
-> $$
-> (\boldsymbol u_f-\boldsymbol U_s)\cdot\boldsymbol n_f=0
-> $$
->
+
+$$
+(\boldsymbol u_f-\boldsymbol U_s)\cdot\boldsymbol n_f=0
+$$
+
 > を課す。縦向きの面では水平面速度を $u_f=U_{s,x}$、横向きの面では鉛直面速度を $v_f=U_{s,y}$ と設定する。外箱の壁は静止しているのでその法線面速度を零にする。固体・固体間の面速度は流体の発散式に使わない。
 <!-- formal-statement-end -->
 
@@ -66,13 +66,13 @@
 <!-- formal-statement-start -->
 > **定義（滑りなし境界の接線ghost値）**  
 > 平坦な階段状境界を挟み、壁から等距離にある流体側接線速度標本を $w_{\mathrm{in}}$、固体側に置く仮想標本を $w_{\mathrm{ghost}}$、壁の接線速度を $U_{s,t}$ とする。中点補間で壁上の速度を指定する滑りなし近似は
->
-> $$
-> \frac{w_{\mathrm{in}}+w_{\mathrm{ghost}}}{2}=U_{s,t},
-> \qquad
-> w_{\mathrm{ghost}}=2U_{s,t}-w_{\mathrm{in}}
-> $$
->
+
+$$
+\frac{w_{\mathrm{in}}+w_{\mathrm{ghost}}}{2}=U_{s,t},
+\qquad
+w_{\mathrm{ghost}}=2U_{s,t}-w_{\mathrm{in}}
+$$
+
 > である。対照的に、壁を横切る接線速度の差分を零にする自由滑り近似では $w_{\mathrm{ghost}}=w_{\mathrm{in}}$ を使う。いずれも壁位置を標本間の中点に取る格子近似であり、任意の曲面の厳密条件ではない。
 <!-- formal-statement-end -->
 
@@ -95,29 +95,29 @@
 <!-- formal-statement-start -->
 > **定義（固体マスク付きNeumann圧力射影）**  
 > 連結な流体セル集合 $F$ を持つ正方MAC格子で、外壁の法線速度を零とし、内部の流体・固体境界面へ所定の法線速度を課す。各流体セル $c\in F$ の流体セル隣接集合を $N_F(c)$ とする。予測発散を用いて
->
-> $$
-> b_c=\frac{\rho}{\Delta t}(D_h\boldsymbol u^\ast)_c,\qquad
-> \overline b=\frac{1}{|F|}\sum_{c\in F}b_c
-> $$
->
+
+$$
+b_c=\frac{\rho}{\Delta t}(D_h\boldsymbol u^\ast)_c,\qquad
+\overline b=\frac{1}{|F|}\sum_{c\in F}b_c
+$$
+
 > と置き、平均を差し引いた右辺 $b'_c=b_c-\overline b$ に対して
->
-> $$
-> (L_Fp)_c=\frac{1}{h^2}\sum_{d\in N_F(c)}(p_d-p_c)=b'_c,
-> \qquad \sum_{c\in F}p_c=0
-> $$
->
+
+$$
+(L_Fp)_c=\frac{1}{h^2}\sum_{d\in N_F(c)}(p_d-p_c)=b'_c,
+\qquad \sum_{c\in F}p_c=0
+$$
+
 > を解く。流体・流体面だけで
->
-> $$
-> u_f^{n+1}=u_f^\ast-\frac{\Delta t}{\rho}
-> \frac{p_{\mathrm{right}}-p_{\mathrm{left}}}{h},
-> \qquad
-> v_f^{n+1}=v_f^\ast-\frac{\Delta t}{\rho}
-> \frac{p_{\mathrm{top}}-p_{\mathrm{bottom}}}{h}
-> $$
->
+
+$$
+u_f^{n+1}=u_f^\ast-\frac{\Delta t}{\rho}
+\frac{p_{\mathrm{right}}-p_{\mathrm{left}}}{h},
+\qquad
+v_f^{n+1}=v_f^\ast-\frac{\Delta t}{\rho}
+\frac{p_{\mathrm{top}}-p_{\mathrm{bottom}}}{h}
+$$
+
 > と射影し、流体・固体境界面および外壁の所定の法線速度は変更しない。$|F|$ は流体セル数である。右辺平均の除去が必要なときは、その非零値も診断値として必ず報告する。
 <!-- formal-statement-end -->
 
@@ -139,12 +139,12 @@ $$
 <!-- formal-statement-start -->
 > **命題（マスク格子の流束総和と可解性）**  
 > 互いに面で連結な有限個の流体セル $F$ からなる同一幅 $h>0$ のMAC格子を考える。流体セルの各面で、一つの共有面速度を隣接セルが同じ値として用いるとき、
->
-> $$
-> h^2\sum_{c\in F}(D_h\boldsymbol u^\ast)_c
-> =h\sum_{f\subset\partial F}u^\ast_{n,f}
-> $$
->
+
+$$
+h^2\sum_{c\in F}(D_h\boldsymbol u^\ast)_c
+=h\sum_{f\subset\partial F}u^\ast_{n,f}
+$$
+
 > が成り立つ。右辺は流体領域から外へ向く境界面の符号付き流束である。特に境界流束の総和が零なら $\sum_c b_c=0$ となり、流体グラフ上の $L_Fp=b$ は平均零ゲージで一意に解ける。
 <!-- formal-statement-end -->
 
@@ -179,19 +179,19 @@ $$
 <!-- formal-statement-start -->
 > **命題（平均右辺補正付き射影の発散恒等式）**  
 > [固体マスク付き射影](#def-fcg6-masked-poisson)と同じ流体セル集合、同じ共有面速度、同じ隣接演算子を使い、任意の近似圧力 $p$ に対して残差を
->
-> $$
-> R_c=(L_Fp)_c-(b_c-\overline b)
-> $$
->
+
+$$
+R_c=(L_Fp)_c-(b_c-\overline b)
+$$
+
 > と定義する。射影で流体・固体境界の指定法線速度を変更しなければ、流体セルごとに
->
-> $$
-> (D_h\boldsymbol u^{n+1})_c
-> =-\frac{\Delta t}{\rho}R_c
-> +\frac{\Delta t}{\rho}\overline b
-> $$
->
+
+$$
+(D_h\boldsymbol u^{n+1})_c
+=-\frac{\Delta t}{\rho}R_c
++\frac{\Delta t}{\rho}\overline b
+$$
+
 > が厳密に成り立つ。ここでの「厳密」は**同じ離散演算子に関する代数的等式**を意味し、連続流体方程式への誤差零を意味しない。
 <!-- formal-statement-end -->
 
@@ -229,12 +229,12 @@ $$
 <!-- formal-statement-start -->
 > **定義（階段境界での圧力反力）**  
 > 内部固体の境界面集合を $\Gamma_h$、流体側隣接セルの圧力を $p_{c(f)}$ とするとき、固体に働く**圧力だけの**単位奥行き当たりの力を
->
-> $$
-> \boldsymbol F_{p,h}
-> =h\sum_{f\in\Gamma_h}p_{c(f)}\boldsymbol n_f
-> $$
->
+
+$$
+\boldsymbol F_{p,h}
+=h\sum_{f\in\Gamma_h}p_{c(f)}\boldsymbol n_f
+$$
+
 > とする。粘性せん断力、境界曲率の補正、物体の運動方程式はこの量に含めない。
 <!-- formal-statement-end -->
 
@@ -255,11 +255,11 @@ $$
 <!-- formal-statement-start -->
 > **命題（閉じた固体境界での圧力反力のゲージ不変性）**  
 > 固体が外箱に接しない有限個の正方セルの合併で、その流体・固体境界 $\Gamma_h$ が全ての露出面を含むとする。定数 $C$ [Pa] をすべての流体圧力に加えても
->
-> $$
-> \boldsymbol F_{p,h}(p+C)=\boldsymbol F_{p,h}(p)
-> $$
->
+
+$$
+\boldsymbol F_{p,h}(p+C)=\boldsymbol F_{p,h}(p)
+$$
+
 > である。
 <!-- formal-statement-end -->
 
@@ -288,11 +288,11 @@ $$
 <!-- formal-statement-start -->
 > **定義（マスクを使う染料の再重み付け補間）**  
 > 流体セル $c$ の後退追跡足点の周囲4セルを $k=1,\ldots,4$、通常の双線形重みを $w_k\ge0$、$\sum_kw_k=1$ とする。流体セル集合の指示関数を $\chi_k=1-s_k$ とし、
->
-> $$
-> W=\sum_{k=1}^4w_k\chi_k.
-> $$
->
+
+$$
+W=\sum_{k=1}^4w_k\chi_k.
+$$
+
 > $W>0$ なら補間値を $\sum_kw_k\chi_kq_k/W$ とする。$W=0$、または足点が固体セル内部にある場合は、到着流体セルの旧値をそのまま使う。この規則を**マスク付き再重み付け補間**とする。時間刻み間で固体へ変わったセルでは濃度を零にする。
 <!-- formal-statement-end -->
 
