@@ -1,0 +1,48 @@
+chapter: BHI4
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI3, QCURV21, BHT9]
+forward_references: []
+concepts:
+  - id: black-hole-information.quasistatic-energy-ledger
+    name: 孤立した準静的蒸発のエネルギー収支模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（孤立した準静的蒸発のエネルギー収支模型）]
+    requires: [qcurv.greybody-luminosity-synthesis, qcurv.quasistatic-hawking-luminosity]
+  - id: black-hole-information.radiation-integrated-energy
+    name: 放射済みエネルギーと残存質量の対応
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（放射済みエネルギーと残存質量の対応）]
+    requires: [black-hole-information.quasistatic-energy-ledger]
+  - id: black-hole-information.mass-fraction-clock
+    name: 残存質量分率と形式蒸発時計
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（残存質量分率と形式蒸発時計）]
+    requires: [black-hole-information.quasistatic-energy-ledger, qcurv.quasistatic-mass-cubic-law]
+  - id: black-hole-information.mass-fraction-time-law
+    name: 準静的模型の質量分率と経過時間
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（準静的模型の質量分率と経過時間）]
+    requires: [black-hole-information.mass-fraction-clock, qcurv.quasistatic-mass-cubic-law]
+  - id: black-hole-information.variable-coefficient-evaporation
+    name: 質量依存光度係数の経過時間積分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量依存光度係数の経過時間積分）]
+    requires: [black-hole-information.quasistatic-energy-ledger]
+  - id: black-hole-information.quasistatic-cutoff-domain
+    name: 質量下限までの条件付き経過時間
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（質量下限までの条件付き経過時間）]
+    requires: [black-hole-information.mass-fraction-time-law, qcurv.mass-validity-window]
+  - id: black-hole-information.horizon-entropy-decrease-rate
+    name: 準静的地平線エントロピーの減少率
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（準静的地平線エントロピーの減少率）]
+    requires: [black-hole-information.quasistatic-energy-ledger, black-hole-thermodynamics.schwarzschild-entropy-mass-law]
