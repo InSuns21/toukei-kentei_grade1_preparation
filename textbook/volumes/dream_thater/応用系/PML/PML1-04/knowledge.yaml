@@ -12,6 +12,7 @@ concepts:
       - physics-machine-learning.finite-loss-gibbs
   - id: physics-machine-learning.ebm-log-likelihood
     name: 有限EBMの平均対数尤度
+    aliases: [平均対数尤度]
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（有限EBMの平均対数尤度）"]
