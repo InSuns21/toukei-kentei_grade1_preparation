@@ -1,0 +1,41 @@
+id: BHI2
+title: "地平線内外の分割とHawking対の玩具模型"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI1
+  - QCURV21
+  - QINF17
+official_scope: []
+learning_objectives:
+  - 内外の二モードを明示的に分割し、有限二量子ビット純粋対の状態・縮約密度行列・エントロピーを成分から検算できる
+  - 外部の熱的縮約と内外の共同相関を区別し、位相や全状態の純粋性が外部単独の観測では決まらないことを示せる
+  - 二準位Gibbs表示の重みとエントロピーを求め、その模型仮定をHawking温度の場の理論的導出から区別できる
+  - 無限占有ボース対の縮約・平均占有数・エントロピー・二準位への切り詰め確率を導出し、Planck分布との差を評価できる
+  - 一時刻の内外分割と蒸発終期の放射全体を混同せず、情報損失を結論するための追加前提を列挙できる
+definitions:
+  - { id: BHI2-DEF-01, name: "有限次元の内外対模型" }
+  - { id: BHI2-DEF-02, name: "二準位の有効熱的対" }
+  - { id: BHI2-DEF-03, name: "幾何級数型のボース二モード対" }
+theorems:
+  - { id: BHI2-PROP-01, name: "内外対の縮約・エントロピー・位相相関" }
+  - { id: BHI2-PROP-02, name: "二準位対の外部Gibbs表示とエントロピー" }
+  - { id: BHI2-PROP-03, name: "ボース対の縮約・平均占有数・切り詰め確率" }
+canonical_examples:
+  - 位相だけが異なる二準位純粋対の外部縮約と共同X相関
+  - エネルギー差と逆温度から求める二準位Boltzmann比
+  - 幾何分布の二モード純化と占有数0・1への条件付き切り詰め
+  - 同じ局所熱性を持つ純粋な対と古典的な占有相関
+problem_patterns:
+  - BHI2-PARTIAL-TRACE
+  - BHI2-PHASE-CORRELATION
+  - BHI2-TWO-LEVEL-GIBBS
+  - BHI2-BOSON-NORMALIZATION
+  - BHI2-LOCAL-VS-GLOBAL
+  - BHI2-TRUNCATION-ERROR
+  - BHI2-UNITARY-PAIR-PREPARATION
+  - BHI2-THERMALITY-ENDPOINT-LOGIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 3, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 5 }
