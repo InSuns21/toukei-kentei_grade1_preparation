@@ -104,6 +104,14 @@ $$
 $$
 
 とする。積の法則は指数の和から従い、$\chi_{u,v}(0)=1$ である。さらに $\chi_{u+m_0,v+n_0}=\chi_{u,v}$（$m_0,n_0\in\mathbb Z$）なので、文字のパラメータは $(\mathbb R/\mathbb Z)^2$ の点になる。例えば $(u,v)=(1/2,1/3)$ は二つの基本閉路へそれぞれ $-1,e^{2\pi i/3}$ を割り当てる。
+
+もう一つの定義条件である実双対格子も同じ基底で確かめる。実線形汎関数は $\xi(s+it)=as+bt$（$a,b\in\mathbb R$）と一意に書け、格子元に対して
+
+$$
+\xi(m+ni)=am+bn.
+$$
+
+これがすべての $m,n\in\mathbb Z$ で整数となることは、特に $(1,0),(0,1)$ への値 $a,b$ がともに整数であることと同値である。従って $\Lambda^\vee=\mathbb Z\,ds\oplus\mathbb Z\,dt$ であり、$(u,v)$ の整数シフトだけが文字に見えないことを、定義から直接確認できた。
 <!-- definition-example-end -->
 
 定義した実双対格子を基底で計算しよう。$\lambda_a$ に対する双対基底を $\varepsilon^a(\lambda_b)=\delta^a_b$ とすると、$\Lambda^\vee$ は $\varepsilon^a$ の整数線形結合である。実際、$\xi=\sum_a c_a\varepsilon^a$ と書いたとき、全ての $\lambda_b$ における値が整数である条件は $c_b\in\mathbb Z$ と同値になる。この集合が重要なのは、$e^{2\pi i\xi(\lambda)}$ では整数値の差だけが見えなくなるためである。
@@ -175,9 +183,15 @@ $$
 
 という離散群である。実際、$T=\mathbb R/\mathbb Z$ の連続文字は $[s]\mapsto e^{2\pi iks}$（$k\in\mathbb Z$）のみだが、$\pi_1(T)=\mathbb Z$ の文字は $1\mapsto e^{2\pi iu}$（$[u]\in\mathbb R/\mathbb Z$）を自由に選べる。この両者の混同は「双対トーラスが離散集合になってしまう」典型的な誤りである。
 
+連続文字が整数で添字付けられる根拠も確かめる。連続準同型 $h:\mathbb R\to U(1)$ は $h(0)=1$ を満たす。原点近くで $h(s)=e^{i\varphi(s)}$ と連続な実偏角 $\varphi(0)=0$ を取ると、十分小さい $s,t$ に対して準同型性と偏角の連続性から $\varphi(s+t)=\varphi(s)+\varphi(t)$ となる。連続な加法関数は $\varphi(s)=2\pi as$（$a\in\mathbb R$）であり、準同型性で任意の $s$ まで延長できる。よって $h(s)=e^{2\pi ias}$ である。これが $\mathbb R/\mathbb Z$ 上の文字に降りる必要十分条件は $h(1)=1$、すなわち $a\in\mathbb Z$。一般の $r$ 次元トーラスでも各座標円周への制限を掛け合わせれば、整数 $r$ 個で連続文字が尽くされる。
+
 ## 4. 文字を平坦な局所系として実現する
 
 文字の $U(1)$ 値は単なる記号ではなく、閉路に沿って平行移動したベクトルが何倍されるか、という**ホロノミー**として現れる。これを幾何学的に定義する。
+
+まず、複素直線束 $L\to M$ は各点 $x\in M$ の上に複素1次元のベクトル空間 $L_x$ を置き、局所的には $U\times\mathbb C$ と表示できる束である。各繊維に正定値のHermitian内積を入れる（通常の単位枠での値は $h(z,w)=z\overline w$）。これは交代2形式によるLagrange条件とは別の構造であり、[既習のHermitian計量と正値性](../../KAH/KAH1-05/index.md#prop-kah1-05-constant-model)と同じ種類の内積である。
+
+**接続** $\nabla$ は局所切断 $f$ の微分を与える作用素で、単位枠では $\nabla f=df+Af$ と書く。ここで $d$ は基底座標に関する外微分（例えば $df=(\partial f/\partial s)\,ds+(\partial f/\partial t)\,dt$）、$A$ は純虚数値の1形式である。「内積を保存する」とは、平行移動が各繊維の長さを保つことである。この1次元の場合の**曲率**は2形式 $F_\nabla=dA$ であり、平坦とは $F_\nabla=0$ をいう。**平行切断**は $\nabla f=0$ を満たす切断、平行移動はその微分方程式を経路に沿って解く操作である。曲率零なら局所的な平行枠を選べるが、閉路全体のホロノミーは1とは限らない。
 
 <a id="def-syz1-01-flat-local-system"></a>
 
@@ -258,7 +272,14 @@ $$
 df=2\pi i(u\,ds+v\,dt)f
 $$
 
-であり、$(0,0)$ から $(m,n)$ へ平行移動すると
+である。被覆空間 $\mathbb R^2$ 上では、積の微分法則を用いて
+
+$$
+d\bigl(e^{-2\pi i(us+vt)}f\bigr)
+=e^{-2\pi i(us+vt)}\bigl(df-2\pi i(u\,ds+v\,dt)f\bigr)=0
+$$
+
+となる。従って括弧内の関数は連結な被覆空間上で定数であり、$(0,0)$ から $(m,n)$ へ平行移動した値は
 
 $$
 f(m,n)=e^{2\pi i(mu+nv)}f(0,0).
@@ -327,7 +348,7 @@ t'=\frac{s+at}{b},\qquad
 s'=-\frac{as+|\tau|^2t}{b}.
 $$
 
-したがって、$(s,t)$ 基底の $J$ と双対の $(u,v)$ 基底の $J^\vee=-J^{\mathsf T}$ はそれぞれ
+ここで $J$ の行列は、実基底 $(1,\tau)$ における $J(1)=i$ と $J(\tau)=i\tau$ の係数を各列に並べたものである。すなわち上の $s',t'$ の式に $(s,t)=(1,0),(0,1)$ を代入する。双対基底 $(ds,dt)$ では、定義 $J^\vee\xi=-\xi\circ J$ を基底ベクトルに評価すると $(J^\vee)_{ab}=-J_{ba}$ となる。したがって、これらの基底で表した $J$ と $J^\vee=-J^{\mathsf T}$ はそれぞれ
 
 $$
 J=\frac1b\begin{pmatrix}-a&-|\tau|^2\\1&a\end{pmatrix},
@@ -397,7 +418,14 @@ $$
 \check X_0|_U\simeq U\times(\mathbb R/\mathbb Z)^n.
 $$
 
-二つの自明化が重なる連結開集合で、閉路基底は $A\in GL(n,\mathbb Z)$ によって変わる。$A$ は整数値かつ連続的なのでその重なりでは局所定数である。閉路を列に並べる規約で新基底を $\gamma'=A\gamma$ と書けば、同じ文字の位相座標は $\theta'=A\theta\pmod{\mathbb Z^n}$ である。一方、基底に双対な余ベクトルの**基底自体**は逆転置 $A^{-{\mathsf T}}$ で変換される。双対基底の変換と文字の位相座標の変換を混同してはいけない。いずれの行列も整数格子を保つ可逆変換なので、チャートは滑らかに貼り合う。
+二つの自明化が重なる連結開集合で、閉路基底は $A\in GL(n,\mathbb Z)$ によって変わる。$A$ は整数値かつ連続的なのでその重なりでは局所定数である。閉路を列に並べる規約で新基底を $\gamma'=A\gamma$ と書く。文字 $\chi$ は準同型なので $\chi(\gamma'_a)=\prod_b\chi(\gamma_b)^{A_{ab}}$。従って同じ文字の位相座標は
+
+$$
+\theta'_a=\sum_b A_{ab}\theta_b\pmod{\mathbb Z},
+\qquad \theta'=A\theta\pmod{\mathbb Z^n}.
+$$
+
+一方、整数値線形汎関数の双対基底 $\varepsilon^a(\gamma_b)=\delta^a_b$ の変換は別である。$\varepsilon'^a=\sum_c B_{ac}\varepsilon^c$ と置いて新基底に評価すると、$\delta^a_b=\sum_c B_{ac}A_{bc}$、つまり $BA^{\mathsf T}=I$。よって $B=A^{-{\mathsf T}}$ である。**基底自体**の逆転置変換と、固定した文字を新基底に評価した**位相座標**の $A$ 変換を混同してはいけない。$A\in GL(n,\mathbb Z)$ より $A$ と $A^{-{\mathsf T}}$ の両方が整数格子を保ち可逆なので、チャートは滑らかに貼り合う。
 
 局所モデルの実次元は $\dim_{\mathbb R}U+n=n+n=2n$ である。ここまでの構成は位相的・滑らかな束の双対化であり、複素座標やシンプレクティック形式は追加していない。$\square$
 <!-- proof-end -->
