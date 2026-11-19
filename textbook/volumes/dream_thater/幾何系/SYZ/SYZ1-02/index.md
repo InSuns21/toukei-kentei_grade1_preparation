@@ -337,7 +337,19 @@ $$
 
 ## 7. グラフ表示の適用範囲
 
-局所的な「グラフであること」を判定するには射影 $\pi$ を使う。$L\subset T^*Q$ を $n$ 次元の埋め込み部分多様体とし、$\pi|_L:L\to Q$ が点 $\ell$ で微分同型の微分（$d(\pi|_L)_\ell$ が同型）を持つなら、[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により $\ell$ の周辺で $\pi|_L$ は微分同相となる。その逆 $s$ は $\pi\circ s=\operatorname{id}$ を満たすので、$s(q)$ は余接ファイバー上の余ベクトル $\alpha_q$ を選び、局所的に $L=\Gamma_\alpha$ となる。$L$ がLagrangeなら[閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)で $d\alpha=0$ も従う。
+局所的な「グラフであること」を判定するには射影 $\pi:T^*Q\to Q$ を使う。
+
+$L\subset T^*Q$ を $n$ 次元の埋め込み部分多様体とし、点 $\ell\in L$ で微分
+
+$
+d(\pi|_L)_\ell:T_\ell L\longrightarrow T_{\pi(\ell)}Q
+$
+
+が線形同型だとする。このとき[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)により、$\ell$ の周辺では $\pi|_L$ が局所微分同相となる。
+
+その逆写像を $s$ とすれば $\pi\circ s=\operatorname{id}$。従って $s(q)$ は余接ファイバー上の余ベクトル $\alpha_q$ を選び、局所的に $L=\Gamma_\alpha$ と書ける。
+
+さらに $L$ がLagrangeなら、[閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)によって $d\alpha=0$ も従う。
 
 一方、一つの余接ファイバー $T^*_{q_0}Q$ は $n$ 次元で、$\omega_{\mathrm{can}}$ は垂直方向二つに零であるからLagrangeだが、射影は定数写像である。したがって $d\pi$ の階数は0であり、基底 $Q$ 上のグラフではない。「Lagrangeだからグラフ」という推論はこの段階で壊れる。
 
