@@ -27,7 +27,7 @@ chapters:
     title: "perceptronの記憶容量は何に依存するか"
   - id: PML1-06
     path: textbook/volumes/dream_thater/応用系/PML/PML1-06
-    status: planned
+    status: completed
     title: "無秩序・相転移を学習へ持ち込める条件は何か"
   - id: PML1-07
     path: textbook/volumes/dream_thater/応用系/PML/PML1-07
