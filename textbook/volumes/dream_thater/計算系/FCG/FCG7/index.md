@@ -260,7 +260,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-まず $M_I>0$ の節点について $\lambda_{pI}=m_pw_{Ip}/M_I$ と置くと、$\lambda_{pI}\ge0$ かつ $\sum_p\lambda_{pI}=1$ である。[P2Gの定義](#def-fcg7-p2g)から $\boldsymbol g_I^{\mathrm{old}}=\sum_p\lambda_{pI}\boldsymbol v_p^{\mathrm{old}}$。二乗ノルムの凸性で
+まず $M_I>0$ の節点について $\lambda_{pI}=m_pw_{Ip}/M_I$ と置くと、$\lambda_{pI}\ge0$ かつ $\sum_p\lambda_{pI}=1$ である。[質量重み付き粒子から格子への転送](#def-fcg7-p2g)から $\boldsymbol g_I^{\mathrm{old}}=\sum_p\lambda_{pI}\boldsymbol v_p^{\mathrm{old}}$。二乗ノルムの凸性で
 
 $$
 M_I\|\boldsymbol g_I^{\mathrm{old}}\|^2
@@ -475,7 +475,7 @@ $$
 - Level: B
 
 <!-- solution-start -->
-**詳細解答。** [P2Gの定義](#def-fcg7-p2g)で質量が正の節点 $I$ では $\lambda_{pI}=m_pw_{Ip}/M_I$ が非負で和1だから、二乗ノルムの凸性を適用して
+**詳細解答。** [質量重み付き粒子から格子への転送](#def-fcg7-p2g)で質量が正の節点 $I$ では $\lambda_{pI}=m_pw_{Ip}/M_I$ が非負で和1だから、二乗ノルムの凸性を適用して
 
 $$
 M_I\|\boldsymbol g_I\|^2
