@@ -64,7 +64,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi4-energy-ledger -->
-**定義の直接確認。** $M_0=100$、$C=10^{-3}$、$u_0=0$ とし、$M(u)=(10^6-3\cdot10^{-3}u)^{1/3}$ を $0\le u<10^6/(3\cdot10^{-3})$ で考えます。根号内が正なので $M(u)>0$ で微分可能です。連鎖律で
+**定義の確認**： $M_0=100$、$C=10^{-3}$、$u_0=0$ とし、$M(u)=(10^6-3\cdot10^{-3}u)^{1/3}$ を $0\le u<10^6/(3\cdot10^{-3})$ で考えます。根号内が正なので $M(u)>0$ で微分可能です。連鎖律で
 
 $$
 3M(u)^2\dot M(u)=-3\cdot10^{-3},
@@ -87,10 +87,10 @@ $$
 >
 > [エネルギー収支模型](#def-bhi4-energy-ledger)の仮定で、任意の $u\in[u_0,u_1)$ に対して
 >
-> $$
-> \boxed{M(u)+E_R(u)=M_0,\qquad
-> E_R(u)=M_0-M(u),\qquad 0\le E_R(u)<M_0}
-> $$
+$$
+\boxed{M(u)+E_R(u)=M_0,\qquad
+E_R(u)=M_0-M(u),\qquad 0\le E_R(u)<M_0}
+$$
 >
 > が成り立つ。$L(M)>0$ なら $M(u)$ は厳密減少、$E_R(u)$ は厳密増加である。これはエネルギーの関係であって、$R$ のvon Neumannエントロピーを決める式ではない。
 <!-- formal-statement-end -->
@@ -144,7 +144,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi4-mass-fraction-clock -->
-**定義の直接確認。** 例として $M_0=100,C=10^{-3}$、$M=50$ の時刻を収支方程式から求めます。$M^3=M_0^3-3C(u-u_0)$ より
+**定義の確認**： 例として $M_0=100,C=10^{-3}$、$M=50$ の時刻を収支方程式から求めます。$M^3=M_0^3-3C(u-u_0)$ より
 
 $$
 u-u_0=\frac{100^3-50^3}{3\cdot10^{-3}}
@@ -169,11 +169,11 @@ $$
 
 > とし、$M$ は微分可能とする。このとき[残存質量分率と形式蒸発時計](#def-bhi4-mass-fraction-clock)について、解が存在する時刻に限り
 >
-> $$
-> \boxed{f^3=1-\theta,\qquad
-> \frac{L(M)}{L(M_0)}=f^{-2},\qquad
-> \frac{T_H(M)}{T_H(M_0)}=f^{-1}.}
-> $$
+$$
+\boxed{f^3=1-\theta,\qquad
+\frac{L(M)}{L(M_0)}=f^{-2},\qquad
+\frac{T_H(M)}{T_H(M_0)}=f^{-1}.}
+$$
 >
 > 特に $0<f\le1$ では $0\le\theta<1$ であり、$f=1/2$ に達する場合は $\theta=7/8$。温度 $T_H=1/(8\pi M)$ は各時刻の瞬間Schwarzschild近似で評価する。
 <!-- formal-statement-end -->
@@ -236,9 +236,9 @@ $$
 
 > このとき、到達した正の質量 $m=M(u)>0$ について
 >
-> $$
-> \boxed{u-u_0=\int_m^{M_0}\frac{x^2}{C(x)}\,dx.}
-> $$
+$$
+\boxed{u-u_0=\int_m^{M_0}\frac{x^2}{C(x)}\,dx.}
+$$
 >
 > $C(M)=C_0$ が一定の場合だけ、右辺は $(M_0^3-m^3)/(3C_0)$ と簡約する。
 <!-- formal-statement-end -->
@@ -324,9 +324,9 @@ $$
 >
 > 孤立した[エネルギー収支模型](#def-bhi4-energy-ledger)で $M(u)>0$、$\dot M=-L(M)$ が成り立つとし、各時刻に $S_{\rm BH}(M)=4\pi M^2$、$T_H(M)=1/(8\pi M)$ の瞬間Schwarzschild近似を適用できるとする。このとき
 >
-> $$
-> \boxed{\dot S_{\rm BH}=-\frac{L(M)}{T_H(M)}=-8\pi M L(M)\le0.}
-> $$
+$$
+\boxed{\dot S_{\rm BH}=-\frac{L(M)}{T_H(M)}=-8\pi M L(M)\le0.}
+$$
 >
 > 特に $L=C/M^2,C>0$ なら $\dot S_{\rm BH}=-8\pi C/M$、$M_0$ から $m>0$ までの変化は $\Delta S_{\rm BH}=4\pi(m^2-M_0^2)<0$ である。
 <!-- formal-statement-end -->
@@ -604,8 +604,12 @@ $$
 =\frac{16\pi}3(M_0^2-m^2).
 $$
 
-和は $(-4\pi+16\pi/3)(M_0^2-m^2)
-=(4\pi/3)(M_0^2-m^2)>0$。これはこの**理想黒体の粗視化模型**での結果であり、[BHI3の純粋Bell放射の反例](../BHI3/index.md#prop-bhi3-local-global-nonmonotone)に見られるモード間相関を捨てています。全放射の密度行列は指定していないため $S(R)$ は決まりません。
+和は
+$
+(-4\pi+16\pi/3)(M_0^2-m^2)
+=\frac{4\pi}3(M_0^2-m^2)>0.
+$
+となります。これはこの**理想黒体の粗視化模型**での結果であり、[BHI3の純粋Bell放射の反例](../BHI3/index.md#prop-bhi3-local-global-nonmonotone)に見られるモード間相関を捨てています。全放射の密度行列は指定していないため $S(R)$ は決まりません。
 <!-- solution-end -->
 
 <a id="ex-bhi4-b04"></a>
