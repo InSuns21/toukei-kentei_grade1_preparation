@@ -16,7 +16,7 @@ chapters:
     title: "Lagrangeグラフとその局所変形"
   - id: SYZ1-03
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-03
-    status: planned
+    status: completed
     title: "較正形式と体積最小性"
   - id: SYZ1-04
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-04
