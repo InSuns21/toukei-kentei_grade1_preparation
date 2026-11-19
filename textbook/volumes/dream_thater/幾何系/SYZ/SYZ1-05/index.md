@@ -583,10 +583,10 @@ $$
 
 ゆえに
 
-$
+$$
 \iota_{V+W}\operatorname{Im}(e^{-i\theta}\Omega)|_{TL}
 =\beta_V.
-$
+$$
 
 第6節の[固定位相のSLag方程式の線形化](#thm-syz1-05-linearization)では両者の外微分だけを取るので、二つの一次変化は不変である。接方向の速度は形状の実変化ではなくパラメータの付け替えであることと整合する。
 <!-- solution-end -->
