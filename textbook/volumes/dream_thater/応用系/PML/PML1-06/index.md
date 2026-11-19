@@ -303,9 +303,9 @@ $$
 
 と書く。これは[SG1のランダム圧力](../../../物理系/SG/SG1/index.md#def-sg1-quenched)に対応するが、本章のデータ分布 $P_N(D)$ と区別する。
 
-上で確認した三条件のもとで、[REMのquenched圧力極限](../../../物理系/SG/SG1/index.md#thm-sg1-pressure)を適用できる。各 $\beta$ を固定すると $R_N$ は確率収束し、その期待値 $p_N^{\mathrm q}=\mathbb E_D R_N$ も同じ極限を持つ。なお、$p_N^{\mathrm a}$ は[SG1のannealed圧力の公式](../../../物理系/SG/SG1/index.md#prop-sg1-annealed-rem)により計算できる。
+上で確認した三条件のもとで、[REMのquenched圧力極限](../../../物理系/SG/SG1/index.md#thm-sg1-pressure)を適用できる。各 $\beta$ を固定すると $R_N$ は確率収束し、その期待値 $p_N^{\mathrm q}=\mathbb E_D R_N$ も同じ極限を持つ。また、[REMのannealed圧力](../../../物理系/SG/SG1/index.md#prop-sg1-annealed-rem)から $p_N^{\mathrm a}=\log2+\beta^2/2$ となる。
 
-極限関数 $p(\beta)$ 自体を $\beta$ で微分する。有限 $N$ での微分と極限を交換する操作は用いない。臨界点 $a$ を除いて微分すると
+極限関数 $p(\beta)$ 自体を $\beta$ で微分する。有限 $N$ での微分と極限を交換する操作は用いない。凍結の臨界逆温度 $a$ を除いて微分すると
 
 $$
 p'(\beta)=
