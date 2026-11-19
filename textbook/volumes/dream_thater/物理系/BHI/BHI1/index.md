@@ -54,7 +54,12 @@ $$
 $$
 です。したがって、基底の像が正規直交であることから任意の入力の内積が保存され、$V^\dagger V=I_2$ が従います。$V$ は2次元から4次元への等長写像で、出力全体のユニタリ作用素ではありません。$B$ が2次元のため、**放射だけで完結した終期**には該当しません。任意の $\alpha|0\rangle+\beta|1\rangle$（$|\alpha|^2+|\beta|^2=1$）は $\alpha|00\rangle+\beta|11\rangle$ となり、一般の入力を二つ複製する操作でもありません。
 
-対照的に、$\mathcal H_B=\mathcal H_E=\mathbb C$（各1次元）、$\mathcal H_R=\mathbb C^2$ とし、$W|i\rangle=|i\rangle_R|0\rangle_B|0\rangle_E$（$i=0,1$、各1次元因子の単位基底を $|0\rangle$ と書く）と定めれば、$\langle000|100\rangle=0$、二つの像のノルムは1なので $W^\dagger W=I_2$ です。さらに $B,E$ はともに1次元で、$R$ が全ての可変な出力自由度を含みます。この $W$ は「放射だけで完結した終期」の条件も満たします。
+対照的に、$\mathcal H_B=\mathcal H_E=\mathbb C$（各1次元）、$\mathcal H_R=\mathbb C^2$ とし、1次元因子の単位基底を $|0\rangle$ と書きます。入力の計算基底に対し
+$$
+W|0\rangle=|0_R0_B0_E\rangle,\qquad
+W|1\rangle=|1_R0_B0_E\rangle
+$$
+と置けば、$\langle000|100\rangle=0$、二つの像のノルムは1なので、上と同じ基底判定により $W^\dagger W=I_2$ です。$B,E$ はともに1次元で、$R$ が全ての可変な出力自由度を含むため、この $W$ は「放射だけで完結した終期」の条件も満たします。
 <!-- definition-example-end -->
 
 ブラックホールの「完全蒸発」は、単に古典的な地平線が消えたという幾何学的叙述だけでは上の定義を保証しません。残存物、相関した別領域、あるいは終期の量子重力記述の適用限界を排除する**別の物理的判断**が必要です。
@@ -105,7 +110,12 @@ $$
 つまり縮約行列の計算は、放射に限った全ての期待値を再現するための判定法です。以後、入力と系の分割を固定した際の $S(R)$ は $S(\rho_R)$ の略記とします。
 
 <!-- definition-example-start: def-bhi1-radiation-channel -->
-**定義の確認** 前節の $V$ に $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入力すると、全出力は $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ です。$B$ の基底 $\{|0\rangle,|1\rangle\}$ で部分トレースを取ると、例えば交差項の部分トレースは $\operatorname{Tr}_B(|0_R0_B\rangle\langle1_R1_B|)=|0_R\rangle\langle1_R|\langle1_B|0_B\rangle=0$ で、随伴項も0なので
+**定義の確認** 前節の $V$ に $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入力すると、全出力は $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ です。$B$ の基底 $\{|0\rangle,|1\rangle\}$ で部分トレースを取ります。交差項について、$B$ の基底ベクトルの直交性から
+$$
+\operatorname{Tr}_B(|0_R0_B\rangle\langle1_R1_B|)
+=|0_R\rangle\langle1_R|\langle1_B|0_B\rangle=0
+$$
+となり、随伴項も0です。対角項の部分トレースは $|i_R\rangle\langle i_R|$（$i=0,1$）なので
 $$
 \mathcal N_R(|+\rangle\langle+|)
 =\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|
