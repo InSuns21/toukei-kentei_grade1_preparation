@@ -241,7 +241,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-04-phases -->
-**定義の確認：1スピン。** $f(x)=x$、$\Omega=\{-1,+1\}$、$\widehat q(+1)=2/3$、$\widehat q(-1)=1/3$、$w=0$ とする。特徴量は $w$ に依存せず、モデルは一様分布なので、
+**定義の確認**：1スピン。 $f(x)=x$、$\Omega=\{-1,+1\}$、$\widehat q(+1)=2/3$、$\widehat q(-1)=1/3$、$w=0$ とする。特徴量は $w$ に依存せず、モデルは一様分布なので、
 
 $$
 m^+=\frac23(+1)+\frac13(-1)=\frac13,\qquad
