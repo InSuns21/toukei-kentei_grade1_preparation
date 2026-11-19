@@ -1,0 +1,23 @@
+chapter: SYZ1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-03, SYZ1-02]
+concepts:
+  - id: syz.slag-phase-map
+    name: 特殊Lagrange位相写像
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（特殊Lagrange位相写像）"]
+    requires: [syz.special-lagrangian-calibration]
+  - id: syz.slag-normalized-conditions
+    name: 規格化したSLag条件の同値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（規格化したSLag条件の同値性）"]
+    requires: [syz.slag-phase-map, syz.calibration-form]
+  - id: syz.slag-graph-equation
+    name: 勾配グラフの特殊Lagrange方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（勾配グラフの特殊Lagrange方程式）"]
+    requires: [syz.slag-normalized-conditions, symplectic.lagrangian-graph-criterion]
