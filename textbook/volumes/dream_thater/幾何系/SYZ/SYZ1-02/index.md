@@ -45,7 +45,11 @@ ds_{\alpha,q}(v)
 \end{aligned}
 $$
 
-この $Da(q)$ は抽象的なLagrange判定を代替する新しい行列ではなく、**係数写像 $a$ のJacobian（行番号 $i$、列番号 $j$）** である。第1成分は $v$ なので $ds_{\alpha,q}$ は単射であり、像への逆写像は連続な $\pi|_{\Gamma_\alpha}$ である。したがって $s_\alpha$ は埋め込みで、$\Gamma_\alpha$ の次元は $n$ となる。後で $Da$ の対称性を検査するのは、[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)の残りの条件 $s_\alpha^*\omega_{\mathrm{can}}=0$ を調べるためである。
+この $Da(q)$ は抽象的なLagrange判定を代替する新しい行列ではなく、**係数写像 $a$ のJacobian（行番号 $i$、列番号 $j$）** である。
+
+第1成分は $v$ なので $ds_{\alpha,q}$ は単射であり、像への逆写像は連続な $\pi|_{\Gamma_\alpha}$ である。したがって $s_\alpha$ は埋め込みで、$\Gamma_\alpha$ の次元は $n$ となる。
+
+後で $Da$ の対称性を検査するのは、[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)の残りの条件 $s_\alpha^*\omega_{\mathrm{can}}=0$ を調べるためである。
 
 [閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)によれば、像がLagrangeであることと $d\alpha=0$ は同値である。ここでは後続の変形計算のために、判定の中身を成分で再確認する。$p_i\circ s_\alpha=a_i$ なので、[外微分と引き戻しの可換性](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)を適用して
 
@@ -154,7 +158,14 @@ $$
 
 変形とは、グラフが時間 $t$ とともに動くことである。$I\subset\mathbb R$ を $0$ を含む開区間とし、$(t,q)$ に滑らかに依存する1形式 $\alpha_t$ を取る。各時刻のグラフを $L_t=\Gamma_{\alpha_t}$ とし、$\alpha_0=0$ とすれば零切断からの変形になる。
 
-以後 $\alpha_t=\sum_i a_i(t,q)\,dq^i$ の添字 $t$ は**時刻によって変わる族**を表し、微分の添字ではない。$\partial_t\alpha_t=\sum_i(\partial a_i/\partial t)(t,q)\,dq^i$ は基点 $q$ と座標1形式 $dq^i$ を固定して係数だけを時間微分する。一方 $d\alpha_t$ は時刻 $t$ を固定して **$q$ 方向に外微分**するので、$dt$ を含まない。両者が交換できるのは係数 $a_i$ の滑らかさにより混合偏微分が交換できるからである。
+以後 $\alpha_t$ の添字 $t$ は**時刻によって変わる族**を表し、微分の添字ではない。基点 $q$ と座標1形式 $dq^i$ を固定した時間微分は
+
+$$
+\alpha_t=\sum_i a_i(t,q)\,dq^i,\qquad
+\partial_t\alpha_t=\sum_i\frac{\partial a_i}{\partial t}(t,q)\,dq^i
+$$
+
+である。一方 $d\alpha_t$ は時刻 $t$ を固定して **$q$ 方向に外微分**するので、$dt$ を含まない。両者が交換できるのは係数 $a_i$ の滑らかさにより混合偏微分が交換できるからである。
 
 <a id="def-syz1-02-graph-deformation"></a>
 
