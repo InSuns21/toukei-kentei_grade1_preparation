@@ -183,15 +183,59 @@ $$
 
 という離散群である。実際、$T=\mathbb R/\mathbb Z$ の連続文字は $[s]\mapsto e^{2\pi iks}$（$k\in\mathbb Z$）のみだが、$\pi_1(T)=\mathbb Z$ の文字は $1\mapsto e^{2\pi iu}$（$[u]\in\mathbb R/\mathbb Z$）を自由に選べる。この両者の混同は「双対トーラスが離散集合になってしまう」典型的な誤りである。
 
-連続文字が整数で添字付けられる根拠も確かめる。連続準同型 $h:\mathbb R\to U(1)$ は $h(0)=1$ を満たす。原点近くで $h(s)=e^{i\varphi(s)}$ と連続な実偏角 $\varphi(0)=0$ を取ると、十分小さい $s,t$ に対して準同型性と偏角の連続性から $\varphi(s+t)=\varphi(s)+\varphi(t)$ となる。連続な加法関数は $\varphi(s)=2\pi as$（$a\in\mathbb R$）であり、準同型性で任意の $s$ まで延長できる。よって $h(s)=e^{2\pi ias}$ である。これが $\mathbb R/\mathbb Z$ 上の文字に降りる必要十分条件は $h(1)=1$、すなわち $a\in\mathbb Z$。一般の $r$ 次元トーラスでも各座標円周への制限を掛け合わせれば、整数 $r$ 個で連続文字が尽くされる。
+連続文字が整数で添字付けられる根拠も確かめる。連続準同型 $h:\mathbb R\to U(1)$ は $h(0)=1$ を満たす。原点の近くでは連続な実偏角 $\varphi$ を選んで
+
+$$
+h(s)=e^{i\varphi(s)},\qquad \varphi(0)=0
+$$
+
+と書ける。十分小さい $s,t,s+t$ に対し、準同型性 $h(s+t)=h(s)h(t)$ を用いる。偏角の差は $2\pi$ の整数倍だが、連続性と原点での値からその整数は零である。従って
+
+$$
+\varphi(s+t)=\varphi(s)+\varphi(t).
+$$
+
+連続な加法関数は $\varphi(s)=2\pi as$（実数 $a$）に限る。任意の $s$ も、十分大きな自然数 $N$ で $s/N$ を原点近くに取れば $h(s)=h(s/N)^N$ だから、
+
+$$
+h(s)=e^{2\pi ias}\qquad(s\in\mathbb R)
+$$
+
+が従う。この文字が円周 $\mathbb R/\mathbb Z$ に降りる必要十分条件は $h(1)=1$、つまり $a\in\mathbb Z$ である。一般の $r$ 次元トーラスでも各座標円周への制限を掛け合わせれば、整数 $r$ 個で連続文字が尽くされる。
 
 ## 4. 文字を平坦な局所系として実現する
 
 文字の $U(1)$ 値は単なる記号ではなく、閉路に沿って平行移動したベクトルが何倍されるか、という**ホロノミー**として現れる。これを幾何学的に定義する。
 
-まず、複素直線束 $L\to M$ は各点 $x\in M$ の上に複素1次元のベクトル空間 $L_x$ を置き、局所的には $U\times\mathbb C$ と表示できる束である。各繊維に正定値のHermitian内積を入れる（通常の単位枠での値は $h(z,w)=z\overline w$）。これは交代2形式によるLagrange条件とは別の構造であり、[既習のHermitian計量と正値性](../../KAH/KAH1-05/index.md#prop-kah1-05-constant-model)と同じ種類の内積である。
+まず、複素直線束 $L\to M$ は各点の上に複素1次元のベクトル空間を置き、局所的には $U\times\mathbb C$ と表示できる束である。各繊維に正定値のHermitian内積を入れる。単位枠での内積は次の形になる。
 
-**接続** $\nabla$ は局所切断 $f$ の微分を与える作用素で、単位枠では $\nabla f=df+Af$ と書く。ここで $d$ は基底座標に関する外微分（例えば $df=(\partial f/\partial s)\,ds+(\partial f/\partial t)\,dt$）、$A$ は純虚数値の1形式である。「内積を保存する」とは、平行移動が各繊維の長さを保つことである。この1次元の場合の**曲率**は2形式 $F_\nabla=dA$ であり、平坦とは $F_\nabla=0$ をいう。**平行切断**は $\nabla f=0$ を満たす切断、平行移動はその微分方程式を経路に沿って解く操作である。曲率零なら局所的な平行枠を選べるが、閉路全体のホロノミーは1とは限らない。
+$$
+h(z,w)=z\overline w.
+$$
+
+これは交代2形式によるLagrange条件とは別の構造であり、[既習のHermitian計量と正値性](../../KAH/KAH1-05/index.md#prop-kah1-05-constant-model)と同じ種類の内積である。
+
+**接続** $\nabla$ は局所切断 $f$ の微分を与える作用素で、単位枠では次の形を取る。
+
+$$
+\nabla f=df+Af.
+$$
+
+ここで $A$ は純虚数値の1形式、$d$ は基底座標に関する外微分である。例えば座標を $s,t$ とすると、
+
+$$
+df=\frac{\partial f}{\partial s}\,ds
++\frac{\partial f}{\partial t}\,dt.
+$$
+
+接続が**内積を保存する**とは、平行移動が各繊維の長さを保つことである。複素直線束の**曲率**は2形式であり、この局所枠では
+
+$$
+F_\nabla=dA,\qquad
+\text{平坦}\iff F_\nabla=0
+$$
+
+と書ける。**平行切断**は $\nabla f=0$ を満たす切断で、平行移動はこの微分方程式を経路に沿って解く操作である。曲率零なら局所的な平行枠を選べるが、閉路全体のホロノミーは1とは限らない。
 
 <a id="def-syz1-01-flat-local-system"></a>
 
@@ -348,7 +392,14 @@ t'=\frac{s+at}{b},\qquad
 s'=-\frac{as+|\tau|^2t}{b}.
 $$
 
-ここで $J$ の行列は、実基底 $(1,\tau)$ における $J(1)=i$ と $J(\tau)=i\tau$ の係数を各列に並べたものである。すなわち上の $s',t'$ の式に $(s,t)=(1,0),(0,1)$ を代入する。双対基底 $(ds,dt)$ では、定義 $J^\vee\xi=-\xi\circ J$ を基底ベクトルに評価すると $(J^\vee)_{ab}=-J_{ba}$ となる。したがって、これらの基底で表した $J$ と $J^\vee=-J^{\mathsf T}$ はそれぞれ
+ここで $J$ の行列は、実基底 $(1,\tau)$ における $J(1)$ と $J(\tau)$ の係数を各列に並べたものである。上の座標式に二つの基底ベクトルを代入すると、
+
+$$
+J(1)=i=-\frac ab\cdot1+\frac1b\tau,\qquad
+J(\tau)=i\tau=-\frac{|\tau|^2}{b}\cdot1+\frac ab\tau.
+$$
+
+双対基底 $(ds,dt)$ でも、定義 $J^\vee\xi=-\xi\circ J$ を元の基底ベクトルに評価すれば、成分は $(J^\vee)_{ab}=-J_{ba}$ になる。従って $J^\vee=-J^{\mathsf T}$ であり、二つの行列はそれぞれ
 
 $$
 J=\frac1b\begin{pmatrix}-a&-|\tau|^2\\1&a\end{pmatrix},
@@ -425,7 +476,22 @@ $$
 \qquad \theta'=A\theta\pmod{\mathbb Z^n}.
 $$
 
-一方、整数値線形汎関数の双対基底 $\varepsilon^a(\gamma_b)=\delta^a_b$ の変換は別である。$\varepsilon'^a=\sum_c B_{ac}\varepsilon^c$ と置いて新基底に評価すると、$\delta^a_b=\sum_c B_{ac}A_{bc}$、つまり $BA^{\mathsf T}=I$。よって $B=A^{-{\mathsf T}}$ である。**基底自体**の逆転置変換と、固定した文字を新基底に評価した**位相座標**の $A$ 変換を混同してはいけない。$A\in GL(n,\mathbb Z)$ より $A$ と $A^{-{\mathsf T}}$ の両方が整数格子を保ち可逆なので、チャートは滑らかに貼り合う。
+一方、整数値線形汎関数の双対基底の変換は別である。新基底を未知行列 $B$ で表すと、
+
+$$
+\varepsilon^a(\gamma_b)=\delta^a_b,\qquad
+\varepsilon'^a=\sum_c B_{ac}\varepsilon^c.
+$$
+
+これを $\gamma'_b=\sum_c A_{bc}\gamma_c$ に評価すると、
+
+$$
+\delta^a_b=\sum_c B_{ac}A_{bc},
+\qquad BA^{\mathsf T}=I,
+\qquad B=A^{-{\mathsf T}}.
+$$
+
+**双対基底自体**は逆転置変換する一方、固定した文字を新基底に評価した**位相座標**は $A$ で変換する。$A\in GL(n,\mathbb Z)$ より両行列は整数格子を保ち可逆なので、チャートは滑らかに貼り合う。
 
 局所モデルの実次元は $\dim_{\mathbb R}U+n=n+n=2n$ である。ここまでの構成は位相的・滑らかな束の双対化であり、複素座標やシンプレクティック形式は追加していない。$\square$
 <!-- proof-end -->
