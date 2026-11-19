@@ -119,6 +119,21 @@ $$
 
 他の3セルの右辺はそれぞれ $16,16,-16$ [Pa/m²] となり、総和は零である。**欠けた壁方向に圧力0のセルを追加しない**ことがNeumann条件の計算上の意味である。
 
+この右辺が予測速度からも得られることを確かめる。例えば $\rho=1$ [kg/m³]、$\Delta t=0.1$ [s] とし、壁面は零、内側面の予測速度を $\boldsymbol u^\ast=(\Delta t/\rho)G_hp$ と選ぶ。$(0,0)$ の右面と上面ではいずれも圧力差が $-2$ [Pa] だから、
+
+$
+u^\ast_{1,0}=v^\ast_{0,1}
+=0.1\,\frac{-2}{1/2}=-0.4\quad[\mathrm{m/s}],
+$
+
+$
+(D_h\boldsymbol u^\ast)_{00}
+=\frac{-0.4-0+(-0.4)-0}{1/2}=-1.6\quad[\mathrm{s}^{-1}],
+\qquad b_{00}=\frac{\rho}{\Delta t}(-1.6)=-16\quad[\mathrm{Pa/m^2}].
+$
+
+残りのセルも $b=(\rho/\Delta t)D_h\boldsymbol u^\ast=D_hG_hp=L_hp$ となる。これで、単に $b$ を圧力から逆算したのではなく、**壁速度・右辺・Poisson方程式・平均零ゲージ**を一つのMAC格子上で確認した。
+
 **定義の確認**：平均零を確認し、欠けた外側方向を加えない差分で $L_hp=b$ を実際に満たす。右辺総和零とゲージの条件の両方を確かめた。
 <!-- definition-example-end -->
 
@@ -147,14 +162,16 @@ $$
 固定した $j$ に対し $\sum_{i=0}^{N-1}(u_{i+1,j}-u_{i,j})=u_{N,j}-u_{0,j}=0$。同様に固定した $i$ で $\sum_{j=0}^{N-1}(v_{i,j+1}-v_{i,j})=v_{i,N}-v_{i,0}=0$。それぞれ $1/h$ を掛けて全セルを足すと $\sum D_h\boldsymbol u=0$、さらにセル面積 $h^2$ を掛ける。$\rho/\Delta t$ は正の定数なので $b$ の総和も零である。
 <!-- proof-end -->
 
-Poissonの可解性の**十分性**は、二次形式を使えば明示できる。全セルの和で内積を取ると
+<a id="fact-fcg4-neumann-unique"></a>
 
-$$
+Poissonの可解性の**十分性**は、格子演算子を有限次元行列で表せば明示できる。まずセル圧力を $k=i+Nj$ の順に並べた長さ $N^2$ のベクトル $\boldsymbol p$ とする。$(L_h\boldsymbol p)_k$ の係数行列は、セル $(i,j)$ に対応する対角成分が $-m_{ij}/h^2$、隣接するセルの列が $1/h^2$、その他が零である。共有辺の両方向に同じ係数を置くのでこの行列は対称であり、次の二次形式は隣接する圧力差の二乗に分解できる。
+
+$
 -\sum_{ij}p_{ij}(L_hp)_{ij}
 =\frac1{h^2}\sum_{\text{内側の隣接セル対 }a,b}(p_a-p_b)^2\ge0.
-$$
+$
 
-各隣接対は一度だけ数える。右辺が零なら連結した格子の全セルの圧力は同じ定数である。したがって対称行列 $-L_h$ の核は定数ベクトルだけで、有限次元の対称行列の像は核の直交補空間、つまり総和零のベクトル全体となる。$\sum b=0$ なら解が存在し、平均零で一意に決まる。$p$ へ定数を足しても隣接差は変わらない。
+各隣接対を一度だけ数える。右辺が零なら、どの隣接セル間でも $p_a=p_b$。格子が連結しているため全セルの圧力は同じ定数となり、$L_h$ の核は定数ベクトルだけである。一方、対称性から任意の $\boldsymbol z$ が核にあれば $\boldsymbol z^{\mathsf T}L_h\boldsymbol p=(L_h\boldsymbol z)^{\mathsf T}\boldsymbol p=0$。つまり像は核の直交補空間に含まれる。さらに階数・退化次数の関係により、像も総和零ベクトルの空間も次元が $N^2-1$ なので両者は一致する。したがって $\sum b=0$ なら解が存在し、平均零を指定すれば一意に決まる。$p$ へ定数を足しても隣接差は変わらない。
 
 ## 4. 反復誤差を「非圧縮性」に言い換える
 
@@ -191,7 +208,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-fcg4-residual -->
-**直接例。** $N=2,h=1/2$ で平均零かつ総和零の右辺を $b_{00}=-16,b_{10}=16,b_{01}=16,b_{11}=-16$ [Pa/m²] とする。反復前の $p=0$ では $L_hp=0$ なので $R_{00}=0-(-16)=16$、他のセルは $-16,-16,16$ [Pa/m²]。したがって $E_{\mathrm P}=16$ [Pa/m²]。$\Delta t/\rho=0.1$ の設定で、同じ離散演算子を用いた射影では $E_{\mathrm D}=1.6$ [s⁻¹] と予測できる。この時点では収束していない。
+**直接例。** $N=2,h=1/2$ で平均零かつ総和零の右辺を $b_{00}=-16,b_{10}=16,b_{01}=16,b_{11}=-16$ [Pa/m²] とする。反復前の $p=0$ では $L_hp=0$ なので $R_{00}=0-(-16)=16$、他のセルは $-16,-16,16$ [Pa/m²]。したがって $E_{\mathrm P}=16$ [Pa/m²]。$\Delta t/\rho$ の数値を0.1とすると、$p=0$ では $G_hp=0$ なので $\boldsymbol u^{\mathrm{new}}=\boldsymbol u^\ast$ である。一方、$b=(\rho/\Delta t)D_h\boldsymbol u^\ast$ の定義を解けば $D_h\boldsymbol u^\ast=(\Delta t/\rho)b$。したがって
+
+$
+E_{\mathrm D}=\max_{ij}|D_h\boldsymbol u^\ast|
+=\frac{\Delta t}{\rho}\max_{ij}|b_{ij}|
+=0.1\cdot16=1.6\quad[\mathrm{s}^{-1}].
+$
+
+これは後の残差恒等式を先取りせず、$p=0$ と右辺の定義から直接確認できる。この時点では収束していない。
 
 **定義の確認**：同じ $L_h$ とPoisson右辺の差を計算し、最大絶対残差を取った。射影後発散はその単位係数を掛けた値である。
 <!-- definition-example-end -->
@@ -246,13 +271,13 @@ $$
 \cos\bigl(\pi(j+\tfrac12)/8\bigr)\quad[\mathrm{Pa}]
 $$
 
-とする。$\sum\phi=0$ は $\cos(\pi(N-i-\tfrac12)/N)=-\cos(\pi(i+\tfrac12)/N)$ の対称性から従う。頂点のstream functionを
+とする。$\sum\phi=0$ は $\cos(\pi(N-i-\tfrac12)/N)=-\cos(\pi(i+\tfrac12)/N)$ の対称性から従う。次に**流れ関数（stream function）**を頂点上の値 $\psi_{ij}$ として導入する。これは速度そのものではなく、鉛直面の水平速度を $y$ 方向の差分、水平面の鉛直速度を負の $x$ 方向の差分で生成するための量である。ここでは
 
-$$
+$
 \psi_{ij}=0.05\sin(\pi i/8)\sin(\pi j/8)\quad[\mathrm{m}^2/\mathrm{s}]
-$$
+$
 
-とする（$i,j=0,\dots,8$）。頂点差から定義する面速度
+とする（頂点添字 $i,j=0,\dots,8$）。上付き $s$ はこの流れ関数から作る速度場を表し、時刻や微分を表す添字ではない。頂点差から定義する面速度
 
 $$
 u^{s}_{ij}=\frac{\psi_{i,j+1}-\psi_{i,j}}h,\qquad
@@ -296,7 +321,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\boldsymbol u^\ast=\boldsymbol u^s+(\Delta t/\rho)G_h\phi$ に $D_h$ を作用させると、仮定から $D_h\boldsymbol u^\ast=(\Delta t/\rho)D_hG_h\phi$。したがって $b=(\rho/\Delta t)D_h\boldsymbol u^\ast=L_h\phi$。$\phi$ は平均零なので第3節で証明した一意性から $p=\phi$ である。射影定義へ代入し、
+$\boldsymbol u^\ast=\boldsymbol u^s+(\Delta t/\rho)G_h\phi$ に $D_h$ を作用させると、仮定から $D_h\boldsymbol u^\ast=(\Delta t/\rho)D_hG_h\phi$。したがって $b=(\rho/\Delta t)D_h\boldsymbol u^\ast=L_h\phi$。$\phi$ は平均零なので[第3節のNeumann問題の平均零一意性](#fact-fcg4-neumann-unique)から $p=\phi$ である。射影定義へ代入し、
 
 $$
 \boldsymbol u^{\mathrm{new}}
@@ -317,7 +342,7 @@ $$
 
 **操作**：1反復・再生・一時停止・0へ復帰、ソース編集、GLSL構文エラー、停止・破棄。初期基準と変更後の計算は区別する。Poisson最大残差、射影前後の発散、両者の恒等式の差、壁法線速度、製造解 $\phi$ との差、GPU R8画素を別々に表示する。編集コードで基準と異なる色になっただけでは誤答としない。GPUが使えない端末でも独立CPU数値を示すが、WebGL検証に合格したとは表示しない。
 
-**プログラミング課題**：JSの緩和係数を $2/3$ から $1$ へ変更し、収束の違いを数値で確かめる。圧力勾配の符号を反転させると[残差恒等式](#prop-fcg4-residual-identity)が破れることを確かめて戻す。GLSLの中央の発散倍率20を10に変更し、CPU残差はそのままで表示だけが変わることを確認する。
+**プログラミング課題**：JSの緩和係数を $2/3$ から $1$ へ変更し、収束の違いを数値で確かめる。圧力勾配の符号を反転させると[残差恒等式](#prop-fcg4-residual-identity)が破れることを確かめて戻す。断片GLSLの中央パネルで $q=\operatorname{texelFetch}(\texttt{u_div},\texttt{cell},0).r$ に相当する値を $q=\min(1,2q)$ に変更し、CPU残差はそのままで表示だけが変わることを確認する。倍率20はJSでR8テクスチャを作る段階の除数であり、GLSL中の数値ではない。
 
 ## 7. 演習と詳細解答
 
@@ -379,7 +404,7 @@ $$
 (L_hp)_{00}=\frac{(-1)+(-1)-2(1)}{(1/2)^2}=\frac{-4}{1/4}=-16.
 $$
 
-Poisson右辺 $b=(\rho/\Delta t)D_hu^\ast$ の係数の数値が1なら $(D_hu^\ast)_{00}=-16$ [s⁻¹]。外側の仮想圧力を勝手に0とすると対角係数が増え、この結果にならない。
+Poisson右辺 $b=(\rho/\Delta t)D_h\boldsymbol u^\ast$ の係数の数値が1なら $(D_h\boldsymbol u^\ast)_{00}=-16$ [s⁻¹]。外側の仮想圧力を勝手に0とすると対角係数が増え、この結果にならない。
 <!-- solution-end -->
 
 <a id="ex-fcg4-b2"></a>
@@ -419,7 +444,12 @@ $$
 ### Level C
 
 <a id="ex-fcg4-c1"></a>
-**C1. 2D射影の実装と描画。** (a) $N=8$ のセル圧力とMAC面速度の配列配置、壁の代入、$b$ の計算順序を記述せよ。(b) 反復でPoisson残差と射影後発散を測る関数を擬似コードで示せ。(c) 製造解の圧力と射影速度を検算せよ。(d) GLSLで3パネルの中央の倍率20を10へ変更したとき、CPU数値とGPU画素の変化を説明せよ。
+**C1. 2D射影の実装と描画。**
+
+1. $N=8$ のセル圧力とMAC面速度の配列配置、壁の代入、$b$ の計算順序を記述せよ。
+2. 反復でPoisson残差と射影後発散を測る関数を擬似コードで示せ。
+3. 製造解の圧力と射影速度を検算せよ。
+4. 断片GLSLで中央パネルの読み出し値 $q$ を $\min(1,2q)$ に変更したとき、CPU数値とGPU画素の変化を説明せよ。
 
 - Level: C
 
@@ -438,7 +468,7 @@ $$
 
 (c) 第5節の $\boldsymbol u^\ast=\boldsymbol u^s+(\Delta t/\rho)G_h\phi$ を $D_h$ に代入すると $b=L_h\phi$。$\phi$ は平均零なので[製造解の命題](#prop-fcg4-hodge-test)により厳密な圧力は $\phi$、速度は $\boldsymbol u^s$。有限回反復なら $p^{(k)}$ は $\phi$ へ近づくが一致を先取りしてはいけない。
 
-(d) fragment shaderの発散表示を $|\mathrm{div}|/20$ から $|\mathrm{div}|/10$ にすると中央パネルの量子化前赤成分が（飽和するまで）2倍になる。圧力反復、$\boldsymbol u^{\mathrm{new}}$、$b$、$E_{\mathrm P}$、$E_{\mathrm D}$、壁流束はJSが計算するため不変。GPUのR8画素値の変化とCPU物理残差の不変性をそれぞれ確認し、シェーダ編集後は初期画素基準を正誤判定に流用しない。
+(d) JSは中央テクスチャへ $q_{\rm tex}=\operatorname{round}(255\min(1,|\mathrm{div}|/20))/255$ をR8として書き込む。断片GLSLの $q=\texttt{texelFetch(u_div,cell,0).r}$ を $q=\min(1,2\texttt{texelFetch(u_div,cell,0).r})$ と変更すると、中央パネルの赤成分は量子化済みの $q_{\rm tex}$ の2倍（上限1）となる。**JSの除数を10に変更する操作とは量子化順序が違う**ので、一般には完全には一致しない。圧力反復、$\boldsymbol u^{\mathrm{new}}$、$b$、$E_{\mathrm P}$、$E_{\mathrm D}$、壁流束はJSが計算するため不変。赤成分は最終フレームバッファでも量子化され得る。表示差とCPU物理残差の不変性を別々に確認し、シェーダ編集後は初期画素基準を正誤判定に流用しない。
 <!-- solution-end -->
 
 ## 8. 次の講義
