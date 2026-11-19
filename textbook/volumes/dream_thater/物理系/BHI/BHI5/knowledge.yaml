@@ -1,0 +1,30 @@
+chapter: BHI5
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI4, QINF18, QINF20]
+forward_references: []
+concepts:
+  - id: black-hole-information.local-marginal-coarse-entropy
+    name: 局所周辺状態に基づく粗視化エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所周辺状態に基づく粗視化エントロピー）]
+    requires: [quantum.von-neumann-entropy, quantum.partial-trace, quantum.entropy-tensor-additivity]
+  - id: black-hole-information.local-correlation-deficit
+    name: 局所粗視化と相関欠損の恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（局所粗視化と相関欠損の恒等式）]
+    requires: [black-hole-information.local-marginal-coarse-entropy, quantum.mutual-information, quantum.entropy-subadditivity]
+  - id: black-hole-information.thermal-reference-entropy
+    name: 局所Gibbs基準の熱的エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（局所Gibbs基準の熱的エントロピー）]
+    requires: [black-hole-information.two-level-gibbs, quantum.von-neumann-entropy]
+  - id: black-hole-information.entropy-hierarchy
+    name: 精細・局所粗視化・熱的基準の階層
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（精細・局所粗視化・熱的基準の階層）]
+    requires: [black-hole-information.local-correlation-deficit, black-hole-information.thermal-reference-entropy, quantum.relative-entropy-nonnegativity]

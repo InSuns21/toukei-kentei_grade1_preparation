@@ -27,7 +27,7 @@ chapters:
     title: "放射のエネルギー収支と準静的蒸発"
   - id: BHI5
     path: textbook/volumes/dream_thater/物理系/BHI/BHI5
-    status: planned
+    status: completed
     title: "粗視化と精細エントロピー"
   - id: BHI6
     path: textbook/volumes/dream_thater/物理系/BHI/BHI6

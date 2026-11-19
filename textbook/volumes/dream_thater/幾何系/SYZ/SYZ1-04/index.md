@@ -50,6 +50,8 @@ $$
 
 $\mathbb C^2$ に標準計量を入れ、$\Omega_0=dz^1\wedge dz^2$ とする。実水平平面の正規直交基底 $(\partial_{x^1},\partial_{x^2})$ では $\Omega_0=1$、従って $c=1$ である。ところが $\Omega_1=2\Omega_0$ なら評価は2で、comassも2となり、$\operatorname{Re}\Omega_1$ は較正形式ではない。虚部の零条件は変わらないのに較正が壊れる。後で虚部だけを調べる際にも、規格化の仮定を忘れてはいけない。
 
+ここで[較正形式の定義](../SYZ1-03/index.md#def-syz1-03-calibration)は「閉形式でcomassが **1以下**」であり、「comassがちょうど1」とは異なる。例えば $\Omega_{1/2}=\Omega_0/2$ の実部は閉形式でcomassが $1/2$ だから較正形式だが、どの接平面にも体積形式との等号を与えない。本節の $c=1$ は、位相から **較正の等号** を得るための規格化である。
+
 ## 3. Lagrange部分多様体の位相写像と向き
 
 実 $n$ 次元の向き付きLagrange部分多様体 $L\subset X$ を考える。[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)は次元 $n$ と $\omega|_L=0$ を同時に要求する。$L$ 上で正の向きの $g$-正規直交接基底 $(v_1,\ldots,v_n)$ を取ると、規格化と[複素行列式のLagrange等号条件](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)により
@@ -76,7 +78,15 @@ $$
 <!-- definition-example-start: def-syz1-04-phase-map -->
 ### 直接例：水平平面の位相を定義から確かめる
 
-**定義の確認**：標準 $\mathbb C^2$ に $\Omega=dz^1\wedge dz^2$ を置き、$L=\mathbb R^2_x\times\{0\}$ を $(x^1,x^2)$ の増加方向に向ける。
+**定義の確認**：標準 $\mathbb C^2$ に $\Omega=dz^1\wedge dz^2$ を置き、$L=\mathbb R^2_x\times\{0\}$ を $(x^1,x^2)$ の増加方向に向ける。外積を接ベクトルに評価すると
+
+$$
+(dz^1\wedge dz^2)(v_1,v_2)
+=dz^1(v_1)dz^2(v_2)-dz^1(v_2)dz^2(v_1)
+=\det\bigl(dz^j(v_k)\bigr)_{j,k=1}^2
+$$
+
+となる。この行列式は、[前講の複素体積形式の評価](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)と同じく、交代形式を基底に適用した値を表す。これを使い、定義の各条件を個別に確認する。
 
 1. $F(x^1,x^2)=(x^1,x^2,0,0)$ は埋め込みで、$L$ は実2次元である。接基底 $(v_1,v_2)=(\partial_{x^1},\partial_{x^2})$ は標準計量で正規直交であり、$\omega(v_1,v_2)=0$ なのでLagrange条件を満たす。
 2. $dz^j(v_k)=\delta^j_k$ だから $\Omega(v_1,v_2)=\det I_2=1$。また、この計量での規格化係数は $c(p)=1$ である。ゆえに位相写像は全点で $e^{i\beta_L}=1$ となり、$\beta_L=0$ を選べる。
@@ -291,7 +301,13 @@ $$
 
 ## 5. 低次元ではどの偏微分方程式になるか
 
-$n=1$ なら $\det(I+iH)=1+if''$。位相0のグラフでは $f''=0$、従って各連結区間で $f(x)=ax+b$。$\theta=\pi/2$ については実部の正値性を満たす有限の傾きは存在せず、位相 $\pi/2$ の縦直線はそもそも $x$ に関するグラフにならない。これは座標表示の限界であってSLag自体の不存在ではない。
+$n=1$ なら $H=D^2f=(f'')$ である。ここで $f''=d^2f/dx^2$ は実変数 $x$ による2階の通常微分を表し、第4節の $f_{11}=\partial^2 f/\partial(x^1)^2$ と同じ量である。従って
+
+$$
+\det(I+iH)=1+if''.
+$$
+
+位相0のグラフでは $f''=0$、従って各連結区間で $f(x)=ax+b$。$\theta=\pi/2$ については実部の正値性を満たす有限の傾きは存在せず、位相 $\pi/2$ の縦直線はそもそも $x$ に関するグラフにならない。これは座標表示の限界であってSLag自体の不存在ではない。
 
 $n=2$ では $H=\begin{pmatrix}a&b\\b&c\end{pmatrix}$ として、行列式の二項展開から
 
@@ -386,7 +402,7 @@ $\mathbb C$ に標準構造を入れ、$f(x)=ax^2/2$（$a\in\mathbb R$）の勾�
 <!-- solution-start -->
 ### 詳細解答
 
-$F(x)=x+iax$ だから $F'(x)=1+ia$。複素体積形式 $dz$ の評価は $1+ia$ で、誘導計量は $g(F',F')=1+a^2$。よって体積密度は $\sqrt{1+a^2}$、位相は実部が正の $1+ia$ の偏角 $\arctan a$ である。
+$F(x)=x+iax$ だから、実変数 $x$ に関する通常微分は $F'(x)=dF/dx=1+ia$ である。これは第4節の偏微分表記 $F_j=\partial F/\partial x^j$ を一変数にしたものである。複素体積形式 $dz$ の評価は $1+ia$ で、誘導計量は $g(F',F')=1+a^2$。よって体積密度は $\sqrt{1+a^2}$、位相は実部が正の $1+ia$ の偏角 $\arctan a$ である。
 
 位相0なら $\arctan a\equiv0\pmod{2\pi}$。$\arctan a\in(-\pi/2,\pi/2)$ なので $a=0$ に限る。
 <!-- solution-end -->
@@ -441,7 +457,15 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-正の正規直交水平基底で $\Omega_a(\partial_{x^1},\partial_{x^2})=a$。[複素行列式の不等式](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)に $a$ を掛けると、全実正規直交組での絶対値は高々 $a$。従ってcomassはちょうど $a$。較正にはcomassが1である必要があるため $a=1$ のときに限る。一方 $a>0$ に対して $\operatorname{Im}\Omega_a=0$ となる平面は変わらないので、虚部だけではcomassの値を判定できない。
+正の正規直交水平基底で $\Omega_a(\partial_{x^1},\partial_{x^2})=a$。[複素行列式の不等式](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)に $a$ を掛けると、任意の実正規直交2組での $\operatorname{Re}\Omega_a$ の評価の絶対値は高々 $a$。水平基底でこの上限が達成されるので
+
+$$
+\|\operatorname{Re}\Omega_a\|_*=a.
+$$
+
+$\Omega_a$ は定数係数であり $d(\operatorname{Re}\Omega_a)=0$ である。[較正形式の定義](../SYZ1-03/index.md#def-syz1-03-calibration)は **comassが1以下** と閉性を要求するから、$\operatorname{Re}\Omega_a$ が較正形式となる必要十分条件は $0<a\le1$ である。
+
+ただし「較正形式である」と「水平平面を較正する」は異なる。$0<a<1$ ではどの正規直交接基底で評価しても値は高々 $a<1$ だから、体積形式との等号を満たす部分多様体は存在しない。$a=1$ では水平平面で等号が成立する。$a>1$ ではcomass条件が破れる。一方、どの $a>0$ に対しても $\operatorname{Im}\Omega_a=a\operatorname{Im}\Omega_0$ の零点集合は変わらないので、虚部だけでは較正形式かどうかも、較正等号が成立するかどうかも判定できない。
 <!-- solution-end -->
 
 <a id="ex-syz1-04-a05"></a>
@@ -522,7 +546,7 @@ $\mathbb R^2$ 上で $f(x,y)=\frac12(2x^2-2y^2)+xy$ とする。グラフの接�
 <!-- solution-start -->
 ### 詳細解答
 
-勾配は $(2x+y,x-2y)$ で、接ベクトルを $(x,y,y^1,y^2)$ の順に書くと
+勾配は $(2x+y,x-2y)$ である。以下で $F_x=\partial F/\partial x$、$F_y=\partial F/\partial y$ と書き、接ベクトルを $(x,y,y^1,y^2)$ の順に並べると
 
 $$
 F_x=(1,0,2,1),\qquad F_y=(0,1,1,-2).

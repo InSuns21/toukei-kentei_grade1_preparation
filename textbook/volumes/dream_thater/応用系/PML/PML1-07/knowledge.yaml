@@ -1,0 +1,60 @@
+chapter: PML1-07
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-06, OPT7, ODE4]
+concepts:
+  - id: physics-machine-learning.euclidean-gradient-flow
+    name: ユークリッド勾配流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ユークリッド勾配流）"]
+    requires:
+      - ode.ode4-nonlinear-autonomous-system
+      - optimization.fixed-step-gradient-method
+  - id: physics-machine-learning.gradient-flow-dissipation
+    name: 勾配流の散逸恒等式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（勾配流の散逸恒等式）"]
+    requires:
+      - physics-machine-learning.euclidean-gradient-flow
+      - analysis.ftc-2
+  - id: physics-machine-learning.gradient-flow-stationary
+    name: 勾配流の停留点
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（勾配流の停留点）"]
+    requires:
+      - physics-machine-learning.euclidean-gradient-flow
+      - ode.ode4-nonlinear-autonomous-system
+  - id: physics-machine-learning.bounded-flow-asymptotic-stationarity
+    name: 有界な滑らか勾配流の漸近的停留性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有界な滑らか勾配流の漸近的停留性）"]
+    requires:
+      - physics-machine-learning.gradient-flow-dissipation
+  - id: physics-machine-learning.strong-convex-flow-convergence
+    name: 強凸勾配流の指数収束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（強凸勾配流の指数収束）"]
+    requires:
+      - physics-machine-learning.gradient-flow-dissipation
+      - optimization.strong-convex-gradient-bound
+      - optimization.lipschitz-gradient
+  - id: physics-machine-learning.constant-mobility-gradient-system
+    name: 定数移動度の勾配系
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（定数移動度の勾配系）"]
+    requires:
+      - physics-machine-learning.euclidean-gradient-flow
+  - id: physics-machine-learning.mobility-dissipation
+    name: 移動度が正定値なら散逸する
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（移動度が正定値なら散逸する）"]
+    requires:
+      - physics-machine-learning.constant-mobility-gradient-system
+      - physics-machine-learning.gradient-flow-dissipation
