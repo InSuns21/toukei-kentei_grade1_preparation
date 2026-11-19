@@ -213,7 +213,7 @@ $$
 h(z,w)=z\overline w.
 $$
 
-これは交代2形式によるLagrange条件とは別の構造であり、[既習のHermitian計量と正値性](../../KAH/KAH1-05/index.md#prop-kah1-05-constant-model)と同じ種類の内積である。
+[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)では交代2形式が接空間上で零となることを調べたが、ここでのHermitian内積は正定値性を持つ別の構造である。[既習のHermitian計量と正値性](../../KAH/KAH1-05/index.md#prop-kah1-05-constant-model)で使った内積と同じ種類である。
 
 **接続** $\nabla$ は局所切断 $f$ の微分を与える作用素で、単位枠では次の形を取る。
 
