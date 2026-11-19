@@ -81,7 +81,19 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（アフィン一般位置）**  
-> $d,N\ge1$、$X=(x_1,\ldots,x_N)$、$x_i\in\mathbb R^d$ とする。任意の $1\le r\le\min(N,d+1)$ と相異なる添字 $i_1,\ldots,i_r$ に対し、増補ベクトル $(x_{i_j},1)\in\mathbb R^{d+1}$ が線形独立であるとき、$X$ は**アフィン一般位置**にあるという。
+> 整数 $d,N\ge1$ と点列 $X=(x_1,\ldots,x_N)$、$x_i\in\mathbb R^d$ を固定する。任意の整数 $r$ で
+>
+$$
+1\le r\le\min\{N,d+1\}
+$$
+>
+> を満たすものと、任意の相異なる添字 $i_1,\ldots,i_r$ に対し、増補ベクトルの族
+>
+$$
+\bigl\{(x_{i_j},1)\in\mathbb R^{d+1}:j=1,\ldots,r\bigr\}
+$$
+>
+> が線形独立であるとき、$X$ は**アフィン一般位置**にあるという。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-05-general-position -->
