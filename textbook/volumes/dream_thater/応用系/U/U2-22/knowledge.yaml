@@ -1,0 +1,55 @@
+chapter: U2-22
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-21
+forward_references: []
+concepts:
+  - id: robotics.ekf-slam-augmented-state
+    name: ランドマーク型 SLAM の増補状態
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（ランドマーク型 SLAM の増補状態）"]
+    requires: [robotics.slam-joint-posterior, robotics.planar-pose]
+  - id: robotics.ekf-slam-cross-prediction
+    name: 増補状態の一次予測と交差共分散
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（増補状態の一次予測と交差共分散）"]
+    requires: [robotics.ekf-slam-augmented-state, robotics.ekf-first-order-prediction]
+  - id: robotics.ekf-slam-landmark-jacobian
+    name: 増補状態に対する測距・方位の観測行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（増補状態に対する測距・方位の観測行列）"]
+    requires: [robotics.ekf-slam-augmented-state, robotics.landmark-range-bearing]
+  - id: robotics.ekf-slam-observation-jacobian-derivation
+    name: 距離・方位の全状態微分
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（距離・方位の全状態微分）"]
+    requires: [robotics.ekf-slam-landmark-jacobian, robotics.landmark-observation-jacobian]
+  - id: robotics.ekf-slam-joint-update
+    name: ランドマーク型 EKF-SLAM の観測更新
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（ランドマーク型 EKF-SLAM の観測更新）"]
+    requires: [robotics.ekf-slam-landmark-jacobian, robotics.kalman-measurement-update, robotics.kalman-joseph-form]
+  - id: robotics.ekf-slam-landmark-birth
+    name: 逆観測によるランドマーク追加
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（逆観測によるランドマーク追加）"]
+    requires: [robotics.ekf-slam-augmented-state, robotics.landmark-range-bearing]
+  - id: robotics.ekf-slam-birth-covariance
+    name: 追加目印の誤差伝播と正定値性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（追加目印の誤差伝播と正定値性）"]
+    requires: [robotics.ekf-slam-landmark-birth, robotics.ekf-first-order-prediction]
+  - id: robotics.ekf-slam-cross-overconfidence
+    name: 交差共分散を消した後の再観測による過信例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（交差共分散を消した後の再観測による過信例）"]
+    requires: [robotics.ekf-slam-joint-update, robotics.ekf-slam-birth-covariance]
