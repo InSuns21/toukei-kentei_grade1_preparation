@@ -1,0 +1,35 @@
+chapter: SYZ1-05
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-04]
+concepts:
+  - id: syz.mclean-variation-forms
+    name: 法線変形に対応する二つの形式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（法線変形に対応する二つの形式）"]
+    requires: [syz.slag-normalized-conditions]
+  - id: syz.mclean-hodge-codifferential
+    name: 1形式のHodge星と余微分
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1形式のHodge星と余微分）"]
+    requires: []
+  - id: syz.mclean-hodge-identification
+    name: 法線場・1形式・Hodge星の同定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（法線場・1形式・Hodge星の同定）"]
+    requires: [syz.mclean-variation-forms, syz.mclean-hodge-codifferential]
+  - id: syz.mclean-linearized-slag
+    name: 固定位相のSLag方程式の線形化
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定位相のSLag方程式の線形化）"]
+    requires: [syz.mclean-hodge-identification, syz.slag-normalized-conditions]
+  - id: syz.mclean-compact-phase-rigidity
+    name: コンパクトSLagの位相の一次固定
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（コンパクトSLagの位相の一次固定）"]
+    requires: [syz.mclean-linearized-slag]
