@@ -1,0 +1,49 @@
+chapter: U2-21
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-20
+forward_references: []
+concepts:
+  - id: robotics.slam-finite-generative-model
+    name: 有限状態 SLAM の生成模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限状態 SLAM の生成模型）"]
+    requires: [robotics.motion-observation-conditional-model, robotics.random-occupancy-grid, robotics.planar-pose]
+  - id: robotics.slam-generative-factorization
+    name: SLAM の生成分布の因子分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（SLAM の生成分布の因子分解）"]
+    requires: [robotics.slam-finite-generative-model]
+  - id: robotics.slam-joint-posterior
+    name: 軌跡・地図の同時事後
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（軌跡・地図の同時事後）"]
+    requires: [robotics.slam-generative-factorization, robotics.finite-bayes-filter]
+  - id: robotics.slam-marginal-conditional-map
+    name: 同時事後の周辺化と条件付き地図の分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（同時事後の周辺化と条件付き地図の分解）"]
+    requires: [robotics.slam-joint-posterior]
+  - id: robotics.slam-pose-map-coupling
+    name: 観測が生む姿勢・地図の相関
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（観測が生む姿勢・地図の相関）"]
+    requires: [robotics.slam-joint-posterior, robotics.slam-marginal-conditional-map]
+  - id: robotics.slam-planar-gauge
+    name: 平面 SLAM の共通座標変換
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面 SLAM の共通座標変換）"]
+    requires: [robotics.planar-rigid-transform, robotics.planar-frame-invariance]
+  - id: robotics.slam-relative-gauge-invariance
+    name: 相対運動・測距方位の gauge 不変性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相対運動・測距方位の gauge 不変性）"]
+    requires: [robotics.slam-planar-gauge, robotics.landmark-range-bearing, robotics.planar-relative-pose]

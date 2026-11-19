@@ -21,3 +21,4 @@
 18. [U2-18 Monte Carlo localization：平面で位置を追う](textbook/volumes/dream_thater/応用系/U/U2-18/index.md)
 19. [U2-19 データ対応と誤観測：見た目が似た目印の落とし穴](textbook/volumes/dream_thater/応用系/U/U2-19/index.md)
 20. [U2-20 占有格子地図の更新：log-odds と逆センサーモデル](textbook/volumes/dream_thater/応用系/U/U2-20/index.md)
+21. [U2-21 SLAM の確率模型：軌跡と地図の同時事後](textbook/volumes/dream_thater/応用系/U/U2-21/index.md)
