@@ -121,16 +121,16 @@ $$
 
 この右辺が予測速度からも得られることを確かめる。例えば $\rho=1$ [kg/m³]、$\Delta t=0.1$ [s] とし、壁面は零、内側面の予測速度を $\boldsymbol u^\ast=(\Delta t/\rho)G_hp$ と選ぶ。$(0,0)$ の右面と上面ではいずれも圧力差が $-2$ [Pa] だから、
 
-$
+$$
 u^\ast_{1,0}=v^\ast_{0,1}
 =0.1\,\frac{-2}{1/2}=-0.4\quad[\mathrm{m/s}],
-$
+$$
 
-$
+$$
 (D_h\boldsymbol u^\ast)_{00}
 =\frac{-0.4-0+(-0.4)-0}{1/2}=-1.6\quad[\mathrm{s}^{-1}],
 \qquad b_{00}=\frac{\rho}{\Delta t}(-1.6)=-16\quad[\mathrm{Pa/m^2}].
-$
+$$
 
 残りのセルも $b=(\rho/\Delta t)D_h\boldsymbol u^\ast=D_hG_hp=L_hp$ となる。これで、単に $b$ を圧力から逆算したのではなく、**壁速度・右辺・Poisson方程式・平均零ゲージ**を一つのMAC格子上で確認した。
 
@@ -166,10 +166,10 @@ $$
 
 Poissonの可解性の**十分性**は、格子演算子を有限次元行列で表せば明示できる。まずセル圧力を $k=i+Nj$ の順に並べた長さ $N^2$ のベクトル $\boldsymbol p$ とする。$(L_h\boldsymbol p)_k$ の係数行列は、セル $(i,j)$ に対応する対角成分が $-m_{ij}/h^2$、隣接するセルの列が $1/h^2$、その他が零である。共有辺の両方向に同じ係数を置くのでこの行列は対称であり、次の二次形式は隣接する圧力差の二乗に分解できる。
 
-$
+$$
 -\sum_{ij}p_{ij}(L_hp)_{ij}
 =\frac1{h^2}\sum_{\text{内側の隣接セル対 }a,b}(p_a-p_b)^2\ge0.
-$
+$$
 
 各隣接対を一度だけ数える。右辺が零なら、どの隣接セル間でも $p_a=p_b$。格子が連結しているため全セルの圧力は同じ定数となり、$L_h$ の核は定数ベクトルだけである。一方、対称性から任意の $\boldsymbol z$ が核にあれば $\boldsymbol z^{\mathsf T}L_h\boldsymbol p=(L_h\boldsymbol z)^{\mathsf T}\boldsymbol p=0$。つまり像は核の直交補空間に含まれる。さらに階数・退化次数の関係により、像も総和零ベクトルの空間も次元が $N^2-1$ なので両者は一致する。したがって $\sum b=0$ なら解が存在し、平均零を指定すれば一意に決まる。$p$ へ定数を足しても隣接差は変わらない。
 
@@ -210,11 +210,11 @@ $$
 <!-- definition-example-start: def-fcg4-residual -->
 **直接例。** $N=2,h=1/2$ で平均零かつ総和零の右辺を $b_{00}=-16,b_{10}=16,b_{01}=16,b_{11}=-16$ [Pa/m²] とする。反復前の $p=0$ では $L_hp=0$ なので $R_{00}=0-(-16)=16$、他のセルは $-16,-16,16$ [Pa/m²]。したがって $E_{\mathrm P}=16$ [Pa/m²]。$\Delta t/\rho$ の数値を0.1とすると、$p=0$ では $G_hp=0$ なので $\boldsymbol u^{\mathrm{new}}=\boldsymbol u^\ast$ である。一方、$b=(\rho/\Delta t)D_h\boldsymbol u^\ast$ の定義を解けば $D_h\boldsymbol u^\ast=(\Delta t/\rho)b$。したがって
 
-$
+$$
 E_{\mathrm D}=\max_{ij}|D_h\boldsymbol u^\ast|
 =\frac{\Delta t}{\rho}\max_{ij}|b_{ij}|
 =0.1\cdot16=1.6\quad[\mathrm{s}^{-1}].
-$
+$$
 
 これは後の残差恒等式を先取りせず、$p=0$ と右辺の定義から直接確認できる。この時点では収束していない。
 
@@ -273,9 +273,9 @@ $$
 
 とする。$\sum\phi=0$ は $\cos(\pi(N-i-\tfrac12)/N)=-\cos(\pi(i+\tfrac12)/N)$ の対称性から従う。次に**流れ関数（stream function）**を頂点上の値 $\psi_{ij}$ として導入する。これは速度そのものではなく、鉛直面の水平速度を $y$ 方向の差分、水平面の鉛直速度を負の $x$ 方向の差分で生成するための量である。ここでは
 
-$
+$$
 \psi_{ij}=0.05\sin(\pi i/8)\sin(\pi j/8)\quad[\mathrm{m}^2/\mathrm{s}]
-$
+$$
 
 とする（頂点添字 $i,j=0,\dots,8$）。上付き $s$ はこの流れ関数から作る速度場を表し、時刻や微分を表す添字ではない。頂点差から定義する面速度
 
@@ -356,16 +356,16 @@ $$
 <!-- solution-start -->
 **詳細解答。** 第1節のMAC格子では、圧力はセルごとに1標本、$u$ は各鉛直面に1標本、$v$ は各水平面に1標本なので
 
-$
+$$
 N_p=N^2=64,\qquad N_u=(N+1)N=72,\qquad N_v=N(N+1)=72.
-$
+$$
 
 格子幅 $h=1/8$ [m] を第1節の面座標へ代入すると
 
-$
+$$
 u_{3,4}:\ (3/8,4.5/8),\qquad
 v_{3,4}:\ (3.5/8,4/8)\quad[\mathrm{m}].
-$
+$$
 
 $u$ と $v$ の添字を同じ中心点と解釈してはいけない。
 <!-- solution-end -->
@@ -469,18 +469,18 @@ $$
 <!-- solution-start -->
 **詳細解答。** (a) セル圧力 $p_{ij}$ と右辺 $b_{ij}$ は $i,j=0,\dots,N-1$、水平面速度は $i=0,\dots,N,\ j=0,\dots,N-1$、鉛直面速度は $i=0,\dots,N-1,\ j=0,\dots,N$ に置く。一次元配列へは次のように並べる。
 
-$
+$$
 k_p=k_b=i+Nj,\qquad
 k_u=i+(N+1)j,\qquad
 k_v=i+Nj.
-$
+$$
 
 最後の式は $v$ の添字域で用い、圧力配列と同じ長さを意味しない。まず壁面で $u_{0,j}=u_{N,j}=v_{i,0}=v_{i,N}=0$ とし、内部の予測面速度を設定する。[MAC発散](#def-fcg4-mac-divergence)を用いて、各セルの右辺を
 
-$
+$$
 b_{ij}=\frac{\rho}{\Delta t}\,
 \frac{u^\ast_{i+1,j}-u^\ast_{i,j}+v^\ast_{i,j+1}-v^\ast_{i,j}}h
-$
+$$
 
 と計算してから圧力反復を始める。
 
@@ -498,11 +498,11 @@ $
 
 (d) JSは中央テクスチャへ、次の量をR8として書き込む。
 
-$
+$$
 q_{\mathrm{tex}}=\frac{\operatorname{round}(255\min(1,|\mathrm{div}|/20))}{255}.
-$
+$$
 
-断片GLSLの \`float q=texelFetch(u_div,cell,0).r;\` を \`float q=min(1.0,2.0*texelFetch(u_div,cell,0).r);\` に変更すると、中央パネルの赤成分は量子化済みの $q_{\mathrm{tex}}$ の2倍（上限1）となる。**JSの除数を10に変更する操作とは量子化順序が違う**ので、一般には完全には一致しない。圧力反復、$\boldsymbol u^{\mathrm{new}}$、$b$、$E_{\mathrm P}$、$E_{\mathrm D}$、壁流束はJSが計算するため不変。赤成分は最終フレームバッファでも量子化され得る。表示差とCPU物理残差の不変性を別々に確認し、シェーダ編集後は初期画素基準を正誤判定に流用しない。
+断片GLSLの `float q=texelFetch(u_div,cell,0).r;` を `float q=min(1.0,2.0*texelFetch(u_div,cell,0).r);` に変更すると、中央パネルの赤成分は量子化済みの $q_{\mathrm{tex}}$ の2倍（上限1）となる。**JSの除数を10に変更する操作とは量子化順序が違う**ので、一般には完全には一致しない。圧力反復、$\boldsymbol u^{\mathrm{new}}$、$b$、$E_{\mathrm P}$、$E_{\mathrm D}$、壁流束はJSが計算するため不変。赤成分は最終フレームバッファでも量子化され得る。表示差とCPU物理残差の不変性を別々に確認し、シェーダ編集後は初期画素基準を正誤判定に流用しない。
 <!-- solution-end -->
 
 ## 8. 次の講義
