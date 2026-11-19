@@ -22,9 +22,9 @@ $k$ 個の接ベクトルを並べて作る向き付き $k$ 次元接平面に�
 > **定義（comass）**  
 > $(M,g)$ をRiemann多様体、$\varphi$ を $M$ 上の実 $k$ 形式、$p\in M$ とする。点 $p$ でのcomassを
 >
-> $$
-> \|\varphi_p\|_*=\sup\{|\varphi_p(v_1,\ldots,v_k)|:\ g_p(v_i,v_j)=\delta_{ij}\}
-> $$
+$$
+\|\varphi_p\|_*=\sup\{|\varphi_p(v_1,\ldots,v_k)|:\ g_p(v_i,v_j)=\delta_{ij}\}
+$$
 >
 > と定める。上限は $T_pM$ のすべての正規直交 $k$ 組について取る。
 <!-- formal-statement-end -->
@@ -53,9 +53,9 @@ $$
 > **定義（較正形式と較正部分多様体）**  
 > $(M,g)$ をRiemann多様体、$\varphi$ を $M$ 上の実 $k$ 形式とする。$d\varphi=0$ かつ全ての $p\in M$ で $\|\varphi_p\|_*\le1$ なら、$\varphi$ を **較正形式** と呼ぶ。向き付き埋め込み $k$ 次元部分多様体 $L\subset M$ が、各 $p\in L$ の正の向きの正規直交接基底 $(e_1,\ldots,e_k)$ について
 >
-> $$
-> \varphi_p(e_1,\ldots,e_k)=1
-> $$
+$$
+\varphi_p(e_1,\ldots,e_k)=1
+$$
 >
 > を満たすとき、$L$ は $\varphi$ によって **較正されている** という。これは $\varphi|_L=\operatorname{vol}_{L}$ と同値である。
 <!-- formal-statement-end -->
@@ -82,21 +82,21 @@ $$
 > **定理（較正された部分多様体の体積最小性）**  
 > $(M,g)$ をRiemann多様体、$\varphi$ をその上の閉じた実 $k$ 形式とし、全点で次のcomass条件を仮定する。
 >
-> $$
-> \|\varphi_p\|_*\le1\qquad(p\in M).
-> $$
+$$
+\|\varphi_p\|_*\le1\qquad(p\in M).
+$$
 >
 > $L$ をコンパクト・境界なし・向き付きの埋め込み $k$ 次元部分多様体とし、次の較正等号を仮定する。
 >
-> $$
-> \varphi|_L=\operatorname{vol}_L.
-> $$
+$$
+\varphi|_L=\operatorname{vol}_L.
+$$
 >
 > $N$ を同じ次元のコンパクト・境界なし・向き付きの部分多様体とし、$[N]=[L]$（同じ実ホモロジー類）を仮定する。このとき
 >
-> $$
-> \operatorname{Vol}_g(L)\le\operatorname{Vol}_g(N).
-> $$
+$$
+\operatorname{Vol}_g(L)\le\operatorname{Vol}_g(N).
+$$
 >
 > $N$ の全点でも $\varphi|_N=\operatorname{vol}_N$ が成り立てば等号である。逆に等号が成立すれば、連続な接平面評価のもとでは各点でこの較正等号が成立する。
 <!-- formal-statement-end -->
@@ -151,9 +151,9 @@ $T^2=(\mathbb R/\mathbb Z)^2$ に $dx^2+dy^2$ を入れる。$\varphi=(dx+dy)/\s
 > **命題（較正と変分の関係）**  
 > コンパクト・境界なしの向き付き部分多様体 $L$ が閉較正形式で較正されているとする。$L_0=L$ から出発する滑らかな向きを保つ埋め込み変形 $L_t$ を考える。その体積関数が二回微分可能であるとき、
 >
-> $$
-> V(t)=\operatorname{Vol}(L_t),\qquad V'(0)=0,\qquad V''(0)\ge0.
-> $$
+$$
+V(t)=\operatorname{Vol}(L_t),\qquad V'(0)=0,\qquad V''(0)\ge0.
+$$
 >
 > ただし $V''(0)>0$ は一般には従わない。
 <!-- formal-statement-end -->
@@ -196,9 +196,9 @@ $$
 > **補題（複素行列式の不等式とLagrange等号条件）**  
 > $\mathbb C^n$ に上記の $g,\omega,\Omega$ を入れ、$(v_1,\ldots,v_n)$ を実内積 $g$ に関する正規直交 $n$ 組とする。このとき
 >
-> $$
-> |\Omega(v_1,\ldots,v_n)|\le1.
-> $$
+$$
+|\Omega(v_1,\ldots,v_n)|\le1.
+$$
 >
 > 等号が成り立つことと、実 $n$ 平面 $P=\operatorname{span}_{\mathbb R}\{v_1,\ldots,v_n\}$ が $\omega|_P=0$ を満たすことは同値である。
 <!-- formal-statement-end -->
@@ -257,16 +257,16 @@ $\theta\in\mathbb R$ を固定し、複素数 $e^{-i\theta}$ を掛けた $\Omeg
 > **定理（平坦空間での特殊Lagrange較正）**  
 > $\mathbb C^n$ にEuclid計量 $g$、$\omega=\sum_jdx^j\wedge dy^j$、$\Omega=dz^1\wedge\cdots\wedge dz^n$ を入れ、実数 $\theta$ を固定する。
 >
-> $$
-> \varphi_\theta=\operatorname{Re}(e^{-i\theta}\Omega)
-> $$
+$$
+\varphi_\theta=\operatorname{Re}(e^{-i\theta}\Omega)
+$$
 >
 > は閉じたcomass 1 の実 $n$ 形式である。向き付き実 $n$ 次元の埋め込み部分多様体 $L\subset\mathbb C^n$ が $\varphi_\theta$ で較正されるための必要十分条件は、各点の正の向きの正規直交接基底 $(e_1,\ldots,e_n)$ について
 >
-> $$
-> \omega|_{T_pL}=0,\qquad
-> \Omega(e_1,\ldots,e_n)=e^{i\theta}
-> $$
+$$
+\omega|_{T_pL}=0,\qquad
+\Omega(e_1,\ldots,e_n)=e^{i\theta}
+$$
 >
 > が成り立つことである。このような $L$ を位相 $\theta$ の **特殊Lagrange部分多様体** と呼ぶ。
 <!-- formal-statement-end -->
@@ -293,7 +293,6 @@ $$
 $L$ の正の向きの正規直交接基底で較正の等号が成立するなら、連鎖する二つの不等式がともに等号である。補題から $\omega|_{T_pL}=0$。さらに $e^{-i\theta}\Omega(e_1,\ldots,e_n)$ は絶対値1で実部1なので、複素数として1でなければならない。従って $\Omega(e_1,\ldots,e_n)=e^{i\theta}$。逆にこの二条件なら $\varphi_\theta(e_1,\ldots,e_n)=\operatorname{Re}1=1$ であり、定義どおり較正される。
 <!-- proof-end -->
 
-<!-- definition-example-start: thm-syz1-03-special-lagrangian-calibration -->
 ### 直接例：回転した実平面の位相を測る
 
 **条件の確認**：$\mathbb C^2$ で $v_1=e^{ia}\partial_{x^1}$、$v_2=e^{ib}\partial_{x^2}$ が張る向き付き平面を考える。異なる複素座標軸の方向なので $g(v_i,v_j)=\delta_{ij}$、$\omega(v_1,v_2)=0$。さらに
@@ -305,7 +304,7 @@ $$
 $$
 
 この平面は $\theta\equiv a+b\pmod{2\pi}$ のとき較正される。$\theta$ を変えて虚部だけ0にした場合、$a+b-\theta=\pi$ なら実部は $-1$ であり較正ではない。
-<!-- definition-example-end -->
+
 
 本節の「特殊」は、**閉形式による体積最小性という幾何的結論**につながる言葉である。ただし定理4のコンパクト境界なし・同一ホモロジーという条件を、非コンパクトな全平面へそのまま適用してはいけない。平坦なグラフや平面のコンパクト部分では、同じ境界を持ち差が鎖の境界になる競合曲面に対して同様のStokes計算を行える。
 
