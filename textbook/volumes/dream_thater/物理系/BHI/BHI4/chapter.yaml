@@ -1,0 +1,44 @@
+id: BHI4
+title: "放射のエネルギー収支と準静的蒸発"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI3
+  - QCURV21
+  - BHT9
+official_scope: []
+learning_objectives:
+  - 遠方の正味光度と孤立系の保存則を分離し、放射済みエネルギーと質量減少の積分関係を証明できる
+  - Hawking光度の透過率と質量スケーリングから逆二乗則が成り立つ追加仮定を説明できる
+  - 準静的質量三乗則から質量分率と経過時間の対応、温度・光度比を求められる
+  - 質量に依存する放出係数の場合、停止質量までの経過時間を積分で評価できる
+  - 断熱指標と曲率尺度を用いて準静的近似を停止すべき領域を明示できる
+  - Schwarzschild面積エントロピーの減少率を導き、理想黒体の粗視化エントロピーと放射全体の精細エントロピーを区別できる
+definitions:
+  - { id: BHI4-DEF-01, name: "孤立した準静的蒸発のエネルギー収支模型" }
+  - { id: BHI4-DEF-02, name: "残存質量分率と形式蒸発時計" }
+theorems:
+  - { id: BHI4-PROP-01, name: "放射済みエネルギーと残存質量の対応" }
+  - { id: BHI4-THM-01, name: "準静的模型の質量分率と経過時間" }
+  - { id: BHI4-PROP-02, name: "質量依存光度係数の経過時間積分" }
+  - { id: BHI4-PROP-04, name: "準静的地平線エントロピーの減少率" }
+canonical_examples:
+  - 初期質量100と小さな光度係数によるエネルギー帳簿と時間微分の検算
+  - 質量半減は形式時間の七八分の七で起こるという質量分率比較
+  - 質量下限20を置いた断熱指標と経過時間の評価
+  - 理想黒体の追加仮定から得る粗視化エントロピー比と精細エントロピーの相違
+problem_patterns:
+  - BHI4-ENERGY-LEDGER
+  - BHI4-HALF-MASS-TIME
+  - BHI4-HORIZON-ENTROPY-DIFFERENCE
+  - BHI4-ADIABATIC-CUTOFF
+  - BHI4-GREYBODY-SCALING
+  - BHI4-VARIABLE-LUMINOSITY-COEFFICIENT
+  - BHI4-INCOMING-FLUX-CONTRAST
+  - BHI4-COARSE-FINE-ENTROPY
+  - BHI4-MULTISPECIES-RATE
+  - BHI4-INTEGRATED-ENDPOINT-DIAGNOSTIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 10, review: 5 }
