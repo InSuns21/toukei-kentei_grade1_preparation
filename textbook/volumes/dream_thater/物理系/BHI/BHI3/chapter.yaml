@@ -1,0 +1,44 @@
+id: BHI3
+title: "逐次対生成と放射の混合化"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI2
+  - BHI1
+  - QINF17
+  - QINF33
+official_scope: []
+learning_objectives:
+  - 有限次元の逐次独立対生成で放射と内部の各時刻のHilbert空間・状態を定義できる
+  - 直積状態の部分トレースと全固有値を計算し、放射の精細エントロピーの和公式を証明できる
+  - 同一の対生成と異なる対生成の増分を区別し、線形増大の仮定・上限・端点を検証できる
+  - 各新規対の純粋性が厳密なら他の放出と独立となることを証明し、どの相関仮定を弱める必要があるか説明できる
+  - 一モードの局所混合と放射全体の混合を区別し、SWAPを用いる非単調な放射エントロピー履歴を再計算できる
+  - 中間時刻の放射の混合性だけから蒸発終期の情報損失を結論できない理由を明示できる
+definitions:
+  - { id: BHI3-DEF-01, name: "独立な逐次内外対生成模型" }
+  - { id: BHI3-DEF-02, name: "逐次模型の放射履歴" }
+theorems:
+  - { id: BHI3-PROP-01, name: "独立逐次対の放射縮約と固有値" }
+  - { id: BHI3-THM-01, name: "独立対生成のエントロピー増加式と線形増大条件" }
+  - { id: BHI3-PROP-02, name: "純粋な新規対の厳密な因数分解" }
+  - { id: BHI3-PROP-03, name: "局所混合と放射全体の非単調性" }
+canonical_examples:
+  - 二つの最大エンタングル対から生じる四準位最大混合放射
+  - 放出ごとに異なる重みを持つ二対の固有値積とエントロピー
+  - 一対が積状態になる端点でエントロピーが増えない逐次生成
+  - 記憶量子ビットのSWAP移送で二放射モードがBell純粋状態となる履歴
+problem_patterns:
+  - BHI3-STEP-TRACE
+  - BHI3-ASYMMETRIC-PAIRS
+  - BHI3-ENDPOINT-PARAMETER
+  - BHI3-PHASE-INVARIANCE
+  - BHI3-INDUCTION-SPECTRUM
+  - BHI3-LOCAL-GLOBAL-COUNTEREXAMPLE
+  - BHI3-SWAP-EMISSION
+  - BHI3-PURE-PAIR-RIGIDITY
+  - BHI3-ENDPOINT-LOGIC
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 9, review: 5 }

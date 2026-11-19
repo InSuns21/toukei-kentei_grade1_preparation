@@ -1,0 +1,42 @@
+chapter: BHI3
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI2, BHI1, QINF17, QINF33]
+forward_references: []
+concepts:
+  - id: black-hole-information.sequential-independent-pairs
+    name: 独立な逐次内外対生成模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（独立な逐次内外対生成模型）]
+    requires: [black-hole-information.horizon-pair-toy, black-hole-information.endpoint-system-split]
+  - id: black-hole-information.sequential-radiation-history
+    name: 逐次模型の放射履歴
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（逐次模型の放射履歴）]
+    requires: [black-hole-information.sequential-independent-pairs, quantum.partial-trace, quantum.von-neumann-entropy]
+  - id: black-hole-information.sequential-reduction-spectrum
+    name: 独立逐次対の放射縮約と固有値
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（独立逐次対の放射縮約と固有値）]
+    requires: [black-hole-information.sequential-radiation-history, quantum.partial-trace]
+  - id: black-hole-information.independent-pair-entropy-growth
+    name: 独立対生成のエントロピー増加式と線形増大条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（独立対生成のエントロピー増加式と線形増大条件）]
+    requires: [black-hole-information.sequential-reduction-spectrum, quantum.entropy-tensor-additivity]
+  - id: black-hole-information.pure-new-pair-factorization
+    name: 純粋な新規対の厳密な因数分解
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（純粋な新規対の厳密な因数分解）]
+    requires: [black-hole-information.sequential-independent-pairs, quantum.pure-reduction-product-criterion]
+  - id: black-hole-information.local-mixing-nonmonotone
+    name: 局所混合と放射全体の非単調性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（局所混合と放射全体の非単調性）]
+    requires: [black-hole-information.sequential-radiation-history, quantum.stepwise-swap-emission, quantum.von-neumann-entropy]

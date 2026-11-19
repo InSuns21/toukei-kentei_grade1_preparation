@@ -19,7 +19,7 @@ chapters:
     title: "地平線内外の分割とHawking対の玩具模型"
   - id: BHI3
     path: textbook/volumes/dream_thater/物理系/BHI/BHI3
-    status: planned
+    status: completed
     title: "逐次対生成と放射の混合化"
   - id: BHI4
     path: textbook/volumes/dream_thater/物理系/BHI/BHI4
