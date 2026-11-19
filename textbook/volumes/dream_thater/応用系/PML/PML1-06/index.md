@@ -293,9 +293,35 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$D=(L_N(\theta;D))_{\theta\in\Theta_N}$ と読み替える。候補数 $|\Theta_N|=2^N$、各エネルギーの分布は $N(0,N)$、候補間独立という三つの仮定が、[SG1のREMの定義](../../../物理系/SG/SG1/index.md#def-sg1-rem)と一致する。ここで各試料のランダム圧力を $R_N(\beta,D)=N^{-1}\log Z_N(\beta,D)$ と書く。これは[SG1のランダム圧力 $P_N$](../../../物理系/SG/SG1/index.md#def-sg1-quenched)に対応するが、本章のデータ分布 $P_N(D)$ とは区別する。[SG1のREM圧力極限定理](../../../物理系/SG/SG1/index.md#thm-sg1-pressure)により $R_N$ は各 $\beta$ を固定すると確率収束し、$p_N^{\mathrm q}=\mathbb E_D R_N$ も同じ極限を持つ。なお $p_N^{\mathrm a}$ の式は[SG1のannealed圧力の公式](../../../物理系/SG/SG1/index.md#prop-sg1-annealed-rem)で、正規指数モーメントの計算を既に含む。
+$D=(L_N(\theta;D))_{\theta\in\Theta_N}$ と読み替える。候補数 $|\Theta_N|=2^N$、各損失の分布が $N(0,N)$、候補間の独立性という三条件は、[SG1のREMの定義](../../../物理系/SG/SG1/index.md#def-sg1-rem)と一致する。
 
-極限関数 $p(\beta)$ 自体を $\beta$ で微分する。有限 $N$ での微分を極限と交換する操作は用いない。$\beta<a$ では $p'(\beta)=\beta$、$p''(\beta)=1$、$\beta>a$ では $p'(\beta)=a$、$p''(\beta)=0$ である。従って一階導関数の左右極限はともに $a$ で $p'(a)=a$ が存在するが、二階導関数の左右極限は $1$ と $0$ で異なり $p''(a)$ は存在しない。差の式も
+ここで、各試料のランダム圧力を
+
+$$
+R_N(\beta,D)=\frac1N\log Z_N(D,\beta)
+$$
+
+と書く。これは[SG1のランダム圧力](../../../物理系/SG/SG1/index.md#def-sg1-quenched)に対応するが、本章のデータ分布 $P_N(D)$ と区別する。
+
+上で確認した三条件のもとで、[REMのquenched圧力極限](../../../物理系/SG/SG1/index.md#thm-sg1-pressure)を適用できる。各 $\beta$ を固定すると $R_N$ は確率収束し、その期待値 $p_N^{\mathrm q}=\mathbb E_D R_N$ も同じ極限を持つ。なお、$p_N^{\mathrm a}$ は[SG1のannealed圧力の公式](../../../物理系/SG/SG1/index.md#prop-sg1-annealed-rem)により計算できる。
+
+極限関数 $p(\beta)$ 自体を $\beta$ で微分する。有限 $N$ での微分と極限を交換する操作は用いない。臨界点 $a$ を除いて微分すると
+
+$$
+p'(\beta)=
+\begin{cases}
+\beta,&0<\beta<a,\\
+a,&\beta>a,
+\end{cases}
+\qquad
+p''(\beta)=
+\begin{cases}
+1,&0<\beta<a,\\
+0,&\beta>a.
+\end{cases}
+$$
+
+$p(a)=\log2+a^2/2=a^2$ は左右の式と一致する。一階導関数の左右極限はともに $a$ なので $p'(a)=a$ が存在する。一方、二階導関数の左右極限はそれぞれ $1$ と $0$ で一致せず、$p''(a)$ は存在しない。差の式も
 
 $$
 \left(\log2+\frac{\beta^2}{2}\right)-a\beta
