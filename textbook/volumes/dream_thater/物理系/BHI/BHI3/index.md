@@ -19,10 +19,10 @@
 >
 > 整数 $N\ge1$、各 $j=1,\ldots,N$ に $0\le p_j\le1$、$\phi_j\in\mathbb R$ を固定する。各 $O_j,I_j$ は $\mathbb C^2$ とし、有限次元の初期記憶系 $B_0$ は固定された純粋状態 $|\chi\rangle$ にあるとする。各ステップで新しい二量子ビット対
 >
-$
+$$
 |\psi_j\rangle=\sqrt{1-p_j}|0\rangle_{O_j}|0\rangle_{I_j}
 +e^{i\phi_j}\sqrt{p_j}|1\rangle_{O_j}|1\rangle_{I_j}
-$
+$$
 
 > を**以前のすべての系と直積で**作り、$k$ 回後の全状態を
 
