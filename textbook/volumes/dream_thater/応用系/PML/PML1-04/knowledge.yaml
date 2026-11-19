@@ -1,0 +1,64 @@
+chapter: PML1-04
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-03, INFO2]
+concepts:
+  - id: physics-machine-learning.finite-ebm
+    name: 有限エネルギーベースモデル
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限エネルギーベースモデル）"]
+    requires:
+      - physics-machine-learning.finite-loss-gibbs
+  - id: physics-machine-learning.ebm-log-likelihood
+    name: 有限EBMの平均対数尤度
+    aliases: [平均対数尤度]
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（有限EBMの平均対数尤度）"]
+    requires:
+      - physics-machine-learning.finite-ebm
+  - id: physics-machine-learning.ebm-score
+    name: 有限EBMの対数尤度勾配
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限EBMの対数尤度勾配）"]
+    requires:
+      - physics-machine-learning.ebm-log-likelihood
+  - id: physics-machine-learning.ebm-positive-negative-phases
+    name: 線形EBMの正相・負相
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（線形EBMの正相・負相）"]
+    requires:
+      - physics-machine-learning.ebm-score
+  - id: physics-machine-learning.two-spin-ebm-moments
+    name: 二スピン模型の分配関数とモデル平均
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二スピン模型の分配関数とモデル平均）"]
+    requires:
+      - physics-machine-learning.ebm-positive-negative-phases
+  - id: physics-machine-learning.ebm-kl-fit
+    name: 最尤学習とデータからモデルへのKL
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（最尤学習とデータからモデルへのKL）"]
+    requires:
+      - physics-machine-learning.ebm-log-likelihood
+      - information.relative-entropy
+      - information.gibbs-inequality
+  - id: physics-machine-learning.ebm-gauge-shift
+    name: 状態に依存しないエネルギー移動
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態に依存しないエネルギー移動）"]
+    requires:
+      - physics-machine-learning.finite-ebm
+  - id: physics-machine-learning.ebm-concavity
+    name: 線形EBMの対数尤度は凹関数
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形EBMの対数尤度は凹関数）"]
+    requires:
+      - physics-machine-learning.ebm-score
