@@ -37,7 +37,21 @@ $$
 \|\Psi_{1/4,0}\|^2=\frac34+\frac14=1.
 $$
 
-なぜこのノルムから密度演算子の条件を判定できるかも確かめましょう。$\rho_{OI}=|\Psi\rangle\langle\Psi|$ は任意のベクトル $v$ に対して $\langle v|\rho_{OI}|v\rangle=|\langle\Psi|v\rangle|^2\ge0$ なので正半定値です。また $\operatorname{Tr}\rho_{OI}=\langle\Psi|\Psi\rangle=1$、$\rho_{OI}^2=|\Psi\rangle\langle\Psi|\Psi\rangle\langle\Psi|=\rho_{OI}$ です。従って規格化ベクトルへの階数1射影として、密度演算子の非自明な条件をすべて満たします。
+なぜこのノルムから密度演算子の条件を判定できるかも確かめましょう。定義した $\rho_{OI}=|\Psi\rangle\langle\Psi|$ は、任意のベクトル $v$ に対して
+
+$$
+\langle v|\rho_{OI}|v\rangle=|\langle\Psi|v\rangle|^2\ge0
+$$
+
+なので正半定値です。また
+
+$$
+\operatorname{Tr}\rho_{OI}=\langle\Psi|\Psi\rangle=1,
+\qquad
+\rho_{OI}^2=|\Psi\rangle\langle\Psi|\Psi\rangle\langle\Psi|=\rho_{OI}.
+$$
+
+従って規格化ベクトルへの階数1射影として、密度演算子の非自明な条件をすべて満たします。
 
 端点 $p=0,1$ では積状態です。逆に $0<p<1$ で積状態だと仮定します。その場合、$|00\rangle$ と $|11\rangle$ の振幅が両方非零なので、各因子の0成分・1成分もすべて非零です。すると $|01\rangle$ と $|10\rangle$ の振幅も非零となるはずですが、定義した状態ではいずれも0です。矛盾するので、内部と外部は積状態になりません。
 <!-- definition-example-end -->
@@ -176,7 +190,14 @@ e^{-\beta H_O}=\operatorname{diag}(1,e^{-x}),\qquad
 \mathcal Z:=\operatorname{Tr}e^{-\beta H_O}=1+e^{-x}.
 $$
 
-ここで分配関数 $\mathcal Z$ は第2節のPauli作用素 $Z$ と異なります。[内外対の縮約命題](#prop-bhi2-reduction)へ $p=p_x=e^{-x}/\mathcal Z$ を代入すると、$\rho_O=\operatorname{diag}(1/\mathcal Z,e^{-x}/\mathcal Z)=e^{-\beta H_O}/\mathcal Z$。$N_O$ の期待値は $\operatorname{Tr}(\rho_ON_O)=p_x$ です。
+ここで分配関数 $\mathcal Z$ は第2節のPauli作用素 $Z$ と異なります。[内外対の縮約命題](#prop-bhi2-reduction)へ $p=p_x=e^{-x}/\mathcal Z$ を代入すると
+
+$$
+\rho_O=\operatorname{diag}(1/\mathcal Z,e^{-x}/\mathcal Z)
+=\frac{e^{-\beta H_O}}{\mathcal Z},
+\qquad
+\operatorname{Tr}(\rho_ON_O)=p_x.
+$$
 
 $\ln(1-p_x)=-\ln\mathcal Z$、$\ln p_x=-x-\ln\mathcal Z$ を[エントロピーの定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)に代入すると
 
@@ -295,7 +316,15 @@ S(O)&=\ln(1+\bar n)-\bar n\bigl[\ln\bar n-\ln(1+\bar n)\bigr]\\
 \end{aligned}
 $$
 
-内外それぞれの二準位射影を $P_O=\sum_{n=0}^1|n\rangle_O\langle n|$、$P_I=\sum_{n=0}^1|n\rangle_I\langle n|$ とし、局所切り詰めを $P=P_O\otimes P_I$ で行います。これは一般の内外状態に対しては $|01\rangle,|10\rangle$ も残しますが、$|\Omega_z\rangle$ は $|n,n\rangle$ の成分しかないため、作用させた結果は
+内外それぞれで占有数0と1を残す射影を
+
+$$
+P_O=\sum_{n=0}^1|n\rangle_O\langle n|,
+\qquad P_I=\sum_{n=0}^1|n\rangle_I\langle n|,
+\qquad P=P_O\otimes P_I
+$$
+
+と定義します。この局所射影は一般の内外状態に対しては $|01\rangle,|10\rangle$ も残しますが、$|\Omega_z\rangle$ は $|n,n\rangle$ の成分しかないため、作用させた結果は
 
 $$
 P|\Omega_z\rangle=\sqrt{1-z}(|00\rangle+\sqrt z|11\rangle),
@@ -320,9 +349,23 @@ $z=e^{-x}$ を入れると**無限占有**の平均は $\bar n=1/(e^x-1)$、**�
 
 ## 5. 同じ外部縮約だけでは、純化の仕方が決まらない
 
-ここでは $0<p<1$ を許しますが、第3節で固定した $H_O=\omega|1\rangle\langle1|$、$\beta>0$ のGibbs状態となるのは $0<p<1/2$ の場合だけです（$p/(1-p)=e^{-\beta\omega}<1$）。以下の非一意性は、熱的でない $p\ge1/2$ を含めた、さらに一般の外部縮約の性質です。
+第3節で固定した正のエネルギー差 $\omega>0$ と正の逆温度 $\beta>0$ に対して、占有確率がGibbs状態を表す必要十分条件は
 
-この節以降、$X_OX_I$ は $X_O\otimes X_I$、$Z_OZ_I$ は $Z_O\otimes Z_I$ の略記とします。どちらも異なる因子に作用し、$X,Z$ は[第2節の内外対の縮約・相関命題](#prop-bhi2-reduction)で定義した作用素です。全系が混合状態 $\rho_{OI}$ のときの期待値は $\operatorname{Tr}(\rho_{OI}A)$ で計算します。
+$$
+\frac{p}{1-p}=e^{-\beta\omega}<1
+\quad\Longleftrightarrow\quad 0<p<\frac12
+$$
+
+です。以下では一般に $0<p<1$ を許します。したがって非一意性の議論は、正温度の熱的縮約だけでなく、それ以外の外部縮約にも当てはまります。
+
+この節以降は、異なる部分系に作用する次の略記を使います。
+
+$$
+X_OX_I:=X_O\otimes X_I,\qquad
+Z_OZ_I:=Z_O\otimes Z_I.
+$$
+
+$X,Z$ は[第2節の内外対の縮約・相関命題](#prop-bhi2-reduction)で定義した作用素です。混合状態 $\rho_{OI}$ の期待値は $\operatorname{Tr}(\rho_{OI}A)$ で計算します。
 
 同じ $\rho_O=(1-p)|0\rangle\langle0|+p|1\rangle\langle1|$ に対し、先ほどの純粋な対と、位相の交差項を意図的に取り除いた状態を比べます。
 
