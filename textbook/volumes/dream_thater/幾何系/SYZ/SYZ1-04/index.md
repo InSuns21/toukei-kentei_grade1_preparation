@@ -103,7 +103,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-各 $p\in X$ で上の $J$ に適合した正規直交基底を取り、$\Omega_p$ の評価を標準 $\mathbb C^n$ の $\Omega_0$ の評価へ移す。$c(p)=1$ だから[複素行列式の不等式](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)より、任意の実正規直交 $n$ 組 $w_1,\ldots,w_n$ について
+各 $p\in X$ で上の $J$ に適合した正規直交基底を取り、$\Omega_p$ の評価を標準 $\mathbb C^n$ の $\Omega_0$ の評価へ移す。$c(p)=1$ であり、[複素行列式の不等式とLagrange等号条件](../SYZ1-03/index.md#lem-syz1-03-complex-determinant)を適用すると、任意の実正規直交 $n$ 組 $w_1,\ldots,w_n$ について
 
 $$
 \operatorname{Re}\bigl(e^{-i\theta}\Omega(w_1,\ldots,w_n)\bigr)
@@ -127,7 +127,7 @@ $$
 
 **どこで正値性が必要か。** $\mathbb C$ の実軸を増加方向に向けると $\Omega=dz$ は位相0だが、$\theta=\pi$ なら $\operatorname{Im}(e^{-i\pi}\Omega)|_L=0$ にもかかわらず $\operatorname{Re}(e^{-i\pi}\Omega)|_L=-\operatorname{vol}_L$。虚部0という式だけでは、向きを逆にした解を排除できない。
 
-[較正から体積最小性への定理](../SYZ1-03/index.md#thm-syz1-03-volume-minimization)を使う場合は、さらに比較する部分多様体のコンパクト性、境界、同一ホモロジー類など、積分比較に必要な仮定が別途必要である。非コンパクトなグラフ全体に大域的最小性を無条件で主張しない。
+[較正された部分多様体の体積最小性](../SYZ1-03/index.md#thm-syz1-03-volume-minimization)を使う場合は、さらに比較する部分多様体のコンパクト性、境界、同一ホモロジー類など、積分比較に必要な仮定が別途必要である。非コンパクトなグラフ全体に大域的最小性を無条件で主張しない。
 
 ## 4. 勾配グラフから複素行列式を導く
 
