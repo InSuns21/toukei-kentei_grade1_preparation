@@ -368,7 +368,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-連鎖律から $d f(x(t))/dt=\nabla f(x(t))^\mathsf T\dot x(t)$。速度に $-M\nabla f$ を代入すると主張の等式を得る。[実対称行列の正定値性の定義](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)より任意の非零 $v$ で $v^\mathsf TMv>0$ なので、右辺が $0$ となるのは $v=\nabla f=0$ の場合だけである。
+連鎖律から $d f(x(t))/dt=\nabla f(x(t))^\mathsf T\dot x(t)$。速度に $-M\nabla f$ を代入すると主張の等式を得る。[正定値行列](../../../基礎科目/F0/F0-00F1/index.md#def-f0-00f1-positive-semidefinite)の条件では任意の非零 $v$ で $v^\mathsf TMv>0$ なので、右辺が $0$ となるのは $v=\nabla f=0$ の場合だけである。
 <!-- proof-end -->
 
 **仮定を落とした反例**：対称だが半正定値の $M=\operatorname{diag}(1,0)$ と $f(x,y)=(x^2+y^2)/2$ を使う。流れは $\dot x=-x,\dot y=0$。初期値 $(0,1)$ なら $\dot x=\dot y=0$ なのに勾配は $(0,1)\ne0$ である。半正定値では方向 $y$ の運動が封じられ、等号から停留点を結論する証明が壊れる。
