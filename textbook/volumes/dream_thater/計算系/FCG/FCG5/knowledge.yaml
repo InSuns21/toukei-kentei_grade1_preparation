@@ -22,10 +22,10 @@ concepts:
     introduction_aliases: ["定義（陽的粘性・外力付き予測速度）"]
     requires: [graphics.fcg5-face-advection]
   - id: graphics.fcg5-viscosity-convexity
-    name: 陽的5点拡散の凸結合条件
+    name: 陽的5点拡散の値域保持条件
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（陽的5点拡散の凸結合条件）"]
+    introduction_aliases: ["命題（陽的5点拡散の値域保持条件）"]
     requires: [graphics.fcg5-viscous-force]
   - id: graphics.fcg5-stream
     name: 離散流れ関数から作る面速度
