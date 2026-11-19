@@ -151,12 +151,12 @@ $\alpha$ と $\beta$ は別々の変数ではない。SLag接空間の複素構�
 > 第2節の規格化したKähler構造と位相 $\theta$ の特殊Lagrange $L$ において、各滑らかな法線場 $V$ に対し、前述の形式は
 
 $$
-\alpha_V=(JV)^\flat\,(-1),\qquad
+\alpha_V=-(JV)^\flat,\qquad
 V=J(\alpha_V^\sharp),\qquad
 \beta_V=*\alpha_V
 $$
 
-> を満たす。最初の式は $\alpha_V=-(JV)^\flat$ を意味する。特に $V\mapsto\alpha_V$ は法線束と余接束の各ファイバーの線形同型である。
+> を満たす。特に $V\mapsto\alpha_V$ は法線束と余接束の各ファイバーの線形同型である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -311,7 +311,7 @@ F_t^*\operatorname{Im}(e^{-i\theta(t)}\Omega)\\
 \end{aligned}
 $$
 
-ここで $\alpha$ は速度場の法線成分から作る。これを $L$ 上で積分すると、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-stokes)と $\partial L=\varnothing$ より $\int_Ld*\alpha=0$。従って
+ここで $\alpha$ は速度場の法線成分から作る。これを $L$ 上で積分すると、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)と $\partial L=\varnothing$ より $\int_Ld*\alpha=0$。従って
 
 $$
 0=-\dot\theta(0)\int_L\operatorname{vol}_L.
@@ -599,7 +599,7 @@ d(f*df)=df\wedge *df+f\,d*df
 =|df|_g^2\operatorname{vol}_L.
 $$
 
-[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-stokes)と $\partial L=\varnothing$ により積分左辺は0。従って $\int_L|df|_g^2\operatorname{vol}_L=0$。連続な非負関数なので $df=0$ が全点で成り立ち、連結性から $f$ は定数である。
+[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)と $\partial L=\varnothing$ により積分左辺は0。従って $\int_L|df|_g^2\operatorname{vol}_L=0$。連続な非負関数なので $df=0$ が全点で成り立ち、連結性から $f$ は定数である。
 
 一方 $\mathbb R^2$ で $f=x^2-y^2$ は非定数で、$\alpha=df=2x\,dx-2y\,dy$ は閉、$d^*\alpha=-\Delta f=-(2-2)=0$ となる。非コンパクトでは積分の境界項・収束条件を無視できない。
 <!-- solution-end -->
