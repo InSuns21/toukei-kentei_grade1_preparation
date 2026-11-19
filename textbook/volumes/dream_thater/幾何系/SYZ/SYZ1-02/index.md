@@ -27,9 +27,25 @@ $$
 \alpha=\sum_{i=1}^n a_i(q)\,dq^i
 $$
 
-と局所表示する。各 $q$ に余ベクトル $\alpha_q$ を載せる写像を $s_\alpha(q)=(q,a(q))$ と書く。射影 $\pi:T^*Q\to Q$ に対して $\pi\circ s_\alpha=\operatorname{id}_Q$ である。
+と局所表示する。ここで $q=(q^1,\ldots,q^n)$ は基点座標、$p=(p_1,\ldots,p_n)$ は対応する余接ファイバー座標で、$a(q)=(a_1(q),\ldots,a_n(q))$ は1形式の係数列を表す。$\partial_j$ は基点座標 $q^j$ による偏微分 $\partial/\partial q^j$ の略記とする。各 $q$ に余ベクトル $\alpha_q$ を載せる写像とその像を
 
-**なぜこれが部分多様体か。** 微分 $ds_{\alpha,q}(v)=(v,Da(q)v)$ の第1成分は $v$ なので単射であり、像への逆写像は連続な $\pi|_{s_\alpha(Q)}$ である。したがって $s_\alpha$ は埋め込みで、その像の次元は $n$ となる。
+$$
+s_\alpha(q)=(q,a(q)),\qquad \Gamma_\alpha=s_\alpha(Q)
+$$
+
+と書く。射影 $\pi:T^*Q\to Q$ は $(q,p)$ を $q$ に戻すので、$\pi\circ s_\alpha=\operatorname{id}_Q$ である。
+
+**なぜこれが部分多様体か。** 接ベクトル $v=\sum_jv^j\partial_{q^j}\in T_qQ$ を動かすと、係数関数 $a_i$ の連鎖律から
+
+$$
+\begin{aligned}
+ds_{\alpha,q}(v)
+&=\left(v,\left(\sum_j\partial_j a_i(q)v^j\right)_{i=1}^n\right)\\
+&=(v,Da(q)v),\qquad (Da(q))_{ij}=\partial_j a_i(q).
+\end{aligned}
+$$
+
+この $Da(q)$ は抽象的なLagrange判定を代替する新しい行列ではなく、**係数写像 $a$ のJacobian（行番号 $i$、列番号 $j$）** である。第1成分は $v$ なので $ds_{\alpha,q}$ は単射であり、像への逆写像は連続な $\pi|_{\Gamma_\alpha}$ である。したがって $s_\alpha$ は埋め込みで、$\Gamma_\alpha$ の次元は $n$ となる。後で $Da$ の対称性を検査するのは、[Lagrange部分多様体の定義](../../SYM/SYM6/index.md#def-sym6-lagrangian-submanifold)の残りの条件 $s_\alpha^*\omega_{\mathrm{can}}=0$ を調べるためである。
 
 [閉1形式のグラフのLagrange判定](../../SYM/SYM6/index.md#thm-sym6-graph-criterion)によれば、像がLagrangeであることと $d\alpha=0$ は同値である。ここでは後続の変形計算のために、判定の中身を成分で再確認する。$p_i\circ s_\alpha=a_i$ なので、[外微分と引き戻しの可換性](../../GEO/GEO7/index.md#thm-geo7-pullback-commutes-d)を適用して
 
@@ -138,6 +154,8 @@ $$
 
 変形とは、グラフが時間 $t$ とともに動くことである。$I\subset\mathbb R$ を $0$ を含む開区間とし、$(t,q)$ に滑らかに依存する1形式 $\alpha_t$ を取る。各時刻のグラフを $L_t=\Gamma_{\alpha_t}$ とし、$\alpha_0=0$ とすれば零切断からの変形になる。
 
+以後 $\alpha_t=\sum_i a_i(t,q)\,dq^i$ の添字 $t$ は**時刻によって変わる族**を表し、微分の添字ではない。$\partial_t\alpha_t=\sum_i(\partial a_i/\partial t)(t,q)\,dq^i$ は基点 $q$ と座標1形式 $dq^i$ を固定して係数だけを時間微分する。一方 $d\alpha_t$ は時刻 $t$ を固定して **$q$ 方向に外微分**するので、$dt$ を含まない。両者が交換できるのは係数 $a_i$ の滑らかさにより混合偏微分が交換できるからである。
+
 <a id="def-syz1-02-graph-deformation"></a>
 
 <!-- formal-statement-start -->
@@ -241,7 +259,15 @@ $$
 =\partial_{q^i}\partial_t f_t(q).
 $$
 
-最初の等式から $q(t)=q(0)$ であり、混合偏微分を交換して第2式を積分すると
+最初の等式から $q(t)=q(0)$ である。ここで $d/dt$ は軌道 $q(t)$ に沿う全微分だが、一般に
+
+$$
+\frac{d}{dt}\bigl(\partial_{q^i}f_t(q(t))\bigr)
+=\partial_t\partial_{q^i}f_t(q(t))
++\sum_j\partial_{q^j}\partial_{q^i}f_t(q(t))\,\dot q^j(t).
+$$
+
+今回は $\dot q=0$ だから右辺の和が消える。混合偏微分を交換して第2式を積分すると
 
 $$
 \begin{aligned}
@@ -257,7 +283,21 @@ $$
 
 ### 必要条件：Hamilton的に動かせるなら速度は完全
 
-より一般に、グラフ族 $s_{\alpha_t}$ の像を時間依存Hamilton流で動かすと仮定する。グラフの選んだパラメータ表示の速度 $V_t=\partial_t s_{\alpha_t}$ は、Hamiltonベクトル場 $X_{H_t}$ と接方向のベクトルとの差しか持たない（同じ像を異なるパラメータでたどるため）。接ベクトル $ds_{\alpha_t}(w)$ との $\omega$ の値は、Lagrange性によってその接方向の差から寄与を受けない。一方、$V_t=(0,\beta_t)$ を座標で代入すれば
+より一般に、グラフ族 $s_{\alpha_t}$ の像を時間依存Hamilton流 $\phi_t$ で動かすと仮定する（$\phi_t(L_0)=L_t$）。零切断の埋め込みを $s_0$ とし、$h_t=\pi\circ\phi_t\circ s_0:Q\to Q$ とおくと、各 $h_t$ は微分同相であり、
+
+$$
+\phi_t(s_0(q))=s_{\alpha_t}(h_t(q)).
+$$
+
+固定した $q$ で時間微分し、流れの定義と連鎖律を使うと
+
+$$
+X_{H_t}(s_{\alpha_t}(h_t(q)))
+=(\partial_t s_{\alpha_t})(h_t(q))
++ds_{\alpha_t,h_t(q)}(\partial_t h_t(q)).
+$$
+
+したがって選んだグラフ表示の速度 $V_t=\partial_t s_{\alpha_t}$ と $X_{H_t}$ の差は接方向のベクトルである。$L_t$ はLagrangeなので、その接方向の差は $ds_{\alpha_t}(w)$ と $\omega$ で組にしたとき寄与しない。一方、時刻 $t$ と基点 $q$ を固定してグラフを微分すると $V_t=(0,\beta_t)$ であり、正準形式へ代入して
 
 $$
 \omega_{\mathrm{can}}\bigl(V_t,ds_{\alpha_t}(w)\bigr)=-\beta_t(w).
@@ -629,7 +669,7 @@ $$
 \qquad(0\le t\le1)
 $$
 
-を考える。
+を考える。この式は $t\in\mathbb R$ まで滑らかに延長できるので、第4節の開区間上の変形として扱い、そのうち $0\le t\le1$ を調べる。
 
 1. 全ての $t$ でグラフが埋め込みLagrangeであることを確認し、$\beta_t$ を求めよ。
 2. $x$・$y$ の基本閉路の $\alpha_t$ と $\beta_t$ の周期を求めよ。
@@ -639,7 +679,14 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**第1問。** $u$ は $x,y$ の整数移動で不変なので $T^2$ 上の滑らかな関数である。$dx,dy$ は大域1形式であり、
+**第1問。** $u$ は $x,y$ の整数移動で不変なので $T^2$ 上の滑らかな関数である。$dx,dy$ は大域1形式である。$d$ は $t$ を固定して $x,y$ で外微分する演算で、
+
+$$
+du=\cos(2\pi x)\sin(2\pi y)\,dx
++\sin(2\pi x)\cos(2\pi y)\,dy.
+$$
+
+従って
 
 $$
 \begin{aligned}
