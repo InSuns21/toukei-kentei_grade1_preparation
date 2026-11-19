@@ -45,11 +45,11 @@ $$
 <!-- definition-example-start: def-pml1-04-ebm -->
 **定義の確認**：1スピン。 $\Omega=\{-1,+1\}$、$W=\mathbb R$、$E_w(x)=-wx$、$\tau>0$ とする。$W$ は開いており、エネルギーは各状態で有限・微分可能で、$\partial E_w(x)/\partial w=-x$ である。以下では指数関数の和と差を短く表すため、実数 $u$ に対して双曲線関数を
 
-$
+$$
 \cosh u=\frac{e^u+e^{-u}}2,\qquad
 \sinh u=\frac{e^u-e^{-u}}2,\qquad
 \tanh u=\frac{\sinh u}{\cosh u}
-$
+$$
 
 と定める。$\cosh u>0$ なので $\tanh u$ の分母は零にならない。二状態の重みを足すと
 
@@ -258,9 +258,9 @@ $$
 
 ここではパラメータが $w$ 一つなので、プライム $\ell_D'(w)$ は $d\ell_D(w)/dw$ を表し、多変数で使った $\partial\ell_D/\partial w_i$ の1変数版である。定義の二つの分布による平均を別々に求めたので、
 
-$
+$$
 \ell_D'(0)=\frac{1/3-0}{\tau}=\frac1{3\tau}.
-$
+$$
 
 これは前節の直接式を $w$ で微分しても一致する。
 <!-- definition-example-end -->
