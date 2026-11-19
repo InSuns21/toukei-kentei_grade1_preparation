@@ -452,19 +452,19 @@ $L(a)=0$、$L(b)=\Delta>0$、$\tau>0$ とする。$q_t=(t,1-t)$、$0<t<1$ につ
 <!-- solution-start -->
 #### 詳細解答
 
-[有限候補の自由エネルギー型目的関数](#def-pml1-03-free-energy-objective)から
+$t$ は候補 $a$ に割り当てる確率で、時刻ではない。$t$ に関する一変数関数 $f(t):=\mathcal J_\tau(q_t)$ を考える。[有限候補の自由エネルギー型目的関数](#def-pml1-03-free-energy-objective)から
 
 $$
-\mathcal J_\tau(q_t)
+f(t)=\mathcal J_\tau(q_t)
 =(1-t)\Delta+\tau\bigl(t\log t+(1-t)\log(1-t)\bigr).
 $$
 
 $0<t<1$ で各対数を微分できる。$d(t\log t)/dt=\log t+1$、$d((1-t)\log(1-t))/dt=-\log(1-t)-1$ なので
 
 $$
-\mathcal J_\tau'(t)=-\Delta+\tau\log\frac t{1-t},
+f'(t)=-\Delta+\tau\log\frac t{1-t},
 \qquad
-\mathcal J_\tau''(t)=\tau\left(\frac1t+\frac1{1-t}\right)>0.
+f''(t)=\tau\left(\frac1t+\frac1{1-t}\right)>0.
 $$
 
 一階微分0の条件は $t/(1-t)=e^{\Delta/\tau}$、従って
@@ -474,7 +474,7 @@ t_*=\frac{e^{\Delta/\tau}}{1+e^{\Delta/\tau}}
 =\frac1{1+e^{-\Delta/\tau}}\in(0,1).
 $$
 
-二階微分が正なので内部の唯一の極小点である。また $\mathcal J_\tau'(t)\to-\infty$（$t\downarrow0$）かつ $\mathcal J_\tau'(t)\to+\infty$（$t\uparrow1$）。目的関数は $0\log0=0$ の規約で両端へ連続に延長されるから、両端では内部へ動くと値が下がる。従って全区間で唯一の最小点は $t_*$ であり、[学習候補の自由エネルギーとKL余剰](#prop-pml1-03-kl-gap)のGibbs分布に一致する。
+二階微分が正なので内部の唯一の極小点である。また $f'(t)\to-\infty$（$t\downarrow0$）かつ $f'(t)\to+\infty$（$t\uparrow1$）。目的関数は $0\log0=0$ の規約で両端へ連続に延長されるから、両端では内部へ動くと値が下がる。従って全区間で唯一の最小点は $t_*$ であり、[学習候補の自由エネルギーとKL余剰](#prop-pml1-03-kl-gap)のGibbs分布に一致する。
 <!-- solution-end -->
 
 ### PML1-03-B02 KLの極限は置換できない
@@ -522,7 +522,7 @@ p_{\tau,r}=\left(\frac{3/4}{5/6},\frac{1/12}{5/6}\right)
 =\left(\frac9{10},\frac1{10}\right).
 $$
 
-最小値は $-\tau\log(5/6)=\tau\log(6/5)$。$q=r$ なら $D_{\mathrm e}(r\|r)=0$ なので $\mathcal J_{\tau,r}(r)=\tau\log3/4$、すなわち $\tau(\log3)/4$ である。差を確かめるため、
+最小値は $-\tau\log(5/6)=\tau\log(6/5)$。$q=r$ なら $D_{\mathrm e}(r\|r)=0$ なので $\mathcal J_{\tau,r}(r)=\frac{\tau\log3}{4}$ である。差を確かめるため、
 
 $$
 \begin{aligned}
