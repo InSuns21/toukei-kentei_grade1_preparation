@@ -5,6 +5,7 @@ import { compareFCG2Readback, expectedFCG2Samples, fcg2PixelCell, fcg2Field, fcg
 import {compareFCG3Readback,expectedFCG3Samples,fcg3Metrics,fcg3PixelCell,fcg3Grid,fcg3Exact} from './fcg3-lab-core.mjs';
 import {expectedFCG4Samples,compareFCG4Readback,fcg4State,fcg4PixelCell} from './fcg4-lab-core.mjs';
 import {expectedFCG5Samples,compareFCG5Readback,fcg5State,fcg5PixelCell} from './fcg5-lab-core.mjs';
+import {expectedFCG6Samples,compareFCG6Readback,fcg6State,fcg6PixelCell} from './fcg6-lab-core.mjs';
 import { highlightSource } from './wgl-lab-highlight.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
@@ -27,11 +28,12 @@ import { compareWGL18Readback, expectedWGL18Samples, compareWGL18FloatReadback }
 const VERSION = 'wgl-fcg-lab-v1';
 // ホスト/隔離実行は共通。講義のソースとCPU基準だけを切り替える。
 const requestedLesson = new URL(location.href).searchParams.get('lesson');
-const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5'].includes(requestedLesson) ? requestedLesson : 'WGL1';
+const lesson = ['WGL1', 'WGL2', 'WGL3', 'WGL4', 'WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6'].includes(requestedLesson) ? requestedLesson : 'WGL1';
 const isFCG2 = lesson === 'FCG2';
 const isFCG3 = lesson === 'FCG3';
 const isFCG4 = lesson === 'FCG4';
 const isFCG5 = lesson === 'FCG5';
+const isFCG6 = lesson === 'FCG6';
 const isWGL2 = lesson === 'WGL2';
 const isWGL3 = lesson === 'WGL3';
 const isWGL4 = lesson === 'WGL4';
@@ -55,8 +57,8 @@ const requestedCase = new URL(location.href).searchParams.get('case');
 const labCase = isWGL20 && ['CS1','CS2','CS3'].includes(requestedCase) ? requestedCase : 'BASE';
 const STORAGE_KEY = 'toukei-' + VERSION + '-' + lesson + (isWGL20 ? '-' + labCase : '');
 
-const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
-const FILES = isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain.frag'} : isFCG5 ? {js:'fluid.js',vertex:'fluid.vert',fragment:'fluid.frag'} : isFCG4 ? {js:'projection.js',vertex:'projection.vert',fragment:'projection.frag'} : isFCG3 ? {js:'advection.js',vertex:'advection.vert',fragment:'advection.frag'} : isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
+const LESSON_URL = new URL('../textbook/volumes/dream_thater/計算系/' + ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6) ? 'FCG' : 'WGL') + '/' + lesson + '/', import.meta.url);
+const FILES = isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain.frag'} : isFCG6 ? {js:'solid.js',vertex:'solid.vert',fragment:'solid.frag'} : isFCG5 ? {js:'fluid.js',vertex:'fluid.vert',fragment:'fluid.frag'} : isFCG4 ? {js:'projection.js',vertex:'projection.vert',fragment:'projection.frag'} : isFCG3 ? {js:'advection.js',vertex:'advection.vert',fragment:'advection.frag'} : isFCG2 ? {js:'density.js', vertex:'density.vert', fragment:'density.frag'} :
   isWGL19 ? {js: 'audit.js', vertex: 'audit.vert', fragment: 'audit.frag'} :
   isWGL18 ? {js: 'diffusion.js', vertex: 'diffusion.vert', fragment: 'diffusion.frag'} :
   isWGL17 ? {js: 'data-grid.js', vertex: 'data-grid.vert', fragment: 'data-grid.frag'} :
@@ -76,7 +78,7 @@ const FILES = isWGL20 ? {js:'terrain.js',vertex:'terrain.vert',fragment:'terrain
   isWGL3 ? {js: 'mesh.js', vertex: 'mesh.vert', fragment: 'mesh.frag'} :
   isWGL2 ? {js: 'colors.js', vertex: 'colors.vert', fragment: 'colors.frag'} :
   {js: 'triangle.js', vertex: 'triangle.vert', fragment: 'triangle.frag'};
-const oracle = isWGL20 ? expectedWGL20Samples : isFCG5 ? expectedFCG5Samples : isFCG4 ? expectedFCG4Samples : isFCG3 ? expectedFCG3Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
+const oracle = isWGL20 ? expectedWGL20Samples : isFCG6 ? expectedFCG6Samples : isFCG5 ? expectedFCG5Samples : isFCG4 ? expectedFCG4Samples : isFCG3 ? expectedFCG3Samples : isFCG2 ? expectedFCG2Samples : isWGL19 ? expectedWGL19Samples : isWGL18 ? expectedWGL18Samples : isWGL17 ? expectedWGL17Samples : isWGL16 ? expectedWGL16Samples : isWGL15 ? expectedWGL15Samples : isWGL14 ? expectedWGL14Samples : isWGL13 ? expectedWGL13Samples : isWGL12 ? expectedWGL12Samples : isWGL11 ? expectedWGL11Samples : isWGL10 ? expectedWGL10Samples : isWGL9 ? expectedWGL9Samples : isWGL8 ? expectedWGL8Samples : isWGL7 ? expectedWGL7Samples : isWGL6 ? expectedWGL6Samples : isWGL5 ? expectedWGL5Samples : isWGL4 ? expectedWGL4Samples :
   isWGL3 ? expectedWGL3Samples : isWGL2 ? expectedWGL2Samples : expectedSamples;
 const SOURCE_LIMIT = 30000;
 const MAX_PIXELS = 524288;
@@ -99,6 +101,8 @@ let fcg4Steps = 128;
 let fcg4Timer = null;
 let fcg5Steps = 8;
 let fcg5Timer = null;
+let fcg6Steps = 8;
+let fcg6Timer = null;
 
 function initializeHighlightedEditors() {
   const refreshers = {};
@@ -286,7 +290,7 @@ function isolatedRunner() {
       // 受講者による自由編集コード。parent は Function/eval しない。
       const run = new Function('gl', 'canvas', 'vertexSource', 'fragmentSource', 'report', 'settings', request.js);
       const hooks = await run(gl, canvas, request.vertex, request.fragment, report,
-        {steps: ['FCG2','FCG3','FCG4','FCG5'].includes(request.lesson) ? request.steps : undefined,
+        {steps: ['FCG2','FCG3','FCG4','FCG5','FCG6'].includes(request.lesson) ? request.steps : undefined,
          snapshot: request.lesson === 'WGL20' ? request.snapshot : undefined});
       if (request.lesson === 'WGL15' && hooks && typeof hooks.pick === 'function') {
         let cursorX = Math.floor(canvas.width / 2);
@@ -357,7 +361,7 @@ function isolatedRunner() {
           }
         });
       }
-      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5'].includes(request.lesson)) &&
+      const positions = (['WGL5', 'WGL6', 'WGL7', 'WGL8', 'WGL9', 'WGL10', 'WGL11', 'WGL12', 'WGL13', 'WGL14', 'WGL15', 'WGL16', 'WGL17', 'WGL18', 'WGL19', 'WGL20', 'FCG2', 'FCG3', 'FCG4', 'FCG5', 'FCG6'].includes(request.lesson)) &&
         Array.isArray(request.probes) ? request.probes :
         request.lesson === 'WGL4' ? [
         [Math.floor(canvas.width * 0.665), Math.floor(canvas.height * 0.56)],
@@ -383,7 +387,7 @@ function isolatedRunner() {
         return {x, y, rgba: Array.from(value)};
       });
       
-      if(request.lesson === 'FCG2' || request.lesson === 'FCG3' || request.lesson === 'FCG4' || request.lesson === 'FCG5'){
+      if(request.lesson === 'FCG2' || request.lesson === 'FCG3' || request.lesson === 'FCG4' || request.lesson === 'FCG5' || request.lesson === 'FCG6'){
         let cursorX=Math.floor(canvas.width/2),cursorY=Math.floor(canvas.height/2);
         canvas.tabIndex=0;
         canvas.setAttribute('aria-label','物理格子の画素検査。クリックか矢印キー＋Enter');
@@ -545,6 +549,27 @@ window.addEventListener('message', event => {
       'CPU射線とGPU IDが不一致（深度・座標・符号化を確認）', !consistent);
     return;
   }
+  if (isFCG6 && data.type === 'fcg6-cursor') {
+    if(Number.isInteger(data.x)&&Number.isInteger(data.y)&&data.x>=0&&
+       data.y>=0&&data.x<active.payload.width&&data.y<active.payload.height){
+      const c=fcg6PixelCell(data.x,data.y,active.payload.width,active.payload.height);
+      byId('result-note').textContent='panel '+c.panel+' cell('+c.i+','+c.j+') Enter/Space to inspect';
+    }
+    return;
+  }
+  if (isFCG6 && data.type === 'fcg6-pick') {
+    const {x,y,rgba}=data,{width,height,steps}=active.payload;
+    if(!Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||
+       x>=width||y>=height||!Array.isArray(rgba)||rgba.length!==4||
+       !rgba.every(v=>Number.isInteger(v)&&v>=0&&v<=255))return;
+    const c=fcg6PixelCell(x,y,width,height),k=c.i+16*c.j,s=fcg6State(steps);
+    const value=s.solid[k]?'solid':c.panel===0?s.q[k]:c.panel===1?
+      s.divergence[k]:s.speed[k];
+    const edited=Object.keys(defaults).some(key=>active.payload[key]!==defaults[key]);
+    byId('result-note').textContent='cell('+c.i+','+c.j+') CPU='+value+
+      ' / GPU RGBA='+rgba.join('/')+(edited?' (edited source: baseline for comparison only)':'');
+    return;
+  }
   if (isFCG5 && data.type === 'fcg5-cursor') {
     if(Number.isInteger(data.x)&&Number.isInteger(data.y)&&data.x>=0&&
        data.y>=0&&data.x<active.payload.width&&data.y<active.payload.height){
@@ -651,7 +676,7 @@ window.addEventListener('message', event => {
     byId('result-note').textContent = 'GPU描画・検算は未達成です。JS・GLSLソースを修正してください。';
   } else {
     const samples = Array.isArray(data.samples) ? data.samples : [];
-    const rows = (isWGL20 ? compareWGL20Readback : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
+    const rows = (isWGL20 ? compareWGL20Readback : isFCG6 ? (got,w,h)=>compareFCG6Readback(got,w,h,active.payload.steps) : isFCG5 ? (got,w,h)=>compareFCG5Readback(got,w,h,active.payload.steps) : isFCG4 ? (got,w,h)=>compareFCG4Readback(got,w,h,active.payload.steps) : isFCG3 ? (got,w,h)=>compareFCG3Readback(got,w,h,active.payload.steps) : isFCG2 ? (got,w,h)=>compareFCG2Readback(got,w,h,active.payload.steps) : isWGL19 ? compareWGL19Readback : isWGL18 ? compareWGL18Readback : isWGL17 ? compareWGL17Readback : isWGL16 ? compareWGL16Readback : isWGL15 ? compareWGL15Readback : isWGL14 ? compareWGL14Readback : isWGL13 ? compareWGL13Readback : isWGL12 ? compareWGL12Readback : isWGL11 ? compareWGL11Readback : isWGL10 ? compareWGL10Readback : isWGL9 ? compareWGL9Readback : isWGL8 ? compareWGL8Readback : isWGL7 ? compareWGL7Readback : isWGL6 ? compareWGL6Readback : isWGL5 ? compareWGL5Readback : isWGL4 ? compareWGL4Readback : isWGL3 ? compareWGL3Readback : isWGL2 ? compareWGL2Readback : compareReadback)(
       samples, active.payload.width, active.payload.height);
     showTable(rows, unchanged);
     const pass = rows.every(row => row.pass);
@@ -707,7 +732,7 @@ window.addEventListener('message', event => {
     }
     byId('result-note').textContent = unchanged ?
       'CPUは座標と色の定数から独立に予測し、GPUはreadPixelsで実測。RGBA各成分' +
-      ((isFCG2 || isFCG3 || isFCG4 || isFCG5) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
+      ((isFCG2 || isFCG3 || isFCG4 || isFCG5 || isFCG6) ? '±2' : isWGL20 ? '±1' : isWGL19 ? '±2' : isWGL18 ? '±2' : isWGL17 ? '±2' : isWGL16 ? '±2' : isWGL15 ? '±2' : isWGL14 ? '±2' : isWGL13 ? '±1' : isWGL12 ? '±2' : isWGL11 ? '±2' : isWGL10 ? '±2' : isWGL9 ? '±10' : isWGL8 ? '±4' : (isWGL7 || isWGL6) ? '±3' : (isWGL2 ? '±2' : '±1')) + 'を許容します。' :
       'ソース変更時は初期色のCPU基準と一致しないことがあります。正誤の自動判定ではありません。';
   }
 });
@@ -721,6 +746,19 @@ function run() {
     if (isWGL20) {
       payload.snapshot=plateauSnapshot;
       payload.probes=expectedWGL20Samples(payload.width,payload.height).map(p=>[p.x,p.y]);
+    }
+    if (isFCG6) {
+      payload.steps=fcg6Steps;
+      const predicted=expectedFCG6Samples(payload.width,payload.height,fcg6Steps);
+      payload.probes=predicted.map(p=>[p.x,p.y]);
+      const s=fcg6State(fcg6Steps);
+      byId('fcg6-cpu-prediction').textContent='independent CPU: t='+(fcg6Steps*s.dt).toFixed(3)+
+        's, steps='+fcg6Steps+', pre-div='+s.divBefore.toExponential(3)+
+        ', post-div='+s.divAfter.toExponential(3)+
+        ', residual='+s.residual.toExponential(3)+
+        ', RHS mean='+s.mean.toExponential(3)+
+        ', identity='+s.identity.toExponential(3)+
+        ', wall mismatch='+s.wall.toExponential(3);
     }
     if (isFCG5) {
       payload.steps=fcg5Steps;
@@ -804,12 +842,14 @@ function run() {
 }
 
 byId('run').addEventListener('click', run);
-byId('stop').addEventListener('click', () => {if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;} if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;} if(fcg4Timer!==null){clearInterval(fcg4Timer);fcg4Timer=null;} if(fcg5Timer!==null){clearInterval(fcg5Timer);fcg5Timer=null;} stop();});
+byId('stop').addEventListener('click', () => {if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;} if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;} if(fcg4Timer!==null){clearInterval(fcg4Timer);fcg4Timer=null;} if(fcg5Timer!==null){clearInterval(fcg5Timer);fcg5Timer=null;} if(fcg6Timer!==null){clearInterval(fcg6Timer);fcg6Timer=null;} stop();});
 byId('reset').addEventListener('click', () => {
   if(fcg2Timer!==null){clearInterval(fcg2Timer);fcg2Timer=null;}
   if(fcg3Timer!==null){clearInterval(fcg3Timer);fcg3Timer=null;}
   if(fcg4Timer!==null){clearInterval(fcg4Timer);fcg4Timer=null;}
   if(fcg5Timer!==null){clearInterval(fcg5Timer);fcg5Timer=null;}
+  if(fcg6Timer!==null){clearInterval(fcg6Timer);fcg6Timer=null;}
+  if(isFCG6)fcg6Steps=8;
   if(isFCG5)fcg5Steps=8;
   if(isFCG4)fcg4Steps=128;
   if(isFCG2)fcg2Steps=0;
@@ -837,6 +877,8 @@ byId('preset').addEventListener('change', event => {
       inputs.fragment.value = defaults.fragment.replace('in vec3 v_color;', 'in vec2 v_color;')
         .replace('outColor = vec4(v_color * u_gain, 1.0);',
           'outColor = vec4(v_color * u_gain.xy, 0.0, 1.0);');
+     } else if (isFCG6) {
+       inputs.fragment.value=defaults.fragment.replace('outColor=vec4(rgb,1.0);', 'outColor=vec4(rgb,1.0)');
      } else if (isFCG5) {
        inputs.fragment.value=defaults.fragment.replace(
          'outColor=vec4(q,0.08,0.08,1.0);',
@@ -920,6 +962,53 @@ byId('preset').addEventListener('change', event => {
   refreshSourceHighlights();
   selectTab('code');
 });
+if (isFCG6) {
+  document.title='FCG6 固体マスク付き流体：編集・検算ラボ';
+  document.querySelector('h1').textContent='FCG6 動く固体と離散流体境界';
+  document.querySelector('#panel-conditions > p').textContent=
+    '16×16 MAC格子。円形の移動固体を毎step再標本化し、固体面速度を課したmasked Poisson射影と染料輸送を計算します。左=染料、中央=絶対発散、右=速さ＋黄色の格子境界法線。灰色は固体セル。';
+  document.querySelector('#panel-conditions ol').innerHTML=
+    '<li>初期のstep0/1/8/24で固体セル遷移・壁面速度差・Poisson残差・補正された発散を区別する。</li>'+
+    '<li>1step、再生、停止、step0復帰を試し、t=step×0.05秒と描画時計を区別する。</li>'+
+    '<li>solid.js のshapeをrectangleへ変え、マスク面数と圧力反力の違いを確認する。</li>'+
+    '<li>wallAmplitudeとwallFrequencyを変更し、セル再分類時の染料面積積分の限界を調べる。</li>'+
+    '<li>solid.frag の矢印色を改めるかshaderを壊し、物理値とGPU画素の独立性を確認する。</li>';
+  byId('preset').options[0].textContent='流体・移動固体・境界法線の3表示';
+  byId('preset').options[1].textContent='fragment構文エラー';
+  const controls=document.createElement('div');controls.className='controls';
+  const step=document.createElement('button'),play=document.createElement('button'),
+    pause=document.createElement('button'),back=document.createElement('button'),
+    marker=document.createElement('output');
+  for(const [button,label] of [[step,'1ステップ'],[play,'再生'],[pause,'一時停止'],[back,'step 0へ戻す']]){
+    button.type='button';button.className='action';button.textContent=label;controls.append(button);
+  }
+  controls.append(marker);byId('run').parentElement.before(controls);
+  const preview=document.createElement('p');preview.id='fcg6-cpu-prediction';
+  preview.setAttribute('aria-live','polite');
+  preview.textContent='GPUが使えない場合も独立CPUの診断値を表示します。';
+  byId('panel-result').append(preview);
+  function mark(){
+    marker.textContent='物理step '+fcg6Steps+'/24、時刻 '+(fcg6Steps*0.05).toFixed(2)+'s（描画fpsとは別）';
+    pause.disabled=fcg6Timer===null;play.disabled=fcg6Timer!==null;
+  }
+  function pausePlay(){if(fcg6Timer!==null){clearInterval(fcg6Timer);fcg6Timer=null;}mark();}
+  step.addEventListener('click',()=>{
+    pausePlay();if(fcg6Steps>=24){setStatus('24 stepで上限。step0へ戻してください');return;}
+    fcg6Steps++;mark();run();
+  });
+  play.addEventListener('click',()=>{
+    if(fcg6Timer!==null)return;
+    fcg6Timer=setInterval(()=>{
+      if(fcg6Steps>=24){pausePlay();return;}
+      fcg6Steps++;mark();run();if(fcg6Steps>=24)pausePlay();
+    },1000);mark();
+  });
+  pause.addEventListener('click',pausePlay);
+  back.addEventListener('click',()=>{pausePlay();fcg6Steps=0;mark();run();});
+  byId('reset').addEventListener('click',mark);
+  byId('stop').addEventListener('click',mark);
+  mark();
+}
 if (isFCG5) {
   document.title='FCG5 流体・染料更新：編集・検算ラボ';
   document.querySelector('h1').textContent='FCG5 2D染料流体の時間分割ソルバー';

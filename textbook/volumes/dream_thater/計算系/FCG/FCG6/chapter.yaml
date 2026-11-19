@@ -1,0 +1,35 @@
+id: FCG6
+title: "流体と固体の境界をどう接続するか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG5]
+official_scope: []
+learning_objectives:
+  - "円・矩形の固体マスクと流体・固体境界面を構成し、真の曲面と階段境界の違いを説明できる"
+  - "動く壁の非貫通条件と接線の滑りなし・自由滑り条件を区別し、MAC面値とghost値を検算できる"
+  - "固体を除いたNeumann Poisson問題の可解条件・圧力ゲージ・射影後残差恒等式を導ける"
+  - "固体表面の圧力反力とゲージ不変性を示し、粘性応力・幾何誤差を含めない限界を説明できる"
+  - "マスク付き染料輸送の値域と非保存性を示し、JS・GLSLを編集してCPU/GPU検証を再現できる"
+definitions:
+  - { id: FCG6-DEF-01, name: "固体マスクと流体・固体境界面" }
+  - { id: FCG6-DEF-02, name: "移動固体との非貫通境界条件" }
+  - { id: FCG6-DEF-03, name: "滑りなし境界の接線ghost値" }
+  - { id: FCG6-DEF-04, name: "固体マスク付きNeumann圧力射影" }
+  - { id: FCG6-DEF-05, name: "階段境界での圧力反力" }
+  - { id: FCG6-DEF-06, name: "マスクを使う染料の再重み付け補間" }
+theorems:
+  - { id: FCG6-PROP-01, name: "マスク格子の流束総和と可解性" }
+  - { id: FCG6-PROP-02, name: "平均右辺補正付き射影の発散恒等式" }
+  - { id: FCG6-PROP-03, name: "閉じた固体境界での圧力反力のゲージ不変性" }
+  - { id: FCG6-PROP-04, name: "マスク付き補間の値域と非保存性" }
+canonical_examples:
+  - "3×3中央1セル固体でcut face4面・fluid graph隣接数を計算"
+  - "並進壁0.2,0.1でPoisson右辺6,-6,3,-3とゲージ零の8セル圧力を検算"
+  - "圧力反力(-4/9,-2/9)N/mを面法線の符号から計算"
+  - "マスク再重み付けの濃度0.5と零埋め平均0.375を区別"
+  - "16×16移動円の壁面流束・Poisson残差・GPU R8画素を独立CPUと照合"
+problem_patterns: [FCG6-MASK, FCG6-NORMAL, FCG6-GHOST, FCG6-RESIDUAL, FCG6-GEOMETRY, FCG6-COMPAT, FCG6-POISSON, FCG6-DYE, FCG6-GPU, FCG6-INTEGRATED]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 7, review: 4 }
