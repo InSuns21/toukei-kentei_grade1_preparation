@@ -1,0 +1,20 @@
+chapter: FCG7
+terms:
+  - term: 粒子・格子転送重み
+    english: particle-grid transfer weights
+    meaning: 粒子の位置における隣接格子節点への双線形の非負重み。周期境界で剰余を取る。
+  - term: P2G
+    english: particle-to-grid
+    meaning: 粒子の質量と運動量を格子節点に積算して質量重み付き速度を求める。
+  - term: G2P
+    english: grid-to-particle
+    meaning: 節点の速度または速度増分を同じ重みで粒子位置へ補間する。
+  - term: PIC
+    english: particle-in-cell
+    meaning: 新格子速度の補間値で粒子速度を置き換える転送。
+  - term: FLIP
+    english: fluid implicit particle
+    meaning: 格子で生じた速度増分だけを粒子の旧速度へ足す転送。
+  - term: 周期境界
+    english: periodic boundary
+    meaning: 正方形の対辺を同一視し、座標が1以上・0未満になると剰余で折り返す。

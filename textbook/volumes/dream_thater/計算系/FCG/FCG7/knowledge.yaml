@@ -1,0 +1,47 @@
+chapter: FCG7
+scope: dream-theater
+coverage: complete
+prerequisites: [FCG6]
+concepts:
+  - id: graphics.fcg7-weights
+    name: 粒子・格子双線形転送重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（粒子・格子双線形転送重み）"]
+    requires: [graphics.fcg6-solid-mask]
+  - id: graphics.fcg7-p2g
+    name: 質量重み付き粒子から格子への転送
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（質量重み付き粒子から格子への転送）"]
+    requires: [graphics.fcg7-weights]
+  - id: graphics.fcg7-picflip
+    name: PICとFLIPの粒子速度更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PICとFLIPの粒子速度更新）"]
+    requires: [graphics.fcg7-p2g]
+  - id: graphics.fcg7-mixing
+    name: PIC/FLIP混合と粒子位置更新
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（PIC/FLIP混合と粒子位置更新）"]
+    requires: [graphics.fcg7-picflip]
+  - id: graphics.fcg7-momentum
+    name: 定数速度の再現と運動量保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（定数速度の再現と運動量保存）"]
+    requires: [graphics.fcg7-p2g, graphics.fcg7-picflip]
+  - id: graphics.fcg7-energy
+    name: 純転送PICの運動エネルギー非増大
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（純転送PICの運動エネルギー非増大）"]
+    requires: [graphics.fcg7-momentum]
+  - id: graphics.fcg7-flip-hold
+    name: FLIP増分ゼロ時の速度保持
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（FLIP増分ゼロ時の速度保持）"]
+    requires: [graphics.fcg7-picflip]

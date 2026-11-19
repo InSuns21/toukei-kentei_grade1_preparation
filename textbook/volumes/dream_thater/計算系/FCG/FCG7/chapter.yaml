@@ -1,0 +1,32 @@
+id: FCG7
+title: "格子と粒子のどちらで水を動かすか"
+volume: foundations
+status: supplementary
+prerequisites: [FCG6]
+official_scope: []
+learning_objectives:
+  - "粒子と周期格子の双線形転送重みを定義・検算し、零重み節点を適切に扱える"
+  - "P2GとG2PのPIC/FLIP式から、定数場再現と質量重み付き運動量保存を証明できる"
+  - "純転送PICの運動エネルギー非増大と、FLIPの増分更新・混合係数の違いを導ける"
+  - "周期境界の粒子折返しと固体壁の衝突を区別し、前提モデルの限界を説明できる"
+  - "JS物理更新とGLSL描画を編集し、独立CPU基準とGPU画素の差を評価できる"
+definitions:
+  - { id: FCG7-DEF-01, name: "粒子・格子双線形転送重み" }
+  - { id: FCG7-DEF-02, name: "質量重み付き粒子から格子への転送" }
+  - { id: FCG7-DEF-03, name: "PICとFLIPの粒子速度更新" }
+  - { id: FCG7-DEF-04, name: "PIC/FLIP混合と粒子位置更新" }
+theorems:
+  - { id: FCG7-PROP-01, name: "定数速度の再現と運動量保存" }
+  - { id: FCG7-PROP-02, name: "純転送PICの運動エネルギー非増大" }
+  - { id: FCG7-PROP-03, name: "FLIP増分ゼロ時の速度保持" }
+canonical_examples:
+  - "周期格子上の粒子(0.95,0.25)の4重みと正規化検算"
+  - "2粒子の同位置・反対速度でPIC消散、FLIP増分保持を比較"
+  - "定数速度0.2,-0.1で16粒子をP2G→G2Pして検算"
+  - "境界を跨ぐ粒子x=0.98の剰余写像と固体反射との差"
+  - "16粒子8×8格子でPIC/FLIP位置・エネルギー・GPU画素を照合"
+problem_patterns: [FCG7-WEIGHTS, FCG7-P2G, FCG7-G2P, FCG7-MOMENTUM, FCG7-ENERGY, FCG7-FLIP, FCG7-MIX, FCG7-BOUNDARY, FCG7-GPU, FCG7-INTEGRATED]
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 7, exercises: 8, review: 4 }
