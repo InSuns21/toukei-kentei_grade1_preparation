@@ -7,3 +7,4 @@
 4. [FCG4 圧力射影で発散を減らすには](textbook/volumes/dream_thater/計算系/FCG/FCG4/index.md)
 5. [FCG5 一つの2D流体ソルバーを完成できるか](textbook/volumes/dream_thater/計算系/FCG/FCG5/index.md)
 6. [FCG6 流体と固体の境界をどう接続するか](textbook/volumes/dream_thater/計算系/FCG/FCG6/index.md)
+7. [FCG7 格子と粒子のどちらで水を動かすか](textbook/volumes/dream_thater/計算系/FCG/FCG7/index.md)
