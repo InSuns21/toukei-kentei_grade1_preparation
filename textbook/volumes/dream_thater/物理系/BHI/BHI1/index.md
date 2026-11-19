@@ -42,7 +42,19 @@ $$
 V|0\rangle=|0\rangle_R|0\rangle_B,\qquad
 V|1\rangle=|1\rangle_R|1\rangle_B
 $$
-と定めます。二つの像の内積は $\langle00|11\rangle=0$、各ノルムは1なので、基底上で $V^\dagger V=I_2$ が確かめられます。$V$ は2次元から4次元への等長写像で、出力全体のユニタリ作用素ではありません。$B$ が2次元のため、**放射だけで完結した終期**には該当しません。任意の $\alpha|0\rangle+\beta|1\rangle$（$|\alpha|^2+|\beta|^2=1$）は $\alpha|00\rangle+\beta|11\rangle$ となり、一般の入力を二つ複製する操作でもありません。
+と定めます。二つの像の内積は $\langle00|11\rangle=0$、各ノルムは1です。任意の $u=\alpha|0\rangle+\beta|1\rangle$、$w=\gamma|0\rangle+\delta|1\rangle$ を基底展開して $V$ の線形性を用いると
+$$
+\langle Vu|Vw\rangle
+=\overline\alpha\gamma\langle00|00\rangle
++\overline\alpha\delta\langle00|11\rangle
++\overline\beta\gamma\langle11|00\rangle
++\overline\beta\delta\langle11|11\rangle
+=\overline\alpha\gamma+\overline\beta\delta
+=\langle u|w\rangle
+$$
+です。したがって、基底の像が正規直交であることから任意の入力の内積が保存され、$V^\dagger V=I_2$ が従います。$V$ は2次元から4次元への等長写像で、出力全体のユニタリ作用素ではありません。$B$ が2次元のため、**放射だけで完結した終期**には該当しません。任意の $\alpha|0\rangle+\beta|1\rangle$（$|\alpha|^2+|\beta|^2=1$）は $\alpha|00\rangle+\beta|11\rangle$ となり、一般の入力を二つ複製する操作でもありません。
+
+対照的に、$\mathcal H_B=\mathcal H_E=\mathbb C$（各1次元）、$\mathcal H_R=\mathbb C^2$ とし、$W|i\rangle=|i\rangle_R|0\rangle_B|0\rangle_E$（$i=0,1$、各1次元因子の単位基底を $|0\rangle$ と書く）と定めれば、$\langle000|100\rangle=0$、二つの像のノルムは1なので $W^\dagger W=I_2$ です。さらに $B,E$ はともに1次元で、$R$ が全ての可変な出力自由度を含みます。この $W$ は「放射だけで完結した終期」の条件も満たします。
 <!-- definition-example-end -->
 
 ブラックホールの「完全蒸発」は、単に古典的な地平線が消えたという幾何学的叙述だけでは上の定義を保証しません。残存物、相関した別領域、あるいは終期の量子重力記述の適用限界を排除する**別の物理的判断**が必要です。
@@ -78,14 +90,28 @@ $$
 > が成り立つ。
 <!-- formal-statement-end -->
 
+全出力状態を $\sigma=V\rho V^\dagger$ と置きます。$R,B,E$ の各正規直交基底を $|r\rangle,|b\rangle,|e\rangle$ とすれば、[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)により、放射上に残る行列要素は
+$$
+\langle r|\rho_R|r'\rangle
+=\sum_{b,e}\langle r,b,e|\sigma|r',b,e\rangle,
+\qquad \rho_R=\mathcal N_R(\rho)
+$$
+です。従って任意の $O_R$ に対し
+$$
+\operatorname{Tr}\!\bigl(\sigma(O_R\otimes I_B\otimes I_E)\bigr)
+=\sum_{r,r',b,e}\langle r,b,e|\sigma|r',b,e\rangle\langle r'|O_R|r\rangle
+=\operatorname{Tr}(\rho_R O_R).
+$$
+つまり縮約行列の計算は、放射に限った全ての期待値を再現するための判定法です。以後、入力と系の分割を固定した際の $S(R)$ は $S(\rho_R)$ の略記とします。
+
 <!-- definition-example-start: def-bhi1-radiation-channel -->
-**定義の確認** 前節の $V$ に $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入力すると、全出力は $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ です。$B$ の基底 $\{|0\rangle,|1\rangle\}$ で部分トレースを取ると、交差項 $|0_B\rangle\langle1_B|$ と随伴の跡は0なので
+**定義の確認** 前節の $V$ に $|+\rangle=(|0\rangle+|1\rangle)/\sqrt2$ を入力すると、全出力は $|\Phi^+\rangle=(|00\rangle+|11\rangle)/\sqrt2$ です。$B$ の基底 $\{|0\rangle,|1\rangle\}$ で部分トレースを取ると、例えば交差項の部分トレースは $\operatorname{Tr}_B(|0_R0_B\rangle\langle1_R1_B|)=|0_R\rangle\langle1_R|\langle1_B|0_B\rangle=0$ で、随伴項も0なので
 $$
 \mathcal N_R(|+\rangle\langle+|)
 =\tfrac12|0\rangle\langle0|+\tfrac12|1\rangle\langle1|
 =I_2/2.
 $$
-$O_R=|0\rangle\langle0|$ なら両辺の期待値は $1/2$。$O_R=X=|0\rangle\langle1|+|1\rangle\langle0|$ なら両辺は0です。しかし放射と残存物を**共同で**測る $X_R\otimes X_B$ は $\mathcal A_R$ に属さず、$|\Phi^+\rangle$ における期待値は1です。この違いがアクセス可能範囲の意味です。
+$O_R=|0\rangle\langle0|$ なら両辺の期待値は $1/2$。$O_R=X=|0\rangle\langle1|+|1\rangle\langle0|$ なら両辺は0です。しかし放射と残存物を**共同で**測る $X_R\otimes X_B$ は $B$ の基底状態も反転させるので、$B$ に恒等作用素を置く $O_R\otimes I_B$ の形に書けず、$\mathcal A_R$ に属しません。$|\Phi^+\rangle$ における期待値は1です.この違いがアクセス可能範囲の意味です。
 <!-- definition-example-end -->
 
 $\mathcal N_R$ は[量子チャネルの定義](../../../応用系/QINF/QINF7/index.md#def-qinf7-channel)に沿って完全正値・跡保存です。等長写像による共役 $V\rho V^\dagger$ と部分トレースを連続して行うためであり、放射上で逆操作が存在するとは限りません。
