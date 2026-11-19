@@ -11,7 +11,7 @@ button.primary{background:#164a78;color:white}
 /* Primary actions stay reachable even when the single-column editors are tall. */
 .lab-actions{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #cbd5e1;padding:.25rem 0}
 .lab-actions .controls{margin:.25rem 0;gap:8px}
-// Keep every source editor at full available width, including desktop viewports.
+/* Keep every source editor at full available width, including desktop viewports. */
 .editors{display:grid;grid-template-columns:minmax(0,1fr);gap:.8rem}
 .editors>div{min-width:0}
 .editors label{display:block;font-weight:bold;margin-bottom:.2rem}
