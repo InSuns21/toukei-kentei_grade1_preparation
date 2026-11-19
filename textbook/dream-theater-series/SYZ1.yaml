@@ -24,7 +24,7 @@ chapters:
     title: "正則体積形式・位相とSLag方程式"
   - id: SYZ1-05
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-05
-    status: planned
+    status: completed
     title: "McLean理論I――変形方程式の線形化"
   - id: SYZ1-06
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-06

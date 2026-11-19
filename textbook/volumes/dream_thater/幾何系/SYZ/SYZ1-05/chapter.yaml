@@ -1,0 +1,42 @@
+id: "SYZ1-05"
+title: "McLean理論I――変形方程式の線形化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-04
+official_scope: []
+learning_objectives:
+  - 規格化した特殊Lagrange部分多様体の法線速度から1形式と(n-1)形式を定義し符号・次数・法線性を直接検算できる
+  - 誘導計量と向きから1形式のHodge星・余微分を作り局所座標で閉性と余閉性を区別できる
+  - V=J(alpha sharp) および beta=*alpha を正規直交接枠と複素線形性から導出できる
+  - Cartan公式と形式の閉性からLagrange条件・虚部条件を線形化して d alpha=0 および d*alpha=0 を証明できる
+  - コンパクト境界なしの場合の位相の一次固定をStokesの定理で示し非コンパクトな反例を説明できる
+  - 平坦トーラスと三次元調和ポテンシャルを使って線形化の核と非線形の解を区別できる
+definitions:
+  - { id: SYZ1-05-DEF-01, name: "法線変形に対応する二つの形式" }
+  - { id: SYZ1-05-DEF-02, name: "1形式のHodge星と余微分" }
+theorems:
+  - { id: SYZ1-05-PROP-01, name: "法線場・1形式・Hodge星の同定" }
+  - { id: SYZ1-05-THM-01, name: "固定位相のSLag方程式の線形化" }
+  - { id: SYZ1-05-PROP-02, name: "コンパクトSLagの位相の一次固定" }
+canonical_examples:
+  - C2水平平面での法線縮約とHodge星の符号検算
+  - R2の閉形式と余閉形式の相違
+  - 平坦複素トーラスの並進による実際のSLag変形
+  - 非コンパクト直線の位相回転による仮定の必要性
+  - C3のf=xyzによる一次解と非線形グラフの差
+problem_patterns:
+  - SYZ1-05-NORMAL-CONTRACTION-ONE
+  - SYZ1-05-CLOSED-VS-COCLOSED
+  - SYZ1-05-RADIAL-FIRST-VARIATION
+  - SYZ1-05-HARMONIC-GRAPH
+  - SYZ1-05-MOVING-PHASE
+  - SYZ1-05-CUBIC-HARMONIC-PLANE
+  - SYZ1-05-FLAT-TORUS-KERNEL
+  - SYZ1-05-TANGENTIAL-REPARAMETRIZATION
+  - SYZ1-05-EXACT-COMPACT-VANISHING
+  - SYZ1-05-HIGHER-ORDER-GRAPH-OBSTRUCTION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 10, review: 4 }
