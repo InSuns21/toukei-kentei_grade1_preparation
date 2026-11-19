@@ -50,6 +50,7 @@ test('WGL/FCG shared editor uses a full-width column and sticky actions before p
   assert.equal((html.match(/id="run"/g) || []).length, 1);
   assert.match(css, /\.editors\{display:grid;grid-template-columns:minmax\(0,1fr\)/);
   assert.doesNotMatch(css, /grid-template-columns:1fr 1fr/);
+  assert.doesNotMatch(css, /^\/\//m);
   assert.match(css, /\.lab-actions\{position:sticky;top:0/);
   assert.match(css, /\.editors textarea\{min-height:15rem\}/);
   // FCG physical-step controls must join the same persistent group, not be hidden in a tab.
