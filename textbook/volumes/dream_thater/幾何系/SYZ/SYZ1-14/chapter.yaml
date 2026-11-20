@@ -1,0 +1,46 @@
+id: "SYZ1-14"
+title: "特異ファイバーとモノドロミー"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-13
+  - SYZ1-08
+  - SYZ1-10
+official_scope: []
+learning_objectives:
+  - 判別集合と正則値集合を区別し節点型退化の局所模型uv=tを導出できる
+  - 節点の消滅サイクルが原始的な1サイクルである理由と局所的な縮退を説明できる
+  - 交点数の符号を固定して正の節点モノドロミーとSL(2,Z)のshear行列を導ける
+  - 任意の原始ベクトル(p,q)のPicard–Lefschetz行列と共役・逆行列を計算できる
+  - H1のモノドロミーとH^1の反変な作用および周期ベクトルの変換を区別できる
+  - 穿孔基底での双対トーラス束の存在と特異点を含む滑らかな束への延長不能を説明できる
+definitions:
+  - { id: SYZ1-14-DEF-01, name: "判別集合と消滅サイクル" }
+  - { id: SYZ1-14-DEF-02, name: "トーラス束のモノドロミー" }
+theorems:
+  - { id: SYZ1-14-PROP-01, name: "Weierstrassの単純零点から節点の局所模型へ" }
+  - { id: SYZ1-14-THM-01, name: "節点型退化のPicard–Lefschetzモノドロミー" }
+  - { id: SYZ1-14-PROP-02, name: "任意の原始消滅サイクルに対するshear" }
+  - { id: SYZ1-14-PROP-03, name: "周期と双対格子のモノドロミー" }
+  - { id: SYZ1-14-PROP-04, name: "滑らかなトーラス束への延長の障害" }
+canonical_examples:
+  - uv=tの局所平滑化と消滅円周
+  - aを固定しbをa+bへ送る節点モノドロミー
+  - 消滅サイクルa+bの行列
+  - Weierstrass族y²=x³−3x+2+t
+  - 穿孔円板上の双対局所系と円板全体への延長不能
+problem_patterns:
+  - SYZ1-14-WEIERSTRASS-DERIVATIVE
+  - SYZ1-14-VANISHING-ANNULUS
+  - SYZ1-14-INTERSECTION-SHEAR
+  - SYZ1-14-DUAL-LATTICE
+  - SYZ1-14-PRIMITIVE-VECTOR
+  - SYZ1-14-LOCAL-MONODROMY
+  - SYZ1-14-CONJUGACY
+  - SYZ1-14-SPHERE-RELATION
+  - SYZ1-14-EXTENSION-OBSTRUCTION
+  - SYZ1-14-COMPLETE-LOCAL-FAMILY
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 4 }
