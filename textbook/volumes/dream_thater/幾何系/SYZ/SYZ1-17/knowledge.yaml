@@ -1,13 +1,13 @@
 chapter: SYZ1-17
 scope: dream-theater
 coverage: complete
-prerequisites: [SYZ1-16]
+prerequisites: [SYZ1-16, OPT10]
 concepts:
   - id: syz.tropical-affine-singular
-    name: 特異点を持つ整数アフィン空間
+    name: 特異整数アフィン多様体
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（特異点を持つ整数アフィン空間）"]
+    introduction_aliases: ["定義（特異整数アフィン多様体）"]
     requires: [syz.integral-affine-structure, syz.torus-monodromy]
   - id: syz.integral-polyhedral-decomposition
     name: 整数多面体分割
@@ -46,10 +46,10 @@ concepts:
     introduction_aliases: ["定義（局所トーリック退化模型）"]
     requires: []
   - id: syz.flat-local-toric-family
-    name: xy=tの平坦性と局所的な交叉
+    name: 交叉退化模型の平坦性と局所的な交叉
     kind: proposition
     introduction: formal
-    introduction_aliases: ["命題（xy=tの平坦性と局所的な交叉）"]
+    introduction_aliases: ["命題（交叉退化模型の平坦性と局所的な交叉）"]
     requires: [syz.local-toric-degeneration]
   - id: syz.tadic-wall-consistency
     name: 形式的な壁の次数別整合性
