@@ -68,7 +68,7 @@ prerequisites だけを既知とする独習者が、本文から主要概念・
 
 ## WebGL／FCG・WGLのラボUXと文章
 
-FCG・WGLの変更時は [執筆規約](../../DREAM_THEATER_AUTHORING_STANDARD.md) 第4.1.3節と §textbook/plans_progress/DREAM_THEATER_FCG_WGL_LAB_UX_REMEDIATION_PLAN.md§ の対象講を確認する（完了による計画移動後は実パスを確認）。共通UI・パラメータ契約・sandboxは章固有の描画を先に個別実装する前に確定する。学習者が操作する値の意味・初期値・範囲・単位・編集するJS/GLSL位置、主要な観察差、キャンバスと凡例の読みやすさを必ず確認する。
+FCG・WGLの変更時は [執筆規約](../../DREAM_THEATER_AUTHORING_STANDARD.md) 第4.1.3節と `textbook/plans_progress/DREAM_THEATER_FCG_WGL_LAB_UX_REMEDIATION_PLAN.md` の対象講を確認する（完了による計画移動後は実パスを確認）。共通UI・パラメータ契約・sandboxは章固有の描画を先に個別実装する前に確定する。学習者が操作する値の意味・初期値・範囲・単位・編集するJS/GLSL位置、主要な観察差、キャンバスと凡例の読みやすさを必ず確認する。
 
 CPU/GPUオラクル・保存則等の検算は維持するが、学習目的が計算精度そのものでない講では表示の主役にしない。過剰なカード・枠線・重複説明・装飾コピーを避ける。留保表現は数学的に必要な仮定・誤差・限界へ集約し、独立検算の範囲や自動検証で未確認の事項などの開発監査情報はPRとレビューに残す。実ブラウザの視覚査読を自動検証の結果と取り違えない。
 
