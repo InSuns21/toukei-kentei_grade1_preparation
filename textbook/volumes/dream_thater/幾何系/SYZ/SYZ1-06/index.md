@@ -79,6 +79,8 @@ $$
 <!-- definition-example-start: def-syz1-06-exact-target -->
 ### 直接例：二次元トーラスで値域の条件を判定する
 
+**定義の確認**
+
 標準向きの $T^2=\mathbb R^2/\mathbb Z^2$ で、$\eta=\sin(2\pi x)\,dx\wedge dy$ とする。1形式 $\zeta=-\cos(2\pi x)\,dy/(2\pi)$ は大域的に周期的であり、
 
 $$
@@ -249,26 +251,35 @@ $\alpha_2$ は余完全、$\alpha_n$ は完全なので $\alpha\in\mathcal K$ �
 
 上では滑らかな形式で議論した。しかし、微分を含む写像へ陰関数定理を適用するには、完備なノルム空間が必要である。そこで $k\ge2$ と $0<\gamma<1$ を固定する。
 
-局所座標で $k$ 階までの導関数が存在し、最高階の導関数が指数 $\gamma$ でHölder連続な形式の空間を $C^{k,\gamma}$ と書く。有限個の座標で与えたHölderノルムは、コンパクトな $L$ 上で同値になり、この空間はBanach空間となる。
+局所座標で $k$ 階まで導関数が連続であり、任意の最高階導関数 $D^k a$ が、座標近傍の点 $x,y$ について次の有界な差分比を持つ形式の空間を $C^{k,\gamma}$ と書く。
+
+$$
+[D^k a]_{\gamma}
+=\sup_{x\ne y}
+\frac{|D^k a(x)-D^k a(y)|}{|x-y|^\gamma}
+<\infty.
+$$
+
+$\sup$ は異なる2点についての上限である。この条件は、近い2点の最高階導関数の差が距離の $\gamma$ 乗で抑えられることを表す。通常の導関数の上限ノルムとこの差分比を足したノルムを用いると、$C^{k,\gamma}$ はBanach空間になる。有限個の座標で作るノルムはコンパクトな $L$ 上で同値である。
 
 未知数には $C^{k+1,\gamma}\Omega^1(L)$ を使い、値には $C^{k,\gamma}$ の完全な2形式と最高次形式の対からなる空間 $\mathcal E^{k,\gamma}$ を使う。調和成分を除いた1形式の閉補空間を $\mathcal K^{k+1,\gamma}$ と書く。
 
-前節で作った逆公式を連続な逆として使うため、以下の**楕円型作用素のHölderノルム評価**を解析的入力とする。$j$ 次の形式 $\rho$ が調和成分に直交すれば、滑らかな係数を持つ閉多様体のHodge Laplacianに対するGreen作用素は
+前節で作った逆公式を連続な逆として使うため、以下の**楕円型作用素の $C^{k,\gamma}$ ノルム評価**を解析的入力とする。$j$ 次の形式 $\rho$ が調和成分に直交すれば、滑らかな係数を持つ閉多様体のHodge Laplacianに対するGreen作用素は
 
-$
+$$
 P_j\rho=0
 \quad\Longrightarrow\quad
 \|G_j\rho\|_{C^{k+2,\gamma}}
 \le C\|\rho\|_{C^{k,\gamma}}
-$
+$$
 
 を満たす。$C$ は計量、次数、$k,\gamma$ に依存する。この評価は一般に**Schauder評価**と呼ばれる解析的結果の適用例である。$\delta G_2\eta$ と $du$ はそれぞれ1階微分なので、右逆の出力を $C^{k+1,\gamma}$ で評価できる。
 
 次に、Banach空間版の陰関数定理を次の形で入力する。有限次元空間 $H$ とBanach空間 $K,Y$、原点付近の滑らかな写像 $F:H\times K\to Y$ を考える。
 
-$
+$$
 F(0,0)=0,\qquad D_KF(0,0):K\to Y
-$
+$$
 
 が有界逆を持つとする。このとき原点の近くの方程式 $F(h,x)=0$ は、唯一の滑らかな関数 $x=\varphi(h)$ として解ける。これは[既習の有限次元陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版という追加の解析的入力であり、有限次元の定理だけで自動的に証明できるという意味ではない。
 
@@ -322,16 +333,16 @@ $$
 
 **(5) 接空間。** 任意の $v\in\mathcal H^1(L)$ を取り、$h=tv$ に沿って方程式を $t=0$ で微分する。連鎖律により
 
-$
+$$
 0=\left.\frac d{dt}\right|_{t=0}\mathcal F(tv+\varphi(tv))
 =D\bigl(v+\mathrm d\varphi_0(v)\bigr)
-$
+$$
 
 である。$Dv=0$、$\mathrm d\varphi_0(v)\in\mathcal K$ なので
 
-$
+$$
 D|_{\mathcal K}\bigl(\mathrm d\varphi_0(v)\bigr)=0.
-$
+$$
 
 $D|_{\mathcal K}$ は単射だから $\mathrm d\varphi_0(v)=0$。$v$ は任意であり、$\mathrm d\varphi_0=0$ を得る。よって $h\mapsto h+\varphi(h)$ の原点での微分は $v\mapsto v$ で、接空間が $\mathcal H^1(L)$ になる。
 
@@ -351,10 +362,10 @@ $$
 
 を標準Kähler構造、$\Omega=dz^1\wedge\cdots\wedge dz^n$、向き $dx^1\wedge\cdots\wedge dx^n$、位相0で考える。$L$ は連結・コンパクト・境界なしで、前講の[水平トーラスのSLag条件](../SYZ1-05/index.md#thm-syz1-05-linearization)を満たす。$h=\sum c_jdx^j$ は閉・余閉であり、平坦トーラスの調和1形式は全てこの形である。実際、$\alpha=\sum_j a_j(x)dx^j$ が調和なら平坦座標で各係数は $\sum_k\partial_k^2a_j=0$ となる。周期境界で部分積分すれば
 
-$
+$$
 0=\int_{T^n}a_j\sum_k\partial_k^2a_j\,dx
 =-\sum_k\int_{T^n}|\partial_ka_j|^2\,dx
-$
+$$
 
 なので全ての $\partial_ka_j$ が0、従って $a_j$ は定数である。従って $b_1(L)=n$。
 
