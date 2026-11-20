@@ -205,11 +205,11 @@ $$
 
 この等式は局所自明化したファイバー内の点の等式である。$s(b_0)$ の近くにファイバー座標 $u=(u^1,\ldots,u^n)$ を取り、基準周期 $t^{(a)}(b_0)$ 付近の戻り点を同じ座標領域で表す。方程式と時間微分は
 
-$
+$$
 u(\Phi_t(s(b)))-u(s(b))=0,\qquad
 \left.\frac{\partial}{\partial t_i}u(\Phi_t(s(b)))\right|_{(b_0,t^{(a)}(b_0))}
 =du_{s(b_0)}(X_i(s(b_0)))
-$
+$$
 
 となる。ここで $\partial/\partial t_i$ は基底点 $b$ を固定し、第 $i$ の流れの時間だけを変化させる微分である。$X_1,\ldots,X_n$ はファイバー接空間の基底なので、右辺を列とする $n\times n$ Jacobian行列は可逆である。従って[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)により、$b_0$ の十分小さい近傍に滑らかな解 $t=t^{(a)}(b)$ が存在する。
 
@@ -468,16 +468,16 @@ $$
 
 となる。$c$ の符号を間違えて $\psi_2=\vartheta_2+cI_1$ と置くと、
 
-$
+$$
 dI_2\wedge d\psi_2
 =dI_2\wedge d\vartheta_2-c\,dI_1\wedge dI_2
-$
+$$
 
 となり、元の $\omega$ と一致しない。逆に $\vartheta_2=\psi_2-cI_1$ を元の $\omega$ に代入すれば
 
-$
+$$
 \omega=\sum_a dI_a\wedge d\psi_a+2c\,dI_1\wedge dI_2
-$
+$$
 
 となり、余分な項が2倍残る。**切断の変更は証明の一部**である。
 
