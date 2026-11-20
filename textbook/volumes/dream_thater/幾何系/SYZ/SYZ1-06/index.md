@@ -139,7 +139,7 @@ $$
 
 である。第二成分は $d^*\alpha=-*d*\alpha$ により $-(d^*\alpha)\operatorname{vol}_L$ と等しい。従って $D\alpha=0$ は閉かつ余閉であること、すなわち調和1形式であることに等しい。
 
-$L$ の誘導計量で $\delta=d^*$、$\Delta_H=d\delta+\delta d$ と置く。[GA6のエネルギー恒等式](../../GA/GA6/index.md#thm-ga6-energy)により、コンパクト境界なしの $L$ 上では $\Delta_Hh=0$ と $dh=\delta h=0$ は同値である。調和1形式の有限次元空間を $\mathcal H^1(L)$ とする。
+$L$ の誘導計量で $\delta=d^*$、$\Delta_H=d\delta+\delta d$ と置く。[エネルギー恒等式と調和性の判定](../../GA/GA6/index.md#thm-ga6-energy)により、コンパクト境界なしの $L$ 上では $\Delta_Hh=0$ と $dh=\delta h=0$ は同値である。調和1形式の有限次元空間を $\mathcal H^1(L)$ とする。
 
 [GA6のHodge直交分解](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)を1形式へ適用すると
 
@@ -150,7 +150,7 @@ $$
 
 という互いに直交する分解がある（各成分は一意で、原始形式は一意とは限らない）。後ろの二成分をまとめて $\mathcal K$ と書く。調和成分 $h$ は $D$ の核なので、$D$ を $\mathcal K$ に制限して可逆にできることを示そう。
 
-[Green作用素の定義](../../GA/GA6/index.md#def-ga6-green-operator)から、次数 $k$ の作用素 $G_k$ は
+[Hodge Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)から、次数 $k$ の作用素 $G_k$ は
 
 $$
 \Delta_HG_k\eta=\eta-P_k\eta
@@ -225,7 +225,7 @@ $$
 
 **最高次形式側。** $\xi=d\gamma$ なので[Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から $\int_L\xi=0$、すなわち $\int_Lf\,\operatorname{vol}_L=0$。逆に向き付きの連結閉多様体では積分0の最高次形式は完全である。これは[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)と最高次の調和形式が定数倍の体積形式であることから従う。連結性を使うため、積分0は各連結成分で必要とする。
 
-平均値0の $f$ は定数調和関数に直交するので、[Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)で $u=-G_0f$ と置くと
+平均値0の $f$ は定数調和関数に直交するので、[Hodge Green作用素](../../GA/GA6/index.md#def-ga6-green-operator)で $u=-G_0f$ と置くと
 
 $$
 \Delta_Hu=-f,\qquad\int_Lu\,\operatorname{vol}_L=0
@@ -247,11 +247,30 @@ $\alpha_2$ は余完全、$\alpha_n$ は完全なので $\alpha\in\mathcal K$ �
 
 ## 5. Banach空間の陰関数定理を使う
 
-上では滑らかな形式で議論した。しかし、微分を含む写像へ陰関数定理を適用するには、距離と完備性を持つ関数空間が必要である。そこで $k\ge2$ と $0<\gamma<1$ を固定する。局所座標で $k$ 階までの導関数が存在し、$k$ 階導関数が指数 $\gamma$ のHölder連続性を持つ形式の空間を $C^{k,\gamma}$ と書く。有限個の座標で与えた通常のHölderノルムは、コンパクトな $L$ 上で同値になり、Banach空間となる。
+上では滑らかな形式で議論した。しかし、微分を含む写像へ陰関数定理を適用するには、完備なノルム空間が必要である。そこで $k\ge2$ と $0<\gamma<1$ を固定する。
 
-未知数には $C^{k+1,\gamma}\Omega^1(L)$、値には $C^{k,\gamma}$ の**完全な**2形式と $n$ 形式の空間 $\mathcal E^{k,\gamma}$ を用いる。$\mathcal K^{k+1,\gamma}$ は1形式のHodge分解で調和成分を除いた閉補空間とする。前節の逆公式は、閉多様体のHodge Laplacianに対する**Schauder型の楕円型正則性**により、次数に応じて1階高いHölderノルムで有界に評価できる。この正則性を明示的な解析的入力とする。
+局所座標で $k$ 階までの導関数が存在し、最高階の導関数が指数 $\gamma$ でHölder連続な形式の空間を $C^{k,\gamma}$ と書く。有限個の座標で与えたHölderノルムは、コンパクトな $L$ 上で同値になり、この空間はBanach空間となる。
 
-この章で使うBanach空間版の陰関数定理は次の形である。$H$ を有限次元、$K,Y$ をBanach空間、$F:H\times K\to Y$ を原点付近の滑らかな写像とし、$F(0,0)=0$ で、$D_KF(0,0):K\to Y$ が有界逆を持つなら、原点の近くで方程式 $F(h,x)=0$ を満たす $x$ は一意の滑らかな写像 $x=\varphi(h)$ として表せる。これは[既習の有限次元陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)を完備ノルム空間に拡張した**解析的入力**であり、有限次元定理だけから自動的に従うと主張してはいない。
+未知数には $C^{k+1,\gamma}\Omega^1(L)$ を使い、値には $C^{k,\gamma}$ の完全な2形式と最高次形式の対からなる空間 $\mathcal E^{k,\gamma}$ を使う。調和成分を除いた1形式の閉補空間を $\mathcal K^{k+1,\gamma}$ と書く。
+
+前節で作った逆公式を連続な逆として使うため、以下の**楕円型作用素のHölderノルム評価**を解析的入力とする。$j$ 次の形式 $\rho$ が調和成分に直交すれば、滑らかな係数を持つ閉多様体のHodge Laplacianに対するGreen作用素は
+
+$
+P_j\rho=0
+\quad\Longrightarrow\quad
+\|G_j\rho\|_{C^{k+2,\gamma}}
+\le C\|\rho\|_{C^{k,\gamma}}
+$
+
+を満たす。$C$ は計量、次数、$k,\gamma$ に依存する。この評価は一般に**Schauder評価**と呼ばれる解析的結果の適用例である。$\delta G_2\eta$ と $du$ はそれぞれ1階微分なので、右逆の出力を $C^{k+1,\gamma}$ で評価できる。
+
+次に、Banach空間版の陰関数定理を次の形で入力する。有限次元空間 $H$ とBanach空間 $K,Y$、原点付近の滑らかな写像 $F:H\times K\to Y$ を考える。
+
+$
+F(0,0)=0,\qquad D_KF(0,0):K\to Y
+$
+
+が有界逆を持つとする。このとき原点の近くの方程式 $F(h,x)=0$ は、唯一の滑らかな関数 $x=\varphi(h)$ として解ける。これは[既習の有限次元陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版という追加の解析的入力であり、有限次元の定理だけで自動的に証明できるという意味ではない。
 
 <a id="thm-syz1-06-mclean-unobstructed"></a>
 
@@ -478,7 +497,7 @@ $$
 閉じた $\Omega$ と $F_t$ のホモトピーに[Cartan公式](../SYZ1-05/index.md#thm-syz1-05-linearization)を使えば $\frac d{dt}\int_LF_t^*\Omega=\int_Ld(\cdots)=0$。従って $Z=\int_LF_t^*\Omega$ は一定。SLagの虚部零・実部正から $Z=e^{i\theta(t)}\operatorname{Vol}(F_t(L))$ である。正の体積により $Z\ne0$、絶対値を取ると $\operatorname{Vol}(F_t(L))=|Z|$。ゆえに $e^{i\theta(t)}=Z/|Z|$ は一定で、連続な $\theta(t)$ の分枝は局所的に一定となる。
 <!-- solution-end -->
 
-### Level B：Green作用素・陰関数定理
+### Level B：右逆の計算と局所パラメータ
 
 <a id="ex-syz1-06-b01"></a>
 
