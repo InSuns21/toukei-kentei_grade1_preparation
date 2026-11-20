@@ -76,9 +76,9 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[前講のSLag束から変形空間への命題](../SYZ1-07/index.md#prop-syz1-07-slag-moduli)によって、$b$ の近傍の束のファイバーをMcLeanの局所変形空間の点とみなす写像の微分は同型である。その微分が $v\mapsto[\alpha_v]$ である。さらにMcLeanの局所変形空間の接空間は [McLeanの無障害性定理](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed) により $H^1(L_b;\mathbb R)$ と同型だから、$\mathcal A_b$ は線形同型となる。
+[前講のSLag束から変形空間への命題](../SYZ1-07/index.md#prop-syz1-07-moduli-map)によって、$b$ の近傍の束のファイバーをMcLeanの局所変形空間の点とみなす写像の微分は同型である。その微分が $v\mapsto[\alpha_v]$ である。さらにMcLeanの局所変形空間の接空間は [McLeanの無障害性定理](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed) により $H^1(L_b;\mathbb R)$ と同型だから、$\mathcal A_b$ は線形同型となる。
 
-一方、規格化されたSLagにおける [Hodge星の同定](../SYZ1-05/index.md#prop-syz1-05-hodge-identification) によって $\beta_v=*\alpha_v$。調和形式に対して $d\alpha_v=d(*\alpha_v)=0$ が成立する。Hodge星の二回適用は1形式に対し $*^2=(-1)^{n-1}$ なので、$\alpha\mapsto *\alpha$ は調和1形式と調和 $(n-1)$ 形式の可逆な線形写像である。コンパクト・境界なしの場合、調和形式が各実コホモロジー類を一意に表す [Hodge–de Rhamの同型](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed) を通じ、$\mathcal C_b$ も同型となる。
+一方、規格化されたSLagにおける [Hodge星の同定](../SYZ1-05/index.md#prop-syz1-05-hodge-identification) によって $\beta_v=*\alpha_v$。調和形式に対して $d\alpha_v=d(*\alpha_v)=0$ が成立する。Hodge星の二回適用は1形式に対し $*^2=(-1)^{n-1}$ なので、$\alpha\mapsto *\alpha$ は調和1形式と調和 $(n-1)$ 形式の可逆な線形写像である。コンパクト・境界なしの場合、調和形式が各実コホモロジー類を一意に表す [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham) を通じ、$\mathcal C_b$ も同型となる。
 <!-- proof-end -->
 
 ## 3. 整数アフィン座標に何が必要か
@@ -404,6 +404,8 @@ $$
 
 ### Level A：符号・次数・整数性を確認する
 
+<a id="ex-syz1-08-a01"></a>
+
 #### SYZ1-08-A01 法線変形の二つの形式
 
 - Level: A
@@ -422,6 +424,8 @@ $$
 だから $\iota_{\partial_{y^1}}\operatorname{Im}\Omega=dx^2$、$\iota_{\partial_{y^2}}\operatorname{Im}\Omega=-dx^1$。従って $\beta_V=3dx^2+2dx^1$。この場合はいずれも1形式であるが、一般の $n$ で $\beta$ は $(n-1)$ 形式になる。
 <!-- solution-end -->
 
+<a id="ex-syz1-08-a02"></a>
+
 #### SYZ1-08-A02 サイクルの次数
 
 - Level: A
@@ -433,6 +437,8 @@ $L=T^3$ とする。$\alpha$ が1形式、$\beta$ が2形式であるとき、$\
 
 1形式は1次元の閉路に、2形式は2次元の閉サイクルに積分する。$T^3=S^1\times S^1\times S^1$ の三つの座標円周を $\gamma_i$ とすれば $H_1(T^3;\mathbb Z)\cong\mathbb Z^3$。各座標を一つ固定した向き付き座標2トーラスを $\delta_i$ とすれば $H_2(T^3;\mathbb Z)\cong\mathbb Z^3$。どちらの整数群も階数3だが、サイクルの次数は異なる。
 <!-- solution-end -->
+
+<a id="ex-syz1-08-a03"></a>
 
 #### SYZ1-08-A03 整数基底の交換
 
@@ -453,6 +459,8 @@ $$
 両方整数成分なので $A\in GL(2,\mathbb Z)$。定数平行移動は許される。$w$ の行列は $\operatorname{diag}(2,1)$ で行列式2、逆の第1対角成分は $1/2$。従って $w$ は滑らかな実座標でも、同じ整数アフィン座標ではない。
 <!-- solution-end -->
 
+<a id="ex-syz1-08-a04"></a>
+
 #### SYZ1-08-A04 一次元ファイバーと0形式
 
 - Level: A
@@ -464,6 +472,8 @@ $X=\mathbb C/(\mathbb Z+i\mathbb Z)$、$\omega=dx\wedge dy$、$\Omega=dx+i\,dy$�
 
 $-\iota_{\partial_y}(dx\wedge dy)=dx$、$\iota_{\partial_y}\operatorname{Im}\Omega=\iota_{\partial_y}dy=1$ なので $\alpha_V=dx$、$\beta_V=1$（0形式）である。$H_1$ の正向き一周 $\gamma$ に沿う周期は $\int_\gamma dx=1$。$H_0$ の生成元を点1個 $\delta=[x_0]$ とすれば、0形式の0サイクルへの積分は評価であるから $\int_\delta 1=1$。従って二つの周期余接格子はともに $\mathbb Z\,dy$ になる。
 <!-- solution-end -->
+
+<a id="ex-syz1-08-a05"></a>
 
 #### SYZ1-08-A05 作用座標との符号関係
 
@@ -478,6 +488,8 @@ $\iota_{\partial_I}(dI\wedge d\psi)=d\psi$ より $\alpha_v=-d\psi$。正の周�
 <!-- solution-end -->
 
 ### Level B：閉性・格子・遷移をつなぐ
+
+<a id="ex-syz1-08-b01"></a>
 
 #### SYZ1-08-B01 閉形式と帯の積分
 
@@ -497,6 +509,8 @@ $$
 $\partial K$ のうち $\partial\gamma$ に対応する部分は $\gamma$ がサイクルなので消える。端点固定の二つの面はそれぞれファイバー内にあり、$\eta|_{T^2}=0$ で消える。残る二面は $c_0$ と $c_1$ の帯（向きは逆）なので、$\int_{c_0\times\gamma}\eta-\int_{c_1\times\gamma}\eta=0$。従って帯の積分は局所ポテンシャルを与え、その微分は周期1形式になる。
 <!-- solution-end -->
 
+<a id="ex-syz1-08-b02"></a>
+
 #### SYZ1-08-B02 非整数行列が格子を壊す
 
 - Level: B
@@ -514,6 +528,8 @@ $$
 
 も整数なので、$Adu$ の各成分は $\Lambda$ に属し、逆に $du=A^{-1}(Adu)$ も新生成元の整数和である。従って格子は一致する。$Bdu$ の第1成分は $du^1+\frac12du^2$ であり、これ自体が $\Lambda$ に属さない。新しい整数包は元の格子とは異なる。$\det B=1$ という条件だけでは、整数格子を保つ十分条件にならない。
 <!-- solution-end -->
+
+<a id="ex-syz1-08-b03"></a>
 
 #### SYZ1-08-B03 異方的トーラスの周期
 
@@ -541,6 +557,8 @@ $$
 $3/2,2/3$ は整数でないので、この変換は $GL(2,\mathbb Z)$ に属さず、二つの整数アフィン構造は一致しない。
 <!-- solution-end -->
 
+<a id="ex-syz1-08-b04"></a>
+
 #### SYZ1-08-B04 Hodge星は整数周期を保つか
 
 - Level: B
@@ -562,6 +580,8 @@ $$
 
 ### Level C：定義、閉性、座標遷移、反例を一つにまとめる
 
+<a id="ex-syz1-08-c01"></a>
+
 #### SYZ1-08-C01 二重整数アフィン構造の完全構成
 
 - Level: C
@@ -571,7 +591,7 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-**(1) SLag条件。** $g=2((dx^1)^2+(dy^1)^2)+3((dx^2)^2+(dy^2)^2)$、$\omega=2dx^1\wedge dy^1+3dx^2\wedge dy^2$、$\Omega=\sqrt6(d x^1+i\,dy^1)\wedge(dx^2+i\,dy^2)$ とする（$d x^1$ は $dx^1$ を意味する）。$L_y$ は $dy^1=dy^2=0$ で実次元2、コンパクトで向き付きの $T^2$。従って $\omega|_{L_y}=0$、$\operatorname{Im}\Omega|_{L_y}=0$ であり、$\operatorname{Re}\Omega|_{L_y}=\sqrt6\,dx^1\wedge dx^2=\operatorname{vol}_{L_y}>0$。束は $y$ の局所座標で積になり、局所自明である。
+**(1) SLag条件。** $g=2((dx^1)^2+(dy^1)^2)+3((dx^2)^2+(dy^2)^2)$、$\omega=2dx^1\wedge dy^1+3dx^2\wedge dy^2$、$\Omega=\sqrt6(dx^1+i\,dy^1)\wedge(dx^2+i\,dy^2)$ とする（$d x^1$ は $dx^1$ を意味する）。$L_y$ は $dy^1=dy^2=0$ で実次元2、コンパクトで向き付きの $T^2$。従って $\omega|_{L_y}=0$、$\operatorname{Im}\Omega|_{L_y}=0$ であり、$\operatorname{Re}\Omega|_{L_y}=\sqrt6\,dx^1\wedge dx^2=\operatorname{vol}_{L_y}>0$。束は $y$ の局所座標で積になり、局所自明である。
 
 **(2) 二つの形式と周期。** $v=v^1\partial_{y^1}+v^2\partial_{y^2}$ とすると、縮約を順に行って
 
