@@ -51,7 +51,7 @@ chapters:
     title: "Langevinの数値離散化はどこで偏るか"
   - id: PML1-12
     path: textbook/volumes/dream_thater/応用系/PML/PML1-12
-    status: planned
+    status: completed
     title: "SGDの揺らぎは熱雑音と等しいか"
   - id: PML1-13
     path: textbook/volumes/dream_thater/応用系/PML/PML1-13
