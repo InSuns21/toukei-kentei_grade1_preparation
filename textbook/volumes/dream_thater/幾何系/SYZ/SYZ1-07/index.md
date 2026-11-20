@@ -521,7 +521,15 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$d\pi:T_xM\to T_bB_0$ は全射で、核は $T_xL_b$ である。$v\ne0$ ならその持ち上げ $V$ は垂直ではない。もし $\alpha_v=0$ なら $\omega(V,W)=0$ が全ての $W\in T_xL_b$ に対し成り立つ。ファイバーがLagrangeだから[線形Lagrange判定](../../SYM/SYM6/index.md#thm-sym6-lagrangian-criterion)により $T_xL_b$ のシンプレクティック直交補は $T_xL_b$ 自身であり、$V$ は垂直となって矛盾する。よって $\alpha_v$ は零でない。
+$d\pi:T_xM\to T_bB_0$ は全射で、核は $T_xL_b$ である。$v\ne0$ ならその持ち上げ $V$ は垂直ではない。
+
+もし $\alpha_v=0$ なら、任意の $W\in T_xL_b$ に対し
+
+$$
+0=\alpha_v(W)=-\omega(V,W)
+$$
+
+となる。したがって $V$ は $T_xL_b$ のシンプレクティック直交補に属する。しかしファイバーはLagrangeだから、[線形Lagrange判定](../../SYM/SYM6/index.md#thm-sym6-lagrangian-criterion)によって直交補は $T_xL_b$ 自身である。よって $V$ は垂直になり、$d\pi(V)=v\ne0$ と矛盾する。従って $\alpha_v$ は零でない。
 
 [McLeanの局所無障害性定理](../SYZ1-06/index.md#thm-syz1-06-mclean-unobstructed)は変形空間の接空間を調和1形式 $\mathcal H^1(L_b)$ と同一視する。$b_1(T^n)=n$ だから、線形写像 $v\mapsto\alpha_v$ は $n$ 次元空間間の単射、従って同型である。基底の近傍を局所変形空間の座標で見ると、その微分は可逆なので[逆関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-inverse-function)から局所微分同相を得る。これは**既に与えられた束のファイバーが変形空間の局所座標になる**ことの証明であって、束を構成する証明ではない。
 <!-- proof-end -->
