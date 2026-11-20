@@ -146,7 +146,7 @@ export function mountLabParameters(lesson, container,
       slider.disabled = !isReady() || !state.ok;
       if (state.ok) {
         slider.value = String(state.value);
-        display.textContent = String(state.value) + ' ' + spec.unit;
+        display.textContent = String(state.value); // unit and scale are in the adjacent description
         if (!status.textContent.startsWith('編集ソースに反映')) status.textContent = '';
       } else {
         display.textContent = 'JSで編集';
