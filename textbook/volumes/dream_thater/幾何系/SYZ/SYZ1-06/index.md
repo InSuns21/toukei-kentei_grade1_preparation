@@ -81,13 +81,27 @@ $$
 
 **定義の確認**
 
-標準向きの $T^2=\mathbb R^2/\mathbb Z^2$ で、$\eta=\sin(2\pi x)\,dx\wedge dy$ とする。1形式 $\zeta=-\cos(2\pi x)\,dy/(2\pi)$ は大域的に周期的であり、
+標準向きの $T^2=\mathbb R^2/\mathbb Z^2$ で、$x,y$ は被覆空間の座標であり、$dx,dy$ は整数平行移動で不変なのでトーラス上の大域1形式に降りる。$n=2$ では $\mathcal E=d\Omega^1(T^2)\oplus d\Omega^1(T^2)$ であり、対の**両成分**が完全な2形式でなければならない。
+
+$\eta=\sin(2\pi x)\,dx\wedge dy$ とする。1形式 $\zeta=-\cos(2\pi x)\,dy/(2\pi)$ は大域的に周期的であり、
 
 $$
 d\zeta=\sin(2\pi x)\,dx\wedge dy=\eta
 $$
 
-なので $\eta$ は完全な2形式である。一方、$dx\wedge dy$ が完全なら[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から積分は0のはずだが、$\int_{T^2}dx\wedge dy=1$。従ってこちらは完全ではない。最高次形式の「積分が0」という条件には意味がある。
+なので $\eta$ は完全な2形式である。零形式も $d0=0$ と書けるので、定義の直積値域について
+
+$$
+(\eta,0)\in\mathcal E,\qquad (0,\eta)\in\mathcal E
+$$
+
+を確認できる。一方、$dx\wedge dy$ が完全なら[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から積分は0のはずだが、
+
+$$
+\int_{T^2}dx\wedge dy=1
+$$
+
+となって矛盾する。従って $(0,dx\wedge dy)\notin\mathcal E$ である。両成分の完全性と、最高次形式の「積分が0」という条件をそれぞれ確認した。
 <!-- definition-example-end -->
 
 <a id="lem-syz1-06-exact-image"></a>
@@ -264,6 +278,17 @@ $\sup$ は異なる2点についての上限である。この条件は、近い
 
 未知数には $C^{k+1,\gamma}\Omega^1(L)$ を使い、値には $C^{k,\gamma}$ の完全な2形式と最高次形式の対からなる空間 $\mathcal E^{k,\gamma}$ を使う。調和成分を除いた1形式の閉補空間を $\mathcal K^{k+1,\gamma}$ と書く。
 
+ここで「完全」は、$C^{k+1,\gamma}$ の原始形式の外微分として表せるという意味である。[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)と[Hodge分解](../../GA/GA6/index.md#thm-ga6-hodge-decomposition)を用いると、$n\ge2$ で $C^{k,\gamma}$ の2形式 $\eta$、最高次形式 $\xi$ が完全である条件はそれぞれ
+
+$$
+d\eta=0,\qquad P_2\eta=0;
+\qquad \int_L\xi=0
+$$
+
+となる。これらの同値性では、Green作用素のSchauder評価によって原始形式を $C^{k+1,\gamma}$ で取れることも使う。$n=1$ では第1成分は零だけとする。
+
+外微分と調和射影はHölder空間上で連続なので、これらの条件で切り出した $\mathcal E^{k,\gamma}$ は閉部分空間、従ってBanach空間である。また $\mathcal K^{k+1,\gamma}=\ker P_1$ と明示すれば、こちらも閉部分空間になる。
+
 前節で作った逆公式を連続な逆として使うため、以下の**楕円型作用素の $C^{k,\gamma}$ ノルム評価**を解析的入力とする。$j$ 次の形式 $\rho$ が調和成分に直交すれば、滑らかな係数を持つ閉多様体のHodge Laplacianに対するGreen作用素は
 
 $$
@@ -346,7 +371,17 @@ $$
 
 $D|_{\mathcal K}$ は単射だから $\mathrm d\varphi_0(v)=0$。$v$ は任意であり、$\mathrm d\varphi_0=0$ を得る。よって $h\mapsto h+\varphi(h)$ の原点での微分は $v\mapsto v$ で、接空間が $\mathcal H^1(L)$ になる。
 
-**(6) 次元と滑らかさ。** [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)で $\dim\mathcal H^1(L)=b_1(L)$。$h$ は滑らかな調和形式であり、$\mathcal F=0$ は補方向で楕円型の方程式になる。上述のSchauder型楕円型正則性を繰り返すことで得た解の正則性を任意次数まで上げ、滑らかな埋め込みを得る。法線グラフは近傍の埋め込み像の局所座標なので、この $b_1(L)$ 次元の零点集合が再パラメータ化で割った局所moduliそのものである。
+**(6) 次元と滑らかさ。** [Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)で $\dim\mathcal H^1(L)=b_1(L)$。$h$ は滑らかな調和形式である。得た $C^{k+1,\gamma}$ 解を滑らかな解へ引き上げるには、固定Hodge LaplacianのGreen作用素の評価だけでなく、**非線形方程式の楕円型性**を確認する必要がある。
+
+点 $p\in L$ で零でない余接ベクトル $\lambda\in T_p^*L$ と任意の1形式 $a\in T_p^*L$ を取る。微分を $\lambda$ との外積に置き換えると、$D=(-d,d*)$ の一階主記号（最高階微分の係数）は $a\mapsto(-\lambda\wedge a,\lambda\wedge *a)$ である。[GA6のHodge作用素の楕円型判定](../../GA/GA6/index.md#lem-ga6-elliptic)で用いた恒等式と $\lambda\wedge *a=\langle\lambda,a\rangle\operatorname{vol}_L$ により
+
+$$
+|\lambda\wedge a|^2+|\lambda\wedge *a|^2=|\lambda|^2|a|^2.
+$$
+
+よって $\lambda\ne0$ なら主記号は単射で、$D$ は一階の過剰決定楕円型作用素である。$\mathcal F$ は $\alpha$ とその一階微分の滑らかな関数だから、$\alpha$ が十分小さいとき、その線形化 $D\mathcal F|_\alpha$ の主記号もこの単射性を保つ。コンパクトな $L$ 上では下限を一様に取れる。
+
+ここでは**一階楕円型系の局所Schauder正則性と小さい可変係数摂動に対する同様の評価**を、前節のGreen作用素評価とは区別した追加の解析的入力とする。非線形方程式を座標微分して得る線形楕円型系にその評価を適用すると、係数は既知の $\alpha$ とその一階微分から作られ、解の正則性を一階ずつ引き上げられる。これを帰納的に繰り返して $\alpha\in C^\infty$ とし、滑らかな埋め込みを得る。法線グラフは近傍の埋め込み像の局所座標なので、この $b_1(L)$ 次元の零点集合が再パラメータ化で割った局所moduliそのものである。
 <!-- proof-end -->
 
 ここでの「無障害」とは、*一次の調和方向に対応する小さな非線形解が局所的にすべて存在する*ことをいう。$\varphi(h)$ は一般には0でなく、**直線グラフ $t h$ がそのまま解であるとは主張しない**。また、ここから大域的なSLagトーラス束の存在は導けない。
@@ -505,7 +540,27 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-閉じた $\Omega$ と $F_t$ のホモトピーに[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を使えば $\frac d{dt}\int_LF_t^*\Omega=\int_Ld(\cdots)=0$。従って $Z=\int_LF_t^*\Omega$ は一定。SLagの虚部零・実部正から $Z=e^{i\theta(t)}\operatorname{Vol}(F_t(L))$ である。正の体積により $Z\ne0$、絶対値を取ると $\operatorname{Vol}(F_t(L))=|Z|$。ゆえに $e^{i\theta(t)}=Z/|Z|$ は一定で、連続な $\theta(t)$ の分枝は局所的に一定となる。
+閉じた $\Omega$ と $F_t$ のホモトピーに[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)を適用する。$L$ はコンパクト境界なしなので、[一般Stokesの定理](../../GEO/GEO8/index.md#thm-geo8-general-stokes)から
+
+$$
+\frac d{dt}\int_LF_t^*\Omega
+=\int_Ld(\cdots)=0
+$$
+
+である。従って $Z=\int_LF_t^*\Omega$ は一定である。SLagの虚部零・実部正の条件より
+
+$$
+Z=e^{i\theta(t)}\operatorname{Vol}(F_t(L)),
+\qquad |Z|=\operatorname{Vol}(F_t(L))>0
+$$
+
+となる。従って
+
+$$
+e^{i\theta(t)}=\frac{Z}{|Z|}
+$$
+
+は一定であり、連続な $\theta(t)$ の分枝も局所的に一定である。
 <!-- solution-end -->
 
 ### Level B：右逆の計算と局所パラメータ
@@ -620,7 +675,7 @@ $Dv=0$ なので $D(\mathrm d\varphi_0(v))=0$。$\mathrm d\varphi_0(v)\in\mathca
 <!-- solution-start -->
 ### 詳細解答
 
-**1.** $\eta$ を $\omega$ または $\Psi$ とし、$F_t=F_{t\alpha}$ と置くと $d\eta=0$。Cartan公式によって
+**1.** $\eta$ を $\omega$ または $\Psi$ とし、$F_t=F_{t\alpha}$ と置くと $d\eta=0$。[Cartanの公式](../../GEO/GEO7/index.md#thm-geo7-cartan-formula)によって
 
 $$
 F_\alpha^*\eta-F_0^*\eta
