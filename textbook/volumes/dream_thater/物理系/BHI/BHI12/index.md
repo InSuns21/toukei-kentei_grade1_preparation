@@ -688,7 +688,15 @@ $$
 |\Phi_2\rangle_{C_2E_2}.
 $$
 
-$DE$ を捨てると $\rho_{MC}=(I_M/2)\otimes(I_{C_1}/2)\otimes(I_{C_2}/2)=I_M/2\otimes I_C/4$。$\rho_M=I_M/2$、$\rho_C=I_C/4$ なので積状態条件が成立します。実際に $E$ を捨て $D$ を $\widehat A$ とみなす回復が全入力を戻します。
+$DE$ を捨てると、$MD$ のBell対から $M$ に $I_M/2$、$C_iE_i$ のBell対から各 $C_i$ に $I_{C_i}/2$ が残ります。よって
+
+$
+\rho_{MC}=\frac{I_M}{2}\otimes\frac{I_{C_1}}{2}\otimes\frac{I_{C_2}}{2}
+=\frac{I_M}{2}\otimes\frac{I_C}{4},\qquad
+\rho_M=\frac{I_M}{2},\quad\rho_C=\frac{I_C}{4}.
+$
+
+これは[完全回収条件](#thm-bhi12-recovery-condition)の積状態に一致します。実際に $E$ を捨て $D$ を $\widehat A$ とみなす回復は、全入力を戻します。
 
 **$U_2$**：出力の $C=C_1C_2$ に $A,B_1$ を配置し、$D$ に $B_2$ を置くと
 
@@ -699,7 +707,15 @@ $$
 |\Phi_2\rangle_{DE_2}.
 $$
 
-$DE$ を捨てると $\rho_{MC}=|\Phi_2\rangle\langle\Phi_2|_{MC_1}\otimes I_{C_2}/2$。周辺は $\rho_M=I_M/2$、$\rho_C=(I_{C_1}/2)\otimes(I_{C_2}/2)=I_C/4$ です。$MC_1$ のBell相関が残るため $\rho_{MC}\ne I_M/2\otimes I_C/4$。完全回収条件が破れ、$DE$ だけの復号では未知の日記を戻せません。
+$DE$ を捨てると、$MC_1$ のBell対を残し、$C_2E_1$ のBell対から $C_2$ に $I_{C_2}/2$ が残るため、
+
+$
+\rho_{MC}=|\Phi_2\rangle\langle\Phi_2|_{MC_1}\otimes\frac{I_{C_2}}2,\qquad
+\rho_M=\frac{I_M}2,\quad
+\rho_C=\frac{I_{C_1}}2\otimes\frac{I_{C_2}}2=\frac{I_C}4.
+$
+
+$MC_1$ 部分のBell射影は階数1ですが、$\rho_M\otimes(I_{C_1}/2)$ は階数4です。従って $\rho_{MC}\ne(I_M/2)\otimes(I_C/4)$。残存系に参照系との相関が残り、[完全回収条件](#thm-bhi12-recovery-condition)が破れるので、$DE$ だけでは未知の日記を戻せません。
 
 **比較**：両者は $d_D=d_A=2$ で、[次元下界](#prop-bhi12-output-lower-bound)は満たします。異なるのは投入情報の行先です。$U_1$ は日記を新放射へ直送し、$U_2$ は内部へ閉じ込めます。従って次元条件は必要条件でしかなく、scramblingについての統計的仮定と追加放射のデカップリング評価が次講で必要です。
 <!-- solution-end -->
