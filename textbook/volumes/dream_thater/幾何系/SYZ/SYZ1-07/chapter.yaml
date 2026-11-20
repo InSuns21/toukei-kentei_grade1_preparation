@@ -19,6 +19,8 @@ learning_objectives:
 definitions:
   - { id: SYZ1-07-DEF-01, name: "滑らかなSLagトーラス・ファイブレーション" }
   - { id: SYZ1-07-DEF-02, name: "周期余接格子" }
+  - { id: SYZ1-07-DEF-03, name: "周期格子から定まる作用座標" }
+  - { id: SYZ1-07-DEF-04, name: "周期1の角変数" }
 theorems:
   - { id: SYZ1-07-PROP-01, name: "Hamilton流によるトーラスの表示" }
   - { id: SYZ1-07-LEM-01, name: "周期1形式の閉性" }
