@@ -89,6 +89,25 @@ try {
   assert.equal(await evaluate('document.querySelectorAll("[role=tabpanel]").length'),3);
   assert.match(await evaluate('document.querySelector("#js-source").value'),/texImage2D/);
   assert.match(await evaluate('document.querySelector("#fragment-source").value'),/texelFetch/);
+  // Observation studio must really animate on screen, not merely describe the
+  // 12x12 editable model. It is intentionally a different, higher-resolution
+  // 2D flow with WebGL2 display and its own CPU state.
+  const visual=await evaluate('(()=>{const c=document.querySelector(".visual-smoke canvas");const r=c?.getBoundingClientRect();return {count:document.querySelectorAll(".visual-smoke canvas").length,wide:r?.width,tall:r?.height,gpu:document.querySelector(".visual-renderer-status")?.textContent,clock:document.querySelector(".visual-clock")?.textContent}})()');
+  assert.equal(visual.count,1);
+  assert.ok(visual.wide>280&&Math.abs(visual.wide-visual.tall)<2,JSON.stringify(visual));
+  assert.match(visual.gpu,/WebGL2/);
+  const beforeClock=Number(visual.clock.match(/([0-9]+\.[0-9]+) s/)?.[1]||0);
+  await new Promise(ok=>setTimeout(ok,340));
+  const afterClock=await evaluate('Number(document.querySelector(".visual-clock").textContent.match(/([0-9]+\.[0-9]+) s/)?.[1]||0)');
+  assert.ok(afterClock>beforeClock,'requestAnimationFrame must advance model time');
+  const bounds=await evaluate('(()=>{const r=document.querySelector(".visual-smoke canvas").getBoundingClientRect();return {x:r.left,y:r.top,w:r.width,h:r.height}})()');
+  const x=bounds.x+bounds.w*.45,y=bounds.y+bounds.h*.45;
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x,y,buttons:0});
+  await cdp('Input.dispatchMouseEvent',{type:'mousePressed',x,y,button:'left',buttons:1,clickCount:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseMoved',x:x+28,y:y+18,buttons:1});
+  await cdp('Input.dispatchMouseEvent',{type:'mouseReleased',x:x+28,y:y+18,button:'left',buttons:0,clickCount:1});
+  await waitFor('Number(document.querySelector(".visual-renderer-status")?.dataset.inputCount||0)>0');
+  console.log('FCG5 live WebGL2 color, square layout, rAF time and pointer dye injection: PASS');
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   const initial=await evaluate('({rows:[...document.querySelectorAll("#results-table tbody tr")].map(r=>[...r.cells].map(x=>x.textContent)),log:document.querySelector("#diagnostics").textContent,sandbox:document.querySelector("#canvas-slot iframe")?.getAttribute("sandbox"),opaque:(()=>{try{return !!document.querySelector("#canvas-slot iframe").contentWindow.document.body}catch{return true}})()})');
