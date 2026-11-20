@@ -4,16 +4,10 @@ coverage: complete
 prerequisites:
   - FLD2
   - AG1-06
+  - TRN1
 forward_references: []
 
 concepts:
-  - id: number-theory.algebraic-integer
-    name: 代数的整数
-    kind: definition
-    introduction: formal
-    introduction_aliases: ["定義（代数的整数）"]
-    requires: [algebraic-geometry.integral-element, algebra.algebraic-element]
-
   - id: number-theory.rational-algebraic-integer
     name: 有理数の中の代数的整数
     kind: proposition
@@ -24,7 +18,7 @@ concepts:
     name: 最小多項式による整性判定
     kind: theorem
     introduction: formal
-    requires: [number-theory.algebraic-integer, algebra.minimal-polynomial, algebra.gauss-lemma-irreducibility]
+    requires: [transcendence.algebraic-integer, algebra.minimal-polynomial, algebra.gauss-lemma-irreducibility]
 
   - id: number-theory.ring-of-integers
     name: 数体の整数環
@@ -43,7 +37,7 @@ concepts:
     name: 数体の跡と跡双線形形式
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（数体の跡と跡双線形形式）"]
+    introduction_aliases: ["定義（数体のトレースと双線形形式）"]
     requires: [algebra.field-extension, linear.basis-over-field]
 
   - id: number-theory.integral-trace
