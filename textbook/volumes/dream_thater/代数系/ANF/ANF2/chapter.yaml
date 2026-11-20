@@ -1,0 +1,51 @@
+id: "ANF2"
+title: "跡・ノルム・判別式"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - ANF1
+  - FLD2
+  - RNG4
+official_scope: []
+learning_objectives:
+  - 数体の乗法写像からノルムを定義し複素埋め込みの和と積による跡・ノルムを証明できる
+  - 最小多項式と体の拡大次数から跡とノルムを計算し共役値の重複次数を説明できる
+  - 跡の線形性とノルムの乗法性・整性を証明しノルムによる単元判定を使える
+  - 跡行列の定義から基底の判別式を求め基底変換の二乗則と非零性を証明できる
+  - 判別式の複素埋め込み表示から符号を説明できる
+  - 整数基底から体の判別式を定義し部分格子の指数の平方則を証明・適用できる
+  - 二次体の判別式公式を導出し整な基底と整数基底の違いを数値で判定できる
+definitions:
+  - { id: ANF2-DEF-01, name: 数体のノルム }
+  - { id: ANF2-DEF-02, name: 基底の判別式 }
+  - { id: ANF2-DEF-03, name: 数体の判別式 }
+theorems:
+  - { id: ANF2-THM-01, name: 埋め込みによる跡・ノルムの公式 }
+  - { id: ANF2-PROP-01, name: 跡・ノルムの演算則と整性 }
+  - { id: ANF2-PROP-02, name: 単元のノルム判定 }
+  - { id: ANF2-THM-02, name: 判別式の基底変換則 }
+  - { id: ANF2-PROP-03, name: 判別式の符号 }
+  - { id: ANF2-THM-03, name: 判別式と指数の平方 }
+  - { id: ANF2-THM-04, name: 二次体の判別式公式 }
+canonical_examples:
+  - Q(sqrt(2))の乗法行列・跡・ノルムと判別式
+  - Q(sqrt(2),sqrt(3))で最小多項式が拡大次数より小さい場合の共役値の重複
+  - Q(sqrt(3))のノルム1の単元
+  - Q(sqrt(5))の整数基底とZ[sqrt(5)]の指数2
+  - Q(sqrt(-3))で負の判別式
+  - Q(cuberoot(2))の基底判別式マイナス108
+  - Q(sqrt(13))で指数と単元を同時に検算
+problem_patterns:
+  - ANF2-MULTIPLICATION-MATRIX-TRACE-NORM
+  - ANF2-CONJUGATE-TRACE-NORM
+  - ANF2-IMAGINARY-QUADRATIC-NORM
+  - ANF2-DISCRIMINANT-BASIS-CHANGE
+  - ANF2-QUADRATIC-ORDER-INDEX
+  - ANF2-CONJUGATE-MULTIPLICITIES
+  - ANF2-UNIT-NORM-TEST
+  - ANF2-CUBIC-BASIS-DISCRIMINANT
+  - ANF2-QUADRATIC-DISCRIMINANT-UNIT-INTEGRATION
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 4, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10.0, exercises: 7.0, review: 2.0 }
