@@ -346,7 +346,7 @@ $$
 v_j=\operatorname{Tr}_{K/\mathbb Q}(\alpha\beta_j)\in\mathbb Z.
 $$
 
-トレースの線形性から $v=Gq$ です。整数係数行列 $G$ は $\det G=D\ne0$ なので、[余因子行列の恒等式](../../../基礎科目/LA/LA3C/index.md#thm-la3c-adjugate-identity)を使って
+トレースの線形性から $v=Gq$ です。整数係数行列 $G$ は $\det G=D\ne0$ です。[余因子行列の恒等式](../../../基礎科目/LA/LA4/index.md#lem-la4-adjugate-identity)を、係数体を $\mathbb Q$ として $M(t)=G$ という定数多項式行列に適用すると
 
 $$
 q=G^{-1}v=\frac{\operatorname{adj}(G)v}{D}
