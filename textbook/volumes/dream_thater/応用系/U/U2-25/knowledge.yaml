@@ -1,0 +1,37 @@
+chapter: U2-25
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-24
+forward_references: []
+concepts:
+  - id: robotics.slam-loop-closure-factor
+    name: 1次元のループ閉合因子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（1次元のループ閉合因子）"]
+    requires: [robotics.slam-factor-residual-information, robotics.slam-gn-gauge-fix]
+  - id: robotics.slam-loop-closed-map
+    name: 単一ループの閉形式 MAP 解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（単一ループの閉形式 MAP 解）"]
+    requires: [robotics.slam-loop-closure-factor, robotics.slam-gn-normal-equations]
+  - id: robotics.slam-loop-covariance
+    name: ループによる終点分散の縮小
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（ループによる終点分散の縮小）"]
+    requires: [robotics.slam-loop-closed-map, robotics.slam-gaussian-factor-map]
+  - id: robotics.slam-huber-loss-weight
+    name: Huber 損失と重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Huber 損失と重み）"]
+    requires: [robotics.slam-loop-closure-factor]
+  - id: robotics.slam-huber-irls-stationarity
+    name: Huber 損失の停留条件と反復再重み付け
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Huber 損失の停留条件と反復再重み付け）"]
+    requires: [robotics.slam-huber-loss-weight, robotics.slam-loop-closed-map]
