@@ -137,7 +137,17 @@ $$
 
 となり、連鎖律を逆に使うと Euler--Lagrange 方程式を得る。
 
-$L_\theta\in C^3(U)$ なので $\nabla_qL_\theta,C_\theta,W_\theta$ は少なくとも $C^1$ 級である。行列式は $U$ 上で非零で、逆行列の各成分は余因子と行列式の商であるから $W_\theta^{-1}$ も $C^1$ 級である。従って $(q,v)\mapsto(v,F_\theta(q,v))$ は $U$ 上 $C^1$ 級で、局所 Lipschitz 連続である。[Picard--Lindelöf の局所存在一意性定理](../../../解析系/ODE/ODE1/index.md#thm-ode1-picard-lindelof)を[ベクトル値の自律系へ拡張する手順](../../../解析系/ODE/ODE4/index.md#def-ode4-nonlinear-autonomous-system)では、有限次元の $C^1$ 級ベクトル場が局所 Lipschitz 連続となることを確かめ、Picard 反復を Euclid ノルムで評価する。ここでもその条件を満たしたから、初期点 $(q_0,v_0)$ から一意の局所解を得る。
+$L_\theta\in C^3(U)$ なので、$\nabla_qL_\theta,C_\theta,W_\theta$ は少なくとも $C^1$ 級である。行列式は $U$ 上で非零であり、逆行列の各成分は余因子を行列式で割ったものだから、$W_\theta^{-1}$ も $C^1$ 級である。
+
+従って、状態から時間微分を作るベクトル場
+
+$
+(q,v)\longmapsto \bigl(v,F_\theta(q,v)\bigr)
+$
+
+は $U$ 上で $C^1$ 級、特に局所 Lipschitz 連続である。[Picard--Lindelöf の局所存在一意性定理](../../../解析系/ODE/ODE1/index.md#thm-ode1-picard-lindelof)を[ベクトル値自律系に適用する議論](../../../解析系/ODE/ODE4/index.md#def-ode4-nonlinear-autonomous-system)によれば、有限次元の $C^1$ 級ベクトル場について、閉球上で導関数を抑え、Picard 反復を Euclid ノルムで評価できる。
+
+本件のベクトル場もこの条件を満たす。したがって、初期点 $(q_0,v_0)$ を通る一意の局所解が存在する。
 <!-- proof-end -->
 
 **重要な境界。** 速度 Hessian の可逆性は一般の Lagrangian に対する**正定値性**を要求しない。例えば一次元 $L=-v^2/2-q^2/2$ では $W=-1$ は可逆で、$\ddot q=q$ と加速度を定められる。ただし正の運動エネルギーを表す質量としての解釈は別問題である。「正則だから物理的に安定」とは結論できない。
@@ -212,7 +222,7 @@ $Wa=g$ の第2成分は $0=-q_2$ を要求する。$q_2\neq0$ なら加速度は
 
 <!-- formal-statement-start -->
 > **定義（正定値質量行列型 LNN）**  
-> $Q\subset\mathbb R^d$ を開集合とし、$M_\theta:Q\to\mathbb R^{d\times d}$ を対称 $C^2$ 級行列値関数、$V_\theta:Q\to\mathbb R$ を $C^3$ 級関数とする。すべての $q\in Q$ と非零 $x\in\mathbb R^d$ に対して $x^{\mathsf T}M_\theta(q)x>0$ と仮定し、
+> $Q\subset\mathbb R^d$ を開集合とし、$M_\theta:Q\to\mathbb R^{d\times d}$ を対称 $C^3$ 級行列値関数、$V_\theta:Q\to\mathbb R$ を $C^3$ 級関数とする。すべての $q\in Q$ と非零 $x\in\mathbb R^d$ に対して $x^{\mathsf T}M_\theta(q)x>0$ と仮定し、
 
 $$
 L_\theta(q,v)=\frac12v^{\mathsf T}M_\theta(q)v-V_\theta(q)
@@ -221,7 +231,13 @@ $$
 > と定めるものを正定値質量行列型 LNN と呼ぶ。ここでは $M_\theta(q)$ を質量行列と呼ぶ。
 <!-- formal-statement-end -->
 
-正定値行列に零固有値はないので、速度 Hessian $W=M$ は各点で可逆である。[正則 LNN](#def-pml1-19-lnn)の加速度公式を適用できる。厳密には、この定義の $M\in C^2$ から保証される $L$ の滑らかさは $C^2$ であり、先の[局所運動定理](#thm-pml1-19-acceleration)の $L\in C^3$ という十分条件とは異なる。しかし下で求める $F$ は $M\in C^2$ と $V\in C^3$ によって $C^1$ 級となるため、局所存在一意性の結論は同じように成立する。
+対称正定値行列は零固有値を持たない。ゆえに、このモデルの速度 Hessian は
+
+$
+W_\theta(q,v)=M_\theta(q)
+$
+
+となり、すべての状態で可逆である。さらに $M_\theta,V_\theta$ が $C^3$ 級だから $L_\theta$ も $C^3$ 級であり、[正則 LNN](#def-pml1-19-lnn)と[局所運動定理](#thm-pml1-19-acceleration)の仮定を満たす。
 
 <!-- definition-example-start: def-pml1-19-natural-mass -->
 ### 例：位置依存の正の質量
@@ -347,14 +363,40 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[正則 LNN の定義](#def-pml1-19-lnn)より $W_\theta F_\theta=\nabla_qL_\theta-C_\theta v$ である。従って
+[正則 LNN の加速度写像](#def-pml1-19-lnn)を定めた等式に、左から $W_\theta$ を掛けると
+
+$
+W_\theta F_\theta=\nabla_qL_\theta-C_\theta v
+$
+
+となる。従って
 
 $$
 r=W_\theta a_{\mathrm{obs}}-(\nabla_qL_\theta-C_\theta v)
 =W_\theta(a_{\mathrm{obs}}-F_\theta)=W_\theta e.
 $$
 
-可逆性から $e=W_\theta^{-1}r$、行列の作用素ノルムの定義から $\|e\|_2\le\|W_\theta^{-1}\|_2\|r\|_2$。対称正定値行列は直交固有基底を持ち、各固有値 $\lambda_i$ は $\lambda_i\ge\mu>0$ を満たす。逆行列の固有値は $1/\lambda_i$ だから $\|W_\theta^{-1}\|_2=\max_i1/\lambda_i\le1/\mu$ となる。
+可逆性から $e=W_\theta^{-1}r$ である。ここで $d\times d$ 行列 $A$ の作用素ノルムを
+
+$
+\|A\|_2=\sup_{\|x\|_2=1}\|Ax\|_2
+$
+
+と置けば、任意の $x$ に対して $\|Ax\|_2\le\|A\|_2\|x\|_2$ が成り立つ。$x=r$、$A=W_\theta^{-1}$ と代入して
+
+$
+\|e\|_2=\|W_\theta^{-1}r\|_2
+\le\|W_\theta^{-1}\|_2\|r\|_2
+$
+
+を得る。さらに $W_\theta$ が対称正定値なら、直交固有基底に沿う各固有値 $\lambda_i$ は $\lambda_i\ge\mu>0$ を満たす。逆行列の固有値は $1/\lambda_i$ だから
+
+$
+\|W_\theta^{-1}\|_2=\max_i\frac1{\lambda_i}
+\le\frac1\mu
+$
+
+となり、命題の後半の上界も従う。
 <!-- proof-end -->
 
 ## 7. Lagrangian からの保存量と HNN との接点
