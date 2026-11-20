@@ -174,13 +174,15 @@ try {
   // Modifying the actual learner script must change the model, not just the legend.
   await click('tab-code');
   const altered = await evaluate('(()=>{const e=document.getElementById("js-source");' +
-    'e.value=e.value.replace("const shearRate = 1;", "const shearRate = 0;");' +
+    'e.value=e.value.replace("const shearRate = 1;", "const shearRate = 0;").replace("left: -0.6, right: 3.1", "left: -1.0, right: 3.1");' +
     'e.dispatchEvent(new Event("input",{bubbles:true}));' +
     'return e.value.includes("const shearRate = 0;");})()');
   assert.equal(altered,true);
   await click('run');
   await waitFor('document.getElementById("status")?.textContent.includes("Canvas2D実行準備完了")',22000);
   await waitFor('document.querySelectorAll("#particle-diagnostics tbody tr").length===2',22000);
+  assert.match(await evaluate('document.getElementById("fcg1-scene-info").textContent'),/x: -1〜3.1 m/,
+    'edited Canvas viewport must be reported by actual running source');
   await runStepCount(2);
   const edited = await evaluate('document.querySelector("#particle-diagnostics tbody tr:first-child td:last-child").textContent');
   assert.equal(edited,'編集版・参考');
