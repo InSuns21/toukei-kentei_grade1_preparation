@@ -42,10 +42,10 @@ concepts:
     introduction_aliases: ["定理（NEES の基準分布と期待値）"]
     requires: [robotics.normalized-estimation-error-squared]
   - id: robotics.error-ellipse-coverage
-    name: 誤差楕円の被覆率
+    name: 楕円領域の被覆率
     kind: definition
     introduction: formal
-    introduction_aliases: ["定義（誤差楕円の被覆率）"]
+    introduction_aliases: ["定義（楕円領域の被覆率）"]
     requires: [robotics.normalized-estimation-error-squared]
   - id: robotics.gaussian-coverage-calibration
     name: Gaussian 基準での被覆率
