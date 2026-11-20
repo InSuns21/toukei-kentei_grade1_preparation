@@ -16,10 +16,10 @@
 
 本講では対数の底を自然対数とし、エントロピーの単位はnatとします。$B(H)$ は有限次元Hilbert空間 $H$ の全線形作用素、$I_H$ は恒等作用素、$[A,B]=AB-BA$ は交換子です。部分トレースは[QINF3の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を使います。[QINF17のvon Neumannエントロピーの定義](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)は底2（bit）なので、以下で $S(\rho)$ と書くときは固有値 $\lambda_j$ に対して
 
-$
+$$
 S(\rho)=-\sum_{\lambda_j>0}\lambda_j\ln\lambda_j
 =(\ln2)\left(-\sum_{\lambda_j>0}\lambda_j\log_2\lambda_j\right)
-$
+$$
 
 と換算したnat単位を用います。これは対数の底の変更であり、部分トレースや密度作用素の定義は変わりません。
 
@@ -139,16 +139,16 @@ $$
 \otimes(\mathbb C^2_{eR}\otimes\mathbb C^2_r),
 \qquad
 G=X_{eL}\otimes I_l\otimes X_{eR}\otimes I_r.
-$
+$$
 
 この式は $eL,l,eR,r$ の因子順序です。以下の電束・物質をまとめた表示は、正規直交基底での因子の並べ替え
 
-$
+$$
 |e\rangle_{eL}|i\rangle_l|f\rangle_{eR}|j\rangle_r
 \longleftrightarrow
 |ef\rangle_{eL,eR}|ij\rangle_{lr}
 \qquad(e,f\in\{+,-\},\ i,j\in\{0,1\})
-$
+$$
 
 による同一のベクトルを表し、因子の順序を変えても内積は保たれます。$e=\pm$ を共通の電束の値とし、物理空間のベクトルを
 
@@ -193,19 +193,19 @@ $$
 
 なぜ左側からこの行列形になるのでしょうか。拡張空間の左因子 $\mathbb C^2_{eL}\otimes\mathbb C^2_l$ 上の任意の作用素を、左リンクの $X_{eL}$ 固有基底で
 
-$
+$$
 O_{\mathrm{left}}=\sum_{e,f=\pm}|e\rangle\langle f|_{eL}\otimes M_{ef},
 \qquad M_{ef}\in B(\mathbb C^2_l)
-$
+$$
 
 と一意に展開します。$s_+=1,s_-=-1$ と置くと $X_{eL}|e\rangle=s_e|e\rangle$ なので、右側には恒等作用素を置いた交換子は
 
-$
+$$
 [O_{\mathrm{left}}\otimes I_{eR,r},G]
 =\sum_{e,f=\pm}(s_f-s_e)
 |e\rangle\langle f|_{eL}\otimes M_{ef}
 \otimes X_{eR}\otimes I_r.
-$
+$$
 
 この行列単位は独立で $X_{eR}$ は可逆です。従って交換子が零である必要十分条件は $M_{+-}=M_{-+}=0$ です。$M_{++},M_{--}$ は任意の $2\times2$ 物質行列のまま残ります。Gauss物理空間へ制限すると、各電束ブロックで $M_{ee}\otimes I_r$ が作用するので、ちょうど $\mathcal A_L$ の直和表示が得られます。右も同様です。
 
@@ -635,10 +635,10 @@ $$
 
 一方 $P_+\Psi/\|P_+\Psi\|=|++\rangle\otimes|\Phi\rangle$ に条件付けすると、電束は確率1で確定します。左物質だけをトレースで残した密度は $I_2/2$ なのでエントロピーは $\ln2$。元の状態との差は
 
-$
+$$
 \left(\ln2+\tfrac12\ln2\right)-\ln2
 =\tfrac12\ln2.
-$
+$$
 
 条件付けによって電束の二値不確実性 $H=\ln2$ が消える一方、残した $+$ セクター内の量子相関への重みは $1/2$ から1に増えます。そのため差は単なる固定の境界定数ではなく、セクター確率と量子相関の加重平均が両方変わった結果です。
 <!-- solution-end -->
