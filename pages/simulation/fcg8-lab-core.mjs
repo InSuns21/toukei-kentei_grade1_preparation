@@ -54,10 +54,23 @@ function metric(a){
   }
   return {area,gradientError:grad/count,bandCells:count};
 }
+// Cache consecutive independent CPU reference states, so seeking and 96-step
+// observation never recompute the entire trajectory from the first frame.
+export const FCG8_MAX_STEPS=96;
+const snapshots=new Map([[0,{raw:initial(),reinit:initial()}]]);
 export function fcg8State(steps=8){
-  if(!Number.isInteger(steps)||steps<0||steps>24)throw RangeError('step 0..24');
-  let raw=initial(),reinit=initial();
-  for(let n=0;n<steps;n++){raw=advect(raw);reinit=redistance(advect(reinit));}
+  if(!Number.isInteger(steps)||steps<0||steps>FCG8_MAX_STEPS)
+    throw RangeError('step 0..96');
+  if(!snapshots.has(steps)){
+    let previous=steps-1;
+    while(!snapshots.has(previous))previous--;
+    let state=snapshots.get(previous);
+    for(let n=previous+1;n<=steps;n++){
+      state={raw:advect(state.raw),reinit:redistance(advect(state.reinit))};
+      snapshots.set(n,state);
+    }
+  }
+  const {raw,reinit}=snapshots.get(steps);
   const particles=Array.from({length:64},(_,k)=>{
     const a=2*Math.PI*k/64,y=0.5+R*Math.sin(a);
     return [0.5+R*Math.cos(a)+SHEAR*(steps*DT)*(y-0.5),y];
