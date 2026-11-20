@@ -255,6 +255,8 @@ $\rho=\max(\rho_x,\rho_y)\ge\rho_x\ge2$。$\log_2$ は正数上で単調増加�
 
 画像は外部から取得せず、JavaScriptで Uint8Array の8×8チェッカーを生成してRGBA8形式でGPUへ送ります。2つの三角形で各viewport全面へUVを貼り、同じ模様を128回繰り返します。左はミップマップなしの NEAREST、右は LINEAR_MIPMAP_LINEAR。左の画素は32か224になり、右は平均した128になるはずです。**同じUVでも、読む規則が違えば画素が違う**ことが核心です。
 
+**静止画では見えないちらつきを比較する。** ラボを実行すると、最初に左右の同じ8×8画像と元のUVでCPU予測・GPU画素を照合する。その後、**自分で編集した同一のJS・GLSL**で左右のUVを同じ量だけ連続平行移動する。左は最近傍読出し、右はミップマップ読出しを保つ。縮小倍率が大きいと、左の標本色が大きく変わっても右の平均色は変わりにくいことを観察する。キャンバスにフォーカスしSpace/Enterで停止・再生でき、動きを減らす設定では自動開始しない。画面に表示するUV値は**見た目を動かす座標**で、最初のCPU/GPU検算表の固定UVとは異なる。移動させているのは画像の座標であり、カメラや物体を物理的に移動させた結果ではない。
+
 <iframe src="simulation/wgl-lab.html?lesson=WGL7" title="WGL7 テクスチャの最近傍・線形・ミップマップを編集するWebGL2ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 実験は次の順に進めます。
