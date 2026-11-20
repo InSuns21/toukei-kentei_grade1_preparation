@@ -5,6 +5,7 @@ prerequisites:
   - FLD2
   - AG1-06
   - TRN1
+  - LA3E
 forward_references: []
 
 concepts:
@@ -34,14 +35,14 @@ concepts:
     requires: [number-theory.ring-of-integers, algebraic-geometry.integral-tower, number-theory.rational-algebraic-integer]
 
   - id: number-theory.field-trace-pairing
-    name: 数体の跡と跡双線形形式
+    name: 数体のトレースと双線形形式
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（数体のトレースと双線形形式）"]
-    requires: [algebra.field-extension, linear.basis-over-field]
+    requires: [algebra.field-extension, linear.basis-over-field, linear.bilinear-form]
 
   - id: number-theory.integral-trace
-    name: 整数の跡と跡形式の非退化性
+    name: 整数のトレースとトレース形式の非退化性
     kind: lemma
     introduction: formal
     requires: [number-theory.field-trace-pairing, number-theory.integral-minimal-polynomial, algebra.tower-law]
