@@ -150,28 +150,28 @@ $$
 
 $t\downarrow0$ での極限も確認する。積分形を二つの項に分け、Cauchy--Schwarzの不等式とブラウン確率積分の等長性を適用すると
 
-$
+$$
 \mathbb E_x\|X_t-x\|^2
 \le 2t\int_0^t\mathbb E_x\|b(X_s)\|^2\,ds
 +2t\|\Sigma\|_{\mathrm F}^2\longrightarrow0.
-$
+$$
 
 右辺第一項の積分は、[STO9 の有限時間二次モーメント評価](../../../解析系/STO/STO9/index.md#prop-sto9-moment-estimate)とドリフトの線形成長条件により、$0\le t\le1$ で定数の $t^2$ 倍以下となる。ここで $\|\Sigma\|_{\mathrm F}^2$ は行列成分の二乗和である。
 
 期待値の被積分関数
 
-$
+$$
 G(y)=b(y)\cdot\nabla\varphi(y)
 +\frac12\sum_{i,j}A_{ij}\partial_{ij}\varphi(y)
-$
+$$
 
 は、$\varphi$ の導関数がコンパクトな台を持つので有界連続である。$X_s$ が初期点 $x$ に近づくことから、$s\downarrow0$ で $\mathbb E_xG(X_s)\to G(x)$。時間平均も同じ極限を持つため、上の積分を $t$ で割った極限は $G(x)$ となる。
 
 この計算は[STO11 のItô拡散の生成作用素命題](../../../解析系/STO/STO11/index.md#prop-sto11-diffusion-generator)の具体的な代入でもある。最後にドリフトと共分散の値
 
-$
+$$
 b=-M\nabla f,\qquad A=2\tau M
-$
+$$
 
 を入れれば、命題の二式を得る。
 <!-- proof-end -->
