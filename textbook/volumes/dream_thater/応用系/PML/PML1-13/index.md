@@ -306,7 +306,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（勾配線形化と雑音共分散の局所誤差）**  
-> $\nabla F(\theta_\star)=0$ とし、$\theta_\star$ を中心とする凸な近傍 $D$ で $F$ は $C^2$ 級とする。Hessianが $L$-Lipschitz、すなわち $x,\theta_\star+x\in D$ で $0\le s\le1$ に対し
+> $\nabla F(\theta_\star)=0$ とし、$\theta_\star$ を中心とする凸な近傍 $D$ で $F$ は $C^2$ 級とする。Hessianが $L$-Lipschitz、すなわち $\theta_\star+x\in D$ で $0\le s\le1$ に対し
 
 $$
 \|\nabla^2F(\theta_\star+sx)-H\|_{\mathrm{op}}
@@ -420,7 +420,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[OUの定常共分散公式](#thm-pml1-13-ou-covariance)を一次元へ適用すると
+[正定値ドリフトを持つOUの定常Gaussian分布](#thm-pml1-13-ou-covariance)を一次元へ適用すると
 
 $$
 \Sigma_{\mathrm{OU}}
@@ -465,7 +465,7 @@ $\eta=1/2$ では $A$ の固有値は $0$ と $-3/2$。第2成分の振幅が一
 <!-- solution-start -->
 #### 詳細解答
 
-$\eta h=1/2<2$ なので離散更新は安定である。[OUの公式](#thm-pml1-13-ou-covariance)から
+$\eta h=1/2<2$ なので離散更新は安定である。[正定値ドリフトを持つOUの定常Gaussian分布](#thm-pml1-13-ou-covariance)から
 
 $$
 \Sigma_{\mathrm{OU}}=\frac{(1/4)\cdot4}{2\cdot2}=\frac14.
