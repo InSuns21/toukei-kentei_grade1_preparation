@@ -11,7 +11,7 @@ concepts:
     kind: definition
     introduction: formal
     introduction_aliases: ["定義（平面の剛体変換群と粒子配置への作用）"]
-    requires: [algebra.group-action-orbit]
+    requires: [algebra.group-action]
   - id: physics-machine-learning.gradient-force-equivariance
     name: 剛体変換に不変なポテンシャルの力は等変
     kind: theorem
