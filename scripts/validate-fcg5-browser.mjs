@@ -151,6 +151,26 @@ try {
   assert.ok(narrow.client>0&&narrow.scroll<=narrow.client+2,JSON.stringify(narrow));
   assert.ok(narrow.editor<=narrow.page+2,JSON.stringify(narrow));
   console.log('FCG5 360px editable editor: PASS');
+
+  // FCG8: square field views must move through rAF while retaining the exact
+  // CPU-vs-GPU baseline in the original source-editing laboratory.
+  await cdp('Emulation.setDeviceMetricsOverride',
+    {width:1000,height:900,deviceScaleFactor:1,mobile:false});
+  await cdp('Page.navigate',{url:url.replace('lesson=FCG5','lesson=FCG8')});
+  await waitFor('document.querySelector("#status")?.textContent==="実行できます"');
+  const f8=await evaluate('(()=>{const cs=[...document.querySelectorAll(".visual-observation-grid canvas")];return {count:cs.length,rects:cs.map(c=>{const r=c.getBoundingClientRect();return [r.width,r.height]}),clock:document.querySelector(".visual-clock")?.textContent}})()');
+  assert.equal(f8.count,3);
+  assert.ok(f8.rects.every(([w,h])=>w>160&&Math.abs(w-h)<2),JSON.stringify(f8));
+  await new Promise(ok=>setTimeout(ok,330));
+  const f8clock=await evaluate('document.querySelector(".visual-clock").textContent');
+  assert.notEqual(f8clock,f8.clock,'FCG8 should animate physical interpolation with rAF');
+  await evaluate('document.querySelector(".visual-observation [data-action=play]").click()');
+  await evaluate('(()=>{const s=document.querySelector(".visual-observation [data-action=seek]");s.value="500";s.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.match(await evaluate('document.querySelector(".visual-clock").textContent'),/0\.48 s/);
+  assert.match(await evaluate('document.querySelector(".visual-stats").textContent'),/解析的面積/);
+  await click('run');
+  await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
+  console.log('FCG8 rAF smooth Level Set, correct-aspect triple view and reference GPU validation: PASS');
 } finally {
   try {ws?.close();}catch{}
   browser.kill('SIGTERM');
