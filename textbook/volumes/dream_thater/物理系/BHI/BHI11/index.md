@@ -30,7 +30,7 @@ $$
 \rho_\psi=\lvert\psi\rangle\langle\psi\rvert
 $$
 >
-> Aliceは地平線を通過し、内部側の記録 $A$ を保持する。Bobは外部放射から量子レジスタ $B$ を回収する。
+> Aliceは地平線を通過し、内部側の記録 $A$ を保持する。Bobは外部放射から量子レジスタ $B$ を回収する。厳密二コピーを論じる場合は $H_A\cong H_B\cong H$ と同一視し、$\rho_\psi^A,\rho_\psi^B$ は元の密度演算子をそれぞれの因子上で表したものとする。
 > その後Bobが落下し、$A$ と $B$ に共同で操作できる手順を**内外情報の比較プロトコル**とする。
 >
 > さらに $A,B$ が独立な二因子で、同一の入力非依存量子チャネルにより、許されたすべての入力について
@@ -43,15 +43,30 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi11-comparison-protocol -->
-**定義の確認**：二量子ビットに空白 $\lvert0\rangle_B$ を付け、CNOTで $\lvert0\rangle_A\lvert0\rangle_B\mapsto\lvert00\rangle$、$\lvert1\rangle_A\lvert0\rangle_B\mapsto\lvert11\rangle$ とします。二つの直交基底入力については二コピー条件を満たします。しかし $\lvert+\rangle=(\lvert0\rangle+\lvert1\rangle)/\sqrt2$ なら、線形性から同じ操作の出力は
+**定義の確認**：入力一量子ビット $A$ に固定の空白 $\lvert0\rangle_B$ を付けます。[QINF12の制御NOT（CNOT）の構成](../../../応用系/QINF/QINF12/index.md#def-qinf12-cloning)に従い、$\lvert a,b\rangle\mapsto\lvert a,b\oplus a\rangle$（$a,b\in\{0,1\}$、$\oplus$ は2を法とする和）を用います。計算基底の四つの状態を置換するので、これは入力によらないユニタリ操作です。$\lvert0\rangle_A\lvert0\rangle_B\mapsto\lvert00\rangle$、$\lvert1\rangle_A\lvert0\rangle_B\mapsto\lvert11\rangle$ となり、直交する二入力では同じチャネルが積の二コピーを与えます。しかし $\lvert+\rangle=(\lvert0\rangle+\lvert1\rangle)/\sqrt2$ なら、線形性から同じ操作の出力は
 
-$$
-\lvert\Phi\rangle_{AB}=\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt2},
-\qquad
-\operatorname{Tr}_B\lvert\Phi\rangle\langle\Phi\rvert=\frac{I_2}{2}
-$$
+$
+\lvert\Phi\rangle_{AB}
+=\frac{\lvert00\rangle+\lvert11\rangle}{\sqrt2}.
+$
 
-となります。必要な $\lvert+\rangle\lvert+\rangle$ ではなく、$A$ 単独の状態さえ $\lvert+\rangle\langle+\rvert$ ではありません。ゆえに**二つの直交記録を複写すること**と**任意の未知の量子状態を複製すること**は違います。これは二コピー条件の全入力に対する検査です。
+これが厳密な積コピーかを調べるには、[QINF3の部分トレースの基底公式](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を使います。計算基底について
+
+$
+\operatorname{Tr}_B(\lvert ij\rangle\langle kl\rvert)
+=\langle l\vert j\rangle\,\lvert i\rangle\langle k\rvert
+$
+
+です。したがって $\lvert00\rangle\langle11\rvert$ とその随伴の交差項は $B$ 側の直交性によって消え、
+
+$
+\operatorname{Tr}_B\lvert\Phi\rangle\langle\Phi\rvert
+=\frac{\lvert0\rangle\langle0\rvert+\lvert1\rangle\langle1\rvert}{2}
+=\frac{I_2}{2}
+\ne\lvert+\rangle\langle+\rvert.
+$
+
+ここで $I_2$ は $A$ の二次元単位作用素です。必要な $\lvert+\rangle\lvert+\rangle$ ではなく、$A$ 単独の状態さえ指定した純粋状態と異なります。ゆえに**二つの直交記録を複写すること**と**任意の未知の量子状態を複製すること**は違います。全入力について成立するという要求は、この一つの反例で否定できます。
 <!-- definition-example-end -->
 
 非直交な $\lvert\psi\rangle,\lvert\phi\rangle$ の内積を $q=\langle\psi\vert\phi\rangle$ とすると、環境を含む等長発展で厳密二コピーを作れれば、[QINF12の複製不能定理の証明](../../../応用系/QINF/QINF12/index.md#thm-qinf12-pure-no-cloning)と同様に
@@ -88,7 +103,7 @@ $$
 
 外部のBobが放射を収集・復号してから地平線を越え、先に落ちたAliceから信号を受け取る状況を考えます。時間を比較するため、非回転・無電荷で質量 $M\gg1$ のSchwarzschildブラックホールを、蒸発を無視できる時間帯の**固定背景**とします。以下、$G=c=\hbar=1$、Killing時間は遠方静止観測者の時間です。
 
-半径 $r>2M$ で、光が遠方へ向かう遅延座標 $u=t-r_*$ と、内向き光に沿う進行座標 $v=t+r_*$ を置きます。ここで
+半径 $r>2M$ で、$t$ をSchwarzschild時間、$r$ を面積半径とします。$r_*$ は $dr_*/dr=(1-2M/r)^{-1}$ を満たすトータス座標です。光が遠方へ向かう遅延座標 $u=t-r_*$ と、内向き光に沿う進行座標 $v=t+r_*$ を置きます。ここで
 
 $$
 r_*=r+2M\ln\left|\frac r{2M}-1\right|,
@@ -136,30 +151,60 @@ $$
 
 ## 4. 待ち時間が信号の送信窓を指数的に狭める
 
-Kruskal変換を単なる公式として使わず、Schwarzschild計量から確認します。動径方向の部分は
+Kruskal変換を単なる公式として使わず、Schwarzschild計量から確認します。$f(r):=1-2M/r$ と置くと、$dr=f(r)\,dr_*$ なので、動径方向の計量は
 
 $$
-ds_{\rm radial}^2=
--\left(1-\frac{2M}{r}\right)du\,dv
+\begin{aligned}
+ds_{\rm radial}^2
+&=-f(r)\,dt^2+f(r)^{-1}dr^2\\
+&=-f(r)(dt^2-dr_*^2)
+=-f(r)\,du\,dv.
+\end{aligned}
+$$
+
+座標の定義を微分すると $dU/du=-U/(4M)$、$dV/dv=V/(4M)$ です。$U,V\ne0$ の領域では
+
+$$
+du=-4M\frac{dU}{U},\qquad
+dv=4M\frac{dV}{V},\qquad
+UV=\left(1-\frac r{2M}\right)e^{r/(2M)}
+$$
+
+が成り立ちます。これらを代入して
+
+$$
+ds_{\rm radial}^2
+=\frac{16M^2f(r)}{UV}\,dU\,dV
 =-\frac{32M^3}{r}e^{-r/(2M)}dU\,dV.
 $$
 
-また座標の積は
+最後の係数は $r=2M$ でも有限で、式を連続に延長できます。$r=2M$ で $UV=0$、$r=0$ で $UV=1$ となることも、上の積の式から分かります。
+
+$t$ を増加させ、$r$ を固定すると $du/dt=dv/dt=1$ です。ここで $\partial_t$ は他方の座標 $r$ を固定した $t$ 方向の座標ベクトル場を表し、連鎖律より
 
 $$
-UV=\left(1-\frac r{2M}\right)e^{r/(2M)}.
+\partial_t U=-\frac{U}{4M},\qquad
+\partial_t V=\frac{V}{4M},\qquad
+\partial_t=\frac{V\partial_V-U\partial_U}{4M}.
 $$
 
-したがって $r=2M$ で $UV=0$、$r=0$ で $UV=1$ です。AliceとBobの入射を同じKilling時間変換でずらすと、地平線上の $V$ は指数的に伸びます。ここで $\Delta t\ge0$ はBobの入射がAliceより遅れる**遠方基準の時間移動量**であり、地平線上の発散するSchwarzschild座標 $t$ を直接差し引く操作ではありません。
+AliceとBobの入射を同じKilling時間変換でずらすと、地平線上の $V$ は指数的に伸びます。ここで $\Delta t\ge0$ はBobの入射がAliceより遅れる**遠方基準の時間移動量**であり、地平線上の発散するSchwarzschild座標 $t$ を直接差し引く操作ではありません。
 
 $$
 \frac{V_B}{V_A}=\exp\left(\frac{\Delta t}{4M}\right).
 $$
 
-Aliceが地平線を横切る際の、単位質量当たりの保存Killingエネルギーを $E_0>0$ とし、同じ動径測地線を考えます。地平線で $g_{UV}=-8M^2/e$、$\partial_t=(V\partial_V-U\partial_U)/(4M)$ ですから、Aliceの四速度 $w^a=dx^a/d\tau$ について
+Aliceが地平線を横切る際の、単位質量当たりの保存Killingエネルギーを $E_0>0$ とし、同じ動径測地線を考えます。$\tau$ はAliceの固有時間で、四速度 $w^a=dx^a/d\tau$ はAliceの世界線に沿う微分です。これは $r$ を固定した座標方向の $\partial_t$ と区別します。動径計量の交差項は $ds_{\rm radial}^2=2g_{UV}\,dU\,dV$ なので、地平線では
+
+$
+g_{UV}=-\left.\frac{16M^3}{r}e^{-r/(2M)}\right|_{r=2M}=-\frac{8M^2}{e}.
+$
+
+したがって、Killingエネルギーと四速度の関係は
 
 $$
 E_0=-g(\partial_t,w)
+=-g_{UV}\frac{V_A}{4M}\left.\frac{dU}{d\tau}\right|_{U=0}
 =\frac{2M}{e}V_A\left.\frac{dU}{d\tau}\right|_{U=0}.
 $$
 
@@ -252,7 +297,7 @@ $$
 
 特に $\alpha>2$ では $\omega_{\rm loc}/M\to\infty$ となり、信号のエネルギーを背景ブラックホールの質量より小さい摂動として扱う条件と両立しなくなります。$\alpha=2$ では同じ次数に過ぎず、係数、軌道、復号・操作の詳細が重要です。
 
-[BHI8のPage時刻の準静的推定](../BHI8/index.md)で想定したように回収までの時間が $M^3$ の次数なら、指数因子は $\exp(\text{定数}\,M^2)$ の次数になります。ただし、早く回収できるとする模型で $\Delta t\sim M\ln M$ にまで短縮できるとき、この質量比較だけでは複製検証の不可能性を一般に結論できません。次講BHI12ではそのような情報回収模型を具体化します。
+[BHI8のPage時刻の準静的推定](../BHI8/index.md#thm-bhi8-constant-page-time)で想定したように回収までの時間が $M^3$ の次数なら、指数因子は $\exp(\text{定数}\,M^2)$ の次数になります。ただし、早く回収できるとする模型で $\Delta t\sim M\ln M$ にまで短縮できるとき、この質量比較だけでは複製検証の不可能性を一般に結論できません。次講BHI12ではそのような情報回収模型を具体化します。
 
 ## 5. 復号と入射の順序を記録する
 
@@ -328,7 +373,7 @@ $$
 $H_{\rm code}=\operatorname{span}\{\lvert000\rangle,\lvert111\rangle\}$ で $Z_1,Z_3$ の作用が同じであることを基底に作用させて確認せよ。$\lvert\psi_L\rangle=\sqrt3\,\lvert000\rangle/2+\lvert111\rangle/2$ の第一因子の縮約状態と純粋性を判定し、この三因子が三コピーではない理由を説明せよ。
 
 <!-- solution-start -->
-**詳細解答**：$Z_1\lvert000\rangle=Z_3\lvert000\rangle=\lvert000\rangle$、$Z_1\lvert111\rangle=Z_3\lvert111\rangle=-\lvert111\rangle$ です。符号空間の基底で一致するので任意の線形結合に対して一致します。全状態の密度演算子を展開すると非対角項 $\sqrt3\,\lvert000\rangle\langle111\rvert/4$ とその随伴が出ますが、残る二因子の部分トレースには $\langle11|00\rangle=0$ が掛かり消えます。ゆえに $\rho_1=\operatorname{diag}(3/4,1/4)$、$\operatorname{Tr}\rho_1^2=9/16+1/16=5/8<1$ です。局所状態は混合で未知の論理純粋状態を各因子に複製していません。
+**詳細解答**：$Z_1\lvert000\rangle=Z_3\lvert000\rangle=\lvert000\rangle$、$Z_1\lvert111\rangle=Z_3\lvert111\rangle=-\lvert111\rangle$ です。符号空間の基底で一致するので任意の線形結合に対して一致します。全状態の密度演算子を展開すると非対角項 $\sqrt3\,\lvert000\rangle\langle111\rvert/4$ とその随伴が出ますが、残る二因子の部分トレースには $\langle11|00\rangle=0$ が掛かり消えます。ゆえに計算基底 $(\lvert0\rangle,\lvert1\rangle)$ に関する行列は $\rho_1=\operatorname{diag}(3/4,1/4)$、$\operatorname{Tr}\rho_1^2=9/16+1/16=5/8<1$ です。局所状態は混合で未知の論理純粋状態を各因子に複製していません。
 <!-- solution-end -->
 
 <a id="ex-bhi11-a03"></a>
