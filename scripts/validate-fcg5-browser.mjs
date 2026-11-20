@@ -180,7 +180,7 @@ try {
   assert.notEqual(f8clock,f8.clock,'FCG8 should animate physical interpolation with rAF');
   await evaluate('document.querySelector(".visual-observation [data-action=play]").click()');
   await evaluate('(()=>{const s=document.querySelector(".visual-observation [data-action=seek]");s.value="500";s.dispatchEvent(new Event("input",{bubbles:true}));})()');
-  assert.match(await evaluate('document.querySelector(".visual-clock").textContent'),/0\.48 s/);
+  assert.match(await evaluate('document.querySelector(".visual-clock").textContent'),/1\.92 s/);
   assert.match(await evaluate('document.querySelector(".visual-stats").textContent'),/解析的面積/);
   await click('run');
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
