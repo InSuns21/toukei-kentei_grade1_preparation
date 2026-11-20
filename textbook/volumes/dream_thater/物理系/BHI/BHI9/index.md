@@ -402,7 +402,7 @@ $$
 任意の状態 $\rho_R$ とBell対 $\Phi_{bc}$ の積で、$S(bc),S(c),S(Rb)-S(R)$ を求め、[小補正条件](#def-bhi9-entropy-smallness)と下界の等号を検査せよ。
 
 <!-- solution-start -->
-**詳細解答**：Bell対の非零固有値は1個の1なので $S(bc)=0$。部分トレースで $\rho_c=I_2/2$、ゆえに $S(c)=\ln2$。独立性より $\rho_{Rb}=\rho_R\otimes I_2/2$ だから、[QINF17のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor-additivity)を使い $S(Rb)=S(R)+\ln2$。増分は $\ln2$ で、$\varepsilon=0$ の下界 $\ln2-2\cdot0=\ln2$ と一致する。
+**詳細解答**：Bell対の非零固有値は1個の1なので $S(bc)=0$。部分トレースで $\rho_c=I_2/2$、ゆえに $S(c)=\ln2$。独立性より $\rho_{Rb}=\rho_R\otimes I_2/2$ だから、[QINF17のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)を使い $S(Rb)=S(R)+\ln2$。増分は $\ln2$ で、$\varepsilon=0$ の下界 $\ln2-2\cdot0=\ln2$ と一致する。
 <!-- solution-end -->
 
 <a id="ex-bhi9-a02"></a>
@@ -484,7 +484,7 @@ $R_0$ は自明、三段階で $\varepsilon_1=0.05,\varepsilon_2=0.10,\varepsilo
 (1) $\rho_{bc}=\Phi_{bc}$ と $\rho_R$ が任意に相関し得るかを議論せよ。(2) $\rho_b=I_2/2$ だけを仮定すると、増分の符号を決められないことを符号の異なる二つの純粋三部状態で示せ。
 
 <!-- solution-start -->
-**詳細解答**：(1) $\rho_{bc}$ が純粋なら、全体の任意の拡張は $\rho_{Rbc}=\rho_R\otimes\Phi_{bc}$ となる。[BHI3の純粋な新規対の因数分解](../BHI3/index.md#prop-bhi3-pure-pair-factorization)がこの事実を示す。小さいが零ではない誤差で相関が許されることは第6節の例で確かめた。(2) 第一例を $\lvert0\rangle_R\otimes\lvert\Phi\rangle_{bc}$ とすると、$b$ は最大混合で $\Delta=+\ln2$。第二例を $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ とすると、同じ $\rho_b=I_2/2$ なのに $\Delta=-\ln2$。どちらも全三部系は純粋であり、異なるのは $b$ の**純粋化相手**である。
+**詳細解答**：(1) $\rho_{bc}$ が純粋なら、全体の任意の拡張は $\rho_{Rbc}=\rho_R\otimes\Phi_{bc}$ となる。[BHI3の純粋な新規対の因数分解](../BHI3/index.md#prop-bhi3-pure-pair-rigidity)がこの事実を示す。小さいが零ではない誤差で相関が許されることは第6節の例で確かめた。(2) 第一例を $\lvert0\rangle_R\otimes\lvert\Phi\rangle_{bc}$ とすると、$b$ は最大混合で $\Delta=+\ln2$。第二例を $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ とすると、同じ $\rho_b=I_2/2$ なのに $\Delta=-\ln2$。どちらも全三部系は純粋であり、異なるのは $b$ の**純粋化相手**である。
 <!-- solution-end -->
 
 ### Level C：一般化と仮定の監査
