@@ -1,0 +1,34 @@
+chapter: PML1-15
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - PML1-14
+  - MFL23
+forward_references: []
+concepts:
+  - id: physics-machine-learning.rigid-configuration-action
+    name: 平面の剛体変換群と粒子配置への作用
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平面の剛体変換群と粒子配置への作用）"]
+    requires: [algebra.group-action-orbit]
+  - id: physics-machine-learning.gradient-force-equivariance
+    name: 剛体変換に不変なポテンシャルの力は等変
+    kind: theorem
+    introduction: formal
+    requires: [physics-machine-learning.rigid-configuration-action, manifold-learning.invariant-map, manifold-learning.equivariant-map]
+  - id: physics-machine-learning.pair-potential-rigid-symmetry
+    name: 距離型ポテンシャルとNewton方程式の剛体対称性
+    kind: theorem
+    introduction: formal
+    requires: [physics-machine-learning.gradient-force-equivariance]
+  - id: physics-machine-learning.force-moment-balance
+    name: 並進・回転対称性からの力とモーメントの恒等式
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.gradient-force-equivariance]
+  - id: physics-machine-learning.oriented-area-parity
+    name: 符号付き面積の変換則
+    kind: proposition
+    introduction: formal
+    requires: [physics-machine-learning.rigid-configuration-action]
