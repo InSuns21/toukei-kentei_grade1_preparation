@@ -43,12 +43,12 @@ $$
 >
 > $\mathcal H_{\mathrm{ext}}=\mathbb C^2_L\otimes\mathbb C^2_R$、$G=X_L\otimes X_R$ とし、
 >
-> $$
-> P_{\mathrm{phys}}=\frac{I_{\mathrm{ext}}+G}{2},
-> \qquad
-> \mathcal H_{\mathrm{phys}}=\{\psi\in\mathcal H_{\mathrm{ext}}:G\psi=\psi\}
-> =\operatorname{Ran}P_{\mathrm{phys}}
-> $$
+$$
+P_{\mathrm{phys}}=\frac{I_{\mathrm{ext}}+G}{2},
+\qquad
+\mathcal H_{\mathrm{phys}}=\{\psi\in\mathcal H_{\mathrm{ext}}:G\psi=\psi\}
+=\operatorname{Ran}P_{\mathrm{phys}}
+$$
 >
 > と定める。制約を保つ作用素とは $G$ と交換する作用素をいう。この模型での左局所観測量は $O_L\otimes I_R$ という形のうち $G$ と交換するものを物理空間へ制限した作用素、右も同様とする。
 <!-- formal-statement-end -->
@@ -75,11 +75,11 @@ $$
 >
 > [二リンクのGauss物理空間](#def-bhi15-gauss-space)において、$O_L\in B(\mathbb C^2_L)$ が $[O_L\otimes I_R,G]=0$ を満たすための必要十分条件は、ある $\alpha,\beta\in\mathbb C$ に対して $O_L=\alpha I_2+\beta X_L$ と表せることである。右も同様である。物理空間では
 >
-> $$
-> (X_L\otimes I_R)|_{\mathrm{phys}}
-> =(I_L\otimes X_R)|_{\mathrm{phys}}
-> =\begin{pmatrix}1&0\\0&-1\end{pmatrix}_{\{|++\rangle,|--\rangle\}}.
-> $$
+$$
+(X_L\otimes I_R)|_{\mathrm{phys}}
+=(I_L\otimes X_R)|_{\mathrm{phys}}
+=\begin{pmatrix}1&0\\0&-1\end{pmatrix}_{\{|++\rangle,|--\rangle\}}.
+$$
 >
 > 従って左右の局所観測量の代数は同じ可換代数であり、左右に独立の全行列代数を与えない。
 <!-- formal-statement-end -->
@@ -163,14 +163,14 @@ $$
 >
 > 上の物質量子ビット付き物理空間で、$P_e$ を電束 $e\in\{+,-\}$ の四次元ブロックへの直交射影とする。物理空間上の左・右局所観測量代数を
 >
-> $$
-> \begin{aligned}
-> \mathcal A_L
-> &=\bigoplus_{e=\pm}\bigl(B(\mathbb C^2_l)\otimes I_r\bigr)_e,\\
-> \mathcal A_R
-> &=\bigoplus_{e=\pm}\bigl(I_l\otimes B(\mathbb C^2_r)\bigr)_e
-> \end{aligned}
-> $$
+$$
+\begin{aligned}
+\mathcal A_L
+&=\bigoplus_{e=\pm}\bigl(B(\mathbb C^2_l)\otimes I_r\bigr)_e,\\
+\mathcal A_R
+&=\bigoplus_{e=\pm}\bigl(I_l\otimes B(\mathbb C^2_r)\bigr)_e
+\end{aligned}
+$$
 >
 > と定める。これらの作用素は、それぞれ拡張空間で対応する側だけに作用し $G$ と交換する作用素を、物理空間へ制限したものに一致する。
 <!-- formal-statement-end -->
@@ -196,13 +196,13 @@ $$
 >
 > [Gauss制約下の左右局所代数](#def-bhi15-local-algebras)は、$\mathcal K_{\mathrm{phys}}$ 上で
 >
-> $$
-> \mathcal A_L'=\mathcal A_R,\qquad
-> \mathcal A_R'=\mathcal A_L,\qquad
-> \mathcal A_L\cap\mathcal A_R
-> =Z(\mathcal A_L)=Z(\mathcal A_R)
-> =\operatorname{span}_{\mathbb C}\{P_+,P_-\}
-> $$
+$$
+\mathcal A_L'=\mathcal A_R,\qquad
+\mathcal A_R'=\mathcal A_L,\qquad
+\mathcal A_L\cap\mathcal A_R
+=Z(\mathcal A_L)=Z(\mathcal A_R)
+=\operatorname{span}_{\mathbb C}\{P_+,P_-\}
+$$
 >
 > を満たす。ここで $\mathcal A'$ は $\mathcal K_{\mathrm{phys}}$ の全作用素のうち $\mathcal A$ の全元と交換する作用素全体である。特に局所代数は相互に交換するが、両側はスカラー以外の中心射影を共有する。
 <!-- formal-statement-end -->
@@ -247,10 +247,10 @@ $$
 >
 > [定理の代数](#thm-bhi15-shared-center)に対し、非零有限次元Hilbert空間 $H_L,H_R$ とユニタリ $U:\mathcal K_{\mathrm{phys}}\to H_L\otimes H_R$ で
 >
-> $$
-> U\mathcal A_LU^*=B(H_L)\otimes I_R,\qquad
-> U\mathcal A_RU^*=I_L\otimes B(H_R)
-> $$
+$$
+U\mathcal A_LU^*=B(H_L)\otimes I_R,\qquad
+U\mathcal A_RU^*=I_L\otimes B(H_R)
+$$
 >
 > の両方を満たすものは存在しない。これは指定した**局所観測量を全行列因子と同定する分解**の不可能性であって、八次元ベクトル空間に何らかの抽象的テンソル積座標を入れることまで否定しない。
 <!-- formal-statement-end -->
@@ -302,15 +302,15 @@ $$
 >
 > 密度作用素 $\rho$ と[左右局所代数](#def-bhi15-local-algebras)について、左局所代数への状態制限を表すブロック密度行列を
 >
-> $$
-> \sigma_L=\bigoplus_{e=\pm}p_e\rho_l^e
-> $$
+$$
+\sigma_L=\bigoplus_{e=\pm}p_e\rho_l^e
+$$
 >
 > とする。**本模型での左代数エントロピー**を、このブロック行列の通常の行列トレースを用いて
 >
-> $$
-> S_{\mathcal A_L}(\rho)=-\operatorname{Tr}(\sigma_L\ln\sigma_L)
-> $$
+$$
+S_{\mathcal A_L}(\rho)=-\operatorname{Tr}(\sigma_L\ln\sigma_L)
+$$
 >
 > と定める。右も $l,r$ を交換して定める。$0\ln0=0$ と約束し、$p_e=0$ のブロックは零とする。この定義は指定した有限次元直和代数のトレース表示に基づくもので、任意の無限次元局所代数に同じエントロピーが存在するという主張ではない。
 <!-- formal-statement-end -->
@@ -332,13 +332,10 @@ $$
 >
 > [本有限模型の局所代数エントロピー](#def-bhi15-algebraic-entropy)は、任意の物理密度作用素 $\rho$ について
 >
-> $$
-> \boxed{\
-> S_{\mathcal A_L}(\rho)
-> =H(p_+,p_-)+\sum_{e=\pm}p_e S(\rho_l^e)\
-> },\qquad
-> H(p_+,p_-)=-\sum_{e=\pm}p_e\ln p_e
-> $$
+$$
+\boxed{S_{\mathcal A_L}(\rho)=H(p_+,p_-)+\sum_{e=\pm}p_e S(\rho_l^e)},\qquad
+H(p_+,p_-)=-\sum_{e=\pm}p_e\ln p_e
+$$
 >
 > を満たす。さらに物理空間を最初の拡張テンソル積 $\mathcal K_L\otimes\mathcal K_R$ へ自然に埋め込むと、拡張空間上で右側を部分トレースして得る左密度作用素のエントロピーは、この値に等しい。後者の等号は**指定した埋め込み**についての事実であり、物理空間の局所因子分解の存在を意味しない。
 <!-- formal-statement-end -->
