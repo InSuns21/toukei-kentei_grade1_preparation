@@ -4,7 +4,16 @@
 
 ## 1. なぜ「少し余分に放出する」と日記を取り戻せるのか
 
-[BHI12の投入模型](../BHI12/index.md#def-bhi12-old-input)では、日記 $A$ と参照系 $M$、古いブラックホール $B$ と早期放射 $E$ をそれぞれ最大エンタングル対にしました。内部ユニタリ $U:AB\to CD$ の後、外部の受信者が持つのは $DE$、手が届かない残存系は $C$ です。[BHI12の完全回収条件](../BHI12/index.md#thm-bhi12-recovery-condition)は、$MC$ が積状態なら日記を完全に復号できる、と述べます。
+[BHI12の投入模型](../BHI12/index.md#def-bhi12-old-input)では、新しい日記とその参照系、古いブラックホールと早期放射をそれぞれ最大エンタングル対にしました。
+
+内部発展の前後で系を次のように区別します。
+
+$$
+A,B\ \xrightarrow{\ U\ }\ C,D,
+\qquad M,E\ \text{は外部に固定}.
+$$
+
+受信者が持つのは早期放射 $E$ と新しい放射 $D$ であり、残存系 $C$ にアクセスできません。[BHI12の完全回収条件](../BHI12/index.md#thm-bhi12-recovery-condition)は、参照系 $M$ と $C$ が積状態なら日記を復号できる、と述べます。
 
 しかしBHI12のSWAP型配置と恒等配置は同じ入出力次元で正反対の結果を生みました。**次元だけ**では、内部発展が日記の情報をどこへ運ぶか分かりません。そこで本講では、固定した一つの内部発展ではなく、全ユニタリを等しい対称性で平均する**Haarランダム模型**を調べます。[QINF31で定義した正規化Haar分布](../../../応用系/QINF/QINF31/index.md#def-qinf31-haar)は、固定したユニタリを左または右から掛けても分布が変わらない分布です。
 
@@ -33,7 +42,15 @@ $$
 Haar分布は、[QINF31の構成と一意性](../../../応用系/QINF/QINF31/index.md#thm-qinf31-gaussian-haar)で導入済みのものです。$AB$ と $CD$ は共に $N$ 次元なので、それぞれ基底を固定して $U(N)$ 上の分布を使えます。$U$ は一つの実験で**全入力について固定**し、入力ごとに引き直しません。
 
 <!-- definition-example-start: def-bhi13-haar-experiment -->
-**定義の確認。** $a=b=c=d=2$ とすると $N=4$ です。入力と出力の基底を $|a_0b_0\rangle$ と $|c_0d_0\rangle$ で番号付けすれば、$U$ は $4\times4$ ユニタリ行列となります。基底を固定してから $U(4)$ のHaar分布を取るので、左右の固定ユニタリ変換でも分布は変わりません。初期の二つのBell対は規格化され、出力もユニタリ性からノルム1です。$M$ と $E$ には $U$ を掛けないので、[BHI12の独立性](../BHI12/index.md#prop-bhi12-early-independence)も維持されます。
+**定義の確認。** 全系の入出力因子を2次元にした例を考えます。
+
+$$
+a=b=c=d=2,\qquad N=4.
+$$
+
+入力と出力の各積基底を番号付けすると、発展 $U$ は $4\times4$ ユニタリ行列です。これらの基底を固定してHaar分布を取るので、左右の固定ユニタリ変換でも分布は変わりません。
+
+初期の二つのBell対は規格化され、出力もユニタリ性からノルム1です。外部の $M,E$ には発展を作用させないので、[BHI12の独立性](../BHI12/index.md#prop-bhi12-early-independence)も維持されます。
 <!-- definition-example-end -->
 
 受信者が復号できるかは、捨てられる系 $C$ と参照 $M$ の相関で測れます。[QINF29の完全デカップリング](../../../応用系/QINF/QINF29/index.md#def-qinf29-decoupling)は厳密な積状態ですが、ランダム模型では積からのずれを測る必要があります。[QINF11のトレース距離](../../../応用系/QINF/QINF11/index.md#def-qinf11-trace-distance)と、行列の特異値を平方して足すHilbert–Schmidtノルムを使います。
@@ -409,7 +426,7 @@ $$
 最後の条件 $d\ge a/(\varepsilon\sqrt\eta)$ なら右端は $\eta$ 以下です。したがって確率少なくとも $1-\eta$ で最適不忠実度は $\varepsilon$ 以下となり、有限次元で最適化を達成するCPTP回復が存在します。これで結論です。
 <!-- proof-end -->
 
-[BHI12の次元下界](../BHI12/index.md#prop-bhi12-output-lower-bound) $d\ge a$ は**完全回収の必要条件**でした。今回の $d\ge a/(\varepsilon\sqrt\eta)$ は、Haar模型で**高い忠実度を保証する十分条件**です。両者は同じ主張ではありません。また[QINF30の一様回復評価](../../../応用系/QINF/QINF30/index.md#prop-qinf30-uniform-bound)を使えば、エンタングルメント忠実度から任意の入力状態と補助参照系についての距離上界へ換算できますが、そこには追加の $a$ の因子が現れます。
+[BHI12の次元下界](../BHI12/index.md#prop-bhi12-output-lower-bound) $d\ge a$ は完全回収するための必要条件でした。今回の $d\ge a/(\varepsilon\sqrt\eta)$ は、Haar模型で**高い忠実度を保証する十分条件**です。両者は同じ主張ではありません。また[QINF30の一様回復評価](../../../応用系/QINF/QINF30/index.md#prop-qinf30-uniform-bound)を使えば、エンタングルメント忠実度から任意の入力状態と補助参照系についての距離上界へ換算できますが、そこには追加の $a$ の因子が現れます。
 
 ## 7. 何量子ビット余分に必要か
 
@@ -504,7 +521,34 @@ $$
 - 問題: $a=b=c=d=2$ とし、$U_{\rm good}|i,j\rangle=|j,i\rangle_{CD}$ と $U_{\rm bad}|i,j\rangle=|i,j\rangle_{CD}$ を比較する。両者の $\rho_{MC}$ と $L$ を求めよ。
 
 <!-- solution-start -->
-**詳細解答。** goodでは日記 $A$ が $D$ へ移り、古い内部 $B$ が $C$ へ移るため、全状態は $\Phi_{MD}\otimes\Phi_{CE}$ です。$DE$ を捨てると $\rho_{MC}=\pi_M\otimes\pi_C=I_4/4$、従って $L=0$。badでは日記 $A$ が $C$ に残り、$B$ が $D$ へ移るため全状態は $\Phi_{MC}\otimes\Phi_{DE}$。よって $\rho_{MC}=\Phi_{MC}$、$\rho_C=I_C/2$ です。差 $X=\Phi_{MC}-I_4/4$ はBellベクトル方向で固有値 $1-1/4=3/4$、直交補空間で $-1/4$（三重）です。特異値の和は $3/4+3/4=3/2$。従って次元 $d=a$ だけから回復の可否は決まりません。[完全回収条件](../BHI12/index.md#thm-bhi12-recovery-condition)によりgoodは完全回収可能、badは不可能です。
+**詳細解答。** $\Phi_{XY}$ は2次元Bell状態の密度演算子 $|\Phi_2\rangle\langle\Phi_2|_{XY}$ とします。
+
+goodでは日記が放射に移り、古い内部が残存系になります。よって全状態と縮約は
+
+$$
+\rho_{\mathrm{all}}^{\mathrm{good}}=\Phi_{MD}\otimes\Phi_{CE},
+\qquad
+\rho_{MC}^{\mathrm{good}}=\pi_M\otimes\pi_C=\frac{I_4}{4}.
+$$
+
+したがって $X_{\mathrm{good}}=0$ となり、$L_{\mathrm{good}}=0$ です。
+
+badでは日記が残存系に留まるため、全状態と縮約は
+
+$$
+\rho_{\mathrm{all}}^{\mathrm{bad}}=\Phi_{MC}\otimes\Phi_{DE},
+\qquad
+\rho_{MC}^{\mathrm{bad}}=\Phi_{MC},
+\qquad \rho_C^{\mathrm{bad}}=\frac{I_C}{2}.
+$$
+
+差 $X_{\mathrm{bad}}=\Phi_{MC}-I_4/4$ はBellベクトル方向で固有値 $3/4$、その三次元直交補空間で $-1/4$ を持つので、特異値の和は
+
+$$
+L_{\mathrm{bad}}=\frac34+3\cdot\frac14=\frac32.
+$$
+
+両配置とも放射次元は日記次元と同じですが、[完全回収条件](../BHI12/index.md#thm-bhi12-recovery-condition)からgoodだけが完全回収できます。
 <!-- solution-end -->
 
 <a id="ex-bhi13-a05"></a>
@@ -666,11 +710,11 @@ $$
 
 を使った失敗確率上界は $(3/85)/(1/2)^2=12/85$。簡略界は $2^{-4}/(1/2)^2=1/4$ です。$12/85<1/4$ なので、厳密な有限次元の補正はこの例では保証を改善します。
 
-**4. 結論の射程。** 入力に仮定したのは**全ユニタリ上のHaar分布**であり、実際のブラックホールのHamiltonianが有限時間でその分布を生成するとは仮定していません。得られた結論は各標本について**良いCPTP回復器が存在する確率**であり、効率的にその回復器を見つけられることやゲート数の上界は含みません。scrambling時間は実際の運動学・局所性に、復号計算量は回復アルゴリズムに依存します。これらはBHI14で別々に検討します。
+**4. 結論の射程。** 入力に仮定したのは[正規化Haar分布](../../../応用系/QINF/QINF31/index.md#def-qinf31-haar)に従うユニタリであり、実際のブラックホールのHamiltonianが有限時間でその分布を生成するとは仮定していません。得られた結論は各標本について**良いCPTP回復器が存在する確率**であり、効率的にその回復器を見つけられることやゲート数の上界は含みません。scrambling時間は実際の運動学・局所性に、復号計算量は回復アルゴリズムに依存します。これらはBHI14で別々に検討します。
 <!-- solution-end -->
 
 ## 9. まとめと次講
 
-[BHI12の完全回収条件](../BHI12/index.md#thm-bhi12-recovery-condition)は $MC$ の正確な積状態を要求しました。本講ではHaarユニタリを平均し、二コピー交換作用素から $\mathbb E Q$ を計算して、$d/a$ が大きければ多くの標本で積状態に近づくことを証明しました。そして[QINF30の回復定理](../../../応用系/QINF/QINF30/index.md#thm-qinf30-information-disturbance)から、**残存系への漏洩が小さいと受信者の良い復号が存在する**という定量的な結論を得ました。
+[BHI12の完全回収条件](../BHI12/index.md#thm-bhi12-recovery-condition)は $MC$ の正確な積状態を要求しました。本講ではHaarユニタリを平均し、二コピー交換作用素から $\mathbb E Q$ を計算して、$d/a$ が大きければ多くの標本で積状態に近づくことを証明しました。[環境の距離と回復誤差の双方向評価](../../../応用系/QINF/QINF30/index.md#thm-qinf30-information-disturbance)を適用すると、**残存系への漏洩が小さいと受信者の良い復号が存在する**という定量的な結論を得ました。
 
 ただし次元下界と高確率の十分条件、情報理論的な存在と復号回路の効率はそれぞれ異なります。次のBHI14「scrambling時間と情報放出時間」では、このHaar模型の回収閾値を実際の時間発展へ結び付けるための追加仮定を調べます。
