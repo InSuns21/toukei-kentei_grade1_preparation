@@ -112,19 +112,30 @@ $P_G$ は関数空間上の**線形射影**であり、その像は不変関数�
 
 ### 2.1 正方形の四回転を平均する
 
-$X=\mathbb R^2$、$G=C_4=\{I,R,R^2,R^3\}$、$R(x,y)^{\mathsf T}=(-y,x)^{\mathsf T}$ とする。$f(x,y)=x^2+2y^2$ は四分の一回転では不変でないが、
+$X=\mathbb R^2$ の点を列ベクトル $\boldsymbol z=(x,y)^{\mathsf T}$ と表す。標準基底 $e_1=(1,0)^{\mathsf T}$、$e_2=(0,1)^{\mathsf T}$ に関する[線形写像の表現行列](../../../基礎科目/F0/F0-00F/index.md#def-f0-00f-representation-matrix)を
 
-$$
-f(R^0x)=x^2+2y^2,\quad
-f(Rx)=y^2+2x^2,
-$$
+$
+R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+$
 
-$$
-f(R^2x)=x^2+2y^2,\quad
-f(R^3x)=y^2+2x^2
-$$
+と置く。この行列の列が $Re_1=e_2$、$Re_2=-e_1$ を表すので、線形性から
 
-だから
+$
+R\boldsymbol z=xRe_1+yRe_2=-ye_1+xe_2=(-y,x)^{\mathsf T}.
+$
+
+$R^2=-I_2$、$R^4=I_2$ であるため、$G=C_4=\{I_2,R,R^2,R^3\}$ は行列積による四要素の群となり、$R^k\boldsymbol z$ が入力への作用である。実数値予測器 $f(\boldsymbol z)=x^2+2y^2$ をこれら四つの入力で評価すると
+
+$
+\begin{aligned}
+f(R^0\boldsymbol z)&=x^2+2y^2,\\
+f(R\boldsymbol z)&=y^2+2x^2,\\
+f(R^2\boldsymbol z)&=x^2+2y^2,\\
+f(R^3\boldsymbol z)&=y^2+2x^2.
+\end{aligned}
+$
+
+したがって[群平均の定義](#def-pml1-16-averaging)により
 
 $$
 (P_{C_4}f)(x,y)=\frac32(x^2+y^2).
@@ -217,7 +228,7 @@ $P_G$ の線形性から $P_Gu=P_Gf-P_Gy$ なので、主張の等式を得る�
 
 <!-- formal-statement-start -->
 > **命題（教師値の対称性と群平均後の二乗誤差）**  
-> 前定理と同じ有限集合、群作用、不変な正の確率重みを仮定する。教師値 $y:X\to\mathbb R$ が $G$-不変なら、任意の $f$ について
+> 空でない有限集合 $X$ に有限群 $G$ が左作用し、$w:X\to(0,1]$ が $\sum_{x\in X}w(x)=1$ と $w(g\cdot x)=w(x)$（すべての $g\in G,x\in X$）を満たすとする。教師値 $y:X\to\mathbb R$ が $G$-不変なら、任意の $f:X\to\mathbb R$ について
 
 $$
 \|P_Gf-y\|_w^2
@@ -240,7 +251,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$y$ が不変なら [群平均の固定点条件](#thm-pml1-16-reynolds)で $P_Gy=y$。前定理を $u=f-y$ に適用すると
+$y$ が不変なら [群平均の固定点条件](#thm-pml1-16-reynolds)で $P_Gy=y$。[直交射影の定理](#thm-pml1-16-orthogonal)を $u=f-y$ に適用すると
 
 $$
 \|f-y\|_w^2
@@ -253,7 +264,7 @@ $$
 P_Gf-y=(P_Gf-P_Gy)-(y-P_Gy).
 $$
 
-第一項は不変関数であり、第二項は前定理より不変関数全体と直交する。そのため二乗ノルムを展開すると交差項が0になり第二の等式を得る。第一項を0にするには $P_Gf=P_Gy$ とすればよい。特に $f=P_Gy$ なら [射影性](#thm-pml1-16-reynolds)により $P_Gf=P_Gy$ であり、最小値に達する。
+第一項は不変関数であり、第二項は[直交射影の定理](#thm-pml1-16-orthogonal)より不変関数全体と直交する。そのため二乗ノルムを展開すると交差項が0になり第二の等式を得る。第一項を0にするには $P_Gf=P_Gy$ とすればよい。特に $f=P_Gy$ なら [射影性](#thm-pml1-16-reynolds)により $P_Gf=P_Gy$ であり、最小値に達する。
 <!-- proof-end -->
 
 **正しい対称性は誤差を減らす。** 二点 $X=\{-1,1\}$ の一様重みで $y(-1)=y(1)=1$、$f(-1)=0$、$f(1)=2$ とすると、元の誤差は $(1+1)/2=1$、群平均後は常に $1$ なので誤差0である。
@@ -266,7 +277,13 @@ $$
 
 前講の[不変なポテンシャルの勾配は等変という定理](../PML1-15/index.md#thm-pml1-15-gradient-equivariance)では、力は回転とともに向きを変える。力の二成分をそのまま平均して不変にしてしまうと、求める変換則を壊す。
 
-入力集合 $X$ に有限群 $G$ が作用し、出力を $V=\mathbb R^d$ の列ベクトルとする。出力への作用を可逆な実行列 $\rho(g)\in GL_d(\mathbb R)$ で表し、$\rho(gh)=\rho(g)\rho(h)$、$\rho(e)=I_d$ とする（このように群の積と行列積を対応させるものを**線形表現**という）。予測器 $F:X\to V$ の等変性は、[等変写像の定義](../../MFL/MFL22/index.md#def-mfl22-equivariant)に沿って
+入力集合 $X$ に有限群 $G$ が作用し、出力を $V=\mathbb R^d$ の列ベクトルとする。$GL_d(\mathbb R)$ は可逆な $d\times d$ 実行列全体を表し、$I_d$ は単位行列である。各 $g\in G$ が出力ベクトルをどう変換するかを行列 $\rho(g)\in GL_d(\mathbb R)$ で指定する。群の合成と整合する条件は
+
+$
+\rho(gh)=\rho(g)\rho(h),\qquad \rho(e)=I_d.
+$
+
+このような対応 $\rho$ を**線形表現**と呼ぶ。条件から $\rho(g)\rho(g^{-1})=I_d$、すなわち $\rho(g)^{-1}=\rho(g^{-1})$ が従う。したがって出力を元の向きへ戻す操作は逆行列で表せる。予測器 $F:X\to V$ の等変性は、[等変写像の定義](../../MFL/MFL22/index.md#def-mfl22-equivariant)に沿って
 
 $$
 F(g\cdot x)=\rho(g)F(x)
@@ -363,17 +380,18 @@ $$
 
 ### 4.1 反転で向きが変わるベクトル
 
-$G=\{I,-I\}$ が $X=\mathbb R^2$ に行列として作用し、出力にも $\rho(-I)=-I$ を使う。$F(x)=Ax+b$（$A$ は $2\times2$ 実行列、$b$ は定数ベクトル）なら
+$G=\{I_2,-I_2\}$ が $X=\mathbb R^2$ に行列として作用し、出力にも $\rho(-I_2)=-I_2$ を使う。入力を列ベクトル $\boldsymbol z\in\mathbb R^2$ とし、$F(\boldsymbol z)=A\boldsymbol z+b$（$A$ は $2\times2$ 実行列、$b$ は定数ベクトル）なら
 
-$$
+$
 \begin{aligned}
-(\mathcal P_\rho F)(x)
-&=\tfrac12\{F(x)-F(-x)\}\\
-&=\tfrac12\{Ax+b-(-Ax+b)\}=Ax.
+(\mathcal P_\rho F)(\boldsymbol z)
+&=\tfrac12\{F(\boldsymbol z)-F(-\boldsymbol z)\}\\
+&=\tfrac12\{A\boldsymbol z+b-(-A\boldsymbol z+b)\}
+=A\boldsymbol z.
 \end{aligned}
-$$
+$
 
-定数のずれ $b$ は消え、$\mathcal P_\rho F(-x)=-Ax$ は $\rho(-I)\mathcal P_\rho F(x)$ に一致する。スカラーの単純平均なら $Ax$ の符号まで失う。出力側の作用を指定することが重要である。
+定数のずれ $b$ は消え、$(\mathcal P_\rho F)(-\boldsymbol z)=-A\boldsymbol z$ は $\rho(-I_2)(\mathcal P_\rho F)(\boldsymbol z)$ に一致する。スカラーの単純平均なら $Ax$ の符号まで失う。出力側の作用を指定することが重要である。
 
 ここで $\rho(g)$ に直交性は要求していない。したがってこの定理が保証するのは**等変性と射影性**であり、ベクトルの通常のユークリッド二乗誤差が減るという主張ではない。誤差について同様の直交射影を示すには、評価重みの不変性に加え、少なくとも $\rho(g)^{\mathsf T}\rho(g)=I_d$ などの内積保存条件が必要になる。
 
@@ -395,9 +413,9 @@ $G=\{e,s\}$、$s\cdot x=-x$、$f(x)=x^2+3x+2$ とする。$P_Gf$ を求め、$x=
 <!-- solution-start -->
 #### 詳細解答
 
-定義より
+[有限群平均作用素の定義](#def-pml1-16-averaging)より
 
-$$
+$
 (P_Gf)(x)=\tfrac12(f(x)+f(-x))
 =\tfrac12(x^2+3x+2+x^2-3x+2)
 =x^2+2.
@@ -426,7 +444,7 @@ $$
 f(-y,x)=f(y,-x)=y^2+2x^2.
 $$
 
-四項を足すと $6x^2+6y^2$ なので、4で割って
+四項を足すと $6x^2+6y^2$ なので、[群平均の定義](#def-pml1-16-averaging)に従い4で割って
 
 $$
 (P_Gf)(x,y)=\tfrac32(x^2+y^2)
@@ -491,7 +509,7 @@ $$
 (P_Gf)(x)=\tfrac12(f(x)+f(-x))=2x^2+1.
 $$
 
-等変平均では $\rho(s)^{-1}=-1$ だから
+[等変平均の定義](#thm-pml1-16-equivariant)では $\rho(s)^{-1}=-1$ だから
 
 $$
 (\mathcal P_\rho f)(x)
@@ -513,7 +531,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-平均の定義を二回適用する。
+[群平均の定義](#def-pml1-16-averaging)を二回適用する。
 
 $$
 \begin{aligned}
@@ -592,12 +610,12 @@ $$
 
 - Level: B
 
-$X=\mathbb R^2$、$G=C_4=\{I,R,R^2,R^3\}$、$R(x,y)=(-y,x)$ とする。出力には $\rho(R^k)=R^k$ を使う。$F(x)=Ax+b$、$A=\operatorname{diag}(2,0)$、$b=(1,0)^{\mathsf T}$ に対し $\mathcal P_\rho F$ を求め、90度回転に対する等変性を確認せよ。
+$X=\mathbb R^2$、$G=C_4=\{I_2,R,R^2,R^3\}$、$R(x,y)^{\mathsf T}=(-y,x)^{\mathsf T}$ とする。入力を列ベクトル $\boldsymbol z=(x,y)^{\mathsf T}$ と書き、出力には $\rho(R^k)=R^k$ を使う。$F(\boldsymbol z)=A\boldsymbol z+b$、$A=\operatorname{diag}(2,0)$、$b=(1,0)^{\mathsf T}$ に対し $\mathcal P_\rho F$ を求め、90度回転に対する等変性を確認せよ。
 
 <!-- solution-start -->
 #### 詳細解答
 
-$R^{-k}F(R^kx)=R^{-k}AR^kx+R^{-k}b$ である。$R^2=-I$ より
+[等変平均の定義](#thm-pml1-16-equivariant)に代入すると、$R^{-k}F(R^k\boldsymbol z)=R^{-k}AR^k\boldsymbol z+R^{-k}b$ である。$R^2=-I$ より
 
 $$
 R^{-0}AR^0=R^{-2}AR^2=A,
@@ -618,11 +636,11 @@ $$
 である（四方向の単位ベクトルの和）。従って
 
 $$
-(\mathcal P_\rho F)(x)
-=\tfrac14(4Ix+0)=x.
+(\mathcal P_\rho F)(\boldsymbol z)
+=\tfrac14(4I_2\boldsymbol z+0)=\boldsymbol z.
 $$
 
-特に $(\mathcal P_\rho F)(Rx)=Rx=R(\mathcal P_\rho F)(x)$ となり、[等変平均の定理](#thm-pml1-16-equivariant)を具体的に確認できる。
+特に $(\mathcal P_\rho F)(R\boldsymbol z)=R\boldsymbol z=R(\mathcal P_\rho F)(\boldsymbol z)$ となり、[等変平均の定理](#thm-pml1-16-equivariant)を具体的に確認できる。
 <!-- solution-end -->
 
 <a id="ex-pml1-16-b05"></a>
