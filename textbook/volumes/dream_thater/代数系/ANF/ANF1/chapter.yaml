@@ -17,6 +17,7 @@ learning_objectives:
   - 平方自由整数dの法4による二次体整数環の違いを計算し整数基底を決定できる
   - 整数環が一意分解整域とは限らない理由を具体的な反例で説明できる
 definitions:
+  - { id: ANF1-DEF-00, name: 数体 }
   - { id: ANF1-DEF-02, name: 数体の整数環 }
   - { id: ANF1-DEF-03, name: 数体の跡と跡双線形形式 }
 theorems:
