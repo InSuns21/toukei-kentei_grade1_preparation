@@ -85,7 +85,7 @@ export function fcg4State(iterations=128){
 }
 export function fcg4PixelCell(x,y,width,height){
   if(!Number.isInteger(width)||!Number.isInteger(height)||width<64||height<64||
-     width>1024||height>1024||width*height>524288||
+     width>2048||height>2048||width*height>2097152||
      !Number.isInteger(x)||!Number.isInteger(y)||x<0||y<0||x>=width||y>=height)
     throw new RangeError('pixel/viewport');
   const panel=Math.min(2,Math.floor(3*(x+0.5)/width));
