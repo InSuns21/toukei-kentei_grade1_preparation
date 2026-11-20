@@ -59,7 +59,7 @@ chapters:
     title: "Hayden–Preskillの情報投入模型"
   - id: BHI13
     path: textbook/volumes/dream_thater/物理系/BHI/BHI13
-    status: planned
+    status: completed
     title: "デカップリングと回収閾値"
   - id: BHI14
     path: textbook/volumes/dream_thater/物理系/BHI/BHI14
