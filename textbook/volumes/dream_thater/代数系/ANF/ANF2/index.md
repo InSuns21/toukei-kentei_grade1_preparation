@@ -10,7 +10,14 @@
 
 ## 1. 跡とノルムを共役根から計算する
 
-たとえば $K=\mathbb Q(\sqrt2)$ で $x=3+2\sqrt2$ とすると、基底 $(1,\sqrt2)$ に関する乗法写像 $\mu_x:y\mapsto xy$ は
+たとえば $K=\mathbb Q(\sqrt2)$ で $x=3+2\sqrt2$ とし、$K$ を $\mathbb Q$ 上の二次元空間と見ます。乗法写像 $\mu_x:y\mapsto xy$ は、基底 $(1,\sqrt2)$ の各元を
+
+$
+\mu_x(1)=3+2\sqrt2,\qquad
+\mu_x(\sqrt2)=4+3\sqrt2
+$
+
+に移します。これらを同じ基底の座標列 $(3,2)^{\mathsf T}$、$(4,3)^{\mathsf T}$ として並べると、行列は
 
 $$
 [\mu_x]=\begin{pmatrix}3&4\\2&3\end{pmatrix}.
@@ -36,6 +43,8 @@ $$
 <!-- definition-example-start: def-anf2-field-norm -->
 **定義の確認**：$x=3+2\sqrt2$ の上記行列は、$x\cdot1=3+2\sqrt2$ と $x\cdot\sqrt2=4+3\sqrt2$ の係数を列に並べたものです。従って $N_{K/\mathbb Q}(x)=3\cdot3-4\cdot2=1$。線形写像と基底を先に定めたので、ここでの行列式はノルムの定義を直接計算しています。
 <!-- definition-example-end -->
+
+以下、数体 $K$ を固定した文脈では $\operatorname{Tr}_{K/\mathbb Q}(x)$、$N_{K/\mathbb Q}(x)$ をそれぞれ $\operatorname{Tr}(x)$、$N(x)$ と略記します。行列 $C$ の対角和 $\operatorname{tr}(C)$ と、体の元 $x$ に対する $\operatorname{Tr}(x)=\operatorname{tr}([\mu_x])$ は、作用する対象が異なることに注意します。
 
 いま $\mathbb Q$ を固定する $K$ から $\mathbb C$ への相異なる体の埋め込みを $\sigma_1,\ldots,\sigma_n$ と記します。次数が $n$ なら、このような埋め込みがちょうど $n$ 個あることも次の証明で確認します。重要なのは、同じ元をこれらの埋め込みへ通すと、その全ての共役値が現れることです。
 
@@ -120,7 +129,7 @@ $\mathbb Q(x)$ の埋め込みは $x\mapsto\alpha_j$ の $d$ 通りです。(1) 
 
 $\mu_{x+y}=\mu_x+\mu_y$ および $\mu_{qx}=q\mu_x$ なので行列の対角和から跡の線形性が従います。$\mu_{xy}=\mu_x\circ\mu_y$ なので、行列式は $\det(AB)=\det(A)\det(B)$ を満たすので $N(xy)=N(x)N(y)$ です。$\mu_q=qI_n$ だから跡は $nq$、ノルムは $q^n$ です。
 
-$x\in\mathcal O_K$ なら[ANF1 の最小多項式による整性判定](../ANF1/index.md#thm-anf1-minimal-polynomial)から $m_x(T)\in\mathbb Z[T]$ です。前定理の係数公式
+$x\in\mathcal O_K$ なら[ANF1 の最小多項式による整性判定](../ANF1/index.md#thm-anf1-minimal-polynomial)から $m_x(T)\in\mathbb Z[T]$ です。[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)で示した係数公式
 
 $$
 \operatorname{Tr}(x)=-r c_{d-1},\qquad
@@ -160,7 +169,9 @@ $$
 m_x(T)=T^d+c_{d-1}T^{d-1}+\cdots+c_1T+c_0,\qquad c_j\in\mathbb Z
 $$
 
-と書きます。前定理で $N(x)=((-1)^dc_0)^r=\pm1$ なので、整数 $c_0$ は $\pm1$ です。$m_x(x)=0$ を移項すると
+と書きます。[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)から $N(x)=((-1)^dc_0)^r=\pm1$ なので、整数 $c_0$ は $\pm1$ です。
+
+$d=1$ なら $m_x(T)=T+c_0$ だから $x=-c_0=\pm1$ で、その逆元は $x$ 自身です。以下、$d\ge2$ とします。このとき $m_x(x)=0$ を移項すると
 
 $$
 x\bigl(x^{d-1}+c_{d-1}x^{d-2}+\cdots+c_1\bigr)=-c_0.
@@ -196,6 +207,15 @@ $$
 > をそれぞれ**跡行列**、**基底の判別式**という。
 <!-- formal-statement-end -->
 
+この行列は、[ANF1 の跡双線形形式](../ANF1/index.md#def-anf1-trace-pairing) $B(u,v)=\operatorname{Tr}(uv)$ の基底表示です。$u=\sum_i s_i\beta_i$、$v=\sum_j t_j\beta_j$（$s_i,t_j\in\mathbb Q$）と展開すると、
+
+$
+B(u,v)=\sum_{i,j}s_it_j\operatorname{Tr}(\beta_i\beta_j)
+=s^{\mathsf T}G_\beta t.
+$
+
+従って行列の各成分は基底元どうしの積の跡を表し、$\det G_\beta\ne0$ はこの形式の非退化性を行列で判定する条件です。実際、$G_\beta$ は対称行列なので $G_\beta s=0$ と $B(u,v)=0$ が全ての $v$ について成立することは同値であり、この対応は[ANF1 の非退化性と跡行列の証明](../ANF1/index.md#lem-anf1-integral-trace)でも確かめられます。
+
 定義だけでは複雑に見えますが、各列の係数を追う必要はありません。二次体 $K=\mathbb Q(\sqrt2)$ の基底 $(1,\sqrt2)$ を使えば
 
 $$
@@ -221,7 +241,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定理（判別式の基底変換則）**  
-> $K/\mathbb Q$ を次数 $n$ の数体、$\beta=(\beta_1,\ldots,\beta_n)$ を $\mathbb Q$ 基底とする。$A=(a_{ij})\in\operatorname{GL}_n(\mathbb Q)$ とし、別の基底を
+> $K/\mathbb Q$ を次数 $n$ の数体、$\beta=(\beta_1,\ldots,\beta_n)$ を $\mathbb Q$ 基底とする。$A=(a_{ij})\in\operatorname{GL}_n(\mathbb Q)$（可逆な $n$ 次有理数行列）とし、別の基底を
 
 $$
 \beta'_j=\sum_{i=1}^n\beta_i a_{ij}
@@ -274,7 +294,7 @@ $$
 \operatorname{disc}(\beta)=\det(V)^2.
 $$
 
-ここは $V^{\mathsf T}V$ であって $V^*V$ ではありません。複素共役を取らないため、判別式は負になることもあります。実埋め込みの数を $r_1$、共役を組にした非実埋め込みの組数を $r_2$ とすれば $n=r_1+2r_2$ です。
+ここは $V^{\mathsf T}V$ であって $V^*V$（$V^*$ は複素共役転置）ではありません。複素共役を取らないため、判別式は負になることもあります。実埋め込みの数を $r_1$、共役を組にした非実埋め込みの組数を $r_2$ とすれば $n=r_1+2r_2$ です。
 
 <a id="prop-anf2-discriminant-sign"></a>
 
@@ -340,7 +360,7 @@ $$
 また整数基底の積 $\omega_i\omega_j$ は整数環に属します。[整数のトレースとトレース形式の非退化性](../ANF1/index.md#lem-anf1-integral-trace)によって各 $\operatorname{Tr}(\omega_i\omega_j)$ は整数です。従って跡行列 $G_\omega$ の全成分と、その行列式 $D_K$ は整数です。非零性は[判別式の基底変換則](#thm-anf2-basis-change)の証明で確認しました。
 
 <!-- definition-example-start: def-anf2-field-discriminant -->
-**定義の確認**：$K=\mathbb Q(\sqrt2)$ では [二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)から $(1,\sqrt2)$ が整数基底です。すでに $\operatorname{disc}(1,\sqrt2)=8$ と計算しました。従ってこれは単なる基底の判別式にとどまらず、$D_K=8$ です。対して $(1,3\sqrt2)$ は整数環を生成しないため、$72$ を $D_K$ と呼ぶことはできません。
+**定義の確認**：$K=\mathbb Q(\sqrt2)$ では [二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)から $(1,\sqrt2)$ が整数基底です。すでに $\operatorname{disc}(1,\sqrt2)=8$ と計算しました。従ってこれは単なる基底の判別式にとどまらず、$D_K=8$ です。対して $(1,3\sqrt2)$ は整数環を生成しません。もし $\sqrt2=a+3b\sqrt2$（$a,b\in\mathbb Z$）なら、$\mathbb Q$ 基底 $(1,\sqrt2)$ で係数比較して $a=0,\ 3b=1$ となり矛盾します。従って $72$ を $D_K$ と呼ぶことはできません。
 <!-- definition-example-end -->
 
 **整数基底でない整な基底**の判別式がどれだけ大きくなるかには、正確な法則があります。整数基底 $\omega$ に対して整数係数で張られる部分加群 $L=\mathbb Z\beta_1+\cdots+\mathbb Z\beta_n\subseteq\mathcal O_K$ を考えます。$\beta$ は $\mathbb Q$ 基底とし、商加法群 $\mathcal O_K/L$ の元の個数（有限）を指数 $[\mathcal O_K:L]$ と書きます。
@@ -364,13 +384,13 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\omega=(\omega_1,\ldots,\omega_n)$ を $\mathcal O_K$ の整数基底とします。$\beta_j$ は整なので $\beta_j=\sum_i\omega_i a_{ij}$ と一意に書け、$A=(a_{ij})\in M_n(\mathbb Z)$ です。$\beta$ が $\mathbb Q$ 基底だから $\det A\ne0$。整数基底を座標系とすれば
+$\omega=(\omega_1,\ldots,\omega_n)$ を $\mathcal O_K$ の整数基底とします。$\beta_j$ は整なので $\beta_j=\sum_i\omega_i a_{ij}$ と一意に書け、$A=(a_{ij})\in M_n(\mathbb Z)$ です。$\beta$ が $\mathbb Q$ 基底だから $\det A\ne0$。ここで $M_n(\mathbb Z)$ は $n$ 次の整数成分行列全体です。整数基底を座標系とすれば
 
 $$
 \mathcal O_K/L\simeq\mathbb Z^n/A\mathbb Z^n.
 $$
 
-この商の位数を数えます。整数行列の行・列へ「二行（列）を入れ替える、一行（列）に他の整数倍を加える、符号を変える」という操作を行うと、$\mathbb Z^n/A\mathbb Z^n$ の位数と $|\det A|$ は変わりません。整数の除法と最大公約数の計算を第一行・第一列へ繰り返し適用すれば $A$ を対角整数行列 $\operatorname{diag}(d_1,\ldots,d_n)$（各 $d_i\ne0$）へ変えられます。対角の場合の商は $\bigoplus_i\mathbb Z/d_i\mathbb Z$ で、その位数は $\prod_i|d_i|=|\det A|$。従って一般にも
+この商の位数を数えます。整数行列の行・列へ「二行（列）を入れ替える、一行（列）に他の整数倍を加える、符号を変える」という操作を行うと、$\mathbb Z^n/A\mathbb Z^n$ の位数と $|\det A|$ は変わりません。この対角化の手順を確認します。まず非零成分を左上へ移し、第一列の他の成分を左上の成分で整数除法して余りを作ります。余りが非零なら行を交換して、左上の非零成分の絶対値を小さくできます。第一行についても列操作で同じことを行い、余りが残れば再び第一列へ戻ります。左上の正の絶対値は減少し続けられないので、有限回で第一行・第一列の全成分が左上の成分で割り切れる状態になり、整数倍の行・列操作でそれらを零にできます。残る $(n-1)$ 次正方部分に同じ操作を繰り返すと、$A$ は対角整数行列 $\operatorname{diag}(d_1,\ldots,d_n)$（各 $d_i\ne0$）になります。対角の場合の商は $\bigoplus_i\mathbb Z/d_i\mathbb Z$ で、その位数は $\prod_i|d_i|=|\det A|$。従って一般にも
 
 $$
 [\mathcal O_K:L]=|\det A|.
@@ -491,12 +511,12 @@ $K=\mathbb Q(\sqrt5)$、$w=(1+\sqrt5)/2$ の跡・ノルムと $\operatorname{Tr
 - ID: ANF2-A2
 
 <!-- solution-start -->
-**詳細解答**　二つの埋め込みによる像は $w=(1+\sqrt5)/2$ と $w'=(1-\sqrt5)/2$ です。従って
+**詳細解答**　$\sigma_\pm:\sqrt5\mapsto\pm\sqrt5$ を二つの $\mathbb Q$ 固定埋め込みとし、その像を $w_\pm=\sigma_\pm(w)=(1\pm\sqrt5)/2$ と置きます。[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)から
 
-$$
-\operatorname{Tr}(w)=w+w'=1,\quad
-N(w)=ww'=\frac{1-5}{4}=-1.
-$$
+$
+\operatorname{Tr}(w)=w_++w_-=1,\qquad
+N(w)=w_+w_-=\frac{1-5}{4}=-1.
+$
 
 $w^2-w-1=0$ から $w^2=w+1$ なので、跡の線形性と $\operatorname{Tr}(1)=2$ より $\operatorname{Tr}(w^2)=1+2=3$ です。
 <!-- solution-end -->
@@ -520,7 +540,21 @@ $K=\mathbb Q(\sqrt2)$ の基底 $\beta=(1,\sqrt2)$ と $\beta'=(1,3\sqrt2)$ の�
 - ID: ANF2-A4
 
 <!-- solution-start -->
-**詳細解答**　$\operatorname{Tr}(1)=2$、$\operatorname{Tr}(\sqrt2)=0$、$\operatorname{Tr}(2)=4$ なので $G_\beta=\operatorname{diag}(2,4)$、$\operatorname{disc}(\beta)=8$。後者は $\operatorname{Tr}(3\sqrt2)=0$、$\operatorname{Tr}(18)=36$ より $G_{\beta'}=\operatorname{diag}(2,36)$、$\operatorname{disc}(\beta')=72$。変換行列 $A=\operatorname{diag}(1,3)$ の $\det A=3$ で、$72=3^2\cdot8$ と一致します。
+**詳細解答**　$\operatorname{Tr}(1)=2$、$\operatorname{Tr}(\sqrt2)=0$、$\operatorname{Tr}(2)=4$ から、最初の基底では
+
+$
+G_\beta=\begin{pmatrix}2&0\\0&4\end{pmatrix},
+\qquad \operatorname{disc}(\beta)=2\cdot4=8.
+$
+
+次の基底では $\operatorname{Tr}(3\sqrt2)=0$、$\operatorname{Tr}((3\sqrt2)^2)=\operatorname{Tr}(18)=36$ なので
+
+$
+G_{\beta'}=\begin{pmatrix}2&0\\0&36\end{pmatrix},
+\qquad \operatorname{disc}(\beta')=2\cdot36=72.
+$
+
+$\beta'=\beta A$ に対応する変換行列は $A=\operatorname{diag}(1,3)$ で、$\det A=3$ です。[判別式の基底変換則](#thm-anf2-basis-change)の予測 $72=3^2\cdot8$ と一致します。
 <!-- solution-end -->
 
 **Level B：構造と数値を結び付ける**
@@ -603,7 +637,7 @@ G_\beta=\begin{pmatrix}3&0&0\\0&0&6\\0&6&0\end{pmatrix},\qquad
 \operatorname{disc}(\beta)=3(0-36)=-108.
 $$
 
-埋め込みは実根一つ、非実共役対一組なので $r_2=1$。[符号命題](#prop-anf2-discriminant-sign)から判別式が負であることとも一致します。$\beta$ の整性は $\alpha^3=2$ から確認できますが、整数環全体の整数基底とはまだ証明していないため、$-108$ をこの計算だけで $D_K$ とは断定しません。
+埋め込みは実根一つ、非実共役対一組なので $r_2=1$。[符号命題](#prop-anf2-discriminant-sign)から判別式が負であることとも一致します。$\alpha$ はモニック整数係数方程式 $T^3-2=0$ を満たし、[整数環の閉性](../ANF1/index.md#thm-anf1-ring-closure)により $\alpha^2$ も整なので、$\beta$ の各元は整です。ただし整数環全体の整数基底とはまだ証明していないため、$-108$ をこの計算だけで $D_K$ とは断定しません。
 <!-- solution-end -->
 
 **Level C：整数基底・判別式・単元の統合**
@@ -648,7 +682,7 @@ $$
 N(u)=\frac{9-13}{4}=-1.
 $$
 
-単元のノルム判定で $u$ は単元です。逆数を具体的に書くと
+[単元のノルム判定](#prop-anf2-unit-norm)で $u$ は単元です。逆数を具体的に書くと
 
 $$
 u^{-1}=\frac{1}{u}=-\frac{3-\sqrt{13}}2
