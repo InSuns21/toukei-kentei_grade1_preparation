@@ -1,0 +1,42 @@
+id: "PML1-11"
+title: "Langevinの数値離散化はどこで偏るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-10
+  - STO7
+official_scope: []
+learning_objectives:
+  - 過減衰Langevin方程式からEuler–Maruyama法を導出し、ドリフトと雑音の刻み幅の違いを説明できる
+  - 二次損失の離散鎖の有限時刻平均・分散を独立正規増分の和から導出できる
+  - 二次模型の定常分布の存在・一意性と刻み幅の必要十分条件を証明できる
+  - 連続時間Gibbs分布の一歩での非不変性と定常分散の絶対・相対偏りを計算できる
+  - 厳密OU一歩遷移とEuler–Maruyama法の減衰率・雑音分散を比較できる
+  - 再現可能な数値実験と多次元対角二次模型で偏りと安定性を検証できる
+definitions:
+  - { id: PML1-11-DEF-01, name: 過減衰Langevin方程式のEuler–Maruyama離散化 }
+theorems:
+  - { id: PML1-11-THM-01, name: 二次模型のEuler–Maruyama有限時刻分布 }
+  - { id: PML1-11-THM-02, name: 二次Euler–Maruyama鎖の定常分布と刻み幅条件 }
+  - { id: PML1-11-PROP-01, name: Euler–Maruyama離散化のGibbs不変性の破れと定常分散の偏り }
+  - { id: PML1-11-THM-03, name: 二次Langevin過程の厳密一歩遷移 }
+canonical_examples:
+  - 二次損失の一歩Euler–Maruyama更新における平均と分散
+  - 安定域内の定常分散の刻み幅依存と不変分布の破れ
+  - 厳密OU更新とEuler–Maruyama更新の減衰率・雑音分散の違い
+  - 二次元対角二次損失の各曲率方向の離散定常分散
+problem_patterns:
+  - PML1-11-A01
+  - PML1-11-A02
+  - PML1-11-A03
+  - PML1-11-A04
+  - PML1-11-A05
+  - PML1-11-B01
+  - PML1-11-B02
+  - PML1-11-B03
+  - PML1-11-B04
+  - PML1-11-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

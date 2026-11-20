@@ -1,0 +1,45 @@
+chapter: PML1-11
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-10, STO7]
+concepts:
+  - id: physics-machine-learning.euler-maruyama-langevin
+    name: 過減衰Langevin方程式のEuler–Maruyama離散化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（過減衰Langevin方程式のEuler–Maruyama離散化）"]
+    requires:
+      - physics-machine-learning.overdamped-langevin-equation
+      - stochastic.brownian-sde
+  - id: physics-machine-learning.em-quadratic-finite-moments
+    name: 二次模型のEuler–Maruyama有限時刻分布
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次模型のEuler–Maruyama有限時刻分布）"]
+    requires:
+      - physics-machine-learning.euler-maruyama-langevin
+      - physics-machine-learning.quadratic-langevin-explicit
+  - id: physics-machine-learning.em-quadratic-stationary-law
+    name: 二次Euler–Maruyama鎖の定常分布と刻み幅条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次Euler–Maruyama鎖の定常分布と刻み幅条件）"]
+    requires:
+      - physics-machine-learning.em-quadratic-finite-moments
+      - physics-machine-learning.invariant-probability-distribution
+  - id: physics-machine-learning.em-gibbs-variance-bias
+    name: Euler–Maruyama離散化のGibbs不変性の破れと定常分散の偏り
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Euler–Maruyama離散化のGibbs不変性の破れと定常分散の偏り）"]
+    requires:
+      - physics-machine-learning.em-quadratic-stationary-law
+      - physics-machine-learning.continuous-gibbs-density
+  - id: physics-machine-learning.exact-ou-one-step
+    name: 二次Langevin過程の厳密一歩遷移
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（二次Langevin過程の厳密一歩遷移）"]
+    requires:
+      - physics-machine-learning.quadratic-langevin-explicit
+      - stochastic.deterministic-brownian-integral-gaussian
