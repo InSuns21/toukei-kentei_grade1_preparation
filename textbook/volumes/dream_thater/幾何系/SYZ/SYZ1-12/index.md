@@ -4,7 +4,7 @@
 
 ## 1. 一次元で鏡像の交換を本当に計算する
 
-[semi-flat双対トーラスの複素チャート](../SYZ1-10/index.md#def-syz1-10-semiflat-complex-chart)は基底のシンプレクティック周期とファイバーの平坦接続からできた。[HessianによるKähler計量](../SYZ1-11/index.md#thm-syz1-11-kahler-from-hessian)は、その複素チャートに追加の計量を与えた。しかし「複素構造と面積が鏡像で交換される」と言うだけでは、どの周期を1とし、どの定数を面積と呼ぶのかが不明なままである。
+[semi-flat双対トーラスの複素チャート](../SYZ1-10/index.md#def-syz1-10-semi-flat-complex-chart)は基底のシンプレクティック周期とファイバーの平坦接続からできた。[HessianによるKähler計量](../SYZ1-11/index.md#thm-syz1-11-kahler-from-hessian)は、その複素チャートに追加の計量を与えた。しかし「複素構造と面積が鏡像で交換される」と言うだけでは、どの周期を1とし、どの定数を面積と呼ぶのかが不明なままである。
 
 そこで最も小さなCalabi–Yauである平坦な楕円曲線を、**複素周期、面積、SLag円周、二つのアフィン周期、双対複素周期、双対面積**まで一続きに計算する。曲線全体が滑らかなトーラス束であるため、この模型には特異ファイバーはない。
 
@@ -121,7 +121,7 @@ $$
 
 ### 証明の見取り図
 
-[SLagの位相条件](../SYZ1-04/index.md#def-syz1-04-slag-condition)では、$\omega$ の制限が0、$\operatorname{Im}\Omega$ の制限が0、正の向きで $\operatorname{Re}\Omega$ が正であることを確認する。長さは計量行列の接成分と、直交化した水平ベクトルから読む。
+[SLagの位相条件](../SYZ1-04/index.md#prop-syz1-04-slag-conditions)では、$\omega$ の制限が0、$\operatorname{Im}\Omega$ の制限が0、正の向きで $\operatorname{Re}\Omega$ が正であることを確認する。長さは計量行列の接成分と、直交化した水平ベクトルから読む。
 
 <!-- proof-start -->
 ### 証明
