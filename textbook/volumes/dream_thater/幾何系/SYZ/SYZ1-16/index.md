@@ -28,6 +28,14 @@ $$
 
 を中心に扱う。$1$ は補正前の項である。係数 $1$ を円板の存在定理から導いたのではなく、正則化した円板計数からこの壁関数が得られた場合を仮定している。
 
+指数を決める交点数 $\gamma\cdot\delta$ は、向き付きトーラスの一次サイクルの交点数である。交点数の双線形性と交代性（$\delta\cdot\delta=0$）により、$\gamma=a\alpha+b\delta$ なら
+
+$$
+\gamma\cdot\delta=a(\alpha\cdot\delta)+b(\delta\cdot\delta)=a.
+$$
+
+したがって、基底文字 $x=z^\alpha$ が因子 $F(y)$ を一つ受ける一方、$y=z^\delta$ は受けない。整数 $a<0$ の場合も $F(y)\ne0$ の領域で負の冪が定義できる。
+
 <a id="def-syz1-16-wall-automorphism"></a>
 
 <!-- formal-statement-start -->
@@ -45,13 +53,7 @@ $$
 > で定める。反対向きに越す際は $\Theta_\delta^{-1}$ を用いる。この式は壁関数を指定したときの**局所モデル**の定義である。
 <!-- formal-statement-end -->
 
-なぜ指数が交点数なのか。$\gamma=a\alpha+b\delta$ のとき
-
-$$
-\gamma\cdot\delta=a(\alpha\cdot\delta)+b(\delta\cdot\delta)=a.
-$$
-
-したがって境界 $\delta$ と交わる $\alpha$ の座標だけが因子を受け、$\delta$ 自身の座標は変わらない。符号を逆にして交点規約または横断方向を変えれば、逆変換を選ぶ。
+定義の式で指数 $\gamma\cdot\delta$ を採ったのは、この交点数がサイクルの和について加法的であり、文字の積法則と両立するためである。交点規約または横断方向を逆にした場合は、採用する変換の向きも反転させる。
 
 <!-- definition-example-start: def-syz1-16-wall-automorphism -->
 ### 直接例：二つの生成元とその差
@@ -146,6 +148,8 @@ $y=-4$ は $1+qy=0$ を満たすので、この二つのチャートの重なり
 **定義の確認**：両点はそれぞれ $\mathbb C^*\times D$ に属し、前向き・逆向きの式が一致する。除外した点では逆変換を定義できないため、零点除外が不可欠である。
 <!-- definition-example-end -->
 
+貼り合わせ後の2形式を確かめるため、ここから $d$ を複素座標 $x,y$ についての外微分、$\wedge$ を1形式の交代積として用いる（特に $dy\wedge dy=0$）。$d\log x$ は $dx/x$ の略記とする。$\log x$ の大域的な一価の枝を選ぶ必要はなく、$x\ne0$ なら $dx/x$ 自体は定義できる。このため、座標変更の前後で $dx/x\wedge dy/y$ が一致するかを調べる。
+
 <a id="prop-syz1-16-holomorphic-gluing"></a>
 
 <!-- formal-statement-start -->
@@ -228,7 +232,7 @@ A(x,y)=(x(1+y),y),\qquad
 B(x,y)=(x,y(1+x))
 $$
 
-とする。どちらも零点を避けた複素開集合では双正則であり、原点での形式冪級数としても逆変換を持つ。先に $B$、後に $A$ を適用すると
+とする。複素領域では各分母の零点を避ければ、逆変換は $A^{-1}(X,Y)=(X/(1+Y),Y)$、$B^{-1}(X,Y)=(X,Y/(1+X))$ と計算できる。形式冪級数環でも $1+X,1+Y$ の定数項が1なので、この逆変換は有効である。先に $B$、後に $A$ を適用すると
 
 $$
 (A\circ B)(x,y)=(x+xy+x^2y,\ y+xy),
@@ -285,10 +289,17 @@ $$
 と書く。$(u,v)=(B\circ A)(x,y)$ とすれば
 
 $$
-u=x+xy,\qquad v=y+xy+xy^2,\qquad uv=xy+O(\mathfrak m^3),
+u=x+xy,\qquad v=y+xy+xy^2,
 $$
 
-ここで $O(\mathfrak m^k)$ は全次数 $k$ 以上の項を表す。$1/(1+uv)=1-uv+O(\mathfrak m^4)$ だから
+ここで積の全次数を具体的に整理すると
+
+$$
+uv=(x+xy)(y+xy+xy^2)
+=xy+x^2y+xy^2+2x^2y^2+x^2y^3.
+$$
+
+以降 $O(\mathfrak m^k)$ は全次数 $k$ 以上の項を表す。$uv=xy+O(\mathfrak m^3)$ であり、$uv$ の最小次数は2だから、幾何級数の次の項 $(uv)^2$ は全次数4以上である。ゆえに $1/(1+uv)=1-uv+O(\mathfrak m^4)$ とできる。これを各成分に代入すると
 
 $$
 \begin{aligned}
@@ -330,7 +341,7 @@ $$
 
 ## 5. Maslov指数2の項はどこへ行くか
 
-壁関数を作る原因として想定した円板はMaslov指数**0**であった。一方、鏡像の**superpotential（ポテンシャル関数）**はMaslov指数**2**の円板クラスについて符号付き計数を足し合わせる対象であり、二つは役割が異なる。指数2の各類に対して計数 $n_\beta$ と面積・ホロノミー重み $z_\beta$ が定義され、和が意味を持つという追加仮定の下で考える。
+壁関数を作る原因として想定した円板はMaslov指数**0**であった。一方、鏡像の**superpotential（ポテンシャル関数）**はMaslov指数**2**の円板クラスについて符号付き計数を足し合わせる対象であり、二つは役割が異なる。[円板のMaslov指数](../SYZ1-15/index.md#def-syz1-15-maslov) $\mu(\beta)$ は相対円板クラス $\beta$ の境界接平面の位相の巻き数である。[面積と境界ホロノミーによる重み](../SYZ1-15/index.md#def-syz1-15-disk-weight) $z_\beta=T^{A_\omega(\beta)}\rho(\partial\beta)$ では、$A_\omega$ は面積、$\rho$ は境界サイクル上のホロノミー文字、$T$ は形式的な面積変数を表す。指数2の各類に対して符号付き計数 $n_\beta$ が定義され、和が意味を持つという追加仮定の下で考える。
 
 <a id="def-syz1-16-superpotential"></a>
 
@@ -348,7 +359,17 @@ $$
 <!-- definition-example-start: def-syz1-16-superpotential -->
 ### 直接例：二項ポテンシャルの座標表示
 
-指数2の二つの相対類だけが寄与し、各係数が $a,b\in\mathbb C$ になるという**模型の入力**を置くと、マイナス側のチャートで $W_-(x_-,y_-)=a x_-+b y_-$ と書ける。
+指数2の二つの相対類 $\beta_\alpha,\beta_\delta$ だけが寄与し、その境界がそれぞれ $\partial\beta_\alpha=\alpha$、$\partial\beta_\delta=\delta$ だと仮定する。すると前節の基底文字から、$\rho(\partial\beta_\alpha)=x_-$、$\rho(\partial\beta_\delta)=y_-$ となる。[円板重みの定義](../SYZ1-15/index.md#def-syz1-15-disk-weight)を使って、形式変数 $T$ を数値評価した模型では
+
+$$
+\begin{aligned}
+a&=n_{\beta_\alpha}T^{A_\omega(\beta_\alpha)},\\
+b&=n_{\beta_\delta}T^{A_\omega(\beta_\delta)},\\
+W_-(x_-,y_-)&=a x_-+b y_-.
+\end{aligned}
+$$
+
+ここで $a,b\in\mathbb C$ は面積因子と計数を吸収した**模型の入力**である。数値化では前講と同じく $T^A=e^{-A/\hbar}$（$\hbar>0$）と評価する。二つの相対類のMaslov指数が2であることと、その計数が存在することは仮定しており、境界が $\alpha,\delta$ であるだけでは結論できない。
 
 **定義の確認**：$\mu=2$ と仮定した二種類のクラスのみを和に含め、重み $x_-,y_-$ にそれぞれの係数を掛けた。壁関数の $1+qy$ に使った指数0の寄与を、新たな指数2の一項として加算していない。
 <!-- definition-example-end -->
@@ -364,7 +385,7 @@ W_+(x_+,y_+)
 =\frac{a x_+}{1+qy_+}+b y_+
 $$
 
-> と置く必要がある。このとき $W_+\circ g=W_-$ が成り立つ。$a,b$ を実際の指数2の円板計数と同一視するには、別途その計数を構成する必要がある。
+> と置く必要がある。このとき $W_+\circ g=W_-$ が成り立つ。係数 $a,b$ の幾何学的な値を確定するには、面積因子と指数2の円板計数を別途構成する必要がある。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -619,7 +640,8 @@ $$
 **(2) 三次の補正。** $(u,v)=B\circ A(x,y)$ とすると
 
 $$
-u=x+xy,\quad v=y+xy+xy^2,\quad uv=xy+O(\mathfrak m^3).
+u=x+xy,\quad v=y+xy+xy^2,\quad
+uv=xy+x^2y+xy^2+O(\mathfrak m^4).
 $$
 
 定数項1の $1+uv$ は可逆で、$1/(1+uv)=1-uv+O(\mathfrak m^4)$。よって
