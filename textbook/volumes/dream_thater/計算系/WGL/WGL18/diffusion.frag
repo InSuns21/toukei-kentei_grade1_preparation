@@ -2,7 +2,7 @@
 precision highp float;
 precision highp sampler2D;
 uniform sampler2D u_state;
-uniform int u_stage; // 0: advance 4x4 data; 1: show 320x240 canvas
+uniform int u_stage; // 0: advance 4x4; 1: fixed CPU/GPU probes; 2: square-cell live display
 uniform float u_rate;
 uniform vec2 u_targetSize;
 out vec4 outColor;
@@ -14,6 +14,17 @@ void main() {
   ivec2 p = u_stage == 0 ? ivec2(gl_FragCoord.xy) :
       ivec2(clamp(floor(gl_FragCoord.xy * vec2(4.0) / u_targetSize),
                   vec2(0.0), vec2(3.0)));
+  if(u_stage == 2){
+    float side = min(u_targetSize.x,u_targetSize.y);
+    vec2 lower = 0.5*(u_targetSize-vec2(side));
+    vec2 local=gl_FragCoord.xy-lower;
+    if(any(lessThan(local,vec2(0.0))) ||
+       any(greaterThanEqual(local,vec2(side)))){
+      outColor=vec4(0.035,0.05,0.085,1.0);
+      return;
+    }
+    p=ivec2(clamp(floor(local*4.0/side),vec2(0.0),vec2(3.0)));
+  }
   float center = cellAt(p);
   if (u_stage == 0) {
     float laplace = cellAt(p + ivec2(1,0)) + cellAt(p + ivec2(-1,0))
