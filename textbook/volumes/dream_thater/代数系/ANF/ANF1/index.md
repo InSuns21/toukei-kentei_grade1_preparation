@@ -194,7 +194,15 @@ $$
 
 その行列の対角成分の和を $\operatorname{Tr}_{K/\mathbb Q}(x)$ と書きます。基底を変更すると行列は相似になり、トレースは変わりません。次章ではこれを埋め込みとの関係から詳しく研究します。
 
-[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は二つの変数のそれぞれについて線形な写像です。ここでは係数体を $\mathbb Q$ とし、$\operatorname{Tr}_{K/\mathbb Q}(xy)$ が双線形であることを、乗法と行列の対角和の線形性から確認します。
+既習の[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は実数体・複素数体上で導入しましたが、「二つの引数のそれぞれについて線形」という条件は有理数体上でも定義できます。ここでは $\mathbb Q$ ベクトル空間 $K$ 上の $\mathbb Q$ 値の双線形形式を考えます。$x,x',y\in K$、$a,b\in\mathbb Q$ なら、乗法の分配法則とトレースの線形性から
+
+$$
+\operatorname{Tr}_{K/\mathbb Q}((ax+bx')y)
+=a\operatorname{Tr}_{K/\mathbb Q}(xy)
++b\operatorname{Tr}_{K/\mathbb Q}(x'y)
+$$
+
+となり、第二引数についても同じ計算ができます。
 
 <a id="def-anf1-trace-pairing"></a>
 
@@ -210,7 +218,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf1-trace-pairing -->
-**定義の確認**： $K=\mathbb Q(\sqrt2)$ の $\mathbb Q$ 基底 $(1,\sqrt2)$ で $\mu_{a+b\sqrt2}$ の行列を作ると、第1列は $(a,b)^{\mathsf T}$、第2列は $(2b,a)^{\mathsf T}$ です。従って
+**定義の確認**： $K=\mathbb Q(\sqrt2)$ の $\mathbb Q$ 基底 $(1,\sqrt2)$ で、$\mu_{a+b\sqrt2}$ が基底ベクトルをどこへ送るか計算します。
+
+$$
+\mu_{a+b\sqrt2}(1)=a+b\sqrt2,\qquad
+\mu_{a+b\sqrt2}(\sqrt2)=2b+a\sqrt2.
+$$
+
+したがって行列の第1列は $(a,b)^{\mathsf T}$、第2列は $(2b,a)^{\mathsf T}$ となり、
 
 $$
 [\mu_{a+b\sqrt2}]
@@ -220,6 +235,8 @@ $$
 
 特に $B(1,\sqrt2)=0$、$B(\sqrt2,\sqrt2)=4$ です。線形写像の行列が**どの基底で何を表すか**を確認しました。
 <!-- definition-example-end -->
+
+さらに、[既習の双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form)と同じ条件をここでは $\mathbb Q$ 上で用います。すなわち、$B(x,y)=0$ が**すべての** $y\in K$ について成り立つなら $x=0$ となることを、非退化と呼びます。これは $B(x,x)\ne0$ をすべての非零 $x$ に要求する条件ではありません。
 
 <a id="lem-anf1-integral-trace"></a>
 
@@ -267,7 +284,13 @@ $$
 G=(B(\beta_i,\beta_j))_{1\le i,j\le n}
 $$
 
-を取り、$Gv=0$ とすれば $x=\sum_i v_i\beta_i$ は全ての基底元 $\beta_j$ と、従って全ての $y\in K$ について $B(x,y)=0$ を満たします。補題から $x=0$、ゆえに $v=0$ です。
+を取ります。$x=\sum_i v_i\beta_i$、$y=\sum_j w_j\beta_j$ と基底展開すると、双線形性により
+
+$$
+B(x,y)=\sum_{i,j}v_iw_j B(\beta_i,\beta_j)=v^{\mathsf T}Gw.
+$$
+
+また $K$ の乗法は可換なので $G_{ij}=G_{ji}$ です。$Gv=0$ なら任意の $w$ について $B(x,y)=v^{\mathsf T}Gw=(Gv)^{\mathsf T}w=0$ となります。補題の非退化性から $x=0$、基底の一次独立性から $v=0$ です。従って $G$ の核は $\{0\}$ であり、$n$ 次正方行列 $G$ は可逆です。逆に $G$ が可逆なら、$B(x,y)=0$ が全ての $y$ について成立するとき $v^{\mathsf T}G=0$ から $v=0$ となり、非退化性を得ます。
 
 <a id="thm-anf1-integral-basis"></a>
 
@@ -395,7 +418,7 @@ $$
 ds^2=r^2-4N\in\mathbb Z.
 $$
 
-$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$v^2\mid du^2$ から $v^2\mid d$ です。$d$ は平方自由なので $v=1$、すなわち $s\in\mathbb Z$ です。したがって
+$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$ds^2\in\mathbb Z$ より $v^2\mid du^2$ です。$\gcd(u^2,v^2)=1$ なので Euclid の補題から $v^2\mid d$ が従います。$d$ は平方自由であり、$v>1$ ならその素因子の平方が $d$ を割って矛盾するため、$v=1$ です。すなわち $s\in\mathbb Z$ です。したがって
 
 $$
 \alpha=\frac{r+s\sqrt d}{2},
@@ -608,7 +631,21 @@ $$
 
 $w\notin\mathbb Q$ より $T^2-T-3$ はモニック最小多項式で、整数係数ゆえ $w$ は整です。
 
-**(2)** 基底 $(1,w)$ で乗法写像の対角和を求めます。$\operatorname{Tr}(1)=2$ です。また共役根 $w'=(1-\sqrt{13})/2$ を使うか乗法行列を作れば $\operatorname{Tr}(w)=w+w'=1$ です。$w^2=w+3$ だからトレースの線形性より $\operatorname{Tr}(w^2)=1+3\cdot2=7$。従って
+**(2)** 以後この解答では $\operatorname{Tr}=\operatorname{Tr}_{K/\mathbb Q}$ と略記します。$\operatorname{Tr}(1)=2$ は乗法写像 $\mu_1$ の行列が二次単位行列であるためです。次に $(1,w)$ を基底として $w^2=w+3$ を使うと
+
+$$
+\mu_w(1)=w=0\cdot1+1\cdot w,\qquad
+\mu_w(w)=w^2=3\cdot1+1\cdot w.
+$$
+
+よってこの基底での乗法行列は
+
+$$
+[\mu_w]_{(1,w)}=\begin{pmatrix}0&3\\1&1\end{pmatrix},
+\qquad \operatorname{Tr}(w)=0+1=1.
+$$
+
+さらに $\mu_{w^2}=\mu_w+3\mu_1$ なので、トレースの線形性から $\operatorname{Tr}(w^2)=1+3\cdot2=7$ です。従って
 
 $$
 G=\begin{pmatrix}2&1\\1&7\end{pmatrix},
