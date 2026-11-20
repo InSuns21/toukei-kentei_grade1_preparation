@@ -96,6 +96,69 @@ export function smokeMetrics(s){
   }
   return {meanDye:sum/s.u.length,maxSpeed};
 }
+// Render the CPU-computed dye with WebGL2 texture filtering and a restrained
+// multi-tap glow. The simulation still runs on CPU; this is only a display pass.
+function createSmokeGpuPainter(canvas,N=80){
+  const gl=canvas.getContext('webgl2',{alpha:false,antialias:false});
+  if(!gl)return null;
+  const compile=(type,source)=>{
+    const sh=gl.createShader(type);if(!sh)throw Error('WebGL shader allocation');
+    gl.shaderSource(sh,source);gl.compileShader(sh);
+    if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(sh)||'compile');
+    return sh;
+  };
+  const vertex=compile(gl.VERTEX_SHADER,'#version 300 es\n'+
+    'out vec2 v_uv;\nvoid main(){\n'+
+    'vec2 p=vec2((gl_VertexID<<1)&2,gl_VertexID&2);\n'+
+    'v_uv=p;gl_Position=vec4(2.0*p-1.0,0.0,1.0);\n}');
+  const fragment=compile(gl.FRAGMENT_SHADER,'#version 300 es\nprecision highp float;\n'+
+    'uniform sampler2D u_dye;\nin vec2 v_uv;\nout vec4 outColor;\n'+
+    'void main(){\n'+
+    'vec3 dye=texture(u_dye,v_uv).rgb;\n'+
+    'vec2 q=vec2(2.5/80.0);\n'+
+    'vec3 blurred=(texture(u_dye,v_uv+vec2(q.x,0.0)).rgb+\n'+
+    'texture(u_dye,v_uv-vec2(q.x,0.0)).rgb+\n'+
+    'texture(u_dye,v_uv+vec2(0.0,q.y)).rgb+\n'+
+    'texture(u_dye,v_uv-vec2(0.0,q.y)).rgb)*0.25;\n'+
+    'vec3 emission=1.0-exp(-2.5*dye);\n'+
+    'vec3 halo=(1.0-exp(-2.0*blurred))*0.23;\n'+
+    'vec3 col=clamp(vec3(0.017,0.025,0.06)+emission+halo,0.0,1.0);\n'+
+    'outColor=vec4(col,1.0);\n}');
+  const program=gl.createProgram();
+  if(!program)throw Error('WebGL program allocation');
+  gl.attachShader(program,vertex);gl.attachShader(program,fragment);gl.linkProgram(program);
+  if(!gl.getProgramParameter(program,gl.LINK_STATUS))
+    throw Error(gl.getProgramInfoLog(program)||'program link');
+  gl.deleteShader(vertex);gl.deleteShader(fragment);
+  const vao=gl.createVertexArray(),tex=gl.createTexture();
+  if(!vao||!tex)throw Error('WebGL resource allocation');
+  gl.bindVertexArray(vao);gl.useProgram(program);
+  const location=gl.getUniformLocation(program,'u_dye');
+  if(location===null)throw Error('missing texture uniform');
+  gl.uniform1i(location,0);
+  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  const pixels=new Uint8Array(N*N*4);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA8,N,N,0,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
+  gl.viewport(0,0,canvas.width,canvas.height);
+  gl.disable(gl.DEPTH_TEST);gl.disable(gl.DITHER);gl.disable(gl.BLEND);
+  return {paint(state){
+    for(let i=0;i<N*N;i++){
+      const p=i*4;
+      pixels[p]=Math.round(clamp(state.r[i]/3,0,1)*255);
+      pixels[p+1]=Math.round(clamp(state.g[i]/3,0,1)*255);
+      pixels[p+2]=Math.round(clamp(state.b[i]/3,0,1)*255);
+      pixels[p+3]=255;
+    }
+    gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
+    gl.clearColor(.017,.025,.06,1);gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.TRIANGLES,0,3);
+  }};
+}
+
 export function mountSmokeObservation(parent){
   const section=document.createElement('section');
   section.className='visual-observation visual-smoke';
@@ -119,9 +182,19 @@ export function mountSmokeObservation(parent){
     '高精度乱流モデルではありません。下のコード編集・GPU検算は別のFCG5の12×12物理モデルです。'+
     '観察用モデルの結果が編集コードの出力だと誤認しないでください。</p>';
   parent.prepend(section);
-  const canvas=section.querySelector('canvas'),ctx=canvas.getContext('2d',{alpha:false});
+  const canvas=section.querySelector('canvas');
+  let gpu=null;
+  try{gpu=createSmokeGpuPainter(canvas,80);}catch(error){
+    section.querySelector('.visual-model-warning').textContent+=' WebGL2描画エラー: '+String(error.message).slice(0,120);
+  }
+  const ctx=gpu?null:canvas.getContext('2d',{alpha:false});
   const clock=section.querySelector('.visual-clock');
-  if(!ctx){clock.textContent='Canvas2D非対応';return section;}
+  if(!ctx&&!gpu){clock.textContent='WebGL2 / Canvas2D非対応';return section;}
+  const status=document.createElement('small');
+  status.className='visual-renderer-status';
+  status.textContent=gpu?'表示：WebGL2（CPU流体場をGPUテクスチャ描画）':
+    '表示：Canvas2D（WebGL2非対応時の代替）';
+  section.querySelector('.visual-smoke-stage').after(status);
   const off=document.createElement('canvas');off.width=off.height=80;
   const offctx=off.getContext('2d',{alpha:false}),pixels=offctx.createImageData(80,80);
   let state=createSmokeState(80),playing=!matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -138,8 +211,10 @@ export function mountSmokeObservation(parent){
       }
       pixels.data[a+3]=255;
     }
-    offctx.putImageData(pixels,0,0);
-    ctx.imageSmoothingEnabled=true;ctx.drawImage(off,0,0,560,560);
+    if(gpu){gpu.paint(state);}else{
+      offctx.putImageData(pixels,0,0);
+      ctx.imageSmoothingEnabled=true;ctx.drawImage(off,0,0,560,560);
+    }
     clock.textContent='物理時刻 '+state.time.toFixed(2)+' s / '+state.step+' steps';
     if(number%10===0){
       const m=smokeMetrics(state);
