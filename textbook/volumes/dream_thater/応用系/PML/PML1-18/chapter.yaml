@@ -1,0 +1,45 @@
+id: "PML1-18"
+title: "Hamiltonian NNは何を構造として固定するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-17
+  - AMECH6
+official_scope: []
+learning_objectives:
+  - Hamilton の正準方程式を J_d と勾配で表し、行列の次元・反対称性を確認できる
+  - 固定した滑らかな学習済み Hamiltonian が定めるベクトル場を直接構成できる
+  - 正準 HNN の連続時間保存定理を連鎖律と反対称性から完全に証明できる
+  - 観測速度から HNN 損失を構成し、有限データの識別不能性を具体例で説明できる
+  - 学習済み Hamiltonian と真の物理エネルギーの軌道沿いの変化を区別できる
+  - C2 級での発散消失と散逸場の非表現可能性を計算できる
+  - 陽的 Euler 離散化の二次 Hamiltonian でのエネルギードリフトを再計算できる
+definitions:
+  - { id: PML1-18-DEF-01, name: 正準 Hamiltonian neural network }
+  - { id: PML1-18-DEF-02, name: HNN の速度適合損失 }
+theorems:
+  - { id: PML1-18-THM-01, name: 自律正準 HNN の連続時間エネルギー保存 }
+  - { id: PML1-18-PROP-01, name: 真のエネルギーのモデル軌道沿いの変化 }
+  - { id: PML1-18-PROP-02, name: 正準 HNN ベクトル場の発散消失 }
+  - { id: PML1-18-PROP-03, name: 二次 HNN の陽的 Euler エネルギードリフト }
+canonical_examples:
+  - 調和振動子の Hamiltonian の勾配から正準ベクトル場を作る例
+  - 二つの速度観測から二次 HNN の係数を同定する例
+  - 二つの Hamiltonian の違いが真のエネルギードリフトを生む例
+  - 純収縮場を正準 HNN で表せない発散による反例
+  - 二次 HNN を陽的 Euler で更新するとエネルギーが増える例
+problem_patterns:
+  - PML1-18-A01
+  - PML1-18-A02
+  - PML1-18-A03
+  - PML1-18-A04
+  - PML1-18-A05
+  - PML1-18-B01
+  - PML1-18-B02
+  - PML1-18-B03
+  - PML1-18-B04
+  - PML1-18-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6.5, review: 2 }
