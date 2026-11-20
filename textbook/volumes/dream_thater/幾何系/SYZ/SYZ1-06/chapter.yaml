@@ -1,0 +1,44 @@
+id: "SYZ1-06"
+title: "McLean理論II――無障害性と変形空間"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-05
+  - GA6
+official_scope: []
+learning_objectives:
+  - 法線指数写像を用いて近傍のSLag埋め込みを1形式で表し非線形変形写像の二成分と正の分枝を定められる
+  - 閉形式の引き戻しとホモトピー公式により非線形変形写像の像が完全2形式と完全n形式に入ることを証明できる
+  - 線形化D=(-d,d*)の核が調和1形式となることを余微分の符号を含め検算できる
+  - Hodge分解とGreen作用素から完全形式値域に対するDの右逆を構成し各成分を検算できる
+  - Banach空間でのHölder正則性と楕円型Schauder評価を入力として陰関数定理の適用条件を説明できる
+  - 局所moduliの滑らかさと接空間H^1および次元b1を導出し無障害性の意味を説明できる
+  - 平坦トーラスの並進で全定義・全仮定を直接確認し変形補正が不要な例を与えられる
+  - コンパクト性による位相固定と非コンパクト・境界あり・大域トーラス束への一般化の限界を区別できる
+definitions:
+  - { id: SYZ1-06-DEF-01, name: "SLag変形の完全形式値域" }
+theorems:
+  - { id: SYZ1-06-LEM-01, name: "非線形SLag変形写像の完全性" }
+  - { id: SYZ1-06-LEM-02, name: "完全形式値域への線形化の全射性" }
+  - { id: SYZ1-06-THM-01, name: "McLeanの局所無障害性" }
+canonical_examples:
+  - 二次元トーラスの完全な最高次形式と積分が非零の非完全形式
+  - 平坦複素トーラスでの全調和方向のSLag並進
+  - 一次元楕円曲線のグラフ方程式の厳密な解
+  - 第1Betti数0のときの局所孤立性
+  - コンパクトSLagの複素周期積分による位相固定
+problem_patterns:
+  - SYZ1-06-TOP-FORM-EXACT
+  - SYZ1-06-ONE-DIMENSION-MODULI
+  - SYZ1-06-POISSON-SIGN
+  - SYZ1-06-EXACT-HARMONIC-VANISH
+  - SYZ1-06-PHASE-PERIOD
+  - SYZ1-06-TORUS-RIGHT-INVERSE
+  - SYZ1-06-WRONG-CODOMAIN
+  - SYZ1-06-IFT-TANGENT
+  - SYZ1-06-RIGIDITY-BOUNDARY
+  - SYZ1-06-MCLEAN-SYNTHESIS
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 5 }
