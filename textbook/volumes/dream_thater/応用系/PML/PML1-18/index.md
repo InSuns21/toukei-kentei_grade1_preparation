@@ -12,7 +12,7 @@
 
 ## 2. スカラー関数の勾配をどう運動方程式に変えるか
 
-正準方程式の二つの式 $\dot q=\nabla_pH$、$\dot p=-\nabla_qH$ を一つの行列式にまとめたい。このために、位置微分と運動量微分を入れ替え、片方の符号を変える行列を用意する。
+正準方程式の二つの式 $\dot q=\nabla_pH$、$\dot p=-\nabla_qH$ を一つのベクトル方程式にまとめたい。このために、位置微分と運動量微分を入れ替え、片方の符号を変える行列を用意する。
 
 $$
 J_d=
@@ -38,7 +38,7 @@ $$
 
 さらに $J_d^{\mathsf T}=-J_d$、$J_d^{\mathsf T}J_d=I_{2d}$、$J_d^2=-I_{2d}$ である。特に **反対称**とは $J_d^{\mathsf T}=-J_d$ のことであり、後の保存則の核心になる。
 
-パラメータを持つ関数 $H_\theta$ からこの規則でベクトル場（各状態にその時間微分を対応させる写像）を作るのが、この講義での HNN である。
+これは既習の [Hamiltonian vector field](../../../物理系/AMECH/AMECH6/index.md#def-amech6-hamiltonian-vector-field) を、学習パラメータを持つ関数 $H_\theta$ から構成する操作である。ベクトル場は各状態にその時間微分を対応させる写像であり、この構成を本講では HNN と呼ぶ。
 
 <a id="def-pml1-18-hnn"></a>
 
@@ -104,7 +104,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$z$ と $H_\theta$ はともに $C^1$ なので、合成関数の連鎖律から
+$z$ と $H_\theta$ はともに $C^1$ なので、[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)を $z:I\to U$ と $H_\theta:U\to\mathbb R$ の合成へ適用すると
 
 $$
 \frac{d}{dt}H_\theta(z(t))
@@ -143,7 +143,7 @@ $$
 
 ### 時刻・パラメータが変化した場合
 
-時刻依存の $H_\theta(t,z)$ では、同じ $\dot z=J_d\nabla_zH_\theta$ に対し、
+時刻と状態の両方に依存する $H_\theta(t,z)$ を考える。$\partial_tH_\theta$ は状態 $z$ を固定して時刻 $t$ で偏微分したもの、$\nabla_zH_\theta$ は $t$ と $\theta$ を固定して $z$ で偏微分した列ベクトルである。一方 $dH_\theta(t,z(t))/dt$ は軌道上の合成関数の全微分である。この区別のもとで、同じ $\dot z=J_d\nabla_zH_\theta$ に対し、[多変数の連鎖律](../../../基礎科目/RA/RA6/index.md#thm-ra6-chain-rule)から
 
 $$
 \frac d{dt}H_\theta(t,z(t))
@@ -162,7 +162,7 @@ $$
 
 <!-- formal-statement-start -->
 > **定義（HNN の速度適合損失）**  
-> 上の正準 HNN と、$N\ge1$ 個の状態・速度データ $(z_i,w_i)\in U\times\mathbb R^{2d}$ を与える。各 $w_i$ はその状態での観測時間微分とする。速度適合損失を
+> 整数 $d\ge1$、開集合 $U\subset\mathbb R^{2d}$、固定した $\theta$ と $C^1$ 級関数 $H_\theta:U\to\mathbb R$ をとる。$J_d=\begin{pmatrix}0_d&I_d\\-I_d&0_d\end{pmatrix}$ として正準 HNN の速度場を $f_\theta=J_d\nabla_zH_\theta$ で定める。$N\ge1$ 個の状態・速度データ $(z_i,w_i)\in U\times\mathbb R^{2d}$ を与え、各 $w_i$ はその状態での観測時間微分とする。速度適合損失を
 
 $$
 \mathcal L(\theta)
@@ -229,7 +229,7 @@ HNN が保つのは **$H_\theta$ 自身**である。未知の真の Hamiltonian
 
 <!-- formal-statement-start -->
 > **命題（真のエネルギーのモデル軌道沿いの変化）**  
-> $U\subset\mathbb R^{2d}$ を開集合とし、$H_\ast,H_\theta\in C^1(U)$ とする。$z(t)$ が固定 $\theta$ の正準 HNN 方程式 $\dot z=J_d\nabla H_\theta(z)$ に従うなら、
+> $U\subset\mathbb R^{2d}$ を開集合とし、$H_\ast,H_\theta\in C^1(U)$ とする。区間 $I$ 上の $C^1$ 級軌道 $z:I\to U$ が固定 $\theta$ の正準 HNN 方程式 $\dot z=J_d\nabla H_\theta(z)$ に従うなら、
 
 $$
 \frac{d}{dt}H_\ast(z(t))
@@ -269,7 +269,7 @@ $$
 
 ## 6. 反対称行列が固定するもう一つの構造
 
-HNN の $f_\theta$ を座標ごとに偏微分して足し合わせると、局所的な流れの広がりを表す **発散** が得られる。正準 Hamiltonian ベクトル場の発散消失は [AMECH6 の命題](../../../物理系/AMECH/AMECH6/index.md#prop-amech6-divergence)で既習であり、HNN に代入して確認する。
+HNN の $f_\theta$ を座標ごとに偏微分して足し合わせると、局所的な流れの広がりを表す **発散** が得られる。以下、$(f_\theta)_{q_j}$ と $(f_\theta)_{p_j}$ は、順に $q_j$ と $p_j$ の時間微分に対応するベクトル場の成分を表す。正準 Hamiltonian ベクトル場の発散消失は [AMECH6 の命題](../../../物理系/AMECH/AMECH6/index.md#prop-amech6-divergence)で既習であり、HNN に代入して確認する。
 
 <a id="prop-pml1-18-divergence"></a>
 
@@ -324,7 +324,7 @@ $$
 
 ## 7. 数値の一歩では何が失われるか
 
-データから $H_\theta$ を学び、$f_\theta$ を計算できても、コンピュータで軌道を得るには時間刻み $h$ で更新する必要がある。最も基本的な陽的 Euler 法は
+データから $H_\theta$ を学び、$f_\theta$ を計算できても、コンピュータで軌道を得るには時間刻み $h>0$ で更新する必要がある。初期時刻を $0$ として $t_n=nh$、$z_n$ を時刻 $t_n$ の状態の離散近似とする（$n=0,1,\ldots$）。最も基本的な陽的 Euler 法は
 
 $$
 z_{n+1}=z_n+hJ_d\nabla H_\theta(z_n)
@@ -336,7 +336,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（二次 HNN の陽的 Euler エネルギードリフト）**  
-> $a,b>0$、$h>0$ とし、$H(q,p)=(aq^2+bp^2)/2$ の正準 HNN を陽的 Euler 法で更新する。任意の $n\ge0$ について、
+> $q,p\in\mathbb R$、$a,b>0$、$h>0$ とし、$H(q,p)=(aq^2+bp^2)/2$ の正準 HNN を陽的 Euler 法で更新する。初期値 $(q_0,p_0)\in\mathbb R^2$ と任意の整数 $n\ge0$ について、
 
 $$
 H(q_{n+1},p_{n+1})=(1+ab h^2)H(q_n,p_n)
@@ -525,7 +525,19 @@ $H(q,p)=\frac12(q^{\mathsf T}Kq+p^{\mathsf T}M^{-1}p)$ とする。$q,p\in\mathb
 <!-- solution-start -->
 #### 詳細解答
 
-対称性から $d(q^{\mathsf T}Kq)/dq=2Kq$。同様に $M^{-1}$ は対称なので $\nabla_pH=M^{-1}p$。$M$ が正定値だから可逆であり $M^{-1}$ が存在する。従って
+$M$ は正定値だから、$Mx=0$ なら $x^{\mathsf T}Mx=0$ となり $x=0$ である。従って $M$ は可逆で、$M^{\mathsf T}=M$ から $(M^{-1})^{\mathsf T}=(M^{\mathsf T})^{-1}=M^{-1}$ も成り立つ。
+
+勾配が何を表すかを確かめるため、任意の列ベクトル $v\in\mathbb R^2$ に沿った $q$ の増分を計算する。$K^{\mathsf T}=K$ より
+
+$$
+\begin{aligned}
+\left.\frac{d}{d\varepsilon}\frac12(q+\varepsilon v)^{\mathsf T}K(q+\varepsilon v)\right|_{\varepsilon=0}
+&=\frac12(v^{\mathsf T}Kq+q^{\mathsf T}Kv)\\
+&=v^{\mathsf T}Kq.
+\end{aligned}
+$$
+
+従って $\nabla_qH=Kq$。同じ増分計算を $p$ と対称行列 $M^{-1}$ に適用すると $\nabla_pH=M^{-1}p$ である。この二つの勾配を [Hamilton の正準方程式](../../../物理系/AMECH/AMECH5/index.md#thm-amech5-hamilton-equations)に代入して
 
 $$
 \dot q=M^{-1}p,\qquad\dot p=-Kq.
