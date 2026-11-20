@@ -337,7 +337,7 @@ $$
 
 です。[判別式の基底変換則](#thm-anf2-basis-change)を適用すると、二つの整数基底から求めた判別式は等しくなります。
 
-また整数基底の積 $\omega_i\omega_j$ は整数環に属します。[整数の跡の補題](../ANF1/index.md#lem-anf1-integral-trace)によって各 $\operatorname{Tr}(\omega_i\omega_j)$ は整数です。従って跡行列 $G_\omega$ の全成分と、その行列式 $D_K$ は整数です。非零性は[判別式の基底変換則](#thm-anf2-basis-change)の証明で確認しました。
+また整数基底の積 $\omega_i\omega_j$ は整数環に属します。[整数のトレースとトレース形式の非退化性](../ANF1/index.md#lem-anf1-integral-trace)によって各 $\operatorname{Tr}(\omega_i\omega_j)$ は整数です。従って跡行列 $G_\omega$ の全成分と、その行列式 $D_K$ は整数です。非零性は[判別式の基底変換則](#thm-anf2-basis-change)の証明で確認しました。
 
 <!-- definition-example-start: def-anf2-field-discriminant -->
 **定義の確認**：$K=\mathbb Q(\sqrt2)$ では [二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)から $(1,\sqrt2)$ が整数基底です。すでに $\operatorname{disc}(1,\sqrt2)=8$ と計算しました。従ってこれは単なる基底の判別式にとどまらず、$D_K=8$ です。対して $(1,3\sqrt2)$ は整数環を生成しないため、$72$ を $D_K$ と呼ぶことはできません。
