@@ -67,11 +67,11 @@ g=\frac32\left((dx+\tfrac12dy)^2+4dy^2\right),\qquad
 $$
 
 $z$ の二つの周期 $1,1/2+2i$ は実一次独立である。座標変換 $(x,y)\mapsto(\operatorname{Re}z,\operatorname{Im}z)=(x+y/2,2y)$ のJacobianの行列式は $2>0$ なので、$z$ は局所複素座標として非退化である。$g(V,V)=\frac32((V^x+\frac12V^y)^2+4(V^y)^2)>0$（$V\ne0$）であり、係数が整数平行移動に不変なので $g,\omega,\Omega,B$ は格子商へ降りる。また
-$
+$$
 \frac i2 dz\wedge d\bar z=2\,dx\wedge dy,\qquad
 \frac A b\frac i2 dz\wedge d\bar z=\frac32\cdot2\,dx\wedge dy
 =3\,dx\wedge dy=\omega.
-$
+$$
 これで $\omega$ が計量 $g$ と複素構造に対応するKähler形式であることも判定できた。基本正方形上の積分で $\int\omega=3$、$\int B=1/4$、従って $B$位相は $e^{\pi i/2}=i$。**定義の確認**：格子の離散性、局所座標の非退化性、計量・形式の良定義性、正値性、Kähler形式の対応、面積と位相まで直接確かめた。
 <!-- definition-example-end -->
 
@@ -221,12 +221,12 @@ $$
 $$
 
 $\gamma_x$ 上で $dx$ の積分は1だから周期は $A$。一方、$dz=dx+a\,dy+ib\,dy$ から $\operatorname{Im}\Omega=b\,dy$、$\iota_{\partial_y}\operatorname{Im}\Omega=b$ である。したがって $du=A\,dy$、$dq=b\,dy$。正の定数倍 $\Omega_{\rm cal}=\sqrt{A/b}\Omega$ を使えば $dq_{\rm cal}=\sqrt{A/b}\,b\,dy=\sqrt{Ab}\,dy$。ここで $u,q_{\rm cal}$ は実変数 $y$ の局所関数で、$du/dy=A>0$ だから $y$ から $u$ への座標変更は可逆である。連鎖律より
-$
+$$
 \frac{dq_{\rm cal}}{du}
 =\frac{dq_{\rm cal}/dy}{du/dy}
 =\frac{\sqrt{Ab}}{A}
 =\sqrt{\frac b A}.
-$
+$$
 したがって微分記号を形式的に割ったのではなく、非零の $du/dy$ による変数変更から係数を得た。
 <!-- proof-end -->
 
@@ -305,10 +305,10 @@ $\beta$ を整数 $k$ だけ増やすと二番目の格子生成元は $\rho+k$ 
 一次元の平坦トーラスでは、元の計量のファイバー方向、混合方向、基底方向の係数を明示できる。ここで追加するのは周期1座標での**逆半径の規格化**と、混合計量・$B$場を交換する規則である。一般の曲がったCalabi–Yauや特異ファイバーへこの規則を無条件に延長しない。
 
 行列成分は座標ベクトルで $G_{ij}=g(\partial_i,\partial_j)$ と評価したものであり、$B_{xy}=B(\partial_x,\partial_y)=\beta$ は交代2形式の成分である。例えば
-$
+$$
 g=G_{xx}\,dx\otimes dx+G_{xy}(dx\otimes dy+dy\otimes dx)+G_{yy}\,dy\otimes dy,
 \qquad B_{yx}=-B_{xy}.
-$
+$$
 従って $G$ の混合成分には対称な二項が、$B$ には反対称な符号が対応する。元の計量は[第2節の計量・面積の命題](#prop-syz1-12-metric-area)から
 
 $$
@@ -340,16 +340,16 @@ $$
 
 $a=\beta=0$、$A=3$、$b=2$ とすれば $G=\operatorname{diag}(3/2,6)$。規則により $\check G_{tt}=2/3$、$\check G_{ty}=0$、$\check G_{yy}=6$、$\check B=0$。$t$ の一周長は $\sqrt{2/3}=1/\sqrt{3/2}$ であり、元のファイバー一周長の逆数になる。$\check G$ は正定値で、行列式は $(2/3)6=4>0$。**定義の確認**：規則が与える行列は正定値で、逆長さ・混合項・2形式を直接判定できる。
 さらに混合成分も実際に判定する。$a=1$、$\beta=1/2$、$A=b=1$ なら
-$
+$$
 G=\begin{pmatrix}1&1\\1&2\end{pmatrix},\qquad B_{xy}=\frac12.
-$
+$$
 $\det G=1>0$、$G_{xx}=1>0$ なので入力は正定値である。定義の各式を代入すると
-$
+$$
 \check G_{tt}=1,\qquad
 \check G_{ty}=\frac12,\qquad
 \check G_{yy}=2-\frac{1-(1/2)^2}{1}=\frac54,\qquad
 \check B_{ty}=1.
-$
+$$
 $\det\check G=1\cdot(5/4)-(1/2)^2=1>0$ なので、双対計量も正定値である。これにより非零の混合成分と2形式の交換まで直接確認した。
 <!-- definition-example-end -->
 
