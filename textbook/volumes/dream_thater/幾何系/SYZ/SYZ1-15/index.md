@@ -690,13 +690,11 @@ $x$ の偏角が円周座標で、$y=c/x$ が定まる。$c=0$ を通るのは $
 
 実座標 $x=x_1+ix_2$、$y=y_1+iy_2$ を使い、$\omega_0=dx_1\wedge dx_2+dy_1\wedge dy_2$ に $V$ を代入すると、任意の実接ベクトル $Z$ について
 
-$
-\begin{aligned}
+$$
 \omega_0(V,Z)
-&=-x_1Z(x_1)-x_2Z(x_2)+y_1Z(y_1)+y_2Z(y_2)\\
-&=-d\lambda(Z)
-\end{aligned}
-$
+=-x_1Z(x_1)-x_2Z(x_2)+y_1Z(y_1)+y_2Z(y_2)
+=-d\lambda(Z).
+$$
 
 を得る。したがって $\iota_V\omega_0=-d\lambda$ である。周回方向の接ベクトル $W$ は $dw(W)=i(w-1)$ と取れ、$d\lambda(W)=0$ だから $\omega_0(V,W)=0$。また $dw(W)\ne0=dw(V)$ なので二つは一次独立である。
 
