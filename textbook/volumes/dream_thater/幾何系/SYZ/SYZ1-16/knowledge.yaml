@@ -1,7 +1,7 @@
 chapter: SYZ1-16
 scope: dream-theater
 coverage: complete
-prerequisites: [SYZ1-15, SYZ1-10]
+prerequisites: [SYZ1-15, SYZ1-10, COMB9]
 concepts:
   - id: syz.wall-crossing-character-map
     name: 壁越えの文字変換
