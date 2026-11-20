@@ -1,0 +1,47 @@
+id: "PML1-19"
+title: "Lagrangian NNに可逆な質量行列が必要なのはなぜか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-18
+  - AMECH5
+  - ODE4
+official_scope: []
+learning_objectives:
+  - Euler--Lagrange 方程式を連鎖律で展開し速度 Hessian と混合微分から加速度を導ける
+  - 速度 Hessian の可逆性と正定値性を区別し正則 LNN の局所運動存在一意性を証明できる
+  - 特異な速度 Hessian で加速度が不定・不整合になる二種類の反例を構成できる
+  - 位置依存質量の Lagrangian で混合微分項と加速度を直接計算できる
+  - BB^T+epsilon I の正定値性と逆行列の安定性を検算できる
+  - 加速度損失と Euler--Lagrange 残差損失を区別し誤差増幅の上界を導ける
+  - 自律 Lagrangian の連続時間エネルギー保存を証明し真のエネルギー・離散保存と区別できる
+definitions:
+  - { id: PML1-19-DEF-01, name: 正則な Lagrangian neural network }
+  - { id: PML1-19-DEF-02, name: 正定値質量行列型 LNN }
+  - { id: PML1-19-DEF-03, name: LNN の加速度損失と方程式残差損失 }
+theorems:
+  - { id: PML1-19-THM-01, name: 正則 LNN の加速度と局所運動 }
+  - { id: PML1-19-PROP-01, name: 特異速度 Hessian と加速度の不定性 }
+  - { id: PML1-19-PROP-02, name: 逆行列による加速度誤差の増幅 }
+  - { id: PML1-19-PROP-03, name: LNN の連続時間エネルギー収支 }
+canonical_examples:
+  - 一定質量の振動子で速度 Hessian と加速度を直接構成
+  - 特異 Hessian による不定解と不整合の二つの反例
+  - 位置依存質量の混合微分と追加加速度を計算
+  - BB^T+epsilon I による正定値性の保証
+  - 残差を小さくしても加速度誤差が残る尺度反例
+problem_patterns:
+  - PML1-19-A01
+  - PML1-19-A02
+  - PML1-19-A03
+  - PML1-19-A04
+  - PML1-19-A05
+  - PML1-19-B01
+  - PML1-19-B02
+  - PML1-19-B03
+  - PML1-19-B04
+  - PML1-19-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5.5, exercises: 6, review: 2 }

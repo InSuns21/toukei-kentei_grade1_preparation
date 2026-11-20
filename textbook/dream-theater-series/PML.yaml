@@ -79,7 +79,7 @@ chapters:
     title: "Hamiltonian NNは何を構造として固定するか"
   - id: PML1-19
     path: textbook/volumes/dream_thater/応用系/PML/PML1-19
-    status: planned
+    status: completed
     title: "Lagrangian NNに可逆な質量行列が必要なのはなぜか"
   - id: PML1-20
     path: textbook/volumes/dream_thater/応用系/PML/PML1-20
