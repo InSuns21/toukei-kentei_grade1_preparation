@@ -42,6 +42,8 @@ $$
 <!-- definition-example-start: def-syz1-07-regular-fibration -->
 ### 直接例：平坦複素トーラスで定義の全条件を確認する
 
+**定義の確認**
+
 $X=(\mathbb C/(\mathbb Z+i\mathbb Z))^n$ とし、$z^j=x^j+iy^j$、$\omega=\sum_j dx^j\wedge dy^j$、$\Omega=dz^1\wedge\cdots\wedge dz^n$ を取る。$B_0=(\mathbb R/\mathbb Z)^n$ として
 
 $$
@@ -84,14 +86,14 @@ $$
 
 ここで、$z\in L_b$ と $\varphi_s(z)$ における任意の接ベクトル $w$ に対して、流れが $\omega$ を保つこととHamilton場の定義を順に用いると
 
-$
+$$
 \begin{aligned}
 \omega_{\varphi_s(z)}(d\varphi_s(X_{H_j}(z)),w)
 &=\omega_z(X_{H_j}(z),d\varphi_s^{-1}(w))\\
 &=-dH_j|_z(d\varphi_s^{-1}(w))\\
 &=-dH_j|_{\varphi_s(z)}(w).
 \end{aligned}
-$
+$$
 
 最後は $H_j\circ\varphi_s=H_j$ を微分した等式である。$\omega$ の非退化性から、$d\varphi_s(X_{H_j}(z))=X_{H_j}(\varphi_s(z))$ である。つまり $X_{H_i}$ の流れは $X_{H_j}$ を保つので、それぞれの流れは可換である。
 
@@ -133,10 +135,10 @@ $$
 
 周期集合 $\Gamma_b=F_x^{-1}(x)$ は加法群である。可換な作用の推移性から、ファイバー上の任意の点は $y=\Phi_s(x)$ と表せる。
 
-$
+$$
 \Phi_t(y)=y\quad\Longleftrightarrow\quad
 \Phi_t(x)=x
-$
+$$
 
 が成り立つので、周期集合は点 $x$ に依存しない。微分 $dF_x|_0$ は同型だから、原点の十分小さい近傍に0以外の周期はない。従って $\Gamma_b$ は離散部分群である。
 
@@ -167,6 +169,8 @@ $$
 <!-- definition-example-start: def-syz1-07-period-cotangent -->
 ### 直接例：角度の速さが変わる円筒
 
+**定義の確認**
+
 $M=(0,\infty)\times(\mathbb R/\mathbb Z)$ に座標 $(b,\vartheta)$ を取り、
 
 $$
@@ -195,9 +199,9 @@ $$
 
 基準点 $b_0$ における $a$ 番目の周期を $t^{(a)}(b_0)$ とする。局所切断 $s(b)$ を使い、各ファイバー内の座標で次の方程式を考える。
 
-$
+$$
 \Phi_t(s(b))=s(b).
-$
+$$
 
 時間変数 $t$ に関する左辺の微分は、$X_1,\ldots,X_n$ を列とする可逆行列である。従って陰関数定理により、$b_0$ の十分小さい近傍に滑らかな解 $t=t^{(a)}(b)$ が存在する。
 
@@ -269,15 +273,17 @@ $$
 > **定義（周期格子から定まる作用座標）**  
 > 滑らかなLagrangeトーラス束の連結な局所基底 $U$ において、周期余接格子 $\Lambda_b$ の滑らかな整数基底 $\beta_1,\ldots,\beta_n$ を選ぶ。実数値関数 $I_1,\ldots,I_n$ が
 
-$
+$$
 dI_a=\beta_a,\qquad a=1,\ldots,n
-$
+$$
 
 > を満たすとき、$I=(I_1,\ldots,I_n)$ をこの格子基底に関する作用座標と呼ぶ。加法定数の選択と $GL(n,\mathbb Z)$ による整数基底変更は許すが、任意の実線形座標変換を同じ周期格子の座標変更とはみなさない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-07-action-chart -->
 ### 直接例：変速円周の作用座標を再判定する
+
+**定義の確認**
 
 第4節の円筒では $\Lambda_b=\mathbb Z(b\,db)$。$I=b^2/2$ は $dI=b\,db$ であり、$dI/db=b>0$ なので局所座標である。$I'=2I$ も通常の実座標にはなるが、$dI'=2b\,db$ は同じ格子の原始生成元ではない。$\mathbb Z(2b\,db)$ は元の周期格子の指数2の部分格子なので、**整数周期に基づく作用座標**の条件を満たさない。
 <!-- definition-example-end -->
@@ -339,16 +345,18 @@ $$
 > **定義（周期1の角変数）**  
 > 上の作用座標 $I_a$ と、そのHamilton場 $Y_a=X_{I_a\circ\pi}$ に対し、各ファイバー上の円周値座標 $\vartheta=(\vartheta_1,\ldots,\vartheta_n)\in(\mathbb R/\mathbb Z)^n$ が
 
-$
+$$
 \vartheta(\varphi_t^{Y_a}(x))
 =\vartheta(x)+t e_a\pmod{\mathbb Z^n}
-$
+$$
 
 > を満たすとき、$\vartheta_a$ を周期1の角変数と呼ぶ。ここで $e_a$ は第 $a$ 標準基底である。角変数は切断の選択に依存して基底の関数だけ平行移動し得る。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-07-angle-chart -->
 ### 直接例：円筒で流れの方向を確認する
+
+**定義の確認**
 
 $M=(0,\infty)\times(\mathbb R/\mathbb Z)$、$\omega=b\,db\wedge d\vartheta$ とし、作用座標 $I=b^2/2$ を取る。$Y=X_I=bX_b=\partial_\vartheta$ なので $\varphi_t^Y(b,\vartheta)=(b,\vartheta+t)$ である。よって $\vartheta(\varphi_t^Y(x))=\vartheta(x)+t$、周期1の角変数の定義を満たす。$2\pi\vartheta$ をそのまま周期1の角変数と取り違えると時間1で $2\pi$ 増えるため定義を満たさない。
 <!-- definition-example-end -->
