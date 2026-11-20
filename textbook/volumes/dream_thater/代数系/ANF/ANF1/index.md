@@ -41,6 +41,7 @@ $$
 例えば $\sqrt2$ は $T^2-2$ の根ですが、$1/2$ を根にもつ一次式 $T-1/2$ は整数係数ではありません。この違いを、式の次数や根の表示に依存せず定義します。
 
 <a id="ref-anf1-algebraic-integer"></a>
+### 既習の定義を数体に適用する
 
 [代数的整数の定義](../../TRN/TRN1/index.md#def-trn1-algebraic-integer)をこの数体 $K$ に適用すると、$\alpha\in K$ が代数的整数であるとは、整数 $m\ge1$ と係数 $a_0,\ldots,a_{m-1}\in\mathbb Z$ があって
 
