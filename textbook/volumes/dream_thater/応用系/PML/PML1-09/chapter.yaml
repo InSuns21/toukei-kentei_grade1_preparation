@@ -5,6 +5,10 @@ status: supplementary
 prerequisites:
   - PML1-08
   - STO11
+  - OTR21
+  - PDE1
+  - TOP5A
+  - VC4
 official_scope: []
 learning_objectives:
   - 連続状態Gibbs密度の分配関数と正規化可能性を計算できる
