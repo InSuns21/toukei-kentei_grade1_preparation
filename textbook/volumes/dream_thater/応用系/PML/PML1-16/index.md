@@ -114,26 +114,26 @@ $P_G$ は関数空間上の**線形射影**であり、その像は不変関数�
 
 $X=\mathbb R^2$ の点を列ベクトル $\boldsymbol z=(x,y)^{\mathsf T}$ と表す。標準基底 $e_1=(1,0)^{\mathsf T}$、$e_2=(0,1)^{\mathsf T}$ に関する[線形写像の表現行列](../../../基礎科目/F0/F0-00F/index.md#def-f0-00f-representation-matrix)を
 
-$
+$$
 R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
-$
+$$
 
 と置く。この行列の列が $Re_1=e_2$、$Re_2=-e_1$ を表すので、線形性から
 
-$
+$$
 R\boldsymbol z=xRe_1+yRe_2=-ye_1+xe_2=(-y,x)^{\mathsf T}.
-$
+$$
 
 $R^2=-I_2$、$R^4=I_2$ であるため、$G=C_4=\{I_2,R,R^2,R^3\}$ は行列積による四要素の群となり、$R^k\boldsymbol z$ が入力への作用である。実数値予測器 $f(\boldsymbol z)=x^2+2y^2$ をこれら四つの入力で評価すると
 
-$
+$$
 \begin{aligned}
 f(R^0\boldsymbol z)&=x^2+2y^2,\\
 f(R\boldsymbol z)&=y^2+2x^2,\\
 f(R^2\boldsymbol z)&=x^2+2y^2,\\
 f(R^3\boldsymbol z)&=y^2+2x^2.
 \end{aligned}
-$
+$$
 
 したがって[群平均の定義](#def-pml1-16-averaging)により
 
@@ -279,9 +279,9 @@ $$
 
 入力集合 $X$ に有限群 $G$ が作用し、出力を $V=\mathbb R^d$ の列ベクトルとする。$GL_d(\mathbb R)$ は可逆な $d\times d$ 実行列全体を表し、$I_d$ は単位行列である。各 $g\in G$ が出力ベクトルをどう変換するかを行列 $\rho(g)\in GL_d(\mathbb R)$ で指定する。群の合成と整合する条件は
 
-$
+$$
 \rho(gh)=\rho(g)\rho(h),\qquad \rho(e)=I_d.
-$
+$$
 
 このような対応 $\rho$ を**線形表現**と呼ぶ。条件から $\rho(g)\rho(g^{-1})=I_d$、すなわち $\rho(g)^{-1}=\rho(g^{-1})$ が従う。したがって出力を元の向きへ戻す操作は逆行列で表せる。予測器 $F:X\to V$ の等変性は、[等変写像の定義](../../MFL/MFL22/index.md#def-mfl22-equivariant)に沿って
 
@@ -382,14 +382,14 @@ $$
 
 $G=\{I_2,-I_2\}$ が $X=\mathbb R^2$ に行列として作用し、出力にも $\rho(-I_2)=-I_2$ を使う。入力を列ベクトル $\boldsymbol z\in\mathbb R^2$ とし、$F(\boldsymbol z)=A\boldsymbol z+b$（$A$ は $2\times2$ 実行列、$b$ は定数ベクトル）なら
 
-$
+$$
 \begin{aligned}
 (\mathcal P_\rho F)(\boldsymbol z)
 &=\tfrac12\{F(\boldsymbol z)-F(-\boldsymbol z)\}\\
 &=\tfrac12\{A\boldsymbol z+b-(-A\boldsymbol z+b)\}
 =A\boldsymbol z.
 \end{aligned}
-$
+$$
 
 定数のずれ $b$ は消え、$(\mathcal P_\rho F)(-\boldsymbol z)=-A\boldsymbol z$ は $\rho(-I_2)(\mathcal P_\rho F)(\boldsymbol z)$ に一致する。スカラーの単純平均なら $Ax$ の符号まで失う。出力側の作用を指定することが重要である。
 
@@ -415,7 +415,7 @@ $G=\{e,s\}$、$s\cdot x=-x$、$f(x)=x^2+3x+2$ とする。$P_Gf$ を求め、$x=
 
 [有限群平均作用素の定義](#def-pml1-16-averaging)より
 
-$
+$$
 (P_Gf)(x)=\tfrac12(f(x)+f(-x))
 =\tfrac12(x^2+3x+2+x^2-3x+2)
 =x^2+2.
