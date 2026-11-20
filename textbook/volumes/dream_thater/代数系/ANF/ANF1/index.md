@@ -613,13 +613,13 @@ $R=\mathbb Z[\sqrt{-5}]$ で $2,3,1+\sqrt{-5},1-\sqrt{-5}$ が既約元である
 - ID: ANF1-B3
 
 <!-- solution-start -->
-**詳細解答**　[単元・同伴](../../RNG/RNG3/index.md#def-rng3-divisibility-unit-associate)と[既約元](../../RNG/RNG3/index.md#def-rng3-irreducible-prime)の定義を使います。$z=a+b\sqrt{-5}$（$a,b\in\mathbb Z$）の共役を $\bar z=a-b\sqrt{-5}$ とすると
+**詳細解答**　$z=a+b\sqrt{-5}$（$a,b\in\mathbb Z$）の共役を $\bar z=a-b\sqrt{-5}$ とすると
 
 $$
 q(z)=z\bar z=a^2+5b^2\in\mathbb Z_{\ge0}.
 $$
 
-積を取ると $q(zw)=zw\overline{zw}=z\bar z\,w\bar w=q(z)q(w)$ です。$z\ne0$ なら $q(z)\ge1$ で、$q(z)=1$ は $b=0,\ a=\pm1$ の場合だけです。これらは実際に単元であり、他に単元がないことも乗法性から分かります。
+積を取ると $q(zw)=zw\overline{zw}=z\bar z\,w\bar w=q(z)q(w)$ です。$z\ne0$ なら $q(z)\ge1$ で、$q(z)=1$ は $b=0,\ a=\pm1$ の場合だけです。これらは実際に[単元](../../RNG/RNG3/index.md#def-rng3-divisibility-unit-associate)であり、他に単元がないことも乗法性から分かります。
 
 $q(z)=2$ または $q(z)=3$ となる整数 $a,b$ はありません。$b\ne0$ なら $q(z)\ge5$、$b=0$ なら $q(z)$ は平方数だからです。$q(2)=4$、$q(3)=9$、$q(1\pm\sqrt{-5})=6$ です。いずれかが非単元の積へ分解すれば、両因子の $q$ は $1$ より大きい整数で、その積が $4,9,6$ のいずれかになります。$4$ なら $2\cdot2$、$9$ なら $3\cdot3$、$6$ なら $2\cdot3$ しかありませんが、$q=2,3$ の元は存在しないため矛盾します。
 
@@ -627,7 +627,7 @@ $$
 6=2\cdot3=(1+\sqrt{-5})(1-\sqrt{-5})
 $$
 
-の各因子は既約です。$q$ の値が $4,9,6$ で異なるものは同伴ではなく、$1+\sqrt{-5}$ と $1-\sqrt{-5}$ も $\pm1$ 倍では一致しません。従って分解は同伴を除いて異なり、$R$ は一意分解整域ではありません。
+の各因子は[既約](../../RNG/RNG3/index.md#def-rng3-irreducible-prime)です。$q$ の値が $4,9,6$ で異なるものは同伴ではなく、$1+\sqrt{-5}$ と $1-\sqrt{-5}$ も $\pm1$ 倍では一致しません。従って分解は同伴を除いて異なり、$R$ は一意分解整域ではありません。
 <!-- solution-end -->
 
 **Level C：有限生成性・トレース・二次体の統合**
