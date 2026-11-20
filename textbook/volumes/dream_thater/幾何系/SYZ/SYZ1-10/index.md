@@ -44,7 +44,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-10-dual-tangent-lattice -->
-### 直接例：非直交な整数基底でも同じ双対格子
+### 直接例：非直交な整数基底でも同じ双対接格子
 
 $B_0=\mathbb R^2$、$u^1=x$、$u^2=y$ とし $\Lambda_\omega^*=\mathbb Z\,dx+\mathbb Z\,dy$ を取る。$\xi=a\partial_x+b\partial_y$ なら $dx(\xi)=a,dy(\xi)=b$ だから、定義の全条件は $a,b\in\mathbb Z$ と同値である。従って $\Lambda_\omega=\mathbb Z\,\partial_x+\mathbb Z\,\partial_y$ で、商は $(\mathbb R/\mathbb Z)^2$ となる。
 
@@ -160,7 +160,7 @@ $$
 
 ## 4. 整数アフィン遷移が正則な貼り合わせを与える
 
-前講の[双対周期座標の遷移命題](../SYZ1-09/index.md#prop-syz1-09-affine-transition)から、連結なチャートの重なりでは
+[前講の命題（双対周期座標とポテンシャルの遷移）](../SYZ1-09/index.md#prop-syz1-09-affine-transition)から、連結なチャートの重なりでは
 
 $$
 u'=Au+c,\qquad
@@ -465,7 +465,7 @@ $$
 \begin{pmatrix}A&0\\0&A\end{pmatrix}.
 $$
 
-ただし、**格子商の可逆な座標変換**にするにはさらに $A\in GL(n,\mathbb Z)$ が必要である。
+ただし、格子の整数シフトを保ったうえで逆写像も持つ座標変更にするには、さらに $A\in GL(n,\mathbb Z)$ が必要である。
 <!-- solution-end -->
 
 <a id="ex-syz1-10-a05"></a>
@@ -587,8 +587,14 @@ A_{\gamma\alpha}=A_{\gamma\beta}A_{\beta\alpha},\quad
 c_{\gamma\alpha}=A_{\gamma\beta}c_{\beta\alpha}+c_{\gamma\beta}
 $$
 
-であり、$\beta$ を経由した $z_\gamma$ は $(A_{\gamma\beta}A_{\beta\alpha})z_\alpha+
-A_{\gamma\beta}c_{\beta\alpha}+c_{\gamma\beta}$ となる。直接の $\alpha\to\gamma$ と同一だから $W_\gamma$ も一致する。
+であり、$\beta$ を経由した $z_\gamma$ は
+
+$
+z_\gamma=(A_{\gamma\beta}A_{\beta\alpha})z_\alpha
++A_{\gamma\beta}c_{\beta\alpha}+c_{\gamma\beta}
+$
+
+となる。直接の $\alpha\to\gamma$ と同一だから $W_\gamma$ も一致する。
 
 (iv) $2I$ は逆行列 $\frac12I$ が整数でなく、商上では $[v]\mapsto[2v]$ が非単射となる。従って (i) の格子の一致と (iii) の可逆な逆遷移の双方が崩れる。これは複素構造の積分可能性以前の、**商空間上のアトラス**の失敗である。
 <!-- solution-end -->
