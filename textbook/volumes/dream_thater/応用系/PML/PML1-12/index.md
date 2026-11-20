@@ -117,12 +117,12 @@ $$
 
 これらを $x_1,x_2$ について偏微分すると、個別勾配は
 
-$
+$$
 \begin{aligned}
 g_1(x)&=(x_1+1,0)^{\mathsf T},&g_2(x)&=(x_1-1,0)^{\mathsf T},\\
 g_3(x)&=(x_1,2)^{\mathsf T},&g_4(x)&=(x_1,-2)^{\mathsf T}.
 \end{aligned}
-$
+$$
 
 よって $g(x)=\frac14\sum_{i=1}^4g_i(x)=(x_1,0)^{\mathsf T}$ である。各 $g_i$ からこの $g$ を引くと、偏差ベクトルは
 
@@ -153,11 +153,21 @@ $$
 
 更新 $n$ の**直前**に分かる初期値と過去の抽出番号の情報を
 
-$
+$$
 \mathcal F_n=\sigma\!\left(\theta_0,I_{k,j}:0\le k<n,\ 1\le j\le b\right)
-$
+$$
 
-と記す。$\sigma(\cdots)$ は括弧内の確率変数から判定できる事象全体を意味する。これから抽出する $I_{n,1},\ldots,I_{n,b}$ は $\mathcal F_n$ に**含めない**。この情報の下では $\theta_n$ は既知であり、新しい添字は条件付きで一様・独立である。$\mathbb E[Z\mid\mathcal F_n]$ は過去の情報の下での**条件付き期待値**で、条件付き分散共分散行列は $\operatorname{Cov}(Z\mid\mathcal F_n)=\mathbb E[(Z-\mathbb E[Z\mid\mathcal F_n])(Z-\mathbb E[Z\mid\mathcal F_n])^{\mathsf T}\mid\mathcal F_n]$ とする。サンプルされた勾配の全勾配からの差を $\zeta_{n+1}=\widehat g_n-g(\theta_n)$ とする。添字 $n+1$ は、その雑音が次の更新を生むことを表す。
+と記す。$\sigma(\cdots)$ は括弧内の確率変数から判定できる事象全体を意味する。これから抽出する $I_{n,1},\ldots,I_{n,b}$ は $\mathcal F_n$ に**含めない**。この情報の下では $\theta_n$ は既知であり、新しい添字は条件付きで一様・独立である。$\mathbb E[Z\mid\mathcal F_n]$ は過去の情報の下での**条件付き期待値**である。条件付き分散共分散行列は、条件付き平均からの偏差を用いて
+
+$$
+\operatorname{Cov}(Z\mid\mathcal F_n)
+=\mathbb E\!\left[
+(Z-\mathbb E[Z\mid\mathcal F_n])
+(Z-\mathbb E[Z\mid\mathcal F_n])^{\mathsf T}
+\mid\mathcal F_n\right]
+$$
+
+と定める。サンプルされた勾配の全勾配からの差を $\zeta_{n+1}=\widehat g_n-g(\theta_n)$ とする。添字 $n+1$ は、その雑音が次の更新を生むことを表す。
 
 <a id="prop-pml1-12-replacement-moments"></a>
 
@@ -304,9 +314,9 @@ $$
 
 [PML1-11のEuler–Maruyama離散化](../PML1-11/index.md#def-pml1-11-euler-maruyama)で一次元に行ったのと同じく、ドリフト積分を左端の $g(Y_n)$ と刻み幅 $\eta$ の積で近似し、ブラウン増分はそのまま用いる。$g=\nabla F$ とすると、多次元の一歩は
 
-$
+$$
 Y_{n+1}=Y_n-\eta g(Y_n)+\sqrt{2\tau\eta}\,\xi_{n+1}
-$
+$$
 
 となる。ここで $g=\nabla F$、$\xi_n$ は互いに独立な $d$ 次元標準正規ベクトルで過去からも独立とする。このとき $\xi$ の分散共分散行列は単位行列 $I_d$ で、一歩の熱雑音の共分散は $2\tau\eta I_d$。一方、復元抽出SGDの一歩の雑音は $-\eta\zeta_{n+1}$ で、共分散は $\eta^2 C/b$ だった。
 
