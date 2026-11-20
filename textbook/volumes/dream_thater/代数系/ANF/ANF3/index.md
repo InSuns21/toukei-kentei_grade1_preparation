@@ -184,7 +184,13 @@ $$
 
 したがって $z$ は $A$ 上整です。[Dedekind整域の定義](#def-anf3-dedekind-domain)の整閉性（第2条件）を $A$ 上整な $z$ に適用すると $z\in A$ であり、$y=z/s\in R$ です。
 
-**極大イデアルの単項性。** $0\ne a\in\mathfrak m$ を取ります。$(a)$ を含む素イデアルは $\mathfrak m$ のみです。まず $\mathfrak m$ の任意の元 $x$ について、ある正整数 $n$ で $x^n\in(a)$ となることを示します。
+**極大イデアルの単項性。** イデアル $H\subseteq R$ の**根基**を
+
+$$
+\sqrt H=\{x\in R:\text{ある整数 }n\ge1\text{ について }x^n\in H\}
+$$
+
+と書きます。$0\ne a\in\mathfrak m$ を取ります。$(a)$ を含む素イデアルは $\mathfrak m$ のみです。まず $\mathfrak m$ の任意の元 $x$ について、ある正整数 $n$ で $x^n\in(a)$ となることを示します。
 
 反対に、すべての $n\ge0$ で $x^n\notin(a)$ と仮定します。[Noether環のイデアル集合の極大元性](../../AG/AG1-05/index.md#prop-ag1-05-acc-finite-generation)により、$(a)$ を含み、$1,x,x^2,\ldots$ を一つも含まないイデアルの中から包含極大な $J$ を取れます。
 
