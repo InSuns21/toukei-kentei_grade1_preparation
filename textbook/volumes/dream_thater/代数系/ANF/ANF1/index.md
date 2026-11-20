@@ -194,7 +194,7 @@ $$
 
 その行列の対角成分の和を $\operatorname{Tr}_{K/\mathbb Q}(x)$ と書きます。基底を変更すると行列は相似になり、トレースは変わりません。次章ではこれを埋め込みとの関係から詳しく研究します。
 
-既習の[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は実数体・複素数体上で導入しましたが、「二つの引数のそれぞれについて線形」という条件は有理数体上でも定義できます。ここでは $\mathbb Q$ ベクトル空間 $K$ 上の $\mathbb Q$ 値の双線形形式を考えます。$x,x',y\in K$、$a,b\in\mathbb Q$ なら、乗法の分配法則とトレースの線形性から
+既習の[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は実数体・複素数体上で導入しましたが、「二つの引数のそれぞれについて線形」という条件は有理数体上でも定義できます。ここでは $\mathbb Q$ ベクトル空間 $K$ 上の $\mathbb Q$ 値の双線形形式を考えます。$x,x',y,y'\in K$、$a,b\in\mathbb Q$ なら、乗法の分配法則とトレースの線形性から
 
 $$
 \operatorname{Tr}_{K/\mathbb Q}((ax+bx')y)
@@ -208,7 +208,7 @@ $$
 +b\operatorname{Tr}_{K/\mathbb Q}(xy')
 $$
 
-が成り立ちます（$y'\in K$）。
+が成り立ちます。
 
 <a id="def-anf1-trace-pairing"></a>
 
