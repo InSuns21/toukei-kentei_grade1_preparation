@@ -197,7 +197,8 @@ export function mountSmokeObservation(parent){
   section.querySelector('.visual-smoke-stage').after(status);
   const off=document.createElement('canvas');off.width=off.height=80;
   const offctx=off.getContext('2d',{alpha:false}),pixels=offctx.createImageData(80,80);
-  let state=createSmokeState(80),playing=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  let state=createSmokeState(80),playing=!reducedMotion.matches;
   let previous=0,number=0,raf=0,down=false,pointBefore=null,palette=0;
   const play=section.querySelector('[data-action="play"]'),speed=section.querySelector('[data-action="rate"]');
   const swirl=section.querySelector('[data-action="swirl"]'),stats=section.querySelector('.visual-stats');
@@ -247,6 +248,9 @@ export function mountSmokeObservation(parent){
   canvas.addEventListener('pointerup',release);
   canvas.addEventListener('pointercancel',release);
   if(!playing)play.textContent='再生';
+  reducedMotion.addEventListener('change',event=>{
+    if(event.matches){playing=false;previous=0;play.textContent='再生';paint();}
+  });
   play.addEventListener('click',()=>{
     playing=!playing;play.textContent=playing?'一時停止':'再生';previous=0;
   });
