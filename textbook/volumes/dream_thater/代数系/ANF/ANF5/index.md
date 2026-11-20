@@ -95,7 +95,9 @@ $$
 mA\subseteq I\subseteq A
 $$
 
-となります。$A/mA$ は整数基底によって有限集合なので、$I$ は $A$ の有限指数の部分加群で、階数 $n$ の整数基底 $\beta_1,\ldots,\beta_n$ を持ちます。$j(\beta_i)$ が実一次独立であることは以下の判別式の行列式から従い、$j(I)$ も全階数格子になります。
+となります。整数基底から $A/mA$ は有限集合なので、$I$ は $A$ の有限指数の部分加群です。従って $I$ は階数 $n$ の整数基底 $\beta_1,\ldots,\beta_n$ を持ちます。
+
+その像 $j(\beta_i)$ が実一次独立であることは、以下の判別式の行列式から従います。これで $j(I)$ が全階数格子になる理由も説明できます。
 
 <a id="thm-anf5-ideal-covolume"></a>
 
@@ -260,7 +262,16 @@ $$
 =\frac{T^{q+2}}{(q+1)(q+2)}
 $$
 
-です。ほかの $v_k$ を固定し、一変数ずつ積分すると、初めの $1/r_1!$ は $1/(r_1+2)!$、次に $1/(r_1+4)!$ と変わり、最後は $1/(r_1+2r_2)!$ になります。積分値が $t^{r_1+2r_2}/(r_1+2r_2)!=t^n/n!$ だと確かめられました。$r_2=0$ なら $v_k$ の積分はなく、初めの $t^{r_1}/r_1!$ がそのままこの値です。定数を掛け戻すと
+です。ほかの $v_k$ を固定して一変数ずつ積分すると、分母の階乗は次のように増えます。
+
+$$
+\frac1{r_1!}\ \longrightarrow\
+\frac1{(r_1+2)!}\ \longrightarrow\
+\frac1{(r_1+4)!}\ \longrightarrow\
+\frac1{(r_1+2r_2)!}.
+$$
+
+これにより積分値は $t^n/n!$ です。$r_2=0$ なら複素座標の積分はなく、実座標だけの値 $t^{r_1}/r_1!$ がそのまま残ります。定数を掛け戻すと
 
 $$
 2^{r_1}\left(\frac\pi2\right)^{r_2}\frac{t^n}{n!}
@@ -362,7 +373,24 @@ $$
 J=(\alpha)I^{-1}
 $$
 
-と置きます。$(\alpha)\subseteq I$ なので $J\subseteq II^{-1}=A$、すなわち $J$ は整イデアルです。また $IJ=(\alpha)$。非零整イデアルのノルムの乗法性は、[ANF3の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と[ANF4の素イデアル冪のノルム](../ANF4/index.md#lem-anf4-prime-power-norm)から確認できます。$I,J$ に現れる素イデアルを合わせて $\mathfrak p_1,\ldots,\mathfrak p_h$ とし、指数が零のものも許して $I=\prod\mathfrak p_i^{a_i}$、$J=\prod\mathfrak p_i^{b_i}$ と書きます。中国剰余定理で異なる素イデアル冪の商の大きさは積に分かれるので
+と置きます。$\alpha\in I$ から $(\alpha)\subseteq I$ なので、[ANF3の可逆性](../ANF3/index.md#prop-anf3-invertible-ideals)を適用すると
+
+$$
+J=(\alpha)I^{-1}\subseteq II^{-1}=A,
+\qquad IJ=(\alpha).
+$$
+
+よって $J$ は整イデアルです。
+
+非零整イデアルのノルムの乗法性を、[ANF3の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と[ANF4の素イデアル冪のノルム](../ANF4/index.md#lem-anf4-prime-power-norm)から確認します。$I,J$ に現れる素イデアルを合わせて $\mathfrak p_1,\ldots,\mathfrak p_h$ とし、指数が零のものも許して
+
+$$
+I=\prod_{i=1}^h\mathfrak p_i^{a_i},
+\qquad J=\prod_{i=1}^h\mathfrak p_i^{b_i},
+\qquad a_i,b_i\in\mathbb Z_{\geq0}
+$$
+
+と表します。異なる素イデアル冪の商の大きさが積に分かれることは、中国剰余定理で分かります。従って
 
 $$
 N(IJ)=\prod_iN(\mathfrak p_i)^{a_i+b_i}
@@ -535,7 +563,13 @@ $$
 I^2=(4,2(1+s),(1+s)^2)=(4,2+2s,-4+2s).
 $$
 
-三つの生成元はすべて $(2)$ に属し、一方で $(2+2s)-(-4+2s)-4=2$ なので $2\in I^2$ です。従って $I^2=(2)$（[ANF4の分岐判定](../ANF4/index.md#thm-anf4-quadratic-splitting)とも整合）で、$I^{-1}=I/(2)$ となります。$\alpha=2$ なので
+三つの生成元はいずれも $(2)$ に属します。他方、生成元の整数係数結合として
+
+$$
+(2+2s)-(-4+2s)-4=2
+$$
+
+を得るので、$(2)\subseteq I^2$ です。ゆえに $I^2=(2)$（[ANF4の分岐判定](../ANF4/index.md#thm-anf4-quadratic-splitting)とも整合）であり、$I^{-1}=I/(2)$ となります。$\alpha=2$ を代入すると
 
 $$
 J=(2)I^{-1}=(2)\frac{I}{(2)}=I,
