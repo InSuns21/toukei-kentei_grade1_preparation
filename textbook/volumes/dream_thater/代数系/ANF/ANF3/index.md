@@ -184,7 +184,27 @@ $$
 
 したがって $z$ は $A$ 上整です。[Dedekind整域の定義](#def-anf3-dedekind-domain)の整閉性（第2条件）を $A$ 上整な $z$ に適用すると $z\in A$ であり、$y=z/s\in R$ です。
 
-**極大イデアルの単項性。** $0\ne a\in\mathfrak m$ を取ります。$(a)$ を含む素イデアルは $\mathfrak m$ のみなので $\sqrt{(a)}=\mathfrak m$ です。Noether性により $\mathfrak m=(x_1,\ldots,x_k)$。各 $x_i$ は根基に属するため $x_i^{n_i}\in(a)$ となる $n_i\ge1$ があり、$N=1+\sum_i(n_i-1)$ とすれば、$N$ 個の生成元の積には必ず $x_i^{n_i}$ が含まれます。従って $\mathfrak m^N\subseteq(a)$ です。
+**極大イデアルの単項性。** イデアル $H\subseteq R$ の**根基**を
+
+$$
+\sqrt H=\{x\in R:\text{ある整数 }n\ge1\text{ について }x^n\in H\}
+$$
+
+と書きます。$0\ne a\in\mathfrak m$ を取ります。$(a)$ を含む素イデアルは $\mathfrak m$ のみです。まず $\mathfrak m$ の任意の元 $x$ について、ある正整数 $n$ で $x^n\in(a)$ となることを示します。
+
+反対に、すべての $n\ge0$ で $x^n\notin(a)$ と仮定します。[Noether環のイデアル集合の極大元性](../../AG/AG1-05/index.md#prop-ag1-05-acc-finite-generation)により、$(a)$ を含み、$1,x,x^2,\ldots$ を一つも含まないイデアルの中から包含極大な $J$ を取れます。
+
+$uv\in J$ かつ $u,v\notin J$ なら、$J+(u)$ と $J+(v)$ は $J$ より真に大きく、極大性から
+$x^i=j_1+c_1u$ と $x^j=j_2+c_2v$（$j_1,j_2\in J$、$c_1,c_2\in R$、$i,j\ge0$）が成り立ちます。しかしこの二式を掛けると
+
+$$
+x^{i+j}=(j_1+c_1u)(j_2+c_2v)
+\equiv c_1c_2uv\equiv0\pmod J
+$$
+
+となり、$J$ は $x$ の冪を一つも含まないことと矛盾します。よって $J$ は素イデアルです。$0\ne a\in J$ なので $J=\mathfrak m$ ですが、$x\in\mathfrak m=J$ に再び矛盾します。従って $\sqrt{(a)}=\mathfrak m$ です。
+
+Noether性により $\mathfrak m=(x_1,\ldots,x_k)$。各 $x_i$ は根基に属するため $x_i^{n_i}\in(a)$ となる $n_i\ge1$ があり、$N=1+\sum_i(n_i-1)$ とすれば、$N$ 個の生成元の積には必ず $x_i^{n_i}$ が含まれます。従って $\mathfrak m^N\subseteq(a)$ です。
 
 この包含が成り立つ最小の $N\ge1$ を選びます。$N=1$ なら $(a)\subseteq\mathfrak m\subseteq(a)$ から $\mathfrak m=(a)$ です。$N>1$ なら $\mathfrak m^{N-1}\nsubseteq(a)$ なので $b\in\mathfrak m^{N-1}\setminus(a)$ を取れます。$t=b/a$ と置くと
 
@@ -325,7 +345,7 @@ $$
 \mathfrak q'=(3,1-s)
 $$
 
-を作ります。各括弧は $A$ のイデアル生成を表します。
+を作ります。各括弧は $A$ のイデアル生成を表し、$\mathfrak q'$ のプライムは別のイデアルを区別するラベルであり、微分を意味しません。
 
 $\mathfrak p$ で割ると $2=0,\ s=-1=1$ なので
 
@@ -333,7 +353,21 @@ $$
 A/\mathfrak p\simeq\mathbb F_2.
 $$
 
-同様に $A/\mathfrak q\simeq\mathbb F_3$（$s=-1$）、$A/\mathfrak q'\simeq\mathbb F_3$（$s=1$）。これは $s^2=-5$ がそれぞれの剰余体でも成立することから矛盾しません。すなわち、例えば $\mathfrak q$ は準同型 $a+bs\mapsto a-b\bmod3$ の核です（$s^2=-5\equiv1\bmod3$）。従って三つはすべて極大かつ素で、$\mathfrak q\ne\mathfrak q'$ です。
+$s^2=-5\equiv1\pmod3$ なので $s\mapsto-1$ と $s\mapsto1$ はどちらも $\mathbb F_3$ への環準同型を与えます。具体的には
+
+$$
+\varphi_-(a+bs)=a-b\bmod3,\qquad
+\varphi_+(a+bs)=a+b\bmod3.
+$$
+
+$\varphi_-(a+bs)=0$ なら $a-b\in3\mathbb Z$ であり、$a+bs=(a-b)+b(1+s)\in\mathfrak q$。逆包含は生成元 $3,1+s$ の像が零であることから従うため、$\ker\varphi_-=\mathfrak q$ です。同様に $a+bs=(a+b)-b(1-s)$ から $\ker\varphi_+=\mathfrak q'$ です。両写像は定数をすべて写すので全射であり、
+
+$$
+A/\mathfrak q\simeq\mathbb F_3,\qquad
+A/\mathfrak q'\simeq\mathbb F_3.
+$$
+
+従って三つはすべて極大かつ素で、$\mathfrak q\ne\mathfrak q'$ です。
 
 まず $\mathfrak p^2$ の生成元を積から書くと
 
@@ -373,20 +407,26 @@ $$
 =|A/\mathfrak p|\,|A/\mathfrak q|=2\cdot3=6.
 $$
 
-一方、[数体のノルム](../ANF2/index.md#def-anf2-field-norm)は $N_{K/\mathbb Q}(1+s)=1+5=6$ です。整数基底 $(1,s)$ での乗法行列
+一方、[数体のノルム](../ANF2/index.md#def-anf2-field-norm)は $N_{K/\mathbb Q}(1+s)=1+5=6$ です。整数基底 $(1,s)$ における $\mathbb Q$ 線形写像 $\mu_{1+s}:K\to K$（$x\mapsto(1+s)x$）を調べます。基底ベクトルの像は $\mu_{1+s}(1)=1+s$ と $\mu_{1+s}(s)=s-5$ です。よって各像の $(1,s)$ 座標を列に並べた乗法行列は
 
 $$
 [\mu_{1+s}]_{(1,s)}=
 \begin{pmatrix}1&-5\\1&1\end{pmatrix}
 $$
 
-の行列式は $6$ です。[整数格子の指数と行列式](../ANF2/index.md#thm-anf2-discriminant-index)と同じ基底座標の議論から $|A/(1+s)|=6$。包含された二つのイデアルの商の位数が同じなので
+の行列式は $6$ です。$\mu_{1+s}(A)=(1+s)A$ は座標上 $M\mathbb Z^2$（$M=[\mu_{1+s}]_{(1,s)}$）に当たり、従って
+
+$$
+A/(1+s)\simeq\mathbb Z^2/M\mathbb Z^2.
+$$
+
+$M$ は整数行列で $\det M\ne0$ なので、[整数格子の指数と行列式](../ANF2/index.md#thm-anf2-discriminant-index)の証明の対角化計算により $|A/(1+s)|=|\det M|=6$ です。包含された二つのイデアルの商の位数が同じなので
 
 $$
 (1+s)=\mathfrak p\mathfrak q.
 $$
 
-同じ計算を $s\mapsto-s$ に移せば $(1-s)=\mathfrak p\mathfrak q'$ です。したがって
+$s\mapsto-s$ は $s^2=-5$ を保つ $A$ の自己同型です。$1-s=2-(1+s)$ により $\mathfrak p$ を固定し、$\mathfrak q$ と $\mathfrak q'$ を交換するので、同じ計算から $(1-s)=\mathfrak p\mathfrak q'$ です。したがって
 
 $$
 (2)(3)=\mathfrak p^2\mathfrak q\mathfrak q'
@@ -558,7 +598,7 @@ $$
 - ID: ANF3-B4
 
 <!-- solution-start -->
-**詳細解答**　[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により $A=\bigoplus_{i=1}^n\mathbb Z\omega_i$ です。$\alpha\omega_j\in A$ なので、$\alpha\omega_j=\sum_i m_{ij}\omega_i$（$m_{ij}\in\mathbb Z$）と一意に書けます。$M=(m_{ij})$ は $K$ 上の乗法写像 $\mu_\alpha$ の、この整数基底に関する行列です。$\alpha\ne0$ なので $\mu_\alpha$ は可逆、$\det M\ne0$ です。
+**詳細解答**　[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により $A=\bigoplus_{i=1}^n\mathbb Z\omega_i$ です。$\alpha\omega_j\in A$ なので、$\alpha\omega_j=\sum_i m_{ij}\omega_i$（$m_{ij}\in\mathbb Z$）と一意に書けます。$M=(m_{ij})$ は $\mathbb Q$ 線形な乗法写像 $\mu_\alpha:K\to K$（$x\mapsto\alpha x$）の、この整数基底に関する行列です。$\alpha\ne0$ なので $\mu_\alpha$ は可逆、$\det M\ne0$ です。
 
 $(\alpha)=\alpha A$ の基底座標は $M\mathbb Z^n$ だから
 
@@ -594,7 +634,27 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**(1)** $a+bs\mapsto a+b\bmod2$ の核は $\mathfrak p$ です（A4の表示では $a+bs=(a-b)+b(1+s)$）。同様に $a+bs\mapsto a-b\bmod3$ の核は $\mathfrak q$、$a+bs\mapsto a+b\bmod3$ の核は $\mathfrak q'$ です。$s^2=-5$ は $\mathbb F_3$ で $1$ になり、$s\mapsto\pm1$ の両方が関係式を保ちます。従って各商は $\mathbb F_2,\mathbb F_3,\mathbb F_3$ で極大です。$\mathfrak q$ では $s=-1$、$\mathfrak q'$ では $s=1$ であり、$1\ne-1$ が $\mathbb F_3$ で成立する なので両者は異なります。また $\mathfrak p$ は商の標数が $2$ なので他二つと異なります。
+**(1)** $A=\mathbb Z[s]$ なので、$s^2=-5$ を保つ剰余写像を考えます。$a+bs\mapsto a+b\bmod2$ の核は $\mathfrak p$ です。$a+b$ が偶数なら
+
+$$
+a+bs=(a-b)+b(1+s)\in(2,1+s)
+$$
+
+となり、逆包含も二つの生成元の像が零であることから確かめられます。
+
+$s^2=-5\equiv1\pmod3$ なので、$s\mapsto-1$ と $s\mapsto1$ により、それぞれ $\mathbb F_3$ への環準同型が得られます。前者の核は $\mathfrak q$ です。実際、$a-b\equiv0\pmod3$ なら
+
+$$
+a+bs=(a-b)+b(1+s)\in(3,1+s).
+$$
+
+後者の核は $\mathfrak q'$ です。$a+b\equiv0\pmod3$ なら
+
+$$
+a+bs=(a+b)-b(1-s)\in(3,1-s).
+$$
+
+いずれも生成元の像は零で、定数の像から全射性も従います。従って商はそれぞれ $\mathbb F_2,\mathbb F_3,\mathbb F_3$ で、三つとも極大イデアルです。$\mathfrak q$ では $s=-1$、$\mathfrak q'$ では $s=1$ であり、$\mathbb F_3$ で $1\ne-1$ なので異なります。$\mathfrak p$ は商の標数が $2$ なので他二つと異なります。
 
 **(2)** $\mathfrak p^2=(4,2+2s,-4+2s)$。全生成元は $(2)$ に属し、$6=(2+2s)-(-4+2s)$ と $4$ の差から $2\in\mathfrak p^2$ を得るので $\mathfrak p^2=(2)$。一方
 
@@ -610,7 +670,7 @@ $$
 (1+s)\subseteq\mathfrak p\cap\mathfrak q=\mathfrak p\mathfrak q.
 $$
 
-[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)で $|A/\mathfrak p\mathfrak q|=2\cdot3=6$。B4で証明した、[整数基底での行列式による指数計算](../ANF2/index.md#thm-anf2-discriminant-index)を使い、乗法行列を作ります：
+[中国剰余定理](../../RNG/RNG2/index.md#thm-rng2-crt-two)で $|A/\mathfrak p\mathfrak q|=2\cdot3=6$。B4で証明した、[整数基底での行列式による指数計算](../ANF2/index.md#thm-anf2-discriminant-index)を使います。$\mu_{1+s}(1)=1+s$、$\mu_{1+s}(s)=s-5$ の $(1,s)$ 座標を列に並べ、乗法行列を作ると
 
 $$
 [\mu_{1+s}]=\begin{pmatrix}1&-5\\1&1\end{pmatrix},
