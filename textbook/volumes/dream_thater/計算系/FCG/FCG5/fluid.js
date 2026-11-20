@@ -31,7 +31,8 @@ for(let j=1;j<N;j++)for(let i=0;i<N;i++)
 // generally preserve that property: pressure correction is still required.
 let p=new Float64Array(N*N),rhs=new Float64Array(N*N);
 let divBefore=0,divAfter=0,poissonMax=0,identityError=0;
-for(let t=0;t<steps;t++){
+const initialU=u.slice(),initialV=v.slice(),initialDye=dye.slice();
+function advanceFluidStep(){
   const starU=new Float64Array(u.length),starV=new Float64Array(v.length);
   const r=dt*nu/(h*h);
   for(let j=0;j<N;j++)for(let i=1;i<N;i++){
@@ -100,6 +101,7 @@ for(let t=0;t<steps;t++){
   }
   dye=dyeNext;
 }
+for(let t=0;t<steps;t++)advanceFluidStep();
 // Three physical fields, separately encoded for visualization; not the solver's state.
 const divField=new Float64Array(N*N),speedField=new Float64Array(N*N);
 let mass=0,peak=0,kinetic=0,maxDiv=0,maxWall=0;
@@ -167,3 +169,97 @@ report('BOUNDARY','max wall-normal='+maxWall.toExponential(3)+' m/s (tangential 
 report('DYE','integral='+mass.toPrecision(8)+', peak='+peak.toPrecision(7)+' (semi-Lagrange not conservative)');
 report('ENERGY','cell-centred 0.5*integral speed^2='+kinetic.toPrecision(8)+' m^4/s^2');
 report('DISPLAY','left=dye, middle=80*abs(div), right=speed/0.4; R8 only for display');
+
+
+// Learner-source-linked 12x12 presentation, after the initial GPU snapshot.
+// The original draw/readPixels checks three R8 fields in mode 0. Animated mode
+// 1 changes only the display mapping; physical steps still use advanceFluidStep.
+if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
+  const modeLoc=gl.getUniformLocation(prog,'u_displayMode');
+  const aspectLoc=gl.getUniformLocation(prog,'u_aspect');
+  if(modeLoc!==null&&aspectLoc!==null){
+    let stateStep=steps,playing=!(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false);
+    let last=0,acc=0,raf=0,dragging=false;
+    canvas.tabIndex=0;
+    canvas.title='FCG5 12×12実ソルバー：Spaceで再生・停止、Shift+ドラッグ（タッチならドラッグ）で染料追加。通常クリックはGPU画素診断です。';
+    canvas.setAttribute('aria-label','FCG5 実際のMAC格子ソルバーの染料アニメーション。Spaceで再生停止、Shift+ドラッグで色を投入');
+    for(const tex of [textures[0],textures[2]]){
+      gl.bindTexture(gl.TEXTURE_2D,tex);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+    }
+    function resetPhysics(){
+      u=initialU.slice();v=initialV.slice();dye=initialDye.slice();
+      stateStep=0;divBefore=divAfter=poissonMax=identityError=0;
+    }
+    function refreshGpuFields(){
+      for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+        const k=ci(i,j),vx=(u[ui(i,j)]+u[ui(i+1,j)])/2,
+          vy=(v[vi(i,j)]+v[vi(i,j+1)])/2;
+        divField[k]=D(u,v,i,j);
+        speedField[k]=Math.hypot(vx,vy);
+      }
+      const fields=[dye,divField,speedField];
+      const convert=[x=>x,x=>80*Math.abs(x),x=>x/.4];
+      for(let unit=0;unit<3;unit++){
+        gl.activeTexture(gl.TEXTURE0+unit);
+        gl.bindTexture(gl.TEXTURE_2D,textures[unit]);
+        gl.texSubImage2D(gl.TEXTURE_2D,0,0,0,N,N,gl.RED,gl.UNSIGNED_BYTE,
+          Uint8Array.from(fields[unit],v=>Math.round(255*clip(convert[unit](v),0,1))));
+      }
+    }
+    function drawPhysicalDye(){
+      gl.useProgram(prog);gl.bindVertexArray(vao);
+      gl.uniform1i(modeLoc,1);
+      gl.uniform1f(aspectLoc,canvas.width/canvas.height);
+      gl.viewport(0,0,canvas.width,canvas.height);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+    }
+    // Inject dye into the editable numerical state. This is an *external dye
+    // source*, not a conservative update or a fluid pressure/velocity input.
+    function inject(e){
+      const rect=canvas.getBoundingClientRect();
+      const x=((e.clientX-rect.left)/rect.width-.5)*(canvas.width/canvas.height)+.5,
+        y=1-(e.clientY-rect.top)/rect.height;
+      if(x<0||x>1||y<0||y>1)return;
+      for(let j=0;j<N;j++)for(let i=0;i<N;i++){
+        const dx=(i+.5)*h-x,dy=(j+.5)*h-y;
+        dye[ci(i,j)]=clip(dye[ci(i,j)]+.48*Math.exp(-(dx*dx+dy*dy)/(.085*.085)),0,1);
+      }
+      refreshGpuFields();drawPhysicalDye();
+    }
+    canvas.addEventListener('pointerdown',e=>{
+      if(e.pointerType!=='touch'&&!e.shiftKey)return;
+      dragging=true;canvas.setPointerCapture?.(e.pointerId);
+      e.preventDefault();inject(e);
+    });
+    canvas.addEventListener('pointermove',e=>{if(dragging)inject(e);});
+    const release=()=>{dragging=false;};
+    canvas.addEventListener('pointerup',release);
+    canvas.addEventListener('pointercancel',release);
+    canvas.addEventListener('keydown',e=>{
+      if(e.key===' '){e.preventDefault();playing=!playing;last=0;acc=0;}
+    });
+    // Draw the first presentation frame on rAF. The runner has already read
+    // the untouched 3-panel oracle because it executes synchronously before
+    // the browser begins the next animation frame.
+    function frame(now){
+      if(playing&&!document.hidden){
+        if(!last)last=now;
+        const delta=Math.min(.10,Math.max(0,(now-last)/1000));
+        last=now;acc+=delta;
+        if(acc>=.14){
+          acc-=.14;
+          if(stateStep>=32)resetPhysics();
+          else{advanceFluidStep();stateStep++;}
+          refreshGpuFields();
+        }
+      }else last=0;
+      drawPhysicalDye();
+      raf=requestAnimationFrame(frame);
+    }
+    raf=requestAnimationFrame(frame);
+    window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
+    report('ANIMATION','12x12 EDITABLE solver draws the same dye state after the static R8 pixel oracle; Shift+drag adds external dye, Space pauses');
+  }
+}
