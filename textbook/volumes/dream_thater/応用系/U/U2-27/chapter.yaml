@@ -1,0 +1,53 @@
+id: "U2-27"
+title: "推定の評価：RMSE と信用できる共分散は別"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-26
+official_scope: []
+learning_objectives:
+  - 同じ生成模型・データ・座標・真値利用制限・計測範囲を固定した比較プロトコルを設計できる
+  - 世界座標の位置RMSEと局所角度RMSEを単位を区別して計算できる
+  - 平面剛体変換による最小二乗軌跡合わせを重心と三角関数の展開から証明できる
+  - gauge未固定の軌跡形状評価と絶対座標誤差の評価を区別できる
+  - NEESの正定値条件・座標の一致・真値の必要性を確認し二次形式を計算できる
+  - Gaussian誤差の白色化からNEESのカイ二乗基準と一般期待値を証明できる
+  - 誤差楕円の被覆率と独立試行の場合の標本分散を導出できる
+  - NISが正常でも観測不能な状態のNEESが異なる例を説明できる
+  - 座標変換で共分散も変換すべきことと真値による事後合わせの危険を説明できる
+  - 時間相関・比較条件・処理時間・ピークメモリを記録し数値ラボで再現できる
+definitions:
+  - { id: U2-27-DEF-01, name: 推定器の評価プロトコル }
+  - { id: U2-27-DEF-02, name: 位置・方位角の RMSE }
+  - { id: U2-27-DEF-03, name: 単一剛体変換による軌跡の位置合わせ }
+  - { id: U2-27-DEF-04, name: 正規化推定誤差二乗、NEES }
+  - { id: U2-27-DEF-05, name: 誤差楕円の被覆率 }
+theorems:
+  - { id: U2-27-THM-01, name: 平面軌跡の最小二乗位置合わせ }
+  - { id: U2-27-THM-02, name: NEES の基準分布と期待値 }
+  - { id: U2-27-PROP-01, name: Gaussian 基準での被覆率 }
+canonical_examples:
+  - 二時刻の絶対位置RMSEは平方根7m、剛体合わせ後は0m
+  - 中心化から回転角マイナスπ/2と並進(-2,1)を求める
+  - 二次元の誤差(1,2)と対角共分散(1,4)でNEESが2
+  - 同じ実際の誤差に対して報告分散1と1/4なら期待NEESが1と4
+  - 二次元95パーセント楕円の閾値は約5.991
+  - H=0で予測NISは同じだが状態のNEESは異なる
+  - 既知回転で誤差と共分散をともに変換すると二次形式は不変
+  - 6000試行の固定乱数実験と資源計測
+problem_patterns:
+  - U2-27-A01
+  - U2-27-A02
+  - U2-27-A03
+  - U2-27-A04
+  - U2-27-A05
+  - U2-27-B01
+  - U2-27-B02
+  - U2-27-B03
+  - U2-27-B04
+  - U2-27-C01
+  - U2-27-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 4.5, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
