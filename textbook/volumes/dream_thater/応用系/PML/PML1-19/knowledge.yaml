@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - PML1-18
   - AMECH5
+  - ODE4
 forward_references: []
 concepts:
   - id: physics-machine-learning.regular-lnn
@@ -21,6 +22,7 @@ concepts:
     requires:
       - physics-machine-learning.regular-lnn
       - analytical-mechanics.lagrange-equations
+      - ode.ode4-nonlinear-autonomous-system
   - id: physics-machine-learning.singular-acceleration
     name: 特異速度 Hessian と加速度の不定性
     kind: proposition
