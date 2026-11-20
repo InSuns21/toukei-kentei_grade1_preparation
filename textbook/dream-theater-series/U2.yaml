@@ -30,5 +30,5 @@ chapters:
   - { id: U2-24, path: textbook/volumes/dream_thater/応用系/U/U2-24, status: completed, title: "グラフ SLAM の数値解：Gauss–Newton と gauge 固定" }
   - { id: U2-25, path: textbook/volumes/dream_thater/応用系/U/U2-25, status: completed, title: "ループ閉合・頑健推定：再訪はいつ役に立つか" }
   - { id: U2-26, path: textbook/volumes/dream_thater/応用系/U/U2-26, status: completed, title: "Rao–Blackwell 化粒子 SLAM：何を粒子化するか" }
-  - { id: U2-27, path: textbook/volumes/dream_thater/応用系/U/U2-27, status: planned, title: "推定の評価：RMSE と信用できる共分散は別" }
+  - { id: U2-27, path: textbook/volumes/dream_thater/応用系/U/U2-27, status: completed, title: "推定の評価：RMSE と信用できる共分散は別" }
   - { id: U2-28, path: textbook/volumes/dream_thater/応用系/U/U2-28, status: planned, title: "総合演習：2次元ロボットを未知地図で迷子にしない" }
