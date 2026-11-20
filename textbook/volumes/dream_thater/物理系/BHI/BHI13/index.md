@@ -313,7 +313,7 @@ $ac=4$ を掛けると $\Theta=3/5$ です。$d=ab$（すべて放出、$c=1$）
 
 ## 5. 平均から「ほとんどのユニタリ」を保証する
 
-平均の小ささと、一度選んだ $U$ での誤差は違います。ここを橋渡しするには、行列の特異値に対するCauchy–Schwarzと、非負確率変数へのMarkov不等式を使います。前者は[QINF31の平均偏差の確率評価](../../../応用系/QINF/QINF31/index.md#prop-qinf31-typicality)でも使われた方法です。
+平均の小ささと、一度選んだ $U$ での誤差は違います。ここを橋渡しするには、行列の特異値には[Cauchy–Schwarzの不等式](../../../基礎科目/F0/F0-00E2/index.md#thm-f0-00e2-cauchy-schwarz)を、非負確率変数には[Markovの不等式](../../../解析系/F0/F0-00P2A/index.md#thm-f0-00p2a-markov)を適用します。前者は[QINF31の平均偏差の確率評価](../../../応用系/QINF/QINF31/index.md#prop-qinf31-typicality)でも使われた方法です。
 
 <a id="prop-bhi13-tail"></a>
 
