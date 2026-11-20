@@ -36,7 +36,7 @@ concepts:
     introduction_aliases: ["定理（二次模型の明示解・平均・分散）"]
     requires:
       - physics-machine-learning.thermal-noise-matching
-      - stochastic.deterministic-stochastic-integral-gaussian
+      - stochastic.deterministic-brownian-integral-gaussian
   - id: physics-machine-learning.quadratic-noise-mismatch
     name: 二次模型のノイズ係数の不整合
     kind: proposition
