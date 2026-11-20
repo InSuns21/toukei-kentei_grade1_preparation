@@ -1754,7 +1754,7 @@ const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[1536,512]:
 // Make the actual limits legible when a lesson's independent CPU oracle
 // intentionally supports fewer pixels than the shared WebGL2 host.
 byId('width').max=String(MAX_SIDE);byId('height').max=String(MAX_SIDE);
-const limits=byId('panel-conditions').querySelector('small');
+const limits=byId('height').closest('.controls')?.nextElementSibling?.querySelector('small');
 if(limits)limits.textContent='幅・高さはCSSサイズではなく描画バッファ。最大'+
   MAX_PIXELS.toLocaleString('en-US')+'画素、各辺'+MAX_SIDE+
   'pxまで（負荷が重い場合は縮小）。保存したソースは端末に保持します。';
