@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - U2-23
+  - NA12
 official_scope: []
 learning_objectives:
   - 非線形因子の残差とJacobi行列を現在点で計算し局所線形化を具体例で検算できる

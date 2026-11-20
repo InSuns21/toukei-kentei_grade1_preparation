@@ -3,6 +3,7 @@ scope: dream-theater
 coverage: complete
 prerequisites:
   - U2-23
+  - NA12
 forward_references: []
 concepts:
   - id: robotics.slam-gn-linearization
