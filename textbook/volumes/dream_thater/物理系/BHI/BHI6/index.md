@@ -12,9 +12,23 @@
 
 ## 2. どの系に純粋性を要求するのか
 
-一回目までの放射を $R_1$、二回目に新たに加わる放射を $b_2$ とすれば、$R_2=R_1b_2$ です。ここで $XY$ は二つの系をまとめた表記で、Hilbert 空間では $\mathcal H_{XY}=\mathcal H_X\otimes\mathcal H_Y$ を意味します。放出後の残存側を $B_2$ とし、**外に捨てた未知の環境を別に置かない**模型を考えます。
+一回目までの放射を $R_1$、二回目に新たに加わる放射を $b_2$ とすれば、$R_2=R_1b_2$ です。ここで $XY$ は二つの系をまとめた表記で、Hilbert 空間では
 
-各放出では、直前の残存系のベクトルを「新しい放射＋次の残存系」へ移します。その際、異なる入力の内積が変わらないようにするのが[BHI1で導入した等長写像の条件](../BHI1/index.md#def-bhi1-endpoint-split)です。入力を $u,v$、写像を $W$ とすると、$W^\dagger W=I$ は $\langle Wu,Wv\rangle=\langle u,v\rangle$ と同値です。$W^\dagger$ は随伴、$I_X$ は系 $X$ 上の恒等作用素を表します。この条件は出力空間の次元が入力より大きくても使え、全出力空間上のユニタリ作用素であることまでは要求しません。[QINF33の段階的SWAP放出模型](../../../応用系/QINF/QINF33/index.md#def-qinf33-swap-emission)も、この考え方を固定された全系のユニタリ交換で実現した例です。
+$
+\mathcal H_{XY}=\mathcal H_X\otimes\mathcal H_Y
+$
+
+を意味します。放出後の残存側を $B_2$ とし、**外に捨てた未知の環境を別に置かない**模型を考えます。
+
+各放出では、直前の残存系のベクトルを「新しい放射＋次の残存系」へ移します。その際、異なる入力の内積が変わらないようにするのが[BHI1で導入した等長写像の条件](../BHI1/index.md#def-bhi1-endpoint-split)です。任意の入力ベクトル $u,v$ と線形写像 $W$ について、等長性は
+
+$
+W^\dagger W=I
+\quad\Longleftrightarrow\quad
+\langle Wu,Wv\rangle=\langle u,v\rangle
+$
+
+という条件で判定できます。$W^\dagger$ は随伴、$I_X$ は系 $X$ 上の恒等作用素を表します。この条件は出力空間の次元が入力より大きくても使え、全出力空間上のユニタリ作用素であることまでは要求しません。[QINF33の段階的SWAP放出模型](../../../応用系/QINF/QINF33/index.md#def-qinf33-swap-emission)も、この考え方を固定された全系のユニタリ交換で実現した例です。
 
 <a id="def-bhi6-pure-evaporation"></a>
 
