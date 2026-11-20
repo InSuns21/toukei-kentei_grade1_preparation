@@ -385,7 +385,9 @@ $$
 
 ## 6. JS・GLSL編集ラボ：三つの界面を動かす
 
-<iframe src="simulation/wgl-lab.html?lesson=FCG8" title="FCG8 Level Set移流・再初期化・厳密粒子比較ラボ" loading="lazy" style="width:100%;height:1050px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
+**まず輪郭の変形を目で追う。** 最初の観察ビューでは、同じ正方形の座標・同じ縮尺で3つの液滴を描き、数値輪郭を黄実線、厳密輪郭を白い破線、粒子を橙の点として重ねる。時間スライダーで停止・逆戻りし、形状と面積指標を対応付ける。独立CPU基準の離散物理ステップ間を画面用に線形補間しているため、途中のアニメーションフレーム自体は新たなPDE数値解ではない。**編集したJS/GLSLの結果** は下の従来型実行タブに出力されるので、観察用基準と区別する。
+
+<iframe src="simulation/wgl-lab.html?lesson=FCG8" title="FCG8 Level Set移流・再初期化・厳密粒子比較ラボ" loading="lazy" style="width:100%;height:1250px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 既存の3タブ型ラボ（**1. 実験条件・課題／2. コード編集／3. 実行結果**）に接続する。[物理更新JavaScript](levelset.js)、[頂点GLSL](levelset.vert)、[断片GLSL](levelset.frag)を編集・再実行できる。
 
