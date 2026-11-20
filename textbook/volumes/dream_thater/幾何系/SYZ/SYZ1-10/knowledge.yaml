@@ -14,7 +14,7 @@ concepts:
     kind: proposition
     introduction: formal
     introduction_aliases: ["命題（双対接トーラスとホロノミー文字）"]
-    requires: [syz.dual-symplectic-tangent-lattice, syz.character-torus]
+    requires: [syz.dual-symplectic-tangent-lattice, syz.character-lattice-quotient]
   - id: syz.semiflat-complex-chart
     name: semi-flat双対トーラスの複素チャート
     kind: definition
