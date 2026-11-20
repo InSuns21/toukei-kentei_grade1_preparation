@@ -1,0 +1,49 @@
+chapter: U2-24
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-23
+forward_references: []
+concepts:
+  - id: robotics.slam-gn-linearization
+    name: Gauss–Newton の局所線形化
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gauss–Newton の局所線形化）"]
+    requires: [robotics.slam-factor-residual-information, robotics.slam-gaussian-factor-map]
+  - id: robotics.slam-gn-normal-equations
+    name: 重み付き Gauss–Newton 正規方程式
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（重み付き Gauss–Newton 正規方程式）"]
+    requires: [robotics.slam-gn-linearization, robotics.slam-factor-linear-sparsity]
+  - id: robotics.slam-gn-gauge-fix
+    name: gauge の零方向と基準固定
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（gauge の零方向と基準固定）"]
+    requires: [robotics.slam-factor-gauge, robotics.slam-planar-gauge]
+  - id: robotics.slam-gn-gauge-null
+    name: 相対因子の零方向と hard 固定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（相対因子の零方向と hard 固定）"]
+    requires: [robotics.slam-gn-gauge-fix, robotics.slam-gn-normal-equations]
+  - id: robotics.slam-pose-jacobian
+    name: 平面相対姿勢因子の Jacobi 行列
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面相対姿勢因子の Jacobi 行列）"]
+    requires: [robotics.slam-gn-linearization, robotics.planar-pose]
+  - id: robotics.slam-planar-gauge-null
+    name: 平面の共通剛体変換による gauge
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平面の共通剛体変換による gauge）"]
+    requires: [robotics.slam-pose-jacobian, robotics.slam-planar-gauge]
+  - id: robotics.slam-gn-descent
+    name: フルランク Gauss–Newton 方向の局所降下性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（フルランク Gauss–Newton 方向の局所降下性）"]
+    requires: [robotics.slam-gn-normal-equations]

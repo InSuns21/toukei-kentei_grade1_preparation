@@ -24,3 +24,4 @@
 21. [U2-21 SLAM の確率模型：軌跡と地図の同時事後](textbook/volumes/dream_thater/応用系/U/U2-21/index.md)
 22. [U2-22 ランドマーク型 EKF-SLAM：交差共分散の役割](textbook/volumes/dream_thater/応用系/U/U2-22/index.md)
 23. [U2-23 因子グラフ：運動・観測・地図をつなぐ](textbook/volumes/dream_thater/応用系/U/U2-23/index.md)
+24. [U2-24 グラフ SLAM の数値解：Gauss–Newton と gauge 固定](textbook/volumes/dream_thater/応用系/U/U2-24/index.md)

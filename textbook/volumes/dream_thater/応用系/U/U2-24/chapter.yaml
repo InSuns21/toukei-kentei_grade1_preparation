@@ -1,0 +1,49 @@
+id: "U2-24"
+title: "グラフ SLAM の数値解：Gauss–Newton と gauge 固定"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-23
+official_scope: []
+learning_objectives:
+  - 非線形因子の残差とJacobi行列を現在点で計算し局所線形化を具体例で検算できる
+  - 重み付き局所モデルから正規方程式を導き半正定値性と一意性条件を証明できる
+  - 因子別の疎ブロック寄与を求め、数値安定性と疎消去の注意点を説明できる
+  - 前講の4変数模型を一回のGauss–Newton増分として厳密に再計算できる
+  - 一次元のgauge零方向、連結性、hard固定と有限重みのsoft事前の違いを証明できる
+  - 平面相対姿勢残差のJacobi行列を回転行列の微分から導出できる
+  - 平面の共通並進2方向と回転1方向がJacobi行列の核に入ることを示せる
+  - Gauss–Newtonの全ステップ失敗と小ステップの局所降下性を検算できる
+  - Pythonで正規方程式、非線形更新、特異性、平面Jacobi行列の差分検算を実行できる
+definitions:
+  - { id: U2-24-DEF-01, name: Gauss–Newton の局所線形化 }
+  - { id: U2-24-DEF-02, name: gauge の零方向と基準固定 }
+theorems:
+  - { id: U2-24-THM-01, name: 重み付き Gauss–Newton 正規方程式 }
+  - { id: U2-24-THM-02, name: 相対因子の零方向と hard 固定 }
+  - { id: U2-24-PROP-01, name: 平面相対姿勢因子の Jacobi 行列 }
+  - { id: U2-24-PROP-02, name: 平面の共通剛体変換による gauge }
+  - { id: U2-24-PROP-03, name: フルランク Gauss–Newton 方向の局所降下性 }
+canonical_examples:
+  - x二乗引く4の線形化と初期値3から13/6への一段更新
+  - 4変数5因子の厳密正規方程式とMAP(0,1,5/3,10/3)および目的関数1/6
+  - 2節点の特異情報行列とhard固定・soft事前の区別
+  - 平面相対姿勢の3掛ける6Jacobi行列と共通回転零方向
+  - x=1/2からの全ステップ失敗と1/4ステップによる改善
+  - Python標準ライブラリで有理数と差分微分を再現
+problem_patterns:
+  - U2-24-A01
+  - U2-24-A02
+  - U2-24-A03
+  - U2-24-A04
+  - U2-24-A05
+  - U2-24-B01
+  - U2-24-B02
+  - U2-24-B03
+  - U2-24-B04
+  - U2-24-C01
+  - U2-24-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.5, exercises: 5.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
