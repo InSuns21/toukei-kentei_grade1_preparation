@@ -19,7 +19,17 @@ $$
 \qquad n\ge2,\qquad \dim\mathcal H_{R_i}<\infty
 $$
 
-で計算します。状態 $\rho_R$ は正半定値・跡1、$\rho_{R_i}=\operatorname{Tr}_{R\setminus R_i}\rho_R$ とします。エントロピーは自然対数で測り、$0\log0=0$ とします。[QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)を $S(\rho)=-\operatorname{Tr}\rho\log\rho$ と書き、$S(R)=S(\rho_R)$ と略記します。局所状態と全体状態を取り違えないため、添字は「実際に残している系」を表します。
+で計算します。状態 $\rho_R$ は正半定値・跡1で、各周辺状態 $\rho_{R_i}=\operatorname{Tr}_{R\setminus R_i}\rho_R$ は[部分トレースと縮約状態の定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)で作ります。添字は「実際に残している系」を表します。
+
+**対数の底と単位を先に統一します。** [QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)、[QINF18の量子相互情報量](../../../応用系/QINF/QINF18/index.md#def-qinf18-mutual)、[QINF20の量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)は底2の対数（単位はビット）で定義されています。一方、本講では自然対数 $\log=\ln$（単位はナット）を使います。既習の底2の量を $S_{\rm bit},I_{\rm bit},D_{\rm bit}$ と書けば、$\log x=(\ln2)\log_2x$ より
+
+$$
+S=(\ln2)S_{\rm bit},\qquad
+I=(\ln2)I_{\rm bit},\qquad
+D=(\ln2)D_{\rm bit}.
+$$
+
+以下では $S(\rho)=-\operatorname{Tr}(\rho\log\rho)$、$S(R)=S(\rho_R)$ と書き、$I(A:B)=S(A)+S(B)-S(AB)$ とします。$D(\rho\Vert\sigma)$ も自然対数で計算し、台が含まれるときは $\operatorname{Tr}(\rho\log\rho)-\operatorname{Tr}(\rho\log\sigma)$ です。零固有値は $0\log0=0$ と解釈します。対数の底をそろえると、既習の非負性・等号条件は正の定数倍なのでそのまま使えます。
 
 実際の場の連続モードをこの直積に正確に分けられるか、またエネルギーや紫外発散をどう正則化するかは別の問題です。以下の有限模型は「局所熱性から全体が混合状態かどうかを結論できるか」という論理を検査するためのものです。
 
@@ -62,7 +72,7 @@ $$
 \end{pmatrix}.
 $$
 
-ここで部分トレースの定義を成分で確認します。$A$ 側の行列要素は $(\rho_A)_{aa'}=\sum_{b=0}^1\langle ab|\rho_{AB}|a'b\rangle$ です。$\rho_{\rm pure}$ の $|00\rangle\langle11|$ は $b=0$ と $b=1$ を同時には満たさないため、$A$ 側へ縮約すると消えます。従って
+[部分トレースの定義](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)を成分で確認します。$A$ 側の行列要素は $(\rho_A)_{aa'}=\sum_{b=0}^1\langle ab|\rho_{AB}|a'b\rangle$ です。$\rho_{\rm pure}$ の $|00\rangle\langle11|$ は $b=0$ と $b=1$ を同時には満たさないため、$A$ 側へ縮約すると消えます。従って
 
 $$
 \operatorname{Tr}_B\rho_{\rm pure}
@@ -70,7 +80,13 @@ $$
 =\operatorname{Tr}_B\rho_{\rm prod}=\gamma.
 $$
 
-$B$ 側でも同じ結果です。しかし全体の非零固有値は順に $1$、$(1-q,q)$、$((1-q)^2,q(1-q),q(1-q),q^2)$ であり、
+$B$ 側でも同じ結果です。しかし全体の固有値は異なります。$|\Psi_q\rangle$ のノルム二乗は $(1-q)+q=1$ なので、純粋対の密度行列は階数1の射影です。古典相関状態は上の計算基底で対角であり、積状態はその基底で次の行列です。
+
+$$
+\rho_{\rm prod}=\operatorname{diag}\bigl((1-q)^2,q(1-q),q(1-q),q^2\bigr).
+$$
+
+従って三状態の非零固有値は、純粋対が $1$、古典相関状態が $(1-q,q)$、積状態が上の四つの対角成分であり、
 
 | 全体状態 | $S(A)$ | $S(B)$ | $S(AB)$ |
 |---|---:|---:|---:|
@@ -113,7 +129,29 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi5-local-coarse -->
-**定義の確認**： 第2節で $q=1/4$、$\beta\varepsilon=\log3$ とすれば、三つの全体状態のいずれも周辺状態は $\gamma=\operatorname{diag}(3/4,1/4)$ です。したがって $\sigma_{\rm loc}=\gamma\otimes\gamma$ であり、非零固有値は $9/16,3/16,3/16,1/16$、正規化の和は $16/16=1$。よって $S_{\rm loc}^{\rm coarse}=2h(1/4)$ です。他方、$\rho_{\rm pure}$ では $S_{\rm fine}=0$、$\rho_{\rm class}$ では $S_{\rm fine}=h(1/4)$、$\rho_{\rm prod}$ では $S_{\rm fine}=2h(1/4)$。この例は同じ局所値から粗視化値は同じでも、精細値は変わることを実際に示しています。
+**定義の確認**：第2節で $q=1/4$、$\beta\varepsilon=\log3$ とすれば、三つの全体状態のいずれも周辺状態は $\gamma=\operatorname{diag}(3/4,1/4)$ です。定義が要求するのは、**この二つの周辺状態を保つ積状態**を作り、そのエントロピーを求めることです。計算基底 $|00\rangle,|01\rangle,|10\rangle,|11\rangle$ では
+
+$$
+\sigma_{\rm loc}=\gamma\otimes\gamma
+=\operatorname{diag}\left(\frac9{16},\frac3{16},\frac3{16},\frac1{16}\right).
+$$
+
+対角成分は積の固有値で、すべて非負、和は $(9+3+3+1)/16=1$ です。従って $\sigma_{\rm loc}$ が正半定値・跡1の状態であることも確認できました。[エントロピーのテンソル積加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)をこの積へ適用すると
+
+$$
+S_{\rm loc}^{\rm coarse}=S(\gamma\otimes\gamma)
+=S(\gamma)+S(\gamma)=2h(1/4).
+$$
+
+他方、三つの全体状態の精細エントロピーは
+
+$$
+S_{\rm fine}(\rho_{\rm pure})=0,\qquad
+S_{\rm fine}(\rho_{\rm class})=h(1/4),\qquad
+S_{\rm fine}(\rho_{\rm prod})=2h(1/4)
+$$
+
+です。同じ局所値から粗視化値は同じでも、精細値は変わることを確認できました。
 <!-- definition-example-end -->
 
 どの縮約情報を残すかを変更すると、粗視化の定義自体が変わります。例えば対 $(R_1R_2)$ の**共同**密度行列まで保持する場合は、単一モードだけの積基準とは異なる条件になります。この意味で「粗視化エントロピー」は、何を捨てたかの指定なしには一意の量ではありません。
@@ -135,7 +173,7 @@ $$
 
 ### 証明の見取り図
 
-一モードを加えるたびに $S(R_1\cdots R_{j-1})+S(R_j)-S(R_1\cdots R_j)$ を差し引きます。中間の共同エントロピーが望ましい形で相殺され、各差は部分加法性によって非負です。等号の議論では、二部状態が積状態となるための条件を各段階で使います。
+一モードを加えるたびに $S(R_1\cdots R_{j-1})+S(R_j)-S(R_1\cdots R_j)$ を差し引きます。中間の共同エントロピーが望ましい形で相殺され、各差は[QINF18の部分加法性と等号条件](../../../応用系/QINF/QINF18/index.md#thm-qinf18-subadditivity)によって非負です。等号の議論では、二部状態が積状態となるための条件を各段階で使います。
 
 <!-- proof-start -->
 ### 証明
@@ -187,7 +225,16 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi5-thermal-reference -->
-**定義の確認**： $H_i=\varepsilon|1\rangle\langle1|$、$\beta_i\varepsilon=\log3$ の場合、$Z_i=1+e^{-\log3}=4/3>0$、$\gamma_i=\operatorname{diag}(3/4,1/4)$ です。$\operatorname{Tr}(\gamma_iH_i)=\varepsilon/4$ なので
+**定義の確認**：$H_i=\varepsilon|1\rangle\langle1|$、$\beta_i\varepsilon=\log3$ とします。エネルギー固有基底 $|0\rangle,|1\rangle$ で $H_i=\operatorname{diag}(0,\varepsilon)$ です。[二準位Gibbs表示の導出](../BHI2/index.md#prop-bhi2-gibbs)と同じく、指数行列は各固有値を指数化して
+
+$$
+e^{-\beta_iH_i}=\operatorname{diag}(1,1/3),\qquad
+Z_i=\operatorname{Tr}e^{-\beta_iH_i}=\frac43>0,
+\qquad
+\gamma_i=\operatorname{diag}(3/4,1/4).
+$$
+
+両固有値は正で和1なので、$\gamma_i$ は正定値・跡1という参照状態の条件を満たします。さらに $\operatorname{Tr}(\gamma_iH_i)=0\cdot3/4+\varepsilon\cdot1/4=\varepsilon/4$ です。定義式に代入すると
 
 $$
 S(\gamma_i)=\frac14\log3+\log\frac43
@@ -230,17 +277,28 @@ S_{\rm thermal}^{\rm ref}(R)-S_{\rm fine}(R)
 }
 $$
 
-> $D$ は[量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)。左側の等号成立には、実状態が $\rho_R=\bigotimes_i\gamma_i$ であることが必要十分である。
+> $D$ は[量子相対エントロピー](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)を第1節の通り自然対数に換算した量である。それぞれの不等式の等号条件は
+
+$$
+\begin{aligned}
+S_{\rm fine}=S_{\rm loc}^{\rm coarse}
+&\iff \rho_R=\bigotimes_i\rho_{R_i},\\
+S_{\rm loc}^{\rm coarse}=S_{\rm thermal}^{\rm ref}
+&\iff \rho_{R_i}=\gamma_i\quad(\text{全 }i)
+\end{aligned}
+$$
+
+> である。従って**両端のエントロピーが一致する**ための必要十分条件は $\rho_R=\bigotimes_i\gamma_i$ である。
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
 
-最初の不等式は第3節で証明済みです。次は「Gibbs状態が、同じエネルギーの状態の中でエントロピーを最大化する」を相対エントロピーから式で確かめます。差を二つに分けると、相関を忘れた分と局所状態を熱平衡へ置き換えた分が明瞭になります。
+最初の不等式は第3節の[相関欠損の定理](#thm-bhi5-correlation-gap)で証明済みです。次は「Gibbs状態が、同じエネルギーの状態の中でエントロピーを最大化する」を[QINF20の相対エントロピーの非負性](../../../応用系/QINF/QINF20/index.md#prop-qinf20-nonnegative)から式で確かめます。差を二つに分けると、相関を忘れた分と局所状態を熱平衡へ置き換えた分が明瞭になります。
 
 <!-- proof-start -->
 ### 証明
 
-各 $\gamma_i$ は正定値なので、$\rho_{R_i}$ に零固有値があっても相対エントロピーは有限です。$\log\gamma_i=-\beta_iH_i-\log Z_i\,\mathbf 1$ を[相対エントロピーの定義](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)へ代入すると
+各 $\gamma_i$ は正定値なので、$\rho_{R_i}$ に零固有値があっても相対エントロピーは有限です。第1節で単位を換算した[相対エントロピーの定義](../../../応用系/QINF/QINF20/index.md#def-qinf20-relative-entropy)を使います。$\gamma_i=Z_i^{-1}e^{-\beta_iH_i}$ から、$H_i$ の固有基底ごとに対数を取れば $\log\gamma_i=-\beta_iH_i-\log Z_i\,\mathbf 1$ なので、
 
 $$
 \begin{aligned}
@@ -286,7 +344,7 @@ $$
 
 最初の式は、$X\otimes X|\Psi_q\rangle=\sqrt{1-q}|11\rangle+\sqrt q|00\rangle$ を左の状態に内積させれば得られます。他の二状態は計算基底で対角的であり、$X\otimes X$ の対角成分は零です。**単一モードの熱スペクトルから、多モード相関を復元することはできません。**
 
-また、各周辺状態を掛け合わせる割当ては、時間発展でも物理的雑音でもありません。例えば $\rho_0=|00\rangle\langle00|$ と $\rho_1=|11\rangle\langle11|$ はどちらも積状態なので、それぞれの局所積基準は元の状態です。しかし $\rho=(\rho_0+\rho_1)/2$ の局所積基準は $I_4/4$ となり、$\rho$ とは異なります。これは割当ての非線形性を直接示します。
+また、各周辺状態を掛け合わせる割当ては、時間発展でも物理的雑音でもありません。以下で $I_d$ は $d$ 次元の単位行列とします。例えば $\rho_0=|00\rangle\langle00|$ と $\rho_1=|11\rangle\langle11|$ はどちらも積状態なので、それぞれの局所積基準は元の状態です。しかし $\rho=(\rho_0+\rho_1)/2$ の局所積基準は $I_4/4$ となり、$\rho$ とは異なります。これは割当ての非線形性を直接示します。
 
 この区別は[BHI3の局所混合と非単調性の命題](../BHI3/index.md#prop-bhi3-local-global-nonmonotone)に現れた論理を、相互情報量で定量化するものです。**相関は観測対象を増やしたときに初めて見える**のであって、局所スペクトルの熱性が崩れる必要はありません。
 
@@ -444,7 +502,7 @@ $0<q<1/2$、$0\le\lambda\le1$ とし、第2節の $\rho_{\rm pure}$、$\rho_{\rm
 <!-- solution-start -->
 **詳細解答**
 
-両状態の縮約はともに $\gamma$ であり、部分トレースは線形なので $\rho_{\lambda,A}=\rho_{\lambda,B}=\gamma$ です。従って局所粗視化値は常に $2h(q)$。
+両状態の縮約はともに $\gamma$ であり、[部分トレースの線形性](../../../応用系/QINF/QINF3/index.md#prop-qinf3-state-product)により $\rho_{\lambda,A}=\rho_{\lambda,B}=\gamma$ です。従って局所粗視化値は常に $2h(q)$。
 
 $\rho_\lambda$ は $|00\rangle,|11\rangle$ の張る二次元部分空間に台を持ち、その基底での行列は
 
@@ -474,7 +532,20 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-$\gamma$ の平均エネルギーは $(0+\varepsilon+2\varepsilon)/3=\varepsilon$。$\rho$ では $0\cdot1/2+\varepsilon\cdot0+2\varepsilon\cdot1/2=\varepsilon$ で一致します。$\gamma$ は三つの固有値が $1/3$ なので $S(\gamma)=\log3$、$\rho$ の非零固有値は $1/2$ が二つなので $S(\rho)=\log2$。
+同じエネルギー固有基底で両状態が対角なので、平均エネルギーは対角成分とエネルギー固有値の積の和です。
+
+$$
+E_\gamma=\frac{0+\varepsilon+2\varepsilon}{3}=\varepsilon,\qquad
+E_\rho=0\cdot\frac12+\varepsilon\cdot0+2\varepsilon\cdot\frac12=\varepsilon.
+$$
+
+また、$\gamma$ の固有値は $1/3$ が三つ、$\rho$ の非零固有値は $1/2$ が二つなので
+
+$$
+S(\gamma)=\log3,\qquad S(\rho)=\log2
+$$
+
+です。
 
 $\gamma$ は正定値、$\log\gamma=-(\log3)I_3$ ですから
 
@@ -496,11 +567,20 @@ $A$ は三準位、$B$ は二準位とする。$H_A=\operatorname{diag}(0,\varep
 <!-- solution-start -->
 **詳細解答**
 
-参照状態は $\gamma_A=I_3/3$、$\gamma_B=I_2/2$。$A$ の平均エネルギーは実状態も参照状態も $\varepsilon$、$B$ はどちらも $\varepsilon/2$ です。固有値から $S(\rho_A)=\log2$、$S(\rho_B)=\log2$、$S(\gamma_A)=\log3$、$S(\gamma_B)=\log2$ と求まります。
+参照逆温度が零なので $\gamma_A=I_3/3$、$\gamma_B=I_2/2$ です。$A$ の平均エネルギーは実状態も参照状態も $\varepsilon$、$B$ はどちらも $\varepsilon/2$ で、命題のエネルギー一致条件が成立します。対角行列の固有値から
+
+$$
+\begin{aligned}
+S(\rho_A)&=\log2,&S(\rho_B)&=\log2,\\
+S(\gamma_A)&=\log3,&S(\gamma_B)&=\log2
+\end{aligned}
+$$
+
+と求まります。
 
 実状態は積なので[テンソル積加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)から $S_{\rm fine}(AB)=2\log2$、定義から $S_{\rm loc}^{\rm coarse}(AB)=2\log2$、熱的参照値は $S_{\rm thermal}^{\rm ref}=\log3+\log2$ です。
 
-従って $\Delta_{\rm corr}=0$。一方 $D(\rho_A\Vert\gamma_A)=\log(3/2)$ は前問の計算、$D(\rho_B\Vert\gamma_B)=0$ なので和は $\log(3/2)$。実際
+従って $\Delta_{\rm corr}=0$。一方 $D(\rho_A\Vert\gamma_A)=\log(3/2)$ は[前問の計算](#ex-bhi5-b03)より、$D(\rho_B\Vert\gamma_B)=0$ なので和は $\log(3/2)$。実際
 
 $$
 (\log3+\log2)-2\log2
