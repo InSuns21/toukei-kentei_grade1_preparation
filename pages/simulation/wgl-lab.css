@@ -136,3 +136,5 @@ main{max-width:1120px}
 .visual-guide-actions button:hover{background:#fff}
 .visual-guide-note{font-size:.83rem;color:#bcdbe9!important;margin:0!important}
 @media(max-width:650px){.visual-guide-steps{grid-template-columns:1fr}.visual-lesson-guide{padding:15px}}
+
+.visual-snapshot-note{background:#e7f4fb;color:#153b54;border-left:4px solid #247ba8;border-radius:5px;padding:10px 13px;font-size:.89rem;margin:9px 0 12px}
