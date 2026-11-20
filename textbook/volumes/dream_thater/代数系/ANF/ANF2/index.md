@@ -214,7 +214,7 @@ B(u,v)=\sum_{i,j}s_it_j\operatorname{Tr}(\beta_i\beta_j)
 =s^{\mathsf T}G_\beta t.
 $$
 
-従って行列の各成分は基底元どうしの積の跡を表し、$\det G_\beta\ne0$ はこの形式の非退化性を行列で判定する条件です。実際、$G_\beta$ は対称行列なので $G_\beta s=0$ と $B(u,v)=0$ が全ての $v$ について成立することは同値であり、この対応は[ANF1 の非退化性と跡行列の証明](../ANF1/index.md#lem-anf1-integral-trace)でも確かめられます。
+従って行列の各成分は基底元どうしの積の跡を表し、$\det G_\beta\ne0$ はこの形式の非退化性を行列で判定する条件です。実際、$K$ の積は可換だから $\operatorname{Tr}(\beta_i\beta_j)=\operatorname{Tr}(\beta_j\beta_i)$ で $G_\beta$ は対称行列です。そのため $G_\beta s=0$ と $B(u,v)=0$ が全ての $v$ について成立することは同値であり、この対応は[ANF1 の非退化性と跡行列の証明](../ANF1/index.md#lem-anf1-integral-trace)でも確かめられます。
 
 定義だけでは複雑に見えますが、各列の係数を追う必要はありません。二次体 $K=\mathbb Q(\sqrt2)$ の基底 $(1,\sqrt2)$ を使えば
 
@@ -281,7 +281,7 @@ $$
 
 ### 複素埋め込みで判別式を見る
 
-$V=(\sigma_i(\beta_j))_{1\le i,j\le n}$ と置くと、[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)から
+第 $i$ 行に埋め込み $\sigma_i$ による基底元 $\beta_1,\ldots,\beta_n$ の像を並べた行列 $V=(\sigma_i(\beta_j))_{1\le i,j\le n}$ と置くと、[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)から
 
 $$
 (G_\beta)_{jk}=\sum_i\sigma_i(\beta_j)\sigma_i(\beta_k)
@@ -384,7 +384,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$\omega=(\omega_1,\ldots,\omega_n)$ を $\mathcal O_K$ の整数基底とします。$\beta_j$ は整なので $\beta_j=\sum_i\omega_i a_{ij}$ と一意に書け、$A=(a_{ij})\in M_n(\mathbb Z)$ です。$\beta$ が $\mathbb Q$ 基底だから $\det A\ne0$。ここで $M_n(\mathbb Z)$ は $n$ 次の整数成分行列全体です。整数基底を座標系とすれば
+$\omega=(\omega_1,\ldots,\omega_n)$ を $\mathcal O_K$ の整数基底とします。$\beta_j$ は整なので $\beta_j=\sum_i\omega_i a_{ij}$ と一意に書け、$A=(a_{ij})$ は $n$ 次の整数成分行列です。$\beta$ が $\mathbb Q$ 基底だから $\det A\ne0$。整数基底を座標系とすれば
 
 $$
 \mathcal O_K/L\simeq\mathbb Z^n/A\mathbb Z^n.
