@@ -2,7 +2,7 @@
 
 [ANF1](../ANF1/index.md) では、数体の整数環が有限個の整数基底を持つことを示しました。証明に用いた[跡形式](../ANF1/index.md#def-anf1-trace-pairing)は、元を掛ける線形写像の行列から定まりました。しかし整数基底を変えると行列も変わります。体そのものに固有の数値を、そこからどう取り出せるのでしょうか。
 
-本講では、まず体の元の**跡**と**ノルム**を複素数への埋め込みから計算します。次に跡形式の行列式を**判別式**と呼び、基底の取り換えでどのように変わるかを証明します。この二つを合わせると、「整な元を並べた基底候補が、整数環全体の基底か」という問いを数値で検査できます。
+本講では、まず体の元の**トレース**と**ノルム**を複素数への埋め込みから計算します。次に跡形式の行列式を**判別式**と呼び、基底の取り換えでどのように変わるかを証明します。この二つを合わせると、「整な元を並べた基底候補が、整数環全体の基底か」という問いを数値で検査できます。
 
 以下、$K/\mathbb Q$ は次数 $n\ge1$ の数体、$\mathcal O_K$ は[整数環](../ANF1/index.md#def-anf1-ring-of-integers)です。$\mathbb C$ の中に $K$ を一つ埋め込んで考えます（任意の数体は、その元を順に代数方程式の複素根へ送ることで埋め込めます）。[体の埋め込み](../../FLD/FLD2/index.md#def-fld2-f-map)とは、$1$ と和・積を保つ単射であり、ここでは $\mathbb Q$ の各元を固定します。
 
@@ -118,7 +118,7 @@ $\mathbb Q(x)$ の埋め込みは $x\mapsto\alpha_j$ の $d$ 通りです。(1) 
 <!-- proof-start -->
 ### 証明
 
-$\mu_{x+y}=\mu_x+\mu_y$ および $\mu_{qx}=q\mu_x$ なので行列の対角和から跡の線形性が従います。$\mu_{xy}=\mu_x\circ\mu_y$ なので、行列式の積の公式から $N(xy)=N(x)N(y)$ です。$\mu_q=qI_n$ だから跡は $nq$、ノルムは $q^n$ です。
+$\mu_{x+y}=\mu_x+\mu_y$ および $\mu_{qx}=q\mu_x$ なので行列の対角和から跡の線形性が従います。$\mu_{xy}=\mu_x\circ\mu_y$ なので、行列式は $\det(AB)=\det(A)\det(B)$ を満たすので $N(xy)=N(x)N(y)$ です。$\mu_q=qI_n$ だから跡は $nq$、ノルムは $q^n$ です。
 
 $x\in\mathcal O_K$ なら[ANF1 の最小多項式による整性判定](../ANF1/index.md#thm-anf1-minimal-polynomial)から $m_x(T)\in\mathbb Z[T]$ です。前定理の係数公式
 
@@ -237,12 +237,12 @@ $$
 > さらに $\operatorname{disc}(\beta)\ne0$ である。
 <!-- formal-statement-end -->
 
-**証明の見取り図。** 二つの変数を持つ跡形式の各変数に基底変換を一度ずつ代入すると、行列の左右から $A$ が現れます。非零性は跡形式の非退化性によります。
+**証明の見取り図。** 二つの変数を持つ跡形式の各変数で基底を一度ずつ取り換えると、行列の左右から $A$ が現れます。非零性は跡形式の非退化性によります。
 
 <!-- proof-start -->
 ### 証明
 
-跡の線形性と積の分配法則を使い、$j,k$ 成分を直接展開すると
+跡の線形性で和を分け、積を展開して、$j,k$ 成分を直接展開すると
 
 $$
 \begin{aligned}
@@ -261,7 +261,7 @@ $$
 
 ### 複素埋め込みで判別式を見る
 
-$V=(\sigma_i(\beta_j))_{1\le i,j\le n}$ と置くと、[埋め込みによる跡の公式](#thm-anf2-embedding-formulas)から
+$V=(\sigma_i(\beta_j))_{1\le i,j\le n}$ と置くと、[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)から
 
 $$
 (G_\beta)_{jk}=\sum_i\sigma_i(\beta_j)\sigma_i(\beta_k)
@@ -314,7 +314,7 @@ $$
 
 ## 3. 整数基底から体の判別式へ
 
-[ANF1 の整数基底定理](../ANF1/index.md#thm-anf1-integral-basis)により、$\mathcal O_K$ には階数 $n$ の $\mathbb Z$ 基底が存在します。二つの整数基底は互いに整数行列で変換でき、逆変換も整数行列です。従って変換行列の行列式は $\pm1$ となり、判別式は一致します。これによって**体に固有の整数**を定義できます。
+[整数環の有限生成性と整数基底](../ANF1/index.md#thm-anf1-integral-basis)により、$\mathcal O_K$ には階数 $n$ の $\mathbb Z$ 基底が存在します。二つの整数基底は互いに整数行列で変換でき、逆変換も整数行列です。従って変換行列の行列式は $\pm1$ となり、判別式は一致します。これによって**体に固有の整数**を定義できます。
 
 <a id="def-anf2-field-discriminant"></a>
 
@@ -329,10 +329,18 @@ $$
 > を $K$ の**判別式**という。これは整数基底の選択によらない、零でない整数である。
 <!-- formal-statement-end -->
 
-最後の主張の理由も確認します。別の整数基底 $\omega'$ に対する行列 $U$ と逆行列 $U^{-1}$ はともに整数成分を持つので、$\det U,\det(U^{-1})$ は整数で積が $1$。したがって $\det U=\pm1$ であり、[基底変換則](#thm-anf2-basis-change)から判別式は等しくなります。また $\omega_i\omega_j\in\mathcal O_K$ なので [整数の跡](../ANF1/index.md#lem-anf1-integral-trace)は整数、よって $G_\omega$ の全成分が整数です。その行列式 $D_K$ も整数で、非零性は基底変換則の定理で確かめました。
+最後の主張を確認します。別の整数基底 $\omega'$ への変換行列 $U$ は整数成分を持ち、逆変換行列 $U^{-1}$ も整数成分を持ちます。従って二つの行列式は整数で、
+
+$$
+\det U\cdot\det(U^{-1})=1,\qquad \det U=\pm1
+$$
+
+です。[判別式の基底変換則](#thm-anf2-basis-change)を適用すると、二つの整数基底から求めた判別式は等しくなります。
+
+また整数基底の積 $\omega_i\omega_j$ は整数環に属します。[整数の跡の補題](../ANF1/index.md#lem-anf1-integral-trace)によって各 $\operatorname{Tr}(\omega_i\omega_j)$ は整数です。従って跡行列 $G_\omega$ の全成分と、その行列式 $D_K$ は整数です。非零性は[判別式の基底変換則](#thm-anf2-basis-change)の証明で確認しました。
 
 <!-- definition-example-start: def-anf2-field-discriminant -->
-**定義の確認**：$K=\mathbb Q(\sqrt2)$ では [二次体整数環の定理](../ANF1/index.md#thm-anf1-quadratic-integers)から $(1,\sqrt2)$ が整数基底です。すでに $\operatorname{disc}(1,\sqrt2)=8$ と計算しました。従ってこれは単なる基底の判別式にとどまらず、$D_K=8$ です。対して $(1,3\sqrt2)$ は整数環を生成しないため、$72$ を $D_K$ と呼ぶことはできません。
+**定義の確認**：$K=\mathbb Q(\sqrt2)$ では [二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)から $(1,\sqrt2)$ が整数基底です。すでに $\operatorname{disc}(1,\sqrt2)=8$ と計算しました。従ってこれは単なる基底の判別式にとどまらず、$D_K=8$ です。対して $(1,3\sqrt2)$ は整数環を生成しないため、$72$ を $D_K$ と呼ぶことはできません。
 <!-- definition-example-end -->
 
 **整数基底でない整な基底**の判別式がどれだけ大きくなるかには、正確な法則があります。整数基底 $\omega$ に対して整数係数で張られる部分加群 $L=\mathbb Z\beta_1+\cdots+\mathbb Z\beta_n\subseteq\mathcal O_K$ を考えます。$\beta$ は $\mathbb Q$ 基底とし、商加法群 $\mathcal O_K/L$ の元の個数（有限）を指数 $[\mathcal O_K:L]$ と書きます。
@@ -383,7 +391,7 @@ $D_K\ne0$ なので二つの判別式が等しいのは指数が $1$ のとき�
 
 ## 4. 二次体の判別式を求める
 
-平方自由整数 $d\ne0,1$ と $K=\mathbb Q(\sqrt d)$ を取ります。[ANF1 の二次体整数環定理](../ANF1/index.md#thm-anf1-quadratic-integers)により整数基底は $d\bmod4$ で二種類でした。これを跡行列へ代入します。
+平方自由整数 $d\ne0,1$ と $K=\mathbb Q(\sqrt d)$ を取ります。[二次体の整数環](../ANF1/index.md#thm-anf1-quadratic-integers)により整数基底は $d\bmod4$ で二種類でした。これを跡行列へ代入します。
 
 <a id="thm-anf2-quadratic-discriminant"></a>
 
@@ -405,7 +413,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-二つの埋め込みは $a+b\sqrt d$ を $a\pm b\sqrt d$ に送るので、[埋め込みによる公式](#thm-anf2-embedding-formulas)から $\operatorname{Tr}(a+b\sqrt d)=2a$ です。
+二つの埋め込みは $a+b\sqrt d$ を $a\pm b\sqrt d$ に送るので、[埋め込みによる跡・ノルムの公式](#thm-anf2-embedding-formulas)から $\operatorname{Tr}(a+b\sqrt d)=2a$ です。
 
 $d\equiv2,3\pmod4$ の場合、整数基底は $(1,\sqrt d)$ で、
 
