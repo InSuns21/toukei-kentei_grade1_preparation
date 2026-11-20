@@ -136,7 +136,7 @@ if(typeof window!=='undefined'&&typeof requestAnimationFrame==='function'){
   note.style.cssText='display:block;color:#c8eaff;margin:5px 0;font:13px system-ui';
   canvas.insertAdjacentElement('afterend',note);
   function paintEnvironment(){
-    const animated=playing ? 0.85*Math.sin(phase) : 0;
+    const animated=0.85*Math.sin(phase); // preserve the exact frozen angle when paused
     const angle=originalAngle+offsetAngle+animated;
     gl.useProgram(program);gl.bindVertexArray(vao);
     gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_CUBE_MAP,env);
