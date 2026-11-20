@@ -255,7 +255,7 @@ export function mountSmokeObservation(parent){
   });
   function tick(now){
     raf=requestAnimationFrame(tick);
-    if(document.hidden||!playing){previous=now;return;}
+    if(document.hidden||!section.getClientRects().length||!playing){previous=now;return;}
     if(!previous)previous=now;
     const delta=clamp((now-previous)/1000,0,.05);
     if(delta<1/34)return;
