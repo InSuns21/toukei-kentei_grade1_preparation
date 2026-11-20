@@ -57,12 +57,12 @@ $$
 
 となる。正定値行列を $H=Q\operatorname{diag}(\lambda_1,\ldots,\lambda_d)Q^{\mathsf T}$（$Q^{\mathsf T}Q=I_d$、$\lambda_i>0$）と直交対角化する。$z\in\mathbb R^d$ を使って $x=Q\operatorname{diag}(\sqrt{T/\lambda_1},\ldots,\sqrt{T/\lambda_d})z$ と置く。この変換の微分行列は $Q\operatorname{diag}(\sqrt{T/\lambda_1},\ldots,\sqrt{T/\lambda_d})$ で、直交行列の $|\det Q|=1$ を使うと、
 
-$
+$$
 \frac{x^{\mathsf T}Hx}{2T}=\frac12\sum_{i=1}^d z_i^2,
 \qquad
 \left|\det\frac{\partial x}{\partial z}\right|
 =\frac{T^{d/2}}{\sqrt{\det H}}.
-$
+$$
 
 標準Gaussian積分とこのJacobianから上の $Z_T$ が得られる。さらに $z\sim N(0,I_d)$ をこの変換で写すと、$x$ の共分散は $Q\operatorname{diag}(T/\lambda_1,\ldots,T/\lambda_d)Q^{\mathsf T}=TH^{-1}$ である。
 
@@ -243,12 +243,12 @@ $$
 
 $C_\star$ の固有値は $3,1$ で正である。$H$ は既に標準基底で対角で、固有値は $\lambda_1=1,\lambda_2=2$ となる。[OUの連続Lyapunov方程式](../PML1-13/index.md#thm-pml1-13-ou-covariance) の $(i,j)$ 成分を取ると、
 
-$
+$$
 (H\Sigma+\Sigma H)_{ij}
 =(\lambda_i+\lambda_j)\Sigma_{ij}
 =\frac{\eta}{b}C_{\star,ij}
 \qquad (i,j\in\{1,2\})
-$
+$$
 
 となる。これは $H\Sigma$ では第 $i$ 行、$\Sigma H$ では第 $j$ 列へそれぞれ固有値が掛かるためである。$b=1$ を代入すると $\Sigma_{11}=\eta$、$\Sigma_{12}=\eta/3$、$\Sigma_{22}=\eta/2$ を得る。$D=\eta C_\star/(2b)$ と併せて表示すれば
 
