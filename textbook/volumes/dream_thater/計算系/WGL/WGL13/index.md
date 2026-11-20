@@ -363,6 +363,8 @@ $$
 
 この教材では編集可能なJSが2×2の自作RGBA8画像を6面すべてに upload します。fragment GLSLでは前半球の法線と[鏡面反射ベクトル](#def-wgl13-reflection)を求め、方向の回転後に samplerCube を読みます。キャンバス最下行の左12画素は別の検算モードで、環境の回転やFresnelを**一切適用せず**、6軸中心と6面の斜め方向の生のtexel値を出力します。
 
+**反射方向を動かして継ぎ目を確かめる。** 実行すると、6面のRGBA8テクスチャと12個の固定方向の生画素をCPU/GPUで照合してから、**編集した同じ `environment.js` と `environment.frag`** で環境参照のY軸回転角を連続変化させる。球の法線や視点を回すのではなく、反射ベクトルをキューブマップに渡す直前の**参照方向**だけを回す。Space/Enterで一時停止・再生、左右矢印で10度ずつ調整、Shift＋ドラッグ（タッチの場合ドラッグ）で角度を直接変更できる。角度操作中は自動再生を止め、再開はSpace/Enterとする。12画素の検算は環境回転を加えない**元の6面の方向・テクセル検査**であり、動的な球面反射の全画素の検算結果ではない。面の急な色変化は元画像の面ごとの配色と最近傍参照によるもので、滑らかな現実の反射を実現したとはみなさない。
+
 <iframe src="simulation/wgl-lab.html?lesson=WGL13" title="WGL13 6面環境マップ・反射方向・JavaScriptとGLSL編集ラボ" loading="lazy" style="width:100%;height:980px;border:1px solid #64748b;border-radius:7px;" allow="fullscreen"></iframe>
 
 試す順序は次のとおりです。
