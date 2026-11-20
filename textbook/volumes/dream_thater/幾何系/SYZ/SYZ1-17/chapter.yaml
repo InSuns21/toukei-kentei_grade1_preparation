@@ -1,0 +1,49 @@
+id: "SYZ1-17"
+title: "Gross–Siebertとトロピカル退化"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-16
+official_scope: []
+learning_objectives:
+  - 特異整数アフィン空間の正則部と整数接格子を定義し節点モノドロミーによる延長の障害を説明できる
+  - 整数多面体分割の被覆・共通面・整数性を具体的な扇形で判定できる
+  - 整数区分線形ポテンシャルの折れ目と局所離散Legendre双対を定義し双対三角形と凸共役を証明できる
+  - 整数アフィン項を加えた場合の双対多面体の平行移動と凸共役の変換を導ける
+  - xy=tの局所トーリック退化の平坦性と一般・中心ファイバーを単項式基底から証明できる
+  - t進の壁越え変換の非可換性と二次の散乱補正の可逆性・整合性を検算できる
+  - Gross–Siebert再構成定理のpositive/simple等の追加条件と代数的構成の結論を幾何的SYZ予想と区別できる
+definitions:
+  - { id: SYZ1-17-DEF-01, name: "特異点を持つ整数アフィン空間" }
+  - { id: SYZ1-17-DEF-02, name: "整数多面体分割" }
+  - { id: SYZ1-17-DEF-03, name: "整数区分線形関数と折れ目" }
+  - { id: SYZ1-17-DEF-04, name: "凸区分線形関数の局所離散Legendre双対" }
+  - { id: SYZ1-17-DEF-05, name: "局所トーリック退化模型" }
+  - { id: SYZ1-17-DEF-06, name: "形式的な壁の次数別整合性" }
+theorems:
+  - { id: SYZ1-17-PROP-01, name: "三扇形の離散双対三角形" }
+  - { id: SYZ1-17-PROP-02, name: "整数アフィン項の追加と双対多面体" }
+  - { id: SYZ1-17-PROP-03, name: "xy=tの平坦性と局所的な交叉" }
+  - { id: SYZ1-17-PROP-04, name: "二次の散乱壁による整合" }
+  - { id: SYZ1-17-THM-01, name: "Gross–Siebert再構成定理の適用範囲・外部入力" }
+canonical_examples:
+  - 正則平面と非自明なshearモノドロミー
+  - 三扇形の整数多面体分割と三角形の双対
+  - 一次元の折れ目と区間を台とする凸共役
+  - xy=tの座標環の自由加群基底と平坦性
+  - t進二壁の順序差と二次散乱補正
+problem_patterns:
+  - SYZ1-17-INTEGRAL-AFFINE-CHANGE
+  - SYZ1-17-PL-KINK-SIGN
+  - SYZ1-17-ONE-DUAL-INTERVAL
+  - SYZ1-17-DEGENERATION-FIBERS
+  - SYZ1-17-TADIC-ORDER
+  - SYZ1-17-TRIANGLE-CONJUGATE
+  - SYZ1-17-AFFINE-SHIFT
+  - SYZ1-17-SCATTERING-INVERSE
+  - SYZ1-17-TORIC-RECONSTRUCTION-ASSUMPTIONS
+  - SYZ1-17-INTEGRATED-DUAL-SCATTERING
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 9, exercises: 11, review: 4 }
