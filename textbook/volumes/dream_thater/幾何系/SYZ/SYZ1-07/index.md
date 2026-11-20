@@ -145,6 +145,8 @@ $$
 > を対応させる。その像を $\Lambda_b\subset T_b^*B_0$ とし、周期余接格子と呼ぶ。$\Lambda_b$ は階数 $n$ の整数格子（$\mathbb Z$ 加群）であり、単なる実ベクトル空間 $T_b^*B_0$ とは区別する。
 <!-- formal-statement-end -->
 
+この定義は座標の取り方にも依らない。実際、$\xi\in T_b^*B_0$ に対し $df_b=\xi$ となる基底関数 $f$ を選び、$X_{f\circ\pi}$ のファイバー上の時間1流が恒等となる $\xi$ 全体を取れば、同じ $\Lambda_b$ が得られる。$df_b$ の値が同じ二つの $f$ はファイバー上で同じHamilton場を定める。基底座標で $\xi=\sum_i t_i\,db^i$ と展開すれば $X_{f\circ\pi}=\sum_i t_iX_i$ なので、上の時間周期の式と一致する。
+
 <!-- definition-example-start: def-syz1-07-period-cotangent -->
 ### 直接例：角度の速さが変わる円筒
 
@@ -232,7 +234,26 @@ $$
 dI_a=\beta_a
 $$
 
-と書ける（$I_a$ は加法定数を除いて定まる）。$n\times n$ 行列 $(t_i^{(a)})$ は格子基底だから可逆であり、$dI_1,\ldots,dI_n$ は独立である。従って $I=(I_1,\ldots,I_n)$ 自身が基底の局所座標になる。この $I_a$ が、次の命題における**作用座標**である。
+と書ける（$I_a$ は加法定数を除いて定まる）。$n\times n$ 行列 $(t_i^{(a)})$ は格子基底だから可逆であり、$dI_1,\ldots,dI_n$ は独立である。従って $I=(I_1,\ldots,I_n)$ 自身が基底の局所座標になる。このように周期格子の基底を微分に持つ局所座標が、次の定義の対象である。
+
+<a id="def-syz1-07-action-chart"></a>
+
+<!-- formal-statement-start -->
+> **定義（周期格子から定まる作用座標）**  
+> 滑らかなLagrangeトーラス束の連結な局所基底 $U$ において、周期余接格子 $\Lambda_b$ の滑らかな整数基底 $\beta_1,\ldots,\beta_n$ を選ぶ。実数値関数 $I_1,\ldots,I_n$ が
+
+$
+dI_a=\beta_a,\qquad a=1,\ldots,n
+$
+
+> を満たすとき、$I=(I_1,\ldots,I_n)$ をこの格子基底に関する作用座標と呼ぶ。加法定数の選択と $GL(n,\mathbb Z)$ による整数基底変更は許すが、任意の実線形座標変換を同じ周期格子の座標変更とはみなさない。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-syz1-07-action-chart -->
+### 直接例：変速円周の作用座標を再判定する
+
+第4節の円筒では $\Lambda_b=\mathbb Z(b\,db)$。$I=b^2/2$ は $dI=b\,db$ であり、$dI/db=b>0$ なので局所座標である。$I'=2I$ も通常の実座標にはなるが、$dI'=2b\,db$ は同じ格子の原始生成元ではない。$\mathbb Z(2b\,db)$ は元の周期格子の指数2の部分格子なので、**整数周期に基づく作用座標**の条件を満たさない。
+<!-- definition-example-end -->
 
 <a id="prop-syz1-07-action-coordinates"></a>
 
@@ -283,7 +304,29 @@ F(I,\vartheta)
 \varphi^{Y_n}_{\vartheta_n}(s(I))
 $$
 
-と置く。$\vartheta_a\in\mathbb R/\mathbb Z$ は**周期1の角変数**である（$2\pi$ 周期ではない）。この $F$ が $U\times T^n$ と $\pi^{-1}(U)$ の局所積表示を与える。
+と置く。各 $\vartheta_a$ は周期1であり（$2\pi$ 周期ではない）、次の意味で角変数になる。
+
+<a id="def-syz1-07-angle-chart"></a>
+
+<!-- formal-statement-start -->
+> **定義（周期1の角変数）**  
+> 上の作用座標 $I_a$ と、そのHamilton場 $Y_a=X_{I_a\circ\pi}$ に対し、各ファイバー上の円周値座標 $\vartheta=(\vartheta_1,\ldots,\vartheta_n)\in(\mathbb R/\mathbb Z)^n$ が
+
+$
+\vartheta(\varphi_t^{Y_a}(x))
+=\vartheta(x)+t e_a\pmod{\mathbb Z^n}
+$
+
+> を満たすとき、$\vartheta_a$ を周期1の角変数と呼ぶ。ここで $e_a$ は第 $a$ 標準基底である。角変数は切断の選択に依存して基底の関数だけ平行移動し得る。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-syz1-07-angle-chart -->
+### 直接例：円筒で流れの方向を確認する
+
+$M=(0,\infty)\times(\mathbb R/\mathbb Z)$、$\omega=b\,db\wedge d\vartheta$ とし、作用座標 $I=b^2/2$ を取る。$Y=X_I=bX_b=\partial_\vartheta$ なので $\varphi_t^Y(b,\vartheta)=(b,\vartheta+t)$ である。よって $\vartheta(\varphi_t^Y(x))=\vartheta(x)+t$、周期1の角変数の定義を満たす。$2\pi\vartheta$ をそのまま周期1の角変数と取り違えると時間1で $2\pi$ 増えるため定義を満たさない。
+<!-- definition-example-end -->
+
+この $F$ が $U\times T^n$ と $\pi^{-1}(U)$ の局所積表示を与える。
 
 角方向のベクトルは $F_*\partial_{\vartheta_a}=Y_a$。Hamilton符号を使うと
 
