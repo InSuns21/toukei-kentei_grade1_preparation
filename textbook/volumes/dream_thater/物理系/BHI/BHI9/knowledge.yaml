@@ -1,0 +1,48 @@
+chapter: BHI9
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI8, BHI6, BHI3, QINF19]
+forward_references: []
+concepts:
+  - id: black-hole-information.emission-step-increment
+    name: 外部放射の一歩増分
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（外部放射の一歩増分）]
+    requires: [quantum.conditional-entropy, black-hole-information.emission-entropy-increment]
+  - id: black-hole-information.entropy-small-pair-corrections
+    name: エントロピーによるsmall-corrections条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（エントロピーによるsmall-corrections条件）]
+    requires: [black-hole-information.horizon-pair-toy, quantum.von-neumann-entropy]
+  - id: black-hole-information.weak-monotonicity-emission
+    name: 内外対を使う弱単調性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（内外対を使う弱単調性）]
+    requires: [quantum.strong-subadditivity, quantum.entropy-pure-bipartite]
+  - id: black-hole-information.mathur-increment-bound
+    name: Mathur型small-correctionsの増分下界
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Mathur型small-correctionsの増分下界）]
+    requires: [black-hole-information.entropy-small-pair-corrections, black-hole-information.weak-monotonicity-emission]
+  - id: black-hole-information.trace-bell-corrections
+    name: Bell対に対するトレース距離補正
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Bell対に対するトレース距離補正）]
+    requires: [black-hole-information.horizon-pair-toy, quantum.partial-trace]
+  - id: black-hole-information.trace-small-increment-bound
+    name: トレース距離からの増分保証
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（トレース距離からの増分保証）]
+    requires: [black-hole-information.trace-bell-corrections, black-hole-information.weak-monotonicity-emission]
+  - id: black-hole-information.cumulative-small-corrections
+    name: 逐次小補正の累積下界と終期純粋性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（逐次小補正の累積下界と終期純粋性）]
+    requires: [black-hole-information.mathur-increment-bound, black-hole-information.pure-evaporation-entropy-budget]

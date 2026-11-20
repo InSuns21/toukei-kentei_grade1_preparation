@@ -12,6 +12,7 @@ import { highlightSource } from './wgl-lab-highlight.mjs';
 import {mountSmokeObservation} from './wgl-fcg-fluid-visual.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
+import {mountLabParameters} from './wgl-lab-parameters.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
@@ -104,6 +105,7 @@ const inputs = {
 };
 const tabs = ['conditions', 'code', 'result'];
 const defaults = {};
+let refreshParameterControls = () => {};
 let plateauSnapshot = null;
 let ready = false;
 let active = null;
@@ -227,7 +229,19 @@ function setSources(record) {
     if (typeof record[name] === 'string') inputs[name].value = record[name];
   }
   refreshSourceHighlights();
+  refreshParameterControls();
 }
+refreshParameterControls = mountLabParameters(lesson, byId('lab-parameters'), {
+  getSource: () => inputs.js.value,
+  setSource: value => {
+    inputs.js.value = value;
+    refreshSourceHighlights();
+    refreshParameterControls();
+  },
+  rerun: () => run(),
+  isReady: () => ready
+});
+inputs.js.addEventListener('input', refreshParameterControls);
 
 async function load() {
   try {
@@ -273,6 +287,7 @@ async function load() {
       byId('save-status').textContent = '保存状態を利用できません（初期ソースで続行）';
     }
     ready = true;
+    refreshParameterControls();
     setStatus('実行できます');
   } catch (error) {
     setStatus('教材ソースを読み込めません: ' + String(error.message), true);
@@ -1210,6 +1225,7 @@ byId('preset').addEventListener('change', event => {
     }
   }
   refreshSourceHighlights();
+  refreshParameterControls();
   selectTab('code');
 });
 if (isFCG8) {

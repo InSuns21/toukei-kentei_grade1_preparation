@@ -11,3 +11,4 @@
 8. [PML1-08 Langevin方程式に何のノイズが必要か](textbook/volumes/dream_thater/応用系/PML/PML1-08/index.md)
 9. [PML1-09 Gibbs密度が不変なのはどの条件か](textbook/volumes/dream_thater/応用系/PML/PML1-09/index.md)
 10. [PML1-10 不変分布と詳細釣合いは同じか](textbook/volumes/dream_thater/応用系/PML/PML1-10/index.md)
+11. [PML1-11 Langevinの数値離散化はどこで偏るか](textbook/volumes/dream_thater/応用系/PML/PML1-11/index.md)

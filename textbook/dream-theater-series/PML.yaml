@@ -47,7 +47,7 @@ chapters:
     title: "不変分布と詳細釣合いは同じか"
   - id: PML1-11
     path: textbook/volumes/dream_thater/応用系/PML/PML1-11
-    status: planned
+    status: completed
     title: "Langevinの数値離散化はどこで偏るか"
   - id: PML1-12
     path: textbook/volumes/dream_thater/応用系/PML/PML1-12

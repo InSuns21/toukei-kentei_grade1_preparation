@@ -43,7 +43,7 @@ chapters:
     title: "Page時刻の模型依存推定"
   - id: BHI9
     path: textbook/volumes/dream_thater/物理系/BHI/BHI9
-    status: planned
+    status: completed
     title: "Mathurのsmall-corrections制約"
   - id: BHI10
     path: textbook/volumes/dream_thater/物理系/BHI/BHI10
