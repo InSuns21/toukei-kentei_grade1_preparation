@@ -1021,6 +1021,19 @@ try{
     const shot18=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
     await writeFile('_wgl_browser_review/wgl18-diffusion.png',Buffer.from(shot18.data,'base64'));
     console.log('WGL18 2 ping-pong GPU steps, float CPU oracle, mass and 16 RGBA pixels: PASS');
+    // Check the ORIGINAL learner shader's dynamic pixels, not text changing in
+    // the separate host panel. The static 16 probes above precede live frames.
+    await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
+    const rect18=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
+    const clip18={...rect18,height:Math.min(165,rect18.height),scale:1};
+    await new Promise(ok=>setTimeout(ok,1090));
+    const live18a=await cdp('Page.captureScreenshot',{format:'png',clip:clip18,captureBeyondViewport:true});
+    await new Promise(ok=>setTimeout(ok,460));
+    const live18b=await cdp('Page.captureScreenshot',{format:'png',clip:clip18,captureBeyondViewport:true});
+    assert.notEqual(live18a.data,live18b.data,
+      'WGL18 editable fragment shader must evolve the displayed GPU texture, not merely host text');
+    await writeFile('_wgl_browser_review/wgl18-live-diffusion.png',Buffer.from(live18b.data,'base64'));
+    console.log('WGL18 same editable ping-pong texture evolves across real Chromium GPU frames: PASS');
     await evalJS("(()=>{const e=document.getElementById('js-source');e.value=e.value.replace('const steps = 2;', 'const steps = 1;');})()");
     await click('run');
     await waitFor('document.getElementById("status")?.textContent.match(/編集コードを実行しました|WebGL2実行エラー|タイムアウト|不一致/)',22000);
