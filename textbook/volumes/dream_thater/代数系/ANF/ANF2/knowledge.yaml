@@ -1,0 +1,72 @@
+chapter: ANF2
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - ANF1
+  - FLD2
+  - RNG4
+forward_references: []
+
+concepts:
+  - id: number-theory.field-norm
+    name: 数体のノルム
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（数体のノルム）"]
+    requires: [number-theory.field-trace-pairing]
+
+  - id: number-theory.trace-norm-embedding-formulas
+    name: 埋め込みによる跡・ノルムの公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.field-norm, number-theory.field-trace-pairing]
+
+  - id: number-theory.trace-norm-properties
+    name: 跡・ノルムの演算則と整性
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.trace-norm-embedding-formulas, number-theory.integral-minimal-polynomial]
+
+  - id: number-theory.unit-norm-criterion
+    name: 単元のノルム判定
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.trace-norm-properties, number-theory.ring-of-integers-closure]
+
+  - id: number-theory.basis-discriminant
+    name: 基底の判別式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（基底の判別式）"]
+    requires: [number-theory.field-trace-pairing]
+
+  - id: number-theory.discriminant-basis-change
+    name: 判別式の基底変換則
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.basis-discriminant, number-theory.integral-trace]
+
+  - id: number-theory.discriminant-sign
+    name: 判別式の符号
+    kind: proposition
+    introduction: formal
+    requires: [number-theory.discriminant-basis-change, number-theory.trace-norm-embedding-formulas]
+
+  - id: number-theory.field-discriminant
+    name: 数体の判別式
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（数体の判別式）"]
+    requires: [number-theory.discriminant-basis-change, number-theory.integral-basis]
+
+  - id: number-theory.discriminant-index
+    name: 判別式と指数の平方
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.field-discriminant, number-theory.discriminant-basis-change]
+
+  - id: number-theory.quadratic-field-discriminant
+    name: 二次体の判別式公式
+    kind: theorem
+    introduction: formal
+    requires: [number-theory.field-discriminant, number-theory.quadratic-integer-ring, number-theory.trace-norm-embedding-formulas]
