@@ -13,7 +13,7 @@ const chrome=[process.env.CHROME_BIN,'/usr/bin/google-chrome','/usr/bin/chromium
 assert.ok(chrome,'Chrome/Chromium required for FCG8 visual regression');
 const mime=p=>p.endsWith('.html')?'text/html; charset=utf-8':
   p.endsWith('.css')?'text/css; charset=utf-8':
-  /\\.(?:mjs|js)$/.test(p)?'text/javascript; charset=utf-8':'text/plain; charset=utf-8';
+  /\.(?:mjs|js)$/.test(p)?'text/javascript; charset=utf-8':'text/plain; charset=utf-8';
 const server=createServer(async(req,res)=>{
   try {
     const pathname=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);
@@ -35,7 +35,7 @@ try {
   let port;
   for(let k=0;k<300;k++){
     if(browser.exitCode!==null)throw Error('Chromium exited '+browser.exitCode);
-    try{port=Number((await readFile(join(profile,'DevToolsActivePort'),'utf8')).split('\\n')[0]);if(port)break;}catch{}
+    try{port=Number((await readFile(join(profile,'DevToolsActivePort'),'utf8')).split('\n')[0]);if(port)break;}catch{}
     await new Promise(ok=>setTimeout(ok,100));
   }
   assert.ok(port,'Chromium CDP port missing');
