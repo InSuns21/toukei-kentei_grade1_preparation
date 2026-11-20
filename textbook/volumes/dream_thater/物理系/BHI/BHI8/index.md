@@ -55,7 +55,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi8-entropy-ledger -->
-**定義の確認**（理想黒体の特別な模型）：$M_0=10$、$M_{\rm cut}=5$、$C>0$ として $dM/du=-C/M^2$ を使い、$\beta(M)=4/3$ を一定とします。$M^3=M_0^3-3C(u-u_0)$ なので $M$ は指定区間で微分可能、$M$ が5まで減る間は負の導関数を持ちます。$\beta$ は正の連続関数です。[BHI4の理想黒体に限った粗視化計算](../BHI4/index.md#prop-bhi4-horizon-entropy-rate)の後に示した $\dot S_{\rm rad}^{\rm coarse}=(4/3)(-\dot S_{\rm BH})$ をこの特例として採用すると、
+**定義の確認**（理想黒体の特別な模型）：$M_0=10$、$M_{\rm cut}=5$、$C>0$ として $dM/du=-C/M^2$ を使い、$\beta(M)=4/3$ を一定とします。質量三乗則から
+
+$$
+M(u)=\bigl(10^3-3C(u-u_0)\bigr)^{1/3},\qquad
+u_{\rm cut}=u_0+\frac{10^3-5^3}{3C}=u_0+\frac{875}{3C}.
+$$
+
+$u\in[u_0,u_{\rm cut}]$ では根号の中は $5^3$ 以上なので $5\le M(u)\le10$ です。端点で $M(u_0)=10$、$M(u_{\rm cut})=5$ が成り立ち、区間全体で $dM/du=-C/M^2<0$ かつ連続微分可能です。$\beta$ は正の連続関数です。[BHI4の理想黒体に限った粗視化計算](../BHI4/index.md#prop-bhi4-horizon-entropy-rate)の後に示した $\dot S_{\rm rad}^{\rm coarse}=(4/3)(-\dot S_{\rm BH})$ をこの特例として採用すると、
 
 $$
 S_{\rm rad}^{\rm coarse}(M)
@@ -117,7 +124,14 @@ S_{\rm rad}^{\rm coarse}(m)
 =4\pi M_0^2\frac47.
 $$
 
-両辺が一致します。また $\sqrt{4/7}\simeq0.75593>1/2=M_{\rm cut}/M_0$ なので、$M_0=10,M_{\rm cut}=5$ の**実際の指定区間内**に交点があります。初期時刻では粗視化放射が0、残存面積エントロピーが $4\pi M_0^2>0$ です。交点を数式で満たすことと、近似を使える区間内にあることを別々に確認しました。
+両辺が一致します。また $\sqrt{4/7}\simeq0.75593>1/2=M_{\rm cut}/M_0$ なので、$M_0=10,M_{\rm cut}=5$ の**実際の指定区間内**に交点があります。第2節で定めた質量軌道は厳密減少しているため、この質量に対応する時刻は
+
+$$
+u_{\rm P}=u_0+\frac{M_0^3-\bigl(M_0\sqrt{4/7}\bigr)^3}{3C}
+=u_0+\frac{M_0^3}{3C}\left[1-\left(\frac47\right)^{3/2}\right]
+$$
+
+と一意に定まり、$u_0<u_{\rm P}<u_{\rm cut}$ です。初期時刻では粗視化放射が0、残存面積エントロピーが $4\pi M_0^2>0$ です。交点を数式で満たすことと、近似を使える区間内にあることを別々に確認しました。
 <!-- definition-example-end -->
 
 次に、[BHI4の質量三乗則](../BHI4/index.md#thm-bhi4-fraction-time)の係数 $C>0$ と生成率比 $\beta>0$ を**ともに一定**とします。$\tau_{\rm formal}=M_0^3/(3C)$ は、質量零への形式外挿で得た時計であり、実際の蒸発寿命と断定しません。
