@@ -126,6 +126,25 @@ try {
   await waitFor('document.querySelector("#status")?.textContent.includes("独立画素検算に合格")',25000);
   console.log('FCG2 GLSL edit, shader error diagnosis and reset: PASS');
 
+  // Continuous playback must update the SAME editable GPU canvas, not cycle five images.
+  assert.ok(await evaluate('!!document.getElementById("fcg2-time-slider")'));
+  assert.match(await evaluate('document.querySelector("#fcg2-inspector")?.textContent'),/解析値 q/);
+  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="再生")).click()');
+  await waitFor('Number(document.querySelector("#fcg2-time-slider")?.value)>0.25',8000);
+  const live=await evaluate('({time:Number(document.querySelector("#fcg2-time-slider").value),q:document.querySelector("#fcg2-q").textContent,gpu:document.querySelector("#fcg2-gpu").textContent})');
+  assert.ok(live.time>0.25,JSON.stringify(live));
+  assert.ok(Number.isFinite(Number(live.q)),JSON.stringify(live));
+  assert.match(live.gpu,/\d+, \d+, \d+, 255/);
+  await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="一時停止")).click()');
+  await waitFor('document.querySelector("#fcg2-time-slider").disabled===false');
+  await evaluate('(()=>{const e=document.querySelector("#fcg2-time-slider");e.value="2.2";e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  await waitFor('document.querySelector("#fcg2-selected")?.textContent.includes("t=2.20")',8000);
+  const seek=await evaluate('({time:Number(document.querySelector("#fcg2-time-slider").value),note:document.querySelector("#fcg2-inspection-note").textContent,byte:document.querySelector("#fcg2-byte").textContent})');
+  assert.ok(Math.abs(seek.time-2.2)<0.02,JSON.stringify(seek));
+  assert.match(seek.byte,/→/);
+  assert.match(seek.note,/一致/);
+  console.log('FCG2 live GPU playback, pause, arbitrary-time seek, selected-cell readback: PASS');
+
   await cdp('Emulation.setDeviceMetricsOverride',
     {width:360,height:760,deviceScaleFactor:2,mobile:true});
   await click('tab-code');
