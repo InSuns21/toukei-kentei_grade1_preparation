@@ -158,7 +158,11 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[Noether性の局所化による保存](../../AG/AG1-05/index.md#prop-ag1-05-quotient-localization)から $R$ は Noether です。$R$ の素イデアルは $\mathfrak p$ 以下の $A$ の素イデアルに対応します。$A$ の零でない素イデアルは極大なので、$R$ の素イデアルは $(0)$ と $\mathfrak m$ の二つだけです。
+[Noether性の局所化による保存](../../AG/AG1-05/index.md#prop-ag1-05-quotient-localization)から $R$ は Noether です。
+
+ここで局所化後の素イデアルを確かめます。$Q\subset R$ が素なら、収縮 $q=Q\cap A$ は素イデアルです。分母となる $s\notin\mathfrak p$ は $R$ で単元なので $s\notin Q$、従って $q\subseteq\mathfrak p$ です。また $a/s\in Q$ と $a\in Q$ は同値ですから、$Q=qR$ が従います。
+
+逆に $A$ の素イデアル $q\subseteq\mathfrak p$ について、$R/qR$ は整域 $A/q$ の非零元の一部を分母にした局所化なので整域です。[素イデアルと商整域](../../RNG/RNG2/index.md#thm-rng2-prime-quotient-domain)から $qR$ は素です。このように $R$ の素イデアルは $\mathfrak p$ 以下の素イデアルにちょうど対応します。$A$ の零でない素イデアルは極大なので、候補は $(0)$ と $\mathfrak p$ だけです。従って $R$ の素イデアルは $(0)$ と $\mathfrak m$ の二つに限られます。
 
 **整閉性も保存されます。** $y\in\operatorname{Frac}(R)$ が $R$ 上整なら、モニック方程式の有限個の係数に共通分母 $s\in A\setminus\mathfrak p$ を選んで
 
