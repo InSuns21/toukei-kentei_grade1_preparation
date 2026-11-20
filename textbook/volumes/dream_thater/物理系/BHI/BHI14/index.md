@@ -40,10 +40,23 @@ $$
 > の解とする。$1/n\le\theta<1$ に対し、$x(u)=\theta n$ に初めて達する時刻を $t_\theta$ とする。特に半数到達時刻 $t_{1/2}$ を**この模型でのscrambling代理時間**とする。$\gamma$ は逆時間の単位を持つ。
 <!-- formal-statement-end -->
 
-この式では $x$ が小さいほど $dx/du\simeq\gamma x$、$x=n$ に近づくほど変化率が小さくなります。分母の $n$ は「内部の自由度の数」であり、Hilbert空間の次元 $2^n$ ではありません。
+この式では $x$ が小さいほど $dx/du\simeq\gamma x$、$x=n$ に近づくほど変化率が小さくなります。分母の $n$ は「内部の自由度の数」であり、Hilbert空間の次元 $2^n$ ではありません。$x'(u)$ は $dx(u)/du$ と同じ、**遠方時刻 $u$ に関する導関数**を表す略記です。
 
 <!-- definition-example-start: def-bhi14-spreading-clock -->
-**定義の確認**： $n=8,\gamma=1$ なら初期勾配は $x'(0)=1(1-1/8)=7/8>0$。$x=8$ では右辺が零です。$x=4$ で右辺は $4(1-4/8)=2$ となり、途中で拡散が最速になることも検算できます。判定 $x=4$ は整数個の量子ビットの測定を意味せず、あくまでこの微分方程式の実数値の条件です。
+**定義の確認**：$n=8,\gamma=1$ は $n\ge2,\gamma>0$ を満たし、$x(0)=1$ です。微分方程式の右辺を $f(x)=x(1-x/8)$ と置くと
+
+$
+x'(0)=f(1)=1-\frac18=\frac78>0,\qquad
+f(8)=0.
+$
+
+$f(8)=0$ は飽和点での速度が零という意味で、初期値1から有限時刻に8へ達するという意味ではありません。また
+
+$
+f(x)=2-\frac{(x-4)^2}{8}\le2,\qquad f(4)=2
+$
+
+なので、半数条件 $x=4$ で増殖率が最大になります。ここで $\theta=1/2$ は $1/8\le\theta<1$ を満たし、$x=4$ は微分方程式の**実数値の判定条件**です。整数個の量子ビットを測定した結果とは区別します。
 <!-- definition-example-end -->
 
 この初期値問題は変数分離で厳密に解けます。
@@ -82,20 +95,32 @@ $1/x$ と $1/(n-x)$ に分けて積分すると $\log(x/(n-x))$ が現れます�
 <!-- proof-start -->
 ### 証明
 
-$1\le x<n$ の間は分母が正なので、変数を分離できます。
+$x(0)=1\in(0,n)$ なので、連続性から少なくとも初期時刻付近では $0<x(u)<n$ です。この範囲で補助関数を
 
-$$
-\frac{dx}{x(1-x/n)}=\gamma\,du,
-\qquad
-\frac{1}{x(1-x/n)}=\frac1x+\frac1{n-x}.
-$$
+$
+g(z)=\log\frac{z}{n-z},\qquad
+g'(z)=\frac1z+\frac1{n-z}=\frac{n}{z(n-z)}
+$
 
-したがって左辺の原始関数は $\log x-\log(n-x)$ であり、
+と置きます。微分する変数は $g$ では $z$、合成関数 $g(x(u))$ では時刻 $u$ です。連鎖律と微分方程式より
 
-$$
-\log\frac{x(u)}{n-x(u)}
-=\gamma u+C.
-$$
+$
+\begin{aligned}
+\frac{d}{du}g(x(u))
+&=g'(x(u))\,\frac{dx}{du}\\
+&=\frac{n}{x(u)(n-x(u))}
+  \,\gamma x(u)\left(1-\frac{x(u)}n\right)
+=\gamma.
+\end{aligned}
+$
+
+この計算を微分記号で略記したものが $dx/[x(1-x/n)]=\gamma\,du$ という**変数分離**です。$dx$ と $du$ を独立した数として割ったわけではなく、$x(n-x)\ne0$ と連鎖律が根拠です。時刻 $u$ について積分して
+
+$
+\log\frac{x(u)}{n-x(u)}=\gamma u+C
+$
+
+を得ます。
 
 $x(0)=1$ を代入すると $C=-\log(n-1)$ です。指数を取って移項すると
 
@@ -110,7 +135,7 @@ x(u)=\frac{ne^{\gamma u}}{n-1+e^{\gamma u}}
 =\frac{n}{1+(n-1)e^{-\gamma u}}.
 $$
 
-この式は $x(0)=1$ を満たし、$u\ge0$ で $1\le x(u)<n$、右辺が正なので単調増加します。従って $x=\theta n$ の到達時刻は存在し一意です。式へ代入すると
+得られた明示式は全ての有限の $u\ge0$ で $1\le x(u)<n$ を満たし、微分して元の方程式と初期値を満たすことも確認できます。したがって変数分離に使った $x(n-x)\ne0$ は全時刻で正当化され、初期値に従う解はこの式に限られます。分母 $1+(n-1)e^{-\gamma u}$ が単調減少するので $x(u)$ は単調増加し、$x(u)\to n$ です。ゆえに $1/n\le\theta<1$ の到達時刻は存在し一意です。式へ代入すると
 
 $$
 \theta=\frac1{1+(n-1)e^{-\gamma t_\theta}},
@@ -133,7 +158,7 @@ $$
 
 平均場模型だけでは、実際の量子ユニタリがどこまで情報を隠したか分かりません。そこで回路のゲートを見ます。二量子ビットゲートは一度に二個の量子ビットにしか作用できません。**一つのゲート層では、各量子ビットは高々一つのゲートに参加する**とします。
 
-ある一量子ビット演算子 $P$ を回路で共役したとき、$P$ が非自明に作用する量子ビットの集合をその演算子の**台**（support）といいます。例えば $X_1\otimes I_2\otimes I_3$ の台は $\{1\}$ で、$X_1X_2X_3$ の台は $\{1,2,3\}$ です。ここで $X|0\rangle=|1\rangle$、$X|1\rangle=|0\rangle$ はPauliの $X$、$Z|0\rangle=|0\rangle$、$Z|1\rangle=-|1\rangle$ は $Z$ です。
+ある一量子ビット演算子 $P$ を回路で共役したとき、$P$ が非自明に作用する量子ビットの集合をその演算子の**台**（support）といいます。例えば $X_1\otimes I_2\otimes I_3$ の台は $\{1\}$ で、$X_1X_2X_3$ の台は $\{1,2,3\}$ です。ここで $X|0\rangle=|1\rangle$、$X|1\rangle=|0\rangle$ はPauliの $X$、$Z|0\rangle=|0\rangle$、$Z|1\rangle=-|1\rangle$ は $Z$ です。添字は作用先の量子ビット番号、$I_i$ はそこに作用する恒等演算子を表し、積 $X_1X_2X_3$ ではテンソル積記号を省略しています。
 
 <a id="lem-bhi14-two-site-lightcone"></a>
 
@@ -167,7 +192,7 @@ $$
 $w_0=1$ から帰納的に $w_\ell\le\min\{2^\ell,n\}$ です。$w_\ell=n$ なら $2^\ell\ge n$、従って $\ell\ge\lceil\log_2n\rceil$ です。
 <!-- proof-end -->
 
-この上界は、量子情報を隠すための十分条件ではありません。実際にちょうど対数層で一種類の作用素を全サイトへ広げながら、日記を回収できなくする回路を作れます。
+この上界は、量子情報を隠すための十分条件ではありません。実際にちょうど対数層で一種類の作用素を全サイトへ広げながら、参照系と残存系のデカップリングを妨げる回路を作れます。
 
 <a id="prop-bhi14-fanout-counterexample"></a>
 
@@ -208,16 +233,16 @@ $$
 \operatorname{Tr}[(\pi_M\otimes\rho_C)Z_MZ_1]=0.
 $$
 
-$Z_MZ_1$ の作用素ノルムは1です。[BHI13で定義した距離 $L$](../BHI13/index.md#def-bhi13-decoupling-error)の差を $X=\rho_{MC}-\pi_M\otimes\rho_C$、$Y=Z_MZ_1$ と書きます。$X$ はHermitianなので直交固有基底 $|j\rangle$ で $X=\sum_j\lambda_j|j\rangle\langle j|$ と展開できます。すると各対角成分の絶対値は $\|Y\|_\infty=1$ 以下であり、
+$Z_MZ_1$ は $M$ と $C$ 上で作用する観測演算子で、その作用素ノルムは1です。[BHI13で定義した距離 $L$](../BHI13/index.md#def-bhi13-decoupling-error)の差を $\Delta_{MC}:=\rho_{MC}-\pi_M\otimes\rho_C$、観測演算子を $O:=Z_MZ_1$ と書きます。ここで $\Delta_{MC}$ は密度演算子の差であり、先ほどのPauli演算子 $X$ とは異なります。$\Delta_{MC}$ はHermitianなので直交固有基底 $|j\rangle$ で $\Delta_{MC}=\sum_j\lambda_j|j\rangle\langle j|$ と展開できます。$\|O\|_\infty=1$ より各対角成分の絶対値は1以下なので、
 
-$$
+$
 \begin{aligned}
-|\operatorname{Tr}(XY)|
-&=\left|\sum_j\lambda_j\langle j|Y|j\rangle\right|\\
-&\le\sum_j|\lambda_j|\,|\langle j|Y|j\rangle|\\
-&\le\sum_j|\lambda_j|=\|X\|_1.
+|\operatorname{Tr}(\Delta_{MC}O)|
+&=\left|\sum_j\lambda_j\langle j|O|j\rangle\right|\\
+&\le\sum_j|\lambda_j|\,|\langle j|O|j\rangle|\\
+&\le\sum_j|\lambda_j|=\|\Delta_{MC}\|_1.
 \end{aligned}
-$$
+$
 
 したがって
 
@@ -317,7 +342,14 @@ $$
 > と定義する。収集完了時刻は $\tau+\Delta u_{\rm rad}$ とする。受信者は $E$ を量子的に保管する。
 <!-- formal-statement-end -->
 
-$c=2^{m-s}$、$d=2^{k+s}$、$a=2^k$、$b=2^m$ なら $cd=ab$ です。$s\le m$ が必要なのは残存系 $C$ の次元が少なくとも1となるためです。$\Delta u_{\rm rad}$ はこの模型の**全レジスタを引き渡す時間**であって、熱放射のエネルギー光度を量子ビット率に直接換算した値ではありません。
+1量子ビットの計算基底は $|0\rangle,|1\rangle$ の2状態なので、$q$ 量子ビットのテンソル積基底 $|b_1\rangle\otimes\cdots\otimes|b_q\rangle$（各 $b_i\in\{0,1\}$）は $2^q$ 個あります。したがって次元は
+
+$
+a=\dim A=2^k,\quad b=\dim B=2^m,\quad
+c=\dim C=2^{m-s},\quad d=\dim D=2^{k+s}.
+$
+
+入力・出力の量子ビット数がともに $k+m$ なので、$cd=2^{(m-s)+(k+s)}=2^{k+m}=ab$ です。$0\le s\le m$ が必要なのは残存系 $C$ の量子ビット数を非負にするためです。$\Delta u_{\rm rad}$ はこの模型の**全レジスタを引き渡す時間**であって、熱放射のエネルギー光度を量子ビット率に直接換算した値ではありません。
 
 <!-- definition-example-start: def-bhi14-staged-clock -->
 **定義の確認**： $k=2,m=6,s=3,r=2,\tau=5$ なら $A,B,C,D$ の次元は順に $4,64,8,32$ で、$4\cdot64=8\cdot32=256$。$D$ は5量子ビットなので収集時間は $5/2$、完了時刻は $5+5/2=7.5$ です。$E$ は64次元のままで、5量子ビットへ数え直しません。
