@@ -9,3 +9,4 @@
 6. [PML1-06 無秩序・相転移を学習へ持ち込める条件は何か](textbook/volumes/dream_thater/応用系/PML/PML1-06/index.md)
 7. [PML1-07 最適化を連続時間の散逸過程として見られるか](textbook/volumes/dream_thater/応用系/PML/PML1-07/index.md)
 8. [PML1-08 Langevin方程式に何のノイズが必要か](textbook/volumes/dream_thater/応用系/PML/PML1-08/index.md)
+9. [PML1-09 Gibbs密度が不変なのはどの条件か](textbook/volumes/dream_thater/応用系/PML/PML1-09/index.md)
