@@ -142,7 +142,9 @@ d*\alpha=(\partial_xa+\partial_yb)\,dx\wedge dy,\qquad
 d^*\alpha=-(\partial_xa+\partial_yb).
 $$
 
-したがって $d^*\alpha=0$ は、係数ベクトル場の発散が0であることに等しい。一般の誘導計量でも符号は同じである。$\alpha^\sharp$ を $g(\alpha^\sharp,U)=\alpha(U)$ で定まる接ベクトル場、$\nabla$ を計量を保ち捩れのないLevi-Civita接続とする。点 $p$ の近傍で、$p$ において $\nabla_{e_j}e_k=0$ となる正規直交局所枠 $e_1,\ldots,e_n$ と双対余接枠 $e^1,\ldots,e^n$ を選ぶ。$p$ では $de^j=0$ で、Hodge星の基底公式
+したがって $d^*\alpha=0$ は、係数ベクトル場の発散が0であることに等しい。一般の誘導計量でも符号は同じである。$\alpha^\sharp$ を $g(\alpha^\sharp,U)=\alpha(U)$ で定まる接ベクトル場、$\nabla$ を計量を保ち捩れのないLevi-Civita接続とする。
+
+点 $p$ の近傍で、$p$ において $\nabla_{e_j}e_k=0$ となる正規直交局所枠 $e_1,\ldots,e_n$ と双対余接枠 $e^1,\ldots,e^n$ を選ぶ。$p$ では $de^j=0$ で、Hodge星の基底公式
 
 $$
 *e^j=(-1)^{j-1}e^1\wedge\cdots\wedge\widehat{e^j}\wedge\cdots\wedge e^n
@@ -429,7 +431,16 @@ $$
 <!-- solution-start -->
 ### 詳細解答
 
-$\omega=dx\wedge dy$ であり、$-\omega(V,\partial_x)=a(x)$ だから $\alpha=a\,dx$。$\Omega=dx+i\,dy$ の虚部は $dy$、従って $\beta=\iota_Vdy=a$ は0形式である。一次元の体積形式は $dx$ なので $*dx=1$、よって $*\alpha=a$。これを微分すると $d*\alpha=a'(x)\,dx$。したがって $d^*\alpha=-*d*\alpha=-a'(x)$。1次元では $d\alpha=0$ は自動的であり、固定位相の条件は $a'(x)=0$ である。
+$\omega=dx\wedge dy$ であり、$-\omega(V,\partial_x)=a(x)$ だから $\alpha=a\,dx$。また $\Omega=dx+i\,dy$ の虚部は $dy$ なので、$\beta=\iota_Vdy=a$ は0形式である。
+
+一次元の体積形式は $dx$ で、定義から $*dx=1$。従って
+
+$$
+*\alpha=a,\qquad d*\alpha=a'(x)\,dx,\qquad
+d^*\alpha=-*d*\alpha=-a'(x).
+$$
+
+1次元では $d\alpha=0$ は自動的であり、固定位相の条件は $a'(x)=0$ である。
 <!-- solution-end -->
 
 <a id="ex-syz1-05-a02"></a>
