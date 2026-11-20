@@ -4,6 +4,7 @@ coverage: complete
 prerequisites:
   - PML1-16
   - AMECH4
+  - NA6
 forward_references: []
 concepts:
   - id: physics-machine-learning.learned-rotational-lagrangian
