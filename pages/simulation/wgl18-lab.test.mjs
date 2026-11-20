@@ -60,3 +60,36 @@ test('real editable GPU sources isolate float state and display',async()=>{
       "request.lesson === 'WGL18'",'isWGL18'])
     assert.ok(host.includes(key),key);
 });
+
+
+test('live WebGL18 draws the SAME edited GPU state after initial independent probes',async()=>{
+  const base=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL18/',import.meta.url);
+  const [js,frag,md]=await Promise.all(['diffusion.js','diffusion.frag','index.md']
+    .map(file=>readFile(new URL(file,base),'utf8')));
+  assert.doesNotThrow(()=>new Function('gl','canvas','vertexSource','fragmentSource','report','settings',js));
+  assert.match(js,/function advanceDiffusionStep\(n\)\{/);
+  assert.match(js,/for\(let n=0;n<steps;n\+\+\)advanceDiffusionStep\(n\)/);
+  assert.match(js,/advanceDiffusionStep\(stepNumber\)/);
+  assert.match(js,/const destination=1-active/);
+  assert.match(js,/gl\.bindFramebuffer\(gl\.FRAMEBUFFER,fbos\[destination\]\)/);
+  assert.match(js,/gl\.bindTexture\(gl\.TEXTURE_2D,textures\[active\]\)/);
+  const oracle=js.indexOf('const floatValues='),live=js.indexOf('function advanceLive(){');
+  assert.ok(oracle>0 && live>oracle,'live frames must follow original float oracle');
+  assert.match(js,/gl\.uniform1i\(uStage,2\)/);
+  assert.match(js,/gl\.texSubImage2D\(gl\.TEXTURE_2D,0,0,0,N,N,gl\.RGBA,gl\.FLOAT,input\)/);
+  assert.match(js,/MAX_STEP=24/);
+  assert.match(js,/prefers-reduced-motion: reduce/);
+  assert.match(js,/document\.hidden/);
+  assert.match(js,/requestAnimationFrame\(frame\)/);
+  assert.match(js,/initialOracleCaptured && playing/);
+  assert.match(js,/wgl18-initial-oracle-captured/);
+  assert.match(js,/pagehide.*cancelAnimationFrame\(raf\)/);
+  assert.match(js,/event\.key==='ArrowRight'/);
+  assert.match(js,/event\.key==='r'/);
+  assert.match(frag,/u_stage == 0/);
+  assert.match(frag,/u_stage == 2/);
+  assert.match(frag,/float side = min\(u_targetSize\.x,u_targetSize\.y\)/);
+  assert.match(frag,/outColor=vec4\(0\.035,0\.05,0\.085,1\.0\)/);
+  assert.match(md,/独立CPUとの厳密な数値照合は実行直後/);
+  assert.equal(expectedWGL18Grid(0.2,2).reduce((a,c)=>a+c,0).toFixed(10),'1.0000000000');
+});
