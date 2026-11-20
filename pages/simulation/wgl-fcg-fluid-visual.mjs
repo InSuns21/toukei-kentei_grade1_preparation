@@ -231,7 +231,10 @@ export function mountSmokeObservation(parent){
   canvas.addEventListener('pointerdown',e=>{
     e.preventDefault();canvas.setPointerCapture(e.pointerId);
     down=true;pointBefore=getPoint(e);palette=(palette+1)%colors.length;
-    splatSmoke(state,pointBefore.x,pointBefore.y,0,.13,colors[palette]);paint();
+    splatSmoke(state,pointBefore.x,pointBefore.y,0,.13,colors[palette]);
+    status.dataset.inputCount=String(Number(status.dataset.inputCount||0)+1);
+    status.textContent=(gpu?'表示：WebGL2':'表示：Canvas2D')+' ／染料を投入しました';
+    paint();
   });
   canvas.addEventListener('pointermove',e=>{
     if(!down||!pointBefore)return;
