@@ -1,0 +1,53 @@
+chapter: PML1-09
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-08, STO11]
+concepts:
+  - id: physics-machine-learning.continuous-gibbs-density
+    name: 連続状態のGibbs確率密度
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（連続状態のGibbs確率密度）"]
+    requires:
+      - physics-machine-learning.finite-loss-gibbs
+  - id: physics-machine-learning.invariant-probability-distribution
+    name: 不変確率分布
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（不変確率分布）"]
+    requires:
+      - stochastic.markov-semigroup
+  - id: physics-machine-learning.langevin-fokker-planck
+    name: 整合Langevin拡散のFokker–Planck方程式
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（整合Langevin拡散のFokker–Planck方程式）"]
+    requires:
+      - stochastic.fokker-planck-equation
+      - physics-machine-learning.overdamped-generator
+      - physics-machine-learning.thermal-noise-matching
+  - id: physics-machine-learning.zero-probability-current
+    name: 零確率流
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（零確率流）"]
+    requires:
+      - physics-machine-learning.langevin-fokker-planck
+  - id: physics-machine-learning.gibbs-invariance-sufficient
+    name: 定数移動度Langevin拡散のGibbs不変性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（定数移動度Langevin拡散のGibbs不変性：十分条件）"]
+    requires:
+      - physics-machine-learning.continuous-gibbs-density
+      - physics-machine-learning.invariant-probability-distribution
+      - physics-machine-learning.zero-probability-current
+      - stochastic.global-lipschitz-sde-existence-uniqueness
+      - stochastic.backward-kolmogorov-equation
+  - id: physics-machine-learning.quadratic-lower-bound-normalization
+    name: 二次下界を持つ損失では正規化と一階モーメントが有限
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（二次下界を持つ損失では正規化と一階モーメントが有限）"]
+    requires:
+      - physics-machine-learning.continuous-gibbs-density
