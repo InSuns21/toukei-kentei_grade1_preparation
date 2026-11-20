@@ -184,7 +184,19 @@ $$
 
 したがって $z$ は $A$ 上整です。[Dedekind整域の定義](#def-anf3-dedekind-domain)の整閉性（第2条件）を $A$ 上整な $z$ に適用すると $z\in A$ であり、$y=z/s\in R$ です。
 
-**極大イデアルの単項性。** $0\ne a\in\mathfrak m$ を取ります。$(a)$ を含む素イデアルは $\mathfrak m$ のみです。ここから、任意の $x\in\mathfrak m$ に対し、ある $n\ge1$ で $x^n\in(a)$ となることを確認します。もし $x$ のすべての正の冪が $(a)$ の外にあるなら、Noether環の昇鎖条件により、$(a)$ を含み $1,x,x^2,\ldots$ のどれも含まないイデアルの中から包含極大な $J$ を取れます。$uv\in J$ かつ $u,v\notin J$ なら、極大性から $x^i\in J+(u)$、$x^j\in J+(v)$ となる $i,j\ge0$ があり、二式を掛けると $x^{i+j}\in J$ となり矛盾します。よって $J$ は素イデアルです。$0\ne a\in J$ なので $J=\mathfrak m$ ですが、$x\in\mathfrak m=J$ に矛盾します。従って $\sqrt{(a)}=\mathfrak m$、すなわち $\mathfrak m$ の各元のある冪は $(a)$ に属します。
+**極大イデアルの単項性。** $0\ne a\in\mathfrak m$ を取ります。$(a)$ を含む素イデアルは $\mathfrak m$ のみです。まず $\mathfrak m$ の任意の元 $x$ について、ある正整数 $n$ で $x^n\in(a)$ となることを示します。
+
+反対に、すべての $n\ge0$ で $x^n\notin(a)$ と仮定します。[Noether環のイデアル集合の極大元性](../../AG/AG1-05/index.md#prop-ag1-05-acc-finite-generation)により、$(a)$ を含み、$1,x,x^2,\ldots$ を一つも含まないイデアルの中から包含極大な $J$ を取れます。
+
+$uv\in J$ かつ $u,v\notin J$ なら、$J+(u)$ と $J+(v)$ は $J$ より真に大きく、極大性から
+$x^i=j_1+c_1u$ と $x^j=j_2+c_2v$（$j_1,j_2\in J$、$c_1,c_2\in R$、$i,j\ge0$）が成り立ちます。しかしこの二式を掛けると
+
+$$
+x^{i+j}=(j_1+c_1u)(j_2+c_2v)
+\equiv c_1c_2uv\equiv0\pmod J
+$$
+
+となり、$J$ は $x$ の冪を一つも含まないことと矛盾します。よって $J$ は素イデアルです。$0\ne a\in J$ なので $J=\mathfrak m$ ですが、$x\in\mathfrak m=J$ に再び矛盾します。従って $\sqrt{(a)}=\mathfrak m$ です。
 
 Noether性により $\mathfrak m=(x_1,\ldots,x_k)$。各 $x_i$ は根基に属するため $x_i^{n_i}\in(a)$ となる $n_i\ge1$ があり、$N=1+\sum_i(n_i-1)$ とすれば、$N$ 個の生成元の積には必ず $x_i^{n_i}$ が含まれます。従って $\mathfrak m^N\subseteq(a)$ です。
 
@@ -327,7 +339,7 @@ $$
 \mathfrak q'=(3,1-s)
 $$
 
-を作ります。各括弧は $A$ のイデアル生成を表します。
+を作ります。各括弧は $A$ のイデアル生成を表し、$\mathfrak q'$ のプライムは別のイデアルを区別するラベルであり、微分を意味しません。
 
 $\mathfrak p$ で割ると $2=0,\ s=-1=1$ なので
 
@@ -335,7 +347,7 @@ $$
 A/\mathfrak p\simeq\mathbb F_2.
 $$
 
-$\mathfrak q'$ のプライムはもう一つのイデアルを区別するラベルで、微分ではありません。$s^2=-5\equiv1\pmod3$ なので $s\mapsto-1$ と $s\mapsto1$ はどちらも $\mathbb F_3$ への環準同型を与えます。具体的には
+$s^2=-5\equiv1\pmod3$ なので $s\mapsto-1$ と $s\mapsto1$ はどちらも $\mathbb F_3$ への環準同型を与えます。具体的には
 
 $$
 \varphi_-(a+bs)=a-b\bmod3,\qquad
@@ -616,7 +628,27 @@ $$
 <!-- solution-start -->
 **詳細解答**
 
-**(1)** $a+bs\mapsto a+b\bmod2$ の核は $\mathfrak p$ です（A4の表示では $a+bs=(a-b)+b(1+s)$）。同様に $a+bs\mapsto a-b\bmod3$ の核は $\mathfrak q$ です。実際 $a-b\equiv0\pmod3$ なら $a+bs=(a-b)+b(1+s)$ です。さらに $a+bs\mapsto a+b\bmod3$ の核は $\mathfrak q'$ で、$a+b\equiv0\pmod3$ のとき $a+bs=(a+b)-b(1-s)$ と書けます。$s^2=-5$ は $\mathbb F_3$ で $1$ になり、$s\mapsto\pm1$ の両方が関係式を保ちます。従って各商は $\mathbb F_2,\mathbb F_3,\mathbb F_3$ で極大です。$\mathfrak q$ では $s=-1$、$\mathfrak q'$ では $s=1$ であり、$1\ne-1$ が $\mathbb F_3$ で成立するので、両者は異なります。また $\mathfrak p$ は商の標数が $2$ なので他二つと異なります。
+**(1)** $A=\mathbb Z[s]$ なので、$s^2=-5$ を保つ剰余写像を考えます。$a+bs\mapsto a+b\bmod2$ の核は $\mathfrak p$ です。$a+b$ が偶数なら
+
+$$
+a+bs=(a-b)+b(1+s)\in(2,1+s)
+$$
+
+となり、逆包含も二つの生成元の像が零であることから確かめられます。
+
+$s^2=-5\equiv1\pmod3$ なので、$s\mapsto-1$ と $s\mapsto1$ により、それぞれ $\mathbb F_3$ への環準同型が得られます。前者の核は $\mathfrak q$ です。実際、$a-b\equiv0\pmod3$ なら
+
+$$
+a+bs=(a-b)+b(1+s)\in(3,1+s).
+$$
+
+後者の核は $\mathfrak q'$ です。$a+b\equiv0\pmod3$ なら
+
+$$
+a+bs=(a+b)-b(1-s)\in(3,1-s).
+$$
+
+いずれも生成元の像は零で、定数の像から全射性も従います。従って商はそれぞれ $\mathbb F_2,\mathbb F_3,\mathbb F_3$ で、三つとも極大イデアルです。$\mathfrak q$ では $s=-1$、$\mathfrak q'$ では $s=1$ であり、$\mathbb F_3$ で $1\ne-1$ なので異なります。$\mathfrak p$ は商の標数が $2$ なので他二つと異なります。
 
 **(2)** $\mathfrak p^2=(4,2+2s,-4+2s)$。全生成元は $(2)$ に属し、$6=(2+2s)-(-4+2s)$ と $4$ の差から $2\in\mathfrak p^2$ を得るので $\mathfrak p^2=(2)$。一方
 
