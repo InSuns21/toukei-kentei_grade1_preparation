@@ -29,6 +29,11 @@ test('observation guide executes the real source in the existing opaque sandbox'
   assert.ok(!host.includes('allow-same-origin'));
   assert.match(html,/role="tablist"/);
   assert.match(css,/\.visual-lesson-guide\{/);
+  assert.match(guide,/document\.createElement\('details'\)/);
+  assert.match(guide,/details\.append\(summary,detailText\)/);
+  assert.ok(!guide.includes("上のボタンは編集欄の実際のJS・GLSL"),'duplicate explanatory copy stays out of primary UI');
+  assert.ok(!css.includes('border-radius:15px;background:linear-gradient(120deg'),'primary guide must not be a decorative card');
+  assert.match(css,/\.visual-guide-steps>div\{min-width:0\}/,'step columns should not be framed cards');
 });
 test('animated teaching code uses original lesson state and shader',async()=>{
   const root=new URL('../../textbook/volumes/dream_thater/計算系/',import.meta.url);
