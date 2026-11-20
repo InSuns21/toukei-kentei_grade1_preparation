@@ -20,7 +20,7 @@ $$
 
 ## 2. Euler--Lagrange 方程式を加速度について解く
 
-一見して分かりにくいのは、速度に関する偏微分 $\partial L/\partial v_i$ を、軌道に沿ってさらに時間微分する箇所である。位置も速度も時刻とともに動くので、多変数の連鎖律を成分ごとに使う。
+一見して分かりにくいのは、速度に関する偏微分 $\partial L/\partial v_i$ を、軌道に沿ってさらに時間微分する箇所である。位置も速度も時刻とともに動くので、[多変数の連鎖律](../../../基礎科目/RA/RA3/index.md#prop-ra3-chain-rule)を成分ごとに使う。
 
 $$
 \begin{aligned}
@@ -137,7 +137,7 @@ $$
 
 となり、連鎖律を逆に使うと Euler--Lagrange 方程式を得る。
 
-$L_\theta\in C^3(U)$ なので $\nabla_qL_\theta,C_\theta,W_\theta$ は少なくとも $C^1$ 級である。行列式は $U$ 上で非零で、逆行列の各成分は余因子と行列式の商であるから $W_\theta^{-1}$ も $C^1$ 級である。従って $(q,v)\mapsto(v,F_\theta(q,v))$ は $U$ 上 $C^1$ 級で、局所 Lipschitz 連続である。常微分方程式の局所存在一意性定理を初期点 $(q_0,v_0)$ に適用して一意の局所解を得る。
+$L_\theta\in C^3(U)$ なので $\nabla_qL_\theta,C_\theta,W_\theta$ は少なくとも $C^1$ 級である。行列式は $U$ 上で非零で、逆行列の各成分は余因子と行列式の商であるから $W_\theta^{-1}$ も $C^1$ 級である。従って $(q,v)\mapsto(v,F_\theta(q,v))$ は $U$ 上 $C^1$ 級で、局所 Lipschitz 連続である。[Picard--Lindelöf の局所存在一意性定理](../../../解析系/ODE/ODE1/index.md#thm-ode1-picard-lindelof)を[ベクトル値の自律系へ拡張する手順](../../../解析系/ODE/ODE4/index.md#def-ode4-nonlinear-autonomous-system)では、有限次元の $C^1$ 級ベクトル場が局所 Lipschitz 連続となることを確かめ、Picard 反復を Euclid ノルムで評価する。ここでもその条件を満たしたから、初期点 $(q_0,v_0)$ から一意の局所解を得る。
 <!-- proof-end -->
 
 **重要な境界。** 速度 Hessian の可逆性は一般の Lagrangian に対する**正定値性**を要求しない。例えば一次元 $L=-v^2/2-q^2/2$ では $W=-1$ は可逆で、$\ddot q=q$ と加速度を定められる。ただし正の運動エネルギーを表す質量としての解釈は別問題である。「正則だから物理的に安定」とは結論できない。
