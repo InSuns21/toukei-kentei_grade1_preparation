@@ -5,6 +5,7 @@ status: supplementary
 prerequisites:
   - FLD2
   - AG1-06
+  - TRN1
 official_scope: []
 learning_objectives:
   - 数体と代数的整数を定義し、整数係数のモニック方程式から直接判定できる
