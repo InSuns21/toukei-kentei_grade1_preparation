@@ -227,7 +227,12 @@ export function mountReferenceObservation({lesson,parent}){
     if(isFluid&&position>=duration){playing=false;button.textContent='再生';}
     frames++;paint();
   }
-  button.addEventListener('click',()=>{playing=!playing;button.textContent=playing?'一時停止':'再生';previous=0;});
+  button.addEventListener('click',()=>{
+    // At the final frame, Play must visibly restart instead of stopping again.
+    if(!playing&&position>=duration)position=0;
+    playing=!playing;button.textContent=playing?'一時停止':'再生';previous=0;
+    paint();
+  });
   section.querySelector('[data-action="back"]').addEventListener('click',()=>{position=0;paint();});
   seek.addEventListener('input',()=>{position=Number(seek.value)/1000*duration;paint();previous=0;});
   paint();raf=requestAnimationFrame(tick);
