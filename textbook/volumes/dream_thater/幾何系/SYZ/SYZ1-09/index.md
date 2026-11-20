@@ -171,6 +171,8 @@ $$
 <!-- definition-example-start: def-syz1-09-hessian-metric -->
 ### 直接例：二次式のHessianを定義と照合する
 
+計量の成分行列は、座標接ベクトル $e_i=\partial/\partial u^i$ を二つの引数に入れた $G_{ij}=G(e_i,e_j)$ を並べたものである。Hessianで判定するには、この $G_{ij}$ と $\partial_i\partial_j\phi$ が各添字 $i,j$ で一致し、任意の零でない接ベクトル $v=\sum_i v^i e_i$ に対して $\sum_{i,j}v^iG_{ij}v^j>0$ となることを確かめる。
+
 $U=\mathbb R^2$、$\phi(u)=\frac12(2(u^1)^2+3(u^2)^2)$ と置く。$d\phi=2u^1du^1+3u^2du^2$ だから
 
 $$
@@ -230,7 +232,21 @@ $$
 \phi(u)=\int_0^1\sum_i t_i(u_0+s(u-u_0))(u^i-u_0^i)\,ds
 $$
 
-と定める。閉性から経路によらず $d\phi=\sum_it_i du^i$ であり、よって $\partial_i\phi=t_i$。もう一度微分すればHessian表示を得る。
+と定める。ここで $h=u-u_0$ と書く。積分式の被積分関数を $u^j$ で微分すると、積の微分と連鎖律、および $\partial_jt_i=\partial_it_j$ により
+
+$$
+\begin{aligned}
+\frac{\partial\phi}{\partial u^j}
+&=\int_0^1\left[t_j(u_0+sh)
++s\sum_i h^i\frac{\partial t_i}{\partial u^j}(u_0+sh)\right]ds\\
+&=\int_0^1\left[t_j(u_0+sh)
++s\frac{d}{ds}t_j(u_0+sh)\right]ds\\
+&=\int_0^1\frac{d}{ds}\left[s\,t_j(u_0+sh)\right]ds
+=t_j(u).
+\end{aligned}
+$$
+
+したがって $d\phi=\sum_it_i\,du^i$ であり、もう一度微分すればHessian表示を得る。閉性と凸領域上の積分により、線分以外の経路で定義しても同じ値となる。
 
 任意の $a=(a^1,\ldots,a^n)\ne0$ に対応する接ベクトル $v=\sum_i a^ie_i$ に対し
 
@@ -383,7 +399,15 @@ $$
 =A^{-\mathsf T}t+d=t'.
 $$
 
-さらにHessianは $H'=A^{-\mathsf T}HA^{-1}$。零でないベクトル $z$ に対して $z^{\mathsf T}H'z=(A^{-1}z)^{\mathsf T}H(A^{-1}z)>0$ なので正定値性が保たれる。$du'{}^{\mathsf T}dt'=du^{\mathsf T}dt$ でも内積の不変性が確認できる。
+さらにHessianは $H'=A^{-\mathsf T}HA^{-1}$。零でないベクトル $z$ に対して $z^{\mathsf T}H'z=(A^{-1}z)^{\mathsf T}H(A^{-1}z)>0$ なので正定値性が保たれる。この計量の積は微分形式の外積ではなく、二つの接ベクトル $v,w$ に各1形式を評価した値の積である。実際、$du'(v)=Adu(v)$、$dt'(w)=A^{-\mathsf T}dt(w)$ なので
+
+$$
+\sum_i du'^i(v)\,dt'_i(w)
+=du(v)^{\mathsf T}A^{\mathsf T}A^{-\mathsf T}dt(w)
+=du(v)^{\mathsf T}dt(w)=G(v,w).
+$$
+
+これでも内積の不変性が確認できる。
 <!-- proof-end -->
 
 ポテンシャルへ一次関数と定数を加えてもHessianは変わらない。従って局所ポテンシャルを一つの大域関数として選べるとは限らず、Legendre双対もまず**局所座標上の構成**として理解する。
