@@ -740,6 +740,25 @@ try{
   await writeFile('_wgl_browser_review/wgl12-roughness-edited.png',Buffer.from(changedMaterial12.data,'base64'));
   console.log('WGL12 editing three roughness values changes actual GPU sphere appearance: PASS');
 
+  // G2: the range control must modify the real source, rerun the same sandbox,
+  // and read back later manual JS edits rather than maintaining parallel state.
+  await click('reset');
+  const g2before=await evalJS('({value:document.getElementById("parameter-roughness-middle")?.value,disabled:document.getElementById("parameter-roughness-middle")?.disabled})');
+  assert.equal(g2before.value,'0.55');
+  assert.equal(g2before.disabled,false);
+  await evalJS('(()=>{const e=document.getElementById("parameter-roughness-middle");e.value="0.8";e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));})()');
+  await waitFor('document.getElementById("status")?.textContent.includes("編集コードを実行しました")',22000);
+  assert.equal(await evalJS('document.getElementById("js-source").value.includes("const roughness = [0.16, 0.8, 0.32];")'),true);
+  assert.match(await evalJS('document.getElementById("diagnostics").textContent'),/middle: 0.8\/0/);
+  await evalJS('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("[0.16, 0.8, 0.32]","[0.16, 0.65, 0.32]");e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.equal(await evalJS('document.getElementById("parameter-roughness-middle").value'),'0.65');
+  await evalJS('(()=>{const e=document.getElementById("js-source");e.value=e.value.replace("[0.16, 0.65, 0.32]","[0.16, 1/2, 0.32]");e.dispatchEvent(new Event("input",{bubbles:true}));})()');
+  assert.equal(await evalJS('document.getElementById("parameter-roughness-middle").disabled'),true);
+  assert.equal(await evalJS('document.getElementById("js-source").value.includes("1/2")'),true);
+  await click('reset');
+  assert.equal(await evalJS('document.getElementById("parameter-roughness-middle").value'),'0.55');
+  console.log('G2 source-backed WGL12 slider, source editing and nonliteral protection: PASS');
+
   await click('reset');
   await evalJS('(()=>{const p=document.getElementById("preset");p.value="error";p.dispatchEvent(new Event("change",{bubbles:true}));})()');
   await click('run');
