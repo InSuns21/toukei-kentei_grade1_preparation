@@ -74,5 +74,6 @@ test('G3 canvas legend is before the iframe; no alternate renderer or unsafe mar
   assert.match(host,/updateSceneInfo\(data\.ok \? \{/);
   assert.match(css,/\.scene-info-list\{/);
   assert.match(source,/element\.textContent = info \?/);
-  assert.doesNotMatch(source,/innerHTML|drawArrays|requestAnimationFrame|eval\(/);
+  // API names may appear in explanatory prose; forbid actual renderer invocation.
+  assert.doesNotMatch(source,/innerHTML\s*=|(?:gl\.)?drawArrays\s*\(|requestAnimationFrame\s*\(|\beval\s*\(/);
 });
