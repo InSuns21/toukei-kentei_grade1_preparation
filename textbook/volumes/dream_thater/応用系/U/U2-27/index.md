@@ -27,7 +27,7 @@
 
 ## 2. 位置誤差と座標合わせ
 
-平面位置の誤差は、真値と推定値を**同じ座標系**に置いて初めて引き算できます。方位角については[角度の正規化](../U2-06/index.md#def-u2-06-angle-wrap)と同様に、差を $(-\pi,\pi]$ の一つの代表値へ戻します。角度が枝の境界を広くまたぐ分布では、この代表値をそのまま Gaussian と扱いません。
+平面位置の誤差は、真値と推定値を**同じ座標系**に置いて初めて引き算できます。方位角については[角度の正規化](../U2-06/index.md#def-u2-06-angle-wrap)と同様に、差を $[-\pi,\pi)$ の一つの代表値へ戻します。角度が枝の境界を広くまたぐ分布では、この代表値をそのまま Gaussian と扱いません。
 
 <a id="def-u2-27-trajectory-rmse"></a>
 
@@ -46,7 +46,7 @@ $$
 \operatorname{wrap}(\hat\theta_t-\theta_t^*)^2}
 $$
 
-> と定義する。$\operatorname{wrap}$ は角度差の $(-\pi,\pi]$ への正規化である。前者の単位は m、後者は rad とし、無断で足し合わせない。
+> と定義する。$\operatorname{wrap}$ は角度差の $[-\pi,\pi)$ への正規化である。前者の単位は m、後者は rad とし、無断で足し合わせない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-27-trajectory-rmse -->
@@ -54,6 +54,8 @@ $$
 <!-- definition-example-end -->
 
 [相対観測では gauge が残る](../U2-21/index.md#def-u2-21-gauge)ため、SLAM の軌跡と真値が、同じ運動を表していても全体として回転・平行移動している場合があります。一方、初期位置・方位が**絶対座標として既知で固定された評価**で真値に合うよう動かしてしまうと、本来の位置誤差まで消してしまいます。以下の位置合わせは、絶対 gauge が未固定である場合の軌跡形状の評価にだけ使います。
+
+[既習の平面剛体座標変換](../U2-06/index.md#def-u2-06-rigid-transform)では、同じ回転と並進で座標を移します。ここで $SO(2)$ は $R^{\mathsf T}R=I_2$ かつ $\det R=1$ を満たす $2\times2$ 実行列の集合（向きを保つ平面回転）です。下の $R_\phi$ は、$\cos^2\phi+\sin^2\phi=1$ によりこの二条件を満たし、各ベクトルの長さを保存します。評価時刻集合 $I$ の $n$ 個の時刻をここでは $i=1,\ldots,n$ と番号付けし、$\hat p_i,p_i^*$ は第1節と同じ時刻の位置を指します。
 
 <a id="def-u2-27-rigid-alignment"></a>
 
@@ -75,10 +77,17 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-27-rigid-alignment -->
-**定義の確認**：対応点を真値 $(0,0),(1,0)$ m、推定 $(1,2),(1,3)$ m とし、全二時刻で $\phi=-\pi/2$、$a=(-2,1)$ を共通に使うとします。$R_\phi(1,2)+a=(0,0)$、$R_\phi(1,3)+a=(1,0)$ で、目的関数 $J(\phi,a)=0$ になります。回転は直交行列で倍率を変えず、同じ角度と並進を両点へ適用したので定義の条件を満たします。
+**定義の確認**：対応点を真値 $(0,0),(1,0)$ m、推定 $(1,2),(1,3)$ m とし、全二時刻で $\phi=-\pi/2$、$a=(-2,1)$ を共通に使うとします。$R_\phi(1,2)+a=(0,0)$、$R_\phi(1,3)+a=(1,0)$ で、目的関数 $J(\phi,a)=0$ になります。$J$ は非負の二乗和なので、これは実際に最小値です。回転は直交行列で倍率を変えず、同じ角度と並進を両点へ適用したので定義の条件を満たします。
 <!-- definition-example-end -->
 
-回転行列を使うのは、[姿勢の世界座標変換](../U2-06/index.md#def-u2-06-planar-pose)が回転と並進で表され、距離が保存されるためです。軌跡の各時刻を別々に合わせる操作は、相対距離という推定結果まで壊すので許しません。
+軌跡の各時刻を別々に合わせる操作は、相対距離という推定結果まで壊すので許しません。以下の定理で使う $\operatorname{atan2}(y,x)$ は、$(x,y)\ne(0,0)$ のベクトルの向きを $2\pi$ を法として返す角度です。この角度 $\phi$ は
+
+$$
+\cos\phi=\frac{x}{\sqrt{x^2+y^2}},\qquad
+\sin\phi=\frac{y}{\sqrt{x^2+y^2}}
+$$
+
+を満たします。
 
 <a id="thm-u2-27-alignment"></a>
 
@@ -157,7 +166,13 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-27-nees -->
-**定義の確認**：二次元位置誤差 $e=(1,2)^T$ m、$P=\operatorname{diag}(1,4)$ $\mathrm m^2$ なら、対角要素はともに正で逆行列が存在します。$P^{-1}=\operatorname{diag}(1,1/4)$ なので $\operatorname{NEES}=1^2/1+2^2/4=2$、単位は相殺されます。角度成分を入れないので、rad と m の尺度を無理に統一する必要もありません。
+**定義の確認**：二次元位置誤差 $e=(1,2)^T$ m、報告共分散 $P=\operatorname{diag}(1,4)$ $\mathrm m^2$ とします。対称性に加え、任意の非零ベクトル $v=(v_1,v_2)^T$ に対して
+
+$$
+v^TPv=v_1^2+4v_2^2>0\qquad(v\ne0)
+$$
+
+だから、$P$ は定義で要求した正定値行列であり、逆行列が存在します。$P^{-1}=\operatorname{diag}(1,1/4)$（$\mathrm m^{-2}$ 単位）なので $\operatorname{NEES}=1^2/1+2^2/4=2$、単位は相殺されます。角度成分を入れないので、rad と m の尺度を無理に統一する必要もありません。
 <!-- definition-example-end -->
 
 <a id="thm-u2-27-nees-calibration"></a>
@@ -211,7 +226,7 @@ $$
 
 ## 4. 被覆率：誤差が報告した範囲に入るか
 
-NEES は平均の診断だけでなく、ある信頼度を指定した**共分散に基づく楕円領域**の判定にも使えます。$\chi^2_d$ 分布で $P(\chi^2_d\le q_{d,\alpha})=1-\alpha$ となる数を $q_{d,\alpha}$ と定めます。これは例えば $\alpha=0.05$ が「95% の基準範囲」を意味します。
+NEES は平均の診断だけでなく、ある信頼度を指定した**共分散に基づく楕円領域**の判定にも使えます。$\chi^2_d$ 分布で $P(\chi^2_d\le q_{d,\alpha})=1-\alpha$ となる数を $q_{d,\alpha}$ と定めます。これは例えば $\alpha=0.05$ が「95% の基準範囲」を意味します。以下では $N\ge1$ 回の反復試行に対する経験被覆率を $\widehat{\operatorname{Coverage}}_{1-\alpha}$ と書き、分散共分散行列を表す $\operatorname{Cov}$ と区別します。
 
 <a id="def-u2-27-coverage"></a>
 
@@ -225,7 +240,7 @@ $$
 $$
 
 $$
-\widehat{\operatorname{Cov}}_{1-\alpha}
+\widehat{\operatorname{Coverage}}_{1-\alpha}
 =\frac1N\sum_{r=1}^N
 \mathbf1\{x_r^*\in\mathcal E_r\}
 $$
@@ -234,7 +249,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-u2-27-coverage -->
-**定義の確認**：二次元で $P=\operatorname{diag}(1/4,1/4)$ $\mathrm m^2$、真値との差が $e=(1,1)$ m とします。$P\succ0$ で、楕円の左辺は $1/(1/4)+1/(1/4)=8$。$\chi^2_2$ の95%基準 $q_{2,0.05}=-2\log(0.05)\approx5.991$ より大きいので、真値は楕円の外です。この試行の指示関数は0です。
+**定義の確認**：二次元で $P=\operatorname{diag}(1/4,1/4)$ $\mathrm m^2$、真値との差が $e=(1,1)$ m とします。$P$ は対称で、任意の $v\ne0$ に対し $v^TPv=(v_1^2+v_2^2)/4>0$ なので正定値です。楕円の左辺は $1/(1/4)+1/(1/4)=8$。$\chi^2_2$ の95%基準 $q_{2,0.05}=-2\log(0.05)\approx5.991$ より大きいので、真値は楕円の外です。この試行の指示関数は0であり、$N=1$ として計算する経験被覆率も0です。
 <!-- definition-example-end -->
 
 <a id="prop-u2-27-coverage-calibration"></a>
@@ -250,13 +265,13 @@ $$
 > このとき楕円被覆確率と経験被覆率の期待値は、いずれも次の値になる。
 
 $$
-P(x_r^*\in\mathcal E_r)=E[\widehat{\operatorname{Cov}}_{1-\alpha}]=1-\alpha.
+P(x_r^*\in\mathcal E_r)=E[\widehat{\operatorname{Coverage}}_{1-\alpha}]=1-\alpha.
 $$
 
 > この期待値の結論に試行間独立性は不要である。さらに試行ごとの被覆指示関数が互いに独立なら、経験被覆率の分散は
 
 $$
-\operatorname{Var}(\widehat{\operatorname{Cov}}_{1-\alpha})
+\operatorname{Var}(\widehat{\operatorname{Coverage}}_{1-\alpha})
 =\frac{\alpha(1-\alpha)}{N}
 $$
 
@@ -283,7 +298,7 @@ $$
 
 [既出の NIS](../U2-10/index.md#def-u2-10-nis) は、**観測を取り込む前**の残差 $\nu=z-\hat z^-$ とその予測分散共分散行列 $S\succ0$ から $\nu^TS^{-1}\nu$ を計算します。NEES は**真値を使い**、推定後または評価時点の状態誤差と $P$ から計算します。NIS の値が妥当でも、観測が見ていない状態成分の共分散までは保証しません。
 
-具体例として、真の一次元状態 $X$ に依存しない独立な観測雑音だけが見える模型を考えます。
+具体例として、真の一次元状態 $X$ に依存しない独立な観測雑音だけが見える模型を考えます。[U2-10 の局所観測模型](../U2-10/index.md#def-u2-10-reference-model)の $H$ は状態誤差から観測残差への線形係数で、観測雑音分散を $R$ とすると予測残差分散は $S=HPH^{\mathsf T}+R$ です。この例では $H=0$、$R=1$ なので、状態分散 $P$ の値によらず $S=1$ です。
 
 $$
 Z=\varepsilon,\qquad \varepsilon\sim N(0,1),\qquad H=0.
@@ -477,7 +492,7 @@ $$
 <!-- solution-start -->
 **詳細解答**：
 
-(1) $P$ の固有値は $4,1$ で正、逆行列は $\operatorname{diag}(1/4,1)$ です。NEES は $2^2/4+1^2/1=2$。二次元の上側5%境界は $-2\log0.05\approx5.991$ なので楕円内です。
+(1) $P$ は対称で、任意の $v=(v_1,v_2)^T\ne0$ に対し $v^TPv=4v_1^2+v_2^2>0$ なので正定値です（固有値も $4,1$）。従って逆行列は $\operatorname{diag}(1/4,1)$ です。NEES は $2^2/4+1^2/1=2$。二次元の上側5%境界は $-2\log0.05\approx5.991$ なので楕円内です。
 
 (2) $R=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ を使うと $e'=Re=(-1,2)^T$。行列積を順に計算すると
 
