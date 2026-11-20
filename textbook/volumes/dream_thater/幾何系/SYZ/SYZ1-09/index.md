@@ -234,7 +234,7 @@ $$
 
 と定める。ここで $h=u-u_0$ と書く。積分式の被積分関数を $u^j$ で微分すると、積の微分と連鎖律、および $\partial_jt_i=\partial_it_j$ により
 
-$
+$$
 \begin{aligned}
 \frac{\partial\phi}{\partial u^j}
 &=\int_0^1\left[t_j(u_0+sh)
@@ -244,7 +244,7 @@ $
 &=\int_0^1\frac{d}{ds}\left[s\,t_j(u_0+sh)\right]ds
 =t_j(u).
 \end{aligned}
-$
+$$
 
 したがって $d\phi=\sum_it_i\,du^i$ であり、もう一度微分すればHessian表示を得る。閉性と凸領域上の積分により、線分以外の経路で定義しても同じ値となる。
 
@@ -401,11 +401,11 @@ $$
 
 さらにHessianは $H'=A^{-\mathsf T}HA^{-1}$。零でないベクトル $z$ に対して $z^{\mathsf T}H'z=(A^{-1}z)^{\mathsf T}H(A^{-1}z)>0$ なので正定値性が保たれる。この計量の積は微分形式の外積ではなく、二つの接ベクトル $v,w$ に各1形式を評価した値の積である。実際、$du'(v)=Adu(v)$、$dt'(w)=A^{-\mathsf T}dt(w)$ なので
 
-$
+$$
 \sum_i du'^i(v)\,dt'_i(w)
 =du(v)^{\mathsf T}A^{\mathsf T}A^{-\mathsf T}dt(w)
 =du(v)^{\mathsf T}dt(w)=G(v,w).
-$
+$$
 
 これでも内積の不変性が確認できる。
 <!-- proof-end -->
