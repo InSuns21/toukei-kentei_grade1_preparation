@@ -1,0 +1,45 @@
+id: "SYZ1-08"
+title: "基底の二種類の整数アフィン構造"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-07
+  - SYZ1-06
+official_scope: []
+learning_objectives:
+  - 滑らかなSLagトーラス束の存在を追加仮定とし大域存在と区別できる
+  - 法線変形からH^1とH^{n-1}へ至る同型をMcLean理論とHodge星で説明できる
+  - 整数アフィン構造のGL(n,Z)遷移と実アフィン遷移の差を判定できる
+  - 1次元サイクルとn-1次元サイクルの周期積分を次数と符号から計算できる
+  - ファイバー上で零となる閉形式の掃引積分から周期1形式の閉性を証明できる
+  - 二種類の周期余接格子を局所座標へ積分し可逆性と遷移を示せる
+  - シンプレクティック周期格子が既習の作用座標格子に一致することを証明できる
+  - 異方的平坦トーラスで二つの整数格子が一般に一致しないことを計算できる
+  - Hodge星の実線形同型が整数格子の同型とは限らない理由を説明できる
+definitions:
+  - { id: SYZ1-08-DEF-01, name: "整数アフィン構造" }
+  - { id: SYZ1-08-DEF-02, name: "シンプレクティック周期と複素周期の余接格子" }
+theorems:
+  - { id: SYZ1-08-PROP-01, name: "二つの変形・コホモロジー同型" }
+  - { id: SYZ1-08-LEM-01, name: "閉形式から得る周期1形式の閉性" }
+  - { id: SYZ1-08-THM-01, name: "滑らかなSLag束の二重整数アフィン構造" }
+canonical_examples:
+  - 標準二次元複素トーラスでの法線縮約と全次数・符号の検算
+  - 一次元トーラスでの0サイクルと0形式の周期
+  - 非単模実座標変更が整数格子を保存しない直接例
+  - 異方的計量を持つ平坦SLagトーラスでの二種類の周期格子の非同一性
+problem_patterns:
+  - SYZ1-08-NORMAL-CONTRACTION
+  - SYZ1-08-CYCLE-DEGREE
+  - SYZ1-08-INTEGRAL-AFFINE-MATRIX
+  - SYZ1-08-DIMENSION-ONE-CYCLE
+  - SYZ1-08-ACTION-SIGN
+  - SYZ1-08-STOKES-PERIOD-CLOSED
+  - SYZ1-08-LATTICE-CHANGE
+  - SYZ1-08-ANISOTROPIC-TORUS
+  - SYZ1-08-HODGE-INTEGRAL-LATTICE
+  - SYZ1-08-FULL-TWO-AFFINE-STRUCTURES
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 10, exercises: 12, review: 5 }
