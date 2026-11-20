@@ -1,0 +1,46 @@
+id: "U2-25"
+title: "ループ閉合・頑健推定：再訪はいつ役に立つか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-24
+official_scope: []
+learning_objectives:
+  - 再訪測定を相対位置因子として定義し、正しいデータ対応・独立性・固定基準の仮定を確認できる
+  - 単位分散オドメトリと単一ループのMAP解を微分で導出し、一意性と極限を証明できる
+  - Gaussian精度行列の逆行列を検算して終点分散の減少を定量化できる
+  - 偽のループ閉合が軌跡全体を変形する数値例を正確に計算できる
+  - 採用前のinnovation gateと採用後の頑健推定の責務を区別できる
+  - Huber損失・影響関数・IRLS重みを導出し、自己整合な固定点を検算できる
+  - 多重偽閉合・記録の二重計数・gauge未固定の失敗機構を説明できる
+  - Python標準ライブラリで正しい閉合、誤閉合、頑健解、重みの反復を再現できる
+definitions:
+  - { id: U2-25-DEF-01, name: 1次元のループ閉合因子 }
+  - { id: U2-25-DEF-02, name: Huber 損失と重み }
+theorems:
+  - { id: U2-25-THM-01, name: 単一ループの閉形式 MAP 解 }
+  - { id: U2-25-PROP-01, name: ループによる終点分散の縮小 }
+  - { id: U2-25-PROP-02, name: Huber 損失の停留条件と反復再重み付け }
+canonical_examples:
+  - 1次元3区間の再訪を測定0で閉じた時の終点1から1/4への修正
+  - 誤対応測定マイナス3による二乗解の終点マイナス2への変形
+  - 終点分散3から3/4への縮小とそのモデル条件
+  - イノベーション分散4でのNISが1/4と4になる候補比較
+  - Huber閾値1/2での頑健終点マイナス1/2と初回IRLS重み1/8
+  - 二重偽閉合での頑健終点マイナス2と記録独立性の警告
+problem_patterns:
+  - U2-25-A01
+  - U2-25-A02
+  - U2-25-A03
+  - U2-25-A04
+  - U2-25-A05
+  - U2-25-B01
+  - U2-25-B02
+  - U2-25-B03
+  - U2-25-B04
+  - U2-25-C01
+  - U2-25-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 3.0, exercises: 4.0, review: 1.5 }
+past_exam_alignment: []
+integrated_exam_problems: []
