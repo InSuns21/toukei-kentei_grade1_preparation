@@ -33,27 +33,27 @@ $$
 >
 > 初期質量 $M_0$ と停止質量 $M_{\rm cut}$ は正で、$M_0>M_{\rm cut}$ とする。質量軌道は指定区間で連続微分可能とし、次の条件を満たす。
 >
-> $$
-> M:[u_0,u_{\rm cut}]\to[M_{\rm cut},M_0],\qquad
-> M(u_0)=M_0,\quad M(u_{\rm cut})=M_{\rm cut},\quad
-> \frac{dM}{du}<0.
-> $$
+$$
+M:[u_0,u_{\rm cut}]\to[M_{\rm cut},M_0],\qquad
+M(u_0)=M_0,\quad M(u_{\rm cut})=M_{\rm cut},\quad
+\frac{dM}{du}<0.
+$$
 >
-> > また、生成率比 $\beta$ は $[M_{\rm cut},M_0]$ 上の正値連続関数とする。
+> また、生成率比 $\beta$ は $[M_{\rm cut},M_0]$ 上の正値連続関数とする。
 >
 > 初期放射の粗視化エントロピーを零と規格化し、放射の累積粗視化エントロピー $S_{\rm rad}^{\rm coarse}(u)$ を
 >
-> $$
-> S_{\rm rad}^{\rm coarse}(u_0)=0,\qquad
-> \frac{dS_{\rm rad}^{\rm coarse}}{du}
-> =\beta(M(u))\left(-\frac{dS_{\rm BH}}{du}\right)
-> $$
+$$
+S_{\rm rad}^{\rm coarse}(u_0)=0,\qquad
+\frac{dS_{\rm rad}^{\rm coarse}}{du}
+=\beta(M(u))\left(-\frac{dS_{\rm BH}}{du}\right)
+$$
 >
-> > を満たす量として定める。この式は追加の放射模型の仮定であって、純粋蒸発のユニタリ性から導かれた等式ではない。
+> を満たす量として定める。この式は追加の放射模型の仮定であって、純粋蒸発のユニタリ性から導かれた等式ではない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi8-entropy-ledger -->
-**定義の確認（理想黒体の特別な模型）**：$M_0=10$、$M_{\rm cut}=5$、$C>0$ として $dM/du=-C/M^2$ を使い、$\beta(M)=4/3$ を一定とします。$M^3=M_0^3-3C(u-u_0)$ なので $M$ は指定区間で微分可能、$M$ が5まで減る間は負の導関数を持ちます。$\beta$ は正の連続関数です。[BHI4の理想黒体に限った粗視化計算](../BHI4/index.md#prop-bhi4-horizon-entropy-rate)の後に示した $\dot S_{\rm rad}^{\rm coarse}=(4/3)(-\dot S_{\rm BH})$ をこの特例として採用すると、
+**定義の確認**（理想黒体の特別な模型）：$M_0=10$、$M_{\rm cut}=5$、$C>0$ として $dM/du=-C/M^2$ を使い、$\beta(M)=4/3$ を一定とします。$M^3=M_0^3-3C(u-u_0)$ なので $M$ は指定区間で微分可能、$M$ が5まで減る間は負の導関数を持ちます。$\beta$ は正の連続関数です。[BHI4の理想黒体に限った粗視化計算](../BHI4/index.md#prop-bhi4-horizon-entropy-rate)の後に示した $\dot S_{\rm rad}^{\rm coarse}=(4/3)(-\dot S_{\rm BH})$ をこの特例として採用すると、
 
 $$
 S_{\rm rad}^{\rm coarse}(M)
@@ -97,12 +97,12 @@ $$
 >
 > [放射エントロピー生成率の収支模型](#def-bhi8-entropy-ledger)で、$u_{\rm P}\in[u_0,u_{\rm cut}]$ が
 >
-> $$
-> S_{\rm rad}^{\rm coarse}(u_{\rm P})
-> =S_{\rm BH}(M(u_{\rm P}))
-> $$
+$$
+S_{\rm rad}^{\rm coarse}(u_{\rm P})
+=S_{\rm BH}(M(u_{\rm P}))
+$$
 >
-> > を満たすとき、その時刻を **Page時刻の収支推定値**、対応する $M_{\rm P}=M(u_{\rm P})$ を**収支交点質量**と呼ぶ。区間内に交点がなければ推定値は未定義とする。「真の精細エントロピーの極大時刻」を定義したものではない。
+> を満たすとき、その時刻を **Page時刻の収支推定値**、対応する $M_{\rm P}=M(u_{\rm P})$ を**収支交点質量**と呼ぶ。区間内に交点がなければ推定値は未定義とする。「真の精細エントロピーの極大時刻」を定義したものではない。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi8-balance-time -->
@@ -127,24 +127,24 @@ $$
 >
 > $M_0>M_{\rm cut}>0$、$C,\beta>0$ とする。初期質量 $M(u_0)=M_0$ から停止質量へ至るまで、質量軌道は次の方程式に従うとする。
 >
-> $$
-> \frac{dM}{du}=-\frac{C}{M^2}.
-> $$
+$$
+\frac{dM}{du}=-\frac{C}{M^2}.
+$$
 >
-> > また、[放射エントロピー生成率の収支模型](#def-bhi8-entropy-ledger)で生成率比を一定の $\beta(M)=\beta$ とする。次の質量分率と形式時刻比を定める。
+> また、[放射エントロピー生成率の収支模型](#def-bhi8-entropy-ledger)で生成率比を一定の $\beta(M)=\beta$ とする。次の質量分率と形式時刻比を定める。
 >
-> $$
-> f_{\rm P}:=\sqrt{\frac{\beta}{1+\beta}},\qquad
-> \theta_{\rm P}:=1-\left(\frac{\beta}{1+\beta}\right)^{3/2}.
-> $$
+$$
+f_{\rm P}:=\sqrt{\frac{\beta}{1+\beta}},\qquad
+\theta_{\rm P}:=1-\left(\frac{\beta}{1+\beta}\right)^{3/2}.
+$$
 >
-> > この区間内に[収支交点](#def-bhi8-balance-time)が存在する必要十分条件は $M_{\rm cut}\le M_0f_{\rm P}$ である。存在するとき交点は一意で、
+> この区間内に[収支交点](#def-bhi8-balance-time)が存在する必要十分条件は $M_{\rm cut}\le M_0f_{\rm P}$ である。存在するとき交点は一意で、
 >
-> $$
-> M_{\rm P}=M_0f_{\rm P},\qquad
-> u_{\rm P}-u_0=\frac{M_0^3}{3C}\theta_{\rm P},\qquad
-> S_{\rm BH}(M_{\rm P})=\frac{\beta}{1+\beta}S_{\rm BH}(M_0).
-> $$
+$$
+M_{\rm P}=M_0f_{\rm P},\qquad
+u_{\rm P}-u_0=\frac{M_0^3}{3C}\theta_{\rm P},\qquad
+S_{\rm BH}(M_{\rm P})=\frac{\beta}{1+\beta}S_{\rm BH}(M_0).
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
@@ -212,21 +212,21 @@ $$
 >
 > 初期質量 $M(u_0)=M_0$ から停止質量 $M_{\rm cut}$ まで、微分可能な質量軌道は
 >
-> $$
-> \frac{dM}{du}=-\frac{C(M)}{M^2}
-> $$
+$$
+\frac{dM}{du}=-\frac{C(M)}{M^2}
+$$
 >
-> > を満たすとする。[放射エントロピー生成率の収支模型](#def-bhi8-entropy-ledger)を採用し、関数
+> を満たすとする。[放射エントロピー生成率の収支模型](#def-bhi8-entropy-ledger)を採用し、関数
 >
-> $$
-> F(m):=\int_m^{M_0}8\pi x\beta(x)\,dx-4\pi m^2
-> $$
+$$
+F(m):=\int_m^{M_0}8\pi x\beta(x)\,dx-4\pi m^2
+$$
 >
-> > を定める。このとき区間 $[M_{\rm cut},M_0]$ に収支交点が存在する必要十分条件は $F(M_{\rm cut})\ge0$ であり、存在するとき一意である。唯一の零点 $M_{\rm P}$ に対応する時間は
+> を定める。このとき区間 $[M_{\rm cut},M_0]$ に収支交点が存在する必要十分条件は $F(M_{\rm cut})\ge0$ であり、存在するとき一意である。唯一の零点 $M_{\rm P}$ に対応する時間は
 >
-> $$
-> u_{\rm P}-u_0=\int_{M_{\rm P}}^{M_0}\frac{x^2}{C(x)}\,dx.
-> $$
+$$
+u_{\rm P}-u_0=\int_{M_{\rm P}}^{M_0}\frac{x^2}{C(x)}\,dx.
+$$
 <!-- formal-statement-end -->
 
 ### 証明の見取り図
