@@ -1,0 +1,48 @@
+chapter: BHI15
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI14, AQFT15, AQFT16]
+forward_references: []
+concepts:
+  - id: black-hole-information.gauss-physical-hilbert
+    name: 二リンクのGauss物理空間
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（二リンクのGauss物理空間）]
+    requires: []
+  - id: black-hole-information.gauss-local-operators
+    name: 二リンク模型の局所観測量
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（二リンク模型の局所観測量）]
+    requires: [black-hole-information.gauss-physical-hilbert]
+  - id: black-hole-information.gauss-local-algebras
+    name: Gauss制約下の左右局所代数
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Gauss制約下の左右局所代数）]
+    requires: [black-hole-information.gauss-physical-hilbert]
+  - id: black-hole-information.gauss-shared-center
+    name: Gauss制約による共有中心と可換子
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Gauss制約による共有中心と可換子）]
+    requires: [black-hole-information.gauss-local-algebras]
+  - id: black-hole-information.gauss-factorization-obstruction
+    name: 共有中心は鋭い全行列因子分解を妨げる
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（共有中心は鋭い全行列因子分解を妨げる）]
+    requires: [black-hole-information.gauss-shared-center]
+  - id: black-hole-information.gauss-algebraic-entropy
+    name: 本有限模型の局所代数エントロピー
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（本有限模型の局所代数エントロピー）]
+    requires: [black-hole-information.gauss-local-algebras]
+  - id: black-hole-information.gauss-sector-entropy
+    name: 電束セクターのエントロピー分解
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（電束セクターのエントロピー分解）]
+    requires: [black-hole-information.gauss-algebraic-entropy]
