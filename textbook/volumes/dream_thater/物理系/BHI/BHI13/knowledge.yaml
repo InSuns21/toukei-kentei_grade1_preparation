@@ -1,0 +1,48 @@
+chapter: BHI13
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI12, QINF31]
+forward_references: []
+concepts:
+  - id: black-hole-information.haar-input-output-experiment
+    name: Haar投入・放出実験
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（Haar投入・放出実験）]
+    requires: [black-hole-information.old-hole-diary-input, quantum.haar-unitary-measure]
+  - id: black-hole-information.decoupling-leakage-error
+    name: 残存系へのデカップリング誤差
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（残存系へのデカップリング誤差）]
+    requires: [black-hole-information.haar-input-output-experiment, quantum.exact-decoupling]
+  - id: black-hole-information.haar-two-copy-twirl
+    name: 投入系のHaar二コピー平均
+    kind: lemma
+    introduction: formal
+    introduction_aliases: [補題（投入系のHaar二コピー平均）]
+    requires: [black-hole-information.haar-input-output-experiment, quantum.swap-operator]
+  - id: black-hole-information.haar-decoupling-mean
+    name: Haar投入模型の平均デカップリング二次偏差
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Haar投入模型の平均デカップリング二次偏差）]
+    requires: [black-hole-information.haar-two-copy-twirl, black-hole-information.decoupling-leakage-error, quantum.swap-trick]
+  - id: black-hole-information.haar-decoupling-tail
+    name: Haar投入模型のデカップリング確率界
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（Haar投入模型のデカップリング確率界）]
+    requires: [black-hole-information.haar-decoupling-mean]
+  - id: black-hole-information.haar-recovery-threshold
+    name: Haar投入模型の高確率回収閾値
+    kind: theorem
+    introduction: formal
+    introduction_aliases: [定理（Haar投入模型の高確率回収閾値）]
+    requires: [black-hole-information.haar-decoupling-tail, quantum.information-disturbance-bounds, black-hole-information.hayden-preskill-recovery-task]
+  - id: black-hole-information.extra-radiation-qubits
+    name: 余分な放射量子ビットと回収誤差
+    kind: corollary
+    introduction: formal
+    introduction_aliases: [系（余分な放射量子ビットと回収誤差）]
+    requires: [black-hole-information.haar-recovery-threshold]
