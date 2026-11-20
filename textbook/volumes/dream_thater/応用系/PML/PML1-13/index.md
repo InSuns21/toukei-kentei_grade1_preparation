@@ -12,11 +12,11 @@
 
 $F$ が $\theta_\star$ 近傍で二回連続微分可能なら、勾配の変化はHessian（勾配のJacobi行列）で表せる。$H=\nabla^2F(\theta_\star)$ とする。標準基底で $1\le r,s\le d$ とすると、Hessianの成分と、それが変位 $x$ に作用した第 $r$ 成分は
 
-$
+$$
 H_{rs}=\partial_{\theta_s}(\partial_{\theta_r}F)(\theta_\star),
 \qquad
 (Hx)_r=\sum_{s=1}^dH_{rs}x_s
-$
+$$
 
 と書ける。停留点条件と線分に沿う微積分の基本定理から
 
@@ -166,11 +166,11 @@ $$
 
 決定論的初期値から出発すると、上の確率積分は[決定論的ブラウン積分のGaussian性](../../../解析系/STO/STO6/index.md#prop-sto6-deterministic-gaussian)から多次元でもGaussianである。実際、任意の $v\in\mathbb R^d$ に対し、左から掛けたスカラー積分は
 
-$
+$$
 v^{\mathsf T}\int_0^t e^{-H(t-s)}B\,dW_s
 =\sum_{\ell=1}^d\int_0^t
 \bigl(v^{\mathsf T}e^{-H(t-s)}B\bigr)_\ell\,dW_s^\ell
-$
+$$
 
 であり、右辺は互いに独立なブラウン成分の決定論的積分の和なのでGaussianとなる。すべての一次元射影がGaussianであるから積分ベクトルは多次元Gaussianである。平均は $e^{-Ht}U_0\to0$、共分散は表示積分へ収束する。任意の初期分布に対しても、初期値の寄与 $e^{-Ht}U_0$ は確率収束で0となるので同じ極限分布を持つ。
 
