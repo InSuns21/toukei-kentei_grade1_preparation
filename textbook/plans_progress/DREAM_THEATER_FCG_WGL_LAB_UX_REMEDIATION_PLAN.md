@@ -127,4 +127,4 @@
 
 - 2026-11-21：G3 の共通キャンバス隣接凡例を FCG3/FCG4/FCG5/WGL18 の4講で試行。元の計算格子数とGPU描画バッファの画素寸法、R8の色と値の変換、反復・物理step・描画フレームの意味、編集JS/GLSLの位置をまとめた。stepは実行時のpayload（WGL18はGPU側のfloatParameters）から取り、**再生中も初期CPU/GPU照合の基準時刻が動くと誤認させない**表示とした。色表示は元のshaderを参照し、別の描画モデル・補間アルゴリズム・postMessageを追加しない。未対応23講、再生・1step等の共通操作の統合、360px/実Chromium/keyboard/context-lossの受入、人手画面査読は残件。既存各講statusは変更しない。
 
-- 2026-11-21：G4 の既存 Chromium 受入に、WGL18/FCG3 のGUI値→実教材JS→隔離GPU実行→保存→ページ再読込（保存内容を未実行で復元）→非リテラル入力のGUI禁止→初期ソースへのresetを一連で追加。WGL18は動的なfloat読戻しを重複表示していたため、同じ独立比較の診断を1件に整理して重複防止アサーションを追加。WGL18はcontextのfloat拡張非対応環境ではGPU数値合格を主張しない。CIによる実Chromium実行と公開画面の人手査読、全28講の360px/1280px・キーボード・停止／context loss等の横断受入は**未完了**。
+- 2026-11-21：G4 の既存 Chromium 受入に、WGL18/FCG3 のGUI値→実教材JS→隔離GPU実行→保存→ページ再読込（保存内容を未実行で復元）→非リテラル入力のGUI禁止→初期ソースへのresetを一連で追加。WGL18は動的なfloat読戻しを重複表示していたため、同じ独立比較の診断を1件に整理して重複防止アサーションを追加。WGL18はcontextのfloat拡張非対応環境ではGPU数値合格を主張しない。PR #3890 の GitHub Actions で WGL18/FCG3 を含む既存の実Chromium回帰、Pages全体、教材・用語検証は **success**。これらは自動実行の確認であり、公開画面の人手査読、全28講の360px/1280px・キーボード・停止／context loss等の横断受入は**未完了**。
