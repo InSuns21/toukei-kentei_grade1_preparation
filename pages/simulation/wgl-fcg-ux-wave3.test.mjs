@@ -62,6 +62,8 @@ test('changed chapters explain animation versus the static oracle',async()=>{
     assert.match(md,/CPU\/GPU/);
   }
   const host=await readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8');
-  assert.ok(host.includes("['FCG4','WGL7','WGL13']"));
+  const note=host.slice(host.indexOf("if (['FCG3'"),host.indexOf('mountVisualGuide('));
+  for(const id of ['FCG4','WGL7','WGL13'])
+    assert.ok(note.includes("'"+id+"'"),id+' must retain its static-oracle label');
   assert.ok(host.includes("iframe.setAttribute('sandbox', 'allow-scripts')"));
 });

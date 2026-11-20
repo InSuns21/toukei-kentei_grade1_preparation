@@ -1762,13 +1762,13 @@ byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 // An animated scene is only validated at its first static snapshot.
 // Keep that boundary visible next to the real GPU canvas, not just in theory.
-if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG4','WGL7','WGL13'].includes(lesson)) {
+if (['FCG3','FCG5','WGL5','WGL9','WGL12'].includes(lesson) || ['FCG4','FCG6','WGL7','WGL11','WGL13'].includes(lesson)) {
   const note=document.createElement('p');
   note.className='visual-snapshot-note';
   note.setAttribute('role','note');
   note.textContent='最初の静止フレームをCPU/GPUで照合した後、同じ編集コードが連続描画します。' +
-    '以下の数値表は実行開始時に指定した固定条件（FCG4はPoisson反復数、WGL7はUV、WGL13は6面そのもの）での基準値です。再生中の全フレームの検算ではありません。' +
-    'GPU画面にフォーカスしてSpace/Enterで再生・停止できます。FCG4は矢印とR、WGL13は左右矢印でも操作できます。';
+    '以下の数値表は実行開始時の固定条件（FCG4はPoisson反復数、FCG6は物理step数、WGL7はUV、WGL11は光源方向、WGL13は6面）での基準値です。再生中の全フレームの検算ではありません。' +
+    'GPU画面にフォーカスしてSpace/Enterで再生・停止できます。FCG4・FCG6・WGL11・WGL13は矢印とRなどでも操作できます。';
   byId('canvas-slot').before(note);
 }
 mountVisualGuide(lesson,byId('panel-conditions'),{run,focusResult:selectTab});

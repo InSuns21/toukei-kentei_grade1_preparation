@@ -8,6 +8,7 @@ uniform sampler2D u_shadow;
 uniform float u_bias;
 uniform int u_pass;
 uniform bool u_useShadow;
+uniform vec3 u_lightDirection;
 out vec4 outColor;
 // Shadow coordinate xyz: light clip -> [0,1]. Depth is compared in the
 // SAME light projection in which the first pass wrote gl_FragCoord.z.
@@ -40,7 +41,7 @@ void main() {
     return;
   }
   vec3 N = normalize(v_normal);
-  vec3 L = normalize(vec3(0.5, 0.25, 1.0));
+  vec3 L = normalize(u_lightDirection);
   float diffuse = max(dot(N,L),0.0);
   float vis = u_useShadow ? visibility(v_world) : 1.0;
   vec3 albedo = v_world.z > 0.001 ? vec3(0.82,0.25,0.15) :
