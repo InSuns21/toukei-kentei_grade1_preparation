@@ -330,20 +330,20 @@ $$
 
 実数 $a,b$ と写像 $F_1,F_2$ に対し、各 $g$ の項で行列の積を分配すると
 
-$
+$$
 \begin{aligned}
 &\rho(g)^{-1}(aF_1(g\cdot x)+bF_2(g\cdot x))\\
 &\quad=a\rho(g)^{-1}F_1(g\cdot x)
 +b\rho(g)^{-1}F_2(g\cdot x).
 \end{aligned}
-$
+$$
 
 これを群全体で平均すると
 
-$
+$$
 \mathcal P_\rho(aF_1+bF_2)
 =a\mathcal P_\rho F_1+b\mathcal P_\rho F_2
-$
+$$
 
 なので線形である。いま示した等変性をもう一度平均の定義へ代入すると
 
