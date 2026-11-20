@@ -13,6 +13,7 @@ import {mountSmokeObservation} from './wgl-fcg-fluid-visual.mjs';
 import {mountReferenceObservation} from './wgl-fcg-reference-visual.mjs';
 import {mountVisualGuide} from './wgl-fcg-visual-guide.mjs';
 import {mountLabParameters} from './wgl-lab-parameters.mjs';
+import {mountSceneInfo} from './wgl-lab-scene-info.mjs';
 import { compareWGL2Readback, expectedWGL2Samples } from './wgl2-lab-core.mjs';
 import { compareWGL3Readback, expectedWGL3Samples } from './wgl3-lab-core.mjs';
 import { compareWGL4Readback, expectedWGL4Samples } from './wgl4-lab-core.mjs';
@@ -106,6 +107,7 @@ const inputs = {
 const tabs = ['conditions', 'code', 'result'];
 const defaults = {};
 let refreshParameterControls = () => {};
+const updateSceneInfo = mountSceneInfo(lesson, byId('scene-info'));
 let plateauSnapshot = null;
 let ready = false;
 let active = null;
@@ -301,6 +303,7 @@ function stop(message = '停止しました。実行 iframe を破棄しまし�
     active = null;
   }
   byId('canvas-slot').replaceChildren();
+  updateSceneInfo(null);
   setStatus(message);
 }
 function token() {
@@ -852,6 +855,10 @@ window.addEventListener('message', event => {
     return;
   }
   if (data.type !== 'result') return;
+  updateSceneInfo(data.ok ? {
+    width: active.payload.width, height: active.payload.height,
+    steps: isWGL18 ? data.floatParameters?.steps : active.payload.steps
+  } : null);
   clearTimeout(active.timer);
   active.timer = null;
   const unchanged = Object.keys(defaults).every(key => active.payload[key] === defaults[key]);
