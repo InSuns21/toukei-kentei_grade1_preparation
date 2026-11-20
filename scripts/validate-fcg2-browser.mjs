@@ -134,7 +134,7 @@ try {
   const live=await evaluate('({time:Number(document.querySelector("#fcg2-time-slider").value),q:document.querySelector("#fcg2-q").textContent,gpu:document.querySelector("#fcg2-gpu").textContent})');
   assert.ok(live.time>0.25,JSON.stringify(live));
   assert.ok(Number.isFinite(Number(live.q)),JSON.stringify(live));
-  assert.match(live.gpu,/\\d+, \\d+, \\d+, 255/);
+  assert.match(live.gpu,/\d+, \d+, \d+, 255/);
   await evaluate('([...document.querySelectorAll("main button")].find(b=>b.textContent==="一時停止")).click()');
   await waitFor('document.querySelector("#fcg2-time-slider").disabled===false');
   await evaluate('(()=>{const e=document.querySelector("#fcg2-time-slider");e.value="2.2";e.dispatchEvent(new Event("input",{bubbles:true}));})()');
