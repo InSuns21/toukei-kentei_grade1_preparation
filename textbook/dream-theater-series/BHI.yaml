@@ -75,7 +75,7 @@ chapters:
     title: "前半総合：矛盾を構成する仮定と選択肢"
   - id: BHI17
     path: textbook/volumes/dream_thater/物理系/BHI/BHI17
-    status: planned
+    status: completed
     title: "重力領域と非重力浴の設定"
   - id: BHI18
     path: textbook/volumes/dream_thater/物理系/BHI/BHI18

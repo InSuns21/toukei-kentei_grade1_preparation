@@ -1,0 +1,39 @@
+id: BHI17
+title: "重力領域と非重力浴の設定"
+volume: foundations
+status: supplementary
+prerequisites:
+  - BHI16
+official_scope: []
+learning_objectives:
+  - 重力領域・非重力浴・接合面・放射領域Rを同じ空間断面で指定できる
+  - 二次元共形計量の接合面で誘導計量が一致する条件を計算できる
+  - 質量零スカラー場の透過境界条件と流束保存を作用・波動方程式から追える
+  - cutoff付き浴の縮約状態と精細エントロピーを部分トレースで計算できる
+  - 定常・熱的模型と時間依存の蒸発模型の追加物理仮定を区別できる
+definitions:
+  - { id: BHI17-DEF-01, name: "正則化した重力領域・浴の接合模型" }
+  - { id: BHI17-DEF-02, name: "質量零スカラー場の透過接合条件" }
+  - { id: BHI17-DEF-03, name: "浴の放射領域とエントロピー台帳" }
+theorems:
+  - { id: BHI17-PROP-01, name: "透過接合による試験場の流束保存" }
+canonical_examples:
+  - AdS型共形半直線と平坦浴の誘導計量の一致
+  - 右向き質量零波束の透過と右向き流束
+  - Bell対による放射領域選択と精細エントロピーの違い
+  - cutoff変更とHilbert空間次元の比較
+problem_patterns:
+  - BHI17-REGION-CLASSIFICATION
+  - BHI17-INDUCED-METRIC
+  - BHI17-TRANSMITTING-WAVE
+  - BHI17-BELL-TRACE
+  - BHI17-CUTOFF-DIMENSION
+  - BHI17-BOUNDARY-TIME
+  - BHI17-FLUX-MISMATCH
+  - BHI17-REGION-ENTROPY
+  - BHI17-STATIONARY-SUPPLY
+  - BHI17-INTEGRATED-SETUP-AUDIT
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 8, exercises: 8, review: 4 }

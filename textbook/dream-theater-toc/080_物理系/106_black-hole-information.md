@@ -17,3 +17,4 @@
 14. [BHI14 scrambling時間と情報放出時間](textbook/volumes/dream_thater/物理系/BHI/BHI14/index.md)
 15. [BHI15 因数分解・ゲージ制約・局所代数](textbook/volumes/dream_thater/物理系/BHI/BHI15/index.md)
 16. [BHI16 前半総合：矛盾を構成する仮定と選択肢](textbook/volumes/dream_thater/物理系/BHI/BHI16/index.md)
+17. [BHI17 重力領域と非重力浴の設定](textbook/volumes/dream_thater/物理系/BHI/BHI17/index.md)

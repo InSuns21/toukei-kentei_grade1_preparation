@@ -1,0 +1,30 @@
+chapter: BHI17
+scope: dream-theater
+coverage: complete
+prerequisites: [BHI16]
+forward_references: []
+concepts:
+  - id: black-hole-information.regulated-gravity-bath-model
+    name: 正則化した重力領域・浴の接合模型
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（正則化した重力領域・浴の接合模型）]
+    requires: []
+  - id: black-hole-information.transparent-bath-interface
+    name: 質量零スカラー場の透過接合条件
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（質量零スカラー場の透過接合条件）]
+    requires: [black-hole-information.regulated-gravity-bath-model]
+  - id: black-hole-information.interface-test-field-flux
+    name: 透過接合による試験場の流束保存
+    kind: proposition
+    introduction: formal
+    introduction_aliases: [命題（透過接合による試験場の流束保存）]
+    requires: [black-hole-information.transparent-bath-interface]
+  - id: black-hole-information.bath-radiation-entropy-ledger
+    name: 浴の放射領域とエントロピー台帳
+    kind: definition
+    introduction: formal
+    introduction_aliases: [定義（浴の放射領域とエントロピー台帳）]
+    requires: [black-hole-information.regulated-gravity-bath-model]
