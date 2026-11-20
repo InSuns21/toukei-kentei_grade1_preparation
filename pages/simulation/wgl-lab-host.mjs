@@ -480,6 +480,9 @@ function isolatedRunner() {
         checkpoints: request.lesson === 'WGL20' && hooks ? hooks.checkpoints : null,
         width: canvas.width, height: canvas.height,
         logs, glError: '0x' + glError.toString(16)});
+      // WGL18 rAF may now use the very same GPU state; do not race the 16 probes.
+      if(request.lesson==='WGL18')
+        window.dispatchEvent(new Event('wgl18-initial-oracle-captured'));
     } catch (error) {
       send({...scope, type: 'result', ok: false, logs,
         error: String(error?.stack || error).slice(0, 5000)});
