@@ -64,7 +64,7 @@ chapters:
     title: "特異ファイバーとモノドロミー"
   - id: SYZ1-15
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-15
-    status: planned
+    status: completed
     title: "正則円板と壁越えの発生条件"
   - id: SYZ1-16
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-16
