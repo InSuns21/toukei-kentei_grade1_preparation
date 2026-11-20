@@ -13,7 +13,26 @@ $$
 
 本章の問いは三つです。①方程式から整性をどう判定するか。②そのような元の全体がなぜ有限個の整数基底を持つ環になるか。③二次体ではその基底を具体的にどう求めるか。
 
-以後、$K/\mathbb Q$ は次数 $n=[K:\mathbb Q]<\infty$ の体拡大です。このような体を**数体**と呼びます。$\mathbb Z[T]$ と $\mathbb Q[T]$ はそれぞれ整数係数・有理数係数の一変数多項式環です。
+以後、有理数体 $\mathbb Q$ を含み、その上で有限次元のベクトル空間となる体を考えます。ここで使う体の名前と条件を確定しておきます。
+
+<a id="def-anf1-number-field"></a>
+
+<!-- formal-statement-start -->
+> **定義（数体）**  
+> 体 $K$ が $\mathbb Q$ を部分体として含み、拡大次数
+
+$$
+[K:\mathbb Q]=\dim_{\mathbb Q}K=n<\infty
+$$
+
+> を満たすとき、$K$ を**数体**という。
+<!-- formal-statement-end -->
+
+<!-- definition-example-start: def-anf1-number-field -->
+**定義の確認**：$\mathbb Q(\sqrt2)$ は有理数体を含み、各元が $a+b\sqrt2$（$a,b\in\mathbb Q$）と書けます。$1,\sqrt2$ は有理数上一次独立なので、$\mathbb Q$ 上の次元は $2$ です。従って $\mathbb Q(\sqrt2)$ は次数 $2$ の数体です。拡大次数と基底の根拠は[体拡大の定義と実例](../../FLD/FLD1/index.md#def-fld1-field-extension)からも確かめられます。
+<!-- definition-example-end -->
+
+以下 $K/\mathbb Q$ は次数 $n$ の数体とします。$\mathbb Z[T]$ と $\mathbb Q[T]$ はそれぞれ整数係数・有理数係数の一変数多項式環です。
 
 <!-- definition-example-audit: strict -->
 
