@@ -12,7 +12,7 @@ AMPS（Almheiri–Marolf–Polchinski–Sully）の問いは、この衝突を**
 
 ## 2. 三つの系と二つのエントロピー要請
 
-同一の放出段階で、$R$ を**すでに遠方へ出た早期放射**、$b$ を**今回外へ出る後期モード**、$c=\tilde b$ を**その地平線内側の相手**とします。$c$ 以外に残るブラックホール自由度を $D$ と書きます。以下では $\mathcal H_R\otimes\mathcal H_b\otimes\mathcal H_c\otimes\mathcal H_D$ を分割として仮定し、$\rho_{Rbc}$ は全状態から $D$ を部分トレースした状態です。$R,b,c$ は互いに**別々の**部分系であり、同じ自由度を重複計上しません。
+同一の放出段階で、$R$ を**すでに遠方へ出た早期放射**、$b$ を**今回外へ出る後期モード**、$c=\tilde b$ を**その地平線内側の相手**とします。$c$ 以外に残るブラックホール自由度を $D$ と書きます。以下では $\mathcal H_R\otimes\mathcal H_b\otimes\mathcal H_c\otimes\mathcal H_D$ を分割として仮定し、$\rho_{Rbc}$ は全状態から $D$ を[部分トレース](../../../応用系/QINF/QINF3/index.md#def-qinf3-partial-trace)した状態です。$XY$ は部分系 $X,Y$ を合わせた系、$\rho_X$ はそれ以外の系をトレースして得た縮約密度演算子を表します。$R,b,c$ は互いに**別々の**部分系であり、同じ自由度を重複計上しません。
 
 エントロピーは $\displaystyle S(X)=-\operatorname{Tr}\rho_X\ln\rho_X$（nat、$0\ln0=0$）。[QINF17のvon Neumannエントロピー](../../../応用系/QINF/QINF17/index.md#def-qinf17-entropy)の底2表記を $\ln2$ 倍したものです。$S(X|Y)=S(XY)-S(Y)$ は[QINF18の条件付きエントロピー](../../../応用系/QINF/QINF18/index.md#def-qinf18-conditional)です。本講では $b,c$ を各qubitとし、必要な箇所で任意の有限次元へ拡張します。
 
@@ -48,7 +48,15 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-bhi10-amps-conditions -->
-**定義の確認**：$\lvert\Phi\rangle_{bc}=(\lvert00\rangle+\lvert11\rangle)/\sqrt2$ とし、$\rho_{Rbc}=\rho_R\otimes\Phi_{bc}$ とします。$bc$ の固有値は $(1,0,0,0)$ で $S(bc)=0$、$\rho_c=I_2/2$ の固有値は $(1/2,1/2)$ で $S(c)=\ln2$。したがって（H）は両誤差0で成立します。一方、$Rb$ の固有値は $\rho_R$ の各固有値を半分ずつ二度並べたものなので
+**定義の確認**：$\lvert\Phi\rangle_{bc}=(\lvert00\rangle+\lvert11\rangle)/\sqrt2$ を規格化されたBell状態ベクトルとし、その階数1射影を $\Phi_{bc}:=\lvert\Phi\rangle\langle\Phi\rvert_{bc}$ と書きます。ここで $\Phi_{bc}$ はベクトルではなく密度演算子です。$\rho_{Rbc}=\rho_R\otimes\Phi_{bc}$ を取ると、$bc$ の固有値は $(1,0,0,0)$ で $S(bc)=0$ です。計算基底の直交性 $\langle0|1\rangle=0$ を使い、$b$ を部分トレースすると
+
+$
+\rho_c=\operatorname{Tr}_b\Phi_{bc}
+=\tfrac12\bigl(\lvert0\rangle\langle0\rvert
++\lvert1\rangle\langle1\rvert\bigr)=I_2/2.
+$
+
+その固有値は $(1/2,1/2)$ で $S(c)=\ln2$。したがって（H）は両誤差0で成立します。同じ計算で $\rho_b=I_2/2$ なので $\rho_{Rb}=\rho_R\otimes I_2/2$ です。$Rb$ の固有値は $\rho_R$ の各固有値を半分ずつ二度並べたものとなり、[テンソル積状態のエントロピー加法性](../../../応用系/QINF/QINF17/index.md#prop-qinf17-tensor)により
 
 $$
 S(Rb)=S(R)+\ln2,\qquad
@@ -199,7 +207,14 @@ $$
 =\operatorname{Tr}(\rho_{bc}Q)=0.
 $$
 
-$\rho_{Rbc}$ は半正定値です。従って、$I_R\otimes Q$ が張る部分空間での期待値はすべて0であり、$\rho_{Rbc}^{1/2}(I_R\otimes Q)=0$ です。これは
+$\rho_{Rbc}$ は半正定値で、$I_R\otimes Q$ は直交射影です。このため先ほどのトレースは
+
+$
+\operatorname{Tr}\!\left[(\rho_{Rbc}^{1/2}(I_R\otimes Q))^\dagger
+(\rho_{Rbc}^{1/2}(I_R\otimes Q))\right]=0
+$
+
+とも書けます。左辺は非負な平方ノルムの和なので、$\rho_{Rbc}^{1/2}(I_R\otimes Q)=0$ です。随伴を取って逆順の積も0と分かり、支持が $I_R\otimes P$ 側だけにあるため、
 
 $$
 \rho_{Rbc}
@@ -275,9 +290,9 @@ $$
 =\frac{\lvert01\rangle+\lvert10\rangle}{\sqrt2}
 $$
 
-を使い、
+を使います。ここでも $\Psi^+_{bc}:=\lvert\Psi^+\rangle\langle\Psi^+\rvert_{bc}$ は射影密度演算子を表し、$\Phi_{bc}$ と区別します。これらの状態ベクトルを用いて
 
-$$
+$
 \lvert\Omega_p\rangle_{Rbc}
 =\sqrt{1-p}\lvert0\rangle_R\lvert\Phi\rangle_{bc}
 +\sqrt p\lvert1\rangle_R\lvert\Psi^+\rangle_{bc}
@@ -290,7 +305,7 @@ $$
 \qquad \rho_c=I_2/2.
 $$
 
-二つのBell射影は直交し、$\rho_{bc}$ の固有値は $(1-p,p,0,0)$。二値エントロピー $h(p):=-p\ln p-(1-p)\ln(1-p)$（$0\ln0=0$）を使えば
+二つのBell射影は直交し、$\rho_{bc}$ の固有値は $(1-p,p,0,0)$。さらに両Bell状態について $\operatorname{Tr}_b\Phi_{bc}=\operatorname{Tr}_b\Psi^+_{bc}=I_2/2$ であり、重み $(1-p)+p=1$ から上記の $\rho_c$ が従います。二値エントロピー $h(p):=-p\ln p-(1-p)\ln(1-p)$（$0\ln0=0$）を使えば
 
 $$
 S(bc)=h(p),\qquad S(c)=\ln2.
@@ -360,7 +375,7 @@ $\lvert\Phi\rangle_{Rb}\otimes\lvert0\rangle_c$ について、二つの条件�
 $\lvert G\rangle=(\lvert000\rangle+\lvert111\rangle)_{Rbc}/\sqrt2$ の $S(R),S(Rb),S(c),S(bc)$ をそれぞれ求め、（U）と（H）のうち厳密に成立するものを判定せよ。
 
 <!-- solution-start -->
-**詳細解答**：$R$ と $c$ をそれぞれトレースすると両方 $I_2/2$ だから $S(R)=S(c)=\ln2$。$Rb$ と $bc$ の縮約はいずれも対角成分 $(1/2,0,0,1/2)$ なので $S(Rb)=S(bc)=\ln2$。従って $S(b|R)=S(b|c)=0$。$\gamma>0$ の（U）は $0\le-\gamma$ が偽なので成立しません。（H）は $\varepsilon_{\rm pair}\ge\ln2,\varepsilon_{\rm in}\ge0$ なら成立しますが、両誤差0では成立しません。$\rho_b=I_2/2$ だけでは純粋内外対の証拠になりません。
+**詳細解答**：$R$ 以外の $bc$ と、$c$ 以外の $Rb$ をそれぞれ部分トレースすると、$\rho_R=\rho_c=I_2/2$ だから $S(R)=S(c)=\ln2$。$Rb$ と $bc$ の縮約はいずれも対角成分 $(1/2,0,0,1/2)$ なので $S(Rb)=S(bc)=\ln2$。従って $S(b|R)=S(b|c)=0$。$\gamma>0$ の（U）は $0\le-\gamma$ が偽なので成立しません。（H）は $\varepsilon_{\rm pair}\ge\ln2,\varepsilon_{\rm in}\ge0$ なら成立しますが、両誤差0では成立しません。$\rho_b=I_2/2$ だけでは純粋内外対の証拠になりません。
 <!-- solution-end -->
 
 <a id="ex-bhi10-a04"></a>
