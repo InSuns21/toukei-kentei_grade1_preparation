@@ -1,0 +1,37 @@
+chapter: PML1-14
+scope: dream-theater
+coverage: complete
+prerequisites: [PML1-13]
+concepts:
+  - id: physics-machine-learning.equilibrium-gibbs-criterion
+    name: OU代理の損失Gibbs一致条件
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（OU代理の損失Gibbs一致条件）"]
+    requires:
+      - physics-machine-learning.ou-stationary-lyapunov
+      - physics-machine-learning.gradient-scatter-matrix
+  - id: physics-machine-learning.ou-reversibility-criterion
+    name: 対称ドリフトOUの可逆性判定
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（対称ドリフトOUの可逆性判定）"]
+    requires:
+      - physics-machine-learning.ou-stationary-lyapunov
+      - physics-machine-learning.equilibrium-gibbs-criterion
+  - id: physics-machine-learning.finite-step-non-gibbs
+    name: 有限学習率と非Gaussian定常分布の反例
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（有限学習率と非Gaussian定常分布の反例）"]
+    requires:
+      - physics-machine-learning.discrete-sgd-lyapunov
+      - physics-machine-learning.equilibrium-gibbs-criterion
+  - id: physics-machine-learning.multiplicative-noise-collapse
+    name: 状態依存雑音の消失と点質量への収束
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（状態依存雑音の消失と点質量への収束）"]
+    requires:
+      - physics-machine-learning.minibatch-replacement-moments
+      - physics-machine-learning.local-sgd-remainders
