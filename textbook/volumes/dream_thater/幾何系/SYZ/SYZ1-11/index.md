@@ -20,7 +20,29 @@ $$
 
 ## 2. HessianからKähler形式を作る
 
-計量 $g$ は二つの接ベクトルへ実数を返す対称な双線形形式であり、Kähler形式 $\check\omega$ は二つの接ベクトルへ実数を返す交代2形式である。複素構造 $J$ と $g$ の組に対して $\check\omega(V,W)=g(JV,W)$ とする。ここではKähler計量の要件を、$g$ が正定値で、$J$ と両立し、$d\check\omega=0$ であることとして確認する。
+計量 $g$ は二つの接ベクトルへ実数を返す対称双線形形式であり、Kähler形式 $\check\omega$ は交代2形式である。複素構造 $J$ と計量の関係を、基本形式
+
+$$
+\check\omega(V,W)=g(JV,W)
+$$
+
+で確認する。
+
+ここでは $g$ の正定値性、$J$ との両立、基本形式の閉性 $d\check\omega=0$ を調べる。[正の基本形式とHermite行列の対応](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)で学んだ判定を、今回は実座標で構成する。
+
+以後、$\partial_i=\partial/\partial u^i$ は他の座標を固定した偏微分を表す。実接ベクトルの座標成分を
+
+$$
+V=\sum_i(a^i\partial_{u^i}+b^i\partial_{v^i})
+$$
+
+とし、その二つの列ベクトルを $a,b$ とする。これから定義する計量 $\check g$ の実座標係数は $\operatorname{diag}(H,H)$ なので、
+
+$$
+\check g(V,V)=a^{\mathsf T}Ha+b^{\mathsf T}Hb.
+$$
+
+Hessianの正定値性は、計量の正定値性をこの表示から直接判定する条件である。
 
 <a id="def-syz1-11-semiflat-kahler"></a>
 
@@ -68,7 +90,17 @@ $$
 
 ### 証明の見取り図
 
-$H$ の対称性が複素構造との両立を与え、三階微分の完全対称性が $d\check\omega=0$ を与える。最後に $\partial/\partial z^i=(\partial_{u^i}-i\partial_{v^i})/2$ を $K=2\phi(u)$ に適用して係数 $1/2$ を検算する。
+$H$ の対称性が複素構造との両立を与え、三階微分の完全対称性が $d\check\omega=0$ を与える。最後に、$z^i=u^i+iv^i$ のWirtinger微分
+
+$$
+\frac{\partial}{\partial z^i}
+=\frac12\left(\frac{\partial}{\partial u^i}-i\frac{\partial}{\partial v^i}\right),
+\qquad
+\frac{\partial}{\partial\bar z^i}
+=\frac12\left(\frac{\partial}{\partial u^i}+i\frac{\partial}{\partial v^i}\right)
+$$
+
+を $K=2\phi(u)$ に適用する。ここでは $z^i,\bar z^i$ を独立に扱い、他の複素座標を固定する。以下、$\partial_i^{(z)}=\partial/\partial z^i$、$\partial_i^{(u)}=\partial/\partial u^i$ と略記する。$K$ は $v$ に依存しないので、二回の複素偏微分で $1/4$ 倍となることが係数検算の要点である。
 
 <!-- proof-start -->
 ### 証明
@@ -121,7 +153,7 @@ $$
 \phi'(u')=\phi(A^{-1}(u'-c))+d^{\mathsf T}u'+C
 $$
 
-と取れた。ここで $d\in\mathbb R^n$ は複素周期の並進、$C$ は定数である。一次項を加えても二階微分は変わらない。
+と取れた。ここで $d\in\mathbb R^n$ は[前講の双対周期座標](../SYZ1-09/index.md#prop-syz1-09-affine-transition) $t$ のアフィン並進 $t'=A^{-\mathsf T}t+d$ に現れる定数であり、複素座標 $z$ の並進ではない。$C$ は実定数である。一次項を加えても二階微分は変わらない。
 
 <a id="prop-syz1-11-global-gluing"></a>
 
@@ -160,7 +192,16 @@ $$
 =a^{\mathsf T}Hb.
 $$
 
-これは $du\otimes du$ と $dv\otimes dv$ のそれぞれに適用できる。同じ行列恒等式を $du\wedge dv$ に適用すると $\check\omega'=\check\omega$。整数条件は $v$ の周期1の商とその逆変換を保証する。
+これは $du\otimes du$ と $dv\otimes dv$ のそれぞれに適用できる。2形式の場合は、$V=(a,b)$、$W=(c,e)$ と座標成分を書けば
+
+$$
+\check\omega'(V,W)
+=(Aa)^{\mathsf T}H'(Ae)-(Ac)^{\mathsf T}H'(Ab)
+=a^{\mathsf T}He-c^{\mathsf T}Hb
+=\check\omega(V,W).
+$$
+
+交代性に由来する第二項まで照合したので $\check\omega'=\check\omega$ である。整数条件は $v$ の周期1の商とその逆変換を保証する。
 
 最後に $K'(u')=K(u)+2d^{\mathsf T}u'+2C$ であり、$u'=\operatorname{Re}z'$ だから、差は正則アフィン関数 $2d^{\mathsf T}z'+2C$ の実部である。$\partial\bar\partial$ はその実部を消す。局所式の閉性と正定値性も貼り合う。
 <!-- proof-end -->
@@ -184,13 +225,35 @@ $$
 > を局所正則体積形式とする。整数アフィン遷移の線形部分 $A$ の行列式が $+1$ の向き付けられたアトラス上では、この式は大域的に一致する。$\det A=-1$ の重なりでは符号が反転するため、このままでは大域の同じ形式とは呼ばない。
 <!-- formal-statement-end -->
 
+行列式で判定できる理由を先に確かめる。複素座標の遷移 $z'=Az+c$ では $dz'^i=\sum_j A_{ij}dz^j$ である。外積の多重線形性と交代性により、異なる $n$ 個の添字を選んだ項だけが残るため
+
+$$
+dz'^1\wedge\cdots\wedge dz'^n=(\det A)\,dz^1\wedge\cdots\wedge dz^n
+$$
+
+となる。$A\in GL(n,\mathbb Z)$ は可逆なので $\det A=\pm1$ であり、正則性・非消失性は保たれるが、**同じ向きの式が一致する**条件は $\det A=1$ である。
+
 <!-- definition-example-start: def-syz1-11-holomorphic-volume -->
 ### 直接例：せん断で正則体積形式を検算する
 
 $n=2$、$A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$、$z'^1=z^1+z^2+c$、$z'^2=z^2$ とする。$dz'^1\wedge dz'^2=(dz^1+dz^2)\wedge dz^2=dz^1\wedge dz^2$。**定義の確認**：正則性・非消失性・$+1$ の貼り合わせを直接確認できる。一方 $z'^1=-z^1$、$z'^2=z^2$ は行列式 $-1$ で、外積が負になる。計量とKähler形式の貼り合わせはこの符号に影響されない。
 <!-- definition-example-end -->
 
-Kähler計量の **Ricci形式** は、局所Hermitian行列の行列式の対数に複素微分を施した実2形式である。固定した複素構造と計量から定まり、Ricci平坦性を検査できる。今のHermitian行列は $H$ と定数倍の差しかないので、その行列式の対数の二階微分には $\log\det H$ を使える。
+Kähler計量の **Ricci形式** は、[既習のRicci形式の局所行列式公式](../../KAH/KAH1-11/index.md#thm-kah1-11-local-ricci)によれば、正則座標での正定値Hermite係数行列 $G=(g_{i\bar j})$ から $\rho=-i\partial\bar\partial\log\det G$ と計算できる。ここでは第2節で
+
+$$
+\check\omega=i\sum_{i,j}\frac{H_{ij}}2\,dz^i\wedge d\bar z^j
+$$
+
+と求めたため、$G=H/2$ である。これは実座標の計量行列 $\operatorname{diag}(H,H)$ とは異なる表示であり、[Hermite係数による判定](../../KAH/KAH1-02/index.md#prop-kah1-02-matrix-criterion)の規約を用いる。$H>0$ なので $G>0$ かつ $\det G=2^{-n}\det H>0$、従って
+
+$$
+\partial\bar\partial\log\det G
+=\partial\bar\partial(\log\det H-n\log2)
+=\partial\bar\partial\log\det H.
+$$
+
+行列式への移行はこの理由による。
 
 <a id="thm-syz1-11-ricci-ma"></a>
 
@@ -221,7 +284,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-$F(u)=\log\det H(u)$ は $H>0$ により実数値である。$u^i=(z^i+\bar z^i)/2$ だから
+$F(u)=\log\det H(u)$ は $H>0$ により実数値である。以下、$F_i=\partial F/\partial u^i$、$F_{ij}=\partial^2 F/(\partial u^i\partial u^j)$ と書く。$u^i=(z^i+\bar z^i)/2$ だから
 
 $$
 \frac{\partial F}{\partial z^i}=\frac12 F_i,
@@ -256,6 +319,16 @@ $$
 
 計量が定める **Levi-Civita接続** は曲線に沿って接ベクトルを平行移動する微分法であり、計量とねじれなし条件から一意に決まる。整数アフィン座標 $u$ の成分を一定とする平坦な座標接続とは、一般には異なる。もう一つ、鏡像トーラスの点を表す **平坦 $U(1)$ 接続** は、元のファイバー上の複素直線束の位相を平行移動するもので、計量接続とは作用先が違う。
 
+まずLevi-Civita接続の係数を求める。$(u^1,\ldots,u^n,v^1,\ldots,v^n)$ を実座標 $q^a$ と一括して書き、$\partial_a=\partial/\partial q^a$、$\nabla_{\partial_b}\partial_c=\sum_a\Gamma^a_{bc}\partial_a$ でChristoffel記号 $\Gamma^a_{bc}$ を定める。実接基底での評価は
+
+$$
+g(\partial_{u^i},\partial_{u^j})=H_{ij},\qquad
+g(\partial_{v^i},\partial_{v^j})=H_{ij},\qquad
+g(\partial_{u^i},\partial_{v^j})=0.
+$$
+
+このため計量行列が $\operatorname{diag}(H,H)$ となり、逆計量は $\operatorname{diag}(H^{-1},H^{-1})$ である。各成分は $v$ に依存しない。
+
 <a id="prop-syz1-11-levi-civita"></a>
 
 <!-- formal-statement-start -->
@@ -288,7 +361,7 @@ $$
 
 $$
 \Gamma^a_{bc}
-=\frac12 g^{ad}
+=\frac12\sum_d g^{ad}
  (\partial_b g_{cd}+\partial_c g_{bd}-\partial_d g_{bc})
 $$
 
@@ -296,13 +369,37 @@ $$
 
 $$
 \Gamma^{u^k}_{u^iu^j}
-=\frac12 H^{k\ell}
+=\frac12\sum_\ell H^{k\ell}
 (\partial_iH_{j\ell}+\partial_jH_{i\ell}-\partial_\ell H_{ij})
-=\frac12H^{k\ell}\phi_{ij\ell}.
+=\frac12\sum_\ell H^{k\ell}\phi_{ij\ell}.
 $$
 
-$u^k$ が上添字で下が二つとも $v$ なら、初めの二つの微分は $v$ に関するものなので零で、残る項は $-\frac12H^{k\ell}\partial_\ell H_{ij}$。$v^k$ が上添字で下が $u^i,v^j$ なら、唯一残る項は $\frac12H^{k\ell}\partial_iH_{j\ell}$。反転した下添字はねじれなし性から同値である。他の組では $v$ 微分または混合計量が零である。
+上添字が $u^k$、下添字が二つとも $v$ の場合は、最初の二つの微分が消えて
+
+$$
+\Gamma^{u^k}_{v^iv^j}
+=-\frac12\sum_\ell H^{k\ell}\partial_\ell H_{ij}.
+$$
+
+上添字が $v^k$、下添字が $u^i,v^j$ の場合には
+
+$$
+\Gamma^{v^k}_{u^iv^j}
+=\frac12\sum_\ell H^{k\ell}\partial_iH_{j\ell}.
+$$
+
+Hessianの三階微分の対称性 $\partial_\ell H_{ij}=\partial_iH_{j\ell}=\phi_{ij\ell}$ を代入すれば、命題の各符号を得る。下添字を反転した成分はねじれなし性により等しい。他の成分は $v$ 微分または混合計量が零となるので消える。
 <!-- proof-end -->
+
+元のファイバー上では、[平坦 $U(1)$ 局所系の定義](../SYZ1-01/index.md#def-syz1-01-flat-local-system)で学んだ接続を使う。純虚数値1形式 $A$ により、局所接続を
+
+$$
+\nabla=d+A
+$$
+
+と書く。
+
+この $d$ はファイバー座標 $x$ についての外微分、$v$ は固定したホロノミーのパラメータである。線束の曲率は $dA$ であり、基本閉路に沿う平行移動は断面の微分方程式を積分して求める。
 
 <a id="def-syz1-11-flat-holonomy"></a>
 
@@ -320,7 +417,14 @@ $$
 <!-- definition-example-start: def-syz1-11-flat-holonomy -->
 ### 直接例：符号と整数ゲージ変換
 
-$L_b=S^1$、$\nabla_v=d-2\pi i v\,dx$、$v=1/4$ とする。平行断面は微分方程式 $s'(x)-2\pi i v s(x)=0$ を満たし、$s(1)=e^{\pi i/2}s(0)=i\,s(0)$。曲率は $-2\pi i v\,d(dx)=0$、よってファイバー上で平坦である。$v'=v+1$ に替えたとき、周期1の関数 $g(x)=e^{-2\pi i x}$ を用いると $g^{-1}\nabla_v g=\nabla_{v+1}$。**定義の確認**：平坦性、指定ホロノミー、整数周期によるゲージ同値性がすべて確認できる。
+$L_b=S^1$、$\nabla_v=d-2\pi i v\,dx$、$v=1/4$ とする。平行断面は微分方程式 $s'(x)-2\pi i v s(x)=0$ を満たし、その解は $s(x)=e^{2\pi i vx}s(0)$、したがって $s(1)=e^{\pi i/2}s(0)=i\,s(0)$。曲率は $-2\pi i v\,d(dx)=0$、よってファイバー上で平坦である。$v'=v+1$ に替えたとき、周期1のゲージ関数 $h(x)=e^{-2\pi i x}$ を用いると
+
+$$
+h^{-1}\nabla_v(hs)=ds+(h^{-1}dh-2\pi i v\,dx)s
+=\bigl(d-2\pi i(v+1)\,dx\bigr)s=\nabla_{v+1}s.
+$$
+
+**定義の確認**：平坦性、指定ホロノミー、整数周期によるゲージ同値性がすべて確認できる。
 <!-- definition-example-end -->
 
 この構成は[前講のホロノミー文字の同型](../SYZ1-10/index.md#prop-syz1-10-holonomy-dual)を接続の微分方程式として実現している。基底方向へ $v$ が変わる場合、ファイバー方向の平坦性だけを主張する。$B_0$ 全体を含む普遍接続の曲率まで常に0とするわけではない。
@@ -340,13 +444,22 @@ $$
 =\exp\left(2\pi i\int_\Sigma B\right)\in U(1)
 $$
 
-> を割り当てる。$B$ を整数周期を持つ閉2形式 $\eta$ に置き換えて加えても、この指数位相は変わらない。境界付き曲面の場合には、境界の接続データも別途必要である。
+> を割り当てる。$B$ に整数周期を持つ閉2形式 $\eta$ を加えて $B+\eta$ としても、この指数位相は変わらない。境界付き曲面の場合には、境界の接続データも別途必要である。
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-11-b-field-phase -->
 ### 直接例：2トーラス上のB場
 
-$X_0=(\mathbb R/\mathbb Z)^2$ を座標 $(x,y)$、向き $dx\wedge dy$ で表し、$B=b\,dx\wedge dy$ と取る。$dB=0$、$\int_{T^2}B=b$ より位相は $e^{2\pi i b}$。$B'=B+m\,dx\wedge dy$（$m\in\mathbb Z$）なら位相は同じ。一方 $b=1/2$ の位相は $-1$ で、$b=0$ の位相1とは区別できる。**定義の確認**：閉性、整数周期での同値性、異なる位相の区別を検証した。これは**2サイクル**の位相であり、前節の $\rho(\gamma)=e^{2\pi i v}$ は**1サイクル**のホロノミーである。
+$X_0=(\mathbb R/\mathbb Z)^2$ に座標 $(x,y)$ と向き $dx\wedge dy$ を入れ、$B=b\,dx\wedge dy$ と取る。係数は定数なので $dB=0$ であり、
+
+$$
+\int_{T^2}B=b,\qquad
+\operatorname{phase}_B(T^2)=e^{2\pi i b}.
+$$
+
+$B'=B+m\,dx\wedge dy$（整数 $m$）では積分値の差が整数だから位相は等しい。一方、$b=1/2$ の位相 $-1$ は $b=0$ の位相1と区別できる。
+
+**定義の確認**：閉性、整数周期での同値性、異なる位相を検証した。これは**2サイクル**の位相であり、前節の基本閉路で得た $e^{2\pi i v}$ は**1サイクル**のホロノミーである。Ricci形式に使った $\rho$ をホロノミー文字の記号として再使用しない。
 <!-- definition-example-end -->
 
 B場の情報はしばしば面積を測る $\omega$ と合わせて $B+i\omega$ と表す。ただしここでの式は閉2形式の位相を定める範囲に限り、**任意のB場を追加しても同じ単純な双対チャートがそのまま完全な鏡像になる**とは結論しない。非自明なB場のねじれや正則円板による補正は後続講義で仮定を追加して扱う。
@@ -503,7 +616,15 @@ $n=1$、$\phi=e^{2u}/4$ とする。$H$、Ricci形式、$\check\Omega=dz$ のノ
 <!-- solution-start -->
 ### 詳細解答
 
-$\phi'=e^{2u}/2$、$\phi''=e^{2u}=H>0$。$\log H=2u$ で二階微分は0だから、[semi-flat Ricci形式と実Monge–Ampère条件](#thm-syz1-11-ricci-ma)より $\rho=0$。一方、体積形式のノルムは $\lvert dz\rvert_{\check g}^2=c_1/H=c_1 e^{-2u}$ で一定でない。Monge–Ampère方程式の $\det H=C$ は $e^{2u}=C$ を全区間に要求し、成立しない。Ricci形式は対数行列式の二階微分だけを見るため、一次関数 $2u$ を区別できない。
+一階微分は $\phi'=e^{2u}/2$、二階微分は $\phi''=e^{2u}=H>0$。$\log H=2u$ で二階微分が0だから、[semi-flat Ricci形式と実Monge–Ampère条件](#thm-syz1-11-ricci-ma)より $\rho=0$。
+
+一方、正則体積形式のノルム二乗は
+
+$$
+\lvert dz\rvert_{\check g}^2=\frac{c_1}{H}=c_1e^{-2u}
+$$
+
+で一定でない。Monge–Ampère方程式 $\det H=C$ は $e^{2u}=C$ を全区間に要求し、成立しない。Ricci形式は対数行列式の二階微分しか見ないため、一次関数 $2u$ を検知できない。
 <!-- solution-end -->
 
 <a id="ex-syz1-11-b03"></a>
@@ -605,7 +726,16 @@ $$
 \nabla=d-2\pi i\left(\frac12dx^1+\frac14dx^2\right).
 $$
 
-曲率は $-2\pi i\,d(\frac12dx^1+\frac14dx^2)=0$。$\gamma_1+\gamma_2$ のホロノミーは $e^{2\pi i(1/2+1/4)}=e^{3\pi i/2}=-i$。一方、$T^2$ を正向きに積分したB場の位相は $e^{2\pi i(1/2)}=-1$。両者はそれぞれ1サイクル上の平行移動と2サイクル上の閉2形式の積分という**異なる入力**から得られる。等しい必要はない。
+曲率は $d(dx^j)=0$ から零である。二つの位相を別々に計算すると
+
+$$
+\operatorname{hol}(\gamma_1+\gamma_2)
+=e^{2\pi i(1/2+1/4)}=e^{3\pi i/2}=-i,
+\qquad
+\operatorname{phase}_B(T^2)=e^{2\pi i(1/2)}=-1.
+$$
+
+前者は1サイクル上の平行移動、後者は2サイクル上の閉2形式の積分という**異なる入力**から得られ、等しい必要はない。
 <!-- solution-end -->
 
 ## 9. 次講へ：楕円曲線で規格化を確かめる
