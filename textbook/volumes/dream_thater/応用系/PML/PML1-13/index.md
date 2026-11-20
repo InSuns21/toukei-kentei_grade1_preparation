@@ -110,7 +110,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-積の微分公式を使い、$V_t=e^{Ht}U_t$ を計算すると、$e^{Ht}$ は決定論的であるため
+[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を使い、$V_t=e^{Ht}U_t$ を計算すると、$e^{Ht}$ は決定論的であるため
 
 $$
 dV_t=e^{Ht}HU_t\,dt+e^{Ht}dU_t
