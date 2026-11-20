@@ -37,7 +37,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-pml1-16-averaging -->
-**定義の確認。** $G=\{e,s\}$ とし、$s^2=e$、$s\cdot x=-x$ とする。単位元は $x$ を固定し、$s\cdot(s\cdot x)=x$ なので作用公理を満たす。$f(x)=x^2+3x+2$ に対し
+**定義の確認**。 $G=\{e,s\}$ とし、$s^2=e$、$s\cdot x=-x$ とする。単位元は $x$ を固定し、$s\cdot(s\cdot x)=x$ なので作用公理を満たす。$f(x)=x^2+3x+2$ に対し
 
 $$
 (P_Gf)(x)=\frac{f(x)+f(-x)}2=x^2+2.
