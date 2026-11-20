@@ -44,20 +44,20 @@ $$
 <!-- definition-example-start: def-anf5-minkowski-embedding -->
 **定義の確認（実二次体）**：$K=\mathbb Q(\sqrt5)$ の元を $a+b\sqrt5$（$a,b\in\mathbb Q$）と書くと、二つの実埋め込みは $\sigma_\pm(a+b\sqrt5)=a\pm b\sqrt5$ です。したがって
 
-$
+$$
 j(a+b\sqrt5)=(a+b\sqrt5,a-b\sqrt5),\qquad
 N_{K/\mathbb Q}(a+b\sqrt5)=(a+b\sqrt5)(a-b\sqrt5)=a^2-5b^2.
-$
+$$
 
 $r_1=2,r_2=0$ で $r_1+2r_2=2$ です。$j(a+b\sqrt5)=0$ なら二座標の和と差から $a=b=0$ となるので単射です。各埋め込みが有理数を固定するため、$j$ は有理線形でもあります。
 
 **定義の確認（虚二次体）**：$K=\mathbb Q(\sqrt{-5})$ で $s=\sqrt{-5}$、$\tau(s)=i\sqrt5$ を選ぶと、$r_1=0,r_2=1$ で
 
-$
+$$
 j(a+bs)=a+ib\sqrt5\ \longleftrightarrow\ (a,b\sqrt5)\in\mathbb R^2,
 \qquad
 |N_{K/\mathbb Q}(a+bs)|=|a+ib\sqrt5|^2=a^2+5b^2.
-$
+$$
 
 ここで右側の実座標は複素数の実部・虚部であり、複素共役のもう一つの埋め込みは $\overline\tau(s)=-i\sqrt5$ です。$j(a+bs)=0$ なら実部と虚部から $a=b=0$。同様に有理線形です。従ってこの例でも単射・次数・ノルム公式をそれぞれ確認できました。
 <!-- definition-example-end -->
@@ -78,22 +78,22 @@ $$
 
 [整数基底の存在](../ANF1/index.md#thm-anf1-integral-basis)から $A=\bigoplus_{i=1}^n\mathbb Z\omega_i$ です。非零整イデアル $I$ に $0\ne\alpha\in I$ を取り、$\alpha$ の整数係数モニック最小多項式を
 
-$
+$$
 T^d+c_{d-1}T^{d-1}+\cdots+c_1T+c_0
-$
+$$
 
 とします。$\alpha\ne0$ なので $c_0\ne0$ であり、この多項式へ $\alpha$ を代入すると
 
-$
+$$
 0\ne -c_0
-=\alpha\bigl(\alpha^{d-1}+c_{d-1}\alpha^{d-2}+\cdots+c_1\bigr)\in I.
-$
+=\alpha\left(\alpha^{d-1}+\sum_{j=1}^{d-1}c_j\alpha^{j-1}\right)\in I.
+$$
 
 よって零でない整数 $m=|c_0|$ が $I$ に属し、
 
-$
+$$
 mA\subseteq I\subseteq A
-$
+$$
 
 となります。$A/mA$ は整数基底によって有限集合なので、$I$ は $A$ の有限指数の部分加群で、階数 $n$ の整数基底 $\beta_1,\ldots,\beta_n$ を持ちます。$j(\beta_i)$ が実一次独立であることは以下の判別式の行列式から従い、$j(I)$ も全階数格子になります。
 
@@ -245,20 +245,20 @@ $$
 
 積分を途中まで実行して、なぜ $n!$ が現れるかを確かめます。$v_1,\ldots,v_{r_2}$ を固定して $T=t-\sum_k v_k\geq0$ とおくと、$r_1$ 個の $u_i$ に関する単体の体積は $T^{r_1}/r_1!$ です（$r_1=0$ のときは $0!=1$ として同じ式）。したがって残りの積分は
 
-$
+$$
 \frac1{r_1!}
 \int_{\substack{v_k\geq0\\\sum_k v_k\leq t}}
 \left(t-\sum_k v_k\right)^{r_1}
 \prod_{k=1}^{r_2}v_k\,dv_1\cdots dv_{r_2}.
-$
+$$
 
 ここで上の積分公式に $a=1,b=q\geq0$ を代入すると、$T\geq0$ に対し
 
-$
+$$
 \int_0^T v(T-v)^q\,dv
 =\frac{q!}{(q+2)!}T^{q+2}
 =\frac{T^{q+2}}{(q+1)(q+2)}
-$
+$$
 
 です。ほかの $v_k$ を固定し、一変数ずつ積分すると、初めの $1/r_1!$ は $1/(r_1+2)!$、次に $1/(r_1+4)!$ と変わり、最後は $1/(r_1+2r_2)!$ になります。積分値が $t^{r_1+2r_2}/(r_1+2r_2)!=t^n/n!$ だと確かめられました。定数を掛け戻すと
 
@@ -364,12 +364,12 @@ $$
 
 と置きます。$(\alpha)\subseteq I$ なので $J\subseteq II^{-1}=A$、すなわち $J$ は整イデアルです。また $IJ=(\alpha)$。非零整イデアルのノルムの乗法性は、[ANF3の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)と[ANF4の素イデアル冪のノルム](../ANF4/index.md#lem-anf4-prime-power-norm)から確認できます。$I,J$ に現れる素イデアルを合わせて $\mathfrak p_1,\ldots,\mathfrak p_h$ とし、指数が零のものも許して $I=\prod\mathfrak p_i^{a_i}$、$J=\prod\mathfrak p_i^{b_i}$ と書きます。中国剰余定理で異なる素イデアル冪の商の大きさは積に分かれるので
 
-$
+$$
 N(IJ)=\prod_iN(\mathfrak p_i)^{a_i+b_i}
 =\left(\prod_iN(\mathfrak p_i)^{a_i}\right)
  \left(\prod_iN(\mathfrak p_i)^{b_i}\right)
 =N(I)N(J).
-$
+$$
 
 従って
 
@@ -531,9 +531,9 @@ $$
 
 具体例では $s^2=-5$ を用いると
 
-$
+$$
 I^2=(4,2(1+s),(1+s)^2)=(4,2+2s,-4+2s).
-$
+$$
 
 三つの生成元はすべて $(2)$ に属し、一方で $(2+2s)-(-4+2s)-4=2$ なので $2\in I^2$ です。従って $I^2=(2)$（[ANF4の分岐判定](../ANF4/index.md#thm-anf4-quadratic-splitting)とも整合）で、$I^{-1}=I/(2)$ となります。$\alpha=2$ なので
 
