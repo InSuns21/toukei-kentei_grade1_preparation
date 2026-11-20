@@ -110,7 +110,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[積の微分公式](../../../基礎科目/RA/RA3/index.md#prop-ra3-product-rule)を使い、$V_t=e^{Ht}U_t$ を計算すると、$e^{Ht}$ は決定論的であるため
+[STO7の積の公式](../../../解析系/STO/STO7/index.md#cor-sto7-product-rule)を各成分に適用する。滑らかな決定論的行列 $e^{Ht}$ は有限変動なので、$U_t$ との共変分項はゼロである。$V_t=e^{Ht}U_t$ とすると
 
 $$
 dV_t=e^{Ht}HU_t\,dt+e^{Ht}dU_t
