@@ -23,3 +23,4 @@
 20. [U2-20 占有格子地図の更新：log-odds と逆センサーモデル](textbook/volumes/dream_thater/応用系/U/U2-20/index.md)
 21. [U2-21 SLAM の確率模型：軌跡と地図の同時事後](textbook/volumes/dream_thater/応用系/U/U2-21/index.md)
 22. [U2-22 ランドマーク型 EKF-SLAM：交差共分散の役割](textbook/volumes/dream_thater/応用系/U/U2-22/index.md)
+23. [U2-23 因子グラフ：運動・観測・地図をつなぐ](textbook/volumes/dream_thater/応用系/U/U2-23/index.md)
