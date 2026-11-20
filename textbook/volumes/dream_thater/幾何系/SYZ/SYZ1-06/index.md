@@ -641,7 +641,28 @@ $$
 
 $\delta^2=0$、$d^2=0$ により二つの項は相手の方程式を乱さない。$n=1$ なら $\alpha=du$ のみでよい。
 
-**4.** $C^{k+1,\gamma}\Omega^1=\mathcal H^1\oplus\mathcal K$ とし、値域を完全形式の $C^{k,\gamma}$ 空間に限定する。Schauder評価により $D|_{\mathcal K}$ は有界逆を持つ。[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版から、すべての小さい調和 $h$ に対し一意に $x=\varphi(h)$ があり $\mathcal F(h+\varphi(h))=0$。さらに $D(\mathrm d\varphi_0(v))=0$ と $\mathcal K\cap\ker D=\{0\}$ から $\mathrm d\varphi_0=0$。従って接空間は $\mathcal H^1(L)$、[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)から次元は $b_1(L)$ である。
+**4.** 1形式の空間を調和部分とその直交補に分解する。
+
+$$
+C^{k+1,\gamma}\Omega^1(L)
+=\mathcal H^1(L)\oplus\mathcal K^{k+1,\gamma}.
+$$
+
+値域は完全形式の $C^{k,\gamma}$ 空間に限定する。Schauder評価から、線形化 $D|_{\mathcal K}$ は有界逆を持つ。
+
+[陰関数定理](../../../基礎科目/RA/RA6A/index.md#thm-ra6a-implicit-function)のBanach空間版によって、小さい調和1形式 $h$ の各々に、補正 $x=\varphi(h)$ が一意に対応し、
+
+$$
+\mathcal F(h+\varphi(h))=0
+$$
+
+が成立する。連鎖律で $h=tv$ に沿って微分すると、$Dv=0$ から
+
+$$
+D|_{\mathcal K}\bigl(\mathrm d\varphi_0(v)\bigr)=0.
+$$
+
+補方向の単射性により $\mathrm d\varphi_0(v)=0$。従って接空間は $\mathcal H^1(L)$ であり、[Hodge–de Rham同型](../../GA/GA6/index.md#thm-ga6-hodge-de-rham)により次元は $b_1(L)$ である。
 
 **5.** ここで作ったのは**固定した一つのコンパクトSLagの近傍**での変形空間である。$X$ 全体がこのSLagたちで互いに交わらず覆われること、変形族が大域的に貼り合わさって滑らかな射影 $\pi:X\to B$ を作ること、すべてのファイバーがトーラスになることは、いずれも陰関数定理の結論に含まれない。次講ではそれを別途仮定する。
 <!-- solution-end -->
