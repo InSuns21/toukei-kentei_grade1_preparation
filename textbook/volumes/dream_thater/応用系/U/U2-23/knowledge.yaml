@@ -1,0 +1,43 @@
+chapter: U2-23
+scope: dream-theater
+coverage: complete
+prerequisites:
+  - U2-22
+forward_references: []
+concepts:
+  - id: robotics.slam-factor-graph
+    name: SLAM の因子グラフ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（SLAM の因子グラフ）"]
+    requires: [robotics.slam-joint-posterior, robotics.slam-generative-factorization]
+  - id: robotics.slam-factor-residual-information
+    name: Gaussian 因子の残差と情報行列
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Gaussian 因子の残差と情報行列）"]
+    requires: [robotics.slam-factor-graph, robotics.ekf-slam-augmented-state]
+  - id: robotics.slam-graph-posterior-factorization
+    name: SLAM 同時事後の因子積表示
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（SLAM 同時事後の因子積表示）"]
+    requires: [robotics.slam-factor-graph, robotics.slam-generative-factorization]
+  - id: robotics.slam-gaussian-factor-map
+    name: 固定共分散 Gaussian 因子と MAP の同値性
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（固定共分散 Gaussian 因子と MAP の同値性）"]
+    requires: [robotics.slam-factor-residual-information, robotics.slam-graph-posterior-factorization]
+  - id: robotics.slam-factor-linear-sparsity
+    name: 線形因子の二次形式と局所結合
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（線形因子の二次形式と局所結合）"]
+    requires: [robotics.slam-gaussian-factor-map]
+  - id: robotics.slam-factor-gauge
+    name: 相対因子の平行移動不変性と基準因子
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（相対因子の平行移動不変性と基準因子）"]
+    requires: [robotics.slam-factor-linear-sparsity, robotics.slam-planar-gauge]
