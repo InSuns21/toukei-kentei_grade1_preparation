@@ -153,7 +153,7 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-syz1-10-semi-flat-complex-chart -->
-### 直接例：円環ではなく $\mathbb C^*$ になる
+### 直接例：円環を $\mathbb C^*$ の開領域として表す
 
 $n=1$、$B_0=(0,2)$、$u=x$、$\Lambda_\omega^*=\mathbb Z\,dx$ とする。$\check X_0=(0,2)\times(\mathbb R/\mathbb Z)$ で、$z=x+iv$、$W=e^{2\pi x}e^{2\pi i v}$ だから
 
