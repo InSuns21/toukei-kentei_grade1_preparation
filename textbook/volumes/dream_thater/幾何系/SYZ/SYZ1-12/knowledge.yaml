@@ -1,0 +1,59 @@
+chapter: SYZ1-12
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-11, CYG1-13]
+concepts:
+  - id: syz.elliptic-curve-normalized-data
+    name: 規格化した楕円曲線の幾何データ
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（規格化した楕円曲線の幾何データ）"]
+    requires: [syz.semiflat-kahler-structure, cyg.complexified-kahler-parameter]
+  - id: syz.elliptic-period-area
+    name: 複素周期とシンプレクティック面積の分離
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（複素周期とシンプレクティック面積の分離）"]
+    requires: [syz.elliptic-curve-normalized-data]
+  - id: syz.elliptic-slag-fibration
+    name: 楕円曲線の滑らかなSLag円周束
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（楕円曲線の滑らかなSLag円周束）"]
+    requires: [syz.elliptic-curve-normalized-data]
+  - id: syz.elliptic-two-affine-periods
+    name: 円周束の二つのアフィン周期
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（円周束の二つのアフィン周期）"]
+    requires: [syz.elliptic-slag-fibration, syz.two-period-cotangent-lattices]
+  - id: syz.elliptic-b-twisted-dual
+    name: B場でねじった双対楕円曲線
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（B場でねじった双対楕円曲線）"]
+    requires: [syz.elliptic-two-affine-periods, syz.holonomy-dual-torus, syz.b-field-exponential-phase]
+  - id: syz.elliptic-dual-complex-period
+    name: 双対楕円曲線の複素周期
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（双対楕円曲線の複素周期）"]
+    requires: [syz.elliptic-b-twisted-dual]
+  - id: syz.flat-circle-duality-rule
+    name: 平坦円周の双対計量・2形式の規則
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（平坦円周の双対計量・2形式の規則）"]
+    requires: [syz.elliptic-period-area]
+  - id: syz.elliptic-moduli-exchange
+    name: 平坦楕円曲線の複素・Kählerパラメータ交換
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（平坦楕円曲線の複素・Kählerパラメータ交換）"]
+    requires: [syz.flat-circle-duality-rule, syz.elliptic-dual-complex-period]
+  - id: syz.elliptic-duality-involution
+    name: 平坦模型の二重双対
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（平坦模型の二重双対）"]
+    requires: [syz.elliptic-moduli-exchange]
