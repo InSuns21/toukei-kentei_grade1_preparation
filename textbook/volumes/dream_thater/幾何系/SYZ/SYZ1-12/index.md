@@ -54,6 +54,14 @@ $$
 > ここで $z=x+\tau y$、$(x,y)\in(\mathbb R/\mathbb Z)^2$ である。**複素化Kählerパラメータ**を $\rho=\beta+iA$ と記す。$\beta$ は $B$場の積分値を表し、整数だけ変えると指数位相は不変である。
 <!-- formal-statement-end -->
 
+この計量を座標で判定するとき、$G_{ij}=g(\partial_i,\partial_j)$（$i,j\in\{x,y\}$）を座標基底 $(\partial_x,\partial_y)$ に関する係数行列とする。$g=(A/b)|dz|^2$ はベクトルの長さの二乗を与える対称な二次形式である。
+
+一方、$\omega$ が同じ計量のKähler形式であることは、複素座標で
+$$
+\omega=\frac A b\frac i2\,dz\wedge d\bar z
+$$
+を確認して判定する。これらは別々の判定であり、行列式による面積計算は後の命題で導く。
+
 <!-- definition-example-start: def-syz1-12-elliptic-data -->
 ### 直接例：傾いた格子でも面積は $A$
 
@@ -64,7 +72,22 @@ g=\frac32\left((dx+\tfrac12dy)^2+4dy^2\right),\qquad
 \omega=3dx\wedge dy,\qquad B=\tfrac14dx\wedge dy.
 $$
 
-$g$ は $b,A>0$ から正定値で、座標の整数平行移動の下で係数が変わらないため格子商へ降りる。$z$ の二つの周期 $1,1/2+2i$ は実一次独立であり、$dz$ はどこでも零でない。基本正方形上の積分で $\int\omega=3$、$\int B=1/4$、従って $B$位相は $e^{\pi i/2}=i$ である。**定義の確認**：格子の離散性、計量・形式の良定義性、正値性、面積と位相まで直接確かめた。
+$z$ の二つの周期 $1,1/2+2i$ は実一次独立である。座標変換 $(x,y)\mapsto(\operatorname{Re}z,\operatorname{Im}z)=(x+y/2,2y)$ の実Jacobianは
+$$
+J=\begin{pmatrix}1&1/2\\0&2\end{pmatrix},\qquad \det J=2>0.
+$$
+従って $z$ は局所複素座標として非退化である。接ベクトルを $V=V^x\partial_x+V^y\partial_y$ と展開すると
+$$
+g(V,V)=\frac32\left((V^x+\tfrac12V^y)^2+4(V^y)^2\right)>0
+\qquad (V\ne0).
+$$
+係数が整数平行移動に不変なので $g,\omega,\Omega,B$ は格子商へ降り、$\Omega=dz$ は商上でも零でない正則1形式である。また
+$$
+\frac i2 dz\wedge d\bar z=2\,dx\wedge dy,\qquad
+\frac A b\frac i2 dz\wedge d\bar z=\frac32\cdot2\,dx\wedge dy
+=3\,dx\wedge dy=\omega.
+$$
+これで $\omega$ が計量 $g$ と複素構造に対応するKähler形式であることも判定できた。基本正方形上の積分で $\int\omega=3$、$\int B=1/4$、従って $B$位相は $e^{\pi i/2}=i$。**定義の確認**：格子の離散性、局所座標の非退化性、計量・形式の良定義性、正値性、Kähler形式の対応、面積と位相まで直接確かめた。
 <!-- definition-example-end -->
 
 <a id="prop-syz1-12-metric-area"></a>
@@ -181,7 +204,7 @@ $H_y$ を1だけ進める射影は基底の1周なので、商基底の計量長
 
 [二種類の周期余接格子](../SYZ1-08/index.md#def-syz1-08-two-period-covectors)は、SLagファイバーの変形からシンプレクティック形式と正則体積形式を別々に積分して作る。ここではファイバーの正向き生成サイクルを $\gamma_x$（$x:0\to1$）とし、基底の変形ベクトルを $V=\partial_y$ とする。
 
-一次元では $\operatorname{Im}\Omega$ は1形式なので、$\iota_V\operatorname{Im}\Omega$ は **0形式（関数）** である。零次コホモロジーの周期は点での値であり、1サイクルに無理に積分しない。
+ここで $\iota_V$ は微分形式の最初の引数にベクトル $V$ を代入する**収縮**であり、2形式を1形式へ、1形式を0形式（関数）へ移す。一次元では $\operatorname{Im}\Omega$ は1形式なので、$\iota_V\operatorname{Im}\Omega$ は0形式である。零次コホモロジーの周期は点での値であり、1サイクルに無理に積分しない。
 
 <a id="prop-syz1-12-two-affine-periods"></a>
 
@@ -212,7 +235,20 @@ $$
 -\iota_{\partial_y}\omega=A\,dx.
 $$
 
-$\gamma_x$ 上で $dx$ の積分は1だから周期は $A$。一方、$dz=dx+a\,dy+ib\,dy$ から $\operatorname{Im}\Omega=b\,dy$、$\iota_{\partial_y}\operatorname{Im}\Omega=b$ である。したがって $du=A\,dy$、$dq=b\,dy$。正の定数倍 $\Omega_{\rm cal}=\sqrt{A/b}\Omega$ を使えば $dq_{\rm cal}=\sqrt{A/b}\,b\,dy=\sqrt{Ab}\,dy$。両微分を割って $dq_{\rm cal}/du=\sqrt{b/A}$ を得る。
+$\gamma_x$ 上で $dx$ の積分は1だから周期は $A$。一方、$dz=dx+a\,dy+ib\,dy$ から $\operatorname{Im}\Omega=b\,dy$、$\iota_{\partial_y}\operatorname{Im}\Omega=b$ である。
+
+したがって $du=A\,dy$、$dq=b\,dy$。正の定数倍 $\Omega_{\rm cal}=\sqrt{A/b}\Omega$ を使うと
+$$
+dq_{\rm cal}=\sqrt{\frac A b}\,b\,dy=\sqrt{Ab}\,dy.
+$$
+ここで $u,q_{\rm cal}$ は実変数 $y$ の局所関数で、$du/dy=A>0$ だから $y$ から $u$ への座標変更は可逆である。連鎖律より
+$$
+\frac{dq_{\rm cal}}{du}
+=\frac{dq_{\rm cal}/dy}{du/dy}
+=\frac{\sqrt{Ab}}{A}
+=\sqrt{\frac b A}.
+$$
+したがって微分記号を形式的に割ったのではなく、非零の $du/dy$ による変数変更から係数を得た。
 <!-- proof-end -->
 
 **単位の違いに注意。** 第2節の幾何の規格化と一致する自然な[SLag基底のHessian計量](../SYZ1-09/index.md#thm-syz1-09-hessian)は、較正した $\Omega_{\rm cal}$ に対して $H_{\rm cal}=\sqrt{b/A}$ を用いる。一方、後で規格化する物理的な円周T双対計量では係数 $b/A$ が現れる。両者を数値として同一視せず、必要な**定数倍**を第5節で明示する。
@@ -221,7 +257,7 @@ $\gamma_x$ 上で $dx$ の積分は1だから周期は $A$。一方、$dz=dx+a\,
 
 [双対トーラスとホロノミー文字の同型](../SYZ1-10/index.md#prop-syz1-10-holonomy-dual)により、ファイバーの平坦 $U(1)$ 接続の同値類は円周である。元の $\gamma_x$ に対する文字を $\chi(\gamma_x)=e^{-2\pi i t}$ と表すことにし、$t\in\mathbb R/\mathbb Z$ を双対ファイバーの角とする。負号は $t=-v$（前講のホロノミー角 $v$）という座標選択であり、ここで固定する。
 
-局所的に $u=Ay$、$v=-t$ とすると、前講の複素座標 $z_{\rm sf}=u+iv$ に $i$ を掛けた
+局所的に $u=Ay$、$v=-t$ とすると、[前講のsemi-flat複素チャート](../SYZ1-10/index.md#def-syz1-10-semi-flat-complex-chart)の座標 $z_{\rm sf}=u+iv$ に $i$ を掛けた
 
 $$
 w=i z_{\rm sf}=t+iAy
@@ -229,7 +265,9 @@ $$
 
 が正則座標になる。$t$ の一周は $w\mapsto w+1$、$y$ の一周は $w\mapsto w+iA$ となる。したがって $B=0$ の双対複素曲線は $\mathbb C/(\mathbb Z+iA\mathbb Z)$ である。
 
-$B=\beta\,dx\wedge dy$ を加えた場合、基底の一周に沿うファイバー接続の位相ずれを $\beta$ とする。これは追加の**位相の貼り合わせ規則**であり、単に $TB/\Lambda$ を取るだけの構成とは区別する。大域座標 $(t,y)$ の被覆上では、局所ホロノミー角を $t+\beta y$ と書けば同じ規則を表せる。
+$B=\beta\,dx\wedge dy$ を加えた場合、基底の一周に沿うファイバー接続の位相ずれを $\beta$ とする。これは追加の**位相の貼り合わせ規則**であり、単に $TB/\Lambda$ を取るだけの構成とは区別する。
+
+被覆 $\mathbb R^2$ の座標 $(t,y)$ では、局所ホロノミー角を $t+\beta y$ と書けば同じ規則を表せる。$y\mapsto y+1$ でこの角は $\beta$ だけ変わるので、$\beta\notin\mathbb Z$ なら $t+\beta y$ 自体は商トーラス上の一価な角ではない。このずれを複素格子の二番目の周期へ記録するのが、以下の貼り合わせである。
 
 <a id="def-syz1-12-b-twisted-dual"></a>
 
@@ -289,7 +327,12 @@ $\beta$ を整数 $k$ だけ増やすと二番目の格子生成元は $\rho+k$ 
 
 一次元の平坦トーラスでは、元の計量のファイバー方向、混合方向、基底方向の係数を明示できる。ここで追加するのは周期1座標での**逆半径の規格化**と、混合計量・$B$場を交換する規則である。一般の曲がったCalabi–Yauや特異ファイバーへこの規則を無条件に延長しない。
 
-行列を $G_{xx},G_{xy},G_{yy}$、$B_{xy}=\beta$ と書く。元の計量は第2節から
+行列成分は座標ベクトルで $G_{ij}=g(\partial_i,\partial_j)$ と評価したものであり、$B_{xy}=B(\partial_x,\partial_y)=\beta$ は交代2形式の成分である。例えば
+$$
+g=G_{xx}\,dx\otimes dx+G_{xy}(dx\otimes dy+dy\otimes dx)+G_{yy}\,dy\otimes dy,
+\qquad B_{yx}=-B_{xy}.
+$$
+従って $G$ の混合成分には対称な二項が、$B$ には反対称な符号が対応する。元の計量は[第2節の計量・面積の命題](#prop-syz1-12-metric-area)から
 
 $$
 G_{xx}=\frac A b,\quad
@@ -319,13 +362,25 @@ $$
 ### 直接例：直交トーラスで逆半径を確認する
 
 $a=\beta=0$、$A=3$、$b=2$ とすれば $G=\operatorname{diag}(3/2,6)$。規則により $\check G_{tt}=2/3$、$\check G_{ty}=0$、$\check G_{yy}=6$、$\check B=0$。$t$ の一周長は $\sqrt{2/3}=1/\sqrt{3/2}$ であり、元のファイバー一周長の逆数になる。$\check G$ は正定値で、行列式は $(2/3)6=4>0$。**定義の確認**：規則が与える行列は正定値で、逆長さ・混合項・2形式を直接判定できる。
+さらに混合成分も実際に判定する。$a=1$、$\beta=1/2$、$A=b=1$ なら
+$$
+G=\begin{pmatrix}1&1\\1&2\end{pmatrix},\qquad B_{xy}=\frac12.
+$$
+$\det G=1>0$、$G_{xx}=1>0$ なので入力は正定値である。定義の各式を代入すると
+$$
+\check G_{tt}=1,\qquad
+\check G_{ty}=\frac12,\qquad
+\check G_{yy}=2-\frac{1-(1/2)^2}{1}=\frac54,\qquad
+\check B_{ty}=1.
+$$
+$\det\check G=1\cdot(5/4)-(1/2)^2=1>0$ なので、双対計量も正定値である。これにより非零の混合成分と2形式の交換まで直接確認した。
 <!-- definition-example-end -->
 
 <a id="thm-syz1-12-moduli-exchange"></a>
 
 <!-- formal-statement-start -->
 > **定理（平坦楕円曲線の複素・Kählerパラメータ交換）**  
-> $\tau=a+ib$（$b>0$）、$\rho=\beta+iA$（$A>0$）の平坦な $E_\tau$ と $g,B$ を第2節の通りに取り、上の円周双対規則を $x$ 方向に適用する。このとき、周期1の $(t,y)$ に関し
+> $\tau=a+ib$（$b>0$）、$\rho=\beta+iA$（$A>0$）の平坦な $E_\tau$ と $g,B$ を第2節の通りに取り、上の[平坦円周の双対計量・2形式の規則](#def-syz1-12-circle-duality-rule)を $x$ 方向に適用する。このとき、周期1の $(t,y)$ に関し
 
 $$
 \check g=\frac b A\left((dt+\beta\,dy)^2+A^2(dy)^2\right),
@@ -466,7 +521,7 @@ $$
 <!-- proof-start -->
 ### 証明
 
-双対側では $\check G_{tt}=b/A$、$\check G_{ty}=\beta b/A$、$\check B_{ty}=a$。二度目のファイバー成分・混合成分・$B$場は
+双対側では $\check G_{tt}=b/A$、$\check G_{ty}=\beta b/A$、$\check B_{ty}=a$。再び[平坦円周の双対規則](#def-syz1-12-circle-duality-rule)を $t$ 方向へ適用すると、二度目のファイバー成分・混合成分・$B$場は
 
 $$
 G^{(2)}_{xx}=\frac1{\check G_{tt}}=\frac A b,\quad
@@ -704,7 +759,7 @@ $\alpha_{\partial_y}=-\iota_{\partial_y}\omega=3dx$ で $\int_{\gamma_x}\alpha=3
 
 **(2) 双対複素格子。** 文字の角は $t$（周期1）。$B$場は $\beta=1/4$ なので、基底一周で位相ずれ $1/4$ を与え、$w=t+(1/4+3i)y$。$t$ の周期は1、$y$ の周期は $1/4+3i$、従って $\check\tau=1/4+3i=\rho$。
 
-**(3) 2形式と面積。** 元の行列は
+**(3) 2形式と面積。** [平坦円周の双対規則](#def-syz1-12-circle-duality-rule)に入力する元の行列は
 
 $$
 G=\begin{pmatrix}3/2&3/4\\3/4&51/8\end{pmatrix},

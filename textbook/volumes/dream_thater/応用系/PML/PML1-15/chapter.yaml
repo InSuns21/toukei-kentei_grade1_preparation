@@ -1,0 +1,43 @@
+id: "PML1-15"
+title: "物理的な対称性を群作用としてどう記述するか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-14
+  - MFL23
+official_scope: []
+learning_objectives:
+  - 平面の剛体変換の合成則と粒子配置への群作用を直接検証できる
+  - 物理的スカラーの不変性と相対位置・力の等変性を出力作用を指定して区別できる
+  - 不変なC1ポテンシャルから負の勾配の等変性を連鎖律で証明できる
+  - 距離型多粒子ポテンシャルの力と固定剛体変換下の運動方程式の対称性を導ける
+  - 並進・回転対称性から力の総和と力のモーメントの恒等式を導ける
+  - 鏡映に対する符号付き面積、外場による対称性破れ、有限データの残差を区別できる
+definitions:
+  - { id: PML1-15-DEF-01, name: 平面の剛体変換群と粒子配置への作用 }
+theorems:
+  - { id: PML1-15-THM-01, name: 剛体変換に不変なポテンシャルの力は等変 }
+  - { id: PML1-15-THM-02, name: 距離型ポテンシャルとNewton方程式の剛体対称性 }
+  - { id: PML1-15-PROP-01, name: 並進・回転対称性からの力とモーメントの恒等式 }
+  - { id: PML1-15-PROP-02, name: 符号付き面積の変換則 }
+canonical_examples:
+  - 平面剛体変換の非可換合成と二粒子配置
+  - 距離型ポテンシャルの不変性と力の等変性
+  - 三粒子の力の総和とモーメント
+  - 鏡映で符号が変わる有向面積と不変な距離
+  - 鉛直外場および非等方ポテンシャルによる対称性破れ
+problem_patterns:
+  - PML1-15-A01
+  - PML1-15-A02
+  - PML1-15-A03
+  - PML1-15-A04
+  - PML1-15-A05
+  - PML1-15-B01
+  - PML1-15-B02
+  - PML1-15-B03
+  - PML1-15-B04
+  - PML1-15-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 5, review: 2 }

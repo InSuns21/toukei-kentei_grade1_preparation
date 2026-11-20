@@ -1,0 +1,47 @@
+chapter: SYZ1-13
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-12, CYG1-05, CYG1-10, CYG1-11]
+concepts:
+  - id: syz.hyperkahler-triple
+    name: 4次元の超Kähler構造
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（4次元の超Kähler構造）"]
+    requires: [cyg.ricci-flat-existence, cyg.full-holonomy-parallel-volume]
+  - id: syz.hyperkahler-rotated-volume
+    name: 超Kähler構造の正則2形式と規格化
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（超Kähler構造の正則2形式と規格化）"]
+    requires: [syz.hyperkahler-triple, syz.calibration-form]
+  - id: syz.elliptic-k3-fibration
+    name: 楕円ファイブレーションをもつK3
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（楕円ファイブレーションをもつK3）"]
+    requires: [cyg.k3-surface, syz.elliptic-slag-fibration]
+  - id: syz.k3-hyperkahler-rotation
+    name: K3の正則楕円ファイバーと超Kähler回転
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（K3の正則楕円ファイバーと超Kähler回転）"]
+    requires: [syz.hyperkahler-rotated-volume, syz.elliptic-k3-fibration, syz.slag-normalized-conditions]
+  - id: syz.nodal-elliptic-fiber
+    name: 節点型特異ファイバー
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（節点型特異ファイバー）"]
+    requires: [syz.elliptic-k3-fibration]
+  - id: syz.k3-24-nodes
+    name: 一般位置の楕円K3と24個の節点
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（一般位置の楕円K3と24個の節点）"]
+    requires: [syz.nodal-elliptic-fiber, cyg.quartic-euler]
+  - id: syz.k3-torus-obstruction
+    name: K3上の全域的な滑らかなトーラス束の障害
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（K3上の全域的な滑らかなトーラス束の障害）"]
+    requires: [cyg.quartic-euler, syz.elliptic-k3-fibration]

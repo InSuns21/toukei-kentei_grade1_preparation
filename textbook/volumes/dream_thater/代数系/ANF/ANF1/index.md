@@ -194,7 +194,21 @@ $$
 
 その行列の対角成分の和を $\operatorname{Tr}_{K/\mathbb Q}(x)$ と書きます。基底を変更すると行列は相似になり、トレースは変わりません。次章ではこれを埋め込みとの関係から詳しく研究します。
 
-[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は二つの変数のそれぞれについて線形な写像です。ここでは係数体を $\mathbb Q$ とし、$\operatorname{Tr}_{K/\mathbb Q}(xy)$ が双線形であることを、乗法と行列の対角和の線形性から確認します。
+既習の[双線形形式](../../../基礎科目/LA/LA3E/index.md#def-la3e-bilinear-form)は実数体・複素数体上で導入しましたが、「二つの引数のそれぞれについて線形」という条件は有理数体上でも定義できます。ここでは $\mathbb Q$ ベクトル空間 $K$ 上の $\mathbb Q$ 値の双線形形式を考えます。$x,x',y,y'\in K$、$a,b\in\mathbb Q$ なら、乗法の分配法則とトレースの線形性から
+
+$$
+\operatorname{Tr}_{K/\mathbb Q}((ax+bx')y)
+=a\operatorname{Tr}_{K/\mathbb Q}(xy)
++b\operatorname{Tr}_{K/\mathbb Q}(x'y),
+$$
+
+$$
+\operatorname{Tr}_{K/\mathbb Q}(x(ay+by'))
+=a\operatorname{Tr}_{K/\mathbb Q}(xy)
++b\operatorname{Tr}_{K/\mathbb Q}(xy')
+$$
+
+が成り立ちます。
 
 <a id="def-anf1-trace-pairing"></a>
 
@@ -210,7 +224,14 @@ $$
 <!-- formal-statement-end -->
 
 <!-- definition-example-start: def-anf1-trace-pairing -->
-**定義の確認**： $K=\mathbb Q(\sqrt2)$ の $\mathbb Q$ 基底 $(1,\sqrt2)$ で $\mu_{a+b\sqrt2}$ の行列を作ると、第1列は $(a,b)^{\mathsf T}$、第2列は $(2b,a)^{\mathsf T}$ です。従って
+**定義の確認**： $K=\mathbb Q(\sqrt2)$ の $\mathbb Q$ 基底 $(1,\sqrt2)$ で、$\mu_{a+b\sqrt2}$ が基底ベクトルをどこへ送るか計算します。
+
+$$
+\mu_{a+b\sqrt2}(1)=a+b\sqrt2,\qquad
+\mu_{a+b\sqrt2}(\sqrt2)=2b+a\sqrt2.
+$$
+
+したがって行列の第1列は $(a,b)^{\mathsf T}$、第2列は $(2b,a)^{\mathsf T}$ となり、
 
 $$
 [\mu_{a+b\sqrt2}]
@@ -220,6 +241,8 @@ $$
 
 特に $B(1,\sqrt2)=0$、$B(\sqrt2,\sqrt2)=4$ です。線形写像の行列が**どの基底で何を表すか**を確認しました。
 <!-- definition-example-end -->
+
+さらに、[既習の双線形形式の非退化性](../../../基礎科目/LA/LA3E/index.md#def-la3e-nondegenerate-bilinear-form)と同じ条件をここでは $\mathbb Q$ 上で用います。すなわち、$B(x,y)=0$ が**すべての** $y\in K$ について成り立つなら $x=0$ となることを、非退化と呼びます。これは $B(x,x)\ne0$ をすべての非零 $x$ に要求する条件ではありません。
 
 <a id="lem-anf1-integral-trace"></a>
 
@@ -267,7 +290,13 @@ $$
 G=(B(\beta_i,\beta_j))_{1\le i,j\le n}
 $$
 
-を取り、$Gv=0$ とすれば $x=\sum_i v_i\beta_i$ は全ての基底元 $\beta_j$ と、従って全ての $y\in K$ について $B(x,y)=0$ を満たします。補題から $x=0$、ゆえに $v=0$ です。
+を取ります。$x=\sum_i v_i\beta_i$、$y=\sum_j w_j\beta_j$ と基底展開すると、双線形性により
+
+$$
+B(x,y)=\sum_{i,j}v_iw_j B(\beta_i,\beta_j)=v^{\mathsf T}Gw.
+$$
+
+また $K$ の乗法は可換なので $G_{ij}=G_{ji}$ です。$Gv=0$ なら任意の $w$ について $B(x,y)=v^{\mathsf T}Gw=(Gv)^{\mathsf T}w=0$ となります。補題の非退化性から $x=0$、基底の一次独立性から $v=0$ です。従って $G$ の核は $\{0\}$ であり、$n$ 次正方行列 $G$ は可逆です。逆に $G$ が可逆なら、$B(x,y)=0$ が全ての $y$ について成立するとき $v^{\mathsf T}G=0$ から $v=0$ となり、非退化性を得ます。
 
 <a id="thm-anf1-integral-basis"></a>
 
@@ -317,7 +346,7 @@ $$
 v_j=\operatorname{Tr}_{K/\mathbb Q}(\alpha\beta_j)\in\mathbb Z.
 $$
 
-トレースの線形性から $v=Gq$ です。余因子行列を使って
+トレースの線形性から $v=Gq$ です。整数係数行列 $G$ は $\det G=D\ne0$ です。[余因子行列の恒等式](../../../基礎科目/LA/LA4/index.md#lem-la4-adjugate-identity)を、係数体を $\mathbb Q$ として $M(t)=G$ という定数多項式行列に適用すると
 
 $$
 q=G^{-1}v=\frac{\operatorname{adj}(G)v}{D}
@@ -395,7 +424,19 @@ $$
 ds^2=r^2-4N\in\mathbb Z.
 $$
 
-$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$v^2\mid du^2$ から $v^2\mid d$ です。$d$ は平方自由なので $v=1$、すなわち $s\in\mathbb Z$ です。したがって
+$s=u/v$（$u\in\mathbb Z,\ v\in\mathbb Z_{>0},\ \gcd(u,v)=1$）と既約に書けば、$ds^2\in\mathbb Z$ より $v^2\mid du^2$ です。$\gcd(u^2,v^2)=1$ なので、整数の[Bézout 等式](../../RNG/RNG3/index.md#def-rng3-gcd-bezout)により、ある整数 $h,k$ について
+
+$$
+hu^2+kv^2=1
+$$
+
+と書けます。これに $d$ を掛けると
+
+$$
+d=h(du^2)+k(dv^2)
+$$
+
+です。右辺の両項は $v^2$ の倍数なので $v^2\mid d$ です。$d$ は平方自由であり、$v>1$ ならその素因子の平方が $d$ を割って矛盾するため、$v=1$ です。すなわち $s\in\mathbb Z$ です。したがって
 
 $$
 \alpha=\frac{r+s\sqrt d}{2},
@@ -548,7 +589,13 @@ $x$ は $2T^2-3\in\mathbb Z[T]$ の正の実根とする。$x$ は整でない�
 - ID: ANF1-B2
 
 <!-- solution-start -->
-**詳細解答**　$x^2=3/2$ なので $x\notin\mathbb Q$ であり、モニック最小多項式は $T^2-3/2$ です。定数項が非整数なので $x$ は整でありません。一方 $\beta=2x$ と置くと
+**詳細解答**　$x^2=3/2$ です。もし $x=u/v\in\mathbb Q$ を既約分数（$u\in\mathbb Z,\ v\in\mathbb Z_{>0}$）で表せば
+
+$$
+2u^2=3v^2
+$$
+
+となります。右辺から $3\mid u^2$、よって $u=3k$ と書けます。代入すると $v^2=6k^2$ なので $3\mid v$ となり、既約性に矛盾します。したがって $x\notin\mathbb Q$ であり、モニック最小多項式は $T^2-3/2$ です。定数項が非整数なので $x$ は整でありません。一方 $\beta=2x$ と置くと
 
 $$
 \beta^2=4x^2=4\cdot\frac32=6,\qquad
@@ -572,7 +619,7 @@ $$
 q(z)=z\bar z=a^2+5b^2\in\mathbb Z_{\ge0}.
 $$
 
-積を取ると $q(zw)=zw\overline{zw}=z\bar z\,w\bar w=q(z)q(w)$ です。$z\ne0$ なら $q(z)\ge1$ で、$q(z)=1$ は $b=0,\ a=\pm1$ の場合だけです。これらは実際に単元であり、他に単元がないことも乗法性から分かります。
+積を取ると $q(zw)=zw\overline{zw}=z\bar z\,w\bar w=q(z)q(w)$ です。$z\ne0$ なら $q(z)\ge1$ で、$q(z)=1$ は $b=0,\ a=\pm1$ の場合だけです。これらは実際に[単元](../../RNG/RNG3/index.md#def-rng3-divisibility-unit-associate)であり、他に単元がないことも乗法性から分かります。
 
 $q(z)=2$ または $q(z)=3$ となる整数 $a,b$ はありません。$b\ne0$ なら $q(z)\ge5$、$b=0$ なら $q(z)$ は平方数だからです。$q(2)=4$、$q(3)=9$、$q(1\pm\sqrt{-5})=6$ です。いずれかが非単元の積へ分解すれば、両因子の $q$ は $1$ より大きい整数で、その積が $4,9,6$ のいずれかになります。$4$ なら $2\cdot2$、$9$ なら $3\cdot3$、$6$ なら $2\cdot3$ しかありませんが、$q=2,3$ の元は存在しないため矛盾します。
 
@@ -580,7 +627,7 @@ $$
 6=2\cdot3=(1+\sqrt{-5})(1-\sqrt{-5})
 $$
 
-の各因子は既約です。$q$ の値が $4,9,6$ で異なるものは同伴ではなく、$1+\sqrt{-5}$ と $1-\sqrt{-5}$ も $\pm1$ 倍では一致しません。従って分解は同伴を除いて異なり、$R$ は一意分解整域ではありません。
+の各因子は[既約](../../RNG/RNG3/index.md#def-rng3-irreducible-prime)です。$q$ の値が $4,9,6$ で異なるものは同伴ではなく、$1+\sqrt{-5}$ と $1-\sqrt{-5}$ も $\pm1$ 倍では一致しません。従って分解は同伴を除いて異なり、$R$ は一意分解整域ではありません。
 <!-- solution-end -->
 
 **Level C：有限生成性・トレース・二次体の統合**
@@ -608,7 +655,21 @@ $$
 
 $w\notin\mathbb Q$ より $T^2-T-3$ はモニック最小多項式で、整数係数ゆえ $w$ は整です。
 
-**(2)** 基底 $(1,w)$ で乗法写像の対角和を求めます。$\operatorname{Tr}(1)=2$ です。また共役根 $w'=(1-\sqrt{13})/2$ を使うか乗法行列を作れば $\operatorname{Tr}(w)=w+w'=1$ です。$w^2=w+3$ だからトレースの線形性より $\operatorname{Tr}(w^2)=1+3\cdot2=7$。従って
+**(2)** 以後この解答では $\operatorname{Tr}=\operatorname{Tr}_{K/\mathbb Q}$ と略記します。$\operatorname{Tr}(1)=2$ は乗法写像 $\mu_1$ の行列が二次単位行列であるためです。次に $(1,w)$ を基底として $w^2=w+3$ を使うと
+
+$$
+\mu_w(1)=w=0\cdot1+1\cdot w,\qquad
+\mu_w(w)=w^2=3\cdot1+1\cdot w.
+$$
+
+よってこの基底での乗法行列は
+
+$$
+[\mu_w]_{(1,w)}=\begin{pmatrix}0&3\\1&1\end{pmatrix},
+\qquad \operatorname{Tr}(w)=0+1=1.
+$$
+
+さらに $\mu_{w^2}=\mu_w+3\mu_1$ なので、トレースの線形性から $\operatorname{Tr}(w^2)=1+3\cdot2=7$ です。従って
 
 $$
 G=\begin{pmatrix}2&1\\1&7\end{pmatrix},
