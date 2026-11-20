@@ -9,6 +9,13 @@ prerequisites:
 forward_references: []
 
 concepts:
+  - id: number-theory.number-field
+    name: 数体
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（数体）"]
+    requires: [algebra.field-extension, algebra.extension-degree]
+
   - id: number-theory.rational-algebraic-integer
     name: 有理数の中の代数的整数
     kind: proposition
