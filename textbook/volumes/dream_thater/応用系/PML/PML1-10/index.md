@@ -18,7 +18,7 @@ $
 
 **不変性**が指定するのは二点分布の後半、すなわち $X_t$ の周辺分布だけである。
 
-そこで、二点の時間順序を入れ替えても同時分布が等しいという、より強い条件を考える。有限状態CTMCでは[SP13の詳細釣合い](../../../解析系/SP/SP13/index.md#def-sp13-detailed-balance)を遷移率で定義し、[時間反転との同値性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)を証明した。ここでは任意の可測状態空間に広げ、遷移核の二時刻分布を使って述べる。
+そこで、二点の時間順序を入れ替えても同時分布が等しいという、より強い条件を考える。有限状態CTMCでは[CTMC の詳細釣合い](../../../解析系/SP/SP13/index.md#def-sp13-detailed-balance)を遷移率で定義し、[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)を証明した。ここでは任意の可測状態空間に広げ、遷移核の二時刻分布を使って述べる。
 
 <a id="def-pml1-10-detailed-balance"></a>
 
@@ -55,7 +55,7 @@ $$
 
 <!-- formal-statement-start -->
 > **命題（詳細釣合いから不変性）**  
-> 可測空間 $E$ 上の保存的な時間一様Markov遷移核 $P_t$ と確率測度 $\pi$ が[詳細釣合い](#def-pml1-10-detailed-balance)を満たすなら、$\pi$ はすべての $t\ge0$ で不変である。さらに任意の有界可測関数 $\varphi,\psi$ について
+> 可測空間 $E$ 上の保存的な時間一様Markov遷移核 $P_t$ と確率測度 $\pi$ が[時間一様Markov過程の詳細釣合い](#def-pml1-10-detailed-balance)を満たすなら、$\pi$ はすべての $t\ge0$ で不変である。さらに任意の有界可測関数 $\varphi,\psi$ について
 >
 $$
 \int_E\varphi P_t\psi\,d\pi
@@ -96,7 +96,7 @@ $$
 
 ## 3. 有限状態では「各辺の流れ」で判定できる
 
-[SP13のCTMC定常性と可逆性の判定](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)を再利用し、ここでは確率流という観点から両者を読み直す。状態空間は有限集合 $E=\{0,\ldots,n-1\}$ とする。
+[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)を再利用し、ここでは確率流という観点から両者を読み直す。状態空間は有限集合 $E=\{0,\ldots,n-1\}$ とする。
 
 状態 $i$ から異なる状態 $j$ への**単位時間当たりの遷移率**を $q_{ij}\ge0$ とする。対角成分は各行の和がゼロになるよう
 $
@@ -141,7 +141,7 @@ $\pi=(1/3,1/3,1/3)$ は全成分正、和は $1$。辺 $0\to1$ の正味流は $
 
 ### 率行列の二つの判定を確率流で読み直す
 
-有限状態での $\pi Q=0$ と詳細釣合いの同値判定、ならびに $DQ=Q^{\mathsf T}D$ から時間反転対称性を導く証明は、すでに[SP13の定常判定](../../../解析系/SP/SP13/index.md#thm-sp13-stationarity-criterion)と[可逆性の定理](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)で完成している。本章ではその判定式を先ほどの $J_{ij}$ へ代入する。
+有限状態での $\pi Q=0$ と詳細釣合いの同値判定、ならびに $DQ=Q^{\mathsf T}D$ から時間反転対称性を導く証明は、すでに[有限 CTMC の定常分布の判定](../../../解析系/SP/SP13/index.md#thm-sp13-stationarity-criterion)と[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)で完成している。本章ではその判定式を先ほどの $J_{ij}$ へ代入する。
 
 各 $i$ について、行和ゼロ $q_{ii}=-\sum_{j\ne i}q_{ij}$ を使えば
 $$
@@ -152,7 +152,7 @@ $$
 &=-\sum_{j\ne i}J_{ij}.
 \end{aligned}
 $$
-従って **不変性**の判定は「各状態での正味の流出の合計がゼロ」である。一方、[SP13のCTMC詳細釣合い定義](../../../解析系/SP/SP13/index.md#def-sp13-detailed-balance)へ $J_{ij}$ を代入すると、その判定は**各辺ごとに** $J_{ij}=0$ である。
+従って **不変性**の判定は「各状態での正味の流出の合計がゼロ」である。一方、[CTMC の詳細釣合い](../../../解析系/SP/SP13/index.md#def-sp13-detailed-balance)へ $J_{ij}$ を代入すると、その判定は**各辺ごとに** $J_{ij}=0$ である。
 
 $$
 \begin{aligned}
@@ -163,11 +163,11 @@ J_{ij}=0\quad(\forall i\ne j).
 \end{aligned}
 $$
 
-二番目の条件から一番目は従うが、逆は一般には従わない。正の確率ベクトル $\pi$ について $D=\operatorname{diag}(\pi_i)$ と置けば、二番目の条件は $DQ=Q^{\mathsf T}D$ と同値であり、[SP13の可逆性の定理](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)により遷移核についての詳細釣合いにも一致する。
+二番目の条件から一番目は従うが、逆は一般には従わない。正の確率ベクトル $\pi$ について $D=\operatorname{diag}(\pi_i)$ と置けば、二番目の条件は $DQ=Q^{\mathsf T}D$ と同値であり、[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)により遷移核についての詳細釣合いにも一致する。
 
 ### 三状態の反例を二つの判定に通す
 
-先ほどの三状態の $Q$ では各列の和も $0$ なので、[SP13の定常判定](../../../解析系/SP/SP13/index.md#thm-sp13-stationarity-criterion)から $\pi Q=0$ は不変性を示す。しかし $J_{01}=1/3\ne0$ だから[SP13の可逆性判定](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)を満たさない。不変性の証明が足し合わせて消していた**別々の辺の流れ**を、詳細釣合いは消すよう要求している。これが逆向きの含意が壊れる場所である。
+先ほどの三状態の $Q$ では各列の和も $0$ なので、[有限 CTMC の定常分布の判定](../../../解析系/SP/SP13/index.md#thm-sp13-stationarity-criterion)から $\pi Q=0$ は不変性を示す。しかし $J_{01}=1/3\ne0$ だから[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)を満たさない。不変性の証明が足し合わせて消していた**別々の辺の流れ**を、詳細釣合いは消すよう要求している。これが逆向きの含意が壊れる場所である。
 
 ## 4. 循環している定常状態にはどの散逸が残るか
 
@@ -217,7 +217,7 @@ $x,y>0$ に対して対数関数の単調性から
 $$
 (x-y)(\log x-\log y)\ge0,
 $$
-また等号は $x=y$ のときに限る。各項に $x=\pi_iq_{ij}$、$y=\pi_jq_{ji}$ を代入すれば総和の各項は非負である。有限和がゼロであることと各 $x=y$ は同値で、[SP13の詳細釣合い判定](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)より結論が従う。
+また等号は $x=y$ のときに限る。各項に $x=\pi_iq_{ij}$、$y=\pi_jq_{ji}$ を代入すれば総和の各項は非負である。有限和がゼロであることと各 $x=y$ は同値で、[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)より結論が従う。
 <!-- proof-end -->
 
 巡回模型の一般の $a,c>0$ では、各辺の流れ $(a-c)/3$ を三本合計するため
@@ -429,7 +429,7 @@ $$
 J_{01}=ua-vb
 =\frac{ab}{a+b}-\frac{ab}{a+b}=0.
 $$
-よって[有限状態の詳細釣合い判定](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)により全時刻の詳細釣合いを満たす。二状態のこの設定では不変でも循環する余地はない。
+よって[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)により全時刻の詳細釣合いを満たす。二状態のこの設定では不変でも循環する余地はない。
 <!-- solution-end -->
 
 <a id="ex-pml1-10-a02"></a>
@@ -442,7 +442,7 @@ $0\to1\to2\to0$ の順向き率が $4$、逆向き率が $1$ とする。$\pi=(1
 <!-- solution-start -->
 #### 詳細解答
 
-率行列は $Q=\left(\begin{smallmatrix}-5&4&1\\1&-5&4\\4&1&-5\end{smallmatrix}\right)$。各列の和は $-5+4+1=0$ であるから、$(\pi Q)_i=(1/3)\sum_jq_{ji}=0$。$J_{01}=(4-1)/3=1$ であり、添字を一周させれば $J_{12}=J_{20}=1$。各状態に入る流れと出る流れが一致しても、辺ごとの流れは $0$ ではない。[有限状態の定理](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)の（1）から不変、（2）から詳細釣合い不成立である。
+率行列は $Q=\left(\begin{smallmatrix}-5&4&1\\1&-5&4\\4&1&-5\end{smallmatrix}\right)$。各列の和は $-5+4+1=0$ であるから、$(\pi Q)_i=(1/3)\sum_jq_{ji}=0$。$J_{01}=(4-1)/3=1$ であり、添字を一周させれば $J_{12}=J_{20}=1$。各状態に入る流れと出る流れが一致しても、辺ごとの流れは $0$ ではない。[有限 CTMC の定常分布の判定](../../../解析系/SP/SP13/index.md#thm-sp13-stationarity-criterion)から不変であり、[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)の率の条件を満たさないので非可逆である。
 <!-- solution-end -->
 
 <a id="ex-pml1-10-a03"></a>
@@ -470,7 +470,7 @@ $$
 \frac{\tau}{\lambda}
 \begin{pmatrix}1&e^{-\lambda t}\\e^{-\lambda t}&1\end{pmatrix}
 $$
-は変数交換で不変である。平均もともにゼロであり、二点分布が対称、従って[詳細釣合い](#def-pml1-10-detailed-balance)が成立する。
+は変数交換で不変である。平均もともにゼロであり、二点分布が対称、従って[時間一様Markov過程の詳細釣合い](#def-pml1-10-detailed-balance)が成立する。
 <!-- solution-end -->
 
 <a id="ex-pml1-10-a04"></a>
@@ -635,7 +635,7 @@ $$
 $$
 J_{\rm forward}=\frac a3-\frac c3=\frac{a-c}{3}.
 $$
-[有限状態の判定定理](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)の（2）より詳細釣合いは $a=c$ の場合に限る。両方向率は正で、[定常生成率](#def-pml1-10-entropy-production)を定義できる。三本の辺の寄与を足すと
+[詳細釣合いと CTMC の可逆性](../../../解析系/SP/SP13/index.md#thm-sp13-reversibility)の率による判定より詳細釣合いは $a=c$ の場合に限る。両方向率は正で、[定常生成率](#def-pml1-10-entropy-production)を定義できる。三本の辺の寄与を足すと
 $$
 \sigma_{\mathrm{ss}}
 =3\frac{a-c}{3}\log\frac{a/3}{c/3}
