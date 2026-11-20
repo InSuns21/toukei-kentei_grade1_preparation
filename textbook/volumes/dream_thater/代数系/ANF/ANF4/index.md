@@ -56,18 +56,18 @@ $$
 
 $s^2=-5\equiv1\pmod3$ なので、$a+bs\mapsto a+b\bmod3$ と $a+bs\mapsto a-b\bmod3$ はそれぞれ $A$ から $\mathbb F_3$ への全射環準同型です。核は順に $\mathfrak q_+$、$\mathfrak q_-$ であり、
 
-$
+$$
 A/\mathfrak q_+\cong\mathbb F_3,\qquad
 A/\mathfrak q_-\cong\mathbb F_3.
-$
+$$
 
 したがって両イデアルは相異なる極大イデアルで、定義の剰余次数は $f_+=f_-=1$ です。次に分岐指数を、[素イデアル分解の一意性](../ANF3/index.md#thm-anf3-prime-ideal-factorization)を使う前に積で確かめます。
 
-$
+$$
 \mathfrak q_+\mathfrak q_-
 =(9,\ 3(s-1),\ 3(s+1),\ (s-1)(s+1))
 =(9,\ 3(s-1),\ 3(s+1),\ -6).
-$
+$$
 
 全生成元は $3A$ に属し、逆に $3=9-6$ も積に属するので $(3)=\mathfrak q_+\mathfrak q_-$ です。両者は相異なる素イデアルなので、分岐指数は $e_+=e_-=1$、個数は $g=2$。これで $e_i,f_i,g$ を定義に戻ってそれぞれ直接確認できました。
 <!-- definition-example-end -->
@@ -246,9 +246,9 @@ $$
 
 を与えます。実際、整元 $\theta$ のモニック最小多項式で割れば余りは次数 $n$ 未満となり、$1,\theta,\ldots,\theta^{n-1}$ は $\mathbb Q$ 上独立なので余りが零のときだけ代入値が零です。この表示を法 $p$ に落とします。ここで $\overline h(T)$ は $h(T)$ の各整数係数を法 $p$ で還元した多項式です。すると
 
-$
+$$
 A/(p)\cong \mathbb F_p[T]/(\overline h(T)).
-$
+$$
 
 右辺の既約因子は素イデアルの候補を表し、因子の重複度は分岐指数に対応します。
 
@@ -313,12 +313,12 @@ $$
 
 一方、[Dedekind整域の素イデアル分解](../ANF3/index.md#thm-anf3-prime-ideal-factorization)から $(p)=\prod_i\mathfrak p_i^{e_i}$ です。$R$ における $\mathfrak p_i$ の像を $\mathfrak m_i=\mathfrak p_i/(p)$ と書きます。$\mathfrak m_i$ で局所化すると、他の $\mathfrak p_j$（$j\ne i$）には $\mathfrak p_i$ に属さない元があるため、それらは単位イデアルになります。したがって [局所単項性](../ANF3/index.md#lem-anf3-local-principal)を適用して
 
-$
+$$
 R_{\mathfrak m_i}
 \cong A_{\mathfrak p_i}/(p)A_{\mathfrak p_i}
 =A_{\mathfrak p_i}/(\pi^{e_i}),
 \qquad \mathfrak p_iA_{\mathfrak p_i}=(\pi).
-$
+$$
 
 他方、上で得た $R\cong\prod_jR_j$ を $\mathfrak m_i$ で局所化すると、対応する $i$ 番目以外の直積因子は消えます。$R_i$ は唯一の極大イデアルを持つ局所環なので、$R_{\mathfrak m_i}\cong R_i$ です。この対応は $\mathfrak p_i/(p)$ が「$g_i$ を零にする」極大イデアルの逆像であることから確かめられます。
 
@@ -340,18 +340,18 @@ $d\ne1$ を平方因子を持たない整数とし、$K=\mathbb Q(\sqrt d)$ と�
 
 二次多項式 $h=T^2-tT+u$ の二つの根を $\theta,\theta'$ と書きます。$\theta'$ は共役根のラベルであり、微分ではありません。$A=\mathbb Z[\theta]$ で $\theta$ の次数が2だから $(1,\theta)$ は整数基底です。二つの根の和は $t$、積は $u$ なので、[体の跡の埋め込み公式](../ANF2/index.md#thm-anf2-embedding-formulas)から
 
-$
+$$
 \operatorname{Tr}(1)=2,\qquad
 \operatorname{Tr}(\theta)=\theta+\theta'=t.
-$
+$$
 
 また $\theta^2=t\theta-u$ であるため、跡の線形性から $\operatorname{Tr}(\theta^2)=t^2-2u$ です。したがって基底 $(1,\theta)$ の跡行列、すなわち $(\operatorname{Tr}(\omega_i\omega_j))_{i,j=1,2}$ は
 
-$
+$$
 \begin{pmatrix}
 2&t\\ t&t^2-2u
 \end{pmatrix}.
-$
+$$
 
 したがって [基底判別式](../ANF2/index.md#def-anf2-basis-discriminant)は
 
@@ -629,16 +629,16 @@ $$
 
 $(1+s)\subseteq\mathfrak p_2$ かつ $(1+s)\subseteq\mathfrak q_-$ です。$\mathfrak p_2$ と $\mathfrak q_-$ は相異なる極大イデアルなので互いに素であり、
 
-$
+$$
 (1+s)\subseteq\mathfrak p_2\cap\mathfrak q_-=\mathfrak p_2\mathfrak q_-.
-$
+$$
 
 左辺の商では $s=-1$、$s^2=-5$ から $6=0$ となるため $A/(1+s)\cong\mathbb Z/6\mathbb Z$、元数は6です。右辺の商の元数も中国剰余分解により $2\cdot3=6$ なので、包含は等号です。同じく $s=1$ とすることで
 
-$
+$$
 (1+s)=\mathfrak p_2\mathfrak q_-,\qquad
 (1-s)=\mathfrak p_2\mathfrak q_+.
-$
+$$
 
 よって $(1+s)(1-s)=\mathfrak p_2^2\mathfrak q_-\mathfrak q_+=(6)$ です。[ANF3 の素イデアル分解の一意性](../ANF3/index.md#thm-anf3-prime-ideal-factorization)に反せず、元が一意分解しないこととイデアルが一意分解することは両立します。分岐指数 $2$ は「元 $2$ が平方である」とは主張していません。
 <!-- solution-end -->
