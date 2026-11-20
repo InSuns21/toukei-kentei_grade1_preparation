@@ -105,7 +105,7 @@ gl.drawArrays(gl.TRIANGLES,0,6);
 if(typeof window!=='undefined' && typeof requestAnimationFrame==='function'){
   const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false;
   const note=document.createElement('output');
-  note.style.cssText='display:block;margin:6px 0;color:#cde8f6;font:13px/1.5 system-ui';
+  note.style.cssText='display:block;box-sizing:border-box;width:100%;padding:4px 6px;background:#10253b;color:#cde8f6;font:clamp(11px,1.6vw,13px)/1.4 system-ui';
   note.setAttribute('aria-live','off');
   canvas.insertAdjacentElement('afterend',note);
   canvas.tabIndex=0;
