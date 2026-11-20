@@ -1,0 +1,41 @@
+chapter: SYZ1-10
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-09]
+concepts:
+  - id: syz.dual-symplectic-tangent-lattice
+    name: シンプレクティック周期の双対接格子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（シンプレクティック周期の双対接格子）"]
+    requires: [syz.two-period-cotangent-lattices, syz.integral-affine-structure]
+  - id: syz.holonomy-dual-torus
+    name: 双対接トーラスとホロノミー文字
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（双対接トーラスとホロノミー文字）"]
+    requires: [syz.dual-symplectic-tangent-lattice, syz.character-lattice-quotient]
+  - id: syz.semiflat-complex-chart
+    name: semi-flat双対トーラスの複素チャート
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（semi-flat双対トーラスの複素チャート）"]
+    requires: [syz.dual-symplectic-tangent-lattice, syz.holonomy-dual-torus]
+  - id: syz.semiflat-complex-gluing
+    name: semi-flat双対トーラスの複素構造と貼り合わせ
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（semi-flat双対トーラスの複素構造と貼り合わせ）"]
+    requires: [syz.semiflat-complex-chart, syz.dual-affine-transition]
+  - id: syz.semiflat-laurent-transition
+    name: 指数複素座標のLaurent単項式遷移
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（指数複素座標のLaurent単項式遷移）"]
+    requires: [syz.semiflat-complex-gluing]
+  - id: syz.cotangent-tangent-transitions
+    name: 余接トーラスと双対接トーラスの遷移
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（余接トーラスと双対接トーラスの遷移）"]
+    requires: [syz.dual-symplectic-tangent-lattice, syz.dual-affine-transition]
