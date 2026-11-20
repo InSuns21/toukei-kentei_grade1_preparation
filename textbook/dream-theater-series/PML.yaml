@@ -71,7 +71,7 @@ chapters:
     title: "群平均はどのように不変モデルを作るか"
   - id: PML1-17
     path: textbook/volumes/dream_thater/応用系/PML/PML1-17
-    status: planned
+    status: completed
     title: "Noetherの保存則は学習器に自動で移るか"
   - id: PML1-18
     path: textbook/volumes/dream_thater/応用系/PML/PML1-18

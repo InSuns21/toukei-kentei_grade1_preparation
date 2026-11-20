@@ -1,0 +1,44 @@
+id: "PML1-17"
+title: "Noetherの保存則は学習器に自動で移るか"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - PML1-16
+  - AMECH4
+  - NA6
+official_scope: []
+learning_objectives:
+  - 学習済み Lagrangian の連続回転作用と有限群平均を区別し無限小生成方向を計算できる
+  - 滑らかな学習済み Lagrangian の回転対称性と対称性欠損を直接判定できる
+  - Noether の定理を学習済みモデルの連続 Euler--Lagrange 軌道へ条件を確認して適用できる
+  - 対称性欠損と運動方程式残差から保存量の変化と積分上界を導出できる
+  - 学習損失や有限標本の対称性とモデルの連続対称性の違いを反例で説明できる
+  - 対称な連続モデルの陽的 Euler 法で角運動量とエネルギーが増大することを直接計算できる
+definitions:
+  - { id: PML1-17-DEF-01, name: 学習済み Lagrangian の連続回転対称性 }
+  - { id: PML1-17-DEF-02, name: 回転対称性欠損 }
+theorems:
+  - { id: PML1-17-THM-01, name: 学習済み Lagrangian への Noether 保存則の適用 }
+  - { id: PML1-17-PROP-01, name: 対称性欠損と運動方程式残差による保存量収支 }
+  - { id: PML1-17-PROP-02, name: 回転等変な Euler 更新の保存量ドリフト }
+canonical_examples:
+  - 等方的二次 Lagrangian の全回転対称性と角運動量保存
+  - 異方的二次 Lagrangian の対称性欠損と角運動量の時間変化
+  - パラメータ交換対称な学習損失が回転保存則を保証しない例
+  - 軸上の有限標本では値が一致しても微分対称性が破れる例
+  - 回転と可換な陽的 Euler 法で角運動量とエネルギーが増大する例
+problem_patterns:
+  - PML1-17-A01
+  - PML1-17-A02
+  - PML1-17-A03
+  - PML1-17-A04
+  - PML1-17-A05
+  - PML1-17-B01
+  - PML1-17-B02
+  - PML1-17-B03
+  - PML1-17-B04
+  - PML1-17-C01
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 5, exercises: 6, review: 2 }

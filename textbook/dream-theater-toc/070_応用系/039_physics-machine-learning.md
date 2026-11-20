@@ -17,3 +17,4 @@
 14. [PML1-14 SGD=熱平衡という比喩が壊れる例は何か](textbook/volumes/dream_thater/応用系/PML/PML1-14/index.md)
 15. [PML1-15 物理的な対称性を群作用としてどう記述するか](textbook/volumes/dream_thater/応用系/PML/PML1-15/index.md)
 16. [PML1-16 群平均はどのように不変モデルを作るか](textbook/volumes/dream_thater/応用系/PML/PML1-16/index.md)
+17. [PML1-17 Noetherの保存則は学習器に自動で移るか](textbook/volumes/dream_thater/応用系/PML/PML1-17/index.md)
