@@ -459,7 +459,7 @@ function runnerHtml() {
     '<meta http-equiv="Content-Security-Policy" content="' + policy + '">' +
     '<meta name="referrer" content="no-referrer">' +
     '<style>body{margin:0;display:grid;place-items:center;background:#e2e8f0}' +
-    'canvas{display:block;max-width:100%;height:auto}</style></head><body>' +
+    'canvas{display:block;width:100%;max-width:100%;height:auto}</style></head><body>' +
     '<canvas id="gpu-canvas" aria-label="GPUが描画した画素"></canvas>' +
     '<script>(' + isolatedRunner.toString() + ')()</scr' + 'ipt></body></html>';
 }
@@ -1683,7 +1683,7 @@ if (isFCG8 || isWGL4) mountReferenceObservation({lesson,parent:byId('panel-condi
 // 1x1 metre domain into ~100x240 strips at the original 320x240 default.
 const sizeHint=(isFCG4||isFCG5||isFCG6||isFCG7||isFCG8)?[900,300]:
   isFCG3?[640,320]:isFCG2?[480,480]:
-  (lesson==='WGL1'||isWGL2||isWGL3||isWGL4)?[480,480]:[640,480];
+  (lesson==='WGL1'||isWGL2||isWGL3||isWGL4)?[480,480]:[320,240];
 byId('width').value=String(sizeHint[0]);
 byId('height').value=String(sizeHint[1]);
 load();
