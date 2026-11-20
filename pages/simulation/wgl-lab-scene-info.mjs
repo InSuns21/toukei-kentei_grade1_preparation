@@ -1,5 +1,12 @@
 // G3: describe the actual editable sandbox canvas; never compute or display a second simulation.
 const descriptions = Object.freeze({
+  FCG2: Object.freeze({
+    grid: '8×8（実際のスカラー場、R8テクスチャ2枚を交互に更新）',
+    color: '解析値 q=0.5+0.25 sin(2πx) cos(2πy) sin(t)。R8への丸め後、(q, 0.15, 1−q) の赤青で表示',
+    clock: step => '解析場の基準step '+step+'、t='+(step*Math.PI/2).toFixed(5)+' s（dt=π/2 s）',
+    mode: '連続再生は現在の物理時刻で解析式を評価。R8は最近傍表示、更新時刻と描画フレームは別',
+    source: 'density.js / density.frag'
+  }),
   FCG3: Object.freeze({
     grid: '32×32（2枚のR8格子）',
     color: '左: 数値染料 q → (q, 0.15, 1−q)。右: 数値と解析の差 5|q−q_exact| を1で上限処理して赤で表示',
@@ -21,6 +28,31 @@ const descriptions = Object.freeze({
     mode: '染料表示の線形補間は描画のみ。12×12計算格子を高解像度で再計算してはいない',
     source: 'fluid.js / fluid.frag'
   }),
+  WGL7: Object.freeze({
+    requiresSteps: false,
+    grid: '初期checker模様は8×8 RGBA8、data模様へ変更した場合は4×4 RGBA8（計算格子ではなく入力テクスチャ）',
+    color: '左は初期NEAREST、右は初期LINEAR_MIPMAP_LINEAR。実際のフィルタ・繰返し数はsampling.jsの設定が優先',
+    clock: () => '初期UVオフセットでの静止画素（物理時間ではない）',
+    mode: '再生は同一GLSLのUVオフセットだけを移動。模様の8×8 texelと描画バッファの画素を区別',
+    source: 'sampling.js / sampling.frag（u_repeats, u_offset, gl.TEXTURE_MIN_FILTER）'
+  }),
+  WGL12: Object.freeze({
+    requiresSteps: false,
+    grid: '数値計算格子なし（fragment shaderが画素ごとに3球のBRDFを評価）',
+    color: '3球の反射は線形RGBからsRGBへ変換して表示。左下4画素のFresnel診断は線形値',
+    clock: () => 'JSで指定した初期光源方向の静止フレーム',
+    mode: '光源の回転はuniformだけを更新。画素ごとのGGX評価と初期Fresnel診断は異なる測定',
+    source: 'pbr.js / pbr.frag（roughness, metallic, u_lightDirection）'
+  }),
+  WGL19: Object.freeze({
+    grid: '4×4（GPUのRGBA32F濃度格子、2枚のping-pongテクスチャ）',
+    color: '濃度qを0〜1に切り詰め、(q, 0.2, 1−q)の赤青で画素に表示',
+    clock: (step, snapshot) => '物理更新 '+step+' step、計算時間 '+
+      (step*snapshot.frameAudit.fixedMs)+' ms（固定dt='+snapshot.frameAudit.fixedMs+' ms）',
+    mode: snapshot => '合成フレーム '+snapshot.frameAudit.frames+' 回、更新しきれず破棄した時間 '+
+      snapshot.frameAudit.droppedMs+' ms。実ブラウザのRAF間隔・FPSとは別',
+    source: 'audit.js / audit.frag（fixedMs, frameDeltasMs, maxStepsPerFrame）'
+  }),
   WGL18: Object.freeze({
     grid: '4×4（GPUの浮動小数点濃度格子）',
     color: '濃度 q を0〜1に切り詰め、(q, 0.2, 1−q) の赤青で表示。正方形セルのまま拡大',
@@ -35,11 +67,18 @@ export function sceneDescription(lesson, snapshot) {
   if (!item || !snapshot) return null;
   const {width, height, steps} = snapshot;
   if (!Number.isInteger(width) || width < 1 || !Number.isInteger(height) || height < 1 ||
-      !Number.isInteger(steps) || steps < 0) return null;
+      (item.requiresSteps !== false && (!Number.isInteger(steps) || steps < 0))) return null;
+  if (lesson === 'WGL19' &&
+      (!snapshot.frameAudit ||
+       !Number.isFinite(snapshot.frameAudit.fixedMs) || snapshot.frameAudit.fixedMs <= 0 ||
+       !Number.isInteger(snapshot.frameAudit.frames) || snapshot.frameAudit.frames < 1 ||
+       !Number.isFinite(snapshot.frameAudit.droppedMs) || snapshot.frameAudit.droppedMs < 0 ||
+       snapshot.frameAudit.steps !== steps)) return null;
   return Object.freeze({
     grid: item.grid, pixels: width+'×'+height+' px（GPU描画バッファ）',
-    color: item.color, clock: item.clock(steps),
-    mode: item.mode, source: item.source
+    color: item.color, clock: item.clock(steps, snapshot),
+    mode: typeof item.mode === 'function' ? item.mode(snapshot) : item.mode,
+    source: item.source
   });
 }
 
@@ -66,7 +105,7 @@ export function mountSceneInfo(lesson, parent) {
   }
   const note = document.createElement('p');
   note.className = 'scene-info-note';
-  note.textContent = 'ここに示すstepは実行直後の値。再生中の表示が進んでも、初期CPU/GPU画素照合の基準値は更新されません。';
+  note.textContent = 'ここに示す時計は実行直後の基準です。連続再生しても、初期CPU/GPU画素照合の条件は変わりません。';
   parent.append(title, list, note);
   parent.hidden = false;
   return snapshot => {

@@ -897,7 +897,8 @@ window.addEventListener('message', event => {
   if (data.type !== 'result' || active.contextLost) return;
   updateSceneInfo(data.ok ? {
     width: active.payload.width, height: active.payload.height,
-    steps: isWGL18 ? data.floatParameters?.steps : active.payload.steps
+    steps: (isWGL18 || isWGL19) ? data.floatParameters?.steps : active.payload.steps,
+    frameAudit: isWGL19 ? data.frameAudit : undefined
   } : null);
   clearTimeout(active.timer);
   active.timer = null;

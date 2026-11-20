@@ -501,6 +501,19 @@ try{
   assert.equal(await evalJS('document.querySelector("#canvas-slot iframe")===null'),true);
   console.log('WGL5 shader failure and sandbox disposal: PASS');
 
+  // G3 FCG2: the CPU analytic field and R8 GPU snapshot share one time label.
+  await cdp('Page.navigate',{url:url+'?lesson=FCG2'});
+  await waitFor('document.getElementById("status")?.textContent==="実行できます"');
+  await click('run');
+  await waitFor('document.getElementById("status")?.textContent.match(/独立画素検算|基準画素と不一致|WebGL2実行エラー|タイムアウト/)',22000);
+  assert.match(await evalJS('document.getElementById("status").textContent'),
+    /独立画素検算に合格/,'FCG2 actual R8 scalar GPU snapshot failed');
+  const scene2=await evalJS('({clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent})');
+  assert.match(scene2.clock,/t=1.57080 s/);
+  assert.match(scene2.grid,/8×8/);
+  console.log('FCG2 actual R8 GPU draw and physical-time legend: PASS');
+  await click('stop');
+
   // WGL7: the initial checkerboard + mipmap GPU oracle stays deterministic,
   // but the same shader must expose different temporal aliasing on the left.
   await cdp('Page.navigate',{url:url+'?lesson=WGL7'});
@@ -512,6 +525,9 @@ try{
   assert.equal(wgl7.rows.length,8);
   assert.ok(wgl7.rows.every(x=>x[4]==='OK'),JSON.stringify(wgl7.rows));
   assert.equal(wgl7.sandbox,'allow-scripts');
+  const scene7=await evalJS('({clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,source:document.querySelector("#scene-info .scene-info-list > div:last-child dd")?.textContent})');
+  assert.match(scene7.clock,/初期UVオフセット/);
+  assert.match(scene7.source,/sampling.js/);
   await evalJS('document.querySelector("#canvas-slot iframe").scrollIntoView({block:"center"})');
   await new Promise(ok=>setTimeout(ok,200));
   const r7=await evalJS('(()=>{const r=document.querySelector("#canvas-slot iframe").getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height};})()');
@@ -781,6 +797,9 @@ try{
   assert.equal(wgl12.rows.length,4);
   assert.ok(wgl12.rows.every(row=>row[4]==='OK'));
   assert.equal(wgl12.sandbox,'allow-scripts');
+  const scene12=await evalJS('({grid:document.querySelector("#scene-info .scene-info-list > div:first-child dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent})');
+  assert.match(scene12.grid,/数値計算格子なし/);
+  assert.match(scene12.mode,/光源の回転/);
   assert.match(wgl12.log,/CHECK: PASS: 4\/4 Fresnel probes/);
   assert.match(wgl12.log,/GL error: 0x0/);
   for(let i=0;i<4;i++) {
@@ -1241,6 +1260,9 @@ try{
     assert.equal(w19.rows.length,16);
     assert.ok(w19.rows.every(row=>row[4]==='OK'));
     assert.equal(w19.sandbox,'allow-scripts');
+    const scene19=await evalJS('({clock:document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent,mode:document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent})');
+    assert.match(scene19.clock,/物理更新 6 step、計算時間 120 ms/);
+    assert.match(scene19.mode,/合成フレーム 4 回/);
     assert.match(w19.log,/ticks\/frame=0,1,4,1; total ticks=6/);
     assert.match(w19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
     assert.match(w19.log,/RESOURCES:.*deleted; checks passed/);
@@ -1256,6 +1278,7 @@ try{
     const edit19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
     assert.match(edit19.status,/編集コードを実行しました/,'WGL19 edited clock failure: '+JSON.stringify(edit19));
     assert.match(edit19.log,/total ticks=2/);
+    assert.match(await evalJS('document.querySelector("#scene-info .scene-info-list > div:nth-child(4) dd")?.textContent'),/物理更新 2 step、計算時間 40 ms/);
     assert.match(edit19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
     console.log('WGL19 learner edits clock, 2-step independent float oracle passes: PASS');
 
@@ -1266,6 +1289,7 @@ try{
     const late19=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent})');
     assert.match(late19.status,/編集コードを実行しました/,'WGL19 overload failure: '+JSON.stringify(late19));
     assert.match(late19.log,/total ticks=4; remainder=0.00000ms; dropped=120ms/);
+    assert.match(await evalJS('document.querySelector("#scene-info .scene-info-list > div:nth-child(5) dd")?.textContent'),/破棄した時間 120 ms/);
     assert.match(late19.log,/WGL19 clock: 一致 \/ independent CPU-FLOAT: maxError=.*一致/);
     console.log('WGL19 overload makes dropped simulation time explicit: PASS');
 
