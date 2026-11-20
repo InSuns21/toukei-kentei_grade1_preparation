@@ -112,6 +112,8 @@ if(typeof window!=='undefined' && typeof requestAnimationFrame==='function'){
   canvas.title='WGL18 実GPU 4×4拡散：Space/Enter再生・停止、→1数値step、R初期化';
   canvas.setAttribute('aria-label','GPU拡散。SpaceまたはEnterで再生停止、右矢印で1数値step、Rで初期化');
   let playing=!reduced, stepNumber=steps, last=0, raf=0, firstFrame=true;
+  let initialOracleCaptured=false;
+  window.addEventListener('wgl18-initial-oracle-captured',()=>{initialOracleCaptured=true;},{once:true});
   const MAX_STEP=24; // bounded cycle; no claim that GPU frames are independently verified
   const liveRaw=new Float32Array(N*N*4);
   function liveReadback(){
