@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - U2-25
+  - F0-00P3A
 official_scope: []
 learning_objectives:
   - 独立目印事前・既知対応・一目印観測という条件を列挙し、破れた例を区別できる
