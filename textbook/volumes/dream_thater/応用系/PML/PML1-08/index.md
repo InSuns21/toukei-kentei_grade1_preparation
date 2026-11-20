@@ -22,7 +22,20 @@ $N(0,hI_r)$ は平均 $0$、分散共分散行列 $hI_r$ の正規分布を表�
 
 ## 2. 過減衰Langevin方程式のドリフトと拡散
 
-決定論的な運動 $-\nabla f$ に、行列 $M$ で方向別の動きやすさを与えると、速度は $-M\nabla f$ となる。この決定論的な項を**ドリフト**と呼び、ブラウン増分に掛かる行列を**拡散係数**と呼ぶ。拡散係数 $\Sigma$ 自体と、短時間増分の分散共分散行列 $\Sigma\Sigma^\mathsf T$ は区別する。
+決定論的な運動 $-\nabla f$ に、行列 $M$ で方向別の動きやすさを与えると、速度は $-M\nabla f$ となる。この決定論的な項を**ドリフト**と呼び、ブラウン増分に掛かる $d\times r$ 行列 $\Sigma$ を**拡散係数**と呼ぶ。拡散係数 $\Sigma$ 自体と、短時間増分の分散共分散行列 $\Sigma\Sigma^\mathsf T$ は区別する。
+
+この行列積が現れる理由を確かめる。$\Delta W_t=W_{t+h}-W_t$ と置くと、$r$ 次元ブラウン増分の共分散は $hI_r$ である。拡散係数を掛けた変位 $\Sigma\Delta W_t\in\mathbb R^d$ について、転置を取る順序に注意して
+
+$$
+\begin{aligned}
+\mathbb E\!\left[(\Sigma\Delta W_t)(\Sigma\Delta W_t)^\mathsf T\right]
+&=\Sigma\,\mathbb E[\Delta W_t\Delta W_t^\mathsf T]\,\Sigma^\mathsf T\\
+&=h\Sigma I_r\Sigma^\mathsf T
+=h\Sigma\Sigma^\mathsf T.
+\end{aligned}
+$$
+
+従って $\Sigma\Sigma^\mathsf T$ は**単位時間当たりのブラウン駆動部分の共分散**を表す。ドリフトによる変位は時間幅 $h$ の一次の大きさで、共分散を $h$ で割った極限では二次変動を作るブラウン項だけが残る。この対応を用いて、以下では $A=\Sigma\Sigma^\mathsf T$ を局所分散共分散行列と呼ぶ。
 
 <a id="def-pml1-08-overdamped"></a>
 
@@ -73,6 +86,8 @@ $$
 > を満たすとき、温度 $\tau$ と移動度 $M$ に**整合する熱雑音**という。この関係は $\Sigma$ そのものの一意性を要求せず、短時間増分の分散共分散行列を指定する。$M=I_d$ のとき $\Sigma=\sqrt{2\tau}\,I_d$ は一つの選択である。
 <!-- formal-statement-end -->
 
+正定値な $M$ では $2\tau M$ の階数は $d$ である。一方、$\Sigma\Sigma^\mathsf T$ の階数は $\Sigma$ の列数 $r$ 以下なので、熱雑音整合には $r\ge d$ が必要である。以下の例は $r=d$ とした具体的な構成である。
+
 <!-- definition-example-start: def-pml1-08-thermal-matching -->
 **定義の確認**：$d=r=2$、$M=\operatorname{diag}(1,4)$、$\tau=3$ と置く。$M$ は対称で、非零 $v$ に対して $v^\mathsf TMv=v_1^2+4v_2^2>0$。ここで
 
@@ -80,7 +95,7 @@ $$
 \Sigma=\operatorname{diag}(\sqrt6,\sqrt{24})
 $$
 
-と取ると、$\Sigma\Sigma^\mathsf T=\operatorname{diag}(6,24)=2\tau M$ になる。両方向に同じ係数 $\sqrt6$ を置くと $\Sigma\Sigma^\mathsf T=6I_2$ となり、第二方向で $2\tau M$ と一致しない。
+と取ると、$\Sigma\Sigma^\mathsf T=\operatorname{diag}(6,24)=2\tau M$ になる。実際、ブラウン増分の各成分は互いに独立で分散 $h$ なので、拡散項の二方向の増分は $(\sqrt6\,\Delta W_t^1,\sqrt{24}\,\Delta W_t^2)$ であり、その分散はそれぞれ $6h,24h$、共分散は $0$ である。これを $h$ で割った行列が、定義で比較した $\operatorname{diag}(6,24)$ にほかならない。両方向に同じ係数 $\sqrt6$ を置くと $\Sigma\Sigma^\mathsf T=6I_2$ となり、第二方向で $2\tau M$ と一致しない。
 <!-- definition-example-end -->
 
 一次元で $M=m$、$\Sigma=\nu$ なら条件は $\nu^2=2m\tau$。従って $\nu=\sqrt{2m\tau}$ または $-\sqrt{2m\tau}$ を選べる。負号はブラウン運動の符号変更であり、**分散は同じ**である。物理的な温度と移動度の双方を指定しないまま「必要な雑音の強さ」を一意に答えることはできない。
@@ -119,7 +134,23 @@ $$
 <!-- proof-start -->
 ### 証明
 
-[STO9 の積分形SDE](../../../解析系/STO/STO9/index.md#def-sto9-sde)で $dX^i=b_i(X)\,dt+\sum_{\alpha=1}^r\Sigma_{i\alpha}\,dW^\alpha$ と書く。$W^\alpha$ と $W^\beta$ の共変分が $\delta_{\alpha\beta}t$ であることは[STO7 の多次元ブラウン運動の共変分命題](../../../解析系/STO/STO7/index.md#prop-sto7-vector-brownian-covariation)による。従って
+状態の座標成分を $X^i$（$1\le i\le d$）、ブラウン運動の成分を $W^\alpha$（$1\le\alpha\le r$）と書く。[STO9 の積分形SDE](../../../解析系/STO/STO9/index.md#def-sto9-sde)によると、各座標の方程式は
+
+$$
+dX^i=b_i(X)\,dt+\sum_{\alpha=1}^r\Sigma_{i\alpha}\,dW^\alpha
+$$
+
+となる。以降は $i,j$ を状態座標、$\alpha,\beta$ をブラウン運動の成分の添字とする。状態変数 $x$ についての一階・二階偏微分を
+
+$$
+\partial_i\varphi=\frac{\partial\varphi}{\partial x_i},
+\qquad
+\partial_{ij}\varphi=\frac{\partial^2\varphi}{\partial x_i\partial x_j}
+$$
+
+と書く。
+
+[命題（多次元ブラウン運動の共変分）](../../../解析系/STO/STO7/index.md#prop-sto7-vector-brownian-covariation)から $[W^\alpha,W^\beta]_t=\delta_{\alpha\beta}t$ である。従って
 
 $$
 d[X^i,X^j]_t
@@ -402,7 +433,7 @@ $$
 <!-- solution-start -->
 #### 詳細解答
 
-[STO7 の多次元ブラウン運動](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)から $\Delta W\sim N(0,h)$ であり、
+[STO7 の多次元ブラウン運動](../../../解析系/STO/STO7/index.md#def-sto7-vector-brownian)から、$\Delta W:=W_{t+h}-W_t$ と置けば $\Delta W\sim N(0,h)$ であり、
 
 $$
 \mathbb E\Delta W=0,\quad
@@ -588,7 +619,7 @@ $$
 \mathbb E f(X_t)=\frac{\tau}{2}(1-e^{-2m\lambda t}).
 $$
 
-$m\lambda t>0$ より $0<e^{-2m\lambda t}<1$ だから $\mathbb E f(X_t)>0=f(X_0)$。その微分も $m\lambda\tau e^{-2m\lambda t}>0$。決定論的には[勾配流の散逸恒等式](../PML1-07/index.md#thm-pml1-07-dissipation)が $df/dt=-|f'|^2$ を与えるが、確率系のItô公式では $\frac12\nu^2 f''=m\tau\lambda$ が加算される。初期点では $f'(0)=0$ なので、正の補正が勝つ。
+$m\lambda t>0$ より $0<e^{-2m\lambda t}<1$ だから $\mathbb E f(X_t)>0=f(X_0)$。その微分も $m\lambda\tau e^{-2m\lambda t}>0$。決定論的には移動度 $m$ を持つ流れ $dx/dt=-mf'(x)$ に連鎖律を適用すると $df(x(t))/dt=f'(x(t))(-mf'(x(t)))=-m|f'(x(t))|^2$ となる（[勾配流の散逸恒等式](../PML1-07/index.md#thm-pml1-07-dissipation)）。しかし、確率系のItô公式では $\frac12\nu^2 f''=m\tau\lambda$ が加算される。初期点では $f'(0)=0$ なので、正の補正が勝つ。
 <!-- solution-end -->
 
 <a id="ex-pml1-08-b04"></a>
@@ -624,7 +655,39 @@ $$
 \Sigma_2\Sigma_2^\mathsf T=2\tau RR^\mathsf T=2\tau I_2.
 $$
 
-両者のドリフトは $-\nabla f$ で、[過減衰Langevin型拡散の生成作用素](#prop-pml1-08-generator)よりどちらも $L\varphi=-\nabla f\cdot\nabla\varphi+\tau\Delta\varphi$ となる。しかし同じ $W$ に対し拡散項は $\sqrt{2\tau}\,dW$ と $\sqrt{2\tau}R\,dW$ で異なる。例えば $f(x)=\|x\|^2/2$、$X_0=0$ とすれば、時刻 $t>0$ の明示解の差は $\sqrt{2\tau}\int_0^t e^{-(t-s)}(I_2-R)dW_s$ で、その二乗平均は正である（$I_2-R\ne0$）。生成作用素が同じことは、固定した雑音標本路ごとの一致を意味しない。
+両者のドリフトは $-\nabla f$ で共通である。二次元の Laplace 作用素を
+
+$$
+\Delta\varphi:=\partial_{11}\varphi+\partial_{22}\varphi
+$$
+
+と定める。[過減衰Langevin型拡散の生成作用素](#prop-pml1-08-generator)に、両者共通の共分散 $2\tau I_2$ を代入すると、
+
+$$
+L\varphi=-\nabla f\cdot\nabla\varphi+\tau\Delta\varphi
+$$
+
+がどちらにも成り立つ。
+
+しかし同じ $W$ に対し、拡散項は $\sqrt{2\tau}\,dW$ と $\sqrt{2\tau}R\,dW$ で異なる。例えば $f(x)=\|x\|^2/2$ とし、同じ初期値 $X_0=0$ とブラウン運動 $W$ の下で $\Sigma_1,\Sigma_2$ をそれぞれ用いた解を $X^{(1)},X^{(2)}$ と書く。各座標の二次模型の明示解を適用すると、時刻 $t>0$ の差は
+
+$$
+X_t^{(1)}-X_t^{(2)}
+=\sqrt{2\tau}\int_0^t e^{-(t-s)}(I_2-R)\,dW_s
+$$
+
+である。$(I_2-R)(I_2-R)^\mathsf T=2I_2$ を用い、[Itô等長性](../../../解析系/STO/STO6/index.md#thm-sto6-l2-construction)から二乗平均を計算する。
+
+$$
+\begin{aligned}
+\mathbb E\|X_t^{(1)}-X_t^{(2)}\|^2
+&=2\tau\int_0^t e^{-2(t-s)}
+  \operatorname{tr}\!\left((I_2-R)(I_2-R)^\mathsf T\right)\,ds\\
+&=4\tau(1-e^{-2t})>0.
+\end{aligned}
+$$
+
+生成作用素が同じことは、固定した雑音標本路ごとの一致を意味しない。
 <!-- solution-end -->
 
 ## 10. 演習 Level C
@@ -693,20 +756,47 @@ $$
 =3+3e^{-12t}.
 $$
 
-これは初期値 $6$ から**減少**するので、この初期値だけでは単調減少の反例にならない。しかし有限時刻 $s>0$ から見れば条件付きに $X_s$ が最小点 $2$ の近傍に入る事象が正の確率であり、その状態 $x$ からの期待損失の初期時間微分は
+これは初期値 $6$ から**減少**するので、初期値からの無条件の期待損失だけでは標本路ごとの単調性を反証できない。そこで任意の $s>0$ を固定し、時刻 $s$ までの情報を表す $\mathcal F_s$ に条件づける。
+
+[STO11 の大域 Lipschitz SDE のマルコフ性](../../../解析系/STO/STO11/index.md#prop-sto11-lipschitz-sde-markov)により、$X_s=x$ を出発点とする長さ $h>0$ の過程へ[二次模型の定理](#thm-pml1-08-quadratic)を適用できる。中心座標 $Y=X-2$ の条件付き平均は $(x-2)e^{-6h}$、条件付き分散は $2(1-e^{-12h})$ だから、
 
 $$
-(Lf)(x)=-2\cdot 9(x-2)^2+6\cdot3
-=18-18(x-2)^2.
+\begin{aligned}
+\mathbb E[f(X_{s+h})\mid\mathcal F_s]
+&=\frac32\left\{(X_s-2)^2e^{-12h}
+      +2(1-e^{-12h})\right\}\\
+&=\frac32(X_s-2)^2e^{-12h}+3(1-e^{-12h}).
+\end{aligned}
 $$
 
-$|x-2|<1$ ならこれが正になる。ここでは $f''=3$ を[生成作用素の式](#prop-pml1-08-generator)に代入した。
+現在の損失との差を取ると、
 
-時刻 $s>0$ の $X_s$ は分散が正の正規分布だから、$|X_s-2|<1$ となる事象の確率は正である。
+$$
+\mathbb E[f(X_{s+h})\mid\mathcal F_s]-f(X_s)
+=\left(3-\frac32(X_s-2)^2\right)(1-e^{-12h}).
+$$
 
-もし初期値 $X_0=0$ からのほとんどすべての標本路で損失が単調減少なら、[STO11 のLipschitz SDEのマルコフ性](../../../解析系/STO/STO11/index.md#prop-sto11-lipschitz-sde-markov)により、$X_s=x$ を条件にした短時間後の期待損失は $f(x)$ 以下でなければならない。
+従って $|X_s-2|<\sqrt2$ の事象上では、**どの $h>0$ に対しても**条件付き期待損失が増加する。右微分も
 
-しかし上の正の確率をもつ事象では、その条件付き期待損失の時間微分は正になる。これは矛盾するため、標本路ごとの単調減少は成り立たない。
+$$
+\left.\frac{d}{dh}\mathbb E[f(X_{s+h})\mid\mathcal F_s]\right|_{h=0+}
+=36-18(X_s-2)^2
+$$
+
+である。独立に[生成作用素の式](#prop-pml1-08-generator)へ $f'(x)=3(x-2)$、$f''(x)=3$、$b(x)=-6(x-2)$、$\nu^2=24$ を代入しても、
+
+$$
+(Lf)(x)=(-6(x-2))\,3(x-2)+\frac{24}{2}\cdot3
+=-18(x-2)^2+36
+$$
+
+と一致する。二階の Itô 補正は $18$ ではなく $36$ である。
+
+時刻 $s>0$ の $X_s$ は分散 $2(1-e^{-12s})>0$ の正規分布である。このため、$|X_s-2|<\sqrt2$ という事象の確率は正である。
+
+もしほとんどすべての標本路で $f(X_t)$ が単調非増加なら、$f(X_{s+h})\le f(X_s)$ の条件付き期待値も非増加でなければならない。
+
+しかし上の正の確率を持つ事象では、すべての $h>0$ に対して厳密な逆不等式が成り立つ。従って標本路の単調非増加性は否定される。
 
 この設問では「初期値からの平均損失は減る」と「標本路ごとの損失が必ず減る」を取り違えない。
 <!-- solution-end -->
