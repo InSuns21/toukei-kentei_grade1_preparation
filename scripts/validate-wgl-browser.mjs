@@ -311,7 +311,9 @@ try{
   const wgl4Shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:true});
   await writeFile('_wgl_browser_review/wgl4-animation.png',Buffer.from(wgl4Shot.data,'base64'));
   await click('run');
-  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格")',22000);
+  await waitFor('document.getElementById("status")?.textContent.includes("独立画素検算に合格") || document.getElementById("status")?.textContent.includes("不一致") || document.getElementById("status")?.textContent.includes("エラー")',22000);
+  const wgl4gpu=await evalJS('({status:document.getElementById("status").textContent,log:document.getElementById("diagnostics").textContent.slice(-700),rows:[...document.querySelectorAll("#results-table tbody tr")].map(x=>x.textContent)})');
+  assert.match(wgl4gpu.status,/独立画素検算に合格/,JSON.stringify(wgl4gpu));
   console.log('WGL4 live WebGL2 rotation, square canvas, angle scrub and original GPU pixel oracle: PASS');
 
   // WGL5: depth test, projection matrices and readPixels verified on actual GPU driver.
