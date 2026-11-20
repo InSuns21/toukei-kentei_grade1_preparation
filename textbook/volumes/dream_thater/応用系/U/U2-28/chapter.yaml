@@ -1,0 +1,49 @@
+id: "U2-28"
+title: "総合演習：2次元ロボットを未知地図で迷子にしない"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - U2-27
+official_scope: []
+learning_objectives:
+  - 平面位置と方位固定の未知ランドマーク生成モデルの状態・観測・雑音・真値使用範囲を確定できる
+  - 同じオドメトリ・相対目印観測列と座標基準で比較実験を設計できる
+  - 六次元のEKF-SLAMの観測Jacobi行列とJoseph更新を導出し厳密性を説明できる
+  - 初期地図事前と最初の観測を平方完成し暫定地図の残る不確実性を計算できる
+  - 暫定地図を固定したMCLの重み更新と未知地図SLAMとの差を説明できる
+  - 全軌跡と目印の二次目的関数・正規方程式・正定値性を証明できる
+  - Gaussianにおける最終時刻のフィルタとバッチの平均・共分散一致を証明できる
+  - 初期姿勢のgauge固定と真値を使った事後的な座標合わせを区別できる
+  - 誤対応と外れ値の残差を検算し数値解の一致が正しさを保証しないと説明できる
+  - 固定乱数種のPythonラボで正常・失敗時の位置RMSEと粒子ESSを再現できる
+definitions:
+  - { id: U2-28-DEF-01, name: 共通の平面未知地図生成モデル }
+  - { id: U2-28-DEF-02, name: 三方式の比較対象 }
+  - { id: U2-28-DEF-03, name: 時刻0による暫定固定地図 }
+theorems:
+  - { id: U2-28-PROP-01, name: 固定方位におけるEKF更新の厳密性 }
+  - { id: U2-28-PROP-02, name: 時刻0の地図事後の平均と分散 }
+  - { id: U2-28-THM-01, name: 基準固定した平面SLAMの正規方程式 }
+  - { id: U2-28-PROP-03, name: 最終時刻のKalmanとバッチ解の一致 }
+canonical_examples:
+  - 時刻0の観測値2と分散25および0.09から暫定目印平均5000/2509と分散225/2509
+  - 二変数の小グラフ正規方程式から位置3/5と目印6/5
+  - ランドマーク誤対応で二観測の重み付き残差1600/9
+  - 外れ値(3,-3)で重み付き残差200
+  - 固定乱数種によるEKFとグラフ最終時刻平均・分散の一致テスト
+problem_patterns:
+  - U2-28-A01
+  - U2-28-A02
+  - U2-28-A03
+  - U2-28-A04
+  - U2-28-A05
+  - U2-28-B01
+  - U2-28-B02
+  - U2-28-B03
+  - U2-28-B04
+  - U2-28-C01
+  - U2-28-C02
+exercise_counts: { level_a: 5, level_b: 4, level_c: 2, level_d: 0 }
+estimated_hours: { reading: 4.0, exercises: 6.0, review: 2.0 }
+past_exam_alignment: []
+integrated_exam_problems: []

@@ -28,3 +28,4 @@
 25. [U2-25 ループ閉合・頑健推定：再訪はいつ役に立つか](textbook/volumes/dream_thater/応用系/U/U2-25/index.md)
 26. [U2-26 Rao–Blackwell 化粒子 SLAM：何を粒子化するか](textbook/volumes/dream_thater/応用系/U/U2-26/index.md)
 27. [U2-27 推定の評価：RMSE と信用できる共分散は別](textbook/volumes/dream_thater/応用系/U/U2-27/index.md)
+28. [U2-28 総合演習：2次元ロボットを未知地図で迷子にしない](textbook/volumes/dream_thater/応用系/U/U2-28/index.md)
