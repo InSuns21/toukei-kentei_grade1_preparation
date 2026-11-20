@@ -1,0 +1,65 @@
+chapter: SYZ1-15
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-14, SYZ1-10, SYZ1-04]
+concepts:
+  - id: syz.relative-holomorphic-disk
+    name: 正則円板・相対類・面積
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（正則円板・相対類・面積）"]
+    requires: [syz.slag-torus-fibration]
+  - id: syz.disk-area-boundary-additivity
+    name: 面積と境界の加法性
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（面積と境界の加法性）"]
+    requires: [syz.relative-holomorphic-disk]
+  - id: syz.disk-holonomy-weight
+    name: 境界ホロノミーと円板の重み
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（境界ホロノミーと円板の重み）"]
+    requires: [syz.relative-holomorphic-disk, syz.holonomy-dual-torus]
+  - id: syz.disk-maslov-index
+    name: 円板のMaslov指数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（円板のMaslov指数）"]
+    requires: [syz.relative-holomorphic-disk]
+  - id: syz.formal-zero-class-not-disk
+    name: 指数0・面積0は存在条件ではない
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（指数0・面積0は存在条件ではない）"]
+    requires: [syz.disk-maslov-index, syz.disk-area-boundary-additivity]
+  - id: syz.local-log-torus
+    name: 対数型円板模型のトーラス
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（対数型円板模型のトーラス）"]
+    requires: [syz.slag-torus-fibration]
+  - id: syz.local-log-lagrangian
+    name: 局所模型は滑らかなLagrangeトーラス束を与える
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（局所模型は滑らかなLagrangeトーラス束を与える）"]
+    requires: [syz.local-log-torus]
+  - id: syz.maslov-zero-disk-wall-location
+    name: Maslov指数0の正則円板が現れる壁の位置
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（Maslov指数0の正則円板が現れる壁の位置）"]
+    requires: [syz.local-log-lagrangian, syz.disk-maslov-index, syz.relative-holomorphic-disk]
+  - id: syz.wall-disk-weights
+    name: 壁の円板の面積と境界ホロノミー
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（壁の円板の面積と境界ホロノミー）"]
+    requires: [syz.maslov-zero-disk-wall-location, syz.disk-holonomy-weight]
+  - id: syz.maslov-zero-existence-wall
+    name: Maslov指数0の円板の存在壁
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（Maslov指数0の円板の存在壁）"]
+    requires: [syz.maslov-zero-disk-wall-location]
