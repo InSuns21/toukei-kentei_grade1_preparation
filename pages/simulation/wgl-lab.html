@@ -32,10 +32,11 @@
 <div id="lab-parameters" class="lab-parameters" aria-label="教材ソースに連動する実験パラメータ" hidden></div>
 </section>
 <section role="tabpanel" id="panel-code" aria-labelledby="tab-code" hidden>
+<p id="editor-keyboard-help" class="editor-keyboard-help">コード欄では Tab で字下げします。Esc の次に Tab を押すと次の入力欄へ移動できます。Shift+Tab で前へ戻れます。</p>
 <div class="editors">
-<div><label for="js-source">JavaScript（描画呼出し）</label><textarea id="js-source" spellcheck="false" aria-label="JavaScript ソース"></textarea></div>
-<div><label for="vertex-source">頂点 GLSL ES 3.00</label><textarea id="vertex-source" spellcheck="false"></textarea></div>
-<div><label for="fragment-source">フラグメント GLSL ES 3.00</label><textarea id="fragment-source" spellcheck="false"></textarea></div>
+<div><label for="js-source">JavaScript（描画呼出し）</label><textarea id="js-source" spellcheck="false" aria-label="JavaScript ソース" aria-describedby="editor-keyboard-help"></textarea></div>
+<div><label for="vertex-source">頂点 GLSL ES 3.00</label><textarea id="vertex-source" spellcheck="false" aria-describedby="editor-keyboard-help"></textarea></div>
+<div><label for="fragment-source">フラグメント GLSL ES 3.00</label><textarea id="fragment-source" spellcheck="false" aria-describedby="editor-keyboard-help"></textarea></div>
 </div>
 </section>
 <section role="tabpanel" id="panel-result" aria-labelledby="tab-result" hidden>

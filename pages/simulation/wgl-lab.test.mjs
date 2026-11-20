@@ -88,6 +88,23 @@ test('G1 result UI prioritizes sandbox canvas and keeps diagnostics available on
   assert.ok(host.includes("iframe.setAttribute('sandbox', 'allow-scripts')"));
 });
 
+test('G4 keyboard escape path is explained for every source editor',async()=>{
+  const [html,host]=await Promise.all([
+    readFile(new URL('./wgl-lab.html',import.meta.url),'utf8'),
+    readFile(new URL('./wgl-lab-host.mjs',import.meta.url),'utf8')
+  ]);
+  assert.match(html,/id="editor-keyboard-help"/);
+  assert.match(html,/Esc の次に Tab/);
+  for(const id of ['js-source','vertex-source','fragment-source']){
+    assert.match(html,new RegExp('id="'+id+'"[^>]*aria-describedby="editor-keyboard-help"'));
+  }
+  assert.match(host,/event\.key === 'Escape'/);
+  assert.match(host,/leaveOnTab = true/);
+  assert.match(host,/if \(leaveOnTab\) \{/);
+  assert.match(host,/editor\.addEventListener\('blur'/);
+  assert.match(host,/editor\.setRangeText\('  '/);
+});
+
 test('initial shaders have compilable GLSL ES 3.00 interface and independent CPU colors',async()=>{
   const base=new URL('../../textbook/volumes/dream_thater/計算系/WGL/WGL1/',import.meta.url);
   // Repository workspace source path differs from published route.
