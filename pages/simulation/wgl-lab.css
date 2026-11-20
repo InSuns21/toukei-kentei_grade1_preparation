@@ -202,3 +202,14 @@ main{max-width:1120px}
 .lab-parameter-row small,.lab-parameter-status{grid-column:1/-1;overflow-wrap:anywhere}
 .lab-parameter-status{margin:0;color:#475569;font-size:.85rem}
 @media(max-width:540px){.lab-parameter-row{grid-template-columns:1fr auto}.lab-parameter-row input[type=range]{grid-column:1/-1;grid-row:2}}
+
+/* G3: describe the sandboxed scene beside its canvas, without another panel of cards. */
+.scene-info{padding:.35rem 0 .65rem;margin:.35rem 0;border-bottom:1px solid #cbd5e1}
+.scene-info[hidden]{display:none}
+.scene-info h3{font-size:.9rem;margin:.15rem 0 .4rem}
+.scene-info-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.25rem 1.1rem;margin:0}
+.scene-info-list>div{min-width:0;display:flex;align-items:baseline;gap:.45rem}
+.scene-info-list dt{flex:0 0 auto;color:#41566e;font-size:.8rem;font-weight:600}
+.scene-info-list dd{margin:0;overflow-wrap:anywhere;font-size:.86rem}
+.scene-info-note{font-size:.8rem;color:#475569;margin:.35rem 0 0}
+@media(max-width:650px){.scene-info-list{grid-template-columns:minmax(0,1fr)}}

@@ -301,3 +301,6 @@ import './wgl-fcg-ux-wave1.test.mjs';
 import './wgl-fcg-ux-wave2.test.mjs';
 import './wgl-fcg-ux-wave3.test.mjs';
 import './wgl-fcg-ux-wave4.test.mjs';
+
+// G3: sandbox canvas-adjacent legend, real grid and clock semantics.
+import './wgl-lab-scene-info.test.mjs';
