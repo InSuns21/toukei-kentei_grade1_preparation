@@ -63,7 +63,7 @@ chapters:
     title: "デカップリングと回収閾値"
   - id: BHI14
     path: textbook/volumes/dream_thater/物理系/BHI/BHI14
-    status: planned
+    status: completed
     title: "scrambling時間と情報放出時間"
   - id: BHI15
     path: textbook/volumes/dream_thater/物理系/BHI/BHI15

@@ -14,3 +14,4 @@
 11. [BHI11 相補性・no-cloning・観測者](textbook/volumes/dream_thater/物理系/BHI/BHI11/index.md)
 12. [BHI12 Hayden–Preskillの情報投入模型](textbook/volumes/dream_thater/物理系/BHI/BHI12/index.md)
 13. [BHI13 デカップリングと回収閾値](textbook/volumes/dream_thater/物理系/BHI/BHI13/index.md)
+14. [BHI14 scrambling時間と情報放出時間](textbook/volumes/dream_thater/物理系/BHI/BHI14/index.md)
