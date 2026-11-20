@@ -1,0 +1,59 @@
+chapter: SYZ1-07
+scope: dream-theater
+coverage: complete
+prerequisites: [SYZ1-06, SYM6]
+concepts:
+  - id: syz.slag-torus-fibration
+    name: 滑らかなSLagトーラス・ファイブレーション
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（滑らかなSLagトーラス・ファイブレーション）"]
+    requires: [syz.slag-normalized-conditions, symplectic.lagrangian-submanifold]
+  - id: syz.hamilton-flow-torus
+    name: Hamilton流によるトーラスの表示
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（Hamilton流によるトーラスの表示）"]
+    requires: [symplectic.lagrangian-submanifold]
+  - id: syz.period-cotangent-lattice
+    name: 周期余接格子
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期余接格子）"]
+    requires: [syz.hamilton-flow-torus]
+  - id: syz.period-one-form-closed
+    name: 周期1形式の閉性
+    kind: lemma
+    introduction: formal
+    introduction_aliases: ["補題（周期1形式の閉性）"]
+    requires: [syz.period-cotangent-lattice]
+  - id: syz.action-chart
+    name: 周期格子から定まる作用座標
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期格子から定まる作用座標）"]
+    requires: [syz.period-one-form-closed]
+  - id: syz.angle-chart
+    name: 周期1の角変数
+    kind: definition
+    introduction: formal
+    introduction_aliases: ["定義（周期1の角変数）"]
+    requires: [syz.action-chart]
+  - id: syz.action-coordinates
+    name: 周期からの作用座標の構成
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（周期からの作用座標の構成）"]
+    requires: [syz.action-chart, syz.period-one-form-closed]
+  - id: syz.local-action-angle
+    name: 滑らかなLagrangeトーラス束の局所作用・角座標
+    kind: theorem
+    introduction: formal
+    introduction_aliases: ["定理（滑らかなLagrangeトーラス束の局所作用・角座標）"]
+    requires: [syz.action-coordinates, syz.angle-chart]
+  - id: syz.slag-torus-moduli-map
+    name: SLagトーラス束から局所変形空間への写像
+    kind: proposition
+    introduction: formal
+    introduction_aliases: ["命題（SLagトーラス束から局所変形空間への写像）"]
+    requires: [syz.slag-torus-fibration, syz.mclean-unobstructed]

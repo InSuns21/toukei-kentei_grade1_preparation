@@ -32,7 +32,7 @@ chapters:
     title: "McLean理論II――無障害性と変形空間"
   - id: SYZ1-07
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-07
-    status: planned
+    status: completed
     title: "局所トーラス・ファイブレーションと作用・角変数"
   - id: SYZ1-08
     path: textbook/volumes/dream_thater/幾何系/SYZ/SYZ1-08

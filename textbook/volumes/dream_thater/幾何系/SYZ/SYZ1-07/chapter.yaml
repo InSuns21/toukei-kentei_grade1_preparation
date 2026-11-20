@@ -1,0 +1,50 @@
+id: "SYZ1-07"
+title: "局所トーラス・ファイブレーションと作用・角変数"
+volume: "foundations"
+status: supplementary
+prerequisites:
+  - SYZ1-06
+  - SYM6
+official_scope: []
+learning_objectives:
+  - McLean局所変形空間と追加仮定としての滑らかなSLagトーラス束を区別できる
+  - 正則値集合と局所積表示、ファイバーのLagrange性と実次元を確認できる
+  - 基底関数のHamilton場がファイバー接空間を張り可換な全時間流を作ることを証明できる
+  - 流れの安定化群が全格子となりファイバーをR^n/格子と同定できる
+  - 時間周期を余接格子へ移し周期1形式の閉性を時間1恒等流から証明できる
+  - 周期1形式を積分して作用座標を構成しGL(n,Z)による基底変更を計算できる
+  - 角変数と局所切断から2形式の余分な基底項を計算し角のシフトで標準形に直せる
+  - McLeanの1形式と作用微分の周期積分の符号を検算し局所moduliへの微分同相を説明できる
+  - SLag性とLagrange性の差、大域束の存在と局所標準化の差を反例や失敗条件で判定できる
+definitions:
+  - { id: SYZ1-07-DEF-01, name: "滑らかなSLagトーラス・ファイブレーション" }
+  - { id: SYZ1-07-DEF-02, name: "周期余接格子" }
+  - { id: SYZ1-07-DEF-03, name: "周期格子から定まる作用座標" }
+  - { id: SYZ1-07-DEF-04, name: "周期1の角変数" }
+theorems:
+  - { id: SYZ1-07-PROP-01, name: "Hamilton流によるトーラスの表示" }
+  - { id: SYZ1-07-LEM-01, name: "周期1形式の閉性" }
+  - { id: SYZ1-07-PROP-02, name: "周期からの作用座標の構成" }
+  - { id: SYZ1-07-THM-01, name: "滑らかなLagrangeトーラス束の局所作用・角座標" }
+  - { id: SYZ1-07-PROP-03, name: "SLagトーラス束から局所変形空間への写像" }
+canonical_examples:
+  - 平坦複素トーラスの水平SLagファイバーと位相0の全条件確認
+  - 変速円周の時間周期と周期余接格子
+  - 非Lagrange切断の閉2形式を角変数のずれで除去する具体計算
+  - 平坦SLagトーラスでのHamilton符号と作用座標
+  - 変速2トーラスの局所作用角標準形とSLag存在主張の停止線
+problem_patterns:
+  - SYZ1-07-FIBER-LAGRANGIAN
+  - SYZ1-07-HAMILTON-SIGN
+  - SYZ1-07-VARIABLE-PERIOD
+  - SYZ1-07-PERIOD-CLOSED
+  - SYZ1-07-ANGLE-GAUGE
+  - SYZ1-07-FLAT-SLAG-ACTION
+  - SYZ1-07-INTEGER-BASIS-CHANGE
+  - SYZ1-07-LAGRANGIAN-SECTION
+  - SYZ1-07-MCLEAN-PERIOD-SIGN
+  - SYZ1-07-FULL-LOCAL-NORMAL-FORM
+past_exam_alignment: []
+integrated_exam_problems: []
+exercise_counts: { level_a: 5, level_b: 4, level_c: 1, level_d: 0 }
+estimated_hours: { reading: 11, exercises: 12, review: 5 }
