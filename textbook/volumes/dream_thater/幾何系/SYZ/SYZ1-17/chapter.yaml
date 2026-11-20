@@ -4,6 +4,7 @@ volume: "foundations"
 status: supplementary
 prerequisites:
   - SYZ1-16
+  - OPT10
 official_scope: []
 learning_objectives:
   - 特異整数アフィン空間の正則部と整数接格子を定義し節点モノドロミーによる延長の障害を説明できる
@@ -14,7 +15,7 @@ learning_objectives:
   - t進の壁越え変換の非可換性と二次の散乱補正の可逆性・整合性を検算できる
   - Gross–Siebert再構成定理のpositive/simple等の追加条件と代数的構成の結論を幾何的SYZ予想と区別できる
 definitions:
-  - { id: SYZ1-17-DEF-01, name: "特異点を持つ整数アフィン空間" }
+  - { id: SYZ1-17-DEF-01, name: "特異整数アフィン多様体" }
   - { id: SYZ1-17-DEF-02, name: "整数多面体分割" }
   - { id: SYZ1-17-DEF-03, name: "整数区分線形関数と折れ目" }
   - { id: SYZ1-17-DEF-04, name: "凸区分線形関数の局所離散Legendre双対" }
@@ -23,7 +24,7 @@ definitions:
 theorems:
   - { id: SYZ1-17-PROP-01, name: "三扇形の離散双対三角形" }
   - { id: SYZ1-17-PROP-02, name: "整数アフィン項の追加と双対多面体" }
-  - { id: SYZ1-17-PROP-03, name: "xy=tの平坦性と局所的な交叉" }
+  - { id: SYZ1-17-PROP-03, name: "交叉退化模型の平坦性と局所的な交叉" }
   - { id: SYZ1-17-PROP-04, name: "二次の散乱壁による整合" }
   - { id: SYZ1-17-THM-01, name: "Gross–Siebert再構成定理の適用範囲・外部入力" }
 canonical_examples:
